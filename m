@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C11C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:41:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7B3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:44:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m7J69IfQLE+dp4n+0RftOJQET4EZpwnFixO+dZXJIwA=; b=ZZUeVQSYLpAO+TaLHAkzdc7bT+
-	UswiJNmz/V84LeP0qc5G6JBsIOum7XvOkTTcXz6FUGFvXyiOcCNqtui8a21WIKHCoMmF8EY/o9PqX
-	eotzUq466rs9r/hge18mLQn6g2lFuIVKV8Apue+kzQ9KM5RpxE9dan7mZVMjuqgTs8nVB+TyZPMKX
-	QfEZVzfZY4qq4n9zVFeQuCF0S3N467c4wwqvrR+HSXHLbNLROW3DHnOcmU5JuJfVuHy4Iz8d6wRCl
-	rikDF5ltQS2+ng7OBGI2nkTv4k+62C5Xri7kqUMocCenBZ+/EtRyidU6B6m5cp7P4Dy9Fx8uQd0eV
-	o1FJ462g==;
+	bh=bM8RFRsb479BpYh1CmXfpqjzhj5829UfgIsEB2w8Njs=; b=hUl2ltJa1/RFT5zdGgli8iSxEv
+	Dglt+eJqFg4BGyMJ7d7ckkzv8GgjM3y4y7hPwQjeFQcG4MuGmyFvBDJd6qvCZpVZHQc71kamkq+Fk
+	ZHESXyuBOIOytDg+nkPwvFk2MQo+BarvPTrr4NARqlGIc1vRGvf6yuTohH6CgqZmNG0BnXQzC/Qva
+	DqLJbsmt30Af3o4R7OPDHybFVVaDcUq4g9zSIADHnJoyTSKyV2RgkAjIYMXjgkDBSb8ZZUcy5eGsG
+	a203phXx5u+Kl0u0eyfJv4bDEITuNBeqaqCsJc16WQsjDVIX+Pzu9/ursU5bBPiERplYB7ddDQZvx
+	BZlgdohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaxA-00000006RRu-0WFb;
-	Tue, 04 Mar 2025 22:41:32 +0000
+	id 1tpb0E-00000006Re8-3u77;
+	Tue, 04 Mar 2025 22:44:42 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpahw-00000006P9U-0Nju
+	id 1tpahy-00000006P9U-2kGn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:25:49 +0000
+	Tue, 04 Mar 2025 22:25:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7C803497;
-	Tue,  4 Mar 2025 14:25:58 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0A7291E4D;
+	Tue,  4 Mar 2025 14:26:04 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 186293F5A1;
-	Tue,  4 Mar 2025 14:25:42 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAC513F5A1;
+	Tue,  4 Mar 2025 14:25:48 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -40,26 +40,22 @@ To: Rob Herring <robh@kernel.org>,
 	Chen-Yu Tsai <wens@csie.org>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>,
 	Samuel Holland <samuel@sholland.org>,
-	Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>
+	Thomas Gleixner <tglx@linutronix.de>
 Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-watchdog@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: [PATCH v2 03/15] dt-bindings: watchdog: sunxi: add Allwinner A523 compatible string
-Date: Tue,  4 Mar 2025 22:22:57 +0000
-Message-ID: <20250304222309.29385-4-andre.przywara@arm.com>
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v2 06/15] irqchip/sunxi-nmi: Support Allwinner A523 NMI controller
+Date: Tue,  4 Mar 2025 22:23:00 +0000
+Message-ID: <20250304222309.29385-7-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250304222309.29385-1-andre.przywara@arm.com>
 References: <20250304222309.29385-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142548_167791_96B3CCF1 
-X-CRM114-Status: UNSURE (   9.84  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_142550_781764_B15D91C7 
+X-CRM114-Status: GOOD (  17.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,40 +70,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner A523 SoC features a watchdog similar to the one used in
-previous SoCs, but moves some registers around (by just one word), making
-it incompatible to existing IPs.
+The NMI controller in the Allwinner A523 is almost compatible to the
+previous versions of this IP, but requires the extra bit 31 to be set in
+the enable register to actually report the NMI.
 
-Add the new name to the list of compatible string, and also to the list
-of IP requiring two clock inputs.
+Add a mask to allow such an enable bit to be specified, and add this to
+the per-SoC data structure. As this struct was just for different register
+offsets so far, it was consequently named "reg_offs", which is now no
+longer applicable, so rename this to the more generic "data" on the way.
+
+Also add the respective Allwinner A523 compatible string, and set bit 31
+in its enable mask, to add support for this SoC.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
 ---
- .../devicetree/bindings/watchdog/allwinner,sun4i-a10-wdt.yaml   | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/irqchip/irq-sunxi-nmi.c | 50 ++++++++++++++++++++++-----------
+ 1 file changed, 33 insertions(+), 17 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/allwinner,sun4i-a10-wdt.yaml b/Documentation/devicetree/bindings/watchdog/allwinner,sun4i-a10-wdt.yaml
-index 64c8f73938099..b35ac03d51727 100644
---- a/Documentation/devicetree/bindings/watchdog/allwinner,sun4i-a10-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/allwinner,sun4i-a10-wdt.yaml
-@@ -32,6 +32,7 @@ properties:
-       - items:
-           - const: allwinner,sun20i-d1-wdt-reset
-           - const: allwinner,sun20i-d1-wdt
-+      - const: allwinner,sun55i-a523-wdt
+diff --git a/drivers/irqchip/irq-sunxi-nmi.c b/drivers/irqchip/irq-sunxi-nmi.c
+index 0b43121520243..9380c3cafeeb5 100644
+--- a/drivers/irqchip/irq-sunxi-nmi.c
++++ b/drivers/irqchip/irq-sunxi-nmi.c
+@@ -48,30 +48,38 @@ enum {
+ 	SUNXI_SRC_TYPE_EDGE_RISING,
+ };
  
-   reg:
-     maxItems: 1
-@@ -60,6 +61,7 @@ if:
-           - allwinner,sun20i-d1-wdt-reset
-           - allwinner,sun50i-r329-wdt
-           - allwinner,sun50i-r329-wdt-reset
-+          - allwinner,sun55i-a523-wdt
+-struct sunxi_sc_nmi_reg_offs {
++struct sunxi_sc_nmi_data {
+ 	u32 ctrl;
+ 	u32 pend;
+ 	u32 enable;
++	u32 enable_val;
+ };
  
- then:
-   properties:
+-static const struct sunxi_sc_nmi_reg_offs sun6i_reg_offs __initconst = {
++static const struct sunxi_sc_nmi_data sun6i_data __initconst = {
+ 	.ctrl	= SUN6I_NMI_CTRL,
+ 	.pend	= SUN6I_NMI_PENDING,
+ 	.enable	= SUN6I_NMI_ENABLE,
+ };
+ 
+-static const struct sunxi_sc_nmi_reg_offs sun7i_reg_offs __initconst = {
++static const struct sunxi_sc_nmi_data sun7i_data __initconst = {
+ 	.ctrl	= SUN7I_NMI_CTRL,
+ 	.pend	= SUN7I_NMI_PENDING,
+ 	.enable	= SUN7I_NMI_ENABLE,
+ };
+ 
+-static const struct sunxi_sc_nmi_reg_offs sun9i_reg_offs __initconst = {
++static const struct sunxi_sc_nmi_data sun9i_data __initconst = {
+ 	.ctrl	= SUN9I_NMI_CTRL,
+ 	.pend	= SUN9I_NMI_PENDING,
+ 	.enable	= SUN9I_NMI_ENABLE,
+ };
+ 
++static const struct sunxi_sc_nmi_data sun55i_a523_data __initconst = {
++	.ctrl	= SUN9I_NMI_CTRL,
++	.pend	= SUN9I_NMI_PENDING,
++	.enable	= SUN9I_NMI_ENABLE,
++	.enable_val = BIT(31),
++};
++
+ static inline void sunxi_sc_nmi_write(struct irq_chip_generic *gc, u32 off,
+ 				      u32 val)
+ {
+@@ -143,7 +151,7 @@ static int sunxi_sc_nmi_set_type(struct irq_data *data, unsigned int flow_type)
+ }
+ 
+ static int __init sunxi_sc_nmi_irq_init(struct device_node *node,
+-					const struct sunxi_sc_nmi_reg_offs *reg_offs)
++					const struct sunxi_sc_nmi_data *data)
+ {
+ 	struct irq_domain *domain;
+ 	struct irq_chip_generic *gc;
+@@ -186,27 +194,28 @@ static int __init sunxi_sc_nmi_irq_init(struct device_node *node,
+ 	gc->chip_types[0].chip.irq_unmask	= irq_gc_mask_set_bit;
+ 	gc->chip_types[0].chip.irq_eoi		= irq_gc_ack_set_bit;
+ 	gc->chip_types[0].chip.irq_set_type	= sunxi_sc_nmi_set_type;
+-	gc->chip_types[0].chip.flags		= IRQCHIP_EOI_THREADED | IRQCHIP_EOI_IF_HANDLED |
++	gc->chip_types[0].chip.flags		= IRQCHIP_EOI_THREADED |
++						  IRQCHIP_EOI_IF_HANDLED |
+ 						  IRQCHIP_SKIP_SET_WAKE;
+-	gc->chip_types[0].regs.ack		= reg_offs->pend;
+-	gc->chip_types[0].regs.mask		= reg_offs->enable;
+-	gc->chip_types[0].regs.type		= reg_offs->ctrl;
++	gc->chip_types[0].regs.ack		= data->pend;
++	gc->chip_types[0].regs.mask		= data->enable;
++	gc->chip_types[0].regs.type		= data->ctrl;
+ 
+ 	gc->chip_types[1].type			= IRQ_TYPE_EDGE_BOTH;
+ 	gc->chip_types[1].chip.irq_ack		= irq_gc_ack_set_bit;
+ 	gc->chip_types[1].chip.irq_mask		= irq_gc_mask_clr_bit;
+ 	gc->chip_types[1].chip.irq_unmask	= irq_gc_mask_set_bit;
+ 	gc->chip_types[1].chip.irq_set_type	= sunxi_sc_nmi_set_type;
+-	gc->chip_types[1].regs.ack		= reg_offs->pend;
+-	gc->chip_types[1].regs.mask		= reg_offs->enable;
+-	gc->chip_types[1].regs.type		= reg_offs->ctrl;
++	gc->chip_types[1].regs.ack		= data->pend;
++	gc->chip_types[1].regs.mask		= data->enable;
++	gc->chip_types[1].regs.type		= data->ctrl;
+ 	gc->chip_types[1].handler		= handle_edge_irq;
+ 
+ 	/* Disable any active interrupts */
+-	sunxi_sc_nmi_write(gc, reg_offs->enable, 0);
++	sunxi_sc_nmi_write(gc, data->enable, data->enable_val);
+ 
+ 	/* Clear any pending NMI interrupts */
+-	sunxi_sc_nmi_write(gc, reg_offs->pend, SUNXI_NMI_IRQ_BIT);
++	sunxi_sc_nmi_write(gc, data->pend, SUNXI_NMI_IRQ_BIT);
+ 
+ 	irq_set_chained_handler_and_data(irq, sunxi_sc_nmi_handle_irq, domain);
+ 
+@@ -221,20 +230,27 @@ static int __init sunxi_sc_nmi_irq_init(struct device_node *node,
+ static int __init sun6i_sc_nmi_irq_init(struct device_node *node,
+ 					struct device_node *parent)
+ {
+-	return sunxi_sc_nmi_irq_init(node, &sun6i_reg_offs);
++	return sunxi_sc_nmi_irq_init(node, &sun6i_data);
+ }
+ IRQCHIP_DECLARE(sun6i_sc_nmi, "allwinner,sun6i-a31-sc-nmi", sun6i_sc_nmi_irq_init);
+ 
+ static int __init sun7i_sc_nmi_irq_init(struct device_node *node,
+ 					struct device_node *parent)
+ {
+-	return sunxi_sc_nmi_irq_init(node, &sun7i_reg_offs);
++	return sunxi_sc_nmi_irq_init(node, &sun7i_data);
+ }
+ IRQCHIP_DECLARE(sun7i_sc_nmi, "allwinner,sun7i-a20-sc-nmi", sun7i_sc_nmi_irq_init);
+ 
+ static int __init sun9i_nmi_irq_init(struct device_node *node,
+ 				     struct device_node *parent)
+ {
+-	return sunxi_sc_nmi_irq_init(node, &sun9i_reg_offs);
++	return sunxi_sc_nmi_irq_init(node, &sun9i_data);
+ }
+ IRQCHIP_DECLARE(sun9i_nmi, "allwinner,sun9i-a80-nmi", sun9i_nmi_irq_init);
++
++static int __init sun55i_nmi_irq_init(struct device_node *node,
++				      struct device_node *parent)
++{
++	return sunxi_sc_nmi_irq_init(node, &sun55i_a523_data);
++}
++IRQCHIP_DECLARE(sun55i_nmi, "allwinner,sun55i-a523-nmi", sun55i_nmi_irq_init);
 -- 
 2.46.3
 
