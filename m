@@ -4,157 +4,124 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35C8C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:02:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3F7C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:05:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=; b=MRIcyAw1PrJ8t7xxXfYSSWmFrT
-	X/6f3SASiwkNYpc6DDtw5RHPJLYcGmYm7RgBTwofY+t7pqEkeAJ4A+q+CqMPQwt09V8IbGyqMc/lI
-	W863P8dHkXzO6LAu1jKWIusdUy8j2SSGMa4pV+T0kLGujSV0No0ANqbMu0/2zaLXh+12A5lLZ6ahf
-	P/OEtG+gso8QWPzphB/wsCQLoLuoKcqRqxufi9AeGhHtKl0QD9NfwT/7ZcYAzKRbemsO+eapJ/qj5
-	Q8IeC0HMxM3GdQYzs3WNYSeZQVKElXyCJHStxgThG3oRhY4MTrpprSxFPUYZYV0S5mu6VozWTxbAz
-	zBi87Oqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=; b=sE8zzzB6DZO9mOvGoz6vZyhJsM
+	JHYxQhQMQBg1YfaJRhK5kmvhoxEK9VLBObqgQYt5NfFhCk9ERV+7Gdo84OWDWMuUi5daaRoKfln0w
+	6z/L6GyzHSC3LYPgcRT1EQf6YYAmLdXV4wYSoDARzg0HxWbzrnbjeJuhqHIdI6Fph+Mc/HAqn4TmT
+	vgjejOy9hFZiNzLrrJwmD1fqR3s2/BZE8T1LcUaGhKQLuNjLEpSCYKDEvI2Tk9Xf+FxHNhJrpaAgA
+	W6xLXVoM79RiZuRZSssluZlWsmleCjWoqV/CpSZeu8+AKWf3pXqTDs/NQWZVftvxvwR+ONIkPRjTO
+	9TosTnUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbHG-00000006UGN-0rtV;
-	Tue, 04 Mar 2025 23:02:18 +0000
-Received: from mail-dbaeur03on20630.outbound.protection.outlook.com ([2a01:111:f403:260d::630] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tpbKL-00000006UYo-0Ely;
+	Tue, 04 Mar 2025 23:05:29 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpajD-00000006PTG-1ozX
+	id 1tpbGx-00000006UC9-2x3C
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:27:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DvOfhtdCUoAJeDTkV1MJUkF5DZS67x8odIfsTwx63DplkQRiXmLV5ox9YfWDSHaH2TIaNciMQzwfD3hOlyheHURZ4mjFjD+VI64R29mUrbyf/S9oNcXb/YGS7/sn6ExZ0ge3sAd+3E6GWNnuIbp5m66aIwZ+JQzuUVOZbjQdyic7BmQDiiqu35L54fP8i4RKmY5hd1AA0x++SIB9s8kfTPTRjDBwMQX/S2qyHmNa4VmZdt3CK4XyjJU+BOmn/KQ1ytU0mQ2mwSDLwXBMyTo/mASR2QU0f9vKAA9P9RCIUTVVNPyNHS02MDF2fUuOqTzdxikU/DncrT83dIcIhFrAJw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=;
- b=Msh9Qy0wZiKzRARcWckZl95iZK1WP+GE0BBLh/UPAiGXQsDUOraXVHyQwoZ8DbL7kCg15PVqEEAwZEZqX0npehxNROLfgoArFCVNDJJWr8VDZVwlZcpLGDzHyulIEMV/k2OgcG8HA+THbFIaVMeXkl3cceQ9U0+cCUviso5+dUIcRiy1MD1vfBXwdOE3mlHUoMt/MhUiP6OQonVdzdPesyU3sVzJEdeb8YvrXkfqjO0BEAqkRYYBONmkGubJcnAU5EO4HCBRK6ERDVw55S84qhZB5O4a+SKtDq0QSrIBE6Ruf0DmVTE1sLDSCHmNybJm/LxpZapHPqR90RSInE4C9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=;
- b=dTrKYTQVBRI0TMc8eMI72+1CnRnfMROWGRuVud7IwA/nDc0Kwt0Ojh9Bvc25NN76d0Xam9AiRordrcC07VPuPujr0Ei8rQhA/DbJx92hbWdFYHYudrq44m9Rd40ZKTSHaK5tFdHoyko4ey0OVZVcQiCjs4ts0FbsnbQt3Otw1gf8rlDPwWhGIgLRnFSz19fqCUazGhpEy5G4MsPcXwRN+4I40ik7xqEpi4lRciL4l2kE9ao5LMVeyht3Ww3VmqgKu8il/BSmBhj4ZcWHn5nSM7x0cqmaIMEDhStBhCmEfSJwgxoc0S9FK5tH/UgeZegqZSolHYT76mpl7mgbz+M3aQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by PAXPR04MB8814.eurprd04.prod.outlook.com (2603:10a6:102:20d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Tue, 4 Mar
- 2025 22:12:04 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 22:12:03 +0000
-Date: Tue, 4 Mar 2025 17:11:54 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Richard Zhu <hongxing.zhu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
-	Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH v9 3/7] PCI: Add parent_bus_offset to resource_entry
-Message-ID: <Z8d6qpNaL4eJRQI1@lizhi-Precision-Tower-5810>
-References: <Z8YlySM6Xtr0beo1@lizhi-Precision-Tower-5810>
- <20250304175010.GA207565@bhelgaas>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304175010.GA207565@bhelgaas>
-X-ClientProxiedBy: SJ0PR03CA0279.namprd03.prod.outlook.com
- (2603:10b6:a03:39e::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Tue, 04 Mar 2025 23:02:01 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22113560c57so117193645ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 15:01:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1741129318; x=1741734118; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=;
+        b=J4+BZc5Iyi4AvVjfvmevdO44ckR8emszAOP/da1rd5UXd8CCUwmZBJXZcyXKIJii7l
+         TQhfzbrfpUox9i06Ef54JARxOxrH6vzkSZHogxVHS8M0BN1OIEKw3KfOoto8SFj5O/Up
+         ygWLjBxpmdzonl4CdNr0CIc4MuaSYJISPin7w=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741129318; x=1741734118;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=;
+        b=EiyuYdP58aKxfh2k72degCeYXeSuj8V4nmRta4dySLjKxRyDADpZB6oUTr94FF8I7G
+         mkOOZhEUC78MGAC43JZzUP0FQ3hznNCxhF74iQdq86NXNWtgB4fvfx9Ik59SnH2RWqg6
+         NsVV7QI5COSroVvzeEEzsqwHCWHqRCfh2rGYwppt30Lk6gyLDwQ15nL0oFzmLzZmX3d+
+         C1RLUVZTf56VAMieJRTh06qbY5qTBk/gLQuvks+IuuWblNhCfhR6OzbYuUe8EOzSqSwE
+         UacT3OAAR4hmAvWycZOEd4RssQJTyhQoQIlX9CMJ0mThN2tURGY827Wbmg2ENN9j6ctF
+         tSKw==
+X-Gm-Message-State: AOJu0Yx7sREOehZ6bS+z8lcc9jPr1tSZkOwffFZ/sts0gNEbzr7HhK1p
+	LwmgOHW/8lQRPFcUdnIUka548baXW23J3tpWubQtyW4h31PIVTKqjkDY6D0aF5Co8TgFlpN6agt
+	huw==
+X-Gm-Gg: ASbGncuHwo5lakrkO1/p5uQzBC+dGQphDDlu9zaC/kv6BSsvURF2ZxsvBVe1q/EAS9U
+	KTLgVqwIzkhGcmTQ7yYTwUSkVgzemPWb9pwyuYuVomNeyEMz5XXevaezPQDt5zGApQypD+t83yK
+	lCzxi6/7ttyXq7v6dmCS6f4DF+Zy53IXeC2y31dL5ysNmNKlqRbSgIlPvzDhKJBjHdQXrNJmjT7
+	OJRsE5aL2NF+ZS/KbxI5FyP0EIUCgeYR8opTzzq6Zjah4QJb/hyCqECKzdy/Y/mjNiMGipiLKN4
+	EKZ51VNOOBH3r+B9/2k/S56y7fm5sAw6Ouz9weQr+yHxSs7jNJIIhTyW2r2VHJBGYdKW9R/gxnL
+	DPgqOC/uk
+X-Google-Smtp-Source: AGHT+IFZi2Lb1U/NQYFlwnnXQ8TLKKp9ji4Z+/znszyXYFRD14/L5VVldpdyQoXzfxuxtr6DE0A7OQ==
+X-Received: by 2002:a17:90a:c106:b0:2fe:b907:562f with SMTP id 98e67ed59e1d1-2ff49730986mr1913401a91.14.1741129317859;
+        Tue, 04 Mar 2025 15:01:57 -0800 (PST)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501d4e9fsm101714055ad.28.2025.03.04.15.01.54
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 15:01:57 -0800 (PST)
+Message-ID: <934529bf-d859-4eed-ade1-2917afb4e793@broadcom.com>
+Date: Tue, 4 Mar 2025 15:01:53 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB8814:EE_
-X-MS-Office365-Filtering-Correlation-Id: eae3049d-f10a-4fd7-8c26-08dd5b699805
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ebP2IqkCaVEllsE6rcoCzOQz1y1R3o5z+tR3kfFFmJU6/wcvKbmE94O3O13W?=
- =?us-ascii?Q?r5tW2kJebOXI3cASr0aRLa6bHmsob88bPnoBf425x35WbIKDS+PBuWUHqXBM?=
- =?us-ascii?Q?aLN+I/D366kL+zNT7t+5Bw0P/Hiksp1ljI2+5hI4Oi8QXqo7WhKyOV3vGblp?=
- =?us-ascii?Q?cV+lxZ+yWJX1UePpGDppMi1RgW4l0AeYmvpSbtBhxl91QrdLz5sFQk57UBuM?=
- =?us-ascii?Q?YZTukTkeDvyXnji/bTJCg/fxRV8+neXLOBDaOSAoLjt/qwSFO7TusOgv1pI5?=
- =?us-ascii?Q?HaVmsjlWT1UO1wL5ARzcFdLwYiOCN7rGI4eEO8rTeXbgdKZVizDu1t8TyVYW?=
- =?us-ascii?Q?MDEbZoBkdi9xM/TYl76Cy9VVwV3Q3VuvEYqZbcVjBAAmMOhv3lS2dnnpDOGJ?=
- =?us-ascii?Q?FbS2B7gw9lnrobTxxnTAWqjV93hcrVjoSWLOnPxR2bEyqtP081y7Z5SD6sSO?=
- =?us-ascii?Q?FwCSCy+MDFKI4VAihLzcJR+CVzLiu9Nba69kbiyJekXtegLUxsy8aLuR4I8Q?=
- =?us-ascii?Q?oTe9XQE/pvYavcWN/+XbFboLxeplWowFnqVCTdHYd8GycleACnvOTI1/CwgC?=
- =?us-ascii?Q?JKeLXPeJ+xOAxG6xJZQWC2HdsYiTwqVSPaX5UQPyK/tkLWwtqIPgDI47IAhi?=
- =?us-ascii?Q?aigOk4nJbqp+sxYPsc0ey/9cJfDYQxXtTfWm86ghVdifG/C11CS31DW0VJjc?=
- =?us-ascii?Q?9UQnXsG0hN9qLiQw1iqAIhTbbsnzNTAdaDSEeA40aW402oNpFEUPaUfOO8JS?=
- =?us-ascii?Q?cabM0jlsSIeIskHcyFFKdI8FeK6eFLgWBVE06XlpKQuY29dVnnk+5Mt92eyV?=
- =?us-ascii?Q?c3x3nMCnhuqsJPw+yOfCXKUIy2aCCr7W57at6zfIhZwMj0GiIQWf6YX/60Cd?=
- =?us-ascii?Q?qIhWhMuAOHVBPeXBPny6dLi8PGtHUYYPxQED6ik/uIC2hTMpuc1jM9CHsbe4?=
- =?us-ascii?Q?es60cG/z5B/LbHDvZfYWp8HHHiSZDCCoo9udSSTxs46VqUwYIfpNEYEM7TzW?=
- =?us-ascii?Q?+4y8q+XGgatQTz9XREnzolqeU6NVoqSOPhsq5Nd74b/rBFrBRfByj1JizdNB?=
- =?us-ascii?Q?loUionJmkXrV1wgJskgORGoNLxxvqDOA9RC9hwm4arlRpIxmVaHXQNSipGJE?=
- =?us-ascii?Q?W7HpcyD885nM9b/hSZrEHi0QJlpTBdPEfqqH6q4FgSHqGhtSvm8VU+mTist7?=
- =?us-ascii?Q?Vl8eQkP7P8f2QreMPHX+Iedc0Ep0ovjZOpWq7s0C6O93po7in59q87xMxG6l?=
- =?us-ascii?Q?Yohxsu0F+Fe2WIIOiiNm5B2tMZUyh96r+4Auft0GqzHQbFGzmM6Up5EgzFSC?=
- =?us-ascii?Q?TzedUNA8ERneT4xphhqNszqLaH3t44XjYZiir4zbY+pafhJ+EsqBGMk38m+c?=
- =?us-ascii?Q?pf7ET2Tq+OXypU9GI7Ra36PZ3ZM1mynTt1rNPaycWGXTJ5n7z4PsciSXhlGj?=
- =?us-ascii?Q?zoYif5w+s67OBH8mtaY5diEup3qnRW10?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9sxz12l4mUfbnGZ2IY01Zat+HE8vlqYPwtV7qO+usa3vHOkeZ1LbqeXqpXSD?=
- =?us-ascii?Q?cYLH7PdPyMI7T3s2oQQyoCCAEgmuaBth8oN6doK/6WXoI5+E3uzPe5OONlYr?=
- =?us-ascii?Q?XH7eDuapZ3IKJ9DQZD+GEcyPLa0MRGDUfB4ybJvvHOu53Cmb9CXTKhkIKmEz?=
- =?us-ascii?Q?3BbESn+ScVEn9Iy4+xdxLeaYkcUjnnthMKeTzil2mmsYrjHKW5TWuQ06Mol8?=
- =?us-ascii?Q?dmVEvoPcuY69U1dsQB4fVjpQrl3SuTTv3w2uqBQsTFWaWwj41Kghru6ZgJmW?=
- =?us-ascii?Q?ByaTsdomlNTZ/iyDjgypSuetnUcX57x9djT+nu8JcFuJxyDzzHRiSC9YW80w?=
- =?us-ascii?Q?dIhg6nL7Fi48P77QXBO5mpLI5IZE54m4U9yUYZ7OTGYdWVLX01YmLhAvgRgX?=
- =?us-ascii?Q?+PKBEwIiW2U+rs8S3jcxi8ytlubWNcEGfQ10t7jrPX9jmofZ2GJ0sWghW4Q/?=
- =?us-ascii?Q?0aUs7PSXE60LKM8Hx/wwRUpgqH+pPGsQQXb5r3jzduRk0tRjRBsNx8L6KqgO?=
- =?us-ascii?Q?GYM1QC7UZt08vZ+DLH9Wjnw9QOw9ViOfCr7h58ToR2Pv2H3sKupgn5uXE3Oy?=
- =?us-ascii?Q?yHfdWL9TAi5Z4zsJH9ZU+K5QQ0zB6pSiU79QmaCW9P6x9sr66CjZ9NVbbIMo?=
- =?us-ascii?Q?4/Mh/puuKMqa6s3NyMmXs+Xk7O78JTUNmtEsq9sFFF5Es1Dm5lghJqeRLHjN?=
- =?us-ascii?Q?7CQom5IOXcaNk1QK7PGcIym7HGiiu3XFwgkCNZ3bwRWTAXLZn8ONqOvlUgh8?=
- =?us-ascii?Q?qvrWza6tOasoOy3yFt9H9Rv+BWnUyzU7cbX79tqhXflqYJHj/pseDN2BaXeH?=
- =?us-ascii?Q?mxVCT3BwTnJ454I+6J1tQvm7+X+Ko++Ao4rVcDLliIaNl9CV8LYcYC5076tZ?=
- =?us-ascii?Q?5oll8jfapAKpa5kCzJce9mzHtlQMhOB/rbztqmIGvduK5QB9VKJ4LC7qqTMu?=
- =?us-ascii?Q?EsSUXVeA0aAhIT3ePfp/cgkVzQrjsL3Y9xzbeVZhpVpxQRWLiz278+3XgSCo?=
- =?us-ascii?Q?/AtG70XrGxC7UFbVmE1SsSSh3h400q+g+EXlSVpkcJO53oH5S01iw+lHOBfY?=
- =?us-ascii?Q?zugMqmnIzZwhFv7FiG1NGH97bwOG0iFpc7ADUIn2xD/RYq4kUnMSmOagrt27?=
- =?us-ascii?Q?r4aoeqhPn9vqLW9k6z2iA6yzS+Ci2Ikb41J3wfrtLb+tdY6X3tyIApE6GZOS?=
- =?us-ascii?Q?wkvY2p69FRpkTYvZSQbaCeOxEUmLkPtCT6CSbYS+st9JRDVqUnLGeCmnmLBP?=
- =?us-ascii?Q?cNPfNpveCQZF/S0D7MegrdgG6Cj+VWjvO5pk7Xq1kpznn/78jZ1fQVauEezt?=
- =?us-ascii?Q?ba3TT83GO0PjchlpccEetsHDW5CweOWa0KgYImzo9a+8p1POjyx6+TkoYV4N?=
- =?us-ascii?Q?UyqTvt17L8Kx5FcwRfOTRQthnAmOnRjn5DpQ3P8boBjK2qQfXSM4OkzyjxlG?=
- =?us-ascii?Q?HAw7xXNhuV4dUZjpJqErN1T+YX4e3lQnOIObP9LdlAe8HfAQr0ewYaldnW9s?=
- =?us-ascii?Q?nnT4EGZclfcPCiH0rlZGQajPBGZ6d3cE1rXuqkw7ek2ShGgqxwDfiMZQUDHz?=
- =?us-ascii?Q?l+eJYe3NHrGwsut471s=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eae3049d-f10a-4fd7-8c26-08dd5b699805
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 22:12:03.8022
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rdFymOP4zZC3VGXHam9YCXNC2e45AXfgeL609qpZDFgmAhzh+psjSDgghZtF1PM7KfBYG3Ks0DlrlZueB9MLhg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8814
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: BCM5301X: Fix switch port labels of ASUS
+ RT-AC3200
+To: chester.a.unal@arinc9.com, Hauke Mehrtens <hauke@hauke-m.de>,
+ =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, Tom Brautaset <tbrautaset@gmail.com>
+References: <20250304-for-broadcom-fix-rt-ac3200-switch-ports-v1-1-7e249a19a13e@arinc9.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250304-for-broadcom-fix-rt-ac3200-switch-ports-v1-1-7e249a19a13e@arinc9.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142707_477122_F58327F5 
-X-CRM114-Status: GOOD (  41.07  )
+X-CRM114-CacheID: sfid-20250304_150159_743679_664EB87A 
+X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,142 +136,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 11:50:10AM -0600, Bjorn Helgaas wrote:
-> On Mon, Mar 03, 2025 at 04:57:29PM -0500, Frank Li wrote:
-> > On Wed, Feb 26, 2025 at 06:23:26PM -0600, Bjorn Helgaas wrote:
-> > > On Tue, Jan 28, 2025 at 05:07:36PM -0500, Frank Li wrote:
-> > > > Introduce `parent_bus_offset` in `resource_entry` and a new API,
-> > > > `pci_add_resource_parent_bus_offset()`, to provide necessary information
-> > > > for PCI controllers with address translation units.
-> > > >
-> > > > Typical PCI data flow involves:
-> > > >   CPU (CPU address) -> Bus Fabric (Intermediate address) ->
-> > > >   PCI Controller (PCI bus address) -> PCI Bus.
-> > > >
-> > > > While most bus fabrics preserve address consistency, some modify addresses
-> > > > to intermediate values. The `parent_bus_offset` enables PCI controllers to
-> > > > translate these intermediate addresses correctly to PCI bus addresses.
-> > > >
-> > > > Pave the road to remove hardcoded cpu_addr_fixup() and similar patterns in
-> > > > PCI controller drivers.
-> > > > ...
-> > >
-> > > > +++ b/drivers/pci/of.c
-> > > > @@ -402,7 +402,17 @@ static int devm_of_pci_get_host_bridge_resources(struct device *dev,
-> > > >  			res->flags &= ~IORESOURCE_MEM_64;
-> > > >  		}
-> > > >
-> > > > -		pci_add_resource_offset(resources, res,	res->start - range.pci_addr);
-> > > > +		/*
-> > > > +		 * IORESOURCE_IO res->start is io space start address.
-> > > > +		 * IORESOURCE_MEM res->start is cpu start address, which is the
-> > > > +		 * same as range.cpu_addr.
-> > > > +		 *
-> > > > +		 * Use (range.cpu_addr - range.parent_bus_addr) to align both
-> > > > +		 * IO and MEM's parent_bus_offset always offset to cpu address.
-> > > > +		 */
-> > > > +
-> > > > +		pci_add_resource_parent_bus_offset(resources, res, res->start - range.pci_addr,
-> > > > +						   range.cpu_addr - range.parent_bus_addr);
-> > >
-> > > I don't know exactly where it needs to go, but I think we can call
-> > > .cpu_addr_fixup() once at startup on the base of the region.  This
-> > > will tell us the offset that applies to the entire region, i.e.,
-> > > parent_bus_offset.
-> > >
-> > > Then we can remove all the .cpu_addr_fixup() calls in
-> > > cdns_pcie_host_init_address_translation(),
-> > > cdns_pcie_set_outbound_region(), and dw_pcie_prog_outbound_atu().
-> > >
-> > > Until we can get rid of all the .cpu_addr_fixup() implementations,
-> > > We'll still have that single call at startup (I guess once for cadence
-> > > and another for designware), but it should simplify the current
-> > > callers quite a bit.
-> >
-> > I don't think it can simple code. cdns_pcie_set_outbound_region() and
-> > dw_pcie_prog_outbound_atu() are called by EP functions, which have not use
-> > "resource" to manage outbound windows.
->
-> Let's ignore cadence for now.  I don't think we need to solve that
-> until later.
->
-> dw_pcie_prog_outbound_atu() is called by:
->
->   - dw_pcie_other_conf_map_bus(): atu.parent_bus_addr = pp->cfg0_base
->
->     I think dw_pcie_host_init() can set pp->cfg0_base with the correct
->     intermediate address, either via the the of_property_read_reg() or
->     .cpu_addr_fixup().
->
->     If dw_pcie_host_init() does this, then we don't need
->     .cpu_addr_fixup() in dw_pcie_prog_outbound_atu().
->
->   - dw_pcie_rd_other_conf(): atu.parent_bus_addr = pp->io_base
->
->     Similarly, dw_pcie_host_init() should be able to set pp->io_base
->     to the intermediate address, so we don't need .cpu_addr_fixup() in
->     dw_pcie_prog_outbound_atu().
+On 3/4/25 07:55, Chester A. Unal via B4 Relay wrote:
+> From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+> 
+> After using the device for a while, Tom reports that he initially described
+> the switch port labels incorrectly. Apparently, ASUS's own firmware also
+> describes them incorrectly. Correct them to what is seen on the chassis.
+> 
+> Reported-by: Tom Brautaset <tbrautaset@gmail.com>
+> Fixes: b116239094d8 ("ARM: dts: BCM5301X: Add DT for ASUS RT-AC3200")
+> Signed-off-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
-I found some driver's cpu_addr_fixup()'s implement depend on the
-initilize sequence.
-
-for example:
-	pcie-artpec6.c
-
-static u64 artpec6_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
-{
-        struct artpec6_pcie *artpec6_pcie = to_artpec6_pcie(pci);
-        struct dw_pcie_rp *pp = &pci->pp;
-        struct dw_pcie_ep *ep = &pci->ep;
-
-        switch (artpec6_pcie->mode) {
-        case DW_PCIE_RC_TYPE:
-                return cpu_addr - pp->cfg0_base;
-        case DW_PCIE_EP_TYPE:
-                return cpu_addr - ep->phys_base;
-        default:
-                dev_err(pci->dev, "UNKNOWN device type\n");
-        }
-        return cpu_addr;
-}
-
-This implement require *cfg0_base* and *phys_base*, pp/ep, need set before
-call artpec6_pcie_cpu_addr_fixup().
-
-static u64 visconti_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
-{
-        struct dw_pcie_rp *pp = &pci->pp;
-
-        return cpu_addr & ~pp->io_base;
-}
-
-this one require *io_base* and *pp* need be set before call
-visconti_pcie_cpu_addr_fixup()
-
-Because I have not such hardware platform, it is not trivial change and
-it is hard to involve bugs.
-
-If move .cpu_addr_fixup() too early, it will cause kernel dump.
-
-I suggest keep current overall sequent and try to clean up these driver's
-cpu_addr_fixup() firstly.
-
-Frank
-
->
->   - dw_pcie_iatu_setup(): atu.parent_bus_addr = entry->res->start
->
->     Here "entry" iterates through bridge->windows, and we should be
->     able to set entry->parent_bus_offset at init-time, using
->     .cpu_addr_fixup() if necessary, so we can apply that offset
->     unconditionally, regardless of use_parent_dt_ranges, and we won't
->     need .cpu_addr_fixup() in dw_pcie_prog_outbound_atu().
->
->   - dw_pcie_pme_turn_off:
->     atu.parent_bus_addr = pci->pp.msg_res->start - pci->pp.msg_parent_bus_offset
->
->     This should be the same as dw_pcie_iatu_setup() since
->     msg_parent_bus_offset comes from the window iteration in
->     dw_pcie_host_request_msg_tlp_res().  As long as the windows have
->     the correct parent_bus_offset at init-time, we should be all set.
+Applied to devicetree/fixes, thanks!
+-- 
+Florian
 
