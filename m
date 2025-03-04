@@ -4,57 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47326C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:56:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A14C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:59:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OXCCuOztltdv4/f0QIX9Rljjl4OVpIr7NAoGU3aj/k=; b=LffICiqdfpeMW0wCvxs+Zi/JZg
-	vD2panG7W+rjmHm6tzTMHw455XMktITcnTw3Ofm0WOjCbOt23bJQFsJ7aoAzDBWGJk7fRa/aCD38t
-	LNIBTJGKPBXeO1sB70/CDXv6P1aU6scD2kyNhZps/zC437kxl0wRj+F4JSjMvO1kfnT5LO4ORUt1M
-	WrnfUe09AXT+kUfBycTzs5A4b74Xs8+Zyn1oG/pFto0BRuEWxaLpuuLoa0QxQspPNms9j/vJGjUHL
-	2zCl1g5SDPa7KH4fpnT5gP6emBzHCW7jj9DjYlpdh7ywfOqvE3Atb/xsFIZcyotLhhwBICHzu3pHg
-	utW1scLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=67iaMe7dRzqdmdTZ5v9Y4GVdBIwy//hSn3Sql8CF+no=; b=uLYctABGhhq5hKiiU5c5omijkd
+	/59kVoJqW0O15WQJAtMfKnN3vT03S7eGCQ3bfQdQfp/D5W2//jLVTNJLEW03AOz2fTlFXNaGr6+T8
+	kZcqgSGIfPK0SlJUjjINlAXSPxdyuT6SCUZIoVdPwdbEh+drUOL5N42DyNOHdg0NSE3SIrisCqNYP
+	5ujhBArK+a+sg7RiqUI1TQiO5topGfnPkdgf7w5lWX+sHjz4Vjl8+GQfMfUondkp6T05ZfF+QQJGi
+	lcL9G8a33TfTrEo/mLGZBS/JBTZdIn+ONHGoNW4Lm4zgKVk38EkcCgqCZPWt/FFK7B6KwRHjuHzEE
+	Qik5dwSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbB4-00000006T3l-2CFw;
-	Tue, 04 Mar 2025 22:55:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpai9-00000006PGa-1bZA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:26:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A672E1D31;
-	Tue,  4 Mar 2025 14:26:14 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AC8383F5A1;
-	Tue,  4 Mar 2025 14:25:59 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 12/15] arm64: dts: allwinner: a523: add X96Q-Pro+ support
-Date: Tue,  4 Mar 2025 22:23:06 +0000
-Message-ID: <20250304222309.29385-13-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250304222309.29385-1-andre.przywara@arm.com>
-References: <20250304222309.29385-1-andre.przywara@arm.com>
+	id 1tpbEq-00000006Taf-1yGW;
+	Tue, 04 Mar 2025 22:59:48 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpa6g-00000006KZX-1X7H;
+	Tue, 04 Mar 2025 21:47:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=67iaMe7dRzqdmdTZ5v9Y4GVdBIwy//hSn3Sql8CF+no=; b=vg0Z//jE1WGL7of1Q5aJ3A/0FU
+	Hr9f3WsWyxNDZjpXya07ncB0gXc1w968ujfeeP1knpiF1RddY+gM54MqMLIGdrqjS1uu2nB4vOlk5
+	Qj/6htp7QEHspTf8d1BKwSm5MW7HV2NWaET6JyKGaBu11oUCSVn2c7Zlkxyp12OvAu2lglHii2HCE
+	9gQgzhz5CyQnFHNh5M1Lwt417y534ClWLzqqsQOGww9A6x6ubDcoVRm+MO0XeAd458ZjOg9/oCvBb
+	9syDFHjxYXLkR/Wt9LN+ijmSCi5yj2crpi+m7KdmAgabdBNvyOc2V+MGQcEoG3q+7/pu3gdPWY62W
+	wzRLa3qA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpa6d-000000049T3-1xHl;
+	Tue, 04 Mar 2025 21:47:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=67iaMe7dRzqdmdTZ5v9Y4GVdBIwy//hSn3Sql8CF+no=; b=LwuGfFrDvpwUU2B/5O/ULqbrDV
+	oEVLnfpfhFu69Ah2JLQbY0xkmgJLtF02XMOjjT+j6hUtQIjF1n2zEuxMw03K//2AjsxukLhZmm8/s
+	0G47epspd1m/oEAqwB74vAgVd3OX5Zx1Xalh6MS2jAD+6NsQn0v+nMPM6rEKT9YW/U+mFI6b+UIsW
+	CVqjoYsJn1RnQwgi6WfPvIX4FjYoavZEyP+Ep5Q82IpxQY6Aq2IJUCN6mypnZKaXbZ1riCOfg+3T0
+	G7qnvSdnpDszk21aAuNc4yp9TebRb9TxEl9Oo92/0IN5T4vCu8I9lOXD0j2YXWa5GuC+MhNaT0phF
+	pcsq8BkA==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpZXr-0006Cf-7O; Tue, 04 Mar 2025 22:11:19 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: andy.yan@rock-chips.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, quentin.schulz@cherry.de,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: Re: [PATCH v3 1/3] drm/rockchip: lvds: move pclk preparation in with clk_get
+Date: Tue, 04 Mar 2025 22:11:18 +0100
+Message-ID: <3048640.Lt9SDvczpP@diego>
+In-Reply-To: <041c5f0e2371817a27577bd0989b9dca@manjaro.org>
+References: <20250304124418.111061-1-heiko@sntech.de>
+ <20250304124418.111061-2-heiko@sntech.de>
+ <041c5f0e2371817a27577bd0989b9dca@manjaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142601_503480_3B86A9FB 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20250304_214715_529098_4A90EEE0 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,348 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The X96QPro+ is a TV box using the Allwinner H728 SoC. That SoC seems to
-be a package variant of the A523 family, at least it uses the same SoC
-ID and is compatible as far as we can assess.
+Am Dienstag, 4. M=C3=A4rz 2025, 21:30:22 MEZ schrieb Dragan Simic:
+> Hello Heiko,
+>=20
+> On 2025-03-04 13:44, Heiko Stuebner wrote:
+> > diff --git a/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> > b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> > index 385cf6881504..ecfae8d5da89 100644
+> > --- a/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> > +++ b/drivers/gpu/drm/rockchip/rockchip_lvds.c
+> > @@ -448,15 +448,13 @@ struct drm_encoder_helper_funcs
+> > px30_lvds_encoder_helper_funcs =3D {
+> >  static int rk3288_lvds_probe(struct platform_device *pdev,
+> >  			     struct rockchip_lvds *lvds)
+> >  {
+> > -	int ret;
+> > -
+> >  	lvds->regs =3D devm_platform_ioremap_resource(pdev, 0);
+> >  	if (IS_ERR(lvds->regs))
+> >  		return PTR_ERR(lvds->regs);
+> >=20
+> > -	lvds->pclk =3D devm_clk_get(lvds->dev, "pclk_lvds");
+> > +	lvds->pclk =3D devm_clk_get_prepared(lvds->dev, "pclk_lvds");
+> >  	if (IS_ERR(lvds->pclk)) {
+> > -		DRM_DEV_ERROR(lvds->dev, "could not get pclk_lvds\n");
+> > +		DRM_DEV_ERROR(lvds->dev, "could not get or prepare pclk_lvds\n");
+>=20
+> I'm wondering why this patch isn't replacing deprecated DRM
+> logging macros with their preferred successors in a couple of
+> places, just like what the patch 2/3 from this series does?
 
-It comes with the following specs:
-  - Allwinner H728 SoC: 8 Arm Cortex-A55 cores, Mali-G57 MC1 GPU
-  - 2 or 4GiB DDR3L DRAM
-  - 32, 64, or 128 GiB eMMC flash
-  - AXP717 + AXP323 PMICs
-  - Gigabit Ethernet (using MAXIO PHY)
-  - HDMI port
-  - 2 * USB 2.0 ports
-  - 1 * USB 3.0 port
-  - microSD card slot
-  - TOSLINK digital audio output
-  - 3.5mm A/V port
-  - infrared sensor
-  - 7-segment display
-  - 5V barrel plug power supply
-  - power button
+because this patch is about reorganizing the clock handling :-)
 
-The PCB provides holes for soldering a UART header or cable, this is
-connected to the debug UART0. There is another set of UART pins
-available. The board also features a FEL button (accessible through the
-3.5mm socket) and a reset button (only accessible when case is open).
+Changing the logging functions is a different topic and so has no place
+in _this_ patch.
 
-This .dts just describes the basic peripherals as far as we support them
-at the moment. The PMIC rail assignments are reverse engineered as far
-as possible, by dumping them from a running Android system, and correlating
-them to other boards using the same SoC.
+And of course drm-logging is a separate beast to tame altogether.
+drm_err vs. dev_err; lvds->dev vs. drm_dev (there was an argument over
+what belongs where recently) .
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 287 ++++++++++++++++++
- 2 files changed, 288 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+And I had neither the capacity nor time to delve into all that, so limited
+myself to stuff I understood :-)
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 0d678a7499e3c..983be49ea6ef8 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -52,4 +52,5 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-2024.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-h.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-plus.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-new file mode 100644
-index 0000000000000..c0bce3f4fa925
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -0,0 +1,287 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+// Copyright (C) 2024 Arm Ltd.
-+
-+/dts-v1/;
-+
-+#include "sun55i-a523.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "X96Q Pro+";
-+	compatible = "amediatech,x96q-pro-plus", "allwinner,sun55i-h728";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	ext_osc32k: ext-osc32k-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		clock-output-names = "ext_osc32k";
-+	};
-+
-+	reg_vcc5v: vcc5v {
-+		/* board wide 5V supply from the barrel plug */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc3v3: vcc3v3 {
-+		/* 3.3V dummy supply for the SD card */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
-+	bus-width = <4>;
-+	disable-wp;
-+	status = "okay";
-+};
-+
-+&mmc2 {
-+	vmmc-supply = <&reg_cldo3>;
-+	vqmmc-supply = <&reg_cldo1>;
-+	bus-width = <8>;
-+	non-removable;
-+	cap-mmc-hw-reset;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pc-supply = <&reg_cldo1>;
-+	vcc-pd-supply = <&reg_dcdc4>;
-+	vcc-pe-supply = <&reg_dcdc4>;
-+	vcc-pf-supply = <&reg_cldo3>;	/* actually switchable */
-+	vcc-pg-supply = <&reg_bldo1>;
-+	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pi-supply = <&reg_dcdc4>;
-+	vcc-pj-supply = <&reg_dcdc4>;
-+	vcc-pk-supply = <&reg_bldo3>;
-+};
-+
-+&r_i2c0 {
-+	status = "okay";
-+
-+	axp717: pmic@34 {
-+		compatible = "x-powers,axp717";
-+		reg = <0x34>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+		vin4-supply = <&reg_vcc5v>;
-+		aldoin-supply = <&reg_vcc5v>;
-+		bldoin-supply = <&reg_vcc5v>;
-+		cldoin-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			/* Supplies the "little" cluster (1.0(?) GHz cores) */
-+			reg_dcdc1: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpul";
-+			};
-+
-+			reg_dcdc2: dcdc2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <920000>;
-+				regulator-max-microvolt = <920000>;
-+				regulator-name = "vdd-gpu-sys";
-+			};
-+
-+			reg_dcdc3: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1360000>;
-+				regulator-max-microvolt = <1360000>;
-+				regulator-name = "vdd-dram";
-+			};
-+
-+			reg_dcdc4: dcdc4 {
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-name = "vdd-dcdc4";
-+			};
-+
-+			reg_aldo1: aldo1 {
-+				/* not connected */
-+			};
-+
-+			reg_aldo2: aldo2 {
-+				/* not connected */
-+			};
-+
-+			reg_aldo3: aldo3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-aldo3";
-+			};
-+
-+			reg_aldo4: aldo4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pll-dxco-avcc";
-+			};
-+
-+			reg_bldo1: bldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pg-wifi-lvds";
-+			};
-+
-+			reg_bldo2: bldo2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-dram-1v8";
-+			};
-+
-+			reg_bldo3: bldo3 {
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-name = "vcc-bldo3";
-+			};
-+
-+			reg_bldo4: bldo4 {
-+				/* not connected */
-+			};
-+
-+			reg_cldo1: cldo1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-codec-sd";
-+			};
-+
-+			reg_cldo2: cldo2 {
-+			};
-+
-+			reg_cldo3: cldo3 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-codec-eth-sd";
-+			};
-+
-+			reg_cldo4: cldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-eth-phy";
-+			};
-+
-+			reg_cpusldo: cpusldo {
-+				/* supplies the management core */
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-cpus";
-+			};
-+		};
-+	};
-+
-+	axp323: pmic@36 {
-+		compatible = "x-powers,axp323";
-+		reg = <0x36>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		status = "okay";
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			aldo1 {
-+				/* not connected */
-+			};
-+
-+			dldo1 {
-+				/* not connected */
-+			};
-+
-+			/* Supplies the "big" cluster (1.8 GHz cores) */
-+			reg_dcdc1_323: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpub";
-+			};
-+
-+			/* DCDC2 is polyphased with DCDC1 */
-+
-+			reg_dcdc3_323: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-name = "vdd-dcdc3";
-+			};
-+		};
-+	};
-+};
-+
-+&r_pio {
-+/*
-+ * Specifying the supply would create a circular dependency.
-+ *
-+ *	vcc-pl-supply = <&reg_aldo3>;
-+ */
-+	vcc-pm-supply = <&reg_aldo3>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	/* USB0 is a USB-A receptacle, always powered, so force host mode. */
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	status = "okay";
-+};
--- 
-2.46.3
+Heiko
+
+
 
 
