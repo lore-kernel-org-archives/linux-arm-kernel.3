@@ -4,83 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D3F7C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:05:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2CCCC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=; b=sE8zzzB6DZO9mOvGoz6vZyhJsM
-	JHYxQhQMQBg1YfaJRhK5kmvhoxEK9VLBObqgQYt5NfFhCk9ERV+7Gdo84OWDWMuUi5daaRoKfln0w
-	6z/L6GyzHSC3LYPgcRT1EQf6YYAmLdXV4wYSoDARzg0HxWbzrnbjeJuhqHIdI6Fph+Mc/HAqn4TmT
-	vgjejOy9hFZiNzLrrJwmD1fqR3s2/BZE8T1LcUaGhKQLuNjLEpSCYKDEvI2Tk9Xf+FxHNhJrpaAgA
-	W6xLXVoM79RiZuRZSssluZlWsmleCjWoqV/CpSZeu8+AKWf3pXqTDs/NQWZVftvxvwR+ONIkPRjTO
-	9TosTnUA==;
+	bh=jv+vfhFM5x+H+wKvE7Tyeh9gs1SZ0jcQcgCrZLmaD60=; b=JzpmPUTgNqgQ1PfJGZJFc9C+7j
+	eLkegNg2iWtdbmzRIcoCgoX+NrP5bE1ckMzoXZ9GvCFn6jAB3giV/7oFdgbu+bFF8paW6w3LIaC35
+	koOO6F2zWcAh63fSmUeIZ70D8WyRtLc7u4z/8CURrEpzkanmHG5ymSlZUypva51vc+4ATpqPKTpM7
+	xrRqi6EBubB4v410exJRTIu2dVNmLl+K60aoT1wcxrALgjG6uoDDrXabHYSRrO4ZHX/GQOHpRJpt+
+	BGIs8WiAMfhp9kvznIVj7eu3tpnRKUSjvAOV5xTy2u8bb5d95lBoeKpHjmf2l3ZSzRmo0w/D6L1Wu
+	0g3aWtCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbKL-00000006UYo-0Ely;
-	Tue, 04 Mar 2025 23:05:29 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tpbPQ-00000006VIh-2ZqQ;
+	Tue, 04 Mar 2025 23:10:44 +0000
+Received: from mail-il1-x129.google.com ([2607:f8b0:4864:20::129])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbGx-00000006UC9-2x3C
+	id 1tpbNq-00000006V1p-35OE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 23:02:01 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-22113560c57so117193645ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 15:01:58 -0800 (PST)
+	Tue, 04 Mar 2025 23:09:08 +0000
+Received: by mail-il1-x129.google.com with SMTP id e9e14a558f8ab-3d3db37f4e6so58124755ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 15:09:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1741129318; x=1741734118; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1741129746; x=1741734546; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=;
-        b=J4+BZc5Iyi4AvVjfvmevdO44ckR8emszAOP/da1rd5UXd8CCUwmZBJXZcyXKIJii7l
-         TQhfzbrfpUox9i06Ef54JARxOxrH6vzkSZHogxVHS8M0BN1OIEKw3KfOoto8SFj5O/Up
-         ygWLjBxpmdzonl4CdNr0CIc4MuaSYJISPin7w=
+        bh=jv+vfhFM5x+H+wKvE7Tyeh9gs1SZ0jcQcgCrZLmaD60=;
+        b=OlqDvwQ/TuCXgekCzG95eo/+5iJDGY4fv6K6lQEPymLDqU23427ExIKaLS++OjWOmu
+         GEONJyVrk2gE9cRKXkw/Ij6KTKOGo8gjApIKqK7S0rLysPdCy8xlrFbdS3WovQuLQ5GF
+         BiM9nGP4Q36gf32qD4mnzQsXlG1oa/cxMSEuQ=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741129318; x=1741734118;
+        d=1e100.net; s=20230601; t=1741129746; x=1741734546;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:cc:to:subject:user-agent:mime-version
          :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Bpovz4p2dTADlgTVz2T00MypTvf08AyRC4B4b+S6SjU=;
-        b=EiyuYdP58aKxfh2k72degCeYXeSuj8V4nmRta4dySLjKxRyDADpZB6oUTr94FF8I7G
-         mkOOZhEUC78MGAC43JZzUP0FQ3hznNCxhF74iQdq86NXNWtgB4fvfx9Ik59SnH2RWqg6
-         NsVV7QI5COSroVvzeEEzsqwHCWHqRCfh2rGYwppt30Lk6gyLDwQ15nL0oFzmLzZmX3d+
-         C1RLUVZTf56VAMieJRTh06qbY5qTBk/gLQuvks+IuuWblNhCfhR6OzbYuUe8EOzSqSwE
-         UacT3OAAR4hmAvWycZOEd4RssQJTyhQoQIlX9CMJ0mThN2tURGY827Wbmg2ENN9j6ctF
-         tSKw==
-X-Gm-Message-State: AOJu0Yx7sREOehZ6bS+z8lcc9jPr1tSZkOwffFZ/sts0gNEbzr7HhK1p
-	LwmgOHW/8lQRPFcUdnIUka548baXW23J3tpWubQtyW4h31PIVTKqjkDY6D0aF5Co8TgFlpN6agt
-	huw==
-X-Gm-Gg: ASbGncuHwo5lakrkO1/p5uQzBC+dGQphDDlu9zaC/kv6BSsvURF2ZxsvBVe1q/EAS9U
-	KTLgVqwIzkhGcmTQ7yYTwUSkVgzemPWb9pwyuYuVomNeyEMz5XXevaezPQDt5zGApQypD+t83yK
-	lCzxi6/7ttyXq7v6dmCS6f4DF+Zy53IXeC2y31dL5ysNmNKlqRbSgIlPvzDhKJBjHdQXrNJmjT7
-	OJRsE5aL2NF+ZS/KbxI5FyP0EIUCgeYR8opTzzq6Zjah4QJb/hyCqECKzdy/Y/mjNiMGipiLKN4
-	EKZ51VNOOBH3r+B9/2k/S56y7fm5sAw6Ouz9weQr+yHxSs7jNJIIhTyW2r2VHJBGYdKW9R/gxnL
-	DPgqOC/uk
-X-Google-Smtp-Source: AGHT+IFZi2Lb1U/NQYFlwnnXQ8TLKKp9ji4Z+/znszyXYFRD14/L5VVldpdyQoXzfxuxtr6DE0A7OQ==
-X-Received: by 2002:a17:90a:c106:b0:2fe:b907:562f with SMTP id 98e67ed59e1d1-2ff49730986mr1913401a91.14.1741129317859;
-        Tue, 04 Mar 2025 15:01:57 -0800 (PST)
+        bh=jv+vfhFM5x+H+wKvE7Tyeh9gs1SZ0jcQcgCrZLmaD60=;
+        b=EMVa7VaokKtSPSBxSAGFmObGIT7ngsyR08F0nCMnO+7TzkMcJ71rRGi9QfslZ8IDkD
+         JNpQ3wRtSNutMQ2jtNB09c5ZmBe2hvhNqusAfFsgR/OWiSzDvzCQbXvTxOmczPFcalRF
+         VKgVXBfcWl/xx4WTkctdlkY5bLBK17etJA4NS1pxR61GL5gtjnq+JUYXkAnEc3tzKkxc
+         nd/Z6WBh2cu0WNXwUzQ2pPdvJMTnfiJwXTdLG1WkkMZCLyxapSgJPDSSc6I7b43nd6eI
+         CnyaIz+aE8z76mFmCYGFpXI+JR54y0w+siQWUDn40Wc/su9UDoRhCYkawZVyQyMLurVG
+         DlbQ==
+X-Gm-Message-State: AOJu0YyEc1Vu9VwSAFyBw1Fp/7uNfhOuKp35v8iU8NmH/UU7Ij8vqUa5
+	1eqX6KOZcbVkCaQkKhnJAtBBazhih79irEAMnAN6/I7awEASBOYCNoXU/Ex8NQilphS7iv3A8wJ
+	pyw==
+X-Gm-Gg: ASbGnctSydehB/1vdgRjSLftFqyAntotO8R+jPfpg05bCKrnEbJJ+pnsJcOggLOtzrH
+	G0i2uGfuyq56jlwn/ODHSqJ4ERIF/28Am4yP9Ec93owhVm6V5h3puOuMlMgLpRiRvNHeKQRbBYv
+	LXHrm7NQt+aL7lQMqaik29BordjhVcOgNHHjdBFw/UzgrSWslAUGjJboIAm+NUDrT6Wft/0ziML
+	ziaRtWnImA6hz7xtGo+JX8c7Me5EGMHE0IDz5waKbMl2hlMKQjmhwaCtvf6Ri3TWMEpbkWiPFxC
+	zQ6e6kWTYwN3yfmYgZO4p6tC5M2gp8mx2BTkv9itkYFVs1NVX0EB+5ys/nZUuV0AFuf1R6/yalb
+	Ho9nMbsoK
+X-Google-Smtp-Source: AGHT+IHNn+vjIDK9mrUob0jsHtMuQg5cWXZnp74724DjWY9A6ekiwkcRojQCHzA59kgShLLOIYsYAA==
+X-Received: by 2002:a17:903:41cb:b0:216:3466:7414 with SMTP id d9443c01a7336-223f1d397ecmr18376645ad.44.1741129306995;
+        Tue, 04 Mar 2025 15:01:46 -0800 (PST)
 Received: from [10.67.48.245] ([192.19.223.252])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223501d4e9fsm101714055ad.28.2025.03.04.15.01.54
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-223504c5cf4sm99912355ad.130.2025.03.04.15.01.43
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 15:01:57 -0800 (PST)
-Message-ID: <934529bf-d859-4eed-ade1-2917afb4e793@broadcom.com>
-Date: Tue, 4 Mar 2025 15:01:53 -0800
+        Tue, 04 Mar 2025 15:01:46 -0800 (PST)
+Message-ID: <cb5e3a1e-39a5-4502-b99b-b7183dfaea02@broadcom.com>
+Date: Tue, 4 Mar 2025 15:01:42 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] ARM: dts: BCM5301X: Fix switch port labels of ASUS
- RT-AC3200
+ RT-AC5300
 To: chester.a.unal@arinc9.com, Hauke Mehrtens <hauke@hauke-m.de>,
  =?UTF-8?B?UmFmYcWCIE1pxYJlY2tp?= <zajec5@gmail.com>,
  Broadcom internal kernel review list
  <bcm-kernel-feedback-list@broadcom.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Tom Brautaset <tbrautaset@gmail.com>,
+ =?UTF-8?B?QXLEsW7DpyDDnE5BTA==?= <arinc.unal@arinc9.com>,
+ Linus Walleij <linus.walleij@linaro.org>
 Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, Tom Brautaset <tbrautaset@gmail.com>
-References: <20250304-for-broadcom-fix-rt-ac3200-switch-ports-v1-1-7e249a19a13e@arinc9.com>
+ linux-kernel@vger.kernel.org
+References: <20250303-for-broadcom-fix-rt-ac5300-switch-ports-v1-1-e058856ef4d3@arinc9.com>
 Content-Language: en-US
 From: Florian Fainelli <florian.fainelli@broadcom.com>
 Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
@@ -115,12 +118,12 @@ Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
  MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
  7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
  95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20250304-for-broadcom-fix-rt-ac3200-switch-ports-v1-1-7e249a19a13e@arinc9.com>
+In-Reply-To: <20250303-for-broadcom-fix-rt-ac5300-switch-ports-v1-1-e058856ef4d3@arinc9.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_150159_743679_664EB87A 
-X-CRM114-Status: UNSURE (   9.38  )
+X-CRM114-CacheID: sfid-20250304_150906_772424_717D0769 
+X-CRM114-Status: UNSURE (   8.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -136,15 +139,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/4/25 07:55, Chester A. Unal via B4 Relay wrote:
+On 3/3/25 05:06, Chester A. Unal via B4 Relay wrote:
 > From: "Chester A. Unal" <chester.a.unal@arinc9.com>
 > 
 > After using the device for a while, Tom reports that he initially described
-> the switch port labels incorrectly. Apparently, ASUS's own firmware also
-> describes them incorrectly. Correct them to what is seen on the chassis.
+> the switch port labels incorrectly. Correct them.
 > 
 > Reported-by: Tom Brautaset <tbrautaset@gmail.com>
-> Fixes: b116239094d8 ("ARM: dts: BCM5301X: Add DT for ASUS RT-AC3200")
+> Fixes: 961dedc6b4e4 ("ARM: dts: BCM5301X: Add DT for ASUS RT-AC5300")
 > Signed-off-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
 Applied to devicetree/fixes, thanks!
