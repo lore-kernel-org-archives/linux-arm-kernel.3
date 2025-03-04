@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 654A2C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06BD0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XNMadwfqV0t9BRHfRc7PHU2c9GAUkI/QRTnQ/EJH17g=; b=14H83yxo+gqd9mpX+1mK7Fi/ao
-	Pbe2CGwoSUO59QVBmKgw3n3ArXHUM5SS+FjSoEzSqQo1N45Wwjoj/HCt99cQZpkA41aAXgwd6orSU
-	ZKNd3Xa9CPbh35JRYZHiTVGIW9Q3PvSbN0pogKSwYjMin5A+mXDcA19dWxpMRL7XTsd/Gn9ygiGOM
-	9D3C2DJeBSMBSg2HKjL6p6thFRl6ikAsWBTe4zrgZIJbpzjGe35kOdkM4J6oz134gFXQOnrWMZJ3y
-	NSusRqNGSUJ5hNXjdnR3whJJqr4p5i7PFKqzmT4CkJccgpYJAh3NaE/hG8DnxyQ9luTTOFxqryHNO
-	z+XPrB4g==;
+	bh=/GQfLg2jYbY+SVVAfAAW00vPD5coRv3gYpiPRCuswv8=; b=qMLtVIseNDBSMJCH0ZejmnJxND
+	+os9R+NOxMBjkPH+hxPI2yD7EZsUKSg0uSMDGil2l2aLVRdcUkzgdgpygLqK6NuLXSBuENkY8wYuY
+	wYveC2qKwaJ9uKz3EW/NBk3K6UTxddVjx3VFk7IXqUHLgKUHggq1DTWSdtD445Fn+Stdtk1wa/0Mn
+	VqwbNIRo3UxcB11jGpKPvwBeafAB1VvZj4m5xvbY4IG3Y/5uiy9lFy1UXxkKIBpDgzeEJUJM4uuKW
+	v5WhCEzladOa5f+nXWS0a9i8UTlm1jUcuxjxi8StCtKZWTTX9Wp0Q0ysrXTnPBrKiUAW5RGJTyBdZ
+	f7o+cjkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR5O-00000004XcG-2iXX;
-	Tue, 04 Mar 2025 12:09:22 +0000
+	id 1tpR5R-00000004XiR-2gJQ;
+	Tue, 04 Mar 2025 12:09:25 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpQCv-00000004Lze-0Nzl
+	id 1tpQD0-00000004M1x-1C7h
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 11:13:06 +0000
+	Tue, 04 Mar 2025 11:13:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 88D961007;
-	Tue,  4 Mar 2025 03:13:18 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 98B57FEC;
+	Tue,  4 Mar 2025 03:13:23 -0800 (PST)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.2.76.71])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8E55B3F5A1;
-	Tue,  4 Mar 2025 03:13:02 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9CA823F5A1;
+	Tue,  4 Mar 2025 03:13:07 -0800 (PST)
 From: Leo Yan <leo.yan@arm.com>
 To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	Namhyung Kim <namhyung@kernel.org>,
@@ -50,17 +50,17 @@ To: Arnaldo Carvalho de Melo <acme@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v4 06/12] perf arm-spe: Fix load-store operation checking
-Date: Tue,  4 Mar 2025 11:12:34 +0000
-Message-Id: <20250304111240.3378214-7-leo.yan@arm.com>
+Subject: [PATCH v4 08/12] perf arm-spe: Decode transactional event
+Date: Tue,  4 Mar 2025 11:12:36 +0000
+Message-Id: <20250304111240.3378214-9-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250304111240.3378214-1-leo.yan@arm.com>
 References: <20250304111240.3378214-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_031305_172852_05EF45EC 
-X-CRM114-Status: GOOD (  14.46  )
+X-CRM114-CacheID: sfid-20250304_031310_363219_34ABEC91 
+X-CRM114-Status: GOOD (  10.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +75,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ARM_SPE_OP_LD and ARM_SPE_OP_ST operations are secondary operation
-type, they are overlapping with other second level's operation types
-belonging to SVE and branch operations.  As a result, a non load-store
-operation can be parsed for data source and memory sample.
+The bit[16] in an event payload indicates an operation is in
+transactional state.  Decode the bit.
 
-To fix the issue, this commit introduces a is_ldst_op() macro for
-checking LDST operation, and apply the checking when synthesize data
-source and memory samples.
-
-Fixes: a89dbc9b988f ("perf arm-spe: Set sample's data source field")
-Signed-off-by: Leo Yan <leo.yan@arm.com>
+Reviewed-by: Ian Rogers <irogers@google.com>
 Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- tools/perf/util/arm-spe.c | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 2 ++
+ tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 1 +
+ 2 files changed, 3 insertions(+)
 
-diff --git a/tools/perf/util/arm-spe.c b/tools/perf/util/arm-spe.c
-index 251d214adf7f..0e8e05c87fd7 100644
---- a/tools/perf/util/arm-spe.c
-+++ b/tools/perf/util/arm-spe.c
-@@ -37,6 +37,8 @@
- #include "../../arch/arm64/include/asm/cputype.h"
- #define MAX_TIMESTAMP (~0ULL)
- 
-+#define is_ldst_op(op)		(!!((op) & ARM_SPE_OP_LDST))
-+
- struct arm_spe {
- 	struct auxtrace			auxtrace;
- 	struct auxtrace_queues		queues;
-@@ -681,6 +683,10 @@ static u64 arm_spe__synth_data_source(struct arm_spe_queue *speq,
- {
- 	union perf_mem_data_src	data_src = { .mem_op = PERF_MEM_OP_NA };
- 
-+	/* Only synthesize data source for LDST operations */
-+	if (!is_ldst_op(record->op))
-+		return 0;
-+
- 	if (record->op & ARM_SPE_OP_LD)
- 		data_src.mem_op = PERF_MEM_OP_LOAD;
- 	else if (record->op & ARM_SPE_OP_ST)
-@@ -779,7 +785,7 @@ static int arm_spe_sample(struct arm_spe_queue *speq)
- 	 * When data_src is zero it means the record is not a memory operation,
- 	 * skip to synthesize memory sample for this case.
- 	 */
--	if (spe->sample_memory && data_src) {
-+	if (spe->sample_memory && is_ldst_op(record->op)) {
- 		err = arm_spe__synth_mem_sample(speq, spe->memory_id, data_src);
- 		if (err)
- 			return err;
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+index 625834da7e20..13cadb2f1cea 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+@@ -308,6 +308,8 @@ static int arm_spe_pkt_desc_event(const struct arm_spe_pkt *packet,
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " REMOTE-ACCESS");
+ 	if (payload & BIT(EV_ALIGNMENT))
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " ALIGNMENT");
++	if (payload & BIT(EV_TRANSACTIONAL))
++		arm_spe_pkt_out_string(&err, &buf, &buf_len, " TXN");
+ 	if (payload & BIT(EV_PARTIAL_PREDICATE))
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-PARTIAL-PRED");
+ 	if (payload & BIT(EV_EMPTY_PREDICATE))
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+index 32d760ede701..2cdf9f6da268 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+@@ -105,6 +105,7 @@ enum arm_spe_events {
+ 	EV_LLC_MISS		= 9,
+ 	EV_REMOTE_ACCESS	= 10,
+ 	EV_ALIGNMENT		= 11,
++	EV_TRANSACTIONAL	= 16,
+ 	EV_PARTIAL_PREDICATE	= 17,
+ 	EV_EMPTY_PREDICATE	= 18,
+ };
 -- 
 2.34.1
 
