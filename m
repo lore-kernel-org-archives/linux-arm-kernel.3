@@ -4,88 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 169C5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:03:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 764F3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:06:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r77eaYleWbB0pan4f/0BdDS/RB/xZCsELoIJBKmaJ60=; b=DWXFby8+FbvultWq6yyWJa/+jO
-	nzJuEbdxJ5W/LERyTXrbARAb7iB16bt4lITJNX4gn1kMM+eLnO2Ajc1z6wFwLe1KUYGEvBRSSDIRP
-	ZPRKA8+jLQfqObM6sBu+mXK4i5KQ98GUYdLkq4nHrg7oTUsivUc7skn2hy6jpIzVnL3SJ6UUbrlVQ
-	KyieO2dZpVXQ64J93S27t2yvIVTOJUDRHtVowwHcElVQIHMlgP+Ilr3sLMCd0ofwcPpFd8+s1EY5f
-	RItCILeNg9h7mOVYOrJVyWZ604GI6H+0YHYSR0atcYSdQyKqQQArG/3IftT1hAJqttgNOCFreOAx4
-	ooVpvMsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2MLjKK0cvD8Zt+dIvBMKOKHc8gKJeqqPNHGFjCQlnXE=; b=hqCtmEb2Q9gXC/el6kDowN0OxF
+	3Bh/hgv17liPKnbUsi4Q5Is56ilgH6pfr93D9lfrx+NIzD8fgZcTHS5SilOe5sIoSvZBAbM9njLLt
+	kHOfKVrKCJgCYDG8fsBDI2HzYSawYqsrfB+1eO4ocQJ3s0a7SJDKcD6aUdaJw/yS8ugxJ2j+KEDBk
+	YzHv1S2QEY12A0FuYYaTDQhzpZzZYVUG2a05r88plvBW7Go4T/N9fhKXdVRXF6FTRzhciHQ0S+KOt
+	xtfrSCwItkahnG1TCfYGFfD1TmWIC0y13aVcNZwPKSSnLoriLW0WxKlKG4QTGqOGiIeGv/TQMZR0g
+	TAE1l6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNFa-00000003Yji-1GbH;
-	Tue, 04 Mar 2025 08:03:38 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpNIh-00000003ZGX-0ZEg;
+	Tue, 04 Mar 2025 08:06:51 +0000
+Received: from mail-yb1-xb43.google.com ([2607:f8b0:4864:20::b43])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpMyc-00000003UbH-2a9R
+	id 1tpN1n-00000003Vpy-1ppq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 07:46:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AE51A5C4BD2;
-	Tue,  4 Mar 2025 07:43:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81C73C4CEE5;
-	Tue,  4 Mar 2025 07:45:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741074365;
-	bh=k60EGURVkllem4SM4mRxARAWP51AKmbWhxpiMhc8vBE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HZtdsoTVcBHf2gnvbUZm+1hdvQM3GxJewgRRVhMSRnxraaaAx1zEnRJU6jTgX0G17
-	 4sEO7cR3mdbMTvlXN4q86iZFQY7hab6ZSgrlYiW/2lmx6xuoufkvQlRiO71sMhiw8t
-	 QHK2l3QgIsUCYtnDIb2PBq4dcMRNEe5TqAhDzN6cDZSahHcnqOc8c9+ngr7eN1UaTO
-	 zTaD9oi+975WhvPeU0aWgSDNSUSYshOgP6lGYZ4l2X4yO5fsevzjNVtNjbsXnbqhjN
-	 ab2RXAzo2BDWNTPnL98dVbw40RvsdJ2gyeGeGJQJtxD1ABNgIt2xgp5xizhzzfCs1G
-	 nlE7CwXevrMOQ==
-Date: Tue, 4 Mar 2025 13:15:54 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: Daniel Stone <daniel@fooishbar.org>,
-	Boris Brezillon <boris.brezillon@collabora.com>,
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>,
-	Linux Media Mailing List <linux-media@vger.kernel.org>,
-	dri-devel <dri-devel@lists.freedesktop.org>,
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com,
-	Florent Tomasin <florent.tomasin@arm.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-Message-ID: <Z8avsigZJ4vqmiA4@sumit-X1>
-References: <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com>
- <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
- <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com>
- <CAPj87rN7J6u9NsviAdw8=OenEYc8t719Lds6u6-BhFKrtkLZ-A@mail.gmail.com>
- <CAHUa44FkG1NAWpoW8UVBywv44XW_mjAJa32PcC9mcmiOLdiRqw@mail.gmail.com>
+	Tue, 04 Mar 2025 07:49:24 +0000
+Received: by mail-yb1-xb43.google.com with SMTP id 3f1490d57ef6-e60dfd01557so1670256276.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 23:49:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741074562; x=1741679362; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2MLjKK0cvD8Zt+dIvBMKOKHc8gKJeqqPNHGFjCQlnXE=;
+        b=LMGQr55eKr9ijpQrLTpdn+DCOJSFrpr61DOWSYqb1b1gg+e0deJnqJzCOkfjiQwR29
+         NRr65yEofSX7oAWCnQQJ9xWnalI92/cf3DOkIXhfEd4DkmqXV6hOuT1a4uR6akj1i19L
+         XLzekF4FjLeSsjncXcRi8SrojmSQ36hssOFeQg3w6eblUc4fxq5oSA4FXHHRYaiEeshh
+         8M64ioD2t1TE5Fj1/ec3RDml947dbnmzEJhefUB+2wi72YicLp0x5+YJfX9WxGJa7b3b
+         nDFOH1kclKGiiNwEYJ2d0v+EjpFIxRihrQQjBqBbzuggRLRT+de+I6rzuWTpTeYFlcbr
+         y2iA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741074562; x=1741679362;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2MLjKK0cvD8Zt+dIvBMKOKHc8gKJeqqPNHGFjCQlnXE=;
+        b=OsrwdsZZ/v6y7T7ebUIB2kon+23gUh+iZuuXDB0WR4l8+E5AwTOXBMjI9E5/11eiYp
+         1ul1XjFpBCvM+xUt+WWW8LDAABQU6HrMKv4/FqhBMXtnpHcqMRW/6VFPPlpUIVA//XeK
+         jFPGwXoahSTW4jIL0WnMfGRfUWeVmflDIqYub4Mt41kZFJENu8060NnBAt9WcbkDWjKC
+         RBGEOejhNot1toX7EGPvYx/OaD/ltn+wulEwFdBCrx99NNSijQX9W+MSPzD62HuD2rzj
+         8kLRUjfzr8OulzrQyjpOZshbdmJSYD73ThhmfaT5D+Fgo4eWa1wnGG8oKT8ZKuNTpOQe
+         Ke5w==
+X-Forwarded-Encrypted: i=1; AJvYcCVpaxQNSXq+ihXXWz51puCbxloT0i9Y6U6tmACA4+0K5bTQ+LCJgbWdPs2RDTjv8ryjHMZEzbkfgqVWg+Tps2RC@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFXINz27WXFNdNPmrm0vgh+XxnoVEwP9DaseiHmsGVo7XCyiag
+	Nn+AIl0Qthp8uNwHJfdvwL5BzQ3gMw0yasNMpKwyZHnbMRVyJITctO1dGiAA77WTlfPndjr2YTU
+	M7SEHmkBF9sxn7G4jBVGAjzY3qd0=
+X-Gm-Gg: ASbGncvqmGarpFR4iRKCAjCWplVwp8+ekEWAjimQz0bcG+sRC9j/rS3Wk09KIwWEwD7
+	Mf9ytulxPPbHYkG5dqreLzUrDpHDa2WHuD+/duTj6+2KwurVP2oLNW7XzGfZi6NmZ7maEuDHxUC
+	l47ZNYv6haGSFadBmAL9g5nUeBeQ==
+X-Google-Smtp-Source: AGHT+IERTf+79jPOAvgx5KP2sLqUID7azBWzz7vasRRAB5uE+reXBmF+MEHBwltFPdH76/XUj+vMxqm/piVzmLTWLrk=
+X-Received: by 2002:a05:690c:3705:b0:6fd:42bc:4f48 with SMTP id
+ 00721157ae682-6fd4a03af71mr198978757b3.21.1741074561900; Mon, 03 Mar 2025
+ 23:49:21 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAHUa44FkG1NAWpoW8UVBywv44XW_mjAJa32PcC9mcmiOLdiRqw@mail.gmail.com>
+References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+ <20250303132837.498938-2-dongml2@chinatelecom.cn> <20250303165454.GB11590@noisy.programming.kicks-ass.net>
+ <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
+ <20250304053853.GA7099@noisy.programming.kicks-ass.net> <20250304061635.GA29480@noisy.programming.kicks-ass.net>
+In-Reply-To: <20250304061635.GA29480@noisy.programming.kicks-ass.net>
+From: Menglong Dong <menglong8.dong@gmail.com>
+Date: Tue, 4 Mar 2025 15:47:45 +0800
+X-Gm-Features: AQ5f1JoFjrmEt-nBO6x3FpzDHAp0t94q6jSotwVIU7T4XlsHd98OlAn-MH-sW3s
+Message-ID: <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
+To: Peter Zijlstra <peterz@infradead.org>
+Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com, 
+	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, ast@kernel.org, 
+	daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev, 
+	eddyz87@gmail.com, yonghong.song@linux.dev, john.fastabend@gmail.com, 
+	kpsingh@kernel.org, sdf@fomichev.me, jolsa@kernel.org, davem@davemloft.net, 
+	dsahern@kernel.org, mathieu.desnoyers@efficios.com, nathan@kernel.org, 
+	nick.desaulniers+lkml@gmail.com, morbo@google.com, samitolvanen@google.com, 
+	kees@kernel.org, dongml2@chinatelecom.cn, akpm@linux-foundation.org, 
+	riel@surriel.com, rppt@kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-trace-kernel@vger.kernel.org, 
+	bpf@vger.kernel.org, netdev@vger.kernel.org, llvm@lists.linux.dev
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_234606_774372_6B473835 
-X-CRM114-Status: GOOD (  67.82  )
+X-CRM114-CacheID: sfid-20250303_234923_475615_546F816E 
+X-CRM114-Status: GOOD (  28.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,158 +108,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 08:17:23AM +0100, Jens Wiklander wrote:
-> Hi Daniel,
-> 
-> On Fri, Feb 21, 2025 at 3:12 PM Daniel Stone <daniel@fooishbar.org> wrote:
-> >
-> > Hi Sumit,
-> >
-> > On Fri, 21 Feb 2025 at 11:24, Sumit Garg <sumit.garg@linaro.org> wrote:
-> > > On Tue, 18 Feb 2025 at 21:52, Daniel Stone <daniel@fooishbar.org> wrote:
-> > > > dma-heaps was created to solve the problem of having too many
-> > > > 'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-> > > > painful and making it difficult for userspace to do what it needed to
-> > > > do. Userspace doesn't _yet_ make full use of it, but the solution is
-> > > > to make userspace make full use of it, not to go create entirely
-> > > > separate allocation paths for unclear reasons.
-> > > >
-> > > > Besides, I'm writing this from a platform that implements SVP not via
-> > > > TEE. I've worked on platforms which implement SVP without any TEE,
-> > > > where the TEE implementation would be at best a no-op stub, and at
-> > > > worst flat-out impossible.
+On Tue, Mar 4, 2025 at 2:16=E2=80=AFPM Peter Zijlstra <peterz@infradead.org=
+> wrote:
+>
+> On Tue, Mar 04, 2025 at 06:38:53AM +0100, Peter Zijlstra wrote:
+> > On Tue, Mar 04, 2025 at 09:10:12AM +0800, Menglong Dong wrote:
+> > > Hello, sorry that I forgot to add something to the changelog. In fact=
+,
+> > > I don't add extra 5-bytes anymore, which you can see in the 3rd patch=
+.
 > > >
-> > > Can you elaborate the non-TEE use-case for Secure Video Path (SVP) a
-> > > bit more? As to how the protected/encrypted media content pipeline
-> > > works? Which architecture support does your use-case require? Is there
-> > > any higher privileged level firmware interaction required to perform
-> > > media content decryption into restricted memory? Do you plan to
-> > > upstream corresponding support in near future?
-> >
-> > You can see the MTK SVP patches on list which use the MTK SMC to mediate it.
-> >
-> > There are TI Jacinto platforms which implement a 'secure' area
-> > configured statically by (IIRC) BL2, with static permissions defined
-> > for each AXI endpoint, e.g. CPU write + codec RW + dispc read. I've
-> > heard of another SoC vendor doing the same, but I don't think I can
-> > share those details. There is no TEE interaction.
-> >
-> > I'm writing this message from an AMD laptop which implements
-> > restricted content paths outside of TEE. I don't have the full picture
-> > of how SVP is implemented on AMD systems, but I do know that I don't
-> > have any TEE devices exposed.
-> >
-> > > Let me try to elaborate on the Secure Video Path (SVP) flow requiring
-> > > a TEE implementation (in general terms a higher privileged firmware
-> > > managing the pipeline as the kernel/user-space has no access
-> > > permissions to the plain text media content):
+> > > The thing is that we can't add extra 5-bytes if CFI is enabled. Witho=
+ut
+> > > CFI, we can make the padding space any value, such as 5-bytes, and
+> > > the layout will be like this:
 > > >
-> > > - [...]
-> >
-> > Yeah, I totally understand the TEE usecase. I think that TEE is a good
-> > design to implement this. I think that TEE should be used for SVP
-> > where it makes sense.
-> >
-> > Please understand that I am _not_ arguing that no-one should use TEE for SVP!
-> >
-> > > > So, again, let's
-> > > > please turn this around: _why_ TEE? Who benefits from exposing this as
-> > > > completely separate to the more generic uAPI that we specifically
-> > > > designed to handle things like this?
+> > > __align:
+> > >   nop
+> > >   nop
+> > >   nop
+> > >   nop
+> > >   nop
+> > > foo: -- __align +5
 > > >
-> > > The bridging between DMA heaps and TEE would still require user-space
-> > > to perform an IOCTL into TEE to register the DMA-bufs as you can see
-> > > here [1]. Then it will rather be two handles for user-space to manage.
-> >
-> > Yes, the decoder would need to do this. That's common though: if you
-> > want to share a buffer between V4L2 and DRM, you have three handles:
-> > the V4L2 buffer handle, the DRM GEM handle, and the dmabuf you use to
-> > bridge the two.
-> >
-> > > Similarly during restricted memory allocation/free we need another
-> > > glue layer under DMA heaps to TEE subsystem.
-> >
-> > Yep.
-> >
-> > > The reason is simply which has been iterated over many times in the
-> > > past threads that:
+> > > However, the CFI will always make the cfi insn 16-bytes aligned. When
+> > > we set the FUNCTION_PADDING_BYTES to (11 + 5), the layout will be
+> > > like this:
 > > >
-> > >     "If user-space has to interact with a TEE device for SVP use-case
-> > > then why it's not better to ask TEE to allocate restricted DMA-bufs
-> > > too"
+> > > __cfi_foo:
+> > >   nop (11)
+> > >   mov $0x12345678, %reg
+> > >   nop (16)
+> > > foo:
+> > >
+> > > and the padding space is 32-bytes actually. So, we can just select
+> > > FUNCTION_ALIGNMENT_32B instead, which makes the padding
+> > > space 32-bytes too, and have the following layout:
+> > >
+> > > __cfi_foo:
+> > >   mov $0x12345678, %reg
+> > >   nop (27)
+> > > foo:
 > >
-> > The first word in your proposition is load-bearing.
+> > *blink*, wtf is clang smoking.
 > >
-> > Build out the usecase a little more here. You have a DRMed video
-> > stream coming in, which you need to decode (involving TEE for this
-> > usecase). You get a dmabuf handle to the decoded frame. You need to
-> > pass the dmabuf across to the Wayland compositor. The compositor needs
-> > to pass it to EGL/Vulkan to import and do composition, which in turn
-> > passes it to the GPU DRM driver. The output of the composition is in
-> > turn shared between the GPU DRM driver and the separate KMS DRM
-> > driver, with the involvement of GBM.
-> >
-> > For the platforms I'm interested in, the GPU DRM driver needs to
-> > switch into protected mode, which has no involvement at all with TEE -
-> > it's architecturally impossible to have TEE involved without moving
-> > most of the GPU driver into TEE and destroying performance. The
-> > display hardware also needs to engage protected mode, which again has
-> > no involvement with TEE and again would need to have half the driver
-> > moved into TEE for no benefit in order to do so. The Wayland
-> > compositor also has no interest in TEE: it tells the GPU DRM driver
-> > about the protected status of its buffers, and that's it.
-> >
-> > What these components _are_ opinionated about, is the way buffers are
-> > allocated and managed. We built out dmabuf modifiers for this usecase,
-> > and we have a good negotiation protocol around that. We also really
-> > care about buffer placement in some usecases - e.g. some display/codec
-> > hardware requires buffers to be sourced from contiguous memory, other
-> > hardware needs to know that when it shares buffers with another
-> > device, it needs to place the buffers outside of inaccessible/slow
-> > local RAM. So we built out dma-heaps, so every part of the component
-> > in the stack can communicate their buffer-placement needs in the same
-> > way as we do modifiers, and negotiate an acceptable allocation.
-> >
-> > That's my starting point for this discussion. We have a mechanism to
-> > deal with the fact that buffers need to be shared between different IP
-> > blocks which have their own constraints on buffer placement, avoiding
-> > the current problem of having every subsystem reinvent their own
-> > allocation uAPI which was burying us in impedance mismatch and
-> > confusion. That mechanism is dma-heaps. It seems like your starting
-> > point from this discussion is that you've implemented a TEE-centric
-> > design for SVP, and so all of userspace should bypass our existing
-> > cross-subsystem special-purpose allocation mechanism, and write
-> > specifically to one implementation. I believe that is a massive step
-> > backwards and an immediate introduction of technical debt.
-> >
-> > Again, having an implementation of SVP via TEE makes a huge amount of
-> > sense. Having _most_ SVP implementations via TEE still makes a lot of
-> > sense. Having _all_ SVP implementations eventually be via TEE would
-> > still make sense. But even if we were at that point - which we aren't
-> > - it still doesn't justify telling userspace 'use the generic dma-heap
-> > uAPI for every device-specific allocation constraint, apart from SVP
-> > which has a completely different way to allocate some bytes'.
-> 
-> I must admit that I don't see how this makes a significant difference,
-> but then I haven't hacked much in the stacks you're talking about, so
-> I'm going to take your word for it.
-> 
-> I've experimented with providing a dma-heap replacing the TEE API. The
-> implementation is more complex than I first anticipated, adding about
-> 400 lines to the patch set.
+> > I mean, you're right, this is what it is doing, but that is somewhat
+> > unexpected. Let me go look at clang source, this is insane.
+>
+> Bah, this is because assemblers are stupid :/
+>
+> There is no way to tell them to have foo aligned such that there are at
+> least N bytes free before it.
+>
+> So what kCFI ends up having to do is align the __cfi symbol to the
+> function alignment, and then stuff enough nops in to make the real
+> symbol meet alignment.
+>
+> And the end result is utter insanity.
+>
+> I mean, look at this:
+>
+>       50:       2e e9 00 00 00 00       cs jmp 56 <__traceiter_initcall_l=
+evel+0x46>     52: R_X86_64_PLT32      __x86_return_thunk-0x4
+>       56:       66 2e 0f 1f 84 00 00 00 00 00   cs nopw 0x0(%rax,%rax,1)
+>
+> 0000000000000060 <__cfi___probestub_initcall_level>:
+>       60:       90                      nop
+>       61:       90                      nop
+>       62:       90                      nop
+>       63:       90                      nop
+>       64:       90                      nop
+>       65:       90                      nop
+>       66:       90                      nop
+>       67:       90                      nop
+>       68:       90                      nop
+>       69:       90                      nop
+>       6a:       90                      nop
+>       6b:       b8 b1 fd 66 f9          mov    $0xf966fdb1,%eax
+>
+> 0000000000000070 <__probestub_initcall_level>:
+>       70:       2e e9 00 00 00 00       cs jmp 76 <__probestub_initcall_l=
+evel+0x6>      72: R_X86_64_PLT32      __x86_return_thunk-0x4
+>
+>
+> That's 21 bytes wasted, for no reason other than that asm doesn't have a
+> directive to say: get me a place that is M before N alignment.
+>
+> Because ideally the whole above thing would look like:
+>
+>       50:       2e e9 00 00 00 00       cs jmp 56 <__traceiter_initcall_l=
+evel+0x46>     52: R_X86_64_PLT32      __x86_return_thunk-0x4
+>       56:       66 2e 0f 1f 84          cs nopw (%rax,%rax,1)
+>
+> 000000000000005b <__cfi___probestub_initcall_level>:
+>       5b:       b8 b1 fd 66 f9          mov    $0xf966fdb1,%eax
+>
+> 0000000000000060 <__probestub_initcall_level>:
+>       60:       2e e9 00 00 00 00       cs jmp 76 <__probestub_initcall_l=
+evel+0x6>      72: R_X86_64_PLT32      __x86_return_thunk-0x4
 
-I did anticipated this but let's give it a try and see if DMA heaps
-really adds any value from user-space point of view. If it does then it
-will be worth the maintenence overhead.
+Hi, peter. Thank you for the testing, which is quite helpful
+to understand the whole thing.
 
-> From user space, it looks like another
-> dma-heap. I'm using the names you gave earlier,
-> protected,secure-video, protected,trusted-ui, and
-> protected,secure-video-record. However, I wonder if we shouldn't use
-> "restricted" instead of "protected" since we had agreed to call it
-> restricted memory earlier.
+I was surprised at this too. Without CALL_PADDING, the cfi is
+nop(11) + mov; with CALL_PADDING, the cfi is mov + nop(11),
+which is weird, as it seems that we can select CALL_PADDING if
+CFI_CLANG to make things consistent. And I  thought that it is
+designed to be this for some reasons :/
 
-Let's stick with "restricted" memory buffer references only.
+Hmm......so what should we do now? Accept and bear it,
+or do something different?
 
--Sumit
+I'm good at clang, so the solution that I can think of is how to
+bear it :/
+
+According to my testing, the text size will increase:
+
+~2.2% if we make FUNCTION_PADDING_BYTES 27 and select
+FUNCTION_ALIGNMENT_16B.
+
+~3.5% if we make FUNCTION_PADDING_BYTES 27 and select
+FUNCTION_ALIGNMENT_32B.
+
+We don't have to select FUNCTION_ALIGNMENT_32B, so the
+worst case is to increase ~2.2%.
+
+What do you think?
+
+Thanks!
+Menglong Dong
+
+>
+>
+>
 
