@@ -4,79 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64464C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:32:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FAE1C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IgG/ZB1ufhyJ5LLnH+TbRO+Ff9QR7sb5p8sH4cYGYcE=; b=rOaOFdkLyUTfdkkRsJZwqhzUAj
-	7q2H+x9BnVZz+DKk9OchyYXHS8Wc6jDppVaIEZwh+yon/oBKSOKoM8tEG65sed1fodnCRSTI379Jf
-	7/pMllyyre1cLWclFeM6LCraG7OlRVpijlJtfUw4sE9PqWNfTGPUi2cz5m6TgWuZ60gIgepaK/7MV
-	3iYGrDCLB6ome05zn2nwNoXQdeogdEP6/wDwGhrXCy1xL4DESJMsCYzqqYvjf9dPgBiAosCqwwYqU
-	8l8yVuW6TVFaZhW9GajvH8YD9/SztMEX83+M2NBNMvWRFWLO6ObiRJnirpgb5qAOyXOAIENskJ1Cd
-	xbUC3y0g==;
+	bh=VXesqtK3A8i6ZSMFwP8n6Z6kZDUFNsTogrZxF0Gh9Ac=; b=xi1oKGolvWLoq65u8Uy4vY0Tjo
+	SV3Sxreu4fFh9j9WXbDHcMpvAuqrSSVAziU7v6DUFthHKUMYbvjIU2Dj4kZtR31YuOmDxRpkmZdXB
+	wdVPGE+8xuyT67uPfqFKh557S6y/EttfPI+uTjFN6/QrQrHZA0rHZG/als2XyIHxkt6P65j5KqMbf
+	9pL5j6ghQPeND91OTxhj3Iy3c+P2cdFh6FPm9jNheDTR3CE2jc9FjvUH2UYBUd0bbRM+jpICbhP9+
+	ebgvBFCDlL4ayiKrxG/BCA31wPc6BPy7AyjksbpcNgJrkJrpOjnJmPHXlw3PmtKffjysV0RfbSJSQ
+	sT2dfPSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpX46-00000005rXD-1qxN;
-	Tue, 04 Mar 2025 18:32:26 +0000
-Received: from mail-ed1-f41.google.com ([209.85.208.41])
+	id 1tpX5e-00000005rle-0WDk;
+	Tue, 04 Mar 2025 18:34:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVi5-00000005YAv-4AbO
-	for linux-arm-kernel@lists.infradead.org;
+	id 1tpVi7-00000005YCC-38Gh
+	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 04 Mar 2025 17:05:39 +0000
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5e095d47a25so10385520a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
+	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=VXesqtK3A8i6ZSMFwP8n6Z6kZDUFNsTogrZxF0Gh9Ac=; b=OesPi/4ZRbyYcG+bra1pr/zvJY
+	xxg0WQaB/ZYtKV5nT/zGLUy/w3D5TB6VUsV3iP9LJrtGEmokEYHa8zeP4EEjzAOVOv/37HWtgR99/
+	VBxpW5tcqUB1hxw0cmOrllWJwoStu3ejY+l2JtBb7ccCII9caOpbbVy1VUXe+x4w3N41ygDbDOiXa
+	BvNHrEVlprbH2cT2gnqzGvtv4UgWkmEgfoK8+TozMOZWcPyoZZojVZLqWNrjTwMq62szS0EMikVt2
+	0uot6rq8eN3JlOTmSE8vwss6Ge9GDk7Gyn78ic26UMHeeW60Q9eNozt6y3AURxvaC1pZ5LQto1TGa
+	lj2Ntxug==;
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpVi3-00000002Cwy-3NT9
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 17:05:38 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abf57138cfaso615817766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:34 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741107936; x=1741712736; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741107933; x=1741712733; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=IgG/ZB1ufhyJ5LLnH+TbRO+Ff9QR7sb5p8sH4cYGYcE=;
-        b=LpeJEz0R5X8T2QR7pofOV8gJkBUXWjwn/cXKloeQc/IAeyCvcl3y/GyhTz8iC+6XWm
-         7vlmZDl96pjxW07cDgJQpnC+ZC0omY4n/9vZ4fxBMiuQesFE5wOvuFjyf6a6H56tlTwi
-         03CQJqSfZX2DUVV4Wx3TDJjhq+INjqauYZB8OUE0jHg2xbuHl5DCtzYydLY3xX3ilmc9
-         u6ciP35/VbpUtmGDCE+OUA3gkaqPpcFG+/q9zWyE1ZwLKXmwtwyZpRrk1OZol6J04aWN
-         BIJ5kVb5fLNeCaoevFCD5UENx5zqf+Es5adMIqUIVLirE9Ov1UL177i5jBlJ3sjNRLez
-         JT9A==
+        bh=VXesqtK3A8i6ZSMFwP8n6Z6kZDUFNsTogrZxF0Gh9Ac=;
+        b=Tv+6R42k9+VdSPd0W031MI4Ake7pCBNw/np5w+TFhNNnH3KEfHG2047cYBtMysqwo4
+         M+sYPr1LaXMNmAGXDWAAwhw6Yw2ohfJSMhPxROG9uaNdfrJvC8OE15yW/fL3IUL2w5PJ
+         Oc6KxiGGzj5b+L6G5KSVEG4JE5eqfetlyZXvJek1pYV5zI33mUOwdEvGWbi+0mY9PBoR
+         MeBBxb0R+gmWCmxNXeqI6i4r4AvhU7DTtY06C85kaPo6c3ZPp4OYSgq9Pc6NZTlj+93y
+         L6E/ogHM5WB8h2yqxiet7s6KSx/v8VamxlZsV6M7eNX6XrqjwCloKwDZ6zW10peMNmOy
+         jWFg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741107936; x=1741712736;
+        d=1e100.net; s=20230601; t=1741107933; x=1741712733;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=IgG/ZB1ufhyJ5LLnH+TbRO+Ff9QR7sb5p8sH4cYGYcE=;
-        b=YXErncJEbZzB1AnnoSyfmHHFyX1SrZ4P3agiclQQdjgEzF5Z6Q26tWKf1W7wztg5oN
-         6SOJusxNKMvfYalmu3st+x/dxXgJH2PQ0Ta47o+2HpERtz8pJTjDt3p+ZUJPoDsby1dO
-         RT3CdCQuIwAcXaOaotdDydes4yS+2sCPYQq8MT/1MJ0tNBt4jWQswMkpLQ+QBXxRQBBg
-         NBYJuHvu+oRtB5tDfjHKjB+PMvIwmrka/TuIHsXbdC8ikljF/JBixDTI3izKmD8NEStU
-         MeBWGaPh/g7kUOtvO6EGPccBjCFihuqa590PHcQhtVaw/OKRie0G6vSF0WK5y0N0PMws
-         0mpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUr4J2ODQdvCHI7iHXlAsdr+TSJp0HabWwhDJK7XgGccefgDq883wga8xBenTaw6SbaQ4313sgsFH3DpOuAcB2E@lists.infradead.org
-X-Gm-Message-State: AOJu0YzP3tdJGryTxYABYHRMOIdkUn/P32ul8pMF+QILNM3tCLbBq/e+
-	qbPGt0Kq9WDaHLGPC/v8+RlDey1hvdWgPfx63iX/7fQ+5bi1VMwT75NUyQ4HPgk=
-X-Gm-Gg: ASbGncuzhtFAlIj36B4S7rqlhJzQEWLdrUvaUFHgLKE1lOyZWdRJRbxhtCQxG7LK6/0
-	VQlHdOO8rJmsUkxP4i3Hzpiq/fIq4bw5/8WOhdX0srLwq0qLeAdecN+vpkX888TDwQYHbdPtelt
-	4zRtl03X+0qkaGyTPGXCV8ZkCmOOSSN0yUXcMjtP3dDj+ye/REkuCV1gL9bLUovU7iHO8ZATx0n
-	pA8kElP3amcphmMvwXmrC2gbTV2y25p9n6j9M+dm6QTUQwmzPhFDoba87SXy2exiPwCES0IF916
-	qKE74pjM9WPuwhnOp0wlCsEKrL9TDG8WTsNywbufxVFCu0npPSs5kPrOpHhR/nR79Ag/+3ofQag
-	i1zwm9ahMRN780rHDQF+Qh7BPXJAw
-X-Google-Smtp-Source: AGHT+IEZSM7e60umftuoTA+5yHKxOw5bEfyTXKI9tFiIm+4qyPCIhcf70tbw/wLp28VjnQQVfyBtmQ==
-X-Received: by 2002:a17:907:c2a:b0:abf:6b30:7a94 with SMTP id a640c23a62f3a-abf6b58f60cmr1276559166b.45.1741107935884;
-        Tue, 04 Mar 2025 09:05:35 -0800 (PST)
+        bh=VXesqtK3A8i6ZSMFwP8n6Z6kZDUFNsTogrZxF0Gh9Ac=;
+        b=EVBNtG6ptYkgWJj3OYOLuouX1x7RoGxwEGcIt3Pw+6tnfKe+/eku/FpR0moWMwRFYs
+         6rwxjvHJujtL+2DWPF0S7DeE1sARnzrtA/Z5Xz7dnQ/TJZYCEmFR/BnUpHPOKDE1d4Pz
+         bSwJPcauPyk6D/TITosIDx9WRWQ8UHO9IZ6oWFfTk9xbzUmQh+/Yj2fqZ+126fS5YZ/z
+         2RCBEhbJEHVlPXzVREyvi8y4GdfreLI+I7IOBdsD97MjE58PwOKKVxTgAjgKkZOAEU/H
+         9PhcKnhl42OQHdHVwcpiz9pj2YuyEjmNMRFyfD5Tv3Su20Czq4/m4xEJ6ilAcqEPTJF4
+         y1+A==
+X-Forwarded-Encrypted: i=1; AJvYcCVaFsTj82/q3q49sByTnVLLipAariAxiXnNMg20RVcMr0iKOIn+daGJktEcATqFllHu8bjYezqoLrelGu7NYRRg@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYR4jcteG7teJTtXH6jZB83iUMg3fCMNEgIriWTrvL+I9ZdPbL
+	3mM+DVT1KRBCsR+LymQ9F/mI2YHVZJw3pSDRjmyGgx+Z7PUXsBYmUAFQlus7BZE=
+X-Gm-Gg: ASbGncv72us4MsN8BJMQwEebx9HxYKiXfzH+paoItvBG2lpbX9yFaVP0wWW3bT08PQ5
+	ROUNwDjkDktw46hmvVq3A+8Tuqu2Hd+5pZQWqFXiplFZWjU9P8eLJpgCvixT7gLKbQI48MUc9BG
+	3xd23G5G6wxmkL76br0sZFY972aDP71brlu72r4RbfuWg4/sVm9IE69G5SMz+f5aueO8kcA5LZT
+	peP8dTYRbKpPeX6dZ9BQPML5wj0WFy5/0SyE9IhipFzeINuTvL0adVXEz9p0xoWLpqfx+jOCO5x
+	+Az6NYMLIFKqkqeDg59OAsebOiTvzN/kH4lhyMon/nWqFTIzukI+B7ufd7zrDzkeKjkqmCTFHJk
+	x++RZpdVspYF9uxPfshM+qNL4L6uK
+X-Google-Smtp-Source: AGHT+IHVbcY6l9+JTAHHIw3fmIWanoQo+sapqWdolutCogJsq5sGcHSbYPT4D1lGvFYrwfxZJsMGVg==
+X-Received: by 2002:a17:906:f5aa:b0:abf:59a3:df19 with SMTP id a640c23a62f3a-abf59a3fa56mr1580793966b.57.1741107932647;
+        Tue, 04 Mar 2025 09:05:32 -0800 (PST)
 Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.35
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 09:05:35 -0800 (PST)
+        Tue, 04 Mar 2025 09:05:32 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 04 Mar 2025 17:05:35 +0000
-Subject: [PATCH v2 07/16] rtc: m48t86: drop needless struct
- m48t86_rtc_info::rtc member
+Date: Tue, 04 Mar 2025 17:05:30 +0000
+Subject: [PATCH v2 02/16] rtc: s5m: drop needless struct s5m_rtc_info::i2c
+ member
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-rtc-cleanups-v2-7-d4689a71668c@linaro.org>
+Message-Id: <20250304-rtc-cleanups-v2-2-d4689a71668c@linaro.org>
 References: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
 In-Reply-To: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
 To: Chanwoo Choi <cw00.choi@samsung.com>, 
@@ -96,11 +111,12 @@ Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
  linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org, 
  llvm@lists.linux.dev, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_090538_034513_1B16F9AB 
-X-CRM114-Status: GOOD (  14.92  )
+X-CRM114-CacheID: sfid-20250304_170536_009651_D545FBAE 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,61 +131,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The memory pointed to by the ::rtc member is managed via devres, and
-no code in this driver uses it past _probe().
+When this driver was converted to using the devres managed i2c device
+in commit 7db7ad0817fe ("rtc: s5m: use devm_i2c_new_dummy_device()"),
+struct s5m_rtc_info::i2c became essentially unused.
 
 We can drop it from the structure and just use a local temporary
 variable, reducing runtime memory consumption by a few bytes.
 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/rtc/rtc-m48t86.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/rtc/rtc-m48t86.c b/drivers/rtc/rtc-m48t86.c
-index dd4a62e2d39c73b1c8c3f50a59fd4fffc0b45105..10cd054fe86f9e6be74eb282222b2751dd91cc7e 100644
---- a/drivers/rtc/rtc-m48t86.c
-+++ b/drivers/rtc/rtc-m48t86.c
-@@ -41,7 +41,6 @@
- struct m48t86_rtc_info {
- 	void __iomem *index_reg;
- 	void __iomem *data_reg;
--	struct rtc_device *rtc;
- };
+---
+v2:
+* fix arguments to devm_i2c_new_dummy_device() - too eager sed //, and
+  gcc didn't notice, only clang :-(
+---
+ drivers/rtc/rtc-s5m.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+index 36acca5b2639e272dd9baed06ea5582f635702b0..88aed27660348a05886f080a2848fcabbf9666d0 100644
+--- a/drivers/rtc/rtc-s5m.c
++++ b/drivers/rtc/rtc-s5m.c
+@@ -146,7 +146,6 @@ static const struct s5m_rtc_reg_config s2mps15_rtc_regs = {
  
- static unsigned char m48t86_readb(struct device *dev, unsigned long addr)
-@@ -219,6 +218,7 @@ static bool m48t86_verify_chip(struct platform_device *pdev)
- static int m48t86_rtc_probe(struct platform_device *pdev)
+ struct s5m_rtc_info {
+ 	struct device *dev;
+-	struct i2c_client *i2c;
+ 	struct sec_pmic_dev *s5m87xx;
+ 	struct regmap *regmap;
+ 	struct rtc_device *rtc_dev;
+@@ -640,6 +639,7 @@ static int s5m_rtc_probe(struct platform_device *pdev)
  {
- 	struct m48t86_rtc_info *info;
-+	struct rtc_device *rtc;
- 	unsigned char reg;
- 	int err;
- 	struct nvmem_config m48t86_nvmem_cfg = {
-@@ -250,17 +250,17 @@ static int m48t86_rtc_probe(struct platform_device *pdev)
+ 	struct sec_pmic_dev *s5m87xx = dev_get_drvdata(pdev->dev.parent);
+ 	struct s5m_rtc_info *info;
++	struct i2c_client *i2c;
+ 	const struct regmap_config *regmap_cfg;
+ 	int ret, alarm_irq;
+ 
+@@ -675,14 +675,14 @@ static int s5m_rtc_probe(struct platform_device *pdev)
  		return -ENODEV;
  	}
  
--	info->rtc = devm_rtc_allocate_device(&pdev->dev);
--	if (IS_ERR(info->rtc))
--		return PTR_ERR(info->rtc);
-+	rtc = devm_rtc_allocate_device(&pdev->dev);
-+	if (IS_ERR(rtc))
-+		return PTR_ERR(rtc);
+-	info->i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
+-					      RTC_I2C_ADDR);
+-	if (IS_ERR(info->i2c)) {
++	i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
++					RTC_I2C_ADDR);
++	if (IS_ERR(i2c)) {
+ 		dev_err(&pdev->dev, "Failed to allocate I2C for RTC\n");
+-		return PTR_ERR(info->i2c);
++		return PTR_ERR(i2c);
+ 	}
  
--	info->rtc->ops = &m48t86_rtc_ops;
-+	rtc->ops = &m48t86_rtc_ops;
- 
--	err = devm_rtc_register_device(info->rtc);
-+	err = devm_rtc_register_device(rtc);
- 	if (err)
- 		return err;
- 
--	devm_rtc_nvmem_register(info->rtc, &m48t86_nvmem_cfg);
-+	devm_rtc_nvmem_register(rtc, &m48t86_nvmem_cfg);
- 
- 	/* read battery status */
- 	reg = m48t86_readb(&pdev->dev, M48T86_D);
+-	info->regmap = devm_regmap_init_i2c(info->i2c, regmap_cfg);
++	info->regmap = devm_regmap_init_i2c(i2c, regmap_cfg);
+ 	if (IS_ERR(info->regmap)) {
+ 		ret = PTR_ERR(info->regmap);
+ 		dev_err(&pdev->dev, "Failed to allocate RTC register map: %d\n",
 
 -- 
 2.48.1.711.g2feabab25a-goog
