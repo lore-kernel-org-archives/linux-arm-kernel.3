@@ -4,159 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E002C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:43:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8235AC282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:44:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LHJkMEgvR5CFt7mMzjuFcVREWomQoP5aUxZyaZk9mII=; b=c5tyqgZq3D3XBQ3dPUJCei4VNj
-	K7/rEIH7Z2KTYhu2pmvixKwngVfuigsXK8Tf4IsHF+8Qjw6JZD+AETkrjKCnA1OguwmaJWoUTmZgx
-	coBov1Yeu4lrXutc7aBMhNTFgH+iGPHgmfL863dqvh1jItVl6tNIIY238F0RnHaSXlcikgjxrcXFt
-	hz5bkNSCMHAhcHdJyTRiYx8+KQwyIiQ3sdwJai5PLYX4/Mzu4rVKhncw04+XTaASn8oZnX41JUvo5
-	uA4sY0H8BYMVVVsS9zBfo2NQN7kHSDEDjbGxwQ4IDkzM4ex7Z9nb1WgSQgqWpnzzX//YIknGBcId+
-	Sfb2XhFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aPksOpIsWmD4LD84U/zyiEQF/6uAhUOVlj8rScJ6yGY=; b=MiX4+e6ugmaw6rdinTzLvMZL60
+	u99m0tvTt7XtcZv+IrFN5Y2dr7KwGonhhG2KYHE+eWO801jVeX/6lvqLIs9/48TIxQtrJZEjDflE0
+	xaEvKyPut7GI8nh2aXzR9FQk+IOgtmKxY5WOOAWBl7rxl044F8WfUssNKPDwyzKrdaazoZBKHGcY2
+	LAVOrm22O36gXq7prTP0wyqUeOyUB2gq+TFedpXPh0rcuYft1aswkHF4kCzmcytgS6iSClq6jDv7M
+	8yG76Rma4Pv1qfU2kg5Jd8pQbGRzhNdYYtvw/DfeN316Twc5x5dy+DFIdwGs1ehd/4MF1O8G509tB
+	8FYU6sQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWJ4-00000005giP-04NR;
-	Tue, 04 Mar 2025 17:43:50 +0000
-Received: from mail-db8eur05on20628.outbound.protection.outlook.com ([2a01:111:f403:2614::628] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tpWJx-00000005gsj-16tG;
+	Tue, 04 Mar 2025 17:44:45 +0000
+Received: from mail-pl1-f173.google.com ([209.85.214.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUuR-00000005NYY-37lA
+	id 1tpUId-00000005EjV-1IUe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:14:20 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Ku5PoRk30aZl/ZVLmFVh9OZf/oPX9RqF5k9RXZtmHK7798pCxB60KcKHadmM4NZhcVZQJJrWysavA6sHcG+AFxRWGvcyvWAbeEzq1oDBCwQpHii64mTByq27jkNefyBby8FTKiUfxWnsNq8mCgZSdBYw492hEXeh9hZyLUYweWfC01cz4eYGYqQ7SqSxVEVo45h/ONE3oReD4tsy1yuopFFDaylEN2eXjVeKc+TIIza0KCNARCzusg5sZA20pVaakSfOJZPFx0YgMafo2yFMB7IwhuSVNqhtDXiYELYKOI9PvanF7FAMfu6UXr3FzPo27B5L/A4sadmqoYhFBaFEig==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LHJkMEgvR5CFt7mMzjuFcVREWomQoP5aUxZyaZk9mII=;
- b=bOwiRoX+olfEsf3dOwx5eWD9dy515srEK/L6Y7vbdwSwHvFMjx6IsuEovDtKhOqDQrXdl5Sh9I4lV325hZS6/HLOnr7i005SkZh1l13z8sCGRIBjTA95WY9LysF9R/Q1W4wgUPB/xOBIMzKpSZnt2jJQk1DcMzMVIg3If1cg99P+xo0tR8aww5diUuqnk0+IHY08WoZM9tm1wTkCcP9R5ZQBljdeqX99icaFw9D/VN9cUF3Ia6aHtXe/RnKWmAQ3A8eEwuPlmrkwxIj+5fYY7HeRuHUPYP4PWbXN67KsjzLlYzP6UyZzelBRT8obtPLVt81dL7iIoo/390skUTO0Pg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LHJkMEgvR5CFt7mMzjuFcVREWomQoP5aUxZyaZk9mII=;
- b=kgbgKRxHHf6iQfidby2riRVZwJOJyaSkzbVKLm6W0Le5tjplK563+pYyprhBc7rnGkK/LqozT8SAr75yFkfUE4sPb96689faxsAhzRie7Q9o+PShn3XBQ9TN31exCvQoH4pgyoPJoxm84Uo3fXbnNOK+AuH90gTthi6mBpnW4c7TH8x/qaRcL+2iit4ht73JZK+oFAXMAtVjxVj+OkqFWMgFQZn/CedsncpTMak26kU1g7FPCpkMluafyhqo2Ame2+8GPtPSJF57USIJJ+Z2ewgiE061L1m3EK5gpJVHBjP0UwdelrhwyhV/PNGbj1uqO2PBIJM3LEqqzC7PDCyFIg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by DU4PR04MB11080.eurprd04.prod.outlook.com (2603:10a6:10:587::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Tue, 4 Mar
- 2025 16:14:14 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8489.028; Tue, 4 Mar 2025
- 16:14:13 +0000
-From: florin.leotescu@oss.nxp.com
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: viorel.suman@nxp.com,
-	carlos.song@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>
-Subject: [PATCH v3 0/3] Add OF support for Microchip emc2305 fan controller
-Date: Tue,  4 Mar 2025 18:21:33 +0200
-Message-Id: <20250304162136.1963384-1-florin.leotescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AS4P195CA0025.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:5d6::20) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+	Tue, 04 Mar 2025 15:35:17 +0000
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-22349bb8605so112732915ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:35:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741102513; x=1741707313;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aPksOpIsWmD4LD84U/zyiEQF/6uAhUOVlj8rScJ6yGY=;
+        b=gFRc5cqD+s/U3bgHL9kE7avLOXf9P+BUR+Naiz7fwIS0SJbBrSXy8jMlmOlmyI2Q2w
+         +m1fbeJelFrnOz04DSMToDaHDDTz1GE7bm0iSihfry0++njxFQkth1qI4GPQSc343EWN
+         58E2+D8b3CMFPJpmwptuWpTBQYuUZSr5GMeKUkbSDkXEU5VrvA199qgonvFxYSCIeZfb
+         DgvhXPPzps8mUyRgtbn7T7JVc/LCpWTqX2v3Tx3GcEgjweUrxlOPvp4iutuF12tfuTuZ
+         Rv/jHLRnz+Q4UDkYloyyMHLiOL+HzqKMMoRZ2c7cPk42o/sAK8Ke1RHfde5T7wRnsHxh
+         a0WA==
+X-Forwarded-Encrypted: i=1; AJvYcCXUvygy0DK5oYtjUKDfjxDzbwJ28N6d+PH7ow5zkqWT4ygsZs4F0nB/m6trhUBw7s40N1c70RhkyVNdGRP9OOoM@lists.infradead.org
+X-Gm-Message-State: AOJu0Yybpboa6mIP7arhBX6XAMVyqnbAeZd3lwHnAQQFDJfDojo5kGuS
+	FzqUPNX8t/Wn141X6FtoFvAU4KO89tG3POovY6BDCYaeCIEk3AQWlXhJiguWANQ=
+X-Gm-Gg: ASbGncsMQyBlfFr8eRT8iovlux1sjGxMqLFAYeAodvKHtb1O42+o4XqiWc7FOIMy3OL
+	T1/aE6QsMj6Au5SS4KWvpnb7nb8A7S4c2xk+LBu3DQJYSvuA9FirvJ3cAUt7FBHtRxbVfo9RlGG
+	fTVlccc5ZxCFBv9HnvwhbNem7UmY0q2Z5JGZgNaUxCpPkXULzCypXi/ppKdQXEWdNNy9PkQ8npV
+	dmIaBfIIR8XktfYNQxmH9+IxGAfSb+yNyN6iUotNtakTfiJn2rXVbWrgXDyzqG2XY/GjpXJk3pa
+	YP8P6a/nSib3K1PZf0vCIGg+NqDCUDv4qLYXt+ZCFig/0cee2eBfp6xMU13BT+eFY/hDs+wugMk
+	/JGA=
+X-Google-Smtp-Source: AGHT+IHqM19CmKxrc3+/5zghLWm7z3K7HlW9tJVgM1xGFI0z5/AxnNorz6ln5aNsioCk4N/uTqY9lA==
+X-Received: by 2002:a17:902:eccc:b0:215:6489:cfb8 with SMTP id d9443c01a7336-22368f6365emr341829405ad.10.1741102512747;
+        Tue, 04 Mar 2025 07:35:12 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-2235053e41asm96451805ad.255.2025.03.04.07.35.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 07:35:12 -0800 (PST)
+Date: Wed, 5 Mar 2025 00:35:09 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, lpieralisi@kernel.org,
+	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
+	Jonathan.Cameron@huawei.com, fan.ni@samsung.com,
+	nifan.cxl@gmail.com, a.manzanares@samsung.com,
+	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
+	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
+	will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 4/5] Add debugfs based error injection support in DWC
+Message-ID: <20250304153509.GA2310180@rocinante>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132039epcas5p31913eab0acec1eb5e7874897a084c725@epcas5p3.samsung.com>
+ <20250221131548.59616-5-shradha.t@samsung.com>
+ <20250303095200.GB1065658@rocinante>
+ <20250304152952.pal66goo2dwegevh@thinkpad>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|DU4PR04MB11080:EE_
-X-MS-Office365-Filtering-Correlation-Id: 06e5f39c-01ae-449d-6146-08dd5b379ac1
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?W8/8fvsvMwa9ZbTtj2AJmWDznJh5pN4YgAGef4sj3zpDl5WYaEc5laPbgR?=
- =?iso-8859-1?Q?zER9yooz7Txb9Bj1vJEI8f1iea24a7R4E1EtGlZcDY8EbH6rKrw0k1Anae?=
- =?iso-8859-1?Q?rY3MpNBBjpCt52Xtk9I3OU2KlXvkbGsSCXEG+9p+KFj7nMF5Xe98zm9aWg?=
- =?iso-8859-1?Q?n7+SqFpjIlY8+vbiZ8euX7xgfMVRoGufuBWgC2XvNMAaaYOeYA1l2j7Xq3?=
- =?iso-8859-1?Q?rQikqp5izh/os2H2qAFkGui9vystjncZnRGBKcfZoTj4w/RpSR8Tr+HohY?=
- =?iso-8859-1?Q?191cHGk/+iYN/WJY3HsSyJhorYxBgZxkQFo+G/DxS4IYQmDOJ36SmohLiP?=
- =?iso-8859-1?Q?Ex6c3ED+DnaZGkN6NTykXor8YD5CAko6/rumqkkhQMl1qqa9kwObhGL59r?=
- =?iso-8859-1?Q?RigLsLoX18IrJWC1NubZulLYM0y8Y8oI6Rh1oRJlz66JOS7z/WDIt/9Ida?=
- =?iso-8859-1?Q?MGnlHsybE39IXicuT2HHzWnbi8AiIhNIvwqZm3B6e0OcEtguKFgG2KMVOa?=
- =?iso-8859-1?Q?99SBag46dW9uhRbEevoCbzzNSV+wUaw7wkPsVqvMAbcQtYz18NCVzOLIYU?=
- =?iso-8859-1?Q?PyuA70kKatjbhQpfntlM0QTru1JGX15ouimMEo/e3DONqGaMgpYD3ArxhP?=
- =?iso-8859-1?Q?qGqCW8XzvqUYEtDR0sNwM7gcFDio1cPTJ48rU4Q6xK2gMTORdZorVwrBWI?=
- =?iso-8859-1?Q?w518DYX1zo14R1IH+b8Lhw9Vll2416sTeFcNx7k9AMVADCp7tipnnKrK4q?=
- =?iso-8859-1?Q?8ZKhYVynN2oTpkcCRXeXSm7NpfP4pJZFDSSTMzsDufLRWJ71lbKMvU/1ek?=
- =?iso-8859-1?Q?4DGUI7hasNbTsEYFIgpYXTsRLCnMqRLTAyfKCkQNYoC2KQuGmePsmJBbz/?=
- =?iso-8859-1?Q?ZCK/OeoM6LiquosqKyWliznGHIpcuhNtg5GBd6+SWfJ/ohmweIdxgWmwZm?=
- =?iso-8859-1?Q?vDsDfl412vbFinFTkcRc8ilUASy/83FuWS4EJ8Jigf8GlgGYQs/EA++u+Z?=
- =?iso-8859-1?Q?A7QGZim4QA613Yan7p34IvKgsBZ3kNDuKIwbH0T+n3YgH5SJIHnpNiIBKv?=
- =?iso-8859-1?Q?+fbSmaCgfM8o7Ozrr0Xa77UpY1eI2dp3QOW22SCWl2X6ZIOhdCBvTdC6wi?=
- =?iso-8859-1?Q?MtEcysL+WlTiSDBhpo2+9n64+Nx+alZrh6Yck00Vh56FfnFe/8tVNax0I4?=
- =?iso-8859-1?Q?4O17xgL/NOwAPEyRyH+ceNO3PhwfhNRTPzgU4vnw7pe9m+mLIzmYMTxPOp?=
- =?iso-8859-1?Q?90we+4lL6BcsoKJLcXFDUNpyOY1fTdSyyYLSjxfYzgc3Z+ecQJZj25cLj9?=
- =?iso-8859-1?Q?ONYSio/x0VNEjiDixp/PsrxbjZn6L46fE3sGIbYKlufSz4L2ezWUacg07J?=
- =?iso-8859-1?Q?nl4K99ZWwc2M0xlk2Kg+0VGpBWk58jyQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?fkmBM9xIgWTO6pw6JkPxq6hzzjEfXpQySq32DX7TJ6S58LHRRw3PwtCu2F?=
- =?iso-8859-1?Q?2lNXaZRHNFlpSH/jiFAhAd++ykLKIPVxyTJGsY+6BWTrjQhV7dpVvHgA76?=
- =?iso-8859-1?Q?V8HZ7LhlSW9DKDInsF/lVmwjZH3fwjdlEZWONqOANlmPWAlJSjqv4LtyXB?=
- =?iso-8859-1?Q?wIsPBbua5Jfpl67iLAgrlOW+d6kZ8EdqsLmZm97TuTnaR+R1ShYyU/6Ond?=
- =?iso-8859-1?Q?BJjXXlytB/KGw0i1qL/xpm61yFlHnmBjaHIthIWqlDbkfBT3+c4N1N1uOt?=
- =?iso-8859-1?Q?/tIwdcXvmm927Y4lz7HsvxUS1XmYsWPuKI9mCyKPD6wGx9q3bFkxUlMg44?=
- =?iso-8859-1?Q?SHF+ySt8oTC5uhZLG/Vi53ayrjurwPIiNjr24HgeLK3lr2ebpwwBu8wJb4?=
- =?iso-8859-1?Q?9rc/VTi/gFtrSuz7MBNqlLJrz/u+vdW0LfzRdiH2HNa1qNdM7nyxs6n9MP?=
- =?iso-8859-1?Q?w6B5P1MlQ2vhIi+FuMyzkpUupshzmgMEWrNbTfj4FevhyFqmoRP3GP0G73?=
- =?iso-8859-1?Q?hlEew6TEbW0OAGSAUON4QD1FSAmLc5Ur8Y0kGCLV6u2Il+H9WuoTMgUXQu?=
- =?iso-8859-1?Q?NSCRPlCKNL7vRS2ieBzmIXrGalCpkIYEseQG+0dyFsCa9kUnHQt6SNslKw?=
- =?iso-8859-1?Q?d0DtjQ4jnff5x1CCQjO+witQk9NS4/TTYfpUXlNSMCHohTmP4ES+kgVI+L?=
- =?iso-8859-1?Q?SYTcin1yNoz3gHVs9bcBRQYxfcG6buLEup1MokZB883SF5GNTNA6RSf60u?=
- =?iso-8859-1?Q?mC3JCYqPyiFnp9576xlzcnsdTwJg/8OPVVa3e8XDMFzrSyBoPJZohjqO9A?=
- =?iso-8859-1?Q?BBQ6927v50xyNoDq5+BLms3Chi4DP/tgWMUWPsFDu/N/57CBrFaPIb5Gg7?=
- =?iso-8859-1?Q?AOD07gfXKaD7Aac17RvdKnz5+Aa4sVkIAqVXMpsjAG4v7Q82LB1629z/Uc?=
- =?iso-8859-1?Q?bZvcS1Bkw5mFYIFnjCg11qEwIxLEWNKmtRn/MpaOoKW7sCCpzNN+MmEhI0?=
- =?iso-8859-1?Q?IC4jeiTAPVeYSslGWXdiBlHEp613vv0u84FmjZ10M3TUQqLsxY+eBG8u6z?=
- =?iso-8859-1?Q?XBm7uQjS6a/ol6iT/kwV4xRcht1R21renzemw+832EEyg4MC3CkfdvJKbQ?=
- =?iso-8859-1?Q?XNuKq13ogHhAAsPJcaMEgjyBWEyG2am5A2OlcpOqXVYD9cDZ9L6ybP9dR4?=
- =?iso-8859-1?Q?D6Z6gd6XliVkcRC9UKWniw55kfEOucDyQOg0ddT6sPxg28hWJK/eUw7bPs?=
- =?iso-8859-1?Q?oAV1tbj3r+pHfMRkKEud1dKkpNmbd3AlMDtCReTANgWyBhth0ZVtaxy2po?=
- =?iso-8859-1?Q?CMvKs5fxVA7wOEZogIVjFg+c3X/x2WQYoGOG303Xt/Bo+55DxTaCmUniZm?=
- =?iso-8859-1?Q?kLg9IQQZYqgaprNFPDUF173YirI5tfaMx0PZVFWr7xLbw+ELI/Khb9oLJs?=
- =?iso-8859-1?Q?ELWQQx/M1Fp8f0zEyFaPatWsrK9SMRnBYo3DS+N1tkTklDo13x5oMHVji+?=
- =?iso-8859-1?Q?kUP0USLoblcd7z0YRUpD1Tzlk7ecRI8E9MSiqXJ06pKZb24SqIaZZgzSk2?=
- =?iso-8859-1?Q?ThiyiCl0MyheVZJM4mbvEJM8oTaeJbtC5b9exGaRUoZ2qTYkdzgydHgH6W?=
- =?iso-8859-1?Q?rbAeYBCv+nIpeVKpbaLq30BwiExlaJqlBxbepNsajXPUaT9Qbe8MSuJg?=
- =?iso-8859-1?Q?=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 06e5f39c-01ae-449d-6146-08dd5b379ac1
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 16:14:13.8065
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: TMM8zkfL5gRKghekTKpiM/4khptEs0KKMpi/oLmqjZ9X90XAkFttIqBl9K+ETM1vLlfhNTV1+LMUKKWKDSq7UQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB11080
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304152952.pal66goo2dwegevh@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_081419_783772_4304032F 
-X-CRM114-Status: UNSURE (   8.20  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_073515_343452_D4F427C1 
+X-CRM114-Status: GOOD (  10.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,27 +97,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+Hello,
 
-This patch series add initial OF support for Microchip emc2305 fan controller.
+[....]
+> > > +		29) Generates duplicate TLPs - duplicate_dllp
+> > > +		30) Generates Nullified TLPs - nullified_tlp
+> > 
+> > Would the above field called "duplicate_dllp" for duplicate TLPs be
+> > a potential typo?  Perhaps this should be called "duplicate_tlp"?
+> > 
+> 
+> Looks like a typo. As per Synopsys documentation, there is only 'duplicate TLP'
+> field.
+> 
+> Good catch!
 
-Changes since v2:
-- Removed the introduction of new properties for now and we only 
-  enable basic OF support.
-- Link to previous version: 
-  https://lore.kernel.org/linux-arm-kernel/20250219133221.2641041-3-florin.leotescu@oss.nxp.com/T/
+Updated.  Thank you!
 
-Florin Leotescu (3):
-  dt-bindings: hwmon: Add Microchip emc2305 yaml schema
-  hwmon: emc2305: Add OF support
-  hwmon: emc2305: Use devm_thermal_of_cooling_device_register
-
- .../bindings/hwmon/microchip,emc2305.yaml     | 43 +++++++++++++++++++
- drivers/hwmon/emc2305.c                       | 36 ++++++----------
- 2 files changed, 55 insertions(+), 24 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
-
--- 
-2.34.1
-
+	Krzysztof
 
