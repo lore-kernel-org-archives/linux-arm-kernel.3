@@ -4,64 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65862C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:46:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11194C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a9qEsSg9jcpve+CwsRU4DZ4eVncjU6IKX3sFzRmX1D8=; b=1PMQhKt787KHjuCXW3EaKB/x9u
-	jeinfrCpa/fnx0gbRUqK4VUvYOX5TomkdkK2qOjr0scx7Deo9K0ujCmj5IDENAnSWWndfekQ2KshK
-	5oIcyE5OjC/X9CzuyQnoRPqswF4xZE5eGzZzjl6MAYNcEoZgf903h9fY6Na5Q9uFzNcZ6jV1KZn/e
-	R/IWjVLJkdRAJq92syZscDZ84H1HMyL9r6RSprPiOVSCj4WyuJa68jRfWcNmHx62uW7mjqcljcHOa
-	oizj+4/emgaVuEdRbZo19v6oU+Vn18MQLJjl36A1G6OoZ2rtKrlvBozddz9Jn0I7R6jKQ6yUMZQkj
-	cZFscDsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k/NqaLvRye4Cq0LyeXwhNE1kNW2vwV2kBs1us3jXtWU=; b=icrFh9+dYeSHE+ZQQQvrcGG2iy
+	JoM2+Tesljd0wNe9buLUCIMZwSvzL0w2/xZ96Fzu3joMxW7RaL0LfiJw6gLZFryqk5TwHAt5gljYf
+	ehufrNWBWGA81im8DePj/vvtR9QU9LTQ9cwrBiPuoA6ePtexSj8oW8pLpLIc0x5SoS00hCsidnhSQ
+	uCgR+yK2rl+WIr8WUlqW2IwxaC+6+qX5vBRuid1Uq7L0/HzeLHBhm3qjyJx1Iv+ebp0nhE2pT8BRv
+	FcVZ6Enh+CxA3lmaC9cFZpSWB5qBv+ndAcFaY07AJci41/tK0/1zJyobD9IK2o57OYms9OF0GWZB4
+	niPsJJQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpM2p-00000003Kop-2jMF;
-	Tue, 04 Mar 2025 06:46:23 +0000
-Received: from out-182.mta0.migadu.com ([91.218.175.182])
+	id 1tpM4O-00000003LGL-0cMB;
+	Tue, 04 Mar 2025 06:48:00 +0000
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpLlV-00000003H40-3vkL
+	id 1tpM1Q-00000003KVT-0id0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 06:28:31 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741069705;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=a9qEsSg9jcpve+CwsRU4DZ4eVncjU6IKX3sFzRmX1D8=;
-	b=lLtagYgBvJohD4x3FkvhSVUQdRYtTsqp1wUjTnue2MAGOkQovxA/7ffJiU5mxuayj5UJW2
-	7l+E0nMjHo7JqncH6gFCYi5JwENK45yxkmkiAtOqlNjIgX61LtaiKyaMB7xlySVOK+1rCz
-	wdYzsozbTbPjHAUPM+V4PDQ92+Np+CU=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	kvm@vger.kernel.org,
-	Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Eric Auger <eric.auger@redhat.com>
-Subject: Re: [PATCH v4 00/16] KVM: arm64: Add NV GICv3 support
-Date: Mon,  3 Mar 2025 22:27:07 -0800
-Message-Id: <174106961929.349492.6260089060201840223.b4-ty@linux.dev>
-In-Reply-To: <20250225172930.1850838-1-maz@kernel.org>
-References: <20250225172930.1850838-1-maz@kernel.org>
+	Tue, 04 Mar 2025 06:44:57 +0000
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-2234bec7192so83733995ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 22:44:55 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741070695; x=1741675495;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=k/NqaLvRye4Cq0LyeXwhNE1kNW2vwV2kBs1us3jXtWU=;
+        b=bvusGvL3/An51OZI87VZ+dUFjA47RpPSFrvMWlXfqsfvo9/Iub4JQ6T7WT98se2Ko8
+         SW4rWnQwJHODlZBKYEpJykx3x/nBxvzfUj8t4Ry3/8/MGby34sJur8DFrPL+kPGXv/As
+         xVUDbcnm380SkHsEx6dMtAbZQBZoFrLO9JbW5SZqodGaTzek7xqJp+iFn3Pme/QyCN70
+         hRikoYdG85cW/YHQkubp71aiQr+UICaJaT0SQTb79tqBaXgbHhB23lmC6iAqVJFmAfvR
+         MHiyN/qtv56+06bQWuGFnBf/Mu1svqqK61yMbGCjghucB1tjzge08IrlFN/Aa2r8K2qR
+         vuyw==
+X-Forwarded-Encrypted: i=1; AJvYcCV5tcsnT8kegZ8VPgtcHPlzkyAfBilq++sEQZnxxgCp3x+T9fMTu2wsHNqP0G1vMbE31QghXJRxchRVG5J37/Z5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyoLmJ+U3nBx7RncY1bQhioBYtxZuBv1FVFg0br8/1YoE/QJwUB
+	wxEn7OWe/FYamTM96xh5Rf6c1/hm5TP6Nu6MFmjn3fh+rZdKTTKo
+X-Gm-Gg: ASbGncuGSsVWZm5MVVxNcRUiiosrSZn3Jvr3BFXO3Zunj0cgaOqBzRQ4sECbYdnwI3L
+	fCaLLeaZKzhG4ykIx3lzm68cS3ojmrsVeQzZptumk5f5jlv51ylMJQettW6uDTMYcBwxcBBqp1f
+	/rEU0rP87TZpWu7YJnv1Q/FRJ2iZNgl+dsbpdBGMJicKMh6f0d0BBd65SxagrWHNnyabr6o7HRt
+	O5RONKPWVULvIqwvsWzo9KzGyxG2UcBrgPapEoC+vnzZ9K1QtzonI1NYVO35VRh865rq42WR5AG
+	yBePlzyTVLax9mvTo12iEEvTaWgpRMIiHAOCJN/4QSPq0JVl/Ga73xqGQ9piRJFiG8uIhKPrhu1
+	CRB0=
+X-Google-Smtp-Source: AGHT+IHubZ3OFPwp+4oYsLj435L9jVCvESdk0kEc9gOPZuvwk4jvcIWYRz8EL7NQ2ybDdZ4+kOA+fA==
+X-Received: by 2002:a17:903:244d:b0:216:69ca:770b with SMTP id d9443c01a7336-22368f73bbcmr222052325ad.12.1741070695120;
+        Mon, 03 Mar 2025 22:44:55 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-223504c5cc6sm88516415ad.112.2025.03.03.22.44.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 22:44:54 -0800 (PST)
+Date: Tue, 4 Mar 2025 15:44:52 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Fan Ni <nifan.cxl@gmail.com>
+Cc: Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
+	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 3/5] Add debugfs based silicon debug support in DWC
+Message-ID: <20250304064452.GA2615015@rocinante>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132035epcas5p47221a5198df9bf86020abcefdfded789@epcas5p4.samsung.com>
+ <20250221131548.59616-4-shradha.t@samsung.com>
+ <Z8XrYxP_pZr6tFU8@debian>
+ <20250303194647.GC1552306@rocinante>
+ <Z8YWILtSbQnvVqbF@debian>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8YWILtSbQnvVqbF@debian>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_222830_190168_3F8BC464 
-X-CRM114-Status: UNSURE (   8.66  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_224456_211436_0F546DEB 
+X-CRM114-Status: GOOD (  13.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,54 +97,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Feb 2025 17:29:14 +0000, Marc Zyngier wrote:
-> Here's a respin of the NV support for GICv3. The integration branch
-> containing this (and the rest of the NV stack) is still at [4].
+Hello,
+
+[...]
+> > > What will happen if ret != 0? still return 0? 
+> > 
+> > Given that callers of dwc_pcie_debugfs_init() check for errors,
+> > this probably should correctly bubble up any failure coming from
+> > dwc_pcie_rasdes_debugfs_init().
+> > 
+> > I made updates to the code directly on the current branch, have a look:
+> > 
+> >   https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/dwc&id=1ff54f4cbaed9ec6994844967c36cf7ada4cbe5e
+> > 
+> > Let me know if this is OK with you.
 > 
-> At this stage, I think this is good to go.
+> It looks good to me.
 > 
-> * From v3 [3]:
-> 
-> [...]
+> Feel free to add,
+> Reviewed-by: Fan Ni <fan.ni@samsung.com>
 
-Fixed up a few typos here but overall this is in great shape, thank you.
+Will do.  Thank you.
 
-Applied to next, thanks!
-
-[01/16] arm64: sysreg: Add layout for ICH_HCR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/22513c0d2ad8
-[02/16] arm64: sysreg: Add layout for ICH_VTR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/5815fb82dc67
-[03/16] arm64: sysreg: Add layout for ICH_MISR_EL2
-        https://git.kernel.org/kvmarm/kvmarm/c/b7a252e881f3
-[04/16] KVM: arm64: nv: Load timer before the GIC
-        https://git.kernel.org/kvmarm/kvmarm/c/16abeb60be62
-[05/16] KVM: arm64: nv: Add ICH_*_EL2 registers to vpcu_sysreg
-        https://git.kernel.org/kvmarm/kvmarm/c/182f1596941e
-[06/16] KVM: arm64: nv: Plumb handling of GICv3 EL2 accesses
-        https://git.kernel.org/kvmarm/kvmarm/c/96c2f03311de
-[07/16] KVM: arm64: nv: Sanitise ICH_HCR_EL2 accesses
-        https://git.kernel.org/kvmarm/kvmarm/c/21d29cd814d7
-[08/16] KVM: arm64: nv: Nested GICv3 emulation
-        https://git.kernel.org/kvmarm/kvmarm/c/146a050f2d8c
-[09/16] KVM: arm64: nv: Handle L2->L1 transition on interrupt injection
-        https://git.kernel.org/kvmarm/kvmarm/c/4b1b97f0d7cf
-[10/16] KVM: arm64: nv: Add Maintenance Interrupt emulation
-        https://git.kernel.org/kvmarm/kvmarm/c/201c8d40dde9
-[11/16] KVM: arm64: nv: Respect virtual HCR_EL2.TWx setting
-        https://git.kernel.org/kvmarm/kvmarm/c/69c9176c3862
-[12/16] KVM: arm64: nv: Request vPE doorbell upon nested ERET to L2
-        https://git.kernel.org/kvmarm/kvmarm/c/93078ae63f20
-[13/16] KVM: arm64: nv: Propagate used_lrs between L1 and L0 contexts
-        https://git.kernel.org/kvmarm/kvmarm/c/7682c023212e
-[14/16] KVM: arm64: nv: Fold GICv3 host trapping requirements into guest setup
-        https://git.kernel.org/kvmarm/kvmarm/c/89896cc15911
-[15/16] KVM: arm64: nv: Allow userland to set VGIC maintenance IRQ
-        https://git.kernel.org/kvmarm/kvmarm/c/faf7714a47a2
-[16/16] KVM: arm64: nv: Fail KVM init if asking for NV without GICv3
-        https://git.kernel.org/kvmarm/kvmarm/c/83c6cb20147b
-
---
-Best,
-Oliver
+	Krzysztof
 
