@@ -4,82 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00070C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BAEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=; b=TtisbY+nvuIk8V3X4ZUfPgP9BR
-	6doSiMroszlK7KIAczI6kym11JBuNhhD+d0yGfYv6PdYRdGZbUZBovhD/WiQPzSJunQnQvFoazto/
-	ExU0rndnn1J4NquhirxwnyKI+//unmlxAMe0TaqOQ6552wwMC9S6yEfFO6RQ5ToztxfNsAQlny0Ez
-	wYeaFBEGzw9ylCO2B5A0Otz85XKUKnjJD0z9DX5SqHcZgQ+BsXUC0wYhmODgyD5ltAQ87om6KwFLc
-	eTvzWD2byug3NuVEJEH+0xhF9hK6PQO7ZsIwZF/0W/2+gauzcKXb9a54TaM+kJjuJyMWBXNGkV2yd
-	ZmDLqhfA==;
+	bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=; b=s0Cdq2XC08j7tZmM7reGD8Ukbx
+	CakYl/nu5YMaQka8kesreJRcRbWvRWiYFvqF/33qirCr2YhwKNBwETBpcm1jEYgkp7UvSXkMRXdRi
+	aBEPP8N6BXlfHLh4OhW01MvE/ZaHuLjceSoEmChxCpKIg3oVfNtuet7rlHmPhIDWo3rsdsumEEaSp
+	AroHnHqeJNpQtUK79q8PXOix/jiXdUWtwU86twLrEn9bOV2VP1m9bbPhQ0tGa9ZIdaU6SAPrcAlRv
+	vQqVQ+7VGFbDn4vGe3ZQpaQlkG7GEZ0+ytoczRs/bCOkNKdAhC9vdixePu9NImUU6aiLs5+RlN+Tu
+	1D68jhNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWma-00000005nQf-3UTk;
-	Tue, 04 Mar 2025 18:14:20 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1tpWmy-00000005nWp-1evg;
+	Tue, 04 Mar 2025 18:14:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVZF-00000005W5G-0A1v
+	id 1tpUVq-00000005Hin-108v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:56:30 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-4750a85a0ddso4901cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 08:56:28 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741107388; x=1741712188; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=;
-        b=v/0X1Mx7zRFkw7ZWjqxKGt1MKxWcxhg1BLFqyAoeON4AwJetsskie0pV2IgK/RTeCb
-         MwZFolznq0g6euoY/pdKc24CQST+OfFkoGgJD7l/WSeTtD1kL3Xwkt5R+YRYIMyWvv5s
-         KLJjf7dz+t8RNoJvtGekbYeFqjftIYI1aRAX6Vwhs9UO8npJHsC+kkx2cc+I6azCyRpK
-         t6u2bFpiglWWv108ip4dFXV5VieorR37ZjlPwNVy92IeKzn+h5Z8hmD09J3BWS9dBabW
-         8ncAJeeoTdJZYJkfiiwj2jjGuBxThXuSZi1FRBNxhG6zcVH62+XyvkUl8iToaJwlzrDV
-         o4Gg==
+	Tue, 04 Mar 2025 15:48:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741103333;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=;
+	b=bAhdoQSm9XaMTJHTxGnLddPdJSnt1yxl0cUlaR9g0bpz8TCqhnGeuKUMPyh15k6NH0o6L1
+	inS1BBgP8LWx1DMeP08sSP1d/84RP7C2UkJ9REfJryGMThBDCyROUvPuFiYhQDDBYJxGXe
+	9SXFd9M/mBbqrdRCUQclTg6sDU02SHw=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-39-64atDQihPACOpKXXcGipbg-1; Tue, 04 Mar 2025 10:48:52 -0500
+X-MC-Unique: 64atDQihPACOpKXXcGipbg-1
+X-Mimecast-MFC-AGG-ID: 64atDQihPACOpKXXcGipbg_1741103331
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4399a5afc72so26872155e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:48:51 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741107388; x=1741712188;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=9DtRkP6CYCN2VX6LAP0NMel2JbBrN6HKmyX2jA5Yc7E=;
-        b=unQJNVU4jHSi4rgn4+aKpiP+WPO5quWux7eMIyzVzCis+mw96tEAkSfosFwZTf3w7I
-         4o4YZojB1YtSX2x3JDF745XSCGZQrjfzamSOYzp2g14yj/rMFKLKGXluOdi5xQI2Vy7f
-         6w5xQuUq8YaUloPelmkpD1FJUMxnA0b7iWk87yPInxVTeGAs3Ltx2nei493q1KDWYWHq
-         fVHzGB//rYcm9dTfgV9NzkbpHKHVNY0gAUDYCom7D9wE7OJi0MhRwUsZ9eWl3OL2dnCe
-         ZHnJqnqsRu8Irri4Ch7SDtwpCmd6Rhhaa3E7bqiHBl3s1nyYg6Hwvcs9y4fzV+Tcx32w
-         bfuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV+fmpQwwmIw7EEiaRWSnWdco9vg/8cXSuENVgskWmoC/V2kjwAYeozAWiWKbH6Cg5M1YPfHCG/pAfW+EdfSEkV@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywn2ec9FYMNiGeiU2DPt4TyqvrSXkegf2QfOG4S08E3VWjelnp7
-	hc8nNWBdnOh/wEAsVBcI6hVIQfbntCYzcuvD9hepCX4A5QbNClawg9X4qH24HWfi4CkgYJxFHkZ
-	g0GuAFlgqBzFBlc2ES8ubKv9VaGbOBzdULFMDs5qLPh6B2AYxJt3W
-X-Gm-Gg: ASbGnctiYIRwD2D2+u+/KClONFLjgSupjwaKP5Z8u0hQa5Fzh0FpTjfWzicqwdJwfv0
-	vTIs/cTsk+uktqu08uLMrYJpjK7CxQ6kNswIJ672xzMLLuN5JzJRNj52AOude3yusNSGYfGYK7L
-	OtTn6/UrDy4a78ldo4ViabGzRRP2fAreLbxj4f2AC89Z9br1KvVeNOqQ==
-X-Google-Smtp-Source: AGHT+IF23vzPgXJFq7laGxxdPorzVUnziNDjwTEtrDs+9M/YfHZweGHZAZN5eGiioteQmHR0kHXdQj+z0gs3Xcfs9rk=
-X-Received: by 2002:a05:622a:48e:b0:474:cbac:a983 with SMTP id
- d75a77b69052e-4750a4d1015mr307611cf.6.1741107387427; Tue, 04 Mar 2025
- 08:56:27 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741103331; x=1741708131;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=;
+        b=dbgano3ad4ir6kyCUAwv0RwtE1lFzB0gkh02wCothTqH2iME5TJM/CU09gZtiZAWJO
+         PvpzmRtoHRq5dIeW8twZwT2DsuYKUKpE64wijfAfMXoYI3Lr2+ipChS67mHhJi7xctpb
+         F0xTijeep0Aja3/J5uuoXXB1shc3Nm4WHkI/xIrMJN7qBSff1bYQgvUZ4T4jDTLNLh3J
+         c66KXB6EpkWZ7yu1sCV7gi9z0ELX7AQlAnbWn+JP0XXeK9psrtFx88fLvrbovwID2/oI
+         lcQEsESGJRmJpvNe6a9oSjiIBR/yPZjrxkVRvBGCsAkNjdI80iD5k7nGgWx6u/BLpIFh
+         1bMg==
+X-Forwarded-Encrypted: i=1; AJvYcCXbZPcCJ07/p6fODta+qjFIMwc38ynENx1PnqJNqSQupuSSSNuVhbf607oklgwJ/FVWxkoQPVhJtt2pM9AbSP4L@lists.infradead.org
+X-Gm-Message-State: AOJu0YxD0iiKc6riE72Ck246QfG9nM/A3KHDapptK3ZLW46dLp6IRZ/6
+	93VLFscJjTQ25tq07VVPExUsWBZEYqvqFMMsApvWTglwewUgWX43heKqOb1pcWQJwJL99f00//j
+	Vs+EB4HIADKwVZyG45qIeii7x9b7bMkuVkbpCFYAzWw/2E6Te8BjBBihvnKFEdQo4zpJenuZM
+X-Gm-Gg: ASbGncuAmzM0PIqlIVlblO5KxJmVe3aASEErPpzbppDPGRoX7p4WV2rIWRU+qJGruAT
+	JdOpS6nP/7hwF4p4yjNajbidJIEJnWhDP1nk8lp/pIYzGQrugSIda1vdbxQ5TJfA2EVbKmFgnHa
+	/fdv0qE9GgRQ7VLXRUMeIFfa8kZZHSYG1j/OIwEJnN9o5zbybnU+iQjZIKsGAS2Lz1b7F/BW+Wr
+	M10rLr3mwFGoZOntj/OSgvmwxbQzWEzFt+v0gEO5f9gWYRZwRybAK/ehUDlpwYhE7SvKMYAXj1w
+	39ktTMwfVHemHuw8oOxxn1Gs+kTAtCohhlcYbmbn/9xuPbMy2aCZNo9BoslX5qu0rqWDN0dgKvY
+	d
+X-Received: by 2002:a5d:5847:0:b0:390:e94c:453e with SMTP id ffacd0b85a97d-390eca070b2mr17839164f8f.39.1741103331038;
+        Tue, 04 Mar 2025 07:48:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFS2yQ2nIm92Fqm8oP87QtIsIbeZe5pQ0O0ho/Z0iCYCjljpWAZZP5v8ry/LGiAu8oiIQK1RQ==
+X-Received: by 2002:a5d:5847:0:b0:390:e94c:453e with SMTP id ffacd0b85a97d-390eca070b2mr17839137f8f.39.1741103330643;
+        Tue, 04 Mar 2025 07:48:50 -0800 (PST)
+Received: from localhost (p200300cbc73610009e302a8acd3d419c.dip0.t-ipconnect.de. [2003:cb:c736:1000:9e30:2a8a:cd3d:419c])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390e485d906sm18206420f8f.90.2025.03.04.07.48.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 07:48:50 -0800 (PST)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Tong Tiangen <tongtiangen@huawei.com>
+Subject: [PATCH -next v1 1/3] kernel/events/uprobes: pass VMA instead of MM to remove_breakpoint()
+Date: Tue,  4 Mar 2025 16:48:44 +0100
+Message-ID: <20250304154846.1937958-2-david@redhat.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250304154846.1937958-1-david@redhat.com>
+References: <20250304154846.1937958-1-david@redhat.com>
 MIME-Version: 1.0
-References: <20250210184150.2145093-1-maz@kernel.org> <20250210184150.2145093-8-maz@kernel.org>
-In-Reply-To: <20250210184150.2145093-8-maz@kernel.org>
-From: Fuad Tabba <tabba@google.com>
-Date: Tue, 4 Mar 2025 16:55:50 +0000
-X-Gm-Features: AQ5f1JpeNlKdk-l5r71vf2tqDSYKeajf6KLHiNZ0LiUdyjmTYrSWEAH6GprWQ2A
-Message-ID: <CA+EHjTwm4CosWDGcaH_tnLU7zMNCq8twDyEcKd7-V0Lu7b-LcA@mail.gmail.com>
-Subject: Re: [PATCH 07/18] KVM: arm64: Compute FGT masks from KVM's own FGT tables
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvmarm@lists.linux.dev, kvm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Joey Gouly <joey.gouly@arm.com>, 
-	Suzuki K Poulose <suzuki.poulose@arm.com>, Oliver Upton <oliver.upton@linux.dev>, 
-	Zenghui Yu <yuzenghui@huawei.com>, Mark Rutland <mark.rutland@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: I_LW-Y73KrAJswuBp3IBP0RPMBuZh_7nH32tTQBWMgk_1741103331
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_085629_079399_19E7A025 
-X-CRM114-Status: GOOD (  28.69  )
+X-CRM114-CacheID: sfid-20250304_074854_348369_88931023 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,200 +128,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc,
+... and remove the "MM" argument from install_breakpoint(), because it
+can easily be derived from the VMA.
 
-On Mon, 10 Feb 2025 at 18:42, Marc Zyngier <maz@kernel.org> wrote:
->
-> In the process of decoupling KVM's view of the FGT bits from the
-> wider architectural state, use KVM's own FGT tables to build
-> a synthitic view of what is actually known.
+Signed-off-by: David Hildenbrand <david@redhat.com>
+---
+ kernel/events/uprobes.c | 20 +++++++++++---------
+ 1 file changed, 11 insertions(+), 9 deletions(-)
 
-synthitic -> synthetic
+diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
+index 8fc53813779a4..991aacc80d0e0 100644
+--- a/kernel/events/uprobes.c
++++ b/kernel/events/uprobes.c
+@@ -1134,10 +1134,10 @@ static bool filter_chain(struct uprobe *uprobe, struct mm_struct *mm)
+ 	return ret;
+ }
+ 
+-static int
+-install_breakpoint(struct uprobe *uprobe, struct mm_struct *mm,
+-			struct vm_area_struct *vma, unsigned long vaddr)
++static int install_breakpoint(struct uprobe *uprobe, struct vm_area_struct *vma,
++		unsigned long vaddr)
+ {
++	struct mm_struct *mm = vma->vm_mm;
+ 	bool first_uprobe;
+ 	int ret;
+ 
+@@ -1162,9 +1162,11 @@ install_breakpoint(struct uprobe *uprobe, struct mm_struct *mm,
+ 	return ret;
+ }
+ 
+-static int
+-remove_breakpoint(struct uprobe *uprobe, struct mm_struct *mm, unsigned long vaddr)
++static int remove_breakpoint(struct uprobe *uprobe, struct vm_area_struct *vma,
++		unsigned long vaddr)
+ {
++	struct mm_struct *mm = vma->vm_mm;
++
+ 	set_bit(MMF_RECALC_UPROBES, &mm->flags);
+ 	return set_orig_insn(&uprobe->arch, mm, vaddr);
+ }
+@@ -1296,10 +1298,10 @@ register_for_each_vma(struct uprobe *uprobe, struct uprobe_consumer *new)
+ 		if (is_register) {
+ 			/* consult only the "caller", new consumer. */
+ 			if (consumer_filter(new, mm))
+-				err = install_breakpoint(uprobe, mm, vma, info->vaddr);
++				err = install_breakpoint(uprobe, vma, info->vaddr);
+ 		} else if (test_bit(MMF_HAS_UPROBES, &mm->flags)) {
+ 			if (!filter_chain(uprobe, mm))
+-				err |= remove_breakpoint(uprobe, mm, info->vaddr);
++				err |= remove_breakpoint(uprobe, vma, info->vaddr);
+ 		}
+ 
+  unlock:
+@@ -1472,7 +1474,7 @@ static int unapply_uprobe(struct uprobe *uprobe, struct mm_struct *mm)
+ 			continue;
+ 
+ 		vaddr = offset_to_vaddr(vma, uprobe->offset);
+-		err |= remove_breakpoint(uprobe, mm, vaddr);
++		err |= remove_breakpoint(uprobe, vma, vaddr);
+ 	}
+ 	mmap_read_unlock(mm);
+ 
+@@ -1610,7 +1612,7 @@ int uprobe_mmap(struct vm_area_struct *vma)
+ 		if (!fatal_signal_pending(current) &&
+ 		    filter_chain(uprobe, vma->vm_mm)) {
+ 			unsigned long vaddr = offset_to_vaddr(vma, uprobe->offset);
+-			install_breakpoint(uprobe, vma->vm_mm, vma, vaddr);
++			install_breakpoint(uprobe, vma, vaddr);
+ 		}
+ 		put_uprobe(uprobe);
+ 	}
+-- 
+2.48.1
 
-
-> This allows for some checking along the way.
->
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-> ---
->  arch/arm64/include/asm/kvm_arm.h  |   4 ++
->  arch/arm64/include/asm/kvm_host.h |  14 ++++
->  arch/arm64/kvm/emulate-nested.c   | 102 ++++++++++++++++++++++++++++++
->  3 files changed, 120 insertions(+)
->
-> diff --git a/arch/arm64/include/asm/kvm_arm.h b/arch/arm64/include/asm/kvm_arm.h
-> index 8d94a6c0ed5c4..e424085f2aaca 100644
-> --- a/arch/arm64/include/asm/kvm_arm.h
-> +++ b/arch/arm64/include/asm/kvm_arm.h
-> @@ -359,6 +359,10 @@
->  #define __HAFGRTR_EL2_MASK     (GENMASK(49, 17) | GENMASK(4, 0))
->  #define __HAFGRTR_EL2_nMASK    ~(__HAFGRTR_EL2_RES0 | __HAFGRTR_EL2_MASK)
->
-> +/* Because the sysreg file mixes R and W... */
-> +#define HFGRTR_EL2_RES0                HFGxTR_EL2_RES0 (0)
-> +#define HFGWTR_EL2_RES0                (HFGRTR_EL2_RES0 | __HFGRTR_ONLY_MASK)
-
-__HFGRTR_ONLY_MASK is a hand-crafted bitmask. The only bit remaining
-in HFGxTR_EL2 that is RES0 is bit 51. If that were to be used as an
-HFGRTR-only bit without __HFGRTR_ONLY_MASK getting updated, then
-aggregate_fgt() below would set its bit in hfgwtr_masks. Could this be
-a problem if this happens and the polarity of this bit ends up being
-negative, thereby setting the corresponding nmask bit?
-
-Cheers,
-/fuad
-
-> +
->  /* Similar definitions for HCRX_EL2 */
->  #define __HCRX_EL2_RES0         HCRX_EL2_RES0
->  #define __HCRX_EL2_MASK                (BIT(6))
-> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-> index 7cfa024de4e34..4e67d4064f409 100644
-> --- a/arch/arm64/include/asm/kvm_host.h
-> +++ b/arch/arm64/include/asm/kvm_host.h
-> @@ -569,6 +569,20 @@ struct kvm_sysreg_masks {
->         } mask[NR_SYS_REGS - __SANITISED_REG_START__];
->  };
->
-> +struct fgt_masks {
-> +       const char      *str;
-> +       u64             mask;
-> +       u64             nmask;
-> +       u64             res0;
-> +};
-> +
-> +extern struct fgt_masks hfgrtr_masks;
-> +extern struct fgt_masks hfgwtr_masks;
-> +extern struct fgt_masks hfgitr_masks;
-> +extern struct fgt_masks hdfgrtr_masks;
-> +extern struct fgt_masks hdfgwtr_masks;
-> +extern struct fgt_masks hafgrtr_masks;
-> +
->  struct kvm_cpu_context {
->         struct user_pt_regs regs;       /* sp = sp_el0 */
->
-> diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-> index 607d37bab70b4..bbfe89c37a86e 100644
-> --- a/arch/arm64/kvm/emulate-nested.c
-> +++ b/arch/arm64/kvm/emulate-nested.c
-> @@ -2033,6 +2033,101 @@ static u32 encoding_next(u32 encoding)
->         return sys_reg(op0 + 1, 0, 0, 0, 0);
->  }
->
-> +#define FGT_MASKS(__n, __m)                                            \
-> +       struct fgt_masks __n = { .str = #__m, .res0 = __m, }
-> +
-> +FGT_MASKS(hfgrtr_masks, HFGRTR_EL2_RES0);
-> +FGT_MASKS(hfgwtr_masks, HFGWTR_EL2_RES0);
-> +FGT_MASKS(hfgitr_masks, HFGITR_EL2_RES0);
-> +FGT_MASKS(hdfgrtr_masks, HDFGRTR_EL2_RES0);
-> +FGT_MASKS(hdfgwtr_masks, HDFGWTR_EL2_RES0);
-> +FGT_MASKS(hafgrtr_masks, HAFGRTR_EL2_RES0);
-> +
-> +static __init bool aggregate_fgt(union trap_config tc)
-> +{
-> +       struct fgt_masks *rmasks, *wmasks;
-> +
-> +       switch (tc.fgt) {
-> +       case HFGxTR_GROUP:
-> +               rmasks = &hfgrtr_masks;
-> +               wmasks = &hfgwtr_masks;
-> +               break;
-> +       case HDFGRTR_GROUP:
-> +               rmasks = &hdfgrtr_masks;
-> +               wmasks = &hdfgwtr_masks;
-> +               break;
-> +       case HAFGRTR_GROUP:
-> +               rmasks = &hafgrtr_masks;
-> +               wmasks = NULL;
-> +               break;
-> +       case HFGITR_GROUP:
-> +               rmasks = &hfgitr_masks;
-> +               wmasks = NULL;
-> +               break;
-> +       }
-> +
-> +       /*
-> +        * A bit can be reserved in either the R or W register, but
-> +        * not both.
-> +        */
-> +       if ((BIT(tc.bit) & rmasks->res0) &&
-> +           (!wmasks || (BIT(tc.bit) & wmasks->res0)))
-> +               return false;
-> +
-> +       if (tc.pol)
-> +               rmasks->mask |= BIT(tc.bit) & ~rmasks->res0;
-> +       else
-> +               rmasks->nmask |= BIT(tc.bit) & ~rmasks->res0;
-> +
-> +       if (wmasks) {
-> +               if (tc.pol)
-> +                       wmasks->mask |= BIT(tc.bit) & ~wmasks->res0;
-> +               else
-> +                       wmasks->nmask |= BIT(tc.bit) & ~wmasks->res0;
-> +       }
-> +
-> +       return true;
-> +}
-> +
-> +static __init int check_fgt_masks(struct fgt_masks *masks)
-> +{
-> +       unsigned long duplicate = masks->mask & masks->nmask;
-> +       u64 res0 = masks->res0;
-> +       int ret = 0;
-> +
-> +       if (duplicate) {
-> +               int i;
-> +
-> +               for_each_set_bit(i, &duplicate, 64) {
-> +                       kvm_err("%s[%d] bit has both polarities\n",
-> +                               masks->str, i);
-> +               }
-> +
-> +               ret = -EINVAL;
-> +       }
-> +
-> +       masks->res0 = ~(masks->mask | masks->nmask);
-> +       if (masks->res0 != res0)
-> +               kvm_info("Implicit %s = %016llx, expecting %016llx\n",
-> +                        masks->str, masks->res0, res0);
-> +
-> +       return ret;
-> +}
-> +
-> +static __init int check_all_fgt_masks(int ret)
-> +{
-> +       int err = 0;
-> +
-> +       err |= check_fgt_masks(&hfgrtr_masks);
-> +       err |= check_fgt_masks(&hfgwtr_masks);
-> +       err |= check_fgt_masks(&hfgitr_masks);
-> +       err |= check_fgt_masks(&hdfgrtr_masks);
-> +       err |= check_fgt_masks(&hdfgwtr_masks);
-> +       err |= check_fgt_masks(&hafgrtr_masks);
-> +
-> +       return ret ?: err;
-> +}
-> +
->  int __init populate_nv_trap_config(void)
->  {
->         int ret = 0;
-> @@ -2097,8 +2192,15 @@ int __init populate_nv_trap_config(void)
->                         ret = xa_err(prev);
->                         print_nv_trap_error(fgt, "Failed FGT insertion", ret);
->                 }
-> +
-> +               if (!aggregate_fgt(tc)) {
-> +                       ret = -EINVAL;
-> +                       print_nv_trap_error(fgt, "FGT bit is reserved", ret);
-> +               }
->         }
->
-> +       ret = check_all_fgt_masks(ret);
-> +
->         kvm_info("nv: %ld fine grained trap handlers\n",
->                  ARRAY_SIZE(encoding_to_fgt));
->
-> --
-> 2.39.2
->
 
