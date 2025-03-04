@@ -4,100 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C24DEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:20:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C4F5C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:37:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MO1oDsAGx4BA8WWOCDr9myR5I52bhpUx7oLdchtJUhA=; b=Z8z/J1aze/jpRbZsEthVKaiR9X
-	f8MlvDwutH/WFqqbwu/qTFLCoRI2hj15oDq+BbPL3Iz0V9FSH0bCFi0yqZkM1eThqKEGVR6uTgXNH
-	jqrLcGLixLGjJkzUe9ua1LcpgqaRrSw855eelrbd2VjU4MYIr5rGrodJ3jCuEnxuCZ3SPpdYfWXr5
-	JQe2OMxVjUoq0h9SXlrDFO3wHvw1i+AcMJu4+44P1PcP/VKp2n0EwgaqWGZ0P6uzWJioKEG74wU2u
-	f09Kj/XArb6YmguP4onbzKTF6GMHGdsWmX/W/t0UYOZOad5OvEd9kp/WqGZZoIkjfDJtFyvYASa02
-	E7Aa4kig==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=4CWGFjVhOpMP2q2YFrzNEc70aY3Ks6YYocmWlhuEMNs=; b=vSSZqgj9Pi81l3
+	2w+2IlKt22yPaMkw8zTD/QtP/AWFPXaXstnTAiblTx994PFEeA6sEq1umpxCke989200fDQMlRmnw
+	Kvoff4pSnr+MOgDM5fb+GZDHaD/gDMGZnocv2E1yiN+shplH3H5a+Dv0e8zFkeLmadwmEW2EsQYw9
+	jpiEr/Chd+nwe97/Z7w8+eU4gDGs3FpONwYOvoPhbkGJyKXt1wcdVv+xfUdo0AMHNSEnTXc8tlGky
+	bWD/A8w8L3sl04jtE1kY34oV+XYUvkCyo+kZPr40/hTLhZwPDrvBijsRSmNpYNO0ul9Z74JADHCuC
+	7EDwUy0ZrsagwLvTlv+w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZgj-00000006IAY-3toW;
-	Tue, 04 Mar 2025 21:20:29 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tpZxI-00000006JUd-3cYr;
+	Tue, 04 Mar 2025 21:37:36 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZUo-00000006GW0-2IPJ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 21:08:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741122489;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=MO1oDsAGx4BA8WWOCDr9myR5I52bhpUx7oLdchtJUhA=;
-	b=GBgam1jvqgF6Y3STLKGX3TZ3jtxDHVA+S4rbYBdLwWcVdaioeawf5FpPAz6lTcXghCqC8U
-	F6ZDnGSa2L/G2MfrhFOxHsVGHu70RylNQbQckDW3tMS7nNDndRGNzh4XIdk7GLi5gU3YnG
-	0mOS5guh7J/+ZV90PI7JmsGE7/IMcNo=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-442-bXja5sp3M1KshUiRQ4-eaw-1; Tue,
- 04 Mar 2025 16:06:38 -0500
-X-MC-Unique: bXja5sp3M1KshUiRQ4-eaw-1
-X-Mimecast-MFC-AGG-ID: bXja5sp3M1KshUiRQ4-eaw_1741122394
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	id 1tpZvi-00000006JFr-215M;
+	Tue, 04 Mar 2025 21:36:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741124156;
+	bh=6Bc7g4mKArhcl6kXe95ybV+LNzHSc7Zsr7451OcuWLY=;
+	h=From:Subject:Date:To:Cc:From;
+	b=iWVWc1gj0oidP3d8c6SPfKkJ2A5uSWUUU9U095jDfR+GjEzusAcOqGNJhjLGXbeg3
+	 /NKOt7hJ9awU/+/Rt3budT5uf8iNdUF8sob0ppjb/4/WwcR4iYsB0MUlAYGsNLp1W0
+	 P7/vG+suixChc5YWbKaYMI4cp44iFUiZ3q0iiU3e22O7iJNnfr7e9DV6wKSkNUQibq
+	 daXaAZPYLOJGlUIluYVXRq8f5l5N2vV4/OSv65j0a8W8QIqr1rdjgmuVMCKG0tE7Uc
+	 y31yE9tI1KDYOd69NBp/j0CAWVBFEWgzRX9fZgzwepaJA2z/KbLNhWj1Xh5lM3VnFh
+	 iCacrWb4vDlsA==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BF5F5180098B;
-	Tue,  4 Mar 2025 21:06:33 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.107])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 4D8B81800361;
-	Tue,  4 Mar 2025 21:06:27 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Tue, 04 Mar 2025 16:05:36 -0500
-Subject: [PATCH v5 6/7] drm/tegra: move to devm_platform_ioremap_resource()
- usage
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 46EFE17E088C;
+	Tue,  4 Mar 2025 22:35:52 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v2 0/3] Allow retrieving accessory detection reference on
+ MT8188
+Date: Tue, 04 Mar 2025 18:35:35 -0300
+Message-Id: <20250304-mt8188-accdet-v2-0-27f496c4aede@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250304-mem-fixes-v1-6-fb3dab8d901f@redhat.com>
-References: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-In-Reply-To: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
- Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
- Marek Vasut <marex@denx.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Jonathan Corbet <corbet@lwn.net>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
- Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741122340; l=1560;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=/1uyauwGTyarRS5zbo7VigxpNs57qz5tT34D8A+G7fo=;
- b=iOHYkEofhz7g9PAkjQS/oPydE4OY11I24guknaXWtgIJGT0Hu6eIxQuqc/nqFl3SLCuPDTj4P
- uGEGQF4mNSBAi6wNhTvjhD1i8NY46NNANbT1yyugwJIcBrmfMVmAeKV
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIACdyx2cC/3XMSw7CIBSF4a00dywGKBjiyH2YDnhc7U3aYoAQT
+ cPexc4d/ic53w4ZE2GG67BDwkqZ4tZDngbws92eyCj0Bsml5lIothYjjGHW+4CFqYDWOaP1qAL
+ 0zyvhg96Hd596z5RLTJ+Dr+K3/pOqYJxdnAtambGD7ubjslgXkz37uMLUWvsCB8HLMa4AAAA=
+X-Change-ID: 20250214-mt8188-accdet-4deabb85534d
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Trevor Wu <trevor.wu@mediatek.com>, Jaroslav Kysela <perex@perex.cz>, 
+ Takashi Iwai <tiwai@suse.com>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Zoran Zhan <zoran.zhan@mediatek.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_130810_722000_85973206 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20250304_133558_685283_8BA96F4C 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +85,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace platform_get_resource + devm_ioremap_resource
-with just devm_platform_ioremap_resource()
+This series enables the MT8188-MT6359 sound driver to retrieve the
+MT6359 ACCDET sound component from a mediatek,accdet DT property, which
+allows detecting jack insertion/removal.
 
-Used Coccinelle to do this change. SmPl patch:
-@rule_1@
-identifier res;
-expression ioremap_res;
-identifier pdev;
-@@
--struct resource *res;
-...
--res = platform_get_resource(pdev,...);
--ioremap_res = devm_ioremap_resource(...);
-+ioremap_res = devm_platform_ioremap_resource(pdev,0);
+Patch 1 describes the new property in the binding. Patch 2 implements
+the sound component retrieval in the common MTK soundcard driver. Patch
+3 updates the MT8188-MT6359 sound driver to register the audio jack and
+initialize the ACCDET driver for detection, if the property is present.
 
-Cc: Thierry Reding <thierry.reding@gmail.com>
-Cc: Mikko Perttunen <mperttunen@nvidia.com>
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
+Tested on the Genio 700 EVK board.
+
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 ---
- drivers/gpu/drm/tegra/dsi.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Changes in v2:
+- Added CONFIG_SND_SOC_MT6359_ACCDET select in
+  CONFIG_SND_SOC_MT8188_MT6359 to avoid build failure
+- Clarified in mediatek,accdet dt-binding and commit description that
+  the property should only be present if the accdet is actually used
+- Link to v1: https://lore.kernel.org/r/20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com
 
-diff --git a/drivers/gpu/drm/tegra/dsi.c b/drivers/gpu/drm/tegra/dsi.c
-index 9bb077558167293c8e47ca9578cef13172b0b22f..b5089b7722676cfaee5d28216af4ae706a47f895 100644
---- a/drivers/gpu/drm/tegra/dsi.c
-+++ b/drivers/gpu/drm/tegra/dsi.c
-@@ -1564,7 +1564,6 @@ static int tegra_dsi_ganged_probe(struct tegra_dsi *dsi)
- static int tegra_dsi_probe(struct platform_device *pdev)
- {
- 	struct tegra_dsi *dsi;
--	struct resource *regs;
- 	int err;
- 
- 	dsi = devm_kzalloc(&pdev->dev, sizeof(*dsi), GFP_KERNEL);
-@@ -1636,8 +1635,7 @@ static int tegra_dsi_probe(struct platform_device *pdev)
- 		goto remove;
- 	}
- 
--	regs = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	dsi->regs = devm_ioremap_resource(&pdev->dev, regs);
-+	dsi->regs = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(dsi->regs)) {
- 		err = PTR_ERR(dsi->regs);
- 		goto remove;
+---
+Nícolas F. R. A. Prado (3):
+      ASoC: dt-bindings: mediatek,mt8188-mt6359: Add mediatek,accdet
+      ASoC: mediatek: common: Handle mediatek,accdet property
+      ASoC: mediatek: mt8188-mt6359: Add accdet headset jack detect support
 
+ .../bindings/sound/mediatek,mt8188-mt6359.yaml     |  8 ++++
+ sound/soc/mediatek/Kconfig                         |  1 +
+ sound/soc/mediatek/common/mtk-soc-card.h           |  1 +
+ sound/soc/mediatek/common/mtk-soundcard-driver.c   | 15 +++++++-
+ sound/soc/mediatek/mt8188/mt8188-mt6359.c          | 43 ++++++++++++++++++++++
+ 5 files changed, 67 insertions(+), 1 deletion(-)
+---
+base-commit: 20d5c66e1810e6e8805ec0d01373afb2dba9f51a
+change-id: 20250214-mt8188-accdet-4deabb85534d
+
+Best regards,
 -- 
-2.48.1
+Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
