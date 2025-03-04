@@ -4,103 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F95CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 07:20:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5189C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 07:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zzHbHM5F2Rwe7GWQtoT/vBL3j3IgEpxjxlyoiFn8SsI=; b=yRPDA9PkaMEqbnmP/dOuM85vU3
-	n4gs5qaqHqLApuhHIal1CrBsf2K+wv4OovYiL8EY/uD8pnNpigm55S5UqfiIeHMtvn37dxTd0Fcjg
-	2dayRZUVYH2JGPzJszUg17rBjBtONlc3nkDuP/BtKShHGItsHpt9shVMdG7qrGVBUKEyMZXvYchGv
-	EzYoqn4XFjO8CHUe3ZFqfZyh1tnmWcxnsQncZjMZFh3llyEAp1UkYnbS5FJ60Du2Sar1XAFw3vZem
-	P1DdEgUNTYsV26qU6FLuoTsnLKj5FQQz1eHeWFF78cFXcQl0r/kdled7TGHmkMmhwIlm/Meanh6sP
-	nc/gzyfg==;
+	bh=lLp8Af+v6ndY3VqwdlUWx/qEVaNP+W4ZIk8UG2gEJNk=; b=oKwm+LQUjaaqBvQlj7e2gWa6+2
+	4R6sX2oRvlv+Kq1BB1MxBdo8MxHxjfXJCcF3974exvunXyyZCTLZmwVFHD3RES2yNC10JaFc2duh1
+	Kr5FqkCeWz/OWKAoSue37/wXTi+OLXo5LS+BxLewd8dLcJqq8xdtnEIQTzCcbhyZ941G7Zy0Zobv1
+	2xaXZBI9NP3lTmSx0c/BtVfcllAH354+wXC+60OZ08aCr9QRudapJJ09Jt41hbqdveY1wLDsP6okj
+	YM8j5MkL7U5KKmyM7DJWEW/YG+z5h9uPSz6jTw5HxvXix27gqxmigrC89svwimxrUSL4PtANgIzOw
+	yE9iH8sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpMZl-00000003Qnj-2fN9;
-	Tue, 04 Mar 2025 07:20:25 +0000
-Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
+	id 1tpMcg-00000003R9C-1jwG;
+	Tue, 04 Mar 2025 07:23:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpMX4-00000003Q8v-1qZu
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 07:17:39 +0000
-Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-600038877ebso1282380eaf.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 23:17:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741072657; x=1741677457; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zzHbHM5F2Rwe7GWQtoT/vBL3j3IgEpxjxlyoiFn8SsI=;
-        b=hwxkjXm3d66xI07edtbhn9j3fYqkbpJI3EiV6JxhKsoiaHy/usgjm434r+UsZsO9fV
-         os5HXuxC/8Rr+MdvtS4RzJi9rF+3byBagZ5w/yDncRF8p2MWJl4WLk3DgcfIXFJzNKXC
-         7HAhzMpUM13eYDM9iIi/tWxKdxcA+hNvyMob1D5YuGbWvUscwSxSqQgW1jZXc7F3KVsF
-         gpIPhkMfeke0iHLKXPsZiC9IJ1iUUsPYQa/uhRYmYUGptiYL8edHAUwmkGDs4RyFXdEb
-         4RSwUvli7jMilr8dKj80eCaXZJ1UdPC5m7n/pfUf7YLtyK+tALizdIeehnD1ZSH6xmZh
-         /2pw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741072657; x=1741677457;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zzHbHM5F2Rwe7GWQtoT/vBL3j3IgEpxjxlyoiFn8SsI=;
-        b=QCdase/3Ba2L2kn4V2WSqUuOQDwFJFB6+kdUvKuxLisuOFZWeSOcSiMeI728eiNj99
-         v+Qg2I+LTRVasioBnk47lUnV4Ss+Cb8Rd8hzFQuEc+gM0qPklAIuzUe01Z1vLwh7NZg5
-         OO694D7boDxNE9wMcxNjJ9UCmWkBTwXEMLY0x0VfaAj24CtN8FuV//CzijQ4ArJ2zkNq
-         8MqPSGyEaqhL6SREnk+NDds2PKt6qY7nk9wvNdaXmHjLkleIF10O0n8ciPOwN4umsXEC
-         DUyu95dP/tmCpbiDyuFwfhZpFGueX2IUb7YE4uQXP/Z1TQRK7cNz85NbNZSEc0asWXQ2
-         LgAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVC21b8/tC9cDLnw6vRBCNnBnXeJ0WRqSwCWf6c2NxOEirJ5tPwpxyw4ako7EbMpTXNlcoHzByat28MpADO9QQ7@lists.infradead.org
-X-Gm-Message-State: AOJu0YwuuAC3fpmbO0FMRxNbXeuHv9JUKadcmTk9Rzn242DeZD0tjBOM
-	t3+Ki9vkQp+lgXwRUb7By8/as/48kHJC3Gf3Z0vkA4BgsFl1MsSRtjcOexMUWI6/jyj/8BfFsBH
-	0sZdEXQZ/bKWmM11HUueal4M6qIE01lcM+yf25A==
-X-Gm-Gg: ASbGncv4UKz4D8UHsJ2/ZzjTy1fk78vTtYzdQZkRqZ/AagH3pDaoaD30GEgXrIvvLzM
-	QCLZBPJG7MsY6stBKv6xltcMrfAtkBenfyKG8jGPfbStTMkd9C5S4LWaAWDBl8rEEbxE7HnSLE0
-	quHbv9T1Ewvjw70sX1+sCS64z1Ac0=
-X-Google-Smtp-Source: AGHT+IGeWth+Ec7HvnFz4HF064DwKqNeMXOfgif6GoecOEfs8x2Q7Fc7PxDdZ1yzepEKq7Z5LS0hsWXFxueHCzU4cFY=
-X-Received: by 2002:a05:6820:2217:b0:5fc:e323:785e with SMTP id
- 006d021491bc7-5feb360c2c2mr8620716eaf.5.1741072655731; Mon, 03 Mar 2025
- 23:17:35 -0800 (PST)
+	id 1tpMb6-00000003R2v-3PLT;
+	Tue, 04 Mar 2025 07:21:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 0D2A2A452EF;
+	Tue,  4 Mar 2025 07:16:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4A282C4CEE5;
+	Tue,  4 Mar 2025 07:21:42 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741072907;
+	bh=T+fpq98v9Io2vg6grazANB67VEQzov3KO4PYt35Zncc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Yf+R5WqRepIcAvZ0HF6I5wGDmnXfpZN204rxo1N9Cqt/9SU8s3VbtY93qZD7FUGKt
+	 eI07SN7t/gHc7+jUs1R26VuP09pN/FGi+ADxk81G6G4BwfsMbcWSY6IyKvkq/O5ZuA
+	 qZOn/yvo3HZDyvUwVMExev+0fhu6fQqujTm9pKl8JQiw2Trjf4jKdCQEuSLkdWIvYT
+	 A2XRwRgsh25MyUpfL1Qw1CVW++u0ioWKJZ8018iyZjt2fmFRdAJJnaQN4oO+aRUna6
+	 ucfo7qh4KQrybYXT5sFFfPZ/WCN1w6b9Qk4/wdjgcvACUdHpHkyPHhltTM+hZFXgmc
+	 X2COYGMKRAghg==
+Message-ID: <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
+Date: Tue, 4 Mar 2025 08:21:39 +0100
 MIME-Version: 1.0
-References: <20241217100809.3962439-1-jens.wiklander@linaro.org>
- <20250212205613.4400a888@collabora.com> <CAFA6WYOaGEPj0xNEDBCoEmjJreEHChjQ2hyXRJ_CYoGhiBonfw@mail.gmail.com>
- <20250213093557.278f5d19@collabora.com> <CAFA6WYOJkSRsH-15QdqXNMd08Q=Dg4NkRd1Cr9LXA+5nozTF6g@mail.gmail.com>
- <20250213134008.4cbef142@collabora.com> <CAPj87rM5Y=-Jgf4mwukicF6Yb-vccn2fpG2X1jNq0upH2+cAEQ@mail.gmail.com>
- <CAHUa44G9hw-z6wzxg=HkVAxPKEW1yES5JTEqRWMvJUJAtcUDkQ@mail.gmail.com>
- <CAPj87rPHnME5Osgnf5-FSAu22mDpLj=dzvhi_NqEcOwr1ThgGw@mail.gmail.com>
- <CAHUa44Gs0D1fBD0=+EDgcQUMeDv4knci9trUkYEc1J98qFV7HQ@mail.gmail.com>
- <CAFA6WYOuTwRPEh3L7+hMyARB_E73xmp+OwhKyS-r4+ryS7=9sw@mail.gmail.com>
- <20250214164856.0d2ead8a@collabora.com> <CAFA6WYPc6EHQwcPuMZRm4C1P6SoDrCzEPUmju_meupB6NXQ1sg@mail.gmail.com>
- <CAPj87rN-OYTzh5=Gdv619UQD5=x=U6Yt=uV4N1kCs4Zao4RVAg@mail.gmail.com>
- <CAFA6WYMLLLSuz3y5J+DuRFAGrmwpZoWax5sasfAUhXoQXmrNNA@mail.gmail.com> <CAPj87rN7J6u9NsviAdw8=OenEYc8t719Lds6u6-BhFKrtkLZ-A@mail.gmail.com>
-In-Reply-To: <CAPj87rN7J6u9NsviAdw8=OenEYc8t719Lds6u6-BhFKrtkLZ-A@mail.gmail.com>
-From: Jens Wiklander <jens.wiklander@linaro.org>
-Date: Tue, 4 Mar 2025 08:17:23 +0100
-X-Gm-Features: AQ5f1JrEtCh2L2kJC0WD3IbY9SZ2HYIAKqjRP2-ff7KQiuotp3pduZ0dOaK3kQU
-Message-ID: <CAHUa44FkG1NAWpoW8UVBywv44XW_mjAJa32PcC9mcmiOLdiRqw@mail.gmail.com>
-Subject: Re: [PATCH v4 0/6] TEE subsystem for restricted dma-buf allocations
-To: Daniel Stone <daniel@fooishbar.org>
-Cc: Sumit Garg <sumit.garg@linaro.org>, Boris Brezillon <boris.brezillon@collabora.com>, 
-	Linux Kernel Mailing List <linux-kernel@vger.kernel.org>, 
-	Linux Media Mailing List <linux-media@vger.kernel.org>, dri-devel <dri-devel@lists.freedesktop.org>, 
-	"moderated list:DMA BUFFER SHARING FRAMEWORK" <linaro-mm-sig@lists.linaro.org>, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	Olivier Masse <olivier.masse@nxp.com>, Thierry Reding <thierry.reding@gmail.com>, 
-	Yong Wu <yong.wu@mediatek.com>, Sumit Semwal <sumit.semwal@linaro.org>, 
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
-	John Stultz <jstultz@google.com>, "T . J . Mercier" <tjmercier@google.com>, 
-	=?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Florent Tomasin <florent.tomasin@arm.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
+ samsung,exynos2200-usbcon-phy schema file
+To: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
+ linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
+ <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
+ <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
+ <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
+ <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
+ <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
+ <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_231738_494352_91EA70D0 
-X-CRM114-Status: GOOD (  59.42  )
+X-CRM114-CacheID: sfid-20250303_232148_985118_AF0C44D1 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,157 +129,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Daniel,
+On 03/03/2025 18:18, Ivaylo Ivanov wrote:
+> On 3/3/25 09:24, Krzysztof Kozlowski wrote:
+>> On 02/03/2025 10:16, Ivaylo Ivanov wrote:
+>>> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
+>>>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
+>>>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
+>>>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
+>>>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
+>>>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
+>>>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
+>>>>>>>
+>>>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>> ---
+>>>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
+>>>>>>>  1 file changed, 76 insertions(+)
+>>>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>> You have undocumented dependencies which prevent merging this file.
+>>>>>> First, dependencies have to be clearly expressed.
+>>>>> They are, in the cover letter.
+>>>> Where? I read it twice. Dependencies is the most important thing and
+>>>> should scream at beginning of the cover letter, so if you bury them
+>>>> somewhere deep it also would not matter - just like they were missing.
+>>>>
+>>>>>> Second, you should
+>>>>>> rather decouple the code from header dependencies, otherwise this cannot
+>>>>>> be merged for current release (just use clocks with long names, without IDs).
+>>>>> Sure
+>>>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>> new file mode 100644
+>>>>>>> index 000000000..7d879ec8b
+>>>>>>> --- /dev/null
+>>>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
+>>>>>>> @@ -0,0 +1,76 @@
+>>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>>>>>> +%YAML 1.2
+>>>>>>> +---
+>>>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
+>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>>>>>> +
+>>>>>>> +title: Exynos2200 USB controller PHY
+>>>>>>> +
+>>>>>>> +maintainers:
+>>>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>>>>>>> +
+>>>>>>> +description:
+>>>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
+>>>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
+>>>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
+>>>>> It's not (I think). There's a few reasons I've decided to make this separate
+>>>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
+>>>>>
+>>>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
+>>>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
+>>>> at diagram - they call it phy controller.
+>>> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
+>>
+>>>>> for them, and all that is needed from it is to disable HWACG, assert/
+>>>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
+>>>>> initialization can be done and USB2 works. If the USBCON phy is not set
+>>>>> up before the eUSB2 one, the device hangs, so there is definitely a
+>>>>> dependancy between them. For PIPE3 we'd need to control the pipe3
+>>>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
+>>>> Does it mean there is no USB DRD phy controller as before?
+>>>>
+>>>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
+>>> So...
+>>>
+>>> DWC3 -> USBDRD (USBCON) -> PHYs?
+>> No, drop last phy. You just wrote the same as me - two phys, because
+>> usbdrd is the phy. In all existing designs there is no such controllable
+>> object from the point of view of operating system.
+> 
+> What? Per my understanding, the phy property should refer to whatever is
+> is connected to dwc3 UTMI. In this case it's the so-called USBDRD phy (called
+> usbcon in downstream). Considering that the eUSB2 IP definitely also has UTMI
+> that has to be connected to something, doesn't that mean we have clearly
 
-On Fri, Feb 21, 2025 at 3:12=E2=80=AFPM Daniel Stone <daniel@fooishbar.org>=
- wrote:
->
-> Hi Sumit,
->
-> On Fri, 21 Feb 2025 at 11:24, Sumit Garg <sumit.garg@linaro.org> wrote:
-> > On Tue, 18 Feb 2025 at 21:52, Daniel Stone <daniel@fooishbar.org> wrote=
-:
-> > > dma-heaps was created to solve the problem of having too many
-> > > 'allocate $n bytes from $specialplace' uAPIs. The proliferation was
-> > > painful and making it difficult for userspace to do what it needed to
-> > > do. Userspace doesn't _yet_ make full use of it, but the solution is
-> > > to make userspace make full use of it, not to go create entirely
-> > > separate allocation paths for unclear reasons.
-> > >
-> > > Besides, I'm writing this from a platform that implements SVP not via
-> > > TEE. I've worked on platforms which implement SVP without any TEE,
-> > > where the TEE implementation would be at best a no-op stub, and at
-> > > worst flat-out impossible.
-> >
-> > Can you elaborate the non-TEE use-case for Secure Video Path (SVP) a
-> > bit more? As to how the protected/encrypted media content pipeline
-> > works? Which architecture support does your use-case require? Is there
-> > any higher privileged level firmware interaction required to perform
-> > media content decryption into restricted memory? Do you plan to
-> > upstream corresponding support in near future?
->
-> You can see the MTK SVP patches on list which use the MTK SMC to mediate =
-it.
->
-> There are TI Jacinto platforms which implement a 'secure' area
-> configured statically by (IIRC) BL2, with static permissions defined
-> for each AXI endpoint, e.g. CPU write + codec RW + dispc read. I've
-> heard of another SoC vendor doing the same, but I don't think I can
-> share those details. There is no TEE interaction.
->
-> I'm writing this message from an AMD laptop which implements
-> restricted content paths outside of TEE. I don't have the full picture
-> of how SVP is implemented on AMD systems, but I do know that I don't
-> have any TEE devices exposed.
->
-> > Let me try to elaborate on the Secure Video Path (SVP) flow requiring
-> > a TEE implementation (in general terms a higher privileged firmware
-> > managing the pipeline as the kernel/user-space has no access
-> > permissions to the plain text media content):
-> >
-> > - [...]
->
-> Yeah, I totally understand the TEE usecase. I think that TEE is a good
-> design to implement this. I think that TEE should be used for SVP
-> where it makes sense.
->
-> Please understand that I am _not_ arguing that no-one should use TEE for =
-SVP!
->
-> > > So, again, let's
-> > > please turn this around: _why_ TEE? Who benefits from exposing this a=
-s
-> > > completely separate to the more generic uAPI that we specifically
-> > > designed to handle things like this?
-> >
-> > The bridging between DMA heaps and TEE would still require user-space
-> > to perform an IOCTL into TEE to register the DMA-bufs as you can see
-> > here [1]. Then it will rather be two handles for user-space to manage.
->
-> Yes, the decoder would need to do this. That's common though: if you
-> want to share a buffer between V4L2 and DRM, you have three handles:
-> the V4L2 buffer handle, the DRM GEM handle, and the dmabuf you use to
-> bridge the two.
->
-> > Similarly during restricted memory allocation/free we need another
-> > glue layer under DMA heaps to TEE subsystem.
->
-> Yep.
->
-> > The reason is simply which has been iterated over many times in the
-> > past threads that:
-> >
-> >     "If user-space has to interact with a TEE device for SVP use-case
-> > then why it's not better to ask TEE to allocate restricted DMA-bufs
-> > too"
->
-> The first word in your proposition is load-bearing.
->
-> Build out the usecase a little more here. You have a DRMed video
-> stream coming in, which you need to decode (involving TEE for this
-> usecase). You get a dmabuf handle to the decoded frame. You need to
-> pass the dmabuf across to the Wayland compositor. The compositor needs
-> to pass it to EGL/Vulkan to import and do composition, which in turn
-> passes it to the GPU DRM driver. The output of the composition is in
-> turn shared between the GPU DRM driver and the separate KMS DRM
-> driver, with the involvement of GBM.
->
-> For the platforms I'm interested in, the GPU DRM driver needs to
-> switch into protected mode, which has no involvement at all with TEE -
-> it's architecturally impossible to have TEE involved without moving
-> most of the GPU driver into TEE and destroying performance. The
-> display hardware also needs to engage protected mode, which again has
-> no involvement with TEE and again would need to have half the driver
-> moved into TEE for no benefit in order to do so. The Wayland
-> compositor also has no interest in TEE: it tells the GPU DRM driver
-> about the protected status of its buffers, and that's it.
->
-> What these components _are_ opinionated about, is the way buffers are
-> allocated and managed. We built out dmabuf modifiers for this usecase,
-> and we have a good negotiation protocol around that. We also really
-> care about buffer placement in some usecases - e.g. some display/codec
-> hardware requires buffers to be sourced from contiguous memory, other
-> hardware needs to know that when it shares buffers with another
-> device, it needs to place the buffers outside of inaccessible/slow
-> local RAM. So we built out dma-heaps, so every part of the component
-> in the stack can communicate their buffer-placement needs in the same
-> way as we do modifiers, and negotiate an acceptable allocation.
->
-> That's my starting point for this discussion. We have a mechanism to
-> deal with the fact that buffers need to be shared between different IP
-> blocks which have their own constraints on buffer placement, avoiding
-> the current problem of having every subsystem reinvent their own
-> allocation uAPI which was burying us in impedance mismatch and
-> confusion. That mechanism is dma-heaps. It seems like your starting
-> point from this discussion is that you've implemented a TEE-centric
-> design for SVP, and so all of userspace should bypass our existing
-> cross-subsystem special-purpose allocation mechanism, and write
-> specifically to one implementation. I believe that is a massive step
-> backwards and an immediate introduction of technical debt.
->
-> Again, having an implementation of SVP via TEE makes a huge amount of
-> sense. Having _most_ SVP implementations via TEE still makes a lot of
-> sense. Having _all_ SVP implementations eventually be via TEE would
-> still make sense. But even if we were at that point - which we aren't
-> - it still doesn't justify telling userspace 'use the generic dma-heap
-> uAPI for every device-specific allocation constraint, apart from SVP
-> which has a completely different way to allocate some bytes'.
+The entire point is that eUSB2 is connected to DWC3, no? That's exactly
+how it is done for example on Qualcomm SoC. Otherwise you claim that
+DWC3 controls one phy, which controls another phy which controls UTMI...
 
-I must admit that I don't see how this makes a significant difference,
-but then I haven't hacked much in the stacks you're talking about, so
-I'm going to take your word for it.
+> separated hardware blocks? Now, I guess one could argue that this USBCON
+> hardware block could be classified as a syscon. But I don't see the problem
+> with the current binding description, nor the modelling, as it represents
+> how the hardware is (unless I've gotten it completely wrong).
 
-I've experimented with providing a dma-heap replacing the TEE API. The
-implementation is more complex than I first anticipated, adding about
-400 lines to the patch set. From user space, it looks like another
-dma-heap. I'm using the names you gave earlier,
-protected,secure-video, protected,trusted-ui, and
-protected,secure-video-record. However, I wonder if we shouldn't use
-"restricted" instead of "protected" since we had agreed to call it
-restricted memory earlier.
+It is the first time you use argument that it represents how the
+hardware is and this is what we actually disagree. It is not like that.
+You do not have chain of phys. Just look at any USB 3.0 DRD DWC diagram
+from any Samsung SoC: where would you squeeze these two phys in relation
+to what is called there "USB 3.0 PHY" which would be the third phy (!!!).
 
-I'll soon post this in a v6 and an updated demo.
-
-Cheers,
-Jens
+Best regards,
+Krzysztof
 
