@@ -4,100 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F27E1C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:51:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 389C3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:53:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=; b=yYeZvQZZPE/l4Fh+Gx4V8rLkq0
-	JxgZvOwWCI+0kkRCLWBbT527oevA25OWMH0BmXqEE/bPpW3XP7ruKJqZGZ/eb9LwgFxTsvTamhPF+
-	AID8DUsK2QpkGrSsl4dIlS114ipv8xCkisOhmd35KI8sMVVJ9s+ik6PnmJmEukOXEV6VeFkKIxx58
-	8ALJGKDLFvHYydHjevFEZZFeUwelooaJ6PNosujg1OtKGK18HysPk/q9UBSZOV4mqU4nMD+LZwTg7
-	YxVrgBV71ko4E/kdPYtfj7Zbzc9Rtp8YkQNVLy2Xe452xBLpzNM1W8Bjbn0YzqzTq/tzmaJMUCSZ4
-	yHHrn+DA==;
+	bh=NMcI+cXZGABb51aVn5Gf0/vwUKUlUIvwtwFRy+dg7/k=; b=jK3zuvzWa2dQncHSUvUr21lLTj
+	8meri2r5TVAysofqALnRYavDSK8GUR8c+82QKWRiPeA+vIRSE0OWnwcgiKI5qfuBNDAVPvzwOF1Gp
+	R/L8N49J0yQGTe3HEIx/L935JpMSNQcpcye8ObvLHtIU/WoQSIID9Yxp8lpHyz9hUhevMNIY5JPdF
+	RZVd5+u+iK8iZvYFpV4hnzJmlbGKQPK+VX4zDv+RQ75WXeBKzv6309C61uW1AQQbVcPDrTPvGjzzi
+	uPwx667JZ71/04SzxdAcktDSUe26yvDoXmsVK3328bltb4pY39UlryI3iW4Oqfk4ilSjFhnJ+2f1S
+	i7DcgtXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOw8-0000000401R-3zKs;
-	Tue, 04 Mar 2025 09:51:40 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1tpOxg-000000040Q3-3WgB;
+	Tue, 04 Mar 2025 09:53:16 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOsP-00000003ykz-0l1j
+	id 1tpOuK-00000003zON-3Mwt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:47:50 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43995b907cfso34471425e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 01:47:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741081667; x=1741686467; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=;
-        b=lKD228HxOCYnV/W4DMb3iuskQR816t8J7IAoCBFAW6X6RD6QzdQ1GEvftv3foBH9HN
-         HYM0BAOu56La+bDUGrrj070hTRVDlng6qMmT94ud27Gq8iwjU3NLb2/7x2+9HYDoZ3VX
-         Oz6ygVQblA+mUvwKgTXhO2JkKq39fBBI8pk8FWV6rCrUmEXZoMzGQRy9k9RCJCzEK4nH
-         NFfPSisvpJOZH+xYgBgJDzUl5zr/eG6cEaC9cU38wSPG47UrkyeRRPBoIdoI/ja7urX7
-         2PWiJE4Vr+KHKnYNzpAqljEfvpqEJEdZ99e5p+bJ+vS6aZa7LtqP4i+2zMKdRJz+/jb0
-         qgYQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741081667; x=1741686467;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=qSm1lg2/FkL1yWeHeKV4bekvslQt2WvmtVqn6o+tUnQ=;
-        b=jXxFxkJrSkETQMoFhOM1ORDfZf4p+J9igRHRQ9HPnP10OtIfKn8sqTMFuo9ishOXfG
-         4+iU2J+9BcPYj1OO7d/bzl+lnwrPY/ZzsJx53sXf+6ih6zs6kklHHH9cSqN5fItXGd7C
-         yMrQ+hsj/utYTsuy3QA1XJv5WlEQsOy2VhUv7DzIEgFNvP3WxUmycU4Rk3CeQTsbHb3+
-         xWdugCfxXPchkBwrV2S5HWxp7IW0Qz1ey1FnxrgnxWNXmoMast1MdtJMd4/HX35j9by/
-         4ubzW3vVS0oQZEHNtHBCuTzSY34C+/a+cxtw6Im7mutDc7Z/hK4tDnkHqhTJYLzq4GnJ
-         P06A==
-X-Forwarded-Encrypted: i=1; AJvYcCUqnT4xbclX3xfJMomdswVllV526NaQZ8ugMM4VO2x7ZlQJ6c9Tq0BzFXnk2Hs1gDQBtNC1CXQPedotamQQCKs4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAedwPOJNUvoXXRP4UGVsB7hm36qs3bUJtsyShGiTElFRJxAKz
-	l92ZrrRSHWlolbAkpKtaIC1rsx9b73Hc8H4/G2+NYzEoEG25Eg9SttenHpAz6AU=
-X-Gm-Gg: ASbGnctMXo1k0sYO9lYW7PDiCedjMKH9AtVnxuQuyfg/cFvNkRfayBylanJj3ulNMKh
-	QB7cyg0oeMyDsM9u10AUSrkTTL/H1bIHN3B+R1yGJRF6D8A2zAlWFmSz8PY+NGSlBG2MKL01elP
-	wn2eqOvl9JNMjk0nNhp5npQVIVIVrIZna1ZfNivdqBKOyZglqSd+m/SbEhnjjH4u1CToixVnot7
-	21+Md2zcjtwbSVo5/YXBqj+cGZHZchebqYyc5Y9R4Tg69N7AdvxnZkFGscY/awr2oF4nZtzF6c9
-	u2IxMkGPSbDCFBjIY5nAHa0LwDWI0QMvPBwXBvzwe0IvM5NJTFme+WgFKUjIlYhnYMNcapXEUOi
-	bsEHXoBMGgQ==
-X-Google-Smtp-Source: AGHT+IFDmnK5YYmULhWYfPkCzV4REgmiXkQRXkNfOTnHTpTo4USjUT1kKhF/sQF1HrBw+vy8AZd5Qw==
-X-Received: by 2002:a05:600c:a03:b0:439:9b19:9e2d with SMTP id 5b1f17b1804b1-43ba6702becmr158936035e9.16.1741081667192;
-        Tue, 04 Mar 2025 01:47:47 -0800 (PST)
-Received: from [192.168.0.35] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485e13fsm16964961f8f.100.2025.03.04.01.47.45
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 01:47:46 -0800 (PST)
-Message-ID: <f5c2044e-e78e-4839-9c29-63610ff406e2@linaro.org>
-Date: Tue, 4 Mar 2025 09:47:44 +0000
+	Tue, 04 Mar 2025 09:49:50 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Z6W7F0Vl1z6D90N;
+	Tue,  4 Mar 2025 17:47:21 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id 01C8F140A08;
+	Tue,  4 Mar 2025 17:49:33 +0800 (CST)
+Received: from localhost (10.96.237.92) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 4 Mar
+ 2025 10:49:24 +0100
+Date: Tue, 4 Mar 2025 17:49:19 +0800
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Will Deacon <will@kernel.org>
+CC: Yicong Yang <yangyicong@huawei.com>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: Re: [PATCH 4/9] drivers/perf: hisi: Use ACPI driver_data to
+ retrieve SLLC PMU information
+Message-ID: <20250304174919.00001e24@huawei.com>
+In-Reply-To: <20250301064347.GB27700@willie-the-truck>
+References: <20250218092000.41641-1-yangyicong@huawei.com>
+	<20250218092000.41641-5-yangyicong@huawei.com>
+	<20250301064347.GB27700@willie-the-truck>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v14 2/2] arm64: dts: qcom:
- qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
-To: Jorge Ramirez <jorge.ramirez@oss.qualcomm.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vikram Sharma <quic_vikramsa@quicinc.com>, rfoss@kernel.org,
- todor.too@gmail.com, mchehab@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, andersson@kernel.org,
- konradybcio@kernel.org, hverkuil-cisco@xs4all.nl,
- cros-qcom-dts-watchers@chromium.org, catalin.marinas@arm.com,
- will@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-media@vger.kernel.org, linux-arm-msm@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- Konrad Dybcio <konrad.dybcio@linaro.org>
-References: <20250208225143.2868279-1-quic_vikramsa@quicinc.com>
- <20250208225143.2868279-3-quic_vikramsa@quicinc.com>
- <ca8e6569-b466-4f83-83af-38c51891d395@kernel.org> <Z8a7cMmxJuHIhgjo@trex>
- <baae2a56-5299-486f-acf1-14fe13fd2f81@kernel.org> <Z8a/Dk7zjZ7RQT2/@trex>
-Content-Language: en-US
-From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
-In-Reply-To: <Z8a/Dk7zjZ7RQT2/@trex>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="US-ASCII"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.96.237.92]
+X-ClientProxiedBy: lhrpeml500006.china.huawei.com (7.191.161.198) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_014749_228076_1A69F0E1 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250304_014948_986135_ACB62F8E 
+X-CRM114-Status: GOOD (  19.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,68 +75,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 08:51, Jorge Ramirez wrote:
-> On 04/03/25 09:40:21, Krzysztof Kozlowski wrote:
->> On 04/03/2025 09:36, Jorge Ramirez wrote:
->>> On 03/03/25 18:13:20, Krzysztof Kozlowski wrote:
->>>> On 08/02/2025 23:51, Vikram Sharma wrote:
->>>>> The Vision Mezzanine for the Qualcomm RB3 Gen 2 ships with an imx577
->>>>> camera sensor. Enable IMX577 on the vision mezzanine.
->>>>>
->>>>> An example media-ctl pipeline for the imx577 is:
->>>>>
->>>>> media-ctl --reset
->>>>> media-ctl -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
->>>>
->>>> AFAIU, camss does not support SRGGB10, but only SRGGB10P.
->>>>
->>>> Based on tests reported on IRC I think this might not have been tested
->>>> correctly.
->>>
->>> I acquired SRGGB10P (10 bit packed) frames from the camera despite the
->>> pipeline being set to SRGGB10 (16 bit) samples.
->>>
->>> so something does not add up.
->>
->> Then the commands are actually correct, just the camss or media behave
->> here a bit unexpected?
->>
-> 
-> setting the pipeline (CSI) as SRGGB10 (16 bit samples) as per below
-> 
-> media-ctl --reset
-> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
-> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
-> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
-> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
-> 
-> allows to capture SRGGB10P samples (frames-xxxx.bin files contain 10 bit samples for the size)
-> 
->   ==> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
-> 
-> 
-> shouldnt the CSI need to be set to SRGGB10P instead?
-> 
-> 
->> Best regards,
->> Krzysztof
-> 
+On Sat, 1 Mar 2025 06:43:49 +0000
+Will Deacon <will@kernel.org> wrote:
 
-No an internal media bus format MEDIA_BUS_FMT_THING is used
+> On Tue, Feb 18, 2025 at 05:19:55PM +0800, Yicong Yang wrote:
+> > From: Junhao He <hejunhao3@huawei.com>
+> > 
+> > Make use of struct acpi_device_id::driver_data for version specific
+> > information rather than judge the version register. This will help
+> > to simplify the probe process and also a bit easier for extension.
+> > 
+> > Factor out SLLC register definition to struct hisi_sllc_pmu_regs.
+> > No functional changes intended.
+> > 
+> > Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> > ---
+> >  drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c | 191 ++++++++++++------
+> >  1 file changed, 125 insertions(+), 66 deletions(-)
+> > 
+> > diff --git a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+> > index dbd079016fc4..c1fd60d397c3 100644
+> > --- a/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+> > +++ b/drivers/perf/hisilicon/hisi_uncore_sllc_pmu.c
+> > @@ -36,11 +36,14 @@
+> >  #define SLLC_SRCID_NONE			0x0
+> >  #define SLLC_TGTID_EN			BIT(5)
+> >  #define SLLC_TGTID_NONE			0x0
+> > -#define SLLC_TGTID_MIN_SHIFT		1
+> > -#define SLLC_TGTID_MAX_SHIFT		12
+> > -#define SLLC_SRCID_CMD_SHIFT		1
+> > -#define SLLC_SRCID_MSK_SHIFT		12
+> > +#define SLLC_TGTID_MIN_MSK		GENMASK(11, 1)
+> > +#define SLLC_TGTID_MAX_MSK		GENMASK(22, 12)
+> > +#define SLLC_SRCID_CMD_MSK		GENMASK(11, 1)
+> > +#define SLLC_SRCID_MSK_MSK		GENMASK(22, 12)
+> >  #define SLLC_NR_EVENTS			0x80
+> > +#define SLLC_EVENT_CNTn(cnt0, n)	((cnt0) + (n) * 8)
+> > +#define SLLC_FIRST_BIT(_mask)		(find_first_bit((const unsigned long *)&(_mask), 32))
+> > +#define SLLC_FIELD_PREP(_mask, _val)	(_mask & (_val << SLLC_FIRST_BIT(_mask)))  
+> 
+> It's a bit of a shame to have to compute this dynamically given that th
+> input mask is constant for a given device. Is it not possible to use the
+> generic FIELD_PREP macro in per-device code and then just dispatch to
+> that, instead of funneling everything through hisi_sllc_pmu_regs?
+There is yet another ongoing discussion of handling non const
+field cases:
+https://lore.kernel.org/all/cover.1739540679.git.geert+renesas@glider.be/
 
-See
+Maybe that will resolve with a nicer solution but I doubt it.
 
-87889f1b7ea40d2544b49c62092e6ef2792dced7
-5480b0c67f120a6c293cc5eff72fa1d6a74de504
-3c1dfb5a69cf836f513a2a49113ee946a4b9d95d
+Alternatively best plan may be a shift (and length) instead
+of the neat solution of FIELD_PREP().
 
-Yavta is specifying a v4l2 pixel format SRGGB10P which then gets 
-translated into a media bus format MEDIA_BUS_FMT_SRGGB10_1X10.
+Jonathan
 
-I'm not sure what the historical reasons for that are, probably good ones.
+> 
+> Will
 
----
-bod
 
