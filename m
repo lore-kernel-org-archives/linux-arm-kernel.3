@@ -4,150 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40882C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:48:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB04EC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:50:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=x2kHQuxdz+r0X5OHCy7CZo+O//quVVETxPoj980sC+E=; b=2bKqHB5tq2BU1Ol9z3rAzVj/U4
-	R4vp5igPN45u0k8qc4KcVxeXA1XI1ZsVqQIgBkyTXLqM1Ym1csa7ubUftCNyDYialvVzFIaJ5kLyH
-	svGgu8r0HIq2oGLk3riW6YNxSGwTOnMvxSP48dXrwMja6s6tKuLfiTQCXbt6daD5QzO1QE6QUFg5E
-	D7GC6quE4KXRGcNumCR7FryL8+6NvomqT2riUL7bkTmqi9Hx3mLrs+9vNvWJsxvwlS3zJkJOFPf2x
-	7quncGqcJTlzPu8Vi5TlG8IPw5iT71hW4hjYRiJTC6C29Lgm1iKX/gbtZIlglBJLBAaOcBYYkcG3i
-	0TU47nEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:MIME-Version:Message-ID:Reply-To:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=; b=c0TFtdl/J+u53e
+	Wx91hGE5TcFfBs9SPgzLKDm9HB1n24/V0tPBXYxsuECnlH43735IrSa+Hy+vX70VG4fC8GBRuK8k2
+	Yt5Mf8tssfNx4atW75fQBeBetHAbHItRzo6eMYEm/6B/PUvZn7GtX7GHyU6rP0BcV5wo+m+eoRb90
+	0i6/NuezItGJTM7PHs0K2VvxLkBMBKmDbHzvj551cTCHjuI7IdnJA3HDxO8RIkaLeUTXRa4o0Osgf
+	kUGaDux+fOEz5S+E19nv287Xp90xQpvK6bHa7V+JRqdqzBGBApOW4G+8lQsiEifGLtOJ4/ti6tdNb
+	Yrdb+Ff0WUZGijK5+qXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOt2-00000003yv0-0DmO;
-	Tue, 04 Mar 2025 09:48:28 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1tpOub-00000003zUN-06iq;
+	Tue, 04 Mar 2025 09:50:05 +0000
+Received: from cockroach.aspen.relay.mailchannels.net ([23.83.221.37])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOos-00000003xHH-2V4F
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:44:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ymXKIsqzgynuf75LL9uQgKlulKB7HsmbWO34s/R7Ui/jNXcIa3yihNt0/Iiwd/ZAaaogH1ZvWsytJkgLSh+sjNKOSoofAOzKWAB9JDpnvm5Xltd+53KpjpEjH78xFQww0QLOVeFYJcSA2w1F1bdlKscCrJV8zk6Im9PHDBGD5LWaU1EBgZZlxePH/fa9yO2yZAJjeAliktQhGa782mEyNSXAcOm6nJMrC1e6lgKq+M9sE/SqRtYRYR3s5GvK1X8GbwOA4sDB0IsPt/Bh2m3JW0BeuGaa8XHJT8vsg6CuR5Xt4Q9YlTww5kaolEA0chXy2kBL7Rx40Yxl6cY2Ryqzqw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x2kHQuxdz+r0X5OHCy7CZo+O//quVVETxPoj980sC+E=;
- b=arxu7Wnw3Q+2yUK9LGR2qrY+HlDfK54dOlFR42OQVexWfLEZn+DDZttQDjVzhcwh1TZktbrScNQfJKMF0XW+NlyVRbxGbTAZFjUESKZwLQQteGA0xCmdTtcGU3i3ZdBtoSosGJkawkYuXDqfATfAax3QJy1cXzAnQw3IGcfK7uUqmz2IC2nLAHdOC4Zdx5YaWKIFvSjAaHdGNiroVF/ZmLTDYtaNKl/dyGRDDFm82ICfq95p4wjHgbYE9TkJqNvw2gHKCIRESRAzpM2VrI/fPSogvP9Pi/QgyTT3Ve3Np/zE8p+O9YecBlrDtHbZIOx6JuWHoPWhs5NbrE+ee/DwjA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x2kHQuxdz+r0X5OHCy7CZo+O//quVVETxPoj980sC+E=;
- b=lBT1mA7Fswf9jRHmxfkvJBQ4mZiBMtzvW1fru3SH8GIpWr9W1BR89EBcl/a8RdXDA+iYpiiOxUc4WZQIuacqq2/CiQugE9qJRmS6W93iJYnmlNx799LG7rT2vgnVM67//I0oN/hIHxJbg5MejMgFSChBiXAoTTBm+O5wkAxW5eygc22hI0cHUmuCv3iCFXy76wCvQYe8vxRNkUZfi+GiKDGsY70NfBqvl5MiqFvRAWaBrJnlXLYeg7viybd1OJ96CNX+GtO1OUlaZIKdfk7GOB9zNsOLSVbN8JpoiX+9R86voeGDkJzNbAGZmsTMhmM7W119ZDs6LYl/XuutrqR+Qw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by VI1PR04MB9977.eurprd04.prod.outlook.com (2603:10a6:800:1d9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Tue, 4 Mar
- 2025 09:44:07 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 09:44:07 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: tglx@linutronix.de,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	aisheng.dong@nxp.com,
-	peng.fan@nxp.com,
-	frank.li@nxp.com,
-	shengjiu.wang@nxp.com
-Subject: [PATCH] irq: imx-irqsteer: irq_count can larger than registered irq
-Date: Tue,  4 Mar 2025 17:45:13 +0800
-Message-Id: <20250304094513.1964356-1-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR04CA0161.apcprd04.prod.outlook.com (2603:1096:4::23)
- To AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+	id 1tpOre-00000003yQb-1Ppl;
+	Tue, 04 Mar 2025 09:47:03 +0000
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+Received: from relay.mailchannels.net (localhost [127.0.0.1])
+	by relay.mailchannels.net (Postfix) with ESMTP id 1B9A78C3E29;
+	Tue,  4 Mar 2025 09:46:57 +0000 (UTC)
+Received: from nl-srv-smtpout1.hostinger.io (trex-8.trex.outbound.svc.cluster.local [100.101.191.136])
+	(Authenticated sender: hostingeremail)
+	by relay.mailchannels.net (Postfix) with ESMTPA id E7C588C3ACC;
+	Tue,  4 Mar 2025 09:46:53 +0000 (UTC)
+ARC-Seal: i=1; s=arc-2022; d=mailchannels.net; t=1741081616; a=rsa-sha256;
+	cv=none;
+	b=af7eV8eu4Ky/VzUdDADBUxjgxKKKs7u3q1Ev7az2ONYZp4OxvPhkZo6tgrdIRJd2itYF0h
+	zrPfYU4JGa9mxZneKMiCPXRlWWtEowsV6wH5Si0VGLw+oZi3ot6njAU15PiHufC0VB3FtT
+	CGaPVd/WJS6koZnsxf/xUIASrxiJf/+dWTK8OaQtu7mR6vx7DM9wfO2KfZDoYvH1v4A3Up
+	/9oMWljF+mmEFKPrTA+ApQHX9ORnLDQDRBWMhjGdM/Nj91Oe6hFssniYCG6IjYPwnGraWb
+	itnZqmA1/OyXlms4EQfS2aBktOWTzdwlWvDmeBLyMy2OllmPfIHM7p1uTLbjlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mailchannels.net;
+	s=arc-2022; t=1741081616;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:dkim-signature;
+	bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=;
+	b=GiAtfS43kFwoJr/tRcZ9Zn8Pz6XjVCRaYleWaTx2nTh0ioce/VASeJBkMXIWwtcNX9c1tF
+	vl8L1WEnDQuedsCyjqTv9cInWgcUbOI8k+jkuJaxabNhxKBOKUtDHWFu5SN3a1LzORLcVS
+	3B5Rpu8xmYavOQmb2Hhq1dXqdjHebCJHaDedcM0rDOgNK8FIfU+2bVB2fJ81Uz2wcGHbY2
+	MOz/fWFXHp9eFhvmv5khRrJBUNhIziGHOwk86F2ewRbT2okKv3aQAlrPOVNBHHEguDeh9A
+	kliPmYOC9yQKc2Yiuxe4I2mjciRPRxjwV0z25+ZNMb0M5ouB5a7gM7qjadpMjg==
+ARC-Authentication-Results: i=1;
+	rspamd-58748c789d-w6rjb;
+	auth=pass smtp.auth=hostingeremail smtp.mailfrom=chester.a.unal@arinc9.com
+X-Sender-Id: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MC-Relay: Bad
+X-MailChannels-SenderId: hostingeremail|x-authuser|chester.a.unal@arinc9.com
+X-MailChannels-Auth-Id: hostingeremail
+X-Slimy-Shoe: 19d76dbe66a13cec_1741081616908_3888167419
+X-MC-Loop-Signature: 1741081616908:8098079
+X-MC-Ingress-Time: 1741081616908
+Received: from nl-srv-smtpout1.hostinger.io (nl-srv-smtpout1.hostinger.io
+ [145.14.150.87])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384)
+	by 100.101.191.136 (trex/7.0.2);
+	Tue, 04 Mar 2025 09:46:56 +0000
+Received: from [10.9.32.97] (unknown [185.182.236.36])
+	(Authenticated sender: chester.a.unal@arinc9.com)
+	by smtp.hostinger.com (smtp.hostinger.com) with ESMTPSA id 4Z6W6D2wtsz35BH3;
+	Tue, 04 Mar 2025 09:46:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arinc9.com;
+	s=hostingermail-a; t=1741081590;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=D5t4LO5iZc4495dyi2ppzMU1jd7cqzfUiUSRCJpWlCU=;
+	b=O3QbHPIru7AnlxKZ0j2JcvM0aDko5YyybmfATwJ7W6Uyy0cYcrQ0Ay3i69qGkiy1nlWaYc
+	1hWpE1a3EaybroRWRfsrOnJnL6kBJ6z5gCnUTJHTMxKVrs9DSkj0iBLAG6y/MkrZuhftMJ
+	R++VBdvY03avb4Esfcfg4EWVS0Nn2MnBWTT9KcJruUXjzKOwRs6863OXMnuPxIeELxq0J0
+	ZuyG6OlYYkt8NLFn3abG5liwj1OZXhB6AGl2oZgaPbYXoVwpo8/YhNSXLrv/Fg1wtRf7pP
+	V8vuI1Pvaxpb3sOMYi/9mm1f2h85PsbKQa10PHLAk6fSnYDG31414GFXiFez+w==
+Message-ID: <b63fcbaa-ef27-48a9-885c-7962bd92a8b9@arinc9.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|VI1PR04MB9977:EE_
-X-MS-Office365-Filtering-Correlation-Id: 76a37bf9-780d-431d-1f04-08dd5b011b0a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bFlHQeIwIMEybSjKE+5ucdgzJl3qmd+SfaP4csMLwLrCk6UIK2NPM656jtIw?=
- =?us-ascii?Q?xfXUWLMByWWY8UMOHaEQEmmF+TYL90SRG5r1gPCCAeeUrROLGz1wZ7UpFT0I?=
- =?us-ascii?Q?TYmbUNL0I/PQH7d/8oWboCpYJ//7oyIxupjx4eBsuCbGrV46rVsQdKaKvRzc?=
- =?us-ascii?Q?N8CNTlwqPCXckyWqLtYSLYA3rSRyK6s3LA2LM3KOcuWZIwZSI7DF2xVDo1l3?=
- =?us-ascii?Q?l1R1zCEKIC006UGYniGAfkGFde5QBTK/xYeKkspk50mEcilroU7AvRtWfUcJ?=
- =?us-ascii?Q?V7tHVtoHQH1E+p4MgWzdcvgB6UoUNtLqVxzca7kHZcofdVAAyeuCMpRLdROl?=
- =?us-ascii?Q?Q+yzusPv74yXLhJoOoPOUsQX/jAD1TdYGhm8uB+vMxhAp2Q83zI7MnOtiUNt?=
- =?us-ascii?Q?tUgch387ijwwGRohTvG73NiH75sFhtfnCh5bXSEmgqWBD6JhsuRYY3fcYb3T?=
- =?us-ascii?Q?SercgY3fDHMh690KECkAk63mOqfEoR/9qjbst1L2iH2VBj7jhOrKyA8Y8Gsk?=
- =?us-ascii?Q?ZrWMCNZNFLkJfnm3MJoI2katTwRIOUU7jybkeZZ6vAGKKgrMcKEOjBZniOaB?=
- =?us-ascii?Q?VAf3lckAO9kD1R8DLUPyzb+P/KeaLqETt3pSH1qtxU6gm2D4kCh/4jLM7U3E?=
- =?us-ascii?Q?CuP4bjOCmkm2C5y5YK7D3LVBa75pmEnokrF4HPyzRq5OPXoqEBcRAHuim4uo?=
- =?us-ascii?Q?bI+kRdlriG6FjfKHukcmgbeFqOU5slpRwn+14JsSR7I3Gj7iYx4rc8Hu/NCn?=
- =?us-ascii?Q?P0c4ReuBQx8gj8Q5cLNt3B/Z0brpYyexCA6Lklqn30RFTYR+CRmnO5++1bRl?=
- =?us-ascii?Q?vVqatEW7BfZBJwTk41Sz0fgJX1aE9kg9CVFtT8ZI79Yh31+aBn5yPwcHMWwg?=
- =?us-ascii?Q?oMV6hheZ4Q3Cp0ThQys+LCA2TxkJmirCgUJBVFI1uIBmy/I5rKOn5edlHaeB?=
- =?us-ascii?Q?FIFPJrzKecHmFgOj0QQr6R3c3G1O3sP5zztTTqZlebCJNLlaJFJ3YVfrwfn2?=
- =?us-ascii?Q?wNFC8Jt1VlpILQ1+PepoXNvhZaF65O1/Jl3/aMrwDS0cRZHu6OlE8kpYD7r6?=
- =?us-ascii?Q?+52+P1tQ5YgWRPWzRVU2sutwzIukRhOT4IVHXu3rNxiAnaqcLAzfX2Z0XGWH?=
- =?us-ascii?Q?yaeO6dfVAHthWLPclZ0XzTdsvsYc/oqs1ZvU9BNlTgyi1vogBh86JS6W4U6b?=
- =?us-ascii?Q?9aSRggMSlHXzvHFuez8CDsCZyLcmEBbIbQ9MK3Rcn6cy9LUsaRZ8rYerzRcV?=
- =?us-ascii?Q?0bsBTEAzLplxBbGyb1U5zLbd4Lh7CFPvL5yfwdFL8Qn9IUozVPl0QhJKi2xO?=
- =?us-ascii?Q?bh6I9EqN2+fiW2V9oJOnP5iSCkX25M/Ee4e3BJaYX1KGwB6GZiJI3LXDMRBl?=
- =?us-ascii?Q?uvHkeuMZIc+Q5QuNK6kOfB32JDzikZQUvWWewv0DdVd7x9NO3bHMAcKvkFVi?=
- =?us-ascii?Q?4HxhBWJP4ii3d6jpOkZpwcuErMiEbbBP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eWvhYflcCxH/us/MG/MtTmTToJZN096o1XIvHCw0YcBXdkHqRkKim/EvVVgm?=
- =?us-ascii?Q?NeGI5A77X8rOp9FzP5aUPC9DKlvD8luA/KRA+hlOS4duIuLvrhG1r/yxYOlh?=
- =?us-ascii?Q?1DMhW4Gv98xqV7RXuIya0gwV3gcEg+o0rBEF0nMgHurhPAasBNGqFia+4zzm?=
- =?us-ascii?Q?mQ8rN4TrXCvoTtB6hY786TcdxOooCIIq0UuJ8cE+Hw5QWWSGlnTcilI2vnW8?=
- =?us-ascii?Q?WeHb2i7nUd+CVxRd5vRsACpwU/6C8uLfvDqMQwEY7qONcuYPRxa2/z8TEbWH?=
- =?us-ascii?Q?bHiuJjCG8jsa1Z0je7yNioPOdQ0IE14YyYI6wIwS+4kaA+Dtq+FPIq93VJyK?=
- =?us-ascii?Q?2On7zcBKRq4ZJMG39ZWndnu/lUm8PSoBorSdAJ4dPldcXSK/JB/K4TRFyV0b?=
- =?us-ascii?Q?tLlpbCMigpgnaVnBQoe32ST3aqcslaEjNorGVuFITtmQIi7CB3DlvRXrZtpk?=
- =?us-ascii?Q?a18OyJ1ZNkN0pjvrxPkLjec6ewVUB3vYAkkjNSIPw/R1YDgjuMD850e0NbDW?=
- =?us-ascii?Q?usFyq+MAyLAZxAR8y50ljfcWazDZ4Lf46XFtkJv6BwjbwavdPEq+Lgg6Zd9T?=
- =?us-ascii?Q?t1hIHYOgUlE7+pT51tSCyp+0rHlHSvAhkEt5tWy9KX5IB0zRFdj2Ocwkeaak?=
- =?us-ascii?Q?F1Ofcod1IQBav5eZvlda7TOlrwHpQXGuieDHUjvP82N0zvTcXeFOm7JdmIAB?=
- =?us-ascii?Q?GAiNHbQaTX7fx7HWV+xfYzX5JnOwg7xdpZwRjlby5tzP3QdMB48dCR5zL2oA?=
- =?us-ascii?Q?ifdfd7/7HDV2tkZkf5KpUud8TpsSKc6eTWhnYSnkFRllx9iYiUe3VdVyxnWB?=
- =?us-ascii?Q?5V18T5jSMKxSUZ+PfV7EspA+BpVfxsLyjTI4uBkhh/c7DGzxbtTgEXZNyk7R?=
- =?us-ascii?Q?B2/kqNXY3lyRFdxwQ/XLiA3CGdUq/m96j/nkPGWx/QzoX8QZh6qvtFNrMy0Q?=
- =?us-ascii?Q?SDaztvqsBAnum8enD2vVzOPnIDx3FsUdg4FvTAmlzGfWb5rHTKrjEXn8K612?=
- =?us-ascii?Q?yChBttR99LPSRmolNAbw2p7aKFeonzvrD7owQHm5B43RjljjYRjd4wHopHpJ?=
- =?us-ascii?Q?ViY1fxWV+PKR03wL6aE+86ys/T0yHh44+WtqUmd2zl19oEzr09tSsJ++mqrp?=
- =?us-ascii?Q?iRTh6W/tnJw2scG0GEPqb6ldfv9R7+VCkJU1qPcHIdv8ZJC0m9TlXrAE7c4q?=
- =?us-ascii?Q?DD0vNs4AQ50zwxdKooRQwgUxV38HdLtUaj7+KnwUFSVhsuHlc37bAKRvqKaf?=
- =?us-ascii?Q?T7wxCbd1eOww11MGoEIJuZebsbPeKGqqwPWBRhYe/Y1EnVqiGkRY5l03lMFL?=
- =?us-ascii?Q?WqIMZ6FEmfiQ5b/sEb/dvrYyETQNjLqnzZiRmhQ0J1ERK3shRQJnPAq0Z5vZ?=
- =?us-ascii?Q?mVJ+rqyngrphTPyUo5CZo07Bj2tcHvxXVr7WALg8rQkQRJmTVePbC4qmSGxj?=
- =?us-ascii?Q?8bzONxY1yOtdBsGZm1FlPRfhbCRI9w/zSJ03Qr0OGvG8j0pWcHlvgozCvPHX?=
- =?us-ascii?Q?hO0XPJBdXQc/4FxvtmcXm9F5n+CVDzy4qiPtTLWPBgZRB0gbfGBQgwVzRYlG?=
- =?us-ascii?Q?JjKl3vnxRzZ6B42IPiMAxDw8h1Hn9xqdLpMdRAiv?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 76a37bf9-780d-431d-1f04-08dd5b011b0a
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 09:44:07.0472
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: UU8Lbvwp2x+0HQVUKXtXe3rhgqCmDm2iDsMbGj8rnisDGNhDsS99QwLPqdqVxSR/0Qfz+kmxhe4H+UNgyfT05Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9977
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net] net: dsa: mt7530: Fix traffic flooding for MMIO
+ devices
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+ Daniel Golle <daniel@makrotopia.org>, DENG Qingfang <dqfext@gmail.com>,
+ Sean Wang <sean.wang@mediatek.com>, Andrew Lunn <andrew@lunn.ch>,
+ Vladimir Oltean <olteanv@gmail.com>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+References: <20250304-mt7988-flooding-fix-v1-1-905523ae83e9@kernel.org>
+Content-Language: en-US
+From: "Chester A. Unal" <chester.a.unal@arinc9.com>
+In-Reply-To: <20250304-mt7988-flooding-fix-v1-1-905523ae83e9@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+Date: Tue, 04 Mar 2025 09:46:28 +0000 (UTC)
+X-CM-Envelope: MS4xfAak46EaWbKlaQAOOnK1fi3wYW/2+4l5aFepSvjx8uGgOA14qId//toYZLzeR8I+fViXYRlIlNrSjhVYMS07D3LEvzQpZSwyrxo5G9Gty/xvDUy3QReb 81z8mlUhj8RTJim8GAvhYmM6/pF4WuB98DsIwesDXLY0yHpEm/E4voVX2sYx/kRelHjE5ZBFitzVbCH6SbiW/rCQx6pIvy7WNTLecRcB4gK5PUnSvp6bgpI5 Vp8PZG773xMy9cwJSctfC0mHiuA7qSvV+toWfGyhQLx+BXpppAfLFYedocznA8KwlosasXFjoGihBHj2golKcOv0nfcU2dXferx/0xfaoGPlOcIKt7iabktN iA1sFATs9WZO9x3kSxeA8u0HpQbsPUk8JwvXAz/4qP7BTX5Kr6VPd7QoCEyK4d4jZfNG0kpgp9o9ch5t7YboX4IuSr2wCc7FVXkHFFM9wOnRdkfCqygd7Nes qmYirDGRadJL+OcTKysDx4Lkurf/dh8sR6T8eOa4D+633H0+QKjbxlbzKZyIzmaupWPgrbUydGKr3k0sgbv3j5wXbcJRhsyLqW/MOEHYH9wtACwUpPEkJCzM 0lOjmmauEwkKUWVjJhNGMxlojrEdw/Ov4DaRFHwbM0JHZmROfNaKWCZGkZae/Ku8PGSFRroLVy2cTdn+llFe4d+Ok3ttmbSFd85rV+z4OsljPg==
+X-CM-Analysis: v=2.4 cv=F4sFdbhN c=1 sm=1 tr=0 ts=67c6cbf6 a=jLKKKTx0pIsUXH9Z8yxYVg==:117 a=jLKKKTx0pIsUXH9Z8yxYVg==:17 a=IkcTkHD0fZMA:10 a=VwQbUJbxAAAA:8 a=GvHEsTVZAAAA:8 a=oMYzIxOzatuwx5kPrsYA:9 a=QEXdDO2ut3YA:10 a=aajZ2D0djhd3YR65f-bR:22
+X-AuthUser: chester.a.unal@arinc9.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_014410_636733_096FB6DA 
-X-CRM114-Status: GOOD (  16.02  )
+X-CRM114-CacheID: sfid-20250304_014702_775596_C4476BDE 
+X-CRM114-Status: UNSURE (   6.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,71 +128,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On 04/03/2025 08:50, Lorenzo Bianconi wrote:
+> On MMIO devices (e.g. MT7988 or EN7581) unicast traffic received on lanX
+> port is flooded on all other user ports if the DSA switch is configured
+> without VLAN support since PORT_MATRIX in PCR regs contains all user
+> ports. Similar to MDIO devices (e.g. MT7530 and MT7531) fix the issue
+> defining default VLAN-ID 0 for MT7530 MMIO devices.
+> 
+> Fixes: 110c18bfed414 ("net: dsa: mt7530: introduce driver for MT7988 built-in switch")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 
-The irqsteer IP itself can support up to 5 channels and each
-channel can support max 960 IRQs per. The actual number of
-channels and IRQ per channel implemented in HW is SoC related.
+I was suspecting of this for a while. Thanks for addressing it.
 
-For previous i.MX SoCs, normally only one channel and max 512
-IRQ is implemented, But for i.MX94, the irqsteer HW is implemented
-for 960 IRQs, even it only has 384 IRQs connected.
+Reviewed-by: Chester A. Unal <chester.a.unal@arinc9.com>
 
-That means on i.MX94, the 'irq_number' is 6 but the 'irq_count' is
-15, so we need to increase the CHAN_MAX_OUTPUT_INT to 0xF(960 / 64)
-to make sure the irqsteer can work correctly on i.MX94.
-
-Signed-off-by: Shengjiu Wang <shengjiu.wang@nxp.com>
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-Reviewed-by: Ye Li <ye.li@nxp.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/irqchip/irq-imx-irqsteer.c | 14 ++++++++------
- 1 file changed, 8 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/irqchip/irq-imx-irqsteer.c b/drivers/irqchip/irq-imx-irqsteer.c
-index b0e9788c0045..afbfcce3b1e3 100644
---- a/drivers/irqchip/irq-imx-irqsteer.c
-+++ b/drivers/irqchip/irq-imx-irqsteer.c
-@@ -24,7 +24,7 @@
- #define CHAN_MINTDIS(t)		(CTRL_STRIDE_OFF(t, 3) + 0x4)
- #define CHAN_MASTRSTAT(t)	(CTRL_STRIDE_OFF(t, 3) + 0x8)
- 
--#define CHAN_MAX_OUTPUT_INT	0x8
-+#define CHAN_MAX_OUTPUT_INT	0xF
- 
- struct irqsteer_data {
- 	void __iomem		*regs;
-@@ -228,10 +228,8 @@ static int imx_irqsteer_probe(struct platform_device *pdev)
- 
- 	for (i = 0; i < data->irq_count; i++) {
- 		data->irq[i] = irq_of_parse_and_map(np, i);
--		if (!data->irq[i]) {
--			ret = -EINVAL;
--			goto out;
--		}
-+		if (!data->irq[i])
-+			break;
- 
- 		irq_set_chained_handler_and_data(data->irq[i],
- 						 imx_irqsteer_irq_handler,
-@@ -254,9 +252,13 @@ static void imx_irqsteer_remove(struct platform_device *pdev)
- 	struct irqsteer_data *irqsteer_data = platform_get_drvdata(pdev);
- 	int i;
- 
--	for (i = 0; i < irqsteer_data->irq_count; i++)
-+	for (i = 0; i < irqsteer_data->irq_count; i++) {
-+		if (!irqsteer_data->irq[i])
-+			break;
-+
- 		irq_set_chained_handler_and_data(irqsteer_data->irq[i],
- 						 NULL, NULL);
-+	}
- 
- 	irq_domain_remove(irqsteer_data->domain);
- 
--- 
-2.34.1
-
+Chester A.
 
