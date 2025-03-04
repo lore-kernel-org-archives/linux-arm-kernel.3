@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3F0CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:53:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D390EC282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:54:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jDySvxIgslRZrTqVd7bcfGaor7CHMjwsKayUWf5uR70=; b=iSQEYCX2jbE7A2OoUeblq1/icF
-	kGPDTGnFGlWICasC0ejJGEWLwPBZjA6JPJi3z3U+NE5b7izkGJ9Xyvfy4xx6iTr7kdy2st7UjKF4I
-	v2scxOFe/B0O1UQM9lTzWzV6HkVun7JxpVDXwGlYe4BMjskcn1hM0hVrN7zRCbydolV4PsrQbZqFx
-	qY7gdf3FpLG1iTeudYQsL0oK5nMBqfExj1kJYM4nTbYsoXpyYgGbiw9EduvkcPazVDA6kt1aT/+z7
-	6pwV0i8tKOFg2nkIkitfQEAVwzbSeRs/782iB3Vt5Kv1eoq3mF5CJs0056gOqRVQL9QeQ77griZLG
-	YwSIR4AA==;
+	bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=; b=BL01In6AaB2aycioW0Xts+jyqm
+	fdw5hVgs/8DrX1w8tKJ0mkWlSOLOS7T3UUwVHoy4fh6ihTIOvwQjiMP0p+5t6JF/1/+UIVdgP2jql
+	Do4wNYWsHaaxLGy/k7xAo6+eyNxifp1qinOwHr0HhWyByrabV4b/3WvxY/YEpUw/C5iQLe9Enz+vn
+	IbctlvBHcCPXtdkZuTyR9dFx/rwlZPlWWrEizLv5PA8L1vvVpkjzcCLhd8nmxTuAG8is9X+dU0Ikt
+	v3qxp2vqofaVbg24UaC/NmlTxwx2sUf0sOsA1Sm30GwGfOpadH1BOrNKG/ARM+1P7ew1T5775v4Mg
+	Ww9KPFzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXOC-00000005up2-0HcE;
-	Tue, 04 Mar 2025 18:53:12 +0000
+	id 1tpXPl-00000005vG1-0Tab;
+	Tue, 04 Mar 2025 18:54:49 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpViL-00000005YI3-3kAw
+	id 1tpViM-00000005YI9-1Wvp
 	for linux-arm-kernel@bombadil.infradead.org;
 	Tue, 04 Mar 2025 17:05:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
 	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
 	:Reply-To:Content-ID:Content-Description;
-	bh=jDySvxIgslRZrTqVd7bcfGaor7CHMjwsKayUWf5uR70=; b=MTQBdKZXbR0HVBdKhmKeVdWH2g
-	35FpDic58Uqo4DTVKm318uIYAnhK8rs3EeyOKC5zfmivqILHp7gZ1EiK0NMxFxjDwr6ofdJfYCDQE
-	Cwih5kBJ3obuHf09L+fDD3YDyEwn9bizsd84/quGGYJESJ/9DQnKxU1vXigTm03ksO8r/ST++r40b
-	FUIQSBgWwaVy0DzSgZTxkB/EOhLOYjyHHX86JIFe0e7B7OZt/IDA8/geEbZwvB0qGsl7qcphH9m0b
-	gfofbRIo02/c2ljiev63OzwcXLEG1G1xERZkB0/VUzgCQB1XaJkqSDOMbnvAdWhLEk5R6LqnZTNWG
-	rLyifI1w==;
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=; b=arwdDrJ5nxUaqiXcnprFNMi6rt
+	NyiiJeRBQOQwZ19lYuYOvgMngKdIa2acf8681Y/r0CyLZQubERvC8mOFr/9XaN9TOTWM2IEtJlj6v
+	SsHlz9ELkiLES5kCsbbe77RO2s8LacXeaGG0H+uxoMAV+ny5EySQSCE9ufGpS3RYohhpdbt5BQU7b
+	w8V9r/xCHs0/nwtVg6c8bUu27Dpve/jJeOIWMBhmjWrEn7Rpzhwg9i63EEwkfo6r/2HQGe4O6r+/f
+	4D6QBUrc6xg/fJg0ytuC0yscacn2GQEfUNCwX3Cor7m/+raFecyTjn4fHRZih41025ZxmpJNMLzAS
+	8LitMknA==;
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpViD-00000002D1j-1g5O
+	id 1tpVi9-00000002D0Y-0TjC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 17:05:52 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e539ea490dso3607383a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:42 -0800 (PST)
+	Tue, 04 Mar 2025 17:05:53 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e55ec94962so3638544a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741107941; x=1741712741; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741107938; x=1741712738; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jDySvxIgslRZrTqVd7bcfGaor7CHMjwsKayUWf5uR70=;
-        b=fIVFRFcTOlTcsXQITbuSZPKycKETPy6etpRNYPmYcYMdPGyVD/iQn5MbbfQiay1UPZ
-         FFu2z2tEk1YJHlVtAMi82nvxmkCJ0TJz/e4wsHkgzt+IFzxsZqM1eYSa/Mx1Azaiu7Og
-         zLDMsPnfKH7vbvX9HfuljultEvLmZrvQiwrSkm7Pn5mCyWwUKKoCkzeRdhZRTVAKqVwe
-         gW7FtEcB+0gEEUeEJESG7WWiiZYcKYxRCFRMFCZJtwO+1N10troJgKaG7BrMY/4LJ0mq
-         FKAXFgZizKTVzQRlCzb+aB6pmzPlBak8HNgH8HHJFMjNxRfgGhyAluIERb8gSir9vWeD
-         43VQ==
+        bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=;
+        b=j3Um0OTITg7odN79pu3s5Us+3s8CK0yWy6ssNGqA9JvDSIfcW+qG5HfzEAf/PYTAzm
+         J0rhEInhemNDMXWaoRFGoBKjXEwgZ9LjNe5eZndPQvUsRQWF56SBptOKJ67iUCLiDjuU
+         DaTnvdGM2oIxyZzkOqO/Ld8d5j8AK3N2UV6lcO0XaD871Ets3iXFyzFYADSYUNBReOOX
+         H68KDwO25ZCfy24fLvOOcfBgMM7/KixNVpfGp646dDyQ8cmGhh7y/uY0Nd8h1S3i/fXS
+         CRnJER4ybjfBzwcZwsGpKOMztwWDco103srIVBPfGDALtf+l8CWP/N08uo8LtpxXZ9IX
+         oZog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741107941; x=1741712741;
+        d=1e100.net; s=20230601; t=1741107938; x=1741712738;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=jDySvxIgslRZrTqVd7bcfGaor7CHMjwsKayUWf5uR70=;
-        b=AD7GDVnpEcz4L+XwDECbqLRLHcePYg7yMJQQwAqnNLFM4XWPIyF+eN0VRicc6SsAGp
-         0Zl4Kp3MkvGHJ3/WTnY6DTT84cP0or+aMTC8hBp9lydHiiBPoWwdpU0KdUq4oo2yXNfR
-         AopbmouAhn0cSQvSYXJI26XRfhNf5YGkX49gzFnVGlVC8WHH/8LHmBhFSHwM69YUH5nD
-         dZeRcpRAyFCLmW9ERXXBHbrj68j2naeoVp00/4E9Tu4Q3LNoh0Ehdti+WjoodlPMktKf
-         NorA5ljB/zek+VVwxhj5TbXg0M34PqVq2sG+nrEJYhaFk/83JWMCTSpqVGJ6HG0Gf7Wf
-         dYSw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4DKtp1DSSWKo5EOpqTrAEvJZA7vZNVs6TUlMrCPTcOvSiFyWFB5ewvOu54PSU422ElmlxV+mer/W3sgxzCcmW@lists.infradead.org
-X-Gm-Message-State: AOJu0YxzbdO+PwJbbnIcfhN0Le9ssmZj5mn4CBZ5EwLaaLLh9sgNE9JU
-	kPEx0YFehphbDv/ue2uDnpyzhmSspcm+qnHYB+PkkqYDqh28c9085NEcsZhEGfA=
-X-Gm-Gg: ASbGnctr4KL/oUeQmMkmDnuX5UWD1DfHgpU7nJJ1o50JBFBv5UnfZq7WjPW5+w3hbv7
-	Xdo8h4NjdcLgn04AmEuhPntv1pB7FsOaHP2PS5emuc2XLNA/JXQsfKdIffARZyGFQWPQDJKenSR
-	a7O21dmkYPXJAP/QKhmdFPQir6FATd6wMvjmG+4H3Ovj24916xNId8Qsoqn13RWI+zZ0xTLEqr1
-	erI63d3p6w+rpwtn8WLfB9XJZkNKlq0uMhyIOdkPqX+93DmPZhokC/N9yvIF5VH+n5ww+65ftfi
-	6n2qwKkUBWjIO6XWzkFPbuwBgp6VP1c1NHhKNac4UwPD1O80YDDQNg4V5+S/IRmG94nXbLM4LLT
-	QAExFdKbsS6x7PSDctXxb3f761xv/
-X-Google-Smtp-Source: AGHT+IGw6DMujSSlMe4X/Gi0vjiilArq9AgwOJMWr49ZazH2bLzcdxFw+AmPTscolQ+3wmW3ZQIPiA==
-X-Received: by 2002:a05:6402:50d4:b0:5e5:9543:fc0d with SMTP id 4fb4d7f45d1cf-5e59543fd82mr4097180a12.31.1741107940802;
-        Tue, 04 Mar 2025 09:05:40 -0800 (PST)
+        bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=;
+        b=mPmlyGbiNEDGVKHumvVVud66uvNCNufrutDgHk0I1Zgk0PcDGJRbJowBMwc+DforDf
+         9P9iMSGcnSjPeYFxz7+YNcRyUHQLgwXoO3fDXVuMSMDC9MzrwojbE5ybxLdCioprO74K
+         qthdF18XJ/XxPqvTdCrRQHI0FEdFnZKS3lnZiqHi8x7FggWpoDfuiIkcN84rzPsAieet
+         CTfKaBwlXL9wZVM0LPoqY7XRqnF9xIyXIWyXVTBxtsORfR1lXvTqYJkb7REBv8sg6SNa
+         FVhxO58ZRxTBgZhlkunlastLLlPH0/dRvG4ZJoqKjRteONntf7mJCPvaFE8BKfX8Wqw6
+         nx/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCViycQIGKGQmi2ManIeAuL28LVc5Ord/TlrL1g7Gr5Or0GrtOgB/Ct8Nt7hFx748rEo+HHunWM+fkMmu6rEnrxX@lists.infradead.org
+X-Gm-Message-State: AOJu0YyS6Frih3SNSM4aAgHrd3nqiSBv3bYG2IV8y6BEk9cYRmUUFRJn
+	y5iFBVK/ru9uryaIZvGniqp9LOHGFG20cQUtmjW583Wsm5C/T3F9FDiUHagSwNk=
+X-Gm-Gg: ASbGncu8q82d6pT+dyayryYOwvtDdT+3R/FYagLqet55PzBWgeb+8hNhweFsBERv0VB
+	vSXCaVFHPCCzoe+NpFFIr9TUFbWeKldv4hNlJxaDm28CCdZcLtYPKE/CyRhf0LDOACl8s8jcg2J
+	5h/L25Tx0uIcfZkT3CZLolO/pQwqAfq/QYKLkILgXRZgVfChpoWKiBHiOuFHnrOdODqX3C3P2wK
+	J9zdF/MKwJN3Vzor2u3l8900ccOBbq4K4vT8e6IvSKm89bt6w4TNbZLRHGhHl1P/4eY2v1rpnnB
+	rYExj2HZq4xEwuZImKNqi5IPE6ds3ucxRzjMW83+FXP+6cgGM+PVeS4/K1QjpE7GvjotW0gRHpv
+	Q8zPbGxTTVbcv0oWxFanTj4koZjwb
+X-Google-Smtp-Source: AGHT+IHF998NpSXE/Qa2EdiSn4vtx17I0lnFV/wyKnxAJsCHaDM1j6HSEMvcUwtHdnvoXlFd/CgYog==
+X-Received: by 2002:a05:6402:d0b:b0:5e4:c532:d693 with SMTP id 4fb4d7f45d1cf-5e4d6b8535fmr16782448a12.31.1741107937989;
+        Tue, 04 Mar 2025 09:05:37 -0800 (PST)
 Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.40
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 09:05:40 -0800 (PST)
+        Tue, 04 Mar 2025 09:05:37 -0800 (PST)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 04 Mar 2025 17:05:42 +0000
-Subject: [PATCH v2 14/16] rtc: sd3078: drop needless struct sd3078
+Date: Tue, 04 Mar 2025 17:05:38 +0000
+Subject: [PATCH v2 10/16] rtc: pl030: drop needless struct pl030_rtc::rtc
+ member
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-rtc-cleanups-v2-14-d4689a71668c@linaro.org>
+Message-Id: <20250304-rtc-cleanups-v2-10-d4689a71668c@linaro.org>
 References: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
 In-Reply-To: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
 To: Chanwoo Choi <cw00.choi@samsung.com>, 
@@ -113,8 +114,8 @@ Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_170546_655489_DF0F37B2 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20250304_170542_943443_4A6B3C59 
+X-CRM114-Status: GOOD (  13.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,169 +136,61 @@ no code in this driver uses it past _probe().
 We can drop it from the structure and just use a local temporary
 variable, reducing runtime memory consumption by a few bytes.
 
-Since this now means that the structure has just one member only left,
-there  is no need anymore to allocate data for it and pass that around
-via the various callbacks, just to extract that one member.
-
-Instead, we can just pass that one member and avoid the extra memory
-allocation for the containing struct, reducing runtime memory
-consumption.
-
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/rtc/rtc-sd3078.c | 71 +++++++++++++++++++-----------------------------
- 1 file changed, 28 insertions(+), 43 deletions(-)
+ drivers/rtc/rtc-pl030.c | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/drivers/rtc/rtc-sd3078.c b/drivers/rtc/rtc-sd3078.c
-index fe27b54beaad1c06b70bf7f22e44c3f6da087267..10cc1dcfc7748144f51ef674939506feee1fb471 100644
---- a/drivers/rtc/rtc-sd3078.c
-+++ b/drivers/rtc/rtc-sd3078.c
-@@ -36,11 +36,6 @@
-  */
- #define WRITE_PROTECT_EN	0
+diff --git a/drivers/rtc/rtc-pl030.c b/drivers/rtc/rtc-pl030.c
+index 39038c0754ee55a952e5986afe711cffff35840b..e7c81740061bb60c4d8447d6522819685bea9180 100644
+--- a/drivers/rtc/rtc-pl030.c
++++ b/drivers/rtc/rtc-pl030.c
+@@ -21,7 +21,6 @@
+ #define RTC_CR_MIE	(1 << 0)
  
--struct sd3078 {
+ struct pl030_rtc {
 -	struct rtc_device	*rtc;
--	struct regmap		*regmap;
--};
--
- /*
-  * In order to prevent arbitrary modification of the time register,
-  * when modification of the register,
-@@ -49,14 +44,11 @@ struct sd3078 {
-  * 2. set WRITE2 bit
-  * 3. set WRITE3 bit
-  */
--static void sd3078_enable_reg_write(struct sd3078 *sd3078)
-+static void sd3078_enable_reg_write(struct regmap *regmap)
- {
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL2,
--			   KEY_WRITE1, KEY_WRITE1);
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL1,
--			   KEY_WRITE2, KEY_WRITE2);
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL1,
--			   KEY_WRITE3, KEY_WRITE3);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL2, KEY_WRITE1, KEY_WRITE1);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL1, KEY_WRITE2, KEY_WRITE2);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL1, KEY_WRITE3, KEY_WRITE3);
- }
+ 	void __iomem		*base;
+ };
  
- #if WRITE_PROTECT_EN
-@@ -69,14 +61,11 @@ static void sd3078_enable_reg_write(struct sd3078 *sd3078)
-  * 2. clear WRITE3 bit
-  * 3. clear WRITE1 bit
-  */
--static void sd3078_disable_reg_write(struct sd3078 *sd3078)
-+static void sd3078_disable_reg_write(struct regmap *regmap)
+@@ -86,6 +85,7 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
  {
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL1,
--			   KEY_WRITE2, 0);
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL1,
--			   KEY_WRITE3, 0);
--	regmap_update_bits(sd3078->regmap, SD3078_REG_CTRL2,
--			   KEY_WRITE1, 0);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL1, KEY_WRITE2, 0);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL1, KEY_WRITE3, 0);
-+	regmap_update_bits(regmap, SD3078_REG_CTRL2, KEY_WRITE1, 0);
- }
- #endif
- 
-@@ -85,11 +74,10 @@ static int sd3078_rtc_read_time(struct device *dev, struct rtc_time *tm)
- 	unsigned char hour;
- 	unsigned char rtc_data[NUM_TIME_REGS] = {0};
- 	struct i2c_client *client = to_i2c_client(dev);
--	struct sd3078 *sd3078 = i2c_get_clientdata(client);
-+	struct regmap *regmap = i2c_get_clientdata(client);
+ 	struct pl030_rtc *rtc;
  	int ret;
++	struct rtc_device *rtc_dev;
  
--	ret = regmap_bulk_read(sd3078->regmap, SD3078_REG_SC, rtc_data,
--			       NUM_TIME_REGS);
-+	ret = regmap_bulk_read(regmap, SD3078_REG_SC, rtc_data, NUM_TIME_REGS);
- 	if (ret < 0) {
- 		dev_err(dev, "reading from RTC failed with err:%d\n", ret);
- 		return ret;
-@@ -123,7 +111,7 @@ static int sd3078_rtc_set_time(struct device *dev, struct rtc_time *tm)
- {
- 	unsigned char rtc_data[NUM_TIME_REGS];
- 	struct i2c_client *client = to_i2c_client(dev);
--	struct sd3078 *sd3078 = i2c_get_clientdata(client);
-+	struct regmap *regmap = i2c_get_clientdata(client);
- 	int ret;
- 
- 	rtc_data[SD3078_REG_SC] = bin2bcd(tm->tm_sec);
-@@ -135,10 +123,10 @@ static int sd3078_rtc_set_time(struct device *dev, struct rtc_time *tm)
- 	rtc_data[SD3078_REG_YR] = bin2bcd(tm->tm_year - 100);
- 
- #if WRITE_PROTECT_EN
--	sd3078_enable_reg_write(sd3078);
-+	sd3078_enable_reg_write(regmap);
- #endif
- 
--	ret = regmap_bulk_write(sd3078->regmap, SD3078_REG_SC, rtc_data,
-+	ret = regmap_bulk_write(regmap, SD3078_REG_SC, rtc_data,
- 				NUM_TIME_REGS);
- 	if (ret < 0) {
- 		dev_err(dev, "writing to RTC failed with err:%d\n", ret);
-@@ -146,7 +134,7 @@ static int sd3078_rtc_set_time(struct device *dev, struct rtc_time *tm)
- 	}
- 
- #if WRITE_PROTECT_EN
--	sd3078_disable_reg_write(sd3078);
-+	sd3078_disable_reg_write(regmap);
- #endif
- 
- 	return 0;
-@@ -166,36 +154,33 @@ static const struct regmap_config regmap_config = {
- static int sd3078_probe(struct i2c_client *client)
- {
- 	int ret;
--	struct sd3078 *sd3078;
-+	struct regmap *regmap;
-+	struct rtc_device *rtc;
- 
- 	if (!i2c_check_functionality(client->adapter, I2C_FUNC_I2C))
- 		return -ENODEV;
- 
--	sd3078 = devm_kzalloc(&client->dev, sizeof(*sd3078), GFP_KERNEL);
--	if (!sd3078)
--		return -ENOMEM;
--
--	sd3078->regmap = devm_regmap_init_i2c(client, &regmap_config);
--	if (IS_ERR(sd3078->regmap)) {
-+	regmap = devm_regmap_init_i2c(client, &regmap_config);
-+	if (IS_ERR(regmap)) {
- 		dev_err(&client->dev, "regmap allocation failed\n");
--		return PTR_ERR(sd3078->regmap);
-+		return PTR_ERR(regmap);
- 	}
- 
--	i2c_set_clientdata(client, sd3078);
-+	i2c_set_clientdata(client, regmap);
- 
--	sd3078->rtc = devm_rtc_allocate_device(&client->dev);
--	if (IS_ERR(sd3078->rtc))
--		return PTR_ERR(sd3078->rtc);
-+	rtc = devm_rtc_allocate_device(&client->dev);
-+	if (IS_ERR(rtc))
-+		return PTR_ERR(rtc);
- 
--	sd3078->rtc->ops = &sd3078_rtc_ops;
--	sd3078->rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
--	sd3078->rtc->range_max = RTC_TIMESTAMP_END_2099;
-+	rtc->ops = &sd3078_rtc_ops;
-+	rtc->range_min = RTC_TIMESTAMP_BEGIN_2000;
-+	rtc->range_max = RTC_TIMESTAMP_END_2099;
- 
--	ret = devm_rtc_register_device(sd3078->rtc);
-+	ret = devm_rtc_register_device(rtc);
+ 	ret = amba_request_regions(dev, NULL);
  	if (ret)
- 		return ret;
+@@ -97,14 +97,14 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
+ 		goto err_rtc;
+ 	}
  
--	sd3078_enable_reg_write(sd3078);
-+	sd3078_enable_reg_write(regmap);
+-	rtc->rtc = devm_rtc_allocate_device(&dev->dev);
+-	if (IS_ERR(rtc->rtc)) {
+-		ret = PTR_ERR(rtc->rtc);
++	rtc_dev = devm_rtc_allocate_device(&dev->dev);
++	if (IS_ERR(rtc_dev)) {
++		ret = PTR_ERR(rtc_dev);
+ 		goto err_rtc;
+ 	}
  
- 	return 0;
- }
+-	rtc->rtc->ops = &pl030_ops;
+-	rtc->rtc->range_max = U32_MAX;
++	rtc_dev->ops = &pl030_ops;
++	rtc_dev->range_max = U32_MAX;
+ 	rtc->base = ioremap(dev->res.start, resource_size(&dev->res));
+ 	if (!rtc->base) {
+ 		ret = -ENOMEM;
+@@ -121,7 +121,7 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
+ 	if (ret)
+ 		goto err_irq;
+ 
+-	ret = devm_rtc_register_device(rtc->rtc);
++	ret = devm_rtc_register_device(rtc_dev);
+ 	if (ret)
+ 		goto err_reg;
+ 
 
 -- 
 2.48.1.711.g2feabab25a-goog
