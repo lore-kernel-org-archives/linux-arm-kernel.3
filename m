@@ -4,124 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09CA9C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 13:42:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 632BDC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 13:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VCZNkFyXiC+ACs1VkEdYlthMmraN+tbZqQZ2QK7Jv6A=; b=k0auTP/OxL1Kf4Mo+uMkxLVwPL
-	K/iCmomsAJhdZr1kqUfSHAvBWQWheI1QlsDVtKPNOWFWeRPrExVb4/OYaUslT1jWq2ZrHaVIAi5l1
-	i8qlOMMKK9Eu/bwWvfzeQmOPDyQDzNLfEResTAGoxuyg/V74L6ZTSpVKSz8czJ+IrotpivkDwZa3D
-	UZlOPaI60rjSWX04d/J0Zezu5/zfjxixCgnCbMQsHS5IDb4lnhuEHmCGMOo8bkP6vYlhDBfA50t01
-	725PuvDnaKZiQfhFv8pwMjE+I4sXCP1XztAfNOs+E5AkZMRqhAwYn5/yOR7FS972Btt4QRPZZsW5I
-	TphXnRcw==;
+	bh=ccS7GETxNbKcaXT5vTzHla9mUmiZJ7gOu55BkTg+WWk=; b=eLclGJ7cZzaE7gC5apxf1CkUjH
+	Ne/D74HK1Z9LV5rkUT9jY+zgR7koUo0WzPGwNmh6EpoR3JI99SocMMwsBUQAAtZzMbJl3FoRDFc0v
+	2047yqAWdTJxckuRE6OHKlEOtr+NjMOxnWge8ebqPoKJOLz2jtKNUTck63r1ymGMe/DiUbLYkr6+P
+	RVDJpdwfgvZqkhdXUqjMGjGoRVPQmzcW9V84YjdtM42IodfMufIO1h4A/m74Q+o4qVGS0LeSpyksq
+	lly0saJgTkiK5a+trXsY1OgoQ5c6YZa5SGvkRyOr8MwW75UhmRtp5c1iPapYY7cV3M+sR+qRKCbxR
+	HsIRZo3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpSXk-00000004ou5-29yd;
-	Tue, 04 Mar 2025 13:42:44 +0000
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpSW4-00000004oTH-20Jc
+	id 1tpSZe-00000004pCI-17Rs;
+	Tue, 04 Mar 2025 13:44:42 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpRO6-00000004dbO-0Oi0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 13:41:06 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20250304134053euoutp0274e718a53446102a6ee1026124c91a7e~pnUXD5U4X2441924419euoutp02o
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  4 Mar 2025 13:40:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20250304134053euoutp0274e718a53446102a6ee1026124c91a7e~pnUXD5U4X2441924419euoutp02o
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741095653;
-	bh=VCZNkFyXiC+ACs1VkEdYlthMmraN+tbZqQZ2QK7Jv6A=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=qkHBRQob8lENXqQpj9evLPzZGrcLkx3waJ68RRvWQWDjKYGfOFdnTRkPR5YgT0r9t
-	 bWaw4uzmqYeRET8UXipD1pBcflHD01/XucESdPYr8E02F8XVFdto8Fa/g5TaQGshf8
-	 8YDfG7U6R16iPOjAdU2sgWQuNhyD/JYwo4o99jRE=
-Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
-	20250304134053eucas1p2fd253d9e8b19a8d56ca6faf034f59e83~pnUWyLufY0059800598eucas1p2L;
-	Tue,  4 Mar 2025 13:40:53 +0000 (GMT)
-Received: from eucas1p1.samsung.com ( [182.198.249.206]) by
-	eusmges1new.samsung.com (EUCPMTA) with SMTP id 6E.25.20821.5E207C76; Tue,  4
-	Mar 2025 13:40:53 +0000 (GMT)
-Received: from eusmtrp1.samsung.com (unknown [182.198.249.138]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250304134052eucas1p2692abf58857b6b1538d331ee3a319885~pnUWJITBM3099230992eucas1p2z;
-	Tue,  4 Mar 2025 13:40:52 +0000 (GMT)
-Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
-	eusmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250304134052eusmtrp18a21621ca1f23615e9e13532e81deb9a~pnUWIe-oj2618026180eusmtrp1x;
-	Tue,  4 Mar 2025 13:40:52 +0000 (GMT)
-X-AuditID: cbfec7f2-b11c470000005155-ed-67c702e5c7bf
-Received: from eusmtip1.samsung.com ( [203.254.199.221]) by
-	eusmgms2.samsung.com (EUCPMTA) with SMTP id 49.41.19654.4E207C76; Tue,  4
-	Mar 2025 13:40:52 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250304134050eusmtip103f4c4e81862bd42dd3b73011ededa10~pnUUA9vpM0878108781eusmtip1b;
-	Tue,  4 Mar 2025 13:40:50 +0000 (GMT)
-Message-ID: <7b5c90cf-00e4-4684-8719-f380badab064@samsung.com>
-Date: Tue, 4 Mar 2025 14:40:49 +0100
+	Tue, 04 Mar 2025 12:28:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4573BFEC;
+	Tue,  4 Mar 2025 04:28:52 -0800 (PST)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 54D7C3F5A1;
+	Tue,  4 Mar 2025 04:28:36 -0800 (PST)
+Message-ID: <0be31ecd-4386-4eb6-ad6f-a4409a3fc6ad@arm.com>
+Date: Tue, 4 Mar 2025 12:28:23 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/3] arm64: realm: Fix DMA address for devices
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, linux-kernel@vger.kernel.org
-Cc: will@kernel.org, catalin.marinas@arm.com, maz@kernel.org,
-	steven.price@arm.com, aneesh.kumar@kernel.org, gshan@redhat.com,
-	robin.murphy@arm.com, linux-arm-kernel@lists.infradead.org, Jean-Philippe
-	Brucker <jean-philippe@linaro.org>, Christoph Hellwig <hch@lst.de>, Tom
-	Lendacky <thomas.lendacky@amd.com>
+Subject: Re: [PATCH v15 10/10] arm64: dts: qcom: sa8775p: Add CTCU and ETR
+ nodes
+To: Jie Gan <quic_jiegan@quicinc.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+ Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+References: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
+ <20250303032931.2500935-11-quic_jiegan@quicinc.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <2b6d5287-bdea-4ec3-a07f-986bd3c3b285@arm.com>
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrJKsWRmVeSWpSXmKPExsWy7djPc7pPmY6nG0zZLWfx/vxXFov3y3oY
-	LV7u2sZksXL1USaLhtUXWC02Pb7GanF51xw2i51zTrJaHPzwhNWi8ch7NouZt28zWhyZso/V
-	ouWOqQOvR+ulv2wea+atYfTYtKqTzePOtT1sHpuX1HvsvtnA5vF+31U2j8+b5AI4orhsUlJz
-	MstSi/TtErgyjn19wlzwVq5iwYO3jA2MkyW6GDk5JARMJFoP/WHtYuTiEBJYwSix5MkXRpCE
-	kMAXRok9kx0gEp8ZJXZ17GCF6Vje8oMRIrGcUWLC4lPsEM5HRol5z9qYQap4BewktvX8AhvF
-	IqAi0TT5JCtEXFDi5MwnLCC2qIC8xP1bM9hBbGEBV4kjsx4ygdgiAt4SFw80MoEMZRbYzSRx
-	/MoxsAZmAXGJW0/mgxWxCRhKdL3tYuti5ODgFLCWmH4sGqJEXqJ562xmkF4JgfmcEtM+72OC
-	ONtF4tm8m1AvCEu8Or6FHcKWkTg9uYcFoqGdUWLB7/tMEM4ERomG57cYIaqsJe6c+wW2jVlA
-	U2L9Ln2IsKPEogOrwcISAnwSN94KQhzBJzFp23RmiDCvREebEES1msSs4+vg1h68cIl5AqPS
-	LKRgmYXky1lI3pmFsHcBI8sqRvHU0uLc9NRiw7zUcr3ixNzi0rx0veT83E2MwNR2+t/xTzsY
-	5776qHeIkYmD8RCjBAezkgiv6edj6UK8KYmVValF+fFFpTmpxYcYpTlYlMR5F+1vTRcSSE8s
-	Sc1OTS1ILYLJMnFwSjUwFbunGhiejbry/NlS6dh3p1tY4v52+HjXbrzFImw99dX02EdcIptt
-	pzFoVPawLApc1/RrBi/Xl8X5l14uTAiYcShfy+9xR6I008p7k0N+Ll1T/WZew4YzFnEnNqTc
-	XuQSU+jS09pueflyy6lJKl9OJ6gdyvoryx/Ws0rhe+PG5Xyf4yasv3V61u/ZapWHNy+dl+Em
-	lZizatWR47mejl8+7J/lOevzlM+3lvq937A7SDq/5VbypM7tu1MqtXbev7/V3zK0rsx27auX
-	SR37b5lfCRHaf80o8Lqkyv5/EZc7Fx0R2iH+50B8WriwK5Ps4hCeMn/TjJiNb1wq7SfMbvyS
-	XzZr5gZNyUXOqr/bPkyIOKPEUpyRaKjFXFScCADY//6K3AMAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrDIsWRmVeSWpSXmKPExsVy+t/xu7pPmI6nG9zcbmTx/vxXFov3y3oY
-	LV7u2sZksXL1USaLhtUXWC02Pb7GanF51xw2i51zTrJaHPzwhNWi8ch7NouZt28zWhyZso/V
-	ouWOqQOvR+ulv2wea+atYfTYtKqTzePOtT1sHpuX1HvsvtnA5vF+31U2j8+b5AI4ovRsivJL
-	S1IVMvKLS2yVog0tjPQMLS30jEws9QyNzWOtjEyV9O1sUlJzMstSi/TtEvQyjn19wlzwVq5i
-	wYO3jA2MkyW6GDk5JARMJJa3/GDsYuTiEBJYyijxYudWdoiEjMTJaQ2sELawxJ9rXWwQRe8Z
-	JSYu+MkGkuAVsJPY1vOLEcRmEVCRaJp8khUiLihxcuYTFhBbVEBe4v6tGWBDhQVcJY7MesgE
-	YosIeEtcPNDIBDKUWWA3k8T9J9uYIDYcYpT4cukcWDezgLjErSfzwTrYBAwlut6CnMHBwSlg
-	LTH9WDREiZlE19YuRghbXqJ562zmCYxCs5DcMQvJpFlIWmYhaVnAyLKKUSS1tDg3PbfYSK84
-	Mbe4NC9dLzk/dxMjMJq3Hfu5ZQfjylcf9Q4xMnEwAp3Iwawkwmv6+Vi6EG9KYmVValF+fFFp
-	TmrxIUZTYGBMZJYSTc4HppO8knhDMwNTQxMzSwNTSzNjJXFetivn04QE0hNLUrNTUwtSi2D6
-	mDg4pRqY8s/4Sssv49Ez2CcbW/piz+bY2g2JzLPOOT24WrqUmZ//aM6fmQ6/M5gP/H286dnE
-	Dy5+PfFTWa5WRptsn2NiuomhrO+tobfsk2/6U8+sY6vM1djcv2RaR5qx0cMT/c1Wz35dbrj6
-	nOWB26e/q0oY3dN0/sWqnoruW65RdphDdGFbVKftbItdZ59sbV3vxMr78d3S5Kc3SpWmOH1U
-	mLktmv2W+MeTQUv/ef76qLkpl/+48OVndo/iXigd/iDn7nu2Vs9pgq9br6zFC03W703LL7vv
-	P9KRrHJ7p8gF56tfbpbEbctREJwT+VXcWfTKaUmxrbyN3QvmaXrv+uM86W3dZg+3OwuVdDhE
-	Z4WXit/fqcRSnJFoqMVcVJwIAOptTr1vAwAA
-X-CMS-MailID: 20250304134052eucas1p2692abf58857b6b1538d331ee3a319885
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250303113525eucas1p1099e087e2c11b9021603a6f13f8135c4
-X-EPHeader: CA
-CMS-TYPE: 201P
-X-CMS-RootMailID: 20250303113525eucas1p1099e087e2c11b9021603a6f13f8135c4
-References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
-	<CGME20250303113525eucas1p1099e087e2c11b9021603a6f13f8135c4@eucas1p1.samsung.com>
-	<2b6d5287-bdea-4ec3-a07f-986bd3c3b285@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250303032931.2500935-11-quic_jiegan@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_054102_703191_66CF947B 
-X-CRM114-Status: GOOD (  29.13  )
+X-CRM114-CacheID: sfid-20250304_042842_225087_6224F7F5 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,107 +77,198 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+On 03/03/2025 03:29, Jie Gan wrote:
+> Add CTCU and ETR nodes in DT to enable related functionalities.
+> 
+> Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
 
-On 03.03.2025 12:35, Suzuki K Poulose wrote:
-> On 27/02/2025 14:41, Suzuki K Poulose wrote:
->> Linux can be run as a Confidential Guest in Arm CCA from Linux v6.13. 
->> The address
->> space (GPA or IPA) of a Realm VM is split into two halves, with 
->> private bottom
->> half and shared top half. In Linux we treat the "top" bit of the IPA 
->> space as
->> an attribute, to indicate whether it is shared or not (MSB == 1 
->> implies shared).
->> Stage2 (GPA to PA) translations used by the CPU accesses, cover the 
->> full IPA space,
->> and are managed by RMM. The "top" bit as attribute is only a software 
->> construct.
->>
->> At present any device passed through to a Realm is treated as 
->> untrusted and the
->> Realm uses bounce buffering for any DMA, using the "decrypted" 
->> (shared) DMA
->> buffers (i.e., IPA with top bit set). In Linux, we only send the 
->> "DMA" address
->> masking the "top" bit. In Arm CCA, SMMU for untrusted devices are 
->> managed by the
->> non-secure Host and thus it can be confusing for the host/device when 
->> an unmasked
->> address is provided. Given there could be other hypervisors than 
->> Linux/KVM
->> running Arm CCA guests, the Realm Guest must adhere to a single 
->> convention for
->> the DMA address. This gets further complicated when we add support 
->> for trusted
->> devices, which can DMA into the full Realm memory space, once 
->> accepted. Thus,
->> a DMA masked address (with "top" bit lost) will prevent a trusted 
->> device from
->> accessing a shared buffer.
->>
->> To resolve this Arm has decided to standardise the DMA address used 
->> by the Realm
->> to include the full IPA address bits (including the "top" bit, which 
->> Linux uses
->> as an attribute). This implies, any DMA to a shared buffer must have 
->> the top bit
->> of the IPA space set.
->>
->> There is already a provision to do this in phys_to_dma* and 
->> dma_to_phys(), but
->> that is specific to AMD SME and is quite the opposite of what we need 
->> for Arm CCA.
->> i.e., For Arm CCA we need to set the bit for "decrypted" DMA and 
->> clear the bit
->> for "encrypted".
->>
->> This series converts the existing __sme_* helpers to a bit more 
->> generalised versions :
->> dma_addr_decrypted() and dma_encrypted(). Also, while converting a 
->> DMA address back
->> to CPU physical address requires clearing off any 
->> "encryption/decryption" bits.
->> I have named this "dma_addr_canonical()". (The other options are :
->>    * dma_addr_clear_encryption - Well, not just for encryption, but 
->> we clear decryption
->>      too, so not ideal.
->>    * dma_addr_normal
->>    * dma_addr_clear
->>    * dma_addr_default
->>
->> This also implies that the VMMs must take care to :
->>
->>   1. Create the S2-SMMU mappings for VFIO at the "unprotected" alias.
->>   2. Always mask the "top" bit off any IPA it receives from the Realm 
->> for DMA.
->>      KVM already does that today and no changes are required.
->>
->> A kvmtool branch with the changes above is available here [1]. There 
->> are two
->> patches [2] & [3], that are really required on top of the Arm CCA 
->> support.
->>
->> Ideally it would be good to get this backported to v6.13 stable 
->> kernel releases
->> to make sure that they are compliant with this change.
->>
->
-> Please could you take a look at this series and let us know your
-> thoughts ? If you are happy with the changes, are you happy to pull
-> this through the DMA MAP tree ? The relevant bits have been reviewed/
-> acked by people (arm64 and AMD bits).
+Assuming this goes via the soc tree,
 
-The changes look fine. However I won't be able to setup new dma-mapping 
-git tree this week because I got really sick has to stay in bed. :/ If 
-You don't want such delay, please merge it via ARM64 tree. Here is my:
-
-Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Acked-by: Suzuki K Poulose <suzuki.poulose@arm.com>
 
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+> ---
+>   arch/arm64/boot/dts/qcom/sa8775p.dtsi | 153 ++++++++++++++++++++++++++
+>   1 file changed, 153 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/qcom/sa8775p.dtsi b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
+> index 3394ae2d1300..31aa94d2a043 100644
+> --- a/arch/arm64/boot/dts/qcom/sa8775p.dtsi
+> +++ b/arch/arm64/boot/dts/qcom/sa8775p.dtsi
+> @@ -2429,6 +2429,35 @@ crypto: crypto@1dfa000 {
+>   			interconnect-names = "memory";
+>   		};
+>   
+> +		ctcu@4001000 {
+> +			compatible = "qcom,sa8775p-ctcu";
+> +			reg = <0x0 0x04001000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb";
+> +
+> +			in-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					ctcu_in0: endpoint {
+> +						remote-endpoint = <&etr0_out>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					ctcu_in1: endpoint {
+> +						remote-endpoint = <&etr1_out>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+>   		stm: stm@4002000 {
+>   			compatible = "arm,coresight-stm", "arm,primecell";
+>   			reg = <0x0 0x4002000 0x0 0x1000>,
+> @@ -2633,6 +2662,122 @@ qdss_funnel_in1: endpoint {
+>   			};
+>   		};
+>   
+> +		replicator@4046000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x04046000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					qdss_rep_in: endpoint {
+> +						remote-endpoint = <&swao_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					qdss_rep_out0: endpoint {
+> +						remote-endpoint = <&etr_rep_in>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc_etr: tmc@4048000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x04048000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +			iommus = <&apps_smmu 0x04c0 0x00>;
+> +
+> +			arm,scatter-gather;
+> +
+> +			in-ports {
+> +				port {
+> +					etr0_in: endpoint {
+> +						remote-endpoint = <&etr_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					etr0_out: endpoint {
+> +						remote-endpoint = <&ctcu_in0>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		replicator@404e000 {
+> +			compatible = "arm,coresight-dynamic-replicator", "arm,primecell";
+> +			reg = <0x0 0x0404e000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +
+> +			in-ports {
+> +				port {
+> +					etr_rep_in: endpoint {
+> +						remote-endpoint = <&qdss_rep_out0>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				#address-cells = <1>;
+> +				#size-cells = <0>;
+> +
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					etr_rep_out0: endpoint {
+> +						remote-endpoint = <&etr0_in>;
+> +					};
+> +				};
+> +
+> +				port@1 {
+> +					reg = <1>;
+> +
+> +					etr_rep_out1: endpoint {
+> +						remote-endpoint = <&etr1_in>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+> +		tmc_etr1: tmc@404f000 {
+> +			compatible = "arm,coresight-tmc", "arm,primecell";
+> +			reg = <0x0 0x0404f000 0x0 0x1000>;
+> +
+> +			clocks = <&aoss_qmp>;
+> +			clock-names = "apb_pclk";
+> +			iommus = <&apps_smmu 0x04a0 0x40>;
+> +
+> +			arm,scatter-gather;
+> +			arm,buffer-size = <0x400000>;
+> +
+> +			in-ports {
+> +				port {
+> +					etr1_in: endpoint {
+> +						remote-endpoint = <&etr_rep_out1>;
+> +					};
+> +				};
+> +			};
+> +
+> +			out-ports {
+> +				port {
+> +					etr1_out: endpoint {
+> +						remote-endpoint = <&ctcu_in1>;
+> +					};
+> +				};
+> +			};
+> +		};
+> +
+>   		funnel@4b04000 {
+>   			compatible = "arm,coresight-dynamic-funnel", "arm,primecell";
+>   			reg = <0x0 0x4b04000 0x0 0x1000>;
+> @@ -2708,6 +2853,14 @@ out-ports {
+>   				#address-cells = <1>;
+>   				#size-cells = <0>;
+>   
+> +				port@0 {
+> +					reg = <0>;
+> +
+> +					swao_rep_out0: endpoint {
+> +						remote-endpoint = <&qdss_rep_in>;
+> +					};
+> +				};
+> +
+>   				port@1 {
+>   					reg = <1>;
+>   					swao_rep_out1: endpoint {
 
 
