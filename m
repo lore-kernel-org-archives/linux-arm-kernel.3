@@ -4,67 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BC8FC282DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:29:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF01C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:29:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K+h7jsWHv3eIxLPH5dNajezN+xQFTDwe/w8/eZdR268=; b=TqmtI3V/aMvUygZ5irzZ5dS8mp
-	9t9F9m+Sj0YmuAHFOz7q71EI7KCkZhwSJRnEeGoFal0PZM9CwU+AxCJ6ZJLEj81iQ8yhE3OA/Lh6N
-	HoVX3vhT/G1ccRv+bYrtjJPqMUPD12RlEHmqjWcdJzAFeWLHnwVmdRyIxUpUU536lRBa73cjZqhM2
-	pguW4h5lwVN5XMik70m3U0b9QdF3BISiDsRNx1MM+lH2xgSY98TBpaLAHikr0XOsywrDN37DdNVrp
-	wNHpmDMbNYdPZ2kAq87R/WGYxUhxdiYBf69zWMupHaUl3m6CJ/6gmcyh0SEKvvtjqrkYbukpTj815
-	hlwvvb/Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rEUADPvt5vUb0DPdb4ydVYz2t+TuARR2y9RFIuVvjk4=; b=Ys4oz/BBBXaWtt1Lb+sYVKLytF
+	TV5lK1as7eRES6mCaXOpLa2Vo7s+sezH+nuYbzb5aaaTV3souw+QJhL/en92i3CcigORdX5kHMluR
+	ESnW8KWY/e7nBWoESa8lxDyo0IA63BwyM4brMoiqxNw34ScUFZCPA+H5rTBn9UHENn271vkyjlSKf
+	SM39/4DofwsHYe87k6/88EK2Pb7uPrFKr7dq/ynqviMNgWZVVG3UCekY22t+YdNc7o1OcQgKn48se
+	GMI+YEJpwmubje3G4NJSVRGXg2DBrN8LXXLQg1OyWA5LC+8o4t2qeOQj1S6wDw3hMNnt7Wg6l0M47
+	sI+VI1NQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpalq-00000006Q26-0czV;
-	Tue, 04 Mar 2025 22:29:50 +0000
-Received: from smtp-77.smtpout.orange.fr ([80.12.242.77] helo=smtp.smtpout.orange.fr)
+	id 1tpalp-00000006Q1V-23M9;
+	Tue, 04 Mar 2025 22:29:49 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZhZ-00000006INB-2gQA
+	id 1tpZUh-00000006GV8-1BeV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 21:21:23 +0000
-Received: from [192.168.1.37] ([90.11.132.44])
-	by smtp.orange.fr with ESMTPA
-	id pZhEtjoYlf1j1pZhItMWBa; Tue, 04 Mar 2025 22:21:13 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wanadoo.fr;
-	s=t20230301; t=1741123273;
-	bh=K+h7jsWHv3eIxLPH5dNajezN+xQFTDwe/w8/eZdR268=;
-	h=Message-ID:Date:MIME-Version:Subject:To:From;
-	b=F/htZXuHwOLqrOg37Ie4xDkEu5dSoXycvKds+QJgKpHM4TF1OfVT4PgIZuJDeGsrB
-	 7qx9+ZmsUoXQ9CxklHemGcceTvS3H7LKNkR9LpBbJPyxeMj4+OhOJVX/dIbM51l0ea
-	 mSFuiORCumZyYWbbq5vwhFzOK/bETgw1Bhn9ORtyVf6YLnqItZ94mJAK5qh0IDCT51
-	 /Tw545tJjZPj9yLKoj7O2JntYzLwJiLtZvYykbYpMVGXLVw8Lt4yzIapdyNsw6aXKJ
-	 6BHl6lQXZd3Ia8praMr/qD7YfmQ0mg6MIWWvafegftXVEwL42f7yq+x1VOGvchNrqC
-	 ggVLi8D6df4mQ==
-X-ME-Helo: [192.168.1.37]
-X-ME-Auth: bWFyaW9uLmphaWxsZXRAd2FuYWRvby5mcg==
-X-ME-Date: Tue, 04 Mar 2025 22:21:13 +0100
-X-ME-IP: 90.11.132.44
-Message-ID: <7ef88ec2-24a5-4aa7-a601-d605a12768ba@wanadoo.fr>
-Date: Tue, 4 Mar 2025 22:20:59 +0100
+	Tue, 04 Mar 2025 21:08:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741122482;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=rEUADPvt5vUb0DPdb4ydVYz2t+TuARR2y9RFIuVvjk4=;
+	b=adkezBHYvr0a99lvcXGDdMqC9LV+u2zScMHsBotu2xzf39mnXHJwfx3FUdk0NJmk2jDK43
+	Xv3Aby06FR853diPVxbGURuWnXD4bPuFtyPnHd86ftUjIQksLT8QQ890kDtVtyO6gwd86X
+	SHR1E61QoCzSX7b5mw/cCxd1jICl+sQ=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-343-aD6fIKblM1CdoJFJ_B3qKg-1; Tue,
+ 04 Mar 2025 16:06:02 -0500
+X-MC-Unique: aD6fIKblM1CdoJFJ_B3qKg-1
+X-Mimecast-MFC-AGG-ID: aD6fIKblM1CdoJFJ_B3qKg_1741122358
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 551FA1800989;
+	Tue,  4 Mar 2025 21:05:57 +0000 (UTC)
+Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.107])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6AFF81800361;
+	Tue,  4 Mar 2025 21:05:49 +0000 (UTC)
+From: Anusha Srivatsa <asrivats@redhat.com>
+Date: Tue, 04 Mar 2025 16:05:31 -0500
+Subject: [PATCH v5 1/7] drm/fsl-dcu: move to
+ devm_platform_ioremap_resource() usage
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
-To: Kevin Chen <kevin_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, derek.kiernan@amd.com, dragan.cvetic@amd.com,
- arnd@arndb.de, gregkh@linuxfoundation.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20250304104434.481429-1-kevin_chen@aspeedtech.com>
- <20250304104434.481429-4-kevin_chen@aspeedtech.com>
-Content-Language: en-US, fr-FR
-From: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-In-Reply-To: <20250304104434.481429-4-kevin_chen@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250304-mem-fixes-v1-1-fb3dab8d901f@redhat.com>
+References: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
+In-Reply-To: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
+To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
+ Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
+ Sumit Semwal <sumit.semwal@linaro.org>, 
+ Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
+ Marek Vasut <marex@denx.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
+ Baolin Wang <baolin.wang@linux.alibaba.com>, 
+ Chunyan Zhang <zhang.lyra@gmail.com>, 
+ Alain Volmat <alain.volmat@foss.st.com>, 
+ Raphael Gallais-Pou <rgallaispou@gmail.com>, 
+ Thierry Reding <thierry.reding@gmail.com>, 
+ Mikko Perttunen <mperttunen@nvidia.com>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, Jonathan Corbet <corbet@lwn.net>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
+ Anusha Srivatsa <asrivats@redhat.com>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741122340; l=1621;
+ i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
+ bh=qdWoCRSaEyGwiB1pCeMHCVglO9KpvJz3OeotRemVCtM=;
+ b=XXW32Rtiy4P6fBUnnYgHXkX7nAGj1GjI07HhKOKSoEKm4jsLZoO7bPwhhWNtFaji8/Ow4zIKQ
+ 6AVOybQONpRBfLZVnq68Jsf/krtVTSz4PdAUmbzyTxKxsRlvlmRH7zz
+X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
+ pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_132122_216495_AEE7B708 
-X-CRM114-Status: GOOD (  14.07  )
+X-CRM114-CacheID: sfid-20250304_130803_485238_665DE519 
+X-CRM114-Status: GOOD (  12.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,81 +112,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Le 04/03/2025 à 11:44, Kevin Chen a écrit :
-> Add LPC PCC controller driver to support POST code capture.
-> 
-> Signed-off-by: Kevin Chen <kevin_chen@aspeedtech.com>
+Replace platform_get_resource + devm_ioremap_resource
+with just devm_platform_ioremap_resource()
 
-Hi,
-
-> +	init_waitqueue_head(&pcc->wq);
-> +
-> +	pcc->mdev_id = ida_alloc(&aspeed_pcc_ida, GFP_KERNEL);
-
-Missing ida_free() in therror handling path and in the rmove function?
-
-> +	if (pcc->mdev_id < 0) {
-> +		dev_err(dev, "Couldn't allocate ID\n");
-> +		return pcc->mdev_id;
-> +	}
-> +
-> +	pcc->mdev.parent = dev;
-> +	pcc->mdev.minor = MISC_DYNAMIC_MINOR;
-> +	pcc->mdev.name = devm_kasprintf(dev, GFP_KERNEL, "%s%d", DEVICE_NAME,
-> +					pcc->mdev_id);
-> +	pcc->mdev.fops = &pcc_fops;
-> +	rc = misc_register(&pcc->mdev);
-> +	if (rc) {
-> +		dev_err(dev, "Couldn't register misc device\n");
-> +		goto err_free_kfifo;
-> +	}
-> +
-> +	rc = aspeed_pcc_enable(pcc, dev);
-> +	if (rc) {
-> +		dev_err(dev, "Couldn't enable PCC\n");
-> +		goto err_dereg_mdev;
-> +	}
-> +
-> +	dev_set_drvdata(&pdev->dev, pcc);
-> +
-> +	return 0;
-> +
-> +err_dereg_mdev:
-> +	misc_deregister(&pcc->mdev);
-> +
-> +err_free_kfifo:
-> +	kfifo_free(&pcc->fifo);
-> +
-> +	return rc;
-> +}
-> +
-> +static void aspeed_pcc_remove(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct aspeed_pcc_ctrl *pcc = dev_get_drvdata(dev);
-> +
-> +	kfifo_free(&pcc->fifo);
-> +	misc_deregister(&pcc->mdev);
-> +}
-> +
-> +static const struct of_device_id aspeed_pcc_table[] = {
-> +	{ .compatible = "aspeed,ast2600-lpc-pcc" },
-> +	{ },
-
-Unneeded trailing comma after a terminator.
-
-> +};
-> +
-> +static struct platform_driver aspeed_pcc_driver = {
-> +	.driver = {
-> +		.name = "aspeed-pcc",
-> +		.of_match_table = aspeed_pcc_table,
-> +	},
-> +	.probe = aspeed_pcc_probe,
-> +	.remove = aspeed_pcc_remove,
-> +};
-
+Used Coccinelle to do this change. SmPl patch:
+@rule_1@
+identifier res;
+expression ioremap_res;
+identifier pdev;
+@@
+-struct resource *res;
 ...
+-res = platform_get_resource(pdev,...);
+-ioremap_res = devm_ioremap_resource(...);
++ioremap_res = devm_platform_ioremap_resource(pdev,0);
 
-CJ
+Cc: Stefan Agner <stefan@agner.ch>
+Cc: Alison Wang <alison.wang@nxp.com>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
+---
+ drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
+index 03b076db9381a5db0bff6576cda2772495a61fed..3bbfc1b56a6557e2f54d2b7ed099531053871341 100644
+--- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
++++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
+@@ -260,7 +260,6 @@ static int fsl_dcu_drm_probe(struct platform_device *pdev)
+ 	struct fsl_dcu_drm_device *fsl_dev;
+ 	struct drm_device *drm;
+ 	struct device *dev = &pdev->dev;
+-	struct resource *res;
+ 	void __iomem *base;
+ 	struct clk *pix_clk_in;
+ 	char pix_clk_name[32];
+@@ -278,8 +277,7 @@ static int fsl_dcu_drm_probe(struct platform_device *pdev)
+ 		return -ENODEV;
+ 	fsl_dev->soc = id->data;
+ 
+-	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
+-	base = devm_ioremap_resource(dev, res);
++	base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(base)) {
+ 		ret = PTR_ERR(base);
+ 		return ret;
+
+-- 
+2.48.1
+
 
