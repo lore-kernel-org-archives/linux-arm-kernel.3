@@ -4,109 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21AC5C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 05:28:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D27CDC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 05:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iHp7c8083IblnSkSElkO4q8Pyi74C3j+q7Rd++XFOzQ=; b=A5xWj/HgQEDlEw0q+ZbuymHMSy
-	3w+Hm5oXcN4Y+ZZN52020VPxAsDa+EnJsEmNllH1Q87SOc3/0o0Coznu6wd4j/KGC9nlL0nZlnFdx
-	WJ52SmEawws0luM3RigHL2bqiOXS4ZkExPSn3zekfeyUVoRSp7jct1bge/Wfo2E23AqNLT3JGI6Vc
-	LIQkNn2+jegmqlRkOSOPbdf1mgmE+qXuHD+5fyH25nw8Vr/yCHmde/LcW16hcW3CRxq4nezJ0MqHw
-	Xbz4MxOWHESsejqShZXnqmEs5k+rw34ZdUKHx0/R+zMd4MVPJV2U6GybH/7t1v5PM35oYbW33yKOb
-	kqBuiUtw==;
+	bh=tYxtgv8gS6hl5AADrQ7TWMvqyjIg876+xo08kj/pVYI=; b=rNoOk36bjosTrsktAZ1SWUC8YE
+	+F35iuuu9rE3FY1pCMAhEJG8ugWDRbWHyHv/lXfKWHVUsCdo0MiC2qxxHi5rIYLfC+KdevpQrYjTo
+	Xm0UTNDygIExIiDK6Gl6Z/wUJHHJFveJQrRF9xy9TrVEN6ysXyHY0KBf8a6WDTjIWsBkL5tU64mRL
+	1iYiMJEDh7PhQ9b59HHk/qW8kK6UewXLbKIopYy1XlMV2OB1tSo8nI7W9Ct7a//gzHbA9u3J8ibTG
+	1TjSWxBKcCNBJas4A4zyFTN3wst2jQIMW1IF6AZ4fp5uEKeryJM3vCmgPFY9zdyLFi0TQTXW6NZ7J
+	nCPAPiXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpKpM-000000038Q0-1KQ8;
-	Tue, 04 Mar 2025 05:28:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tpKqt-000000038Xv-40xh;
+	Tue, 04 Mar 2025 05:29:59 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpKd9-000000036hT-3e03
+	id 1tpKli-0000000382V-2r5m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 05:15:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741065346;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=iHp7c8083IblnSkSElkO4q8Pyi74C3j+q7Rd++XFOzQ=;
-	b=bNQ+6bS6gv0r5njYRenf8jQbHex1ABseEWu/fhyRgpg6UOyBQsukUSBTpNNIAm8FNZMydS
-	C8oWkroraHS2YC0mxc25TYicpiKTPWrsKRK9Q8UtDujCaV5otWv9Df0dAx29ZJC1q33snp
-	CTyu44YvO1GxdrkoOk8l1mqJjzvcXLw=
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com
- [209.85.214.200]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-92-abwLVEI0Nx-Y6wE62_Ykvg-1; Tue, 04 Mar 2025 00:15:40 -0500
-X-MC-Unique: abwLVEI0Nx-Y6wE62_Ykvg-1
-X-Mimecast-MFC-AGG-ID: abwLVEI0Nx-Y6wE62_Ykvg_1741065339
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2235a1f8aadso80147035ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 21:15:40 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741065339; x=1741670139;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=iHp7c8083IblnSkSElkO4q8Pyi74C3j+q7Rd++XFOzQ=;
-        b=SM5SkVS7S6U+IAtZlARPBSiiOmbVkBg10aNgQGD1Q1b8/hmJ9HDRXvNNpwq1mM7bXI
-         +3dygl0Qzs7hh/91l0NtWAdoHcnb7og3RF+fO9pq8ifp+ACxaeUdJsvif9Kjf25Crgnn
-         RBzSAYTOSLlSpi8kXgHVJb+Whaut2IHzAVJI1dWfSEcdS7csrZMZISApl/6yCTem5JoV
-         IKuy4lKsX8ms1aa8gJgPoEL+PtkZm4Rbu9qlc2d6L1jB+mO/av1CFTbf5YumyyG767A+
-         aBL4K3GaW5K9XTOwMGxFxrsA53xczMt0/S0VVIWx/Z7MF7n3L5UoeYJS4Q5zPDZoVOyd
-         CJVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWQCF5WNGNgcKZM9QAzqxl3nuI9NDlPbmKEb15P1I71rrNtzQ4vkvt80NMnIYjoFjXfDBd4T38GRq4ga25p2vHe@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy+CeHFDIahbyJlFvimzFXE2Cn7CiDxLC4P20jt0KDABGiK01cb
-	NeCowvy5NbBoA48UM+M5m4sylys4g9L7sWy9ImAUgw7dFBQsvAag5ANnR+Xd9delC8uWkOQQhvX
-	9bKy/C6NgzvD4HToNNfwljM0O65YkIv2VIyH492OomsTfnNNAxjnh4t7Y56ZM+CksP6Surf6R
-X-Gm-Gg: ASbGnctiRi+qlrpoRXrw66OrOZW5i8LOsR7m6W7zd7sZxcVQ0tOQ+MmyRr/UpGxSqV1
-	7P9iIknJmh5z7oO5MvnAGqMS8UdKsD6OMHkCjRcRDcmEbDrSwSC28qdEBT0xyjHyHkQRVv0Ir8w
-	dqPWFnTK035ZnZj44+75iLwXtW1QMu9UWajOr1VlANSfwvl6O7xi2J5qcoLNcupaHVhwuk3EAY9
-	CUrE8qGe+b0qeHrh5s66NXn60UIMhwmwQ9a7Cwx6C5PmLeaNz2UBT94g6Ndpu4N6aY+K7xQrbKh
-	0ffQ4aVPuIcdSVzdTg==
-X-Received: by 2002:a17:903:244d:b0:215:9470:7e82 with SMTP id d9443c01a7336-22368f71b7amr213249535ad.4.1741065339580;
-        Mon, 03 Mar 2025 21:15:39 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IHwYeNz4BZ5M1mONF0+zOWTYRV5h3Fu8fVqk+GofZ0hdvm3v9bSMtAm5K07jzNGKbCercWDMg==
-X-Received: by 2002:a17:903:244d:b0:215:9470:7e82 with SMTP id d9443c01a7336-22368f71b7amr213249125ad.4.1741065339283;
-        Mon, 03 Mar 2025 21:15:39 -0800 (PST)
-Received: from [192.168.68.55] ([180.233.125.164])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe825a99a7sm13451855a91.6.2025.03.03.21.15.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 03 Mar 2025 21:15:38 -0800 (PST)
-Message-ID: <eb8ea5a0-fe6c-4b96-92da-f9ec0355b4dd@redhat.com>
-Date: Tue, 4 Mar 2025 15:15:31 +1000
+	Tue, 04 Mar 2025 05:24:40 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5245OORw3546015
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Mon, 3 Mar 2025 23:24:24 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741065864;
+	bh=tYxtgv8gS6hl5AADrQ7TWMvqyjIg876+xo08kj/pVYI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=oOURtejDCG/0LjzIexNsHfj+4iZ3G/wMSmKYwXccmeK4UB748Go8qSk1Na9K3Nc55
+	 9MldjxHdCZvIIo1DOo7Pc/5NzW/ZqdMBiRln9PB5GDzrP07Sc8GLI2kKbIAYMMOHW9
+	 ZcRLrI2pULKlLfxGv+C6kJzlH0r3mUkk20w8dpTA=
+Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5245OOs3027128
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Mon, 3 Mar 2025 23:24:24 -0600
+Received: from DLEE109.ent.ti.com (157.170.170.41) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Mon, 3
+ Mar 2025 23:24:23 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Mon, 3 Mar 2025 23:24:23 -0600
+Received: from [172.24.227.115] (abhilash-hp.dhcp.ti.com [172.24.227.115])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5245OJj3042162;
+	Mon, 3 Mar 2025 23:24:20 -0600
+Message-ID: <ed8ce158-89dd-4a81-aa70-679559d6f5b3@ti.com>
+Date: Tue, 4 Mar 2025 10:54:19 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 22/45] KVM: arm64: Handle realm VCPU load
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-23-steven.price@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250213161426.102987-23-steven.price@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: v0Yzg5FcoHRFZ-due8n_iwE0JBKavQiwpyq6b_8Vxxc_1741065339
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH 0/5] Add J722S CSI support
+To: Vaishnav Achath <vaishnav.a@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>
+References: <20250218185452.600797-1-vaishnav.a@ti.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
+In-Reply-To: <20250218185452.600797-1-vaishnav.a@ti.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_211547_988344_07AB4664 
-X-CRM114-Status: GOOD (  15.89  )
+X-CRM114-CacheID: sfid-20250303_212438_808742_F7B242B4 
+X-CRM114-Status: GOOD (  10.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,56 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/14/25 2:14 AM, Steven Price wrote:
-> When loading a realm VCPU much of the work is handled by the RMM so only
-> some of the actions are required. Rearrange kvm_arch_vcpu_load()
-> slightly so we can bail out early for a realm guest.
+
+On 19/02/25 00:24, Vaishnav Achath wrote:
+> This series adds support for CSI2RX capture on J722S EVM
+> and enables IMX219 and OV5640 overlays to enables
+> 4 sensors on EVM, this provides a reference for a user to
+> enable a different sensor on any of the ports.
 > 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->   arch/arm64/kvm/arm.c | 12 ++++++++----
->   1 file changed, 8 insertions(+), 4 deletions(-)
+> Test logs:
+> IMX219: https://gist.github.com/vaishnavachath/60cc2ef257601f27f28a315f8cf669c4
+> OV5640: https://gist.github.com/vaishnavachath/648202286d4d34d4d25f7c8c9db8b8bd
+> 
+> Vaishnav Achath (5):
+>    arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
+>    arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
+>    arm64: dts: ti: k3-j722s-evm: Add camera peripherals
+>    arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
+>    arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
 > 
 
-One nitpick below:
+For the series:
+Reviewed-by: Yemike Abhilash Chandra <y-abhilashchandra@ti.com>
 
-Reviewed-by: Gavin Shan <gshan@redhat.com>
-
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 49ad633c5ca5..3e13e3d87ed9 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -633,10 +633,6 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->   	kvm_vgic_load(vcpu);
->   	kvm_timer_vcpu_load(vcpu);
->   	kvm_vcpu_load_debug(vcpu);
-> -	if (has_vhe())
-> -		kvm_vcpu_load_vhe(vcpu);
-> -	kvm_arch_vcpu_load_fp(vcpu);
-> -	kvm_vcpu_pmu_restore_guest(vcpu);
->   	if (kvm_arm_is_pvtime_enabled(&vcpu->arch))
->   		kvm_make_request(KVM_REQ_RECORD_STEAL, vcpu);
->   
-> @@ -659,6 +655,14 @@ void kvm_arch_vcpu_load(struct kvm_vcpu *vcpu, int cpu)
->   		kvm_call_hyp(__vgic_v3_restore_vmcr_aprs,
->   			     &vcpu->arch.vgic_cpu.vgic_v3);
->   	}
-
-A spare line is needed here.
-
-> +	/* No additional state needs to be loaded on Realmed VMs */
-> +	if (vcpu_is_rec(vcpu))
-> +		return;
-> +
-> +	if (has_vhe())
-> +		kvm_vcpu_load_vhe(vcpu);
-> +	kvm_arch_vcpu_load_fp(vcpu);
-> +	kvm_vcpu_pmu_restore_guest(vcpu);
->   
->   	if (!cpumask_test_cpu(cpu, vcpu->kvm->arch.supported_cpus))
->   		vcpu_set_on_unsupported_cpu(vcpu);
-
-Thanks,
-Gavin
-
+>   arch/arm64/boot/dts/ti/Makefile               |   9 +
+>   ...k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso | 304 +++++++++++++++++
+>   .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 319 ++++++++++++++++++
+>   arch/arm64/boot/dts/ti/k3-j722s-evm.dts       |  28 ++
+>   arch/arm64/boot/dts/ti/k3-j722s-main.dtsi     | 193 +++++++++++
+>   5 files changed, 853 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtso
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+> 
 
