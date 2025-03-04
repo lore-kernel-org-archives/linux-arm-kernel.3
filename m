@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999C3C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53039C282D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZNFqA3+Nw6GvLgCDAt36lni//r7MMRQPT9N/OXmnuW4=; b=hQ4+iBq3xJarc+hEhOmO2z8P6l
-	zGZLvWhlROQy8DWpYQ5FxtFYzL7TMbeihhH+HQvbsnIAltSiTjIMg+KfPPixIh7jowM0I4NcSA71b
-	1MCohDIuTpGw+RAUeMFolIYHrusD9THc3s4PpomLJ3nDHdMpdUi972+h+v8F7eAhBNDFUXT3xksL6
-	+xQkHUrZGvAneCQWNZXumVRlRJH0cNNt0azXGASdrqfRhsM4b6O6fz4+pUAjpXg8I9viLLKHhv0WO
-	ZprE4AmPhxkGx5MsF4tNbHW2M7ti7RI2aMo1ThQcXTQqwMFWmhZzNEmGxvlcOy1OoGcHuq/4LgLOs
-	NS4BaS4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mubNNhKyP7keuNJHmi/hDyhZOFe+1RpGW6KeB90qXfE=; b=Rnn4DrR66+RdJfdT4hiURoI5hi
+	YHftacPo2W/M9eFm2mpjksTLcEYEUWrkdSk/0sDT2DB3gQPpeWlrkJFpc87z92VecDCYEWrlzNW8o
+	M1j8Tb1w2kV7pS+l2ExmVRIxLo5/vO3itAV+p24DE+Uplo+xodTV5HWn9D/J90pMzjUewLA8q26SI
+	r82iht99rHc0x2IkpgCkuse5Rwi5c1ru8vjVPZEVDSjW4TkEVNny4YwmKANStpFC5Ek1pT4gcVSHg
+	iJoKt2fjEkyXhP5Yvj8fu/X8VUn6yXqfPt03OjFD9A7dAc6YT+EWBGXtLFhMHUosAaPQVPfCtXney
+	nMaYL6Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR4t-00000004Wia-1gKd;
+	id 1tpR4t-00000004WjN-46MO;
 	Tue, 04 Mar 2025 12:08:51 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPwC-00000004Hjl-3thY
+	id 1tpPxY-00000004IXy-2ABY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:55:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ZNFqA3+Nw6GvLgCDAt36lni//r7MMRQPT9N/OXmnuW4=; b=FivH1/OBGc7gy5gzL+3Q7u+867
-	iLmMa3hIffL2Bl4INg87T+QtW9bV1B6GI557lP63Ae2bUkZHUPwYFFHPQwJuB91Djpc16NpX4drDF
-	OP0VBGYGJiGfdIUzICNnPoWBM9FacD9rGR13x3bB/CAZFnjg2aZsyQdE96KtsTCCLkwEbX+Tc+S6o
-	tGN29UMjz2j7gJba1UGVpCzcgcjK1CUqfOb1O07a0qaOY+ZUCdvsL40bNEVDvclS0rKM+xPacH2D2
-	ar3b/J0QypYvJnTew6hMRef5o5GhMCYmxPUccDTSAzIxav4fCf1C1EPtvwN1TxGUS9AYyO0Lu4tHH
-	vceDHLKg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34928 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tpPu9-0002Uh-0r;
-	Tue, 04 Mar 2025 10:53:41 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tpPtp-005SoU-7N; Tue, 04 Mar 2025 10:53:21 +0000
-In-Reply-To: <Z8bbnSG67rqTj0pH@shell.armlinux.org.uk>
-References: <Z8bbnSG67rqTj0pH@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Jon Hunter <jonathanh@nvidia.com>,
-	 Thierry Reding <treding@nvidia.com>,
-	 "Lad,
-	 Prabhakar" <prabhakar.csengg@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH RFC net-next 1/3] net: phylink: add config of PHY receive
- clock-stop in phylink_resume()
-MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
+	Tue, 04 Mar 2025 10:57:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1C0575C54CA;
+	Tue,  4 Mar 2025 10:54:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68D3FC4CEE9;
+	Tue,  4 Mar 2025 10:57:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741085831;
+	bh=Uvkzu29Y8PUMAEcuNdr5Ez6in0wuHeIuBJMkRl6oCQM=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=YIyUKJxP1QiFVa39ZNliUPZUqE+mBxDuds863otU1QSxEG/kIDfZlii+GXo+v1bGr
+	 Amz3O4YsNKPKtjcDlanJlT9Z6fY+5nGherJD7c5sCeY34T/piM2gXBBVnlOgK9INww
+	 9UHMLJDWidn/TA9Khakir8hi6dgl0aX5F8cjWWGMBKEf6EcO49q7jsR/qfpnrqOXUY
+	 7mjDDR7EVXIe4068pVDQ7qnYJzMOCM4yJv0ZMWfTMrRS/u2/KYkJrtG0Ro1ZgJR1sY
+	 sKN0UAA21HVBXezAYetRAhgNVH//y1tNt7YOMdlxmQmEjTjmS4rmaZiLc7GcfYEe/L
+	 S1S9R6BQBokcg==
+Date: Tue, 04 Mar 2025 04:57:10 -0600
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tpPtp-005SoU-7N@rmk-PC.armlinux.org.uk>
-Date: Tue, 04 Mar 2025 10:53:21 +0000
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, shawnguo@kernel.org, 
+ conor+dt@kernel.org, kernel@pengutronix.de, frank.li@nxp.com, 
+ devicetree@vger.kernel.org, imx@lists.linux.dev, peng.fan@nxp.com, 
+ aisheng.dong@nxp.com, s.hauer@pengutronix.de, festevam@gmail.com, 
+ krzk+dt@kernel.org
+To: Jacky Bai <ping.bai@nxp.com>
+In-Reply-To: <20250304093127.1954549-2-ping.bai@nxp.com>
+References: <20250304093127.1954549-1-ping.bai@nxp.com>
+ <20250304093127.1954549-2-ping.bai@nxp.com>
+Message-Id: <174108583009.1693369.10518412306267353272.robh@kernel.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: dma: fsl-edma: add
+ interrupts-extended property
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_025548_962327_6256ED1C 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20250304_025712_592749_E54517B9 
+X-CRM114-Status: GOOD (  10.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,52 +76,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add configuration of the receive clock-stop in phylink_resume() to
-ensure that the clock-stop is correctly configured.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/phy/phylink.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+On Tue, 04 Mar 2025 17:31:24 +0800, Jacky Bai wrote:
+> Add interrupts-extended property for edma that has multiple interrupt
+> controllers used.
+> 
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> ---
+>  - v2 changes:
+>   - newly added entry
+> ---
+>  Documentation/devicetree/bindings/dma/fsl,edma.yaml | 11 ++++++++++-
+>  1 file changed, 10 insertions(+), 1 deletion(-)
+> 
 
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index a3b186ab3854..0aae0bb2a254 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -2264,7 +2264,7 @@ static int phylink_bringup_phy(struct phylink *pl, struct phy_device *phy,
- 	pl->mac_tx_clk_stop = phy_eee_tx_clock_stop_capable(phy) > 0;
- 
- 	if (pl->mac_supports_eee_ops) {
--		/* Explicitly configure whether the PHY is allowed to stop it's
-+		/* Explicitly configure whether the PHY is allowed to stop its
- 		 * receive clock.
- 		 */
- 		ret = phy_eee_rx_clock_stop(phy,
-@@ -2645,8 +2645,22 @@ EXPORT_SYMBOL_GPL(phylink_suspend);
-  */
- void phylink_resume(struct phylink *pl)
- {
-+	int ret;
-+
- 	ASSERT_RTNL();
- 
-+	if (pl->mac_supports_eee_ops && pl->phydev) {
-+		/* Explicitly configure whether the PHY is allowed to stop its
-+		 * receive clock on resume to ensure that it is correctly
-+		 * configured.
-+		 */
-+		ret = phy_eee_rx_clock_stop(pl->phydev,
-+					    pl->config->eee_rx_clk_stop_enable);
-+		if (ret == -EOPNOTSUPP)
-+			phylink_warn(pl, "failed to set rx clock stop: %pe\n",
-+				     ERR_PTR(ret));
-+	}
-+
- 	if (test_bit(PHYLINK_DISABLE_MAC_WOL, &pl->phylink_disable_state)) {
- 		/* Wake-on-Lan enabled, MAC handling */
- 
--- 
-2.30.2
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+./Documentation/devicetree/bindings/dma/fsl,edma.yaml:102:5: [warning] wrong indentation: expected 6 but found 4 (indentation)
+./Documentation/devicetree/bindings/dma/fsl,edma.yaml:104:5: [warning] wrong indentation: expected 6 but found 4 (indentation)
+
+dtschema/dtc warnings/errors:
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250304093127.1954549-2-ping.bai@nxp.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
 
