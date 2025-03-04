@@ -4,76 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D0ADC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:08:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9F0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:08:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KbAI/iH5DKxzN8gIq1gQHZTRsqPNT6OpyGMhNKEz1DY=; b=JKIArA/zbaYhjWrt/aV3tDSC+w
-	dbPh+kgHf6ErxFw+bZ6HAX3W8RspquIJYde+M4qTQwtyKee7NEFChiUKyrdyIrgBqBoiUekFj/uAd
-	y4bD4VfIVArpkYqRQCRw2cvDYlWMXX+VAkshqH7dqn95B4kkCCxwmWG6dNRn3N8XcEX3/Ckt3WdwR
-	nPLgiaobfGz3+lpYT/aP0B/dZt6cOOnOAoNCcpukUAKsXNS51nItkG6niiANpl/L1fDPSJa5Z5wWR
-	ABvDlfYAqqOtYibnBN/d/dtvZn6RYbEmB2guAn/htvTJak3NdlTaSAYadezLcObkR1hLMYZS+cjc7
-	bwPvJW8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q7/Gww1ENpC837SwvsCTFVZ9QRakJWgHkP5LP1staZE=; b=0iQsDvcpF5B763PDQTPMeMHm8K
+	V6yf7gyapROkNT9oXu+tx8yXCACMW8nGz32q+yKLt+yBoQvyFnC271IF5x57aGN3luPfp5RkTfohv
+	0DEROC2MJoq52Q3ium5/JXm0L4k7NjxbK56cZfey9pB9v25YqXsZhIH/1BYkuRHp22v9kGasYuBrC
+	5ERkU9nESJLLmBO4bUR1Yy2ZKr2t18FFX9TbCJJzffz1/dR8hnVDjhlUkUBFQb6cgNBQiX0F+Orlo
+	LmDXb4KkyD5zV6GLB0noQwA0VPbxVHmYebebDdKj+lfJKDTajyj8Bs51oQR4ActrLzVEsRgEzMTFX
+	q75vvNpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR4n-00000004WcI-21ET;
-	Tue, 04 Mar 2025 12:08:45 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpR4q-00000004Wf7-1ndm;
+	Tue, 04 Mar 2025 12:08:48 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPnX-00000004FkL-3NF9
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Mar 2025 10:46:51 +0000
+	id 1tpPuO-00000004HnK-2ozG
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 10:53:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=KbAI/iH5DKxzN8gIq1gQHZTRsqPNT6OpyGMhNKEz1DY=; b=tW+jbDjU4AcxV7pyEf4qm6bDIW
-	Q1FMvUVSqnHCdtFlK1bxd60JOVp/Uf27liCsuzYJ5Bl4AU1pIZb9bT4vh7JEvwJK98dSQCy9UW3NX
-	0N/oRLtJavJGqpTJPV5GBAHkN2Ctt8kce3D8hVtYYKNGPRNtHnaGhb0kw8D+jshXECNNq5bfohQcE
-	iVkulzPzWB5goOjLAkV7Utp0PAQ4SS3bhcCMqjuFtasHdSkeACGLF0r8Uf7zP/o5nqUo5inYBQxAQ
-	IGKJdPkSOg5jH5esdXa1e65LSLMvd/upvrmwN9tKJBbnNOsAnmdHZLNPvwbz83ngSL9lOSu1pRs9w
-	ydfDb6ug==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPnV-00000000gmm-0pxx;
-	Tue, 04 Mar 2025 10:46:49 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 6B25930049D; Tue,  4 Mar 2025 11:46:48 +0100 (CET)
-Date: Tue, 4 Mar 2025 11:46:48 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	Will Deacon <will@kernel.org>, Waiman Long <llong@redhat.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrii Nakryiko <andrii@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Martin KaFai Lau <martin.lau@kernel.org>,
-	Eduard Zingerman <eddyz87@gmail.com>,
-	"Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>,
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>,
-	Dohyun Kim <dohyunkim@google.com>,
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
-	Kernel Team <kernel-team@meta.com>
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-Message-ID: <20250304104648.GD11590@noisy.programming.kicks-ass.net>
-References: <20250206105435.2159977-1-memxor@gmail.com>
- <20250210093840.GE10324@noisy.programming.kicks-ass.net>
- <20250210104931.GE31462@noisy.programming.kicks-ass.net>
- <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
- <20250211104352.GC29593@noisy.programming.kicks-ass.net>
- <CAADnVQJ=81PE19JWeNjq6aNOy+GM-wo6n7WU9StX1b6kevqCUw@mail.gmail.com>
- <20250213095918.GB28068@noisy.programming.kicks-ass.net>
- <CAADnVQJJbi-52mP6BivyAudWSk95f1mgGQXWnjD-H37b7_AtLw@mail.gmail.com>
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Q7/Gww1ENpC837SwvsCTFVZ9QRakJWgHkP5LP1staZE=; b=lh4ka0NkLMEHSTKSrqmdmbio09
+	RtIq+fIX4+c0G4Ld2OwqnZLUbJVoSjxq7DoAT/7iP7m5MJAk4/55GOGkaf8e8b6/gVNL7V7x3S90d
+	Q2ifwzUQ94Ien7pTBC1ljckaiqCLujdK/s1Z6/qW1G1I07iTKbpwHN3R1ty8FdNaremJKCmonVpL+
+	+KwEeSP1UNkW4QmG0VfdgAjcZ4ds+RyIbHoxoLVrn/arhYW4MUFxGGZr5NdD8Uk12qyF7epuBEbyM
+	RjFXtifnTrrtGEqyKW2zbKuWk+UTMUa1UZO7sM817gwMF/scdORig4eyz9M22V/p6qnbT8rz/l+io
+	QtGxV0vQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53422 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tpPuJ-0002VG-29;
+	Tue, 04 Mar 2025 10:53:51 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tpPtz-005Soh-EG; Tue, 04 Mar 2025 10:53:31 +0000
+In-Reply-To: <Z8bbnSG67rqTj0pH@shell.armlinux.org.uk>
+References: <Z8bbnSG67rqTj0pH@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Jon Hunter <jonathanh@nvidia.com>,
+	 Thierry Reding <treding@nvidia.com>,
+	 "Lad,
+	 Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next 3/3] net: stmmac: block PHY rx clock-stop over
+ reset
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <CAADnVQJJbi-52mP6BivyAudWSk95f1mgGQXWnjD-H37b7_AtLw@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tpPtz-005Soh-EG@rmk-PC.armlinux.org.uk>
+Date: Tue, 04 Mar 2025 10:53:31 +0000
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250304_025356_715772_5F629F77 
+X-CRM114-Status: UNSURE (   9.04  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,217 +93,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 +++
+ 1 file changed, 3 insertions(+)
 
-new posting reminded me we had this thread...
-
-On Thu, Feb 13, 2025 at 06:37:05PM -0800, Alexei Starovoitov wrote:
-
-> > > When bpf prog does bpf_rcu_read_lock() the verifier makes sure
-> > > that all execution paths from there on have bpf_rcu_read_unlock()
-> > > before program reaches the exit.
-> > > Same thing with locks.
-> >
-> > Ah, okay, this wasn't stated anywhere. This is rather crucial
-> > information.
-> 
-> This is kinda verifier 101. I don't think it needs to be in the log.
-
-Right, but I didn't take that class. I'm BPF n00b. Meanwhile you're
-asking me to review this :-/
-
-> > OK; how is the user supposed to handle locking two hash buckets? Does
-> > the BPF prog create some global lock to serialize the multi bucket case?
-> 
-> Not following.
-> Are you talking about patch 19 where we convert per-bucket
-> raw_spinlock_t in bpf hashmap to rqspinlock_t ?
-
-I'm not sure -- see the BPF n00b thing, I don't know how this is
-supposed to be used.
-
-Like really; I have absolutely 0 clues.
-
-Anyway; the situation I was thinking of was something along the lines
-of: you need data from 2 buckets, so you need to lock 2 buckets, but
-since hash-table, there is no sane order, so you need a 3rd lock to
-impose order.
-
-But also, see below, you've illustrated this exact case with q1,q2.
-
-> Only one bucket lock is held at a time by map update code,
-> but due to reentrance and crazy kprobes in the wrong places
-> two bucket locks of a single map can be held on the same cpu.
-> 
-> bpf_prog_A -> bpf_map_update -> res_spin_lock(bucket_A)
->   -> kprobe or tracepoint
->     -> bpf_prob_B -> bpf_map_update -> res_spin_lock(bucket_B)
-> 
-> and that's why we currently have:
-> if (__this_cpu_inc_return(*(htab->map_locked[hash])) ...
->     return -EBUSY;
-> 
-> .. workaround to prevent the most obvious AA deadlock,
-> but it's not enough.
-> People were able to hit ABBA.
-
-Right, you can create arbitrary lock chain with this; chain length is
-limited by nesting-depth*nr-cpus or somesuch.
-
-> > Anyway, I wonder. Since the verifier tracks all this, it can determine
-> > lock order for the prog. Can't it do what lockdep does and maintain lock
-> > order graph of all loaded BPF programs?
-> >
-> > This is load-time overhead, rather than runtime.
-> 
-> I wish it was possible. Locks are dynamic. They protect
-> dynamically allocated objects, so the order cannot be statically
-> verified. We pushed the limit of static analysis a lot.
-> Maybe too much.
-> For example,
-> the verifier can statically validate the following code:
->         struct node_data *n, *m, *o;
->         struct bpf_rb_node *res, *res2;
-> 
->         // here we allocate an object of type known to the verifier
->         n = bpf_obj_new(typeof(*n));
->         if (!n)
->                 return 1;
->         n->key = 41;
->         n->data = 42;
-> 
->         // here the verifier knows that glock spin_lock
->         // protect rbtree groot
->         bpf_spin_lock(&glock);
-> 
->         // here it checks that the lock is held and type of
->         // objects in rbtree matches the type of 'n'
->         bpf_rbtree_add(&groot, &n->node, less);
->         bpf_spin_unlock(&glock);
-> 
-> and all kinds of other more complex stuff,
-> but it is not enough to cover necessary algorithms.
-> 
-> Here is an example from real code that shows
-> why we cannot verify two held locks:
-> 
-> struct bpf_vqueue {
->         struct bpf_spin_lock lock;
->         int credit;
->         unsigned long long lasttime;
->         unsigned int rate;
-> };
-> 
-> struct {
->         __uint(type, BPF_MAP_TYPE_HASH);
->         __uint(max_entries, ...);
->         __type(key, int);
->         __type(value, struct bpf_vqueue);
-> } vqueue SEC(".maps");
-> 
->         q = bpf_map_lookup_elem(&vqueue, &key);
->         if (!q)
->                 goto err;
->         curtime = bpf_ktime_get_ns();
->         bpf_spin_lock(&q->lock);
->         q->lasttime = curtime;
->         q->credit -= ...;
->         credit = q->credit;
->         bpf_spin_unlock(&q->lock);
-> 
-> the above is safe, but if there are two lookups:
-> 
-> q1 = bpf_map_lookup_elem(&vqueue, &key1);
-> q2 = bpf_map_lookup_elem(&vqueue, &key2);
-> 
-> both will point to two different locks,
-> and since the key is dynamic there is no way to know
-> the order of q1->lock vs q2->lock.
-
-I still feel like I'm missing things, but while they are two dynamic
-locks, they are both locks of vqueue object. What lockdep does is
-classify locks by initialization site (by default). Same can be done
-here, classify per dynamic object.
-
-So verifier can know the above is invalid. Both locks are same class, so
-treat as A-A order (trivial case is where q1 and q2 are in fact the same
-object since the keys hash the same).
-
-Now, going back to 3rd lock, if instead you write it like:
-
-  bpf_spin_lock(&glock);
-  q1 = bpf_map_lookup_elem(&vqueue, &key1);
-  q2 = bpf_map_lookup_elem(&vqueue, &key2);
-  ...
-  bpf_spin_unlock(&glock);
-
-then (assuming q1 != q2) things are fine, since glock will serialize
-everybody taking two vqueue locks.
-
-And the above program snippet seems to imply maps are global state, so
-you can keep lock graph of maps, such that:
-
-  bpf_map_lookup_elem(&map-A, &key-A);
-  bpf_map_lookup_elem(&map-B, &key-B);
-
-vs
-
-  bpf_map_lookup_elem(&map-B, &key-B);
-  bpf_map_lookup_elem(&map-A, &key-A);
-
-trips AB-BA
-
-> So we allow only one lock at a time with
-> bare minimal operations while holding the lock,
-> but it's not enough to do any meaningful work.
-
-Yes, I can see that being a problem.
-
-> The top feature request is to allow calls
-> while holding locks (currently they're disallowed,
-> like above bpf_ktime_get_ns() cannot be done
-> while holding the lock)
-
-So bpf_ktime_get_ns() is a trivial example; it it always safe to call,
-you can simply whitelist it.
-
-> and allow grabbing more than one lock.
-> That's what res_spin_lock() is achieving.
-
-I am not at all sure how res_spin_lock is helping with the q1,q2 thing.
-That will trivially result in lock cycles.
-
-And you said any program that would trigger deadlock is invalid.
-Therefore the q1,q2 example from above is still invalid and
-res_spin_lock has not helped.
-
-> Having said all that I think the discussion is diverging into
-> all-thing-bpf instead of focusing on res_spin_lock.
-
-I disagree, all of this is needed to understand res_spin_lock.
-
-From the above, I'm not yet convinced you cannot extend the verifier
-with something lockdep like.
-
-> Just to make it clear... there is a patch 18:
-> 
->  F: kernel/bpf/
->  F: kernel/trace/bpf_trace.c
->  F: lib/buildid.c
-> +F: arch/*/include/asm/rqspinlock.h
-> +F: include/asm-generic/rqspinlock.h
-> +F: kernel/locking/rqspinlock.c
->  F: lib/test_bpf.c
->  F: net/bpf/
-> 
-> that adds maintainer entries to BPF scope.
-> 
-> We're not asking locking experts to maintain this new res_spin_lock.
-> It's not a generic kernel infra.
-> It will only be used by bpf infra and by bpf progs.
-> We will maintain it and we will fix whatever bugs
-> we introduce.
-
-While that is appreciated, the whole kernel is subject to the worst case
-behaviour of this thing. As such, I feel I need to care.
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index aec230353ac4..21026ea7541c 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3097,7 +3097,10 @@ static int stmmac_init_dma_engine(struct stmmac_priv *priv)
+ 	if (priv->extend_desc && (priv->mode == STMMAC_RING_MODE))
+ 		priv->plat->dma_cfg->atds = 1;
+ 
++	/* Note that the PHY clock must be running for reset to complete. */
++	phylink_rx_clk_stop_block(priv->phylink);
+ 	ret = stmmac_reset(priv, priv->ioaddr);
++	phylink_rx_clk_stop_unblock(priv->phylink);
+ 	if (ret) {
+ 		netdev_err(priv->dev, "Failed to reset the dma\n");
+ 		return ret;
+-- 
+2.30.2
 
 
