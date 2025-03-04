@@ -4,87 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04990C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:10:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF017C282D6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:11:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cEU4xz69QdJMpcTrXP9zPbEym/xCe6WuZGRi7t7DB8o=; b=G08ZRU/VMXClWAgBnaux/fee0y
-	txVUnKDO/HQWxb1fdOy864GNJkECRvuOekP2gjmxuFKegI7MAqxYrvaJ5YbGjL3OaWGaA29Ba2bIG
-	KqcTm/IGxsQRCNNrJdEvhbUwkLNzd3St7SKsnjvYSFUUsrjjpBKqRnbeuetKo9sknDXpPcQKskabG
-	FAJh+5PebNVzSMCTczE9MEvEkY2i+0bheAnv5593yHcCvYfYNlYrlFWXyWl+OxzKiYJNnPTOrpWdn
-	YhFZKbisbC2TQW3oG808+r8ITvn3fnThWzd89tj5rJulkjKcE+KkuPlkDeYFybrAHw4pwnT5DbuNz
-	rkJnrSSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=; b=EBWqjmjnh2sDmIPACgD2J5LpUc
+	ytW93gqy7qCbnt9ycp68W4Jep3i0qE3nePvPp8EoE/P1EKOm1YjqqRqVWKmrw+A9d9qyjgJ5BbwIG
+	7hZ+CXnY1JP4u/9Nbc9AYYOT+Z3Y/4JFriZXc2nn8gbOLzJc/8tJgOBtqMN85TKvSFT4ShqZBYH/B
+	YRZIFXHAVTJ8X6GE3X8eIRtSGA8FlOuROLGQDiqyu1B03PQlgNOqrI1aWocOqK5O6g90ukC6EKQvu
+	xpurepdbcvf0+tIJ6ArAGvHuqBV6PgKDvLwLVEpWnSHD2nmusu+AcFHDP2Y8fIV23BMxIcYWrV8NO
+	KIHVq/wQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUqC-00000005MVZ-2rxo;
-	Tue, 04 Mar 2025 16:09:56 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpUrm-00000005Mu5-2qyk;
+	Tue, 04 Mar 2025 16:11:34 +0000
+Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpU1S-00000005ALJ-1Dxi;
-	Tue, 04 Mar 2025 15:17:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=cEU4xz69QdJMpcTrXP9zPbEym/xCe6WuZGRi7t7DB8o=; b=KVh4/uZqb2yWKJpGb6QI1W+ipx
-	DDR7oIGL97kDwuZ/i+IfEtuSG/caXg2/RbuqwmUqdQj8/NV4DxFSinqPF9Foc9JIHhObAig921Cmt
-	XqugSGufjRNGXhOz9RSY5EcxIstdGh0TxFhdsiCek6d/stpENEAW4s1dajvMGu0mJtRbAvF1efjVH
-	p1Jxl83mEFlwOAmFmA2KUeysrFeXwIYIVfp5AKAl3Pgw1KVeCyxOpDs+JhzrevH0VUE/a3gxSHctG
-	GjTMv5pALUAlM0k3s2tPpiq+FjhVgBOSqiktTk4kUL46bGSUstv/+knsWVGqEFdRK2IAPKtme6LOB
-	qTYSy76Q==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpU1J-000000003nb-03KM;
-	Tue, 04 Mar 2025 15:17:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741101439;
-	bh=hn1gBR+tSRv7Ed94tUAvjpBP/2EKao1MU4M0g6tP780=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=eVYsXFYdNpSSQzvOYviPmq4ieqK2IHsGXqvM4sw3mQ7/aEL3+58J3Zme6rtSCxYWe
-	 KxmjxK8FzPSIGlvJQDl9N+nSAjzI+kSLl3DCvBkP79rqR9BFsQcU2f4IbKMSGGxr4t
-	 Ae98xRXojcxe79EaFMzM1VIc2ITZDLycLTjDHQvhBeOfbssK5rpe64E+TisxGv86x4
-	 DpFpTkkDao2+2g5lnt7fYUdZQRf1X/sCk3pTo2L5zSwveRnYjCd+/ExhOph/mRF1D4
-	 Uufgcd26OneHdQYgcxWjDJYBb6OVkMhFF+Z3PgTCfOzWCQJAsbWqn93DgbrI569z8u
-	 nBVognmE0LSkg==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B3E8517E0630;
-	Tue,  4 Mar 2025 16:17:14 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Tue, 04 Mar 2025 12:15:54 -0300
-Subject: [PATCH v3 13/20] ASoC: mediatek: mt6359-accdet: Make PWM debounce
- settings internal
+	id 1tpTsz-000000058L2-3Ez4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 15:08:47 +0000
+Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2239f8646f6so54288215ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:08:45 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741100925; x=1741705725; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=;
+        b=yc1/ug4heapxXLmx3c4uGJVPVnW9RD/uujE6ENoaDLktIOVduBnT0kFR8NmmGsYewZ
+         eXjruw5HqEnWp4IpGq/m71afU2SN4LaEVCNx9XzmfIr4NLJK6Z//adCmTOUs32wYa1HG
+         n8SoqiOfDCojef1QQXW84u3ItsDVUqyHOI0dIqaq4wfrfpmryk+tud+ZoJuYZnRwfpfy
+         nQof0aCVagWlAyH65qz8PgsXI4/frvsZoZucY8fdwDg4HAGnO2bMxQ6Q1sbM53w394ru
+         ScK6xRkC07yGFJkZLkwSlPk5wU8H2g4rLWhwc3pcG4X3VQJhUCiz6QpYXxSE8PKxQKy2
+         zMaQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741100925; x=1741705725;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=;
+        b=tB0cw8SFI8YruIP9svllU1DBmy6jDWsKcPoDAxKI9mPtCj4nwgpvXCdHtaGqPIRYna
+         10wIjhD8g/d9is9g/F+J70wzf+lrJhsQri3EMjonbU1Xky+NioVmcwVgT6uvZwFYo3fI
+         Fzl17CAlA69Ryt7tS6ziOBAayKpLmZ6cZF46HJfhfF/r5/dWSOdY5IPgRHKQDeDy/mTb
+         l7RmIP1ypTm121r+a+4cTaP7qC/BBIW1b0FYPmy7G4iuNKRqU1P1Edrbc46a1hsfVSTz
+         HrNgARFv5dFnN4b6Ctpl6NPRFTo9LREW77LwqTUqxKhXi5Q7YuLfoxlZSqWr2mzTmw7H
+         lr+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVO/qeY4SjLmnKyqVWNcluf7MjYs4XK4+D1b2qeQgyHdUi7+Ws0g7j7i9bDeJ3OD7uxFz4UpFbTHaQn3t8xqtMD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzABg1DtmRsn2BTQq4DNMiPGAWxfZRUf6cAz++8YJTzlPg39aOs
+	4xxPn3ciVVOAtkszJJ411jLLSPOjrELrD5mDMAglv9di/G+WcVVGSxb9AcPxoQ==
+X-Gm-Gg: ASbGnctST8Z95ke1rcJtfSwBjd1mscNckff4iJo7qQcTNOo2mgZfkF1RGHQMHlj3bR4
+	AphUgDZaPTIb7zybr61TicZp7NSQQw0ZqJZPTbtKvxfP1VPaJqn65QU4D2tVGfQ2ohBkDl9PSPP
+	PPn+4yz9Ef69HiTa9HzUWdYr4v+kYdMmqUnSBdfI2PaV5bohb1hyn7oSD2sfiRSGDwwLUKGMlNS
+	wza8xhT4xnSeakNhVPBhMy2mU+UNWlxHCIksF8yIP2G3omie2lK/jry5oLDZpAtM8lqeghvmFH8
+	M6a2PEcCDvJPZ37H8fk25dqEf13DEo2mK45FzN5KmP/t+My3/+GuxWk=
+X-Google-Smtp-Source: AGHT+IHrDiyu7JyyUaCpNZBRWqNi4l6xLSdCaNxkD7VzQLNr/sJguqTX3KZTI2raz26SwVrgNAG86w==
+X-Received: by 2002:a05:6a21:8983:b0:1f3:1d13:969f with SMTP id adf61e73a8af0-1f31d13dec4mr15120281637.9.1741100925020;
+        Tue, 04 Mar 2025 07:08:45 -0800 (PST)
+Received: from thinkpad ([120.60.51.199])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af25bfb4a93sm1474563a12.31.2025.03.04.07.08.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 07:08:44 -0800 (PST)
+Date: Tue, 4 Mar 2025 20:38:38 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 6/8] PCI: brcmstb: Use same constant table for config
+ space access
+Message-ID: <20250304150838.23ca5qbhm4yrpa3h@thinkpad>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250214173944.47506-7-james.quinlan@broadcom.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-mt6359-accdet-dts-v3-13-5b0eafc29f5b@collabora.com>
-References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
-In-Reply-To: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
-To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- linux-pm@vger.kernel.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
+In-Reply-To: <20250214173944.47506-7-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_151722_819865_7AB409BC 
-X-CRM114-Status: GOOD (  17.95  )
+X-CRM114-CacheID: sfid-20250304_070845_809458_7DFA0E18 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,213 +111,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Instead of reading a bunch of PWM debounce settings from the Devicetree,
-set reasonable values inside the driver that are known to work across
-multiple boards. There are no current users of these DT properties, so
-no backward compatibility needs to be maintained. The properties can be
-properly introduced in the binding in the future if different boards
-really need to override them.
+On Fri, Feb 14, 2025 at 12:39:34PM -0500, Jim Quinlan wrote:
+> The constants EXT_CFG_DATA and EXT_CFG_INDEX vary by SOC. One of the
+> map_bus methods used these constants, the other used different constants.
+> Fortunately there was no problem because the SoCs that used the latter
+> map_bus method all had the same register constants.
+> 
+> Remove the redundant constants and adjust the code to use them.  In
+> addition, update EXT_CFG_DATA to use the 4k-page based config space access
+> system, which is what the second map_bus method was already using.
+> 
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
- sound/soc/codecs/mt6359-accdet.c | 70 ++++++++++++++++++++++------------------
- sound/soc/codecs/mt6359-accdet.h | 20 ------------
- 2 files changed, 38 insertions(+), 52 deletions(-)
+What is the effect of this change? Why is it required? Sounds like it got
+sneaked in.
 
-diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
-index e04cfb9a607aa5d38d46329eb1387545fda37ccc..6728f1018c992fc9d4e4133dbaf091d256567683 100644
---- a/sound/soc/codecs/mt6359-accdet.c
-+++ b/sound/soc/codecs/mt6359-accdet.c
-@@ -43,6 +43,25 @@
- #define ACCDET_DIGITAL_FASTDISCHARGE	BIT(13)
- #define ACCDET_AD_FASTDISCHRAGE		BIT(14)
- 
-+/* Debounce time = (DEBOUNCE/32768) sec */
-+#define ACCDET_DEBOUNCE0_625MS 0x800
-+#define ACCDET_DEBOUNCE1_625MS 0x800
-+#define ACCDET_DEBOUNCE3_976US 0x20
-+#define ACCDET_DEBOUNCE_AUXADC_2MS 0x44
-+/* PWM frequency = 32768/(PWM_WIDTH + 1) Hz */
-+#define ACCDET_PWM_WIDTH_25_580HZ 0x500
-+/* Duty cycle = (PWM_THRESH + 1) / (PWM_WIDTH + 1) */
-+#define ACCDET_PWM_THRESH_100PERCENT ACCDET_PWM_WIDTH_25_580HZ
-+#define ACCDET_RISE_DELAY 0x1f0
-+#define ACCDET_FALL_DELAY 1
-+#define ACCDET_EINT_DEBOUNCE0_1MS 5
-+#define ACCDET_EINT_DEBOUNCE1_900US 3
-+#define ACCDET_EINT_DEBOUNCE2_900US 3
-+#define ACCDET_EINT_DEBOUNCE3_1MS 5
-+#define ACCDET_EINT_INVERTER_DEBOUNCE_256MS 0xe
-+#define ACCDET_EINT_CMPMEN_PWM_WIDTH_400MS 4
-+#define ACCDET_EINT_CMPMEN_PWM_THRESH_2MS 1
-+
- static struct platform_driver mt6359_accdet_driver;
- static const struct snd_soc_component_driver mt6359_accdet_soc_driver;
- 
-@@ -130,7 +149,7 @@ static unsigned int mt6359_accdet_jd_setting(struct mt6359_accdet *priv)
- 	} else if (priv->jd_sts == M_PLUG_OUT) {
- 		/* set debounce to 1ms */
- 		accdet_set_debounce(priv, eint_state000,
--				    priv->data->pwm_deb->eint_debounce0);
-+				    ACCDET_EINT_DEBOUNCE0_1MS);
- 	} else {
- 		dev_dbg(priv->dev, "should not be here %s()\n", __func__);
- 	}
-@@ -241,11 +260,11 @@ static void mt6359_accdet_recover_jd_setting(struct mt6359_accdet *priv)
- 
- 	/* recover accdet debounce0,3 */
- 	accdet_set_debounce(priv, accdet_state000,
--			    priv->data->pwm_deb->debounce0);
-+			    ACCDET_DEBOUNCE0_625MS);
- 	accdet_set_debounce(priv, accdet_state001,
--			    priv->data->pwm_deb->debounce1);
-+			    ACCDET_DEBOUNCE1_625MS);
- 	accdet_set_debounce(priv, accdet_state011,
--			    priv->data->pwm_deb->debounce3);
-+			    ACCDET_DEBOUNCE3_976US);
- 
- 	priv->jack_type = 0;
- 	priv->accdet_status = 0x3;
-@@ -390,7 +409,7 @@ static void mt6359_accdet_jd_work(struct work_struct *work)
- 		priv->jack_plugged = false;
- 
- 		accdet_set_debounce(priv, accdet_state011,
--				    priv->data->pwm_deb->debounce3);
-+				    ACCDET_DEBOUNCE3_976US);
- 		regmap_update_bits(priv->regmap, ACCDET_SW_EN_ADDR,
- 				   ACCDET_SW_EN_MASK_SFT, 0);
- 		mt6359_accdet_recover_jd_setting(priv);
-@@ -497,7 +516,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
- 	int ret;
- 	struct device *dev = priv->dev;
- 	struct device_node *node = NULL;
--	int pwm_deb[15] = {0};
- 	unsigned int tmp = 0;
- 
- 	node = of_get_child_by_name(dev->parent->of_node, "accdet");
-@@ -514,12 +532,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
- 	if (ret)
- 		priv->data->mic_mode = 2;
- 
--	ret = of_property_read_u32_array(node, "mediatek,pwm-deb-setting",
--					 pwm_deb, ARRAY_SIZE(pwm_deb));
--	/* debounce8(auxadc debounce) is default, needn't get from dts */
--	if (!ret)
--		memcpy(priv->data->pwm_deb, pwm_deb, sizeof(pwm_deb));
--
- 	priv->data->hp_eint_high = of_property_read_bool(node, "mediatek,hp-eint-high");
- 
- 	ret = of_property_read_u32(node, "mediatek,eint-detect-mode",
-@@ -554,8 +566,8 @@ static void config_digital_init_by_mode(struct mt6359_accdet *priv)
- {
- 	/* enable eint cmpmem pwm */
- 	regmap_write(priv->regmap, ACCDET_EINT_CMPMEN_PWM_THRESH_ADDR,
--		     (priv->data->pwm_deb->eint_pwm_width << 4 |
--		     priv->data->pwm_deb->eint_pwm_thresh));
-+		     (ACCDET_EINT_CMPMEN_PWM_WIDTH_400MS << 4 |
-+		      ACCDET_EINT_CMPMEN_PWM_THRESH_2MS));
- 	/* DA signal stable */
- 	if (priv->caps & ACCDET_PMIC_EINT0) {
- 		regmap_write(priv->regmap, ACCDET_DA_STABLE_ADDR,
-@@ -675,22 +687,22 @@ static void mt6359_accdet_init(struct mt6359_accdet *priv)
- 	mdelay(1);
- 	/* init the debounce time (debounce/32768)sec */
- 	accdet_set_debounce(priv, accdet_state000,
--			    priv->data->pwm_deb->debounce0);
-+			    ACCDET_DEBOUNCE0_625MS);
- 	accdet_set_debounce(priv, accdet_state001,
--			    priv->data->pwm_deb->debounce1);
-+			    ACCDET_DEBOUNCE1_625MS);
- 	accdet_set_debounce(priv, accdet_state011,
--			    priv->data->pwm_deb->debounce3);
-+			    ACCDET_DEBOUNCE3_976US);
- 	accdet_set_debounce(priv, accdet_auxadc,
--			    priv->data->pwm_deb->debounce4);
-+			    ACCDET_DEBOUNCE_AUXADC_2MS);
- 
- 	accdet_set_debounce(priv, eint_state000,
--			    priv->data->pwm_deb->eint_debounce0);
-+			    ACCDET_EINT_DEBOUNCE0_1MS);
- 	accdet_set_debounce(priv, eint_state001,
--			    priv->data->pwm_deb->eint_debounce1);
-+			    ACCDET_EINT_DEBOUNCE1_900US);
- 	accdet_set_debounce(priv, eint_state011,
--			    priv->data->pwm_deb->eint_debounce3);
-+			    ACCDET_EINT_DEBOUNCE3_1MS);
- 	accdet_set_debounce(priv, eint_inverter_state000,
--			    priv->data->pwm_deb->eint_inverter_debounce);
-+			    ACCDET_EINT_INVERTER_DEBOUNCE_256MS);
- 
- 	regmap_update_bits(priv->regmap, RG_ACCDET_RST_ADDR,
- 			   RG_ACCDET_RST_MASK_SFT, BIT(RG_ACCDET_RST_SFT));
-@@ -705,12 +717,12 @@ static void mt6359_accdet_init(struct mt6359_accdet *priv)
- 
- 	/* init pwm frequency, duty & rise/falling delay */
- 	regmap_write(priv->regmap, ACCDET_PWM_WIDTH_ADDR,
--		     REGISTER_VAL(priv->data->pwm_deb->pwm_width));
-+		     REGISTER_VAL(ACCDET_PWM_WIDTH_25_580HZ));
- 	regmap_write(priv->regmap, ACCDET_PWM_THRESH_ADDR,
--		     REGISTER_VAL(priv->data->pwm_deb->pwm_thresh));
-+		     REGISTER_VAL(ACCDET_PWM_THRESH_100PERCENT));
- 	regmap_write(priv->regmap, ACCDET_RISE_DELAY_ADDR,
--		     (priv->data->pwm_deb->fall_delay << 15 |
--		      priv->data->pwm_deb->rise_delay));
-+		     (ACCDET_FALL_DELAY << 15 |
-+		      ACCDET_RISE_DELAY));
- 
- 	regmap_read(priv->regmap, RG_AUDPWDBMICBIAS1_ADDR, &reg);
- 	if (priv->data->mic_vol <= 7) {
-@@ -806,12 +818,6 @@ static int mt6359_accdet_probe(struct platform_device *pdev)
- 	if (!priv->data)
- 		return -ENOMEM;
- 
--	priv->data->pwm_deb = devm_kzalloc(&pdev->dev,
--					   sizeof(struct pwm_deb_settings),
--					   GFP_KERNEL);
--	if (!priv->data->pwm_deb)
--		return -ENOMEM;
--
- 	priv->regmap = mt6397->regmap;
- 	if (IS_ERR(priv->regmap)) {
- 		ret = PTR_ERR(priv->regmap);
-diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
-index 99de5037a2294b62cb8535fc45dbf4c6fafb5c7f..287201eebe0330fa170093fd6192bf5694c30469 100644
---- a/sound/soc/codecs/mt6359-accdet.h
-+++ b/sound/soc/codecs/mt6359-accdet.h
-@@ -50,30 +50,10 @@ enum {
- 	eint_inverter_state000,
- };
- 
--struct pwm_deb_settings {
--	unsigned int pwm_width;
--	unsigned int pwm_thresh;
--	unsigned int fall_delay;
--	unsigned int rise_delay;
--	unsigned int debounce0;
--	unsigned int debounce1;
--	unsigned int debounce3;
--	unsigned int debounce4;
--	unsigned int eint_pwm_width;
--	unsigned int eint_pwm_thresh;
--	unsigned int eint_debounce0;
--	unsigned int eint_debounce1;
--	unsigned int eint_debounce2;
--	unsigned int eint_debounce3;
--	unsigned int eint_inverter_debounce;
--
--};
--
- struct dts_data {
- 	unsigned int mic_vol;
- 	unsigned int mic_mode;
- 	bool hp_eint_high;
--	struct pwm_deb_settings *pwm_deb;
- 	unsigned int eint_detect_mode;
- 	unsigned int eint_comp_vth;
- };
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> ---
+>  drivers/pci/controller/pcie-brcmstb.c | 14 ++++++--------
+>  1 file changed, 6 insertions(+), 8 deletions(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index e1059e3365bd..923ac1a03f85 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -150,9 +150,6 @@
+>  #define  MSI_INT_MASK_SET		0x10
+>  #define  MSI_INT_MASK_CLR		0x14
+>  
+> -#define PCIE_EXT_CFG_DATA				0x8000
+> -#define PCIE_EXT_CFG_INDEX				0x9000
+> -
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
+>  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
+>  
+> @@ -727,8 +724,8 @@ static void __iomem *brcm_pcie_map_bus(struct pci_bus *bus,
+>  
+>  	/* For devices, write to the config space index register */
+>  	idx = PCIE_ECAM_OFFSET(bus->number, devfn, 0);
+> -	writel(idx, pcie->base + PCIE_EXT_CFG_INDEX);
+> -	return base + PCIE_EXT_CFG_DATA + PCIE_ECAM_REG(where);
+> +	writel(idx, base + IDX_ADDR(pcie));
+> +	return base + DATA_ADDR(pcie) + PCIE_ECAM_REG(where);
+>  }
+>  
+>  static void __iomem *brcm7425_pcie_map_bus(struct pci_bus *bus,
+> @@ -1711,7 +1708,7 @@ static void brcm_pcie_remove(struct platform_device *pdev)
+>  static const int pcie_offsets[] = {
+>  	[RGR1_SW_INIT_1]	= 0x9210,
+>  	[EXT_CFG_INDEX]		= 0x9000,
+> -	[EXT_CFG_DATA]		= 0x9004,
+> +	[EXT_CFG_DATA]		= 0x8000,
+>  	[PCIE_HARD_DEBUG]	= 0x4204,
+>  	[PCIE_INTR2_CPU_BASE]	= 0x4300,
+>  };
+> @@ -1719,7 +1716,7 @@ static const int pcie_offsets[] = {
+>  static const int pcie_offsets_bcm7278[] = {
+>  	[RGR1_SW_INIT_1]	= 0xc010,
+>  	[EXT_CFG_INDEX]		= 0x9000,
+> -	[EXT_CFG_DATA]		= 0x9004,
+> +	[EXT_CFG_DATA]		= 0x8000,
+>  	[PCIE_HARD_DEBUG]	= 0x4204,
+>  	[PCIE_INTR2_CPU_BASE]	= 0x4300,
+>  };
+> @@ -1733,8 +1730,9 @@ static const int pcie_offsets_bcm7425[] = {
+>  };
+>  
+>  static const int pcie_offsets_bcm7712[] = {
+> +	[RGR1_SW_INIT_1]	= 0x9210,
+>  	[EXT_CFG_INDEX]		= 0x9000,
+> -	[EXT_CFG_DATA]		= 0x9004,
+> +	[EXT_CFG_DATA]		= 0x8000,
+>  	[PCIE_HARD_DEBUG]	= 0x4304,
+>  	[PCIE_INTR2_CPU_BASE]	= 0x4400,
+>  };
+> -- 
+> 2.43.0
+> 
 
 -- 
-2.48.1
-
+மணிவண்ணன் சதாசிவம்
 
