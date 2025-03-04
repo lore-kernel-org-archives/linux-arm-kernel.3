@@ -4,97 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63AE2C282D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:37:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90810C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:39:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66psdEYIrVGR86JKMR8+mqBEFxkGfgmcukM2sBzapxc=; b=mvRrWES4k6XKHZOM6TksCAtSoM
-	3405HxnYy7HVZbVexiu9FgEXw6d4duMRo0k2r9yn/K0EYU0EaZyUbCn9XDCJSgReGD3M5oE3Nert/
-	0tnW7EfE4Cc5jfe3/TKKGD2FsY+y1X1J+UNFXWDhyu1DHiXGPvWVTNH79ksHab2Q6Tdf+ibvB56op
-	JdBfLAOjOWRM29qyRfaEfraYli3XEqnmuVVTcMrIzVOFM1zhQ52w7OpClQ4mYDeoQo9yASoq+Ppcw
-	1ba8eDLbbncaASOEfDcsqpdnBrhf+04IgMeg/hKfY4whq7ZLMbuSlfsXLhZRNXbsD8PLWCJ+gHfzx
-	hMjY8QWw==;
+	bh=9J55i6SaAxXDmk71XUiDvvdHDUMorv5pKHh75B2QGvY=; b=aklcXdCW9Z/0LuIbctbEdmsRHq
+	UZ66FZx0EUex29M4wDZ7K9ZZ23YPPw53fKISdUK7qYlkdSba4kG6rghXFJY3IlOe5LOKClKjF0gMA
+	Tz7zd1aaQ7Zpnam5MF5tqeK3bQYIezPJVkWxRtEABxTfyYnRi4Xgzqem6Tour1YOWC/9n4TwxR0tW
+	sf90ZOMbRFCB+slSviRxIzE+Or/s3cbgkfPSOLlkjm7+ZmUH8ZQW0FoCOyd4FXg/qTb2q6bE+tDx5
+	Inb1n5F3DSewewDwZfZuYogqiUxzN8O+SfbEkxjd1JInnKOWWE/MRXUu47Ok55lAIn88SmkPu7vFz
+	6O+l0OCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVHA-00000005SW0-01R4;
-	Tue, 04 Mar 2025 16:37:48 +0000
-Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
+	id 1tpVIk-00000005SyF-2qOw;
+	Tue, 04 Mar 2025 16:39:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUDb-00000005DeP-2aZk
+	id 1tpUFq-00000005E4x-3o1v
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 15:32:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9J55i6SaAxXDmk71XUiDvvdHDUMorv5pKHh75B2QGvY=; b=p7g0Ms8ctP+m1cjsPmXjbJGkEz
+	c3n+ZGuhMEtn/2OjmdxgO4rIINQ3rpSqWMB8J1IDvhayc3X23krYHekA8hVPqcNqwx35BA3FfQXox
+	qcqiOn9pudwp8FYPgr/apyhRVfvGfUI1YcJ9zEPLoVW1xHjVfMGnGJDj5Riwtsz38JB8mWnhx7niV
+	onRRERThij7scLLW7mR6k8W6K4Eh4+vVgsqqyZ3j0Xwfph9klk+/ffwO/Ne+eIBjKgJuDSRp9bTk0
+	Isw8BOVDvebKS74gOBO/1BCAMT7pWb9CBMxd3CvljlS1bLQ8HAAnwCA1aes6mUUa7QLEfsK3+G6vr
+	+m5upiDA==;
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpUFn-000000004Du-1oee
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:30:04 +0000
-Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-2235908a30aso96891005ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:30:03 -0800 (PST)
+	Tue, 04 Mar 2025 15:32:21 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-2fea47bcb51so11552257a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:32:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741102202; x=1741707002; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741102337; x=1741707137; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=66psdEYIrVGR86JKMR8+mqBEFxkGfgmcukM2sBzapxc=;
-        b=tqHlj5eyIbLMYS1NmqsoFWNhS+q/+qT1JDECGMYgWfSgkUbX8ZaQKbs6BgR6lO040h
-         idrp9cVrhvUKU9m1Ml7uMEblei12IDYOz7lWnFTItrYwdjEQ70YyPS1tfUXoE+Q+VrqL
-         wMBIDhDqfY9CtQp6R0OhZvy3VtEXOblvp21UDgfFTUU161pEEcIWEY9QYW1ANmd2pG2c
-         9kwBz67SM6fBw1LjgXIyYLCCIFdzNQ4lrhjp7/G31YNPo3ffaqponei27tJ1K2JsZbEU
-         FLvMiMubZ3Z3EqihQGSCg+TJaZAjnHiXFcLUiYA2JwikVKC7qT9h/DnYXf+jmias8298
-         qsaQ==
+        bh=9J55i6SaAxXDmk71XUiDvvdHDUMorv5pKHh75B2QGvY=;
+        b=p///7mdw1CF3BIrSbLumHrshuTrhZgP/0S+F4AylmK4K9ihb8Dt9oGADkmgzrTdP83
+         IEyA95H9/cQu46o1KwEaBNEbDtopEZQMz4eosvS0XrP5TAIg/nci9RgsEOseBWMoySsv
+         Iud9jEVozChgFAayDDqiT5gnVjOfamzgTC8SPS5l6iTHg8pChG1Gltt83ftUN01S91Ua
+         QxZPZ2nJ7BShG+NuEXnfyKOkphRV7WNdBAXSk3GfH7QQWiXpW0gGncJ+Lef3zjIssytw
+         +6N1NsQtwPA/DbL0kblGXasPosbUUMtfP5odUzpP8MwGrwBGl8EJ0yJpjwktfOgu5Mp9
+         kAtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741102202; x=1741707002;
+        d=1e100.net; s=20230601; t=1741102337; x=1741707137;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=66psdEYIrVGR86JKMR8+mqBEFxkGfgmcukM2sBzapxc=;
-        b=SrAcOo/TCI89P1Zrl3o1XQzxqanfRhVFRf687EsB4l53G39llorVKANDs5zimcumiH
-         3cZwuRzlfo0nXQ4AJ0tWlxOKS7UpnzuI9GiZYNeLC/eto7pUogYoTM6OW9sk3CF8dG4Y
-         Zhnt58idwvKVOk98mpS7OA/c3L96F/Zrycmhjpx5t5O5cELE7NnhQQtESTzAKJEtahts
-         KjKwGD1zXmEnBn9aXmbGu06W5asEW99CHlpXdmhGzLLCDAfezgbxIcjFdfPuPGqYpWUI
-         FqeRvCM2kaCtIAGVXwrSDjFf8S0MJUXDGnHJmK0ai+YJJbfdL2+qP8Nk+hKhAPnvRef7
-         Q4EQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUfwVUrBeML+jcRT0Yjts4vdV+nncUSx+0iFtbf9BLiE5K4K9tIGgr1iueGuL0YRKMQY06FbDfKLpgFFDErzw9x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4JlPKDZtVVkeyIP6U8+T11kwASJr/jQ6NsGB23OA5YuR/NUeh
-	AqGPYM9QKi1Dhz3Qu888k8YDZE0SCS9mah7YD5p/WLaSk+E6mIENQrXN4gJdqg==
-X-Gm-Gg: ASbGncuAyaXK+sCgiyZijspuuIqiLR/uYF9pDhh84woyftoWs6pA/N1W1sNjYh73cAp
-	LDGEfoDzSea5aNtEVC2nGr8ut0A98D2JX74DH80wB9F+WgGSaYF1PGTnnBNtmnqoTDCXcRsXLbT
-	UaGgNWa1F6cWSoT8fwZOJnXu8oFGkTvscUrOx78EyrXYBoEczUBRHzZ7FUH+rAgNc/Y4QIgsO6j
-	f6tr4XEJY31IRI7zObUWjvE6OmIFTQxg5cubkMPvdnyfZhZ5QLNup3PoiHsooK1PVqLdxAtTm/W
-	NexbxaBZtZ/pNs8FDSJEN9K8Ow+AkR9hFmGLxkIfgSdCM2pNlmcIKe0=
-X-Google-Smtp-Source: AGHT+IHDLoudvsE8ThGCBDtv8xpmDC4PMrV1KRLn9yaD488OmdYvS42vvygcsTzqkS+txl9sTFzPNQ==
-X-Received: by 2002:a05:6a20:7348:b0:1ee:be88:f5cf with SMTP id adf61e73a8af0-1f2f4e00bfbmr34435609637.32.1741102202650;
-        Tue, 04 Mar 2025 07:30:02 -0800 (PST)
+        bh=9J55i6SaAxXDmk71XUiDvvdHDUMorv5pKHh75B2QGvY=;
+        b=aaD/FJy8MzbK4AoUJ3k4OASU9LJbaayboIBMcZrPMnpVREPeO/qmUrkJP3fEp/UCIY
+         0HHh6bzR/sDELlkDh7ZpoUrEX4JVy6m6jQcrN0D9jEPL3ZG1rx4IQw+rdJnFpzXwbpiY
+         rxAlkeQ4cnlCEL771VWYWS57G+Em/h93gpwQ63sXbyjg8CZU77Xuu3SCABcpQYFN4YGk
+         Ztzwlm/KXCLQL1h22eYTrfnIwRh/2jh4rqDbsJYEkW5OGc+5QsbRPrenauAlyKtNcl8r
+         w3g6D+YCGA/oDY7sE2zQt6p9CnsiNLAeA/CV/evgDkpi7tgVqGXhthZsLQ7rkQPBSgrJ
+         coUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVxzsLW+DmgW8CXW8+PtxumE9uKEC3FW5TW9m50shARQB0WWhq/gaDVf83RAFnsHX9CTQPboCYVMjKJsvTrAwOT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIDLDLu7nQaA3AHVb11iE6zlfkwXf9qsYi1zLXAVS7aklIZsEd
+	e9+kVTXA28CFYW2jQn77gDkk3ufG7D2swLIjMz5gZIZ/cBbPbMDnryh4JqVrCw==
+X-Gm-Gg: ASbGncvcJ2NY4sXQAxKOvV07ROUTUHcVRc8tYvVh9raMOj5lncq+xNF/vN7azSzyDy4
+	Q5o+0B1C5zrRWbK7E26dAlkbz1cLA4S2L/eSrGmAR7UXACuT+5pDHLzV6plcYNQBp4C9099s5ZT
+	PKX2yn7wntAsNSDFv+ryOd0RXrCj4TOjK8Lq4YUGZgXyTCMdWSsnMPnJZQ+OqxmFGieRz5zYbI5
+	3wB+dy0EMw/Hf4b1slGl9Zm1jqJiSuA6Od4iVGtczcdI/WatA8ssgRFp1ZFQnUhl8AvNS5rsIJg
+	xL7VQowRUNWALexiNXq1u+blLPJYAEWgY1v+/Mi2O34t+RxCyImHoMs=
+X-Google-Smtp-Source: AGHT+IGGf95zBxRvPRSEYDsTC4/BBUP78sumCmzYhxc9letUVVeTQ59a5edLgdJXdoWT1eIqtoqw6w==
+X-Received: by 2002:a17:90b:2888:b0:2fe:b907:562f with SMTP id 98e67ed59e1d1-2febab5e112mr30851643a91.14.1741102336858;
+        Tue, 04 Mar 2025 07:32:16 -0800 (PST)
 Received: from thinkpad ([120.60.51.199])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-aee7de38003sm10265993a12.33.2025.03.04.07.29.55
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe8284f076sm13309640a91.42.2025.03.04.07.32.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 07:30:01 -0800 (PST)
-Date: Tue, 4 Mar 2025 20:59:52 +0530
+        Tue, 04 Mar 2025 07:32:16 -0800 (PST)
+Date: Tue, 4 Mar 2025 21:02:06 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-Cc: Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
+To: Fan Ni <nifan.cxl@gmail.com>
+Cc: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Shradha Todi <shradha.t@samsung.com>, linux-kernel@vger.kernel.org,
 	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	linux-perf-users@vger.kernel.org, lpieralisi@kernel.org,
 	robh@kernel.org, bhelgaas@google.com, jingoohan1@gmail.com,
-	Jonathan.Cameron@huawei.com, fan.ni@samsung.com,
-	nifan.cxl@gmail.com, a.manzanares@samsung.com,
+	Jonathan.Cameron@huawei.com, a.manzanares@samsung.com,
 	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
 	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
 	will@kernel.org, mark.rutland@arm.com
-Subject: Re: [PATCH v7 4/5] Add debugfs based error injection support in DWC
-Message-ID: <20250304152952.pal66goo2dwegevh@thinkpad>
+Subject: Re: [PATCH v7 5/5] Add debugfs based statistical counter support in
+ DWC
+Message-ID: <20250304153206.gr7footrqrpc5uxf@thinkpad>
 References: <20250221131548.59616-1-shradha.t@samsung.com>
- <CGME20250221132039epcas5p31913eab0acec1eb5e7874897a084c725@epcas5p3.samsung.com>
- <20250221131548.59616-5-shradha.t@samsung.com>
- <20250303095200.GB1065658@rocinante>
+ <CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
+ <20250221131548.59616-6-shradha.t@samsung.com>
+ <Z8XuuNb6TRevUlHH@debian>
+ <20250303194228.GB1552306@rocinante>
+ <Z8YZEALV71PUkXpF@debian>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250303095200.GB1065658@rocinante>
+In-Reply-To: <Z8YZEALV71PUkXpF@debian>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_073003_656366_EF63B9EE 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_153219_719696_60A8C846 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +126,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 06:52:00PM +0900, Krzysztof Wilczyński wrote:
-> Hello,
+On Mon, Mar 03, 2025 at 01:03:12PM -0800, Fan Ni wrote:
+> On Tue, Mar 04, 2025 at 04:42:28AM +0900, Krzysztof Wilczyński wrote:
+> > Hello,
+> > 
+> > [...]
+> > > > +static ssize_t counter_value_read(struct file *file, char __user *buf, size_t count, loff_t *ppos)
+> > > > +{
+> > > > +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> > > > +	struct dw_pcie *pci = pdata->pci;
+> > > > +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> > > > +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> > > > +	ssize_t pos;
+> > > > +	u32 val;
+> > > > +
+> > > > +	mutex_lock(&rinfo->reg_event_lock);
+> > > > +	set_event_number(pdata, pci, rinfo);
+> > > > +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_DATA_REG);
+> > > > +	mutex_unlock(&rinfo->reg_event_lock);
+> > > > +	pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter value: %d\n", val);
+> > > > +
+> > > > +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf, pos);
+> > > > +}
+> > > 
+> > > Do we need to check whether the counter is enabled or not for the event
+> > > before retrieving the counter value?
+> > 
+> > I believe, we have a patch that aims to address, have a look at:
+> > 
+> >   https://lore.kernel.org/linux-pci/20250225171239.19574-1-manivannan.sadhasivam@linaro.org
 > 
-> [...]
-> > +		29) Generates duplicate TLPs - duplicate_dllp
-> > +		30) Generates Nullified TLPs - nullified_tlp
-> 
-> Would the above field called "duplicate_dllp" for duplicate TLPs be
-> a potential typo?  Perhaps this should be called "duplicate_tlp"?
+> Maybe I missed something, that seems to fix counter_enable_read(), but
+> here is to retrieve counter value. 
+> How dw_pcie_readl_dbi() can return something like "Counter Disabled"? 
 > 
 
-Looks like a typo. As per Synopsys documentation, there is only 'duplicate TLP'
-field.
-
-Good catch!
+Only way to know if a counter is enabled by reading back the status. And that is
+what the patch is doing.
 
 - Mani
 
