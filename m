@@ -4,100 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DF01C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:29:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12723C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rEUADPvt5vUb0DPdb4ydVYz2t+TuARR2y9RFIuVvjk4=; b=Ys4oz/BBBXaWtt1Lb+sYVKLytF
-	TV5lK1as7eRES6mCaXOpLa2Vo7s+sezH+nuYbzb5aaaTV3souw+QJhL/en92i3CcigORdX5kHMluR
-	ESnW8KWY/e7nBWoESa8lxDyo0IA63BwyM4brMoiqxNw34ScUFZCPA+H5rTBn9UHENn271vkyjlSKf
-	SM39/4DofwsHYe87k6/88EK2Pb7uPrFKr7dq/ynqviMNgWZVVG3UCekY22t+YdNc7o1OcQgKn48se
-	GMI+YEJpwmubje3G4NJSVRGXg2DBrN8LXXLQg1OyWA5LC+8o4t2qeOQj1S6wDw3hMNnt7Wg6l0M47
-	sI+VI1NQ==;
+	bh=tkmV7x3mcQBAyxbvWzDtrcqC+7mmWkYjzNradsUNkVU=; b=v6Ri3P31hN3VFnkf5azKQruwpm
+	0t51pgL3k2WwtAXIlO+XjRYqPBW3lYcM7BwDl1x4/EduCZRyEOe0VpZKjUp7tdRzIJbFEenrJHCk/
+	eBk65PbfEd7W92JCPeE9gcRXf5HJQX7iy+1RtlA6RObn6i4k6w4yc7bzjOIX9DZK0OZzy/i4rTObn
+	4VWUIPuImtLOgZ0/MWDUnuGD9yrXMgKJhy8ItVL3D7vdkonue1Gga/FIbu9dHn5dUgtgoqMKJ/mZP
+	Es/VI2WrkyPhzATIO0PcTBTa32Mnarr1gEGD+qJ0Ga0yhh04tdQYbb5PuTedN6bB/CZLJKC35xHbi
+	FnsPH7/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpalp-00000006Q1V-23M9;
-	Tue, 04 Mar 2025 22:29:49 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tpamQ-00000006QI4-0fFw;
+	Tue, 04 Mar 2025 22:30:26 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZUh-00000006GV8-1BeV
+	id 1tpadG-00000006OM9-1nRz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 21:08:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741122482;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=rEUADPvt5vUb0DPdb4ydVYz2t+TuARR2y9RFIuVvjk4=;
-	b=adkezBHYvr0a99lvcXGDdMqC9LV+u2zScMHsBotu2xzf39mnXHJwfx3FUdk0NJmk2jDK43
-	Xv3Aby06FR853diPVxbGURuWnXD4bPuFtyPnHd86ftUjIQksLT8QQ890kDtVtyO6gwd86X
-	SHR1E61QoCzSX7b5mw/cCxd1jICl+sQ=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-343-aD6fIKblM1CdoJFJ_B3qKg-1; Tue,
- 04 Mar 2025 16:06:02 -0500
-X-MC-Unique: aD6fIKblM1CdoJFJ_B3qKg-1
-X-Mimecast-MFC-AGG-ID: aD6fIKblM1CdoJFJ_B3qKg_1741122358
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 551FA1800989;
-	Tue,  4 Mar 2025 21:05:57 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.107])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 6AFF81800361;
-	Tue,  4 Mar 2025 21:05:49 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Tue, 04 Mar 2025 16:05:31 -0500
-Subject: [PATCH v5 1/7] drm/fsl-dcu: move to
- devm_platform_ioremap_resource() usage
+	Tue, 04 Mar 2025 22:20:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=q+PVzPjWEgusvsnqd+pXygerLo6RUJ8oN08vI4lGBvjB7BR12qIWwvj16cAIaiqrXIdevesJDtaCeIBY0MaozsFSFgt5B5NI3DCLbUGM3+Rq78h8TR/MWZyYhlQWxA9ulgF14vwj8imO1giAaLlK/3jyjvbXnULULSl/rVe0EosMmrkVtYCEpWVBlEiGYz52no7mDZhlnT0x39cutE8kq3/DUSINJamkRaZIutmkr+FlbeAkAxJRBpHEc/yMuqHgODYX2dziLh5I3awxtzun97eH8aFGK3CDPr6mc7s3FuIx8ia0sH8Yp3E2VnFhLpYU4M84tpkBXoffUH+C6RPf8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=tkmV7x3mcQBAyxbvWzDtrcqC+7mmWkYjzNradsUNkVU=;
+ b=F8ZQbKOyfNQGKpAK8qJoT1pyxJwd9FhKU7zILrWsACOp4Af4HsUTkBcPeaJAJItF5HQf+Wz4uC5xTj6qQYvRT+Iy3bdmhLdB0gkygma23kAKeqIK1eJg8BAD2AvSB/4ZXeyzH9Bvs6enzX2lfXheJJvXM+KCbNZCg8XCMzLasrPrU2eYXj2O1aL15+zRkD0OSb5xMFrO9ot3iESJJKhwAx2/fMY6Qtm3iuzxeOvqnC1GKEXvv5qhLHqLE7lx2Mal9aXlt1fcEne/Mr9BhY+ymT/Z08dWgnUEIyK2YNPG3EhCaySMNmutaPNxuZDlZE+rN2yVjHFGUsQobyYACT1A/A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=tkmV7x3mcQBAyxbvWzDtrcqC+7mmWkYjzNradsUNkVU=;
+ b=aPFTIeHUjVx6Oya+l8C1SNhzJsO2iC4+oVaz9ZQwhGZomv7X64szM3xHLPubK5p0FxAtC+7dyXy/5vZMFi4gv2v/MUrth4/5oZW8iVr/RZVYnpxS/fIfndFLcSnBbK0jjQvrqWkXSAoP77Sg4mtQ9IbSThHPVFl2z4KqAPQa5ts=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ PH7PR01MB7931.prod.exchangelabs.com (2603:10b6:510:275::6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8489.26; Tue, 4 Mar 2025 22:20:50 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%2]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
+ 22:20:50 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: ryan.roberts@arm.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	Miko.Lenczewski@arm.com,
+	scott@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [v3 PATCH 5/6] arm64: mm: support split CONT mappings
+Date: Tue,  4 Mar 2025 14:19:30 -0800
+Message-ID: <20250304222018.615808-6-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250304222018.615808-1-yang@os.amperecomputing.com>
+References: <20250304222018.615808-1-yang@os.amperecomputing.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: SN7P222CA0014.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:806:124::8) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250304-mem-fixes-v1-1-fb3dab8d901f@redhat.com>
-References: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-In-Reply-To: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
- Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
- Marek Vasut <marex@denx.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Jonathan Corbet <corbet@lwn.net>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
- Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741122340; l=1621;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=qdWoCRSaEyGwiB1pCeMHCVglO9KpvJz3OeotRemVCtM=;
- b=XXW32Rtiy4P6fBUnnYgHXkX7nAGj1GjI07HhKOKSoEKm4jsLZoO7bPwhhWNtFaji8/Ow4zIKQ
- 6AVOybQONpRBfLZVnq68Jsf/krtVTSz4PdAUmbzyTxKxsRlvlmRH7zz
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|PH7PR01MB7931:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebf135ca-f1ff-4deb-a5fa-08dd5b6ad226
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|1800799024|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AYrdNVuVE4Zpjm50pgIWQ1cQlC6zH8tELKx5InYgCHuXvh7cJ5XC2LZ0QnKF?=
+ =?us-ascii?Q?56tl3hpsaprsAteEhCcmMBSfkSyYvx7M9pLwxIQwiZTkjK5AQNy0KFZxT+C4?=
+ =?us-ascii?Q?HDQUv07zPQPCxCbNO/ONwgwN79NkZYI+0tCzxn5ZKlgUGHrdwxPuKmx2WcP+?=
+ =?us-ascii?Q?nM1ZtqS1YRdg/ZJDcAveXOfwxUMT6CNUcINhjRwaYKNypbMXNiMRoYPrwr6w?=
+ =?us-ascii?Q?pzm3Z+gAIi+AhNJY5/GpIKcLtoBDo/W02MqsBt+re5pc/1npyECFmTV9w2ku?=
+ =?us-ascii?Q?uZhnxPFstpiZMLuF3HOLbodIMlieU/AbSj+8aHpBfsGhOqvN6o1GRvGSbwFh?=
+ =?us-ascii?Q?bPLzodvl204qejIEEd7UqRoZdvfMnziyPsELAh2Sxm0wMTFmLM5eqOha5q7j?=
+ =?us-ascii?Q?UPNJxgYxFaUiunNYziA/zJw64dNROyGrBQPaAma39FLO54FmXfCPXhe/9pWd?=
+ =?us-ascii?Q?MayT9oOzdCYSrq9eYtu7681PeU+IpH14KSwTVJi7pqYXyaHbC46dfhxj3pVm?=
+ =?us-ascii?Q?bspK+Hm58Vi+P0G2uGmVxcgwTJvLrJREkxwcXpPvel4VQM8kxdZyToH2Tzby?=
+ =?us-ascii?Q?q1RzY31GdZ750LLoDjP/ndoZ0KrsVYpW7AZnj+XmzDa4airhGM5mMPtQO3LK?=
+ =?us-ascii?Q?NOfpobTcCX4ARKM0sBqSiw8KUNdHXcZx7lkDaaAkh35zVmkAWarUuiNsnYq3?=
+ =?us-ascii?Q?MDLFWwQxBYzjpSv0SMGBWC/QBQYM7tgE1JEBn2YtoAmpYpDsDnR8N81/eAwe?=
+ =?us-ascii?Q?HsliBoeP22t8/5r70sEbrfl0yUA/IGhO7jsBJGtiJyNLo8JmZc+YYJ4yvQ8n?=
+ =?us-ascii?Q?B3QBZLfVr4a1x3fp3RIUJPOrUHavzWRxvP79mK9WlqCnWEQSkR/hfwOgJO2S?=
+ =?us-ascii?Q?4yBQIx1OSDUL54lLVcD08nQZrrrtrrsMUniXjCjp9I+3ilZu8/UaF6VqlUcT?=
+ =?us-ascii?Q?lPcKHbZfVNAdzHpW6QgM+qAhWh83G1dGV7vTaGoRuu16TZ66SA4BnQBOf9an?=
+ =?us-ascii?Q?IgmRSRxM4o1OygTohRY+exVgZMgwijBecwIn54K+8zGA/57RVscL9TBdk+US?=
+ =?us-ascii?Q?nmoFV8SglEYEBRn9jor6Sfx3yC2JO2/gThr5Ps31gkEvdGosYZzhon8Svhxv?=
+ =?us-ascii?Q?1aXyrGH1ifKcH7yc0bovjOLPibm6lclANHPtVXbqS4QGGMqcduV+FqY1jzsj?=
+ =?us-ascii?Q?suh4turJk5RdJOGtP8UuOQ7M5xIfo3h3Qc/0wkMEborh8RCFOp7M0bLHKjto?=
+ =?us-ascii?Q?UDqD/BNSl2BSOUsaBY9M96NTVXsWZq1ElvDtyejY8aL8zdt0a6EGBAhBcdEF?=
+ =?us-ascii?Q?UNy2VnnZr7TQnLK1FJ1RbVr8Hx3RRqovKhmcBNFCe4ZCo/J0bANbPEEhnjrq?=
+ =?us-ascii?Q?L8+mcUQG+71XRJvPP50AkGDtdY33puDue57MCmXEp0ResfT0DNajb7HbluBc?=
+ =?us-ascii?Q?bZ5CZgnXdKPqAxWUdhSzrlqJcs/C2Kfb?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(52116014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?gDymRz06GBCH3t7cNxtqi5AU7JRs+IAxQPr2pqfnE8DY4RNRy/r0crKBUbG/?=
+ =?us-ascii?Q?7WvHaf2eWT9Qv+wBDR6oCCScoDZJ5p3iuQJ7BkXBGCJ7m05P/ILOc/OaECPP?=
+ =?us-ascii?Q?xcVLkkzNOVDyDCTDG8Y1yL3JnIwdnppY83PdK8EFsEZrm56qMkRRIxAkhlkX?=
+ =?us-ascii?Q?0isr4KjZetu6wm8KSisWcRmz10VdTN5o6Eof2BV6ojFQLGVfSq3QZRPEHP3E?=
+ =?us-ascii?Q?/qeCPMpMrlaFk+aZ9Wh+adTPB6QKrM50ikjonMPYDnDYUvD91cJ/8XHzFofo?=
+ =?us-ascii?Q?+lGVUHI/U9UfQJXDmRUsoSth8UfVD2TdGlZ8KruqYujxD8+5UIaThangFkHN?=
+ =?us-ascii?Q?Q7M86KiUK5m8msH4hVsI9Jb37mNo+YtTRfmfiF45c6WksFC+ZrUobGeVaueG?=
+ =?us-ascii?Q?PIopq7h9y7Oh9Zn0Dee9n01bhocm3xMDEQ2kFkWmmtH1fy7afo4Kt1Nybjj5?=
+ =?us-ascii?Q?D13dVLbKXXP4CbAY4J+QHOqEa6ku4+KV53igl53uEJvFYTaXax3zQbytxnPq?=
+ =?us-ascii?Q?FyeUDvC2gMAEWfLWPR301aI+HNVA/EBoV6RV7Au6nwEXqG2sHLn80NF7tL/Y?=
+ =?us-ascii?Q?NDNShGZ1vFQ8G03wZFY8czVARCkIDFze1I0Pse0ct+0vTO+tlwz7QCyNovoV?=
+ =?us-ascii?Q?kfFpPtkpgDj2Td+j/ULQYIaraTrNH6i605d8ZOroNR7egNwktYgZQn2JL7c+?=
+ =?us-ascii?Q?jYMrWx2m7kcbdjZ+KDb5FO5FPbV0zmnGG+jwzaFU1eBrCdZotrnCFpkET5Sh?=
+ =?us-ascii?Q?akIrK7BJTryLiyI9hZHbrlzQs28KQ2a7bLCFQGw4IC5CJczepBZAEaaPNXwy?=
+ =?us-ascii?Q?QfOlAGpE+MEiaqvtCny61YZwGeyiQmhCqV1JOhhjY4jAsXvgh84BHHPOpi5O?=
+ =?us-ascii?Q?hbBzw33M4TjIHT1XOeClCDUKoq2qC3NXvFqQ0QKVLijVPME5KKbOdsCcs26D?=
+ =?us-ascii?Q?28k23iVwKH6v1P4m8HVH7GwWmV+jGppnuuwGUFqW0mSKpPGOujBxNfF0tC+5?=
+ =?us-ascii?Q?IG+tZqkyaIcIz/YwSy0N0qEqANTp/IuxbreESQ/YryFQCqCcrZO+bIu/VVCy?=
+ =?us-ascii?Q?19j++l8TLy2k2IZkMOgzgWQ65dJCrQ/8/yqQI4bMAjrCwd69PHXan0v9Elto?=
+ =?us-ascii?Q?YIjqwocmlVL6276PjsQU36voEqrGFG7fJqk/Sgd+cO1r74LPcf9pnvwDzEpn?=
+ =?us-ascii?Q?hlPViW5fUxSzKLUZrfsnamGTiWRWPKiIHkaXxC6dIkkSsNfbnUxhFogeZlWM?=
+ =?us-ascii?Q?Jp6x8Ii1KxEkuymG8U3gSsl93oajdgmXsf3fYcjYQJQokY0G2Pxg1f8ZwjIc?=
+ =?us-ascii?Q?Cp+9RQycoP5UgySgThnrCDenxq+AbSUors7hGlmzhk+dqFJdQOK//7yTqAqk?=
+ =?us-ascii?Q?CtsCN5aNkUdqJiWoo+W33/a7G1wm4PnT1dNCDyPp+T4PMeFvq/seuooEBTz6?=
+ =?us-ascii?Q?CpY0WJE/3KPlS3cQ18iCnMwDUfPKCt89FKojYqlbS4qpUsmk4g76VkHvA0TC?=
+ =?us-ascii?Q?rMV/yYwaucMH/oTVkg9y67/7qRabgP9yXMpPgZmul7BvWOy5i58lO1+jtySO?=
+ =?us-ascii?Q?vW9uItKgXRbBoFfhczibNeu+3dREsq1fQe4DufZTPa85V5mc6tY3YGJhe1dz?=
+ =?us-ascii?Q?LHm5wtioYy8eZ7j7V7tV4iE=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebf135ca-f1ff-4deb-a5fa-08dd5b6ad226
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 22:20:50.8476
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CMDqNUQQ89PmMfJSaW0o0mWFHLBZNZRcmT71Q+8UsEU97T4ZE0Op4C/dtrBcZCWyxLFBtw7PhHSq+Ah9TGuk4xZySwgLJ+wC91BXG0iMmW0=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR01MB7931
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_130803_485238_665DE519 
-X-CRM114-Status: GOOD (  12.59  )
+X-CRM114-CacheID: sfid-20250304_142058_468397_8AD167B6 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,53 +163,251 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace platform_get_resource + devm_ioremap_resource
-with just devm_platform_ioremap_resource()
+Add split CONT mappings support in order to support CONT mappings for
+direct map.  This should help reduce TLB pressure further.
 
-Used Coccinelle to do this change. SmPl patch:
-@rule_1@
-identifier res;
-expression ioremap_res;
-identifier pdev;
-@@
--struct resource *res;
-...
--res = platform_get_resource(pdev,...);
--ioremap_res = devm_ioremap_resource(...);
-+ioremap_res = devm_platform_ioremap_resource(pdev,0);
+When splitting PUD, all PMDs will have CONT bit set since the leaf PUD
+must be naturally aligned.  When splitting PMD, all PTEs will have CONT
+bit set since the leaf PMD must be naturally aligned too, but the PMDs
+in the cont range of split PMD will have CONT bit cleared.  Splitting
+CONT PTEs by clearing CONT bit for all PTEs in the range.
 
-Cc: Stefan Agner <stefan@agner.ch>
-Cc: Alison Wang <alison.wang@nxp.com>
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
+Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
 ---
- drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ arch/arm64/include/asm/pgtable.h |  5 ++
+ arch/arm64/mm/mmu.c              | 82 ++++++++++++++++++++++++++------
+ arch/arm64/mm/pageattr.c         |  2 +
+ 3 files changed, 75 insertions(+), 14 deletions(-)
 
-diff --git a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-index 03b076db9381a5db0bff6576cda2772495a61fed..3bbfc1b56a6557e2f54d2b7ed099531053871341 100644
---- a/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-+++ b/drivers/gpu/drm/fsl-dcu/fsl_dcu_drm_drv.c
-@@ -260,7 +260,6 @@ static int fsl_dcu_drm_probe(struct platform_device *pdev)
- 	struct fsl_dcu_drm_device *fsl_dev;
- 	struct drm_device *drm;
- 	struct device *dev = &pdev->dev;
--	struct resource *res;
- 	void __iomem *base;
- 	struct clk *pix_clk_in;
- 	char pix_clk_name[32];
-@@ -278,8 +277,7 @@ static int fsl_dcu_drm_probe(struct platform_device *pdev)
- 		return -ENODEV;
- 	fsl_dev->soc = id->data;
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index ed2fc1dcf7ae..3c6ef47f5813 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -290,6 +290,11 @@ static inline pmd_t pmd_mkcont(pmd_t pmd)
+ 	return __pmd(pmd_val(pmd) | PMD_SECT_CONT);
+ }
  
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	base = devm_ioremap_resource(dev, res);
-+	base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(base)) {
- 		ret = PTR_ERR(base);
- 		return ret;
-
++static inline pmd_t pmd_mknoncont(pmd_t pmd)
++{
++	return __pmd(pmd_val(pmd) & ~PMD_SECT_CONT);
++}
++
+ static inline pte_t pte_mkdevmap(pte_t pte)
+ {
+ 	return set_pte_bit(pte, __pgprot(PTE_DEVMAP | PTE_SPECIAL));
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index ad0f1cc55e3a..d4dfeabc80e9 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -167,19 +167,36 @@ static void init_clear_pgtable(void *table)
+ 	dsb(ishst);
+ }
+ 
++static void split_cont_pte(pte_t *ptep)
++{
++	pte_t *_ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
++	pte_t _pte;
++	for (int i = 0; i < CONT_PTES; i++, _ptep++) {
++		_pte = READ_ONCE(*_ptep);
++		_pte = pte_mknoncont(_pte);
++		__set_pte_nosync(_ptep, _pte);
++	}
++
++	dsb(ishst);
++	isb();
++}
++
+ static int split_pmd(pmd_t *pmdp, pmd_t pmdval,
+-		     phys_addr_t (*pgtable_alloc)(int))
++		     phys_addr_t (*pgtable_alloc)(int), int flags)
+ {
+ 	unsigned long pfn;
+ 	pgprot_t prot;
+ 	phys_addr_t pte_phys;
+ 	pte_t *ptep;
++	bool cont;
++	int i;
+ 
+ 	if (!pmd_leaf(pmdval))
+ 		return 0;
+ 
+ 	pfn = pmd_pfn(pmdval);
+ 	prot = pmd_pgprot(pmdval);
++	cont = pgprot_val(prot) & PTE_CONT;
+ 
+ 	pte_phys = pgtable_alloc(PAGE_SHIFT);
+ 	if (!pte_phys)
+@@ -188,11 +205,27 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmdval,
+ 	ptep = (pte_t *)phys_to_virt(pte_phys);
+ 	init_clear_pgtable(ptep);
+ 	prot = __pgprot(pgprot_val(prot) | PTE_TYPE_PAGE);
+-	for (int i = 0; i < PTRS_PER_PTE; i++, ptep++)
++
++	/* It must be naturally aligned if PMD is leaf */
++	if ((flags & NO_CONT_MAPPINGS) == 0)
++		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
++
++	for (i = 0; i < PTRS_PER_PTE; i++, ptep++)
+ 		__set_pte_nosync(ptep, pfn_pte(pfn + i, prot));
+ 
+ 	dsb(ishst);
+ 
++	/* Clear CONT bit for the PMDs in the range */
++	if (cont) {
++		pmd_t *_pmdp, _pmd;
++		_pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
++		for (i = 0; i < CONT_PMDS; i++, _pmdp++) {
++			_pmd = READ_ONCE(*_pmdp);
++			_pmd = pmd_mknoncont(_pmd);
++			set_pmd(_pmdp, _pmd);
++		}
++	}
++
+ 	set_pmd(pmdp, pfn_pmd(__phys_to_pfn(pte_phys),
+ 		__pgprot(PMD_TYPE_TABLE)));
+ 
+@@ -200,7 +233,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmdval,
+ }
+ 
+ static int split_pud(pud_t *pudp, pud_t pudval,
+-		     phys_addr_t (*pgtable_alloc)(int))
++		     phys_addr_t (*pgtable_alloc)(int), int flags)
+ {
+ 	unsigned long pfn;
+ 	pgprot_t prot;
+@@ -221,6 +254,11 @@ static int split_pud(pud_t *pudp, pud_t pudval,
+ 
+ 	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+ 	init_clear_pgtable(pmdp);
++
++	/* It must be naturally aligned if PUD is leaf */
++	if ((flags & NO_CONT_MAPPINGS) == 0)
++		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
++
+ 	for (int i = 0; i < PTRS_PER_PMD; i++, pmdp++) {
+ 		__set_pmd_nosync(pmdp, pfn_pmd(pfn, prot));
+ 		pfn += step;
+@@ -235,11 +273,18 @@ static int split_pud(pud_t *pudp, pud_t pudval,
+ }
+ 
+ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
+-		     phys_addr_t phys, pgprot_t prot)
++		     phys_addr_t phys, pgprot_t prot, int flags)
+ {
+ 	do {
+ 		pte_t old_pte = __ptep_get(ptep);
+ 
++		if (flags & SPLIT_MAPPINGS) {
++			if (pte_cont(old_pte))
++				split_cont_pte(ptep);
++
++			continue;
++		}
++
+ 		/*
+ 		 * Required barriers to make this visible to the table walker
+ 		 * are deferred to the end of alloc_init_cont_pte().
+@@ -266,8 +311,16 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 	unsigned long next;
+ 	pmd_t pmd = READ_ONCE(*pmdp);
+ 	pte_t *ptep;
++	bool split = flags & SPLIT_MAPPINGS;
+ 
+ 	BUG_ON(pmd_sect(pmd));
++
++	if (split) {
++		BUG_ON(pmd_none(pmd));
++		ptep = pte_offset_kernel(pmdp, addr);
++		goto split_pgtable;
++	}
++
+ 	if (pmd_none(pmd)) {
+ 		pmdval_t pmdval = PMD_TYPE_TABLE | PMD_TABLE_UXN | PMD_TABLE_AF;
+ 		phys_addr_t pte_phys;
+@@ -287,6 +340,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		ptep = pte_set_fixmap_offset(pmdp, addr);
+ 	}
+ 
++split_pgtable:
+ 	do {
+ 		pgprot_t __prot = prot;
+ 
+@@ -297,7 +351,7 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 		    (flags & NO_CONT_MAPPINGS) == 0)
+ 			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
+ 
+-		init_pte(ptep, addr, next, phys, __prot);
++		init_pte(ptep, addr, next, phys, __prot, flags);
+ 
+ 		ptep += pte_index(next) - pte_index(addr);
+ 		phys += next - addr;
+@@ -308,7 +362,8 @@ static int alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
+ 	 * ensure that all previous pgtable writes are visible to the table
+ 	 * walker.
+ 	 */
+-	pte_clear_fixmap();
++	if (!split)
++		pte_clear_fixmap();
+ 
+ 	return 0;
+ }
+@@ -327,7 +382,12 @@ static int init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
+ 		next = pmd_addr_end(addr, end);
+ 
+ 		if (split) {
+-			ret = split_pmd(pmdp, old_pmd, pgtable_alloc);
++			ret = split_pmd(pmdp, old_pmd, pgtable_alloc, flags);
++			if (ret)
++				break;
++
++			ret = alloc_init_cont_pte(pmdp, addr, next, phys, prot,
++						  pgtable_alloc, flags);
+ 			if (ret)
+ 				break;
+ 
+@@ -469,7 +529,7 @@ static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+ 		next = pud_addr_end(addr, end);
+ 
+ 		if (split) {
+-			ret = split_pud(pudp, old_pud, pgtable_alloc);
++			ret = split_pud(pudp, old_pud, pgtable_alloc, flags);
+ 			if (ret)
+ 				break;
+ 
+@@ -846,9 +906,6 @@ static void __init map_mem(pgd_t *pgdp)
+ 	if (force_pte_mapping())
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
+-	if (rodata_full)
+-		flags |= NO_CONT_MAPPINGS;
+-
+ 	/*
+ 	 * Take care not to create a writable alias for the
+ 	 * read-only text and rodata sections of the kernel image.
+@@ -1547,9 +1604,6 @@ int arch_add_memory(int nid, u64 start, u64 size,
+ 	if (force_pte_mapping())
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
+ 
+-	if (rodata_full)
+-		flags |= NO_CONT_MAPPINGS;
+-
+ 	__create_pgd_mapping(swapper_pg_dir, start, __phys_to_virt(start),
+ 			     size, params->pgprot, __pgd_pgtable_alloc,
+ 			     flags);
+diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+index 5d42d87ea7e1..25c068712cb5 100644
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -43,6 +43,8 @@ static int change_page_range(pte_t *ptep, unsigned long addr, void *data)
+ 	struct page_change_data *cdata = data;
+ 	pte_t pte = __ptep_get(ptep);
+ 
++	BUG_ON(pte_cont(pte));
++
+ 	pte = clear_pte_bit(pte, cdata->clear_mask);
+ 	pte = set_pte_bit(pte, cdata->set_mask);
+ 
 -- 
-2.48.1
+2.47.1
 
 
