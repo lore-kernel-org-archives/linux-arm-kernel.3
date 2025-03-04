@@ -4,70 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EC5C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:45:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDD5C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 21:50:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AytBdYdwRQGITXUMu+CAMOtvxXFQ6MY6aN4AJEGNjDA=; b=ptpc2Um907fFQ2qaOX+vNmp7C6
-	OnCRhkdTPE/yE7RGZ3BfAEXXZ1cxZXhdae1nZSHHpRS+9ZrMB6FJQxhg8MDC2Qb3J7DwfYaq7EavZ
-	FTPMzJxID8SLXULYsQCP4FGMeYnkCjPOq6Xzs0KGAAuYTLtVyqJpy39FZroN15mdqrdtid8AR8hbz
-	+tZAiWzovi8VDQYgMKRLHxSV5vK2pe0XSiKY68RMPyZ1j4VyYlucdg7UB0tcMV1p+KB0iLUH+Ue/5
-	IhTAoA3h7i7xG2lg3IJDg7vPM8cCNN/on2kllMeZM/vcqMLGAquxWcGrXpQKd9fLXc0IWSbnLJ3T+
-	if8RK4Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=uxNa2xeS196LOQdsSVTCf0UBNg0lInB0Ngjf92IZMMQ=; b=3BO9lJeLhl+QlnztgrqxM46wXQ
+	Sqe2zoaw1VMa3WTJ5RYZNaPjhHkZvTkgzNVdQi4d4mYRwCbZjmCA8M9HA4Sofz2mndgsrLXHQGyo8
+	ET1RT8r1gR4rewk7Ya8bThQ1S4o2Kjzb3JVBssg/+eLzQdCknyeJHsp6tzBzcfgodsvgGtQu9SRxF
+	M11IIrAFa4Ps5hFU2bMPTqeupjWD0WW0KVBbnU2bBk0lzA8AxBw1UJ4y+1+GUc04+zEO6kLCiw9aC
+	NO4Acq3OtnZqznVQ3XnUA7f/L4lPrnE18M6Qqu1xYyMss4ZFBN4NBJatBMZpZQWB63F0IIwjaR9T5
+	L8tLgPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpa55-00000006KP0-4Ads;
-	Tue, 04 Mar 2025 21:45:39 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tpa9m-00000006KqQ-2XcE;
+	Tue, 04 Mar 2025 21:50:30 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpa3S-00000006K7W-15VG;
-	Tue, 04 Mar 2025 21:43:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741124636;
-	bh=uJqRyRDrhR+bFdnuWX2kCJ50vTE2fJm3kzGtsIJnJxA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=LbGXHHBl6KhPy/rpTrUoczuClXv2maOy4LlaICgDAB0XkxKniLAlukTFjfjubpynP
-	 /YHL9hz9jarB6GSaY96TCvaTf1wUfIfEV0HZwyYnD8X5t0nAarZfqh5ztcJ2/bbBi3
-	 tBc6LXK4gsnMjbFgHBXXgdJYtkp9T0ozQ0r/kQAsJI7329SbgnUwbV5jlWNLpx04YI
-	 wyOo2oAUEcHs+8UTT87+rvVbNAAxKG3NweMNkLqIDcgcVMXLh8MZugLJ1nqwSa2hpC
-	 lDW1+UdyN9D9l+l2pKTYJpbibsbARcOeLL9yLXcnhJPP8X9uKgoScCdS0m7Sh8ecj5
-	 6IbI5zRDLFtQg==
-Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2D20C17E087E;
-	Tue,  4 Mar 2025 22:43:53 +0100 (CET)
-From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Date: Tue, 04 Mar 2025 18:43:49 -0300
-Subject: [PATCH] arm64: dts: mediatek: mt8390-genio-common: Add jack
- detection with accdet
+	id 1tpa6i-00000006KZj-1b2L;
+	Tue, 04 Mar 2025 21:47:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=uxNa2xeS196LOQdsSVTCf0UBNg0lInB0Ngjf92IZMMQ=; b=kEUS1jn0x7GxLZ9luvznJLXhMS
+	/kWop1uCm40nx+xhjJvD7XNL+uPF2k0svAqkblZvYzcs2r4sbo2zhk3db3UVZSDCsayMP/N1DkPz7
+	boZkvh7JKivduUM8oSAlHO4VH3Y1z0XCdA82XNGVLq/9My4fGHcVZUPkRYX6PUtK+34VXQVS2mrA+
+	pm5hgnjAw2Z0i5ib/YrWE9ncKh09KJX0IEqYxJ2x1/DY119MIVzrsF5+6qIX676GJA5Ag2oC2zx6W
+	nHxcVoCxSkZOvGsGXTfmRCceyAylcy57eTb9HqR/TnHKjsbJkgIdWJMl9l+bRqosX/WwSiKu77bTA
+	1XXof2VA==;
+Received: from gloria.sntech.de ([185.11.138.130])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpa6f-000000049T3-17rW;
+	Tue, 04 Mar 2025 21:47:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=uxNa2xeS196LOQdsSVTCf0UBNg0lInB0Ngjf92IZMMQ=; b=2lT3k8ic7danUGuqxwuLtt6Iw8
+	t6+7hypSeCHM7GIXT3rORlcEucP11RGm/xAEkiaodt3/JNB7pEc5SmliOv90QkC3ZHs8nX6kTVeEw
+	9rJqE3p85oGvqhdq6UEWGDTQjHhkITxRNlax1rnIXngZdrnc2kLSFLbkDU3xKh6wuWIYczPohm9Bc
+	tNUWr7Be/mKuirvsFU3fWTdrDgjXSUooU1/Nk7rgOAwcvz0v+VOulyfGBY5OS4nmkSRm1xPH8Zc+T
+	ByGnUVS7Dx9+o46rtAEppq8QgUTiQji1M+TIgsTMWl5ZWYuv4klJdsBUge5z1hbtHMZFcGMr/5dEN
+	QImZ8Dwg==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpZdB-0006GI-Qt; Tue, 04 Mar 2025 22:16:49 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Andy Yan <andyshrk@163.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+ detlev.casanova@collabora.com, linux-rockchip@lists.infradead.org,
+ Andy Yan <andy.yan@rock-chips.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] Add display subsystem dt node on rk3576
+Date: Tue, 04 Mar 2025 22:16:49 +0100
+Message-ID: <2627393.Mh6RI2rZIc@diego>
+In-Reply-To: <lfmhqurnpjmfy6pfjxd5aczxujislv2p5bsurcbl7capyt7zv3@hy2twvjj53uz>
+References: <20241231095728.253943-1-andyshrk@163.com>
+ <173564980410.21979.2947276365464229762.robh@kernel.org>
+ <lfmhqurnpjmfy6pfjxd5aczxujislv2p5bsurcbl7capyt7zv3@hy2twvjj53uz>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-genio700-accdet-dts-v1-1-86d77c5cc745@collabora.com>
-X-B4-Tracking: v=1; b=H4sIABR0x2cC/x3MQQqAIBBA0avErBuYzBK6SrQQHWs2GhoRSHdPW
- r7F/xUKZ+ECS1ch8y1FUmwY+g7cYePOKL4ZFKmJRtK4c5RkiNA65/lCfxXUVpvZBA7KeGjlmTn
- I81/X7X0/CZbG82UAAAA=
-X-Change-ID: 20250304-genio700-accdet-dts-4a4767fef27d
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, 
- =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_134358_452835_AF6C0EEF 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_214717_358122_F7E29EE6 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,44 +90,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable audio jack detection for the Genio 700 and 510 EVK boards. This
-is handled by the MT6359 ACCDET block, which on these boards has the
-HP_EINT pin pulled high and connected to a normally open 3.5mm jack.
+Am Dienstag, 4. M=C3=A4rz 2025, 15:47:28 MEZ schrieb Sebastian Reichel:
+> Hello,
+>=20
+> On Tue, Dec 31, 2024 at 06:57:21AM -0600, Rob Herring (Arm) wrote:
+> > On Tue, 31 Dec 2024 17:57:17 +0800, Andy Yan wrote:
+> > > As the VOP[0] and HDMI[1] driver have already been submitted for revi=
+ew.
+> > > This series enable hdmi display on sige5 board.
+> > >=20
+> > > [0] https://lore.kernel.org/linux-rockchip/20241231090802.251787-1-an=
+dyshrk@163.com/T/#t
+> > > [1] https://lore.kernel.org/linux-rockchip/20241231094425.253398-1-an=
+dyshrk@163.com/T/#t
+> > >=20
+> > > Changes in v3:
+> > > - Split from https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL5=
+8@diego/T/#t
+> > >=20
+> > > Andy Yan (3):
+> > >   arm64: dts: rockchip: Add vop for rk3576
+> > >   arm64: dts: rockchip: Add hdmi for rk3576
+> > >   arm64: dts: rockchip: Enable hdmi display on sige5
+> > >=20
+> > >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts |  47 +++++++
+> > >  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 126 ++++++++++++++++=
+++
+> > >  2 files changed, 173 insertions(+)
+> >
+> > [...] (a bunch of warnings due to dependency patch series not yet
+> > being in linux-next)
+>=20
+> I think all dependencies have landed now. But it might be sensible
+> to do a quick resend considering how old this is.
+>=20
+> Would be nice to have initial RK3576 HDMI support in 6.15 :)
 
-Add a phandle to the accdet in the sound card node so the machine sound
-driver can initialize the accdet.
+now we can :-)
 
-Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
----
-This patch depends on both "Allow retrieving accessory detection
-reference on MT8188" [1] and "Get mt6359-accdet ready for usage in
-Devicetree" [2].
+The update was not that difficult, so did it myself when applying.
 
-[1] https://lore.kernel.org/all/20250304-mt8188-accdet-v2-0-27f496c4aede@collabora.com
-[2] https://lore.kernel.org/all/20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com
----
- arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-index 992bf60c097ae3b1fd6d4e62ef1a327b146496ef..e53c6b0b5a53a616a1684e6efc3758f449294bb9 100644
---- a/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-+++ b/arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
-@@ -1189,6 +1189,7 @@ &sound {
- 		"AP DMIC", "AUDGLB",
- 		"AP DMIC", "MIC_BIAS_0",
- 		"AP DMIC", "MIC_BIAS_2";
-+	mediatek,accdet = <&accdet>;
- 	mediatek,adsp = <&adsp>;
- 	status = "okay";
- 
+Heiko
 
----
-base-commit: 20d5c66e1810e6e8805ec0d01373afb2dba9f51a
-change-id: 20250304-genio700-accdet-dts-4a4767fef27d
-
-Best regards,
--- 
-Nícolas F. R. A. Prado <nfraprado@collabora.com>
 
 
