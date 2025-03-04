@@ -4,155 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A0E4C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:29:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C1BBC282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:29:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aPL7P3gE4dKT671Squ1Yl8aL45NJL7vl2+v1cmuOK1Q=; b=Qwr1kzdr0oRLnSbRDhACHanPdF
-	YMBPBQZg1CrKFW53WAn8YBjc88RPFgEQ7LUopwMtdcmMgne4CkJ55uqN/kSjTL8GJ8Gh3E0n9pO++
-	nexAfDs5BrbTp2NMFwm6dQHP0i+YNZ7SVgwJ57CbG7yL8LzJdWCPIQDuA2ABVvJLyo6ySojcj086U
-	+EDyOXTw+cBEP/lm88DGFo0YarlQcaf22PHRndQ7smUN6ta0WgI4d86KBRNSA63PtZy9Yf1osCExW
-	/CrDq1gHkwe6QkAHF0L+gDdLfUWpqGV5g/xwvxGqu1+06r3tEaB32IAIffbBST1GX1t48sjObin30
-	Nt5XWC7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b3Jr1ifBgAUOTlSFImIY854lPBEJ8Tg18l+oA7ulQUw=; b=jLhP8hv4R2DoSg+fUEoamu+ph6
+	iFxQZLV/un3Dx1/l8VFrANYePmU4gAvgJzWbUHoBdiCVVOq0zL58eFWDVqP7I473I91E6Sx04HZp9
+	ss3cY+hSGPz5d2KNvQQwUyMU3wP09RiTVRf9AhRYgI94qh17rViEXAfHsX4Or9Zz4KrQJnxrNSQBP
+	sKZxJpf3uj0F6sTIo4+qfyLe2hvaG9PPhnnfwo+i1SEVPM0wQbXV4N6VE65mjHY8WxqLfuYy+52A/
+	LqCUQ70v5i3RajxDnWuRR533Q079BZQSVw5vtNgZLwk/v2OcDv5uHf6ZoG0y/BCwMqGvrX9tWRTvV
+	tLlBRS+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpW4k-00000005cuq-1O2y;
-	Tue, 04 Mar 2025 17:29:02 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tpW5Q-00000005dAN-3uMz;
+	Tue, 04 Mar 2025 17:29:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUnu-00000005M1r-24jD
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:07:35 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=DYux1mq1JluotPtRBDocKFaO1ywvyeN2tNAio6wjKPAnBmU38zsrX4jSg192535s6R2Ezo5uh53H0f+UV9KPjdOkOXfJuN/xfnq1mCQ3eAB/HvHX/imKGmxedG7a0F4DkS+XXjFiGrjeIOA0ZPMdXTb4FO+YC6OAdfCBjBqCL0O9SN2AUFy6A+wPIS0ggHeEBFxP3YDJ3w//gz3vEnbpqxuAT/Hiuo4kZulMarVtBYo537Z6j6y/cXHcKA+RY9Nta4oB0DHT4EH7g9USDrpgsIDtQz2fj4oVefJxBUkRwtZRWJqX+osuS8GQZjrXLl9jD8djG2A0HMvCay51PmM3Cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aPL7P3gE4dKT671Squ1Yl8aL45NJL7vl2+v1cmuOK1Q=;
- b=vekAiABkroK7xO46cQe0qGcwKmQAbK8/H3sqyDbbWns0djcx4k44VHz2aa0gssO8gnt95x8BrSia5ayk+1CnBjHWfMgIbti42+hJeBZXzfw4sTL7eRZe4O9P+7ntzsMzaRV4JP6iYv6cVCfSEXL4nXY8lF45YzNVh+goU3nPMawKgNF0UZCUXePTFBXAymflOZZ2+U3JjTUCeTRp7qVbTJJeirM5rUc2gucJHP7OwuNAAKrBs6wyPnM0Jwe5pozicnRO6F+bvbwl+EgJGYuYE3YfE02Z6W7C0eBE5Thhkk1a1r8CqOCot+0DIXXR3GKnn28+nQ1a1fn67T/g4eI2tg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aPL7P3gE4dKT671Squ1Yl8aL45NJL7vl2+v1cmuOK1Q=;
- b=Q79mUt17uLWux7d8dtXZkK7775VE5kfD83ZjpDgfDQIDNSxEOBYTRaSpZuZE3NaQJUiYdbmwZdeEoYlLWdJnnjyh3NeteiIFvktwIuPBw0f64j37McEEY8RQtqw/HR0LKRy9rbY3m88yb+1JEIrSu5GXFvBuEt/mkjZY3V+GyCcWog39u7xTc4G79eM/RRgb4EcII+vaENBA/znf41I6X5Zla46RES/ryCIZN0JteM4+c+9Jo6msOjLC1BXiReqPWyPPnjQ1Veb1+7s6qD5iVV5AYMthcAUHoHn/bkoz/zs1daOQZW1HSX4xDBUnO5BiXGLp60SUnhX8Qm8AeKmZ2w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by AS8PR04MB7640.eurprd04.prod.outlook.com (2603:10a6:20b:297::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.28; Tue, 4 Mar
- 2025 16:07:31 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
- 16:07:30 +0000
-Date: Tue, 4 Mar 2025 11:07:21 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux@ew.tq-group.com,
-	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v3 3/6] pmdomain: imx93-blk-ctrl: Scan subnodes and bind
- drivers to them
-Message-ID: <Z8clOYhu/ja9/RqK@lizhi-Precision-Tower-5810>
-References: <20250304154929.1785200-1-alexander.stein@ew.tq-group.com>
- <20250304154929.1785200-4-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304154929.1785200-4-alexander.stein@ew.tq-group.com>
-X-ClientProxiedBy: SJ2PR07CA0006.namprd07.prod.outlook.com
- (2603:10b6:a03:505::18) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	id 1tpU1a-00000005AOf-0DSZ;
+	Tue, 04 Mar 2025 15:17:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741101456;
+	bh=rBci4f69I/d/dQvGhQC94bd2AW9ZiKT0dsBk2rxvf9k=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=Inzks9Mhv1iMCQ3p9MrvMcYWBdpfIaJdhf8iMX+Gf+yyhHcHW1VKGh+91ONxkiLtS
+	 lHAQfgqxt9ZHjidpXd28ba/gKIp/0sx4Zgu7+mdyj2KErN7cWmnOa68se6kufbiuH7
+	 3IA5yA1wJeLr/HJ6PMwoIl2RiemhNCysXuQHd/GI9Pi4clynPxnzwdnWRf+jhtwTF2
+	 hBCQd+4xtUi0EHThhEh5hV310T4lD/5YBDEivhg6DzguksJExCb3vdkhqU9yLKqRCQ
+	 YrJKluc5nck6jKrkklOxl0nfshmbelcwsbU9CtE2IzLVcSgUZfYlystfOp7v3059Fo
+	 ieY1vA8yNzohg==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 81A3717E0630;
+	Tue,  4 Mar 2025 16:17:31 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 04 Mar 2025 12:15:57 -0300
+Subject: [PATCH v3 16/20] ASoC: mediatek: mt6359-accdet: Always configure
+ hardware as mic-mode 2
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|AS8PR04MB7640:EE_
-X-MS-Office365-Filtering-Correlation-Id: b7f10420-2d31-42d5-1986-08dd5b36aa8a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|7416014|52116014|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?/+bSWuOgv06v80jZzwiYUiyUshxediouHu458KRwJGYQYtnrmBbHhSzdhzs6?=
- =?us-ascii?Q?jXcRpp7mYdmUY2H8z0nwqKNx7YlOJl6TslOKUojww0mWpVDdxs8GcUs1iMb/?=
- =?us-ascii?Q?2BuzIOXbBIaKyZZ/cXNa/zfliTGMSgJPlXqv9wOlUSYyaNCOczjNJ3GJWOjs?=
- =?us-ascii?Q?g+WjwXes7dYs/R9oaqLTrlLXlfMigf1/Pi6oes7NRSBbmpDrbwHiZRJD9F1N?=
- =?us-ascii?Q?D1BpqBzCmtIc8u+ZjNtwfNYm2BLDbkeXdUYIDHMBLNA6hyH98axb1Ljvs/JE?=
- =?us-ascii?Q?BF9afPWpRFIh01yTKNHB1jKDajtwz8wCsAMvPGb8w3If80eLB2Xvd+j5pghQ?=
- =?us-ascii?Q?BnHeoasXI4BG388MSlwSjrmCT7t/RxKXnxj+Zc2PyACtGNXMwT1zEja6wDGv?=
- =?us-ascii?Q?Lvg1VjHES4HMY2ru8OFqIOqHLY8yo7c/V0DlhIVpB8h0TviCoIRvQ6K6LyrO?=
- =?us-ascii?Q?tx0ZR/pHkHiTrNP6Bz7bOkr3yAw2NtbduShCoMoRR3rbIMU/chlyZxpfKbfI?=
- =?us-ascii?Q?WNkMKtzez0b4gfF4ZGjYR2mlTlKTWxzpAC5wjttMSNWKunHujTNys+CvgOPd?=
- =?us-ascii?Q?AnkTOuRsL+eOBIpANGO3McsVocTpqjk/b6JsBc37x4fGjds8Q5RYPpmEAaQf?=
- =?us-ascii?Q?ai2jeDa7klQ5w+EnqgZSVl2NNN96T/qfIYkyoyFV7tjNmG4++/Ii6uc1ZBzx?=
- =?us-ascii?Q?GsYu0Ekfx9yGbfL7K9X+2hQ6O752jpdUxLbeL60NWz0aVKSMzfVAomZtDBGh?=
- =?us-ascii?Q?yhqXtc/BJzs+KcxZGou4D4VCysLZ4NKDpm5VLqPA9g1SjLDnN9oQOeTqQZ8v?=
- =?us-ascii?Q?UsWlCiCyx8ra/2urd7VXtsJIFF+oyuR/1Ha6cMzStxXxZdfh6FWYVpUo4oY/?=
- =?us-ascii?Q?/4e1It8QJEVoXbTUwWSh3lFyX4SLs4yTBpR37naiRvuV/WCj3SM7TCYlglxu?=
- =?us-ascii?Q?QK0uM1kiLXg189+gfc0J9jbLIxE32x3xrRq6uN5zqu7udxifZC5C2+NyNv94?=
- =?us-ascii?Q?ETTrD7jbDOsJwKHgxDXis7v+BYg9Oe3PyqdNlqg4mmzCEdfEbtE2Yf76N15z?=
- =?us-ascii?Q?bNoqUu7jW7T3YxeQYL/oFnbEnn6iWrJyzXWDubVkTy2yvuzB9VS4D7OVQ0Ti?=
- =?us-ascii?Q?JBlzvLd4Y/K4tMziIvAdt0Y6ipCQHCtrnr66EjikBkQ7YLaFmK0PiIBX65Rz?=
- =?us-ascii?Q?uab21TK07qC1+eo6N7jmCTlF0Fr6NrL7Cu3mWVv4me8ENQRiIOUb3/Bn2xzF?=
- =?us-ascii?Q?Rrlt9yCGFY0k+H78AE3CiXTReuPkpW3QGtg93+nKsWWxVHUxH1mepKW5Bx8V?=
- =?us-ascii?Q?OmbekjlSwEzOhoevVlYfZW6zoiZX10Malb7XN9JI7SjwE/9DvvKTPJznrLIE?=
- =?us-ascii?Q?dhOXJUfI51qlwtY11h3MH3mgMM07jYuAT4FcPdX89iOcg8bA6X2SE0FM5477?=
- =?us-ascii?Q?UD6pqvw0olLAwHtXH12qbV3ZIl4us+9R?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(7416014)(52116014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?cQy+8kuYZa1eOo762Qdd66QLTkiFPMvp6f5OETGXFc58isAENhAmZFUaHxBd?=
- =?us-ascii?Q?yj95KHTP1p85Mr12X1yttlIZ3umBMBFYjSo5VvZpf8DchHnJTojdN0G+GRiq?=
- =?us-ascii?Q?wrqjipE4Q7jU4gqKy7ZWdVgsYrmT/EBvvzxp4T/xrS6PqoUIZhtz/o8FsbYZ?=
- =?us-ascii?Q?N7mSRbUb9eq6DAep61JElBsk3mA8n91t/JL/YJD62gVN++WxVHGUM1OGvCPN?=
- =?us-ascii?Q?ckUQgenz0NeF5gzo7C40++8aIE+T22nJN36JO19wRGyEfpAunFjuAWSknBGu?=
- =?us-ascii?Q?ESAilLTfhJLHbfNJ4PolqKkI2kTD/m6tKMw0+tXSl4JrmFhGrdhhch5pHwxb?=
- =?us-ascii?Q?l9/1kcXJId5VMzjYkpB/9rBXpWjMs14HS2bpw9ha2Iam/WFZXpAL7r92lUEv?=
- =?us-ascii?Q?k67BMALyBSK+DVC1pUvIQSG4h6EjQeptdXonZuheMlEfSAs5tE9YNOKaHvrC?=
- =?us-ascii?Q?FPk4jj2wkq/OD2FOay5hxk5TmTFI6X4a3GLoLuDyA34XdVTvPdZTHH1LansC?=
- =?us-ascii?Q?UQJG5JbrmbpK6HUZP3FDKlrQY1q3N/h3ZyHidsqUxxnR/J6EMvU+rhpafCRx?=
- =?us-ascii?Q?8IhXx1xRjI+QskrRET8dison2AIa0h0UAQJ9YrgBAzmG1sW450QZjl0stZ7B?=
- =?us-ascii?Q?7ZFYscsVj22HFnl7UZhrTv5q4NvD+1tAQJqiutoNkLJn2UydASpOjqqBlDH1?=
- =?us-ascii?Q?Z9AePsMJnm3DOJ/YjIuVm1hAy0o9XZHZmuX3lW8cslvcNh0/dzdsHes1GzR8?=
- =?us-ascii?Q?u2rdL/cytiT3Tah9D5mlTNdmwvLYLbb8ZGZzK+AuqubyMqOLRuio+lXnmWwN?=
- =?us-ascii?Q?9hj+RBXS4g1+2kGYlAQD8f7N+z3rObrWPFEY4W5Uyr6EZaXZUPAcQiUbe7hR?=
- =?us-ascii?Q?j30SjN+ysriOrGaED+zYf2MuKsxL6qqFo6+jPG3vFl1H7+zzeb8FfkO8Pe41?=
- =?us-ascii?Q?ECaAhVvpvfSKCW01V3ahH7yVWtZgIlSx6RKhOix95zcyi1ydnr9gVoxYdiP/?=
- =?us-ascii?Q?GWJOCyAV+Nu1w5GmZetbzg+JdQf+/f5lM8BguDHM4syCwextcbUHJLJjophI?=
- =?us-ascii?Q?dQ+HAfrF+dY4B6a2eu0QrMzYgsKSyqo4CAr4/HkhLQxN3TsB0cKWeNjFAScL?=
- =?us-ascii?Q?nIf5Msj9ABcQ82KSWN1kW0nrJp7cm7niAdPLB4fAXP+od9pWTyESFu0A3PtK?=
- =?us-ascii?Q?KTEuQL3B7Grh6dJECo1RKYSlJUZKGwb+M9nm4YRHjTAwY7ApyWJMHAOzTJaO?=
- =?us-ascii?Q?ORkiWa5mA1Jok/JKYbP8kVPonqSQokCZXTRcqV85hob+c2fB8/YYMiMkeUkB?=
- =?us-ascii?Q?cmRvTQWZV1CwLmgeK7Jdt9fSkOK81ynwyWzJL95dRLMfzTMNpmXCSQLILKVM?=
- =?us-ascii?Q?N2NVu1AxC/xKXMAe+BpWQXRrBWV3rVOvkmfq1IIEkftDXqsGp52VGTw5YtcI?=
- =?us-ascii?Q?17BXtW6FgjyPU0CC2tk4PQ+ehmv/+VaMg8B2V7BGA3+Hs1bMVDUZlSUiVEOt?=
- =?us-ascii?Q?zEtaHMe3t9xseWZB+xw1J2zHx8yS7rgyyofadtZnNEWUSfyaAHzLn9r32cob?=
- =?us-ascii?Q?kUEMbhr+J9Qfb2bsWxmUi9mIc1lhILIJi2mN1gyL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b7f10420-2d31-42d5-1986-08dd5b36aa8a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 16:07:30.8763
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rkhmUZmxdFULaLuqX74MOwMDGOmZbZGvC/b57pAr+eBeHa8SDFQXBt69y7L/XH1Yyr86jw7nUa6AAk85wSkNaQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7640
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250304-mt6359-accdet-dts-v3-16-5b0eafc29f5b@collabora.com>
+References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+In-Reply-To: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_080734_535141_D95098BE 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250304_071738_233991_E3344BCF 
+X-CRM114-Status: GOOD (  15.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,48 +85,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 04:49:22PM +0100, Alexander Stein wrote:
-> This particular block can have DT subnodes describing the LVDS LDB
-> bridge. Instead of misusing simple-bus to scan for those nodes, do
-> the scan within the driver.
->
-> Reviewed-by: Peng Fan <peng.fan@nxp.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+The driver currently reads a mediatek,mic-mode property from DT to
+determine certain register configurations. Since there are no current
+users of the property, the property doesn't directly reflect the
+hardware  and the default value (2) is known to work on
+multiple boards, remove the code handling this property and instead
+always configure the hardware according to the known to work default.
+This property can be properly introduced in the binding in the future
+if it really turns out that different boards need different
+configurations.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ sound/soc/codecs/mt6359-accdet.c | 43 ++++++----------------------------------
+ sound/soc/codecs/mt6359-accdet.h |  5 -----
+ 2 files changed, 6 insertions(+), 42 deletions(-)
 
-> ---
->  drivers/pmdomain/imx/imx93-blk-ctrl.c | 7 +++++++
->  1 file changed, 7 insertions(+)
->
-> diff --git a/drivers/pmdomain/imx/imx93-blk-ctrl.c b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> index 0e2ba8ec55d75..fe2ff7a457502 100644
-> --- a/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> +++ b/drivers/pmdomain/imx/imx93-blk-ctrl.c
-> @@ -7,6 +7,7 @@
->  #include <linux/device.h>
->  #include <linux/module.h>
->  #include <linux/of.h>
-> +#include <linux/of_platform.h>
->  #include <linux/platform_device.h>
->  #include <linux/pm_domain.h>
->  #include <linux/pm_runtime.h>
-> @@ -297,8 +298,14 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
->
->  	dev_set_drvdata(dev, bc);
->
-> +	ret = devm_of_platform_populate(dev);
-> +	if (ret)
-> +		goto cleanup_provider;
-> +
->  	return 0;
->
-> +cleanup_provider:
-> +	of_genpd_del_provider(dev->of_node);
->  cleanup_pds:
->  	for (i--; i >= 0; i--)
->  		pm_genpd_remove(&bc->domains[i].genpd);
-> --
-> 2.43.0
->
+diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
+index a31e084560c7643b14fb71871699e3167075d9d9..12697b02faff1be39317116cd7d8ffa359f2cd4e 100644
+--- a/sound/soc/codecs/mt6359-accdet.c
++++ b/sound/soc/codecs/mt6359-accdet.c
+@@ -494,11 +494,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
+ 	if (!node)
+ 		return -EINVAL;
+ 
+-	ret = of_property_read_u32(node, "mediatek,mic-mode",
+-				   &priv->data->mic_mode);
+-	if (ret)
+-		priv->data->mic_mode = 2;
+-
+ 	priv->data->hp_eint_high = of_property_read_bool(node, "mediatek,hp-eint-high");
+ 
+ 	ret = of_property_read_u32(node, "mediatek,eint-num", &tmp);
+@@ -658,38 +653,12 @@ static void mt6359_accdet_init(struct mt6359_accdet *priv)
+ 			     RG_AUDMICBIAS1LOWPEN_MASK_SFT);
+ 	/* mic mode setting */
+ 	regmap_read(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR, &reg);
+-	if (priv->data->mic_mode == HEADSET_MODE_1) {
+-		/* ACC mode*/
+-		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
+-			     reg | RG_ACCDET_MODE_ANA11_MODE1);
+-		/* enable analog fast discharge */
+-		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
+-				   RG_ANALOGFDEN_MASK_SFT,
+-				   BIT(RG_ANALOGFDEN_SFT));
+-		regmap_update_bits(priv->regmap, RG_ACCDETSPARE_ADDR,
+-				   0x3 << 11, 0x3 << 11);
+-	} else if (priv->data->mic_mode == HEADSET_MODE_2) {
+-		/* DCC mode Low cost mode without internal bias */
+-		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
+-			     reg | RG_ACCDET_MODE_ANA11_MODE2);
+-		/* enable analog fast discharge */
+-		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
+-				   0x3 << RG_ANALOGFDEN_SFT,
+-				   0x3 << RG_ANALOGFDEN_SFT);
+-	} else if (priv->data->mic_mode == HEADSET_MODE_6) {
+-		/* DCC mode Low cost mode with internal bias,
+-		 * bit8 = 1 to use internal bias
+-		 */
+-		regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
+-			     reg | RG_ACCDET_MODE_ANA11_MODE6);
+-		regmap_update_bits(priv->regmap, RG_AUDPWDBMICBIAS1_ADDR,
+-				   RG_AUDMICBIAS1DCSW1PEN_MASK_SFT,
+-				   BIT(RG_AUDMICBIAS1DCSW1PEN_SFT));
+-		/* enable analog fast discharge */
+-		regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
+-				   0x3 << RG_ANALOGFDEN_SFT,
+-				   0x3 << RG_ANALOGFDEN_SFT);
+-	}
++	/* DCC mode Low cost mode without internal bias */
++	regmap_write(priv->regmap, RG_AUDACCDETMICBIAS0PULLLOW_ADDR,
++		     reg | RG_ACCDET_MODE_ANA11_MODE2);
++	/* enable analog fast discharge */
++	regmap_update_bits(priv->regmap, RG_ANALOGFDEN_ADDR,
++			   0x3 << RG_ANALOGFDEN_SFT, 0x3 << RG_ANALOGFDEN_SFT);
+ 
+ 	config_eint_init_by_mode(priv);
+ 	config_digital_init_by_mode(priv);
+diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
+index 46dcd4759230a5190434b9b7c785e8b9ed12fd3d..579373807c414130b2a7384db4978e01cf1d046c 100644
+--- a/sound/soc/codecs/mt6359-accdet.h
++++ b/sound/soc/codecs/mt6359-accdet.h
+@@ -12,10 +12,6 @@
+ 
+ #define ACCDET_DEVNAME "accdet"
+ 
+-#define HEADSET_MODE_1		(1)
+-#define HEADSET_MODE_2		(2)
+-#define HEADSET_MODE_6		(6)
+-
+ #define MT6359_ACCDET_NUM_BUTTONS 4
+ #define MT6359_ACCDET_JACK_MASK (SND_JACK_HEADPHONE | \
+ 				SND_JACK_HEADSET | \
+@@ -51,7 +47,6 @@ enum {
+ };
+ 
+ struct dts_data {
+-	unsigned int mic_mode;
+ 	bool hp_eint_high;
+ 	unsigned int eint_comp_vth;
+ };
+
+-- 
+2.48.1
+
 
