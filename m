@@ -4,116 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37BAEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1400C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=; b=s0Cdq2XC08j7tZmM7reGD8Ukbx
-	CakYl/nu5YMaQka8kesreJRcRbWvRWiYFvqF/33qirCr2YhwKNBwETBpcm1jEYgkp7UvSXkMRXdRi
-	aBEPP8N6BXlfHLh4OhW01MvE/ZaHuLjceSoEmChxCpKIg3oVfNtuet7rlHmPhIDWo3rsdsumEEaSp
-	AroHnHqeJNpQtUK79q8PXOix/jiXdUWtwU86twLrEn9bOV2VP1m9bbPhQ0tGa9ZIdaU6SAPrcAlRv
-	vQqVQ+7VGFbDn4vGe3ZQpaQlkG7GEZ0+ytoczRs/bCOkNKdAhC9vdixePu9NImUU6aiLs5+RlN+Tu
-	1D68jhNQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=; b=kzATLK7taZhPlTtgSi+eIuvKeH
+	omu+5S6FULCnBSqo/wltKV03VNB32Lg0NkwXi580uUgf64vyVWIkGA3ZSba18nXvMHpZwtQAFbSsc
+	pAn352Se5kUnifG9qkyieHUq76lPFvCLmdFQMCqoG6yALAEup5XiWGVXcpqr7SAnuQzGUe2LNS6cq
+	K+L6GTdB9KHt0zT3QVf7LUxnHI/rjmJeL2Wn8XxM5BFeWwL7eEWNcQFrHrQqdsOqyAe5+YD9jQi6S
+	+Gt8dAssdVf1Y4N4zgzF8UXQ20kzbKGjJXDDOwYEWuecenhCLCcJCCmmWxCD8hOullWVCN88tn5MF
+	lECZkJbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWmy-00000005nWp-1evg;
-	Tue, 04 Mar 2025 18:14:44 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tpWmy-00000005nXA-3zLn;
+	Tue, 04 Mar 2025 18:14:45 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUVq-00000005Hin-108v
+	id 1tpUWb-00000005HyD-3TYN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:48:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741103333;
+	Tue, 04 Mar 2025 15:49:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1741103381; x=1772639381;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=;
+  b=lJlsAKulVw3c44CB5bpgfwLWVYZdo/93SxEjU5gN4Zyp5UXutQynh2YV
+   AoFgNgS0N8G1RFNqAvkzqoNmOOO8w7f5/Pn9HUNFeATVDkE/Wwj5zIV0G
+   nHkFc59FvRRKwVv9ie9FVrkW06oFhOKB6ME/bD0LzPO5Qq7stMdIuXD/2
+   QfJtETk6R8a3Gwo+2jtWxLENUt6UXugcIMpTJhldLWkTLQitQ5udVr15o
+   ETPeZ1XZvYq5aQPjA6Dt1aTsQFGWCwSdfydYGGATTMJLBllzVBDz6+K0w
+   NHBPbmt06se+GpFopse6naqEABiPOiPoLAAzYXk7NcxKuqUafilqviw43
+   Q==;
+X-CSE-ConnectionGUID: 5RRrExnVSsyHBiZxymnz2g==
+X-CSE-MsgGUID: W9sN2wF4TCe9QgLpWzcDKQ==
+X-IronPort-AV: E=Sophos;i="6.14,220,1736809200"; 
+   d="scan'208";a="42272726"
+X-URL-LookUp-ScanningError: 1
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Mar 2025 16:49:39 +0100
+X-CheckPoint: {67C72113-5-2417938-F0170C2B}
+X-MAIL-CPID: 1B5DD4582515C3582BD7AD615B33C118_2
+X-Control-Analysis: str=0001.0A006369.67C72116.0066,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B3DFC16156A;
+	Tue,  4 Mar 2025 16:49:32 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1741103374;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=;
-	b=bAhdoQSm9XaMTJHTxGnLddPdJSnt1yxl0cUlaR9g0bpz8TCqhnGeuKUMPyh15k6NH0o6L1
-	inS1BBgP8LWx1DMeP08sSP1d/84RP7C2UkJ9REfJryGMThBDCyROUvPuFiYhQDDBYJxGXe
-	9SXFd9M/mBbqrdRCUQclTg6sDU02SHw=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-39-64atDQihPACOpKXXcGipbg-1; Tue, 04 Mar 2025 10:48:52 -0500
-X-MC-Unique: 64atDQihPACOpKXXcGipbg-1
-X-Mimecast-MFC-AGG-ID: 64atDQihPACOpKXXcGipbg_1741103331
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-4399a5afc72so26872155e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:48:51 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741103331; x=1741708131;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2RHlzy1ROEWhQbxxG4Yv+rRoMty5ce9tc18f8MaHZsU=;
-        b=dbgano3ad4ir6kyCUAwv0RwtE1lFzB0gkh02wCothTqH2iME5TJM/CU09gZtiZAWJO
-         PvpzmRtoHRq5dIeW8twZwT2DsuYKUKpE64wijfAfMXoYI3Lr2+ipChS67mHhJi7xctpb
-         F0xTijeep0Aja3/J5uuoXXB1shc3Nm4WHkI/xIrMJN7qBSff1bYQgvUZ4T4jDTLNLh3J
-         c66KXB6EpkWZ7yu1sCV7gi9z0ELX7AQlAnbWn+JP0XXeK9psrtFx88fLvrbovwID2/oI
-         lcQEsESGJRmJpvNe6a9oSjiIBR/yPZjrxkVRvBGCsAkNjdI80iD5k7nGgWx6u/BLpIFh
-         1bMg==
-X-Forwarded-Encrypted: i=1; AJvYcCXbZPcCJ07/p6fODta+qjFIMwc38ynENx1PnqJNqSQupuSSSNuVhbf607oklgwJ/FVWxkoQPVhJtt2pM9AbSP4L@lists.infradead.org
-X-Gm-Message-State: AOJu0YxD0iiKc6riE72Ck246QfG9nM/A3KHDapptK3ZLW46dLp6IRZ/6
-	93VLFscJjTQ25tq07VVPExUsWBZEYqvqFMMsApvWTglwewUgWX43heKqOb1pcWQJwJL99f00//j
-	Vs+EB4HIADKwVZyG45qIeii7x9b7bMkuVkbpCFYAzWw/2E6Te8BjBBihvnKFEdQo4zpJenuZM
-X-Gm-Gg: ASbGncuAmzM0PIqlIVlblO5KxJmVe3aASEErPpzbppDPGRoX7p4WV2rIWRU+qJGruAT
-	JdOpS6nP/7hwF4p4yjNajbidJIEJnWhDP1nk8lp/pIYzGQrugSIda1vdbxQ5TJfA2EVbKmFgnHa
-	/fdv0qE9GgRQ7VLXRUMeIFfa8kZZHSYG1j/OIwEJnN9o5zbybnU+iQjZIKsGAS2Lz1b7F/BW+Wr
-	M10rLr3mwFGoZOntj/OSgvmwxbQzWEzFt+v0gEO5f9gWYRZwRybAK/ehUDlpwYhE7SvKMYAXj1w
-	39ktTMwfVHemHuw8oOxxn1Gs+kTAtCohhlcYbmbn/9xuPbMy2aCZNo9BoslX5qu0rqWDN0dgKvY
-	d
-X-Received: by 2002:a5d:5847:0:b0:390:e94c:453e with SMTP id ffacd0b85a97d-390eca070b2mr17839164f8f.39.1741103331038;
-        Tue, 04 Mar 2025 07:48:51 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IFS2yQ2nIm92Fqm8oP87QtIsIbeZe5pQ0O0ho/Z0iCYCjljpWAZZP5v8ry/LGiAu8oiIQK1RQ==
-X-Received: by 2002:a5d:5847:0:b0:390:e94c:453e with SMTP id ffacd0b85a97d-390eca070b2mr17839137f8f.39.1741103330643;
-        Tue, 04 Mar 2025 07:48:50 -0800 (PST)
-Received: from localhost (p200300cbc73610009e302a8acd3d419c.dip0.t-ipconnect.de. [2003:cb:c736:1000:9e30:2a8a:cd3d:419c])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390e485d906sm18206420f8f.90.2025.03.04.07.48.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 07:48:50 -0800 (PST)
-From: David Hildenbrand <david@redhat.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-mm@kvack.org,
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=;
+	b=PJ+RHd0k47M0p3Gvk5Gol0p05nmuw6+Wfy0Nb1JicPvJJ/gO0toelssg9xise111CADyl7
+	k9XiBKVmJUl8TFfjhQS90zCTMEdVC43H++eqnMUJEnca8KIzLieiJzO2rqdWaTnWM0gZhn
+	kIgCkD+cTdqOV5VUqNELxJd7KpUBhbIRymV2BaR1mwwBQFOjP06NQAtuYUFoomLYTYw9f2
+	gPkwMdefX3QnbzpT7hTcQgVa5AvH4DsRkW3nzpFF3bR9UMaxrUl5GZpRfF+CKDSGYfk4XK
+	qx2B3/aCSatZ0vafCGj8FNiGbpf14hMuks/v5cnwwooOrtYAMoJu1UDbXkvhyw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	David Hildenbrand <david@redhat.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Oleg Nesterov <oleg@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Tong Tiangen <tongtiangen@huawei.com>
-Subject: [PATCH -next v1 1/3] kernel/events/uprobes: pass VMA instead of MM to remove_breakpoint()
-Date: Tue,  4 Mar 2025 16:48:44 +0100
-Message-ID: <20250304154846.1937958-2-david@redhat.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250304154846.1937958-1-david@redhat.com>
-References: <20250304154846.1937958-1-david@redhat.com>
+	linux-kernel@vger.kernel.org,
+	linux@ew.tq-group.com,
+	linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org
+Subject: [PATCH v3 0/6] TQMa93xx on MBa93xxLA/CA LVDS support
+Date: Tue,  4 Mar 2025 16:49:19 +0100
+Message-ID: <20250304154929.1785200-1-alexander.stein@ew.tq-group.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: I_LW-Y73KrAJswuBp3IBP0RPMBuZh_7nH32tTQBWMgk_1741103331
-X-Mimecast-Originator: redhat.com
 Content-Transfer-Encoding: 8bit
-content-type: text/plain; charset="US-ASCII"; x-default=true
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_074854_348369_88931023 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250304_074942_361076_45A7330B 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,78 +108,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-... and remove the "MM" argument from install_breakpoint(), because it
-can easily be derived from the VMA.
+Hi,
 
-Signed-off-by: David Hildenbrand <david@redhat.com>
----
- kernel/events/uprobes.c | 20 +++++++++++---------
- 1 file changed, 11 insertions(+), 9 deletions(-)
+this is v3 for the LVDS support on TQMa93xx module series.
 
-diff --git a/kernel/events/uprobes.c b/kernel/events/uprobes.c
-index 8fc53813779a4..991aacc80d0e0 100644
---- a/kernel/events/uprobes.c
-+++ b/kernel/events/uprobes.c
-@@ -1134,10 +1134,10 @@ static bool filter_chain(struct uprobe *uprobe, struct mm_struct *mm)
- 	return ret;
- }
- 
--static int
--install_breakpoint(struct uprobe *uprobe, struct mm_struct *mm,
--			struct vm_area_struct *vma, unsigned long vaddr)
-+static int install_breakpoint(struct uprobe *uprobe, struct vm_area_struct *vma,
-+		unsigned long vaddr)
- {
-+	struct mm_struct *mm = vma->vm_mm;
- 	bool first_uprobe;
- 	int ret;
- 
-@@ -1162,9 +1162,11 @@ install_breakpoint(struct uprobe *uprobe, struct mm_struct *mm,
- 	return ret;
- }
- 
--static int
--remove_breakpoint(struct uprobe *uprobe, struct mm_struct *mm, unsigned long vaddr)
-+static int remove_breakpoint(struct uprobe *uprobe, struct vm_area_struct *vma,
-+		unsigned long vaddr)
- {
-+	struct mm_struct *mm = vma->vm_mm;
-+
- 	set_bit(MMF_RECALC_UPROBES, &mm->flags);
- 	return set_orig_insn(&uprobe->arch, mm, vaddr);
- }
-@@ -1296,10 +1298,10 @@ register_for_each_vma(struct uprobe *uprobe, struct uprobe_consumer *new)
- 		if (is_register) {
- 			/* consult only the "caller", new consumer. */
- 			if (consumer_filter(new, mm))
--				err = install_breakpoint(uprobe, mm, vma, info->vaddr);
-+				err = install_breakpoint(uprobe, vma, info->vaddr);
- 		} else if (test_bit(MMF_HAS_UPROBES, &mm->flags)) {
- 			if (!filter_chain(uprobe, mm))
--				err |= remove_breakpoint(uprobe, mm, info->vaddr);
-+				err |= remove_breakpoint(uprobe, vma, info->vaddr);
- 		}
- 
-  unlock:
-@@ -1472,7 +1474,7 @@ static int unapply_uprobe(struct uprobe *uprobe, struct mm_struct *mm)
- 			continue;
- 
- 		vaddr = offset_to_vaddr(vma, uprobe->offset);
--		err |= remove_breakpoint(uprobe, mm, vaddr);
-+		err |= remove_breakpoint(uprobe, vma, vaddr);
- 	}
- 	mmap_read_unlock(mm);
- 
-@@ -1610,7 +1612,7 @@ int uprobe_mmap(struct vm_area_struct *vma)
- 		if (!fatal_signal_pending(current) &&
- 		    filter_chain(uprobe, vma->vm_mm)) {
- 			unsigned long vaddr = offset_to_vaddr(vma, uprobe->offset);
--			install_breakpoint(uprobe, vma->vm_mm, vma, vaddr);
-+			install_breakpoint(uprobe, vma, vaddr);
- 		}
- 		put_uprobe(uprobe);
- 	}
+It consists of three parts:
+1. New PLL configuration for 477.4 MHz
+2. LVDS support for imx93
+3. LVDS platform support for tqma9352-mba93xxla & tqma9352-mba93xxca
+
+Patch 1 adds a video PLL configuration for 477.4MHz
+Patch 2 is the imx93 equivalent of commit 1cb0c87d27dc ("dt-bindings:
+  soc: imx8mp-media-blk-ctrl: Add LDB subnode into schema and example")
+Patch 3 is the imx93 equivalent of commit 9cb6d1b39a8f ("soc: imx:
+  imx8m-blk-ctrl: Scan subnodes and bind drivers to them")
+Patch 4 is the imx93 equivalent of commit 94e6197dadc9 ("arm64: dts:
+  imx8mp: Add LCDIF2 & LDB nodes")
+Patch 5 adds LVDS DT overlay for tqma9352-mba93xxla platform
+Patch 6 adds LVDS DT overlay for tqma9352-mba93xxca platform
+
+Changes in v3:
+* Collected Peng's R-b
+* Fixed subject prefix in patch 3/6
+* Fix 'ranges' property both in bindings example and .dtsi
+
+Changes in v2:
+* Rebased to next-20250221
+* Reordered patches
+* Added 'ranges' to bindings
+* Use subnode constraint styles as suggested by Rob Herring
+* Use IMX93_CLK_SYS_PLL_PFD0 as parent for IMX93_CLK_MEDIA_AXI
+* Use 333MHz for IMX93_CLK_MEDIA_AXI
+* Do not set board compatible in orverlays
+* Add MBa93xxCA platform as well
+
+I skipped the support for dynamic PLL configuration for now. This is a
+separate task, see [2].
+
+Best regards,
+Alexander
+
+v2:
+* https://lore.kernel.org/all/20250224142831.485159-1-alexander.stein@ew.tq-group.com/
+v1:
+* https://lore.kernel.org/all/20231020130019.665853-1-alexander.stein@ew.tq-group.com/
+
+Alexander Stein (6):
+  clk: imx: clk-fracn-gppll: Add 477.4MHz config for video pll
+  dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode into schema
+    and example
+  pmdomain: imx93-blk-ctrl: Scan subnodes and bind drivers to them
+  arm64: dts: imx93: Add LCDIF & LDB nodes
+  arm64: dts: tqma9352-mba93xxla: Add LVDS overlay
+  arm64: dts: tqma9352-mba93xxca: Add LVDS overlay
+
+ .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 ++++++++++++
+ arch/arm64/boot/dts/freescale/Makefile        |  5 ++
+ ...3-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso | 40 ++++++++++
+ .../freescale/imx93-tqma9352-mba93xxca.dts    | 27 +++++++
+ ...3-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso | 40 ++++++++++
+ .../freescale/imx93-tqma9352-mba93xxla.dts    | 27 +++++++
+ arch/arm64/boot/dts/freescale/imx93.dtsi      | 77 +++++++++++++++++++
+ drivers/clk/imx/clk-fracn-gppll.c             |  1 +
+ drivers/pmdomain/imx/imx93-blk-ctrl.c         |  7 ++
+ 9 files changed, 275 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso
+
 -- 
-2.48.1
+2.43.0
 
 
