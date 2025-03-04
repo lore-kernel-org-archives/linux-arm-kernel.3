@@ -4,120 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C65A4C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:53:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92808C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=; b=TKUdx9JWe5+xXnt08Kzwa3VuIb
-	L6YRWOPpan50wzVTRUCoPrWEcDtac+s4iYlbg9vusBGh1KUd3w7d5Qk8Y5R52njUgOMgJKr885hhX
-	wKXYX+PhQd9GdFkvcY0yseaMECjyuXPl25GRCHMkihkg23P3KdJVCl53VWw/SyE/q82L8gq+2Pfwo
-	v6p70O7yiPPUSDEzCXRlGXI0Qeo9GMasyCeJpm2/E1oTOKKC+Do204gZ2+fw1XMglWXdlg0rjJXyA
-	L1fr+Nx+cMfU9uysoVPGHTW5b4Yq68uDOzbs6ax+SvvMsJyNCSTpinnMbi0gxj1OLb3LBKxhFjasQ
-	GCF7vEDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xS1iz9mM6zwGCInXQ6jHCS0iHrRwcIDwZ+4MfqyaPac=; b=Q+hmfFojhKClZn3C8gomzMAOQj
+	Hc64Snr2GOHlj8ROXFUs2MSfVE9zTuGV/FrI6pEc9kVLK5AZFOwDUKisshHrchVQLIXJXcHh2D8MH
+	Cg1IGI+bfqlfLQFKeCjauMLos9Zj32q2icEl6ZGUVSfO0l0VL65qnbEdLWJkUM2xRmJ0sgw/boL71
+	rIbfKwu2Z8+kDy7HfaAEjm8GbQq2fV2zAdsleTKT1nMI6miQA4LJSgUOhDR6XmX4T6uqIs0b3fJKX
+	M3+t5V8qEwdm8axEvbg0JtTr6a983JJ4jQrk043+1oVsiv1OyQR1qg48oVSN61IC6FGzxWTLGcFbj
+	64xZtzrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWSO-00000005ihj-1Xct;
-	Tue, 04 Mar 2025 17:53:28 +0000
-Received: from mail-qt1-x831.google.com ([2607:f8b0:4864:20::831])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUzi-00000005Oqf-0z6k
+	id 1tpWTx-00000005j7p-2Wvm;
+	Tue, 04 Mar 2025 17:55:05 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpV1D-00000005PEK-0P17
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:19:47 +0000
-Received: by mail-qt1-x831.google.com with SMTP id d75a77b69052e-471f4909650so51984741cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 08:19:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1741105185; x=1741709985; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=;
-        b=Ub9n6PvKwDpXfhpkhuhOWOWR9nP5RYGCLIr/WuL2o90klIsaj0i/3BHESxixVaGX3g
-         q13VMTj5c3VzwwbuKoxFXEOBnprEF6K6XcUcT/gmtSH5HHuXT2FOqhX87W3gGlo1RF0G
-         nUvwR64JZ7tjr9PvvEG8wwTo2Dmfl82i6woHtEJySCQjIgaPMWcJnqDN1f9y5hd634E3
-         m0odS0Jwv7Brg+e3fvFFA+Ru5OpQOmCIOXzIgC8+C2u+gZ44b9DBilTEcVCs54xJ2JZK
-         CDOzzsOQCRGFKhT1Q3iOg6nZrMpOuOrSKqhRWwl2dgjiOHhOt/TDkuxeb5+D0PNySoET
-         H8WA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741105185; x=1741709985;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+QyCC8CcTX+xQp+BLqbobfaOcWMa+Lol1b2+RKYTYvw=;
-        b=W5FU1qTG8jiW4+6gwqhiv546mI5j6p3VEbajj71GFGoXBN0pyIbikLB7WUUCbI8P+Y
-         Z2iso5wi4c1/KV9jUnogm8fNiV+qfb+aq8Dootyd20L50yiiO2WXE8cI8qqw2juyqDE1
-         tTy13sU2djZL6uhQBPHxhoKZlZLYLKcqKZZF4FmQLQOn68H1G9n6erVPwFtGOp/oRtKE
-         LwEjWmZh3KrU+2PEv0XmbXRvybCWd2bSQjX7Uoa2rLujNyU6Na6DdKRwDQno4uhsSWSE
-         QlSMy01KqNmUM8++VnIdYEKD9mHD+5ME1LUutcYjXFZDP1HcqG2v8fJw20/j6RZl/a8k
-         jXRA==
-X-Forwarded-Encrypted: i=1; AJvYcCV+hPnSii2d25Rk4dfW/VBhOaRfctADBB5Y/avMXLqc/danU7MoJGjX/TasM+/nkOWbUL6xzScWpnmqQaNvhAxN@lists.infradead.org
-X-Gm-Message-State: AOJu0YyABikX0lSuy72dnQ1sd2roa6NM46A9J39G/uxMP06jXZDkyYwK
-	6FewOy+wHiln0bLI9t5aPI2stuhMizwpNGT2brZfS6hGkySgdXyD1U9DCHSIAaI=
-X-Gm-Gg: ASbGncsZXQ+y2j3m6dvaz3QF+i8vPH/NXn/EGX5EcwCdtUh/EBdzKFUXyJCuwgYFuSB
-	aBHuyULMpPrh8RQt3tiJL89Y8Px1la4FWKJiCTuLl1OFT28IN48coABYTsnbu6A4RCkgb67Q2vy
-	dPPnXAocgXWwV5D5Rx34MMKnTOoih/ZK/8GtUpccvQrZMDzZAkhTH5IEtkTn/7S3u7ZpdEimZRX
-	Cj2JFDv8tWTExokhUMYsAWBiodJCUBm9QrrMnOEmccua0FBRKrVgHn2gj2Td1DoCDPFA0D4f3lj
-	GykMNwmqz4N48YfgDWT7/Jhh0pzcRJtbwTM7gd9458BsL4QeLP1sgVS7AbgCuv/LBleVtkdWwcR
-	MvMeK7oAcjkVeixk3NQ==
-X-Google-Smtp-Source: AGHT+IEh35K+Rji/J97KgXv7b0qtNlNusVFI1SmT/EdTjyyFjXOLkEHdIcDO3dFOzig1wg6gty4MyA==
-X-Received: by 2002:ac8:5dd1:0:b0:472:15a8:4021 with SMTP id d75a77b69052e-474bc100267mr252633741cf.37.1741105184975;
-        Tue, 04 Mar 2025 08:19:44 -0800 (PST)
-Received: from ziepe.ca (hlfxns017vw-142-68-128-5.dhcp-dynamic.fibreop.ns.bellaliant.net. [142.68.128.5])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-474f9a4f6a2sm17784561cf.1.2025.03.04.08.19.44
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 08:19:44 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tpUzf-00000001Go8-445C;
-	Tue, 04 Mar 2025 12:19:43 -0400
-Date: Tue, 4 Mar 2025 12:19:43 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: =?utf-8?Q?Miko=C5=82aj?= Lenczewski <miko.lenczewski@arm.com>,
-	Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"joro@8bytes.org" <joro@8bytes.org>,
-	"jean-philippe@linaro.org" <jean-philippe@linaro.org>,
-	"mark.rutland@arm.com" <mark.rutland@arm.com>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"david@redhat.com" <david@redhat.com>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"nicolinc@nvidia.com" <nicolinc@nvidia.com>,
-	"mshavit@google.com" <mshavit@google.com>,
-	"jsnitsel@redhat.com" <jsnitsel@redhat.com>,
-	"smostafa@google.com" <smostafa@google.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"iommu@lists.linux.dev" <iommu@lists.linux.dev>
-Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Message-ID: <20250304161943.GD5011@ziepe.ca>
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
- <20250228193221.GM5011@ziepe.ca>
- <b23aa37f8e864dea82a6143bece912d6@huawei.com>
- <20250303103102.GC13345@e133081.arm.com>
- <20250303165255.GS5011@ziepe.ca>
- <20250303190330.GA426248@e133081.arm.com>
- <20250304142634.GC5011@ziepe.ca>
- <67fbe3f4-4fb6-4753-b34c-320b7897fd16@arm.com>
+	Tue, 04 Mar 2025 16:21:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 24A0A2F;
+	Tue,  4 Mar 2025 08:21:32 -0800 (PST)
+Received: from [10.57.83.152] (unknown [10.57.83.152])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CA73C3F5A1;
+	Tue,  4 Mar 2025 08:21:16 -0800 (PST)
+Message-ID: <0fe6f3b2-1011-4418-bc19-612a3b98c78d@arm.com>
+Date: Tue, 4 Mar 2025 16:21:14 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <67fbe3f4-4fb6-4753-b34c-320b7897fd16@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64/mm: Create level specific section mappings in
+ map_range()
+Content-Language: en-GB
+To: Anshuman Khandual <anshuman.khandual@arm.com>,
+ linux-arm-kernel@lists.infradead.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org
+References: <20250303041834.2796751-1-anshuman.khandual@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250303041834.2796751-1-anshuman.khandual@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_081946_271363_12D1B1D2 
-X-CRM114-Status: GOOD (  19.63  )
+X-CRM114-CacheID: sfid-20250304_082119_235111_13C43A07 
+X-CRM114-Status: GOOD (  21.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,30 +66,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 04:02:20PM +0000, Ryan Roberts wrote:
-> On 04/03/2025 14:26, Jason Gunthorpe wrote:
-> > On Mon, Mar 03, 2025 at 07:03:42PM +0000, Mikołaj Lenczewski wrote:
-> > 
-> >> For example, if we use BBML2 for kernel mappings, does that require us
-> >> to repaint all kernel mappings when disabling BBML2 on smmu attach? I
-> >> am not sure, but definitely something to be worked out.
-> > 
-> > No, it would be a per-mm_struct basis only if we did something like
-> > that
-> > 
-> > When the SMMU driver puts a SVA on top of the mm_struct it would
-> > disable BBML2 usage only for that mm_struct and it's contained VMAs.
+On 03/03/2025 04:18, Anshuman Khandual wrote:
+> Currently PMD section mapping mask i.e PMD_TYPE_SECT is used while creating
+> section mapping at all page table levels except the last level. This works
+> fine as the section mapping masks are exactly the same (0x1UL) for all page
+> table levels.
 > 
-> I guess we would need to figure out some synchonization mechanism if disabling
-> BBML2 dynaically per-mm. If there was already a BBML2 operation in flight would
-> want to wait for it to end. But that's a problem to solve if/when it's shown to
-> be needed, I think.
+> This will change in the future with D128 page tables that have unique skip
+> level values (SKL) required for creating section mapping at different page
+> table levels. Hence use page table level specific section mapping macros
+> instead of the common PMD_TYPE_SECT.
+> 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> ---
+> This patch applies on 6.14-rc5
+> 
+> PGD_TYPE_SECT for level -1 section map handling has been added for 4K
+> base pages with 52 bit VA configuration that has 5 page table levels.
+> In such cases (CONFIG_PGTABLE_LEVELS = 5) early_map_kernel() can call
+> map_range() eventually with -1 (i.e 4 - CONFIG_PGTABLE_LEVELS) as the
+> root_level.
 
-I have a feeling we can piggyback on the mmu notifiers to achieve this
-as all the changes to the PTEs should be bracketed by notifier
-callbacks..
+Table Table D8-16 on page D8-6459 of ARM DDI 0487 L.a says that block mappings
+at level -1 are not permitted for 4K pages; only levels 0-3 support leaf
+mappings. Similarly for 16K, table D8-26 says only levels 1-3 permit leaf
+mappings. And for 64K, table D8-35 says only levels 1-3 permit leaf mappings.
 
-Let's hope it isn't needed.
+So I don't think PGD_TYPE_SECT is the right solution. Perhaps we need to
+explicitly force the unsupported levels to be table entries even if the
+alignment is correct?
 
-Jasob
+Thanks,
+Ryan
+
+> 
+>  arch/arm64/include/asm/pgtable-hwdef.h |  1 +
+>  arch/arm64/kernel/pi/map_range.c       | 23 +++++++++++++++++++++--
+>  2 files changed, 22 insertions(+), 2 deletions(-)
+> 
+> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
+> index a9136cc551cc..fd0a82e8878c 100644
+> --- a/arch/arm64/include/asm/pgtable-hwdef.h
+> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
+> @@ -99,6 +99,7 @@
+>  #define PGD_TYPE_TABLE		(_AT(pgdval_t, 3) << 0)
+>  #define PGD_TABLE_BIT		(_AT(pgdval_t, 1) << 1)
+>  #define PGD_TYPE_MASK		(_AT(pgdval_t, 3) << 0)
+> +#define PGD_TYPE_SECT		(_AT(pgdval_t, 1) << 0)
+>  #define PGD_TABLE_AF		(_AT(pgdval_t, 1) << 10)	/* Ignored if no FEAT_HAFT */
+>  #define PGD_TABLE_PXN		(_AT(pgdval_t, 1) << 59)
+>  #define PGD_TABLE_UXN		(_AT(pgdval_t, 1) << 60)
+> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+> index 2b69e3beeef8..9ea869f5745f 100644
+> --- a/arch/arm64/kernel/pi/map_range.c
+> +++ b/arch/arm64/kernel/pi/map_range.c
+> @@ -44,8 +44,27 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+>  	 * Set the right block/page bits for this level unless we are
+>  	 * clearing the mapping
+>  	 */
+> -	if (protval)
+> -		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
+> +	if (protval) {
+> +		switch (level) {
+> +		case 3:
+> +			protval |= PTE_TYPE_PAGE;
+> +			break;
+> +		case 2:
+> +			protval |= PMD_TYPE_SECT;
+> +			break;
+> +		case 1:
+> +			protval |= PUD_TYPE_SECT;
+> +			break;
+> +		case 0:
+> +			protval |= P4D_TYPE_SECT;
+> +			break;
+> +		case -1:
+> +			protval |= PGD_TYPE_SECT;
+> +			break;
+> +		default:
+> +			break;
+> +		}
+> +	}
+>  
+>  	while (start < end) {
+>  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
+
 
