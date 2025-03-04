@@ -4,65 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D81A6C282E5
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8889DC282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dGrYAp2UYRB4ahPvzjkNTvyhBhRpzSJnkRhzP34zvcs=; b=VMzVPCvkyvi8g1VVAh2fQ4j6K4
-	Sus73GlnBumefGX4lV7NcNu1n8vejvjtWZTmas3VdcuTGClaXOL2yUCOSqmEI9GEZVQ9nTwTtLIDR
-	il21Qqf0z2D6CFby05E+fty3iSFncJpqXL3U/3Hjc0uuI4xLGccJ3TAGteoZWU9t69ci+svcHhRnk
-	ty2AImqpG1JUY2JcjTC4duQ874QQHDWzueCBPDrt/SoUVKAmQIVX1XsFBQ9YZoaY80xycmBMPj/0h
-	NZtDhRos/jsAyIbsSiIFWTQJXrOac3z6P58GgydqZ8IPxzENEEbRrcyxSsTcdvpOlgQZSrK+Yo5Nk
-	hCtKx95Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ANP8owQWDe70nVAfQXc2LpUj4bDpa1InTmeI3o5fL3Y=; b=rmaYegODQvl4LYxtJTBCYpLl/l
+	bbNkO9/tc3OAX56bEVbk+r9GtKlmwxxE9d1V7kTvKrTwXXcSl2mtGKBOWq3rNzgUVCQi5wMj4/LJw
+	1GNdioT98mr3vnb+uERl/udSsVw2wfQPy2YNVfyJlwF219fv0mrKaajqmXJXQsxPLE/nwsIOeKAwB
+	N+D7KY15uOQcSnKi3LQT8QefiR5clfCQI0W4Bk5Vq5S0/FQp8ICiCTIqqZr+zoKqC7/fnUrycO9lJ
+	pkQUwo+AFTNS/6r033bwDn//c6e+ktFvm3lFtWZ0XKa0kY4TutAYajO4WR+KFzJTLyvYd3ec6ITQs
+	PreRhN2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcb-00000004AwA-1SB9;
-	Tue, 04 Mar 2025 10:35:33 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1tpPcd-00000004AyA-1Gtw;
+	Tue, 04 Mar 2025 10:35:35 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPDn-000000044KR-2Y7S
+	id 1tpPHK-000000044uM-3bCb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:09:57 +0000
-From: Thomas Gleixner <tglx@linutronix.de>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1741082994;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dGrYAp2UYRB4ahPvzjkNTvyhBhRpzSJnkRhzP34zvcs=;
-	b=1umtxGShTe/HM+xs3bZ9BbOVGzCe2+AifYvLvOD7LbDIzG3k9DovpDEe3hbkcKG/gGy0pO
-	kCNEbrRfXhxm6h+ZWnKLzaPPCTBfQgcGRHdPa9laVB4R4srBdRo7dgzx8Nnr5Y6VCA1dqB
-	6Yj8c6GtisdPxbuc6ys7Qrqyp9zYK+ZA82wuDJBRXL99FnB5ylI/CFPIfrGbDqjIGaOJvZ
-	kF2yf3Ju0wgKapobQxMVttUxgwq8HSEtQo4OCiKUI8pKlAdzUXKkhcQypCKa5KnFRny9Ly
-	E9AxM2s4TTKd2ejwAlyI7nGl91W66NBgbsxzA2v/of7ieCW5amVYD2zyjIo3Ow==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1741082994;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=dGrYAp2UYRB4ahPvzjkNTvyhBhRpzSJnkRhzP34zvcs=;
-	b=P7Qostk+Q2bXrVqb2DnypZKDI/nn16FYUiL0Zw/eiCQzbwL+O6vI00L7Pq9mXI4tuuItMZ
-	+mtiNDa5jOQadkCA==
-To: Jacky Bai <ping.bai@nxp.com>, shawnguo@kernel.org, s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- aisheng.dong@nxp.com, peng.fan@nxp.com, frank.li@nxp.com,
- shengjiu.wang@nxp.com
-Subject: Re: [PATCH] irq: imx-irqsteer: irq_count can larger than registered
- irq
-In-Reply-To: <20250304094513.1964356-1-ping.bai@nxp.com>
-References: <20250304094513.1964356-1-ping.bai@nxp.com>
-Date: Tue, 04 Mar 2025 11:09:53 +0100
-Message-ID: <87bjuh6r9q.ffs@tglx>
+	Tue, 04 Mar 2025 10:13:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 05122A44AC2;
+	Tue,  4 Mar 2025 10:08:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33F49C4CEE5;
+	Tue,  4 Mar 2025 10:13:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741083213;
+	bh=tSly4mCMCg7dVdmVWaL/taV9g1SQHNObtoFQnE+k5hY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WlQOsWhNXid8j95Bwvji3nwiUxShDmNuzqHiVbnq7s00AOocTk1+QxICKYRb2U+Cx
+	 j7BRgA2bZOFVWj7swi+Dp0sD2HCeLJ9g8V420t7xw3X9F1uam/GaQ3YnLikaagvvkh
+	 Q+RMA+1ovszha6KLoiij5AeSuyk8Bu5CJfIWK2DXk5a0owQPw7WVvCJpVXvc/JaIJy
+	 Tuog+FDKfFw0YK/65KHO/IWpph9TMKlt8EIHgNgPSvBv+qidT0etNvRHvO/kMaol73
+	 blhkmzBX27bfkDpaGkWFCPFBnwRCZP3h5091iLVGlT9QfIOjCB3+E1WBaxla8T9sZX
+	 OEWxTqOJev85g==
+Message-ID: <eb423b6e-6142-4b78-b724-49a526a49d4d@kernel.org>
+Date: Tue, 4 Mar 2025 11:13:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] arm64: dts: corstone1000: Add definitions for
+ secondary CPU cores
+To: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>, sudeep.holla@arm.com
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ liviu.dudau@arm.com, lpieralisi@kernel.org, robh@kernel.org
+References: <Z8XSIx75B4mtcV48@bogus>
+ <20250303170012.469576-1-hugues.kambampiana@arm.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250303170012.469576-1-hugues.kambampiana@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_020955_786159_A6C02066 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250304_021335_031543_19A85CD4 
+X-CRM114-Status: GOOD (  12.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,42 +119,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04 2025 at 17:45, Jacky Bai wrote:
-> From: Shengjiu Wang <shengjiu.wang@nxp.com>
+On 03/03/2025 18:00, Hugues KAMBA MPIANA wrote:
+> Add `cpu1`, `cpu2` and `cpu3` nodes to the Corstone1000 device tree to
+> enable support for secondary CPU cores.
+> 
+> This update facilitates symmetric multiprocessing (SMP) support on
+> the Corstone1000 Fixed Virtual Platform (FVP), allowing the
+> secondary cores to be properly initialised and utilised.
+> 
+> Only FVP platform will have SMP support and hence the secondary cpu definitions
+> are not added to corstone1000.dtsi.
+> 
+> Signed-off-by: Hugues KAMBA MPIANA <hugues.kambampiana@arm.com>
+> ---
+>  arch/arm64/boot/dts/arm/corstone1000-fvp.dts | 24 ++++++++++++++++++++
+>  arch/arm64/boot/dts/arm/corstone1000.dtsi    |  2 +-
+>  2 files changed, 25 insertions(+), 1 deletion(-)
+> 
+No, nothing improved.
 
-Please use the proper subsystem prefix as documented:
+Provide detailed changelog after the ---.
 
-  https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#patch-submission-notes
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets.
 
-Also 'irq_count can larger than registered irq' is not a sentence and
-tells absolutely nothing what this patch is about.
-
-> The irqsteer IP itself can support up to 5 channels and each
-> channel can support max 960 IRQs per. The actual number of
-
-Can you please write out words, i.e. interrupts, hardware etc.. This is
-a changelog and not twatter.
-
-Aside of that: 'per.' does not make any sense. 'per' wants to be
-followed by a noun: '...per $WHAT.'
-
-> channels and IRQ per channel implemented in HW is SoC related.
-
-> For previous i.MX SoCs, normally only one channel and max 512
-> IRQ is implemented, But for i.MX94, the irqsteer HW is implemented
-> for 960 IRQs, even it only has 384 IRQs connected.
->
-> That means on i.MX94, the 'irq_number' is 6 but the 'irq_count' is
-
-What means irq_number and irq_count here? 
-
-> 15, so we need to increase the CHAN_MAX_OUTPUT_INT to 0xF(960 / 64)
-
-What kind of math is 0xF(960 / 64) ? And what has this to do with
-irq_number=6 ad irq_count=15?
-
-Thanks,
-
-        tglx
-
+Best regards,
+Krzysztof
 
