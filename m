@@ -4,45 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71B40C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:31:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44DFEC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DbT3kbkvRYQewJ9m4Dt4HSNebJM2mP9OrWAooH6MeQA=; b=TdoPtUH21MIDQX5DkNfRKXb6Dk
-	YgLfn30oleAYuQMyZqdU1GXP8pUDIR52lXTvPqikte3tsJIx4GR2+2/aTmcO6FoYdnwgoPkhDKj6D
-	+ah/2QZGMkrghgoT+PllONuIzrDPPmgobgslMNX6LdBmgLDsdrvQP4cMjmkAg8I4+cQ1yYi1vdS9u
-	60pxSqCOq/IhJ1JiEj7r7DIIkaKTT4hYHg8znw2GDDIruzsyE6J2F+zLQ43qtDF2AjJvuRrhIO96U
-	3bZsmiz5lulqul+GfnThgrSOtzdzOJlcFJYlXRYTfMxKiYDh/1R40XG4S7746XIHEoSDFLJ8V7JKF
-	nUCbJ5xQ==;
+	bh=6U3xW6KGA45GadCYUOQf9uTOYOS5SGHDOkkRLxttvgU=; b=GaXOsc7jau9cqjp/7c9wf1Yc5L
+	WHjRAGpfohjLQgDMX8K30BEaJtannZ3Dr/AVcnd+h0EDkd5P63k5iq5SM6R8gbyaYbqt39msD3MZC
+	MvFmJbiMu3BH0+6+9P4r0Dv3eN5RH4mKqbeOwTEbBd070lnhpbiob1u2pZ4obmO/2Bqe4e+luxR1h
+	y/xSOy5/iZGs3z0TiU2TrhzBSzWa5NJRvFpc3nKuTq9Xq181hgcPwnfXMZWZpW4EjoSwgEj2KoGOe
+	fc3/N8ORC3UvWz5DKNl5gxm+bsrEY5shaQf4EXxHoxVOkYaBz1ZsKIrpPlmWn4BRNr3Va3Kt3eq5N
+	D09prW1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNgU-00000003edJ-1W5x;
-	Tue, 04 Mar 2025 08:31:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpNi2-00000003f16-0OpD;
+	Tue, 04 Mar 2025 08:33:02 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNa2-00000003ciO-1XR6
+	id 1tpNas-00000003cu8-0kTZ
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 08:25:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=6U3xW6KGA45GadCYUOQf9uTOYOS5SGHDOkkRLxttvgU=; b=mif7fxcwU+AA1f1sdqj7kPJTxI
+	iGUeQnqVfGYkeTc/84OYqpnJoKwh6XduC2XMTxyHDjZVaHZFyEuEuoKvXeBYQM5iX/9Tw6yOm0QuK
+	rLn9JhCNNAg2Stj4AXgJcs+gEbanAA+shI0vaZHO2G1tQDB/YAHTYREGG5YPmJdymfyDOsrrft5sB
+	0+Pcz/Eoy7OBmNsJjbVuMvsHx7fDvLTiY0p15pxnYuMYUKAGj90eTjVkF3GeT2C0V3V3MAobwC5Th
+	F4QFvT5QQZ+gcx/fkJST5MFb9zoZA8IUfeoztOG/xWryfd8y3srUd3C+7SLzoEWyOdUhMNE/HMORi
+	RF3tgrhw==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpNap-00000000R9t-0IkX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 08:24:47 +0000
+	Tue, 04 Mar 2025 08:25:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EB7255C5439;
-	Tue,  4 Mar 2025 08:22:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 965A7C4CEE9;
-	Tue,  4 Mar 2025 08:24:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4B20AA45343;
+	Tue,  4 Mar 2025 08:19:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F116BC4CEE5;
+	Tue,  4 Mar 2025 08:25:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741076685;
-	bh=TAw6fNcNSg7YEvEqtiZRQve5lHtjiupPT421lnC+KgY=;
+	s=k20201202; t=1741076727;
+	bh=EjG1Ayc6WOrjJoENYUK2AAQIO5stxQf7QR9qv10BbjU=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=FH1AGMd8G1LRCF9lw6vdX7tGzR5edBc4ZLYek88tB93kOeyrHhacKB0a5T4MF/1XJ
-	 qLOnmf2SAi4ZGkCxli6zkzeK7pRgFyVrWk+ZO+L1FcwqiRFCUFDRCu82m+zFyoXzF0
-	 zHumQyHi27uzUh6slpVEc4pV8rhJR6xhAx4E3d0Ld8Z6SSfgN5zWPyRlWHAGxhfP74
-	 p4xXpRekD0Wb/i7AqnlldQWvGQWG2Fgrv9487/gmQQDwy79VhFZ/xBtzbjLLogl2yt
-	 nNqRQ8TgMtMn5a1AnFPkgll67VwUgYJ95m+amQ+poVrtLFwq+Y6NqmA9+UyFJc1vk2
-	 zMkxoqBrjSZaw==
-Date: Tue, 4 Mar 2025 09:24:41 +0100
+	b=PpDGT4pl9OvTRcB3fq/ZOwLw8spKntrGFEwzLqPphNVifkDf/CruyEbhZQHgk/2P2
+	 OaO/XH8YBr7vXXUzzAXb9MCxHwhS3Gv6Lw96scmHOli+H3nQsIXZDQDGC9W3emPS3N
+	 nY3Dit1FlyI7es4f9fPs1wsEjQbPiYY11PCcNL82Y5z3/khVERpMwEhADig/jJn80Q
+	 vxoAqgpGd+J/JtYDXZxRHPHA6yhMPJnjnhv1xxRiF8rjLhR7Ykgb7/Uf0tznDN5Gph
+	 VGcFHF5LGIIO9dp4qig6fzhiykzDqDLh2TTUyPQxfH7e7pYRq0jETxtmR9wLg1j4SA
+	 C5CHMLvKvr0yQ==
+Date: Tue, 4 Mar 2025 09:25:24 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Andre Przywara <andre.przywara@arm.com>
 Cc: Michael Turquette <mturquette@baylibre.com>, 
@@ -51,18 +66,18 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
 	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
 	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 05/15] dt-bindings: clk: sunxi-ng: add compatible for
- the A523 PRCM-CCU
-Message-ID: <20250304-rare-hyrax-of-criticism-1c7b12@krzk-bin>
+Subject: Re: [PATCH v3 04/15] dt-bindings: clk: sunxi-ng: document Allwinner
+ A523 CCU
+Message-ID: <20250304-resilient-spiritual-crane-30d4e1@krzk-bin>
 References: <20250304012805.28594-1-andre.przywara@arm.com>
- <20250304012805.28594-6-andre.przywara@arm.com>
+ <20250304012805.28594-5-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250304012805.28594-6-andre.przywara@arm.com>
+In-Reply-To: <20250304012805.28594-5-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_002446_444928_209CB590 
-X-CRM114-Status: GOOD (  18.62  )
+X-CRM114-CacheID: sfid-20250304_082535_321086_F4C6F724 
+X-CRM114-Status: GOOD (  16.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,56 +92,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:27:55AM +0000, Andre Przywara wrote:
+On Tue, Mar 04, 2025 at 01:27:54AM +0000, Andre Przywara wrote:
 > The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
-> the PRCM R_CCU.
+> the main CCU.
 > 
+> The source clock list differs in some annoying details, and folding this
+> into the existing Allwinner CCU clock binding document gets quite
+> unwieldy, so create a new document for these CCUs.
 > Add the new compatible string, along with the required input clock
-> lists. There is now an extra input clock (PLL_AUDIO), so add this to the
-> list of allowed clocks and required it for the A523 PRCM CCU.
+> lists. This conditionally describes the input clock list, to make for
+> an easier patch adding the other CCUs.
+> 
 > Also add the DT binding headers, listing all the clocks with their ID
 > numbers.
 > 
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 > ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      | 23 +++++++++++-
->  include/dt-bindings/clock/sun55i-a523-r-ccu.h | 37 +++++++++++++++++++
->  include/dt-bindings/reset/sun55i-a523-r-ccu.h | 25 +++++++++++++
->  3 files changed, 83 insertions(+), 2 deletions(-)
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-r-ccu.h
->  create mode 100644 include/dt-bindings/reset/sun55i-a523-r-ccu.h
+>  .../clock/allwinner,sun55i-a523-ccu.yaml      |  77 +++++++
+>  include/dt-bindings/clock/sun55i-a523-ccu.h   | 189 ++++++++++++++++++
+>  include/dt-bindings/reset/sun55i-a523-ccu.h   |  88 ++++++++
+>  3 files changed, 354 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+>  create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
+>  create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
 > 
 > diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> index 2eacaeaeabac7..a64a35b423736 100644
-> --- a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> new file mode 100644
+> index 0000000000000..2eacaeaeabac7
+> --- /dev/null
 > +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> @@ -19,17 +19,18 @@ properties:
->    compatible:
->      enum:
->        - allwinner,sun55i-a523-ccu
-> +      - allwinner,sun55i-a523-r-ccu
->  
->    reg:
->      maxItems: 1
->  
->    clocks:
->      minItems: 4
-> -    maxItems: 4
-> +    maxItems: 5
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/allwinner,sun55i-a523-ccu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner A523 Clock Control Unit
+> +
+> +maintainers:
+> +  - Andre Przywara <andre.przywara@arm.com>
+> +
+> +properties:
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  compatible:
+> +    enum:
+> +      - allwinner,sun55i-a523-ccu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 4
 
-You just added these lines in previous patch, so squash these and make a
-complete binding in one patch.
+Drop, redundant.
 
-Otherwise you will get comment like:
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    minItems: 4
+> +    maxItems: 4
 
->  
->    clock-names:
->      minItems: 4
+Drop both and instead you need to list the items.
 
-This is not supposed to be here in previous patch...
+> +
+> +required:
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +if:
 
-> -    maxItems: 4
-> +    maxItems: 5
+Drop, you have here only one device, no need for if:then.
 
 Best regards,
 Krzysztof
