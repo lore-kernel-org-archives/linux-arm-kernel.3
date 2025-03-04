@@ -4,96 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1400C282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:14:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF58C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=; b=kzATLK7taZhPlTtgSi+eIuvKeH
-	omu+5S6FULCnBSqo/wltKV03VNB32Lg0NkwXi580uUgf64vyVWIkGA3ZSba18nXvMHpZwtQAFbSsc
-	pAn352Se5kUnifG9qkyieHUq76lPFvCLmdFQMCqoG6yALAEup5XiWGVXcpqr7SAnuQzGUe2LNS6cq
-	K+L6GTdB9KHt0zT3QVf7LUxnHI/rjmJeL2Wn8XxM5BFeWwL7eEWNcQFrHrQqdsOqyAe5+YD9jQi6S
-	+Gt8dAssdVf1Y4N4zgzF8UXQ20kzbKGjJXDDOwYEWuecenhCLCcJCCmmWxCD8hOullWVCN88tn5MF
-	lECZkJbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=a8S9dBjNxZ5kSWclYX8MM4Du3QFxwWnxkd8aNT+KTuk=; b=txaBSh1NPTnutpBPAmSYxLxUR8
+	71EyAEIRwCQeYHh6iXYzWjcuKqYv21dS04+DtLUC8acCMeMW/Qm4+XuwZmwbrwjaQI/GOAWOLo34W
+	CLW2VxLfzO0+V68f6Yptm986G6iZuiIhytEjLZu4knYoLqC5+ZaqEwongVZM5rfalniU6iDwAp4IK
+	8NTXlIPEUExWOjSGvarn0SowwaIJSr2V1N+dSNkylQlwEjRz2D/RUrQzPNBuBLhmvuwVne8TrtB/f
+	UcqVhWlwSzc5S+hYdrAQUwu03HEGFsiLzEMLn04czjd1HorEfFsiTXa37DjGNGGASinbsbp9eOgTk
+	3Q9MUwoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWmy-00000005nXA-3zLn;
-	Tue, 04 Mar 2025 18:14:45 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tpWo8-00000005nwB-3E1Y;
+	Tue, 04 Mar 2025 18:15:56 +0000
+Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUWb-00000005HyD-3TYN
+	id 1tpVa7-00000005WBf-3neu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:49:43 +0000
+	Tue, 04 Mar 2025 16:57:25 +0000
+Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-474fb510186so976581cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 08:57:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1741103381; x=1772639381;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=;
-  b=lJlsAKulVw3c44CB5bpgfwLWVYZdo/93SxEjU5gN4Zyp5UXutQynh2YV
-   AoFgNgS0N8G1RFNqAvkzqoNmOOO8w7f5/Pn9HUNFeATVDkE/Wwj5zIV0G
-   nHkFc59FvRRKwVv9ie9FVrkW06oFhOKB6ME/bD0LzPO5Qq7stMdIuXD/2
-   QfJtETk6R8a3Gwo+2jtWxLENUt6UXugcIMpTJhldLWkTLQitQ5udVr15o
-   ETPeZ1XZvYq5aQPjA6Dt1aTsQFGWCwSdfydYGGATTMJLBllzVBDz6+K0w
-   NHBPbmt06se+GpFopse6naqEABiPOiPoLAAzYXk7NcxKuqUafilqviw43
-   Q==;
-X-CSE-ConnectionGUID: 5RRrExnVSsyHBiZxymnz2g==
-X-CSE-MsgGUID: W9sN2wF4TCe9QgLpWzcDKQ==
-X-IronPort-AV: E=Sophos;i="6.14,220,1736809200"; 
-   d="scan'208";a="42272726"
-X-URL-LookUp-ScanningError: 1
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 04 Mar 2025 16:49:39 +0100
-X-CheckPoint: {67C72113-5-2417938-F0170C2B}
-X-MAIL-CPID: 1B5DD4582515C3582BD7AD615B33C118_2
-X-Control-Analysis: str=0001.0A006369.67C72116.0066,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id B3DFC16156A;
-	Tue,  4 Mar 2025 16:49:32 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1741103374;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=V/cWI6jCuZn3fcy5zPp0Q323xNqJa1S74loek1ZBh4w=;
-	b=PJ+RHd0k47M0p3Gvk5Gol0p05nmuw6+Wfy0Nb1JicPvJJ/gO0toelssg9xise111CADyl7
-	k9XiBKVmJUl8TFfjhQS90zCTMEdVC43H++eqnMUJEnca8KIzLieiJzO2rqdWaTnWM0gZhn
-	kIgCkD+cTdqOV5VUqNELxJd7KpUBhbIRymV2BaR1mwwBQFOjP06NQAtuYUFoomLYTYw9f2
-	gPkwMdefX3QnbzpT7hTcQgVa5AvH4DsRkW3nzpFF3bR9UMaxrUl5GZpRfF+CKDSGYfk4XK
-	qx2B3/aCSatZ0vafCGj8FNiGbpf14hMuks/v5cnwwooOrtYAMoJu1UDbXkvhyw==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Alexander Stein <alexander.stein@ew.tq-group.com>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org
-Subject: [PATCH v3 0/6] TQMa93xx on MBa93xxLA/CA LVDS support
-Date: Tue,  4 Mar 2025 16:49:19 +0100
-Message-ID: <20250304154929.1785200-1-alexander.stein@ew.tq-group.com>
-X-Mailer: git-send-email 2.43.0
+        d=gmail.com; s=20230601; t=1741107443; x=1741712243; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=a8S9dBjNxZ5kSWclYX8MM4Du3QFxwWnxkd8aNT+KTuk=;
+        b=V9mCtZCivo3lUrp+aNrnhSo9ypUeJP4LCoJXBFP6ktDk6fqZ6PBPOHp4XZIDJMB61a
+         ZvplsF/z3Mi+A50Qs8Y+Y6OiTt3nKcmwfvCjW0AegouUycw3KB3moT6gXv4N6gWebGzN
+         m4R3sbAjN5DwWCPQPu+mS7LIo7Rmv7Nkh2l2pkTJuF6Vler3m2HdmPKiUIMDs9HBA2Wa
+         p1NbJ8i8q+qhEMSC72rd+5S/2pBK9D3pdoQX0MsjTYhvVVccGesESlZCkP9YjAty1a/b
+         jvNP+5DigMHDnalKQyNcVINl0hftnI9Nv+AMvdb2SAttk5VT7siCmu70EB3zxI9jgQek
+         e3kg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741107443; x=1741712243;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=a8S9dBjNxZ5kSWclYX8MM4Du3QFxwWnxkd8aNT+KTuk=;
+        b=OGI7a8q15Ot61WNJYYntorOInmwmk1H01ZUdfXecqtJu8CdHi40FoFKcW8aHGar7vO
+         G2jmOwES/53FQMkRa0F0A83TlNXOB064JubcdUEedkaTC1S50Ix4uWowcjRC0YDthKzY
+         BGeB89waZ3reatOAcjvlQyiRHGoMrf9AvTMSOeVehQkNZAaHMmaS4tZ8aC7YrIYqAD2i
+         h7+iFy+09Dj17BMRC9Rc7rvOad5VAbRiJ/212Pv1Fp4zoENJx0refqTDt4sasqVj+zBU
+         f6PkrKTElogQPacHUJihHWwFrg7NTbyg2J5Ru2gMXf2w9A5YIC4TUMDxhS790Er02X1V
+         DEbw==
+X-Forwarded-Encrypted: i=1; AJvYcCVqiWTYbL1g76rq0Aa6i8tnLXk0sfwaVXxA0l0gib8WxUOZsICFE7cQbraVQBTKvTm3RWxc54pmk2XC7vDs4kwk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxwn/xxyWABjEy4J4qyfw4y1x/0GbGmiVaCIzHmUdMB6oej1iej
+	8IOaopU3dyKMWqo39+h6NAa4LBaH8VvtFLnQLGxoDlF/3Fw5Eo5E
+X-Gm-Gg: ASbGncvForFpPJodysiV6UjIs6FpPoYC+T+NHGEczuMb1aytdW3aEtxx//RxIcaVArd
+	w42jTw7fpvj7EhQOSqV/i0OtgOv0MCcJpI5q/HJImabwOqpzWytk8LWGOMrPVRiRSKqJWPK+Sin
+	upN9SvUWlKFTHINOfnVH5pBD9oEe7FeMuOCcmVXyV8KdzRvOKa5SEBgxmKIzBzkHkAc926AtSci
+	l4K+nv5Mo9xg/cqoGs6QduoR7ITkE/ToaP+mEPpgVfIgXbbvtxw4kVRMkr8Z3ggT4A0aB1myaMb
+	g+fdkwTj1+wXhG10wKzAQPJS26v2Vgbby0Pl5/toSAosPQ0EE+Q5Kv9JdQ8Ow5ZNou+8SFWe6mZ
+	aHc8=
+X-Google-Smtp-Source: AGHT+IH8E2+NNMucN2iWnEvCfvVSv1/1e2v1p1j23JiywBOdc8vK1VN/pksuByNIEL9Gc/4zzxsiYQ==
+X-Received: by 2002:a05:620a:1721:b0:7c3:d3a0:578d with SMTP id af79cd13be357-7c3d3a05813mr103204585a.14.1741107442690;
+        Tue, 04 Mar 2025 08:57:22 -0800 (PST)
+Received: from [192.168.1.99] (ool-4355b0da.dyn.optonline.net. [67.85.176.218])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-6e8976ec3b6sm68915966d6.125.2025.03.04.08.57.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 08:57:22 -0800 (PST)
+From: Connor Abbott <cwabbott0@gmail.com>
+Date: Tue, 04 Mar 2025 11:56:48 -0500
+Subject: [PATCH v4 2/5] iommu/arm-smmu-qcom: Don't read fault registers
+ directly
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250304-msm-gpu-fault-fixes-next-v4-2-be14be37f4c3@gmail.com>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+In-Reply-To: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>, 
+ Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
+ Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>, 
+ Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Marijn Suijten <marijn.suijten@somainline.org>
+Cc: iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, freedreno@lists.freedesktop.org, 
+ Connor Abbott <cwabbott0@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741107439; l=5819;
+ i=cwabbott0@gmail.com; s=20240426; h=from:subject:message-id;
+ bh=wzb+Csa73ZgNo4khyGvM8YgSCeUmNILS584s12qUf78=;
+ b=h8YQvcJJIa8Q4NcAJtFPmlRqE4hYKd2Xj6cZY31JoaG29+/XgnzrAdUOk7ztfKNMoB2iXBQyP
+ oqAOUu9lBlwBs7aw4xmzLre3EIEDVUKGbqxEWsi5g+cX8DcYXM7eTlW
+X-Developer-Key: i=cwabbott0@gmail.com; a=ed25519;
+ pk=dkpOeRSXLzVgqhy0Idr3nsBr4ranyERLMnoAgR4cHmY=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_074942_361076_45A7330B 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250304_085723_956119_1F14F4E7 
+X-CRM114-Status: GOOD (  18.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,74 +113,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+In some cases drm/msm has to resume a stalled transaction directly in
+its fault handler. Experimentally this doesn't work on SMMU500 if the
+fault hasn't already been acknowledged by clearing FSR. Rather than
+trying to clear FSR in msm's fault handler and implementing a
+tricky handshake to avoid accidentally clearing FSR twice, we want to
+clear FSR before calling the fault handlers, but this means that the
+contents of registers can change underneath us in the fault handler and
+msm currently uses a private function to read the register contents for
+its own purposes in its fault handler, such as using the
+implementation-defined FSYNR1 to determine which block caused the fault.
+Fix this by making msm use the register values already read by arm-smmu
+itself before clearing FSR rather than messing around with reading
+registers directly.
 
-this is v3 for the LVDS support on TQMa93xx module series.
+Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+---
+ drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 19 +++++++++----------
+ drivers/iommu/arm/arm-smmu/arm-smmu.c      | 14 +++++++-------
+ drivers/iommu/arm/arm-smmu/arm-smmu.h      | 21 +++++++++++----------
+ 3 files changed, 27 insertions(+), 27 deletions(-)
 
-It consists of three parts:
-1. New PLL configuration for 477.4 MHz
-2. LVDS support for imx93
-3. LVDS platform support for tqma9352-mba93xxla & tqma9352-mba93xxca
-
-Patch 1 adds a video PLL configuration for 477.4MHz
-Patch 2 is the imx93 equivalent of commit 1cb0c87d27dc ("dt-bindings:
-  soc: imx8mp-media-blk-ctrl: Add LDB subnode into schema and example")
-Patch 3 is the imx93 equivalent of commit 9cb6d1b39a8f ("soc: imx:
-  imx8m-blk-ctrl: Scan subnodes and bind drivers to them")
-Patch 4 is the imx93 equivalent of commit 94e6197dadc9 ("arm64: dts:
-  imx8mp: Add LCDIF2 & LDB nodes")
-Patch 5 adds LVDS DT overlay for tqma9352-mba93xxla platform
-Patch 6 adds LVDS DT overlay for tqma9352-mba93xxca platform
-
-Changes in v3:
-* Collected Peng's R-b
-* Fixed subject prefix in patch 3/6
-* Fix 'ranges' property both in bindings example and .dtsi
-
-Changes in v2:
-* Rebased to next-20250221
-* Reordered patches
-* Added 'ranges' to bindings
-* Use subnode constraint styles as suggested by Rob Herring
-* Use IMX93_CLK_SYS_PLL_PFD0 as parent for IMX93_CLK_MEDIA_AXI
-* Use 333MHz for IMX93_CLK_MEDIA_AXI
-* Do not set board compatible in orverlays
-* Add MBa93xxCA platform as well
-
-I skipped the support for dynamic PLL configuration for now. This is a
-separate task, see [2].
-
-Best regards,
-Alexander
-
-v2:
-* https://lore.kernel.org/all/20250224142831.485159-1-alexander.stein@ew.tq-group.com/
-v1:
-* https://lore.kernel.org/all/20231020130019.665853-1-alexander.stein@ew.tq-group.com/
-
-Alexander Stein (6):
-  clk: imx: clk-fracn-gppll: Add 477.4MHz config for video pll
-  dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode into schema
-    and example
-  pmdomain: imx93-blk-ctrl: Scan subnodes and bind drivers to them
-  arm64: dts: imx93: Add LCDIF & LDB nodes
-  arm64: dts: tqma9352-mba93xxla: Add LVDS overlay
-  arm64: dts: tqma9352-mba93xxca: Add LVDS overlay
-
- .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 ++++++++++++
- arch/arm64/boot/dts/freescale/Makefile        |  5 ++
- ...3-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso | 40 ++++++++++
- .../freescale/imx93-tqma9352-mba93xxca.dts    | 27 +++++++
- ...3-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso | 40 ++++++++++
- .../freescale/imx93-tqma9352-mba93xxla.dts    | 27 +++++++
- arch/arm64/boot/dts/freescale/imx93.dtsi      | 77 +++++++++++++++++++
- drivers/clk/imx/clk-fracn-gppll.c             |  1 +
- drivers/pmdomain/imx/imx93-blk-ctrl.c         |  7 ++
- 9 files changed, 275 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxca-lvds-tm070jvhg33.dtso
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-tqma9352-mba93xxla-lvds-tm070jvhg33.dtso
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+index 6372f3e25c4bc24cb52f9233095170e8aa510a53..186d6ad4fd1c990398df4dec53f4d58ada9e658c 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c
+@@ -62,16 +62,15 @@ static void qcom_adreno_smmu_get_fault_info(const void *cookie,
+ 		struct adreno_smmu_fault_info *info)
+ {
+ 	struct arm_smmu_domain *smmu_domain = (void *)cookie;
+-	struct arm_smmu_cfg *cfg = &smmu_domain->cfg;
+-	struct arm_smmu_device *smmu = smmu_domain->smmu;
+-
+-	info->fsr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSR);
+-	info->fsynr0 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR0);
+-	info->fsynr1 = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_FSYNR1);
+-	info->far = arm_smmu_cb_readq(smmu, cfg->cbndx, ARM_SMMU_CB_FAR);
+-	info->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(cfg->cbndx));
+-	info->ttbr0 = arm_smmu_cb_readq(smmu, cfg->cbndx, ARM_SMMU_CB_TTBR0);
+-	info->contextidr = arm_smmu_cb_read(smmu, cfg->cbndx, ARM_SMMU_CB_CONTEXTIDR);
++	struct arm_smmu_context_fault_info *cfi = &smmu_domain->cfi;
++
++	info->fsr = cfi->fsr;
++	info->fsynr0 = cfi->fsynr0;
++	info->fsynr1 = cfi->fsynr1;
++	info->far = cfi->iova;
++	info->cbfrsynra = cfi->cbfrsynra;
++	info->ttbr0 = cfi->ttbr0;
++	info->contextidr = cfi->contextidr;
+ }
+ 
+ static void qcom_adreno_smmu_set_stall(const void *cookie, bool enabled)
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+index a9213e0f1579d1e3be0bfba75eea1d5de23117de..498b96e95cb4fdb67c246ef13de1eb8f40d68f7d 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+@@ -453,26 +453,26 @@ void arm_smmu_print_context_fault_info(struct arm_smmu_device *smmu, int idx,
+ 
+ static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+ {
+-	struct arm_smmu_context_fault_info cfi;
+ 	struct arm_smmu_domain *smmu_domain = dev;
++	struct arm_smmu_context_fault_info *cfi = &smmu_domain->cfi;
+ 	struct arm_smmu_device *smmu = smmu_domain->smmu;
+ 	static DEFINE_RATELIMIT_STATE(rs, DEFAULT_RATELIMIT_INTERVAL,
+ 				      DEFAULT_RATELIMIT_BURST);
+ 	int idx = smmu_domain->cfg.cbndx;
+ 	int ret;
+ 
+-	arm_smmu_read_context_fault_info(smmu, idx, &cfi);
++	arm_smmu_read_context_fault_info(smmu, idx, cfi);
+ 
+-	if (!(cfi.fsr & ARM_SMMU_CB_FSR_FAULT))
++	if (!(cfi->fsr & ARM_SMMU_CB_FSR_FAULT))
+ 		return IRQ_NONE;
+ 
+-	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+-		cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
++	ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi->iova,
++		cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+ 
+ 	if (ret == -ENOSYS && __ratelimit(&rs))
+-		arm_smmu_print_context_fault_info(smmu, idx, &cfi);
++		arm_smmu_print_context_fault_info(smmu, idx, cfi);
+ 
+-	arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi.fsr);
++	arm_smmu_cb_write(smmu, idx, ARM_SMMU_CB_FSR, cfi->fsr);
+ 	return IRQ_HANDLED;
+ }
+ 
+diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+index d3bc77dcd4d40f25bc70f3289616fb866649b022..411d807e0a7033833716635efb3968a0bd3ff237 100644
+--- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
++++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+@@ -373,6 +373,16 @@ enum arm_smmu_domain_stage {
+ 	ARM_SMMU_DOMAIN_NESTED,
+ };
+ 
++struct arm_smmu_context_fault_info {
++	unsigned long iova;
++	u64 ttbr0;
++	u32 fsr;
++	u32 fsynr0;
++	u32 fsynr1;
++	u32 cbfrsynra;
++	u32 contextidr;
++};
++
+ struct arm_smmu_domain {
+ 	struct arm_smmu_device		*smmu;
+ 	struct io_pgtable_ops		*pgtbl_ops;
+@@ -380,6 +390,7 @@ struct arm_smmu_domain {
+ 	const struct iommu_flush_ops	*flush_ops;
+ 	struct arm_smmu_cfg		cfg;
+ 	enum arm_smmu_domain_stage	stage;
++	struct arm_smmu_context_fault_info cfi;
+ 	struct mutex			init_mutex; /* Protects smmu pointer */
+ 	spinlock_t			cb_lock; /* Serialises ATS1* ops and TLB syncs */
+ 	struct iommu_domain		domain;
+@@ -541,16 +552,6 @@ struct arm_smmu_device *qcom_smmu_impl_init(struct arm_smmu_device *smmu);
+ void arm_smmu_write_context_bank(struct arm_smmu_device *smmu, int idx);
+ int arm_mmu500_reset(struct arm_smmu_device *smmu);
+ 
+-struct arm_smmu_context_fault_info {
+-	unsigned long iova;
+-	u64 ttbr0;
+-	u32 fsr;
+-	u32 fsynr0;
+-	u32 fsynr1;
+-	u32 cbfrsynra;
+-	u32 contextidr;
+-};
+-
+ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
+ 				      struct arm_smmu_context_fault_info *cfi);
+ 
 
 -- 
-2.43.0
+2.47.1
 
 
