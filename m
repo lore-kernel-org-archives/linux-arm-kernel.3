@@ -4,63 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3701C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:52:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E750C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 13:07:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vPmYBoeGATCCv2VEhfHoVQiVkvWkgyA9jYrrvRoXKV4=; b=o0eR3b0Vs6V224aTM2oLTzuC4x
-	Vxvj1slcHXO0a6UhDICByu2BS9zrnpgDAEV4cRZS9w/BZqj2A2MGYTZkvE5q0eLEyFn2qs73RK0Vd
-	PBR5feBboZ81D5nqtQiyfChQb8NG+ZNU+Isp2XrpbH62lUNdigEteTxYpduBvs1Jo+ybLxZT5irGg
-	l3AJ4EeWrMsDxS0vzcnQin5HUD34c5y3W7+gLBTACQ906tFj9TmBdU8UU2mpedeSZGctT66yoP3fE
-	Gpe7K/dBaCXzOSLOTZyHMLUiFNH6nKBSFX8q3Ob8i5CMh9L/PMJ3sxRNlNOgOJOp/PzlAyRefgHpq
-	oq2Jm8rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/TgX9nY0U+qPfOivHlBQzS/WnTYH3uLk/U/VnlOE+uA=; b=MVxLivxo8rryaz6k/xbORBH1XA
+	0nCNqwDZTHhO58O6g3boUaanOPWxKmHx75Fn9KXM4OEfeK4DvI+DdsUeRxZZdtYYB3YtFPgrrwR+7
+	CIRDRCgdubQgpsZCwszM529PIolrT/7MrqS+W7aPhwn9WVpfyGO0jwv2elYQuYwL92c+0zgJaTt7H
+	0VnaKWr5kbEsz0EIBiNtt70IRbqeEvnWWKrDPFV2g/GVRUbq1Qs2gz7DkkoF+05mToJLLjh9WucU7
+	HGIpfwv4gzzut/MoaHKtl6BwiD8pPC+HkGb1RaHV/LEFh6Jpjrl4F+n7FNIfV+crLlXQo/UqdG43b
+	hgx7IY4Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRlO-00000004hFu-3jcN;
-	Tue, 04 Mar 2025 12:52:46 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpRzR-00000004j9g-29Kl;
+	Tue, 04 Mar 2025 13:07:17 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRf8-00000004g5k-2RZ7
+	id 1tpRxq-00000004irt-34zl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 12:46:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AA5845C4947;
-	Tue,  4 Mar 2025 12:44:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1C53C4CEE7;
-	Tue,  4 Mar 2025 12:46:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741092377;
-	bh=hZV0kE8HoZAQPzIo6cy2S7FlcfwAWIMzw3HFqDgdCyc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ZfaSJwYQ8q2OyZKnda1/E9qpJ5XBbeIOvZiXHa1AFQ1wxkEP8lkN9xWDeLgUTzPRL
-	 QA1g41frBWJdwPC+s733y8YwcNlXjUxJBLdOSYtVO08EOFfG/v8JrrjW6T4166F9SN
-	 6hIdXtWpvN96OiGbyULwFZd8/oqh8XSPUoCXJKQLaYwRxCDw7IV7uaUcB6famTXJwY
-	 PjGWmY5nR+NFeAYBSeeqZ0FjAVnLpfR4XnzfDI762rKYNtcgbuhFC6O5Q3w0Vd+Txs
-	 dAFGuRek13BM46tJosWAe+gEgD3TLEeUZ3v7UC7sObOQlGYjmMjAfXE61xPZujWfo6
-	 pFHwyyukJMk9g==
-Message-ID: <6ae42224-74cf-4d2e-88fb-f766279d3525@kernel.org>
-Date: Tue, 4 Mar 2025 06:46:18 -0600
+	Tue, 04 Mar 2025 13:05:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741093538; x=1772629538;
+  h=from:date:to:cc:subject:in-reply-to:message-id:
+   references:mime-version;
+  bh=kId64MTN2SwW88P18+0OurZ0XEpuA7JeJv0/MwjsJj4=;
+  b=JknpjyFC2M4rzJkkYClUpvq/aSXxZvrJqIHUgboCSfQl42CJSDlTF02P
+   ENFDhRjg9hfQDWz1OnnRoFtaGEVhF6xGXG/z7dyitEhqyhSUupVk13KwN
+   O6/YHGVkkGTB7agt11gD0QdPgIVJAYK3ChP6GaTtenDiOBOI9aKDKxhPZ
+   PCaOMY7lImhcAKBZf5rei90daDFT2DqAJ51JZUwSL7fvU8XhsPQw0S9YS
+   6j8NVCtWkh8+3LDdlqHuB+f2JFWgbb495jgB4GMMTPNUD09Mooj8o+FgW
+   3URm19Zer3nxGoPqSs7UNkEUOj4rwxR12D9mxopq3bo4QieMzXhh2kIwZ
+   g==;
+X-CSE-ConnectionGUID: IRU3ofnOTmyHPCTCJ2cT3w==
+X-CSE-MsgGUID: dYV4U4dUTAesWQq5lhkT3w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="41187701"
+X-IronPort-AV: E=Sophos;i="6.13,331,1732608000"; 
+   d="scan'208";a="41187701"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 05:05:35 -0800
+X-CSE-ConnectionGUID: bmwojJy2R9y2fe7aUkBKJw==
+X-CSE-MsgGUID: LIenP46HT/eSa0i+DPjIHA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="123563998"
+Received: from ijarvine-mobl1.ger.corp.intel.com (HELO localhost) ([10.245.245.220])
+  by orviesa005-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 05:05:27 -0800
+From: =?UTF-8?q?Ilpo=20J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
+Date: Tue, 4 Mar 2025 15:05:24 +0200 (EET)
+To: Paolo Abeni <pabeni@redhat.com>
+cc: Hans de Goede <hdegoede@redhat.com>, x86@kernel.org, 
+    LKML <linux-kernel@vger.kernel.org>, Netdev <netdev@vger.kernel.org>, 
+    platform-driver-x86@vger.kernel.org, 
+    linux-stm32@st-md-mailman.stormreply.com, 
+    linux-arm-kernel@lists.infradead.org, 
+    Choong Yong Liang <yong.liang.choong@linux.intel.com>, 
+    Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>, 
+    Jose Abreu <Jose.Abreu@synopsys.com>, 
+    David E Box <david.e.box@linux.intel.com>, 
+    Thomas Gleixner <tglx@linutronix.de>, 
+    Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>, 
+    Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
+    Dave Hansen <dave.hansen@linux.intel.com>, 
+    "H . Peter Anvin" <hpa@zytor.com>, David E Box <david.e.box@intel.com>, 
+    Andrew Lunn <andrew+netdev@lunn.ch>, 
+    "David S . Miller" <davem@davemloft.net>, 
+    Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, 
+    Heiner Kallweit <hkallweit1@gmail.com>, 
+    Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+    Richard Cochran <richardcochran@gmail.com>, 
+    Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+    Jiawen Wu <jiawenwu@trustnetic.com>, 
+    Mengyuan Lou <mengyuanlou@net-swift.com>, 
+    Russell King <linux@armlinux.org.uk>, 
+    Serge Semin <fancer.lancer@gmail.com>
+Subject: Re: [PATCH net-next v9 3/6] arch: x86: add IPC mailbox accessor
+ function and add SoC register access
+In-Reply-To: <48885074-b590-41e6-9794-49ec12713cce@redhat.com>
+Message-ID: <d8e04cf2-afb9-dead-f7c2-297c66969081@linux.intel.com>
+References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com> <20250227121522.1802832-4-yong.liang.choong@linux.intel.com> <48885074-b590-41e6-9794-49ec12713cce@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/2] ARM: dts: socfpga: Add basic support for
- Terrasic's de10-nano
-To: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
-Content-Language: en-US
-From: Dinh Nguyen <dinguyen@kernel.org>
-In-Reply-To: <cover.1738600838.git.u.kleine-koenig@baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/mixed; boundary="8323328-97556846-1741093524=:931"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_044618_659908_7C00B06C 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20250304_050538_788765_22685301 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,32 +106,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/3/25 10:46, Uwe Kleine-König wrote:
-> Hello,
-> 
-> The only change since v2
-> (https://lore.kernel.org/linux-arm-kernel/20250130074553.92023-2-u.kleine-koenig@baylibre.com):
-> is that I added patch 1/2 that is supposed to fix the warning that I
-> failed to notice with the testing I did. Thanks to Krzysztof and Rob for
-> their patience with me. I hope I got it right now.
-> 
-> Best regards
-> Uwe
-> 
-> Uwe Kleine-König (2):
->    dt-bindings: altera: Add compatible for Terasic's DE10-nano
->    ARM: dts: socfpga: Add basic support for Terrasic's de10-nano
-> 
->   .../devicetree/bindings/arm/altera.yaml       |  1 +
->   arch/arm/boot/dts/intel/socfpga/Makefile      |  1 +
->   .../socfpga/socfpga_cyclone5_de10nano.dts     | 95 +++++++++++++++++++
->   3 files changed, 97 insertions(+)
->   create mode 100644 arch/arm/boot/dts/intel/socfpga/socfpga_cyclone5_de10nano.dts
-> 
-> base-commit: 00f3246adeeacbda0bd0b303604e46eb59c32e6e
+  This message is in MIME format.  The first part should be readable text,
+  while the remaining parts are likely unreadable without MIME-aware tools.
 
-Applied!
+--8323328-97556846-1741093524=:931
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: QUOTED-PRINTABLE
 
-Thanks,
-Dinh
+On Tue, 4 Mar 2025, Paolo Abeni wrote:
+
+> On 2/27/25 1:15 PM, Choong Yong Liang wrote:
+> > From: "David E. Box" <david.e.box@linux.intel.com>
+> >=20
+> > - Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
+> > - Enables the host to access specific SoC registers through the PMC
+> > firmware using IPC commands. This access method is necessary for
+> > registers that are not available through direct Memory-Mapped I/O (MMIO=
+),
+> > which is used for other accessible parts of the PMC.
+> >=20
+> > Signed-off-by: David E. Box <david.e.box@linux.intel.com>
+> > Signed-off-by: Chao Qin <chao.qin@intel.com>
+> > Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+>=20
+> Hans, Ilpo, are you ok with this patch going through the netdev/net-next
+> tree?
+
+Yes, it you can merge it through netdev trees.
+
+The function added into the header is a bit large on footprint front but=20
+there are not that many callers so I guess it's okay.
+
+Acked-by: Ilpo J=C3=A4rvinen <ilpo.jarvinen@linux.intel.com>
+
+
+--=20
+ i.
+
+--8323328-97556846-1741093524=:931--
 
