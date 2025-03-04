@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52263C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:23:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 785A3C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:30:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oMnVKEeUpMj1/oLWqzycRfePjsua/6mSkJtKt6Ux614=; b=JQXYTde0m77THs8NlwrUFqeJ6V
-	XIxMEQEypW2ffQYTksd5nL+jZC3Huw7gO3N+um1mwZS+nkxzY9jVEgYdUFLwSze4TvByqagZ0Go2H
-	U1zInuxUEz1BGuML+Q82EoypRl25V6/i9l9Pqyh/p4qZUsw2btnNO3cNzD4KUHDoqSygHyNw8sqdj
-	IR3WZTxW2hACtWasyjNQM3icQPlrQdgQWg7unjG6IpZk1bkTMEsmMUIK+D5o8RnM1koqhvzq2TGsn
-	hPzWN3SYrhnxwaojREGYhguFCQYr+K7LOpb3jIThPKVbVM2sw2LdWxtHM/YdwxieXaZx5FYstboC8
-	5bX1VbVA==;
+	bh=Zk8Soy+JRX/+LrBD7hjXlBALYaubRsHQy7XvXqHQu9Y=; b=vpN5vHcAgR58kIYsl1KHEQxKN+
+	4LI4AnjGBAuvAn0IJG/qJM2NO9XVhZCeS3DGwb7syKRgglW/mS+NuViFygTrN+tUllJ5DSEMo1cXo
+	LHbQ+i6FZplxIEmR7ojUtah/MM7yYkxhsiAaFvBDJ4ZME0PH/ot6Rxgd4soaC/XrqOacGOu0BHyfM
+	UGbJmcNPVhXJjbJq7FLnRbq/kGMGqDlNt0TWJVQtlw8R8DvlHO0RdasKNax2/RhYdsihp0P0kO11e
+	kJdrXdg9YSAQNtHCZaxsyO7Wlg6+9+TbrYL8m/H9ei4WDngHfOovy5g2J8fTJnFL864esr+eXPprG
+	k23g9lwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRJD-00000004cUu-1jQh;
-	Tue, 04 Mar 2025 12:23:39 +0000
+	id 1tpRPe-00000004ds4-0cE8;
+	Tue, 04 Mar 2025 12:30:18 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRG2-00000004c5P-4A28;
-	Tue, 04 Mar 2025 12:20:24 +0000
+	id 1tpRO3-00000004dbH-2RPJ;
+	Tue, 04 Mar 2025 12:28:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741090821;
-	bh=PUBEhxWckZa+nMU3VKaHI27uqQbQR5AaVBf7PjPU6tE=;
+	s=mail; t=1741091317;
+	bh=hXQr2JDc6VwEA4oybx8Hdat3clPEU6hQMlM5Zb8perI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NmRVOV/xONIj5eHdISMlWCxuRIK24rWjtoMvWosf2uKorM4q3XE9Ra1osDQbdKEj8
-	 QBE8WZ5Rv6zcpjxfbcklLn01z4tMsBJz2L0WlcZc6o9n4BACYWHiOYCeEfTh1MLSQG
-	 c3TB4Cl/CHtTAn0aF1rjXhf5cceZLUsSSSK0jZ85uuhhCgQPUgl1aniuCHyhes0upn
-	 CD1q5CnHeMntxl15d1wQcRMsgqa3nRSgsZ/jUHUzunHeyDGNdAlV+l//85TuNDMv56
-	 sOveCklQ/dQEHKUFEHqfdWrAOb7ZPJDYpOin+UoCO2Im+HyKYIWeLE8nIc8ysIhRkv
-	 IFUsSIZhI4w+Q==
+	b=bHuJpAX9EfysrAFIJ7eOaGldWtzuqJalISkcLY5g2SWE1mKHj9jqimeQs3+Jvcw4T
+	 ZV1mKQoV93K5Ht1KNnpsCHAoy0BU3MBHK5Nq+21BJ7GwQLXNlovFdBooRbUVYMJF0+
+	 Y8WMkrFaN+eEhGbUETuiDaEw5j2dwwhnbKQBw9ETrTf8vygNidVwR+NR/H0T5iSGEK
+	 QpeUzBshEZA3zEGQBTxkHzCP7SnRpW7guG6rGi+X9ovR1MpfN/wyQhkJMps8NJa2jo
+	 ngkL+2r1eGG0fnzr6ry9DMggnE9kDyyEt7ATTGggwWsvddy88+AcZ9FtBj+cftlAk2
+	 8+axtikx2WJYA==
 Received: from [192.168.1.90] (unknown [188.27.58.83])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B85C517E068F;
-	Tue,  4 Mar 2025 13:20:20 +0100 (CET)
-Message-ID: <bee17643-e0b4-467b-a632-06f91ac7fc3a@collabora.com>
-Date: Tue, 4 Mar 2025 14:20:20 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 36ACC17E023F;
+	Tue,  4 Mar 2025 13:28:37 +0100 (CET)
+Message-ID: <71817739-7ecd-478d-ae57-d764e21c8dd9@collabora.com>
+Date: Tue, 4 Mar 2025 14:28:36 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 08/12] phy: rockchip: samsung-hdptx: Provide config
- params validation support
+Subject: Re: [PATCH v4 10/12] phy: rockchip: samsung-hdptx: Add high color
+ depth management
 To: Maxime Ripard <mripard@kernel.org>
 Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
@@ -57,16 +57,16 @@ Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
  linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
 References: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
- <20250304-phy-sam-hdptx-bpc-v4-8-8657847c13f7@collabora.com>
- <20250304-romantic-truthful-sambar-deaab1@houat>
+ <20250304-phy-sam-hdptx-bpc-v4-10-8657847c13f7@collabora.com>
+ <20250304-delicate-crazy-tuatara-5ea4d3@houat>
 From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250304-romantic-truthful-sambar-deaab1@houat>
+In-Reply-To: <20250304-delicate-crazy-tuatara-5ea4d3@houat>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_042023_178572_AC3F2D5C 
-X-CRM114-Status: GOOD (  15.15  )
+X-CRM114-CacheID: sfid-20250304_042839_808572_9D09AA81 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,40 +81,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/4/25 10:18 AM, Maxime Ripard wrote:
-> On Tue, Mar 04, 2025 at 03:44:07AM +0200, Cristian Ciocaltea wrote:
->> Implement the phy_ops.validate() callback to allow checking the PHY
->> configuration parameters without actually applying them.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 23 +++++++++++++++++++++++
->>  1 file changed, 23 insertions(+)
->>
->> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> index 7e1d1c10758249aa5bbddbdaae0108bba04f30df..47db1395051f5d900197871694bab90ca4d6e38e 100644
->> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> @@ -1482,6 +1482,17 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
->>  	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
->>  		return -EINVAL;
->>  
->> +	u32 bit_rate = hdmi->tmds_char_rate / 100;
->> +	int i;
->> +
->> +	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
->> +		if (bit_rate == ropll_tmds_cfg[i].bit_rate)
->> +			break;
->> +
->> +	if (i == ARRAY_SIZE(ropll_tmds_cfg) &&
->> +	    !rk_hdptx_phy_clk_pll_calc(bit_rate, NULL))
->> +		return -EINVAL;
-> 
-> What are you calling bit_rate here? If anything, I'd expect the bit_rate
-> to be a multiple of the char rate, not a divisor.
 
-This is just an unfortunate naming of the search key in struct
-ropll_config, inherited from downstream, given in hHz rather than Hz.
-I've already renamed it in the last patch, while getting rid of those
-annoying unit conversions.
+
+On 3/4/25 10:21 AM, Maxime Ripard wrote:
+> On Tue, Mar 04, 2025 at 03:44:09AM +0200, Cristian Ciocaltea wrote:
+>> @@ -1480,12 +1484,12 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+>>  static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+>>  					   struct phy_configure_opts_hdmi *hdmi)
+>>  {
+>> -	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
+>> -		return -EINVAL;
+>> -
+>>  	u32 bit_rate = hdmi->tmds_char_rate / 100;
+>>  	int i;
+>>  
+>> +	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
+>> +		return -EINVAL;
+>> +
+>>  	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
+>>  		if (bit_rate == ropll_tmds_cfg[i].bit_rate)
+>>  			break;
+> 
+> Why is that change needed?
+
+Oh, that was supposed to be a fixup for "phy: rockchip: samsung-hdptx:
+Provide config params validation support" to keep variable declaration
+section on top.  Not sure how I missed it, probably I chose the wrong
+commit hash while focusing on some other changes during the rebase.
+
+Will sort this out in v5.
+
+Thanks for spotting it,
+Cristian
 
