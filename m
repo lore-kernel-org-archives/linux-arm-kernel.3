@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36193C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52263C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2b/5ukyRNqmFbWc8ToNTxaJWZ+JvSrLpsvdrXtS7LA=; b=j1hN2OwJEgrGLJ2t1XMwxYde9t
-	XsMTRy1B9hQkQf14eC+Mu79gydz2SgEuYvQM9yjSNh55IkS2DZxxBA4L9wuCawRSShpYrbuPoHn/g
-	1gWXkSwfUGNvlSAbS2MCFfEf5X5fPrBJMplCjnOiQSgTyEk5NnoVyab7MsmUfQjeOHrBg1ojzy5dj
-	MhrJzWh9Y/IOb+Qvxp1+QJdKHMdy+ZbCwlrUKaNpwahu667U0kxG2+fNnZrRaZ2ojauMITahRrQIN
-	PxX/tUFMprqim3SyjjuuhA4qHYSXzfrPBNX/gfKyLKubKf52JH6XNaYfiHO71ynGlB73NsIVkBHJ7
-	HLhqS8Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oMnVKEeUpMj1/oLWqzycRfePjsua/6mSkJtKt6Ux614=; b=JQXYTde0m77THs8NlwrUFqeJ6V
+	XIxMEQEypW2ffQYTksd5nL+jZC3Huw7gO3N+um1mwZS+nkxzY9jVEgYdUFLwSze4TvByqagZ0Go2H
+	U1zInuxUEz1BGuML+Q82EoypRl25V6/i9l9Pqyh/p4qZUsw2btnNO3cNzD4KUHDoqSygHyNw8sqdj
+	IR3WZTxW2hACtWasyjNQM3icQPlrQdgQWg7unjG6IpZk1bkTMEsmMUIK+D5o8RnM1koqhvzq2TGsn
+	hPzWN3SYrhnxwaojREGYhguFCQYr+K7LOpb3jIThPKVbVM2sw2LdWxtHM/YdwxieXaZx5FYstboC8
+	5bX1VbVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRHg-00000004cMf-3JzG;
-	Tue, 04 Mar 2025 12:22:04 +0000
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	id 1tpRJD-00000004cUu-1jQh;
+	Tue, 04 Mar 2025 12:23:39 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpRG1-00000004c51-1nnC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 12:20:22 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abec8b750ebso971455366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 04:20:20 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741090819; x=1741695619; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=T2b/5ukyRNqmFbWc8ToNTxaJWZ+JvSrLpsvdrXtS7LA=;
-        b=AoR+AYui9zv0OydLo9oGZFkh8OZ8YLff0+RjpmYfxGRDPAcazt/gp805DwJgqFyP20
-         qWalQIWriektZQIXJwzBAk8b2G6id2C6mCOy5bqQCas/cZW0opCoHUjVw4BRgrfpvoWK
-         fJuBh+bfTyySpB289LRHN9s5QcPZXuD0D6QyC6xqEu+mEDLbcWRxOf63qINEXYH8O9bI
-         vHW/SxdJ6ZBhiNudrNBxnfeJI2Vt84UQd9fMNztjh7rNi55EBs0KO3j4aV0vHH8QzDxY
-         mpnjL/dJPmAZpjObsjk+PPEyX8UcR4hr2Xs33uCyCOcDoIvK9JFhtXuay9fpJuMTmHxl
-         HyhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741090819; x=1741695619;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=T2b/5ukyRNqmFbWc8ToNTxaJWZ+JvSrLpsvdrXtS7LA=;
-        b=MnG+OgOSiSPw4d8t6dW75hBW4b9A676jb9HPpSDbnfzYY6qKjxxAExqYhzXA6KovdG
-         Q1io4KgrvAd2lyDFdhDVcL2ZekA+HP3nN68/iQcBORk1xRKKcPFbMyS/z4VxYmjwekTf
-         sykitHLCXzbk7QSDOFWZzSSVy7JXsA0+XlN6DJY6OSrxrJ33LYToaSbxYKR8HEZiZ0gr
-         gaPVx+mplY6nbX9hp8OrEwNdAmR90+kyFm/KCVL43tNp1vVtkY5PWMcZSgDzTv7OVRj2
-         idc+XB8/0+deJybnnN+d2hFSLOTcZ/lDYV29HNF8b3OH41fhBUcLVCDZkDoHziABD/Az
-         lTXg==
-X-Forwarded-Encrypted: i=1; AJvYcCVt0FeMZ6X8EYJJHtSgvIEu+w1fJHqjmMb7r1NjFVq5sjNyl2H0EmAOSE8nV/6vsB+uvBJ5WlU31P+UnTJasMD2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwNVK6xJvFTdk+Z7K8Ld1nlYVXqfjVoQBeNzi+lnnzI3Fhg2+uQ
-	g0GbL5vcWuhlyWhorpgLMIJcJy2Mf802g0Y1toeozmRMMMtpeE+QQhlmj2VhqLWBcuYT2dOKDC1
-	rQqxkAH536Yqe++W9q97xlKEC/oCs3A==
-X-Gm-Gg: ASbGncswIhTxfL/W9X4abD1E6X605PHMkFn2TiudwKTYCttrcVEQykvPID1+EGfNRqn
-	4LIczqqZgc40lqs2qmHDOGOSvcj1s0H6nhNbycyQEnkwVl8SWu1tk07RmCKpB11xYhPAqoNotu9
-	aPNMX2tvPytfE6c496eWysHbYc2w==
-X-Google-Smtp-Source: AGHT+IHkYWadWW7TaJ6Pjpkx8CZPlIqxBSv7u3JGLhQgehyVgUtS6n03IifPBFz9R3q6GPUl2gY1BtIeWq8xfJUg8Uk=
-X-Received: by 2002:a17:907:6d02:b0:abf:7a80:1a7e with SMTP id
- a640c23a62f3a-abf7a8020bbmr787792166b.9.1741090818886; Tue, 04 Mar 2025
- 04:20:18 -0800 (PST)
+	id 1tpRG2-00000004c5P-4A28;
+	Tue, 04 Mar 2025 12:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741090821;
+	bh=PUBEhxWckZa+nMU3VKaHI27uqQbQR5AaVBf7PjPU6tE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=NmRVOV/xONIj5eHdISMlWCxuRIK24rWjtoMvWosf2uKorM4q3XE9Ra1osDQbdKEj8
+	 QBE8WZ5Rv6zcpjxfbcklLn01z4tMsBJz2L0WlcZc6o9n4BACYWHiOYCeEfTh1MLSQG
+	 c3TB4Cl/CHtTAn0aF1rjXhf5cceZLUsSSSK0jZ85uuhhCgQPUgl1aniuCHyhes0upn
+	 CD1q5CnHeMntxl15d1wQcRMsgqa3nRSgsZ/jUHUzunHeyDGNdAlV+l//85TuNDMv56
+	 sOveCklQ/dQEHKUFEHqfdWrAOb7ZPJDYpOin+UoCO2Im+HyKYIWeLE8nIc8ysIhRkv
+	 IFUsSIZhI4w+Q==
+Received: from [192.168.1.90] (unknown [188.27.58.83])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id B85C517E068F;
+	Tue,  4 Mar 2025 13:20:20 +0100 (CET)
+Message-ID: <bee17643-e0b4-467b-a632-06f91ac7fc3a@collabora.com>
+Date: Tue, 4 Mar 2025 14:20:20 +0200
 MIME-Version: 1.0
-References: <20250216195850.5352-1-linux.amoon@gmail.com> <20250216195850.5352-5-linux.amoon@gmail.com>
- <f44efd1a-1f6e-456d-9395-de2a55ef2279@arm.com> <CANAwSgTpV_kGFEU-ND0N+OEtT6+j4ceq37xAoLyC7iHPWAuLjg@mail.gmail.com>
-In-Reply-To: <CANAwSgTpV_kGFEU-ND0N+OEtT6+j4ceq37xAoLyC7iHPWAuLjg@mail.gmail.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Tue, 4 Mar 2025 17:50:01 +0530
-X-Gm-Features: AQ5f1JpX0iWefCe0V27iOMVW62tgPomNaHMGwjJbtqtjqB7h6WVwx5RmH8xbgrw
-Message-ID: <CANAwSgSWf_YxSi-pzWPaRoiJx7RLrWUz+HTWx5hf+E2x1ZGmoQ@mail.gmail.com>
-Subject: Re: [PATCH v3 4/4] drivers/thermal/exymos: Use guard notation when
- acquiring mutex
-To: Lukasz Luba <lukasz.luba@arm.com>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, open list <linux-kernel@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki" <rafael@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 08/12] phy: rockchip: samsung-hdptx: Provide config
+ params validation support
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, kernel@collabora.com,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
+ <20250304-phy-sam-hdptx-bpc-v4-8-8657847c13f7@collabora.com>
+ <20250304-romantic-truthful-sambar-deaab1@houat>
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250304-romantic-truthful-sambar-deaab1@houat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_042021_480522_A5A7A9F1 
-X-CRM114-Status: GOOD (  28.63  )
+X-CRM114-CacheID: sfid-20250304_042023_178572_AC3F2D5C 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,227 +81,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Lukasz,
+On 3/4/25 10:18 AM, Maxime Ripard wrote:
+> On Tue, Mar 04, 2025 at 03:44:07AM +0200, Cristian Ciocaltea wrote:
+>> Implement the phy_ops.validate() callback to allow checking the PHY
+>> configuration parameters without actually applying them.
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 23 +++++++++++++++++++++++
+>>  1 file changed, 23 insertions(+)
+>>
+>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> index 7e1d1c10758249aa5bbddbdaae0108bba04f30df..47db1395051f5d900197871694bab90ca4d6e38e 100644
+>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>> @@ -1482,6 +1482,17 @@ static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+>>  	if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
+>>  		return -EINVAL;
+>>  
+>> +	u32 bit_rate = hdmi->tmds_char_rate / 100;
+>> +	int i;
+>> +
+>> +	for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
+>> +		if (bit_rate == ropll_tmds_cfg[i].bit_rate)
+>> +			break;
+>> +
+>> +	if (i == ARRAY_SIZE(ropll_tmds_cfg) &&
+>> +	    !rk_hdptx_phy_clk_pll_calc(bit_rate, NULL))
+>> +		return -EINVAL;
+> 
+> What are you calling bit_rate here? If anything, I'd expect the bit_rate
+> to be a multiple of the char rate, not a divisor.
 
-On Sat, 1 Mar 2025 at 00:06, Anand Moon <linux.amoon@gmail.com> wrote:
->
-> Hi Lukasz,
->
-> On Fri, 28 Feb 2025 at 22:58, Lukasz Luba <lukasz.luba@arm.com> wrote:
-> >
-> >
-> >
-> > On 2/16/25 19:58, Anand Moon wrote:
-> > > Using guard notation makes the code more compact and error handling
-> > > more robust by ensuring that mutexes are released in all code paths
-> > > when control leaves critical section.
-> > >
-> > > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > > ---
-> > > v3: new patch
-> > > ---
-> > >   drivers/thermal/samsung/exynos_tmu.c | 21 +++++++--------------
-> > >   1 file changed, 7 insertions(+), 14 deletions(-)
-> > >
-> > > diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-> > > index fe090c1a93ab..a34ba3858d64 100644
-> > > --- a/drivers/thermal/samsung/exynos_tmu.c
-> > > +++ b/drivers/thermal/samsung/exynos_tmu.c
-> > > @@ -256,7 +256,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
-> > >       unsigned int status;
-> > >       int ret = 0;
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >       clk_enable(data->clk_sec);
-> > >
-> > > @@ -270,7 +270,6 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
-> > >
-> > >       clk_disable(data->clk_sec);
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >
-> > >       return ret;
-> > >   }
-> > > @@ -292,13 +291,12 @@ static int exynos_thermal_zone_configure(struct platform_device *pdev)
-> > >               return ret;
-> > >       }
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >
-> > >       data->tmu_set_crit_temp(data, temp / MCELSIUS);
-> > >
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >
-> > >       return 0;
-> > >   }
-> > > @@ -325,12 +323,11 @@ static void exynos_tmu_control(struct platform_device *pdev, bool on)
-> > >   {
-> > >       struct exynos_tmu_data *data = platform_get_drvdata(pdev);
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >       data->tmu_control(pdev, on);
-> > >       data->enabled = on;
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >   }
-> > >
-> > >   static void exynos_tmu_update_bit(struct exynos_tmu_data *data, int reg_off,
-> > > @@ -645,7 +642,7 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
-> > >                */
-> > >               return -EAGAIN;
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >
-> > >       value = data->tmu_read(data);
-> > > @@ -655,7 +652,6 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
-> > >               *temp = code_to_temp(data, value) * MCELSIUS;
-> > >
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >
-> > >       return ret;
-> > >   }
-> > > @@ -720,11 +716,10 @@ static int exynos_tmu_set_emulation(struct thermal_zone_device *tz, int temp)
-> > >       if (temp && temp < MCELSIUS)
-> > >               goto out;
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >       data->tmu_set_emulation(data, temp);
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >       return 0;
-> > >   out:
-> > >       return ret;
-> > > @@ -760,14 +755,13 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
-> > >
-> > >       thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >
-> > >       /* TODO: take action based on particular interrupt */
-> > >       data->tmu_clear_irqs(data);
-> > >
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >
-> > >       return IRQ_HANDLED;
-> > >   }
-> > > @@ -987,7 +981,7 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
-> > >   {
-> > >       struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
-> > >
-> > > -     mutex_lock(&data->lock);
-> > > +     guard(mutex)(&data->lock);
-> > >       clk_enable(data->clk);
-> > >
-> > >       if (low > INT_MIN)
-> > > @@ -1000,7 +994,6 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
-> > >               data->tmu_disable_high(data);
-> > >
-> > >       clk_disable(data->clk);
-> > > -     mutex_unlock(&data->lock);
-> > >
-> > >       return 0;
-> > >   }
->
-> Thanks for your review comments.
-> >
-> > IMO you should be able to even use something like we have
-> > core framework:
-> >
-> > guard(thermal_zone)(tz);
-> >
-> > Your mutex name is simply 'lock' in the struct exynos_tmu_data
-> > so you should be able to leverage this by:
-> >
-> > guard(exynos_tmu_data)(data);
-> >
-
-If I introduce the guard it creates a compilation error
-
-amoon@anand-m920q:~/mainline/linux-exynos-6.y-devel$ vi
-drivers/thermal/samsung/exynos_tmu.c +306
-amoon@anand-m920q:~/mainline/linux-exynos-6.y-devel$ make -j$(nproc)
-ARCH=arm CROSS_COMPILE=arm-none-eabi- LOCALVERSION=-u3ml dtbs zImage
-modules
-  CALL    scripts/checksyscalls.sh
-  CHK     kernel/kheaders_data.tar.xz
-  CC      drivers/thermal/samsung/exynos_tmu.o
-  CC [M]  drivers/md/raid10.o
-In file included from ./include/linux/irqflags.h:17,
-                 from ./arch/arm/include/asm/bitops.h:28,
-                 from ./include/linux/bitops.h:68,
-                 from ./include/linux/kernel.h:23,
-                 from ./include/linux/clk.h:13,
-                 from drivers/thermal/samsung/exynos_tmu.c:14:
-drivers/thermal/samsung/exynos_tmu.c: In function 'exynos_tmu_update_bit':
-./include/linux/cleanup.h:258:9: error: unknown type name
-'class_exynos_tmu_data_t'
-  258 |         class_##_name##_t var
-__cleanup(class_##_name##_destructor) =   \
-      |         ^~~~~~
-./include/linux/cleanup.h:309:9: note: in expansion of macro 'CLASS'
-  309 |         CLASS(_name, __UNIQUE_ID(guard))
-      |         ^~~~~
-drivers/thermal/samsung/exynos_tmu.c:338:9: note: in expansion of macro 'guard'
-  338 |         guard(exynos_tmu_data)(data);
-      |         ^~~~~
-drivers/thermal/samsung/exynos_tmu.c:338:9: error: cleanup argument
-not a function
-  CC [M]  drivers/md/raid5.o
-./include/linux/cleanup.h:259:17: error: implicit declaration of
-function 'class_exynos_tmu_data_constructor'
-[-Wimplicit-function-declaration]
-  259 |                 class_##_name##_constructor
-      |                 ^~~~~~
-./include/linux/cleanup.h:309:9: note: in expansion of macro 'CLASS'
-  309 |         CLASS(_name, __UNIQUE_ID(guard))
-      |         ^~~~~
-drivers/thermal/samsung/exynos_tmu.c:338:9: note: in expansion of macro 'guard'
-  338 |         guard(exynos_tmu_data)(data);
-      |         ^~~~~
-./include/linux/compiler.h:166:45: warning: unused variable
-'__UNIQUE_ID_guard572' [-Wunused-variable]
-  166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_,
-prefix), __COUNTER__)
-      |                                             ^~~~~~~~~~~~
-./include/linux/cleanup.h:258:27: note: in definition of macro 'CLASS'
-  258 |         class_##_name##_t var
-__cleanup(class_##_name##_destructor) =   \
-      |                           ^~~
-././include/linux/compiler_types.h:84:22: note: in expansion of macro '___PASTE'
-   84 | #define __PASTE(a,b) ___PASTE(a,b)
-      |                      ^~~~~~~~
-./include/linux/compiler.h:166:29: note: in expansion of macro '__PASTE'
-  166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_,
-prefix), __COUNTER__)
-      |                             ^~~~~~~
-././include/linux/compiler_types.h:84:22: note: in expansion of macro '___PASTE'
-   84 | #define __PASTE(a,b) ___PASTE(a,b)
-      |                      ^~~~~~~~
-./include/linux/compiler.h:166:37: note: in expansion of macro '__PASTE'
-  166 | #define __UNIQUE_ID(prefix) __PASTE(__PASTE(__UNIQUE_ID_,
-prefix), __COUNTER__)
-      |                                     ^~~~~~~
-./include/linux/cleanup.h:309:22: note: in expansion of macro '__UNIQUE_ID'
-  309 |         CLASS(_name, __UNIQUE_ID(guard))
-      |                      ^~~~~~~~~~~
-drivers/thermal/samsung/exynos_tmu.c:338:9: note: in expansion of macro 'guard'
-  338 |         guard(exynos_tmu_data)(data);
-
-Thanks
--Anand
+This is just an unfortunate naming of the search key in struct
+ropll_config, inherited from downstream, given in hHz rather than Hz.
+I've already renamed it in the last patch, while getting rid of those
+annoying unit conversions.
 
