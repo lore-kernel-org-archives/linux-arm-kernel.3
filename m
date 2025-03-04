@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF48CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:27:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90AEEC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qyiEiO+lrv2EFnXfMGMyPw5E4yChu6zGBy6NaYQRiQY=; b=C7nQuOVM+DFsU/5BnKD35d4hNT
-	0rsSjFKmvMHwfPm+ouLUPZDp5oC9CBXm3C2oPY+8cMzqRfh+EWCToyXRQrPiOF9h1UIG8qAfY1PSx
-	KKinvmQUAZPi+YAI+JW/NHh1ryV5Xs03/Aulm1yVGnAd/rHixn78X1wgR29xESrCCXYl12vLl1sHB
-	YByY1SSCJd50mqrw/rkjlLShqaEYsd5PGogWOzsvGeSsQ4zAyJ6zU4U4+4wFtnzagl81C8qffGtJe
-	r5nH6V/ZH4vP8/+o2+bi60OqBiyiymsngMP3N0cSX+XpmqlZ6vQwlmL2hfhIVgf3hbl54CsjLFRrE
-	sVYv2HqA==;
+	bh=97ERf3V/Bpk7MgoHGPJsnvkiQqZJeJp/kSKmJml6+us=; b=leCusQratkKW0MAkU8ZNGFVazY
+	fZWjPRzFBAgA+C5ax01OWeTv5m0HuIzGHKWR3r5u6rJ3DmkeTWMqJ7zw0LyowPQnDW+HnuZTJllvL
+	t2ouWFb7jAWzvxloJzjIQwFEijFD2kqVEoYa6cxuNROzjcUg9JHaAMSyCeDITRV2sEKDVqwBnycTz
+	1tUW67FNGzafBHMxZA9wLhAiV5V0U/t0X6C9OST2L+ly6PXugxLzuKfKAG44wHRjiccl6NrdNCszx
+	H9fIHnKBW9XEUKJJDzz8obET+L2+TLm4H1O0bSFqiL3Mq19kmJnMn5dVKb7AZiumy+3dZDxyGNzsc
+	Bhza4iaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpLkF-00000003Glz-1pru;
-	Tue, 04 Mar 2025 06:27:11 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tpLln-00000003H9f-0YmT;
+	Tue, 04 Mar 2025 06:28:47 +0000
+Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpLe5-00000003Esx-2qFY
+	id 1tpLe7-00000003Etz-1JWP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 06:20:50 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e55ec94962so2555244a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 22:20:49 -0800 (PST)
+	Tue, 04 Mar 2025 06:20:52 +0000
+Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e4c0c12bccso9271570a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 22:20:50 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741069248; x=1741674048; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741069250; x=1741674050; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=qyiEiO+lrv2EFnXfMGMyPw5E4yChu6zGBy6NaYQRiQY=;
-        b=Yr3TbwBJ1vIvRB0ucKY3cdUaPNSffb9dQmF8ZqVZxUK33fxgTbw7T/yiUQJSTHPW1k
-         H7R5D50XQWM/MSfvyDEUIi2qywGlBKl3WB613OJNOYaZqfPhqsmYWkqcit0MZ7Vt0TJ/
-         eDYcD18Nihn61vpHpknmYxnUY5xfShApYnTM+jL5fdJWCygMaHXng1F0zRwGDoaMn9Dk
-         rIpsUs0S4FKtfEryvaQ/copb4bcc3LSusqND47HkgaxJSKHzazYta0gx/HTYciiM9TGh
-         jKKmdq8HvNn+ci5GcgvA3cZWoDsAZ0q2L+YauGHMHQDOghoBVbIBa9uc4VfDEu2ZVNbV
-         O+bQ==
+        bh=97ERf3V/Bpk7MgoHGPJsnvkiQqZJeJp/kSKmJml6+us=;
+        b=ddPO/+UQ5alxOghran3MQ3tvcAiyHlArhYpGdJsMR+6a0w0TOARP8h9EBZ+ZZiU1NV
+         lzuwiaCSQetkRO1Og5C9Anrgma65LfqGsWv0YlOwpiCICTQ2q+gYvGMubl/H3dms5WwO
+         CeE2kPCKXaYBD8hWbXn90cQZsV9tcSQP21XbEf7Je2JhCw57bl2rXOVcIMCmqFABlGDs
+         5Mu4xftgHVW29inksjzS6llOeMCUFiR3QhHgPsxhTVAtL1icA7GYeADGix5W5p8ZzMDI
+         uwmBp0KQFsxk9hOsWntPXEqqERPbLC54ctbcVDu66nhEiPQ30ND3tvTODuauO8dfaax8
+         Tl+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741069248; x=1741674048;
+        d=1e100.net; s=20230601; t=1741069250; x=1741674050;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=qyiEiO+lrv2EFnXfMGMyPw5E4yChu6zGBy6NaYQRiQY=;
-        b=w7Vc6A4JR6P9rlQSdrD+SQcEplgRoispcTyUX6AvR0K+dzv3401OxFPceSBLV4VddW
-         KuxlfZFfvid2hrnc3PATx4mCY1sx244duYfB428JPOgtgD5msYGOmoLpWgWIPEi4ET1R
-         2ZHFu0bv9PIRibuFJdvqzOLfmq4425lmxxcMK4BV/8dwjvTbtIDkAidXc/UUl2TAP6SG
-         sHYLzKS5izy+f5SV/DOzGBUs6KtQO6NYmPvpK29QVaXHYgL2DWaqauYgKnXu6BQpM9dC
-         kD92Z42ARt3iXfZRoUhnI5FBJzGYxzpt+SKxtu08XopVsa913xDnYBpfey3L2qMerlpL
-         9bXQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWs+yRIomGwBJ66JQ2/8dZ2ZeIoN7sAptSTpv1hdv2nhv8DbGuKGef8iMRH0dYgZ4NAIbN+oFc2HrLxeKdlSK2+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwG6F5c2orHOdTRFmkZRoMilNW8Kbuh1CLgPhWYdu4lBa8SZeTf
-	WmWcJK4Vi98CLCMy+h3KM1hTQVSJ21Qq2/zeZjgbMlkxR81K+R4+
-X-Gm-Gg: ASbGnctdgNqs3NHE/3E/MCB0nmfeUllWo/PIFrWXbqRN87QRbp/S1/8unxyD772Xmpo
-	jaNKsQpm0SCYuWZSUZiuks9lGzMtuTHhHGbp2W63apVOZvsOuaS208fr7jQtFgaLB3P4z2bDAQF
-	qJAvRvttImIEEXseePd1NzrWDtV+bJGb4c5PrS77GVIwcfx+HFIIwe1tUmWNig7G+o5H8DYGrCm
-	jIiiVtRDNRuByjQO9MUs9LHJzhky7HhIPRydeL4emshjsHUw7EyfHKwy4mXxG1URkAA70leDEBs
-	a3rp6jeNYGca+HeyYP5YUeiZFvN5AVgXqLhMlnqgw/2YLdqCfjhsAt6kin68k8n7plFbruGawO+
-	dGqa7iS7UpXoLEEU=
-X-Google-Smtp-Source: AGHT+IF2tnU7nvXtOlGzN4lOLDFoWcyh4RVs6EFLjb17C7DUOfM5XfLgvmFycbkrGKgTPU1KHz2BuQ==
-X-Received: by 2002:a05:6402:2714:b0:5e4:d530:31a0 with SMTP id 4fb4d7f45d1cf-5e4d6921913mr18579693a12.0.1741069247649;
-        Mon, 03 Mar 2025 22:20:47 -0800 (PST)
+        bh=97ERf3V/Bpk7MgoHGPJsnvkiQqZJeJp/kSKmJml6+us=;
+        b=Zs3YLKYl220w7+BK31aXV+KoxABnpRFL3uMINwkf2FOMrLcy64F1PbYqJCidmA/Fsb
+         9ZxtsnKgpR63gKAESSblTgKuSC+uX8GRwS8T0sbMoHlUZn87tVklDY3xff4gB9s+m8DD
+         0ab0CutarX4cvmfPy0VU+DPwkxU2L6wHqulPnIQSgWv07yh7kTjy87g+739A9YuddrrD
+         4H/6fCAfk+ZM8t7V1Oh70trnBL6dPe/jbLO7b4mEVrmvUY4412bHIrr0XcgC62AOYHVT
+         UtmmBKbID8leGrn+slfyYOG2BwL05w3djOJOyhE91QpEU4DArt2O/7ezytefncnr+HNC
+         /3VQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUZxeE3p80vdOoN3Z0xikFJ8kHapeFRieISlTcqvAK9P7m7FXTC8k6dOGGFav5AhOmYkAxGyLN/CdtUOKWnmRuU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOU0MpA+GM/160Y6v6G8n0MAdIBN1tJaMCMfrPi9w1Gl4jcIL0
+	0++w8ixy6VOitBrtTmgjBr/cyjafWCLU83GTXsCbWyuM1fMUbrSUXVQFFg==
+X-Gm-Gg: ASbGncv2OsavgG6LvhYfjerkWodQuy6z4WThNksJzk5DJJoifLfUwgc1H1gkgyQcHB/
+	11P7ACvw+HdEZZzBYT13tqC24pR5O1M5NNL7h6w+gmpJTMvQRDcvIXZRvcsRqXDFGphmmAjajQw
+	vbidWGZBi71uHtRIToOJZSOvs5JoO3LfhVz5UVQ0bOQbG9lkmWanWwgr24ZW6JuKZnwQJAY2xhz
+	OTvzpMAC9HNlrS/weI8hFM73Y+bddLvTLjF2r7IzfC9hf+zgLTRJaSH4ng1vrIgJ7y0TRNRwfvd
+	Dff/tNM5YO893lEnOSEwSzPwGa0h/Qil6/0Nezm0X2+lnaILMdqE5F+Qd6QHVnkj/x9pW/Esl+o
+	eKTEZgnCi8dRRvh8=
+X-Google-Smtp-Source: AGHT+IETu8E7wBlicYrIJPSlHcZly3Nq9bJ5rvMGIHFhEg3oFUbbPHyfXTWuUCwSJ4ixrhNvMNd+Lg==
+X-Received: by 2002:a05:6402:5190:b0:5dc:1289:7f1c with SMTP id 4fb4d7f45d1cf-5e4d6b853a7mr19363341a12.29.1741069249529;
+        Mon, 03 Mar 2025 22:20:49 -0800 (PST)
 Received: from hex.my.domain (83.8.122.142.ipv4.supernova.orange.pl. [83.8.122.142])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c43a663fsm7609036a12.68.2025.03.03.22.20.45
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e4c43a663fsm7609036a12.68.2025.03.03.22.20.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 03 Mar 2025 22:20:46 -0800 (PST)
+        Mon, 03 Mar 2025 22:20:49 -0800 (PST)
 From: Artur Weber <aweber.kernel@gmail.com>
-Date: Tue, 04 Mar 2025 07:20:33 +0100
-Subject: [PATCH v6 02/10] dt-bindings: mfd: brcm,bcm59056: Add compatible
- for BCM59054
+Date: Tue, 04 Mar 2025 07:20:34 +0100
+Subject: [PATCH v6 03/10] ARM: dts: Drop DTS for BCM59056 PMU
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250304-bcm59054-v6-2-ae8302358443@gmail.com>
+Message-Id: <20250304-bcm59054-v6-3-ae8302358443@gmail.com>
 References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
 In-Reply-To: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
 To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
@@ -91,16 +90,16 @@ Cc: Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
  ~postmarketos/upstreaming@lists.sr.ht, 
  Artur Weber <aweber.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741069239; l=4438;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741069240; l=4265;
  i=aweber.kernel@gmail.com; s=20231030; h=from:subject:message-id;
- bh=uKY/pvKOppCATK1lW8BOBHq0yCrMNbql6EnLBlHnpBs=;
- b=pEI/t3Zh4tTV3f80cqxONxxxBDb+oiyEgfqUMy+9olMlnTzzZ8+zz2vnLPEEeyX+Ol2tEsCIz
- fUVEMSEFQdnC6amEbP4VVcm3z4uPmimF4NRxs2+r7N+XS7GcuauXJOf
+ bh=oSsgHxWm93UX4Dr0gTfLMbljoK+SAeJiEhBDHrh1GCg=;
+ b=0Ge+lOaV9AGpWKF2qpI9XFmgFwmsiyDdxZ9rSmekozIIvQToAB7WXH8CJNzl3txCTOGpL4DBN
+ THKadnJOkdeCdQTORr5ZP8w7+7qHglq/cP1gr+oih6+hQcISNGQmhiN
 X-Developer-Key: i=aweber.kernel@gmail.com; a=ed25519;
  pk=RhDBfWbJEHqDibXbhNEBAnc9FMkyznGxX/hwfhL8bv8=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_222049_726020_088E68F3 
-X-CRM114-Status: GOOD (  17.11  )
+X-CRM114-CacheID: sfid-20250303_222051_370899_75393E0E 
+X-CRM114-Status: GOOD (  14.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,155 +114,206 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The BCM59054 MFD is fairly similar to the BCM59056, and will use
-the same driver. Add compatible and specify the allowed regulator
-nodes.
+The BCM59056 PMU has its own separate DTSI, meant to be included
+in a DTS file after defining the pmu node on some I2C bus.
+
+This seems rather unintuitive; drop the DTS in favor of adding the
+BCM59056 PMU node directly into the device DTS files.
+
+If the amount of subdevices supported by the BCM590xx grows, and
+a common device tree turns out to be beneficial, it can be reintroduced
+in the future.
 
 Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 ---
-Changes in v6:
-- Replace mfd/brcm,bcm590xx.yaml with mfd/brcm,bcm59056.yaml
-
-Changes in v5:
-- Replace mfd/brcm,bcm59056.yaml with mfd/brcm,bcm590xx.yaml in
-  regulator bindings description
-
 Changes in v4:
-- Fix yamllint errors (missing unevaluatedProperties)
-- Drop comment with regulator name list
-- Use full schema paths for $reg
-- Change description of regulator binding to mention BCM59054
-  explicitly
-- Drop quotes around vbus reg name
-- Change "Power Management IC" to "Power Management Unit" to match
-  official Broadcom naming
-
-Note that I did not end up moving the regulator refs from
-allOf compatible matches; I explained my reasoning in [1].
-
-[1] https://lore.kernel.org/lkml/ab853605-859d-44c6-8cbd-44391cd677e6@gmail.com/
-
-Changes in v3:
-- Split regulator node into separate file
-- Removed quotes around compatible
+- PMIC -> PMU in commit message
 ---
- .../devicetree/bindings/mfd/brcm,bcm59056.yaml     | 26 +++++++++-
- .../bindings/regulator/brcm,bcm59054.yaml          | 56 ++++++++++++++++++++++
- 2 files changed, 80 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/broadcom/bcm28155-ap.dts | 68 +++++++++++-----------
+ arch/arm/boot/dts/broadcom/bcm59056.dtsi   | 91 ------------------------------
+ 2 files changed, 32 insertions(+), 127 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml b/Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
-index b387ef9885c3ac524e0782545dbca9c0e81a556c..b67d7a723fc242869e5bdc6b3602785f62af45bd 100644
---- a/Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
-+++ b/Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml
-@@ -11,7 +11,9 @@ maintainers:
+diff --git a/arch/arm/boot/dts/broadcom/bcm28155-ap.dts b/arch/arm/boot/dts/broadcom/bcm28155-ap.dts
+index 2f3634545e64978888cd0b47fd5647a5e2eb8e07..cefaa9a3c45c9c90bffc08f739161d8ea21d98dd 100644
+--- a/arch/arm/boot/dts/broadcom/bcm28155-ap.dts
++++ b/arch/arm/boot/dts/broadcom/bcm28155-ap.dts
+@@ -37,7 +37,39 @@ &pmu_bsc {
+ 	status = "okay";
  
- properties:
-   compatible:
--    const: brcm,bcm59056
-+    enum:
-+      - brcm,bcm59054
-+      - brcm,bcm59056
+ 	pmu: pmu@8 {
++		compatible = "brcm,bcm59056";
++		interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+ 		reg = <0x08>;
++
++		regulators {
++			camldo1_reg: camldo1 {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-always-on;
++			};
++
++			sdldo_reg: sdldo {
++				regulator-min-microvolt = <3000000>;
++				regulator-max-microvolt = <3000000>;
++			};
++
++			sdxldo_reg: sdxldo {
++				regulator-min-microvolt = <2700000>;
++				regulator-max-microvolt = <3300000>;
++			};
++
++			usbldo_reg: usbldo {
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-always-on;
++			};
++
++			iosr1_reg: iosr1 {
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-always-on;
++			};
++		};
+ 	};
+ };
  
-   reg:
-     maxItems: 1
-@@ -21,7 +23,6 @@ properties:
- 
-   regulators:
-     type: object
--    $ref: /schemas/regulator/brcm,bcm59056.yaml#
- 
- required:
-   - compatible
-@@ -30,6 +31,27 @@ required:
- 
- additionalProperties: false
- 
-+allOf:
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: brcm,bcm59054
-+    then:
-+      properties:
-+        regulators:
-+          $ref: /schemas/regulator/brcm,bcm59054.yaml#
-+
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: brcm,bcm59056
-+    then:
-+      properties:
-+        regulators:
-+          $ref: /schemas/regulator/brcm,bcm59056.yaml#
-+
- examples:
-   - |
-     #include <dt-bindings/interrupt-controller/arm-gic.h>
-diff --git a/Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml b/Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..5b46d7fca05e21aa1eae991b5f9f60b444f20c1c
---- /dev/null
-+++ b/Documentation/devicetree/bindings/regulator/brcm,bcm59054.yaml
-@@ -0,0 +1,56 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/regulator/brcm,bcm59054.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Broadcom BCM59054 Power Management Unit regulators
-+
-+description: |
-+  This is a part of device tree bindings for the BCM59054 power
-+  management unit.
-+
-+  See Documentation/devicetree/bindings/mfd/brcm,bcm59056.yaml for
-+  additional information and example.
-+
-+maintainers:
-+  - Artur Weber <aweber.kernel@gmail.com>
-+
-+patternProperties:
-+  "^(cam|sim|mmc)ldo[1-2]$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+  "^(rf|sd|sdx|aud|mic|usb|vib|tcx)ldo$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+  "^(c|mm|v)sr$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+  "^(io|sd)sr[1-2]$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+  "^gpldo[1-3]$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+  "^lvldo[1-2]$":
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+properties:
-+  vbus:
-+    type: object
-+    $ref: /schemas/regulator/regulator.yaml#
-+    unevaluatedProperties: false
-+
-+additionalProperties: false
+@@ -74,39 +106,3 @@ &usbotg {
+ &usbphy {
+ 	status = "okay";
+ };
+-
+-#include "bcm59056.dtsi"
+-
+-&pmu {
+-	compatible = "brcm,bcm59056";
+-	interrupts = <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>;
+-	regulators {
+-		camldo1_reg: camldo1 {
+-			regulator-min-microvolt = <3300000>;
+-			regulator-max-microvolt = <3300000>;
+-			regulator-always-on;
+-		};
+-
+-		sdldo_reg: sdldo {
+-			regulator-min-microvolt = <3000000>;
+-			regulator-max-microvolt = <3000000>;
+-		};
+-
+-		sdxldo_reg: sdxldo {
+-			regulator-min-microvolt = <2700000>;
+-			regulator-max-microvolt = <3300000>;
+-		};
+-
+-		usbldo_reg: usbldo {
+-			regulator-min-microvolt = <3300000>;
+-			regulator-max-microvolt = <3300000>;
+-			regulator-always-on;
+-		};
+-
+-		iosr1_reg: iosr1 {
+-			regulator-min-microvolt = <1800000>;
+-			regulator-max-microvolt = <1800000>;
+-			regulator-always-on;
+-		};
+-	};
+-};
+diff --git a/arch/arm/boot/dts/broadcom/bcm59056.dtsi b/arch/arm/boot/dts/broadcom/bcm59056.dtsi
+deleted file mode 100644
+index a9bb7ad81378d88811c4473763c579d3d2c006a1..0000000000000000000000000000000000000000
+--- a/arch/arm/boot/dts/broadcom/bcm59056.dtsi
++++ /dev/null
+@@ -1,91 +0,0 @@
+-// SPDX-License-Identifier: GPL-2.0-or-later
+-/*
+-* Copyright 2014 Linaro Limited
+-* Author: Matt Porter <mporter@linaro.org>
+-*/
+-
+-&pmu {
+-	compatible = "brcm,bcm59056";
+-	regulators {
+-		rfldo_reg: rfldo {
+-		};
+-
+-		camldo1_reg: camldo1 {
+-		};
+-
+-		camldo2_reg: camldo2 {
+-		};
+-
+-		simldo1_reg: simldo1 {
+-		};
+-
+-		simldo2_reg: simldo2 {
+-		};
+-
+-		sdldo_reg: sdldo {
+-		};
+-
+-		sdxldo_reg: sdxldo {
+-		};
+-
+-		mmcldo1_reg: mmcldo1 {
+-		};
+-
+-		mmcldo2_reg: mmcldo2 {
+-		};
+-
+-		audldo_reg: audldo {
+-		};
+-
+-		micldo_reg: micldo {
+-		};
+-
+-		usbldo_reg: usbldo {
+-		};
+-
+-		vibldo_reg: vibldo {
+-		};
+-
+-		csr_reg: csr {
+-		};
+-
+-		iosr1_reg: iosr1 {
+-		};
+-
+-		iosr2_reg: iosr2 {
+-		};
+-
+-		msr_reg: msr {
+-		};
+-
+-		sdsr1_reg: sdsr1 {
+-		};
+-
+-		sdsr2_reg: sdsr2 {
+-		};
+-
+-		vsr_reg: vsr {
+-		};
+-
+-		gpldo1_reg: gpldo1 {
+-		};
+-
+-		gpldo2_reg: gpldo2 {
+-		};
+-
+-		gpldo3_reg: gpldo3 {
+-		};
+-
+-		gpldo4_reg: gpldo4 {
+-		};
+-
+-		gpldo5_reg: gpldo5 {
+-		};
+-
+-		gpldo6_reg: gpldo6 {
+-		};
+-
+-		vbus_reg: vbus {
+-		};
+-	};
+-};
 
 -- 
 2.48.1
