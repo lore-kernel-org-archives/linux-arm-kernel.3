@@ -4,135 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A7BBC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:14:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DFBC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 22:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=; b=MoT0RcdkJevkpHJ4nZ7SpszPas
-	zOn1tMftrE36D8xnsabuga8q2GM0EDPdDWY1lohLhfnxqUXnb/TIeLCTMYQmo7xAw6KMZmeXOwoIz
-	O8NfmrmQTnHjF0d2eKRV9hP2Tuqak+2DmEb+n3Z9OP3wTpffET3oFEPDLAjifmCDCFYS1JFlKAqdM
-	ECoAQFO+qnEIB0bSiM8YC1dqr1YG2C6Mj/z4RAK/pZtFuKeQUSkO6u9+z8RH66xs7cqGQO57JaV3m
-	YtbZ/xoCTy0PBX5d3NeEn/7jiCChcdxundNTV98nq2FQ9WvsQRb6/P2DM2Ln/3iPOgFRrRcp2nIiX
-	9I8o4/sg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JofA2Qh9JGaxtMid0/5sEvR2yQLob0lQuZxap80vKqw=; b=K1KlfPfcaC9KSJPEFIL+xySfHn
+	hhvOKYednlqXyRw5Ofzipq5ilTyTFw1rRjVQT6Oz4e4jlbb5IhztpM0zsJS1Y7KnEppLBN/Wm7cHZ
+	sNz7xEOA6sicZdqv2mBNzFoJp0XJbHMrNSM+yDecDtlXlTlIEjGpT2MOEj7WXMFftAKk/L7bN0799
+	8AUMKb75n59UijmqT5nkaRWKK+RgytuEl56EN9srkaHU13hc5cYda971Mbqk+YHdSaCfu78ZAQRQl
+	a2VOrXSqIFsiWzsb3oBfxHZUa53bByThMPxgP1qyokZ2FITMX0rvjEQwxJWJ2II7UQyLQw8GICXGp
+	+oFvVXAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaXH-00000006Nm8-2gIG;
-	Tue, 04 Mar 2025 22:14:47 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpabD-00000006O8P-3bJW;
+	Tue, 04 Mar 2025 22:18:51 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZUR-00000006GS0-1HZF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Mar 2025 21:07:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=; b=QoO8LIxSI9XzourG66VXV6K+Zz
-	p6cnxWab0pNukg9gIyymd6r2L5WednQ//SRosq8Cvv4NsRgerYyF+uUPuvu8q6kMnO6rgqffQjuBX
-	TY7hMbunT/eKnjWKeGAZRcvIKpYrrz5+J8lzWiSjl/f6BBDz6QJ/RRzA6NDcRpPWpieDRfSQLKprj
-	ZS704qa327v/+kHh4EfRUePyQLEMclCHbj+LC8/MMK1n28KXxgM+9VxnjAfPBP9e+J0JUlsMmiVQH
-	F4Q+5Z9a6zAkbxlAme04GDi+zfMvbrIUCeKqgPKIDf3Kjap6rH1x071fkHyo8Tz4KuYHithn9DZHo
-	PA20C72A==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpZUO-0000000470n-1ReL
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 21:07:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741122462;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
-	b=AcGodlElm9Ha1Lv6x3wswZayP8TfHWc/jTvj+W8WvSDbMGFNZbIuTShIcoh/Pu7V52PkWX
-	/uqrkvcXegdp6+MAC4jgeOecnbCTkeo6lR2YvubOICeJkC3aS8u5RPz3jUhiK+r4IeU9sz
-	V8O0a993EsuCl8jAmlkSOHLletEeNG4=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741122462;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
-	b=AcGodlElm9Ha1Lv6x3wswZayP8TfHWc/jTvj+W8WvSDbMGFNZbIuTShIcoh/Pu7V52PkWX
-	/uqrkvcXegdp6+MAC4jgeOecnbCTkeo6lR2YvubOICeJkC3aS8u5RPz3jUhiK+r4IeU9sz
-	V8O0a993EsuCl8jAmlkSOHLletEeNG4=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741122463;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LQce4qpcRmddUf2QLSsjxR1D9l6diq/uQYF6rsz7TN8=;
-	b=HRPhrwOxQfeMDUQN3ty8SozLjsP74NbRaunFETU+I/4l9f8XCXhrHBgr1/5FQ7ExDFBdpP
-	A2+rkMb+saN2V96gQ3y+8RPgJrELedG2NIsmzBxO8SSW5EO1HIjlwJSAaK5xjUeLymdTsu
-	e7UvUwwGS90/j5S6V0vb2I5FSS+k4Wc=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-451-aGf9to6LNquqNmDuxHVF4Q-1; Tue,
- 04 Mar 2025 16:06:10 -0500
-X-MC-Unique: aGf9to6LNquqNmDuxHVF4Q-1
-X-Mimecast-MFC-AGG-ID: aGf9to6LNquqNmDuxHVF4Q_1741122365
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id BDD911944EB8;
-	Tue,  4 Mar 2025 21:06:04 +0000 (UTC)
-Received: from asrivats-na.rmtustx.csb (unknown [10.2.16.107])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 8257C1800362;
-	Tue,  4 Mar 2025 21:05:57 +0000 (UTC)
-From: Anusha Srivatsa <asrivats@redhat.com>
-Date: Tue, 04 Mar 2025 16:05:32 -0500
-Subject: [PATCH v5 2/7] drm/hisilicon: move to
- devm_platform_ioremap_resource() usage
+	id 1tpaZd-00000006O3g-44dz;
+	Tue, 04 Mar 2025 22:17:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=JofA2Qh9JGaxtMid0/5sEvR2yQLob0lQuZxap80vKqw=; b=Tkh7mn3A+PYTIgV27zWhch/208
+	ETUALWlqEqZb9jksjEgNDlpzfKLYqN2rarathziQV8Ntjv+PPBBfpKKage0LcF7B5AYw5QcG4mzHk
+	Nds+uv8i40buo1duskWACkkerB1c8+77MtGCmUqDCz/AWnTbCcf/VEohCydBFaftKyZDJ4/Buxmfy
+	mPtQZSVrBco/oLg3OHlqc4Wn15Q5yI3xcUjWkH5zHT1Lf0r43ib9TeG6ezMFV4R1zoTZ6I17a2l91
+	INcWrZvknMxlFFMkx2w45YdSG5m6sc+nEHFuQA6yVC26YXkNz7i4f39l6AJ1KWr3USk5v0Ew3iEAH
+	kPVZlMcw==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tpaBb-0006QR-08; Tue, 04 Mar 2025 22:52:23 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, didi.debian@cknow.org, chris@z9.de
+Subject: Re: [PATCH v2 0/2] Slightly improve hardware description of Pine64 RockPro64
+Date: Tue, 04 Mar 2025 22:52:22 +0100
+Message-ID: <2630232.Icojqenx9y@diego>
+In-Reply-To: <757afa87255212dfa5abf4c0e31deb08@manjaro.org>
+References: <cover.1740941097.git.dsimic@manjaro.org>
+ <174104113599.8946.16805724674396090918.b4-ty@sntech.de>
+ <757afa87255212dfa5abf4c0e31deb08@manjaro.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250304-mem-fixes-v1-2-fb3dab8d901f@redhat.com>
-References: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-In-Reply-To: <20250304-mem-fixes-v1-0-fb3dab8d901f@redhat.com>
-To: Stefan Agner <stefan@agner.ch>, Alison Wang <alison.wang@nxp.com>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Xinliang Liu <xinliang.liu@linaro.org>, Tian Tao <tiantao6@hisilicon.com>, 
- Xinwei Kong <kong.kongxinwei@hisilicon.com>, 
- Sumit Semwal <sumit.semwal@linaro.org>, 
- Yongqin Liu <yongqin.liu@linaro.org>, John Stultz <jstultz@google.com>, 
- Marek Vasut <marex@denx.de>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Orson Zhai <orsonzhai@gmail.com>, 
- Baolin Wang <baolin.wang@linux.alibaba.com>, 
- Chunyan Zhang <zhang.lyra@gmail.com>, 
- Alain Volmat <alain.volmat@foss.st.com>, 
- Raphael Gallais-Pou <rgallaispou@gmail.com>, 
- Thierry Reding <thierry.reding@gmail.com>, 
- Mikko Perttunen <mperttunen@nvidia.com>, 
- Jonathan Hunter <jonathanh@nvidia.com>, Jonathan Corbet <corbet@lwn.net>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-tegra@vger.kernel.org, linux-doc@vger.kernel.org, 
- Anusha Srivatsa <asrivats@redhat.com>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741122340; l=2968;
- i=asrivats@redhat.com; s=20250122; h=from:subject:message-id;
- bh=oMnZPC9HfrwqOolnznL0vrEyroxHYMcgs+Plnnla5aQ=;
- b=62rURfdaBIFw7DrCUv9fnUH7p6ysEIVMO/4/Yg5GBDo21fhkxUh+Ifx+cAee6vXqZcsPQaymk
- krpxTrF8eWhBfqfD4RXviNahensiujDCY2uf/vUOK9KH3kGTS8MeCB8
-X-Developer-Key: i=asrivats@redhat.com; a=ed25519;
- pk=brnIHkBsUZEhyW6Zyn0U92AeIZ1psws/q8VFbIkf1AU=
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_210744_566223_D9936B0E 
-X-CRM114-Status: GOOD (  12.91  )
+X-CRM114-CacheID: sfid-20250304_141714_001746_80693498 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,81 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace platform_get_resource + devm_ioremap_resource
-with just devm_platform_ioremap_resource()
+Am Dienstag, 4. M=C3=A4rz 2025, 07:44:59 MEZ schrieb Dragan Simic:
+> Hello Heiko,
+>=20
+> On 2025-03-03 23:36, Heiko Stuebner wrote:
+> > On Sun, 02 Mar 2025 19:48:02 +0100, Dragan Simic wrote:
+> >> This is a small series that introduces small improvements to the way
+> >> Pine64 RockPro64 [1] single-board-computer is described in the DT=20
+> >> files.
+> >> This applies to both production-run revisions of the RockPro64.
+> >>=20
+> >> The introduced improvements boil down to eliminating some warnings=20
+> >> from
+> >> the kernel log, by adding a previously undefined regulator and by=20
+> >> adding
+> >> some previously missing references to the regulators.
+> >>=20
+> >> [...]
+> >=20
+> > Applied, thanks!
+> >=20
+> > [1/2] arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board=20
+> > dtsi
+> >       commit: bd1c959f37f384b477f51572331b0dc828bd009a
+> > [2/2] arm64: dts: rockchip: Add missing PCIe supplies to RockPro64=20
+> > board dtsi
+> >       commit: 64ef4a4320e7aa3f0f267e01f170f52b90bf0b1b
+> >=20
+> > I've moved the pcie12v supply up one line.
+> > While in a mathematical sense it's true 12 > 3.3, we're sorting
+> > alphabetical, so it's 1?? < 3?? .
+> >=20
+> > And yes I sympathize with 3.3 < 12, but also have come to appreciate=20
+> > not
+> > having overly many special cases :-)
+>=20
+> Great, thanks! :)
+>=20
+> I'm fine with the alphabetical ordering, albeit with some caveats
+> described below, but the following part of the patch description
+> should also be removed, if possible, so the patch description fully
+> matches the introduced changes:
+>=20
+>    Shuffle and reorder the "vpcie*-supply" properties a bit, so they're=20
+> sorted
+>    alphanumerically, which is a bit more logical and more useful than=20
+> having
+>    these properties listed in their strict alphabetical order.
 
-Used Coccinelle to do this change. SmPl patch:
-@rule_1@
-identifier res;
-expression ioremap_res;
-identifier pdev;
-@@
--struct resource *res;
-...
--res = platform_get_resource(pdev,...);
--ioremap_res = devm_ioremap_resource(...);
-+ioremap_res = devm_platform_ioremap_resource(pdev,0);
+I've amended the commit, dropping this block
 
-Cc: Xinliang Liu <xinliang.liu@linaro.org>
-Cc: Tian Tao <tiantao6@hisilicon.com>
-Cc: Xinwei Kong <kong.kongxinwei@hisilicon.com>
-Cc: Sumit Semwal <sumit.semwal@linaro.org>
-Cc: Yongqin Liu <yongqin.liu@linaro.org>
-Cc: John Stultz <jstultz@google.com>
+> I'm hoping you'll agree that specifying alphanumerical ordering
+> for the properties in the DTS coding style is the way to go, just
+> like it's already specified for the ordering of the nodes.  I'll
+> go ahead and submit an appropriate patch for the DT guidelines.
 
-Reviewed-by: Maxime Ripard <mripard@kernel.org>
-Signed-off-by: Anusha Srivatsa <asrivats@redhat.com>
----
- drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c    | 4 +---
- drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c | 4 +---
- 2 files changed, 2 insertions(+), 6 deletions(-)
+vpcie0v9-supply =3D <&vcca_0v9>;
+vpcie1v8-supply =3D <&vcca_1v8>;
+vpcie3v3-supply =3D <&vcc3v3_pcie>;
+vpcie12v-supply =3D <&vcc12v_dcin>;
 
-diff --git a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
-index 2eea9fb0e76bf3ead8f5914e6ebb65b5b3603b9a..e80debdc41763357cb2cf321205c0dfac80a911e 100644
---- a/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
-+++ b/drivers/gpu/drm/hisilicon/kirin/dw_drm_dsi.c
-@@ -825,7 +825,6 @@ static const struct component_ops dsi_ops = {
- static int dsi_parse_dt(struct platform_device *pdev, struct dw_dsi *dsi)
- {
- 	struct dsi_hw_ctx *ctx = dsi->ctx;
--	struct resource *res;
- 
- 	ctx->pclk = devm_clk_get(&pdev->dev, "pclk");
- 	if (IS_ERR(ctx->pclk)) {
-@@ -833,8 +832,7 @@ static int dsi_parse_dt(struct platform_device *pdev, struct dw_dsi *dsi)
- 		return PTR_ERR(ctx->pclk);
- 	}
- 
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	ctx->base = devm_ioremap_resource(&pdev->dev, res);
-+	ctx->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ctx->base)) {
- 		DRM_ERROR("failed to remap dsi io region\n");
- 		return PTR_ERR(ctx->base);
-diff --git a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-index 2eb49177ac42bc6dba692328cca5c99d5925041c..45c4eb008ad5d639340f769ad022d186ec454722 100644
---- a/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-+++ b/drivers/gpu/drm/hisilicon/kirin/kirin_drm_ade.c
-@@ -844,7 +844,6 @@ static struct drm_plane_funcs ade_plane_funcs = {
- static void *ade_hw_ctx_alloc(struct platform_device *pdev,
- 			      struct drm_crtc *crtc)
- {
--	struct resource *res;
- 	struct device *dev = &pdev->dev;
- 	struct device_node *np = pdev->dev.of_node;
- 	struct ade_hw_ctx *ctx = NULL;
-@@ -856,8 +855,7 @@ static void *ade_hw_ctx_alloc(struct platform_device *pdev,
- 		return ERR_PTR(-ENOMEM);
- 	}
- 
--	res = platform_get_resource(pdev, IORESOURCE_MEM, 0);
--	ctx->base = devm_ioremap_resource(dev, res);
-+	ctx->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(ctx->base)) {
- 		DRM_ERROR("failed to remap ade io base\n");
- 		return ERR_PTR(-EIO);
+In the end I don't care _that_ much, but personally I find that
+alphanumerical ordering harder to read ;-) .
 
--- 
-2.48.1
+Because in the example above, my mind now constantly shouts
+"why is vpcie1... after vpcie3... ..... ooooh right, it's alpha-numerical"
+
+But I can live with it I guess ;-) .
+As 3.3 is smaller than 12 afterall.
+
+
+Heiko
+
 
 
