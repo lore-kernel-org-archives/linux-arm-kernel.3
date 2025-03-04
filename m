@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 853A5C021B8
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9AB2C282DC
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:59:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,59 +12,79 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T+feXRx4z2wUHPqJ+Ktl2nRz4X4S3o+EdNLy3mGdC4c=; b=AjScwqwMfVjgYaXJ3zpQFrpnUh
-	qL/80fB4OpIVi4jwzy3zyfgICQP2uSUK7qsKeJ+95wcfkebXNIo7eTVFLvpze3vxqSkoku2gKe6j8
-	sJvNaEfhX1AmXFBCozIpMHB6qdSkbAkF104EzZkdGObtk0pnshtc8DGYyNGGYBf9wKKNc1AEVFj0X
-	lozYrQLIqQC2Oacx4ya1h7sWXwY6QJy38XpNrD0G91IIRg7B4SPq6vXysjtFAp7lZv/RMljfV+nfo
-	+i9kNVRMEFVBA5RUXfDl03bOmDJezI4iPLkh9L5GK9eOOhL8cj3BPRR4I0Jv4rQiHwUcKgg3BmBRI
-	viYwxzWw==;
+	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=; b=QwgbDGeX6SoUn7HGYSstMBYzBA
+	5o5P46lRbH4mbnOfk6xrKVZTeMZm9C78EbxAaEdqVYp/l7ZcPytutnKesJ5gyI/VYo8Cj+F9Uz2J1
+	Iv6tjFMWQMqgZP2/RcsnR+HM9pTENG4/xQB+7vALFq2jjezdTSZ2CNhj2HckWr3u2ADoO2wck4iPd
+	+uBQJiSFW9OyGG1DukM1YiGXTk40AlI7S63ZBx76u1sKXIgSTMKlBadlp+KNNRnH/66kPnwvLcLmf
+	+fkxMLu7B4zk8belxcfi/79x1VNWVLVYaBpNJqOg06RWp5BhTswzPwHDE9WPfcaq2jAOyWFmc+j1N
+	cwy1G6vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXUX-00000005w2b-3cFl;
-	Tue, 04 Mar 2025 18:59:45 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tpXUY-00000005w33-1gk4;
+	Tue, 04 Mar 2025 18:59:46 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUyP-00000005OWC-3mBN
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 16:18:27 +0000
+	id 1tpV2i-00000005PYf-0aLF;
+	Tue, 04 Mar 2025 16:22:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=; b=Gi+/XFf+EFtOdyUiRsMuNx+cSS
+	9y0saL9m2XyZz54ItrS+vgCODmLfO1t6ovQP8Z5bRLN8VJ+L7gfuUFZFiDyKofZZLOQJSU4o7CvCo
+	Om12OTXDdrujHtYVN75o+kaKNuzJcRTVbPdEn5wyKYBrPPOVdyQX8bJPrZxqXjDU0nqDni1MEruK+
+	SW2U2mipZNRX7rKwwK0Dg56bjMyZB1rFwYOz2sbFqthmFF7aNFNBqG/F2okUlKCVi/XqJV5kI+xN1
+	Vmwv7EDteOqxu2fSJaSNswn9juWNKiXUV1XuEsYHIzfod+b2MaWIKE0Vx6GP1HvIPDjp3kVlkzITJ
+	3K1LTnHQ==;
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpV2e-000000005kW-1GCl;
+	Tue, 04 Mar 2025 16:22:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 622665C5F06;
-	Tue,  4 Mar 2025 16:16:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 000EFC4CEE5;
-	Tue,  4 Mar 2025 16:18:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1032EA45921;
+	Tue,  4 Mar 2025 16:17:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47A2AC4CEE5;
+	Tue,  4 Mar 2025 16:22:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741105104;
-	bh=XhtYLV02qtbsJ7+TV85fVvw/Qxk6F/Hh9cvsI0OjeqA=;
+	s=k20201202; t=1741105366;
+	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Dpvztu/URG1nraLrZK66ui8QddhoqBabtvjnTJ45RdC3oW/wrWuuoM/q1Pq+7B97d
-	 P/NuEzIsAX7tegU4t6n9LSh1DViOr2G2n8vMDOSgZLfo9xPHm3FEdxAiVcwiZgdlHT
-	 980Weqz3d1eL4c3JeVxQwTH1duzb3mH3zayiKFEmG6fz/4bX7Wl/NKPmoBw1riJuJc
-	 66v4Fi94oEo8SEYU1/7RIBUzTSrcWYcFJUAMgdZno8OYZiAtJ1jhH7s1jJmQ0wlbSZ
-	 e7gAIvKWkl2qP1FjQLsyCs9EAE5sgUjRBD95IA5CqGlgpZgnRJtezba1T4ObgSDQNB
-	 FC62RSs+eu4bA==
-Date: Tue, 4 Mar 2025 16:18:20 +0000
+	b=iXSPILMiDbG1+OfL9Hg/8K3LiBibffVc9koiFnM2f4SjX85WZqd/35e3hGmJFVart
+	 EZIXyoz0VDyoF/0hTkc0OrscHyyAXkZ9jow3TbRh25hxg7YJXDa19/gDb1Nqz+J39Y
+	 wr033y/xY+yvcEKNMbjabpzp6KWPy1+I41dskudD8nPLC/OTlAuW+gKf3tFdZbZfpl
+	 30wIoXqtQvy6jYHh8Z+1ytEScE0DHg1+05nRc64K8sHDeZh9BxZoty17lTAw0VwKhg
+	 H4jjg4Q0AlTNPvhFbKe79qzLoe8wqXzZVZAkQcqXHXuKNjyDCogQ+/06uEqKQryvZB
+	 MP8nJPK4HxjXA==
+Date: Tue, 4 Mar 2025 16:22:39 +0000
 From: Mark Brown <broonie@kernel.org>
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
+To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
 	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-gpio@vger.kernel.org
-Subject: Re: [PATCH 0/6] ASoC: samsung: GPIO descriptor conversion
-Message-ID: <7da76b50-67fd-4273-83a3-300f734f7922@sirena.org.uk>
-References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org>
- <174110255924.87345.17067818310965896666.b4-ty@kernel.org>
- <CAMRc=MfqNSZeQxBuEfM1nAo0F3NmEkyG-Les3dyxxuun=4XpuQ@mail.gmail.com>
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, kernel@collabora.com,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	Andrew Perepech <andrew.perepech@mediatek.com>
+Subject: Re: [PATCH v3 03/20] mfd: mt6397-core: Add mfd_cell for mt6359-accdet
+Message-ID: <a8fbb536-a246-4650-8085-d576652b0301@sirena.org.uk>
+References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+ <20250304-mt6359-accdet-dts-v3-3-5b0eafc29f5b@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="+ZFwNRSVfzGqExSp"
+	protocol="application/pgp-signature"; boundary="OLmxqaxv809+84Iy"
 Content-Disposition: inline
-In-Reply-To: <CAMRc=MfqNSZeQxBuEfM1nAo0F3NmEkyG-Les3dyxxuun=4XpuQ@mail.gmail.com>
+In-Reply-To: <20250304-mt6359-accdet-dts-v3-3-5b0eafc29f5b@collabora.com>
 X-Cookie: Do not disturb.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_081825_991731_8A1AC85C 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250304_162248_694885_D5AAEADE 
+X-CRM114-Status: GOOD (  10.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,40 +100,33 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---+ZFwNRSVfzGqExSp
-Content-Type: text/plain; charset=utf-8
+--OLmxqaxv809+84Iy
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Tue, Mar 04, 2025 at 04:48:54PM +0100, Bartosz Golaszewski wrote:
-> On Tue, Mar 4, 2025 at 4:36=E2=80=AFPM Mark Brown <broonie@kernel.org> wr=
-ote:
+On Tue, Mar 04, 2025 at 12:15:44PM -0300, N=EDcolas F. R. A. Prado wrote:
+> From: Andrew Perepech <andrew.perepech@mediatek.com>
+>=20
+> Add an mfd_cell for mt6359-accdet and describe its IRQ resources to
+> allow the mt6359-accdet driver to probe.
 
-> > [4/6] ASoC: samsung: speyside: Convert to GPIO descriptor
-> >       commit: da9146c19b1774926148ff271c4a3dc8d7891b18
+Lee, is this OK to merge via ASoC?
 
-> I pointed out an issue with patch 4. :(
-
-Oh, sorry - you didn't cut any context so I think it just flashed by
-while paging through the entire message as I was scanning for responses.
-One of the reasons for cutting uneeded context is it makes it easier to
-spot the new content in your message.  It's an issue which can be easily
-addressed incrementally in any case.
-
---+ZFwNRSVfzGqExSp
+--OLmxqaxv809+84Iy
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfHJ8sACgkQJNaLcl1U
-h9DH9gf+OVJU37vK8yaU3Mz+qk5DhrweZGTM0BSg//dtPms0VpXZBfsfYezs+Ok8
-o06hRnLequ9qlMSYpbCZKTlIUD/VLWxtamnw+qQByA4UtUGoaCyaHafblWNii8Pt
-szMAIGyzN+Px7YCqVUe1OH0kJNThyGmx6OAnOFfqTuDHzGXEFnJ5FUoxfEZlFcFp
-GBB/Q7XZDebfnMpdzY54PCiNl+yHYJ1UwczZMqlEULygHg8/IGa++nsHXm+ciOJF
-il1UQ/GHk5e9CXm2cdYp38Bj2UmN6Zs3hmkWuVE34+gTcAc2si3QW2tD8LhTeFrr
-WLOhgUgjBEd1+bA99iuE7JdJjec3FQ==
-=Qt2b
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfHKM4ACgkQJNaLcl1U
+h9AGawf+Krbqa+Vm4jfRJRkHk1Bz74IQ/DHedsnpuELy2Rv59vOzi/ONHxJ/Vsq8
+03MvfgczYs8uzSrfII7fto16qxrsRaVGeTkSaanOAZHhFT32ytipNw7CIa03tchc
+8NtyjnLXMDyBqeEuzKVUTmzp5DgA57934vPFsBXP+jix8i0IYKthA2mFxcIVk8AJ
+npoP45KaBxueBRiIbQ88nbeEWMk2zpCYaqDQxeBCROSqF+j+VlV2V9/LFr9nmGla
+fXrY4hD9vRT7RUs7od+v2zpfnn6M4dMqA1gEIoZq5b+NQ3BlVHug4uHInjm7QUqN
+XR/caFRH1sjlz1NMYvElHtzG4TDjtQ==
+=ZRYJ
 -----END PGP SIGNATURE-----
 
---+ZFwNRSVfzGqExSp--
+--OLmxqaxv809+84Iy--
 
