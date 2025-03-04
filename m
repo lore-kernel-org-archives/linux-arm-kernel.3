@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D818C282D0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B239EC282DE
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTH1Bq/PxKSr1gUXalyKFsKG5IYts2vm06lCPnwHDEY=; b=ny5WhbduLoi3WOvs8i/04/5Knt
-	YH3oHj0fOlWFXQDMXMWZZN1+wzBN5/dDTIuyd/MeTYyVM5VfEfvU34/kAmfUiB4K356a3WgP4bnnT
-	mMWpBUdZJnG9eNzCkNGt1mGcf+tYZ8w8i1tjB8r2VBV2vxujskkZApaIeHwzHOdVSqzCzcM0ONBpC
-	Kr2mTMk3TwfxxQPJvpRl8On6opVeIKiXmWLgqyhyqQaqo+4lmKnI7jS6SEKCFNDCCqghHu4sKoCiO
-	+ltQ6dDDOCfsbzDX9FvZXpZbMATzJ+5jj95bozPKTAyFEubznLY/2B8mn+W4hCCnQiUcoj92M3Ndx
-	8gfzAjnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O7eD0wrs+km6lrs+4i3II34UDaTR3ANIVNOTTBmkqxM=; b=spu/v92BxSicQXrhcPWF3rmoJ8
+	UVc7dfXaP+l0VZrHrhq1+ViPlP0sSBRE0dWAMKfcgwJmTgJ7tbVHq7MKz89vs6W5jGfnhewQDbqcA
+	dgvlrMmDSSJJjmyQThVxFgennXLVSROtkxlxsDGJFABeUl/xJex9UWoDmUpAN6Aabe+Xduw1RGpP+
+	3g9mRCmPVoLFkFctLVF1CxbwfTw4irysLlAC57mV5fK5ywT/LZQgcSQ3+7HHU6r1NCltlyisyraWP
+	/aKsvmbhf1UbBhyO5xhaMHdwVBE2qt5OSpv+u3PqNc/5PIBXPBW8Y90nZ1AsSKP9itnjpeORvbxWT
+	1Es5m7CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPcY-00000004Asj-1hxG;
-	Tue, 04 Mar 2025 10:35:30 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpP6k-000000043RJ-050j
+	id 1tpPcW-00000004Ard-3fgW;
+	Tue, 04 Mar 2025 10:35:28 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpP1b-000000041gi-0T9N
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:02:39 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 25F28FEC;
-	Tue,  4 Mar 2025 02:02:51 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2C0923F5A1;
-	Tue,  4 Mar 2025 02:02:33 -0800 (PST)
-Date: Tue, 4 Mar 2025 10:02:30 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Pierre Gondois <pierre.gondois@arm.com>
-Cc: Yicong Yang <yangyicong@huawei.com>, <yangyicong@hisilicon.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, <catalin.marinas@arm.com>,
-	<will@kernel.org>, <tglx@linutronix.de>, <peterz@infradead.org>,
-	<mpe@ellerman.id.au>, <linux-arm-kernel@lists.infradead.org>,
-	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
-	<dietmar.eggemann@arm.com>, <linuxppc-dev@lists.ozlabs.org>,
-	<x86@kernel.org>, <linux-kernel@vger.kernel.org>,
-	<morten.rasmussen@arm.com>, <msuchanek@suse.de>,
-	<gregkh@linuxfoundation.org>, <rafael@kernel.org>,
-	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
-	<linuxarm@huawei.com>, <xuwei5@huawei.com>, <guohanjun@huawei.com>,
-	<sshegde@linux.ibm.com>
-Subject: Re: [PATCH v11 3/4] arm64: topology: Support SMT control on ACPI
- based system
-Message-ID: <Z8bPtsO7dEV0lq2M@bogus>
-References: <20250218141018.18082-1-yangyicong@huawei.com>
- <20250218141018.18082-4-yangyicong@huawei.com>
- <Z8HAkZiHYRjj97M7@bogus>
- <336e9c4e-cd9c-4449-ba7b-60ee8774115d@arm.com>
- <20250228190641.q23vd53aaw42tcdi@bogus>
- <a52972c7-aadd-4a77-a292-057fa5f8372d@arm.com>
- <Z8WPiOweOjFZqTwN@bogus>
- <32e572d6-dedd-d8a3-13be-6de02303a64d@huawei.com>
- <2fdea4f6-db98-4dc7-947f-e19ee54d2c3c@arm.com>
+	Tue, 04 Mar 2025 09:57:20 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 9F867A0391;
+	Tue,  4 Mar 2025 10:57:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=O7eD0wrs+km6lrs+4i3I
+	I34UDaTR3ANIVNOTTBmkqxM=; b=gXmHO5nR2oYypWDnMoZKH4nKOSeHA36L1egR
+	4SdB5UtMA8/0L+c05ZMZL29MmIuG5kP51lVcgLVcELGIDwhBowTs9g8Ns2sxS9O1
+	fulfKvQHC+mFwI2zQy9ri0A7kQpKy+0PJ1/82Csb44K5VkV80pb34avi686oXReT
+	z1rkeTzjmetXB1veEGDkSuFkspqFGluWWNgvSLsgtNP2d5b7lzQ24CWvlj1mhP6h
+	+OClikhWU5QzDbr8bj5xNRv2yMCO1lXgt+fXwGOxMo+NL1fJ4o3F53iyCOXaYvcz
+	uVg529HwBL01D/XuK0yA0uD6jyF3z2w16Jr0PXO+3NEAGKn84RYoqKjkXAdYkymp
+	NJTnq1udc2M4KHPKdI4EpnOXhNi5B6MuiOU8xoaKv+bcejHdWWuMklw1PDujlYpo
+	FQjs82lWj/bF4uG2cUpLQntjuTshSmDYOpjlz9wKjG1I8vk/pIAatMf02/PkE9OZ
+	ty0vqHXfcVyTUTNrapoVdGZ3Ja++KvuuLRDrFj5KeeC6OA0N2O3f7AN+6CuA+QWJ
+	g8jHhkHJHfsBeD4uP9Ct77MqargS6eEt58bq2zu0Fxh5ipsMKNKsKem6TYhgL0XI
+	Yfw6WWTAFyPpQVebPxcaenimSGSkAFJTUKjCTkwjcVR95SjNdFcWhffaBGXecMY+
+	x2QsKTQ=
+Message-ID: <9fcf9cf4-ba02-4583-9e14-bd650dbe32ee@prolan.hu>
+Date: Tue, 4 Mar 2025 10:57:05 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <2fdea4f6-db98-4dc7-947f-e19ee54d2c3c@arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 2/3] counter: microchip-tcb-capture: Add IRQ handling
+To: William Breathitt Gray <wbg@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, Kamel Bouhara <kamel.bouhara@bootlin.com>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
+ <20250227144023.64530-3-csokas.bence@prolan.hu> <Z8alaOTjZeRuXnUI@ishi>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <Z8alaOTjZeRuXnUI@ishi>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852637260
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_020238_149845_2CF44D28 
-X-CRM114-Status: GOOD (  30.48  )
+X-CRM114-CacheID: sfid-20250304_015719_618017_2BB6CDA5 
+X-CRM114-Status: GOOD (  17.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,70 +83,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 09:25:02AM +0100, Pierre Gondois wrote:
->
->
-> On 3/3/25 15:40, Yicong Yang wrote:
-> > On 2025/3/3 19:16, Sudeep Holla wrote:
-> > > On Mon, Mar 03, 2025 at 10:56:12AM +0100, Pierre Gondois wrote:
-> > > > On 2/28/25 20:06, Sudeep Holla wrote:
-> > > > > > >
-> > > > > > > Ditto as previous patch, can get rid if it is default 1.
-> > > > > > >
-> > > > > >
-> > > > > > On non-SMT platforms, not calling cpu_smt_set_num_threads() leaves
-> > > > > > cpu_smt_num_threads uninitialized to UINT_MAX:
-> > > > > >
-> > > > > > smt/active:0
-> > > > > > smt/control:-1
-> > > > > >
-> > > > > > If cpu_smt_set_num_threads() is called:
-> > > > > > active:0
-> > > > > > control:notsupported
-> > > > > >
-> > > > > > So it might be slightly better to still initialize max_smt_thread_num.
-> > > > > >
-> > > > >
-> > > > > Sure, what I meant is to have max_smt_thread_num set to 1 by default is
-> > > > > that is what needed anyways and the above code does that now.
-> > > > >
-> > > > > Why not start with initialised to 1 instead ?
-> > > > > Of course some current logic needs to change around testing it for zero.
-> > > > >
-> > > >
-> > > > I think there would still be a way to check against the default value.
-> > > > If we have:
-> > > > unsigned int max_smt_thread_num = 1;
-> > > >
-> > > > then on a platform with 2 threads, the detection condition would trigger:
-> > > > xa_for_each(&hetero_cpu, hetero_id, entry) {
-> > > >      if (entry->thread_num != max_smt_thread_num && max_smt_thread_num)     <---- (entry->thread_num=2) and (max_smt_thread_num=1)
-> > > >          pr_warn_once("Heterogeneous SMT topology is partly
-> > > >                        supported by SMT control\n");
-> > > >
-> > > > so we would need an additional variable:
-> > > > bool is_initialized = false;
-> > >
-> > > Sure, we could do that or skip the check if max_smt_thread_num == 1 ?
-> > >
-> > > I mean
-> > > 	if (entry->thread_num != max_smt_thread_num && max_smt_thread_num != 1)
-> > >
->
-> I think it will be problematic if we parse:
-> - first a CPU with 1 thread
-> - then a CPU with 2 threads
->
-> in that case we should detect the 'Heterogeneous SMT topology',
-> but we cannot because we don't know whether max_smt_thread_num=1
-> because 1 is the default value or we found a CPU with one thread.
+Hi,
 
-Right, but as per Dietmar's and my previous response, it may be a valid
-case. See latest response from Dietmar which is explicitly requesting
-support for this. It may need some special handling if we decide to support
-that.
+On 2025. 03. 04. 8:02, William Breathitt Gray wrote:
+> In theory, the error code could be something else if of_irq_get() failed
+> for any other reason. Handle all those error cases at once by checking
+> IS_ERR(priv->irq) rather than just -EPROBE_DEFER. Then you can just
+> return dev_err_probe() with priv->irq for the error code.
 
---
-Regards,
-Sudeep
+Yes, `of_irq_get()` can return an error, for example if the IRQ is not 
+defined in the DT. In these cases, we just don't do IRQ, but still allow 
+the device to probe. -EPROBE_DEFER is special in this case, because it 
+signifies that there *is* an IRQ to set up, just not now.
+
+>> +enum counter_mchp_event_channels {
+>> +	COUNTER_MCHP_EVCHN_CV = 0,
+>> +	COUNTER_MCHP_EVCHN_RA = 0,
+>> +	COUNTER_MCHP_EVCHN_RB,
+>> +	COUNTER_MCHP_EVCHN_RC,
+>> +};
+> 
+> These would be better as preprocessor defines in case we need to
+> introduce new events to channel 1 or 2 in the future. That would allow
+> us to insert new events easily to existing channels without having to
+> worry about its actual position in an enum list.
+
+Okay. I personally like the enum interface more, as it is much cleaner, 
+but if there's a good reason to use #define's, then so be it.
+
+> One additional benefit is if we do end up introducing more Counts for
+> the module. In that situation we would have multiple CV and RA/RB/RC per
+> Counter device, but we can easily define a preprocessor macro to
+> calculate the channel offset given the Count index. However, with enum
+> structure we would have to manually add and maintain redundant defines
+> for each Count, which is far less ideal.
+> 
+> William Breathitt Gray
+
+Bence
+
 
