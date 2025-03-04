@@ -4,65 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DECFC282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB5AC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:50:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fHucvjkkK7SqSpK12zGxOb9Q94mZFL4sT/c2rekjY3c=; b=n0S/0Kntcd0cDTGcBubxgUOQai
-	k3ccUQvCE1xWLVWznA5Lw4VJDpKQu2pKoOvnOG86Asvk5GFK6x+ZZzAPW+/AAuZLHKpg3STH2hMc5
-	k1cZa+PncuJ1XLf+X6DnqfKNuL2x3CdRfa3MUulEWxg9kxDVsCMUlPjirXjTzyd+ZK+5mqWn+LIQ8
-	2sytd6eQsR3/f/JOB0xpOh+KxzabYAOWueqvIhMvGmSuo+W3Apr7J4omPF0MGhOzxZ06r2oUU9u51
-	Q+UkDp7xgIgcW5N/Kw/OVF1yAIOvzpyOKdUR2qKmYOiMUaRdRgbSDfbw/Ay7uUTQqsicVgaPe/d0J
-	PWsRJqFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BL1aGo1UGsl1J9JI77pZ/sTrD4utOFiYs1ftC/8yyg4=; b=LSF99eYeot5cHygU+Q1hlV7VtE
+	BPu3238mUmcfAVoGetEZVPVb8EE54/uMNT0Ruqh3ha7OY1f3euCGpi0Eu/QwTxZprInGUyLzpdue0
+	OSJkuSLc60aguNcvzxYtSsgr7AueAp7rLyozGQi6OPHITnUhWgK3FU6aKiGRVe3eOOSGiALcH3bii
+	c4Yod2Lb43JKn4MfH9jKgKkXo5hiOvEOt1KuAQPjjDst09kuQHI1tZAtzmh04cNbhWO9jbB2nQ/tW
+	t8HwtbGidSJ2OJpJvoAY6SRC3sHyOoUarpYfQW+0m47vZ3sSuBPb03jmoaDoQfoS1fFt/WKQicfE2
+	Qvw1cEJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTZZ-000000053p9-1y1z;
-	Tue, 04 Mar 2025 14:48:41 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpTb7-000000054B5-1uSS;
+	Tue, 04 Mar 2025 14:50:17 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTXz-000000053Ua-21hp;
-	Tue, 04 Mar 2025 14:47:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 443FDA456BA;
-	Tue,  4 Mar 2025 14:41:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CD0DC4CEE7;
-	Tue,  4 Mar 2025 14:46:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741099621;
-	bh=rI+BVkT7Y2vGYeVP6jOXfszRKe3HLug8swUeKiDdZ2A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=H9bOT7G9DGWcpw9B82UNVqOf3fzPTab4W0+jJ11PCHXDgeuFvcudBecTiFLVBdZni
-	 rHV7ZvwklvbtY6HBm8LSSkfOLRcfQLIceMTB5paPOXFK48evlciiUrcYu6nprTwyPY
-	 +cT6mt0pPjZ+2yVUVA9dp0j1YqRk+J7pbXrDFtgWx4i+GoB450j/vGRLT1e5Cf5Fxe
-	 K5zerKk94DFg+qJmXED0I/o3HBH5JDwVz5lSanRZXZ4Svk+RGsDIU4SKzxbzyQUYO6
-	 iU7/u7PGrSj3G8Dg6UGvRHpUaGHQZYzP3WfZhI1VQyyxX7+oHpWMghaIMllEj3dJfR
-	 vUI1FW/rIRHmA==
-Date: Tue, 4 Mar 2025 14:46:48 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-Cc: Lars-Peter Clausen <lars@metafoo.de>, Jonas Karlman <jonas@kwiboo.se>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
- linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/4] iio: adc: rockchip_saradc: Add support for RK3528
-Message-ID: <20250304144648.29f376f9@jic23-huawei>
-In-Reply-To: <11022969.nUPlyArG6x@diego>
-References: <20250227184058.2964204-1-jonas@kwiboo.se>
-	<20250227184058.2964204-3-jonas@kwiboo.se>
-	<11022969.nUPlyArG6x@diego>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	id 1tpTYd-000000053eG-0Hnz;
+	Tue, 04 Mar 2025 14:47:44 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741099653; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=adb7sgg7W9G+WDvOO09d4jcaENTOno7YdcbjC9pVT4sY7FR9Tb3zPgqP6RziVR/wG3z8nTGXZwJIZHhz9Sw0n/ksOEELfiI7DTfM0PS5ezJa6VgNQ8e6GIYjUhDTDu80uON1YeSSIU5bIIKzYrE6AaNdrJTZWXj/oOrJjvyAM78=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741099653; h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=BL1aGo1UGsl1J9JI77pZ/sTrD4utOFiYs1ftC/8yyg4=; 
+	b=l8fNzl9coVm27bpuZ6LZy+V+CJ1n61t4YUftO5/3HKslVsGXE3l+RzmDhnQJskYzWWK1RB8k7K6KtjMvu115vji52yE0V8ZU55NjmDKsRgrLSjN/QJ6awpEa3kB4dACmFheTTnXhWK1VftCgI8gA8jUBIdlENBYpIJDEWshQcgk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=sebastian.reichel@collabora.com;
+	dmarc=pass header.from=<sebastian.reichel@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741099653;
+	s=zohomail; d=collabora.com; i=sebastian.reichel@collabora.com;
+	h=Date:Date:From:From:To:To:Cc:Cc:Subject:Subject:Message-ID:References:MIME-Version:Content-Type:In-Reply-To:Message-Id:Reply-To;
+	bh=BL1aGo1UGsl1J9JI77pZ/sTrD4utOFiYs1ftC/8yyg4=;
+	b=kjcW9w3I7J9pc6REZFBMM2H6k/AdSgvbzhnYxzyC+WRwKfjffElNS9xUx7qEN0IS
+	Q1lmsHg2b9FDNnbMT1lRNY9paxdLZD+zTIuSJIYIP5KS7bebdQxL19Z70Ll3QRYuens
+	pWmu6qdOEDs6ihkfNaGLlOIp7sMqUPfMZcvsj0rQ=
+Received: by mx.zohomail.com with SMTPS id 1741099652409560.2440651683567;
+	Tue, 4 Mar 2025 06:47:32 -0800 (PST)
+Received: by venus (Postfix, from userid 1000)
+	id D3A46180C9F; Tue, 04 Mar 2025 15:47:28 +0100 (CET)
+Date: Tue, 4 Mar 2025 15:47:28 +0100
+From: Sebastian Reichel <sebastian.reichel@collabora.com>
+To: Andy Yan <andyshrk@163.com>, heiko@sntech.de
+Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
+	detlev.casanova@collabora.com, linux-rockchip@lists.infradead.org, 
+	Andy Yan <andy.yan@rock-chips.com>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/3] Add display subsystem dt node on rk3576
+Message-ID: <lfmhqurnpjmfy6pfjxd5aczxujislv2p5bsurcbl7capyt7zv3@hy2twvjj53uz>
+References: <20241231095728.253943-1-andyshrk@163.com>
+ <173564980410.21979.2947276365464229762.robh@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="vffz2usgeazstqu2"
+Content-Disposition: inline
+In-Reply-To: <173564980410.21979.2947276365464229762.robh@kernel.org>
+X-Zoho-Virus-Status: 1
+X-Zoho-AV-Stamp: zmail-av-1.4.2/238.671.54
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_064703_582621_794FD0AB 
-X-CRM114-Status: GOOD (  12.48  )
+X-CRM114-CacheID: sfid-20250304_064743_164187_449C4DB6 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +83,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Mar 2025 12:51:47 +0100
-Heiko St=C3=BCbner <heiko@sntech.de> wrote:
 
-> Am Donnerstag, 27. Februar 2025, 19:40:51 MEZ schrieb Jonas Karlman:
-> > The Successive Approximation ADC (SARADC) in RK3528 uses the v2
-> > controller and support:
-> > - 10-bit resolution
-> > - Up to 1MS/s sampling rate
-> > - 4 single-ended input channels
-> > - Current consumption: 0.5mA @ 1MS/s
+--vffz2usgeazstqu2
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 0/3] Add display subsystem dt node on rk3576
+MIME-Version: 1.0
+
+Hello,
+
+On Tue, Dec 31, 2024 at 06:57:21AM -0600, Rob Herring (Arm) wrote:
+> On Tue, 31 Dec 2024 17:57:17 +0800, Andy Yan wrote:
+> > As the VOP[0] and HDMI[1] driver have already been submitted for review.
+> > This series enable hdmi display on sige5 board.
 > >=20
-> > Add support for the 4 channels of 10-bit resolution supported by SARADC
-> > in RK3528.
+> > [0] https://lore.kernel.org/linux-rockchip/20241231090802.251787-1-andy=
+shrk@163.com/T/#t
+> > [1] https://lore.kernel.org/linux-rockchip/20241231094425.253398-1-andy=
+shrk@163.com/T/#t
 > >=20
-> > Signed-off-by: Jonas Karlman <jonas@kwiboo.se> =20
->=20
-> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
->=20
->=20
-Not sure why but I can't reply to cover letter.  Anyhow, replying here
-instead.  Applied patches 1-2 to iio.git / togreg which I'll push out
-a testing for 0-day to poke at it.
+> > Changes in v3:
+> > - Split from https://lore.kernel.org/linux-rockchip/3330586.aeNJFYEL58@=
+diego/T/#t
+> >=20
+> > Andy Yan (3):
+> >   arm64: dts: rockchip: Add vop for rk3576
+> >   arm64: dts: rockchip: Add hdmi for rk3576
+> >   arm64: dts: rockchip: Enable hdmi display on sige5
+> >=20
+> >  .../boot/dts/rockchip/rk3576-armsom-sige5.dts |  47 +++++++
+> >  arch/arm64/boot/dts/rockchip/rk3576.dtsi      | 126 ++++++++++++++++++
+> >  2 files changed, 173 insertions(+)
+>
+> [...] (a bunch of warnings due to dependency patch series not yet
+> being in linux-next)
 
-Thanks,
+I think all dependencies have landed now. But it might be sensible
+to do a quick resend considering how old this is.
 
-Jonathan
+Would be nice to have initial RK3576 HDMI support in 6.15 :)
 
->=20
+Greetings,
 
+-- Sebastian
+
+--vffz2usgeazstqu2
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEE72YNB0Y/i3JqeVQT2O7X88g7+poFAmfHEnwACgkQ2O7X88g7
++ppiuQ//RRlo86q9NugSNDg67poxQpr1XjF9rHdkD08Ma9XBfTSHA8yiRRtS9mKn
+hc5+pEzsSrX4gGGgcaYq54YYnZ0L7JXFrkU6uNUjJeTvpibn8pUT9/yRqqDO3vcS
+oebj2VbqEN6EbHbe7MTH3qGVtS8L08xLJicxJtDLJyvD7AXMg0H6JeISDS1YAq4V
+Del4q56LSDSC1lv4IYkzh0Va8bWQ4cn5b9JR3YPbS+LU9N7saSyG6Q6ZMXhWSZ36
+LGiKPrUFtFMeJQRJL2LcmqppsR1KH3i5oGMlNYr8FYY36VI7Js1si9BUE9nAdPBJ
+EK5W9hnbO7wyv2Kx6SD5/pqAWw8Jy+XEv0tMzgIZUFnuGiBYXwjJT6yeQH+EABxA
+P7TDJBMrLiCrs9YUSx+KT48MRWT1lM0GDrEMRjC0aTbmQL7+3hQ9M0DA+g8mPBlf
+ORdraLCzcG+DCL8wX+WJhXuA2WUCx8i97Ku/Jw7SYlAsaIner+QxrApd7LBy3aUb
+FtcJhfg+A3aeyNQh+8PZmXC2Pgw2pyiBrnqll8NBzqPoCz25wM5RQT868n5gzg1q
+/sdHawvguhRlpisMpxCtvTa06xIL84klcvaOxVoOaytDMk3edhCyOh7vST7kEIb5
+9EmZCjMbpp4xFaZIDxkxmhXFzWfKvvcDefp7EFLdz/eZQQsDoq4=
+=vW2j
+-----END PGP SIGNATURE-----
+
+--vffz2usgeazstqu2--
 
