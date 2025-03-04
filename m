@@ -4,81 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FD1C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:19:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAF57C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:20:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1DbjIk7uHqZkc2lDdI7SDqfEZEMoVKdYjiNEw7yAnPw=; b=Q4ZANm3aLi6v/XSNMFmQOQEW/m
-	oW9rlZ/ldpl+Y1FcCDtsx1P4kg1ZjO84rpvR/0NzMktOilz0jlyp3gG0tLRdHX9wv/ZiyVvYzA9C4
-	rD34SRje/WAxEvaSyc8S6DiS7sAZZM36n2AA7WEibihQ3GL94wWCtEDBdz72vJUByRvMOwnFo8k5g
-	TaekcwAB26Aita79gz7OAmL9ClDktW5oadDYZeB+l+zVOIT05VgMLn/C/C7wQv6ex2EpfGNbvhbH8
-	rY6dsjwwnKJ0IdgnNTBFDH5ZXfaSuzzVdw9fvDUsBO5cSLa++t572QlP47eiYEN0RSFZ6Cg86kkz5
-	1yvolJMA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wv+PIGwL4Os+6UQr8shBumtmGLDADHsIVKfUG7p0oac=; b=zWm1iZsIdCQ/BWibZs8epjs82U
+	UyAP8NSS4L75WUX23XIb7qZHWQBIpxa3uGtqWUmXcbL9reiVrRqtHmcgKs9KSDJLkFEhj4mnWyjXE
+	RCpP6UkHcv9ewM4Lbs/BH7IbEggdio2nv5WB/kgewI98w0619IjFlG9aZv61va0Jh/DSVVqvMk7m/
+	DbbrgfjKzMctpE45PIDULSue9/xJ9ITLd/ZADapRZamqqNMkhWP849IExBT3St4Aur/UTPzOX3n7l
+	Uc81bS/MIAcbMgwrz8ZX0u6rJSq1cALw5uOvGu4o23HDG4tdVVlXleHEr2vuK6zIEHpcSV8ThtpaM
+	/uvkBPzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpLcT-00000003EUX-3Qhf;
-	Tue, 04 Mar 2025 06:19:09 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpLe2-00000003Ery-227d;
+	Tue, 04 Mar 2025 06:20:46 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpLZZ-00000003Dn2-1mT1
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 06:16:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D930D5C54AB;
-	Tue,  4 Mar 2025 06:13:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 58A86C4CEE5;
-	Tue,  4 Mar 2025 06:16:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741068966;
-	bh=2gdXNj/tlPSSHbBqSwyfbWrKXXsk+K7ZabA7kS1I4Hg=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=jvR5k2Ej9EovxXEKAhyAqt6wzfek6yiFgrKTjBC3H0dDoJryDUY1jMGaWZ9pzp/p6
-	 FXOMUQEOmaCQyxIVLzaxgttKM/KSCqtauWJeY67mrhmyIvbHZycrWK60nri/yvcbCe
-	 luMGxaHnVPzp/TAkMqdD/pe3LXZFq053P4pttHwE1C6OAHJUGKtA223k8RYfEIToEw
-	 ARogIPObwntyvJphpVNcftNFkM1avQr7DflXHPw2GEaIDJgbCf/USf+d0t9CKBVDa9
-	 W1Zj8qlvriJKwFVFijgYHUJPqXpRNPhcMZgqXAQfpeqbi0S7plPIyTzgPQYyWUn5KB
-	 TorNk+UB0oTLQ==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 37FA6C021B8;
-	Tue,  4 Mar 2025 06:16:06 +0000 (UTC)
-From: Nayab Sayed via B4 Relay <devnull+nayabbasha.sayed.microchip.com@kernel.org>
-Date: Tue, 04 Mar 2025 11:45:40 +0530
-Subject: [PATCH] ARM: dts: microchip: sama7g5: add ADC hw trigger edge type
+	id 1tpLa7-00000003Dtw-01zr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 06:16:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wv+PIGwL4Os+6UQr8shBumtmGLDADHsIVKfUG7p0oac=; b=N2WovOaitXsb/19o9wZCWBmkbx
+	X6nG7aGP7e9xXTHfVKszHjHGCjHvP1s+unrd0sDaHVZPKiJKHowe9rCsl6nu1rGadL/60ARvewN3e
+	ZAPsFep2gcveMkAMNvaShUynEhWKqrFc0bxjw+7cUptYPV2Ug91W/HRfS/0b1SL5xoTedaR6OSfTl
+	F/5dr9LwADjHja4YomDwE3U3zdmH4SQF8wYmzJUr+lVJ/mcBBG53xFWkW2J/xpv842f8FpEz0sTV5
+	6VJCazUVPutTp+RWfJgFrN7jb0UGwOsQZTD9Ik7ZOdKhY2PJM6Euq67lJgTL1Ysy6PVWKJW1Ixzrd
+	SOuZMAag==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpLa3-00000000I7p-07aa;
+	Tue, 04 Mar 2025 06:16:39 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 7544D30049D; Tue,  4 Mar 2025 07:16:35 +0100 (CET)
+Date: Tue, 4 Mar 2025 07:16:35 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Menglong Dong <menglong8.dong@gmail.com>
+Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+	martin.lau@linux.dev, eddyz87@gmail.com, yonghong.song@linux.dev,
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+	jolsa@kernel.org, davem@davemloft.net, dsahern@kernel.org,
+	mathieu.desnoyers@efficios.com, nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com, morbo@google.com,
+	samitolvanen@google.com, kees@kernel.org, dongml2@chinatelecom.cn,
+	akpm@linux-foundation.org, riel@surriel.com, rppt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	netdev@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
+Message-ID: <20250304061635.GA29480@noisy.programming.kicks-ass.net>
+References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+ <20250303132837.498938-2-dongml2@chinatelecom.cn>
+ <20250303165454.GB11590@noisy.programming.kicks-ass.net>
+ <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
+ <20250304053853.GA7099@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250304-sama7g5-hw-trigger-enable-v1-1-61b5618285f0@microchip.com>
-X-B4-Tracking: v=1; b=H4sIAIuaxmcC/x3MwQqDMAyA4VeRnA1kreLwVYaHVGMNzG6ksgniu
- 1s8fof/PyCLqWToqwNMfpr1kwoedQXjwikK6lQMjlxLnjxmXrmLLS5/3ExjFENJHN6CTxco+Km
- hxjGU/msy636/X8N5XiSpX5trAAAA
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Nayab Sayed <nayabbasha.sayed@microchip.com>
-X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=922;
- i=nayabbasha.sayed@microchip.com; h=from:subject:message-id;
- bh=eJnQC/9attKgZIiaANkEiYWZpDq4uolpOBt4ZgepDmk=;
- b=owGbwMvMwCEmfMj/xNz7ei8ZT6slMaQfm7Uk+2f+9iV2N1Y/lzcXr1/UvOdZyYt864Dq3CtHD
- 7Zsfq6/sqOUhUGMg0FWTJGle/P82YZFfzozf3KugJnDygQyhIGLUwAm0n6f4X9R9DI532kSk8oV
- Nsuqv5cwq2CamaXu0ay/qfTGKVGnWlZGhvnHVbi/xlzIq//9k28qi9XuJ+YfEvaLFTSdlV+z/rK
- gBBsA
-X-Developer-Key: i=nayabbasha.sayed@microchip.com; a=openpgp;
- fpr=E108A58C09FB2280B0AB41DAE24318EF3B3861A3
-X-Endpoint-Received: by B4 Relay for nayabbasha.sayed@microchip.com/default
- with auth_id=304
-X-Original-From: Nayab Sayed <nayabbasha.sayed@microchip.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_221609_519014_34BB1E84 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304053853.GA7099@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,39 +83,98 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: nayabbasha.sayed@microchip.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nayab Sayed <nayabbasha.sayed@microchip.com>
+On Tue, Mar 04, 2025 at 06:38:53AM +0100, Peter Zijlstra wrote:
+> On Tue, Mar 04, 2025 at 09:10:12AM +0800, Menglong Dong wrote:
+> > Hello, sorry that I forgot to add something to the changelog. In fact,
+> > I don't add extra 5-bytes anymore, which you can see in the 3rd patch.
+> > 
+> > The thing is that we can't add extra 5-bytes if CFI is enabled. Without
+> > CFI, we can make the padding space any value, such as 5-bytes, and
+> > the layout will be like this:
+> > 
+> > __align:
+> >   nop
+> >   nop
+> >   nop
+> >   nop
+> >   nop
+> > foo: -- __align +5
+> > 
+> > However, the CFI will always make the cfi insn 16-bytes aligned. When
+> > we set the FUNCTION_PADDING_BYTES to (11 + 5), the layout will be
+> > like this:
+> > 
+> > __cfi_foo:
+> >   nop (11)
+> >   mov $0x12345678, %reg
+> >   nop (16)
+> > foo:
+> > 
+> > and the padding space is 32-bytes actually. So, we can just select
+> > FUNCTION_ALIGNMENT_32B instead, which makes the padding
+> > space 32-bytes too, and have the following layout:
+> > 
+> > __cfi_foo:
+> >   mov $0x12345678, %reg
+> >   nop (27)
+> > foo:
+> 
+> *blink*, wtf is clang smoking.
+> 
+> I mean, you're right, this is what it is doing, but that is somewhat
+> unexpected. Let me go look at clang source, this is insane.
 
-Set ADC trigger edge type property as interrupt edge rising value.
+Bah, this is because assemblers are stupid :/
 
-Signed-off-by: Nayab Sayed <nayabbasha.sayed@microchip.com>
----
- arch/arm/boot/dts/microchip/at91-sama7g5ek.dts | 1 +
- 1 file changed, 1 insertion(+)
+There is no way to tell them to have foo aligned such that there are at
+least N bytes free before it.
 
-diff --git a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-index 0f5e6ad438dd..2543599013b1 100644
---- a/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-+++ b/arch/arm/boot/dts/microchip/at91-sama7g5ek.dts
-@@ -137,6 +137,7 @@ &adc {
- 	vref-supply = <&vddout25>;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&pinctrl_mikrobus1_an_default &pinctrl_mikrobus2_an_default>;
-+	atmel,trigger-edge-type = <IRQ_TYPE_EDGE_RISING>;
- 	status = "okay";
- };
- 
+So what kCFI ends up having to do is align the __cfi symbol to the
+function alignment, and then stuff enough nops in to make the real
+symbol meet alignment.
 
----
-base-commit: 99fa936e8e4f117d62f229003c9799686f74cebc
-change-id: 20250303-sama7g5-hw-trigger-enable-82b0b3d4042a
+And the end result is utter insanity.
 
-Best regards,
--- 
-Nayab Sayed <nayabbasha.sayed@microchip.com>
+I mean, look at this:
+
+      50:       2e e9 00 00 00 00       cs jmp 56 <__traceiter_initcall_level+0x46>     52: R_X86_64_PLT32      __x86_return_thunk-0x4
+      56:       66 2e 0f 1f 84 00 00 00 00 00   cs nopw 0x0(%rax,%rax,1)
+
+0000000000000060 <__cfi___probestub_initcall_level>:
+      60:       90                      nop
+      61:       90                      nop
+      62:       90                      nop
+      63:       90                      nop
+      64:       90                      nop
+      65:       90                      nop
+      66:       90                      nop
+      67:       90                      nop
+      68:       90                      nop
+      69:       90                      nop
+      6a:       90                      nop
+      6b:       b8 b1 fd 66 f9          mov    $0xf966fdb1,%eax
+
+0000000000000070 <__probestub_initcall_level>:
+      70:       2e e9 00 00 00 00       cs jmp 76 <__probestub_initcall_level+0x6>      72: R_X86_64_PLT32      __x86_return_thunk-0x4
+
+
+That's 21 bytes wasted, for no reason other than that asm doesn't have a
+directive to say: get me a place that is M before N alignment.
+
+Because ideally the whole above thing would look like:
+
+      50:       2e e9 00 00 00 00       cs jmp 56 <__traceiter_initcall_level+0x46>     52: R_X86_64_PLT32      __x86_return_thunk-0x4
+      56:       66 2e 0f 1f 84 		cs nopw (%rax,%rax,1)
+
+000000000000005b <__cfi___probestub_initcall_level>:
+      5b:       b8 b1 fd 66 f9          mov    $0xf966fdb1,%eax
+
+0000000000000060 <__probestub_initcall_level>:
+      60:       2e e9 00 00 00 00       cs jmp 76 <__probestub_initcall_level+0x6>      72: R_X86_64_PLT32      __x86_return_thunk-0x4
+
 
 
 
