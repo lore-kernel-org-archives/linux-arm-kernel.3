@@ -4,121 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA5A6C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:00:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DFB1C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:01:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u7cLRomgT9aYrM8YJE7hwcT94wlH0qz2XRoudr3Vr10=; b=kWoo3DOX3RhURBCKrAotcBx8TR
-	Cq4JiQJa+pmwF+1KyFqKrxj9Duree+IoxNFR1IaGcsnRe+1jJb/qglFHPLUukGgn+07LJew2eTCJh
-	Sd+h75XuJz99idBb6OrXpsvRVTbiVbZRNkaP+l+DfPfLi/lNLCxYBp+dp14CeWtJmg0ws0ylLQsmq
-	TB9DIQ1+LS+X88E8rQpXpzavgOcxDzMV1YarxOFklJ2FMNdHEySisab6OGJXSUizkFLbeIrxB+pKP
-	vpG0vYsl64mH7JAktaVjru+zUmbHOBlWxll7g6yie4QQT2okmi1DfgKAyeRjN4yMe+o2NgtMf+vCt
-	z2bKb6xg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/VD/a98yyCDfU0SnOMU0rBxOeXhg52QvUZEBAyqv8Bw=; b=zk1RzEVrHoiZNUvl9tG1ddaYsH
+	kZgE4vByUZpusMZDHUnpckyUcWlecZ8fsBQPW2RKdjijxfcFJKcu9026TkDcC2fWPtgCtS3QeVpC9
+	KtMONu33JU0c9cJnTZPS6RlyCOjJud1bG196vV+ZEiuJM/dmH/GDZSeXEpMUcu/3vlKEpjm72ipwc
+	iu5APb4ZvYBD94O52/wXxlMbOCHLVih+wNDgr31vbTcm5vqrezGjDcPBHvjByeVV/EEQ6F/E/8jM7
+	19uVnKdMtLnqBIDxCCZaracWqavbh5UtdSBDoBEcPUsCe6oACpi+KPNIg1DjKu0bMwcxNQ35r1z7C
+	34ccbmpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpP46-000000042ZU-2hqu;
-	Tue, 04 Mar 2025 09:59:54 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tpP5f-0000000438l-1Rj4;
+	Tue, 04 Mar 2025 10:01:31 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOz8-000000040tm-3kvT
+	id 1tpOwv-000000040CH-1bbm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:54:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741082085;
+	Tue, 04 Mar 2025 09:52:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1741081949; x=1772617949;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=/VD/a98yyCDfU0SnOMU0rBxOeXhg52QvUZEBAyqv8Bw=;
+  b=bOOLDunJGfx8guIWQoJLb74WhPjcVq9cFm83ukwL/HyJQLEe0kU7EaEo
+   b1eHTkR/PWn2Wcqn6bv8wSOB5L2oUQuffKlvnXjAZ7gGuKGntiSxv0nNp
+   plYCXDPeCUPCfdrVM+CNZ3Knrx+UUuCxqu5TZXpJByw/wjx/G4fWNRC0W
+   kW/lBsIw5PpXZBVz1TPzyV2cagzrtAvji3K56Wijq1XlJXIcaQEf6YbNn
+   SmRNj+ZliHFXvnRmvojlJGDf6W8DZ8zSchBJpuWv1q/wzRrZkqdwjkB9o
+   5rtU972aKQM7M6MDBNavZlDeouxwC0ZBOe3XIDNwUVFLfT7mz3rJv769z
+   A==;
+X-CSE-ConnectionGUID: Ydj/0GUmRGm2UMVXtfd5xQ==
+X-CSE-MsgGUID: ppoVPoayTkquX4t30HAVZA==
+X-IronPort-AV: E=Sophos;i="6.13,331,1732575600"; 
+   d="scan'208";a="42262166"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 04 Mar 2025 10:52:27 +0100
+X-CheckPoint: {67C6CD5B-11-18B7E41A-CF5803A6}
+X-MAIL-CPID: 03A005A869DADFCCF1CB15E663175D25_1
+X-Control-Analysis: str=0001.0A00211E.67C6CD5B.0007,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6AFB016CC2F;
+	Tue,  4 Mar 2025 10:52:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1741081942;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=u7cLRomgT9aYrM8YJE7hwcT94wlH0qz2XRoudr3Vr10=;
-	b=EpIK4TPKyeOlUZJPE1EKEGuWGLoBQOI6tldqqhG1E79c3QOPdVzcCWlwlCydHpbcJ702Ee
-	6JooeZ1BcSDKL/qPe20jvPYZTUYJZAQM4NbKaO+crKuQow60AWwZ7K0LmNGKgkRHxcpTNm
-	1++oJrWAX6JXb6xVj1c6TSjKbF83nLQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-244-5cmCG9xrN1O4Woxz5J0HOQ-1; Tue, 04 Mar 2025 04:54:38 -0500
-X-MC-Unique: 5cmCG9xrN1O4Woxz5J0HOQ-1
-X-Mimecast-MFC-AGG-ID: 5cmCG9xrN1O4Woxz5J0HOQ_1741082078
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-438e4e9a53fso37969245e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 01:54:38 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741082077; x=1741686877;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=u7cLRomgT9aYrM8YJE7hwcT94wlH0qz2XRoudr3Vr10=;
-        b=aX68SltMCa8nKgiqmTnAqPVm5zwlM3SOphi/ZmlxIWLW74QfZ6CjT4nZul8RtAV3u8
-         en23DK4yZ5EO23O3kSUUii9Fa8dzH8QoppGHC4u/kKIA4FXz26FKUaLG2G587gKjBUFl
-         9u8lNW2wPkx4QVR1lEl8AUmO5gffTYjoBwQVXdUv9QF0c3UDw8CvdORlKJOD3E7x+zgm
-         GL84B0tIUJuV9QFFlCoUbjUvRdKBwgyvik8HNa/UzP0GAxU9YlLdD/TRtx0Prbcvg5+h
-         8zYFwXKz4imwhSkvuxyQxuYrCAViMocIijb9KuKTGT39IgN/oafRRyN7dRQ4p4WL+3KI
-         RSJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWhUlQRot1pTXy1lA07fW5Ib4yMnEq74hHyaLsnNP5ZAFKMc/C3oN2GczLpqc3oCg96ECHEM5eFIMpPkXcuBLau@lists.infradead.org
-X-Gm-Message-State: AOJu0YwIScE9SW3/3VwWKPYljaB2ccJviHcVrqkYZkCg+28xZkEjWNBd
-	/XWT1tEaBRFdIJXk54npyI7DVc7wue+6wihtFvFU+qkfO9tAXoVDNYWzhv1vxD1/92nfgzKkUbD
-	mN5xz90brEU10vL8xDarRntl7VZ6GyI4Ct8t98rpI2HZNscXLpKFT56M5Yu89TfYAb32LcZ+0MJ
-	XwmKrU
-X-Gm-Gg: ASbGncsYrxcuMlv1HTA+ULgVDWDRb70LSskYfKcfBoxNV5fm9nzwKjTmtYwf/82SXtN
-	n4vGX89tWjGRhV5MhLVZsxGua1v32CJ7tiLv/w5oMytpELaC6sBiEg3OxMvhXGh/XlMKJXbr7V4
-	0eyplLEv1haMmtX0SrRvHkSViq54Ie8adgAV6YnDO89YrcWL0RofnMUVTU2ybTtyTCrU6ZU1Q8W
-	dqqA3BedumD4muzOTfI+PDp472BuE9/Z7mSU5FqdrLe65gv6IkGZqg0fxPCZDkeVtxbU2qbUMlt
-	d2uptjJWk79TjDFpFOUO6l2FGr3iHFAwmWkwXr3Mb93cYQ==
-X-Received: by 2002:a05:600c:1c8c:b0:439:9ba1:5f7e with SMTP id 5b1f17b1804b1-43ba675a843mr118312515e9.21.1741082077446;
-        Tue, 04 Mar 2025 01:54:37 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IGCYvnIe76LEUSPaxBjczhESkT9xksjygv9YFGPgN7D+cz81nubOVGbUrKCatMMMLTJvcstbw==
-X-Received: by 2002:a05:600c:1c8c:b0:439:9ba1:5f7e with SMTP id 5b1f17b1804b1-43ba675a843mr118312285e9.21.1741082077032;
-        Tue, 04 Mar 2025 01:54:37 -0800 (PST)
-Received: from [192.168.88.253] (146-241-81-153.dyn.eolo.it. [146.241.81.153])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bbc030d24sm82094335e9.22.2025.03.04.01.54.35
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 01:54:36 -0800 (PST)
-Message-ID: <48885074-b590-41e6-9794-49ec12713cce@redhat.com>
-Date: Tue, 4 Mar 2025 10:54:34 +0100
+	bh=/VD/a98yyCDfU0SnOMU0rBxOeXhg52QvUZEBAyqv8Bw=;
+	b=qCvDIahdzX+SI9KvpR3VjuFNf2v8ygK6rm5b4WI4uiagdFEMJ3BKXKJ7tAeCOfAaC2H2Bi
+	5J/yNARaER9ZBAahmx7Ocjvf9tFwGcXMRRqFvwSYKb5X6c8VJEJmuZLJVEWfOI7IKsnl9A
+	DBZ8buHQn/Ar03UfdoZ4tjpPLJhalyCtiJyr7i1tX0wCw3IAq27WMgY0VzmNfDanfl0voM
+	2D/T1xIJ7Ucito2jwMA7Sq4/IZXbSohWQCORBgNW7wOD68CivjL6oTj/YBXTQ3D9Fxk7N/
+	tkrSOhRYS4ubrlnF3wAYEzUgCXvygUNuuIrSVAncXcBYDov+QEoPlSiLDFx5MQ==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, Liu Ying <victor.liu@nxp.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, victor.liu@nxp.com, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se, jernej.skrabec@gmail.com,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ airlied@gmail.com, simona@ffwll.ch, peng.fan@nxp.com
+Subject: Re: [PATCH v5 2/2] drm/bridge: imx: Add i.MX93 parallel display format
+ configuration support
+Date: Tue, 04 Mar 2025 10:52:21 +0100
+Message-ID: <8499738.T7Z3S40VBb@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250304082434.834031-3-victor.liu@nxp.com>
+References: <20250304082434.834031-1-victor.liu@nxp.com>
+ <20250304082434.834031-3-victor.liu@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 3/6] arch: x86: add IPC mailbox accessor
- function and add SoC register access
-To: Hans de Goede <hdegoede@redhat.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>
-Cc: x86@kernel.org, linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- David E Box <david.e.box@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>,
- Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>, Ingo Molnar
- <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
- Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin"
- <hpa@zytor.com>, David E Box <david.e.box@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Heiner Kallweit <hkallweit1@gmail.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou
- <mengyuanlou@net-swift.com>, Russell King <linux@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>
-References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
- <20250227121522.1802832-4-yong.liang.choong@linux.intel.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250227121522.1802832-4-yong.liang.choong@linux.intel.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: dzCXhhPmrsI7aCFEsBkQAG54XUtHRYlE01T_6XEIECw_1741082078
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_015446_995698_6C18FFFB 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20250304_015229_733224_EAEA1AB8 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,24 +103,302 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/27/25 1:15 PM, Choong Yong Liang wrote:
-> From: "David E. Box" <david.e.box@linux.intel.com>
-> 
-> - Exports intel_pmc_ipc() for host access to the PMC IPC mailbox
-> - Enables the host to access specific SoC registers through the PMC
-> firmware using IPC commands. This access method is necessary for
-> registers that are not available through direct Memory-Mapped I/O (MMIO),
-> which is used for other accessible parts of the PMC.
-> 
-> Signed-off-by: David E. Box <david.e.box@linux.intel.com>
-> Signed-off-by: Chao Qin <chao.qin@intel.com>
-> Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Hi,
 
-Hans, Ilpo, are you ok with this patch going through the netdev/net-next
-tree?
+thanks for the update.
 
-Thanks,
+Am Dienstag, 4. M=E4rz 2025, 09:24:34 CET schrieb Liu Ying:
+> NXP i.MX93 mediamix blk-ctrl contains one DISPLAY_MUX register which
+> configures parallel display format by using the "PARALLEL_DISP_FORMAT"
+> field. Add a DRM bridge driver to support the display format configuratio=
+n.
+>=20
+> Signed-off-by: Liu Ying <victor.liu@nxp.com>
+> ---
+> v4->v5:
+> * Rebase upon next-20250303.  This causes the drop of .remove_new by using
+>   devm_drm_bridge_add().  Also, this causes API change for
+>   imx93_pdfc_bridge_atomic_enable().
+> * Update year of copyright.
+>=20
+> v3->v4:
+> * Use dev_err_probe() in imx93_pdfc_bridge_probe(). (Krzysztof)
+> * Drop MODULE_ALIAS(). (Krzysztof)
+> * Update year of Copyright.
+>=20
+> v2->v3:
+> * No change.
+> * Resend with the patch rebased upon v6.11-rc1.
+>=20
+> v1->v2:
+> * Set *num_input_fmts to zero in case
+>   imx93_pdfc_bridge_atomic_get_input_bus_fmts() returns NULL.
+> * Replace .remove callback with .remove_new callback in
+>   imx93_pdfc_bridge_driver.
+>=20
+>  drivers/gpu/drm/bridge/imx/Kconfig      |   8 +
+>  drivers/gpu/drm/bridge/imx/Makefile     |   1 +
+>  drivers/gpu/drm/bridge/imx/imx93-pdfc.c | 186 ++++++++++++++++++++++++
+>  3 files changed, 195 insertions(+)
+>  create mode 100644 drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+>=20
+> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/=
+imx/Kconfig
+> index 9a480c6abb85..51138d74ddfb 100644
+> --- a/drivers/gpu/drm/bridge/imx/Kconfig
+> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
+> @@ -88,4 +88,12 @@ config DRM_IMX93_MIPI_DSI
+>  	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
+>  	  processor.
+> =20
+> +config DRM_IMX93_PARALLEL_DISP_FMT_CONFIG
+> +	tristate "NXP i.MX93 parallel display format configuration"
+> +	depends on OF
+> +	select DRM_KMS_HELPER
+> +	help
+> +	  Choose this to enable parallel display format configuration
+> +	  found in NXP i.MX93 processor.
+> +
+>  endif # ARCH_MXC || COMPILE_TEST
+> diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge=
+/imx/Makefile
+> index dd5d48584806..f4ccc5cbef72 100644
+> --- a/drivers/gpu/drm/bridge/imx/Makefile
+> +++ b/drivers/gpu/drm/bridge/imx/Makefile
+> @@ -8,3 +8,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) +=3D imx8qxp-pix=
+el-combiner.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) +=3D imx8qxp-pixel-link.o
+>  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) +=3D imx8qxp-pxl2dpi.o
+>  obj-$(CONFIG_DRM_IMX93_MIPI_DSI) +=3D imx93-mipi-dsi.o
+> +obj-$(CONFIG_DRM_IMX93_PARALLEL_DISP_FMT_CONFIG) +=3D imx93-pdfc.o
+> diff --git a/drivers/gpu/drm/bridge/imx/imx93-pdfc.c b/drivers/gpu/drm/br=
+idge/imx/imx93-pdfc.c
+> new file mode 100644
+> index 000000000000..7dfb87e64197
+> --- /dev/null
+> +++ b/drivers/gpu/drm/bridge/imx/imx93-pdfc.c
+> @@ -0,0 +1,186 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +
+> +/*
+> + * Copyright 2022-2025 NXP
+> + */
+> +
+> +#include <linux/media-bus-format.h>
+> +#include <linux/mfd/syscon.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/regmap.h>
+> +
+> +#include <drm/drm_atomic_state_helper.h>
+> +#include <drm/drm_bridge.h>
+> +#include <drm/drm_print.h>
+> +
+> +#define DISPLAY_MUX		0x60
+> +#define  PARALLEL_DISP_FORMAT	0x700
+> +
+> +enum imx93_pdfc_format {
+> +	RGB888_TO_RGB888 =3D 0x0,
+> +	RGB888_TO_RGB666 =3D 0x1 << 8,
+> +	RGB565_TO_RGB565 =3D 0x2 << 8,
+> +};
 
-Paolo
+How about?
+#define  PARALLEL_DISP_FORMAT          GENMASK(10, 8)
+#define  FORMAT_RGB888_TO_RGB888       FIELD_PREP(PARALLEL_DISP_FORMAT, 0)
+#define  FORMAT_RGB888_TO_RGB666       FIELD_PREP(PARALLEL_DISP_FORMAT, 1)
+#define  FORMAT_RGB565_TO_RGB565       FIELD_PREP(PARALLEL_DISP_FORMAT, 2)
+#define  FORMAT_RGB555_TO_RGB555       FIELD_PREP(PARALLEL_DISP_FORMAT, 3)
+#define  FORMAT_YUV_TO_YCBCR24         FIELD_PREP(PARALLEL_DISP_FORMAT, 4)
+#define  FORMAT_YUV_TO_YUV444          FIELD_PREP(PARALLEL_DISP_FORMAT, 5)
+
+> +
+> +struct imx93_pdfc {
+> +	struct drm_bridge bridge;
+> +	struct drm_bridge *next_bridge;
+> +	struct device *dev;
+> +	struct regmap *regmap;
+> +	u32 format;
+> +};
+> +
+> +static int imx93_pdfc_bridge_attach(struct drm_bridge *bridge,
+> +				    enum drm_bridge_attach_flags flags)
+> +{
+> +	struct imx93_pdfc *pdfc =3D bridge->driver_private;
+> +
+> +	return drm_bridge_attach(bridge->encoder, pdfc->next_bridge, bridge, fl=
+ags);
+> +}
+> +
+> +static void imx93_pdfc_bridge_atomic_enable(struct drm_bridge *bridge,
+> +					    struct drm_atomic_state *state)
+> +{
+> +	struct imx93_pdfc *pdfc =3D bridge->driver_private;
+> +
+> +	regmap_update_bits(pdfc->regmap, DISPLAY_MUX, PARALLEL_DISP_FORMAT,
+> +			   pdfc->format);
+> +}
+> +
+> +static const u32 imx93_pdfc_bus_output_fmts[] =3D {
+> +	MEDIA_BUS_FMT_RGB888_1X24,
+> +	MEDIA_BUS_FMT_RGB666_1X18,
+> +	MEDIA_BUS_FMT_RGB565_1X16,
+> +	MEDIA_BUS_FMT_FIXED
+> +};
+> +
+> +static bool imx93_pdfc_bus_output_fmt_supported(u32 fmt)
+> +{
+> +	int i;
+> +
+> +	for (i =3D 0; i < ARRAY_SIZE(imx93_pdfc_bus_output_fmts); i++) {
+> +		if (imx93_pdfc_bus_output_fmts[i] =3D=3D fmt)
+> +			return true;
+> +	}
+> +
+> +	return false;
+> +}
+> +
+> +static u32 *
+> +imx93_pdfc_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
+> +					    struct drm_bridge_state *bridge_state,
+> +					    struct drm_crtc_state *crtc_state,
+> +					    struct drm_connector_state *conn_state,
+> +					    u32 output_fmt,
+> +					    unsigned int *num_input_fmts)
+> +{
+> +	u32 *input_fmts;
+> +
+> +	*num_input_fmts =3D 0;
+> +
+> +	if (!imx93_pdfc_bus_output_fmt_supported(output_fmt))
+> +		return NULL;
+> +
+> +	input_fmts =3D kmalloc(sizeof(*input_fmts), GFP_KERNEL);
+> +	if (!input_fmts)
+> +		return NULL;
+> +
+> +	switch (output_fmt) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		input_fmts[0] =3D output_fmt;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +	case MEDIA_BUS_FMT_FIXED:
+> +		input_fmts[0] =3D MEDIA_BUS_FMT_RGB888_1X24;
+> +		break;
+> +	}
+> +
+> +	*num_input_fmts =3D 1;
+> +
+> +	return input_fmts;
+> +}
+> +
+> +static int imx93_pdfc_bridge_atomic_check(struct drm_bridge *bridge,
+> +					  struct drm_bridge_state *bridge_state,
+> +					  struct drm_crtc_state *crtc_state,
+> +					  struct drm_connector_state *conn_state)
+> +{
+> +	struct imx93_pdfc *pdfc =3D bridge->driver_private;
+> +
+> +	switch (bridge_state->output_bus_cfg.format) {
+> +	case MEDIA_BUS_FMT_RGB888_1X24:
+> +		pdfc->format =3D RGB888_TO_RGB888;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB666_1X18:
+> +		pdfc->format =3D RGB888_TO_RGB666;
+> +		break;
+> +	case MEDIA_BUS_FMT_RGB565_1X16:
+> +		pdfc->format =3D RGB565_TO_RGB565;
+
+Do really need to store the bus format in device struct?
+It's possible to access the bridge state in atomic_enable using
+drm_atomic_get_bridge_state, no? TBH I don't know what are the best
+practices though.
+> +		break;
+> +	default:
+> +		DRM_DEV_DEBUG_DRIVER(pdfc->dev, "Unsupported output bus format: 0x%x\n=
+",
+> +				     bridge_state->output_bus_cfg.format);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct drm_bridge_funcs imx93_pdfc_bridge_funcs =3D {
+> +	.attach			=3D imx93_pdfc_bridge_attach,
+> +	.atomic_enable		=3D imx93_pdfc_bridge_atomic_enable,
+> +	.atomic_duplicate_state	=3D drm_atomic_helper_bridge_duplicate_state,
+> +	.atomic_destroy_state	=3D drm_atomic_helper_bridge_destroy_state,
+> +	.atomic_get_input_bus_fmts	=3D imx93_pdfc_bridge_atomic_get_input_bus_f=
+mts,
+> +	.atomic_check		=3D imx93_pdfc_bridge_atomic_check,
+> +	.atomic_reset		=3D drm_atomic_helper_bridge_reset,
+> +};
+> +
+> +static int imx93_pdfc_bridge_probe(struct platform_device *pdev)
+> +{
+> +	struct device *dev =3D &pdev->dev;
+> +	struct imx93_pdfc *pdfc;
+> +
+> +	pdfc =3D devm_kzalloc(dev, sizeof(*pdfc), GFP_KERNEL);
+> +	if (!pdfc)
+> +		return -ENOMEM;
+> +
+> +	pdfc->regmap =3D syscon_node_to_regmap(dev->of_node->parent);
+> +	if (IS_ERR(pdfc->regmap))
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->regmap),
+> +				     "failed to get regmap\n");
+> +
+> +	pdfc->next_bridge =3D devm_drm_of_get_bridge(dev, dev->of_node, 1, 0);
+> +	if (IS_ERR(pdfc->next_bridge))
+> +		return dev_err_probe(dev, PTR_ERR(pdfc->next_bridge),
+> +				     "failed to get next bridge\n");
+> +
+> +	pdfc->dev =3D dev;
+> +	pdfc->bridge.driver_private =3D pdfc;
+> +	pdfc->bridge.funcs =3D &imx93_pdfc_bridge_funcs;
+> +	pdfc->bridge.of_node =3D dev->of_node;
+
+pdfc->bridge.type =3D DRM_MODE_CONNECTOR_DPI;
+
+Despite that looks god to me.
+
+Best regards
+Alexander
+
+> +
+> +	return devm_drm_bridge_add(dev, &pdfc->bridge);
+> +}
+> +
+> +static const struct of_device_id imx93_pdfc_dt_ids[] =3D {
+> +	{ .compatible =3D "nxp,imx93-pdfc", },
+> +	{ /* sentinel */ }
+> +};
+> +MODULE_DEVICE_TABLE(of, imx93_pdfc_dt_ids);
+> +
+> +static struct platform_driver imx93_pdfc_bridge_driver =3D {
+> +	.probe	=3D imx93_pdfc_bridge_probe,
+> +	.driver	=3D {
+> +		.of_match_table =3D imx93_pdfc_dt_ids,
+> +		.name =3D "imx93_pdfc",
+> +	},
+> +};
+> +module_platform_driver(imx93_pdfc_bridge_driver);
+> +
+> +MODULE_DESCRIPTION("NXP i.MX93 parallel display format configuration dri=
+ver");
+> +MODULE_AUTHOR("Liu Ying <victor.liu@nxp.com>");
+> +MODULE_LICENSE("GPL v2");
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
 
 
