@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C449C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:05:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16CCC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:10:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c/pyfoaR/eT3J3WSzi9ciqMZLn3faPQuYj0+Pv+ikCU=; b=z/F6eDhsGjWxg2AhTjvXOnBG64
-	NmUoW9m0WtOxNvV40fgsrSVzqZuklFbkpKQu+4cmcCIFdKSMA3tPYEoRzn7GsHTpQxrUEiYoQP2do
-	js1WiS3ouxbfi0FiMfLQUPsgLE5iKvnS6hrGWF2w0iTN59YgO0HWtNlHi12HEZHWgYUfeeT6vFEzc
-	fCO9QIgjfcAV0qWVTm3m0bFcrJE/snu02b7nFyY3MkBcsrbJR7eQlkUdwzzJELZA/aw2efnaGG2mi
-	/kER2dgd6TlgLoqNmL49tIes9MRC0zmlWsVqzUgDzxL38GYl1rhPc1uvj/gJEueR2pFmD+pfTVM0U
-	k9eAlWQw==;
+	bh=iTG8fxlmYXAlax6nSmeXc8A6YgmKjSnnFRoCzKTT16E=; b=dv+TR/Bl+XfscIFMg9KN5oNycI
+	RbsfR4hjls0YII9oKd3TyxUCEyJ+cHCCIXuiVAvBVgC1hRmaDu8/M7IejKxi48fLFqlivCoSTLi7G
+	cCPPCXe2BKN9H0u+N8+J6PUqZrVbhms5IyonNPKUdWMn8L0Aa3TIRk0Thy5CD5cYb/dUSXHqJh1F8
+	ieTrhK3GzUQtbovfEJL3ivVqtRCuzehTY0tJTTSci33+9UX7J/DvNkKQ+ekSgE6BN4jKexfpw1LaI
+	Cydd3CsX43UYlz/phjh8kiN8+9y1HIzO7XddtrPh4DT3PW9JElX36ndlH04llLwDVeVeflYeyJ1Ui
+	oIWnqnqQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOD9-00000003m4o-3kQ5;
-	Tue, 04 Mar 2025 09:05:11 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tpOHn-00000003nd5-439G;
+	Tue, 04 Mar 2025 09:09:59 +0000
+Received: from mgamail.intel.com ([192.198.163.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOBZ-00000003lbw-28vQ
+	id 1tpOGC-00000003n5J-3RDe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 09:03:34 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-439ac3216dcso36385105e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 01:03:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741079011; x=1741683811; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=c/pyfoaR/eT3J3WSzi9ciqMZLn3faPQuYj0+Pv+ikCU=;
-        b=AlGLZygrSCl3UjWJw3sD5hEYvtkE7J5VGXWOoenSm0NokfDtvTV7wt+V1OkK62vGAD
-         qD5/eRDPWnrB8Iz3lULLh02Z6LH61UDAeyN3BbkPBqKsDB8GovPPRS/paQXoMMt1Az7l
-         KcrgzEtIg6cI1e1fPczRFdW7jmXnW4PwHtJBPNzZcSQ9K1XhKwq5ldAJ6wT+JA1hRqPz
-         jtWaq0Gs/U+I4OJZQT1oIfuflIakZAk5ujcd7zoHvLQ6Ua7YNgqmwuXApdN1CgPmteF3
-         4P6AMdTmjwrRXmtXsdk3jKaHxkt9iyVyTGbiC/ONV9xUdtf+hOnMi/gLjBJ0I/6M/nHU
-         LyaQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741079011; x=1741683811;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c/pyfoaR/eT3J3WSzi9ciqMZLn3faPQuYj0+Pv+ikCU=;
-        b=gfKYihj0lGMpEgv5zcW4WYgC3wvGd8lmefctVzDInV2XUscBIQAiOoMaOFWTVysHhm
-         Mbztot5TcLfFN9PMFlOjZl/nmi4wt/zqcbpRJcFQhc8pkUeCs7b0ZBt3IkD7pOVurdny
-         +B+tdCuCewldyN2Yb4IBBYBkrBoRGk8U59qCAP2oUUz+H1bXP2VWDmCZ1BHLJg4+zeuS
-         +gvXQ54b7OKPfrbZZF29MGU6yNGwZFpxoTrV9uNeOqCpPaf96caO2bXHsNsj0RXsztcK
-         lUpTKKlDZPLLgQA5b2pVbxxEa3ejk3aUSNJphUXZx1o2SWBS5uneTcZxywQ28V13OUHV
-         Ra9g==
-X-Forwarded-Encrypted: i=1; AJvYcCW05ScK74+2W2nq+sjUQkSLVv/xlGWB76HfM42com+cdih88P87wXXyQJ+l1gT+Met4vYRFFLOPpw+Ozuu46joD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmSfe6k9MRyg02/swyZsj/B5oFIPUK1APT/8KT0tqBA748ZLTz
-	EyvaMES2kgamvbcOVAZ+BZ6cQxJzPpFh2kMLguR3rupB1ckv8Fto2Jz5ohVf2w==
-X-Gm-Gg: ASbGncuqtB9I8Pup7ow7+CMKhJSmPS+OrNzw/470J8mLR3ARvn0HW3x30/AxLCEU3Dl
-	NF6iI3qTB8g8GiYRcT2CwtUTFju1vsspA5FILMH/rm3Z9jTKaRP9JB+j5UrVX52yio9A1daQxlm
-	8b5p29vRN4/Sv/tGe5I1VqxeBJCo71ezH6+GcdUCD7D3XDyjfXiQ/+zSAKlQ0P9cmofzLZSm9SX
-	F8fOhRLyeE88mMbmPVZEvIToAyZYkvkgN/aKyRldqqKJ+LIC+xh+YealsGhseYIEbhOfh0xIy6f
-	j5hfmhBcNzyY0yT0xULITtDIXTuToCaZZUmkk1UcbPAnmE3N16uL7MPUlGj7Yiqze8hg0RHPXyI
-	tyOB1sw2WmYrI
-X-Google-Smtp-Source: AGHT+IG+qNv3nEuovxtZ4Kh1LW4uAVYUbOr45A5k0T9kpCaFC9wlZiiNL+99xr4j/zMeBCPF6NNn8w==
-X-Received: by 2002:a05:600c:3ba0:b0:43b:cbe2:ec0c with SMTP id 5b1f17b1804b1-43bcbe2efa9mr11724355e9.27.1741079010911;
-        Tue, 04 Mar 2025 01:03:30 -0800 (PST)
-Received: from google.com (105.168.195.35.bc.googleusercontent.com. [35.195.168.105])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bcb96b0c5sm18735925e9.19.2025.03.04.01.03.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 01:03:30 -0800 (PST)
-Date: Tue, 4 Mar 2025 09:03:26 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	qperret@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH] KVM: arm64: Count pKVM stage-2 usage in secondary
- pagetable stats
-Message-ID: <Z8bB3sr7X4RRV0CN@google.com>
-References: <20250228121355.1377891-1-vdonnefort@google.com>
- <Z8Ycq3d7O8_3fozk@linux.dev>
+	Tue, 04 Mar 2025 09:08:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741079301; x=1772615301;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GXuRz06hDfIRTVBK7Y7J5u3Fy/4jNuBeBSyafYInY64=;
+  b=C5YWoQqxrFlXBnJEqCviSGlZtU8sxMyRIAW943RjN6TT4Bi21kWkOoq+
+   AUEvs/KInq6bXX5ztwZpcNd8KE4QTpT2r2SAhUtiXcgziNnoQw58KBVZt
+   QZOAxmtwCGtrVetQKwwGQG7epPV9V4a+7ee+YMRP+fuCJqqO2FcMr4QVq
+   dPJq3kFf0bJ9rPzsyRKoj9IaM2H+9a1ZtMlRS8mYTtYOtgdthKrrF8OEZ
+   kA3eAi1Yxf96TABpxbzniUcw0/BiqmQWvZ7nCfCdyhXr3ktREU8hWxIhi
+   whQWkf8boBjYSuUUSpA1rcIZjjRx9Vq7PwEd3KwgG/2I3lkY2K050TRtT
+   Q==;
+X-CSE-ConnectionGUID: QmKNfZHoT8aZBeZ8NhQ3Qw==
+X-CSE-MsgGUID: ENxc/ytHS5WN8TNeEq9yNw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11362"; a="53391439"
+X-IronPort-AV: E=Sophos;i="6.13,331,1732608000"; 
+   d="scan'208";a="53391439"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 01:08:20 -0800
+X-CSE-ConnectionGUID: WsdSvD8kQSqq8xlLa15QJg==
+X-CSE-MsgGUID: wBNumz0fSaSG5Y1WNX0q2Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="119230033"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 04 Mar 2025 01:08:16 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tpOG5-000JWI-26;
+	Tue, 04 Mar 2025 09:08:13 +0000
+Date: Tue, 4 Mar 2025 17:07:44 +0800
+From: kernel test robot <lkp@intel.com>
+To: Bartosz Golaszewski <brgl@bgdev.pl>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Michael Hennerich <michael.hennerich@analog.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Mun Yew Tham <mun.yew.tham@intel.com>,
+	Joel Stanley <joel@jms.id.au>,
+	Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-pwm@vger.kernel.org, patches@opensource.cirrus.com,
+	linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org
+Subject: Re: [PATCH 02/15] gpio: adnp: use lock guards for the I2C lock
+Message-ID: <202503041612.G8O0Bdrg-lkp@intel.com>
+References: <20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z8Ycq3d7O8_3fozk@linux.dev>
+In-Reply-To: <20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_010333_548131_FA58F0D8 
-X-CRM114-Status: GOOD (  16.20  )
+X-CRM114-CacheID: sfid-20250304_010820_871128_0D9C318F 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,32 +95,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 01:18:35PM -0800, Oliver Upton wrote:
-> On Fri, Feb 28, 2025 at 12:13:55PM +0000, Vincent Donnefort wrote:
-> > Count the pages used by pKVM for the guest stage-2 in memory stats under
-> > secondary pagetable stats, similarly to what the VHE mode does.
-> > 
-> > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > 
-> > diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> > index 1f55b0c7b11d..c2e022c41313 100644
-> > --- a/arch/arm64/kvm/mmu.c
-> > +++ b/arch/arm64/kvm/mmu.c
-> > @@ -1088,12 +1088,18 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
-> >  
-> >  static void hyp_mc_free_fn(void *addr, void *unused)
-> >  {
-> > +	kvm_account_pgtable_pages(addr, -1);
-> >  	free_page((unsigned long)addr);
-> >  }
-> 
-> Don't we drain more than just stage-2 page tables into the teardown_mc
-> (e.g. vcpu structs)?
+Hi Bartosz,
 
-Sigh, yes we do. I've left behind some changes we have in our Android branches.
-Let me respin a proper version :-\ 
+kernel test robot noticed the following build warnings:
 
-> 
-> Thanks,
-> Oliver
+[auto build test WARNING on 9778568dede2166c7bd124d473f9ec365f782935]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Bartosz-Golaszewski/gpio-74x164-use-new-line-value-setter-callbacks/20250303-212738
+base:   9778568dede2166c7bd124d473f9ec365f782935
+patch link:    https://lore.kernel.org/r/20250303-gpiochip-set-conversion-v1-2-1d5cceeebf8b%40linaro.org
+patch subject: [PATCH 02/15] gpio: adnp: use lock guards for the I2C lock
+config: x86_64-buildonly-randconfig-001-20250304 (https://download.01.org/0day-ci/archive/20250304/202503041612.G8O0Bdrg-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250304/202503041612.G8O0Bdrg-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503041612.G8O0Bdrg-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/gpio/gpio-adnp.c:241:8: warning: variable 'isr' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     241 |                         if (err < 0)
+         |                             ^~~~~~~
+   drivers/gpio/gpio-adnp.c:265:14: note: uninitialized use occurs here
+     265 |                 pending &= isr & ier;
+         |                            ^~~
+   drivers/gpio/gpio-adnp.c:241:4: note: remove the 'if' if its condition is always false
+     241 |                         if (err < 0)
+         |                         ^~~~~~~~~~~~
+     242 |                                 continue;
+         |                                 ~~~~~~~~
+   drivers/gpio/gpio-adnp.c:235:25: note: initialize the variable 'isr' to silence this warning
+     235 |                 u8 changed, level, isr, ier;
+         |                                       ^
+         |                                        = '\0'
+>> drivers/gpio/gpio-adnp.c:245:8: warning: variable 'ier' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     245 |                         if (err < 0)
+         |                             ^~~~~~~
+   drivers/gpio/gpio-adnp.c:265:20: note: uninitialized use occurs here
+     265 |                 pending &= isr & ier;
+         |                                  ^~~
+   drivers/gpio/gpio-adnp.c:245:4: note: remove the 'if' if its condition is always false
+     245 |                         if (err < 0)
+         |                         ^~~~~~~~~~~~
+     246 |                                 continue;
+         |                                 ~~~~~~~~
+   drivers/gpio/gpio-adnp.c:241:8: warning: variable 'ier' is used uninitialized whenever 'if' condition is true [-Wsometimes-uninitialized]
+     241 |                         if (err < 0)
+         |                             ^~~~~~~
+   drivers/gpio/gpio-adnp.c:265:20: note: uninitialized use occurs here
+     265 |                 pending &= isr & ier;
+         |                                  ^~~
+   drivers/gpio/gpio-adnp.c:241:4: note: remove the 'if' if its condition is always false
+     241 |                         if (err < 0)
+         |                         ^~~~~~~~~~~~
+     242 |                                 continue;
+         |                                 ~~~~~~~~
+   drivers/gpio/gpio-adnp.c:235:30: note: initialize the variable 'ier' to silence this warning
+     235 |                 u8 changed, level, isr, ier;
+         |                                            ^
+         |                                             = '\0'
+   3 warnings generated.
+
+
+vim +241 drivers/gpio/gpio-adnp.c
+
+   225	
+   226	static irqreturn_t adnp_irq(int irq, void *data)
+   227	{
+   228		struct adnp *adnp = data;
+   229		unsigned int num_regs, i;
+   230	
+   231		num_regs = 1 << adnp->reg_shift;
+   232	
+   233		for (i = 0; i < num_regs; i++) {
+   234			unsigned int base = i << adnp->reg_shift, bit;
+   235			u8 changed, level, isr, ier;
+   236			unsigned long pending;
+   237			int err;
+   238	
+   239			scoped_guard(mutex, &adnp->i2c_lock) {
+   240				err = adnp_read(adnp, GPIO_PLR(adnp) + i, &level);
+ > 241				if (err < 0)
+   242					continue;
+   243	
+   244				err = adnp_read(adnp, GPIO_ISR(adnp) + i, &isr);
+ > 245				if (err < 0)
+   246					continue;
+   247	
+   248				err = adnp_read(adnp, GPIO_IER(adnp) + i, &ier);
+   249				if (err < 0)
+   250					continue;
+   251			}
+   252	
+   253			/* determine pins that changed levels */
+   254			changed = level ^ adnp->irq_level[i];
+   255	
+   256			/* compute edge-triggered interrupts */
+   257			pending = changed & ((adnp->irq_fall[i] & ~level) |
+   258					     (adnp->irq_rise[i] & level));
+   259	
+   260			/* add in level-triggered interrupts */
+   261			pending |= (adnp->irq_high[i] & level) |
+   262				   (adnp->irq_low[i] & ~level);
+   263	
+   264			/* mask out non-pending and disabled interrupts */
+   265			pending &= isr & ier;
+   266	
+   267			for_each_set_bit(bit, &pending, 8) {
+   268				unsigned int child_irq;
+   269				child_irq = irq_find_mapping(adnp->gpio.irq.domain,
+   270							     base + bit);
+   271				handle_nested_irq(child_irq);
+   272			}
+   273		}
+   274	
+   275		return IRQ_HANDLED;
+   276	}
+   277	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
