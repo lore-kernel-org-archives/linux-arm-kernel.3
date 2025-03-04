@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF017C282D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:11:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B9CDC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:13:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=; b=EBWqjmjnh2sDmIPACgD2J5LpUc
-	ytW93gqy7qCbnt9ycp68W4Jep3i0qE3nePvPp8EoE/P1EKOm1YjqqRqVWKmrw+A9d9qyjgJ5BbwIG
-	7hZ+CXnY1JP4u/9Nbc9AYYOT+Z3Y/4JFriZXc2nn8gbOLzJc/8tJgOBtqMN85TKvSFT4ShqZBYH/B
-	YRZIFXHAVTJ8X6GE3X8eIRtSGA8FlOuROLGQDiqyu1B03PQlgNOqrI1aWocOqK5O6g90ukC6EKQvu
-	xpurepdbcvf0+tIJ6ArAGvHuqBV6PgKDvLwLVEpWnSHD2nmusu+AcFHDP2Y8fIV23BMxIcYWrV8NO
-	KIHVq/wQ==;
+	bh=eXtflJVWFreoh2RfRDMWyYTeNxkucDM+/OLgGz1etxI=; b=pOoovBTSh3rZSicGeXsntK5Sd1
+	a33uWScvPd5HU64/7e/wFdpWh19eWxE8f4qzt0TkCZooi/Orc1QGsZXTQPIp8JvG3JSoOZ5geQZvh
+	AtMp9N+VPZJen2JlrVZnoHkzGbWOfJb8BFCSR/+9HGviKvwxIzH9vnA+mFIFRp6pagXyw1PzTD5Zq
+	Q+4nW9/qhvDtEpZkdeFaSZGAlqvEtbMaQCnXJwvnKXPTiG//FocYKORYNKnCaE/ctsHpNT33E02oj
+	4hTUbfIdYe666cHIxv0RHu17kZfRnCUHV6kFgxXyKhxbDCevFn8S48iwx1Cl9O7akkqcRR2if6jFO
+	DPzHqVuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUrm-00000005Mu5-2qyk;
-	Tue, 04 Mar 2025 16:11:34 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1tpUtN-00000005NIz-1OwR;
+	Tue, 04 Mar 2025 16:13:13 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTsz-000000058L2-3Ez4
+	id 1tpTtl-000000058V4-04Vi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:08:47 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-2239f8646f6so54288215ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:08:45 -0800 (PST)
+	Tue, 04 Mar 2025 15:09:34 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-22339936bbfso85437565ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:09:32 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741100925; x=1741705725; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741100972; x=1741705772; darn=lists.infradead.org;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date:from:to
          :cc:subject:date:message-id:reply-to;
-        bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=;
-        b=yc1/ug4heapxXLmx3c4uGJVPVnW9RD/uujE6ENoaDLktIOVduBnT0kFR8NmmGsYewZ
-         eXjruw5HqEnWp4IpGq/m71afU2SN4LaEVCNx9XzmfIr4NLJK6Z//adCmTOUs32wYa1HG
-         n8SoqiOfDCojef1QQXW84u3ItsDVUqyHOI0dIqaq4wfrfpmryk+tud+ZoJuYZnRwfpfy
-         nQof0aCVagWlAyH65qz8PgsXI4/frvsZoZucY8fdwDg4HAGnO2bMxQ6Q1sbM53w394ru
-         ScK6xRkC07yGFJkZLkwSlPk5wU8H2g4rLWhwc3pcG4X3VQJhUCiz6QpYXxSE8PKxQKy2
-         zMaQ==
+        bh=eXtflJVWFreoh2RfRDMWyYTeNxkucDM+/OLgGz1etxI=;
+        b=PIJFhJaMq5+t1xmFiRxKFkCNivZrOG5kX1ppMiHMVsRaLDYv/JP6ciAHW+HdRoeRSd
+         XNr9S96A7jT3DSnX6YLiVyvV9NpqSqaf25aqr8auy/oasiOYXgyepqYj2dn7b4KcSrOU
+         bdH+ycADGM6fCN/I1A3w/Joq4lxEYOd5RoI6bK589WzG0dwuTxIv0AJApWK2sMVbEU4A
+         mm2m3YbeeToQSzzj+edeXlzsctfVr4wrM9IrSojwDj2YhkAYWvqUdceyr5z1yqTg2U2s
+         FyPOI5yV6g3xeSaF/hH3Cz7wabQNaTSgURV7ih9j1ytMm+VMNkEblGUDW3dwFj/TmA2i
+         KpHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741100925; x=1741705725;
+        d=1e100.net; s=20230601; t=1741100972; x=1741705772;
         h=in-reply-to:content-transfer-encoding:content-disposition
          :mime-version:references:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZjiljQTviEDPhmhXZgDQ4TTKjdmkRjmGdt5pKh0gNc8=;
-        b=tB0cw8SFI8YruIP9svllU1DBmy6jDWsKcPoDAxKI9mPtCj4nwgpvXCdHtaGqPIRYna
-         10wIjhD8g/d9is9g/F+J70wzf+lrJhsQri3EMjonbU1Xky+NioVmcwVgT6uvZwFYo3fI
-         Fzl17CAlA69Ryt7tS6ziOBAayKpLmZ6cZF46HJfhfF/r5/dWSOdY5IPgRHKQDeDy/mTb
-         l7RmIP1ypTm121r+a+4cTaP7qC/BBIW1b0FYPmy7G4iuNKRqU1P1Edrbc46a1hsfVSTz
-         HrNgARFv5dFnN4b6Ctpl6NPRFTo9LREW77LwqTUqxKhXi5Q7YuLfoxlZSqWr2mzTmw7H
-         lr+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVO/qeY4SjLmnKyqVWNcluf7MjYs4XK4+D1b2qeQgyHdUi7+Ws0g7j7i9bDeJ3OD7uxFz4UpFbTHaQn3t8xqtMD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzABg1DtmRsn2BTQq4DNMiPGAWxfZRUf6cAz++8YJTzlPg39aOs
-	4xxPn3ciVVOAtkszJJ411jLLSPOjrELrD5mDMAglv9di/G+WcVVGSxb9AcPxoQ==
-X-Gm-Gg: ASbGnctST8Z95ke1rcJtfSwBjd1mscNckff4iJo7qQcTNOo2mgZfkF1RGHQMHlj3bR4
-	AphUgDZaPTIb7zybr61TicZp7NSQQw0ZqJZPTbtKvxfP1VPaJqn65QU4D2tVGfQ2ohBkDl9PSPP
-	PPn+4yz9Ef69HiTa9HzUWdYr4v+kYdMmqUnSBdfI2PaV5bohb1hyn7oSD2sfiRSGDwwLUKGMlNS
-	wza8xhT4xnSeakNhVPBhMy2mU+UNWlxHCIksF8yIP2G3omie2lK/jry5oLDZpAtM8lqeghvmFH8
-	M6a2PEcCDvJPZ37H8fk25dqEf13DEo2mK45FzN5KmP/t+My3/+GuxWk=
-X-Google-Smtp-Source: AGHT+IHrDiyu7JyyUaCpNZBRWqNi4l6xLSdCaNxkD7VzQLNr/sJguqTX3KZTI2raz26SwVrgNAG86w==
-X-Received: by 2002:a05:6a21:8983:b0:1f3:1d13:969f with SMTP id adf61e73a8af0-1f31d13dec4mr15120281637.9.1741100925020;
-        Tue, 04 Mar 2025 07:08:45 -0800 (PST)
+        bh=eXtflJVWFreoh2RfRDMWyYTeNxkucDM+/OLgGz1etxI=;
+        b=Y/XgB4s4KzxTAfYZmleZUJWfR8yNMBtdbLM8zrc1DkFZ1W4bZXuO/ImznT7SbDAgFe
+         JWRrnMEBUOKiefLxnJ8KdAJbimpLxIecwfd990uKJGm2gR24kx+vWLNMPN3SfoCyzRm6
+         GS6uicMoY1826vbh4+4D5o7UvSkbhlFn5n6kdCNtA/XnGrziSB2vWYQ7tyZEdf/oOG6K
+         nJqT4A8ggfzHwqYpOy31bfPHwDq9Zubhbfg3itTbPWEHj1+b5l346Vxz6giBBmk0IsPF
+         hninSRjBaxfy2bmvq+Sxp5KGXn0oIQiRh6zSTIfeaa5uZctvbisaGhOxG7aU9glfAL9u
+         UvXQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUyWRnvJXGY/PV8/Gkj1QMDAnHvnif0pkFIrxCAmJum/gs3SFywGTyx5V/tls1MxtMmrbnjqBsRcXJCQcruB7CN@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQbGPO2yYwdkP5tWbqhGukHNexU9ZgBkClLbtkbJwB3LlGemMa
+	OeYo2qsHJJPf3V6ZIhMagMwEvQSHzwX81Y8t5EXkjAFB6OqhJcBo8HKcpvTcJA==
+X-Gm-Gg: ASbGncsyj3K1fnyU2tAxULRfLvuuebUvn4m9BIWBCzHQhXi0ynLOrOEdwDhey1zsUqz
+	DI3M797eVVynnnHay/vuljCTFsvkvIozVVtW3XBm3qPM1sOyfLCpAKkasVZSESYbeeLXM7QxewE
+	GEscQ6Fou5H4FPz9/YPDwPk2UipYb6ggvjl7Utn6IIdLnTsTqWOJ8zwthrRYkX8aQqFYEJWZRvO
+	vRCeJxxeK+l98tGREcL2ooxj3kdxchLcMhKwRDbGlDCD/OSgzZmOBI5YNssr+XZ+OWWtO7DUJdy
+	ExskSwmI6j757bL/BnxQn7vbSt0rCZfQNUpmDky3js8zDLl1dp2k0vc=
+X-Google-Smtp-Source: AGHT+IHH3kAeBAzG7ggYHAxEuKnNP4t+N+bzoJzUJ161LlHrI1a78f2EZCVwmMROqGLsC4q+42HbGQ==
+X-Received: by 2002:a05:6a20:4310:b0:1ee:c8e7:203c with SMTP id adf61e73a8af0-1f2f4d2edf8mr31762576637.24.1741100972347;
+        Tue, 04 Mar 2025 07:09:32 -0800 (PST)
 Received: from thinkpad ([120.60.51.199])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af25bfb4a93sm1474563a12.31.2025.03.04.07.08.40
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-aee7de1a49esm10249081a12.17.2025.03.04.07.09.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 07:08:44 -0800 (PST)
-Date: Tue, 4 Mar 2025 20:38:38 +0530
+        Tue, 04 Mar 2025 07:09:31 -0800 (PST)
+Date: Tue, 4 Mar 2025 20:39:24 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 To: Jim Quinlan <james.quinlan@broadcom.com>
 Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
@@ -84,19 +84,19 @@ Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
 	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
 	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
 	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 6/8] PCI: brcmstb: Use same constant table for config
- space access
-Message-ID: <20250304150838.23ca5qbhm4yrpa3h@thinkpad>
+Subject: Re: [PATCH v2 7/8] PCI: brcmstb: Make two changes in MDIO register
+ fields
+Message-ID: <20250304150924.a6ygwzca3lwgpt7h@thinkpad>
 References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-7-james.quinlan@broadcom.com>
+ <20250214173944.47506-8-james.quinlan@broadcom.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250214173944.47506-7-james.quinlan@broadcom.com>
+In-Reply-To: <20250214173944.47506-8-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_070845_809458_7DFA0E18 
-X-CRM114-Status: GOOD (  24.58  )
+X-CRM114-CacheID: sfid-20250304_070933_074093_8E8ACC4A 
+X-CRM114-Status: GOOD (  21.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,79 +111,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 12:39:34PM -0500, Jim Quinlan wrote:
-> The constants EXT_CFG_DATA and EXT_CFG_INDEX vary by SOC. One of the
-> map_bus methods used these constants, the other used different constants.
-> Fortunately there was no problem because the SoCs that used the latter
-> map_bus method all had the same register constants.
+On Fri, Feb 14, 2025 at 12:39:35PM -0500, Jim Quinlan wrote:
+> The HW team has decided to "tighten" some field definitions in the MDIO
+> packet format.  Fortunately these two changes may be made in a backwards
+> compatible manner.
 > 
-> Remove the redundant constants and adjust the code to use them.  In
-> addition, update EXT_CFG_DATA to use the 4k-page based config space access
-> system, which is what the second map_bus method was already using.
+> The CMD field used to be 12 bits and now is one.  This change is backwards
+> compatible because the field's starting bit position is unchanged and the
+> only commands we've used have values 0 and 1.
 > 
-
-What is the effect of this change? Why is it required? Sounds like it got
-sneaked in.
-
+> The PORT field's width has been changed from four to five bits.  When
+> written, the new bit is not contiguous with the other four.  Fortunately,
+> this change is backwards compatible because we have never used anything
+> other than 0 for the port field's value.
+> 
 > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+
+- Mani
+
 > ---
->  drivers/pci/controller/pcie-brcmstb.c | 14 ++++++--------
->  1 file changed, 6 insertions(+), 8 deletions(-)
+>  drivers/pci/controller/pcie-brcmstb.c | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 > 
 > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index e1059e3365bd..923ac1a03f85 100644
+> index 923ac1a03f85..cb897d4b2579 100644
 > --- a/drivers/pci/controller/pcie-brcmstb.c
 > +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -150,9 +150,6 @@
->  #define  MSI_INT_MASK_SET		0x10
->  #define  MSI_INT_MASK_CLR		0x14
+> @@ -175,8 +175,9 @@
+>  #define MDIO_PORT0			0x0
+>  #define MDIO_DATA_MASK			0x7fffffff
+>  #define MDIO_PORT_MASK			0xf0000
+> +#define MDIO_PORT_EXT_MASK		0x200000
+>  #define MDIO_REGAD_MASK			0xffff
+> -#define MDIO_CMD_MASK			0xfff00000
+> +#define MDIO_CMD_MASK			0x00100000
+>  #define MDIO_CMD_READ			0x1
+>  #define MDIO_CMD_WRITE			0x0
+>  #define MDIO_DATA_DONE_MASK		0x80000000
+> @@ -327,6 +328,7 @@ static u32 brcm_pcie_mdio_form_pkt(int port, int regad, int cmd)
+>  {
+>  	u32 pkt = 0;
 >  
-> -#define PCIE_EXT_CFG_DATA				0x8000
-> -#define PCIE_EXT_CFG_INDEX				0x9000
-> -
->  #define  PCIE_RGR1_SW_INIT_1_PERST_MASK			0x1
->  #define  PCIE_RGR1_SW_INIT_1_PERST_SHIFT		0x0
->  
-> @@ -727,8 +724,8 @@ static void __iomem *brcm_pcie_map_bus(struct pci_bus *bus,
->  
->  	/* For devices, write to the config space index register */
->  	idx = PCIE_ECAM_OFFSET(bus->number, devfn, 0);
-> -	writel(idx, pcie->base + PCIE_EXT_CFG_INDEX);
-> -	return base + PCIE_EXT_CFG_DATA + PCIE_ECAM_REG(where);
-> +	writel(idx, base + IDX_ADDR(pcie));
-> +	return base + DATA_ADDR(pcie) + PCIE_ECAM_REG(where);
->  }
->  
->  static void __iomem *brcm7425_pcie_map_bus(struct pci_bus *bus,
-> @@ -1711,7 +1708,7 @@ static void brcm_pcie_remove(struct platform_device *pdev)
->  static const int pcie_offsets[] = {
->  	[RGR1_SW_INIT_1]	= 0x9210,
->  	[EXT_CFG_INDEX]		= 0x9000,
-> -	[EXT_CFG_DATA]		= 0x9004,
-> +	[EXT_CFG_DATA]		= 0x8000,
->  	[PCIE_HARD_DEBUG]	= 0x4204,
->  	[PCIE_INTR2_CPU_BASE]	= 0x4300,
->  };
-> @@ -1719,7 +1716,7 @@ static const int pcie_offsets[] = {
->  static const int pcie_offsets_bcm7278[] = {
->  	[RGR1_SW_INIT_1]	= 0xc010,
->  	[EXT_CFG_INDEX]		= 0x9000,
-> -	[EXT_CFG_DATA]		= 0x9004,
-> +	[EXT_CFG_DATA]		= 0x8000,
->  	[PCIE_HARD_DEBUG]	= 0x4204,
->  	[PCIE_INTR2_CPU_BASE]	= 0x4300,
->  };
-> @@ -1733,8 +1730,9 @@ static const int pcie_offsets_bcm7425[] = {
->  };
->  
->  static const int pcie_offsets_bcm7712[] = {
-> +	[RGR1_SW_INIT_1]	= 0x9210,
->  	[EXT_CFG_INDEX]		= 0x9000,
-> -	[EXT_CFG_DATA]		= 0x9004,
-> +	[EXT_CFG_DATA]		= 0x8000,
->  	[PCIE_HARD_DEBUG]	= 0x4304,
->  	[PCIE_INTR2_CPU_BASE]	= 0x4400,
->  };
+> +	pkt |= FIELD_PREP(MDIO_PORT_EXT_MASK, port >> 4);
+>  	pkt |= FIELD_PREP(MDIO_PORT_MASK, port);
+>  	pkt |= FIELD_PREP(MDIO_REGAD_MASK, regad);
+>  	pkt |= FIELD_PREP(MDIO_CMD_MASK, cmd);
 > -- 
 > 2.43.0
 > 
