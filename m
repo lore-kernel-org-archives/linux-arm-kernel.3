@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66F68C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2404EC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:50:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B53w3MQPaxkNrF0zClZsbBbaKHU29woPD5v5NTL/nAY=; b=1ua8KEOoBy9xGkybr3a93/bESK
-	ujhATcJpHI5SYHfaEyvPDJ1/F4JlH1oK4bcual3y0WX+U7nZ+wcm3/9cSSdi2QrwAPG0wdcK1dbJI
-	Ar93IszlSQINWZtYEjXoIV/dyWem96x4w1POIj8rRWuAaqfOBUE2gAAEWOG2rvWqJCtS34cex7e02
-	7gxCepSByy+yazWeDbVwrLXFeBJn8Mi/6IYpodSj+AXRcDvVe04/VuUbo4u/x+bQm+K83mplPomgr
-	tv1j/c3Fq24Pm6GMqFfZHig4XCsXPcZzd/dzKrxXgmfGXALrXloWcGjIYYlGWMANYpBeEDVRXjcGX
-	2MwMNgjw==;
+	bh=r3K/LcKqtOkyKdbJPvYlfinf1m8ideZSsXyRIMH0tEQ=; b=nIa8Q2uPaEpK/GZe2mvWdNFkGt
+	4Gn4FaNKEhNVumMZRjoVnZvhqgu9PYZvs63Z59Wg7dbwuorpVmC+yZIkGiVLf/gT/hlvAHrgGyTMk
+	MM5yTEgLsURuqbnTgZiqJt2444J4SJlOmB3FymthXrxtRlYS9+w9JjZk3/fqqNCd8PXofrqxKn76y
+	TCds00T9Q5gX3ePHI60uonhXgOu4RtKzJvCh4yHiGSsZ8j7eDUCzB7RVKa8/iq2kNO1es/v936bp5
+	gw4J5bSTN36dhUDF9rGufVY168bhNZhd4DiuX9GlLa4EgpFypKcpV1+rh9d5N+Dm9JyNC9dEhOlhU
+	GmkcSung==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPoy-00000004GE7-0aHs;
-	Tue, 04 Mar 2025 10:48:20 +0000
-Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
+	id 1tpPqW-00000004Glz-0xGA;
+	Tue, 04 Mar 2025 10:49:56 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPiw-00000004ERA-0Lwe
+	id 1tpPj6-00000004EXJ-3M6S
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:42:07 +0000
-Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-3061513d353so56018381fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 02:42:05 -0800 (PST)
+	Tue, 04 Mar 2025 10:42:17 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5495078cd59so4238429e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 02:42:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741084924; x=1741689724; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741084935; x=1741689735; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=B53w3MQPaxkNrF0zClZsbBbaKHU29woPD5v5NTL/nAY=;
-        b=IXByrAcio/6Evgf5wv2GOMVOxF4tPChU2pXqJMWLgD5eaANf5w1UuN5LYhetzb+y7z
-         j2ttgvgjMg4KJu11KugPTycwT7IaVmU8Q0hz06iIsJuA1mt395EItAhmjqD7xJ0l3+wL
-         tO0QmrTVordFWUZugQmNcoVf/yBbChjXZcG7xPBh8vJHLQf+va2PrkEzULF/owSU0X0+
-         Z795k4M37mHUzBYIkYOWVQ43CQyWklR4QChv102KeNaugg+OLyeSsoq7qeTE3ABWjXUr
-         rATfvwgZZVuRaT7cSnDu3rv2dtwIZwom/kT59UDEPqKXbEpMgizFGPjkWMg7N+QwZ1vv
-         ppRA==
+        bh=r3K/LcKqtOkyKdbJPvYlfinf1m8ideZSsXyRIMH0tEQ=;
+        b=UFC1FUv0XlqwClamFTj2kNsEkOffRmCTRZlCwJxuzISdMsoDU2teKs2CZghe8mRwkM
+         smGZU2/cs46GBvnp4S9SOZ+FCTmDSAZfd5DvCd4xycjgnOsxVi2fYmBmcXV21pLCRLbh
+         lBAV5RdeXsFQQOyuPNpWQkBPFYNik395nQq1Zc64t87nB8RPzPfTuhnnVtwu9Q/lrD0R
+         ImY7k8n7Bpfaw0A+vkU6I5QZLwDXOwHfjB3ptYaL0t9oniQ6mx8KNOFwK3fGWTBUDt5R
+         AikYGY7W55m1rX3X5PjojFgACtGh4cW9jSOWvVlauP2RlaPclJfu91k5Svz2u6ruoQi/
+         9HOA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741084924; x=1741689724;
+        d=1e100.net; s=20230601; t=1741084935; x=1741689735;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=B53w3MQPaxkNrF0zClZsbBbaKHU29woPD5v5NTL/nAY=;
-        b=NfWS67NXmyxugOrHbK4enCV+/9VyFVJ7aWsN9Vah/P6DbnKlYdJzKqSKFEHFe1/PZf
-         I3c8EhThas/BhUNXLj8MPx70mALiwbyT9xqDKLFqAuUhQztWvHyLo311fCO0vUkgqOcZ
-         Y5clDFCHUKTgFRCy2ZtUGUB5JfuFolykfaZcmEFivyMkdSrUPbpr9dknkU6Ei3aeyL9E
-         reHDXRQdKosoXr7EQxOFQqfhLxnzdrMt89lbzyFX5UwwLbzWF6YuhpA310rLzystWoyy
-         GezQitq4olncRJYBRZT4aMzNnveE5updJQFAPLWiOPclzVgq6fdqh/v2hbyd9r3/zZRX
-         H4Vg==
-X-Forwarded-Encrypted: i=1; AJvYcCU3O/R6QuCOmb4cM1MBpYDA7yTuaiKcLqTvz8ko3qcdj8PSvfkPnYOhb7xd/mswD6q4DkAFO+jE/5mwpvfxmAka@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw1c4wT7YisEzcRUpWPJaoyCvhJ2aulc3E21M6e0yyvkIgbloN7
-	h4Mzh/ZSK5Jbq2UrngTYFSbrIm+NdWGW7gXVWqZ6vqWbciDFxG468DI/1b+tHxaYs5K5amwjUSs
-	Nk1KKl2q90xwt9INWO1s7thX9w/RU97WjvMOorQ==
-X-Gm-Gg: ASbGncseEGjJzqjuu5EbplH/9+r3rXHkTfM/SzV/QkMIn0mDZbhDjrYBCOJi/2wefxP
-	qEf3ycv7TuYITnxGzUN3A7emCVT0ZPC3kj5A0kmjyHxuQdI6VizrKahuyFtXlsq8EdcyIiA7zGJ
-	WbNf7e5DXSAZqYWO1oeBF496sy3YbGjPIeCnpGtDQbAUMm3H4kfHrjG9ygFw==
-X-Google-Smtp-Source: AGHT+IFjk1UnA0sx0Kef7boBRo1bABdfDdyjC8ITpkOL63KQEFB5T3AVF3JlEQ15FCRpk+EGUuIFoCvwxuTHq4w+81o=
-X-Received: by 2002:a05:6512:3189:b0:545:3032:bc50 with SMTP id
- 2adb3069b0e04-5494c320d3cmr6862388e87.19.1741084924101; Tue, 04 Mar 2025
- 02:42:04 -0800 (PST)
+        bh=r3K/LcKqtOkyKdbJPvYlfinf1m8ideZSsXyRIMH0tEQ=;
+        b=MlWkOwUXKaNg7mu27g4U0lJbshLvajLLaYFHYsVFbm6mESj0Os8t/UKaXg7QxHv+OE
+         KAw9fet27Xn50svmk/ZR5MnwkmDXBwYnI1dtoElIWOT2w5rapkOnUqXvMv7brY4yUhWP
+         X7n5yoWSlbaFkaeAZxDIGmO0Y0eWWKWVwK5CymtE9UO3kiYBoUkJnRGD+Yyc+FRFc672
+         1KbLBsFRQk65dTPqnP/klAF0vI+pFewC15zll9xryaoVV+89mN9Aeud2WY7LpA1lZV0G
+         dQhtpMEsRLaqJ/JfrjAlcVOG0JV7UyQrofCvZ/qVto6/l/AQ3Mkd3CaiYzYH44IolGyc
+         IE4w==
+X-Forwarded-Encrypted: i=1; AJvYcCXy3SwCTK3lId16KascgDcfDP0zdB7QeGofbB8U08q4kwBkcgi8k/O2d1lx5RUK881I29nEArOoPs4wihNlc1h3@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4yqoAS6YyfuoooxeDuYOENK+PWwgE+VU8WMTi8UrBFnqf4vYL
+	tXBiCQ70r+J2irjdjF04MvMHRgOoZqInE2IPpSwteWHc/qEqclJPKcu0emwhLvKXu3idbP897IP
+	12dBB6FfHaDBGig1FLssnGzCYk08hgqQ1uc7CFJYmFvHqjDFnVCg=
+X-Gm-Gg: ASbGnctRnWIG/lR9q+7Ow67OGImL1kQK5d85EMn+11HnLvUoz+dXqoQPVqq/Uly+eSO
+	J8+r8IsodtSPE2KXoD9G1Fmvdp7Uz/QIhrlDkLc+g2LzkJNX/1Mx/fLOekoTtrs7CdI+wddOEvL
+	pps8T6cFAq5cKPtobp2zzy+UGHl61j0W1aNLdkRAf5h9eQjR6l/jY+AUdu9w==
+X-Google-Smtp-Source: AGHT+IGDNSudfFFzjYqFrM8y6kc064hj36m920RZvLgMZC0Na/fCdcQtaQhlOFDOArIsQb1iaYRQKjijvj//5BehIcI=
+X-Received: by 2002:a19:521a:0:b0:549:4d78:2418 with SMTP id
+ 2adb3069b0e04-5494d78261emr5767689e87.27.1741084935146; Tue, 04 Mar 2025
+ 02:42:15 -0800 (PST)
 MIME-Version: 1.0
-References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org> <20250303-samsung-codecs-v1-2-56a2299dd928@linaro.org>
-In-Reply-To: <20250303-samsung-codecs-v1-2-56a2299dd928@linaro.org>
+References: <20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org> <20250303-samsung-codecs-v1-3-56a2299dd928@linaro.org>
+In-Reply-To: <20250303-samsung-codecs-v1-3-56a2299dd928@linaro.org>
 From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 4 Mar 2025 11:41:52 +0100
-X-Gm-Features: AQ5f1JqqeOex0JCLsht-e_FnDn4g_HMa-cLCOz8gTdBj2tCIzQrrIWUji1KdsEY
-Message-ID: <CAMRc=Me7kcLvYPgRF38ahNtq4J0e8yHPRyd9yMnsjN4dB7Y8Ag@mail.gmail.com>
-Subject: Re: [PATCH 2/6] ASoC: samsung: littlemill: Drop unused include
+Date: Tue, 4 Mar 2025 11:42:03 +0100
+X-Gm-Features: AQ5f1JrCOkNsO-_LmSd0i-zdQ5ywyJGyS5xBtupnKd3oNTQMfbL3qs4qw3hPkug
+Message-ID: <CAMRc=MdqV7bm+zbi=mrBhS0506CTXOn09=rJj+pR7RMYmhn-MA@mail.gmail.com>
+Subject: Re: [PATCH 3/6] ASoC: samsung: lowland: Drop unused include
 To: Linus Walleij <linus.walleij@linaro.org>
 Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Liam Girdwood <lgirdwood@gmail.com>, 
 	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
@@ -80,8 +80,8 @@ Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Liam Girdwood <lgirdwood@gmail.
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_024206_141169_25578105 
-X-CRM114-Status: GOOD (  15.13  )
+X-CRM114-CacheID: sfid-20250304_024216_836742_6EDF3592 
+X-CRM114-Status: GOOD (  15.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,15 +104,14 @@ org> wrote:
 >
 > Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 > ---
->  sound/soc/samsung/littlemill.c | 1 -
+>  sound/soc/samsung/lowland.c | 1 -
 >  1 file changed, 1 deletion(-)
 >
-> diff --git a/sound/soc/samsung/littlemill.c b/sound/soc/samsung/littlemil=
-l.c
-> index c5260e101c2a136001c6273200fa35740e618829..9fa5e3ff9215164491839d6ff=
-df499a3eeadfbaa 100644
-> --- a/sound/soc/samsung/littlemill.c
-> +++ b/sound/soc/samsung/littlemill.c
+> diff --git a/sound/soc/samsung/lowland.c b/sound/soc/samsung/lowland.c
+> index 702cb4cc1ce9f07e55ddf9435b19c4691e0236e5..d4088b72d43c2295102d85019=
+7f8b9eac50d7120 100644
+> --- a/sound/soc/samsung/lowland.c
+> +++ b/sound/soc/samsung/lowland.c
 > @@ -7,7 +7,6 @@
 >  #include <sound/soc.h>
 >  #include <sound/soc-dapm.h>
@@ -120,7 +119,7 @@ df499a3eeadfbaa 100644
 > -#include <linux/gpio.h>
 >  #include <linux/module.h>
 >
->  #include "../codecs/wm8994.h"
+>  #include "../codecs/wm5100.h"
 >
 > --
 > 2.48.1
