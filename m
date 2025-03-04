@@ -4,118 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D390EC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:54:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD695C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:56:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=; b=BL01In6AaB2aycioW0Xts+jyqm
-	fdw5hVgs/8DrX1w8tKJ0mkWlSOLOS7T3UUwVHoy4fh6ihTIOvwQjiMP0p+5t6JF/1/+UIVdgP2jql
-	Do4wNYWsHaaxLGy/k7xAo6+eyNxifp1qinOwHr0HhWyByrabV4b/3WvxY/YEpUw/C5iQLe9Enz+vn
-	IbctlvBHcCPXtdkZuTyR9dFx/rwlZPlWWrEizLv5PA8L1vvVpkjzcCLhd8nmxTuAG8is9X+dU0Ikt
-	v3qxp2vqofaVbg24UaC/NmlTxwx2sUf0sOsA1Sm30GwGfOpadH1BOrNKG/ARM+1P7ew1T5775v4Mg
-	Ww9KPFzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LA/gKQoFR6dHj4YM+SZIs58tGSpb3MhpX5oaTo2PxFg=; b=meIoxyiXiiNPei/TWFns9WW91g
+	9+nRhOZy5sSmOR48GDcOxWMQfJnjddDOB7JnCgQgVy5UVBpuxTsPEnLQH3UMZnByZhJF10iwDHVLb
+	ZV8QLajzLd6K6ue5ABuCWjVeLales4zvowg1zNndUDlKjdrU8E3IguUrPPY3oR8ad6lPIEeroflGK
+	OHe0g+xndZ0juFbiK4pat6FjOqNk9/nZhm74/a/VtDvQ+QIaiGBsSmswUzEu9XyVhAjzNDvZRd1wP
+	xBgsK46mAcId3x68xoEQi792lBWcyTihOpfiL6UV+8h8NQVZig2G2v3MSMAzVskjVyHcD1iA+10yl
+	JPNoCvoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXPl-00000005vG1-0Tab;
-	Tue, 04 Mar 2025 18:54:49 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpXRJ-00000005vfZ-0nAA;
+	Tue, 04 Mar 2025 18:56:25 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpViM-00000005YI9-1Wvp
+	id 1tpVkB-00000005YY2-2oao
 	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Mar 2025 17:05:54 +0000
+	Tue, 04 Mar 2025 17:07:47 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Cc:To:In-Reply-To:References:Message-Id
-	:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=; b=arwdDrJ5nxUaqiXcnprFNMi6rt
-	NyiiJeRBQOQwZ19lYuYOvgMngKdIa2acf8681Y/r0CyLZQubERvC8mOFr/9XaN9TOTWM2IEtJlj6v
-	SsHlz9ELkiLES5kCsbbe77RO2s8LacXeaGG0H+uxoMAV+ny5EySQSCE9ufGpS3RYohhpdbt5BQU7b
-	w8V9r/xCHs0/nwtVg6c8bUu27Dpve/jJeOIWMBhmjWrEn7Rpzhwg9i63EEwkfo6r/2HQGe4O6r+/f
-	4D6QBUrc6xg/fJg0ytuC0yscacn2GQEfUNCwX3Cor7m/+raFecyTjn4fHRZih41025ZxmpJNMLzAS
-	8LitMknA==;
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVi9-00000002D0Y-0TjC
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LA/gKQoFR6dHj4YM+SZIs58tGSpb3MhpX5oaTo2PxFg=; b=Bwq+cBQ+ZIiV8nTDGMMDBnXOTC
+	jfEirZUCbdtLhypgWWeaguyNKK1+dPrTrR047pP2RQz5a06vGDHRPVuTrc/9pLQrFrySFgWAAS685
+	rafyPWDfBhccSmY2T1Ug71faZxRefzIv5OAnTMbtdoF4nAWC3wSZgWD07Kf9iGDWBxX6xPcFr+A4C
+	yYqZpalsHzFYI6oeZG2m4qUgEuR+ax+GMD1jcTLBBqqHVg1uzFjcm+u+v/f4w6Zh5gRQyQ2H9jefS
+	U58KJkYiAGsafsnRPXdP9+JF7tv4je1TPkhNJ1+ogSY9ZECI1FnqBZ6PCxt7c/d0MNQRsmBeEtQ87
+	NXuY7Tuw==;
+Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpVk8-0000000079l-1jbj
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 17:05:53 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e55ec94962so3638544a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:40 -0800 (PST)
+	Tue, 04 Mar 2025 17:07:46 +0000
+Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-223a7065ff8so67817775ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:07:44 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741107938; x=1741712738; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=;
-        b=j3Um0OTITg7odN79pu3s5Us+3s8CK0yWy6ssNGqA9JvDSIfcW+qG5HfzEAf/PYTAzm
-         J0rhEInhemNDMXWaoRFGoBKjXEwgZ9LjNe5eZndPQvUsRQWF56SBptOKJ67iUCLiDjuU
-         DaTnvdGM2oIxyZzkOqO/Ld8d5j8AK3N2UV6lcO0XaD871Ets3iXFyzFYADSYUNBReOOX
-         H68KDwO25ZCfy24fLvOOcfBgMM7/KixNVpfGp646dDyQ8cmGhh7y/uY0Nd8h1S3i/fXS
-         CRnJER4ybjfBzwcZwsGpKOMztwWDco103srIVBPfGDALtf+l8CWP/N08uo8LtpxXZ9IX
-         oZog==
+        d=linaro.org; s=google; t=1741108062; x=1741712862; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=LA/gKQoFR6dHj4YM+SZIs58tGSpb3MhpX5oaTo2PxFg=;
+        b=W3mVZ6iijJ2aOEnX8F/4cVMLK006l2HlY69kY+yv/CD7Af+n+K6mlpbyV6lO0xO7Dx
+         shihZvz4MnyLkF6tCc0gLP3VXvl90wERL+ji++poUCC57vpuzljgW+9ULCKI0/TxX9tA
+         xHVg8ruGT1JQBVE2wLDCpJpd6y6JudqUWLQebdec55R2+D+O6aFRRERHhpgncD2JgRl6
+         CihEH0fxvRhKlxtWyA9zNamszbNjJviV7cxVtXs8/O6YIWcmGLk5Ie6XGMeklj5iOU61
+         XED0tG3Mto2dcFn7Rn4d3aeqhoXtMQI9FC9p5VrwKn72+9xsgSAc1NzJPS3PFDYbpu7y
+         UQyw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741107938; x=1741712738;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=l1dbxTlHkaw5uSKNsqDfe9Jgr4Kg+vWUXd+ullz5kUQ=;
-        b=mPmlyGbiNEDGVKHumvVVud66uvNCNufrutDgHk0I1Zgk0PcDGJRbJowBMwc+DforDf
-         9P9iMSGcnSjPeYFxz7+YNcRyUHQLgwXoO3fDXVuMSMDC9MzrwojbE5ybxLdCioprO74K
-         qthdF18XJ/XxPqvTdCrRQHI0FEdFnZKS3lnZiqHi8x7FggWpoDfuiIkcN84rzPsAieet
-         CTfKaBwlXL9wZVM0LPoqY7XRqnF9xIyXIWyXVTBxtsORfR1lXvTqYJkb7REBv8sg6SNa
-         FVhxO58ZRxTBgZhlkunlastLLlPH0/dRvG4ZJoqKjRteONntf7mJCPvaFE8BKfX8Wqw6
-         nx/Q==
-X-Forwarded-Encrypted: i=1; AJvYcCViycQIGKGQmi2ManIeAuL28LVc5Ord/TlrL1g7Gr5Or0GrtOgB/Ct8Nt7hFx748rEo+HHunWM+fkMmu6rEnrxX@lists.infradead.org
-X-Gm-Message-State: AOJu0YyS6Frih3SNSM4aAgHrd3nqiSBv3bYG2IV8y6BEk9cYRmUUFRJn
-	y5iFBVK/ru9uryaIZvGniqp9LOHGFG20cQUtmjW583Wsm5C/T3F9FDiUHagSwNk=
-X-Gm-Gg: ASbGncu8q82d6pT+dyayryYOwvtDdT+3R/FYagLqet55PzBWgeb+8hNhweFsBERv0VB
-	vSXCaVFHPCCzoe+NpFFIr9TUFbWeKldv4hNlJxaDm28CCdZcLtYPKE/CyRhf0LDOACl8s8jcg2J
-	5h/L25Tx0uIcfZkT3CZLolO/pQwqAfq/QYKLkILgXRZgVfChpoWKiBHiOuFHnrOdODqX3C3P2wK
-	J9zdF/MKwJN3Vzor2u3l8900ccOBbq4K4vT8e6IvSKm89bt6w4TNbZLRHGhHl1P/4eY2v1rpnnB
-	rYExj2HZq4xEwuZImKNqi5IPE6ds3ucxRzjMW83+FXP+6cgGM+PVeS4/K1QjpE7GvjotW0gRHpv
-	Q8zPbGxTTVbcv0oWxFanTj4koZjwb
-X-Google-Smtp-Source: AGHT+IHF998NpSXE/Qa2EdiSn4vtx17I0lnFV/wyKnxAJsCHaDM1j6HSEMvcUwtHdnvoXlFd/CgYog==
-X-Received: by 2002:a05:6402:d0b:b0:5e4:c532:d693 with SMTP id 4fb4d7f45d1cf-5e4d6b8535fmr16782448a12.31.1741107937989;
-        Tue, 04 Mar 2025 09:05:37 -0800 (PST)
-Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.37
+        d=1e100.net; s=20230601; t=1741108062; x=1741712862;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LA/gKQoFR6dHj4YM+SZIs58tGSpb3MhpX5oaTo2PxFg=;
+        b=SBbn9EiAMsOcMv9zup2cvQMfvxr1te4qzRAagXbYv4izVVkK9wKiuQ0sgPMMwciiTY
+         hJbHB3qFATbGjiMK7W469JZ22fpW1DMwFgRHzwchIii0yz+ayso/5Y6Y5WrIRSO0NAYC
+         DUz624IxXUDPloUYtfwfpcKbOoLwvq2+d7Ry8/lDSXitjdmJu+TspiqISSCZoKBQ8Bt6
+         /Hl7mNP0WfBbSIf7d/B07KtFMwVaAI0jij7yCRvkS9lTZlC/cioNxLLvCV4a/cO6Yl8N
+         Z+EnkL0fzVDCHaDQnluonHnfhkz2++4X1NuDlORWKJV2wQr8lBntK60UP+HcidCJQ7Br
+         FgKg==
+X-Forwarded-Encrypted: i=1; AJvYcCWgMnDvXxFmWJinFLh2lywKCCL0pvInrUKMu9hUlT2x2rqew7SUEMkfOTh81GVHBZ8rq2awklK5Ygr7CdhSp01i@lists.infradead.org
+X-Gm-Message-State: AOJu0YwxOzpMiH5zKNd9lodIPRMaG0eH+LLk//DDIWiWhOCswyoYtYmp
+	bG5g8XdDQ2q855erpihG2IgKqhJuW0jCQrd3yAfmn1laISxR36LkUcq1t5OefQ==
+X-Gm-Gg: ASbGncvTlYTb5v64CALfZCcHuKLEceeIjkoemKw2bvaUyc8Y+b6fmw5046kntfLGDDT
+	g3y2ipR2QQxX23jaOb/hM7jmQhLT/G5R7VGoNMQg+8b+m2zcPq71jw1oU1EGVvq3KKEARNetaNo
+	GrR8whrYGXQK9nw7lLWVA6FabgsuzOYV5uK4RKVITv6Q9mVmPzeu29RpGWSrooAJmuk5ecL5MjS
+	Su7/xfgoNkdfjtY32b/h6kCDkQUXVeUrrauqUo9xSF79nS84KJ07DUDF2vQiPf5y/vRgP1jRjIY
+	BYWWnaR2f2bd8lEmM70J5V6gHa6nsjIOMCpbAjazLQ2gNs7nKfRLkks=
+X-Google-Smtp-Source: AGHT+IG9lPytOJ+a9BnKqGkMxxZf/h6DwbYyJiWJ/Q5mVWVtyO5FnvNkcSD22Lz3G7gAfZDKnHhRPQ==
+X-Received: by 2002:a05:6a00:1250:b0:736:5664:53f3 with SMTP id d2e1a72fcca58-73656645c9cmr11645970b3a.15.1741108062382;
+        Tue, 04 Mar 2025 09:07:42 -0800 (PST)
+Received: from thinkpad ([120.60.51.199])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-734a003fa5csm11529695b3a.145.2025.03.04.09.07.37
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 09:05:37 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 04 Mar 2025 17:05:38 +0000
-Subject: [PATCH v2 10/16] rtc: pl030: drop needless struct pl030_rtc::rtc
- member
+        Tue, 04 Mar 2025 09:07:41 -0800 (PST)
+Date: Tue, 4 Mar 2025 22:37:35 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 4/8] PCI: brcmstb: Fix error path upon call of
+ regulator_bulk_get()
+Message-ID: <20250304170735.x25c65azfpd7xmwv@thinkpad>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250214173944.47506-5-james.quinlan@broadcom.com>
+ <20250304150313.ey4fky35bu6dbtxd@thinkpad>
+ <CA+-6iNyuQskVNjAuX1QcLTPetbfhogGYUTOA01QwNw9YcwAdNQ@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Message-Id: <20250304-rtc-cleanups-v2-10-d4689a71668c@linaro.org>
-References: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
-In-Reply-To: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
-To: Chanwoo Choi <cw00.choi@samsung.com>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
- Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- =?utf-8?q?T=C3=B3th_J=C3=A1nos?= <gomba007@gmail.com>, 
- Dianlong Li <long17.cool@163.com>, Nathan Chancellor <nathan@kernel.org>, 
- Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
- Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
-Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org, 
- llvm@lists.linux.dev, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+In-Reply-To: <CA+-6iNyuQskVNjAuX1QcLTPetbfhogGYUTOA01QwNw9YcwAdNQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_170542_943443_4A6B3C59 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250304_170744_913808_65F363DF 
+X-CRM114-Status: GOOD (  28.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,69 +128,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The memory pointed to by the ::rtc member is managed via devres, and
-no code in this driver uses it past _probe().
+On Tue, Mar 04, 2025 at 11:55:05AM -0500, Jim Quinlan wrote:
+> On Tue, Mar 4, 2025 at 10:03 AM Manivannan Sadhasivam
+> <manivannan.sadhasivam@linaro.org> wrote:
+> >
+> > On Fri, Feb 14, 2025 at 12:39:32PM -0500, Jim Quinlan wrote:
+> > > If regulator_bulk_get() returns an error, no regulators are created and we
+> > > need to set their number to zero.  If we do not do this and the PCIe
+> > > link-up fails, regulator_bulk_free() will be invoked and effect a panic.
+> > >
+> > > Also print out the error value, as we cannot return an error upwards as
+> > > Linux will WARN on an error from add_bus().
+> > >
+> > > Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
+> > > Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+> > > ---
+> > >  drivers/pci/controller/pcie-brcmstb.c | 3 ++-
+> > >  1 file changed, 2 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> > > index e0b20f58c604..56b49d3cae19 100644
+> > > --- a/drivers/pci/controller/pcie-brcmstb.c
+> > > +++ b/drivers/pci/controller/pcie-brcmstb.c
+> > > @@ -1416,7 +1416,8 @@ static int brcm_pcie_add_bus(struct pci_bus *bus)
+> > >
+> > >               ret = regulator_bulk_get(dev, sr->num_supplies, sr->supplies);
+> > >               if (ret) {
+> > > -                     dev_info(dev, "No regulators for downstream device\n");
+> > > +                     dev_info(dev, "Did not get regulators; err=%d\n", ret);
+> >
+> > Why is this dev_info() instead of dev_err()?
+> 
+> I will change this.
+> >
+> > > +                     pcie->sr = NULL;
+> >
+> > Why can't you set 'pcie->sr' after successfull regulator_bulk_get()?
+> 
+> Not sure I understand -- it is already set before a  successful
+> regulator_bulk_get() call.
 
-We can drop it from the structure and just use a local temporary
-variable, reducing runtime memory consumption by a few bytes.
+Didn't I say 'after'?
 
-Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- drivers/rtc/rtc-pl030.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+> I set it to NULL after an unsuccessful result so the structure will
+> not be passed to subsequent calls.
+> 
 
-diff --git a/drivers/rtc/rtc-pl030.c b/drivers/rtc/rtc-pl030.c
-index 39038c0754ee55a952e5986afe711cffff35840b..e7c81740061bb60c4d8447d6522819685bea9180 100644
---- a/drivers/rtc/rtc-pl030.c
-+++ b/drivers/rtc/rtc-pl030.c
-@@ -21,7 +21,6 @@
- #define RTC_CR_MIE	(1 << 0)
- 
- struct pl030_rtc {
--	struct rtc_device	*rtc;
- 	void __iomem		*base;
- };
- 
-@@ -86,6 +85,7 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
- {
- 	struct pl030_rtc *rtc;
- 	int ret;
-+	struct rtc_device *rtc_dev;
- 
- 	ret = amba_request_regions(dev, NULL);
- 	if (ret)
-@@ -97,14 +97,14 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
- 		goto err_rtc;
- 	}
- 
--	rtc->rtc = devm_rtc_allocate_device(&dev->dev);
--	if (IS_ERR(rtc->rtc)) {
--		ret = PTR_ERR(rtc->rtc);
-+	rtc_dev = devm_rtc_allocate_device(&dev->dev);
-+	if (IS_ERR(rtc_dev)) {
-+		ret = PTR_ERR(rtc_dev);
- 		goto err_rtc;
- 	}
- 
--	rtc->rtc->ops = &pl030_ops;
--	rtc->rtc->range_max = U32_MAX;
-+	rtc_dev->ops = &pl030_ops;
-+	rtc_dev->range_max = U32_MAX;
- 	rtc->base = ioremap(dev->res.start, resource_size(&dev->res));
- 	if (!rtc->base) {
- 		ret = -ENOMEM;
-@@ -121,7 +121,7 @@ static int pl030_probe(struct amba_device *dev, const struct amba_id *id)
- 	if (ret)
- 		goto err_irq;
- 
--	ret = devm_rtc_register_device(rtc->rtc);
-+	ret = devm_rtc_register_device(rtc_dev);
- 	if (ret)
- 		goto err_reg;
- 
+If you set the pointer after a successful regulator_bulk_get(), you do not need
+to set it to NULL for a failure.
+
+- Mani
 
 -- 
-2.48.1.711.g2feabab25a-goog
-
+மணிவண்ணன் சதாசிவம்
 
