@@ -4,79 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8520C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:13:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAC5C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Cz7IA69OFA9tHcBAPSVOCjGmnTTL7mvde1OZORF4svs=; b=IkjF1jSE80siRyFFgvwi6yq2uw
-	YPqGifkoqpAf5C6UCBvwbO5HiB2sD1u8tP1IywZRoC7QWRaGURP/Pbo+noMUm6ZlXzDebPYwnOvsj
-	pZg6bPQVaYzyLSc9gFpV+tN4MH3F76Qfjfr74an3o/CDR2rKKm/C4L2AT7ulgsRX1ePtCW2B7j3Bd
-	IN+FHE68LPeLjYudRzP9+Sm8eGI/dYoFJ8PYD3+EtBZ9ozSjUmVciviCiK4zCFKUbPbhIyPJ3UJ5d
-	Qsn+YW1LZG416V6MQVzy7tf9I3Un4BFsk7awLlcTuGDNHm8Q7A11kZcsHpPTA70/01BtrQjk3PR0M
-	UC4maxzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/g2hnhfNktPdj9e67Wgyyngm8wK93yZzPoeQY4hpjt0=; b=13OKQcNGZ17tT4BHtZgkI7emdw
+	Jiby7/046xPYudeHy2g4a2D1c8AGUvn4EMqXesCqDVJjPtBHXyPKtDSVUArJQes9DarLk48WXCv4l
+	HO4H4lSa2C6ip0O6YsKmT90tTpGE+dF/1LRdvtHax9A8R0W1LrjETY6bgizHEH+Od/FP4UFfvoNiB
+	VWDEhFmf0KeJI/OblemE/tOFpHm76xN4iFRg/sQoCHrA2qrrsc3R1XbjKL/a3YslqKnq9Ma9FygP+
+	kiFkWr8ZpzAVpIo/Dzi45WqLsorpcL4FDXrVgsecbHbuauneMZhXWRpZqzPrIzuoaoRPVAIGdzx0Y
+	Jp4m+WtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpT1H-00000004w5k-2APM;
-	Tue, 04 Mar 2025 14:13:15 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1tpT2q-00000004wPa-0dMP;
+	Tue, 04 Mar 2025 14:14:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpSzB-00000004vbe-04U5
+	id 1tpSzY-00000004vgo-1phI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 14:11:06 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.17])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4Z6ctR2c3Gz1ltZw;
-	Tue,  4 Mar 2025 22:06:39 +0800 (CST)
-Received: from kwepemk500005.china.huawei.com (unknown [7.202.194.90])
-	by mail.maildlp.com (Postfix) with ESMTPS id B226C1A0188;
-	Tue,  4 Mar 2025 22:10:50 +0800 (CST)
-Received: from [10.174.179.234] (10.174.179.234) by
- kwepemk500005.china.huawei.com (7.202.194.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 4 Mar 2025 22:10:48 +0800
-Message-ID: <2c1fa758-c292-aefb-f6e2-cab41f592568@huawei.com>
-Date: Tue, 4 Mar 2025 22:10:47 +0800
+	Tue, 04 Mar 2025 14:11:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D19A05C5D14;
+	Tue,  4 Mar 2025 14:09:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CAAC4CEE5;
+	Tue,  4 Mar 2025 14:11:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741097487;
+	bh=uZAr3o4anHDvD9RQXrKUeVfxL/By4d6vCjGFzZTYNJ0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=cXcEid9Ufzy2HTrGc7vpehSk3qt9XEZnJuIj0o5jqXiT51j7xjCxC/Rs8SWaMGubz
+	 p6EWZPC3NYKj6sYy3kZRE8CMuSG80bADbm8prImUYIIiZdZ7RBS8q3+qEPwWs0JGy3
+	 xQGlN2ixEzXRvi/6bT21yzJr7RhwRzPos2fFaNifnGPEJkKXnm6MaDAUfHpfm0oiT9
+	 2ZgAGUnrb2cjyNq4oEvpS4wkngjptSYGnrW7VeblRca/T1Sekxxg55j92gS8WndiDa
+	 PDCkeO85jGWgFkv5edfvIQhXXPt/epi1L9N3GUKx8nZfIpaUthb+qHW10km/ijfb4E
+	 RBlLQfoe33FmA==
+Date: Tue, 4 Mar 2025 08:11:25 -0600
+From: Rob Herring <robh@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/15] dt-bindings: clk: sunxi-ng: document Allwinner
+ A523 CCU
+Message-ID: <20250304141125.GA2518548-robh@kernel.org>
+References: <20250304012805.28594-1-andre.przywara@arm.com>
+ <20250304012805.28594-5-andre.przywara@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v13 4/5] arm64: support copy_mc_[user]_highpage()
-To: Catalin Marinas <catalin.marinas@arm.com>
-CC: Mark Rutland <mark.rutland@arm.com>, Jonathan Cameron
-	<Jonathan.Cameron@huawei.com>, Mauro Carvalho Chehab
-	<mchehab+huawei@kernel.org>, Will Deacon <will@kernel.org>, Andrew Morton
-	<akpm@linux-foundation.org>, James Morse <james.morse@arm.com>, Robin Murphy
-	<robin.murphy@arm.com>, Andrey Konovalov <andreyknvl@gmail.com>, Dmitry
- Vyukov <dvyukov@google.com>, Vincenzo Frascino <vincenzo.frascino@arm.com>,
-	Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>, Alexander Potapenko
-	<glider@google.com>, Christophe Leroy <christophe.leroy@csgroup.eu>, Aneesh
- Kumar K.V <aneesh.kumar@kernel.org>, "Naveen N. Rao"
-	<naveen.n.rao@linux.ibm.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
- Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
-	<dave.hansen@linux.intel.com>, <x86@kernel.org>, "H. Peter Anvin"
-	<hpa@zytor.com>, Madhavan Srinivasan <maddy@linux.ibm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mm@kvack.org>,
-	<linuxppc-dev@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
-	<kasan-dev@googlegroups.com>, <wangkefeng.wang@huawei.com>, Guohanjun
-	<guohanjun@huawei.com>
-References: <20241209024257.3618492-1-tongtiangen@huawei.com>
- <20241209024257.3618492-5-tongtiangen@huawei.com> <Z6zWSXzKctkpyH7-@arm.com>
- <69955002-c3b1-459d-9b42-8d07475c3fd3@huawei.com> <Z698SFVqHjpGeGC0@arm.com>
- <e1d2affb-5c6b-00b5-8209-34bbca36f96b@huawei.com> <Z7NN5Pa-c5PtIbcF@arm.com>
- <3b181285-2ff3-b77a-867b-725f38ea86d3@huawei.com> <Z7TisqB5qCIF5nYI@arm.com>
-From: Tong Tiangen <tongtiangen@huawei.com>
-In-Reply-To: <Z7TisqB5qCIF5nYI@arm.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.174.179.234]
-X-ClientProxiedBy: dggems705-chm.china.huawei.com (10.3.19.182) To
- kwepemk500005.china.huawei.com (7.202.194.90)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304012805.28594-5-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_061105_479735_991D3A81 
-X-CRM114-Status: GOOD (  19.92  )
+X-CRM114-CacheID: sfid-20250304_061128_584596_0B78D2BC 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,55 +80,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,Catalin:
+On Tue, Mar 04, 2025 at 01:27:54AM +0000, Andre Przywara wrote:
+> The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
+> the main CCU.
+> 
+> The source clock list differs in some annoying details, and folding this
+> into the existing Allwinner CCU clock binding document gets quite
+> unwieldy, so create a new document for these CCUs.
+> Add the new compatible string, along with the required input clock
+> lists. This conditionally describes the input clock list, to make for
+> an easier patch adding the other CCUs.
+> 
+> Also add the DT binding headers, listing all the clocks with their ID
+> numbers.
+> 
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  .../clock/allwinner,sun55i-a523-ccu.yaml      |  77 +++++++
+>  include/dt-bindings/clock/sun55i-a523-ccu.h   | 189 ++++++++++++++++++
+>  include/dt-bindings/reset/sun55i-a523-ccu.h   |  88 ++++++++
+>  3 files changed, 354 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+>  create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
+>  create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
+> 
+> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> new file mode 100644
+> index 0000000000000..2eacaeaeabac7
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
+> @@ -0,0 +1,77 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/clock/allwinner,sun55i-a523-ccu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Allwinner A523 Clock Control Unit
+> +
+> +maintainers:
+> +  - Andre Przywara <andre.przywara@arm.com>
+> +
+> +properties:
+> +  "#clock-cells":
+> +    const: 1
+> +
+> +  "#reset-cells":
+> +    const: 1
+> +
+> +  compatible:
+> +    enum:
+> +      - allwinner,sun55i-a523-ccu
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  clocks:
+> +    minItems: 4
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    minItems: 4
+> +    maxItems: 4
+> +
+> +required:
+> +  - "#clock-cells"
+> +  - "#reset-cells"
+> +  - compatible
+> +  - reg
+> +  - clocks
+> +  - clock-names
+> +
+> +if:
 
-Kindly ping ...
+Put this under an allOf and use another 'if' instead of the 'else' 
+clause in the 2nd patch.
 
-Thanks.:)
+> +  properties:
+> +    compatible:
+> +      enum:
+> +        - allwinner,sun55i-a523-ccu
+> +
+> +then:
+> +  properties:
+> +    clocks:
+> +      items:
+> +        - description: High Frequency Oscillator (usually at 24MHz)
+> +        - description: Low Frequency Oscillator (usually at 32kHz)
+> +        - description: Internal Oscillator
+> +        - description: Low Frequency Oscillator fanout
+> +
+> +    clock-names:
+> +      items:
+> +        - const: hosc
+> +        - const: losc
+> +        - const: iosc
+> +        - const: losc-fanout
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    ccu: clock@2001000 {
 
-在 2025/2/19 3:42, Catalin Marinas 写道:
-> On Tue, Feb 18, 2025 at 07:51:10PM +0800, Tong Tiangen wrote:
->>>>>> 在 2025/2/13 1:11, Catalin Marinas 写道:
->>>>>>> On Mon, Dec 09, 2024 at 10:42:56AM +0800, Tong Tiangen wrote:
->>>>>>>> Currently, many scenarios that can tolerate memory errors when copying page
->>>>>>>> have been supported in the kernel[1~5], all of which are implemented by
->>>>>>>> copy_mc_[user]_highpage(). arm64 should also support this mechanism.
->>>>>>>>
->>>>>>>> Due to mte, arm64 needs to have its own copy_mc_[user]_highpage()
->>>>>>>> architecture implementation, macros __HAVE_ARCH_COPY_MC_HIGHPAGE and
->>>>>>>> __HAVE_ARCH_COPY_MC_USER_HIGHPAGE have been added to control it.
->>>>>>>>
->>>>>>>> Add new helper copy_mc_page() which provide a page copy implementation with
->>>>>>>> hardware memory error safe. The code logic of copy_mc_page() is the same as
->>>>>>>> copy_page(), the main difference is that the ldp insn of copy_mc_page()
->>>>>>>> contains the fixup type EX_TYPE_KACCESS_ERR_ZERO_MEM_ERR, therefore, the
->>>>>>>> main logic is extracted to copy_page_template.S. In addition, the fixup of
->>>>>>>> MOPS insn is not considered at present.
->>>>>>>
->>>>>>> Could we not add the exception table entry permanently but ignore the
->>>>>>> exception table entry if it's not on the do_sea() path? That would save
->>>>>>> some code duplication.
-> [...]
->> So we need another way to distinguish the different processing of the
->> same exception type on SEA and non-SEA path.
-> 
-> Distinguishing whether the fault is SEA or non-SEA is already done by
-> the exception handling you are adding. What we don't have though is
-> information about whether the caller invoked copy_highpage() or
-> copy_mc_highpage(). That's where the code duplication comes in handy.
-> 
-> It's a shame we need to duplicate identical functions just to have
-> different addresses to look up in the exception table. We are also short
-> of caller saved registers to track this information (e.g. an extra
-> argument to those functions that the exception handler interprets).
-> 
-> I need to think a bit more, we could in theory get the arm64 memcpy_mc()
-> to return an error code depending on what type of fault it got (e.g.
-> -EHWPOISON for SEA, -EFAULT for non-SEA). copy_mc_highpage() would
-> interpret this one and panic if -EFAULT. But we lose some fault details
-> we normally get on a faulty access like some of the registers.
-> 
-> Well, maybe the simples is still to keep the function duplication. I'll
-> have another look at the series tomorrow.
-> 
+Drop ccu and it's 'clock-controller' not 'clock'.
+
+> +        compatible = "allwinner,sun55i-a523-ccu";
+> +        reg = <0x2001000 0x1000>;
+> +        clocks = <&osc24M>, <&osc32k>, <&iosc>, <&r_ccu 2>;
+> +        clock-names = "hosc", "losc", "iosc", "losc-fanout";
+> +        #clock-cells = <1>;
+> +        #reset-cells = <1>;
+> +    };
+> +
+> +...
 
