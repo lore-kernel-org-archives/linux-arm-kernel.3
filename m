@@ -4,52 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9757FC282E3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23329C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 12:09:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5/el4ImijIaTbU+TMZFvGIQJfm5fdyGvKd0OWMsUr8s=; b=mxQXXXzbvcAv9T5bwJBWd0e2cX
-	Zzwuc/wMOyOrtMZOq/VkpqWvrkXjV/CUHt+YDnhsy0cIWb09V1WTcHhbz+daQCZ4tUdzmcHbkGxFl
-	5YB5GX5BvYYXp0ZZJE72Swza9LABqfu0ISVSnVA/2pb9AjHILszPYH+LrX/eAynPtZyn0ska3swEZ
-	uht+VUFv2F0hEPaF5wolbs82+TIi+xYFR0Si84s/ljSvG4rOGOlvhw1QGwcgUTH35dK/GLt1bbj/P
-	D8DCAGq2Y0B7LErPImxnPTl2M3CDOA7RxHPx1ESftI7NvgHmkEThU94Vmr0OMH/0grJw/n7vYJBxY
-	HpdfX+ww==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bQ2EzVibZ4AxSw2I8zWSvhop1T4EjR6WAh/mlfQcvNg=; b=vtq5gTZCXXjSKw+Muq6uFXE39T
+	z/E7OGmc1pcO2YzS82RNrqkyVVE5QM/cbqIXNH3oYPgakrOgtCUgVJlv6QXEXhU3E+gIAXwq23YuK
+	beVQHKc4bNFLeoNktsKvGTa9G+OMljq0KEPsEYkc5Twfy8hcHvBXnPUxvtSkA7I0RHiQR/9pFqWju
+	oiRmM+QGS1G17qsg+HvYpnaIQ5ap+JemnJFaNXFE45aTqFOk4XuUCGPXykuiQjqKp+1zil2Wur2HC
+	laK0as4c1FqdpY1AeVeeYRlruhJgEXG+7kISfBDa5O5NGnkmTgWf/r4hIfwLZBOx1W8O4tlqNcyOe
+	8xA434yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpR4z-00000004Ws0-3ucp;
+	id 1tpR4z-00000004Wqe-0qPX;
 	Tue, 04 Mar 2025 12:08:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPza-00000004J0X-3EDe
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpPzY-00000004J05-3oZq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:59:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1EC58FEC;
-	Tue,  4 Mar 2025 02:59:32 -0800 (PST)
-Received: from usa.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 3AFD83F5A1;
-	Tue,  4 Mar 2025 02:59:17 -0800 (PST)
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: ARM SoC Team <arm@kernel.org>,
-	SoC Team <soc@kernel.org>,
-	ALKML <linux-arm-kernel@lists.infradead.org>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Arnd Bergmann <arnd@kernel.org>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [GIT PULL] firmware: arm_scmi: Updates for v6.15
-Date: Tue,  4 Mar 2025 10:59:15 +0000
-Message-Id: <20250304105915.432967-1-sudeep.holla@arm.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 04 Mar 2025 10:59:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 43181A44B91;
+	Tue,  4 Mar 2025 10:53:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC5F0C4CEE5;
+	Tue,  4 Mar 2025 10:59:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741085955;
+	bh=hLcfv8cs2z2Jzw4ezqrU3L60vIn/qFCZlb93ktP+vOo=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=ltk75wvxFHW+T4iiJgW7O6TBUcKFhqD1F4X0JzxqGWZU3uJtEylOTZ7mxwi+cQ4Lu
+	 YS9ZdFekDA/xzlVDafe2AJ0odtoomBSmIM4JNtwwWUDyfITWFIPXDYjjQ8tOHYR0KT
+	 Zr/wfr5oAjg43m7Bp1HZoLM00VRobrcILffveSYw6+bPrO0+0VgKteLRqvH7Rk3NNx
+	 nxfRZ06+cGxWwuyVfLfOlUGm85rss/J6npdiY4JXEV/ASWIH9floHLHvWBbT4DqRXt
+	 lFQJSvkYEVbDYV+pMFEF3MBy7/n42GigzI7x0ynSZRnCpKjf/3P0AwAM0X5lMO4jkC
+	 KYZIffSX7psPw==
+Message-ID: <2fd83d68-7104-4755-a0f0-8ce4a2601e09@kernel.org>
+Date: Tue, 4 Mar 2025 11:59:08 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
+To: Kevin Chen <kevin_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
+ andrew@codeconstruct.com.au, derek.kiernan@amd.com, dragan.cvetic@amd.com,
+ arnd@arndb.de, gregkh@linuxfoundation.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ linux-kernel@vger.kernel.org
+References: <20250304104434.481429-1-kevin_chen@aspeedtech.com>
+ <20250304104434.481429-4-kevin_chen@aspeedtech.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250304104434.481429-4-kevin_chen@aspeedtech.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_025918_847839_7EB160F9 
-X-CRM114-Status: UNSURE (   7.54  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_025917_079628_27AA3CAE 
+X-CRM114-Status: GOOD (  13.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,50 +120,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC Team,
+On 04/03/2025 11:44, Kevin Chen wrote:
+> +
+> +static int aspeed_pcc_probe(struct platform_device *pdev)
+> +{
+> +	int rc;
+> +	struct aspeed_pcc_ctrl *pcc;
+> +	struct device *dev;
+> +	uint32_t fifo_size = PAGE_SIZE;
+> +
+> +	dev = &pdev->dev;
 
-Please pull !
+This goes to declaration.
 
-Regards,
-Sudeep
+> +
+> +	pcc = devm_kzalloc(&pdev->dev, sizeof(*pcc), GFP_KERNEL);
 
--->8
+Maybe my previous comment was not clear, but you agreed with it. Anyway
+nothing improved here.
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+If you have 'dev' variable, use it.
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+> +	if (!pcc)
+> +		return -ENOMEM;
+> +
+> +	pcc->regmap = syscon_node_to_regmap(pdev->dev.parent->of_node);
 
-are available in the Git repository at:
+same here and everywhere else.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/sudeep.holla/linux.git tags/scmi-updates-6.15
+> +	if (IS_ERR(pcc->regmap)) {
+> +		dev_err(dev, "Couldn't get regmap\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	rc = of_property_read_u32(dev->of_node, "pcc-ports", &pcc->port);
+> +	if (rc) {
+> +		dev_err(dev, "no pcc ports configured\n");
+> +		return -ENODEV;
+> +	}
+> +
+> +	rc = dma_set_mask_and_coherent(dev, DMA_BIT_MASK(64));
+> +	if (rc) {
+> +		dev_err(dev, "cannot set 64-bits DMA mask\n");
+> +		return rc;
+> +	}
+> +
+> +	pcc->dma.size = PCC_DMA_BUFSZ;
+> +	pcc->dma.virt = dmam_alloc_coherent(dev,
+> +					    pcc->dma.size,
+> +					    &pcc->dma.addr,
+> +					    GFP_KERNEL);
+> +	if (!pcc->dma.virt) {
+> +		dev_err(dev, "cannot allocate DMA buffer\n");
+> +		return -ENOMEM;
+> +	}
+> +
+> +	fifo_size = roundup(pcc->dma.size, PAGE_SIZE);
+> +	rc = kfifo_alloc(&pcc->fifo, fifo_size, GFP_KERNEL);
+> +	if (rc) {
+> +		dev_err(dev, "cannot allocate kFIFO\n");
 
-for you to fetch changes up to d069c33f5ce2fe8f13489ba396080fcf28c10f60:
+Drop
 
-  firmware: arm_scmi: Emit modalias for SCMI devices (2025-02-03 10:50:11 +0000)
+> +		return -ENOMEM;
+> +	}
+> +
+> +	/* Disable PCC to clean up DMA buffer before request IRQ. */
+> +	rc = aspeed_pcc_disable(pcc);
+> +	if (rc) {
+> +		dev_err(dev, "Couldn't disable PCC\n");
+> +		goto err_free_kfifo;
+> +	}
+> +
+> +	pcc->irq = platform_get_irq(pdev, 0);
+> +	if (pcc->irq < 0) {
+> +		dev_err(dev, "Couldn't get IRQ\n");
 
-----------------------------------------------------------------
-Arm SCMI updates for v6.15
+Drop, core already prints this. Do not duplicate messages.
 
-Couple of updates around the flexibility in SCMI device names and
-addition of name, protocol id attributes and modalias for SCMI
-devices in the sysfs.
+> +		rc = -ENODEV;
 
-Currently, in the scmi_protocol_device_request() function, SCMI device
-names ust be unique across all protocols. However, this constraint is
-being relaxed, allowing devices in different protocols to share the
-same name. The change aims to provide more flexibility in naming devices
-across various protocols.
+Why not using pcc->irq as rc?
 
-Two attributes: name and protocol ID is being added to the SCMI device
-in the sysfs along with the support for the modalias. These attributes
-aim to enhance device identification and management.
-
-----------------------------------------------------------------
-Sudeep Holla (3):
-      firmware: arm_scmi: Relax duplicate name constraint across protocol ids
-      firmware: arm_scmi: Add name and protocol id attributes
-      firmware: arm_scmi: Emit modalias for SCMI devices
-
- drivers/firmware/arm_scmi/bus.c | 69 +++++++++++++++++++++++++++++++++--------
- 1 file changed, 56 insertions(+), 13 deletions(-)
+> +		goto err_free_kfifo;
+> +	}
+> +
+Best regards,
+Krzysztof
 
