@@ -4,63 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FEEC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:49:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F1C3C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 06:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FmcbSR4fpWNtNMrwgorLBn1ejOQXpMGWv3rjGuDsu/0=; b=WelX0dso0sh9APy88kE58NW7Wt
-	b3oPtHLbrt87xdKgwQ5PPwtId6GaPAqnKLp0r5jas3XNNitC/tQHa9xOdTjndJLL9daUJ9qZBAeQQ
-	KbCa9NVKzsaE5OHxQA4QlaL4qW3XZzq6IfZHK9UH0bq7feVmnNW+jz1YT5O3FTS4NNOeuZhgD/4KY
-	F3pXZp6iTMqFTgkSupVSomSfhVMSDuygOaBcgwzbpkseKav6PqjD+bGrKxE2AOfY+wZDKR7QwuhUl
-	tBEJPJJ/+uQFDzeV8HZZ55hPXUp4LPCGXPKgoNwkfSnMQa6b1WWpnlAzjK9aXNs5TO3RRPKBKP/5g
-	C1iApMAQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wdiYB6hv/Q3Efvv78nZapqYNYn3PY60w2vwZzb6NEH4=; b=s8mNog+bNmEtIXZk98OapcaqBK
+	OHmLlDe3AVhzLQXOILehES57b8lufe1yL8bt2gIp1iy+but0J+uoyoyN+LDPVrmxq9mpJEJYOQHn/
+	y9n5sRPO0Pir0aiR6BStsEgk/ZD4MJAsv8pJD6C6uvJrFATHgV5B4uAyML4juJUX8XgbqnHFDIrIj
+	nke09YjZXO1Fri4bsh9AAmwhd7ZUPziFBbBal0Ux2PoxkQ6W96X13pBx3bsHnB21cC/WJZ/IH66fG
+	gKXFv5+kIWfPtX8BV/zFN/0wooXrSnS92rC7aNsRyrP7k8EqSKWr+QrtJLwu4IpCE6IrnkmIRBr2K
+	1l2krQVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpM5v-00000003LhN-3f7p;
-	Tue, 04 Mar 2025 06:49:35 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tpM7y-00000003MAF-3hV5;
+	Tue, 04 Mar 2025 06:51:42 +0000
+Received: from mail-pl1-f172.google.com ([209.85.214.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpM1Y-00000003KX3-3IEI;
-	Tue, 04 Mar 2025 06:45:06 +0000
+	id 1tpM6O-00000003Lpf-3CMY
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 06:50:05 +0000
+Received: by mail-pl1-f172.google.com with SMTP id d9443c01a7336-22339936bbfso76868215ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 22:50:04 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741071004; x=1741675804;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=wdiYB6hv/Q3Efvv78nZapqYNYn3PY60w2vwZzb6NEH4=;
+        b=sLsimJLPwovHX2uBCDHZUYRLdGm7kevkTVixqvvK3uHQX7m+JoHTEwcPN7utWpRqcR
+         0qsuhkNLiDl3dmSHKUmbQjx4NxmtA+d/zpb769NJGUccv7DLeG+S/Iz2PkYbdSXTHzDd
+         2905KegehKBRq5lyEHbTF1phsbssWhyKu/AhPS13g5SlMmUqY7oC3m5dlV83V1AZ+ZeU
+         gPxPbIkqdKMwjivGGUrMuW8nS36saS5+8XlrxvPCI2iBWa1Zz4e+i1WQzi4qx7OKlZ4z
+         eqzdxZWV1zCIF2Zg70dgOyXp5Q24kN3V2K3MAjc26XbfYA6QmT2Pbpx3Cn/6TPWakhSN
+         1lQQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUC2+GzRC8zmzHMFOxs0LiALdxKaWx8u5UERfsXiQPMz35hoeTSSuWgfV16fWvfRcnzS9OhwikK/auU4p2bUNuP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyc3wAF+xfOxMctnxCO+SAdgtSU4FC1u6wiWjnJL3A4W4V7SOHP
+	tdmklPY3UYEkYue6dGG9OxJWOfOmcvSeyNPtFZtjpGNjHA99g5NO
+X-Gm-Gg: ASbGnctxAF+ytBYzsDJMdJH1gjdaR2oIy/0h2nXZMm6HAlD506Wos6kTyfTWZ8ws+2W
+	3KtPmMSNWUrCKcF3AH/cQ9dOW7ZBNjuKUNqakGBKaD3cdIG3HO0Tv06RNHPiWLHzmfH0yR15v/U
+	PNF13MUSrrkwOb/gtnlgX4jYo16mJkXEB38+xVdUXJzvbQ5bKvfWmZjtu9cxv4sRjvCW7TR6/q/
+	oh8dolC1wFBUQ2+4eEhTJws/1jN+ACN+CjwupSS8nK5wvGmqFoT8FYvHkIxGu/pxLgpuU6A66Vd
+	aH4+XqgFIZ2H1ditruTf341t8D788ymjgfLRXRiv1Shvolc4hlaMB3yqEE/1dew70ZdvMj/6PBb
+	gnJc=
+X-Google-Smtp-Source: AGHT+IGcV4aYk/OpEVH73Ug+c1C0USAo6FdZmKpOcH30W1Dx1DXHv8XdmGwDQ56GkfHpVhuZmtZPUA==
+X-Received: by 2002:a17:902:ea0c:b0:21f:136a:a374 with SMTP id d9443c01a7336-22369268794mr260988655ad.43.1741071003728;
+        Mon, 03 Mar 2025 22:50:03 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-223501f9dc2sm87929895ad.61.2025.03.03.22.50.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 22:50:03 -0800 (PST)
+Date: Tue, 4 Mar 2025 15:50:00 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	fan.ni@samsung.com, nifan.cxl@gmail.com, a.manzanares@samsung.com,
+	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com,
+	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com,
+	will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 4/5] Add debugfs based error injection support in DWC
+Message-ID: <20250304065000.GB2615015@rocinante>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132039epcas5p31913eab0acec1eb5e7874897a084c725@epcas5p3.samsung.com>
+ <20250221131548.59616-5-shradha.t@samsung.com>
+ <20250303095200.GB1065658@rocinante>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1741070700;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FmcbSR4fpWNtNMrwgorLBn1ejOQXpMGWv3rjGuDsu/0=;
-	b=KafPlS2cao/nkE3TIuUzFLvT/erara6+Y2BEZ2H14/Uo4qNsaWXNGS1U/c0NA+apCFUMYD
-	mc/rMiELEMkWa2jYe47TPRaf5zdIK08Ge7Dl/okrH2n8ARTId8mocZOSJ2bl4855JE/LWK
-	zQ0brIW4olIAMQgBSr1nCY+18N/pF83NiANjO+VHS9qUdPBtbI/GVZrvojeuMOyS0dsPcb
-	ZA03r/0K6Lfzmn4xoZVvbTvPq3kbyE9q2sXdtNr86zrY7hNP+cEFBQk6IfIlxV1V8ix+IF
-	S6mVe4bhchQ9jFB6A4vxIvAU28cUUidKev16wn6QhBqUGe6EsyBe0jOM6Id83w==
-Date: Tue, 04 Mar 2025 07:44:59 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, didi.debian@cknow.org, chris@z9.de
-Subject: Re: [PATCH v2 0/2] Slightly improve hardware description of Pine64
- RockPro64
-In-Reply-To: <174104113599.8946.16805724674396090918.b4-ty@sntech.de>
-References: <cover.1740941097.git.dsimic@manjaro.org>
- <174104113599.8946.16805724674396090918.b4-ty@sntech.de>
-Message-ID: <757afa87255212dfa5abf4c0e31deb08@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=US-ASCII;
- format=flowed
-Content-Transfer-Encoding: 7bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250303095200.GB1065658@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_224505_124171_2882E5A2 
-X-CRM114-Status: GOOD (  18.14  )
+X-CRM114-CacheID: sfid-20250303_225004_801838_3C8943E0 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,76 +96,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
+Hello,
 
-On 2025-03-03 23:36, Heiko Stuebner wrote:
-> On Sun, 02 Mar 2025 19:48:02 +0100, Dragan Simic wrote:
->> This is a small series that introduces small improvements to the way
->> Pine64 RockPro64 [1] single-board-computer is described in the DT 
->> files.
->> This applies to both production-run revisions of the RockPro64.
->> 
->> The introduced improvements boil down to eliminating some warnings 
->> from
->> the kernel log, by adding a previously undefined regulator and by 
->> adding
->> some previously missing references to the regulators.
->> 
->> [...]
+[...]
+> > +		29) Generates duplicate TLPs - duplicate_dllp
+> > +		30) Generates Nullified TLPs - nullified_tlp
 > 
-> Applied, thanks!
+> Would the above field called "duplicate_dllp" for duplicate TLPs be
+> a potential typo?  Perhaps this should be called "duplicate_tlp"?
 > 
-> [1/2] arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board 
-> dtsi
->       commit: bd1c959f37f384b477f51572331b0dc828bd009a
-> [2/2] arm64: dts: rockchip: Add missing PCIe supplies to RockPro64 
-> board dtsi
->       commit: 64ef4a4320e7aa3f0f267e01f170f52b90bf0b1b
-> 
-> I've moved the pcie12v supply up one line.
-> While in a mathematical sense it's true 12 > 3.3, we're sorting
-> alphabetical, so it's 1?? < 3?? .
-> 
-> And yes I sympathize with 3.3 < 12, but also have come to appreciate 
-> not
-> having overly many special cases :-)
+> I wanted to make sure we have the correct field name.
 
-Great, thanks! :)
+Fan or Shradha, any thoughts on this?
 
-I'm fine with the alphabetical ordering, albeit with some caveats
-described below, but the following part of the patch description
-should also be removed, if possible, so the patch description fully
-matches the introduced changes:
+Would the problem be with the name of the property of the description?
 
-   Shuffle and reorder the "vpcie*-supply" properties a bit, so they're 
-sorted
-   alphanumerically, which is a bit more logical and more useful than 
-having
-   these properties listed in their strict alphabetical order.
+Thank you!
 
-Admittedly, the patch itself indeed looks nicer [1] with the
-alphabetical ordering, :) (which is quasi-alphabetical, actually,
-please see below) but it might be better to have the DT guidelines
-adjusted to specify alphanumerical ordering as well.  Even ls(1)
-can sort filenames alphanumerically, with its "-v" option that
-performs "natural sort of (version) numbers within text". [2]
-
-The real trouble is that, if we were to apply the alphabetical
-ordering strictly, we'd end up with the following order of node
-properties in which 12 is before 1.8 and 3.3, which IMHO doesn't
-make much sense:
-
-   vpcie0v9-supply = <&vcca_0v9>;
-   vpcie12v-supply = <&vcc12v_dcin>;
-   vpcie1v8-supply = <&vcca_1v8>;
-   vpcie3v3-supply = <&vcc3v3_pcie>;
-
-I'm hoping you'll agree that specifying alphanumerical ordering
-for the properties in the DTS coding style is the way to go, just
-like it's already specified for the ordering of the nodes.  I'll
-go ahead and submit an appropriate patch for the DT guidelines.
-
-[1] 
-https://web.git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git/commit/?id=64ef4a4320e7aa3f0f267e01f170f52b90bf0b1b
-[2] https://man.archlinux.org/man/ls.1.en#v
+	Krzysztof
 
