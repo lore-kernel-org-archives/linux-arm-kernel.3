@@ -4,92 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62300C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:30:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7BBBC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:30:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VretaU5v/1hLOHdXy1ltl2QWR/a5vZVhU8PtvFmcdBs=; b=YSExa6hFnQ3GeSo0pe8MH6A/5R
-	JKrh0XJwc98e1+Hgel6HdeA4AyH+XFtYcrNTGVWDTd8N24w2GA21j4LUCAeUhFWJXecYPgX34qh+4
-	aMWNt2YbORZGDZ/6B8B0IeC4/t7R5qUtpjfrgE4IrUJ+87VoJyH7QNVxUdQjsRPX3G+7M9+y8lS+x
-	oApxWqpqWKQk2k+TbXDuHL6o3AhMeGcD+fBy5MhQi9we46d5B3QJNZRj7GGgr1k8pDGud7a/6uN1+
-	E4IhhZ47kcj741pwLPKc6+3vb/0AsY+jU0HkG4/sG3Av5wM6uJOSd7P1PYlezTwnrqn8c7BMJzGp8
-	ZtEHCRjg==;
+	bh=aQs0s0mc62itgISldMpMaFv5obruag2Z3oivBTsK8fc=; b=NRoSnjbWqV91rQo9VRgJeMpMZG
+	vWbVAul+DCGSvhYRGMRongOrsSYEnL5cy/RN1RXe93Dl9qe/QGJ2SinH+DWzS2A++GbmsGd+2Dy8K
+	57f/PL9P8DM9cnaK3sY9wijLu6WiRd2IOK9mEWI8DP+eKs3nQxo7P50d5uH297BCotSPPV4t/OZ51
+	suSYmht1SMYJuKM0zi0uKaVrY+jm092lFjrz9Jab6YADmSSEoq2JEjo0KVB/f7EdXm9KhTkdNZJXx
+	c5ggjl9rBTPBTGoLMwkHFKVglPzpzPPXu1HRLAcOVLEoluLL3ny5wVCi/5TdHCC3s5S4C+J38Qp6K
+	04MmPLhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpgOF-00000006xbY-1o2g;
-	Wed, 05 Mar 2025 04:29:51 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1tpgOE-00000006xbU-2E2U;
+	Wed, 05 Mar 2025 04:29:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpfOr-00000006syO-3ZbN
+	id 1tpfFk-00000006sG9-24RG
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 03:17:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=aQs0s0mc62itgISldMpMaFv5obruag2Z3oivBTsK8fc=; b=pA2aJgu6cfgFDZdhZbmZeH9m6C
+	8XsmWetoR385c7EQDRvBpiTnXxtniKIWKkFFY+SJunPepF4CpVIhXSLqlE6SuuCbeGXgzXsHb/AgJ
+	B3+DT3AvQyM2xvYOS3i8yz9oUOPrAhAHceao4X2t858sO9TQaTSHaPrOrUtb+8evqk8HtoKXiWTTD
+	4s5N8jljWi8r0vEwi/qx33l0HHo9BamDJWy5xmdoOTyfgFe+WNnWKirIMfbYhnIryoQtIVLzDH0er
+	nIpplW9DozIgtddI5myifCJVQV6ZUeiJi1rpF8AbeDOz30rzXa/306ChFZtVZifhKR6cQqX3WL8Bf
+	BJgJPsUA==;
+Received: from mailout1.samsung.com ([203.254.224.24])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpfFf-00000000Kv9-1eN0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 03:26:27 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-439ac3216dcso42836505e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 19:26:24 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741145183; x=1741749983; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=VretaU5v/1hLOHdXy1ltl2QWR/a5vZVhU8PtvFmcdBs=;
-        b=JKoUNDrW0YwJiBdA+yKWVxDPAmzH0Ro1ecqMrvBTIflTzfyQxLWnyyvtJiSI9VgatT
-         OzG+ncSu7pRJQpq03BZNR7zRoTGomAesPYvn3kb+eIfyaKQVYIl5DqrtseVrlbH6iQgc
-         t7ZlEWa8MU86m8LX/asm2a9oofmgHYna31U2t2/R5rlrqpwcc4QrAaluKTUZ0o/i6Yiy
-         /j3dIav5WDMf6uNkYMHa/qkQ2DEY0aD/11tWSPQDjLklt0pJKx13c3qr31FWk5pFR19j
-         GOZCQJnx9uPFKvsjMKy5tfJiOc22iTnaF2tF2d1EILvfrQq5LAW8HfRHcUXZAYML2lVj
-         CS5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741145183; x=1741749983;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=VretaU5v/1hLOHdXy1ltl2QWR/a5vZVhU8PtvFmcdBs=;
-        b=Rhw6CEtdl/8PbXndTCgxmTvdDbq75smzGZJqmDhgNgxc9khPvOZGGieP+4GWlIOxjq
-         FhcSluVF8P49h5XrLJ42jQVoNjw1VgPiWGyMk3p7meCsuYzrXnJj8CLOtI7FB/ZnkHHy
-         ln+Y9crYbM9yTMMXMsSaYbW7gVkeKeOgvMHH1L4P6+ufEC/ltKRrx9G+oqpguBNu7N5I
-         u6Tx7s6afavejrt6NqGhi+M0rE6yE8nYpSlnHoPIIu4GQ3gjXBWiMov0tz4/qmlGiScw
-         BgpUJ5eulg9v2jHQTBShJ0c5ImKJlfzw/z7Vxf3ZEXjBwODlbJcnXX9HoQjCNMXqT3ec
-         tbrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUfSeLf5WdFa8Zi/JU8AVBxdEW8Noc+CzgkE5agKxJ12nmUr0dGP0GuaOqysl7xrsgrjBLOH+jt8JHxB5Eu1O7w@lists.infradead.org
-X-Gm-Message-State: AOJu0YztgqUOitIQKxGa8BCC3o7KNIUrUCaMDIsPMfHjgtm/ah+3boSo
-	wuXbir8Tf0mPyY5Vid0dmO3kf175CuHm0JKLIrJWvOmFsIrKxWBqQygipVr0QUidpHM+iMR7uH/
-	T+qX41rm6pqn07T/x76ojwupFCes=
-X-Gm-Gg: ASbGncutF2wJFKSebitVR+RUd0i7hx1ypFPHehKr5s6LnomruHVqPF9tWy9qS8RLVZ8
-	V67yo72EmjYFRvn8cpxq3P6Ab8wtOL4Q052y4sstc+g0VOA80KIinBMtGngDEbDWGO9ci2IFT9x
-	oWZaSjoFzlIASpLX2CPid2HQ81cEZPXAtlHaiZDEZ5yw==
-X-Google-Smtp-Source: AGHT+IGzIMM7zQQRVkBbsNXSeTx6I8p3O2hYNgu0XDTLHu0kIfXx9/HT2hCa4nZS4sHy1z+ltogZRtDVFBUrzn8DqIU=
-X-Received: by 2002:a05:6000:1a8e:b0:391:136c:1346 with SMTP id
- ffacd0b85a97d-3911f74bdfbmr773726f8f.19.1741145183408; Tue, 04 Mar 2025
- 19:26:23 -0800 (PST)
+	Wed, 05 Mar 2025 03:16:58 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250305031644epoutp014a8b768a0c7e193aa892732b7e2c9860~pycsOBUnN1295912959epoutp01L
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 03:16:44 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250305031644epoutp014a8b768a0c7e193aa892732b7e2c9860~pycsOBUnN1295912959epoutp01L
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741144604;
+	bh=aQs0s0mc62itgISldMpMaFv5obruag2Z3oivBTsK8fc=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=LY+QI2iIGFYA36txNAyDr3oY5ZUrkIousHs6MUlyQDk2wD1+GJzEBIrwtqEf5Lui5
+	 /zy4YFZb+eaMst1WkLABxYBhEHxJ7REOke+vV8LYgXLMAHx6+0iU++6T3qM14L32pn
+	 JF/ZgS0VHCE95MRDnmD0gFfMFrCoLoQZNkWoomRM=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250305031644epcas5p29a0d00ec7271f43e0cb448fbf3697345~pycr4YPYs1527015270epcas5p28;
+	Wed,  5 Mar 2025 03:16:44 +0000 (GMT)
+Received: from epsmges5p1new.samsung.com (unknown [182.195.38.181]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z6yQ25whFz4x9Q2; Wed,  5 Mar
+	2025 03:16:42 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	F2.02.20052.A12C7C76; Wed,  5 Mar 2025 12:16:42 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250304171047epcas5p38c683bd8cbc6ea4fc82377aebc2428e0~pqLnopuGX2766727667epcas5p36;
+	Tue,  4 Mar 2025 17:10:47 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250304171047epsmtrp21378ba7aca27944c3795cea39249de95~pqLnmmsVG2056620566epsmtrp2r;
+	Tue,  4 Mar 2025 17:10:47 +0000 (GMT)
+X-AuditID: b6c32a49-3fffd70000004e54-a0-67c7c21a2917
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	24.D4.18729.71437C76; Wed,  5 Mar 2025 02:10:47 +0900 (KST)
+Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250304171044epsmtip129b87446f6672498fe5275da77041a94~pqLk5ayRH0826908269epsmtip1n;
+	Tue,  4 Mar 2025 17:10:44 +0000 (GMT)
+From: "Shradha Todi" <shradha.t@samsung.com>
+To: "'Fan Ni'" <nifan.cxl@gmail.com>,
+	=?UTF-8?Q?'Krzysztof_Wilczy=C5=84ski'?= <kw@linux.com>
+Cc: <linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
+	<manivannan.sadhasivam@linaro.org>, <lpieralisi@kernel.org>,
+	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
+	<Jonathan.Cameron@huawei.com>, <a.manzanares@samsung.com>,
+	<pankaj.dubey@samsung.com>, <cassel@kernel.org>, <18255117159@163.com>,
+	<xueshuai@linux.alibaba.com>, <renyu.zj@linux.alibaba.com>,
+	<will@kernel.org>, <mark.rutland@arm.com>
+In-Reply-To: <Z8YZEALV71PUkXpF@debian>
+Subject: RE: [PATCH v7 5/5] Add debugfs based statistical counter support in
+ DWC
+Date: Tue, 4 Mar 2025 22:40:43 +0530
+Message-ID: <061401db8d28$5f0a4b40$1d1ee1c0$@samsung.com>
 MIME-Version: 1.0
-References: <20250206105435.2159977-1-memxor@gmail.com> <20250210093840.GE10324@noisy.programming.kicks-ass.net>
- <20250210104931.GE31462@noisy.programming.kicks-ass.net> <CAADnVQ+3wu0WB2pXs4cccxfkbTb3TK8Z+act5egytiON+qN9tA@mail.gmail.com>
- <20250211104352.GC29593@noisy.programming.kicks-ass.net> <CAADnVQJ=81PE19JWeNjq6aNOy+GM-wo6n7WU9StX1b6kevqCUw@mail.gmail.com>
- <20250213095918.GB28068@noisy.programming.kicks-ass.net> <CAADnVQJJbi-52mP6BivyAudWSk95f1mgGQXWnjD-H37b7_AtLw@mail.gmail.com>
- <20250304104648.GD11590@noisy.programming.kicks-ass.net>
-In-Reply-To: <20250304104648.GD11590@noisy.programming.kicks-ass.net>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Tue, 4 Mar 2025 19:26:12 -0800
-X-Gm-Features: AQ5f1Jqc1OcxFdpHXxviILWN5ATrQ8sjCyiJy-0TOJ3kpk8iy_sBSEBkr25uumA
-Message-ID: <CAADnVQ+hR6WB9=WVP73uxhetAZMTugcT2z_N=89qhjFJPoWT=Q@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v2 00/26] Resilient Queued Spin Lock
-To: Peter Zijlstra <peterz@infradead.org>
-Cc: Kumar Kartikeya Dwivedi <memxor@gmail.com>, bpf <bpf@vger.kernel.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	Linus Torvalds <torvalds@linux-foundation.org>, Will Deacon <will@kernel.org>, 
-	Waiman Long <llong@redhat.com>, Alexei Starovoitov <ast@kernel.org>, Andrii Nakryiko <andrii@kernel.org>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Martin KaFai Lau <martin.lau@kernel.org>, 
-	Eduard Zingerman <eddyz87@gmail.com>, "Paul E. McKenney" <paulmck@kernel.org>, Tejun Heo <tj@kernel.org>, 
-	Barret Rhoden <brho@google.com>, Josh Don <joshdon@google.com>, Dohyun Kim <dohyunkim@google.com>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, Kernel Team <kernel-team@meta.com>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJfby7SiE0e/TbLvAHLJIl0P7SXpgHkH4XnAk8q5KUB3hA60AHBUHtxAYzlJhCyEHTswA==
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Te1BUVRzHPXt37y7qMldc47iCgxuWSMCuLsvZEGuU8hZOojTOZA50gzu7
+	xLK7s48eTgMEmwWDiRP52ICFeMRuhMXDQMExHjKKobA7IAkliBZRsjwyeSy0y5Xiv8/5ne/v
+	9/39zpkfD/N5jAt5yWoDrVNTKhG+mn2hNSgoRNjSoRCbfwhCjk/muOhM6xZUlqlEV/MqMVQ5
+	fY6LbCW9OMrIneOgmnu9HGS/WICjn4o6cOSor2Yj07yJjQZN2RxU3tfNQq4LzQB9VT/NRSVZ
+	owAtNjVwkWkgHI3P1OIvCsjSynwOWVVUBchG8yCXLK4xkqa2vzhkjS0bJwd6m3CycUhOjjjO
+	sMjasnTyszobIKdqNseuPZKyS0lTSbQugFYnapKS1YooUUxcwt6EcJlYEiKRowhRgJpKpaNE
+	0ftjQ15OVrmHFAW8S6mM7lAspdeLwnbv0mmMBjpAqdEbokS0NkmllWpD9VSq3qhWhKppw/MS
+	sXhHuFv4VoqyLbcK13b6v28duItlgD6/HODFg4QU/nm/G/ewD3EJwPacZ3PAajdPAlhQYAbM
+	4RGA9q5CsJzRdakLYy6aAcxabMOZw+8A5lofcj0qnHgOjjjmMQ8LiHg4Omlne0QYkcmG9Qs9
+	HM+FF/EMfJx/0y3i8dYTh+CNia2eMJsIhAu3Tiy58Qk5vD0/ymF4Hbx2boTtYYwIhhUlYxjT
+	UQCcuV/BYbwOw59P9XMZjS9sn8ld6hQSFi/Yc7OI6/GCRDR0WlRM7nr4R0cdl2EhnHrYjDOs
+	gNbas0/qq+Cj2jIWwy/AK44CtqcMRgTB8xfDmLA//OJ6NYux9YYn5kaeyPmwoWiZn4bTriY2
+	wxth0VU7Jw+IzCsmM6+YzLxiAvP/bsWAbQMbaa0+VUHrw7USNf3ef/+dqEmtAUsrsP2VBjB4
+	1xnaAlg80AIgDxMJ+KU5HQoffhL1wTFap0nQGVW0vgWEu5/7FCbckKhx75DakCCRysVSmUwm
+	le+USUS+/KxGk8KHUFAGOoWmtbRuOY/F8xJmsDbkfKk/6Yy5Pj80niPcWfGtvxjfJ4geSupt
+	fSr2QG/wUdvBB5HiwHYrVxa3J+5jNGY5ev7G6Tf6eqzDMOZgIH+/77r+4mvmfd+VU5//9kvm
+	rPz4a3aB0bVp8VD6sZNrbpVwfV9PKKzrj9xizb08aTKp9h7JPHBayUpLb5sxaCxrPh3v1vit
+	9b7Ds219UznhHRGZfrbCHI+0t8tj2vykf8dHQGFP1KZt91y1r0ZeifT7MI3P8ldSzqnhMdVx
+	rJjnXPX9mG5zocD1oHQ2qvrXyeCMl7rznWX2H1vivnb903nZyuesmliwdO7WpffvkKUdHsoe
+	3vb2nY/ecYSZUyyzWcV5ld+I2HolJdmO6fTUv/FzBj2LBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrMIsWRmVeSWpSXmKPExsWy7bCSnK64yfF0g5l3uCyutP9mt5h+WNFi
+	SVOGxbEJK5gtVnyZyW6xauE1NouGnt+sFpseX2O1uLxrDpvF2XnH2SyubF3HYtHyp4XF4m5L
+	J6vF0usXmSz+btvLaLFo6xd2i4XNLxkt/u/ZwW7RcsfU4v3PzWwOIh6LV0xh9Vgzbw2jx85Z
+	d9k9Fmwq9Wg58pbVY9OqTjaPO9f2sHnsfGjp8eTKdCaPzUvqPfq2rGL0+LxJLoAnissmJTUn
+	syy1SN8ugSvj0aT7jAVrRStO/LrJ2sB4SLCLkZNDQsBE4tzuc8xdjFwcQgK7GSVOvL7HCpGQ
+	lPh8cR0ThC0ssfLfc3aIomeMEv2fnrGAJNgEdCSeXPnDDGKLCMRJvPx0mQWkiFlgGovE/7Nn
+	GCE6pjBJXL32CWwUp4CaxI8p58E6hAUCJH5u6gezWQRUJP5d6GUEsXkFLCVu/HnJCmELSpyc
+	+QRsG7OAtkTvw1ZGGHvZwtfMEOcpSPx8uowV4oowiVsTb7JD1IhLHP3ZwzyBUXgWklGzkIya
+	hWTULCQtCxhZVjFKphYU56bnFhsWGOallusVJ+YWl+al6yXn525iBKcDLc0djNtXfdA7xMjE
+	wXiIUYKDWUmE1/TzsXQh3pTEyqrUovz4otKc1OJDjNIcLErivOIvelOEBNITS1KzU1MLUotg
+	skwcnFINTKIPjrub7Oo/UecW0iAeHfB0e4X1n8+z+ZMXWqYJ8EmL8xzzLzWV2jnDW2zK5Yc/
+	/iz7UKracb5h2rvPZmvipsr2X+J+3V5jNdUla+3kbfZ/q8S782K8f577tu0yW8G25yYHC99v
+	KlbPTT79ZwfPh8u1mZVvZoVfNDvc9ihxaxvzZdel0sWLpWX3Jb3dcG+qT5nVfv+a7t33gtnW
+	qaT3J1102sVzsXure/TeXws4XRbd8J97S1SXO1/cRIgl6s/siECZvvOvpDxYzU2y754Ja4wN
+	3n7s6rsFk3/+97gXd8DOZfndRxYLdtrJ/ubblFP66m3Gj5ObFt8UkpjW6jLZSSn2QraW7smv
+	WqIBN9OqrZRYijMSDbWYi4oTAfA3KJV2AwAA
+X-CMS-MailID: 20250304171047epcas5p38c683bd8cbc6ea4fc82377aebc2428e0
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250221132043epcas5p27fde98558b13b3311cdc467e8f246380
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+	<CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
+	<20250221131548.59616-6-shradha.t@samsung.com> <Z8XuuNb6TRevUlHH@debian>
+	<20250303194228.GB1552306@rocinante> <Z8YZEALV71PUkXpF@debian>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_192625_891231_D51AEED9 
-X-CRM114-Status: GOOD (  37.03  )
+X-CRM114-CacheID: sfid-20250305_031656_329761_C327D53A 
+X-CRM114-Status: GOOD (  12.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,173 +165,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 4, 2025 at 2:46=E2=80=AFAM Peter Zijlstra <peterz@infradead.org=
-> wrote:
->
->
-> Anyway; the situation I was thinking of was something along the lines
-> of: you need data from 2 buckets, so you need to lock 2 buckets, but
-> since hash-table, there is no sane order, so you need a 3rd lock to
-> impose order.
 
-Not quite. This is a typical request to allow locking two buckets
-and solution to that is run-time lock address check.
 
-> > q1 =3D bpf_map_lookup_elem(&vqueue, &key1);
-> > q2 =3D bpf_map_lookup_elem(&vqueue, &key2);
-> >
-> > both will point to two different locks,
-> > and since the key is dynamic there is no way to know
-> > the order of q1->lock vs q2->lock.
->
-> I still feel like I'm missing things, but while they are two dynamic
-> locks, they are both locks of vqueue object. What lockdep does is
-> classify locks by initialization site (by default). Same can be done
-> here, classify per dynamic object.
->
-> So verifier can know the above is invalid. Both locks are same class, so
-> treat as A-A order (trivial case is where q1 and q2 are in fact the same
-> object since the keys hash the same).
-
-Sounds like you're saying that the verifier should reject
-the case when two locks of the same class like q1->lock and q2->lock
-need to be taken ?
-But that is one of the use cases where people requested to allow
-multiple locks.
-The typical solution to this is to order locks by addresses at runtime.
-And nf_conntrack_double_lock() in net/netfilter/nf_conntrack_core.c
-does exactly that.
-
-if (lock1 < lock2) {
-  spin_lock(lock1);spin_lock(lock2);
-} else {
-  spin_lock(lock2);spin_lock(lock1);
-}
-
-> Now, going back to 3rd lock, if instead you write it like:
->
->   bpf_spin_lock(&glock);
->   q1 =3D bpf_map_lookup_elem(&vqueue, &key1);
->   q2 =3D bpf_map_lookup_elem(&vqueue, &key2);
->   ...
->   bpf_spin_unlock(&glock);
->
-> then (assuming q1 !=3D q2) things are fine, since glock will serialize
-> everybody taking two vqueue locks.
->
-> And the above program snippet seems to imply maps are global state, so
-
-Not quite. Some maps are global, but there are dynamic maps too.
-That's what map-in-map is for.
-
-> you can keep lock graph of maps, such that:
->
->   bpf_map_lookup_elem(&map-A, &key-A);
->   bpf_map_lookup_elem(&map-B, &key-B);
->
-> vs
->
->   bpf_map_lookup_elem(&map-B, &key-B);
->   bpf_map_lookup_elem(&map-A, &key-A);
->
-> trips AB-BA
-
-If everything was static and _keys_ known statically too, then yes,
-such analysis by the verifier would be possible.
-But both maps and keys are dynamic.
-
-Note, to make sure that the above example doesn't confuse people,
-bpf_map_lookup_elem() lookup itself is completely lockless.
-So nothing wrong with the above sequence as written.
-Only when:
-q1 =3D bpf_map_lookup_elem(&map-A, &key-A);
-q2 =3D bpf_map_lookup_elem(&map-B, &key-B);
-if (bpf_res_spin_lock(&q1->lock))
-if (bpf_res_spin_lock(&q2->lock))
-
-the deadlocks become a possibility.
-Both maps and keys are only known at run-time.
-So locking logic has to do run-time checks too.
-
-> I am not at all sure how res_spin_lock is helping with the q1,q2 thing.
-> That will trivially result in lock cycles.
-
-Right and AA or ABBA will be instantly detected at run-time.
-
-> And you said any program that would trigger deadlock is invalid.
-> Therefore the q1,q2 example from above is still invalid and
-> res_spin_lock has not helped.
-
-res_spin_lock will do its job and will prevent a deadlock.
-As we explained earlier such a program will be marked as broken
-and will be detached/stopped by the bpf infra.
-Also we're talking root privileges.
-None of this is allowed in unpriv.
-
-> > Just to make it clear... there is a patch 18:
-> >
-> >  F: kernel/bpf/
-> >  F: kernel/trace/bpf_trace.c
-> >  F: lib/buildid.c
-> > +F: arch/*/include/asm/rqspinlock.h
-> > +F: include/asm-generic/rqspinlock.h
-> > +F: kernel/locking/rqspinlock.c
-> >  F: lib/test_bpf.c
-> >  F: net/bpf/
-> >
-> > that adds maintainer entries to BPF scope.
-> >
-> > We're not asking locking experts to maintain this new res_spin_lock.
-> > It's not a generic kernel infra.
-> > It will only be used by bpf infra and by bpf progs.
-> > We will maintain it and we will fix whatever bugs
-> > we introduce.
->
-> While that is appreciated, the whole kernel is subject to the worst case
-> behaviour of this thing. As such, I feel I need to care.
-
-Not sure why you're trying to relitigate the years worth of
-discussions around locks in the bpf community.
-Static analysis of 2+ locks by the verifier is impossible.
-Full lock graph cycle detection lockdep-style is too slow in run-time.
-Hence res_spin_lock with AA, ABBA, and timeout as a last resort
-is our solution to real reported bugs.
-
-This res_spin_lock patchset fixes the following syzbot reports:
-
-https://lore.kernel.org/bpf/675302fd.050a0220.2477f.0004.GAE@google.com
-https://lore.kernel.org/bpf/000000000000b3e63e061eed3f6b@google.com
-https://lore.kernel.org/bpf/CAPPBnEa1_pZ6W24+WwtcNFvTUHTHO7KUmzEbOcMqxp+m2o=
-15qQ@mail.gmail.com
-https://lore.kernel.org/bpf/CAPPBnEYm+9zduStsZaDnq93q1jPLqO-PiKX9jy0MuL8LCX=
-mCrQ@mail.gmail.com
-https://lore.kernel.org/lkml/000000000000adb08b061413919e@google.com
-
-It fixes the real issues.
-Some of them have hacky workarounds, some are not fixed yet.
-
-More syzbot reports will be fixed in follow ups when we
-adopt res_spin_lock in other parts of bpf infra.
-
-Note, all of the above syzbot reports are _not_ using direct
-locks inside the bpf programs. All of them hit proper kernel
-spin_locks inside bpf infra (like inside map implementations and such).
-The verifier cannot do anything. syzbot generated programs
-are trivial. They do one bpf_map_update_elem() call or similar.
-It's a combination of attaching to tricky tracepoints
-like trace_contention_begin or deep inside bpf infra.
-We already have these workarounds:
-CFLAGS_REMOVE_percpu_freelist.o =3D $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_bpf_lru_list.o =3D $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_queue_stack_maps.o =3D $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_lpm_trie.o =3D $(CC_FLAGS_FTRACE)
-CFLAGS_REMOVE_ringbuf.o =3D $(CC_FLAGS_FTRACE)
-to prevent recursion anywhere in these files,
-but it's helping only so much.
-
-So please take a look at patches 1-18 and help us make
-sure we implemented AA, ABBA, timeout logic without obvious bugs.
-I think we did, but extra review would be great.
-
-Thanks!
+> -----Original Message-----
+> From: Fan Ni <nifan.cxl=40gmail.com>
+> Sent: 04 March 2025 02:33
+> To: Krzysztof Wilczy=C5=84ski=20<kw=40linux.com>=0D=0A>=20Cc:=20Fan=20Ni=
+=20<nifan.cxl=40gmail.com>;=20Shradha=20Todi=20<shradha.t=40samsung.com>;=
+=20linux-kernel=40vger.kernel.org;=20linux-=0D=0A>=20pci=40vger.kernel.org;=
+=20linux-arm-kernel=40lists.infradead.org;=20linux-perf-users=40vger.kernel=
+.org;=20manivannan.sadhasivam=40linaro.org;=0D=0A>=20lpieralisi=40kernel.or=
+g;=20robh=40kernel.org;=20bhelgaas=40google.com;=20jingoohan1=40gmail.com;=
+=20Jonathan.Cameron=40huawei.com;=0D=0A>=20a.manzanares=40samsung.com;=20pa=
+nkaj.dubey=40samsung.com;=20cassel=40kernel.org;=2018255117159=40163.com;=
+=0D=0A>=20xueshuai=40linux.alibaba.com;=20renyu.zj=40linux.alibaba.com;=20w=
+ill=40kernel.org;=20mark.rutland=40arm.com=0D=0A>=20Subject:=20Re:=20=5BPAT=
+CH=20v7=205/5=5D=20Add=20debugfs=20based=20statistical=20counter=20support=
+=20in=20DWC=0D=0A>=20=0D=0A>=20On=20Tue,=20Mar=2004,=202025=20at=2004:42:28=
+AM=20+0900,=20Krzysztof=20Wilczy=C5=84ski=20wrote:=0D=0A>=20>=20Hello,=0D=
+=0A>=20>=0D=0A>=20>=20=5B...=5D=0D=0A>=20>=20>=20>=20+static=20ssize_t=20co=
+unter_value_read(struct=20file=20*file,=20char=20__user=0D=0A>=20>=20>=20>=
+=20+*buf,=20size_t=20count,=20loff_t=20*ppos)=20=7B=0D=0A>=20>=20>=20>=20+=
+=09struct=20dwc_pcie_rasdes_priv=20*pdata=20=3D=20file->private_data;=0D=0A=
+>=20>=20>=20>=20+=09struct=20dw_pcie=20*pci=20=3D=20pdata->pci;=0D=0A>=20>=
+=20>=20>=20+=09struct=20dwc_pcie_rasdes_info=20*rinfo=20=3D=20pci->debugfs-=
+>rasdes_info;=0D=0A>=20>=20>=20>=20+=09char=20debugfs_buf=5BDWC_DEBUGFS_BUF=
+_MAX=5D;=0D=0A>=20>=20>=20>=20+=09ssize_t=20pos;=0D=0A>=20>=20>=20>=20+=09u=
+32=20val;=0D=0A>=20>=20>=20>=20+=0D=0A>=20>=20>=20>=20+=09mutex_lock(&rinfo=
+->reg_event_lock);=0D=0A>=20>=20>=20>=20+=09set_event_number(pdata,=20pci,=
+=20rinfo);=0D=0A>=20>=20>=20>=20+=09val=20=3D=20dw_pcie_readl_dbi(pci,=20ri=
+nfo->ras_cap_offset=20+=20RAS_DES_EVENT_COUNTER_DATA_REG);=0D=0A>=20>=20>=
+=20>=20+=09mutex_unlock(&rinfo->reg_event_lock);=0D=0A>=20>=20>=20>=20+=09p=
+os=20=3D=20scnprintf(debugfs_buf,=20DWC_DEBUGFS_BUF_MAX,=20=22Counter=0D=0A=
+>=20>=20>=20>=20+value:=20%d=5Cn=22,=20val);=0D=0A>=20>=20>=20>=20+=0D=0A>=
+=20>=20>=20>=20+=09return=20simple_read_from_buffer(buf,=20count,=20ppos,=
+=20debugfs_buf,=0D=0A>=20>=20>=20>=20+pos);=20=7D=0D=0A>=20>=20>=0D=0A>=20>=
+=20>=20Do=20we=20need=20to=20check=20whether=20the=20counter=20is=20enabled=
+=20or=20not=20for=20the=0D=0A>=20>=20>=20event=20before=20retrieving=20the=
+=20counter=20value?=0D=0A>=20>=0D=0A>=20>=20I=20believe,=20we=20have=20a=20=
+patch=20that=20aims=20to=20address,=20have=20a=20look=20at:=0D=0A>=20>=0D=
+=0A>=20>=0D=0A>=20>=20https://lore.kernel.org/linux-pci/20250225171239.1957=
+4-1-manivannan.sa=0D=0A>=20>=20dhasivam=40linaro.org=0D=0A>=20=0D=0A>=20May=
+be=20I=20missed=20something,=20that=20seems=20to=20fix=20counter_enable_rea=
+d(),=20but=20here=20is=20to=20retrieve=20counter=20value.=0D=0A>=20How=20dw=
+_pcie_readl_dbi()=20can=20return=20something=20like=20=22Counter=20Disabled=
+=22?=0D=0A>=20=0D=0A>=20Fan=0D=0A=0D=0AHey=20Fan,=0D=0ASo=20the=20counter=
+=20value=20will=20show=200=20in=20case=20it=20is=20disabled=20so=20there=20=
+will=20not=20be=20any=20issues=20as=20per=20say.=20We=20could=20add=20the=
+=0D=0Acheck=20here=20but=20I=20feel=20I=20have=20already=20exposed=20the=20=
+functionality=20to=20check=20if=20a=20counter=20is=20enabled=20or=20disable=
+d,=20(by=20reading=20the=0D=0Acounter_enable=20debugfs=20entry)=20so=20this=
+=20could=20be=20handled=20in=20user=20space=20to=20only=20read=20the=20coun=
+ter=20if=20it's=20enabled.=0D=0A=0D=0A>=20>=0D=0A>=20>=20Thank=20you=21=0D=
+=0A>=20>=0D=0A>=20>=20=09Krzysztof=0D=0A=0D=0A
 
