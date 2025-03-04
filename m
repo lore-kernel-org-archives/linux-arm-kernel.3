@@ -4,59 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1273FC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8874C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2EnfZoWr3A7mCCQHPyKMPh7nLIfxeTRafPGW+NAD2/4=; b=4yPjdjFHWc11VAMfYGlvK8iJqy
-	76sN9ycXeHjp2zcKkjGTw/E/K1QeD+474sKPNqeftAHTzdv53C66yaDHxSVyPeFCezBMO/z0YfAk/
-	V9XJ6RDzmmguxa3ZH9TUAzfo/KjXmqMW4FhzmzmOXUeP0KJeHfv8VJxfB8PhbiQy+rgGPdmzIydbY
-	dj1hHWT/NXvqIkbk6p6zkvKDerom0XhPNlzlQq1dNqxXvONgeHKy+Qy07T9xvaQzCuTkwhKKj8AqL
-	wzdwWY6LL4jTBxHnntRKXpQLX5w0z3PpCPjxBOx0XzMipVcl99nKJvsj8gulBeP8TBEncFeM0T2IQ
-	RGkzKGRQ==;
+	bh=OP9ovaiE8W931ELBVF5NuIIs9fylqFyNkVXudwtC3tg=; b=36Xq4Dg9BCkMFENzkuInXWI7mS
+	lTHBVE8stwZVYvDZJriLe9nx7y0fgqw6c0J0F1bHMZQXUBcxDEjiH0LZk7nxin1N0+cvpEr885cY5
+	W6gWHTMWRaFf1942h9eBs1bpJWXuKlI8a7x5h5Redk+jEUn7/8I+v4v9V88ZAqPHShte3Zfv7Oa1I
+	reH42FbPF4wrt0j4cHgox857pJuuQqyx8nrgRtW4m8iZF1/MjAvGXktyIuJUyH2xLgt9gIoqusGCO
+	BzxGxMm3pwAL0RjBnfco1REIIEEZtJ8SYi9FTVFAA2hbFJ2Fkr3sbqukRNH+/P0ByVU/KIBwwImms
+	LvG8F5+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbwP-00000006YMY-2WLP;
-	Tue, 04 Mar 2025 23:44:49 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpahx-00000006P8s-1vIl
+	id 1tpbzC-00000006YhW-1OJV;
+	Tue, 04 Mar 2025 23:47:42 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpbxb-00000006YZT-2mup
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:25:50 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 421051D31;
-	Tue,  4 Mar 2025 14:26:02 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EA863F5A1;
-	Tue,  4 Mar 2025 14:25:47 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 05/15] dt-bindings: irq: sun7i-nmi: document the Allwinner A523 NMI controller
-Date: Tue,  4 Mar 2025 22:22:59 +0000
-Message-ID: <20250304222309.29385-6-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250304222309.29385-1-andre.przywara@arm.com>
-References: <20250304222309.29385-1-andre.przywara@arm.com>
+	Tue, 04 Mar 2025 23:46:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741131962;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=OP9ovaiE8W931ELBVF5NuIIs9fylqFyNkVXudwtC3tg=;
+	b=c9hoRGbHyWCI2aKhWoG0Jycx1GdR1JQyLxoxkJsdua5dtmbqGxxrX0sDoaOw0vHwQF2aDv
+	LW0rgLwflUfYOLLAUZqZgql0d5tfdF82s48/PnqkgpxokpsyTSBckl16lpuwFReFfU0euy
+	b4YNiyJU5dhFvDOLqqVDyGFBw00azrc=
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com
+ [209.85.216.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-110-SfjLw2qNPq2NaiEahUbqyw-1; Tue, 04 Mar 2025 18:45:51 -0500
+X-MC-Unique: SfjLw2qNPq2NaiEahUbqyw-1
+X-Mimecast-MFC-AGG-ID: SfjLw2qNPq2NaiEahUbqyw_1741131950
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-2feda472a6eso6648820a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 15:45:51 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741131950; x=1741736750;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OP9ovaiE8W931ELBVF5NuIIs9fylqFyNkVXudwtC3tg=;
+        b=vzm2gpZ5P4260nlMekt5Qe99nsHmv5fvBOKSM0gkBietTRbw3XIgTn4CElI8hkVqaw
+         5IBZgvJsB7FqezWnrrr/lkl4srUJI6MbQMF6avjGHxHd8b+ZzqRRZCrdWoCpt4WffthZ
+         UGCayUYN1M1pEw96LSxctTFY7gvqZ93Z1ZCcERIvHry5OF8ERt1kr+oQsuUCSS+5la37
+         Sgw1n5n0cxTBbyCOoZ/QwFPiGxe3LH4x27zhFEt2l7n7LOME2tHC2s+ENcEyfC11qrmC
+         +YO8bhzKdhtBwnkNoaxk0vSsdGNwZCNLjOLZDGkOMexYUwUyNSui3kZDJR2ME1Gj/r7R
+         6Bfw==
+X-Forwarded-Encrypted: i=1; AJvYcCX5m1xF8/uMtunSwFKp+8lzlRsHC6p04PW9PgQChZvURbx4FFGZR7Sxst1CJHUv1XuiQHjIwiWZosTtBaTunFe8@lists.infradead.org
+X-Gm-Message-State: AOJu0YxJavDbTmDciVDbq4bh9mqQjabmg8m0WsIk20thVcp/bGkJSHbe
+	ImekTrHms52q5CH5Vwg8Azp5exsUaKVzJ3p05VAw/YSPsBuuZAb3JVCsqWT2a0VgWAK5zIpQRfF
+	r0KQ6N+qvnre3PYLAjjKqe4Cx//LVlalT60S1aTBP1NsEo4Wu2kh5msr4sZgqorNs5UeTy+FC
+X-Gm-Gg: ASbGnct7haJGB1Uura6vfVKf48qCxslSHn02D1uGdxOKtjMLDM6C8/+OoCmmLS63hjY
+	6qYfrq29MCXvkHDDatWM/dL9LKtbzajGZISh9BbYOOKZY16Y4kal/saMEKo5lqE6Z+2jiATJFT6
+	FadtGE5S6qurgay1SI7SwgehOlYwSsdlnetYNewukEU6dsM4N8ubPzkyk63g3abomf3C0nVYGdA
+	FjjVk+UCKfQytJcLPZesw8a5KHNFRlwPBMHr/VsgXpQmIkdurCI+4dKwXCAM8I/Nq4io5z1c6wq
+	95Qpfp+3uUEwvc4=
+X-Received: by 2002:a05:6a20:7345:b0:1ee:d6a7:e341 with SMTP id adf61e73a8af0-1f34952e7f5mr2026994637.30.1741131950420;
+        Tue, 04 Mar 2025 15:45:50 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IG6SHWUDr/wxtrgl8ODJO2LORkYE1xgQa8DpVJblqhw13356llhbnfpOxuEBTenhhAi0XuOnQ==
+X-Received: by 2002:a05:6a20:7345:b0:1ee:d6a7:e341 with SMTP id adf61e73a8af0-1f34952e7f5mr2026963637.30.1741131950083;
+        Tue, 04 Mar 2025 15:45:50 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.1])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-aee7de37fedsm9080597a12.42.2025.03.04.15.45.42
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 15:45:49 -0800 (PST)
+Message-ID: <c8af8a7f-5ee4-460b-aec4-959f688db628@redhat.com>
+Date: Wed, 5 Mar 2025 09:45:41 +1000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 35/45] arm64: RME: Propagate number of breakpoints and
+ watchpoints to userspace
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Jean-Philippe Brucker <jean-philippe@linaro.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-36-steven.price@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250213161426.102987-36-steven.price@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: XIYQOEO5KFbW4OovcS_AxQtXgnitJS4tAtZou1fJhV0_1741131950
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142549_552171_BC124A31 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_154603_784963_DA05044B 
+X-CRM114-Status: GOOD (  21.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,30 +123,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Allwinner A523 SoC contains an NMI controller very close to the one
-used in the recent Allwinner SoCs, but it adds another bit that needs to
-be toggled to actually deliver the IRQs. Sigh.
+On 2/14/25 2:14 AM, Steven Price wrote:
+> From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> 
+> The RMM describes the maximum number of BPs/WPs available to the guest
+> in the Feature Register 0. Propagate those numbers into ID_AA64DFR0_EL1,
+> which is visible to userspace. A VMM needs this information in order to
+> set up realm parameters.
+> 
+> Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+>   arch/arm64/include/asm/kvm_rme.h |  2 ++
+>   arch/arm64/kvm/rme.c             | 22 ++++++++++++++++++++++
+>   arch/arm64/kvm/sys_regs.c        |  2 +-
+>   3 files changed, 25 insertions(+), 1 deletion(-)
+> 
 
-Add the A523 specific name to the list of allowed compatible strings.
+With the following one nitpick addressed:
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- .../interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml         | 1 +
- 1 file changed, 1 insertion(+)
+Reviewed-by: Gavin Shan <gshan@redhat.com>
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-index f49b43f45f3d9..06e3621a8c06c 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml
-@@ -26,6 +26,7 @@ properties:
-         deprecated: true
-       - const: allwinner,sun7i-a20-sc-nmi
-       - const: allwinner,sun9i-a80-nmi
-+      - const: allwinner,sun55i-a523-nmi
-       - items:
-           - enum:
-               - allwinner,sun8i-v3s-nmi
--- 
-2.46.3
+> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+> index d684b30493f5..67ee38541a82 100644
+> --- a/arch/arm64/include/asm/kvm_rme.h
+> +++ b/arch/arm64/include/asm/kvm_rme.h
+> @@ -85,6 +85,8 @@ void kvm_init_rme(void);
+>   u32 kvm_realm_ipa_limit(void);
+>   u32 kvm_realm_vgic_nr_lr(void);
+>   
+> +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val);
+> +
+>   bool kvm_rme_supports_sve(void);
+>   
+>   int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
+> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+> index f83f34358832..8c426f575728 100644
+> --- a/arch/arm64/kvm/rme.c
+> +++ b/arch/arm64/kvm/rme.c
+> @@ -87,6 +87,28 @@ u32 kvm_realm_vgic_nr_lr(void)
+>   	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_GICV3_NUM_LRS);
+>   }
+>   
+> +u64 kvm_realm_reset_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+> +{
+> +	u32 bps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_BPS);
+> +	u32 wps = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_NUM_WPS);
+> +	u32 ctx_cmps;
+> +
+> +	if (!kvm_is_realm(vcpu->kvm))
+> +		return val;
+> +
+> +	/* Ensure CTX_CMPs is still valid */
+> +	ctx_cmps = FIELD_GET(ID_AA64DFR0_EL1_CTX_CMPs, val);
+> +	ctx_cmps = min(bps, ctx_cmps);
+> +
+> +	val &= ~(ID_AA64DFR0_EL1_BRPs_MASK | ID_AA64DFR0_EL1_WRPs_MASK |
+> +		 ID_AA64DFR0_EL1_CTX_CMPs);
+> +	val |= FIELD_PREP(ID_AA64DFR0_EL1_BRPs_MASK, bps) |
+> +	       FIELD_PREP(ID_AA64DFR0_EL1_WRPs_MASK, wps) |
+> +	       FIELD_PREP(ID_AA64DFR0_EL1_CTX_CMPs, ctx_cmps);
+> +
+> +	return val;
+> +}
+> +
+
+The chunk of code can be squeezed to sys_reg.c::sanitise_id_aa64dfr0_el1() since
+sys_reg.c has been plumbed for realm, no reason to keep a separate helper in rme.c
+because it's only called by sys_reg.c::sanitise_id_aa64dfr0_el1()
+
+>   static int get_start_level(struct realm *realm)
+>   {
+>   	return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index ed881725eb64..5618eff33155 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1820,7 +1820,7 @@ static u64 sanitise_id_aa64dfr0_el1(const struct kvm_vcpu *vcpu, u64 val)
+>   	/* Hide BRBE from guests */
+>   	val &= ~ID_AA64DFR0_EL1_BRBE_MASK;
+>   
+> -	return val;
+> +	return kvm_realm_reset_id_aa64dfr0_el1(vcpu, val);
+>   }
+>   
+>   static int set_id_aa64dfr0_el1(struct kvm_vcpu *vcpu,
+
+Thanks,
+Gavin
 
 
