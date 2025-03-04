@@ -4,63 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8698C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E40CC282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:35:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=87JNKDEwMbuthqLhw/P0e8/mvUHlBARXqPkKG3nDcNA=; b=vrt5nv3/GJF+/VfQKe30A5GDoW
-	EzRiCBKeB0M5hkHbkulXcoBismhk518CGd4IKGGC9o4EaG5Yu3US1A56w1fJttotJjOhdiJrEAkYF
-	q9eu6bfYrqoXdYUYdSQOaRjWp1Jy+Q8RaA+kCDZ2U9seE6fiizNE84+cu6JbVpjQbHtKna7qZCrDS
-	CMobhkD+g/aJZq5TGX3NSgMaEMLbUrUQ5sOHScH3pD6WNzm/sHWCme/0dXrNIyNk6DvDQsRn1he7Z
-	A1U1/81GXpc07BnBcwcC8aDslVfkh1XeDCJUkEmz8P8j/7fVw7PdO7DJpNrRi6f8ZEct0cyedlQzn
-	l8u36Hew==;
+	bh=xjqXCgfra637s+rpk4UdFAWQVXX9B5blSLtqx3MNrXQ=; b=4OvOQFmyA3QxvQVSVEXFYiEnrY
+	n9nW2s9kJU8P+m3w/VcAwVuegnVtZiOrz4asw4c2oUc6TFRx67YnIAyU+j4ylhEc+XgzdXxcruOZU
+	FOrJC5EEO9n78SlqokJtJ/iLd+AUeqQGCdc7KF8/6P0YrZ9dz80aGF4oXVp9iYoCNU4/wSSCc9lJ2
+	+QL6uPwiU3oHiMyylq+pFrS2xgCzNzFdhoKrGxTO7t0du8XrDPYUkzIkREXd3WZ0n1x968lRBO3OV
+	As1RtwLXU7metn0dNCYcyg2s3/5PNYlha9wEaX4vBUH9VEePd2WccWHyjO76X/SZaUf+B8sc2gWAd
+	Ltt1O/Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpY1R-000000061uk-0L7t;
-	Tue, 04 Mar 2025 19:33:45 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpWY9-00000005k0y-2jzz
+	id 1tpY30-000000062cw-2gQq;
+	Tue, 04 Mar 2025 19:35:22 +0000
+Received: from smtp.forwardemail.net ([121.127.44.59])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpWlg-00000005nCK-2fxX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 17:59:27 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23A042F;
-	Tue,  4 Mar 2025 09:59:38 -0800 (PST)
-Received: from [10.57.39.179] (unknown [10.57.39.179])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id E329B3F5A1;
-	Tue,  4 Mar 2025 09:59:20 -0800 (PST)
-Message-ID: <d3181dde-1070-4101-a5f7-7e42d0ec2f99@arm.com>
-Date: Tue, 4 Mar 2025 17:59:19 +0000
+	Tue, 04 Mar 2025 18:13:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741111999;
+ bh=xjqXCgfra637s+rpk4UdFAWQVXX9B5blSLtqx3MNrXQ=;
+ b=gki35ZigkHyCu8f+oY7soeaPt+1xN4rQRpR4qjkhBY30HsZJ8zSKRpzogqXqkehH2zKwg7Px2
+ FxDsugwZwDCc1Qo8gl/S9fS2JnThTVivJfCrfvk9DzaKCEf0q2Far7Q0rl6wWXjunyyGQfT6b1q
+ eWhrtVbUoSvMaiqWwewlDHHwlcfsNsBCTebROlrSqyF5oj0PkHJurihx0x+V6HMCqkqkPsn/4Ty
+ 1VN9hlijnQJRVNvK3kFgHQ4nCZ6TtNvDaEM+sUP5Ec157gdXOcLO8HmWNtlJ3g9aCluqijPrf2c
+ kKNLZVsnrhQ1M52axcz9WIKnDftTv/8IqXuhKSoIpk9Q==
+X-Forward-Email-ID: 67c742bb2e5baeec949f6b1e
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.59
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <03c34bdf-d470-4c99-bb06-0eb7496465a3@kwiboo.se>
+Date: Tue, 4 Mar 2025 19:13:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 15/45] KVM: arm64: Support timers in realm RECs
-Content-Language: en-GB
-To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
- kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-16-steven.price@arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250213161426.102987-16-steven.price@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: (subset) [PATCH 0/7] rockchip: Add support for leds and user
+ button on Radxa E20C
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Linus Walleij
+ <linus.walleij@linaro.org>, Yao Zi <ziyao@disroot.org>,
+ linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250228064024.3200000-1-jonas@kwiboo.se>
+ <174108970986.65436.4272591414898454986.b4-ty@sntech.de>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <174108970986.65436.4272591414898454986.b4-ty@sntech.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_095925_781407_DD3BF3BE 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250304_101325_071118_F2EDCEB2 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,91 +82,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/02/2025 16:13, Steven Price wrote:
-> The RMM keeps track of the timer while the realm REC is running, but on
-> exit to the normal world KVM is responsible for handling the timers.
-> 
-> A later patch adds the support for propagating the timer values from the
-> exit data structure and calling kvm_realm_timers_update().
-> 
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
->   arch/arm64/kvm/arch_timer.c  | 45 ++++++++++++++++++++++++++++++++----
->   include/kvm/arm_arch_timer.h |  2 ++
->   2 files changed, 43 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index d3d243366536..06b68bcd244f 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -148,6 +148,13 @@ static void timer_set_cval(struct arch_timer_context *ctxt, u64 cval)
->   
->   static void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
->   {
-> +	struct kvm_vcpu *vcpu = ctxt->vcpu;
-> +
-> +	if (kvm_is_realm(vcpu->kvm)) {
-> +		WARN_ON(offset);
-> +		return;
-> +	}
-> +
->   	if (!ctxt->offset.vm_offset) {
->   		WARN(offset, "timer %ld\n", arch_timer_ctx_index(ctxt));
->   		return;
-> @@ -464,6 +471,21 @@ static void kvm_timer_update_irq(struct kvm_vcpu *vcpu, bool new_level,
->   	}
->   }
->   
-> +void kvm_realm_timers_update(struct kvm_vcpu *vcpu)
-> +{
-> +	struct arch_timer_cpu *arch_timer = &vcpu->arch.timer_cpu;
-> +	int i;
-> +
-> +	for (i = 0; i < NR_KVM_EL0_TIMERS; i++) {
-> +		struct arch_timer_context *timer = &arch_timer->timers[i];
-> +		bool status = timer_get_ctl(timer) & ARCH_TIMER_CTRL_IT_STAT;
-> +		bool level = kvm_timer_irq_can_fire(timer) && status;
-> +
-> +		if (level != timer->irq.level)
-> +			kvm_timer_update_irq(vcpu, level, timer);
-> +	}
-> +}
-> +
->   /* Only called for a fully emulated timer */
->   static void timer_emulate(struct arch_timer_context *ctx)
->   {
-> @@ -889,6 +911,8 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->   	if (unlikely(!timer->enabled))
->   		return;
->   
-> +	kvm_timer_unblocking(vcpu);
-> +
->   	get_timer_map(vcpu, &map);
->   
->   	if (static_branch_likely(&has_gic_active_state)) {
-> @@ -902,8 +926,6 @@ void kvm_timer_vcpu_load(struct kvm_vcpu *vcpu)
->   		kvm_timer_vcpu_load_nogic(vcpu);
->   	}
->   
-> -	kvm_timer_unblocking(vcpu);
-> -
->   	timer_restore_state(map.direct_vtimer);
->   	if (map.direct_ptimer)
->   		timer_restore_state(map.direct_ptimer);
-> @@ -1094,7 +1116,9 @@ static void timer_context_init(struct kvm_vcpu *vcpu, int timerid)
->   
->   	ctxt->vcpu = vcpu;
->   
-> -	if (timerid == TIMER_VTIMER)
-> +	if (kvm_is_realm(vcpu->kvm))
-> +		ctxt->offset.vm_offset = NULL;
-> +	else if (timerid == TIMER_VTIMER)
->   		ctxt->offset.vm_offset = &kvm->arch.timer_data.voffset;
+Hi Heiko,
 
-I think we need to disable the KVM_CAP_COUNTER_OFFSET for Realms and
-also deny KVM_ARM_SET_COUNTER_OFFSET vm_ioctl.
+On 2025-03-04 13:02, Heiko Stuebner wrote:
+> 
+> On Fri, 28 Feb 2025 06:40:06 +0000, Jonas Karlman wrote:
+>> The Radxa E20C has three gpio leds and one gpio button.
+>>
+>> This series adds dt-binding, driver support, DT node in SoC .dtsi and
+>> gpio-keys and gpio-leds nodes in board DT to support the leds and user
+>> button.
+>>
+>> This series builds on top of the "rockchip: Add support for maskrom
+>> button on Radxa E20C" series [1].
+>>
+>> [...]
+> 
+> Applied, thanks!
+> 
+> [1/7] dt-bindings: soc: rockchip: Add RK3528 ioc grf syscon
+>       commit: ac32ad07a97648eb8330b2c4cb840b0ef46903ae
+> [4/7] arm64: dts: rockchip: Add pinctrl and gpio nodes for RK3528
+>       commit: a31fad19ae39ea27b5068e3b02bcbf30a905339b
+> [5/7] arm64: dts: rockchip: Add uart0 pinctrl to Radxa E20C
+>       commit: 0d2312f0d3e4ce74af0977c1519a07dfc71a82ac
+> 
+> Patches 6+7 depend on the parallel saradc support series and thus
+> do not apply - and need too much rework to safely apply.
 
-Suzuki
+Do you want me to rebase/reorder and send an updated version with
+remaining patches? Look like the iio saradc patches [2] is pending apply
+so maybe not needed?
 
+[2] https://lore.kernel.org/all/20250304144648.29f376f9@jic23-huawei/
+
+Regards,
+Jonas
+
+> 
+> 
+> Best regards,
 
 
