@@ -4,86 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A134C282D6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:08:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC986C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 08:10:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pA6zLWQ+dYJkLtBz+wtBiNsIVYV44LsyhmBHfgcYN+Y=; b=bTB0wNrUJji0oYfQZGit+Mt/JE
-	TVFp1jxmZcCsHVKw27fY2ynrP8jAUIq6ePSBrL0gpAfehPXjslqzbOTvetmghf1VmMGxwzJbhv0YE
-	Qto1g1MO/uSuUta5hE0eZ/p/3Bbr6xxkrwQSwoWqqDrXLLnNLEsEG9gUlNAoWo8re97Rx/JnqSk8D
-	1O1hwmxV1XVht/A0gEg8WN3vPp6PG8ljqUxOhgdSPiFuzAQO0Yc75WXWFD5P14n7KIjMvloDzVqtz
-	NJbbDx205MxbygeiTVFH0w5M5KHLO5VeV9FRi8gMqPWXRx3nJZPhm8qIjQ9TnziuqPVYusiElWW+L
-	fFw70yaA==;
+	bh=BVJSFhPr+MWcVdsQvQ4e5j7EsE3f4zAOy5yVDG+t3BI=; b=Md4gXZxIpNQDc4+GfCTvDGPJBJ
+	0BXsZC2sKsocfMEG8zRelNYFVT5trnBHCI0phEjIpaQe8Tkim7VjJzISUOkYnVZsLxJl3ymx2+q5K
+	Wg6symbDycxXWAHStv68Hrn++YAJgsLt2draW5Xtusmaz8fA5/cMjeclkTJmrft4dNMh7sC3xRGZz
+	1TdLf2AdCjhZvsx71U49C4x7DYGmM6lmCZ54cNNSfzFeVpVRvPNiR8DgsrekGobrHLTG17KDNCu60
+	zwesDfB6faAxJAEEAhL6uTPV7p7CLWP0TahLzzA64b17DhjbEXaZVEzdSqkCSn8n9sJ9GSgw0/9Bb
+	YdsPsodw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpNKG-00000003ZTI-0Vpf;
-	Tue, 04 Mar 2025 08:08:28 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1tpNLn-00000003ZjQ-3uOh;
+	Tue, 04 Mar 2025 08:10:03 +0000
+Received: from mail-lf1-x130.google.com ([2a00:1450:4864:20::130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpN45-00000003WUK-45WI
+	id 1tpN5Y-00000003WiS-2mW2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 07:51:47 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-548409cd2a8so5521145e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 23:51:45 -0800 (PST)
+	Tue, 04 Mar 2025 07:53:17 +0000
+Received: by mail-lf1-x130.google.com with SMTP id 2adb3069b0e04-5497590ffbbso755691e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 23:53:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741074704; x=1741679504; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741074795; x=1741679595; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pA6zLWQ+dYJkLtBz+wtBiNsIVYV44LsyhmBHfgcYN+Y=;
-        b=U+RwhPbAWt9MyixSW68nN5tGNQwp6r/qGWYlFOTxJvTkJTN1FiLeYz2XQlOdB+n7Y3
-         YxSXM9nkyXBkjX2c0oma87vfR+Xfi7lAPIP+jLJm5ZxSR57O7XKOhZJeaqvOA823sjCG
-         s23kCAZPEjqb9ipjQBaX+S3YQGfDP5DX61ftAuxO5gGUufjNnkVeKmV6nbf9NR/2BKg+
-         3CBsGz5Uru44L2WHBrxg1YBAC1AGCtbLFqyNp0DQ+1GucegpbY4gHrwzQDN9wKkpFJO4
-         m/wy3ehfMXVAytGEhndXcOnfPPGPHdNL+iUU/a0XKHa4uBgFBTyPkRDuNioiEsft8p5p
-         hQ7A==
+        bh=BVJSFhPr+MWcVdsQvQ4e5j7EsE3f4zAOy5yVDG+t3BI=;
+        b=d1NeUBVQ9+Kikx2OLCpALnYiJFYbmweYwp9+0x/en/+7RURlG+LRww9Ie59SRdleIG
+         Hgqst1AaNHFjLiL88/sLoFOYf8HvoQpXrHRa0+eNkg1ix7+NIilPA47lo8I9Qsms2aJL
+         45GOONH/xpezuy2qf57e9IrRjqmAS+3Bb7E3MmGiSp8lERD2jtMhAwoiLfEn666hpkE4
+         7tcGbYTbfAAF1b1gqXebMPfvY3T2ADKU8WPOTpoQ3E3kv+T/ZYJ2FELR5TIi8mmP91bP
+         c7soEtlsjXIFszjvT6MRE7rTqHxBoBaCrH4zpw8yVOV8r/8TCOeYNrX+VX1069DMdUo1
+         CsEA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741074704; x=1741679504;
+        d=1e100.net; s=20230601; t=1741074795; x=1741679595;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pA6zLWQ+dYJkLtBz+wtBiNsIVYV44LsyhmBHfgcYN+Y=;
-        b=Jfi0KyDTRbfJIQ4WrXAKlsABRssr/wQtWOHInjvlyuxoXLMnFOhkYmm+6q1omn4It2
-         u5wVMMFWLWX4GLv+crK/huWJszHsJmOfIuXyLy0YURXSAzJxSc66kBhb5KUN6rPu/5QI
-         mfNlPgaYiYREcHeUf48Viebd4HFuOpNjXenWYZjMGtfrDNCmK7hrTHhJlNvumqK9gons
-         cvKTCE0MEsIaQibDE1tyXDdGNns88tJQJOq39PbRXhkb3lsQdeqJlbQLF/+7LlsP8GBH
-         30Rj6V3e+zEpA0RBy564OEuFBS72tFAMpk0bpnHTxhJ/HAjRIaJoWsF7iCtdmZnvEuQm
-         DrOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVBRXgcpOAjizymtr7zp+ju72YwR6hE6hUrDe/DaKe9jKKjJr6BMuyhZRUUodOxwjMFqq4vrIy5LomlqymdyJ+t@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZqyAbyP0iF9b/IXHSV7kLOkZWGD8oDDpdpAKpoXLDgGfglecj
-	AIerPwWfj3TCBfuxhyMrk94l6bvvzzRn5Vixd+Al6XcaUjd51UZI6gQ8HWYCEAbXNyfaifJUCJH
-	UuI0WKQsNSG4VSfFgfUOw1ay/mfRBf5w9DkGoSQ==
-X-Gm-Gg: ASbGncuT7cFJg1TFAW65uMD8jNbwPbyYmobFrPwfZk2hACA9EhEffG35HQkgdUEcLOH
-	HSO43TfWUUrUu1ETBNoKKZ48oSBXj9ygCxQjw0x+6kALDKKoH0x/2G0/MeXV66Xq+tXfhpCuKvn
-	iFqVVq2Xkjt+m9mHJQqp6xMz5WPQ==
-X-Google-Smtp-Source: AGHT+IF2HnTvgALEagtidtwMTknG9FoykhqBphkMLjIu+urEhq+snaAKQPbxfAEiEdOYOfpEU/z8RIcNqZf0RTZQZA0=
-X-Received: by 2002:a05:6512:1292:b0:545:c9d:ef26 with SMTP id
- 2adb3069b0e04-5494c34fcd9mr5744703e87.46.1741074704091; Mon, 03 Mar 2025
- 23:51:44 -0800 (PST)
+        bh=BVJSFhPr+MWcVdsQvQ4e5j7EsE3f4zAOy5yVDG+t3BI=;
+        b=r/LqTmMbcWK1n3wspAYsScuELh7rayKzk+PFrY8WAZhMFClVC6Khm5PoHfwky1biSG
+         IKaW9yB8Adw0Z+92FmnZnr7eyqhGfOwg91uenUzvqSrLZFCYVV3sKGADl//lgp2yg7R7
+         CVvLV8VQTtq8413v+laQwP5aCRibhykQhicRioy0sd5S5CIxzBYR3I4x59+oFYhSAiL+
+         AUKhDbz3PGicGoTNxiWCSoh/UCkochGeBRNlZjmp4Lwxl4zOCtD2DC+DmrcN+w488c7k
+         Wy3qdo3pv3ckhLQJ52EPZ0euuqoZPwwgd+EYjLrX10V3V69lHipqcKQzJ0GXtBPLv/vV
+         Ustg==
+X-Forwarded-Encrypted: i=1; AJvYcCWDSR7RSctr1xf2VZg2QyzL4T80Cz1thU6muJ1QWmLPaIbhjUc0lh4Q9t3mL5nXTwlacnBzZBdMH+Lm2jHuzIEH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwiBZJ5qt+Ym6gdWW+N+Z7ClnM/DDzbox8Okwwj9HChPzuQ9Sbo
+	P8F4Pw5mM4UCdvZKMPEaL1n9ronX57RmG55UNtPnuvMNyL7KXZ/3DofH2o8ZYWXCCXdBriQK/aF
+	eNRQgnPCjXituC0395zr2jiLIhTmaj8dtLTjr8g==
+X-Gm-Gg: ASbGnctRE0v0h5pQHC8OmESj9M9g6sIitvK2BXvHqHf6PTwXh69zzuwqQK8VEZdO9bc
+	aYjKWL+E3YnUISmdzOwLFl+MfXtcxVXMwWk+izLzjD5NSu7y25ZaOGBC2nGyqDcajEVFfktXon9
+	I9SGeLpmGq0QQYaev6EMhzdrt1UQ==
+X-Google-Smtp-Source: AGHT+IGo7kPW6t6mFBR3/sTMivZuqhRH0SeEyZ9ok1vnRKx+3P9ggktEPjyopRkd13VsV+wua67se3lgNpjzpez8VHk=
+X-Received: by 2002:a05:6512:1044:b0:545:2efc:745d with SMTP id
+ 2adb3069b0e04-5494c3546d1mr5523229e87.46.1741074794798; Mon, 03 Mar 2025
+ 23:53:14 -0800 (PST)
 MIME-Version: 1.0
-References: <20250228064024.3200000-1-jonas@kwiboo.se>
-In-Reply-To: <20250228064024.3200000-1-jonas@kwiboo.se>
+References: <20250219102750.38519-1-brgl@bgdev.pl>
+In-Reply-To: <20250219102750.38519-1-brgl@bgdev.pl>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 4 Mar 2025 08:51:32 +0100
-X-Gm-Features: AQ5f1Jqk33uHsY5UV1F0bE-LoNlIC6DrZiXxoZsYoJWU763-1spk-ecprSEFCuY
-Message-ID: <CACRpkdaELuU6XDKacOLsWAF8ncbudJ9Tp0jykAyf-NXRLjoSdw@mail.gmail.com>
-Subject: Re: [PATCH 0/7] rockchip: Add support for leds and user button on
- Radxa E20C
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>, 
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+Date: Tue, 4 Mar 2025 08:53:03 +0100
+X-Gm-Features: AQ5f1JoUOBReXAYnYf9thqIoVITthD3dUEJajNI_puN1-yLNkKw6af5pX77JOew
+Message-ID: <CACRpkdYeBM6V+61-cbX1g_wLAVHvQQrtPb=5qjTdUw--+J+E4g@mail.gmail.com>
+Subject: Re: [RFC/RFT PATCH] pinctrl: bcm2835: don't -EINVAL on alternate
+ funcs from get_direction()
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
+	Scott Branden <sbranden@broadcom.com>, 
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Stefan Wahren <wahrenst@gmx.net>, 
+	Liao Chen <liaochen4@huawei.com>, Chen-Yu Tsai <wens@csie.org>, Mark Brown <broonie@kernel.org>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, linux-gpio@vger.kernel.org, 
+	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_235146_013161_B1A29D0F 
-X-CRM114-Status: GOOD (  11.08  )
+X-CRM114-CacheID: sfid-20250303_235316_715775_313C07A6 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,18 +101,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonas,
+On Wed, Feb 19, 2025 at 11:27=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl=
+> wrote:
 
-On Fri, Feb 28, 2025 at 7:40=E2=80=AFAM Jonas Karlman <jonas@kwiboo.se> wro=
-te:
+> From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+>
+> Since commit 9d846b1aebbe ("gpiolib: check the return value of
+> gpio_chip::get_direction()") we check the return value of the
+> get_direction() callback as per its API contract. This driver returns
+> -EINVAL if the pin in question is set to one of the alternative
+> (non-GPIO) functions. This isn't really an error that should be
+> communicated to GPIOLIB so default to returning the "safe" value of
+> INPUT in this case. The GPIO subsystem does not have the notion of
+> "unknown" direction.
+>
+> Fixes: 9d846b1aebbe ("gpiolib: check the return value of gpio_chip::get_d=
+irection()")
+> Reported-by: Mark Brown <broonie@kernel.org>
+> Closes: https://lore.kernel.org/all/Z7VFB1nST6lbmBIo@finisterre.sirena.or=
+g.uk/
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
->   dt-bindings: pinctrl: Add pinctrl support for RK3528
->   pinctrl: rockchip: Add support for RK3528
-
-These two patches applied to the pinctrl tree.
-
-Please funnel the rest through the SoC tree, it seems
-it should all be able to go in orthogonally.
+Patch applied!
 
 Yours,
 Linus Walleij
