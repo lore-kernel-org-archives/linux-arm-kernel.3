@@ -4,99 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A744CC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:25:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92DCDC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=; b=F742ZTUGlFZHvGFSjWmmMhg4Bv
-	wejs7iXx02H4qlT7BmDmn9O1DG4u4DFWvdA/j2Dj28PGG2ehbRkTyX9ZvT0IFXQLRU9ybAexAUKd8
-	kVlcbsJo8t3KB3LUp5t9lh6eDVRUva+OCjGQ6FEn1iIy7j04A2DgwllWGIO0FAdUYliBnt8u3O+ju
-	jasxaZAY5jnpmHODAKjbQsl3yuorlv5/z4UnPTj73TeFHgk1g1XdmZjElev4xpHzJjZvHc1Jbtayq
-	xBWuSYmKoOZxpMdN9xxNmcQ4HlFieKR5r+107NwbGOWwhFArZEi6hZAzsRtLBV8w/CWcujGo0ictb
-	CJ2WT6uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XpkQ6d7xBAhPjyCPb06jvbtt0L1ADbzIGtuZamDqKQw=; b=fDh7rG6w8MntvBO7BCTa95Vhvr
+	JAA9Y7NaI+sx+fZill7zAW4VT0/Axm7ueSQrxXAPDnzwneXFCmhQKlzFW3WafCEOZaQZ9d0/vQKn7
+	3/OpqMgzYY0EB2muY+2oC2MkUlm9vm6J23yQHletSE914somw10hAlhB/ltGZek53cSkaIRJLiq83
+	QgHdSJvR/tlIAwvYd6UeisSTqOJkNlxzSVUPWqrPBtX1o8yNfiVGm/gpC804+pLRXdWkSLQT7Bq+N
+	cPzmg1Sp83sy6hxHlmx16mslvCDRTWGNBlbRIhUxWTVNXUlMVRvllJWrkrNbNEUaYozSz8V+MVwKC
+	wOP2TCDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpU9E-00000005Ccr-2Kv0;
-	Tue, 04 Mar 2025 15:25:32 +0000
-Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTpJ-000000057Mu-3aow
+	id 1tpUCL-00000005DHW-2JS3;
+	Tue, 04 Mar 2025 15:28:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpTpP-000000057Oi-3i0M
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:05:00 +0000
-Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2fea795bafeso8992194a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:04:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741100697; x=1741705497; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=;
-        b=airyBBDeZSkIbZsGtxRQiRVNiCmOFS037/tlOi4Vgx2uxphFvBZKIwZFI7CS2s5kW5
-         ufCSZhlIHSxHYMnwGv8SX4r2rjAoO8IAL/hm45v1zcD2VNE3OKCAFqJBEE1ENFzp9gA7
-         n7iPfpt1SEkob9Kiv8k1wQMpb+pzvhFg/340rD/EnkzifEet0xb6LbDTJ3NiCyu3sW+R
-         HTKr1PSkji7392xpP1J/+I92JJWt0EFE9uYYvmw4EZQ5zPdGVsTyMM0l1AoB0koi1LkW
-         lsWY7bdEiApHJRWAPZ4m+XDpWZu5kcIZ530yW904AGWxA2GB1PhMCY1yBWlpAHPU+hlG
-         BIug==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741100697; x=1741705497;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=;
-        b=rG6cobU/+4c6z6lJpUR92+DnhzENq/i+rHnr67urlS945yAxqFrEJ6r53674dxVkWB
-         5UKXm6vpGpShBefYhVHla673YufDpm4+A/c0RqE9UtL+InFWXYke7ZLTYup0tGuS+KSs
-         bq+yWHdel1QSIpzmGWYWh+ZzoE8WsrnO/7hJMoWAFnMHkoGSp1+OX6e27BJIm79Z9D9w
-         6F1hKLJaVdqsnV+fuClaNMQLWWhV45pGiiSXh7O52dtm9JtJEt4h6KBwaeap4z9uy9pC
-         c2/0PrtVkTFprhnoa2HV+eJOXOKtuw6WiB33w7ZzDdBRcQzEVjrWtv0fx2xxQxHGN0t6
-         Mx8w==
-X-Forwarded-Encrypted: i=1; AJvYcCX2UmerLWfARKTh4Wu4d5HIsNSOLB7oJFglcz3ht9DmAGHrtVfiNYRBSsDeFrs8CAIjwqeDDam4MhpJlPOp0T8X@lists.infradead.org
-X-Gm-Message-State: AOJu0YwvXR3nxuCN+mxL5u3b6M7wIaqM3mJTYHG4A95dEoMQALk2hNIQ
-	JifXKTvXj2kADd9xiAhgQtC6qG3qnVP6lLJQNe7NHcBbpwL5fNXqwSqiE5c0cQ==
-X-Gm-Gg: ASbGncsm5WxCyXadWnLmocHL7RQ08Uvnzchq3S8kNxM0Sx8UMaX83Us/pO0LqJU24by
-	OiaQ61G4kaTiibQKKufAA+2qjLyZO/kOfb8CH8gxIV6fvQiFqCyH93Xh5vLFSE6zLvg1THbpM3V
-	U80edynEtGGolkggKGUAMGBSMrG0ozgd0EXV7hN2FfhoEH9e8N0uivKcCJiH83PN5o0H47gyj08
-	sRwRB7sBYuv5OC4iBPdm4WKJ8hSL5hRxqmb1H9QiBHKZnrxt+ISnjky4iaVoI8iLSdZc4OHMb2H
-	qNfI7gv4h2NqFL58eBDPxT4gpNIsrPnI4RMhyJk2ki+y2Y6oFDZN/vw=
-X-Google-Smtp-Source: AGHT+IF2IqujVL9FAIrlKbmlEjSg+DENq4yc4FJP79iYPxBvL+hS29J2rkPg6a94cXi9du0du7pQgA==
-X-Received: by 2002:a17:90b:5684:b0:2fb:fe21:4841 with SMTP id 98e67ed59e1d1-2ff33b937f1mr6451097a91.8.1741100696841;
-        Tue, 04 Mar 2025 07:04:56 -0800 (PST)
-Received: from thinkpad ([120.60.51.199])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe8284f076sm13270159a91.42.2025.03.04.07.04.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 07:04:56 -0800 (PST)
-Date: Tue, 4 Mar 2025 20:34:48 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 5/8] PCI: brcmstb: Fix potential premature regulator
- disabling
-Message-ID: <20250304150448.r42maovz4xggbqdx@thinkpad>
-References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-6-james.quinlan@broadcom.com>
+	Tue, 04 Mar 2025 15:05:05 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5626F1007;
+	Tue,  4 Mar 2025 07:05:17 -0800 (PST)
+Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C43DD3F66E;
+	Tue,  4 Mar 2025 07:05:01 -0800 (PST)
+From: Ryan Roberts <ryan.roberts@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mm@kvack.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v3 04/11] arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
+Date: Tue,  4 Mar 2025 15:04:34 +0000
+Message-ID: <20250304150444.3788920-5-ryan.roberts@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250304150444.3788920-1-ryan.roberts@arm.com>
+References: <20250304150444.3788920-1-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250214173944.47506-6-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_070457_926446_2DE18150 
-X-CRM114-Status: GOOD (  22.38  )
+X-CRM114-CacheID: sfid-20250304_070504_018910_35AA0576 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,44 +75,180 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 14, 2025 at 12:39:33PM -0500, Jim Quinlan wrote:
-> Our system for enabling and disabling regulators is designed to work only
+Refactor __set_ptes(), set_pmd_at() and set_pud_at() so that they are
+all a thin wrapper around a new common set_ptes_anysz(), which takes
+pgsize parameter. Additionally, refactor __ptep_get_and_clear() and
+pmdp_huge_get_and_clear() to use a new common ptep_get_and_clear_anysz()
+which also takes a pgsize parameter.
 
-'system'? Perhaps 'logic'?
+These changes will permit the huge_pte API to efficiently batch-set
+pgtable entries and take advantage of the future barrier optimizations.
+Additionally since the new *_anysz() helpers call the correct
+page_table_check_*_set() API based on pgsize, this means that huge_ptes
+will be able to get proper coverage. Currently the huge_pte API always
+uses the pte API which assumes an entry only covers a single page.
 
-> on the port driver below the root complex.  The conditions to discriminate
-> for this case should be the same when we are adding or removing the bus.
-> Without this change the regulators may be disabled prematurely when a bus
-> further down the tree is removed.
-> 
-> Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
-> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+---
+ arch/arm64/include/asm/pgtable.h | 108 +++++++++++++++++++------------
+ 1 file changed, 67 insertions(+), 41 deletions(-)
 
-Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-
-- Mani
-
-> ---
->  drivers/pci/controller/pcie-brcmstb.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
-> index 56b49d3cae19..e1059e3365bd 100644
-> --- a/drivers/pci/controller/pcie-brcmstb.c
-> +++ b/drivers/pci/controller/pcie-brcmstb.c
-> @@ -1440,7 +1440,7 @@ static void brcm_pcie_remove_bus(struct pci_bus *bus)
->  	struct subdev_regulators *sr = pcie->sr;
->  	struct device *dev = &bus->dev;
->  
-> -	if (!sr)
-> +	if (!sr || !bus->parent || !pci_is_root_bus(bus->parent))
->  		return;
->  
->  	if (regulator_bulk_disable(sr->num_supplies, sr->supplies))
-> -- 
-> 2.43.0
-> 
-
+diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
+index 0b2a2ad1b9e8..e255a36380dc 100644
+--- a/arch/arm64/include/asm/pgtable.h
++++ b/arch/arm64/include/asm/pgtable.h
+@@ -420,23 +420,6 @@ static inline pte_t pte_advance_pfn(pte_t pte, unsigned long nr)
+ 	return pfn_pte(pte_pfn(pte) + nr, pte_pgprot(pte));
+ }
+ 
+-static inline void __set_ptes(struct mm_struct *mm,
+-			      unsigned long __always_unused addr,
+-			      pte_t *ptep, pte_t pte, unsigned int nr)
+-{
+-	page_table_check_ptes_set(mm, ptep, pte, nr);
+-	__sync_cache_and_tags(pte, nr);
+-
+-	for (;;) {
+-		__check_safe_pte_update(mm, ptep, pte);
+-		__set_pte(ptep, pte);
+-		if (--nr == 0)
+-			break;
+-		ptep++;
+-		pte = pte_advance_pfn(pte, 1);
+-	}
+-}
+-
+ /*
+  * Hugetlb definitions.
+  */
+@@ -641,30 +624,59 @@ static inline pgprot_t pud_pgprot(pud_t pud)
+ 	return __pgprot(pud_val(pfn_pud(pfn, __pgprot(0))) ^ pud_val(pud));
+ }
+ 
+-static inline void __set_pte_at(struct mm_struct *mm,
+-				unsigned long __always_unused addr,
+-				pte_t *ptep, pte_t pte, unsigned int nr)
++static inline void set_ptes_anysz(struct mm_struct *mm, pte_t *ptep, pte_t pte,
++				  unsigned int nr, unsigned long pgsize)
+ {
+-	__sync_cache_and_tags(pte, nr);
+-	__check_safe_pte_update(mm, ptep, pte);
+-	__set_pte(ptep, pte);
++	unsigned long stride = pgsize >> PAGE_SHIFT;
++
++	switch (pgsize) {
++	case PAGE_SIZE:
++		page_table_check_ptes_set(mm, ptep, pte, nr);
++		break;
++	case PMD_SIZE:
++		page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
++		break;
++	case PUD_SIZE:
++		page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
++		break;
++	default:
++		VM_WARN_ON(1);
++	}
++
++	__sync_cache_and_tags(pte, nr * stride);
++
++	for (;;) {
++		__check_safe_pte_update(mm, ptep, pte);
++		__set_pte(ptep, pte);
++		if (--nr == 0)
++			break;
++		ptep++;
++		pte = pte_advance_pfn(pte, stride);
++	}
+ }
+ 
+-static inline void set_pmd_at(struct mm_struct *mm, unsigned long addr,
+-			      pmd_t *pmdp, pmd_t pmd)
++static inline void __set_ptes(struct mm_struct *mm,
++			      unsigned long __always_unused addr,
++			      pte_t *ptep, pte_t pte, unsigned int nr)
+ {
+-	page_table_check_pmd_set(mm, pmdp, pmd);
+-	return __set_pte_at(mm, addr, (pte_t *)pmdp, pmd_pte(pmd),
+-						PMD_SIZE >> PAGE_SHIFT);
++	set_ptes_anysz(mm, ptep, pte, nr, PAGE_SIZE);
+ }
+ 
+-static inline void set_pud_at(struct mm_struct *mm, unsigned long addr,
+-			      pud_t *pudp, pud_t pud)
++static inline void __set_pmds(struct mm_struct *mm,
++			      unsigned long __always_unused addr,
++			      pmd_t *pmdp, pmd_t pmd, unsigned int nr)
++{
++	set_ptes_anysz(mm, (pte_t *)pmdp, pmd_pte(pmd), nr, PMD_SIZE);
++}
++#define set_pmd_at(mm, addr, pmdp, pmd) __set_pmds(mm, addr, pmdp, pmd, 1)
++
++static inline void __set_puds(struct mm_struct *mm,
++			      unsigned long __always_unused addr,
++			      pud_t *pudp, pud_t pud, unsigned int nr)
+ {
+-	page_table_check_pud_set(mm, pudp, pud);
+-	return __set_pte_at(mm, addr, (pte_t *)pudp, pud_pte(pud),
+-						PUD_SIZE >> PAGE_SHIFT);
++	set_ptes_anysz(mm, (pte_t *)pudp, pud_pte(pud), nr, PUD_SIZE);
+ }
++#define set_pud_at(mm, addr, pudp, pud) __set_puds(mm, addr, pudp, pud, 1)
+ 
+ #define __p4d_to_phys(p4d)	__pte_to_phys(p4d_pte(p4d))
+ #define __phys_to_p4d_val(phys)	__phys_to_pte_val(phys)
+@@ -1276,16 +1288,34 @@ static inline int pmdp_test_and_clear_young(struct vm_area_struct *vma,
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE || CONFIG_ARCH_HAS_NONLEAF_PMD_YOUNG */
+ 
+-static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
+-				       unsigned long address, pte_t *ptep)
++static inline pte_t ptep_get_and_clear_anysz(struct mm_struct *mm, pte_t *ptep,
++					     unsigned long pgsize)
+ {
+ 	pte_t pte = __pte(xchg_relaxed(&pte_val(*ptep), 0));
+ 
+-	page_table_check_pte_clear(mm, pte);
++	switch (pgsize) {
++	case PAGE_SIZE:
++		page_table_check_pte_clear(mm, pte);
++		break;
++	case PMD_SIZE:
++		page_table_check_pmd_clear(mm, pte_pmd(pte));
++		break;
++	case PUD_SIZE:
++		page_table_check_pud_clear(mm, pte_pud(pte));
++		break;
++	default:
++		VM_WARN_ON(1);
++	}
+ 
+ 	return pte;
+ }
+ 
++static inline pte_t __ptep_get_and_clear(struct mm_struct *mm,
++				       unsigned long address, pte_t *ptep)
++{
++	return ptep_get_and_clear_anysz(mm, ptep, PAGE_SIZE);
++}
++
+ static inline void __clear_full_ptes(struct mm_struct *mm, unsigned long addr,
+ 				pte_t *ptep, unsigned int nr, int full)
+ {
+@@ -1322,11 +1352,7 @@ static inline pte_t __get_and_clear_full_ptes(struct mm_struct *mm,
+ static inline pmd_t pmdp_huge_get_and_clear(struct mm_struct *mm,
+ 					    unsigned long address, pmd_t *pmdp)
+ {
+-	pmd_t pmd = __pmd(xchg_relaxed(&pmd_val(*pmdp), 0));
+-
+-	page_table_check_pmd_clear(mm, pmd);
+-
+-	return pmd;
++	return pte_pmd(ptep_get_and_clear_anysz(mm, (pte_t *)pmdp, PMD_SIZE));
+ }
+ #endif /* CONFIG_TRANSPARENT_HUGEPAGE */
+ 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
