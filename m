@@ -4,87 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9AB2C282DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:59:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF17C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 18:59:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=; b=QwgbDGeX6SoUn7HGYSstMBYzBA
-	5o5P46lRbH4mbnOfk6xrKVZTeMZm9C78EbxAaEdqVYp/l7ZcPytutnKesJ5gyI/VYo8Cj+F9Uz2J1
-	Iv6tjFMWQMqgZP2/RcsnR+HM9pTENG4/xQB+7vALFq2jjezdTSZ2CNhj2HckWr3u2ADoO2wck4iPd
-	+uBQJiSFW9OyGG1DukM1YiGXTk40AlI7S63ZBx76u1sKXIgSTMKlBadlp+KNNRnH/66kPnwvLcLmf
-	+fkxMLu7B4zk8belxcfi/79x1VNWVLVYaBpNJqOg06RWp5BhTswzPwHDE9WPfcaq2jAOyWFmc+j1N
-	cwy1G6vA==;
+	bh=fgiAoeyoJ5v/9tPCPJr6kroJ15BrgQPPykKfSAL09kM=; b=fHtdv2i/Kb5qA9R2O6dZpP+u5D
+	O/VP2qhas63rN8InUUSBbcjPDyiY/O+ZFezXnbBEHBv4M9eHKpo5KlXUJo7WW+TYFADLuSzHO3NhC
+	axwowkLJ97YtWkf4C/iZI0pmZo+JIFgZO1LUPN7wRWXYVPfqv7NZVTkypJfEXXdR1RQ8UBUTCRdUR
+	+uXCuLu9hOFdEoAHV0WoCySSklfXH+ly6dmm4xvaiuP2+RQixfqa47vCMoJhhejtJliWTE1ZMZPYH
+	pImAXLrejUEKF2E+Hf2o9y/vy+3UMj+oehYxlugp/P4IgTPAQFnxN7zj4zrN7lTBIwZ1zFAwnVvvU
+	VeSIiulQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXUY-00000005w33-1gk4;
-	Tue, 04 Mar 2025 18:59:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpV2i-00000005PYf-0aLF;
-	Tue, 04 Mar 2025 16:22:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=; b=Gi+/XFf+EFtOdyUiRsMuNx+cSS
-	9y0saL9m2XyZz54ItrS+vgCODmLfO1t6ovQP8Z5bRLN8VJ+L7gfuUFZFiDyKofZZLOQJSU4o7CvCo
-	Om12OTXDdrujHtYVN75o+kaKNuzJcRTVbPdEn5wyKYBrPPOVdyQX8bJPrZxqXjDU0nqDni1MEruK+
-	SW2U2mipZNRX7rKwwK0Dg56bjMyZB1rFwYOz2sbFqthmFF7aNFNBqG/F2okUlKCVi/XqJV5kI+xN1
-	Vmwv7EDteOqxu2fSJaSNswn9juWNKiXUV1XuEsYHIzfod+b2MaWIKE0Vx6GP1HvIPDjp3kVlkzITJ
-	3K1LTnHQ==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpV2e-000000005kW-1GCl;
-	Tue, 04 Mar 2025 16:22:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1032EA45921;
-	Tue,  4 Mar 2025 16:17:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47A2AC4CEE5;
-	Tue,  4 Mar 2025 16:22:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741105366;
-	bh=EV+N2rbqXYmmMk/YyAnKxUxPZrcUg+1PniBKpcv0qKo=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=iXSPILMiDbG1+OfL9Hg/8K3LiBibffVc9koiFnM2f4SjX85WZqd/35e3hGmJFVart
-	 EZIXyoz0VDyoF/0hTkc0OrscHyyAXkZ9jow3TbRh25hxg7YJXDa19/gDb1Nqz+J39Y
-	 wr033y/xY+yvcEKNMbjabpzp6KWPy1+I41dskudD8nPLC/OTlAuW+gKf3tFdZbZfpl
-	 30wIoXqtQvy6jYHh8Z+1ytEScE0DHg1+05nRc64K8sHDeZh9BxZoty17lTAw0VwKhg
-	 H4jjg4Q0AlTNPvhFbKe79qzLoe8wqXzZVZAkQcqXHXuKNjyDCogQ+/06uEqKQryvZB
-	 MP8nJPK4HxjXA==
-Date: Tue, 4 Mar 2025 16:22:39 +0000
-From: Mark Brown <broonie@kernel.org>
-To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, kernel@collabora.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	Andrew Perepech <andrew.perepech@mediatek.com>
-Subject: Re: [PATCH v3 03/20] mfd: mt6397-core: Add mfd_cell for mt6359-accdet
-Message-ID: <a8fbb536-a246-4650-8085-d576652b0301@sirena.org.uk>
-References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
- <20250304-mt6359-accdet-dts-v3-3-5b0eafc29f5b@collabora.com>
+	id 1tpXUZ-00000005w42-3ZeO;
+	Tue, 04 Mar 2025 18:59:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpV5a-00000005QIS-1uQm
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 16:25:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6A8CF497;
+	Tue,  4 Mar 2025 08:26:01 -0800 (PST)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 09DB23F5A1;
+	Tue,  4 Mar 2025 08:25:44 -0800 (PST)
+Date: Tue, 4 Mar 2025 16:25:38 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>, Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	James Clark <james.clark@linaro.org>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Leo Yan <leo.yan@arm.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org, kvmarm@lists.linux.dev,
+	Mark Brown <broonie@kernel.org>
+Subject: Re: [PATCH v20 00/11] arm64/perf: Enable branch stack sampling
+Message-ID: <Z8cpgsxG4RrDoTKR@J2N7QTR9R3.cambridge.arm.com>
+References: <20250218-arm-brbe-v19-v20-0-4e9922fc2e8e@kernel.org>
+ <174080569248.3208873.17639032755999041028.b4-ty@kernel.org>
+ <CAL_JsqLijFG1PFkqKk7hXzC=aj70OLQsXwC280QsCO=PnCVZYg@mail.gmail.com>
+ <Z8bjEm_neWdMBNYv@arm.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="OLmxqaxv809+84Iy"
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250304-mt6359-accdet-dts-v3-3-5b0eafc29f5b@collabora.com>
-X-Cookie: Do not disturb.
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <Z8bjEm_neWdMBNYv@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_162248_694885_D5AAEADE 
-X-CRM114-Status: GOOD (  10.29  )
+X-CRM114-CacheID: sfid-20250304_082550_579594_F0332769 
+X-CRM114-Status: GOOD (  22.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,34 +77,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Mar 04, 2025 at 11:25:06AM +0000, Catalin Marinas wrote:
+> On Mon, Mar 03, 2025 at 10:44:21AM -0600, Rob Herring wrote:
+> > On Sat, Mar 1, 2025 at 1:05 AM Will Deacon <will@kernel.org> wrote:
+> > > On Tue, 18 Feb 2025 14:39:55 -0600, Rob Herring (Arm) wrote:
+> > > > This series enables perf branch stack sampling support on arm64 via a
+> > > > v9.2 arch feature called Branch Record Buffer Extension (BRBE). Details
+> > > > on BRBE can be found in the Arm ARM[1] chapter D18.
+> > > >
+> > > > I've picked up this series from Anshuman. v19 and v20 versions have been
+> > > > reworked quite a bit by Mark and myself. The bulk of those changes are
+> > > > in patch 11.
+> > > >
+> > > > [...]
+> > >
+> > > Applied cleanups to will (for-next/perf), thanks!
+> > >
+> > > [01/11] perf: arm_pmuv3: Call kvm_vcpu_pmu_resync_el0() before enabling counters
+> > >         https://git.kernel.org/will/c/04bd15c4cbc3
+> > > [02/11] perf: arm_pmu: Don't disable counter in armpmu_add()
+> > >         https://git.kernel.org/will/c/dcca27bc1ecc
+> > > [03/11] perf: arm_pmuv3: Don't disable counter in armv8pmu_enable_event()
+> > >         https://git.kernel.org/will/c/4b0567ad0be5
+> > > [04/11] perf: arm_v7_pmu: Drop obvious comments for enabling/disabling counters and interrupts
+> > >         https://git.kernel.org/will/c/7a5387748215
+> > > [05/11] perf: arm_v7_pmu: Don't disable counter in (armv7|krait_|scorpion_)pmu_enable_event()
+> > >         https://git.kernel.org/will/c/7bf1001e0d91
+> > > [06/11] perf: apple_m1: Don't disable counter in m1_pmu_enable_event()
+> > >         https://git.kernel.org/will/c/c2e793da59fc
+> > > [07/11] perf: arm_pmu: Move PMUv3-specific data
+> > >         https://git.kernel.org/will/c/dc4d58a752ea
+> > 
+> > I don't know if you looked at the thread on patch 11 and said "long
+> > discussion, I'll assume a new version is coming. Next!" because that's
+> > what I would do. In this case though, there's not any changes.
+> 
+> I do this as well ;). But I think Will is waiting for Mark R to look at
+> the rest of the series.
 
---OLmxqaxv809+84Iy
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Sorry for the delay there.
 
-On Tue, Mar 04, 2025 at 12:15:44PM -0300, N=EDcolas F. R. A. Prado wrote:
-> From: Andrew Perepech <andrew.perepech@mediatek.com>
->=20
-> Add an mfd_cell for mt6359-accdet and describe its IRQ resources to
-> allow the mt6359-accdet driver to probe.
+I'm happy with the structure of this; my only remaining concern is the
+filtering logic, as it is surprisingly subtle, and when I was last
+working on that it wasn't clear to me whether we could alwways filter
+appropriately (or whether it'd be better to reject scheduling of events
+with mismatched filters).
 
-Lee, is this OK to merge via ASoC?
+I'll try to page that in and properly attack that soon, but aside from
+that concern the series as a whole looks good to me.
 
---OLmxqaxv809+84Iy
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmfHKM4ACgkQJNaLcl1U
-h9AGawf+Krbqa+Vm4jfRJRkHk1Bz74IQ/DHedsnpuELy2Rv59vOzi/ONHxJ/Vsq8
-03MvfgczYs8uzSrfII7fto16qxrsRaVGeTkSaanOAZHhFT32ytipNw7CIa03tchc
-8NtyjnLXMDyBqeEuzKVUTmzp5DgA57934vPFsBXP+jix8i0IYKthA2mFxcIVk8AJ
-npoP45KaBxueBRiIbQ88nbeEWMk2zpCYaqDQxeBCROSqF+j+VlV2V9/LFr9nmGla
-fXrY4hD9vRT7RUs7od+v2zpfnn6M4dMqA1gEIoZq5b+NQ3BlVHug4uHInjm7QUqN
-XR/caFRH1sjlz1NMYvElHtzG4TDjtQ==
-=ZRYJ
------END PGP SIGNATURE-----
-
---OLmxqaxv809+84Iy--
+Thanks,
+Mark.
 
