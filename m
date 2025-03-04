@@ -4,64 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBA86C28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51FA6C282DC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 10:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=US24++JqmjXV0mttrUPY2QvIqdLYwAQ0fJFwmF2h1iM=; b=PWybxn6XW/Axvw35xuwC6gO831
-	9SvWvxDhyoql8vu+AkZhVBKW0lP//K5jLEKI4hTsN6qcED+EUsxbuOpHJDKjVO8uxRSReKNtL7/pF
-	PTAZWw1u/6/qGAbARwaoNhQPTERDOvyIa3k6zEIE3JIA/YXRyWl/gB9OntUc/mYi2BMETl7C+WJh6
-	azdOohZapCDMTRZ452cIgvIRIWsD95xUYQ6b87dWWCn8uhEn3K9ao5we735zYU6j3Irjhc1/UQlme
-	WG1bNVg6tL21Hx5BudkCvsbMw0T0NXJqMXTNnoSFRg4aNmXOq8CPc1RloOmkaJDeYVnCAvthznKa1
-	v4/JEq1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aD3w+E6jUse/SO4yqFW/0+FxZP3bC6Xm49X8TnEWt1M=; b=alw02xD2JsDWzsh8MUKiqS8qAH
+	IQH/6QWqOdWdvlM9Z5ojS4wc0vNGTOSrG453pliFrGsHWjMpUH29P9MwRxih6RqB2ykbze+n2R6gb
+	d1dN4IqsX/wPOF6J1W32i1K4y9b7n5ISoeYqigfvZO8D25rP7L3A9VI4aG1HEUyPAWuW2/REfkZcH
+	iAiW4lERbmZ0omAYP4WwPHa/NbfX+hEA5Ihxjz2/qeoOVPwf0t1oI5T277fFHlEUAjtj8Blj9u2Eo
+	c3U/6Xp/ZzBlspftJr8//N4UXqHvr7tYq8lGlWeCWgYSxILd3qTaTqBfgj5GwlEygrzXresIWzB2g
+	TFDN4X+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPch-00000004B5u-2MqV;
-	Tue, 04 Mar 2025 10:35:39 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tpPcY-00000004At8-3rDw;
+	Tue, 04 Mar 2025 10:35:30 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpPMV-0000000467Y-0nAN
+	id 1tpP6u-000000043UA-0wVi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 10:18:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8F612A4542C;
-	Tue,  4 Mar 2025 10:13:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B9CC4CEE5;
-	Tue,  4 Mar 2025 10:18:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741083534;
-	bh=US24++JqmjXV0mttrUPY2QvIqdLYwAQ0fJFwmF2h1iM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dRwk3ZPYwAxWAV6U9csf40AiEHopJoeD26ORP3qPEHlojXU/Hqz/f4BUtXX0WKzjQ
-	 Ho0GYe6lKZUdZ2N3ZLmtyCAZs6/ijv+r3jzKA5rk8eHddV9J9ty8n/DtdzeJfr525A
-	 Boj4mz/mwN0kuOdZC7MeKiDHIiO85tlCunzm6MkZblDI6kUJlmLztTeiZR/70SUv0V
-	 YvgDQqmnqFWwecKGKIzEn7JnKWBs9V4ifas3YiQlPcGD/aoK8y7Qh3rM6/JB4Es75k
-	 Mdcs1fEIJB2dvKdajjPTRYd/u4rH1dp2ROgBD5G8xOWl+9rlvCxUen92bGNT/o/FEu
-	 FumwBhup4TRqg==
-Date: Tue, 4 Mar 2025 19:18:49 +0900
-From: William Breathitt Gray <wbg@kernel.org>
-To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
-Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Kamel Bouhara <kamel.bouhara@bootlin.com>
-Subject: Re: [PATCH v6 2/3] counter: microchip-tcb-capture: Add IRQ handling
-Message-ID: <Z8bTiTWa11iqxUnH@ishi>
-References: <20250227144023.64530-1-csokas.bence@prolan.hu>
- <20250227144023.64530-3-csokas.bence@prolan.hu>
- <Z8alaOTjZeRuXnUI@ishi>
- <9fcf9cf4-ba02-4583-9e14-bd650dbe32ee@prolan.hu>
+	Tue, 04 Mar 2025 10:02:49 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.231])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4Z6WQQ4HF2z6D8yv;
+	Tue,  4 Mar 2025 18:00:30 +0800 (CST)
+Received: from frapeml500008.china.huawei.com (unknown [7.182.85.71])
+	by mail.maildlp.com (Postfix) with ESMTPS id A5DB6140A08;
+	Tue,  4 Mar 2025 18:02:42 +0800 (CST)
+Received: from localhost (10.96.237.92) by frapeml500008.china.huawei.com
+ (7.182.85.71) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.1.2507.39; Tue, 4 Mar
+ 2025 11:02:39 +0100
+Date: Tue, 4 Mar 2025 18:02:35 +0800
+From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+To: Yicong Yang <yangyicong@huawei.com>
+CC: <will@kernel.org>, <mark.rutland@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <wangyushan12@huawei.com>
+Subject: Re: [PATCH 5/9] drivers/perf: hisi: Add support for HiSilicon SLLC
+ v3 PMU driver
+Message-ID: <20250304180235.00005eb3@huawei.com>
+In-Reply-To: <20250218092000.41641-6-yangyicong@huawei.com>
+References: <20250218092000.41641-1-yangyicong@huawei.com>
+	<20250218092000.41641-6-yangyicong@huawei.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7g4U+VYmFuSmHd1m"
-Content-Disposition: inline
-In-Reply-To: <9fcf9cf4-ba02-4583-9e14-bd650dbe32ee@prolan.hu>
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.96.237.92]
+X-ClientProxiedBy: lhrpeml100005.china.huawei.com (7.191.160.25) To
+ frapeml500008.china.huawei.com (7.182.85.71)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_021855_295509_60B33984 
-X-CRM114-Status: GOOD (  15.41  )
+X-CRM114-CacheID: sfid-20250304_020248_411331_347FB588 
+X-CRM114-Status: UNSURE (   8.38  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,40 +75,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, 18 Feb 2025 17:19:56 +0800
+Yicong Yang <yangyicong@huawei.com> wrote:
 
---7g4U+VYmFuSmHd1m
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+> From: Junhao He <hejunhao3@huawei.com>
+> 
+> SLLC v3 PMU has the following changes compared to previous version:
+> a) update the register layout
+> b) update the definition of SRCID_CTRL and TGTID_CTRL registers.
+>    To be compatible with v2, we use maximum width (11 bits)
+>    and mask the extra length for themselves.
+> c) remove latency events (driver does not need to be adapted).
+> 
+> SLLC v3 PMU is identified with HID HISI0264.
+> 
+> Signed-off-by: Junhao He <hejunhao3@huawei.com>
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 
-On Tue, Mar 04, 2025 at 10:57:05AM +0100, Cs=F3k=E1s Bence wrote:
-> On 2025. 03. 04. 8:02, William Breathitt Gray wrote:
-> > In theory, the error code could be something else if of_irq_get() failed
-> > for any other reason. Handle all those error cases at once by checking
-> > IS_ERR(priv->irq) rather than just -EPROBE_DEFER. Then you can just
-> > return dev_err_probe() with priv->irq for the error code.
->=20
-> Yes, `of_irq_get()` can return an error, for example if the IRQ is not
-> defined in the DT. In these cases, we just don't do IRQ, but still allow =
-the
-> device to probe. -EPROBE_DEFER is special in this case, because it signif=
-ies
-> that there *is* an IRQ to set up, just not now.
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 
-You're right, that makes sense. Thank you for explaining.
 
-William Breathitt Gray
-
---7g4U+VYmFuSmHd1m
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8bTiQAKCRC1SFbKvhIj
-K1K/AP9CBln2kj4VmHF/sMQlwpaOMV7DLh7MzYGOOQ838jE/VgD/UIhocl5J3TIg
-+n7JyYuGK8FXUplttva0FRj47UXfoAM=
-=E6wR
------END PGP SIGNATURE-----
-
---7g4U+VYmFuSmHd1m--
 
