@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DAC5C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:15:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C385C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 14:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/g2hnhfNktPdj9e67Wgyyngm8wK93yZzPoeQY4hpjt0=; b=13OKQcNGZ17tT4BHtZgkI7emdw
-	Jiby7/046xPYudeHy2g4a2D1c8AGUvn4EMqXesCqDVJjPtBHXyPKtDSVUArJQes9DarLk48WXCv4l
-	HO4H4lSa2C6ip0O6YsKmT90tTpGE+dF/1LRdvtHax9A8R0W1LrjETY6bgizHEH+Od/FP4UFfvoNiB
-	VWDEhFmf0KeJI/OblemE/tOFpHm76xN4iFRg/sQoCHrA2qrrsc3R1XbjKL/a3YslqKnq9Ma9FygP+
-	kiFkWr8ZpzAVpIo/Dzi45WqLsorpcL4FDXrVgsecbHbuauneMZhXWRpZqzPrIzuoaoRPVAIGdzx0Y
-	Jp4m+WtQ==;
+	bh=1/Ziscq6uftxkK5aCNjPpGNkK/2AP8HD+Ve3CAkcVOU=; b=svoCQr0ZAzPGjTBucDE/bbD16h
+	SMic9nHnpWH0aupOGN2VPLhEtahSPezv25CvWhLGPXNzQWln3HCtOc/iqaRSlX1eBqfGYZrMMpbHi
+	oumveFPMbFl2FKe7tpNd5a7xE67d7mQXaFi2PVUqdyZrBJ65UrVvbs485HS3zSF1um932VokPWvg5
+	GRiY2Q36uDzh+N0mxZ6P2LEBuLm/jpOE3aa97XxX2zTA6YGrBSKTn3/e44iqjcNgau938nMRyMKhc
+	TV7vJvLbbp+O0AeZNZSx7S1Z0elUaGdcb6FfeZ87wXWGgw979QDsSdO5qYZr0ez30ra/TupJa/Iye
+	VpJN2/Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpT2q-00000004wPa-0dMP;
-	Tue, 04 Mar 2025 14:14:52 +0000
+	id 1tpT5r-00000004xAf-1nBz;
+	Tue, 04 Mar 2025 14:17:59 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpSzY-00000004vgo-1phI
+	id 1tpT4H-00000004wqZ-1492
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 14:11:29 +0000
+	Tue, 04 Mar 2025 14:16:22 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D19A05C5D14;
-	Tue,  4 Mar 2025 14:09:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24CAAC4CEE5;
-	Tue,  4 Mar 2025 14:11:27 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8FD5E5C5D04;
+	Tue,  4 Mar 2025 14:14:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D7BA2C4CEE5;
+	Tue,  4 Mar 2025 14:16:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741097487;
-	bh=uZAr3o4anHDvD9RQXrKUeVfxL/By4d6vCjGFzZTYNJ0=;
+	s=k20201202; t=1741097779;
+	bh=/fDJuygvLATY6Q6bpD5+xIF7qDmEEvXLXiE7U6NBHak=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=cXcEid9Ufzy2HTrGc7vpehSk3qt9XEZnJuIj0o5jqXiT51j7xjCxC/Rs8SWaMGubz
-	 p6EWZPC3NYKj6sYy3kZRE8CMuSG80bADbm8prImUYIIiZdZ7RBS8q3+qEPwWs0JGy3
-	 xQGlN2ixEzXRvi/6bT21yzJr7RhwRzPos2fFaNifnGPEJkKXnm6MaDAUfHpfm0oiT9
-	 2ZgAGUnrb2cjyNq4oEvpS4wkngjptSYGnrW7VeblRca/T1Sekxxg55j92gS8WndiDa
-	 PDCkeO85jGWgFkv5edfvIQhXXPt/epi1L9N3GUKx8nZfIpaUthb+qHW10km/ijfb4E
-	 RBlLQfoe33FmA==
-Date: Tue, 4 Mar 2025 08:11:25 -0600
-From: Rob Herring <robh@kernel.org>
-To: Andre Przywara <andre.przywara@arm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
+	b=hYy5Z2oEn64OFFVGg6DPbiDhNaP5JXXumw6wRUHkY43uZtj0GplsUuMS5d+bi4FYA
+	 7smYu26Yea56FnqLZMzFDNzP4pw1XBAf5jkCbpNeMunjQ/0CCAfbQx4zh6wO8ATreF
+	 EKHXDAqdZ0bXXLW/ojVqmaL0ZDBoHncFnufIWjSlUCOer8z6H0x4l0/7j32Go5zXtR
+	 BIlr5SJ2nRa6/zvwtwgZjtlOEmKHXxz25cM6gnVWkrB4Ym3aNQkLUjnEhOOUOt4vKO
+	 OTWL4zswmmToRF4xhR1C9ugxvdcN9S+9T8FO7wCEW1YZkiREkeevcdmTOyefguAunD
+	 oXp4/+IxBdFvA==
+Date: Tue, 4 Mar 2025 08:16:17 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Ray Jui <rjui@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Mark Brown <broonie@kernel.org>,
+	Stanislav Jakubek <stano.jakubek@gmail.com>,
+	Lee Jones <lee@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	~postmarketos/upstreaming@lists.sr.ht, linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 04/15] dt-bindings: clk: sunxi-ng: document Allwinner
- A523 CCU
-Message-ID: <20250304141125.GA2518548-robh@kernel.org>
-References: <20250304012805.28594-1-andre.przywara@arm.com>
- <20250304012805.28594-5-andre.przywara@arm.com>
+	Conor Dooley <conor+dt@kernel.org>
+Subject: Re: [PATCH v6 01/10] dt-bindings: mfd: brcm,bcm59056: Convert to YAML
+Message-ID: <174109777678.2543384.14004490230937287192.robh@kernel.org>
+References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
+ <20250304-bcm59054-v6-1-ae8302358443@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250304012805.28594-5-andre.przywara@arm.com>
+In-Reply-To: <20250304-bcm59054-v6-1-ae8302358443@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_061128_584596_0B78D2BC 
-X-CRM114-Status: GOOD (  19.91  )
+X-CRM114-CacheID: sfid-20250304_061621_344019_4B7E11FA 
+X-CRM114-Status: GOOD (  16.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,118 +81,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:27:54AM +0000, Andre Przywara wrote:
-> The Allwinner A523/T527 SoCs have four CCUs, this adds the binding for
-> the main CCU.
+
+On Tue, 04 Mar 2025 07:20:32 +0100, Artur Weber wrote:
+> Convert devicetree bindings for the Broadcom BCM59056 PMU MFD from
+> TXT to YAML format. This patch does not change any functionality;
+> the bindings remain the same.
 > 
-> The source clock list differs in some annoying details, and folding this
-> into the existing Allwinner CCU clock binding document gets quite
-> unwieldy, so create a new document for these CCUs.
-> Add the new compatible string, along with the required input clock
-> lists. This conditionally describes the input clock list, to make for
-> an easier patch adding the other CCUs.
+> The bindings have been split into two parts: the MFD binding and
+> a separate binding for the regulator node, to simplify the addition
+> of other models later (which have different regulators).
 > 
-> Also add the DT binding headers, listing all the clocks with their ID
-> numbers.
-> 
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> Signed-off-by: Artur Weber <aweber.kernel@gmail.com>
 > ---
->  .../clock/allwinner,sun55i-a523-ccu.yaml      |  77 +++++++
->  include/dt-bindings/clock/sun55i-a523-ccu.h   | 189 ++++++++++++++++++
->  include/dt-bindings/reset/sun55i-a523-ccu.h   |  88 ++++++++
->  3 files changed, 354 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
->  create mode 100644 include/dt-bindings/clock/sun55i-a523-ccu.h
->  create mode 100644 include/dt-bindings/reset/sun55i-a523-ccu.h
+> Changes in v6:
+> - Replace mfd/brcm,bcm590xx.yaml with mfd/brcm,bcm59056.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> new file mode 100644
-> index 0000000000000..2eacaeaeabac7
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/clock/allwinner,sun55i-a523-ccu.yaml
-> @@ -0,0 +1,77 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/clock/allwinner,sun55i-a523-ccu.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Allwinner A523 Clock Control Unit
-> +
-> +maintainers:
-> +  - Andre Przywara <andre.przywara@arm.com>
-> +
-> +properties:
-> +  "#clock-cells":
-> +    const: 1
-> +
-> +  "#reset-cells":
-> +    const: 1
-> +
-> +  compatible:
-> +    enum:
-> +      - allwinner,sun55i-a523-ccu
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    minItems: 4
-> +    maxItems: 4
-> +
-> +  clock-names:
-> +    minItems: 4
-> +    maxItems: 4
-> +
-> +required:
-> +  - "#clock-cells"
-> +  - "#reset-cells"
-> +  - compatible
-> +  - reg
-> +  - clocks
-> +  - clock-names
-> +
-> +if:
+> Changes in v5:
+> - Replace mfd/brcm,bcm59056.yaml with mfd/brcm,bcm590xx.yaml in
+>   regulator binding description
+> 
+> Changes in v4:
+> - Made $ref use full schema path
+> - Cleaned up example
+> - Dropped regulator name list comment
+> - Changed description of regulator binding to mention BCM59056
+>   explicitly
+> - Changed "Power Management IC" to "Power Management Unit" to match
+>   official Broadcom naming
+> - Renamed mfd/brcm,bcm59056.yaml to mfd/brcm,bcm590xx.yaml
+> 
+> Changes in v3:
+> - Moved regulator node to separate binding
+> - Removed quotes around compatibles/vbus property
+> - Style fixes for example
+> ---
+>  .../devicetree/bindings/mfd/brcm,bcm59056.txt      | 39 ----------------
+>  .../devicetree/bindings/mfd/brcm,bcm59056.yaml     | 54 ++++++++++++++++++++++
+>  .../bindings/regulator/brcm,bcm59056.yaml          | 51 ++++++++++++++++++++
+>  3 files changed, 105 insertions(+), 39 deletions(-)
+> 
 
-Put this under an allOf and use another 'if' instead of the 'else' 
-clause in the 2nd patch.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +  properties:
-> +    compatible:
-> +      enum:
-> +        - allwinner,sun55i-a523-ccu
-> +
-> +then:
-> +  properties:
-> +    clocks:
-> +      items:
-> +        - description: High Frequency Oscillator (usually at 24MHz)
-> +        - description: Low Frequency Oscillator (usually at 32kHz)
-> +        - description: Internal Oscillator
-> +        - description: Low Frequency Oscillator fanout
-> +
-> +    clock-names:
-> +      items:
-> +        - const: hosc
-> +        - const: losc
-> +        - const: iosc
-> +        - const: losc-fanout
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    ccu: clock@2001000 {
-
-Drop ccu and it's 'clock-controller' not 'clock'.
-
-> +        compatible = "allwinner,sun55i-a523-ccu";
-> +        reg = <0x2001000 0x1000>;
-> +        clocks = <&osc24M>, <&osc32k>, <&iosc>, <&r_ccu 2>;
-> +        clock-names = "hosc", "losc", "iosc", "losc-fanout";
-> +        #clock-cells = <1>;
-> +        #reset-cells = <1>;
-> +    };
-> +
-> +...
 
