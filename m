@@ -4,56 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E030C282DC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:56:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A75C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YM8Ez/q06miNqJtCBk3k8n3HOLzBJgbDbaMVZIGyvCs=; b=E+cnAPGILlEKLXb7emd8E+kWf8
-	JagwU/jEEkwLuRRDTZvA5SORMADBW7HAUBsh+Hv9RvfYdh688MN1HQ4lw7t5+CAY6TZMal8VOjRs+
-	nOY3wi6iBtf6zBoKkr2HeNbuuS61J6nMiTec9IhU3lKxaOfn0F5oipiXNLzw4ysdZs2lT013pcCq9
-	hZaD9iHH9Rv/TmLU28KLVfjNKvrbjUW7QMZZua+PK+/KOzpt1TmLU6M0sU45O9oHNS72MtVXGec+5
-	2S/eilu5Gw5lt+XCKwlIniuGTPYjiKEJ5TH11Y/7YGmnW95p02gp8uluq5LqNWmJC07xfmvtqWp54
-	9Gg/Vj3w==;
+	bh=wATod6NDOZo61jBXaDR35smZE6WmaKYxcn9zydFDCSg=; b=Wz1DNTvhwNT1H0jevQly6JzMTv
+	bbn3tUyVz/n84o9G5/K4lK7+Ug86kt7b78Oa69WIHxMdMuc5glCcFuXjkeMXE5NyB2xxRvrJCH6Ns
+	zA06kyaw+lVja8/OEh+If/iraAUpzEKjVkBhGOkrXXyh1HxZYV6jqqQNlrKqtb39vUpKnjcNRQEL3
+	GrxawZBr68pyHu0GAEt7i66aNjncA1schPK1eE7yyukrRbNkVihColM8/EIq9Wa7HpQ7/jG42Ky+j
+	noh5MxXLqR29OjNJSLyTkWImIgbOhzMtWScHQMB80PF4B9r1RDLThnihhOfxauWEOL0z+hLyxyZur
+	sNYmSVbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYNB-000000067ct-3yXe;
-	Tue, 04 Mar 2025 19:56:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpYQI-000000068Dy-1i0Q;
+	Tue, 04 Mar 2025 19:59:26 +0000
+Received: from mgamail.intel.com ([192.198.163.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpXkH-00000005z6U-0R9X
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 19:16:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 9C86D5C6368;
-	Tue,  4 Mar 2025 19:13:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C4CBC4CEE5;
-	Tue,  4 Mar 2025 19:15:57 +0000 (UTC)
-Date: Tue, 4 Mar 2025 19:15:54 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Ankur Arora <ankur.a.arora@oracle.com>
-Cc: linux-kernel@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, arnd@arndb.de,
-	will@kernel.org, peterz@infradead.org, mark.rutland@arm.com,
-	harisokn@amazon.com, cl@gentwo.org, memxor@gmail.com,
-	zhenglifeng1@huawei.com, joao.m.martins@oracle.com,
-	boris.ostrovsky@oracle.com, konrad.wilk@oracle.com
-Subject: Re: [PATCH 1/4] asm-generic: barrier: Add
- smp_cond_load_relaxed_timewait()
-Message-ID: <Z8dRalfxYcJIcLGj@arm.com>
-References: <20250203214911.898276-1-ankur.a.arora@oracle.com>
- <20250203214911.898276-2-ankur.a.arora@oracle.com>
+	id 1tpY8u-000000064HS-0CC1;
+	Tue, 04 Mar 2025 19:41:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741117288; x=1772653288;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=mSXJN62c9c43TayjWMcrZoUoqbOEtw2eHIrrgusAkcQ=;
+  b=n3ifJmcUUbwT6WGY6Zzn8Fc+uGzUOKpWQpIVpphUJ8b4lBpdtYsVuMp7
+   gOUrtPLkHdtZf9LA1Zcgv0cem00e2mHxk1j45ZyFCx5fiNnVjTsU1qMpc
+   2g8VxZfwUoKqeWPQBIfE4X5+e9NN+1XjzJmPolpSWubwDTjzg46qPGs5D
+   wCCOs/Ra1ZQhlA6w4MrzB4jyDANXHqBM+mLxs1J8kjnN0dG/9yOxYuSiX
+   9Jroc1dE9PnrJ191PopR7PV2frOctLOv7J05QzwvgYRJKDwWv6fqDxEhT
+   Qr8blbVzVgF3G+dlSlf3nRYkaQjszdnHYj/OzWETwJ73lwBR29lp409Oe
+   g==;
+X-CSE-ConnectionGUID: 0LIxnIhFQ4ap3/oyNiMUJw==
+X-CSE-MsgGUID: fHUpDJFATwS01TO8IelmOg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="41235961"
+X-IronPort-AV: E=Sophos;i="6.14,220,1736841600"; 
+   d="scan'208";a="41235961"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 11:41:27 -0800
+X-CSE-ConnectionGUID: U8VV1OeURqOA6GR9LDuIIQ==
+X-CSE-MsgGUID: EHHSAZjkRsupzERpxCndxw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="119369326"
+Received: from ksztyber-mobl2.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.231])
+  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 11:41:22 -0800
+Date: Tue, 4 Mar 2025 20:41:14 +0100
+From: Mehdi Djait <mehdi.djait@linux.intel.com>
+To: Michael Riesch <michael.riesch@wolfvision.net>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Gerald Loacker <gerald.loacker@wolfvision.net>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, Paul Kocialkowski <paulk@sys-base.io>, 
+	Alexander Shiyan <eagle.alexander923@gmail.com>, Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
+	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v4 06/11] media: rockchip: rkcif: add driver for mipi
+ csi-2 host
+Message-ID: <3fztpczfxlfzt3bdll4alzllrrqvvr3akhkiqtmtam2v2sbw2y@6hb3aok7h62x>
+References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
+ <20250219-v6-8-topic-rk3568-vicap-v4-6-e906600ae3b0@wolfvision.net>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250203214911.898276-2-ankur.a.arora@oracle.com>
-X-TUID: lLrdoPZx9Q90
+In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-6-e906600ae3b0@wolfvision.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_111601_245455_E8039CA4 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20250304_114128_095507_A18B32C7 
+X-CRM114-Status: GOOD (  23.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,101 +94,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 03, 2025 at 01:49:08PM -0800, Ankur Arora wrote:
-> Add smp_cond_load_relaxed_timewait(), a timed variant of
-> smp_cond_load_relaxed(). This is useful for cases where we want to
-> wait on a conditional variable but don't want to wait indefinitely.
+Hi Michael,
 
-Bikeshedding: why not "timeout" rather than "timewait"?
+thank you for the patches.
 
-> diff --git a/include/asm-generic/barrier.h b/include/asm-generic/barrier.h
-> index d4f581c1e21d..31de8ed2a05e 100644
-> --- a/include/asm-generic/barrier.h
-> +++ b/include/asm-generic/barrier.h
-> @@ -273,6 +273,54 @@ do {									\
->  })
->  #endif
->  
-> +#ifndef smp_cond_time_check_count
-> +/*
-> + * Limit how often smp_cond_load_relaxed_timewait() evaluates time_expr_ns.
-> + * This helps reduce the number of instructions executed while spin-waiting.
-> + */
-> +#define smp_cond_time_check_count	200
-> +#endif
+Sorry for the big delay!
 
-While this was indeed added to the poll_idle() loop, it feels completely
-random in a generic implementation. It's highly dependent on the
-time_expr_ns passed. Can the caller not move the loop in time_expr_ns
-before invoking this macro?
+On Wed, Feb 19, 2025 at 11:16:37AM +0100, Michael Riesch wrote:
+> The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
+> and one output port. It receives the data with the help of an external
+> MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video
+> Capture (VICAP) block. Add a V4L2 subdevice driver for this unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> ---
+>  drivers/media/platform/rockchip/rkcif/Makefile     |   1 +
+>  .../platform/rockchip/rkcif/rkcif-mipi-csi-host.c  | 731 +++++++++++++++++++++
+>  2 files changed, 732 insertions(+)
+> 
+> diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
+> index 818424972c7b..0c18efd1f1b4 100644
+> --- a/drivers/media/platform/rockchip/rkcif/Makefile
+> +++ b/drivers/media/platform/rockchip/rkcif/Makefile
+> @@ -4,4 +4,5 @@ rockchip-cif-objs += rkcif-dev.o \
+>  	rkcif-capture-dvp.o \
+>  	rkcif-capture-mipi.o \
+>  	rkcif-interface.o \
+> +	rkcif-mipi-csi-host.o \
+
+[..]
+
+>  	rkcif-stream.o
+> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
+> new file mode 100644
+> index 000000000000..fa3f42b2dc55
+
+SNIP
+
+> --- /dev/null
+> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
+> +
+> +static struct platform_driver rkcif_csi_drv = {
+> +	.driver = {
+> +		   .name = "rockchip-mipi-csi",
+> +		   .of_match_table = rkcif_csi_of_match,
+> +		   .pm = &rkcif_csi_pm_ops,
+> +	},
+> +	.probe = rkcif_csi_probe,
+> +	.remove = rkcif_csi_remove,
+> +};
+> +module_platform_driver(rkcif_csi_drv);
+
+[..]
+
+When adding the driver for this CSI-2 Host bridge, you added another
+call to  module_platform_driver()
+
+but in the definition of this macro:
+
+"Each module may only use this macro once, and
+calling it replaces module_init() and module_exit()"
+
+and as you can see in the diff of the Makefile,
+rkcif-mipi-csi-host.0 is part of the same module as rkcif-dev.o, where
+you already call module_platform_driver()
+
+I think the solution here is to call
+platform_register_drivers(drivers, ARRAY_SIZE(drivers)) in rkcif-dev.c
+
+with
+
+static struct platform_driver * const drivers[] = {
+	&rkcif_csi_drv,
+	&rkcif_plat_drv,
+};
+
+then define module_init() and module_exit()
+
+Btw. MODULE_DEVICE_TABLE() is missing both here and in rkcif-dev.c
 
 > +
-> +/**
-> + * smp_cond_load_relaxed_timewait() - (Spin) wait for cond with no ordering
-> + * guarantees until a timeout expires.
-> + * @ptr: pointer to the variable to wait on
-> + * @cond: boolean expression to wait for
-> + * @time_expr_ns: evaluates to the current time
-> + * @time_limit_ns: compared against time_expr_ns
-> + *
-> + * Equivalent to using READ_ONCE() on the condition variable.
-> + *
-> + * Note that the time check in time_expr_ns can be synchronous or
-> + * asynchronous.
-> + * In the generic version the check is synchronous but kept coarse
-> + * to minimize instructions executed while spin-waiting.
-> + */
+> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Host platform driver");
+> +MODULE_LICENSE("GPL");
+> 
+> -- 
+> 2.34.1
+> 
 
-Not sure exactly what synchronous vs asynchronous here mean. I see the
-latter more like an interrupt. I guess what you have in mind is the WFE
-wakeup events on arm64, though they don't interrupt the instruction
-flow. I'd not bother specifying this at all.
-
-> +#ifndef __smp_cond_load_relaxed_spinwait
-> +#define __smp_cond_load_relaxed_spinwait(ptr, cond_expr, time_expr_ns,	\
-> +					 time_limit_ns) ({		\
-> +	typeof(ptr) __PTR = (ptr);					\
-> +	__unqual_scalar_typeof(*ptr) VAL;				\
-> +	unsigned int __count = 0;					\
-> +	for (;;) {							\
-> +		VAL = READ_ONCE(*__PTR);				\
-> +		if (cond_expr)						\
-> +			break;						\
-> +		cpu_relax();						\
-> +		if (__count++ < smp_cond_time_check_count)		\
-> +			continue;					\
-> +		if ((time_expr_ns) >= (time_limit_ns))			\
-> +			break;						\
-> +		__count = 0;						\
-> +	}								\
-> +	(typeof(*ptr))VAL;						\
-> +})
-> +#endif
-> +
-> +#ifndef smp_cond_load_relaxed_timewait
-> +#define smp_cond_load_relaxed_timewait  __smp_cond_load_relaxed_spinwait
-> +#endif
-
-What I don't particularly like about this interface is (1) no idea of
-what time granularity it offers, how much it can slip past the deadline,
-even though there's some nanoseconds implied and (2) time_expr_ns leaves
-the caller to figure out why time function to use for tracking the time.
-Well, I can be ok with (2) if we make it a bit more generic.
-
-The way it is written, I guess the type of the time expression and limit
-no longer matters as long as you can compare them. The naming implies
-nanoseconds but we don't have such precision, especially with the WFE
-implementation for arm64. We could add a slack range argument like the
-delta_ns for some of the hrtimer API and let the arch code decide
-whether to honour it.
-
-What about we drop the time_limit_ns and build it into the time_expr_ns
-as a 'time_cond' argument? The latter would return the result of some
-comparison and the loop bails out if true. An additional argument would
-be the minimum granularity for checking the time_cond and the arch code
-may decide to fall back to busy loops if the granularity is larger than
-what the caller required.
-
--- 
-Catalin
+--
+Kind Regards
+Mehdi Djait
 
