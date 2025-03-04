@@ -4,101 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDC17C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:11:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EBAC4C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=; b=zmBi0fWCIc3hIkWrTTbxgA6f0s
-	mbQ6a50p1wuvdvWiftFIUgjxGb/t/p8fA7YXkJS7v6D3lBxEcpYfMX9b9Ato2WsxL2LvpEG1CPd31
-	nP38OVcWb7eWchH3owp8CWkc6RiWm36rC7Re+aQ3E8WaAE4XqeR6tGLJqIY6OKLO2E4GcyMH58yok
-	6WrzuwcZ3HTKuQfidBQBWmMX/9Y5sgIH1aVjsuahbK8JGoNsBSbKw2tmG4769S3g2318tB+Ywu89c
-	jPs/onyVRoR67HfL7qrUtX1FslkzaSF0uWhj184OzWatuMiDBtwibKLWVGWztlrsz3yVZauuS9wPp
-	J62lNYxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OViK+oWMnMyjf80RtLsAbb/f83UnFoCkoTidmchXcFQ=; b=DYmDqQ4gC/wCxx6qeW5TGKho2g
+	OplLhbeOfRskMYahl7pbLBULvZJgyuhHUT3IL8fktzfnWmH+qki+OHxIO/oJsnClN8ZZdqodSU/Ha
+	gJOmqd4xC+MKUPBiVRQ/GC6l9osVzH+K5mPKuvKgMR6M4RFywzrIM5LSHQQR1gChzbUmRwqEtRknL
+	FzOqVoYkACT3Hr/CuT8uMIuCIrZwTtJ07Mpo4FyHOwUd+EMJIXHPlubq8lH4oXs4lWJBOAC4uJUMg
+	aOsM+l+YVvPiVDMcVbRrDM+WQNdiE470q6IkGoEsxec/KPSR9JRY0vpkjnXLyLefpxWfgUKCZ+A66
+	T8euT5og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOJL-00000003nvN-39SI;
-	Tue, 04 Mar 2025 09:11:35 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tpOMK-00000003pHY-1JoO;
+	Tue, 04 Mar 2025 09:14:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOHP-00000003nWY-3O6J;
-	Tue, 04 Mar 2025 09:09:37 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-abf5f4e82caso475370166b.1;
-        Tue, 04 Mar 2025 01:09:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741079374; x=1741684174; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=;
-        b=PHGsvk+FqIT+eoqWxZQ9Of4e1jcKrnr/Zqd8jixdb/nJiWsySsfOUz/GmiBIzfPBrs
-         rUR/+1r1MQWwhkiS+lLbMiTostvdJSmK9wtIXcHTCSf5Ox0Mywu5Cuizv61BKp3onXMK
-         CBGfZZUVw9jaoZ2pvm7XaCwASsqW4HhBUWPBXFeLxvXqnen+GFx0IADtd4QxqYE+sMzm
-         g3o5+cXZ0ZvNT0xTC8vKabiyPFETV4AKugtnC/ULA2hwqwCSQ+GbCmrj+dWgtT/b7vnd
-         PiFEpvYZIKJjxs2LbidrVajbyWYGaxrNSxzZ2LHKJptVP/1tm+ipRzuioOM0txtWshvh
-         5J8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741079374; x=1741684174;
-        h=content-transfer-encoding:in-reply-to:from:references:cc:to
-         :content-language:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=tUJhQaYNJ+KP9IjzaIHtUMcbg4p7nFeoB9PoVn3AGzE=;
-        b=sLKJy4GE2hZNuZohcWU6tbPA2ZWpZe0D1VtYcmdpCHYCEMZalDy2alPuFTHcBKpJBV
-         Kj7TCMPuYlrg7CwMQfXvY/E6c6L08+8AUeOQ46YMVJCI1vawSqLwBEEe+3p3ocCwurs2
-         oO8jHHqZlOt1gE4c4fVjMD96eYe2by3B287R0nqimXV1ydEb+b5QOqkf4aK8I3evNZYe
-         60QtKtifW6sEtJ9cK9CfJQZVLXyMQgoMMZ+yeU0SWvD5MjGs3IYQbXX6D3rNgiWvu8rv
-         +0IlLF9rhUOO/g9bK56wfg3t0btRcD11PkiK5oYBYGXWx0g8izWkfFHUBtpaQ2i6LYPd
-         KtcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV5DtYsm9HIh58cIdlBGCV7vicC6PsYsWKxEMS4LrxK1y4RWdCkLy/1ebfyUTQGWPMcp2xpSCQi8Bkr3y9vT6FV@lists.infradead.org, AJvYcCX9lgIMrGGbkovaSPvbv++oWw4uR2RSkT2EJ4MW3J3bS9cWOPlJ7i+DMHFflC6RtAe/fusVSsp0Syn0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsXXihlSQmAosAqY7Nnpsuc7+0ONZKaQbt6b58YO6qvH1QI9Dz
-	TQ4MP5tw25hUPw5WrSf7wum8blEGyTUG//QtAzpgtCRykvKnnc3S
-X-Gm-Gg: ASbGncvcM0RiJQC3Vuiqyt0kyigaUR2NhGrLkoN0Jz4ec3/yd7LzzMoSYdH9vPue6i5
-	HYpfEi+EfBs6geBpUkxtXGCwBlFbAqgw87CO8L8onn3dXwGV2higSmmKB4iC8c/6Ncuya4oIuv5
-	YfblnE7jEEQE0A2QUectIYMkEnLugKqGP66F6nmSH/XVLiIbCS89HhquiiZh50KojZZCghqIJYe
-	/llnkvWk7XPiP3bv7d2dYQrClTFUOnxQGentchRMQhmQwl94cZAn4gumyshFv6llhhiUJwwQSaK
-	0H6q5Tq+FHocCN6a5Yi5oyJAOnZd8XwgaRSp3ZcHPkO0Pk0pQqkbiR7Tzs0=
-X-Google-Smtp-Source: AGHT+IH6P2PZuxm+2sKzdyVK3yViDvKypolcGeIQSD9E5vIhDHGm27LOpDLzkoiZ0cOSnYMoTvPPYw==
-X-Received: by 2002:a17:907:9812:b0:ac1:f162:fb0d with SMTP id a640c23a62f3a-ac1f1631229mr242134566b.37.1741079373793;
-        Tue, 04 Mar 2025 01:09:33 -0800 (PST)
-Received: from [192.168.43.21] ([77.85.230.22])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf75481eb4sm343379066b.83.2025.03.04.01.09.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 04 Mar 2025 01:09:33 -0800 (PST)
-Message-ID: <21460de5-76a0-4576-a7e6-f4873e40de48@gmail.com>
-Date: Tue, 4 Mar 2025 11:09:31 +0200
+	id 1tpN09-00000003VJf-159D
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 07:47:42 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9CC5DA45251;
+	Tue,  4 Mar 2025 07:42:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 499D4C4CEE8;
+	Tue,  4 Mar 2025 07:47:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741074460;
+	bh=AFZWbQeLdmlscWJGirRlHWpxaH/09ugu2ZcjrkguJhU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AmsQrcb7ldMif9AB4P8WWXFrZuHD/4pz0dW/6kBzZ2di7u33yb5XNq8m+Edxpjbue
+	 t1cgcLKAZmjKQpGIjMJBBPNQ8eXfpCoY5dvYXuEARGZ6jOQQxtFmdnMGMpwNDZHxzM
+	 w/9DD8QsNsqFtubcoj1pdMRVJg0p7FGrOd0WFI8MuxdVj2pBpoPNBDQJ6H6Cb1Ejke
+	 RkMED8G1vDf+UuWDXEkgJqRDONQ1OXXKE4GzvChTKYhYV/8HfudKhgkleMW3FX9vD+
+	 VRrDoFv+awSTVONgpGrfK1b9m+9pREyedrzkFBr2/6ZDpwbJBLONHfOAxO7UMzq0kv
+	 RFoQYwj6wwyTQ==
+Date: Tue, 4 Mar 2025 16:47:36 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: Bence =?iso-8859-1?B?Q3Pza+Fz?= <csokas.bence@prolan.hu>
+Cc: linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Kamel Bouhara <kamel.bouhara@bootlin.com>
+Subject: Re: [PATCH v6 3/3] counter: microchip-tcb-capture: Add capture
+ extensions for registers RA/RB
+Message-ID: <Z8awGBW8obpG1QPN@ishi>
+References: <20250227144023.64530-1-csokas.bence@prolan.hu>
+ <20250227144023.64530-4-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/8] dt-bindings: phy: add
- samsung,exynos2200-usbcon-phy schema file
-Content-Language: en-US
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Philipp Zabel <p.zabel@pengutronix.de>, Abel Vesa <abel.vesa@linaro.org>,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250223122227.725233-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223122227.725233-4-ivo.ivanov.ivanov1@gmail.com>
- <20250224-curly-cyber-spaniel-efdc39@krzk-bin>
- <a4f63721-d094-4eda-b68a-6ef62ff54680@gmail.com>
- <c8184542-5dab-4403-bee4-867810397ae4@kernel.org>
- <4502b578-96e6-49e0-8f3b-54f6e5640c55@gmail.com>
- <354d6100-311f-44d7-b8a5-1fd671b651e3@kernel.org>
- <9fb63a04-5b3d-40cc-b96f-eb4f297f307e@gmail.com>
- <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
-From: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
-In-Reply-To: <027decb4-3fa9-40a5-9cf4-65f9a69b4566@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="fmbU7YrIDFXv6vYx"
+Content-Disposition: inline
+In-Reply-To: <20250227144023.64530-4-csokas.bence@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_010935_851432_35528D33 
-X-CRM114-Status: GOOD (  34.23  )
+X-CRM114-CacheID: sfid-20250303_234741_442461_C95A0AFF 
+X-CRM114-Status: GOOD (  18.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,113 +75,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/4/25 09:21, Krzysztof Kozlowski wrote:
-> On 03/03/2025 18:18, Ivaylo Ivanov wrote:
->> On 3/3/25 09:24, Krzysztof Kozlowski wrote:
->>> On 02/03/2025 10:16, Ivaylo Ivanov wrote:
->>>> On 2/25/25 10:11, Krzysztof Kozlowski wrote:
->>>>> On 24/02/2025 11:48, Ivaylo Ivanov wrote:
->>>>>> On 2/24/25 10:56, Krzysztof Kozlowski wrote:
->>>>>>> On Sun, Feb 23, 2025 at 02:22:22PM +0200, Ivaylo Ivanov wrote:
->>>>>>>> The Exynos2200 SoC has a USB controller PHY, which acts as an
->>>>>>>> intermediary between a USB controller (typically DWC3) and other PHYs
->>>>>>>> (UTMI, PIPE3). Add a dt-binding schema for it.
->>>>>>>>
->>>>>>>> Signed-off-by: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>>>>> ---
->>>>>>>>  .../phy/samsung,exynos2200-usbcon-phy.yaml    | 76 +++++++++++++++++++
->>>>>>>>  1 file changed, 76 insertions(+)
->>>>>>>>  create mode 100644 Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>>>> You have undocumented dependencies which prevent merging this file.
->>>>>>> First, dependencies have to be clearly expressed.
->>>>>> They are, in the cover letter.
->>>>> Where? I read it twice. Dependencies is the most important thing and
->>>>> should scream at beginning of the cover letter, so if you bury them
->>>>> somewhere deep it also would not matter - just like they were missing.
->>>>>
->>>>>>> Second, you should
->>>>>>> rather decouple the code from header dependencies, otherwise this cannot
->>>>>>> be merged for current release (just use clocks with long names, without IDs).
->>>>>> Sure
->>>>>>>> diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>>>>> new file mode 100644
->>>>>>>> index 000000000..7d879ec8b
->>>>>>>> --- /dev/null
->>>>>>>> +++ b/Documentation/devicetree/bindings/phy/samsung,exynos2200-usbcon-phy.yaml
->>>>>>>> @@ -0,0 +1,76 @@
->>>>>>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>>>>>>> +%YAML 1.2
->>>>>>>> +---
->>>>>>>> +$id: http://devicetree.org/schemas/phy/samsung,exynos2200-usbcon-phy.yaml#
->>>>>>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>>>>>>> +
->>>>>>>> +title: Exynos2200 USB controller PHY
->>>>>>>> +
->>>>>>>> +maintainers:
->>>>>>>> +  - Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->>>>>>>> +
->>>>>>>> +description:
->>>>>>>> +  Exynos2200 USB controller PHY is an intermediary between a USB controller
->>>>>>>> +  (typically DWC3) and other PHYs (UTMI, PIPE3).
->>>>>>> Isn't this the same as usbdrd phy? see: samsung,usb3-drd-phy.yaml
->>>>>> It's not (I think). There's a few reasons I've decided to make this separate
->>>>>> from the usb3-drd-phy bindings and exynos5-usbdrd driver:
->>>>>>
->>>>>> 1. This PHY does not provide UTMI and PIPE3 on its own. There's no tuning
->>>>> USBDRD phy does not provide UTMI and PIPE on its own either if you look
->>>>> at diagram - they call it phy controller.
->>>> Ughm. What? So in most exynos cases, there's a combination of multiple phys?
->>>>>> for them, and all that is needed from it is to disable HWACG, assert/
->>>>>> deassert reset and force bvalid/vbusvalid. After that SNPS eUSB2
->>>>>> initialization can be done and USB2 works. If the USBCON phy is not set
->>>>>> up before the eUSB2 one, the device hangs, so there is definitely a
->>>>>> dependancy between them. For PIPE3 we'd need to control the pipe3
->>>>>> attaching/deattaching and then initialize the synopsys USBDP combophy.
->>>>> Does it mean there is no USB DRD phy controller as before?
->>>>>
->>>>> Anyway the problem is you have DWC3 -> PHY -> PHY. Looks one phy too many.
->>>> So...
->>>>
->>>> DWC3 -> USBDRD (USBCON) -> PHYs?
->>> No, drop last phy. You just wrote the same as me - two phys, because
->>> usbdrd is the phy. In all existing designs there is no such controllable
->>> object from the point of view of operating system.
->> What? Per my understanding, the phy property should refer to whatever is
->> is connected to dwc3 UTMI. In this case it's the so-called USBDRD phy (called
->> usbcon in downstream). Considering that the eUSB2 IP definitely also has UTMI
->> that has to be connected to something, doesn't that mean we have clearly
-> The entire point is that eUSB2 is connected to DWC3, no? That's exactly
-> how it is done for example on Qualcomm SoC. Otherwise you claim that
-> DWC3 controls one phy, which controls another phy which controls UTMI...
 
-But where does the USBCON fit? Is it just a side controller? Why's it needed
-in the first place? This is what I don't understand.
+--fmbU7YrIDFXv6vYx
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->
->> separated hardware blocks? Now, I guess one could argue that this USBCON
->> hardware block could be classified as a syscon. But I don't see the problem
->> with the current binding description, nor the modelling, as it represents
->> how the hardware is (unless I've gotten it completely wrong).
-> It is the first time you use argument that it represents how the
-> hardware is and this is what we actually disagree. It is not like that.
-> You do not have chain of phys. Just look at any USB 3.0 DRD DWC diagram
-> from any Samsung SoC: where would you squeeze these two phys in relation
-> to what is called there "USB 3.0 PHY" which would be the third phy (!!!).
+On Thu, Feb 27, 2025 at 03:40:20PM +0100, Bence Cs=F3k=E1s wrote:
+> +static int mchp_tc_count_cap_read(struct counter_device *counter,
+> +				  struct counter_count *count, size_t idx, u64 *val)
+> +{
+> +	struct mchp_tc_data *const priv =3D counter_priv(counter);
+> +	u32 cnt;
+> +	int ret;
+> +
+> +	switch (idx) {
+> +	case COUNTER_MCHP_EXCAP_RA:
+> +		ret =3D regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), =
+&cnt);
+> +		break;
+> +	case COUNTER_MCHP_EXCAP_RB:
+> +		ret =3D regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), =
+&cnt);
+> +		break;
+> +	default:
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (!ret)
+> +		*val =3D cnt;
+> +
+> +	return ret;
+> +}
 
-Yeah, my point was that it was different from any previous design. Now,
-I don't know if it's actually theoretically possible to design it like so. It's
-hard to just guess how the hardware is designed without having access
-to die shots, documentations or even just schematics.
+It's cleaner to exit early on an error than to carry it to the end.
+Instead of if (!ret), perform an if (ret) return ret to exit early on an
+error, then simply return 0 at the end of the funtion.
 
-Let's make it clear now, the changes your request are to document USBCON
-in the existing exynos binding, as well as to correct all explanations of how
-this block functions, right?
+> diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include=
+/uapi/linux/counter/microchip-tcb-capture.h
+> index ee72f1463594..5c015fafe42c 100644
+> --- a/include/uapi/linux/counter/microchip-tcb-capture.h
+> +++ b/include/uapi/linux/counter/microchip-tcb-capture.h
+> @@ -12,6 +12,9 @@
+>   * Count 0
+>   * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
+>   * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
+> + * \__  Extension capture0    (RA register)
+> + * \__  Extension capture1    (RB register)
+> + * \__  Extension capture2    (RC register)
 
-Best regards,
-Ivaylo
+The capture2 extension doesn't exist in this patch so remove this
+comment line.
 
->
-> Best regards,
-> Krzysztof
+> @@ -30,6 +33,12 @@ enum counter_mchp_signals {
+>  	COUNTER_MCHP_SIG_TIOB,
+>  };
+> =20
+> +enum counter_mchp_capture_extensions {
+> +	COUNTER_MCHP_EXCAP_RA,
+> +	COUNTER_MCHP_EXCAP_RB,
+> +	COUNTER_MCHP_EXCAP_RC,
+> +};
 
+Remove COUNTER_MCHP_EXCAP_RC for the same reason as above.
+
+Also, I would argue for these to be preprocessor defines rather than
+enum for the same reasons as in my other review[^1].
+
+One final comment: is RA/RB the best way to differentiate these? One of
+the benefits of abstraction layers is that users won't need to be
+concerned about the hardware details, and naming the capture values
+after their respective general register hardware names feels somewhat
+antithetic to that end.
+
+I imagine there are better ways to refer to these that would communicate
+their relationship better, such as "primary capture" and "secondary
+capture". However at that point capture0 and capture1 would seem
+obvious enough, in which case you might not even need to expose these to
+userspace at all.
+
+William Breathitt Gray
+
+[^1] https://lore.kernel.org/all/Z8alaOTjZeRuXnUI@ishi/
+
+--fmbU7YrIDFXv6vYx
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8awGAAKCRC1SFbKvhIj
+K+peAP0dCAA2g9OAlpFDPmbqoOmnwi+yDLF2hYMVY72oMo8RqAEAt6QoAGB5MLHi
+Wb5E+EiJBEq2j9Hh1/bUvs7Xzsm4dws=
+=jTwQ
+-----END PGP SIGNATURE-----
+
+--fmbU7YrIDFXv6vYx--
 
