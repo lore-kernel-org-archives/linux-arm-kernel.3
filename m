@@ -4,81 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D06CCC282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 20:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A2FFC282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 20:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6OmRnB5M5S6dx+wb2qMyKou5/KtA9SYAkAHphHGaljI=; b=pHxgA9vD7Qsrc4YSKZSTs6zTGS
-	QCNPlXNbWS2E+0UypZFBjUDw/M7DpngFBYzy1Jze4kqDyusTSGjpSAacabBKIVxUdDAPcVzPqop6o
-	KJ39S5eDW2mcuZLKr9BgxAirjnsaqtFKFArNazde3dpBVvLfZaEIiRC3jQm3Sdon1hQakoHY3iy2n
-	k0vigt6ioH6k0xyB8SPO1to1NtR28LdJClsvy8gexeS/hjK1aogz+f6nHALDMc8wI/JJA4hAeSCjT
-	AmwYieRXbnd/rGJoI/DcEsJfM9+EBjMOEK1f9bvzbkCNYFfustI3+ZFwzRihtqE0lt/MLTcM0OLam
-	ae708Kew==;
+	bh=hL600D2Vd4+7j33RPgiVpKbsOkzk21To6aEbWxtha+U=; b=fOrJZ8VXBowye+0Lykfx32jlPL
+	ET71s1UDFKku+a0yPiPJ9TR6utLkQb6s6V0SEkHV+KzP3/DYyyEleWPAq7Utus8tEF7cmhAUeHsUN
+	nzvxl7jpUYbleMtb8L8vyIxR+JbAK+lwBtSmPSe76J65UYUVHAsERUtUFwC7+GyN/akq/aD/DBdN9
+	sDhSAgBItoktg2Jw/q25JIz6S6JnqPYL9skjLVNTT4e8N7M0JIhycuoGpkTcSbhTYswy3/m4YaVvP
+	8BBwf/gCuI6yacKSzmKU+24JbLs5wkLY2GnuKb40SSUXsZO3nqZycKciSbv9aec1vgKBd2czrY5jb
+	7Zi1QPqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYWU-000000069NN-0WLq;
-	Tue, 04 Mar 2025 20:05:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpYf9-00000006ACb-1vmT;
+	Tue, 04 Mar 2025 20:14:47 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYTY-000000068yf-2V5h;
-	Tue, 04 Mar 2025 20:02:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=6OmRnB5M5S6dx+wb2qMyKou5/KtA9SYAkAHphHGaljI=; b=Gf6oHUZr94DYlA6dKjxhYJh6F2
-	BHB5lOa/AEu2198ueeJ4904kMSo/8BMfjPTC+/4k/pGNvRBOLBeXXIdUN9Lo6I0L/phxRJpIn2wfH
-	ab/54hjnUK1zbR+pdkVgiWvsCQZng0+o+Lh4/8oakjw9aJZ0lxiZBb0eOtJ/dUgPj/ZUaRObZT1ea
-	rKdFCXJZPmPE7P69FKuWbCpey3M8wEAONHjgQGHqqI/XR8F13Mei9SShN3r4c+HOlYzmFFWaOUZeF
-	QrvhhtC0Ud6riV3SDZhvvPQA+/iqGc3tOAMeB1AheIdCX9YAbBJYf0e48nUDSkCfU+Ct1TBuwI25q
-	T3pf1juw==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYTV-00000000Ck1-0jtk;
-	Tue, 04 Mar 2025 20:02:47 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id F022C25C7A;
-	Tue,  4 Mar 2025 21:02:38 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id rsbyoN1SgCEm; Tue,  4 Mar 2025 21:02:34 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741118554; bh=UePoE7L+f7kPyHfkYoHOYaJpHOxR5rYnvPUWwiwyiDc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=ax6vpksmBD+CYVeLZO+qbuQqOz2F8d/OHrJiYEXf1cqJe9I39YUqdyU6VbDhsPhg4
-	 x+9AtlWcGvxnP5kgm596OqXJ1UMLJ1pyh22g4Qw/WavCbiTwP//6MpzLSyokW3w5ie
-	 BR8mIqqeqdywjNKaS//tqsQ5hf7Qkjx2uVkn4/nheuYbd1udjK2yupqFjIRmr2h+h6
-	 8pUWyA23Kj0cX4mdTlPQmLeV9qIcAE2kD6Gd8YVKfGHZS6ULe778dkoS6HSLgB8/2P
-	 k+rhVLTu6sFAfL1CJ8ZAEYVygWCcBdoYNgFGi/1knwkFOJPIfHZht/zvet292xVYB2
-	 ichjAKH9MPMnA==
-Date: Tue, 4 Mar 2025 20:02:14 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Jonas Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, cristian.ciocaltea@collabora.com,
-	detlev.casanova@collabora.com, devicetree@vger.kernel.org,
-	frank.wang@rock-chips.com, heiko@sntech.de, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 8/8] arm64: dts: rockchip: Enable SD-card interface on
- Radxa E20C
-Message-ID: <Z8dcRjPcbKqEyKdT@pie.lan>
-References: <20250301104835.36439-1-ziyao@disroot.org>
- <20250304121036.1453284-1-amadeus@jmu.edu.cn>
- <Z8dZWYpABghRHHge@pie.lan>
- <5c429552-bdbb-43d9-8e07-bacda57c0fcf@kwiboo.se>
+	id 1tpWDX-00000005fSH-0sRR
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 17:38:08 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-4393ee912e1so62635e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:38:06 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741109885; x=1741714685; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=hL600D2Vd4+7j33RPgiVpKbsOkzk21To6aEbWxtha+U=;
+        b=pfVRmjHG3kd2AMDRhhkbCJg3xYJaXvEJH0o8Ofoa5K2h+mf9G6F2izN/ArRm7mC2Yu
+         Dr38ITAZmIwstQWmTmjEyk4k65v/TQ6SJaZN7V24RrFf1RBX96pJLPNlOY0yllOxuadA
+         LC7dhyZuy3DHDQbLt2S5tGxDE7F5PdynfXu2oyfbcTSS3gYGCYYP7aY5sZLevgh46/n9
+         PkdUbMAg0WEelKj3tWickDVYNJV+coyDxwrA8oj0dei754TO0zr1i8Q6WBdMf72Cj0AO
+         LBrScW2wvU4rsDEJsTty+zdoVtQDBnwBnxmum2Dn0e4iXRUIG7YQ+n9JWH6bj7Bug767
+         vMtw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741109885; x=1741714685;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=hL600D2Vd4+7j33RPgiVpKbsOkzk21To6aEbWxtha+U=;
+        b=FCyodYKO6YxbuHoTO5r0a4/ZA0tWwaV57IqTNzoOEKTlivVUk4Pp71pDUcr8VIhNZA
+         xVIvT+vvh3kPkejOEliWLwO3f3qRprpWt/1CdK88Bgt1fpTfcIA4luA/LL/E39yu1yC0
+         L9HmdCmi6zT5ow7tYPoXbdQCy2zsTCiOaPX90GBT4clRJJavgee3vuBAooYgw+FhqBQD
+         XX0hSjwsnp1gysLXpl7m91CaorKCAF9XA0Rik8cfcNjYYU1pOMpdDhNAzo27mhayfljz
+         VqQmA1YZPrQ8HkWdQAosd8IqcqZjOkpUedI6lKhbA/lHcn3RS6FkIsrP+7ZJltcpC9m6
+         sl5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXxsF1Ydn+1yRdvx1Zb2RfhEWh+hkcfIHKvTA6YhgSKDobq2tJfmiPVMd73/cFQEAKE+ICoeg/tsHeVf7+utTO9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSyDv1AVi/jyvpv9zZMo2KeJITasd78e+x9d1SO3Yn5P/PLs5q
+	AmY5SRt8P2UKcO9XmWgM3ADDs6Z0FxEurQ+F348bKKIe+S+c0e78q5JQDHrfrg==
+X-Gm-Gg: ASbGncuVN6lVcpHJDDFZpvB5mGKo2t/z3sKA7xDZbA8ZU6lvLh45E1EUOMWZBj2NV7y
+	r8yiNq3c0RMt6m2QTm0e4mO0lKUT+6wW82qzbCE5Uvt/sAZjPqXmg+xmG3mlGYvVYYA6TsH3Fk8
+	3+BjCOHzD8efXlYEDpmQ/rmBG697/5dPQkRFN088UGwNvhKAebyzCpCoV1/X48gGXSO8eP247tt
+	6v00iXkr55EhLdw77Qrbjm4PasSIdKH39b7AdNcMzjbwyLP0+GQCYKbh/k/lyd2XBA/pmHexdMk
+	XgSGo7xfrtCUlPMBaqhSqCCIMgZgmpQnzqoiP6nmXcxZCsge/VQUzIwhznm5NWT9JrXa8sA0rMJ
+	VEgKotR87zC9T
+X-Google-Smtp-Source: AGHT+IEpl5KnI/AmOBYa3wPD1FFPvleHPCRAbMj/fSXQ1+Q66fw7eWALywPcXdmGSME1S33/iyh4Iw==
+X-Received: by 2002:a05:600c:329b:b0:439:9434:1b6c with SMTP id 5b1f17b1804b1-43bd15f3ffamr165995e9.3.1741109885428;
+        Tue, 04 Mar 2025 09:38:05 -0800 (PST)
+Received: from google.com (100.235.22.34.bc.googleusercontent.com. [34.22.235.100])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485d906sm18464176f8f.90.2025.03.04.09.38.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 09:38:04 -0800 (PST)
+Date: Tue, 4 Mar 2025 17:38:02 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
+ ffa init
+Message-ID: <Z8c6enoolJe7Zeqk@google.com>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-4-sebastianene@google.com>
+ <20250303234259.GA30749@willie-the-truck>
+ <Z8ZPBZF7J-qKdb_i@google.com>
+ <20250304015633.GA30882@willie-the-truck>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5c429552-bdbb-43d9-8e07-bacda57c0fcf@kwiboo.se>
+In-Reply-To: <20250304015633.GA30882@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_200245_827019_B0DF7DBE 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250304_093807_249223_4880198D 
+X-CRM114-Status: GOOD (  36.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,60 +106,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 08:55:36PM +0100, Jonas Karlman wrote:
-> Hi Yao Zi,
-> 
-> On 2025-03-04 20:49, Yao Zi wrote:
-> > On Tue, Mar 04, 2025 at 08:10:36PM +0800, Chukun Pan wrote:
-> >> Hi,
-> >>
-> >>> +	aliases {
-> >>> +		mmc0 = &sdmmc;
-> >>
-> >> s/mmc0/mmc1
+On Tue, Mar 04, 2025 at 01:56:35AM +0000, Will Deacon wrote:
+> On Tue, Mar 04, 2025 at 12:53:25AM +0000, Sebastian Ene wrote:
+> > On Mon, Mar 03, 2025 at 11:43:03PM +0000, Will Deacon wrote:
+> > > On Thu, Feb 27, 2025 at 06:17:48PM +0000, Sebastian Ene wrote:
+> > > > Map the hypervisor's buffers irrespective to the host and return
+> > > > a linux error code from the FF-A error code on failure. Remove
+> > > > the unmap ff-a buffers calls from the hypervisor as it will
+> > > > never be called.
+> > > > Prevent the host from using FF-A directly with Trustzone
+> > > > if the hypervisor could not map its own buffers.
+> > > > 
+> > > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> > > > ---
+> > > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 46 +++++++++++++----------------------
+> > > >  1 file changed, 17 insertions(+), 29 deletions(-)
+> > > 
+> > > [...]
+> > > 
+> > > > @@ -861,6 +842,7 @@ int hyp_ffa_init(void *pages)
+> > > >  {
+> > > >  	struct arm_smccc_res res;
+> > > >  	void *tx, *rx;
+> > > > +	int ret;
+> > > >  
+> > > >  	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
+> > > >  		return 0;
+> > > > @@ -911,5 +893,11 @@ int hyp_ffa_init(void *pages)
+> > > >  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
+> > > >  	};
+> > > >  
+> > > > +	/* Map our hypervisor buffers into the SPMD */
+> > > > +	ret = ffa_map_hyp_buffers();
+> > > > +	if (ret)
+> > > > +		return ret;
+> > > 
+> > > Doesn't calling RXTX_MAP here undo the fix from c9c012625e12 ("KVM:
+> > > arm64: Trap FFA_VERSION host call in pKVM") where we want to allow for
+> > > the host to negotiate the version lazily?
 > > 
-> > Will take it and add the missing pinctrl, as Jonas already pointed out.
-> > 
-> >>> +&sdmmc {
-> >>> +	bus-width = <4>;
-> >>> +	cap-mmc-highspeed;
-> >>> +	cap-sd-highspeed;
-> >>
-> >> I think for sdcard, only cap-sd-highspeed
-> >> is needed, not cap-mmc-highspeed?
-> > 
-> > This makes sense, will remove it in the next version.
+> > We still have the same behaviour where we don't allow memory
+> > sharing to happen until the version is negotiated but this
+> > separates the hypervisor buffer mapping part from the host.
 > 
-> Please do not remove the cap-mmc-highspeed prop, I tested the controller
-> with a microSD to eMMC adapter and MMC HS speed is supported:
+> Sadly, the spec doesn't restrict this to the memory sharing calls:
 > 
->   mmc1: card 59b4 removed
->   mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
->   mmc_host mmc1: Bus speed (slot 0) = 49800000Hz (slot req 52000000Hz, actual 49800000HZ div = 0)
->   mmc1: new high speed MMC card at address 0001
->   mmcblk1: mmc1:0001 DG4008 7.28 GiB
->    mmcblk1: p1 p2
->   mmcblk1boot0: mmc1:0001 DG4008 4.00 MiB
->   mmcblk1boot1: mmc1:0001 DG4008 4.00 MiB
->   mmcblk1rpmb: mmc1:0001 DG4008 4.00 MiB, chardev (499:0)
+>   | [...] negotiation of the version must happen before an invocation of
+>   | any other FF-A ABI
 > 
->   ~ # cat /sys/kernel/debug/mmc1/ios
->   clock:          52000000 Hz
->   vdd:            21 (3.3 ~ 3.4 V)
->   bus mode:       2 (push-pull)
->   chip select:    0 (don't care)
->   power mode:     2 (on)
->   bus width:      2 (4 bits)
->   timing spec:    1 (mmc high-speed)
->   signal voltage: 0 (3.30 V)
->   driver type:    0 (driver type B)
 
-Oops, indeed, I didn't expect the adapted usecase and thought only
-sdcards could be connected through the interface.
+We do that, as the hypervisor negotiates its own version in
+hyp_ffa_init. I think the host shouldn't be allowed to overwrite the
+hyp_ffa_version obtained from _init, this feels wrong as you
+can have a driver that forcefully downgrades the hypervisor to an old
+version.
 
-> Regards,
-> Jonas
+We need to do three things, Sudeep & Will please correct me if I am
+wrong, but this is how I see it:
 
-Thanks for the correction,
-Yao Zi
+- the hypervisor should act as a separate entity (it has a different ID and
+in the current implementation we don't do a distinction between host/hyp) and
+it should be able to lock its own version from init.
+- keep a separate version negotiated for the host
+- trap FFA_ID_GET from the host and return ID=1 because
+  currently we forward the call to the TZ and it returns the same ID
+  as the (hypervisor == 0).
+
+> We're also probing the minimum rxtx size in hyp_ffa_post_init() so doing
+> this here is doubly wrong.
+> 
+
+Those operations should happen before the current ffa_map_hyp_buffers()
+call, I agree.
+
+Thanks,
+Sebastian
+
+> So I think we should probably just drop this patch.
+> 
+> Will
 
