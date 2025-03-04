@@ -4,57 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80880C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:00:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D35C8C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 23:02:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BciVljjP+g5byLRVmvkkVNREXRj4034DUObWaMgGEhE=; b=fYZppS55dqFcWWhy0xdXnOzVWH
-	skSkZBdOmyj0itOSCVT1+OhQFtNuqZpBdhahyc6h/LrGaWH/dbjK4KHdviLmZCpbPuvfYRX3LZez0
-	0xPFeC4JfqUb+sUmxz9PE1CtYdDCAiO7bRg9rb7+2njWYtYgc05DUS88iFC/158du8B7+4Er9VqrA
-	jpyF/iCtYb0UfzmUTfp32Ec8heBCJ/IPqbUoz4uIhu8/3DiWBPJnSPHO8xqUo9onXXBVqBKg8nVgI
-	XmSMP9bKmCISfzHHuWB4WUGEtPPhMZL7NnsCrcePjHjVAXuJRc2eVXfeCL3c3IkUqpPC4TRUljKVt
-	+2vgCIFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=; b=MRIcyAw1PrJ8t7xxXfYSSWmFrT
+	X/6f3SASiwkNYpc6DDtw5RHPJLYcGmYm7RgBTwofY+t7pqEkeAJ4A+q+CqMPQwt09V8IbGyqMc/lI
+	W863P8dHkXzO6LAu1jKWIusdUy8j2SSGMa4pV+T0kLGujSV0No0ANqbMu0/2zaLXh+12A5lLZ6ahf
+	P/OEtG+gso8QWPzphB/wsCQLoLuoKcqRqxufi9AeGhHtKl0QD9NfwT/7ZcYAzKRbemsO+eapJ/qj5
+	Q8IeC0HMxM3GdQYzs3WNYSeZQVKElXyCJHStxgThG3oRhY4MTrpprSxFPUYZYV0S5mu6VozWTxbAz
+	zBi87Oqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpbFi-00000006Tsa-1v8k;
-	Tue, 04 Mar 2025 23:00:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpaiG-00000006PJt-3cf0
+	id 1tpbHG-00000006UGN-0rtV;
+	Tue, 04 Mar 2025 23:02:18 +0000
+Received: from mail-dbaeur03on20630.outbound.protection.outlook.com ([2a01:111:f403:260d::630] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpajD-00000006PTG-1ozX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 22:26:10 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AA03F1D31;
-	Tue,  4 Mar 2025 14:26:19 -0800 (PST)
-Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id AF2773F5A1;
-	Tue,  4 Mar 2025 14:26:04 -0800 (PST)
-From: Andre Przywara <andre.przywara@arm.com>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2 15/15] arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
-Date: Tue,  4 Mar 2025 22:23:09 +0000
-Message-ID: <20250304222309.29385-16-andre.przywara@arm.com>
-X-Mailer: git-send-email 2.46.3
-In-Reply-To: <20250304222309.29385-1-andre.przywara@arm.com>
-References: <20250304222309.29385-1-andre.przywara@arm.com>
+	Tue, 04 Mar 2025 22:27:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DvOfhtdCUoAJeDTkV1MJUkF5DZS67x8odIfsTwx63DplkQRiXmLV5ox9YfWDSHaH2TIaNciMQzwfD3hOlyheHURZ4mjFjD+VI64R29mUrbyf/S9oNcXb/YGS7/sn6ExZ0ge3sAd+3E6GWNnuIbp5m66aIwZ+JQzuUVOZbjQdyic7BmQDiiqu35L54fP8i4RKmY5hd1AA0x++SIB9s8kfTPTRjDBwMQX/S2qyHmNa4VmZdt3CK4XyjJU+BOmn/KQ1ytU0mQ2mwSDLwXBMyTo/mASR2QU0f9vKAA9P9RCIUTVVNPyNHS02MDF2fUuOqTzdxikU/DncrT83dIcIhFrAJw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=;
+ b=Msh9Qy0wZiKzRARcWckZl95iZK1WP+GE0BBLh/UPAiGXQsDUOraXVHyQwoZ8DbL7kCg15PVqEEAwZEZqX0npehxNROLfgoArFCVNDJJWr8VDZVwlZcpLGDzHyulIEMV/k2OgcG8HA+THbFIaVMeXkl3cceQ9U0+cCUviso5+dUIcRiy1MD1vfBXwdOE3mlHUoMt/MhUiP6OQonVdzdPesyU3sVzJEdeb8YvrXkfqjO0BEAqkRYYBONmkGubJcnAU5EO4HCBRK6ERDVw55S84qhZB5O4a+SKtDq0QSrIBE6Ruf0DmVTE1sLDSCHmNybJm/LxpZapHPqR90RSInE4C9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SFpCZKvan2rL9yeZOoz4Fv21GYhsfQSAw3zHe9BT1w0=;
+ b=dTrKYTQVBRI0TMc8eMI72+1CnRnfMROWGRuVud7IwA/nDc0Kwt0Ojh9Bvc25NN76d0Xam9AiRordrcC07VPuPujr0Ei8rQhA/DbJx92hbWdFYHYudrq44m9Rd40ZKTSHaK5tFdHoyko4ey0OVZVcQiCjs4ts0FbsnbQt3Otw1gf8rlDPwWhGIgLRnFSz19fqCUazGhpEy5G4MsPcXwRN+4I40ik7xqEpi4lRciL4l2kE9ao5LMVeyht3Ww3VmqgKu8il/BSmBhj4ZcWHn5nSM7x0cqmaIMEDhStBhCmEfSJwgxoc0S9FK5tH/UgeZegqZSolHYT76mpl7mgbz+M3aQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by PAXPR04MB8814.eurprd04.prod.outlook.com (2603:10a6:102:20d::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Tue, 4 Mar
+ 2025 22:12:04 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8489.025; Tue, 4 Mar 2025
+ 22:12:03 +0000
+Date: Tue, 4 Mar 2025 17:11:54 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+	Jingoo Han <jingoohan1@gmail.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Richard Zhu <hongxing.zhu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH v9 3/7] PCI: Add parent_bus_offset to resource_entry
+Message-ID: <Z8d6qpNaL4eJRQI1@lizhi-Precision-Tower-5810>
+References: <Z8YlySM6Xtr0beo1@lizhi-Precision-Tower-5810>
+ <20250304175010.GA207565@bhelgaas>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304175010.GA207565@bhelgaas>
+X-ClientProxiedBy: SJ0PR03CA0279.namprd03.prod.outlook.com
+ (2603:10b6:a03:39e::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|PAXPR04MB8814:EE_
+X-MS-Office365-Filtering-Correlation-Id: eae3049d-f10a-4fd7-8c26-08dd5b699805
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ebP2IqkCaVEllsE6rcoCzOQz1y1R3o5z+tR3kfFFmJU6/wcvKbmE94O3O13W?=
+ =?us-ascii?Q?r5tW2kJebOXI3cASr0aRLa6bHmsob88bPnoBf425x35WbIKDS+PBuWUHqXBM?=
+ =?us-ascii?Q?aLN+I/D366kL+zNT7t+5Bw0P/Hiksp1ljI2+5hI4Oi8QXqo7WhKyOV3vGblp?=
+ =?us-ascii?Q?cV+lxZ+yWJX1UePpGDppMi1RgW4l0AeYmvpSbtBhxl91QrdLz5sFQk57UBuM?=
+ =?us-ascii?Q?YZTukTkeDvyXnji/bTJCg/fxRV8+neXLOBDaOSAoLjt/qwSFO7TusOgv1pI5?=
+ =?us-ascii?Q?HaVmsjlWT1UO1wL5ARzcFdLwYiOCN7rGI4eEO8rTeXbgdKZVizDu1t8TyVYW?=
+ =?us-ascii?Q?MDEbZoBkdi9xM/TYl76Cy9VVwV3Q3VuvEYqZbcVjBAAmMOhv3lS2dnnpDOGJ?=
+ =?us-ascii?Q?FbS2B7gw9lnrobTxxnTAWqjV93hcrVjoSWLOnPxR2bEyqtP081y7Z5SD6sSO?=
+ =?us-ascii?Q?FwCSCy+MDFKI4VAihLzcJR+CVzLiu9Nba69kbiyJekXtegLUxsy8aLuR4I8Q?=
+ =?us-ascii?Q?oTe9XQE/pvYavcWN/+XbFboLxeplWowFnqVCTdHYd8GycleACnvOTI1/CwgC?=
+ =?us-ascii?Q?JKeLXPeJ+xOAxG6xJZQWC2HdsYiTwqVSPaX5UQPyK/tkLWwtqIPgDI47IAhi?=
+ =?us-ascii?Q?aigOk4nJbqp+sxYPsc0ey/9cJfDYQxXtTfWm86ghVdifG/C11CS31DW0VJjc?=
+ =?us-ascii?Q?9UQnXsG0hN9qLiQw1iqAIhTbbsnzNTAdaDSEeA40aW402oNpFEUPaUfOO8JS?=
+ =?us-ascii?Q?cabM0jlsSIeIskHcyFFKdI8FeK6eFLgWBVE06XlpKQuY29dVnnk+5Mt92eyV?=
+ =?us-ascii?Q?c3x3nMCnhuqsJPw+yOfCXKUIy2aCCr7W57at6zfIhZwMj0GiIQWf6YX/60Cd?=
+ =?us-ascii?Q?qIhWhMuAOHVBPeXBPny6dLi8PGtHUYYPxQED6ik/uIC2hTMpuc1jM9CHsbe4?=
+ =?us-ascii?Q?es60cG/z5B/LbHDvZfYWp8HHHiSZDCCoo9udSSTxs46VqUwYIfpNEYEM7TzW?=
+ =?us-ascii?Q?+4y8q+XGgatQTz9XREnzolqeU6NVoqSOPhsq5Nd74b/rBFrBRfByj1JizdNB?=
+ =?us-ascii?Q?loUionJmkXrV1wgJskgORGoNLxxvqDOA9RC9hwm4arlRpIxmVaHXQNSipGJE?=
+ =?us-ascii?Q?W7HpcyD885nM9b/hSZrEHi0QJlpTBdPEfqqH6q4FgSHqGhtSvm8VU+mTist7?=
+ =?us-ascii?Q?Vl8eQkP7P8f2QreMPHX+Iedc0Ep0ovjZOpWq7s0C6O93po7in59q87xMxG6l?=
+ =?us-ascii?Q?Yohxsu0F+Fe2WIIOiiNm5B2tMZUyh96r+4Auft0GqzHQbFGzmM6Up5EgzFSC?=
+ =?us-ascii?Q?TzedUNA8ERneT4xphhqNszqLaH3t44XjYZiir4zbY+pafhJ+EsqBGMk38m+c?=
+ =?us-ascii?Q?pf7ET2Tq+OXypU9GI7Ra36PZ3ZM1mynTt1rNPaycWGXTJ5n7z4PsciSXhlGj?=
+ =?us-ascii?Q?zoYif5w+s67OBH8mtaY5diEup3qnRW10?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?9sxz12l4mUfbnGZ2IY01Zat+HE8vlqYPwtV7qO+usa3vHOkeZ1LbqeXqpXSD?=
+ =?us-ascii?Q?cYLH7PdPyMI7T3s2oQQyoCCAEgmuaBth8oN6doK/6WXoI5+E3uzPe5OONlYr?=
+ =?us-ascii?Q?XH7eDuapZ3IKJ9DQZD+GEcyPLa0MRGDUfB4ybJvvHOu53Cmb9CXTKhkIKmEz?=
+ =?us-ascii?Q?3BbESn+ScVEn9Iy4+xdxLeaYkcUjnnthMKeTzil2mmsYrjHKW5TWuQ06Mol8?=
+ =?us-ascii?Q?dmVEvoPcuY69U1dsQB4fVjpQrl3SuTTv3w2uqBQsTFWaWwj41Kghru6ZgJmW?=
+ =?us-ascii?Q?ByaTsdomlNTZ/iyDjgypSuetnUcX57x9djT+nu8JcFuJxyDzzHRiSC9YW80w?=
+ =?us-ascii?Q?dIhg6nL7Fi48P77QXBO5mpLI5IZE54m4U9yUYZ7OTGYdWVLX01YmLhAvgRgX?=
+ =?us-ascii?Q?+PKBEwIiW2U+rs8S3jcxi8ytlubWNcEGfQ10t7jrPX9jmofZ2GJ0sWghW4Q/?=
+ =?us-ascii?Q?0aUs7PSXE60LKM8Hx/wwRUpgqH+pPGsQQXb5r3jzduRk0tRjRBsNx8L6KqgO?=
+ =?us-ascii?Q?GYM1QC7UZt08vZ+DLH9Wjnw9QOw9ViOfCr7h58ToR2Pv2H3sKupgn5uXE3Oy?=
+ =?us-ascii?Q?yHfdWL9TAi5Z4zsJH9ZU+K5QQ0zB6pSiU79QmaCW9P6x9sr66CjZ9NVbbIMo?=
+ =?us-ascii?Q?4/Mh/puuKMqa6s3NyMmXs+Xk7O78JTUNmtEsq9sFFF5Es1Dm5lghJqeRLHjN?=
+ =?us-ascii?Q?7CQom5IOXcaNk1QK7PGcIym7HGiiu3XFwgkCNZ3bwRWTAXLZn8ONqOvlUgh8?=
+ =?us-ascii?Q?qvrWza6tOasoOy3yFt9H9Rv+BWnUyzU7cbX79tqhXflqYJHj/pseDN2BaXeH?=
+ =?us-ascii?Q?mxVCT3BwTnJ454I+6J1tQvm7+X+Ko++Ao4rVcDLliIaNl9CV8LYcYC5076tZ?=
+ =?us-ascii?Q?5oll8jfapAKpa5kCzJce9mzHtlQMhOB/rbztqmIGvduK5QB9VKJ4LC7qqTMu?=
+ =?us-ascii?Q?EsSUXVeA0aAhIT3ePfp/cgkVzQrjsL3Y9xzbeVZhpVpxQRWLiz278+3XgSCo?=
+ =?us-ascii?Q?/AtG70XrGxC7UFbVmE1SsSSh3h400q+g+EXlSVpkcJO53oH5S01iw+lHOBfY?=
+ =?us-ascii?Q?zugMqmnIzZwhFv7FiG1NGH97bwOG0iFpc7ADUIn2xD/RYq4kUnMSmOagrt27?=
+ =?us-ascii?Q?r4aoeqhPn9vqLW9k6z2iA6yzS+Ci2Ikb41J3wfrtLb+tdY6X3tyIApE6GZOS?=
+ =?us-ascii?Q?wkvY2p69FRpkTYvZSQbaCeOxEUmLkPtCT6CSbYS+st9JRDVqUnLGeCmnmLBP?=
+ =?us-ascii?Q?cNPfNpveCQZF/S0D7MegrdgG6Cj+VWjvO5pk7Xq1kpznn/78jZ1fQVauEezt?=
+ =?us-ascii?Q?ba3TT83GO0PjchlpccEetsHDW5CweOWa0KgYImzo9a+8p1POjyx6+TkoYV4N?=
+ =?us-ascii?Q?UyqTvt17L8Kx5FcwRfOTRQthnAmOnRjn5DpQ3P8boBjK2qQfXSM4OkzyjxlG?=
+ =?us-ascii?Q?HAw7xXNhuV4dUZjpJqErN1T+YX4e3lQnOIObP9LdlAe8HfAQr0ewYaldnW9s?=
+ =?us-ascii?Q?nnT4EGZclfcPCiH0rlZGQajPBGZ6d3cE1rXuqkw7ek2ShGgqxwDfiMZQUDHz?=
+ =?us-ascii?Q?l+eJYe3NHrGwsut471s=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: eae3049d-f10a-4fd7-8c26-08dd5b699805
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 04 Mar 2025 22:12:03.8022
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rdFymOP4zZC3VGXHam9YCXNC2e45AXfgeL609qpZDFgmAhzh+psjSDgghZtF1PM7KfBYG3Ks0DlrlZueB9MLhg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8814
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_142608_985285_D43CEC31 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20250304_142707_477122_F58327F5 
+X-CRM114-Status: GOOD (  41.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,271 +169,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Chameleon board is an OpenHardware devboard made by YuzukiTsuru.
-The form factor resembles the Raspberry Pi Model A boards, though it
-differs significantly in its features:
+On Tue, Mar 04, 2025 at 11:50:10AM -0600, Bjorn Helgaas wrote:
+> On Mon, Mar 03, 2025 at 04:57:29PM -0500, Frank Li wrote:
+> > On Wed, Feb 26, 2025 at 06:23:26PM -0600, Bjorn Helgaas wrote:
+> > > On Tue, Jan 28, 2025 at 05:07:36PM -0500, Frank Li wrote:
+> > > > Introduce `parent_bus_offset` in `resource_entry` and a new API,
+> > > > `pci_add_resource_parent_bus_offset()`, to provide necessary information
+> > > > for PCI controllers with address translation units.
+> > > >
+> > > > Typical PCI data flow involves:
+> > > >   CPU (CPU address) -> Bus Fabric (Intermediate address) ->
+> > > >   PCI Controller (PCI bus address) -> PCI Bus.
+> > > >
+> > > > While most bus fabrics preserve address consistency, some modify addresses
+> > > > to intermediate values. The `parent_bus_offset` enables PCI controllers to
+> > > > translate these intermediate addresses correctly to PCI bus addresses.
+> > > >
+> > > > Pave the road to remove hardcoded cpu_addr_fixup() and similar patterns in
+> > > > PCI controller drivers.
+> > > > ...
+> > >
+> > > > +++ b/drivers/pci/of.c
+> > > > @@ -402,7 +402,17 @@ static int devm_of_pci_get_host_bridge_resources(struct device *dev,
+> > > >  			res->flags &= ~IORESOURCE_MEM_64;
+> > > >  		}
+> > > >
+> > > > -		pci_add_resource_offset(resources, res,	res->start - range.pci_addr);
+> > > > +		/*
+> > > > +		 * IORESOURCE_IO res->start is io space start address.
+> > > > +		 * IORESOURCE_MEM res->start is cpu start address, which is the
+> > > > +		 * same as range.cpu_addr.
+> > > > +		 *
+> > > > +		 * Use (range.cpu_addr - range.parent_bus_addr) to align both
+> > > > +		 * IO and MEM's parent_bus_offset always offset to cpu address.
+> > > > +		 */
+> > > > +
+> > > > +		pci_add_resource_parent_bus_offset(resources, res, res->start - range.pci_addr,
+> > > > +						   range.cpu_addr - range.parent_bus_addr);
+> > >
+> > > I don't know exactly where it needs to go, but I think we can call
+> > > .cpu_addr_fixup() once at startup on the base of the region.  This
+> > > will tell us the offset that applies to the entire region, i.e.,
+> > > parent_bus_offset.
+> > >
+> > > Then we can remove all the .cpu_addr_fixup() calls in
+> > > cdns_pcie_host_init_address_translation(),
+> > > cdns_pcie_set_outbound_region(), and dw_pcie_prog_outbound_atu().
+> > >
+> > > Until we can get rid of all the .cpu_addr_fixup() implementations,
+> > > We'll still have that single call at startup (I guess once for cadence
+> > > and another for designware), but it should simplify the current
+> > > callers quite a bit.
+> >
+> > I don't think it can simple code. cdns_pcie_set_outbound_region() and
+> > dw_pcie_prog_outbound_atu() are called by EP functions, which have not use
+> > "resource" to manage outbound windows.
+>
+> Let's ignore cadence for now.  I don't think we need to solve that
+> until later.
+>
+> dw_pcie_prog_outbound_atu() is called by:
+>
+>   - dw_pcie_other_conf_map_bus(): atu.parent_bus_addr = pp->cfg0_base
+>
+>     I think dw_pcie_host_init() can set pp->cfg0_base with the correct
+>     intermediate address, either via the the of_property_read_reg() or
+>     .cpu_addr_fixup().
+>
+>     If dw_pcie_host_init() does this, then we don't need
+>     .cpu_addr_fixup() in dw_pcie_prog_outbound_atu().
+>
+>   - dw_pcie_rd_other_conf(): atu.parent_bus_addr = pp->io_base
+>
+>     Similarly, dw_pcie_host_init() should be able to set pp->io_base
+>     to the intermediate address, so we don't need .cpu_addr_fixup() in
+>     dw_pcie_prog_outbound_atu().
 
-  - Allwinner H618 SoC (4 * Arm Cortex-A53 cores, 1MB L2 cache, 1.4 GHz)
-  - between 512MiB and 2GiB DDR3 DRAM
-  - up to 128 GiB eMMC flash
-  - AXP313a PMIC
-  - 100 Mbit/s Ethernet pins on a header
-  - XR829 WIFI+Bluetooth chip
-  - 4 * USB 2.0 USB-C ports
-  - microSD card slot
-  - 3.5mm A/V port
+I found some driver's cpu_addr_fixup()'s implement depend on the
+initilize sequence.
 
-Add the devicetree describing the board's peripherals and their
-connections.
+for example:
+	pcie-artpec6.c
 
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
----
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../sun50i-h618-yuzukihd-chameleon.dts        | 222 ++++++++++++++++++
- 2 files changed, 223 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+static u64 artpec6_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
+{
+        struct artpec6_pcie *artpec6_pcie = to_artpec6_pcie(pci);
+        struct dw_pcie_rp *pp = &pci->pp;
+        struct dw_pcie_ep *ep = &pci->ep;
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 9d5e14695af0b..c15f6a0d8d55a 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-longanpi-3h.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero2w.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero3.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-transpeed-8k618-t.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-yuzukihd-chameleon.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-2024.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-h.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-plus.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-new file mode 100644
-index 0000000000000..eae56908b9b4e
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
-@@ -0,0 +1,222 @@
-+// SPDX-License-Identifier: (GPL-2.0 OR MIT)
-+/*
-+ * Copyright (C) 2024 Arm Ltd.
-+ */
-+
-+/dts-v1/;
-+
-+#include "sun50i-h616.dtsi"
-+#include "sun50i-h616-cpu-opp.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	model = "Yuzuki Chameleon";
-+	compatible = "yuzukihd,chameleon", "allwinner,sun50i-h618";
-+
-+	aliases {
-+		ethernet1 = &sdio_wifi;
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	reg_vcc5v: vcc5v {
-+		/* board wide 5V supply directly from the USB-C socket */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	wifi_pwrseq: pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rtc CLK_OSC32K_FANOUT>;
-+		clock-names = "ext_clock";
-+		pinctrl-0 = <&x32clk_fanout_pin>;
-+		pinctrl-names = "default";
-+		reset-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>; /* PG11 */
-+	};
-+};
-+
-+&codec {
-+	allwinner,audio-routing = "Line Out", "LINEOUT";
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&reg_dcdc2>;
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&ehci2 {
-+	status = "okay";
-+};
-+
-+&ehci3 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	bus-width = <4>;
-+	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
-+	disable-wp;
-+	vmmc-supply = <&reg_dldo1>;
-+	status = "okay";
-+};
-+
-+&mmc1 {
-+	bus-width = <4>;
-+	mmc-pwrseq = <&wifi_pwrseq>;
-+	non-removable;
-+	vmmc-supply = <&reg_dldo1>;
-+	vqmmc-supply = <&reg_dldo1>;
-+	status = "okay";
-+
-+	sdio_wifi: wifi@1 {
-+		reg = <1>;
-+		interrupt-parent = <&pio>;
-+		interrupts = <6 12 IRQ_TYPE_LEVEL_LOW>;  /* PG12 */
-+		interrupt-names = "host-wake";
-+	};
-+};
-+
-+&mmc2 {
-+	bus-width = <8>;
-+	cap-mmc-hw-reset;
-+	mmc-ddr-3_3v;
-+	non-removable;
-+	vmmc-supply = <&reg_dldo1>;
-+	vqmmc-supply = <&reg_dldo1>;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&ohci2 {
-+	status = "okay";
-+};
-+
-+&ohci3 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pc-supply = <&reg_dldo1>;
-+	vcc-pf-supply = <&reg_dldo1>;	/* via VCC_IO */
-+	vcc-pg-supply = <&reg_dldo1>;
-+	vcc-ph-supply = <&reg_dldo1>;	/* via VCC_IO */
-+	vcc-pi-supply = <&reg_dldo1>;
-+};
-+
-+&r_i2c {
-+	status = "okay";
-+
-+	axp313: pmic@36 {
-+		compatible = "x-powers,axp313a";
-+		reg = <0x36>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupt-parent = <&pio>;
-+		interrupts = <2 2 IRQ_TYPE_LEVEL_LOW>;	/* PC2 */
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			/* Supplies VCC-PLL, so needs to be always on. */
-+			reg_aldo1: aldo1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc1v8";
-+			};
-+
-+			/* Supplies VCC-IO, so needs to be always on. */
-+			reg_dldo1: dldo1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc3v3";
-+			};
-+
-+			reg_dcdc1: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <810000>;
-+				regulator-max-microvolt = <990000>;
-+				regulator-name = "vdd-gpu-sys";
-+			};
-+
-+			reg_dcdc2: dcdc2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <810000>;
-+				regulator-max-microvolt = <1100000>;
-+				regulator-name = "vdd-cpu";
-+			};
-+
-+			reg_dcdc3: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1500000>;
-+				regulator-max-microvolt = <1500000>;
-+				regulator-name = "vdd-dram";
-+			};
-+		};
-+	};
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_ph_pins>;
-+	status = "okay";
-+};
-+
-+/* Connected to the Bluetooth UART pins of the XR829 Wifi/BT chip. */
-+&uart1 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
-+	uart-has-rtscts;
-+	status = "okay";
-+};
-+
-+&usbotg {
-+	/*
-+	 * PHY0 pins are connected to a USB-C socket, but a role switch
-+	 * is not implemented: both CC pins are pulled to GND.
-+	 * The VBUS pins power the device, so a fixed peripheral mode
-+	 * is the best choice.
-+	 * The board can be powered via GPIOs, in this case port0 *can*
-+	 * act as a host (with a cable/adapter ignoring CC), as VBUS is
-+	 * then provided by the GPIOs. Any user of this setup would
-+	 * need to adjust the DT accordingly: dr_mode set to "host",
-+	 * enabling OHCI0 and EHCI0.
-+	 */
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	usb0_id_det-gpios = <&pio 6 18 GPIO_ACTIVE_HIGH>; /* PG18 */
-+	usb0_vbus-supply = <&reg_vcc5v>;
-+	usb1_vbus-supply = <&reg_vcc5v>;
-+	usb2_vbus-supply = <&reg_vcc5v>;
-+	usb3_vbus-supply = <&reg_vcc5v>;
-+	status = "okay";
-+};
--- 
-2.46.3
+        switch (artpec6_pcie->mode) {
+        case DW_PCIE_RC_TYPE:
+                return cpu_addr - pp->cfg0_base;
+        case DW_PCIE_EP_TYPE:
+                return cpu_addr - ep->phys_base;
+        default:
+                dev_err(pci->dev, "UNKNOWN device type\n");
+        }
+        return cpu_addr;
+}
 
+This implement require *cfg0_base* and *phys_base*, pp/ep, need set before
+call artpec6_pcie_cpu_addr_fixup().
+
+static u64 visconti_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
+{
+        struct dw_pcie_rp *pp = &pci->pp;
+
+        return cpu_addr & ~pp->io_base;
+}
+
+this one require *io_base* and *pp* need be set before call
+visconti_pcie_cpu_addr_fixup()
+
+Because I have not such hardware platform, it is not trivial change and
+it is hard to involve bugs.
+
+If move .cpu_addr_fixup() too early, it will cause kernel dump.
+
+I suggest keep current overall sequent and try to clean up these driver's
+cpu_addr_fixup() firstly.
+
+Frank
+
+>
+>   - dw_pcie_iatu_setup(): atu.parent_bus_addr = entry->res->start
+>
+>     Here "entry" iterates through bridge->windows, and we should be
+>     able to set entry->parent_bus_offset at init-time, using
+>     .cpu_addr_fixup() if necessary, so we can apply that offset
+>     unconditionally, regardless of use_parent_dt_ranges, and we won't
+>     need .cpu_addr_fixup() in dw_pcie_prog_outbound_atu().
+>
+>   - dw_pcie_pme_turn_off:
+>     atu.parent_bus_addr = pci->pp.msg_res->start - pci->pp.msg_parent_bus_offset
+>
+>     This should be the same as dw_pcie_iatu_setup() since
+>     msg_parent_bus_offset comes from the window iteration in
+>     dw_pcie_host_request_msg_tlp_res().  As long as the windows have
+>     the correct parent_bus_offset at init-time, we should be all set.
 
