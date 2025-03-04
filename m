@@ -4,61 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41852C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A744CC021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 15:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=FUdAWuzAYGCkY2e/dR/0l3V6ki/Bpv8yP3QAc4c8S7I=; b=ezv4Tyjg1Y5pgJoyAesMGtron9
-	Mc21QVN9W3gtVU0v26Tv+iXv9EPvPVfDU4Hd04LxhMAa5qPULuKvQMWngImEMVOtjtnM8NU1q4tEQ
-	VzboJTe+sbD2i+byfpJF3DADze8ERjAPJfBSfUhfwOD2l6aujDz44jrlQq1ZjmIRBrtZuL5dKkBCO
-	iaVIxatlzoy1FTvJc2WIB3ceivt8wvmrtZHyCv6PkUhhdRR56SVzHKhdelpbbKKNGC2JPoM6xol4P
-	LrKsW+zq0kQ7Sf8B8WI1PMGqkX0gVmvksU4O8WHFLAL3ZiQ6dLJf7oZNrG+IL8riw5f7sCAwCV61x
-	QuwhaBzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=; b=F742ZTUGlFZHvGFSjWmmMhg4Bv
+	wejs7iXx02H4qlT7BmDmn9O1DG4u4DFWvdA/j2Dj28PGG2ehbRkTyX9ZvT0IFXQLRU9ybAexAUKd8
+	kVlcbsJo8t3KB3LUp5t9lh6eDVRUva+OCjGQ6FEn1iIy7j04A2DgwllWGIO0FAdUYliBnt8u3O+ju
+	jasxaZAY5jnpmHODAKjbQsl3yuorlv5/z4UnPTj73TeFHgk1g1XdmZjElev4xpHzJjZvHc1Jbtayq
+	xBWuSYmKoOZxpMdN9xxNmcQ4HlFieKR5r+107NwbGOWwhFArZEi6hZAzsRtLBV8w/CWcujGo0ictb
+	CJ2WT6uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpU7g-00000005CDG-3Lbm;
-	Tue, 04 Mar 2025 15:23:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpTpJ-000000057Mn-3s11
+	id 1tpU9E-00000005Ccr-2Kv0;
+	Tue, 04 Mar 2025 15:25:32 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpTpJ-000000057Mu-3aow
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 04 Mar 2025 15:05:00 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CD688FEC;
-	Tue,  4 Mar 2025 07:05:08 -0800 (PST)
-Received: from e125769.cambridge.arm.com (e125769.cambridge.arm.com [10.1.196.27])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 45A1B3F66E;
-	Tue,  4 Mar 2025 07:04:53 -0800 (PST)
-From: Ryan Roberts <ryan.roberts@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Uladzislau Rezki <urezki@gmail.com>,
-	Christoph Hellwig <hch@infradead.org>,
-	David Hildenbrand <david@redhat.com>,
-	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	Alexandre Ghiti <alexghiti@rivosinc.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mm@kvack.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 00/11] Perf improvements for hugetlb and vmalloc on arm64
-Date: Tue,  4 Mar 2025 15:04:30 +0000
-Message-ID: <20250304150444.3788920-1-ryan.roberts@arm.com>
-X-Mailer: git-send-email 2.43.0
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2fea795bafeso8992194a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:04:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741100697; x=1741705497; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=;
+        b=airyBBDeZSkIbZsGtxRQiRVNiCmOFS037/tlOi4Vgx2uxphFvBZKIwZFI7CS2s5kW5
+         ufCSZhlIHSxHYMnwGv8SX4r2rjAoO8IAL/hm45v1zcD2VNE3OKCAFqJBEE1ENFzp9gA7
+         n7iPfpt1SEkob9Kiv8k1wQMpb+pzvhFg/340rD/EnkzifEet0xb6LbDTJ3NiCyu3sW+R
+         HTKr1PSkji7392xpP1J/+I92JJWt0EFE9uYYvmw4EZQ5zPdGVsTyMM0l1AoB0koi1LkW
+         lsWY7bdEiApHJRWAPZ4m+XDpWZu5kcIZ530yW904AGWxA2GB1PhMCY1yBWlpAHPU+hlG
+         BIug==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741100697; x=1741705497;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=7wLAYT8VOg5n+EhJivIskvTTTLfV5w4lbqOOhOs3qFM=;
+        b=rG6cobU/+4c6z6lJpUR92+DnhzENq/i+rHnr67urlS945yAxqFrEJ6r53674dxVkWB
+         5UKXm6vpGpShBefYhVHla673YufDpm4+A/c0RqE9UtL+InFWXYke7ZLTYup0tGuS+KSs
+         bq+yWHdel1QSIpzmGWYWh+ZzoE8WsrnO/7hJMoWAFnMHkoGSp1+OX6e27BJIm79Z9D9w
+         6F1hKLJaVdqsnV+fuClaNMQLWWhV45pGiiSXh7O52dtm9JtJEt4h6KBwaeap4z9uy9pC
+         c2/0PrtVkTFprhnoa2HV+eJOXOKtuw6WiB33w7ZzDdBRcQzEVjrWtv0fx2xxQxHGN0t6
+         Mx8w==
+X-Forwarded-Encrypted: i=1; AJvYcCX2UmerLWfARKTh4Wu4d5HIsNSOLB7oJFglcz3ht9DmAGHrtVfiNYRBSsDeFrs8CAIjwqeDDam4MhpJlPOp0T8X@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvXR3nxuCN+mxL5u3b6M7wIaqM3mJTYHG4A95dEoMQALk2hNIQ
+	JifXKTvXj2kADd9xiAhgQtC6qG3qnVP6lLJQNe7NHcBbpwL5fNXqwSqiE5c0cQ==
+X-Gm-Gg: ASbGncsm5WxCyXadWnLmocHL7RQ08Uvnzchq3S8kNxM0Sx8UMaX83Us/pO0LqJU24by
+	OiaQ61G4kaTiibQKKufAA+2qjLyZO/kOfb8CH8gxIV6fvQiFqCyH93Xh5vLFSE6zLvg1THbpM3V
+	U80edynEtGGolkggKGUAMGBSMrG0ozgd0EXV7hN2FfhoEH9e8N0uivKcCJiH83PN5o0H47gyj08
+	sRwRB7sBYuv5OC4iBPdm4WKJ8hSL5hRxqmb1H9QiBHKZnrxt+ISnjky4iaVoI8iLSdZc4OHMb2H
+	qNfI7gv4h2NqFL58eBDPxT4gpNIsrPnI4RMhyJk2ki+y2Y6oFDZN/vw=
+X-Google-Smtp-Source: AGHT+IF2IqujVL9FAIrlKbmlEjSg+DENq4yc4FJP79iYPxBvL+hS29J2rkPg6a94cXi9du0du7pQgA==
+X-Received: by 2002:a17:90b:5684:b0:2fb:fe21:4841 with SMTP id 98e67ed59e1d1-2ff33b937f1mr6451097a91.8.1741100696841;
+        Tue, 04 Mar 2025 07:04:56 -0800 (PST)
+Received: from thinkpad ([120.60.51.199])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2fe8284f076sm13270159a91.42.2025.03.04.07.04.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 07:04:56 -0800 (PST)
+Date: Tue, 4 Mar 2025 20:34:48 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Jim Quinlan <james.quinlan@broadcom.com>
+Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	Stanimir Varbanov <svarbanov@suse.de>,
+	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v2 5/8] PCI: brcmstb: Fix potential premature regulator
+ disabling
+Message-ID: <20250304150448.r42maovz4xggbqdx@thinkpad>
+References: <20250214173944.47506-1-james.quinlan@broadcom.com>
+ <20250214173944.47506-6-james.quinlan@broadcom.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250214173944.47506-6-james.quinlan@broadcom.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_070458_056165_07AD038B 
-X-CRM114-Status: GOOD (  21.72  )
+X-CRM114-CacheID: sfid-20250304_070457_926446_2DE18150 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,131 +111,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+On Fri, Feb 14, 2025 at 12:39:33PM -0500, Jim Quinlan wrote:
+> Our system for enabling and disabling regulators is designed to work only
 
-This is v3 of a series to improve performance for hugetlb and vmalloc on arm64.
-Although some of these patches are core-mm, advice from Andrew was to go via the
-arm64 tree. Hopefully I can get some ACKs from mm folks.
+'system'? Perhaps 'logic'?
 
-The 2 key performance improvements are 1) enabling the use of contpte-mapped
-blocks in the vmalloc space when appropriate (which reduces TLB pressure). There
-were already hooks for this (used by powerpc) but they required some tidying and
-extending for arm64. And 2) batching up barriers when modifying the vmalloc
-address space for upto 30% reduction in time taken in vmalloc().
+> on the port driver below the root complex.  The conditions to discriminate
+> for this case should be the same when we are adding or removing the bus.
+> Without this change the regulators may be disabled prematurely when a bus
+> further down the tree is removed.
+> 
+> Fixes: 9e6be018b263 ("PCI: brcmstb: Enable child bus device regulators from DT")
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
-vmalloc() performance was measured using the test_vmalloc.ko module. Tested on
-Apple M2 and Ampere Altra. Each test had loop count set to 500000 and the whole
-test was repeated 10 times.
+Reviewed-by: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
 
-legend:
-  - p: nr_pages (pages to allocate)
-  - h: use_huge (vmalloc() vs vmalloc_huge())
-  - (I): statistically significant improvement (95% CI does not overlap)
-  - (R): statistically significant regression (95% CI does not overlap)
-  - measurements are times; smaller is better
+- Mani
 
-+--------------------------------------------------+-------------+-------------+
-| Benchmark                                        |             |             |
-|   Result Class                                   |    Apple M2 | Ampere Alta |
-+==================================================+=============+=============+
-| micromm/vmalloc                                  |             |             |
-|   fix_align_alloc_test: p:1, h:0 (usec)          | (I) -11.53% |      -2.57% |
-|   fix_size_alloc_test: p:1, h:0 (usec)           |       2.14% |       1.79% |
-|   fix_size_alloc_test: p:4, h:0 (usec)           |  (I) -9.93% |  (I) -4.80% |
-|   fix_size_alloc_test: p:16, h:0 (usec)          | (I) -25.07% | (I) -14.24% |
-|   fix_size_alloc_test: p:16, h:1 (usec)          | (I) -14.07% |   (R) 7.93% |
-|   fix_size_alloc_test: p:64, h:0 (usec)          | (I) -29.43% | (I) -19.30% |
-|   fix_size_alloc_test: p:64, h:1 (usec)          | (I) -16.39% |   (R) 6.71% |
-|   fix_size_alloc_test: p:256, h:0 (usec)         | (I) -31.46% | (I) -20.60% |
-|   fix_size_alloc_test: p:256, h:1 (usec)         | (I) -16.58% |   (R) 6.70% |
-|   fix_size_alloc_test: p:512, h:0 (usec)         | (I) -31.96% | (I) -20.04% |
-|   fix_size_alloc_test: p:512, h:1 (usec)         |       2.30% |       0.71% |
-|   full_fit_alloc_test: p:1, h:0 (usec)           |      -2.94% |       1.77% |
-|   kvfree_rcu_1_arg_vmalloc_test: p:1, h:0 (usec) |      -7.75% |       1.71% |
-|   kvfree_rcu_2_arg_vmalloc_test: p:1, h:0 (usec) |      -9.07% |   (R) 2.34% |
-|   long_busy_list_alloc_test: p:1, h:0 (usec)     | (I) -29.18% | (I) -17.91% |
-|   pcpu_alloc_test: p:1, h:0 (usec)               |     -14.71% |      -3.14% |
-|   random_size_align_alloc_test: p:1, h:0 (usec)  | (I) -11.08% |  (I) -4.62% |
-|   random_size_alloc_test: p:1, h:0 (usec)        | (I) -30.25% | (I) -17.95% |
-|   vm_map_ram_test: p:1, h:0 (usec)               |       5.06% |   (R) 6.63% |
-+--------------------------------------------------+-------------+-------------+
+> ---
+>  drivers/pci/controller/pcie-brcmstb.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+> index 56b49d3cae19..e1059e3365bd 100644
+> --- a/drivers/pci/controller/pcie-brcmstb.c
+> +++ b/drivers/pci/controller/pcie-brcmstb.c
+> @@ -1440,7 +1440,7 @@ static void brcm_pcie_remove_bus(struct pci_bus *bus)
+>  	struct subdev_regulators *sr = pcie->sr;
+>  	struct device *dev = &bus->dev;
+>  
+> -	if (!sr)
+> +	if (!sr || !bus->parent || !pci_is_root_bus(bus->parent))
+>  		return;
+>  
+>  	if (regulator_bulk_disable(sr->num_supplies, sr->supplies))
+> -- 
+> 2.43.0
+> 
 
-So there are some nice improvements but also some regressions to explain:
-
-fix_size_alloc_test with h:1 and p:16,64,256 regress by ~6% on Altra. The
-regression is actually introduced by enabling contpte-mapped 64K blocks in these
-tests, and that regression is reduced (from about 8% if memory serves) by doing
-the barrier batching. I don't have a definite conclusion on the root cause, but
-I've ruled out the differences in the mapping paths in vmalloc. I strongly
-believe this is likely due to the difference in the allocation path; 64K blocks
-are not cached per-cpu so we have to go all the way to the buddy. I'm not sure
-why this doesn't show up on M2 though. Regardless, I'm going to assert that it's
-better to choose 16x reduction in TLB pressure vs 6% on the vmalloc allocation
-call duration.
-
-Changes since v2 [2]
-====================
-- Removed the new arch_update_kernel_mappings_[begin|end]() API
-- Switches to arch_[enter|leave]_lazy_mmu_mode() instead for barrier batching
-- Removed clean up to avoid barriers for invalid or user mappings
-
-Changes since v1 [1]
-====================
-- Split out the fixes into their own series
-- Added Rbs from Anshuman - Thanks!
-- Added patch to clean up the methods by which huge_pte size is determined
-- Added "#ifndef __PAGETABLE_PMD_FOLDED" around PUD_SIZE in
-  flush_hugetlb_tlb_range()
-- Renamed ___set_ptes() -> set_ptes_anysz()
-- Renamed ___ptep_get_and_clear() -> ptep_get_and_clear_anysz()
-- Fixed typos in commit logs
-- Refactored pXd_valid_not_user() for better reuse
-- Removed TIF_KMAP_UPDATE_PENDING after concluding that single flag is sufficent
-- Concluded the extra isb() in __switch_to() is not required
-- Only call arch_update_kernel_mappings_[begin|end]() for kernel mappings
-
-Applies on top of v6.14-rc5, which already contains the fixes from [3]. All
-mm selftests run and pass.
-
-NOTE: Its possible that the changes in patch #10 may cause bugs I found in other
-archs' lazy mmu implementations to become more likely to trigger. I've fixed all
-those bugs in the series at [4], which is now in mm-unstable. But some
-coordination when merging this may be required.
-
-[1] https://lore.kernel.org/all/20250205151003.88959-1-ryan.roberts@arm.com/
-[2] https://lore.kernel.org/all/20250217140809.1702789-1-ryan.roberts@arm.com/
-[3] https://lore.kernel.org/all/20250217140419.1702389-1-ryan.roberts@arm.com/
-[4] https://lore.kernel.org/all/20250303141542.3371656-1-ryan.roberts@arm.com/
-
-Thanks,
-Ryan
-
-Ryan Roberts (11):
-  arm64: hugetlb: Cleanup huge_pte size discovery mechanisms
-  arm64: hugetlb: Refine tlb maintenance scope
-  mm/page_table_check: Batch-check pmds/puds just like ptes
-  arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
-  arm64: hugetlb: Use set_ptes_anysz() and ptep_get_and_clear_anysz()
-  arm64/mm: Hoist barriers out of set_ptes_anysz() loop
-  mm/vmalloc: Warn on improper use of vunmap_range()
-  mm/vmalloc: Gracefully unmap huge ptes
-  arm64/mm: Support huge pte-mapped pages in vmap
-  mm/vmalloc: Enter lazy mmu mode while manipulating vmalloc ptes
-  arm64/mm: Batch barriers when updating kernel mappings
-
- arch/arm64/include/asm/hugetlb.h     |  29 ++--
- arch/arm64/include/asm/pgtable.h     | 195 ++++++++++++++++++---------
- arch/arm64/include/asm/thread_info.h |   2 +
- arch/arm64/include/asm/vmalloc.h     |  45 +++++++
- arch/arm64/kernel/process.c          |   9 +-
- arch/arm64/mm/hugetlbpage.c          |  72 ++++------
- include/linux/page_table_check.h     |  30 +++--
- include/linux/vmalloc.h              |   8 ++
- mm/page_table_check.c                |  34 +++--
- mm/vmalloc.c                         |  40 +++++-
- 10 files changed, 315 insertions(+), 149 deletions(-)
-
---
-2.43.0
-
+-- 
+மணிவண்ணன் சதாசிவம்
 
