@@ -4,89 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C466DC021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:59:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAD13C282D2
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 16:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rW1cKuRtFgc98VoZXyjtJAQFKd78PcnO2hM7lIoduzI=; b=Voext8zWPuh0mewjrjSmIIusaP
-	hNQ9YjNbuDXBoWM7imgvae/LBcJ4OLkEkgBXZ5MhzSz8Cbhi1IiYVHmAvEIIb2qbyV2mcMFcqcD6U
-	yUdye3nnKlOSeIX1kKoeSZci1ttl0S/90uTrrvTYNkpSfs2ruYJ5IhO06eZJ2BQxdPZLfXC2V3T/X
-	EiO8QRefu9f7sjc6Hy/gnn5a6CVP0CEAaf3/GStW5bhTExteeH/E3T8NeEZ87xlkk0LuNhUYkjtmh
-	bJdrWiDezaq3AiVB0ze03/X48Jgw6snntCiacpcFjuG7iIFY5E3Yp+hEHtEy4SQuf2q4XmrZdkx78
-	lZOQTXXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Wavfi03VLFzkRgSXBDNQjxdQA6kIqOjOjbG1Py1RCSQ=; b=H5FsNuYTu/aZiLgN2p6ROga4W5
+	1Ol8Ux3ChXiIYs3l5EfH+xW27wCFAbyOYamHNoLPgxu9jmfbeopDnN5JIp1zdDXe4xmYqHX2hrWid
+	1S7mHYicHoCyd2+sVRPYEAa2QQ8b3B0wimqZ4KoIwzqeFyk3T5hwFr/8CVpeCAYxiUlIUAsb3Zkgw
+	FiABLHzAa3uO1WLwq2H3/cEwEKcFTc/7IPKn/CMkNFCQcNJC0sIgEJhi9HzU9bF0sZ8X7lybvtns4
+	22ieqTAFlga/mQ5PsTvH4D+4X6uDoJqVSI+qA+WLuG2NqM/wTti2VJrnFe1OZgllDBDaHANHw7aAJ
+	SuyZAJoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVbm-00000005WUI-365J;
-	Tue, 04 Mar 2025 16:59:06 +0000
-Received: from mail-pl1-f182.google.com ([209.85.214.182])
+	id 1tpVcO-00000005Wdf-3aYW;
+	Tue, 04 Mar 2025 16:59:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUTh-00000005HNb-1gJd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:46:42 +0000
-Received: by mail-pl1-f182.google.com with SMTP id d9443c01a7336-22355618fd9so100214935ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:46:41 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741103200; x=1741708000;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rW1cKuRtFgc98VoZXyjtJAQFKd78PcnO2hM7lIoduzI=;
-        b=Wo665qiteM5lP64BdIgZTIEU1ndXo9DVJsC0SUeYfn/27QQ/UQfmRLeT8v3CmKQ8kJ
-         jCwgMymoq8ab70ORHar0mkcdQruUe6Ol77Y6ObJwt/li/YFkIkBnBYjz1r7N8Neyj3Uq
-         fFovDkmJ/KqQKb1jd/1C7mE4LzD4PC5qaRBbtMWoziQwTi46OVpw/Qv0NMfQcJfY/XZt
-         KN3wbVrDJ8t5ucmlJJfpBhSnb6+ENb+TNv7ASkkdcgzrz2vWwUQRVj8ou9HzanvpWyFN
-         eVr5O3RyIkujWp5thHqCLdRIJOdgbxfmWYDvky98gZqBZlUWikZXO1SZ0woL9tkO5EUh
-         6JPg==
-X-Forwarded-Encrypted: i=1; AJvYcCXrtlEuVmDJQCbqG4dawQDnCBxR+JehU+LzyMDCS5vuix+yoFpmvK4VqH51qjzvYlarS7GRZkflt/ayOZbKVN3z@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzee35q4osIZEhMJls7izI2a6xpBW6AavyPHOmCGKQIaqvJNCdt
-	4UeaOgXGR8hl/4F+ZkGcHsXR9L7FnfLwO4vqF2YkXbvMTdfwnfhF
-X-Gm-Gg: ASbGncuqRSZ6cTcjN+CjDdyZktdxAEmDsKZCKab58f1qzha2C/MTR2jK+8mMY1Oxvbw
-	3w66iplKN92P7EbaWiT+pck/zy9aPiTjdtJ4W/iOXrIFzs02FwsmF8b6L3c6Jt01GfloK1eATpW
-	Oq10WoEWgJM0ab+Mpsintc2gEFLTG9vI0k7Lu08WtIkUCKB1DxFk3vMV4uBkLj8dSM7Ied+o/46
-	HBUoTM75VjdNE0T+TwnIWSkOyclb4dGWJrRfiSqvAY2rEWL1OodxigwwFkkYjICtUxdQEylc5Gi
-	WWr6rqgRQIa/zvpwbDMeadtQmE+nC5XvjwrXVxTaVZs26+1/AYPo+lbRzDkbwOE/KQsyUjjUfEv
-	KeBQ=
-X-Google-Smtp-Source: AGHT+IEzaN/r/FxaRDaAv2WPggcOLIm/6Vm7eMmJxC9+tfE4ygUZ5mXkWtuc2TbBMjwycyUGGLoq3Q==
-X-Received: by 2002:a17:903:230c:b0:223:7006:4db2 with SMTP id d9443c01a7336-22370064ea3mr216436475ad.31.1741103200544;
-        Tue, 04 Mar 2025 07:46:40 -0800 (PST)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-223504e18b3sm96918945ad.182.2025.03.04.07.46.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 07:46:40 -0800 (PST)
-Date: Wed, 5 Mar 2025 00:46:38 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Fan Ni <nifan.cxl@gmail.com>, Shradha Todi <shradha.t@samsung.com>,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
-	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
-	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
-	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
-	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
-	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com,
-	Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>,
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Subject: Re: [PATCH v7 3/5] Add debugfs based silicon debug support in DWC
-Message-ID: <20250304154638.GB2310180@rocinante>
-References: <20250221131548.59616-1-shradha.t@samsung.com>
- <CGME20250221132035epcas5p47221a5198df9bf86020abcefdfded789@epcas5p4.samsung.com>
- <20250221131548.59616-4-shradha.t@samsung.com>
- <Z8XrYxP_pZr6tFU8@debian>
- <20250303194647.GC1552306@rocinante>
- <CAMuHMdWens9ZZrjNH1Bd2AN3PJEP1KSUGdiJcBCt0uPGH_GiiA@mail.gmail.com>
+	id 1tpU0a-00000005AB6-3NDl;
+	Tue, 04 Mar 2025 15:16:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741101395;
+	bh=lix1WOppoHxLTu8lRo8ZOELVqyyGO52750g+3jKAaYw=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=OO9EtD2g1+gDTN7zq1pI7ZmmL1rmiwr4G2eSWrlba3qmjchuSjdaCnyaBlV6bqmxE
+	 cLkcjbfvSnOay+RSdYI+Yv7J4IYs8zrET73ZJhoD+V7z+a7GsC+x1+Jg8rHrO7pjd5
+	 4I0SQgLEFjTgWYVsDo6RVuXwg5EzQo+7G5vHFc9QdKGJ5ieLjOCh9EjQomyxoKv+xY
+	 WYnRcNwdjeY3pv19s7EQWQTlvibww0n7MDiRUXqWjBDHTPaqZwwrCXgBEP4tNtpQ7h
+	 2fJWVW1MDLuiwzy9gYvCNe//zPN9Olg33R2VrFd+8kYFk07VQ2sti7yGK0G7mu4JwN
+	 g4Sjt2lepycdQ==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1001])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7991D17E07F8;
+	Tue,  4 Mar 2025 16:16:30 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Tue, 04 Mar 2025 12:15:46 -0300
+Subject: [PATCH v3 05/20] ASoC: mediatek: mt6359-accdet: Handle
+ hp-eint-high property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMuHMdWens9ZZrjNH1Bd2AN3PJEP1KSUGdiJcBCt0uPGH_GiiA@mail.gmail.com>
+Message-Id: <20250304-mt6359-accdet-dts-v3-5-5b0eafc29f5b@collabora.com>
+References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+In-Reply-To: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_074641_438686_E4DE1CAE 
-X-CRM114-Status: GOOD (  21.52  )
+X-CRM114-CacheID: sfid-20250304_071636_984439_719FEBBF 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +85,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+Now that the dt-binding was introduced, the property that governs the
+eint polarity is a boolean called mediatek,hp-eint-high, while the
+current code handles a u32 property called mediatek,eint-level-pol.
+Update the driver handling accordingly.
 
-> This patch is now commit 1ff54f4cbaed9ec6 ("PCI: dwc: Add debugfs
-> based Silicon Debug support for DWC") in pci/next (next-20250304).
-> 
-> On Mon, 3 Mar 2025 at 20:47, Krzysztof Wilczyński <kw@linux.com> wrote:
-> > [...]
-> > > > +int dwc_pcie_debugfs_init(struct dw_pcie *pci)
-> > > > +{
-> > > > +   char dirname[DWC_DEBUGFS_BUF_MAX];
-> > > > +   struct device *dev = pci->dev;
-> > > > +   struct debugfs_info *debugfs;
-> > > > +   struct dentry *dir;
-> > > > +   int ret;
-> > > > +
-> > > > +   /* Create main directory for each platform driver */
-> > > > +   snprintf(dirname, DWC_DEBUGFS_BUF_MAX, "dwc_pcie_%s", dev_name(dev));
-> > > > +   dir = debugfs_create_dir(dirname, NULL);
-> > > > +   debugfs = devm_kzalloc(dev, sizeof(*debugfs), GFP_KERNEL);
-> > > > +   if (!debugfs)
-> > > > +           return -ENOMEM;
-> > > > +
-> > > > +   debugfs->debug_dir = dir;
-> > > > +   pci->debugfs = debugfs;
-> > > > +   ret = dwc_pcie_rasdes_debugfs_init(pci, dir);
-> > > > +   if (ret)
-> > > > +           dev_dbg(dev, "RASDES debugfs init failed\n");
-> > >
-> > > What will happen if ret != 0? still return 0?
-> 
-> And that is exactly what happens on Gray Hawk Single with R-Car
-> V4M: dw_pcie_find_rasdes_capability() returns NULL, causing
-> dwc_pcie_rasdes_debugfs_init() to return -ENODEV.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ sound/soc/codecs/mt6359-accdet.c | 5 +----
+ sound/soc/codecs/mt6359-accdet.h | 2 +-
+ 2 files changed, 2 insertions(+), 5 deletions(-)
 
-Thank you for testing and for catching this issue.  Much appreciated.
+diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
+index 9bbd4497e8d481ee125693be2fc576b439574b39..ca3be59d2d0ecaadccd9ba399649ba93f20490c4 100644
+--- a/sound/soc/codecs/mt6359-accdet.c
++++ b/sound/soc/codecs/mt6359-accdet.c
+@@ -578,10 +578,7 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
+ 	if (!ret)
+ 		memcpy(priv->data->pwm_deb, pwm_deb, sizeof(pwm_deb));
+ 
+-	ret = of_property_read_u32(node, "mediatek,eint-level-pol",
+-				   &priv->data->eint_pol);
+-	if (ret)
+-		priv->data->eint_pol = 8;
++	priv->data->hp_eint_high = of_property_read_bool(node, "mediatek,hp-eint-high");
+ 
+ 	ret = of_property_read_u32(node, "mediatek,eint-use-ap", &tmp);
+ 	if (ret)
+diff --git a/sound/soc/codecs/mt6359-accdet.h b/sound/soc/codecs/mt6359-accdet.h
+index c234f2f4276a12853a6fe0b13c4198dfc551b6b4..a54a328bdf3797ce642da446c0cc6792f72ec939 100644
+--- a/sound/soc/codecs/mt6359-accdet.h
++++ b/sound/soc/codecs/mt6359-accdet.h
+@@ -86,7 +86,7 @@ struct dts_data {
+ 	unsigned int mic_vol;
+ 	unsigned int mic_mode;
+ 	unsigned int plugout_deb;
+-	unsigned int eint_pol;
++	bool hp_eint_high;
+ 	struct pwm_deb_settings *pwm_deb;
+ 	struct three_key_threshold three_key;
+ 	struct four_key_threshold four_key;
 
-> > Given that callers of dwc_pcie_debugfs_init() check for errors,
-> 
-> Debugfs issues should never be propagated upstream!
+-- 
+2.48.1
 
-Makes complete sense.  Sorry for breaking things here!
-
-> > this probably should correctly bubble up any failure coming from
-> > dwc_pcie_rasdes_debugfs_init().
-> >
-> > I made updates to the code directly on the current branch, have a look:
-> 
-> So while applying, you changed this like:
-> 
->             ret = dwc_pcie_rasdes_debugfs_init(pci, dir);
->     -       if (ret)
->     -               dev_dbg(dev, "RASDES debugfs init failed\n");
->     +       if (ret) {
->     +               dev_err(dev, "failed to initialize RAS DES debugfs\n");
->     +               return ret;
->     +       }
-> 
->             return 0;
-> 
-> Hence this is now a fatal error, causing the probe to fail.
-
-I removed the changed, and also move the log level to be a warning, per:
-
-  https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/dwc&id=c6759a967e69aba16aef0d92f43e527b112e98a5
-
-Would this be acceptable here?
-
-Mani, would this be acceptable to you, too?  Given that you posted the
-following recently:
-
-  https://lore.kernel.org/linux-pci/20250303200055.GA1881771@rocinante/T/#mab9cbd5834390d259afea056eee9a73d8c3b435f
-
-That said, perhaps moving the log level to a debug would be better served here.
-
-	Krzysztof
 
