@@ -4,94 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2EEC282D2
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:00:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FCD1C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 17:04:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wdsp/mdGUlfPMMknuwcVBuwScY0qeFmXxWjkQCv3X4w=; b=e9WiadhhH5xZxUKNUjTetfgMWO
-	lbX3FfCgZEvholUQG3RYjbh3HEgi3gCwptMic/7KgHPcF9qW38t0Eo3HrNFBDd+mYVBfH/VtqNkdc
-	Z1bohfopaWdVcjR+uShQ/pA/wZWX+6m+I1PIjA8hkUnWolW/lZEzZeE63unyL43ewz3BSfUoabLIa
-	nj8ri2XIFoIeF4Bx9SyfPXWFZIDBq6jdW1idaK9jUesq2LnGRHiA3E+ztTps7bs0miL7Q3sIMraAE
-	4N8uDoDFVroC8fXVKCM7ur/teD31G6ZnQlCV9z+tJAa5oHE8Dp65mwALNVXjlhRkier8OjcdjiZ+Q
-	d5/vs/Pg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:content-type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=p2Pxjq3EDch+A/Cg612+l2rXRgJSHzOfWsjrEl5gKfw=; b=erhlyoi6DxmKHEMEFTeIQW3yEX
+	nw2VAZ/QZVUQu2o4ywcIT0gjxL87IPby6bG+aHOMBtAl8KORZ/3xIV759vLQa2hEH/OUU/hV/Tf4E
+	fT4L9zwiQwkVC3oVPlANaPbrAg7XJTM8rE1hqTNd6dXpiz+/8uzkUm6TD8ybV7ELpu82lItaoHFXh
+	hYhXsHAS94gJxEOhYJyFPZlYWSaXT6ZUGRPYKzaSOddGzeNE+gp8HeF8sZqXtNJiiFIcT4nhQ2Y5I
+	eM7MIZTwx7by8WbMXtCAM0DYbiktujy7lMy+3O9LuHD2HM1LWMnFEE7qrcaVVI9h4N2NkDQZn0on/
+	ArKQebug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpVdN-00000005X44-3zKX;
-	Tue, 04 Mar 2025 17:00:45 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpVgY-00000005Xf7-3cG5;
+	Tue, 04 Mar 2025 17:04:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUUN-00000005HTr-1KsZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 04 Mar 2025 15:47:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Wdsp/mdGUlfPMMknuwcVBuwScY0qeFmXxWjkQCv3X4w=; b=CBiPk5fSf6Bnslu5ACTflmutfW
-	5oltbzZ0zzObhreoHdDgh5GTKbfsjGDSOYlHEb5wsbktBeVrjIY4jFGMVXVhKL3L2uhbmgI8Puv7Z
-	3MzFj1BNsddInhvShaMgWjlHQaWMiYbEW8BR1tABpukW+7zNT/mZhWOa37nRxYRIcZ7YGWIUSasus
-	rSc8XLchzYK6F6n4E0HIYkLlDVbXmjcVCNOHwA2cMmiQuNahRhrFSVWRtJ91kVSJIrNHkH/R9uUQ7
-	ox88se0/LJDLlvi5DkrrTvju2/18udrWEmvqwj+dKomh+0IFRpidA4uIE8d09wos3HZNBGrwAZ60c
-	tY7Mvn+Q==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpUUK-000000004dn-0VPf
+	id 1tpUVp-00000005Hig-317L
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 15:47:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B1E095C5DFC;
-	Tue,  4 Mar 2025 15:44:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C875C4CEE5;
-	Tue,  4 Mar 2025 15:47:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741103234;
-	bh=CzgKvgWWn9VItc2I3f+jV1mLlblrc3SXMV7PgF63HnU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=eYIhp1+R5Fy8beCFpYaMRbWBGZHuOJdZwA5KaEoymQlBSNBd9iHALGfkIADKGKV2c
-	 WxnvuhV3XMZ2RaqbeYWdSRYDQC2I8ex6+huJDHDCoSHD2KSjqC4qS+G4PwsIGBqaN1
-	 IKpD3KgkkEWTuxuhsZKgQS5Y7RoSBy/PkW6hEEhuP3p3HgAQqLv2evoUm2Wt9M4HrI
-	 rLNE5E6WJuk0o/0bFdGoMyXme/+tMSCvBPoP8SmafMpfi05YumCh6/cYUHSL4xb2FA
-	 jj3jpmAN9jjk4UcyFneZ5n0ArrM4LG/0dGpdwnhf2CC7S0jmdcGolBYMDK0oCNhjOp
-	 WXRB44edK67ag==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1tpUUB-00AIzw-QM;
-	Tue, 04 Mar 2025 15:47:12 +0000
-Date: Tue, 04 Mar 2025 15:47:11 +0000
-Message-ID: <86eczcpzls.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Fuad Tabba <tabba@google.com>
-Cc: kvmarm@lists.linux.dev,
-	kvm@vger.kernel.org,
+	Tue, 04 Mar 2025 15:48:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741103332;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=p2Pxjq3EDch+A/Cg612+l2rXRgJSHzOfWsjrEl5gKfw=;
+	b=dSohKzmkrDbQUkbHCt5QsBwbe4/qza/EWqnuLinY9HokpoL7io1LOpl0Nrftq2FSKeTDUx
+	UGVxwNI3g1W0ZBE0xHGrKWQ1/2lFL5ArF/qVbMAYlw43bKgdHZp2gDW3gairK1uOl1KHRO
+	jGT/UnelDt9q8Fa7BAwmCa1u0p2pa8Y=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-629-NVKc7ugENn6FxTnc64-63g-1; Tue, 04 Mar 2025 10:48:50 -0500
+X-MC-Unique: NVKc7ugENn6FxTnc64-63g-1
+X-Mimecast-MFC-AGG-ID: NVKc7ugENn6FxTnc64-63g_1741103329
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43bcc04d2ebso7374665e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 07:48:50 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741103329; x=1741708129;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=p2Pxjq3EDch+A/Cg612+l2rXRgJSHzOfWsjrEl5gKfw=;
+        b=vjIOrIahxLQKFWQR5X0Fja4tzxF+1nMnGYNTXqZT7PeZjBIi3yBxXtJpfpeZrBfDr3
+         eMmfNo+kzBJoMZy9VfupHH5+kDzg+wsm03M9GG3BwCI9RiQBX+fLl38zOc8DOBHOmnBM
+         Xf9kRMfVOettHNOMu11EUFv7P4v6nY5lNIsIHfaZ1uXMdg9bQ3h+TQ2NTVggPS8wmLKS
+         eACgp+mzQ2L7JH1yEJrP+10KEdSNk1o8ONN0o9n5EJHDsOFcagZ0rxC5IVcVQeVVS6Tb
+         gCxGYUn3LefWeN1g9MybFjR3SUfV19gqWqMUR8MIyP9UKwYZdAwE3L9yfN2LmZmUpDep
+         vRPQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU7mIi+dfWD2nLapCwSrkdsRNpoRhA+nToi/HE+tv9jilb5UAZMAOxAQZgsrwEhRVi2T+fzB8InSvPzi5jPHHFL@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmVctyfyqrf9H3LdYT1BlsP3CglvUXTJVin/wY0uKKVSMlZQg/
+	pL78VBtoW+W5RmDTkVXCPWvCFw+3kde++nMp4OmX6FcODGK0D4TZIbqgm8FuzoGFc+7ytb3LsWh
+	W/QpRKxyozEzpcIqcRvkLg2xt+SVGb8SRDPpx7wtJztqjLh/aYtq/O7ACiHLB6Oiu2b5LqSge
+X-Gm-Gg: ASbGncs+uh43ThBtcAYE0IUV4ovAO/Uh4hbTLSMuVeA3FvXF6413A5Rxr36iSyvegDt
+	D88NkirsCPVB3duKFmPVhAE+0VFQg29J9g1kss38fLOS4Fqbl1oT1+KipuLnuDGA1LUfukDgVo/
+	0TcyAu/cZfbW9oCSn3OwYl0O9lyrOsgChEaEWvVr4jbyyA7cMQIW8eArfUuUNqWZcVZFg0nYtTv
+	wX1Xi2RlI3xwaAHW8RFsN8wiMg4mvit6CO6kUSkPujwQw/glc5xur5oxwb4EY1CWG+dCu66Op13
+	xERNZoveFSa4yx12VLlGNPQKEuirYdc/LmdcM/c9RB7c0ICwvv6lHjP+HHa+w5WCqG4Cw8Nd3yA
+	U
+X-Received: by 2002:a05:600c:1ca3:b0:439:985b:17d6 with SMTP id 5b1f17b1804b1-43ba6a84156mr139615205e9.27.1741103329017;
+        Tue, 04 Mar 2025 07:48:49 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IHjd2+i+XCDKVaF6WffRx7pSoxLHgB+maZpDEGPGTkxHNk1T3itxVJ3f3AFoBMJYSPfmfvO7g==
+X-Received: by 2002:a05:600c:1ca3:b0:439:985b:17d6 with SMTP id 5b1f17b1804b1-43ba6a84156mr139614845e9.27.1741103328593;
+        Tue, 04 Mar 2025 07:48:48 -0800 (PST)
+Received: from localhost (p200300cbc73610009e302a8acd3d419c.dip0.t-ipconnect.de. [2003:cb:c736:1000:9e30:2a8a:cd3d:419c])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-390e47a7868sm17932287f8f.24.2025.03.04.07.48.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 04 Mar 2025 07:48:48 -0800 (PST)
+From: David Hildenbrand <david@redhat.com>
+To: linux-kernel@vger.kernel.org
+Cc: linux-mm@kvack.org,
 	linux-arm-kernel@lists.infradead.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Subject: Re: [PATCH 03/18] KVM: arm64: Handle trapping of FEAT_LS64* instructions
-In-Reply-To: <CA+EHjTwkX+sy1wuS8LvGM+=m_S-h-=xUUXOyMapnoLiHt0XpOw@mail.gmail.com>
-References: <20250210184150.2145093-1-maz@kernel.org>
-	<20250210184150.2145093-4-maz@kernel.org>
-	<CA+EHjTwkX+sy1wuS8LvGM+=m_S-h-=xUUXOyMapnoLiHt0XpOw@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tabba@google.com, kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, mark.rutland@arm.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	David Hildenbrand <david@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Tong Tiangen <tongtiangen@huawei.com>
+Subject: [PATCH -next v1 0/3] kernel/events/uprobes: uprobe_write_opcode() rewrite
+Date: Tue,  4 Mar 2025 16:48:43 +0100
+Message-ID: <20250304154846.1937958-1-david@redhat.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: uXKF2jqrR91cZ55TzGeYeNOVddvwKiMq3dLwaRQx0WI_1741103329
+X-Mimecast-Originator: redhat.com
+Content-Transfer-Encoding: 8bit
+content-type: text/plain; charset="US-ASCII"; x-default=true
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_154720_462721_6C11B185 
-X-CRM114-Status: GOOD (  31.87  )
+X-CRM114-CacheID: sfid-20250304_074853_829045_B7492C36 
+X-CRM114-Status: GOOD (  20.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,131 +125,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Mar 2025 14:36:19 +0000,
-Fuad Tabba <tabba@google.com> wrote:
-> 
-> Hi Marc,
-> 
-> On Mon, 10 Feb 2025 at 18:42, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > We generally don't expect FEAT_LS64* instructions to trap, unless
-> > they are trapped by a guest hypervisor.
-> >
-> > Otherwise, this is just the guest playing tricks on us by using
-> > an instruction that isn't advertised, which we handle with a well
-> > deserved UNDEF.
-> >
-> > Signed-off-by: Marc Zyngier <maz@kernel.org>
-> > ---
-> >  arch/arm64/kvm/handle_exit.c | 64 ++++++++++++++++++++++++++++++++++++
-> >  1 file changed, 64 insertions(+)
-> >
-> > diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-> > index 512d152233ff2..4f8354bf7dc5f 100644
-> > --- a/arch/arm64/kvm/handle_exit.c
-> > +++ b/arch/arm64/kvm/handle_exit.c
-> > @@ -294,6 +294,69 @@ static int handle_svc(struct kvm_vcpu *vcpu)
-> >         return 1;
-> >  }
-> >
-> > +static int handle_ls64b(struct kvm_vcpu *vcpu)
-> > +{
-> > +       struct kvm *kvm = vcpu->kvm;
-> > +       u64 esr = kvm_vcpu_get_esr(vcpu);
-> > +       u64 iss = ESR_ELx_ISS(esr);
-> > +       bool allowed;
-> > +
-> > +       switch (iss) {
-> > +       case ESR_ELx_ISS_ST64BV:
-> > +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V);
-> > +               break;
-> > +       case ESR_ELx_ISS_ST64BV0:
-> > +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_ACCDATA);
-> > +               break;
-> > +       case ESR_ELx_ISS_LDST64B:
-> > +               allowed = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64);
-> > +               break;
-> > +       default:
-> > +               /* Clearly, we're missing something. */
-> > +               goto unknown_trap;
-> > +       }
-> > +
-> > +       if (!allowed)
-> > +               goto undef;
-> > +
-> > +       if (vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu)) {
-> > +               u64 hcrx = __vcpu_sys_reg(vcpu, HCRX_EL2);
-> > +               bool fwd;
-> > +
-> > +               switch (iss) {
-> > +               case ESR_ELx_ISS_ST64BV:
-> > +                       fwd = !(hcrx & HCRX_EL2_EnASR);
-> > +                       break;
-> > +               case ESR_ELx_ISS_ST64BV0:
-> > +                       fwd = !(hcrx & HCRX_EL2_EnAS0);
-> > +                       break;
-> > +               case ESR_ELx_ISS_LDST64B:
-> > +                       fwd = !(hcrx & HCRX_EL2_EnALS);
-> > +                       break;
-> > +               default:
-> > +                       /* We don't expect to be here */
-> > +                       fwd = false;
-> > +               }
-> > +
-> > +               if (fwd) {
-> > +                       kvm_inject_nested_sync(vcpu, esr);
-> > +                       return 1;
-> > +               }
-> > +       }
-> > +
-> > +unknown_trap:
-> > +       /*
-> > +        * If we land here, something must be very wrong, because we
-> > +        * have no idea why we trapped at all. Warn and undef as a
-> > +        * fallback.
-> > +        */
-> > +       WARN_ON(1);
-> 
-> nit: should this be WARN_ONCE() instead?
-> 
-> > +
-> > +undef:
-> > +       kvm_inject_undefined(vcpu);
-> > +       return 1;
-> > +}
-> 
-> I'm wondering if this can be simplified by having one switch()
-> statement that toggles both allowed and fwd (or maybe even only fwd),
-> and then inject depending on that, e.g.,
-> 
-> +static int handle_ls64b(struct kvm_vcpu *vcpu)
-> +{
-> +    struct kvm *kvm = vcpu->kvm;
-> +    bool is_nv = vcpu_has_nv(vcpu) && !is_hyp_ctxt(vcpu);
-> +    u64 hcrx = __vcpu_sys_reg(vcpu, HCRX_EL2);
-> +    u64 esr = kvm_vcpu_get_esr(vcpu);
-> +    u64 iss = ESR_ELx_ISS(esr);
-> +    bool fwd = false;
-> +
-> +    switch (iss) {
-> +    case ESR_ELx_ISS_ST64BV:
-> +         fwd = kvm_has_feat(kvm, ID_AA64ISAR1_EL1, LS64, LS64_V) &&
-> +                   !(hcrx & HCRX_EL2_EnASR)
+Based on -next, because a related fix [1] is not in mm.git. This is
+the follow-up to [2] (later than I wanted to send it out), now that
+Willy also stumbled over this [3].
 
-Ah, I know what I dislike about this approach: If your L1 guest runs
-at EL2, HCRX_EL2 doesn't apply (it is only for an L2 guest). Yet we
-evaluate it.
+Since the RFC, I rewrote it once again, now using a folio_walk instead of
+our old pagewalk infrastructure.
 
-I think this still works because you shouldn't have HCRX_EL2.EnASR
-clear on the host if LS64V is advertised to the guest, but it feels a
-bit fragile.
 
-I'll have another think at refactoring that code.
+Currently, uprobe_write_opcode() implements COW-breaking manually, which is
+really far from ideal. Further, there is interest in supporting uprobes on
+hugetlb pages [1], and leaving at least the COW-breaking to the core will
+make this much easier.
 
-Thanks,
+Also, I think the current code doesn't really handle some things
+properly (see patch #3) when replacing/zapping pages.
 
-	M.
+Let's rewrite it, to leave COW-breaking to the fault handler, and handle
+registration/unregistration by temporarily unmapping the anonymous page,
+modifying it, and mapping it again. We still have to implement
+zapping of anonymous pages ourselves, unfortunately.
 
+We could look into not performing the temporary unmapping if we can
+perform the write atomically, which would likely also make adding hugetlb
+support a lot easier. But, limited (e.g., only PMD/PUD) hugetlb support
+could be added on top of this with some tweaking.
+
+Note that we now won't have to allocate another anonymous folio when
+unregistering (which will be beneficial for hugetlb as well), we can simply
+modify the already-mapped one from the registration (if any). When
+registering a uprobe, we'll first trigger a ptrace-like write fault to
+break COW, to then modify the already-mapped page.
+
+Briefly sanity tested with perf:
+  [root@localhost ~]# perf probe -x /usr/bin/bash -a main
+  ...
+  [root@localhost ~]# perf record -e probe_bash:main -aR sleep 10 &
+  [1] 2196
+  [root@localhost ~]# bash
+  [root@localhost ~]# exit
+  exit
+  [root@localhost ~]# bash
+  [root@localhost ~]# exit
+  exit
+  [root@localhost ~]# [ perf record: Woken up 1 times to write data ]
+  [ perf record: Captured and wrote 0.287 MB perf.data (8 samples) ]
+  ...
+  [root@localhost ~]# perf report --stdio
+  # To display the perf.data header info, please use --header/--header-only optio>
+  #
+  #
+  # Total Lost Samples: 0
+  #
+  # Samples: 8  of event 'probe_bash:main'
+  # Event count (approx.): 8
+  #
+  # Overhead  Command      Shared Object  Symbol
+  # ........  ...........  .............  ........
+  #
+      75.00%  grepconf.sh  bash           [.] main
+      25.00%  bash         bash           [.] main
+  ...
+
+Are there any uprobe tests / benchmarks that are worth running?
+
+RFC -> v1:
+* Use folio_walk and simplify the logic
+
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Matthew Wilcox <willy@infradead.org>
+Cc: Russell King <linux@armlinux.org.uk>
+Cc: Masami Hiramatsu <mhiramat@kernel.org>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: Arnaldo Carvalho de Melo <acme@kernel.org>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Jiri Olsa <jolsa@kernel.org>
+Cc: Ian Rogers <irogers@google.com>
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: "Liang, Kan" <kan.liang@linux.intel.com>
+Cc: Tong Tiangen <tongtiangen@huawei.com>
+
+[1] https://lkml.kernel.org/r/20250224031149.1598949-1-tongtiangen@huawei.com
+[2] https://lore.kernel.org/linux-mm/20240604122548.359952-2-david@redhat.com/T/
+[3] https://lore.kernel.org/all/d7971673-19ed-448a-9e54-8ffbde5059dc@redhat.com/T/
+[4] https://lkml.kernel.org/r/ZiK50qob9yl5e0Xz@bender.morinfr.org
+
+David Hildenbrand (3):
+  kernel/events/uprobes: pass VMA instead of MM to remove_breakpoint()
+  kernel/events/uprobes: pass VMA to set_swbp(), set_orig_insn() and
+    uprobe_write_opcode()
+  kernel/events/uprobes: uprobe_write_opcode() rewrite
+
+ arch/arm/probes/uprobes/core.c |   4 +-
+ include/linux/uprobes.h        |   6 +-
+ kernel/events/uprobes.c        | 363 +++++++++++++++++----------------
+ 3 files changed, 190 insertions(+), 183 deletions(-)
+
+
+base-commit: cd3215bbcb9d4321def93fea6cfad4d5b42b9d1d
 -- 
-Without deviation from the norm, progress is not possible.
+2.48.1
+
 
