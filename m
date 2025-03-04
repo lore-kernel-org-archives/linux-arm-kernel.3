@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 786A3C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:45:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16D77C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 09:47:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NbnVY7+Zsu39EMT080TGvDgHKBs34s5s+lS6ya9Rggs=; b=zvsdDvdVZ1rxkQRfTxAsSl5LSb
-	8HN2d1E2m3utda5t1lhJ1PROeDL+xREsnFBw9YpzlglnV7VvYD/7u1pyDq8Da2Fw69HYAUxD/qTQR
-	yhlvYejlzhIhz5qvLbnAKu8LFyc6a7IyT+Y30YYTlgnQSryT3a5L4yus+GvkBLa5YRPEtNH8dWwmJ
-	sgYsDORWJVKj9YZ9LVVilH470NTXLKEvHaYp4AtZ0QZ4w7Qk1JuLnOcYY5YtS/Fz4epYBVWinqtv1
-	KypTTzOiLIYbNEGvjLDWGhxkZ6dewz+tX07NJ31S+HC2UAKva4SiQCPl5a2beA2kz8yo++FJUYUxe
-	ESVknbKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JV3pZtApgs6TqusViUPy5JRin7FrjXxYFUIaUJ+B9XQ=; b=SAxefWSRP1vNIklhn8fkSiTIBZ
+	DFG1I7EtsUhZH2W2TF70U//ao+vUFbLcOw9K/36otCqh01vv7FOkKveNeGNs+P76W1R45qKYUV0Pq
+	3d39Rte6g5nSitlEEb17zTTP/+fztgs+cbBspeg/pska1+tVFJH5J8SLRik1wFHGqUbXrwsKSPBSh
+	g0OitXNFgE980Vt0IsqOe0VDYb0BxQ7+Pe490ZGuII7tjG8lfWkaq4aEQ5XqCUsWEfub+QZeQrX+r
+	EiZK9rO93LbqyRp+EJ+pNFck1urdDvRnLEVLcEPPCgaO69lAv/iZhMAz1lwQYksFT0vRr9+MqHmrH
+	TmBgzXpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOpv-00000003xlj-1h8c;
-	Tue, 04 Mar 2025 09:45:15 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tpOrU-00000003yNh-1kz5;
+	Tue, 04 Mar 2025 09:46:52 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpOmZ-00000003waI-10Q5;
-	Tue, 04 Mar 2025 09:41:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741081305;
-	bh=V4CnTDDJt6NGOGhGQPS8FC6bzc1LOyrks5JjjZ6wzOQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GKMDyYchTQRfBI32tSx1RcUARGgdtMy+exmv+qg0+7lEZCz8pU7SvRBil6cC8qK19
-	 1d/019YaI/311Wosb2lYFvlb1AMHl8V91mpgHWWZX7I9ChFdOm3Q0NcpEru7wwjtZh
-	 oZDxPWwQExqFox7dC0VQaFe0/yFNpwwYvuoGBEVjRZVUcuQ8vtg0FAKNhNj8IVCK8x
-	 tIiAK1leEEM/Fs9gfiGUseX5HQti7AUDjjYggRL0EPiNahhOWxmXRnNbNOYzTn3nh4
-	 i/KATrUmS4CbfT2dTHc5t9KzEBt4b6kO05iRCSjjGF61j5CwBSmIk5Bfs/XwWMwlDL
-	 chmjovx/CDYeg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5612617E087F;
-	Tue,  4 Mar 2025 10:41:44 +0100 (CET)
-Message-ID: <c52b132b-fc08-4d1c-8276-1771f7457014@collabora.com>
-Date: Tue, 4 Mar 2025 10:41:43 +0100
+	id 1tpOnF-00000003wlw-2Wdk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 09:42:29 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=JV3pZtApgs6TqusViUPy5JRin7FrjXxYFUIaUJ+B9XQ=; b=sAD73dR4uuNhAcshhcuRcesBx+
+	eJ/C3bmv3pIIe/mG1mLKwsxL767vF9XoYK+XuLoxcB4ZcWd01zg+ESguKuTlE8fSe3DBCudwCK4QH
+	tUYunxwMMarMT59PtDZe7o+MBlfFzUHHgWTAWR/HFTAFBcE2XGKUZOY9ifY73IjijaOidM6spsxSE
+	TFf3w0Ou4GRQUfvuK5g12RRqcEKAkz1yfN6u5AVhvvF8TmSgpmxj7ZOfmMqoCfnW2dmEM2XmvjPlQ
+	vWR3ZzKEgCa2Xwz1NeUER743p8ylHJVVYcWFyw0T6x121cHcZEOlLl6WIzyfEXcfnVEJRzfC1fAmf
+	rCLuWuRQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpOn8-00000000YOw-0yQv;
+	Tue, 04 Mar 2025 09:42:22 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 5C1F230049D; Tue,  4 Mar 2025 10:42:20 +0100 (CET)
+Date: Tue, 4 Mar 2025 10:42:20 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Menglong Dong <menglong8.dong@gmail.com>
+Cc: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com,
+	catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org,
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
+	ast@kernel.org, daniel@iogearbox.net, andrii@kernel.org,
+	martin.lau@linux.dev, eddyz87@gmail.com, yonghong.song@linux.dev,
+	john.fastabend@gmail.com, kpsingh@kernel.org, sdf@fomichev.me,
+	jolsa@kernel.org, davem@davemloft.net, dsahern@kernel.org,
+	mathieu.desnoyers@efficios.com, nathan@kernel.org,
+	nick.desaulniers+lkml@gmail.com, morbo@google.com,
+	samitolvanen@google.com, kees@kernel.org, dongml2@chinatelecom.cn,
+	akpm@linux-foundation.org, riel@surriel.com, rppt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
+	netdev@vger.kernel.org, llvm@lists.linux.dev
+Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
+Message-ID: <20250304094220.GC11590@noisy.programming.kicks-ass.net>
+References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+ <20250303132837.498938-2-dongml2@chinatelecom.cn>
+ <20250303165454.GB11590@noisy.programming.kicks-ass.net>
+ <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
+ <20250304053853.GA7099@noisy.programming.kicks-ass.net>
+ <20250304061635.GA29480@noisy.programming.kicks-ass.net>
+ <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 6/8] soc: mediatek: Add programming flow for
- unsupported subsys ID hardware
-To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
- Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>,
- Nancy Lin <nancy.lin@mediatek.com>, Singo Chang <singo.chang@mediatek.com>,
- Moudy Ho <moudy.ho@mediatek.com>, Xavier Chang <xavier.chang@mediatek.com>,
- Xiandong Wang <xiandong.wang@mediatek.com>,
- Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>,
- Pin-yen Lin <treapking@chromium.org>,
- Project_Global_Chrome_Upstream_Group@mediatek.com,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
-References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
- <20250218054405.2017918-7-jason-jh.lin@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250218054405.2017918-7-jason-jh.lin@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_014147_426759_8E50CF62 
-X-CRM114-Status: GOOD (  18.20  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,86 +88,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 18/02/25 06:41, Jason-JH Lin ha scritto:
-> To support hardware without subsys IDs on new SoCs, add a programming
-> flow that checks whether the subsys ID is valid. If the subsys ID is
-> invalid, the flow will call 2 alternative CMDQ APIs:
-> cmdq_pkt_assign() and cmdq_pkt_write_s_value() to achieve the same
-> functionality.
+On Tue, Mar 04, 2025 at 03:47:45PM +0800, Menglong Dong wrote:
+> We don't have to select FUNCTION_ALIGNMENT_32B, so the
+> worst case is to increase ~2.2%.
 > 
-> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
-> ---
->   drivers/soc/mediatek/mtk-mmsys.c | 14 +++++++++++---
->   drivers/soc/mediatek/mtk-mutex.c | 11 +++++++++--
->   2 files changed, 20 insertions(+), 5 deletions(-)
-> 
-> diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
-> index bb4639ca0b8c..ce949b863b05 100644
-> --- a/drivers/soc/mediatek/mtk-mmsys.c
-> +++ b/drivers/soc/mediatek/mtk-mmsys.c
-> @@ -167,9 +167,17 @@ static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask,
->   	u32 tmp;
->   
->   	if (mmsys->cmdq_base.size && cmdq_pkt) {
-> -		ret = cmdq_pkt_write_mask(cmdq_pkt, mmsys->cmdq_base.subsys,
-> -					  mmsys->cmdq_base.offset + offset, val,
-> -					  mask);
-> +		offset += mmsys->cmdq_base.offset;
-> +		if (mmsys->cmdq_base.subsys != CMDQ_SUBSYS_INVALID) {
+> What do you think?
 
-You're still anyway passing the subsys to cmdq_pkt_write_mask(), right?!
-Why don't you just handle this in cmdq_pkt_write_mask() then? ;-)
+Well, since I don't understand what you need this for at all, I'm firmly
+on the side of not doing this.
 
-I can see this pattern being repeated over and over in both drm/mediatek and MDP3
-drivers, and it's not necessary to duplicate this many times when you can write it
-just once.
+What actual problem is being solved with this meta data nonsense? Why is
+it worth blowing up our I$ footprint over.
 
-Would've also been faster for you to implement... :-D
-
-Cheers,
-Angelo
-
-> +			ret = cmdq_pkt_write_mask(cmdq_pkt, mmsys->cmdq_base.subsys,
-> +						  offset, val, mask);
-> +		} else {
-> +			/* only MMIO access, no need to check mminfro_offset */
-> +			ret = cmdq_pkt_assign(cmdq_pkt, CMDQ_THR_SPR_IDX0,
-> +					      CMDQ_ADDR_HIGH(mmsys->cmdq_base.pa_base));
-> +			ret |= cmdq_pkt_write_s_mask_value(cmdq_pkt, CMDQ_THR_SPR_IDX0,
-> +							   CMDQ_ADDR_LOW(offset), val, mask);
-> +		}
->   		if (ret)
->   			pr_debug("CMDQ unavailable: using CPU write\n");
->   		else
-> diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
-> index 5250c1d702eb..3788b16efbf4 100644
-> --- a/drivers/soc/mediatek/mtk-mutex.c
-> +++ b/drivers/soc/mediatek/mtk-mutex.c
-> @@ -963,6 +963,7 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
->   	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
->   						 mutex[mutex->id]);
->   	struct cmdq_pkt *cmdq_pkt = (struct cmdq_pkt *)pkt;
-> +	dma_addr_t en_addr = mtx->addr + DISP_REG_MUTEX_EN(mutex->id);
->   
->   	WARN_ON(&mtx->mutex[mutex->id] != mutex);
->   
-> @@ -971,8 +972,14 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
->   		return -ENODEV;
->   	}
->   
-> -	cmdq_pkt_write(cmdq_pkt, mtx->cmdq_reg.subsys,
-> -		       mtx->addr + DISP_REG_MUTEX_EN(mutex->id), 1);
-> +	if (mtx->cmdq_reg.subsys != CMDQ_SUBSYS_INVALID) {
-> +		cmdq_pkt_write(cmdq_pkt, mtx->cmdq_reg.subsys, en_addr, 1);
-> +	} else {
-> +		/* only MMIO access, no need to check mminfro_offset */
-> +		cmdq_pkt_assign(cmdq_pkt, CMDQ_THR_SPR_IDX0, CMDQ_ADDR_HIGH(en_addr));
-> +		cmdq_pkt_write_s_value(cmdq_pkt, CMDQ_THR_SPR_IDX0, CMDQ_ADDR_LOW(en_addr), 1);
-> +	}
-> +
->   	return 0;
->   }
->   EXPORT_SYMBOL_GPL(mtk_mutex_enable_by_cmdq);
-
-
+Also note, that if you're going to be explaining this, start from
+scratch, as I have absolutely 0 clues about BPF and such.
 
