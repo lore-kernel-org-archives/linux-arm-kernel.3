@@ -4,82 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0A75C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED85C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 19:59:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wATod6NDOZo61jBXaDR35smZE6WmaKYxcn9zydFDCSg=; b=Wz1DNTvhwNT1H0jevQly6JzMTv
-	bbn3tUyVz/n84o9G5/K4lK7+Ug86kt7b78Oa69WIHxMdMuc5glCcFuXjkeMXE5NyB2xxRvrJCH6Ns
-	zA06kyaw+lVja8/OEh+If/iraAUpzEKjVkBhGOkrXXyh1HxZYV6jqqQNlrKqtb39vUpKnjcNRQEL3
-	GrxawZBr68pyHu0GAEt7i66aNjncA1schPK1eE7yyukrRbNkVihColM8/EIq9Wa7HpQ7/jG42Ky+j
-	noh5MxXLqR29OjNJSLyTkWImIgbOhzMtWScHQMB80PF4B9r1RDLThnihhOfxauWEOL0z+hLyxyZur
-	sNYmSVbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dKiEbfv2wxdcP+dRwBnTiew8ux2INId3e+zLxFho3GE=; b=Ac8dgwbvJVIZnA+hykUlHOB31z
+	nXu06kuagcauO/MTgYsgGyfiQLC6EN8krchHxEg9lsVe/AJsxVwgL98BBnV7oqNVKcSczJxYvHKBM
+	0/m5JNAklfZ7mWGYT+VCQi0uX1YTT31h6uBFr/0/2+7JRo8lKiXhk2oPZGHEWwStEygApi1iAJex7
+	raD8nU0DGACEzkjb2oDKMHq7r/fgnqqLoEgtMTr6FhbK7ZsLCx5GHTAEnrtFun6VIbQlXT5m1YJ/I
+	Opmwuylb/Ki0wMIlG72McWQlOhE1ow2/wqRtFfQaRCsKsLSbSa8oQDQaOoT5i4INaqCJBHvGfmHfe
+	aV6QN6Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpYQI-000000068Dy-1i0Q;
-	Tue, 04 Mar 2025 19:59:26 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1tpYQb-000000068Iq-3s7O;
+	Tue, 04 Mar 2025 19:59:45 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpY8u-000000064HS-0CC1;
-	Tue, 04 Mar 2025 19:41:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741117288; x=1772653288;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=mSXJN62c9c43TayjWMcrZoUoqbOEtw2eHIrrgusAkcQ=;
-  b=n3ifJmcUUbwT6WGY6Zzn8Fc+uGzUOKpWQpIVpphUJ8b4lBpdtYsVuMp7
-   gOUrtPLkHdtZf9LA1Zcgv0cem00e2mHxk1j45ZyFCx5fiNnVjTsU1qMpc
-   2g8VxZfwUoKqeWPQBIfE4X5+e9NN+1XjzJmPolpSWubwDTjzg46qPGs5D
-   wCCOs/Ra1ZQhlA6w4MrzB4jyDANXHqBM+mLxs1J8kjnN0dG/9yOxYuSiX
-   9Jroc1dE9PnrJ191PopR7PV2frOctLOv7J05QzwvgYRJKDwWv6fqDxEhT
-   Qr8blbVzVgF3G+dlSlf3nRYkaQjszdnHYj/OzWETwJ73lwBR29lp409Oe
-   g==;
-X-CSE-ConnectionGUID: 0LIxnIhFQ4ap3/oyNiMUJw==
-X-CSE-MsgGUID: fHUpDJFATwS01TO8IelmOg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="41235961"
-X-IronPort-AV: E=Sophos;i="6.14,220,1736841600"; 
-   d="scan'208";a="41235961"
-Received: from orviesa008.jf.intel.com ([10.64.159.148])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 11:41:27 -0800
-X-CSE-ConnectionGUID: U8VV1OeURqOA6GR9LDuIIQ==
-X-CSE-MsgGUID: EHHSAZjkRsupzERpxCndxw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="119369326"
-Received: from ksztyber-mobl2.ger.corp.intel.com (HELO mdjait-mobl) ([10.245.245.231])
-  by orviesa008-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 04 Mar 2025 11:41:22 -0800
-Date: Tue, 4 Mar 2025 20:41:14 +0100
-From: Mehdi Djait <mehdi.djait@linux.intel.com>
-To: Michael Riesch <michael.riesch@wolfvision.net>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>, 
-	=?utf-8?B?VGjDqW8=?= Lebrun <theo.lebrun@bootlin.com>, Gerald Loacker <gerald.loacker@wolfvision.net>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Sebastian Fricke <sebastian.fricke@collabora.com>, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, Paul Kocialkowski <paulk@sys-base.io>, 
-	Alexander Shiyan <eagle.alexander923@gmail.com>, Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 06/11] media: rockchip: rkcif: add driver for mipi
- csi-2 host
-Message-ID: <3fztpczfxlfzt3bdll4alzllrrqvvr3akhkiqtmtam2v2sbw2y@6hb3aok7h62x>
-References: <20250219-v6-8-topic-rk3568-vicap-v4-0-e906600ae3b0@wolfvision.net>
- <20250219-v6-8-topic-rk3568-vicap-v4-6-e906600ae3b0@wolfvision.net>
+	id 1tpViI-00000005YHA-1vgL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 04 Mar 2025 17:05:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=dKiEbfv2wxdcP+dRwBnTiew8ux2INId3e+zLxFho3GE=; b=ANOgTmjQUFGR2Q/yc+CgbKjboX
+	iQ8Vz3WU8x+H8+20dQoiWzFF+IGF/SvIGGdxmLp/Jnk29Jf0hCPlWAFrkbcANxM+OWS+iV/Fi3Hnq
+	h+OupmOmJPmB740bFCsQuOpcTy/7E2kpiF1hcG52eXfGDVX98xhe6/xsHeibWbNssXerYb0kp376Q
+	bQU5srau8DPMBq2Dmxx2Quoq11vQ8viOdsChh9mz25N54YLuyEuEMV2DE8LMQf/Oh8h+AcUgtfyx3
+	knjYpb2J+6qljm9HEgyMkpG+4b3XD7idIqdeV+KaTsDl9lj/lJAlIDaL/6R82hBMHz57P3DMP16Hj
+	uljgS5Bw==;
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpViC-0000000075G-2Lbw
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 04 Mar 2025 17:05:46 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-abf48293ad0so587734866b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 09:05:43 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741107942; x=1741712742; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=dKiEbfv2wxdcP+dRwBnTiew8ux2INId3e+zLxFho3GE=;
+        b=EE2OgQlutDc7K1zO5JyyjECN8fM57xCEZJHv0GnxImS30+jRC4hO3NAtU829DcU44J
+         y+R99mNtxnWxBf097AayPnq/eGWoerqW2jiwtVEGSjQTxCuGyb1PwBmF5ttp6pha8bOl
+         3MxD8G6Cg/Lo8tWBdrSOXep62pQfZGSXXR5WBIXPLlmp/NaIA+apjVWqZ5EvCfG4SNLL
+         WmZLHpeSl9cvy0jL7RhXcvfzddOATrvq05Rn4rTjBoAroz1KEzX+gTnc37020lKPYSZy
+         qv0sh+4e4g12uK6HVTCWqmyGElId85xUN2YsfCIxCX6TK9+/tHZze9aY+8KV/GAStFKz
+         1CjA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741107942; x=1741712742;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dKiEbfv2wxdcP+dRwBnTiew8ux2INId3e+zLxFho3GE=;
+        b=PK361GnQvHQCqWltjb4WcHhdMH60G2No1t+MdXZXHZNApNASCC9fccRT65r18Gqif0
+         /aDX0SxLINWYEp0hGhROG5+hG2rAAcOzaKIFIJp3p7QTLi5Ud6P/dMkyV5wdX7nGMjzf
+         EuHlKPL5epaSHZCs8CxrUoUFgIGoZpnFfdU+YE/yo6TFEpBnmsk0qKEkifuvdpUkU9Lv
+         t+FJBgwXmYDFVCfSjvyL/aYjeMwH4UzVkaqS2kHX9hXdbew3gzixOw8S3tmIv6XTz4KE
+         k3M+YyW51LrTLeJHNZ0Xf4NrxQELWupn/I0ksUAks49UjK1sQqAKG3Vujenx0HDLcDhi
+         LfLA==
+X-Forwarded-Encrypted: i=1; AJvYcCWKjAG/oLJBilq/XetQxQrzYJGgUwsyt/WBCYX5Pu9g4cEWx8WThYpe80pkDjRD1rdWreHU28JaIVdnMlE7rzff@lists.infradead.org
+X-Gm-Message-State: AOJu0YxkFN8SNIW8azorXKwIJQmrBPTNHLZ/nDiGJdRcGrvM2XCcFeEX
+	T4xnQa0rFR9jfOuRxahvFB3fk06QXtAbaiEb1FfBWbBpsQU1mrMNa24Qe2E6tdo=
+X-Gm-Gg: ASbGncvK265rPch/WryluQIXvBQumgj/g8jo77o5bLx/HT5EwBSwbaCsGi3PjMPjNWr
+	cDDO1WOOPccNM1X0rJy2+++C5yax+Ut4A6Hw334Zt1cR9zZ7ifVemmWdTuoHNanwfRtzv11JWw0
+	9ZuOKLyjV+sa3DyrZrXn8VGeYPmI5SCNn/4xaSzoVKCT1QiJuRl8Za1JbtsEgheno1YXB33dtYP
+	99dP+fX78ZuvSiiw707yKwZEU8O44/2kZ8f0UoHBJsHvNMzTyjBlAUohJzjkX2mK7aj8S36zgzz
+	XeNlL6ap58V7ForY0vp6IJNiRCd+HdNa7xZ1SIHa03JAAY8gDDfwURj2nQ3pBvHv7E5/uowtsxj
+	V+Bir7S43QY5KYbkgZ3/zA7kWcMde
+X-Google-Smtp-Source: AGHT+IFbhvINfL30hs3YpvAxvNGhpuF08a7SPp+ErND7dZCCpi05AobDmHrT2jaUznfQQ+NeOSHQXw==
+X-Received: by 2002:a17:907:2d0d:b0:abf:777d:fb7a with SMTP id a640c23a62f3a-ac20da97c7dmr2947466b.46.1741107942351;
+        Tue, 04 Mar 2025 09:05:42 -0800 (PST)
+Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-abf795ba15esm367589066b.131.2025.03.04.09.05.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 09:05:41 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Tue, 04 Mar 2025 17:05:44 +0000
+Subject: [PATCH v2 16/16] rtc: s5m: convert to dev_err_probe() where
+ appropriate
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250219-v6-8-topic-rk3568-vicap-v4-6-e906600ae3b0@wolfvision.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250304-rtc-cleanups-v2-16-d4689a71668c@linaro.org>
+References: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
+In-Reply-To: <20250304-rtc-cleanups-v2-0-d4689a71668c@linaro.org>
+To: Chanwoo Choi <cw00.choi@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Joel Stanley <joel@jms.id.au>, Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Hans Ulli Kroll <ulli.kroll@googlemail.com>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ =?utf-8?q?T=C3=B3th_J=C3=A1nos?= <gomba007@gmail.com>, 
+ Dianlong Li <long17.cool@163.com>, Nathan Chancellor <nathan@kernel.org>, 
+ Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, 
+ Bill Wendling <morbo@google.com>, Justin Stitt <justinstitt@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-amlogic@lists.infradead.org, 
+ llvm@lists.linux.dev, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_114128_095507_A18B32C7 
-X-CRM114-Status: GOOD (  23.59  )
+X-CRM114-CacheID: sfid-20250304_170544_918201_5FD9B643 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,94 +131,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael,
+dev_err_probe() exists to simplify code and harmonise error messages,
+there's no reason not to use it here.
 
-thank you for the patches.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ drivers/rtc/rtc-s5m.c | 50 +++++++++++++++++++++-----------------------------
+ 1 file changed, 21 insertions(+), 29 deletions(-)
 
-Sorry for the big delay!
+diff --git a/drivers/rtc/rtc-s5m.c b/drivers/rtc/rtc-s5m.c
+index 88aed27660348a05886f080a2848fcabbf9666d0..db5c9b641277213aa1371776c63e2eda3f223465 100644
+--- a/drivers/rtc/rtc-s5m.c
++++ b/drivers/rtc/rtc-s5m.c
+@@ -626,11 +626,10 @@ static int s5m8767_rtc_init_reg(struct s5m_rtc_info *info)
+ 	}
+ 
+ 	info->rtc_24hr_mode = 1;
+-	if (ret < 0) {
+-		dev_err(info->dev, "%s: fail to write controlm reg(%d)\n",
+-			__func__, ret);
+-		return ret;
+-	}
++	if (ret < 0)
++		return dev_err_probe(info->dev, ret,
++				     "%s: fail to write controlm reg\n",
++				     __func__);
+ 
+ 	return ret;
+ }
+@@ -669,26 +668,21 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 		alarm_irq = S5M8767_IRQ_RTCA1;
+ 		break;
+ 	default:
+-		dev_err(&pdev->dev,
+-				"Device type %lu is not supported by RTC driver\n",
+-				platform_get_device_id(pdev)->driver_data);
+-		return -ENODEV;
++		return dev_err_probe(&pdev->dev, -ENODEV,
++				     "Device type %lu is not supported by RTC driver\n",
++				     platform_get_device_id(pdev)->driver_data);
+ 	}
+ 
+ 	i2c = devm_i2c_new_dummy_device(&pdev->dev, s5m87xx->i2c->adapter,
+ 					RTC_I2C_ADDR);
+-	if (IS_ERR(i2c)) {
+-		dev_err(&pdev->dev, "Failed to allocate I2C for RTC\n");
+-		return PTR_ERR(i2c);
+-	}
++	if (IS_ERR(i2c))
++		return dev_err_probe(&pdev->dev, PTR_ERR(i2c),
++				     "Failed to allocate I2C for RTC\n");
+ 
+ 	info->regmap = devm_regmap_init_i2c(i2c, regmap_cfg);
+-	if (IS_ERR(info->regmap)) {
+-		ret = PTR_ERR(info->regmap);
+-		dev_err(&pdev->dev, "Failed to allocate RTC register map: %d\n",
+-				ret);
+-		return ret;
+-	}
++	if (IS_ERR(info->regmap))
++		return dev_err_probe(&pdev->dev, PTR_ERR(info->regmap),
++				     "Failed to allocate RTC register map\n");
+ 
+ 	info->dev = &pdev->dev;
+ 	info->s5m87xx = s5m87xx;
+@@ -696,11 +690,10 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 
+ 	if (s5m87xx->irq_data) {
+ 		info->irq = regmap_irq_get_virq(s5m87xx->irq_data, alarm_irq);
+-		if (info->irq <= 0) {
+-			dev_err(&pdev->dev, "Failed to get virtual IRQ %d\n",
+-				alarm_irq);
+-			return -EINVAL;
+-		}
++		if (info->irq <= 0)
++			return dev_err_probe(&pdev->dev, -EINVAL,
++					     "Failed to get virtual IRQ %d\n",
++					     alarm_irq);
+ 	}
+ 
+ 	platform_set_drvdata(pdev, info);
+@@ -724,11 +717,10 @@ static int s5m_rtc_probe(struct platform_device *pdev)
+ 		ret = devm_request_threaded_irq(&pdev->dev, info->irq, NULL,
+ 						s5m_rtc_alarm_irq, 0, "rtc-alarm0",
+ 						info);
+-		if (ret < 0) {
+-			dev_err(&pdev->dev, "Failed to request alarm IRQ: %d: %d\n",
+-				info->irq, ret);
+-			return ret;
+-		}
++		if (ret < 0)
++			return dev_err_probe(&pdev->dev, ret,
++					     "Failed to request alarm IRQ %d\n",
++					     info->irq);
+ 		device_init_wakeup(&pdev->dev, true);
+ 	}
+ 
 
-On Wed, Feb 19, 2025 at 11:16:37AM +0100, Michael Riesch wrote:
-> The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
-> and one output port. It receives the data with the help of an external
-> MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video
-> Capture (VICAP) block. Add a V4L2 subdevice driver for this unit.
-> 
-> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
-> ---
->  drivers/media/platform/rockchip/rkcif/Makefile     |   1 +
->  .../platform/rockchip/rkcif/rkcif-mipi-csi-host.c  | 731 +++++++++++++++++++++
->  2 files changed, 732 insertions(+)
-> 
-> diff --git a/drivers/media/platform/rockchip/rkcif/Makefile b/drivers/media/platform/rockchip/rkcif/Makefile
-> index 818424972c7b..0c18efd1f1b4 100644
-> --- a/drivers/media/platform/rockchip/rkcif/Makefile
-> +++ b/drivers/media/platform/rockchip/rkcif/Makefile
-> @@ -4,4 +4,5 @@ rockchip-cif-objs += rkcif-dev.o \
->  	rkcif-capture-dvp.o \
->  	rkcif-capture-mipi.o \
->  	rkcif-interface.o \
-> +	rkcif-mipi-csi-host.o \
+-- 
+2.48.1.711.g2feabab25a-goog
 
-[..]
-
->  	rkcif-stream.o
-> diff --git a/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
-> new file mode 100644
-> index 000000000000..fa3f42b2dc55
-
-SNIP
-
-> --- /dev/null
-> +++ b/drivers/media/platform/rockchip/rkcif/rkcif-mipi-csi-host.c
-> +
-> +static struct platform_driver rkcif_csi_drv = {
-> +	.driver = {
-> +		   .name = "rockchip-mipi-csi",
-> +		   .of_match_table = rkcif_csi_of_match,
-> +		   .pm = &rkcif_csi_pm_ops,
-> +	},
-> +	.probe = rkcif_csi_probe,
-> +	.remove = rkcif_csi_remove,
-> +};
-> +module_platform_driver(rkcif_csi_drv);
-
-[..]
-
-When adding the driver for this CSI-2 Host bridge, you added another
-call to  module_platform_driver()
-
-but in the definition of this macro:
-
-"Each module may only use this macro once, and
-calling it replaces module_init() and module_exit()"
-
-and as you can see in the diff of the Makefile,
-rkcif-mipi-csi-host.0 is part of the same module as rkcif-dev.o, where
-you already call module_platform_driver()
-
-I think the solution here is to call
-platform_register_drivers(drivers, ARRAY_SIZE(drivers)) in rkcif-dev.c
-
-with
-
-static struct platform_driver * const drivers[] = {
-	&rkcif_csi_drv,
-	&rkcif_plat_drv,
-};
-
-then define module_init() and module_exit()
-
-Btw. MODULE_DEVICE_TABLE() is missing both here and in rkcif-dev.c
-
-> +
-> +MODULE_DESCRIPTION("Rockchip MIPI CSI-2 Host platform driver");
-> +MODULE_LICENSE("GPL");
-> 
-> -- 
-> 2.34.1
-> 
-
---
-Kind Regards
-Mehdi Djait
 
