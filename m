@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A4C3C282C6
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:26:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6ADBC282C6
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  4 Mar 2025 00:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=urfZQlGq/pVWGO0zyd3wt9oayIr9+WV6zda/5R7lTs4=; b=apbLByf/fhyVDGKVresqzHlJqC
-	XOoaAUZJptp7cngQpJZs0/bhhfIcu2bzomSkK3OCu1L8AJ3hQeEQe/OaE9WzLv+4rSbh4psrgP3bD
-	pGebNaZCOoyotFF/cModJdEO9XHEcafFjK4kZfbnuD41fMAOqADuIX58xzEJWA6UJGrMGEOCnqcVz
-	VMwQCWGWgXrQa+C3uCRBHPEBbT4LHV7O5/65C7np0StnWPtMNcG8n2oIFFunrVkxyAmsCNEPAkNMJ
-	4BRgFwFhLqumy/kH4O588SqSrDTUQFh98WlNwYsekbqqJsr+rF6xyrH1nIPLlpaurxmj//kPVF2X1
-	+M4TCJ5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=; b=O5/sLef+gS3BkjmC+aGQlV4BcW
+	AGNwEe2KIawU+GPYyH7rHIOpesHJpueNB61LGaFEqXY6VH/yOgSFAV36qaW0SkT4Dq8K1OpCPaDNd
+	pQBBBSHO+A4fOcSg+0uZr1vPA/XI1EFxPBNfRP1C/NGhcUGMxxEWxZQ5XhEDGJQ62h39zInK7oQlu
+	7OL9motYaHtpI/mSEaNhH5YNRsztd8K2pZwLeonRuPp9gA9/5ZCCVh2yPx5JhaztzkVWJOikDsw0d
+	WcDMDQO5fA43Yuyi4weFmx6zVbuf6/+i7lu76JaKizK30pt79NAlqiPl4P7Sqrp4VazhnNnLOGkBA
+	J+S/JJ6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpG74-00000002ebU-0fX9;
-	Tue, 04 Mar 2025 00:26:22 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tpGKF-00000002g8v-1Bw7;
+	Tue, 04 Mar 2025 00:39:59 +0000
+Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpG5B-00000002ePD-2x8u
+	id 1tpGIe-00000002fnt-3D3X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 04 Mar 2025 00:24:26 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-390ec7c2cd8so2405297f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:24:25 -0800 (PST)
+	Tue, 04 Mar 2025 00:38:21 +0000
+Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-43bca0048c3so11505e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 03 Mar 2025 16:38:19 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741047864; x=1741652664; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=urfZQlGq/pVWGO0zyd3wt9oayIr9+WV6zda/5R7lTs4=;
-        b=aUwt8AaPpktDAXNclOPiFCkqs54de7gTFeecje0CDuIzvT3q5+rfWQl0/yC8iLyML6
-         YR5CaF/UdLDK3iSbLJP3kbueVwbZnru8YGeaKCFX/dCUN1Nira6fTOthbR4OG4Vr1U++
-         PHYKtKLw9RMNE7i0mY3a8ky+8AafJfjHhfTXnC0n9ZZyo94MSTrk+iVlDJcD0qK9kmSF
-         XrnfrOL6eMg7hy9Dzg34vXRMQoj+CVppGPxYqkFjyh0cbyC6eCyWGK1gFpiDHqQjA1L9
-         klDQU6Sp6TFz4nCJRxeALRAbnmFwyHbiabc3E9N/+0LsQZLhWHc/a6VTjfKJFzwE+w6i
-         0Vtw==
+        d=google.com; s=20230601; t=1741048698; x=1741653498; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=;
+        b=cDadqx6+A+3lhdhV3BImcu5LAzM1OsYkHS+yHMp0C+WPMnqxoXvpzfITcOILtvsXCM
+         7/Iq33DvvLuFWMH0T3PIad3cDjtnL4IOIo84iABa6LXwfvAp9VRs5f7IlmWp8GEc/l62
+         hvjt68e9Hsr/wgU0C9yCpYlHjfDe7L1R7cgxJDUQm+UjP7mQG+PnmSGtjrYmWiuupJ7+
+         rn7r4onRmGWBHLE/kT7284n+VeTWce6XMVTyHGtbKbOmm2vvZX6hx6pmmrRqgEDT+6KT
+         M+yPBZNo2d2vexjZF3HL56iiZ2ELFMslZwrard9bW5NV6xDX7U0WcI9kRLwiqNGII0ep
+         +rQg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741047864; x=1741652664;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=urfZQlGq/pVWGO0zyd3wt9oayIr9+WV6zda/5R7lTs4=;
-        b=vN6kB53PPaqxBONydIDX08YEyuOzZVT5SuD//ldKicyqarHA+j/3dEUI+7dF5ZXy5t
-         oy00C4yjXMdgsGyGiHP7ShRV3LWxhnr+2bWhyGUfBCdLVzJA3DuJZ8q2dxOPnxguVY7w
-         YckqU26I5okhv7g9nz3IoYT96pEaas15cEjW+bRt+5YAjlhH6MGGLSZmgglnifVqoyMA
-         YQhvmsz1YKhjwv/8zTvN8SgeM833tdrO3mAugRTKanFhF3wNzMWq1dDpvVqNq2Zc6C7f
-         DayjEtKR5r3vJj0BAq1vNsnFXZ51luCQxJG4auUoPYKtyl6hG/nY4GN24T+r6aU5yvRU
-         3x1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUP6D8JMNLvR8mbhFd35xJx7o+2pd5HfbBcc4rvfYo41xVXQ1ZQPpIvlrJ6c9eFiZSL3//sXpLdbeo3vgLLsN3/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw37DBmzzJZ23FKDIUvmSdPWsBokfpu4TNM867IHovxB8jUHqdq
-	zDb8QIH+sxUJO00kDL8pQ4l9xKaqqI5EylO9cA2C5j6FKP1sXFlZwT8AK5Qrk5md5mbHCU+Nue7
-	XT9usNkxf5riyvPPfhnknKOrXlLqz0Ysu
-X-Gm-Gg: ASbGnctoYmYFIROz/YNO51y7UzbLi1TiNgqi7etJgnrLbRk8o4U89r38xCfOwi7CQl5
-	fx49kY26m3G0mYflGtRqN2l8zXRlB58XX+MXcgy1b7ee7R4rlx9zg7IHTVG6EK1pjBnT4e3tPFB
-	Cnaro/d+ljCzuC7JpEx6jTygeTh8N4QdSGmA1OcEmf6A==
-X-Google-Smtp-Source: AGHT+IHO+uVmNNZv/qkoEu5z4sgYhqObHiMzlFXLnOjF27YhrY281zOCVH1Tw0rSTwju5ncIQJYZex/bg3HsNm15TPA=
-X-Received: by 2002:a5d:598d:0:b0:390:f0ff:2bf8 with SMTP id
- ffacd0b85a97d-390f0ff2f85mr11378429f8f.10.1741047863798; Mon, 03 Mar 2025
- 16:24:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741048698; x=1741653498;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=U6X6RdB4UjE6/nuAZYBU8R5Fe+11M30bcPZso+kk5zo=;
+        b=Zb6O6/aPsGhXZRSRs1Tj3IzLMBiJbnu9x5MeydjYgTun6DDLYWle+tfejWvUc0nUAt
+         aCcMZN26OKx0vufijDSLz6yfUQ7wPn3jMIsIQij/D/ytgKTLnyO3MbYpzcFhdB8sfJSM
+         r0/nyu/M/7TGWGgtaN3evgxhpzzVjEzSMqknQDpjvQjd9mEQ/2gqbI/PkcKMa3yaa/3i
+         Rz37an6BIPjEysZA2FEUd20PppFM4fzEzteLMIsrlUEI2t6CK5rUxaDtiXLks4EtEfxE
+         Al/VsiGoYl41BsMNjLO2SC3ou11580dNa6oAK4pAdl510n2GcMS+6aWMETo50cqG9jub
+         YUJg==
+X-Forwarded-Encrypted: i=1; AJvYcCU8ztRREgD0XpY63p/Y+IVA46FOXhMSVLTV6zgcegT+VvS+MOtCzWscw505+VI4PxqDT1qHAuaNTJ1hhhnxR5L4@lists.infradead.org
+X-Gm-Message-State: AOJu0YwqQtkxl6b1xe84j8G2LgYdXRMqR5BIvAS9SJn8GlrgMF6GjWJo
+	ISqLed/teGwgieSUInxWAhrS3Sg3LEb5fsOvyyGQkOCaHmrO+IkL2M8NNcWtxUx6oVR1joDJd5h
+	yHMuY
+X-Gm-Gg: ASbGncuaL9W84dkuRpuqEiVoanodNboIsgfooh/2450kuwKtVoRfLWyH0/5mNX9sU3Q
+	BDBV77J2fiCNjvdhT0jDwwVVCXxY1dGpSWWFDbbFN+D2CDWgbRKUpLXSg5U41mVxe4ZQAOziI/i
+	hm8rsjzwooolgvjFwE5YvqDHz5NA3hFsTnbShb020XC55HD+f8A/P4R+PNC3QpX5PNDerDVYDr8
+	dnpoQVOLTpfw5q2hK6UyN29DS5o+/HhOfuYO8Qh2aDQyIpU8dS22Riy1rltYm8s2dZfhBdoCdHE
+	vT00f+OUoRclPCDy5alsvkPqfqkF5Qp8aUuh03jzepBkKu/64TLYkJfIXD3uQSv48fOv9Z7X4Sv
+	ciallvy5a/t8I
+X-Google-Smtp-Source: AGHT+IE9Y0VrehBJlDbDHPyoWXw+m1J69GUEuvY40Y+njXxv5FVs5PR5YGF4xAoIWOX1sa7YhrCg7Q==
+X-Received: by 2002:a05:600c:4295:b0:43b:c396:7405 with SMTP id 5b1f17b1804b1-43bcbe292f1mr260995e9.7.1741048698270;
+        Mon, 03 Mar 2025 16:38:18 -0800 (PST)
+Received: from google.com (100.235.22.34.bc.googleusercontent.com. [34.22.235.100])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e485dcc1sm15629062f8f.87.2025.03.03.16.38.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 03 Mar 2025 16:38:17 -0800 (PST)
+Date: Tue, 4 Mar 2025 00:38:15 +0000
+From: Sebastian Ene <sebastianene@google.com>
+To: Will Deacon <will@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, Sudeep Holla <sudeep.holla@arm.com>,
+	catalin.marinas@arm.com, joey.gouly@arm.com, oliver.upton@linux.dev,
+	snehalreddy@google.com, suzuki.poulose@arm.com,
+	vdonnefort@google.com, yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2 2/4] KVM: arm64: Move the ffa_to_linux definition to
+ the ffa header
+Message-ID: <Z8ZLdwmFzS-lnssj@google.com>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-3-sebastianene@google.com>
+ <20250227202557.d3fd6ylzbaho4pvx@bogus>
+ <Z8DxZY-09R6lwEW3@google.com>
+ <86wmdapei8.wl-maz@kernel.org>
+ <20250303234426.GB30749@willie-the-truck>
 MIME-Version: 1.0
-References: <cover.1741046028.git.yepeilin@google.com> <b0042990da762f5f6082cb6028c0af6b2b228c54.1741046028.git.yepeilin@google.com>
-In-Reply-To: <b0042990da762f5f6082cb6028c0af6b2b228c54.1741046028.git.yepeilin@google.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Mon, 3 Mar 2025 16:24:12 -0800
-X-Gm-Features: AQ5f1JrTqby__bpiM0CWE4k0H7GR2tFUkKqgrjo6SaastgWB_5YIMYTwEno1ALo
-Message-ID: <CAADnVQKX+PoSUqPBB2+eZrR7wdq-8EVaMxy_Wur7g8wyy3Dcmg@mail.gmail.com>
-Subject: Re: [PATCH bpf-next v5 1/6] bpf: Introduce load-acquire and
- store-release instructions
-To: Peilin Ye <yepeilin@google.com>
-Cc: bpf <bpf@vger.kernel.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, bpf@ietf.org, 
-	Alexei Starovoitov <ast@kernel.org>, Xu Kuohai <xukuohai@huaweicloud.com>, 
-	Eduard Zingerman <eddyz87@gmail.com>, David Vernet <void@manifault.com>, 
-	Daniel Borkmann <daniel@iogearbox.net>, Andrii Nakryiko <andrii@kernel.org>, 
-	Martin KaFai Lau <martin.lau@linux.dev>, Song Liu <song@kernel.org>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Hao Luo <haoluo@google.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	"Paul E. McKenney" <paulmck@kernel.org>, Puranjay Mohan <puranjay@kernel.org>, 
-	Ilya Leoshkevich <iii@linux.ibm.com>, Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Quentin Monnet <qmo@kernel.org>, Mykola Lysenko <mykolal@fb.com>, Shuah Khan <shuah@kernel.org>, 
-	Ihor Solodrai <ihor.solodrai@linux.dev>, Yingchi Long <longyingchi24s@ict.ac.cn>, 
-	Josh Don <joshdon@google.com>, Barret Rhoden <brho@google.com>, Neel Natu <neelnatu@google.com>, 
-	Benjamin Segall <bsegall@google.com>, LKML <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250303234426.GB30749@willie-the-truck>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250303_162425_744175_5C1A50DC 
-X-CRM114-Status: UNSURE (   9.32  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250303_163820_800624_D38758BB 
+X-CRM114-Status: GOOD (  21.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,39 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 3, 2025 at 4:13=E2=80=AFPM Peilin Ye <yepeilin@google.com> wrot=
-e:
->
->         switch (insn->imm) {
-> @@ -7780,6 +7813,24 @@ static int check_atomic(struct bpf_verifier_env *e=
-nv, struct bpf_insn *insn)
->         case BPF_XCHG:
->         case BPF_CMPXCHG:
->                 return check_atomic_rmw(env, insn);
-> +       case BPF_LOAD_ACQ:
-> +#ifndef CONFIG_64BIT
-> +               if (BPF_SIZE(insn->code) =3D=3D BPF_DW) {
-> +                       verbose(env,
-> +                               "64-bit load-acquires are only supported =
-on 64-bit arches\n");
-> +                       return -EOPNOTSUPP;
-> +               }
-> +#endif
+On Mon, Mar 03, 2025 at 11:44:28PM +0000, Will Deacon wrote:
+> On Fri, Feb 28, 2025 at 10:09:19AM +0000, Marc Zyngier wrote:
+> > On Thu, 27 Feb 2025 23:12:37 +0000,
+> > Sebastian Ene <sebastianene@google.com> wrote:
+> > > 
+> > > On Thu, Feb 27, 2025 at 08:25:57PM +0000, Sudeep Holla wrote:
+> > > > On Thu, Feb 27, 2025 at 06:17:47PM +0000, Sebastian Ene wrote:
+> > > > > Keep the ffa_to_linux error map in the header and move it away
+> > > > > from the arm ffa driver to make it accessible for other components.
+> > > > 
+> > > > Do you plan to push/target these changes for v6.15 ? If not, I can take
+> > > > this patch with other FF-A changes in my tree for v6.15. Otherwise, it
+> > > > is must go along with other changes.
+> > > > 
+> > > 
+> > > Yes, feel free to pick them with your changes and we can push them
+> > > later.
+> > 
+> > So this series is not a 6.15 candidate?
+> 
+> I think this is 6.15 stuff once it's been reviewed. Sudeep's message is
+> a little confusing as it refers to 6.15 twice (I guess he meant 6.14 the
+> first time?).
+> 
 
-Your earlier proposal of:
-if (BPF_SIZE(insn->code) =3D=3D BPF_DW && BITS_PER_LONG !=3D 64) {
+Right, I think it should be for 6.15 after it ticks the review boxes.
 
-was cleaner.
-Why did you pick ifndef ?
+> Will
 
-> +               return check_atomic_load(env, insn);
-> +       case BPF_STORE_REL:
-> +#ifndef CONFIG_64BIT
-> +               if (BPF_SIZE(insn->code) =3D=3D BPF_DW) {
-> +                       verbose(env,
-> +                               "64-bit store-releases are only supported=
- on 64-bit arches\n");
-> +                       return -EOPNOTSUPP;
-> +               }
-> +#endif
+Thanks,
+Seb
 
