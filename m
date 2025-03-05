@@ -4,103 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C186AC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:11:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C68FC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:12:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bf4Jif3iTwu6xhT/icuxJcCkmXcEX9OzuYCH60IJsfg=; b=zQDgyMHOswblvrSUVKFPZb+UVt
-	JpljsQXkYnMpy6FYTzaLiuM58M8Vv/IsYxv0QS6sK5cNg+BWlQ6NzyUQZA6A4/sOHTjDWp9RGX9P9
-	ypiKeOZeOSeyWnUCeuweM2V5klMMMOflhgHbcX5z/9tfM6EGgJOqJMW7482Kj5KyEFbS622mjGfYg
-	0gwe7FzkUlHWolhuJSsHxxE/vLBe5Ld/lnpkD1Bz4zluMEFCxgHZqpe+VPA2cuFVMiZWwrskwRFJa
-	OO3+O0qppYPhTo14ghwz/P5BAVT+ctcG7wegnLZPnREqQO13lz2fbqMqobWHf55JJwdiILEp/dFe0
-	8zlPJXwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=EaHdjN3Ftssj5DYtrfw4nijQep+Nx/nZheqe395kiZw=; b=0hz2oUcoRbV0W6SdPQ6liSYnqg
+	99zCVuiZIxdGyt0yis9vGtponQDjjDvcuJLkdYyUWzENvBPo4z4im9yFQlyR8ZsG6z2FLKq1nH8Y7
+	2nwHDiCVOhSqSYnQOJNYmA+Xd/LLsARtEGdlfIfK0frMPeVxC1p3PjuaAIJE+x1/4CpREYD6z819o
+	nhZnmbho3ycSogLBXm7p6frpEMMecH7Y2tH+5OwjMQUMJe9qKx3v3GI0gqcc6KE21AbZvZmYuWbEc
+	6ZeAbOrhYdzAp/JFkEuFIX6U5GUtl/oKDRKPnkpDk6fYiHlp2OyYvwdW3KW8y7k1qPqM/4RHw+dEr
+	vErQolJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpliY-00000007dGm-38RH;
-	Wed, 05 Mar 2025 10:11:10 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tplk7-00000007dZ2-26h4;
+	Wed, 05 Mar 2025 10:12:47 +0000
+Received: from mail-am6eur05on20618.outbound.protection.outlook.com ([2a01:111:f403:2612::618] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplSO-00000007ZmT-436P
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 09:54:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=Bf4Jif3iTwu6xhT/icuxJcCkmXcEX9OzuYCH60IJsfg=; b=jOYhHHTbUOYwhCekwNUaXNAoH/
-	Bx+E5PIFnryM3Zle7RvDTJPiZq8A/Z0D1jZ1eYkm6a2iDg0gi2boIADIUpw7LLT/1YrmgRGI4SY1l
-	t9JwMKFB7f/fAJGddgXhQnaSDSexctTI8Y5eDKRbBBIn3C6zwjeielN8d/DW3IXLkKA5BufJAqBWD
-	OBP7Ch8nMkOqw0QVQOvhDtMvDzOH9pLfJ6aKYqPndKsD/Z6R8JuD9QcudCoRpHWpCM6hsFgTau/NM
-	TI/eBHJWzaWKzdXS6r8WS8EB0v8Tx7Q8EBFQF5OpDiXGDBTs57AiivtWXl2UaAYiiDjNJWdVJvQBB
-	nX73EeDQ==;
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplSM-00000005EgT-0w6q
+	id 1tplYm-00000007b4q-3hrr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 09:54:27 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5258N5TW027681;
-	Wed, 5 Mar 2025 10:54:21 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Bf4Jif3iTwu6xhT/icuxJcCkmXcEX9OzuYCH60IJsfg=; b=gQsP8rCNCyfzGn7B
-	C3Hi9eMLbOsT0RPo+sJcPpkGmScvvCPJEwvx56M8zsuxvDLYN4UPLsVVX9qN1fAV
-	RlGEAVzvvBNI7bFPvPvR+6xoRKFAtZCO2B1ZhRWXf7Wwt8uq8f1CGGMGr+X06Mb6
-	nqA+qy6QXM9hq1Cwn7XU7TrQyhnDqz9CGA/CuyORk2rNAJ5SV3e7PK0Wk2+vtcRn
-	oSBEq5Kwl0JvYiBiaKHdIK4gpfq5kYSq+fa1xF6XpHAJnytJwMZ7m+SOsCmsAtnh
-	4bcgYUj2RlLOtvoqEOXYyfLgt4cyKvDreQ+63cUngwjbgSv2cYRb06IBNWyZX0Vu
-	0Ju6Fg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 454cp8nch1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 05 Mar 2025 10:54:20 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9ED8B4002D;
-	Wed,  5 Mar 2025 10:52:50 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id DF2C85AA719;
-	Wed,  5 Mar 2025 10:49:56 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
- (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
- 2025 10:49:56 +0100
-Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
- 2025 10:49:56 +0100
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <jic23@kernel.org>, <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
-CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
-        <wbg@kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v3 7/8] arm64: dts: st: add low-power timer nodes on stm32mp251
-Date: Wed, 5 Mar 2025 10:49:34 +0100
-Message-ID: <20250305094935.595667-8-fabrice.gasnier@foss.st.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
-References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
-MIME-Version: 1.0
+	Wed, 05 Mar 2025 10:01:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=H3hGyDARL5HfKceLcNVEitbva1s6mDTwB8DEqbB1W5gtdFFph+0MxbbdAge3sK9clRgbzwOl5ot14GPcp8WNfreVwPhNCIGxc8uBj/xiupLFXokyNuhytGHpfgJ7pnCCRKv71plVNcdzN+XHLIqOu7tlkoSZRQnrlvq0emquxwWQqRbhkW+TCsK4bw6QiZBP3kOrONh471J6ageRfH7+J/dNr20vyHQBDWByb1Z9+uNFHJ7HUPn+ByaZ1+b5mnD7gECBkXmRm2YXGOwMfocRSq5ulLpnosM9SNPqYhLxm0WsbJzmjeAw90zc8bP4PUQOT2ftj0qkuRRrvboAzChvZA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EaHdjN3Ftssj5DYtrfw4nijQep+Nx/nZheqe395kiZw=;
+ b=h3u4kGEZmMp/hFpy7ntkWF2FyZMQM6zeJwgJEVe1E6wSBP1zzsbwjIDy1OuQVUJ7h/Z1jIN+vbv3UE/nUB3CbpD8xnO864/wQFuck4ayYj8s4uoDWL2gksXGRwqAD/ViHmMfHt+yxYY3ix7okBad949hEESc1gB5LrWFRVH3q51/aCYEHcjJUA7tLLlkTSh01BGdN89JrcJ3YDq18EQ4CW+krSSqRL3gMLn7kxWGrzIAEkG5td9Q9MQMK1FYPUyaQ1TvXgzWEB0dF3eQR92Ekq660TdXhk3Bxr0abG8VC8kSsX49ETwcfsNYaJf17qbxd/sXMenRZuqNolSpTTDeMQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EaHdjN3Ftssj5DYtrfw4nijQep+Nx/nZheqe395kiZw=;
+ b=PgA/xUHaUnt/Ad+N+E6JaiO7xNV1wIHK9mp117fRhv3jjawUnbOk7wfHyCL4y+ohiPFSxtGEOO/SrnEFNjFD9XW0HTF9kuJjPdoiugtET3WK3zx/e1bWvH+okeYYV8MEux1PJGwOwRw6LoGOIsrILpoL35ZY+qicWzqSg5lmpLCk1hGDTAdAGwfBwCsNFhLz8dh950AGPY8/omx09JRGECSwuP1N8yXU/m/1X9Vjt43trrgIYNGsFn+bJJAhYDtkEq4nAO4Fy/y/1IXiwFok6kkPfXu4ntubdcLNwJ0QMi/ydWeBskJirtzTI1x0BsHJAwRtHpTJqXBdcMZwqdCd1g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by VI0PR04MB10541.eurprd04.prod.outlook.com (2603:10a6:800:26a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.27; Wed, 5 Mar
+ 2025 10:00:58 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8511.015; Wed, 5 Mar 2025
+ 10:00:58 +0000
+From: Daniel Baluta <daniel.baluta@nxp.com>
+To: p.zabel@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	shawnguo@kernel.org,
+	mathieu.poirier@linaro.org,
+	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org
+Cc: conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	andersson@kernel.org,
+	Frank.Li@nxp.com,
+	peng.fan@nxp.com,
+	laurentiu.mihalcea@nxp.com,
+	iuliana.prodan@nxp.com,
+	shengjiu.wang@nxp.com,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [PATCH v4 0/8] imx8mp: Add support to Run/Stall DSP via reset API
+Date: Wed,  5 Mar 2025 12:00:28 +0200
+Message-ID: <20250305100037.373782-1-daniel.baluta@nxp.com>
+X-Mailer: git-send-email 2.43.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.48.86.222]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-05_03,2025-03-05_01,2024-11-22_01
+X-ClientProxiedBy: WA2P291CA0031.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1f::12) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VI0PR04MB10541:EE_
+X-MS-Office365-Filtering-Correlation-Id: b69668e4-91e0-4c05-077c-08dd5bcca064
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ExE94XEr4NjlnHj5rhi/o2yby0SzeC5+mlk9hfWsTGJdWHk9SnRA5pbtIRde?=
+ =?us-ascii?Q?Y8UZvatMUOtHe9KROzPIBWX3FBHhGXrP5mD37rvVL8bD9X6myBA5d8U54oj4?=
+ =?us-ascii?Q?S92WZBfvf+u8aIP4CVAbAAfVWY6MD1fCunYD9BbH/tXAJcRebfeVzKPywi7n?=
+ =?us-ascii?Q?hekpoTXnKfpvIImG5++GpSKo95WomD+XiFu+TKB5IZO9pt8d00iNSKhsUTCa?=
+ =?us-ascii?Q?+jrk/CuH0Qrw+caqn5/QsFu+5dZVTfjmtLbmsMY9QrPJqqNzYQxOCGM8i3uU?=
+ =?us-ascii?Q?J8VfitgUUuimdIq52DnaiWdokSPgkLdUrqqYGgYYBRdUpzU3USOtzXQynKx3?=
+ =?us-ascii?Q?6MGxof4VrR1RhSI6gBvOilLe8ybaD9AmJ0dVVIKDMJqDTGZZlGkL3Ovpj8Xd?=
+ =?us-ascii?Q?KMTSRkOSzGNBjgtJ998zXHsKsUUvMQ/G/xHVh3eUGp6BXJXuVJa5U9sLQEd6?=
+ =?us-ascii?Q?/rVc3kJDFTcGv1lQXYv9WGr6lw5u1/57We1J1/bB/t3iFVPDSQlCAvuVlACS?=
+ =?us-ascii?Q?UDvxDu2s/lgR13FbM7GluiF1n7w2ZhK03lU5iuvdxv7dolChZk3h4EODw1Bl?=
+ =?us-ascii?Q?HKA/kEFRFduw9W+e/FtcT69JL6w3MqrR4CxXIYm6byxbAAP6UW0t313RXqrh?=
+ =?us-ascii?Q?NW/b+jVkkY7XtsvxIzUMy0yyOUtZ7vXCkBPzrmTUNXgaQG+KyIz+t7LQ24xk?=
+ =?us-ascii?Q?jEm9Ic9KBuwNk1M7r5ajXgJn0LlAukSoFaqg+EQPrI4vlivLdYIQKIRudjRU?=
+ =?us-ascii?Q?kKAglq82WlHbYs+rEabCs8n8iJNx7KouQI2Wf67aOzELrgak902f65ZoQMho?=
+ =?us-ascii?Q?CxUz8eZi1cKN4hxBn32CYxwnrfRJDKltxSUHdC4dGh6FP9XMxpove7QMWDik?=
+ =?us-ascii?Q?fPKGFAizVqGUHLlxx2XjigfAs8QYzSz+PXvuU73bbPqiPa9fwLM0nIxmEn23?=
+ =?us-ascii?Q?Hykp0/Mux8L6QmRLAgHTmFhxOoPSn1m86cSugjV8BVAMZW9SqFSQ8YnzyYVS?=
+ =?us-ascii?Q?MpP17twOz+vALfa3YvHlRozVaJzHVOtRaOASTP9TSPrmZC5oFWYjbrM3vo9y?=
+ =?us-ascii?Q?zhxlvl7hoEV3RuWWkNfkfEBcyRGJVoMcKJoy5MQtQ8K9OIwprrIlvmmgn5Sw?=
+ =?us-ascii?Q?vMtGgzXiBVOBC8aVhdB31mJVH7J6k9C4aMgthFVhJ/UGx4/cIsaa+3HzfXO9?=
+ =?us-ascii?Q?oePjGn1Pmea/NZVmsjEQ/cQOXLDjgs3AJwtxZvHiArV7nSTlU3tb0f/P+u9K?=
+ =?us-ascii?Q?cBV8ZObB/s0c7iT+yxpWN5cmSMRv16dNkrwbBvrAW6jR7NpX+T8t7WPWkmdu?=
+ =?us-ascii?Q?Zt1hVYdbQtqiGCPvwbIYc9daXwIt6W7nsdpRnSsaMgebzXe+GS/MNOL519Ko?=
+ =?us-ascii?Q?FVdeNWjabEyWH3pf2AYcNQvCqZ8qFMCFCKMjEZASYa7+jtzsOA=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uEn23/F/euD8RJnnD9a0vPt73IL8rPEI1AP/vp0xGu3rz3SshGTYDrLZuJHN?=
+ =?us-ascii?Q?7ka7jNWyfCj7AimnXXYzslarEiXTWilqbSJclXiUgrAx/VHVdeCLiPDOKFIU?=
+ =?us-ascii?Q?YTWv/39ksTXcy/SwEsWfspmBlOdxRszp5zl3O/S1qC1b3iTsI0YidJGnQN/Y?=
+ =?us-ascii?Q?/1UZHu7KSU6Ccc5QjW82LR5IRbcWmfqYVJIjNNuI/r6jOOYEMoUyqV1IX6BU?=
+ =?us-ascii?Q?SUwc/RujsU73LGTihII52KTPO6BQlGtF3+osFnd7tqLsv3IHFLicOmS33hCq?=
+ =?us-ascii?Q?GMyquWNdI8NwlVSQJWR0jPH0Ia69s3WZotN8cxET87eeD7lkMnFdjaTAQ0OU?=
+ =?us-ascii?Q?hYX3xnhAJf3hTwrK5M8897mZLRoh8cXSSDvsHGAfcUxp0iMseFVxIwS5qxWU?=
+ =?us-ascii?Q?u4I1BBwFZ3ZndKZ8kia5+Xkup6F1crjZOVH9XKUmPVXC012bSM5AdyWyEYMx?=
+ =?us-ascii?Q?0jg+p8oK7RD86945YQBqzc4Da7UlOlVFrL33MvddoDK2v6Fv/E3lwOwg9zRN?=
+ =?us-ascii?Q?OOD8VHd0a9ngKTcwUTQp9xCHF2Bo4jk6sk7by526UEoZdPHmRSLqlvcZ8Qgy?=
+ =?us-ascii?Q?Tpy0hlmrcK1NysKaHwe4SBDuf8HToTvpBn0LRnW9SHkqlTAEQJq5TLFYDi4d?=
+ =?us-ascii?Q?a3K9JChvNfPQ8rlVWZPll6w+/yWAFeBWQkDBpl3JtkgFrjEU18r9A2AYMyLU?=
+ =?us-ascii?Q?8GxjvEqHjntEt61Mju326cyr1afdv4YqPm8QfANt+g5WekD2tj1S7S7Mw1U3?=
+ =?us-ascii?Q?pd+NI5mutkKlr7ZNeqIhxmhmdrrru6pvdCo5j+DsGZ+nAVYVp2eJjmC7UO95?=
+ =?us-ascii?Q?DPUJKAL6WJJDWl3D22U84hWWTnLKfinPss9zIcPrhic7McvFzhc0iD3gqzt4?=
+ =?us-ascii?Q?7TE+itPezO3aZn0qyDVZpr4X3XpLnkF0y+bFsleb6W1A32vEORpXtEZUeAHE?=
+ =?us-ascii?Q?FS3tSHIVflk6FXz2FC8JPPLylRM2O2L3+VU9JTZXp+X5M8P/PwzBlcFz358q?=
+ =?us-ascii?Q?ZMsUfVD+8aFqrGjp0eTZGSN5nl6mr60m6tWMcuLIlGobFTgZpJ3so54Wp7Qm?=
+ =?us-ascii?Q?JtdntTRjQAJTjXM9KbW87aOoJhx8MfG0uB5Cv14MIhoTq1afDxFzyFy543iS?=
+ =?us-ascii?Q?E2jlNixS+qhz4Up77jtnssWCYuiTrhFjSHWf9ab5hrYSwXEBidwQGjzfrqDK?=
+ =?us-ascii?Q?Pliya+xvyO4YyQQurHqIekK+ypLf7ygtQ19d9WiljGnHihZfeJBhzGsdqVLw?=
+ =?us-ascii?Q?DMeUbGR6vnFdK2WqxdkK8eWYkAl4B5IvsmIu84DWCzR8Fb0E7zPOl2xyE+nY?=
+ =?us-ascii?Q?CWNJMimvGDXKTQzJA/SnHdq+Lswb94H0e+kGL0rcrX7rJiXHm67zOKPI3qpj?=
+ =?us-ascii?Q?Io8855xX4OCPnD43wpSvFI6CZZQYjDqp1hvdgrJ920LJLIwPbCFnOedNJiWo?=
+ =?us-ascii?Q?V5kYv9kz20Lsc1AktFzYJprin4RZP4paitmsMU+414o/MVTrEFlpKMomwzX5?=
+ =?us-ascii?Q?6d5rndSXNiC8WmY/L689/TnQt/o/KwN2u2n1vaX3WaebCG7RC0/KjPX5SQ2P?=
+ =?us-ascii?Q?winGqGDEvPN2SeP8f+si8mvpKQ7r14h9AsaDX4OY?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b69668e4-91e0-4c05-077c-08dd5bcca064
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 10:00:58.3152
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: e7ewER0yuWUzQhvhaqlyvOQAwtWygEhi1aDUppxkyPr6Y+pJiJOkFvfzXJNlOk6XlTLs/uK0IFUMcUEAQn/gEQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10541
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_095426_318264_5DE8D8C7 
-X-CRM114-Status: UNSURE (   9.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_020104_921456_F399E930 
+X-CRM114-Status: GOOD (  18.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,216 +171,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add low-power timer (LPTimer) support on STM32MP25 SoC.
-The full feature set is implemented in LPTIM1/2/3/4. LPTIM5 supports a
-smaller set of features (no capture/compare) channel. Still, LPTIM5 can
-be used as single PWM, counter, trigger or timer.
+This patch series adds support to control the Run/Stall DSP bits found on
+i.MX8MP via the reset controller API instead of using the syscon API.
 
-Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
----
-Changes in V2:
-- Adopt two compatibles: newly introduced "st,stm32mp25-..." compatible,
-  and fallback "st,stm32-...".
----
- arch/arm64/boot/dts/st/stm32mp251.dtsi | 177 +++++++++++++++++++++++++
- 1 file changed, 177 insertions(+)
+DSP found on i.MX8MP doesn't have a direct reset line so according to hardware
+design team in order to handle assert/deassert/reset functionality we
+need to use a combination of control bits from two modules.
 
-diff --git a/arch/arm64/boot/dts/st/stm32mp251.dtsi b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-index f3c6cdfd7008..505176276e72 100644
---- a/arch/arm64/boot/dts/st/stm32mp251.dtsi
-+++ b/arch/arm64/boot/dts/st/stm32mp251.dtsi
-@@ -238,6 +238,78 @@ rifsc: bus@42080000 {
- 			#access-controller-cells = <1>;
- 			ranges;
- 
-+			lptimer1: timer@40090000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x40090000 0x400>;
-+				interrupts-extended = <&exti1 47 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM1>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 17>;
-+				power-domains = <&RET_PD>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@0 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <0>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer2: timer@400a0000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x400a0000 0x400>;
-+				interrupts-extended = <&exti1 48 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM2>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 18>;
-+				power-domains = <&RET_PD>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@1 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <1>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			i2s2: audio-controller@400b0000 {
- 				compatible = "st,stm32mp25-i2s";
- 				reg = <0x400b0000 0x400>;
-@@ -799,6 +871,111 @@ i2c8: i2c@46040000 {
- 				status = "disabled";
- 			};
- 
-+			lptimer3: timer@46050000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46050000 0x400>;
-+				interrupts-extended = <&exti2 29 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM3>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 19>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@2 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <2>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer4: timer@46060000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46060000 0x400>;
-+				interrupts-extended = <&exti2 30 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM4>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 20>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@3 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <3>;
-+					status = "disabled";
-+				};
-+			};
-+
-+			lptimer5: timer@46070000 {
-+				compatible = "st,stm32mp25-lptimer", "st,stm32-lptimer";
-+				reg = <0x46070000 0x400>;
-+				interrupts-extended = <&exti2 31 IRQ_TYPE_LEVEL_HIGH>;
-+				clocks = <&rcc CK_KER_LPTIM5>;
-+				clock-names = "mux";
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+				access-controllers = <&rifsc 21>;
-+				wakeup-source;
-+				status = "disabled";
-+
-+				counter {
-+					compatible = "st,stm32mp25-lptimer-counter", "st,stm32-lptimer-counter";
-+					status = "disabled";
-+				};
-+
-+				pwm {
-+					compatible = "st,stm32mp25-pwm-lp", "st,stm32-pwm-lp";
-+					#pwm-cells = <3>;
-+					status = "disabled";
-+				};
-+
-+				timer {
-+					compatible = "st,stm32mp25-lptimer-timer", "st,stm32-lptimer-timer";
-+					status = "disabled";
-+				};
-+
-+				trigger@4 {
-+					compatible = "st,stm32mp25-lptimer-trigger", "st,stm32-lptimer-trigger";
-+					reg = <4>;
-+					status = "disabled";
-+				};
-+			};
-+
- 			csi: csi@48020000 {
- 				compatible = "st,stm32mp25-csi";
- 				reg = <0x48020000 0x2000>;
+Audio block control module:
+	- for Run/Stall control bits of the DSP
+
+Debug Access Port (DAP)
+	- for Software Reset via IMX8M_DAP_PWRCTL register
+
+The current implementation for IMX DSP Remotproc driver and for Sound Open
+Firmware driver (already upstream) uses the following approach:
+	- maps the Audio Block Control address via syscon API through
+          the fsl,dsp-ctrl property of the dsp node.
+	- maps the DAP address space using directly a call to ioremap
+          with IMX8M_DAP_DEBUG macro depicting the DAP base address.
+
+The both approaches are problematic when comes to describing the address
+spaces via the DT:
+	- for Audio Block Control, because it uses the syscon interface
+	- for DAP because it hardcodes de base address instead of using a dt node.
+
+This patch series aims to fix the Audio Block control usage of the
+syscon interface and replace it with Reset Controller interface.
+
+Main advantages of using the Reset Controller API is that we stop
+abusing the syscon interface, offer a better probe ordering, PM runtime
+support. Main critique of using the Reset Controller API is that
+Run/Stall bits are not reset bits (but according the hardware design
+team they are part of the reset proccess since there is no real reset
+line).
+
+Initial discussion is here:
+https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
+
+Note that we can safely remove the fsl,dsp-ctrl property usage from IMX DSP
+remoteproc driver because there is no Device Tree users.
+
+Changes since v3:
+https://lore.kernel.org/linux-arm-kernel/20250225102005.408773-5-daniel.baluta@nxp.com/T/
+	- renamed resets ids as per Philipp comments
+	- add boths resets (named them runstall and softreset) as per Philipp comments
+
+Changes since v2:
+(https://lore.kernel.org/lkml/Z7ZNngd3wtJ5MZgl@lizhi-Precision-Tower-5810/T/)
+        - picked R-b and A-b tags
+        - use run_stall instead of reset to refer to reset controller
+          instance
+        - remove 'resets' description as it is a common property
+        - add correct include in the yaml dts snippet example
+Changes since v1:
+(https://lore.kernel.org/imx/20250219030809.GD6537@nxa18884-linux/T/)
+        - addresed comments received on v1
+        - picked up R-b and A-b tags
+
+Daniel Baluta (8):
+  dt-bindings: reset: audiomix: Add reset ids for EARC and DSP
+  dt-bindings: dsp: fsl,dsp: Add resets property
+  arm64: dts: imx8mp: Use resets property
+  reset: imx8mp-audiomix: Add prefix for internal macro
+  reset: imx8mp-audiomix: Prepare the code for more reset bits
+  reset: imx8mp-audiomix: Introduce active_low configuration option
+  reset: imx8mp-audiomix: Add support for DSP run/stall
+  imx_dsp_rproc: Use reset controller API to control the DSP
+
+ .../devicetree/bindings/dsp/fsl,dsp.yaml      | 24 +++++-
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  3 +
+ drivers/remoteproc/imx_dsp_rproc.c            | 25 ++++--
+ drivers/remoteproc/imx_rproc.h                |  2 +
+ drivers/reset/reset-imx8mp-audiomix.c         | 78 +++++++++++++------
+ .../dt-bindings/reset/imx8mp-reset-audiomix.h | 13 ++++
+ 6 files changed, 114 insertions(+), 31 deletions(-)
+ create mode 100644 include/dt-bindings/reset/imx8mp-reset-audiomix.h
+
 -- 
-2.25.1
+2.43.0
 
 
