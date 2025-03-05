@@ -4,98 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ED2BC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:38:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C2AC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:42:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pcxVGicBeXIlHqcfnZNHNlV7cLNQK0d6woyZaSqWTmY=; b=rQBKnNvsazrkZsc1QpSvGaJUf7
-	qtFT0oQZL3WBC7B6q07AkRkdDbzxwBhif7315TmiITUJYT08tUvOQh04bXRQKzWi8lnwmMFnce3D+
-	n94QYpsAKt0/PF5Yv7nBombdn0EHzqMlvbU+pY5JIqt19P/U1aIOhi2loDCMMHeQDZIDpqUyuFbYf
-	Wf9x/PPQ4RvW/sytHu4QQaNIs4Cgb4P9cbppMndUzLjAMPXnCx9YTHMFIR6MQB8DgsfcrThrt4bYJ
-	BsLHV/fKaKdtARrnuWuGRI9FdTlxabrrDucYB4S7yG+nh1vnzQSadSNOFOfhtAzK5XcxrBcfazhq4
-	fql3+Wng==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=; b=OPAunQyc5DZfY7DceqpwLhBXQ6
+	rAoJsBWfe2B24c05/zQimKtlsrByxMeCwzM6fCbCTntdBAhWyjK1M26ruLbVYC7fhtX2rDkyVx/9U
+	GmMElS5qg1nsaR11EB4gVSnmwIiteGRGsPs9w981IWih+V4dFAv5qm5AqkwGq0fO8Nl8NYEryrSOV
+	sAZm3G3XsqlFYJrompSMdX1dsXY0yj9nasFE14JQh+yoG6nUloI8E4o0o4bRCM6KPkWhx67WUJNKS
+	6J7BZwVgUoAIUmsVzmbO1Z9hbPTNCRTOOBJxHFu7JRquAsvCcCM2y5hoSLfgf6z0+1RUAHsMWMKRt
+	Uqvd329w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpo10-000000082a8-2ull;
-	Wed, 05 Mar 2025 12:38:22 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1tpo4M-000000083GN-0Jqg;
+	Wed, 05 Mar 2025 12:41:50 +0000
+Received: from mail-dbaeur03on2060d.outbound.protection.outlook.com ([2a01:111:f403:260d::60d] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnww-000000081s1-2onC
+	id 1tpo2i-000000082xy-09Yz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 12:34:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741178051; x=1772714051;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=KXz7qN+UCvg/zXe/kDPAg/cy+msMPeJPVH/lqPdGHTo=;
-  b=M4QJgfcTHFY8dFtS1t2Mwo6gnUGTVL4DxwmQTV+kjJfLpnr47W3Bdf3P
-   i3jiXXmzvYqNiNdGI/hLeJeIs8QlXf/wBMC83IM3b3DTYhEm/DZL3XAJB
-   +SfaBzERBJ6oA4VoJeLZNZB7T9YhrUXri36HJjcmGeoCdl9Bk0vQygprw
-   2sFR3M82CgwacBnYl1/DwA6mz0mY1PH5J4+d0FqmckxAIeKthmaiKXzoz
-   JA4P0DcsCHNhUwYW/pn8iEW0uo/cv0yRXovpdir3OOD2Sqi46OLNi0l5A
-   ZQ6niN3qrfIBLUfFPmIwAZQyXuOt5X0rqRTveyMFyd8X0fesE1qzUXYGO
-   g==;
-X-CSE-ConnectionGUID: lvbR86F9TvGZlfjrM15JYQ==
-X-CSE-MsgGUID: hLGfe4RCRAGwNXP9R50nOg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="46064873"
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="46064873"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 04:34:05 -0800
-X-CSE-ConnectionGUID: N7Xoy4TzQJysW2kMb1XEUQ==
-X-CSE-MsgGUID: eBSnBMUbTKa2RR8mn5mMOA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="118829798"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.123.55]) ([10.247.123.55])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 04:33:58 -0800
-Message-ID: <4882bd5b-1a64-4ac7-ba51-66143d029e8a@linux.intel.com>
-Date: Wed, 5 Mar 2025 20:33:55 +0800
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v7 5/9] igc: Add support for frame preemption
- verification
-To: Vladimir Oltean <vladimir.oltean@nxp.com>, ",chwee.lin.choong"@intel.com
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Andrew Halaney <ahalaney@redhat.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250303102658.3580232-1-faizal.abdul.rahim@linux.intel.com>
- <20250303102658.3580232-6-faizal.abdul.rahim@linux.intel.com>
- <20250304152644.y7j7eshr4qxhmxq2@skbuf>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <20250304152644.y7j7eshr4qxhmxq2@skbuf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+	Wed, 05 Mar 2025 12:40:09 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vUWtMbLqQlRqgCIxMo17Z0eA6t++QaFp++sFI4HpoFJ8Dr/XyXXiqRR6z280aobcc59NmeH6WX4MMUK3QKVPus5gzr4EMjcKD/G3dmK5qLIT+Zkqtvs/5qOhXYkV29IvgMsuKqY4ZOhlBZghiKvym4AUs/MGLaz3ZjkT9QTsORSl4V48wPD053d5ewcrXGcZKvy/Z9Q6JiEQj2Q6xOmCDPjlcnxuusBDVZ4k+p1rnxxwOS0XPU2caNjkKORT/SWp9e9tM0mlkzvborzN7g3eCrkgxTg9H9ilt3pOOI6zSAFfxNEKmK+Hpw2VuGZW33ZoY5Ewwdvmm3hLNA99cFrgDA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=;
+ b=sp5uNcYwL9m17T5zBPL9H49LWEtNYzFDQRTnbRza5ADWu0Gzc6pBRSdn41KBAeF+s0hhATaCS9TzUK2SNStyRaaDKlF6Ve92YSfjb6tWTu3t6atX21DdkjqL8QYsuVKWx92GG73fWzMwftJXqPXXNnqnt1dcF6mXn7AnEkeMWjCJtTp12zg1P+V5+5izZh1OfGxOscsEjwdvHtcIKV37VYN/+J+syRzuSVd9hKcjNVrn1x85JB9DsBKsiUVpFdcQgb3VMiyJHXA3WTXyP0B+HgkaocyMm8iqYfoZ7z1gZW8D1t4zt/ff56BKJUNKHFot+JvviQmY/4/nSne0hoZkoQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=;
+ b=BxAqMfHgfh+cxtWQWuzIqBzVF0GtgdONB1eE34XbplLuIQsIaD6xlR3dW26YlknzZWATDk5wmSBPKozE9+Qr1DvwSzqbvJu0px9U8Qlf1esYyh1m9psaeXvLXpBG+paUOwPcBPBNR0YIfkLtHpqOpzXNtN+5VztJ7z2lYBXDUN5ZE77+jbGGM9HJV2a2MNRGMStqQJX51Wlb2jY/3SMg5R+ssA2wT4hOWVsKM/QrnlXqftZrmT90acp5WcSz4Q4LTFActvitGTCnj3tjZzrrMYC2g7KvglT8PjHpRF4QjzTEkcyL+UjZTUT/d6VyDC/NrBkGC42ukI+4zU0jiHCy5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU2PR04MB8774.eurprd04.prod.outlook.com (2603:10a6:10:2e1::21)
+ by PA2PR04MB10513.eurprd04.prod.outlook.com (2603:10a6:102:416::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Wed, 5 Mar
+ 2025 12:39:59 +0000
+Received: from DU2PR04MB8774.eurprd04.prod.outlook.com
+ ([fe80::88b8:8584:24dc:e2a1]) by DU2PR04MB8774.eurprd04.prod.outlook.com
+ ([fe80::88b8:8584:24dc:e2a1%7]) with mapi id 15.20.8489.025; Wed, 5 Mar 2025
+ 12:39:59 +0000
+From: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
+To: Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"S.J. Wang" <shengjiu.wang@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Mpuaudiosw <Mpuaudiosw@nxp.com>,
+	Iuliana Prodan <iuliana.prodan@nxp.com>
+Cc: imx@lists.linux.dev,
+	linux-remoteproc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>
+Subject: [PATCH] remoteproc: imx_dsp_rproc: conditionally wait for FW_READY
+Date: Wed,  5 Mar 2025 14:39:23 +0200
+Message-Id: <20250305123923.514386-1-iuliana.prodan@oss.nxp.com>
+X-Mailer: git-send-email 2.25.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: AM0PR02CA0124.eurprd02.prod.outlook.com
+ (2603:10a6:20b:28c::21) To DU2PR04MB8774.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::21)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8774:EE_|PA2PR04MB10513:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1a3fda0e-4ab0-4be7-9a66-08dd5be2d798
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f1nbFPs1i3xsqr/eAMgaMfugyGQc/x1Fy+NFO9V5w25v3LVqohy6acX4hEBa?=
+ =?us-ascii?Q?w4ytecpPIzF8pAZvK+9paV4BSeRqKX5DZ04MeEA3Xvv7zTldXh32RFVe6xto?=
+ =?us-ascii?Q?8DVMGwodvqfz3rj30Pekx9myKDXQUBGpshp6c5nAfag7P5VxM4+yq1BSe8wi?=
+ =?us-ascii?Q?WMsyrVszKVPdsW0HMrcOe/Lfki61exkN8dUabINNw6cGBldWsAMgmEvmsEYH?=
+ =?us-ascii?Q?lLfceWYtTE1ZUOxGNg9GwcXUJ+IwA7Zg/Jn2UofT4ToDYuclPL3OS8aUgNW8?=
+ =?us-ascii?Q?RlKO3463uhvasVBORtGikb1ezTcTr9GBVl4+mtitICAcKgS0gpkkLwLn4Zon?=
+ =?us-ascii?Q?rcMMJbLWs3XJrkqAQy12baCd3bG9KJr0/MdRnmeJCi34LglQq2NTQjhnrXTK?=
+ =?us-ascii?Q?VxHZjSqbx6HEfcU2igQhk0XNGm8uV5bDywbp1CEbJg0EWefRsoxrxjd2Uq6Q?=
+ =?us-ascii?Q?yozdpP3rZEsrKyP9vceC26MZ4izHmEK9nosqrNXQPvk1/3ThzOxsW5ouD862?=
+ =?us-ascii?Q?wi9YXyXvlmGC/XJy6jpxgsWiYbXTe7o1mBpm85huKLDLs1C2/gqCl8B2UGkv?=
+ =?us-ascii?Q?4Kkxt0OxHndsWRrSPHf7iXWJji61GghTgWsE52eV24BwpUvtC2X1DlrM2RVZ?=
+ =?us-ascii?Q?6zGQUDiMXmeoWl3RXwjSyYYSuqN33/iX6z55RpKvXaH+p2EQnFUUlr5GzG95?=
+ =?us-ascii?Q?ulkGnkjVjbLAwn9UTH163976KKcbHC/umcLNQxhHAfFWlci0QHK8RibHRKKj?=
+ =?us-ascii?Q?FLSoGsiRkKyM+Tr6PV6hv3Pp/ZJ9ZhtLCMcAoB8e2OV6k9aKliYLxhgdFO0o?=
+ =?us-ascii?Q?IW3yXfcpPAcKNGxEiEm/qyiEkAREOK471VS/6udminRTqCs5IyqDph6sOC2A?=
+ =?us-ascii?Q?JCRYazQKAXzyb07cE31ByuYfsAa302i+vEs2LrMx/yPZFGX4s3wZXImRhsvS?=
+ =?us-ascii?Q?pvpcrigI1q06msICIrNkk0cvtF/gQkthCzZmR/qqEmgMlLBVRRcLwQgQiVw0?=
+ =?us-ascii?Q?z9vVq3wZfR9eFjh9X/f7AbJ9BPkLTNuqn8lFYltopm82V3jGlPJnP7w+rz+G?=
+ =?us-ascii?Q?JA22g+EcVmZ+gcIioCe+yUQh3ZpikRohBWq5iwan1XL+6ANgao4bEbsfUTB6?=
+ =?us-ascii?Q?EtrB0rBZcP9oNponwPRXDmys0bhgfTQN3af1MiZ1O07x2z1ogEGdDk46aU+v?=
+ =?us-ascii?Q?jd3M8oDO1QshkMLRZKpSLqGWh8mo/qGqflglzmDRJDQK0ZhRwgi4ufSvwJXM?=
+ =?us-ascii?Q?NdBRpltFVXBtA7uWkUlxsUEPJyNYyQPxgX353rMWlm9DiKiefRrIbJINZ5Bm?=
+ =?us-ascii?Q?yPqYT7xj1hIYeOMsI+bJfh+iuUmzzOhCAMZ6n3wIRCJ2Ch8mQx7Lj8Sc/qo5?=
+ =?us-ascii?Q?KrqpUh/yaKjc8MKUPZwynVfOhLvLHhyY7eIeLIdhTVkHaP452lw34HPFt5Zz?=
+ =?us-ascii?Q?H0DkTIGXouFcci20v7dYKyWbJJ/wJkmA?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8774.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PGGreCGLxoWhua3fwhKpAZUzfBwrRXwA9ST7JhsbY/ZC1+ueiJCTk6acT6Ph?=
+ =?us-ascii?Q?k8+B49l1x2JK1uooze7G6YcBisptbUjasKJnjVRlSxLG8Zlq99+bmR150eFR?=
+ =?us-ascii?Q?ooIykpSZp0Oej5bCHKmPocklS7sbXkl8N1nVPbrTjzJFwly52TS0Z2JwbL3P?=
+ =?us-ascii?Q?YwvU6pdAOjd6aLkfW8aY357XeiPZmZnhC7pTBFa94VoFZB++PSPdAikDES0B?=
+ =?us-ascii?Q?DClUJOzmXRBCL2lS1HKwv04Zh3v4AXOkxzC7qpCScZi9AiLFN0E0FIB+Hg2d?=
+ =?us-ascii?Q?FN4/+26Tq3/X9GgAolqo1NOo56pHvt+Ajy9BYDGOab6R9K1gSHtcHA2XwZLM?=
+ =?us-ascii?Q?wQnGMNn8OyR5x9RW0A/FqSyqhrx1Nc0IQzo5VHhHUaUf5GroOqqh54c4Fbgu?=
+ =?us-ascii?Q?uAukbiTChjlzDygLbNsr8Tt5mSCdW81wm/Zo/VkF6/AfBXcVhHZbVAGYbMMQ?=
+ =?us-ascii?Q?Izgu3wombUAQsHSibnk0wffeAf5E+BuNtOemVhFjw4wTmxPwu4OilVcJmQ4v?=
+ =?us-ascii?Q?w6iTX55Uu7iHJLFnTxcTpGxS5q1U3xmwbuc6elFXy27A/q/HkmDSdZecCGrK?=
+ =?us-ascii?Q?fWosx+3HodW/pK8onuzdPWFvIRG4FxNbTDDzC8pL3QvXtiUYQD/dSxJFckV3?=
+ =?us-ascii?Q?eYt4oSI+WPY+5m2DVvs+gGzVDjtjOTNo5gDfvN8YUiNzYlrXPlyreJC/neWV?=
+ =?us-ascii?Q?5J/+opwMpOv3fuarQzSrlC2n8cguaN8WAL4Y8GC0adm3LjkI3NLwNrIISoYw?=
+ =?us-ascii?Q?a7JKplZHX41jNV07bZqQssWS2D7v4QtZDqqq9He80yvdIiTd2Vdg6pBgyLwC?=
+ =?us-ascii?Q?MpTDpvTUSc5aNQeYyEWYeNHL9XPDSwcAuJAJZ2TjOeX42GRP+82VZAHD6QVD?=
+ =?us-ascii?Q?BgXfxB0sW+U9tb6XWCO5J9tNv1sH89OpN0lRZyftCuOcqbNUVRKeMuEDsljV?=
+ =?us-ascii?Q?rRM6tIYJFUZYPZa08AOg0cwa8dpo2gg/V5owQ0PvsZwhbSlai+FekyV95CYE?=
+ =?us-ascii?Q?aZkagG+8/UNq6PBlg2B3uAa2hpBMRVu810dwPoV4mbOuhm2R1+cFsmGlpRwf?=
+ =?us-ascii?Q?MEJjjuylYfNwXsjSUSOFXq7rBQctolD4W//7jBx7kGc0lkVtNdPEf0UTVBLj?=
+ =?us-ascii?Q?YKaROWK4poOO04fQ7b0XDPVCZ9RwZ03FN6Q9sMZ319Hz9hz/C3RVrzBop04S?=
+ =?us-ascii?Q?xoFroMR/GzpWIcphANU8BWyE9jFO0NMyws+jmgl6yWXTUWB6gumjT9oiaTAv?=
+ =?us-ascii?Q?PWTV7/g9ulHeBijE5qw30HYYQ1076BLvwn4VaHDlIKlzeBMtp2lqywMyyCzW?=
+ =?us-ascii?Q?ddcA8TKvwYr6WJ2/PvWhhHPY5GCpbBUOJVaIZgmFqm+p5BiGbYJJE1qn+Trg?=
+ =?us-ascii?Q?mcFkO397lMZHsjjyiIGQskpq1hii5j27/CAR10YZx54Hhfvy5RP8BE4a5rxs?=
+ =?us-ascii?Q?xkPXhNg9y+7IuyiL4cYzr47h41Ig9s+tEQLrMQe15l6KB3PdbgiKuIgZM2Ei?=
+ =?us-ascii?Q?BUdS6j18Sr71hQQklcascYI6OEvzn/zY1hH88nrCHG5h6oc1/qC3Z2BW7Y1F?=
+ =?us-ascii?Q?ibfYCs65hFAJqdVrakh3QrIrnrS2hSwqCBtDslQ2R26RUO3ne7EGntaTOaFm?=
+ =?us-ascii?Q?Kw=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1a3fda0e-4ab0-4be7-9a66-08dd5be2d798
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8774.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 12:39:59.8024
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: tXO0zEEhGGgf+Q2NqSOrTDmyCxMz1SNtOs3QuUPG4Niyg/jFOOwDgmrYAOnG5EayZdAMIOQrnBnK+SuZygsd2A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10513
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_043410_725158_7BB96D6D 
-X-CRM114-Status: GOOD (  14.73  )
+X-CRM114-CacheID: sfid-20250305_044008_092981_6AE38AE4 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,37 +169,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Iuliana Prodan <iuliana.prodan@nxp.com>
 
+Some DSP firmware requires a FW_READY signal before proceeding,
+while others do not.
+Introduce imx_dsp_rproc_wait_fw_ready() to check the resource table
+and determine if waiting is needed.
 
-On 4/3/2025 11:26 pm, Vladimir Oltean wrote:
-> On Mon, Mar 03, 2025 at 05:26:54AM -0500, Faizal Rahim wrote:
->> +static inline bool igc_fpe_is_verify_or_response(union igc_adv_rx_desc *rx_desc,
->> +						 unsigned int size)
->> +{
->> +	u32 status_error = le32_to_cpu(rx_desc->wb.upper.status_error);
->> +	int smd;
->> +
->> +	smd = FIELD_GET(IGC_RXDADV_STAT_SMD_TYPE_MASK, status_error);
->> +
->> +	return (smd == IGC_RXD_STAT_SMD_TYPE_V || smd == IGC_RXD_STAT_SMD_TYPE_R) &&
->> +		size == SMD_FRAME_SIZE;
->> +}
-> 
-> The NIC should explicitly not respond to frames which have an SMD-V but
-> are not "verify" mPackets (7 octets of 0x55 + 1 octet SMD-V + 60 octets
-> of 0x00 + mCRC - as per 802.3 definitions). Similarly, it should only
-> treat SMD-R frames which contain 7 octets of 0x55 + 1 octet SMD-R + 60
-> octets of 0x00 + mCRC as "respond" mPackets, and only advance its
-> verification state machine based on those.
-> 
-> Specifically, it doesn't look like you are ensuring the packet payload
-> contains 60 octets of zeroes. Is this something that the hardware
-> already does for you, or is it something that needs further validation
-> and differentiation in software?
+Use the WAIT_FW_READY flag (bit 1) to distinguish cases where
+waiting is required, as bit 0 is reserved for VIRTIO_RPMSG_F_NS
+in OpenAMP and mentioned in rpmsg documentation (not used in Linux,
+so far).
+This flag is set by the remote processor in the dfeatures member of
+struct fw_rsc_vdev, indicating supported virtio device features.
 
-The hardware doesn’t handle this, so the igc driver have to do it manually. 
-I missed this handling, and Chwee Lin also noticed the issue while testing 
-this patch series—it wasn’t rejecting SMD-V and SMD-R with a non-zero 
-payload. I’ll update this patch to include the fix that Chwee Lin 
-implemented and tested. Thanks.
+Update imx_dsp_rproc_start() to handle this condition accordingly.
+
+Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+---
+ drivers/remoteproc/imx_dsp_rproc.c | 84 +++++++++++++++++++++++++++---
+ 1 file changed, 77 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
+index b9bb15970966..8eefaee28061 100644
+--- a/drivers/remoteproc/imx_dsp_rproc.c
++++ b/drivers/remoteproc/imx_dsp_rproc.c
+@@ -1,5 +1,5 @@
+ // SPDX-License-Identifier: GPL-2.0-only
+-/* Copyright 2021 NXP */
++/* Copyright 2021, 2025 NXP */
+ 
+ #include <dt-bindings/firmware/imx/rsrc.h>
+ #include <linux/arm-smccc.h>
+@@ -38,6 +38,15 @@ MODULE_PARM_DESC(no_mailboxes,
+ #define REMOTE_IS_READY				BIT(0)
+ #define REMOTE_READY_WAIT_MAX_RETRIES		500
+ 
++/*
++ * This flag is set by the remote processor in the dfeatures member of
++ * struct fw_rsc_vdev, indicating supported virtio device features
++ *
++ * Use bit 1 since bit 0 is used for VIRTIO_RPMSG_F_NS
++ * in OpenAMP and mentioned in kernel's rpmsg documentation
++ */
++#define WAIT_FW_READY				BIT(1)
++
+ /* att flags */
+ /* DSP own area */
+ #define ATT_OWN					BIT(31)
+@@ -300,13 +309,74 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
+ 	return -ETIMEDOUT;
+ }
+ 
++/*
++ * Determines whether we should wait for a FW_READY reply
++ * from the remote processor.
++ *
++ * This function inspects the resource table associated with the remote
++ * processor to check if the firmware has indicated that waiting
++ * for a FW_READY signal is necessary.
++ * By default, wait for FW_READY unless an RSC_VDEV explicitly
++ * indicates otherwise.
++ *
++ * Return:
++ *   - true: If we should wait for FW READY
++ *   - false: If FW_READY wait is not required
++ */
++static bool imx_dsp_rproc_wait_fw_ready(struct rproc *rproc)
++{
++	struct device *dev = &rproc->dev;
++	struct fw_rsc_hdr *hdr;
++	struct fw_rsc_vdev *rsc;
++	int i, offset, avail;
++
++	/*
++	 * If there is no resource table, wait for FW_READY
++	 * unless no_mailboxes module param is used
++	 */
++	if (!rproc->table_ptr)
++		return true;
++
++	/* Iterate over each resource entry in the resource table */
++	for (i = 0; i < rproc->table_ptr->num; i++) {
++		offset = rproc->table_ptr->offset[i];
++		hdr = (void *)rproc->table_ptr + offset;
++		avail = rproc->table_sz - offset - sizeof(*hdr);
++
++		/* Ensure the resource table is not truncated */
++		if (avail < 0) {
++			dev_err(dev, "Resource table is truncated\n");
++			return true;
++		}
++
++		/* Check if the resource type is a virtio device */
++		if (hdr->type == RSC_VDEV) {
++			rsc = (struct fw_rsc_vdev *)((void *)hdr + sizeof(*hdr));
++
++			/* vdev does not require waiting for FW_READY */
++			return !!(rsc->dfeatures & WAIT_FW_READY);
++		}
++	}
++
++	/*
++	 * By default, wait for the FW_READY
++	 * unless a vdev entry disables it
++	 */
++	return true;
++}
++
+ /*
+  * Start function for rproc_ops
+  *
+- * There is a handshake for start procedure: when DSP starts, it
+- * will send a doorbell message to this driver, then the
+- * REMOTE_IS_READY flags is set, then driver will kick
+- * a message to DSP.
++ * The start procedure involves a handshake: when the DSP starts, it
++ * sends a doorbell message to this driver, which sets the
++ * REMOTE_IS_READY flag. The driver then sends a message to the DSP.
++ *
++ * Before proceeding, the driver checks if it needs to wait for a
++ * firmware ready reply using imx_dsp_rproc_wait_fw_ready().
++ * If waiting is required, it calls imx_dsp_rproc_ready() to complete
++ * the initialization.
++ * If waiting is not required, the start function returns.
+  */
+ static int imx_dsp_rproc_start(struct rproc *rproc)
+ {
+@@ -335,8 +405,8 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
+ 
+ 	if (ret)
+ 		dev_err(dev, "Failed to enable remote core!\n");
+-	else
+-		ret = imx_dsp_rproc_ready(rproc);
++	else if (imx_dsp_rproc_wait_fw_ready(rproc))
++		return imx_dsp_rproc_ready(rproc);
+ 
+ 	return ret;
+ }
+-- 
+2.25.1
+
 
