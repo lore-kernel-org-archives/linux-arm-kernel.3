@@ -4,136 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9ECC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:18:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A482C28B21
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HybTpq0lnFS4mhIWJVLnsRWrXT0DZJ+DM9dhqtvpULw=; b=CGef2i+ykrOJUgGOguNCD0hLpI
-	58Ni3BgodcTszE8CH7Ym9m0C1/i9/uG0BQhCARfqLWDJ1nqc3WWux7u5Pna1lmNOkZW/iRMqW9VPn
-	taxS9Grk1jsNrhv8igELLXqWovPZ3YJHmm+WMIDSNaO3FE0Llq6i9T61L06qxPZ5qqkqOnnOPeTT3
-	5dXxg7+5j1JDG5Vfx7D6IaZuZJ01bEAiqFlhUshFriLGgCf06wAdsvQLcXHaEt4co+Mm3tZEjs2j9
-	LGViNdC3MUYLo53WziHi0wmx1yIM5ANMmO6FiY9dZ5esS1JZq4xyBbrBVIgx1c6JHwNOeu9dnR+RB
-	hN2DgY7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XruRHgHNa4U+aD5EhN/5bdzeM8wMLCsm+ZTeJKtfedw=; b=IP0Ammr8XEElaoWmVnkmPn1cTS
+	rxac8a0s+Dx4ptUygtfz3U4x5a0JRu9FaX0IzWo2xv8CxSulurMQqzCZfXD4/Pjfs5nnIOmann3nh
+	N7N0IG2Z/dgPbY/rif9OqrhZ74wFuNUqxoCPnftyKbvy8kizvRNilT2XZTnK8k2zUS2KgcrAttKJI
+	jGcMT7BYXniv2yIiIrVdNUx75JHFqATwkKNo3OyQOovXq29jY3Blt+/wMOz1fnSdRjyMVZb27xFoZ
+	QMetKdWx7LHkLEYaReVCkuhD5US2rSkiuGJ91lPSxFs55QuyKXR2sglF7STdAM0uH8OnPQgQkmmv0
+	2YOdKITw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmlp-00000007pVr-1rkp;
-	Wed, 05 Mar 2025 11:18:37 +0000
-Received: from mail-db5eur02on20717.outbound.protection.outlook.com ([2a01:111:f403:2608::717] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
+	id 1tpmlq-00000007pW8-1EDd;
+	Wed, 05 Mar 2025 11:18:38 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpkXk-00000007QVL-3LK3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 08:55:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=EH1A/Tsyw8X3zGkOMNynTLjk+2tsQ8GOk6s/BG6Jhyj/8WdpNCViiUqrfl3UVxemVIV16Gw22Q9pAsr6R0QqzEdcMWpJ49JFaoCjGaawgc6RAcYx/FOKSIeClpZ+hi9W/13Odw6VQsHa6/elbbYbqNVK4Mw9RsaBTzjyCi+89cx3WOWe4zEii5rewrBOsp7l4IGASsuh3T43ketNsQxU5Oriv79mZO43usIlPen8qYVp1w1y6F+6nJgLGX838j4liMRqrcENTkPadCU68GpHCzWJc33izVtHnncz+3pr/uVuC5STqFEG4nSsaxZrB59ioLN4qGwJTYSYzE/d7D6qxQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=HybTpq0lnFS4mhIWJVLnsRWrXT0DZJ+DM9dhqtvpULw=;
- b=njz1+sUsR30t3a89iZ9InxLvqQhwaSI1OwsGd8SZQyO62SRIJd5UZv6Nu/SCUK9ggzP/yPZAQTukZjlX9OJPBkZnBl3mfN86B9aCsn23XaqtystdKeR8O0KN0vW3KuZyxdu8Ooo5SG5EHPaxLhmuGsJREyom4NR75Sn6eFiJyhLvfrHYvX94ndWGuAlEOERitDucTkcIkNbgtRxshef3/MjxFFev5zNcfjDIS3CINhaYdgHFN1HwcU9T4jBqYOOFiE0bDWci5j6FvjmB6p2WQ5zUIc8o1ypOikRv+n1sgMsHPvDQNydNrNrRYlA0RqHtJVeUb6k6DbMleWUqRPCevw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=HybTpq0lnFS4mhIWJVLnsRWrXT0DZJ+DM9dhqtvpULw=;
- b=DpopiKp4AYgyEM9Fbhss4mgNzDhj65iKclY2+DIcHXOSCGANQkRM+n6rd+DLFiFHIZHmW0Q8/UmOaFp4BM52am3ng5pBd41yGd6euCBKAd1G5f5X5To50z4FgEW8SZNu19lOTq01wvsqKH+px+XhJDZ81UhRNnUxrWA1OoGQKT97OZXIoMi3UKq+f5mP17y+WtVVhBv9C/BZVr3GseQ7pUkhkJNcpqz5ixMKGidsUxQpHIrz2m7kUlKu0o+j5kHy3j8jwLDtgApl+qOITvjHyQWiQ5zLcNg4AwK8hDZb4+1J3Rl7zkvvkmRhBhg+pN0wGwbWo3+VWK6g0ByBYV79nA==
-Received: from DB8PR06CA0047.eurprd06.prod.outlook.com (2603:10a6:10:120::21)
- by AS8P195MB2120.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:56d::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.27; Wed, 5 Mar
- 2025 08:55:47 +0000
-Received: from DU6PEPF0000A7DF.eurprd02.prod.outlook.com
- (2603:10a6:10:120:cafe::b4) by DB8PR06CA0047.outlook.office365.com
- (2603:10a6:10:120::21) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.16 via Frontend Transport; Wed,
- 5 Mar 2025 08:55:47 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU6PEPF0000A7DF.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 08:55:47 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 5 Mar
- 2025 09:55:45 +0100
-Received: from phytec.de (172.25.0.51) by Florix.phytec.de (172.25.0.13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 5 Mar
- 2025 09:55:45 +0100
-From: Wadim Egorov <w.egorov@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH v2 3/5] arm64: dts: ti: k3-am642-phyboard-electra: Add boot phase tags
-Date: Wed, 5 Mar 2025 09:55:35 +0100
-Message-ID: <20250305085537.3976579-3-w.egorov@phytec.de>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250305085537.3976579-1-w.egorov@phytec.de>
-References: <20250305085537.3976579-1-w.egorov@phytec.de>
+	id 1tpm14-00000007gUS-27Xe;
+	Wed, 05 Mar 2025 10:30:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=XruRHgHNa4U+aD5EhN/5bdzeM8wMLCsm+ZTeJKtfedw=; b=JdlTAMkNwgUrYAWaY29GMELe9Y
+	85hNrSnj4qmy+9qDYZVJec4KL+NVyVoRfC/ecViJB+NLOzTNmXYJ9Isf0cXEVmPt1NE/VTjhZ9874
+	+q089CdAya5HBY5+CazaEUk0n5lCB7pOUWqtvbLiWpzULlwFGJBgIy54gwoI61joNfRZNAHXMJCuR
+	YzmvpDuVoqL6/Yx9mtrJA/6qXShF68rckdjcjM5K+EerJ/oFXnSByecdxHBs9B4BhHX9jzakMtOJB
+	mg1hVueVFELT+eoTboFJdyXHvAc6ysLIZBYIMfRuwWsto5HPn6SnymS3bIvLuPvpaHsBXNuCh6sNq
+	9+jH3VVQ==;
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpm11-00000000TCD-2Vub;
+	Wed, 05 Mar 2025 10:30:17 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e52c1c3599so5637931a12.2;
+        Wed, 05 Mar 2025 02:30:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741170612; x=1741775412; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XruRHgHNa4U+aD5EhN/5bdzeM8wMLCsm+ZTeJKtfedw=;
+        b=KN/PZRYjktYFOocDouVhL53r3NlU3AoPlTJ5GTFCv8wrzkn/rJhgdJQR/7c5i7w35k
+         JLWA/n4i6hv4vMz1iiAaLOCZEuxPTLlwSJvT3VMjPUexf8KxkZAkamwimDgWKOvoESC7
+         wNVpliniW2qhser8gTECzw9l+kR5jwQv5NmCLSv0u/NzC+xHmR4m/zfagoxrANTJYnSs
+         jq4/NTyNoV6C1sObrMTgCBr+NKSwlAEFtmeqdT9kk0qLQTnEJgdK7jsj9jCCZTApj1nr
+         xF9dOQoMl/6YiABh6Esi3V3WRBPoEP4nP6r8ErfE8v7pUamPv4X7QFrhCOxFZxck8qTc
+         jy1Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741170612; x=1741775412;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XruRHgHNa4U+aD5EhN/5bdzeM8wMLCsm+ZTeJKtfedw=;
+        b=atzdBwEx9PVgiPeI5TCcot1oNXjjZYUYPZB0lg8o6W5FB9JQnzj8qMCuB73gd9VXC9
+         TQSobYeZ1jXA3Q464o+MGH+mqyhYSLMKd4TvM+uJMbEX+KWY7l3z9S7SGoEFEn++0Y4f
+         GdQq08Jn5aefdC8duzttgIEvSkAZOzLz0o+5yXKWKZEM2c2Oji2Jwb0Qq2IHyoi8DdRC
+         pK1XHwrRq+CPzRJH+wmWot49KfF3Kqzb3R/GsLgOzXjzcZPB/QGq14uHDUVduKIIiXGW
+         Pi4+NQgVACrievc241v60kREbKJK0Y6aLGpwiVMPRCmPhWPtKN4WpmE70dOvIXSuWQT+
+         2AJw==
+X-Forwarded-Encrypted: i=1; AJvYcCWdgxKrZcp9lVw7Dtu2zy1xc+AFBtoBJDh5DLybz0+FyUDZDB3EeHIfZrPJ9ogmDE/xVvyX7XzyiARuhWijLncp@lists.infradead.org, AJvYcCX/q2TX/qraa2fvT+W8I3ieZhEtlb9rk7wwPGslqPvDzV137Y1dpTKgu7z91MEUQ4fvbyou3e3TogRMVs42hCs=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxt8WY8+r6OwPmz9d9euJoCywK3M5Y/CRA/WJZ1js4Lpu10k9WS
+	7ZdazVYEB63Si8T/fMnqmbNL63X+acLvhrdYKkgzpohJyot+brEn
+X-Gm-Gg: ASbGnct6SOrO7072XSKBNtJhyleRLjfZOOEVA6g7PcaxmEEVlHHRLEyF4OMRAQUrPnD
+	JEF2kMTLnkjFbJjeihTa3MC9gNFrgQ3CoWSWcsg5Bz7O3jr+ODynyOogi2QEEEisoHqwkgePJ8m
+	LoV+SnixZe1ENRH8L8MaujokR5cWR4a5HegeBWL9mkWpndDv6IPUTtyMCHeDLX6L7xH09ymgUL2
+	xiT850qcNMEco7hhjBo/ungZ+aTjjrrWrRx3w5M97I0pbg3dEVFSmjPZbuZxv5pxs/8jmoUIS3M
+	rhvfNTVEerXxsgrBTS1kuouMHKgs9WZHGqcvzJQa9iSXkd6r3o4+c/EMI7et/hdhkYCGyFxj/yz
+	Md/bOzKEKwf5GAbhj1obbCYZBDIjczc2L8vLb2CZ2g5Wxy4WyIx7eQ9SoKJB+FA==
+X-Google-Smtp-Source: AGHT+IGWn08A2DSO8MVNqGyk+bS/v/k3a0mXwDhZkKNPGgmv7Ei/GzcOqONoOScVVDEII0Mp72AZ4Q==
+X-Received: by 2002:a17:907:1c84:b0:ac2:473:7f35 with SMTP id a640c23a62f3a-ac20e03dcc8mr267370466b.55.1741170612157;
+        Wed, 05 Mar 2025 02:30:12 -0800 (PST)
+Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac1f7161a4esm247154266b.161.2025.03.05.02.30.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 02:30:11 -0800 (PST)
+From: Eric Woudstra <ericwouds@gmail.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Pablo Neira Ayuso <pablo@netfilter.org>,
+	Jozsef Kadlecsik <kadlec@netfilter.org>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Ivan Vecera <ivecera@redhat.com>,
+	Roopa Prabhu <roopa@nvidia.com>,
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Kuniyuki Iwashima <kuniyu@amazon.com>,
+	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Ahmed Zaki <ahmed.zaki@intel.com>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	"Frank Wunderlich" <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>
+Cc: netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org,
+	bridge@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	linux-hardening@vger.kernel.org,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Eric Woudstra <ericwouds@gmail.com>
+Subject: [PATCH v9 nf 07/15] net: core: dev: Add dev_fill_bridge_path()
+Date: Wed,  5 Mar 2025 11:29:41 +0100
+Message-ID: <20250305102949.16370-8-ericwouds@gmail.com>
+X-Mailer: git-send-email 2.47.1
+In-Reply-To: <20250305102949.16370-1-ericwouds@gmail.com>
+References: <20250305102949.16370-1-ericwouds@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.0.51]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7DF:EE_|AS8P195MB2120:EE_
-X-MS-Office365-Filtering-Correlation-Id: fda44280-e6a5-42c2-520d-08dd5bc385cc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WMChxNhna4g/aOlHN/RoGGrvXOvOmqAxtX8tbXPGEI2h4k+lr0cIVoD08MC9?=
- =?us-ascii?Q?0LQNSu6pp8kNszHOWHwAFkzdnrwd9sNX0P3G2e6Hwjl0JOYOYmcxLfHsCEYt?=
- =?us-ascii?Q?oN46Q0dD7dVUE/6UJcgkCMbpWCQ6/EQRQYSYkl+sZouu3Dg4Quo7cFBhgmis?=
- =?us-ascii?Q?LF/5qXmKmmVscTM4bXYvXHZWTCu/07cvlIGtAYIdW02U9tZAwGpVfIVIU04e?=
- =?us-ascii?Q?2aurKz5ZcJHuNtuZmgJgnEoRctbcSXoP15w28x4NB2eC+v2+zCI3vunZxnut?=
- =?us-ascii?Q?zPLPKT0+vE84ly7Eu56rpUxmutOFZDeyH5M66f7+7Ic4gNQDcKsBk6GXFkzu?=
- =?us-ascii?Q?j8szMmByPPuLP6az2QeZ8eh8A7ALiv+tIDHA972dLsPC7H17zPd/d5pHINpA?=
- =?us-ascii?Q?ODDiCCG8CxIu8+TkiKN0e00tEctd63plkSNQwHH0X1Lv9EMIckd8ssDRuC0o?=
- =?us-ascii?Q?dKXSFxk5Ffn0GVvLNkBOlc9FWHPAxKIPF8swtuWFn+7N4cpZ8OaA5mM4XC7E?=
- =?us-ascii?Q?lSjzyklt1jN0KcGVg/xhYnsoT8GdondQiqoK1tS2YNhq6vdSlUUt6IQspEcg?=
- =?us-ascii?Q?3k/lSLAjbupRmqmnBU4v4afWHHdIPfD2uMGwNQNsLs8SjIbTvcWzZTVAThnp?=
- =?us-ascii?Q?nhenw/oSLp99kRIVinEUup+4eCejmj9QeS7rKjQmaw3+/hZ+iCRlwyy/ofxD?=
- =?us-ascii?Q?JgVbKTUTaSYR77HCr0MH27Na6aFT0dANEwSFBCdAgVNAs4mVTVbOfUScdp+o?=
- =?us-ascii?Q?rgmOQhSGiigey63QT2PG+R9p7MRuIrMX7kl3rO/5u7dG/Z3hN75d6onnwrfk?=
- =?us-ascii?Q?uolWMDpPGNAcUxmwAEGiHt4lT4AiNsbF6SlijxwFuMKSt0uLKrl03xGZXl4O?=
- =?us-ascii?Q?vB06hTrs1PIzFRR+ROrfJVs212tOf/oVbbt5/OGegr/e/fOqoIQ7DuDh0vDU?=
- =?us-ascii?Q?srqKPDDhbd4V2uEEh7RlWvQCuyJAv1TBj8JjbLjZ8K5FcqT7vn1oqA9tqKNc?=
- =?us-ascii?Q?cQakb/EOb53ko4jpE6OCxZZPpagvMbCzA7UNh1bcJMjj4ZjTuoboodCh7MxP?=
- =?us-ascii?Q?CrSmzCONmptF7rtFKeSHs3yE2kjfQKKHYZR6t4+KNimlvtGj8X/N8qzgd4Fh?=
- =?us-ascii?Q?l/xokfH/mAdVHXIyMeKNbga2ynQQ14PoxALWQX1NCyO6gtmN0bno+Tn4V8v6?=
- =?us-ascii?Q?BxWP+63LDZ7tTkjrjL5mv+m0Uehp+7iFcbqtlGo39auI1ZQgaVE9drLdCa2F?=
- =?us-ascii?Q?d/km+0fqxRrRNkErsyJxWQeUpmi+FPjfmhSTx+0dIYkvehKXyH4wa/N7Sw+n?=
- =?us-ascii?Q?FpGvAqFsYlq348FSnC/E4gihCphx8CdNmXJxXCrkbSht2oMRqOmHsppKH0DB?=
- =?us-ascii?Q?khX+Ipa6PwSm9QYc0YOCd6pp17bGdFn/q9nYsMdiXbYsNkjyFjFO4Ia8UDri?=
- =?us-ascii?Q?XULgpR0hx/j/GBT5Fp/u5umngImMnonVBufkCg2aSGdJJqTDgzQpTF/4ZXkL?=
- =?us-ascii?Q?L0fauQmKO519h/o=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014)(13003099007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 08:55:47.7363
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fda44280-e6a5-42c2-520d-08dd5bc385cc
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8P195MB2120
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_005557_049468_15080212 
-X-CRM114-Status: GOOD (  10.13  )
+X-CRM114-CacheID: sfid-20250305_103015_732148_A82BAE73 
+X-CRM114-Status: GOOD (  17.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,171 +140,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootph-all and bootph-pre-ram tags were introduced in dt-schema
-(dtschema/schemas/bootph.yaml) to define node usage across different
-boot phases.
+New function dev_fill_bridge_path(), similar to dev_fill_forward_path().
+It handles starting from a bridge port instead of the bridge master.
+The structures ctx and nft_forward_info need to be already filled in with
+the (vlan) encaps.
 
-Add boot phase tags to all required nodes to ensure boot support from
-all sources, including UART, Ethernet, uSD card, eMMC, and OSPI NOR Flash.
-
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
+Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
 ---
-v1: http://lists.infradead.org/pipermail/linux-arm-kernel/2025-February/1006243.html
-v2:
-  - Add bootph-all to main_pktdma
-  - Drop bootph-all from cpsw3g
----
- arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi   | 15 +++++++++++++++
- .../boot/dts/ti/k3-am642-phyboard-electra-rdk.dts |  5 +++++
- 2 files changed, 20 insertions(+)
+ include/linux/netdevice.h |  2 ++
+ net/core/dev.c            | 66 +++++++++++++++++++++++++++++++--------
+ 2 files changed, 55 insertions(+), 13 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-index 99a6fdfaa7fb..74423ca3204f 100644
---- a/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi
-@@ -27,6 +27,7 @@ aliases {
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
-+		bootph-all;
- 	};
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index 7ab86ec228b7..81cdad85d9f1 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -3318,6 +3318,8 @@ void dev_remove_offload(struct packet_offload *po);
  
- 	reserved_memory: reserved-memory {
-@@ -132,6 +133,7 @@ AM64X_IOPAD(0x01f8, PIN_INPUT, 4)	/* (P5) PRG0_PRU1_GPO18.MDIO0_MDIO */
- 			AM64X_IOPAD(0x01fc, PIN_OUTPUT, 4)	/* (R2) PRG0_PRU1_GPO19.MDIO0_MDC */
- 			AM64X_IOPAD(0x0100, PIN_OUTPUT, 7)	/* (V7) PRG1_PRU0_GPO18.GPIO0_63 */
- 		>;
-+		bootph-all;
- 	};
+ int dev_get_iflink(const struct net_device *dev);
+ int dev_fill_metadata_dst(struct net_device *dev, struct sk_buff *skb);
++int dev_fill_bridge_path(struct net_device_path_ctx *ctx,
++			 struct net_device_path_stack *stack);
+ int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
+ 			  struct net_device_path_stack *stack);
+ struct net_device *__dev_get_by_flags(struct net *net, unsigned short flags,
+diff --git a/net/core/dev.c b/net/core/dev.c
+index 2dc705604509..d0810f052d3a 100644
+--- a/net/core/dev.c
++++ b/net/core/dev.c
+@@ -714,44 +714,84 @@ static struct net_device_path *dev_fwd_path(struct net_device_path_stack *stack)
+ 	return &stack->path[k];
+ }
  
- 	cpsw_rgmii1_pins_default: cpsw-rgmii1-default-pins {
-@@ -150,6 +152,7 @@ AM64X_IOPAD(0x01f4, PIN_INPUT, 4)	/* (V5) PRG0_PRU1_GPO17.RGMII1_RD3 */
- 			AM64X_IOPAD(0x014c, PIN_OUTPUT, 4)	/* (AA14) PRG1_PRU1_GPO17.RGMII1_TD3 */
- 			AM64X_IOPAD(0x0154, PIN_INPUT, 7)	/* (V12) PRG1_PRU1_GPO19.GPIO0_84 */
- 		>;
-+		bootph-all;
- 	};
+-int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
+-			  struct net_device_path_stack *stack)
++static int dev_fill_forward_path_common(struct net_device_path_ctx *ctx,
++					struct net_device_path_stack *stack)
+ {
+ 	const struct net_device *last_dev;
+-	struct net_device_path_ctx ctx = {
+-		.dev	= dev,
+-	};
+ 	struct net_device_path *path;
+ 	int ret = 0;
  
- 	eeprom_wp_pins_default: eeprom-wp-default-pins {
-@@ -169,6 +172,7 @@ main_i2c0_pins_default: main-i2c0-default-pins {
- 			AM64X_IOPAD(0x0260, PIN_INPUT, 0)	/* (A18) I2C0_SCL */
- 			AM64X_IOPAD(0x0264, PIN_INPUT, 0)	/* (B18) I2C0_SDA */
- 		>;
-+		bootph-all;
- 	};
+-	memcpy(ctx.daddr, daddr, sizeof(ctx.daddr));
+-	stack->num_paths = 0;
+-	while (ctx.dev && ctx.dev->netdev_ops->ndo_fill_forward_path) {
+-		last_dev = ctx.dev;
++	while (ctx->dev && ctx->dev->netdev_ops->ndo_fill_forward_path) {
++		last_dev = ctx->dev;
+ 		path = dev_fwd_path(stack);
+ 		if (!path)
+ 			return -1;
  
- 	ospi0_pins_default: ospi0-default-pins {
-@@ -185,6 +189,7 @@ AM64X_IOPAD(0x0024, PIN_INPUT, 0)	/* (N18) OSPI0_D6 */
- 			AM64X_IOPAD(0x0028, PIN_INPUT, 0)	/* (M17) OSPI0_D7 */
- 			AM64X_IOPAD(0x002c, PIN_OUTPUT, 0)	/* (L19) OSPI0_CSn0 */
- 		>;
-+		bootph-all;
- 	};
+ 		memset(path, 0, sizeof(struct net_device_path));
+-		ret = ctx.dev->netdev_ops->ndo_fill_forward_path(&ctx, path);
++		ret = ctx->dev->netdev_ops->ndo_fill_forward_path(ctx, path);
+ 		if (ret < 0)
+ 			return -1;
  
- 	rtc_pins_default: rtc-defaults-pins {
-@@ -204,6 +209,7 @@ &cpsw3g_mdio {
- 	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&cpsw_mdio_pins_default>;
-+	bootph-all;
+-		if (WARN_ON_ONCE(last_dev == ctx.dev))
++		if (WARN_ON_ONCE(last_dev == ctx->dev))
+ 			return -1;
+ 	}
  
- 	cpsw3g_phy1: ethernet-phy@1 {
- 		compatible = "ethernet-phy-id2000.a231", "ethernet-phy-ieee802.3-c22";
-@@ -215,12 +221,14 @@ cpsw3g_phy1: ethernet-phy@1 {
- 		reset-gpios = <&main_gpio0 63 GPIO_ACTIVE_LOW>;
- 		reset-assert-us = <1000>;
- 		reset-deassert-us = <1000>;
-+		bootph-all;
- 	};
- };
+-	if (!ctx.dev)
++	if (!ctx->dev)
+ 		return ret;
  
- &cpsw_port1 {
- 	phy-mode = "rgmii-rxid";
- 	phy-handle = <&cpsw3g_phy1>;
-+	bootph-all;
- 	status = "okay";
- };
+ 	path = dev_fwd_path(stack);
+ 	if (!path)
+ 		return -1;
+ 	path->type = DEV_PATH_ETHERNET;
+-	path->dev = ctx.dev;
++	path->dev = ctx->dev;
  
-@@ -266,6 +274,7 @@ &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins_default>;
- 	clock-frequency = <400000>;
-+	bootph-all;
- 
- 	eeprom@50 {
- 		compatible = "atmel,24c32";
-@@ -330,6 +339,10 @@ vdda_1v8: ldo1 {
- 	};
- };
- 
-+&main_pktdma {
-+	bootph-all;
-+};
+ 	return ret;
+ }
 +
- &main_r5fss0_core0 {
- 	mboxes = <&mailbox0_cluster2 &mbox_main_r5fss0_core0>;
- 	memory-region = <&main_r5fss0_core0_dma_memory_region>,
-@@ -377,6 +390,7 @@ serial_flash: flash@0 {
- 		cdns,tchsh-ns = <60>;
- 		cdns,tslch-ns = <60>;
- 		cdns,read-delay = <0>;
-+		bootph-all;
- 	};
- };
++int dev_fill_bridge_path(struct net_device_path_ctx *ctx,
++			 struct net_device_path_stack *stack)
++{
++	const struct net_device *last_dev, *br_dev;
++	struct net_device_path *path;
++
++	stack->num_paths = 0;
++
++	if (!ctx->dev || !netif_is_bridge_port(ctx->dev))
++		return -1;
++
++	br_dev = netdev_master_upper_dev_get_rcu((struct net_device *)ctx->dev);
++	if (!br_dev || !br_dev->netdev_ops->ndo_fill_forward_path)
++		return -1;
++
++	last_dev = ctx->dev;
++	path = dev_fwd_path(stack);
++	if (!path)
++		return -1;
++
++	memset(path, 0, sizeof(struct net_device_path));
++	if (br_dev->netdev_ops->ndo_fill_forward_path(ctx, path) < 0)
++		return -1;
++
++	if (!ctx->dev || WARN_ON_ONCE(last_dev == ctx->dev))
++		return -1;
++
++	return dev_fill_forward_path_common(ctx, stack);
++}
++EXPORT_SYMBOL_GPL(dev_fill_bridge_path);
++
++int dev_fill_forward_path(const struct net_device *dev, const u8 *daddr,
++			  struct net_device_path_stack *stack)
++{
++	struct net_device_path_ctx ctx = {
++		.dev	= dev,
++	};
++
++	memcpy(ctx.daddr, daddr, sizeof(ctx.daddr));
++
++	stack->num_paths = 0;
++
++	return dev_fill_forward_path_common(&ctx, stack);
++}
+ EXPORT_SYMBOL_GPL(dev_fill_forward_path);
  
-@@ -386,6 +400,7 @@ &sdhci0 {
- 	ti,driver-strength-ohm = <50>;
- 	disable-wp;
- 	keep-power-in-suspend;
-+	bootph-all;
- };
- 
- &tscadc0 {
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-index bc8e1ce11047..6fbd8d932396 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts
-@@ -171,6 +171,7 @@ vcc_3v3_mmc: regulator-sd {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-boot-on;
- 		regulator-always-on;
-+		bootph-all;
- 	};
- };
- 
-@@ -275,6 +276,7 @@ AM64X_IOPAD(0x0290, PIN_INPUT, 0)		/* MMC1_CLKLB */
- 			AM64X_IOPAD(0x0294, PIN_INPUT_PULLUP, 0)	/* (J19) MMC1_CMD */
- 			AM64X_IOPAD(0x0298, PIN_INPUT_PULLUP, 0)	/* (D19) MMC1_SDCD */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_spi0_pins_default: main-spi0-default-pins {
-@@ -291,6 +293,7 @@ main_uart0_pins_default: main-uart0-default-pins {
- 			AM64X_IOPAD(0x0230, PIN_INPUT, 0)	/* (D15) UART0_RXD */
- 			AM64X_IOPAD(0x0234, PIN_OUTPUT, 0)	/* (C16) UART0_TXD */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_uart1_pins_default: main-uart1-default-pins {
-@@ -413,6 +416,7 @@ &main_uart0 {
- 	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
- };
- 
- &main_uart1 {
-@@ -429,6 +433,7 @@ &sdhci1 {
- 	pinctrl-0 = <&main_mmc1_pins_default>;
- 	disable-wp;
- 	no-1-8-v;
-+	bootph-all;
- };
- 
- &serdes0 {
+ /* must be called under rcu_read_lock(), as we dont take a reference */
 -- 
-2.34.1
+2.47.1
 
 
