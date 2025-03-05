@@ -4,73 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7789DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:58:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86D65C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Iqp9ZF6Vni6z7KwsEDPVvSuyoxnjbSc5B2UqD02BCEY=; b=g8Xc8O/ILwaI/nj6RexI6+6oN5
-	vLEBVj6DGpABSGr6zOZ8ftsQs6PgIDiBI6SFJsF8v2imx3MU8h1RRzYMkd20oFzaD/Ef7jTrijOmg
-	UlbiSa7Ic40YZjD20vcczaaql1Hborv+TNDAj7S2uUNztxNGuTMPCY2oFA0/aLB5l7E6c51i8BQVW
-	G06WLH+9zPjgl2CErf0ziRB0F7ZwOPusPMTIZIXz501yl8rRoJVywVMc8HC4XOrSZHx4nEer1c53N
-	i0U8tw0HKVKzphQ11Jkq7fEHoS1Wv/LkEZOXstk1bZu5s0zYOyO0/S+6LOghZLIcMlqCPuCNqGBa6
-	Xah6MXrA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	In-Reply-To:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gd5LQxYSNobGONqsfWu3J4CvsQJn9S8T/g4qqw/qSsQ=; b=SaidMdOgJ4E5fY2bXFNcXL6U+t
+	mgR5iL/O6PTCv/a9ZIdpgt1+2r+fUb3TQZRXZx/AbIR2i1dPp4YPhZEajoD949Syt/U9g8tkC3xCY
+	GdFrd3dqicmvwHhGq9pCnUo2bwSTJGTn3zFwaCgHcqyThQF8KbvxpQ3fhrgl1q+fqUTRtsEiYv1rP
+	85th5zjoSIpjvom28TTtG/4BvkHhBMubV3i54UwmXXVGFsjINWwqx4Glo1JXhP2nM3n/J08KOW2pH
+	A0J7h5nCDeY/1MFkCzPMTTNsVr3Rq7/KnZNgwPKfobNHF1F8HJSmg1J60kZvn5MnmqMk4SXIK5Dej
+	5udGUL0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoKW-000000085oI-3EKD;
-	Wed, 05 Mar 2025 12:58:32 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tpoM7-000000086AA-3VO5;
+	Wed, 05 Mar 2025 13:00:11 +0000
+Received: from [203.254.224.34] (helo=mailout4.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoHf-000000085Rk-2TS2;
-	Wed, 05 Mar 2025 12:55:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741179333;
-	bh=sFMNibeR1PP9vzyBkPzNiXrH8oC4TieWSRzMOJhATcM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ONzOs8t/OJz8nHAr6s+iMVmybBzfZ2UwQVeNxlTabpi5vIGRwX7JB10CUHIpQah29
-	 acyZbxtRKNmbLo/S15+wxDbrVAB3Co0q6PwFZ1LNBkSrp60bHOhaUAH/pJiOAWU0FS
-	 itEm0NNTSxUnmOBCMokwW+SfXuJl3yMu38FCRGv+Igihk4Fy8O8HPlHO6gaIL2OcJl
-	 k+zuGgn4avuWTxdvuy41xICUdDjWME91sgb+tCRxO9YzZpK8WLRBy4o49wfyv6wzqU
-	 RldpUnpHTiohJGYlwuc7zYm9ERyljwh5mhtKHxOXK0T2oOxZg3upJHi3KYaCExR7dj
-	 kZUG8bpA9rkug==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id C039D17E0DFD;
-	Wed,  5 Mar 2025 13:55:32 +0100 (CET)
-Message-ID: <d64b11be-b516-46ab-8618-f563075064dd@collabora.com>
-Date: Wed, 5 Mar 2025 13:55:32 +0100
+	id 1tpoJP-000000085cV-3ziY
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 12:57:26 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250305125717epoutp04ca786c3cff1f2c6b3f8e5d760b5c1cfc~p6XkWPhRB1563815638epoutp043
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 12:57:17 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250305125717epoutp04ca786c3cff1f2c6b3f8e5d760b5c1cfc~p6XkWPhRB1563815638epoutp043
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741179437;
+	bh=gd5LQxYSNobGONqsfWu3J4CvsQJn9S8T/g4qqw/qSsQ=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=o+kurU52q76p8064cA/1np7LRzyqDOvytsjGSNEDr0eAzDZtCgr0kyQJc58YJ4liv
+	 ClOOHf9oBdHbEAjf6+XDjOVdPczNytOQBXJafOXSE9hyYTSCW2Lw8Buc02nuNwq8V5
+	 pkDnpUHIJ7w9Fefjxy5j1AlCRLwBDooBLLDrXx0A=
+Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
+	20250305125716epcas5p322c88e6ed91a5222a4693b12e9234e1b~p6XjsaVpt1709517095epcas5p3K;
+	Wed,  5 Mar 2025 12:57:16 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.174]) by
+	epsnrtp3.localdomain (Postfix) with ESMTP id 4Z7CHt4xThz4x9Pp; Wed,  5 Mar
+	2025 12:57:14 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	BD.F8.19933.A2A48C76; Wed,  5 Mar 2025 21:57:14 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250305090444epcas5p4acfc664ce6db58fb94e563626d6dba98~p3MhwhOu-1500615006epcas5p4c;
+	Wed,  5 Mar 2025 09:04:44 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250305090444epsmtrp18b28e75d93a81114b71ebefec3d4f9cf~p3MhviHD91135411354epsmtrp1b;
+	Wed,  5 Mar 2025 09:04:44 +0000 (GMT)
+X-AuditID: b6c32a4a-b87c770000004ddd-30-67c84a2aac7e
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	13.5D.23488.CA318C76; Wed,  5 Mar 2025 18:04:44 +0900 (KST)
+Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250305090440epsmtip2174139d7bcd7df32de34daa127ba8ad4~p3MemAZKR0782607826epsmtip2M;
+	Wed,  5 Mar 2025 09:04:40 +0000 (GMT)
+From: "Shradha Todi" <shradha.t@samsung.com>
+To: =?iso-8859-2?Q?'Krzysztof_Wilczy=F1ski'?= <kw@linux.com>
+Cc: "'Geert Uytterhoeven'" <geert@linux-m68k.org>, "'Fan Ni'"
+	<nifan.cxl@gmail.com>, <linux-kernel@vger.kernel.org>,
+	<linux-pci@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-perf-users@vger.kernel.org>, <manivannan.sadhasivam@linaro.org>,
+	<lpieralisi@kernel.org>, <robh@kernel.org>, <bhelgaas@google.com>,
+	<jingoohan1@gmail.com>, <Jonathan.Cameron@huawei.com>,
+	<a.manzanares@samsung.com>, <pankaj.dubey@samsung.com>, <cassel@kernel.org>,
+	<18255117159@163.com>, <xueshuai@linux.alibaba.com>,
+	<renyu.zj@linux.alibaba.com>, <will@kernel.org>, <mark.rutland@arm.com>,
+	"'Yoshihiro Shimoda'" <yoshihiro.shimoda.uh@renesas.com>, "'Linux-Renesas'"
+	<linux-renesas-soc@vger.kernel.org>
+In-Reply-To: <20250305074447.GC847772@rocinante>
+Subject: RE: [PATCH v7 3/5] Add debugfs based silicon debug support in DWC
+Date: Wed, 5 Mar 2025 14:34:39 +0530
+Message-ID: <065b01db8dad$a2f0a4a0$e8d1ede0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] ASoC: mediatek: mt8188-mt6359: Add headset jack
- detect support
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Trevor Wu <trevor.wu@mediatek.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- kernel@collabora.com, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Zoran Zhan <zoran.zhan@mediatek.com>
-References: <20250214-mt8188-accdet-v1-0-6bbd5483855b@collabora.com>
- <20250214-mt8188-accdet-v1-3-6bbd5483855b@collabora.com>
- <d976b28d-f44f-4d51-8b61-4c046c571412@collabora.com>
- <fc9863ef-8781-46a0-ba8c-6dabd9fb6cdf@notapiano>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <fc9863ef-8781-46a0-ba8c-6dabd9fb6cdf@notapiano>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="iso-8859-2"
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQJfby7SiE0e/TbLvAHLJIl0P7SXpgHiQm8TAh/83CQB4BrFQwHvpDbsAQ7NFRkCkbJgbAIxNbulA4ETfrmx01XmsA==
+Content-Language: en-in
+X-Brightmail-Tracker: H4sIAAAAAAAAA02TfUxTVxiHOb39glhyBVwPbNp6ZVsGK7ZYusOK25IpuWE6URaXuBjWwV2L
+	lLbrh+IyNpQGsKKgwwkNNoLAgDkSyoeglBFAunVDIzY1E0ioAhEdHxsdGQHGWloW/nvOOc+b
+	9/zOycvGwr5lRbGzVHpKq5IpCWYIvaP/jdcFMSk/y4WuoteQs2iZha7270S1ZxVosKwBQ1OP
+	bTTU4KlkoaZqFxPllywzkPWpi4Ee3q5ioiGLnYmc7c101D49S0PGFSMdjRnPMVDdowc0tNph
+	A6im3cNC1QXTAK11d7KQcTQBzS21MtHftgXme1zyRkM5g7xpuQnILvMYi7xuNZDGgRkGaW06
+	xyRHXd1Msq+/2HvoTiQnnFdpZGvtN+Tib5fo5MW2JkAuWHekhh7LTlJQskxKy6dUGerMLJV8
+	L/FBWvr76QkSoUggSkRvEXyVLIfaS+w7kCpIzlJ60xP8kzKlwbuVKtPpiN3vJGnVBj3FV6h1
+	+r0EpclUasSaOJ0sR2dQyeNUlP5tkVAYn+AVP81WXHw+ztBYYe6v5jlWPhjhmkAwG+JieLb8
+	PjCBEHYYfgfAApsD8y/+AtA084DhXywCuGI9z9woGfdYGT4Ow20A3q7a45eeAVhfeQH4Dpj4
+	m3DCuYL5OAJPgitdM3SfhOEOBuwpLFyXgnEhdE8NrHM4ngIb3W6vxGbT8Wh4uYTrQw6eCIsn
+	tvkMDr4V/lI5QfcxhsfBKYc5wLGwvvoF5r8bHy5N1jP8bU/Apf5x4He48O5SyXoyiP8UDP+Y
+	rwsU7INFNXXAz+Hwub2N5ecoOF1aGGA5bGytCPhKuNhaS/Pzu7DXWUX383Z4xdFM8zcLhReW
+	JwIOB3ZaNngX9Kx2B/xIaBl8yCgDhHlTNvOmbOZN2cybMlwH9CYQSWl0OXJKl6CJV1Gn/v/x
+	DHWOFaxPR0xKJ3CPz8f1ARob9AHIxogIzguHXR7GyZSd/pLSqtO1BiWl6wMJ3ve+hEVty1B7
+	x0ulTxeJE4ViiUQiTtwjERFcTkGXUR6Gy2V6KpuiNJR2o47GDo7Kp30dc1R0Q/K4I1d0emyE
+	3pOnszfM2v7UTEVNb3nloDxi4aBJ6ryXWsH7pCWvjVdhOHyNEdKPVd1yHjXYYew/945/XH7i
+	CzJ0J5dq31GHBnql3+1XaGmT/z7ZP1Q0MCmeH453T5q2CghDifRkReT3Z5KeMLu3xEoOTwfx
+	5lZzR4SDp4rTqphDZVcEGZ6ID+/ao1NeMpSO8i1Pa1vKTdIGtSU7aI2TfRz7Xb57yFrfHmO+
+	Nev66syBzl6hIe3lI8ON0txgR4k1JdfzkeQ8N/pIUNrny8nS5LWg+yj8s0zeoV3Ds4cqtz9r
+	ruH1zN+p+FHwKoF3Z0XHU6WuR9fyjgl/4LUQdJ1CJorBtDrZf2vNyhamBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOIsWRmVeSWpSXmKPExsWy7bCSvO4a4RPpBhdeClhcaf/NbjH9sKLF
+	kqYMi2MTVjBbPLu1l8lixZeZ7BarFl5js2jo+c1qsenxNVaLy7vmsFmcnXeczeLK1nUsFltf
+	vmOyaPnTwmJxt6WT1WLp9YtMFn+37WW0WLT1C7vFwuaXjBb/9+xgt2i5Y2rx/udmNouvez+z
+	OYh7LF4xhdVjzbw1jB47Z91l91iwqdSj5chbVo9NqzrZPO5c28PmcehwB1DyoaXHkyvTmTw2
+	L6n3+HZmIotH35ZVjB6fN8kF8EVx2aSk5mSWpRbp2yVwZdz9+Iyl4IVgxd+OGcwNjM/4uhg5
+	OSQETCQefNnE2sXIxSEksJtRYsWNNmaIhKTE54vrmCBsYYmV/56zg9hCAs8YJd59kwex2QR0
+	JJ5c+QNWLyJgI/Fn51sWEJtZ4AGrxNtb1RD125glNu0RBbE5BQwkHj47wghiCwt4Sax8+BCo
+	noODRUBFYlKPOIjJK2Ap0fEErJpXQFDi5MwnUBMNJJYs/MUEYWtLLFv4GupKBYmfT5exQlyQ
+	JfHz8ANGiBpxiaM/e5gnMArPQjJqFpJRs5CMmoWkZQEjyypGydSC4tz03GTDAsO81HK94sTc
+	4tK8dL3k/NxNjOC0oaWxg/Hdtyb9Q4xMHIyHGCU4mJVEeF+fOp4uxJuSWFmVWpQfX1Sak1p8
+	iFGag0VJnHelYUS6kEB6YklqdmpqQWoRTJaJg1OqgYllU+/ZbS7nDVSiWZOsX3psLnPw4Z7B
+	6/n7Wkxx+Z5eToPSL1a523UbltTM9Ahc9E9GM/Cgot3Ta9K1saIVC5+0i1YE+Pk9uiT648AM
+	zS6tnE7lPv4eH9kkjo1KU/52y+94qy8WYXdp14UzXC9N+OIiQg9vLp+k8+Xgik/db1oe5wr+
+	8O04wpuo99dI7drthVvnmTMpKi7w/idjk6GaeHH/09X/pxbctOMO9NsaErRpUr2B0EHlusyN
+	O3S3PQm4x81Q6nVM5FjtMpX2w2wb1JeVrz5r09KVylLzV81cZm+ED1Pvm6m/7rRFWHd2Mx1g
+	mbul7ELg4vPrShIP+Wb8+M695LKs6OInC3flnD3pqsRSnJFoqMVcVJwIAE1XIcOKAwAA
+X-CMS-MailID: 20250305090444epcas5p4acfc664ce6db58fb94e563626d6dba98
+X-Msg-Generator: CA
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250221132035epcas5p47221a5198df9bf86020abcefdfded789
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+	<CGME20250221132035epcas5p47221a5198df9bf86020abcefdfded789@epcas5p4.samsung.com>
+	<20250221131548.59616-4-shradha.t@samsung.com> <Z8XrYxP_pZr6tFU8@debian>
+	<20250303194647.GC1552306@rocinante>
+	<CAMuHMdWens9ZZrjNH1Bd2AN3PJEP1KSUGdiJcBCt0uPGH_GiiA@mail.gmail.com>
+	<20250304154638.GB2310180@rocinante>
+	<061201db8d25$dd1e2bd0$975a8370$@samsung.com>
+	<20250305074447.GC847772@rocinante>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_045535_818502_00B94CEE 
-X-CRM114-Status: GOOD (  45.49  )
+X-CRM114-CacheID: sfid-20250305_045724_615387_9F9371FB 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,207 +156,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 04/03/25 21:16, Nícolas F. R. A. Prado ha scritto:
-> On Tue, Mar 04, 2025 at 04:39:33PM +0100, AngeloGioacchino Del Regno wrote:
->> Il 14/02/25 16:14, Nícolas F. R. A. Prado ha scritto:
->>> Enable headset jack detection for MT8188 platforms using the MT6359
->>> ACCDET block for it.
->>>
->>> Co-developed-by: Zoran Zhan <zoran.zhan@mediatek.com>
->>> Signed-off-by: Zoran Zhan <zoran.zhan@mediatek.com>
->>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
->>> ---
->>>    sound/soc/mediatek/mt8188/mt8188-mt6359.c | 43 +++++++++++++++++++++++++++++++
->>>    1 file changed, 43 insertions(+)
->>>
->>> diff --git a/sound/soc/mediatek/mt8188/mt8188-mt6359.c b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
->>> index 2d0d04e0232da07ba43a030b14853322427d55e7..4e19e6cfad1e1f42863b2e2f27131f880c5883bf 100644
->>> --- a/sound/soc/mediatek/mt8188/mt8188-mt6359.c
->>> +++ b/sound/soc/mediatek/mt8188/mt8188-mt6359.c
->>> @@ -17,6 +17,7 @@
->>>    #include "mt8188-afe-common.h"
->>>    #include "../../codecs/nau8825.h"
->>>    #include "../../codecs/mt6359.h"
->>> +#include "../../codecs/mt6359-accdet.h"
->>>    #include "../../codecs/rt5682.h"
->>>    #include "../common/mtk-afe-platform-driver.h"
->>>    #include "../common/mtk-soundcard-driver.h"
->>> @@ -266,6 +267,17 @@ static struct snd_soc_jack_pin nau8825_jack_pins[] = {
->>>    	},
->>>    };
->>> +static struct snd_soc_jack_pin mt8188_headset_jack_pins[] = {
->>
->> This is the same as nau8825_jack_pins... perhaps we could reuse that?
-> 
-> The difference is the pin name: "Headphone Jack", which results in a difference
-> in the widget's name. I remember you wanted to not have the "Jack" in the
-> widget's name to standardize it among other MTK platforms, and we could do that
-> here by dropping it from the nau8825_jack_pins. But since that name is also used
-> on the audio routes in a few DTs, those would need updating as well:
-> 
 
-No it's that "Jack" should be automatically appended if not present in the
-jack name :-)
 
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku0.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku1.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku3.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku2.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku5.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku7.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku4.dts
-> arch/arm64/boot/dts/mediatek/mt8188-geralt-ciri-sku6.dts
-> 
-> The name is not used in upstream alsa-ucm-conf though, so it should be safe to
-> update.
-> 
-> In any case, I didn't want to expand the scope of this series to that unrelated
-> change, so that's why I introduced this separate struct, thinking we could
-> commonize as a later step.
-> 
-
-That's fine for me, but are we adding unnecessary duplication?
-
->>
->>> +	{
->>> +		.pin    = "Headphone",
->>> +		.mask   = SND_JACK_HEADPHONE,
->>> +	},
->>> +	{
->>> +		.pin    = "Headset Mic",
->>> +		.mask   = SND_JACK_MICROPHONE,
->>> +	},
->>> +};
->>> +
->>>    static const struct snd_kcontrol_new mt8188_dumb_spk_controls[] = {
->>>    	SOC_DAPM_PIN_SWITCH("Ext Spk"),
->>>    };
->>> @@ -500,6 +512,35 @@ static int mt8188_mt6359_mtkaif_calibration(struct snd_soc_pcm_runtime *rtd)
->>>    	return 0;
->>>    }
->>> +static int mt8188_mt6359_accdet_init(struct snd_soc_pcm_runtime *rtd)
->>> +{
->>> +	struct mtk_soc_card_data *soc_card_data = snd_soc_card_get_drvdata(rtd->card);
->>> +	struct snd_soc_jack *jack = &soc_card_data->card_data->jacks[MT8188_JACK_HEADSET];
->>> +	int ret;
->>> +
->>> +	if (!soc_card_data->accdet)
->>> +		return 0;
->>
->> I'm not sure... if we have mediatek,accdet (so accdet is present here), but we also
->> have a NAU8825, or RT5682S, or ES8326 codec, this function will create a headset
->> jack for MT6359, but then mt8188_headset_codec_init() will do the same again!
->>
->> I think we should find a way to avoid that situation, as I'm mostly sure that this
->> will give issues in the long run.
->>
->> Even if it wouldn't, having two headset jacks exposed, of which one doesn't work
->> because it doesn't exist on the physical board... would be confusing for the user.
-> 
-> IMO that situation happening would mean the DT is wrong. If the board has the
-> headset jack pins wired to a headset codec, and that's responsible for jack
-> detection, then those pins won't be wired to the ACCDET block, and therefore the
-> board DT shouldn't have the mediatek,accdet property.
-> 
-
-That might make sense.
-
-> I think you're imagining having the mediatek,accdet property always present, and
-> the logic you propose would allow specifying a headset codec to essentially
-> override it (making the mediatek,accdet property useless in this case). But
-> there can also be boards with no jacks at all, and in those cases we don't want
-> jack widgets exposed to userspace, so the mediatek,accdet property should be
-> omitted for those boards, and only present on boards where the ACCDET is
-> actually wired to.
-> 
-
-I am imagining that because ACCDET is something that is always present on the
-MT6359 PMIC, as it is always integrated, physically, into the silicon.
-
-Having that always present in the PMIC DT doesn't mean that the actual sound card
-node would have it, so... okay, I get the point, looks good, but it does only if
-
-.... (scroll down)
-
->>
->> I guess that the best option here would be:
->>   - Let the `for_each_card_prelinks()` loop finish
->>   - Check if any of the external codecs are providing 3.5mm jack
->>     - External codec providing jack means that the detection should be performed
->>       by the external codec, as the jack should not be physically routed to the
->>       MediaTek ACCDET related PMIC pins (right?)
->>     - No external codec means that the accessory detection can only be performed
->>       by the MediaTek ACCDET IP
->>   - If external codec manages 3.5mm jack: do nothing
->>   - If no external codec managing 3.5mm jack: check if accdet provided in DT and
->>     initialize it
->>
->> ....unless I'm wrong - and if I am, please explain why (and also add explanation
->> to the commit description).
-> 
-> I can add to the commit message:
-> 
-> Only boards that have jack detection managed by the MT6359 ACCDET block will
-> have the mediatek,accdet property present.
-
-....only if you add that, because this really makes things clear - and had you
-added that to the commit description in this version, I wouldn't have had this
-question ;-)
-
-So yes, please add it.
-
-On another note, I don't understand what's the problem with using nau8825_jack_pins
-instead of adding a mt8188_headset_jack_pins before you cleanup.
-
-Really, it's just about doing:
-
-/*
-  * nau8825_jack_pins lists the exact same pin names and types as the
-  * MT6359 PMIC: reuse to avoid useless duplication
-  */
-ret = snd_soc_card_jack_new_pins(rtd->card, .... etc etc
-
-Cheers!
-
-> 
-> Thanks,
-> Nícolas
-> 
->>
->> Cheers,
->> Angelo
->>
->>> +
->>> +	ret = snd_soc_card_jack_new_pins(rtd->card, "Headset Jack",
->>> +				   SND_JACK_HEADSET | SND_JACK_BTN_0 |
->>> +				   SND_JACK_BTN_1 | SND_JACK_BTN_2 |
->>> +				   SND_JACK_BTN_3,
->>> +				   jack, mt8188_headset_jack_pins,
->>> +				   ARRAY_SIZE(mt8188_headset_jack_pins));
->>> +	if (ret) {
->>> +		dev_err(rtd->dev, "Headset Jack create failed: %d\n", ret);
->>> +		return ret;
->>> +	}
->>> +
->>> +	ret = mt6359_accdet_enable_jack_detect(soc_card_data->accdet, jack);
->>> +	if (ret) {
->>> +		dev_err(rtd->dev, "Headset Jack enable failed: %d\n", ret);
->>> +		return ret;
->>> +	}
->>> +
->>> +	return 0;
->>> +}
->>> +
->>>    static int mt8188_mt6359_init(struct snd_soc_pcm_runtime *rtd)
->>>    {
->>>    	struct snd_soc_component *cmpnt_codec =
->>> @@ -512,6 +553,8 @@ static int mt8188_mt6359_init(struct snd_soc_pcm_runtime *rtd)
->>>    	/* mtkaif calibration */
->>>    	mt8188_mt6359_mtkaif_calibration(rtd);
->>> +	mt8188_mt6359_accdet_init(rtd);
->>> +
->>>    	return 0;
->>>    }
->>>
-
+> -----Original Message-----
+> From: 'Krzysztof Wilczy=F1ski'=20<kw=40linux.com>=0D=0A>=20Sent:=2005=20M=
+arch=202025=2013:15=0D=0A>=20To:=20Shradha=20Todi=20<shradha.t=40samsung.co=
+m>=0D=0A>=20Cc:=20'Geert=20Uytterhoeven'=20<geert=40linux-m68k.org>;=20'Fan=
+=20Ni'=20<nifan.cxl=40gmail.com>;=20linux-kernel=40vger.kernel.org;=20linux=
+-=0D=0A>=20pci=40vger.kernel.org;=20linux-arm-kernel=40lists.infradead.org;=
+=20linux-perf-users=40vger.kernel.org;=20manivannan.sadhasivam=40linaro.org=
+;=0D=0A>=20lpieralisi=40kernel.org;=20robh=40kernel.org;=20bhelgaas=40googl=
+e.com;=20jingoohan1=40gmail.com;=20Jonathan.Cameron=40huawei.com;=0D=0A>=20=
+a.manzanares=40samsung.com;=20pankaj.dubey=40samsung.com;=20cassel=40kernel=
+.org;=2018255117159=40163.com;=0D=0A>=20xueshuai=40linux.alibaba.com;=20ren=
+yu.zj=40linux.alibaba.com;=20will=40kernel.org;=20mark.rutland=40arm.com;=
+=20'Yoshihiro=20Shimoda'=0D=0A>=20<yoshihiro.shimoda.uh=40renesas.com>;=20'=
+Linux-Renesas'=20<linux-renesas-soc=40vger.kernel.org>=0D=0A>=20Subject:=20=
+Re:=20=5BPATCH=20v7=203/5=5D=20Add=20debugfs=20based=20silicon=20debug=20su=
+pport=20in=20DWC=0D=0A>=20=0D=0A>=20Hello,=0D=0A>=20=0D=0A>=20>=20I=20think=
+=20we=20shouldn't=20move=20the=20log=20level=20to=20be=20a=20WARN.=20I=20be=
+lieve=20many=0D=0A>=20>=20controllers=20might=20not=20support=20RAS=20DES=
+=20feature=20in=20their=20design=20and=0D=0A>=20>=20giving=20a=20warn=20dum=
+p=20would=20draw=20unnecessary=20attention.=0D=0A>=20=0D=0A>=20There=20will=
+=20be=20no=20backtrack=20printed=20with=20neither=20dev_err()=20nor=20dev_w=
+arn(),=20which=20is=20what=20we=20were=20using=20here.=20=20Using=20dev_WAR=
+N()=20or=0D=0A>=20the=20WARN()=20macro=20directly=20would=20be=20an=20overk=
+ill=20in=20this=20case,=20indeed.=0D=0A>=20=0D=0A=0D=0AOh=20sorry,=20I=20th=
+ought=20we=20were=20talking=20about=20WARN()=20here.=0D=0A=0D=0A>=20>=20My=
+=20opinion=20is=20to=20silently=20let=20it=20fail=20unless=20the=20user=20i=
+s=20actually=0D=0A>=20>=20interested=20in=20getting=20the=20RAS=20DES=20fea=
+ture=20up.=0D=0A>=20=0D=0A>=20I=20think,=20what=20we=20have=20there=20now=
+=20is=20fine.=20=20We=20don't=20error=20on=20the=20lack=20of=20RAS=20DES=20=
+capability=20when=20the=20platform=20does=20not=20support=20it,=0D=0Aand=0D=
+=0A>=20only=20return=20an=20error=20following=20a=20memory=20allocation=20f=
+ailure,=20which=20should=20ideally=20never=20happen.=0D=0A>=20=0D=0A>=20Tha=
+t=20said,=20have=20a=20look=20at=20the=20following:=0D=0A>=20=0D=0A>=20=20=
+=20https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=
+=3Dcontroller/dwc=0D=0A>=20=0D=0A>=20This=20is=20how=20the=20code=20looks=
+=20like=20at=20the=20moment.=0D=0A>=20=0D=0A>=20We=20can=20still=20move=20i=
+t=20to=20dev_dbg(),=20so=20basically=20suppress=20any=20errors=20or=20warni=
+ngs=20from=20being=20printed=20outside=20of=20the=20debug=20log=20level,=0D=
+=0Aif=20you=0D=0A>=20think=20it=20would=20be=20better.=0D=0A>=20=0D=0A=0D=
+=0ANo,=20the=20current=20version=20looks=20perfect.=20Thanks=21=0D=0A=0D=0A=
+>=20Thank=20you=21=0D=0A>=20=0D=0A>=20=09Krzysztof=0D=0A=0D=0A
 
