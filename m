@@ -4,162 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAACC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:25:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A8EC282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zi3Ta5oQXcePbjnJLMNF/ShJJD47jZo9ro9ibNheTqs=; b=qcjDJu5HsoW7gU+yceztsr9qEv
-	cpADHcCyBKCeIZwwgDLcBAdQjWpOp+8U9dA3iHx8rhm46iP/9lvkOo+zRN31NLswpjCVIEtJZYGz3
-	KRMdeAl6PjJIRKD0VHQt0+Lvap/sm9u+M6j6kVMZNINCTc6BPbZWS53xUYug0rBKGrVO4ei/xVSFS
-	AZhHg/uXgHMjhJ5YU32oOezhxKWZKdopJiHiLbIFnH5x5NzefDOtpN76BvTqfIpAYt0A4at9w1/5C
-	/aIVeg+rhPclXZ9osYImzad0f6dB1ABIeyXvjIW8LrGxvgyZXoX6b8sDrEQtw7/D437prtdLMP6L1
-	B1/YyqfA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=89mzDJSTDxa/wx6MGcvFM0ScL0+bHTPOSUKj3dDd0pY=; b=X9aT3f2WgJVcWj1i7Yv5S0xc4M
+	i9xKlBUsCKeIj1glcPktnOF0Vt0+W+L5FzOJ6N0d1IWOjauDpbXiTq1+7hSTHZdUmuTtC5L8J2qBe
+	BFZ+qGCgLXgh3NHWHTFLnAX6JRXitAkOjzdXIhDuEjfJx9jw00w51Khbjzpju/iRzHR1Cf4LfjZX6
+	15SHXD84P2yGcEkKByTKx+jJUuvWmZqF9xvykwQDAc70YG4+/d3pNR3/5Zfj2QzF5RZk+b4Hj3I3s
+	EcbeoaUwOmi02NixGloc/QywdB25xfHpDsN0k6/ZKb4hT8C91I2RZjzHMYSa859OKE12JRM9D3nu0
+	qnRzIGdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplwg-00000007fp8-2CxT;
-	Wed, 05 Mar 2025 10:25:46 +0000
-Received: from mail-db8eur05on20620.outbound.protection.outlook.com ([2a01:111:f403:2614::620] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1tpm1M-00000007gbQ-2zDI;
+	Wed, 05 Mar 2025 10:30:36 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplZ4-00000007bCt-0pLn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 10:01:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=um4WdmpLMXf1HpmCrt+Bv/PmF4GVS0uq3MXGInlnvKD4PeHkF2aBZqanEjzTnDm7DlLRWjKzk2lAu/qmOlyR7OW/MWFwfjnrz37d5O+J2s7dBsIe9BpTpDaoQxQMQAJFWdEaritK8BpFyegLJY3OdalwaUhzzErldrHT/OxpCMeSHDRrfIrCrWEGtx6eybdqD20l8fr32XMErSwFenu4KUCKdMWHZY9JaQ9hDa71/gpb2JkkAdzhUmuSbVkvhA3E08VQcSug9kSYj1YvGyHH9oXgZXL3phH0/5paeFSmLca9T8S8Rd4Hfv1JD9KiVzmoZCe/6aawm1UkGkzB0g7iiA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zi3Ta5oQXcePbjnJLMNF/ShJJD47jZo9ro9ibNheTqs=;
- b=LCfVtGbp2C5or0sTjY8A4ivB4sDLvsEZ8JR8y5I5vGxNGz5MOV7AzG7yeN5LNPD23Tbe1GxzTEn2xLGjPWO6fJYfYwxk3s+9l+TlIBbsQQ3N+lK7OB/iRzgj1D4gghjCBspCfqFMZW2rTw2ug4cAZlwKeL2g2xsCwMtrtN036aro5qTGvURva6Lay9A5iWZSOfY3OZqtgqTUqQ3GR7RmBvphxYvClcckFMx/Crbn8ZWMFuwctSsKV8RhEwz7LbH/TO7vWUlMLarQYcOIsgZCPcS0clGkCtcRH0/0d6UrjSX8WfRr6TFBGGChvFh4vrbbzVCwSjhnQOK1t+ugIkqI0Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zi3Ta5oQXcePbjnJLMNF/ShJJD47jZo9ro9ibNheTqs=;
- b=aSii665l0Imvt21asQC/Hl2OD1S8q6U+z5ThufwHTr8BJoh8/FzSHOpDteCDVGsBggBaECX1cZ/++zUzVbD8GX0X73rpDcBSqeje+o2AXChGTl/j6VYhlk0Jy94/JlEFsGNo/9y+J5SxakCGLUswdVH8MpYzPmCq3iAU+NvOXzQR1AxBWiEl/BzBoh9pEqS0wtrZ+a4kJQzsivXv86qhrHiKis77kkQYvxlPLylRZ0vAonuPBoFFuHo4LdwAhsOmqDZUk3lU/nt9eh24aBytulrLIxkirJkgTryVOrmxN6xek5WDMOz1ssWe95zIlffvo+Y0AoiErmZ9vap+K22RWw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by VI0PR04MB10541.eurprd04.prod.outlook.com (2603:10a6:800:26a::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.27; Wed, 5 Mar
- 2025 10:01:19 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8511.015; Wed, 5 Mar 2025
- 10:01:19 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: p.zabel@pengutronix.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	shawnguo@kernel.org,
-	mathieu.poirier@linaro.org,
-	devicetree@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Cc: conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	andersson@kernel.org,
-	Frank.Li@nxp.com,
-	peng.fan@nxp.com,
-	laurentiu.mihalcea@nxp.com,
-	iuliana.prodan@nxp.com,
-	shengjiu.wang@nxp.com,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v4 8/8] imx_dsp_rproc: Use reset controller API to control the DSP
-Date: Wed,  5 Mar 2025 12:00:36 +0200
-Message-ID: <20250305100037.373782-9-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250305100037.373782-1-daniel.baluta@nxp.com>
-References: <20250305100037.373782-1-daniel.baluta@nxp.com>
+	id 1tplaE-00000007bRv-3WXh;
+	Wed, 05 Mar 2025 10:02:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=89mzDJSTDxa/wx6MGcvFM0ScL0+bHTPOSUKj3dDd0pY=; b=fphslY0jLLq1WKHxVKKf0DVonP
+	v5dEY20URTG8mF17UJZjW1Ix2Bh5nZUztqXeytfYvcC6A0YHWJEMf4lg2I0g8N4cD4u6BBdrGCdz4
+	y2kFPWBn6hu3vKRbg1R0/NrCDVFnh6bO8q4z41edF7cza8hnLicv8C+onMBNzoSeH/yQq/+uH5OTJ
+	Z5AKJ5Vhwa9uw/4ZFJ45NoXyvy5p0e5dMJE+00U6EYhYq75YFcuRbFn2wsZYws+6PJlj6u+jIAkCT
+	U1MBJhCgWglU/bISZO1a3xh4Bx46Pvpm/K7/I8u6k+gbXs/ahYKpS1y89f6AiyTFHnbL1lliyerVK
+	RtyzWGQA==;
+Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tplaA-00000000SK4-2JSc;
+	Wed, 05 Mar 2025 10:02:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1741168950; x=1772704950;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=1GtvXobR4QJuxhCHEMflNdXfof/DYGcFZWntS1I2zN8=;
+  b=f3Q3zUBBUuc/uzh+d4Rl8jCk3zwrzLzGi6fcexAcn7PAjaT7GcC9nsLW
+   1BxM3dNNb208SGn5Jt26Bod+ujjxtK4rzB8oMZRI4kHk89wF9abkCkV2n
+   CTNuvB0TLG0dZxzwOw90LdtNdP2Z8SoJxnDX6c2t/Ek+zBn52wXvmJSTG
+   8xxCWB2SYCE1Mt4KPwc3dBC9UMgboXwhL1ZQNVkVOJLXNp4XqT0whG91v
+   WBmkYJxbyFibV4tcowkTPdm6h5FfIpC5me73jxsjYn6TLSLSk79dKbei+
+   6R7kDGjlwU9QS1ahbg1SGjjZKwDxgXrfEOb9cxLcVue34qeWZJDcidzIC
+   g==;
+X-CSE-ConnectionGUID: KcHvf2KYQPGphZh43VuJpQ==
+X-CSE-MsgGUID: TYea7XcjRjqr57KKC+M1iQ==
+X-IronPort-AV: E=Sophos;i="6.14,222,1736838000"; 
+   d="scan'208";a="205983630"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Mar 2025 03:02:24 -0700
+Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 5 Mar 2025 03:01:54 -0700
+Received: from che-lt-i67131.microchip.com (10.10.85.11) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Wed, 5 Mar 2025 03:01:47 -0700
+From: Manikandan Muralidharan <manikandan.m@microchip.com>
+To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+	<claudiu.beznea@tuxon.dev>, <tudor.ambarus@linaro.org>,
+	<pratyush@kernel.org>, <mwalle@kernel.org>, <miquel.raynal@bootlin.com>,
+	<richard@nod.at>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mtd@lists.infradead.org>
+CC: <manikandan.m@microchip.com>, Varshini Rajendran
+	<varshini.rajendran@microchip.com>
+Subject: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM framework to read MAC Address
+Date: Wed, 5 Mar 2025 15:31:33 +0530
+Message-ID: <20250305100134.1171124-1-manikandan.m@microchip.com>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-ClientProxiedBy: WA2P291CA0031.POLP291.PROD.OUTLOOK.COM
- (2603:10a6:1d0:1f::12) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VI0PR04MB10541:EE_
-X-MS-Office365-Filtering-Correlation-Id: 234ce139-b55e-4b63-4685-08dd5bccacca
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?IjQQ/p1HX1jFVwGB5grt+8YtvcDuVBfbrktqqq3wu//3sdnPKlVXJsMRJsdI?=
- =?us-ascii?Q?rzLLofyMLbHJKgbU9hx6Oyg2tDHVYxwRlm5rqWjeRAbMgaKaq0pREQ6UR7b1?=
- =?us-ascii?Q?dxhUQoh3KuM8fIyCyGC04u1TEpZ5Z54jDtfyIuVbUopKurtYVc86y11R4vSH?=
- =?us-ascii?Q?YmlrQqECGIF8/zk5slGGuru29cryjo7xgsWL44vFiGy5CBVFK4ZQNR8dnTBK?=
- =?us-ascii?Q?4U8aO86xNK3jgnVU7xuoy4IiohWtVw9Bw78WANN9+ntYAX8TytqV+j23GRlL?=
- =?us-ascii?Q?44qBkBPQ/0Dg+fAVPzVk8k5IN3Ng7u+VI2ffnbLovhb0YRtmb98g3ZuEiqek?=
- =?us-ascii?Q?Nc1isxBRRCf6ptLU+XuFpZUeMgTdsHJxZvaYeIpfwdycIDchSwTqTah3KD12?=
- =?us-ascii?Q?YZpr4tKEDLC3JbQHj6EqCPvgrzbLsVwlKgy04Sbps57nrIZ0+s94nlhsD8TD?=
- =?us-ascii?Q?pNslDW0HqECkz5AUE4tZIL88j9efz9752qIninAxw/NZfAcPWYBRQx4S2+/v?=
- =?us-ascii?Q?u3IQWBZqfZJqobpOL5f9lA5I6sfqXC3dRRMnzdrlzvE/w7SGofo3GHDbu5U1?=
- =?us-ascii?Q?ML/YnaspOqHBbpThE1eaXHSVRT9InjoyX0ZYOi7F6LeFAWrV31ENX2pDboKj?=
- =?us-ascii?Q?H5fV2m1NLxiQJyalvuYWwG4QLB3HA3vQhuExPhypnQMqac6ArtLaSkM2NFKc?=
- =?us-ascii?Q?fNNooz0kQnc8Fbpc1mAoLGSpxgr8dFTtYtOhuUHonwIY7ZGTM4+azQrAGdGY?=
- =?us-ascii?Q?8spSYN4BUplHEvhM1yGll4AMTrSklCabBPu/CyOZ0eArtJJOxHRktlrtGBLE?=
- =?us-ascii?Q?uq9WCv6mKrn+vOXkxeVmZfLXmSXYIRwY6m5P5MyupUfMuhsQkRoce3HXTjqr?=
- =?us-ascii?Q?oIqpt/VyWY9dsaab8FCSuhHaRwk7QJvry6+N/8q9nXsMsADR8QG5htpPlclZ?=
- =?us-ascii?Q?d4T7Blmf9ElJUvXml1CE8AcBT5O9wbhLevrnadIERda8/60HD80T+qI0mXiF?=
- =?us-ascii?Q?999u8cfq7sDMJKbz5pSO4HkAU42+l5Nka+nhJMvjgz3WC9T51NacIGBh1SUx?=
- =?us-ascii?Q?QWA/xkmaRFcebRUW2Vp1G2tAedghliNELoxRincDmGJibOE2aPLpUXUrjU6P?=
- =?us-ascii?Q?jyqw0XXhM4zS3tNBiuDRdA3GazRpefjo2iDpjrSenTAsLKpbYuuPuEiiaj5U?=
- =?us-ascii?Q?lVXVsvi9GOkWTs0BZLgdSd8Md0tCEGoITgG1DaenuYqDi9nSTYwst5eiLcvJ?=
- =?us-ascii?Q?29Il/M8i7DHlR4nNkXDll+rMtWj7W1P6qkKDz3j2V7KFICaROVMalrivJc9h?=
- =?us-ascii?Q?NikNC5THs2hqFWTTZx1R/5+O/esXwjz7ewai8nbo1PGl3loBK9jGDAyFxo2W?=
- =?us-ascii?Q?tlGID9NAn4/hYOqv3EdGRg08gzjUNBxsUKOGhtvG02KvFdv8FtDuRwYNrUvI?=
- =?us-ascii?Q?hHpDGS3dgb+vSh+guEKDvtaik5lEoifE?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sDhR+A/S72IlOK95ApddkEunwir1PTM7nAYbWpn5o3QyCPkgc5oDk9VfHhmw?=
- =?us-ascii?Q?7Hw4HYmorMNz2kxNYew+z9xlwwDR752MgMSMDQD3vemDJnX5IVCjD5ohtPWw?=
- =?us-ascii?Q?XVCoc3OsMBXHHeOrxwHbcJqdQVli3VEWgAn7PhgI21sNotXjCpwq+/surzAj?=
- =?us-ascii?Q?jXwM5I6wVLpCAAk1A16etw3Soy9mcVzl1lro61zKyDHUo89xqlreVf+65Tas?=
- =?us-ascii?Q?KqdYJyrVANCDf01FpNEFmeC1jCcXLhl2TZv9HTbBmRaRf5s3Jo90eIrduA79?=
- =?us-ascii?Q?cmayLGAz0UNlL4yBHhelTJuu8iKLnFLhApMGFklZUL2rXgao56+q7ys8ZIEp?=
- =?us-ascii?Q?xW5kWL4nQEr9Eexd0J2T1aZT1EikRWkKhYlmoLtxVgKZhemcr6mKnWoqjmbB?=
- =?us-ascii?Q?8Ercl4TeYvwcxd2PMQtuk6EQr7g7A7057uUzN+mF9qi88EGA5wH7GVKyAmLd?=
- =?us-ascii?Q?iAe2Od38egN2OQM0tfQoffaJHt/4Sa0dgZ88P4JgnHmXm0iayX5RzncVkpkR?=
- =?us-ascii?Q?c0TOlH9X8EFG/wWgI32GTDauqpaMnoeZ7i0tIdlWBLpZ06xZSPOdtfcNwNu0?=
- =?us-ascii?Q?dl89FB/5BhFcZsPfmfmzgwqb6tXrtNBBrbE0op+xtw8utyNbTSllyuxmbsEY?=
- =?us-ascii?Q?x2WQmwUyZk1QKmOqrrWoz7K9C+olPe0cvpEXfdMIsoPXThwCj+VWxEjU0RSR?=
- =?us-ascii?Q?H8UQivtu6QMvTmEQuSBJ6LmXagfsBulamI2R4Gw5uiP5lNL/vIQ3/GqV+TPV?=
- =?us-ascii?Q?JAp+j8qSmKF4BvBxSq/E0dXegYz/nj8fZByMG9Ts5YhbT8mvsVB5E52P3g+l?=
- =?us-ascii?Q?GS69ULf7iAdleCc6bxRe0gG/14g2sIdZtmmScY91EdmgpYV6bdGnVfVKY7sx?=
- =?us-ascii?Q?L4WOuM7EV0kOm+jGfdtWzDEPSxtHFCSrvbE4ahHEfmaPUK/0c48bQACAWM9f?=
- =?us-ascii?Q?D2pK7m5LAQbYtFMAHXbgaBmTo7YwR5Wo2lYmQnSVQcyIUVo1jjPBrCQI5GOU?=
- =?us-ascii?Q?AKrTFpUJLmsELP4wZDXYnZD6o0pYd/qXvtBx8p6KTg3IFpUAvwlD35C8580K?=
- =?us-ascii?Q?deWhm6zp+uMCB4bRjCsN5TH0mzHcTN9EcrwGBbosrImcViGPsKsMjGNqT9p5?=
- =?us-ascii?Q?2Xtvml3ekLoKBauDYhcauh01Dgt6Szgxs/b66PwGLHrHcT78HkjS1IQtm5CW?=
- =?us-ascii?Q?0RA9Oi4LO7AfoiE49rpy3WK57m4zOV6da+NKnsM0Gw/FS++Iq/vT0n0/O6U0?=
- =?us-ascii?Q?gRskiZ+1X5AqFWozog8ZHtFDq28sBYGoHGZi2sNcD/72SR3VZYLcNvL0ewlH?=
- =?us-ascii?Q?KLtOKVud3QShcZEdcm27JvIr5JX/1Of4IYL/vumPML0TDpDDV12ESu8VH+Al?=
- =?us-ascii?Q?Oo9AAnMnV2gX/0UTfN0+8OH8pDkxmyvwPNCiXcdDjVefSSxjYG7bLCBBOWRk?=
- =?us-ascii?Q?4ath4kMfPK+l9LfhHNk9lqAi3i/hHQT6hjUSDDSVnhHP99Zluf33teNdYn6u?=
- =?us-ascii?Q?AM7QsBP2Q86MQqNHBar0Kg12fxWR2IBrc8wVaKARwIdxnBmLcjot7EW8zUt7?=
- =?us-ascii?Q?0adUG3P/c8KMjxrjK6jH06wfhG6u25pi1ngGu9RL?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 234ce139-b55e-4b63-4685-08dd5bccacca
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 10:01:18.9501
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 5HlO+7s5tdr4aUZkKZibTM5jWlOIEgaCpbDnV7FPv4VWmuvd+JYhuGSJHnuFqJS+uTv9LpzNlXGSUYFlqBkZbw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10541
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_020122_268521_BB242445 
-X-CRM114-Status: GOOD (  18.75  )
+X-CRM114-CacheID: sfid-20250305_100231_248590_52408BBE 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,122 +101,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DSP on i.MX8MP doesn't have a direct reset line so according to hardware
-design team in order to handle assert/deassert/reset functionality we
-need to use a combination of control bits from two modules. Audio block
-control module for Run/Stall control of the DSP and DAP module in order
-to do software reset.
+From: Varshini Rajendran <varshini.rajendran@microchip.com>
 
-Initial design accessed RunStall bits from audio block control using the
-syscon interface but this got NACKed by community because of abusing the
-syscon interface [1].
+EUI identifier and the MAC Address of the Ethernet Interface is stored
+after the SFDP table of contents starting at address 0x260 in the
+QSPI memory.
+Register the entire SFDP region read by the spi-nor (nor->sfdp) into the
+NVMEM framework and read the MAC Address when requested using the nvmem
+properties in the DT by the net drivers.
 
-So instead we use the reset controller API.
+In kernel the Ethernet MAC address relied on U-Boot env variables or
+generated a random address, which posed challenges for boards without
+on-board EEPROMs or with multiple Ethernet ports.
+This change ensures consistent and reliable MAC address retrieval from QSPI,
+benefiting boards like the sama5d29 curiosity and sam9x75 curiosity.
 
-[1] https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
-
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
+Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+[manikandan.m@microchip.com: Integrate the nvmem->read callback framework]
+Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
 ---
- drivers/remoteproc/imx_dsp_rproc.c | 25 +++++++++++++++++--------
- drivers/remoteproc/imx_rproc.h     |  2 ++
- 2 files changed, 19 insertions(+), 8 deletions(-)
+ drivers/mtd/spi-nor/sst.c | 62 +++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 62 insertions(+)
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index ea5024919c2f..bc60edcdd661 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -19,6 +19,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- 
- #include "imx_rproc.h"
-@@ -111,6 +112,7 @@ enum imx_dsp_rp_mbox_messages {
+diff --git a/drivers/mtd/spi-nor/sst.c b/drivers/mtd/spi-nor/sst.c
+index 175211fe6a5e..a0abf201ad41 100644
+--- a/drivers/mtd/spi-nor/sst.c
++++ b/drivers/mtd/spi-nor/sst.c
+@@ -5,6 +5,7 @@
   */
- struct imx_dsp_rproc {
- 	struct regmap				*regmap;
-+	struct reset_control			*run_stall;
- 	struct rproc				*rproc;
- 	const struct imx_dsp_rproc_dcfg		*dsp_dcfg;
- 	struct clk_bulk_data			clks[DSP_RPROC_CLK_MAX];
-@@ -192,9 +194,7 @@ static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
- 	/* Keep reset asserted for 10 cycles */
- 	usleep_range(1, 2);
  
--	regmap_update_bits(priv->regmap, IMX8M_AudioDSP_REG2,
--			   IMX8M_AudioDSP_REG2_RUNSTALL,
--			   IMX8M_AudioDSP_REG2_RUNSTALL);
-+	reset_control_assert(priv->run_stall);
+ #include <linux/mtd/spi-nor.h>
++#include <linux/nvmem-provider.h>
  
- 	/* Take the DSP out of reset and keep stalled for FW loading */
- 	pwrctl = readl(dap + IMX8M_DAP_PWRCTL);
-@@ -231,13 +231,9 @@ static int imx8ulp_dsp_reset(struct imx_dsp_rproc *priv)
+ #include "core.h"
  
- /* Specific configuration for i.MX8MP */
- static const struct imx_rproc_dcfg dsp_rproc_cfg_imx8mp = {
--	.src_reg	= IMX8M_AudioDSP_REG2,
--	.src_mask	= IMX8M_AudioDSP_REG2_RUNSTALL,
--	.src_start	= 0,
--	.src_stop	= IMX8M_AudioDSP_REG2_RUNSTALL,
- 	.att		= imx_dsp_rproc_att_imx8mp,
- 	.att_size	= ARRAY_SIZE(imx_dsp_rproc_att_imx8mp),
--	.method		= IMX_RPROC_MMIO,
-+	.method		= IMX_RPROC_RESET_CONTROLLER,
+@@ -13,6 +14,8 @@
+ 
+ #define SST26VF_CR_BPNV		BIT(3)
+ 
++#define SST26VF_SFDP_EUI48	0x30
++
+ static int sst26vf_nor_lock(struct spi_nor *nor, loff_t ofs, u64 len)
+ {
+ 	return -EOPNOTSUPP;
+@@ -56,8 +59,67 @@ static int sst26vf_nor_late_init(struct spi_nor *nor)
+ 	return 0;
+ }
+ 
++/**
++ * sst26vf_sfdp_mac_addr_read() - check if the EUI-48 MAC Address is programmed
++ * and read the data from the prestored SFDP data
++ *
++ * @priv: User context passed to read callbacks.
++ * @offset: Offset within the NVMEM device.
++ * @val: pointer where to fill the ethernet address
++ * @bytes: Length of the NVMEM cell
++ *
++ * Return: 0 on success, -EINVAL  otherwise.
++ */
++static int sst26vf_sfdp_mac_addr_read(void *priv, unsigned int off,
++				      void *val, size_t bytes)
++{
++	struct spi_nor *nor = priv;
++	struct sfdp *sfdp = nor->sfdp;
++	loff_t offset = off;
++	size_t sfdp_size;
++
++	/*
++	 * Check if the EUI-48 MAC address is programmed in the next six address
++	 * locations.
++	 * @off is programmed in the DT and stores the start of MAC Address
++	 * byte, (off - 1) stores the bit length of the Extended Unique
++	 * Identifier
++	 */
++	if (SST26VF_SFDP_EUI48 != *((u8 *)sfdp->dwords + (offset - 1)))
++		return -EINVAL;
++
++	sfdp_size = sfdp->num_dwords * sizeof(*sfdp->dwords);
++	memory_read_from_buffer(val, bytes, &offset, sfdp->dwords,
++				sfdp_size);
++	return 0;
++}
++
++static struct nvmem_config sst26vf_sfdp_nvmem_config = {
++	.word_size = 1,
++	.stride = 1,
++};
++
++static int sst26vf_nor_post_sfdp(struct spi_nor *nor)
++{
++	struct nvmem_device *nvmem;
++
++	sst26vf_sfdp_nvmem_config.dev = nor->dev;
++	sst26vf_sfdp_nvmem_config.size = nor->sfdp->num_dwords * sizeof(*nor->sfdp->dwords);
++	sst26vf_sfdp_nvmem_config.priv = nor;
++	sst26vf_sfdp_nvmem_config.reg_read = sst26vf_sfdp_mac_addr_read;
++
++	nvmem = devm_nvmem_register(nor->dev, &sst26vf_sfdp_nvmem_config);
++	if (IS_ERR(nvmem)) {
++		dev_err(nor->dev, "failed to register NVMEM device: %ld\n", PTR_ERR(nvmem));
++		return PTR_ERR(nvmem);
++	}
++
++	return 0;
++}
++
+ static const struct spi_nor_fixups sst26vf_nor_fixups = {
+ 	.late_init = sst26vf_nor_late_init,
++	.post_sfdp = sst26vf_nor_post_sfdp,
  };
  
- static const struct imx_dsp_rproc_dcfg imx_dsp_rproc_cfg_imx8mp = {
-@@ -329,6 +325,9 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
- 					  true,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_deassert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -369,6 +368,9 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
- 					  false,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_assert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -995,6 +997,13 @@ static int imx_dsp_rproc_detect_mode(struct imx_dsp_rproc *priv)
- 
- 		priv->regmap = regmap;
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		priv->run_stall = devm_reset_control_get_exclusive(dev, "runstall");
-+		if (IS_ERR(priv->run_stall)) {
-+			dev_err(dev, "Failed to get DSP runstall reset control\n");
-+			return PTR_ERR(priv->run_stall);
-+		}
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
- 		break;
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 17a7d051c531..cfd38d37e146 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -24,6 +24,8 @@ enum imx_rproc_method {
- 	IMX_RPROC_SMC,
- 	/* Through System Control Unit API */
- 	IMX_RPROC_SCU_API,
-+	/* Through Reset Controller API */
-+	IMX_RPROC_RESET_CONTROLLER,
- };
- 
- /* dcfg flags */
+ static const struct flash_info sst_nor_parts[] = {
 -- 
-2.43.0
+2.25.1
 
 
