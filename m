@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6A8EC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FAB4C282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:32:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=89mzDJSTDxa/wx6MGcvFM0ScL0+bHTPOSUKj3dDd0pY=; b=X9aT3f2WgJVcWj1i7Yv5S0xc4M
-	i9xKlBUsCKeIj1glcPktnOF0Vt0+W+L5FzOJ6N0d1IWOjauDpbXiTq1+7hSTHZdUmuTtC5L8J2qBe
-	BFZ+qGCgLXgh3NHWHTFLnAX6JRXitAkOjzdXIhDuEjfJx9jw00w51Khbjzpju/iRzHR1Cf4LfjZX6
-	15SHXD84P2yGcEkKByTKx+jJUuvWmZqF9xvykwQDAc70YG4+/d3pNR3/5Zfj2QzF5RZk+b4Hj3I3s
-	EcbeoaUwOmi02NixGloc/QywdB25xfHpDsN0k6/ZKb4hT8C91I2RZjzHMYSa859OKE12JRM9D3nu0
-	qnRzIGdQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SFrJLj18UJdxq+mrgR/d/RjhP838Qu4n1KrCTvahUpM=; b=i5D3gJE3MkHQrdzs9cMwiy6f4w
+	1jVikOYV2zW5Oo1XDRlj/CGfZkJSscIMw+hrQUZpKWG03I5JC3DmL2cZ9htv/8TeoJLZipAOr6ZYB
+	uL3cqcF+dY5mOFSufw3VUHCyScdiGl6n37SHU0HCNLO3438A33RlQVTQwEIB14mku+X58Y2iMuf75
+	BouH9Y0fRIocHL1rX6+oiu/6yWZ9kwGKlnpmttcX93fYctCBC35Z7oMIFBGZjWe4feNmmXshHJguL
+	ie9zEb4haWrxaUzubzuAq2YcEwaqlqn3K6IBVl+s7/QCCDWQZdFDS+bODtllnWmPwe0Qbz9hUd7SJ
+	ACTSJ/kA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm1M-00000007gbQ-2zDI;
-	Wed, 05 Mar 2025 10:30:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpm2w-00000007h7P-3A2E;
+	Wed, 05 Mar 2025 10:32:14 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplaE-00000007bRv-3WXh;
-	Wed, 05 Mar 2025 10:02:34 +0000
+	id 1tplak-00000007bXc-1mfa;
+	Wed, 05 Mar 2025 10:03:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
-	:MIME-Version:Message-ID:Date:Subject:CC:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=89mzDJSTDxa/wx6MGcvFM0ScL0+bHTPOSUKj3dDd0pY=; b=fphslY0jLLq1WKHxVKKf0DVonP
-	v5dEY20URTG8mF17UJZjW1Ix2Bh5nZUztqXeytfYvcC6A0YHWJEMf4lg2I0g8N4cD4u6BBdrGCdz4
-	y2kFPWBn6hu3vKRbg1R0/NrCDVFnh6bO8q4z41edF7cza8hnLicv8C+onMBNzoSeH/yQq/+uH5OTJ
-	Z5AKJ5Vhwa9uw/4ZFJ45NoXyvy5p0e5dMJE+00U6EYhYq75YFcuRbFn2wsZYws+6PJlj6u+jIAkCT
-	U1MBJhCgWglU/bISZO1a3xh4Bx46Pvpm/K7/I8u6k+gbXs/ahYKpS1y89f6AiyTFHnbL1lliyerVK
-	RtyzWGQA==;
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplaA-00000000SK4-2JSc;
-	Wed, 05 Mar 2025 10:02:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1741168950; x=1772704950;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=1GtvXobR4QJuxhCHEMflNdXfof/DYGcFZWntS1I2zN8=;
-  b=f3Q3zUBBUuc/uzh+d4Rl8jCk3zwrzLzGi6fcexAcn7PAjaT7GcC9nsLW
-   1BxM3dNNb208SGn5Jt26Bod+ujjxtK4rzB8oMZRI4kHk89wF9abkCkV2n
-   CTNuvB0TLG0dZxzwOw90LdtNdP2Z8SoJxnDX6c2t/Ek+zBn52wXvmJSTG
-   8xxCWB2SYCE1Mt4KPwc3dBC9UMgboXwhL1ZQNVkVOJLXNp4XqT0whG91v
-   WBmkYJxbyFibV4tcowkTPdm6h5FfIpC5me73jxsjYn6TLSLSk79dKbei+
-   6R7kDGjlwU9QS1ahbg1SGjjZKwDxgXrfEOb9cxLcVue34qeWZJDcidzIC
-   g==;
-X-CSE-ConnectionGUID: KcHvf2KYQPGphZh43VuJpQ==
-X-CSE-MsgGUID: TYea7XcjRjqr57KKC+M1iQ==
-X-IronPort-AV: E=Sophos;i="6.14,222,1736838000"; 
-   d="scan'208";a="205983630"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Mar 2025 03:02:24 -0700
-Received: from chn-vm-ex02.mchp-main.com (10.10.85.144) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Wed, 5 Mar 2025 03:01:54 -0700
-Received: from che-lt-i67131.microchip.com (10.10.85.11) by
- chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server id
- 15.1.2507.35 via Frontend Transport; Wed, 5 Mar 2025 03:01:47 -0700
-From: Manikandan Muralidharan <manikandan.m@microchip.com>
-To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <tudor.ambarus@linaro.org>,
-	<pratyush@kernel.org>, <mwalle@kernel.org>, <miquel.raynal@bootlin.com>,
-	<richard@nod.at>, <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mtd@lists.infradead.org>
-CC: <manikandan.m@microchip.com>, Varshini Rajendran
-	<varshini.rajendran@microchip.com>
-Subject: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM framework to read MAC Address
-Date: Wed, 5 Mar 2025 15:31:33 +0530
-Message-ID: <20250305100134.1171124-1-manikandan.m@microchip.com>
-X-Mailer: git-send-email 2.25.1
+	d=infradead.org; s=casper.20170209; h=Reply-To:Cc:To:In-Reply-To:References:
+	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Content-ID:Content-Description;
+	bh=SFrJLj18UJdxq+mrgR/d/RjhP838Qu4n1KrCTvahUpM=; b=ce12IDh7WbjhbT8FaupfUSx/iw
+	k+IBNB8OPV3U2vQSUsCWsZ8mYVe67eB55YVhUA2izjrjYCHNipbLYGjr8PuLKR0y6MgzD8UBafLEC
+	oYjJz6WDKsk4hA/4Hxh0ATChfohjRfVQeeMQPwMSmtO39EFXBLxnAYBfrWEeyOc0MzKghRri4XAl7
+	hADLl8R+bfT8KEyIkeQxcAPLAoxOI1QDIB/r2+giUfifp9ckZVbr4LoJLhLU768N90R/R9cno0Ybs
+	TchdORc/CqBSGjkOJv1b/xyQHse+QR806mq1akeNg0W3WhqwVhKs/gTFoiXRnf0fFa3zaTn3hmRWz
+	+qpyDuRA==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tplah-00000005Fl7-2Yqc;
+	Wed, 05 Mar 2025 10:03:05 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 3C3CFA453B9;
+	Wed,  5 Mar 2025 09:57:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 73786C4CEF2;
+	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741168979;
+	bh=qch7huQ3IX9eDJtDp+CrMjmAYNzCX1pjwyDdnZ1GCVg=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=AhkzWp9ua1HWcqtPPxpbXBW3gcazCitDXxmBOabSxJmBRTdowWbdesbo++NyMGK8K
+	 U64gZ8f0qUhws4DU4cN0D7/spPo8gApfdv8NnsOgSJFz5noc1tsm5mTtVGBOJZMnbZ
+	 C083xr4rNWouSy/e9hW6ueR9g7fsBufH64sb6qbRjntSWacc9pA+t9GcDDlsDF9Sbz
+	 M1baqtHTBH+yLpDVXL5DFy+PFKDA1ihXCRCnhko0NAlCEmzFh78XhvhFIu+mfkhUrj
+	 GxEXCP1tbbE8ja9jJssnXdIbt1rvyJXVl1MWXssjBg87K0TBl9q5bHVSrbcdfqHM6s
+	 rFtLBn54wU4wA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 66706C282D9;
+	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Date: Wed, 05 Mar 2025 18:02:58 +0800
+Subject: [PATCH v3 3/4] arm64: dts: Add gpio_intc node for Amlogic A4 SoCs
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250305-irqchip-gpio-a4-a5-v3-3-1eec70352fea@amlogic.com>
+References: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
+In-Reply-To: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
+To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741168977; l=1190;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=QC+CPrCwcCU8cBlAO137f57knOzl0UVfLJyIMFfXkFY=;
+ b=PoBdOcPfugu3ByNyFY44yiXXXPnNKK9QME23lhCHLCeELEF91iF0e9U6ZrDk1ZLY/CUMvRWcA
+ Hk34oEI7ZSYDG/67Yf+lU0iZLcEbIT4NA2nduVlP9V2NV/p3a8TFN0g
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_100231_248590_52408BBE 
-X-CRM114-Status: GOOD (  15.73  )
+X-CRM114-CacheID: sfid-20250305_100303_761585_1668D4B2 
+X-CRM114-Status: UNSURE (   7.69  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,121 +103,52 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Varshini Rajendran <varshini.rajendran@microchip.com>
+From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 
-EUI identifier and the MAC Address of the Ethernet Interface is stored
-after the SFDP table of contents starting at address 0x260 in the
-QSPI memory.
-Register the entire SFDP region read by the spi-nor (nor->sfdp) into the
-NVMEM framework and read the MAC Address when requested using the nvmem
-properties in the DT by the net drivers.
+Add GPIO interrupt controller device.
 
-In kernel the Ethernet MAC address relied on U-Boot env variables or
-generated a random address, which posed challenges for boards without
-on-board EEPROMs or with multiple Ethernet ports.
-This change ensures consistent and reliable MAC address retrieval from QSPI,
-benefiting boards like the sama5d29 curiosity and sam9x75 curiosity.
-
-Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
-[manikandan.m@microchip.com: Integrate the nvmem->read callback framework]
-Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/mtd/spi-nor/sst.c | 62 +++++++++++++++++++++++++++++++++++++++
- 1 file changed, 62 insertions(+)
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi | 19 +++++++++++++++++++
+ 1 file changed, 19 insertions(+)
 
-diff --git a/drivers/mtd/spi-nor/sst.c b/drivers/mtd/spi-nor/sst.c
-index 175211fe6a5e..a0abf201ad41 100644
---- a/drivers/mtd/spi-nor/sst.c
-+++ b/drivers/mtd/spi-nor/sst.c
-@@ -5,6 +5,7 @@
-  */
- 
- #include <linux/mtd/spi-nor.h>
-+#include <linux/nvmem-provider.h>
- 
- #include "core.h"
- 
-@@ -13,6 +14,8 @@
- 
- #define SST26VF_CR_BPNV		BIT(3)
- 
-+#define SST26VF_SFDP_EUI48	0x30
-+
- static int sst26vf_nor_lock(struct spi_nor *nor, loff_t ofs, u64 len)
- {
- 	return -EOPNOTSUPP;
-@@ -56,8 +59,67 @@ static int sst26vf_nor_late_init(struct spi_nor *nor)
- 	return 0;
- }
- 
-+/**
-+ * sst26vf_sfdp_mac_addr_read() - check if the EUI-48 MAC Address is programmed
-+ * and read the data from the prestored SFDP data
-+ *
-+ * @priv: User context passed to read callbacks.
-+ * @offset: Offset within the NVMEM device.
-+ * @val: pointer where to fill the ethernet address
-+ * @bytes: Length of the NVMEM cell
-+ *
-+ * Return: 0 on success, -EINVAL  otherwise.
-+ */
-+static int sst26vf_sfdp_mac_addr_read(void *priv, unsigned int off,
-+				      void *val, size_t bytes)
-+{
-+	struct spi_nor *nor = priv;
-+	struct sfdp *sfdp = nor->sfdp;
-+	loff_t offset = off;
-+	size_t sfdp_size;
-+
-+	/*
-+	 * Check if the EUI-48 MAC address is programmed in the next six address
-+	 * locations.
-+	 * @off is programmed in the DT and stores the start of MAC Address
-+	 * byte, (off - 1) stores the bit length of the Extended Unique
-+	 * Identifier
-+	 */
-+	if (SST26VF_SFDP_EUI48 != *((u8 *)sfdp->dwords + (offset - 1)))
-+		return -EINVAL;
-+
-+	sfdp_size = sfdp->num_dwords * sizeof(*sfdp->dwords);
-+	memory_read_from_buffer(val, bytes, &offset, sfdp->dwords,
-+				sfdp_size);
-+	return 0;
-+}
-+
-+static struct nvmem_config sst26vf_sfdp_nvmem_config = {
-+	.word_size = 1,
-+	.stride = 1,
-+};
-+
-+static int sst26vf_nor_post_sfdp(struct spi_nor *nor)
-+{
-+	struct nvmem_device *nvmem;
-+
-+	sst26vf_sfdp_nvmem_config.dev = nor->dev;
-+	sst26vf_sfdp_nvmem_config.size = nor->sfdp->num_dwords * sizeof(*nor->sfdp->dwords);
-+	sst26vf_sfdp_nvmem_config.priv = nor;
-+	sst26vf_sfdp_nvmem_config.reg_read = sst26vf_sfdp_mac_addr_read;
-+
-+	nvmem = devm_nvmem_register(nor->dev, &sst26vf_sfdp_nvmem_config);
-+	if (IS_ERR(nvmem)) {
-+		dev_err(nor->dev, "failed to register NVMEM device: %ld\n", PTR_ERR(nvmem));
-+		return PTR_ERR(nvmem);
-+	}
-+
-+	return 0;
-+}
-+
- static const struct spi_nor_fixups sst26vf_nor_fixups = {
- 	.late_init = sst26vf_nor_late_init,
-+	.post_sfdp = sst26vf_nor_post_sfdp,
+diff --git a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+index efba8565af3c..fa80fa365f13 100644
+--- a/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
++++ b/arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi
+@@ -51,6 +51,25 @@ pwrc: power-controller {
  };
  
- static const struct flash_info sst_nor_parts[] = {
+ &apb {
++	gpio_intc: interrupt-controller@4080 {
++		compatible = "amlogic,a4-gpio-intc",
++			     "amlogic,meson-gpio-intc";
++		reg = <0x0 0x4080 0x0 0x20>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		amlogic,channel-interrupts =
++			<10 11 12 13 14 15 16 17 18 19 20 21>;
++	};
++
++	gpio_ao_intc: interrupt-controller@8e72c {
++		compatible = "amlogic,a4-gpio-ao-intc",
++			     "amlogic,meson-gpio-intc";
++		reg = <0x0 0x8e72c 0x0 0x0c>;
++		interrupt-controller;
++		#interrupt-cells = <2>;
++		amlogic,channel-interrupts = <140 141>;
++	};
++
+ 	periphs_pinctrl: pinctrl {
+ 		compatible = "amlogic,pinctrl-a4";
+ 		#address-cells = <2>;
+
 -- 
-2.25.1
+2.37.1
+
 
 
