@@ -4,86 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ABAEC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:55:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AD86C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:57:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ifb7s8N7ASNPOB9E6is5k4+Ad3fbrf35zj+T/SPZtk4=; b=rG8LoyOFx7hOVOP5O5UhZassDp
-	fbI58b+K2Op+ndzm4J3VA3zCEiVYyq/9Ayn8Hbp9MpUP7vQuLu2xItHE2MTw1m8RtwA8DgsqrkrSt
-	iq2FblDruJyzY4lutCghucJ9hSOKq2F+Uy4u2/KTGNHTbI4HcdZecqiTwyg+CQG38Q2cUgPqHZ9wk
-	JZ69zR8N3kFwSXNr14qxXTgPQlHMAQ0kNcja8KbV9WY5Eul077eAViIsLQ1Iqs176al1fTtvWYZm8
-	ehgUqo8Xbvye6Embz8F82tnCdL6nQH8n2xlV2LFHAMeVghiLtNjIsR+uQnk5S55ZNzbGCZVmGQxfR
-	4RIuR3Fw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ViTLKygErdiplFKeTsB+hgfn7l7mcJeHlaXg11bXs0I=; b=X3iy5L2KypQyUdoMsQf95FEQNd
+	TVRfm/h+a9/dscyuazZfG3peoVy4epzBJbz5Qdghb8j1ghnnoH+D9ZfBPnaEs60SBIhjqm9JpwLmr
+	pla5/oZ+gz/ve2cCSi4nXHHDrBSj/7o92A0KqmSTB3UJ8/TJPOyHPWnTd995eOmzgnAEFwAnMdgkb
+	XybGsVlbd0xQw/Obuvd6ovfoecjKMSRzH2BgsYVeQsTBTHoa5hCJS4dmH+wl0N3QkX4FlnuclbetF
+	MlTEANf+1AO06PypBCu5Vd5lY0P63SwJG8I6DeAFmW84CmfuU/udEwUoKEh2TuRVf4Xc0kWbhen9U
+	3huzNbzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjbG-00000007IYo-2Uf8;
-	Wed, 05 Mar 2025 07:55:30 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tpjco-00000007Igw-1k3u;
+	Wed, 05 Mar 2025 07:57:06 +0000
+Received: from mail-pl1-f175.google.com ([209.85.214.175])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjQX-00000007Gu0-2ref
+	id 1tpjQw-00000007Gyz-2lBS
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 07:44:26 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5496bc2e261so2967776e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:44:25 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741160664; x=1741765464; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ifb7s8N7ASNPOB9E6is5k4+Ad3fbrf35zj+T/SPZtk4=;
-        b=UQQLp8L0o1uyUG2YEwccZrRtwDvUw267TZAb3YdosSX6XBjDuL/7Gysw64t8rP6hKn
-         BAHWWxx3qw1KoJUhdATCuV/3tEvok+j07ZcPHjn4VXc4U7FlynMq3C78Qx3n7CRJ0LpW
-         2AXhlngE/3ZcL7tpag0KKABr/kseZicOwkgYdp68tpvxG9BKLHEKbbHyP1HHvnLvXSPC
-         UCcuUJeaYXrRy4FEhAFAS3plAAauoBXh8Eo7ebHcUhPOD4Sxch5ILTUfnnjlKGqoB/vY
-         2OZpunESQc/oeCTBB1GtHTA/7A1Q1WFI2XVBU4hfKIvuTVUjWXScTAxxQ4Uv/lLTvR+c
-         FUqA==
+	Wed, 05 Mar 2025 07:44:52 +0000
+Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-22349dc31bcso114359285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:44:50 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741160664; x=1741765464;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ifb7s8N7ASNPOB9E6is5k4+Ad3fbrf35zj+T/SPZtk4=;
-        b=MhBrgqZ9e6k11+0s+ysIfmMWQmppkLS0YyMhsWzgC4lrB/QEr/gcdrXJQyArGexWUd
-         610nT+BeQGqghqXO9siMr9Ai5hx1mRpCBxY20W5RIItoxJbWdtKEY8WR4XuhyS198+sh
-         UPDYJup8W8p1VaJQMeApML3s70b0zatGhAwz76xuvhAR7ehpc+RAf8uMC8lX6iCa7ZPS
-         t7kNWc/58c9jE0QeZkjOJZU7DC1pOUY4NAUO2Zb8ljMt7RzXAAu6MDZWF8xfTbcs/ZuW
-         DaKUwp1POUcS5FaoZOPSWFOaIJ7oQ1qeetNJTxpXFdiDpSdc1x2HKoru07uVvqEDQtDt
-         Tnzg==
-X-Forwarded-Encrypted: i=1; AJvYcCVcfXf3t63yh2oDx2NKhe2Fn39b3lQQViM7zONtH0wjRJD2IVHmc5Lvs233fGLEHmWGgAF+rRvf45U514YWwldU@lists.infradead.org
-X-Gm-Message-State: AOJu0YydLE7dseYYU4bP+B4bq1fhsDJIFZLaCDfhiJ0Mhw1iMcVfjNsX
-	/wkDxrhXmKimIsJ2GWNQNBp7q2X7t2HzR0X/SPvBYhdX/kBx19b6JXgDdacpY6hiyQU2Og49+go
-	TfEvspNR+AS7ejcITEQ+TjX0suSvG7rhEPG+ZVA==
-X-Gm-Gg: ASbGnctN5VYYf3oc8JRO1wepIcgTWTdeDYWpnj6E6ZA/FGPQpr2Bwnaezun3jmim9/l
-	/XCFI433pDwWwyMmmebN9UUn4J0h5vj5gKvB9odC/nlXS7SVX3gMRaA5VjA9TyY/red9yLDxGgK
-	MD4bu0XhoE29Q9YQgZCMx7meY4OQ==
-X-Google-Smtp-Source: AGHT+IH72H1//brTKp7UPeHSY9eMogpG7qFDF82B9TGbZP/N55c5XfFJ3ZljeOaJZN/Ekrf02VMjpTK3YP2YKnwg58U=
-X-Received: by 2002:a05:6512:2308:b0:545:bf4:4bd4 with SMTP id
- 2adb3069b0e04-5497d332250mr683605e87.7.1741160663833; Tue, 04 Mar 2025
- 23:44:23 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741160690; x=1741765490;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ViTLKygErdiplFKeTsB+hgfn7l7mcJeHlaXg11bXs0I=;
+        b=sLh3XBD/nGCX7TWNL52/4fZpJHG/e4qyLB51fNbuQQPrKhZf2XBcBTcBxDDJC4r1ws
+         4VRknU1mWoB/FRqe13+ctDIDR5Wzi1EbvWp8EI80hBH0pYE3LQhRzvCapWOlA9kBYLml
+         Squ/MWS6wHs6BX5x4n40q71JkqVQeOHimb51pWzt1SopDNamOTSyO5X07BhuZLjyUHur
+         AwswM9sDwHjxINrCjnwvQOSoby2opSye6m5RC3V6h+Tu5ljCKVmGhhzBhGnW5z60R6Rj
+         Ua5PoiZ3V6loYU2J79060GeCUWOJArovZ5kDAy3VKwypDjcUw0Wd6szB76Y4/gii7yOF
+         VEbw==
+X-Forwarded-Encrypted: i=1; AJvYcCXeE6qcpxuQyITMbtuecxjLTtZt7eyqQRG+ermc6dnj1wg1n4qgJUmJG7E0Kjt0dXjGYQIACAmUuCOcoVSD/rqZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx+AYTLsdZoNaP59PYnijvWlY2m0zkHcgwWltRboPkrVhk1EGf
+	PqKgLrIR97AwZUYdlOYxwOjxQ4KwSuR0dHxg/Y5rzr+NabBaEXBB
+X-Gm-Gg: ASbGncvlVJjSeJ7B1+z3d3oJAGVPPVEvQE9A7GtkKI4N7LV2ILoxADpIkSkhjAMIydm
+	JcOjcgUyyEUiCsdOm3GsHbVOnpXJ38LLYz5U+1BOjIcMAiztieRLSy2uKlhsvzFFe+FH9Vzfy7A
+	GUF3/s8LMvP+vSq/barN5RiWVVY5HIk96UsvOTmPu0x1EiM+2Ent3zFOXONWHUwWRaxbXsicneY
+	NMuyek+PLgu18BoElwm89KbHOTAcUe1c08kYvz7s47mIBDaAD9jXzGAygaQbjk+xBQ2nv7uodVn
+	8YuEZs93Cw8fiRQ+2MplpFLXJUZ4Z2pK6v9H1Xjuly44aDvgfHnhp0zr+TYmejvmT5oE3/Phlpb
+	H0Io=
+X-Google-Smtp-Source: AGHT+IFkECmzs4mja49rj6DCPMiWTzRluzyzBjPs7V57SQJNUYO0IDGjrEZGfcUcPpPyncsq8K2mSA==
+X-Received: by 2002:a17:902:f548:b0:220:f5d7:6405 with SMTP id d9443c01a7336-223f1c80b35mr33650085ad.16.1741160689723;
+        Tue, 04 Mar 2025 23:44:49 -0800 (PST)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-223504c7efcsm107522695ad.154.2025.03.04.23.44.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 23:44:49 -0800 (PST)
+Date: Wed, 5 Mar 2025 16:44:47 +0900
+From: 'Krzysztof =?utf-8?Q?Wilczy=C5=84ski'?= <kw@linux.com>
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: 'Geert Uytterhoeven' <geert@linux-m68k.org>,
+	'Fan Ni' <nifan.cxl@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
+	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com,
+	'Yoshihiro Shimoda' <yoshihiro.shimoda.uh@renesas.com>,
+	'Linux-Renesas' <linux-renesas-soc@vger.kernel.org>
+Subject: Re: [PATCH v7 3/5] Add debugfs based silicon debug support in DWC
+Message-ID: <20250305074447.GC847772@rocinante>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132035epcas5p47221a5198df9bf86020abcefdfded789@epcas5p4.samsung.com>
+ <20250221131548.59616-4-shradha.t@samsung.com>
+ <Z8XrYxP_pZr6tFU8@debian>
+ <20250303194647.GC1552306@rocinante>
+ <CAMuHMdWens9ZZrjNH1Bd2AN3PJEP1KSUGdiJcBCt0uPGH_GiiA@mail.gmail.com>
+ <20250304154638.GB2310180@rocinante>
+ <061201db8d25$dd1e2bd0$975a8370$@samsung.com>
 MIME-Version: 1.0
-References: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-In-Reply-To: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 5 Mar 2025 08:44:12 +0100
-X-Gm-Features: AQ5f1Jr31kdFtNesf13pMh4snaXBkelieuVeF0YyE3rSN-OSc3IL0WrT8xClu-o
-Message-ID: <CACRpkda_QjBpfyA1ig2cC+pn8Xf0Rk8Ox+pecQkbcbYY+8N7Cw@mail.gmail.com>
-Subject: Re: [PATCH v2 0/6] ASoC: samsung: GPIO descriptor conversion
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, Liam Girdwood <lgirdwood@gmail.com>, 
-	Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <061201db8d25$dd1e2bd0$975a8370$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_234425_719901_AB5B961F 
-X-CRM114-Status: UNSURE (   8.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_234450_697186_3D89C468 
+X-CRM114-Status: GOOD (  13.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,16 +102,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 5, 2025 at 8:39=E2=80=AFAM Linus Walleij <linus.walleij@linaro.=
-org> wrote:
+Hello,
 
-> This drops unused includes and converts one Samsung
-> codec to use GPIO descriptors.
+> I think we shouldn't move the log level to be a WARN. I believe many
+> controllers might not support RAS DES feature in their design and giving
+> a warn dump would draw unnecessary attention.
 
-Oh I see it was already applied (I don't read my mail fast enough
-in the mornings), no worries I can send an incremental
-fix instead.
+There will be no backtrack printed with neither dev_err() nor dev_warn(),
+which is what we were using here.  Using dev_WARN() or the WARN() macro
+directly would be an overkill in this case, indeed.
 
-Yours,
-Linus Walleij
+> My opinion is to silently let it fail unless the user is actually
+> interested in getting the RAS DES feature up.
+
+I think, what we have there now is fine.  We don't error on the lack of RAS
+DES capability when the platform does not support it, and only return an
+error following a memory allocation failure, which should ideally never
+happen.
+
+That said, have a look at the following:
+
+  https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/log/?h=controller/dwc
+
+This is how the code looks like at the moment.
+
+We can still move it to dev_dbg(), so basically suppress any errors or
+warnings from being printed outside of the debug log level, if you think
+it would be better.
+
+Thank you!
+
+	Krzysztof
 
