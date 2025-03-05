@@ -4,120 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1AF5C282E5
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:33:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95917C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:34:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BvA69GRM940nbh4WvjTd5eG8jH1Ow0PBoCzHHS2i3Ls=; b=oJqCGKgcNR+h/eM12LKRKdSJt7
-	TQmK9lnToo0SWOqNdj5D9cR8NSGuLDZ5fjMEX9h3YI0fjxZC8t1ujFjkiP+6G+t5IDs1gIj8GpbO5
-	+i0V0oFr3OkhNJ519udXQ9Muqj7sS+zbGFX3CK8fUV83xZ6w0qkdigorMYzkaLr3BDZ6dx03BOGkP
-	MmNPqU6SB/gJtrzp9XWCCkj0JiFU1GfpckgAxslHcXzK/zNYKx2jOQm8kegTE/KWMqQdV7lmCRC9c
-	RmbzwX+M6jhG3jfQgUXx2/EguWbwgUavJCBkwfbyJ4nG6NHN5fP3sOAi6/R5rzecAin5KjBnYPASo
-	51Qdn4kQ==;
+	bh=u/EDlj+KCqtnghUmkpWYPx5sg24VjMYJxMv5mgQVSzE=; b=eIs4Yz4Hs9I+MTk+8gvbdJg0By
+	FRIV7bgSNjFJ3zLr25gCUOadYYA1U6XT8mSX2URYLIxdjMiKdaOUGbm9GS2FxYbeinp4l/BFFkRG+
+	GuOb76WpZ0nm1r8juPf6Hdv1UfW5AWMOrUyanA9KAEjnQygsP+we/qu95bUETdxrNGcl3iicC7TSQ
+	QncYL39vVgVi+iMElp4zL1ACAxVKqoPbj8fy8FDvVXBcFOaYSnLxHPWhZ236WBPDAOi3Xo3JsPZ9m
+	5ai1HGQ7kO18gDjLIvcjlKozG9PjnD2rIGGArohwseBPOSBJeS5CqqInK+t5Nbs2JqoK1whXFD+BW
+	cogAi/vA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tppob-00000008MZ1-3HoF;
-	Wed, 05 Mar 2025 14:33:41 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpppK-00000008Mm3-1rP4;
+	Wed, 05 Mar 2025 14:34:26 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoSW-000000087pp-0xvH
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 13:06:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=BvA69GRM940nbh4WvjTd5eG8jH1Ow0PBoCzHHS2i3Ls=; b=bHlyUaK/fcslgDBCMsBnVkhDWV
-	s6nrIVDyomuLtA+j1ZoGgAerDn1YG+9+O+Zk9U352NcIx/nDNPcImlxhOxq0Ayfs5pV0xK5acrMul
-	oooEVDj+m/foH4dIKjOh2KCKyOHZiBZfe5V0G3iHiO14U6DkhyHb2ATNwdpm7pFfdwZ3Aze+ONTu/
-	4PNT2aIeTy1Zi2XCxr2HCKpIoJJVm0K6QBcA1fTF5nZUZQeHxnHkYgLUMYx3QbMd3ia2WGZ+M6iK7
-	wmf8lBzrUAbX3gcEi8VJjQ4MstpzkmrJd11DaL6RX+CasQwqBgXs4JYAtlAAPpfSRmKrk0zC3Jp9j
-	BnWvjipw==;
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoSS-00000005Xbq-3EID
+	id 1tppeQ-00000008Kww-03r9
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 13:06:47 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e535e6739bso6042662a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 05:06:43 -0800 (PST)
+	Wed, 05 Mar 2025 14:23:11 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-390ec449556so5807233f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 06:23:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741180002; x=1741784802; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BvA69GRM940nbh4WvjTd5eG8jH1Ow0PBoCzHHS2i3Ls=;
-        b=zCBHJuRXDoSzOI6CHdVsOQf4lVUORUd/p+AkzSon/d0Hu7Fk/sD+cFgdRoszXijkj4
-         BVuFkZ56wUb+2pU0//4mti1A5iY+tUsEz+f14YMcL+8ayfgw31IU2o2IArSvV+hgINqM
-         6zRXXNsnaHzxZzOVGAwPc2QVY1Tbb6/uvoRLozC0PUXL06kEqvUt98+u3chEF50oca4e
-         em0Z89kLFAkVAX8ux7oemYn9N/BaqyF9vfFp6Rnda0r2+wSdg0b5eAS2pVl6YBw7JZxP
-         lXiJCmwhVfehgVJumQ2i2/tj+74e11hzdbOvTKCd5n//32A1laYitcEGB6ge7SKDyJ+w
-         LW9Q==
+        d=linaro.org; s=google; t=1741184588; x=1741789388; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=u/EDlj+KCqtnghUmkpWYPx5sg24VjMYJxMv5mgQVSzE=;
+        b=vkFDoElM+npOZiB8QprxRP8Uwo0N5WTCRnYdU4bELagYdpeUDrlb75EdQDQ9qYyONc
+         gZuT9qXj9MjPgukCOhLcQnt1MBHoCDeZX6jym+Rp4axKDtESIfBSY4acldNGaCznM6KI
+         ZzvtpIalgJqpG0cLWVOIIt2ekkodRuB2j2t2sGyWd+bmCSTdx37v3cH/XU46OXEY2j98
+         yh7QMrXVoCg7/5vPlqfE1Ow5R4sHmnl3fiPn5hgtRHckRBXC69JkKYRXMESwG1RatStL
+         0nMB6bNbALjDUidNBgjXcu+EZY8hhOTAwSAprEGoN45ItJQkze2sJscodPo6hWiIhXZW
+         WGxA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741180002; x=1741784802;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BvA69GRM940nbh4WvjTd5eG8jH1Ow0PBoCzHHS2i3Ls=;
-        b=xKtJdfMfkEo463jbIyPMd0AS5dlCII1TZJGtryly503cAs6LSssoeqD7OqB1LAu3oD
-         FquY8sXDGoBoFDRBarNkUgTVxrkFy+yuNrd1BXqECkADMeDQO39reMTa1/P6wLUJHzWw
-         wngb/XXkjzDGUg7hLbTy9rtKMJc7UuaYbflGsxSENxeOvILxf03mRGfeUTNAcHf1coH5
-         4shVmH+jxxIK4hY5K7b+3g9Kqv0dkAJbnW6SKevNe05SN/uukuWl9/4yt/RGKwDQ0+3K
-         lw50XQlzfPa26FJ91bTP7uhQcfuD1pVXjNTnbYxar3VwHv/3eOYQxy2GHtHUReI0Bo80
-         KhgQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtADKVtD+hke+m1FZvID5pwCBpg+CH563JQb5Zb7WMh6ypbByQZBn923l7DpyLEHBToNnE2LTiu1FvshsZxmvh@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT34uFmRmFy25YEHaJPwZGxx2vHQKIKZeh1Kf2omKzqpw7lR2r
-	ykQLGgg07ug5DNRRufXxpi8hPlJwktCZ7v4827cP2cKQNqHiQ2W+0R6KZpvt+yU=
-X-Gm-Gg: ASbGncuWS3v54l+UenGE7ye+HAblYTcyws7pXPDHfxFoYgyf3DjBRN4l2i6qfPyuw7U
-	5RBWNocIM7URm+WXdchWrBPozTjbPfbaR1yScpkU0n9PKqUYmBfl8YBk9wWhc+LZiOOzjXx2qHX
-	m6KTaV23kFPwMn18JOURYT1B0f7Xa4lTDr+n8fSouZl+xKta40rIdEWmZae1MpXIbuPWUt+d+L/
-	qx7xsGKPyQB7DvlhklYAfoLn0ngdzdXnFBC1WqQYgvu9Rjt28eLfuh1jVJ5o3EeZ+sVtl5rnkBL
-	i3WnrB89/Mtfx46dxWtAxTlACZ1dybD0d6oUe3IW6jZp+3uARFgaLxawKY+jzdYWHpzzYSiHIk9
-	nVa37Zlr6sp/xArB1yFq7yA==
-X-Google-Smtp-Source: AGHT+IEjtiBAYCTH0+e95UXzOpV6Qk/1lP6TuM4iQbwFmlqCq9fGF9wURhaIIhsi+UMHMk8/oJkTeQ==
-X-Received: by 2002:a50:c8cd:0:b0:5e5:bcd6:4ad8 with SMTP id 4fb4d7f45d1cf-5e5bcd64d5amr155764a12.9.1741180002364;
-        Wed, 05 Mar 2025 05:06:42 -0800 (PST)
-Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5bcd1595bsm65714a12.42.2025.03.05.05.06.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 05:06:41 -0800 (PST)
-From: Jens Wiklander <jens.wiklander@linaro.org>
-To: linux-kernel@vger.kernel.org,
-	linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
-	Sumit Garg <sumit.garg@linaro.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com,
-	Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>
-Subject: [PATCH v6 01/10] tee: tee_device_alloc(): copy dma_mask from parent device
-Date: Wed,  5 Mar 2025 14:04:07 +0100
-Message-ID: <20250305130634.1850178-2-jens.wiklander@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250305130634.1850178-1-jens.wiklander@linaro.org>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+        d=1e100.net; s=20230601; t=1741184588; x=1741789388;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=u/EDlj+KCqtnghUmkpWYPx5sg24VjMYJxMv5mgQVSzE=;
+        b=HqPxTOSbPmV+Rfow3L/y4PZY00ev2eLj0i32xINr5njTj+wXWFGZG50QjM+Y6ORFTc
+         QZVtOeNW23lhbZdpV3Wqq7b0EofikdAAJbDBzxaXx3eJGEjUyKfEa64jyXhZpAG+y2Fd
+         zMKwWLmFSetxwYds9Bo1gBb0tCC23tXS9J6/Ru7GQJTS8MSIc8G3uioN67VNVvKSVNBv
+         pB5ihYQ6BdxLaQjMAtoqLdvghHV3fhgKVqZ6Ib4avX/08XRQKJTJhQh2bCZXkoIz5OH9
+         m5Vn9I0rxd+wJp7vzK2WseVyhMeWLHJ4YvtFeTwL58BzvLSKwfZI/APCmhgzhO9CPUis
+         N+/A==
+X-Forwarded-Encrypted: i=1; AJvYcCXto/KeKsdwt3nzmOdL8RpGpeM+GA6w8lyMLPzRDd+Zry13/gbd4jbN4XQSuCGEYPovMqfJVYIb/bXgIKSNqbJb@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7yuSV4/xrrBgtFoGfIHgyf+BiEKGishWFJ56wknCSEHZDez4C
+	WOcUiVeNh7PfFqyG8miRUcj0T1cYlvLrN0Jy+96k9LGHenbJPG3LH/MLBD7Ygu4=
+X-Gm-Gg: ASbGncvfqHdvocRbNMEeKUjSogqR2nk+QPqFr1ASoceB4lfBJfPHZWoV34ZpV6SqsFD
+	nyyR1KqeJj2RLiowXXFxl3AeNhgnAk9u7HcJXovkLo4shM9rK3SxpYesUM7RBVUDDhedoqCA0QT
+	48Fiz81t5o3fJcXwqkO6cdSNlXt/wU00IW4Z1cYRYPo8sjsUaWEw0M6IDAYyyjTj0JnldCdombG
+	O9kxCgn1CtbQOH77PBuWzBFjO1nKXOjN738T6YM1WE0fWkpGPpErLdOQ+WdQkgel38KjOkuS/mK
+	AOSLFePcIJUuwKw1awyYOr15Y+QkZm1FPwbktoDdR7FGlcCrqnt4ZA==
+X-Google-Smtp-Source: AGHT+IFhtHEtHPZDbikFBxfqwSObZ6We/RGoyHTAtxKyvh9iiCUNxXuSQTE/D9Gy3GIUTiWcaX07Kg==
+X-Received: by 2002:a5d:5886:0:b0:391:2e7:67ff with SMTP id ffacd0b85a97d-3911f724d55mr2796904f8f.10.1741184587814;
+        Wed, 05 Mar 2025 06:23:07 -0800 (PST)
+Received: from [192.168.0.14] ([79.115.63.206])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b7ddesm21390361f8f.57.2025.03.05.06.23.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Mar 2025 06:23:07 -0800 (PST)
+Message-ID: <9063abd1-b417-4623-b44d-fcb18f3c71b7@linaro.org>
+Date: Wed, 5 Mar 2025 14:23:04 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] clk: samsung: Add missing mod_devicetable.h header
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250304-clk-samsung-headers-cleanup-v1-0-81718e38246e@linaro.org>
+ <20250304-clk-samsung-headers-cleanup-v1-1-81718e38246e@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <20250304-clk-samsung-headers-cleanup-v1-1-81718e38246e@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_130644_837439_3CE9F887 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250305_062310_060656_64DA5D72 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,29 +108,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If a parent device is supplied to tee_device_alloc(), copy the dma_mask
-field into the new device. This avoids future warnings when mapping a
-DMA-buf for the device.
 
-Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
----
- drivers/tee/tee_core.c | 2 ++
- 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
-index d113679b1e2d..685afcaa3ea1 100644
---- a/drivers/tee/tee_core.c
-+++ b/drivers/tee/tee_core.c
-@@ -922,6 +922,8 @@ struct tee_device *tee_device_alloc(const struct tee_desc *teedesc,
- 	teedev->dev.class = &tee_class;
- 	teedev->dev.release = tee_release_device;
- 	teedev->dev.parent = dev;
-+	if (dev)
-+		teedev->dev.dma_mask = dev->dma_mask;
- 
- 	teedev->dev.devt = MKDEV(MAJOR(tee_devt), teedev->id);
- 
--- 
-2.43.0
+On 3/4/25 6:45 PM, Krzysztof Kozlowski wrote:
+>  drivers/clk/samsung/clk-exynos-audss.c   | 1 +
+>  drivers/clk/samsung/clk-exynos-clkout.c  | 1 +
+
+drivers/clk/samsung/clk-exynos2200.c can benefit of the inclusion too.
+
+>  drivers/clk/samsung/clk-exynos3250.c     | 2 +-
+
+drivers/clk/samsung/clk-exynos4.c too
+
+>  drivers/clk/samsung/clk-exynos4412-isp.c | 1 +
+
+drivers/clk/samsung/clk-exynos5-subcmu.c too
+
+>  drivers/clk/samsung/clk-exynos5250.c     | 1 +
+>  drivers/clk/samsung/clk-exynos5420.c     | 1 +
+>  drivers/clk/samsung/clk-exynos5433.c     | 1 +
+
+drivers/clk/samsung/clk-exynos7870.c too
+
+>  drivers/clk/samsung/clk-exynos7885.c     | 1 +
+>  drivers/clk/samsung/clk-exynos850.c      | 1 +
+>  drivers/clk/samsung/clk-exynos8895.c     | 1 +
+>  drivers/clk/samsung/clk-exynos990.c      | 1 +
+>  drivers/clk/samsung/clk-exynosautov9.c   | 1 +
+>  drivers/clk/samsung/clk-exynosautov920.c | 1 +
+>  drivers/clk/samsung/clk-fsd.c            | 1 +
+>  drivers/clk/samsung/clk-gs101.c          | 1 +
+>  drivers/clk/samsung/clk-s5pv210-audss.c  | 1 +
+
+drivers/clk/samsung/clk.c and drivers/clk/samsung/clk.h too.
+
+With that:
+Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+
+>  16 files changed, 16 insertions(+), 1 deletion(-)
+
 
 
