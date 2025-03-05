@@ -4,123 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9357C28B22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:18:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 198E2C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1WWBKBMWoMocSPzeiGGRrs3VuCNtD5caEfbAGvzdcpA=; b=V2GxiupmlZuS4/zboZ+VV9zTUe
-	0KZvGvvvbsWE0prEtAJ0ahiMjDzLpad5XZNSsFC+HZo2SYetBQxjV88h0k8la98gIdix94UqzOtNa
-	diaMh/elZOfyyPB3mkQMCio5x7C3fY6JKe3BlKMsluHXe/qeEtdP30hAiGFbmtMDy0V5iglRd0Ntu
-	nKbZJBCSF9Hz87m5ZgVtiaIJsMrHv1gAW4KZgiHiRGRu68nU8WRpz5aNLk5hFTSUZ/ntSqZlNjXGa
-	WWLu5GWbqLIgbx/kekdhKpmFCnwtcKC66tirHjthnoXH0JglnYlTZ2TcjinPfTg8IfYt6STsMXQjD
-	jyfJ6jOg==;
+	bh=THyb2hAFANk49lbyBjrbji8OLhzmvtcpQkFb5J3BMvM=; b=Jh3uOYpbZX0h5MdZANo1uIsgXl
+	FERaTO8FKJi3ZoJQ+D5sO4JWffj6j4Ipwx5zGmrzjYsyJI6c/qlJqihlWvIpePLTIAcGNDgdLDSK/
+	IlJm0tl1OAuQ/+ppvHGRCn9ihejLMj1DvBDlT4hSaxRTyIFBQD9CimJujp8RiF3Eo4XhKBHUnyEbK
+	27CRBY/C93szMtkKZaZFM0PxjxrmjGBKkXBZIauqF6LFIRQPKVHHSWIuTpdSiS24XX7YffFFT+4pR
+	NwiB3X++YKt9qQAdKtv7to6XmvwfpjD+QIUTO/pnGT8cJRvXT6eaZkQpFsuGtXJBTx67OwSo0cSV+
+	tHBpAIUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpw8c-00000009KFF-1RGO;
-	Wed, 05 Mar 2025 21:18:46 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpw8e-00000009KGW-3mhb;
+	Wed, 05 Mar 2025 21:18:48 +0000
+Received: from out-175.mta1.migadu.com ([2001:41d0:203:375::af])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpuYL-000000095Xi-12H4
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 19:37:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=1WWBKBMWoMocSPzeiGGRrs3VuCNtD5caEfbAGvzdcpA=; b=DIZ3ksrsfzev/1b1iAQeAxXxuS
-	vGVTQwarQnz+xYPEPDGxsDArpQQSLprd44XTYepqPDNspnUOEdlv74+kgAYCWvA9Hv8DT0khqKz1F
-	FAFVSKfx9fXhCZRKKVJOoh1bMzfQHjpa1ZhR/MMiTImYd6xWnue3CozkN/RQhDnzYWon4ofgAK4Ss
-	dkSBAahjgmkf0lznwCpBsZjcAZd6fItUuEqGcOXCetNns1ROwYIgIlXPipwHeWP6Lkz8gYgch9jNF
-	N+8nJw4kTKveuodacMZUu6lHQRh5yrawXppc/tS/OYimpxyu/9RqpuGalFjAmCo4TIKKCCTaVZvx9
-	HPf9ks8Q==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpuYI-000000066OJ-1Jl2
+	id 1tpvKo-00000009D8e-0hOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 19:37:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B8718A45E21;
-	Wed,  5 Mar 2025 19:31:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AC49C4CED1;
-	Wed,  5 Mar 2025 19:37:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741203428;
-	bh=ZyjrNEv58/rmyRtLUFlUsVfuA5ORw8U5QRMs6Ik/ZNk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=SWgDGbP6F9sORPpe4qKTEWAogi81SnzHF/WiC/JJ8gDSKaIN69eH/M4qcdi0Wv+3e
-	 3UxXf/LVzxyF64338aSa7oqUtmT7FZIEeokzB+U0QQU+JMGiDqXkqzKEN1PuTGxkOT
-	 //LwbGQPGk3adWoWh8IMMSnqLyXc8+vBTuaZ+3OFOpE6uIPmxYAm5ZfRyWBa1R60N4
-	 y5KuYPxCWvGWwYslxVb07bA2hu+unFT0IvAGi3IXFEEKerkfmgPg5/T0GMlEUimbA6
-	 Ts9hhscmhZErBPVz9+ubpe6PA2uaakl4d606lxDEVA2l6AZKHTnD44tsIHsKBOd406
-	 qLqbkS+9zQoSg==
-Message-ID: <005424c2-7fb7-48db-b38c-c62f9f8b3897@kernel.org>
-Date: Wed, 5 Mar 2025 20:37:00 +0100
+	Wed, 05 Mar 2025 20:27:19 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741206435;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=THyb2hAFANk49lbyBjrbji8OLhzmvtcpQkFb5J3BMvM=;
+	b=j67styIcO3xSLksWDsU+hmN0s0DezY8cdy3cwllJjFno7nugclMlFNH3q9WtZfSF4yFy1E
+	CETonA9EcFBl3b7bQ15NG2gp4yHf14tCL8EUAFpMKSdiVpaUnNl0dy9Wrf4YWO4zCSfaQ5
+	5Ei9YUOyBeyESBY3OY8pgzOFF+R0u+Y=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: [PATCH v3 07/14] KVM: arm64: Use guard() to cleanup usage of arm_pmus_lock
+Date: Wed,  5 Mar 2025 12:26:34 -0800
+Message-Id: <20250305202641.428114-8-oliver.upton@linux.dev>
+In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
+References: <20250305202641.428114-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] firmware: samsung: add ACPM debugfs support
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>
-Cc: andre.draszik@linaro.org, peter.griffin@linaro.org,
- willmcvicker@google.com, kernel-team@android.com,
- linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250224-acpm-debugfs-v1-0-2418a3ea1b17@linaro.org>
- <20250224-acpm-debugfs-v1-3-2418a3ea1b17@linaro.org>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250224-acpm-debugfs-v1-3-2418a3ea1b17@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_193710_543372_686027EE 
-X-CRM114-Status: GOOD (  20.81  )
+X-CRM114-CacheID: sfid-20250305_122718_350264_898AE9DB 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,202 +79,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24/02/2025 09:01, Tudor Ambarus wrote:
-> The ACPM firmware saves debug information to SRAM. Add debugfs entries
-> in order to expose the ACPM logs.
-> 
-> acpm_framework/logb_gprio_level controls the ACPM print verbosity to
-> the SRAM log buffer. It encodes a 64 bit value, 4 bits for each of the
-> 16 Plugin IDs, with verbosity levels from 0xf (log error) to
-> 0x0 (log debug).
-> 
-> echo 0xffffffffffffff1f > /sys/kernel/debug/acpm_framework/logb_gprio_level
-> Will allow only LOG_ERR prints for all Plugin IDs but Plugin ID 1,
-> which will issue prints for any log levels greater or equal to 1.
-> On the ACPM firmware side, logb_gprio_level has a default value of zero,
-> all logs enabled for all Plugin IDs.
-> 
-> acpm_framework/log_level has a maximum value of 2 and controls which
-> SRAM log buffers are printed.
-> 
-> Finally, acpm_framework/acpm_debug_cmd provides a way to issue
-> ACPM DEBUG commands to the firmware.
+Get rid of some goto label patterns by using guard() to drop the
+arm_pmus_lock when returning from a function.
 
-Please add something like above also as a comment to the driver, so the
-interface will be documented.
+Tested-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+---
+ arch/arm64/kvm/pmu-emul.c | 23 ++++++++---------------
+ 1 file changed, 8 insertions(+), 15 deletions(-)
 
-> 
-> Add ACPM debugfs support with the above capabilities.
-> 
-> Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> ---
+diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+index 120f48136a0f..fee3d0003d54 100644
+--- a/arch/arm64/kvm/pmu-emul.c
++++ b/arch/arm64/kvm/pmu-emul.c
+@@ -790,26 +790,23 @@ void kvm_host_pmu_init(struct arm_pmu *pmu)
+ 	if (!pmuv3_implemented(kvm_arm_pmu_get_pmuver_limit()))
+ 		return;
+ 
+-	mutex_lock(&arm_pmus_lock);
++	guard(mutex)(&arm_pmus_lock);
+ 
+ 	entry = kmalloc(sizeof(*entry), GFP_KERNEL);
+ 	if (!entry)
+-		goto out_unlock;
++		return;
+ 
+ 	entry->arm_pmu = pmu;
+ 	list_add_tail(&entry->entry, &arm_pmus);
+-
+-out_unlock:
+-	mutex_unlock(&arm_pmus_lock);
+ }
+ 
+ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+ {
+-	struct arm_pmu *tmp, *pmu = NULL;
+ 	struct arm_pmu_entry *entry;
++	struct arm_pmu *pmu;
+ 	int cpu;
+ 
+-	mutex_lock(&arm_pmus_lock);
++	guard(mutex)(&arm_pmus_lock);
+ 
+ 	/*
+ 	 * It is safe to use a stale cpu to iterate the list of PMUs so long as
+@@ -830,17 +827,13 @@ static struct arm_pmu *kvm_pmu_probe_armpmu(void)
+ 	 */
+ 	cpu = raw_smp_processor_id();
+ 	list_for_each_entry(entry, &arm_pmus, entry) {
+-		tmp = entry->arm_pmu;
++		pmu = entry->arm_pmu;
+ 
+-		if (cpumask_test_cpu(cpu, &tmp->supported_cpus)) {
+-			pmu = tmp;
+-			break;
+-		}
++		if (cpumask_test_cpu(cpu, &pmu->supported_cpus))
++			return pmu;
+ 	}
+ 
+-	mutex_unlock(&arm_pmus_lock);
+-
+-	return pmu;
++	return NULL;
+ }
+ 
+ static u64 __compute_pmceid(struct arm_pmu *pmu, bool pmceid1)
+-- 
+2.39.5
 
-
-...
-
-> +
-> +union acpm_log_entry {
-> +	u32 raw[4];
-> +	struct {
-> +		u32 systicks0 : 24;
-> +		u32 dummy : 2;
-> +		u32 is_err : 1;
-> +		u32 is_raw : 1;
-> +		u32 plugin_id : 4;
-> +		u32 systicks24;
-> +		u32 msg : 24;
-> +		u32 systicks56 : 8;
-> +		u32 data;
-> +	} __packed;
-> +};
-> +
-> +static struct dentry *rootdir;
-
-exynos-apcm.c is not a singleton, so neither should this be. You should
-create entries per device (so with device name as subdirectory), just
-for correctness.
-
-> +
-> +static DEFINE_MUTEX(acpm_log_level_mutex);
-
-And this also looks per-device-instance.
-
-> +
-> +static void acpm_log_print_entry(struct acpm_info *acpm,
-> +				 const union acpm_log_entry *log_entry)
-> +{
-> +	u64 systicks, time, msg;
-> +
-> +	if (log_entry->is_err)
-> +		return;
-> +
-> +	if (log_entry->is_raw) {
-> +		dev_info(acpm->dev, "[ACPM_FW raw] : id:%u, %x, %x, %x\n",
-> +			 log_entry->plugin_id, log_entry->raw[1],
-> +			 log_entry->raw[2], log_entry->raw[3]);
-> +	} else {
-> +		systicks = ((u64)(log_entry->systicks56) << 56) +
-> +			   ((u64)(log_entry->systicks24) << 24) +
-> +			   log_entry->systicks0;
-> +
-> +		/* report time in ns */
-> +		time = mul_u64_u32_div(systicks, ACPM_APM_SYSTICK_PERIOD_PS,
-> +				       1000);
-> +
-> +		msg = readl(acpm->sram_base + log_entry->msg);
-> +
-> +		dev_info(acpm->dev, "[ACPM_FW] : %llu id:%u, %s, %x\n", time,
-> +			 log_entry->plugin_id, (char *)&msg, log_entry->data);
-
-
-I don't think these should be printed to dmesg - these are not system
-logs. You either return the contents to the caller's read() on debugfs
-entry or, if this is anyhow crashdump related, it goes to
-pstore/minidump once triggered. Or to ramoops.
-
-Depends what these logs are (so please also explain what do you find
-there in the commit msg).
-
-Maybe something like CHROMEOS_PSTORE?
-
-IOW, if enabled, this should go to ramoops/pstore unconditionally. For
-runtime debugging this should be returned somehow to the userspace
-reading the file. I think usually debugfs and sysfs is not expected to
-provide more than PAGE_SIZE data, so this second part has to be
-rethinked still.
-
-> +	}
-> +}
-> +
-> +static void acpm_log_print_entries(struct acpm_info *acpm,
-> +				   struct acpm_log_buf *lbuf)
-> +{
-> +	union acpm_log_entry log_entry = {0};
-> +	u32 front, rear;
-> +
-> +	front = readl(lbuf->q.front);
-> +	rear = lbuf->rear_index;
-> +
-> +	while (rear != front) {
-> +		__ioread32_copy(&log_entry, lbuf->q.base + lbuf->mlen * rear,
-> +				sizeof(log_entry) / 4);
-> +
-> +		acpm_log_print_entry(acpm, &log_entry);
-> +
-> +		if (lbuf->qlen == rear + 1)
-> +			rear = 0;
-> +		else
-> +			rear++;
-> +
-> +		lbuf->rear_index = rear;
-> +		front = readl(lbuf->q.front);
-> +	}
-> +}
-> +
-> +static void acpm_log_print(struct acpm_info *acpm)
-> +{
-> +	struct acpm_log_info *acpm_log = acpm->log;
-> +
-> +	guard(mutex)(&acpm_log_level_mutex);
-> +
-> +	if (acpm_log->level == 0)
-> +		return;
-> +
-> +	if (acpm_log->level == ACPM_LOG_LEVEL_MAX)
-> +		acpm_log_print_entries(acpm, &acpm_log->preempt);
-> +
-> +	acpm_log_print_entries(acpm, &acpm_log->normal);
-> +}
-> +
-> +static void acpm_work_fn(struct work_struct *work)
-> +{
-> +	struct acpm_log_info *acpm_log =
-> +		container_of(work, struct acpm_log_info, work.work);
-> +	struct acpm_info *acpm = acpm_log->acpm;
-> +
-> +	acpm_log_print(acpm);
-> +
-> +	queue_delayed_work(acpm_log->wq, &acpm_log->work,
-> +			   msecs_to_jiffies(acpm_log->poll_period));
-> +}
-> +
-> +static int acpm_log_level_get(void *data, u64 *val)
-> +{
-> +	struct acpm_info *acpm = data;
-> +
-> +	*val = acpm->log->level;
-> +
-> +	return 0;
-> +}
-> +
-> +static int acpm_log_level_set(void *data, u64 val)
-> +{
-> +	struct acpm_info *acpm = data;
-> +	struct acpm_log_info *acpm_log = acpm->log;
-> +
-> +	if (val > ACPM_LOG_LEVEL_MAX) {
-> +		dev_err(acpm->dev, "Log level %llu out of range [0:%u]!\n",
-> +			val, ACPM_LOG_LEVEL_MAX);
-> +		return -EINVAL;
-> +	}
-> +
-> +	scoped_guard(mutex, &acpm_log_level_mutex)
-> +		acpm_log->level = val;
-> +
-> +	if (acpm_log->level == 0)
-> +		cancel_delayed_work_sync(&acpm_log->work);
-> +	else
-> +		queue_delayed_work(acpm_log->wq, &acpm_log->work,
-> +				   msecs_to_jiffies(acpm_log->poll_period));
-> +	return 0;
-> +}
-> +
-> +DEFINE_DEBUGFS_ATTRIBUTE(acpm_log_level_fops, acpm_log_level_get,
-> +			 acpm_log_level_set, "0%llu\n");
-
-I also do not think debugfs is a knob to control loglevel of messages
-going to dmesg.
-
-Best regards,
-Krzysztof
 
