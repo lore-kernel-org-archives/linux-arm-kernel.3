@@ -4,89 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14088C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:20:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 645A0C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:24:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8b1/uzHkmLRM1y/RYzrMjDEcfh/Uu5cXz1HbOjoZlx4=; b=vMdPruuaqNKKKeUMGNj6OwZmqa
-	zFWYu5CL6bZZYvgkWKZZLFUpdvCk6CrKbsZcLo3x6VQokewvwKtMcLVTtmQ4ScrTz3dIrg0Wc0e8o
-	FQeEwBx+HyoHDgMNlIHrYZJCB/o4wjPWcrv8ju0a20ZVp2ixrW02T2tR+XFQzkWgcmtmEXVoyjP7e
-	9me8tXwUyAix2TKFCSmROSdZd6GzdQiuEmc2S/hJJX7M6MiyNs2+BcyEeXlGv9ZYsE51aaOT7K9F4
-	VJ3X2TOKE30/zCWWeDfIsbOR8KMOx1nVp6kPKvsJ9hDuDRfoTHzq0EDXgp8WPBQHaA1VMYutcxTc2
-	tm7PEHpg==;
+	bh=TCjogQfkKhbdMF0UGzixY7XrKAjTABD1okRnqIJZJIw=; b=zPjhylJgiKfq35kHpsaa5mZsm1
+	y97Mx+/WbrErMf+IR0TIDNXTv8bsorgdvEU6KF2UEjgbwma+vNBQx/izqw6B3S0nzo1IwrdJ0miE6
+	seMzmYMazBs7EFMPjoMXXbRvlbwCipM4j6uP+Gsi+XIZ/lzrxX+Fy3cQD91f1HHiWW7hx46BfXB4n
+	uwkpFLdVit6aW2niMKxo7/yTJ0zTOKLQk0lBJeX/afsYL9iItKU4ajgsIL/9GqXCajaukYtewLhyz
+	6vOdvDnX7lgE/bPwQ8c1E36kp7VdEeNE45u+bvzwrZaFRie3N+kwYsO6/676/2D02xAGkJ2fprKQL
+	5nvgkebw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvEJ-00000009CSp-3g2q;
-	Wed, 05 Mar 2025 20:20:35 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpvHS-00000009Cj3-14M8;
+	Wed, 05 Mar 2025 20:23:50 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpue8-000000096Le-1WiS;
-	Wed, 05 Mar 2025 19:43:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=8b1/uzHkmLRM1y/RYzrMjDEcfh/Uu5cXz1HbOjoZlx4=; b=Ye9QKxX0PEYub3YwqWoLgRmGep
-	7l9EKC6wNxACHF4p5dRYP3vqSK/jcNcXQNWhGRI1qsaw7JAOSrDzZU9Ebu1SnmpF7fOiFS55nGMwc
-	F3M8qQb33cV+CEmZ8Rxq2ZtNlX5773XyJ1bJqR7MkqoA8d4aejOiWryJYPZC1hPBYL8/GH5GOje4a
-	mFZJe0/XQkGyfnhref463yW8mmVzvLprOSFpN5xw3N7Wu4eJWo1zdrWuxPnjHfEabx2jORcO6OuAE
-	okdFcvcTk4ZReY/FPkjd25x1b/sELcK/ynVDxYc4WAcprC+bsJCpSw6lsWoDkKri52h0b8MHG8XZW
-	IG+Dh5Gw==;
-Received: from layka.disroot.org ([178.21.23.139])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpue5-00000000j66-2rUM;
-	Wed, 05 Mar 2025 19:43:11 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id F357B20D00;
-	Wed,  5 Mar 2025 20:43:08 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id fcFUuhmvejPn; Wed,  5 Mar 2025 20:43:08 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741203788; bh=+LUmQPB+tURq91r5Yr6zdu4bs85M0PK3opWSYhnifBY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=XQQG5nF+p1VSPixYAnYKKG3oBzbPUWg5oYFpWZV5o0jm9ODr0MIpT39jycMnDRltY
-	 ipl507d/b96y6EDS6ZyP+Co/ssH/He+ZQ9ERa2/3gELnGLa63AuUMnkensjJm6k/qg
-	 f+CH1Y/yipr3WBvWaLM3YrHl8BBjP+peLCIn4VWAA7qBYasfyXFz1Q2o6RzNJQGPsK
-	 TfMlqaMBGMuNH+vL+ylSH0ix1GKHX1VobJblgfEJ+es3T+2UWZ5654NxWSMc6w2NWL
-	 l7oKAg2GtM85dv+nv4iwKGbvC7wulY5OHDTHAqw6VALGSzfQZ9a7YwvgbWYlh5mdfu
-	 FWCZDQgNh6+sg==
-From: Yao Zi <ziyao@disroot.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v2 3/8] dt-bindings: mmc: rockchip-dw-mshc: Add compatible string for RK3528
-Date: Wed,  5 Mar 2025 19:42:12 +0000
-Message-ID: <20250305194217.47052-4-ziyao@disroot.org>
-In-Reply-To: <20250305194217.47052-1-ziyao@disroot.org>
-References: <20250305194217.47052-1-ziyao@disroot.org>
+	id 1tpuez-000000096YS-3T7U
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 19:44:07 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-22113560c57so135780695ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:44:05 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741203844; x=1741808644; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TCjogQfkKhbdMF0UGzixY7XrKAjTABD1okRnqIJZJIw=;
+        b=MeJ9aKTZ9GysUGqRrE9UsmsBBDsu6I9RjFn/KkntkiZJVa13ZKCz+8JGD7Sj/+f2Ka
+         hqzclKFcgJO/9lgxQCKBG7jv05GDvHM1Ow44AKJMMn0v5bgOZKEFgNxIgEYxOiKzL+EH
+         b3z5faimbHF/BrhLX/npGfImtJjQSRgYuGd5fADmaIJJMtzys+2roZppKmejV60YRNLr
+         ZyuUDWoELj7pYeqUpbGNf5bt6affTI9WRvmQ5efZSmMAy4Bk1wzLF/5Jtg2hyevEJ205
+         VNCWsCsum8Ndg6xhvdXxYfTE3+iAcB1EHLSmSpTjg3dNXQoT0kl7yQEOXPUImRU9g0au
+         U+kw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741203844; x=1741808644;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=TCjogQfkKhbdMF0UGzixY7XrKAjTABD1okRnqIJZJIw=;
+        b=TYvugqgWVq3tDX3jWSLG8Y73Wdo6efv+mI92DN16agYgIo+Zyfv1obFZEZ0CnIiFYH
+         cp+RGJlnGCa29Sc4qg0C2VQD4LBltRPjMnBfmXIPTBG31v8OWHrpICtNWMo2ZSXu4t07
+         k/1BoT2rFS41VliWMyuDtucG2DJ3764t1nBJg0hzo335Tu1dQwkM6K986I79yKWwHnJc
+         2nh/jawkqcZuInSci/fisL5+Ogvy6rK+JECHq9rub+kFCpwzuJym+5rAmh4UGxMdl3Ae
+         eac/5n+5un4bzTZV6ZOPDB8VCgEtd4QTHuu0Ic35Fq4HY0ITm7KUlLa2vySwRmzZcSvE
+         4+MA==
+X-Forwarded-Encrypted: i=1; AJvYcCUzN5GuWr0bobRy0ccqBPpqbfo1ST4tMhUitWTMpO9CqY7xvDNRRr/vEmU5EW4ba6ekVtwDYZso3xaVL45nEYwP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1rkXPXifyJFtjRjwdd5rwSfx9vJt1vjUP6ni9kAqHgrRwcV57
+	sSJijg/kogkMdy9/HZ9ABr/sNwVyopkguXZW5Jl7BUcCswQkbFQIe8pBWnTwhowQi0wpptKHL9M
+	fiHmZcvOpfUniaN7MWbIL5eUoud8=
+X-Gm-Gg: ASbGncvkdqdbvyUUsoXIEqhZjJjOpQI0Yu5YxMnQ0HQwE+001wYdKPvD6RBG91pLHOD
+	p5FwGUqfp4KHd8yzzhKk6VIxN2dborBeDXWKZAD0KBYhAjMk6+yYinC7BMRhtUvPPqsOZ1ofIMi
+	Qn/JJJJJ8jI5INE++UkyseWTP9
+X-Google-Smtp-Source: AGHT+IFdCDYj/agpQVhv3dAYVCWS6XsBw5aAFSnr2mfwdcK9Y4FN9aCNwjHl/acg8MGpJUB2P/zufNqUs3lMvnM53KY=
+X-Received: by 2002:a05:6a00:21cc:b0:736:457b:9858 with SMTP id
+ d2e1a72fcca58-73682b7405dmr6071779b3a.10.1741203844549; Wed, 05 Mar 2025
+ 11:44:04 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250304154846.1937958-1-david@redhat.com> <20250305152055.GB28112@redhat.com>
+In-Reply-To: <20250305152055.GB28112@redhat.com>
+From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
+Date: Wed, 5 Mar 2025 11:43:52 -0800
+X-Gm-Features: AQ5f1JrrjsXo3LTI9gnU7JfioqsYSvoLENxHqqnaxX48DOE6niZSlJc8m2hl6mM
+Message-ID: <CAEf4BzbyFy0eQHLac3zR8GiGDOUqYoTGAWDbFaeou903OGOTpg@mail.gmail.com>
+Subject: Re: [PATCH -next v1 0/3] kernel/events/uprobes: uprobe_write_opcode() rewrite
+To: Oleg Nesterov <oleg@redhat.com>
+Cc: David Hildenbrand <david@redhat.com>, Andrii Nakryiko <andrii@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
+	Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
+	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Mark Rutland <mark.rutland@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>, 
+	Adrian Hunter <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, 
+	Tong Tiangen <tongtiangen@huawei.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_194309_829970_473F53E2 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_114405_863507_E1C56E71 
+X-CRM114-Status: GOOD (  23.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,27 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add RK3528 compatible string for SD/SDIO interface.
+On Wed, Mar 5, 2025 at 7:22=E2=80=AFAM Oleg Nesterov <oleg@redhat.com> wrot=
+e:
+>
+> On 03/04, David Hildenbrand wrote:
+> >
+> > Currently, uprobe_write_opcode() implements COW-breaking manually, whic=
+h is
+> > really far from ideal.
+>
+> To say at least ;)
+>
+> David, thanks for doing this. I'll try to read 3/3 tomorrow, but I don't
+> think I can really help. Let me repeat, this code was written many years
+> ago, I forgot everything, and today my understanding of mm/ is very poor.
+> But I'll try anyway.
+>
+> > Are there any uprobe tests / benchmarks that are worth running?
+>
+> All I know about uprobe tests is that bpf people run a lot of tests which
+> use uprobes.
+>
+> Andrii, Jiri, what you advise?
+>
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
----
- Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 1 +
- 1 file changed, 1 insertion(+)
+We do have a bunch of tests within BPF selftests:
 
-diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-index 06df1269f247..ea0feb733e32 100644
---- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-+++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-@@ -38,6 +38,7 @@ properties:
-               - rockchip,rk3328-dw-mshc
-               - rockchip,rk3368-dw-mshc
-               - rockchip,rk3399-dw-mshc
-+              - rockchip,rk3528-dw-mshc
-               - rockchip,rk3568-dw-mshc
-               - rockchip,rk3588-dw-mshc
-               - rockchip,rv1108-dw-mshc
--- 
-2.48.1
+cd tools/testing/selftest/bpf && make -j$(nproc) && sudo ./test_progs -t up=
+robe
 
+I also built an uprobe-stress tool to validate uprobe optimizations I
+was doing, this one is the most stand-alone thing to use for testing,
+please consider checking that. You can find it at [0], and see also
+[1] and [2] where  I was helping Peter to build it from sources, so
+that might be useful for you as well, if you run into problems with
+building. Running something like `sudo ./uprobe-stress -a10 -t5 -m5
+-f3` would hammer on this quite a bit.
+
+I'm just about to leave on a short vacation, so won't have time to go
+over patches, but I plan to look at them when I'm back next week.
+
+  [0] https://github.com/libbpf/libbpf-bootstrap/tree/uprobe-stress
+  [1] https://lore.kernel.org/linux-trace-kernel/CAEf4BzZ+ygwfk8FKn5AS_Ny=
+=3DigvGcFzdDLE2FjcvwjCKazEWMA@mail.gmail.com/
+  [2] https://lore.kernel.org/linux-trace-kernel/CAEf4BzZqKCR-EQz6LTi-YvFY4=
+RnYb_NnQXtwgZCv6aUo7gjkHg@mail.gmail.com
+
+> Oleg.
+>
 
