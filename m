@@ -4,90 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB11EC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1205BC282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:54:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rvMg7xlfJga8JPXOikC0tZb6M+MeWNROouU7uXoyuKU=; b=YmOqm7oARIeiKGGdtwc1tYrpdG
-	Z+kQnmn6Akpc19Fk/2E37tWzXg9mKkChuYGxfTqw+94K/DkWAMC68fTWD9g1Q+QsTc5HUYPn2xeHN
-	f7Kyvjz4aL+qMVlLOA8oQugotpKPuL/6+r1E0aKzgwB1jBTyagjZqmzMe9gytYWcaSckJ//spreeP
-	26tfERMGtTxzpAbKWwiufjo9klzQPxM0Seg6Xaf3YU2peanfMMSfCg59v3A3UOzwG6dcBiHHD6+Uc
-	xxDHIAP14y+KofbzwUFpTYJcYEzfO/acODEUAUXGaG5vpLH1SwL+ja5hd6Y+JmmDcvOXRanNkq1WF
-	5yml3K3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZNEnQU0pyTN9ytzfEL7xzUn8SaDvuW5mh+YI69rPvmk=; b=xCsP1ggmb0+im2PZQt1vUzp+VV
+	qIjU0hVxVnV9UWmTA6Jq5Y/JCfwK/LBGGrNG7wfLT38XX7zc80W4yNSUdrzrNhmXUHSs+vmswsjso
+	yDoe1Tdge+tj0dj+7de3ncomuJGh0WZ3v6t4G21lcruLqo6a1905nFkDke5RYXZIkBftWJGMiC6+W
+	AoE7xJ0Cleip7/sugR1gv4khkSIi7V42TKEJsHcl1wHELjzKScsx8GbnVrjoxesieXRNdZzhxvSxW
+	yEDvvg/7Jo1e9O9EYB2cQ0V8ovyQB2t/KQH+97ERIJZgijegM8zz4PRLU/EQ1EBwU0pdVr8XegVbI
+	WMSqdRVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjWZ-00000007HkL-3kN5;
-	Wed, 05 Mar 2025 07:50:39 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1tpjZh-00000007IKa-3Njk;
+	Wed, 05 Mar 2025 07:53:53 +0000
+Received: from galois.linutronix.de ([193.142.43.55])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjLf-00000007GAH-3x3X
+	id 1tpjNk-00000007GPS-2syq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 07:39:25 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-30bc9cbeac1so15990071fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:39:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741160362; x=1741765162; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rvMg7xlfJga8JPXOikC0tZb6M+MeWNROouU7uXoyuKU=;
-        b=lNfnRaAO2Vrs2jpZR3LiLp11pBQTp7DeqLqGo28pCrTDVTzzB9ANEYtIvpANnVgwv+
-         qCe/coR4fgaifiJ19yhNjwPCEdGoKupU4/qo0aos5cjTeKT/PkIl4j6lH8JKh061xL63
-         8djyZ+QZVY+mBd6wC0rMG6nGu8wDeg/FRA2TcieVI0l3Q4F6+CK0gUeDnxfYGGv6QxN7
-         FlM+l1jAHCz65jVZyKdrt5O+xjVyG311lIdgpK1LZOZPvrpuvPkhPD25qlHdxAAjnjnW
-         u5LS/0UvY0luzYLKJR7RmZ92bnU8eWXQPiWiB3i6HDPUEhSY8POPaVMj2I1Oa1X+YMK5
-         z47g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741160362; x=1741765162;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=rvMg7xlfJga8JPXOikC0tZb6M+MeWNROouU7uXoyuKU=;
-        b=MtwIwrEqECgT+xwbtAwHjXxS8cZTxCmxLz/oWYRJ1qZZ0MH5vV71l4uOfD8cUYBZUS
-         uKXPGT/CDMcfcIh3NaGX1MrvVf+oN9cDG+ETEiBuSgcX0E6GwHsIudiGZDBJTRlpJhGD
-         TOh4CuHkr06YWUoVBK+XN/5tHSCEvmCCpVQtqIebHBhg+kM1l18P7lopIvsSMuDIAUN/
-         0+v2M7cK7eFvX/UaKAPM7rF+t4uTor5Ac0n+VZYivmxpFDXbk2Mqh7F2aTTulQaMWF+k
-         BBKWXI1APP3Ax94Z3esSqAFoircePcl8pgjvuCij+gFzbdmkhumW7Vf0eeWvGj0cR1is
-         VL+w==
-X-Forwarded-Encrypted: i=1; AJvYcCVz3CK9ambpUKmxUoYXtEky6W3yE0Tq+K85zx3POk8iPQrx3Yn+ikcYqADjFA4NBKhqwjIBSG4VourhGVC0/hnJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyOOLPhRu4d6SNu3iiCHT6/b2309aGXF4PnWRvSPOHWKN4ec0Ru
-	DuFniTUvjRReF1qQdu5hkbSEWuhgNxhrfm4w4K4Ht7iHEAqFWTjUJwRyQ3edHok=
-X-Gm-Gg: ASbGncufKBdzkMHEoLX1pP9QUvhEYR/JLtN/0xV1E/HJB88+k6xHuDAwj838v7K5ybc
-	crH6CDH/JPXaKHs0gSY7C38Ldl9eWy0lgLr+jWxe9FiioVv1srCqZr4TTeviivWp2dUThTKPwCk
-	FkLlKijNQd3JOJ0OGOHd8ZehDf+DdrOAuFRLYTTm9Pllzfg+67B4Sja6+XYIePaMSuXclXvqeJ1
-	LXQyzP63FYyG7j1TW/xHM6HYdy1v327WrxSkPSrByGBV2AFqG6Nv5Ms74mE1ymf/3trGtIg6J9Q
-	iyHf4qpuBeRy5p02SZCtWkl0k5d8digaloF2rKCiHtJEE3p4JT/Iiqo=
-X-Google-Smtp-Source: AGHT+IEtLI5nI7Bn3OrfjpaA3Uhj2NQz5pnTloc8Oo+6GBcf8NHxPSUkm7UW17xx2XaVIcFRKTemtQ==
-X-Received: by 2002:a05:6512:3ba4:b0:545:981:1bc4 with SMTP id 2adb3069b0e04-5497d3776a0mr644805e87.38.1741160362095;
-        Tue, 04 Mar 2025 23:39:22 -0800 (PST)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bbae78e73sm8902351fa.75.2025.03.04.23.39.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 23:39:21 -0800 (PST)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 05 Mar 2025 08:39:18 +0100
-Subject: [PATCH v2 6/6] ASoC: samsung: tm2_wm5110: Drop unused include
+	Wed, 05 Mar 2025 07:41:34 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1741160489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZNEnQU0pyTN9ytzfEL7xzUn8SaDvuW5mh+YI69rPvmk=;
+	b=wRnvota9OxP8xA8c4n68M1q9AT72rhK/58Yok3x+y85pGa908DBegMj2nJxQ4kSVyF2cHo
+	AmndPcaKCUpf+7+Dn+lo9cNEP0OrCllnvnyZUnHrJd0Xhy6Q/5BrdAAym6nLTQZX23ZjnG
+	2GfGhKPvGx9zk4Dse2MnbeRCZiBWTjSaZQKHlv47mB9C37HW3T7Nm/Q6TEtrE3uROhP/fp
+	rnkmTqt9RA+hDyX2j6IDddORmoiLKjiVL3sR0m+xsIxJTBM1aVehJQWI3Qr0gAM9JE1ncA
+	eocvkWisPEJHF5sLZABO7ANGW3NTry92s6WKaa4aiBZ+5ZqI8MlljbrDlbxyOQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1741160489;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZNEnQU0pyTN9ytzfEL7xzUn8SaDvuW5mh+YI69rPvmk=;
+	b=O5/sYCjs8JjfUP5tkNS7SuXKdmW5bHio0KtEOf/d0fiKUUfJ8mrn4p7DZ76aeZYncwG0E+
+	PhcVVpXm90lX9rDg==
+To: Andre Przywara <andre.przywara@arm.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 06/15] irqchip/sunxi-nmi: Support Allwinner A523 NMI
+ controller
+In-Reply-To: <20250304222309.29385-7-andre.przywara@arm.com>
+References: <20250304222309.29385-1-andre.przywara@arm.com>
+ <20250304222309.29385-7-andre.przywara@arm.com>
+Date: Wed, 05 Mar 2025 08:41:28 +0100
+Message-ID: <87frjr6i1j.ffs@tglx>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-samsung-codecs-v2-6-20bc980c6445@linaro.org>
-References: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-In-Reply-To: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_233923_984598_78503E30 
-X-CRM114-Status: GOOD (  11.44  )
+X-CRM114-CacheID: sfid-20250304_234132_865103_860AC697 
+X-CRM114-Status: GOOD (  10.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +79,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This file does not use the symbols from the legacy
-<linux/gpio.h> header, so let's drop it.
+On Tue, Mar 04 2025 at 22:23, Andre Przywara wrote:
+>  
+> -struct sunxi_sc_nmi_reg_offs {
+> +struct sunxi_sc_nmi_data {
+>  	u32 ctrl;
+>  	u32 pend;
+>  	u32 enable;
+> +	u32 enable_val;
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- sound/soc/samsung/tm2_wm5110.c | 1 -
- 1 file changed, 1 deletion(-)
+The data structure name and the corresponding variable/argument name
+were making the code pretty obvious, but now this is opaque and
+incomprehensible.
 
-diff --git a/sound/soc/samsung/tm2_wm5110.c b/sound/soc/samsung/tm2_wm5110.c
-index 2417b91a328f083f991af8505c5586d3b27d9bbd..cc76963105d9fa37fe0bc45acf9a28720fdde158 100644
---- a/sound/soc/samsung/tm2_wm5110.c
-+++ b/sound/soc/samsung/tm2_wm5110.c
-@@ -6,7 +6,6 @@
- //          Sylwester Nawrocki <s.nawrocki@samsung.com>
- 
- #include <linux/clk.h>
--#include <linux/gpio.h>
- #include <linux/gpio/consumer.h>
- #include <linux/module.h>
- #include <linux/of.h>
+data::ctrl does not even give the slightest hint what this is about. You
+need to read up in the code to figure out what it means. Something like:
 
--- 
-2.48.1
+struct sunxi_sc_nmi_data {
+	u32	reg_offs_ctrl;
+  	u32	reg_offs_pend;
+  	u32	reg_offs_enable;
+	u32	enable_val;
+};
 
+or even better:
+
+struct sunxi_sc_nmi_data {
+	struct {
+		u32	ctrl;
+  		u32	pend;
+  		u32	enable;
+        } reg_offs;
+	u32		enable_val;
+};
+
+makes it clear and obvious, no?
+
+> +static const struct sunxi_sc_nmi_data sun55i_a523_data __initconst = {
+> +	.ctrl	= SUN9I_NMI_CTRL,
+> +	.pend	= SUN9I_NMI_PENDING,
+> +	.enable	= SUN9I_NMI_ENABLE,
+> +	.enable_val = BIT(31),
+
+https://www.kernel.org/doc/html/latest/process/maintainer-tip.html#struct-declarations-and-initializers
+
+Thanks,
+
+        tglx
 
