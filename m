@@ -4,84 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F834C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303F3C282E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:08:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UWSHNbB5JKEbeWuUj8vjDFfUx12Bd6PhpeoYLsDsQTU=; b=KDLNIBcFD2Q2l8CL5FP3KeNdxq
-	aSgFSnxTTOEt14Zhj3E9zpG2EUYqX7oyj8zeGZalSS1hwkDpUKvkVUMtM9+TFJjpBE6dHzA2d4pGb
-	fezR7atFWgEwjSxj5tzerL+mXlv6QaVun8mlY7+a4/PM+rYXNzseDqbYCIiPKr27/6rXB4LV7suW7
-	iWvEW21iGTxUJDr4YQFN5WgRGCrIqzgMstVOSTx/u/lg+z9hHUIxBboavoyVI1OH5EENCf/LW94Ie
-	8UZVrIGLG180S4Pll0ykA0VfDe/wAB11Ha4Ztl7BiV3IujmtCp0/dIT5S/dnEtaYSvFF0CGpSZBat
-	fR1wlgxA==;
+	bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=; b=4ckr4rBOaMEjHXPsrYV+b99fBn
+	pwGsjEALxtF0HAnEAKRSycHWbd1YdH+ChTLd+gXdWEHrUcxJGlUz69mjvh+okrYwed5dHYKD8fTpG
+	LpoXHaM9G8cUn+d0NB6U9qjXu0uIQlEes31Xe/vW96kH6zMgAQQFaGrtR/gR37xIFArVsA33oCOlo
+	8HqzUfWE1YGY7z/PlMa6td2aNYI+7U+hGD3l/sB/vFVKrlxmKhr1tkRBpCXr1CHipPXrkKKq0k1RB
+	7BjCoQFQwCwHX+tWgHR82iYBN2MdyZQVVqAmu71SUqJDsldoiPRP5zdKPxHkcRQNVYb1TXvcG4zis
+	uLcVBhGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmad-00000007nk7-1pRA;
-	Wed, 05 Mar 2025 11:07:03 +0000
+	id 1tpmcC-00000007nzW-2B3Y;
+	Wed, 05 Mar 2025 11:08:40 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm0v-00000007gQy-2Svw;
-	Wed, 05 Mar 2025 10:30:09 +0000
+	id 1tpm0y-00000007gRk-0qy9;
+	Wed, 05 Mar 2025 10:30:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-Type:Content-ID:Content-Description;
-	bh=UWSHNbB5JKEbeWuUj8vjDFfUx12Bd6PhpeoYLsDsQTU=; b=n1ok5mW3h7wYGpzuhX8DhL2cwz
-	ll/CSLQMN3igK3OkCWwlUdNgZmmEy39PB6SH4jpwMVmPf1oy4kbjnXtPkJQC7gq+7PiD5QDB49qgS
-	JbRHCqJadPfjPrLT66dN5t7IvzPIvZHP9fQPC54Nnw+dyq1D0AD4fu6ipMnaM9BNe5AUTEu1RG7Dt
-	ddgl7y0sMPA0FKSGqNdmMyeyNoVPzNdGjvQpae+iktKYVwsX3NRH3j+IfTsQKljc3IvJLLBusCy5M
-	0lWxTVI1khsRDwYrNSInmcG2t8CIevT0zDFbGF4qbwrHXsK7MU20t6kPv+OggULQQmBx11PYZBFz8
-	cFsT8f3Q==;
-Received: from mail-ej1-x62f.google.com ([2a00:1450:4864:20::62f])
+	bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=; b=HexuGPujvtpNEaOhWVhWPsEBuM
+	U6hpjBDkeS5GSXh9AZ8dwkeDcFxdMASLiutRMaCd/mlIfeOHyDZdjGhnIP0UofySQ/wS2zRE/qbiE
+	lF1cGz3mY36ai4pHJQumoBPA/xt7TCYWDskDRkcuqNifA43TGC6he8Jqpi1XYZx/TCYUH2tdLHv2v
+	6J3/JylQ3cYvQM3Oq5ldBB8pqM6K6jteg4yhxYALlg541WQueAAfIG0fj7xzV0aQzbePPVQ0NtUDY
+	54JHoPIS03hJFzkGOXL7dqq/TVhTfR7zjt2OjV8vwZVWRUMEMgJIxZJ9eSUIHWR5rChDnSDqinSsT
+	f0zc9e3A==;
+Received: from mail-ed1-x52d.google.com ([2a00:1450:4864:20::52d])
 	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm0s-00000005Ioj-2XnU;
-	Wed, 05 Mar 2025 10:30:08 +0000
-Received: by mail-ej1-x62f.google.com with SMTP id a640c23a62f3a-abf48293ad0so699086666b.0;
-        Wed, 05 Mar 2025 02:30:05 -0800 (PST)
+	id 1tpm0v-00000005IpK-1pej;
+	Wed, 05 Mar 2025 10:30:11 +0000
+Received: by mail-ed1-x52d.google.com with SMTP id 4fb4d7f45d1cf-5e5491eb37dso5638211a12.0;
+        Wed, 05 Mar 2025 02:30:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741170604; x=1741775404; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741170607; x=1741775407; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UWSHNbB5JKEbeWuUj8vjDFfUx12Bd6PhpeoYLsDsQTU=;
-        b=GeDRfkXLW9xfh71Pvz13c32s0n1C6141kJb/wGxKLNdMXnkRb4jl+7AIid0I2KO/NQ
-         sWC2fyDRLpjPNMFrsfbbA1nK9x3kPxZvEdK54qHXD3lt/KrMl0DbJW2xw0RGr0NgJ8GD
-         o+pssmNz35vp/mC6NH8+8d7ACddKzzVvkMrxGo39CSF+Bs/JsMhvnPmcJFokDkjIInJ1
-         D6ua/s80tNGP2JLB2TTKcKGBlfso36p/p5w3iqm4YdP8qsJuurjpzx5bR9yV35ANVP1V
-         ohzrYosj9uLfyTofchu5gnlPxK8g8Icb3N1z1UYYwAeaTAawwkNHmvjwksdOkOqdLZbS
-         D+Lw==
+        bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=;
+        b=hT+p/5GnS56IRIdTcn57Vs08g/tNVdfPSVp/zOYE38yYdUsUw2YMoive1BB0UDJoa7
+         gx9liqAMAcrhhhw+vQMcZoqaFNVkgj2lUblULsrJ0/jxcuimjFLWrvU7i24cNsClP/rY
+         9iCXZMl7TSPJrZgwdt8V6zoq5N1kfleQA4vuIofoMTHrYQNjx98WrhJJ7bpfrDw4+q+f
+         8XGd9X2JBOdn83ljhZTB3s8yHGW50bwJAam3nMEz4Xc4SrP3+yzzQv2ds8RuXx6mn6HS
+         7ooqjhJXtmN0ldosYTrbzJbmjAz/t03A43OMc/0FjbfW55nxWVp6k+OvxmrSjCJSYy/c
+         +jog==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741170604; x=1741775404;
+        d=1e100.net; s=20230601; t=1741170607; x=1741775407;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UWSHNbB5JKEbeWuUj8vjDFfUx12Bd6PhpeoYLsDsQTU=;
-        b=MQwnzQtwBGIhzgUZ88n9zv6BJs9Tpm0GR8WsNrERTOh7N3xQCLw5M++2MwMBgAlLZ4
-         QcO106cdsOXefDsf/WRJr66fVcSUXVQwW/AKDhaj+5mAue121+sRrRYxFKqehTh5fGgk
-         cNepgAagd4+8u4fnUivfOLquslrhaznLmA4qYm1eEDFZtJSBWUJ6yZaKZMp9Bj2dFS+d
-         ACwv1LZ3EL3nS+yg3moPWirhjzwPv+6w5J0XqDbHvVXwqJN3VrACaQu8QiObqXRHpRy8
-         cuwVWcGTIr1b8l/RXhAi4iGaqmyvQo1CjtKfH9ZRtXuyYeSbXQAWDJkqRPNVQ4GcxFxp
-         M9Mw==
-X-Forwarded-Encrypted: i=1; AJvYcCUIJH+t9RZRv69sxM354ae+Wjlyr6gipTQK7+uy+ZCp8RlMwutnJd2GaZqbYs/yewatr7RM3jqce+n8oqgrFMdA@lists.infradead.org, AJvYcCW7Ye2sE+P97iBsERi061OyXPEHGup2Ar8ItTxbiuGAqqz18Po9Rc47tniOMaPReScMbxrBfHjLx0bEYeXm/ak=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCf3Nl5a5ZRrRw/JNcdTN1tj9yYzk3B8BP5+pzXgmuwBSgps8g
-	5NdsrQ6I6i/SLalRtmQvxDEri/SBNI3IE2jIhJ8fz9Iu6vGCQemu
-X-Gm-Gg: ASbGncvToIOkWeI6RvXtGXN7MtIbl9m2iaqcJUYQel9UP1DMU7savmNdbxIVMCvV4OG
-	FIaNQWegfaBy5Zvu6xANlI0k4YbTZ1N8GGdFim0ToExWNohjJNKm+E6NXj1bejgn/p6gUmQ0Txx
-	SC28ckbYdmpywhI9xsZmIqKDiK3qPpXAljf+6eZJV0wEaxLKfoFy4f2b/O3q9stiLqzPtCGpyEQ
-	SFzYeM0jHEyroLrkwsQCzEd7hjTbNBTVoGqqUZh1YR6EAoAAjqPlW+WdTuHFU4qG5shnqn4C8TJ
-	7/sZC348Nt+JxqObMoKYiVLihMcUBD5T8dhLrVgc5Y44dQTlnBw0/or8ohy+FneEuttT9y+2gFy
-	++JprraQGsqQp8pz/MfgKSj6TTsSIjZ7mprr3xn4iXN+VTH2Un0awZPp7I2fhGw==
-X-Google-Smtp-Source: AGHT+IFmOl+znPOCyIBVoWXbUGUsHEWWessyONqSdjDiGli0zSAoB+kKDiPnSaw44bEm0nFmaT3VhQ==
-X-Received: by 2002:a17:907:3f0a:b0:ac1:ddaa:2c03 with SMTP id a640c23a62f3a-ac20d036458mr300465466b.0.1741170603887;
-        Wed, 05 Mar 2025 02:30:03 -0800 (PST)
+        bh=h3xV3TA0ockrC7/s5OEcRj/pNoR8pLIoTTKhN2eYQLw=;
+        b=VCaLsFK+2pSsf0myzR11/XRB5rfWK81XZeznx8H5YKj2EATcSYomsMkPkiCoxthAL3
+         rVRf1+NQMMeNaSvxWpM42UyhEa3Crq/65CiOB3A2mkdZ6KcC3ZpJz58aJ+/F97clKgTX
+         z5TtlJs2DPJwAB5RZpybwgbepb+aPP8e6P4XWwh+daY2oNtngsNqIimbFjqrPNNjFdAL
+         7IqKFTJknOkNknzLcgLxAIaYdrnSkdrswKExSOHHgU3GuMQ3zNCoD8lSfRSsfbwgn/X/
+         C0yGyJW3Pa9HCW7bBLMHJCEdox897MHMrYeWQTd7Fe5mN8gPSEOpoq8fJbpjYuTu3PBY
+         TbPw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMYMNalilr+jLZUi2JhGE4vLCypY/iZKIms8qPF/kRVO4c7iGJR95ZftQ9KdD69xFD63G0e03ZXHHyLAN9Evg=@lists.infradead.org, AJvYcCX3twvh1uIxZclg9nFKX2hnFtHkVG8/24nm/AOcAsYlFi7ERssQ2mZPOo6R5p2eHGQRBaTGWC7mLFryVogVe0rL@lists.infradead.org
+X-Gm-Message-State: AOJu0YyR1G2zx4fobyD+MpuE6N1gPcV4rJdeW5zbRa19S5SwcVH65DdL
+	7q55K+OeYcQNFLP+NWn0KkA72sszSJo8aBcDIYiNVXdaH6yuBIAG
+X-Gm-Gg: ASbGnctZUbvPleNADbSgLFBX66cvMT2ppjgiUzNCbvfM95qHjmV9mzz5VuPOXn4OokO
+	Jox09ethR2r0HUw1UAj4xVCGdIihyce/tlrwnovBBZ6aenxEBdEJtr6cHrnomaHzcCz3sxgiJbK
+	X+2LmnkZlF8PKAim34obcJOYClp3bkvYI5F9btcRm1ReQvvkKxlXgzzD40w5mylYe6Ux6a1JppK
+	M6V7zGzA1KA5K92iTRRCI7snpbgFIwKcnXm7j0t51yUaqIBkjNCJU2ktU14VEPvScc+BANW2x2U
+	vMWglai0PckebPD2YSmLuxQizGWx+/Kj7xW6IHn83/2cxkwX8cBQrCHxoVVsDE+f9CKq0o8Uk/L
+	ieJqsUBqI8naXUitX2edAD6/vlu8Tmw8wamDQMp3jmHVPk9uBsO9oWL2es3WXbQ==
+X-Google-Smtp-Source: AGHT+IFiJqR8AW9q4B4jV0oBAldSkpb3Cory3PfYPngFhkXoybiZBDs5zVQJdJ8Lft/VnBuwHJUAJQ==
+X-Received: by 2002:a17:907:8b97:b0:abf:4892:b6ea with SMTP id a640c23a62f3a-ac20db37c07mr294449866b.25.1741170606779;
+        Wed, 05 Mar 2025 02:30:06 -0800 (PST)
 Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac1f7161a4esm247154266b.161.2025.03.05.02.30.02
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac1f7161a4esm247154266b.161.2025.03.05.02.30.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 02:30:03 -0800 (PST)
+        Wed, 05 Mar 2025 02:30:06 -0800 (PST)
 From: Eric Woudstra <ericwouds@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -115,17 +115,17 @@ Cc: netdev@vger.kernel.org,
 	Kees Cook <kees@kernel.org>,
 	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
 	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH v9 nf 01/15] net: pppoe: avoid zero-length arrays in struct pppoe_hdr
-Date: Wed,  5 Mar 2025 11:29:35 +0100
-Message-ID: <20250305102949.16370-2-ericwouds@gmail.com>
+Subject: [PATCH v9 nf 03/15] netfilter: flow: remove hw_outdev, out.hw_ifindex and out.hw_ifidx
+Date: Wed,  5 Mar 2025 11:29:37 +0100
+Message-ID: <20250305102949.16370-4-ericwouds@gmail.com>
 X-Mailer: git-send-email 2.47.1
 In-Reply-To: <20250305102949.16370-1-ericwouds@gmail.com>
 References: <20250305102949.16370-1-ericwouds@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_103006_920286_2342849E 
-X-CRM114-Status: GOOD (  12.86  )
+X-CRM114-CacheID: sfid-20250305_103009_488371_8E8165B4 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,64 +140,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Jakub Kicinski suggested following patch:
-
-W=1 C=1 GCC build gives us:
-
-net/bridge/netfilter/nf_conntrack_bridge.c: note: in included file (through
-../include/linux/if_pppox.h, ../include/uapi/linux/netfilter_bridge.h,
-../include/linux/netfilter_bridge.h): include/uapi/linux/if_pppox.h:
-153:29: warning: array of flexible structures
-
-It doesn't like that hdr has a zero-length array which overlaps proto.
-The kernel code doesn't currently need those arrays.
-
-PPPoE connection is functional after applying this patch.
+Now always info->outdev == info->hw_outdev, so the netfilter code can be
+further cleaned up by removing:
+ * hw_outdev from struct nft_forward_info
+ * out.hw_ifindex from struct nf_flow_route
+ * out.hw_ifidx from struct flow_offload_tuple
 
 Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
 Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
 ---
- drivers/net/ppp/pppoe.c       | 2 +-
- include/uapi/linux/if_pppox.h | 4 ++++
- 2 files changed, 5 insertions(+), 1 deletion(-)
+ include/net/netfilter/nf_flow_table.h | 2 --
+ net/netfilter/nf_flow_table_core.c    | 1 -
+ net/netfilter/nf_flow_table_offload.c | 2 +-
+ net/netfilter/nft_flow_offload.c      | 4 ----
+ 4 files changed, 1 insertion(+), 8 deletions(-)
 
-diff --git a/drivers/net/ppp/pppoe.c b/drivers/net/ppp/pppoe.c
-index 68e631718ab0..17946af6a8cf 100644
---- a/drivers/net/ppp/pppoe.c
-+++ b/drivers/net/ppp/pppoe.c
-@@ -882,7 +882,7 @@ static int pppoe_sendmsg(struct socket *sock, struct msghdr *m,
- 	skb->protocol = cpu_to_be16(ETH_P_PPP_SES);
+diff --git a/include/net/netfilter/nf_flow_table.h b/include/net/netfilter/nf_flow_table.h
+index d711642e78b5..4ab32fb61865 100644
+--- a/include/net/netfilter/nf_flow_table.h
++++ b/include/net/netfilter/nf_flow_table.h
+@@ -145,7 +145,6 @@ struct flow_offload_tuple {
+ 		};
+ 		struct {
+ 			u32		ifidx;
+-			u32		hw_ifidx;
+ 			u8		h_source[ETH_ALEN];
+ 			u8		h_dest[ETH_ALEN];
+ 		} out;
+@@ -211,7 +210,6 @@ struct nf_flow_route {
+ 		} in;
+ 		struct {
+ 			u32			ifindex;
+-			u32			hw_ifindex;
+ 			u8			h_source[ETH_ALEN];
+ 			u8			h_dest[ETH_ALEN];
+ 		} out;
+diff --git a/net/netfilter/nf_flow_table_core.c b/net/netfilter/nf_flow_table_core.c
+index 9d8361526f82..1e5d3735c028 100644
+--- a/net/netfilter/nf_flow_table_core.c
++++ b/net/netfilter/nf_flow_table_core.c
+@@ -127,7 +127,6 @@ static int flow_offload_fill_route(struct flow_offload *flow,
+ 		memcpy(flow_tuple->out.h_source, route->tuple[dir].out.h_source,
+ 		       ETH_ALEN);
+ 		flow_tuple->out.ifidx = route->tuple[dir].out.ifindex;
+-		flow_tuple->out.hw_ifidx = route->tuple[dir].out.hw_ifindex;
+ 		dst_release(dst);
+ 		break;
+ 	case FLOW_OFFLOAD_XMIT_XFRM:
+diff --git a/net/netfilter/nf_flow_table_offload.c b/net/netfilter/nf_flow_table_offload.c
+index e06bc36f49fe..d8f7bfd60ac6 100644
+--- a/net/netfilter/nf_flow_table_offload.c
++++ b/net/netfilter/nf_flow_table_offload.c
+@@ -555,7 +555,7 @@ static void flow_offload_redirect(struct net *net,
+ 	switch (this_tuple->xmit_type) {
+ 	case FLOW_OFFLOAD_XMIT_DIRECT:
+ 		this_tuple = &flow->tuplehash[dir].tuple;
+-		ifindex = this_tuple->out.hw_ifidx;
++		ifindex = this_tuple->out.ifidx;
+ 		break;
+ 	case FLOW_OFFLOAD_XMIT_NEIGH:
+ 		other_tuple = &flow->tuplehash[!dir].tuple;
+diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
+index b4baee519e18..5ef2f4ba7ab8 100644
+--- a/net/netfilter/nft_flow_offload.c
++++ b/net/netfilter/nft_flow_offload.c
+@@ -80,7 +80,6 @@ static int nft_dev_fill_forward_path(const struct nf_flow_route *route,
+ struct nft_forward_info {
+ 	const struct net_device *indev;
+ 	const struct net_device *outdev;
+-	const struct net_device *hw_outdev;
+ 	struct id {
+ 		__u16	id;
+ 		__be16	proto;
+@@ -159,8 +158,6 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
+ 	}
+ 	info->outdev = info->indev;
  
- 	ph = skb_put(skb, total_len + sizeof(struct pppoe_hdr));
--	start = (char *)&ph->tag[0];
-+	start = (char *)ph + sizeof(*ph);
- 
- 	error = memcpy_from_msg(start, m, total_len);
- 	if (error < 0) {
-diff --git a/include/uapi/linux/if_pppox.h b/include/uapi/linux/if_pppox.h
-index 9abd80dcc46f..29b804aa7474 100644
---- a/include/uapi/linux/if_pppox.h
-+++ b/include/uapi/linux/if_pppox.h
-@@ -122,7 +122,9 @@ struct sockaddr_pppol2tpv3in6 {
- struct pppoe_tag {
- 	__be16 tag_type;
- 	__be16 tag_len;
-+#ifndef __KERNEL__
- 	char tag_data[];
-+#endif
- } __attribute__ ((packed));
- 
- /* Tag identifiers */
-@@ -150,7 +152,9 @@ struct pppoe_hdr {
- 	__u8 code;
- 	__be16 sid;
- 	__be16 length;
-+#ifndef __KERNEL__
- 	struct pppoe_tag tag[];
-+#endif
- } __packed;
- 
- /* Length of entire PPPoE + PPP header */
+-	info->hw_outdev = info->indev;
+-
+ 	if (nf_flowtable_hw_offload(flowtable) &&
+ 	    nft_is_valid_ether_device(info->indev))
+ 		info->xmit_type = FLOW_OFFLOAD_XMIT_DIRECT;
+@@ -212,7 +209,6 @@ static void nft_dev_forward_path(struct nf_flow_route *route,
+ 		memcpy(route->tuple[dir].out.h_source, info.h_source, ETH_ALEN);
+ 		memcpy(route->tuple[dir].out.h_dest, info.h_dest, ETH_ALEN);
+ 		route->tuple[dir].out.ifindex = info.outdev->ifindex;
+-		route->tuple[dir].out.hw_ifindex = info.hw_outdev->ifindex;
+ 		route->tuple[dir].xmit_type = info.xmit_type;
+ 	}
+ }
 -- 
 2.47.1
 
