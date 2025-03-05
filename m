@@ -4,82 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6418C282E5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E96F2C282EC
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BlfG/euYmCskWVm1wTWhPFxNEI+p+lnU32oQtixfjKw=; b=TSraqYVcObauLchWBLZjS8FKzl
-	MZc8VvP9DxfDZt9a1/IvjPJN+wOQP6IdtLnLKkKzofmAIJ9Hns0TCyKdrNP2kipxqlf/NHT8KELHe
-	06Fp3rgLTlRm/m5j2rUcovXGzvcSrzr6tT/SPuz0kGQQteBhnOR8bjvsWfnVw0PftDq1EIeL/FJ3c
-	YdH/OVp1jrhkv/Y1nyzvbFS5ZkE2Oizl32W+SF2IozWJD71E4WKvbWGEGLTLTahzWdmhiKHkr8aC8
-	l9LGhGKg3AOPvIHr5cVfbFGmayy4cdsuF2PRPR9DG39939ualSKMbP6Pr4vsY2ZhbPkQmzI5+jz5g
-	j8nc0wOg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6H+V4x7uHeq/HJk0dDgNt5bXZ+Akgq6rofFNm1ylbII=; b=vqC7m0xYwx/qYnC75UKONsLdyD
+	fSXkzfioaDoJ8L6P1ZVCZq3OxHoAiecQ8QKIUdF4I6u/bpFpKCxnoz7ge9sHAbdPA1BLtFfofdU3G
+	4h815jkqgMG3V57UwN7YSsVTWWee5L0Xrhdulu7VGuyHO6cSinYQHMRZF0vO5yT/qsjxMqoxwxY+Q
+	1rKz3p7N9B8p/C/lz7VF5flHxMn3A/OXhX40A/RWp20u1UDCAsVLWco0pS7FooAJOfhSnE1Bm1joM
+	NEyPf2xaty933uWCripatjcK/h1qXAJmANA32vGpAb9EeGRY7HiUseVk86gjkVyCQAoU1usIUZ8Rh
+	9Ow9jHUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvCX-00000009C0n-3j1z;
-	Wed, 05 Mar 2025 20:18:45 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpvCZ-00000009C2F-3Ilr;
+	Wed, 05 Mar 2025 20:18:47 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsvU-00000008qWb-0IUd;
-	Wed, 05 Mar 2025 17:53:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id AE7785C6BB8;
-	Wed,  5 Mar 2025 17:50:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F10DC4CEE2;
-	Wed,  5 Mar 2025 17:52:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741197179;
-	bh=hE0MFGTk7bcOjMBBN//SQY7SQOQlJ98ye1JVJhEBqyU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YgLq2Qph/XKnO0vPpE1w+YDPzp+TATFzB/KsCjnTv8bJ7JXTedWgOJQm8tzJLxZgZ
-	 RzNeV1nI8Xc2+E/Er4K/hySns3z7+C89eKgfHDUr6QtPU0P5y01Ba1RBAst0pm+6qU
-	 mFLXKWzxQEy+Po+4p5IUUfdcPnLlJzrVxqdys88Y/3XRAXIVMDX1fqHm7z0wq3oLAc
-	 ji7wVU7OS1ax1G4HnyeM+cI3XG7HBzv9GYCm3VeVF9Nm+ebYUvekUKf7JnvtVEU2qa
-	 DZIqOuEuwea+hBvlg7PkrLq3C9fyIilBiwD1tjINhk+UTQelj1WFnTKgjWxTm/3790
-	 lFk35gC77gIuA==
-Date: Wed, 5 Mar 2025 14:52:56 -0300
-From: Arnaldo Carvalho de Melo <acme@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 01/11] perf dso: Move libunwind dso_data variables
- into ifdef
-Message-ID: <Z8iPeEbldTUqotsQ@x1>
-References: <20250304050305.901167-1-irogers@google.com>
- <20250304050305.901167-2-irogers@google.com>
+	id 1tptyG-000000090FT-1Rbj;
+	Wed, 05 Mar 2025 18:59:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741201195;
+	bh=pxGZiXC6za5vFQ3V/0fw9IlCjpRVWVwiCZ21S4dEkDI=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=irVCEjmTrmaV9tgo9Y63smxuIgVAQhefi4nf4LXOVF41sbEkbe92davF7n+kX9oXo
+	 pAJ6hpZ94FlAs1PvwI+B6LZzUIXKcIxq5b4WaVrkZjYhIgqk17EFCwnlu+QqhpKVlB
+	 IDtTb4JXBK+Yk77tFzyRQcVP3mWC4zI/4R77wrqwbNIOzjy0gu3wELw5AKFu4K0/Xo
+	 4OR/NsXF0q1U4EiuIGldH5kIFi05y5J8w0bWW/q/E7XNIZcL4DCOni137OvLVPsEoS
+	 8Todde+/j6aCReyhYKzp9y2k7A7LwNaDtlUWYhBLAxB4LwFEoG4eUu7LPxrHFNHDzo
+	 U1G+w6B06eTxg==
+Received: from [192.168.0.47] (unknown [IPv6:2804:14c:1a9:53ee::1004])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: nfraprado)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id E19FE17E0147;
+	Wed,  5 Mar 2025 19:59:49 +0100 (CET)
+From: =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+Date: Wed, 05 Mar 2025 15:58:21 -0300
+Subject: [PATCH v4 06/19] ASoC: mediatek: mt6359-accdet: Drop dead code for
+ EINT/GPIO IRQ handling
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304050305.901167-2-irogers@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250305-mt6359-accdet-dts-v4-6-e5ffa5ee9991@collabora.com>
+References: <20250305-mt6359-accdet-dts-v4-0-e5ffa5ee9991@collabora.com>
+In-Reply-To: <20250305-mt6359-accdet-dts-v4-0-e5ffa5ee9991@collabora.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: kernel@collabora.com, linux-sound@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_095300_150197_EFBB5F7D 
-X-CRM114-Status: GOOD (  14.68  )
+X-CRM114-CacheID: sfid-20250305_105956_522227_22BA4A88 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +85,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:02:55PM -0800, Ian Rogers wrote:
-> The variables elf_base_addr, debug_frame_offset, eh_frame_hdr_addr and
-> eh_frame_hdr_offset are only accessed in unwind-libunwind-local.c
-> which is conditionally built on having libunwind support. Make the
-> variables conditional on libunwind support too.
+The ACCDET supports two modes for IRQ generation: PMIC EINT or AP GPIO,
+which in principle could be configured through a DT property. However
+this DT property has no user nor is documented in a binding, and the
+driver only implements the PMIC EINT case, so drop the unused code
+intended to handle both cases.
 
-Reviewed-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+---
+ sound/soc/codecs/mt6359-accdet.c | 20 +++-----------------
+ 1 file changed, 3 insertions(+), 17 deletions(-)
+
+diff --git a/sound/soc/codecs/mt6359-accdet.c b/sound/soc/codecs/mt6359-accdet.c
+index 1d4481109f6e4f473610e0797c9d3c636bdf12cf..ce8a5e64e0b9ca508124043ca1f93aaa3cc5f9a0 100644
+--- a/sound/soc/codecs/mt6359-accdet.c
++++ b/sound/soc/codecs/mt6359-accdet.c
+@@ -31,9 +31,6 @@
+ #define REGISTER_VAL(x)	((x) - 1)
  
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/dso.h | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-> index bb8e8f444054..dfd763a0bd9d 100644
-> --- a/tools/perf/util/dso.h
-> +++ b/tools/perf/util/dso.h
-> @@ -154,10 +154,12 @@ struct dso_data {
->  	int		 status;
->  	u32		 status_seen;
->  	u64		 file_size;
-> +#ifdef HAVE_LIBUNWIND_SUPPORT
->  	u64		 elf_base_addr;
->  	u64		 debug_frame_offset;
->  	u64		 eh_frame_hdr_addr;
->  	u64		 eh_frame_hdr_offset;
-> +#endif
->  };
->  
->  struct dso_bpf_prog {
-> -- 
-> 2.48.1.711.g2feabab25a-goog
+ /* mt6359 accdet capability */
+-#define ACCDET_PMIC_EINT_IRQ		BIT(0)
+-#define ACCDET_AP_GPIO_EINT		BIT(1)
+-
+ #define ACCDET_PMIC_EINT0		BIT(2)
+ #define ACCDET_PMIC_EINT1		BIT(3)
+ #define ACCDET_PMIC_BI_EINT		BIT(4)
+@@ -448,8 +445,7 @@ static void mt6359_accdet_jd_work(struct work_struct *work)
+ 		mt6359_accdet_recover_jd_setting(priv);
+ 	}
+ 
+-	if (priv->caps & ACCDET_PMIC_EINT_IRQ)
+-		recover_eint_setting(priv);
++	recover_eint_setting(priv);
+ 	mutex_unlock(&priv->res_lock);
+ }
+ 
+@@ -580,14 +576,6 @@ static int mt6359_accdet_parse_dt(struct mt6359_accdet *priv)
+ 
+ 	priv->data->hp_eint_high = of_property_read_bool(node, "mediatek,hp-eint-high");
+ 
+-	ret = of_property_read_u32(node, "mediatek,eint-use-ap", &tmp);
+-	if (ret)
+-		tmp = 0;
+-	if (tmp == 0)
+-		priv->caps |= ACCDET_PMIC_EINT_IRQ;
+-	else if (tmp == 1)
+-		priv->caps |= ACCDET_AP_GPIO_EINT;
+-
+ 	ret = of_property_read_u32(node, "mediatek,eint-detect-mode",
+ 				   &priv->data->eint_detect_mode);
+ 	if (ret) {
+@@ -902,10 +890,8 @@ static void mt6359_accdet_init(struct mt6359_accdet *priv)
+ 				   0x3 << RG_ANALOGFDEN_SFT);
+ 	}
+ 
+-	if (priv->caps & ACCDET_PMIC_EINT_IRQ) {
+-		config_eint_init_by_mode(priv);
+-		config_digital_init_by_mode(priv);
+-	}
++	config_eint_init_by_mode(priv);
++	config_digital_init_by_mode(priv);
+ }
+ 
+ int mt6359_accdet_enable_jack_detect(struct snd_soc_component *component,
+
+-- 
+2.48.1
+
 
