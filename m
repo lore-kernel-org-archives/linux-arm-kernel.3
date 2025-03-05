@@ -4,157 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2C2AC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:42:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6BDE9C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:48:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=; b=OPAunQyc5DZfY7DceqpwLhBXQ6
-	rAoJsBWfe2B24c05/zQimKtlsrByxMeCwzM6fCbCTntdBAhWyjK1M26ruLbVYC7fhtX2rDkyVx/9U
-	GmMElS5qg1nsaR11EB4gVSnmwIiteGRGsPs9w981IWih+V4dFAv5qm5AqkwGq0fO8Nl8NYEryrSOV
-	sAZm3G3XsqlFYJrompSMdX1dsXY0yj9nasFE14JQh+yoG6nUloI8E4o0o4bRCM6KPkWhx67WUJNKS
-	6J7BZwVgUoAIUmsVzmbO1Z9hbPTNCRTOOBJxHFu7JRquAsvCcCM2y5hoSLfgf6z0+1RUAHsMWMKRt
-	Uqvd329w==;
+	bh=i9viZYqeMX/aeCk2MVnU/RK+AW7R5iqtLpSVqk7yiGU=; b=fC6pjep4DPwdC4bR+yOUnQD3Cq
+	I1lL0wQrggA+5fUSft9q4tTCuktNXeuzsB9yWLFF/udB6a/YQN6S+kUBjzQbN6v/3IfZ0n/okkUXg
+	NmHCU5P0t9v8KHvBT0N0qNOMnKkzVvqoP+hNe+2X/ONQZ4D6fiGQiJn8v9LFpQNvbRQkfKHL4Cn9U
+	E9HnKMfYotVx316QLZJ9XUi/RiO+2OEOqwW8gOP0MvdtLAW1onrs4Uu1wttHao8LuzkpnPCRh8XhW
+	3vmnSfpiiGmCkLUrYvPgg7eBjAfS1URWBEMCcfaqdnLtCPMoj7NobBPNQI7WEFZFeU+mY7l2ACFii
+	K0IPgp8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpo4M-000000083GN-0Jqg;
-	Wed, 05 Mar 2025 12:41:50 +0000
-Received: from mail-dbaeur03on2060d.outbound.protection.outlook.com ([2a01:111:f403:260d::60d] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
+	id 1tpoAy-000000084K8-14wr;
+	Wed, 05 Mar 2025 12:48:40 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpo2i-000000082xy-09Yz
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 12:40:09 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vUWtMbLqQlRqgCIxMo17Z0eA6t++QaFp++sFI4HpoFJ8Dr/XyXXiqRR6z280aobcc59NmeH6WX4MMUK3QKVPus5gzr4EMjcKD/G3dmK5qLIT+Zkqtvs/5qOhXYkV29IvgMsuKqY4ZOhlBZghiKvym4AUs/MGLaz3ZjkT9QTsORSl4V48wPD053d5ewcrXGcZKvy/Z9Q6JiEQj2Q6xOmCDPjlcnxuusBDVZ4k+p1rnxxwOS0XPU2caNjkKORT/SWp9e9tM0mlkzvborzN7g3eCrkgxTg9H9ilt3pOOI6zSAFfxNEKmK+Hpw2VuGZW33ZoY5Ewwdvmm3hLNA99cFrgDA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=;
- b=sp5uNcYwL9m17T5zBPL9H49LWEtNYzFDQRTnbRza5ADWu0Gzc6pBRSdn41KBAeF+s0hhATaCS9TzUK2SNStyRaaDKlF6Ve92YSfjb6tWTu3t6atX21DdkjqL8QYsuVKWx92GG73fWzMwftJXqPXXNnqnt1dcF6mXn7AnEkeMWjCJtTp12zg1P+V5+5izZh1OfGxOscsEjwdvHtcIKV37VYN/+J+syRzuSVd9hKcjNVrn1x85JB9DsBKsiUVpFdcQgb3VMiyJHXA3WTXyP0B+HgkaocyMm8iqYfoZ7z1gZW8D1t4zt/ff56BKJUNKHFot+JvviQmY/4/nSne0hoZkoQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=b8VAjib+6A103TMmVmC8d30dlP5ysyD2y/eNhRaWlg4=;
- b=BxAqMfHgfh+cxtWQWuzIqBzVF0GtgdONB1eE34XbplLuIQsIaD6xlR3dW26YlknzZWATDk5wmSBPKozE9+Qr1DvwSzqbvJu0px9U8Qlf1esYyh1m9psaeXvLXpBG+paUOwPcBPBNR0YIfkLtHpqOpzXNtN+5VztJ7z2lYBXDUN5ZE77+jbGGM9HJV2a2MNRGMStqQJX51Wlb2jY/3SMg5R+ssA2wT4hOWVsKM/QrnlXqftZrmT90acp5WcSz4Q4LTFActvitGTCnj3tjZzrrMYC2g7KvglT8PjHpRF4QjzTEkcyL+UjZTUT/d6VyDC/NrBkGC42ukI+4zU0jiHCy5Q==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU2PR04MB8774.eurprd04.prod.outlook.com (2603:10a6:10:2e1::21)
- by PA2PR04MB10513.eurprd04.prod.outlook.com (2603:10a6:102:416::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Wed, 5 Mar
- 2025 12:39:59 +0000
-Received: from DU2PR04MB8774.eurprd04.prod.outlook.com
- ([fe80::88b8:8584:24dc:e2a1]) by DU2PR04MB8774.eurprd04.prod.outlook.com
- ([fe80::88b8:8584:24dc:e2a1%7]) with mapi id 15.20.8489.025; Wed, 5 Mar 2025
- 12:39:59 +0000
-From: "Iuliana Prodan (OSS)" <iuliana.prodan@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"S.J. Wang" <shengjiu.wang@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Mpuaudiosw <Mpuaudiosw@nxp.com>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>
-Cc: imx@lists.linux.dev,
-	linux-remoteproc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>
-Subject: [PATCH] remoteproc: imx_dsp_rproc: conditionally wait for FW_READY
-Date: Wed,  5 Mar 2025 14:39:23 +0200
-Message-Id: <20250305123923.514386-1-iuliana.prodan@oss.nxp.com>
-X-Mailer: git-send-email 2.25.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM0PR02CA0124.eurprd02.prod.outlook.com
- (2603:10a6:20b:28c::21) To DU2PR04MB8774.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::21)
+	id 1tplam-00000007bXz-0xut;
+	Wed, 05 Mar 2025 10:03:08 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Reply-To:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Sender:Content-ID:Content-Description:In-Reply-To:References;
+	bh=i9viZYqeMX/aeCk2MVnU/RK+AW7R5iqtLpSVqk7yiGU=; b=wYxm8pL5QCXGYJ3wnzWXDVLhbs
+	CkB2587WdUm/2XqlyVMpXeLpOeW4UGtruBT8TqHGc6HAC2icsSdZreZ+ucW34EmDe3j0T+tykNh8q
+	ygujUw4Jpao3Jr3vybAgkBG9qE+epMRbWsj4e39W6kpmWO5KWzD3mse/7Q0U/KbskLWYfvvyrU2u2
+	2xh7K4mVSN/OVPzXKMwcMlVm4X3kmr8YkW2XmmGHz4o4dXOQ+SZ7JwPG1OE/TF9+oOx/7NTRZR3x9
+	PwA5SgXrO8EWkK2lw5BkizlaVkOPPlANWHAS6/uqlcA2K0pEW9OSiazk97e/b3ww3JnwiOdAGW2mg
+	b7anRjXQ==;
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tplah-00000005Fk8-2Yhb;
+	Wed, 05 Mar 2025 10:03:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AF5A65C674D;
+	Wed,  5 Mar 2025 10:00:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 1EAC5C4CEE8;
+	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741168979;
+	bh=1g440IuVdvferMaa49XKcEufmSsf3xpIra5Mss3ih/M=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=LaDPFs9wiyXd+cQgs4520fdnBGhhAjV20d6LnUj+PqKEniG1pw4GarBt2FldqrVQJ
+	 +lYJPOEccq9GFKKadnvVMW87DwwQUPRnyko2hzfautgdcM6tLp3ZdJbEVAMKb/D1/f
+	 aa6Yem9sqmNQGSZZ1DCQB5Qj5XUYjare8q+lfKv/QqktC1fxnw3/X3iPuSXk3EP/Lz
+	 hAGJ1C2jsqJCkx40nqjzgfBnqfUkqnl8cJfuiX+qbXHXFzAweh/19tMd76k+89DGgE
+	 0DiWy3DKpLMJSVdSFqVLSO22IDRPoayv0WWi6Y0xFimC4JmSa35fYx2UePIB4dNp2n
+	 iAj8ZMXneFh+g==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 05484C282DC;
+	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
+From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
+Subject: [PATCH v3 0/4] Add GPIO interrupt support for Amlogic A4 and A5
+ SoCs
+Date: Wed, 05 Mar 2025 18:02:55 +0800
+Message-Id: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8774:EE_|PA2PR04MB10513:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1a3fda0e-4ab0-4be7-9a66-08dd5be2d798
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|52116014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f1nbFPs1i3xsqr/eAMgaMfugyGQc/x1Fy+NFO9V5w25v3LVqohy6acX4hEBa?=
- =?us-ascii?Q?w4ytecpPIzF8pAZvK+9paV4BSeRqKX5DZ04MeEA3Xvv7zTldXh32RFVe6xto?=
- =?us-ascii?Q?8DVMGwodvqfz3rj30Pekx9myKDXQUBGpshp6c5nAfag7P5VxM4+yq1BSe8wi?=
- =?us-ascii?Q?WMsyrVszKVPdsW0HMrcOe/Lfki61exkN8dUabINNw6cGBldWsAMgmEvmsEYH?=
- =?us-ascii?Q?lLfceWYtTE1ZUOxGNg9GwcXUJ+IwA7Zg/Jn2UofT4ToDYuclPL3OS8aUgNW8?=
- =?us-ascii?Q?RlKO3463uhvasVBORtGikb1ezTcTr9GBVl4+mtitICAcKgS0gpkkLwLn4Zon?=
- =?us-ascii?Q?rcMMJbLWs3XJrkqAQy12baCd3bG9KJr0/MdRnmeJCi34LglQq2NTQjhnrXTK?=
- =?us-ascii?Q?VxHZjSqbx6HEfcU2igQhk0XNGm8uV5bDywbp1CEbJg0EWefRsoxrxjd2Uq6Q?=
- =?us-ascii?Q?yozdpP3rZEsrKyP9vceC26MZ4izHmEK9nosqrNXQPvk1/3ThzOxsW5ouD862?=
- =?us-ascii?Q?wi9YXyXvlmGC/XJy6jpxgsWiYbXTe7o1mBpm85huKLDLs1C2/gqCl8B2UGkv?=
- =?us-ascii?Q?4Kkxt0OxHndsWRrSPHf7iXWJji61GghTgWsE52eV24BwpUvtC2X1DlrM2RVZ?=
- =?us-ascii?Q?6zGQUDiMXmeoWl3RXwjSyYYSuqN33/iX6z55RpKvXaH+p2EQnFUUlr5GzG95?=
- =?us-ascii?Q?ulkGnkjVjbLAwn9UTH163976KKcbHC/umcLNQxhHAfFWlci0QHK8RibHRKKj?=
- =?us-ascii?Q?FLSoGsiRkKyM+Tr6PV6hv3Pp/ZJ9ZhtLCMcAoB8e2OV6k9aKliYLxhgdFO0o?=
- =?us-ascii?Q?IW3yXfcpPAcKNGxEiEm/qyiEkAREOK471VS/6udminRTqCs5IyqDph6sOC2A?=
- =?us-ascii?Q?JCRYazQKAXzyb07cE31ByuYfsAa302i+vEs2LrMx/yPZFGX4s3wZXImRhsvS?=
- =?us-ascii?Q?pvpcrigI1q06msICIrNkk0cvtF/gQkthCzZmR/qqEmgMlLBVRRcLwQgQiVw0?=
- =?us-ascii?Q?z9vVq3wZfR9eFjh9X/f7AbJ9BPkLTNuqn8lFYltopm82V3jGlPJnP7w+rz+G?=
- =?us-ascii?Q?JA22g+EcVmZ+gcIioCe+yUQh3ZpikRohBWq5iwan1XL+6ANgao4bEbsfUTB6?=
- =?us-ascii?Q?EtrB0rBZcP9oNponwPRXDmys0bhgfTQN3af1MiZ1O07x2z1ogEGdDk46aU+v?=
- =?us-ascii?Q?jd3M8oDO1QshkMLRZKpSLqGWh8mo/qGqflglzmDRJDQK0ZhRwgi4ufSvwJXM?=
- =?us-ascii?Q?NdBRpltFVXBtA7uWkUlxsUEPJyNYyQPxgX353rMWlm9DiKiefRrIbJINZ5Bm?=
- =?us-ascii?Q?yPqYT7xj1hIYeOMsI+bJfh+iuUmzzOhCAMZ6n3wIRCJ2Ch8mQx7Lj8Sc/qo5?=
- =?us-ascii?Q?KrqpUh/yaKjc8MKUPZwynVfOhLvLHhyY7eIeLIdhTVkHaP452lw34HPFt5Zz?=
- =?us-ascii?Q?H0DkTIGXouFcci20v7dYKyWbJJ/wJkmA?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8774.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(52116014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PGGreCGLxoWhua3fwhKpAZUzfBwrRXwA9ST7JhsbY/ZC1+ueiJCTk6acT6Ph?=
- =?us-ascii?Q?k8+B49l1x2JK1uooze7G6YcBisptbUjasKJnjVRlSxLG8Zlq99+bmR150eFR?=
- =?us-ascii?Q?ooIykpSZp0Oej5bCHKmPocklS7sbXkl8N1nVPbrTjzJFwly52TS0Z2JwbL3P?=
- =?us-ascii?Q?YwvU6pdAOjd6aLkfW8aY357XeiPZmZnhC7pTBFa94VoFZB++PSPdAikDES0B?=
- =?us-ascii?Q?DClUJOzmXRBCL2lS1HKwv04Zh3v4AXOkxzC7qpCScZi9AiLFN0E0FIB+Hg2d?=
- =?us-ascii?Q?FN4/+26Tq3/X9GgAolqo1NOo56pHvt+Ajy9BYDGOab6R9K1gSHtcHA2XwZLM?=
- =?us-ascii?Q?wQnGMNn8OyR5x9RW0A/FqSyqhrx1Nc0IQzo5VHhHUaUf5GroOqqh54c4Fbgu?=
- =?us-ascii?Q?uAukbiTChjlzDygLbNsr8Tt5mSCdW81wm/Zo/VkF6/AfBXcVhHZbVAGYbMMQ?=
- =?us-ascii?Q?Izgu3wombUAQsHSibnk0wffeAf5E+BuNtOemVhFjw4wTmxPwu4OilVcJmQ4v?=
- =?us-ascii?Q?w6iTX55Uu7iHJLFnTxcTpGxS5q1U3xmwbuc6elFXy27A/q/HkmDSdZecCGrK?=
- =?us-ascii?Q?fWosx+3HodW/pK8onuzdPWFvIRG4FxNbTDDzC8pL3QvXtiUYQD/dSxJFckV3?=
- =?us-ascii?Q?eYt4oSI+WPY+5m2DVvs+gGzVDjtjOTNo5gDfvN8YUiNzYlrXPlyreJC/neWV?=
- =?us-ascii?Q?5J/+opwMpOv3fuarQzSrlC2n8cguaN8WAL4Y8GC0adm3LjkI3NLwNrIISoYw?=
- =?us-ascii?Q?a7JKplZHX41jNV07bZqQssWS2D7v4QtZDqqq9He80yvdIiTd2Vdg6pBgyLwC?=
- =?us-ascii?Q?MpTDpvTUSc5aNQeYyEWYeNHL9XPDSwcAuJAJZ2TjOeX42GRP+82VZAHD6QVD?=
- =?us-ascii?Q?BgXfxB0sW+U9tb6XWCO5J9tNv1sH89OpN0lRZyftCuOcqbNUVRKeMuEDsljV?=
- =?us-ascii?Q?rRM6tIYJFUZYPZa08AOg0cwa8dpo2gg/V5owQ0PvsZwhbSlai+FekyV95CYE?=
- =?us-ascii?Q?aZkagG+8/UNq6PBlg2B3uAa2hpBMRVu810dwPoV4mbOuhm2R1+cFsmGlpRwf?=
- =?us-ascii?Q?MEJjjuylYfNwXsjSUSOFXq7rBQctolD4W//7jBx7kGc0lkVtNdPEf0UTVBLj?=
- =?us-ascii?Q?YKaROWK4poOO04fQ7b0XDPVCZ9RwZ03FN6Q9sMZ319Hz9hz/C3RVrzBop04S?=
- =?us-ascii?Q?xoFroMR/GzpWIcphANU8BWyE9jFO0NMyws+jmgl6yWXTUWB6gumjT9oiaTAv?=
- =?us-ascii?Q?PWTV7/g9ulHeBijE5qw30HYYQ1076BLvwn4VaHDlIKlzeBMtp2lqywMyyCzW?=
- =?us-ascii?Q?ddcA8TKvwYr6WJ2/PvWhhHPY5GCpbBUOJVaIZgmFqm+p5BiGbYJJE1qn+Trg?=
- =?us-ascii?Q?mcFkO397lMZHsjjyiIGQskpq1hii5j27/CAR10YZx54Hhfvy5RP8BE4a5rxs?=
- =?us-ascii?Q?xkPXhNg9y+7IuyiL4cYzr47h41Ig9s+tEQLrMQe15l6KB3PdbgiKuIgZM2Ei?=
- =?us-ascii?Q?BUdS6j18Sr71hQQklcascYI6OEvzn/zY1hH88nrCHG5h6oc1/qC3Z2BW7Y1F?=
- =?us-ascii?Q?ibfYCs65hFAJqdVrakh3QrIrnrS2hSwqCBtDslQ2R26RUO3ne7EGntaTOaFm?=
- =?us-ascii?Q?Kw=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1a3fda0e-4ab0-4be7-9a66-08dd5be2d798
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8774.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 12:39:59.8024
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: tXO0zEEhGGgf+Q2NqSOrTDmyCxMz1SNtOs3QuUPG4Niyg/jFOOwDgmrYAOnG5EayZdAMIOQrnBnK+SuZygsd2A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10513
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAFAhyGcC/23NQQ6CMBCF4auQrh3Tlg5BV97DuChDgUnEYmsaD
+ eHuFlaasPxfMt/MIrrALopzMYvgEkf2jxzloRA02EfvgNvcQkttlFYlcHjSwBP0E3uwBixCLQm
+ lVQYrMiIfTsF1/N7Q6y33wPHlw2f7kdS6rhxKrU57XFIgoaTaGWOd0W13sePd90xH8qNYwaR/E
+ F3tIjojhNgoiZIaxH9kWZYvB3S4ZfsAAAA=
+To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>
+X-Mailer: b4 0.12.4
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741168977; l=1486;
+ i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
+ bh=1g440IuVdvferMaa49XKcEufmSsf3xpIra5Mss3ih/M=;
+ b=v148/pWMVfxrubeqy83sCyRkyelbM2gzK8tehnIW/gbWJObeuEoCq0Zbc/PIJGm6f6FC/EJx/
+ AAG597zMpDNCrYpX6lGmZxdULCQv8lP/YooM/tKmazoT/14nKoPXuVZ
+X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
+ pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
+X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
+ auth_id=107
+X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_044008_092981_6AE38AE4 
-X-CRM114-Status: GOOD (  26.57  )
+X-CRM114-CacheID: sfid-20250305_100303_905011_7010DC17 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,148 +106,44 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Iuliana Prodan <iuliana.prodan@nxp.com>
+This patch adds GPIO interrupt support for Amlogic A4 and A5 SoCs
 
-Some DSP firmware requires a FW_READY signal before proceeding,
-while others do not.
-Introduce imx_dsp_rproc_wait_fw_ready() to check the resource table
-and determine if waiting is needed.
-
-Use the WAIT_FW_READY flag (bit 1) to distinguish cases where
-waiting is required, as bit 0 is reserved for VIRTIO_RPMSG_F_NS
-in OpenAMP and mentioned in rpmsg documentation (not used in Linux,
-so far).
-This flag is set by the remote processor in the dfeatures member of
-struct fw_rsc_vdev, indicating supported virtio device features.
-
-Update imx_dsp_rproc_start() to handle this condition accordingly.
-
-Signed-off-by: Iuliana Prodan <iuliana.prodan@nxp.com>
+Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 ---
- drivers/remoteproc/imx_dsp_rproc.c | 84 +++++++++++++++++++++++++++---
- 1 file changed, 77 insertions(+), 7 deletions(-)
+Changes in v3:
+- Fix warning when run 'make ARCH=arm64 dtbs_check'.
+- Fix warning when run 'make ARCH=arm64 Image W=1'.
+- Rebase file amlogic-a4.dtsi.
+- Link to v2: https://lore.kernel.org/r/20250226-irqchip-gpio-a4-a5-v2-0-c55b1050cb55@amlogic.com
 
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index b9bb15970966..8eefaee28061 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -1,5 +1,5 @@
- // SPDX-License-Identifier: GPL-2.0-only
--/* Copyright 2021 NXP */
-+/* Copyright 2021, 2025 NXP */
- 
- #include <dt-bindings/firmware/imx/rsrc.h>
- #include <linux/arm-smccc.h>
-@@ -38,6 +38,15 @@ MODULE_PARM_DESC(no_mailboxes,
- #define REMOTE_IS_READY				BIT(0)
- #define REMOTE_READY_WAIT_MAX_RETRIES		500
- 
-+/*
-+ * This flag is set by the remote processor in the dfeatures member of
-+ * struct fw_rsc_vdev, indicating supported virtio device features
-+ *
-+ * Use bit 1 since bit 0 is used for VIRTIO_RPMSG_F_NS
-+ * in OpenAMP and mentioned in kernel's rpmsg documentation
-+ */
-+#define WAIT_FW_READY				BIT(1)
-+
- /* att flags */
- /* DSP own area */
- #define ATT_OWN					BIT(31)
-@@ -300,13 +309,74 @@ static int imx_dsp_rproc_ready(struct rproc *rproc)
- 	return -ETIMEDOUT;
- }
- 
-+/*
-+ * Determines whether we should wait for a FW_READY reply
-+ * from the remote processor.
-+ *
-+ * This function inspects the resource table associated with the remote
-+ * processor to check if the firmware has indicated that waiting
-+ * for a FW_READY signal is necessary.
-+ * By default, wait for FW_READY unless an RSC_VDEV explicitly
-+ * indicates otherwise.
-+ *
-+ * Return:
-+ *   - true: If we should wait for FW READY
-+ *   - false: If FW_READY wait is not required
-+ */
-+static bool imx_dsp_rproc_wait_fw_ready(struct rproc *rproc)
-+{
-+	struct device *dev = &rproc->dev;
-+	struct fw_rsc_hdr *hdr;
-+	struct fw_rsc_vdev *rsc;
-+	int i, offset, avail;
-+
-+	/*
-+	 * If there is no resource table, wait for FW_READY
-+	 * unless no_mailboxes module param is used
-+	 */
-+	if (!rproc->table_ptr)
-+		return true;
-+
-+	/* Iterate over each resource entry in the resource table */
-+	for (i = 0; i < rproc->table_ptr->num; i++) {
-+		offset = rproc->table_ptr->offset[i];
-+		hdr = (void *)rproc->table_ptr + offset;
-+		avail = rproc->table_sz - offset - sizeof(*hdr);
-+
-+		/* Ensure the resource table is not truncated */
-+		if (avail < 0) {
-+			dev_err(dev, "Resource table is truncated\n");
-+			return true;
-+		}
-+
-+		/* Check if the resource type is a virtio device */
-+		if (hdr->type == RSC_VDEV) {
-+			rsc = (struct fw_rsc_vdev *)((void *)hdr + sizeof(*hdr));
-+
-+			/* vdev does not require waiting for FW_READY */
-+			return !!(rsc->dfeatures & WAIT_FW_READY);
-+		}
-+	}
-+
-+	/*
-+	 * By default, wait for the FW_READY
-+	 * unless a vdev entry disables it
-+	 */
-+	return true;
-+}
-+
- /*
-  * Start function for rproc_ops
-  *
-- * There is a handshake for start procedure: when DSP starts, it
-- * will send a doorbell message to this driver, then the
-- * REMOTE_IS_READY flags is set, then driver will kick
-- * a message to DSP.
-+ * The start procedure involves a handshake: when the DSP starts, it
-+ * sends a doorbell message to this driver, which sets the
-+ * REMOTE_IS_READY flag. The driver then sends a message to the DSP.
-+ *
-+ * Before proceeding, the driver checks if it needs to wait for a
-+ * firmware ready reply using imx_dsp_rproc_wait_fw_ready().
-+ * If waiting is required, it calls imx_dsp_rproc_ready() to complete
-+ * the initialization.
-+ * If waiting is not required, the start function returns.
-  */
- static int imx_dsp_rproc_start(struct rproc *rproc)
- {
-@@ -335,8 +405,8 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
- 
- 	if (ret)
- 		dev_err(dev, "Failed to enable remote core!\n");
--	else
--		ret = imx_dsp_rproc_ready(rproc);
-+	else if (imx_dsp_rproc_wait_fw_ready(rproc))
-+		return imx_dsp_rproc_ready(rproc);
- 
- 	return ret;
- }
+Changes in v2:
+- Use if/then instead of direct modification minimum value for property 'amlogic,channel-interrupts'.
+- Add register offsets to the parameter structure to reduce definition of a function.
+- Link to v1: https://lore.kernel.org/r/20250219-irqchip-gpio-a4-a5-v1-0-3c8e44ae42df@amlogic.com
+
+---
+Xianwei Zhao (4):
+      dt-bindings: interrupt-controller: Add support for Amlogic A4 and A5 SoCs
+      irqchip: Add support for Amlogic A4 and A5 SoCs
+      arm64: dts: Add gpio_intc node for Amlogic A4 SoCs
+      arm64: dts: Add gpio_intc node for Amlogic A5 SoCs
+
+ .../amlogic,meson-gpio-intc.yaml                   | 21 ++++++++++--
+ arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        | 19 ++++++++++
+ arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        | 12 +++++++
+ drivers/irqchip/irq-meson-gpio.c                   | 40 +++++++++++++++++++---
+ 4 files changed, 85 insertions(+), 7 deletions(-)
+---
+base-commit: 73e4ffb27bb8a093d557bb2dac1a271474cca99c
+change-id: 20241213-irqchip-gpio-a4-a5-80c50a1456c4
+
+Best regards,
 -- 
-2.25.1
+Xianwei Zhao <xianwei.zhao@amlogic.com>
+
 
 
