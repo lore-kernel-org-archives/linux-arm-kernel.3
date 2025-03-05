@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F2815C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:46:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9470FC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:48:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4rw5XcIpbhzZitEnCHBvlFDCmaFY78PQmKO5kDwkVMo=; b=n03XuWA47qAmjjrLhLcDI2kVk1
-	2zEbCg9T/f4Sjf8oGm2AkQZW7LwKQGRgOIeN/QyhSfjITscgIds1B37tVYn1EnKKbIApih1UlPtFZ
-	Ozm5/fokaMJP9kr4ItN5GstqcgUtgNBtx14clvcGgzvzSIbmxZhal5H3aUWqAeKHGTd6hrjZ64r+q
-	LT17aVd++nyIe8eYFXlpygkdHhTfFK+9UBzp/ne2H9lRpGvQypiH4dclNVjoYDK5mEXWhEDFn54kr
-	HhjrV9FinoO0BWRdjyiM0jv5+9o0An1HBgyGzi95pIYrmkX61F990JILaBctryZnuLrM6lrk5LuXz
-	sQUWzwgA==;
+	bh=JJDTS3ojO+ITkFNcFvJtFsgHn3v4KjfAcX4NMBcPAVw=; b=tTmwOfMs+3yEZNMWp3FXgbWBwX
+	AmSAk7ukTJxVe0OSUT62Uvg2FSQUYs/bTBxOJbMw6BVVALNQukk86Xk0Oh+mSH+onQ/oye3bWyHbp
+	igXZCFSejQTlF+TwpFmr3JHQmdDiYnKLtGvIA89zfeNo4ss8uUDK0AP+HYvF7RZClusOgu2L+WP8z
+	JxHdTKeCHPObtzP9cU+S7t03mdBu8Nvebx7YwQY1JlZGyqTaXfesj7WFoWlgS+TGlQRMzB52tTqAZ
+	gOoav4zzutTBtsbTB/ZZmFf7GzBci06EKcpi17IplWnZYHkvEBM2kbfqd3eubAVuMFlWaLq1zdzPJ
+	n4al35Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphab-000000073H7-2jIG;
-	Wed, 05 Mar 2025 05:46:41 +0000
-Received: from mail-psaapc01on2125.outbound.protection.outlook.com ([40.107.255.125] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	id 1tphc9-000000073Vt-1rBJ;
+	Wed, 05 Mar 2025 05:48:17 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphSr-000000072ak-0XFV
+	id 1tphT0-000000072cW-3ruR
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 05:38:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Content-Transfer-Encoding
+	:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=JJDTS3ojO+ITkFNcFvJtFsgHn3v4KjfAcX4NMBcPAVw=; b=jmlBQ9Jg8hwEpQ7EjbSSYRnePv
+	3VksgWSOy6Zzuccw/MB/3rDEqy3v3koB0gzx9kBSNovabdTP9Qarx9Np/sZo+R+D9dnvN/1ZapM7r
+	NsjvJlBHrVu51J5RC9SwMTeJINx7K3GhwxEhhPAvLaVzSw2vfkDMm8G7j5cEiQzeoaESRd4C9/rzB
+	L0Qw523ggqkowLip+t72bq1CwJzOWMquueO2QgNjsKCAzLkOF3qCnSRpNmZU56Ig8o3NzU+gp0xi4
+	D1XjKaO2tCXGl0Vo+euw1X6KRN4ujAv43ykJqnSdrW/SRHh7FSWgpEpq600JkOEhpg3xzxos0L3qH
+	dp1ixtlQ==;
+Received: from mail-psaapc01on2070c.outbound.protection.outlook.com ([2a01:111:f403:200e::70c] helo=APC01-PSA-obe.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tphSx-00000000N76-3jvM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 05:38:42 +0000
+	Wed, 05 Mar 2025 05:38:49 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Xb5dIwSCZXDiKHe20AVtTfkVE1V4/ho/bXIy4YRafrPF+SPbg+Ncn19oEBHAnIB2ePO5UOgF5uffc+4bpIYKIZOeMMYyiQDCM/wDegbhnXbkBT7GCTrtsy8elA0aTFNdYG2b9LhSS/7JN7CPSFMFCYrKYLgirRL5h/+eyPhflRSGcJtYuwHaAwjb5uLkqSsigXuiXEiqyCBXG5U9QOPZvczGt4JktkKE2QPAcYIsXthCIzlJiZLd/ft/r5k8CT6+a6EGSNH1IpPkVaWVbTww1YfSbpxkUrzQhlDEyNSiZJY8psvj+EnkVa1fSoAtcZ6x2HOV20JYgfgkn4ipsSMuEA==
+ b=IKDQke5gvmUAB7VCOJMesK9V9UqD17M32KaKmuXHAL8WN8MWTwaz85Q3lzDn9KYqm3jP+zcB+74O4vKXWZJJSvU1jB9VIcGp942yWxccc9C8nOs7xPGYZUWstDee+1Uy0RxIlITPoYKAsaHu6OfBw1ObGKrC4mAs2Mw3T7/u7/JqTOXn42+YM7MXtJwK9xHtD+3YfqTm5KYPxFrToUMdqgOLFk7M1SI58JIMcDcjbM+M5q0ZbbXED1EdvubU3u6/5HPczqHx6fZ0hq3IZSljDK56pmRiFHUeEH0LDa0K7K+UaVGUdWs8aFre1mKhrMcBb5IzMf8oCvegCZarbw11gQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4rw5XcIpbhzZitEnCHBvlFDCmaFY78PQmKO5kDwkVMo=;
- b=qvYu5Vb3JEz+A0Ni/yjM6j3jTdGdhVd0t0UFVaQV+D++efd8jL2Piu5uj8mnOiLyIRt+7F54PW0b4KU0o5dE7jjPO5Rd7ELhTMMynRf6bdXAffPU3OgkR/+CskvQDplzH21Rr4w3YAqYlWC++JhfktTlIZ7Y+LicAzzSxBm7Jn5kFHlZqDW1XR+oOHoQcwp+kIdqJbiAO4Zog62UziL2eGgwT6QIbL4G0bPQko6e3taGQIrEgyP9AcoPgRnjHDQgYgHMg9+wdIbtFk1Xf/UH+VUUOCK6Rap947mPj5h1yrroFKxZpyBjTeTj8oWK0uWpcxZuCafn5qHwlYWzoagFCQ==
+ bh=JJDTS3ojO+ITkFNcFvJtFsgHn3v4KjfAcX4NMBcPAVw=;
+ b=MNnJrD3QoHvy47fuub4k/yMqzJq8lIiIg4D+o0vgy1WXRDyKjrBoE510Wwd81ibL3hvpE2C/WVN25pHYlDBm9SnwYW8mAGBUWTtnxU/je38pjVfrjGxG6x5DLTNBDEB7vzzmazZoQT34vjnhiAniOSNUBV1RZudGmC0vGsDLaJrkyJmeC5Dshhs8gJFF2TRn6CNqGcr3inbhEmWYnjSflfAHX2ab2eK6Ov9LLHYUELwiRWaVhyH340E9ugkCEHLQb2tn4cZjdyvjyq9aHqlrLEViWqS2JhTEtVeVPAQRiPyJONtNbdRXcPAg8s+3whWJelHvr7HvqiAYB/yF9lLMXQ==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
  222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
  dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
  not signed); arc=none (0)
-Received: from PS2PR01CA0009.apcprd01.prod.exchangelabs.com
- (2603:1096:300:2d::21) by TY0PR06MB5007.apcprd06.prod.outlook.com
- (2603:1096:400:1ac::14) with Microsoft SMTP Server (version=TLS1_2,
+Received: from PS2PR01CA0058.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:57::22) by SEZPR06MB5198.apcprd06.prod.outlook.com
+ (2603:1096:101:72::13) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
- 2025 05:38:27 +0000
-Received: from HK2PEPF00006FB0.apcprd02.prod.outlook.com
- (2603:1096:300:2d:cafe::ed) by PS2PR01CA0009.outlook.office365.com
- (2603:1096:300:2d::21) with Microsoft SMTP Server (version=TLS1_3,
+ 2025 05:38:25 +0000
+Received: from HK2PEPF00006FAF.apcprd02.prod.outlook.com
+ (2603:1096:300:57:cafe::e5) by PS2PR01CA0058.outlook.office365.com
+ (2603:1096:300:57::22) with Microsoft SMTP Server (version=TLS1_3,
  cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.29 via Frontend Transport; Wed,
- 5 Mar 2025 05:38:27 +0000
+ 5 Mar 2025 05:38:25 +0000
 X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
  smtp.mailfrom=cixtech.com; dkim=none (message not signed)
  header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
@@ -55,11 +70,11 @@ Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
  222.71.101.198 as permitted sender) receiver=protection.outlook.com;
  client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
 Received: from smtprelay.cixcomputing.com (222.71.101.198) by
- HK2PEPF00006FB0.mail.protection.outlook.com (10.167.8.6) with Microsoft SMTP
+ HK2PEPF00006FAF.mail.protection.outlook.com (10.167.8.5) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 05:38:26 +0000
+ 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 05:38:24 +0000
 Received: from localhost.localdomain (unknown [172.16.64.25])
-	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id D17EB4160510;
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id CA5FC416050F;
 	Wed,  5 Mar 2025 13:38:23 +0800 (CST)
 From: Peter Chen <peter.chen@cixtech.com>
 To: robh@kernel.org,
@@ -76,9 +91,9 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Peter Chen <peter.chen@cixtech.com>,
 	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	Fugang Duan <fugang.duan@cixtech.com>
-Subject: [PATCH v4 5/6] arm64: dts: cix: add initial CIX P1(SKY1) dts support
-Date: Wed,  5 Mar 2025 13:38:22 +0800
-Message-Id: <20250305053823.2048217-6-peter.chen@cixtech.com>
+Subject: [PATCH v4 4/6] arm64: defconfig: Enable CIX SoC
+Date: Wed,  5 Mar 2025 13:38:21 +0800
+Message-Id: <20250305053823.2048217-5-peter.chen@cixtech.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250305053823.2048217-1-peter.chen@cixtech.com>
 References: <20250305053823.2048217-1-peter.chen@cixtech.com>
@@ -86,51 +101,53 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-EOPAttributedMessage: 0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: HK2PEPF00006FB0:EE_|TY0PR06MB5007:EE_
+X-MS-TrafficTypeDiagnostic: HK2PEPF00006FAF:EE_|SEZPR06MB5198:EE_
 Content-Type: text/plain
-X-MS-Office365-Filtering-Correlation-Id: 575a8b6a-f708-4aff-4430-08dd5ba7f3f3
+X-MS-Office365-Filtering-Correlation-Id: a275c12e-9178-42bf-d94c-08dd5ba7f2e7
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?8IrGwYOw/TCpmZQy9Gp9Ed2lkCXxU4EgbEYpBmWr5ZafxycrHLLK5M9xFJ02?=
- =?us-ascii?Q?ZO1qnbyE5xqDu/+bCUoivTBPFUbI/zsNKbOmS/dXfOwFZ02QaBH7eS4oIz6d?=
- =?us-ascii?Q?iM1v3I4pcCKfcOE2D2ppUMBsGiGHmAjRAUj/HhXvt9+s2xs9Py+IkHrsL+i/?=
- =?us-ascii?Q?HuQqrArT66QGzMZpPkpA9CKo46h6GwpVPRjMcj0nveShE/tfbT7J6jMPSAqX?=
- =?us-ascii?Q?GT+fjvTRytDHLohfb1Gx/7pXsht9TdTyOvw5zcZFLTW+Neb9dszogCNvZFsO?=
- =?us-ascii?Q?zVccEyYFXpYSiN7tfVAm8nuuO9+5PDbyAX2pwe2Z/YFdXc0mZ9ohHiWQb3Y3?=
- =?us-ascii?Q?wgY9dw6FZcPY7VGiAwKE0tjrb8EYUejgEA5Qd2Z9gcKR7B1KXuZ7dfS3tWNZ?=
- =?us-ascii?Q?cO2r+J1gaahS4SZwcpv7jLmUqAZVz6lqmC1pIJg0dLUjC9Io4kFJyi/gSV5J?=
- =?us-ascii?Q?On55xbYIU8tqNzALMLWRXpq7yLap7/rLsCCeBi4e4/PcxLtku5SYZc4i+3iz?=
- =?us-ascii?Q?Rjw+hP+xP3urtHx0dA4a4ra9ttRXMB0L7MfAU0jj8kLwvrlVHRWwvmYRhKKb?=
- =?us-ascii?Q?zs4oVLR/gI9yvnnvkjnuXPIJ3fydbJ3OuBo+m0/raf1v138m/pQqphCiBMc2?=
- =?us-ascii?Q?86XPE+VidLn9Fyyij5jOxVP2Bq3n0dcI9qhyiAeBFuhAcbt1PmWzqGbJy5Y5?=
- =?us-ascii?Q?Rrcyp8WxHpB5kAFwpBDz2oTJCDbbbWIErbkHGRsH6eScOl2cLa5wVIa/QQCw?=
- =?us-ascii?Q?61HU/YhXgSwzWuVDRSjYGrgjJ1rm9FFAoZJZbyFjDvArWh08WkE/Il/o6pgL?=
- =?us-ascii?Q?6YDjy/BsEUBb4YI/D23VOWvSikHBBjUBladU201I17TnkwPq+J/B5TgcbTV/?=
- =?us-ascii?Q?3eqO+hTMOZGJfKps7yAtHEm68VIbujjIBi90AdlKLzdjG3mcca92MHOIURSo?=
- =?us-ascii?Q?PSqJeaEcl5kVkLUNbdmEKDaYCeZM89Ktt2xIBLMFLhmtQNj6bL/tDkO9o7Y1?=
- =?us-ascii?Q?+ingL8vm/gVNZo5r3qyrtR13buf+GZVfqCfGxzvdmmRnloVBHiJLBh16LNb+?=
- =?us-ascii?Q?65pMzcZhm9lubfnmcViBoOciXNsD083xwiRMR7ojfeQNsG4fOg2Te167hEOi?=
- =?us-ascii?Q?wwES8v8IHK1udTj5MB/YqavQs2P0xu4u1QrCIpScoXTN7vzDjbm82ZhXkgCS?=
- =?us-ascii?Q?FQSzwYzYln8tK8X8+UxFQ2dE84hfzjaQ9F0P5zNdLFbs3X+MVdaAg6KP/XJv?=
- =?us-ascii?Q?MSsckFWiU55Wr6vmLoZwO8bW8uogNzhiFGE873yUgVUmicHlEvGJXUbkPOcM?=
- =?us-ascii?Q?AfRgkqtdsxlOfpKgbs32gtpAnMiW/Pgqlijq2pAsqRmChFbJ/qaabwChZjdt?=
- =?us-ascii?Q?h7HJmYpUoDg+MwlCM0AXMW/f70oSMNHyhiwPgFwlDKWnhnAFNvezz0tACRz7?=
- =?us-ascii?Q?6rgZdwJuVDM=3D?=
-X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|376014|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?woF2l6wSBX9tBsz6nT1cV3jngQLg2UjkVx2xBmx3lcjLC4G/NCnBUoPLjxQR?=
+ =?us-ascii?Q?+a/J5DVP8dn5kRjQE+ccHu+qQDkKHPjsxzTQCWvz9h/n+AAm+FpA9G+Dhok9?=
+ =?us-ascii?Q?3P264qq0yW1xD7oj4pROvjU6U+DppVsz7t+0xpTzlKzgt1aIyTDWd+iB+60j?=
+ =?us-ascii?Q?xOkL6Lt+6NHAZZ1iO/RMrjot9DKOriuS1LFmIRg44+L8CDBWGNk1B2P+Dl2i?=
+ =?us-ascii?Q?PQAU79KCyynm3+EL/vUEUEkTxe7eNW5/9pdE88XKO4DlOoQr5eZfXr6VilN9?=
+ =?us-ascii?Q?KmAcs0hrIO9PYMfJo4XPyinrdJsmMwi/KZ+zPbo4CLlaPCa9xvuLQJPtAQzJ?=
+ =?us-ascii?Q?mG80ApF+qHjucGOehQOui3OwZOPgHUrnToz5WpYel/DUD54bu1oWhducAtNG?=
+ =?us-ascii?Q?dbkPrs0H3GZVLnW/ZtRcm2iZkk3NsFFUneILlPHPKqogRofKeVJ2kcL8T1x1?=
+ =?us-ascii?Q?NaR25zytHdITtE0yxzPsYz2tDt0TrBWePmn+DPN8xXclFKPgDp8Tql9HX2Ra?=
+ =?us-ascii?Q?nuhf4IvPcBjGv80nCAbXE2h1t/ZCX4b8Ow4fCJSkVlNCwuql/v8k+mMkqHLL?=
+ =?us-ascii?Q?bEzZfVB9nbY+KEePxaAa5wRf9YkrwfK8UvYRAy67VldrJGP3R3D6KVgGYTso?=
+ =?us-ascii?Q?JjYajdxv/LLS1G7t6UDKaZPVIUnmhfrwCkZm20SViiJH2L9QJS3QuRzEKkjB?=
+ =?us-ascii?Q?V0Ie6D2Lpvk8s0GEAR47oWReHAcDYttlXIZZ9caqaJv9+oO+PYT5LCCgrFaV?=
+ =?us-ascii?Q?RarMfpSm03QfNCDMD3W3+DlWOl9I85TE0VZVyD2+UPtZDJGOkol2RplufdfP?=
+ =?us-ascii?Q?qzPikjEeqjAtZESAfNr84H0TbxxUI/NLZkACh0saXfYfuQrBJ3minTMhSVIR?=
+ =?us-ascii?Q?CLH0Rya+zEt3ewAOkbUYkrFVJat8aBtJlB3+xvK1DfoNNh+nWs2QSPWDSqSS?=
+ =?us-ascii?Q?CMgOsHwdDarn8DBi/T3qT0V4TEMTyNmKcOwcD2tH1X/F0t5Lm1lnE5pSK4rW?=
+ =?us-ascii?Q?8bDWL9sZ53Fd1tticS6p8U0nYh6HtYW54hmFCKeYJmAhuYAyagW9fuJQ3h4p?=
+ =?us-ascii?Q?C1sTZMgbpFMBmPtcN/itiI6qyGXaSF0634rW/ugLURwqzdcBIc6aFZYbdAIq?=
+ =?us-ascii?Q?whlRvP+2RNzgqVWtDSi5D0QDZYHKjaesEuxr7QV9z3KwouN0BNNhcYalpBeV?=
+ =?us-ascii?Q?7eduo6COOu8Rn0DOv6Sbu7umu6asPw+O9AuxzUz2SP8Wo44SLa5rw2Ah2FDt?=
+ =?us-ascii?Q?OPNCe4iA5oye0i1/pRPYXnwX3vOjArczzRr6UXXoLT6KxDgxdaq7LGAPwih3?=
+ =?us-ascii?Q?ePZ/XRqY6a7COp4oHpKnNK9vBHP1e2h/yknueaadhPdHWYQUrbwZJ0+uUvXW?=
+ =?us-ascii?Q?F2+w6Ds2h4LsLjRaTHvYnjdSUFQHhos5DYH15hiMYqVp+GszvB+PihewlwTw?=
+ =?us-ascii?Q?Cmfr0S1pUiI5VrGauEcVxJ/icpQgCD3jlR8HeKw2CqJh56E1eo/d1JbAZaOR?=
+ =?us-ascii?Q?4ei5P0jo+81xzKs=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(376014)(82310400026)(1800799024);DIR:OUT;SFP:1102;
 X-OriginatorOrg: cixtech.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 05:38:26.4294
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 05:38:24.7081
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 575a8b6a-f708-4aff-4430-08dd5ba7f3f3
+X-MS-Exchange-CrossTenant-Network-Message-Id: a275c12e-9178-42bf-d94c-08dd5ba7f2e7
 X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
 X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
-X-MS-Exchange-CrossTenant-AuthSource: HK2PEPF00006FB0.apcprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthSource: HK2PEPF00006FAF.apcprd02.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Anonymous
 X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR06MB5007
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR06MB5198
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_213841_307689_901215AF 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250305_053848_061960_4AA9A763 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,327 +162,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CIX SKY1 SoC is high performance Armv9 SoC designed by Cixtech,
-and Orion O6 is open source motherboard launched by Radxa.
-See below for detail:
-https://docs.radxa.com/en/orion/o6/getting-started/introduction
-
-In this commit, it only adds limited components for running initramfs
-at Orion O6.
+Enable CIX SoC support at ARM64 defconfig
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 Acked-by: Fugang Duan <fugang.duan@cixtech.com>
 Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 ---
 Changes for v4:
-- Add ppi-partition entry for gic-v3 node, and let pmu-a520 and pmu-a720's interrupt entry
-get its handle
-- Remove gic-v3's #redistributor-regions and redistributor-stride properties
-- Change gic-v3's #interrupt-cells as 4, and change all interrupt specifiers accordingly
-- Remove "arm,no-tick-in-suspend" for timer due to global counter is at always-on power domain
-- Remove timer's clock frequency due to firmware has already set it
-- Add Krzysztof Kozlowski's reviewed-by
-Changes for v3:
-- Fix two dts coding sytle issues 
-Changes for v2:
-- Corrects the SoF tag's name
-- Fix several coding sytle issues
-- move linux,cma node to dts file
-- delete memory node, memory size is passed by firmware
-- delete uart2 node which will be added in future patches
-- Improve for pmu and cpu node to stands for more specific cpu model
-- Improve the timer node and add hypervisor virtual timer irq
-- Pass "make O=$OUTKNL CHECK_DTBS=y W=1 cix/sky1-orion-o6.dtb"
+- Add Krzysztof Kozlowski's Reviewed-by Tag
 
- arch/arm64/boot/dts/Makefile              |   1 +
- arch/arm64/boot/dts/cix/Makefile          |   2 +
- arch/arm64/boot/dts/cix/sky1-orion-o6.dts |  26 +++
- arch/arm64/boot/dts/cix/sky1.dtsi         | 222 ++++++++++++++++++++++
- 4 files changed, 251 insertions(+)
- create mode 100644 arch/arm64/boot/dts/cix/Makefile
- create mode 100644 arch/arm64/boot/dts/cix/sky1-orion-o6.dts
- create mode 100644 arch/arm64/boot/dts/cix/sky1.dtsi
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/Makefile b/arch/arm64/boot/dts/Makefile
-index 79b73a21ddc2..8e7ccd0027bd 100644
---- a/arch/arm64/boot/dts/Makefile
-+++ b/arch/arm64/boot/dts/Makefile
-@@ -13,6 +13,7 @@ subdir-y += bitmain
- subdir-y += blaize
- subdir-y += broadcom
- subdir-y += cavium
-+subdir-y += cix
- subdir-y += exynos
- subdir-y += freescale
- subdir-y += hisilicon
-diff --git a/arch/arm64/boot/dts/cix/Makefile b/arch/arm64/boot/dts/cix/Makefile
-new file mode 100644
-index 000000000000..ed3713982012
---- /dev/null
-+++ b/arch/arm64/boot/dts/cix/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+dtb-$(CONFIG_ARCH_CIX) += sky1-orion-o6.dtb
-diff --git a/arch/arm64/boot/dts/cix/sky1-orion-o6.dts b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-new file mode 100644
-index 000000000000..78f4fcd87216
---- /dev/null
-+++ b/arch/arm64/boot/dts/cix/sky1-orion-o6.dts
-@@ -0,0 +1,26 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright 2025 Cix Technology Group Co., Ltd.
-+ *
-+ */
-+
-+/dts-v1/;
-+
-+#include "sky1.dtsi"
-+/ {
-+	model = "Radxa Orion O6";
-+	compatible = "radxa,orion-o6", "cix,sky1";
-+
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			reusable;
-+			size = <0x0 0x28000000>;
-+			linux,cma-default;
-+		};
-+	};
-+};
-diff --git a/arch/arm64/boot/dts/cix/sky1.dtsi b/arch/arm64/boot/dts/cix/sky1.dtsi
-new file mode 100644
-index 000000000000..5c5a2d1144c1
---- /dev/null
-+++ b/arch/arm64/boot/dts/cix/sky1.dtsi
-@@ -0,0 +1,222 @@
-+// SPDX-License-Identifier: BSD-3-Clause
-+/*
-+ * Copyright 2025 Cix Technology Group Co., Ltd.
-+ *
-+ */
-+
-+#include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+/ {
-+	interrupt-parent = <&gic>;
-+	#address-cells = <2>;
-+	#size-cells = <2>;
-+
-+	cpus {
-+		#address-cells = <2>;
-+		#size-cells = <0>;
-+
-+		cpu0: cpu@0 {
-+			compatible = "arm,cortex-a520";
-+			enable-method = "psci";
-+			reg = <0x0 0x0>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <403>;
-+		};
-+
-+		cpu1: cpu@100 {
-+			compatible = "arm,cortex-a520";
-+			enable-method = "psci";
-+			reg = <0x0 0x100>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <403>;
-+		};
-+
-+		cpu2: cpu@200 {
-+			compatible = "arm,cortex-a520";
-+			enable-method = "psci";
-+			reg = <0x0 0x200>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <403>;
-+		};
-+
-+		cpu3: cpu@300 {
-+			compatible = "arm,cortex-a520";
-+			enable-method = "psci";
-+			reg = <0x0 0x300>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <403>;
-+		};
-+
-+		cpu4: cpu@400 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x400>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu5: cpu@500 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x500>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu6: cpu@600 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x600>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu7: cpu@700 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x700>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu8: cpu@800 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x800>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu9: cpu@900 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0x900>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu10: cpu@a00 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0xa00>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu11: cpu@b00 {
-+			compatible = "arm,cortex-a720";
-+			enable-method = "psci";
-+			reg = <0x0 0xb00>;
-+			device_type = "cpu";
-+			capacity-dmips-mhz = <1024>;
-+		};
-+
-+		cpu-map {
-+			cluster0 {
-+				core0 {
-+					cpu = <&cpu0>;
-+				};
-+				core1 {
-+					cpu = <&cpu1>;
-+				};
-+				core2 {
-+					cpu = <&cpu2>;
-+				};
-+				core3 {
-+					cpu = <&cpu3>;
-+				};
-+				core4 {
-+					cpu = <&cpu4>;
-+				};
-+				core5 {
-+					cpu = <&cpu5>;
-+				};
-+				core6 {
-+					cpu = <&cpu6>;
-+				};
-+				core7 {
-+					cpu = <&cpu7>;
-+				};
-+				core8 {
-+					cpu = <&cpu8>;
-+				};
-+				core9 {
-+					cpu = <&cpu9>;
-+				};
-+				core10 {
-+					cpu = <&cpu10>;
-+				};
-+				core11 {
-+					cpu = <&cpu11>;
-+				};
-+			};
-+		};
-+	};
-+
-+	pmu-a520 {
-+		compatible = "arm,cortex-a520-pmu";
-+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition0>;
-+	};
-+
-+	pmu-a720 {
-+		compatible = "arm,cortex-a720-pmu";
-+		interrupts = <GIC_PPI 7 IRQ_TYPE_LEVEL_LOW &ppi_partition1>;
-+	};
-+
-+	pmu-spe {
-+		compatible = "arm,statistical-profiling-extension-v1";
-+		interrupts = <GIC_PPI 5 IRQ_TYPE_LEVEL_LOW 0>;
-+	};
-+
-+	psci {
-+		compatible = "arm,psci-1.0";
-+		method = "smc";
-+	};
-+
-+	soc@0 {
-+		compatible = "simple-bus";
-+		ranges = <0 0 0 0 0x20 0>;
-+		dma-ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+
-+		gic: interrupt-controller@e010000 {
-+			compatible = "arm,gic-v3";
-+			reg = <0x0 0x0e010000 0 0x10000>,	/* GICD */
-+			      <0x0 0x0e090000 0 0x300000>;       /* GICR * 12 */
-+			interrupts = <GIC_PPI 9 IRQ_TYPE_LEVEL_LOW 0>;
-+			#interrupt-cells = <4>;
-+			interrupt-controller;
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			gic_its: msi-controller@e050000 {
-+				compatible = "arm,gic-v3-its";
-+				reg = <0x0 0x0e050000 0x0 0x30000>;
-+				msi-controller;
-+				#msi-cells = <1>;
-+			};
-+
-+			ppi-partitions {
-+				ppi_partition0: interrupt-partition-0 {
-+					affinity = <&cpu0 &cpu1 &cpu2 &cpu3>;
-+				};
-+
-+				ppi_partition1: interrupt-partition-1 {
-+					affinity = <&cpu4 &cpu5 &cpu6 &cpu7 &cpu8 &cpu9 &cpu10 &cpu11>;
-+				};
-+			};
-+		};
-+	};
-+
-+	timer {
-+		compatible = "arm,armv8-timer";
-+		interrupt-names = "sec-phys", "phys", "virt", "hyp-phys", "hyp-virt";
-+		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 14 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 11 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 10 IRQ_TYPE_LEVEL_LOW 0>,
-+			     <GIC_PPI 12 IRQ_TYPE_LEVEL_LOW 0>;
-+	};
-+};
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..1dd46d200401 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -45,6 +45,7 @@ CONFIG_ARCH_BCMBCA=y
+ CONFIG_ARCH_BRCMSTB=y
+ CONFIG_ARCH_BERLIN=y
+ CONFIG_ARCH_BLAIZE=y
++CONFIG_ARCH_CIX=y
+ CONFIG_ARCH_EXYNOS=y
+ CONFIG_ARCH_SPARX5=y
+ CONFIG_ARCH_K3=y
 -- 
 2.25.1
 
