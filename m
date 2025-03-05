@@ -4,102 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AA54C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97AD7C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HkPZ51RynLPl8lEDtKqRqmA8X52R+qBALY1AJbD2IuQ=; b=YCwEQfzbdLZez/fmXBgYm8dOA3
-	aVmCMb8+15E60duCMLVWO+TMCrQxNUcDoScNUvOcOdLT0OtGmE94/Qvr9FNGMBGf4AG1ovCCiWk63
-	z7myQ8ebpn7abBzfBPvP0LlX0iE+CsFo213Mr9gsbryBA/2YdRNgm60kqLfRxEkZl1C2Q20jumora
-	gHZ1nEJRUcrJBQG+gHSvZH6xn08fRX5dzkOlaI5gVzrN2NCUvka7jLj52qDtEwYqMNQDJgUjnrtCf
-	iLjmWFA0zvrxkhJblKZjyWt9rLsGq9MnWbTXU5zppPcIzstCA1IfMYpPWNzrh7Qof1iYoOLJvsa5h
-	r7VzmUew==;
+	bh=4A2RMjc7+ET06/OLz7LUVQUp9/M2mVREMhZjdI+mgFg=; b=WZ1EeXIujMmtC+JOidOmCOxkXi
+	AVGwJzT9GBoaFENp2n3/ZmxykVLsXAL+p+oHox5MAUc1Ebf2s05ovuOfLwOAdEddTAFOGTau2VEh5
+	VaDSZgY5IJ0VjnHoRLPjyuFT/oXuTEb5P83pAro9al+HNwkNPjL9SrV2XbzCU70kJuDf7lFeh3K8L
+	d2lavlpYMAZIjbBxXMxb9j9i6QJ1LE1a3GlgtfMrMKP0vSqJIlVfP1poZJ7dItA0wZNM3GgZFklbV
+	emNjS3IooyxJMQpUCc3QL8evrquuHJVBFC8scFEZ2I/iNThbWbFO1vCYMgwcQG5gYoNIp+1u9MRG+
+	0KAV/9eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tposY-00000008CbO-0jYE;
-	Wed, 05 Mar 2025 13:33:42 +0000
+	id 1tpotF-00000008CoV-0cJO;
+	Wed, 05 Mar 2025 13:34:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnVX-00000007x2v-46pu;
-	Wed, 05 Mar 2025 12:05:52 +0000
+	id 1tpoSg-000000087tA-41n8
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 13:06:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=HkPZ51RynLPl8lEDtKqRqmA8X52R+qBALY1AJbD2IuQ=; b=YalgRf5rCwEhVBVLeK9IraCLjA
-	oRsBRBTvXdUm0FKqbcNDpXEhy4JoOpJcZy0O0izs8HWo6ytlBvR/GeUS3VWqG5lIsP/JOGj/bqWok
-	oTWn74o0Lo4+9IUMxiK7oTCZibLLV9znePFsamvdAl6VLdpflOZwJ7J7fTe+1d51AwHYoFC8Z6SQ9
-	PdEijVpU3AYlKgaSSsMMm6wtWetXg0vu6aJVgyIGp6K7HYkkSGdpqfS4Hdkj5Dk060qVODCc9kssO
-	UrS1BGyDL8tpDF4tdENFI5SJPbFOwNtq2+Bwd+fS58dNbsVESZIO8WU2KB0LtjjpdqBvreONif5ZM
-	k7l6iOvQ==;
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=4A2RMjc7+ET06/OLz7LUVQUp9/M2mVREMhZjdI+mgFg=; b=AmukVbYYbyQaMObQG/CDMgYP9M
+	20GOgmDCMrNA8iObpmapBZkWIdhb5W26Rn6eWoENjGltWU8iBqP7jrtokmRB3mwEjIUASm4vU+ymJ
+	yFmLA5mtv4xHdzwp+4MgYCnw/pXI3UojKPg9AffVo50CdIMCi+C0cfKa/VD+O04IlnQ1CIt3DYnYA
+	KY4cE+NjI7smD+w+NHBBXqp62QtQSwyt4oqyVrIHBbDCDqXLgsbh84BW39DlrPdHkktF9/wJwNPVZ
+	dSfQOS3FHYk4vmTZUfcKkpa1hyIgsO4ijh+1YXDoOZZu7pOUp91K5CPeg8sgzXMJ/9gCsMvZRAB9x
+	g8Kv9Pyg==;
+Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnVU-00000000Vnx-2eI0;
-	Wed, 05 Mar 2025 12:05:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741176343;
-	bh=cv01yWXXEehfnSZMHFpdXl+PqwR5Uk2g28SbDbVbfLA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eGm0NuZpMU0xchw2NZFx8AQArBzYrTRyAKk/tGXp1vW22wICZT5d2zir9X+JoXtnk
-	 u4OIF62gaTJwPG22KEuy8r/fbdqWMKBmS/lBvo6H4K0dPzvzCsDD4KvNzhuWitP2E4
-	 k2y8snNwLWUTlRLsoC/4w3DDK085UxvwyHrBAQmBuUpuZOABGsrebctvCUrjJnIyYw
-	 sho1rA5CSxZLFwElco10AekgBsDUa5Dv+flCQGOYwwu0z8dLIqQ8hx/qAaAzBsN9++
-	 QYE2n7YSw2gGnAG9bXRsz/KYBiB2K/jn7HezVoGztl8Z5PqAI8CH1Gl2YQkLT3o5To
-	 FjStWjMhEYOHQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6E3E017E0343;
-	Wed,  5 Mar 2025 13:05:42 +0100 (CET)
-Message-ID: <9d383fc5-8c64-478c-8aab-6c56bf5b45be@collabora.com>
-Date: Wed, 5 Mar 2025 13:05:41 +0100
+	id 1tpoSd-00000000XRr-4A5E
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 13:06:57 +0000
+Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e4ce6e3b8cso1311526a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 05:06:55 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741180014; x=1741784814; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=4A2RMjc7+ET06/OLz7LUVQUp9/M2mVREMhZjdI+mgFg=;
+        b=OKAmQKOpLg2uBoFc8c+qrsVy70Li+VorKumTVEc+5S0Rm8upZZJMKb/PkilqaKKWHe
+         Cp0Y9Y3tbxzpylS9yzPqGWAShJiEdv5kKlHBzd7eYHJ+lYXUoojRhStcqJTBQdoCv1PN
+         wCZ99O6jZnzfiUfFXZjUCvLPc5iav0NPyI8Wr6zPtsLHminWGmNUaQ0Yk7OGFS21K2lS
+         5IRNbqH4c14eBdYgppI64AShyijhfYIzUwm7I6W0/QaSv3i8huBWvxG7g2k4utNnjO/9
+         AHE75ksxJwklZN9xiPiAWOucISVqdH/ARvH4PbgmJBeh4HLp7cNdg7uK2fcyFW81Zsm2
+         SLww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741180014; x=1741784814;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=4A2RMjc7+ET06/OLz7LUVQUp9/M2mVREMhZjdI+mgFg=;
+        b=vXgqutMAAcFR9iykdbxa437SEW/a7eIemz8CXgsBoVTZY2v2kuT3b09alKUDD6XdS4
+         mFNkGTlUOkwerJoUnPS+QB0w/OSSVo2CD0+Ug1FVZjFCER4AsFMUQ9ZiJ/Wib58u434U
+         v7jqA4AeReszPcTz1+iIueWsjarYizdIK6gCF5oXT11iqB9p8dDsyR5BkoXGFn7biQua
+         HwaK1/3xnN4yHLAo/oWbzS+1K2uQ8ePDq5kNClTFmb+HSsMJTNJLa+RnspNPg7aW343Q
+         7IgY9kFFbjJuMhXflaZiRYWtEfAn61SmYLz+vWbJyzDJF+quQxutwn4ooAsjoenvR00a
+         vs2w==
+X-Forwarded-Encrypted: i=1; AJvYcCUWP0/pZuYKdSXs3ERILD743xvNK56AX/h2Wy9FyIDEM4rnmSu3r4Mqn1rAnNucPKaryCXMWpwJqemP9KTEfaX9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7tluGD8HlbDADlPWHS/3wBqrX0eAOrOYS8XhOgef9OsU6UYik
+	+F71s14zEa0f8yNb8XDkILCvA4mT/wMomh9t7thFO/AUT4fuIUwthWB5I2cYCrw=
+X-Gm-Gg: ASbGnctDysn+Yau1LJ/zpSmfCJNXeJhCcpxYtuhO8FsVapJMJvn/c9+NhsWr6pZ7A/x
+	jBfmLRqiHtIdi1roWo9DF037/jHF/FLbsC+myEgIcRz3nurcvTtGJ+N3L+AQhgu9okHim7IbYyT
+	n4HFFSz1RQYVmo2q/V5QTnPrS1HVFqF+FDnOq5AUZ4YfMzQWlSYWU/3i/u5dsUIYVc+iMl4nEfM
+	sw1ZJ2NaR8N6ecRAp34omu2yw/td0wC4t0ReXT75dR/8L29j2euqTnu7UlREY2nLshoP5j/ts+2
+	KJ9U+R817b985LCB6RPkRtKa1yANVQV9AoTFYgI1G2j/Ol3OSQ4HFyNQDZKZuXfdSlRhCvFWeWv
+	8pqa2HOvifxImlr2SBR4p8w==
+X-Google-Smtp-Source: AGHT+IFwVg2fe30YJ6NhkeUa+m2OUhrYsSvmDZcpiLEWIsMefC5Un9QvScvwsJSP1T5LTCC7FAF7Mw==
+X-Received: by 2002:a05:6402:2742:b0:5dc:eb2:570d with SMTP id 4fb4d7f45d1cf-5e59f0dc9d3mr3049042a12.2.1741180014215;
+        Wed, 05 Mar 2025 05:06:54 -0800 (PST)
+Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5bcd1595bsm65714a12.42.2025.03.05.05.06.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 05:06:53 -0800 (PST)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v6 05/10] tee: implement restricted DMA-heap
+Date: Wed,  5 Mar 2025 14:04:11 +0100
+Message-ID: <20250305130634.1850178-6-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 3/8] mailbox: mtk-cmdq: Add driver data to support for
- MT8196
-To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>
-Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
- =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
- =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
- <Xiandong.Wang@mediatek.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "fshao@chromium.org" <fshao@chromium.org>,
- =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "treapking@chromium.org" <treapking@chromium.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>
-References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
- <20250218054405.2017918-4-jason-jh.lin@mediatek.com>
- <652e435c-563b-496a-a4c3-c2e2b665abcf@collabora.com>
- <5aa04ff5fa567468f32921d4014bbae696c6470f.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <5aa04ff5fa567468f32921d4014bbae696c6470f.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_120548_882954_ABDA132D 
-X-CRM114-Status: GOOD (  60.05  )
+X-CRM114-CacheID: sfid-20250305_130656_213728_F54E903B 
+X-CRM114-Status: GOOD (  23.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,395 +132,648 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/03/25 09:36, Jason-JH Lin (林睿祥) ha scritto:
-> Hi Angelo,
-> 
-> Thanks for the reviews.
-> 
-> On Tue, 2025-03-04 at 10:32 +0100, AngeloGioacchino Del Regno wrote:
->>
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> Il 18/02/25 06:41, Jason-JH Lin ha scritto:
->>> MT8196 has 3 new hardware configuration compared with the previous
->>> SoC,
->>> which correspond to the 3 new driver data:
->>>
->>> 1. mminfra_offset: For GCE data plane control
->>>      Since GCE has been moved into mminfra, GCE needs to append the
->>>      mminfra offset to the DRAM address when accessing the DRAM.
->>>
->>> 2. gce_vm: For GCE hardware virtualization
->>>      Currently, the first version of the mt8196 mailbox controller
->>> only
->>>      requires setting the VM-related registers to enable the
->>> permissions
->>>      of a host VM.
->>
->> I think that the GCE VM changes should go to a different commit, as
->> that
->> looks like being something not critical for basic functionality of
->> the
->> MMINFRA GCE.
->>
->> I really like seeing support for that, but please split the basic
->> stuff
->> from the extra functionality :-)
->>
-> 
-> The VM configuration is the basic configuration for MT8196, so I put it
-> together with other configurations in one patch.
-> But I can understand you want the new function as a independent patch.
-> So I will split the VM related part, mminfra_offset part and dma_mask
-> part to 3 single pathes. Then add them as a driver data for MT8196 in
-> this patch.
-> 
+Implement DMA heap for restricted DMA-buf allocation in the TEE
+subsystem.
 
-Yeah, thanks, the log simply gets more readable like that.
+Restricted memory refers to memory buffers behind a hardware enforced
+firewall. It is not accessible to the kernel during normal circumstances
+but rather only accessible to certain hardware IPs or CPUs executing in
+higher or differently privileged mode than the kernel itself. This
+interface allows to allocate and manage such restricted memory buffers
+via interaction with a TEE implementation.
 
->>>
->>> 3. dma_mask_bit: For dma address bit control
->>>      In order to avoid the hardware limitations of MT8196 accessing
->>> DRAM,
->>>      GCE needs to configure the DMA address to be less than 35 bits.
->>>
->>> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
->>> ---
->>>    drivers/mailbox/mtk-cmdq-mailbox.c       | 90
->>> +++++++++++++++++++++---
->>>    include/linux/mailbox/mtk-cmdq-mailbox.h |  2 +
->>>    2 files changed, 84 insertions(+), 8 deletions(-)
->>>
->>> diff --git a/drivers/mailbox/mtk-cmdq-mailbox.c
->>> b/drivers/mailbox/mtk-cmdq-mailbox.c
->>> index d186865b8dce..0abe10a7fef9 100644
->>> --- a/drivers/mailbox/mtk-cmdq-mailbox.c
->>> +++ b/drivers/mailbox/mtk-cmdq-mailbox.c
->>> @@ -43,6 +43,17 @@
->>>    #define GCE_CTRL_BY_SW                              GENMASK(2, 0)
->>>    #define GCE_DDR_EN                          GENMASK(18, 16)
->>>
->>> +#define GCE_VM_ID_MAP0                       0x5018
->>> +#define GCE_VM_MAP0_ALL_HOST                 GENMASK(29, 0)
->>> +#define GCE_VM_ID_MAP1                       0x501c
->>> +#define GCE_VM_MAP1_ALL_HOST                 GENMASK(29, 0)
->>> +#define GCE_VM_ID_MAP2                       0x5020
->>> +#define GCE_VM_MAP2_ALL_HOST                 GENMASK(29, 0)
->>> +#define GCE_VM_ID_MAP3                       0x5024
->>> +#define GCE_VM_MAP3_ALL_HOST                 GENMASK(5, 0)
->>> +#define GCE_VM_CPR_GSIZE             0x50c4
->>> +#define GCE_VM_CPR_GSIZE_HSOT                        GENMASK(3, 0)
->>
->> typo: GSIZE_HOST....
->>
-> 
-> Thanks, I'll fix it.
-> 
->> ...but also, if you could add some brief description of what the
->> VMIDs are used for
->> and what the GSIZE is... that'd be very much appreciated from whoever
->> is reading
->> this.
->>
-> VMID_MAP configuration is in the previous reply mail for CK.
+The restricted memory is allocated for a specific use-case, like Secure
+Video Playback, Trusted UI, or Secure Video Recording where certain
+hardware devices can access the memory.
 
-Oh, sorry, too many emails - sometimes I lose some :-)
+The DMA-heaps are enabled explicitly by the TEE backend driver. The TEE
+backend drivers needs to implement restricted memory pool to manage the
+restricted memory.
 
-> CPR_GSIZE is the setting for allocating the CPR SRAM size to each VM.
+Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+---
+ drivers/tee/Makefile      |   1 +
+ drivers/tee/tee_heap.c    | 470 ++++++++++++++++++++++++++++++++++++++
+ drivers/tee/tee_private.h |   6 +
+ include/linux/tee_core.h  |  62 +++++
+ 4 files changed, 539 insertions(+)
+ create mode 100644 drivers/tee/tee_heap.c
 
-Would be awesome if you could then clarify the comment that you have later in
-the code here, from...
-
-/* config cpr size for host vm */
-
-to
-
-/* Set the amount of CPR SRAM to allocate to each VM */
-
-...that could be a way of more properly describing what the writel there is doing.
-
-> 
->> The GCE stuff isn't even properly described in datasheets - I do
->> (probably!)
->> understand what those are for, but asking people to get years of
->> experience on
->> MediaTek to understand what's going on would be a bit rude, wouldn't
->> it? :-D
->>
-> 
-> I agree with you :-)
-> I'll put them in the VM patch and add some brief description for them.
-> 
-
-Thanks, much appreciated!
-
->>> +
->>>    #define CMDQ_THR_ACTIVE_SLOT_CYCLES 0x3200
->>>    #define CMDQ_THR_ENABLED            0x1
->>>    #define CMDQ_THR_DISABLED           0x0
->>> @@ -87,11 +98,24 @@ struct cmdq {
->>>    struct gce_plat {
->>>        u32 thread_nr;
->>>        u8 shift;
->>> +     dma_addr_t mminfra_offset;
->>
->> It looks like this is exactly the DRAM's iostart... at least, I can
->> see that in the
->> downstream devicetree that's where it starts.
->>
->>          memory: memory@80000000 {
->>                  device_type = "memory";
->>                  reg = <0 0x80000000 0 0x40000000>;
->>          };
->>
->> It doesn't really look like being a coincidence, but, for the sake of
->> asking:
->> is this just a coincidence? :-)
->>
-> 
-> As the confirmation with the hardware designer in previous reply mail
-> for CK:
-> https://patchwork.kernel.org/project/linux-mediatek/patch/20250218054405.2017918-4-jason-jh.lin@mediatek.com/#26258463
-> 
-
-That explanation was simply wonderful.
-
-> Since the MMINFRA remap subtracting 2G is done in the hardware circuit
-> and cannot be configured by software, the address +2G adjustment is
-> necessary to implement in the CMDQ driver.
-> 
-> So that might not be a coincidence.
-> But even if DRAM start address changes, this mminfra_offset is still
-> subtracting 2G, so I think it is a better choice to define it as the
-> driver data for MT8196.
-> 
-
-....so, this makes me think the following:
-
-1. The DRAM start address cannot *ever* be less than 2G, because otherwise the
-    MMINFRA HW would have a hole in the usable address range;
-    1a. If the start address changes to less than 2G, then also the IOMMU would
-        get limitations, not only the mminfra..!
-    2b. This makes it very very very unlikely for the start address to be changed
-        to less than 0x80000000
-
-2. If the DRAM start address changes to be ABOVE 2G (so more than 0x80000000),
-    there would be no point for MMINFRA to start a "config path" write (or read)
-    in the SMMU DRAM block, would it? ;-)
-
-I get it - if the DRAM moves up, MMINFRA is still at 2G because that's hard baked
-into the hardware, but I foresee that it'll be unlikely to see a platform changing
-the DRAM start address arbitrarily, getting out-of-sync with MMINFRA.
-
-I propose to just get the address from the memory node for now, and to add a nice
-comment in the code that explains that "In at least MT8196, the MMINFRA hardware
-subtracts xyz etc etc" (and that explanation from the previous email is again
-wonderful and shall not be lost: either use that in the comment, or add it to
-the commit description, because it's really that good).
-
-Should a new SoC appear in the future requiring an offset from the DRAM start
-address, we will think about how to make that work in the best possible way: in
-that case we could either reference something else to get the right address or
-we can just change this driver to just use the 2G offset statically for all.
-
-What I'm trying to do here is to reduce the amount of changes that we'd need for
-adding new SoCs: since that 2G MMINFRA offset -> 2G DRAM start is not a coincidence
-I think that, should the DRAM start vary on new SoCs, the MMINFRA offset will
-follow the trend and vary with it.
-
-So what I think is:
-1. If I'm right, adding a new SoC (with different MMINFRA + DRAM offset) will be
-    as easy as adding a compatible string in the bindings, no effort in changing
-    this driver with new pdata offsets;
-2. If I'm wrong, adding a new SoC means adding compat string and adding pdata and
-    one variable in the cmdq struct.
-
-Where N.2 is what we would do anyway if we don't go with my proposed solution...
-
-All this is just to give you my considerations about this topic - you're left
-completely free to disagree with me.
-If you disagree, I will trust your judgement, no problem here.
-
->>>        bool control_by_sw;
->>>        bool sw_ddr_en;
->>> +     bool gce_vm;
->>> +     u32 dma_mask_bit;
->>>        u32 gce_num;
->>>    };
->>>
->>> +static inline u32 cmdq_reg_shift_addr(dma_addr_t addr, const
->>> struct gce_plat *pdata)
->>> +{
->>> +     return ((addr + pdata->mminfra_offset) >> pdata->shift);
->>> +}
->>> +
->>> +static inline u32 cmdq_reg_revert_addr(dma_addr_t addr, const
->>> struct gce_plat *pdata)
->>> +{
->>> +     return ((addr << pdata->shift) - pdata->mminfra_offset);
->>> +}
->>
->> I'm not sure that you really need those two functions... probably
->> it's simply
->> cleaner and easier to just write that single line every time... and
->> I'm
->> saying that especially for how you're using those functions, with
->> some readl()
->> passed directly as param, decreasing human readability by "a whole
->> lot" :-)
->>
-> 
-> The reason why I use API wrapper instead of writing it directly in
-> readl() is to avoid missing the shift or mminfra_offset conversion in
-> some places.
-> This problem is not easy to debug, and I have encountered it at least
-> twice...
-> 
-> I think the advantage of using function is that it can be uniformly
-> modified to all places that need to handle DRAM address conversion.
-> What do you think? :-)
-> 
-
-Eh, if you put it like that... it makes sense, so.. yeah, okay :-)
-
-Still, please cleanup those instances of
-
-`cmdq_reg_revert_addr(readl(something), pdata)`
-
-those might be hard to read, so please just do something like:
-
-regval = readl(something);
-curr_pa = cmdq_revert_addr(regval, pdata);
-
-...reword to your own liking, of course.
-
->>> +
->>>    static void cmdq_sw_ddr_enable(struct cmdq *cmdq, bool enable)
->>>    {
->>>        WARN_ON(clk_bulk_enable(cmdq->pdata->gce_num, cmdq->clocks));
->>> @@ -112,6 +136,30 @@ u8 cmdq_get_shift_pa(struct mbox_chan *chan)
->>>    }
->>>    EXPORT_SYMBOL(cmdq_get_shift_pa);
->>>
->>> +dma_addr_t cmdq_get_offset_pa(struct mbox_chan *chan)
->>> +{
->>> +     struct cmdq *cmdq = container_of(chan->mbox, struct cmdq,
->>> mbox);
->>> +
->>> +     return cmdq->pdata->mminfra_offset;
->>> +}
->>> +EXPORT_SYMBOL(cmdq_get_offset_pa);
->>
->> I think I remember this get_offset_pa from the old times, then CK
->> removed it (and I
->> was really happy about that disappearing), or am I confusing this
->> with something
->> else?
->>
->> (of course, this wasn't used for mminfra, but for something else!)
->>
-> 
-> I can't find any remove history in mtk-cmdq-mailbox.c.
-> 
-> Maybe you mean the patch in this series?
-> https://lore.kernel.org/all/171213938049.123698.15573779837703602591.b4-ty@collabora.com/
-> 
-
-Uhm, I think I may have confused something here, but yes I was remembering the
-patch series that you pointed out, definitely.
-
-At the end, that series is doing something else, so nevermind, was just confusion.
-
->>> +
->>> +bool cmdq_addr_need_offset(struct mbox_chan *chan, dma_addr_t
->>> addr)
->>> +{
->>> +     struct cmdq *cmdq = container_of(chan->mbox, struct cmdq,
->>> mbox);
->>> +
->>> +     if (cmdq->pdata->mminfra_offset == 0)
->>> +             return false;
->>> +
->>> +     /*
->>> +      * mminfra will recognize the addr that greater than the
->>> mminfra_offset
->>> +      * as a transaction to DRAM.
->>> +      * So the caller needs to append mminfra_offset for the true
->>> case.
->>> +      */
->>> +     return (addr >= cmdq->pdata->mminfra_offset);
->>
->>
->> /**
->>    * cmdq_is_mminfra_gce() - Brief description
->>    * @args.....
->>    *
->>    * The MMINFRA GCE will recognize an address greater than DRAM
->> iostart as a
->>    * DRAM transaction instead of ....xyz
->>    *
->>    * In order for callers to perform (xyz) transactions through the
->> CMDQ, those
->>    * need to know if they are using a GCE located in MMINFRA.
->>    */
->> bool cmdq_is_mminfra_gce(...)
->> {
->>          return cmdq->pdata->mminfra_offset &&
->>                 (addr >= cmdq->pdata->mminfra_offset)
->>
->>> +}
->>> +EXPORT_SYMBOL(cmdq_addr_need_offset);
->>> +
->>
-> 
-> OK, I'll modify the API like this.
-> 
->> ...but then, is there really no way of just handling the GCE being in
->> MMINFRA
->> transparently from the callers? Do the callers really *need* to know
->> that they're
->> using a new GCE?!
->>
-> 
-> Since the address subtracting is done in MMINFRA hardware, I think GCE
-> users really need to handle it in driver.
-> 
-
-Since the users of this infrastructure are multimedia related (disp/MDP3),
-I'd also like to get an opinion from MediaTek engineers familiar with that.
-
-CK, Moudy, any opinion on that, please?
-
->> Another way of saying: can't we just handle the address translation
->> in here instead
->> of instructing each and every driver about how to communicate with
->> the new GCE?!
->>
-> 
-> The DRAM address may not only be the command buffer to GCE, but also
-> the working buffer provided by CMDQ users and being a part of GCE
-> instruction, so we need to handle the address translation in CMDQ
-> helper driver for the instruction generation.
-> E.g. ISP drivers may use GCE to write a hardware settings to a DRAM as
-> backup buffer. The GCE write instruction will be:
-> WRITE the value of ISP register to DRAM address + mminfra_offset.
-> 
-> But most of the CMDQ users only need to use GCE to write hardware
-> register, so I only keep the translation in cmdq_pkt_mem_move(),
-> cmdq_pkt_poll_addr() and cmdq_pkt_jump_abs() at the latest series.
-
-Yeah you're choosing the best of both worlds in that case, I do agree, but
-still - if there's a way to avoid drivers to have different handling for
-mminfra vs no-mminfra, that'd still be preferred.
-
-Having the handling for something *centralized* somewhere, instead of it
-being sparse here and there, would make maintenance way easier...
-
-...and that's why I'm asking for CK and Moudy's opinion, nothing else :-)
-
-Cheers!
-Angelo
+diff --git a/drivers/tee/Makefile b/drivers/tee/Makefile
+index 5488cba30bd2..949a6a79fb06 100644
+--- a/drivers/tee/Makefile
++++ b/drivers/tee/Makefile
+@@ -1,6 +1,7 @@
+ # SPDX-License-Identifier: GPL-2.0
+ obj-$(CONFIG_TEE) += tee.o
+ tee-objs += tee_core.o
++tee-objs += tee_heap.o
+ tee-objs += tee_shm.o
+ tee-objs += tee_shm_pool.o
+ obj-$(CONFIG_OPTEE) += optee/
+diff --git a/drivers/tee/tee_heap.c b/drivers/tee/tee_heap.c
+new file mode 100644
+index 000000000000..476ab2e27260
+--- /dev/null
++++ b/drivers/tee/tee_heap.c
+@@ -0,0 +1,470 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Copyright (c) 2025, Linaro Limited
++ */
++
++#include <linux/scatterlist.h>
++#include <linux/dma-buf.h>
++#include <linux/dma-heap.h>
++#include <linux/genalloc.h>
++#include <linux/module.h>
++#include <linux/scatterlist.h>
++#include <linux/slab.h>
++#include <linux/tee_core.h>
++#include <linux/xarray.h>
++
++#include "tee_private.h"
++
++struct tee_dma_heap {
++	struct dma_heap *heap;
++	enum tee_dma_heap_id id;
++	struct tee_rstmem_pool *pool;
++	struct tee_device *teedev;
++	/* Protects pool and teedev above */
++	struct mutex mu;
++};
++
++struct tee_heap_buffer {
++	struct tee_rstmem_pool *pool;
++	struct tee_device *teedev;
++	size_t size;
++	size_t offs;
++	struct sg_table table;
++};
++
++struct tee_heap_attachment {
++	struct sg_table table;
++	struct device *dev;
++};
++
++struct tee_rstmem_static_pool {
++	struct tee_rstmem_pool pool;
++	struct gen_pool *gen_pool;
++	phys_addr_t pa_base;
++};
++
++#if !IS_MODULE(CONFIG_TEE) && IS_ENABLED(CONFIG_DMABUF_HEAPS)
++static DEFINE_XARRAY_ALLOC(tee_dma_heap);
++
++static int copy_sg_table(struct sg_table *dst, struct sg_table *src)
++{
++	struct scatterlist *dst_sg;
++	struct scatterlist *src_sg;
++	int ret;
++	int i;
++
++	ret = sg_alloc_table(dst, src->orig_nents, GFP_KERNEL);
++	if (ret)
++		return ret;
++
++	dst_sg = dst->sgl;
++	for_each_sgtable_sg(src, src_sg, i) {
++		sg_set_page(dst_sg, sg_page(src_sg), src_sg->length,
++			    src_sg->offset);
++		dst_sg = sg_next(dst_sg);
++	}
++
++	return 0;
++}
++
++static int tee_heap_attach(struct dma_buf *dmabuf,
++			   struct dma_buf_attachment *attachment)
++{
++	struct tee_heap_buffer *buf = dmabuf->priv;
++	struct tee_heap_attachment *a;
++	int ret;
++
++	a = kzalloc(sizeof(*a), GFP_KERNEL);
++	if (!a)
++		return -ENOMEM;
++
++	ret = copy_sg_table(&a->table, &buf->table);
++	if (ret) {
++		kfree(a);
++		return ret;
++	}
++
++	a->dev = attachment->dev;
++	attachment->priv = a;
++
++	return 0;
++}
++
++static void tee_heap_detach(struct dma_buf *dmabuf,
++			    struct dma_buf_attachment *attachment)
++{
++	struct tee_heap_attachment *a = attachment->priv;
++
++	sg_free_table(&a->table);
++	kfree(a);
++}
++
++static struct sg_table *
++tee_heap_map_dma_buf(struct dma_buf_attachment *attachment,
++		     enum dma_data_direction direction)
++{
++	struct tee_heap_attachment *a = attachment->priv;
++	int ret;
++
++	ret = dma_map_sgtable(attachment->dev, &a->table, direction,
++			      DMA_ATTR_SKIP_CPU_SYNC);
++	if (ret)
++		return ERR_PTR(ret);
++
++	return &a->table;
++}
++
++static void tee_heap_unmap_dma_buf(struct dma_buf_attachment *attachment,
++				   struct sg_table *table,
++				   enum dma_data_direction direction)
++{
++	struct tee_heap_attachment *a = attachment->priv;
++
++	WARN_ON(&a->table != table);
++
++	dma_unmap_sgtable(attachment->dev, table, direction,
++			  DMA_ATTR_SKIP_CPU_SYNC);
++}
++
++static void tee_heap_buf_free(struct dma_buf *dmabuf)
++{
++	struct tee_heap_buffer *buf = dmabuf->priv;
++	struct tee_device *teedev = buf->teedev;
++
++	buf->pool->ops->free(buf->pool, &buf->table);
++	tee_device_put(teedev);
++}
++
++static const struct dma_buf_ops tee_heap_buf_ops = {
++	.attach = tee_heap_attach,
++	.detach = tee_heap_detach,
++	.map_dma_buf = tee_heap_map_dma_buf,
++	.unmap_dma_buf = tee_heap_unmap_dma_buf,
++	.release = tee_heap_buf_free,
++};
++
++static struct dma_buf *tee_dma_heap_alloc(struct dma_heap *heap,
++					  unsigned long len, u32 fd_flags,
++					  u64 heap_flags)
++{
++	struct tee_dma_heap *h = dma_heap_get_drvdata(heap);
++	DEFINE_DMA_BUF_EXPORT_INFO(exp_info);
++	struct tee_device *teedev = NULL;
++	struct tee_heap_buffer *buf;
++	struct tee_rstmem_pool *pool;
++	struct dma_buf *dmabuf;
++	int rc;
++
++	mutex_lock(&h->mu);
++	if (tee_device_get(h->teedev)) {
++		teedev = h->teedev;
++		pool = h->pool;
++	}
++	mutex_unlock(&h->mu);
++
++	if (!teedev)
++		return ERR_PTR(-EINVAL);
++
++	buf = kzalloc(sizeof(*buf), GFP_KERNEL);
++	if (!buf) {
++		dmabuf = ERR_PTR(-ENOMEM);
++		goto err;
++	}
++	buf->size = len;
++	buf->pool = pool;
++	buf->teedev = teedev;
++
++	rc = pool->ops->alloc(pool, &buf->table, len, &buf->offs);
++	if (rc) {
++		dmabuf = ERR_PTR(rc);
++		goto err_kfree;
++	}
++
++	exp_info.ops = &tee_heap_buf_ops;
++	exp_info.size = len;
++	exp_info.priv = buf;
++	exp_info.flags = fd_flags;
++	dmabuf = dma_buf_export(&exp_info);
++	if (IS_ERR(dmabuf))
++		goto err_rstmem_free;
++
++	return dmabuf;
++
++err_rstmem_free:
++	pool->ops->free(pool, &buf->table);
++err_kfree:
++	kfree(buf);
++err:
++	tee_device_put(h->teedev);
++	return dmabuf;
++}
++
++static const struct dma_heap_ops tee_dma_heap_ops = {
++	.allocate = tee_dma_heap_alloc,
++};
++
++static const char *heap_id_2_name(enum tee_dma_heap_id id)
++{
++	switch (id) {
++	case TEE_DMA_HEAP_SECURE_VIDEO_PLAY:
++		return "restricted,secure-video";
++	case TEE_DMA_HEAP_TRUSTED_UI:
++		return "restricted,trusted-ui";
++	case TEE_DMA_HEAP_SECURE_VIDEO_RECORD:
++		return "restricted,secure-video-record";
++	default:
++		return NULL;
++	}
++}
++
++static int alloc_dma_heap(struct tee_device *teedev, enum tee_dma_heap_id id,
++			  struct tee_rstmem_pool *pool)
++{
++	struct dma_heap_export_info exp_info = {
++		.ops = &tee_dma_heap_ops,
++		.name = heap_id_2_name(id),
++	};
++	struct tee_dma_heap *h;
++	int rc;
++
++	if (!exp_info.name)
++		return -EINVAL;
++
++	if (xa_reserve(&tee_dma_heap, id, GFP_KERNEL)) {
++		if (!xa_load(&tee_dma_heap, id))
++			return -EEXIST;
++		return -ENOMEM;
++	}
++
++	h = kzalloc(sizeof(*h), GFP_KERNEL);
++	if (!h)
++		return -ENOMEM;
++	h->id = id;
++	h->teedev = teedev;
++	h->pool = pool;
++	mutex_init(&h->mu);
++
++	exp_info.priv = h;
++	h->heap = dma_heap_add(&exp_info);
++	if (IS_ERR(h->heap)) {
++		rc = PTR_ERR(h->heap);
++		kfree(h);
++
++		return rc;
++	}
++
++	/* "can't fail" due to the call to xa_reserve() above */
++	return WARN(xa_store(&tee_dma_heap, id, h, GFP_KERNEL),
++		    "xa_store() failed");
++}
++
++int tee_device_register_dma_heap(struct tee_device *teedev,
++				 enum tee_dma_heap_id id,
++				 struct tee_rstmem_pool *pool)
++{
++	struct tee_dma_heap *h;
++	int rc;
++
++	h = xa_load(&tee_dma_heap, id);
++	if (h) {
++		mutex_lock(&h->mu);
++		if (h->teedev) {
++			rc = -EBUSY;
++		} else {
++			h->teedev = teedev;
++			h->pool = pool;
++			rc = 0;
++		}
++		mutex_unlock(&h->mu);
++	} else {
++		rc = alloc_dma_heap(teedev, id, pool);
++	}
++
++	if (rc)
++		dev_err(&teedev->dev, "can't register DMA heap id %d (%s)\n",
++			id, heap_id_2_name(id));
++
++	return rc;
++}
++
++void tee_device_unregister_all_dma_heaps(struct tee_device *teedev)
++{
++	struct tee_rstmem_pool *pool;
++	struct tee_dma_heap *h;
++	u_long i;
++
++	xa_for_each(&tee_dma_heap, i, h) {
++		if (h) {
++			pool = NULL;
++			mutex_lock(&h->mu);
++			if (h->teedev == teedev) {
++				pool = h->pool;
++				h->teedev = NULL;
++				h->pool = NULL;
++			}
++			mutex_unlock(&h->mu);
++			if (pool)
++				pool->ops->destroy_pool(pool);
++		}
++	}
++}
++EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
++
++int tee_heap_update_from_dma_buf(struct tee_device *teedev,
++				 struct dma_buf *dmabuf, size_t *offset,
++				 struct tee_shm *shm,
++				 struct tee_shm **parent_shm)
++{
++	struct tee_heap_buffer *buf;
++	int rc;
++
++	/* The DMA-buf must be from our heap */
++	if (dmabuf->ops != &tee_heap_buf_ops)
++		return -EINVAL;
++
++	buf = dmabuf->priv;
++	/* The buffer must be from the same teedev */
++	if (buf->teedev != teedev)
++		return -EINVAL;
++
++	shm->size = buf->size;
++
++	rc = buf->pool->ops->update_shm(buf->pool, &buf->table, buf->offs, shm,
++					parent_shm);
++	if (!rc && *parent_shm)
++		*offset = buf->offs;
++
++	return rc;
++}
++#else
++int tee_device_register_dma_heap(struct tee_device *teedev __always_unused,
++				 enum tee_dma_heap_id id __always_unused,
++				 struct tee_rstmem_pool *pool __always_unused)
++{
++	return -EINVAL;
++}
++EXPORT_SYMBOL_GPL(tee_device_register_dma_heap);
++
++void
++tee_device_unregister_all_dma_heaps(struct tee_device *teedev __always_unused)
++{
++}
++EXPORT_SYMBOL_GPL(tee_device_unregister_all_dma_heaps);
++
++int tee_heap_update_from_dma_buf(struct tee_device *teedev __always_unused,
++				 struct dma_buf *dmabuf __always_unused,
++				 size_t *offset __always_unused,
++				 struct tee_shm *shm __always_unused,
++				 struct tee_shm **parent_shm __always_unused)
++{
++	return -EINVAL;
++}
++#endif
++
++static struct tee_rstmem_static_pool *
++to_rstmem_static_pool(struct tee_rstmem_pool *pool)
++{
++	return container_of(pool, struct tee_rstmem_static_pool, pool);
++}
++
++static int rstmem_pool_op_static_alloc(struct tee_rstmem_pool *pool,
++				       struct sg_table *sgt, size_t size,
++				       size_t *offs)
++{
++	struct tee_rstmem_static_pool *stp = to_rstmem_static_pool(pool);
++	phys_addr_t pa;
++	int ret;
++
++	pa = gen_pool_alloc(stp->gen_pool, size);
++	if (!pa)
++		return -ENOMEM;
++
++	ret = sg_alloc_table(sgt, 1, GFP_KERNEL);
++	if (ret) {
++		gen_pool_free(stp->gen_pool, pa, size);
++		return ret;
++	}
++
++	sg_set_page(sgt->sgl, phys_to_page(pa), size, 0);
++	*offs = pa - stp->pa_base;
++
++	return 0;
++}
++
++static void rstmem_pool_op_static_free(struct tee_rstmem_pool *pool,
++				       struct sg_table *sgt)
++{
++	struct tee_rstmem_static_pool *stp = to_rstmem_static_pool(pool);
++	struct scatterlist *sg;
++	int i;
++
++	for_each_sgtable_sg(sgt, sg, i)
++		gen_pool_free(stp->gen_pool, sg_phys(sg), sg->length);
++	sg_free_table(sgt);
++}
++
++static int rstmem_pool_op_static_update_shm(struct tee_rstmem_pool *pool,
++					    struct sg_table *sgt, size_t offs,
++					    struct tee_shm *shm,
++					    struct tee_shm **parent_shm)
++{
++	struct tee_rstmem_static_pool *stp = to_rstmem_static_pool(pool);
++
++	shm->paddr = stp->pa_base + offs;
++	*parent_shm = NULL;
++
++	return 0;
++}
++
++static void rstmem_pool_op_static_destroy_pool(struct tee_rstmem_pool *pool)
++{
++	struct tee_rstmem_static_pool *stp = to_rstmem_static_pool(pool);
++
++	gen_pool_destroy(stp->gen_pool);
++	kfree(stp);
++}
++
++static struct tee_rstmem_pool_ops rstmem_pool_ops_static = {
++	.alloc = rstmem_pool_op_static_alloc,
++	.free = rstmem_pool_op_static_free,
++	.update_shm = rstmem_pool_op_static_update_shm,
++	.destroy_pool = rstmem_pool_op_static_destroy_pool,
++};
++
++struct tee_rstmem_pool *tee_rstmem_static_pool_alloc(phys_addr_t paddr,
++						     size_t size)
++{
++	const size_t page_mask = PAGE_SIZE - 1;
++	struct tee_rstmem_static_pool *stp;
++	int rc;
++
++	/* Check it's page aligned */
++	if ((paddr | size) & page_mask)
++		return ERR_PTR(-EINVAL);
++
++	stp = kzalloc(sizeof(*stp), GFP_KERNEL);
++	if (!stp)
++		return ERR_PTR(-ENOMEM);
++
++	stp->gen_pool = gen_pool_create(PAGE_SHIFT, -1);
++	if (!stp->gen_pool) {
++		rc = -ENOMEM;
++		goto err_free;
++	}
++
++	rc = gen_pool_add(stp->gen_pool, paddr, size, -1);
++	if (rc)
++		goto err_free_pool;
++
++	stp->pool.ops = &rstmem_pool_ops_static;
++	stp->pa_base = paddr;
++	return &stp->pool;
++
++err_free_pool:
++	gen_pool_destroy(stp->gen_pool);
++err_free:
++	kfree(stp);
++
++	return ERR_PTR(rc);
++}
++EXPORT_SYMBOL_GPL(tee_rstmem_static_pool_alloc);
+diff --git a/drivers/tee/tee_private.h b/drivers/tee/tee_private.h
+index 9bc50605227c..6c6ff5d5eed2 100644
+--- a/drivers/tee/tee_private.h
++++ b/drivers/tee/tee_private.h
+@@ -8,6 +8,7 @@
+ #include <linux/cdev.h>
+ #include <linux/completion.h>
+ #include <linux/device.h>
++#include <linux/dma-buf.h>
+ #include <linux/kref.h>
+ #include <linux/mutex.h>
+ #include <linux/types.h>
+@@ -24,4 +25,9 @@ struct tee_shm *tee_shm_alloc_user_buf(struct tee_context *ctx, size_t size);
+ struct tee_shm *tee_shm_register_user_buf(struct tee_context *ctx,
+ 					  unsigned long addr, size_t length);
+ 
++int tee_heap_update_from_dma_buf(struct tee_device *teedev,
++				 struct dma_buf *dmabuf, size_t *offset,
++				 struct tee_shm *shm,
++				 struct tee_shm **parent_shm);
++
+ #endif /*TEE_PRIVATE_H*/
+diff --git a/include/linux/tee_core.h b/include/linux/tee_core.h
+index a38494d6b5f4..16ef078247ae 100644
+--- a/include/linux/tee_core.h
++++ b/include/linux/tee_core.h
+@@ -8,9 +8,11 @@
+ 
+ #include <linux/cdev.h>
+ #include <linux/device.h>
++#include <linux/dma-buf.h>
+ #include <linux/idr.h>
+ #include <linux/kref.h>
+ #include <linux/list.h>
++#include <linux/scatterlist.h>
+ #include <linux/tee.h>
+ #include <linux/tee_drv.h>
+ #include <linux/types.h>
+@@ -30,6 +32,12 @@
+ #define TEE_DEVICE_FLAG_REGISTERED	0x1
+ #define TEE_MAX_DEV_NAME_LEN		32
+ 
++enum tee_dma_heap_id {
++	TEE_DMA_HEAP_SECURE_VIDEO_PLAY = 1,
++	TEE_DMA_HEAP_TRUSTED_UI,
++	TEE_DMA_HEAP_SECURE_VIDEO_RECORD,
++};
++
+ /**
+  * struct tee_device - TEE Device representation
+  * @name:	name of device
+@@ -116,6 +124,33 @@ struct tee_desc {
+ 	u32 flags;
+ };
+ 
++/**
++ * struct tee_rstmem_pool - restricted memory pool
++ * @ops:		operations
++ *
++ * This is an abstract interface where this struct is expected to be
++ * embedded in another struct specific to the implementation.
++ */
++struct tee_rstmem_pool {
++	const struct tee_rstmem_pool_ops *ops;
++};
++
++/**
++ * struct tee_rstmem_pool_ops - restricted memory pool operations
++ * @alloc:		called when allocating restricted memory
++ * @free:		called when freeing restricted memory
++ * @destroy_pool:	called when destroying the pool
++ */
++struct tee_rstmem_pool_ops {
++	int (*alloc)(struct tee_rstmem_pool *pool, struct sg_table *sgt,
++		     size_t size, size_t *offs);
++	void (*free)(struct tee_rstmem_pool *pool, struct sg_table *sgt);
++	int (*update_shm)(struct tee_rstmem_pool *pool, struct sg_table *sgt,
++			  size_t offs, struct tee_shm *shm,
++			  struct tee_shm **parent_shm);
++	void (*destroy_pool)(struct tee_rstmem_pool *pool);
++};
++
+ /**
+  * tee_device_alloc() - Allocate a new struct tee_device instance
+  * @teedesc:	Descriptor for this driver
+@@ -154,6 +189,11 @@ int tee_device_register(struct tee_device *teedev);
+  */
+ void tee_device_unregister(struct tee_device *teedev);
+ 
++int tee_device_register_dma_heap(struct tee_device *teedev,
++				 enum tee_dma_heap_id id,
++				 struct tee_rstmem_pool *pool);
++void tee_device_unregister_all_dma_heaps(struct tee_device *teedev);
++
+ /**
+  * tee_device_set_dev_groups() - Set device attribute groups
+  * @teedev:	Device to register
+@@ -229,6 +269,28 @@ static inline void tee_shm_pool_free(struct tee_shm_pool *pool)
+ 	pool->ops->destroy_pool(pool);
+ }
+ 
++/**
++ * tee_rstmem_static_pool_alloc() - Create a restricted memory manager
++ * @paddr:	Physical address of start of pool
++ * @size:	Size in bytes of the pool
++ *
++ * @returns pointer to a 'struct tee_shm_pool' or an ERR_PTR on failure.
++ */
++struct tee_rstmem_pool *tee_rstmem_static_pool_alloc(phys_addr_t paddr,
++						     size_t size);
++
++/**
++ * tee_rstmem_pool_free() - Free a restricted memory pool
++ * @pool:	The restricted memory pool to free
++ *
++ * There must be no remaining restricted memory allocated from this pool
++ * when this function is called.
++ */
++static inline void tee_rstmem_pool_free(struct tee_rstmem_pool *pool)
++{
++	pool->ops->destroy_pool(pool);
++}
++
+ /**
+  * tee_get_drvdata() - Return driver_data pointer
+  * @returns the driver_data pointer supplied to tee_register().
+-- 
+2.43.0
 
 
