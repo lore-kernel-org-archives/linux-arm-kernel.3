@@ -4,138 +4,172 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A05C282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 419F2C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:20:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=; b=QMgv5BcXgMCLULx8lfJjlEW4Ol
-	hwalPkGIN7aOVrmRiu+Pn1MrIK/l/CNH965BeEVH1zzaJRVZEGqPJcbNqOtN5Pe18dAW53v6Y2UfX
-	UCBvsRtpC1r20yscQxriAaaa5U14eIhlDZGfNgO7cdY5kgnEikZku/31kRKY8/+wze/CpZAp2hfIr
-	nEffMux6Pdqf9Lfs4t8qeHUvESmuNx+9BziCg+FKIcGqPExaeBKEJr9++COGZOLQDn8oyZDgG9sGu
-	fwVGlBwGnlS/CF48J/AHrgYC70aJPCDv1FqMCOoyMNAqic2xbS+8wFFZqc6W4/4m5nDxtxJy15nug
-	jEe2d3AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E1c6ZYCZp5klNQBFcGM3Y+zTeEUbR1gvPwTKtbfHzXc=; b=KElLvUe1d48mFTQVANAI2ljfSN
+	wE9ycjoRq8GO8Jh5w8C/oZ1qH8vdgrLnjjXviHu95XZCsRxvbm9jIki7nmEX1M8GLp3LE/sEuNxbr
+	VrLykk96eo65FPrjU2/vdqHgZ/p9rWKzIc1lVVyv2TkXk1SXc3Sk5dWq00AJVRBDaS+1ZcKuHibbB
+	CmmaxXWNye5ncmSSO8NTsdjR0KnKHeiZwKiYCaXJaFzFxMRl+/gtZzX5qHJxiWSkZEckICqdCH1Su
+	nzpvIYbpM7Vob9FDKdTPWK5l1A8H6nKHpBWZMClveHxnW9U+TPXZaHB0zDJ5lfMZoLQhEGO5YkDxX
+	xIRk4zsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpi1t-000000076B5-0RXp;
-	Wed, 05 Mar 2025 06:14:53 +0000
-Received: from mail-bn8nam04on2062d.outbound.protection.outlook.com ([2a01:111:f403:2408::62d] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
+	id 1tpi6g-000000076dU-4Acz;
+	Wed, 05 Mar 2025 06:19:51 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpgwq-00000006znB-1V0P
+	id 1tpi58-000000076Wg-08r2
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 06:18:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=E1c6ZYCZp5klNQBFcGM3Y+zTeEUbR1gvPwTKtbfHzXc=; b=R3N7kFYaITNwsffYsHQgjAyUKy
+	Q7w5tw9CEi3Ezv6DUDeuIfJe9ajyxyxBKdtqT8J4eTX14q7zVqxxMFdNkt9GGOvvDhUIzLCyegeku
+	4mWh8pBQmaiHwhYFQK8ldwQ6IvEZ42dNCO/M0BMCQUx/zTlyyrVUMNfOJdSqgrpciCFZ/HYLx/Dlo
+	PACeucHCMndBBN8ypX73DwcSE9spMdnelJkeBVGFOCrM6uX6TYN3MUwbpri/jKbgbf0r26OK9OyE6
+	MZpLjKfUGL2LX9eXBD38wSP0jERoIQySFcUsdK2hqsbY0chsu0jNUXs6n6JvrX4NEje52Tr5HDn9I
+	qQUXOVoA==;
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpi54-00000000Nhm-1K9C
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 05:05:37 +0000
+	Wed, 05 Mar 2025 06:18:12 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=w0uKKX/zIRrNDdD2AvdDYFktfNeu1cHU4RNKiZ7BRHHLPKh2C5T0oj2G6vFRlJ6A4btNCetBdVs/L9C2Fhe3HsZkPs/sZ6jEbQACX9VFbcZr63/Ergo0ZrmM3b3UwmzCuNi4LT04NBeofIuC+BoMM/lwUHqoymD5xbrpoWxAMwn8BJCLABA216edTFD8M7uJQm8B+S5JDz+FrkLplzJsY++MfucNBxUcYsX7ALpt8KIBcT3XdmjX54VlcJvz/W/AkdF+BG3XtrYsFv4NV3V+PERlzqr6/66IPpJEwW3fxsOyxhPICsrq6WAtsdMnj5Bv80vdTt5Qyump1/oEh5OW+w==
+ b=DCLAsopRhH9FqfUPEM+6qie01XYQfat119jbKpa7NRIefrvznvzOJCP9bXphFD6S6jz5nU7YcS2j0jOZ8IQDp6vxUraDtFNK/tm3Na2wyt3Qcy9v+UZtmkfU/tqm0bhMdqmJiinpjDAW9qNvjLojJgZy7THHVmUOQllC2D910MZyDn33gORXKWmwy+c7RkC+KyfdXVOZ35Jj1ZEClbO2sM9dd5USBisLxgL0FgHnP0q9LaNiVt7MyHdh11gzPmVDLHKZGx4qt2j5r2SQBB2FTm01JHe0JOLM4gwNnu2bDxm0i3izXhsqBbFNBmmtKHLLuRy+1bF2m9hLrfFItbN5wQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=;
- b=azKX0uHwMa2NeI6F5vDl5p6akIFiEIL2v14CFfyRcRFw+EW8Us05Xd5oOMwToHjhElrb9iP1Uo7iKbjN7Q7iYxWtgpDjfijGXCGovc/1+qtr5x4hONTz8V3wHvbC1w3ardDFU7PBpVFOLKZVf3ANyAMtTDAv7ExkGyhHOUED7ai/6Xx54QSV9FOWpgZbhc/9mgZN/uGeSXxHMSa7Nvc7Ri5pHtTjRwgbwZFF4jt+Z49leRZjtdn0AjToBigKGgGCnUxeDU3jgAYeHcLeh4tErO/cbDjw3D44TzwnifFUMU1iA399SP56vB6+c+7WwZA3hurQL6ALddxiI9otdusOkQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
+ bh=E1c6ZYCZp5klNQBFcGM3Y+zTeEUbR1gvPwTKtbfHzXc=;
+ b=PIbI4oaC1/Le5fmcv3rpqV9YVnd7hvPD5NKRSzfRJF9+bOOSufPxJsLVDYAbsJECiLd6E6D3gQ4H6xxfnnvdjG/LawNRCUcK5AJRhzw3DOHXcJXfBVZJJVQH3E4Rmnfa06b5KhHyeBYJ0F03+sSgVRQ+oHE1X+ZJEfhNNtqXih3WQ+1n87EsmIbId7Zgw+PXQo/+tnS2eAdnIEwY5cpv3/K6HF2nzSQ9/Z6+Ao12/o1pIQIkRhOhhhegXQLhFPjOMlepitGdXtG6VSfCLiXiQ4rYq60D2mXw6wgiobDgsY6/Bn60T8nq2GRpk/fECSHo5hMZdVgqtKzDMhtRabHJdw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=;
- b=SBsaPZGBl9GEsL8sZC1ONnRKizxXq01caJPIDTznYzhcJD2WRKeprMlEbXBUcEGjUnPksvajYHzY41koeFq2nc1HY4loeTi4xcbCOd4L5WHnhLTDo/4fDGrw4QGJU8m31ZWfSHJctFYPzvLXagqxbjrA8vAyNeNgetQt2wSL+xy63iLdK30iY4Ty8J6BZQNjOAJrC0v68VXNY0Zp6Chaxk++oG6urzfV+s1+uEhqlKRGvWmuRNpmrQooEjh1OU+L6aUmJiLa8UCqf/HpgXBuVi5nKTytR1Y2uOtojH9Q2F/LCsAeyIzKv2B7zLyS0xKRqZ8eh9Q9uDxz03FFpg0Llw==
-Received: from CH0P221CA0045.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::15)
- by DS7PR12MB9042.namprd12.prod.outlook.com (2603:10b6:8:ed::14) with
+ bh=E1c6ZYCZp5klNQBFcGM3Y+zTeEUbR1gvPwTKtbfHzXc=;
+ b=HevoCyzVZmUFq9l18m6A0ZckWM5ZOoUeVw5Oa5Z9dnXeWWC2j8rMJa3NdBfIFveiJI3Gfi3g7jJUL5v3y9/YchnYR2NSpeRJhpXa6pjrB9GYSJvt4PcbnsFQ8BRe/84ekFvdwcJLYdVpIZ24Fsq0tuFwQbz7PZ4J+PXpVMRpDhWHrkM7k888tmpAOJFkJvc+HdLftT8p5I5dMu1bH3t/zwh4NuyOPGz+OFjsEJ/GqttGh7qWyg4kgD0mb/5Lb9sRNJ2z+Ewa86pkInb4uy0dqF/jYIYs83YRRwZ501WetsNAbB8TiHzoNVMM9/3k1s+cCIyxm85I7G6QUz48P8XUBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com (2603:10a6:102:1cd::24)
+ by PA1PR04MB10721.eurprd04.prod.outlook.com (2603:10a6:102:489::12) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Wed, 5 Mar
- 2025 05:05:26 +0000
-Received: from CH2PEPF00000144.namprd02.prod.outlook.com
- (2603:10b6:610:11d:cafe::e2) by CH0P221CA0045.outlook.office365.com
- (2603:10b6:610:11d::15) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.16 via Frontend Transport; Wed,
- 5 Mar 2025 05:05:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.161) by
- CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 05:05:26 +0000
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
- (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 4 Mar 2025
- 21:05:11 -0800
-Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 4 Mar
- 2025 21:05:10 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Tue, 4 Mar 2025 21:05:10 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
-CC: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<shameerali.kolothum.thodi@huawei.com>
-Subject: [PATCH v1 3/4] iommu/arm-smmu-v3: Decouple vmid from S2 nest_parent domain
-Date: Tue, 4 Mar 2025 21:04:02 -0800
-Message-ID: <0429d554fb0f54f6d79bdacacb3fb3e7877ca8f7.1741150594.git.nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <cover.1741150594.git.nicolinc@nvidia.com>
-References: <cover.1741150594.git.nicolinc@nvidia.com>
-MIME-Version: 1.0
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
+ 2025 06:17:59 +0000
+Received: from PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87]) by PAXPR04MB8254.eurprd04.prod.outlook.com
+ ([fe80::2755:55ac:5d6f:4f87%6]) with mapi id 15.20.8511.015; Wed, 5 Mar 2025
+ 06:17:59 +0000
+From: ming.qian@oss.nxp.com
+To: mchehab@kernel.org,
+	hverkuil-cisco@xs4all.nl
+Cc: nicolas@ndufresne.ca,
+	sebastian.fricke@collabora.com,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	linux-imx@nxp.com,
+	xiahong.bao@nxp.com,
+	eagle.zhou@nxp.com,
+	imx@lists.linux.dev,
+	linux-media@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 1/2] media: amphion: Reduce decoding latency for HEVC decoder
+Date: Wed,  5 Mar 2025 14:26:29 +0800
+Message-Id: <20250305062630.2329032-1-ming.qian@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
+X-ClientProxiedBy: AS4P189CA0040.EURP189.PROD.OUTLOOK.COM
+ (2603:10a6:20b:5dd::9) To PAXPR04MB8254.eurprd04.prod.outlook.com
+ (2603:10a6:102:1cd::24)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|DS7PR12MB9042:EE_
-X-MS-Office365-Filtering-Correlation-Id: fdb02c97-c2c9-4a86-ec22-08dd5ba35793
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8254:EE_|PA1PR04MB10721:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0155e199-899b-42f1-601a-08dd5bad79f5
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2HgBz2cjhQOeN+W10ySEbQSbft73lT2dWPh+4LNCzB8cFcbWesrieCtneG0L?=
- =?us-ascii?Q?6v5G7daOL7V9pEWfMtTWHPMpNBg0dzS30V3iNZpXvI6eDLz4APhZrN+93eL9?=
- =?us-ascii?Q?9HMKUE9wcJROHtpx1yEA8Og9sikKaCL3PuU5/B42tB3Oule6zNsZqML7p2BJ?=
- =?us-ascii?Q?ZBKkNFTy80mWR6lZuB47kvkITe+Xejcb3Dr/T9GqzacNJ8k6zhQUvxk6m39X?=
- =?us-ascii?Q?aGlR7V7oenQu//+1ZkOzu5sxYQ85SjozZbFpKR8uUktdJDIq9maCx6Tl9aXc?=
- =?us-ascii?Q?4SJzuv3alKstjpRYIWBKSOLxdIZgP8V/pyQdkYGl3FkynmNifns4Hx5O7hBa?=
- =?us-ascii?Q?M9qtwvXisfuxk59aRFIC9EVq6EIXRnSbF479QREimnUPppyUv7sUEjZStauI?=
- =?us-ascii?Q?rAK6ZWB+b6/4Od5BHJ7EjzoXgqHtPpaRVsA0FjXt6hJpqp/hZK4u97wg/yfi?=
- =?us-ascii?Q?Lcd23BS1PGuVs6mQO4ATxIsKF44V1L+6MmD/4KcorFcEaQS3ZPP77ovbwuhI?=
- =?us-ascii?Q?ba1WG5r2P+OwQ1k6erxUs8qMC8DkmxFcvXXEVYGC4RUxW8UoT2tK30qaE/e4?=
- =?us-ascii?Q?tnWphNT/QWKq4IzkfBz0+qi972SqlRIlj76B1s7EsX+WXAF87FW7i8EN0vt3?=
- =?us-ascii?Q?EQ1pZZTjtVjA6WfU+4VDaXSisdnRUHPjNc3XLX313Ug89cO8XE8DH9tsNFb4?=
- =?us-ascii?Q?WAtDRkSowWwf55a074ENRXsliaudDxrha8V9oIzhhma2yayKDcAjvIYlHYuo?=
- =?us-ascii?Q?RO+nj4K4jZCCiM8EwLjZxx2qIX1i2oPpUOtwOoBWPIqVd+xTuMSDMQgmE1YJ?=
- =?us-ascii?Q?qsrFWCmFxLlTtRlB8mirqG4QL2xPQcbAeY0nOsyZTI8FVexdaRM1IzBXqUaj?=
- =?us-ascii?Q?pVAg/KiZ1+/ACrD7oHblx+i4tf1EWBfIQWA1PIYHdXTOhur0JlHUpmWVMcPY?=
- =?us-ascii?Q?/46pvj4G9iyRPp26BJusYWIZAInyvjI6mtJJC2itW83u8jQXBayc1TrHzgl0?=
- =?us-ascii?Q?M/vjOtm3QO70vmeyNFwpr8t5+DcecO3FmF7uvMmqcfq8ppzAVwb3u9Mozgde?=
- =?us-ascii?Q?AzCLPd5JeBjj5o5XLcas/aVp4YgiREX2sW/RGNadUKu0CuOzpNJDXxTy0hFi?=
- =?us-ascii?Q?agjxfzRtznL9/Vk312bTSnJSWcF05OkfmV2pPNRT+Vsxh302MQMeQ3CSKFL+?=
- =?us-ascii?Q?xGx9W3KFf04QQ+h+oTWqY0I0rCoEqHISA/X5Gc1f00HNlHrAZLdArVZXPPNI?=
- =?us-ascii?Q?uxutNQwO/QNCjG5K7jMx2nu6tUDB+O0dWS3d9C2dSnh5Uj0TQj9mecJ1Xh8o?=
- =?us-ascii?Q?9KIcoKm4TDHgdHLiVBnqKy6H0CAw8rqcXjL1i3l5QLp5xM+kTdN1q7CrC6yZ?=
- =?us-ascii?Q?OPM/T3SWgy5sfQAaQkFtnYDDP5/dG5uVHcbeyyKWRrV91uuqwJ3QvO8YUyIz?=
- =?us-ascii?Q?MM0M4k/BqY4mw05KO+T6whyZwWuKL0iGpe/v0m+g7aF7lAIw5bLUAt70/6qe?=
- =?us-ascii?Q?Q78828xYgM1VBBA=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 05:05:26.2024
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TymyqbN5bDN9pZ9gQNi4Pto9LRdGkmJlpCBwDTnMbBCL9MrQiY/SlrC4/pDU?=
+ =?us-ascii?Q?7YDcI6yH7YVa6oVUR+eYkFhuvSiA5GAvcwhY7XgTC2bDglQ6E6I7QQCxPcZE?=
+ =?us-ascii?Q?jGBj1jk5O//kANqsPHlyzAl3eVtOEgHTfaddB/7tAGMK6ymzeQab4rbOY4t2?=
+ =?us-ascii?Q?s2LWrc2HsdeMQRq8CmPr5ouO9rbXkJ0qnnulvq/ZwkQPNhJ8EVGL4WgKhiU4?=
+ =?us-ascii?Q?TwO2p+viPoFZdV7Hcm4CrPzmHKNFBFRunkyYNVZFmq3Frt27qDetF1zjvyr3?=
+ =?us-ascii?Q?nniBIqXL+oINgxNAfD1hkhtqWvecq9hOlkwjwcdro3B5gJYb0qGVGchtp+PO?=
+ =?us-ascii?Q?nDXt0X5cJCtOc4j4X2VWPH/D2JL7uLKIBIPhUYchMQwgOW4xBIwPO0M66kyz?=
+ =?us-ascii?Q?kcT7886dRlix692lzE7P7YnJo4eKwkSfS/S9xN4qjzDuBRyYQ4uClizBO7xV?=
+ =?us-ascii?Q?E/mpL5C7Zhry5c5b0OS97wqQxD2yOOHqIfurDvoH6XofkwbiMo/slIxHcgZg?=
+ =?us-ascii?Q?KFmEioQgPA1KzT6kbh02BKVLhMgAxOARMAxLf2qCpMh6WSA5yZsfOQmMDVT+?=
+ =?us-ascii?Q?hPx5g45WDn+Z3zAvF0F46sDOYcz+3QDgFKqpQ5ilVdbY8AX5rZhHpw9cNYt1?=
+ =?us-ascii?Q?JVqXV1XVECJGwkoNnWM1he9KOTTkBelmsIdf/xDIak/Qi7N6tkGVv8n0Nuii?=
+ =?us-ascii?Q?7aQeuveahiN+eTb40Hn1vWguqGbGOUYHtfC/LYm8XxbBXr3M8TTL0xo+HHHT?=
+ =?us-ascii?Q?smdnPKALm24/pJ2gM+yBMKfLMBNMooLiM4ncY+bVcRAFH1Lu9orGQn3azBFR?=
+ =?us-ascii?Q?VAuaU0/gZAWbijoPlTO4Dr8J1oISpG3UO0/5CwjkkDnGCBXq/mE0JbmQGWXw?=
+ =?us-ascii?Q?uvvC4Gmu8fmOLuN9RyaAiMhqrlcf9tiMJQzFWnXTxabgilWlrbY35dLnBI6F?=
+ =?us-ascii?Q?IqRPVKpaBV1htR9rPQfCmplY4oxoaevdfMzVJV5Ay0j6iFNjt08QNrxLxGtr?=
+ =?us-ascii?Q?DCyoUCoIOrYb0+D1EYttNEV33t1w1VNVLOLyTpDmjVA9QwHfV06Oc3FTXZD7?=
+ =?us-ascii?Q?opVvsKsjFNIHoeG5sfuXuq2IgWvLFnRnI1DnBRD9GRsfGroYUxc3JMaTXfiv?=
+ =?us-ascii?Q?yyTFihmGx5vXg8FXfEzYWCvA2F/rhe/DBAxf6U1OxYI8h4HTiIt0gaBUGXWk?=
+ =?us-ascii?Q?NmQb5vD4QNSEc4nproC+cqTa9f4/LZBcabmH+R9TmfozshHP3vWgJCTK5NTT?=
+ =?us-ascii?Q?bU7qFcufsNCoHh+GTf/tYUOPavt0teL380VFZfkI3Uwf/lP5lPOYiaa9aZAl?=
+ =?us-ascii?Q?HTrTC5/dMBHKYPQU+mKRNqBLTNsYc10yDq19NFsZiz7RMOih4+1WPiuRGHgi?=
+ =?us-ascii?Q?t94ankzU2UzR13XP4BYGrCsZWdzFT21kZWob0eJ1y8zj1e9youDPr1ljB+P4?=
+ =?us-ascii?Q?7r+0sK7GWrsZC/OTDp0S6zFzM+oS1QiT?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8254.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uzA4Q3ofbGvQGyuX1PQmFWtojM9Qt79QIi6X93OTS3xe3MBT2t8pbyZQg0i9?=
+ =?us-ascii?Q?ZvJAh79v85ufUNKoRIYnXXBKWUIVlyyD1bCvWRpYzlCzLxzBXVU++vqmylo2?=
+ =?us-ascii?Q?xJ8ly5jtKCiFtHoXmBSxbxWLscG4c9nPgpGkgiVun3ncEUQQuIU3XvluMFz+?=
+ =?us-ascii?Q?9eVzv3aFVesxBYeX4BZ371NcDkC+sZAmDIL3a0PoO/io+GKhbu39Cmuzg6E6?=
+ =?us-ascii?Q?IybqylzildcJdO3VhPznyR2TrQ9MSJXV/VJTaH1c6EhJDqJs4k+REUTiimVS?=
+ =?us-ascii?Q?WWIPGO8Fw/eREF1IsQBPrc8ETWf+aieDRomILoPsA0oZbQDlaLL33BSni5h9?=
+ =?us-ascii?Q?w97N3HrT2uK1R5EvMdDYd/guQDb778kyR+sHjkgK9584CCZKN1qQuGYN6ING?=
+ =?us-ascii?Q?dM3b6EjhyULSsMhKy98NVGJNnsnQ2qZ4cVIM1+AoRBKySlnSj53Eg7KojdK/?=
+ =?us-ascii?Q?7nJ2K8PP5IMe5GsssTpBsx3yw+WhZnU94+tB8uNhkixrQDFJV1d5RF8zK8YB?=
+ =?us-ascii?Q?vhWTcY15WLVJWEdSFljJZiMPKq5fk9fVstSsiHpm/09TXcsKVxKhq59Wk5IS?=
+ =?us-ascii?Q?C6q+B727kZEPzb/8p8Tc0aZtq6yqCpuDcbKKGMXZfBZ90ISX2sAZQACaCPoL?=
+ =?us-ascii?Q?1E3vdhqlEwqLv+bX2x66amxkV60yQANoM7AnuWOgzzrXAizRrn1UWaYI6MOp?=
+ =?us-ascii?Q?NAunB0eyHIEzZs2qE9DbXo6Vmrw78U4211cButOlbZ8hy2A3StUM/rBlPPIv?=
+ =?us-ascii?Q?yPxYuQihUIobmb4C5sobhLyrU5q7qMeJD35zwhpd86NJReeJ0lD7fCATzON1?=
+ =?us-ascii?Q?Exg4Ac6kELCBmqjRA8/bDapLsCB1wYbYBLOGsyZZFDSpCVZOK2RrMVYa1Wrm?=
+ =?us-ascii?Q?QnIYxOE9s5JhN3UjH9ekGa9x31volIo38pwwkxTtUW953QBk6iNPP+MH+GK0?=
+ =?us-ascii?Q?1W+pT07YBy++K7SExlrsTMMKB4xoXtbO8yARnLslfgQsg9VnouPgN+R+zcNp?=
+ =?us-ascii?Q?Ncb24sLk5omJ1GHSu4G5jWIXc9tYGXj1D2Gqrz624sn2EO/vr7niZy/79bGd?=
+ =?us-ascii?Q?nbEB8vn50bd6a45pEqJ8agKmkyHwbhm5iFR/+5DC3Lm14Pc2AAzdUFyBdIqu?=
+ =?us-ascii?Q?TZ6RwyU2Ywx4Z9dIzmDORfWuJ8N/PZgKsMHUXqWzcrr4GOH2D08xYp9vB8uu?=
+ =?us-ascii?Q?qJD2PUq8fXMURLxy3qtqR6HMfh4znVswLk0nsQ/6buXTbd7lIoivfOCZrZJK?=
+ =?us-ascii?Q?4eIcS4abNWSArBvi+8k5zH0Oy6ifzwKfQRy3ACfV0fXSI0G5jxyEd0MXwSf+?=
+ =?us-ascii?Q?PxSpH73g4H2ieHbxqOfy81uOERvfr5+I8vqOeDwOzRpPttbXmIrmgfmic/7R?=
+ =?us-ascii?Q?vEMN/7xEoADPLZKcMKeeLc+xaoXY98MdOZfwbq7MjykFUDXPQdWEF9o3qVFf?=
+ =?us-ascii?Q?drFx96XxUUHCKs+VAOlQgivykMe6gWVb3cEyAV5s6rQkXghlFiyU0TzR/Lph?=
+ =?us-ascii?Q?vi6ptAPBofzIaXKCMlxhnRW9uxdcVwY/JEHiXj3WY98fwIyq3uAobz7iD9B/?=
+ =?us-ascii?Q?foM7kmtdhWGvsKMXx9eUyhiXWLR+ifw1VCOhVO2t?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0155e199-899b-42f1-601a-08dd5bad79f5
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8254.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 06:17:59.4201
  (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: fdb02c97-c2c9-4a86-ec22-08dd5ba35793
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9042
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: +hdGG5EzBT2u/mdrtlV5ueK7XF/XKuuZJQRHSJUT40gMC0zDNxO9CGktWFZT7wmHkobuvLa2AOXNnsmxLR7UeA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA1PR04MB10721
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_210536_524402_D8541267 
-X-CRM114-Status: GOOD (  21.93  )
+X-CRM114-CacheID: sfid-20250305_061810_582595_35FB4A07 
+X-CRM114-Status: GOOD (  15.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,236 +184,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-An S2 nest_parent domain can be shared across vSMMUs in the same VM, since
-the S2 domain is basically the IPA mappings for the entire RAM of the VM.
+From: Ming Qian <ming.qian@oss.nxp.com>
 
-Meanwhile, each vSMMU can have its own VMID, so the VMID allocation should
-be done per vSMMU instance v.s. per S2 nest_parent domain.
+The amphion decoder firmware supports a low latency flush mode for the
+HEVC format since v1.9.0. This feature, which is enabled when the
+display delay is set to 0, can help to reduce the decoding latency by
+appending some padding data to every frame.
 
-However, an S2 domain can be also allocated when a physical SMMU instance
-doesn't support S1. So, the structure has to retain the s2_cfg and vmid.
-
-Allocate a vmid for a vSMMU instance in arm_vsmmu_alloc() and add a proper
-arm_vsmmu_destroy() to clean it up.
-
-Add a per-domain "vsmmus" list pairing with a spinlock, maintaining a list
-on the S2 parent domain, to iterate S2 invalidations over the vmids across
-the vSMMU instances created for the same VM.
-
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Signed-off-by: Ming Qian <ming.qian@oss.nxp.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 10 +++-
- .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 35 ++++++++++++--
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 47 +++++++++++++++----
- 3 files changed, 79 insertions(+), 13 deletions(-)
+v3
+- Improve commit message as recommended
+v2
+- Improve commit message
+- Add firmware version check
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index 3336d196062c..1f6696bc4f6c 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -849,8 +849,12 @@ struct arm_smmu_domain {
+ drivers/media/platform/amphion/vpu_malone.c | 22 ++++++++++++++++++---
+ 1 file changed, 19 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/media/platform/amphion/vpu_malone.c b/drivers/media/platform/amphion/vpu_malone.c
+index 5c6b2a841b6f..1d9e10d9bec1 100644
+--- a/drivers/media/platform/amphion/vpu_malone.c
++++ b/drivers/media/platform/amphion/vpu_malone.c
+@@ -68,6 +68,9 @@
  
- 	enum arm_smmu_domain_stage	stage;
- 	union {
--		struct arm_smmu_ctx_desc	cd;
--		struct arm_smmu_s2_cfg		s2_cfg;
-+		struct arm_smmu_ctx_desc cd;	/* S1 */
-+		struct arm_smmu_s2_cfg s2_cfg;	/* S2 && !nest_parent */
-+		struct {			/* S2 && nest_parent */
-+			struct list_head list;
-+			spinlock_t lock;
-+		} vsmmus;
- 	};
+ #define MALONE_DEC_FMT_RV_MASK			BIT(21)
  
- 	struct iommu_domain		domain;
-@@ -1049,6 +1053,8 @@ struct arm_vsmmu {
- 	struct arm_smmu_device *smmu;
- 	struct arm_smmu_domain *s2_parent;
- 	u16 vmid;
++#define MALONE_VERSION_MASK			0xFFFFF
++#define MALONE_MIN_VERSION_HEVC_BUFFLUSH	(((1 << 16) | (9 << 8) | 0) & MALONE_VERSION_MASK)
 +
-+	struct list_head vsmmus_elm; /* arm_smmu_domain::vsmmus::list */
+ enum vpu_malone_stream_input_mode {
+ 	INVALID_MODE = 0,
+ 	FRAME_LVL,
+@@ -332,6 +335,8 @@ struct vpu_dec_ctrl {
+ 	u32 buf_addr[VID_API_NUM_STREAMS];
  };
  
- #if IS_ENABLED(CONFIG_ARM_SMMU_V3_IOMMUFD)
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-index ff8b550159f2..2c5a9d0abed5 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-@@ -30,6 +30,23 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
- 	return info;
- }
- 
-+static void arm_vsmmu_destroy(struct iommufd_viommu *viommu)
-+{
-+	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
-+	struct arm_smmu_device *smmu = vsmmu->smmu;
-+	struct arm_smmu_cmdq_ent cmd = {
-+		.opcode = CMDQ_OP_TLBI_S12_VMALL,
-+		.tlbi.vmid = vsmmu->vmid,
-+	};
-+	unsigned long flags;
++static const struct malone_padding_scode *get_padding_scode(u32 type, u32 fmt);
 +
-+	spin_lock_irqsave(&vsmmu->s2_parent->vsmmus.lock, flags);
-+	list_del(&vsmmu->vsmmus_elm);
-+	spin_unlock_irqrestore(&vsmmu->s2_parent->vsmmus.lock, flags);
-+	arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
-+	ida_free(&smmu->vmid_map, vsmmu->vmid);
-+}
-+
- static void arm_smmu_make_nested_cd_table_ste(
- 	struct arm_smmu_ste *target, struct arm_smmu_master *master,
- 	struct arm_smmu_nested_domain *nested_domain, bool ats_enabled)
-@@ -337,6 +354,7 @@ static int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
- }
+ u32 vpu_malone_get_data_size(void)
+ {
+ 	return sizeof(struct vpu_dec_ctrl);
+@@ -654,9 +659,16 @@ static int vpu_malone_set_params(struct vpu_shared_addr *shared,
+ 		hc->jpg[instance].jpg_mjpeg_interlaced = 0;
+ 	}
  
- static const struct iommufd_viommu_ops arm_vsmmu_ops = {
-+	.destroy = arm_vsmmu_destroy,
- 	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
- 	.cache_invalidate = arm_vsmmu_cache_invalidate,
+-	hc->codec_param[instance].disp_imm = params->display_delay_enable ? 1 : 0;
+-	if (malone_format != MALONE_FMT_AVC)
++	if (params->display_delay_enable &&
++	    get_padding_scode(SCODE_PADDING_BUFFLUSH, params->codec_format))
++		hc->codec_param[instance].disp_imm = 1;
++	else
+ 		hc->codec_param[instance].disp_imm = 0;
++
++	if (params->codec_format == V4L2_PIX_FMT_HEVC &&
++	    (iface->fw_version & MALONE_VERSION_MASK) < MALONE_MIN_VERSION_HEVC_BUFFLUSH)
++		hc->codec_param[instance].disp_imm = 0;
++
+ 	hc->codec_param[instance].dbglog_enable = 0;
+ 	iface->dbglog_desc.level = 0;
+ 
+@@ -1024,6 +1036,7 @@ static const struct malone_padding_scode padding_scodes[] = {
+ 	{SCODE_PADDING_EOS,      V4L2_PIX_FMT_JPEG,        {0x0, 0x0}},
+ 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264,        {0x15010000, 0x0}},
+ 	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_H264_MVC,    {0x15010000, 0x0}},
++	{SCODE_PADDING_BUFFLUSH, V4L2_PIX_FMT_HEVC,        {0x3e010000, 0x20}},
  };
-@@ -351,6 +369,8 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
- 	struct arm_smmu_domain *s2_parent = to_smmu_domain(parent);
- 	struct arm_vsmmu *vsmmu;
-+	unsigned long flags;
-+	int vmid;
  
- 	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
- 		return ERR_PTR(-EOPNOTSUPP);
-@@ -381,15 +401,24 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
- 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
- 		return ERR_PTR(-EOPNOTSUPP);
+ static const struct malone_padding_scode padding_scode_dft = {0x0, 0x0};
+@@ -1058,8 +1071,11 @@ static int vpu_malone_add_padding_scode(struct vpu_buffer *stream_buffer,
+ 	int ret;
  
-+	vmid = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
-+			       GFP_KERNEL);
-+	if (vmid < 0)
-+		return ERR_PTR(vmid);
-+
- 	vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
- 				     &arm_vsmmu_ops);
--	if (IS_ERR(vsmmu))
-+	if (IS_ERR(vsmmu)) {
-+		ida_free(&smmu->vmid_map, vmid);
- 		return ERR_CAST(vsmmu);
+ 	ps = get_padding_scode(scode_type, pixelformat);
+-	if (!ps)
++	if (!ps) {
++		if (scode_type == SCODE_PADDING_BUFFLUSH)
++			return 0;
+ 		return -EINVAL;
 +	}
  
- 	vsmmu->smmu = smmu;
-+	vsmmu->vmid = (u16)vmid;
- 	vsmmu->s2_parent = s2_parent;
--	/* FIXME Move VMID allocation from the S2 domain allocation to here */
--	vsmmu->vmid = s2_parent->s2_cfg.vmid;
-+	spin_lock_irqsave(&s2_parent->vsmmus.lock, flags);
-+	list_add_tail(&vsmmu->vsmmus_elm, &s2_parent->vsmmus.list);
-+	spin_unlock_irqrestore(&s2_parent->vsmmus.lock, flags);
- 
- 	return &vsmmu->core;
- }
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 0462eb1b2912..addc6308742b 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -2249,10 +2249,22 @@ static void arm_smmu_tlb_inv_context(void *cookie)
- 	 */
- 	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1) {
- 		arm_smmu_tlb_inv_asid(smmu, smmu_domain->cd.asid);
--	} else {
-+	} else if (!smmu_domain->nest_parent) {
- 		cmd.opcode	= CMDQ_OP_TLBI_S12_VMALL;
- 		cmd.tlbi.vmid	= smmu_domain->s2_cfg.vmid;
- 		arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
-+	} else {
-+		struct arm_vsmmu *vsmmu, *next;
-+		unsigned long flags;
-+
-+		cmd.opcode = CMDQ_OP_TLBI_S12_VMALL;
-+		spin_lock_irqsave(&smmu_domain->vsmmus.lock, flags);
-+		list_for_each_entry_safe(vsmmu, next, &smmu_domain->vsmmus.list,
-+					 vsmmus_elm) {
-+			cmd.tlbi.vmid = vsmmu->vmid;
-+			arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
-+		}
-+		spin_unlock_irqrestore(&smmu_domain->vsmmus.lock, flags);
- 	}
- 	arm_smmu_atc_inv_domain(smmu_domain, 0, 0);
- }
-@@ -2342,19 +2354,33 @@ static void arm_smmu_tlb_inv_range_domain(unsigned long iova, size_t size,
- 		cmd.opcode	= smmu_domain->smmu->features & ARM_SMMU_FEAT_E2H ?
- 				  CMDQ_OP_TLBI_EL2_VA : CMDQ_OP_TLBI_NH_VA;
- 		cmd.tlbi.asid	= smmu_domain->cd.asid;
--	} else {
-+		__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
-+					 smmu_domain);
-+	} else if (!smmu_domain->nest_parent) {
- 		cmd.opcode	= CMDQ_OP_TLBI_S2_IPA;
- 		cmd.tlbi.vmid	= smmu_domain->s2_cfg.vmid;
--	}
--	__arm_smmu_tlb_inv_range(&cmd, iova, size, granule, smmu_domain);
-+		__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
-+					 smmu_domain);
-+	} else {
-+		struct arm_vsmmu *vsmmu, *next;
-+		unsigned long flags;
- 
--	if (smmu_domain->nest_parent) {
- 		/*
- 		 * When the S2 domain changes all the nested S1 ASIDs have to be
- 		 * flushed too.
- 		 */
- 		cmd.opcode = CMDQ_OP_TLBI_NH_ALL;
- 		arm_smmu_cmdq_issue_cmd_with_sync(smmu_domain->smmu, &cmd);
-+
-+		cmd.opcode = CMDQ_OP_TLBI_S2_IPA;
-+		spin_lock_irqsave(&smmu_domain->vsmmus.lock, flags);
-+		list_for_each_entry_safe(vsmmu, next, &smmu_domain->vsmmus.list,
-+					 vsmmus_elm) {
-+			cmd.tlbi.vmid = vsmmu->vmid;
-+			__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
-+						 smmu_domain);
-+		}
-+		spin_unlock_irqrestore(&smmu_domain->vsmmus.lock, flags);
- 	}
- 
- 	/*
-@@ -2477,7 +2503,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
- 		mutex_lock(&arm_smmu_asid_lock);
- 		xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
- 		mutex_unlock(&arm_smmu_asid_lock);
--	} else {
-+	} else if (!smmu_domain->nest_parent) {
- 		struct arm_smmu_s2_cfg *cfg = &smmu_domain->s2_cfg;
- 		if (cfg->vmid)
- 			ida_free(&smmu->vmid_map, cfg->vmid);
-@@ -2506,7 +2532,10 @@ static int arm_smmu_domain_finalise_s2(struct arm_smmu_device *smmu,
- 				       struct arm_smmu_domain *smmu_domain)
- {
- 	int vmid;
--	struct arm_smmu_s2_cfg *cfg = &smmu_domain->s2_cfg;
-+
-+	/* nest_parent stores vmid in vSMMU instead of a shared S2 domain */
-+	if (smmu_domain->nest_parent)
-+		return 0;
- 
- 	/* Reserve VMID 0 for stage-2 bypass STEs */
- 	vmid = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
-@@ -2514,7 +2543,7 @@ static int arm_smmu_domain_finalise_s2(struct arm_smmu_device *smmu,
- 	if (vmid < 0)
- 		return vmid;
- 
--	cfg->vmid	= (u16)vmid;
-+	smmu_domain->s2_cfg.vmid = (u16)vmid;
- 	return 0;
- }
- 
-@@ -3233,6 +3262,8 @@ arm_smmu_domain_alloc_paging_flags(struct device *dev, u32 flags,
- 		}
- 		smmu_domain->stage = ARM_SMMU_DOMAIN_S2;
- 		smmu_domain->nest_parent = true;
-+		INIT_LIST_HEAD(&smmu_domain->vsmmus.list);
-+		spin_lock_init(&smmu_domain->vsmmus.lock);
- 		break;
- 	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING:
- 	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING | IOMMU_HWPT_ALLOC_PASID:
+ 	wptr = readl(&str_buf->wptr);
+ 	if (wptr < stream_buffer->phys || wptr > stream_buffer->phys + stream_buffer->length)
 -- 
-2.43.0
+2.43.0-rc1
 
 
