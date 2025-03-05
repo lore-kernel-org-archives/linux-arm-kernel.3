@@ -4,103 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501E5C19F32
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5844AC282D3
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+MKXT1XaFdEdcnzqhaqd5eX2IDvgA/EGa3l+nvosI8s=; b=rt1VDoRJgilAxtAv0lRrksuSrJ
-	qIzQjKCv6dRoqeUCUDaOvwTqOLBTSMOWmWThnsDV2/FT/UepH50agZ/NRZpLQcnvWHA1Abo6DZ+Bi
-	TTUpghcNh72imiHbIoeqHFc40fGaWK+9aG7Yd2SXnpoTCRN1/n3Y0MOUWpUC9qwELkuzg7eTaiasr
-	yXQdZAEbl6Gb1Gv+i4UKsH8/hqzE3RaPpB/mBIkwbUO0nT7GdZ5hE/LnDiPHJubhHTwBTla5qOle9
-	6OZPr0QDvfQ67fH7sSsq3iJmxFtgXViZ/8N3VScpJrQr9h9NlXAuOddDJo/Um0CohtObFhixa9pcY
-	Bi9nquLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
+	List-Owner; bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=; b=e2yvSoe3B941ex
+	hXBi4aRrvoFzdXH2HCRS9+hlxKv6zvDfoQp6C90OLs7helPsDY4I4lqPL8LTQNBHJCZSWe8x0sPma
+	7YPWgmBLSwapwnKTUsmjMI95dtniRRaTBWzZnsDXPjeRphVRO+Eh39emIWbG070cz6MYYuaszia09
+	ny/8lRrCs0Y7rQVtNqhYs23TWjDyldiv6cqu9GqovUKBGW35mYt3FPI49/68xA/XISj0H9l3K0LGj
+	PTMG6AQ2z2/fbq3K7KblX26xSIXSqA2R5XAXDHAnR/D44ZjH8ecIw71d/ZkefN6iyzkt577Bevsbh
+	oiRolAdICDVEzfNlwRAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjQz-00000007H00-3eyw;
+	id 1tpjQz-00000007Gzi-1MjI;
 	Wed, 05 Mar 2025 07:44:53 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiLq-000000078GB-0qXb;
-	Wed, 05 Mar 2025 06:35:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A89055C5BCA;
-	Wed,  5 Mar 2025 06:33:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11D01C4CEE2;
-	Wed,  5 Mar 2025 06:35:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741156529;
-	bh=nSTmsJLWUl5KF5T28Te6xirYa65jwRqBdrP/tAoo064=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=oa60klhtAn/X3yVvVYQ65mtdDEdNuOja0+6esAlsjBxsoUvaXi9/ldqikVdqN/1In
-	 aQscRZ+7qd8ZcRQOdubVlJ5WpoKrryqs2Sc4I6lbjhO54Qgj3bWAqQ7/Ze+6sAluOc
-	 GkvUVBcDEmRBJjyyq8t4QfLI55P9g8IGHsrsQKMzK2X+m2NzCGSbMfYIYgeRSi00iY
-	 YHvWwBzI/w9n9sE3mJKv+q3c3BB05JCvolzWtx8ilUkRzc3KZQYrZLVpWpvcFUovO0
-	 JPDRnpldrp6wNjEB26LX9wSPxRq/sYrjoUhQr+Nq1EQTgO7h+vRcP7Z6vhktbgSOKL
-	 IFwJgl1ExXgyg==
-Message-ID: <0d4d1cea-350e-4ca4-954c-fdbe1b0acf93@kernel.org>
-Date: Wed, 5 Mar 2025 07:35:24 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: defconfig: Enable Rockchip UFS host driver
-To: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <1741147858-136859-1-git-send-email-shawn.lin@rock-chips.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <1741147858-136859-1-git-send-email-shawn.lin@rock-chips.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	id 1tpiGt-000000077jD-2jq7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 06:30:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Message-Id:
+	Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
+	bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=; b=L0E1wCOkf6XUkUUV0oNtwjXyme
+	AulMfmvoJONMMoEGYQGd9KXwKx5/k4nU7WRxQQPS4clh+QZQTu2L3tIw9bpvcdSKHq1dQVDLRWgaW
+	UnfoHNvRwKyNV6/q4wru2fjlwIZCJinF2vMEl57DpWyGZDjGDcIm//McYV9qckDfAEvZtdfO3ySRk
+	5s8EA68M7H3HXJoahQ7nqiJPHOF2IL/9XVwkAQ7LsX/6JbZZJhGp0WEHkePAmUmZ1NbzYUodWivFb
+	QeZSK5ucWO+uczOg7RB45dhkhmLJJJAQPDvFWSTNdeaqjL4nkkAdc+MrCyUc8YRXt7cCD8L2klG/R
+	0Locfrjg==;
+Received: from mailout1.samsung.com ([203.254.224.24])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpiGe-00000000NvX-46lK
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 06:30:16 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250305062246epoutp01e1c629bdf51d4a84909c6cb55de5508f~p0-HEH_sL0525605256epoutp01Q
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 06:22:46 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250305062246epoutp01e1c629bdf51d4a84909c6cb55de5508f~p0-HEH_sL0525605256epoutp01Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741155766;
+	bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=W0PBd+yi6The5YrQkeDh0UCvBO0stflph3otVBGx4s98U0wiT6Eq62pXemkHABil9
+	 Hb1KguJQCCUOj6jnLSzdWl+MLDNx+RE+vqKQZH0FGqLU/7ODqc9etxf3wqJ5dngZVM
+	 aYHy9pQIACdPhhFZ5S9ijR7fRf5Q8dN4iKd7vSds=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250305062245epcas5p23067eadd0e690fbee68023f2774468ac~p0-GUv7ny1813318133epcas5p2X;
+	Wed,  5 Mar 2025 06:22:45 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.181]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z72Xg2Z94z4x9Q0; Wed,  5 Mar
+	2025 06:22:43 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	32.02.19933.3BDE7C76; Wed,  5 Mar 2025 15:22:43 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6~p0t1X1d2e1988819888epcas5p2W;
+	Wed,  5 Mar 2025 06:02:59 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250305060259epsmtrp11bd6866051780894bf24883dc4b2621b~p0t1W9LDS0144901449epsmtrp1K;
+	Wed,  5 Mar 2025 06:02:59 +0000 (GMT)
+X-AuditID: b6c32a4a-b87c770000004ddd-7f-67c7edb3dabb
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	5E.5E.33707.219E7C76; Wed,  5 Mar 2025 15:02:58 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250305060256epsmtip2ebb003603dcf4055c8070785ac5dc092~p0tzO5xUE2406324063epsmtip2J;
+	Wed,  5 Mar 2025 06:02:56 +0000 (GMT)
+From: Inbaraj E <inbaraj.e@samsung.com>
+To: linux-media@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: pankaj.dubey@samsung.com, rmfrfs@gmail.com,
+	laurent.pinchart@ideasonboard.com, martink@posteo.de, kernel@puri.sm,
+	mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
+	kernel@pengutronix.de, festevam@gmail.com, gost.dev@samsung.com, Inbaraj E
+	<inbaraj.e@samsung.com>
+Subject: [PATCH] media: imx-mipi-csis: Fix v4l2 mbus frame descriptor type
+Date: Wed,  5 Mar 2025 11:26:55 +0530
+Message-Id: <20250305055655.6622-1-inbaraj.e@samsung.com>
+X-Mailer: git-send-email 2.17.1
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprCJsWRmVeSWpSXmKPExsWy7bCmhu7mt8fTDZ5/5rV4eNXf4uaBnUwW
+	M++1slnc/TOJzWLV1J0sFvPbZrBYdE5cwm6x6fE1VovLu+awWfRs2MpqcW3FRFaLZZv+MFks
+	2vqF3aJxwXsWi7/bN7FYvNgi7iDgsXPWXXaP2R0zWT02repk89i8pN7jxeaZjB79fw08fh0W
+	9Xi04xajR9+WVYwenzfJBXBFZdtkpCampBYppOYl56dk5qXbKnkHxzvHm5oZGOoaWlqYKynk
+	Jeam2iq5+AToumXmAP2hpFCWmFMKFApILC5W0rezKcovLUlVyMgvLrFVSi1IySkwKdArTswt
+	Ls1L18tLLbEyNDAwMgUqTMjOWL/3AlvBRI6KLZt+sjUwNrF3MXJySAiYSPTPWsHYxcjFISSw
+	m1Hi/JWXzBDOJ0aJv382M8I511YeZ4RpWf/oCTOILSSwk1HiyW89iKIvjBLPV31iAkmwCahL
+	bOj+ztbFyMEhIlAl0btSBaSGWWAhk8TrawfYQGqEBbwk+g72gt3BIqAqsXTuUbBeXgFLib4l
+	S1kglslLrN5wAOwkCYFODom767awQSRcJD7feM0KYQtLvDq+BeohKYmX/W1Qto/E/jm/oK7O
+	kDi2fTlUvb3EgStzWECOYxbQlFi/Sx8iLCsx9dQ6sBuYBfgken8/YYKI80rsmAdjK0vMPHIf
+	6gRJiZ2Xd0Ld6SFxf/cGJkigxEqs+/eZeQKj7CyEDQsYGVcxSqYWFOempxabFhjlpZbDIyo5
+	P3cTIzh5anntYHz44IPeIUYmDsZDjBIczEoivK9PHU8X4k1JrKxKLcqPLyrNSS0+xGgKDLOJ
+	zFKiyfnA9J1XEm9oYmlgYmZmZmJpbGaoJM7bvLMlXUggPbEkNTs1tSC1CKaPiYNTqoFp/yeX
+	fW/95x6umugfIr46pDaQgSfQc7mK8bKmrgkWfKcDUhmPbDYykCq/bf35yOpkux/3rzbuP2y4
+	4mlMzbxfWveTbBhzt9W9Xlky/+7VJWwVbtxPuAv8LO0cFgeeaGc5Z/ei4diF2jkmDD+S5s0p
+	qji1j+eO1epDhW2MCZOVV+mZrDDLMFt/Oy/T/ZwYd7C0Wo9FkralP7cu5+6Nzrf3i+gmzin1
+	frfk4zOe5Que71S7z3YjykP7vUBP1KQ7+fuzVx0y2+pw4EqFU2ueVFHYpufPV7Y9LvCu7ZBt
+	qnOPlvpX9LzSNZNpLkv+L59ZK718+F8YxwYdt5v3b61E+slpU/w7+45f/jnvcPY9sU9KLMUZ
+	iYZazEXFiQCh3jAxJwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLLMWRmVeSWpSXmKPExsWy7bCSvK7Qy+PpBhd+W1o8vOpvcfPATiaL
+	mfda2Szu/pnEZrFq6k4Wi/ltM1gsOicuYbfY9Pgaq8XlXXPYLHo2bGW1uLZiIqvFsk1/mCwW
+	bf3CbtG44D2Lxd/tm1gsXmwRdxDw2DnrLrvH7I6ZrB6bVnWyeWxeUu/xYvNMRo/+vwYevw6L
+	ejzacYvRo2/LKkaPz5vkAriiuGxSUnMyy1KL9O0SuDLW773AVjCRo2LLpp9sDYxN7F2MnBwS
+	AiYS6x89Ye5i5OIQEtjOKNG5eAcTREJSYvbv6VBFwhIr/z1nhyj6xChxafV9RpAEm4C6xIbu
+	72wgtohAncT8B3NZQIqYBdYzSXx9DzKWk0NYwEui72Av2CQWAVWJpXOPgm3gFbCU6FuylAVi
+	g7zE6g0HmCcw8ixgZFjFKJpaUJybnptcYKhXnJhbXJqXrpecn7uJERzCWkE7GJet/6t3iJGJ
+	g/EQowQHs5II7+tTx9OFeFMSK6tSi/Lji0pzUosPMUpzsCiJ8yrndKYICaQnlqRmp6YWpBbB
+	ZJk4OKUamOb9rnWOEN4a8zeXsW5n+o31ilpGq33b7367nKhgk9O6iP/zvZueN/Z/rGv7eHJd
+	fUxGlBdvT1HH1qbXhfca779alqk96dVJ19p/G6Otn+e0t8pMdRZb5Lv6Wlc8p9JvnuVhn4w/
+	sc9WXPXk+a2++Q6G++YdqXa49sZCv9yV1z+s+LF6d/5CrdVqvE+MUy9EypzROOL670hSAGva
+	3dw9BT1P/wjrzNo1N1EgPzs1e8u8Yt9tTN0n9XULC9PO5OdM26HQP8XxcNHr7Q9uWc9xZlar
+	rLnwZX7cwm+VrN2sghNjNmZwGS21OrdBN+dsZyfX5/05a1Yoz816pe+j4Fd1920Vb3pj8fVT
+	dXrxf/NalViKMxINtZiLihMBPJ9jr9ACAAA=
+X-CMS-MailID: 20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6
+References: <CGME20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_223530_358659_0FA41008 
-X-CRM114-Status: UNSURE (   6.88  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_063014_815844_6EB21D53 
+X-CRM114-Status: GOOD (  18.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,17 +150,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 05:10, Shawn Lin wrote:
-> Enable Rockchip UFS host driver.
-> 
-> This driver is first introduced on RK3576 SoC, and will be
+For MIPI CSI2 v4l2 mbus frame descriptor type should be set to
+V4L2_MBUS_FRAME_DESC_TYPE_CSI2. Now frame descriptor type is set to
+V4L2_MBUS_FRAME_DESC_TYPE_PARALLEL. So changing the frame descriptor
+type to V4L2_MBUS_FRAME_DESC_TYPE_CSI2.
 
-...on Rockchip RK3576 SoC...
+Fixes: d200de90de2a0 ("media: imx: imx-mipi-csis: Implement the .get_frame_desc() operation")
+Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
+---
+ drivers/media/platform/nxp/imx-mipi-csis.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
+diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
+index 29523bb84d95..bb6550bed230 100644
+--- a/drivers/media/platform/nxp/imx-mipi-csis.c
++++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+@@ -1137,7 +1137,7 @@ static int mipi_csis_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
+ 	if (!csis_fmt)
+ 		return -EPIPE;
+ 
+-	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_PARALLEL;
++	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
+ 	fd->num_entries = 1;
+ 
+ 	entry->flags = 0;
+-- 
+2.17.1
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-
-Best regards,
-Krzysztof
 
