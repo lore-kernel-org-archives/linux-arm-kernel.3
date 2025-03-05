@@ -4,98 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88083C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:23:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF8E1C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:30:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ijoXj6D3ao9xjhKDSHIBWiEm1mRJLo6+iyZj8hvRuuk=; b=j0jtQ+T9Y2yQ/tjCO4S51PTO0X
-	6GsyhXk41EPmEuyMWsFpkh6zvVJWrDTW6iQhuQOEgNb/g+ZncrcW+kgD0PD+Eo6YMIBQERPyNsLBe
-	PjWPlL0GpmmWqTSV+JGcAL01PMpquW5mLt30wKhHb+1Z1KG/wduCH+Ldsb4PbEayAJJk9oNkrXEU5
-	Jb/BTe0snL4ecT6YszvfyS/keh6OwI1Lvkz5vl2mCKw7JCtggKmS79nDPFn4dmzwGm11d7KSjixP8
-	0AWwbP/zSjX+eRCR/XWnGcpLahaz0UMZjBLRCziMCD5J/0HwTP+cqHO7vY5JoY7i/2AsbdADuB0I+
-	EVkfITkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lDbPu0GoIrMl1ekfCD/PMILNRbV5SLzILd3Nw6UHcyw=; b=NKy21wN13k3PT4BO0u3POeMad6
+	J2KPMFC+JCTtEJ0ELs3C/RGsU/kCzed2ciel9xuBV/OnEtgVB5sD2wDkjSnFWNFtgc8eVbuFS4bUo
+	dogog2PePfPDkvmSABLByRuVqsITQFr8z7HpLQgOgnhIqDdVDEjTZOmUTLE+q+kibe0colwXKESA7
+	xl3/zN4tzxyxjAfmFOninKSlM5AJrOgbyqU+Aqwv/baCT+XbPHda2sZhecJu7vvOw71WUN817YYV6
+	FGMIJkwZVp1OOe4vbKqvRvUFDvivrJCLlDFUhCoeB+yxQnXLBfaWCou+Hxd62FQtrxphoHSVTq+CI
+	RYcmqMjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphDZ-000000071eC-1oz2;
-	Wed, 05 Mar 2025 05:22:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tphKJ-0000000722c-2P3V;
+	Wed, 05 Mar 2025 05:29:51 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphC0-000000071Wx-1HTb
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 05:21:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=ijoXj6D3ao9xjhKDSHIBWiEm1mRJLo6+iyZj8hvRuuk=; b=b1fmkE2uPBkYZT44VTsm4Qqfm9
-	4dujO4wOPX4f0U68elZlzAVZT3z/xjpm81+BV2WLvvjnq+J8WHQxzCrZLarH3jN1eUkJZvu8aM0bB
-	d3dIu6ISfI3Yq1pkBICFUILEF5/9c1SPbAGck9UFuFUZSE57kKxciFyoNOyQVr28VvFeWFJEEDW9v
-	FysWWFtk1yWB/gtPQz5POsada0dvSDaddwhBiezYIm2FGdgmKQBDpCOkfF1SHa6rZhT2SpeAIzIH2
-	wUYy2/4vDiO8w1lDrb8GEtXJFqQRuBGkjWg7QvmqR6oSY8HxATRMU8h1FmJ25RWdYS8apvIFI3+CE
-	5hcI91sA==;
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphBw-00000000MvA-3TlR
+	id 1tpgKh-00000006xNs-353I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 05:21:14 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 5255KrIT3769565
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 4 Mar 2025 23:20:53 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741152053;
-	bh=ijoXj6D3ao9xjhKDSHIBWiEm1mRJLo6+iyZj8hvRuuk=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=d3k3IzMMwQHMqRvHIz1I3WSFLblEUfV3ckhP5Qq3G+yJxAUkwldRjER9dxjHSQ/cM
-	 wPY1FFGyDl3rxZA+I/UgPXsEFix7rod1VUimOi8Wk/y8Apqw8+3ukjImUrl/GTipVb
-	 2Ke63Sx08evB8dIGxDSJiYd93XWZ/04huCX5ofMY=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 5255Kqao026316
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 4 Mar 2025 23:20:53 -0600
-Received: from DLEE104.ent.ti.com (157.170.170.34) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 4
- Mar 2025 23:20:52 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE104.ent.ti.com
- (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 4 Mar 2025 23:20:52 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 5255KmhZ080040;
-	Tue, 4 Mar 2025 23:20:48 -0600
-Message-ID: <cf468c08-6808-49a2-b6d9-5c2b00d654de@ti.com>
-Date: Wed, 5 Mar 2025 10:50:47 +0530
+	Wed, 05 Mar 2025 04:26:13 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-2234e5347e2so129595695ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 20:26:10 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741148770; x=1741753570; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=lDbPu0GoIrMl1ekfCD/PMILNRbV5SLzILd3Nw6UHcyw=;
+        b=fVqSKExvklpnyr2IdKQMuPiMH5B9r0cPXct26rcQXmAdD6ZE7E1+aSbAGzc+TRNPQW
+         80x/2vntbaZU9vPFp27lLoqCMaXT2HuI8qy+araLA8mZgQUypsiLr9OjBBxPccqlK/e5
+         8T5etHNkr8UF/Zq+hxDuu7GEOjMRUFHZnxVsMAjXGbtjVmhLBBl7OR7G8FrmzYjcMK7A
+         wbdz2q0OeF9cJsLMaMik9GYXlvefvjCA5OFpf3XxtXybakn3TGRGw95McqsdOQQ5Z4vj
+         If/4eBHP9REb4ULz82ku2RfpOXFK9JHkTecSNGwHEBwST6ILmmwIJg8Zl0094vdDslbv
+         qZGw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741148770; x=1741753570;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=lDbPu0GoIrMl1ekfCD/PMILNRbV5SLzILd3Nw6UHcyw=;
+        b=Z+OjCc2KjJ1WuWa1SPq7SELr5OFpnoF0Jb/YFTl/mmAb7/FF4sBGSJBNHfQ30gCYg+
+         TKkQc2asjOvWR+6dgMqBrreIwvpSnPbUBVQ+7EP3kKsoKwgCkUts8A4fOK99jot3cRMT
+         AXZoZQ+CiMF7ThDMmho5KdxPgg8PTxjCYWkc4yJ/TIOje6kQWJRT9j/F/7iEtIzQXI/B
+         B/UqXFeLbZjW0FAmQB9DBZeQZ0ooQhU14TlgTqMFtdBB0UY9qLx8I8qZg6z/d4HZSf+Y
+         FdW3yapUPFZMu6Eh3c+AowTPrecnYZfBtRRodHNXmFv2EoMx4YFjpNOkX/vBP0fQVDwD
+         IVNQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXZIROyd964AcogTXdKuilA9iCU3Tlj0X2EfF0zt1hhMBGFVXXWK5nWk7lr4ehyOU4kWjbr3ewlrNwz/IkGbF2Q@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx/ljHQMK9q4bCatt/wCGm7hPO/dmsZrYAtR7aIU6FSOI4g8fdW
+	zoxV91Sb92nQtUHMhWaD1waOk6XeFBRyF2VgE2n7EhzTV76WfqGQ
+X-Gm-Gg: ASbGnctBsAaThssK8s41XD/0gtlDqnvw04pVSRnLN5c7monkOzjLvKTy35/mOMDT67t
+	IEzwjHjRcWTkOIqcVL09u4N5n+AU35aKjiws7KKQpzZEF6W7bTGHibW1cvdSu5VEztLA5WN/3Sa
+	0EFKkZwFji23+HqN48V+JDyvOT2Sh7D8pbHrX26OScMQJC3al3qIgoWLOwQSaV3UhQTi5kw3XkT
+	NnTr3T91FLALGeA1Cv1j7VhQi79A3wC2QtDUk8Tig1bkDAoyN8xghX4u2VjUBWy/Ljib32gM4Mj
+	iwqudhBfYMN4Tampnyv7/zIQi8c3NhCNeQ6d4w==
+X-Google-Smtp-Source: AGHT+IE5O1ZVuOwmp//oQrwhNgSp7QZxuUhf3G7FCkClB32cJAQnuuVkN/3c86LEBjvOfGY+rzBunA==
+X-Received: by 2002:a05:6a00:23c4:b0:736:3f4d:4d49 with SMTP id d2e1a72fcca58-73682b8b965mr2481120b3a.8.1741148770219;
+        Tue, 04 Mar 2025 20:26:10 -0800 (PST)
+Received: from debian ([2601:646:8f03:9fee:cf74:c30d:9ff:fbc6])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-736560f5e6esm5099715b3a.104.2025.03.04.20.26.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 20:26:09 -0800 (PST)
+From: Fan Ni <nifan.cxl@gmail.com>
+X-Google-Original-From: Fan Ni <fan.ni@samsung.com>
+Date: Tue, 4 Mar 2025 20:26:01 -0800
+To: Shradha Todi <shradha.t@samsung.com>
+Cc: 'Fan Ni' <nifan.cxl@gmail.com>,
+	'Krzysztof =?utf-8?Q?Wilczy=C5=84ski'?= <kw@linux.com>,
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-perf-users@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com,
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com,
+	a.manzanares@samsung.com, pankaj.dubey@samsung.com,
+	cassel@kernel.org, 18255117159@163.com, xueshuai@linux.alibaba.com,
+	renyu.zj@linux.alibaba.com, will@kernel.org, mark.rutland@arm.com
+Subject: Re: [PATCH v7 5/5] Add debugfs based statistical counter support in
+ DWC
+Message-ID: <Z8fSWcR_aXyxmFEZ@debian>
+References: <20250221131548.59616-1-shradha.t@samsung.com>
+ <CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
+ <20250221131548.59616-6-shradha.t@samsung.com>
+ <Z8XuuNb6TRevUlHH@debian>
+ <20250303194228.GB1552306@rocinante>
+ <Z8YZEALV71PUkXpF@debian>
+ <061401db8d28$5f0a4b40$1d1ee1c0$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Add ICSSG FW Stats
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Meghana Malladi <m-malladi@ti.com>, Diogo Ivo <diogo.ivo@siemens.com>,
-        Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@google.com>,
-        "David
- S. Miller" <davem@davemloft.net>,
-        Andrew Lunn <andrew+netdev@lunn.ch>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>
-References: <20250227093712.2130561-1-danishanwar@ti.com>
- <20250303172543.249a4fc2@kernel.org>
- <33c38844-4fbe-469c-bb5f-06bdb7721114@ti.com>
- <20250304162437.0160f687@kernel.org>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250304162437.0160f687@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <061401db8d28$5f0a4b40$1d1ee1c0$@samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_052113_327315_38DCE5AB 
-X-CRM114-Status: GOOD (  24.93  )
+X-CRM114-CacheID: sfid-20250304_202611_891223_52C0C5EC 
+X-CRM114-Status: GOOD (  23.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,82 +114,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub,
-
-On 05/03/25 5:54 am, Jakub Kicinski wrote:
-> On Tue, 4 Mar 2025 13:46:39 +0530 MD Danish Anwar wrote:
->> On 04/03/25 6:55 am, Jakub Kicinski wrote:
->>> On Thu, 27 Feb 2025 15:07:12 +0530 MD Danish Anwar wrote:  
->>>> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
->>>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
->>>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
->>>> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
->>>> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),  
->>>
->>> I presume frame preemption is implemented in silicon? If yes -
->>> what makes these "FW statistics"? Does the FW collect them from   
->>
->> The statistics are maintained / updated by firmware and thus the name.
->>
->> Preemption is implemented partially in both the hardware and firmware.
->> The STATE MACHINE for preemption is in the firmware. The decision to
->> when to PREEMEPT / ASSEMBLE a packet is made in firmware.
->>
->> These preemption statistics are updated by the firmware based on the
->> action performed by the firmware. Driver can read these to know the
->> statistics of preemption. These stats will be able used by
->> ethtool_mm_stats once the support for Preemption is added in the driver.
+On Tue, Mar 04, 2025 at 10:40:43PM +0530, Shradha Todi wrote:
 > 
-> That was going to be my next question. If the statistic is suitable 
-> for a standard interface it should not be reported via ethtool -S.
 > 
-
-Sure. I will not report it via `ethtool -S`. This will only be reported
-via ethtool_get_mm_stats. I will do something similar to
-`icssg_miig_stats`. Have a boolean to indicate whether the stat is
-getting reported by some standard interface or not.
-
-> Please leave the stats for unimplemented features out.
+> > -----Original Message-----
+> > From: Fan Ni <nifan.cxl@gmail.com>
+> > Sent: 04 March 2025 02:33
+> > To: Krzysztof Wilczyński <kw@linux.com>
+> > Cc: Fan Ni <nifan.cxl@gmail.com>; Shradha Todi <shradha.t@samsung.com>; linux-kernel@vger.kernel.org; linux-
+> > pci@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-perf-users@vger.kernel.org; manivannan.sadhasivam@linaro.org;
+> > lpieralisi@kernel.org; robh@kernel.org; bhelgaas@google.com; jingoohan1@gmail.com; Jonathan.Cameron@huawei.com;
+> > a.manzanares@samsung.com; pankaj.dubey@samsung.com; cassel@kernel.org; 18255117159@163.com;
+> > xueshuai@linux.alibaba.com; renyu.zj@linux.alibaba.com; will@kernel.org; mark.rutland@arm.com
+> > Subject: Re: [PATCH v7 5/5] Add debugfs based statistical counter support in DWC
+> > 
+> > On Tue, Mar 04, 2025 at 04:42:28AM +0900, Krzysztof Wilczyński wrote:
+> > > Hello,
+> > >
+> > > [...]
+> > > > > +static ssize_t counter_value_read(struct file *file, char __user
+> > > > > +*buf, size_t count, loff_t *ppos) {
+> > > > > +	struct dwc_pcie_rasdes_priv *pdata = file->private_data;
+> > > > > +	struct dw_pcie *pci = pdata->pci;
+> > > > > +	struct dwc_pcie_rasdes_info *rinfo = pci->debugfs->rasdes_info;
+> > > > > +	char debugfs_buf[DWC_DEBUGFS_BUF_MAX];
+> > > > > +	ssize_t pos;
+> > > > > +	u32 val;
+> > > > > +
+> > > > > +	mutex_lock(&rinfo->reg_event_lock);
+> > > > > +	set_event_number(pdata, pci, rinfo);
+> > > > > +	val = dw_pcie_readl_dbi(pci, rinfo->ras_cap_offset + RAS_DES_EVENT_COUNTER_DATA_REG);
+> > > > > +	mutex_unlock(&rinfo->reg_event_lock);
+> > > > > +	pos = scnprintf(debugfs_buf, DWC_DEBUGFS_BUF_MAX, "Counter
+> > > > > +value: %d\n", val);
+> > > > > +
+> > > > > +	return simple_read_from_buffer(buf, count, ppos, debugfs_buf,
+> > > > > +pos); }
+> > > >
+> > > > Do we need to check whether the counter is enabled or not for the
+> > > > event before retrieving the counter value?
+> > >
+> > > I believe, we have a patch that aims to address, have a look at:
+> > >
+> > >
+> > > https://lore.kernel.org/linux-pci/20250225171239.19574-1-manivannan.sa
+> > > dhasivam@linaro.org
+> > 
+> > Maybe I missed something, that seems to fix counter_enable_read(), but here is to retrieve counter value.
+> > How dw_pcie_readl_dbi() can return something like "Counter Disabled"?
+> > 
+> > Fan
 > 
+> Hey Fan,
+> So the counter value will show 0 in case it is disabled so there will not be any issues as per say. We could add the
+> check here but I feel I have already exposed the functionality to check if a counter is enabled or disabled, (by reading the
+> counter_enable debugfs entry) so this could be handled in user space to only read the counter if it's enabled.
+Ok. 
+Returning 0 when the counter is disabled makes sense to me.
 
-Sure. For now I will remove the FW_PREEMPT stats since the feature is
-not implemented yet. Once the implementation is done, I will add the
-stats to icssg_all_pa_stats() and read it via
-emac_update_hardware_stats() and report it via ethtool_get_mm_stats.
+Just some thought.
 
->>>> +/* Incremented if a packet is dropped at PRU because of a rule violation */
->>>> +#define FW_DROPPED_PKT		0x00F8  
->>>
->>> Instead of adding comments here please add a file under
->>> Documentation/networking/device_drivers/ with the explanations.
->>> That's far more likely to be discovered by users, no?  
->>
->> Sure I will drop these MACRO comments and create a .rst file in
->> Documentation/networking/device_drivers/
->>
->> One question though, should I create a table for the stats and it's
->> description or should I create a section for each stats?
->>
->> Something like this,
->>
->> FW_RTU_PKT_DROP
->> ---------------
+It seems natural to me if we make "counter_value" only visiable to
+users when the counter is enabled. 
+
+Fan
 > 
-> Let's document the user-visible names! The strings from ethtool -S
+> > >
+> > > Thank you!
+> > >
+> > > 	Krzysztof
 > 
->> Diagnostic error counter which increments when RTU drops a locally
->> injected packet due to port being disabled or rule violation.
->>
->> Please let me know what do you think.
 > 
-> Taking inspiration from:
->   Documentation/networking/device_drivers/ethernet/meta/fbnic.rst
-> should be a safe choice, I hope.
-
-This looks to be a good choice. I will do the changes and send out a v2.
-Thanks for the review.
-
--- 
-Thanks and Regards,
-Danish
 
