@@ -4,84 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18015C282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:50:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FB48C282DC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:53:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=46R3UjR8U080i9lalYTR+/jDd0aKmnmmB/pxW+KPQGE=; b=x4DFlhxmyLj+YawaG5CanFWFRl
-	w2e0sMY8HG+K0HJcw4s5jAsQvFEx2Z14T0Q3yi8WPdztG+EMU1eBHxeOQetfkeJ7xeFQusoxTQXRl
-	LfoWzZp0VWtw2nLlRYRnC2RQ5qDaLkDYNrVkVRAR5B7p7IoXMVZzb1V5msc8Wsl9BMd99WhaQ875m
-	VWjN38uUcQ/mQtyqGBEy0cKadCQDJFrVdZN0zT2Fjhqu4zcrnlFDNzQSGCi6degVwMGN8DbG1mrXs
-	LB/DZStVjfUq445Art2JRbcFlRNXEc1FygFA30M4Y+jGh8wTtAT7gFFXmSxaelPH1Yzm6xqHBf8rZ
-	4K/3NxjA==;
+	bh=n4fDAkyw/uhxe8G05E84yrw6xnoFmgWvI3tKZtq2rSs=; b=Jtv3Nt3cYW2rpnLjmG5A6ELCvn
+	UBFeZsUQa14tf6FE3ejE9w/jUyFgcGHkLe+v//y6vRbtzLP6ilpVzteRLqSVgX9WHloRL4JOnMxSn
+	4s2zCyz0ERdQ/djUHArHoFlbYRdb8sfn+WctYVxlXSi2PEac/9djcUsk0S5Ox7GBzumDG9DLxZqy5
+	HpYcxTDBgOykAla1iZApJs01h5S3P9vEP0VEHE2DdZF+zSSVd6OhFFYKBLFPUmzqJQ2fN5H/Pf2+I
+	YOVTrTuEJT0rFFClfjay5ZN/hjsKHs3d5wXtY+hrYv4YpQWuBPLM0w0SSjxanOxxiKoOFrbg6gtgY
+	rf3R95lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmKV-00000007kDt-2vKa;
-	Wed, 05 Mar 2025 10:50:23 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tpmNi-00000007kq4-1EXq;
+	Wed, 05 Mar 2025 10:53:42 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplmM-00000007e0A-30oo
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 10:15:08 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 525AEasi3365532
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 5 Mar 2025 04:14:36 -0600
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741169676;
-	bh=46R3UjR8U080i9lalYTR+/jDd0aKmnmmB/pxW+KPQGE=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=S8BMwjIosw6i9LWbpvSgiG1qla6WpyocNO2iebRIIH5TsjOjRlq4yi2s2C2gasHcK
-	 V4EhCCrkoOi31lzlX5USasoPBSKr48PGKC2uhzC9AIby3iiWCOd7NO25kQ4QYF1Sg7
-	 bxtVCUN8vf9z/20VGRe5l9pTMCYVw8+2kRIWZXLA=
-Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 525AEaxs005493
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 5 Mar 2025 04:14:36 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE100.ent.ti.com
- (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 5
- Mar 2025 04:14:35 -0600
-Received: from fllvsmtp8.itg.ti.com (10.64.41.158) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 5 Mar 2025 04:14:35 -0600
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvsmtp8.itg.ti.com (8.15.2/8.15.2) with ESMTP id 525AEZQe130438;
-	Wed, 5 Mar 2025 04:14:35 -0600
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 525AEYeI005841;
-	Wed, 5 Mar 2025 04:14:35 -0600
-From: Meghana Malladi <m-malladi@ti.com>
-To: <rogerq@kernel.org>, <danishanwar@ti.com>, <pabeni@redhat.com>,
-        <kuba@kernel.org>, <edumazet@google.com>, <davem@davemloft.net>,
-        <andrew+netdev@lunn.ch>
-CC: <bpf@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <matthias.schiffer@ew.tq-group.com>, <krzysztof.kozlowski@linaro.org>,
-        <dan.carpenter@linaro.org>, <m-malladi@ti.com>,
-        <diogo.ivo@siemens.com>, <s.hauer@pengutronix.de>,
-        <glaroque@baylibre.com>, <schnelle@linux.ibm.com>, <arnd@kernel.org>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <srk@ti.com>, Vignesh Raghavendra
-	<vigneshr@ti.com>
-Subject: [PATCH net-next v4 3/3] net: ti: icssg-prueth: Add XDP support
-Date: Wed, 5 Mar 2025 15:44:22 +0530
-Message-ID: <20250305101422.1908370-4-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250305101422.1908370-1-m-malladi@ti.com>
-References: <20250305101422.1908370-1-m-malladi@ti.com>
+	id 1tplt1-00000007fBi-1hyh;
+	Wed, 05 Mar 2025 10:22:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=n4fDAkyw/uhxe8G05E84yrw6xnoFmgWvI3tKZtq2rSs=; b=pJid1FHlhmvhTprAPkmVDlJvPu
+	wlwKv9FuKC1W+fwINcrFCnwCZMlBklUf16MB23bCw4dYQnEdsgf2oK86Dq8q7hykrf/j7nWSZ9i1I
+	7lUJRhifm328x9fW03maoX2vFjcUB1GFKXFHMWTlBwIPW8/mO+gCkBYOZi4nDfSQmAyUNj85WSWau
+	GsnxrHVqkW0bxdWiiTlHMwIG9P8zcwpZyyITy6dzyBNjkAXLVAOUlR/RESFl0FAg8nIBLybMHPJHX
+	uI+fOnea8woEelqoHcL/DO8aIyJrQYazfVQ6IHS2wnU1gHr6QMRbhMzInehBh40QDKBP60hyY6Wzo
+	4ash0VHQ==;
+Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tplsr-0001Y0-7Q; Wed, 05 Mar 2025 11:21:49 +0100
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Shresth Prasad <shresthprasad7@gmail.com>,
+ Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+ Detlev Casanova <detlev.casanova@collabora.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Yao Zi <ziyao@disroot.org>
+Cc: linux-mmc@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ Yao Zi <ziyao@disroot.org>
+Subject: Re: [PATCH 6/8] clk: rockchip: rk3528: Add SD/SDIO tuning clocks in GRF
+ region
+Date: Wed, 05 Mar 2025 11:21:48 +0100
+Message-ID: <2583035.OBFZWjSADL@diego>
+In-Reply-To: <20250301104724.36399-1-ziyao@disroot.org>
+References: <20250301104250.36295-1-ziyao@disroot.org>
+ <20250301104724.36399-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_021506_864924_9EC23250 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20250305_022159_462494_7D085B39 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,605 +83,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Roger Quadros <rogerq@kernel.org>
+Hi,
 
-Add native XDP support. We do not support zero copy yet.
+Am Samstag, 1. M=C3=A4rz 2025, 11:47:24 MEZ schrieb Yao Zi:
+> These clocks locate in VO and VPU GRF, serving for SD/SDIO controller
+> tuning purpose. Add their definitions and register them in driver if
+> corresponding GRF is available.
 
-Signed-off-by: Roger Quadros <rogerq@kernel.org>
-Signed-off-by: MD Danish Anwar <danishanwar@ti.com>
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
-Changes from v3 (v4-v3):
-- few cosmetic changes inside emac_xmit_xdp_frame() func
-- change xdp_state type to u32 from int
-Above changes are suggested by Dan Carpenter <dan.carpenter@linaro.org>
-- Few improvements in emac_run_xdp case handling as suggested by 
-Roger Quadros <rogerq@kernel.org>
+(no critique, just an observation :-) )
 
- drivers/net/ethernet/ti/icssg/icssg_common.c | 225 +++++++++++++++++--
- drivers/net/ethernet/ti/icssg/icssg_prueth.c | 128 ++++++++++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  17 ++
- 3 files changed, 355 insertions(+), 15 deletions(-)
+this puts a completely new meaning on the "general register files"
+as dumping ground ;-) .
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index fee1204db367..df5da7a98abf 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -98,11 +98,20 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
- {
- 	struct cppi5_host_desc_t *first_desc, *next_desc;
- 	dma_addr_t buf_dma, next_desc_dma;
-+	struct prueth_swdata *swdata;
-+	struct page *page;
- 	u32 buf_dma_len;
- 
- 	first_desc = desc;
- 	next_desc = first_desc;
- 
-+	swdata = cppi5_hdesc_get_swdata(desc);
-+	if (swdata->type == PRUETH_SWDATA_PAGE) {
-+		page = swdata->data.page;
-+		page_pool_recycle_direct(page->pp, swdata->data.page);
-+		goto free_desc;
-+	}
-+
- 	cppi5_hdesc_get_obuf(first_desc, &buf_dma, &buf_dma_len);
- 	k3_udma_glue_tx_cppi5_to_dma_addr(tx_chn->tx_chn, &buf_dma);
- 
-@@ -126,6 +135,7 @@ void prueth_xmit_free(struct prueth_tx_chn *tx_chn,
- 		k3_cppi_desc_pool_free(tx_chn->desc_pool, next_desc);
- 	}
- 
-+free_desc:
- 	k3_cppi_desc_pool_free(tx_chn->desc_pool, first_desc);
- }
- EXPORT_SYMBOL_GPL(prueth_xmit_free);
-@@ -139,6 +149,7 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
- 	struct prueth_swdata *swdata;
- 	struct prueth_tx_chn *tx_chn;
- 	unsigned int total_bytes = 0;
-+	struct xdp_frame *xdpf;
- 	struct sk_buff *skb;
- 	dma_addr_t desc_dma;
- 	int res, num_tx = 0;
-@@ -161,16 +172,28 @@ int emac_tx_complete_packets(struct prueth_emac *emac, int chn,
- 		desc_tx = k3_cppi_desc_pool_dma2virt(tx_chn->desc_pool,
- 						     desc_dma);
- 		swdata = cppi5_hdesc_get_swdata(desc_tx);
--		prueth_xmit_free(tx_chn, desc_tx);
--		if (swdata->type != PRUETH_SWDATA_SKB)
-+
-+		switch (swdata->type) {
-+		case PRUETH_SWDATA_SKB:
-+			skb = swdata->data.skb;
-+			dev_sw_netstats_tx_add(skb->dev, 1, skb->len);
-+			total_bytes += skb->len;
-+			napi_consume_skb(skb, budget);
-+			break;
-+		case PRUETH_SWDATA_XDPF:
-+			xdpf = swdata->data.xdpf;
-+			dev_sw_netstats_tx_add(ndev, 1, xdpf->len);
-+			total_bytes += xdpf->len;
-+			xdp_return_frame(xdpf);
-+			break;
-+		default:
-+			netdev_err(ndev, "tx_complete: invalid swdata type %d\n", swdata->type);
-+			prueth_xmit_free(tx_chn, desc_tx);
-+			ndev->stats.tx_dropped++;
- 			continue;
-+		}
- 
--		skb = swdata->data.skb;
--		ndev = skb->dev;
--		ndev->stats.tx_packets++;
--		ndev->stats.tx_bytes += skb->len;
--		total_bytes += skb->len;
--		napi_consume_skb(skb, budget);
-+		prueth_xmit_free(tx_chn, desc_tx);
- 		num_tx++;
- 	}
- 
-@@ -529,7 +552,153 @@ void emac_rx_timestamp(struct prueth_emac *emac,
- 	ssh->hwtstamp = ns_to_ktime(ns);
- }
- 
--static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
-+/**
-+ * emac_xmit_xdp_frame - transmits an XDP frame
-+ * @emac: emac device
-+ * @xdpf: data to transmit
-+ * @page: page from page pool if already DMA mapped
-+ * @q_idx: queue id
-+ *
-+ * Return: XDP state
-+ */
-+u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
-+			struct xdp_frame *xdpf,
-+			struct page *page,
-+			unsigned int q_idx)
-+{
-+	struct cppi5_host_desc_t *first_desc;
-+	struct net_device *ndev = emac->ndev;
-+	struct prueth_tx_chn *tx_chn;
-+	dma_addr_t desc_dma, buf_dma;
-+	struct prueth_swdata *swdata;
-+	u32 *epib;
-+	int ret;
-+
-+	if (q_idx >= PRUETH_MAX_TX_QUEUES) {
-+		netdev_err(ndev, "xdp tx: invalid q_id %d\n", q_idx);
-+		return ICSSG_XDP_CONSUMED;	/* drop */
-+	}
-+
-+	tx_chn = &emac->tx_chns[q_idx];
-+
-+	first_desc = k3_cppi_desc_pool_alloc(tx_chn->desc_pool);
-+	if (!first_desc) {
-+		netdev_dbg(ndev, "xdp tx: failed to allocate descriptor\n");
-+		goto drop_free_descs;	/* drop */
-+	}
-+
-+	if (page) { /* already DMA mapped by page_pool */
-+		buf_dma = page_pool_get_dma_addr(page);
-+		buf_dma += xdpf->headroom + sizeof(struct xdp_frame);
-+	} else { /* Map the linear buffer */
-+		buf_dma = dma_map_single(tx_chn->dma_dev, xdpf->data, xdpf->len, DMA_TO_DEVICE);
-+		if (dma_mapping_error(tx_chn->dma_dev, buf_dma)) {
-+			netdev_err(ndev, "xdp tx: failed to map data buffer\n");
-+			goto drop_free_descs;	/* drop */
-+		}
-+	}
-+
-+	cppi5_hdesc_init(first_desc, CPPI5_INFO0_HDESC_EPIB_PRESENT,
-+			 PRUETH_NAV_PS_DATA_SIZE);
-+	cppi5_hdesc_set_pkttype(first_desc, 0);
-+	epib = first_desc->epib;
-+	epib[0] = 0;
-+	epib[1] = 0;
-+
-+	/* set dst tag to indicate internal qid at the firmware which is at
-+	 * bit8..bit15. bit0..bit7 indicates port num for directed
-+	 * packets in case of switch mode operation
-+	 */
-+	cppi5_desc_set_tags_ids(&first_desc->hdr, 0, (emac->port_id | (q_idx << 8)));
-+	k3_udma_glue_tx_dma_to_cppi5_addr(tx_chn->tx_chn, &buf_dma);
-+	cppi5_hdesc_attach_buf(first_desc, buf_dma, xdpf->len, buf_dma, xdpf->len);
-+	swdata = cppi5_hdesc_get_swdata(first_desc);
-+	if (page) {
-+		swdata->type = PRUETH_SWDATA_PAGE;
-+		swdata->data.page = page;
-+	} else {
-+		swdata->type = PRUETH_SWDATA_XDPF;
-+		swdata->data.xdpf = xdpf;
-+	}
-+
-+	cppi5_hdesc_set_pktlen(first_desc, xdpf->len);
-+	desc_dma = k3_cppi_desc_pool_virt2dma(tx_chn->desc_pool, first_desc);
-+
-+	ret = k3_udma_glue_push_tx_chn(tx_chn->tx_chn, first_desc, desc_dma);
-+	if (ret) {
-+		netdev_err(ndev, "xdp tx: push failed: %d\n", ret);
-+		goto drop_free_descs;
-+	}
-+
-+	return ICSSG_XDP_TX;
-+
-+drop_free_descs:
-+	prueth_xmit_free(tx_chn, first_desc);
-+	return ICSSG_XDP_CONSUMED;
-+}
-+EXPORT_SYMBOL_GPL(emac_xmit_xdp_frame);
-+
-+/**
-+ * emac_run_xdp - run an XDP program
-+ * @emac: emac device
-+ * @xdp: XDP buffer containing the frame
-+ * @page: page with RX data if already DMA mapped
-+ * @len: Rx descriptor packet length
-+ *
-+ * Return: XDP state
-+ */
-+static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
-+			struct page *page, u32 *len)
-+{
-+	struct net_device *ndev = emac->ndev;
-+	struct bpf_prog *xdp_prog;
-+	struct xdp_frame *xdpf;
-+	u32 pkt_len = *len;
-+	u32 act, result;
-+	int q_idx, err;
-+
-+	xdp_prog = READ_ONCE(emac->xdp_prog);
-+	act = bpf_prog_run_xdp(xdp_prog, xdp);
-+	switch (act) {
-+	case XDP_PASS:
-+		return ICSSG_XDP_PASS;
-+	case XDP_TX:
-+		/* Send packet to TX ring for immediate transmission */
-+		xdpf = xdp_convert_buff_to_frame(xdp);
-+		if (unlikely(!xdpf)) {
-+			ndev->stats.tx_dropped++;
-+			goto drop;
-+		}
-+
-+		q_idx = smp_processor_id() % emac->tx_ch_num;
-+		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
-+		if (result == ICSSG_XDP_CONSUMED)
-+			goto drop;
-+
-+		dev_sw_netstats_rx_add(ndev, xdpf->len);
-+		return result;
-+	case XDP_REDIRECT:
-+		err = xdp_do_redirect(emac->ndev, xdp, xdp_prog);
-+		if (err)
-+			goto drop;
-+
-+		dev_sw_netstats_rx_add(ndev, pkt_len);
-+		return ICSSG_XDP_REDIR;
-+	default:
-+		bpf_warn_invalid_xdp_action(emac->ndev, xdp_prog, act);
-+		fallthrough;
-+	case XDP_ABORTED:
-+drop:
-+		trace_xdp_exception(emac->ndev, xdp_prog, act);
-+		fallthrough; /* handle aborts by dropping packet */
-+	case XDP_DROP:
-+		ndev->stats.rx_dropped++;
-+		page_pool_recycle_direct(emac->rx_chns.pg_pool, page);
-+		return ICSSG_XDP_CONSUMED;
-+	}
-+}
-+
-+static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
- {
- 	struct prueth_rx_chn *rx_chn = &emac->rx_chns;
- 	u32 buf_dma_len, pkt_len, port_id = 0;
-@@ -540,10 +709,12 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
- 	struct page *page, *new_page;
- 	struct page_pool *pool;
- 	struct sk_buff *skb;
-+	struct xdp_buff xdp;
- 	u32 *psdata;
- 	void *pa;
- 	int ret;
- 
-+	*xdp_state = 0;
- 	pool = rx_chn->pg_pool;
- 	ret = k3_udma_glue_pop_rx_chn(rx_chn->rx_chn, flow_id, &desc_dma);
- 	if (ret) {
-@@ -584,9 +755,21 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id)
- 		goto requeue;
- 	}
- 
--	/* prepare skb and send to n/w stack */
- 	pa = page_address(page);
--	skb = napi_build_skb(pa, PAGE_SIZE);
-+	if (emac->xdp_prog) {
-+		xdp_init_buff(&xdp, PAGE_SIZE, &rx_chn->xdp_rxq);
-+		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
-+
-+		*xdp_state = emac_run_xdp(emac, &xdp, page, &pkt_len);
-+		if (*xdp_state == ICSSG_XDP_PASS)
-+			skb = xdp_build_skb_from_buff(&xdp);
-+		else
-+			goto requeue;
-+	} else {
-+		/* prepare skb and send to n/w stack */
-+		skb = napi_build_skb(pa, PAGE_SIZE);
-+	}
-+
- 	if (!skb) {
- 		ndev->stats.rx_dropped++;
- 		page_pool_recycle_direct(pool, page);
-@@ -849,13 +1032,23 @@ static void prueth_tx_cleanup(void *data, dma_addr_t desc_dma)
- 	struct prueth_tx_chn *tx_chn = data;
- 	struct cppi5_host_desc_t *desc_tx;
- 	struct prueth_swdata *swdata;
-+	struct xdp_frame *xdpf;
- 	struct sk_buff *skb;
- 
- 	desc_tx = k3_cppi_desc_pool_dma2virt(tx_chn->desc_pool, desc_dma);
- 	swdata = cppi5_hdesc_get_swdata(desc_tx);
--	if (swdata->type == PRUETH_SWDATA_SKB) {
-+
-+	switch (swdata->type) {
-+	case PRUETH_SWDATA_SKB:
- 		skb = swdata->data.skb;
- 		dev_kfree_skb_any(skb);
-+		break;
-+	case PRUETH_SWDATA_XDPF:
-+		xdpf = swdata->data.xdpf;
-+		xdp_return_frame(xdpf);
-+		break;
-+	default:
-+		break;
- 	}
- 
- 	prueth_xmit_free(tx_chn, desc_tx);
-@@ -892,15 +1085,18 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- 		PRUETH_RX_FLOW_DATA_SR1 : PRUETH_RX_FLOW_DATA;
- 	int flow = emac->is_sr1 ?
- 		PRUETH_MAX_RX_FLOWS_SR1 : PRUETH_MAX_RX_FLOWS;
-+	int xdp_state_or = 0;
- 	int num_rx = 0;
- 	int cur_budget;
-+	u32 xdp_state;
- 	int ret;
- 
- 	while (flow--) {
- 		cur_budget = budget - num_rx;
- 
- 		while (cur_budget--) {
--			ret = emac_rx_packet(emac, flow);
-+			ret = emac_rx_packet(emac, flow, &xdp_state);
-+			xdp_state_or |= xdp_state;
- 			if (ret)
- 				break;
- 			num_rx++;
-@@ -910,6 +1106,9 @@ int icssg_napi_rx_poll(struct napi_struct *napi_rx, int budget)
- 			break;
- 	}
- 
-+	if (xdp_state_or & ICSSG_XDP_REDIR)
-+		xdp_do_flush();
-+
- 	if (num_rx < budget && napi_complete_done(napi_rx, num_rx)) {
- 		if (unlikely(emac->rx_pace_timeout_ns)) {
- 			hrtimer_start(&emac->rx_hrtimer,
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 3ff8c322f9d9..c4a995630eca 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -559,6 +559,33 @@ const struct icss_iep_clockops prueth_iep_clockops = {
- 	.perout_enable = prueth_perout_enable,
- };
- 
-+static int prueth_create_xdp_rxqs(struct prueth_emac *emac)
-+{
-+	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-+	struct page_pool *pool = emac->rx_chns.pg_pool;
-+	int ret;
-+
-+	ret = xdp_rxq_info_reg(rxq, emac->ndev, 0, emac->napi_rx.napi_id);
-+	if (ret)
-+		return ret;
-+
-+	ret = xdp_rxq_info_reg_mem_model(rxq, MEM_TYPE_PAGE_POOL, pool);
-+	if (ret)
-+		xdp_rxq_info_unreg(rxq);
-+
-+	return ret;
-+}
-+
-+static void prueth_destroy_xdp_rxqs(struct prueth_emac *emac)
-+{
-+	struct xdp_rxq_info *rxq = &emac->rx_chns.xdp_rxq;
-+
-+	if (!xdp_rxq_info_is_reg(rxq))
-+		return;
-+
-+	xdp_rxq_info_unreg(rxq);
-+}
-+
- static int icssg_prueth_add_mcast(struct net_device *ndev, const u8 *addr)
- {
- 	struct net_device *real_dev;
-@@ -780,10 +807,14 @@ static int emac_ndo_open(struct net_device *ndev)
- 	if (ret)
- 		goto free_tx_ts_irq;
- 
--	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
-+	ret = prueth_create_xdp_rxqs(emac);
- 	if (ret)
- 		goto reset_rx_chn;
- 
-+	ret = k3_udma_glue_enable_rx_chn(emac->rx_chns.rx_chn);
-+	if (ret)
-+		goto destroy_xdp_rxqs;
-+
- 	for (i = 0; i < emac->tx_ch_num; i++) {
- 		ret = k3_udma_glue_enable_tx_chn(emac->tx_chns[i].tx_chn);
- 		if (ret)
-@@ -809,6 +840,8 @@ static int emac_ndo_open(struct net_device *ndev)
- 	 * any SKB for completion. So set false to free_skb
- 	 */
- 	prueth_reset_tx_chan(emac, i, false);
-+destroy_xdp_rxqs:
-+	prueth_destroy_xdp_rxqs(emac);
- reset_rx_chn:
- 	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, false);
- free_tx_ts_irq:
-@@ -879,7 +912,7 @@ static int emac_ndo_stop(struct net_device *ndev)
- 	k3_udma_glue_tdown_rx_chn(emac->rx_chns.rx_chn, true);
- 
- 	prueth_reset_rx_chan(&emac->rx_chns, max_rx_flows, true);
--
-+	prueth_destroy_xdp_rxqs(emac);
- 	napi_disable(&emac->napi_rx);
- 	hrtimer_cancel(&emac->rx_hrtimer);
- 
-@@ -1024,6 +1057,93 @@ static int emac_ndo_vlan_rx_del_vid(struct net_device *ndev,
- 	return 0;
- }
- 
-+/**
-+ * emac_xdp_xmit - Implements ndo_xdp_xmit
-+ * @dev: netdev
-+ * @n: number of frames
-+ * @frames: array of XDP buffer pointers
-+ * @flags: XDP extra info
-+ *
-+ * Return: number of frames successfully sent. Failed frames
-+ * will be free'ed by XDP core.
-+ *
-+ * For error cases, a negative errno code is returned and no-frames
-+ * are transmitted (caller must handle freeing frames).
-+ **/
-+static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frames,
-+			 u32 flags)
-+{
-+	struct prueth_emac *emac = netdev_priv(dev);
-+	struct net_device *ndev = emac->ndev;
-+	struct xdp_frame *xdpf;
-+	unsigned int q_idx;
-+	int nxmit = 0;
-+	u32 err;
-+	int i;
-+
-+	q_idx = smp_processor_id() % emac->tx_ch_num;
-+
-+	if (unlikely(flags & ~XDP_XMIT_FLAGS_MASK))
-+		return -EINVAL;
-+
-+	for (i = 0; i < n; i++) {
-+		xdpf = frames[i];
-+		err = emac_xmit_xdp_frame(emac, xdpf, NULL, q_idx);
-+		if (err != ICSSG_XDP_TX) {
-+			ndev->stats.tx_dropped++;
-+			break;
-+		}
-+		nxmit++;
-+	}
-+
-+	return nxmit;
-+}
-+
-+/**
-+ * emac_xdp_setup - add/remove an XDP program
-+ * @emac: emac device
-+ * @bpf: XDP program
-+ *
-+ * Return: Always 0 (Success)
-+ **/
-+static int emac_xdp_setup(struct prueth_emac *emac, struct netdev_bpf *bpf)
-+{
-+	struct bpf_prog *prog = bpf->prog;
-+	xdp_features_t val;
-+
-+	val = NETDEV_XDP_ACT_BASIC | NETDEV_XDP_ACT_REDIRECT |
-+	      NETDEV_XDP_ACT_NDO_XMIT;
-+	xdp_set_features_flag(emac->ndev, val);
-+
-+	if (!emac->xdpi.prog && !prog)
-+		return 0;
-+
-+	WRITE_ONCE(emac->xdp_prog, prog);
-+
-+	xdp_attachment_setup(&emac->xdpi, bpf);
-+
-+	return 0;
-+}
-+
-+/**
-+ * emac_ndo_bpf - implements ndo_bpf for icssg_prueth
-+ * @ndev: network adapter device
-+ * @bpf: XDP program
-+ *
-+ * Return: 0 on success, error code on failure.
-+ **/
-+static int emac_ndo_bpf(struct net_device *ndev, struct netdev_bpf *bpf)
-+{
-+	struct prueth_emac *emac = netdev_priv(ndev);
-+
-+	switch (bpf->command) {
-+	case XDP_SETUP_PROG:
-+		return emac_xdp_setup(emac, bpf);
-+	default:
-+		return -EINVAL;
-+	}
-+}
-+
- static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_open = emac_ndo_open,
- 	.ndo_stop = emac_ndo_stop,
-@@ -1038,6 +1158,8 @@ static const struct net_device_ops emac_netdev_ops = {
- 	.ndo_fix_features = emac_ndo_fix_features,
- 	.ndo_vlan_rx_add_vid = emac_ndo_vlan_rx_add_vid,
- 	.ndo_vlan_rx_kill_vid = emac_ndo_vlan_rx_del_vid,
-+	.ndo_bpf = emac_ndo_bpf,
-+	.ndo_xdp_xmit = emac_xdp_xmit,
- };
- 
- static int prueth_netdev_init(struct prueth *prueth,
-@@ -1066,6 +1188,8 @@ static int prueth_netdev_init(struct prueth *prueth,
- 	emac->prueth = prueth;
- 	emac->ndev = ndev;
- 	emac->port_id = port;
-+	emac->xdp_prog = NULL;
-+	emac->ndev->pcpu_stat_type = NETDEV_PCPU_STAT_TSTATS;
- 	emac->cmd_wq = create_singlethread_workqueue("icssg_cmd_wq");
- 	if (!emac->cmd_wq) {
- 		ret = -ENOMEM;
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 3bbabd007129..1dd76e2adfcd 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -8,6 +8,8 @@
- #ifndef __NET_TI_ICSSG_PRUETH_H
- #define __NET_TI_ICSSG_PRUETH_H
- 
-+#include <linux/bpf.h>
-+#include <linux/bpf_trace.h>
- #include <linux/etherdevice.h>
- #include <linux/genalloc.h>
- #include <linux/if_vlan.h>
-@@ -134,6 +136,7 @@ struct prueth_rx_chn {
- 	unsigned int irq[ICSSG_MAX_RFLOWS];	/* separate irq per flow */
- 	char name[32];
- 	struct page_pool *pg_pool;
-+	struct xdp_rxq_info xdp_rxq;
- };
- 
- enum prueth_swdata_type {
-@@ -141,6 +144,7 @@ enum prueth_swdata_type {
- 	PRUETH_SWDATA_SKB,
- 	PRUETH_SWDATA_PAGE,
- 	PRUETH_SWDATA_CMD,
-+	PRUETH_SWDATA_XDPF,
- };
- 
- struct prueth_swdata {
-@@ -149,6 +153,7 @@ struct prueth_swdata {
- 		struct sk_buff *skb;
- 		struct page *page;
- 		u32 cmd;
-+		struct xdp_frame *xdpf;
- 	} data;
- };
- 
-@@ -159,6 +164,12 @@ struct prueth_swdata {
- 
- #define PRUETH_MAX_TX_TS_REQUESTS	50 /* Max simultaneous TX_TS requests */
- 
-+/* XDP BPF state */
-+#define ICSSG_XDP_PASS           0
-+#define ICSSG_XDP_CONSUMED       BIT(0)
-+#define ICSSG_XDP_TX             BIT(1)
-+#define ICSSG_XDP_REDIR          BIT(2)
-+
- /* Minimum coalesce time in usecs for both Tx and Rx */
- #define ICSSG_MIN_COALESCE_USECS 20
- 
-@@ -227,6 +238,8 @@ struct prueth_emac {
- 	unsigned long rx_pace_timeout_ns;
- 
- 	struct netdev_hw_addr_list vlan_mcast_list[MAX_VLAN_ID];
-+	struct bpf_prog *xdp_prog;
-+	struct xdp_attachment_info xdpi;
- };
- 
- /* The buf includes headroom compatible with both skb and xdpf */
-@@ -465,5 +478,9 @@ void prueth_put_cores(struct prueth *prueth, int slice);
- 
- /* Revision specific helper */
- u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns);
-+u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
-+			struct xdp_frame *xdpf,
-+			struct page *page,
-+			unsigned int q_idx);
- 
- #endif /* __NET_TI_ICSSG_PRUETH_H */
--- 
-2.43.0
+Whoever got the idea of making sdmm/sdio tuning controls part
+of GRFs that are supposed display and/or video encoder parts :-D
+
+
+> GRFs are looked up by compatible to simplify devicetree binding.
+>=20
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+
+>  static int __init clk_rk3528_probe(struct platform_device *pdev)
+>  {
+> +	unsigned long nr_vpu_branches =3D ARRAY_SIZE(rk3528_vpu_clk_branches);
+> +	unsigned long nr_vo_branches =3D ARRAY_SIZE(rk3528_vo_clk_branches);
+> +	unsigned long nr_branches =3D ARRAY_SIZE(rk3528_clk_branches);
+>  	struct rockchip_clk_provider *ctx;
+>  	struct device *dev =3D &pdev->dev;
+>  	struct device_node *np =3D dev->of_node;
+> -	unsigned long nr_branches =3D ARRAY_SIZE(rk3528_clk_branches);
+> -	unsigned long nr_clks;
+> +	struct regmap *vo_grf, *vpu_grf;
+>  	void __iomem *reg_base;
+> -
+> -	nr_clks =3D rockchip_clk_find_max_clk_id(rk3528_clk_branches,
+> -					       nr_branches) + 1;
+> +	unsigned long nr_clks;
+> =20
+>  	reg_base =3D devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(reg_base))
+>  		return dev_err_probe(dev, PTR_ERR(reg_base),
+>  				     "could not map cru region");
+> =20
+> +	nr_clks =3D rockchip_clk_find_max_clk_id(rk3528_clk_branches,
+> +					       nr_branches) + 1;
+> +
+> +	vo_grf =3D syscon_regmap_lookup_by_compatible("rockchip,rk3528-vo-grf");
+> +	if (!IS_ERR(vo_grf))
+
+for readability, please make this into something like
+	if (!IS_ERR(vo_grf)) {
+		nr_vo_clks =3D rockchip_clk_find_max_clk_id(rk3528_vo_clk_branches,
+							   nr_vo_branches) + 1;
+		nr_clks =3D max(nr_vo_clks, nr_clks);
+	}
+
+> +	else if (PTR_ERR(vo_grf) !=3D ENODEV)
+> +		return dev_err_probe(dev, PTR_ERR(vo_grf),
+> +				     "failed to look up VO GRF\n");
+> +
+> +	vpu_grf =3D syscon_regmap_lookup_by_compatible("rockchip,rk3528-vpu-grf=
+");
+> +	if (!IS_ERR(vpu_grf))
+> +		nr_clks =3D MAX(rockchip_clk_find_max_clk_id(rk3528_vpu_clk_branches,
+> +							   nr_vpu_branches) + 1,
+> +			      nr_clks);
+
+same here please
+
+> +	else if (PTR_ERR(vpu_grf) !=3D ENODEV)
+> +		return dev_err_probe(dev, PTR_ERR(vpu_grf),
+> +				     "failed to look up VPU GRF\n");
+> +
+>  	ctx =3D rockchip_clk_init(np, reg_base, nr_clks);
+>  	if (IS_ERR(ctx))
+>  		return dev_err_probe(dev, PTR_ERR(ctx),
+
+Thanks
+Heiko
+
 
 
