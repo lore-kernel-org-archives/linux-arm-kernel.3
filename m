@@ -4,99 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 286F6C28B25
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8827FC28B27
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 15:03:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7el1H3kNjC3GqBp3gAlaE1RMtntkaK90fH2GSElWevs=; b=cG8M+7xKJ65GBu9hnDE95g0v8T
-	s6nXpvewWLy2t8RXfl0XY6Biqhmc12ySOTSn87jEso9aPfqemLxQHqNBw6F1Lr+reTt1nAR39a7me
-	GzecZW3S7vapUU+C/aQeBOlgRzZRMVZqNQAXIpNPitY5QF2UzFm8gJ+Rn2Iadt0tlzcl9LjK0x6Wv
-	xP52cpntwjPhUa2i3gO1kh+jtnOSBYbeEzNCURBUkTl3mViLbLKU/i9f2joUj2r5DjjgQuYo9fxhV
-	4qs7hYZll6e4NCxWOauKaBiy2UrenlwevH0sovX2lUXZi/KcRw2pABI1vH2ChRPXuiaxSicBTQhXi
-	US6iyELQ==;
+	bh=JpGr/a/pGmwJPnYM1jBEjOHF6XQ+p0dgaV4nasqDDCA=; b=GFNqDfTPMfLgv8C5joQA9E90br
+	f+Npx5tj2VojdMdwcTM28qXXU4er6/6v2PQAejIZLzZvCD662AGP5u56H6fleL0QDHJiWRZkaDauZ
+	5C2+ft6cuva6Ms9OI1BJ9TrBLlXkLeR23+mcje3IrS04mRxeyV5SYkVOaDofe4thS8n8W0m6Rrsrs
+	z1XWeNu8Qq2TTUPNfxZxp3SwJhu1UokOendhUF2fqZEBO7w+lid37vlirkELq3QLc295Z5T474/T+
+	crYdATtris9a5oG0GRioqcX270JlnCCU3TcDAzLf9mFXiJfQFLvNDka4iIbZ/GE5gCiupiB1hovvA
+	2qk6f4ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpqHe-00000008SRN-0ayS;
-	Wed, 05 Mar 2025 15:03:42 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tpqHf-00000008SSB-32eB;
+	Wed, 05 Mar 2025 15:03:43 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnnu-000000080pk-3CRk
+	id 1tpo82-000000083gC-0Lft
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 12:24:52 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tpnn2-00021N-8w; Wed, 05 Mar 2025 13:23:56 +0100
-Message-ID: <f6eccbe2-b0cd-4f9e-99e0-82003a00fe5e@pengutronix.de>
-Date: Wed, 5 Mar 2025 13:23:46 +0100
+	Wed, 05 Mar 2025 12:45:39 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 525Abkpc001816;
+	Wed, 5 Mar 2025 12:45:27 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	JpGr/a/pGmwJPnYM1jBEjOHF6XQ+p0dgaV4nasqDDCA=; b=Dj+2hbm4OHM5LmPY
+	5ZkT5ClQn2PGXUwqnUk4y6ki+sgq7r4XoxwZyFU0B1tyJaB/ThVwrKfP+ia3VEsr
+	XtZ/1dTRCVIqYMxBRT0xxKhzLXXOzBOCu8Q8hV7PO1us+fBEQ+pZdw8oZ+ENJPl6
+	kSABK8hy/ZNdeg/4RW6QBv8lKXFoMnlVUJwwCMaFql2yieaS2BmxsE2f2+x+jYgI
+	ulzFyfkcI82QHiUXlxo0ruHWNv/em9x2KmJLQRo6S/tNsCQTeZCjPvIaH/5u3wNE
+	5/UL749tM5FaPZK50GaD8JwVj6mP7ruTCWkepNp6WlsVACOxUUDdskeOXUYbW2XQ
+	udOxyg==
+Received: from nasanppmta04.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 455p6t5ba9-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Mar 2025 12:45:26 +0000 (GMT)
+Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
+	by NASANPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 525CjQCX012167
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 5 Mar 2025 12:45:26 GMT
+Received: from [10.204.66.229] (10.80.80.8) by nasanex01b.na.qualcomm.com
+ (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 5 Mar 2025
+ 04:45:20 -0800
+Message-ID: <b3203de4-e888-41e2-80bd-0d60fb8c520e@quicinc.com>
+Date: Wed, 5 Mar 2025 18:15:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 0/2] Add stop_on_panic support for watchdog
-To: George Cherian <gcherian@marvell.com>,
- "linux@roeck-us.net" <linux@roeck-us.net>,
- "wim@linux-watchdog.org" <wim@linux-watchdog.org>,
- "jwerner@chromium.org" <jwerner@chromium.org>,
- "evanbenn@chromium.org" <evanbenn@chromium.org>,
- "kabel@kernel.org" <kabel@kernel.org>, "krzk@kernel.org" <krzk@kernel.org>,
- "mazziesaccount@gmail.com" <mazziesaccount@gmail.com>,
- "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>,
- "lma@chromium.org" <lma@chromium.org>,
- "bleung@chromium.org" <bleung@chromium.org>,
- "support.opensource@diasemi.com" <support.opensource@diasemi.com>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>, "andy@kernel.org"
- <andy@kernel.org>, "paul@crapouillou.net" <paul@crapouillou.net>,
- "alexander.usyskin@intel.com" <alexander.usyskin@intel.com>,
- "andreas.werner@men.de" <andreas.werner@men.de>,
- "daniel@thingy.jp" <daniel@thingy.jp>,
- "romain.perier@gmail.com" <romain.perier@gmail.com>,
- "avifishman70@gmail.com" <avifishman70@gmail.com>,
- "tmaimon77@gmail.com" <tmaimon77@gmail.com>,
- "tali.perry1@gmail.com" <tali.perry1@gmail.com>,
- "venture@google.com" <venture@google.com>,
- "yuenn@google.com" <yuenn@google.com>,
- "benjaminfair@google.com" <benjaminfair@google.com>,
- "maddy@linux.ibm.com" <maddy@linux.ibm.com>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
- "npiggin@gmail.com" <npiggin@gmail.com>,
- "christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
- "naveen@kernel.org" <naveen@kernel.org>,
- "mwalle@kernel.org" <mwalle@kernel.org>,
- "xingyu.wu@starfivetech.com" <xingyu.wu@starfivetech.com>,
- "ziv.xu@starfivetech.com" <ziv.xu@starfivetech.com>,
- "hayashi.kunihiko@socionext.com" <hayashi.kunihiko@socionext.com>,
- "mhiramat@kernel.org" <mhiramat@kernel.org>
-Cc: "chrome-platform@lists.linux.dev" <chrome-platform@lists.linux.dev>,
- "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "patches@opensource.cirrus.com" <patches@opensource.cirrus.com>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250305101025.2279951-1-george.cherian@marvell.com>
- <43fb0965-04b7-41dc-ae3f-54676eefdbb5@pengutronix.de>
- <PH8PR18MB53817EC09B918852B78DF3AAC5CB2@PH8PR18MB5381.namprd18.prod.outlook.com>
- <28d0ea70-db7a-40e7-aac9-86808320f252@pengutronix.de>
- <PH8PR18MB5381B857859C6413392DD007C5CB2@PH8PR18MB5381.namprd18.prod.outlook.com>
+Subject: Re: [PATCH v14 2/2] arm64: dts: qcom:
+ qcs6490-rb3gen2-vision-mezzanine: Add vision mezzanine
+To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+        Jorge Ramirez
+	<jorge.ramirez@oss.qualcomm.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+CC: <rfoss@kernel.org>, <todor.too@gmail.com>, <mchehab@kernel.org>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <andersson@kernel.org>, <konradybcio@kernel.org>,
+        <hverkuil-cisco@xs4all.nl>, <cros-qcom-dts-watchers@chromium.org>,
+        <catalin.marinas@arm.com>, <will@kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-media@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>,
+        Konrad Dybcio
+	<konrad.dybcio@linaro.org>
+References: <20250208225143.2868279-1-quic_vikramsa@quicinc.com>
+ <20250208225143.2868279-3-quic_vikramsa@quicinc.com>
+ <ca8e6569-b466-4f83-83af-38c51891d395@kernel.org> <Z8a7cMmxJuHIhgjo@trex>
+ <baae2a56-5299-486f-acf1-14fe13fd2f81@kernel.org> <Z8a/Dk7zjZ7RQT2/@trex>
+ <f5c2044e-e78e-4839-9c29-63610ff406e2@linaro.org>
 Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <PH8PR18MB5381B857859C6413392DD007C5CB2@PH8PR18MB5381.namprd18.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+From: Vikram Sharma <quic_vikramsa@quicinc.com>
+In-Reply-To: <f5c2044e-e78e-4839-9c29-63610ff406e2@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nasanex01b.na.qualcomm.com (10.46.141.250)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: rD_VuSdeuzspbz4UZ6s3PCFXNPCktPxg
+X-Authority-Analysis: v=2.4 cv=KfMosRYD c=1 sm=1 tr=0 ts=67c84766 cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=5jREd-yU2LfHNI075jcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: rD_VuSdeuzspbz4UZ6s3PCFXNPCktPxg
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-05_05,2025-03-05_01,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxscore=0 lowpriorityscore=0
+ spamscore=0 suspectscore=0 phishscore=0 malwarescore=0 clxscore=1015
+ priorityscore=1501 impostorscore=0 mlxlogscore=999 adultscore=0
+ bulkscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503050100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_042450_806761_6DFBC382 
-X-CRM114-Status: GOOD (  29.17  )
+X-CRM114-CacheID: sfid-20250305_044538_146994_B64C6B5D 
+X-CRM114-Status: GOOD (  18.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,97 +116,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello George,
 
-On 05.03.25 13:15, George Cherian wrote:
->> On 05.03.25 12:28, George Cherian wrote:
->>>> that can't be disabled and would protect against system lock up: 
->>>> Consider a memory-corruption bug (perhaps externally via DMA), which partially
->>>> overwrites both main and kdump kernel. With a disabled watchdog, the system
->>>> may not be able to recover on its own.
->>>
->>> Yes, that is the reason why the kernel command-line is optional and by default it is set to zero.
->>> So that in cases if you have a corrupted kdump kernel then watchdog kicks in.
->>
->> The existing option isn't enough for the kdump kernel use case.
->> If we (i.e. you) are going to do something about it, wouldn't it be
->> better to have a solution that's applicable to a wider number of
->> watchdog devices?
-> 
-> I need a slight clarification here. 
-> 1. reset_on_panic takes the number of seconds to be reloaded to watchdog HW, so that it initiates a 
-> watchdog reset after the specified timeout, if kdump kernel fails to boot or hung while booting.
+On 3/4/2025 3:17 PM, Bryan O'Donoghue wrote:
+> On 04/03/2025 08:51, Jorge Ramirez wrote:
+>> On 04/03/25 09:40:21, Krzysztof Kozlowski wrote:
+>>> On 04/03/2025 09:36, Jorge Ramirez wrote:
+>>>> On 03/03/25 18:13:20, Krzysztof Kozlowski wrote:
+>>>>> On 08/02/2025 23:51, Vikram Sharma wrote:
+>>>>>> The Vision Mezzanine for the Qualcomm RB3 Gen 2 ships with an imx577
+>>>>>> camera sensor. Enable IMX577 on the vision mezzanine.
+>>>>>>
+>>>>>> An example media-ctl pipeline for the imx577 is:
+>>>>>>
+>>>>>> media-ctl --reset
+>>>>>> media-ctl -V '"imx577 '17-001a'":0[fmt:SRGGB10/4056x3040 
+>>>>>> field:none]'
+>>>>>
+>>>>> AFAIU, camss does not support SRGGB10, but only SRGGB10P.
+>>>>>
+>>>>> Based on tests reported on IRC I think this might not have been 
+>>>>> tested
+>>>>> correctly.
+Hi everyone,
 
-Yes.
+Thank you for your comments and discussion on this thread.
+I can confirm that I have verified this implementation using the same 
+steps mentioned in the commit text.
 
-> 2. in case reset_on_panic = 0 then it behaves like stop_on_panic=1.
-> Is this what you meant?
+Here is the sample output.
 
-Alternatively, reset_on_panic = 0 could also mean stopping the watchdog as
-you do now. I haven't thought though yet what would make the most sense.
+yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F /dev/video0
+Device /dev/video0 opened.
+Device `Qualcomm Camera Subsystem' on `platform:acb3000.isp' (driver 
+'qcom-camss') supports video, capture, with mplanes.
+Video format set: SRGGB10P (41415270) 4056x3040 field none, 1 planes:
+  * Stride 5072, buffer size 15418880
+Video format: SRGGB10P (41415270) 4056x3040 field none, 1 planes:
+  * Stride 5072, buffer size 15418880
+5 buffers requested.
+length: 1 offset: 3791353960 timestamp type/source: mono/EoF
+Buffer 0/0 mapped at address 0xffff7eb7b000.
+length: 1 offset: 3791353960 timestamp type/source: mono/EoF
+Buffer 1/0 mapped at address 0xffff7dcc6000.
+length: 1 offset: 3791353960 timestamp type/source: mono/EoF
+Buffer 2/0 mapped at address 0xffff7ce11000.
+length: 1 offset: 3791353960 timestamp type/source: mono/EoF
+Buffer 3/0 mapped at address 0xffff7bf5c000.
+length: 1 offset: 3791353960 timestamp type/source: mono/EoF
+Buffer 4/0 mapped at address 0xffff7b0a7000.
+0 (0) [-] none 0 15418880 B 114.742722 114.744108 20.839 fps ts mono/EoF
+1 (1) [-] none 1 15418880 B 114.775069 114.775932 30.915 fps ts mono/EoF
+2 (2) [-] none 2 15418880 B 114.808401 114.886861 30.001 fps ts mono/EoF
+3 (3) [-] none 3 15418880 B 114.841923 114.899629 29.831 fps ts mono/EoF
+4 (4) [-] none 4 15418880 B 114.875247 114.949205 30.008 fps ts mono/EoF
+5 (0) [-] none 5 15418880 B 114.908511 114.963073 30.063 fps ts mono/EoF
+6 (1) [-] none 6 15418880 B 114.941727 114.997570 30.106 fps ts mono/EoF
+7 (2) [-] none 7 15418880 B 114.975066 115.011758 29.995 fps ts mono/EoF
+8 (3) [-] none 8 15418880 B 115.008486 115.047468 29.922 fps ts mono/EoF
+9 (4) [-] none 9 15418880 B 115.041750 115.060305 30.063 fps ts mono/EoF
+10 (0) [-] none 10 15418880 B 115.075060 115.106941 30.021 fps ts mono/EoF
+...
 
-> I would let Guenter comment on this approach.
+Best Regards,
+Vikram
 
-+1.
-
->> If you are serious with the watchdog use, you'll want to use the watchdog to
->> monitor kernel startup as well. If the bootloader can set a watchdog timeout
->> just before starting the kernel and it doesn't expire before the kernel watchdog
->> driver takes over, why can't we do the same just before starting the dumpkernel?
-> 
-> Yes, in an ideal world with ideal HW. But there are HW with issues which cannot have large
-> enough Watchdog time. Such HW would boot from FW to kernel without watchdog enabled.
-> And stop_on_panic does the similar for kdump kernel too.
-
-Yes, but there is likely more kinds of watchdog devices that can not be disabled,
-so it makes sense to have a solution that is more broadly applicable from the get-go.
-
-Cheers,
-Ahmad
-
-> 
-> -George
->>
->> Thanks,
->> Ahmad
->>
->>
->>>
->>> Thanks,
->>> Ahmad
->>>
 >>>>
+>>>> I acquired SRGGB10P (10 bit packed) frames from the camera despite the
+>>>> pipeline being set to SRGGB10 (16 bit) samples.
 >>>>
->>> Changelog:
->>> v1 -> v2
->>> - Remove the per driver flag setting option
->>> - Take the parameter via kernel command-line parameter to watchdog_core.
+>>>> so something does not add up.
 >>>
->>> v2 -> v3
->>> - Remove the helper function watchdog_stop_on_panic() from watchdog.h.
->>> - There are no users for this. 
+>>> Then the commands are actually correct, just the camss or media behave
+>>> here a bit unexpected?
 >>>
->>> v3 -> v4
->>> - Since the panic notifier is in atomic context, watchdog functions
->>>   which sleep can't be called. 
->>> - Add an options flag WDIOF_STOP_MAYSLEEP to indicate whether stop
->>>   function sleeps.
->>> - Simplify the stop_on_panic kernel command line parsing.
->>> - Enable the panic notiffier only if the watchdog stop function doesn't
->>>   sleep
->>>
->>> George Cherian (2):
->>>   watchdog: Add a new flag WDIOF_STOP_MAYSLEEP
->>>   drivers: watchdog: Add support for panic notifier callback
 >>
->> - George
-> 
-> 
+>> setting the pipeline (CSI) as SRGGB10 (16 bit samples) as per below
+>>
+>> media-ctl --reset
+>> media-ctl -v -V '"imx577 '19-001a'":0[fmt:SRGGB10/4056x3040 field:none]'
+>> media-ctl -V '"msm_csiphy3":0[fmt:SRGGB10/4056x3040]'
+>> media-ctl -V '"msm_csid0":0[fmt:SRGGB10/4056x3040]'
+>> media-ctl -V '"msm_vfe0_rdi0":0[fmt:SRGGB10/4056x3040]'
+>> media-ctl -l '"msm_csiphy3":1->"msm_csid0":0[1]'
+>> media-ctl -l '"msm_csid0":1->"msm_vfe0_rdi0":0[1]'
+>>
+>> allows to capture SRGGB10P samples (frames-xxxx.bin files contain 10 
+>> bit samples for the size)
+>>
+>>   ==> yavta -B capture-mplane -c -I -n 5 -f SRGGB10P -s 4056x3040 -F 
+>> /dev/video0
+>>
+>>
+>> shouldnt the CSI need to be set to SRGGB10P instead?
+>>
+>>
+>>> Best regards,
+>>> Krzysztof
+>>
+>
+> No an internal media bus format MEDIA_BUS_FMT_THING is used
+>
+> See
+>
+> 87889f1b7ea40d2544b49c62092e6ef2792dced7
+> 5480b0c67f120a6c293cc5eff72fa1d6a74de504
+> 3c1dfb5a69cf836f513a2a49113ee946a4b9d95d
+>
+> Yavta is specifying a v4l2 pixel format SRGGB10P which then gets 
+> translated into a media bus format MEDIA_BUS_FMT_SRGGB10_1X10.
+>
+> I'm not sure what the historical reasons for that are, probably good 
+> ones.
+>
+> ---
+> bod
 
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
 
