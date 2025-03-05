@@ -4,91 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA8AC282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 08:36:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AEDFC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 08:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=blf/TiOtbprpDLJNtfD3y4oyxoUcu4XFE3PfFSXAZMQ=; b=irf9QRQHFJ4NRsJM9goXivc19h
-	Zu+esKzc/rmJgYamJp7467XZSszOhoheiK4keqPu8gQXNGInTZLKd+GBt4Nu8S90toWjWtNHTNFI8
-	MdOsR6n6wH2VcyZg0FDEul36q0TkU/f1KR74LnIUaCYKR9Of/oMxXqxPOlGSu9Lvguno1I4gEsCEb
-	ycD66rL1rqXghdHi2dfxVH106rgfP6HLzrGu9t4jl2AhLzw4jT9jCPdKAcmM4fS/fLVmogHz9TbYg
-	W9NwIpiW9L4lSdwc16BmIWQgkrGPexmdWHpEoKqHqX44XN9/KLaPLJFNy1TpguCPhJOQV4g+QBNMG
-	fDL31GWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=LJW9aE2UhCV0B4dc2B3h84ZOkRVFNml7XUku3ywU8Fo=; b=xb8Swom/lRUSCQ
+	nnnvvA/Up1QfoT3llbV27bgdbF5fiZ2LBGFrUFeIejjONbpRd0FFpIY6z3YrWMujdVX5UU4w3pVdv
+	bLgJg9ToSYcaDX6ynXuxDJBeHMtRaH6RcWPhMXwIo6p+ZReg7uw6blS18jcMsVA89DuVMH7HuHZyz
+	XXdAImaHKIulznA/CcDq/VD5MmUTdIOi3/07G814sJKgBVmOeC4ANUf6AGyUptZjMGBM0L76xBNDo
+	qTjx3EquNyWKjB1/rp1VVo0ITVATZxJlV0+A1SuAcvmwzIcpgVb39mK4I8k0tksyMzPjNXdZpNekl
+	vY2cwm+S8Mau3dnr8DDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpkF2-00000007OJg-0GLr;
-	Wed, 05 Mar 2025 08:36:36 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpkN4-00000007P83-1rq2;
+	Wed, 05 Mar 2025 08:44:54 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpk9j-00000007Nab-1PGl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 08:31:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:References:In-Reply-To:Subject:CC:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=blf/TiOtbprpDLJNtfD3y4oyxoUcu4XFE3PfFSXAZMQ=; b=iBm0pEyokhGOigVo9R4bZopJih
-	O+MVpjmdXhcdqB5yZ0ILGTOtoN0yHfEr0RlwJiav0OtUujgvTWioyg1kjF6EwNN1ZewYwVYiy0h18
-	GKcmbSYAOWuKQTOX/peqXYQ08dG6OzK8Dr4jkHsibiJnxNi7cRKEYJsDWs7IlJZvIO/OIbexBNxvS
-	IsOjfivWaboSGxVzM/oF3kGgGDeH4ASDx0cHNeLGMhPaX9xdPT9sUYFj3FF8Dm9EL3jc1iCT5NTM7
-	+EHj/F7Xs2CmuYx874oogOgoX7ZVt2zYjMm0n4A9bknqs3V1NmAr6y7/JS3Geez0uR+nZ4bpXQquw
-	JPJcULgA==;
-Received: from [2607:7c80:54:3::138] (helo=mail.zytor.com)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpk9f-00000000Q8Z-3y4b
+	id 1tpjLZ-00000007G7u-42CW
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 08:31:05 +0000
-Received: from [127.0.0.1] ([76.133.66.138])
-	(authenticated bits=0)
-	by mail.zytor.com (8.18.1/8.17.1) with ESMTPSA id 5258Tkoa3044543
-	(version=TLSv1.3 cipher=TLS_AES_128_GCM_SHA256 bits=128 verify=NO);
-	Wed, 5 Mar 2025 00:29:47 -0800
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.zytor.com 5258Tkoa3044543
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=zytor.com;
-	s=2025021701; t=1741163391;
-	bh=blf/TiOtbprpDLJNtfD3y4oyxoUcu4XFE3PfFSXAZMQ=;
-	h=Date:From:To:CC:Subject:In-Reply-To:References:From;
-	b=LeiaTm3OcHAce14jA4D/ZHWqu+UtBIS5XG4gqHwgcoOzbl/wq6Da6xdHQoGGKCoxT
-	 T3qpHmrxIpG0bcDA6I70X/yc4/N2vxII+WdUGNdZqtRjvI+DwoW4wIIWyunlZACq+G
-	 9zquu1aXuKa6nsC3gKEAsy4i71ZUY+DTROhGW5AYNx4DreuQOIzGdPJNEiIRvbGpuV
-	 C+3uxcYgR6B4fnB9aO/wFsSNYbYXIadCnKQOFmN9g3/aC7I+zXDFaKe/7holtL9Fw4
-	 4+ZYAI0WXO0BHMrZZISHmKY8LvwpM+KHvgo+hRJpKGyYlaRf75sjCoxIsvE+fa85Cy
-	 VPWyvOwVfENvg==
-Date: Wed, 05 Mar 2025 00:29:45 -0800
-From: "H. Peter Anvin" <hpa@zytor.com>
-To: Menglong Dong <menglong8.dong@gmail.com>,
-        Peter Zijlstra <peterz@infradead.org>
-CC: rostedt@goodmis.org, mark.rutland@arm.com, alexei.starovoitov@gmail.com,
-        catalin.marinas@arm.com, will@kernel.org, mhiramat@kernel.org,
-        tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-        dave.hansen@linux.intel.com, x86@kernel.org, ast@kernel.org,
-        daniel@iogearbox.net, andrii@kernel.org, martin.lau@linux.dev,
-        eddyz87@gmail.com, yonghong.song@linux.dev, john.fastabend@gmail.com,
-        kpsingh@kernel.org, sdf@fomichev.me, jolsa@kernel.org,
-        davem@davemloft.net, dsahern@kernel.org,
-        mathieu.desnoyers@efficios.com, nathan@kernel.org,
-        nick.desaulniers+lkml@gmail.com, morbo@google.com,
-        samitolvanen@google.com, kees@kernel.org, dongml2@chinatelecom.cn,
-        akpm@linux-foundation.org, riel@surriel.com, rppt@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-trace-kernel@vger.kernel.org, bpf@vger.kernel.org,
-        netdev@vger.kernel.org, llvm@lists.linux.dev
-Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CADxym3busXZKtX=+FY_xnYw7e1CKp5AiHSasZGjVJTdeCZao-g@mail.gmail.com>
-References: <20250303132837.498938-1-dongml2@chinatelecom.cn> <20250303132837.498938-2-dongml2@chinatelecom.cn> <20250303165454.GB11590@noisy.programming.kicks-ass.net> <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com> <20250304053853.GA7099@noisy.programming.kicks-ass.net> <20250304061635.GA29480@noisy.programming.kicks-ass.net> <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com> <20250304094220.GC11590@noisy.programming.kicks-ass.net> <6F9EF5C3-4CAE-4C5E-B70E-F73462AC7CA0@zytor.com> <CADxym3busXZKtX=+FY_xnYw7e1CKp5AiHSasZGjVJTdeCZao-g@mail.gmail.com>
-Message-ID: <694E52E0-C9E5-49D2-A677-09A5EE442590@zytor.com>
+	Wed, 05 Mar 2025 07:39:19 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-30bb75492e4so30669081fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:39:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741160355; x=1741765155; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=LJW9aE2UhCV0B4dc2B3h84ZOkRVFNml7XUku3ywU8Fo=;
+        b=aIJppTNCZ4vksrmXO9WgXX5RtK3kGrdwftbn3CVUOAxFXnxe4+qic7YOqiAgGC0HjG
+         ZUqUfTQ/OEoxG2E3L4U46r6ld49d1B11IL39RDKmbsJBOf71lVkoYKJBvKPW/cfpdop2
+         3QQ93VTErg5b1NYfK7iAEZ1SkQZqQhRwJY9766sBDSUJRn/eDyZcNd5QlV67ZIm27W0H
+         c5ibsR2t7MUC6zESHPzp4E8sFA7LvZbMXEnZ1yLVCzNoZX/WGkhQSyoEElKTbbkQ+Isr
+         LvgQFD0An/DxjvBKBSRh2X1WrZ8z6n0nM0AiZR+vbIiyGNGWOSg5gDDOmh9U+6SQ5UDV
+         T6EQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741160355; x=1741765155;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=LJW9aE2UhCV0B4dc2B3h84ZOkRVFNml7XUku3ywU8Fo=;
+        b=btxG1NzYWmbOFuEiLXOfP6Gx9/CLHtQLUAqwzXaRPRIjOqVqkOFgzm2XZe5oK2I+Qd
+         t40ueUhQ0jdIlLUlP5S9ocG+m0g5cIgXV4pMPfK9A4oN0Q4ZZtZsC3/j2EeTSMely47t
+         +nrKyLc0QdodBUMiWHaxuGLjkAtPIykB3v352QzAhdz2M4PEVpbwqqtL46uQNrgyJAo+
+         9Z7DyZGT+Nxb7RaFDSAUDUxTKn1o6CWlEGlvKq4uhtTkRTvRKtLzkHZt2p0fmkyhd1rl
+         JuoCgAWIkg2buQWmxlVv35RG92pdWjOFbuZR3hRcs9qyO6pvQJHb8xCfxlOeJeOLrao3
+         KR+w==
+X-Forwarded-Encrypted: i=1; AJvYcCVNsLZgrcfT/2yiTOnqNT5sD4zeHMiaRWSHySFVmRByrLUvrENTArUKsnuEQwNfE3UDh/+/wBxTVDdCBwcxH4Sq@lists.infradead.org
+X-Gm-Message-State: AOJu0YyEfgVPKG8tYTi8QHbX1fw4+fa2ZhshnhucZGP97YxAK4LL0pRC
+	B2X0HLwH1hx0pgJA1p4QzkPMAt3TD6XCpaDtcykRzk4HBYRy7Zeiw8pibumoYMU=
+X-Gm-Gg: ASbGncuKYRHM4D6o6LG/gn869M8O1C+r+fiN1p93Y8HgG82q6OUcfhjfpHcc7oQb9kz
+	wdkqjajVlwU6HwAMEOA/trLC3TQMNTwwo/m4pZiCYs2rkmR2HX2vEAMt81mubCcMTYm3XJclY78
+	GVeFJWh4F0Fv9dyblmoE1c/WkfZwg/FJzZH9SFLAHDEKKPsDc6YV/glAyDVkO+3kmEk8I0/fvgf
+	7GX+1B551XI2k0AEJmzs9nmeL+nRwk/GphQ9qewqTkuLK8AZeaksyoTT3NSiWo/bw4wE9ZTAsOc
+	EgySwA3DNLIBIUQkt917duzwHDTBLhtGJ/ZM9uIH5hK3sZb8gZvz0bo=
+X-Google-Smtp-Source: AGHT+IEyQAzaW4gq+8l1Jw587sTvvOjYY8IgYjgeac3pSvj7GEl+4Qb0eshDTUKdJvdxEf1rchKeSg==
+X-Received: by 2002:a2e:a7ca:0:b0:30b:971c:96e6 with SMTP id 38308e7fff4ca-30bd7af6208mr8775671fa.26.1741160355350;
+        Tue, 04 Mar 2025 23:39:15 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bbae78e73sm8902351fa.75.2025.03.04.23.39.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 23:39:15 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH v2 0/6] ASoC: samsung: GPIO descriptor conversion
+Date: Wed, 05 Mar 2025 08:39:12 +0100
+Message-Id: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAKH/x2cC/13MQQrCMBCF4auUWRtJJzS0rrxH6SI203ZAE8loU
+ Urubiy4cfk/eN8GQolJ4FRtkGhl4RhK4KGCcXFhJsW+NKDGRhuNStxNnmFWY/Q0irLGWqovZsL
+ WQDndE0382sF+KL2wPGJ67/5af9cfZf6ptVZaNdYhdp33HbbnKweX4jGmGYac8wdF5AK2rQAAA
+ A==
+X-Change-ID: 20250302-samsung-codecs-6366e1b3f283
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_083104_493716_D1D0B106 
-X-CRM114-Status: GOOD (  26.43  )
+X-CRM114-CacheID: sfid-20250304_233918_035980_F72DFCCA 
+X-CRM114-Status: UNSURE (   8.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,119 +105,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On March 4, 2025 5:19:09 PM PST, Menglong Dong <menglong8=2Edong@gmail=2Eco=
-m> wrote:
->On Tue, Mar 4, 2025 at 10:53=E2=80=AFPM H=2E Peter Anvin <hpa@zytor=2Ecom=
-> wrote:
->>
->> On March 4, 2025 1:42:20 AM PST, Peter Zijlstra <peterz@infradead=2Eorg=
-> wrote:
->> >On Tue, Mar 04, 2025 at 03:47:45PM +0800, Menglong Dong wrote:
->> >> We don't have to select FUNCTION_ALIGNMENT_32B, so the
->> >> worst case is to increase ~2=2E2%=2E
->> >>
->> >> What do you think?
->> >
->> >Well, since I don't understand what you need this for at all, I'm firm=
-ly
->> >on the side of not doing this=2E
->> >
->> >What actual problem is being solved with this meta data nonsense? Why =
-is
->> >it worth blowing up our I$ footprint over=2E
->> >
->> >Also note, that if you're going to be explaining this, start from
->> >scratch, as I have absolutely 0 clues about BPF and such=2E
->>
->> I would appreciate such information as well=2E The idea seems dubious o=
-n the surface=2E
->
->Ok, let me explain it from the beginning=2E (My English is not good,
->but I'll try to describe it as clear as possible :/)
->
->Many BPF program types need to depend on the BPF trampoline,
->such as BPF_PROG_TYPE_TRACING, BPF_PROG_TYPE_EXT,
->BPF_PROG_TYPE_LSM, etc=2E BPF trampoline is a bridge between
->the kernel (or bpf) function and BPF program, and it acts just like the
->trampoline that ftrace uses=2E
->
->Generally speaking, it is used to hook a function, just like what ftrace
->do:
->
->foo:
->    endbr
->    nop5  -->  call trampoline_foo
->    xxxx
->
->In short, the trampoline_foo can be this:
->
->trampoline_foo:
->    prepare a array and store the args of foo to the array
->    call fentry_bpf1
->    call fentry_bpf2
->    =2E=2E=2E=2E=2E=2E
->    call foo+4 (origin call)
->    save the return value of foo
->    call fexit_bpf1 (this bpf can get the return value of foo)
->    call fexit_bpf2
->    =2E=2E=2E=2E=2E=2E=2E
->    return to the caller of foo
->
->We can see that the trampoline_foo can be only used for
->the function foo, as different kernel function can be attached
->different BPF programs, and have different argument count,
->etc=2E Therefore, we have to create 1000 BPF trampolines if
->we want to attach a BPF program to 1000 kernel functions=2E
->
->The creation of the BPF trampoline is expensive=2E According to
->my testing, It will spend more than 1 second to create 100 bpf
->trampoline=2E What's more, it consumes more memory=2E
->
->If we have the per-function metadata supporting, then we can
->create a global BPF trampoline, like this:
->
->trampoline_global:
->    prepare a array and store the args of foo to the array
->    get the metadata by the ip
->    call metadata=2Efentry_bpf1
->    call metadata=2Efentry_bpf2
->    =2E=2E=2E=2E
->    call foo+4 (origin call)
->    save the return value of foo
->    call metadata=2Efexit_bpf1 (this bpf can get the return value of foo)
->    call metadata=2Efexit_bpf2
->    =2E=2E=2E=2E=2E=2E=2E
->    return to the caller of foo
->
->(The metadata holds more information for the global trampoline than
->I described=2E)
->
->Then, we don't need to create a trampoline for every kernel function
->anymore=2E
->
->Another beneficiary can be ftrace=2E For now, all the kernel functions th=
-at
->are enabled by dynamic ftrace will be added to a filter hash if there are
->more than one callbacks=2E And hash lookup will happen when the traced
->functions are called, which has an impact on the performance, see
->__ftrace_ops_list_func() -> ftrace_ops_test()=2E With the per-function
->metadata supporting, we can store the information that if the callback is
->enabled on the kernel function to the metadata, which can make the perfor=
-mance
->much better=2E
->
->The per-function metadata storage is a basic function, and I think there
->may be other functions that can use it for better performance in the feat=
-ure
->too=2E
->
->(Hope that I'm describing it clearly :/)
->
->Thanks!
->Menglong Dong
->
+This drops unused includes and converts one Samsung
+codec to use GPIO descriptors.
 
-This is way too cursory=2E For one thing, you need to start by explaining =
-why you are asking to put this *inline* with the code, which is something t=
-hat normally would be avoided at all cost=2E
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+Changes in v2:
+- Collect Review tags
+- Add a devm action to drop the gpiod table in speyside
+- Link to v1: https://lore.kernel.org/r/20250303-samsung-codecs-v1-0-56a2299dd928@linaro.org
+
+---
+Linus Walleij (6):
+      ASoC: samsung: bells: Drop unused include
+      ASoC: samsung: littlemill: Drop unused include
+      ASoC: samsung: lowland: Drop unused include
+      ASoC: samsung: speyside: Convert to GPIO descriptor
+      ASoC: samsung: tobermory: Drop unused include
+      ASoC: samsung: tm2_wm5110: Drop unused include
+
+ sound/soc/samsung/bells.c      |  1 -
+ sound/soc/samsung/littlemill.c |  1 -
+ sound/soc/samsung/lowland.c    |  1 -
+ sound/soc/samsung/speyside.c   | 47 +++++++++++++++++++++++++++++++++++-------
+ sound/soc/samsung/tm2_wm5110.c |  1 -
+ sound/soc/samsung/tobermory.c  |  1 -
+ 6 files changed, 40 insertions(+), 12 deletions(-)
+---
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+change-id: 20250302-samsung-codecs-6366e1b3f283
+
+Best regards,
+-- 
+Linus Walleij <linus.walleij@linaro.org>
+
 
