@@ -4,94 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 210ADC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 02:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED37C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 02:44:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLGnKKW2QVH83jr7sLdLSDsyrmFRn2bnko/hsD8r/Pg=; b=nB5h2YfWSOXY0S2I+NFWoSJS0H
-	bSHR0+ylanaZVc+DwNeFsw0CXvlb0+k8WHxrfltD1ghlNBBxEFAI/rpzxsfHzodJ8izsRa1+hPC4u
-	ivVh/aKrBnHlTMh8LUnkD7Nk/kn3oCc5j/DPo2vx5QqvMTATCpUBjI5POtfeXKb+AYBe3DKacUqNQ
-	qU5uycXqikUm3HUMTWKGYA4SaYe1yORc0q485AInvUsS+XF3daxW9qnvmUspJXDlp3FnqQGRaUKhM
-	cZxz9BkjTe6XXLklOFf2M/vBtJ77Ty82AqM1G1NL4f5I9ry3cwQZDaY5cy8kf2jHRzEG2389pcUF3
-	KienU7Jg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nLs+5SLZJ4qjajbg8dAv5Pp89mRUdsV9Rqw/s+IwB34=; b=he5pEJpssOimpWYc9rwsnoX0pN
+	h3MLT7VvGrieVhvgHA45UNINVktGvEmgeVsDnsiVaJw9QfLUoCt9MlWUPQdt2YQ1p6Evc3N/cLdRA
+	iR2vwDATS/oEtoWQ7jlUhqpNbBz0gmeRR772IZFsbcG3maFKabp0ZnfXv58ilhk0vPE6DwoycnLOZ
+	XJLyNf082sT5LI7+2JRcVa+2FaSnmlhoa9LofoyAe/GKw7t43canbG5J1n4mNvUtQXp7IpSTmGF8O
+	buXvYGa9jDcsbrTdSf7iGhjYkcRdxsa55pWBPCsxrprijLcwyu1E6HFTHtRFW4rajF8NFzaOUcNpV
+	QCXmHaRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpegu-00000006oxS-0pMi;
-	Wed, 05 Mar 2025 02:41:00 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1tpekc-00000006pEQ-0bIt;
+	Wed, 05 Mar 2025 02:44:50 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpeey-00000006oc1-3oyY
+	id 1tpdfN-00000006jap-3Ymb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 02:39:02 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-30bb64a4060so25262081fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 18:39:00 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741142339; x=1741747139; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rLGnKKW2QVH83jr7sLdLSDsyrmFRn2bnko/hsD8r/Pg=;
-        b=WIPkfMBfo9/6jYmrT3j7KgRd/Sp5QPVIeXLXFN2yhy+VoBpXNYGYMOENg1nxxLwY2I
-         z3hYJEh2TL8edIHsqk/0DdZ6k6+J+mUqW3BM8hYVvzh3YMYAmgTdMSBqmt75ivLvWhH3
-         d6C35Q74YDtp1g2LywBqv6QiKl5DVBCSDkiwBPkq/h9fZ5dgvOSG688A8KJDKp5eZz1k
-         7K8hiO7/6zlda44gYXfiKqrrcb38Jbwen9olHroI/Yx4hY8CW7/bz4hAnNSHIgavR8+8
-         5HMdVBxEikk4e1HX3BcOnOtVMcwoKVkvZlCX2u9KnWh4fZwSlVq1M0SO3GMbR3HeVfut
-         1vMg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741142339; x=1741747139;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rLGnKKW2QVH83jr7sLdLSDsyrmFRn2bnko/hsD8r/Pg=;
-        b=drPetDW4mSEr/NH5OPwCibofa4KxE4OExDXN+NIiuk4vF1ssMNRZQoFjp5bzpGqMnJ
-         DlwumRiSSCPjZgMq9oZJcgz86hUNUnC0ibDal4yzuhRn/9qIm54XBw06ApOZeqzeLdPh
-         anq/t8ifSLvCLkRHEmU1FnKRi4y3EPCp80Oa88Borl7ESNjsqd6OrxUhIl3LYb2neHMR
-         yyoXfOnRt2wnjTAfSDws8xrDpcangY2i1Xl/aeJJr1DxuttInjDa+S8aJ2IeRl5gaiNY
-         WGaDAJ3g2ieziqqUPHOclrzVlTHm2VX+TfASd6BDJPU4P2f6kHH6ozv1mzxcm7wv16CS
-         N05w==
-X-Forwarded-Encrypted: i=1; AJvYcCU/Ya05KPeRNt2hMlVxsIJebr+mOJ00cpQlEVCgWVz+ZUsgQLrx+nqqN2+WHWLsKmz1XegU4mzePMScSomGy1qI@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQcgyVvR59xd1L/b6bhz9une+BMXpGP6cEGFoeTsJwYeAzm/AO
-	EBb1f0mEdI84UrP48X8gGpNj4bcsZ+rr12pVHi/iVQ2cUlcZVEe7n4M2XDu3jxQ=
-X-Gm-Gg: ASbGncvLinsGjU+11MA5hyBsNsagpkQhdYg6VIMyzxYHAexasHf5dyLZ/fufZwN7FNo
-	nnf0HtGw5/PyaS9als0X7V+pfR8X9lujh77XyPSIHvdWwKGvuOzN0JTa5sVlGyjIE47FL8GGkZw
-	oBCFwKa8re3OFyeWU5wAmWX+4HjFy/AUWDW5fL5ss0XFTlhwLylkz9nnkTnzI9MxKsj63Yx4rKW
-	XU660Lkm9EJr5MC48gt87OWDNIqS6FM2WP6EFbsqz8nZfcbw0dpuee+H8mJFGxUcgAe9pe1ml+G
-	GIsniY7BevCsCilijzvans4eja0GUoQwTjSzc5BI208uwXUQsTU9pfaI8Ck2SwnVFAFgIJmpsj+
-	Wx+x7AH9c1DOAEnK+zffkt+MI
-X-Google-Smtp-Source: AGHT+IFcXeQaKKWQj1dnu4UH8WH8BgBFKYFWB8PfbtIdp7r23eOpCjIksDm9zsbkHWStqwV0YfIVwg==
-X-Received: by 2002:a2e:be10:0:b0:308:e5e8:9d4c with SMTP id 38308e7fff4ca-30bd7af5da7mr4043671fa.28.1741142339042;
-        Tue, 04 Mar 2025 18:38:59 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bc7264141sm5553261fa.13.2025.03.04.18.38.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 18:38:57 -0800 (PST)
-Date: Wed, 5 Mar 2025 04:38:55 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 5/9] phy: qcom: Update description for QCOM based
- eUSB2 repeater
-Message-ID: <6e742b2dke3pcqq3v6nzs3gfvwau4sk4gtadzgca2zk5merzvi@ubc6l3hsafok>
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
- <20250304-sm8750_usb_master-v2-5-a698a2e68e06@quicinc.com>
+	Wed, 05 Mar 2025 01:35:22 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 524NADJ9025365;
+	Wed, 5 Mar 2025 01:35:04 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	nLs+5SLZJ4qjajbg8dAv5Pp89mRUdsV9Rqw/s+IwB34=; b=mpNBfjRJri4AhMhC
+	CMDTZzya5nC8OwRGnHt8JCnDV3zYqX67KpoeVRLDh29Kj9zjBPJAWaA+1aUA1EfZ
+	hXhDY6j80xJDYxEqHWlDYbt0CbVh41rdednZ22U4pqPfXXscQsYiDPLMnvCiRH7U
+	rVPzPpu2czdSgihoqVOpJ6euUOuPhik7fG0lGjaP9jMrxQkQsftty3a7+L+4+mJ4
+	+7/esdeAA7M3EaeuEyttv8bwUn4/Y/8mMb5jURgWJ5p1pxl4o+YpkW4BRF+dPfr2
+	3WbP2vxHtlcsk49s1RqhuV1giYkgBFWquMnw0y8gSJhwapQOvu9iknyR1jlmVHea
+	Lru1RQ==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 455p933q6f-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Mar 2025 01:35:03 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5251Z3fZ020582
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 5 Mar 2025 01:35:03 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 4 Mar 2025
+ 17:34:58 -0800
+Message-ID: <bb2f4a5d-1a93-4637-908d-316516213061@quicinc.com>
+Date: Wed, 5 Mar 2025 09:34:56 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304-sm8750_usb_master-v2-5-a698a2e68e06@quicinc.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v15 04/10] Coresight: Introduce a new struct
+ coresight_path
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250303032931.2500935-1-quic_jiegan@quicinc.com>
+ <20250303032931.2500935-5-quic_jiegan@quicinc.com>
+ <4e0959e7-cb66-41f1-b686-a274b6cbfd2e@arm.com>
+Content-Language: en-US
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <4e0959e7-cb66-41f1-b686-a274b6cbfd2e@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=Me2Wu4/f c=1 sm=1 tr=0 ts=67c7aa48 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=BNzsuDOjKBzrTUwNBxAA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: O5Xb635ZTtY1EM7RJ_0yyvJwNWqU69Zj
+X-Proofpoint-ORIG-GUID: O5Xb635ZTtY1EM7RJ_0yyvJwNWqU69Zj
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-05_01,2025-03-04_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 bulkscore=0 clxscore=1015
+ suspectscore=0 mlxscore=0 malwarescore=0 phishscore=0 spamscore=0
+ adultscore=0 lowpriorityscore=0 mlxlogscore=999 priorityscore=1501
+ impostorscore=0 classifier=spam authscore=0 authtc=n/a authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503050010
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_183900_947347_9FA1446B 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20250304_173521_911626_E37471C3 
+X-CRM114-Status: GOOD (  16.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,23 +121,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:56:38PM -0800, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
-> 
-> The eUSB2 repeater that exists in the QCOM PMICs are utilized for several
-> different eUSB2 PHY vendors, such as M31 or Synopsys.  Hence, the wording
-> needs to be updated to remove associations to a specific vendor.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
->  drivers/phy/qualcomm/Kconfig | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
-> 
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
--- 
-With best wishes
-Dmitry
+On 3/5/2025 12:10 AM, Suzuki K Poulose wrote:
+> On 03/03/2025 03:29, Jie Gan wrote:
+>> Introduce a new strcuture, 'struct coresight_path', to store the data 
+>> that
+>> utilized by the devices in the path. The coresight_path will be built/ 
+>> released
+>> by coresight_build_path/coresight_release_path functions.
+>>
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-core.c  | 16 +++++-----
+>>   .../hwtracing/coresight/coresight-etm-perf.c  | 30 ++++++++++---------
+>>   .../hwtracing/coresight/coresight-etm-perf.h  |  2 +-
+>>   drivers/hwtracing/coresight/coresight-priv.h  |  6 ++--
+>>   drivers/hwtracing/coresight/coresight-sysfs.c | 12 ++++----
+>>   include/linux/coresight.h                     | 10 +++++++
+>>   6 files changed, 44 insertions(+), 32 deletions(-)
+>>
+> 
+> ...
+> 
+>> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+>> index ce9a5e71b261..67cf8bdbe5c0 100644
+>> --- a/include/linux/coresight.h
+>> +++ b/include/linux/coresight.h
+>> @@ -329,6 +329,16 @@ static struct coresight_dev_list (var) = 
+>> {                \
+>>   #define to_coresight_device(d) container_of(d, struct 
+>> coresight_device, dev)
+>> +/**
+>> + * struct coresight_path - data needed by enable/disable path
+>> + * @path:              path from source to sink.
+> 
+> This doesn't match the actual variable below.
+
+Hi Suzuki,
+
+Very sorry for the mistake. I should spot it in advance. I will take 
+care and enhance the self-checking process in the future.
+
+Jie
+
+> 
+>> + * @trace_id:          trace_id of the whole path.
+>> + */
+>> +struct coresight_path {
+>> +    struct list_head    path_list;
+>> +    u8            trace_id;
+>> +};
+>> +
+>>   enum cs_mode {
+>>       CS_MODE_DISABLED,
+>>       CS_MODE_SYSFS,
+> 
+> Suzuki
+
 
