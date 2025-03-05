@@ -4,53 +4,217 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E82FC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:16:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95C94C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4z6P/2xsQVe9zk5ymqOFyVdkmvhozujdFy5ENMTLZyI=; b=qRl4rkITQwDQu6uauU4lNiHElE
-	u/OpzaLGwpTGysPB2DO7bPToSeMqCRRH3RqGK+rTzPxLx5tAeNUlEjSzDvUTZVOPuPcYJgMmjI6ey
-	vqWsqp4nCqbHQsw8vVBMV5VnxPv5FCJigilu/eQbMd2uStzztDd1fYCIE7oH6qqjMGrwe+PX8IJ+N
-	53daPGhj7nLnRL5CF/wO587ceZBNEY5bOkr9UpHmQpTMpaFAGIySodlx555dahvvp/TvNZc/3zYtd
-	XbaQarGyvzkmPBmG263XyNwpa+/kdyXaxeolaVbyov/kV6vZa493pIpVI09biEaS6E/ghRBrKet9u
-	p8iK8P0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hg0T3rx+HW9AYBBekGOd01W9cEvUq8zCRinn2715ixc=; b=dO2/jpWYI8gAD7OtzrhhjH159p
+	G6TKQqXivUAu7LJBi1qZ/0QMJL2j8hd4hUJpOk6zkg130DGWfJUwfjPTrI9iZlmp4HOP+RAENEe2u
+	87gLPyBwBtszK49MqJsqCbQNZIkaycHLT4zZRkNeRa5thbrqHydgLPnxmht/IDQyetHZdWCW2KobF
+	VqqzmH4fA+gyou32kh4mMzAZIDbbmx3T4tSJZjBcJeDSu3cC1XuCBNli1vbzdQ9OlZsjjp+8j3m41
+	32N3SiFnAB/ciSZuexLr9vGvdT+AD2kOj+fd1TyT4+nvzGd3qL+uGHbFt4IFH21R1UUGXHm+FiMXj
+	Rx2yo0qQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprQN-00000008dAR-15Vt;
-	Wed, 05 Mar 2025 16:16:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprK6-00000008cIZ-0Fz5
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 16:10:19 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BBF9B1713;
-	Wed,  5 Mar 2025 08:10:28 -0800 (PST)
-Received: from e121345-lin.cambridge.arm.com (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 9FC773F5A1;
-	Wed,  5 Mar 2025 08:10:14 -0800 (PST)
-From: Robin Murphy <robin.murphy@arm.com>
-To: will@kernel.org
-Cc: mark.rutland@arm.com,
-	bwicaksono@nvidia.com,
-	ilkka@os.amperecomputing.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org
-Subject: [PATCH 2/3] perf/arm_cspmu: Generalise event filtering
-Date: Wed,  5 Mar 2025 16:10:07 +0000
-Message-Id: <c0cd4d4c12566dbf1b062ccd60241b3e0639f4cc.1741190362.git.robin.murphy@arm.com>
-X-Mailer: git-send-email 2.39.2.101.g768bb238c484.dirty
-In-Reply-To: <cover.1741190362.git.robin.murphy@arm.com>
-References: <cover.1741190362.git.robin.murphy@arm.com>
+	id 1tprRx-00000008dPb-04Sm;
+	Wed, 05 Mar 2025 16:18:25 +0000
+Received: from [216.200.240.184] (helo=mailgw01.mediatek.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tprMW-00000008cel-2FvK;
+	Wed, 05 Mar 2025 16:12:50 +0000
+X-UUID: acdf06faf9dc11ef83f2a1c9db70dae0-20250305
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=hg0T3rx+HW9AYBBekGOd01W9cEvUq8zCRinn2715ixc=;
+	b=Ddfmy8i6nBMszeeJfgDHkM8sD6uUXuAG+P9n6lvE/tKc9iybRu3G4Minx9NeLmSVquba31Z8u45BNnObAJRqN7lQBaBC7Qo7In9RdITKmlzI1AQYV/5gp+I9irKtFvKyE7QpmabYP4B42FJ/VwOu99JVnoeRPcC6Gk3vHJMhr5E=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:19c4588a-5e1f-4914-97a6-90211e51c98e,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:e89cf5c5-16da-468a-87f7-8ca8d6b3b9f7,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102,TC:nil,Content:0|50,
+	EDM:-3,IP:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OS
+	A:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-UUID: acdf06faf9dc11ef83f2a1c9db70dae0-20250305
+Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+	(envelope-from <jason-jh.lin@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1998564532; Wed, 05 Mar 2025 09:12:46 -0700
+Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
+ mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 6 Mar 2025 00:12:43 +0800
+Received: from SEYPR02CU001.outbound.protection.outlook.com (172.21.101.237)
+ by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 6 Mar 2025 00:12:43 +0800
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BveLYxb1rmxt8/mSvMdmoxJ6DnDBLIbh/UFciVMRX2e1hitvqcu7izaGvsQe0zb3xl2bIxOKoVngjkVleXpxpDrGaA3fd4S9XA3qVs3v06tfrOAxNH4z6ryRPOAEHGDhRDhuaklqjRct+c00P2W/FDJlWDayqc7nHCWAZFmllXnZhlQIdqSpSM6UzCEw/aYFpcCU9DGon2w9tJc7iDE1521eNYb2rOWBdWHjrB0rNJf8E2WPRS3YcGko9m4SacTRIqgFjcy+Fxr1YBrvMH5vjMoCSy7jqzdEvVs+vxPtMHwi5iqsZfE5ZNcILNtyagcoi9F1iozZ4lQVEVrDHjRKlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hg0T3rx+HW9AYBBekGOd01W9cEvUq8zCRinn2715ixc=;
+ b=sV4Y7v4Tb3T1IJ9GVVoFsa64foEzgQvdpY+VwaoAW3H0e4/CkBLinnwa19sb7n8jTLDvZjckB+WGDZXrgJWNe3Al2pELlvz0Y5in9l/s+3dmO9quw9iQhS8grzOY0Y461qlzCtsC46NWb5BM6AkS3sh7JGBd4Hh/Fm9W3OXImgbMNenezV+kSTvwV+lqr7sj371r6r2Yi97zbDpvhWCQSx60MtSpC6lSPL3EG2zeraBIltt7mPWsOtFkcHQr1sTeBZZvcMQjQiZNCD0ep27NX9i6XxlBTsAs94yqDA1ktH9T1xAfSLcwqXKsEZ9rVH2zMn8T3TNt8e4+zFIsBPAY0A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
+ dkim=pass header.d=mediatek.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hg0T3rx+HW9AYBBekGOd01W9cEvUq8zCRinn2715ixc=;
+ b=oN+kKtB4vAkakEdzzU6XAhgJVIpD6SYCNFoPBiaprogRhEHl7zBWgKrsQNG7OZ0msNpNtf5bOsPqgAS2kKMSGbyvhKzb0Z77SbNVNIWe7gdneXCAmcPd/kYNbQ0ZuwQKeDTejr1FwhKZwGPYnDvwxjpgGEaWVpGOOmmCMOwZ6ZM=
+Received: from SEYPR03MB7682.apcprd03.prod.outlook.com (2603:1096:101:149::11)
+ by TY0PR03MB7282.apcprd03.prod.outlook.com (2603:1096:400:21d::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
+ 2025 16:12:39 +0000
+Received: from SEYPR03MB7682.apcprd03.prod.outlook.com
+ ([fe80::c6cc:cbf7:59cf:62b6]) by SEYPR03MB7682.apcprd03.prod.outlook.com
+ ([fe80::c6cc:cbf7:59cf:62b6%3]) with mapi id 15.20.8511.017; Wed, 5 Mar 2025
+ 16:12:39 +0000
+From: =?utf-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>
+To: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "mchehab@kernel.org" <mchehab@kernel.org>,
+	"chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+	"jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>
+CC: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+	=?utf-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+	=?utf-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
+	=?utf-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+	=?utf-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+	<Xiandong.Wang@mediatek.com>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, Project_Global_Chrome_Upstream_Group
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>,
+	"dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"fshao@chromium.org" <fshao@chromium.org>,
+	=?utf-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	=?utf-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
+	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, "treapking@chromium.org"
+	<treapking@chromium.org>
+Subject: Re: [PATCH v4 6/8] soc: mediatek: Add programming flow for
+ unsupported subsys ID hardware
+Thread-Topic: [PATCH v4 6/8] soc: mediatek: Add programming flow for
+ unsupported subsys ID hardware
+Thread-Index: AQHbgchAmC8ygt6ujEmjaToxU9ar8rNiz7WAgAH/jgA=
+Date: Wed, 5 Mar 2025 16:12:39 +0000
+Message-ID: <ddcf01c82f92ee461875e1122b009b7fca691127.camel@mediatek.com>
+References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
+	 <20250218054405.2017918-7-jason-jh.lin@mediatek.com>
+	 <c52b132b-fc08-4d1c-8276-1771f7457014@collabora.com>
+In-Reply-To: <c52b132b-fc08-4d1c-8276-1771f7457014@collabora.com>
+Accept-Language: zh-TW, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mediatek.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SEYPR03MB7682:EE_|TY0PR03MB7282:EE_
+x-ms-office365-filtering-correlation-id: 0f687ae8-4cff-4ff6-c8d9-08dd5c008d2c
+x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?utf-8?B?ZjU2dlhSbVVwekdYeWR3WGllQ1lGMVptK1p3ZFI0MG9KRW9oTjVnVUhWa0FS?=
+ =?utf-8?B?TzVucnVLVVlMRkRsamJzQ2FIZzFtNmR6d21PQk1PN1dPYkNmQlBOWFZOZlVa?=
+ =?utf-8?B?RlR6TUhOWEVDQkVNNVh5cDhpeHNPQXZQZWQwOVBRaGR6bFpuQVREY2QyNXZ2?=
+ =?utf-8?B?cVU0MEJyRnFrMUNyU2lQQUdLc1lpckY4NGdLZytLcXpscXZDR09NZitGUlNH?=
+ =?utf-8?B?K09tRmtJcFZUYXFDY2pBVEZMWlBxTHFLMjNHbEJHaWFjU2FRTnBCNGZZSGht?=
+ =?utf-8?B?OGdHS0lmaDM1VXNXTTcxdGd3Y2psVFE4akw1Um9RUkxSaVR6L3R5by8yUFBD?=
+ =?utf-8?B?MWFyazdkQkZnOHo2WGllcm9Ra3Zxa2dHNWVOVUQ5bml0bDVSUXlpZ2FGZEht?=
+ =?utf-8?B?eDFHd2IrTnJmb1dsSGRkenIxcUk2L3E1elNvb0lwMDltdXI5RXlGY1NxNzlh?=
+ =?utf-8?B?b0FzKzFYTjJUUG14eG9Tb0wyd1F0aEc4MWxpMUxmUjg3ZmVMMFFwNlVpTHo5?=
+ =?utf-8?B?aXpJUDdWdlQvRUtoNlFqMFpwZW5NYlBCN1Y0ajg3d2VYUkRCN2N0dy9KKzB3?=
+ =?utf-8?B?NEtRdG1tOEY4MkdOQTFzeW4zTnNvUDlscGFTVkxNMXVoTGI2bHMrY1FoMjBx?=
+ =?utf-8?B?OG40SFBVQkp2ZURCdnN0Ym02cCt2QU9zdHlPeU5mQW8vL1VEM04wdHpXVDQ3?=
+ =?utf-8?B?WHlQTDN2blREdDZlcWFYQ3dSUEt6RjFDeGtKTGxNY2JGUjZ2NXUxaWRvcDg1?=
+ =?utf-8?B?cXlvemN4SXRaWXY0U2ZSckViYmRzeGRKeG90MXF1OWMxVlliTkJ0eDZ1OXpS?=
+ =?utf-8?B?ektIbkhrYm1aWThVbUJwYmlmREVRSENkbGZ1YTFxbk93NVhHOFVaZm9PRitX?=
+ =?utf-8?B?aFdDa0p6dHN6bVNQTktQb241RzdUZU05VWhmSDhuREJVL0VSQ3BGaklQMkpG?=
+ =?utf-8?B?U0pMckZmREdsTWxCYU5XYjY1bUlnaGhGN3Z4OEhPdm1TM2JQUkt3anVOSFJK?=
+ =?utf-8?B?WndyYlkvVHZlV3JlVkZPbTVJcWQrQno4YkJ4T2F2WTgvVFJiK3FZSnErWlhz?=
+ =?utf-8?B?Y0RERmZuckJ1SHY4cmtRdVVHQzJVQVpMcnU1cGowNG83Z1Izbkx1UVhhMHdS?=
+ =?utf-8?B?WUlQa2dZWGl2OC9YZk5EZHJMcnlGNzdHMW00emxPZktCZStIMEtoY1hpL3Nu?=
+ =?utf-8?B?SHl6ZFlYMUtzMHRLTkFGRVl3ODRwRXUyVVlreVVuRksxU0Q0T2NRVldMYVNn?=
+ =?utf-8?B?QkpRREZpeXQvNUhjdWxUamJJbjQ3NldPYWZwaFlFMTlUQnBPRWtTUW9vM0xF?=
+ =?utf-8?B?a2pudFdmN3hBL0RSL0g3alN0YlI2R0U1OUtycTFCQnM3dFJCVXcxUytXc1Q0?=
+ =?utf-8?B?L2NjaE40RnhuNUtWZFRrOWtLdGFaQmhKRkZOb29DSW9OSDIvNDJCMStLa2pL?=
+ =?utf-8?B?SWNyaU1FL2FEc2Z6dHZnZnY1NlNKOEE1MnJhUVFBMGdzYXZHUk14SVdyUUdw?=
+ =?utf-8?B?a2htVzg1LzJuT2tyZllDUS8wYjJjT1dUVkk3cTJycTR1dGoxa0RqSHpYbSsv?=
+ =?utf-8?B?R2RNbThkWU40YVl0SnoxUE5XR2ludG9sd0pvdkYyanBueWZNaElqY1I2eVZy?=
+ =?utf-8?B?cHJ1YlBrM1BuZW16V3dsYmd5QjRJdXdkV1pNVCt5MkpNOHVUaWtrby9sMEF1?=
+ =?utf-8?B?V1o1THFMTGhBamlPSXRmbXFIek1pekVheVZDeXIvdDd1SU8rdVd4QTRlUmR0?=
+ =?utf-8?B?eWI5SWljcHY3TXF1UFpweGRhblRBZlU2ZmhpUE40YTlzRHNreStvaG40N3hk?=
+ =?utf-8?B?Q2ZvQlNFelE1aXduWTdZWnpySWJRRDVtb1RQMCtDQ2VMUnd6SUlZMWhRSkVz?=
+ =?utf-8?B?clVadDF1OUx1NW4rR3Fjd1NpMkNnUklGcVBVaU1zZ0dnTVNFRi8ra0xaU2hD?=
+ =?utf-8?Q?uraorS1W967+nNKtxRfJp3rhkJdpzDo1?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SEYPR03MB7682.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?R0tlaXpVSXJZbGhyNmx3cEROM1pDWW01aTdaSERHdnZsazRlTDlzVVZDNXBC?=
+ =?utf-8?B?NmdiTDgvSDZxaHIzZm5PUmx3Y0xRT2JlelVyN2FvZWl4MVdDWTY4cFVtdjBU?=
+ =?utf-8?B?UDhHU2o2WFVIMFFVN1VMUGtRVmRrT25wQXhDVmt3WHJMQyttNVd6TmR3cTZp?=
+ =?utf-8?B?Sm9zSzlPQlRqQVBTeVN2VnBGMDVCODVicy9sc3U4amtKdWtBWXBLdnZOTStZ?=
+ =?utf-8?B?Qk9RSHJGVy81SVhGU0U3MmgrdjFjNkhIOTBxRkhHQ01UZHY4WmZZeTBNREN5?=
+ =?utf-8?B?aUkzM0JicVZPMnlGWVB2Skp1QWlRY0RIQVNlb0c3ckw4T3IvR2w3S1FzeHNV?=
+ =?utf-8?B?SnJic0NYVWhuZ2FweHpiTXlDdWhEWkFhU2ZGSGNJdDRzMlZSekpwN2swakNw?=
+ =?utf-8?B?OHRHYVVHRnJEdWQrNTloMEl3Yi9wOVROdmFhdGxBMjNLMGRIL2puOHEwVDV5?=
+ =?utf-8?B?MFpsUlNzbG5BNE82QStxTzFwY1l2Q1JkUG1oMjhPSlFIczdRbERTeXFGWGZW?=
+ =?utf-8?B?M2VrbVhYOU5IYnZtMXI2cTUrakt5azMrYVM3NW0wVEJmVUdBbDh2b1NrcGg4?=
+ =?utf-8?B?UXNiVTFhbzFaOEJzWnQ1Rno1SS91U1BlenBKUTlya1pXOUpiSlJaOTF0bk1S?=
+ =?utf-8?B?L3NGd3ZnNFcrcE1uWHVVS1YwK1ZvVnJ5UHcrNjM0ci9zZ0dybEFCRmx0RmU1?=
+ =?utf-8?B?dDNVOVBYTUJMUUJtT0ZnV3JIV1JZTXZUeVZnTTBwRjljVkgybktDcndTd25O?=
+ =?utf-8?B?YkhIOU9WVy9uTzMrYlozV041M1IwTWZqd1hQNmJORjFoVVFnZ2RJTUJYamE0?=
+ =?utf-8?B?SG4yT2xJWGpEUEh2V1VSV09tTEpzNzhPajBYN1ZLajFIVnRhVTBvRzkrSW1y?=
+ =?utf-8?B?VTU2Q0ZrWXBZT0VvRWdsSjllZVczUnFJaC96a1B1cnhOeGtRVHZVTFhRTjkr?=
+ =?utf-8?B?Vno1bHlIRURZTVFRTTgwejgySlNjQ3U5dE5XOUg3U1F0bVZKSWc2c2ZKaE04?=
+ =?utf-8?B?N0RrT2U0Q1R2R1JmcGdOWFFZV3V4bEUzaXRNRTJJK0dNcVlJaWdTb0dxSUR5?=
+ =?utf-8?B?UkcrNjRwaDJjR09BQWtnbGROaVFxM2wvTWpTOFhuLzVWVmFuSDhlakJlWlh6?=
+ =?utf-8?B?ZTNIa3AraEc0RWZldmIvRzVOMit3dEFBMVdSd2dxOG9lWjBYS0tzbk1hQTFO?=
+ =?utf-8?B?YjJtNnFRUEFJQ0t1QTZuVExlZTQwTCtNR0FrdzdLUDZMd0hyQktHOU1Id1dM?=
+ =?utf-8?B?cjk5VWZ3UHNBYzFxdEtQdDRGdmQrbGpYbHhOZGNDalB0V0dNS1dLS3Z5aC83?=
+ =?utf-8?B?MC9hTTdIMExvaWpsUmNocWJJd1Uzb3NxcER4ejJYaUlzT3FtaDZ6YWR6T1E1?=
+ =?utf-8?B?L1ArcDAzTElKZEVGLzc0QjE0SDBGZE1HZGxlTW1zVEl5MjZiUFdPUGlwRG9x?=
+ =?utf-8?B?ZDVucGNVVVBOcnRXSkZvWExJMm04VGhKR0VZL2g5MW9vSURKalBEZ2lxVHEx?=
+ =?utf-8?B?cW1UOVN1UDA0NVd5MW1IQ0YvNG1pK2x3eU1kWHhtNzFoQklqMFg4NVJkWGgz?=
+ =?utf-8?B?aUw4TjRLT0M5ZkNWZzE4eTdRbURQcjVuejVGNUdlSGJ5L1JmSjF0UTVJMlY1?=
+ =?utf-8?B?b3k5OTRZa0VIZ2xrcFlmOXdvQkFRLzNMMHMyMXZqeFNPWk9kVEpzWGkvV1g1?=
+ =?utf-8?B?NTFDWGNZYlpJdVpMbi9nWkN3Z2IvMEVhNjlRK1ZmMktrZHk3eXQ3dUF0UFVp?=
+ =?utf-8?B?UFljV3E1cytLekVSZEFOWE51eEc4VFBiQ3JiTWZWQTUyMi91dVlQc2RoRXhG?=
+ =?utf-8?B?endvS1R2TU9zcGROaEtiL09PejBHTGVmWnRndWEzTTUrQzUyd1kzeDg3NldZ?=
+ =?utf-8?B?Q1NsOE1WcHUwZlJZb1pXR294MG1kYmd3SFM0d01TVUhzUlVrYldpbDZ4M2pu?=
+ =?utf-8?B?b2RHSDU1dUJwM3Fkd0VTRmllUEQ5ZVRYWlVOcWhCbXFldmlUblVZOVdLOVR3?=
+ =?utf-8?B?ZVJZeTlVekJkbGZGaEZOelJ5YjE3aTNLSVVyQU5KL2puaEZmTG8yRWg1cTda?=
+ =?utf-8?B?VGdyODAzejZiODZKaUFzT2R6K1hRVnlYZ2FCY0xSVS83dVBFa0F3UnpEc1cr?=
+ =?utf-8?B?YnhPZmhoMlFFM0o5TjVyb2taS3FhdHhOYjZaRUEvOG51VlpqSzNPRVM4ZGE3?=
+ =?utf-8?B?Znc9PQ==?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <9E6AF4080D27AB4D918E0E4380509151@apcprd03.prod.outlook.com>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SEYPR03MB7682.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0f687ae8-4cff-4ff6-c8d9-08dd5c008d2c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 05 Mar 2025 16:12:39.4147
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2F/jClZ8CsElujZtKhbX140nnr0IAdF16i5UOyQDfGRE+3clsGiS5gP8qNNK7WJwWCjFnMzTjOBhp76igFfml4NHJbfBbrmLr6DhEohMvlo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB7282
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_081018_315720_233F0756 
-X-CRM114-Status: GOOD (  20.70  )
+X-CRM114-CacheID: sfid-20250305_081248_587383_1E684C42 
+X-CRM114-Status: GOOD (  17.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,220 +229,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The notion of a single u32 filter value for any event doesn't scale well
-when the potential architectural scope is already two 64-bit values, and
-implementations may add custom stuff on the side too. Rather than try to
-thread arbitrary filter data through the common path, let's just make
-the set_ev_filter op self-contained in terms of parsing and configuring
-any and all filtering for the given event - splitting out a distinct op
-for cycles events which inherently differ - and let implementations
-override the whole thing if they want to do something different. This
-already allows the Ampere code to stop looking a bit hacky.
-
-Signed-off-by: Robin Murphy <robin.murphy@arm.com>
----
- drivers/perf/arm_cspmu/ampere_cspmu.c | 24 ++++++----------------
- drivers/perf/arm_cspmu/arm_cspmu.c    | 29 +++++++++++----------------
- drivers/perf/arm_cspmu/arm_cspmu.h    |  8 ++++----
- drivers/perf/arm_cspmu/nvidia_cspmu.c | 21 ++++++++++++++++++-
- 4 files changed, 42 insertions(+), 40 deletions(-)
-
-diff --git a/drivers/perf/arm_cspmu/ampere_cspmu.c b/drivers/perf/arm_cspmu/ampere_cspmu.c
-index 31cc1a4ac9df..b8ca69fd9d1d 100644
---- a/drivers/perf/arm_cspmu/ampere_cspmu.c
-+++ b/drivers/perf/arm_cspmu/ampere_cspmu.c
-@@ -132,32 +132,20 @@ ampere_cspmu_get_name(const struct arm_cspmu *cspmu)
- 	return ctx->name;
- }
- 
--static u32 ampere_cspmu_event_filter(const struct perf_event *event)
-+static void ampere_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-+				       const struct perf_event *event)
- {
- 	/*
--	 * PMEVFILTR or PMCCFILTR aren't used in Ampere SoC PMU but are marked
--	 * as RES0. Make sure, PMCCFILTR is written zero.
-+	 * PMCCFILTR is RES0, so this is just a dummy callback to override
-+	 * the default implementation and avoid writing to it.
- 	 */
--	return 0;
- }
- 
- static void ampere_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
--				       struct hw_perf_event *hwc,
--				       u32 filter)
-+				       const struct perf_event *event)
- {
--	struct perf_event *event;
--	unsigned int idx;
- 	u32 threshold, rank, bank;
- 
--	/*
--	 * At this point, all the events have the same filter settings.
--	 * Therefore, take the first event and use its configuration.
--	 */
--	idx = find_first_bit(cspmu->hw_events.used_ctrs,
--			     cspmu->cycle_counter_logical_idx);
--
--	event = cspmu->hw_events.events[idx];
--
- 	threshold	= get_threshold(event);
- 	rank		= get_rank(event);
- 	bank		= get_bank(event);
-@@ -233,7 +221,7 @@ static int ampere_cspmu_init_ops(struct arm_cspmu *cspmu)
- 
- 	cspmu->impl.ctx = ctx;
- 
--	impl_ops->event_filter		= ampere_cspmu_event_filter;
-+	impl_ops->set_cc_filter		= ampere_cspmu_set_cc_filter;
- 	impl_ops->set_ev_filter		= ampere_cspmu_set_ev_filter;
- 	impl_ops->validate_event	= ampere_cspmu_validate_event;
- 	impl_ops->get_name		= ampere_cspmu_get_name;
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.c b/drivers/perf/arm_cspmu/arm_cspmu.c
-index 769466d55bea..053bb7920df6 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.c
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.c
-@@ -66,7 +66,9 @@ static unsigned long arm_cspmu_cpuhp_state;
- static DEFINE_MUTEX(arm_cspmu_lock);
- 
- static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
--				    struct hw_perf_event *hwc, u32 filter);
-+				    const struct perf_event *event);
-+static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-+				    const struct perf_event *event);
- 
- static struct acpi_apmt_node *arm_cspmu_apmt_node(struct device *dev)
- {
-@@ -205,11 +207,6 @@ static bool arm_cspmu_is_cycle_counter_event(const struct perf_event *event)
- 	return (event->attr.config == ARM_CSPMU_EVT_CYCLES_DEFAULT);
- }
- 
--static u32 arm_cspmu_event_filter(const struct perf_event *event)
--{
--	return event->attr.config1 & ARM_CSPMU_FILTER_MASK;
--}
--
- static ssize_t arm_cspmu_identifier_show(struct device *dev,
- 					 struct device_attribute *attr,
- 					 char *page)
-@@ -371,7 +368,7 @@ static int arm_cspmu_init_impl_ops(struct arm_cspmu *cspmu)
- 		DEFAULT_IMPL_OP(get_name),
- 		DEFAULT_IMPL_OP(is_cycle_counter_event),
- 		DEFAULT_IMPL_OP(event_type),
--		DEFAULT_IMPL_OP(event_filter),
-+		DEFAULT_IMPL_OP(set_cc_filter),
- 		DEFAULT_IMPL_OP(set_ev_filter),
- 		DEFAULT_IMPL_OP(event_attr_is_visible),
- 	};
-@@ -767,26 +764,26 @@ static inline void arm_cspmu_set_event(struct arm_cspmu *cspmu,
- }
- 
- static void arm_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
--					struct hw_perf_event *hwc,
--					u32 filter)
-+				    const struct perf_event *event)
- {
-+	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
- 	u32 offset = PMEVFILTR + (4 * hwc->idx);
- 
- 	writel(filter, cspmu->base0 + offset);
- }
- 
--static inline void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu, u32 filter)
-+static void arm_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-+				    const struct perf_event *event)
- {
--	u32 offset = PMCCFILTR;
-+	u32 filter = event->attr.config1 & ARM_CSPMU_FILTER_MASK;
- 
--	writel(filter, cspmu->base0 + offset);
-+	writel(filter, cspmu->base0 + PMCCFILTR);
- }
- 
- static void arm_cspmu_start(struct perf_event *event, int pmu_flags)
- {
- 	struct arm_cspmu *cspmu = to_arm_cspmu(event->pmu);
- 	struct hw_perf_event *hwc = &event->hw;
--	u32 filter;
- 
- 	/* We always reprogram the counter */
- 	if (pmu_flags & PERF_EF_RELOAD)
-@@ -794,13 +791,11 @@ static void arm_cspmu_start(struct perf_event *event, int pmu_flags)
- 
- 	arm_cspmu_set_event_period(event);
- 
--	filter = cspmu->impl.ops.event_filter(event);
--
- 	if (event->hw.extra_reg.idx == cspmu->cycle_counter_logical_idx) {
--		arm_cspmu_set_cc_filter(cspmu, filter);
-+		cspmu->impl.ops.set_cc_filter(cspmu, event);
- 	} else {
- 		arm_cspmu_set_event(cspmu, hwc);
--		cspmu->impl.ops.set_ev_filter(cspmu, hwc, filter);
-+		cspmu->impl.ops.set_ev_filter(cspmu, event);
- 	}
- 
- 	hwc->state = 0;
-diff --git a/drivers/perf/arm_cspmu/arm_cspmu.h b/drivers/perf/arm_cspmu/arm_cspmu.h
-index 576249e0deea..d59040d6a7e3 100644
---- a/drivers/perf/arm_cspmu/arm_cspmu.h
-+++ b/drivers/perf/arm_cspmu/arm_cspmu.h
-@@ -149,11 +149,11 @@ struct arm_cspmu_impl_ops {
- 	bool (*is_cycle_counter_event)(const struct perf_event *event);
- 	/* Decode event type/id from configs */
- 	u32 (*event_type)(const struct perf_event *event);
--	/* Decode filter value from configs */
--	u32 (*event_filter)(const struct perf_event *event);
--	/* Set event filter */
-+	/* Set event filters */
-+	void (*set_cc_filter)(struct arm_cspmu *cspmu,
-+			      const struct perf_event *event);
- 	void (*set_ev_filter)(struct arm_cspmu *cspmu,
--			      struct hw_perf_event *hwc, u32 filter);
-+			      const struct perf_event *event);
- 	/* Implementation specific event validation */
- 	int (*validate_event)(struct arm_cspmu *cspmu,
- 			      struct perf_event *event);
-diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-index 8116c7846a46..9e817f120828 100644
---- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-+++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-@@ -183,6 +183,24 @@ static u32 nv_cspmu_event_filter(const struct perf_event *event)
- 	return filter_val;
- }
- 
-+static void nv_cspmu_set_ev_filter(struct arm_cspmu *cspmu,
-+				   const struct perf_event *event)
-+{
-+	u32 filter = nv_cspmu_event_filter(event);
-+	u32 offset = PMEVFILTR + (4 * event->hw.idx);
-+
-+	writel(filter, cspmu->base0 + offset);
-+}
-+
-+static void nv_cspmu_set_cc_filter(struct arm_cspmu *cspmu,
-+				   const struct perf_event *event)
-+{
-+	u32 filter = nv_cspmu_event_filter(event);
-+
-+	writel(filter, cspmu->base0 + PMCCFILTR);
-+}
-+
-+
- enum nv_cspmu_name_fmt {
- 	NAME_FMT_GENERIC,
- 	NAME_FMT_SOCKET
-@@ -322,7 +340,8 @@ static int nv_cspmu_init_ops(struct arm_cspmu *cspmu)
- 	cspmu->impl.ctx = ctx;
- 
- 	/* NVIDIA specific callbacks. */
--	impl_ops->event_filter			= nv_cspmu_event_filter;
-+	impl_ops->set_cc_filter			= nv_cspmu_set_cc_filter;
-+	impl_ops->set_ev_filter			= nv_cspmu_set_ev_filter;
- 	impl_ops->get_event_attrs		= nv_cspmu_get_event_attrs;
- 	impl_ops->get_format_attrs		= nv_cspmu_get_format_attrs;
- 	impl_ops->get_name			= nv_cspmu_get_name;
--- 
-2.39.2.101.g768bb238c484.dirty
-
+T24gVHVlLCAyMDI1LTAzLTA0IGF0IDEwOjQxICswMTAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
+ZWdubyB3cm90ZToNCj4gDQo+IEV4dGVybmFsIGVtYWlsIDogUGxlYXNlIGRvIG5vdCBjbGljayBs
+aW5rcyBvciBvcGVuIGF0dGFjaG1lbnRzIHVudGlsDQo+IHlvdSBoYXZlIHZlcmlmaWVkIHRoZSBz
+ZW5kZXIgb3IgdGhlIGNvbnRlbnQuDQo+IA0KPiANCj4gSWwgMTgvMDIvMjUgMDY6NDEsIEphc29u
+LUpIIExpbiBoYSBzY3JpdHRvOg0KPiA+IFRvIHN1cHBvcnQgaGFyZHdhcmUgd2l0aG91dCBzdWJz
+eXMgSURzIG9uIG5ldyBTb0NzLCBhZGQgYQ0KPiA+IHByb2dyYW1taW5nDQo+ID4gZmxvdyB0aGF0
+IGNoZWNrcyB3aGV0aGVyIHRoZSBzdWJzeXMgSUQgaXMgdmFsaWQuIElmIHRoZSBzdWJzeXMgSUQN
+Cj4gPiBpcw0KPiA+IGludmFsaWQsIHRoZSBmbG93IHdpbGwgY2FsbCAyIGFsdGVybmF0aXZlIENN
+RFEgQVBJczoNCj4gPiBjbWRxX3BrdF9hc3NpZ24oKSBhbmQgY21kcV9wa3Rfd3JpdGVfc192YWx1
+ZSgpIHRvIGFjaGlldmUgdGhlIHNhbWUNCj4gPiBmdW5jdGlvbmFsaXR5Lg0KPiA+IA0KPiA+IFNp
+Z25lZC1vZmYtYnk6IEphc29uLUpIIExpbiA8amFzb24tamgubGluQG1lZGlhdGVrLmNvbT4NCj4g
+PiAtLS0NCj4gPiDCoCBkcml2ZXJzL3NvYy9tZWRpYXRlay9tdGstbW1zeXMuYyB8IDE0ICsrKysr
+KysrKysrLS0tDQo+ID4gwqAgZHJpdmVycy9zb2MvbWVkaWF0ZWsvbXRrLW11dGV4LmMgfCAxMSAr
+KysrKysrKystLQ0KPiA+IMKgIDIgZmlsZXMgY2hhbmdlZCwgMjAgaW5zZXJ0aW9ucygrKSwgNSBk
+ZWxldGlvbnMoLSkNCj4gPiANCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9zb2MvbWVkaWF0ZWsv
+bXRrLW1tc3lzLmMNCj4gPiBiL2RyaXZlcnMvc29jL21lZGlhdGVrL210ay1tbXN5cy5jDQo+ID4g
+aW5kZXggYmI0NjM5Y2EwYjhjLi5jZTk0OWI4NjNiMDUgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVy
+cy9zb2MvbWVkaWF0ZWsvbXRrLW1tc3lzLmMNCj4gPiArKysgYi9kcml2ZXJzL3NvYy9tZWRpYXRl
+ay9tdGstbW1zeXMuYw0KPiA+IEBAIC0xNjcsOSArMTY3LDE3IEBAIHN0YXRpYyB2b2lkIG10a19t
+bXN5c191cGRhdGVfYml0cyhzdHJ1Y3QNCj4gPiBtdGtfbW1zeXMgKm1tc3lzLCB1MzIgb2Zmc2V0
+LCB1MzIgbWFzaywNCj4gPiDCoMKgwqDCoMKgIHUzMiB0bXA7DQo+ID4gDQo+ID4gwqDCoMKgwqDC
+oCBpZiAobW1zeXMtPmNtZHFfYmFzZS5zaXplICYmIGNtZHFfcGt0KSB7DQo+ID4gLcKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoCByZXQgPSBjbWRxX3BrdF93cml0ZV9tYXNrKGNtZHFfcGt0LCBtbXN5
+cy0NCj4gPiA+Y21kcV9iYXNlLnN1YnN5cywNCj4gPiAtwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBtbXN5
+cy0+Y21kcV9iYXNlLm9mZnNldCArDQo+ID4gb2Zmc2V0LCB2YWwsDQo+ID4gLcKgwqDCoMKgwqDC
+oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKg
+wqDCoMKgwqAgbWFzayk7DQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBvZmZzZXQgKz0g
+bW1zeXMtPmNtZHFfYmFzZS5vZmZzZXQ7DQo+ID4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoCBp
+ZiAobW1zeXMtPmNtZHFfYmFzZS5zdWJzeXMgIT0gQ01EUV9TVUJTWVNfSU5WQUxJRCkgew0KPiAN
+Cj4gWW91J3JlIHN0aWxsIGFueXdheSBwYXNzaW5nIHRoZSBzdWJzeXMgdG8gY21kcV9wa3Rfd3Jp
+dGVfbWFzaygpLA0KPiByaWdodD8hDQo+IFdoeSBkb24ndCB5b3UganVzdCBoYW5kbGUgdGhpcyBp
+biBjbWRxX3BrdF93cml0ZV9tYXNrKCkgdGhlbj8gOy0pDQo+IA0KPiBJIGNhbiBzZWUgdGhpcyBw
+YXR0ZXJuIGJlaW5nIHJlcGVhdGVkIG92ZXIgYW5kIG92ZXIgaW4gYm90aA0KPiBkcm0vbWVkaWF0
+ZWsgYW5kIE1EUDMNCj4gZHJpdmVycywgYW5kIGl0J3Mgbm90IG5lY2Vzc2FyeSB0byBkdXBsaWNh
+dGUgdGhpcyBtYW55IHRpbWVzIHdoZW4geW91DQo+IGNhbiB3cml0ZSBpdA0KPiBqdXN0IG9uY2Uu
+DQo+IA0KPiBXb3VsZCd2ZSBhbHNvIGJlZW4gZmFzdGVyIGZvciB5b3UgdG8gaW1wbGVtZW50Li4u
+IDotRA0KPiANCg0KSSB0aGluayBkaWQgaXQgaW4gdGhlIHNlcmllcyBWMToNCmh0dHBzOi8vcGF0
+Y2h3b3JrLmtlcm5lbC5vcmcvcHJvamVjdC9saW51eC1tZWRpYXRlay9wYXRjaC8yMDI0MTEyMTA0
+MjYwMi4zMjczMC01LWphc29uLWpoLmxpbkBtZWRpYXRlay5jb20vDQoNCkJlY2F1c2UgaXQnbGwg
+bmVlZCB0byBwYXNzaW5nIHRoZSBiYXNlX3BhIGFuZCB0aGF0IHdpbGwgbmVlZCB0byBjaGFuZ2UN
+CnRoZSBpbnRlcmZhY2UgZm9yIG9yaWdpbmFsIEFQSXMuDQoNCkFuZCBDSyB0aGluayB0aGF0J3Mg
+bm90IGEgbmVjZXNzYXJ5IHRvIGNoYW5nZSB0aGUgQVBJcy4gSXQgY2FuIGJlIGRvbmUNCmJ5IGNt
+ZHFfcGt0X2Fzc2lnbigpICsgY21kcV9wa3Rfd3JpdGVfc19tYXNrX3ZhbHVlKCkgaW4gdGhlIGNs
+aWVudA0KZHJpdmVycy4gVGhlbiB5b3UgY2FuIHNlZSB0aGlzIHBhdHRlcm4gaW4gZXZlcnl3aGVy
+ZS4gOi0pDQoNClJlZ2FyZHMsDQpKYXNvbi1KSCBMaW4NCg0KPiBDaGVlcnMsDQo+IEFuZ2Vsbw0K
 
