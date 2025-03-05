@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 450EFC282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:08:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896D7C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:14:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pDELCpQeeRsQjBq8mPwKYZFbE0oodQGK1z39/kbbFVc=; b=ASou2rsmYtP+3I/5rmoF0mhC2a
-	H+syeFBG9idHc6AFyRbCsGy74+8+/uoY9X4M2rolEdC0P47fh+Vb6Zz82/mOPqgjQ1Ohi418Gxh9Q
-	2mRtlH0PGzn7ktJJebKPxbK+QN1xNbUsKzGk5XoMLTKe8R8g+Jf0Y1xOixZ9oApdY5b7nsr+P0LiO
-	VauibmCt2+/ZyFfhlxYeNuNaZO+AGl4kkmlBO4fPZGqr9bar48u/f2f+yEA5Fe6WZ3N6qG7wHr5/j
-	ybMeL5Dx08OPy+2bk03LQV3ZfOwFlV/8UPN1u2yYUWLu3DDuatZnTvnCZjTFXISY8AZvXk+Fgiw8+
-	d7BU1noQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=; b=fB2yypatGXxfYFt3XlgVVN6m0r
+	R60wlvxsy2vg/VDtqolEJnyh/ZTGCTqlJzX2qaoJ2KouetgBE0CJes7F4A4Q2LFh2carNpNWrFTXE
+	QFFqX/7uxG3QDagYAvVQv258jEe8J5lPcjxerGGqT/cbniqY05Wu/eI9jk3k/Q9kZYxY3VJo3jZaz
+	Sb+SXNDfJpWaOZB/P/7gn3NUFvpwZc+zAj82lpRk8LZRFtDhqPC/kXiK2WjmjhxNhwnf0tXJOd8Bq
+	pnlsNXQZL3l1qB8WcoSy3/nwEeOG8pwg6b65JIHRnjrDmSnuTR5lwklQYXlCmM30BgR/CL2Rdwuoh
+	V4utVfKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpg3c-00000006w1Y-1F2Q;
-	Wed, 05 Mar 2025 04:08:32 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpg9j-00000006wWr-1O2L;
+	Wed, 05 Mar 2025 04:14:51 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpg23-00000006vxc-2FNV;
-	Wed, 05 Mar 2025 04:06:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:MIME-Version:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=pDELCpQeeRsQjBq8mPwKYZFbE0oodQGK1z39/kbbFVc=; b=Qe85svnzlMZAx4aQyhcrCLL1o4
-	NVHR8cPGhMnl01PyIp30XyxHwpIGbzTC3gR9t09cS0hRmmredZV6owXhOfb9ZY9i7uqmtPBeeKKG1
-	BYsBAm4vJL+3Y5JZpNfSnngO+8STW+x+2AvkGY9nZARzko3PxxHO/7xrbIR1FecRg/fk4OAB4BWDu
-	4oi+nJ2AH+Ww1SzH2147HatyKbq0ub35PCpt5yh4OVJ6pO8y/w5yYRiw+FaO2QX6FnjbRrk8J2sIE
-	BNU1bfGD1M7/Op55tLnvNuI/TTw4/prdSdBSzXHfjBYGwe6ia8rL+POTzHzkzcJ/i+U3GoitK2JSl
-	ukh7Noaw==;
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpg20-00000004fze-2AHE;
-	Wed, 05 Mar 2025 04:06:54 +0000
+	id 1tpexu-00000006qQy-3ob0
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 02:58:36 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5495078cd59so5177367e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 18:58:34 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741143513; x=1741748313; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=;
+        b=lXtBcqYrQSkAk4A2xxpDi4GQUDIn6Q0+DYGUCr/P0gMX55E1UMAEo/80z133DEhq/4
+         g/TNiOc95PKHbsWrYoPIp0dvHLBx1w4RnyW4AQ1yc0e5mjynwR/3W7DOiEkIVLbQwPdA
+         rpeNRvBLFx16O/QGxn0lMMnpNqMukSQH1h9Uhqc0mjBtAQ7zk9rbqLa/gEApW78q7pXy
+         UTRLUVmp69vb8hQCav3lAQ5ZEIuh6zYuJqOuvxPCC0r3IlhfJRGcM/iyN4kPwh/98tmv
+         sBU49vXEJFwMNkTFd/CAbduNiBnJflc3JUWcK4QVnV5FtliZ7iaWnaL5D++c1um9wdBQ
+         gDIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741143513; x=1741748313;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=;
+        b=OJGTodxUMn9ycvWfvdfbP1BEmPSVeQv2qWLf2oclL9ufVM41/HktF2A0VSQOEp2Pqa
+         i/FWKll/sckx0MtnKOuHYwA7ZGmJ6++KCwZMI7rbewBuwpjQtjC8gF9rd2jSiMA2fyBF
+         /CGdEHZGjnLFhtbEoJVlamKaTKOCRl1fGztfyk8zSOb985aV1Epfm/Rn50BHqsRD7aS5
+         D+1l1ELYDOEaA+YFxQ+scZ2+AWBLWG38bDUeGY+7fJ+b//vhGgGXJ+FLDV0R3/PoeOWl
+         vivVjcgbq8p712mybGCaMI4q7PTTru4VsR+EZpG/Uxf/GcoVPwzHCgQtNIf0H6/vKkVB
+         0JGA==
+X-Forwarded-Encrypted: i=1; AJvYcCUQRv/OibSPOdHN8yB0f5kTqseV0mjpUwJ3hWnEoCKj4fTbIOm0jG6ami+XsCoGqb8SxXPJlzB6ZyskrhMTxTe1@lists.infradead.org
+X-Gm-Message-State: AOJu0YxU8CFjVeppvnf9HZ81hOiZkoe9Hkhl6PGR8SjJ9wHWSkSaO6sr
+	D+CCSBhqdvHHgxvKqbGFPRiXX2mpZQj556qzeCDwBenX3dknkH8NobK4mmz4Sns=
+X-Gm-Gg: ASbGnct3C7EJhtjriQ/a5QXbd9R/dhalCNCmTr0YPHgas8XZ0BV3YJKIQ8naDbOFNzr
+	gZz/vrqNPtbszqGINknqqg/DKxLMaLMMTFNfB1GGlLemG5Oiso7CRMMllbQtAH4ZrB8Zk3J6eZ9
+	8OeZlbvtf7UrEr+BcoY9FjH3vbcBlqlRJSY2l3jdkdkb3dfztLe5d115ixCPUk2ICpZzo1ER5eN
+	dOz6cRdmMQwcFLGTL5WwZGXZemnoSp/ccCg0b0ExShVaupbI6iJvKtwlXhj28P99jMoG2XzYT15
+	Xtvawawc26x6L5Lq3nuVl5B6/5bCAtiALLzxudVKnpfo3A6Kvi6kRZX5PSNlNXQOv5Rf+6euJ7p
+	yVY+q9wm/pALXogttG4eAYiik
+X-Google-Smtp-Source: AGHT+IHEi7gu0pTeyCm6UNSNFzowmosNeq+ixhhTaaSaHiD2yIEwbXWQsqiTh1JFRh+rHJ1Tvh3IUw==
+X-Received: by 2002:a05:6512:1156:b0:545:2544:6ae2 with SMTP id 2adb3069b0e04-5497d33624dmr555644e87.16.1741143512917;
+        Tue, 04 Mar 2025 18:58:32 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549579424e4sm1320182e87.118.2025.03.04.18.58.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 18:58:31 -0800 (PST)
+Date: Wed, 5 Mar 2025 04:58:29 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Melody Olvera <quic_molvera@quicinc.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 8/9] arm64: dts: qcom: sm8750: Add USB support for
+ SM8750 MTP and QRD platforms
+Message-ID: <6msx5eontkkunldl45npigj756b5sst7xjhmomlnummbsmncif@ca3hkdvtdo44>
+References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
+ <20250304-sm8750_usb_master-v2-8-a698a2e68e06@quicinc.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1741147601;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=pDELCpQeeRsQjBq8mPwKYZFbE0oodQGK1z39/kbbFVc=;
-	b=CBDAyr6gphxZstlSVsbNMId1zpTUhZp+pAWmgYDZI5aTdeZ+5+nb+TBqrBtQUrnRTU1GZb
-	Si9rzNzGXCDlFD2IIB8gCrmBa9Nc2M0oIKh9vnT4w05EvX9lPTgrhpPOsEq3w5XvwHskT2
-	QL282+8PZd6XrT0eT+hA0aCCcL5b1WNM7Gt/Uv5uLkpGedTMgV4WCyrpb2z9DgSIm6AEDo
-	pz8reP1rIZJj47AjtbDQDxo/pGlHwaTqqcZZspE8HTRxdAvt38uDCTONarVUiCj9VLoQ2e
-	ItwzTTEgIUEqZftGQ1ALfausu/4JWSVp95OuTAKXQ1LTQ7d9/w5eUNfvBHlIsQ==
-Date: Wed, 05 Mar 2025 05:06:41 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>
-Cc: linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, didi.debian@cknow.org, chris@z9.de
-Subject: Re: [PATCH v2 0/2] Slightly improve hardware description of Pine64
- RockPro64
-In-Reply-To: <2630232.Icojqenx9y@diego>
-References: <cover.1740941097.git.dsimic@manjaro.org>
- <174104113599.8946.16805724674396090918.b4-ty@sntech.de>
- <757afa87255212dfa5abf4c0e31deb08@manjaro.org> <2630232.Icojqenx9y@diego>
-Message-ID: <40aed1a2c3d4015881694e847beca683@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304-sm8750_usb_master-v2-8-a698a2e68e06@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_040652_628467_6B96760E 
-X-CRM114-Status: GOOD (  17.40  )
+X-CRM114-CacheID: sfid-20250304_185834_974794_9F8A3138 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,87 +106,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
-
-On 2025-03-04 22:52, Heiko Stübner wrote:
-> Am Dienstag, 4. März 2025, 07:44:59 MEZ schrieb Dragan Simic:
->> On 2025-03-03 23:36, Heiko Stuebner wrote:
->> > On Sun, 02 Mar 2025 19:48:02 +0100, Dragan Simic wrote:
->> >> This is a small series that introduces small improvements to the way
->> >> Pine64 RockPro64 [1] single-board-computer is described in the DT
->> >> files.
->> >> This applies to both production-run revisions of the RockPro64.
->> >>
->> >> The introduced improvements boil down to eliminating some warnings
->> >> from
->> >> the kernel log, by adding a previously undefined regulator and by
->> >> adding
->> >> some previously missing references to the regulators.
->> >>
->> >> [...]
->> >
->> > Applied, thanks!
->> >
->> > [1/2] arm64: dts: rockchip: Add avdd HDMI supplies to RockPro64 board
->> > dtsi
->> >       commit: bd1c959f37f384b477f51572331b0dc828bd009a
->> > [2/2] arm64: dts: rockchip: Add missing PCIe supplies to RockPro64
->> > board dtsi
->> >       commit: 64ef4a4320e7aa3f0f267e01f170f52b90bf0b1b
->> >
->> > I've moved the pcie12v supply up one line.
->> > While in a mathematical sense it's true 12 > 3.3, we're sorting
->> > alphabetical, so it's 1?? < 3?? .
->> >
->> > And yes I sympathize with 3.3 < 12, but also have come to appreciate
->> > not
->> > having overly many special cases :-)
->> 
->> Great, thanks! :)
->> 
->> I'm fine with the alphabetical ordering, albeit with some caveats
->> described below, but the following part of the patch description
->> should also be removed, if possible, so the patch description fully
->> matches the introduced changes:
->> 
->>    Shuffle and reorder the "vpcie*-supply" properties a bit, so 
->> they're
->> sorted
->>    alphanumerically, which is a bit more logical and more useful than
->> having
->>    these properties listed in their strict alphabetical order.
+On Tue, Mar 04, 2025 at 01:56:41PM -0800, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
 > 
-> I've amended the commit, dropping this block
-
-Thanks!
-
->> I'm hoping you'll agree that specifying alphanumerical ordering
->> for the properties in the DTS coding style is the way to go, just
->> like it's already specified for the ordering of the nodes.  I'll
->> go ahead and submit an appropriate patch for the DT guidelines.
+> Enable USB support on SM8750 MTP and QRD variants.  The current definition
+> will start the USB controller in peripheral mode by default until
+> dependencies are added, such as USB role detection.
 > 
-> vpcie0v9-supply = <&vcca_0v9>;
-> vpcie1v8-supply = <&vcca_1v8>;
-> vpcie3v3-supply = <&vcc3v3_pcie>;
-> vpcie12v-supply = <&vcc12v_dcin>;
-> 
-> In the end I don't care _that_ much, but personally I find that
-> alphanumerical ordering harder to read ;-) .
-> 
-> Because in the example above, my mind now constantly shouts
-> "why is vpcie1... after vpcie3... ..... ooooh right, it's 
-> alpha-numerical"
-> 
-> But I can live with it I guess ;-) .
-> As 3.3 is smaller than 12 afterall.
+> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+> ---
+>  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 24 ++++++++++++++++++++++++
+>  arch/arm64/boot/dts/qcom/sm8750-qrd.dts | 24 ++++++++++++++++++++++++
 
-Oh, I know very well first-hand how alphanumerical ordering may
-look and feel strange at first... :)
+Nit: two separate commits please.
 
-I used ls(1) without the "-v" option for many, many years, and the
-things looked a bit strange after I decided to add "-v" to its set
-of options at some point, but after a short period of getting used
-to it, alphanumerical sorting became so logical and useful to me that
-alphabetical ordering is actually now harder to read and is looking
-a bit strange to me. :)
+
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+
+>  2 files changed, 48 insertions(+)
+> 
+
+-- 
+With best wishes
+Dmitry
 
