@@ -4,178 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5978C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:25:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F961C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfmWP206WT+CurGk+Y3Bm4wIo+djFMkIPFjf+mtIKy8=; b=m1mdu5B/7RpTs6sStkmZqlQ0pq
-	37o3wyHnBFp48zZLwq8m/C8UojHL6vQaNecOCCK8nF3P1br+cnTMWAy3EPMcwRfaIKEs+msG1/hSo
-	XvQX3Ei3LpofWoFNIODEaQ/jsZ+7fux240lbpSDXCw4Nphjsp4q2t4INTUJ5SQFC0ZouMvaS7vTh9
-	0PlGRcHx4oU33ayNvgvplT8+lM2mzxSl00MA2WWncT5ZWGA+iDRjCgs3QNwUhmaQQ7oEqv5fmgN1L
-	fHa8/oiyem0d0noBqhxhUB2jrA+T8GOZuPmkfQkTEoW8Hoaw6BcR/nNiB1NWZYvykLxQZVnkPmYoB
-	hlP7+mCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x+s+ixIn3nQU4d14dxB+2raEmgcn4RItoB0+nGzdFhw=; b=SFSeJfzXAvbuBKM7qhx1QpfPZo
+	ckHlLdgOihetcAiutbrCTdD39hEkXqOQiP3pneMI7bMuW30zLOllm/zTRfg8qYsVdhEIWBDIkBo97
+	jaQMAP+g/FGdrTE/KQ7F9iYFWYnbw+aswtqw6K1mDaeTJHb2MlvwE1obCwRvEuJrbt64uQlEU50Nc
+	EDFW+nDDbMABIFwaocsJ7RQKLrP7NrtvXomvnbewxqSptayV1aASx598GdzkzWxg5NEv/fvV3PND8
+	mdICKGUqFvFDAnMNw7Yte9l7bRSea+QtUSjoRaThF3n8zQ6xuawSCFrjc86m4UgOEz2eioTmH58sW
+	PNXzrHCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprZ4-00000008eeq-0mo4;
-	Wed, 05 Mar 2025 16:25:46 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprUN-00000008dug-0nho
+	id 1tprad-00000008etg-3k69;
+	Wed, 05 Mar 2025 16:27:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tprYk-00000008eYu-0vjU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 16:20:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HBuTN83YIA6kJDP4EkBZ1ZoWDoG8qjQ7d3gFSrTZogp0vnRjpae56+DaRTPvHC8l2ONZe7E2IfSMJmb3XY0TqZ2XCymCVCenVz0MMnBpJ+y2hnnakStgxijQCBNvvhHzw4Gu6KC3Id8E3MZ9sMsYoamsRcm/FNPurHUk3euk2xI8NakeMYh5kG3/zcWv3OR65L112ARV5hDwRprjCWBa74e1Duz8m7SSk3RcIUTTg2Kn6p1EgxG5xBoJndVm62VZzu8xdUklgJI5lQqOWeaAaeyPdXWvGfRcyCXNK6gdTgVME2pVrasnm9nUb6xx7VOOc9uqtId/KlQPG3VogHIKzQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JfmWP206WT+CurGk+Y3Bm4wIo+djFMkIPFjf+mtIKy8=;
- b=MDfRgymIsXWDRtTVXaCO7Vtg7DW1KsJ4SHHLjr8+6gttvBkCJ9DDrb/YgrmdbWI/Ll5HkpHm9jWzUSJUKLp6X43i4b2VqouvC2aA2XM+/F5e1G9S/OS5Z2l1PBiC2qUDmhuPQvehFjAeTYcqRvsyTJN3GT+A+L9N1tdJGp2eBBgjfllpWE7UW5YRmqjHjl0Kbj4PQoKTjco8aJiDvV/XmAu47wYzlS3Rs1fF4ezQt/zYbB+1f2A9myHa70MSNaHg20AhiTG91SwpD3rdkrW4e8nOwFSzIdWiKXRCxGq/gU7wNYVbDhCKisxNJ4j3VvutZ9jAH5XNBci2+n4Ld21p/A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JfmWP206WT+CurGk+Y3Bm4wIo+djFMkIPFjf+mtIKy8=;
- b=Waxv3JY6d6rtH0wC0uu9eMplRRrpo6G4z78CI0TxrFivLQxgijfbidjpm1L7ot2jNWWdeW/+ArLGzoGHX+OUdA2aRlEnZ1VizcDDSGocY8VgXxF5Z/UJ0fZiZz8BKTuMM93t4484hxm18i/CN9iwfWyYV+muQf7Ti82eo8G68jWAl2hKHP/fwP1iuf74RR7QQo3MAIj6wqbxGb7at3lpNtOB2YH5bIt5uIgwjWSIjIC7HX3R3qZdugzATUQo4OQzn9/zSQj7708Tz/7e8ozgAH9DnCX1hX/NtqbYbWmn+Be8VRtHzpZn165JTM2jsx4fL5Jkj2EvQYxonkmYOMzdUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
- by DUZPR04MB10039.eurprd04.prod.outlook.com (2603:10a6:10:4d9::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
- 2025 16:20:50 +0000
-Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d]) by DB9PR04MB9626.eurprd04.prod.outlook.com
- ([fe80::e81:b393:ebc5:bc3d%4]) with mapi id 15.20.8489.025; Wed, 5 Mar 2025
- 16:20:50 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Wed, 05 Mar 2025 11:20:23 -0500
-Subject: [PATCH PATCH RFC NOT TESTED 2/2] PCI: dra7xx: Use
- use_parent_dt_ranges and clean up dra7xx_pcie_cpu_addr_fixup()
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-dra-v1-2-8dc6d9a0e1c0@nxp.com>
-References: <20250305-dra-v1-0-8dc6d9a0e1c0@nxp.com>
-In-Reply-To: <20250305-dra-v1-0-8dc6d9a0e1c0@nxp.com>
-To: Tony Lindgren <tony@atomide.com>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
- Siddharth Vadapalli <s-vadapalli@ti.com>, 
- Lorenzo Pieralisi <lpieralisi@kernel.org>, 
- =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
- Bjorn Helgaas <bhelgaas@google.com>
-Cc: linux-omap@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
-X-Mailer: b4 0.13-dev-e586c
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741191638; l=1775;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=rMAwxY81r5cnoE5s4hqm3gUf7WOPOk2usevJ9Cbe3Fc=;
- b=mVYiylEvT4CiDbtNNM8GwKGYWGNrPDwNAn3/WiYpy2srJ6Hqy8dXA9gQf9b2+IpcGeLRk6DsH
- Qt26IZy+PLyBb9rrBngxXFG1rFGWs99tYuhKQXOelOxavGZ5Yzs4pZ1
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0153.namprd13.prod.outlook.com
- (2603:10b6:a03:2c7::8) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+	Wed, 05 Mar 2025 16:25:27 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5D60FEC;
+	Wed,  5 Mar 2025 08:25:36 -0800 (PST)
+Received: from [10.57.67.16] (unknown [10.57.67.16])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1FB763F5A1;
+	Wed,  5 Mar 2025 08:25:18 -0800 (PST)
+Message-ID: <ea9bb982-cf31-4079-8fea-dc39e91a975b@arm.com>
+Date: Wed, 5 Mar 2025 16:25:17 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DUZPR04MB10039:EE_
-X-MS-Office365-Filtering-Correlation-Id: ef61f8d1-aa43-44da-a1ee-08dd5c01b1cb
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|52116014|38350700014|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R09vMWV1ellRM1k1UGVDZFNDL2djUEF2RGQ5RWZRd1dOV0tIc0Fucmk4bDVu?=
- =?utf-8?B?aHo1aG53NzEybHo3SXY4WnpCN0tYdmVSaXJ4WnErMTU1ZHNpVUc3ak9MV2lz?=
- =?utf-8?B?c1M4Q1JhR3NLRjRSUnRnc3dWY3RHN011T2NEdk1lVk9rbUloUE11bm1PNE90?=
- =?utf-8?B?ZzFUOUF3SlZrZGk2NE0xUUM5T3Qva0k0c1BVbC9vTjgyUDhEMVYrckhMQ092?=
- =?utf-8?B?aUdLSnk4SE1zWVJIaFFSNnp5Vmt2VWVIRGxHa3Z6VTNJcjh1Tnd5aXlZbXlZ?=
- =?utf-8?B?MTIyK1VUUVhDOTNlSldscmdFcE9uV1dHM0hxSzlEbWU3eHhiTGVGNkMyU2hZ?=
- =?utf-8?B?aWphcjhSZ2UrdzJuRGs5b0pTbmlBTmI2OEhZeUhCc0Y4dU5FZmg5S2dQN1c1?=
- =?utf-8?B?K0M4WG9HaXpiVy9LVTlnamhNNUgyV0VzTkQyYjc3enhvbUg0L2ZFQ3NFM1Rm?=
- =?utf-8?B?MkRGRUdsY1BMS0NYYmxmb0d0cnUzTHprSHA2SnB3NXpFN3R2UGduMkhPWE1X?=
- =?utf-8?B?S3dmYTM4WUFraStCc3JTWEVIU1BPYmtod2dhRkpGcUhkL3ZlNHR6Sjg5alN4?=
- =?utf-8?B?V2pwL0N3YTNhajdLVmh3aXY1QjhyL01MWk5VUWhiZ3lSczFvQnJTMGZXYnFw?=
- =?utf-8?B?Q2JCeFU0N1QzZHB0RVRYamlRem5xWXBYcEc1dHo0ekZzcWVHcUwycDdjSU80?=
- =?utf-8?B?M0xsaTdOOGhyODhXeENlOGNwM1l3aXVMTk5jb0xSeXBoZ05ENWVtNWhTU3pq?=
- =?utf-8?B?VE1hNHp2Q1ZQSXdzVloveVNRUkFSUHpURHA4NDZYVnFnUExENkViV29sMlY0?=
- =?utf-8?B?QnVvZDRiOFlnQk42K1doaWxPek9ydmxFdkRacUFYbDEvL08yOXdLYWp5L05i?=
- =?utf-8?B?L0xsUEJxR2NLa3c2dTFyYndTNDZQUnRIRWlQc2F3dnplMG9Ebng4Q2JaZW9w?=
- =?utf-8?B?MjhpVVdCaWFoVFFMWHg5RE8xOEVSYlNiYUtWeEhQOGkzVnhyWWV0Q3o5R0ZO?=
- =?utf-8?B?QmVUQk8xcExBZXVsTDcxTzZhN1ROMnpDR3o4S2M4Y3d4anJCUVlYV2FDaHRJ?=
- =?utf-8?B?czdWbFRtZmZFS3YydktpVFkrYWY2ZllrcGpPNW5tMXlZOXptZElibHpUdUdL?=
- =?utf-8?B?MmZGVGx1TXl6MW45SHR6TjFLN2hzSjJ1Um95cE9qRU9EazNTLzkyZ1Q1N0ZS?=
- =?utf-8?B?TXNSYnZzN2tWaG1XSHM3VDNrQnkyT3lmMEx2TmxrME5sdFduL2ZRMzRHOWVX?=
- =?utf-8?B?N01WckFwLzNOM2tmdnAzZUVFTGhPVWdQQjMwdEhvcklCQzFtdGY5T3lleURk?=
- =?utf-8?B?L3pYWnVIRUZONzNEYjZkRGRYUXRIZ1o5VWJpRjB4YmpBSUdoM2R4QktNYmNt?=
- =?utf-8?B?bHJGRTBuWUdGb1RwMnUwOW9JdW1SakFJODdYaFBEdFZ0RHQ1N0c4WWt5dWVS?=
- =?utf-8?B?aEk3YkdoaGsxR1Q5ajFlS1lsUSs3eENNRUoraGxaNVU5THo4VTEzeFdwcmI2?=
- =?utf-8?B?Z3ZyUXdtZk0wZHVDbGVqR3dlQ0tqRUZnV0ljUjJ6aWtlV2FMRUFiWmVQeXpR?=
- =?utf-8?B?QVdWNlpLTStKSk5DLy9vczJLVW5hSUdSd2JLeXM2RVRCWDJFZDY1ZXVkWkFm?=
- =?utf-8?B?MkhoaXNmNmY2UGkxTFpYKzJCQW03a1h3TFRDb1k5aTF2UXpWKzBJQzZsZFVH?=
- =?utf-8?B?aEhlZzlHTmc2Z1NtZ2IwUlFtblZWUU00aG9kWkdTTlhHT0F6VWVpSTZtMnFt?=
- =?utf-8?B?VERzV3l2K0l6cWJWN0NQaXNxdnF6b2dYU0RXMVRjTk4rQnNwRHB3SG92bzBs?=
- =?utf-8?B?QXRINTBvdC9rUHZzdEhvdXBMeVFMK2Y1ek9jbGxodFcrVnl3VnhVQWtJL2lz?=
- =?utf-8?B?S3dBaDVvUGhKcFZ5cUZpaThTQ0hqbkJDblFYeGVsTUw0RGUwcGNYd0QySkRy?=
- =?utf-8?B?b1l0OEZmVEhUV0Q2Tk03ZkZJQnhBYnBCZm9KVGJSRUQ2STRleTJzY25lamdq?=
- =?utf-8?B?cVkzcWdHeUlRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bXREYjlxa1c3VndDeWVIWTd6d0Z3QUtKNktRbzRTMGRlU0trZk8ySHJUZXZC?=
- =?utf-8?B?b21GYlJmOFBtMUdoeU9BSWdtbDYya2llU2V5eFQyODkrVk1sRkZXV3BSbzQy?=
- =?utf-8?B?RVg1SlVLWDRyQlRZakYyaVJKQkFJSGRxMXdING1EVXZ6MjF3TGlCVkNuTWth?=
- =?utf-8?B?UVk1bGFTTW9zQmgwdEFWeFRDTUlOMEprMXV5NjY4MmhXdkpVUnk2d0VBc00r?=
- =?utf-8?B?Skdhak94NlNsSlIvYUZ1dFF4cS9oK1IyNEhNZGJMWTZqakYzejVZOWtjU0Uv?=
- =?utf-8?B?alRWVnlEQ0xYVTF2dGZ4QTZMc1lXQjZDSDRXMjZyQ3VRRUZYQittZmFrTVdL?=
- =?utf-8?B?R2FiemU1NThpSHBnWFF4L2xOd00wZmJLSnlTck5ZTjJ3NGl5bnc1UFZJOEN6?=
- =?utf-8?B?ZnhBWHBBT3hkQldNRWRoQ1dCcm4yQVczN1NoblVxOUdJSGVJWDVIQ1c2dFUx?=
- =?utf-8?B?YjNVQXZHQzNIS0pZbnJQZ0tlVHl0UEVIaWVVRjF6czhmcEVuRlp2Qyt2b1NG?=
- =?utf-8?B?d3BNYWhraDk0cUdlUjM0cTNaUkdzblhmeEVpcGV4VXFXc2ZOZk9xbzQvSytt?=
- =?utf-8?B?RzlNVlg0L1RhVnpjY0JmV2E4d0tjdEY1K3JScFMxT1Z4S2s3UGhmb3lOVXJn?=
- =?utf-8?B?ODdOdHoxYjhzUkVlQjlGWWNET3g4RVV6NkYza0o4SGZwZytyVlV6YU1tMFFJ?=
- =?utf-8?B?aTlra3VkNEVZSndlMFd5MzVWUlR6V2FTWGdHOWtaOHhleDJQVXR6RjU0M21o?=
- =?utf-8?B?UERTVVQ4TWhTN3ZaWE5EdERRdndSZTFmTW9sb3QyY3BMSHFSTGhzWTdwMi9i?=
- =?utf-8?B?WFN5c1l5dkN2NUVPcXZEYzN3bDZVMEpsTHRKYWpuZTdxRUl3NDU0QmRnRjVL?=
- =?utf-8?B?aEhWOTdhd2RnY3BCc0FrR1RWazA3NGNUdjl6TVdWSFdBQkNpelVrQlF4RTB6?=
- =?utf-8?B?OUpyUHo4ekYyQWc4Wms1Z3ZJWEloMEU2anE1MW5pYmo0UTdpV0dIdlJHaFUz?=
- =?utf-8?B?d0o1OXVmUjJOU3V0YTl5TjVDLzBUQlFUemxpdlJodWN2eWFneXFRb0YvL0M4?=
- =?utf-8?B?YnNEOHVWMmd5NUNMVlFuTmtWUGVINVJITjd0SmtxbkhTVDVhNzNnMFY5RlpM?=
- =?utf-8?B?Uy9pS0JLZG9admNac1pvVU1OSVMzYkxZYmRNeklXdFpHQjlGVjlTWkdrNldy?=
- =?utf-8?B?KzBvTHRYY08rVWVjYWNya2pMWHdyT0RRSUI1R3EwM0ZWMkNCajhjaU1EK0Jt?=
- =?utf-8?B?M0k0R1NkSnYrdVRHdjBObzViNG5PRk1TNE1jeFFEbm5IRXU0VFRxMHgzaHVw?=
- =?utf-8?B?L0lPc1RjQjF3aTIvM3hBMUt5Wjl2eHpmM1dYU1VXaUFqNEtlMXo3enZJNjRJ?=
- =?utf-8?B?R0hWYUFHRktDUnExcVdOR1JiNnUyWTFXTW43ZFY2b1pUNUlCeFhxYTBrNUU3?=
- =?utf-8?B?MFBJWkVVdWZPemlkZGpPVk5qZ0RxbnM5dE50TFhYL21FWFg3VmE4cTFZZ3lT?=
- =?utf-8?B?NUxBcVpWT1l0b1k1VjY5WkpWK29Nc0RidXhiWFlyb01PSjMrN0ppVTBMMmFp?=
- =?utf-8?B?d0JmMWpQYlZ6UUIrMDhUSXlZaWZzVjBzK2VDaTlNb0loOC9rMWp6a05TaHEx?=
- =?utf-8?B?K0hRUlNnTVBPcUlTZFAwOGJPK3I4bWo5NXFIV0VuUVFEU2NSb3pnT08wVWQy?=
- =?utf-8?B?VU5CUjk5UUZZT2MvY1ZFRkFJbXhTYkV4SVl2dnc4VTNRNURmZ3Rjb1NSMVVr?=
- =?utf-8?B?RXNkVnFURHVGTThxQXVxdHJ1MWNyZ0ZuSk5vaGp6QjdjMm1qMWxhUnA1SGMz?=
- =?utf-8?B?WGNUcG9sa0JKODFTb1JqMTRMUUxoVUFWekRqRUlLZVdZNmV4cHZvQXplNzFo?=
- =?utf-8?B?c09LQU9GanVMbmNRTWptTUc2WEdPYWJtWWt3b01vSCtKWmcvY0s5WlNDKzlE?=
- =?utf-8?B?ZGpOblVoOTVMbUV1QWtTU2VOR2pPQWpCbklDNVRUVjR3QXR3VVoveEVJSzI1?=
- =?utf-8?B?YlV1RlVSV3BLS2ZzS0NVTG5OWEUyc1A0UERxdGk1SXhJVHNlM2lrMmNKSkMz?=
- =?utf-8?B?QThBdDUwMHNKVG51bGVtMGdFRi9TRWRUeDQrTjBWMUNzdDFSVTBGOHdRaDll?=
- =?utf-8?Q?KLe2vey2JFou0+RxoJWx0sy26?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ef61f8d1-aa43-44da-a1ee-08dd5c01b1cb
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 16:20:50.6335
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gH5tiyH7DaLstIFzNUip/La2io+Zq2hpND7SyrQ7dXHpO+sgd2AqbijUZs09wVhaDG9iBEJ1hLWYq0QOyNK0jA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB10039
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 09/45] kvm: arm64: Expose debug HW register numbers for
+ Realm
+To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-10-steven.price@arm.com>
+ <cec600f2-2ddc-4c71-9bab-0a0403132b43@redhat.com>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <cec600f2-2ddc-4c71-9bab-0a0403132b43@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_082055_235901_4DAE18BD 
-X-CRM114-Status: GOOD (  12.97  )
+X-CRM114-CacheID: sfid-20250305_082526_347000_A62ED253 
+X-CRM114-Status: GOOD (  21.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,57 +76,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove dra7xx_pcie_cpu_addr_fixup() as the DT bus fabric should provide correct
-address translation. Set use_parent_dt_ranges to allow the DWC core driver to
-fetch address translation from the device tree
+Hi Gavin,
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- drivers/pci/controller/dwc/pci-dra7xx.c | 8 +-------
- 1 file changed, 1 insertion(+), 7 deletions(-)
+On 03/03/2025 04:48, Gavin Shan wrote:
+> On 2/14/25 2:13 AM, Steven Price wrote:
+>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>
+>> Expose VM specific Debug HW register numbers.
 
-diff --git a/drivers/pci/controller/dwc/pci-dra7xx.c b/drivers/pci/controller/dwc/pci-dra7xx.c
-index 33d6bf460ffe5..d6e0bf67a07b3 100644
---- a/drivers/pci/controller/dwc/pci-dra7xx.c
-+++ b/drivers/pci/controller/dwc/pci-dra7xx.c
-@@ -72,7 +72,6 @@
- 
- #define	PCIECTRL_DRA7XX_CONF_PHY_CS			0x010C
- #define	LINK_UP						BIT(16)
--#define	DRA7XX_CPU_TO_BUS_ADDR				0x0FFFFFFF
- 
- #define	PCIECTRL_TI_CONF_INTX_ASSERT			0x0124
- #define	PCIECTRL_TI_CONF_INTX_DEASSERT			0x0128
-@@ -113,11 +112,6 @@ static inline void dra7xx_pcie_writel(struct dra7xx_pcie *pcie, u32 offset,
- 	writel(value, pcie->base + offset);
- }
- 
--static u64 dra7xx_pcie_cpu_addr_fixup(struct dw_pcie *pci, u64 cpu_addr)
--{
--	return cpu_addr & DRA7XX_CPU_TO_BUS_ADDR;
--}
--
- static int dra7xx_pcie_link_up(struct dw_pcie *pci)
- {
- 	struct dra7xx_pcie *dra7xx = to_dra7xx_pcie(pci);
-@@ -514,7 +508,6 @@ static int dra7xx_add_pcie_port(struct dra7xx_pcie *dra7xx,
- }
- 
- static const struct dw_pcie_ops dw_pcie_ops = {
--	.cpu_addr_fixup = dra7xx_pcie_cpu_addr_fixup,
- 	.start_link = dra7xx_pcie_establish_link,
- 	.stop_link = dra7xx_pcie_stop_link,
- 	.link_up = dra7xx_pcie_link_up,
-@@ -712,6 +705,7 @@ static int dra7xx_pcie_probe(struct platform_device *pdev)
- 
- 	pci->dev = dev;
- 	pci->ops = &dw_pcie_ops;
-+	pci->use_parent_dt_ranges = true;
- 
- 	irq = platform_get_irq(pdev, 0);
- 	if (irq < 0)
+Looking at this now, this patch description is garbage. Probably the
+patch has changed over time - so I suspect it's my fault not Suzuki's.
+We're not exposing anything new here. This is purely about telling the
+VMM that a realm cannot (currently) be debugged. Something like the
+below would be more accurate:
 
--- 
-2.34.1
+"""
+kvm: arm64: Don't expose debug capabilities for realm guests
+
+RMM v1.0 provides no mechanism for the host to perform debug operations
+on the guest. So don't expose KVM_CAP_SET_GUEST_DEBUG and report 0
+breakpoints and 0 watch points.
+"""
+
+>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>>   arch/arm64/kvm/arm.c | 24 +++++++++++++++++++++---
+>>   1 file changed, 21 insertions(+), 3 deletions(-)
+>>
+> 
+> Documentation/virt/kvm/api.rst needs to be updated accordingly.
+
+I don't think (with the above clarification) there's anything to update
+in the API documentation. There's nothing new being added, just
+capabilities being hidden where the functionality isn't available.
+
+And eventually we hope to add support for this (in a later RMM spec) - I
+don't yet know exactly what form this will take, but I hope to keep the
+interfaces as close as possible to what we already have so that existing
+tooling can be used.
+
+Thanks,
+Steve
+
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index b8fa82be251c..df6eb5e9ca96 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -78,6 +78,22 @@ bool is_kvm_arm_initialised(void)
+>>       return kvm_arm_initialised;
+>>   }
+>>   +static u32 kvm_arm_get_num_brps(struct kvm *kvm)
+>> +{
+>> +    if (!kvm_is_realm(kvm))
+>> +        return get_num_brps();
+>> +    /* Realm guest is not debuggable. */
+>> +    return 0;
+>> +}
+>> +
+>> +static u32 kvm_arm_get_num_wrps(struct kvm *kvm)
+>> +{
+>> +    if (!kvm_is_realm(kvm))
+>> +        return get_num_wrps();
+>> +    /* Realm guest is not debuggable. */
+>> +    return 0;
+>> +}
+>> +
+> 
+> The above two comments "Realm guest is not debuggable." can be dropped
+> since
+> the code is self-explanatory, and those two functions are unnecessary to be
+> kept in that way, for example:
+> 
+>     case KVM_CAP_GUEST_DEBUG_HW_BPS:
+>         return kvm_is_realm(kvm) ? 0 : get_num_brps();
+>     case KVM_CAP_GUEST_DEBUG_HW_WRPS:
+>         return kvm_is_realm(kvm) ? 0 : get_num_wrps();
+> 
+> 
+>>   int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>>   {
+>>       return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
+>> @@ -323,7 +339,6 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
+>>       case KVM_CAP_ARM_NISV_TO_USER:
+>>       case KVM_CAP_ARM_INJECT_EXT_DABT:
+>> -    case KVM_CAP_SET_GUEST_DEBUG:
+>>       case KVM_CAP_VCPU_ATTRIBUTES:
+>>       case KVM_CAP_PTP_KVM:
+>>       case KVM_CAP_ARM_SYSTEM_SUSPEND:
+>> @@ -331,6 +346,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>> long ext)
+>>       case KVM_CAP_COUNTER_OFFSET:
+>>           r = 1;
+>>           break;
+>> +    case KVM_CAP_SET_GUEST_DEBUG:
+>> +        r = !kvm_is_realm(kvm);
+>> +        break;
+>>       case KVM_CAP_SET_GUEST_DEBUG2:
+>>           return KVM_GUESTDBG_VALID_MASK;
+>>       case KVM_CAP_ARM_SET_DEVICE_ADDR:
+>> @@ -376,10 +394,10 @@ int kvm_vm_ioctl_check_extension(struct kvm
+>> *kvm, long ext)
+>>           r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+>>           break;
+>>       case KVM_CAP_GUEST_DEBUG_HW_BPS:
+>> -        r = get_num_brps();
+>> +        r = kvm_arm_get_num_brps(kvm);
+>>           break;
+>>       case KVM_CAP_GUEST_DEBUG_HW_WPS:
+>> -        r = get_num_wrps();
+>> +        r = kvm_arm_get_num_wrps(kvm);
+>>           break;
+>>       case KVM_CAP_ARM_PMU_V3:
+>>           r = kvm_arm_support_pmu_v3();
+> 
+> Thanks,
+> Gavin
+> 
 
 
