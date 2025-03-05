@@ -4,134 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A4BDC282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:00:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40038C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:01:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZB0M2ql2N3QuDBtnDe0WgWufbOOAZ2mz7GO6nTfo3aw=; b=xTP5cvPuNxBAK4sEg4g1t+7FnD
-	WkpjQH3BkxtIXT74UNmm8TQyaCC3w0rscWfm5zbjL1VpodbYaejiEc1j3zcY2byl3y5lzAJOYzrsz
-	wuzj4N2PnjaWxYm9bKYEZk2GPudbH3XOKjznOuhhko8meY9BvNxFkzDM6Roe0IrJtazkxoSFrFi+Z
-	9nIeka1GQfxHazsz7dhk66iv6iWS80Vh4J1gnyoTBJhAbq2IOHnEuuM1j1d6yD3/RHKxb7yYK/jui
-	+5pU8pEGtd6WScgeM1nK7bRIdCoqxios2NykkUl4f36xlH/ifjr9ssMAIqzxrOsa0FAQq1vo9Ks6N
-	a3djfeYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NFmaPbBCj78i+Eq0pfuk7qL4k2/hx5EKHhr/p17PtjI=; b=t5xJu+uEiMm1OQL4U0rDcE3PnZ
+	MPhnhO3FMx2DrilygNUO4cT1B69z30A1fRbZyyEpfP1P0dKukuyKk7wEBdQPr7SOrHz3TZRLoRhOw
+	hn8Vjbx+wyJ0oE5xAGE/bQ0ba0Eo2WZXmqwNfssou2LviQDTo8BGfP82HPZp8/8+KpvJYs6gcLeh3
+	mvfVL6pG8bl6B7wuX40kxelv4BW/WGnEnfGX+DjGSLuzlB7eI0WnzE9I7BTSHJiaGU+syNtH4+d6u
+	jefHqjsA37hzG4+ywdqUTZqOCs4kl8dmFl/7n2s1kJ+10Y+yD6Cm4FGH4dF4CXLVbY5pf/niQiC2L
+	8NUW+s6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplXg-00000007anZ-1V7u;
-	Wed, 05 Mar 2025 09:59:56 +0000
-Received: from mail-am6eur05on20716.outbound.protection.outlook.com ([2a01:111:f403:2612::716] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tplYx-00000007b9S-1YdE;
+	Wed, 05 Mar 2025 10:01:15 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpkXk-00000007QVE-2xPq
+	id 1tplS5-00000007Zhf-3OTo
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 09:54:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=NFmaPbBCj78i+Eq0pfuk7qL4k2/hx5EKHhr/p17PtjI=; b=k3PVhQdM/X/ixBKoQR28drwpsz
+	FvUt+9P/kGHDD4yLh6GLmyEiW9VN/otcDruvBmtMOz6Fvx8Hlow6Yq80gF31orA60MHQroSIszH36
+	BoiNRswAoJ0fmdna77NQMpfdZErgfAZQ2hMCZ6kN6Ddk8x114pL40iNsOoaSTbpioLhWcpdrvg9pL
+	ISJ/Xjz0BtWbp+pG5eA/1Daq87YnNhPPKEVmE7BKf1fnYu/fUY7rgwePBJ4WyzuFkOyY8gzUNjVtC
+	oUDBF2Td+sd4pWC+jdBF0c6HwVjJ+iIqvAqW8mMZl+Eo37R66hylUUd1Frz3pzgyqa0DAJPxaUABW
+	QI2u/YOw==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tplS2-00000005Ee4-2Vu4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 08:55:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Vpk9Xi6QCr+YntwMNkwBMZbHl0TRBDsPXAM1d2SRApYqRBy38NZcysRdJB37AhA/JrUJLEbjUnmISUXNeoayQSQvvxYuTa3wCmA6/jLO9Z+cGvCRdZfcDbp/9WgS+4axKLPMQuAI+NBUK1I7DMnEUTI4NwrGXUyBay+QT0YdPA8n7kyPbSnOWoDlAG95/T2I4tG5LCT9lH0ak2tmLumj+dBOzD0FUbdkY8HjLJgnhCYQ5swvlk5nTz+VGRCuf8TBSRmwKieduJo0pgY4lQjiXx2ZjlMcXuh9YnSnR8h+Fumkoa483n5+Ea2XVJeWG9t0nkk8D2B04lttISjvxtE+cg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZB0M2ql2N3QuDBtnDe0WgWufbOOAZ2mz7GO6nTfo3aw=;
- b=AISTGoeTxxsPj2gCR/TgcAHS6QbctPpWwryQ0AvouCDPl9Y1UmbDMHvHpY1I6NbILDc50kvPGCPC8h7On5AF0+SrtppAoGmPwkkEcjE+wl0UBSjsFrMupxeM01gBIthWGyx35GmE1AD6iMj5GwTMMS2jOAMO/hlJptAPAFnIqGc/CUno8gsCktRyMX7rf99QlgmF51YRvnkeYNU9QiX+MVNahLA3GeitL7VI1Hwm8X22ph2mn8N+t2Y0uKHRBpW9LtrF00QVUvfmltANPg/4UxRlZSXcOyD0IkyKYjK5XwWvBRe7tfLZfE6n698IDCmEAOY/Q4XXTOV4EnmjBIEUFQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
- (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZB0M2ql2N3QuDBtnDe0WgWufbOOAZ2mz7GO6nTfo3aw=;
- b=bmRv7GZXcJ42mjCAEuNO18EMjW2AJsGoqmczDoKGQUWtFKbyOMbF811ctyJP9s5MoVGgrJxnAMc7YYbB8UkGyS7wut1E8upyMGs9iJZBABF3XWGjJAu5swJwWKfmxDd0P7f7SII8ucQO8FcnF5xp3y7oHfw9THurC17prgiHe1ot8nLPORsNSw+X1zBkseQJDkFSRQ+D2fuhdEpdaBoGjGE6h9s2Ghv05XLytqx4Dey++gEMAUilZiu4ynKO9PR6L+niasQaAZBfPUnIpaXLTH+FENc9ZEmsNIA8iO1YzX3rCz5m1nSD5SmIAK6kxIIf7ZR/ZbFqTC7fl9pfybrItg==
-Received: from DB8PR06CA0053.eurprd06.prod.outlook.com (2603:10a6:10:120::27)
- by PAXP195MB1463.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:282::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
- 2025 08:55:46 +0000
-Received: from DU6PEPF0000A7DF.eurprd02.prod.outlook.com
- (2603:10a6:10:120:cafe::40) by DB8PR06CA0053.outlook.office365.com
- (2603:10a6:10:120::27) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.17 via Frontend Transport; Wed,
- 5 Mar 2025 08:55:46 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Diagnostix.phytec.de (91.26.50.189) by
- DU6PEPF0000A7DF.mail.protection.outlook.com (10.167.8.36) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 08:55:45 +0000
-Received: from Florix.phytec.de (172.25.0.13) by Diagnostix.phytec.de
- (172.25.0.14) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 5 Mar
- 2025 09:55:45 +0100
-Received: from phytec.de (172.25.0.51) by Florix.phytec.de (172.25.0.13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.44; Wed, 5 Mar
- 2025 09:55:45 +0100
-From: Wadim Egorov <w.egorov@phytec.de>
-To: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-Subject: [PATCH v2 1/5] arm64: dts: ti: k3-am62x-phyboard-lyra: Add boot phase tags
-Date: Wed, 5 Mar 2025 09:55:33 +0100
-Message-ID: <20250305085537.3976579-1-w.egorov@phytec.de>
+	Wed, 05 Mar 2025 09:54:08 +0000
+Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52597bf7011098;
+	Wed, 5 Mar 2025 10:53:54 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	NFmaPbBCj78i+Eq0pfuk7qL4k2/hx5EKHhr/p17PtjI=; b=DxAEFKvg3Ql1GHg5
+	r6O1Cf272RbqTdSPzHrZBRjs6F4y4CwU9/WZ8aVB/xVzsWCH0TAMni4spwnb7pb5
+	7vsMCXZ7s6LroAoVXmGuJ3BWdoQX+7D+EoPEgqMDjnBJAw2ZkOAG/QrS+FYY3eKp
+	sOnUKSHgvjDE4sz7eQmAeFCByB6cpH0RSmma31wvZuiKkVzv4cxzhOm1Nk78tadS
+	TxnIF9VoxdDFRm1wbNqgB3Xuu/ZxMr1CszbIeMpraHs5u5DzM73YgwhUyqXrQDhx
+	mEizQPfwmUqjM0ruBH9tws1/JHotmarDs5yXCIm6PNKf1yWctcmHadsvmDLKt3Lx
+	T8K5fg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 455wbht7y6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Mar 2025 10:53:54 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id AAE1F40088;
+	Wed,  5 Mar 2025 10:52:46 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node6.st.com [10.75.129.135])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id ECFD85A8C93;
+	Wed,  5 Mar 2025 10:49:54 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE6.st.com
+ (10.75.129.135) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
+ 2025 10:49:54 +0100
+Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
+ 2025 10:49:54 +0100
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <jic23@kernel.org>, <daniel.lezcano@linaro.org>, <tglx@linutronix.de>
+CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
+        <wbg@kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
+Subject: [PATCH v3 5/8] pwm: stm32-lp: add support for stm32mp25
+Date: Wed, 5 Mar 2025 10:49:32 +0100
+Message-ID: <20250305094935.595667-6-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
+References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.25.0.51]
-X-ClientProxiedBy: Diagnostix.phytec.de (172.25.0.14) To Florix.phytec.de
- (172.25.0.13)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000A7DF:EE_|PAXP195MB1463:EE_
-X-MS-Office365-Filtering-Correlation-Id: 05f8d279-0ffe-4ca1-9a58-08dd5bc384b0
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|376014|82310400026|13003099007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?4MDB8nNyC0q2iRtzgETDpItBtNgC5PZNf9xFxrWDtj+MyhlUes1je2l3OXIn?=
- =?us-ascii?Q?qwsSjXFZ0gS64L4uXfSllMuTuJ4zElwFdOPXnZbf6bYjnLFmax26fOcYm8sd?=
- =?us-ascii?Q?3uvA99cscnA4Gt51BtvZIw6GBAvo2EC4uhZjmx9qmXJ8yqarJcYCAS+cthOz?=
- =?us-ascii?Q?lKCsKstFOsemJIxtAoLTCnYrR05a4vQkktY2d+3C7XAUU9DU7+WAp1KDoD9K?=
- =?us-ascii?Q?jyZVHqbUSMOpG97DFLa671PdKzsB50l/w/iVKTZH5G+dMMUkliHb+REVmsSN?=
- =?us-ascii?Q?Wz7rC2in98zsibnfCbErPYdGb25jPDedGzp1NpluC/E2C1ugWmWJA3yV+MQ6?=
- =?us-ascii?Q?vSxI8ltLzcvo7d3prTZU2yUWIdFSSjfQ4cY5Ux/y91bcNamcBVNTOS1iuMT5?=
- =?us-ascii?Q?30ltHoqrJDIKqiAVSr9k2b595XYMadEPUiDMS1LLSmoPVlqHwjZWw+mjb/e4?=
- =?us-ascii?Q?k64BouLQq0s+PTa+r+m/+KT1dE6QgCeA8C4lBh+HmIUplJH2ZqV7nz0sAR+H?=
- =?us-ascii?Q?/s5Icq7x9lf63FYRHufmcRuBLuKIY4smGuvSS6Z8VduNgLvXVIBXP6iP3Mz4?=
- =?us-ascii?Q?w5TBCfjo69CP+z6wVguDGKKci9OoZSeSngEJL1N0yY66SzCXa2iB9WgTpM2Y?=
- =?us-ascii?Q?LYjXvC6weveOnm3Vnyugl9ibj7lKhCU+L3NLBThD4K+riHORQ0bkszNjrK6m?=
- =?us-ascii?Q?j/wDo28UBnH3DjaQRbSoBmBtPifxIxXkFK2VKsSo+GSpakX6cbNixrIV5DVy?=
- =?us-ascii?Q?SpVKRpfIbY4R37+mZEyuDVyHFwaY9ycJtEcWjoZJS7KJ6Y+JylVoJPoe2RbM?=
- =?us-ascii?Q?6LH/83VH0EKTwhXTR7946jdIzt37e1msBGPFML2QS+UFgxb49rX/qFMLT1qR?=
- =?us-ascii?Q?XZC3hBsPuJtDITFVaCVT1SnnX6D5AGVXCYLKGl/yYqly2lMYrZGUvSk1FqvC?=
- =?us-ascii?Q?jhkv7f+dHQEn6VyWqQjhH7L5tmyV0IkeogNOTykg4mjs+gMcwcyxfyfr7JsS?=
- =?us-ascii?Q?GyGWa8mHBktarnnbb2UUUVfCAjab98u/MBRQa3FhPOM+qUSeOESQOiYinmj+?=
- =?us-ascii?Q?c7LNUGUXWFmCrncgI93UzZONz9Klo/3SYXRL/Y8eCgqwZK68CH16kkm2DEuX?=
- =?us-ascii?Q?39OryPN4kQD8Jaltmta9/y3HN5CuIgXiwZ+aYmL9O1K/Y1E3VdMGysygSDrg?=
- =?us-ascii?Q?o92hTPrIAVCJodfFKXoeP0hNhwQAi0si63Cn2PA/5C5MpaxJURl/kS1tVdzM?=
- =?us-ascii?Q?eMdynUqsJKio2F6CDEdfp4yfn55kHhGOC1rQOrF2Ek4GxiS2ymxgTtvsxvi3?=
- =?us-ascii?Q?n/eHhEp5ERejtjSck0ZzH8kX0wZZWL4Z79O258YZYsl5YP2MYNxoqYClqADU?=
- =?us-ascii?Q?vYDVvC7jHW2J9QGIziv7FVBrZmf09DYOO1v7HRCxdUcTFHhQCxTHbouUsD+D?=
- =?us-ascii?Q?0gIbsQx9+JZPlJ3LEwkCsN+IPnl8glGxoYny5ZIQ1iWNaPFdgC01rMqL1dhk?=
- =?us-ascii?Q?l6P/peZ3aSomReI=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:Diagnostix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(376014)(82310400026)(13003099007);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 08:55:45.8145
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 05f8d279-0ffe-4ca1-9a58-08dd5bc384b0
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Diagnostix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000A7DF.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP195MB1463
+X-Originating-IP: [10.48.86.222]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-05_03,2025-03-05_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_005557_036905_663DCF17 
-X-CRM114-Status: GOOD (  10.11  )
+X-CRM114-CacheID: sfid-20250305_095406_679280_BA9ACC2F 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -146,198 +114,366 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bootph-all and bootph-pre-ram tags were introduced in dt-schema
-(dtschema/schemas/bootph.yaml) to define node usage across different
-boot phases.
+Add support for STM32MP25 SoC. A new compatible has been added to the
+dt-bindings. It represents handle new features, registers and bits
+diversity.
+It isn't used currently in the driver, as matching is done by retrieving
+MFD parent data.
 
-Add boot phase tags to all required nodes to ensure boot support from
-all sources, including UART, USB (DFU), Ethernet, uSD card, eMMC, and
-OSPI NOR Flash.
+New dedicated capture/compare channels has been added: e.g. a new compare
+register for channel 2. Some controls (polarity / cc channel enable) are
+handled in CCMR register on this new variant (instead of wavepol bit).
 
-Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
+So, Low-power timer can now have up to two PWM outputs. Use device data
+from the MFD parent to configure the number of PWM channels e.g. 'npwm'.
+
+Update current get_state() and apply() ops to support either:
+- one PWM channel (as on older revision, or LPTIM5 on STM32MP25)
+- two PWM channels (e.g. LPTIM1/2/3/4 on STM32MP25 that has the full
+  feature set)
+Introduce new routines to manage common prescaler, reload register and
+global enable bit.
+
+Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
-v1: http://lists.infradead.org/pipermail/linux-arm-kernel/2025-February/1006239.html
-v2:
-  - Add bootph-all to cpsw_port1 and main_pktma 
-  - Remove bootph-all from cpsw3g
+Changes in V2:
+- rely on fallback compatible as no specific .data is associated to the
+  driver. Matching is achieved by using MFD parent data.
+- renamed registers/bits defintions
 ---
- arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi   | 15 +++++++++++++++
- .../arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi |  9 +++++++++
- 2 files changed, 24 insertions(+)
+ drivers/pwm/pwm-stm32-lp.c | 219 ++++++++++++++++++++++++++++++++-----
+ 1 file changed, 193 insertions(+), 26 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-index 2ef4cbaec789..effab2f810c2 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi
-@@ -29,6 +29,7 @@ aliases {
- 	memory@80000000 {
- 		device_type = "memory";
- 		reg = <0x00000000 0x80000000 0x00000000 0x80000000>;
-+		bootph-all;
- 	};
- 
- 	reserved_memory: reserved-memory {
-@@ -131,6 +132,7 @@ main_i2c0_pins_default: main-i2c0-default-pins {
- 			AM62X_IOPAD(0x1e0, PIN_INPUT_PULLUP, 0) /* (B16) I2C0_SCL */
- 			AM62X_IOPAD(0x1e4, PIN_INPUT_PULLUP, 0) /* (A16) I2C0_SDA */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mdio1_pins_default: main-mdio1-default-pins {
-@@ -138,6 +140,7 @@ main_mdio1_pins_default: main-mdio1-default-pins {
- 			AM62X_IOPAD(0x160, PIN_OUTPUT, 0) /* (AD24) MDIO0_MDC */
- 			AM62X_IOPAD(0x15c, PIN_INPUT, 0) /* (AB22) MDIO0_MDIO */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_mmc0_pins_default: main-mmc0-default-pins {
-@@ -153,6 +156,7 @@ AM62X_IOPAD(0x200, PIN_INPUT_PULLUP, 0) /* (AC1) MMC0_DAT5 */
- 			AM62X_IOPAD(0x1fc, PIN_INPUT_PULLUP, 0) /* (AD2) MMC0_DAT6 */
- 			AM62X_IOPAD(0x1f8, PIN_INPUT_PULLUP, 0) /* (AC2) MMC0_DAT7 */
- 		>;
-+		bootph-all;
- 	};
- 
- 	main_rgmii1_pins_default: main-rgmii1-default-pins {
-@@ -170,6 +174,7 @@ AM62X_IOPAD(0x140, PIN_OUTPUT, 0) /* (AD18) RGMII1_TD3 */
- 			AM62X_IOPAD(0x130, PIN_OUTPUT, 0) /* (AE19) RGMII1_TXC */
- 			AM62X_IOPAD(0x12c, PIN_OUTPUT, 0) /* (AD19) RGMII1_TX_CTL */
- 		>;
-+		bootph-all;
- 	};
- 
- 	ospi0_pins_default: ospi0-default-pins {
-@@ -186,6 +191,7 @@ AM62X_IOPAD(0x024, PIN_INPUT, 0) /* (H25) OSPI0_D6 */
- 			AM62X_IOPAD(0x028, PIN_INPUT, 0) /* (J22) OSPI0_D7 */
- 			AM62X_IOPAD(0x008, PIN_INPUT, 0) /* (J24) OSPI0_DQS */
- 		>;
-+		bootph-all;
- 	};
- 
- 	pmic_irq_pins_default: pmic-irq-default-pins {
-@@ -210,6 +216,7 @@ &cpsw3g {
- &cpsw_port1 {
- 	phy-mode = "rgmii-rxid";
- 	phy-handle = <&cpsw3g_phy1>;
-+	bootph-all;
+diff --git a/drivers/pwm/pwm-stm32-lp.c b/drivers/pwm/pwm-stm32-lp.c
+index 5832dce8ed9d..4789eafb8bac 100644
+--- a/drivers/pwm/pwm-stm32-lp.c
++++ b/drivers/pwm/pwm-stm32-lp.c
+@@ -20,6 +20,7 @@
+ struct stm32_pwm_lp {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
++	unsigned int num_cc_chans;
  };
  
- &cpsw3g_mdio {
-@@ -220,6 +227,7 @@ &cpsw3g_mdio {
- 	cpsw3g_phy1: ethernet-phy@1 {
- 		compatible = "ethernet-phy-id2000.a231", "ethernet-phy-ieee802.3-c22";
- 		reg = <1>;
-+		bootph-all;
- 		ti,rx-internal-delay = <DP83867_RGMIIDCTL_2_00_NS>;
- 		ti,fifo-depth = <DP83867_PHYCR_FIFO_DEPTH_4_B_NIB>;
- 	};
-@@ -232,10 +240,15 @@ mbox_m4_0: mbox-m4-0 {
- 	};
- };
+ static inline struct stm32_pwm_lp *to_stm32_pwm_lp(struct pwm_chip *chip)
+@@ -30,13 +31,101 @@ static inline struct stm32_pwm_lp *to_stm32_pwm_lp(struct pwm_chip *chip)
+ /* STM32 Low-Power Timer is preceded by a configurable power-of-2 prescaler */
+ #define STM32_LPTIM_MAX_PRESCALER	128
  
-+&main_pktdma {
-+	bootph-all;
-+};
++static int stm32_pwm_lp_update_allowed(struct stm32_pwm_lp *priv, int channel)
++{
++	int ret;
++	u32 ccmr1;
++	unsigned long ccmr;
 +
- &main_i2c0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins_default>;
- 	clock-frequency = <400000>;
-+	bootph-all;
- 	status = "okay";
++	/* Only one PWM on this LPTIMER: enable, prescaler and reload value can be changed */
++	if (!priv->num_cc_chans)
++		return true;
++
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++	if (ret)
++		return ret;
++	ccmr = ccmr1 & (STM32_LPTIM_CC1E | STM32_LPTIM_CC2E);
++
++	/* More than one channel enabled: enable, prescaler or ARR value can't be changed */
++	if (bitmap_weight(&ccmr, sizeof(u32) * BITS_PER_BYTE) > 1)
++		return false;
++
++	/*
++	 * Only one channel is enabled (or none): check status on the other channel, to
++	 * report if enable, prescaler or ARR value can be changed.
++	 */
++	if (channel)
++		return !(ccmr1 & STM32_LPTIM_CC1E);
++	else
++		return !(ccmr1 & STM32_LPTIM_CC2E);
++}
++
++static int stm32_pwm_lp_compare_channel_apply(struct stm32_pwm_lp *priv, int channel,
++					      bool enable, enum pwm_polarity polarity)
++{
++	u32 ccmr1, val, mask;
++	bool reenable;
++	int ret;
++
++	/* No dedicated CC channel: nothing to do */
++	if (!priv->num_cc_chans)
++		return 0;
++
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++	if (ret)
++		return ret;
++
++	if (channel) {
++		/* Must disable CC channel (CCxE) to modify polarity (CCxP), then re-enable */
++		reenable = (enable && FIELD_GET(STM32_LPTIM_CC2E, ccmr1)) &&
++			(polarity != FIELD_GET(STM32_LPTIM_CC2P, ccmr1));
++
++		mask = STM32_LPTIM_CC2SEL | STM32_LPTIM_CC2E | STM32_LPTIM_CC2P;
++		val = FIELD_PREP(STM32_LPTIM_CC2P, polarity);
++		val |= FIELD_PREP(STM32_LPTIM_CC2E, enable);
++	} else {
++		reenable = (enable && FIELD_GET(STM32_LPTIM_CC1E, ccmr1)) &&
++			(polarity != FIELD_GET(STM32_LPTIM_CC1P, ccmr1));
++
++		mask = STM32_LPTIM_CC1SEL | STM32_LPTIM_CC1E | STM32_LPTIM_CC1P;
++		val = FIELD_PREP(STM32_LPTIM_CC1P, polarity);
++		val |= FIELD_PREP(STM32_LPTIM_CC1E, enable);
++	}
++
++	if (reenable) {
++		u32 cfgr, presc;
++		unsigned long rate;
++		unsigned int delay_us;
++
++		ret = regmap_update_bits(priv->regmap, STM32_LPTIM_CCMR1,
++					 channel ? STM32_LPTIM_CC2E : STM32_LPTIM_CC1E, 0);
++		if (ret)
++			return ret;
++		/*
++		 * After a write to the LPTIM_CCMRx register, a new write operation can only be
++		 * performed after a delay of at least (PRESC × 3) clock cycles
++		 */
++		ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
++		if (ret)
++			return ret;
++		presc = FIELD_GET(STM32_LPTIM_PRESC, cfgr);
++		rate = clk_get_rate(priv->clk) >> presc;
++		if (!rate)
++			return -EINVAL;
++		delay_us = 3 * DIV_ROUND_UP(USEC_PER_SEC, rate);
++		usleep_range(delay_us, delay_us * 2);
++	}
++
++	return regmap_update_bits(priv->regmap, STM32_LPTIM_CCMR1, mask, val);
++}
++
+ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			      const struct pwm_state *state)
+ {
+ 	struct stm32_pwm_lp *priv = to_stm32_pwm_lp(chip);
+ 	unsigned long long prd, div, dty;
+ 	struct pwm_state cstate;
+-	u32 val, mask, cfgr, presc = 0;
++	u32 arr, val, mask, cfgr, presc = 0;
+ 	bool reenable;
+ 	int ret;
  
- 	pmic@30 {
-@@ -355,6 +368,7 @@ serial_flash: flash@0 {
- 		cdns,tchsh-ns = <60>;
- 		cdns,tslch-ns = <60>;
- 		cdns,read-delay = <0>;
-+		bootph-all;
- 	};
- };
+@@ -45,10 +134,28 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
  
-@@ -363,5 +377,6 @@ &sdhci0 {
- 	pinctrl-0 = <&main_mmc0_pins_default>;
- 	disable-wp;
- 	non-removable;
-+	bootph-all;
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-index 922cad14c9f8..aab74d6019b0 100644
---- a/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi
-@@ -138,6 +138,7 @@ vcc_3v3_mmc: regulator-vcc-3v3-mmc {
- 		regulator-max-microvolt = <3300000>;
- 		regulator-always-on;
- 		regulator-boot-on;
-+		bootph-all;
- 	};
+ 	if (!state->enabled) {
+ 		if (cstate.enabled) {
+-			/* Disable LP timer */
+-			ret = regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
++			/* Disable CC channel if any */
++			ret = stm32_pwm_lp_compare_channel_apply(priv, pwm->hwpwm, false,
++								 state->polarity);
+ 			if (ret)
+ 				return ret;
++			ret = regmap_write(priv->regmap, pwm->hwpwm ?
++					   STM32_LPTIM_CCR2 : STM32_LPTIM_CMP, 0);
++			if (ret)
++				return ret;
++
++			/* Check if the timer can be disabled */
++			ret = stm32_pwm_lp_update_allowed(priv, pwm->hwpwm);
++			if (ret < 0)
++				return ret;
++
++			if (ret) {
++				/* Disable LP timer */
++				ret = regmap_write(priv->regmap, STM32_LPTIM_CR, 0);
++				if (ret)
++					return ret;
++			}
++
+ 			/* disable clock to PWM counter */
+ 			clk_disable(priv->clk);
+ 		}
+@@ -79,6 +186,23 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	dty = prd * state->duty_cycle;
+ 	do_div(dty, state->period);
  
- 	vcc_3v3_sw: regulator-vcc-3v3-sw {
-@@ -233,6 +234,7 @@ AM62X_IOPAD(0x228, PIN_INPUT_PULLUP, 0) /* (C21) MMC1_DAT2 */
- 			AM62X_IOPAD(0x224, PIN_INPUT_PULLUP, 0) /* (D22) MMC1_DAT3 */
- 			AM62X_IOPAD(0x240, PIN_INPUT_PULLUP, 0) /* (D17) MMC1_SDCD */
- 		>;
-+		bootph-all;
- 	};
++	ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
++	if (ret)
++		return ret;
++
++	/*
++	 * When there are several channels, they share the same prescaler and reload value.
++	 * Check if this can be changed, or the values are the same for all channels.
++	 */
++	if (!stm32_pwm_lp_update_allowed(priv, pwm->hwpwm)) {
++		ret = regmap_read(priv->regmap, STM32_LPTIM_ARR, &arr);
++		if (ret)
++			return ret;
++
++		if ((FIELD_GET(STM32_LPTIM_PRESC, cfgr) != presc) || (arr != prd - 1))
++			return -EBUSY;
++	}
++
+ 	if (!cstate.enabled) {
+ 		/* enable clock to drive PWM counter */
+ 		ret = clk_enable(priv->clk);
+@@ -86,15 +210,20 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 			return ret;
+ 	}
  
- 	main_rgmii2_pins_default: main-rgmii2-default-pins {
-@@ -257,6 +259,7 @@ main_uart0_pins_default: main-uart0-default-pins {
- 			AM62X_IOPAD(0x1c8, PIN_INPUT, 0) /* (D14) UART0_RXD */
- 			AM62X_IOPAD(0x1cc, PIN_OUTPUT, 0) /* (E14) UART0_TXD */
- 		>;
-+		bootph-all;
- 	};
+-	ret = regmap_read(priv->regmap, STM32_LPTIM_CFGR, &cfgr);
+-	if (ret)
+-		goto err;
+-
+ 	if ((FIELD_GET(STM32_LPTIM_PRESC, cfgr) != presc) ||
+-	    (FIELD_GET(STM32_LPTIM_WAVPOL, cfgr) != state->polarity)) {
++	    ((FIELD_GET(STM32_LPTIM_WAVPOL, cfgr) != state->polarity) && !priv->num_cc_chans)) {
+ 		val = FIELD_PREP(STM32_LPTIM_PRESC, presc);
+-		val |= FIELD_PREP(STM32_LPTIM_WAVPOL, state->polarity);
+-		mask = STM32_LPTIM_PRESC | STM32_LPTIM_WAVPOL;
++		mask = STM32_LPTIM_PRESC;
++
++		if (!priv->num_cc_chans) {
++			/*
++			 * WAVPOL bit is only available when no capature compare channel is used,
++			 * e.g. on LPTIMER instances that have only one output channel. CCMR1 is
++			 * used otherwise.
++			 */
++			val |= FIELD_PREP(STM32_LPTIM_WAVPOL, state->polarity);
++			mask |= STM32_LPTIM_WAVPOL;
++		}
  
- 	main_uart1_pins_default: main-uart1-default-pins {
-@@ -266,6 +269,7 @@ AM62X_IOPAD(0x198, PIN_OUTPUT, 2) /* (A19) MCASP0_AXR2.UART1_RTSn */
- 			AM62X_IOPAD(0x1ac, PIN_INPUT, 2) /* (E19) MCASP0_AFSR.UART1_RXD */
- 			AM62X_IOPAD(0x1b0, PIN_OUTPUT, 2) /* (A20) MCASP0_ACLKR.UART1_TXD */
- 		>;
-+		bootph-pre-ram;
- 	};
+ 		/* Must disable LP timer to modify CFGR */
+ 		reenable = true;
+@@ -120,20 +249,27 @@ static int stm32_pwm_lp_apply(struct pwm_chip *chip, struct pwm_device *pwm,
+ 	if (ret)
+ 		goto err;
  
- 	main_usb1_pins_default: main-usb1-default-pins {
-@@ -430,12 +434,14 @@ &main_mcan0 {
- &main_uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins_default>;
-+	bootph-all;
- 	status = "okay";
- };
+-	ret = regmap_write(priv->regmap, STM32_LPTIM_CMP, prd - (1 + dty));
++	/* Write CMP/CCRx register and ensure it's been properly written */
++	ret = regmap_write(priv->regmap, pwm->hwpwm ? STM32_LPTIM_CCR2 : STM32_LPTIM_CMP,
++			   prd - (1 + dty));
+ 	if (ret)
+ 		goto err;
  
- &main_uart1 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart1_pins_default>;
-+	bootph-pre-ram;
- 	/* Main UART1 may be used by TIFS firmware */
- 	status = "okay";
- };
-@@ -467,11 +473,13 @@ &sdhci1 {
- 	pinctrl-0 = <&main_mmc1_pins_default>;
- 	disable-wp;
- 	no-1-8-v;
-+	bootph-all;
- 	status = "okay";
- };
+-	/* ensure CMP & ARR registers are properly written */
+-	ret = regmap_read_poll_timeout(priv->regmap, STM32_LPTIM_ISR, val,
++	/* ensure ARR and CMP/CCRx registers are properly written */
++	ret = regmap_read_poll_timeout(priv->regmap, STM32_LPTIM_ISR, val, pwm->hwpwm ?
++				       (val & STM32_LPTIM_CMP2_ARROK) == STM32_LPTIM_CMP2_ARROK :
+ 				       (val & STM32_LPTIM_CMPOK_ARROK) == STM32_LPTIM_CMPOK_ARROK,
+ 				       100, 1000);
+ 	if (ret) {
+ 		dev_err(pwmchip_parent(chip), "ARR/CMP registers write issue\n");
+ 		goto err;
+ 	}
+-	ret = regmap_write(priv->regmap, STM32_LPTIM_ICR,
+-			   STM32_LPTIM_CMPOKCF_ARROKCF);
++	ret = regmap_write(priv->regmap, STM32_LPTIM_ICR, pwm->hwpwm ?
++			   STM32_LPTIM_CMP2OKCF_ARROKCF : STM32_LPTIM_CMPOKCF_ARROKCF);
++	if (ret)
++		goto err;
++
++	ret = stm32_pwm_lp_compare_channel_apply(priv, pwm->hwpwm, true, state->polarity);
+ 	if (ret)
+ 		goto err;
  
- &usbss0 {
- 	ti,vbus-divider;
-+	bootph-all;
- 	status = "okay";
- };
+@@ -161,11 +297,22 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
+ {
+ 	struct stm32_pwm_lp *priv = to_stm32_pwm_lp(chip);
+ 	unsigned long rate = clk_get_rate(priv->clk);
+-	u32 val, presc, prd;
++	u32 val, presc, prd, ccmr1;
++	bool enabled;
+ 	u64 tmp;
  
-@@ -482,6 +490,7 @@ &usbss1 {
+ 	regmap_read(priv->regmap, STM32_LPTIM_CR, &val);
+-	state->enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
++	enabled = !!FIELD_GET(STM32_LPTIM_ENABLE, val);
++	if (priv->num_cc_chans) {
++		/* There's a CC chan, need to also check if it's enabled */
++		regmap_read(priv->regmap, STM32_LPTIM_CCMR1, &ccmr1);
++		if (pwm->hwpwm)
++			enabled &= !!FIELD_GET(STM32_LPTIM_CC2E, ccmr1);
++		else
++			enabled &= !!FIELD_GET(STM32_LPTIM_CC1E, ccmr1);
++	}
++	state->enabled = enabled;
++
+ 	/* Keep PWM counter clock refcount in sync with PWM initial state */
+ 	if (state->enabled) {
+ 		int ret = clk_enable(priv->clk);
+@@ -176,14 +323,21 @@ static int stm32_pwm_lp_get_state(struct pwm_chip *chip,
  
- &usb0 {
- 	usb-role-switch;
-+	bootph-all;
+ 	regmap_read(priv->regmap, STM32_LPTIM_CFGR, &val);
+ 	presc = FIELD_GET(STM32_LPTIM_PRESC, val);
+-	state->polarity = FIELD_GET(STM32_LPTIM_WAVPOL, val);
++	if (priv->num_cc_chans) {
++		if (pwm->hwpwm)
++			state->polarity = FIELD_GET(STM32_LPTIM_CC2P, ccmr1);
++		else
++			state->polarity = FIELD_GET(STM32_LPTIM_CC1P, ccmr1);
++	} else {
++		state->polarity = FIELD_GET(STM32_LPTIM_WAVPOL, val);
++	}
  
- 	port {
- 		typec_hs: endpoint {
+ 	regmap_read(priv->regmap, STM32_LPTIM_ARR, &prd);
+ 	tmp = prd + 1;
+ 	tmp = (tmp << presc) * NSEC_PER_SEC;
+ 	state->period = DIV_ROUND_CLOSEST_ULL(tmp, rate);
+ 
+-	regmap_read(priv->regmap, STM32_LPTIM_CMP, &val);
++	regmap_read(priv->regmap, pwm->hwpwm ? STM32_LPTIM_CCR2 : STM32_LPTIM_CMP, &val);
+ 	tmp = prd - val;
+ 	tmp = (tmp << presc) * NSEC_PER_SEC;
+ 	state->duty_cycle = DIV_ROUND_CLOSEST_ULL(tmp, rate);
+@@ -201,15 +355,25 @@ static int stm32_pwm_lp_probe(struct platform_device *pdev)
+ 	struct stm32_lptimer *ddata = dev_get_drvdata(pdev->dev.parent);
+ 	struct stm32_pwm_lp *priv;
+ 	struct pwm_chip *chip;
++	unsigned int npwm;
+ 	int ret;
+ 
+-	chip = devm_pwmchip_alloc(&pdev->dev, 1, sizeof(*priv));
++	if (!ddata->num_cc_chans) {
++		/* No dedicated CC channel, so there's only one PWM channel */
++		npwm = 1;
++	} else {
++		/* There are dedicated CC channels, each with one PWM output */
++		npwm = ddata->num_cc_chans;
++	}
++
++	chip = devm_pwmchip_alloc(&pdev->dev, npwm, sizeof(*priv));
+ 	if (IS_ERR(chip))
+ 		return PTR_ERR(chip);
+ 	priv = to_stm32_pwm_lp(chip);
+ 
+ 	priv->regmap = ddata->regmap;
+ 	priv->clk = ddata->clk;
++	priv->num_cc_chans = ddata->num_cc_chans;
+ 	chip->ops = &stm32_pwm_lp_ops;
+ 
+ 	ret = devm_pwmchip_add(&pdev->dev, chip);
+@@ -225,12 +389,15 @@ static int stm32_pwm_lp_suspend(struct device *dev)
+ {
+ 	struct pwm_chip *chip = dev_get_drvdata(dev);
+ 	struct pwm_state state;
+-
+-	pwm_get_state(&chip->pwms[0], &state);
+-	if (state.enabled) {
+-		dev_err(dev, "The consumer didn't stop us (%s)\n",
+-			chip->pwms[0].label);
+-		return -EBUSY;
++	unsigned int i;
++
++	for (i = 0; i < chip->npwm; i++) {
++		pwm_get_state(&chip->pwms[i], &state);
++		if (state.enabled) {
++			dev_err(dev, "The consumer didn't stop us (%s)\n",
++				chip->pwms[i].label);
++			return -EBUSY;
++		}
+ 	}
+ 
+ 	return pinctrl_pm_select_sleep_state(dev);
 -- 
-2.34.1
+2.25.1
 
 
