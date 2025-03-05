@@ -4,77 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB628C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:30:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21509C282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:33:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KfxPaWGsAZSYsN3AQgx//cOpK/kMmXrN13zjrXyUlh4=; b=z2TCswodfyqiNqQC9QeW+1rTEs
-	HWito6tFC5OOphPO3fGdAYqJtyVTs955CGBuPD1WNNk0S0vwX+k8hDgybLWb+jQFAmjCmM+wcwLub
-	7wHrKPq/pSuErxSnMb+ZW8nmtA+lsRodztyw9pw9H2yG1G6nQuuLle72dfKJbyDj+0k7bz+in6c8V
-	XkeCRndqVE9kRtxwPBdD0bckjFxyFHsh735FVx55TL+d8rALob1ApcdbUXHh++gJmw/1b5PsTiP6l
-	jFatKi2Dyz/kq0rriya3Ka0388cSIsYspYs4yT3LEHPYCAMShUV3PwjMdxJOTPXUeIiH9ppp8cjeQ
-	LyK4nfVQ==;
+	bh=CGHqSgga9ZWqhfiXbeTFLx+tMRtdQJt+JKetm5hHuhA=; b=oYk7Ad34/v9qI+08hMVbKPXNqT
+	G1U4MUyUO8/Gy7EW6mMZkVB81JbjJ01Qafg0DPxTIlYkx9qH//rkfomOoEmL+82CGguZY2slHJ1mk
+	IvUwyd0ZxDyy8S4c5pjPg4pTJXxXf2brbSMnc2/hN1xx4y0dW63Slz4AK5aNS+yypsWMzT1I+EcPU
+	mZtgV9uvZrjA24BwPplWvx8Gvnmpfin04CT4bsugMkWRBBX13y2MfowHBeocOMrEUY4mA1MIuApeN
+	PvZAuZNeVoUM0Ve1NDLbF1HRAXRgDsty9mVbtd/a/XOsxWSUs7ZKoUrSFE9GcubR/XFJ3LgSb/Pp7
+	MBCVZnVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpl4f-00000007Voh-0bAu;
-	Wed, 05 Mar 2025 09:29:57 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tpl7p-00000007WS1-0u31;
+	Wed, 05 Mar 2025 09:33:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjzx-00000007LyI-49rn;
-	Wed, 05 Mar 2025 08:21:03 +0000
-X-UUID: c47a74eef99a11efa1e849db4cc18d44-20250305
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=KfxPaWGsAZSYsN3AQgx//cOpK/kMmXrN13zjrXyUlh4=;
-	b=j6rN1eS+LLPIzBggOPVr9kpH1GMFR6hiDKzaoFWF85jwq6DaJuPikJCMTaZgDxkVwyTUshqB0Hx/bIiCkpDIXlnJLpSv4pMi3e52EA1G+FrVMJST8kSPV82XTO/buIPrURrUhxKqi85XsVw+U+OAp68i0M8GbywiXq5aYKD459g=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:0cc4ad91-32fc-4ffd-8d4f-9382d6248249,IP:0,UR
-	L:25,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:25
-X-CID-META: VersionHash:0ef645f,CLOUDID:8f610bce-23b9-4c94-add0-e827a7999e28,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
-	,IP:nil,URL:11|1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0
-	,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULN
-X-UUID: c47a74eef99a11efa1e849db4cc18d44-20250305
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw02.mediatek.com
-	(envelope-from <jjian.zhou@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1120176636; Wed, 05 Mar 2025 01:20:58 -0700
-Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Wed, 5 Mar 2025 16:20:55 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Wed, 5 Mar 2025 16:20:55 +0800
-From: Jjian Zhou <jjian.zhou@mediatek.com>
-To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jason-ch Chen
-	<jason-ch.chen@mediatek.com>, Jjian Zhou <jjian.zhou@mediatek.com>
-Subject: [PATCH RFC 3/3] dt-bindings: mailbox: mtk,vcp-mbox: add mtk vcp-mbox document
-Date: Wed, 5 Mar 2025 16:20:40 +0800
-Message-ID: <20250305082047.15746-4-jjian.zhou@mediatek.com>
-X-Mailer: git-send-email 2.46.0
-In-Reply-To: <20250305082047.15746-1-jjian.zhou@mediatek.com>
-References: <20250305082047.15746-1-jjian.zhou@mediatek.com>
+	id 1tpl6F-00000007WGB-1JN7
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 09:31:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=CGHqSgga9ZWqhfiXbeTFLx+tMRtdQJt+JKetm5hHuhA=; b=feFcngrrJuJ84n4qx9pkQPz5RL
+	HtIE+H3WOG9qotKIuWGy8PcyyfKHHds7FRx7fDMJbwLYiefCjZMvOS/LDcAhVA/4djjvIkOId40he
+	TGGlUeIy6mAqUV1iHa4WIo2b0pZ/ilmoTWL8nsAKmCYy0zDe8XL44J04AYJ9htbBnbj9S5jKNaBnY
+	7tA3rRbIrCHvyosfZI0uGkp6AuOjFvtt7JaiAFP0sLbOjKfgGKi9PESslzJfxnZNOjqxlvTwa6N2E
+	pSjpTMFoO7qV4R6LvcWPESosoMtH8R3zPQXD7j4H1C8d6iyXGEdw3xypIS64O/wtOioFXQDExTX+G
+	67L5lorg==;
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpl6B-00000000RV4-3lIf
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 09:31:33 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-38a8b17d7a7so3884307f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 01:31:30 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741167089; x=1741771889; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=CGHqSgga9ZWqhfiXbeTFLx+tMRtdQJt+JKetm5hHuhA=;
+        b=gy1g8Qfg3CNIcTnHL33kTlbbLyNf2UwAQiMtvZjAuXDG6RIfbG3sUq8VbNsoenpd1h
+         IF0EhhUt7tfbFU/mRaPcb8JImMbBrI3cy6XveVGALCa+rgIYzeFuxXoB4M9IO1nGgwSo
+         9osD1zUzMIvVbX7NVEOuMgf46vJRzomlAedytEfjolC936evkyp5sIbidXINvTUstnKw
+         jOjE8P0/ZmlYY86qxHGnrJYNRLspzhQYXcmUKdZndt8QdHbhniaXx+fc3qqQ6iL5lupy
+         ilmXaBY+e+CC7aKGoQ9jCoEKenucjNC5XQYJ9Rlewz7SWNNMFG8FY7SdmdXP+8qxvs2W
+         pjFw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741167089; x=1741771889;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=CGHqSgga9ZWqhfiXbeTFLx+tMRtdQJt+JKetm5hHuhA=;
+        b=l+si3vcY2zVeW+38HI4TsKCRK7s3Y2qB2jiWpzD5pWrl9QjnXGX+nqEaSD7irun81X
+         fDLD8Mv0WR10dFl00fszPWxaq/EYrcO0RZxxWCw9HR+kSSqyEaAffXrUW0zjMJ5iU88v
+         ljazHhHOETz+WenVQAAinipCvrxGxcPYcVw1UgIUO8joMswKMgNQhtCTU41LKkRbf7n3
+         Wh5e70aW0ZulZ80sFt2sULHxV7kzeRwGtq//tOMI95WajfMemMxSETYgJal+x6ZuqHSH
+         q68eEuYj17r6jgMExfrf9a5TPsgkZzFOYwmVtysyqElP3gCk+nDAw8kWTu7fqtq9i2f1
+         CHcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWLrjs8XQqq3Voht9OeHoRqtAujh/0eMRoONE32mvAoO70Thi2/TfDyjvqG6BJK654mZLlWLiiAloXimOHO8DNV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxj0TEGKhJkmz3ouB5O5+oJxTkfMQAOrmJUmwsFrZXFNOu3iky0
+	vD/MXUTaDHhOzIYX0rX3HvrZEwJ2vyInZMvbvIdeWxi4BCq59RPmiJvXMzq6ejA=
+X-Gm-Gg: ASbGncs30GNTPDBHQLIAwREjni9aGp4AVJ+7hetbmky8KR76dTjKqvvd9JewOq2u60g
+	wf5D2hkE0dKoXQMHpRVNgw5Fk3FFlxWjDNM9lTqF9qU86E1vx9xZIh3LiYc5Bd1PsMcUmV0+gYD
+	aECSvZDKR4cob1SFkfpEGBnUPvz2YMEfZ3flMgEXAXTPwPmlRRrNtPuq3TA1qzP4a+YnRNY6/pG
+	DfmQH22jPV00yylaixNCu5CNMnFo6L8AwcJNnPJ8Yge4Z+7ce3mIkOEdz6UtvjTnqSTbcDsWEUW
+	VGI0N8o7BIbNbSUYX4qRsAYnirv6G/pEEXZMo0oDcPOF1/a+TA==
+X-Google-Smtp-Source: AGHT+IGBjeO6TeQERlVAAv2wJR2v/E9DyRfr/DsoCry1ZVSWVEJcRLW+vugv45aqXSWg1cQhm5oZnw==
+X-Received: by 2002:a5d:5850:0:b0:391:4f9:a039 with SMTP id ffacd0b85a97d-3911f7400aamr2203099f8f.16.1741167088987;
+        Wed, 05 Mar 2025 01:31:28 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43bd42c5b33sm12065705e9.22.2025.03.05.01.31.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 01:31:28 -0800 (PST)
+Date: Wed, 5 Mar 2025 12:31:24 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: "Malladi, Meghana" <m-malladi@ti.com>
+Cc: rogerq@kernel.org, danishanwar@ti.com, pabeni@redhat.com,
+	kuba@kernel.org, edumazet@google.com, davem@davemloft.net,
+	andrew+netdev@lunn.ch, bpf@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, u.kleine-koenig@baylibre.com,
+	matthias.schiffer@ew.tq-group.com, schnelle@linux.ibm.com,
+	diogo.ivo@siemens.com, glaroque@baylibre.com, macro@orcam.me.uk,
+	john.fastabend@gmail.com, hawk@kernel.org, daniel@iogearbox.net,
+	ast@kernel.org, srk@ti.com, Vignesh Raghavendra <vigneshr@ti.com>
+Subject: Re: [EXTERNAL] Re: [PATCH net-next v3 3/3] net: ti: icssg-prueth:
+ Add XDP support
+Message-ID: <5f716740-ac45-4881-a27d-91a93de6f8c7@stanley.mountain>
+References: <20250224110102.1528552-1-m-malladi@ti.com>
+ <20250224110102.1528552-4-m-malladi@ti.com>
+ <d362a527-88cf-4cd5-a22f-7eeb938d4469@stanley.mountain>
+ <21f21dfb-264b-4e01-9cb3-8d0133b5b31b@ti.com>
+ <2c0c1a4f-95d4-40c9-9ede-6f92b173f05d@stanley.mountain>
+ <40ce8ed3-b36c-4d5f-b75a-7e0409beb713@ti.com>
+ <61117a07-35b5-48c0-93d9-f97db8e15503@stanley.mountain>
+ <fd989751-e7f6-40bb-a0bf-058c752cc7bc@ti.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-MTK: N
+In-Reply-To: <fd989751-e7f6-40bb-a0bf-058c752cc7bc@ti.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_002102_049538_68D47368 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250305_093132_099875_977921E2 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,70 +128,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch adds document for mediatek vcp mbox.
+On Wed, Mar 05, 2025 at 02:53:07PM +0530, Malladi, Meghana wrote:
+> Hi Dan,
+> 
+> On 3/3/2025 7:38 PM, Dan Carpenter wrote:
+> > What I mean is just compile the .o file with and without the unlikely().
+> > $ md5sum drivers/net/ethernet/ti/icssg/icssg_common. o*
+> > 2de875935222b9ecd8483e61848c4fc9 drivers/net/ethernet/ti/icssg/
+> > icssg_common. o. annotation 2de875935222b9ecd8483e61848c4fc9
+> > ZjQcmQRYFpfptBannerStart
+> > This message was sent from outside of Texas Instruments.
+> > Do not click links or open attachments unless you recognize the source
+> > of this email and know the content is safe.
+> > Report Suspicious
+> > <https://us-phishalarm-ewt.proofpoint.com/EWT/v1/G3vK!
+> > uldq3TevVoc7KuXEXHnDf- TXtuZ0bON9iO0jTE7PyIS1jjfs_CzpvIiMi93PVt0MVDzjHGQSK__vY_-6rO7q86rFmBMGW4SSqK5pvNE$>
+> > ZjQcmQRYFpfptBannerEnd
+> > 
+> > What I mean is just compile the .o file with and without the unlikely().
+> > 
+> > $ md5sum drivers/net/ethernet/ti/icssg/icssg_common.o*
+> > 2de875935222b9ecd8483e61848c4fc9  drivers/net/ethernet/ti/icssg/icssg_common.o.annotation
+> > 2de875935222b9ecd8483e61848c4fc9  drivers/net/ethernet/ti/icssg/icssg_common.o.no_anotation
+> > 
+> > Generally the rule is that you should leave likely/unlikely() annotations
+> > out unless it's going to make a difference on a benchmark.  I'm not going
+> > to jump down people's throat about this, and if you want to leave it,
+> > it's fine.  But it just struct me as weird so that's why I commented on
+> > it.
+> > 
+> 
+> I have done some performance tests to see if unlikely() is gonna make any
+> impact and I see around ~9000 pps and 6Mbps drop without unlikely() for
+> small packet sizes (60 Bytes)
+> 
+> You can see summary of the tests here:
+> 
+> packet size   with unlikely(pps)  without unlikely(pps)   regression
+> 
+>       60        462377                453251                 9126
+> 
+>       80        403020                399372                 3648
+> 
+>       96        402059                396881                 5178
+> 
+>      120        392725                391312                 4413
+> 
+>      140        327706                327099                 607
+> 
+> packet size  with unlikely(Mbps)  without unlikely(Mbps)  regression
+> 
+>      60         311                   305                    6
+> 
+>      80         335                   332                    3
+> 
+>      96         386                   381                    5
+> 
+>      120        456                   451                    5
+> 
+>      140        430                   429                    1
+> 
+> For more details on the logs, please refer:https://gist.github.com/MeghanaMalladiTI/cc6cc7709791376cb486eb1222de67be
+> 
 
-Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
----
- .../bindings/mailbox/mtk,vcp-mbox.yaml        | 49 +++++++++++++++++++
- 1 file changed, 49 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
+Huh.  That's very interesting.  Fine, then.
 
-diff --git a/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
-new file mode 100644
-index 000000000000..d5afe295af14
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
-@@ -0,0 +1,49 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/mtk,vcp-mbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: MediaTek Video Companion Processor (VCP) mailbox
-+
-+maintainers:
-+  - Jjian Zhou <Jjian.Zhou@mediatek.com>
-+
-+description: |
-+  The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
-+  messages through 64 32-bit wide registers. It has 32 interrupt vectors in
-+  either direction for signalling purposes.
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-vcp-mbox
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  "#mbox-cells":
-+    const: 0
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - "#mbox-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    vcp_mailbox0: mailbox@31b80000 {
-+        compatible = "mediatek,mt8196-vcp-mbox";
-+        reg = <0x31b80000 0x1000>;
-+        interrupts = <GIC_SPI 789 IRQ_TYPE_LEVEL_HIGH 0>;
-+        #mbox-cells = <0>;
-+    };
--- 
-2.45.2
+regards,
+dan carpenter
 
 
