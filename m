@@ -4,136 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60307C28B22
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FC2C28B23
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MTrX+v2ufu21pC5T9+JXX7Mh94AZHwvQ4M8AVKKgv04=; b=s/NNEPUoWI5Q2jbmbmJBOXwA/P
-	eL4s42ZOQ6X+ERcsF7Lrb+0rrAxvq0+14+LTtDyqDaZOcYjPY+6BdpaJ7U9PAUZvfDaGpmjMTxBDx
-	B62BSvfFZ2eEL1TN48CENuGGz9bNNyYj2qnfhqh3ugBNVY60QQtWKMog7tTn402SgVpG989vcNk7S
-	Y7qUThq7mVneIJLA/m594Ha1KKVN+0O1PTY+HkSyUQ1vry2RSfp1pm/K1X0r0u1SN/3sGQaxehD4i
-	3Sw8Y8wemgzTurfobmRE5fNJ4m3I0BRRFbWHAvHMNDfBaiMc4NJgzA4Da/+ImDJQ23t/Fa+nDU5e0
-	ozproqoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=; b=R7yfOC9uB2Jb31tTrMpuvzQVRs
+	R2stf81govELUiECuKyBfRKJAjdmvBqFLAcD7qQUapJzOKxWZNkdVs9196c3fF55Wd4/3N0eAMTcn
+	jlxW4oMvRm/iqjlibvEt4jCs8aqLiCT4VXLkoz9JJUdf/30onAe18hdYPfw1aLTNCDHG/hX994p9w
+	swVjfkNZcyp32HCoGn6XogCTMT7C84mDMKWvPbz0zII6OQQr7OWzFErFNDNvWKQM7ayREekXWxOSE
+	IXE6VAZXx4BbXlwA/+672Zu+18y6OMIBeRMvjw5CciTSwyCK1RN5Dkat4PWvgHBH09qhcAwXGK1kX
+	tW9ifP1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpxJE-00000009UiN-1kdr;
-	Wed, 05 Mar 2025 22:33:48 +0000
-Received: from mail-dm6nam11on20617.outbound.protection.outlook.com ([2a01:111:f403:2415::617] helo=NAM11-DM6-obe.outbound.protection.outlook.com)
+	id 1tpxJD-00000009Uht-1H0t;
+	Wed, 05 Mar 2025 22:33:47 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpw9T-00000009KUN-2fYK
+	id 1tpvKx-00000009DAW-3CaY
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 20:27:27 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=; b=vDB82vR9yNU0Ck0TJ2KSA00p8b
+	s3c/zcp22kSLx3JpWAJNFmC8WiKp6xpIzyPfzd9iIU8/AvkpqoJgMvYwBbeG8RRVz6oD36Y210Pw8
+	/C8Q6FRkzPtZhSqgpr0CPK6FmzfFyLIEzTvBQ+1sb3DvAyUtlucStW6tSXNCaTcgUql25P6bETO/C
+	2JoPCjn5czcPO6gXeKs81nu6SARvhmchyu94xjphfpb5A9ULwaKCK2qQ6/nHGNyVBXQx2rlqIX/Ni
+	H3l4Zu89PwTACmPDLW0X3Jl4W7UkpGi86A1lbr4/H9wGhliFTAqziltSNNpJGtFZC4/RJkX26Sr4v
+	o1Wk+ReA==;
+Received: from out-170.mta1.migadu.com ([95.215.58.170])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpvKu-00000006AhL-3GpM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 21:19:40 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h6zFzqg9qoD/A/T7NS0vmb1e9Z70M5fAgdBGxGiyFpjpBtY5fEMVnl9KugtbfrCD4rwF8/MXe8/8ZWeIXLXVm4obGZlKgqaimVE2o15Ijad3c3BKRGwZQP8f3RI7vp+lUI3xr580hReOa1XFjUgn1lEJ41w9Vn2mTpXOnTJIqvmtTJHylQHkdV9D/biR+VOp0tHJqKNcUhgqoiVGptuE1BtXcjWI6cijdpQaPEJDcmiPjEq7c2vAYsx1anB9joqALbUYCUfV6r4auxrQsZ1ODJIbfb0cGlHqvQgopRA2KNbo6rsjw8xg7QQis3drTE+Nbm0F9HVRSAmVh0aj0dZ0xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MTrX+v2ufu21pC5T9+JXX7Mh94AZHwvQ4M8AVKKgv04=;
- b=Cc/uYhuBQ0Om06E+xR9gvq7qmSLu4+2G+mUrHUq4dmRNOYK9zTSNVD3lfx4oli50B597TgY3dQDMfJIltWmA3A5PKNN74onWk9Z1w0zUUz43Za8FZn2P3FfktsBhiJBYBPhN+ybOu0c1tD+qFL8HDWYf1s9hTXnMqo7TRyhdxeUEIYQANZHTkPUmIVPgI0x4VbivjQ9h1FhkNS+mJO1gEpTO6/pTRCH7XhbSR41Xbpxi+54fsyWoQrOS91yNLdns+7g75SClYtM1wF6/j1WPGttl91QYtZ+z+L5i3dDpHI60yDPqzYoN6Zy4Um2CEjTC15Vi40LOlmqIl5o3niOzJA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=intel.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MTrX+v2ufu21pC5T9+JXX7Mh94AZHwvQ4M8AVKKgv04=;
- b=pnrxn/5G87Rm7CQszD0qK+c4SX9Zep/T/sThk4HHZnefr37y/WuRs3DxUcpo+d2nkFA38Uu8TlraVgsoJYb2eH3+fHusWEg2hd8oA7uYZMC+YKFbZK3IB2mCy3/R5w7T9xMNrp8KTs2V6UKeDzsMk51kAqmoeqzB3w+J4k0VGs7YNVbgYGgF5mmUhqQGWUKYflNKOGqSCxJQgyB1F/B/mBMuCWcAmpEZUbj14FwvNAxf+8EXuYqJLXDcamPdr7whC62feRRlNJDZZqnVoFJ+byw8OMCcHJsJOHnfHwYakmuO4KSOmi4RWvukPH5F6NgHfOO7a8A/qJZgIr0ClOEuDA==
-Received: from SJ2PR07CA0023.namprd07.prod.outlook.com (2603:10b6:a03:505::9)
- by DM6PR12MB4202.namprd12.prod.outlook.com (2603:10b6:5:219::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
- 2025 21:19:32 +0000
-Received: from MWH0EPF000989E9.namprd02.prod.outlook.com
- (2603:10b6:a03:505:cafe::c0) by SJ2PR07CA0023.outlook.office365.com
- (2603:10b6:a03:505::9) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.29 via Frontend Transport; Wed,
- 5 Mar 2025 21:19:32 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- MWH0EPF000989E9.mail.protection.outlook.com (10.167.241.136) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 21:19:31 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Wed, 5 Mar 2025
- 13:19:19 -0800
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Wed, 5 Mar 2025 13:19:19 -0800
-Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.126.190.180) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
- Transport; Wed, 5 Mar 2025 13:19:18 -0800
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: <jgg@nvidia.com>, <kevin.tian@intel.com>
-CC: <joro@8bytes.org>, <will@kernel.org>, <robin.murphy@arm.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <ankita@nvidia.com>
-Subject: [PATCH] iommufd: Set domain->iommufd_hwpt in all hwpt->domain allocators
-Date: Wed, 5 Mar 2025 13:18:00 -0800
-Message-ID: <20250305211800.229465-1-nicolinc@nvidia.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 05 Mar 2025 20:27:26 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741206442;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=;
+	b=XwifhcXhLMkukfucgBCxxonsngMxyv540XGuYHeAyygl3BZUBAIsx/LpE/7Eo/ztYwF6XY
+	l9s+ksdcl37bgs1WorwD2MyjvgcYtymIqTIVlmpuVui6UjjR+YYSu7vBKK2vbe1z+7xo9S
+	OE9RTYwi8r+Gj7xxV+z1EE20+60f4VQ=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev
+Cc: Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>,
+	Oliver Upton <oliver.upton@linux.dev>
+Subject: [PATCH v3 09/14] KVM: arm64: Compute synthetic sysreg ESR for Apple PMUv3 traps
+Date: Wed,  5 Mar 2025 12:26:36 -0800
+Message-Id: <20250305202641.428114-10-oliver.upton@linux.dev>
+In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
+References: <20250305202641.428114-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MWH0EPF000989E9:EE_|DM6PR12MB4202:EE_
-X-MS-Office365-Filtering-Correlation-Id: 16c272dd-2e5b-4503-7946-08dd5c2b6bf1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GfwB/XLeqQ7wZLQxPnpRWbiEJERaEF2I8MkyY4kQwbV9a4NyrxHsFXiQDhKc?=
- =?us-ascii?Q?1kSsXuSx56n7WZb977NQVHEtfEgYERrSwdjYuKkWrU569eg+YU1yLY8nbPJL?=
- =?us-ascii?Q?lE7lCB9mwwQlqXoRCPaesWeBRLObH3qyb/hRaJi9hoHybJLFDV8MN9MyWkKr?=
- =?us-ascii?Q?gkOafHmCLCdibK8jSPI0Mxmcz7aurEby1v4+vgToIYwRh/bTAj8KdD32F4+5?=
- =?us-ascii?Q?EkcA2KZR0UzLqN8dmm41Urs5hz0KsgwrmCRq30me1KEZmkbgYTK3pVXsVNek?=
- =?us-ascii?Q?yYVcNVT0K/lRJPpfW3TcPAqIq48sxX/nQiTVi5l8ZpVFeSXuHIqolyjCHReG?=
- =?us-ascii?Q?VRQ8jDwsUcvn1A9VlO/w5Bu/mq5UuBfDCAm2L7hR5e4qSe6y4AQJeanyf7SC?=
- =?us-ascii?Q?4iQBXKDdWC1C4RwUBJRrXgMA4HtmkU2MAzmQea0akA3Zg0OQm8mut4q9YcNu?=
- =?us-ascii?Q?GqBPp6ueVl+Wj02N3tmvGd7wa+wdfZbTCFykUpx1vkNl9UPzYW/HnrgzyFlT?=
- =?us-ascii?Q?YZh1+2OLh2I0pXYb72bPtcaR41vwKNRQ5Dpr40PGhUU4NKr99cWstsptTViy?=
- =?us-ascii?Q?YF8igrIfUpD7fsFgh3A6N1pL5Nfqg1WQJDbwW2fUolwIyT2AUF5RjtP/IKWg?=
- =?us-ascii?Q?7MbNTHQ1mq0zJ4NsHBKWynsHk6ULOxH1WegfLJKv0IcrYvJBLgJhKb5N9hi4?=
- =?us-ascii?Q?rAO1o4oJRaYpcz3QxvbvowvDj8C2EZrGVLEB6G5/1QRqMgzStYHqhSkhIh+m?=
- =?us-ascii?Q?146ntzz0u06PplJOp+0s2ymYpt8/no5yKjf7MhUotGYgveJFHhD+aqKo+qaA?=
- =?us-ascii?Q?PI1DUv8LHbxELbmfjtzcjVMrh+rqc3cNG+wamsXTjjh7lzU/Wu+H3ywUOKJq?=
- =?us-ascii?Q?iCHEDxBFCaZmopXxeqIgSk9ui640E+vpQB6wZVDfHX1sxasQuqkKoAWkTGUH?=
- =?us-ascii?Q?5rGlV5TA073x7qr+HZolAiOiSRjDMOV9KzNLzN7ZQBRjQbZNs90HgBd5/laW?=
- =?us-ascii?Q?c0jyTRNgBYhGiHwGhm91asjGLgr1rMvk/C8YSvlgqAVAzmFSFRx5dmMYr0se?=
- =?us-ascii?Q?L3XjpFU8YW9DLmJEqP2ES+CP8HIJ+IkMy587z5WfjXpsJtNvApPAJnuOxq4T?=
- =?us-ascii?Q?22xjz1Fb+oWWUrZqNz1m1FR+N5Fi+TP+qvWSwC39N+m75cSjL8qiQ8Cx4O+V?=
- =?us-ascii?Q?6KAA/TUadJJb0J1yEwrVV2L7HTKBytY9ZMY6ZmjlMnuZ4aLQzYKvuRtmLgm8?=
- =?us-ascii?Q?hVrDE996qis5WWldiffcBm7pzLi5Rz3RdO3hnp4lchCvvoennak4WTW15VFD?=
- =?us-ascii?Q?cK+Uji8oKpjUdqJrFJ+biOmJkm+89w7LxbTAXx1E3+M9o1dzXSFHYq3kDXwA?=
- =?us-ascii?Q?x+NTnOMMJohz1MGSMGuoVtf2dh/0sr9yWn4LBlmOVOIZ0c0+9Qb1R+6wDM3E?=
- =?us-ascii?Q?rDkcNLqtoioKhlXt06w7rhN5V8JDQKWNvxSl15nOpTjZDI879DNJHmfc99cY?=
- =?us-ascii?Q?ym5nlxF4HcXBlEg=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 21:19:31.9877
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 16c272dd-2e5b-4503-7946-08dd5c2b6bf1
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: MWH0EPF000989E9.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4202
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_131939_675703_B339CD0F 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250305_202725_107805_26A16A54 
+X-CRM114-Status: GOOD (  10.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,67 +94,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Setting domain->iommufd_hwpt in iommufd_hwpt_alloc() only covers the HWPT
-allocations from user space, but not for an auto domain. This resulted in
-a NULL pointer access in the auto domain pathway:
- Unable to handle kernel NULL pointer dereference at
- 	virtual address 0000000000000008
- pc : iommufd_sw_msi+0x54/0x2b0
- lr : iommufd_sw_msi+0x40/0x2b0
- Call trace:
-  iommufd_sw_msi+0x54/0x2b0 (P)
-  iommu_dma_prepare_msi+0x64/0xa8
-  its_irq_domain_alloc+0xf0/0x2c0
-  irq_domain_alloc_irqs_parent+0x2c/0xa8
-  msi_domain_alloc+0xa0/0x1a8
+Apple M* CPUs provide an IMPDEF trap for PMUv3 sysregs, where ESR_EL2.EC
+is a reserved value (0x3F) and a sysreg-like ISS is reported in
+AFSR1_EL2.
 
-Since iommufd_sw_msi() requires to access the domain->iommufd_hwpt, it is
-better to set that explicitly prior to calling iommu_domain_set_sw_msi().
+Compute a synthetic ESR for these PMUv3 traps, giving the illusion of
+something architectural to the rest of KVM.
 
-Fixes: 748706d7ca06 ("iommu: Turn fault_data to iommufd private pointer")
-Reported-by: Ankit Agrawal <ankita@nvidia.com>
-Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+Tested-by: Janne Grunau <j@jannau.net>
+Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- drivers/iommu/iommufd/hw_pagetable.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
+ arch/arm64/kvm/hyp/vhe/switch.c | 22 ++++++++++++++++++++++
+ arch/arm64/tools/cpucaps        |  1 +
+ 2 files changed, 23 insertions(+)
 
-diff --git a/drivers/iommu/iommufd/hw_pagetable.c b/drivers/iommu/iommufd/hw_pagetable.c
-index 268315b1d8bc..1d4cfe3677dc 100644
---- a/drivers/iommu/iommufd/hw_pagetable.c
-+++ b/drivers/iommu/iommufd/hw_pagetable.c
-@@ -159,6 +159,7 @@ iommufd_hwpt_paging_alloc(struct iommufd_ctx *ictx, struct iommufd_ioas *ioas,
- 			goto out_abort;
- 		}
- 	}
-+	hwpt->domain->iommufd_hwpt = hwpt;
- 	iommu_domain_set_sw_msi(hwpt->domain, iommufd_sw_msi);
+diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+index 647737d6e8d0..731a0378ed13 100644
+--- a/arch/arm64/kvm/hyp/vhe/switch.c
++++ b/arch/arm64/kvm/hyp/vhe/switch.c
+@@ -527,6 +527,25 @@ static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
+ 	return kvm_hyp_handle_sysreg(vcpu, exit_code);
+ }
  
- 	/*
-@@ -255,6 +256,7 @@ iommufd_hwpt_nested_alloc(struct iommufd_ctx *ictx,
- 		goto out_abort;
- 	}
- 	hwpt->domain->owner = ops;
-+	hwpt->domain->iommufd_hwpt = hwpt;
- 	iommu_domain_set_sw_msi(hwpt->domain, iommufd_sw_msi);
++static bool kvm_hyp_handle_impdef(struct kvm_vcpu *vcpu, u64 *exit_code)
++{
++	u64 iss;
++
++	if (!cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
++		return false;
++
++	/*
++	 * Compute a synthetic ESR for a sysreg trap. Conveniently, AFSR1_EL2
++	 * is populated with a correct ISS for a sysreg trap. These fruity
++	 * parts are 64bit only, so unconditionally set IL.
++	 */
++	iss = ESR_ELx_ISS(read_sysreg_s(SYS_AFSR1_EL2));
++	vcpu->arch.fault.esr_el2 = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SYS64) |
++				   FIELD_PREP(ESR_ELx_ISS_MASK, iss) |
++				   ESR_ELx_IL;
++	return false;
++}
++
+ static const exit_handler_fn hyp_exit_handlers[] = {
+ 	[0 ... ESR_ELx_EC_MAX]		= NULL,
+ 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
+@@ -538,6 +557,9 @@ static const exit_handler_fn hyp_exit_handlers[] = {
+ 	[ESR_ELx_EC_WATCHPT_LOW]	= kvm_hyp_handle_watchpt_low,
+ 	[ESR_ELx_EC_ERET]		= kvm_hyp_handle_eret,
+ 	[ESR_ELx_EC_MOPS]		= kvm_hyp_handle_mops,
++
++	/* Apple shenanigans */
++	[0x3F]				= kvm_hyp_handle_impdef,
+ };
  
- 	if (WARN_ON_ONCE(hwpt->domain->type != IOMMU_DOMAIN_NESTED)) {
-@@ -311,6 +313,7 @@ iommufd_viommu_alloc_hwpt_nested(struct iommufd_viommu *viommu, u32 flags,
- 		hwpt->domain = NULL;
- 		goto out_abort;
- 	}
-+	hwpt->domain->iommufd_hwpt = hwpt;
- 	hwpt->domain->owner = viommu->iommu_dev->ops;
- 	iommu_domain_set_sw_msi(hwpt->domain, iommufd_sw_msi);
- 
-@@ -415,7 +418,6 @@ int iommufd_hwpt_alloc(struct iommufd_ucmd *ucmd)
- 		refcount_inc(&fault->obj.users);
- 		iommufd_put_object(ucmd->ictx, &fault->obj);
- 	}
--	hwpt->domain->iommufd_hwpt = hwpt;
- 
- 	cmd->out_hwpt_id = hwpt->obj.id;
- 	rc = iommufd_ucmd_respond(ucmd, sizeof(*cmd));
+ static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
+diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+index ee4316cb3690..772c1b008e43 100644
+--- a/arch/arm64/tools/cpucaps
++++ b/arch/arm64/tools/cpucaps
+@@ -105,6 +105,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
+ WORKAROUND_CLEAN_CACHE
+ WORKAROUND_DEVICE_LOAD_ACQUIRE
+ WORKAROUND_NVIDIA_CARMEL_CNP
++WORKAROUND_PMUV3_IMPDEF_TRAPS
+ WORKAROUND_QCOM_FALKOR_E1003
+ WORKAROUND_QCOM_ORYON_CNTVOFF
+ WORKAROUND_REPEAT_TLBI
 -- 
-2.43.0
+2.39.5
 
 
