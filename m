@@ -4,82 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63FC2C28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:33:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B77C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:34:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=; b=R7yfOC9uB2Jb31tTrMpuvzQVRs
-	R2stf81govELUiECuKyBfRKJAjdmvBqFLAcD7qQUapJzOKxWZNkdVs9196c3fF55Wd4/3N0eAMTcn
-	jlxW4oMvRm/iqjlibvEt4jCs8aqLiCT4VXLkoz9JJUdf/30onAe18hdYPfw1aLTNCDHG/hX994p9w
-	swVjfkNZcyp32HCoGn6XogCTMT7C84mDMKWvPbz0zII6OQQr7OWzFErFNDNvWKQM7ayREekXWxOSE
-	IXE6VAZXx4BbXlwA/+672Zu+18y6OMIBeRMvjw5CciTSwyCK1RN5Dkat4PWvgHBH09qhcAwXGK1kX
-	tW9ifP1Q==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hJWKgtdFRNxzOHhRY6DvU4hYJ/heKdzFO0Dv1QPS8u8=; b=ZMXQEixvzqEL/blIed6YMfPx+1
+	ag81/Jl8Rl8sQdrDbvrX9acvBbEUzOeOUCjVvWcxcDs7B2LBJOqt8PIHzjSiRcEhCAo+JLSAZN+2E
+	ASy/wyh/EmJuE9UHDhxi6I3j78XgmyUSmKj/2hToefgz1MXSWjjv14Hh07pVgksH1uXX+stgFQ1KU
+	brE+E/gBckl4bnXkZlFIQ6ALhhyD/srGjpUxKLHq7aDzinLeRe5JoXH0kPjfvvQtpMKE5SysVFJ9a
+	BTLeVBag+UaOwZFz1rLCigfBki0hKIK5Ap2MbdZJi4/52bXkooDNdQCPn5v2X/w4j9D3l5QJ34y0g
+	tPRGekSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpxJD-00000009Uht-1H0t;
+	id 1tpxJD-00000009Uhy-3jt1;
 	Wed, 05 Mar 2025 22:33:47 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvKx-00000009DAW-3CaY
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 20:27:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=; b=vDB82vR9yNU0Ck0TJ2KSA00p8b
-	s3c/zcp22kSLx3JpWAJNFmC8WiKp6xpIzyPfzd9iIU8/AvkpqoJgMvYwBbeG8RRVz6oD36Y210Pw8
-	/C8Q6FRkzPtZhSqgpr0CPK6FmzfFyLIEzTvBQ+1sb3DvAyUtlucStW6tSXNCaTcgUql25P6bETO/C
-	2JoPCjn5czcPO6gXeKs81nu6SARvhmchyu94xjphfpb5A9ULwaKCK2qQ6/nHGNyVBXQx2rlqIX/Ni
-	H3l4Zu89PwTACmPDLW0X3Jl4W7UkpGi86A1lbr4/H9wGhliFTAqziltSNNpJGtFZC4/RJkX26Sr4v
-	o1Wk+ReA==;
-Received: from out-170.mta1.migadu.com ([95.215.58.170])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvKu-00000006AhL-3GpM
+	id 1tpw5B-00000009JxP-0shR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 20:27:26 +0000
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741206442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=BbQEaC+v/OfD76ZIrdkqZKUQeWDyxNh6/G9RBIyydaQ=;
-	b=XwifhcXhLMkukfucgBCxxonsngMxyv540XGuYHeAyygl3BZUBAIsx/LpE/7Eo/ztYwF6XY
-	l9s+ksdcl37bgs1WorwD2MyjvgcYtymIqTIVlmpuVui6UjjR+YYSu7vBKK2vbe1z+7xo9S
-	OE9RTYwi8r+Gj7xxV+z1EE20+60f4VQ=
-From: Oliver Upton <oliver.upton@linux.dev>
-To: kvmarm@lists.linux.dev
-Cc: Marc Zyngier <maz@kernel.org>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Mingwei Zhang <mizhang@google.com>,
-	Colton Lewis <coltonlewis@google.com>,
-	Raghavendra Rao Ananta <rananta@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
+	Wed, 05 Mar 2025 21:15:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E05D5C6C44;
+	Wed,  5 Mar 2025 21:12:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA16C4CED1;
+	Wed,  5 Mar 2025 21:15:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741209311;
+	bh=hXy+f0YJTclPY8w3PrHkFFWq1Rkkl1rvAIEfZmgyuH4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=T7oLNEYjR/pVjUr6bwIyK+7nN/Ljobb3GgYk0N4zrPxf5xykSps2YAdd11pmT/QVd
+	 PM/0yn0ZZMvb8+mGhT7MYFjP+SB8a+NmbyE0g4ueNAEFFM96aC63EmovEgvylgKSmo
+	 LoNVkA+6vECTNwPfwd+lA86VyeMinhuGv1bU9NBnEBnQYhdrwYyt1/1h6XeMkJ//0j
+	 khxx6YxtiqnKqd3JEBRsJFOfGD/bsVtuQBpB3H34G4Xd83R/BmMD1LWkwXfoJWI+pn
+	 aS2V01RU4eXlN3yfbes6bIIlSarFJ5R6w5cSMEzEmaLiA9F03jeRgH34AEV9spxdjF
+	 TtQhGCOykRrEg==
+From: Arnd Bergmann <arnd@kernel.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: soc@kernel.org,
+	Arnd Bergmann <arnd@arndb.de>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Janne Grunau <j@jannau.net>,
-	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH v3 09/14] KVM: arm64: Compute synthetic sysreg ESR for Apple PMUv3 traps
-Date: Wed,  5 Mar 2025 12:26:36 -0800
-Message-Id: <20250305202641.428114-10-oliver.upton@linux.dev>
-In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
-References: <20250305202641.428114-1-oliver.upton@linux.dev>
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] soc: samsung: include linux/array_size.h where needed
+Date: Wed,  5 Mar 2025 22:14:02 +0100
+Message-Id: <20250305211446.43772-1-arnd@kernel.org>
+X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_202725_107805_26A16A54 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20250305_131513_352914_EBDB6D4E 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,72 +74,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Apple M* CPUs provide an IMPDEF trap for PMUv3 sysregs, where ESR_EL2.EC
-is a reserved value (0x3F) and a sysreg-like ISS is reported in
-AFSR1_EL2.
+From: Arnd Bergmann <arnd@arndb.de>
 
-Compute a synthetic ESR for these PMUv3 traps, giving the illusion of
-something architectural to the rest of KVM.
+This does not necessarily get included through asm/io.h:
 
-Tested-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
+drivers/soc/samsung/exynos3250-pmu.c:120:18: error: use of undeclared identifier 'ARRAY_SIZE'
+  120 |         for (i = 0; i < ARRAY_SIZE(exynos3250_list_feed); i++) {
+      |                         ^
+drivers/soc/samsung/exynos5250-pmu.c:162:18: error: use of undeclared identifier 'ARRAY_SIZE'
+  162 |         for (i = 0; i < ARRAY_SIZE(exynos5_list_both_cnt_feed); i++) {
+      |                         ^
+
+Signed-off-by: Arnd Bergmann <arnd@arndb.de>
 ---
- arch/arm64/kvm/hyp/vhe/switch.c | 22 ++++++++++++++++++++++
- arch/arm64/tools/cpucaps        |  1 +
- 2 files changed, 23 insertions(+)
+ drivers/soc/samsung/exynos-asv.c     | 1 +
+ drivers/soc/samsung/exynos-chipid.c  | 1 +
+ drivers/soc/samsung/exynos-pmu.c     | 1 +
+ drivers/soc/samsung/exynos-usi.c     | 1 +
+ drivers/soc/samsung/exynos3250-pmu.c | 1 +
+ drivers/soc/samsung/exynos5250-pmu.c | 1 +
+ drivers/soc/samsung/exynos5420-pmu.c | 1 +
+ 7 files changed, 7 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
-index 647737d6e8d0..731a0378ed13 100644
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -527,6 +527,25 @@ static bool kvm_hyp_handle_sysreg_vhe(struct kvm_vcpu *vcpu, u64 *exit_code)
- 	return kvm_hyp_handle_sysreg(vcpu, exit_code);
- }
+diff --git a/drivers/soc/samsung/exynos-asv.c b/drivers/soc/samsung/exynos-asv.c
+index 97006cc3b946..8e681f519526 100644
+--- a/drivers/soc/samsung/exynos-asv.c
++++ b/drivers/soc/samsung/exynos-asv.c
+@@ -9,6 +9,7 @@
+  * Samsung Exynos SoC Adaptive Supply Voltage support
+  */
  
-+static bool kvm_hyp_handle_impdef(struct kvm_vcpu *vcpu, u64 *exit_code)
-+{
-+	u64 iss;
-+
-+	if (!cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
-+		return false;
-+
-+	/*
-+	 * Compute a synthetic ESR for a sysreg trap. Conveniently, AFSR1_EL2
-+	 * is populated with a correct ISS for a sysreg trap. These fruity
-+	 * parts are 64bit only, so unconditionally set IL.
-+	 */
-+	iss = ESR_ELx_ISS(read_sysreg_s(SYS_AFSR1_EL2));
-+	vcpu->arch.fault.esr_el2 = FIELD_PREP(ESR_ELx_EC_MASK, ESR_ELx_EC_SYS64) |
-+				   FIELD_PREP(ESR_ELx_ISS_MASK, iss) |
-+				   ESR_ELx_IL;
-+	return false;
-+}
-+
- static const exit_handler_fn hyp_exit_handlers[] = {
- 	[0 ... ESR_ELx_EC_MAX]		= NULL,
- 	[ESR_ELx_EC_CP15_32]		= kvm_hyp_handle_cp15_32,
-@@ -538,6 +557,9 @@ static const exit_handler_fn hyp_exit_handlers[] = {
- 	[ESR_ELx_EC_WATCHPT_LOW]	= kvm_hyp_handle_watchpt_low,
- 	[ESR_ELx_EC_ERET]		= kvm_hyp_handle_eret,
- 	[ESR_ELx_EC_MOPS]		= kvm_hyp_handle_mops,
-+
-+	/* Apple shenanigans */
-+	[0x3F]				= kvm_hyp_handle_impdef,
- };
++#include <linux/array_size.h>
+ #include <linux/cpu.h>
+ #include <linux/device.h>
+ #include <linux/energy_model.h>
+diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
+index 3f1a654c7e66..deb1d882cd4c 100644
+--- a/drivers/soc/samsung/exynos-chipid.c
++++ b/drivers/soc/samsung/exynos-chipid.c
+@@ -12,6 +12,7 @@
+  * Samsung Exynos SoC Adaptive Supply Voltage and Chip ID support
+  */
  
- static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
-index ee4316cb3690..772c1b008e43 100644
---- a/arch/arm64/tools/cpucaps
-+++ b/arch/arm64/tools/cpucaps
-@@ -105,6 +105,7 @@ WORKAROUND_CAVIUM_TX2_219_TVM
- WORKAROUND_CLEAN_CACHE
- WORKAROUND_DEVICE_LOAD_ACQUIRE
- WORKAROUND_NVIDIA_CARMEL_CNP
-+WORKAROUND_PMUV3_IMPDEF_TRAPS
- WORKAROUND_QCOM_FALKOR_E1003
- WORKAROUND_QCOM_ORYON_CNTVOFF
- WORKAROUND_REPEAT_TLBI
++#include <linux/array_size.h>
+ #include <linux/device.h>
+ #include <linux/errno.h>
+ #include <linux/mfd/syscon.h>
+diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
+index dd5256e5aae1..c40313886a01 100644
+--- a/drivers/soc/samsung/exynos-pmu.c
++++ b/drivers/soc/samsung/exynos-pmu.c
+@@ -5,6 +5,7 @@
+ //
+ // Exynos - CPU PMU(Power Management Unit) support
+ 
++#include <linux/array_size.h>
+ #include <linux/arm-smccc.h>
+ #include <linux/of.h>
+ #include <linux/of_address.h>
+diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
+index 173b76720079..c5661ac19f7b 100644
+--- a/drivers/soc/samsung/exynos-usi.c
++++ b/drivers/soc/samsung/exynos-usi.c
+@@ -6,6 +6,7 @@
+  * Samsung Exynos USI driver (Universal Serial Interface).
+  */
+ 
++#include <linux/array_size.h>
+ #include <linux/clk.h>
+ #include <linux/mfd/syscon.h>
+ #include <linux/module.h>
+diff --git a/drivers/soc/samsung/exynos3250-pmu.c b/drivers/soc/samsung/exynos3250-pmu.c
+index 30f230ed1769..26c9c6e9f551 100644
+--- a/drivers/soc/samsung/exynos3250-pmu.c
++++ b/drivers/soc/samsung/exynos3250-pmu.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/soc/samsung/exynos-regs-pmu.h>
+ #include <linux/soc/samsung/exynos-pmu.h>
++#include <linux/array_size.h>
+ 
+ #include "exynos-pmu.h"
+ 
+diff --git a/drivers/soc/samsung/exynos5250-pmu.c b/drivers/soc/samsung/exynos5250-pmu.c
+index 7a2d50be6b4a..ae693d8d508b 100644
+--- a/drivers/soc/samsung/exynos5250-pmu.c
++++ b/drivers/soc/samsung/exynos5250-pmu.c
+@@ -7,6 +7,7 @@
+ 
+ #include <linux/soc/samsung/exynos-regs-pmu.h>
+ #include <linux/soc/samsung/exynos-pmu.h>
++#include <linux/array_size.h>
+ 
+ #include "exynos-pmu.h"
+ 
+diff --git a/drivers/soc/samsung/exynos5420-pmu.c b/drivers/soc/samsung/exynos5420-pmu.c
+index 6fedcd78cb45..58a2209795f7 100644
+--- a/drivers/soc/samsung/exynos5420-pmu.c
++++ b/drivers/soc/samsung/exynos5420-pmu.c
+@@ -5,6 +5,7 @@
+ //
+ // Exynos5420 - CPU PMU (Power Management Unit) support
+ 
++#include <linux/array_size.h>
+ #include <linux/pm.h>
+ #include <linux/soc/samsung/exynos-regs-pmu.h>
+ #include <linux/soc/samsung/exynos-pmu.h>
 -- 
 2.39.5
 
