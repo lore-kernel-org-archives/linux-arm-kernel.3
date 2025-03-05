@@ -4,144 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA92DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:03:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80CEFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+mlxEJSnBQ5SOauVTxxy7LkVjwsmsbn9vtY2XudMo9A=; b=LX4cZ9nx1SGtygXhWHDi1HMD1E
-	zoCRcfMNbBF89YOd4Zj1dY9vNbeg6Tq0j6hCEGyuPfAgP/getr+cz1+uGSbZFxqoOQvwj7UbtzG15
-	n7Q8Iauf02zxhjpA9RzDOd2jaiGTGg8ZQkZW6Fb4/q91OOypMptBM0k80giCifztvxKQPS6VFHE3L
-	AG28dCatGxxIP+qCchsaki1dfEBOdNhpTSswyV0DmS5LSHCrkHqyGJQchQLfDpkE/bVo2idWwQw7a
-	JdAc6RD2a7PO8M+9tOOT4GyXYfIgRAecVrahTH4dY8ZjUBDXyPn9JJhXZyAMGUr3sW5ciWUS1gWc4
-	qVXmaP+g==;
+	bh=yTpT/u9tOJzbuDrIadcgJIx+4mrWB9CtBxj4SvKyNVY=; b=dxTrN3Wpjs2CIPMyDsOG18bM8t
+	91m28+HPNsXtaIghXmlT60MtqxS7EO40WKa22p5q0In+ING11Hes4hvDN99DVwUdKz62zKZQhpACY
+	xhfgNWSfLRiahth2qzc3Nwr+Y6ZtzwbMtEIOzRouKsY6xKzqvebcyVSax6VGxGt+GB9t8/AvAQO4E
+	fHiJKMZGvDh8SjR2x/Mpqv+k3rWnmQzT6w8xc9pcw2jyEyU5JW6O5l0QmFnCzmozZMd0/PEVC+8ur
+	3zVpMJkYtCU7i5w/33s6rXrlJCfS8PnPtkHvNS7Q75eAFV8tkOiNEgsrYSuGgXAoM9WZt7xHJ9sj9
+	Go+/IF2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoPG-000000086hf-2tTh;
-	Wed, 05 Mar 2025 13:03:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpoPU-000000086l8-2WN2;
+	Wed, 05 Mar 2025 13:03:40 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoJe-000000085fY-1mzw
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 12:57:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:In-Reply-To:
-	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+mlxEJSnBQ5SOauVTxxy7LkVjwsmsbn9vtY2XudMo9A=; b=FKLMJWfsueet2wX03NBC0n69py
-	VOFMyJ4hCB2puygRCfahDd/B/zdg+EPQtX9NUvDIESAoWEpVk768A47sMZhXofTIb54/8hOewQdpC
-	Gxqy/SSHTMKPgrs8chya14+hGMsGZNt8+BII09tiPp9VlSNHS0PZ8qeEes7o8sRzSftp3FVf0uZIJ
-	PJw7Ed+oHXCu5DH7NkNWSb59gC8odZ/WT9qPLzD3w8YpxP/MGzBmA2EHu8dd+IyqGlq3oLHTk0pxU
-	Qf/u4Rnf930w3fTrg2c2xu/oil9lARwLuV/KgBtViOcURvE4bPAjlV/NHnAb+nMfpZwTcd9XWB34a
-	TwOtxKdA==;
-Received: from mailout4.samsung.com ([203.254.224.34])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoJZ-00000000X67-3nMT
+	id 1tpmW4-00000007n1p-1Sv1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 12:57:37 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20250305125725epoutp049caf1b9232d4176706929408ea7dfdf7~p6XsI7da51635916359epoutp04O
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 12:57:25 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20250305125725epoutp049caf1b9232d4176706929408ea7dfdf7~p6XsI7da51635916359epoutp04O
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741179445;
-	bh=+mlxEJSnBQ5SOauVTxxy7LkVjwsmsbn9vtY2XudMo9A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=W6kBUqmdcKfpLQkBjcg2PWKmsU813FX/N4PcOHVIU7uCZOj9ejo+QWuZ1HsIHiwIu
-	 eRfvv6sQ6ptmXaFL3MQuwMMexHYo4hI+hNoabG+oXym8g2HbYBWg2pWFWWTxLoGxh+
-	 HcLZBdp9STkMz3/i99o5770iXMK3BQkTMq4r4fZI=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20250305125725epcas5p2560fadf03bc87cfb32132584d439092d~p6XroZ21m1536915369epcas5p2B;
-	Wed,  5 Mar 2025 12:57:25 +0000 (GMT)
-Received: from epsmgec5p1-new.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z7CJ32yZXz4x9Pp; Wed,  5 Mar
-	2025 12:57:23 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmgec5p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	DF.5F.29212.33A48C76; Wed,  5 Mar 2025 21:57:23 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6~p3Y3k2qj72626326263epcas5p1O;
-	Wed,  5 Mar 2025 09:18:52 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250305091852epsmtrp2b0ada9270ba94a7b26c74f60cdf53a37~p3Y3bb8A00427204272epsmtrp2L;
-	Wed,  5 Mar 2025 09:18:52 +0000 (GMT)
-X-AuditID: b6c32a50-801fa7000000721c-9e-67c84a331b94
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	56.09.33707.CF618C76; Wed,  5 Mar 2025 18:18:52 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305091849epsmtip2882efafca16a2c30868fa1a74defb38d~p3Y0omLon1567815678epsmtip25;
-	Wed,  5 Mar 2025 09:18:49 +0000 (GMT)
-From: Swathi K S <swathi.ks@samsung.com>
-To: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: rmk+kernel@armlinux.org.uk, swathi.ks@samsung.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
-Subject: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree bindings
-Date: Wed,  5 Mar 2025 14:42:45 +0530
-Message-Id: <20250305091246.106626-2-swathi.ks@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250305091246.106626-1-swathi.ks@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA0VTe0xbVRzOubftvRC7XHntrBmIt1mUJYV2a/HAgKGiXocxKDFOfNQ7etMi
-	0NY+UBkKieAmYVSW4bAhSHSkDMYGHa+Oh7wcC491YzxGJg4HG2PoIKPOgSIWWuZ/3+/7fb/3
-	OSTu1y8QkWlaE2fQshm0wJfX3BsWJtl74JJaWvEVhVbmvwXINt3KR2c6LmOo3JnPQ9/3Xeaj
-	2xdvEWiyy4GheeuvAnSluZiP7DPjfHTtQrkAFY7P8lHFWh0fXawMQg8HfwfohyYXgX5baidQ
-	39BdHI1YSjC03t5KIFfDJBEfyFwbv4ozjacnMea2pYlgHNYpgqm0mxl7zdcC5vypXMbRuowx
-	i51jAqa4sQYw3Z0yZtkekvRESnqMhmNVnCGU06bqVGladSydmKx8UamIlMoksij0HB2qZTO5
-	WDrhtSTJy2kZ7lnp0Cw2w+ymklijkY6IizHozCYuVKMzmmJpTq/K0Mv14UY202jWqsO1nCla
-	JpXuUbiFH6ZrFqeE+rawT1cdgXkgL6QQ+JCQksM12yivEPiSflQ7gFVHh73GAwBnF1rAY6Ot
-	3o5vhZy+6sI9DgeADWVLmMdwAViyVE1sqATUs3CiuoXYcARQqwAuHR/cDMEpGwYHp0c3c/lT
-	ibDqr1LeBuZRu2BZWSnYwEJqH5xzNgk89Z6CtfVdm3ofKgb+3F242SGkrpNwdbIeeEQJ0Da8
-	4G3QH97rbyQ8WASX73d4EylhbfEYz4M1cGq1xMvvh12j5W6edHcXBs9diPDQwbB04Cy2gXFq
-	Gzz29yzm4YWwtWILi+Hawrg35Q7YXLXoLcvARyfPCDxrsbinXx8hvgEh1v9LVAJQA0Sc3pip
-	5lIVeplEy33y+G6pukw72HzRu5NaQW39WngPwEjQAyCJ0wHChYF+tZ9QxX6WzRl0SoM5gzP2
-	AIV7gyW4KDBV5/4SWpNSJo+SyiMjI+VReyNl9Hbhl458tR+lZk1cOsfpOcNWHEb6iPIwgaXo
-	SOjKHTU54nwY8szN6WRJThV6RTLcLd6nnI4o6n3ymPTg8xaUfbhBenB+7nOVLujfk2R/9eAe
-	3ts54nNf1KUvx7Vo6pqdhyZsN1aWT9zEhD5tKRG5DZK3rN/tz9qVctiyfrcqeCQ1Lzu/Azva
-	aRb/SGB/4mND7yVWP/3PjEo4ZKfrjgQFf4ydUBTUx5lzip0Nj1x/RG9PyNJeKnjV7gy4RdiC
-	4/vkPZXv+77Tc30m/oUPdrz57k/iNOtLE1O9zXUH+Odz2czkle7X/X0nF+feiJF1Hb9B7FT8
-	cuje4LYHsuTEHGW74UpBii3aRXauB4o+ksSdWtp5J+3+QtHAWetqCM0zaljZbtxgZP8Dm/EC
-	XloEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrOLMWRmVeSWpSXmKPExsWy7bCSvO4fsRPpBp/uc1r8fDmN0WL5gx2s
-	Fmv2nmOymHO+hcVi/pFzrBZPjz1it7h5YCeTxctZ99gsLmzrY7XY9Pgaq8XlXXPYLLquPWG1
-	mPd3LavFsQViFt9Ov2G0WLT1C7vFww972C2OnHnBbHGpfyKTxf89O9gtvmy8ye4g6nH52kVm
-	jy0rbzJ5PO3fyu6xc9Zddo8Fm0o9Nq3qZPPYvKTeY+eOz0we7/ddZfPo27KK0ePgPkOPz5vk
-	AniiuGxSUnMyy1KL9O0SuDLe3+Ut2K1Z8WunaANjg1wXIyeHhICJxMqLX5i7GLk4hAS2M0os
-	XLWfGSIhKfGpeSorhC0ssfLfc3aIok+MEhM/bQFLsAloSFxfsR0sISLQwSSxZ+pJsFHMAhuZ
-	JI5d2swOUiUs4C2x9PtUFhCbRUBVYsaMqYwgNq+AtcTz81vZIFbIS6zecABsNaeAjcTRg11A
-	9RxA66wlTv5kn8DIt4CRYRWjaGpBcW56bnKBoV5xYm5xaV66XnJ+7iZGcNxoBe1gXLb+r94h
-	RiYOxkOMEhzMSiK8r08dTxfiTUmsrEotyo8vKs1JLT7EKM3BoiTOq5zTmSIkkJ5YkpqdmlqQ
-	WgSTZeLglGpg6ppSFmCxI18qc0ZU39q7eRXTFiziDLaO2BJZv9LUXCdJSjzPxSzXVzN64+lH
-	s9nm7fg+45z0r+WKDD+7dgW2zpdJvvQpeZqw9+Nk+ZuboqqmKz/8cm6D+xEl64S6ZXmt99gm
-	//xx4PBe88bv06YET39p3GB+LiWVy+PXp2+NAnO7tuzWsGG+764pOS9lwruzDzWyFv1mZ/CK
-	0N4iNJ+bSefbLzNT6enJ2y8+9b3/U+x7y8fOTqYD9yKFDoYceXcvi+HFvPfxDMFrlqwRUnH9
-	filDvT02KruqY1JUq/iRM4daijcdP7PDprZuedtOx6uW688mbyo5NXNRmNilJFGeNV48zh2M
-	KpNPrrUJa+a0VmIpzkg01GIuKk4EAKcZBXoKAwAA
-X-CMS-MailID: 20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6
-References: <20250305091246.106626-1-swathi.ks@samsung.com>
-	<CGME20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6@epcas5p1.samsung.com>
+	Wed, 05 Mar 2025 11:02:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id B63F5A4553F;
+	Wed,  5 Mar 2025 10:56:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43DB4C4CEE8;
+	Wed,  5 Mar 2025 11:02:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741172539;
+	bh=yTpT/u9tOJzbuDrIadcgJIx+4mrWB9CtBxj4SvKyNVY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=KxtHUvNhQeoGIAQx62mLp1ON9SskQGRYRGf+ejfCPoQ3Y2s9L3dc2OBP6vcFOXXgx
+	 pFwpLVhkPhWYWX9jCff69oXdzxx7Okvcdmv9iqrr0L2g8YWKm0E0P8K/68X+gUhPAG
+	 5nCax0DIjz+w0yQpABLStA3AJ1T2hLmZx3VCk4eSeQah8YcBHFU32sFXST0sAw9JCy
+	 AyI+3GXHX4wEYJQiSW/ZvHqITHjATYfGIxqg004eEqAxr40qUDjxo1ICG2j7BOfxR1
+	 A4CT8lRjhjs+YUhrvZq+3r85Cfl5/zIFm+vixipZYY18eBUbuJe1WwMWIDLQCOUY/d
+	 wVjSvqv34jxtA==
+Date: Wed, 5 Mar 2025 20:02:15 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>,
+	linux-arm-kernel@lists.infradead.org, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] counter: microchip-tcb-capture: Fix undefined counter
+ channel state on probe
+Message-ID: <Z8gvN1CvcSV8nfVP@ishi>
+References: <20250305-preset-capture-mode-microchip-tcb-capture-v1-1-632c95c6421e@kernel.org>
+ <93ce1511-53f6-42a3-b1a5-b6732105e87d@prolan.hu>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="pFddjXJg41wFrn79"
+Content-Disposition: inline
+In-Reply-To: <93ce1511-53f6-42a3-b1a5-b6732105e87d@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_125734_639074_49A980A8 
-X-CRM114-Status: GOOD (  17.94  )
+X-CRM114-CacheID: sfid-20250305_030220_450233_106ED033 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,173 +75,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add FSD Ethernet compatible in Synopsys dt-bindings document. Add FSD
-Ethernet YAML schema to enable the DT validation.
 
-Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
-Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
-Signed-off-by: Swathi K S <swathi.ks@samsung.com>
----
- .../devicetree/bindings/net/snps,dwmac.yaml   |   5 +-
- .../bindings/net/tesla,fsd-ethqos.yaml        | 118 ++++++++++++++++++
- 2 files changed, 121 insertions(+), 2 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
+--pFddjXJg41wFrn79
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 91e75eb3f329..c7004eaa8eae 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -102,6 +102,7 @@ properties:
-         - snps,dwxgmac-2.10
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-+        - tesla,fsd-ethqos
-         - thead,th1520-gmac
- 
-   reg:
-@@ -126,7 +127,7 @@ properties:
- 
-   clocks:
-     minItems: 1
--    maxItems: 8
-+    maxItems: 10
-     additionalItems: true
-     items:
-       - description: GMAC main clock
-@@ -138,7 +139,7 @@ properties:
- 
-   clock-names:
-     minItems: 1
--    maxItems: 8
-+    maxItems: 10
-     additionalItems: true
-     contains:
-       enum:
-diff --git a/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml b/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-new file mode 100644
-index 000000000000..dd7481bb16e5
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-@@ -0,0 +1,118 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/tesla,fsd-ethqos.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: FSD Ethernet Quality of Service
-+
-+maintainers:
-+  - Swathi K S <swathi.ks@samsung.com>
-+
-+description:
-+  Tesla ethernet devices based on dwmmac support Gigabit ethernet.
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+properties:
-+  compatible:
-+    const: tesla,fsd-ethqos
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-names:
-+    items:
-+      - const: macirq
-+
-+  clocks:
-+    minItems: 5
-+    items:
-+      - description: PTP clock
-+      - description: Master bus clock
-+      - description: Slave bus clock
-+      - description: MAC TX clock
-+      - description: MAC RX clock
-+      - description: Master2 bus clock
-+      - description: Slave2 bus clock
-+      - description: RX MUX clock
-+      - description: PHY RX clock
-+      - description: PERIC RGMII clock
-+
-+  clock-names:
-+    minItems: 5
-+    items:
-+      - const: ptp_ref
-+      - const: master_bus
-+      - const: slave_bus
-+      - const: tx
-+      - const: rx
-+      - const: master2_bus
-+      - const: slave2_bus
-+      - const: eqos_rxclk_mux
-+      - const: eqos_phyrxclk
-+      - const: dout_peric_rgmii_clk
-+
-+  iommus:
-+    maxItems: 1
-+
-+  phy-mode:
-+    enum:
-+      - rgmii
-+      - rgmii-id
-+      - rgmii-rxid
-+      - rgmii-txid
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clocks
-+  - clock-names
-+  - iommus
-+  - phy-mode
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/fsd-clk.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    soc {
-+        #address-cells = <2>;
-+        #size-cells = <2>;
-+        ethernet1: ethernet@14300000 {
-+            compatible = "tesla,fsd-ethqos";
-+            reg = <0x0 0x14300000 0x0 0x10000>;
-+            interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-+            interrupt-names = "macirq";
-+            clocks = <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
-+                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
-+                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
-+                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_I>,
-+                     <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
-+                     <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK>,
-+                     <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK>,
-+                     <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-+                     <&clock_peric PERIC_EQOS_PHYRXCLK>,
-+                     <&clock_peric PERIC_DOUT_RGMII_CLK>;
-+            clock-names = "ptp_ref", "master_bus", "slave_bus","tx",
-+                          "rx", "master2_bus", "slave2_bus", "eqos_rxclk_mux",
-+                          "eqos_phyrxclk","dout_peric_rgmii_clk";
-+            assigned-clocks = <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-+                              <&clock_peric PERIC_EQOS_PHYRXCLK>;
-+            assigned-clock-parents = <&clock_peric PERIC_EQOS_PHYRXCLK>;
-+            pinctrl-names = "default";
-+            pinctrl-0 = <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_ctrl>,
-+                        <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_data>,
-+                        <&eth1_rx_ctrl>, <&eth1_mdio>;
-+            iommus = <&smmu_peric 0x0 0x1>;
-+            phy-mode = "rgmii-id";
-+        };
-+    };
-+
-+...
--- 
-2.17.1
+On Wed, Mar 05, 2025 at 11:50:27AM +0100, Cs=F3k=E1s Bence wrote:
+> This duplicates a lot of `mchp_tc_count_function_write()`. I'd much rather
+> have this code in a separate function called something like
+> `mchp_tc_setup_channels()`, that, depending on `priv->qdec_mode`, sets up
+> the BMR, CCR and CMRs, and then have both probe() and function_write() ca=
+ll
+> it. Or alternatively, have probe() call function_write() at the end, but
+> that's not as nice.
 
+Hi Bence,
+
+I agree, the mchp_tc_count_function_write() could be cleaned up and
+divided into separate functions dedicated to configuring each mode
+(perhaps regmap_update_bits() could be leveraged too), but that would be
+a much more invasive update. For the sake of making backporting easy to
+address this particular issue, I've kept the changes here localized to
+just the probe() function. Once the fix is merged, someone can try
+tackling a more proper refactor of the mchp_tc_count_function_write()
+code.
+
+William Breathitt Gray
+
+--pFddjXJg41wFrn79
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ8gvNwAKCRC1SFbKvhIj
+K0q6AQCykzFD3ZbJXRdRLZExpEPQHYVKRM2NITaUgXmy4R80pQD/fjGX1DSzN4Z0
+gFKcYKH+sV0KGDTjDpoqS0rFmXIJjw0=
+=sVWK
+-----END PGP SIGNATURE-----
+
+--pFddjXJg41wFrn79--
 
