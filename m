@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81D09C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 19:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 331C3C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 19:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgIFZoxkbW0KwVO6zN97CfpiFd7piOBwwsm3LQac8GU=; b=2Vu3WhPQcUkCfsNu8J1UX7rr7Z
-	nRwkculq26EX/dDhsXPwswiMQmBRP1jSbwo2wpKz2NfaZMLkWbUJD9QasEeQc4vWNf5VobV+wUBGq
-	uNK14dEywTAZp+Qm0SX/YMaeI5UY7+P5O4hkcXlKpF3D4MiQBHmtqmkqEUcAjPtNSTz1PTwa1k7HK
-	89Fes11CdbjRj+AKT7lx4tEEUayP4uZ/1HJ7+gb4Buz/McM1U+YJeQvQ8YNKxdmveT3jsmC4SOcbA
-	Wzy3Gyu1haVZj1ksA1QR1KbXKOwOTOmPHjVcW593HcHdn3Bc0Nf2B+sBsfowb4XY3dmPJEDNKCrcp
-	EGoqwj+A==;
+	bh=8FmH6eNvLfSaqHnPCHNsqnlACSKE+tpbxHFOLoDtN+Q=; b=MW9e6n1z0JND6ACcOE9ftYadl4
+	x1Hu2+WtdSlTWDVqafiNWJ9R+A3pkUmRzwuYJBkCLonerrj2yGeSLm18jHxWaX7a+D3Tz8d1mJOW2
+	M6A4uxyrAFZDwCyC3g0gDl6HescRFJllx/NB7L6zG6Q8uyF+yskVgM2tr52bcptoCYQ1Jx/NU94g7
+	U6GFrDdP5gSUEK9CU4gE8bfipjtCR4hum00/Fi/DYMbajUoMoOLSNUf5LJstVf1Uz34vEAVvefo5K
+	Iu0FWIF9VpIm2mCcZTY/qBcllW6YzShDW52bMZIXpLYz6lUq5k6XbdCtwJk0iUH6IeSyyuZbVjgKc
+	FocVEihA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpufn-000000096kr-3MSL;
-	Wed, 05 Mar 2025 19:44:55 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1tpujU-000000097V1-3W6E;
+	Wed, 05 Mar 2025 19:48:44 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpu7g-000000091zM-48ix
+	id 1tpsiF-00000008oly-0Qmm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 19:09:42 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-4394944f161so8754315e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:09:40 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741201779; x=1741806579; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fgIFZoxkbW0KwVO6zN97CfpiFd7piOBwwsm3LQac8GU=;
-        b=Svh7tjVo22oWuJ8ZhO0E5MeCz0nq0tuyrxAUCDu4PmjV88TchpTF++iYzZBX/OPOC9
-         B9wld5oqVp6RAfdBGUguRgv5RgstOA32rmKWpRuG3esIkzN64cFz71ED7+EuR7W0iYTK
-         dzATdyLYDsT4zJhaWe7LD6u0x1vSyAsvgxaJHKSaufFzHVTyQlvSEbMPXdpXqdWmr+Ml
-         NbiJulN6ZDOyRnW6pCpqAI/jrmA5Oj3/5vn3xGZ1M1HUZYt7gcMZQ4kpgJLcDFlvSN38
-         cUkA9K85np0zrGLzMqWw/DrDEwIV2uHPurKfd1aWf3J48dBxzJO2qylekkBPriUP8I6y
-         9mNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741201779; x=1741806579;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fgIFZoxkbW0KwVO6zN97CfpiFd7piOBwwsm3LQac8GU=;
-        b=FfQFuMLhkyDeJAj8XdrfiFFxuX8jt1WO5s6t21VWTl1TmMqixTL/i5aQhCU1a6cw7X
-         I5mqwRwckp+3uLIv3yJOvLbHl0lc4ST2dvfkOwAC2bZlZUZgolkn4Lpqx+YALPBJh8CP
-         4JWO4VBQY2z9o7thWfvcCxUcSib1LNd8bOvCLZDxiFkde1rQfOT44e0GghffTML91Iny
-         Ry0P3dLufQs3hC6tasFbMuM2xDg8U87rf/+LBY4Qd4WwfUgUinlXxXKABM2PLFU2ipAJ
-         OY7ixxf02B8twCUC88aM9WXD84jcqrVZMw5NQTyfaT/IE3DQi9I8Mx9YpFnF3ULqRRX9
-         tGXQ==
-X-Gm-Message-State: AOJu0Yw+5Yti6K9rrGRNO6b+biePu7cZLspQJSu+waqt6dD6zQ8wKvOK
-	qgEEzgs3NbOYsxg+5BFpMPHaQi3Tig8AiTt4xSKZDphPwLxcGL6Hi2tehrcSZW0=
-X-Gm-Gg: ASbGncuOyaz6CYLwqS0X69QuLU7XeKAHkdo6itcOjq0X/uYtLIyHbpirXz1ZmlJVOme
-	R1Mr8rRWtc+eXuTv7Wpof6ltSoSMu12ou/e69AjXpYH1oH8WFjZ8NLJ0HY8UIMkD5eYNSYN1upY
-	ewA851ewd0HEUB0sLk21itwE7GwnxJ9GZzj6MQaWGd67lSipA36toc9AqBp+xkYhRvZXJXxHeMK
-	VYkOz2fcyknvgq2rftxFPEMbcL8p0PgbfIwcPEdgrR0hsW5brcfWaYokPo8Uycdf+/9liOCCeo8
-	Trl5c4mUUv9fyS91MwvlZTBT/koYWM+WD14becVZFmW/xXQlUebAC0QLbmG7
-X-Google-Smtp-Source: AGHT+IFrSoo3gOE5FHktH87GAqLOOH8zzQprfwlqJYQydb/cjo2MTzmjtJwGHriaXSDaH9mOaM27Tg==
-X-Received: by 2002:a05:600c:4750:b0:439:9b3f:2dd9 with SMTP id 5b1f17b1804b1-43bd29d8578mr15177295e9.7.1741201779287;
-        Wed, 05 Mar 2025 11:09:39 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd4352eb1sm25628705e9.31.2025.03.05.11.09.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 11:09:38 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Peter Griffin <peter.griffin@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
- stable@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
-In-Reply-To: <20250303-clk-suspend-fix-v1-1-c2edaf66260f@linaro.org>
-References: <20250303-clk-suspend-fix-v1-1-c2edaf66260f@linaro.org>
-Subject: Re: [PATCH] clk: samsung: gs101: fix synchronous external abort in
- samsung_clk_save()
-Message-Id: <174120177454.75135.6216013717633178470.b4-ty@linaro.org>
-Date: Wed, 05 Mar 2025 20:09:34 +0100
+	Wed, 05 Mar 2025 17:39:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1741196359; x=1772732359;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=x06wZ4JzzQdXv+skj8Mdw6FwOmNgc2Hi3vw3FdY5VlQ=;
+  b=B9Ndt8Jrt9F/t8dghQ6FZpkCMmqN/FiEBeF0FdVjFXeHwEbEz8ydJ3fq
+   FnZxphr38Ahrg+4Y9zqmbQh/9U0ap0SKylnOCIjCe55jMFRlMko+BOr1v
+   HJAp+UqAxZk0O4q76GoLk9OENWkdMNN6OtTmd1im63XKSR9RcGk6Jctxa
+   YwlVQ0ChitFOGAlA/0CEJ1PbPSRC+LltMmSzzG7CbLeHBkHXZLjG0lK7L
+   asfklyrlgj9MV9a7rRlXdZxvpeG0wb3HIJcNaGbftxEc/j//RESrTqfE0
+   Cfz6W4Ud7dElYaVkMaZaIz/o9z/PA8ma2Gq0dTl/ylDXR/bpXGqD1YYgR
+   g==;
+X-CSE-ConnectionGUID: aDhkZa15Rdq5O/AlBZMFPg==
+X-CSE-MsgGUID: Xn9qTDuOTZypoTdWoRNdMg==
+X-IronPort-AV: E=Sophos;i="6.14,223,1736838000"; 
+   d="scan'208";a="269856430"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 05 Mar 2025 10:39:16 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Wed, 5 Mar 2025 10:39:07 -0700
+Received: from [10.10.179.162] (10.10.85.11) by chn-vm-ex01.mchp-main.com
+ (10.10.85.143) with Microsoft SMTP Server id 15.1.2507.35 via Frontend
+ Transport; Wed, 5 Mar 2025 10:39:07 -0700
+Message-ID: <ebb161f2-632b-4d10-8c5c-4187a06a06c8@microchip.com>
+Date: Wed, 5 Mar 2025 10:39:06 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/21] Enable Power Modes Support for SAMA7D65 SoC
+To: Claudiu Beznea <claudiu.beznea@tuxon.dev>, <lee@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<sre@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <p.zabel@pengutronix.de>
+CC: <linux@armlinux.org.uk>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-pm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-rtc@vger.kernel.org>
+References: <cover.1740671156.git.Ryan.Wanner@microchip.com>
+ <2a18e305-090c-41fe-9b27-97ebe93fd4e4@tuxon.dev>
+From: Ryan Wanner <ryan.wanner@microchip.com>
+Content-Language: en-US
+In-Reply-To: <2a18e305-090c-41fe-9b27-97ebe93fd4e4@tuxon.dev>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_110941_030674_DF63B20C 
-X-CRM114-Status: UNSURE (   7.61  )
+X-CRM114-CacheID: sfid-20250305_093919_357199_C73BF32A 
+X-CRM114-Status: UNSURE (   8.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,24 +91,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 03 Mar 2025 13:11:21 +0000, Peter Griffin wrote:
-> EARLY_WAKEUP_SW_TRIG_*_SET and EARLY_WAKEUP_SW_TRIG_*_CLEAR
-> registers are only writeable. Attempting to read these registers
-> during samsung_clk_save() causes a synchronous external abort.
+On 3/3/25 01:40, Claudiu Beznea wrote:
+> EXTERNAL EMAIL: Do not click links or open attachments unless you know the content is safe
 > 
-> Remove these 8 registers from cmu_top_clk_regs[] array so that
-> system suspend gets further.
+> On 27.02.2025 17:51, Ryan.Wanner@microchip.com wrote:
+>> Ryan Wanner (20):
+>>   ARM: at91: Add PM support to sama7d65
+>>   ARM: at91: pm: add DT compatible support for sama7d65
+>>   ARM: at91: PM: Add Backup mode for SAMA7D65
+>>   ARM: at91: pm: Enable ULP0/ULP1 for SAMA7D65
 > 
-> [...]
+> Applied to at91-soc with some adjustments, please check!
+Checked! This is correct.
+> 
+>>   ARM: dts: microchip: sama7d65: Add Reset Controller to sama7d65 SoC
+>>   ARM: dts: microchip: sama7d65: Add Shutdown controller support
+>>   ARM: dts: microchip: sama7d65: Add RTC support for sama7d65
+>>   ARM: dts: microchip: sama7d65: Add SFRBU support to sama7d65
+>>   ARM: dts: microchip: sama7d65: Enable shutdown controller
+> 
+> Applied to at91-dt with some adjustments, please check!
+Same here
 
-Applied, thanks!
-
-[1/1] clk: samsung: gs101: fix synchronous external abort in samsung_clk_save()
-      https://git.kernel.org/krzk/linux/c/f2052a4a62465c0037aef7ea7426bffdb3531e41
-
-Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Thank you!
+> 
+> Thank you!
 
 
