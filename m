@@ -4,95 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15223C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:11:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97333C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:18:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=; b=E6yUYHtPVqGEB+5y02WfYd3Wj3
-	USRLq7JicZsA+2jlN+vhogcn8r3lOvOuwBZA8PgPMBOwD9E0T94MXBo0FiXfJdm17kvbEtXdOYbP8
-	zf1ex/IvdQCkfu+U+JQ/l5TwbmsQIyDNQNW9e0Zrdy0qPW57YnjIirf01CIv/Pksv7kYdaSXsQkdr
-	avJ7Z4s1jH5bboGt62takBaS0isfjlbSiL8PmJ096lSIOQFfQJwG+/shyAWiXcE2k0Qye+cplvBNa
-	LroIMRHWblL3172TWhIO7khm0KYPHeRxmBfC74zy67ezW+lG7AHeNQCNpr719+h85o+pwkaerRzJ4
-	6azbmwTw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bpxFLpfsmRvI7k3Ct+avLYHj2g1KZU48ml1wFy0M9Fs=; b=1FYj0N3003TqofdxQNi2B3ELW2
+	NznMHe0whKiae8x/HAR2yrY2TIYABMz7toYWd/vHgz99b3Nd2/cwVUi4C4gVf+Dky44huEXfZ2ogV
+	GTR468wVskzsFN8SCyyClhUei6NORuJAwq+/le0CakDqQvBbKdiLw+GAVSN7cLzGT0kvmQCzmB8hx
+	t4xXcxnhbUDCppwFiBqqzO/Cjz8dtE33nBCUkkAMwT9KrmB8H08FApzNtCr2BitR0KC9ONZlNgnI2
+	hxayMcRRX3JwEL8JtXxD0XVU47CnV4q3OjItbKCSRLJHgZmr0YGMVTuA2HG7VoHaq1imXqDfrdD5g
+	0QZ4OOJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tppSv-00000008IQi-3g05;
-	Wed, 05 Mar 2025 14:11:17 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+	id 1tppa5-00000008JqY-1qxC;
+	Wed, 05 Mar 2025 14:18:41 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tppRH-00000008IJP-0rij
+	id 1tpoNH-000000086SB-1XNE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 14:09:36 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-43bcbdf79cdso13343075e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 06:09:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741183773; x=1741788573; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=;
-        b=MuqT8Y30UX2kGNQ83qNjd/aIt13B09rSA3E2HRo5UgVJNajX1B/b5KS3sE8tt8MpK8
-         WWaJTaLNLE+5RYvUsiYjXvgMCZZ62a0ECdjsLR2EnIOP9khayVvpanC4vfzbXc/zo1sB
-         sEDIkbQJfL40Zm0jW408qH9fN71pnN1YgB+KM=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741183773; x=1741788573;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=jC9QV0bJcgZgqHHH3SUMbf/vptPD4PQ0vRL1kkv5HIw=;
-        b=TyeKU4WUv9bHOnDSlqbTJ97UvC33Lr+Tra7domgWFYP5J6km2i4I8SPdx8unMb8cHU
-         qv+ZQpxMicVklRURM1GIHLmIg98RZokkTdPUxdW+UsrPArJFelZJC5E7WoFMkxq+Tw59
-         nTh2r76KclPxHQ3f8ZnHp8IhewTrY9unVCdFjIXOOJBUWCJq9FxGsRSNvRKyCH4Gdf9A
-         NnJs/n96N5BT5Jb3ne888BevT2mswxnUaTqvCr1IQg6A3JEFRM8WYV/FNsRSCbkk8evk
-         oSnztt5uKlodtqSWA5r+GpYYW9O/4NdcLEtrZKE8CiDZBQ61qLR8nCOM0AQpfg2nShHf
-         s70w==
-X-Forwarded-Encrypted: i=1; AJvYcCVCg/TSzgXv4JX6t+Y8kvxf0d+0gYpStnq52QEZ6V0cqwRdgTplpxM0a8Ub6WhnyDjJfv2FTmuYq6yiSF/yxRKc@lists.infradead.org
-X-Gm-Message-State: AOJu0YxVby1eANBGYmhR31TQ559vj/o3fpyn8A1/e4M3I/z+0ypWc2dZ
-	Bo+gBXtlVklVber2uRo7Lq+Jl6IvX+i5mNMf73lNFWOSqD1opZVN6FUPcI7GP1s=
-X-Gm-Gg: ASbGncvIibqNwwzI1XqfqNpw+XPgznOJ8dkUaZ9xiRXpg2QItpVf4x4lNAlIaLPk2Rk
-	uls3jA7R+R1myEjDuSeNUWcBRWsy6li9YANIGBD9WPQis5VV8Vss81zuKL3cV5u8UqK5fHsxgB2
-	V4Etsg67DSOe1behLdjr3vVHahRpdFOWQwSCzTUABw8h+eD+0R4Tf7QAOWjUL2dvHALSMQ7X5Np
-	3zI8NqAuaLlYJt/sPWfYpWoaRaqcARJ1prDBVJsekQ6Ma+XhbgDrjOQr2hZEy+Huj6Bl63PGzq5
-	zfCP0SIZwE3R/p4MaIQlIG5yqZe/edgECpfBS62QMKurLx9fSzZ3lRBigToPY5umdbLZ+wG1Moc
-	kZO4k
-X-Google-Smtp-Source: AGHT+IHdccH4w20LAtL5Tnt1zvD+qT2oMJLO3EagpAUtyRarROFNC3ETwO4Ig2JSfhHI6IHFm6KeuA==
-X-Received: by 2002:a05:6000:1546:b0:390:df02:47f0 with SMTP id ffacd0b85a97d-3911f7bb461mr2279778f8f.42.1741183772882;
-        Wed, 05 Mar 2025 06:09:32 -0800 (PST)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:334:5d7f:7a52:9e84])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4847e62sm21374802f8f.67.2025.03.05.06.09.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 06:09:32 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Michael Trimarchi <michael@amarulasolutions.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Marek Vasut <marex@denx.de>,
-	Maxime Ripard <mripard@kernel.org>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Stefan Agner <stefan@agner.ch>,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [RESEND PATCH v3] drm/mxsfb: Remove generic DRM drivers in probe function
-Date: Wed,  5 Mar 2025 15:09:16 +0100
-Message-ID: <20250305140929.174398-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+	Wed, 05 Mar 2025 13:01:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741179684; x=1772715684;
+  h=from:to:subject:date:message-id:in-reply-to:references:
+   mime-version:content-transfer-encoding;
+  bh=Y//C+KyY9JDiVXwSEk627cRg7D/ALr5oNlQGwg/5vVQ=;
+  b=mMlSoufqJwien0MgFABi0tFra/oc7ajKnIZh0NXzhrZj1fdiDQmtiKeI
+   D5Jp0oZLHwIIIigeNyPRXS61k/tP6MszGd+TksQjDrzAKbuqaJ0iSOs7j
+   PQwtiKgn7MLkxyjn3t0mbYf7JkaeXTBK131OBc4RYdYzn+fzqxN3Z75NF
+   NEKQuffz9RsNXQD4vYKKjbzTZ/IB9iBe+ObunfebgOYI2wDVYr7irSkRA
+   3JSNKiqbYW6cB90TxDl4DI+qYXwF1uOivw2u1SM4H6CQAsHGfob1xco1I
+   tOfTHwJ3+xuPiA32IeqYjIuSn/xhnGuctCpfGU3y4iV8S1j4JvriB52Nh
+   Q==;
+X-CSE-ConnectionGUID: LJ8OvnYhSfmacbuyQCGx7A==
+X-CSE-MsgGUID: 5QHWQsNVTZWz/ws9+zQcRw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="45794974"
+X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
+   d="scan'208";a="45794974"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 05:01:23 -0800
+X-CSE-ConnectionGUID: 9mXuV+xOTeqFLxVCFnBCTA==
+X-CSE-MsgGUID: yj4NzQiUSh+rtly7s9bQ+w==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
+   d="scan'208";a="123277001"
+Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
+  by fmviesa005.fm.intel.com with ESMTP; 05 Mar 2025 05:01:16 -0800
+From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+To: Tony Nguyen <anthony.l.nguyen@intel.com>,
+	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Simon Horman <horms@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Alexei Starovoitov <ast@kernel.org>,
+	Daniel Borkmann <daniel@iogearbox.net>,
+	Jesper Dangaard Brouer <hawk@kernel.org>,
+	John Fastabend <john.fastabend@gmail.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Russell King <rmk+kernel@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Xiaolei Wang <xiaolei.wang@windriver.com>,
+	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
+	Kory Maincent <kory.maincent@bootlin.com>,
+	Gal Pressman <gal@nvidia.com>,
+	Jesper Nilsson <jesper.nilsson@axis.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
+	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+	intel-wired-lan@lists.osuosl.org,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	bpf@vger.kernel.org
+Subject: [PATCH iwl-next v8 03/11] net: ethtool: mm: reset verification status when link is down
+Date: Wed,  5 Mar 2025 08:00:18 -0500
+Message-Id: <20250305130026.642219-4-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
+References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_060935_263630_76DB7D9F 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250305_050123_445053_96E13237 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +115,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use aperture helpers to remove all generic graphics drivers before
-loading mxsfb. Makes mxsfb compatible with simpledrm.
+When the link partner goes down, "ethtool --show-mm" still displays
+"Verification status: SUCCEEDED," reflecting a previous state that is
+no longer valid.
 
-Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+Reset the verification status to ensure it reflects the current state.
 
+Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 ---
+ net/ethtool/mm.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
 
-Changes in v3:
-- Add 'Reviewed-by' of  Thomas Zimmermann
-
-Changes in v2:
-- Use aperture_remove_all_conflicting_devices() instead of
-  drm_aperture_remove_framebuffers().
-
- drivers/gpu/drm/mxsfb/mxsfb_drv.c | 10 ++++++++++
- 1 file changed, 10 insertions(+)
-
-diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-index 59020862cf65..e5eb644b54ae 100644
---- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-+++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-@@ -8,6 +8,7 @@
-  * Copyright (C) 2008 Embedded Alley Solutions, Inc All Rights Reserved.
-  */
+diff --git a/net/ethtool/mm.c b/net/ethtool/mm.c
+index aa43df2ecac0..ad9b40034003 100644
+--- a/net/ethtool/mm.c
++++ b/net/ethtool/mm.c
+@@ -415,8 +415,9 @@ void ethtool_mmsv_link_state_handle(struct ethtool_mmsv *mmsv, bool up)
+ 		/* New link => maybe new partner => new verification process */
+ 		ethtool_mmsv_apply(mmsv);
+ 	} else {
+-		mmsv->status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
+-		mmsv->verify_retries = ETHTOOL_MM_MAX_VERIFY_RETRIES;
++		/* Reset the reported verification state while the link is down */
++		if (mmsv->verify_enabled)
++			mmsv->status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
  
-+#include <linux/aperture.h>
- #include <linux/clk.h>
- #include <linux/dma-mapping.h>
- #include <linux/io.h>
-@@ -361,6 +362,15 @@ static int mxsfb_probe(struct platform_device *pdev)
- 	if (ret)
- 		goto err_free;
- 
-+	/*
-+	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
-+	 * located anywhere in RAM
-+	 */
-+	ret = aperture_remove_all_conflicting_devices(mxsfb_driver.name);
-+	if (ret)
-+		return dev_err_probe(&pdev->dev, ret,
-+				     "can't kick out existing framebuffers\n");
-+
- 	ret = drm_dev_register(drm, 0);
- 	if (ret)
- 		goto err_unload;
+ 		/* No link or pMAC not enabled */
+ 		ethtool_mmsv_configure_pmac(mmsv, false);
 -- 
-2.43.0
+2.34.1
 
 
