@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C11ECC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:04:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC20C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:06:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E+wKrsDfAEqSn98J3YxKkOxmTNhT62fUF4N8hJXLyLk=; b=Z3qyKuRZU4VUWwIHGtoj2VPwYu
-	dacPWkPw4hcAzZmnPFY1u5ZWXTcH2ReYVjQ9vlXzK6/6r5EqPhR2EyGz7+sYOAIkLc5clLWxNTiFD
-	uscQ6VjD79sMLiykg6Mv0vE5NlgG9MGf4lyBAb7DvlULyhxIL3eYPwXt7SIqNGENTdl0UZmm7CD2u
-	E0he2ZYGm/gTxRrBK8ps81ZO8OtDx+64qapSoB7pfoWQxwqxrBQ9znrU/MYitUyTlvWHc69N9V1Z5
-	yUrKh91bKVTgLUvDqhkmNFinFC5NX1CGnihALQLd/7OaJiVqq/g1MPbXZYg7IIV9yOAQFRynxxPgs
-	ewyQHX3A==;
+	bh=zUZP2z/M3VzDncW7uMnFw7wmQ7iRJKsGQFPJwU20z+E=; b=4MUHFkWasCZqRCuyifAZc2HBz+
+	hLKiYRPzl8fXlcpbRUMtaaKh6Y+lPolJvNkd8EBRJIC1wc9Bpu5tKsuLgp6zraDdeknSMNYsQD+66
+	WrfUOS29f73k3Sqn4AmM+pDjUNb9O1eEpVdcDRrwUdeoN1Ji3cwckiKzVgjVA+Anqkc86DtRsutGe
+	UEljlo16MpYWwXmse9RR3lb88XNzArC2MUEoNCGiG9dVeX6SwdIRVnvrw3CfVs1WBIoaIlKY38mzk
+	gqddt5HveVsJjbr+I38q7hxSks8/Ge3tJ2Jw/c8GKDCPp7iVgBDuVts8zbiYuzvRkPRnojSzfbMZN
+	LRl8uQhQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvuY-00000009IOC-07ff;
-	Wed, 05 Mar 2025 21:04:14 +0000
+	id 1tpvw7-00000009IgG-2qdm;
+	Wed, 05 Mar 2025 21:05:51 +0000
 Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvKP-00000009D3w-3P41
+	id 1tpvKQ-00000009D43-1ZG3
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 20:26:53 +0000
+	Wed, 05 Mar 2025 20:26:54 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=casper.20170209; h=Reply-To:Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Content-ID:Content-Description;
-	bh=E+wKrsDfAEqSn98J3YxKkOxmTNhT62fUF4N8hJXLyLk=; b=GJQKdiwujDX8cuxuFgJbkoMV3y
-	p3Yn24PkOtaSSUstxetS7m9YmdZ+vJMFGuJJUZbCrBngdOWTNBGovi4ZsDXLB7qmZm+X2jjZRx7OE
-	4XO5XZ8n14Dtd3nB95XA/7OYfgSCh9VXN1HSeB3XN+LtRs1RUDWAT/a7w2QQRxZQjCp5PpA3xDnF0
-	qGTwhj+ZkoXiSqksZ3p7VZzppkHzozIV1iHKvtWwTCbQF5ece6R+X9q1B7QPAWx+QIoktG3ifjkSA
-	GMjGeaeYFr4d9x4XC0uNewbUxl8WhpFK3LpqW/IMd4Bm2TxuNP8HsTUCK0+FJvPBONxoJ7CeePFrD
-	YiF8SqIQ==;
+	bh=zUZP2z/M3VzDncW7uMnFw7wmQ7iRJKsGQFPJwU20z+E=; b=WmOSonsBpZPvjSmOCpwEhr8Qpa
+	Yru+qed4J1v3ACS6d3MNSdiogfD7Og2sJvjsEZCGxovMkYLcEeeXzYOD+gJGnsOgnsoefsyCsBcye
+	K/nEWdHQPKhfRytJTPNK0TL2L4cE/cVc7hoIKHRzZP07qpfMcWLlYUpQxluOk7feiUsahLeTgJYxh
+	O5/BqY7TLCH9EngA6Hf8sa3GqwxuInhXBNf4ck8dLKAw6oIRZbgsKiU9qaF78OUbdcLgsQw1FoUrH
+	IOK1yDQO6EBHbSzQ2PXv1TSZ+sOikgfS2QCGLDG+eytxzHdBZJUbeFSYPBlj+LLUHZlwpkKSNWuIp
+	ppuPW8ZQ==;
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvKL-00000006AOn-2ZLA
+	id 1tpvKL-00000006AOt-3E6q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 20:26:52 +0000
+	Wed, 05 Mar 2025 20:26:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4FBCA5C6C92;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 912615C6C95;
 	Wed,  5 Mar 2025 20:24:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8C52AC4CEE0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 96FA4C4CEEA;
 	Wed,  5 Mar 2025 20:26:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1741206405;
-	bh=Y+Si40H9xvWW0NrdR4yM4VReyGwc5L82H6rUoRcB3Vo=;
+	bh=kuKRm6ObXyU/LdsbRhf//+NRMZ7w2rKpz+i8gcq330U=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=M/h0/K21t75bfCjSagqoaN9u2XSZqYSbEy70L436keqQWryiGVdPYjsjbLXRwGvZf
-	 VC90WXIu3Bm3uso5B93l26rY5zZwFrTO1v921zmpbWeC3l47G2NvVu/xY56PvyS9XU
-	 yNFiMpYz/YG9LSS1ERcA45gmce2bGgiXht4tTqtiRR29YB1j1HRua7wtDuewwmQBsG
-	 lppH3qiqwJRhgRTLZH/yFZlk2z8+Kr1N3TSHWTZq4wiUbOhjoIr7071oe2NUWSaLXc
-	 C3zgx8HyZBveGhx5JV6zYWv/RSdmaq5omFoVmT5xUTOJFFeDsaigob8Cyj03KnMvGU
-	 OAIiabjk7zNOA==
+	b=A6SjSP42yisLd39mKYxLB5H3Hc/VDZ/YZ6iDObr1sbWkbdBb2Dle/wWbvnZegMcJf
+	 VSqqkVRFgdXw6p9CEMOO1qaKxgRV6m6s8s7HgXQtShfUYhvniudiWGpjDTb4ojA2Jq
+	 CPIhgV7mKVxE9wMbFpoSbSuaa3jX6O5ynK8uQL+DjChVUyK/y0pAPU83Uc5UD3CIp+
+	 mQAT30QoGvQweyArwIcDyS0MCo0wySbbfDRbPmXBQBCQRY1424DooD9gZxOCtA8P1B
+	 9cQKAJsb9mKtiU01FwcVWWfOSnTq00r/KUYbGIUPt83Fsmy0E//mjuoskIgfIr7vy+
+	 3rW4HNIwgRyqw==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7C6A2C282EC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 8CB8FC19F32;
 	Wed,  5 Mar 2025 20:26:45 +0000 (UTC)
 From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
-Date: Wed, 05 Mar 2025 21:26:40 +0100
-Subject: [PATCH 2/3] spmi: add a spmi driver for Apple SoC
+Date: Wed, 05 Mar 2025 21:26:41 +0100
+Subject: [PATCH 3/3] arm64: dts: apple: Add SPMI controller nodes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-spmi-v1-2-c98f561fa99f@gmail.com>
+Message-Id: <20250305-spmi-v1-3-c98f561fa99f@gmail.com>
 References: <20250305-spmi-v1-0-c98f561fa99f@gmail.com>
 In-Reply-To: <20250305-spmi-v1-0-c98f561fa99f@gmail.com>
 To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
@@ -75,22 +75,21 @@ To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- Sasha Finkelstein <fnkl.kernel@gmail.com>, 
- Jean-Francois Bortolotti <jeff@borto.fr>
+ Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741206403; l=7051;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741206403; l=2612;
  i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
- bh=rJ1vd9Iyd4gHu+jjWDpOWXoACMXfatLFKEyKY06WpWo=;
- b=sSgqnZA+YPk4BKHtpSDkTabZcZg+dilCxAqkFglzGcLhilQ5/ZrxlYTTgPef7EKr1Ko7H8G5Y
- ZQDIr7nhEIaCA0NdE7t0PICYTMqVX0CpiNN0Lj33U4x61h6317TNz6w
+ bh=Q7f2vFfLkm+JIytIUuMQHuqnolBvgEBZ+1SuUnKYc0w=;
+ b=JZGv20ciLYhjLTFooeMI07jT+4fp5RYKV26v46dtFR8aRmrM57U4pr1G/H44VodOpmk1x8BPk
+ iwQzu0fKtk/C4HQoPI08ZwGVnguEA/bD3jvRMe4d2dM01yu365divdD
 X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
  pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
 X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
  auth_id=283
 X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_202649_910637_BBFED0E3 
-X-CRM114-Status: GOOD (  19.42  )
+X-CRM114-CacheID: sfid-20250305_202650_052796_29E3C386 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,243 +105,80 @@ Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jean-Francois Bortolotti <jeff@borto.fr>
+From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 
-Signed-off-by: Jean-Francois Bortolotti <jeff@borto.fr>
-Co-developed-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Add device tree entries for the SPMI controller
+
 Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
 ---
- MAINTAINERS                          |   1 +
- drivers/spmi/Kconfig                 |   8 ++
- drivers/spmi/Makefile                |   1 +
- drivers/spmi/spmi-apple-controller.c | 176 +++++++++++++++++++++++++++++++++++
- 4 files changed, 186 insertions(+)
+ arch/arm64/boot/dts/apple/t600x-die0.dtsi | 7 +++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi      | 8 ++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi      | 8 ++++++++
+ 3 files changed, 23 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 271ff8110df83c2d4fe7fbbfffc0a72259460bc5..9006695261d29fbc1e15659c2b43d7afeee0b656 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2254,6 +2254,7 @@ F:	drivers/nvmem/apple-efuses.c
- F:	drivers/pinctrl/pinctrl-apple-gpio.c
- F:	drivers/pwm/pwm-apple.c
- F:	drivers/soc/apple/*
-+F:	drivers/spmi/spmi-apple-controller.c
- F:	drivers/watchdog/apple_wdt.c
- F:	include/dt-bindings/interrupt-controller/apple-aic.h
- F:	include/dt-bindings/pinctrl/apple.h
-diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
-index 73780204631463631cabcbad5bf83e8dbbee94ce..9005fa91d9f4e541403ccc7bf84e0592402ac41e 100644
---- a/drivers/spmi/Kconfig
-+++ b/drivers/spmi/Kconfig
-@@ -11,6 +11,14 @@ menuconfig SPMI
+diff --git a/arch/arm64/boot/dts/apple/t600x-die0.dtsi b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+index b1c875e692c8fb9c0af46a23568a7b0cd720141b..d544a35c8af414c583d38b040e1aa753902f1c93 100644
+--- a/arch/arm64/boot/dts/apple/t600x-die0.dtsi
++++ b/arch/arm64/boot/dts/apple/t600x-die0.dtsi
+@@ -53,6 +53,13 @@ wdt: watchdog@2922b0000 {
+ 		interrupts = <AIC_IRQ 0 631 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
  
- if SPMI
++	nub_spmi0: spmi@2920a1300 {
++		compatible = "apple,t6000-spmi", "apple,spmi";
++		reg = <0x2 0x920a1300 0x0 0x100>;
++		#address-cells = <2>;
++		#size-cells = <0>;
++	};
++
+ 	sio_dart_0: iommu@39b004000 {
+ 		compatible = "apple,t6000-dart";
+ 		reg = <0x3 0x9b004000 0x0 0x4000>;
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index 9b0dad6b618444ac6b1c9735c50cccfc3965f947..0f03dc808cf7c6b7d71afc79dd29d368f957f979 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -11,6 +11,7 @@
+ #include <dt-bindings/interrupt-controller/apple-aic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+ #include <dt-bindings/pinctrl/apple.h>
++#include <dt-bindings/spmi/spmi.h>
  
-+config SPMI_APPLE
-+	tristate "Apple SoC SPMI Controller platform driver"
-+	depends on ARCH_APPLE || COMPILE_TEST
-+	help
-+	  If you say yes to this option, support will be included for the
-+	  SPMI controller present on many Apple SoCs, including the
-+	  t8103 (M1) and t600x (M1 Pro/Max).
-+
- config SPMI_HISI3670
- 	tristate "Hisilicon 3670 SPMI Controller"
- 	select IRQ_DOMAIN_HIERARCHY
-diff --git a/drivers/spmi/Makefile b/drivers/spmi/Makefile
-index 7f152167bb05b2c24a0f9669f60278152898eebb..38ac635645ba65aa46cb5e8a50072ed9771e229b 100644
---- a/drivers/spmi/Makefile
-+++ b/drivers/spmi/Makefile
-@@ -4,6 +4,7 @@
- #
- obj-$(CONFIG_SPMI)	+= spmi.o spmi-devres.o
+ / {
+ 	compatible = "apple,t8103", "apple,arm-platform";
+@@ -604,6 +605,13 @@ pcie_pins: pcie-pins {
+ 			};
+ 		};
  
-+obj-$(CONFIG_SPMI_APPLE)	+= spmi-apple-controller.o
- obj-$(CONFIG_SPMI_HISI3670)	+= hisi-spmi-controller.o
- obj-$(CONFIG_SPMI_MSM_PMIC_ARB)	+= spmi-pmic-arb.o
- obj-$(CONFIG_SPMI_MTK_PMIF)	+= spmi-mtk-pmif.o
-diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..194fa5dd7c2c6fc4ecfbee0db7930b0c73b02550
---- /dev/null
-+++ b/drivers/spmi/spmi-apple-controller.c
-@@ -0,0 +1,176 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Apple SoC SPMI device driver
-+ *
-+ * Copyright The Asahi Linux Contributors
-+ *
-+ * Inspired by:
-+ *		OpenBSD support Copyright (c) 2021 Mark Kettenis <kettenis@openbsd.org>
-+ *		Correllium support Copyright (C) 2021 Corellium LLC
-+ *		hisi-spmi-controller.c
-+ *		spmi-pmic-ard.c Copyright (c) 2021, The Linux Foundation.
-+ */
++		nub_spmi: spmi@23d0d9300 {
++			compatible = "apple,t8103-spmi", "apple,spmi";
++			reg = <0x2 0x3d0d9300 0x0 0x100>;
++			#address-cells = <2>;
++			#size-cells = <0>;
++		};
 +
-+#include <linux/io.h>
-+#include <linux/iopoll.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_platform.h>
-+#include <linux/platform_device.h>
-+#include <linux/spmi.h>
+ 		pinctrl_nub: pinctrl@23d1f0000 {
+ 			compatible = "apple,t8103-pinctrl", "apple,pinctrl";
+ 			reg = <0x2 0x3d1f0000 0x0 0x4000>;
+diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
+index 1666e6ab250bc0be9b8318e3c8fc903ccd3f3760..4b3730c46c4d14a582627f69094b458ec7481da9 100644
+--- a/arch/arm64/boot/dts/apple/t8112.dtsi
++++ b/arch/arm64/boot/dts/apple/t8112.dtsi
+@@ -641,6 +641,14 @@ pcie_pins: pcie-pins {
+ 			};
+ 		};
+ 
 +
-+/* SPMI Controller Registers */
-+#define SPMI_STATUS_REG 0
-+#define SPMI_CMD_REG 0x4
-+#define SPMI_RSP_REG 0x8
++		nub_spmi: spmi@23d714000 {
++			compatible = "apple,t8112-spmi", "apple,spmi";
++			reg = <0x2 0x3d714000 0x0 0x100>;
++			#address-cells = <2>;
++			#size-cells = <0>;
++		};
 +
-+#define SPMI_RX_FIFO_EMPTY BIT(24)
-+
-+#define REG_POLL_INTERVAL 10000
-+#define REG_POLL_TIMEOUT (REG_POLL_INTERVAL * 5)
-+
-+struct apple_spmi {
-+	void __iomem *regs;
-+};
-+
-+#define poll_reg(spmi, reg, val, cond) \
-+	readl_relaxed_poll_timeout((spmi)->regs + (reg), (val), (cond), \
-+				   REG_POLL_INTERVAL, REG_POLL_TIMEOUT)
-+
-+static inline u32 read_reg(struct apple_spmi *spmi, int offset)
-+{
-+	return readl_relaxed(spmi->regs + offset);
-+}
-+
-+static inline void write_reg(u32 value, struct apple_spmi *spmi, int offset)
-+{
-+	writel_relaxed(value, spmi->regs + offset);
-+}
-+
-+static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			 u16 saddr, u8 *__buf, size_t bc)
-+{
-+	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
-+	u32 spmi_cmd = opc | sid << 8 | saddr << 16 | (bc - 1) | (1 << 15);
-+	u32 rsp;
-+	u32 status;
-+	size_t len_to_read = 0;
-+	u8 i;
-+	int ret;
-+
-+	write_reg(spmi_cmd, spmi, SPMI_CMD_REG);
-+
-+	/* Wait for Rx FIFO to have something */
-+	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	if (ret) {
-+		dev_err(&ctrl->dev,
-+			"%s:Failed to wait for RX FIFO not empty\n", __func__);
-+		return ret;
-+	}
-+
-+	/* Discard SPMI reply status */
-+	read_reg(spmi, SPMI_RSP_REG);
-+
-+	/* Read SPMI data reply */
-+	while (len_to_read < bc) {
-+		rsp = read_reg(spmi, SPMI_RSP_REG);
-+		i = 0;
-+		while ((len_to_read < bc) && (i < 4)) {
-+			__buf[len_to_read++] = ((0xff << (8 * i)) & rsp) >>
-+					       (8 * i);
-+			i += 1;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
-+			  u16 saddr, const u8 *__buf, size_t bc)
-+{
-+	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
-+	u32 spmi_cmd = opc | sid << 8 | saddr << 16 | (bc - 1) | (1 << 15);
-+	u32 status;
-+	size_t i = 0, j;
-+	int ret;
-+
-+	write_reg(spmi_cmd, spmi, SPMI_CMD_REG);
-+
-+	while (i < bc) {
-+		j = 0;
-+		spmi_cmd = 0;
-+		while ((j < 4) & (i < bc))
-+			spmi_cmd |= __buf[i++] << (j++ * 8);
-+
-+		write_reg(spmi_cmd, spmi, SPMI_CMD_REG);
-+	}
-+
-+	/* Wait for Rx FIFO to have something */
-+	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
-+	if (ret) {
-+		dev_err(&ctrl->dev,
-+			"%s:Failed to wait for RX FIFO not empty\n", __func__);
-+		return ret;
-+	}
-+
-+	/* Discard */
-+	read_reg(spmi, SPMI_RSP_REG);
-+
-+	return 0;
-+}
-+
-+static int spmi_controller_probe(struct platform_device *pdev)
-+{
-+	struct apple_spmi *spmi;
-+	struct spmi_controller *ctrl;
-+	int ret;
-+
-+	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*spmi));
-+	if (IS_ERR(ctrl)) {
-+		dev_err_probe(&pdev->dev, PTR_ERR(ctrl),
-+			      "Can't allocate spmi_controller data\n");
-+		return -ENOMEM;
-+	}
-+
-+	spmi = spmi_controller_get_drvdata(ctrl);
-+
-+	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(spmi->regs)) {
-+		dev_err_probe(&pdev->dev, PTR_ERR(spmi->regs),
-+			      "Can't get ioremap regs\n");
-+		return PTR_ERR(spmi->regs);
-+	}
-+
-+	ctrl->dev.of_node = of_node_get(pdev->dev.of_node);
-+
-+	ctrl->read_cmd = spmi_read_cmd;
-+	ctrl->write_cmd = spmi_write_cmd;
-+
-+	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
-+	if (ret) {
-+		dev_err(&pdev->dev,
-+			"spmi_controller_add failed with error %d!\n", ret);
-+		return ret;
-+	}
-+
-+	return 0;
-+}
-+
-+static const struct of_device_id spmi_controller_match_table[] = {
-+	{ .compatible = "apple,spmi", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, spmi_controller_match_table);
-+
-+static struct platform_driver spmi_controller_driver = {
-+	.probe		= spmi_controller_probe,
-+	.driver		= {
-+		.name	= "apple-spmi",
-+		.of_match_table = spmi_controller_match_table,
-+	},
-+};
-+module_platform_driver(spmi_controller_driver);
-+
-+MODULE_AUTHOR("Jean-Francois Bortolotti <jeff@borto.fr>");
-+MODULE_DESCRIPTION("Apple SoC SPMI driver");
-+MODULE_LICENSE("GPL");
+ 		pinctrl_nub: pinctrl@23d1f0000 {
+ 			compatible = "apple,t8112-pinctrl", "apple,pinctrl";
+ 			reg = <0x2 0x3d1f0000 0x0 0x4000>;
 
 -- 
 2.48.1
