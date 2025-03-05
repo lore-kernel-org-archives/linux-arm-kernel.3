@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650EEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:03:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA635C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:04:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eVC5oFIsO9dNxwIIy2tzN1N3pWIkXin0KtQNsUQr7Ms=; b=vvagAI24p3LwOipY3qFDH+wRda
-	mUbr/gNT0i75SLPIR6HJEOp5SZMQGiA+ULakgaHFQhGYV+kd6VWPX+H35g6iChqsKlZZ4Ay8miTVC
-	kKpt8HD2TcmOrZqQg6nst9mEFHEt1nWWZPu2vrAOb7pX845/91frFsEwGw3MSC9tSCD3eXzv85c/c
-	DqUJWE9xqmnif0u5CXEYu+Pq1sIH4JU8vPXoMZrwZMJaXRUBp32mbtymWUpM3ieXriwb69OQpfHKE
-	eG7uxs4oR0YluQMK1RIkjjO5lt07g/2UkjWX1teYvde2L4yUgek8Fff2+Gg1Ebgv/PR0LkKFNbQRj
-	h6GtrMZw==;
+	bh=D8TLyYqoKl6AFDTi1L3Ta6vzAod+s7csUVNbA0Yjp2Y=; b=2cOa8ChNsH6V/3qrvFOzcvnZQP
+	7F3IKCA22R9n4y7kqjVHniG5xtbGUlM0iyWo6KNikJHL+b0OVA0fjkp1bQ76T0KnC6JRM8jUMJTlS
+	56PDtThVtNBPR3dMLhnJVO3Hqnqm9W/r4CvjCVybCFivhayZhz7JHe389y61mS36WGbbEv3mYs8Ap
+	2KbTB8ZoXy8YEnUl6sh9y5f/qzSb4Pjc1FGviij2v3/HSesSCOSrqO1qp6xDr6L02u2xg04Yxb98r
+	WrQgjHA7XKqdlnySCSXNlSw40fbF4JZ7FHBDLWStHWnm+kt11hRMrezsfxMysezdPcUdexU83pe2C
+	qu0AebMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwqC-00000009Qvz-2IJ0;
-	Wed, 05 Mar 2025 22:03:48 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpwqA-00000009QuG-3B6h;
+	Wed, 05 Mar 2025 22:03:46 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvV0-00000009F7Y-0GMX
+	id 1tpuCL-000000092ZW-2l9J
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 20:37:51 +0000
+	Wed, 05 Mar 2025 19:14:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B14E85C5506;
-	Wed,  5 Mar 2025 20:35:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14044C4CED1;
-	Wed,  5 Mar 2025 20:37:44 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 12957A453B6;
+	Wed,  5 Mar 2025 19:08:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DDEFBC4CED1;
+	Wed,  5 Mar 2025 19:14:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741207069;
-	bh=ZUWFGvKGlqNxqZiNLWOJo7/lk4bDNYSeo5WGLyBUrUM=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RtS7b78zRCPa6ftSk4nV04FBFLHcgMqg+TVH5rinj32s3no0VIInMYQxRszeCDCt6
-	 g1GR9ls+5oGnyxDxa9mtz7GlJpSfurjZQTtMohtjNOYrdnU25Ant01CjaxiIdV7BNE
-	 noN3JzMc0g0+nudsQfYdgAh7jDCRnM/2TIPih53KZu/2qZ357NtRuW9ZN8nx02mL6V
-	 2ZBkbBFjjL0Rfu83nRZVziq+g8JdJ5CjrhqmamEjUhNQe2IHpmxqeJz41XasZSnM/4
-	 zTAmc7+L+kBWk/28s5y+ZqVZ2GK3Ud79AZpc27hdeJfoD0YtGLik2l7PlMH/uDLEJQ
-	 TBU/8TvycOmeA==
-Message-ID: <d0f6fba8-cf04-4040-add4-35e001473f22@kernel.org>
-Date: Wed, 5 Mar 2025 21:37:42 +0100
+	s=k20201202; t=1741202068;
+	bh=Ch9EIzOQvfR+SQ9sk3KV2t7IM/Sy0jZebFwoR7k2UXs=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=WmEyW93KnV4e7ja4Hjp16lcqM/QpRjBta2Sanon6S5XVDbh/OgL3T1skq1HRacloM
+	 PpDaRfDCJFLDVtjtcofUcQyhzV2oQF4Ga2Sp1b2kDHUUVwQMa83BfWr564HvIN9tjg
+	 ItK/fZ3ysVEIXdvO51mLYopla39vrdri4DUBsRfHzzMX4iqGI0yOCiEnvIglSJrx9+
+	 uZetBrCJcG/hwKyeTT3tirrayt/l5c55qiSf1JhjIvsSjcKHHGGHXb50SmJiGoXl6f
+	 R+YdiGVDFHzHfLgF85oPWp300DpeQpnKLt37jxF5rcdSHM46tvK65IZP+oOYKVJeqk
+	 1g5sutsajRVSw==
+Message-ID: <f386adc4-0572-4c43-ac67-e1a0837381db@kernel.org>
+Date: Wed, 5 Mar 2025 20:14:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] clk: samsung: introduce Exynos2200 clock driver
-To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
- Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250223115601.723886-1-ivo.ivanov.ivanov1@gmail.com>
- <20250223115601.723886-4-ivo.ivanov.ivanov1@gmail.com>
- <7b182615f1439dd39a17b8e74cf740bf.sboyd@kernel.org>
+Subject: Re: [PATCH v2 2/2] clk: samsung: update PLL locktime for PLL142XX
+ used on FSD platform
 From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Varada Pavani <v.pavani@samsung.com>, aswani.reddy@samsung.com,
+ pankaj.dubey@samsung.com, s.nawrocki@samsung.com, cw00.choi@samsung.com,
+ alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org,
+ linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: gost.dev@samsung.com, stable@vger.kernel.org
+References: <20250225131918.50925-1-v.pavani@samsung.com>
+ <CGME20250225132507epcas5p455347acbd580b26ee807e467d3a6a05e@epcas5p4.samsung.com>
+ <20250225131918.50925-3-v.pavani@samsung.com>
+ <c5cef589-8091-41ce-94e7-82b56ba4143f@kernel.org>
+ <cbbb1f9c-8361-43b1-a24b-afc5c91919e8@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
@@ -104,12 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <7b182615f1439dd39a17b8e74cf740bf.sboyd@kernel.org>
+In-Reply-To: <cbbb1f9c-8361-43b1-a24b-afc5c91919e8@kernel.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_123750_189462_652593AB 
-X-CRM114-Status: GOOD (  14.32  )
+X-CRM114-CacheID: sfid-20250305_111429_825789_A11E31A8 
+X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,51 +125,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 19:19, Stephen Boyd wrote:
-> Quoting Ivaylo Ivanov (2025-02-23 03:56:00)
->> diff --git a/drivers/clk/samsung/clk-exynos2200.c b/drivers/clk/samsung/clk-exynos2200.c
->> new file mode 100644
->> index 000000000..151bdb35a
->> --- /dev/null
->> +++ b/drivers/clk/samsung/clk-exynos2200.c
->> @@ -0,0 +1,3928 @@
->> +// SPDX-License-Identifier: GPL-2.0-only
->> +/*
->> + * Copyright (C) 2025 Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> + * Author: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
->> + *
->> + * Common Clock Framework support for Exynos2200 SoC.
->> + */
->> +
->> +#include <linux/clk.h>
+On 05/03/2025 20:12, Krzysztof Kozlowski wrote:
+> On 01/03/2025 15:14, Krzysztof Kozlowski wrote:
+>> On 25/02/2025 14:19, Varada Pavani wrote:
+>>> Currently PLL142XX locktime is 270. As per spec, it should be 150. Hence
+>>> update PLL142XX controller locktime to 150.
+>>>
+>>> Cc: stable@vger.kernel.org
+>>
+>> Fixes commit?
 > 
-> Remove this include because this is a clk provider and not a clk
-> consumer.
-
-I sent a fix for this.
-
+> If this is a fix, commit msg should describe the bug. You decided to
+> drop the fixes tag, but you kept stable, so this makes no sense.
 > 
+Also in the future: run checkpatch.
 
->> +static struct platform_driver exynos2200_cmu_driver __refdata = {
->> +       .driver = {
->> +               .name = "exynos2200-cmu",
->> +               .of_match_table = exynos2200_cmu_of_match,
->> +               .suppress_bind_attrs = true,
->> +       },
->> +       .probe = exynos2200_cmu_probe,
->> +};
->> +
->> +static int __init exynos2200_cmu_init(void)
->> +{
->> +       return platform_driver_register(&exynos2200_cmu_driver);
-> 
-> Was this supposed to be platform_driver_probe()? The __refdata usage
-> suggests that but all of the __init markings and stuff in the samsung
-> clk driver worry me.
-
-
-I'll fix this and existing drivers.
-
+CHECK: Alignment should match open parenthesis
 
 Best regards,
 Krzysztof
