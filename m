@@ -4,76 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13023C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:33:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA4E8C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkhunWzeT1J1bjdMLmmRSm+eqBFEg4KtTqCIoKPHFw4=; b=j+TorJKv2AAQYXz+iC/0blTPQ8
-	j0PZPOHvjOKDeJXJ/AjPL16sorJhnuNuSTXZNKSLB+6Cjve0Feewb7KJu9oAF2BQ4NiBYvKngHmEm
-	UZ4nlha0swNEhU/0h47oe1pIxd+wuL+dSsGpq1Fdc9QvQGdodL8W61w1kK0oLNLbAjBsRsFH9jLZx
-	H7UiOf/AOtiVMvt9lqI2zUGxZgutuQ4rcpTLX0cP7PLeMzVpdk9o++86bdOkdiDpxrspXkgDhC8Vh
-	v3tHjk2evCXvy7m/9TqTf1jakg+feTtvAU7QUGM+ylfrTbfLSo2Hsxc2sRifpD4Y8AwsRl2ZUWTWE
-	oCFW1I0w==;
+	bh=E60PMdBi2EuO85vVyPJfNYg118xZrAs+xmQPB3P7CUA=; b=eiROzZamtHy97gi1kVegq/7fP6
+	Kp4DTaaMzT7wXB41qsVBhqbjVDTqNdT3q8rtNldSmGRm2KcYmUH8zPa3tRDXyFphmS6Nn2HfRpxkf
+	xqU9ejjKWkVtFeiP0ObZ4FZYSFiMdHq/6lMT+WFFypW/IlKk+RUk/Lc63hHiqk7Tk34m0vJN3WciM
+	1pps4Pbqx36PY7OoVyzPS0Kgz1oNp9FolagisipSzb9ntst3AcfEdRn59TOjiBZ/hB6gfL0Zl7vb4
+	3goab+k0RUwwTQ1NkXCrbfKXe0F7Z5DRnd9zyP2i0v/HobKQZ9JWkXUM8SMgsdfPBQSrOa5lQ7PlR
+	Wr/vsopg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwMm-00000009MIp-1yJm;
-	Wed, 05 Mar 2025 21:33:24 +0000
-Received: from sender3-pp-f112.zoho.com ([136.143.184.112])
+	id 1tpwN9-00000009MPb-3K38;
+	Wed, 05 Mar 2025 21:33:47 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwF1-00000009L9V-1TZv;
-	Wed, 05 Mar 2025 21:25:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741209907; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=QsMYAxnFjRwP0TMPlg0/OFGq9tLFB/MXY0UeMOUT+PihlLKALi3hZN8umCkrLj7Mf94f3K8UYpTHEtgPpoyrQSN2U6nM+RDVygSSlctPT0rdHojZSC4WnH62WwTcaA1+9dy3K4+sxoqEoI2kSkOz6IBvg5p+rxdv5a1R9I5uH/w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741209907; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tkhunWzeT1J1bjdMLmmRSm+eqBFEg4KtTqCIoKPHFw4=; 
-	b=MjpBCV/9JmjoWNSj2+XXe5c0RRCxiDTVi1VQ6RKwK9rTYggF3BT5d3FRxemh8I/c5NIVAUT1tdIrnUWz3m6qc2knmO2SSjxEYY7qjAKUYFuO3/+dCaGmS71lALS7hXU6QcaUG9CfcRVCANI+lj7KimatHjRLKUs+kdpD2ysg5yg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741209907;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=tkhunWzeT1J1bjdMLmmRSm+eqBFEg4KtTqCIoKPHFw4=;
-	b=afSO5S9MSGQURQrMeTAUJORZ7WyxaJRCxHH4Rw65OIsoOCPjCb3a4EuFcgK8kIDF
-	9U8crzWCz+JOWEgpt66UNTIr17N6I5d7LcvkOyX7zF2sEhTz3wKbUOn6ZIa6cMtvb6J
-	e0A4EuuDqKgMzf6iAmDJr/DQmcSQKBRO7PZJxIbk=
-Received: by mx.zohomail.com with SMTPS id 1741209905068926.4403017565099;
-	Wed, 5 Mar 2025 13:25:05 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 05 Mar 2025 22:24:22 +0100
-Subject: [PATCH 2/7] clk: rockchip: add support for GRF gated clocks
+	id 1tpuh2-0000000972K-238v;
+	Wed, 05 Mar 2025 19:46:13 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 3E9F02531A;
+	Wed,  5 Mar 2025 20:46:11 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id cYil4KX2Hwuh; Wed,  5 Mar 2025 20:46:06 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1741203966; bh=R4aIj3VtgP3nzRQODwLmtHA8je9xAP+QLEm/30cUmmY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=JKF943m2r/RcCtYecED58Aa3AyJLTt1QwBpTAaWpqPx0UpRv99NFmhJu0GXEG1990
+	 GxYLFVZfLXK5AO4sJhA3sRgnTl6pBhhejdJNck/NCYYETqyciBibHdAgNgiUTaTJkZ
+	 LbMrftGZU3hybWl9gOACPlvGucOk9LwcyZXCCjgjgEpoczRBrsKXahgEhK9lW2x0jM
+	 lllqWPHEWb6GjlV4X7B0jpmdPI0dCsEjlRB9aunxpqg2Jtd6EVC0zZ/jT5P3f7WtFA
+	 JtP2udhoY5lRD7xGGjrdH3mpbBKgV8ejCblXJWPeMjXSrYIXlzUumwkitZeMzaOLWt
+	 /WXcpUOScGRgw==
+From: Yao Zi <ziyao@disroot.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH v2 6/8] clk: rockchip: rk3528: Add SD/SDIO tuning clocks in GRF region
+Date: Wed,  5 Mar 2025 19:45:44 +0000
+Message-ID: <20250305194544.47155-1-ziyao@disroot.org>
+In-Reply-To: <20250305194217.47052-1-ziyao@disroot.org>
+References: <20250305194217.47052-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-rk3576-sai-v1-2-64e6cf863e9a@collabora.com>
-References: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
-In-Reply-To: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
- Sugar Zhang <sugar.zhang@rock-chips.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_132523_488386_7F057048 
-X-CRM114-Status: GOOD (  30.47  )
+X-CRM114-CacheID: sfid-20250305_114612_792163_898A7B4D 
+X-CRM114-Status: GOOD (  15.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,517 +86,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Certain Rockchip SoCs, the RK3576 in particular, have some clocks that
-are essentially gated behind an additional GRF write. Downstream uses an
-additional entirely separate clock driver that maps over the same
-address range as ioc_grf in the DT.
+These clocks locate in VO and VPU GRF, serving for SD/SDIO controller
+tuning purpose. Add their definitions and register them in driver if
+corresponding GRF is available.
 
-Instead, this implementation introduces a new gate type, GRF gates.
-These gates function quite like regular gates. In effect, this means
-they'll only be enabled if the clock is used, which I feel is a more
-appropriate way to describe this compared to doing it in, say, pinctrl,
-or even in the drivers of the respective clock consumers such as SAI.
+GRFs are looked up by compatible to simplify devicetree binding.
 
-It should be noted that RK3588 has similar GRF-gated clocks, but has
-gotten away with not having to deal with any of this because the clocks
-are ungated by the hardware's register reset value by default. The
-RK3576 is not so lucky, and the hardware's reset value gates them
-instead, which means we'll have to ungate them somewhere.
-
-In order to facilitate the GRF gating on RK3576, we introduce the
-concept of auxiliary GRFs. The RK3576 has several defined GRF nodes, and
-so far it could get away with just using one for MUXGRF by reassigning
-the clock provider's grf member.
-
-However, with the IOC GRF gated clocks, we now also need access to the
-IOC GRF, so we can't get away with this anymore. Instead, we add a
-hashtable to the clock provider struct, keyed by a grf type enum. The
-clock branches can then specify through the use of a new member of that
-enum's type (with corresponding changes to relevant macros) which GRF
-range they would like to use.
-
-The SoC-specific clk_init can then populate the hashtable with the GRFs
-that it needs. This way, GRF-dependent clock branches don't have to be
-registered in a different step than everything else, as they would need
-to be had I extended the branch struct to instead take a pointer to a
-GRF, which isn't available at the time most of our branches are defined.
-
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- drivers/clk/rockchip/Makefile     |   1 +
- drivers/clk/rockchip/clk-rk3328.c |   6 +--
- drivers/clk/rockchip/clk-rk3568.c |   2 +-
- drivers/clk/rockchip/clk-rk3576.c |  59 +++++++++++++++++----
- drivers/clk/rockchip/clk.c        |  24 ++++++++-
- drivers/clk/rockchip/clk.h        |  49 +++++++++++++++++-
- drivers/clk/rockchip/gate-grf.c   | 105 ++++++++++++++++++++++++++++++++++++++
- 7 files changed, 230 insertions(+), 16 deletions(-)
+ drivers/clk/rockchip/clk-rk3528.c | 61 ++++++++++++++++++++++++++++---
+ drivers/clk/rockchip/clk.h        |  3 ++
+ 2 files changed, 58 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/clk/rockchip/Makefile b/drivers/clk/rockchip/Makefile
-index e8ece20aebfdeffbdc5bfffd2c6f35f2cfcf74f6..f0e0b2c6e876a84610fb3ecf33cc1935b10058d9 100644
---- a/drivers/clk/rockchip/Makefile
-+++ b/drivers/clk/rockchip/Makefile
-@@ -14,6 +14,7 @@ clk-rockchip-y += clk-mmc-phase.o
- clk-rockchip-y += clk-muxgrf.o
- clk-rockchip-y += clk-ddr.o
- clk-rockchip-y += gate-link.o
-+clk-rockchip-y += gate-grf.o
- clk-rockchip-$(CONFIG_RESET_CONTROLLER) += softrst.o
+diff --git a/drivers/clk/rockchip/clk-rk3528.c b/drivers/clk/rockchip/clk-rk3528.c
+index b8b577b902a0..5c133a642ff9 100644
+--- a/drivers/clk/rockchip/clk-rk3528.c
++++ b/drivers/clk/rockchip/clk-rk3528.c
+@@ -10,6 +10,8 @@
+ #include <linux/of.h>
+ #include <linux/of_device.h>
+ #include <linux/platform_device.h>
++#include <linux/mfd/syscon.h>
++#include <linux/minmax.h>
  
- obj-$(CONFIG_CLK_PX30)          += clk-px30.o
-diff --git a/drivers/clk/rockchip/clk-rk3328.c b/drivers/clk/rockchip/clk-rk3328.c
-index cf60fcf2fa5cde4ef97a05852f071763a4ccee40..cd5f65b6cdf55074c753f1dee96972c2a589c260 100644
---- a/drivers/clk/rockchip/clk-rk3328.c
-+++ b/drivers/clk/rockchip/clk-rk3328.c
-@@ -677,9 +677,9 @@ static struct rockchip_clk_branch rk3328_clk_branches[] __initdata = {
- 			RK3328_CLKSEL_CON(27), 15, 1, MFLAGS, 8, 5, DFLAGS,
- 			RK3328_CLKGATE_CON(3), 5, GFLAGS),
- 	MUXGRF(SCLK_MAC2IO, "clk_mac2io", mux_mac2io_src_p, CLK_SET_RATE_NO_REPARENT,
--			RK3328_GRF_MAC_CON1, 10, 1, MFLAGS),
-+			RK3328_GRF_MAC_CON1, 10, 1, MFLAGS, grf_type_sys),
- 	MUXGRF(SCLK_MAC2IO_EXT, "clk_mac2io_ext", mux_mac2io_ext_p, CLK_SET_RATE_NO_REPARENT,
--			RK3328_GRF_SOC_CON4, 14, 1, MFLAGS),
-+			RK3328_GRF_SOC_CON4, 14, 1, MFLAGS, grf_type_sys),
+ #include <dt-bindings/clock/rockchip,rk3528-cru.h>
  
- 	COMPOSITE(SCLK_MAC2PHY_SRC, "clk_mac2phy_src", mux_2plls_p, 0,
- 			RK3328_CLKSEL_CON(26), 7, 1, MFLAGS, 0, 5, DFLAGS,
-@@ -692,7 +692,7 @@ static struct rockchip_clk_branch rk3328_clk_branches[] __initdata = {
- 			RK3328_CLKSEL_CON(26), 8, 2, DFLAGS,
- 			RK3328_CLKGATE_CON(9), 2, GFLAGS),
- 	MUXGRF(SCLK_MAC2PHY, "clk_mac2phy", mux_mac2phy_src_p, CLK_SET_RATE_NO_REPARENT,
--			RK3328_GRF_MAC_CON2, 10, 1, MFLAGS),
-+			RK3328_GRF_MAC_CON2, 10, 1, MFLAGS, grf_type_sys),
+@@ -1061,23 +1063,64 @@ static struct rockchip_clk_branch rk3528_clk_branches[] __initdata = {
+ 			0, 1, 1),
+ };
  
- 	FACTOR(0, "xin12m", "xin24m", 0, 1, 2),
- 
-diff --git a/drivers/clk/rockchip/clk-rk3568.c b/drivers/clk/rockchip/clk-rk3568.c
-index 7d9279291e7692c5ebdda16563fd09f87732e6d1..5f250bb8260ca0447f7249f212a49597c6c54887 100644
---- a/drivers/clk/rockchip/clk-rk3568.c
-+++ b/drivers/clk/rockchip/clk-rk3568.c
-@@ -590,7 +590,7 @@ static struct rockchip_clk_branch rk3568_clk_branches[] __initdata = {
- 			RK3568_CLKSEL_CON(9), 6, 2, MFLAGS, 0, 5, DFLAGS,
- 			RK3568_CLKGATE_CON(4), 0, GFLAGS),
- 	MUXGRF(CLK_DDR1X, "clk_ddr1x", clk_ddr1x_p, CLK_SET_RATE_PARENT,
--			RK3568_CLKSEL_CON(9), 15, 1, MFLAGS),
-+			RK3568_CLKSEL_CON(9), 15, 1, MFLAGS, grf_type_sys),
- 
- 	COMPOSITE_NOMUX(CLK_MSCH, "clk_msch", "clk_ddr1x", CLK_IGNORE_UNUSED,
- 			RK3568_CLKSEL_CON(10), 0, 2, DFLAGS,
-diff --git a/drivers/clk/rockchip/clk-rk3576.c b/drivers/clk/rockchip/clk-rk3576.c
-index be703f250197af2097fa591837de03accb8c51da..1e269490ac7f6b56ed4e53a711c7d4d922b6e149 100644
---- a/drivers/clk/rockchip/clk-rk3576.c
-+++ b/drivers/clk/rockchip/clk-rk3576.c
-@@ -15,6 +15,7 @@
- 
- #define RK3576_GRF_SOC_STATUS0		0x600
- #define RK3576_PMU0_GRF_OSC_CON6	0x18
-+#define RK3576_VCCIO_IOC_MISC_CON0	0x6400
- 
- enum rk3576_plls {
- 	bpll, lpll, vpll, aupll, cpll, gpll, ppll,
-@@ -1481,6 +1482,14 @@ static struct rockchip_clk_branch rk3576_clk_branches[] __initdata = {
- 			RK3576_CLKGATE_CON(10), 0, GFLAGS),
- 	GATE(CLK_SAI0_MCLKOUT, "clk_sai0_mclkout", "mclk_sai0_8ch", 0,
- 			RK3576_CLKGATE_CON(10), 1, GFLAGS),
-+	GATE_GRF(CLK_SAI0_MCLKOUT_TO_IO, "mclk_sai0_to_io", "clk_sai0_mclkout",
-+			0, RK3576_VCCIO_IOC_MISC_CON0, 0, GFLAGS, grf_type_ioc),
-+	GATE_GRF(CLK_SAI1_MCLKOUT_TO_IO, "mclk_sai1_to_io", "clk_sai1_mclkout",
-+			0, RK3576_VCCIO_IOC_MISC_CON0, 1, GFLAGS, grf_type_ioc),
-+	GATE_GRF(CLK_SAI2_MCLKOUT_TO_IO, "mclk_sai2_to_io", "clk_sai2_mclkout",
-+			0, RK3576_VCCIO_IOC_MISC_CON0, 2, GFLAGS, grf_type_ioc),
-+	GATE_GRF(CLK_SAI3_MCLKOUT_TO_IO, "mclk_sai3_to_io", "clk_sai3_mclkout",
-+			0, RK3576_VCCIO_IOC_MISC_CON0, 3, GFLAGS, grf_type_ioc),
- 
- 	/* sdgmac */
- 	COMPOSITE_NODIV(HCLK_SDGMAC_ROOT, "hclk_sdgmac_root", mux_200m_100m_50m_24m_p, 0,
-@@ -1678,13 +1687,13 @@ static struct rockchip_clk_branch rk3576_clk_branches[] __initdata = {
- 
- 	/* phy ref */
- 	MUXGRF(CLK_PHY_REF_SRC, "clk_phy_ref_src", clk_phy_ref_src_p,  0,
--			RK3576_PMU0_GRF_OSC_CON6, 4, 1, MFLAGS),
-+			RK3576_PMU0_GRF_OSC_CON6, 4, 1, MFLAGS, grf_type_pmu0),
- 	MUXGRF(CLK_USBPHY_REF_SRC, "clk_usbphy_ref_src", clk_usbphy_ref_src_p,  0,
--			RK3576_PMU0_GRF_OSC_CON6, 2, 1, MFLAGS),
-+			RK3576_PMU0_GRF_OSC_CON6, 2, 1, MFLAGS, grf_type_pmu0),
- 	MUXGRF(CLK_CPLL_REF_SRC, "clk_cpll_ref_src", clk_cpll_ref_src_p,  0,
--			RK3576_PMU0_GRF_OSC_CON6, 1, 1, MFLAGS),
-+			RK3576_PMU0_GRF_OSC_CON6, 1, 1, MFLAGS, grf_type_pmu0),
- 	MUXGRF(CLK_AUPLL_REF_SRC, "clk_aupll_ref_src", clk_aupll_ref_src_p,  0,
--			RK3576_PMU0_GRF_OSC_CON6, 0, 1, MFLAGS),
-+			RK3576_PMU0_GRF_OSC_CON6, 0, 1, MFLAGS, grf_type_pmu0),
- 
- 	/* secure ns */
- 	COMPOSITE_NODIV(ACLK_SECURE_NS, "aclk_secure_ns", mux_350m_175m_116m_24m_p, CLK_IS_CRITICAL,
-@@ -1727,17 +1736,26 @@ static void __init rk3576_clk_init(struct device_node *np)
- 	struct rockchip_clk_provider *ctx;
- 	unsigned long clk_nr_clks;
++static struct rockchip_clk_branch rk3528_vo_clk_branches[] __initdata = {
++	MMC_GRF(SCLK_SDMMC_DRV, "sdmmc_drv", "cclk_src_sdmmc0",
++			RK3528_SDMMC_CON(0), 1),
++	MMC_GRF(SCLK_SDMMC_SAMPLE, "sdmmc_sample", "cclk_src_sdmmc0",
++			RK3528_SDMMC_CON(1), 1),
++};
++
++static struct rockchip_clk_branch rk3528_vpu_clk_branches[] __initdata = {
++	MMC_GRF(SCLK_SDIO0_DRV, "sdio0_drv", "cclk_src_sdio0",
++			RK3528_SDIO0_CON(0), 1),
++	MMC_GRF(SCLK_SDIO0_SAMPLE, "sdio0_sample", "cclk_src_sdio0",
++			RK3528_SDIO0_CON(1), 1),
++	MMC_GRF(SCLK_SDIO1_DRV, "sdio1_drv", "cclk_src_sdio1",
++			RK3528_SDIO1_CON(0), 1),
++	MMC_GRF(SCLK_SDIO1_SAMPLE, "sdio1_sample", "cclk_src_sdio1",
++			RK3528_SDIO1_CON(1), 1),
++};
++
+ static int __init clk_rk3528_probe(struct platform_device *pdev)
+ {
+-	struct rockchip_clk_provider *ctx;
++	unsigned long nr_vpu_branches = ARRAY_SIZE(rk3528_vpu_clk_branches);
++	unsigned long nr_vo_branches = ARRAY_SIZE(rk3528_vo_clk_branches);
++	unsigned long nr_branches = ARRAY_SIZE(rk3528_clk_branches);
++	unsigned long nr_clks, nr_vo_clks, nr_vpu_clks;
+ 	struct device *dev = &pdev->dev;
+ 	struct device_node *np = dev->of_node;
+-	unsigned long nr_branches = ARRAY_SIZE(rk3528_clk_branches);
+-	unsigned long nr_clks;
++	struct rockchip_clk_provider *ctx;
++	struct regmap *vo_grf, *vpu_grf;
  	void __iomem *reg_base;
--	struct regmap *grf;
-+	struct rockchip_aux_grf *ioc_grf_e;
-+	struct rockchip_aux_grf *pmu0_grf_e;
-+	struct regmap *ioc_grf;
-+	struct regmap *pmu0_grf;
  
- 	clk_nr_clks = rockchip_clk_find_max_clk_id(rk3576_clk_branches,
- 					ARRAY_SIZE(rk3576_clk_branches)) + 1;
+-	nr_clks = rockchip_clk_find_max_clk_id(rk3528_clk_branches,
+-					       nr_branches) + 1;
+-
+ 	reg_base = devm_platform_ioremap_resource(pdev, 0);
+ 	if (IS_ERR(reg_base))
+ 		return dev_err_probe(dev, PTR_ERR(reg_base),
+ 				     "could not map cru region");
  
--	grf = syscon_regmap_lookup_by_compatible("rockchip,rk3576-pmu0-grf");
--	if (IS_ERR(grf)) {
-+	pmu0_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3576-pmu0-grf");
-+	if (IS_ERR(pmu0_grf)) {
- 		pr_err("%s: could not get PMU0 GRF syscon\n", __func__);
- 		return;
- 	}
- 
-+	ioc_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3576-ioc-grf");
-+	if (IS_ERR(ioc_grf)) {
-+		pr_err("%s: could not get IOC GRF syscon\n", __func__);
-+		return;
++	nr_clks = rockchip_clk_find_max_clk_id(rk3528_clk_branches,
++					       nr_branches) + 1;
++
++	vo_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3528-vo-grf");
++	if (!IS_ERR(vo_grf)) {
++		nr_vo_clks = rockchip_clk_find_max_clk_id(rk3528_vo_clk_branches,
++							  nr_vo_branches) + 1;
++		nr_clks = max(nr_clks, nr_vo_clks);
++	} else if (PTR_ERR(vo_grf) != -ENODEV) {
++		return dev_err_probe(dev, PTR_ERR(vo_grf),
++				     "failed to look up VO GRF\n");
 +	}
 +
- 	reg_base = of_iomap(np, 0);
- 	if (!reg_base) {
- 		pr_err("%s: could not map cru region\n", __func__);
-@@ -1747,11 +1765,24 @@ static void __init rk3576_clk_init(struct device_node *np)
- 	ctx = rockchip_clk_init(np, reg_base, clk_nr_clks);
- 	if (IS_ERR(ctx)) {
- 		pr_err("%s: rockchip clk init failed\n", __func__);
--		iounmap(reg_base);
--		return;
-+		goto err_unmap;
- 	}
- 
--	ctx->grf = grf;
-+	pmu0_grf_e = kzalloc(sizeof(*pmu0_grf_e), GFP_KERNEL);
-+	if (!pmu0_grf_e)
-+		goto err_unmap;
++	vpu_grf = syscon_regmap_lookup_by_compatible("rockchip,rk3528-vpu-grf");
++	if (!IS_ERR(vpu_grf)) {
++		nr_vpu_clks = rockchip_clk_find_max_clk_id(rk3528_vpu_clk_branches,
++							   nr_vpu_branches) + 1;
++		nr_clks = max(nr_clks, nr_vpu_clks);
++	} else if (PTR_ERR(vpu_grf) != -ENODEV) {
++		return dev_err_probe(dev, PTR_ERR(vpu_grf),
++				     "failed to look up VPU GRF\n");
++	}
 +
-+	pmu0_grf_e->grf = pmu0_grf;
-+	pmu0_grf_e->type = grf_type_pmu0;
-+	hash_add(ctx->aux_grf_table, &pmu0_grf_e->node, grf_type_pmu0);
-+
-+	ioc_grf_e = kzalloc(sizeof(*ioc_grf_e), GFP_KERNEL);
-+	if (!ioc_grf_e)
-+		goto err_free_pmu0;
-+
-+	ioc_grf_e->grf = ioc_grf;
-+	ioc_grf_e->type = grf_type_ioc;
-+	hash_add(ctx->aux_grf_table, &ioc_grf_e->node, grf_type_ioc);
+ 	ctx = rockchip_clk_init(np, reg_base, nr_clks);
+ 	if (IS_ERR(ctx))
+ 		return dev_err_probe(dev, PTR_ERR(ctx),
+@@ -1091,6 +1134,12 @@ static int __init clk_rk3528_probe(struct platform_device *pdev)
+ 				     &rk3528_cpuclk_data, rk3528_cpuclk_rates,
+ 				     ARRAY_SIZE(rk3528_cpuclk_rates));
+ 	rockchip_clk_register_branches(ctx, rk3528_clk_branches, nr_branches);
++	if (!IS_ERR(vo_grf))
++		rockchip_clk_register_grf_branches(ctx, rk3528_vo_clk_branches,
++						   vo_grf, nr_vo_branches);
++	if (!IS_ERR(vpu_grf))
++		rockchip_clk_register_grf_branches(ctx, rk3528_vpu_clk_branches,
++						   vpu_grf, nr_vpu_branches);
  
- 	rockchip_clk_register_plls(ctx, rk3576_pll_clks,
- 				   ARRAY_SIZE(rk3576_pll_clks),
-@@ -1774,6 +1805,14 @@ static void __init rk3576_clk_init(struct device_node *np)
- 	rockchip_register_restart_notifier(ctx, RK3576_GLB_SRST_FST, NULL);
+ 	rk3528_rst_init(np, reg_base);
  
- 	rockchip_clk_of_add_provider(np, ctx);
-+
-+	return;
-+
-+err_free_pmu0:
-+	kfree(pmu0_grf_e);
-+err_unmap:
-+	iounmap(reg_base);
-+	return;
- }
- 
- CLK_OF_DECLARE(rk3576_cru, "rockchip,rk3576-cru", rk3576_clk_init);
-diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
-index cbf93ea119a9e25c037607ded1f6f358918e8656..8e035b08697eb5bf193ddb9ab4c6154332eb3af1 100644
---- a/drivers/clk/rockchip/clk.c
-+++ b/drivers/clk/rockchip/clk.c
-@@ -382,6 +382,8 @@ static struct rockchip_clk_provider *rockchip_clk_init_base(
- 	ctx->cru_node = np;
- 	spin_lock_init(&ctx->lock);
- 
-+	hash_init(ctx->aux_grf_table);
-+
- 	ctx->grf = syscon_regmap_lookup_by_phandle(ctx->cru_node,
- 						   "rockchip,grf");
- 
-@@ -496,6 +498,8 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
- 				    struct rockchip_clk_branch *list,
- 				    unsigned int nr_clk)
- {
-+	struct regmap *grf = ctx->grf;
-+	struct rockchip_aux_grf *agrf;
- 	struct clk *clk;
- 	unsigned int idx;
- 	unsigned long flags;
-@@ -504,6 +508,17 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
- 		flags = list->flags;
- 		clk = NULL;
- 
-+		/* for GRF-dependant branches, choose the right grf first */
-+		if ((list->branch_type == branch_muxgrf || list->branch_type == branch_grf_gate) &&
-+				list->grf_type != grf_type_sys) {
-+			hash_for_each_possible(ctx->aux_grf_table, agrf, node, list->grf_type) {
-+				if (agrf->type == list->grf_type) {
-+					grf = agrf->grf;
-+					break;
-+				}
-+			}
-+		}
-+
- 		/* catch simple muxes */
- 		switch (list->branch_type) {
- 		case branch_mux:
-@@ -526,7 +541,7 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
- 		case branch_muxgrf:
- 			clk = rockchip_clk_register_muxgrf(list->name,
- 				list->parent_names, list->num_parents,
--				flags, ctx->grf, list->muxdiv_offset,
-+				flags, grf, list->muxdiv_offset,
- 				list->mux_shift, list->mux_width,
- 				list->mux_flags);
- 			break;
-@@ -573,6 +588,13 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
- 				ctx->reg_base + list->gate_offset,
- 				list->gate_shift, list->gate_flags, &ctx->lock);
- 			break;
-+		case branch_grf_gate:
-+			flags |= CLK_SET_RATE_PARENT;
-+			clk = rockchip_clk_register_gate_grf(list->name,
-+				list->parent_names[0], flags, grf,
-+				list->gate_offset, list->gate_shift,
-+				list->gate_flags);
-+			break;
- 		case branch_composite:
- 			clk = rockchip_clk_register_branch(list->name,
- 				list->parent_names, list->num_parents,
 diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
-index df2b2d706450f38dfe2b3c7762763c5e832b9892..ebaed429a30dc2c41c866f973f8cf78b32136311 100644
+index ec86ba1dd38c..f07cd1bb8952 100644
 --- a/drivers/clk/rockchip/clk.h
 +++ b/drivers/clk/rockchip/clk.h
-@@ -19,6 +19,7 @@
- 
- #include <linux/io.h>
- #include <linux/clk-provider.h>
-+#include <linux/hashtable.h>
- 
- struct clk;
- 
-@@ -440,12 +441,35 @@ enum rockchip_pll_type {
- 	.k = _k,						\
- }
- 
-+enum rockchip_grf_type {
-+	grf_type_sys = 0,
-+	grf_type_pmu0,
-+	grf_type_pmu1,
-+	grf_type_ioc,
-+};
-+
-+/* ceil(sqrt(enums in rockchip_grf_type - 1)) */
-+#define GRF_HASH_ORDER 2
-+
-+/**
-+ * struct rockchip_aux_grf - entry for the aux_grf_table hashtable
-+ * @grf: pointer to the grf this entry references
-+ * @type: what type of GRF this is
-+ * @node: hlist node
-+ */
-+struct rockchip_aux_grf {
-+	struct regmap *grf;
-+	enum rockchip_grf_type type;
-+	struct hlist_node node;
-+};
-+
- /**
-  * struct rockchip_clk_provider - information about clock provider
-  * @reg_base: virtual address for the register base.
-  * @clk_data: holds clock related data like clk* and number of clocks.
-  * @cru_node: device-node of the clock-provider
-  * @grf: regmap of the general-register-files syscon
-+ * @aux_grf_table: hashtable of auxiliary GRF regmaps, indexed by grf_type
-  * @lock: maintains exclusion between callbacks for a given clock-provider.
-  */
- struct rockchip_clk_provider {
-@@ -453,6 +477,7 @@ struct rockchip_clk_provider {
- 	struct clk_onecell_data clk_data;
- 	struct device_node *cru_node;
- 	struct regmap *grf;
-+	DECLARE_HASHTABLE(aux_grf_table, GRF_HASH_ORDER);
- 	spinlock_t lock;
- };
- 
-@@ -622,6 +647,11 @@ struct clk *rockchip_clk_register_muxgrf(const char *name,
- 				int flags, struct regmap *grf, int reg,
- 				int shift, int width, int mux_flags);
- 
-+struct clk *rockchip_clk_register_gate_grf(const char *name,
-+				const char *parent_name, unsigned long flags,
-+				struct regmap *regmap, unsigned int reg,
-+				unsigned int shift, u8 gate_flags);
-+
- #define PNAME(x) static const char *const x[] __initconst
- 
- enum rockchip_clk_branch_type {
-@@ -631,6 +661,7 @@ enum rockchip_clk_branch_type {
- 	branch_divider,
- 	branch_fraction_divider,
- 	branch_gate,
-+	branch_grf_gate,
- 	branch_linked_gate,
- 	branch_mmc,
- 	branch_inverter,
-@@ -660,6 +691,7 @@ struct rockchip_clk_branch {
- 	u8				gate_shift;
- 	u8				gate_flags;
- 	unsigned int			linked_clk_id;
-+	enum rockchip_grf_type		grf_type;
- 	struct rockchip_clk_branch	*child;
- };
- 
-@@ -900,7 +932,7 @@ struct rockchip_clk_branch {
- 		.mux_table	= mt,				\
- 	}
- 
--#define MUXGRF(_id, cname, pnames, f, o, s, w, mf)		\
-+#define MUXGRF(_id, cname, pnames, f, o, s, w, mf, gt)		\
- 	{							\
- 		.id		= _id,				\
- 		.branch_type	= branch_muxgrf,		\
-@@ -913,6 +945,7 @@ struct rockchip_clk_branch {
- 		.mux_width	= w,				\
- 		.mux_flags	= mf,				\
- 		.gate_offset	= -1,				\
-+		.grf_type	= gt,				\
- 	}
- 
- #define DIV(_id, cname, pname, f, o, s, w, df)			\
-@@ -958,6 +991,20 @@ struct rockchip_clk_branch {
- 		.gate_flags	= gf,				\
- 	}
- 
-+#define GATE_GRF(_id, cname, pname, f, o, b, gf, gt)		\
-+	{							\
-+		.id		= _id,				\
-+		.branch_type	= branch_grf_gate,		\
-+		.name		= cname,			\
-+		.parent_names	= (const char *[]){ pname },	\
-+		.num_parents	= 1,				\
-+		.flags		= f,				\
-+		.gate_offset	= o,				\
-+		.gate_shift	= b,				\
-+		.gate_flags	= gf,				\
-+		.grf_type	= gt,				\
-+	}
-+
- #define GATE_LINK(_id, cname, pname, linkedclk, f, o, b, gf)	\
- 	{							\
- 		.id		= _id,				\
-diff --git a/drivers/clk/rockchip/gate-grf.c b/drivers/clk/rockchip/gate-grf.c
-new file mode 100644
-index 0000000000000000000000000000000000000000..8122f471f39134a7298be8daf0718cfa4f8852a7
---- /dev/null
-+++ b/drivers/clk/rockchip/gate-grf.c
-@@ -0,0 +1,105 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later
-+/*
-+ * Copyright (c) 2025 Collabora Ltd.
-+ * Author: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+ *
-+ * Certain clocks on Rockchip are "gated" behind an additional register bit
-+ * write in a GRF register, such as the SAI MCLKs on RK3576. This code
-+ * implements a clock driver for these types of gates, based on regmaps.
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/regmap.h>
-+#include <linux/slab.h>
-+#include "clk.h"
-+
-+struct rockchip_gate_grf {
-+	struct clk_hw		hw;
-+	struct regmap		*regmap;
-+	unsigned int		reg;
-+	unsigned int		shift;
-+	u8			flags;
-+};
-+
-+#define to_gate_grf(_hw) container_of(_hw, struct rockchip_gate_grf, hw)
-+
-+static int rockchip_gate_grf_enable(struct clk_hw *hw)
-+{
-+	struct rockchip_gate_grf *gate = to_gate_grf(hw);
-+	u32 val = !(gate->flags & CLK_GATE_SET_TO_DISABLE) ? BIT(gate->shift) : 0;
-+	u32 hiword = ((gate->flags & CLK_GATE_HIWORD_MASK) ? 1 : 0) << (gate->shift + 16);
-+	int ret;
-+
-+	ret = regmap_update_bits(gate->regmap, gate->reg,
-+				 hiword | BIT(gate->shift), hiword | val);
-+
-+	return ret;
-+}
-+
-+static void rockchip_gate_grf_disable(struct clk_hw *hw)
-+{
-+	struct rockchip_gate_grf *gate = to_gate_grf(hw);
-+	u32 val = !(gate->flags & CLK_GATE_SET_TO_DISABLE) ? 0 : BIT(gate->shift);
-+	u32 hiword = ((gate->flags & CLK_GATE_HIWORD_MASK) ? 1 : 0) << (gate->shift + 16);
-+
-+	regmap_update_bits(gate->regmap, gate->reg,
-+			   hiword | BIT(gate->shift), hiword | val);
-+}
-+
-+static int rockchip_gate_grf_is_enabled(struct clk_hw *hw)
-+{
-+	struct rockchip_gate_grf *gate = to_gate_grf(hw);
-+	bool invert = !!(gate->flags & CLK_GATE_SET_TO_DISABLE);
-+	int ret;
-+
-+	ret = regmap_test_bits(gate->regmap, gate->reg, BIT(gate->shift));
-+	if (ret < 0)
-+		ret = 0;
-+
-+	return invert ? 1 - ret : ret;
-+
-+}
-+
-+static const struct clk_ops rockchip_gate_grf_ops = {
-+	.enable = rockchip_gate_grf_enable,
-+	.disable = rockchip_gate_grf_disable,
-+	.is_enabled = rockchip_gate_grf_is_enabled,
-+};
-+
-+struct clk *rockchip_clk_register_gate_grf(const char *name,
-+		const char *parent_name, unsigned long flags,
-+		struct regmap *regmap, unsigned int reg, unsigned int shift,
-+		u8 gate_flags)
-+{
-+	struct rockchip_gate_grf *gate;
-+	struct clk_init_data init;
-+	struct clk *clk;
-+
-+	if (IS_ERR(regmap)) {
-+		pr_err("%s: regmap not available\n", __func__);
-+		return ERR_PTR(-EOPNOTSUPP);
-+	}
-+
-+	gate = kzalloc(sizeof(*gate), GFP_KERNEL);
-+	if (!gate)
-+		return ERR_PTR(-ENOMEM);
-+
-+	init.name = name;
-+	init.flags = flags;
-+	init.num_parents = parent_name ? 1 : 0;
-+	init.parent_names = parent_name ? &parent_name : NULL;
-+	init.ops = &rockchip_gate_grf_ops;
-+
-+	gate->hw.init = &init;
-+	gate->regmap = regmap;
-+	gate->reg = reg;
-+	gate->shift = shift;
-+	gate->flags = gate_flags;
-+
-+	clk = clk_register(NULL, &gate->hw);
-+	if (IS_ERR(clk))
-+		kfree(gate);
-+
-+	return clk;
-+}
-
+@@ -217,6 +217,9 @@ struct clk;
+ #define RK3528_CLKSEL_CON(x)		((x) * 0x4 + 0x300)
+ #define RK3528_CLKGATE_CON(x)		((x) * 0x4 + 0x800)
+ #define RK3528_SOFTRST_CON(x)		((x) * 0x4 + 0xa00)
++#define RK3528_SDMMC_CON(x)		((x) * 0x4 + 0x24)
++#define RK3528_SDIO0_CON(x)		((x) * 0x4 + 0x4)
++#define RK3528_SDIO1_CON(x)		((x) * 0x4 + 0xc)
+ #define RK3528_PMU_CLKSEL_CON(x)	((x) * 0x4 + 0x300 + RK3528_PMU_CRU_BASE)
+ #define RK3528_PMU_CLKGATE_CON(x)	((x) * 0x4 + 0x800 + RK3528_PMU_CRU_BASE)
+ #define RK3528_PCIE_CLKSEL_CON(x)	((x) * 0x4 + 0x300 + RK3528_PCIE_CRU_BASE)
 -- 
 2.48.1
 
