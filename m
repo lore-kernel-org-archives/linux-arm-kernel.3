@@ -4,57 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09584C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:15:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D081EC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=u2ogqZ0lfSN6X1Sse13LF/MfP2p1gI+049qV6tM0m2Y=; b=4hoyMtqsbnsGqhrD1Dcuntyqb0
-	Ceo5eyUvG0AiZoq25DwquuvcOIQE76KkRNwqD8KzKRDJkJQhPHDyRQuO7slLKn9wpbbhI94STs11H
-	seGvMDE9ayCKiw8B7IM2S3flSpZJUKQz3ukW8NWP+MjRupZxAC9846TuBu6f+uYLOFcer3vtAGwlK
-	lk5JEv98beAWnf4WoigMdu30aKtgL6QBKARGf5t7YJi4br2RMifyLOPMGyTveVbrWCiTvOxvl1QCN
-	VX0eIaxpw/QLefczZsgpdAwqN7OleeC1eJiE7rrmgctDk2AyqbVx2tvFjLcauPJxCy8Y4p3dD19gN
-	uLHWQwEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Mime-Version:References:In-Reply-To:From:Subject:Cc:To:
+	Message-Id:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=; b=Z82sEK5F2HETUIc3qje2UNzawE
+	ngUN8lCTaeCUyE7EzX4VBs0UhGPLqlxa0KdhVurm+FZHltVjN+UPGKzsmy1t44a7RtcmgN3kKCgzr
+	qODqGor38zacIB1VvRJukfK7VH2pylYon0voj5tpJjXqLL6GuELgjPm+K3eejgBwLR+scTpZ3oxr7
+	Jx6WTxYOIM2z+D4sQv9K6ckgyMqWbtS5n4GsG0sxJQB/fd0NGpH0CN2mMRtgt7p2WQPjFP1D0EXHB
+	IJSXnKEJ2jNHh2ZsrSb167n9ymmu19qG4OIZa/wKdWMiX641eQqIiJ89vCZSp/ejk6zEzYd8UmyZr
+	YuCYJnfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tph5n-000000070pz-2rSY;
-	Wed, 05 Mar 2025 05:14:52 +0000
-Received: from mail-m49230.qiye.163.com ([45.254.49.230])
+	id 1tph68-000000070uL-2dBU;
+	Wed, 05 Mar 2025 05:15:12 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpg6B-00000006wGC-0FSZ;
-	Wed, 05 Mar 2025 04:11:12 +0000
-Received: from localhost.localdomain (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id cf9cc4cb;
-	Wed, 5 Mar 2025 12:11:03 +0800 (GMT+08:00)
-From: Shawn Lin <shawn.lin@rock-chips.com>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Shawn Lin <shawn.lin@rock-chips.com>
-Subject: [PATCH] arm64: defconfig: Enable Rockchip UFS host driver
-Date: Wed,  5 Mar 2025 12:10:58 +0800
-Message-Id: <1741147858-136859-1-git-send-email-shawn.lin@rock-chips.com>
-X-Mailer: git-send-email 2.7.4
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ01PSFZIShhJHR4ZSk5MSxhWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a95647ff89409cckunmcf9cc4cb
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NzI6Dxw6HjJKIjk1EkxRNjk*
-	DCIwCR9VSlVKTE9KSk9MQ01PS05IVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
-	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUxOTzcG
-DKIM-Signature: a=rsa-sha256;
-	b=fJgaxj3RQpThjTlaB5N8gJODAZQulkr5ajMETM3NJZSNXaNHVzJIskcunQWdh6FqtA0zX9ximV8lT/Qu19RZt1wwg3BmOsQeG3JBQRwzegPMvF4Dt/lTlxK4ziqp4xWImHk9A9rIeUSWZ2IOcyM9xLhsjMgdsbsH+OKNGeVqFts=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=u2ogqZ0lfSN6X1Sse13LF/MfP2p1gI+049qV6tM0m2Y=;
-	h=date:mime-version:subject:message-id:from;
+	id 1tph4M-000000070Xa-1v9I;
+	Wed, 05 Mar 2025 05:13:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	Mime-Version:References:In-Reply-To:From:Subject:Cc:To:Message-Id:Date:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=; b=UJbDYM1hSHz83eFcMu8WI8fAce
+	Ot0I4OQdEeS2Qec0JThYQAbXpIUFCx6yN8q6ysevINO52JYDP5x1rtk2bjHl01t7hSMZcj/PRSdbX
+	YzBUQ/vG1SmAptAzlSPHoBFKc8qXmgROl84U8CFHI87rbRoIRbYAnDhgQ2RF2+kfait7HN1Mlf/zD
+	cE8NErwyUnB2pPc9Uc7be4AYpt85hEuhdG35p0XIvV90z/ZiGAnqpPAj+LAML8SGoaIbXV2bS57aR
+	Uh+XysEhxgMdSBEXnIZgUGMlOJtThXjuf5UBbKvcLFo+Gw43SgujfihKJCWstyq5aIu82vNNk1Qfv
+	Bp0ii8MQ==;
+Received: from mail-pj1-x102a.google.com ([2607:f8b0:4864:20::102a])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tph4J-00000004lPh-1Akp;
+	Wed, 05 Mar 2025 05:13:21 +0000
+Received: by mail-pj1-x102a.google.com with SMTP id 98e67ed59e1d1-2feb91a25bdso8569364a91.1;
+        Tue, 04 Mar 2025 21:13:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741151595; x=1741756395; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=;
+        b=AS9J/3wpj/s8aAx7rSI/kVXeLRrwVOgKY3AX4JvEwlb1hEf72xf4IXLFh1uqXX/gIA
+         0IVzeQtCTD/vEunpyuLRioISWscL4KBV9rjj4Wv3DgytJhcQAwVDTjoV4rRMNBmn9BJL
+         chmBZph6QgKjJha8S1Y2hWkW5vsnEIMQNQ4+BKNEEx3ZKL65OuWgqq4fyG/A+XhnwZ90
+         iWKmvZF3h22XD3CcD+MBQQZTLk1sAx98v+wW0Go9QPa93DlYz8OwiU9EAPP4US1NCdsW
+         NfzPESLuXKLi8Sk1b1VtYZUsk+Bj8/YnKqbzqLScB0zZR+JlOFz8Nit1tmwy6MS37lds
+         B+0g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741151595; x=1741756395;
+        h=content-transfer-encoding:mime-version:references:in-reply-to:from
+         :subject:cc:to:message-id:date:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=iI2i5cV2QPSlpE280H3wgvcz67NO3pUTtRCcIr6Aq80=;
+        b=hV9VHc/3vrdutCPig6eYRJYfS2tnAc8oAboupV/vf/zSw3vHGGC2gy0XcNTRX+wkrE
+         M0TAn5OXHur/lklipL2VCgwia5VkTccESNtNOSBd7uqUtB34HM56rQq009DgxG1+Mzo8
+         FGTxCLVVk3zuBkvl5x3tQrcK0TTja7ASDNaHYqRZCEGeN/L3EBf1lmr23vkNivmiefzG
+         5LFxfKE0z1KdQYPDPy4adwb56FhTh64lKVqdCNoyELfJZCOasPqDir39hhm1sshFxH0b
+         DxxlIRde4zRuIEcJYQHb6qu96zhhh+ouwHNpzR6ngZKV4LQYUMvpKk7h8EzXxP0eqQgH
+         pHyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVxEJ83s+xqk1wg4KkTMOwF/jLHrZPOxxTVddZaErYaQ3whFVmX0K1RTMcao+HbDMw0ulxoJbGL0Y79SR6YTXct@lists.infradead.org, AJvYcCWrLC9a3rAsrT53u4Xi0PAAhxwFJp2k9EH0j6V6oz4mWYbOXMfO6t0UT2m4Nj9vZO1tcdBqXU0pbcxAk5k=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3Wa/5Ka/O5mwPmTDyBescw3AA6AOQG+92AcVJBg/tuGmsXAHy
+	yd/921dLqQeLa3qsqPwaH2kDv4+OHpr5nAPvNQg47fai0gNSG6o/
+X-Gm-Gg: ASbGnctvRiLhB+JKQZDvYf4q6KunKEDJga/mIv8COqHTwi8Ee+gyuU0a621UI7pFnmN
+	YmJ3gt0Oa3NdZuxffzOsRz8U+izVe5Zohm51vCwccFgi7l3iHfopC1x1p/EXe6ZU0Zakynt2LSl
+	IbRdmDKvGoUvXKJ82zW8WvjURPvM/S8peZWfkUEFYrbfojom//zftu/duHIPU/AddLR4kvR1BHL
+	K7BlODb78om9bI66RbBnkZ0tLPtHwiA7cB+FNBaLGqb6AP2I2obZGJgZy8dH5rpMRY5w5wiUw33
+	aWQA1VxJKaASLhPv/NMcsUoRbS+J9zmweQSIs9YP05IsFle/KiyKC9DHWW7lIul42/bjvqm9Ade
+	xleXOEcqhTljs1a4F/grEzt/Haic=
+X-Google-Smtp-Source: AGHT+IFMSQhAQ13isO5dfJNAPGUjk16diS7qR+TcB+buuYoTv6JifWXgE+o5nAJ3u7mlLeqgq39i1g==
+X-Received: by 2002:a17:90b:5688:b0:2ee:bc7b:9237 with SMTP id 98e67ed59e1d1-2ff4979cee1mr3291553a91.27.1741151594826;
+        Tue, 04 Mar 2025 21:13:14 -0800 (PST)
+Received: from localhost (p4204131-ipxg22701hodogaya.kanagawa.ocn.ne.jp. [153.160.176.131])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff4e78a991sm380662a91.24.2025.03.04.21.13.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 21:13:14 -0800 (PST)
+Date: Wed, 05 Mar 2025 14:13:07 +0900 (JST)
+Message-Id: <20250305.141307.586794213367343251.fujita.tomonori@gmail.com>
+To: aliceryhl@google.com
+Cc: fujita.tomonori@gmail.com, linux-kernel@vger.kernel.org,
+ rust-for-linux@vger.kernel.org, x86@kernel.org,
+ linux-riscv@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, tglx@linutronix.de, mingo@redhat.com,
+ bp@alien8.de, dave.hansen@linux.intel.com, peterz@infradead.org,
+ hpa@zytor.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ aou@eecs.berkeley.edu, catalin.marinas@arm.com, will@kernel.org,
+ chenhuacai@kernel.org, kernel@xen0n.name, tangyouling@loongson.cn,
+ hejinyang@loongson.cn, yangtiezhu@loongson.cn, ojeda@kernel.org,
+ alex.gaynor@gmail.com, boqun.feng@gmail.com, gary@garyguo.net,
+ bjorn3_gh@protonmail.com, benno.lossin@proton.me, a.hindborg@kernel.org,
+ tmgross@umich.edu
+Subject: Re: [PATCH v3 5/5] rust: Add warn_on and warn_on_once
+From: FUJITA Tomonori <fujita.tomonori@gmail.com>
+In-Reply-To: <CAH5fLgjX9hh+QRrKggOKr+6p+UwqHSavzu4UXy9iGNL2wSJXtg@mail.gmail.com>
+References: <20250213135759.190006-1-fujita.tomonori@gmail.com>
+	<20250213135759.190006-6-fujita.tomonori@gmail.com>
+	<CAH5fLgjX9hh+QRrKggOKr+6p+UwqHSavzu4UXy9iGNL2wSJXtg@mail.gmail.com>
+Mime-Version: 1.0
+Content-Type: Text/Plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_201111_680698_1F0DE909 
-X-CRM114-Status: UNSURE (   8.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_051319_332337_96AA9341 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,31 +123,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable Rockchip UFS host driver.
+On Mon, 3 Mar 2025 14:33:39 +0100
+Alice Ryhl <aliceryhl@google.com> wrote:
 
-This driver is first introduced on RK3576 SoC, and will be
-used for more SoCs in near future, so add it to defconfig
-will make these platforms work better.
+>> +#[macro_export]
+>> +#[doc(hidden)]
+>> +#[cfg(all(CONFIG_BUG, not(CONFIG_UML)))]
+>> +macro_rules! warn_flags {
+>> +    ($flags:expr) => {
+>> +        const FLAGS: u32 = $crate::bindings::BUGFLAG_WARNING | $flags;
+>> +        // SAFETY: Just an FFI call.
+>> +        #[cfg(CONFIG_DEBUG_BUGVERBOSE)]
+>> +        unsafe {
+>> +            $crate::asm!(concat!(
+>> +                "/* {size} */",
+>> +                ".pushsection .rodata.str1.1, \"aMS\",@progbits, 1\n",
+>> +                "111:\t .string ", "\"", file!(), "\"\n",
+>> +                ".popsection\n",
+> 
+> It looks like you're doing this so that you can reference the filename
+> with "111b", but could you do this instead:
+> 
+> const _FILE: &[u8] = file!().as_bytes();
+> // Plus one for nul-terminator.
+> static FILE: [u8; 1 + _FILE.len()] = {
+>     let mut bytes = [0; 1 + _FILE.len()];
+>     let mut i = 0;
+>     while i < _FILE.len() {
+>         bytes[i] = _FILE[i];
+>         i += 1;
+>     }
+>     bytes
+> };
 
-Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
----
+Neat! I will use this in the next version.
 
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> and then use
+> 
+> asm!(
+>     concat!(
+>         "/* {size} */",
+>         include!(concat!(env!("OBJTREE"),
+> "/rust/kernel/generated_arch_warn_asm.rs")),
+>         include!(concat!(env!("OBJTREE"),
+> "/rust/kernel/generated_arch_reachable_asm.rs")));
+>     file = sym FILE,
+>     line = const line!(),
+>     ...
+> );
+> 
+> with
+> ::kernel::concat_literals!(ARCH_WARN_ASM("{file}", "{line}",
+> "{flags}", "{size}")),
+> 
+> That would be a lot simpler to understand than what you are doing.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 3a3706d..907e92d 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1191,6 +1191,7 @@ CONFIG_SCSI_UFS_HISI=y
- CONFIG_SCSI_UFS_RENESAS=m
- CONFIG_SCSI_UFS_TI_J721E=m
- CONFIG_SCSI_UFS_EXYNOS=y
-+CONFIG_SCSI_UFS_ROCKCHIP=y
- CONFIG_NEW_LEDS=y
- CONFIG_LEDS_CLASS=y
- CONFIG_LEDS_CLASS_MULTICOLOR=m
--- 
-2.7.4
+Indeed.
 
+Thanks a lot!
 
