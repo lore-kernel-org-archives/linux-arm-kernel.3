@@ -4,55 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F684C28B24
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:18:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14088C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CTT4VlJeLCC6/l/jodN5fkT+Y2Y1zsiD3qYQ2wYCV1c=; b=UHQJTzqTDq8NkkAF9+Fgd8gzGu
-	Y+Ft/NAD5L1MA36RgNmq4o8Lyk/L2AlztNqPs1R9/OtekA4TmIZwBI7ENDozHSD/gUFFalG/obAP7
-	+yrZi8+1tfgHf5vGlMJn6fOAa32KBC2Vl9s2PAY/Rx3p8VZ/tkYnKKXa9h0TTD+ccPzcGBG5ZNaea
-	xuRmCisIiAa2PybSA9WC50x04zkci0mVGjc8whP6HdvEEMlMfUSpXbAo0sY8fMQW90jC2ayBza+Us
-	yDUJ3maKV6s1cTtQ4ksgc4wMWv/fybVG59m6yIqrQiBiJpy4ge6Jgt60IYhQVAshAZVvAADjTUSbn
-	2Fj2K77g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8b1/uzHkmLRM1y/RYzrMjDEcfh/Uu5cXz1HbOjoZlx4=; b=vMdPruuaqNKKKeUMGNj6OwZmqa
+	zFWYu5CL6bZZYvgkWKZZLFUpdvCk6CrKbsZcLo3x6VQokewvwKtMcLVTtmQ4ScrTz3dIrg0Wc0e8o
+	FQeEwBx+HyoHDgMNlIHrYZJCB/o4wjPWcrv8ju0a20ZVp2ixrW02T2tR+XFQzkWgcmtmEXVoyjP7e
+	9me8tXwUyAix2TKFCSmROSdZd6GzdQiuEmc2S/hJJX7M6MiyNs2+BcyEeXlGv9ZYsE51aaOT7K9F4
+	VJ3X2TOKE30/zCWWeDfIsbOR8KMOx1nVp6kPKvsJ9hDuDRfoTHzq0EDXgp8WPBQHaA1VMYutcxTc2
+	tm7PEHpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvCZ-00000009C1i-0oed;
-	Wed, 05 Mar 2025 20:18:47 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tpvEJ-00000009CSp-3g2q;
+	Wed, 05 Mar 2025 20:20:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpty9-000000090D4-33Wl
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 18:59:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA10DA45F6E;
-	Wed,  5 Mar 2025 18:54:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ADD8C4CED1;
-	Wed,  5 Mar 2025 18:59:45 +0000 (UTC)
-Date: Wed, 5 Mar 2025 18:59:43 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-Cc: anshuman.khandual@arm.com, david@redhat.com, will@kernel.org,
-	ardb@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com,
-	joey.gouly@arm.com, dave.hansen@linux.intel.com,
-	akpm@linux-foundation.org, chenfeiyang@loongson.cn,
-	chenhuacai@kernel.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	quic_tingweiz@quicinc.com, stable@vger.kernel.org
-Subject: Re: [PATCH v9] arm64: mm: Populate vmemmap at the page level if not
- section aligned
-Message-ID: <Z8ifH6HILN_7sZDk@arm.com>
-References: <20250304072700.3405036-1-quic_zhenhuah@quicinc.com>
+	id 1tpue8-000000096Le-1WiS;
+	Wed, 05 Mar 2025 19:43:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=8b1/uzHkmLRM1y/RYzrMjDEcfh/Uu5cXz1HbOjoZlx4=; b=Ye9QKxX0PEYub3YwqWoLgRmGep
+	7l9EKC6wNxACHF4p5dRYP3vqSK/jcNcXQNWhGRI1qsaw7JAOSrDzZU9Ebu1SnmpF7fOiFS55nGMwc
+	F3M8qQb33cV+CEmZ8Rxq2ZtNlX5773XyJ1bJqR7MkqoA8d4aejOiWryJYPZC1hPBYL8/GH5GOje4a
+	mFZJe0/XQkGyfnhref463yW8mmVzvLprOSFpN5xw3N7Wu4eJWo1zdrWuxPnjHfEabx2jORcO6OuAE
+	okdFcvcTk4ZReY/FPkjd25x1b/sELcK/ynVDxYc4WAcprC+bsJCpSw6lsWoDkKri52h0b8MHG8XZW
+	IG+Dh5Gw==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpue5-00000000j66-2rUM;
+	Wed, 05 Mar 2025 19:43:11 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id F357B20D00;
+	Wed,  5 Mar 2025 20:43:08 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id fcFUuhmvejPn; Wed,  5 Mar 2025 20:43:08 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1741203788; bh=+LUmQPB+tURq91r5Yr6zdu4bs85M0PK3opWSYhnifBY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=XQQG5nF+p1VSPixYAnYKKG3oBzbPUWg5oYFpWZV5o0jm9ODr0MIpT39jycMnDRltY
+	 ipl507d/b96y6EDS6ZyP+Co/ssH/He+ZQ9ERa2/3gELnGLa63AuUMnkensjJm6k/qg
+	 f+CH1Y/yipr3WBvWaLM3YrHl8BBjP+peLCIn4VWAA7qBYasfyXFz1Q2o6RzNJQGPsK
+	 TfMlqaMBGMuNH+vL+ylSH0ix1GKHX1VobJblgfEJ+es3T+2UWZ5654NxWSMc6w2NWL
+	 l7oKAg2GtM85dv+nv4iwKGbvC7wulY5OHDTHAqw6VALGSzfQZ9a7YwvgbWYlh5mdfu
+	 FWCZDQgNh6+sg==
+From: Yao Zi <ziyao@disroot.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH v2 3/8] dt-bindings: mmc: rockchip-dw-mshc: Add compatible string for RK3528
+Date: Wed,  5 Mar 2025 19:42:12 +0000
+Message-ID: <20250305194217.47052-4-ziyao@disroot.org>
+In-Reply-To: <20250305194217.47052-1-ziyao@disroot.org>
+References: <20250305194217.47052-1-ziyao@disroot.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304072700.3405036-1-quic_zhenhuah@quicinc.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_105949_834635_C4C9258F 
-X-CRM114-Status: GOOD (  23.17  )
+X-CRM114-CacheID: sfid-20250305_194309_829970_473F53E2 
+X-CRM114-Status: UNSURE (   8.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,66 +101,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 03:27:00PM +0800, Zhenhua Huang wrote:
-> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
-> to 27, making one section 128M. The related page struct which vmemmap
-> points to is 2M then.
-> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
-> vmemmap to populate at the PMD section level which was suitable
-> initially since hot plug granule is always one section(128M). However,
-> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
-> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
-> existing arm64 assumptions.
-> 
-> The first problem is that if start or end is not aligned to a section
-> boundary, such as when a subsection is hot added, populating the entire
-> section is wasteful.
-> 
-> The next problem is if we hotplug something that spans part of 128 MiB
-> section (subsections, let's call it memblock1), and then hotplug something
-> that spans another part of a 128 MiB section(subsections, let's call it
-> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
-> the entire PMD entry which also supports memblock2 even though memblock2
-> is still active.
-> 
-> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
-> fix similar to x86-64: populate to pages levels if start/end is not aligned
-> with section boundary.
-> 
-> Cc: <stable@vger.kernel.org> # v5.4+
-> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
-> Acked-by: David Hildenbrand <david@redhat.com>
-> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
-> ---
->  arch/arm64/mm/mmu.c | 5 ++++-
->  1 file changed, 4 insertions(+), 1 deletion(-)
+Add RK3528 compatible string for SD/SDIO interface.
 
-Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Yao Zi <ziyao@disroot.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Will, another bug that has been around for ages. Do you want to take it
-as a fix?
-
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b4df5bc5b1b8..1dfe1a8efdbe 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -1177,8 +1177,11 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
->  		struct vmem_altmap *altmap)
->  {
->  	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
-> +	/* [start, end] should be within one section */
-> +	WARN_ON_ONCE(end - start > PAGES_PER_SECTION * sizeof(struct page));
->  
-> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
-> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
-> +	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
->  		return vmemmap_populate_basepages(start, end, node, altmap);
->  	else
->  		return vmemmap_populate_hugepages(start, end, node, altmap);
-> -- 
-> 2.25.1
-> 
-
+diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+index 06df1269f247..ea0feb733e32 100644
+--- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
++++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
+@@ -38,6 +38,7 @@ properties:
+               - rockchip,rk3328-dw-mshc
+               - rockchip,rk3368-dw-mshc
+               - rockchip,rk3399-dw-mshc
++              - rockchip,rk3528-dw-mshc
+               - rockchip,rk3568-dw-mshc
+               - rockchip,rk3588-dw-mshc
+               - rockchip,rv1108-dw-mshc
 -- 
-Catalin
+2.48.1
+
 
