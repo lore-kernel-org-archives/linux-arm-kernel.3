@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF85C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 00:40:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2BC7C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 00:47:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uiXIpgv9qxEGFC0n1ZJvMUswAydGH9gE8jLJ3sUDRvA=; b=YbaFxp2/VmuLYWzPnIhc/vfIZp
-	yMdiJH5+u3HPJ2D+xO7ZT6xNhkZ6g82mW1Tdjp3OaUlWkWD9lhWMhILnaaydYPHbesJpcl+kIR2ro
-	tTD/3P4htlM6qeC/jmYI/HJdDA4Jl5czpYAMNetameukPHPxcFB18EvbSH3KPGtTgWbjlD7x2H4u8
-	ky/UmdXDBBbRVgWPhCj6wLWHCL2MGcOvxJxHJY3SBe2oyrqaBjnUzpV/WN4TkynyQUjc5XKXEONho
-	VwY0qf1dJva4Au9/ElWj5GBldhlsEPu5Si7tW12WhQtj7iIwZl7ovBzf4fXaSAtYq3JCGR5nMZJiB
-	Gs7Ij4ug==;
+	bh=KRvI8+E7crd/J3RVLSvgOPbllIBq4iwslHzpas9qZDc=; b=4J/ZHKc1eS9WqBCQn5waB9179z
+	FexpeGFYMPSJPDgIM9dj10Cumk+Qg81NsPWSc2C5nVzqTRNT9hh+TKJiL0x4NKC6T4a+JSY/Rq54f
+	IOfV0se9Wat1WEXiaVeM+ATi/xNCXX13A8318GckXiyPme2GKn+ESmB3jDPPDOynQ7jZW82LxcinR
+	b+86KDqRGJ1ogQge2fltow/Srt0a8H5QGSiUS5bSKAfIm3U7DGdDiEUSZ6XavjXlwscSt+csgNhfV
+	FUvZvztiY/kmrSMYC6ybJn4r701/hdEDcNEELQYr6DPZiuRXqFEaxqanuzKcebBdEjY9csKioRMIN
+	rkUnAuZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpcnj-00000006eQc-0aoG;
-	Wed, 05 Mar 2025 00:39:55 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tpcui-00000006euX-1DtM;
+	Wed, 05 Mar 2025 00:47:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpcm8-00000006eCK-2476
+	id 1tpct8-00000006ep9-1QrB
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 00:38:17 +0000
+	Wed, 05 Mar 2025 00:45:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 51558A45E81;
-	Wed,  5 Mar 2025 00:32:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57C9FC4CEE5;
-	Wed,  5 Mar 2025 00:38:12 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CC4175C64F3;
+	Wed,  5 Mar 2025 00:43:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D50C4CEE5;
+	Wed,  5 Mar 2025 00:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741135094;
-	bh=pHEcWCG/8MyiAl1bVQnLutpSDPdKJFxtF27iTUsZguI=;
+	s=k20201202; t=1741135529;
+	bh=gFLlK8tKubCvB0zH2AmLKFcC0Bw0FyNX/KP5Xafjw14=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sygvpchtb82JtF/P1QkuJ6+GK6LhxLJB/tpVdL323+X6MyNJ9J4QuxbqqnQJYzEH2
-	 xx8NEewsgfZ9RLnc3Bu2/JUQ17vRSzoAJfL+Y2TM7937WXlCcBW/rcF31Hxy8OOz2j
-	 53jaLPN0JCFm0Az5WrYah0RpFhUbhtx8QGyOvVCnc322K8FjPvbdHj5ytArwgsUxN/
-	 ZMF4JbDIS6PLS6DiDWsk9BhlLSJKJXQV8IwKDi072VoJRRNtkxKKfS8vdcrl6d4RBr
-	 xy/alpB8n6ilcLBfP0rzhmvXyoOtopnpytffeSVANYBZxQ4ib5g8VSyl7x+T2KUQra
-	 A8qeD6PRvWDxA==
-Date: Wed, 5 Mar 2025 00:38:08 +0000
+	b=pZi4Nst1ORWhKWhrislwqJ0nN6gzS2masD/TWLsThj5T1FkvvBjYE4H6+bduYuIb2
+	 6lp8GbvTwxeuLUMoCFXb+QKNPQclw6Or4uh7PHcKLTMXVFCXaIPS4tgRJAQbAZ3U3V
+	 uFl67ncSydHcttrWPwd8UnI62QJafNDziGcEoBo6ZhuFqR3GObn+OhqBQwtKSc7AgV
+	 wuoZnF8pUu84XipAeYsvSDz9v6BCPZSGJQnf7LfFNdlhQVpY+08EAtvBgRSzMhkDx1
+	 dmFQovKTn0qh7ndZlU8fUG6icPeISOQMOJrSXW34dEdzNIx5b7nkzOAkva4kK43VnJ
+	 vZRYw3jRpHdng==
+Date: Wed, 5 Mar 2025 00:45:23 +0000
 From: Will Deacon <will@kernel.org>
 To: Sebastian Ene <sebastianene@google.com>
 Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
@@ -50,24 +50,20 @@ Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
 	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
 	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
- ffa init
-Message-ID: <20250305003808.GA31667@willie-the-truck>
+	kernel-team@android.com, Andrei Homescu <ahomescu@google.com>
+Subject: Re: [PATCH v2 4/4] KVM: arm64: Release the ownership of the hyp rx
+ buffer to Trustzone
+Message-ID: <20250305004522.GC31667@willie-the-truck>
 References: <20250227181750.3606372-1-sebastianene@google.com>
- <20250227181750.3606372-4-sebastianene@google.com>
- <20250303234259.GA30749@willie-the-truck>
- <Z8ZPBZF7J-qKdb_i@google.com>
- <20250304015633.GA30882@willie-the-truck>
- <Z8c6enoolJe7Zeqk@google.com>
+ <20250227181750.3606372-5-sebastianene@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z8c6enoolJe7Zeqk@google.com>
+In-Reply-To: <20250227181750.3606372-5-sebastianene@google.com>
 User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_163816_672118_A31474E0 
-X-CRM114-Status: GOOD (  42.14  )
+X-CRM114-CacheID: sfid-20250304_164530_435223_3A8270E9 
+X-CRM114-Status: GOOD (  19.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,99 +78,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 05:38:02PM +0000, Sebastian Ene wrote:
-> On Tue, Mar 04, 2025 at 01:56:35AM +0000, Will Deacon wrote:
-> > On Tue, Mar 04, 2025 at 12:53:25AM +0000, Sebastian Ene wrote:
-> > > On Mon, Mar 03, 2025 at 11:43:03PM +0000, Will Deacon wrote:
-> > > > On Thu, Feb 27, 2025 at 06:17:48PM +0000, Sebastian Ene wrote:
-> > > > > Map the hypervisor's buffers irrespective to the host and return
-> > > > > a linux error code from the FF-A error code on failure. Remove
-> > > > > the unmap ff-a buffers calls from the hypervisor as it will
-> > > > > never be called.
-> > > > > Prevent the host from using FF-A directly with Trustzone
-> > > > > if the hypervisor could not map its own buffers.
-> > > > > 
-> > > > > Signed-off-by: Sebastian Ene <sebastianene@google.com>
-> > > > > ---
-> > > > >  arch/arm64/kvm/hyp/nvhe/ffa.c | 46 +++++++++++++----------------------
-> > > > >  1 file changed, 17 insertions(+), 29 deletions(-)
-> > > > 
-> > > > [...]
-> > > > 
-> > > > > @@ -861,6 +842,7 @@ int hyp_ffa_init(void *pages)
-> > > > >  {
-> > > > >  	struct arm_smccc_res res;
-> > > > >  	void *tx, *rx;
-> > > > > +	int ret;
-> > > > >  
-> > > > >  	if (kvm_host_psci_config.smccc_version < ARM_SMCCC_VERSION_1_2)
-> > > > >  		return 0;
-> > > > > @@ -911,5 +893,11 @@ int hyp_ffa_init(void *pages)
-> > > > >  		.lock	= __HYP_SPIN_LOCK_UNLOCKED,
-> > > > >  	};
-> > > > >  
-> > > > > +	/* Map our hypervisor buffers into the SPMD */
-> > > > > +	ret = ffa_map_hyp_buffers();
-> > > > > +	if (ret)
-> > > > > +		return ret;
-> > > > 
-> > > > Doesn't calling RXTX_MAP here undo the fix from c9c012625e12 ("KVM:
-> > > > arm64: Trap FFA_VERSION host call in pKVM") where we want to allow for
-> > > > the host to negotiate the version lazily?
-> > > 
-> > > We still have the same behaviour where we don't allow memory
-> > > sharing to happen until the version is negotiated but this
-> > > separates the hypervisor buffer mapping part from the host.
-> > 
-> > Sadly, the spec doesn't restrict this to the memory sharing calls:
-> > 
-> >   | [...] negotiation of the version must happen before an invocation of
-> >   | any other FF-A ABI
-> > 
+On Thu, Feb 27, 2025 at 06:17:49PM +0000, Sebastian Ene wrote:
+> Introduce the release FF-A call to notify Trustzone that the hypervisor
+> has finished copying the data from the buffer shared with Trustzone to
+> the non-secure partition.
 > 
-> We do that, as the hypervisor negotiates its own version in
-> hyp_ffa_init.
-
-hyp_ffa_init() only issues FFA_VERSION afaict, which is the one call
-that you're allowed to make during negotiation. So the existing code is
-fine.
-
-> I think the host shouldn't be allowed to overwrite the
-> hyp_ffa_version obtained from _init, this feels wrong as you
-> can have a driver that forcefully downgrades the hypervisor to an old
-> version.
-
-I think that's also fine. The FFA code in the hypervisor exists solely
-to proxy requests from the host; it's not used for anything else and so,
-from the host's persective, FFA should behave identically to the case in
-which the proxy is not present (e.g. if we were just using VHE). That
-means that we're doing the right thing by deferring to the host for
-version negotation.
-
-Are you saying there's a bug in the current code if the host negotiates
-the downgrade?
-
-> We need to do three things, Sudeep & Will please correct me if I am
-> wrong, but this is how I see it:
+> Reported-by: Andrei Homescu <ahomescu@google.com>
+> Signed-off-by: Sebastian Ene <sebastianene@google.com>
+> ---
+>  arch/arm64/kvm/hyp/nvhe/ffa.c | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
 > 
-> - the hypervisor should act as a separate entity (it has a different ID and
-> in the current implementation we don't do a distinction between host/hyp) and
-> it should be able to lock its own version from init.
+> diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> index 861f24de97cb..7da0203f1ee9 100644
+> --- a/arch/arm64/kvm/hyp/nvhe/ffa.c
+> +++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+> @@ -725,6 +725,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+>  	DECLARE_REG(u32, uuid3, ctxt, 4);
+>  	DECLARE_REG(u32, flags, ctxt, 5);
+>  	u32 count, partition_sz, copy_sz;
+> +	struct arm_smccc_res _res;
+>  
+>  	hyp_spin_lock(&host_buffers.lock);
+>  	if (!host_buffers.rx) {
+> @@ -741,7 +742,7 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+>  
+>  	count = res->a2;
+>  	if (!count)
+> -		goto out_unlock;
+> +		goto release_rx;
+>  
+>  	if (hyp_ffa_version > FFA_VERSION_1_0) {
+>  		/* Get the number of partitions deployed in the system */
+> @@ -757,10 +758,12 @@ static void do_ffa_part_get(struct arm_smccc_res *res,
+>  	copy_sz = partition_sz * count;
+>  	if (copy_sz > KVM_FFA_MBOX_NR_PAGES * PAGE_SIZE) {
+>  		ffa_to_smccc_res(res, FFA_RET_ABORTED);
+> -		goto out_unlock;
+> +		goto release_rx;
+>  	}
+>  
+>  	memcpy(host_buffers.rx, hyp_buffers.rx, copy_sz);
+> +release_rx:
+> +	ffa_rx_release(&_res);
 
-I strongly disagree with that. The hypervisor isn't using FFA for
-anything other than proxying the host and so we don't need to negotiate
-a separate version.
+Hmm, the FFA spec is characteristically unclear as to whether or not we
+need to release the rx buffer in the case that the flags indicate use of
+the rx buffer but the returned partition count is 0.
 
-What would we gain by doing this? Is there a bug with what we're doing
-at the moment?
-
-> - keep a separate version negotiated for the host
-> - trap FFA_ID_GET from the host and return ID=1 because
->   currently we forward the call to the TZ and it returns the same ID
->   as the (hypervisor == 0).
-
-Why is this beneficial? It just looks like complexity at EL2 for no gain
-to me, but maybe I'm missing something.
+Sudeep -- do you know what we should be doing in that case?
 
 Will
 
