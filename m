@@ -4,93 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6EF6C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:10:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA617C282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vqA7WR0bg0u4G+HAomrK/aLC9+18x4n+S7IKkNThfiM=; b=YZGJ8T07I+WGu4ruMzjWBxA8cg
-	tN2c/nob1Ydg/0DmIRhHfCuhX9zqCHGgErnCsIsdRwcibSpsPoe/seVIOUViMjqhMfNCl9/zn+6wX
-	Pov/ltaA8vKTpAiPsAWLy6b+sNimzlYmAX2CEE6KxzuK+O0SlDXJ7srCKo5sjnl9lIiZzduz2Px0y
-	Ka0GEg/uxJLGwcWezucOy4gff1EbCZ0R+usO6DKSaOvNBOiHUganCFYlKR2XqX4DPXIgaZEXPpok+
-	YZROFqld+tP5M6GTDtNp1zZRmDrArOMy+MhRsXNBESYb3R1XzQs+2gh0TmEHktxQSbckZvLaGJFcs
-	skgKkgtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
+	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=; b=iot1y0GWhIUdgaO4+8dHMG8y37
+	uFNMMTihR6uzvwQwKp61deMYq2oVPMyICyOPF77GonjULYWxILaJK5pX+nerOh8wsO8mH/m/xCQa5
+	i40QrxGbSpYo+zNaF8NHVYYPtTvAp+RvFF34Lta+/YyGdUoQgmtUVvV4puQQc8hfSMjKfa2p2zK1A
+	Fk5mGblS3HHp2+ZqfFr2HC9HpJvIqKnLSaLC5M36TbSEbud7yzxD8jdqFyljkT4hPKQ2n+CE0k4T1
+	4ZCjnR0kKWeQtgt/NuEOE6pvNvzH3UYzToVCN8+hV+ZOypXZXPCcxmqHADSHYdI7wc1AwsLiPc9Hp
+	pa4lUqBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpklr-00000007TDK-42yN;
-	Wed, 05 Mar 2025 09:10:32 +0000
-Received: from mx1.tq-group.com ([93.104.207.81])
+	id 1tpkq6-00000007Tlw-3xPw;
+	Wed, 05 Mar 2025 09:14:54 +0000
+Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpke0-00000007RYc-44KN
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 09:02:26 +0000
+	id 1tpjZX-00000007IHN-2VRe;
+	Wed, 05 Mar 2025 07:53:44 +0000
+Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54954fa61c8so5306325e87.1;
+        Tue, 04 Mar 2025 23:53:42 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
-  t=1741165345; x=1772701345;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=vqA7WR0bg0u4G+HAomrK/aLC9+18x4n+S7IKkNThfiM=;
-  b=oGhRETlVDZZCHC9MIrW+AooGvmn9EluSFMJWw20uogoB0J7bBY6By5Zv
-   4dbRWfeewGNjVzFcoUEUurE9O8kkCfb6LfJEeBjthyz9AcPa0Wb7muwe7
-   atekAZGwYrynYOWS2o9AYfhOwI+lOkXZbtZTvTZu9Zhy5x5RYNrIQGBls
-   cadgc2STY1oUF4v3HojbkPAKTed+UMR9YnFn2tPOUd3C77Ubgjhpq0ZiK
-   aE2ZCnyw5QjiyHnfrqqsd43ooJMKAJBock4UebJXYMCoUrswiCFQRLGOb
-   P9kQTQ5iwGkGzPv8U9kcsdg2L+t22lRMtgsSeGbkhtcSsTgVtpryNmAJR
-   A==;
-X-CSE-ConnectionGUID: IH657TY3Tl23yR3Vv1dR/A==
-X-CSE-MsgGUID: cgkFUMvxRU6w9KHMn9F1ow==
-X-IronPort-AV: E=Sophos;i="6.14,222,1736809200"; 
-   d="scan'208";a="42301885"
-Received: from vmailcow01.tq-net.de ([10.150.86.48])
-  by mx1.tq-group.com with ESMTP; 05 Mar 2025 10:02:22 +0100
-X-CheckPoint: {67C8131E-23-7141A0B0-E6EDEC14}
-X-MAIL-CPID: 0BDC1C9894ABA85FF037DCAB1A11A9B5_3
-X-Control-Analysis: str=0001.0A00636C.67C8131F.010A,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id A72F3170EA5;
-	Wed,  5 Mar 2025 10:02:16 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
-	s=dkim; t=1741165338;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=vqA7WR0bg0u4G+HAomrK/aLC9+18x4n+S7IKkNThfiM=;
-	b=qzcWgjDGS6jWPY+RITIk8yBviKpMKL0y16KSXMlshqTDttq6zKFd8uRh0rjbusm21alLLO
-	0zncE1o54zqa2PkjSbvWyACMubP8NqizUU7F39NtdEyf8B7h5zWhZ3ivT6X25sqtCFjSSc
-	Bq3JpoZAEKG0N2u2vqMbhZJRAtcHkfgPLIvm7R5McponzskDZSRi22nXnOhJg1CUW3KHx/
-	aVeSFRyy4/ATHnHp/9XUjp3UP5VCYqp6++6rG5zw1KmH82cgRaFpKEHzJKR3F3q1GHoDJc
-	hgimR61srqwk7i5wU9S6wvO15O4FIatNLRGINZRrOvbwgrcOGQlB24ojz6hXxA==
-From: Alexander Stein <alexander.stein@ew.tq-group.com>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
- Peng Fan <peng.fan@nxp.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux@ew.tq-group.com, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
-Subject: Re: [PATCH v3 2/6] dt-bindings: soc: imx93-media-blk-ctrl: Add LDB subnode
- into schema and example
-Date: Wed, 05 Mar 2025 10:02:16 +0100
-Message-ID: <4414669.ejJDZkT8p0@steina-w>
-Organization: TQ-Systems GmbH
-In-Reply-To: <20250305-dandelion-axolotl-of-excitement-05fa70@krzk-bin>
-References: <20250304154929.1785200-1-alexander.stein@ew.tq-group.com>
- <20250304154929.1785200-3-alexander.stein@ew.tq-group.com>
- <20250305-dandelion-axolotl-of-excitement-05fa70@krzk-bin>
+        d=gmail.com; s=20230601; t=1741161221; x=1741766021; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=;
+        b=G7oOLH3zeugRFmagiKpNE5xYgbj6zWgt8ne1KZTM6pSuVQ5EzoxAJ12Y363yRNrpoZ
+         Sqrvb3++EM2HYW4d57wp+wWHZuVmqZtlrQKi4P5ZPvroZoGKoRH/KluhqyXOwODjQn3L
+         M4NjKNYtETf1O7J31vDvgG6oUQAf+f+6gFBA9y4GKh88kt3RfFNX4jUUVbl2fafXk2uF
+         necHLJVVlDGWkYynOnEmVpf5LBLCwDAy7azBGdLDTZbDJMoO7hmNrevac4GCgxLU7HWD
+         UPilOwAosOs6J6lUusqAWfs+X0k9wmA+53lHSmeuMAcEOzI7B1NEJlRexzS7PNs2iw1q
+         hL8A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741161221; x=1741766021;
+        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
+         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=;
+        b=KAlortb2tYpo+RSEf0RJ8e5dyVN0dE0+RuL/0hy/qipk5v7QADAmgnpIWC4icDzxOa
+         l2Y2N2Zy+Q3PdzDzBL/85AVEGleio4Ca9ts8XMQErpuTK/l2hrZYVeDp4SD2MP4euIl/
+         htkC5cMA5uDQqls5UK1YuNClMaz6eZdzLIBIKCcul50P7PYiV6RUU5fM9A1g/e/6TLcx
+         pbLLvP9J2t6nj1jtCu7qk8YqtEPC4Y2D6jE2agDDi8Iz45mo2t7cGoFcaUQUn7nc+GhF
+         ht+Yduf92xXv8ZlawOfPLWHzQmo/k58lHd+t5ykstNzEOMQCUxZtQyjHdwSs6NukDkv4
+         0Uig==
+X-Forwarded-Encrypted: i=1; AJvYcCW/WxL+whbTKAj1XONuVydBpeqiHHGWOKCGHTSFFf4nb+S2NXUgQUXbS7qBz51bBMaZCgdlqEghg4HCo/r5/P+C@lists.infradead.org, AJvYcCX+Cc2V0fob4FjQJhQKE0bqRSeYenfotbCMDNj73RDOcLxpHzi2/4sGX7lT05nwtwAokunrnzaNMkns92tG7oQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6qxWvQ2cGuFF3DOm9SVCIMtDWcQJT+dhd1W2688sAtqT5LTDi
+	uLUPjNahX0mfxZNseMGacdU6DR7gB0J5Tcp9g7A23QM+zHRj3sRq
+X-Gm-Gg: ASbGnct6q38pBVyEC75GhpbXE9+NmQJiHTdr03P97hqDl+V7GIh9rh9S45nmoGdO3MU
+	L16oEImdKFRfwWDx1cUcetwfm28VFDcZLhX3zDIogh79ePmnqWZNFuyym8Qdbw6OeZCz+RWOAxG
+	nwV7qzogXQun8mR34u++auAn6o5Crix+sQUSbdlcD6bOWwuSANwzaD/KdkmS0kgPXN+IHNZGpQd
+	ktuJfT5ZvxaabdxCX2t9UX8OgchFeBH5aATw+47uLVGVgtM7Jar8H7viasPRvirAvwFGWL/ii55
+	FPJcF1NyjTJzYTs0Vy+tNBNhGXk4oInP6LJLg2mhiJlbKo2PnpUx1hvrG55eGCVd/Jt2ml2iSYN
+	0ucRWER4wbVTbSh1p0FTmKyTnUiyqLAFB
+X-Google-Smtp-Source: AGHT+IGoSfXFo2jQfX6zwJukiQLZftqM9VYE26ir2v2Z98LPwA2YNZbRZg8LePVsUKETExIau4wjew==
+X-Received: by 2002:a05:6512:3190:b0:549:7c64:3bc0 with SMTP id 2adb3069b0e04-5497d35028emr565104e87.29.1741161221096;
+        Tue, 04 Mar 2025 23:53:41 -0800 (PST)
+Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5495b3f4ebdsm1155605e87.102.2025.03.04.23.53.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 23:53:40 -0800 (PST)
+References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
+ <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
+ <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
+User-agent: mu4e 1.10.9; emacs 30.1
+From: Mikhail Rudenko <mike.rudenko@gmail.com>
+To: Nicolas Dufresne <nicolas@ndufresne.ca>
+Cc: Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart
+ <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Tomasz Figa
+ <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Hans
+ Verkuil <hverkuil@xs4all.nl>, Sergey  Senozhatsky
+ <senozhatsky@chromium.org>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Mauro  Carvalho Chehab
+ <mchehab+huawei@kernel.org>, stable@vger.kernel.org
+Subject: Re: [PATCH v4 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
+ dma-contig
+Date: Wed, 05 Mar 2025 10:40:31 +0300
+In-reply-to: <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
+Message-ID: <87y0xj29rz.fsf@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="iso-8859-1"
-X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_010225_471761_05DEB2DA 
-X-CRM114-Status: GOOD (  26.58  )
+X-CRM114-CacheID: sfid-20250304_235343_633942_2AB62DB6 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,170 +108,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Nicolas,
 
-Am Mittwoch, 5. M=E4rz 2025, 08:13:04 CET schrieb Krzysztof Kozlowski:
-> On Tue, Mar 04, 2025 at 04:49:21PM +0100, Alexander Stein wrote:
-> > Document the LDB bridge subnode and add the subnode into the example.
-> > For the subnode to work, the block control must scan its subnodes and
->=20
-> Don't describe drivers, but describe the hardware.
+On 2025-03-03 at 10:24 -05, Nicolas Dufresne <nicolas@ndufresne.ca> wrote:
 
-Thanks, I'll rephrase to describe the hardware better regarding LVDS.
+> Hi Mikhail,
+>
+> Le lundi 03 mars 2025 =C3=A0 14:40 +0300, Mikhail Rudenko a =C3=A9crit=C2=
+=A0:
+>> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
+>> commit 129134e5415d ("media: media/v4l2: remove
+>> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
+>> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
+>> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
+>> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
+>> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
+>> no-ops, making cache maintenance for non-coherent dmabufs allocated
+>> by
+>> dma-contig impossible.
+>>
+>> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
+>> {flush,invalidate}_kernel_vmap_range calls to
+>> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
+>> buffers.
+>>
+>> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
+>> V4L2_MEMORY_FLAG_NON_COHERENT flag")
+>> Cc: stable@vger.kernel.org
+>> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+>> ---
+>> =C2=A0.../media/common/videobuf2/videobuf2-dma-contig.c=C2=A0 | 22
+>> ++++++++++++++++++++++
+>> =C2=A01 file changed, 22 insertions(+)
+>>
+>> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+>> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+>> index
+>> a13ec569c82f6da2d977222b94af32e74c6c6c82..d41095fe5bd21faf815d6b035d7
+>> bc888a84a95d5 100644
+>> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+>> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+>> @@ -427,6 +427,17 @@ static int
+>> =C2=A0vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
+>> =C2=A0				=C2=A0=C2=A0 enum dma_data_direction
+>> direction)
+>> =C2=A0{
+>> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+>> +	struct sg_table *sgt =3D buf->dma_sgt;
+>> +
+>> +	if (!buf->non_coherent_mem)
+>> +		return 0;
+>> +
+>> +	if (buf->vaddr)
+>> +		invalidate_kernel_vmap_range(buf->vaddr, buf->size);
+>
+> What would make me a lot more confortable with this change is if you
+> enable kernel mappings for one test. This will ensure you cover the
+> call to "invalidate" in your testing. I'd like to know about the
+> performance impact. With this implementation it should be identical to
+> the VB2 one.
 
->=20
-> > bind drivers to them, do not misuse either simple-bus or simple-mfd
-> > here.
->=20
-> I don't understand that simple-bus or simple-mfd statement. There are no
-> such compatibles here.
+I'll enable kernel mappings and rerun my tests later this week.
 
-Same as above, the wording stems from 1cb0c87d27dcc ("dt-bindings: soc:
-imx8mp-media-blk-ctrl: Add LDB subnode into schema and example").
-I'll drop it to avoid confusion.
+> What I was trying to say in previous comments, is that my impression is
+> that we can skip this for CPU read access, since we don't guaranty
+> concurrent access anyway. Both address space can keep their cache in
+> that case. Though, I see RKISP does not use kernel mapping plus I'm not
+> reporting a bug, but checking if we should leave a comment for possible
+> users of kernel mapping in the future ?
 
->=20
-> >=20
-> > Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
-> > ---
-> >  .../soc/imx/fsl,imx93-media-blk-ctrl.yaml     | 51 +++++++++++++++++++
-> >  1 file changed, 51 insertions(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-=
-blk-ctrl.yaml b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-b=
-lk-ctrl.yaml
-> > index b3554e7f9e76d..cd785111928bf 100644
-> > --- a/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctr=
-l.yaml
-> > +++ b/Documentation/devicetree/bindings/soc/imx/fsl,imx93-media-blk-ctr=
-l.yaml
-> > @@ -24,6 +24,14 @@ properties:
-> >    reg:
-> >      maxItems: 1
-> > =20
-> > +  ranges: true
-> > +
-> > +  '#address-cells':
-> > +    const: 1
-> > +
-> > +  '#size-cells':
-> > +    const: 1
-> > +
-> >    '#power-domain-cells':
-> >      const: 1
-> > =20
-> > @@ -46,9 +54,20 @@ properties:
-> >        - const: csi
-> >        - const: dsi
-> > =20
-> > +  bridge@20:
->=20
-> @20 looks wrong. Use 'ranges;' and try again your DTS...
->=20
-> Binding is supposed to be complete. We have several examples when people
-> added children one-by-one, everytime with different reasoning about
-> child addressing.
->=20
-> So please confirm: this is complete and no other children will ever be
-> added here... or you are 100% sure that all future children will be
-> unit-addressable (will have unit address and appropriate properties).
+I trust Tomasz here, I'd wait for his comment on v4.
 
-This block control is a collection of registers for different purposes:
-* MIPI-DSI
-* MIPI-CSI
-* Parallel camera
-* LVDS
-* CAMERA_MUX
+>> +
+>> +	dma_sync_sgtable_for_cpu(buf->dev, sgt, direction);
+>> +
+>> =C2=A0	return 0;
+>> =C2=A0}
+>>
+>> @@ -434,6 +445,17 @@ static int
+>> =C2=A0vb2_dc_dmabuf_ops_end_cpu_access(struct dma_buf *dbuf,
+>> =C2=A0				 enum dma_data_direction direction)
+>> =C2=A0{
+>> +	struct vb2_dc_buf *buf =3D dbuf->priv;
+>> +	struct sg_table *sgt =3D buf->dma_sgt;
+>> +
+>> +	if (!buf->non_coherent_mem)
+>> +		return 0;
+>> +
+>> +	if (buf->vaddr)
+>> +		flush_kernel_vmap_range(buf->vaddr, buf->size);
+>> +
+>> +	dma_sync_sgtable_for_device(buf->dev, sgt, direction);
+>> +
+>> =C2=A0	return 0;
+>> =C2=A0}
+>>
+>>
 
-At lease for parallel camera, another subnode is expected ([1]).
 
-[1] https://lore.kernel.org/all/20240819024001.850065-1-victor.liu@nxp.com/
-
-> BTW, I don't quite get why this is both syscon and has translation for
-> child addresses. Does it mean your child does not use the same MMIO as
-> parent, thus leading to unsynchronized reg access?
-
-I'm not sure what the best practices are. This LDB has two registers
-inside this block. So it seems reasonable to me to indicate this using
-a reg property. On the other hand, access is solely done by accessing
-via syscon, so unsynchronized reg access is not an issue.
-
-What I am getting from your comments this node should not have 'reg'
-property, as it uses syscon anyway.
-
-> > +    type: object
-> > +    additionalProperties: true
-> > +    properties:
-> > +      compatible:
-> > +        contains:
-> > +          const: fsl,imx93-ldb
-> > +
-> >  required:
-> >    - compatible
-> >    - reg
-> > +  - ranges
-> > +  - '#address-cells'
-> > +  - '#size-cells'
-> >    - power-domains
-> >    - clocks
-> >    - clock-names
-> > @@ -77,4 +96,36 @@ examples:
-> >                 clock-names =3D "apb", "axi", "nic", "disp", "cam",
-> >                               "pxp", "lcdif", "isi", "csi", "dsi";
-> >        #power-domain-cells =3D <1>;
-> > +      #address-cells =3D <1>;
-> > +      #size-cells =3D <1>;
-> > +      ranges =3D <0x0 0x4ac10000 0x10000>;
-> > +
-> > +      bridge@20 {
-> > +          compatible =3D "fsl,imx93-ldb";
-> > +          reg =3D <0x20 0x4>, <0x24 0x4>;
-> > +          reg-names =3D "ldb", "lvds";
-> > +          clocks =3D <&clk IMX93_CLK_LVDS_GATE>;
-> > +          clock-names =3D "ldb";
-> > +
-> > +          ports {
-> > +              #address-cells =3D <1>;
-> > +              #size-cells =3D <0>;
-> > +
-> > +              port@0 {
-> > +                  reg =3D <0>;
-> > +
-> > +                  ldb_from_lcdif2: endpoint {
-> > +                      remote-endpoint =3D <&lcdif2_to_ldb>;
-> > +                  };
-> > +              };
-> > +
-> > +              port@1 {
-> > +                  reg =3D <1>;
-> > +
-> > +                  ldb_lvds: endpoint {
-> > +                      remote-endpoint =3D <&ldb_to_panel>;
-> > +                  };
-> > +              };
-> > +          };
->=20
-> Messed indentation.
-
-This is already from the original binding. I'll fix in a separate commit.
-
+--
 Best regards,
-Alexander
-
->=20
-> > +        };
->=20
-> Best regards,
-> Krzysztof
->=20
->=20
-
-
-=2D-=20
-TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht M=FCnchen, HRB 105018
-Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
-http://www.tq-group.com/
-
-
+Mikhail Rudenko
 
