@@ -4,68 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC89C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF06C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:50:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QIFdCVcsL4iQx7G5iUzW/N9jrVLeZnqO/8rPT1T8r64=; b=Ft+jMdjV5tofGmcTewEW7YH12T
-	ym465oHgvHyMN1l/2UBYf3HYJ6K+ft0RpGGE8dkxnmFFVHk9p7HEPkvZDwISnwULH4M/0ciYJYiM/
-	rSiK9LeXshxZ/Hrml0oaAg+ky/zXA9c7KhiYRXhKSZt2oczg2BAOgdq2q+NntKyM+wT7WMmLk4vy9
-	LSbbX7ngU1ui2bmCrNLeZjztPpVsirJ0gtRCgSnATt1RC48rZtpQMoJFhDr4X3iJZGobzlLNpfsj7
-	IpLSaL+bPv+OemS/OyuB9X1mGo+MWPaLCJlqqWObQ7iFeBM83cXAVFGmWmb38mZAPE3tQ77AM7Fof
-	EUTOFq+Q==;
+	bh=dS1pjd9BRKiYmHDxCBkDO8/FjZh16bxe2m+P5F+L0ZA=; b=bzzR2JvyAm47ISwh98qPg9t/m8
+	BpgtsgfM8NgKM+t85DEROWQgo+Chqtc3HTB38932+7Brk09aA+bF1dU5eeZsoj/sGjb+1dE5eagEN
+	v799dUr9Bp98SdFp/R0SAM4z9wJpCn03zXeQHWDmdHKIOucnRjyJD4Gz4UJlWOaTNYUqCvoXUZ4CU
+	JHW781Fw8s5w2EFxJPtN6znFbgb2ySpEuykSe6+s/fmgBHQZjMyJVoFwxPozZijvkawCDySJtug9T
+	RWarkEdUoSBdhfp0Zp8P002ZVtLe8aEc0KcdZiVRVlgIvfTM5U5ZZmeHIg0M1pdn7HK85q6fxTWZs
+	wA7SLIrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprvL-00000008ijP-13Ah;
-	Wed, 05 Mar 2025 16:48:47 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tprwu-00000008j4J-1t1e;
+	Wed, 05 Mar 2025 16:50:24 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprt8-00000008iPp-2Wlu;
-	Wed, 05 Mar 2025 16:46:31 +0000
+	id 1tpruh-00000008icp-3m77
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 16:48:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=dS1pjd9BRKiYmHDxCBkDO8/FjZh16bxe2m+P5F+L0ZA=; b=JuOLmhLZ48Tmfb38yq4HS/SP4f
+	B3mp7i1Kjr85Uhk3I+vyE4jJMT9XMH524EDR+cf6amD1Ly7QGmRWw4oy9EhIHw3MTbCIlXgaEQ6gz
+	lqjw2NDoNpeqSTA8p3vu1HgzmLOrSKTmuSuoOpUtQGTm1Sa5jOfg2uxd5g0kQQvbhL/Rp5T12Xko4
+	eOaDslEhmSrOgDHvfFs4mjBk+tFZikbttgZB68VmDLkIDiWzCm8JamsK4XcMzCCmqnFUYuk+aP3dk
+	YGcnMXTd92Rs9D4cBHX1dsFOq7quj32Ce4D4vmajKscwsatdykRjnT5ysCMI8stIJ8csYER7uzxRB
+	WtVduutg==;
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tprue-00000005tUO-3ash
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 16:48:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2943A5C6AC9;
-	Wed,  5 Mar 2025 16:44:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80768C4CED1;
-	Wed,  5 Mar 2025 16:46:29 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 253F75C65EF;
+	Wed,  5 Mar 2025 16:45:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6BF23C4CED1;
+	Wed,  5 Mar 2025 16:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741193189;
-	bh=5R+bfCWSs0CHr+4SSHK1pIvtQQhw4GPWfj0W69fAkXs=;
+	s=k20201202; t=1741193280;
+	bh=q9RwUsahZEDzg4kp8X6VT0iwUQxY7NE3PJQxq7dtK7U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tjjbyQHSEB3yA22fSpVSJRaEeGXTbXrmkP5/dCpYJnECMFDRectCzrJEh7nPQgMbJ
-	 /QWKDpAXRo8VKVQvNvwhypmWNoyb5v8Z2WgolFKvD6ULWtEeSOIyrAYb79XorXJtGk
-	 XiOMotXGo5WZO9WZzcA8S8c7D3gbgMFvV2ej1DJW1FF3KOCuld8iLldC1Wrch0M2Vf
-	 kRnb2p4pNr3WYUqbmg/ZmWHmRsGmwUnZmEOiQy7YSAPTuJgemH4vXPXvjfdeB+Eijl
-	 UcNJdISBztpd9R7sw8tuXb6GGIRlYIaOcxtQ/gKvFwn8xqzK/C+DxsvN8R9d4+ps/r
-	 5Z9gQFbpix4gw==
-Date: Wed, 5 Mar 2025 10:46:27 -0600
-From: Rob Herring <robh@kernel.org>
-To: Jjian Zhou <jjian.zhou@mediatek.com>
-Cc: Jassi Brar <jassisinghbrar@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Project_Global_Chrome_Upstream_Group@mediatek.com,
-	Jason-ch Chen <jason-ch.chen@mediatek.com>
-Subject: Re: [PATCH RFC 3/3] dt-bindings: mailbox: mtk,vcp-mbox: add mtk
- vcp-mbox document
-Message-ID: <20250305164627.GA2117924-robh@kernel.org>
-References: <20250305082047.15746-1-jjian.zhou@mediatek.com>
- <20250305082047.15746-4-jjian.zhou@mediatek.com>
+	b=Ekxy6gYheu0ogt41k4byYBhS5G+HBulFW9+/8nNtHsUEpaPQzVOLHbNwBNQpBsGw1
+	 Lzcd5JprYDUUkdqDdjHeKwTAR3egKNc6w1ijwkEqKdF6R3R/GylpaFbwx4WV4qOPDh
+	 PLpsU3jz+VwnZxMSJViOKAN+d524dJiTEClfQiOoGiuIMHzl7N6M95zHN3ys17K6Vq
+	 L+tBaPLWV6AbJDbOINBy/E2uovpIta2UATL4CFIzYreKNPdnLFLRQXLg2Vk976H0tZ
+	 yW7JtQksdVCo7do/dY7B5mwoaiyObB8LqHJiCjp4llrX+RhCOnnnrB2ApdUbjcLssY
+	 9wKadFzvDCdYg==
+Date: Wed, 5 Mar 2025 10:47:58 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+Cc: jic23@kernel.org, catalin.marinas@arm.com, linux-iio@vger.kernel.org,
+	linux-pwm@vger.kernel.org, olivier.moysan@foss.st.com,
+	conor+dt@kernel.org, wbg@kernel.org, lee@kernel.org,
+	tglx@linutronix.de, krzk+dt@kernel.org, daniel.lezcano@linaro.org,
+	will@kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org, alexandre.torgue@foss.st.com,
+	ukleinek@kernel.org
+Subject: Re: [PATCH v3 1/8] dt-bindings: mfd: stm32-lptimer: add support for
+ stm32mp25
+Message-ID: <174119327848.2121305.11563216194052431018.robh@kernel.org>
+References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
+ <20250305094935.595667-2-fabrice.gasnier@foss.st.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250305082047.15746-4-jjian.zhou@mediatek.com>
+In-Reply-To: <20250305094935.595667-2-fabrice.gasnier@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_084630_696506_E954D20B 
-X-CRM114-Status: GOOD (  16.92  )
+X-CRM114-CacheID: sfid-20250305_164805_166026_BB4CD136 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,74 +94,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 04:20:40PM +0800, Jjian Zhou wrote:
-> This patch adds document for mediatek vcp mbox.
+
+On Wed, 05 Mar 2025 10:49:28 +0100, Fabrice Gasnier wrote:
+> Add a new stm32mp25 compatible to stm32-lptimer dt-bindings, to support
+> STM32MP25 SoC. Some features has been updated or added to the low-power
+> timer:
+> - new capture compare channels
+> - up to two PWM channels
+> - PWM input capture
+> - peripheral interconnect in stm32mp25 has been updated (new triggers).
+> - registers/bits has been added or revisited (IER access).
+> So introduce a new compatible to handle this diversity.
 > 
-> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 > ---
->  .../bindings/mailbox/mtk,vcp-mbox.yaml        | 49 +++++++++++++++++++
->  1 file changed, 49 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
+> Changes in V3:
+> - Fix yaml indentation issue found by Rob's bot
+> Changes in V2:
+> - Use fallback compatibles, along with stm32mp25 specific compatible
+> - trigger identifier can be up to 4 (e.g. from LPTIM1..5)
+> ---
+>  .../bindings/mfd/st,stm32-lptimer.yaml        | 40 ++++++++++++++++---
+>  1 file changed, 34 insertions(+), 6 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
-> new file mode 100644
-> index 000000000000..d5afe295af14
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
-> @@ -0,0 +1,49 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mailbox/mtk,vcp-mbox.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek Video Companion Processor (VCP) mailbox
-> +
-> +maintainers:
-> +  - Jjian Zhou <Jjian.Zhou@mediatek.com>
-> +
-> +description: |
 
-Don't need '|' if no formatting
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +  The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
-> +  messages through 64 32-bit wide registers. It has 32 interrupt vectors in
-> +  either direction for signalling purposes.
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt8196-vcp-mbox
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  "#mbox-cells":
-> +    const: 0
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - interrupts
-> +  - "#mbox-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +
-> +    vcp_mailbox0: mailbox@31b80000 {
-> +        compatible = "mediatek,mt8196-vcp-mbox";
-> +        reg = <0x31b80000 0x1000>;
-> +        interrupts = <GIC_SPI 789 IRQ_TYPE_LEVEL_HIGH 0>;
-> +        #mbox-cells = <0>;
-> +    };
-> -- 
-> 2.45.2
-> 
 
