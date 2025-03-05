@@ -4,177 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B871C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 23:33:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F94C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 23:35:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p7f8NKm8ADmcOQ5G2oL61+72mQaCQVW3ugjgyMpWZRY=; b=N4H6fji1ivxYHJOHN+NRdUJzh3
-	vFAFQOG4M+9IXtvyE59np5m0KEghPd219+xskli58OTG6VQ2lHAcZ7fyRTR5VJwBF3W9W74jo7cwU
-	MYVhfgEFifM6SEwQiaI7qK+A3gDLs03JrvL0GFbV5RO3S7kVlaOfGf8gmlD+MqZX05ssgj0BA4vxl
-	JdnUz2HCTq4UMW2DByiborMCe87f5krUfmZ1C1QKaYM2L5cKGR12TzZf/XNPCZs82z/XCnFy/QqAq
-	mrllAdpMFHFHNYQE5No3JGPLSInyZGoS2+PweHeiBEjtAoAvgAQmJaTlCwcIdzSw5O9MGDIoOaUnL
-	MAL487dA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kFCm6qFAyYGc4VFf2sS3vwJnAyvK+30pL4l8MO3Di54=; b=j2n1sCHLYjd08qh4/CnXpBqScX
+	ju8hdtvXK0MROCvosW6Wt+ufPNN5jTiL+Gqfr8L+xd1eDVfmZGYm9N75RVESyeQ5bIRIyVhcSy19Q
+	sVx3uQOo1KDQLXgSErf/OOK6luBmEilzbm8oenCCXW7KJsxzwRS84sZWtrGV1SbaQ4bSL3RJeAe8C
+	WtBrqiAU9NRTFWVwiveUJrFJpwP/cxwHLSdz9yREjLbp2UQgrghRvETd3TtjKl0mvax4a8POtZhhH
+	mhNvgVnpJKKcmBAl0ED7vlO+w6ayuHgoTjdoRRtyP8E3onreLJOwWkWpZnIQnjzIC6heuQ0K90DaO
+	fA6tx+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpyFJ-00000009coo-3dHh;
-	Wed, 05 Mar 2025 23:33:49 +0000
-Received: from mail-am6eur05on2061c.outbound.protection.outlook.com ([2a01:111:f403:2612::61c] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tpyGR-00000009d5M-2OgM;
+	Wed, 05 Mar 2025 23:34:59 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpxGH-00000009URD-14QQ
+	id 1tpyEp-00000009clu-0qxf
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 22:30:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=owfs3C3RFMkZyv7Fc/0kwwQV7uiQEUJPe0GtAogQiBpRWtylwx5p9Ka2VHFxXa6H+9Jo0Ps68ReweoDFVVQGRZa6Mr3kTkiZ+l/6Ji8Y45g3DYk6Remd2Xtw4ci/mHypaPSZhoz5806jEYViYBY07lWue/+Lg5tL1iMs0a1qUz1NcNhi2uu73sQ1OmWIsJr9zPE1RZR90xXB959fA5f3lN5GQjUXhVR3GQ9yuGVw4wOPhcsokQwSg8kjSfyA1xvMvLeKDU640B+YRGb01FUYUoTyYrC4Gl8ZcgnCqcBfm0RRDTw0HHFmpPCx8gdbx64xjWaAn+sb0yVPeq3wwF5/rA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=p7f8NKm8ADmcOQ5G2oL61+72mQaCQVW3ugjgyMpWZRY=;
- b=P3Au1EhLPPiX+m6ZeeQhDjXG4r2AInRFWToUXwvc5Vz79QxURrUnooc5lsgQ5KDgO1Ov43JYKqwYiasl49D80yxnvPzBBKkL71qU9zmGvU7KmhrFXUlCbMD/JgWZfqe7QWDzqeG9LG1dFKvRV5vTfqnxJ/qh2Ve0Ra0k7TscWbmPEQHExknXamygwHp8orBk/Zc1H29IlCYSKubkypGUdk6AYqQJdMbWfCTEVrEb0moqsxPHx2JB/sft99yC/WCRm22fuiqZAYBvvy5vVPG/zqKBriNERTaxQ74N+0s/xE7hDO3KJr2mSQvSvLziwfg3xf8C/Bhk9ytU6XozEcNEnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=p7f8NKm8ADmcOQ5G2oL61+72mQaCQVW3ugjgyMpWZRY=;
- b=PdTshvaKxf/FTTCP1GYpYBLxG82O2cRx6CHryUrkNP+XLSO0gbZDnz1+3WdhRqGLXvRCVOvHmDma542GhywutDwAOS2MyPrvH2I9oH7OW92+HNNutdX9aTrw1Byzkma9jSjwa7mV9rQ/ZrkI134rG096ygcLTKH+ucVpUUmhvyXKN9eit8qgOaJOEU5U1QUUjZQxtecaVVPRacQnGT9eoU3b1yUxxSXXJ7RHbtmoksLbcFv1/qZXEqThLrIb4up8wbrjIgj8xRLXwNS9fFr0sALjziiqATlJXXX9c7CHXcTFAD9eWXdI6e5irCB3OZseLb+6Ikx+8ozUNQR02BlD4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by PA2PR04MB10309.eurprd04.prod.outlook.com (2603:10a6:102:41f::11) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Wed, 5 Mar
- 2025 22:30:39 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8511.017; Wed, 5 Mar 2025
- 22:30:34 +0000
-Date: Thu, 6 Mar 2025 00:30:29 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH iwl-next v8 01/11] net: stmmac: move frag_size handling
- out of spin_lock
-Message-ID: <20250305223029.yh3fglyq5isncjni@skbuf>
-References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
-X-ClientProxiedBy: VI1PR0502CA0013.eurprd05.prod.outlook.com
- (2603:10a6:803:1::26) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Wed, 05 Mar 2025 23:33:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741217597;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=kFCm6qFAyYGc4VFf2sS3vwJnAyvK+30pL4l8MO3Di54=;
+	b=N6cLrUlBj49YYTXrUcO7GaI0UB4k8A29fe3zBXSY54opnP5ek2pPvBL0zFZeIxPO+FPCJ8
+	q+5Julj46jsh08fRHQqoTe99KsjykVxIupE+hZHSqpEYguQiqvu/3W3CZQatdZCZ9Wfw7O
+	Re5M/WhTInO1XBvsT8cSbZ+Yf9Z7pnc=
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com
+ [209.85.214.198]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-513-px_MHC_mPbu1c6TUDHTGHA-1; Wed, 05 Mar 2025 18:31:54 -0500
+X-MC-Unique: px_MHC_mPbu1c6TUDHTGHA-1
+X-Mimecast-MFC-AGG-ID: px_MHC_mPbu1c6TUDHTGHA_1741217513
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-2234bf13b47so509565ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 15:31:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741217513; x=1741822313;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=kFCm6qFAyYGc4VFf2sS3vwJnAyvK+30pL4l8MO3Di54=;
+        b=c7CT/Ey9r9t9Z5iRFRc5TsRv8nSXhr/gUkGcLVCeKWfAK0WHhkQMsrZ83aa3Qehun4
+         r7RvduYUnsfxn2qZ+Ue8RsGoQ//19q44jE336nzJrgu0/LoKNwHT7y3z+Vqzt4xDUMkF
+         wbn8BDd+nykZsLi7No9Cl+p6FBbFkrWknqZpjwhTxFbKIbfOV0lyukgmIpJ5TEGaTgCS
+         bOeEUIQMDfbSX9WNnVPy1BcRUeP0u3CKuQ93Mp4fu9x11xzE5tA8ozW1EAa6rSTF+EZZ
+         3T8nfBgrg4It6z3vTHO0aa8n08Ri8yX1Q04QlA1RfVH4Cb1tEfU6d9nyfTlFdDZNmcHM
+         Em4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCXjn6vpkmD/I4GM2tCN9rGH94shTmOeBbuB0n+4CeS25rkGo8gJosCsGBA+s+8a6gIO+A9duRr0qJsCSJp8BUej@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy3YSXErqhVtBT0Aowg7IAxEfaZU8f5h2a6W7EBiTAClhBsVsM3
+	UlpVr9qQyFahEAOpu/3d0Z8MWaxSNOH9SIx12s/M+u3WyLi/yh8paRrpph5c0b5Xdlgkn7GDWP9
+	cNEF7yPOky/KZomMtFlYWyeA+lo8my2/IjHxhSC2NnnC5MDAfKB4kgqEuVwDLmiWGxzQ2dwrs
+X-Gm-Gg: ASbGncsnlCm31FXLx7qMO5irXD23y+HQTh84r3Y/3lLA41F1rUla3r0akg2cKtlkRVX
+	mlbGHq41T6GNR9+VkNRqfjS3AebFBrtJNLz+iytnht8Muntb6hHyeLxkv3znYXoBN5qXEKHXaUV
+	I3CXToWt65XPSHCLH68I7S1PRvC/7qgRvkogJSHIoslH5Ox/3G4iN192Nr5Rn8TK2CQwB+K7DRG
+	yQjVDNIu2LfRa+rQ5+CQoiIDyPJE+xXwMEUo0zi8h4r6w9S7vcL/uU4H0ba5Pw3pX1fWBLo8Ilj
+	i6LexSYA44k/l9o=
+X-Received: by 2002:a05:6a00:856:b0:736:51a6:78b1 with SMTP id d2e1a72fcca58-73682bdf13fmr5864407b3a.11.1741217512910;
+        Wed, 05 Mar 2025 15:31:52 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFr5llQOo8uwX2X7Rw/daISqoaMPhAadKna3dfRjuli6+dA3NfteMRLNkx9LXdBAsG0P/3xwA==
+X-Received: by 2002:a05:6a00:856:b0:736:51a6:78b1 with SMTP id d2e1a72fcca58-73682bdf13fmr5864388b3a.11.1741217512567;
+        Wed, 05 Mar 2025 15:31:52 -0800 (PST)
+Received: from [192.168.68.55] ([180.233.125.1])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-734a00400a0sm13952388b3a.140.2025.03.05.15.31.45
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Mar 2025 15:31:51 -0800 (PST)
+Message-ID: <3190c4b0-4826-4d9b-9b12-8063acff57fa@redhat.com>
+Date: Thu, 6 Mar 2025 09:31:43 +1000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|PA2PR04MB10309:EE_
-X-MS-Office365-Filtering-Correlation-Id: 14303434-503a-4e75-605f-08dd5c355830
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YRUk/zEjmEWmSoH1K8VQXkEGWucRSkUOSyGKmE0Dlk6hXNwHe7u8vlfD6Dfw?=
- =?us-ascii?Q?tJOsS8EAqd/U+ox5fNZjkP/D4R7DF++QMPaBO3FCuzN8sZM6IFD41M/DK8VV?=
- =?us-ascii?Q?IJp6gsa5sGtpN+Acc5Xl1fJW8sfWZEBuAGNIEP6gEDqguVps2JmhvhqJassV?=
- =?us-ascii?Q?AlbXpzSta6Rkd4nkjw40poGG3qg3w2qYvsVGqKDgXHcQd9IKyo9RwW6jfkPb?=
- =?us-ascii?Q?knmjXpZeSm18RSFYpr0aoSURdCl9/5WF21atx5g0yQtndD86LdMJ7BGRdCXI?=
- =?us-ascii?Q?Rk+aiBLHJG59T2ixAZzr0BoHe65HS88ikQ8lku+sTmDckndIKHoSizMXnvI0?=
- =?us-ascii?Q?aIXYrA2HhcTqhRhMcDlFPCZ5PHdR5HVOr8MCfK5renEBUCg416zwzSR3GHoa?=
- =?us-ascii?Q?Q7z04pDI/PTZP4/HV5M97Hn6daWGFTw+e4ZPP5zLxXlfKGVWbPdSq7Ah3jqv?=
- =?us-ascii?Q?VYVeB4+BhFNeLFlhH88KPncjlwcr5WjdRqNMALdb8tTPXTEHNeRxZ4G5G8KI?=
- =?us-ascii?Q?ZG0hG01l23khDraN5AKHjhCn2B4vlP9cCp31k2JFbI0jIiXXUGPLWiT3tddK?=
- =?us-ascii?Q?ivH4BX2LwTujSzY5fxrdvb+/PJYETcJ0twWeymjZS2SL65UqgL1qwv6+grC7?=
- =?us-ascii?Q?4ackTgBWPvfYCfSr3ik65rnlo1xza+tzaw5al0k+y7brsGpDR9FlfzD3l9Jz?=
- =?us-ascii?Q?FSIrbdHj8F/iqoVNZHRHx6A5BJuMW7FMd+H7ptRL0RFV9Uf+6PbiuX8X38Rh?=
- =?us-ascii?Q?qZd73mzu8OWE2ghHTSANNrT940btEruA6bNz6qmo6Uxf9lu9OKyek2HMmEPf?=
- =?us-ascii?Q?M7UtkYcqzM5SnHe7TImnhdCneh//2zH5c6s0EGMqvYQe7WciLXlVz4E+Piri?=
- =?us-ascii?Q?zoNvN/ahvnLjlFFgSpofrDfG1GVQuaGo8Drd4MsDpzzgD2Orn3UMlxz4kTZq?=
- =?us-ascii?Q?j+JzhRNbsJURsrRKov89Ll4f3GmwBTIYhqB3ai3/1yy19GQ2cStbjuhKbQ57?=
- =?us-ascii?Q?ZWrdZ6HfmNKEESqCB/zK3mBLg4ZBat63Uo7C8scPkQrCpuW9li4Gnfm8Baa1?=
- =?us-ascii?Q?ZozTRTF7TixR4NYW67NXOj9IM4kGSmJdITdycwpn9UZWGrAHI8jL2+9rKmwu?=
- =?us-ascii?Q?lxkqkQz158aDBI66alJXtND1Qi9fLXZQ7cTfG3VNrONrnE46Z152sr6N0+bk?=
- =?us-ascii?Q?pif+9+1/AsmAUoswyrgTshROnBkhMmuLqbphdiPlWakMtfqGhdow3GcNQksw?=
- =?us-ascii?Q?lNudhYfiLTD8wFLM5XLVvQaOVku+R4DYGOwqPvB7SmqMHpiVJyglKqR/wl9F?=
- =?us-ascii?Q?UMjzTw38Ge3vZusQp6MKtt8ykcLus745enMNZjpDHg3973DC+C4B3Uhtl05B?=
- =?us-ascii?Q?k5NBOtYSgvBzZQxszt+yr2hTkWKF?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?DvD3bY7hKp6e6Ibk8msCJL6Surs2F0MXVWEd2p1+YSFm/M+PgU5XRrG8qN7Z?=
- =?us-ascii?Q?HjYJQJUOqeGPYIkVzJr7m24Rtt1DnkjkiquYQOd1rJyDUxbtV+t1HX6KVV5D?=
- =?us-ascii?Q?o2fhdJOSpZVp2GatoYL4lZ3Ihc495uNbnWG8H5wwucQXd6LD4r9Bixo0wvl5?=
- =?us-ascii?Q?ZFk7ZhEsGsCXRwlO/TYvI69/VXS2/tTmeSjOQb5PkRJpFSvCUNXowV+6vGSi?=
- =?us-ascii?Q?2YduLpWCXbKzif0Gf1yFWkZSOevu+E04AT6TNGGUWlfprWGkWarT2NykOcLB?=
- =?us-ascii?Q?sDUyhAqBKBe4kr7Z4DXwyl/6FoY/ngwYVGWnb3QD+0wDowuSl3SzLm8KOeNL?=
- =?us-ascii?Q?bqDTuCe976QYKhpyNh8Vg5S/3FjeqjOyhPt8bNzSt6A/h1i8GLypM5CdKTdJ?=
- =?us-ascii?Q?pUJ5IaBti1jSttTPnUhVhzLXiDCL8Jrf1+MLsyoSrU0lOhHgGY8kLPy3T1Hi?=
- =?us-ascii?Q?DuEhpIZJ8PvKgy+TeYysxDobW9LxBeFZBGl7QWZl2P+c103woEGegbzr2Ca/?=
- =?us-ascii?Q?lAJSXCLTyVwx2S/qOJHLoqKAALtVs5XZI9F/sCeMOxYw2gMyOvOdJlnxm9eC?=
- =?us-ascii?Q?xGnoCFdMXyRvw5B4pWxAu/Ec4w4JsAwMrtOuGGZOt+9xi1KZId23fdAs3mwq?=
- =?us-ascii?Q?qjNmV+8veFwIgqzUNxaM1WQxRTgeT6iJ7pqKzkuTSAqAx00f34niexs2YZE9?=
- =?us-ascii?Q?kKmcT4OY1EsC2z3wCNk5pCIz1XUJKfiiJS+AmIG5eGoqRu5MlhRytsvoGYNt?=
- =?us-ascii?Q?6aFWFqG9HsdoBYPCT6bd2ppwyNhOPTTh46P9VFTITDpR6gx/j8jw1vn3nQDB?=
- =?us-ascii?Q?zIq+rG3uQyETfYJxun1oBaFLWG/dpoBgY3g+ZYwnRCnHggovtwljzbxkloIY?=
- =?us-ascii?Q?3GrR+OpDvKK8xkp+2O5uPhmADHDVYBtc8NvVYIQl28YOvPwbQ43/NlyzBthj?=
- =?us-ascii?Q?cQK0oeNLW/2vpASRjqP75GiDj7ekYT4UuNmIKcWdbZuec73NsoygGaGSIZA5?=
- =?us-ascii?Q?cHNM7fT7wJBmK7dLpGI7F+HUirZPoRZaYouj+pxyuyHxOjc0zn0hZUyaNFZY?=
- =?us-ascii?Q?cI9qSMA54bg78MURGBJNAv+8EP81K0h6ZeNcxor9b9J6sc99RqALVUh3RWut?=
- =?us-ascii?Q?22raBDF6kYJdiZCIFUfDwBXaIU2GsjJYNLXSW4BWiynWONJHLteo7nVP/5QC?=
- =?us-ascii?Q?TevZvmfaOQ8nbMv5PNhaJRsmEM/nftTUj1e4gG8ES6FdY8nBlCZcweTANfLe?=
- =?us-ascii?Q?vhlLd3S50XYdvybQd3w+8hPWVt/vfGWyvt0QxzN/QcQzpd9ilGijLcrhC4C6?=
- =?us-ascii?Q?QxK7ENAelvENV8/0dKDAT4Su8+6COycIoCpE+WG+bE9Wl3aYS10qpuw92roS?=
- =?us-ascii?Q?FZea8MjBnnq93WnvsR/4kUbtMHgOsGGg55QUBnOsEiAB59MmolS13xjmzo3f?=
- =?us-ascii?Q?mEomwJMjFAimhShKq6//csf01NMceBPnQ41II577L/RSNVScV/r64BgC3Jwx?=
- =?us-ascii?Q?TsAxwuvSj+nwcy5cOo/CQoHEV2M/M7cPoqocGYufO4Pk7umquAD/tKCbmfZS?=
- =?us-ascii?Q?yVCzAAZCWqEvN31gdEBe+9RmBHCfI/OMYmkzx1nwV8PH1vOKzpszIr9euaY+?=
- =?us-ascii?Q?7g=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 14303434-503a-4e75-605f-08dd5c355830
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 22:30:34.5527
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: ci7JeZwoNs9cmJH/SXmCjk4nPXEB/dGVHvs7MwTKEevUJZySUfK+Q11DZrZfN/jl6qMjiRKuTKXAXewB6Wblrw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10309
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 09/45] kvm: arm64: Expose debug HW register numbers for
+ Realm
+To: Steven Price <steven.price@arm.com>, kvm@vger.kernel.org,
+ kvmarm@lists.linux.dev
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
+ Oliver Upton <oliver.upton@linux.dev>, Zenghui Yu <yuzenghui@huawei.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
+ <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
+ Fuad Tabba <tabba@google.com>, linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
+ <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
+References: <20250213161426.102987-1-steven.price@arm.com>
+ <20250213161426.102987-10-steven.price@arm.com>
+ <cec600f2-2ddc-4c71-9bab-0a0403132b43@redhat.com>
+ <ea9bb982-cf31-4079-8fea-dc39e91a975b@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <ea9bb982-cf31-4079-8fea-dc39e91a975b@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 7gPx28u37zy6XeBrwFCUXvLe7tRCWmnSoOsuIRZpKTk_1741217513
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_143045_322125_181551FE 
-X-CRM114-Status: UNSURE (   9.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_153319_318734_948A5090 
+X-CRM114-Status: GOOD (  26.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,18 +123,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 08:00:16AM -0500, Faizal Rahim wrote:
-> The upcoming patch will extract verification logic into a new module,
-> MMSV (MAC Merge Software Verification). MMSV will handle most FPE fields,
-> except frag_size. It introduces its own lock (mmsv->lock), replacing
-> fpe_cfg->lock.
-> 
-> Since frag_size handling remains in the driver, the existing rtnl_lock()
-> is sufficient. Move frag_size handling out of spin_lock_irq_save() to keep
-> the upcoming patch a pure refactoring without behavior changes.
-> 
-> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-> ---
+Hi Steven,
 
-Reviewed-by: Vladimir Oltean <vladimir.oltean@nxp.com>
+On 3/6/25 2:25 AM, Steven Price wrote:
+> On 03/03/2025 04:48, Gavin Shan wrote:
+>> On 2/14/25 2:13 AM, Steven Price wrote:
+>>> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>
+>>> Expose VM specific Debug HW register numbers.
+> 
+> Looking at this now, this patch description is garbage. Probably the
+> patch has changed over time - so I suspect it's my fault not Suzuki's.
+> We're not exposing anything new here. This is purely about telling the
+> VMM that a realm cannot (currently) be debugged. Something like the
+> below would be more accurate:
+> 
+> """
+> kvm: arm64: Don't expose debug capabilities for realm guests
+> 
+> RMM v1.0 provides no mechanism for the host to perform debug operations
+> on the guest. So don't expose KVM_CAP_SET_GUEST_DEBUG and report 0
+> breakpoints and 0 watch points.
+> """
+> 
+
+Yes, the improved change log looks good to me.
+
+>>> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>> ---
+>>>    arch/arm64/kvm/arm.c | 24 +++++++++++++++++++++---
+>>>    1 file changed, 21 insertions(+), 3 deletions(-)
+>>>
+>>
+>> Documentation/virt/kvm/api.rst needs to be updated accordingly.
+> 
+> I don't think (with the above clarification) there's anything to update
+> in the API documentation. There's nothing new being added, just
+> capabilities being hidden where the functionality isn't available.
+> 
+> And eventually we hope to add support for this (in a later RMM spec) - I
+> don't yet know exactly what form this will take, but I hope to keep the
+> interfaces as close as possible to what we already have so that existing
+> tooling can be used.
+> 
+
+Ok.
+
+>>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>>> index b8fa82be251c..df6eb5e9ca96 100644
+>>> --- a/arch/arm64/kvm/arm.c
+>>> +++ b/arch/arm64/kvm/arm.c
+>>> @@ -78,6 +78,22 @@ bool is_kvm_arm_initialised(void)
+>>>        return kvm_arm_initialised;
+>>>    }
+>>>    +static u32 kvm_arm_get_num_brps(struct kvm *kvm)
+>>> +{
+>>> +    if (!kvm_is_realm(kvm))
+>>> +        return get_num_brps();
+>>> +    /* Realm guest is not debuggable. */
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static u32 kvm_arm_get_num_wrps(struct kvm *kvm)
+>>> +{
+>>> +    if (!kvm_is_realm(kvm))
+>>> +        return get_num_wrps();
+>>> +    /* Realm guest is not debuggable. */
+>>> +    return 0;
+>>> +}
+>>> +
+>>
+>> The above two comments "Realm guest is not debuggable." can be dropped
+>> since
+>> the code is self-explanatory, and those two functions are unnecessary to be
+>> kept in that way, for example:
+>>
+>>      case KVM_CAP_GUEST_DEBUG_HW_BPS:
+>>          return kvm_is_realm(kvm) ? 0 : get_num_brps();
+>>      case KVM_CAP_GUEST_DEBUG_HW_WRPS:
+>>          return kvm_is_realm(kvm) ? 0 : get_num_wrps();
+>>
+>>
+>>>    int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>>>    {
+>>>        return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
+>>> @@ -323,7 +339,6 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>>> long ext)
+>>>        case KVM_CAP_ARM_IRQ_LINE_LAYOUT_2:
+>>>        case KVM_CAP_ARM_NISV_TO_USER:
+>>>        case KVM_CAP_ARM_INJECT_EXT_DABT:
+>>> -    case KVM_CAP_SET_GUEST_DEBUG:
+>>>        case KVM_CAP_VCPU_ATTRIBUTES:
+>>>        case KVM_CAP_PTP_KVM:
+>>>        case KVM_CAP_ARM_SYSTEM_SUSPEND:
+>>> @@ -331,6 +346,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm,
+>>> long ext)
+>>>        case KVM_CAP_COUNTER_OFFSET:
+>>>            r = 1;
+>>>            break;
+>>> +    case KVM_CAP_SET_GUEST_DEBUG:
+>>> +        r = !kvm_is_realm(kvm);
+>>> +        break;
+>>>        case KVM_CAP_SET_GUEST_DEBUG2:
+>>>            return KVM_GUESTDBG_VALID_MASK;
+>>>        case KVM_CAP_ARM_SET_DEVICE_ADDR:
+>>> @@ -376,10 +394,10 @@ int kvm_vm_ioctl_check_extension(struct kvm
+>>> *kvm, long ext)
+>>>            r = cpus_have_final_cap(ARM64_HAS_32BIT_EL1);
+>>>            break;
+>>>        case KVM_CAP_GUEST_DEBUG_HW_BPS:
+>>> -        r = get_num_brps();
+>>> +        r = kvm_arm_get_num_brps(kvm);
+>>>            break;
+>>>        case KVM_CAP_GUEST_DEBUG_HW_WPS:
+>>> -        r = get_num_wrps();
+>>> +        r = kvm_arm_get_num_wrps(kvm);
+>>>            break;
+>>>        case KVM_CAP_ARM_PMU_V3:
+>>>            r = kvm_arm_support_pmu_v3();
+>>
+
+Thanks,
+Gavin
+
 
