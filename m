@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605ABC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:02:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B44EAC282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:19:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CKYLhsZYLN6ePRb39dRUwqAfsfIuk96t/k1thexR5Ds=; b=QgjjJkA91Ll/wHCL2iNjsyjFv/
-	QH+ijc9likPerfmVWc9DCPS9f3pdtBq76JZSVJbJpNcU95bh1eaL5kMro0OhQ8YTJkQzB5hFyK88A
-	euGLWa2eeo+yht3EXay/5Yvsg5jWmkhp1choyhi3ZssBA07vKQvnWrsGrhW/GbbOrPXRIfVwCBCtn
-	Cs25/iBVZ4Isugjsn4goouuhJkDK0fDTyOrRzY8qeHjphCQFeozKYlWZvwrno/pcpdqJfOAWYJp5a
-	EGwjUTFOk91M9q50Zeuc9eWzp1uOyyJ6tPr/GwXN/qDEXhKtmrqurY+sSpS4+F1dcsKtX6RHcmRm9
-	WmXRa0Kw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EtMGM041I5kro2RjmWShV9CPsEst/OCLnATvQUnwaLQ=; b=d1Fw4XOcFWv/eeK8J8AJMa5bFr
+	eislwRb6/toN3b7g9zrH6gMHgq5bk94irriXb5MuypFpZ6l5byzeEdBBV/Uc1S6i5QNjzCNFWZxbD
+	pmqtalzRARbllen7iMu+bwNXc0YlFiwNRG4EsK9X21pLthGs7Vsto5o/TskfkVEaTcYAJfEc6ea64
+	sIjW1RW+Pv2XnylnKLkF4cLkENA72+c7yiHQZdZZhyYo4uWsVKK898UVIPREcaiG4Fl3VryL50WG4
+	wjMZOsXeJS2wGVjnad3RlYR6U0vuWJRVo1x06PVkYp83WLXBL3fIPbwOsL3yvm+l7p8h9xSCQQecS
+	sQDXJvkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpilx-00000007CP2-2RX0;
-	Wed, 05 Mar 2025 07:02:29 +0000
-Received: from unicom145.biz-email.net ([210.51.26.145])
+	id 1tpj23-00000007Dzi-3nac;
+	Wed, 05 Mar 2025 07:19:07 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpikL-00000007CDn-3AaC;
-	Wed, 05 Mar 2025 07:00:51 +0000
-Received: from jtjnmail201604.home.langchao.com
-        by unicom145.biz-email.net ((D)) with ASMTP (SSL) id 202503051500254125;
-        Wed, 05 Mar 2025 15:00:25 +0800
-Received: from jtjnmail201607.home.langchao.com (10.100.2.7) by
- jtjnmail201604.home.langchao.com (10.100.2.4) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Wed, 5 Mar 2025 15:00:24 +0800
-Received: from locahost.localdomain (10.94.3.63) by
- jtjnmail201607.home.langchao.com (10.100.2.7) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.39; Wed, 5 Mar 2025 15:00:23 +0800
-From: Charles Han <hanchunchao@inspur.com>
-To: <ryder.lee@mediatek.com>, <jianjun.wang@mediatek.com>,
-	<lpieralisi@kernel.org>, <kw@linux.com>, <manivannan.sadhasivam@linaro.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <matthias.bgg@gmail.com>,
-	<angelogioacchino.delregno@collabora.com>
-CC: <linux-pci@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	Charles Han <hanchunchao@inspur.com>
-Subject: [PATCH] PCI: mediatek-gen3: fix inconsistent indenting warning
-Date: Wed, 5 Mar 2025 15:00:22 +0800
-Message-ID: <20250305070022.4668-1-hanchunchao@inspur.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tpj0S-00000007Dos-24Gc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 07:17:29 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 208895C662B;
+	Wed,  5 Mar 2025 07:15:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A394DC4CEE8;
+	Wed,  5 Mar 2025 07:17:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741159047;
+	bh=Yy85xq8NIgFIUxeo+qTOi/d7W9oIiEseG9gB1XAQxeE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kUiAhT7qJHIBOlUA9LQIqE7zQPWhNsl3vdLD8qp/zR2d+AQgbUNdX/HpsePBWObEK
+	 1UhdBPAet5nW/Xquhte+SwXcZjcRMIN2S9EgmhpMGFrjFgjY3eLhqTSk07idrXo3aW
+	 l7BoyPnkrf5wIYCPl/fh/JrW/XG3ruf+IOKj0ziBI7mwH2BumfjIZwE5kUCBL4NqeG
+	 JX2BDaMIyXwSwPTDm+q70J3eF1TRgxw7soxYxgU3d767Bu5sN/nWO03p79pPVgEYzF
+	 dRCNceR2+imFbmYxQfVluGzhcJpD9hIK3FC+qcCAwuYN255LVSet1Ir4VFs6XA3kPu
+	 f9i9If8u8VUvg==
+Date: Wed, 5 Mar 2025 08:17:23 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Ulf Hansson <ulf.hansson@linaro.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux@ew.tq-group.com, 
+	linux-clk@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v3 3/6] pmdomain: imx93-blk-ctrl: Scan subnodes and bind
+ drivers to them
+Message-ID: <20250305-keen-shaggy-bullfinch-fc77fd@krzk-bin>
+References: <20250304154929.1785200-1-alexander.stein@ew.tq-group.com>
+ <20250304154929.1785200-4-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.94.3.63]
-X-ClientProxiedBy: Jtjnmail201613.home.langchao.com (10.100.2.13) To
- jtjnmail201607.home.langchao.com (10.100.2.7)
-tUid: 202530515002533dc4868a0a3680aa1f21efe3607861b
-X-Abuse-Reports-To: service@corp-email.com
-Abuse-Reports-To: service@corp-email.com
-X-Complaints-To: service@corp-email.com
-X-Report-Abuse-To: service@corp-email.com
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20250304154929.1785200-4-alexander.stein@ew.tq-group.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_230050_072511_D7D7B6CC 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_231728_576590_8171984F 
+X-CRM114-Status: GOOD (  10.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,39 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix below inconsistent indenting smatch warning.
-smatch warnings:
-drivers/pci/controller/pcie-mediatek-gen3.c:922 mtk_pcie_parse_port() warn: inconsistent indenting
+On Tue, Mar 04, 2025 at 04:49:22PM +0100, Alexander Stein wrote:
+> +#include <linux/of_platform.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_domain.h>
+>  #include <linux/pm_runtime.h>
+> @@ -297,8 +298,14 @@ static int imx93_blk_ctrl_probe(struct platform_device *pdev)
+>  
+>  	dev_set_drvdata(dev, bc);
+>  
+> +	ret = devm_of_platform_populate(dev);
 
-Signed-off-by: Charles Han <hanchunchao@inspur.com>
----
- drivers/pci/controller/pcie-mediatek-gen3.c | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+This means in remove() you will depopulate in different order than error
+path (e.g. after genpd removal). This is rather unexpected - remove()
+should be cleaning up in exactly reversed order of probe. Not sure if it
+can lead to any issues, but usual recommendation is that you either use
+devm() or not.
 
-diff --git a/drivers/pci/controller/pcie-mediatek-gen3.c b/drivers/pci/controller/pcie-mediatek-gen3.c
-index 3583e5481dc8..2d1675ba496b 100644
---- a/drivers/pci/controller/pcie-mediatek-gen3.c
-+++ b/drivers/pci/controller/pcie-mediatek-gen3.c
-@@ -919,13 +919,13 @@ static int mtk_pcie_parse_port(struct mtk_gen3_pcie *pcie)
- 		return pcie->num_clks;
- 	}
- 
--       ret = of_property_read_u32(dev->of_node, "num-lanes", &num_lanes);
--       if (ret == 0) {
--	       if (num_lanes == 0 || num_lanes > 16 || (num_lanes != 1 && num_lanes % 2))
-+	ret = of_property_read_u32(dev->of_node, "num-lanes", &num_lanes);
-+	if (ret == 0) {
-+		if (num_lanes == 0 || num_lanes > 16 || (num_lanes != 1 && num_lanes % 2))
- 			dev_warn(dev, "invalid num-lanes, using controller defaults\n");
--	       else
-+		else
- 			pcie->num_lanes = num_lanes;
--       }
-+	}
- 
- 	return 0;
- }
--- 
-2.43.0
+Best regards,
+Krzysztof
 
 
