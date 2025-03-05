@@ -4,80 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 692BBC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:34:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FC89C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 16:49:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OhHkM0O9+jIPqivBsfyP54DdmHAXG6cxfY+5oRx8nSU=; b=ZjZoJP3GlL35mLGsWGey3zO4i4
-	OR7RPAJtsH8bnuwhbpWGmwIyw3F8Pj7ZwgyYl8rQyY86UrVvVZ08MRSjnlUgRCWSeaSIwX3m2BZfb
-	xTkspRoqNA57o0MTHkSVTztPQDo0cQ3dhXp1oJ24hWtY4qFCW2AUpyHP9fmRHYOVo4KVcSyjCGn3y
-	fttfl0gPP08+TcHo8xJ2dSCPqmVS2M92wHWlcpRkfyBGDUPws5ZriKmQJnEGntH+fRgGFQ3pdVhIt
-	gd/O+gKyOkwbwQyeTFlDj9BiysCRRMYp077653eJOJ6PqFzIXwfDqhLQS4zIpW9A6p7oGMV6/NmkK
-	7FJoIEgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QIFdCVcsL4iQx7G5iUzW/N9jrVLeZnqO/8rPT1T8r64=; b=Ft+jMdjV5tofGmcTewEW7YH12T
+	ym465oHgvHyMN1l/2UBYf3HYJ6K+ft0RpGGE8dkxnmFFVHk9p7HEPkvZDwISnwULH4M/0ciYJYiM/
+	rSiK9LeXshxZ/Hrml0oaAg+ky/zXA9c7KhiYRXhKSZt2oczg2BAOgdq2q+NntKyM+wT7WMmLk4vy9
+	LSbbX7ngU1ui2bmCrNLeZjztPpVsirJ0gtRCgSnATt1RC48rZtpQMoJFhDr4X3iJZGobzlLNpfsj7
+	IpLSaL+bPv+OemS/OyuB9X1mGo+MWPaLCJlqqWObQ7iFeBM83cXAVFGmWmb38mZAPE3tQ77AM7Fof
+	EUTOFq+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprhm-00000008gSq-41Z5;
-	Wed, 05 Mar 2025 16:34:46 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tprvL-00000008ijP-13Ah;
+	Wed, 05 Mar 2025 16:48:47 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprfe-00000008fzr-1lpx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 16:32:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=OhHkM0O9+jIPqivBsfyP54DdmHAXG6cxfY+5oRx8nSU=; b=ZE2ZyVwAdBVAnyAZ6s1hr4EI5v
-	eARX+gho3c2s5TAtrCjPTuTskdev9KGiFT+DJ1usG6ed2lcUMvHv9QwzHJfzM9cfN9mrIlf1mrVSs
-	9uvz56x4GEyQUPY+IPLYTmeuCqz+O9FcNMIUWbEYFOnReATs1aU1g4+OquBU7MS+Xg4Hg0iwWIIfa
-	2aNt0g0qR+Zs25DpxEHZsNHmB8w8PGRqFnWHXOCNFlpRhTlHnz5behTi6pXOsSy9t87aV1kFYBIEo
-	K7TFgqdItHUNQStBgziYIzM4q6zoVjx//cpeyW5dPCqLfPLx9lhFvyuuXh0ZBSyWnsjMhEK//4foA
-	/QPbuCJQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tprfa-00000005rnr-2KIk
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 16:32:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECB8EFEC;
-	Wed,  5 Mar 2025 08:32:39 -0800 (PST)
-Received: from [10.57.83.152] (unknown [10.57.83.152])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CAD883F5A1;
-	Wed,  5 Mar 2025 08:32:23 -0800 (PST)
-Message-ID: <47fd6aed-cb91-488d-ac2c-92f9ce73887f@arm.com>
-Date: Wed, 5 Mar 2025 16:32:21 +0000
+	id 1tprt8-00000008iPp-2Wlu;
+	Wed, 05 Mar 2025 16:46:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 2943A5C6AC9;
+	Wed,  5 Mar 2025 16:44:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80768C4CED1;
+	Wed,  5 Mar 2025 16:46:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741193189;
+	bh=5R+bfCWSs0CHr+4SSHK1pIvtQQhw4GPWfj0W69fAkXs=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tjjbyQHSEB3yA22fSpVSJRaEeGXTbXrmkP5/dCpYJnECMFDRectCzrJEh7nPQgMbJ
+	 /QWKDpAXRo8VKVQvNvwhypmWNoyb5v8Z2WgolFKvD6ULWtEeSOIyrAYb79XorXJtGk
+	 XiOMotXGo5WZO9WZzcA8S8c7D3gbgMFvV2ej1DJW1FF3KOCuld8iLldC1Wrch0M2Vf
+	 kRnb2p4pNr3WYUqbmg/ZmWHmRsGmwUnZmEOiQy7YSAPTuJgemH4vXPXvjfdeB+Eijl
+	 UcNJdISBztpd9R7sw8tuXb6GGIRlYIaOcxtQ/gKvFwn8xqzK/C+DxsvN8R9d4+ps/r
+	 5Z9gQFbpix4gw==
+Date: Wed, 5 Mar 2025 10:46:27 -0600
+From: Rob Herring <robh@kernel.org>
+To: Jjian Zhou <jjian.zhou@mediatek.com>
+Cc: Jassi Brar <jassisinghbrar@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Project_Global_Chrome_Upstream_Group@mediatek.com,
+	Jason-ch Chen <jason-ch.chen@mediatek.com>
+Subject: Re: [PATCH RFC 3/3] dt-bindings: mailbox: mtk,vcp-mbox: add mtk
+ vcp-mbox document
+Message-ID: <20250305164627.GA2117924-robh@kernel.org>
+References: <20250305082047.15746-1-jjian.zhou@mediatek.com>
+ <20250305082047.15746-4-jjian.zhou@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 05/11] arm64: hugetlb: Use set_ptes_anysz() and
- ptep_get_and_clear_anysz()
-Content-Language: en-GB
-To: kernel test robot <lkp@intel.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Pasha Tatashin <pasha.tatashin@soleen.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Uladzislau Rezki <urezki@gmail.com>, Christoph Hellwig <hch@infradead.org>,
- David Hildenbrand <david@redhat.com>,
- "Matthew Wilcox (Oracle)" <willy@infradead.org>,
- Mark Rutland <mark.rutland@arm.com>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Alexandre Ghiti <alexghiti@rivosinc.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
- Linux Memory Management List <linux-mm@kvack.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250304150444.3788920-6-ryan.roberts@arm.com>
- <202503052315.vk7m958M-lkp@intel.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <202503052315.vk7m958M-lkp@intel.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250305082047.15746-4-jjian.zhou@mediatek.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_163230_835971_913259B4 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20250305_084630_696506_E954D20B 
+X-CRM114-Status: GOOD (  16.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,94 +80,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 16:00, kernel test robot wrote:
-> Hi Ryan,
+On Wed, Mar 05, 2025 at 04:20:40PM +0800, Jjian Zhou wrote:
+> This patch adds document for mediatek vcp mbox.
 > 
-> kernel test robot noticed the following build warnings:
+> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+> ---
+>  .../bindings/mailbox/mtk,vcp-mbox.yaml        | 49 +++++++++++++++++++
+>  1 file changed, 49 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
 > 
-> [auto build test WARNING on linus/master]
-> [also build test WARNING on v6.14-rc5 next-20250305]
-> [cannot apply to arm64/for-next/core akpm-mm/mm-everything arm-perf/for-next/perf]
-> [If your patch is applied to the wrong git tree, kindly drop us a note.
-> And when submitting patch, we suggest to use '--base' as documented in
-> https://git-scm.com/docs/git-format-patch#_base_tree_information]
-> 
-> url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/arm64-hugetlb-Cleanup-huge_pte-size-discovery-mechanisms/20250304-230647
-> base:   linus/master
-> patch link:    https://lore.kernel.org/r/20250304150444.3788920-6-ryan.roberts%40arm.com
-> patch subject: [PATCH v3 05/11] arm64: hugetlb: Use set_ptes_anysz() and ptep_get_and_clear_anysz()
-> config: arm64-randconfig-003-20250305 (https://download.01.org/0day-ci/archive/20250305/202503052315.vk7m958M-lkp@intel.com/config)
-> compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 14170b16028c087ca154878f5ed93d3089a965c6)
-> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250305/202503052315.vk7m958M-lkp@intel.com/reproduce)
-> 
-> If you fix the issue in a separate patch/commit (i.e. not just a new version of
-> the same patch/commit), kindly add following tags
-> | Reported-by: kernel test robot <lkp@intel.com>
-> | Closes: https://lore.kernel.org/oe-kbuild-all/202503052315.vk7m958M-lkp@intel.com/
-> 
-> All warnings (new ones prefixed by >>):
-> 
->    In file included from arch/arm64/mm/hugetlbpage.c:12:
->    In file included from include/linux/mm.h:2224:
->    include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
->      504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
->          |                            ~~~~~~~~~~~~~~~~~~~~~ ^
->      505 |                            item];
->          |                            ~~~~
->    include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
->      511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
->          |                            ~~~~~~~~~~~~~~~~~~~~~ ^
->      512 |                            NR_VM_NUMA_EVENT_ITEMS +
->          |                            ~~~~~~~~~~~~~~~~~~~~~~
->>> arch/arm64/mm/hugetlbpage.c:154:23: warning: parameter 'addr' set but not used [-Wunused-but-set-parameter]
->      154 |                              unsigned long addr,
->          |                                            ^
->    3 warnings generated.
-> 
-> 
-> vim +/addr +154 arch/arm64/mm/hugetlbpage.c
-> 
-> bc5dfb4fd7bd471 Baolin Wang       2022-05-16  144  
-> d8bdcff2876424d Steve Capper      2017-08-22  145  /*
-> d8bdcff2876424d Steve Capper      2017-08-22  146   * Changing some bits of contiguous entries requires us to follow a
-> d8bdcff2876424d Steve Capper      2017-08-22  147   * Break-Before-Make approach, breaking the whole contiguous set
-> d8bdcff2876424d Steve Capper      2017-08-22  148   * before we can change any entries. See ARM DDI 0487A.k_iss10775,
-> d8bdcff2876424d Steve Capper      2017-08-22  149   * "Misprogramming of the Contiguous bit", page D4-1762.
-> d8bdcff2876424d Steve Capper      2017-08-22  150   *
-> d8bdcff2876424d Steve Capper      2017-08-22  151   * This helper performs the break step.
-> d8bdcff2876424d Steve Capper      2017-08-22  152   */
-> fb396bb459c1fa3 Anshuman Khandual 2022-05-10  153  static pte_t get_clear_contig(struct mm_struct *mm,
-> d8bdcff2876424d Steve Capper      2017-08-22 @154  			     unsigned long addr,
-> d8bdcff2876424d Steve Capper      2017-08-22  155  			     pte_t *ptep,
-> d8bdcff2876424d Steve Capper      2017-08-22  156  			     unsigned long pgsize,
-> d8bdcff2876424d Steve Capper      2017-08-22  157  			     unsigned long ncontig)
-> d8bdcff2876424d Steve Capper      2017-08-22  158  {
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  159  	pte_t pte, tmp_pte;
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  160  	bool present;
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  161  
-> 66251d3eadf78e2 Ryan Roberts      2025-03-04  162  	pte = ptep_get_and_clear_anysz(mm, ptep, pgsize);
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  163  	present = pte_present(pte);
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  164  	while (--ncontig) {
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  165  		ptep++;
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  166  		addr += pgsize;
+> diff --git a/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
+> new file mode 100644
+> index 000000000000..d5afe295af14
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/mailbox/mtk,vcp-mbox.yaml
+> @@ -0,0 +1,49 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/mailbox/mtk,vcp-mbox.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: MediaTek Video Companion Processor (VCP) mailbox
+> +
+> +maintainers:
+> +  - Jjian Zhou <Jjian.Zhou@mediatek.com>
+> +
+> +description: |
 
-Ahh yes, thanks! Looks like this line can be removed since we no longer need the
-address.
+Don't need '|' if no formatting
 
-Catalin, I was optimistically hoping this might be the final version. If it is,
-are you happy to fold this in? Or do you want me to re-spin regardless?
-
-> 66251d3eadf78e2 Ryan Roberts      2025-03-04  167  		tmp_pte = ptep_get_and_clear_anysz(mm, ptep, pgsize);
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  168  		if (present) {
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  169  			if (pte_dirty(tmp_pte))
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  170  				pte = pte_mkdirty(pte);
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  171  			if (pte_young(tmp_pte))
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  172  				pte = pte_mkyoung(pte);
-> d8bdcff2876424d Steve Capper      2017-08-22  173  		}
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  174  	}
-> 49c87f7677746f3 Ryan Roberts      2025-02-26  175  	return pte;
-> d8bdcff2876424d Steve Capper      2017-08-22  176  }
-> d8bdcff2876424d Steve Capper      2017-08-22  177  
+> +  The MTK VCP mailbox enables the SoC to communicate with the VCP by passing
+> +  messages through 64 32-bit wide registers. It has 32 interrupt vectors in
+> +  either direction for signalling purposes.
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt8196-vcp-mbox
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  "#mbox-cells":
+> +    const: 0
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - interrupts
+> +  - "#mbox-cells"
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +
+> +    vcp_mailbox0: mailbox@31b80000 {
+> +        compatible = "mediatek,mt8196-vcp-mbox";
+> +        reg = <0x31b80000 0x1000>;
+> +        interrupts = <GIC_SPI 789 IRQ_TYPE_LEVEL_HIGH 0>;
+> +        #mbox-cells = <0>;
+> +    };
+> -- 
+> 2.45.2
 > 
-
 
