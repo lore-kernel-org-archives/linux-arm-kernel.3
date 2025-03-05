@@ -4,104 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91C35C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 05:51:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEACC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:08:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQ8sGclz9ZW30bcpmgdyWwKiT4qk2MxCGSmtAY4+/ro=; b=K6IbyWlIDDv2p6NERObPsTosRm
-	hyG3Qd6WXoAYHmL6J4JLp1X0ApmmgEmNAGkLpeBWsnPt2GOuXHCFsmxkWkNs4NRfVbz/XZa2lYZVT
-	ZxVu8eni3MazI2+/Zk55Vp4TNWf6kLx6INqJNfrW78aIxwVG7m7wQN+aDs7zDmT1hx23WgqmPpHaL
-	BbqCnNxLGoRVsIs3J8NcrsHpvtFwV5LGzf974oulOfral0lmMQImgLMo0ohTBYkwzbli6DFQw91Ba
-	LMoM+E5wiFV+HbqGwQagGnufXRaAxmSmIS/mzHWgR9qM4gjboQfSbQ4/m3csLWV/bdNrp9FwvbXAu
-	dGZ1cWkg==;
+	bh=NpP5VzmHnhmpv1KC/ukOAKaov/doI8zDkAQjguKSeqY=; b=SIpIrrSaXOMI/2cmAsQw9TOsXd
+	gXhKuPHtEUQdP8dzsUUyCoA7G6IuQzoMst9Z0pDz6hQSpriTs7Kh7Mykxdu0Bs8Ykld+HHa87KoCp
+	X8J2XOANRiqzzeOelZVOBEWMWIkMnRXSGavSypCyBa05BkiZMq/w+K+btdINYpWM+Z6mVcuJ7gSFz
+	l4cT7NMGpqOmm+qnqoST+GbaOGbMViI7qGWPkJ+39epZvpiFJUC4VqLyH7SC85WT1Z6OMcfUuzcLm
+	Y+njSzqm2LZUpagbCf15L2jGn+7O1GI37TN0WL05jg1KMzpmRdf2RuBvGXFW80heBl+KfUN1B0lwD
+	ik50N6Eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphfH-000000073qP-0Iup;
-	Wed, 05 Mar 2025 05:51:31 +0000
-Received: from mail-pl1-x62c.google.com ([2607:f8b0:4864:20::62c])
+	id 1tphva-000000075I3-0GIS;
+	Wed, 05 Mar 2025 06:08:22 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphbV-000000073QN-3Lwu
+	id 1tphtz-000000075Av-0gNU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 05:47:39 +0000
-Received: by mail-pl1-x62c.google.com with SMTP id d9443c01a7336-2234e5347e2so130437015ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 21:47:37 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741153657; x=1741758457; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=yQ8sGclz9ZW30bcpmgdyWwKiT4qk2MxCGSmtAY4+/ro=;
-        b=ug22YDxRxBFKrGR5/lC8cFEcWuReWwa3nNpBOj8QwGasdur1hPQFPgOpPj8uTyirXc
-         yd2vuMuN5JTVEh64FB+mIGK8OIR+ckjKFenKpZfKbDNPy++0jTPp6MHlUh86JPHnJ7kv
-         AJ+uVVIYpQVDW/PCjxfRgz52xI0hlfLwO6wK1cu7TC7AZMUpTuV9NuL5vRLaqDaZr5+y
-         n65JdNq/avYQlsTkRBkd1Wd4aJJfq1fknTq0enUUSYl4zcgyahTsR8EjR1OK5ZFexicO
-         2iyPNAZC6e+79/ZSElhvDS8eNLoPO1nMRMEeAwiwfMHDSDA6CAg7k/YYIfQWYsq1nAx5
-         7GlQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741153657; x=1741758457;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=yQ8sGclz9ZW30bcpmgdyWwKiT4qk2MxCGSmtAY4+/ro=;
-        b=JcKln5+gPY9wRy3E4DjxAnQm5yyfFsnuZmPSgQywE5kLuqm4mRw2NVeVKCIxJpFlmJ
-         i7A0izRHB1UygP13RPqwCrBnoZjo8f9nJbvm+IwqXY7HLdohFU8DCHYYz8PHkK2+X4bU
-         pe5ZS97XZ3QG6zKqogLouj4wPbiJIlPdgv+NpTMFg73L6TZSC8VgCT/2Yno8c8TtCaAX
-         2uwsl0Js2S6lqtUMUD2fkApZJZTbg7Mj7kjVs0znFGXuQ910Mjh7RVgBvGJqE9b24ggP
-         W20jhlJpv4zLVScc6ZzFpiSTSklz8oORGB1PbHH8eyAUx0hyZkJk2eO8KFwLeMaS1RDR
-         VGCg==
-X-Forwarded-Encrypted: i=1; AJvYcCXwXFFpAAr/7KHfmxmSUgNv76spKkxmiRQT5UHuA/YMpIxJcBm/7jURgeqBJQaSVHsKMLGc6K1ZzkJRh7iYziOj@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFcGhKn3tnUgb7kBE3QtPeMdMhQFnYxdZPBsbYxvLjP/DA0Qpw
-	fWpBtcTOrs41Q0lFzKEy0/yQPxIv0yf6ZrOpZLXebWZKBjSfsF0of5a27oPn2PLh5I0cFMrVZjw
-	=
-X-Gm-Gg: ASbGncsc0Ryr0ULMM2xmXijzS8+Zqc0rkadxS895259OxnCKfQ823qKIU94feagTFnk
-	TbVJKAFjm5/ki6M25ltMtn9cN4HJJCHHkso1s1Y6gniazED5GkPDwbN4E85x60YWN4GmWrrbs4m
-	FybigdpS1iowFOdAEnvPOD83ALVMH0XUlMBIpcCnX6KaJMiUmCNdgxtr3jrafeKxFkZqKqNOn/h
-	fqnRhlB9pvS/EpFwH9nkkGXCDdl3VKlmg/OXgf+iAuz5eGIPpVErAW1PdWAEr4adgZyJl4/Cjbo
-	sdF2U/gY8s4IX7KoOKNsY2SxruSWRpaRpWOmylqaeo/78RHV3qRkgTYI
-X-Google-Smtp-Source: AGHT+IHcOjK0aDg9zZYU8dTY0bxPLw4b7XQZ/EjSujAaUgk6k2jHDc4GWuzqjv6glvZdXk8q7TEpjA==
-X-Received: by 2002:a05:6a00:3016:b0:736:5ee3:64d5 with SMTP id d2e1a72fcca58-73682cda1admr3217540b3a.23.1741153656990;
-        Tue, 04 Mar 2025 21:47:36 -0800 (PST)
-Received: from thinkpad ([120.60.140.239])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73637081ba7sm7772462b3a.112.2025.03.04.21.47.32
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 21:47:36 -0800 (PST)
-Date: Wed, 5 Mar 2025 11:17:29 +0530
+	Wed, 05 Mar 2025 06:06:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8A6445C2387;
+	Wed,  5 Mar 2025 06:04:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15277C4CEE2;
+	Wed,  5 Mar 2025 06:06:30 +0000 (UTC)
+Date: Wed, 5 Mar 2025 11:36:07 +0530
 From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Jim Quinlan <james.quinlan@broadcom.com>
-Cc: linux-pci@vger.kernel.org, Nicolas Saenz Julienne <nsaenz@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
-	Cyril Brulebois <kibi@debian.org>,
-	Stanimir Varbanov <svarbanov@suse.de>,
-	bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
+To: Bo Sun <Bo.Sun.CN@windriver.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Kexin.Hao@windriver.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
 	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 6/8] PCI: brcmstb: Use same constant table for config
- space access
-Message-ID: <20250305054729.5jkxen5vahoxvlrr@thinkpad>
-References: <20250214173944.47506-1-james.quinlan@broadcom.com>
- <20250214173944.47506-7-james.quinlan@broadcom.com>
- <20250304150838.23ca5qbhm4yrpa3h@thinkpad>
- <CA+-6iNzOWU1qLfmSiThdYXX0v5RkbUYtf52yk6KXm6yDDNRUnw@mail.gmail.com>
- <20250304165808.t46fh6fwpardheup@thinkpad>
- <CA+-6iNw2i=4KVr+VYOxacWpP7Pw0E5mDwKY1i9_6V_hjxu9neQ@mail.gmail.com>
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Vidya Sagar <vidyas@nvidia.com>
+Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
+ PCI_PROBE_ONLY is enabled
+Message-ID: <20250305060607.ygsafql53h2ujwjp@thinkpad>
+References: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
+ <20250210103707.c5ubeaowk7xwt6p5@thinkpad>
+ <df5d3c54-d436-43bb-8b40-665c020d6bb5@windriver.com>
+ <20250214170057.o3ffoiuxn4hxqqqe@thinkpad>
+ <55a33534-bff0-488c-a2a2-2898d54bd62f@windriver.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CA+-6iNw2i=4KVr+VYOxacWpP7Pw0E5mDwKY1i9_6V_hjxu9neQ@mail.gmail.com>
+In-Reply-To: <55a33534-bff0-488c-a2a2-2898d54bd62f@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_214737_854671_E6C23581 
-X-CRM114-Status: GOOD (  32.34  )
+X-CRM114-CacheID: sfid-20250304_220643_305960_89F322A1 
+X-CRM114-Status: GOOD (  51.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,62 +73,269 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 12:37:26PM -0500, Jim Quinlan wrote:
-> On Tue, Mar 4, 2025 at 11:58 AM Manivannan Sadhasivam
-> <manivannan.sadhasivam@linaro.org> wrote:
-> >
-> > On Tue, Mar 04, 2025 at 11:37:14AM -0500, Jim Quinlan wrote:
-> > > On Tue, Mar 4, 2025 at 10:08 AM Manivannan Sadhasivam
-> > > <manivannan.sadhasivam@linaro.org> wrote:
-> > > >
-> > > > On Fri, Feb 14, 2025 at 12:39:34PM -0500, Jim Quinlan wrote:
-> > > > > The constants EXT_CFG_DATA and EXT_CFG_INDEX vary by SOC. One of the
-> > > > > map_bus methods used these constants, the other used different constants.
-> > > > > Fortunately there was no problem because the SoCs that used the latter
-> > > > > map_bus method all had the same register constants.
-> > > > >
-> > > > > Remove the redundant constants and adjust the code to use them.  In
-> > > > > addition, update EXT_CFG_DATA to use the 4k-page based config space access
-> > > > > system, which is what the second map_bus method was already using.
-> > > > >
-> > > >
-> > > > What is the effect of this change? Why is it required? Sounds like it got
-> > > > sneaked in.
-> > >
-> > > Hello,
-> > > There is no functional difference with this commit -- the code will
-> > > behave the same.  A previous commit set up the "EXT_CFG_DATA" and
-> > > "EXT_CFG_INDEX" constants in the offset table but one of the map_bus()
-> > > methods did not use them, instead it relied on old generic #define
-> > > constants.  This commit uses them and gets rid of the old #defines.
-> > >
-> >
-> > My comment was about the change that modified the offset of EXT_CFG_DATA. This
-> > was not justified properly.
+On Fri, Feb 28, 2025 at 07:58:10PM +0800, Bo Sun wrote:
+> On 2/15/25 1:00 AM, Manivannan Sadhasivam wrote:
+> > CAUTION: This email comes from a non Wind River email account!
+> > Do not click links or open attachments unless you recognize the sender and know the content is safe.
+> > 
+> > On Wed, Feb 12, 2025 at 03:07:56PM +0800, Bo Sun wrote:
+> > > On 2/10/25 18:37, Manivannan Sadhasivam wrote:
+> > > > CAUTION: This email comes from a non Wind River email account!
+> > > > Do not click links or open attachments unless you recognize the sender and know the content is safe.
+> > > > 
+> > > > On Fri, Jan 17, 2025 at 04:24:14PM +0800, Bo Sun wrote:
+> > > > > On our Marvell OCTEON CN96XX board, we observed the following panic on
+> > > > > the latest kernel:
+> > > > > Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
+> > > > > Mem abort info:
+> > > > >     ESR = 0x0000000096000005
+> > > > >     EC = 0x25: DABT (current EL), IL = 32 bits
+> > > > >     SET = 0, FnV = 0
+> > > > >     EA = 0, S1PTW = 0
+> > > > >     FSC = 0x05: level 1 translation fault
+> > > > > Data abort info:
+> > > > >     ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+> > > > >     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> > > > >     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> > > > > [0000000000000080] user address but active_mm is swapper
+> > > > > Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+> > > > > Modules linked in:
+> > > > > CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
+> > > > > Hardware name: Marvell OcteonTX CN96XX board (DT)
+> > > > > pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> > > > > pc : of_pci_add_properties+0x278/0x4c8
+> > > > > lr : of_pci_add_properties+0x258/0x4c8
+> > > > > sp : ffff8000822ef9b0
+> > > > > x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
+> > > > > x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
+> > > > > x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
+> > > > > x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
+> > > > > x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
+> > > > > x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
+> > > > > x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
+> > > > > x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
+> > > > > x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
+> > > > > x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
+> > > > > Call trace:
+> > > > >    of_pci_add_properties+0x278/0x4c8 (P)
+> > > > >    of_pci_make_dev_node+0xe0/0x158
+> > > > >    pci_bus_add_device+0x158/0x210
+> > > > >    pci_bus_add_devices+0x40/0x98
+> > > > >    pci_host_probe+0x94/0x118
+> > > > >    pci_host_common_probe+0x120/0x1a0
+> > > > >    platform_probe+0x70/0xf0
+> > > > >    really_probe+0xb4/0x2a8
+> > > > >    __driver_probe_device+0x80/0x140
+> > > > >    driver_probe_device+0x48/0x170
+> > > > >    __driver_attach+0x9c/0x1b0
+> > > > >    bus_for_each_dev+0x7c/0xe8
+> > > > >    driver_attach+0x2c/0x40
+> > > > >    bus_add_driver+0xec/0x218
+> > > > >    driver_register+0x68/0x138
+> > > > >    __platform_driver_register+0x2c/0x40
+> > > > >    gen_pci_driver_init+0x24/0x38
+> > > > >    do_one_initcall+0x4c/0x278
+> > > > >    kernel_init_freeable+0x1f4/0x3d0
+> > > > >    kernel_init+0x28/0x1f0
+> > > > >    ret_from_fork+0x10/0x20
+> > > > > Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
+> > > > > 
+> > > > > This regression was introduced by commit 7246a4520b4b ("PCI: Use
+> > > > > preserve_config in place of pci_flags"). On our board, the 002:00:07.0
+> > > > > bridge is misconfigured by the bootloader. Both its secondary and
+> > > > > subordinate bus numbers are initialized to 0, while its fixed secondary
+> > > > > bus number is set to 8.
+> > > > 
+> > > > What do you mean by 'fixed secondary bus number'?
+> > > > 
+> > > 
+> > > The 'fixed secondary bus number' refers to the value returned by the
+> > > function pci_ea_fixed_busnrs(), which reads the fixed Secondary and
+> > > Subordinate bus numbers from the EA (Extended Attributes) capability, if
+> > > present.
+> > 
+> > Thanks! It'd be good to mention the EA capability.
+> > 
+> > > In the code at drivers/pci/probe.c, line 1439, we have the
+> > > following:
+> > > 
+> > >                /* Read bus numbers from EA Capability (if present) */
+> > >                fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
+> > >                if (fixed_buses)
+> > >                        next_busnr = fixed_sec;
+> > >                else
+> > >                        next_busnr = max + 1;
+> > > 
+> > > > > However, bus number 8 is also assigned to another
+> > > > > bridge (0002:00:0f.0). Although this is a bootloader issue, before the
+> > > > > change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
+> > > > > set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
+> > > > > bus number for these bridges were reassigned, avoiding any conflicts.
+> > > > > 
+> > > > 
+> > > > Isn't the opposite? PCI_REASSIGN_ALL_BUS was only added if the PCI_PROBE_ONLY
+> > > > flag was not set:
+> > > > 
+> > > >           /* Do not reassign resources if probe only */
+> > > >           if (!pci_has_flag(PCI_PROBE_ONLY))
+> > > >                   pci_add_flags(PCI_REASSIGN_ALL_BUS);
+> > > > 
+> > > 
+> > > Yes, you are correct. It’s a typo; it should be "when PCI_PROBE_ONLY was not
+> > > enabled." I will fix this in v2.
+> > > 
+> > > > 
+> > > > > After the change introduced in commit 7246a4520b4b, the bus numbers
+> > > > > assigned by the bootloader are reused by all other bridges, except
+> > > > > the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
+> > > > > 002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
+> > > > > bootloader. However, since a pci_bus has already been allocated for
+> > > > > bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
+> > > > > 002:00:07.0.
+> > > > 
+> > > > How come 0002:00:0f.0 is enumerated before 0002:00:07.0 in a depth first manner?
+> > > > 
+> > > 
+> > > The device 0002:00:07.0 is actually enumerated before 0002:00:0f.0, but it
+> > > appears misconfigured. The kernel attempts to reconfigure it during
+> > > initialization, which is where the issue arises.
+> > > 
+> > 
+> > Ok, thanks for the clarification. I think the bug is in this part of the code:
+> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/probe.c#n1451
+> > 
+> > It just reuses the fixed bus number even if the bus already exists, which is
+> > wrong. I think this should be fixed by evaluating the bus number read from EA
+> > capability as below:
+> > 
+> > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
+> > index b6536ed599c3..097e2a01faae 100644
+> > --- a/drivers/pci/probe.c
+> > +++ b/drivers/pci/probe.c
+> > @@ -1438,10 +1438,21 @@ static int pci_scan_bridge_extend(struct pci_bus *bus, struct pci_dev *dev,
+> > 
+> >                  /* Read bus numbers from EA Capability (if present) */
+> >                  fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
+> > -               if (fixed_buses)
+> > -                       next_busnr = fixed_sec;
+> > -               else
+> > +               if (fixed_buses) {
+> > +                       /*
+> > +                        * If the fixed bus number is already taken, use the
+> > +                        * next available bus number. This can happen if the
+> > +                        * bootloader has assigned a wrong bus number in EA
+> > +                        * capability of the bridge.
+> > +                        */
+> > +                       child = pci_find_bus(pci_domain_nr(bus), fixed_sec);
+> > +                       if (child)
+> > +                               next_busnr = max + 1;
+> > +                       else
+> > +                               next_busnr = fixed_sec;
+> > +               } else {
+> >                          next_busnr = max + 1;
+> > +               }
+> > 
+> >                  /*
+> >                   * Prevent assigning a bus number that already exists.
 > 
-> Okay, got it.  You are referring to (for example)
-> -      [EXT_CFG_DATA]          = 0x9004,
-> +       [EXT_CFG_DATA]          = 0x8000,
+> You proposed solution doesn't work on our Marvell OCTEON CN96XX board.
 > 
-> We have two ways of accessing the config space: (1) by writing a full
-> index and reading a  designated register (0x9004) and (2) by writing
-> the index and then reading from a 4k register region (0x8000 +
-> offset).  We previously used (1).  An update was made to use (2) but
-> instead of updating EXT_CFG_DATA from 0x9004 to 0x8000,
-> PCIE_EXT_CFG_DATA (0x8000) was used by the code of one of the map_bus
-> methods.
-> 
-> This commit changes the code in the offending map_bus method to use
-> the offset table for (2) and updates the offset table EXT_CFG_DATA to
-> its proper value.
+> When probing the bus 0002:00, the bus number preset by the bootloader for
+> the bridges under this bus start with 0xf9. Before configure of
+> 0002:00:07.0, the 'max' bus number has already reached 0xff. With your
+> proposed fix, the next_busnr is set to (0xff + 1), which evaluate to 0x100.
+> This results in a 0 being assigned to the secondary bus number of
+> 0002:00:07.0 bridge, causing a recursive bus probe.
 > 
 
-Ok, this clarifies.
+Oops. This is turning out to be too much of a problem.
 
-> If you want me to expand the commit message with the above text I can do that.
+> For reference, you can take a look at the code in probe.c and the
+> corresponding log.
 > 
+>     pci_read_config_dword(dev, PCI_PRIMARY_BUS, &buses);
+> 
+>     primary = buses & 0xFF;
+> 
+>     secondary = (buses >> 8) & 0xFF;
+> 
+>     subordinate = (buses >> 16) & 0xFF;
+> 
+> 
+>     pci_dbg(dev, "scanning [bus %02x-%02x] behind bridge, pass %d\n",
+> 
+>         secondary, subordinate, pass);
+> 
+> pci_bus 0002:00: fixups for bus
+> pci 0002:00:00.0: scanning [bus f9-f9] behind bridge, pass 0
+> pci_bus 0002:f9: scanning bus
+> pci_bus 0002:f9: fixups for bus
+> pci_bus 0002:f9: bus scan returning with max=f9
+> ...
+> pci 0002:00:06.0: scanning [bus ff-ff] behind bridge, pass 0
+> pci_bus 0002:ff: scanning bus
+> pci_bus 0002:ff: fixups for bus
+> pci_bus 0002:ff: bus scan returning with max=ff
+> pci 0002:00:07.0: scanning [bus 00-00] behind bridge, pass 0
+> pci 0002:00:07.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+> ...
+> Kernel panic - not syncing: kernel stack overflow
+> CPU: 12 UID: 0 PID: 1 Comm: swapper/0 Not tainted
+> 6.14.0-rc4-00091-ga58485af8826 #16
+> Hardware name: Marvell OcteonTX CN96XX board (DT)
+> Call trace:
+>  show_stack+0x20/0x38 (C)
+>  dump_stack_lvl+0x38/0x90
+>  dump_stack+0x18/0x28
+>  panic+0x3ac/0x3c8
+>  nmi_panic+0x48/0xa0
+>  panic_bad_stack+0x118/0x140
+>  handle_bad_stack+0x34/0x38
+>  __bad_stack+0x80/0x88
+>  format_decode+0x4/0x2e8 (P)
+>  va_format.constprop.0+0x74/0x130
+>  pointer+0x204/0x4f8
+>  vsnprintf+0x2c4/0x5a0
+>  vscnprintf+0x34/0x58
+>  printk_sprint+0x48/0x170
+>  vprintk_store+0x2d0/0x478
+>  vprintk_emit+0xb0/0x2b0
+>  dev_vprintk_emit+0xe0/0x1b0
+>  dev_printk_emit+0x60/0x90
+>  __dev_printk+0x44/0x98
+>  _dev_printk+0x5c/0x90
+>  pci_scan_child_bus_extend+0x5c/0x2c0
+>  pci_scan_bridge_extend+0x16c/0x630
+>  pci_scan_child_bus_extend+0xfc/0x2c0
+>  pci_scan_bridge_extend+0x320/0x630
+>  pci_scan_child_bus_extend+0x1b0/0x2c0
+>  pci_scan_bridge_extend+0x320/0x630
+> 
+> So, I propose the following solution as a workaround to handle these edge
+> cases.
+> 
+> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+> index 82b21e34c545..af8efebc7e7d 100644
+> --- a/drivers/pci/quirks.c
+> +++ b/drivers/pci/quirks.c
+> @@ -6181,6 +6181,13 @@ DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1536,
+> rom_bar_overlap_defect);
+>  DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1537,
+> rom_bar_overlap_defect);
+>  DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1538,
+> rom_bar_overlap_defect);
+> 
+> +static void quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr(struct pci_dev
+> *dev)
+> +{
+> +       if (!pci_has_flag(PCI_PROBE_ONLY))
+> +               pci_add_flags(PCI_REASSIGN_ALL_BUS);
+> +}
+> +DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_CAVIUM, 0xa002,
+> quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr);
+> +
 
-No need. Krzysztof should be able to ammend the commit message for you.
+LGTM. Please add a comment about this quirk too.
 
 - Mani
 
