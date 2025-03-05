@@ -4,65 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D00C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:55:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 57321C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:59:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	References:In-Reply-To:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=t/i/ZYSpCCcaalSAZPE6RIBpR+1kehNr94nOWqgWFQo=; b=5F1J7h+gnVaaY6F220gXgvdY3T
-	W4rTBIRtARP1BwoNrGDeT7DpSF6YsTHdYvYCnIDlV+ZYsOprkcsdaT8aLibAHZ7nsdO4aJa5/0tdo
-	Iw4zIgS8qRdW3vqKh1FRZoiN0UlDzjNWACKiiLk0KZBpSRF73r5RwBtFIidO4wHVK+Slu6zHxiw1p
-	CB+DU52iCq9CR6PXpQ0DXdkNFkzNTeXS2C4YdE6x6GreKZBVa5VPVXPIlusQtPvRXYuz7hFZoA2HV
-	AVqrSaD9upxBNI7wrYHlnRTatUqTjvMhcP0ySpQkMxKq2qqmXOUvSgXBAurMSdHYna1w7ssegw7Xo
-	cZ3yPPgQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Cc:Subject:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ORO0TNQ6mMIV0zkyxNKGuviXdzB9NGGqGfYVEoIFtPE=; b=wSl46zBH05qdE4QnZRR58A8sc4
+	cA2com0bb1ss6JY+4Wqibv21mrJe53C5lk9yyOMDNjzsRmcFa+08hHh6Uj1XuG4qExGiiZuI1iDO0
+	9ifQ5Sv5KXSsL+E4ATVaiTLDu1kjKcnU/yxmS6u6quHDDhNxJo/MNxcRvkQ78D1IfPOT8rYR7mlTu
+	wqXeStY/7BZJbfyFD/M8sX0eTFpadzMCU5G7M5vzaCPFUAbKfGj8HQFDGs4acq/rZl4JvHRT323KZ
+	YVPApcQMuTce0CqwwzfFzwDhK1Cfv2pAee+Yosz5PfmK7Osc1RFddf7WIfxV3EUfx9k5cAzBqCZ4N
+	ZSd8lxRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmPW-00000007lSt-3HjR;
-	Wed, 05 Mar 2025 10:55:35 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tpmSl-00000007mWL-0oUK;
+	Wed, 05 Mar 2025 10:58:55 +0000
+Received: from 0001.3ffe.de ([159.69.201.130] helo=mail.3ffe.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpltG-00000007fEg-35x2;
-	Wed, 05 Mar 2025 10:22:16 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 25A8A204D0;
-	Wed,  5 Mar 2025 10:22:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741170131;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=t/i/ZYSpCCcaalSAZPE6RIBpR+1kehNr94nOWqgWFQo=;
-	b=ED6gCxt9+D+E+Xnlpd76DBNkUVjEG/t0SiS3K1jmWMHm21BlSSePusLZ5xQ4KYtIwjO3ri
-	DraOId/ugKydAwHutaD3tO1JHenfvXHELPfZf5SKRF2hlcsBQw7FyKXPx23ScoIiwWEUx7
-	0VpJ7uy4rnxiZ5yzdqkK0EPiFdG9q1B4SIKPJFmmSiMenCuTx3npfnjW42+R2loxzYYFsa
-	lPmRZfJwBnP93F1ciH/UKXT9p1i/kBV8+sqHj9F8BAQJt64Y1CAiuLEh31UIOnr4K4kPOc
-	xj/plfY/t8/RqTB/zA5G1f9ruQjYBksXuu/3/1nz/JhuS+8J1OQI9tW5whqkhQ==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: Manikandan Muralidharan <manikandan.m@microchip.com>
+	id 1tplvw-00000007fj9-0CiG;
+	Wed, 05 Mar 2025 10:25:01 +0000
+Received: from localhost (unknown [IPv6:2a02:810b:4320:1000:4685:ff:fe12:5967])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.3ffe.de (Postfix) with ESMTPSA id CB5C648D;
+	Wed,  5 Mar 2025 11:24:47 +0100 (CET)
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Wed, 05 Mar 2025 11:24:47 +0100
+Message-Id: <D889CRJC6W19.2LDQCDVG7BLNG@kernel.org>
 Subject: Re: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM
  framework to read MAC Address
-In-Reply-To: <20250305100134.1171124-1-manikandan.m@microchip.com> (Manikandan
-	Muralidharan's message of "Wed, 5 Mar 2025 15:31:33 +0530")
+Cc: "Varshini Rajendran" <varshini.rajendran@microchip.com>
+From: "Michael Walle" <mwalle@kernel.org>
+To: "Manikandan Muralidharan" <manikandan.m@microchip.com>,
+ <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
+ <claudiu.beznea@tuxon.dev>, <tudor.ambarus@linaro.org>,
+ <pratyush@kernel.org>, <miquel.raynal@bootlin.com>, <richard@nod.at>,
+ <vigneshr@ti.com>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-mtd@lists.infradead.org>
+X-Mailer: aerc 0.16.0
 References: <20250305100134.1171124-1-manikandan.m@microchip.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Wed, 05 Mar 2025 11:22:09 +0100
-Message-ID: <87ikonydym.fsf@bootlin.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdegheeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufgjfhgffffkgggtgfesthhqredttderjeenucfhrhhomhepofhiqhhuvghlucftrgihnhgrlhcuoehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeffgefhjedtfeeigeduudekudejkedtiefhleelueeiueevheekvdeludehiedvfeenucfkphepledvrddukeegrddutdekrdelieenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpeelvddrudekgedruddtkedrleeipdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpehmihhquhgvlhdrrhgrhihnrghlsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedujedprhgtphhtthhopehmrghnihhkrghnuggrnhdrmhesmhhitghrohgthhhiphdrtghomhdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnihgtohhlrghsrdhfvghrrhgvsehmihgtrhhotghhihhprdgtohhmpdhrtghpt
- hhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvhdprhgtphhtthhopehtuhguohhrrdgrmhgsrghruhhssehlihhnrghrohdrohhrgh
-X-GND-Sasl: miquel.raynal@bootlin.com
+In-Reply-To: <20250305100134.1171124-1-manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_022215_232425_1E3AA0BF 
-X-CRM114-Status: UNSURE (   9.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_022500_235523_20B2806F 
+X-CRM114-Status: GOOD (  28.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,13 +66,10 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, conor+dt@kernel.org, mwalle@kernel.org, vigneshr@ti.com, alexandre.belloni@bootlin.com, devicetree@vger.kernel.org, richard@nod.at, linux-kernel@vger.kernel.org, claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org, linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, Varshini Rajendran <varshini.rajendran@microchip.com>, krzk+dt@kernel.org, pratyush@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 at 15:31:33 +0530, Manikandan Muralidharan <manikandan.m@micr=
-ochip.com> wrote:
-
+On Wed Mar 5, 2025 at 11:01 AM CET, Manikandan Muralidharan wrote:
 > From: Varshini Rajendran <varshini.rajendran@microchip.com>
 >
 > EUI identifier and the MAC Address of the Ethernet Interface is stored
@@ -96,14 +85,119 @@ ochip.com> wrote:
 > This change ensures consistent and reliable MAC address retrieval from QS=
 PI,
 > benefiting boards like the sama5d29 curiosity and sam9x75 curiosity.
+>
+> Signed-off-by: Varshini Rajendran <varshini.rajendran@microchip.com>
+> [manikandan.m@microchip.com: Integrate the nvmem->read callback framework=
+]
+> Signed-off-by: Manikandan Muralidharan <manikandan.m@microchip.com>
+> ---
+>  drivers/mtd/spi-nor/sst.c | 62 +++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 62 insertions(+)
+>
+> diff --git a/drivers/mtd/spi-nor/sst.c b/drivers/mtd/spi-nor/sst.c
+> index 175211fe6a5e..a0abf201ad41 100644
+> --- a/drivers/mtd/spi-nor/sst.c
+> +++ b/drivers/mtd/spi-nor/sst.c
+> @@ -5,6 +5,7 @@
+>   */
+> =20
+>  #include <linux/mtd/spi-nor.h>
+> +#include <linux/nvmem-provider.h>
+> =20
+>  #include "core.h"
+> =20
+> @@ -13,6 +14,8 @@
+> =20
+>  #define SST26VF_CR_BPNV		BIT(3)
+> =20
+> +#define SST26VF_SFDP_EUI48	0x30
+> +
+>  static int sst26vf_nor_lock(struct spi_nor *nor, loff_t ofs, u64 len)
+>  {
+>  	return -EOPNOTSUPP;
+> @@ -56,8 +59,67 @@ static int sst26vf_nor_late_init(struct spi_nor *nor)
+>  	return 0;
+>  }
+> =20
+> +/**
+> + * sst26vf_sfdp_mac_addr_read() - check if the EUI-48 MAC Address is pro=
+grammed
+> + * and read the data from the prestored SFDP data
+> + *
+> + * @priv: User context passed to read callbacks.
+> + * @offset: Offset within the NVMEM device.
+> + * @val: pointer where to fill the ethernet address
+> + * @bytes: Length of the NVMEM cell
+> + *
+> + * Return: 0 on success, -EINVAL  otherwise.
+> + */
+> +static int sst26vf_sfdp_mac_addr_read(void *priv, unsigned int off,
+> +				      void *val, size_t bytes)
+> +{
+> +	struct spi_nor *nor =3D priv;
+> +	struct sfdp *sfdp =3D nor->sfdp;
+> +	loff_t offset =3D off;
+> +	size_t sfdp_size;
+> +
+> +	/*
+> +	 * Check if the EUI-48 MAC address is programmed in the next six addres=
+s
+> +	 * locations.
+> +	 * @off is programmed in the DT and stores the start of MAC Address
+> +	 * byte, (off - 1) stores the bit length of the Extended Unique
+> +	 * Identifier
+> +	 */
+> +	if (SST26VF_SFDP_EUI48 !=3D *((u8 *)sfdp->dwords + (offset - 1)))
+> +		return -EINVAL;
 
-Do you mean spi-nor have a programmable area in their SFDP table? Isn't
-this supposed to be a read-only area written once in factory?
+What happens if you read at a different offset? You're exposing
+the entire SFDP region. What happens if there is a 0x30 at a
+different location?
 
-I am not a big fan of exposing the whole SFDP area. I would suggest to
-expose just the MAC address. You can make use of nvmem layout drivers if
-that is needed.
+> +
+> +	sfdp_size =3D sfdp->num_dwords * sizeof(*sfdp->dwords);
+> +	memory_read_from_buffer(val, bytes, &offset, sfdp->dwords,
+> +				sfdp_size);
+> +	return 0;
+> +}
+> +
+> +static struct nvmem_config sst26vf_sfdp_nvmem_config =3D {
+> +	.word_size =3D 1,
+> +	.stride =3D 1,
+> +};
+> +
+> +static int sst26vf_nor_post_sfdp(struct spi_nor *nor)
+> +{
+> +	struct nvmem_device *nvmem;
+> +
+> +	sst26vf_sfdp_nvmem_config.dev =3D nor->dev;
+> +	sst26vf_sfdp_nvmem_config.size =3D nor->sfdp->num_dwords * sizeof(*nor-=
+>sfdp->dwords);
+> +	sst26vf_sfdp_nvmem_config.priv =3D nor;
+> +	sst26vf_sfdp_nvmem_config.reg_read =3D sst26vf_sfdp_mac_addr_read;
+> +
+> +	nvmem =3D devm_nvmem_register(nor->dev, &sst26vf_sfdp_nvmem_config);
+> +	if (IS_ERR(nvmem)) {
+> +		dev_err(nor->dev, "failed to register NVMEM device: %ld\n", PTR_ERR(nv=
+mem));
+> +		return PTR_ERR(nvmem);
 
-Thanks,
-Miqu=C3=A8l
+I don't think it makes sense to have this one-off in a particular
+driver. If at all, this should be handled in the core. Sorry, but
+this really looks like an ugly hack.
+
+-michael
+
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct spi_nor_fixups sst26vf_nor_fixups =3D {
+>  	.late_init =3D sst26vf_nor_late_init,
+> +	.post_sfdp =3D sst26vf_nor_post_sfdp,
+>  };
+> =20
+>  static const struct flash_info sst_nor_parts[] =3D {
+
 
