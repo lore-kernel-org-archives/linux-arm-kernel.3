@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA617C282D9
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:15:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78B47C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 09:15:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
-	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=; b=iot1y0GWhIUdgaO4+8dHMG8y37
-	uFNMMTihR6uzvwQwKp61deMYq2oVPMyICyOPF77GonjULYWxILaJK5pX+nerOh8wsO8mH/m/xCQa5
-	i40QrxGbSpYo+zNaF8NHVYYPtTvAp+RvFF34Lta+/YyGdUoQgmtUVvV4puQQc8hfSMjKfa2p2zK1A
-	Fk5mGblS3HHp2+ZqfFr2HC9HpJvIqKnLSaLC5M36TbSEbud7yzxD8jdqFyljkT4hPKQ2n+CE0k4T1
-	4ZCjnR0kKWeQtgt/NuEOE6pvNvzH3UYzToVCN8+hV+ZOypXZXPCcxmqHADSHYdI7wc1AwsLiPc9Hp
-	pa4lUqBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MVvMs78zkzkeqmzW6J2z1KTg9lkgT1zXvYuPWJfo120=; b=VB5ViRo0FkyNH4lbZiZxr5Yowg
+	lTDuYmER41C2MlF50Fhn30SDggO/nLUeccaegYYqVj2BXM3wttxwi0mo8R2r6C0laCOWGSdspKUaI
+	2lpMBWdKX5AFeK1orJ0RAwYUGF+3Tz1sehmMaWo9J64D4VFLQxipVS6jA+T4JcEPjJvodouqFVEBP
+	LsDJ/urlvEUAkrCDfRGp5k1NRWVZGyQnta1kEX6f+7xaK0Xx94FJ8t18nmWMsn0y48sxrKYkuaD1Q
+	20orGepO9heC/ACg17dbKheI8uQdsr4bke42YpjfQmoFj9XVo27mbBoAHPvyLDhJOlQ1IY0pit4eG
+	ASxCzblg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpkq6-00000007Tlw-3xPw;
-	Wed, 05 Mar 2025 09:14:54 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tpkq8-00000007Tn9-0zzp;
+	Wed, 05 Mar 2025 09:14:56 +0000
+Received: from mail-m3271.qiye.163.com ([220.197.32.71])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjZX-00000007IHN-2VRe;
-	Wed, 05 Mar 2025 07:53:44 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54954fa61c8so5306325e87.1;
-        Tue, 04 Mar 2025 23:53:42 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741161221; x=1741766021; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=;
-        b=G7oOLH3zeugRFmagiKpNE5xYgbj6zWgt8ne1KZTM6pSuVQ5EzoxAJ12Y363yRNrpoZ
-         Sqrvb3++EM2HYW4d57wp+wWHZuVmqZtlrQKi4P5ZPvroZoGKoRH/KluhqyXOwODjQn3L
-         M4NjKNYtETf1O7J31vDvgG6oUQAf+f+6gFBA9y4GKh88kt3RfFNX4jUUVbl2fafXk2uF
-         necHLJVVlDGWkYynOnEmVpf5LBLCwDAy7azBGdLDTZbDJMoO7hmNrevac4GCgxLU7HWD
-         UPilOwAosOs6J6lUusqAWfs+X0k9wmA+53lHSmeuMAcEOzI7B1NEJlRexzS7PNs2iw1q
-         hL8A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741161221; x=1741766021;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=HiTpS6soFncX3ap+JUlkCx1cOPiDwgUNOLW0huS1jJo=;
-        b=KAlortb2tYpo+RSEf0RJ8e5dyVN0dE0+RuL/0hy/qipk5v7QADAmgnpIWC4icDzxOa
-         l2Y2N2Zy+Q3PdzDzBL/85AVEGleio4Ca9ts8XMQErpuTK/l2hrZYVeDp4SD2MP4euIl/
-         htkC5cMA5uDQqls5UK1YuNClMaz6eZdzLIBIKCcul50P7PYiV6RUU5fM9A1g/e/6TLcx
-         pbLLvP9J2t6nj1jtCu7qk8YqtEPC4Y2D6jE2agDDi8Iz45mo2t7cGoFcaUQUn7nc+GhF
-         ht+Yduf92xXv8ZlawOfPLWHzQmo/k58lHd+t5ykstNzEOMQCUxZtQyjHdwSs6NukDkv4
-         0Uig==
-X-Forwarded-Encrypted: i=1; AJvYcCW/WxL+whbTKAj1XONuVydBpeqiHHGWOKCGHTSFFf4nb+S2NXUgQUXbS7qBz51bBMaZCgdlqEghg4HCo/r5/P+C@lists.infradead.org, AJvYcCX+Cc2V0fob4FjQJhQKE0bqRSeYenfotbCMDNj73RDOcLxpHzi2/4sGX7lT05nwtwAokunrnzaNMkns92tG7oQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6qxWvQ2cGuFF3DOm9SVCIMtDWcQJT+dhd1W2688sAtqT5LTDi
-	uLUPjNahX0mfxZNseMGacdU6DR7gB0J5Tcp9g7A23QM+zHRj3sRq
-X-Gm-Gg: ASbGnct6q38pBVyEC75GhpbXE9+NmQJiHTdr03P97hqDl+V7GIh9rh9S45nmoGdO3MU
-	L16oEImdKFRfwWDx1cUcetwfm28VFDcZLhX3zDIogh79ePmnqWZNFuyym8Qdbw6OeZCz+RWOAxG
-	nwV7qzogXQun8mR34u++auAn6o5Crix+sQUSbdlcD6bOWwuSANwzaD/KdkmS0kgPXN+IHNZGpQd
-	ktuJfT5ZvxaabdxCX2t9UX8OgchFeBH5aATw+47uLVGVgtM7Jar8H7viasPRvirAvwFGWL/ii55
-	FPJcF1NyjTJzYTs0Vy+tNBNhGXk4oInP6LJLg2mhiJlbKo2PnpUx1hvrG55eGCVd/Jt2ml2iSYN
-	0ucRWER4wbVTbSh1p0FTmKyTnUiyqLAFB
-X-Google-Smtp-Source: AGHT+IGoSfXFo2jQfX6zwJukiQLZftqM9VYE26ir2v2Z98LPwA2YNZbRZg8LePVsUKETExIau4wjew==
-X-Received: by 2002:a05:6512:3190:b0:549:7c64:3bc0 with SMTP id 2adb3069b0e04-5497d35028emr565104e87.29.1741161221096;
-        Tue, 04 Mar 2025 23:53:41 -0800 (PST)
-Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5495b3f4ebdsm1155605e87.102.2025.03.04.23.53.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 23:53:40 -0800 (PST)
-References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
- <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
- <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
-User-agent: mu4e 1.10.9; emacs 30.1
-From: Mikhail Rudenko <mike.rudenko@gmail.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Tomasz Figa
- <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Hans
- Verkuil <hverkuil@xs4all.nl>, Sergey  Senozhatsky
- <senozhatsky@chromium.org>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mauro  Carvalho Chehab
- <mchehab+huawei@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
- dma-contig
-Date: Wed, 05 Mar 2025 10:40:31 +0300
-In-reply-to: <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
-Message-ID: <87y0xj29rz.fsf@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	id 1tpjaH-00000007IT6-1zk1;
+	Wed, 05 Mar 2025 07:54:31 +0000
+Received: from localhost.localdomain (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id d0130eab;
+	Wed, 5 Mar 2025 15:54:23 +0800 (GMT+08:00)
+From: Shawn Lin <shawn.lin@rock-chips.com>
+To: Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>
+Subject: [PATCH v2] arm64: defconfig: Enable Rockchip UFS host driver
+Date: Wed,  5 Mar 2025 15:54:12 +0800
+Message-Id: <1741161252-138526-1-git-send-email-shawn.lin@rock-chips.com>
+X-Mailer: git-send-email 2.7.4
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUtKHlZJShpDQhofTkpJQk9WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a95654c729f09cckunmd0130eab
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6PSo6Pgw5EjIBEDgOECEYMhcz
+	C1EaCh9VSlVKTE9KSk1KSU1PQk9IVTMWGhIXVQgTGgwVVRcSFTsJFBgQVhgTEgsIVRgUFkVZV1kS
+	C1lBWU5DVUlJVUxVSkpPWVdZCAFZQUNISzcG
+DKIM-Signature: a=rsa-sha256;
+	b=EPyMqHw9H8n7HlyKtEcwAG9wCWh1Synmf2b3spAA9E+jUZsFekwbvwB9aXwIw5vdY017ch2KoZxLK6VnlEYuqf0AJVJNE53fiXqKJeJiX73ZCAv65qOefjUFUG+2KDP86c21hYOtTOWYJdNHcRfXAWDmdKwcPjnvOQ9D4/fa1+8=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=MVvMs78zkzkeqmzW6J2z1KTg9lkgT1zXvYuPWJfo120=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_235343_633942_2AB62DB6 
-X-CRM114-Status: GOOD (  20.35  )
+X-CRM114-CacheID: sfid-20250304_235430_031190_4695BEF2 
+X-CRM114-Status: UNSURE (   8.16  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,105 +70,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nicolas,
+Enable Rockchip UFS host driver.
 
-On 2025-03-03 at 10:24 -05, Nicolas Dufresne <nicolas@ndufresne.ca> wrote:
+This driver is first introduced on Rockchip RK3576 SoC, and will
+be used for more SoCs in near future, so add it to defconfig
+will make these platforms work better.
 
-> Hi Mikhail,
->
-> Le lundi 03 mars 2025 =C3=A0 14:40 +0300, Mikhail Rudenko a =C3=A9crit=C2=
-=A0:
->> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
->> commit 129134e5415d ("media: media/v4l2: remove
->> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
->> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
->> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
->> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
->> no-ops, making cache maintenance for non-coherent dmabufs allocated
->> by
->> dma-contig impossible.
->>
->> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
->> {flush,invalidate}_kernel_vmap_range calls to
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
->> buffers.
->>
->> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
->> V4L2_MEMORY_FLAG_NON_COHERENT flag")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
->> ---
->> =C2=A0.../media/common/videobuf2/videobuf2-dma-contig.c=C2=A0 | 22
->> ++++++++++++++++++++++
->> =C2=A01 file changed, 22 insertions(+)
->>
->> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> index
->> a13ec569c82f6da2d977222b94af32e74c6c6c82..d41095fe5bd21faf815d6b035d7
->> bc888a84a95d5 100644
->> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> @@ -427,6 +427,17 @@ static int
->> =C2=A0vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
->> =C2=A0				=C2=A0=C2=A0 enum dma_data_direction
->> direction)
->> =C2=A0{
->> +	struct vb2_dc_buf *buf =3D dbuf->priv;
->> +	struct sg_table *sgt =3D buf->dma_sgt;
->> +
->> +	if (!buf->non_coherent_mem)
->> +		return 0;
->> +
->> +	if (buf->vaddr)
->> +		invalidate_kernel_vmap_range(buf->vaddr, buf->size);
->
-> What would make me a lot more confortable with this change is if you
-> enable kernel mappings for one test. This will ensure you cover the
-> call to "invalidate" in your testing. I'd like to know about the
-> performance impact. With this implementation it should be identical to
-> the VB2 one.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Shawn Lin <shawn.lin@rock-chips.com>
+---
 
-I'll enable kernel mappings and rerun my tests later this week.
+ arch/arm64/configs/defconfig | 1 +
+ 1 file changed, 1 insertion(+)
 
-> What I was trying to say in previous comments, is that my impression is
-> that we can skip this for CPU read access, since we don't guaranty
-> concurrent access anyway. Both address space can keep their cache in
-> that case. Though, I see RKISP does not use kernel mapping plus I'm not
-> reporting a bug, but checking if we should leave a comment for possible
-> users of kernel mapping in the future ?
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 3a3706d..907e92d 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1191,6 +1191,7 @@ CONFIG_SCSI_UFS_HISI=y
+ CONFIG_SCSI_UFS_RENESAS=m
+ CONFIG_SCSI_UFS_TI_J721E=m
+ CONFIG_SCSI_UFS_EXYNOS=y
++CONFIG_SCSI_UFS_ROCKCHIP=y
+ CONFIG_NEW_LEDS=y
+ CONFIG_LEDS_CLASS=y
+ CONFIG_LEDS_CLASS_MULTICOLOR=m
+-- 
+2.7.4
 
-I trust Tomasz here, I'd wait for his comment on v4.
-
->> +
->> +	dma_sync_sgtable_for_cpu(buf->dev, sgt, direction);
->> +
->> =C2=A0	return 0;
->> =C2=A0}
->>
->> @@ -434,6 +445,17 @@ static int
->> =C2=A0vb2_dc_dmabuf_ops_end_cpu_access(struct dma_buf *dbuf,
->> =C2=A0				 enum dma_data_direction direction)
->> =C2=A0{
->> +	struct vb2_dc_buf *buf =3D dbuf->priv;
->> +	struct sg_table *sgt =3D buf->dma_sgt;
->> +
->> +	if (!buf->non_coherent_mem)
->> +		return 0;
->> +
->> +	if (buf->vaddr)
->> +		flush_kernel_vmap_range(buf->vaddr, buf->size);
->> +
->> +	dma_sync_sgtable_for_device(buf->dev, sgt, direction);
->> +
->> =C2=A0	return 0;
->> =C2=A0}
->>
->>
-
-
---
-Best regards,
-Mikhail Rudenko
 
