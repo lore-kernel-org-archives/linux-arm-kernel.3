@@ -4,82 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F79C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:34:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB16C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=juwqgrYGCE5w996uXwogPcMmbvC5/i22u0VdOtMgdug=; b=E6VVWwVtbesIzp+81UqTAzos83
-	9xn4pyjBD0i/U+I29UKWo/cexVDfFfBZ8iwUzLjLGaUWrZ6urhLSBT+ldpfSp9FPjaRuiWciyyzcV
-	qROc2XV7dg3yp1sVQ/WBNHNG/XhJg5UkKCAKwZubE6LOxMfTrjYQ6YP3ffEE99P4Z9hcTrWJH9Emm
-	5hX+V+GpbxEcVPDBm4u9lNRXHlAlbYJmZZgh+o6NquqGVP9Nr1avHAec9OxSO63m8+KUWc0pWWd1B
-	9moWJMjjcXCvWoQX2wweznIjAWlZ7dGH/gdt1XD0gnZFY5lRbNct6GuFPcIzLzBDfJaJek6lCFNu+
-	8Uqi9B+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9O2qXfR8B101GmR82kjgNZDoLonCMfebNSZtNGz6z3s=; b=I/XWX1Hpx7uEo5qdPeIY1DAFh4
+	hN33hR0PZnS81l4Av0zhEVOA/rnlYJpDhLYcMoz4tcddFnHMXQVdu/WPRP81/e93YQ+M01oy97hZc
+	fAJ+yKusb6Zlv53YWSLOdjLtyZH3CDQUuQfkZFYKqBuejysoh+MHUqYFJ3j2qjbr2zANOuI1FfHuc
+	A0V54WWmTrsVB3cRUMSqTlGKlzXonN+eG1ApRRIpon7tu/dAvwvvUFUH6K49rGSITqiWFIDZIxpKv
+	EYcQ0Ha2piy0txWpkCnVDpAE9K5US/0gky9viWyt7ra184ZUy5ey33cmPp2l3+y4xhpBfhrtd6a3l
+	8TE9b+EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjGL-00000007FHD-0HsB;
-	Wed, 05 Mar 2025 07:33:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpjOk-00000007Gdh-404R;
+	Wed, 05 Mar 2025 07:42:34 +0000
+Received: from mail-lj1-x22b.google.com ([2a00:1450:4864:20::22b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjEl-00000007F8p-1N44;
-	Wed, 05 Mar 2025 07:32:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=juwqgrYGCE5w996uXwogPcMmbvC5/i22u0VdOtMgdug=; b=CCVDXchHiVKW/hiyn4foyX15lj
-	EZHCL0DYeLvVjc7SFmDZPMaZUPStbAWsCQ/DbJgvmqzxDeBVxZbr3bzPQxtRyf9PFF+f0PDqS+fh5
-	OVWAixorvS7REJ0Izmo0F+NvUh+qKWp6ogYcivNtxOTtBQB7elLG0UOR+8IKGK2cIwPyYeQbyB3IU
-	sbl/Uw3lbqZviWEiqL4xdp7nm7DPnjKKd0pc00VmZFlqpE8aK7JF6Brmb75JWZfC+W/qxQ3ZWD0eK
-	w2jMEWvYRsr19IR8fJq9z98PpohgldxtToY/Xvr+yAh3D5zEiYqp1j9Xu5UbPxSiN6lww/jQw/YEg
-	nRWcV3oQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjEi-00000000P6P-0pea;
-	Wed, 05 Mar 2025 07:32:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EE6E9A44F1D;
-	Wed,  5 Mar 2025 07:26:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83236C4CEE2;
-	Wed,  5 Mar 2025 07:32:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741159930;
-	bh=m62ntYl+OHjI4BbSj3eSfbV1M2IVOsVTJYXyzyiQ8cE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=WzXE2Tck/lDhxGd7+olXHUH9tYc7zFNpzzbFM4ShYSxjDqPsUD1z4Vjq5v/0+/Xe9
-	 VHbU8E5BDJ2sqSrjARXmS6zWQdCRz1gE8SfwD/dbNDC5V+ks6RXYI7RYn905tGiwb7
-	 wWBA4+wkkYTW8Y3dxJAagG9DGnY/QQvFVhVbHeOMVsTPBIqn4v4aUZW7mBv8pkfn6F
-	 dx7qGEByHTDHznB/rhUumWoB4hDNWNK8ayR/5TwRNLxjF7uMAu3fE5NTeIn2M+TVGl
-	 jzTzpoMEA8pLjq3wQF493TFciUCEpc3Mq5VJoDNedxso9It7grlylT4n8jxN8i5G2L
-	 LNJ3/7YiXXepg==
-Date: Wed, 5 Mar 2025 08:32:06 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 2/9] dt-bindings: phy: Add the M31 based eUSB2 PHY
- bindings
-Message-ID: <20250305-furry-finch-of-camouflage-e7ee5e@krzk-bin>
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
- <20250304-sm8750_usb_master-v2-2-a698a2e68e06@quicinc.com>
+	id 1tpjLa-00000007G83-1PEl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 07:39:19 +0000
+Received: by mail-lj1-x22b.google.com with SMTP id 38308e7fff4ca-30bb75492e4so30669211fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:39:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741160356; x=1741765156; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9O2qXfR8B101GmR82kjgNZDoLonCMfebNSZtNGz6z3s=;
+        b=OTvbewqhi58oNt7Oq+ITmXsPY2JNYhiwG5VkYRqMTuarU35DY3JL+0oLooCGP/f44J
+         rD5Myl5lUH+VfPEoxHpXTWQUOgoAiInqN/PtwTeZUOtNuq/ZZuVXKrEOGbythBr9ijGt
+         j9ynnjgTU8gZiq1zYppnV04OX0wNc1vJfuRWRUABl3lsIFdgcErz7dRyDcOvuHJIhxkw
+         LeyWuFOwGPFs/hFmf8ti+OIp+TJMyj+k8EEHg5JssOiOTT/0/g1LdByThsBK9ts6jSYN
+         2yp+F5jZ4T0h31sUU0fNBhyT1v3xdMqHnFTGg9OFs9E615DO5z+UYV7DRUzUyrRGC0P5
+         FW5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741160356; x=1741765156;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=9O2qXfR8B101GmR82kjgNZDoLonCMfebNSZtNGz6z3s=;
+        b=dHX+ugDT8XEGpJcsat/+RUk/RYoAEQifwB3/+Jj2erkaR0eG2a7TYMLpp8mfftYKVQ
+         HMV6vq6xugOSOdIuIk5A0BEA22hj0XwteIofJ1dyCz7ck+2S/qZ5tjR9zSBFZE2P2PmE
+         7OvkYRzghIFEOxrBkkpXaYxLSHeGReCn/sIlkEars/RXDNOilhvI2Noe5U4YFAW41zCl
+         QCwPlfhwoKLqzSeyCt9qZlJGgud/+k3FBDUeUkDc4IN5vNynQsGIoLVFFTxxV7jv4gD9
+         EKx9TFNsSGAh5iONW368MIL7Y2kXIWq23Du5UCLmeRKBQk5ozn2xa4DlRlm7fBzlaejW
+         VzFA==
+X-Forwarded-Encrypted: i=1; AJvYcCUVSp9flR53DiB9kKtgtIjGcV2MKb9IQtm0gV/7Hxj9r97t7L/QW9kBPBADJqcjIl2lofH/o3yQdmYRy4Rk56mQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyjHSwme06IQqI5hLwX7rUh/44HcVig3Sgd7ydGB1XhwB/07OU
+	PXcpQGqoaoNArPqlxoHhLoEU+6KdVBfKvq9KiWABWxvHgoQ3bg++lUkhM4eZBLfk0MVL1AkU44/
+	3
+X-Gm-Gg: ASbGnctAf01Q0ntaxo3no6KhJAIOjm8eH2NJtqeiiPI912c1PkDAJLelZQFG+qfDIOc
+	KlPC8IUBs0jVCVZHssVmb+AXGmFDaUVHPbtvoJ68msTUuSpn83XybDVC5QtKfXkdkFF0YF+qfWY
+	UOYmZ/rn5sz9lystmk9poiQqMKZL2lF037h47h5oOQgy0MOA/9uDVCR9U1dvpHK5yQJEtrJaz9o
+	mU7+ycMo6tN904ZHGxOXeCd/rYDSmgiTJ71f8Ds2UqrV6Q80ujw5nD+3epy4Jv/YU+yRHK2C6Q3
+	PPoOJ+GqMNR2HtO2aXTY7DEe/Nf6RaGkdZyq+p8gCmHJPxVqYKhow1A=
+X-Google-Smtp-Source: AGHT+IHPSQp1sMr7Rrf/l9lcn+EQseF/Qe+jZ3cFqBGhxMioF6AUDMWmKnx6hoowTamZYf5w+OgQoA==
+X-Received: by 2002:a05:651c:508:b0:30a:4428:dead with SMTP id 38308e7fff4ca-30bd7af5f94mr8944781fa.27.1741160356428;
+        Tue, 04 Mar 2025 23:39:16 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bbae78e73sm8902351fa.75.2025.03.04.23.39.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 23:39:15 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 05 Mar 2025 08:39:13 +0100
+Subject: [PATCH v2 1/6] ASoC: samsung: bells: Drop unused include
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250304-sm8750_usb_master-v2-2-a698a2e68e06@quicinc.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250305-samsung-codecs-v2-1-20bc980c6445@linaro.org>
+References: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
+In-Reply-To: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_073212_680660_7D2B3B7C 
-X-CRM114-Status: UNSURE (   7.48  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250304_233918_379011_2C82646D 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,33 +103,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:56:35PM -0800, Melody Olvera wrote:
-> +  vdd-supply:
-> +    description:
-> +      Phandle to 0.88V regulator supply to PHY digital circuit.
-> +
-> +  vdda12-supply:
-> +    description:
-> +      Phandle to 1.2V regulator supply to PHY refclk pll block.
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#phy-cells"
-> +  - clocks
-> +  - clock-names
-> +  - vdd-supply
-> +  - vdda12-supply
-> +  - resets
+This file does not use the symbols from the legacy
+<linux/gpio.h> header, so let's drop it.
 
-Keep the same order as in "properties" list.
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ sound/soc/samsung/bells.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-> +
-> +additionalProperties: false
+diff --git a/sound/soc/samsung/bells.c b/sound/soc/samsung/bells.c
+index 365b1aca4855c885e0b59a1101475d8edb86374f..b4c0857ae35134b58a125b0746af07a5fff040fa 100644
+--- a/sound/soc/samsung/bells.c
++++ b/sound/soc/samsung/bells.c
+@@ -7,7 +7,6 @@
+ #include <sound/soc.h>
+ #include <sound/soc-dapm.h>
+ #include <sound/jack.h>
+-#include <linux/gpio.h>
+ #include <linux/module.h>
+ 
+ #include "../codecs/wm5102.h"
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
-Best regards,
-Krzysztof
+-- 
+2.48.1
 
 
