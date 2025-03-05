@@ -4,118 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9EBDC28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:18:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DD93C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:23:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nns2pb75X82OiRUnuI2QHZ6PcDEQCoIyJJLFfE3oNG0=; b=4pFBFeZLXLJADyAvAxKhuO7Lzq
-	gylG26aHh+snAlpCGKg3Mjt7nvPraN01L2iMxWRS3EYuTxlRd5Cm1HB3Qyvg7K0fQ6Bkvu6FyRo3f
-	kWxLUAAuyROVK4sDZjh8bVDO2WnFWmQeJtee8cqgK1Aa8ZfII9znSNQy3kVdZd1qVHzQ6AQw6l8im
-	7trhCYm8t5i6DPMbOG1OZv65zoen/BaOK318N+eCnDvEXSZj6hlSaD1SIrlA22nZ8UG6Jr6jHD5Ol
-	7EF/R5rMwaEe1SJhhzqL8ydoenJzTQ2Zvag7T/ejCcenzzr2J9zvtPKWT6eOUB3TuJk5BmHPLjQed
-	HAGxq+Wg==;
+	bh=IGHa73UrWTjwmuPsRwwRvgvwr91/An8UhMtuQjsToI0=; b=D1CQnD/lf+zJVhVTfn0zmeWxFs
+	uB+OEVdrdZygzU16m9/AMrDQrkd3w3bv9t+NZGta9CfEc85/IaXUe7mCKh/gGy7jasZNhc0zMkvgK
+	shgPu6M7wa4ntrqLrSXnCmiBTWTTtHZU10d/045cKa9RIH0eaajfJUTOGY1FliVG87BXdMTp7LoBm
+	7cPhAw/4By3ZPMTlUteVReeGoAaCuuOOmqeR2oCZVS94WzxCbws92+bj4cl8AqeClpGMksrH8dcCP
+	3fqS4laQQfD/frvvqsobFBrTIzIIlcvvrA9U49NJk+aEDFOjQ+I+Ac3TB68oMfBKcmBYTQCHN9Uo4
+	wufAaw8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tppa6-00000008Js9-2NNn;
-	Wed, 05 Mar 2025 14:18:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tppeK-00000008Kw0-3Mvj;
+	Wed, 05 Mar 2025 14:23:04 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoNo-000000086Z7-2Yam
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 13:01:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=Nns2pb75X82OiRUnuI2QHZ6PcDEQCoIyJJLFfE3oNG0=; b=JTFpxzbvllBfaPV55QY5xshjRv
-	sFWdzZvA5HU3+eL/NRTpdqZ1xQXqeR4on6nUAEQBSMm4r53exzJHDh6WWGvC53SisFJ8nE8ULckRs
-	0U3rUu7VlD1a2GcIXe4OzMnh4BGuY6gUN+om3Ytd4cL/kq1RyM0+NSdGpokn0olM9TL8hwz0VV4J3
-	caXpgOL72xZxLFcL3YvYxnOBVsEdWaUjMgAgfVzA4GmTcP16ThUqyjAlZb0dpWEcPkD5AyK3sWgf0
-	M15cTqkjBeTFNfEEPoH1ow5TQeyXOlFVY18F1TYIFFFw3LxVSoFQ3/jlHDHjDgu6aW1iTnRqRMO2m
-	72R4uF8A==;
-Received: from mgamail.intel.com ([198.175.65.15])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoNl-00000000XBw-23j4
+	id 1tppb9-00000008KHZ-1Qh1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 13:01:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741179714; x=1772715714;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=2Msp7YoBmanu425m0MXmljH1/c1Or8M2lkzZSA8x+50=;
-  b=AGp9a/S06l/aPbhiygWV8m50Tc3Y/YHGLH0E/Pm/DsA0aS+8se8ywQSM
-   KHqkVSaFgou5Kk1rbiLYE3W9cG7JibYZAvjgFga/R8t1rwy6bTO1rCbAC
-   kMrHAa9LvZT4EpI7Dodhbs/gQbtMOwc5kSbmJ3pLjtX3xysYWL9e9RolJ
-   GbxfT3CCzpy8ExKfKYehzww0pmD5uxtYnUVF4I/ODvdcF3rTz0LSMwbrb
-   8ULAGVovdv+ReV3KEQ3IxDERWMJwoyjz9rdE/Kf74dj7jchbQs4XroNYl
-   WKuU8PChiVhTs6L95b2/dEUWNUgdlWCVoUMxpDro6kTjwwmA+WjS9aPMk
-   Q==;
-X-CSE-ConnectionGUID: sFFoxOqXTyGMVVQdAMW16g==
-X-CSE-MsgGUID: gPScpO++SeenYNflMI5e8Q==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="45795045"
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="45795045"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 05:01:45 -0800
-X-CSE-ConnectionGUID: xQgVjQU7RRCRvWCDSeerzQ==
-X-CSE-MsgGUID: TF0vvx1aSsaNv7LIwQ9VCg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="123277066"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by fmviesa005.fm.intel.com with ESMTP; 05 Mar 2025 05:01:38 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
+	Wed, 05 Mar 2025 14:19:48 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D5ADE4410F;
+	Wed,  5 Mar 2025 14:19:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741184385;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=IGHa73UrWTjwmuPsRwwRvgvwr91/An8UhMtuQjsToI0=;
+	b=IOIhiSWOLlEWKpQS/KwLdJQVwH/QlI9ooRoMKQwKm0ynVeEAQev3tigTHRAaE+CKVOlUKV
+	3a0hAhjMmkWCn7mXXyrTRHxH5maOnZBUzkufJUWx5SVs5HZmxr+IZeHc70oDlpyOTEY8ld
+	/cSTuVykab7Iw1tiGXAOy3MsCHNYWBPW8E2X9yOOAUc7cP/fmpvvfurAp9zAMTizTAsZNt
+	3mHB5iJ79dr5aOQrVrQHV/xjEYZBzfzs1wNz5CzPURx6eh9EYpHibB3J6GxbLNJse9g0h6
+	Awdae6hnFWDBGg1vxTTXpQUiF3xEERNg0j2Y3pF7Sel1TROfoMdn4FATINoJig==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
 	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
 	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	netdev@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	thomas.petazzoni@bootlin.com,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v8 06/11] igc: set the RX packet buffer size for TSN mode
-Date: Wed,  5 Mar 2025 08:00:21 -0500
-Message-Id: <20250305130026.642219-7-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>
+Subject: [PATCH net-next 3/7] net: ethtool: netlink: Introduce command-specific dump_one_dev
+Date: Wed,  5 Mar 2025 15:19:33 +0100
+Message-ID: <20250305141938.319282-4-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250305141938.319282-1-maxime.chevallier@bootlin.com>
+References: <20250305141938.319282-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdehtdegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgepvdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddupdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmr
+ giivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_130153_877457_363DD7B6 
-X-CRM114-Status: GOOD (  12.47  )
+X-CRM114-CacheID: sfid-20250305_061947_539364_747FF14D 
+X-CRM114-Status: GOOD (  20.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,78 +93,207 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for supporting frame preemption, when entering TSN mode
-set the receive packet buffer to 16KB for the Express MAC, 16KB for
-the Preemptible MAC and 2KB for the BMC, according to the datasheet
-section 7.1.3.2.
+Prepare more generic ethnl DUMP hanldling, by allowing netlink commands
+to register their own dump_one_dev() callback. This avoids having to
+roll with a fully custom genl ->dumpit callback, allowing the re-use of some
+ethnl plumbing.
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Fallback to the default dump_one_dev behaviour when no custom callback
+is found.
+
+The command dump context is maintained within the ethnl_dump_ctx, that
+we move in netlink.h so that command handlers can access it.
+
+This context can be allocated/freed in new ->dump_start() and
+->dump_done() callbacks.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
 ---
- drivers/net/ethernet/intel/igc/igc_defines.h |  3 +++
- drivers/net/ethernet/intel/igc/igc_tsn.c     | 13 +++++++++++--
- 2 files changed, 14 insertions(+), 2 deletions(-)
+ net/ethtool/netlink.c | 58 +++++++++++++++++++++++++------------------
+ net/ethtool/netlink.h | 35 ++++++++++++++++++++++++++
+ 2 files changed, 69 insertions(+), 24 deletions(-)
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
-index 516ef70c98e9..b19ac6f30dac 100644
---- a/drivers/net/ethernet/intel/igc/igc_defines.h
-+++ b/drivers/net/ethernet/intel/igc/igc_defines.h
-@@ -402,6 +402,9 @@
+diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
+index 6dddaea2babb..c0215f4acc05 100644
+--- a/net/ethtool/netlink.c
++++ b/net/ethtool/netlink.c
+@@ -336,24 +336,6 @@ int ethnl_multicast(struct sk_buff *skb, struct net_device *dev)
  
-  /* 7KB bytes buffer for each tx queue (total 4 queues) + 4KB for BMC*/
- #define IGC_TXPBSIZE_TSN	0x041c71c7
-+/* 15KB for EXP + 15KB for BE + 2KB for BMC */
-+#define IGC_RXPBSIZE_TSN	0x0000f08f
-+#define IGC_RXPBSIZE_SIZE_MASK	0x0001FFFF
+ /* GET request helpers */
  
- #define IGC_DTXMXPKTSZ_TSN	0x19 /* 1600 bytes of max TX DMA packet size */
- #define IGC_DTXMXPKTSZ_DEFAULT	0x98 /* 9728-byte Jumbo frames */
-diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.c b/drivers/net/ethernet/intel/igc/igc_tsn.c
-index 1e44374ca1ff..f0213cfce07d 100644
---- a/drivers/net/ethernet/intel/igc/igc_tsn.c
-+++ b/drivers/net/ethernet/intel/igc/igc_tsn.c
-@@ -132,13 +132,17 @@ static int igc_tsn_disable_offload(struct igc_adapter *adapter)
+-/**
+- * struct ethnl_dump_ctx - context structure for generic dumpit() callback
+- * @ops:        request ops of currently processed message type
+- * @req_info:   parsed request header of processed request
+- * @reply_data: data needed to compose the reply
+- * @pos_ifindex: saved iteration position - ifindex
+- *
+- * These parameters are kept in struct netlink_callback as context preserved
+- * between iterations. They are initialized by ethnl_default_start() and used
+- * in ethnl_default_dumpit() and ethnl_default_done().
+- */
+-struct ethnl_dump_ctx {
+-	const struct ethnl_request_ops	*ops;
+-	struct ethnl_req_info		*req_info;
+-	struct ethnl_reply_data		*reply_data;
+-	unsigned long			pos_ifindex;
+-};
+-
+ static const struct ethnl_request_ops *
+ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
+ 	[ETHTOOL_MSG_STRSET_GET]	= &ethnl_strset_request_ops,
+@@ -533,9 +515,9 @@ static int ethnl_default_doit(struct sk_buff *skb, struct genl_info *info)
+ 	return ret;
+ }
+ 
+-static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
+-				      const struct ethnl_dump_ctx *ctx,
+-				      const struct genl_info *info)
++static int ethnl_default_dump_one(struct sk_buff *skb,
++				  const struct ethnl_dump_ctx *ctx,
++				  const struct genl_info *info)
  {
- 	u16 queue_per_tc[4] = { 3, 2, 1, 0 };
- 	struct igc_hw *hw = &adapter->hw;
--	u32 tqavctrl;
-+	u32 tqavctrl, rxpbs;
- 	int i;
+ 	void *ehdr;
+ 	int ret;
+@@ -546,13 +528,13 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ 	if (!ehdr)
+ 		return -EMSGSIZE;
  
- 	wr32(IGC_GTXOFFSET, 0);
- 	wr32(IGC_TXPBS, I225_TXPBSIZE_DEFAULT);
- 	wr32(IGC_DTXMXPKTSZ, IGC_DTXMXPKTSZ_DEFAULT);
- 
-+	rxpbs = rd32(IGC_RXPBS) & ~IGC_RXPBSIZE_SIZE_MASK;
-+	rxpbs |= I225_RXPBSIZE_DEFAULT;
-+	wr32(IGC_RXPBS, rxpbs);
+-	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
+ 	rtnl_lock();
+ 	ret = ctx->ops->prepare_data(ctx->req_info, ctx->reply_data, info);
+ 	rtnl_unlock();
+ 	if (ret < 0)
+ 		goto out;
+-	ret = ethnl_fill_reply_header(skb, dev, ctx->ops->hdr_attr);
++	ret = ethnl_fill_reply_header(skb, ctx->reply_data->dev,
++				      ctx->ops->hdr_attr);
+ 	if (ret < 0)
+ 		goto out;
+ 	ret = ctx->ops->fill_reply(skb, ctx->req_info, ctx->reply_data);
+@@ -560,11 +542,29 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ out:
+ 	if (ctx->ops->cleanup_data)
+ 		ctx->ops->cleanup_data(ctx->reply_data);
+-	ctx->reply_data->dev = NULL;
 +
- 	if (igc_is_device_id_i226(hw))
- 		igc_tsn_restore_retx_default(adapter);
+ 	if (ret < 0)
+ 		genlmsg_cancel(skb, ehdr);
+ 	else
+ 		genlmsg_end(skb, ehdr);
++
++	return ret;
++}
++
++static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
++				      struct ethnl_dump_ctx *ctx,
++				      const struct genl_info *info)
++{
++	int ret;
++
++	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
++
++	if (ctx->ops->dump_one_dev)
++		ret = ctx->ops->dump_one_dev(skb, ctx, info);
++	else
++		ret = ethnl_default_dump_one(skb, ctx, info);
++
++	ctx->reply_data->dev = NULL;
+ 	return ret;
+ }
  
-@@ -194,7 +198,7 @@ static int igc_tsn_enable_offload(struct igc_adapter *adapter)
+@@ -593,6 +593,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+ 			dev_hold(dev);
+ 			rcu_read_unlock();
+ 
++			ctx->req_info->dev = dev;
+ 			ret = ethnl_default_dump_one_dev(skb, dev, ctx,
+ 							 genl_info_dump(cb));
+ 
+@@ -655,6 +656,12 @@ static int ethnl_default_start(struct netlink_callback *cb)
+ 	ctx->reply_data = reply_data;
+ 	ctx->pos_ifindex = 0;
+ 
++	if (ctx->ops->dump_start) {
++		ret = ctx->ops->dump_start(ctx);
++		if (ret)
++			goto free_reply_data;
++	}
++
+ 	return 0;
+ 
+ free_reply_data:
+@@ -670,6 +677,9 @@ static int ethnl_default_done(struct netlink_callback *cb)
  {
- 	struct igc_hw *hw = &adapter->hw;
- 	u32 tqavctrl, baset_l, baset_h;
--	u32 sec, nsec, cycle;
-+	u32 sec, nsec, cycle, rxpbs;
- 	ktime_t base_time, systim;
- 	int i;
+ 	struct ethnl_dump_ctx *ctx = ethnl_dump_context(cb);
  
-@@ -202,6 +206,11 @@ static int igc_tsn_enable_offload(struct igc_adapter *adapter)
- 	wr32(IGC_DTXMXPKTSZ, IGC_DTXMXPKTSZ_TSN);
- 	wr32(IGC_TXPBS, IGC_TXPBSIZE_TSN);
- 
-+	rxpbs = rd32(IGC_RXPBS) & ~IGC_RXPBSIZE_SIZE_MASK;
-+	rxpbs |= IGC_RXPBSIZE_TSN;
++	if (ctx->ops->dump_done)
++		ctx->ops->dump_done(ctx);
 +
-+	wr32(IGC_RXPBS, rxpbs);
-+
- 	if (igc_is_device_id_i226(hw))
- 		igc_tsn_set_retx_qbvfullthreshold(adapter);
+ 	kfree(ctx->reply_data);
+ 	kfree(ctx->req_info);
  
+diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
+index 4db27182741f..d7506b08e5d6 100644
+--- a/net/ethtool/netlink.h
++++ b/net/ethtool/netlink.h
+@@ -307,6 +307,26 @@ struct ethnl_reply_data {
+ 	struct net_device		*dev;
+ };
+ 
++/**
++ * struct ethnl_dump_ctx - context structure for generic dumpit() callback
++ * @ops:        request ops of currently processed message type
++ * @req_info:   parsed request header of processed request
++ * @reply_data: data needed to compose the reply
++ * @pos_ifindex: saved iteration position - ifindex
++ * @cmd_ctx: command-specific context to maintain across the dump.
++ *
++ * These parameters are kept in struct netlink_callback as context preserved
++ * between iterations. They are initialized by ethnl_default_start() and used
++ * in ethnl_default_dumpit() and ethnl_default_done().
++ */
++struct ethnl_dump_ctx {
++	const struct ethnl_request_ops	*ops;
++	struct ethnl_req_info		*req_info;
++	struct ethnl_reply_data		*reply_data;
++	unsigned long			pos_ifindex;
++	void				*cmd_ctx;
++};
++
+ int ethnl_ops_begin(struct net_device *dev);
+ void ethnl_ops_complete(struct net_device *dev);
+ 
+@@ -372,6 +392,15 @@ int ethnl_sock_priv_set(struct sk_buff *skb, struct net_device *dev, u32 portid,
+  *	 - 0 if no configuration has changed
+  *	 - 1 if configuration changed and notification should be generated
+  *	 - negative errno on errors
++ * @dump_start:
++ *	Optional callback to prepare a dump operation, should there be a need
++ *	to maintain some context across the dump.
++ * @dump_one_dev;
++ *	Optional callback to generate all messages for a given netdev. This
++ *	is relevant only when a request can produce different results for the
++ *	same netdev depending on command-specific attributes.
++ * @dump_done:
++ *	Optional callback to cleanup any context allocated in ->dump_start()
+  *
+  * Description of variable parts of GET request handling when using the
+  * unified infrastructure. When used, a pointer to an instance of this
+@@ -408,6 +437,12 @@ struct ethnl_request_ops {
+ 			    struct genl_info *info);
+ 	int (*set)(struct ethnl_req_info *req_info,
+ 		   struct genl_info *info);
++
++	int (*dump_start)(struct ethnl_dump_ctx *ctx);
++	int (*dump_one_dev)(struct sk_buff *skb,
++			    struct ethnl_dump_ctx *ctx,
++			    const struct genl_info *info);
++	void (*dump_done)(struct ethnl_dump_ctx *ctx);
+ };
+ 
+ /* request handlers */
 -- 
-2.34.1
+2.48.1
 
 
