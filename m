@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896D7C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E04C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 04:15:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=; b=fB2yypatGXxfYFt3XlgVVN6m0r
-	R60wlvxsy2vg/VDtqolEJnyh/ZTGCTqlJzX2qaoJ2KouetgBE0CJes7F4A4Q2LFh2carNpNWrFTXE
-	QFFqX/7uxG3QDagYAvVQv258jEe8J5lPcjxerGGqT/cbniqY05Wu/eI9jk3k/Q9kZYxY3VJo3jZaz
-	Sb+SXNDfJpWaOZB/P/7gn3NUFvpwZc+zAj82lpRk8LZRFtDhqPC/kXiK2WjmjhxNhwnf0tXJOd8Bq
-	pnlsNXQZL3l1qB8WcoSy3/nwEeOG8pwg6b65JIHRnjrDmSnuTR5lwklQYXlCmM30BgR/CL2Rdwuoh
-	V4utVfKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Hhp6OMq7QEiuEHCE9JTlQzy04Sjlh7bKraEQa8mkuMs=; b=k/yIG8Omz8vjqDN642V/dChmOV
+	ggyBmIoDLY9MEQNiEtPcZwpWeFrpUt2S7j65ILVU09mdUXhbDpxHQDE4BLHRB8zVD/VjqQBMtmaOf
+	xaU9vZisafyfzwUixsS3p4OwwfdGgSIPqbwfc+iMCvglGZVGf8Qq2eP0BHHE1wsYRvQtbBDFaE4+T
+	20a1+gsFuYbBoFjCM1y4X6OMlhR9OD5Biz/aRE3hR8qup37Xl8oSXwWlq4Qx2JUHy006PxM8TVZYG
+	lU1sqkAMzv/X8ygaptIt5KKTLVWeQaWfOZgsHS8uN77rsvtiR15jP1+GAyLnJbRCmrX95wLhE60aI
+	gBwcorAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpg9j-00000006wWr-1O2L;
-	Wed, 05 Mar 2025 04:14:51 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tpg9k-00000006wXS-1WAC;
+	Wed, 05 Mar 2025 04:14:52 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpexu-00000006qQy-3ob0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 02:58:36 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-5495078cd59so5177367e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 18:58:34 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741143513; x=1741748313; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=;
-        b=lXtBcqYrQSkAk4A2xxpDi4GQUDIn6Q0+DYGUCr/P0gMX55E1UMAEo/80z133DEhq/4
-         g/TNiOc95PKHbsWrYoPIp0dvHLBx1w4RnyW4AQ1yc0e5mjynwR/3W7DOiEkIVLbQwPdA
-         rpeNRvBLFx16O/QGxn0lMMnpNqMukSQH1h9Uhqc0mjBtAQ7zk9rbqLa/gEApW78q7pXy
-         UTRLUVmp69vb8hQCav3lAQ5ZEIuh6zYuJqOuvxPCC0r3IlhfJRGcM/iyN4kPwh/98tmv
-         sBU49vXEJFwMNkTFd/CAbduNiBnJflc3JUWcK4QVnV5FtliZ7iaWnaL5D++c1um9wdBQ
-         gDIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741143513; x=1741748313;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lmggHW8O01EPS0gGRQXTUF3PRDZeyIapChas5mXt/4U=;
-        b=OJGTodxUMn9ycvWfvdfbP1BEmPSVeQv2qWLf2oclL9ufVM41/HktF2A0VSQOEp2Pqa
-         i/FWKll/sckx0MtnKOuHYwA7ZGmJ6++KCwZMI7rbewBuwpjQtjC8gF9rd2jSiMA2fyBF
-         /CGdEHZGjnLFhtbEoJVlamKaTKOCRl1fGztfyk8zSOb985aV1Epfm/Rn50BHqsRD7aS5
-         D+1l1ELYDOEaA+YFxQ+scZ2+AWBLWG38bDUeGY+7fJ+b//vhGgGXJ+FLDV0R3/PoeOWl
-         vivVjcgbq8p712mybGCaMI4q7PTTru4VsR+EZpG/Uxf/GcoVPwzHCgQtNIf0H6/vKkVB
-         0JGA==
-X-Forwarded-Encrypted: i=1; AJvYcCUQRv/OibSPOdHN8yB0f5kTqseV0mjpUwJ3hWnEoCKj4fTbIOm0jG6ami+XsCoGqb8SxXPJlzB6ZyskrhMTxTe1@lists.infradead.org
-X-Gm-Message-State: AOJu0YxU8CFjVeppvnf9HZ81hOiZkoe9Hkhl6PGR8SjJ9wHWSkSaO6sr
-	D+CCSBhqdvHHgxvKqbGFPRiXX2mpZQj556qzeCDwBenX3dknkH8NobK4mmz4Sns=
-X-Gm-Gg: ASbGnct3C7EJhtjriQ/a5QXbd9R/dhalCNCmTr0YPHgas8XZ0BV3YJKIQ8naDbOFNzr
-	gZz/vrqNPtbszqGINknqqg/DKxLMaLMMTFNfB1GGlLemG5Oiso7CRMMllbQtAH4ZrB8Zk3J6eZ9
-	8OeZlbvtf7UrEr+BcoY9FjH3vbcBlqlRJSY2l3jdkdkb3dfztLe5d115ixCPUk2ICpZzo1ER5eN
-	dOz6cRdmMQwcFLGTL5WwZGXZemnoSp/ccCg0b0ExShVaupbI6iJvKtwlXhj28P99jMoG2XzYT15
-	Xtvawawc26x6L5Lq3nuVl5B6/5bCAtiALLzxudVKnpfo3A6Kvi6kRZX5PSNlNXQOv5Rf+6euJ7p
-	yVY+q9wm/pALXogttG4eAYiik
-X-Google-Smtp-Source: AGHT+IHEi7gu0pTeyCm6UNSNFzowmosNeq+ixhhTaaSaHiD2yIEwbXWQsqiTh1JFRh+rHJ1Tvh3IUw==
-X-Received: by 2002:a05:6512:1156:b0:545:2544:6ae2 with SMTP id 2adb3069b0e04-5497d33624dmr555644e87.16.1741143512917;
-        Tue, 04 Mar 2025 18:58:32 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549579424e4sm1320182e87.118.2025.03.04.18.58.30
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 18:58:31 -0800 (PST)
-Date: Wed, 5 Mar 2025 04:58:29 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: Melody Olvera <quic_molvera@quicinc.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Wesley Cheng <quic_wcheng@quicinc.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 8/9] arm64: dts: qcom: sm8750: Add USB support for
- SM8750 MTP and QRD platforms
-Message-ID: <6msx5eontkkunldl45npigj756b5sst7xjhmomlnummbsmncif@ca3hkdvtdo44>
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
- <20250304-sm8750_usb_master-v2-8-a698a2e68e06@quicinc.com>
+	id 1tpf6a-00000006rX9-0JGY;
+	Wed, 05 Mar 2025 03:07:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:In-Reply-To:References;
+	bh=Hhp6OMq7QEiuEHCE9JTlQzy04Sjlh7bKraEQa8mkuMs=; b=C0+vkQsKR7pWRORhTTKiiwGbop
+	r0UnCbRFsADmhtySfm9BAGuNxbzLm59QlqDF7MEt47lHKPMbH0wceSaj5xXux9thgmya0TvkoQa/L
+	1Fw1vo7hKJVoOHWj9JlQakBXfjvM9Q9TBQGBuKoKr2r2m89OH4u6Xr5AxvQIMbPNi4msxGSbHINTe
+	Qm6ejX+6BAHQ+IztGoozfc7lZlOpr5fWFrRp74n78prg2s5BY9a7+t2J33//MelVxA8sOLFU+D/eC
+	o88nGdDTb9oenI7CDjalugafRqalVz47Y/cdXD8vezyPbjF5b0TTDix/bznzJ1REZKIE56/GPXi3b
+	e1yM1v5w==;
+Received: from m16.mail.163.com ([220.197.31.2])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpf6W-00000000Kjs-0K2S;
+	Wed, 05 Mar 2025 03:07:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=Hhp6O
+	Mq7QEiuEHCE9JTlQzy04Sjlh7bKraEQa8mkuMs=; b=RJBxt7FUWocvfgEoQ2d6a
+	SdNr+Ji9Fxpb3xA7zrrLAShod0mLoKRU0bB0lEHIqM0Yd0Ae8Wn9oTmz6rv/Tkv2
+	KcK0lD5FfYuUap8PbhzhHg1wrmXE68wW8yGmKfxKv31bj5qXLAPqjbNcDoEQqr6y
+	TMdBEi+lOu6Xb5BhxsnYdQ=
+Received: from ProDesk.. (unknown [])
+	by gzga-smtp-mtada-g1-2 (Coremail) with SMTP id _____wCXiC4yvMdnOWxcQQ--.60442S2;
+	Wed, 05 Mar 2025 10:51:33 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: detlev.casanova@collabora.com,
+	kever.yang@rock-chips.com,
+	krzk+dt@kernel.org,
+	cl@rock-chips.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH] arm64: dts: rockchip: Enable hdmi out display for rk3576-evb-v10
+Date: Wed,  5 Mar 2025 10:51:11 +0800
+Message-ID: <20250305025128.479245-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250304-sm8750_usb_master-v2-8-a698a2e68e06@quicinc.com>
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: _____wCXiC4yvMdnOWxcQQ--.60442S2
+X-Coremail-Antispam: 1Uf129KBjvJXoW7ur4fGr1kArWxArWkKr1ftFb_yoW8Ww4Up3
+	ZrurZxGFZ3WrW2qwnIyF10qFn8tws5AFZxAr17XFy3tr4agas3Kw1fGrn5Z3W5AFW7Z3y3
+	uF1kJas09r4qqr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jOb18UUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBMHXmfHucNUCgAAse
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_185834_974794_9F8A3138 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20250305_030728_634209_B1CE2B60 
+X-CRM114-Status: UNSURE (   8.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +91,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 01:56:41PM -0800, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
-> 
-> Enable USB support on SM8750 MTP and QRD variants.  The current definition
-> will start the USB controller in peripheral mode by default until
-> dependencies are added, such as USB role detection.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
->  arch/arm64/boot/dts/qcom/sm8750-mtp.dts | 24 ++++++++++++++++++++++++
->  arch/arm64/boot/dts/qcom/sm8750-qrd.dts | 24 ++++++++++++++++++++++++
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Nit: two separate commits please.
+Enable vop and hdmi on rk3576 evb1, so we can get a display output
+on this board now.
 
+Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+---
 
-Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+ .../boot/dts/rockchip/rk3576-evb1-v10.dts     | 47 +++++++++++++++++++
+ 1 file changed, 47 insertions(+)
 
->  2 files changed, 48 insertions(+)
-> 
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+index 318e13d2ea55..52ea6917b7de 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts
+@@ -10,6 +10,7 @@
+ #include <dt-bindings/input/input.h>
+ #include <dt-bindings/leds/common.h>
+ #include <dt-bindings/pinctrl/rockchip.h>
++#include <dt-bindings/soc/rockchip,vop2.h>
+ #include "rk3576.dtsi"
+ 
+ / {
+@@ -58,6 +59,17 @@ button-vol-up {
+ 		};
+ 	};
+ 
++	hdmi-con {
++		compatible = "hdmi-connector";
++		type = "a";
++
++		port {
++			hdmi_con_in: endpoint {
++				remote-endpoint = <&hdmi_out_con>;
++			};
++		};
++	};
++
+ 	leds: leds {
+ 		compatible = "gpio-leds";
+ 
+@@ -271,6 +283,26 @@ &eth1m0_rgmii_bus
+ 	status = "okay";
+ };
+ 
++&hdmi {
++	status = "okay";
++};
++
++&hdmi_in {
++	hdmi_in_vp0: endpoint {
++		remote-endpoint = <&vp0_out_hdmi>;
++	};
++};
++
++&hdmi_out {
++	hdmi_out_con: endpoint {
++		remote-endpoint = <&hdmi_con_in>;
++	};
++};
++
++&hdptxphy {
++	status = "okay";
++};
++
+ &i2c1 {
+ 	status = "okay";
+ 
+@@ -734,3 +766,18 @@ &usb_drd1_dwc3 {
+ 	dr_mode = "host";
+ 	status = "okay";
+ };
++
++&vop {
++	status = "okay";
++};
++
++&vop_mmu {
++	status = "okay";
++};
++
++&vp0 {
++	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
++		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
++		remote-endpoint = <&hdmi_in_vp0>;
++	};
++};
 -- 
-With best wishes
-Dmitry
+2.34.1
+
 
