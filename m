@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 647AAC28B22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:20:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 43BF0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C7mXQcLDFG9vHyngvUWroV3baipxBj22XKUDjf7cxlY=; b=EUwLUsp+H/sReEjwoxZL8GAcR9
-	ll6jXZ+pskpK3Ax7hYObXzlJErd7qGxl+n5QtTmRD3nyN0fuNXCQgj9FTvdpWB9NhX8XcHRiMIGqg
-	TsKyiY81RmWssJA8y8GT16VX6smbaHN70i+N8N4k2rUyCZHV0clP5AMPQ+SisDa3+n0xMHzXQz8lt
-	yzA65s8xc1oD0G99CCYkjBXd4lb+WoknL9FzUSj0M4GxCdM7VoXOL/fuTVjzwjt256OMfHdirEgA3
-	BcRzdQ80kPYQmL75yTsvh2ogG5cVonC7BRoGj7jkrozw8APF1vaSTWNY9skG8tJX3PQUJQqR20oWP
-	5jZZY6hg==;
+	bh=2bDDTqqIerMygPlFTbXBzR4bAQlHdxowEVy28NROPr0=; b=EM9ON+3m/ww2/1xU2U8AMsj2FH
+	zWTpX41sq9ScKYeoCLOdv7OMlqXyinB2NJQfc7HGTbdljXLvC0r0ddDoagtTeDRTlyg2oCSInmWjz
+	5pmxdx12QZDykyNeeqQUGxKb+kykDjlCafBsVANzlBlTC7jronYjOhfYV//0+PvSTgPu6KnQw/JoL
+	k3W/bOp6BcXwmhz+Ny40IXbYLHu2dCfbQZp+4STgpF0HLLx5PuZw9X07UT02PplYKyCjJtv3QUwmF
+	RgYn8W7Q/yX6vAz7AtHQFgtyF/VF3U8bv9RcKa/KshNVGkNFILNXmLFMmN/c8pqaszdFsddCVddyT
+	q7E+IQjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwAE-00000009KbQ-2e4r;
-	Wed, 05 Mar 2025 21:20:26 +0000
-Received: from out-176.mta1.migadu.com ([95.215.58.176])
+	id 1tpwDM-00000009KtY-2KtI;
+	Wed, 05 Mar 2025 21:23:40 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvKs-00000009D9L-1kVW
+	id 1tpvKx-00000009DA2-165I
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 20:27:23 +0000
+	Wed, 05 Mar 2025 20:27:29 +0000
 X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741206439;
+	t=1741206445;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=C7mXQcLDFG9vHyngvUWroV3baipxBj22XKUDjf7cxlY=;
-	b=AJ2201s8OwXe9Gjt+6JP1qVqCwmY1b18pQx6CafRuCltGonKRzPTP8FA/rek6WxuiCI2Df
-	4JWLJjg5GdSgvPDOieomvgtgnNQGYriJQtCY9Ej0T3hyrCpZZGcMAs+WgUX+xmK5peVbPM
-	1+pfGEHTfmBkawBbz8iYtYDjQuEd+fs=
+	bh=2bDDTqqIerMygPlFTbXBzR4bAQlHdxowEVy28NROPr0=;
+	b=CvRjYyN52Un6ydpsuq1SFFaX1v1zahr9DggPQ2o4kQKHj7xsiRct/cl1sDD4Js7F6m51gC
+	6HmY7UHb8yHaH5vQm5rJdloqsTjnh5LgD5Y+wszGXySE+fNvqfwlUFIQL9Lw3JyJdpEep/
+	lBy3A9y3J8Mm6t/qt9Ye0ux8/lDZG1o=
 From: Oliver Upton <oliver.upton@linux.dev>
 To: kvmarm@lists.linux.dev
 Cc: Marc Zyngier <maz@kernel.org>,
@@ -54,17 +54,17 @@ Cc: Marc Zyngier <maz@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Janne Grunau <j@jannau.net>,
 	Oliver Upton <oliver.upton@linux.dev>
-Subject: [PATCH v3 08/14] KVM: arm64: Move PMUVer filtering into KVM code
-Date: Wed,  5 Mar 2025 12:26:35 -0800
-Message-Id: <20250305202641.428114-9-oliver.upton@linux.dev>
+Subject: [PATCH v3 10/14] KVM: arm64: Advertise PMUv3 if IMPDEF traps are present
+Date: Wed,  5 Mar 2025 12:26:37 -0800
+Message-Id: <20250305202641.428114-11-oliver.upton@linux.dev>
 In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
 References: <20250305202641.428114-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_122722_607970_5DEDC340 
-X-CRM114-Status: GOOD (  10.81  )
+X-CRM114-CacheID: sfid-20250305_122727_449770_2E8DA94B 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,77 +79,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The supported guest PMU version on a particular platform is ultimately a
-KVM decision. Move PMUVer filtering into KVM code.
+Advertise a baseline PMUv3 implementation when running on hardware with
+IMPDEF traps of the PMUv3 sysregs.
 
 Tested-by: Janne Grunau <j@jannau.net>
 Signed-off-by: Oliver Upton <oliver.upton@linux.dev>
 ---
- arch/arm64/include/asm/cpufeature.h | 23 -----------------------
- arch/arm64/kvm/pmu-emul.c           | 15 +++++++++------
- 2 files changed, 9 insertions(+), 29 deletions(-)
+ arch/arm64/kvm/pmu-emul.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index 0eff048848b8..c4326f1cb917 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -525,29 +525,6 @@ cpuid_feature_extract_unsigned_field(u64 features, int field)
- 	return cpuid_feature_extract_unsigned_field_width(features, field, 4);
- }
- 
--/*
-- * Fields that identify the version of the Performance Monitors Extension do
-- * not follow the standard ID scheme. See ARM DDI 0487E.a page D13-2825,
-- * "Alternative ID scheme used for the Performance Monitors Extension version".
-- */
--static inline u64 __attribute_const__
--cpuid_feature_cap_perfmon_field(u64 features, int field, u64 cap)
--{
--	u64 val = cpuid_feature_extract_unsigned_field(features, field);
--	u64 mask = GENMASK_ULL(field + 3, field);
--
--	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
--	if (val == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
--		val = 0;
--
--	if (val > cap) {
--		features &= ~mask;
--		features |= (cap << field) & mask;
--	}
--
--	return features;
--}
--
- static inline u64 arm64_ftr_mask(const struct arm64_ftr_bits *ftrp)
- {
- 	return (u64)GENMASK(ftrp->shift + ftrp->width - 1, ftrp->shift);
 diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index fee3d0003d54..0a2023aabe18 100644
+index 0a2023aabe18..38d9490c17fd 100644
 --- a/arch/arm64/kvm/pmu-emul.c
 +++ b/arch/arm64/kvm/pmu-emul.c
-@@ -1226,13 +1226,16 @@ int kvm_arm_pmu_v3_has_attr(struct kvm_vcpu *vcpu, struct kvm_device_attr *attr)
+@@ -1231,7 +1231,17 @@ u8 kvm_arm_pmu_get_pmuver_limit(void)
+ 	pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer,
+ 			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
  
- u8 kvm_arm_pmu_get_pmuver_limit(void)
- {
--	u64 tmp;
-+	unsigned int pmuver;
- 
--	tmp = read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1);
--	tmp = cpuid_feature_cap_perfmon_field(tmp,
--					      ID_AA64DFR0_EL1_PMUVer_SHIFT,
--					      ID_AA64DFR0_EL1_PMUVer_V3P5);
--	return FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), tmp);
-+	pmuver = SYS_FIELD_GET(ID_AA64DFR0_EL1, PMUVer,
-+			       read_sanitised_ftr_reg(SYS_ID_AA64DFR0_EL1));
+-	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
++	/*
++	 * Spoof a barebones PMUv3 implementation if the system supports IMPDEF
++	 * traps of the PMUv3 sysregs
++	 */
++	if (cpus_have_final_cap(ARM64_WORKAROUND_PMUV3_IMPDEF_TRAPS))
++		return ID_AA64DFR0_EL1_PMUVer_IMP;
 +
-+	/* Treat IMPLEMENTATION DEFINED functionality as unimplemented */
-+	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
-+		return 0;
-+
-+	return min(pmuver, ID_AA64DFR0_EL1_PMUVer_V3P5);
- }
++	/*
++	 * Otherwise, treat IMPLEMENTATION DEFINED functionality as
++	 * unimplemented
++	 */
+ 	if (pmuver == ID_AA64DFR0_EL1_PMUVer_IMP_DEF)
+ 		return 0;
  
- /**
 -- 
 2.39.5
 
