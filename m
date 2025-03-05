@@ -4,107 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A6FC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F961C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:40:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T1PVaYBpq9076U3IWZXvGpb8FBXofDXNAhkbJyruFPI=; b=TzVOZqwgflnRcWtMznR8EvMz2G
-	3aPhnBdahKunwp3BI5i2Mxu3U/I4c2UedpLVM4pS/2A9/Vz1eoB+BRHtNnt9h6r7y4byWSMJsrA4z
-	s2GK9jcqiekbw57eb8c9DQ2rnN8xRKlK1ROqr078kOYIcNzAeFGFdFi5DGXMbqWqONUkBYs0z37oi
-	8cdHRDdwMppwZgC5bzF3myA1D5UYtkOXZCaixn1BgTdnPGBpth+lgNe6wxg1oK2c11XikU9oXanW6
-	XgKc68wF9rBEaciSO9Qnr/fk/CGUzw/Z9D/lAWI37WXRh55yA9vmU41/3CuLHBs2RWwCZDN4xiHW4
-	OU2jqUlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wqfxficZrLy3FH8SUQu08tgHcjwZQclNblNbc+7cTpw=; b=xd1lkkd/CNbxK0
+	EaH5JegHmmRonelT6OwpRmyYRxDeqtyzfeW4FatVmK65XuLiM9+orMADmg2qcOaMH3T86sRktOdJP
+	oswIJUJ548bMvaaJE1aghEnwCBXCzGCcqxsk9EJ1DOAQqEFBTn4TifQoLItwkJfTtwlQ9i9gQec4W
+	D5Ik9dNaVuZyG9LbAAsUGwn4LSUiS4/QMm+O6unOkGg/5qCpynEJhf0Hcu9SvOn1qx9BL681TPFRX
+	KrNMD9FbSnM3QQU2y3akM8idpxVRIqz6M03GuTU3I1uBOyjhKPk5JUPWbSzpVhYE2rhxfBWHEZtQ/
+	JFcJ3Oi2i2qW0ae1I+Vg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvVb-00000009FCi-23Dl;
-	Wed, 05 Mar 2025 20:38:27 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpvXA-00000009FQh-0tKL;
+	Wed, 05 Mar 2025 20:40:04 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tputW-000000099Mt-35Oq
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 19:59:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=T1PVaYBpq9076U3IWZXvGpb8FBXofDXNAhkbJyruFPI=; b=bIGIuXjA3vXlIO8TqWCLM/FJR/
-	xiECjZ8fxNXnH+oMV2r985caH++gXtCI23W+7Sz8XixUCsORvPNVPCd2PMHOqWPOr2jyKe/yqpzzs
-	U9u4rgQg+bBIP/gatYOcFWFQRijIa5mkkHA9BhMRtjFdaVkl0PEibdj6JO4f9wNcjMiDn6GL4ofpm
-	w6UIP5k5pYvF3v4Gbgq53HC+QjL+zmxYUrDmhzomMJBTfBJhFJh0Z88ecaHAxNkZuft73Vedoi1dX
-	xnnVqhpDUC7VzIoGMI0b8zntZy7GMJyiVMuj6Qe9sMbyTkNIfp/AyAz/u6U+2a1P5bReG0fnN4GIa
-	ffOpl1Kg==;
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tputT-000000067yD-2b0h
+	id 1tpuy8-00000009A1V-1lZ2
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 19:59:05 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2feb96064e4so12296313a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:59:01 -0800 (PST)
+	Wed, 05 Mar 2025 20:03:53 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43bdc57deb2so25755e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 12:03:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741204739; x=1741809539; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T1PVaYBpq9076U3IWZXvGpb8FBXofDXNAhkbJyruFPI=;
-        b=FI/pXsie6BNmU4kXtZaiXxn5vyOavTvtLA6Rrn4aESBmu/THjqjWxklYSsynTD+Bef
-         wNpB9CD1OwIhq/5BHAZXbFqkbKsP9bvH0Dv9P76Qc7QXdhYU0cbifsvym4a+qc5Qo95U
-         NWZXwv2D1S6vIcyzxwDroTEVqVKHZ7LMX0MGQmkzhhDJmDipnpyZVnr3n56VjzVt5r4n
-         ZkcCQP+Pj/6p7CLQ1N/5kAKew34jRT5OcgAQEwlwIgxe94LZrc0BriKiCUsFWdP/Goz8
-         ti+kOkUYzaUNtQ5q9rRnXTPKO7BaJ8K/iNu3CUUzkPoJXUPe9+jSyRAE5XrnOKlN2XKM
-         HrEA==
+        d=linaro.org; s=google; t=1741205031; x=1741809831; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wqfxficZrLy3FH8SUQu08tgHcjwZQclNblNbc+7cTpw=;
+        b=k/nqJxXpJlJDAROoIUyQNXt0azY1DjEo7hEybLs9pzrejuISRhu3oi1XJOzuH0G/cE
+         e3McKDiLiwNGZsKmz4TrdP6yCoUPYv0CLlOiHVSlnXRuCCQoZ5QA57iH8cDyFe9CKJ/b
+         LR2PaAVbDo2yHvfdcL8CJUel/SHa4Q9ZUND/zT3bWZ64SEDFyp4eCkBEVl3A1a7V1OtM
+         tEURZcIIxH0pHDnNHf7p4h2VSzK6LDgiIEUPu41SXuseyzvYRDnWQkhOzQMJaZUJdVTD
+         KVx5mEaXqCokj7P8doj/x1e3MH2xexYAEFU1bdiD0BteCfatJbZT3Lj3tmK1bW2emHlk
+         bKuw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741204739; x=1741809539;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T1PVaYBpq9076U3IWZXvGpb8FBXofDXNAhkbJyruFPI=;
-        b=AZTZwVlGTsePXl1kwJA3xN3qjZ2WszrGIl/aE8I5xEJo0fx5I3YhTeq3JX5WUYD7tk
-         ieQ7x8mi1AzYIq3Q+Z9MYfw2Jx3pVn0si6LoFZMdr8m7qpCtTibtVNWGz39Bh337Ngg2
-         5BzWzxhp1XJRnrX3KIKWmaiGfqUWousrtvcn41FCLFUSAA8NWerik22sx0GUQ/r2zTpC
-         DpenZgdX+WofMTsu+/LG+P+5uz/XVsf1i4eOJ9Pp4r3P/oq4hvxpC5XHNc2w90mfyemT
-         z9LnvS4YBgNftS7zSm8yZq28TCmZCfnTIOipw3RsAzwL+dy0i5Yx+41Po30IXzjyOCDC
-         IHSg==
-X-Forwarded-Encrypted: i=1; AJvYcCU9krdLYEwPzFhHrArJcCF7BD+GkliTGADR6LBLczUoodoANBU6KakMOOdZlEwuOXOXvyWG+FbDdLq580HSZ2QP@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVsN0BYYoHu2FIEFaWhVvvsi82J7Xp2jegwWjRiPFu8c/9pgLa
-	+EYdTiiDbimd0f5EFqSkOfiwGs2Szj3b6PBFQb0+kkZVLooY1SpZwgnlMF5YKbG27MM2XwpR1kd
-	fKaDSohP8/MtyigDns1Ekc45PxEc=
-X-Gm-Gg: ASbGncsHHQTk3CsBdwZJQwrXKXk5HTQuryuxz13r+9eActjzgHDMamn1xs0aTwg8nqt
-	p0jdfDvdtJegpyG3YrAP+uMh4+LKvLYfSOIDtNEtWZ8NbBpW1PWCAlydVoIzFc4GwZwJ1wAHj1f
-	EyaTOtAhQDRgHUiV4SQZexq3J3
-X-Google-Smtp-Source: AGHT+IFfV/6qDYoZwPNJLCBtJE8ZyU4iJr7//K16BTPN6XDyLemrI4fIv4EKbuBvHlLWUWsZ7sQslXNBrtC5L25iHmI=
-X-Received: by 2002:a17:90b:3d12:b0:2ff:5ed8:83d1 with SMTP id
- 98e67ed59e1d1-2ff5ed8d53fmr1796280a91.19.1741204739474; Wed, 05 Mar 2025
- 11:58:59 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741205031; x=1741809831;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wqfxficZrLy3FH8SUQu08tgHcjwZQclNblNbc+7cTpw=;
+        b=XMqUTw+R7ypprThovOchcSCV60PghixoXitrkT35eIDRxoZ3UCf+bCC4o1Zk8qjja6
+         n7eVpBfoJIlspi1zPP02hj/2oFNs/JGfvqnxnOMtcuzuzzAN7xLw001BDvrRhl5kIvu+
+         N7VA8HOrlQKHWlokdxrXV9ZGy6C8yU9Cw6SocDR+gX/qbnLXyKcVdC2XLsAnTkkRgy39
+         hYaNERRrr1iSaleEBJRIbf1Z7vhuLJKW8w0oELrjYM+96PTLT074p8r4d2/hJ+DNrJ6x
+         DmJmDuC4igEViYWjLWj6EapWP22NyIrfh3aYEFuVnlqo97BoDHIi2RZwE1eCO9rxpHJW
+         Si8A==
+X-Forwarded-Encrypted: i=1; AJvYcCUIPpuq8bSAPi1MLFb/pscIzxEro/54NUNIRoIvJRkn1eWo59qvBzzoIqXlRRDu/TPF1G2iDjS4MEt9DIyPTvJi@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0cHkzU+M9ZmutBO477S3strDt41+4antG5wEIdzXZzECyuPAj
+	ZHfMzwtpKcQSnAeH/apSf0EX37QQiNbmdPtzyCNMbetZ9OPXnoWXuZlZU9sCAjQ=
+X-Gm-Gg: ASbGnct7tTvmuZ1434OAj4G4IjLa0926DLInW/pl4d3SzTID1RMvMwaPfnDgbjTu71k
+	WdMek6kbnSbMJNgXs+lyO/wnbatxE4UNKQbi7xbPYpEAjCNwqeulz65xRQ6Azx+s4Auj3pt4VZL
+	PqKqyEkzSn7gk1e0nKId2kT6hHGPPnSMd0fCdOwcFtJW2RKfuSD0TIQSt22Nni+NCikHARvuOIw
+	xQJST7kgcOyBJDk+3SMVQvKhH9yqG9qcPRQ6AeiTn05ARyGES6JBt009ZgJcDG7Teb+wfZcbBYv
+	hdurATfFQ9h0YroLOa6nZa6jahEn3JcUKN1ieCpSJtCx6lqo6ZglGJi+zajA
+X-Google-Smtp-Source: AGHT+IEDXv5Dyb5QalrXk6ql6emdOt4SDPu4lj7dnIY5kFx1pre2Zvcu2aTh0CK7l9GsPZKlkqv39A==
+X-Received: by 2002:a05:6000:144c:b0:391:10c5:d1b4 with SMTP id ffacd0b85a97d-3911f758752mr1548030f8f.7.1741205030724;
+        Wed, 05 Mar 2025 12:03:50 -0800 (PST)
+Received: from [127.0.1.1] ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e47b792asm21874027f8f.53.2025.03.05.12.03.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 12:03:49 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH v2 0/2] clk: samsung: Two header cleanups
+Date: Wed, 05 Mar 2025 21:03:42 +0100
+Message-Id: <20250305-clk-samsung-headers-cleanup-v2-0-ea1ae8e9e2bf@linaro.org>
 MIME-Version: 1.0
-References: <20250304154846.1937958-1-david@redhat.com> <20250305152055.GB28112@redhat.com>
- <CAEf4BzbyFy0eQHLac3zR8GiGDOUqYoTGAWDbFaeou903OGOTpg@mail.gmail.com> <62f93f79-a8d4-44a5-b276-3ac5af4ab25c@redhat.com>
-In-Reply-To: <62f93f79-a8d4-44a5-b276-3ac5af4ab25c@redhat.com>
-From: Andrii Nakryiko <andrii.nakryiko@gmail.com>
-Date: Wed, 5 Mar 2025 11:58:46 -0800
-X-Gm-Features: AQ5f1JpNR9XR0Xgny3rOP3g1v3FV71Th_LHZWcRds0Sk3eNMx_5PJFuIV4e0zaU
-Message-ID: <CAEf4BzZcc6D3u5ATQmpkBt=8EhNuG7Xaibywx=hXcXTp346uFA@mail.gmail.com>
-Subject: Re: [PATCH -next v1 0/3] kernel/events/uprobes: uprobe_write_opcode() rewrite
-To: David Hildenbrand <david@redhat.com>
-Cc: Oleg Nesterov <oleg@redhat.com>, Andrii Nakryiko <andrii@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
-	linux-kernel@vger.kernel.org, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-trace-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>, 
-	Matthew Wilcox <willy@infradead.org>, Russell King <linux@armlinux.org.uk>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Peter Zijlstra <peterz@infradead.org>, 
-	Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
-	Mark Rutland <mark.rutland@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, "Liang, Kan" <kan.liang@linux.intel.com>, 
-	Tong Tiangen <tongtiangen@huawei.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAB6uyGcC/42NQQ6CMBBFr0Jm7Zi2IDSuvIdhUekIjdiSGSEaw
+ t2tnMDle/l5fwUhDiRwLlZgWoKEFDOYQwHd4GJPGHxmMMqcVKkq7MYHinvKHHscyHliyY5cnCf
+ sVHOz3udhrSAXJqZ7eO/1a5t5CPJK/NnPFv2z/3UXjQqtbrSl0pqqpssYouN0TNxDu23bF2U9U
+ mjHAAAA
+X-Change-ID: 20250304-clk-samsung-headers-cleanup-c07b8dd50360
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2094;
+ i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
+ bh=OVU2xqhorUws16KE9g8vqSH0lbvZUNE4DA37myXzLh4=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnyK4hZwctbAzba4JB0QKbXAwVRbl4QNOEgos3u
+ CJMZxyp30CJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ8iuIQAKCRDBN2bmhouD
+ 18maD/4nNwX5HRCdqZWHRrEVVhcMsDDFAy8RuJ3/FryYbfTMY0u9BZpRwVwXH6SogOPF5oP0IYL
+ pf8HHOPWPNMjt467fToLT+INiIXjGNUbwe3sm2PrlOG1qvB15VwPRV6VZVjWt+BMZGlLkZLyJuX
+ bw7lh27yusKawHyrb3E8uRw4DWmiDns9ceXzAGobVtpL+/lBJLYvuY8+uZoE2bdhh1yQZWmeLwi
+ Bf3yX572FrVi8/wvuRMBqmPv0poSdLEzhiYr1tzGRNPzA9LmpNmHBIJf99aXvw1uGB2fUvGzkpW
+ gqfWkF25llYKqpnCW0ZAOVNz2SShFUyeL+daQjKIVp+cttr4BNayNOnPkOYb/SxaBzUlvqrARMb
+ 8DnjjTOy43aFg4EkLs34cDD10vf8gJfYoB0hbsPIOY9TM/W7XRx3lhQlmxKS6IDFWAaKIPhb0Uo
+ Ook5xJvB3AwgGFNaqoZDpBYncl0yxeh5lsA7kKm00SvU7v/LH2qlhmKbQKjh7gBBmrFgOToh1CL
+ IzFN0d4u4pJNM86Xj3mdLPpHmoSU8HL9n9EgdTKxFWktp6TUyFsZNaJLZqWYTEZ8einwVubTN6r
+ Hv8CF0ddS56oqHvKYANoXJh/kDR6gYXb9a4gKLG2qFcizESLSqtg/vWbtsfgmrqvaibHUwDiFLo
+ h81U5jNo/wxR6bw==
+X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
+ fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_195903_671726_7160DCB7 
-X-CRM114-Status: GOOD (  26.18  )
+X-CRM114-CacheID: sfid-20250305_120352_472764_A981C2BD 
+X-CRM114-Status: UNSURE (   9.93  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,88 +126,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 5, 2025 at 11:47=E2=80=AFAM David Hildenbrand <david@redhat.com=
-> wrote:
->
-> On 05.03.25 20:43, Andrii Nakryiko wrote:
-> > On Wed, Mar 5, 2025 at 7:22=E2=80=AFAM Oleg Nesterov <oleg@redhat.com> =
-wrote:
-> >>
-> >> On 03/04, David Hildenbrand wrote:
-> >>>
-> >>> Currently, uprobe_write_opcode() implements COW-breaking manually, wh=
-ich is
-> >>> really far from ideal.
-> >>
-> >> To say at least ;)
-> >>
-> >> David, thanks for doing this. I'll try to read 3/3 tomorrow, but I don=
-'t
-> >> think I can really help. Let me repeat, this code was written many yea=
-rs
-> >> ago, I forgot everything, and today my understanding of mm/ is very po=
-or.
-> >> But I'll try anyway.
-> >>
-> >>> Are there any uprobe tests / benchmarks that are worth running?
-> >>
-> >> All I know about uprobe tests is that bpf people run a lot of tests wh=
-ich
-> >> use uprobes.
-> >>
-> >> Andrii, Jiri, what you advise?
-> >>
-> >
-> > We do have a bunch of tests within BPF selftests:
-> >
-> > cd tools/testing/selftest/bpf && make -j$(nproc) && sudo ./test_progs -=
-t uprobe
->
-> I stumbled over them, but was so far not successful in building them in
-> my test VM (did not try too hard, though). Will try harder now that I
-> know that it actually tests uprobe properly :)
+Changes in v2:
+- mod_devicetable.h: also clk.c, clk.h, clk-exynos4.c,
+  clk-exynos5-subcmu.c, clk-exynos2200.c and clk-exynos7870.c (Tudor)
+- cleanup: clk-exynos2200.c and clk-exynos7870.c (Tudor)
+- Rb tags
+- Link to v1: https://lore.kernel.org/r/20250304-clk-samsung-headers-cleanup-v1-0-81718e38246e@linaro.org
 
-If you have decently recent Clang and pahole, then just make sure you
-have kernel built before you build selftests. So above instructions
-are more like:
+Best regards,
+Krzysztof
 
-1. cd <linux-repo>
-2. cat tools/testing/selftests/bpf/{config, config.<your_arch>} >> .config
-3. make -j$(nproc) # build kernel with that adjusted config
-4. cd tools/testing/selftests/bpf
-5. make -j$(nproc) # build BPF selftests
-6. sudo ./test_progs -t uprobe # run selftests with "uprobe" in their name
+---
+Krzysztof Kozlowski (2):
+      clk: samsung: Add missing mod_devicetable.h header
+      clk: samsung: Drop unused clk.h and of.h headers
 
->
-> >
-> > I also built an uprobe-stress tool to validate uprobe optimizations I
-> > was doing, this one is the most stand-alone thing to use for testing,
-> > please consider checking that. You can find it at [0], and see also
-> > [1] and [2] where  I was helping Peter to build it from sources, so
-> > that might be useful for you as well, if you run into problems with
-> > building. Running something like `sudo ./uprobe-stress -a10 -t5 -m5
-> > -f3` would hammer on this quite a bit.
->
-> Thanks, I'll play with that as well.
->
-> >
-> > I'm just about to leave on a short vacation, so won't have time to go
-> > over patches, but I plan to look at them when I'm back next week.
-> >
-> >    [0] https://github.com/libbpf/libbpf-bootstrap/tree/uprobe-stress
-> >    [1] https://lore.kernel.org/linux-trace-kernel/CAEf4BzZ+ygwfk8FKn5AS=
-_Ny=3DigvGcFzdDLE2FjcvwjCKazEWMA@mail.gmail.com/
-> >    [2] https://lore.kernel.org/linux-trace-kernel/CAEf4BzZqKCR-EQz6LTi-=
-YvFY4RnYb_NnQXtwgZCv6aUo7gjkHg@mail.gmail.com
-> >
-> >> Oleg.
-> >>
-> >
->
->
-> --
-> Cheers,
->
-> David / dhildenb
->
+ drivers/clk/samsung/clk-exynos-audss.c   | 1 +
+ drivers/clk/samsung/clk-exynos-clkout.c  | 1 +
+ drivers/clk/samsung/clk-exynos2200.c     | 2 +-
+ drivers/clk/samsung/clk-exynos3250.c     | 4 +---
+ drivers/clk/samsung/clk-exynos4.c        | 2 +-
+ drivers/clk/samsung/clk-exynos4412-isp.c | 2 +-
+ drivers/clk/samsung/clk-exynos5-subcmu.c | 1 +
+ drivers/clk/samsung/clk-exynos5250.c     | 1 +
+ drivers/clk/samsung/clk-exynos5260.c     | 3 ---
+ drivers/clk/samsung/clk-exynos5410.c     | 2 --
+ drivers/clk/samsung/clk-exynos5420.c     | 1 +
+ drivers/clk/samsung/clk-exynos5433.c     | 4 +---
+ drivers/clk/samsung/clk-exynos7.c        | 1 -
+ drivers/clk/samsung/clk-exynos7870.c     | 3 +--
+ drivers/clk/samsung/clk-exynos7885.c     | 2 +-
+ drivers/clk/samsung/clk-exynos850.c      | 2 +-
+ drivers/clk/samsung/clk-exynos8895.c     | 2 +-
+ drivers/clk/samsung/clk-exynos990.c      | 2 +-
+ drivers/clk/samsung/clk-exynosautov9.c   | 2 +-
+ drivers/clk/samsung/clk-exynosautov920.c | 2 +-
+ drivers/clk/samsung/clk-fsd.c            | 2 +-
+ drivers/clk/samsung/clk-gs101.c          | 2 +-
+ drivers/clk/samsung/clk-s3c64xx.c        | 1 -
+ drivers/clk/samsung/clk-s5pv210-audss.c  | 1 +
+ drivers/clk/samsung/clk-s5pv210.c        | 1 -
+ drivers/clk/samsung/clk.c                | 2 +-
+ drivers/clk/samsung/clk.h                | 1 +
+ 27 files changed, 22 insertions(+), 28 deletions(-)
+---
+base-commit: 7ec162622e66a4ff886f8f28712ea1b13069e1aa
+change-id: 20250304-clk-samsung-headers-cleanup-c07b8dd50360
+
+Best regards,
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+
 
