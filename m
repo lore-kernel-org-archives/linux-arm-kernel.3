@@ -4,127 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFFFBC28B22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5EEDC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:03:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=gJTqKRJTpfqMnnraspq+3qUtcX/v+MUuDyp6qyCY7XA=; b=10Pt3kZr8ABrLy
-	nUy4xzXTqZyKgE2FfboBA4D+YWGX64GQS9J3xqhnJ4VzXSvtbjCGmR8drU3Ronaj4hWuivBcy/JFa
-	X9hHQk44Ro+lqSZacmCxVQWYc5H/MeE8BiDB2tIw3g6D7MlZ7KiO7vvxi2JFvGpcZ17dEgJLRyqhc
-	aY3Dtya7m8G+OVBRlPwOFcQz5WLeUZUzu/TtKZL81xog3TCm8FNRBJ6Llql6MoGQ3rtaz7o2vb/H0
-	lhSlrmxNIWEAzfuCE5GwBxsfVYWrQoAzkTm9xa+hY7D2XMY8u+G9nbFCC9iA494i2hzHZdEaLS32c
-	LXfK+QJ4NJceIN3CBi7Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jL12xPyCCwHKe482HWmZqS23VLJl5yMjDOfvHTIJFO0=; b=n2zd+hzqS6V8eSp4qMxOY4GGz/
+	R/ZxBjlhoJ7rTg8EV0CLATwLyA1SRB33sGLJB9tTXIwTrvWTIpzR7GSZ3l7ty4IQwpnyocGIDZ1Mp
+	iBQ8FKGhW6TySLHMfZXnj6Z9Sx9Z0kDkyHWRw3Kyqy5YvhJAHyC2RlblJfPhp4kAKFFV3pMOnPOty
+	4Cdz1EjSOJJezRXH0Ze/CsFDDM6VrFr6D/SvudYl7Keb6wDKVWcZZUEZFxh79DRA53JLA9R5BUQAq
+	brr3AMbfr5+AVB3KzQUslrEcnQ8iVVp5r0xBsPwyYrxDInV2A7d6GrdP7KKqLm4UY1Mzl9xOgeMsa
+	rCMh7ONg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tppLc-00000008HFk-17Vw;
-	Wed, 05 Mar 2025 14:03:44 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1tppLd-00000008HGK-04s8;
+	Wed, 05 Mar 2025 14:03:45 +0000
+Received: from mail-m155101.qiye.163.com ([101.71.155.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoJR-000000085cj-2duK
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 12:57:27 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250305125721epoutp0227b69d81c394b204bac8f217deb282dc~p6Xoe-kr42159121591epoutp02t
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 12:57:21 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250305125721epoutp0227b69d81c394b204bac8f217deb282dc~p6Xoe-kr42159121591epoutp02t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741179441;
-	bh=gJTqKRJTpfqMnnraspq+3qUtcX/v+MUuDyp6qyCY7XA=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=TrEiBR+qekez73eASU67U0y/yDFMf9a4B4QZ3x2gWgV0ONTppcAoHtEfS4b+vhCIr
-	 yjSHEhyC/Hk8BH9UnmjgtLufHxOv3Ckq7Hg0K2GbkrNtgkyVCix1SDv1WR+Zv0/NNV
-	 jKKFO1T8AEeadxxhDl67y7LVgx4pZTb7LSou6ysM=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
-	20250305125721epcas5p498e06039d06bb7590aa3a595aeb93c36~p6Xn8tLwm1019510195epcas5p4U;
-	Wed,  5 Mar 2025 12:57:21 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4Z7CHz2Cztz4x9Pr; Wed,  5 Mar
-	2025 12:57:19 +0000 (GMT)
-Received: from epcas5p4.samsung.com ( [182.195.41.42]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	35.23.20052.F2A48C76; Wed,  5 Mar 2025 21:57:19 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250305091845epcas5p1689eda3ba03572377997897271636cfd~p3YwvyTxk0290502905epcas5p1W;
-	Wed,  5 Mar 2025 09:18:45 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250305091845epsmtrp13ce4349a0492a94ea7ad1411fede4ade~p3YwtnWv21941319413epsmtrp1Q;
-	Wed,  5 Mar 2025 09:18:45 +0000 (GMT)
-X-AuditID: b6c32a49-3fffd70000004e54-31-67c84a2fd74c
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	2E.0F.23488.4F618C76; Wed,  5 Mar 2025 18:18:44 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305091842epsmtip281fe6bc11cada4780d723a78c6d42ca6~p3Yt_mHXc1556215562epsmtip2x;
-	Wed,  5 Mar 2025 09:18:42 +0000 (GMT)
-From: Swathi K S <swathi.ks@samsung.com>
-To: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
-	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
-	conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
-	alexandre.torgue@foss.st.com
-Cc: rmk+kernel@armlinux.org.uk, swathi.ks@samsung.com,
-	netdev@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
-Subject: [PATCH v8 0/2] net: stmmac: dwc-qos: Add FSD EQoS support
-Date: Wed,  5 Mar 2025 14:42:44 +0530
-Message-Id: <20250305091246.106626-1-swathi.ks@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrBJsWRmVeSWpSXmKPExsWy7bCmlq6+14l0g7OzeC1+vpzGaLH8wQ5W
-	izV7zzFZzDnfwmIx/8g5Vounxx6xW9w8sJPJ4uWse2wWF7b1sVpsenyN1eLyrjlsFl3XnrBa
-	zPu7ltXi2AIxi2+n3zBaLNr6hd3i4Yc97BZHzrxgtrjUP5HJ4v+eHewWXzbeZHcQ9bh87SKz
-	x5aVN5k8nvZvZffYOesuu8eCTaUem1Z1snlsXlLvsXPHZyaP9/uusnn0bVnF6HFwn6HH501y
-	ATxR2TYZqYkpqUUKqXnJ+SmZeem2St7B8c7xpmYGhrqGlhbmSgp5ibmptkouPgG6bpk5QL8q
-	KZQl5pQChQISi4uV9O1sivJLS1IVMvKLS2yVUgtScgpMCvSKE3OLS/PS9fJSS6wMDQyMTIEK
-	E7IzZr44yF7QIlDx7tJhpgbGybxdjJwcEgImEjdWTGDqYuTiEBLYzSjxcM58KOcTo8TNtX1s
-	EM43RokvT18ydjFygLXc/mIP0i0ksJdR4uD6QIiaL4wS+x9dZQRJsAloSFxfsZ0dJCEi8ItR
-	4sOk08wgDrPAciaJ0w+uMINUCQs4STw7tQ3MZhFQlfhx8QaYzStgLXF58z02iAPlJVZvOMAM
-	YZ/gkHh0WxXCdpG4cf0YE4QtLPHq+BZ2CFtK4mV/G5QdL7G67yoLhJ0hcffXRKiZ9hIHrsxh
-	AfmGWUBTYv0ufYiwrMTUU+vARjIL8En0/n4CNZ5XYsc8GFtZ4u/ra1AjJSW2LX0PtcpDYu7f
-	g8yQUImVODXxPOsERtlZCBsWMDKuYpRMLSjOTU8tNi0wzEsth0dUcn7uJkZwEtby3MF498EH
-	vUOMTByMhxglOJiVRHhfnzqeLsSbklhZlVqUH19UmpNafIjRFBhkE5mlRJPzgXkgryTe0MTS
-	wMTMzMzE0tjMUEmct3lnS7qQQHpiSWp2ampBahFMHxMHp1QD07aiRjcOzdlXPn18OllKd5H4
-	0v6L2xsPG05Riw/Ve7cofZLu1OR1YTL/TNbvYKi8qMKiEXZcPU387B/TqAkTHmioHN971sA/
-	//zNtT6vTjXoNJfzu2hb35zbqRkRF73TLib60Ymy1d/805i9So8/khJd88hak/VQWAu3zqHM
-	ZAkdw10lZ0JkP85Ry61cvC0/Zu2UooptT7kf7OJVnMal78lj33e3bEdb7Ebfz9/jS2bM3+G6
-	bh17ufnWL7Ln9gWvmOm5JqD6dMOxg1bHoic5/JvAeWjfE9/VwempHZNM8vX2Jj6JY1hfElyX
-	VOhVsK7ntkpj3dopBa4tSS2Ojja181taI9aLJGc7zj9ovWKpEktxRqKhFnNRcSIASn7S80sE
-	AAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrMLMWRmVeSWpSXmKPExsWy7bCSvO4XsRPpBkubbSx+vpzGaLH8wQ5W
-	izV7zzFZzDnfwmIx/8g5Vounxx6xW9w8sJPJ4uWse2wWF7b1sVpsenyN1eLyrjlsFl3XnrBa
-	zPu7ltXi2AIxi2+n3zBaLNr6hd3i4Yc97BZHzrxgtrjUP5HJ4v+eHewWXzbeZHcQ9bh87SKz
-	x5aVN5k8nvZvZffYOesuu8eCTaUem1Z1snlsXlLvsXPHZyaP9/uusnn0bVnF6HFwn6HH501y
-	ATxRXDYpqTmZZalF+nYJXBkzXxxkL2gRqHh36TBTA+Nk3i5GDg4JAROJ21/suxg5OYQEdjNK
-	NDxmBLElBCQlPjVPZYWwhSVW/nvODlHziVHiwnkREJtNQEPi+ortQHEuDhGBDiaJPVNPMoM4
-	zAIbmSSOXdoM1iEs4CTx7NQ2ZhCbRUBV4sfFG2A2r4C1xOXN99ggNshLrN5wgHkCI88CRoZV
-	jJKpBcW56bnJhgWGeanlesWJucWleel6yfm5mxjB8aClsYPx3bcm/UOMTByMhxglOJiVRHhf
-	nzqeLsSbklhZlVqUH19UmpNafIhRmoNFSZx3pWFEupBAemJJanZqakFqEUyWiYNTqoEpoHCC
-	ttuC1inW+vJHT15hdnzD0/jeamL8ktfhk5JzeBebJ594adLZ8OOA6/IUd91dJSm/WGSvXlFZ
-	X+PE/9Gk4zDja7tzV9nyXgteuXiyq9HzXmuc8ucFvEcLbzWvvxHKcixb1e2r1+qN/zk/tH4W
-	WHd5/qFdh69MPZAttyhphw37t2WBraf357Qwv3X9YPFiFqf8g6cee0RqOWUzK5bWddseZIvu
-	Dy05No+J+bOFNpeK6imuOb8D9h/nEjC/YvtV8r/29qtPH2VEbW97dXtrTPihIqlXHRNlN755
-	31nRncIXH75veqLB5f2rXzX9bp1dVxnf3z3p24rOlFNFSvr/127OUd2lcelzGqvR9q/JSizF
-	GYmGWsxFxYkAIH1Iw/YCAAA=
-X-CMS-MailID: 20250305091845epcas5p1689eda3ba03572377997897271636cfd
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250305091845epcas5p1689eda3ba03572377997897271636cfd
-References: <CGME20250305091845epcas5p1689eda3ba03572377997897271636cfd@epcas5p1.samsung.com>
+	id 1tppIN-00000008Gjw-366v;
+	Wed, 05 Mar 2025 14:00:25 +0000
+Received: from amadeus-Vostro-3710.lan (unknown [IPV6:240e:3b3:2c02:1dd0:e727:1623:c5c6:9622])
+	by smtp.qiye.163.com (Hmail) with ESMTP id d0a1b690;
+	Wed, 5 Mar 2025 22:00:15 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH 1/2] dt-bindings: mfd: syscon: Add rk3528 QoS register compatible
+Date: Wed,  5 Mar 2025 22:00:08 +0800
+Message-Id: <20250305140009.2485859-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkaHUJLVhpNHUhDTx0eQ0MeGFYeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtJQUofH0tBHkxJTEFKTUlIQRhOGE1BQk1JSVlXWRYaDx
+	IVHRRZQVlPS0hVSktISk5MTlVKS0tVSkJLS1kG
+X-HM-Tid: 0a95669b697403a2kunmd0a1b690
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Oi46Fyo6NzJLDD8YMjVDFhoQ
+	Vh0aCQ5VSlVKTE9KSkNISUpNTUNLVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUlP
+	Sx5BSBlIQUkYS0lBSh8fS0EeTElMQUpNSUhBGE4YTUFCTUlJWVdZCAFZQUxPQzcG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_045725_991019_0335B072 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250305_060023_942921_079D7388 
+X-CRM114-Status: UNSURE (   6.14  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,60 +74,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-FSD platform has two instances of EQoS IP, one is in FSYS0 block and
-another one is in PERIC block. This patch series add required DT binding
-and platform driver specific changes for the same.
+Document rk3528 compatible for QoS registers.
 
-Changes since v1:
-1. Updated dwc_eqos_setup_rxclock() function as per the review comments
-given by Andrew.
+Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+---
+ Documentation/devicetree/bindings/mfd/syscon.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-Changes since v2:
-1. Addressed all the review comments suggested by Krzysztof with respect to
-DT binding file.
-2. Added SOB Swathi.
-
-Changes since v3:
-1. Avoided using alias-id to configure the HW.
-2. Modified the clock implementation.
-
-Changes since v4:
-1. Avoided switching between internal and external clocks for every open/
-close.
-2. Addressed the review comments on DT bindings
-
-Changes since v5:
-1. Addressed the review comment on correcting the intendation.
-2. Corrected the compatible name in dt-binding file.
-3. Listed and described the clocks in dt-binding.
-4. Modified FSD probe as per the changes in the refactoring patch given
-below: https://lore.kernel.org/netdev/20250207121849.55815-1-swathi.ks@samsung.com/
-
-Changes since v6:
-1. Addressed review comments by Krzysztof on dt-binding file regarding
-clock-names property
-2. Corrected indentation issue in dt-binding
-3. Addressed Andrew's comment on listing phy-modes.
-
-Changes since v7:
-1. Modified the example given in DT binding as per Russell's review
-comment on setting clock tree in DT
-2. Removed FSD probe since clock tree setting would be done via DT.
-
-Here is the link to v7 patches for reference:
-https://lore.kernel.org/netdev/20250220043712.31966-1-swathi.ks@samsung.com/
-
-Swathi K S (2):
-  dt-bindings: net: Add FSD EQoS device tree bindings
-  net: stmmac: dwc-qos: Add FSD EQoS support
-
- .../devicetree/bindings/net/snps,dwmac.yaml   |   5 +-
- .../bindings/net/tesla,fsd-ethqos.yaml        | 118 ++++++++++++++++++
- .../stmicro/stmmac/dwmac-dwc-qos-eth.c        |   8 +-
- 3 files changed, 128 insertions(+), 3 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
-
+diff --git a/Documentation/devicetree/bindings/mfd/syscon.yaml b/Documentation/devicetree/bindings/mfd/syscon.yaml
+index 4d67ff26d445..fcfd293b9bf1 100644
+--- a/Documentation/devicetree/bindings/mfd/syscon.yaml
++++ b/Documentation/devicetree/bindings/mfd/syscon.yaml
+@@ -103,6 +103,7 @@ select:
+           - rockchip,rk3288-qos
+           - rockchip,rk3368-qos
+           - rockchip,rk3399-qos
++          - rockchip,rk3528-qos
+           - rockchip,rk3562-qos
+           - rockchip,rk3568-qos
+           - rockchip,rk3576-qos
 -- 
-2.17.1
+2.25.1
 
 
