@@ -4,65 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33F21C282DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F684C28B24
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:18:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n3fedP2j29dzJv3iQBEaY09Mv/bRRJcSGOL0UIdLpZg=; b=kgbDIj4zKhkqkL40F0buXGafch
-	Xc3tFIn/bv5kS9dcgmR7dwmUvtf0MK3UbexHeH/u8cru3IGTLW6QItaoGMsonS+rEdFNMtxg/rrFh
-	Ew4prawbzu6jCF0mX/TLJKTNvzozu3QiQjoo+RGX8mniYEYxhtnqVq0nBZIUorwaeu6o03TRu0j1w
-	tCfF/YqqD9a5QezzWhIc2JlohCAZQ0BO+LJzosTGrMjQ9JwwJgs7g37SB2ZaTsawUR7oZt7TF+FeD
-	Fq+PVz9HG5R0V9Rg4rcxTsaehp06MEYB4C2IAK6EUj2MU+SMBBtm/1jn9h0u59/gsdwDxlnZN54bB
-	X+cP/XoA==;
+	bh=CTT4VlJeLCC6/l/jodN5fkT+Y2Y1zsiD3qYQ2wYCV1c=; b=UHQJTzqTDq8NkkAF9+Fgd8gzGu
+	Y+Ft/NAD5L1MA36RgNmq4o8Lyk/L2AlztNqPs1R9/OtekA4TmIZwBI7ENDozHSD/gUFFalG/obAP7
+	+yrZi8+1tfgHf5vGlMJn6fOAa32KBC2Vl9s2PAY/Rx3p8VZ/tkYnKKXa9h0TTD+ccPzcGBG5ZNaea
+	xuRmCisIiAa2PybSA9WC50x04zkci0mVGjc8whP6HdvEEMlMfUSpXbAo0sY8fMQW90jC2ayBza+Us
+	yDUJ3maKV6s1cTtQ4ksgc4wMWv/fybVG59m6yIqrQiBiJpy4ge6Jgt60IYhQVAshAZVvAADjTUSbn
+	2Fj2K77g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvCX-00000009C0L-03zM;
-	Wed, 05 Mar 2025 20:18:45 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tpvCZ-00000009C1i-0oed;
+	Wed, 05 Mar 2025 20:18:47 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsuO-00000008qK7-0PpS;
-	Wed, 05 Mar 2025 17:51:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=n3fedP2j29dzJv3iQBEaY09Mv/bRRJcSGOL0UIdLpZg=; b=KpRJ85NWygyAHN8HbcxaakUNFO
-	ihqAWFrDoZvZSe3SuhLCxT6YmmPsamgr+rOxHYubtTj4ZNO44WafHpBCOaVzOF4DDJnnB73QCFQIX
-	GwjN8YdXhA67meKqscS22p4I+iMizwIpETGqUuvZMmLVCXnMi5R2sNgtxkRJW5jWRU4LlLa49fIAG
-	3TrXWVo3v26EVFt1pW28cHu8r0DiP1SNirY4lnvF6sgk5ynJ3TYZoIpF3fNnuWHrgIheZrZ/MgBas
-	8ovbdMmbCBml1e8DNHxKaaTUr268Ejk/scgoABYiTiL+eTp8KtZq7w0J5EOad+NpLyAW9WeSacMJx
-	nq6ghPaQ==;
-Received: from i53875a38.versanet.de ([83.135.90.56] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tpsuF-0004MI-U0; Wed, 05 Mar 2025 18:51:43 +0100
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, Yao Zi <ziyao@disroot.org>,
- Lee Jones <lee@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3528 QoS register node
-Date: Wed, 05 Mar 2025 18:51:43 +0100
-Message-ID: <3543865.CbtlEUcBR6@diego>
-In-Reply-To: <20250305171724.GA2149138-robh@kernel.org>
-References: <20250305140009.2485859-1-amadeus@jmu.edu.cn>
- <52155b03-20f3-4e64-b636-70042db03ffa@kernel.org>
- <20250305171724.GA2149138-robh@kernel.org>
+	id 1tpty9-000000090D4-33Wl
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 18:59:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BA10DA45F6E;
+	Wed,  5 Mar 2025 18:54:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5ADD8C4CED1;
+	Wed,  5 Mar 2025 18:59:45 +0000 (UTC)
+Date: Wed, 5 Mar 2025 18:59:43 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+Cc: anshuman.khandual@arm.com, david@redhat.com, will@kernel.org,
+	ardb@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com,
+	joey.gouly@arm.com, dave.hansen@linux.intel.com,
+	akpm@linux-foundation.org, chenfeiyang@loongson.cn,
+	chenhuacai@kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	quic_tingweiz@quicinc.com, stable@vger.kernel.org
+Subject: Re: [PATCH v9] arm64: mm: Populate vmemmap at the page level if not
+ section aligned
+Message-ID: <Z8ifH6HILN_7sZDk@arm.com>
+References: <20250304072700.3405036-1-quic_zhenhuah@quicinc.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304072700.3405036-1-quic_zhenhuah@quicinc.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_095152_159550_17A7E2F1 
-X-CRM114-Status: GOOD (  22.67  )
+X-CRM114-CacheID: sfid-20250305_105949_834635_C4C9258F 
+X-CRM114-Status: GOOD (  23.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,55 +67,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Am Mittwoch, 5. M=C3=A4rz 2025, 18:17:24 MEZ schrieb Rob Herring:
-> On Wed, Mar 05, 2025 at 04:41:23PM +0100, Krzysztof Kozlowski wrote:
-> > On 05/03/2025 15:00, Chukun Pan wrote:
-> > > Copy QoS nodes and add rk3528 compatible from bsp kernel,
-> >=20
-> > No, don't copy stuff from BSP kernel. It results in terrible DTS.
-> >=20
-> > > these can be used for power-domain.
-> > >=20
-> > > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> > > ---
-> > >  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 160 +++++++++++++++++++++=
-++
-> > >  1 file changed, 160 insertions(+)
-> > >=20
-> > > diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/bo=
-ot/dts/rockchip/rk3528.dtsi
-> > > index 5b334690356a..794f35654975 100644
-> > > --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> > > +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> > > @@ -122,6 +122,166 @@ gic: interrupt-controller@fed01000 {
-> > >  			#interrupt-cells =3D <3>;
-> > >  		};
-> > > =20
-> > > +		qos_crypto_a: qos@ff200000 {
-> > > +			compatible =3D "rockchip,rk3528-qos", "syscon";
-> > > +			reg =3D <0x0 0xff200000 0x0 0x20>;
-> > > +		};
-> > > +
-> > > +		qos_crypto_p: qos@ff200080 {
-> > > +			compatible =3D "rockchip,rk3528-qos", "syscon";
-> > > +			reg =3D <0x0 0xff200080 0x0 0x20>;
-> > > +		};
-> >=20
-> >=20
-> > Did you just define syscon per few registers? Third case last weeks...
-> > so no, define what is your device here. 8 registers is not a device usu=
-ally.
->=20
-> Well, it is just a new compatible on top of existing 'qos' compatibles.
-> And in a quick scan I didn't see other things adjacent.=20
+On Tue, Mar 04, 2025 at 03:27:00PM +0800, Zhenhua Huang wrote:
+> On the arm64 platform with 4K base page config, SECTION_SIZE_BITS is set
+> to 27, making one section 128M. The related page struct which vmemmap
+> points to is 2M then.
+> Commit c1cc1552616d ("arm64: MMU initialisation") optimizes the
+> vmemmap to populate at the PMD section level which was suitable
+> initially since hot plug granule is always one section(128M). However,
+> commit ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> introduced a 2M(SUBSECTION_SIZE) hot plug granule, which disrupted the
+> existing arm64 assumptions.
+> 
+> The first problem is that if start or end is not aligned to a section
+> boundary, such as when a subsection is hot added, populating the entire
+> section is wasteful.
+> 
+> The next problem is if we hotplug something that spans part of 128 MiB
+> section (subsections, let's call it memblock1), and then hotplug something
+> that spans another part of a 128 MiB section(subsections, let's call it
+> memblock2), and subsequently unplug memblock1, vmemmap_free() will clear
+> the entire PMD entry which also supports memblock2 even though memblock2
+> is still active.
+> 
+> Assuming hotplug/unplug sizes are guaranteed to be symmetric. Do the
+> fix similar to x86-64: populate to pages levels if start/end is not aligned
+> with section boundary.
+> 
+> Cc: <stable@vger.kernel.org> # v5.4+
+> Fixes: ba72b4c8cf60 ("mm/sparsemem: support sub-section hotplug")
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Signed-off-by: Zhenhua Huang <quic_zhenhuah@quicinc.com>
+> ---
+>  arch/arm64/mm/mmu.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 
-Also, those "Quality-of-Service" register-sets are generally identically and
-configure the interconnect-voodoo for the individual devices they're
-attached to.
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
 
-And while we are not "tuning" stuff at the moment, the register contents
-need to be saved and restored when the device's power-domain is
-turned off or on.
+Will, another bug that has been around for ages. Do you want to take it
+as a fix?
 
+> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+> index b4df5bc5b1b8..1dfe1a8efdbe 100644
+> --- a/arch/arm64/mm/mmu.c
+> +++ b/arch/arm64/mm/mmu.c
+> @@ -1177,8 +1177,11 @@ int __meminit vmemmap_populate(unsigned long start, unsigned long end, int node,
+>  		struct vmem_altmap *altmap)
+>  {
+>  	WARN_ON((start < VMEMMAP_START) || (end > VMEMMAP_END));
+> +	/* [start, end] should be within one section */
+> +	WARN_ON_ONCE(end - start > PAGES_PER_SECTION * sizeof(struct page));
+>  
+> -	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES))
+> +	if (!IS_ENABLED(CONFIG_ARM64_4K_PAGES) ||
+> +	    (end - start < PAGES_PER_SECTION * sizeof(struct page)))
+>  		return vmemmap_populate_basepages(start, end, node, altmap);
+>  	else
+>  		return vmemmap_populate_hugepages(start, end, node, altmap);
+> -- 
+> 2.25.1
+> 
 
+-- 
+Catalin
 
