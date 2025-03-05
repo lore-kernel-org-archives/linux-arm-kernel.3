@@ -4,93 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB992C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 17:59:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22163C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 18:01:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6yp8ly4CoZ1xK5KOd2D0Pg5wxYPtdg+xF05sqpTsePU=; b=Er1NCLQFd65VdfqkUP0iGAWu7j
-	GLLEyryRUMhKYZF2tMdFKEH8HTMBAWI6o4nNsUVwejT8Gdx+CMB2qDBVYWniG6lFiYqJdq4JwLnaR
-	xUkHhFmQ0i7YLSwq7EEY3VwJ2HisQeKvzg1labFJKT+m0MP/cVIR+8N4OLsjXEPmbeYuDpI8teNbE
-	PpLMm33dEOFR5IQkSDosF3OJxjs3s810OE9Z5q8Mp5Jl5lkfzXsPmXSdyv+w/L68RSR0t/XSXs4sk
-	fPZwizAgCqBe47sB+A2aTlDbTS0p8XZD5D+uFHCN5+IuIeA6iC2g2qVfbVgptBKuEVbKVJJODUHHK
-	TcJjvsUg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+ep2jN4skgI+D4W4EsgQGzXEpA82GjT/riHpbC+3iOM=; b=iw8MS3XyTzSoJpGSCEY1WpeQao
+	VXTc5bsUisxE7Oc0Lw2QiNvaB4u7NW9LWFioKkGXPRtpi6Rj5k+qG4Udu7bIW0w7DREj3NbtDvMPW
+	sUGs9xs/N5fKnz5b0emCeFCyTPdJZYpzkgccejnDTK6vulBs+GTz7XvBnJrZhgbu5qqTCYiNmuM32
+	pLPuTQGWaNlbAzcOHsz2Vl+MQFTjLhtNntGaNJ0TM6s1BeQnsDMRM95j3Y2+tXTONsY/sBkGxzaUF
+	4KpmfDyOyCe3FGtAxorbUsPak5J15MURrK0xzKwWEKnEiIdGwIQub12Lg0zTVdUVyvElJS+msgmpz
+	shdEwzCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpt22-00000008rSH-13jb;
-	Wed, 05 Mar 2025 17:59:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpt3c-00000008rjS-1LnL;
+	Wed, 05 Mar 2025 18:01:24 +0000
+Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsxO-00000008qq3-0VJn
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 17:54:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:In-Reply-To:References;
-	bh=6yp8ly4CoZ1xK5KOd2D0Pg5wxYPtdg+xF05sqpTsePU=; b=f25L5z2Fv5Aoa2O4x02lLmRqTN
-	kcPcaDrHqTAO/mWwcYQNtgsAgdPZP2KCIVSv9wWzMynH+i1TnV3VuFY9v+9xkCbikHpKYfqJu0zF9
-	bfsuaNJKkxfHNPv/4f16K2neszc5BOq2cCs14fth1EC9XZj5th6Ols1zGfMSu1cJxfzbGfLytSYBC
-	58QrYSb+HtE+hb2P0Dla5abM5LZi3gv6KS1BhMELl6BaiTF1J1UgdKk+WWZYc9MA6siSirFJTjW1a
-	dCLJPQdn5FViZrZElAtTeDf2gjRcXj4CM3W+7SUKU+hACP0L59eutG1Pq9Ya7urPQXU6VBBz7sKer
-	Q8ugdOFg==;
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsxK-00000000fjg-3i19
+	id 1tpsyO-00000008qxC-3AOi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 17:54:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=6yp8ly4CoZ1xK5KOd2D0Pg5wxYPtdg+xF05sqpTsePU=; b=yf7Qjgdjp3HkjKaQyBca+vXFbG
-	8yZxvvj1OYBOYrsvUVFJEqgaUMQxD5j4bIXG9e4lmHgs4H4MbxPkckwmG+6gt6iRk2tQO0veVV7uQ
-	0aWe1BlD3pnOmqhKidvwBOAbsGByafmP2lDbLTfXuTpdSetQcNrYGJetZFiD6s8KXFMMiUIzkE2vH
-	/utGOC8ie450eBha+tSDsV8OxtdHGdw7v0BjvvTF93hBoDAaVpzgHxQo1HxBbAxctuRptgDu47PHa
-	GMRBLovr1Y+LPtJYp+eMV3cOxfOtxbx36rKXMe3dDQJVZ3ssO/bLj3wTLj8EYpysbfBiKY++1RO88
-	efiijohQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34082 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tpsx2-0004fX-34;
-	Wed, 05 Mar 2025 17:54:36 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tpswi-005U6C-Py; Wed, 05 Mar 2025 17:54:16 +0000
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	bpf@vger.kernel.org,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: [PATCH net-next] net: stmmac: avoid shadowing global buf_sz
+	Wed, 05 Mar 2025 17:56:01 +0000
+Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-7c3d3147b81so219335285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 09:56:00 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ziepe.ca; s=google; t=1741197359; x=1741802159; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+ep2jN4skgI+D4W4EsgQGzXEpA82GjT/riHpbC+3iOM=;
+        b=MapXd7sXgwpdJ7W1zzogL7M8GpuTgmvvRKD6mqVcZyxLcSc5jYrwi8SEA+Ub1HDqsO
+         r0bcraY7gmAkh4vQHelGdVr89j78SeraDsqUiBZaGf64TNopqetK26iixNkGD2S3EF0+
+         OPW87/dDkFomDTfDzykPspWaKilDK+oJSGy6BoXitG9nZ1osuk1mQ1cZ8vVV/dcyEh5e
+         JfZHGNrbFi2wHuU3Gif0yFsGZjeF8+V81+fgLju6Ee9wqISSSR9tJiM0oUGLN33qpUxQ
+         QPfpJV7/aFR3888+XGL3WQxAkr79GbQ6m88GsZaoR3SnHQqlBoTyAHQjZWBjLHbTQdK/
+         sXMQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741197359; x=1741802159;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+ep2jN4skgI+D4W4EsgQGzXEpA82GjT/riHpbC+3iOM=;
+        b=w0hMgmTbDAEmuVfHjdKAlvQ++4hwVDdSDUxXkTwpELz+DwGv2S3NMGkptDPjSNj90z
+         Yyg3ImyoWLRK35WOiiaywKMTHSGtcTiwLhaov9QbdtruKFsSjZDJQii2Q238mHJz4JeD
+         MYIktrqvjxDJp2CvQMsbG9DFaZxIRtEsV9rYIz5S96EAYgV2xV3mGWa72ibXnS/5XU4x
+         oMUVKy6Y5I6M5lx0q25nu0We8EVX7Q29Mls6VeoCxcjJlXrVsKDvaRhqNjRWApSO3QnH
+         VHP9To9pqOcI3jk3wI4WRvYJIPd+nezGKCSSgHo/mzGS4xkQkSXsk3xrFzuoz+FMxk53
+         KAOg==
+X-Forwarded-Encrypted: i=1; AJvYcCXbh0E3gSSP9h//jJZwY4WNUwyLkxWUDaWBZW6CXrHAOPbotPOmJyPRZH3z+j8EA6RCGLYIQkZe0afDiQJN+Stc@lists.infradead.org
+X-Gm-Message-State: AOJu0YxLtN6CGvxRSyWGTp3dSHW8P8TvoGl/oNejxyUhU17Jbz4I9/yV
+	YG+mnMEr9cgKnJhgIhsTac410BMwpsmt4WaK0tiptntdTw2/DDQDIrlmuo5aCNo=
+X-Gm-Gg: ASbGncs8Q6WsygTffyW1vHSdh1vtsNbW0HBI3devxkEYs3oqQiNoYtmpI/kw+e2dmti
+	88vkoarKyKKxCp+zB5Zzj68fsFpzwwoYylnZywOUO9a1v1afOqifjaww1EGfM6o/NVEKy6Wv2Z0
+	tiJOwE1qhEXlk3in7ywSHdpreM8Ol6Nm/GWqXlft92g5+BcJ004QU/AGaXbT2LO8Qj+eeKrssnw
+	nD8ux1HR6m26bXLK9x8UOHTGF5d2MAUwB+H942k9eioi0GmegevrGFR2rvkHXWla0ERNrlnZsxm
+	95KOkvizGDkf8b0hMxE=
+X-Google-Smtp-Source: AGHT+IE075gQ9paRBr5FJqePHxLiGeTWllaX8jx4kAg32gkUcqpKhkxzc9FKZ5jSjzoHlrJkCTJ+cQ==
+X-Received: by 2002:a05:620a:8908:b0:7c3:cbad:5729 with SMTP id af79cd13be357-7c3d8e7ae8cmr768466685a.25.1741197359262;
+        Wed, 05 Mar 2025 09:55:59 -0800 (PST)
+Received: from ziepe.ca ([130.41.10.206])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c3b4c9e120sm486128485a.11.2025.03.05.09.55.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 09:55:58 -0800 (PST)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1tpsyL-00000001TVM-2YSq;
+	Wed, 05 Mar 2025 13:55:57 -0400
+Date: Wed, 5 Mar 2025 13:55:57 -0400
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH v2 2/4] iommu: Resolve ops in iommu_init_device()
+Message-ID: <20250305175557.GI5011@ziepe.ca>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <fa4b6cfc67a352488b7f4e0b736008307ce9ac2e.1740753261.git.robin.murphy@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tpswi-005U6C-Py@rmk-PC.armlinux.org.uk>
-Date: Wed, 05 Mar 2025 17:54:16 +0000
+In-Reply-To: <fa4b6cfc67a352488b7f4e0b736008307ce9ac2e.1740753261.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_175455_033733_C0B8A345 
-X-CRM114-Status: GOOD (  10.61  )
+X-CRM114-CacheID: sfid-20250305_095600_794131_C1BB5389 
+X-CRM114-Status: GOOD (  13.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,42 +118,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-stmmac_rx() declares a local variable named "buf_sz" but there is also
-a global variable for a module parameter which is called the same. To
-avoid confusion, rename the local variable.
+On Fri, Feb 28, 2025 at 03:46:31PM +0000, Robin Murphy wrote:
+> Since iommu_init_device() was factored out, it is in fact the only
+> consumer of the ops which __iommu_probe_device() is resolving, so let it
+> do that itself rather than passing them in. This also puts the ops
+> lookup at a more logical point relative to the rest of the flow through
+> __iommu_probe_device().
+> 
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+> ---
+> 
+> v2: New
+> 
+>  drivers/iommu/iommu.c | 30 ++++++++++++++++--------------
+>  1 file changed, 16 insertions(+), 14 deletions(-)
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 334d41b8fa70..cb5099caecd0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -5475,10 +5475,10 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 	struct sk_buff *skb = NULL;
- 	struct stmmac_xdp_buff ctx;
- 	int xdp_status = 0;
--	int buf_sz;
-+	int bufsz;
- 
- 	dma_dir = page_pool_get_dma_dir(rx_q->page_pool);
--	buf_sz = DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
-+	bufsz = DIV_ROUND_UP(priv->dma_conf.dma_buf_sz, PAGE_SIZE) * PAGE_SIZE;
- 	limit = min(priv->dma_conf.dma_rx_size - 1, (unsigned int)limit);
- 
- 	if (netif_msg_rx_status(priv)) {
-@@ -5591,7 +5591,7 @@ static int stmmac_rx(struct stmmac_priv *priv, int limit, u32 queue)
- 			net_prefetch(page_address(buf->page) +
- 				     buf->page_offset);
- 
--			xdp_init_buff(&ctx.xdp, buf_sz, &rx_q->xdp_rxq);
-+			xdp_init_buff(&ctx.xdp, bufsz, &rx_q->xdp_rxq);
- 			xdp_prepare_buff(&ctx.xdp, page_address(buf->page),
- 					 buf->page_offset, buf1_len, true);
- 
--- 
-2.30.2
-
+Jason
 
