@@ -4,118 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C16E7C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:24:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F47AC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:26:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QLi+WNAD7fqvchynqFKwYbSpOuf/kFQGxxaTuHtQl6g=; b=BlXGtb+st9vd8xLjr6Rv75Ja8a
-	bqpYaWmVtOy99xRbMnHn+XzTg9WY7weKw+vvr/r5BWYZEEV2XuSKxD0Nz+ykAVGMh8jZgfpRJdG7h
-	E9+tGCVPnRGuz71k8V0axjZzMZu/JgImQnzWEg/o05aTk8SAi4EKyYmUUL2KcV71cbtwRl30VNo4A
-	P2350RyGBlFxrGqoYPizJsTdB5Z7PW3TAxrvomiNjOq0H6+zTiDYcmUvk1fmZgEJ+lgdecJ/T19L/
-	Qa99+9OVVdTF6p8pR1upDp/DgEvl3dYyjb3ry1H6OKBvvfPb6pm6rxdT//xjXDUxjB+R+HZErLih1
-	3Pk5zm6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=7SQjgG6U13+uAQOBhn9HhQeG3VGEtTdqOEuDMKUhZ7o=; b=mu2T1jkJ4vfI/Rm1rOBI+rVzzX
+	MmiSontouao0pxuBBokUYjK4PB8hMdWX5gCW1YNbfeJ3dvxuEVWVQg9YYrKBf9bp8fy9v4/FENwTO
+	zrcIi2RS0P/CYANaefgX8OHk1j4CPb47FoouypZPFiSRHuxcsZQIAyTNMXSXssd7QvE6IkB1JyC/k
+	pjhayladpvZa8Hv634bKfEvNamtbRZN+SeFB2SaLj8KAWRjTiFQwbDp95+YJmmeDtVIZi2bwh7tdG
+	ysrWHbI1z9D3RLY3Cy0TZb8Dxi9BPicaB0JS82yhHnNeuixmIqpFXB7oSYQnI63wh9tZ2KI8myaLY
+	7wnlhfzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpojo-00000008BL5-1Iyl;
-	Wed, 05 Mar 2025 13:24:40 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpolO-00000008Bcp-40U2;
+	Wed, 05 Mar 2025 13:26:18 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoOI-000000086bZ-1H1u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 13:02:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-Id:Date:Subject:To:From:Sender:Reply-To:Cc:
-	Content-Type:Content-ID:Content-Description;
-	bh=QLi+WNAD7fqvchynqFKwYbSpOuf/kFQGxxaTuHtQl6g=; b=K2KIBZ+h2u0yKRRvEQ85rXS9ck
-	K5FCxUE4r5mCAGxL8BCydOhzXNdWY/76qNYytEYF11vrcyzKG4v4kxxjdSOQoTZ7d3cKJFpuh4yQS
-	awC1uwcDBFi5wuxGVAZSCH62maC1cjVu+sihqWdgLm90BUx12GI6xLaXj9XMNh1vvcvsm4je44hNP
-	wBLHFY0rIlQdcXIP2FCYEF4n2Iku3vtVRAtRHUT9zlbRCp3CVLlLtJX9FSb/lR4814Jawjm1q3VCO
-	MqZeTXWTH7k+99FGC/7dyiVkPake9eb/Gdxjc5iRy2Eub723dRsoGqNwp7RW3wszelETE+U5Bpxfq
-	wYO3lAjg==;
-Received: from mgamail.intel.com ([198.175.65.15])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoOF-00000000XEF-1VAm
+	id 1tpoSQ-000000087o9-2n55
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 13:02:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741179744; x=1772715744;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=BrHOVPMRx5IUbt2TfaXsmHGE8YIjSq6KxkHt4pHZzf0=;
-  b=fNvOgfiFPQgZaruMNOEcoBew5bZhoKZhWnV3+dYjGuw891PMH/mnSapQ
-   Ix0HKwkCCPupAZldLVWv3B4GaBGsLKPvejTvCNHM2T5rx3MTUon4bbfP+
-   WCDOILiRdEOZBnQFBcNg6MUILsajqgTpXREbhV6OjwUGG2YZiTF/0AX3E
-   I7/XChl48aXofQm+eGKJ7oVKVAebuT82SHz/W5OQhTVF29tz9qbtJAGaN
-   1gn88hFMLF9Rf4CkyBtqet2ijQEouBo9iamt3KkhZGsIoR7MXykIaN3Wa
-   6izDhnB21gqYCH/LfqrtMsTflLWlg+xQoHWm/7iJ0BHqiIVLsGfi+8ZkJ
-   Q==;
-X-CSE-ConnectionGUID: 0yvzWvgEQzWAe3Bt0R03hQ==
-X-CSE-MsgGUID: DFSm/PUPRQamjdDH7gkP9w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="45795244"
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="45795244"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 05:02:23 -0800
-X-CSE-ConnectionGUID: i6Ozl++kSluBMOfRFUTQ5g==
-X-CSE-MsgGUID: arsaetUXQceVXXNA1GH2IA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,223,1736841600"; 
-   d="scan'208";a="123277236"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by fmviesa005.fm.intel.com with ESMTP; 05 Mar 2025 05:02:15 -0800
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v8 11/11] igc: add support to get frame preemption statistics via ethtool
-Date: Wed,  5 Mar 2025 08:00:26 -0500
-Message-Id: <20250305130026.642219-12-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
+	Wed, 05 Mar 2025 13:06:44 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abfe7b5fbe8so455929966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 05:06:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741180000; x=1741784800; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7SQjgG6U13+uAQOBhn9HhQeG3VGEtTdqOEuDMKUhZ7o=;
+        b=lAZ00sb9DZPLDoUdpByPENmVW2UJTLbDbe/ZiNWg9eaYzPHl0pPH7ZSAmKVwAkS2xw
+         YcyrjXF4xxp1IyZlkS/lQuBMZenZafx79tNJ108NvyI+EqgMOGJdOuVqYM8uXPRobtAF
+         rbIgIySbBdTQoRO+33uuMMte3K6W/J9H0Bj8hc1YcWypBQ+wTa/ymmsYnzrPmf4/fxWP
+         1mQA8/V7jwdgXLiMOxeL9JovIA5wJcxRuNPpJYcpWoI9KLRbcJz2V+65FHbM/NCsfDvM
+         wZ2RAvpTGTrCrPoG60CbXPwiB3WDwFosZ5p7MNpe7UQIOsbLbcXNSdNw51vvY+MlOeLD
+         8/8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741180000; x=1741784800;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7SQjgG6U13+uAQOBhn9HhQeG3VGEtTdqOEuDMKUhZ7o=;
+        b=PdyJWsYhcObTgo9FTsudbZbQuoku1l2ZW+cwYkNVetNjA4T706CpzzV+8uz4SKsHCa
+         aw7Lr7NLJX459ogNvtUq7FHxQyVoyrjiwohxftu0+bLJRUxc4o8mRQsmj67jo1MN84yV
+         5UJnQqUTtrDfME8LypD20C8CNpBiTdseCVDsZbXP84PJie+GbdVzcNRakQHvqhjlajyb
+         6CS91j6vZorvROxrusOwyAWaSBrPz4nHT9/KDnYAsixwIhDIdcexhen+G2enYFkEfzRy
+         VYWlAqK3OhXtCP9pE20fMpm3q622XR5MJ18yENUpcRYuSEp174SPGOMJYkCgUIOclUZ/
+         epnw==
+X-Forwarded-Encrypted: i=1; AJvYcCXng9t79jdV6ro1wz1VTTWf7S0P5/FrkXYcCjz+/sPcjR5i5AWzLsnNAzIUg7VCpYj3uWAywyK1gc+wQduer3JI@lists.infradead.org
+X-Gm-Message-State: AOJu0YyC6rpEvKmZnkMtM1NoWXX296s4+ler1LSh4zqsrqlH6mrYE3D8
+	1KGuPtV58fd+ebRzZLYk9tOcYo5pPlmzkAo1PZ51HrVtUQQhOW9POGDt/dvIuM0=
+X-Gm-Gg: ASbGncvK1jxsUcfdcgVsB7Ts9xs6lQzBapqvUhIcGlpLiTzjKEs+MaDUVNkFABbI0AE
+	CLMwu4gukOQYAlKOONZ20iFL0htTl7oUnI9wM28CssuDtP9c4Izu68TlNSu6KvrmRj9AMlJkyUO
+	4UeU0yEBrN9rnUY+LMx2TsnOqYNxWvZN0OUX65K6Es55F0gUNmEHudzABKdxok9XEDUus+eCbYd
+	FmOFx70DWr0uPlZV6NBB+XF8Zuvw+yw5/TRg0rb612Co/fKslTXEd6V+zsoCFZ8LRv5sdh7zQYr
+	q1RLzQRtGBoJNkR8cU5kDy5oiz11PHpayp5mT0IrqOCqa89lpoA2X3yk0R/aQCcE9m5t3s81A9m
+	/YsCVV7q9RsVJeB/yLyagDg==
+X-Google-Smtp-Source: AGHT+IHuCz71jYp7eU0HTiLFptbPk6lrg0W55Lpw1DSz92hnpN7BGzAC+85g1xWfhNsyzgUyDK+bpg==
+X-Received: by 2002:a05:6402:13cd:b0:5dc:74fd:abf1 with SMTP id 4fb4d7f45d1cf-5e59f3ee29amr7186053a12.15.1741180000374;
+        Wed, 05 Mar 2025 05:06:40 -0800 (PST)
+Received: from rayden.urgonet (h-98-128-140-123.A175.priv.bahnhof.se. [98.128.140.123])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5bcd1595bsm65714a12.42.2025.03.05.05.06.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 05:06:39 -0800 (PST)
+From: Jens Wiklander <jens.wiklander@linaro.org>
+To: linux-kernel@vger.kernel.org,
+	linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	=?UTF-8?q?Christian=20K=C3=B6nig?= <christian.koenig@amd.com>,
+	Sumit Garg <sumit.garg@linaro.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com,
+	Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>
+Subject: [PATCH v6 00/10] TEE subsystem for restricted dma-buf allocations
+Date: Wed,  5 Mar 2025 14:04:06 +0100
+Message-ID: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_130223_809526_5359B7CE 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250305_050642_713039_9044C02F 
+X-CRM114-Status: GOOD (  25.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,136 +114,179 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implemented "ethtool --include-statistics --show-mm" callback for IGC.
+Hi,
 
-Tested preemption scenario to check preemption statistics:
-1) Trigger verification handshake on both boards:
-    $ sudo ethtool --set-mm enp1s0 pmac-enabled on
-    $ sudo ethtool --set-mm enp1s0 tx-enabled on
-    $ sudo ethtool --set-mm enp1s0 verify-enabled on
-2) Set preemptible or express queue in taprio for tx board:
-    $ sudo tc qdisc replace dev enp1s0 parent root handle 100 taprio \
-      num_tc 4 map 3 2 1 0 3 3 3 3 3 3 3 3 3 3 3 3 \
-      queues 1@0 1@1 1@2 1@3 base-time 0 sched-entry S F 100000 \
-      fp E E P P
-3) Send large size packets on preemptible queue
-4) Send small size packets on express queue to preempt packets in
-   preemptible queue
-5) Show preemption statistics on the receiving board:
-   $ ethtool --include-statistics --show-mm enp1s0
-     MAC Merge layer state for enp1s0:
-     pMAC enabled: on
-     TX enabled: on
-     TX active: on
-     TX minimum fragment size: 64
-     RX minimum fragment size: 60
-     Verify enabled: on
-     Verify time: 128
-     Max verify time: 128
-     Verification status: SUCCEEDED
-     Statistics:
-      MACMergeFrameAssErrorCount: 0
-      MACMergeFrameSmdErrorCount: 0
-      MACMergeFrameAssOkCount: 511
-      MACMergeFragCountRx: 764
-      MACMergeFragCountTx: 0
-      MACMergeHoldCount: 0
+This patch set allocates the restricted DMA-bufs from a DMA-heap
+instantiated from the TEE subsystem.
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Co-developed-by: Chwee-Lin Choong <chwee.lin.choong@intel.com>
-Signed-off-by: Chwee-Lin Choong <chwee.lin.choong@intel.com>
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
----
- drivers/net/ethernet/intel/igc/igc_ethtool.c | 39 ++++++++++++++++++++
- drivers/net/ethernet/intel/igc/igc_regs.h    | 16 ++++++++
- 2 files changed, 55 insertions(+)
+The TEE subsystem handles the DMA-buf allocations since it is the TEE
+(OP-TEE, AMD-TEE, TS-TEE, or perhaps a future QTEE) which sets up the
+restrictions for the memory used for the DMA-bufs.
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-index fd4b4b332309..1ed08a3fa78b 100644
---- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
-+++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-@@ -1819,6 +1819,44 @@ static int igc_ethtool_set_mm(struct net_device *netdev,
- 	return igc_tsn_offload_apply(adapter);
- }
- 
-+/**
-+ * igc_ethtool_get_frame_ass_error - Get the frame assembly error count.
-+ * @reg_value: Register value for IGC_PRMEXCPRCNT
-+ * Return: The count of frame assembly errors.
-+ */
-+static u64 igc_ethtool_get_frame_ass_error(u32 reg_value)
-+{
-+	u32 ooo_frame_cnt, ooo_frag_cnt; /* Out of order statistics */
-+	u32 miss_frame_frag_cnt;
-+
-+	ooo_frame_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAME_CNT, reg_value);
-+	ooo_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAG_CNT, reg_value);
-+	miss_frame_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT, reg_value);
-+
-+	return ooo_frame_cnt + ooo_frag_cnt + miss_frame_frag_cnt;
-+}
-+
-+static u64 igc_ethtool_get_frame_smd_error(u32 reg_value)
-+{
-+	return FIELD_GET(IGC_PRMEXCPRCNT_OOO_SMDC, reg_value);
-+}
-+
-+static void igc_ethtool_get_mm_stats(struct net_device *dev,
-+				     struct ethtool_mm_stats *stats)
-+{
-+	struct igc_adapter *adapter = netdev_priv(dev);
-+	struct igc_hw *hw = &adapter->hw;
-+	u32 reg_value;
-+
-+	reg_value = rd32(IGC_PRMEXCPRCNT);
-+
-+	stats->MACMergeFrameAssErrorCount = igc_ethtool_get_frame_ass_error(reg_value);
-+	stats->MACMergeFrameSmdErrorCount = igc_ethtool_get_frame_smd_error(reg_value);
-+	stats->MACMergeFrameAssOkCount = rd32(IGC_PRMPTDRCNT);
-+	stats->MACMergeFragCountRx = rd32(IGC_PRMEVNTRCNT);
-+	stats->MACMergeFragCountTx = rd32(IGC_PRMEVNTTCNT);
-+}
-+
- static int igc_ethtool_get_link_ksettings(struct net_device *netdev,
- 					  struct ethtool_link_ksettings *cmd)
- {
-@@ -2116,6 +2154,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
- 	.self_test		= igc_ethtool_diag_test,
- 	.get_mm			= igc_ethtool_get_mm,
- 	.set_mm			= igc_ethtool_set_mm,
-+	.get_mm_stats		= igc_ethtool_get_mm_stats,
- };
- 
- void igc_ethtool_set_ops(struct net_device *netdev)
-diff --git a/drivers/net/ethernet/intel/igc/igc_regs.h b/drivers/net/ethernet/intel/igc/igc_regs.h
-index 12ddc5793651..f343c6bfc6be 100644
---- a/drivers/net/ethernet/intel/igc/igc_regs.h
-+++ b/drivers/net/ethernet/intel/igc/igc_regs.h
-@@ -222,6 +222,22 @@
- 
- #define IGC_FTQF(_n)	(0x059E0 + (4 * (_n)))  /* 5-tuple Queue Fltr */
- 
-+/* Time sync registers - preemption statistics */
-+#define IGC_PRMPTDRCNT		0x04284	/* Good RX Preempted Packets */
-+#define IGC_PRMEVNTTCNT		0x04298	/* TX Preemption event counter */
-+#define IGC_PRMEVNTRCNT		0x0429C	/* RX Preemption event counter */
-+
-+ /* Preemption Exception Counter */
-+ #define IGC_PRMEXCPRCNT				0x42A0
-+/* Received out of order packets with SMD-C */
-+#define IGC_PRMEXCPRCNT_OOO_SMDC			0x000000FF
-+/* Received out of order packets with SMD-C and wrong Frame CNT */
-+#define IGC_PRMEXCPRCNT_OOO_FRAME_CNT			0x0000FF00
-+/* Received out of order packets with SMD-C and wrong Frag CNT */
-+#define IGC_PRMEXCPRCNT_OOO_FRAG_CNT			0x00FF0000
-+/* Received packets with SMD-S and wrong Frag CNT and Frame CNT */
-+#define IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT		0xFF000000
-+
- /* Transmit Scheduling Registers */
- #define IGC_TQAVCTRL		0x3570
- #define IGC_TXQCTL(_n)		(0x3344 + 0x4 * (_n))
+The DMA-heap uses a restricted memory pool provided by the backend TEE
+driver, allowing it to choose how to allocate the restricted physical
+memory.
+
+The allocated DMA-bufs must be imported with a new TEE_IOC_SHM_REGISTER_FD
+before they can be passed as arguments when requesting services from the
+secure world.
+
+Three use-cases (Secure Video Playback, Trusted UI, and Secure Video
+Recording) has been identified so far to serve as examples of what can be
+expected. The use-cases has predefined DMA-heap names,
+"restricted,secure-video", "restricted,trusted-ui", and
+"restricted,secure-video-record". The backend driver registers restricted
+memory pools for the use-cases it supports.
+
+Each use-case has it's own restricted memory pool since different use-cases
+requires isolation from different parts of the system. A restricted memory
+pool can be based on a static carveout instantiated while probing the TEE
+backend driver, or dynamically allocated from CMA and made restricted as
+needed by the TEE.
+
+This can be tested on a RockPi 4B+ with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m rockpi4.xml \
+        -b prototype/sdp-v6
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make all -j$(nproc)
+# Copy ../out/rockpi4.img to an SD card and boot the RockPi from that
+# Connect a monitor to the RockPi
+# login and at the prompt:
+gst-launch-1.0 videotestsrc ! \
+        aesenc key=1f9423681beb9a79215820f6bda73d0f \
+                iv=e9aa8e834d8d70b7e0d254ff670dd718 serialize-iv=true ! \
+        aesdec key=1f9423681beb9a79215820f6bda73d0f ! \
+        kmssink
+
+The aesdec module has been hacked to use an OP-TEE TA to decrypt the stream
+into restricted DMA-bufs which are consumed by the kmssink.
+
+The primitive QEMU tests from previous patch set can be tested on RockPi
+in the same way with:
+xtest --sdp-basic
+
+The primitive test are tested on QEMU with the following steps:
+repo init -u https://github.com/jenswi-linaro/manifest.git -m qemu_v8.xml \
+        -b prototype/sdp-v6
+repo sync -j8
+cd build
+make toolchains -j$(nproc)
+make SPMC_AT_EL=1 all -j$(nproc)
+make SPMC_AT_EL=1 run-only
+# login and at the prompt:
+xtest --sdp-basic
+
+The SPMC_AT_EL=1 parameter configures the build with FF-A and an SPMC at
+S-EL1 inside OP-TEE. The parameter can be changed into SPMC_AT_EL=n to test
+without FF-A using the original SMC ABI instead. Please remember to do
+%rm -rf ../trusted-firmware-a/build/qemu
+for TF-A to be rebuilt properly using the new configuration.
+
+https://optee.readthedocs.io/en/latest/building/prerequisites.html
+list dependencies needed to build the above.
+
+The tests are pretty basic, mostly checking that a Trusted Application in
+the secure world can access and manipulate the memory. There are also some
+negative tests for out of bounds buffers etc.
+
+Thanks,
+Jens
+
+Changes since V5:
+* Removing "tee: add restricted memory allocation" and
+  "tee: add TEE_IOC_RSTMEM_FD_INFO"
+* Adding "tee: implement restricted DMA-heap",
+  "tee: new ioctl to a register tee_shm from a dmabuf file descriptor",
+  "tee: add tee_shm_alloc_cma_phys_mem()",
+  "optee: pass parent device to tee_device_alloc()", and
+  "tee: tee_device_alloc(): copy dma_mask from parent device"
+* The two TEE driver OPs "rstmem_alloc()" and "rstmem_free()" are replaced
+  with a struct tee_rstmem_pool abstraction.
+* Replaced the the TEE_IOC_RSTMEM_ALLOC user space API with the DMA-heap API
+
+Changes since V4:
+* Adding the patch "tee: add TEE_IOC_RSTMEM_FD_INFO" needed by the
+  GStreamer demo
+* Removing the dummy CPU access and mmap functions from the dma_buf_ops
+* Fixing a compile error in "optee: FF-A: dynamic restricted memory allocation"
+  reported by kernel test robot <lkp@intel.com>
+
+Changes since V3:
+* Make the use_case and flags field in struct tee_shm u32's instead of
+  u16's
+* Add more description for TEE_IOC_RSTMEM_ALLOC in the header file
+* Import namespace DMA_BUF in module tee, reported by lkp@intel.com
+* Added a note in the commit message for "optee: account for direction
+  while converting parameters" why it's needed
+* Factor out dynamic restricted memory allocation from
+  "optee: support restricted memory allocation" into two new commits
+  "optee: FF-A: dynamic restricted memory allocation" and
+  "optee: smc abi: dynamic restricted memory allocation"
+* Guard CMA usage with #ifdef CONFIG_CMA, effectively disabling dynamic
+  restricted memory allocate if CMA isn't configured
+
+Changes since the V2 RFC:
+* Based on v6.12
+* Replaced the flags for SVP and Trusted UID memory with a u32 field with
+  unique id for each use case
+* Added dynamic allocation of restricted memory pools
+* Added OP-TEE ABI both with and without FF-A for dynamic restricted memory
+* Added support for FF-A with FFA_LEND
+
+Changes since the V1 RFC:
+* Based on v6.11
+* Complete rewrite, replacing the restricted heap with TEE_IOC_RSTMEM_ALLOC
+
+Changes since Olivier's post [2]:
+* Based on Yong Wu's post [1] where much of dma-buf handling is done in
+  the generic restricted heap
+* Simplifications and cleanup
+* New commit message for "dma-buf: heaps: add Linaro restricted dmabuf heap
+  support"
+* Replaced the word "secure" with "restricted" where applicable
+
+Etienne Carriere (1):
+  tee: new ioctl to a register tee_shm from a dmabuf file descriptor
+
+Jens Wiklander (9):
+  tee: tee_device_alloc(): copy dma_mask from parent device
+  optee: pass parent device to tee_device_alloc()
+  optee: account for direction while converting parameters
+  optee: sync secure world ABI headers
+  tee: implement restricted DMA-heap
+  tee: add tee_shm_alloc_cma_phys_mem()
+  optee: support restricted memory allocation
+  optee: FF-A: dynamic restricted memory allocation
+  optee: smc abi: dynamic restricted memory allocation
+
+ drivers/tee/Makefile              |   1 +
+ drivers/tee/optee/Makefile        |   1 +
+ drivers/tee/optee/call.c          |  10 +-
+ drivers/tee/optee/core.c          |   1 +
+ drivers/tee/optee/ffa_abi.c       | 194 +++++++++++-
+ drivers/tee/optee/optee_ffa.h     |  27 +-
+ drivers/tee/optee/optee_msg.h     |  65 ++++-
+ drivers/tee/optee/optee_private.h |  55 +++-
+ drivers/tee/optee/optee_smc.h     |  71 ++++-
+ drivers/tee/optee/rpc.c           |  31 +-
+ drivers/tee/optee/rstmem.c        | 329 +++++++++++++++++++++
+ drivers/tee/optee/smc_abi.c       | 190 ++++++++++--
+ drivers/tee/tee_core.c            | 147 +++++++---
+ drivers/tee/tee_heap.c            | 470 ++++++++++++++++++++++++++++++
+ drivers/tee/tee_private.h         |   7 +
+ drivers/tee/tee_shm.c             | 199 ++++++++++++-
+ include/linux/tee_core.h          |  67 +++++
+ include/linux/tee_drv.h           |  10 +
+ include/uapi/linux/tee.h          |  29 ++
+ 19 files changed, 1781 insertions(+), 123 deletions(-)
+ create mode 100644 drivers/tee/optee/rstmem.c
+ create mode 100644 drivers/tee/tee_heap.c
+
+
+base-commit: 7eb172143d5508b4da468ed59ee857c6e5e01da6
 -- 
-2.34.1
+2.43.0
 
 
