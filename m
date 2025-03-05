@@ -4,92 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D48E8C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 18:11:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D606CC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 18:12:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G97yehnfCUaEkX4rJ+36HP/dRpAjXYP1giHtMFjur7M=; b=LdUInXG+lRoeczUa8dWLU2seIu
-	PUw+aUUG8qg7HTdOE6H+yLW5vYwC8dTpgBmL22VrXmSNsoeKDlMlVkwC9ckl2obx3D7h51qHTkUY1
-	e2ykw51+Uir3scPSg3NqqGKPyPc3LRqJBSDZ5vGpswJXej3LVUyB1KgvCxhat/7VvO+q+mjFOQH5z
-	/2BGfA5vYG12llanlecz2o6NzQnt7SXIlQ7eH8SEW94rclHHe9Ay+BToaMCaq/a5reCe1IJ5xwoEW
-	iJ2rMJMeRsMZC0XR5yqPdMs6M3JUfGNbfM3KBBcFeRiSXyUy6P7wDBpRaUkpnMaBSR7TY1qrRn5Fe
-	WUcTcIMA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u+n5xvxEWFdmJ8BoUg/dUhEOuNDpxyHi20RASTtKrdQ=; b=EiYpdlTVQqnZDSI0BCSgmVX5yB
+	iWO8SFvNV+C1Lvp9PQHrbMc1S54OBhseRVL1U2aLlnqkvSemn3RFwXwSB//y51yBOSQAlVwemPZjZ
+	ugNfKbytbcGrQam6X+hL4SrIlxm0duwWGwRVIsGUxNgtdQxckHntk2ChdFlbKChgqTprXlgRf0tzG
+	//uFX/FpYlgkXIUFL3xEtMOtZQ4mH/oqPeXbnK8+S64ZLuFNNp5YgDj4Qwc575T5RlQr3QxF0JwX4
+	Bwcn2aMTt0j5R73D3f4XgC9oo+VvsCZCYa7tRoJxC4vxNxqUwiTTjhOQDm1XwplV7G67QtaNpY5lQ
+	aNoPGbcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tptD2-00000008t94-3IO0;
-	Wed, 05 Mar 2025 18:11:08 +0000
-Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
+	id 1tptEc-00000008tMv-1p0w;
+	Wed, 05 Mar 2025 18:12:46 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tptA5-00000008sg8-454F
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 18:08:07 +0000
-Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43690d4605dso46591895e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 10:08:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741198084; x=1741802884; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=G97yehnfCUaEkX4rJ+36HP/dRpAjXYP1giHtMFjur7M=;
-        b=jvMTcqNqc4zgqz/HCsiTo4ZfoslMwu86xQVJFf5A8yx/Mfu7lvrP4B/rXstB0B9+RD
-         HHGSsmLa4vtwEKz8Zua37AIkKyYvAn4Ve4NImuCADc4tXXLPVckG4gM5TkZxrU9sq3pb
-         4gkRI9Bn1cwwjghEverFMLLHEU7yQ4SA7HlJkdjlAW4BcyMC5WEqbaAroLyE+fO3GIsA
-         majiZzcckydHmJehJMug0yn4i7B2uPFuyCnVkeUcOdrcYxC4JKOT5f1zw2MFbrdtXokO
-         j0Azt0jTJloN6555W6ZfgoDEdMOg3f9o0K+GVZNOlCYEN0vpvnbbfRidvxANwTfl356/
-         KtwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741198084; x=1741802884;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=G97yehnfCUaEkX4rJ+36HP/dRpAjXYP1giHtMFjur7M=;
-        b=a1piS1hXMRld68kMLv305HDPVksG+qZvVPwdVQiNs2oWandcT9G8yb+zy0mVQ64aA1
-         mabkCIjGsyHnec9hQJ2tUCQ+czRl5Rftt4Lu+hfo7Mtaut1A5YVS1iKW6HbzXNbkbl2o
-         qQmHVfAaWJf6BrW9MfyLrW+Ul8AIbwmobeqzM8ALw6MXD1sxuj1PuDAekFIOgl5oBNXi
-         /8OhMXvLF+Adc716cK0o7intR1a6iJ6QlypDKOMBraFCL0N/8XXGTlquqqpawOHVuj1M
-         bQ98dEhTkzyGCKv6lW0VmsDKOInrjFkiLKeE2CsV43QjE4H/S+adZo8e7TzqOxQ1crvo
-         +8ng==
-X-Forwarded-Encrypted: i=1; AJvYcCXfYro/h7WTVlUB3JAyn/zxGx4JcDmYeE81Dr9ZrS4Z+wloou+QSwTwbt4SVdkpzHq1D8uJfffOuF1Fyzl0usHA@lists.infradead.org
-X-Gm-Message-State: AOJu0YypRT3ztYQGMP4aZGLHklUzFIuxt0iZb2uTJgO0pIrK/Q93losz
-	wYnBOx4hSIp4xQ6w84N5upIqqD2CNOU0g3yb83ppCyH+c8ur7RWI
-X-Gm-Gg: ASbGncspiDqLJOwC3wmWLV7NBRHCay8C8zTEFZvAoxpuSyibqqiNisUCT4N+zAFSfcR
-	wWKDUPYwxLiFaP2XJIfI55Gw9ruEYdXhjcxEYcozbWUfzabNrbolBOtkdIdpCbUsZux+HRpdrpm
-	I1trtPzXPrUUCieMpKCTHYWYHe2sVA43h42RAzJyVcOQgxrD1lMgW+MgfVaZTe61Xl5uu7v0FiL
-	/OTnfbqtJEM7RdnEwpogkf1sdK9WuZsnsr0t0+Nq8UEci4YmH++ByEPQEidEU9qkKqw1w1pVtz4
-	eccIVricmzv6Dvc/TGIzITevRh/Wd565MpLYmiYa5Es2Xu+RHtOywf0KReysbQvhPb/6b3Ud58B
-	p+zEY9FBjg5Mgr2UdHD/V
-X-Google-Smtp-Source: AGHT+IFm8od6qyXXyVja7heRv60Cgy26NzGQfpPsD4T/2EJzs0OY9LJVVvkUZl+F0di/z2dnO6/Ysw==
-X-Received: by 2002:a5d:5982:0:b0:38d:e401:fd61 with SMTP id ffacd0b85a97d-3911f7cb463mr3396313f8f.49.1741198084189;
-        Wed, 05 Mar 2025 10:08:04 -0800 (PST)
-Received: from jernej-laptop.localnet (86-58-6-171.dynamic.telemach.net. [86.58.6.171])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-391254508b3sm1765425f8f.79.2025.03.05.10.08.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 10:08:03 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: linux-gpio@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 8/8] pinctrl: sunxi: Add support for the secondary A523 GPIO
- ports
-Date: Wed, 05 Mar 2025 19:08:02 +0100
-Message-ID: <3535684.QJadu78ljV@jernej-laptop>
-In-Reply-To: <20250227231447.20161-9-andre.przywara@arm.com>
-References: <20250227231447.20161-1-andre.przywara@arm.com>
- <20250227231447.20161-9-andre.przywara@arm.com>
+	id 1tptAA-00000008sh5-3gGM;
+	Wed, 05 Mar 2025 18:08:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741198089;
+	bh=RSrGA34yP7qtDktQg873/4X5XR2J1ZoUMnU85sv0+14=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=BgTVMv1fqV1j9qJ2GNvgOfdOeYCxa7JsX7HymNujv2pzgOhAjxjWwXSRmfJh1ZtSd
+	 q8XiB5unEJBko8+PkZ1NJR0TND/dAh8rLegGtjSE481p+QUbIqoc6ZI6FMSc6AwCpz
+	 9d81cYy/gblpx+soZ4ar8a+HBXjnVJSNiGujXU1DAaU6Orddlt/Q+JhZpnMflYQ5mO
+	 A2bk7clUtWz38Z0QhdU5v1uG2qKkLVspiGm/8LyNyB6KBpt1TfV3+tDgKKxmhHEmpR
+	 vqkF6UnYlgkl06AXSAew8RVcYM0kFfhowcGXAb537SkzF8CtqBD9eMC3q4LWWGsESf
+	 GnDhTNmP1RxMw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2B21117E0599;
+	Wed,  5 Mar 2025 19:08:08 +0100 (CET)
+Message-ID: <d02b6bbe-0d32-4e3f-985e-a0b610f72d98@collabora.com>
+Date: Wed, 5 Mar 2025 19:08:07 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 6/8] soc: mediatek: Add programming flow for
+ unsupported subsys ID hardware
+To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "mchehab@kernel.org" <mchehab@kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>
+Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
+ =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
+ =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
+ =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
+ =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
+ <Xiandong.Wang@mediatek.com>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "fshao@chromium.org" <fshao@chromium.org>,
+ =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "treapking@chromium.org" <treapking@chromium.org>
+References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
+ <20250218054405.2017918-7-jason-jh.lin@mediatek.com>
+ <c52b132b-fc08-4d1c-8276-1771f7457014@collabora.com>
+ <ddcf01c82f92ee461875e1122b009b7fca691127.camel@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <ddcf01c82f92ee461875e1122b009b7fca691127.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_100806_011037_B4289658 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250305_100811_066397_667E5857 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,21 +100,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 28. februar 2025 ob 00:14:47 Srednjeevropski standardni =C4=8Das=
- je Andre Przywara napisal(a):
-> As most other Allwinner SoCs before, the A523 chip contains a second
-> GPIO controller, managing banks PL and PM.
-> Use the newly introduced DT based pinctrl driver to describe just the
-> generic pinctrl properties, so advertise the number of pins per bank
-> and the interrupt capabilities. The actual function/mux assignment is
-> taken from the devicetree.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Il 05/03/25 17:12, Jason-JH Lin (林睿祥) ha scritto:
+> On Tue, 2025-03-04 at 10:41 +0100, AngeloGioacchino Del Regno wrote:
+>>
+>> External email : Please do not click links or open attachments until
+>> you have verified the sender or the content.
+>>
+>>
+>> Il 18/02/25 06:41, Jason-JH Lin ha scritto:
+>>> To support hardware without subsys IDs on new SoCs, add a
+>>> programming
+>>> flow that checks whether the subsys ID is valid. If the subsys ID
+>>> is
+>>> invalid, the flow will call 2 alternative CMDQ APIs:
+>>> cmdq_pkt_assign() and cmdq_pkt_write_s_value() to achieve the same
+>>> functionality.
+>>>
+>>> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+>>> ---
+>>>    drivers/soc/mediatek/mtk-mmsys.c | 14 +++++++++++---
+>>>    drivers/soc/mediatek/mtk-mutex.c | 11 +++++++++--
+>>>    2 files changed, 20 insertions(+), 5 deletions(-)
+>>>
+>>> diff --git a/drivers/soc/mediatek/mtk-mmsys.c
+>>> b/drivers/soc/mediatek/mtk-mmsys.c
+>>> index bb4639ca0b8c..ce949b863b05 100644
+>>> --- a/drivers/soc/mediatek/mtk-mmsys.c
+>>> +++ b/drivers/soc/mediatek/mtk-mmsys.c
+>>> @@ -167,9 +167,17 @@ static void mtk_mmsys_update_bits(struct
+>>> mtk_mmsys *mmsys, u32 offset, u32 mask,
+>>>        u32 tmp;
+>>>
+>>>        if (mmsys->cmdq_base.size && cmdq_pkt) {
+>>> -             ret = cmdq_pkt_write_mask(cmdq_pkt, mmsys-
+>>>> cmdq_base.subsys,
+>>> -                                       mmsys->cmdq_base.offset +
+>>> offset, val,
+>>> -                                       mask);
+>>> +             offset += mmsys->cmdq_base.offset;
+>>> +             if (mmsys->cmdq_base.subsys != CMDQ_SUBSYS_INVALID) {
+>>
+>> You're still anyway passing the subsys to cmdq_pkt_write_mask(),
+>> right?!
+>> Why don't you just handle this in cmdq_pkt_write_mask() then? ;-)
+>>
+>> I can see this pattern being repeated over and over in both
+>> drm/mediatek and MDP3
+>> drivers, and it's not necessary to duplicate this many times when you
+>> can write it
+>> just once.
+>>
+>> Would've also been faster for you to implement... :-D
+>>
+> 
+> I think did it in the series V1:
+> https://patchwork.kernel.org/project/linux-mediatek/patch/20241121042602.32730-5-jason-jh.lin@mediatek.com/
+> 
+> Because it'll need to passing the base_pa and that will need to change
+> the interface for original APIs.
+> 
+> And CK think that's not a necessary to change the APIs. It can be done
+> by cmdq_pkt_assign() + cmdq_pkt_write_s_mask_value() in the client
+> drivers. Then you can see this pattern in everywhere. :-)
+> 
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Using likely(x) and unlikely(x) should be avoided, really, unless it's something
+that is really really really really ... really ... rea.... likely or unlikely :-)
 
-Best regards,
-Jernej
+Btw. Changing the APIs is a bit difficult, but I disagree with CK about not
+"inventing" a new API for the unsupported-subsys flow.
 
+It's true, it is not *strictly* needed to add a function, but it's good for any
+kind of future maintainability - as I explained, it's easier then to fix a problem
+if there's one.... and well, I can see that you agree with me, because effectively
+you did it the first time :-)
+
+CK mentioned using cmdq_pkt_write() *or* cmdq_pkt_assignwrite/cmdq_pkt_write_pa()
+(however you wanna call it, it's fine for me), in drivers that know that there
+always is or there always isn't a subsys ID: that's a good suggestion, as this can
+be eventually done with assigning a function pointer, so, no conditionals at each
+operation.
+
+My point of view, finally, is:
+  - This is just another way of doing cmdq_pkt_write()
+    - This, at the end of the day, does exactly what cmdq_pkt_write() is doing,
+      except it's doing it with two instructions instead of one;
+  - The same thing can be done in two different ways (depending on SoC)
+    - This same thing should have a function that does it.
+
+A function that does it can be
+
+int cmdq_pkt_write_pa(struct cmdq_pkt *pkt, u8 subsys /*unused*/, u32 pa_base, u16 
+offset, u32 value)
+{
+	err = cmdq_pkt_assign(pkt, 0, CMDQ_ADDR_HIGH(pa_base));
+	if (err < 0)
+		return err;
+
+	return cmdq_pkt_write_s_value( .... etc)
+}
+
+int cmdq_pkt_write() <--- unchanged, scheduled for removal after all drivers migrated
+
+int cmdq_pkt_write_subsys(struct cmdq_pkt *pkt, u8 subsys, u32 pa_base /*unused*/, 
+u16 offset, u32 value)
+{
+	/* This function will get the contents of cmdq_pkt_write once removed,
+            but, in the meanwhile, to avoid duplication we just call that: */
+
+	return cmdq_pkt_write(pkt, subsys, offset, value);
+}
+
+- Are we adding one more function parameter? Yes
+- Is this impacting performance overall? Not really
+
+After all, we're living in an ARMv8 (actually, ARMv9 for new ones) world, so
+one more function param won't hurt anyone.
+
+I think that's the best of both worlds, and makes everyone happy.
+Are you happy with that? :-)
+
+Cheers,
+Angelo
 
 
