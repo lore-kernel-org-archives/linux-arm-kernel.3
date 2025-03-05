@@ -4,62 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B77C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:34:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81D6C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:48:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=hJWKgtdFRNxzOHhRY6DvU4hYJ/heKdzFO0Dv1QPS8u8=; b=ZMXQEixvzqEL/blIed6YMfPx+1
-	ag81/Jl8Rl8sQdrDbvrX9acvBbEUzOeOUCjVvWcxcDs7B2LBJOqt8PIHzjSiRcEhCAo+JLSAZN+2E
-	ASy/wyh/EmJuE9UHDhxi6I3j78XgmyUSmKj/2hToefgz1MXSWjjv14Hh07pVgksH1uXX+stgFQ1KU
-	brE+E/gBckl4bnXkZlFIQ6ALhhyD/srGjpUxKLHq7aDzinLeRe5JoXH0kPjfvvQtpMKE5SysVFJ9a
-	BTLeVBag+UaOwZFz1rLCigfBki0hKIK5Ap2MbdZJi4/52bXkooDNdQCPn5v2X/w4j9D3l5QJ34y0g
-	tPRGekSQ==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dOB1ExgSYFpMb00wuoNNMwfFnbqQE1kfonYKCA+VKgg=; b=YHNuxioIRbg0zkFoiyGtV9nPqe
+	qs0/Zob4S5NoFTovT79NmhirfFvZKAgNrupu2zMla+5ge4kSn5+IFf/SopK1xx8fO1WU77fwGXDyK
+	DftWjREFELFT0baSQdZFQmTtZ1XLY9hzI6yiI3v/KTBggjMlymcbQ2c80j+GCEI2TiKMe5NJxvgPM
+	6dRIWeLMgpB6rtDfjpdD/+Pm8c522hwjHTSqTmzrE5NN5D/FcmATYLuEAz6Nn3qwTC6eRlBkZBZGo
+	UtzlehpqVoerdsawZV4Dxv9mETQiXoA1gRQEe23MmQWJxKF77sgvu1hfCDiBmlIEn3ll/+2hr+p6n
+	y/dlTS9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpxJD-00000009Uhy-3jt1;
-	Wed, 05 Mar 2025 22:33:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpxXj-00000009WRZ-2Qal;
+	Wed, 05 Mar 2025 22:48:48 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpw5B-00000009JxP-0shR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 21:15:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4E05D5C6C44;
-	Wed,  5 Mar 2025 21:12:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2CA16C4CED1;
-	Wed,  5 Mar 2025 21:15:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741209311;
-	bh=hXy+f0YJTclPY8w3PrHkFFWq1Rkkl1rvAIEfZmgyuH4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=T7oLNEYjR/pVjUr6bwIyK+7nN/Ljobb3GgYk0N4zrPxf5xykSps2YAdd11pmT/QVd
-	 PM/0yn0ZZMvb8+mGhT7MYFjP+SB8a+NmbyE0g4ueNAEFFM96aC63EmovEgvylgKSmo
-	 LoNVkA+6vECTNwPfwd+lA86VyeMinhuGv1bU9NBnEBnQYhdrwYyt1/1h6XeMkJ//0j
-	 khxx6YxtiqnKqd3JEBRsJFOfGD/bsVtuQBpB3H34G4Xd83R/BmMD1LWkwXfoJWI+pn
-	 aS2V01RU4eXlN3yfbes6bIIlSarFJ5R6w5cSMEzEmaLiA9F03jeRgH34AEV9spxdjF
-	 TtQhGCOykRrEg==
-From: Arnd Bergmann <arnd@kernel.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: soc@kernel.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+	id 1tpue3-000000096Kw-3MG7;
+	Wed, 05 Mar 2025 19:43:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=dOB1ExgSYFpMb00wuoNNMwfFnbqQE1kfonYKCA+VKgg=; b=ibyCmHUvUcqpBEx0FgZAY+EcZJ
+	XDpl2u47QLUnV9jvdW1ePIHoaNFeDVkoMO5bH4ZQbF7+G0uio2vKHnzrTo3A6gvKQNvWmaYNnjFgP
+	rVrrJAkpCfe+h5iSlBIHR3tVZomxMWdJtq2dSjrrA5Gg0TLBstXP/beDV1e78c3t5ACW7QO9m/m46
+	c3LLwntyjDAkXvKoUv5RVW/sdQKFyGvXSSDHC3fVH5dNqBdtFCoVk7qp5trgBPu9gTRs0D+M2hv6p
+	590Ik5tyl69ubb8XzPYm9/WuCOvsWSfCAlt/By7dMkKStQTIfB7tzVJ1O2Y3+IpJRiuw9K3ILZK7o
+	bA6O7LpA==;
+Received: from layka.disroot.org ([178.21.23.139])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpue1-000000066vW-04Os;
+	Wed, 05 Mar 2025 19:43:06 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id ED2F722BBD;
+	Wed,  5 Mar 2025 20:43:01 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id YaINrH71oD8d; Wed,  5 Mar 2025 20:43:01 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1741203781; bh=jLhEuZAavYZV64SFD7Jfb/eazJpNnOasV/OkFoMIEWY=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References;
+	b=aAjF6t+0Mp+5Ac154kaRZFoQrjsS69VITdRo4WfV+DCM4Fz+tSTt4TZjoaJGRn6VW
+	 6QLLpQ+s1MYkgi1Jyg10u0iLF+FNgX/Yt9L7VdA6zrZQuUEs+quulYovz0VR7VEOlP
+	 o6KoZ73Qv1EDBA30kC3Q8Gwm98SDcBxTU00jF5552jFx+CPZQtjeI97LtuG9hVyzT7
+	 QueAM9tNEAZDlZyL8HqTy8sJrVwbmVaNnAS04sJ1W/MKCxAm8Di4rDN2jx0OEfzKMk
+	 xz+AfnwLuC1hruI+XDJVCrsurE0UXAMNwFP7G3eywEkwU79UK0wXDNwAIb93+il0xv
+	 hOthnnI/LWZTg==
+From: Yao Zi <ziyao@disroot.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Cc: linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] soc: samsung: include linux/array_size.h where needed
-Date: Wed,  5 Mar 2025 22:14:02 +0100
-Message-Id: <20250305211446.43772-1-arnd@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Yao Zi <ziyao@disroot.org>
+Subject: [PATCH v2 2/8] dt-bindings: soc: rockchip: Add RK3528 VPU GRF syscon
+Date: Wed,  5 Mar 2025 19:42:11 +0000
+Message-ID: <20250305194217.47052-3-ziyao@disroot.org>
+In-Reply-To: <20250305194217.47052-1-ziyao@disroot.org>
+References: <20250305194217.47052-1-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_131513_352914_EBDB6D4E 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250305_194305_117950_B448A7A9 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,113 +101,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Arnd Bergmann <arnd@arndb.de>
+Add compatible string for VPU GRF found on RK3528 SoC.
 
-This does not necessarily get included through asm/io.h:
-
-drivers/soc/samsung/exynos3250-pmu.c:120:18: error: use of undeclared identifier 'ARRAY_SIZE'
-  120 |         for (i = 0; i < ARRAY_SIZE(exynos3250_list_feed); i++) {
-      |                         ^
-drivers/soc/samsung/exynos5250-pmu.c:162:18: error: use of undeclared identifier 'ARRAY_SIZE'
-  162 |         for (i = 0; i < ARRAY_SIZE(exynos5_list_both_cnt_feed); i++) {
-      |                         ^
-
-Signed-off-by: Arnd Bergmann <arnd@arndb.de>
+Signed-off-by: Yao Zi <ziyao@disroot.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- drivers/soc/samsung/exynos-asv.c     | 1 +
- drivers/soc/samsung/exynos-chipid.c  | 1 +
- drivers/soc/samsung/exynos-pmu.c     | 1 +
- drivers/soc/samsung/exynos-usi.c     | 1 +
- drivers/soc/samsung/exynos3250-pmu.c | 1 +
- drivers/soc/samsung/exynos5250-pmu.c | 1 +
- drivers/soc/samsung/exynos5420-pmu.c | 1 +
- 7 files changed, 7 insertions(+)
+ Documentation/devicetree/bindings/soc/rockchip/grf.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/soc/samsung/exynos-asv.c b/drivers/soc/samsung/exynos-asv.c
-index 97006cc3b946..8e681f519526 100644
---- a/drivers/soc/samsung/exynos-asv.c
-+++ b/drivers/soc/samsung/exynos-asv.c
-@@ -9,6 +9,7 @@
-  * Samsung Exynos SoC Adaptive Supply Voltage support
-  */
- 
-+#include <linux/array_size.h>
- #include <linux/cpu.h>
- #include <linux/device.h>
- #include <linux/energy_model.h>
-diff --git a/drivers/soc/samsung/exynos-chipid.c b/drivers/soc/samsung/exynos-chipid.c
-index 3f1a654c7e66..deb1d882cd4c 100644
---- a/drivers/soc/samsung/exynos-chipid.c
-+++ b/drivers/soc/samsung/exynos-chipid.c
-@@ -12,6 +12,7 @@
-  * Samsung Exynos SoC Adaptive Supply Voltage and Chip ID support
-  */
- 
-+#include <linux/array_size.h>
- #include <linux/device.h>
- #include <linux/errno.h>
- #include <linux/mfd/syscon.h>
-diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exynos-pmu.c
-index dd5256e5aae1..c40313886a01 100644
---- a/drivers/soc/samsung/exynos-pmu.c
-+++ b/drivers/soc/samsung/exynos-pmu.c
-@@ -5,6 +5,7 @@
- //
- // Exynos - CPU PMU(Power Management Unit) support
- 
-+#include <linux/array_size.h>
- #include <linux/arm-smccc.h>
- #include <linux/of.h>
- #include <linux/of_address.h>
-diff --git a/drivers/soc/samsung/exynos-usi.c b/drivers/soc/samsung/exynos-usi.c
-index 173b76720079..c5661ac19f7b 100644
---- a/drivers/soc/samsung/exynos-usi.c
-+++ b/drivers/soc/samsung/exynos-usi.c
-@@ -6,6 +6,7 @@
-  * Samsung Exynos USI driver (Universal Serial Interface).
-  */
- 
-+#include <linux/array_size.h>
- #include <linux/clk.h>
- #include <linux/mfd/syscon.h>
- #include <linux/module.h>
-diff --git a/drivers/soc/samsung/exynos3250-pmu.c b/drivers/soc/samsung/exynos3250-pmu.c
-index 30f230ed1769..26c9c6e9f551 100644
---- a/drivers/soc/samsung/exynos3250-pmu.c
-+++ b/drivers/soc/samsung/exynos3250-pmu.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/soc/samsung/exynos-regs-pmu.h>
- #include <linux/soc/samsung/exynos-pmu.h>
-+#include <linux/array_size.h>
- 
- #include "exynos-pmu.h"
- 
-diff --git a/drivers/soc/samsung/exynos5250-pmu.c b/drivers/soc/samsung/exynos5250-pmu.c
-index 7a2d50be6b4a..ae693d8d508b 100644
---- a/drivers/soc/samsung/exynos5250-pmu.c
-+++ b/drivers/soc/samsung/exynos5250-pmu.c
-@@ -7,6 +7,7 @@
- 
- #include <linux/soc/samsung/exynos-regs-pmu.h>
- #include <linux/soc/samsung/exynos-pmu.h>
-+#include <linux/array_size.h>
- 
- #include "exynos-pmu.h"
- 
-diff --git a/drivers/soc/samsung/exynos5420-pmu.c b/drivers/soc/samsung/exynos5420-pmu.c
-index 6fedcd78cb45..58a2209795f7 100644
---- a/drivers/soc/samsung/exynos5420-pmu.c
-+++ b/drivers/soc/samsung/exynos5420-pmu.c
-@@ -5,6 +5,7 @@
- //
- // Exynos5420 - CPU PMU (Power Management Unit) support
- 
-+#include <linux/array_size.h>
- #include <linux/pm.h>
- #include <linux/soc/samsung/exynos-regs-pmu.h>
- #include <linux/soc/samsung/exynos-pmu.h>
+diff --git a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+index 98a0670359f6..2f61c1b95fea 100644
+--- a/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
++++ b/Documentation/devicetree/bindings/soc/rockchip/grf.yaml
+@@ -17,6 +17,7 @@ properties:
+               - rockchip,rk3288-sgrf
+               - rockchip,rk3528-ioc-grf
+               - rockchip,rk3528-vo-grf
++              - rockchip,rk3528-vpu-grf
+               - rockchip,rk3566-pipe-grf
+               - rockchip,rk3568-pcie3-phy-grf
+               - rockchip,rk3568-pipe-grf
 -- 
-2.39.5
+2.48.1
 
 
