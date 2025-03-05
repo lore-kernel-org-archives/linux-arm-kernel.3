@@ -4,90 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49CD9C282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:44:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 501E5C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:45:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n6j98wzmws3yBjPpQCP6g3erFXEQ03ngjmGwTh500vM=; b=ikgJ3Q4YO6LKBbnzY0HjxRFFpJ
-	f+UjN9mZg43fnjr/8VcehOrHoTAsuRz89IrT1+TnDJr9N4mvKufd4GvkyJoE9tqEOgPCnDQM/hSDd
-	yA9O1L/jKldHvORCgGwMeZ/7v8APf+L/8Z0rloBRA6LBHLgwbR4r7p6K5zZZl+F0uEEZb7X7ZBK1n
-	+cH/wC8dNLacPNzwWNhtUw/OQ/6oCs/OO86w6VVSGkbC6c+GF1uFpfTuoeUrwRsHuJ2znL+ZQMwkJ
-	dDfce0yC9qNknP1XpIn8Ug3Rcr6SIyvSoiDiX6mgqSbHhw2XQxTbbclNpV+DFvXan70SCX3MJmJZO
-	1aBmnurA==;
+	bh=+MKXT1XaFdEdcnzqhaqd5eX2IDvgA/EGa3l+nvosI8s=; b=rt1VDoRJgilAxtAv0lRrksuSrJ
+	qIzQjKCv6dRoqeUCUDaOvwTqOLBTSMOWmWThnsDV2/FT/UepH50agZ/NRZpLQcnvWHA1Abo6DZ+Bi
+	TTUpghcNh72imiHbIoeqHFc40fGaWK+9aG7Yd2SXnpoTCRN1/n3Y0MOUWpUC9qwELkuzg7eTaiasr
+	yXQdZAEbl6Gb1Gv+i4UKsH8/hqzE3RaPpB/mBIkwbUO0nT7GdZ5hE/LnDiPHJubhHTwBTla5qOle9
+	6OZPr0QDvfQ67fH7sSsq3iJmxFtgXViZ/8N3VScpJrQr9h9NlXAuOddDJo/Um0CohtObFhixa9pcY
+	Bi9nquLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjQJ-00000007GpE-2V4G;
-	Wed, 05 Mar 2025 07:44:11 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1tpjQz-00000007H00-3eyw;
+	Wed, 05 Mar 2025 07:44:53 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjLb-00000007G8Q-21As
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 07:39:20 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-30bb75492e4so30669461fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:39:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741160358; x=1741765158; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=n6j98wzmws3yBjPpQCP6g3erFXEQ03ngjmGwTh500vM=;
-        b=eSZu7ZKQkCbjwgPs1I39tHDuaYxifbLwOPq7CAV3E1dlhoRCT3upoz9bB1XhlykP5M
-         TkFGcPUhcKZr/nNfsthSOxqd3Dzv4kH7xG4vDO/GJx1FCm5oEUUIeKzkU/2s2bUtvzQT
-         JviALPTwzJlf1czbTUExOsVpfuWVhtqzzIEXA+z/ZE6E0mZNikOx5gZ7u7rjfnMBC9p5
-         xF+O4Winl1/hLSoTX806tJxYhizISH2BFb6n3sE5yOdAkhOBUJcmpvPd3IY6WIQ2Pp9A
-         GPzMDB+i2cusnuxoR/mHMNBBZvbLD65MFzTXhCOaD8o/nY0TAknvUaftAHw/h76HLO1b
-         ACgw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741160358; x=1741765158;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=n6j98wzmws3yBjPpQCP6g3erFXEQ03ngjmGwTh500vM=;
-        b=AkroTCRjuyFz0OOMla1rqckd84wfUwVG9FAXkMrslyzhdk4yId3hlSnnGcqOJFPgjp
-         /5VnC02xVhOmvXOuf3tbPeXfuyxkRONoKgvTZFfFYy9y1m/G5Z9ZYqsRx756SXsz6vSa
-         x9mKKnfgVpeEv00/9X6vWhbamPX//3I2Jq9HnIh6zW2EfVhaG35kMsUoHMbjgEThGJ46
-         MJ7LWyN1f+9SfFndBqNZ+z1lnnllriDx5PvkhlMYBXqHH/sO7p1X8zClsRWbs+Ws5ciW
-         5AN2r0h50EsDDoX6zU2R6r4rbjd2h5N9rxVANkIHTjvImvEBINx+KAWbfCOJqD1ek38a
-         Rm8A==
-X-Forwarded-Encrypted: i=1; AJvYcCUgVaqW0cLhCQatoVwQwwAa3goF4jPF6VLxwCL41swy+bxp+v8LsCQs/w6jvDdvcHCxqxJtSjZaBuJpmH8qWAiI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzcq9w9GxdbQiAmnMstdbjZSAJTQlpAvR0X4cebyaKPR/Ajp91R
-	gpQVBKVpz3FiKDEVQbirKiLdpZd8xF20n02plPIBLlCh/oM44bWvGbbQbx1+6eU=
-X-Gm-Gg: ASbGncuBBwS7LJuix7WW9K6htHtHhtaELqRcz0SQhRHhXaCiUzKa9sumogP+AHFqZau
-	W7Qduaz3DTq1qirCHFW7JFd68Tx85XEeNmiFvcYLivz2/j75npk4qcfJb7YflUIxSdj93k9gtQj
-	LTzZgrA8p7iKuvAR+AQcvUTmHv05HytkCrE853HDlMaeddhvGCkwJRaAy7DsmrE5zrXFzQxVLZG
-	H9/6etTBulkQv746nzjaVrs5kXHSkpF1y+zYuYdNiHxm6Gk+FWooq3j6lPQJgC4eXl/HPPzU0t1
-	I25uCGG1q0Hw2MR8Ci1BlEnOo7l7y5iMQqx/qc9xSbO9MZnVmKHchA8=
-X-Google-Smtp-Source: AGHT+IGMwrfa7udQAfBfFF3CQtvSnUTEAriZdTrADFcKxLMUZRIgfPtcVBaneZI9rdL95/Sp1Nv4Rw==
-X-Received: by 2002:a2e:95d0:0:b0:30b:b28d:f0a7 with SMTP id 38308e7fff4ca-30bd7a5732dmr8079901fa.18.1741160357450;
-        Tue, 04 Mar 2025 23:39:17 -0800 (PST)
-Received: from [192.168.1.140] ([85.235.12.238])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bbae78e73sm8902351fa.75.2025.03.04.23.39.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 23:39:16 -0800 (PST)
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 05 Mar 2025 08:39:14 +0100
-Subject: [PATCH v2 2/6] ASoC: samsung: littlemill: Drop unused include
+	id 1tpiLq-000000078GB-0qXb;
+	Wed, 05 Mar 2025 06:35:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A89055C5BCA;
+	Wed,  5 Mar 2025 06:33:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11D01C4CEE2;
+	Wed,  5 Mar 2025 06:35:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741156529;
+	bh=nSTmsJLWUl5KF5T28Te6xirYa65jwRqBdrP/tAoo064=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=oa60klhtAn/X3yVvVYQ65mtdDEdNuOja0+6esAlsjBxsoUvaXi9/ldqikVdqN/1In
+	 aQscRZ+7qd8ZcRQOdubVlJ5WpoKrryqs2Sc4I6lbjhO54Qgj3bWAqQ7/Ze+6sAluOc
+	 GkvUVBcDEmRBJjyyq8t4QfLI55P9g8IGHsrsQKMzK2X+m2NzCGSbMfYIYgeRSi00iY
+	 YHvWwBzI/w9n9sE3mJKv+q3c3BB05JCvolzWtx8ilUkRzc3KZQYrZLVpWpvcFUovO0
+	 JPDRnpldrp6wNjEB26LX9wSPxRq/sYrjoUhQr+Nq1EQTgO7h+vRcP7Z6vhktbgSOKL
+	 IFwJgl1ExXgyg==
+Message-ID: <0d4d1cea-350e-4ca4-954c-fdbe1b0acf93@kernel.org>
+Date: Wed, 5 Mar 2025 07:35:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable Rockchip UFS host driver
+To: Shawn Lin <shawn.lin@rock-chips.com>, Heiko Stuebner <heiko@sntech.de>
+Cc: linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <1741147858-136859-1-git-send-email-shawn.lin@rock-chips.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <1741147858-136859-1-git-send-email-shawn.lin@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-samsung-codecs-v2-2-20bc980c6445@linaro.org>
-References: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-In-Reply-To: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
-To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
- Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_233919_521365_5573DDF8 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250304_223530_358659_0FA41008 
+X-CRM114-Status: UNSURE (   6.88  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,29 +115,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This file does not use the symbols from the legacy
-<linux/gpio.h> header, so let's drop it.
+On 05/03/2025 05:10, Shawn Lin wrote:
+> Enable Rockchip UFS host driver.
+> 
+> This driver is first introduced on RK3576 SoC, and will be
 
-Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
----
- sound/soc/samsung/littlemill.c | 1 -
- 1 file changed, 1 deletion(-)
+...on Rockchip RK3576 SoC...
 
-diff --git a/sound/soc/samsung/littlemill.c b/sound/soc/samsung/littlemill.c
-index c5260e101c2a136001c6273200fa35740e618829..9fa5e3ff9215164491839d6ffdf499a3eeadfbaa 100644
---- a/sound/soc/samsung/littlemill.c
-+++ b/sound/soc/samsung/littlemill.c
-@@ -7,7 +7,6 @@
- #include <sound/soc.h>
- #include <sound/soc-dapm.h>
- #include <sound/jack.h>
--#include <linux/gpio.h>
- #include <linux/module.h>
- 
- #include "../codecs/wm8994.h"
 
--- 
-2.48.1
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
+
+Best regards,
+Krzysztof
 
