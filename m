@@ -4,114 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7199EC282E5
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE872C282DE
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 14:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BVAkTZii1Gy4XRugZsnKaWDIV+1UdUIxS1E1wVQkwnU=; b=4k1TsI6gA/y8WjMCgXK1t6soLr
-	QoUlRsSLJp9GgqzU8he/IfUQRxYLeumKFmSLG66cBkzoItv2bYQEngQIMPhTNpcraXPa70mHK2pJl
-	UNQ97tjGWM2nlc2fBcBLuxcJ1QpQIWnLNlapHmZhu4Z7ZmZo8oxwu0KIhrgltQadr+tpC6UUpoKiO
-	YZyzsfdhaysTllmFODZKBuUJmGbvvS3+osiY7XDHIg3CNTX3Frz7pofeP+Y1ERteKeU3OEfGUJKR1
-	TfmhaiSdgjWL6ru2tq9/OrFY6B9mkNE3iCE5WbUjGMAjyilFCZLIuFC6xRxtLYLQ+zW0+TlPDyQk3
-	mjRzjcwQ==;
+	bh=UoWerf/Floya97PLnucqOzprD5LnjvQTcTSnYM0OHRc=; b=oX9eFvUzCqytWPykhhdH7rpDBM
+	2jk/vOJzYCO6bVhp/iU+2R0cuv8rzaHFHl2cxtz8z7F3jHVA1M0uNQub6QiF1llnmJEGvGCfamSMQ
+	rpouPIivsyJFnUW7k7Q3ElI7n5hrsx95rwGFkeNYA/XIYPjd9mS9+upQgmx6ivC21USywwoQl8P6l
+	33D530a/F2ecHRFk6Bsxm4gwweETNPv/syOXHO7wwl+3fpKTiWI9UFrr1c0AUdUZI344nJwDZsIwg
+	KV1WRhmGlwojwPeeS58k45nm/NhJtX3dCEXQgXYqmPntYzqxA2CV7iCMvdqWTiRYPDxnUmFwFuZCa
+	iptn15+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpq38-00000008P50-0iZN;
-	Wed, 05 Mar 2025 14:48:42 +0000
-Received: from mail-ed1-f45.google.com ([209.85.208.45])
+	id 1tpq37-00000008P4i-2a5g;
+	Wed, 05 Mar 2025 14:48:41 +0000
+Received: from mail-am6eur05on20618.outbound.protection.outlook.com ([2a01:111:f403:2612::618] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm16-00000007gVS-0Yqy;
-	Wed, 05 Mar 2025 10:30:21 +0000
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-5e549af4927so5419273a12.2;
-        Wed, 05 Mar 2025 02:30:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741170618; x=1741775418; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BVAkTZii1Gy4XRugZsnKaWDIV+1UdUIxS1E1wVQkwnU=;
-        b=i/qQEzz+MD1jpY7OmkJloAIk5eMKDdM2ckmbV+WzE9VQMqqLlJC4jUidWxf2yOnlUp
-         3Xj5/bjqZBlMl6squt7fJGQ0Lh7jPv5aB4KLqA9ky5R/UlfP/fUddDlAIcyhfLy6ZFmW
-         cirFczk/u1SVl4MCypwDm3/ErMQ4kMUtWtGOu6S6NK3rLmuBHDwEzy8dktNaPUToBlQr
-         GDgazX+km5L18+HKul1t3Woqw127uZmJbTn+iKxAfAjH0dYIsu5ESbaEu1c7oQribLwh
-         urkKxPoYcGOVCCD4Dq79KTj4Rz3bij7zf69NS4QnJfSvSGEfvGSyy0t+XyfoOCaiB5cq
-         OHpw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741170618; x=1741775418;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BVAkTZii1Gy4XRugZsnKaWDIV+1UdUIxS1E1wVQkwnU=;
-        b=Jo/+2EHtIhjPh91ZWlir9GGHNaTvU8VTHxnHNOUvkAQJkcQ3IljgrRo39Y2uZI/RrM
-         ySKQ3o/TCNii0qe2FC0WhGJ1nqrM9GHRpzTkXkLZ32BUU/M2eVXZgCkohaVwnEYNQNWm
-         bBzH57VnL6t6V/GmFsVlrBM85VkE8ZhHl6xYpxk9ASsDGTiczakVsDXIBO5w31wpVajp
-         sr7UgJI1972EH5B+gvTbqKAKdeM+BlFbeE9QueafC/WIS7TahIry1iMZYvAFC3QUwu0O
-         F2KdIiOJ6I6y/5s+zRXi7zucZqdEEG6XHe4QjKbwnrj5D4bpK7zQfUFc1oAROnwQ2wIB
-         jMtw==
-X-Forwarded-Encrypted: i=1; AJvYcCUPvW00c1XLfusbAJb/Havi5M5jCmO+MwzEZyINho67URuUkMLlCnqfFu+iCQayA02hh1bXuzMKfZHwWJYXXdA=@lists.infradead.org, AJvYcCXJoUMCdNFgGl9Jeet0SEyEWDVjCLigi2DWJEp5/JBofvUCHRa3YwURZHTCpK2UIYJhXsPlRJfvlIp/2A6Ej9yf@lists.infradead.org
-X-Gm-Message-State: AOJu0YyXDWbkgPyC93Hq1hf87h/I3zjxiIDqJfy1zK3Lyu+jAzcTee50
-	BgocqyGby5vOZL/EceIqp5z6uBWNfH7FzwmO9vMScS45V9YSYnMI
-X-Gm-Gg: ASbGncshVBPtDZ4mpkTR4/8WpHGTzqpPD1HB/SNgYN+czI55j3sgAY8ghfoVpmJIRmJ
-	T40LEAGUmQMBAyp3gI15txKNlba8hyvlGazuQCLI5ESxMsyW/q3Beuy9imS/q3+SvMw7aHTDEGI
-	M38qsqEvZE6TrFJAQxS9fPLQW2bN39FHwQKTGN31bqZlwClSrw+Y9UHejoVftRkgMiyK24ly8XG
-	OK2c/HTluUjoWYsrNL3UjUEEZvninD9mFm0A6NZz1yHtvtD31opIc61X8+BMIeliBv2L2gH3V/c
-	Nq5OUOtOg6lrcYoXK3rY6Z3yGwRVDdc/Dnfx3X6lO185k3OZXWr8j8tZDl1OvTP7zSESBs65Z0G
-	aNsfnyTIH5onpbW1CWtGiQyWTVzdpi6cbMnBY7fMWmBaM1ct09cHPO/MYEZBpYw==
-X-Google-Smtp-Source: AGHT+IH76j7PuSAp246zNAO/9bTEHz/TOOLWKA15shLvAnk2YElCcj8yD7y6QikO3QGYtioJiV2+DA==
-X-Received: by 2002:a17:907:6e8f:b0:abf:663b:22c2 with SMTP id a640c23a62f3a-ac20db005edmr280954166b.51.1741170618037;
-        Wed, 05 Mar 2025 02:30:18 -0800 (PST)
-Received: from corebook.localdomain (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac1f7161a4esm247154266b.161.2025.03.05.02.30.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 02:30:17 -0800 (PST)
-From: Eric Woudstra <ericwouds@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Simon Horman <horms@kernel.org>,
-	Pablo Neira Ayuso <pablo@netfilter.org>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Ivan Vecera <ivecera@redhat.com>,
-	Roopa Prabhu <roopa@nvidia.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Kuniyuki Iwashima <kuniyu@amazon.com>,
-	Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Ahmed Zaki <ahmed.zaki@intel.com>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	"Frank Wunderlich" <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>
-Cc: netdev@vger.kernel.org,
+	id 1tplYy-00000007b4q-27Ci
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 10:01:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aESmLtErvKKSF9zaXxuYSl856v+/0L18Id84gtac6kouv3XU5YiXEjodcSG66JGfE6SoeH9Al71ReCAJ2zzzt5Kb3L0StI4xdXhGaIpwDulk5cKDij/cEWzkOgWaZu1jkJFJA7kQq4+N+rxNNorC05ykKjcV7XbPcuLeDUSn/Kqymo4BpTBWH5HEGB1sp2ecqk5TDcUtAhrR5P3CtYlI1CrgyQQ/Xz7G5fnE1/rygcasRluEvXjZCeF54JrIhjQXCxqiZx58ljNkj+pyOChnEo3nGRuQ6itWXjrlsyWCxPFNYmiCHLAq8LdEN/9NKUO56FF0j4W+KPT92u6+1Vw4TA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UoWerf/Floya97PLnucqOzprD5LnjvQTcTSnYM0OHRc=;
+ b=yIT+0tFS6SuEtvs/qwSa4HjS1rhxIf4r8C96B5ux2zsuNnge99xyru/VOLcPyNDRSbhOk9rbhXDgm2YG8XwNU2wUgRwI596Mlfbbm9B0q0hXxE+qG+qhnUxPWBya3g5Sm1Of+7+vnQXVTJ/s7OVzwbgfdPMfNl0W3ACzdbxB4oDwl8lTaqEHpXdxPE/UX4HdOYIxLL6Vx+SMQFLpNlbWdJOmYnkbt7/KsKPcDDc90BcuStOLmQRZe5P0QY1Zx7rdmwz5u3Z6DG6SMpTO9HfeqZFxFCSfYAi+7jp6Yve7r8LXOjMYPR/k18T+IviH95qffgw8Yx9PgiAfNUT+RDZdgg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UoWerf/Floya97PLnucqOzprD5LnjvQTcTSnYM0OHRc=;
+ b=GTR6k6RH5L21N0GcSaai6jyiPgwbcjZRyEn0EjXRPzDAFuAh0E8SNH+84KjOfuIDHp/SPky+W1rWhWmd/ZZIJ9UbUHpRD6GQ5f/pMozYpfbsqa0tSwKvvsfyvCtqXMwsqGtZkz8lzVTyQxvKyHjwEP1qrY0KpCi6j2AsNMCqE/6dP39lQermaUuxsXfkL+gsrPiN3RIEdRrvSPDanwiq+oMm3JvrFEPK3EU5ZGi3J0s+LYTPNHMWOInzIXlpyZenWegN7hyf8Mw2Hj9QiaOfPbTUkW51JhjZDR2PX3ORpK9pUOS01/1vN5BaLB1vKX5/E0RZFYUmLUpuoKIEztprXw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
+ by VI0PR04MB10541.eurprd04.prod.outlook.com (2603:10a6:800:26a::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.27; Wed, 5 Mar
+ 2025 10:01:13 +0000
+Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
+ ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8511.015; Wed, 5 Mar 2025
+ 10:01:13 +0000
+From: Daniel Baluta <daniel.baluta@nxp.com>
+To: p.zabel@pengutronix.de,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	shawnguo@kernel.org,
+	mathieu.poirier@linaro.org,
+	devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org
+Cc: conor+dt@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
 	linux-kernel@vger.kernel.org,
-	netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org,
-	bridge@lists.linux.dev,
+	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	linux-hardening@vger.kernel.org,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Eric Woudstra <ericwouds@gmail.com>
-Subject: [PATCH v9 nf 12/15] netfilter: nft_flow_offload: No ingress_vlan forward info for dsa user port
-Date: Wed,  5 Mar 2025 11:29:46 +0100
-Message-ID: <20250305102949.16370-13-ericwouds@gmail.com>
-X-Mailer: git-send-email 2.47.1
-In-Reply-To: <20250305102949.16370-1-ericwouds@gmail.com>
-References: <20250305102949.16370-1-ericwouds@gmail.com>
-MIME-Version: 1.0
+	andersson@kernel.org,
+	Frank.Li@nxp.com,
+	peng.fan@nxp.com,
+	laurentiu.mihalcea@nxp.com,
+	iuliana.prodan@nxp.com,
+	shengjiu.wang@nxp.com,
+	Daniel Baluta <daniel.baluta@nxp.com>
+Subject: [PATCH v4 6/8] reset: imx8mp-audiomix: Introduce active_low configuration option
+Date: Wed,  5 Mar 2025 12:00:34 +0200
+Message-ID: <20250305100037.373782-7-daniel.baluta@nxp.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250305100037.373782-1-daniel.baluta@nxp.com>
+References: <20250305100037.373782-1-daniel.baluta@nxp.com>
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: WA2P291CA0031.POLP291.PROD.OUTLOOK.COM
+ (2603:10a6:1d0:1f::12) To AS8PR04MB8247.eurprd04.prod.outlook.com
+ (2603:10a6:20b:3f2::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|VI0PR04MB10541:EE_
+X-MS-Office365-Filtering-Correlation-Id: d8b9929a-3a73-4e28-53c2-08dd5bcca9b7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|7416014|376014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?qidBD/hNV6kdRHzKd6KBOv1lDmlIb+9Pi0Ingmr5LQSnics6k+TE7EDZhVWz?=
+ =?us-ascii?Q?wS1DL7X8Df10MRmgMy51vtq9KYkLLxqSvjvnUl3lXu/+1HxXY34l2wHbW2dx?=
+ =?us-ascii?Q?kdjqHIegLnrm9wN1nEwe41WoJSlgbPtzL/4bshdBcplrs3IxTPd7G472JYV/?=
+ =?us-ascii?Q?Thy+gKLIwRxfP8Jb3iKkRRG5qXu7s2n28nDxFiv/AgDUp9Jc+Yi07I4u9GdZ?=
+ =?us-ascii?Q?u5ArgF27csfvqPVrYlJBlOjwg2JEd3jKxq+lnXuc9uuorGxRCooou8u12PHI?=
+ =?us-ascii?Q?RwsCVxORXUU0YiR68Qb3u17OrFg2CftL9ig7tu5yJmefQ+IzbFwzw57JTSeC?=
+ =?us-ascii?Q?nhsObam9yhETN1MHl5AwsycCjDaV6JMl3sGyRVZAoaI5v2vFga4d6e/tcG1u?=
+ =?us-ascii?Q?zc9LnwlxNX98jmt9OLJ534vnuQ81FNY7ejtJ4Eo2HHhtfLqc/c3N72eCGj8S?=
+ =?us-ascii?Q?FG8OGl5ghmrHHuLonNSOOB+uyk84T/LyDp9rbmQNTcReEISVXKXNNafKzLKl?=
+ =?us-ascii?Q?wE57uFUVKp4+XfESiLPQS2Z2JVYoVUDhxK7FYzAsLJUMFUkdT1q1R7s/UCSt?=
+ =?us-ascii?Q?aSBTF4ULdFGZ+x7Q7r94c7JSFbUcvvKgENAfDu+hq/qP98qDx6KuYd4SrwJe?=
+ =?us-ascii?Q?Zqn0PTBumg+X4BCVYL8IwjABUM15DmWyRjCs7mOKovyl4+NMbDziw4PAxLfp?=
+ =?us-ascii?Q?LItu09FNSYQUVCc43unAwGSRRsL4N818mxsbiePaUpHsztArhydrPc7zPOMy?=
+ =?us-ascii?Q?nR9Fa88tCIOmdOAomsR774axAqbXXeAaCUIXgVdQDkHGfpvLbxmPnE878JXp?=
+ =?us-ascii?Q?IWrA/d1DDFbDu9kZ6gzxHZUv280AhJs0rRXFon07+SiEYg5io/jL/Z7IfUcW?=
+ =?us-ascii?Q?v06TDmsEmMDNh13fvYpT8Ckcczj8Y6E3PGhpliGi7KhrjOHUypxjbi5tkFtS?=
+ =?us-ascii?Q?NecMgs88A7D7u3iRi67rkzS4rVz/6hy9mMDUj+yRw5AAoeb6fU12xP+pmTLH?=
+ =?us-ascii?Q?+gop6MrCunTDjhAbMCXE0I5QR1+Ti563eqqnJ+5nfecoIR8UrTxehjeC6sdc?=
+ =?us-ascii?Q?1R6Wxb5SQcMsHwaeGoU9o4D2a+okrJk5CRL4RioIftFcuoZDJpzKbKuCahFk?=
+ =?us-ascii?Q?xcb0iK7aaFFlprMuWDTGxBVsYL5inmK1Y/P09QetD5wFsIjUpXkNA3KANcPz?=
+ =?us-ascii?Q?JtSbckptGvaq3zQ/4JGk+4aAbtA41j8YQM44gcHyL5G+RsTFz6UVOVGJkOBb?=
+ =?us-ascii?Q?yweAceeKfdIP4Ztw3Lv5skNRt2tYGDMYhpkYP8FuppfAXG7WSqPwIk082uw/?=
+ =?us-ascii?Q?IHukZS2YdWbl29wXMBqw9Up+pJElPGrQMSCsW1QwDLI6ZNnGku3q1zlulVVt?=
+ =?us-ascii?Q?5BVmXq/al6/Y6f2ZS/agPqs/OkwGSTT+eVFsZ5kXv2HNo0O5hMndpR4q/kDX?=
+ =?us-ascii?Q?b37mnEbLvZeZJVBby6azLT8q75otK9WH?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(7416014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BlJEH0AhWTXwEomrI/X00xLbii2zD076D3yuccIv2soeWlJqvGq8LoW/et06?=
+ =?us-ascii?Q?NxyTXO/VByAZ3ry9Ll7oiVJUU/utXH0ZMFVA2+nCMbTeXuCXUkqH3Y3zFoXv?=
+ =?us-ascii?Q?fr07IC45S6t2gM4Dr0gTnDZOL+W8SnW4ZZ5Lu9lGF14wbFvWJgrfTZ9MbCau?=
+ =?us-ascii?Q?rU7Ru4/Z1A/X5b51V7twuN3y6CLJ2fXMNAbbn5PaVhWOdDuOjjysuue0Ca8X?=
+ =?us-ascii?Q?CMd/9utabhPbL2qbhQzYHm3OgphFfS+jPNW/rCaZeh7FauRF6PLaULhwxWWg?=
+ =?us-ascii?Q?gC8ceAc1z7g1ktfOa7xDFTx1PRBExzx8rTyBkcLsB+8Kb04oJT7y1KcvBMEN?=
+ =?us-ascii?Q?ncML+AKJPkGQvokXG2Q5l7ZmxysBcnU6Y8SLP4FseE6PpCFHddVdGAXMVwMw?=
+ =?us-ascii?Q?JCN/BBWw8gZmH5J4CU1FJaGQ3i0MKr60dckcb1JfonkVsCsX5i8XbuzFoRJe?=
+ =?us-ascii?Q?DiL2BO2V3FjH9Zzd8s9m1d24SmDoU3/Nf8/gk1ecpI0faQDvz2vBL/zfba7O?=
+ =?us-ascii?Q?Z75UH7Od5Eb8AmWxshUQZKw0M+LVKRGiOsc6Dm9Axz6ip24ZcjeAD747ow34?=
+ =?us-ascii?Q?BQHDo/BDJCORbs60BtKbxDL1Z3mY8wfIqtdj77/rjsvXCtHo9c+e+QBpbRyw?=
+ =?us-ascii?Q?dikplmlY7u+8roa3m1MtYr62SSZCWNs2DBIMIg0OFbo283hJBX6fetunZACs?=
+ =?us-ascii?Q?hAZ+7EaN3zOlAXLcO06LMd7EPX5L/CzWejRXfuN/35MbkphNqMHQmGS57y3E?=
+ =?us-ascii?Q?XW1ZhuPIMoND9x+wEIaRO8ZJw49VxWU9sIEjMFMPMrQuTJ5i6H/8tSBen7B6?=
+ =?us-ascii?Q?h0S0XVYF78c6+iLcA20PEap1j8pi0t0IFB8udLTnEsJPqtgsAyn1BP9rYdfO?=
+ =?us-ascii?Q?JDbWEkF8aRepSv0NhSgEjrTINg3KbGSqPIXC+vxGo8IUhEZkAyWXJliX7BS6?=
+ =?us-ascii?Q?EcZlIcpmpPYgQzfjX+dETd65WLZItVahSmQYWlHQk6a0+rUfoW/Di4Q0d62Y?=
+ =?us-ascii?Q?0q7IN1KHmAllkUb9p067MkWdatezHzOr6RDoX9uHY5LQSrbydfekNQeolSUY?=
+ =?us-ascii?Q?Yi0yeJR62OSLBzLFKS9GundC7YDXbuBQFKMMn6pg0yzYtmWb7+M2ad/RV7cq?=
+ =?us-ascii?Q?wc6XEqjD3wrlmM/hCArmB7S9JQjMrWkf7N2NDG1wV82HA+earJmAsvNh2rm8?=
+ =?us-ascii?Q?6jX9VUU07XhgEmGkaEaDGL/rB7/KP5tMr46WbSwGFpJIVztULixDNsAz2+jI?=
+ =?us-ascii?Q?Dk0bszN5UWSBZ0Y5L8PXzxSxhPCbRzniLNPfjo+l4g3osu2bdKiV7H9Kkkln?=
+ =?us-ascii?Q?9ik4hkYLE4Drq8Cswc7uOAZzIrUuZPExMMrNkAWAm1SCDGTFF4tKPnBzni/C?=
+ =?us-ascii?Q?52jWEGr9pq/58FvW1jUBuX84gEGHQE9ZMdh+yPJ5wyb0w1x7D5EgoNDU4FGc?=
+ =?us-ascii?Q?UrgHfEYJEDZ6SgNonHTbjA5bVLmaBBDtNiLiDQdCeouef00fU6mG1rJpIWvf?=
+ =?us-ascii?Q?qDS9GF/6ZfAG/enC+BQoQzIkrCkXLXw8icm3s2/jsUWCkGoteUg/3Q4zzB6D?=
+ =?us-ascii?Q?Y5Fcg7OcLDK8UdjUMbHHscQRdgh0PIHhfDsmjN3S?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d8b9929a-3a73-4e28-53c2-08dd5bcca9b7
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 10:01:13.7403
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 6TN7QPcSFKNn9zEEDs3gFfYxfQ9QWwAp0zdjtxUFFGjyheMmiWXR8rWLVUkcFZQDaavMhK8N9ATkiN/4gD9KKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB10541
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_023020_193391_734CE537 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250305_020116_548972_18898FD6 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,32 +174,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The bitfield info->ingress_vlans and corresponding vlan encap are used for
-a switchdev user port. However, they should not be set for a dsa user port.
+For EARC and EARC PHY the reset happens when clearing the reset bits.
+Refactor assert/deassert function in order to take into account the
+active_low configuration option.
 
-Reviewed-by: Nikolay Aleksandrov <razor@blackwall.org>
-Signed-off-by: Eric Woudstra <ericwouds@gmail.com>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
 ---
- net/netfilter/nft_flow_offload.c | 5 +++++
- 1 file changed, 5 insertions(+)
+ drivers/reset/reset-imx8mp-audiomix.c | 41 ++++++++++++++-------------
+ 1 file changed, 22 insertions(+), 19 deletions(-)
 
-diff --git a/net/netfilter/nft_flow_offload.c b/net/netfilter/nft_flow_offload.c
-index b9e6d9e6df66..c95fad495460 100644
---- a/net/netfilter/nft_flow_offload.c
-+++ b/net/netfilter/nft_flow_offload.c
-@@ -116,6 +116,11 @@ static void nft_dev_path_info(const struct net_device_path_stack *stack,
- 				break;
- 			if (path->type == DEV_PATH_DSA) {
- 				i = stack->num_paths;
-+				if (!info->num_encaps ||
-+				    !(info->ingress_vlans & BIT(info->num_encaps - 1)))
-+					break;
-+				info->num_encaps--;
-+				info->ingress_vlans &= ~BIT(info->num_encaps - 1);
- 				break;
- 			}
- 			if (path->type == DEV_PATH_MTK_WDMA) {
+diff --git a/drivers/reset/reset-imx8mp-audiomix.c b/drivers/reset/reset-imx8mp-audiomix.c
+index abef6d768e62..04ad27aca806 100644
+--- a/drivers/reset/reset-imx8mp-audiomix.c
++++ b/drivers/reset/reset-imx8mp-audiomix.c
+@@ -20,16 +20,19 @@
+ struct imx8mp_reset_map {
+ 	unsigned int offset;
+ 	unsigned int mask;
++	bool active_low;
+ };
+ 
+ static const struct imx8mp_reset_map reset_map[] = {
+ 	[IMX8MP_AUDIOMIX_EARC_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+ 		.mask	= IMX8MP_AUDIOMIX_EARC_RESET_MASK,
++		.active_low = true,
+ 	},
+ 	[IMX8MP_AUDIOMIX_EARC_PHY_RESET] = {
+ 		.offset	= IMX8MP_AUDIOMIX_EARC_RESET_OFFSET,
+ 		.mask	= IMX8MP_AUDIOMIX_EARC_PHY_RESET_MASK,
++		.active_low = true,
+ 	},
+ };
+ 
+@@ -44,42 +47,42 @@ static struct imx8mp_audiomix_reset *to_imx8mp_audiomix_reset(struct reset_contr
+ 	return container_of(rcdev, struct imx8mp_audiomix_reset, rcdev);
+ }
+ 
+-static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
+-					unsigned long id)
++static int imx8mp_audiomix_update(struct reset_controller_dev *rcdev,
++				  unsigned long id, bool assert)
+ {
+ 	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
+ 	void __iomem *reg_addr = priv->base;
+-	unsigned int mask, offset, reg;
+-	unsigned long flags;
++	unsigned int mask, offset, active_low;
++	unsigned long reg, flags;
+ 
+ 	mask = reset_map[id].mask;
+ 	offset = reset_map[id].offset;
++	active_low = reset_map[id].active_low;
+ 
+ 	spin_lock_irqsave(&priv->lock, flags);
++
+ 	reg = readl(reg_addr + offset);
+-	writel(reg & ~mask, reg_addr + offset);
++	if (active_low ^ assert)
++		reg |= mask;
++	else
++		reg &= ~mask;
++	writel(reg, reg_addr + offset);
++
+ 	spin_unlock_irqrestore(&priv->lock, flags);
+ 
+ 	return 0;
+ }
+ 
++static int imx8mp_audiomix_reset_assert(struct reset_controller_dev *rcdev,
++					unsigned long id)
++{
++	return imx8mp_audiomix_update(rcdev, id, true);
++}
++
+ static int imx8mp_audiomix_reset_deassert(struct reset_controller_dev *rcdev,
+ 					  unsigned long id)
+ {
+-	struct imx8mp_audiomix_reset *priv = to_imx8mp_audiomix_reset(rcdev);
+-	void __iomem *reg_addr = priv->base;
+-	unsigned int mask, offset, reg;
+-	unsigned long flags;
+-
+-	mask = reset_map[id].mask;
+-	offset = reset_map[id].offset;
+-
+-	spin_lock_irqsave(&priv->lock, flags);
+-	reg = readl(reg_addr + offset);
+-	writel(reg | mask, reg_addr + offset);
+-	spin_unlock_irqrestore(&priv->lock, flags);
+-
+-	return 0;
++	return imx8mp_audiomix_update(rcdev, id, false);
+ }
+ 
+ static const struct reset_control_ops imx8mp_audiomix_reset_ops = {
 -- 
-2.47.1
+2.43.0
 
 
