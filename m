@@ -4,104 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F35C4C021B8
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 00:21:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669D0C021B8
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 00:26:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nMqliGyYpfsu19Ad4wb4NZGMWZWQ33k71V6ukpvY4Vk=; b=k/R4oehUwljcVRpOif4bWvAz1/
-	ArHMKcN6CqdAlmgFLt633dQY3RGYrP4hAQJup95VjGJ4MdR8K8ErlCXPe4gH6midvHGo/Ofle8KTg
-	6AXGkSBx6IeHKBkuLQEZ9cOaYiC5APt6aEhDC9nOSO6727rcI64I+sC1uW7pU9FqIoeR7FKbdO3+u
-	7eH231oXhbL6VoFJV1xfyyDpUNrSY/gq2MVPqf9fxhLhoscwsZk+40apjwj6fYs+Y8BvxzK4mLsGr
-	OaI2lKZFfl57YNoKGNmdyM3MdRkcb2hIpZrBJKQBtIQ+u0NoNxmYx6+m9EMbL2LaUdlF0j3hNqWJL
-	5L4L/qwQ==;
+	bh=HIO8zlI48cSRvLSSy7N+UCIHi4vDket1eonlB3L4YpU=; b=ZrB2XNrd5mBOwlqbNGKWrEUMxN
+	oN7ZMC3Yt87ncXQGotZyeFBR/F8zRFYlBdl5W2h2FO7up2PQqvCK8tl/vZimYKuUXrs5zD90OiPYM
+	VsKkIJ9YMv+e07+bmGbjfJFauF1epHjtsTuBB5iuOrOL5tBrmPlpPOAFyTvYYOI52avtKEgi/wbL5
+	LG6hSVRJV5eUqOPE152498RFlau9sRcN68sudYxFXSpYoqrjuiejWYTcEz7TrxznqNc6UP6eJEXCz
+	BVn03mCbj260wORxXu86S/9QYNgWrcYu1VAie4G4+WajB//mHuM04MkFGH+wm3NjsuL1I0Qxkoac6
+	bGbIKGnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpcVR-00000006cWu-3vVM;
-	Wed, 05 Mar 2025 00:21:01 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1tpcaY-00000006dEQ-3pUg;
+	Wed, 05 Mar 2025 00:26:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpcTq-00000006cJF-1cJj
+	id 1tpcYy-00000006d5R-1kod
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 00:19:24 +0000
-Received: from phl-compute-06.internal (phl-compute-06.phl.internal [10.202.2.46])
-	by mailfout.phl.internal (Postfix) with ESMTP id 7F20A13826D1;
-	Tue,  4 Mar 2025 19:19:18 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-06.internal (MEProxy); Tue, 04 Mar 2025 19:19:18 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=traverse.com.au;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm3; t=1741133958; x=
-	1741220358; bh=nMqliGyYpfsu19Ad4wb4NZGMWZWQ33k71V6ukpvY4Vk=; b=3
-	RC5UXMYN1NS7Zin/KABAZ9c/FhehsYxvDzlJ9+eurKAU6nTEi46onYYa/QLMSQ2W
-	Ya2UzRmKeOixLK4rJbXMCA/Hp60/lxDl9FrCBQphTLzObUiVmRWHU6AMaadkh5UR
-	7RNRngSZJld8p1ocBbKlR6PgkD4n/iqjBMe4uXcOmgeBjbd5C3wTFnEOSBy6pokS
-	TehuQhrORhzpnOcdI6m6AHyuNvqd0P6ZByp1mUhb5K1GfZEh2cuQTMBR98lQrxcz
-	Cpu5PvPvtufN1s8MkS6SH3GzmGPr9yQ1rl6vgMu+KR48o0jTWOMfD0XxVkG6OOv9
-	utoGxQvEv6132i3V8whLw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1741133958; x=1741220358; bh=n
-	MqliGyYpfsu19Ad4wb4NZGMWZWQ33k71V6ukpvY4Vk=; b=0jpC5ivbhoGFFt4kl
-	ytqePwP7Uvz9oIi/BaMv6htv4TZbM9RR/VDmpdHABOdWsL1KShLsBl0Fu70xiPJZ
-	+kg/fOiL4NVQT+YKYUjIQXdb/uhe9hnuFqtmZzmlDUFyzH/rc/wDUAG8m1H0c3nw
-	Gyge8QsjHS/V3jo/97lZz5xpNId2nPToWVTWBfAaC/an0UhQHltzMGenA/E2yTT1
-	P5ww+Z6rvUwxMHsn1HslT5w0cZVwB2Bgm9h1kFfhZ5zxWcfk6UCB7305Dp/ubTHk
-	8fBPAYNRNHbWjEaSAprH4BTehAEPVmfKvHUh4WHmJzZF1DZNUh97KbngamiFh2YA
-	soaaQ==
-X-ME-Sender: <xms:hpjHZ-JXkbGo9EWtIIJ_NEG8M1FdNsYKPO51s_Sj0WtG-Q-U46TOjw>
-    <xme:hpjHZ2KTJXg2Viy8GlMvpq6uMRSBlERpfWMNj1E9kLW9nynYOfHDYfHNCRZ1yuO_K
-    bbnUOsdbspMbrNEuZI>
-X-ME-Received: <xmr:hpjHZ-skIrz2acmI-BxtLVhkhE1As_odX4ooBDrgnrwYzAEw4N1Rzo-tGLWVTxmIvMmzorb4_Ssn0rGbFJQ-Lr3dXgqh62jtUvfbO_cr_AlfqNBEq20ri1C87BJ5fwk9jDzBtpO6Gb5J0ND-jNZh2p5zuP4>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdeffeekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredt
-    tdenucfhrhhomhepofgrthhhvgifucfotgeurhhiuggvuceomhgrthhtsehtrhgrvhgvrh
-    hsvgdrtghomhdrrghuqeenucggtffrrghtthgvrhhnpeeiieefheeiieeuledufefgtdev
-    feejffetgedvveduffffleehjedtjeegleelgeenucevlhhushhtvghrufhiiigvpedtne
-    curfgrrhgrmhepmhgrihhlfhhrohhmpehmrghtthesthhrrghvvghrshgvrdgtohhmrdgr
-    uhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepug
-    gvvhhitggvthhrvggvsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhi
-    nhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpd
-    hrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhg
-    pdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhope
-    hrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhn
-    vghlrdhorhhgpdhrtghpthhtohepmhgrthhtsehtrhgrvhgvrhhsvgdrtghomhdrrghu
-X-ME-Proxy: <xmx:hpjHZzZGPN_CM1ZDnKFt7SzFu-AOT1JgdzIVbvJoe4JtKAB_SVdBMw>
-    <xmx:hpjHZ1Ytyv0OaZUqfr5-aA457j6BeY56PhUVAbrnq7XYRkLS1aJqnQ>
-    <xmx:hpjHZ_At_5POVMFJoYXKSG8KRVd7seOQow4vfXoUlI_7KAJb0jmGDQ>
-    <xmx:hpjHZ7bAyTIx2gmPL41EEkNMOLb14Rx8DdmHU3LafyOc5RQ6-FtRhQ>
-    <xmx:hpjHZx66gkd99NWuyvUNq2AfVqV_gqNyiLDXhV1wDzHT2LZGEXUp2hep>
-Feedback-ID: i426947f3:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 4 Mar 2025 19:19:15 -0500 (EST)
-From: Mathew McBride <matt@traverse.com.au>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Shawn Guo <shawnguo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Mathew McBride <matt@traverse.com.au>
-Subject: [PATCH v2] arm64: dts: freescale: ten64: add usb hub definition
-Date: Wed,  5 Mar 2025 11:19:01 +1100
-Message-ID: <20250305001901.31594-1-matt@traverse.com.au>
-X-Mailer: git-send-email 2.45.1
-In-Reply-To: <20250129045352.10728-1-matt@traverse.com.au>
-References: <20250129045352.10728-1-matt@traverse.com.au>
+	Wed, 05 Mar 2025 00:24:41 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8940A5C5C49;
+	Wed,  5 Mar 2025 00:22:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E0B7C4CEE5;
+	Wed,  5 Mar 2025 00:24:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741134279;
+	bh=y7MUgOurul1EqCfOPhyeQVHxMvZ/06Rrgth75p612z4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=I24VjWZcx9Ymy+7xo+8CCH9TX+64bhNNNvNx2o7T1lA/eOFylvVerKppIGqIgh1CM
+	 xWVQ9cYsdW2TFSWCBd9dkxuTZ80jX01sUZ+gYa72T3x6fGDCCgO/tZghcrhqhzRg9s
+	 4FYw0WJOcZGfWFzDOH2I+W+ohZ61bo1X0Zm7t8NUhkg3vopQ3wY6XmnzUSlsGvJnb2
+	 IdlKhbZozjSpte/QIdfm5P2wgkS+S0vaVdC4/dcVvcFBjAN6+jwRz6HChWLuViGkji
+	 /3e8whUPFok+qqAFmLYldOD5MWFMM9BKujS+QRTGfx+3RcDM/3TfHYC82SYyWTu2GI
+	 i6ryNq/MPaOjA==
+Date: Tue, 4 Mar 2025 16:24:37 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: Meghana Malladi <m-malladi@ti.com>, Diogo Ivo <diogo.ivo@siemens.com>,
+ Paolo Abeni <pabeni@redhat.com>, Eric Dumazet <edumazet@google.com>, "David
+ S. Miller" <davem@davemloft.net>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Vignesh Raghavendra
+ <vigneshr@ti.com>, Roger Quadros <rogerq@kernel.org>
+Subject: Re: [PATCH net-next] net: ti: icssg-prueth: Add ICSSG FW Stats
+Message-ID: <20250304162437.0160f687@kernel.org>
+In-Reply-To: <33c38844-4fbe-469c-bb5f-06bdb7721114@ti.com>
+References: <20250227093712.2130561-1-danishanwar@ti.com>
+	<20250303172543.249a4fc2@kernel.org>
+	<33c38844-4fbe-469c-bb5f-06bdb7721114@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_161922_968418_9B354D25 
-X-CRM114-Status: GOOD (  10.06  )
+X-CRM114-CacheID: sfid-20250304_162440_555139_91A1D743 
+X-CRM114-Status: GOOD (  23.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,103 +77,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A device tree binding for the Microchip USB5744 hub controller
-was added in commit 02be19e914b8 ("dt-bindings: usb: Add support
-for Microchip usb5744 hub controller").
+On Tue, 4 Mar 2025 13:46:39 +0530 MD Danish Anwar wrote:
+> On 04/03/25 6:55 am, Jakub Kicinski wrote:
+> > On Thu, 27 Feb 2025 15:07:12 +0530 MD Danish Anwar wrote:  
+> >> +	ICSSG_PA_STATS(FW_PREEMPT_BAD_FRAG),
+> >> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_ERR),
+> >> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_TX),
+> >> +	ICSSG_PA_STATS(FW_PREEMPT_ASSEMBLY_OK),
+> >> +	ICSSG_PA_STATS(FW_PREEMPT_FRAG_CNT_RX),  
+> > 
+> > I presume frame preemption is implemented in silicon? If yes -
+> > what makes these "FW statistics"? Does the FW collect them from   
+> 
+> The statistics are maintained / updated by firmware and thus the name.
+> 
+> Preemption is implemented partially in both the hardware and firmware.
+> The STATE MACHINE for preemption is in the firmware. The decision to
+> when to PREEMEPT / ASSEMBLE a packet is made in firmware.
+> 
+> These preemption statistics are updated by the firmware based on the
+> action performed by the firmware. Driver can read these to know the
+> statistics of preemption. These stats will be able used by
+> ethtool_mm_stats once the support for Preemption is added in the driver.
 
-U-Boot will consume this binding in order to perform the
-necessary actions to enable the USB hub ports over I2C.
-(We previously used our own out-of-tree driver for
-this task)
+That was going to be my next question. If the statistic is suitable 
+for a standard interface it should not be reported via ethtool -S.
 
-The Ten64 board does not have any switchable supplies
-for the voltage rails utilized by the USB5744, so a
-pair of dummy supplies have been added to facilitate
-operation with U-Boot's hub driver.
+Please leave the stats for unimplemented features out.
 
-Signed-off-by: Mathew McBride <matt@traverse.com.au>
----
-Changes in v2:
- - provide unique node names for the two regulators
- - remove unnecessary newline under &usb1
----
- .../boot/dts/freescale/fsl-ls1088a-ten64.dts  | 44 +++++++++++++++++++
- 1 file changed, 44 insertions(+)
+> >> +/* Incremented if a packet is dropped at PRU because of a rule violation */
+> >> +#define FW_DROPPED_PKT		0x00F8  
+> > 
+> > Instead of adding comments here please add a file under
+> > Documentation/networking/device_drivers/ with the explanations.
+> > That's far more likely to be discovered by users, no?  
+> 
+> Sure I will drop these MACRO comments and create a .rst file in
+> Documentation/networking/device_drivers/
+> 
+> One question though, should I create a table for the stats and it's
+> description or should I create a section for each stats?
+> 
+> Something like this,
+> 
+> FW_RTU_PKT_DROP
+> ---------------
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-index bc0d89427fbe5..3a11068f2212f 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a-ten64.dts
-@@ -87,6 +87,22 @@ sfp_xg1: dpmac1-sfp {
- 		los-gpios = <&sfpgpio 7 GPIO_ACTIVE_HIGH>;
- 		maximum-power-milliwatt = <2000>;
- 	};
-+
-+	usb1v2_supply: regulator-usbhub-1v2 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usbhub_1v2";
-+		regulator-min-microvolt = <1200000>;
-+		regulator-max-microvolt = <1200000>;
-+		regulator-always-on;
-+	};
-+
-+	system3v3_supply: regulator-system-3v3 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "system_3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		regulator-always-on;
-+	};
- };
- 
- /* XG1 - Upper SFP */
-@@ -231,6 +247,12 @@ at97sc: tpm@29 {
- 		compatible = "atmel,at97sc3204t";
- 		reg = <0x29>;
- 	};
-+
-+	usbhub: usb-hub@2d {
-+		compatible = "microchip,usb5744";
-+		reg = <0x2d>;
-+	};
-+
- };
- 
- &i2c2 {
-@@ -378,10 +400,32 @@ partition@9400000 {
- 	};
- };
- 
-+/* LS1088A USB Port 0 - direct to bottom USB-A port */
- &usb0 {
- 	status = "okay";
- };
- 
-+/* LS1088A USB Port 1 - to Microchip USB5744 USB Hub */
- &usb1 {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
- 	status = "okay";
-+
-+	hub_2_0: hub@1 {
-+		compatible = "usb424,2744";
-+		reg = <1>;
-+		peer-hub = <&hub_3_0>;
-+		i2c-bus = <&usbhub>;
-+		vdd-supply = <&system3v3_supply>;
-+		vdd2-supply = <&usb1v2_supply>;
-+	};
-+
-+	hub_3_0: hub@2 {
-+		compatible = "usb424,5744";
-+		reg = <2>;
-+		peer-hub = <&hub_2_0>;
-+		i2c-bus = <&usbhub>;
-+		vdd-supply = <&system3v3_supply>;
-+		vdd2-supply = <&usb1v2_supply>;
-+	};
- };
--- 
-2.45.1
+Let's document the user-visible names! The strings from ethtool -S
 
+> Diagnostic error counter which increments when RTU drops a locally
+> injected packet due to port being disabled or rule violation.
+> 
+> Please let me know what do you think.
+
+Taking inspiration from:
+  Documentation/networking/device_drivers/ethernet/meta/fbnic.rst
+should be a safe choice, I hope.
 
