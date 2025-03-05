@@ -4,61 +4,138 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDEACC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:08:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01A05C282D9
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpP5VzmHnhmpv1KC/ukOAKaov/doI8zDkAQjguKSeqY=; b=SIpIrrSaXOMI/2cmAsQw9TOsXd
-	gXhKuPHtEUQdP8dzsUUyCoA7G6IuQzoMst9Z0pDz6hQSpriTs7Kh7Mykxdu0Bs8Ykld+HHa87KoCp
-	X8J2XOANRiqzzeOelZVOBEWMWIkMnRXSGavSypCyBa05BkiZMq/w+K+btdINYpWM+Z6mVcuJ7gSFz
-	l4cT7NMGpqOmm+qnqoST+GbaOGbMViI7qGWPkJ+39epZvpiFJUC4VqLyH7SC85WT1Z6OMcfUuzcLm
-	Y+njSzqm2LZUpagbCf15L2jGn+7O1GI37TN0WL05jg1KMzpmRdf2RuBvGXFW80heBl+KfUN1B0lwD
-	ik50N6Eg==;
+	bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=; b=QMgv5BcXgMCLULx8lfJjlEW4Ol
+	hwalPkGIN7aOVrmRiu+Pn1MrIK/l/CNH965BeEVH1zzaJRVZEGqPJcbNqOtN5Pe18dAW53v6Y2UfX
+	UCBvsRtpC1r20yscQxriAaaa5U14eIhlDZGfNgO7cdY5kgnEikZku/31kRKY8/+wze/CpZAp2hfIr
+	nEffMux6Pdqf9Lfs4t8qeHUvESmuNx+9BziCg+FKIcGqPExaeBKEJr9++COGZOLQDn8oyZDgG9sGu
+	fwVGlBwGnlS/CF48J/AHrgYC70aJPCDv1FqMCOoyMNAqic2xbS+8wFFZqc6W4/4m5nDxtxJy15nug
+	jEe2d3AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphva-000000075I3-0GIS;
-	Wed, 05 Mar 2025 06:08:22 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tpi1t-000000076B5-0RXp;
+	Wed, 05 Mar 2025 06:14:53 +0000
+Received: from mail-bn8nam04on2062d.outbound.protection.outlook.com ([2a01:111:f403:2408::62d] helo=NAM04-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tphtz-000000075Av-0gNU
+	id 1tpgwq-00000006znB-1V0P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 06:06:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8A6445C2387;
-	Wed,  5 Mar 2025 06:04:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 15277C4CEE2;
-	Wed,  5 Mar 2025 06:06:30 +0000 (UTC)
-Date: Wed, 5 Mar 2025 11:36:07 +0530
-From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-To: Bo Sun <Bo.Sun.CN@windriver.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Kexin.Hao@windriver.com,
-	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
-	Will Deacon <will@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Vidya Sagar <vidyas@nvidia.com>
-Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
- PCI_PROBE_ONLY is enabled
-Message-ID: <20250305060607.ygsafql53h2ujwjp@thinkpad>
-References: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
- <20250210103707.c5ubeaowk7xwt6p5@thinkpad>
- <df5d3c54-d436-43bb-8b40-665c020d6bb5@windriver.com>
- <20250214170057.o3ffoiuxn4hxqqqe@thinkpad>
- <55a33534-bff0-488c-a2a2-2898d54bd62f@windriver.com>
+	Wed, 05 Mar 2025 05:05:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=w0uKKX/zIRrNDdD2AvdDYFktfNeu1cHU4RNKiZ7BRHHLPKh2C5T0oj2G6vFRlJ6A4btNCetBdVs/L9C2Fhe3HsZkPs/sZ6jEbQACX9VFbcZr63/Ergo0ZrmM3b3UwmzCuNi4LT04NBeofIuC+BoMM/lwUHqoymD5xbrpoWxAMwn8BJCLABA216edTFD8M7uJQm8B+S5JDz+FrkLplzJsY++MfucNBxUcYsX7ALpt8KIBcT3XdmjX54VlcJvz/W/AkdF+BG3XtrYsFv4NV3V+PERlzqr6/66IPpJEwW3fxsOyxhPICsrq6WAtsdMnj5Bv80vdTt5Qyump1/oEh5OW+w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=;
+ b=azKX0uHwMa2NeI6F5vDl5p6akIFiEIL2v14CFfyRcRFw+EW8Us05Xd5oOMwToHjhElrb9iP1Uo7iKbjN7Q7iYxWtgpDjfijGXCGovc/1+qtr5x4hONTz8V3wHvbC1w3ardDFU7PBpVFOLKZVf3ANyAMtTDAv7ExkGyhHOUED7ai/6Xx54QSV9FOWpgZbhc/9mgZN/uGeSXxHMSa7Nvc7Ri5pHtTjRwgbwZFF4jt+Z49leRZjtdn0AjToBigKGgGCnUxeDU3jgAYeHcLeh4tErO/cbDjw3D44TzwnifFUMU1iA399SP56vB6+c+7WwZA3hurQL6ALddxiI9otdusOkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.161) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ruYzaTpM9J/zVyibxyW+peoybS3z1nHGWcTq1aPHWDs=;
+ b=SBsaPZGBl9GEsL8sZC1ONnRKizxXq01caJPIDTznYzhcJD2WRKeprMlEbXBUcEGjUnPksvajYHzY41koeFq2nc1HY4loeTi4xcbCOd4L5WHnhLTDo/4fDGrw4QGJU8m31ZWfSHJctFYPzvLXagqxbjrA8vAyNeNgetQt2wSL+xy63iLdK30iY4Ty8J6BZQNjOAJrC0v68VXNY0Zp6Chaxk++oG6urzfV+s1+uEhqlKRGvWmuRNpmrQooEjh1OU+L6aUmJiLa8UCqf/HpgXBuVi5nKTytR1Y2uOtojH9Q2F/LCsAeyIzKv2B7zLyS0xKRqZ8eh9Q9uDxz03FFpg0Llw==
+Received: from CH0P221CA0045.NAMP221.PROD.OUTLOOK.COM (2603:10b6:610:11d::15)
+ by DS7PR12MB9042.namprd12.prod.outlook.com (2603:10b6:8:ed::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Wed, 5 Mar
+ 2025 05:05:26 +0000
+Received: from CH2PEPF00000144.namprd02.prod.outlook.com
+ (2603:10b6:610:11d:cafe::e2) by CH0P221CA0045.outlook.office365.com
+ (2603:10b6:610:11d::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.16 via Frontend Transport; Wed,
+ 5 Mar 2025 05:05:26 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.161)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.161 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.161; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.161) by
+ CH2PEPF00000144.mail.protection.outlook.com (10.167.244.101) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 05:05:26 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.67) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 4 Mar 2025
+ 21:05:11 -0800
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 4 Mar
+ 2025 21:05:10 -0800
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server id 15.2.1544.14 via Frontend
+ Transport; Tue, 4 Mar 2025 21:05:10 -0800
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <will@kernel.org>, <robin.murphy@arm.com>, <jgg@nvidia.com>
+CC: <joro@8bytes.org>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<shameerali.kolothum.thodi@huawei.com>
+Subject: [PATCH v1 3/4] iommu/arm-smmu-v3: Decouple vmid from S2 nest_parent domain
+Date: Tue, 4 Mar 2025 21:04:02 -0800
+Message-ID: <0429d554fb0f54f6d79bdacacb3fb3e7877ca8f7.1741150594.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1741150594.git.nicolinc@nvidia.com>
+References: <cover.1741150594.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <55a33534-bff0-488c-a2a2-2898d54bd62f@windriver.com>
+Content-Type: text/plain
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH2PEPF00000144:EE_|DS7PR12MB9042:EE_
+X-MS-Office365-Filtering-Correlation-Id: fdb02c97-c2c9-4a86-ec22-08dd5ba35793
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|376014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?2HgBz2cjhQOeN+W10ySEbQSbft73lT2dWPh+4LNCzB8cFcbWesrieCtneG0L?=
+ =?us-ascii?Q?6v5G7daOL7V9pEWfMtTWHPMpNBg0dzS30V3iNZpXvI6eDLz4APhZrN+93eL9?=
+ =?us-ascii?Q?9HMKUE9wcJROHtpx1yEA8Og9sikKaCL3PuU5/B42tB3Oule6zNsZqML7p2BJ?=
+ =?us-ascii?Q?ZBKkNFTy80mWR6lZuB47kvkITe+Xejcb3Dr/T9GqzacNJ8k6zhQUvxk6m39X?=
+ =?us-ascii?Q?aGlR7V7oenQu//+1ZkOzu5sxYQ85SjozZbFpKR8uUktdJDIq9maCx6Tl9aXc?=
+ =?us-ascii?Q?4SJzuv3alKstjpRYIWBKSOLxdIZgP8V/pyQdkYGl3FkynmNifns4Hx5O7hBa?=
+ =?us-ascii?Q?M9qtwvXisfuxk59aRFIC9EVq6EIXRnSbF479QREimnUPppyUv7sUEjZStauI?=
+ =?us-ascii?Q?rAK6ZWB+b6/4Od5BHJ7EjzoXgqHtPpaRVsA0FjXt6hJpqp/hZK4u97wg/yfi?=
+ =?us-ascii?Q?Lcd23BS1PGuVs6mQO4ATxIsKF44V1L+6MmD/4KcorFcEaQS3ZPP77ovbwuhI?=
+ =?us-ascii?Q?ba1WG5r2P+OwQ1k6erxUs8qMC8DkmxFcvXXEVYGC4RUxW8UoT2tK30qaE/e4?=
+ =?us-ascii?Q?tnWphNT/QWKq4IzkfBz0+qi972SqlRIlj76B1s7EsX+WXAF87FW7i8EN0vt3?=
+ =?us-ascii?Q?EQ1pZZTjtVjA6WfU+4VDaXSisdnRUHPjNc3XLX313Ug89cO8XE8DH9tsNFb4?=
+ =?us-ascii?Q?WAtDRkSowWwf55a074ENRXsliaudDxrha8V9oIzhhma2yayKDcAjvIYlHYuo?=
+ =?us-ascii?Q?RO+nj4K4jZCCiM8EwLjZxx2qIX1i2oPpUOtwOoBWPIqVd+xTuMSDMQgmE1YJ?=
+ =?us-ascii?Q?qsrFWCmFxLlTtRlB8mirqG4QL2xPQcbAeY0nOsyZTI8FVexdaRM1IzBXqUaj?=
+ =?us-ascii?Q?pVAg/KiZ1+/ACrD7oHblx+i4tf1EWBfIQWA1PIYHdXTOhur0JlHUpmWVMcPY?=
+ =?us-ascii?Q?/46pvj4G9iyRPp26BJusYWIZAInyvjI6mtJJC2itW83u8jQXBayc1TrHzgl0?=
+ =?us-ascii?Q?M/vjOtm3QO70vmeyNFwpr8t5+DcecO3FmF7uvMmqcfq8ppzAVwb3u9Mozgde?=
+ =?us-ascii?Q?AzCLPd5JeBjj5o5XLcas/aVp4YgiREX2sW/RGNadUKu0CuOzpNJDXxTy0hFi?=
+ =?us-ascii?Q?agjxfzRtznL9/Vk312bTSnJSWcF05OkfmV2pPNRT+Vsxh302MQMeQ3CSKFL+?=
+ =?us-ascii?Q?xGx9W3KFf04QQ+h+oTWqY0I0rCoEqHISA/X5Gc1f00HNlHrAZLdArVZXPPNI?=
+ =?us-ascii?Q?uxutNQwO/QNCjG5K7jMx2nu6tUDB+O0dWS3d9C2dSnh5Uj0TQj9mecJ1Xh8o?=
+ =?us-ascii?Q?9KIcoKm4TDHgdHLiVBnqKy6H0CAw8rqcXjL1i3l5QLp5xM+kTdN1q7CrC6yZ?=
+ =?us-ascii?Q?OPM/T3SWgy5sfQAaQkFtnYDDP5/dG5uVHcbeyyKWRrV91uuqwJ3QvO8YUyIz?=
+ =?us-ascii?Q?MM0M4k/BqY4mw05KO+T6whyZwWuKL0iGpe/v0m+g7aF7lAIw5bLUAt70/6qe?=
+ =?us-ascii?Q?Q78828xYgM1VBBA=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.161;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge2.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(376014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 05:05:26.2024
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: fdb02c97-c2c9-4a86-ec22-08dd5ba35793
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.161];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: CH2PEPF00000144.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB9042
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_220643_305960_89F322A1 
-X-CRM114-Status: GOOD (  51.99  )
+X-CRM114-CacheID: sfid-20250304_210536_524402_D8541267 
+X-CRM114-Status: GOOD (  21.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,272 +150,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 07:58:10PM +0800, Bo Sun wrote:
-> On 2/15/25 1:00 AM, Manivannan Sadhasivam wrote:
-> > CAUTION: This email comes from a non Wind River email account!
-> > Do not click links or open attachments unless you recognize the sender and know the content is safe.
-> > 
-> > On Wed, Feb 12, 2025 at 03:07:56PM +0800, Bo Sun wrote:
-> > > On 2/10/25 18:37, Manivannan Sadhasivam wrote:
-> > > > CAUTION: This email comes from a non Wind River email account!
-> > > > Do not click links or open attachments unless you recognize the sender and know the content is safe.
-> > > > 
-> > > > On Fri, Jan 17, 2025 at 04:24:14PM +0800, Bo Sun wrote:
-> > > > > On our Marvell OCTEON CN96XX board, we observed the following panic on
-> > > > > the latest kernel:
-> > > > > Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
-> > > > > Mem abort info:
-> > > > >     ESR = 0x0000000096000005
-> > > > >     EC = 0x25: DABT (current EL), IL = 32 bits
-> > > > >     SET = 0, FnV = 0
-> > > > >     EA = 0, S1PTW = 0
-> > > > >     FSC = 0x05: level 1 translation fault
-> > > > > Data abort info:
-> > > > >     ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-> > > > >     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-> > > > >     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-> > > > > [0000000000000080] user address but active_mm is swapper
-> > > > > Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
-> > > > > Modules linked in:
-> > > > > CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
-> > > > > Hardware name: Marvell OcteonTX CN96XX board (DT)
-> > > > > pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> > > > > pc : of_pci_add_properties+0x278/0x4c8
-> > > > > lr : of_pci_add_properties+0x258/0x4c8
-> > > > > sp : ffff8000822ef9b0
-> > > > > x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
-> > > > > x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
-> > > > > x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
-> > > > > x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
-> > > > > x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
-> > > > > x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
-> > > > > x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
-> > > > > x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
-> > > > > x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
-> > > > > x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
-> > > > > Call trace:
-> > > > >    of_pci_add_properties+0x278/0x4c8 (P)
-> > > > >    of_pci_make_dev_node+0xe0/0x158
-> > > > >    pci_bus_add_device+0x158/0x210
-> > > > >    pci_bus_add_devices+0x40/0x98
-> > > > >    pci_host_probe+0x94/0x118
-> > > > >    pci_host_common_probe+0x120/0x1a0
-> > > > >    platform_probe+0x70/0xf0
-> > > > >    really_probe+0xb4/0x2a8
-> > > > >    __driver_probe_device+0x80/0x140
-> > > > >    driver_probe_device+0x48/0x170
-> > > > >    __driver_attach+0x9c/0x1b0
-> > > > >    bus_for_each_dev+0x7c/0xe8
-> > > > >    driver_attach+0x2c/0x40
-> > > > >    bus_add_driver+0xec/0x218
-> > > > >    driver_register+0x68/0x138
-> > > > >    __platform_driver_register+0x2c/0x40
-> > > > >    gen_pci_driver_init+0x24/0x38
-> > > > >    do_one_initcall+0x4c/0x278
-> > > > >    kernel_init_freeable+0x1f4/0x3d0
-> > > > >    kernel_init+0x28/0x1f0
-> > > > >    ret_from_fork+0x10/0x20
-> > > > > Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
-> > > > > 
-> > > > > This regression was introduced by commit 7246a4520b4b ("PCI: Use
-> > > > > preserve_config in place of pci_flags"). On our board, the 002:00:07.0
-> > > > > bridge is misconfigured by the bootloader. Both its secondary and
-> > > > > subordinate bus numbers are initialized to 0, while its fixed secondary
-> > > > > bus number is set to 8.
-> > > > 
-> > > > What do you mean by 'fixed secondary bus number'?
-> > > > 
-> > > 
-> > > The 'fixed secondary bus number' refers to the value returned by the
-> > > function pci_ea_fixed_busnrs(), which reads the fixed Secondary and
-> > > Subordinate bus numbers from the EA (Extended Attributes) capability, if
-> > > present.
-> > 
-> > Thanks! It'd be good to mention the EA capability.
-> > 
-> > > In the code at drivers/pci/probe.c, line 1439, we have the
-> > > following:
-> > > 
-> > >                /* Read bus numbers from EA Capability (if present) */
-> > >                fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
-> > >                if (fixed_buses)
-> > >                        next_busnr = fixed_sec;
-> > >                else
-> > >                        next_busnr = max + 1;
-> > > 
-> > > > > However, bus number 8 is also assigned to another
-> > > > > bridge (0002:00:0f.0). Although this is a bootloader issue, before the
-> > > > > change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
-> > > > > set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
-> > > > > bus number for these bridges were reassigned, avoiding any conflicts.
-> > > > > 
-> > > > 
-> > > > Isn't the opposite? PCI_REASSIGN_ALL_BUS was only added if the PCI_PROBE_ONLY
-> > > > flag was not set:
-> > > > 
-> > > >           /* Do not reassign resources if probe only */
-> > > >           if (!pci_has_flag(PCI_PROBE_ONLY))
-> > > >                   pci_add_flags(PCI_REASSIGN_ALL_BUS);
-> > > > 
-> > > 
-> > > Yes, you are correct. It’s a typo; it should be "when PCI_PROBE_ONLY was not
-> > > enabled." I will fix this in v2.
-> > > 
-> > > > 
-> > > > > After the change introduced in commit 7246a4520b4b, the bus numbers
-> > > > > assigned by the bootloader are reused by all other bridges, except
-> > > > > the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
-> > > > > 002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
-> > > > > bootloader. However, since a pci_bus has already been allocated for
-> > > > > bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
-> > > > > 002:00:07.0.
-> > > > 
-> > > > How come 0002:00:0f.0 is enumerated before 0002:00:07.0 in a depth first manner?
-> > > > 
-> > > 
-> > > The device 0002:00:07.0 is actually enumerated before 0002:00:0f.0, but it
-> > > appears misconfigured. The kernel attempts to reconfigure it during
-> > > initialization, which is where the issue arises.
-> > > 
-> > 
-> > Ok, thanks for the clarification. I think the bug is in this part of the code:
-> > https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/drivers/pci/probe.c#n1451
-> > 
-> > It just reuses the fixed bus number even if the bus already exists, which is
-> > wrong. I think this should be fixed by evaluating the bus number read from EA
-> > capability as below:
-> > 
-> > diff --git a/drivers/pci/probe.c b/drivers/pci/probe.c
-> > index b6536ed599c3..097e2a01faae 100644
-> > --- a/drivers/pci/probe.c
-> > +++ b/drivers/pci/probe.c
-> > @@ -1438,10 +1438,21 @@ static int pci_scan_bridge_extend(struct pci_bus *bus, struct pci_dev *dev,
-> > 
-> >                  /* Read bus numbers from EA Capability (if present) */
-> >                  fixed_buses = pci_ea_fixed_busnrs(dev, &fixed_sec, &fixed_sub);
-> > -               if (fixed_buses)
-> > -                       next_busnr = fixed_sec;
-> > -               else
-> > +               if (fixed_buses) {
-> > +                       /*
-> > +                        * If the fixed bus number is already taken, use the
-> > +                        * next available bus number. This can happen if the
-> > +                        * bootloader has assigned a wrong bus number in EA
-> > +                        * capability of the bridge.
-> > +                        */
-> > +                       child = pci_find_bus(pci_domain_nr(bus), fixed_sec);
-> > +                       if (child)
-> > +                               next_busnr = max + 1;
-> > +                       else
-> > +                               next_busnr = fixed_sec;
-> > +               } else {
-> >                          next_busnr = max + 1;
-> > +               }
-> > 
-> >                  /*
-> >                   * Prevent assigning a bus number that already exists.
-> 
-> You proposed solution doesn't work on our Marvell OCTEON CN96XX board.
-> 
-> When probing the bus 0002:00, the bus number preset by the bootloader for
-> the bridges under this bus start with 0xf9. Before configure of
-> 0002:00:07.0, the 'max' bus number has already reached 0xff. With your
-> proposed fix, the next_busnr is set to (0xff + 1), which evaluate to 0x100.
-> This results in a 0 being assigned to the secondary bus number of
-> 0002:00:07.0 bridge, causing a recursive bus probe.
-> 
+An S2 nest_parent domain can be shared across vSMMUs in the same VM, since
+the S2 domain is basically the IPA mappings for the entire RAM of the VM.
 
-Oops. This is turning out to be too much of a problem.
+Meanwhile, each vSMMU can have its own VMID, so the VMID allocation should
+be done per vSMMU instance v.s. per S2 nest_parent domain.
 
-> For reference, you can take a look at the code in probe.c and the
-> corresponding log.
-> 
->     pci_read_config_dword(dev, PCI_PRIMARY_BUS, &buses);
-> 
->     primary = buses & 0xFF;
-> 
->     secondary = (buses >> 8) & 0xFF;
-> 
->     subordinate = (buses >> 16) & 0xFF;
-> 
-> 
->     pci_dbg(dev, "scanning [bus %02x-%02x] behind bridge, pass %d\n",
-> 
->         secondary, subordinate, pass);
-> 
-> pci_bus 0002:00: fixups for bus
-> pci 0002:00:00.0: scanning [bus f9-f9] behind bridge, pass 0
-> pci_bus 0002:f9: scanning bus
-> pci_bus 0002:f9: fixups for bus
-> pci_bus 0002:f9: bus scan returning with max=f9
-> ...
-> pci 0002:00:06.0: scanning [bus ff-ff] behind bridge, pass 0
-> pci_bus 0002:ff: scanning bus
-> pci_bus 0002:ff: fixups for bus
-> pci_bus 0002:ff: bus scan returning with max=ff
-> pci 0002:00:07.0: scanning [bus 00-00] behind bridge, pass 0
-> pci 0002:00:07.0: bridge configuration invalid ([bus 00-00]), reconfiguring
-> ...
-> Kernel panic - not syncing: kernel stack overflow
-> CPU: 12 UID: 0 PID: 1 Comm: swapper/0 Not tainted
-> 6.14.0-rc4-00091-ga58485af8826 #16
-> Hardware name: Marvell OcteonTX CN96XX board (DT)
-> Call trace:
->  show_stack+0x20/0x38 (C)
->  dump_stack_lvl+0x38/0x90
->  dump_stack+0x18/0x28
->  panic+0x3ac/0x3c8
->  nmi_panic+0x48/0xa0
->  panic_bad_stack+0x118/0x140
->  handle_bad_stack+0x34/0x38
->  __bad_stack+0x80/0x88
->  format_decode+0x4/0x2e8 (P)
->  va_format.constprop.0+0x74/0x130
->  pointer+0x204/0x4f8
->  vsnprintf+0x2c4/0x5a0
->  vscnprintf+0x34/0x58
->  printk_sprint+0x48/0x170
->  vprintk_store+0x2d0/0x478
->  vprintk_emit+0xb0/0x2b0
->  dev_vprintk_emit+0xe0/0x1b0
->  dev_printk_emit+0x60/0x90
->  __dev_printk+0x44/0x98
->  _dev_printk+0x5c/0x90
->  pci_scan_child_bus_extend+0x5c/0x2c0
->  pci_scan_bridge_extend+0x16c/0x630
->  pci_scan_child_bus_extend+0xfc/0x2c0
->  pci_scan_bridge_extend+0x320/0x630
->  pci_scan_child_bus_extend+0x1b0/0x2c0
->  pci_scan_bridge_extend+0x320/0x630
-> 
-> So, I propose the following solution as a workaround to handle these edge
-> cases.
-> 
-> diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
-> index 82b21e34c545..af8efebc7e7d 100644
-> --- a/drivers/pci/quirks.c
-> +++ b/drivers/pci/quirks.c
-> @@ -6181,6 +6181,13 @@ DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1536,
-> rom_bar_overlap_defect);
->  DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1537,
-> rom_bar_overlap_defect);
->  DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1538,
-> rom_bar_overlap_defect);
-> 
-> +static void quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr(struct pci_dev
-> *dev)
-> +{
-> +       if (!pci_has_flag(PCI_PROBE_ONLY))
-> +               pci_add_flags(PCI_REASSIGN_ALL_BUS);
-> +}
-> +DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_CAVIUM, 0xa002,
-> quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr);
-> +
+However, an S2 domain can be also allocated when a physical SMMU instance
+doesn't support S1. So, the structure has to retain the s2_cfg and vmid.
 
-LGTM. Please add a comment about this quirk too.
+Allocate a vmid for a vSMMU instance in arm_vsmmu_alloc() and add a proper
+arm_vsmmu_destroy() to clean it up.
 
-- Mani
+Add a per-domain "vsmmus" list pairing with a spinlock, maintaining a list
+on the S2 parent domain, to iterate S2 invalidations over the vmids across
+the vSMMU instances created for the same VM.
 
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
+---
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 10 +++-
+ .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 35 ++++++++++++--
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 47 +++++++++++++++----
+ 3 files changed, 79 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+index 3336d196062c..1f6696bc4f6c 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+@@ -849,8 +849,12 @@ struct arm_smmu_domain {
+ 
+ 	enum arm_smmu_domain_stage	stage;
+ 	union {
+-		struct arm_smmu_ctx_desc	cd;
+-		struct arm_smmu_s2_cfg		s2_cfg;
++		struct arm_smmu_ctx_desc cd;	/* S1 */
++		struct arm_smmu_s2_cfg s2_cfg;	/* S2 && !nest_parent */
++		struct {			/* S2 && nest_parent */
++			struct list_head list;
++			spinlock_t lock;
++		} vsmmus;
+ 	};
+ 
+ 	struct iommu_domain		domain;
+@@ -1049,6 +1053,8 @@ struct arm_vsmmu {
+ 	struct arm_smmu_device *smmu;
+ 	struct arm_smmu_domain *s2_parent;
+ 	u16 vmid;
++
++	struct list_head vsmmus_elm; /* arm_smmu_domain::vsmmus::list */
+ };
+ 
+ #if IS_ENABLED(CONFIG_ARM_SMMU_V3_IOMMUFD)
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+index ff8b550159f2..2c5a9d0abed5 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
+@@ -30,6 +30,23 @@ void *arm_smmu_hw_info(struct device *dev, u32 *length, u32 *type)
+ 	return info;
+ }
+ 
++static void arm_vsmmu_destroy(struct iommufd_viommu *viommu)
++{
++	struct arm_vsmmu *vsmmu = container_of(viommu, struct arm_vsmmu, core);
++	struct arm_smmu_device *smmu = vsmmu->smmu;
++	struct arm_smmu_cmdq_ent cmd = {
++		.opcode = CMDQ_OP_TLBI_S12_VMALL,
++		.tlbi.vmid = vsmmu->vmid,
++	};
++	unsigned long flags;
++
++	spin_lock_irqsave(&vsmmu->s2_parent->vsmmus.lock, flags);
++	list_del(&vsmmu->vsmmus_elm);
++	spin_unlock_irqrestore(&vsmmu->s2_parent->vsmmus.lock, flags);
++	arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
++	ida_free(&smmu->vmid_map, vsmmu->vmid);
++}
++
+ static void arm_smmu_make_nested_cd_table_ste(
+ 	struct arm_smmu_ste *target, struct arm_smmu_master *master,
+ 	struct arm_smmu_nested_domain *nested_domain, bool ats_enabled)
+@@ -337,6 +354,7 @@ static int arm_vsmmu_cache_invalidate(struct iommufd_viommu *viommu,
+ }
+ 
+ static const struct iommufd_viommu_ops arm_vsmmu_ops = {
++	.destroy = arm_vsmmu_destroy,
+ 	.alloc_domain_nested = arm_vsmmu_alloc_domain_nested,
+ 	.cache_invalidate = arm_vsmmu_cache_invalidate,
+ };
+@@ -351,6 +369,8 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+ 	struct arm_smmu_master *master = dev_iommu_priv_get(dev);
+ 	struct arm_smmu_domain *s2_parent = to_smmu_domain(parent);
+ 	struct arm_vsmmu *vsmmu;
++	unsigned long flags;
++	int vmid;
+ 
+ 	if (viommu_type != IOMMU_VIOMMU_TYPE_ARM_SMMUV3)
+ 		return ERR_PTR(-EOPNOTSUPP);
+@@ -381,15 +401,24 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
+ 	    !(smmu->features & ARM_SMMU_FEAT_S2FWB))
+ 		return ERR_PTR(-EOPNOTSUPP);
+ 
++	vmid = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
++			       GFP_KERNEL);
++	if (vmid < 0)
++		return ERR_PTR(vmid);
++
+ 	vsmmu = iommufd_viommu_alloc(ictx, struct arm_vsmmu, core,
+ 				     &arm_vsmmu_ops);
+-	if (IS_ERR(vsmmu))
++	if (IS_ERR(vsmmu)) {
++		ida_free(&smmu->vmid_map, vmid);
+ 		return ERR_CAST(vsmmu);
++	}
+ 
+ 	vsmmu->smmu = smmu;
++	vsmmu->vmid = (u16)vmid;
+ 	vsmmu->s2_parent = s2_parent;
+-	/* FIXME Move VMID allocation from the S2 domain allocation to here */
+-	vsmmu->vmid = s2_parent->s2_cfg.vmid;
++	spin_lock_irqsave(&s2_parent->vsmmus.lock, flags);
++	list_add_tail(&vsmmu->vsmmus_elm, &s2_parent->vsmmus.list);
++	spin_unlock_irqrestore(&s2_parent->vsmmus.lock, flags);
+ 
+ 	return &vsmmu->core;
+ }
+diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+index 0462eb1b2912..addc6308742b 100644
+--- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
++++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+@@ -2249,10 +2249,22 @@ static void arm_smmu_tlb_inv_context(void *cookie)
+ 	 */
+ 	if (smmu_domain->stage == ARM_SMMU_DOMAIN_S1) {
+ 		arm_smmu_tlb_inv_asid(smmu, smmu_domain->cd.asid);
+-	} else {
++	} else if (!smmu_domain->nest_parent) {
+ 		cmd.opcode	= CMDQ_OP_TLBI_S12_VMALL;
+ 		cmd.tlbi.vmid	= smmu_domain->s2_cfg.vmid;
+ 		arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
++	} else {
++		struct arm_vsmmu *vsmmu, *next;
++		unsigned long flags;
++
++		cmd.opcode = CMDQ_OP_TLBI_S12_VMALL;
++		spin_lock_irqsave(&smmu_domain->vsmmus.lock, flags);
++		list_for_each_entry_safe(vsmmu, next, &smmu_domain->vsmmus.list,
++					 vsmmus_elm) {
++			cmd.tlbi.vmid = vsmmu->vmid;
++			arm_smmu_cmdq_issue_cmd_with_sync(smmu, &cmd);
++		}
++		spin_unlock_irqrestore(&smmu_domain->vsmmus.lock, flags);
+ 	}
+ 	arm_smmu_atc_inv_domain(smmu_domain, 0, 0);
+ }
+@@ -2342,19 +2354,33 @@ static void arm_smmu_tlb_inv_range_domain(unsigned long iova, size_t size,
+ 		cmd.opcode	= smmu_domain->smmu->features & ARM_SMMU_FEAT_E2H ?
+ 				  CMDQ_OP_TLBI_EL2_VA : CMDQ_OP_TLBI_NH_VA;
+ 		cmd.tlbi.asid	= smmu_domain->cd.asid;
+-	} else {
++		__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
++					 smmu_domain);
++	} else if (!smmu_domain->nest_parent) {
+ 		cmd.opcode	= CMDQ_OP_TLBI_S2_IPA;
+ 		cmd.tlbi.vmid	= smmu_domain->s2_cfg.vmid;
+-	}
+-	__arm_smmu_tlb_inv_range(&cmd, iova, size, granule, smmu_domain);
++		__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
++					 smmu_domain);
++	} else {
++		struct arm_vsmmu *vsmmu, *next;
++		unsigned long flags;
+ 
+-	if (smmu_domain->nest_parent) {
+ 		/*
+ 		 * When the S2 domain changes all the nested S1 ASIDs have to be
+ 		 * flushed too.
+ 		 */
+ 		cmd.opcode = CMDQ_OP_TLBI_NH_ALL;
+ 		arm_smmu_cmdq_issue_cmd_with_sync(smmu_domain->smmu, &cmd);
++
++		cmd.opcode = CMDQ_OP_TLBI_S2_IPA;
++		spin_lock_irqsave(&smmu_domain->vsmmus.lock, flags);
++		list_for_each_entry_safe(vsmmu, next, &smmu_domain->vsmmus.list,
++					 vsmmus_elm) {
++			cmd.tlbi.vmid = vsmmu->vmid;
++			__arm_smmu_tlb_inv_range(&cmd, iova, size, granule,
++						 smmu_domain);
++		}
++		spin_unlock_irqrestore(&smmu_domain->vsmmus.lock, flags);
+ 	}
+ 
+ 	/*
+@@ -2477,7 +2503,7 @@ static void arm_smmu_domain_free_paging(struct iommu_domain *domain)
+ 		mutex_lock(&arm_smmu_asid_lock);
+ 		xa_erase(&arm_smmu_asid_xa, smmu_domain->cd.asid);
+ 		mutex_unlock(&arm_smmu_asid_lock);
+-	} else {
++	} else if (!smmu_domain->nest_parent) {
+ 		struct arm_smmu_s2_cfg *cfg = &smmu_domain->s2_cfg;
+ 		if (cfg->vmid)
+ 			ida_free(&smmu->vmid_map, cfg->vmid);
+@@ -2506,7 +2532,10 @@ static int arm_smmu_domain_finalise_s2(struct arm_smmu_device *smmu,
+ 				       struct arm_smmu_domain *smmu_domain)
+ {
+ 	int vmid;
+-	struct arm_smmu_s2_cfg *cfg = &smmu_domain->s2_cfg;
++
++	/* nest_parent stores vmid in vSMMU instead of a shared S2 domain */
++	if (smmu_domain->nest_parent)
++		return 0;
+ 
+ 	/* Reserve VMID 0 for stage-2 bypass STEs */
+ 	vmid = ida_alloc_range(&smmu->vmid_map, 1, (1 << smmu->vmid_bits) - 1,
+@@ -2514,7 +2543,7 @@ static int arm_smmu_domain_finalise_s2(struct arm_smmu_device *smmu,
+ 	if (vmid < 0)
+ 		return vmid;
+ 
+-	cfg->vmid	= (u16)vmid;
++	smmu_domain->s2_cfg.vmid = (u16)vmid;
+ 	return 0;
+ }
+ 
+@@ -3233,6 +3262,8 @@ arm_smmu_domain_alloc_paging_flags(struct device *dev, u32 flags,
+ 		}
+ 		smmu_domain->stage = ARM_SMMU_DOMAIN_S2;
+ 		smmu_domain->nest_parent = true;
++		INIT_LIST_HEAD(&smmu_domain->vsmmus.list);
++		spin_lock_init(&smmu_domain->vsmmus.lock);
+ 		break;
+ 	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING:
+ 	case IOMMU_HWPT_ALLOC_DIRTY_TRACKING | IOMMU_HWPT_ALLOC_PASID:
 -- 
-மணிவண்ணன் சதாசிவம்
+2.43.0
+
 
