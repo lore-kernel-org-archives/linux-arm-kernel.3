@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F363FC28B22
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02A7CC28B23
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 21:33:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,36 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WWbFZyQmx+peBp2XMPPS7NYrxQQOXmpBo+37f8UqiYY=; b=hfC1jQAW6aJ+LyAsS5kaU5TZHx
-	dTnYpU55xzD7Qo0dmV5pffOoIpvlnh2RJZL7uUnwVbQ531rRohkETwvORghg6gGUleC+KiNzEwpJ2
-	CXrYGIVaayPLFbQvJKhluRtG+thkRLB2lUrBuVdZM7LslQePf78mbAhWYsN0E2UAJ3XstCtzJmEGR
-	f4RViaSOhRKNKQnK20a44dLyXsarI/mccAGw5QiQzJHTOMG2c9iYQWjGXz2bZ0Q4vF2YbJXf8Bnlp
-	0W9C+61vZeVK7T6yF2fXAGuPXGHdxCImTtpFcwJRYl26HTkVlYfGX1rDujFadVdzFydcRQZxlkpYh
-	lKCZCGxg==;
+	bh=n8anoiPfCBp5xWCmHFsTQxkLpQEr2Bdhp1Zu8IeIq9M=; b=QPxEjpoLYz9Ho9kSZ534jbtJFc
+	brA1KBCwf1z9EAalzx/501DWMkzVVxJPDqKHTECXsw90euGq03DoqD7TCBLQlpjolQxcd0MWEW5DK
+	w8YF17AA3XOD+iiQZ6Vb+e8fDuoZdL2HnYuTDzWCKMKKr/oOR+FnccF65nJ8bnjhrzooS2pF3kqSx
+	Us5nHNOKOd23QRcE/kxi1Nla7yV0iGOcDE+pqBr/lz+WK7TvUHh57jS4MBwWZOS3knFUTM4NYzhg9
+	OeffEQQGRZpFih3S5bxVcCrwxR1rS6nqAQo05GkIuxMM6ZBawU1WoV3odIVa6c8QtMaIuzIZSBDm5
+	DdbYOsQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwNA-00000009MQI-3DwO;
-	Wed, 05 Mar 2025 21:33:48 +0000
+	id 1tpwN8-00000009MOx-3raW;
+	Wed, 05 Mar 2025 21:33:46 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpuhq-0000000979X-2G8o;
-	Wed, 05 Mar 2025 19:47:03 +0000
+	id 1tpugW-000000096uy-2i8i;
+	Wed, 05 Mar 2025 19:45:42 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 4879F20262;
-	Wed,  5 Mar 2025 20:47:01 +0100 (CET)
+	by disroot.org (Postfix) with ESMTP id A923E25198;
+	Wed,  5 Mar 2025 20:45:38 +0100 (CET)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id nYavXPYzK2LE; Wed,  5 Mar 2025 20:47:00 +0100 (CET)
+ id o9klg4k5iJZM; Wed,  5 Mar 2025 20:45:37 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741204020; bh=Cs0UXnmHDTiLw3nJGpRGirh1JgzPrpDVR6LfngssIoM=;
+	t=1741203937; bh=bL/x2ys+EM9SZYaqL9CiNuhB4mRB/IyUdJVwcVX0rig=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=gwirLofZWDZX5DLT57OCV/TyfjaJ9sAnYrPQXIJRqBPrDePDiBek8n/uhFRyCKWvW
-	 wtaP8GA3WE2MI6Db3AGyz/TBWWkT/N3JEl7ZJhQFQuYeoBH1LgFNeEJgrnhqtblLSx
-	 DhIW0oZ9AxgV7cu3rzFs47sepHnh+WdK/sa/Vjx8LFp4Hqr2kO57zjCouJtn47zGJ+
-	 D2qLQIrGfpNCy8fusBiT9i0g9RtYLHrfZO5cne7vnuJWCJVNBYdWlFP+CT/QM16tqs
-	 cfitqt/3IU2hNpBWvJ+PiGLeeCK0/pfcUm3XsTskSQIPmLk7BRcX7GHQdhxCnLFdU0
-	 WeuJ1cICDHYDA==
+	b=AjQKZBH9JtsZvyWpwgTJQCjvJxTXYFjSmX59M2TBawGd+6cjsa6Y2HqeKQmBhcN25
+	 qD71hl4Y8bzIei/fdqEMHOerI1pY0Yvb+GCJx/5DEa2sgAPuVz/ZPYEWnD5b1+0/Jc
+	 vAenVi1UGFegBG285MmVc775LS/OdvLnlz/CyOJa6ORfPk9BbTvZe4oCXycTrZev2p
+	 IahOk6c7oHhMNqgkpiuvNfgazCXnj8StRTNAFyrpUzlFIiYZ6bR3djuJ18R1U0Lfpt
+	 NNGv1tqKYbHzr2eYeLiidizAnysVu6cUWmczlc31YtGtSVoAsYBEPtUZMWE+xJ+NyA
+	 EniD8dg3XNHBQ==
 From: Yao Zi <ziyao@disroot.org>
 To: Ulf Hansson <ulf.hansson@linaro.org>,
 	Rob Herring <robh@kernel.org>,
@@ -62,17 +62,16 @@ Cc: linux-mmc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	linux-clk@vger.kernel.org,
 	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v2 8/8] arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
-Date: Wed,  5 Mar 2025 19:46:38 +0000
-Message-ID: <20250305194638.47187-1-ziyao@disroot.org>
+Subject: [PATCH v2 5/8] clk: rockchip: Support MMC clocks in GRF region
+Date: Wed,  5 Mar 2025 19:45:13 +0000
+Message-ID: <20250305194513.47139-1-ziyao@disroot.org>
 In-Reply-To: <20250305194217.47052-1-ziyao@disroot.org>
 References: <20250305194217.47052-1-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_114702_707071_39CDC5AD 
-X-CRM114-Status: UNSURE (   9.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_114540_954161_61017802 
+X-CRM114-Status: GOOD (  18.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,79 +86,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SD-card is available on Radxa E20C board.
+Registers of MMC drive/sample clocks in Rockchip RV1106 and RK3528
+locate in GRF regions. Adjust MMC clock code to support register
+operations through regmap. Also add a helper to ease registration of GRF
+clocks.
 
 Signed-off-by: Yao Zi <ziyao@disroot.org>
 ---
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 34 +++++++++++++++++++
- 1 file changed, 34 insertions(+)
+ drivers/clk/rockchip/clk-mmc-phase.c | 24 +++++++++++++---
+ drivers/clk/rockchip/clk.c           | 42 ++++++++++++++++++++++++++++
+ drivers/clk/rockchip/clk.h           | 20 ++++++++++++-
+ 3 files changed, 81 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-index 5346ef457c2a..a52a7924bb75 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-@@ -15,6 +15,10 @@ / {
- 	model = "Radxa E20C";
- 	compatible = "radxa,e20c", "rockchip,rk3528";
+diff --git a/drivers/clk/rockchip/clk-mmc-phase.c b/drivers/clk/rockchip/clk-mmc-phase.c
+index 91012078681b..b3ed8e7523e5 100644
+--- a/drivers/clk/rockchip/clk-mmc-phase.c
++++ b/drivers/clk/rockchip/clk-mmc-phase.c
+@@ -9,11 +9,14 @@
+ #include <linux/clk-provider.h>
+ #include <linux/io.h>
+ #include <linux/kernel.h>
++#include <linux/regmap.h>
+ #include "clk.h"
  
-+	aliases {
-+		mmc1 = &sdmmc;
-+	};
-+
- 	chosen {
- 		stdout-path = "serial0:1500000n8";
- 	};
-@@ -104,6 +108,18 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
- 	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
- };
+ struct rockchip_mmc_clock {
+ 	struct clk_hw	hw;
+ 	void __iomem	*reg;
++	struct regmap	*grf;
++	int		grf_reg;
+ 	int		shift;
+ 	int		cached_phase;
+ 	struct notifier_block clk_rate_change_nb;
+@@ -54,7 +57,12 @@ static int rockchip_mmc_get_phase(struct clk_hw *hw)
+ 	if (!rate)
+ 		return 0;
  
- &pinctrl {
-@@ -126,6 +142,12 @@ wan_led_g: wan-led-g {
- 			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
+-	raw_value = readl(mmc_clock->reg) >> (mmc_clock->shift);
++	if (mmc_clock->grf)
++		regmap_read(mmc_clock->grf, mmc_clock->grf_reg, &raw_value);
++	else
++		raw_value = readl(mmc_clock->reg);
 +
-+	sdmmc {
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
- };
++	raw_value >>= mmc_clock->shift;
  
- &saradc {
-@@ -133,6 +155,18 @@ &saradc {
- 	status = "okay";
- };
+ 	degrees = (raw_value & ROCKCHIP_MMC_DEGREE_MASK) * 90;
  
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	no-sdio;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
+@@ -134,8 +142,12 @@ static int rockchip_mmc_set_phase(struct clk_hw *hw, int degrees)
+ 	raw_value = delay_num ? ROCKCHIP_MMC_DELAY_SEL : 0;
+ 	raw_value |= delay_num << ROCKCHIP_MMC_DELAYNUM_OFFSET;
+ 	raw_value |= nineties;
+-	writel(HIWORD_UPDATE(raw_value, 0x07ff, mmc_clock->shift),
+-	       mmc_clock->reg);
++	raw_value = HIWORD_UPDATE(raw_value, 0x07ff, mmc_clock->shift);
 +
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0m0_xfer>;
++	if (mmc_clock->grf)
++		regmap_write(mmc_clock->grf, mmc_clock->grf_reg, raw_value);
++	else
++		writel(raw_value, mmc_clock->reg);
+ 
+ 	pr_debug("%s->set_phase(%d) delay_nums=%u reg[0x%p]=0x%03x actual_degrees=%d\n",
+ 		clk_hw_get_name(hw), degrees, delay_num,
+@@ -189,7 +201,9 @@ static int rockchip_mmc_clk_rate_notify(struct notifier_block *nb,
+ 
+ struct clk *rockchip_clk_register_mmc(const char *name,
+ 				const char *const *parent_names, u8 num_parents,
+-				void __iomem *reg, int shift)
++				void __iomem *reg,
++				struct regmap *grf, int grf_reg,
++				int shift)
+ {
+ 	struct clk_init_data init;
+ 	struct rockchip_mmc_clock *mmc_clock;
+@@ -208,6 +222,8 @@ struct clk *rockchip_clk_register_mmc(const char *name,
+ 
+ 	mmc_clock->hw.init = &init;
+ 	mmc_clock->reg = reg;
++	mmc_clock->grf = grf;
++	mmc_clock->grf_reg = grf_reg;
+ 	mmc_clock->shift = shift;
+ 
+ 	clk = clk_register(NULL, &mmc_clock->hw);
+diff --git a/drivers/clk/rockchip/clk.c b/drivers/clk/rockchip/clk.c
+index cbf93ea119a9..ce2f3323d84e 100644
+--- a/drivers/clk/rockchip/clk.c
++++ b/drivers/clk/rockchip/clk.c
+@@ -590,6 +590,7 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
+ 				list->name,
+ 				list->parent_names, list->num_parents,
+ 				ctx->reg_base + list->muxdiv_offset,
++				NULL, 0,
+ 				list->div_shift
+ 			);
+ 			break;
+@@ -619,6 +620,11 @@ void rockchip_clk_register_branches(struct rockchip_clk_provider *ctx,
+ 			break;
+ 		case branch_linked_gate:
+ 			/* must be registered late, fall-through for error message */
++		case branch_mmc_grf:
++			/*
++			 * must be registered through rockchip_clk_register_grf_branches,
++			 * fall-through for error message
++			 */
+ 			break;
+ 		}
+ 
+@@ -665,6 +671,42 @@ void rockchip_clk_register_late_branches(struct device *dev,
+ }
+ EXPORT_SYMBOL_GPL(rockchip_clk_register_late_branches);
+ 
++void rockchip_clk_register_grf_branches(struct rockchip_clk_provider *ctx,
++					struct rockchip_clk_branch *list,
++					struct regmap *grf,
++					unsigned int nr_clk)
++{
++	unsigned int idx;
++	struct clk *clk;
++
++	for (idx = 0; idx < nr_clk; idx++, list++) {
++		clk = NULL;
++
++		switch (list->branch_type) {
++		case branch_mmc_grf:
++			clk = rockchip_clk_register_mmc(
++				list->name,
++				list->parent_names, list->num_parents,
++				NULL,
++				grf, list->muxdiv_offset,
++				list->div_shift
++			);
++			break;
++		default:
++			pr_err("%s: unknown clock type %d\n",
++			       __func__, list->branch_type);
++			break;
++		}
++
++		if (!clk)
++			pr_err("%s: failed to register clock %s: %ld\n",
++			       __func__, list->name, PTR_ERR(clk));
++		else
++			rockchip_clk_set_lookup(ctx, clk, list->id);
++	}
++}
++EXPORT_SYMBOL_GPL(rockchip_clk_register_grf_branches);
++
+ void rockchip_clk_register_armclk(struct rockchip_clk_provider *ctx,
+ 				  unsigned int lookup_id,
+ 				  const char *name, const char *const *parent_names,
+diff --git a/drivers/clk/rockchip/clk.h b/drivers/clk/rockchip/clk.h
+index df2b2d706450..ec86ba1dd38c 100644
+--- a/drivers/clk/rockchip/clk.h
++++ b/drivers/clk/rockchip/clk.h
+@@ -594,7 +594,9 @@ struct clk *rockchip_clk_register_cpuclk(const char *name,
+ 
+ struct clk *rockchip_clk_register_mmc(const char *name,
+ 				const char *const *parent_names, u8 num_parents,
+-				void __iomem *reg, int shift);
++				void __iomem *reg,
++				struct regmap *grf, int grf_reg,
++				int shift);
+ 
+ /*
+  * DDRCLK flags, including method of setting the rate
+@@ -633,6 +635,7 @@ enum rockchip_clk_branch_type {
+ 	branch_gate,
+ 	branch_linked_gate,
+ 	branch_mmc,
++	branch_mmc_grf,
+ 	branch_inverter,
+ 	branch_factor,
+ 	branch_ddrclk,
+@@ -983,6 +986,17 @@ struct rockchip_clk_branch {
+ 		.div_shift	= shift,			\
+ 	}
+ 
++#define MMC_GRF(_id, cname, pname, offset, shift)		\
++	{							\
++		.id		= _id,				\
++		.branch_type	= branch_mmc_grf,		\
++		.name		= cname,			\
++		.parent_names	= (const char *[]){ pname },	\
++		.num_parents	= 1,				\
++		.muxdiv_offset	= offset,			\
++		.div_shift	= shift,			\
++	}
++
+ #define INVERTER(_id, cname, pname, io, is, if)			\
+ 	{							\
+ 		.id		= _id,				\
+@@ -1132,6 +1146,10 @@ void rockchip_clk_register_late_branches(struct device *dev,
+ 					 struct rockchip_clk_provider *ctx,
+ 					 struct rockchip_clk_branch *list,
+ 					 unsigned int nr_clk);
++void rockchip_clk_register_grf_branches(struct rockchip_clk_provider *ctx,
++					struct rockchip_clk_branch *list,
++					struct regmap *grf,
++					unsigned int nr_clk);
+ void rockchip_clk_register_plls(struct rockchip_clk_provider *ctx,
+ 				struct rockchip_pll_clock *pll_list,
+ 				unsigned int nr_pll, int grf_lock_offset);
 -- 
 2.48.1
 
