@@ -4,72 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8160BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:48:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A815C282E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:49:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T7un43lbel7mKoax4H54SGCUpO7TSRceePp36dvszoA=; b=POe+1Nl42YTQBzcuLAOmu/P83w
-	hwuxtPfvSzLPzlUKH+5yUGGrWMD0htq8ytLctciGsa27nDOzJeR9ip2U5yvopD5Kux+Swo1RUe0FF
-	kLH/4PbKot9o0VBsQVODIst8tb1jgL57nvtF2Za6Ynw3zvTxuvoXaW4n3e9y31zF/8OmrtDyFp7HW
-	uYjxwyzf/uSCD1zKR3WPVSmZGNwAOrzuHPJVHko4ByPYn2scOEvguoJRKnn9giQJ4QBLs7KLdH4bt
-	/M1Rn6uv0bZu9Mv8a1G5n9WhHZ8gZrWPaBZ472HCWxrrZlIlMUuvI5K/kkIzBN/rNz9VvspIUVOr5
-	eAJ+GLNg==;
+	bh=8Myb8iOfwo/K4CWy++bb3w2FblFyh4mmShUmyEU2xmU=; b=VDT5f6AuOsbat6IUydi4ajaxtj
+	Zh0xqQhJSE5SyhWiMNfvYfHL8zRKRIGFAwOHU01JHlerOQT+A0PiTP52f1VOanrl7Il00F48ARsvj
+	tKbi89vbmU+vgOx85rxstUQAE4Dg2TGnaU51KUd1w2q3h0YuSNi3rXbKfhEZ7QWpgAItrwA2HTPTg
+	EiX2n5fB6t6e0zqbpWgeWgrqma79HElSPtaLfhetCHDr19vbgYv9+HOB+KixY3yzqSQfYbLslLwoz
+	oWsrLFNc7OOxzShcHZqVc0MS7AzTX6xSipQxYBG7RpSrw0xnlUPQw8Pn+IoHlGcsz+8TtKSlWipEm
+	IWQimpAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnEQ-00000007uTH-2Xmz;
-	Wed, 05 Mar 2025 11:48:10 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1tpnFz-00000007umU-0u07;
+	Wed, 05 Mar 2025 11:49:47 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmKl-00000007kGA-1AEX
+	id 1tpmOe-00000007lJF-2BpR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 10:50:41 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 6033EA0A17;
-	Wed,  5 Mar 2025 11:50:28 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=mail; bh=T7un43lbel7mKoax4H54
-	SGCUpO7TSRceePp36dvszoA=; b=cdOFHZh99rGVM1sM8QuDv5R3kyaOh7HarjnF
-	2Uk3GvTuA6nMgAvWverUak1vcWMlNSQuVoat5zyNOWSIY/aLVLWJYgLrf0wiMZeK
-	R+FMUq+YoLHkRsRmpZF8qMgDcQ0W20fxzkOedgvKH3Pgubfm0sQaE8reTq1ZaFRd
-	HLsiF00eoatIpkjREbC+xM7EIFZsSlSKyEYE5ri0dhyxL1QmRCEQRlzi5/yArL0y
-	03Q0aXQqCBPW5pXT8T1uwrpztTZC8g8+tRBGAg8Xh2ABH3duLXPWW2VbD/ZE8Dar
-	gE73ZZEPWU7yEjTGMcgxruJj7rUDqzLTP4i1EqnT72MdMb68mXcjYrRg7pUOO2f8
-	ETByJwjviTWH/P0EsFCM/NSuyk+bdwuxQ9ZaFy9LCLTGB5rMGHl0WZpzWbIGOC0o
-	4LUillFcFmL3nE/mZtRkXpEd+SLzBSEqVWXxXqmUa44OyGW3t+Q5roexu8Y8Bhul
-	K1jZ1e+NrlxBsK3miDLoBtAUy3f5Lu/Pt0PzZ/2mjax4zpaLUBIGxJW4XJsuKyWu
-	BrxhY5CgZ79SUlhZG+3wZNefo/j/bmiIhosSIa0u1twFf/t+pznyhXuxmTp7YH/7
-	KXmRSa2wizhO/r1lUXcO615G32hiQK4wTbY1T79Sp4lXi9TivMGzgBDvQxv7J5vW
-	Qu6SEeE=
-Message-ID: <93ce1511-53f6-42a3-b1a5-b6732105e87d@prolan.hu>
-Date: Wed, 5 Mar 2025 11:50:27 +0100
+	Wed, 05 Mar 2025 10:54:41 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-54965898051so3303980e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 02:54:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741172078; x=1741776878; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=8Myb8iOfwo/K4CWy++bb3w2FblFyh4mmShUmyEU2xmU=;
+        b=kqYDBeVYNbhxWHO18xDN7c0zZ+0WnAlohk9zlAy8+aC+eOTZCLNmfxhAV/MM5oxpPq
+         eQ7SFzbygs9nX7lUUmtz8yWXpxP6AWeZ3GVxxxf+2T6bZi8g8Yo7P4vOtC61RO+1jr+T
+         /iLQAex53nJjxfI6zQ1V9jaZ3MFAgR46pzeCCtbfq/KdgvocGG7Xo5rlBhKKiLrMVORv
+         oGeIi1rzLzDgSuByw3coTa3O/VDyOBFrah7owPQXxoBv4nQPMaACDwVWHXYC9nWO7g4K
+         xZRTgS0EPOGif8ecF/bbUe6H4EoS5LPoPTdsLc1/M2XurLk0jUY/iDyE93L6yBhSVXtr
+         Gv+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741172078; x=1741776878;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=8Myb8iOfwo/K4CWy++bb3w2FblFyh4mmShUmyEU2xmU=;
+        b=EQilHBgMdd6rsrY7wk4WPyu3/UElGhNXbNpk67zjXOTWVUKjrqFVDlxhwDcnZ9Vui6
+         xe4NpNRxxjDWhbX6CkaigpUzPMauCTUfe/aKoovo2LKJY3ti8/+ymMkc6Z+NEVaxMQJO
+         OasQRZ+6WUpvjlT4ilKd/UpVdlQe7cDUOITCaSx2SZsKag2ImFlGUAewKdARslbwHwmp
+         15bSu4MOafcaBB95aO5s/SNkLGAHtv+ddFOA0hqmvv9tMcwJtUUeZfq3EHfZJJUocI0Z
+         WHeLJkDXTYLpl26KOt8IRr1XyH44R3/NGoi8qA2cmwd4osGtebQy484VyR1bxo+1c554
+         o/iw==
+X-Forwarded-Encrypted: i=1; AJvYcCU99AsCS57wmRESx5xuObOtyHvNO3aXmKlZrGa1LbCUmVVt4kESn/VSfgN+2Sv1tu6u9U7o2hRrdKkHCzsIj/3P@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaNUL/UUuW4i7rASJGVy5miwrI9Lb1eagE5WhD4u6Olvvao/vS
+	wo6v/6L10voweerLcidGBioom5wIrfkyMwVy3Bgu9+luu32B2r1L
+X-Gm-Gg: ASbGnctLKsHf8bTLSfqhI8KcjpjeGBHOvnxcVTIJvVC7BPOCSLZP9OzkgMHBviADZG8
+	xXQIE1k+Th+/SK7NmY2QNRWW5iBEWwBqF1EEqqrEJLxABuNcBnqBQ4M09ZHDeY10riIpmsFqHUq
+	u6B+GM7KeVwOEu3KwofdyrQZYbc2746o2H4LG//Pm132NXdBt/8uPye+3L68zoWd861YsHD5HkY
+	zOGmU0MJwi0xJu3D8QRRAPAXDZk7gjda2EoA5dhD1Et1ZHxuleHuV6K0rIXGdWDTZV/xvClwFhT
+	y/+ukRtanoWDufc3BjS8/P9e0NUSpL7YJKwU7qwCHh1V/PQvFj9XyZs438fMPG3/d1BqIHVc3G4
+	WbQECUM460cqUOoIMX/L16fz/aA==
+X-Google-Smtp-Source: AGHT+IG7+dALkj4mnhqEtYuKNaMtYCVDDovKQLGo6i+y4ha0bmLUd9DW+/Gn+j0UXQCjVleXTiXGSQ==
+X-Received: by 2002:a05:6512:2214:b0:545:746:f36a with SMTP id 2adb3069b0e04-5497d376350mr1006837e87.34.1741172077938;
+        Wed, 05 Mar 2025 02:54:37 -0800 (PST)
+Received: from ?IPV6:2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703? ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5494ca38eaesm1601129e87.124.2025.03.05.02.54.34
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Mar 2025 02:54:35 -0800 (PST)
+Message-ID: <54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
+Date: Wed, 5 Mar 2025 12:54:33 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] counter: microchip-tcb-capture: Fix undefined counter
- channel state on probe
-To: William Breathitt Gray <wbg@kernel.org>, Kamel Bouhara
-	<kamel.bouhara@bootlin.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20250305-preset-capture-mode-microchip-tcb-capture-v1-1-632c95c6421e@kernel.org>
-Content-Language: en-US, hu-HU
-From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
-In-Reply-To: <20250305-preset-capture-mode-microchip-tcb-capture-v1-1-632c95c6421e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
+Subject: Re: [PATCH v5 03/10] iio: adc: add helpers for parsing ADC nodes
+To: David Lechner <dlechner@baylibre.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
+ Jonathan Cameron <jic23@kernel.org>, Lars-Peter Clausen <lars@metafoo.de>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+ Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+ Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Samuel Holland <samuel@sholland.org>,
+ Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa <nuno.sa@analog.com>,
+ Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>,
+ Trevor Gamblin <tgamblin@baylibre.com>,
+ Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>,
+ Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+ linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <cover.1740993491.git.mazziesaccount@gmail.com>
+ <e71c63c2f61135f9a8c7884525aab2c48f1e84c2.1740993491.git.mazziesaccount@gmail.com>
+ <CAMknhBGQaqFZJsPAoauZL4S5MYtN05EOQ-BO2vw5gH+Z2RLOhw@mail.gmail.com>
+Content-Language: en-US, en-AU, en-GB, en-BW
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+In-Reply-To: <CAMknhBGQaqFZJsPAoauZL4S5MYtN05EOQ-BO2vw5gH+Z2RLOhw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.254.7.14]
-X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
- ATLAS.intranet.prolan.hu (10.254.0.229)
-X-EsetResult: clean, is OK
-X-EsetId: 37303A2980D94852637D66
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_025039_787095_EA72AB6D 
-X-CRM114-Status: GOOD (  21.61  )
+X-CRM114-CacheID: sfid-20250305_025440_578564_33AD04D4 
+X-CRM114-Status: GOOD (  34.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,69 +119,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Thanks for the review David.
 
-thanks for fixing this up!
+On 04/03/2025 11:25, David Lechner wrote:
+> On Mon, Mar 3, 2025 at 12:32 PM Matti Vaittinen
+> <mazziesaccount@gmail.com> wrote:
+>>
+>> There are ADC ICs which may have some of the AIN pins usable for other
+>> functions. These ICs may have some of the AIN pins wired so that they
+>> should not be used for ADC.
+>>
+>> (Preferred?) way for marking pins which can be used as ADC inputs is to
+>> add corresponding channels@N nodes in the device tree as described in
+>> the ADC binding yaml.
+>>
+>> Add couple of helper functions which can be used to retrieve the channel
+>> information from the device node.
+>>
+>> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+>>
+>> ---
 
-On 2025. 03. 05. 11:01, William Breathitt Gray wrote:
-> Hardware initialize of the timer counter channel does not occur on probe
-> thus leaving the Count in an undefined state until the first
-> function_write() callback is executed. Fix this by performing the proper
-> hardware initialization during probe.
+>> + *
+>> + * Return:     Number of found channels on succes. Negative value to indicate
 > 
-> Fixes: 106b104137fd ("counter: Add microchip TCB capture counter")
-> Reported-by: Csókás Bence <csokas.bence@prolan.hu>
-> Closes: https://lore.kernel.org/all/bfa70e78-3cc3-4295-820b-3925c26135cb@prolan.hu/
-> Signed-off-by: William Breathitt Gray <wbg@kernel.org>
-> ---
-> This should fix the issue where a user needs to set the count function
-> before they can use the counter. I don't have this hardware in person,
-> so please test this patch and let me know whether it works for you.
-> ---
->   drivers/counter/microchip-tcb-capture.c | 19 +++++++++++++++++++
->   1 file changed, 19 insertions(+)
+> s/succes/success/
+
+Thanks!
+
+>> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
+>> +                                         const struct iio_chan_spec *template,
+>> +                                         int max_chan_id,
+>> +                                         struct iio_chan_spec **cs)
+>> +{
+>> +       struct iio_chan_spec *chan_array, *chan;
+>> +       int num_chan = 0, ret;
+>> +
+>> +       num_chan = iio_adc_device_num_channels(dev);
+>> +       if (num_chan < 1)
+>> +               return num_chan;
+>> +
+>> +       chan_array = devm_kcalloc(dev, num_chan, sizeof(*chan_array),
+>> +                                 GFP_KERNEL);
+>> +       if (!chan_array)
+>> +               return -ENOMEM;
+>> +
+>> +       chan = &chan_array[0];
+>> +
+>> +       device_for_each_child_node_scoped(dev, child) {
+>> +               u32 ch;
+>> +
+>> +               if (!fwnode_name_eq(child, "channel"))
+>> +                       continue;
+>> +
+>> +               ret = fwnode_property_read_u32(child, "reg", &ch);
+>> +               if (ret)
+>> +                       return ret;
+>> +
+>> +               if (max_chan_id != -1 && ch > max_chan_id)
+>> +                       return -ERANGE;
+>> +
 > 
-> diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-> index 2f096a5b973d18edf5de5a2b33f2f72571deefb7..c391ac38b990939c6764a9120a4bd03289f68469 100644
-> --- a/drivers/counter/microchip-tcb-capture.c
-> +++ b/drivers/counter/microchip-tcb-capture.c
-> @@ -368,6 +368,25 @@ static int mchp_tc_probe(struct platform_device *pdev)
->   			channel);
->   	}
->   
-> +	/* Disable Quadrature Decoder and position measure */
-> +	ret = regmap_update_bits(regmap, ATMEL_TC_BMR, ATMEL_TC_QDEN | ATMEL_TC_POSEN, 0);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Setup the period capture mode */
-> +	ret = regmap_update_bits(regmap, ATMEL_TC_REG(priv->channel[0], CMR),
-> +				 ATMEL_TC_WAVE | ATMEL_TC_ABETRG | ATMEL_TC_CMR_MASK |
-> +				 ATMEL_TC_TCCLKS,
-> +				 ATMEL_TC_CMR_MASK);
-> +	if (ret)
-> +		return ret;
-> +
-> +	/* Enable clock and trigger counter */
-> +	ret = regmap_write(regmap, ATMEL_TC_REG(priv->channel[0], CCR),
-> +			   ATMEL_TC_CLKEN | ATMEL_TC_SWTRG);
-> +	if (ret)
-> +		return ret;
-> +
-
-This duplicates a lot of `mchp_tc_count_function_write()`. I'd much 
-rather have this code in a separate function called something like 
-`mchp_tc_setup_channels()`, that, depending on `priv->qdec_mode`, sets 
-up the BMR, CCR and CMRs, and then have both probe() and 
-function_write() call it. Or alternatively, have probe() call 
-function_write() at the end, but that's not as nice.
-
-> ---
-> base-commit: 8744dcd4fc7800de2eb9369410470bb2930d4c14
-> change-id: 20250305-preset-capture-mode-microchip-tcb-capture-fa31550ef594
+> Should we use return dev_err_probe() on these to help with debugging a bad dtb?
 > 
-> Best regards,
 
-Bence
+I am not fan of using dev_err_probe() in a 'library code'. This is 
+because we never know if there'll be some odd use-case where this is not 
+called from the probe.
+
+All in all, I'd leave adding most of the debugs to the callers - 
+especially because we do not expect to have bad device-trees after the 
+initial 'development stage' of a board. The board 'development stage' 
+should really reveal bugs which prevent the channels from being 
+registered - and after the DT is correct, these debug prints become 
+unnecessary (albeit minor) binary bloat.
+
+>> +               *chan = *template;
+>> +               chan->channel = ch;
+>> +               chan++;
+>> +       }
+>> +
+>> +       *cs = chan_array;
+>> +
+>> +       return num_chan;
+>> +}
+>> +EXPORT_SYMBOL_NS_GPL(devm_iio_adc_device_alloc_chaninfo_se, "IIO_DRIVER");
+> 
+> We can make this less verbose by setting #define
+> DEFAULT_SYMBOL_NAMESPACE at the start of the file. Then we can just do
+> EXPORT_SYMBOL_GPL() throughout the rest of the file.
+
+I am not sure what to think of this. I use the good old 'ctrl + ]' in my 
+editor when I need to check how a function was supposed to be used. That 
+jumps to the spot of code where the function is. I'd like to see the 
+namespace mentioned there in order to not accidentally miss the fact the 
+function belongs to one.
+
+OTOH, I do like simplifications. Yet, the added simplification might not 
+warrant the namespace not being visible in the function definition.
+
+> Also, I would prefer if the namespace matched config name (IIO_ADC_HELPER).
+
+I had some lengthy discussion about this with Andy and Jonathan during 
+earlier review versions. In short, I don't like the idea of very 
+fragmented namespaces in IIO, which will just complicate the drivers 
+without providing any obvious benefit.
+
+https://lore.kernel.org/all/20250222174842.57c091c5@jic23-huawei/
+
+>> +
+>> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
+>> +                                         const struct iio_chan_spec *template,
+>> +                                         int max_chan_id,
+>> +                                         struct iio_chan_spec **cs);
+>> +
+> 
+> There are some different opinions on this, but on the last patch I did
+> introducing a new namespace, the consensus seems to be that putting
+> the MODULE_IMPORT_NS() in the header file was convenient so that users
+> of the API don't have to remember to both include the header and add
+> the import macro.
+> 
+
+I do like this suggestion, and I believe this would be the balance 
+between getting the benefit of hiding part of the symbols - while not 
+unnecessarily complicating the callers. I know some people are opposing 
+it though. My personal opinion is that having the MODULE_IMPORT_NS() in 
+a header would be neatly simplifying the calling code with very little 
+harm, especially here where including the header hardly has use-cases 
+outside the IIO ADC.
+
+Unfortunately, the "safety" seems to often be a synonym for just "making 
+it intentionally hard". As Finnish people say: "Kärsi, kärsi, 
+kirkkaamman kruunun saat". :)
+(Roughly translated as "Suffer, suffer, you will get a brighter crown").
+
+Let's hear what Jonathan thinks of your suggestion.
+
+Thanks!
+	-- Matti
 
 
