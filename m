@@ -4,103 +4,144 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36ADEC28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A39C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 13:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8Cx5fHR+4jmiXuXaT5oD7FRlDS4S8GZIWX7AhsEi0w=; b=wYyKLPHC2a1ku/EUKGFFPvFvKj
-	hq6T8wx6HfgVAL6xQad/6vNb1XRlSgUriaYb2UZEpqSupdbPdgm07a9gPLbyIB1/fpwJtxWKK26Y5
-	YSaDsDjTbVSnc/KbxLHyQ1yk5M6RnQKxfINPl/fo8v1xz2H2zPctwlfzNoKA7vPmT5X0C8XOw7opg
-	DgnmGsamkImDoJQTU3ZylXtDFhCzO6g6EucoecEtVqN2lgCZ9Vwe02wp/5XZ4TfZEHm76VZTi/SBG
-	IakcscdmLquxPxACN9N8b0zjViK5UN6i1BgybHxBb2QvQfLhNSBeSmf3oBVKLCLy86QrYUpIg/Pmo
-	DMDvyAzA==;
+	bh=s/gtT1lET+EceP3+qrGo1lcUcIaDdCHOw1iDN9Hwc8w=; b=MBqQc3L1KWbn+nZi+hw9ai21ZN
+	q9ba7j17FzW8+h1nQrpnmEzJedjdkMqz3Q12KE17s+chh92pZfgQLKIlFM9d30tQTzt+cqop3KXac
+	/dwAXRzksO+RPm8uQsZvlBgOnkZouMNL0G/vmVmdEkewHDD8EzZtXGZR458VSuV1omSBlwlYXc2JF
+	5bwmD+beSkge/MT71qiN3IJMcX+4E9z5Rnd4eL4yGfCLdoA2zAUEswSn6ZXkh/j8OCLpK/Ee1gL7w
+	uIfdU22GGcnqnEvj8wGa/V0JY+TgozlZRHAwbk3MMJXc13TChRzFPIwhPFDgyHyx0EE9H2E9JLyYB
+	z3rBobkg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpoPV-000000086lO-2vvv;
-	Wed, 05 Mar 2025 13:03:41 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpoQr-000000087KY-21Hm;
+	Wed, 05 Mar 2025 13:05:05 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmbZ-00000007ntp-3NZp
+	id 1tpoJp-000000085hP-1wl3
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 11:08:01 +0000
+	Wed, 05 Mar 2025 12:57:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	d=infradead.org; s=casper.20170209; h=References:Content-Type:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
 	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=h8Cx5fHR+4jmiXuXaT5oD7FRlDS4S8GZIWX7AhsEi0w=; b=M4VFu9uu/J3B7+VzcWQNM5undT
-	TcHlSp3xknjbBJOegGQfVrKjMVsm348HJCCH7hfZmhnhBYTocaG2uYobuDxOdJ7zZYWaHKIwesE6Z
-	7+PxRMnRAFykYkda1cvCv6bOTz7COb12ns9Dfs0QQ+GNdrYG6E6tuLv53sUGG+i84Qnt5VXv71gUA
-	FAgCc/lAg0YlYOYH4r4JGa0wd9IGav+7Ci6ao4VaOrp4irpe3mdzGquPwAYdjb7fdvaSUMeVhrDbR
-	R1+4uE+aBH0ExjJAhv0VMqXqddeAcNa9JmFawrlLJhuT06FwE+LJ5OuXH6eR9beLYAJXRefl9fTmA
-	tAe3/ilA==;
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmbW-00000000UKr-46BY
+	bh=s/gtT1lET+EceP3+qrGo1lcUcIaDdCHOw1iDN9Hwc8w=; b=sC5x8fe+J9q1Md1nek27Hf6T6R
+	mPLZfX3amBGC/hQ8ANarFJTHVPw8/JOaX7uLawNFHodqQHcGCSUCDjsQiWaGcl4etuhTHFswOZOXx
+	+N6guz8ohfWrnfQlVWXNMgfP9w/Oos7mUlVDH4SUZPtZfgQW5Gdc4YfztWt66nrlBFK2u4bVJoukj
+	HoRKwqb/CT7P9OOs0TCnIlWedq6gLQUiQHKupRBx1EgGGEf67PibWpYQWB3LMExiBfuRIqxtKVvwd
+	pJFNYEj8Wk2Lwl060fSTg5ZLHQf2PgxKPbhttS18xNdKAqjoEAiEi7LUAkDK+mYjqzpVVgqwL3APZ
+	iL7vSisA==;
+Received: from mailout1.samsung.com ([203.254.224.24])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpoJl-00000005WTf-16zQ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 11:08:00 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22374f56453so125374325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 03:07:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741172876; x=1741777676; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=h8Cx5fHR+4jmiXuXaT5oD7FRlDS4S8GZIWX7AhsEi0w=;
-        b=ZVkkDIFxxjIf4WJZtid4EK9fAuT9QJbtNq7h/JU0h36kT8ZCkLHiHWhr7Az0kDWdlY
-         A80L5DEUollSiN+7rMlNKVQHvX7VWIAiBceoDzgA0NgFozgmGj4u53kPeiXnc+8YAD+E
-         tN81Ej0pqPFy8dWBy3sa+T+30OQGFDUZyZ+qNEDKX5i1z5GNi1hg83USLjTUpapvtVR2
-         g/ysLYjpHJRipTkoszr7ir9ZIPBAsUKiIt3oTkFJHLb5GEqlqqE2QqKdFkeXLHUIETv5
-         lISxpk2egzjDrR2z9RDs3tQW/ADRhArToUPzYXzj7m54qmrDGCtXyr9OiliHLaOta+0p
-         bdUw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741172876; x=1741777676;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h8Cx5fHR+4jmiXuXaT5oD7FRlDS4S8GZIWX7AhsEi0w=;
-        b=dMJx9rRxzC7Mr4zDlLcz8zjo57Tc16Nq+8/yUX+WwA6ZJTi4DJXKp00Cpvw9vNvQ27
-         kqNJE+aQWIXcLYP2+qYynRlQvt/c9Da3MwOv1xgRS93fy1zuDx9ScP6UElswyxoRL0n/
-         5j1B5mWHpwjh+gtR+N1FDftgXe9bxzZCmloX7vZLLgZpfdH9pBXi85UTgC10tM4+Fcke
-         pjw4iaX+w/o8j2WWHA1hvrc7mRu5CjVc6co2obP2ZE99jVrZdynusjVTGA7EFcOsuqeq
-         ZjwsvbQHkedqRbY7ciTLdCCYW0o0069I755lLEAGI2DCrI5ngkp/h/o+e55PEimITbB3
-         L7+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXReyd5kKk/+81uW+37HLwCZYrLgQgHd2ChZlurqzbvw4C8L6PdVBaBVOXJkcBC//iWB4QXAgO/VP2nKr+exf4G@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP3TivvMCVXsgJEVUbT28z8wpIbk8z6qNz/NMNAuW2peXAc6Sf
-	xlk8bSN/d7UDBBV94ImAgads6BRnjvHmp3TQX36W3cvp3kg3ntL6q6gxR8Vpw5f3p04tagQbNN1
-	0F9lW37xsQ8cBMN/URRLIc3JcHL4eeeIiFL+Qlg==
-X-Gm-Gg: ASbGncsR0kuY6T+AwJlFlfgTZk8kj++D3ZlLigUJu/t5yhRXVt7HiHrWbNlEGqz/aJX
-	VEX/wY42s5J4IGaihFaSFBQShVX31fZVJEZoninXq5kE3r5ol69zjwd7ql73UIAuybJWxyCcq2s
-	lSxZ1tAue8bZrnVPbNdKglBGt40fMiZklkOVLMf8Sf6ZttLvEviB+MYOGuLT4=
-X-Google-Smtp-Source: AGHT+IGeHajtM6a8RKzvxRCPhC7Gav1e5qdV7p0kvwl/9Chh9iSgselzALrtnrWd7JtUMEd3C1yGOLe31+tUVRNx8X0=
-X-Received: by 2002:a05:6a00:3d4a:b0:736:4b08:cc0e with SMTP id
- d2e1a72fcca58-73682c53721mr3253307b3a.17.1741172875711; Wed, 05 Mar 2025
- 03:07:55 -0800 (PST)
-MIME-Version: 1.0
-References: <20250303032931.2500935-1-quic_jiegan@quicinc.com> <20250303032931.2500935-3-quic_jiegan@quicinc.com>
-In-Reply-To: <20250303032931.2500935-3-quic_jiegan@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 5 Mar 2025 11:07:43 +0000
-X-Gm-Features: AQ5f1Jotwj7vHwxJWb6wdXEyjYphyVf5Uwhw-vghsgB9wb3Lu4bYOf2iNdASjeU
-Message-ID: <CAJ9a7VgGp4YqzN-yx0x+NiZG8now6SCmnimaou2Z=exYcoiegw@mail.gmail.com>
-Subject: Re: [PATCH v15 02/10] Coresight: Add trace_id function to retrieving
- the trace ID
-To: Jie Gan <quic_jiegan@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Tingwei Zhang <quic_tingweiz@quicinc.com>, Jinlong Mao <quic_jinlmao@quicinc.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
+	Wed, 05 Mar 2025 12:57:48 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250305125731epoutp012c59ce3964d1fbb9e893c7338cb82f00~p6Xxc-M182630526305epoutp01o
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 12:57:31 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250305125731epoutp012c59ce3964d1fbb9e893c7338cb82f00~p6Xxc-M182630526305epoutp01o
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741179451;
+	bh=s/gtT1lET+EceP3+qrGo1lcUcIaDdCHOw1iDN9Hwc8w=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=chUD6+7IzJiD2+mSdbegLmZF4CjZnQqsBm85H8YjA4vBvpVQrkVkETd7oZlGsVMpB
+	 yrGtJvqoedP0UWnLgya5y8wMq2HQp6G4cSxyV2IId05BfjsDXKN/5iGi/qFNt5wAYq
+	 vjZopuCQNkYNyfuYxXCCsyWa9jXt57WZjXcuUawQ=
+Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
+	20250305125730epcas5p3ff191251d017d4ad7028a2ee6d2dfa56~p6Xw5DyMv1709517095epcas5p3a;
+	Wed,  5 Mar 2025 12:57:30 +0000 (GMT)
+Received: from epsmges5p3new.samsung.com (unknown [182.195.38.179]) by
+	epsnrtp4.localdomain (Postfix) with ESMTP id 4Z7CJ85JWNz4x9Pq; Wed,  5 Mar
+	2025 12:57:28 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmges5p3new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	6D.97.19956.83A48C76; Wed,  5 Mar 2025 21:57:28 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250305091856epcas5p4228c09989c7acfe45a99541eef01fbcd~p3Y7m3GmJ1060110601epcas5p4O;
+	Wed,  5 Mar 2025 09:18:56 +0000 (GMT)
+Received: from epsmgms1p2new.samsung.com (unknown [182.195.42.42]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250305091856epsmtrp12f0b8a21dff24fc2ea5c8f10a39e39f2~p3Y7lyz0K1941119411epsmtrp1Z;
+	Wed,  5 Mar 2025 09:18:56 +0000 (GMT)
+X-AuditID: b6c32a4b-fe9f470000004df4-88-67c84a3817b2
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	EF.D6.18949.00718C76; Wed,  5 Mar 2025 18:18:56 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250305091853epsmtip2e87376224a2f9c39b68270730788a1b1~p3Y4zcjMv1567815678epsmtip27;
+	Wed,  5 Mar 2025 09:18:53 +0000 (GMT)
+From: Swathi K S <swathi.ks@samsung.com>
+To: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
+	alexandre.torgue@foss.st.com
+Cc: rmk+kernel@armlinux.org.uk, swathi.ks@samsung.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
+Subject: [PATCH v8 2/2] net: stmmac: dwc-qos: Add FSD EQoS support
+Date: Wed,  5 Mar 2025 14:42:46 +0530
+Message-Id: <20250305091246.106626-3-swathi.ks@samsung.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250305091246.106626-1-swathi.ks@samsung.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA0WTe0zbVRTHc3+/viAr/uShFzYnljB5DGgH1FuBQRzOXxguJMRlEgxU+ksh
+	lLZpiwrGbDhSpfJenNKwtSKIwJTR8eyA8CgPgSHQgrIMg4wlvCYgj2WbDEtb9L/Pufd7zvfc
+	c+9l4a6DDC9WhlRFKaRCCYfhTGvt9/cLQnHDYm7Dkh96snwNoNr5djq62TWOocpf82lIZxqn
+	o4eDC0w029OBoWXtHww00VpMR4YHM3RkNlYykGZmkY5u7P1ER4P6l9Du6BpAVS3bTPTnRicT
+	mcaWcDRVUoah/c52JtpummXGeJDmmUmcbK6bxciHJS1MskM7xyT1hmzSUF/AIG9XXyI72rcw
+	cr17mkEWN9cDsrebR24ZjiccScqMTKeEIkrhTUnTZKIMqTiKcy4x5UxKOJ/LC+IJ0Bscb6kw
+	i4rixMYnBJ3NkFjPyvH+SCjJti4lCJVKTsjpSIUsW0V5p8uUqigOJRdJ5GHyYKUwS5ktFQdL
+	KdWbPC73VLhVmJqZbtbUMeUWl0+uNuRjl0HvEQ1wYkEiDE59fw/XAGeWK3EHwLuPJpn24G8A
+	q+q7MHuwC6C61Ew/TCnUabADdiW6AOy/m2MXbQO4aLrNONhgEH7wtx/bbKXciacAbpSP2kxw
+	ohaDo/MW/EDlRrwFn49ft2awWDTCF/bt2xzYRATcMwxjdrdXYcOtHpvciYiEA70a2kEdSMyz
+	4OPPnzDtoljYNL7kYDe4MtTsYC+4XKJ2cApsKJ6m2Tkdzj0tY9g5GvZYKmkHPeCEP2w0htiX
+	X4Ffj/xs6wEnXGDRs0VHP2zYfuOQfeDe6oyjpCdsrVl3WJHQNF5Ot0+lBMCC6TxQCo5r/7fQ
+	A1APPCm5MktMKcPloVLq4/+uLU2WZQC2Bx1wrh0szG8E9wGMBfoAZOEcd/bqyJDYlS0S5uRS
+	ClmKIltCKftAuHV+ZbiXR5rM+iOkqhRemIAbxufzwwShfB7nZfaVjnyxKyEWqqhMipJTisM8
+	jOXkdRnrZ8Sd8M1tU5xIqnnwae516Pl8ybi5qP/O0l38/ouXJsvlR/m76rqB2Ji0vWui6haL
+	7sr9Y6HFq/SBouRUXuOye2Lb7AtJ64/Px1R8WWU+JhlOEw3t9J1cUTyKN56frBgpLMi7P6RO
+	fM8vfEY+chHJTLVrboU7X7ndShZkGEsX/gksSmbv8LjNWEhtXPQH7kNNv0f8lak7XRa/GHB0
+	zdfZPDZo2hQ821yZ7UlofMfjrPbtJm100P5mw9iE5cPOiz5rqncFxlOvTSllqVtq7ZmJC99q
+	PkuYYH+jU38RFR3hk1rxg7c08Jccbc+cv+5enr7j9TurF26O6msKNxOrT7a54LmBHJoyXcgL
+	wBVK4b9SEhIDWQQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFvrNLMWRmVeSWpSXmKPExsWy7bCSvC6D+Il0g/+T1C1+vpzGaLH8wQ5W
+	izV7zzFZzDnfwmIx/8g5Vounxx6xW9w8sJPJ4uWse2wWF7b1sVpsenyN1eLyrjlsFl3XnrBa
+	zPu7ltXi2AIxi2+n3zBaLNr6hd3i4Yc97BZHzrxgtrjUP5HJ4v+eHewWXzbeZHcQ9bh87SKz
+	x5aVN5k8nvZvZffYOesuu8eCTaUem1Z1snlsXlLvsXPHZyaP9/uusnn0bVnF6HFwn6HH501y
+	ATxRXDYpqTmZZalF+nYJXBmXu1ayF1zhq5i8uoWpgfEgTxcjJ4eEgIlEz/wupi5GLg4hgd2M
+	EvPm3GCDSEhKfGqeygphC0us/PecHcQWEvjEKDHjXQSIzSagIXF9xXZ2kGYRgQ4miT1TTzKD
+	OMwCG5kkjl3aDNYhLOAk8e/cXKCpHBwsAqoSh/6DDeUVsJb4u+kEE8QCeYnVGw4wg9icAjYS
+	Rw92sYCUCwHVnPzJPoGRbwEjwypGydSC4tz03GLDAqO81HK94sTc4tK8dL3k/NxNjOD40dLa
+	wbhn1Qe9Q4xMHIyHGCU4mJVEeF+fOp4uxJuSWFmVWpQfX1Sak1p8iFGag0VJnPfb694UIYH0
+	xJLU7NTUgtQimCwTB6dUA9ORBR2taTLesg2vFV6bvr9xQVt42pzvEzjX59o9k/nusq5IeSlz
+	Z7WDoEbsd4aW5v8lm02ufa/UaujhurnkTv/8/VXTjpcpf/Kaff+Z0DT5T33Xps0qt+A7rmy8
+	vWSBTCqjmp7zmz1KL8snb5T/9Orv/hcrpqz6F6ngEiAaUTtF+VmUsJxzFIe0+knxUxVndJcx
+	6P/5Gdj8dJtmm1OsxotKRdbJDQI/4/WP5J7fnhhy2GdJxp3+xQFJ+8/6ac2v1lu+rnGVhZrh
+	778f2F64X43sZDBuFD0qrsRhblB5IeTVcYFVlr+eFu3PXSTCcUR3orPyyy6+Te5/+9PzPF4G
+	3T2VdCnv/iu7pE8XPVRDfZRYijMSDbWYi4oTAbJmoK0OAwAA
+X-CMS-MailID: 20250305091856epcas5p4228c09989c7acfe45a99541eef01fbcd
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250305091856epcas5p4228c09989c7acfe45a99541eef01fbcd
+References: <20250305091246.106626-1-swathi.ks@samsung.com>
+	<CGME20250305091856epcas5p4228c09989c7acfe45a99541eef01fbcd@epcas5p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_110759_130087_5971E2E4 
-X-CRM114-Status: GOOD (  23.58  )
+X-CRM114-CacheID: sfid-20250305_125745_925241_BD51B651 
+X-CRM114-Status: GOOD (  19.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,225 +156,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The FSD SoC contains two instance of the Synopsys DWC ethernet QOS IP core.
+The binding that it uses is slightly different from existing ones because
+of the integration (clocks, resets).
 
-On Mon, 3 Mar 2025 at 03:30, Jie Gan <quic_jiegan@quicinc.com> wrote:
->
-> Add 'trace_id' function pointer in coresight_ops. It's responsible for retrieving
-> the device's trace ID.
->
-> Co-developed-by: James Clark <james.clark@linaro.org>
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> Reviewed-by: James Clark <james.clark@linaro.org>
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c  | 30 +++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-dummy.c | 13 +++++++-
->  .../coresight/coresight-etm3x-core.c          |  1 +
->  .../coresight/coresight-etm4x-core.c          |  1 +
->  drivers/hwtracing/coresight/coresight-stm.c   | 11 +++++++
->  drivers/hwtracing/coresight/coresight-tpda.c  | 11 +++++++
->  include/linux/coresight.h                     |  5 ++++
->  7 files changed, 71 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index ab55e10d4b79..32aa07f4f8c1 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -24,6 +24,7 @@
->  #include "coresight-etm-perf.h"
->  #include "coresight-priv.h"
->  #include "coresight-syscfg.h"
-> +#include "coresight-trace-id.h"
->
->  /*
->   * Mutex used to lock all sysfs enable and disable actions and loading and
-> @@ -1557,6 +1558,35 @@ void coresight_remove_driver(struct amba_driver *amba_drv,
->  }
->  EXPORT_SYMBOL_GPL(coresight_remove_driver);
->
-> +int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode,
-> +                              struct coresight_device *sink)
-> +{
-> +       int trace_id;
-> +       int cpu = source_ops(csdev)->cpu_id(csdev);
-> +
+Signed-off-by: Swathi K S <swathi.ks@samsung.com>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c | 8 +++++++-
+ 1 file changed, 7 insertions(+), 1 deletion(-)
 
-This is a global funciton so need to check that this csdev is a
-source,. and does provide a cpu  function before calling it.
-
-> +       switch (mode) {
-> +       case CS_MODE_SYSFS:
-> +               trace_id = coresight_trace_id_get_cpu_id(cpu);
-> +               break;
-> +       case CS_MODE_PERF:
-> +               if (WARN_ON(!sink))
-> +                       return -EINVAL;
-> +
-> +               trace_id = coresight_trace_id_get_cpu_id_map(cpu, &sink->perf_sink_id_map);
-> +               break;
-> +       default:
-> +               trace_id = -EINVAL;
-> +               break;
-> +       }
-> +
-> +       if (!IS_VALID_CS_TRACE_ID(trace_id))
-> +               dev_err(&csdev->dev,
-> +                       "Failed to allocate trace ID on CPU%d\n", cpu);
-> +
-> +       return trace_id;
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_etm_get_trace_id);
-> +
->  MODULE_LICENSE("GPL v2");
->  MODULE_AUTHOR("Pratik Patel <pratikp@codeaurora.org>");
->  MODULE_AUTHOR("Mathieu Poirier <mathieu.poirier@linaro.org>");
-> diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
-> index 9be53be8964b..b5692ba358c1 100644
-> --- a/drivers/hwtracing/coresight/coresight-dummy.c
-> +++ b/drivers/hwtracing/coresight/coresight-dummy.c
-> @@ -41,6 +41,16 @@ static void dummy_source_disable(struct coresight_device *csdev,
->         dev_dbg(csdev->dev.parent, "Dummy source disabled\n");
->  }
->
-> +static int dummy_source_trace_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
-> +                                __maybe_unused struct coresight_device *sink)
-> +{
-> +       struct dummy_drvdata *drvdata;
-> +
-> +       drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       return drvdata->traceid;
-> +}
-> +
->  static int dummy_sink_enable(struct coresight_device *csdev, enum cs_mode mode,
->                                 void *data)
->  {
-> @@ -62,7 +72,8 @@ static const struct coresight_ops_source dummy_source_ops = {
->  };
->
->  static const struct coresight_ops dummy_source_cs_ops = {
-> -       .source_ops = &dummy_source_ops,
-> +       .trace_id       = dummy_source_trace_id,
-> +       .source_ops     = &dummy_source_ops,
->  };
->
->  static const struct coresight_ops_sink dummy_sink_ops = {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index c103f4c70f5d..c1dda4bc4a2f 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -704,6 +704,7 @@ static const struct coresight_ops_source etm_source_ops = {
->  };
->
->  static const struct coresight_ops etm_cs_ops = {
-> +       .trace_id       = coresight_etm_get_trace_id,
->         .source_ops     = &etm_source_ops,
->  };
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 2c1a60577728..cfd116b87460 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1067,6 +1067,7 @@ static const struct coresight_ops_source etm4_source_ops = {
->  };
->
->  static const struct coresight_ops etm4_cs_ops = {
-> +       .trace_id       = coresight_etm_get_trace_id,
->         .source_ops     = &etm4_source_ops,
->  };
->
-> diff --git a/drivers/hwtracing/coresight/coresight-stm.c b/drivers/hwtracing/coresight/coresight-stm.c
-> index b581a30a1cd9..aca25b5e3be2 100644
-> --- a/drivers/hwtracing/coresight/coresight-stm.c
-> +++ b/drivers/hwtracing/coresight/coresight-stm.c
-> @@ -281,12 +281,23 @@ static void stm_disable(struct coresight_device *csdev,
->         }
->  }
->
-> +static int stm_trace_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
-> +                       __maybe_unused struct coresight_device *sink)
-> +{
-> +       struct stm_drvdata *drvdata;
-> +
-> +       drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       return drvdata->traceid;
-> +}
-> +
->  static const struct coresight_ops_source stm_source_ops = {
->         .enable         = stm_enable,
->         .disable        = stm_disable,
->  };
->
->  static const struct coresight_ops stm_cs_ops = {
-> +       .trace_id       = stm_trace_id,
->         .source_ops     = &stm_source_ops,
->  };
->
-> diff --git a/drivers/hwtracing/coresight/coresight-tpda.c b/drivers/hwtracing/coresight/coresight-tpda.c
-> index 573da8427428..94c2201fc8d3 100644
-> --- a/drivers/hwtracing/coresight/coresight-tpda.c
-> +++ b/drivers/hwtracing/coresight/coresight-tpda.c
-> @@ -241,12 +241,23 @@ static void tpda_disable(struct coresight_device *csdev,
->         dev_dbg(drvdata->dev, "TPDA inport %d disabled\n", in->dest_port);
->  }
->
-> +static int tpda_trace_id(struct coresight_device *csdev, __maybe_unused enum cs_mode mode,
-> +                        __maybe_unused struct coresight_device *sink)
-> +{
-> +       struct tpda_drvdata *drvdata;
-> +
-> +       drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       return drvdata->atid;
-> +}
-> +
->  static const struct coresight_ops_link tpda_link_ops = {
->         .enable         = tpda_enable,
->         .disable        = tpda_disable,
->  };
->
->  static const struct coresight_ops tpda_cs_ops = {
-> +       .trace_id       = tpda_trace_id,
->         .link_ops       = &tpda_link_ops,
->  };
->
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index c7cd5886c908..ce9a5e71b261 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -335,6 +335,7 @@ enum cs_mode {
->         CS_MODE_PERF,
->  };
->
-> +#define coresight_ops(csdev)   csdev->ops
->  #define source_ops(csdev)      csdev->ops->source_ops
->  #define sink_ops(csdev)                csdev->ops->sink_ops
->  #define link_ops(csdev)                csdev->ops->link_ops
-> @@ -421,6 +422,8 @@ struct coresight_ops_panic {
->  };
->
->  struct coresight_ops {
-> +       int (*trace_id)(struct coresight_device *csdev, enum cs_mode mode,
-> +                       struct coresight_device *sink);
->         const struct coresight_ops_sink *sink_ops;
->         const struct coresight_ops_link *link_ops;
->         const struct coresight_ops_source *source_ops;
-> @@ -709,4 +712,6 @@ int coresight_init_driver(const char *drv, struct amba_driver *amba_drv,
->
->  void coresight_remove_driver(struct amba_driver *amba_drv,
->                              struct platform_driver *pdev_drv);
-> +int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode,
-> +                              struct coresight_device *sink);
->  #endif         /* _LINUX_COREISGHT_H */
-> --
-> 2.34.1
->
-
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+index 6cadf24a575c..e9038d015cf0 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-dwc-qos-eth.c
+@@ -325,6 +325,10 @@ static const struct dwc_eth_dwmac_data tegra_eqos_data = {
+ 	.stmmac_clk_name = "slave_bus",
+ };
+ 
++static const struct dwc_eth_dwmac_data fsd_eqos_data = {
++	.stmmac_clk_name = "slave_bus",
++};
++
+ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+ {
+ 	const struct dwc_eth_dwmac_data *data;
+@@ -365,7 +369,8 @@ static int dwc_eth_dwmac_probe(struct platform_device *pdev)
+ 	plat_dat->stmmac_clk = dwc_eth_find_clk(plat_dat,
+ 						data->stmmac_clk_name);
+ 
+-	ret = data->probe(pdev, plat_dat, &stmmac_res);
++	if (data->probe)
++		ret = data->probe(pdev, plat_dat, &stmmac_res);
+ 	if (ret < 0) {
+ 		dev_err_probe(&pdev->dev, ret, "failed to probe subdriver\n");
+ 		clk_bulk_disable_unprepare(plat_dat->num_clks, plat_dat->clks);
+@@ -406,6 +411,7 @@ static void dwc_eth_dwmac_remove(struct platform_device *pdev)
+ static const struct of_device_id dwc_eth_dwmac_match[] = {
+ 	{ .compatible = "snps,dwc-qos-ethernet-4.10", .data = &dwc_qos_data },
+ 	{ .compatible = "nvidia,tegra186-eqos", .data = &tegra_eqos_data },
++	{ .compatible = "tesla,fsd-ethqos", .data = &fsd_eqos_data },
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, dwc_eth_dwmac_match);
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.17.1
+
 
