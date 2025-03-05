@@ -4,138 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5844AC282D3
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:45:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76636C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 07:46:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:
-	List-Owner; bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=; b=e2yvSoe3B941ex
-	hXBi4aRrvoFzdXH2HCRS9+hlxKv6zvDfoQp6C90OLs7helPsDY4I4lqPL8LTQNBHJCZSWe8x0sPma
-	7YPWgmBLSwapwnKTUsmjMI95dtniRRaTBWzZnsDXPjeRphVRO+Eh39emIWbG070cz6MYYuaszia09
-	ny/8lRrCs0Y7rQVtNqhYs23TWjDyldiv6cqu9GqovUKBGW35mYt3FPI49/68xA/XISj0H9l3K0LGj
-	PTMG6AQ2z2/fbq3K7KblX26xSIXSqA2R5XAXDHAnR/D44ZjH8ecIw71d/ZkefN6iyzkt577Bevsbh
-	oiRolAdICDVEzfNlwRAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ytd3uDAUr77k/QvwA0I1JyX55i1pJLknFBSR7pg6DWU=; b=bbSFOtXhULa6+4MH6QMGpmfb0O
+	iCTlzptBrCISP66bLxPo2Jj7fr30OxMsqSLid+SPRN71eTJMtLe+/qVYYJnHETPPZCbu3bvEAj6uj
+	TMkT7MiJhJx1294OKoPiNxrkMIA7nP3oYLrcyJVN2FqRZY2FfL4kWB47t5r6UuMy1KPtTkFvHTGCU
+	WlWwIjLqgzvIBfzOblAVWppw4LWgmyD1unKgj9FywVuIVA7q3G+AKx5IBXi06ugmQ9uv+vGcO/JD1
+	riDqCbYqdEZb7/tM0AWpbVSwWafREIVgC8URjJ1TxIpNHdjSqXOWZ4sTXfnH7CxEphaxIkVsrm6td
+	yUpJU0Dg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpjQz-00000007Gzi-1MjI;
-	Wed, 05 Mar 2025 07:44:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpjRu-00000007HET-0kKg;
+	Wed, 05 Mar 2025 07:45:50 +0000
+Received: from mail-lf1-x12b.google.com ([2a00:1450:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiGt-000000077jD-2jq7
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 06:30:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:Message-Id:
-	Date:Subject:Cc:To:From:Sender:Reply-To:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Description:In-Reply-To;
-	bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=; b=L0E1wCOkf6XUkUUV0oNtwjXyme
-	AulMfmvoJONMMoEGYQGd9KXwKx5/k4nU7WRxQQPS4clh+QZQTu2L3tIw9bpvcdSKHq1dQVDLRWgaW
-	UnfoHNvRwKyNV6/q4wru2fjlwIZCJinF2vMEl57DpWyGZDjGDcIm//McYV9qckDfAEvZtdfO3ySRk
-	5s8EA68M7H3HXJoahQ7nqiJPHOF2IL/9XVwkAQ7LsX/6JbZZJhGp0WEHkePAmUmZ1NbzYUodWivFb
-	QeZSK5ucWO+uczOg7RB45dhkhmLJJJAQPDvFWSTNdeaqjL4nkkAdc+MrCyUc8YRXt7cCD8L2klG/R
-	0Locfrjg==;
-Received: from mailout1.samsung.com ([203.254.224.24])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiGe-00000000NvX-46lK
+	id 1tpjLd-00000007G9I-0NO4
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 06:30:16 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250305062246epoutp01e1c629bdf51d4a84909c6cb55de5508f~p0-HEH_sL0525605256epoutp01Q
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  5 Mar 2025 06:22:46 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250305062246epoutp01e1c629bdf51d4a84909c6cb55de5508f~p0-HEH_sL0525605256epoutp01Q
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741155766;
-	bh=skXfz601zwxGnlS1FM693PJw5hGibXY8CTNZiA2Lo4I=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=W0PBd+yi6The5YrQkeDh0UCvBO0stflph3otVBGx4s98U0wiT6Eq62pXemkHABil9
-	 Hb1KguJQCCUOj6jnLSzdWl+MLDNx+RE+vqKQZH0FGqLU/7ODqc9etxf3wqJ5dngZVM
-	 aYHy9pQIACdPhhFZ5S9ijR7fRf5Q8dN4iKd7vSds=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20250305062245epcas5p23067eadd0e690fbee68023f2774468ac~p0-GUv7ny1813318133epcas5p2X;
-	Wed,  5 Mar 2025 06:22:45 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z72Xg2Z94z4x9Q0; Wed,  5 Mar
-	2025 06:22:43 +0000 (GMT)
-Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	32.02.19933.3BDE7C76; Wed,  5 Mar 2025 15:22:43 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6~p0t1X1d2e1988819888epcas5p2W;
-	Wed,  5 Mar 2025 06:02:59 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250305060259epsmtrp11bd6866051780894bf24883dc4b2621b~p0t1W9LDS0144901449epsmtrp1K;
-	Wed,  5 Mar 2025 06:02:59 +0000 (GMT)
-X-AuditID: b6c32a4a-b87c770000004ddd-7f-67c7edb3dabb
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	5E.5E.33707.219E7C76; Wed,  5 Mar 2025 15:02:58 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250305060256epsmtip2ebb003603dcf4055c8070785ac5dc092~p0tzO5xUE2406324063epsmtip2J;
-	Wed,  5 Mar 2025 06:02:56 +0000 (GMT)
-From: Inbaraj E <inbaraj.e@samsung.com>
-To: linux-media@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: pankaj.dubey@samsung.com, rmfrfs@gmail.com,
-	laurent.pinchart@ideasonboard.com, martink@posteo.de, kernel@puri.sm,
-	mchehab@kernel.org, shawnguo@kernel.org, s.hauer@pengutronix.de,
-	kernel@pengutronix.de, festevam@gmail.com, gost.dev@samsung.com, Inbaraj E
-	<inbaraj.e@samsung.com>
-Subject: [PATCH] media: imx-mipi-csis: Fix v4l2 mbus frame descriptor type
-Date: Wed,  5 Mar 2025 11:26:55 +0530
-Message-Id: <20250305055655.6622-1-inbaraj.e@samsung.com>
-X-Mailer: git-send-email 2.17.1
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprCJsWRmVeSWpSXmKPExsWy7bCmhu7mt8fTDZ5/5rV4eNXf4uaBnUwW
-	M++1slnc/TOJzWLV1J0sFvPbZrBYdE5cwm6x6fE1VovLu+awWfRs2MpqcW3FRFaLZZv+MFks
-	2vqF3aJxwXsWi7/bN7FYvNgi7iDgsXPWXXaP2R0zWT02repk89i8pN7jxeaZjB79fw08fh0W
-	9Xi04xajR9+WVYwenzfJBXBFZdtkpCampBYppOYl56dk5qXbKnkHxzvHm5oZGOoaWlqYKynk
-	Jeam2iq5+AToumXmAP2hpFCWmFMKFApILC5W0rezKcovLUlVyMgvLrFVSi1IySkwKdArTswt
-	Ls1L18tLLbEyNDAwMgUqTMjOWL/3AlvBRI6KLZt+sjUwNrF3MXJySAiYSPTPWsHYxcjFISSw
-	m1Hi/JWXzBDOJ0aJv382M8I511YeZ4RpWf/oCTOILSSwk1HiyW89iKIvjBLPV31iAkmwCahL
-	bOj+ztbFyMEhIlAl0btSBaSGWWAhk8TrawfYQGqEBbwk+g72gt3BIqAqsXTuUbBeXgFLib4l
-	S1kglslLrN5wAOwkCYFODom767awQSRcJD7feM0KYQtLvDq+BeohKYmX/W1Qto/E/jm/oK7O
-	kDi2fTlUvb3EgStzWECOYxbQlFi/Sx8iLCsx9dQ6sBuYBfgken8/YYKI80rsmAdjK0vMPHIf
-	6gRJiZ2Xd0Ld6SFxf/cGJkigxEqs+/eZeQKj7CyEDQsYGVcxSqYWFOempxabFhjlpZbDIyo5
-	P3cTIzh5anntYHz44IPeIUYmDsZDjBIczEoivK9PHU8X4k1JrKxKLcqPLyrNSS0+xGgKDLOJ
-	zFKiyfnA9J1XEm9oYmlgYmZmZmJpbGaoJM7bvLMlXUggPbEkNTs1tSC1CKaPiYNTqoFp/yeX
-	fW/95x6umugfIr46pDaQgSfQc7mK8bKmrgkWfKcDUhmPbDYykCq/bf35yOpkux/3rzbuP2y4
-	4mlMzbxfWveTbBhzt9W9Xlky/+7VJWwVbtxPuAv8LO0cFgeeaGc5Z/ei4diF2jkmDD+S5s0p
-	qji1j+eO1epDhW2MCZOVV+mZrDDLMFt/Oy/T/ZwYd7C0Wo9FkralP7cu5+6Nzrf3i+gmzin1
-	frfk4zOe5Que71S7z3YjykP7vUBP1KQ7+fuzVx0y2+pw4EqFU2ueVFHYpufPV7Y9LvCu7ZBt
-	qnOPlvpX9LzSNZNpLkv+L59ZK718+F8YxwYdt5v3b61E+slpU/w7+45f/jnvcPY9sU9KLMUZ
-	iYZazEXFiQCh3jAxJwQAAA==
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrLLMWRmVeSWpSXmKPExsWy7bCSvK7Qy+PpBhd+W1o8vOpvcfPATiaL
-	mfda2Szu/pnEZrFq6k4Wi/ltM1gsOicuYbfY9Pgaq8XlXXPYLHo2bGW1uLZiIqvFsk1/mCwW
-	bf3CbtG44D2Lxd/tm1gsXmwRdxDw2DnrLrvH7I6ZrB6bVnWyeWxeUu/xYvNMRo/+vwYevw6L
-	ejzacYvRo2/LKkaPz5vkAriiuGxSUnMyy1KL9O0SuDLW773AVjCRo2LLpp9sDYxN7F2MnBwS
-	AiYS6x89Ye5i5OIQEtjOKNG5eAcTREJSYvbv6VBFwhIr/z1nhyj6xChxafV9RpAEm4C6xIbu
-	72wgtohAncT8B3NZQIqYBdYzSXx9DzKWk0NYwEui72Av2CQWAVWJpXOPgm3gFbCU6FuylAVi
-	g7zE6g0HmCcw8ixgZFjFKJpaUJybnptcYKhXnJhbXJqXrpecn7uJERzCWkE7GJet/6t3iJGJ
-	g/EQowQHs5II7+tTx9OFeFMSK6tSi/Lji0pzUosPMUpzsCiJ8yrndKYICaQnlqRmp6YWpBbB
-	ZJk4OKUamOb9rnWOEN4a8zeXsW5n+o31ilpGq33b7367nKhgk9O6iP/zvZueN/Z/rGv7eHJd
-	fUxGlBdvT1HH1qbXhfca779alqk96dVJ19p/G6Otn+e0t8pMdRZb5Lv6Wlc8p9JvnuVhn4w/
-	sc9WXPXk+a2++Q6G++YdqXa49sZCv9yV1z+s+LF6d/5CrdVqvE+MUy9EypzROOL670hSAGva
-	3dw9BT1P/wjrzNo1N1EgPzs1e8u8Yt9tTN0n9XULC9PO5OdM26HQP8XxcNHr7Q9uWc9xZlar
-	rLnwZX7cwm+VrN2sghNjNmZwGS21OrdBN+dsZyfX5/05a1Yoz816pe+j4Fd1920Vb3pj8fVT
-	dXrxf/NalViKMxINtZiLihMBPJ9jr9ACAAA=
-X-CMS-MailID: 20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6
-X-Msg-Generator: CA
+	Wed, 05 Mar 2025 07:39:22 +0000
+Received: by mail-lf1-x12b.google.com with SMTP id 2adb3069b0e04-54955222959so5215544e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 04 Mar 2025 23:39:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741160359; x=1741765159; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ytd3uDAUr77k/QvwA0I1JyX55i1pJLknFBSR7pg6DWU=;
+        b=hVgCr0ZI9QWYZ+x6u0ZaXTyqt4CaIXB9v1QeyWID+EOo4LZQ4YwGvp6W+doCx7vNWB
+         BEPRDgOplCtxgMkIbJfiZQTq2d/S0XbWuNRz9qXFrU2dHnOEKf7jT/nBH3Jb903HAcUG
+         0N07IlpRNglmDMn1gbpJS2Qefq2ECE1EVtVbL9PIdEKtLhE4i0r4fSnSe1LXpn7/2X7v
+         O+r9NwRNOUrR8+JjyMiCb1WdefgXvPRXxeRvnT4QHwSwKRAvTLiY9mI45JwCefFIC2Ww
+         AZZ4tbAX4TdILwmvB+RubvKuL3+0/aq1TBrpElg97Y2Qs4wks7uv0FCOiJTpukneMeIr
+         Bj5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741160359; x=1741765159;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ytd3uDAUr77k/QvwA0I1JyX55i1pJLknFBSR7pg6DWU=;
+        b=TeNlwbe43YeZw8xK+NWsCmd1kVZDT9J8vvbe5AJFrQ49si9Vnn/01KYf1Hw7iJI3SE
+         3vT8qYkOZUvUcdYwX59yVfaXgXQMYPQ77hQ4owIHv81iYRjR2YKXxM+z3dnuqyiIuYJD
+         KLdmG7l8ZJwsQsY8I8rQ53OGGNS7tmeqXeHmT2x6DquCjT/F9sOw8Sr3fTEA8vQSiAW6
+         4Hiu7dgtYVujm26i+VHh923ad9Pusl0vH6W081xMkT3gWAxMhO7Ki1UAslYBuq7p788Y
+         zAFGj/MyKs5Cx3VNhUPp9jnEL51J49WfI4zpkclqyBXvBRFv8m8Lp4RIq4l20iAnPen7
+         Maag==
+X-Forwarded-Encrypted: i=1; AJvYcCVFkAIj2PX0mIHRwJNtFXRXZ2SfIv0gY5Mi1vH+ALOX4gQGpq+GKCjNWbV24hbxptbZHmMmJoWhc7mvbzC4ihfh@lists.infradead.org
+X-Gm-Message-State: AOJu0YzXIAcW+UT0V5Ndjq6PtjSmnsxangA0RnDgvgh1Cjc91Abw9Iic
+	U5KYKX5+yDzI2t/CEuIemPb7hWhCLN4IsleW25oKxxe/aruHwJyBlfjXsUs1HOU=
+X-Gm-Gg: ASbGncvmdXdG0z79HCjTAsDpHAjptm1EfrnHLR3YzS682DE63ouTFLfFG225PPVNftv
+	NbYvtofzmaiaIGYcCb3zHmLFcGXdkLC95uz+wpIR31znobhL/6PCxwsUDZpHH9stelAFf5VVTir
+	kHhE8zzCklSNqXcfhEbQ/1UZwXpa/i2eBdGltMAllwuaMfWOqDQX0WHrG4hXPStlF/CUY37buef
+	My/sQ1EJhvaVVCmXEg+2LgSdVTxUqkoLG2+AF5aoYoYB7O5AzlyuPCdNc/XUvxvf75TmqJMaj6K
+	3dDXHuuKy1u02/u+9ophuO1dGAPZJZ/yj7Bt2avHfmuQToKSfb4moV8=
+X-Google-Smtp-Source: AGHT+IHja8Xqz27pMBgC+ctDlcXS+7JRihmA5ZDREPfugVRdHY/NUOad9X+cPrSfCkKGb0fC7sHjrQ==
+X-Received: by 2002:a05:651c:220e:b0:30b:b7c3:ea71 with SMTP id 38308e7fff4ca-30bd7a65e82mr6645381fa.15.1741160359096;
+        Tue, 04 Mar 2025 23:39:19 -0800 (PST)
+Received: from [192.168.1.140] ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bbae78e73sm8902351fa.75.2025.03.04.23.39.17
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 04 Mar 2025 23:39:18 -0800 (PST)
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 05 Mar 2025 08:39:15 +0100
+Subject: [PATCH v2 3/6] ASoC: samsung: lowland: Drop unused include
+MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6
-References: <CGME20250305060259epcas5p20c02f4c4b4ff84b0f790b4ea446056e6@epcas5p2.samsung.com>
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250305-samsung-codecs-v2-3-20bc980c6445@linaro.org>
+References: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
+In-Reply-To: <20250305-samsung-codecs-v2-0-20bc980c6445@linaro.org>
+To: Sylwester Nawrocki <s.nawrocki@samsung.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_063014_815844_6EB21D53 
-X-CRM114-Status: GOOD (  18.37  )
+X-CRM114-CacheID: sfid-20250304_233921_133727_B260E24E 
+X-CRM114-Status: GOOD (  11.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,31 +102,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-For MIPI CSI2 v4l2 mbus frame descriptor type should be set to
-V4L2_MBUS_FRAME_DESC_TYPE_CSI2. Now frame descriptor type is set to
-V4L2_MBUS_FRAME_DESC_TYPE_PARALLEL. So changing the frame descriptor
-type to V4L2_MBUS_FRAME_DESC_TYPE_CSI2.
+This file does not use the symbols from the legacy
+<linux/gpio.h> header, so let's drop it.
 
-Fixes: d200de90de2a0 ("media: imx: imx-mipi-csis: Implement the .get_frame_desc() operation")
-Signed-off-by: Inbaraj E <inbaraj.e@samsung.com>
+Reviewed-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
 ---
- drivers/media/platform/nxp/imx-mipi-csis.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ sound/soc/samsung/lowland.c | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media/platform/nxp/imx-mipi-csis.c
-index 29523bb84d95..bb6550bed230 100644
---- a/drivers/media/platform/nxp/imx-mipi-csis.c
-+++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-@@ -1137,7 +1137,7 @@ static int mipi_csis_get_frame_desc(struct v4l2_subdev *sd, unsigned int pad,
- 	if (!csis_fmt)
- 		return -EPIPE;
+diff --git a/sound/soc/samsung/lowland.c b/sound/soc/samsung/lowland.c
+index 702cb4cc1ce9f07e55ddf9435b19c4691e0236e5..d4088b72d43c2295102d850197f8b9eac50d7120 100644
+--- a/sound/soc/samsung/lowland.c
++++ b/sound/soc/samsung/lowland.c
+@@ -7,7 +7,6 @@
+ #include <sound/soc.h>
+ #include <sound/soc-dapm.h>
+ #include <sound/jack.h>
+-#include <linux/gpio.h>
+ #include <linux/module.h>
  
--	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_PARALLEL;
-+	fd->type = V4L2_MBUS_FRAME_DESC_TYPE_CSI2;
- 	fd->num_entries = 1;
- 
- 	entry->flags = 0;
+ #include "../codecs/wm5100.h"
+
 -- 
-2.17.1
+2.48.1
 
 
