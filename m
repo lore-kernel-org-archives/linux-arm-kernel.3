@@ -4,119 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B9B0C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FD26C282D3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 06:45:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Pm0v1oLCij0h6SDkpOwWiVAdzDZKq77pVrdFNubwArE=; b=AWM50yVv8itJnMH4d0JeqLi7z9
-	gFfYM9mwDMHRjT7mO4Z+hhNRaZfVuJc8kTPYHtvapPAr5aemiScX6nr0rKQ36j8dInNefM4YgdBfg
-	LciBiDPKN5x8+cwm8t1YAIBIizT/Y92s+Sz4iCVBAZRsujuvTe25VcMtBp7/SCifBpBpmP6jtDK4C
-	umIGqdE6hnCNaAetUOPirNs5oK44D1Dqe4bS8gcmyEQAZNuTnK3wW7gSXOv4nHIZXQWHntlxGkXbr
-	XRQVFWY77Zz29stEqFltRuSNYW8ioxPx5+dCgkgt6tdTzZEzdc+J1BuGnBk7wNdOAxmX3pb/yXhkz
-	FltzMJRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IDiDMSvrkbAzlosM89SaIfOtkx2P/rMmUar5l3ixSLc=; b=Gii5iq7BABqU5FhJRdpATfbjnr
+	IaZj/3rc2gPjKwKa9p0dBmlbRhlOstR+okr0c2EY2u+COoyRfjkDkKBAlC+cw6Ycxku3kDr/s2b0X
+	AFBej3GpVOVKblC3RIO86gMQqC8dlRPFYMGTSu3SwNpUf2WymRMqt2o6IUwcoeyTbR1lMipFFWXNF
+	cQ7cXoy5ALr4gKBzmApnXHCFypREYLiq+M02zXSyKRbtDEQXp+fB30vYQ1Wfm3xPL/yuiB0Vx2STO
+	TqQQH/IPKi6Xex0WW9OmJZhEPA0p3YFTJ3h6luhp9wiRj/K5Nqm+pNmzUJdcvNWZKPMXA9jAt7Fvy
+	0ryzwcfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiTw-000000079R7-3Gfn;
-	Wed, 05 Mar 2025 06:43:52 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1tpiUv-000000079d5-2gfc;
+	Wed, 05 Mar 2025 06:44:53 +0000
+Received: from mail-tyzapc01on20720.outbound.protection.outlook.com ([2a01:111:f403:2011::720] helo=APC01-TYZ-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpiQ7-000000078fH-1rYt;
-	Wed, 05 Mar 2025 06:39:56 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-7c3cf3afc2bso145489185a.0;
-        Tue, 04 Mar 2025 22:39:55 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741156794; x=1741761594; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Pm0v1oLCij0h6SDkpOwWiVAdzDZKq77pVrdFNubwArE=;
-        b=dT0o47C9C62fv3/T5GJbNkoXiLYKWKhtxZpw+Y+WYosMl4Y+f4Brwhilrz59kcoHCf
-         bWWV/mHzY0oCMIkAfZTHPZPV/FcbmqaugFTcObboseE0mgD+hdcYyMED6Aha4btPxw8x
-         mRbQwwpnhnE1NTMbTBbWtXzQe3XNwdn1h8BWM6rYhkbTJzioSNMpMsUehGWBs89eyp+V
-         zWsvNYoFM592ckwYuV9EoZ4mvtz2h4Tf4/qD3kppokE9H+IB0KjA9rQ1rf/zuGbUQTzo
-         UTwW4P9P+XJBo7zUWCssEGMuCjGGO1yqjUnE08nJZg9Ub/AIuCvQVgB1K6I3scpJt7nz
-         e/ag==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741156794; x=1741761594;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Pm0v1oLCij0h6SDkpOwWiVAdzDZKq77pVrdFNubwArE=;
-        b=ROXbxfGxPQchTjvLa3oddBOA8m9JDFPw7Y3bXQ71nFwCZ3Dyin74J+BNR8snn2MXpx
-         PnNRKZHgCnGHkMD32Z5H8c8odnXTHUkCWY0bz7yKgumxEGrU8p3UV3bg3At8MVkMKBS4
-         vptjK3NVtGE9bxLaH7MlFkS0udXf9L1+gBx9ZIWFqHu3+dkH1xui26kAb+j0HwiOANU1
-         ZTepYQuheWr3pru+TP49yu00u3dGCaUMvHQm8KPIDs9XUiK/pr+ZNFIa8pnrc4wbw3UJ
-         6FimYW+SjXif/oZj+0F2sBydj8epk9AnJsvAXr2oqBS/AGJVOQJvtfsYHqL305gLCpSm
-         8c2Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUC/pMYklv9Dvqus7/D0OWBXqZmEqOJVL4DDr2SZxyKSQwmw2LCLwyVJoUQgQRrqL6xR2A/fK0u663dDDk=@lists.infradead.org, AJvYcCWHgqUKNkS/7Xci20enjA8EctCz0vDm9eseDPq5CDtkEa8YK4DV02zD+7zvM5cGycwvYTbaczhtiKLTbsrp5i0j@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzd0FvEu9N5zhpUvAd/hJ5WID5LB+x+0eiNOdLuiOocmiZYHH99
-	9XK+iXKHHvZqafgam0CzIJg8FfeWwj3K7pbF0sySauhLut0rBkZ7
-X-Gm-Gg: ASbGncs7PDDpFTPdjMowGDr59CF/zRmRZMRV6jlojnktCax7n2oi2Z7jpleYtVisY0+
-	fBi8G46QsQiDxoNO1P8Ic+NUZB4JbzsCu9lZcgKEg/ns2SE9ZPFZUjp/+XGjeWqxvz7Zo7Z1j5b
-	fYa4d/q1wgc4rKmTvuptFbXWGZvowFi4DbSKZ4ULQt/0KRmZOf7Hm8vRcCTNOUyaGJxsbwAZh7A
-	m+Az/SBRMS2W0y5JtpRszxOQp2sIRBjVlzRW2A/bUbb67UjI1dKJvN/XwvQ2WnDYzmW7NojE/oM
-	/C2xVgJ1IfjCHwObDUCL
-X-Google-Smtp-Source: AGHT+IE2PxHyAWGJwBqsd4XqiNnUfpUNBM6sb+RyGuOLvmBafepSZRle0SjnzsdkzlpqNK/+2dp1ng==
-X-Received: by 2002:a05:6214:e6a:b0:6d8:9b20:64e8 with SMTP id 6a1803df08f44-6e8e6d11d4amr25735466d6.10.1741156794196;
-        Tue, 04 Mar 2025 22:39:54 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e8a2170bcasm62382096d6.34.2025.03.04.22.39.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 04 Mar 2025 22:39:53 -0800 (PST)
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen Wang <unicorn_wang@outlook.com>,
-	Inochi Amaoto <inochiama@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Richard Cochran <richardcochran@gmail.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Hariprasad Kelam <hkelam@marvell.com>,
-	Jisheng Zhang <jszhang@kernel.org>,
-	=?UTF-8?q?Cl=C3=A9ment=20L=C3=A9ger?= <clement.leger@bootlin.com>,
-	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
-	Simon Horman <horms@kernel.org>,
-	Furong Xu <0x1207@gmail.com>,
-	Lothar Rubusch <l.rubusch@gmail.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jose Abreu <joabreu@synopsys.com>
-Cc: netdev@vger.kernel.org,
+	id 1tphSn-000000072Zb-2uWx
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 05:38:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=R/0CmmOLCqPsE39v9yj9Pyeixean857GBqh2YAVX28AQcwPGYdCLHxBVNwc8InTz64c6RaMTnRFj+vmZxMpT9IERHd7cd/K6yBx1XjCqmuaubgZIdLlK7DLDu4KhfsFXLkdKPlki6R7YNL4PEVMdUNlTZcCBA/6Gs+x+2tTnO6sfcWbath625WHP9oM95uSOnWlHqqMbpz20UjNgNcT38X8Px55o/34W5hinlO2VuXL0v554RRSztA9F8WyPQvpuu6r0LbnyBoCcBD/aOdwZyWQ/8SnKlKDHc0l9gVu74sBjgTMuaxgFRBozQZj0TvQX+WVnrPDcotnDr1SPXKR0pg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IDiDMSvrkbAzlosM89SaIfOtkx2P/rMmUar5l3ixSLc=;
+ b=YEtk7/R7FQy3PnCyk09H+dw/uf3SMmvUEH0CJyZE1c9tz4mNBCob+4mED/7wEkPPAvszSrUVz3NbdHFaasxSKT0hznCo5TIsKxzbwsnSAAoSakG4yzBdv/+4w8l2qprqFniQm2U36rMlb77Lz1KkMiM8/afjKLPcGTxn9xSgexeUctnynb4gjgdhOox7ljUA4NBA/9B/2hd84+CD5L7QTMWTPW2JYs+w4g8/OkjhqbBonJrBXsD6tSJSmLYb5/V5Inl081DyHUadWe+E/STkok8oT2ddtdj/BycGRl5BwTf1wMoQePf4cVRb+J+qyHSiQ5evjZkp6FW5TGNtR7oGDA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 222.71.101.198) smtp.rcpttodomain=arm.com smtp.mailfrom=cixtech.com;
+ dmarc=bestguesspass action=none header.from=cixtech.com; dkim=none (message
+ not signed); arc=none (0)
+Received: from PS2PR01CA0027.apcprd01.prod.exchangelabs.com
+ (2603:1096:300:58::15) by SI2PR06MB5137.apcprd06.prod.outlook.com
+ (2603:1096:4:1ac::5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Wed, 5 Mar
+ 2025 05:38:27 +0000
+Received: from HK3PEPF0000021F.apcprd03.prod.outlook.com
+ (2603:1096:300:58:cafe::77) by PS2PR01CA0027.outlook.office365.com
+ (2603:1096:300:58::15) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8489.29 via Frontend Transport; Wed,
+ 5 Mar 2025 05:38:27 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 222.71.101.198)
+ smtp.mailfrom=cixtech.com; dkim=none (message not signed)
+ header.d=none;dmarc=bestguesspass action=none header.from=cixtech.com;
+Received-SPF: Pass (protection.outlook.com: domain of cixtech.com designates
+ 222.71.101.198 as permitted sender) receiver=protection.outlook.com;
+ client-ip=222.71.101.198; helo=smtprelay.cixcomputing.com; pr=C
+Received: from smtprelay.cixcomputing.com (222.71.101.198) by
+ HK3PEPF0000021F.mail.protection.outlook.com (10.167.8.41) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8511.15 via Frontend Transport; Wed, 5 Mar 2025 05:38:26 +0000
+Received: from localhost.localdomain (unknown [172.16.64.25])
+	by smtprelay.cixcomputing.com (Postfix) with ESMTPSA id E29F04160511;
+	Wed,  5 Mar 2025 13:38:23 +0800 (CST)
+From: Peter Chen <peter.chen@cixtech.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	arnd@arndb.de
+Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	sophgo@lists.linux.dev,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	Yixun Lan <dlan@gentoo.org>,
-	Longbin Li <looong.bin@gmail.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH net-next v6 1/4] dt-bindings: net: Add support for Sophgo SG2044 dwmac
-Date: Wed,  5 Mar 2025 14:39:13 +0800
-Message-ID: <20250305063920.803601-2-inochiama@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250305063920.803601-1-inochiama@gmail.com>
-References: <20250305063920.803601-1-inochiama@gmail.com>
+	cix-kernel-upstream@cixtech.com,
+	marcin@juszkiewicz.com.pl,
+	Peter Chen <peter.chen@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>
+Subject: [PATCH v4 6/6] MAINTAINERS: Add CIX SoC maintainer entry
+Date: Wed,  5 Mar 2025 13:38:23 +0800
+Message-Id: <20250305053823.2048217-7-peter.chen@cixtech.com>
+X-Mailer: git-send-email 2.25.1
+In-Reply-To: <20250305053823.2048217-1-peter.chen@cixtech.com>
+References: <20250305053823.2048217-1-peter.chen@cixtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: HK3PEPF0000021F:EE_|SI2PR06MB5137:EE_
+Content-Type: text/plain
+X-MS-Office365-Filtering-Correlation-Id: f734dd31-d0ac-4c5f-0c2f-08dd5ba7f3ef
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|82310400026|376014|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hOiCcMiPl4SgBm2HWeBEuuMglU2ZjaU/JVGGvd75NE7PivVZzmzx6mjbs7+g?=
+ =?us-ascii?Q?JlJKrA196Gl9oxSvscrlwia02MowuL8ENmsgHWs56rB4Mx7PhvQ5IMYQh3+r?=
+ =?us-ascii?Q?IpuxRt9CL2JSJFRw/TT7ZwcW/bzFggZy43PG/tWK+u6JtIeRIspmmWsQYfvu?=
+ =?us-ascii?Q?W+EuEckT/aWVW+k6B7O2ux7f9pmoZFZnNEJzcSkuvZNUSD1yvYycLuA472DJ?=
+ =?us-ascii?Q?LGCmHdsUBs4NqUysRHf/3uRvzxZlsLmgHY6QeM1Guh01b1BIOwI/6AY6CGjW?=
+ =?us-ascii?Q?3it6cxVYO06Ml4JHXqwOWL8Ruh8NTM/mq3X8xK8ubLxgjEZNrL+KXPWLvjiM?=
+ =?us-ascii?Q?T6+V9SInRv8WncC9hgzltROMrykf3qSk1C2lFdhlroE44utGRafKeU+fLTCB?=
+ =?us-ascii?Q?cdmW3P1Kye8gB2OgL3g9NNxGlgcQUBDyuN6zsMcY8M6/JU/h5u11ke3Jz+a/?=
+ =?us-ascii?Q?5kQkDOEKwprnjpqp4Unr8z+hwyX3Q6gxW1aRUbBwI04vmdxSb+b76p7PpdMP?=
+ =?us-ascii?Q?keSM42dQrvfFJdjlCWfpVUieLbhPmrb49bY8+2PwzeirJRwX8dhm4032hoj7?=
+ =?us-ascii?Q?57MiQ9G22fnhVjsRGGXcLTqGBkJMprl5sq8xZw2Stz4ld0ZlgmGhnAHJJrPa?=
+ =?us-ascii?Q?P6uPPdl4A17zrc/DJ51y7OBYx+Nx+0J6h786vl6FBxfBV6JQHI/Nib6DUt5x?=
+ =?us-ascii?Q?8xJMBnU5esbaU2BMsFR/LAR288jnMLCXUpu16eOLHnaB7+1ve4AHVZ4PeP+p?=
+ =?us-ascii?Q?Y66NxqyGvXUELVk0mN6Iy/zz0cCDWWNPUFMbL3gFJ6kbtU9EmnraxEI2GbBu?=
+ =?us-ascii?Q?dmvdDoFIq+OeIkhcHLMTR2RzbIeB5wFsqSPcvkx10nENoP7NClYs03APrN1V?=
+ =?us-ascii?Q?DFizpKUDQ2KRudSbOIIRfAlK4e4CleDB5yTG5TOdlnWtHIfNOLueKZX88bUM?=
+ =?us-ascii?Q?wMdJsFmNCyPnbDe+0vq7qr6L684KsAmyiF2ZsBKVorT3eXN9w6qp8D4gqkNx?=
+ =?us-ascii?Q?D6r88lgVLCRepwh91Pcgs1v2To/V0+c9fi5htfcWxjy1BQuAjCEvolzaY1+7?=
+ =?us-ascii?Q?YBmu1xVZIe+z/ksJ/9fVyfVrnsD8LihyQuv+xKJ7S/DVsDnJ1MNfkxF3JgdO?=
+ =?us-ascii?Q?oyrhQjuQMZOuPWhluf8FFD/uRaSAdM7nB2aggS74ZXmIGHlT6zObqHQKHtMf?=
+ =?us-ascii?Q?cxiB5p+xSHPe1R73rdQFVdkryGq5MqAjfgqf/xNMEGvV/fm/a3lYl/lZNDh6?=
+ =?us-ascii?Q?CZI41rt7FkeBJVRDbQPjY9SyKQWed7iKbTq7pbk63pB/AN0GI6zvvtRCGdPp?=
+ =?us-ascii?Q?d926kSe83rJQZWTXG3SSfEYgtr0/eaxxsvyVa4HVc6BdQnMtoTRQGlv1hAb/?=
+ =?us-ascii?Q?UaLWfe6Ve8w7Wv4rlLK9l9wamKnXRkAdmLuRqTii5k949AnhyPBgmQn4qvj0?=
+ =?us-ascii?Q?Kkn0dhEBbYBzxsDC+MvYLCGsk+j2MptMU9AYy0auHzAMGpOiM4gIo9SdcPvo?=
+ =?us-ascii?Q?AuKCV4bQAaQQSos=3D?=
+X-Forefront-Antispam-Report: CIP:222.71.101.198;CTRY:CN;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:smtprelay.cixcomputing.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(82310400026)(376014)(36860700013);DIR:OUT;SFP:1102;
+X-OriginatorOrg: cixtech.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Mar 2025 05:38:26.4330
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f734dd31-d0ac-4c5f-0c2f-08dd5ba7f3ef
+X-MS-Exchange-CrossTenant-Id: 0409f77a-e53d-4d23-943e-ccade7cb4811
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=0409f77a-e53d-4d23-943e-ccade7cb4811;Ip=[222.71.101.198];Helo=[smtprelay.cixcomputing.com]
+X-MS-Exchange-CrossTenant-AuthSource: HK3PEPF0000021F.apcprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SI2PR06MB5137
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250304_223955_481688_1D71E996 
-X-CRM114-Status: GOOD (  14.53  )
+X-CRM114-CacheID: sfid-20250304_213837_759551_40239FB9 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -131,183 +146,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GMAC IP on SG2044 is almost a standard Synopsys DesignWare
-MAC (version 5.30a) with some extra clock.
+Using this entry as the maintainers information for CIX SKY series SoCs.
 
-Add necessary compatible string for this device.
-
-Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Acked-by: Fugang Duan <fugang.duan@cixtech.com>
+Signed-off-by: Peter Chen <peter.chen@cixtech.com>
 ---
- .../devicetree/bindings/net/snps,dwmac.yaml   |   4 +
- .../bindings/net/sophgo,sg2044-dwmac.yaml     | 126 ++++++++++++++++++
- 2 files changed, 130 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
+Changes for v4
+- Add two dts files as maintained files
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 91e75eb3f329..02ab6a9aded2 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -32,6 +32,7 @@ select:
-           - snps,dwmac-4.20a
-           - snps,dwmac-5.10a
-           - snps,dwmac-5.20
-+          - snps,dwmac-5.30a
-           - snps,dwxgmac
-           - snps,dwxgmac-2.10
+ MAINTAINERS | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
+
+diff --git a/MAINTAINERS b/MAINTAINERS
+index efee40ea589f..edf26cf11ee2 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2354,6 +2354,16 @@ F:	arch/arm/boot/compressed/misc-ep93xx.h
+ F:	arch/arm/mach-ep93xx/
+ F:	drivers/iio/adc/ep93xx_adc.c
  
-@@ -98,8 +99,10 @@ properties:
-         - snps,dwmac-4.20a
-         - snps,dwmac-5.10a
-         - snps,dwmac-5.20
-+        - snps,dwmac-5.30a
-         - snps,dwxgmac
-         - snps,dwxgmac-2.10
-+        - sophgo,sg2044-dwmac
-         - starfive,jh7100-dwmac
-         - starfive,jh7110-dwmac
-         - thead,th1520-gmac
-@@ -631,6 +634,7 @@ allOf:
-                 - snps,dwmac-4.20a
-                 - snps,dwmac-5.10a
-                 - snps,dwmac-5.20
-+                - snps,dwmac-5.30a
-                 - snps,dwxgmac
-                 - snps,dwxgmac-2.10
-                 - st,spear600-gmac
-diff --git a/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-new file mode 100644
-index 000000000000..4dd2dc9c678b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/net/sophgo,sg2044-dwmac.yaml
-@@ -0,0 +1,126 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/net/sophgo,sg2044-dwmac.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
++ARM/CIX SKY ARM ARCHITECTURE
++M:	Peter Chen <peter.chen@cixtech.com>
++M:	Fugang Duan <fugang.duan@cixtech.com>
++R:	CIX Linux Kernel Upstream Group <cix-kernel-upstream@cixtech.com>
++L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
++S:	Maintained
++F:	Documentation/devicetree/bindings/arm/cix.yaml
++F:	arch/arm64/boot/dts/cix/sky1-orion-o6.dts
++F:	arch/arm64/boot/dts/cix/sky1.dtsi
 +
-+title: Sophgo SG2044 DWMAC glue layer
-+
-+maintainers:
-+  - Inochi Amaoto <inochiama@gmail.com>
-+
-+select:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - sophgo,sg2044-dwmac
-+  required:
-+    - compatible
-+
-+properties:
-+  compatible:
-+    items:
-+      - const: sophgo,sg2044-dwmac
-+      - const: snps,dwmac-5.30a
-+
-+  reg:
-+    maxItems: 1
-+
-+  clocks:
-+    items:
-+      - description: GMAC main clock
-+      - description: PTP clock
-+      - description: TX clock
-+
-+  clock-names:
-+    items:
-+      - const: stmmaceth
-+      - const: ptp_ref
-+      - const: tx
-+
-+  dma-noncoherent: true
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-names:
-+    maxItems: 1
-+
-+  resets:
-+    maxItems: 1
-+
-+  reset-names:
-+    const: stmmaceth
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - interrupts
-+  - interrupt-names
-+  - resets
-+  - reset-names
-+
-+allOf:
-+  - $ref: snps,dwmac.yaml#
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    ethernet@30006000 {
-+      compatible = "sophgo,sg2044-dwmac", "snps,dwmac-5.30a";
-+      reg = <0x30006000 0x4000>;
-+      clocks = <&clk 151>, <&clk 152>, <&clk 154>;
-+      clock-names = "stmmaceth", "ptp_ref", "tx";
-+      interrupt-parent = <&intc>;
-+      interrupts = <296 IRQ_TYPE_LEVEL_HIGH>;
-+      interrupt-names = "macirq";
-+      resets = <&rst 30>;
-+      reset-names = "stmmaceth";
-+      snps,multicast-filter-bins = <0>;
-+      snps,perfect-filter-entries = <1>;
-+      snps,aal;
-+      snps,tso;
-+      snps,txpbl = <32>;
-+      snps,rxpbl = <32>;
-+      snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
-+      snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
-+      snps,axi-config = <&gmac0_stmmac_axi_setup>;
-+      status = "disabled";
-+
-+      gmac0_mtl_rx_setup: rx-queues-config {
-+        snps,rx-queues-to-use = <8>;
-+        snps,rx-sched-wsp;
-+        queue0 {};
-+        queue1 {};
-+        queue2 {};
-+        queue3 {};
-+        queue4 {};
-+        queue5 {};
-+        queue6 {};
-+        queue7 {};
-+      };
-+
-+      gmac0_mtl_tx_setup: tx-queues-config {
-+        snps,tx-queues-to-use = <8>;
-+        queue0 {};
-+        queue1 {};
-+        queue2 {};
-+        queue3 {};
-+        queue4 {};
-+        queue5 {};
-+        queue6 {};
-+        queue7 {};
-+      };
-+
-+      gmac0_stmmac_axi_setup: stmmac-axi-config {
-+        snps,blen = <16 8 4 0 0 0 0>;
-+        snps,wr_osr_lmt = <1>;
-+        snps,rd_osr_lmt = <2>;
-+      };
-+    };
+ ARM/CLKDEV SUPPORT
+ M:	Russell King <linux@armlinux.org.uk>
+ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
 -- 
-2.48.1
+2.25.1
 
 
