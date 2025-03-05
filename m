@@ -4,93 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD6D6C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:38:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1598C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:40:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YdXsyBroVtxOiCChzxYnjkvE2624zzxFlW3yPNiZgmk=; b=HtJuabBKHRqy14INvP4MqtZUZa
-	qQxe4ZmodHxEy/x6/Pr9R9YI9g7CGPzqZgpJMxCJiOWqQridDaRtLZz8HqNqVkYD6w95tAphKNt6+
-	h7CAHOmAvUNVzYCwcZQmNVKvPFkTVflC6NpG8u4JYD3qSrX/B5ZMKQK0wf0gJWmxEK1ssx2jY8u+9
-	exj+9HuFW7XryfrEAb4MashpH5Gryc7sWjXGZydPNhSEC8jVn5RSoC2eSjYBA6HhWU9lW4hWlf+hk
-	8vIpe5gK+M1KY5jMOiMZjr5iYEUfNepvbxA+DKnbYU1IFcKr7P49YdkSxlIjU20mplOZ6J3U2c8nw
-	UTKhmOqg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qbqF48qVGJ7k977FyHARI9Urv+TEi3KnHj8UcH7vyaU=; b=NVOg67kA5Io7M1nSaJ1NZQJLUo
+	KqOiFjO29pV0qh0fLIzDL+Cp8qCbG/El9ZG06ZYsKROcpW0sLcduGZgJDBLjN0AFpCrdTWtDjhDqx
+	4xhvcK3MCM/xTOwFrXMQ+koyeTIJL1IPBnWi66B3w638uaIoVoXJzuW2if1makm2ImmUIBLks7NUi
+	lK30JKbYSxetbhmaIAHdqiwSFdIwC0AFl1oYLQd98vd5EgXQUCg66P6EwCu5dkSwKpDv6ES7yWv/h
+	YFMx+kO7tE/V2oGnn/6sJWeighZ39qgfp6rXEZbLqqx0WLVfDxP28iOCSmuRgFVtCDIxAMqwNfT/h
+	Mc0z8MBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm9G-00000007iPn-3Ksw;
-	Wed, 05 Mar 2025 10:38:46 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpmB4-00000007ipE-1D3N;
+	Wed, 05 Mar 2025 10:40:38 +0000
+Received: from mx0b-0016f401.pphosted.com ([67.231.156.173])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplam-00000007bY4-3ND1;
-	Wed, 05 Mar 2025 10:03:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Reply-To:Cc:To:In-Reply-To:References:
-	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Sender:Content-ID:Content-Description;
-	bh=YdXsyBroVtxOiCChzxYnjkvE2624zzxFlW3yPNiZgmk=; b=P1hUUfYe17vXaL1LkWtAPWJheG
-	v+GllNrz8NFMjkxgvMjV5QBt01QnuW08s+ppL489R1vacKC9Ld1guhH5tcER6GUVN4Jbx1EJTxoLi
-	tAuOu1b+9u6YhDZYp4FFvmvrw5VsJu39tG7bJ7sUINt7bZ5gwM5kGoVVk+pZzrMWBTFG2H4F7Cne0
-	sTr2v9Z4LWBGc1xKrAgzjvcAYLl3aUzGkA2ekiGAmxgZMQ0heUf3LJ/xnmi99UCAdEm4jrDyrV99x
-	+T7zZumTvKVTDFCw3CqOjcU0/KvIMI+V6VkAPdohmGo3kbZlJj3yooxIz0jQ0jicc48waxiCsLDiE
-	eGD3gfiA==;
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplah-00000005Fl4-2ZKv;
-	Wed, 05 Mar 2025 10:03:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1FE605C6799;
-	Wed,  5 Mar 2025 10:00:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 4FEA8C4CEEC;
-	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741168979;
-	bh=SDXYki0laFuI9oisJo2JS7KfAgbZ/wVI+Fa3655OeE4=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=RKjVOTx9HnrnxCqCrZFc/ZMmHUnROGva1akGWb/fyCIrnf4BkQKGJqQYHnCf5Yq8a
-	 R244M/H/47XW5bc3qYUMpK7oJPDARIpxpVpvtZ+HVUYtr2qL3FoXCC/6otKIIlMWIW
-	 WFG+uYdFF51QNHSXAe6ZrCPLfQQyqMKAG4BiZk3AvDNVmhnf+8p9Z9b+KtZS0rb+uu
-	 OvpbMFWepc+0SMuUm4x5ZMtp6N08/JZJqwaNylCI8d054+0Kva4NjPe9cG5WReUt5a
-	 UkTPRt/R5IyyF5Ow/Hph+rewkSFiyN2MEV4CwDhUe1GClMrN+FD/zMtUqKMpFRdo5R
-	 HSOrmZV8EXmhg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 457BCC282EC;
-	Wed,  5 Mar 2025 10:02:59 +0000 (UTC)
-From: Xianwei Zhao via B4 Relay <devnull+xianwei.zhao.amlogic.com@kernel.org>
-Date: Wed, 05 Mar 2025 18:02:57 +0800
-Subject: [PATCH v3 2/4] irqchip: Add support for Amlogic A4 and A5 SoCs
+	id 1tplia-00000007dGp-17Iv
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 10:11:13 +0000
+Received: from pps.filterd (m0431383.ppops.net [127.0.0.1])
+	by mx0b-0016f401.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5258qqsZ019244;
+	Wed, 5 Mar 2025 02:10:37 -0800
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=marvell.com; h=
+	cc:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=pfpt0220; bh=qbqF48qVGJ7k977FyHARI9U
+	rv+TEi3KnHj8UcH7vyaU=; b=W8ld+Ol0lHAzikVYU52DOPnFV7VVZgfOtqPH0jJ
+	VaMQnIcC1KqcbpBxK0AJrqnZIfA7kp5JmtRAMDtrxPbofa3ohLjhuhaGeIDQV7qj
+	eaivNu7zId34ZTotRMa0qGJ5TL5NbOPjewooyqQWLOezzRjZsAe5Y2SI6yQRXSd9
+	SxUkPw0D8uEmxrBVJD6DWrZiSSGGNtKSpovRv41muoRNt2PA7hGD6R0Fs8c6/l8v
+	WsZn4iiU6EyK6RmfGhTCZx35/VxR0Q2u5q7TXZ3CNzitlD3fqXHsSj0hJD3TA2Zb
+	453lgjgyf+3tsZGmbYzHE03WqBXMqOgWz1QybM5PE2L3o8A==
+Received: from dc6wp-exch02.marvell.com ([4.21.29.225])
+	by mx0b-0016f401.pphosted.com (PPS) with ESMTPS id 456kg184rh-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 05 Mar 2025 02:10:36 -0800 (PST)
+Received: from DC6WP-EXCH02.marvell.com (10.76.176.209) by
+ DC6WP-EXCH02.marvell.com (10.76.176.209) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.4; Wed, 5 Mar 2025 02:10:35 -0800
+Received: from maili.marvell.com (10.69.176.80) by DC6WP-EXCH02.marvell.com
+ (10.76.176.209) with Microsoft SMTP Server id 15.2.1544.4 via Frontend
+ Transport; Wed, 5 Mar 2025 02:10:35 -0800
+Received: from tx2-sever.caveonetworks.com (unknown [10.110.141.15])
+	by maili.marvell.com (Postfix) with ESMTP id 35B843F703F;
+	Wed,  5 Mar 2025 02:10:35 -0800 (PST)
+From: George Cherian <george.cherian@marvell.com>
+To: <linux@roeck-us.net>, <wim@linux-watchdog.org>, <jwerner@chromium.org>,
+        <evanbenn@chromium.org>, <kabel@kernel.org>, <krzk@kernel.org>,
+        <mazziesaccount@gmail.com>, <thomas.richard@bootlin.com>,
+        <lma@chromium.org>, <bleung@chromium.org>,
+        <support.opensource@diasemi.com>, <shawnguo@kernel.org>,
+        <s.hauer@pengutronix.de>, <kernel@pengutronix.de>,
+        <festevam@gmail.com>, <andy@kernel.org>, <paul@crapouillou.net>,
+        <alexander.usyskin@intel.com>, <andreas.werner@men.de>,
+        <daniel@thingy.jp>, <romain.perier@gmail.com>,
+        <avifishman70@gmail.com>, <tmaimon77@gmail.com>,
+        <tali.perry1@gmail.com>, <venture@google.com>, <yuenn@google.com>,
+        <benjaminfair@google.com>, <maddy@linux.ibm.com>, <mpe@ellerman.id.au>,
+        <npiggin@gmail.com>, <christophe.leroy@csgroup.eu>,
+        <naveen@kernel.org>, <mwalle@kernel.org>, <xingyu.wu@starfivetech.com>,
+        <ziv.xu@starfivetech.com>, <hayashi.kunihiko@socionext.com>,
+        <mhiramat@kernel.org>
+CC: <linux-watchdog@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        <chrome-platform@lists.linux.dev>, <imx@lists.linux.dev>,
+        <linux-mips@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
+        <linuxppc-dev@lists.ozlabs.org>, <patches@opensource.cirrus.com>,
+        George Cherian <george.cherian@marvell.com>
+Subject: [PATCH v4 0/2] Add stop_on_panic support for watchdog 
+Date: Wed, 5 Mar 2025 10:10:23 +0000
+Message-ID: <20250305101025.2279951-1-george.cherian@marvell.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-irqchip-gpio-a4-a5-v3-2-1eec70352fea@amlogic.com>
-References: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
-In-Reply-To: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Heiner Kallweit <hkallweit1@gmail.com>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>
-X-Mailer: b4 0.12.4
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741168977; l=4769;
- i=xianwei.zhao@amlogic.com; s=20231208; h=from:subject:message-id;
- bh=kxWw0sVkF3Y4vrdf+8eU2fFvSg6xzPNRqpAoVmLbb5M=;
- b=rVa/stdYvMYvS9pSybzKT1WIVj/uULVGyykV3/Hl6KDis++6xxX6EevKHzzayvvTXbDhbfTck
- B51U9HUUYOIDTewQKMKIqr0hHqANEDtV/fKr5448RgpvvpUW3kgYVRC
-X-Developer-Key: i=xianwei.zhao@amlogic.com; a=ed25519;
- pk=o4fDH8ZXL6xQg5h17eNzRljf6pwZHWWjqcOSsj3dW24=
-X-Endpoint-Received: by B4 Relay for xianwei.zhao@amlogic.com/20231208 with
- auth_id=107
-X-Original-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Proofpoint-ORIG-GUID: w2sqtc8AAqn1lQeUebd10xLXrXXuTShg
+X-Proofpoint-GUID: w2sqtc8AAqn1lQeUebd10xLXrXXuTShg
+X-Authority-Analysis: v=2.4 cv=E7k3pbdl c=1 sm=1 tr=0 ts=67c8231c cx=c_pps a=gIfcoYsirJbf48DBMSPrZA==:117 a=gIfcoYsirJbf48DBMSPrZA==:17 a=Vs1iUdzkB0EA:10 a=lsmenjMKv-2rqCzf5cEA:9
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-05_04,2025-03-05_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_100303_916981_F8226475 
-X-CRM114-Status: GOOD (  13.72  )
+X-CRM114-CacheID: sfid-20250305_021112_432104_4DE79F07 
+X-CRM114-Status: GOOD (  14.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,153 +103,100 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: xianwei.zhao@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+This series adds a new kernel command line option to watchdog core to
+stop the watchdog on panic. This is useul in certain systems which prevents
+successful loading of kdump kernel due to watchdog reset.
 
-The Amlogic A4 SoCs support 12 GPIO IRQ lines and 2 AO GPIO IRQ lines,
-A5 SoCs support 12 GPIO IRQ lines, details are as below.
+Some of the watchdog drivers stop function could sleep. For such
+drivers the stop_on_panic is not valid as the notifier callback happens
+in atomic context. Introduce WDIOF_STOP_MAYSLEEP flag to watchdog_info
+options to indicate whether the stop function would sleep.
 
-A4 IRQ Number:
-- 72:55   18 pins on bank T
-- 54:32   23 pins on bank X
-- 31:16   16 pins on bank D
-- 15:14    2 pins on bank E
-- 13:0    14 pins on bank B
 
-A4 AO IRQ Number:
-- 7       1 pin  on bank TESTN
-- 6:0     7 pins on bank AO
+Changelog:
+v1 -> v2
+- Remove the per driver flag setting option
+- Take the parameter via kernel command-line parameter to watchdog_core.
 
-A5 IRQ Number:
-- 98      1 pin  on bank TESTN
-- 97:82   16 pins on bank Z
-- 81:62   20 pins on bank X
-- 61:48   14 pins on bank T
-- 47:32   16 pins on bank D
-- 31:27    5 pins on bank H
-- 26:25    2 pins on bank E
-- 24:14   11 pins on bank C
-- 13:0    14 pins on bank B
+v2 -> v3
+- Remove the helper function watchdog_stop_on_panic() from watchdog.h.
+- There are no users for this. 
 
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
----
- drivers/irqchip/irq-meson-gpio.c | 40 +++++++++++++++++++++++++++++++++++-----
- 1 file changed, 35 insertions(+), 5 deletions(-)
+v3 -> v4
+- Since the panic notifier is in atomic context, watchdog functions
+  which sleep can't be called. 
+- Add an options flag WDIOF_STOP_MAYSLEEP to indicate whether stop
+  function sleeps.
+- Simplify the stop_on_panic kernel command line parsing.
+- Enable the panic notiffier only if the watchdog stop function doesn't
+  sleep
 
-diff --git a/drivers/irqchip/irq-meson-gpio.c b/drivers/irqchip/irq-meson-gpio.c
-index cd789fa51519..1cc12f5b52d5 100644
---- a/drivers/irqchip/irq-meson-gpio.c
-+++ b/drivers/irqchip/irq-meson-gpio.c
-@@ -26,8 +26,6 @@
- 
- /* use for A1 like chips */
- #define REG_PIN_A1_SEL	0x04
--/* Used for s4 chips */
--#define REG_EDGE_POL_S4	0x1c
- 
- /*
-  * Note: The S905X3 datasheet reports that BOTH_EDGE is controlled by
-@@ -72,6 +70,7 @@ struct meson_gpio_irq_params {
- 	bool support_edge_both;
- 	unsigned int edge_both_offset;
- 	unsigned int edge_single_offset;
-+	unsigned int edge_pol_reg;
- 	unsigned int pol_low_offset;
- 	unsigned int pin_sel_mask;
- 	struct irq_ctl_ops ops;
-@@ -105,6 +104,18 @@ struct meson_gpio_irq_params {
- 	.pin_sel_mask = 0x7f,					\
- 	.nr_channels = 8,					\
- 
-+#define INIT_MESON_A4_AO_COMMON_DATA(irqs)			\
-+	INIT_MESON_COMMON(irqs, meson_a1_gpio_irq_init,		\
-+			  meson_a1_gpio_irq_sel_pin,		\
-+			  meson_s4_gpio_irq_set_type)		\
-+	.support_edge_both = true,				\
-+	.edge_both_offset = 0,					\
-+	.edge_single_offset = 12,				\
-+	.edge_pol_reg = 0x8,					\
-+	.pol_low_offset = 0,					\
-+	.pin_sel_mask = 0xff,					\
-+	.nr_channels = 2,					\
-+
- #define INIT_MESON_S4_COMMON_DATA(irqs)				\
- 	INIT_MESON_COMMON(irqs, meson_a1_gpio_irq_init,		\
- 			  meson_a1_gpio_irq_sel_pin,		\
-@@ -112,6 +123,7 @@ struct meson_gpio_irq_params {
- 	.support_edge_both = true,				\
- 	.edge_both_offset = 0,					\
- 	.edge_single_offset = 12,				\
-+	.edge_pol_reg = 0x1c,					\
- 	.pol_low_offset = 0,					\
- 	.pin_sel_mask = 0xff,					\
- 	.nr_channels = 12,					\
-@@ -146,6 +158,18 @@ static const struct meson_gpio_irq_params a1_params = {
- 	INIT_MESON_A1_COMMON_DATA(62)
- };
- 
-+static const struct meson_gpio_irq_params a4_params = {
-+	INIT_MESON_S4_COMMON_DATA(81)
-+};
-+
-+static const struct meson_gpio_irq_params a4_ao_params = {
-+	INIT_MESON_A4_AO_COMMON_DATA(8)
-+};
-+
-+static const struct meson_gpio_irq_params a5_params = {
-+	INIT_MESON_S4_COMMON_DATA(99)
-+};
-+
- static const struct meson_gpio_irq_params s4_params = {
- 	INIT_MESON_S4_COMMON_DATA(82)
- };
-@@ -168,6 +192,9 @@ static const struct of_device_id meson_irq_gpio_matches[] __maybe_unused = {
- 	{ .compatible = "amlogic,meson-sm1-gpio-intc", .data = &sm1_params },
- 	{ .compatible = "amlogic,meson-a1-gpio-intc", .data = &a1_params },
- 	{ .compatible = "amlogic,meson-s4-gpio-intc", .data = &s4_params },
-+	{ .compatible = "amlogic,a4-gpio-ao-intc", .data = &a4_ao_params },
-+	{ .compatible = "amlogic,a4-gpio-intc", .data = &a4_params },
-+	{ .compatible = "amlogic,a5-gpio-intc", .data = &a5_params },
- 	{ .compatible = "amlogic,c3-gpio-intc", .data = &c3_params },
- 	{ .compatible = "amlogic,t7-gpio-intc", .data = &t7_params },
- 	{ }
-@@ -358,16 +385,19 @@ static int meson_s4_gpio_irq_set_type(struct meson_gpio_irq_controller *ctl,
- {
- 	u32 val = 0;
- 	unsigned int idx;
-+	const struct meson_gpio_irq_params *params;
-+
-+	params = ctl->params;
- 
- 	idx = meson_gpio_irq_get_channel_idx(ctl, channel_hwirq);
- 
- 	type &= IRQ_TYPE_SENSE_MASK;
- 
--	meson_gpio_irq_update_bits(ctl, REG_EDGE_POL_S4, BIT(idx), 0);
-+	meson_gpio_irq_update_bits(ctl, params->edge_pol_reg, BIT(idx), 0);
- 
- 	if (type == IRQ_TYPE_EDGE_BOTH) {
- 		val |= BIT(ctl->params->edge_both_offset + idx);
--		meson_gpio_irq_update_bits(ctl, REG_EDGE_POL_S4,
-+		meson_gpio_irq_update_bits(ctl, params->edge_pol_reg,
- 					   BIT(ctl->params->edge_both_offset + idx), val);
- 		return 0;
- 	}
-@@ -378,7 +408,7 @@ static int meson_s4_gpio_irq_set_type(struct meson_gpio_irq_controller *ctl,
- 	if (type & (IRQ_TYPE_EDGE_RISING | IRQ_TYPE_EDGE_FALLING))
- 		val |= BIT(ctl->params->edge_single_offset + idx);
- 
--	meson_gpio_irq_update_bits(ctl, REG_EDGE_POL,
-+	meson_gpio_irq_update_bits(ctl, params->edge_pol_reg,
- 				   BIT(idx) | BIT(12 + idx), val);
- 	return 0;
- };
+George Cherian (2):
+  watchdog: Add a new flag WDIOF_STOP_MAYSLEEP
+  drivers: watchdog: Add support for panic notifier callback
+
+ drivers/watchdog/advantech_ec_wdt.c |  3 ++-
+ drivers/watchdog/arm_smc_wdt.c      |  3 ++-
+ drivers/watchdog/armada_37xx_wdt.c  |  2 +-
+ drivers/watchdog/asm9260_wdt.c      |  2 +-
+ drivers/watchdog/bcm47xx_wdt.c      |  3 ++-
+ drivers/watchdog/bd9576_wdt.c       |  2 +-
+ drivers/watchdog/bd96801_wdt.c      |  2 +-
+ drivers/watchdog/cgbc_wdt.c         |  2 +-
+ drivers/watchdog/cros_ec_wdt.c      |  5 ++++-
+ drivers/watchdog/da9052_wdt.c       |  3 ++-
+ drivers/watchdog/da9055_wdt.c       |  4 +++-
+ drivers/watchdog/da9062_wdt.c       |  4 +++-
+ drivers/watchdog/da9063_wdt.c       |  4 +++-
+ drivers/watchdog/db8500_wdt.c       |  5 ++++-
+ drivers/watchdog/dw_wdt.c           |  5 +++--
+ drivers/watchdog/f71808e_wdt.c      |  3 ++-
+ drivers/watchdog/gpio_wdt.c         |  2 +-
+ drivers/watchdog/i6300esb.c         |  5 ++++-
+ drivers/watchdog/imx_sc_wdt.c       |  2 +-
+ drivers/watchdog/intel-mid_wdt.c    |  5 ++++-
+ drivers/watchdog/it87_wdt.c         |  5 ++++-
+ drivers/watchdog/jz4740_wdt.c       |  5 ++++-
+ drivers/watchdog/kempld_wdt.c       |  3 ++-
+ drivers/watchdog/lenovo_se10_wdt.c  |  5 ++++-
+ drivers/watchdog/max77620_wdt.c     |  5 ++++-
+ drivers/watchdog/mei_wdt.c          |  3 ++-
+ drivers/watchdog/menf21bmc_wdt.c    |  4 +++-
+ drivers/watchdog/mlx_wdt.c          |  2 +-
+ drivers/watchdog/msc313e_wdt.c      |  5 ++++-
+ drivers/watchdog/npcm_wdt.c         |  3 ++-
+ drivers/watchdog/omap_wdt.c         |  5 ++++-
+ drivers/watchdog/pm8916_wdt.c       |  5 +++--
+ drivers/watchdog/pseries-wdt.c      |  2 +-
+ drivers/watchdog/rave-sp-wdt.c      |  5 ++++-
+ drivers/watchdog/renesas_wdt.c      |  7 ++++--
+ drivers/watchdog/retu_wdt.c         |  5 ++++-
+ drivers/watchdog/rn5t618_wdt.c      |  6 +++--
+ drivers/watchdog/rzg2l_wdt.c        |  5 ++++-
+ drivers/watchdog/rzv2h_wdt.c        |  5 ++++-
+ drivers/watchdog/shwdt.c            |  6 +++--
+ drivers/watchdog/sl28cpld_wdt.c     |  5 ++++-
+ drivers/watchdog/softdog.c          |  5 ++++-
+ drivers/watchdog/sp805_wdt.c        |  5 ++++-
+ drivers/watchdog/starfive-wdt.c     |  3 ++-
+ drivers/watchdog/stpmic1_wdt.c      |  5 ++++-
+ drivers/watchdog/ts4800_wdt.c       |  5 ++++-
+ drivers/watchdog/twl4030_wdt.c      |  5 ++++-
+ drivers/watchdog/uniphier_wdt.c     |  3 ++-
+ drivers/watchdog/w83627hf_wdt.c     |  5 ++++-
+ drivers/watchdog/watchdog_core.c    | 35 +++++++++++++++++++++++++++++
+ drivers/watchdog/wm831x_wdt.c       |  5 ++++-
+ drivers/watchdog/wm8350_wdt.c       |  5 ++++-
+ drivers/watchdog/xen_wdt.c          |  5 ++++-
+ drivers/watchdog/ziirave_wdt.c      |  5 ++++-
+ include/linux/watchdog.h            |  2 ++
+ include/uapi/linux/watchdog.h       |  1 +
+ 56 files changed, 198 insertions(+), 58 deletions(-)
 
 -- 
-2.37.1
-
+2.34.1
 
 
