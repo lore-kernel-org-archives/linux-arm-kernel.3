@@ -4,78 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCF9C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:09:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F9CDC28B22
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:10:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CvJR/UgWbB0Y95dY5yTGqu0cAZl3JQBaXRQjPSUU2EU=; b=E4U8vK24iS5r0qRhK/YtyfnnSG
-	Yeug+7rSFmphIv7wsDs3p24WejLjBC+dZO162rEp4XH5vT9WwV7kIR+7o/bihWtJ9x63eDDxYhpUc
-	XE56YmMRctu9SmwoG1Ff00IhZu7uPBMI7JlYX9A0KDmHjDZqtJRdOm5eRaOxkQRb+py75MIjUEU5U
-	HpYTM67YrZe3+Lxdd/NLKN/knUVq8zZElb6pCH9+Qm2sjPeJxSQRKnZFAa6az7Zg3WggVgkeFdevq
-	ny/2F6L0Zdnv8pfYXDK94vRtms7vfQ028SlMmwieZmCgbiNm5x8EpehU78CsD3JMLkjSPOITFC41k
-	Grr4eMag==;
+	bh=pXkIs54qm6LUI4kgzEJJnI1sUBwA7+zCVW8PggSja/s=; b=vI7AUWfJ66KTHcHdsg9EBod0XP
+	wF0lkbHZVbmRbg9NkSsrOSdIvkgL79Rd8ZRl/v3I9rAFQtwUw3leMRcXEstaFtGTxNSSsFK8WGyGN
+	6uLZpP8OUte5evTS+YO5Tk8ZX/gY2fesFJSQq0VeRGQMwZmMZxlJfaWk0wH+T+Rlfk73LW0rJjtYa
+	Ws3DRCRA7dqUBHqWnn6UXRYBOyFo5R/zfD+uZveYAGNHpyF9t70cebFNp27pFZhGsArmZT0x823Pv
+	Sas8l6NFWp34BAOqEKPs4oTR93tadkDHXrcG3sEJ83E3/B2Fc6ZiGsGRhdmeGc++4Dpa81qOL3PmG
+	vwtaw5Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwvJ-00000009Rd7-2pLb;
-	Wed, 05 Mar 2025 22:09:05 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1tpwwt-00000009RpZ-1Ka1;
+	Wed, 05 Mar 2025 22:10:43 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwXV-00000009OXd-2ySe
+	id 1tpwXX-00000009OY3-25gr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 21:44:30 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43935d1321aso8948895e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 13:44:29 -0800 (PST)
+	Wed, 05 Mar 2025 21:44:32 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-390e0f7b272so576704f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 13:44:31 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741211068; x=1741815868; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741211070; x=1741815870; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CvJR/UgWbB0Y95dY5yTGqu0cAZl3JQBaXRQjPSUU2EU=;
-        b=xeS8Udbx0kNtGjlEXgBeP940KExNhqvegKy+M1PvBfw8RuEmnHThXNnD5RSMHc9b/I
-         ynPGFo8kM7e2PLfAuJHRH9C806la+aW5WCrY6/Wbv31cBTTXi7cssn9huEAoI3Mb7uft
-         JVeLteMuqD+RuC/j4RxnlP5S68QJJFn37Ph7BJsEuNhgK++umkaC4Eh2Q19k/HbDWuGr
-         hQVdi4wfdMYfJMr1kCMg924XBQDKHO7ATWBQ95njBmf7JnAbZ9mxAvm6ULu2j3GAGayg
-         CRiuynP6bUCIxFxVS4ghnTvnknb0jcNlMR9nj4fcXUA2O1gNGc+frPle1LVxIRru5Cvo
-         rzgA==
+        bh=pXkIs54qm6LUI4kgzEJJnI1sUBwA7+zCVW8PggSja/s=;
+        b=HFdyqlDSzfLKh6BLsxN69c7Ifyhvh6m0bdC+5q7hg14QR/tMeudfkwZnqQyDtiMUiT
+         oYpdFO+C2ZBVkUR6oHs8WNqzHUmyPZnGYvMtm5dpeOGq2Nswg/4ERAhbXfsoqUSpLG5+
+         MlZujV5xCaXeWIkaoU3LzfXVR3ZROV3r647McpeUIRdGWwdi+We+snNPl/ROIg/HHnhV
+         hMHfiZ65NGyCoqCzqQSfdukZW6DwDixm46NRB3jcM+Tw0Wmcs59/MgJ2vBXOcxRgwSt3
+         wv5gfFnUaZ/KI4nzyvedzJ+0N5zGKtaPZ08j/ib0GI09xVf/7yc0YcuEWgi6Fc6pFrS4
+         1rww==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741211068; x=1741815868;
+        d=1e100.net; s=20230601; t=1741211070; x=1741815870;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CvJR/UgWbB0Y95dY5yTGqu0cAZl3JQBaXRQjPSUU2EU=;
-        b=UJJTGH0IgZ2P11xt63wmgWc7y5Qf2raHIFGsy5DAGPsJUNnfivHI1+90dHQpjKrgu7
-         LTmI2p8pM+IMdUcPzJID52oygLbmgyEw2AFTL5gEW90dlBnhiC6yQQb113fjeazyvBxG
-         331r587DEWtm4zlovaWsZzWbMz+P6OZGZdmfNkbN4afV9B551VVaTHKb4y6Osll1sU/L
-         VVMlwV5n4ErrUnexuiRkVWJYobRO5oO8cAQtH7FNGAjkqKJ9dTCUAA67awt0t6ojI/Pv
-         3v0+XC72SqQ756Bk5Qi4KSnLHAA/O+nZecoXd0U30ZoMR/ncKeIPs34gDQq63DXJiFfC
-         J6lA==
-X-Forwarded-Encrypted: i=1; AJvYcCVFxm0rrv6dCwClKbB4k72T7E9OFdZrP/P2Z6oebKobIShBiPkVQI1PxIwxnj2/BzMPMCAd1SSIbSZkXS2+135H@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1rgqv/Ze7AkCxeDZzSfNzU2LMGyKlBevyOxC4rO1nkxf1yE/+
-	Ws99Ztkv8+LoaHaoIboR4KCbj/uXsQ/rOcQqP40KjeBU1XWzeELTJ5h6tc0vd8g=
-X-Gm-Gg: ASbGncuyO2nhMiAUUL8y0mfMtN0jkbJkzx0jt3OAsSs2cKlfdxBaWgkn0DPcCV3oaZM
-	h+6FCMfXeT4h3gpdrJ3z310HiWNddXNzwX4zukeLzxjRDVN7HpOmiAMl25esu+QZ5+7bR8uO4B+
-	U/B5+i46UlwRfTgRCLB3XlMv93PD6b7j0F5t7FjBJHUquxVGMagIXNX7PfsiOq9X/DrFQY7xVAU
-	d9+RW2KptaNCnTBx6zuC7fCMCqOnqKexATmWKskIWL7i0mtKxUTx4waSalG0TyebqYYXprmJKoc
-	9xy8YC6FB4EwJyc1ydbGTesXPUizad/pfciNfSJAbTlI4b8kNWivC+sHP1sE
-X-Google-Smtp-Source: AGHT+IEfiEgY/qQPsjfAHwqPHWvUio4LKVVsu3dARLFG1Me4Rjq1M/OsmWBaW45+uUzbWFMumgrf6w==
-X-Received: by 2002:a05:600c:4f13:b0:43b:bbb9:e25f with SMTP id 5b1f17b1804b1-43bd29cad91mr16171735e9.6.1741211068217;
-        Wed, 05 Mar 2025 13:44:28 -0800 (PST)
+        bh=pXkIs54qm6LUI4kgzEJJnI1sUBwA7+zCVW8PggSja/s=;
+        b=F7kk9Yps/aZPktHHbueNLGWnodMOnW4TmHZ83gJ6Z+a8qymF82qfDlshUynBTaUuYe
+         1/fnVisunGfKZX3/mHNS9f8uptxeIqwVp6GLRZMfLMGfUYGwHCPtz+Jpqn2AnQ3f50u7
+         22iz4rHl224FjDXfsX7xB4sfC7UgmVD0+OdaGs219HKfq/QnY6Y5uil9mCXXsbnOOfdA
+         cXhNfWFHsqk8RE9mbu1nMhQjF2XgQaCEPaa5g2Y9pp3VhZhmx3/CMZMFa4C6JHny1YHg
+         fZ33qnf8J9aw49nHlYsra7qjQAbl3SCncEXJMW5VwRvEM446HvzGgHA2+vm4jlLb/CxB
+         IDhQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUR1Y6GITC2WBszm2iND5ZUeV03pdI4y2UotQBXmE06jMZRhYMB+DyOC/QnB6C0bv5ovGjDFuPyBt3vNz0loAYs@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM9lB+Q/+kPJJ1cdb5DhjLVKx+vKsF6mKQZRNBeVmyWj/KJp4y
+	umjbXWOQ+b5T6hsAJk3WBWUtIQKHXcOG1hE7Yd1yWv0V/2FJzm1X2I3mdmXsUh0=
+X-Gm-Gg: ASbGnctAdh8g8NVO8h8FTwJDOV4WBZjtn/OWWc8MLRX7B68GFLvvnE3o5lEwimCrNR+
+	oQSivEioSkV4K8bw3mhb5VstD/bnD/iZ/nygE4d/t4aQ/XuhR+T42ClhijndRQNp7fY+zLn+KKM
+	Tds9NY1+DbNEhop09XPBUt9OCp+x6eemMepB+8fKfoqlgRyqaYqhx1g63TWONZFpKtEcjHiLkyv
+	GhuIYt0ffXjYX1AKMnH+pvD1s2zHI7s8aBsjkzuzSl+S995xqKX6V8RTzNqXqrYC0nF9Y/aSnno
+	Y4Cp/+SD4P0yJTnyYQZZRdzY1qpbjHQks3Di8VPGQNuSMllUIczVG36YZPIr
+X-Google-Smtp-Source: AGHT+IF3GZh+J/kzZkiIGp1RO9U18YWRAnLBj1hWD/sq99vtzP9wNUti0rkSiBo9jR1+7MHDit7nDw==
+X-Received: by 2002:a05:6000:156e:b0:38d:d743:7d36 with SMTP id ffacd0b85a97d-3911f7bce04mr1468019f8f.10.1741211069847;
+        Wed, 05 Mar 2025 13:44:29 -0800 (PST)
 Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4796517sm21954802f8f.5.2025.03.05.13.44.26
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-390e4796517sm21954802f8f.5.2025.03.05.13.44.28
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 13:44:27 -0800 (PST)
+        Wed, 05 Mar 2025 13:44:29 -0800 (PST)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Date: Wed, 05 Mar 2025 22:43:46 +0100
-Subject: [PATCH RFC/RFT 11/12] clk: samsung: fsd: Use
+Date: Wed, 05 Mar 2025 22:43:47 +0100
+Subject: [PATCH RFC/RFT 12/12] clk: samsung: gs101: Use
  platform_driver_probe() to avoid __refdata
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250305-clk-samsung-ref-init-data-v1-11-a4e03a019306@linaro.org>
+Message-Id: <20250305-clk-samsung-ref-init-data-v1-12-a4e03a019306@linaro.org>
 References: <20250305-clk-samsung-ref-init-data-v1-0-a4e03a019306@linaro.org>
 In-Reply-To: <20250305-clk-samsung-ref-init-data-v1-0-a4e03a019306@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -90,26 +90,26 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1406;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1440;
  i=krzysztof.kozlowski@linaro.org; h=from:subject:message-id;
- bh=89/UGmIYFussasYTXbt+ZbFvalxApAT1GYVTM6AOduE=;
- b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnyMWgWFJDkVQCc1i+yhnz77KxtQ1OR5GmvrUN6
- SM+Gw/BWNeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ8jFoAAKCRDBN2bmhouD
- 16FCD/47aZXBychgEdxYVzj4yl6nWtAn7j7AgmJ19ALj4jYRy7GP98BquvEZ/MwMqJWmGuRqI38
- w68R1AeEt4tGnzHAbwLWC1j6aHlUYHJQEKFdcuSCxNqcYz58kednws3q2nlx/lJK8L3H4EbrRN1
- cA5eaX94yDhniAi+F6+c3eF9CKQZjppPlt+Xvkkp5+MKXRi7088qfarLELdHzHS0pkhFfNfGBd4
- ZtjQQFwh3ihgXlxL2ldzAOaf3ZJiDahHSE3jbSwLNc1FwgWmkwk2G5uHTrmBZfQXFEZNpgea021
- ZPH5JvpmFDb63GD4oUaqpKB5LwEhGWqyZyezrK9Z7wEyZT/0N87YWV98g9RgcOn0AHu57cU+kGB
- UoQXmHtf6YrLMhGxEdtZ+lGX3dqeL0Uuqhj8TaoAduRNHmZij5lBQjr1MQbC9sThhJKoEnJK4KT
- d+R7LYdGdWFcpUY0Wfflbf+43xkB0vsf2v7tD7nGedHQwNIS3YxctxaUAYkBOEsJJghHJd9xn4S
- CZNeoJaJimg66/qCwMXQwPUsU85qbAccdoiBn1pJznVrzQJndUdMrUaK+ctWfhIKlNURQ0L9tPC
- QyGmbRa1G3T78984UC65tN5neyDkVCzYj/LctW35YEBODWjaclmdfw5FHn7XwZ+sZakK3dZU6tL
- 5v632bqkGzWCMtw==
+ bh=vp6W7iHQ9HDX8dPuiHrwQP51NV/6Z9WgxoY+8xbF4+o=;
+ b=owEBbQKS/ZANAwAKAcE3ZuaGi4PXAcsmYgBnyMWgtf+xtNx1az5n1ge5uKzzuPqzgx3d+Io+p
+ 36d5Qd9+TeJAjMEAAEKAB0WIQTd0mIoPREbIztuuKjBN2bmhouD1wUCZ8jFoAAKCRDBN2bmhouD
+ 13p0D/9g9PM/WxzSeqBZhZcyDz4cecwCph7JPpVFAx5ZMUxuNrH1+k4jvJr03AlrC7k2bLFjBmZ
+ n1CU/XAGCmNkAluP+1Ascyn3qmtbG74Segm+byK1IS8xNgyA3x/Lofb73zklDZgDuCc9koJEEVx
+ aUZnWYBejQP45fHdFopm/O9rB250CPHTBf6pLhAACMOXTreScW0KdYM4lBWu/a4Lr+DzPJoHpC2
+ rFsA6+/NkhuBnEbWS8ZLriPlacULNqJxzzG39dNrfYfZUGQM7Hhpli+8a7y5mbCi3VEbVk4hfBc
+ TdITfRgV+Bb9FpD9P2VAowHqr1Ha7kKlrKOHA6SQV059Fc55rtWcC1juY+JSP1RnBz9dCGf5kyI
+ seMUWWBzfDapDwaKYtYbSOu3eytOSzue9EeacncNiNWCSSeWhYRJqaCBhD5Z8pvOaT8y3JI/3MC
+ 3yTSUea0MDX/alU7xRiXSoIe2zpnhRZdCGhDFyQ0eVt197H8cz6UZh6VydNECw8cBp+RoSOgHht
+ 1by7Oo0MiSbjdLDfCTUpIGipFnva61aaHrWQYDfAjOOVqXE2a7SX96lxZKIMTKIOJMd5Pmb9A2+
+ ycZZ+Srl1jQ1NIGn/HfSQHp4+Lor9ToJX/nKjq2TB1m07Xj9sZUdt1yaX6j5em9GxDaYlYj3I2F
+ VNc0i4YZHaH1r6Q==
 X-Developer-Key: i=krzysztof.kozlowski@linaro.org; a=openpgp;
  fpr=9BD07E0E0C51F8D59677B7541B93437D3B41629B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_134429_750615_17D5B546 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20250305_134431_541144_502531F3 
+X-CRM114-Status: GOOD (  14.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,34 +134,34 @@ platform_driver_probe().
 
 Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- drivers/clk/samsung/clk-fsd.c | 7 +++----
+ drivers/clk/samsung/clk-gs101.c | 7 +++----
  1 file changed, 3 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clk/samsung/clk-fsd.c b/drivers/clk/samsung/clk-fsd.c
-index 9a6006c298c2a80da0e29aeca3b09cc827caac0c..bc0287c780bfe3a68a38f53f554440b3000b1ca7 100644
---- a/drivers/clk/samsung/clk-fsd.c
-+++ b/drivers/clk/samsung/clk-fsd.c
-@@ -1794,17 +1794,16 @@ static const struct of_device_id fsd_cmu_of_match[] = {
+diff --git a/drivers/clk/samsung/clk-gs101.c b/drivers/clk/samsung/clk-gs101.c
+index 86b39edba12276745a124df6a2ea9c22d74b915a..69c121d478f3fec98dcd84e0639e204fe604e91c 100644
+--- a/drivers/clk/samsung/clk-gs101.c
++++ b/drivers/clk/samsung/clk-gs101.c
+@@ -4412,17 +4412,16 @@ static const struct of_device_id gs101_cmu_of_match[] = {
  	},
  };
  
--static struct platform_driver fsd_cmu_driver __refdata = {
-+static struct platform_driver fsd_cmu_driver __initdata = {
+-static struct platform_driver gs101_cmu_driver __refdata = {
++static struct platform_driver gs101_cmu_driver __initdata = {
  	.driver	= {
- 		.name = "fsd-cmu",
- 		.of_match_table = fsd_cmu_of_match,
+ 		.name = "gs101-cmu",
+ 		.of_match_table = gs101_cmu_of_match,
  		.suppress_bind_attrs = true,
  	},
--	.probe = fsd_cmu_probe,
+-	.probe = gs101_cmu_probe,
  };
  
- static int __init fsd_cmu_init(void)
+ static int __init gs101_cmu_init(void)
  {
--	return platform_driver_register(&fsd_cmu_driver);
-+	return platform_driver_probe(&fsd_cmu_driver, fsd_cmu_probe);
+-	return platform_driver_register(&gs101_cmu_driver);
++	return platform_driver_probe(&gs101_cmu_driver, gs101_cmu_probe);
  }
--core_initcall(fsd_cmu_init);
-+subsys_initcall(fsd_cmu_init);
+-core_initcall(gs101_cmu_init);
++subsys_initcall(gs101_cmu_init);
 
 -- 
 2.43.0
