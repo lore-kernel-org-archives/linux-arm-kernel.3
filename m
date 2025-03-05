@@ -4,104 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D84FAC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:48:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74ADDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ow2RHMrMzwGJ2rXgPNnaGC6CmMDEd/EhLg2+AS/qQa0=; b=W8C+WJpPrMjXb9ggNJGvmkVUO0
-	nFdySp1laoxcVbTboeQYuNjGiQnfAmvE+UWtSf1zldObvfpYaZhTaG+44SojmNirxtUMS2Ld+YNOj
-	cmNex+dc/XtErNQRRcEBEvledZKjz9njUvM033OFWWgrN3rNj2UxJJ+2xYWhTGo6CbRwAu7BQ/ruc
-	TRSdfFiT1dTxUMxVJs97b3nWJ8dm3bwFrGAulybqOskwGbnliTnWJL/Qix4Ovt1dAHpcaCgBaNeLT
-	N2S3/WuS6nlNUeT/4Wo54Y8f789QXBDWd8wWBfkouSbOitOstz3GyzZm19j0B0Dk3DyG28C/wiSjq
-	8SIrSWOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/iKupqP90kjHe611IT/Qp+RTzNpRKLP4Ly+rzhT8HFQ=; b=J3Yogo8Dix8PHFozAyBTs7OGtc
+	sxCSvba5m+RARf3bPz/KWLPMN6ILCnf62cc2ptun2+LDGeslj4/BmFhLpdqyh05ecvY9jgn51bHMr
+	2K2kKq2wakBmQRBz50lIPe1l9ovj4nADZnfDSzU5PeHDyfoFA9gpt8W+QXrXV3K0baJZJT4oiFK8H
+	w560yhiQTne3Zkahy6yKhY0/x277/Nkicfp/KrYL8Kj7YSxdYLLGQWPNHcJQOvdcGijfexzOLXYpt
+	1bp+0FzhoYo0yo1VHCS+tAa54CzZxRtCCC2QCLq+AUguhM9XzeNR4/7pMqK3DdC1YAR4w6Dc/Q89H
+	0TOj9VeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvfa-00000009GW0-0HXO;
-	Wed, 05 Mar 2025 20:48:46 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpvfb-00000009GWr-39Gt;
+	Wed, 05 Mar 2025 20:48:47 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tptVH-00000008w3l-1bkj
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 18:29:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=ow2RHMrMzwGJ2rXgPNnaGC6CmMDEd/EhLg2+AS/qQa0=; b=W/9NsJWOO4ojC2oigefwig7C5n
-	+GalY/VBy47m/7hum4cY1yX3alney53jn2YLBS23Tt8iS/QrX/ESczF1v2QSHZgQX+YLIk5H5SCJB
-	rbb4mExkt2+47UQJzQh4uUXxh4YizhIpn7MvzkMO4HUbOuQLyC8whDzBJOQjXT58C7qI4ct4YHqV/
-	lvGwCKtb9fSLwAfwv8HISSU/FwWjiyuiYVI/vG2MO4xsyaCq4V1Zft5cQA1Yt3T9xvBe1Wg7mWiRa
-	WCXG9sr2ehEqktBszvCUJPALohfdSruyEOFZCyo8O/CR2nCN4p6e59v6HCtABLWTKr2KD9SBCBROd
-	t/n1LOww==;
-Received: from mail-qv1-xf34.google.com ([2607:f8b0:4864:20::f34])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tptVE-00000000gft-1iCD
+	id 1tpu7P-000000091xT-1RME
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 18:29:58 +0000
-Received: by mail-qv1-xf34.google.com with SMTP id 6a1803df08f44-6e894b81678so35884066d6.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 10:29:54 -0800 (PST)
+	Wed, 05 Mar 2025 19:09:24 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3ce868498d3so22995205ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:09:22 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1741199393; x=1741804193; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ow2RHMrMzwGJ2rXgPNnaGC6CmMDEd/EhLg2+AS/qQa0=;
-        b=EO+IuI7XfjTMgl5Gm0g+HEJs5sS+gisRk01FY1JXprVvSzoXOB6L0KMxJZH0NoCUJA
-         Gbr2S+cH/rPQfowGg6a476Vr8Vo6XEMyHNDqePMakfRsoFSgezff2gwQ+RIrlvwHN1DR
-         PWF4rVwgYvaWrmA1grHJz3YDVjWSxDWxo64HHkCmn1fnDgSpq9f2r/qLFDXnq5jeQscT
-         pyfPnBbHoD6wqce8r7cLrQOnr0xblIRDliH6TnvgAsdeeCkiELIj+ln3ULt3TSDgKR2Z
-         JACzBGkeQw7iSozmbw6A0mhN92xcbB38ehciVQ63WtH9wA/lrkESqZIoC5L6yxpHheq+
-         v4uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741199393; x=1741804193;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1741201762; x=1741806562; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ow2RHMrMzwGJ2rXgPNnaGC6CmMDEd/EhLg2+AS/qQa0=;
-        b=hE9hJAEgPGBXW/FpFyDZgdcZ+e9ktWGe2GnmB9dLR3SeXFWLPKkltSIH/l+ozAAF7c
-         Yp4KMxM2peeGN4iyHKOL4SGni6xBtVkaDkfoQOgxK4yPKt+rxH77w5hpB6Td2qzzW/7t
-         L1Daclyu7qvwlt2RIR42/kwtLnp4Bdw3/LkKvnamW4a+bnwflCIEH5o4oWiqaUtRK46p
-         O6XeeIs2zvqbUfBZ2BaQFVl1P2v0HUzAXm3NotniDpTnSdkc8oLdzAHomIzhTmh6Ufan
-         fD7mVHJxqTxrnJmU36Rg8QmoVcXfVi+xRBTGzCNMoBdJmKocLaM/Tf5+otcUGcnGq+MZ
-         8MNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWtcT5rBGFf4uKiU1YuONJN1a62X3FkvPjiJT3j/v0AeUu2gLCaYd0QryaHTHiUrT5ISUoHxWcZnmKhg8egEqz/@lists.infradead.org
-X-Gm-Message-State: AOJu0YyJDdaYazCNsCzv0T3vKctemE3DA4ank3qj8I5tMv57vafdOTjB
-	Uqky8QLpVDb/9mlD+LvhWVZ30Y+SiKKuinmXmkChrve0kHuF4E4QaKitkNwQ+sE=
-X-Gm-Gg: ASbGncu7xonByct4pNFw8kcawlWdHvpywaih9gkUrqT7g7sWEtdO8Ksk8nm8MuDr8sp
-	bBGQdJqBB5oU820NEO5FN6SItU7PuOmJ5g6ikCfOmeN/n7yE2iZ/YWeyamCd1ldP1vL2QMNPCuW
-	+NMBe3eB8N9xZHYuLhCo4pN2qOaCWBw/E/2VF7YkNSrn4DYFRNCF9iDz83kibh0yXpj/Sww5bFQ
-	BkmID26tyslHaWkf+VHWHHkQC5xSh6xYogqWWtqquMvMPeP1uFCPwHugD6P6z7ySeisjHLBhp1I
-	8wPslZZctZn/mSg5+Kc=
-X-Google-Smtp-Source: AGHT+IFsnlL54iYEsLAYoSSta5icqiZzmyiU2KUod6Ytom4/BEVwRNDkxuBHJRsDyr8KcDtnyCu60w==
-X-Received: by 2002:a05:6214:21ac:b0:6e8:9e9c:d212 with SMTP id 6a1803df08f44-6e8e6c1cd7dmr50312666d6.0.1741199393252;
-        Wed, 05 Mar 2025 10:29:53 -0800 (PST)
-Received: from ziepe.ca ([130.41.10.206])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c3b2fb20f0sm505715585a.107.2025.03.05.10.29.52
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 05 Mar 2025 10:29:52 -0800 (PST)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1tptV9-00000001UC7-35PY;
-	Wed, 05 Mar 2025 14:29:51 -0400
-Date: Wed, 5 Mar 2025 14:29:51 -0400
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: joro@8bytes.org, will@kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, yong.wu@mediatek.com,
-	thierry.reding@gmail.com, vdumpa@nvidia.com
-Subject: Re: [PATCH] iommu: Unexport iommu_fwspec_free()
-Message-ID: <20250305182951.GL5011@ziepe.ca>
-References: <36e245489361de2d13db22a510fa5c79e7126278.1740667667.git.robin.murphy@arm.com>
+        bh=/iKupqP90kjHe611IT/Qp+RTzNpRKLP4Ly+rzhT8HFQ=;
+        b=aZvRQIwl4JcKFXxDGAJoSUvHKGFlnfqXrNjKtEue8t5p4ZTVU+GWjyNKTgmV9ZkPyi
+         592NJcPPAGxspF0z9vq1Rrh3OYEJqiN/83cJFeoLHkh3DARKYm/JBbJMbEHxrrItXPcU
+         HR+nKT8fgZL4RdH7N2hmSniEceantZd82rR/8sEz4QJ8kVoacGlpLlPj7CSkhyiAFI6y
+         9meON0+tK1ryNfD/qaLMv8lvia/QNxMBDkZVuasbZ6+gg4jCrq8Hy4SSWXdhl8S+3bsD
+         CPh9Ws+y5CfVk/TvL/ZtdZeQnByUHfnbFHtowgF5Vu0NqufEp2NCVhbevKD+t8YJ+BDr
+         riOA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741201762; x=1741806562;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/iKupqP90kjHe611IT/Qp+RTzNpRKLP4Ly+rzhT8HFQ=;
+        b=bCMx2V2ezBnyuu1FiRGarw5qy9i3L5epxU/mDEgCcp8CkQhsPiMDM2foAR4UC0QO+i
+         UV4QS3i7iDUpv8QeflOgXTcTJxhnttzoGh+Ao5fuSFd5dXkZNoYCXjFcgUO1SMQvCtmW
+         fOebjHHajSlaWQPdMwSBjyj9HKsJsuZPSLaII8SKDKHQYhYgtd3T1nrU1/xSrHPD3as4
+         hwiFzIrrKWcbBKVbnTfYq6yzbGuypCy0uDuvYecj26/m+yI0uL7leATyL5RslsV53BNn
+         Xr3QtRg5XIDggVG61R1lkx6akU4Nlnwd7fNz7Tr6R/2aVqk4M+bulCF67juZj95sOu/I
+         tVvw==
+X-Forwarded-Encrypted: i=1; AJvYcCUk62GvGkI4k2MXVJtHv79Ek+2pq0+JQz5ObnqlQ7dS/KSgnM0xovPLa6TAT/Xi4DCgDUy3YmE8hsSaO5+cuDyG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGc/44SXFK5GZYYq//Gwoy6LeKz/ar5PTLcl9qsxNxm+NYf3sq
+	6QO+yd570mssvzpZ/vVtWgb26JRUhClehD4BiUbk3/3yTIUKqf03Qi9ZEK9hVDU6BHcCfea1v5f
+	JFqE3+CVzK86lCQONndvljEXmRns=
+X-Gm-Gg: ASbGncvWPgxEcKLVKcCDdGd/0B0pL+SSdy85g+ZfNoY8bw04lB9f+BOSTEoco+98d+j
+	DfcWdyp7tYvWoKBqYM5JAr/Pqcpidoz/fa7hZO4Ktu8TBdUrf9IjWlX4dicAt7J0Q/u2Pkyffz4
+	riMpyOWRsA2QeU7jxtn3H04EUigw==
+X-Google-Smtp-Source: AGHT+IHXSq8mWw3KY8YoLCBCIFRQJmRjg67dMe+0ZPdRqaHGrvPtLaHOP4skAGzoNpcXGSt7lkAets5eLSq4yACekVE=
+X-Received: by 2002:a05:6e02:1a6b:b0:3d1:78f1:8a9e with SMTP id
+ e9e14a558f8ab-3d42b9aca8dmr52094955ab.20.1741201762171; Wed, 05 Mar 2025
+ 11:09:22 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <36e245489361de2d13db22a510fa5c79e7126278.1740667667.git.robin.murphy@arm.com>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com> <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+In-Reply-To: <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Wed, 5 Mar 2025 11:09:10 -0800
+X-Gm-Features: AQ5f1Jq4dtaQy1zNSNrep0WaI-YiXYB1_xIUUY21RnpPU0GevSqQZgpgVwJN9cQ
+Message-ID: <CAF6AEGvPvQuptuA07kDYdUDQh4iQA=g+c3t0OCjR1HfWZ6mSbg@mail.gmail.com>
+Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_182956_538635_68954DB1 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250305_110923_382640_87FEBAEE 
+X-CRM114-Status: GOOD (  16.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,28 +100,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 02:47:47PM +0000, Robin Murphy wrote:
-> The drivers doing their own fwspec parsing have no need to call
-> iommu_fwspec_free() since fwspecs were moved into dev_iommu, as
-> returning an error from .probe_device will tear down the whole lot
-> anyway. Move it into the private interface now that it only serves
-> for of_iommu to clean up in an error case.
-> 
-> I have no idea what mtk_v1 was doing in effectively guaranteeing
-> a NULL fwspec would be dereferenced if no "iommus" DT property was
-> found, so add a check for that to at least make the code look sane.
+On Tue, Mar 4, 2025 at 8:57=E2=80=AFAM Connor Abbott <cwabbott0@gmail.com> =
+wrote:
+>
+> This will be used by drm/msm for GPU page faults, replacing the manual
+> register reading it does.
+>
+> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
 
-> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+Reviewed-by: Rob Clark <robdclark@gmail.com>
+
 > ---
->  drivers/iommu/arm/arm-smmu/arm-smmu.c |  1 -
->  drivers/iommu/iommu-priv.h            |  2 ++
->  drivers/iommu/iommu.c                 |  1 -
->  drivers/iommu/mtk_iommu_v1.c          | 14 ++++----------
->  drivers/iommu/tegra-smmu.c            |  1 -
->  include/linux/iommu.h                 |  5 -----
->  6 files changed, 6 insertions(+), 18 deletions(-)
-
-Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-
-Jason
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  4 ++--
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c            | 27 +++++++++++++-----=
+------
+>  drivers/iommu/arm/arm-smmu/arm-smmu.h            |  5 ++++-
+>  3 files changed, 21 insertions(+), 15 deletions(-)
+>
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/i=
+ommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> index 548783f3f8e89fd978367afa65c473002f66e2e7..ae4fdbbce6ba80440f539557a=
+39866a932360d4e 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> @@ -400,7 +400,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *de=
+v)
+>
+>         if (list_empty(&tbu_list)) {
+>                 ret =3D report_iommu_fault(&smmu_domain->domain, NULL, cf=
+i.iova,
+> -                                        cfi.fsynr & ARM_SMMU_CB_FSYNR0_W=
+NR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+> +                                        cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_=
+WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+>
+>                 if (ret =3D=3D -ENOSYS)
+>                         arm_smmu_print_context_fault_info(smmu, idx, &cfi=
+);
+> @@ -412,7 +412,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *de=
+v)
+>         phys_soft =3D ops->iova_to_phys(ops, cfi.iova);
+>
+>         tmp =3D report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+> -                                cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOM=
+MU_FAULT_WRITE : IOMMU_FAULT_READ);
+> +                                cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IO=
+MMU_FAULT_WRITE : IOMMU_FAULT_READ);
+>         if (!tmp || tmp =3D=3D -EBUSY) {
+>                 ret =3D IRQ_HANDLED;
+>                 resume =3D ARM_SMMU_RESUME_TERMINATE;
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/ar=
+m-smmu/arm-smmu.c
+> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75=
+eea1d5de23117de 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smm=
+u_device *smmu, int idx,
+>                                       struct arm_smmu_context_fault_info =
+*cfi)
+>  {
+>         cfi->iova =3D arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
+> +       cfi->ttbr0 =3D arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
+>         cfi->fsr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
+> -       cfi->fsynr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +       cfi->fsynr0 =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +       cfi->fsynr1 =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
+>         cfi->cbfrsynra =3D arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA=
+(idx));
+> +       cfi->contextidr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTE=
+XTIDR);
+>  }
+>
+>  void arm_smmu_print_context_fault_info(struct arm_smmu_device *smmu, int=
+ idx,
+> @@ -419,7 +422,7 @@ void arm_smmu_print_context_fault_info(struct arm_smm=
+u_device *smmu, int idx,
+>  {
+>         dev_err(smmu->dev,
+>                 "Unhandled context fault: fsr=3D0x%x, iova=3D0x%08lx, fsy=
+nr=3D0x%x, cbfrsynra=3D0x%x, cb=3D%d\n",
+> -               cfi->fsr, cfi->iova, cfi->fsynr, cfi->cbfrsynra, idx);
+> +               cfi->fsr, cfi->iova, cfi->fsynr0, cfi->cbfrsynra, idx);
+>
+>         dev_err(smmu->dev, "FSR    =3D %08x [%s%sFormat=3D%u%s%s%s%s%s%s%=
+s%s], SID=3D0x%x\n",
+>                 cfi->fsr,
+> @@ -437,15 +440,15 @@ void arm_smmu_print_context_fault_info(struct arm_s=
+mmu_device *smmu, int idx,
+>                 cfi->cbfrsynra);
+>
+>         dev_err(smmu->dev, "FSYNR0 =3D %08x [S1CBNDX=3D%u%s%s%s%s%s%s PLV=
+L=3D%u]\n",
+> -               cfi->fsynr,
+> -               (u32)FIELD_GET(ARM_SMMU_CB_FSYNR0_S1CBNDX, cfi->fsynr),
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_AFR) ? " AFR" : "",
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_PTWF) ? " PTWF" : "",
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_NSATTR) ? " NSATTR" : ""=
+,
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_IND) ? " IND" : "",
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_PNU) ? " PNU" : "",
+> -               (cfi->fsynr & ARM_SMMU_CB_FSYNR0_WNR) ? " WNR" : "",
+> -               (u32)FIELD_GET(ARM_SMMU_CB_FSYNR0_PLVL, cfi->fsynr));
+> +               cfi->fsynr0,
+> +               (u32)FIELD_GET(ARM_SMMU_CB_FSYNR0_S1CBNDX, cfi->fsynr0),
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_AFR) ? " AFR" : "",
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_PTWF) ? " PTWF" : "",
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_NSATTR) ? " NSATTR" : "=
+",
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_IND) ? " IND" : "",
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_PNU) ? " PNU" : "",
+> +               (cfi->fsynr0 & ARM_SMMU_CB_FSYNR0_WNR) ? " WNR" : "",
+> +               (u32)FIELD_GET(ARM_SMMU_CB_FSYNR0_PLVL, cfi->fsynr0));
+>  }
+>
+>  static irqreturn_t arm_smmu_context_fault(int irq, void *dev)
+> @@ -464,7 +467,7 @@ static irqreturn_t arm_smmu_context_fault(int irq, vo=
+id *dev)
+>                 return IRQ_NONE;
+>
+>         ret =3D report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+> -               cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : =
+IOMMU_FAULT_READ);
+> +               cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE :=
+ IOMMU_FAULT_READ);
+>
+>         if (ret =3D=3D -ENOSYS && __ratelimit(&rs))
+>                 arm_smmu_print_context_fault_info(smmu, idx, &cfi);
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/ar=
+m-smmu/arm-smmu.h
+> index e2aeb511ae903302e3c15d2cf5f22e2a26ac2346..d3bc77dcd4d40f25bc70f3289=
+616fb866649b022 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> @@ -543,9 +543,12 @@ int arm_mmu500_reset(struct arm_smmu_device *smmu);
+>
+>  struct arm_smmu_context_fault_info {
+>         unsigned long iova;
+> +       u64 ttbr0;
+>         u32 fsr;
+> -       u32 fsynr;
+> +       u32 fsynr0;
+> +       u32 fsynr1;
+>         u32 cbfrsynra;
+> +       u32 contextidr;
+>  };
+>
+>  void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int =
+idx,
+>
+> --
+> 2.47.1
+>
 
