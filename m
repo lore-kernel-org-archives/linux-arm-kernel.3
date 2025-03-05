@@ -4,72 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F29FDC28B22
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:03:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 650EEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 22:03:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vrUpem0Fn61a6M2t/baZFKH8JwjhTrYzUDn2SHfsqzQ=; b=fUqzm5+LQVmey6FVcd1PCT5SIV
-	hQyjqXp5QrLFeCPwd357dMmF8MsVSXNaN3ySD0YnkfenH2yyqP0zCw1XGLqyCcyo/m7Cxs0tz5zcm
-	qN3x8Rdn6StgOfBEthdmxHI00sfpFMSAluW4MJHqEzkGBC4PABSzWKreqqz8I5z23roFsYJWLuKrK
-	unvRtDUwDE9KZz1YBZs3bfIM98rd69py4PNGILVR6ya1jhOn3GKiWKOPI6tQn0vJI56Ef7utsw3Z5
-	LV6XjEY5ZYbrAaIUTwTcQU3zCD032rCXueNmKcBGfIjYOMRvj59R8Ax9v9RyJ1kEygp8QozTQzpPl
-	w5EsvU9g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eVC5oFIsO9dNxwIIy2tzN1N3pWIkXin0KtQNsUQr7Ms=; b=vvagAI24p3LwOipY3qFDH+wRda
+	mUbr/gNT0i75SLPIR6HJEOp5SZMQGiA+ULakgaHFQhGYV+kd6VWPX+H35g6iChqsKlZZ4Ay8miTVC
+	kKpt8HD2TcmOrZqQg6nst9mEFHEt1nWWZPu2vrAOb7pX845/91frFsEwGw3MSC9tSCD3eXzv85c/c
+	DqUJWE9xqmnif0u5CXEYu+Pq1sIH4JU8vPXoMZrwZMJaXRUBp32mbtymWUpM3ieXriwb69OQpfHKE
+	eG7uxs4oR0YluQMK1RIkjjO5lt07g/2UkjWX1teYvde2L4yUgek8Fff2+Gg1Ebgv/PR0LkKFNbQRj
+	h6GtrMZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpwqB-00000009Que-1TKd;
-	Wed, 05 Mar 2025 22:03:47 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tpwqC-00000009Qvz-2IJ0;
+	Wed, 05 Mar 2025 22:03:48 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvHT-00000009Cj1-2CA9
+	id 1tpvV0-00000009F7Y-0GMX
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 20:23:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741206229;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=vrUpem0Fn61a6M2t/baZFKH8JwjhTrYzUDn2SHfsqzQ=;
-	b=LuEtWVkeXh5HN3vYsVmMvcvDx0UW9wEjhZcu7fkR7I31uwkkChbgJe7HfyAqqW5SQhKBT0
-	CVi/7eNwngvzmxPCYB9p7EyKGncFv5uV7gzv/nM9BXXOqtfFQyg+WAStI6tcsAl+04R7vn
-	+ihLkAkheKVVGzE9FgifC+WqJW3BfYw=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-673-QRBL5QIiNFS2xFr3_tfcpg-1; Wed,
- 05 Mar 2025 15:22:07 -0500
-X-MC-Unique: QRBL5QIiNFS2xFr3_tfcpg-1
-X-Mimecast-MFC-AGG-ID: QRBL5QIiNFS2xFr3_tfcpg_1741206126
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5CB62195609E;
-	Wed,  5 Mar 2025 20:22:05 +0000 (UTC)
-Received: from [172.64.13.39] (unknown [10.30.32.164])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 72AAD1956095;
-	Wed,  5 Mar 2025 20:22:04 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Wed, 05 Mar 2025 20:22:04 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Wed, 05 Mar 2025 20:37:51 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B14E85C5506;
+	Wed,  5 Mar 2025 20:35:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 14044C4CED1;
+	Wed,  5 Mar 2025 20:37:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741207069;
+	bh=ZUWFGvKGlqNxqZiNLWOJo7/lk4bDNYSeo5WGLyBUrUM=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=RtS7b78zRCPa6ftSk4nV04FBFLHcgMqg+TVH5rinj32s3no0VIInMYQxRszeCDCt6
+	 g1GR9ls+5oGnyxDxa9mtz7GlJpSfurjZQTtMohtjNOYrdnU25Ant01CjaxiIdV7BNE
+	 noN3JzMc0g0+nudsQfYdgAh7jDCRnM/2TIPih53KZu/2qZ357NtRuW9ZN8nx02mL6V
+	 2ZBkbBFjjL0Rfu83nRZVziq+g8JdJ5CjrhqmamEjUhNQe2IHpmxqeJz41XasZSnM/4
+	 zTAmc7+L+kBWk/28s5y+ZqVZ2GK3Ud79AZpc27hdeJfoD0YtGLik2l7PlMH/uDLEJQ
+	 TBU/8TvycOmeA==
+Message-ID: <d0f6fba8-cf04-4040-add4-35e001473f22@kernel.org>
+Date: Wed, 5 Mar 2025 21:37:42 +0100
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <43734.125030515220700439@us-mta-673.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: e37EcqCfGQfqAP-znegB0e4At5t5FXLBfLOsHwFeVUE_1741206126
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] clk: samsung: introduce Exynos2200 clock driver
+To: Stephen Boyd <sboyd@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Conor Dooley <conor+dt@kernel.org>,
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Rob Herring <robh@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250223115601.723886-1-ivo.ivanov.ivanov1@gmail.com>
+ <20250223115601.723886-4-ivo.ivanov.ivanov1@gmail.com>
+ <7b182615f1439dd39a17b8e74cf740bf.sboyd@kernel.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <7b182615f1439dd39a17b8e74cf740bf.sboyd@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_122351_633452_F82EDE46 
-X-CRM114-Status: UNSURE (   6.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_123750_189462_652593AB 
+X-CRM114-Status: GOOD (  14.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +124,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On 04/03/2025 19:19, Stephen Boyd wrote:
+> Quoting Ivaylo Ivanov (2025-02-23 03:56:00)
+>> diff --git a/drivers/clk/samsung/clk-exynos2200.c b/drivers/clk/samsung/clk-exynos2200.c
+>> new file mode 100644
+>> index 000000000..151bdb35a
+>> --- /dev/null
+>> +++ b/drivers/clk/samsung/clk-exynos2200.c
+>> @@ -0,0 +1,3928 @@
+>> +// SPDX-License-Identifier: GPL-2.0-only
+>> +/*
+>> + * Copyright (C) 2025 Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> + * Author: Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+>> + *
+>> + * Common Clock Framework support for Exynos2200 SoC.
+>> + */
+>> +
+>> +#include <linux/clk.h>
+> 
+> Remove this include because this is a clk provider and not a clk
+> consumer.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+I sent a fix for this.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> 
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1701722580
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1701722580-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
+>> +static struct platform_driver exynos2200_cmu_driver __refdata = {
+>> +       .driver = {
+>> +               .name = "exynos2200-cmu",
+>> +               .of_match_table = exynos2200_cmu_of_match,
+>> +               .suppress_bind_attrs = true,
+>> +       },
+>> +       .probe = exynos2200_cmu_probe,
+>> +};
+>> +
+>> +static int __init exynos2200_cmu_init(void)
+>> +{
+>> +       return platform_driver_register(&exynos2200_cmu_driver);
+> 
+> Was this supposed to be platform_driver_probe()? The __refdata usage
+> suggests that but all of the __init markings and stuff in the samsung
+> clk driver worry me.
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+I'll fix this and existing drivers.
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+Best regards,
+Krzysztof
 
