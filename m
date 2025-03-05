@@ -4,70 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4834C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 17:10:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A682C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 17:13:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sf+s5eqYt3WM3U9OCSuEPPfaavt8cARFkouZ5+Zir8E=; b=K1PBgep6MfNvSCbu2Ve5FP48pF
-	STGo4Iapj6A8b+fwHVvFRzBGOqtlyTgey1KCXoyTeQ8HIug93ttTqfjRWoW4WvwyFBjdX14sOKqCb
-	YUeuXuIgqZ27O9ODyEOTLsobT4gsb4UkCarWExbAn1UNfoGRm9tIGResWm6MnrfvGdgDZbyGYmoGv
-	Cmtwu125F5eDkFyaVIgWXzJTuCT5j/ccsBocTyso4zKXoMQ8SH6B/hs6W/tDnlF4Usd2ObO9/V6rs
-	T2cI8NVxY4X1il+8dcTpmaoUkUTMvZocRwN7sTyDyv4LS9HO0JNDiJ63g4cCJNvJLHYLC/1OUUJwK
-	lIjnJJQA==;
+	bh=BfL/HNxPZCLighxAwrw1wsptNcWt6XOYvY2PuLqLacw=; b=uwSv/rYTrYk1SnW/nZz0vuq06G
+	sllhVC6J1vuXzZ+Rhr8MNssdQ6gkuJvnHvYF04wnPzXITNQWjdMdqYEM/ViGHDddI3KLHbbXOhXJv
+	LzhzW6zGs8Oo92KWN6VH+9HpHfemCY5asxU2xbuE8DqQegRSFAkJzt2F7qVTA/C/H92PB0AuA2u/G
+	Et+6V4XYen8X4BZZ+8vBfLglN/in4/DPeaaxiWPwSKcrd656SYnx1YzyF39l2Ns+JzwkqKr7KXPkH
+	DutMvVgYCu0XXbkY5msYh7v0s0RUoWJYBhvlmjKrX+FNmmsZtWPnuwiY+jSFlTUFnodxjtfSzOX9h
+	dNhSRpqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsGC-00000008lXq-1KXJ;
-	Wed, 05 Mar 2025 17:10:20 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsDO-00000008l7V-0oa1;
-	Wed, 05 Mar 2025 17:07:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CA9845C6A90;
-	Wed,  5 Mar 2025 17:05:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 23704C4CED1;
-	Wed,  5 Mar 2025 17:07:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741194445;
-	bh=bLNqQdLWuR0xn/KW0CPq8vI0e4EX5wAgnKJpoztWMHg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eRcZL88mboMBgd/Z6RV1twdyEVm5uiwvcj4bZ5HeqWq3rGDvMJj272ouZcy8jt696
-	 Gt6I0vBWZSsLLK9oLqRWGhS8PmCY9yy3lTLffYrpI1tGcVn++96k/4Zg61hguEDlpn
-	 TNiFw5QnMMsVfifjFKcedAr2rZJyOoTzWKcwMLoUTDNywAMJf1JNfO3Ao9lYy7TPVu
-	 BmrhSupwkTUtu51i7rYMxSqU2WGejx1ENCuAH8+40TAv2W1lBBjF+G/R06Q+Bn2lv9
-	 0LqmyGGqNMOz0WmjEsZwBaNxN3SMt+t7HJcWwxYxV2dfJY+PjLFOX3ML5q8jS196f7
-	 9WkRotH9uWkgQ==
-Date: Wed, 5 Mar 2025 11:07:23 -0600
-From: Rob Herring <robh@kernel.org>
-To: Conor Dooley <conor@kernel.org>
-Cc: xianwei.zhao@amlogic.com, Thomas Gleixner <tglx@linutronix.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v3 1/4] dt-bindings: interrupt-controller: Add support
- for Amlogic A4 and A5 SoCsy
-Message-ID: <20250305170723.GA2143418-robh@kernel.org>
-References: <20250305-irqchip-gpio-a4-a5-v3-0-1eec70352fea@amlogic.com>
- <20250305-irqchip-gpio-a4-a5-v3-1-1eec70352fea@amlogic.com>
- <20250305-corral-unfair-a7f25abbfd64@spud>
+	id 1tpsJK-00000008lwa-0jiO;
+	Wed, 05 Mar 2025 17:13:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpsGL-00000008lZx-3YbF
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 17:10:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF9EEFEC;
+	Wed,  5 Mar 2025 09:10:39 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BD4223F66E;
+	Wed,  5 Mar 2025 09:10:25 -0800 (PST)
+Date: Wed, 5 Mar 2025 17:10:16 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [Bug report] Memory leak in scmi_device_create
+Message-ID: <Z8iFeEWq16pNQdMa@pluto>
+References: <Z8g8vhS9rqQ_ez48@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250305-corral-unfair-a7f25abbfd64@spud>
+In-Reply-To: <Z8g8vhS9rqQ_ez48@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_090726_323786_CFFD70FD 
-X-CRM114-Status: GOOD (  17.91  )
+X-CRM114-CacheID: sfid-20250305_091029_928861_A66DBD68 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,79 +64,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 04:28:16PM +0000, Conor Dooley wrote:
-> On Wed, Mar 05, 2025 at 06:02:56PM +0800, Xianwei Zhao via B4 Relay wrote:
-> > From: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> > 
-> > Update dt-binding document for GPIO interrupt controller
-> > of Amlogic A4 and A5 SoCs
-> > 
-> > Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> > ---
-> >  .../amlogic,meson-gpio-intc.yaml                    | 21 +++++++++++++++++++--
-> >  1 file changed, 19 insertions(+), 2 deletions(-)
-> > 
-> > diff --git a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
-> > index a93744763787..3c5853c71efa 100644
-> > --- a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
-> > +++ b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meson-gpio-intc.yaml
-> > @@ -35,6 +35,9 @@ properties:
-> >                - amlogic,meson-sm1-gpio-intc
-> >                - amlogic,meson-a1-gpio-intc
-> >                - amlogic,meson-s4-gpio-intc
-> > +              - amlogic,a4-gpio-intc
-> > +              - amlogic,a4-gpio-ao-intc
-> > +              - amlogic,a5-gpio-intc
-> >                - amlogic,c3-gpio-intc
-> >                - amlogic,t7-gpio-intc
-> >            - const: amlogic,meson-gpio-intc
-> > @@ -49,8 +52,6 @@ properties:
-> >  
-> >    amlogic,channel-interrupts:
-> >      description: Array with the upstream hwirq numbers
-> > -    minItems: 8
-> > -    maxItems: 12
+On Wed, Mar 05, 2025 at 11:59:58AM +0000, Alice Ryhl wrote:
+> Dear SYSTEM CONTROL & POWER/MANAGEMENT INTERFACE (SCPI/SCMI) Message
+> Protocol drivers maintainers,
 > 
-> Please leave the widest constraints here, and let the more restricted
-> ones in your if/else below.
+> I flashed a v6.13-rc3 kernel onto a Rock5B board and noticed the
+> following output in my terminal:
 > 
-> >      $ref: /schemas/types.yaml#/definitions/uint32-array
-> >  
-> >  required:
-> > @@ -60,6 +61,22 @@ required:
-> >    - "#interrupt-cells"
-> >    - amlogic,channel-interrupts
-> >  
-> > +if:
-> > +  properties:
-> > +    compatible:
-> > +      contains:
-> > +        const: amlogic,a4-gpio-ao-intc
-> > +then:
-> > +  properties:
-> > +    amlogic,channel-interrupts:
-> > +      minItems: 2
-> > +      maxItems: 12
+> [  687.694465] kmemleak: 4 new suspected memory leaks (see /sys/kernel/debug/kmemleak)
+> 
+> It seems that there is a memory leak for devices created with
+> scmi_device_create.
+> 
+`
+Hi Alice,
 
-And then you don't need this clause as 2-12 is the full range.
+thanks for this report.
 
-> > +else:
-> > +  properties:
-> > +    amlogic,channel-interrupts:
-> > +      minItems: 8
-> > +      maxItems: 12
+> This was with a kernel running v6.13-rc3, but as far as I can tell, no
+> relevant changes have landed since v6.13-rc3. My tree *does* include
+> commit 295416091e44 ("firmware: arm_scmi: Fix slab-use-after-free in
+> scmi_bus_notifier()"). I've only seen this kmemleak report once, so it's
+> not happening consistently.
+> 
+> See below for the full kmemleak report.
+> 
+> Alice
+> 
+> $ sudo cat /sys/kernel/debug/kmemleak
+> unreferenced object 0xffffff8106c86000 (size 2048):
+>   comm "swapper/0", pid 1, jiffies 4294893094
+>   hex dump (first 32 bytes):
+>     02 00 00 00 10 00 00 00 c0 01 bc 03 81 ff ff ff  ................
+>     60 67 ba 03 81 ff ff ff 18 60 c8 06 81 ff ff ff  `g.......`......
+>   backtrace (crc feae9680):
+>     [<00000000197aa008>] kmemleak_alloc+0x34/0xa0
+>     [<0000000056fe02c9>] __kmalloc_cache_noprof+0x1e0/0x450
+>     [<00000000a8b3dfe1>] __scmi_device_create+0xb4/0x2b4
+>     [<000000008714917b>] scmi_device_create+0x40/0x194
+>     [<000000001818f3cf>] scmi_chan_setup+0x144/0x3b8
+>     [<00000000970bad38>] scmi_probe+0x584/0xa78
+>     [<000000002600d2fd>] platform_probe+0xbc/0xf0
+>     [<00000000f6f556b4>] really_probe+0x1b8/0x520
+>     [<00000000eed93d59>] __driver_probe_device+0xe0/0x1d8
+>     [<00000000d613b754>] driver_probe_device+0x6c/0x208
+>     [<00000000187a9170>] __driver_attach+0x168/0x328
+>     [<00000000e3ff1834>] bus_for_each_dev+0x14c/0x178
+>     [<00000000984a3176>] driver_attach+0x34/0x44
+>     [<00000000fc35bf2a>] bus_add_driver+0x1bc/0x358
+>     [<00000000747fce19>] driver_register+0xc0/0x1a0
+>     [<0000000081cb8754>] __platform_driver_register+0x40/0x50
+> unreferenced object 0xffffff8103bc01c0 (size 32):
 
-And 12 is already the max, so you only need 'minItems: 8'.
+I could not reproduce on my setup, even though I run a system with
+all the existent SCMI protocols (and related drivers) enabled (and
+so a lot of device creations) and a downstream test driver that causes
+even more SCMI devices to be created/destroyed at load/unload.
 
-> > +
-> >  additionalProperties: false
-> >  
-> >  examples:
-> > 
-> > -- 
-> > 2.37.1
-> > 
-> > 
+Coming down the path from scmi_chan_setup(), it seems something around
+transport devices creation, but it is not obvious to me where the leak
+could hide....
 
+...any particular setup on your side ? ...using LKMs, loading/unloading,
+any usage pattern that could help me reproduce ?
 
+Thanks,
+Cristian
 
