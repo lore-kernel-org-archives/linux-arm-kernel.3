@@ -4,156 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B0F6C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:35:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35002C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 20:37:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UMAJWiMuRcuVhpch+2OnnhMpVy7qID/b1S408w6N2LU=; b=0qK900kYWckwroFJ2rZ20nzjaD
-	Ni7O0eoH1Md3O5XO68a/+LG5YMHI6XPkjHmnZkbPy7nIHW/z0goeOItv7G9LRGBrCO+OU5YV0C22S
-	scya7jVgr6jTwxGqHZPoUge2zlB0/J/4fX7PPjA+OeV0qo7hKMZ14CpBwBp1ICc2It3uOiGYyHx2k
-	5zQLMsiggiIQLwdQcTJA8SyYQKQcpCVtSHMudNp5V37vIBqblzP2Oc9HGqTKoeHAw+UQalYU6sjKQ
-	lPYtmDzj3oXmqrPrYQoJ76S9tBcc/7trCfwp2ZfyF1Iv2lIjyB4Vq3/SHnlbB0yS1pGW0CH2WFOMn
-	aWKUKmuQ==;
+	bh=EK4b3HyJgM3hGDfJ0A/txTzVctgiGO140h7Vyc0X/Ho=; b=MFkAnM0cWAGAhL3AWnG4t4YfUm
+	dniTqWCFW+fSl6ctfw75QwC281M/ltY2LgLnjLxJQa9p1PN18BgkXzjrVkLZcCAYjfCa4j1OkFTh1
+	R/p+Jy98uVSavmZNAkN/geQ353SGwS0p4gk1ABH94dK6FmTC6Q5V6am6K8y/R6HXwhHziUvY2iNor
+	D3E9623nY61HpfSOJktt1tFu2VvIs7D8KabP6QkBLYb0zsRbxifACBptvMaUSia1HPg808kMKugzi
+	7DH8FVfMV6c6xjpB17rMwXJ8k3DuxvGRwiYYpWjz9rsOGoNFKU++odp7EFoycpe1d1+p0kvFncnuQ
+	Hz1cUclg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpvSR-00000009En0-3LRs;
-	Wed, 05 Mar 2025 20:35:11 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpvU1-00000009Euu-2L1c;
+	Wed, 05 Mar 2025 20:36:49 +0000
+Received: from mail-il1-x12e.google.com ([2607:f8b0:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpuq0-000000098XS-1VAF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 19:55:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=UMAJWiMuRcuVhpch+2OnnhMpVy7qID/b1S408w6N2LU=; b=T6LTa7rWz7VSMU3AGhEuq1b4Mo
-	4cFOABKor+Atl1yaDCFMrojPrLyVRBmiQYYhNex/M3pLGnGnI/xh2qrUFbnIrJYMkYhaHUZBfm8so
-	RsB1NfYr6fnp5mMpsAc3m2Y4lKgmuT1YmD76aSmeX+na0xDCgzwPiapqXh3w0AqC4Cfcfu9eEJK0k
-	13MGGods0Qk8TGrzV1XUPrmnGPwYXPT6hJWuPTs6fhoYK2JO6zXcC+pEI4RTgHEAqbd/YumfBhO8x
-	2MpcYUwptNnC2IYBGQsh9Ewi8av7hk89EM9mnWLNTiyfcuW37vy0mp6OCaZfLRqpDKulUmUfUjx0i
-	Xa4U5XZA==;
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpupt-00000000jHl-3nbU
+	id 1tpur9-000000098xm-3I70
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 19:55:25 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43bca8cabc8so3396115e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:55:17 -0800 (PST)
+	Wed, 05 Mar 2025 19:56:41 +0000
+Received: by mail-il1-x12e.google.com with SMTP id e9e14a558f8ab-3d434c84b7eso3350505ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 11:56:39 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741204515; x=1741809315; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=UMAJWiMuRcuVhpch+2OnnhMpVy7qID/b1S408w6N2LU=;
-        b=BacyQs2BRBPgdHDE3sOTOGPVpFetkaZlgesDwDM5FYQse23eFieSMLrAtNBpKbMX7d
-         aDVQhyy+OsDX/fAqrbQwX4efxePEDAvngH0B9/vLEJpeH91CJ5wWBDNXlAelNPFSHUfA
-         iGxuiVAXTjAIn3qrnUc901GUrVIGwHFq/zQfw4cSieTU3JhxYY6GYKZGl6fChdUx12J8
-         /c+q5bhICF2SrQ8NhjVF5wXVK5NUx4uLOyUUpmyV68WH0KyAZHNKBv8dt5o//O4FlvCG
-         sNqOYS6rgInHdRuNjUXZUdLMkwVCW7P5bU9En5Dn52PkDIIhHb33cHXWd16WGXLL6hI2
-         T82A==
+        d=gmail.com; s=20230601; t=1741204599; x=1741809399; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=EK4b3HyJgM3hGDfJ0A/txTzVctgiGO140h7Vyc0X/Ho=;
+        b=Osbs3XHpEXtnw2WgJ5Z0esqHSJbzJVLQMm+4Ca+p47o6wYH1ZsN0/U/ZgWrGGRwXKf
+         yfJDUvf8/zUXe+ZF2wYxMpIFnLBnzSZ/NYoHDr2C2PrkBkwi1X1pHbgGa4zelBiKUYGy
+         JrrF7lW4F53ZV4VToBOmIj5HCb2NwGEaSgNQSeoOxTFyy21JovydFxO/DnK55A8vuF4b
+         o+5rYZ2V2szYH8zi9M1lmyO/WYeo5TtHW6EMYjTkBSK5zfVRXbGPvuHE7AbaoD7EbZ8O
+         ds6xrCjr5A0cknWh+AG9jYnYrSJPERyIg0fQ0XvneFpktTd1IBsKcZAAZ489sWmpOqNO
+         mwJA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741204515; x=1741809315;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UMAJWiMuRcuVhpch+2OnnhMpVy7qID/b1S408w6N2LU=;
-        b=Xy/xL9Euv9sRSPHdoswwmLlctwlmAp3R4JDtd6KF9MIFwWDmzCRq3lg50yKy2IhvmB
-         CAd0pG9+b6Kmgm1JREU4f5bcsU+nMCwxSl8zUP9kmWS1k24QwSbLCnQbRUIIAZyvXOKk
-         sLQGwmk0vUxdJvbf0wZ0u5AyxSf8UPOsC9jtDknCn1sfDD+FHs6PQdZyvdtdkEmHnXM5
-         ybqeMJNwcygfHcGpd64D5MpHsfRPJy+tZq4RThCa12VUZyzqgKI57Q/uIrevl6tCW3KA
-         /2SqjjUf23hhKHiRrqMoKNXm62RW/4Ezrfr/b4kNd2mFlIu9N4HMt7qt0LR+iSfSiZjs
-         nWxg==
-X-Forwarded-Encrypted: i=1; AJvYcCVTolS/XsxHKqFMM9YoKyfCVVUBzqDHQdr8KUgCiNv0mxgMZGzcvBUJHkwNOob+pRwbFpdvU3cMWP8mVSNqANxR@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywcc3OGsJb3Vivck9bZdCmieyGQED4MrVkrcRcPakDMeyxeNTIF
-	67Oi/cQyZ764YIuaiyis3qmsQUjoM3+Ahu9iO+iW6Ahz8mPeMxgd5XHt+dW3+RA=
-X-Gm-Gg: ASbGnct+WJT32BAyT6GmQhjCmltW5vLvbMftYytq4FMj030Qm5qG0KxsAuHxCU0Phzi
-	4iXGQpW8XdjlC3qfWzxDeg2fwAyyLots0/gIeFeAisefYbhelYDmOFzIR+1jErFoQMrFhl+sK/h
-	6RlVVEL/9jUDnvx4HsggT37BMAzhWV5fsA4729dNc15ZCSbHHFxeotdrI5WR91XJUEThg+AM/uM
-	93g5fsoFG6ZkByJyFn2OlPslh2GG3FVUJUYqAquO1VoD+SkfxfE8DJ7Zg/7s8B0bgYfE72jMVV+
-	N2HlLrmH1NuSZ2e1UqUCyuZNoukF4SGCJN7xoEzY+WfBKnZiyoo0iriF85QULV7x
-X-Google-Smtp-Source: AGHT+IE0NblaMrSIYQ6RV1u6tLH1ebczgqKb1OnbHqFj2fqxAWv9+kcdqezhM25t+RydtJS3TOc8lw==
-X-Received: by 2002:a05:600c:3b9e:b0:439:9595:c8f4 with SMTP id 5b1f17b1804b1-43bd2893cc5mr14788055e9.0.1741204515115;
-        Wed, 05 Mar 2025 11:55:15 -0800 (PST)
-Received: from [192.168.1.20] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd435c6f4sm26418675e9.34.2025.03.05.11.55.13
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 05 Mar 2025 11:55:14 -0800 (PST)
-Message-ID: <56487b08-d4ae-4eb0-88bc-9c65ae866508@linaro.org>
-Date: Wed, 5 Mar 2025 20:55:12 +0100
+        d=1e100.net; s=20230601; t=1741204599; x=1741809399;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EK4b3HyJgM3hGDfJ0A/txTzVctgiGO140h7Vyc0X/Ho=;
+        b=RI/dOzi5EAcpYJtxMXZyTFRVm6WuRCtdVgbBezTwYYNzH6eeiGl5q+pz/waErgZbL6
+         cPeQZG9fZBSILXBoQCJ0BxHXjUSKuTrQMA/t0ctRqEcj7RqTHhWJH3vjEUw6vdbiHdRn
+         pEH4qA6E7/zkxLHldOTkamHAc6JhLCO2LYSmxBPnc9PUmrRR++S2lv7n7v8m0Ojcp0WY
+         gW0/XHYJvsfkuFmYsRWiaEchSyZmfbA9TXbTDwo/XCT4ECEoIwSF2zHEa+261vKgsrhK
+         f40cTjgPhPAoJ9AV6k9s5QHiyyDCBoi37RD0cAVD/eAPy9IsWcaP+9XG60QPlymoDoZ9
+         hbOA==
+X-Forwarded-Encrypted: i=1; AJvYcCVPo3PNpuODVXxIeB6dN1iHJNcBQOB+gZ9P/Nt2pytW9/QoHwPLAEvI8E+fOxeB8auwOesa1qs3oGiSWN1VJDNe@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1WsrM7K17PFRHIiFEDibTmYjBOyGpQztJn5zaDIFNGGRIoZef
+	raJtRjg27FsxtKE1mTCeWCK6KreAAZkKQpus680v7KfigVTrE8zoMgjiHr1eh5UDud+FydQ+QIa
+	K9BL6EUp4VS4LaNQoW5Elg0JZPMQ=
+X-Gm-Gg: ASbGncsePpjMR34/4akxlQWZ0opadr0wNlPIQkul57nMQzc7O6Jz4r45BJHyydNx/wJ
+	g0a7Q37vFqG2lqZTXGKoqu+w8DJEUxAMt7JczNgn63CbzI+LNbQaf6FwzGtVY3XO3sp7VdLMoCR
+	nPs6y1zTiDZS1eErL++31guBj6KA==
+X-Google-Smtp-Source: AGHT+IEvt+UeE/beJRdg2VM3BUepDP4RJEo89AbGQ5rVgDSPcu2ds6I3XEN68wZm8UcUBUrYG/0mZAlqvUDAOGYFzYg=
+X-Received: by 2002:a05:6e02:216d:b0:3d1:9999:4f62 with SMTP id
+ e9e14a558f8ab-3d42b873b43mr55740585ab.2.1741204598734; Wed, 05 Mar 2025
+ 11:56:38 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] clk: samsung: Add missing mod_devicetable.h header
-To: Tudor Ambarus <tudor.ambarus@linaro.org>,
- Krzysztof Kozlowski <krzk@kernel.org>,
- Sylwester Nawrocki <s.nawrocki@samsung.com>,
- Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250304-clk-samsung-headers-cleanup-v1-0-81718e38246e@linaro.org>
- <20250304-clk-samsung-headers-cleanup-v1-1-81718e38246e@linaro.org>
- <9063abd1-b417-4623-b44d-fcb18f3c71b7@linaro.org>
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Content-Language: en-US
-Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
- 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
- D2GYIS41Kv4Isx2dEFh+/Q==
-In-Reply-To: <9063abd1-b417-4623-b44d-fcb18f3c71b7@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-5-be14be37f4c3@gmail.com>
+ <CAF6AEGufRP9NuqC1gYy6jrQ9z+XqGFd7KNsbQw8C8NscSOJnJQ@mail.gmail.com> <CACu1E7FPO253T+EvdJdaBuqh3kb7H_r7WhBE+bVxSHMPq6ixEg@mail.gmail.com>
+In-Reply-To: <CACu1E7FPO253T+EvdJdaBuqh3kb7H_r7WhBE+bVxSHMPq6ixEg@mail.gmail.com>
+From: Rob Clark <robdclark@gmail.com>
+Date: Wed, 5 Mar 2025 11:56:27 -0800
+X-Gm-Features: AQ5f1Jo3pnEpBqQToA3LD72hOF_KzihlX-Y2K6yNJMcq_UDDF0AT1ChF9aDzUjw
+Message-ID: <CAF6AEGu+eHBzSu-4vsGJEcJtDhOV=LnDM1xMZJVK3=1o71B0KQ@mail.gmail.com>
+Subject: Re: [PATCH v4 5/5] drm/msm: Temporarily disable stall-on-fault after
+ a page fault
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_195522_033057_606DC1E6 
-X-CRM114-Status: GOOD (  11.12  )
+X-CRM114-CacheID: sfid-20250305_115639_854455_2E703E50 
+X-CRM114-Status: GOOD (  50.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,62 +102,325 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 15:23, Tudor Ambarus wrote:
-> 
-> 
-> On 3/4/25 6:45 PM, Krzysztof Kozlowski wrote:
->>  drivers/clk/samsung/clk-exynos-audss.c   | 1 +
->>  drivers/clk/samsung/clk-exynos-clkout.c  | 1 +
-> 
-> drivers/clk/samsung/clk-exynos2200.c can benefit of the inclusion too.
+On Wed, Mar 5, 2025 at 11:38=E2=80=AFAM Connor Abbott <cwabbott0@gmail.com>=
+ wrote:
+>
+> On Wed, Mar 5, 2025 at 2:07=E2=80=AFPM Rob Clark <robdclark@gmail.com> wr=
+ote:
+> >
+> > On Tue, Mar 4, 2025 at 8:57=E2=80=AFAM Connor Abbott <cwabbott0@gmail.c=
+om> wrote:
+> > >
+> > > When things go wrong, the GPU is capable of quickly generating millio=
+ns
+> > > of faulting translation requests per second. When that happens, in th=
+e
+> > > stall-on-fault model each access will stall until it wins the race to
+> > > signal the fault and then the RESUME register is written. This slows
+> > > processing page faults to a crawl as the GPU can generate faults much
+> > > faster than the CPU can acknowledge them. It also means that all
+> > > available resources in the SMMU are saturated waiting for the stalled
+> > > transactions, so that other transactions such as transactions generat=
+ed
+> > > by the GMU, which shares a context bank with the GPU, cannot proceed.
+> >
+> > Nit, the GMU does not actually share a cb.. looking on x1e80100.dtsi,
+> > the GMU has cb 5 and gpu has 0 and 1.  (Currently we just use the
+> > first, but I guess the 2nd would be used if we supported protected
+> > content?)
+>
+> Yeah, I realized after writing this that's the case. But I guess the
+> QoS issues happen even with separate context banks due to the way they
+> allocate translation units?
 
-Yes, this was reported by Stephen and I was waiting for reply from the
-author.
+Right, however resources are allocated to track pending translations
+seems to be shared across CBs
 
-> 
->>  drivers/clk/samsung/clk-exynos3250.c     | 2 +-
-> 
-> drivers/clk/samsung/clk-exynos4.c too
+BR,
+-R
 
-I missed it, weird. Thanks.
-
-> 
->>  drivers/clk/samsung/clk-exynos4412-isp.c | 1 +
-> 
-> drivers/clk/samsung/clk-exynos5-subcmu.c too
-
-How did I search for of_device_id...
-
-> 
->>  drivers/clk/samsung/clk-exynos5250.c     | 1 +
->>  drivers/clk/samsung/clk-exynos5420.c     | 1 +
->>  drivers/clk/samsung/clk-exynos5433.c     | 1 +
-> 
-> drivers/clk/samsung/clk-exynos7870.c too
-
-Same as Exynos2200. I guess I will fix it, instead of authors.
-
-> 
->>  drivers/clk/samsung/clk-exynos7885.c     | 1 +
->>  drivers/clk/samsung/clk-exynos850.c      | 1 +
->>  drivers/clk/samsung/clk-exynos8895.c     | 1 +
->>  drivers/clk/samsung/clk-exynos990.c      | 1 +
->>  drivers/clk/samsung/clk-exynosautov9.c   | 1 +
->>  drivers/clk/samsung/clk-exynosautov920.c | 1 +
->>  drivers/clk/samsung/clk-fsd.c            | 1 +
->>  drivers/clk/samsung/clk-gs101.c          | 1 +
->>  drivers/clk/samsung/clk-s5pv210-audss.c  | 1 +
-> 
-> drivers/clk/samsung/clk.c and drivers/clk/samsung/clk.h too.
-
-Indeed.
-
-> 
-> With that:
-> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-
-Thanks
-
-Best regards,
-Krzysztof
+>
+> Connor
+>
+> >
+> > fwiw, you can read this from dtsi, ie. in the GMU node, "iommus =3D
+> > <&adreno_smmu 5 0x0>;"
+> >
+> > > This causes a GMU watchdog timeout, which leads to a failed reset
+> > > because GX cannot collapse when there is a transaction pending and a
+> > > permanently hung GPU.
+> > >
+> > > On older platforms with qcom,smmu-v2, it seems that when one transact=
+ion
+> > > is stalled subsequent faulting transactions are terminated, which avo=
+ids
+> > > this problem, but the MMU-500 follows the spec here.
+> > >
+> > > To work around these problem, disable stall-on-fault as soon as we ge=
+t a
+> > > page fault until a cooldown period after pagefaults stop. This allows
+> > > the GMU some guaranteed time to continue working. We only use
+> > > stall-on-fault to halt the GPU while we collect a devcoredump and we
+> > > always terminate the transaction afterward, so it's fine to miss some
+> > > subsequent page faults. We also keep it disabled so long as the curre=
+nt
+> > > devcoredump hasn't been deleted, because in that case we likely won't
+> > > capture another one if there's a fault.
+> > >
+> > > After this commit HFI messages still occasionally time out, because t=
+he
+> > > crashdump handler doesn't run fast enough to let the GMU resume, but =
+the
+> > > driver seems to recover from it. This will probably go away after the
+> > > HFI timeout is increased.
+> > >
+> > > Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> > > ---
+> > >  drivers/gpu/drm/msm/adreno/a5xx_gpu.c   |  2 ++
+> > >  drivers/gpu/drm/msm/adreno/a6xx_gpu.c   |  4 ++++
+> > >  drivers/gpu/drm/msm/adreno/adreno_gpu.c | 42 +++++++++++++++++++++++=
++++++++++-
+> > >  drivers/gpu/drm/msm/adreno/adreno_gpu.h | 24 +++++++++++++++++++
+> > >  drivers/gpu/drm/msm/msm_iommu.c         |  9 +++++++
+> > >  drivers/gpu/drm/msm/msm_mmu.h           |  1 +
+> > >  6 files changed, 81 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c b/drivers/gpu/drm/=
+msm/adreno/a5xx_gpu.c
+> > > index 71dca78cd7a5324e9ff5b14f173e2209fa42e196..670141531112c9d29cef8=
+ef1fd51b74759fdd6d2 100644
+> > > --- a/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
+> > > +++ b/drivers/gpu/drm/msm/adreno/a5xx_gpu.c
+> > > @@ -131,6 +131,8 @@ static void a5xx_submit(struct msm_gpu *gpu, stru=
+ct msm_gem_submit *submit)
+> > >         struct msm_ringbuffer *ring =3D submit->ring;
+> > >         unsigned int i, ibs =3D 0;
+> > >
+> > > +       adreno_check_and_reenable_stall(adreno_gpu);
+> > > +
+> > >         if (IS_ENABLED(CONFIG_DRM_MSM_GPU_SUDO) && submit->in_rb) {
+> > >                 ring->cur_ctx_seqno =3D 0;
+> > >                 a5xx_submit_in_rb(gpu, submit);
+> > > diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/=
+msm/adreno/a6xx_gpu.c
+> > > index 0ae29a7c8a4d3f74236a35cc919f69d5c0a384a0..5a34cd2109a2d74c92841=
+448a61ccb0d4f34e264 100644
+> > > --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> > > +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> > > @@ -212,6 +212,8 @@ static void a6xx_submit(struct msm_gpu *gpu, stru=
+ct msm_gem_submit *submit)
+> > >         struct msm_ringbuffer *ring =3D submit->ring;
+> > >         unsigned int i, ibs =3D 0;
+> > >
+> > > +       adreno_check_and_reenable_stall(adreno_gpu);
+> > > +
+> > >         a6xx_set_pagetable(a6xx_gpu, ring, submit);
+> > >
+> > >         get_stats_counter(ring, REG_A6XX_RBBM_PERFCTR_CP(0),
+> > > @@ -335,6 +337,8 @@ static void a7xx_submit(struct msm_gpu *gpu, stru=
+ct msm_gem_submit *submit)
+> > >         struct msm_ringbuffer *ring =3D submit->ring;
+> > >         unsigned int i, ibs =3D 0;
+> > >
+> > > +       adreno_check_and_reenable_stall(adreno_gpu);
+> > > +
+> > >         /*
+> > >          * Toggle concurrent binning for pagetable switch and set the=
+ thread to
+> > >          * BR since only it can execute the pagetable switch packets.
+> > > diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.c b/drivers/gpu/dr=
+m/msm/adreno/adreno_gpu.c
+> > > index 1238f326597808eb28b4c6822cbd41a26e555eb9..bac586101dc0494f46b06=
+9a8440a45825dfe9b5e 100644
+> > > --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.c
+> > > +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.c
+> > > @@ -246,16 +246,53 @@ u64 adreno_private_address_space_size(struct ms=
+m_gpu *gpu)
+> > >         return SZ_4G;
+> > >  }
+> > >
+> > > +void adreno_check_and_reenable_stall(struct adreno_gpu *adreno_gpu)
+> > > +{
+> > > +       struct msm_gpu *gpu =3D &adreno_gpu->base;
+> > > +       unsigned long flags;
+> > > +
+> > > +       /*
+> > > +        * Wait until the cooldown period has passed and we would act=
+ually
+> > > +        * collect a crashdump to re-enable stall-on-fault.
+> > > +        */
+> > > +       spin_lock_irqsave(&adreno_gpu->fault_stall_lock, flags);
+> > > +       if (!adreno_gpu->stall_enabled &&
+> > > +                       ktime_after(ktime_get(), adreno_gpu->stall_re=
+enable_time) &&
+> > > +                       !READ_ONCE(gpu->crashstate)) {
+> > > +               adreno_gpu->stall_enabled =3D true;
+> > > +
+> > > +               gpu->aspace->mmu->funcs->set_stall(gpu->aspace->mmu, =
+true);
+> > > +       }
+> > > +       spin_unlock_irqrestore(&adreno_gpu->fault_stall_lock, flags);
+> > > +}
+> > > +
+> > >  #define ARM_SMMU_FSR_TF                 BIT(1)
+> > >  #define ARM_SMMU_FSR_PF                        BIT(3)
+> > >  #define ARM_SMMU_FSR_EF                        BIT(4)
+> > > +#define ARM_SMMU_FSR_SS                        BIT(30)
+> > >
+> > >  int adreno_fault_handler(struct msm_gpu *gpu, unsigned long iova, in=
+t flags,
+> > >                          struct adreno_smmu_fault_info *info, const c=
+har *block,
+> > >                          u32 scratch[4])
+> > >  {
+> > > +       struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
+> > >         const char *type =3D "UNKNOWN";
+> > > -       bool do_devcoredump =3D info && !READ_ONCE(gpu->crashstate);
+> > > +       bool do_devcoredump =3D info && (info->fsr & ARM_SMMU_FSR_SS)=
+ &&
+> > > +               !READ_ONCE(gpu->crashstate);
+> > > +       unsigned long irq_flags;
+> > > +
+> > > +       /*
+> > > +        * In case there is a subsequent storm of pagefaults, disable
+> > > +        * stall-on-fault for at least half a second.
+> > > +        */
+> > > +       spin_lock_irqsave(&adreno_gpu->fault_stall_lock, irq_flags);
+> > > +       if (adreno_gpu->stall_enabled) {
+> > > +               adreno_gpu->stall_enabled =3D false;
+> > > +
+> > > +               gpu->aspace->mmu->funcs->set_stall(gpu->aspace->mmu, =
+false);
+> > > +       }
+> > > +       adreno_gpu->stall_reenable_time =3D ktime_add_ms(ktime_get(),=
+ 500);
+> > > +       spin_unlock_irqrestore(&adreno_gpu->fault_stall_lock, irq_fla=
+gs);
+> > >
+> > >         /*
+> > >          * If we aren't going to be resuming later from fault_worker,=
+ then do
+> > > @@ -1143,6 +1180,9 @@ int adreno_gpu_init(struct drm_device *drm, str=
+uct platform_device *pdev,
+> > >                 adreno_gpu->info->inactive_period);
+> > >         pm_runtime_use_autosuspend(dev);
+> > >
+> > > +       spin_lock_init(&adreno_gpu->fault_stall_lock);
+> > > +       adreno_gpu->stall_enabled =3D true;
+> > > +
+> > >         return msm_gpu_init(drm, pdev, &adreno_gpu->base, &funcs->bas=
+e,
+> > >                         gpu_name, &adreno_gpu_config);
+> > >  }
+> > > diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.h b/drivers/gpu/dr=
+m/msm/adreno/adreno_gpu.h
+> > > index dcf454629ce037b2a8274a6699674ad754ce1f07..a528036b46216bd898f6d=
+48c5fb0555c4c4b053b 100644
+> > > --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.h
+> > > +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
+> > > @@ -205,6 +205,28 @@ struct adreno_gpu {
+> > >         /* firmware: */
+> > >         const struct firmware *fw[ADRENO_FW_MAX];
+> > >
+> > > +       /**
+> > > +        * fault_stall_lock:
+> >
+> > nit, @fault_stall_lock:  And for
+> > fault_stall_reenable_time/stall_enabled, it wouldn't hurt to add
+> > something along the lines of "Protected by @fault_stall_lock".  I've
+> > been slowly trying to improve the comment docs over time, I have some
+> > of that in my vmbind patchset.
+> >
+> > Anyways, with those nits addressed, r-b
+> >
+> > BR,
+> > -R
+> >
+> > > +        *
+> > > +        * Serialize changes to stall-on-fault state.
+> > > +        */
+> > > +       spinlock_t fault_stall_lock;
+> > > +
+> > > +       /**
+> > > +        * fault_stall_reenable_time:
+> > > +        *
+> > > +        * if stall_enabled is false, when to reenable stall-on-fault=
+.
+> > > +        */
+> > > +       ktime_t stall_reenable_time;
+> > > +
+> > > +       /**
+> > > +        * stall_enabled:
+> > > +        *
+> > > +        * Whether stall-on-fault is currently enabled.
+> > > +        */
+> > > +       bool stall_enabled;
+> > > +
+> > > +
+> > >         struct {
+> > >                 /**
+> > >                  * @rgb565_predicator: Unknown, introduced with A650 =
+family,
+> > > @@ -629,6 +651,8 @@ int adreno_fault_handler(struct msm_gpu *gpu, uns=
+igned long iova, int flags,
+> > >                          struct adreno_smmu_fault_info *info, const c=
+har *block,
+> > >                          u32 scratch[4]);
+> > >
+> > > +void adreno_check_and_reenable_stall(struct adreno_gpu *gpu);
+> > > +
+> > >  int adreno_read_speedbin(struct device *dev, u32 *speedbin);
+> > >
+> > >  /*
+> > > diff --git a/drivers/gpu/drm/msm/msm_iommu.c b/drivers/gpu/drm/msm/ms=
+m_iommu.c
+> > > index 2a94e82316f95c5f9dcc37ef0a4664a29e3492b2..8d5380e6dcc217c7c209b=
+51527bf15748b3ada71 100644
+> > > --- a/drivers/gpu/drm/msm/msm_iommu.c
+> > > +++ b/drivers/gpu/drm/msm/msm_iommu.c
+> > > @@ -351,6 +351,14 @@ static void msm_iommu_resume_translation(struct =
+msm_mmu *mmu)
+> > >                 adreno_smmu->resume_translation(adreno_smmu->cookie, =
+true);
+> > >  }
+> > >
+> > > +static void msm_iommu_set_stall(struct msm_mmu *mmu, bool enable)
+> > > +{
+> > > +       struct adreno_smmu_priv *adreno_smmu =3D dev_get_drvdata(mmu-=
+>dev);
+> > > +
+> > > +       if (adreno_smmu->set_stall)
+> > > +               adreno_smmu->set_stall(adreno_smmu->cookie, enable);
+> > > +}
+> > > +
+> > >  static void msm_iommu_detach(struct msm_mmu *mmu)
+> > >  {
+> > >         struct msm_iommu *iommu =3D to_msm_iommu(mmu);
+> > > @@ -399,6 +407,7 @@ static const struct msm_mmu_funcs funcs =3D {
+> > >                 .unmap =3D msm_iommu_unmap,
+> > >                 .destroy =3D msm_iommu_destroy,
+> > >                 .resume_translation =3D msm_iommu_resume_translation,
+> > > +               .set_stall =3D msm_iommu_set_stall,
+> > >  };
+> > >
+> > >  struct msm_mmu *msm_iommu_new(struct device *dev, unsigned long quir=
+ks)
+> > > diff --git a/drivers/gpu/drm/msm/msm_mmu.h b/drivers/gpu/drm/msm/msm_=
+mmu.h
+> > > index 88af4f490881f2a6789ae2d03e1c02d10046331a..2694a356a17904e7572b7=
+67b16ed0cee806406cf 100644
+> > > --- a/drivers/gpu/drm/msm/msm_mmu.h
+> > > +++ b/drivers/gpu/drm/msm/msm_mmu.h
+> > > @@ -16,6 +16,7 @@ struct msm_mmu_funcs {
+> > >         int (*unmap)(struct msm_mmu *mmu, uint64_t iova, size_t len);
+> > >         void (*destroy)(struct msm_mmu *mmu);
+> > >         void (*resume_translation)(struct msm_mmu *mmu);
+> > > +       void (*set_stall)(struct msm_mmu *mmu, bool enable);
+> > >  };
+> > >
+> > >  enum msm_mmu_type {
+> > >
+> > > --
+> > > 2.47.1
+> > >
 
