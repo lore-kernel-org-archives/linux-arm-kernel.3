@@ -4,60 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B478C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EE2C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 10:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jlmPKQF+2mG+ZL188MgmNIlgYEpG3hohOD8Tk6PCGxk=; b=o/+Nqvm8WzZkEgzSG4mRvpGkGc
-	U2/lRFlkCKBwnskFrVTCGiC5J1yqgWbCKl2Vp2Fs/+OjS3m4aeesaDgESQUXje/BxIYUuax6knaRS
-	x/kt3rDweVmwDudYqrddL1q6ORdF3WQM5MHLiBXKLWzWH1A2W8X7UAY4TL48eoPgqW1r5e+UuFJU9
-	Z4Zs8WeCNYUNt2N92YFjDHkNm0HrsnHeyp6QWUSBxqVhKusrDNLKY7G0idkCf8qSEp93jhWdqDQjy
-	PO91hhdlKdwG1PO1OP/qwV0GoiMxG79v+ouryCjfG2KwP/gKhPD8hXPBjfA/I0csYtYBNqsPZLLZo
-	fowvCWjA==;
+	bh=58rBYpw4Z7sNK8BbzGqHO/foCjMOd37qPIMpapYzMJA=; b=V7AnKEarZcSFkG7S4fgvtb5UFW
+	I8H5YyAVucC5pxJ4/L76KoADukWBC67I5tRxvPtYkLnlyyDBtY336zmjjSAiS7nx0ppW+yzmZaPIT
+	v/jBhTZxkvXH7k3zJP+hfGX9LGKiKCLe8z8aH2us6rg8zMzxYP7vWp73r1R2KqCB6tU6cNCcmq7qM
+	j3IoGc28jvnB7gDE3Fb/b9/c+tG3t3NE4xLhB6qf0xaMazs7kNRa4ED6ar50P6MiXAmVfVQ2vV0Y7
+	J6cX3eHZQAhLZTBgp4DZzWO5NRwCMajlUkl9EUJ6bgzRI4yqQBXNg/DKe+Z2MA1som9jieNVPzHeC
+	kcuRQLWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplc6-00000007boB-1DFd;
-	Wed, 05 Mar 2025 10:04:30 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tpldf-00000007cBK-0HQU;
+	Wed, 05 Mar 2025 10:06:07 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tplSH-00000007Zgb-0BTd
+	id 1tplSJ-00000007Zkq-2FgL
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 05 Mar 2025 09:54:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Type:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=58rBYpw4Z7sNK8BbzGqHO/foCjMOd37qPIMpapYzMJA=; b=XHTHGsKQJtGfJVRDLKSe1yX76/
+	Bp/s0uZw3dpkfYxjWqpxKoepzI75sOxAw4VSZS39Nfv3vx/ZLjpFojB5eBrpHh1dHv/YM96iBfP+O
+	X6gHXdcMxqXOW8ebvcWQMUyKB0mmDRwQNhdtMz00qPbl5SYUpNgFhc8I9YKKFZhDnzjz6Lu5ybXUW
+	ttr1kFVVM1Gaq7YAyY6QB6yPUG9Dccp9MQL04fX4FOy3yLsX5c0586CMBp02+9o2ICzopUOY5TjUy
+	+E/xsHh1DrdP0U6BHrbXMQh6dvUZMEQgg89avruR14Xq1MYdcN5+AZ4+/al67GzX2wwPwaYrPk0x4
+	NwtWf8tg==;
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tplSG-00000005Eds-3UjL
 	for linux-arm-kernel@lists.infradead.org;
 	Wed, 05 Mar 2025 09:54:22 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5258Xamf011442;
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52593Okd004204;
 	Wed, 5 Mar 2025 10:53:55 +0100
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	jlmPKQF+2mG+ZL188MgmNIlgYEpG3hohOD8Tk6PCGxk=; b=Fjq5kxiQxSlriRIW
-	A+MZ7h0Si2K215csBhtSZJJADLjwQNdFpTjmi9nuZ7odJtZEPjp7xJY6k5XxIAm2
-	6S5wuK40wYryGQRuB1SRaZTPwvElSe+graKdJZJ9jGYICOnxPg1BcqGIh+gv2EHn
-	knpOZlBu9hoq2y3u8hAf91PAsQbZcESa3W+qCMoFm+y0+LAGaPy8Rlbe50FeINzT
-	fMo8Jrqpw+6ejWXVIlvVwRMbI4/ZBsi0b/eP6KD+DoZ288QSwnkkbgtx8U7xHaFr
-	rn0IkPtKDoiGHf5sgqcltVLCtsGjfYavXFKZ/wtM3XGhm0PWi7ltIgnao7GTsdGR
-	pgGWgg==
+	58rBYpw4Z7sNK8BbzGqHO/foCjMOd37qPIMpapYzMJA=; b=ZixdRKd+ymp62I+8
+	xd+1xP0hkOFadW9NGaVk6kTGEGm0xRusDHZa9PZZE0rSHbMgmW4hNZzvlsk+kaaS
+	X7BMGuhZsoAY5JGr/kbtpTb/QlBHTadpWYDDxqwypu91/hTkIYKd4YPF/cPWO4oI
+	xjW/MPgi3gm2VgFb0s/vcML+zSQOWEGULPJ7HIIPyUtMWhAqWmX4dYkGqX8F3IzI
+	9KluMHDWfh8G3ApD7NqMspCQBieEqnev3P3bK9lf9UVq9H1Z/a8fcjujof1ImJfm
+	aj3YCTxQHgsGmWLDGRliZtEmt1LsbQy+yvKnCkLFuzcHw7ySoMAP+V2BOn9Jy9+R
+	WB+sOw==
 Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 455wbht7y9-1
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 454e2smtxu-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
 	Wed, 05 Mar 2025 10:53:55 +0100 (CET)
 Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 399D840086;
-	Wed,  5 Mar 2025 10:52:46 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id EAF365A5D6A;
-	Wed,  5 Mar 2025 10:49:53 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id ED0A840084;
+	Wed,  5 Mar 2025 10:52:45 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node4.st.com [10.75.129.133])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id F0B705A5AAF;
+	Wed,  5 Mar 2025 10:49:51 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE4.st.com
+ (10.75.129.133) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
- 2025 10:49:53 +0100
+ 2025 10:49:51 +0100
 Received: from localhost (10.48.86.222) by SAFDAG1NODE1.st.com (10.75.90.17)
  with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 5 Mar
- 2025 10:49:53 +0100
+ 2025 10:49:51 +0100
 From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 To: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
         <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -67,9 +82,9 @@ CC: <catalin.marinas@arm.com>, <will@kernel.org>, <devicetree@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
         <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
         <olivier.moysan@foss.st.com>, <fabrice.gasnier@foss.st.com>
-Subject: [PATCH v3 4/8] clocksource: stm32-lptimer: add support for stm32mp25
-Date: Wed, 5 Mar 2025 10:49:31 +0100
-Message-ID: <20250305094935.595667-5-fabrice.gasnier@foss.st.com>
+Subject: [PATCH v3 2/8] mfd: stm32-lptimer: add support for stm32mp25
+Date: Wed, 5 Mar 2025 10:49:29 +0100
+Message-ID: <20250305094935.595667-3-fabrice.gasnier@foss.st.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
 References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
@@ -83,8 +98,8 @@ X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-05_03,2025-03-05_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_015421_374068_D71585F1 
-X-CRM114-Status: GOOD (  17.68  )
+X-CRM114-CacheID: sfid-20250305_095420_925117_79EFE9C3 
+X-CRM114-Status: GOOD (  17.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,84 +114,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On stm32mp25, DIER (former IER) must only be modified when the lptimer
-is enabled. On earlier SoCs, it must be only be modified when it is
-disabled. Read the LPTIM_VERR register to properly manage the enable
-state, before accessing IER.
+Add support for STM32MP25 SoC.
+A new hardware configuration register (HWCFGR2) has been added, to gather
+number of capture/compare channels, autonomous mode and input capture
+capability. The full feature set is implemented in LPTIM1/2/3/4. LPTIM5
+supports a smaller set of features. This can now be read from HWCFGR
+registers.
 
-Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
+Add new registers to the stm32-lptimer.h: CCMR1, CCR2, HWCFGR1/2 and VERR.
+Update the stm32_lptimer data struct so signal the number of
+capture/compare channels to the child devices.
+Also Remove some unused bit masks (CMPOK_ARROK / CMPOKCF_ARROKCF).
+
 Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
 ---
 Changes in V2:
 - rely on fallback compatible as no specific .data is associated to the
-  driver. Use version data from MFD core.
-- Added interrupt enable register access update in (missed in V1)
+  driver. Compatibility is added by reading hardware configuration
+  registers.
+- read version register, to be used by clockevent child driver
+- rename register/bits definitions
 ---
- drivers/clocksource/timer-stm32-lp.c | 26 ++++++++++++++++++++++----
- 1 file changed, 22 insertions(+), 4 deletions(-)
+ drivers/mfd/stm32-lptimer.c       | 33 ++++++++++++++++++++++++++++-
+ include/linux/mfd/stm32-lptimer.h | 35 ++++++++++++++++++++++++++++---
+ 2 files changed, 64 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/clocksource/timer-stm32-lp.c b/drivers/clocksource/timer-stm32-lp.c
-index a4c95161cb22..96d975adf7a4 100644
---- a/drivers/clocksource/timer-stm32-lp.c
-+++ b/drivers/clocksource/timer-stm32-lp.c
-@@ -25,6 +25,7 @@ struct stm32_lp_private {
- 	struct clock_event_device clkevt;
- 	unsigned long period;
- 	struct device *dev;
-+	bool ier_wr_enabled;	/* Enables LPTIMER before writing into IER register */
+diff --git a/drivers/mfd/stm32-lptimer.c b/drivers/mfd/stm32-lptimer.c
+index b2704a9809c7..09073dbc9c80 100644
+--- a/drivers/mfd/stm32-lptimer.c
++++ b/drivers/mfd/stm32-lptimer.c
+@@ -6,6 +6,7 @@
+  * Inspired by Benjamin Gaignard's stm32-timers driver
+  */
+ 
++#include <linux/bitfield.h>
+ #include <linux/mfd/stm32-lptimer.h>
+ #include <linux/module.h>
+ #include <linux/of_platform.h>
+@@ -49,6 +50,36 @@ static int stm32_lptimer_detect_encoder(struct stm32_lptimer *ddata)
+ 	return 0;
+ }
+ 
++static int stm32_lptimer_detect_hwcfgr(struct stm32_lptimer *ddata)
++{
++	u32 val;
++	int ret;
++
++	ret = regmap_read(ddata->regmap, STM32_LPTIM_VERR, &ddata->version);
++	if (ret)
++		return ret;
++
++	/* Try to guess parameters from HWCFGR: e.g. encoder mode (STM32MP15) */
++	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR1, &val);
++	if (ret)
++		return ret;
++
++	/* Fallback to legacy init if HWCFGR isn't present */
++	if (!val)
++		return stm32_lptimer_detect_encoder(ddata);
++
++	ddata->has_encoder = FIELD_GET(STM32_LPTIM_HWCFGR1_ENCODER, val);
++
++	ret = regmap_read(ddata->regmap, STM32_LPTIM_HWCFGR2, &val);
++	if (ret)
++		return ret;
++
++	/* Number of capture/compare channels */
++	ddata->num_cc_chans = FIELD_GET(STM32_LPTIM_HWCFGR2_CHAN_NUM, val);
++
++	return 0;
++}
++
+ static int stm32_lptimer_probe(struct platform_device *pdev)
+ {
+ 	struct device *dev = &pdev->dev;
+@@ -73,7 +104,7 @@ static int stm32_lptimer_probe(struct platform_device *pdev)
+ 	if (IS_ERR(ddata->clk))
+ 		return PTR_ERR(ddata->clk);
+ 
+-	ret = stm32_lptimer_detect_encoder(ddata);
++	ret = stm32_lptimer_detect_hwcfgr(ddata);
+ 	if (ret)
+ 		return ret;
+ 
+diff --git a/include/linux/mfd/stm32-lptimer.h b/include/linux/mfd/stm32-lptimer.h
+index 06d3f11dc3c9..30ebd3152e1a 100644
+--- a/include/linux/mfd/stm32-lptimer.h
++++ b/include/linux/mfd/stm32-lptimer.h
+@@ -17,20 +17,28 @@
+ #define STM32_LPTIM_IER		0x08	/* Interrupt Enable Reg      */
+ #define STM32_LPTIM_CFGR	0x0C	/* Configuration Reg         */
+ #define STM32_LPTIM_CR		0x10	/* Control Reg               */
+-#define STM32_LPTIM_CMP		0x14	/* Compare Reg               */
++#define STM32_LPTIM_CMP		0x14	/* Compare Reg (MP25 CCR1)   */
+ #define STM32_LPTIM_ARR		0x18	/* Autoreload Reg            */
+ #define STM32_LPTIM_CNT		0x1C	/* Counter Reg               */
++#define STM32_LPTIM_CCMR1	0x2C	/* Capture/Compare Mode MP25 */
++#define STM32_LPTIM_CCR2	0x34	/* Compare Reg2 MP25         */
++
++#define STM32_LPTIM_HWCFGR2	0x3EC	/* Hardware configuration register 2 - MP25 */
++#define STM32_LPTIM_HWCFGR1	0x3F0	/* Hardware configuration register 1 - MP15 */
++#define STM32_LPTIM_VERR	0x3F4	/* Version identification register - MP15 */
+ 
+ /* STM32_LPTIM_ISR - bit fields */
++#define STM32_LPTIM_CMP2_ARROK		(BIT(19) | BIT(4))
+ #define STM32_LPTIM_CMPOK_ARROK		GENMASK(4, 3)
+ #define STM32_LPTIM_ARROK		BIT(4)
+ #define STM32_LPTIM_CMPOK		BIT(3)
+ 
+ /* STM32_LPTIM_ICR - bit fields */
+-#define STM32_LPTIM_ARRMCF		BIT(1)
++#define STM32_LPTIM_CMP2OKCF_ARROKCF	(BIT(19) | BIT(4))
+ #define STM32_LPTIM_CMPOKCF_ARROKCF	GENMASK(4, 3)
++#define STM32_LPTIM_ARRMCF		BIT(1)
+ 
+-/* STM32_LPTIM_IER - bit flieds */
++/* STM32_LPTIM_IER - bit fields */
+ #define STM32_LPTIM_ARRMIE	BIT(1)
+ 
+ /* STM32_LPTIM_CR - bit fields */
+@@ -53,16 +61,37 @@
+ /* STM32_LPTIM_ARR */
+ #define STM32_LPTIM_MAX_ARR	0xFFFF
+ 
++/* STM32_LPTIM_CCMR1 */
++#define STM32_LPTIM_CC2P	GENMASK(19, 18)
++#define STM32_LPTIM_CC2E	BIT(17)
++#define STM32_LPTIM_CC2SEL	BIT(16)
++#define STM32_LPTIM_CC1P	GENMASK(3, 2)
++#define STM32_LPTIM_CC1E	BIT(1)
++#define STM32_LPTIM_CC1SEL	BIT(0)
++
++/* STM32_LPTIM_HWCFGR1 */
++#define STM32_LPTIM_HWCFGR1_ENCODER	BIT(16)
++
++/* STM32_LPTIM_HWCFGR2 */
++#define STM32_LPTIM_HWCFGR2_CHAN_NUM	GENMASK(3, 0)
++
++/* STM32_LPTIM_VERR */
++#define STM32_LPTIM_VERR_23	0x23	/* STM32MP25 */
++
+ /**
+  * struct stm32_lptimer - STM32 Low-Power Timer data assigned by parent device
+  * @clk: clock reference for this instance
+  * @regmap: register map reference for this instance
+  * @has_encoder: indicates this Low-Power Timer supports encoder mode
++ * @num_cc_chans: indicates the number of capture/compare channels
++ * @version: indicates the major and minor revision of the controller
+  */
+ struct stm32_lptimer {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
+ 	bool has_encoder;
++	unsigned int num_cc_chans;
++	u32 version;
  };
  
- static struct stm32_lp_private*
-@@ -37,8 +38,15 @@ static int stm32_clkevent_lp_shutdown(struct clock_event_device *clkevt)
- {
- 	struct stm32_lp_private *priv = to_priv(clkevt);
- 
--	regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+	/* Disable LPTIMER either before or after writing IER register (else, keep it enabled) */
-+	if (!priv->ier_wr_enabled)
-+		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+
- 	regmap_write(priv->reg, STM32_LPTIM_IER, 0);
-+
-+	if (priv->ier_wr_enabled)
-+		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+
- 	/* clear pending flags */
- 	regmap_write(priv->reg, STM32_LPTIM_ICR, STM32_LPTIM_ARRMCF);
- 
-@@ -51,12 +59,21 @@ static int stm32_clkevent_lp_set_timer(unsigned long evt,
- {
- 	struct stm32_lp_private *priv = to_priv(clkevt);
- 
--	/* disable LPTIMER to be able to write into IER register*/
--	regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+	if (!priv->ier_wr_enabled) {
-+		/* Disable LPTIMER to be able to write into IER register */
-+		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-+	} else {
-+		/* Enable LPTIMER to be able to write into IER register */
-+		regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-+	}
-+
- 	/* enable ARR interrupt */
- 	regmap_write(priv->reg, STM32_LPTIM_IER, STM32_LPTIM_ARRMIE);
-+
- 	/* enable LPTIMER to be able to write into ARR register */
--	regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-+	if (!priv->ier_wr_enabled)
-+		regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-+
- 	/* set next event counter */
- 	regmap_write(priv->reg, STM32_LPTIM_ARR, evt);
- 
-@@ -151,6 +168,7 @@ static int stm32_clkevent_lp_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 
- 	priv->reg = ddata->regmap;
-+	priv->ier_wr_enabled = ddata->version == STM32_LPTIM_VERR_23;
- 	ret = clk_prepare_enable(ddata->clk);
- 	if (ret)
- 		return -EINVAL;
+ #endif
 -- 
 2.25.1
 
