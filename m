@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BFD1C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 17:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915A6C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 17:48:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QA3n5e4m2nhrgJ7Mbtp/ZkWMjMA2M8GBAT80C2z/1Fc=; b=d0dhz49dQkPK0gkHsD708+ke8M
-	0MD4sr57oRJ0FpDVRbV+7frWParySNYNxIvNMmPjX6ztSkPSWjXDuwWh8Y/vtbeM+qCRbf/mEsQeU
-	OZW+sd6DvsMG24v7GJ0EmZucW7/6Ldfi1rfRq8dqrVnsKORJCfY/TVBgV6aRFJW2bM3nmo2Xrk1dR
-	pPbKV2y+h4XR9cX28RWZR2U64mLym+raKbYM/P9jNBsDSkHJW7jQEggMgHNFWbCOAQKWzeupjo7Z9
-	EtT0pSzl7d//px6Svi5JfA+8bOwVQZCaRWfCkzXBqQOTkLktttdBCALggv+PFxlLGh1QIDhqJhX0u
-	yR1g+Zlw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eIIiVrmnQiSyC0qANF3E4rCBVrPxyIXdjH1aVgIu9w8=; b=RFrVhi5fxfviK7jC8IBlZWrme9
+	MvbGauInVhBjVu9NycdgZ/9Z63+CxbzhGzbnV0dED+O6jFPB6qN5jPkKluJYwYHAjdPbyzotwG5x1
+	aJohGkwBJGnS9JevB+dcLNWMkq6x83ztMEmnb4xSnNnc9hOJVMJ6O+zFQ3AzsJaSZObVnDngttRKW
+	nak0UIN1az1zT/5XrMTcYVlHI+DZ962jWAjgx1VZ589aY+m9TmOmwFlYvjBPj5lLslM86c/2IUaGH
+	q9HYf3693SKy5Hk81zVNawBiNNi2yU8vAkWijgf3T8L9a0j16CZNdME0Lk0giOBLKIfrnfaoRIWUC
+	zc1cFqSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsm9-00000008pFu-41nk;
-	Wed, 05 Mar 2025 17:43:21 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1tpsrM-00000008pua-0lJ7;
+	Wed, 05 Mar 2025 17:48:44 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpsjT-00000008otx-0eak;
-	Wed, 05 Mar 2025 17:40:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741196433;
-	bh=xeU6W8dr+Xx44tYwHCvYEUZQm+N4fX/QzQxV0VbFOsk=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RLXmrKGXAheI/WPSgzRwEz2WzIRFcgBxYpDBX74aJUqV1KexEyqvFt/sZmqmk1zXm
-	 l9rrps+gwi0tDOkPcX23wGNh91SuAoNVFUATwSBCT31Wy5ftA4ioHN0punSnOyQ0Yq
-	 NGnn1cemoH48NiNr2OZA1DdiKD+uz7kY7AJoGTGA+YFWISYFPmZS1WCYjroDOjkTWj
-	 IJDFG3Dac5hktsfbV51IFrBrn9gqmJOHJHeInrHif7XXzVK0C3QWfWOuW5ELyYyrgf
-	 AjjPN69aKvN7JXQKKbjx4DOgqqlvq7hgZOtsRm6bCPoP+c5H2jSJBNKXQB4iqSR0kw
-	 NeE/Ee80U3o8w==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3831917E0880;
-	Wed,  5 Mar 2025 18:40:32 +0100 (CET)
-Message-ID: <0d929810-1189-41ce-8f8a-3b7230c3b2a9@collabora.com>
-Date: Wed, 5 Mar 2025 18:40:31 +0100
+	id 1tprsA-00000008iET-1e64
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 05 Mar 2025 16:45:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E43985C68DD;
+	Wed,  5 Mar 2025 16:43:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44266C4CED1;
+	Wed,  5 Mar 2025 16:45:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741193129;
+	bh=a79LJ8dE3ma4v7t2qwXAq36pAAKFq9q6whg86nhPw/s=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VQVBuKCV3aenPt1tOXmQ8qWVFYaHkJ3HO+Tv4aSzhqwQ2CLIvzl/w5v/mJ3fv73+X
+	 EV/4lTWIhT5Z0gYRUVi65s6Ni+L8DyqvMDV5WHixHA8DRnIDG82zF3Yyr9NY20wC1s
+	 5dOXksUekCGosTTxfMFj1FWe7/s1WruHXX4nZlfeM8YkDO5YAbewuoyJPgUyu0NU+z
+	 W9YkTHtg8XDc3nLqRh3nhis1D7MztwMYjZvXpdE6FevkXfSBVHccLcITShxGlIDzU2
+	 kY3o27C7vmY+smfUTrBq6DaLpDC6CHEpwHF0St59viSNMnwhz5ADLanZC1hGfTGQjq
+	 hWrM+puQjHidQ==
+Date: Wed, 5 Mar 2025 10:45:27 -0600
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Thomas Gleixner <tglx@linutronix.de>, linux-sunxi@lists.linux.dev,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Chen-Yu Tsai <wens@csie.org>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 05/15] dt-bindings: irq: sun7i-nmi: document the
+ Allwinner A523 NMI controller
+Message-ID: <174119312747.2117747.1409262151131178032.robh@kernel.org>
+References: <20250304222309.29385-1-andre.przywara@arm.com>
+ <20250304222309.29385-6-andre.przywara@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 4/8] soc: mediatek: mtk-cmdq: Add pa_base parsing for
- unsupported subsys ID hardware
-To: =?UTF-8?B?SmFzb24tSkggTGluICjmnpfnnb/npaUp?= <Jason-JH.Lin@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "mchehab@kernel.org" <mchehab@kernel.org>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>
-Cc: "linux-media@vger.kernel.org" <linux-media@vger.kernel.org>,
- =?UTF-8?B?U2lyaXVzIFdhbmcgKOeOi+eak+aYsSk=?= <Sirius.Wang@mediatek.com>,
- =?UTF-8?B?TmFuY3kgTGluICjmnpfmrKPonqIp?= <Nancy.Lin@mediatek.com>,
- =?UTF-8?B?WGlhbmRvbmcgV2FuZyAo546L5YWI5YasKQ==?=
- <Xiandong.Wang@mediatek.com>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- =?UTF-8?B?TW91ZHkgSG8gKOS9leWul+WOnyk=?= <Moudy.Ho@mediatek.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "fshao@chromium.org" <fshao@chromium.org>,
- =?UTF-8?B?U2luZ28gQ2hhbmcgKOW8teiIiOWciyk=?= <Singo.Chang@mediatek.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- =?UTF-8?B?WGF2aWVyIENoYW5nICjlvLXnjbvmlocp?= <Xavier.Chang@mediatek.com>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "treapking@chromium.org" <treapking@chromium.org>
-References: <20250218054405.2017918-1-jason-jh.lin@mediatek.com>
- <20250218054405.2017918-5-jason-jh.lin@mediatek.com>
- <581fc075-25d8-4104-a4ee-8c97e1a017e6@collabora.com>
- <03c523e66fd56442f49c38456476cf18be59e8fb.camel@mediatek.com>
- <8203317e-7f99-4ea5-bda0-fcd791602a9f@collabora.com>
- <c27653233ed2ee2ee6eb0d40ad2167721a2b1476.camel@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <c27653233ed2ee2ee6eb0d40ad2167721a2b1476.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304222309.29385-6-andre.przywara@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_094035_353390_96C697C7 
-X-CRM114-Status: GOOD (  36.94  )
+X-CRM114-CacheID: sfid-20250305_084530_488546_2E8C2E21 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,192 +78,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 05/03/25 16:58, Jason-JH Lin (林睿祥) ha scritto:
-> On Wed, 2025-03-05 at 12:03 +0100, AngeloGioacchino Del Regno wrote:
->>
->> External email : Please do not click links or open attachments until
->> you have verified the sender or the content.
->>
->>
->> Il 05/03/25 10:46, Jason-JH Lin (林睿祥) ha scritto:
->>> On Tue, 2025-03-04 at 10:35 +0100, AngeloGioacchino Del Regno
->>> wrote:
->>>>
->>>> External email : Please do not click links or open attachments
->>>> until
->>>> you have verified the sender or the content.
->>>>
->>>>
->>>> Il 18/02/25 06:41, Jason-JH Lin ha scritto:
->>>>> When GCE executes instructions, the corresponding hardware
->>>>> register
->>>>> can be found through the subsys ID. For hardware that does not
->>>>> support
->>>>> subsys ID, its subsys ID will be set to invalid value and its
->>>>> physical
->>>>> address needs to be used to generate GCE instructions.
->>>>>
->>>>> This commit adds a pa_base parsing flow to the cmdq_client_reg
->>>>> structure
->>>>> for these unsupported subsys ID hardware.
->>>>>
->>>>
->>>> Does this work only for the MMINFRA located GCEs, or does this
->>>> work
->>>> also for
->>>> the legacy ones in MT8173/83/88/92/95 // MT6795/6893/etc?
->>>>
->>>> In order to actually review and decide, I do need to know :-)
->>>>
->>>
->>> Yes, it's for the SoCs without subsys ID, it's not related to the
->>> MMINFRA.
->>>
->>> This can also work on MT8173/83/92/95 // MT6795/6893/etc.
->>> You can remove the `mediatek,gce-client-reg` properties in their
->>> dtsi
->>> and cherry-pick this series to verify it. :-)
->>>
->>
->> This is curious - and that brings more questions to the table (for
->> curiosity
->> more than anything else at this point).
->>
->> Since this is a way to make use of the CMDQ for address ranges that
->> are not tied
->> to any subsys id (hence no gce-client-reg and just physical address
->> parsing for
->> generating instructions), do you know what are the performance
->> implications of
->> using this, instead of subsys IDs on SoCs that do support them?
->>
+
+On Tue, 04 Mar 2025 22:22:59 +0000, Andre Przywara wrote:
+> The Allwinner A523 SoC contains an NMI controller very close to the one
+> used in the recent Allwinner SoCs, but it adds another bit that needs to
+> be toggled to actually deliver the IRQs. Sigh.
 > 
-> The main advantage of using subsys ID is to reduce the number of
-> instruction.
-> Without subsy ID, you will need one more `ASSIGN` instruction to assign
-> the high bytes of the physical address.
+> Add the A523 specific name to the list of allowed compatible strings.
 > 
-> E,g. In mt8195-gce.h: #define SUBSYS_1c00XXXX 3
-> 
-> If you want GCE to write the value 0x0000000f to 0x1c00_002c.
-> 
-> With subsys ID, you can use only one instruction to achieve it:
-> 1. WRITE value: 0x000000f to subsys: 0x3 + offset: 0x0002c
-> - OP code: WRTIE = 0x90
-> - subsys ID: 0x1c00XXXX = 0x03
-> - offset: 0x002c
-> - value: 0x0000000f
-> 
-> Without subsys ID, you will need 2 instructions to achieve it:
-> 1. ASSIGN address high bytes: 0x1c00 to GCE temp register: SPR0
-> - OP code: LOGIC = 0xa0
-> - arg_type: register, value, value = (0x8)
-> - sub OP: ASSIGN = 0x0
-> - register index to store the assign value: SPR0 = 0x0
-> - value to assign: 0x1c00
-> 2. WRITE value: 0x0000000f to temp register: SPR0 + offset:0x002c
-> - OP code: WRITE = 0x90
-> - sub OP(temp register index): SPR0 = 0x0
-> - offset for temp register: 0x002c
-> - value: 0x0000000f
-> 
->> Being clear: if we were to migrate a SoC like MT8195 to using this
->> globally
->> instead of using subsys ids, would the performance be degraded?
->> And if yes, do you know by how much?
->>
-> 
-> E,g. If the inst number with subsys ID is N.
-> 1. If CMDQ is implement like this, then inst number will be (N * 2):
-> assign SPR0 = 0x1c00
-> write A to SPR0 + offset: 0x2c
-> assign SPR0 = 0x1c00
-> write B to SPR0 + offset: 0x3c
-> assign SPR0 = 0x1c00
-> write C to SPR0 + offset: 0x4c
-> ...
-> 
-> 2. If CMDQ is implement like this, the inst number will be (N + 1 * n):
-> assign SPR0 = 0x1c00
-> write A to SPR0 + offset: 0x2c
-> write B to SPR0 + offset: 0x3c
-> write C to SPR0 + offset: 0x4c
-> ...
-> 
-> When the same cmd buffer changes the base address for n times:
-> assign SPR0 = 0x1c00
-> write A to SPR0 + offset: 0x2c
-> assign SPR0 = 0x1c01
-> write B to SPR0 + offset: 0x2c
-> assign SPR0 = 0x1c02
-> write C to SPR0 + offset: 0x2c
-> assign SPR0 = 0x1c00
-> write D to SPR0 + offset: 0x3c
-> ...
-> 
-> So you can imagine the performance will increase, but maybe not too
-> much if we use it in the right way...
-> Except the old SoC that didn't support SPR and CPR. The reason will be
-> addressed in the next paragraph.
-> 
->> What you're proposing almost looks like being too good to be true -
->> and makes
->> me wonder, at this point, why the subsys id was used in the first
->> place :-)
->>
-> 
-> That's because of the old GCE version in the old SoC only support GPR,
-> it didn't support SPR and CPR.
-> 
-> GPR:
-> All 32 GCE threads share the same GPR0~GPR15, GPR will be affected by
-> other GCE threads if they use it at the same time.
-> 
-> SPR:
-> Each GCE thread has 4 SPR, SPR won't be affected by another GCE thread.
-> 
-> CPR:
-> All 32 GCE threads share the same CPR, there are over 1000 CPR can be
-> used. It need to be managed properly to avoid the resource conflicting.
-> 
-> Due to the GPR resource restriction in the old GCE version, the usage
-> of subsys ID can avoid GPR conflicting issues when multiple GCE threads
-> are using GPR to physical assign high bytes all the time.
-> 
-> 
-> I have simplified some complicate instruction rules, so the description
-> above may not be 100% matched to the CMDQ helper driver code.
-> But I think the main concept is correct.
-> Hope these explanation can help well :-)
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> ---
+>  .../interrupt-controller/allwinner,sun7i-a20-sc-nmi.yaml         | 1 +
+>  1 file changed, 1 insertion(+)
 > 
 
-Jason, that's simply wonderful. Thanks a lot for this precious description.
-
-Yes, this has clarified even more than I was asking for, and besides,
-yeah I know that there are some rules to follow, some of which I know,
-some of which I imagine - and describing all of that would need lots
-and lots of text - again, I know, and no worries about that! :-D
-
-Thanks again!
-Angelo
-
-> Regards,
-> Jason-JH Lin
-> 
->> Cheers!
->> Angelo
->>
->>> Regards,
->>> Jason-JH Lin
->>>
->>>> Thanks,
->>>> Angelo
->>>>
->>>>
->>>
->>
->>
->>
-> 
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
