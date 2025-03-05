@@ -4,114 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D46C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:23:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CD4DC282E3
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 12:25:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cw3XxnLHNZ3/+eN3jxwlLiOsY4HaGwfk0dlunI0m4sE=; b=4onopHwwE5Gfx/vZ8sik7b6EIT
-	oTCYyqKjWLC58C5o3HrzF1P0dOK2By59EXJtrb0gwreBfWiPzwlVxjGDG9MuZqJxy1E6pxmWvoP+J
-	CgzNd69jwsJFu1cAyjcMZFDh+p/vduZdm3Z2LZV9mRXxSDc8AjjFo4LdFm8AcCF1sbv6sW5F1qB1Z
-	f/LbXFUqNlJark9zlFAvx2o5TiAd8q5qNEInsmSO4pe6+JIucT3UEoEBaZLHGZDNutNHll/Sa4ERI
-	YCFDcQYhR7Akh+V7JCtt2+mztCoLeSBa7y60LhOAgptaIqNNf15a/JAkwPT1sl1dNksTA51Hqg999
-	as4pA1uQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=p5j1fWnJ2XM0wQewm+FudRcS3T2IzA8xXUy8Rt+N1S4=; b=pmOeIaUQUPlqm/gXBvqPleKEI7
+	nGDiXb5DtPtD31kxgsCxd202IOg1/GlNgl0Tc9EMoHdcsyQb9ahZGf3LzW9fPmiZZ0ydSWqYUay2v
+	l1vZD27GxZsH1AA8EcTkEvVFLnvh+j7JCLf36xn89HFLPi5qco3Ob0quK5/iNrPph1N/Sfd1r817A
+	yRTOVmKMiY5m8xYjsSkLv+7PzkgigWOIdckNDetZateWPBhw9S5jKBr6iDmu3W7lVffiqN2IBn7hr
+	iAht/Z95mlryPRzxzXb9UkBQLxPDnJFnmbHLPVrHNU0MllJxBSIKLUhCpJqBQ7wVeL+Bnd8avxa41
+	ZQATox0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpnmu-000000080hM-1m0K;
-	Wed, 05 Mar 2025 12:23:48 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tpnoU-000000080xu-0beL;
+	Wed, 05 Mar 2025 12:25:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpn70-00000007tT1-35UB
+	id 1tpn8r-00000007tjA-3Bck
 	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 11:40:30 +0000
+	Wed, 05 Mar 2025 11:42:25 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=cw3XxnLHNZ3/+eN3jxwlLiOsY4HaGwfk0dlunI0m4sE=; b=NtN6Qk+qTTHrgN00Y1DeC0mGaI
-	raC8Ia/i2aL0Y8XdjYLXU6hf56C73B0zeY3I1DvZIPxHYfAqFImgL7DgTOQykrPmfv0LUqpP7pC5x
-	NwEb1dZFMbhKPpKk9d1bUSkz/7mVRKTjIuOYWdGSEgSmMACfZ15NTFZ4YN0I49xzqkFY2AjIAarE+
-	mUt/lR+usUNQDvB98uCgHsqf6Xx0QJlaVFw/ysH9ZG9eUqzcfLk0/dbdkU38f+Y4gvYxT2P92pIPs
-	DpNKO6hHerJoWZ2ELV8SNyZ6B6wovrNY2JnDkXeKRJ0JlmLtzzbuLzVVVg+uTEE+mG8uhlO6JACeH
-	UF51yOdw==;
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpn6x-00000005PGO-2Vi7
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=p5j1fWnJ2XM0wQewm+FudRcS3T2IzA8xXUy8Rt+N1S4=; b=rcgJd/L0DM4oIB6I0XRD/7MqQB
+	HCguknv9qQBZEzn/pca5IKDJvkvRgm4oeF+sFSy2j9QJrn4cx+URxrt/sWmWlVJYW0n6aZgHbtLg/
+	JyZPi1X4qQqJz36ikwNF5z7xyYSY9oG4v+YfSX/w7fexTZrRsCn6axBLrHyYp4MTZjlV92m5ZsBWB
+	4f1n1hkRbX91Wgd3iW+GsxMxWDzC4RxLRiQpAgNysfEFLFOM4EBqRUl68olPNWLuUpR18B+YpRQug
+	CzlLqEFvJ4hf9o+lclR55kia3m/hoSLEn+50WAN/xZvPbOdII4WXmfBLInkQotP4woZmEgxq2mi+m
+	winxLFjw==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tpn8o-00000000VHK-0MCH
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 11:40:29 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tpn64-0004on-HO; Wed, 05 Mar 2025 12:39:32 +0100
-Message-ID: <28d0ea70-db7a-40e7-aac9-86808320f252@pengutronix.de>
-Date: Wed, 5 Mar 2025 12:39:27 +0100
+	Wed, 05 Mar 2025 11:42:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 70FE0FEC;
+	Wed,  5 Mar 2025 03:42:29 -0800 (PST)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 9D36D3F673;
+	Wed,  5 Mar 2025 03:42:15 -0800 (PST)
+Date: Wed, 5 Mar 2025 11:42:11 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: coresight@lists.linaro.org, scclevenger@os.amperecomputing.com,
+	yeoreum.yun@arm.com, Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] coresight: Add a KUnit test for
+ coresight_find_default_sink()
+Message-ID: <20250305114211.GG13418@e132581.arm.com>
+References: <20241217171132.834943-1-james.clark@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [EXTERNAL] Re: [PATCH v4 0/2] Add stop_on_panic support for
- watchdog
-To: George Cherian <gcherian@marvell.com>,
- "linux@roeck-us.net" <linux@roeck-us.net>,
- "wim@linux-watchdog.org" <wim@linux-watchdog.org>,
- "jwerner@chromium.org" <jwerner@chromium.org>,
- "evanbenn@chromium.org" <evanbenn@chromium.org>,
- "kabel@kernel.org" <kabel@kernel.org>, "krzk@kernel.org" <krzk@kernel.org>,
- "mazziesaccount@gmail.com" <mazziesaccount@gmail.com>,
- "thomas.richard@bootlin.com" <thomas.richard@bootlin.com>,
- "lma@chromium.org" <lma@chromium.org>,
- "bleung@chromium.org" <bleung@chromium.org>,
- "support.opensource@diasemi.com" <support.opensource@diasemi.com>,
- "shawnguo@kernel.org" <shawnguo@kernel.org>,
- "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
- "kernel@pengutronix.de" <kernel@pengutronix.de>,
- "festevam@gmail.com" <festevam@gmail.com>, "andy@kernel.org"
- <andy@kernel.org>, "paul@crapouillou.net" <paul@crapouillou.net>,
- "alexander.usyskin@intel.com" <alexander.usyskin@intel.com>,
- "andreas.werner@men.de" <andreas.werner@men.de>,
- "daniel@thingy.jp" <daniel@thingy.jp>,
- "romain.perier@gmail.com" <romain.perier@gmail.com>,
- "avifishman70@gmail.com" <avifishman70@gmail.com>,
- "tmaimon77@gmail.com" <tmaimon77@gmail.com>,
- "tali.perry1@gmail.com" <tali.perry1@gmail.com>,
- "venture@google.com" <venture@google.com>,
- "yuenn@google.com" <yuenn@google.com>,
- "benjaminfair@google.com" <benjaminfair@google.com>,
- "maddy@linux.ibm.com" <maddy@linux.ibm.com>,
- "mpe@ellerman.id.au" <mpe@ellerman.id.au>,
- "npiggin@gmail.com" <npiggin@gmail.com>,
- "christophe.leroy@csgroup.eu" <christophe.leroy@csgroup.eu>,
- "naveen@kernel.org" <naveen@kernel.org>,
- "mwalle@kernel.org" <mwalle@kernel.org>,
- "xingyu.wu@starfivetech.com" <xingyu.wu@starfivetech.com>,
- "ziv.xu@starfivetech.com" <ziv.xu@starfivetech.com>,
- "hayashi.kunihiko@socionext.com" <hayashi.kunihiko@socionext.com>,
- "mhiramat@kernel.org" <mhiramat@kernel.org>
-Cc: "chrome-platform@lists.linux.dev" <chrome-platform@lists.linux.dev>,
- "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
- "imx@lists.linux.dev" <imx@lists.linux.dev>,
- "patches@opensource.cirrus.com" <patches@opensource.cirrus.com>,
- "openbmc@lists.ozlabs.org" <openbmc@lists.ozlabs.org>,
- "linux-mips@vger.kernel.org" <linux-mips@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
- "linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-References: <20250305101025.2279951-1-george.cherian@marvell.com>
- <43fb0965-04b7-41dc-ae3f-54676eefdbb5@pengutronix.de>
- <PH8PR18MB53817EC09B918852B78DF3AAC5CB2@PH8PR18MB5381.namprd18.prod.outlook.com>
-Content-Language: en-US
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-In-Reply-To: <PH8PR18MB53817EC09B918852B78DF3AAC5CB2@PH8PR18MB5381.namprd18.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241217171132.834943-1-james.clark@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_114027_651777_A9A24169 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20250305_114222_509661_FE7C69C0 
+X-CRM114-Status: GOOD (  30.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,94 +80,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi George,
-
-On 05.03.25 12:28, George Cherian wrote:
-> Hi Ahmad,
->> Hi George,
->> On 05.03.25 11:10, George Cherian wrote:
->>> This series adds a new kernel command line option to watchdog core to
->>> stop the watchdog on panic. This is useul in certain systems which prevents
->>> successful loading of kdump kernel due to watchdog reset.
->>>
->>> Some of the watchdog drivers stop function could sleep. For such
->>> drivers the stop_on_panic is not valid as the notifier callback happens
->>> in atomic context. Introduce WDIOF_STOP_MAYSLEEP flag to watchdog_info
->>> options to indicate whether the stop function would sleep.
->>
->> Did you consider having a reset_on_panic instead, which sets a user-specified
->> timeout on panic? This would make the mechanism useful also for watchdogs
+On Tue, Dec 17, 2024 at 05:11:31PM +0000, James Clark wrote:
 > 
-> /proc/sys/kernel/panic already provides that support. You may echo a non-zero value 
-> and the system tries for a soft reboot after those many seconds. But this doesn't happen 
-> in case of a kdump kernel load after panic.
-
-The timeout specified to the Watchdog reset_on_panic option would be programmed into
-the active watchdogs and not be used to trigger a software-induced reboot.
-
->> that can't be disabled and would protect against system lock up: 
->> Consider a memory-corruption bug (perhaps externally via DMA), which partially
->> overwrites both main and kdump kernel. With a disabled watchdog, the system
->> may not be able to recover on its own.
+> Add a test to confirm that default sink selection skips over an ETF
+> and returns an ETR even if it's further away.
 > 
-> Yes, that is the reason why the kernel command-line is optional and by default it is set to zero.
-> So that in cases if you have a corrupted kdump kernel then watchdog kicks in.
+> This also makes it easier to add new unit tests in the future.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/hwtracing/coresight/Kconfig           |  9 ++
+>  drivers/hwtracing/coresight/Makefile          |  1 +
+>  drivers/hwtracing/coresight/coresight-core.c  |  1 +
+>  .../coresight/coresight-kunit-tests.c         | 90 +++++++++++++++++++
+>  4 files changed, 101 insertions(+)
+>  create mode 100644 drivers/hwtracing/coresight/coresight-kunit-tests.c
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index 06f0a7594169..056d04bc540a 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -247,4 +247,13 @@ config CORESIGHT_DUMMY
+> 
+>           To compile this driver as a module, choose M here: the module will be
+>           called coresight-dummy.
+> +
+> +config CORESIGHT_KUNIT_TESTS
+> +         tristate "Enable Coresight unit tests"
+> +         depends on KUNIT
+> +         default KUNIT_ALL_TESTS
+> +         help
+> +           Enable Coresight unit tests. Only useful for development and not
+> +           intended for production.
+> +
+>  endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 4ba478211b31..c170a41b3056 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o       coresight-cti-platform.o \
+>                    coresight-cti-sysfs.o
+>  obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>  obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index ea38ecf26fcb..ce63b68d5503 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -869,6 +869,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
+>         }
+>         return csdev->def_sink;
+>  }
+> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
+> 
+>  static int coresight_remove_sink_ref(struct device *dev, void *data)
+>  {
+> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+> new file mode 100644
+> index 000000000000..d022bacc8357
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+> @@ -0,0 +1,90 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <kunit/test.h>
+> +#include <kunit/device.h>
+> +#include <linux/coresight.h>
+> +
+> +#include "coresight-priv.h"
+> +
+> +static struct coresight_device *coresight_test_device(struct device *dev)
+> +{
+> +       struct coresight_device *csdev = devm_kcalloc(dev, 1,
+> +                                                    sizeof(struct coresight_device),
+> +                                                    GFP_KERNEL);
+> +       csdev->pdata = devm_kcalloc(dev, 1,
+> +                                  sizeof(struct coresight_platform_data),
+> +                                  GFP_KERNEL);
+> +       return csdev;
+> +}
+> +
+> +static void coresight_free_test_device(struct device *dev,
+> +                                      struct coresight_device *csdev)
+> +{
+> +       devm_kfree(dev, csdev->pdata->out_conns);
 
-The existing option isn't enough for the kdump kernel use case.
-If we (i.e. you) are going to do something about it, wouldn't it be
-better to have a solution that's applicable to a wider number of
-watchdog devices?
+It will lead memory leaking if we don't release connections pointed by
+'out_conns' pointer array.  Something like:
 
->> If you did consider it, what made you decide against it?
-> watchdog.stop_on_panic=1 is specifically for systems which can't boot a kdump kernel due to the fact 
-> that the kdump kernel gets a watchdog reset while booting, may be due to a shorter watchdog time.
-> For eg: a 32-bit watchdog down counter running at 1GHz.
-> reset_on_panic can guarantee only the largest watchdog timeout supported by HW, 
-> since there is no one to ping the watchdog.
+          for (i = 0; i < csdev->pdata->nr_outconns; i++)
+               devm_kfree(dev, csdev->pdata->out_conns[i]);
+          devm_kfree(dev, csdev->pdata->out_conns);
 
-If you are serious with the watchdog use, you'll want to use the watchdog to
-monitor kernel startup as well. If the bootloader can set a watchdog timeout
-just before starting the kernel and it doesn't expire before the kernel watchdog
-driver takes over, why can't we do the same just before starting the dumpkernel?
+Otherwise, it looks good to me.
 
 Thanks,
-Ahmad
+Leo
 
- 
->>
->> Thanks,
->> Ahmad
->>
->>>
->>>
->> Changelog:
->> v1 -> v2
->> - Remove the per driver flag setting option
->> - Take the parameter via kernel command-line parameter to watchdog_core.
->>
->> v2 -> v3
->> - Remove the helper function watchdog_stop_on_panic() from watchdog.h.
->> - There are no users for this. 
->>
->> v3 -> v4
->> - Since the panic notifier is in atomic context, watchdog functions
->>   which sleep can't be called. 
->> - Add an options flag WDIOF_STOP_MAYSLEEP to indicate whether stop
->>   function sleeps.
->> - Simplify the stop_on_panic kernel command line parsing.
->> - Enable the panic notiffier only if the watchdog stop function doesn't
->>   sleep
->>
->> George Cherian (2):
->>   watchdog: Add a new flag WDIOF_STOP_MAYSLEEP
->>   drivers: watchdog: Add support for panic notifier callback
+> +       devm_kfree(dev, csdev->pdata);
+> +       devm_kfree(dev, csdev);
+> +}
+> +
+> +static int coresight_test_cpuid(struct coresight_device *csdev)
+> +{
+> +       return 0;
+> +}
+> +
+> +static void test_default_sink(struct kunit *test)
+> +{
+> +       /*
+> +        * ETM -> ETF -> ETR -> CATU
+> +        *                ^
+> +        *                | default
+> +        */
+> +       struct device *dev = kunit_device_register(test, "coresight_kunit");
+> +       struct coresight_device *etm = coresight_test_device(dev),
+> +                               *etf = coresight_test_device(dev),
+> +                               *etr = coresight_test_device(dev),
+> +                               *catu = coresight_test_device(dev);
+> +       struct coresight_connection conn = {};
+> +       struct coresight_ops_source src_ops = {.cpu_id = coresight_test_cpuid };
+> +       struct coresight_ops etm_cs_ops = { .source_ops = &src_ops };
+> +
+> +       etm->type = CORESIGHT_DEV_TYPE_SOURCE;
+> +       etm->ops = &etm_cs_ops;
+> +       etf->type = CORESIGHT_DEV_TYPE_LINKSINK;
+> +       etf->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
+> +       etr->type = CORESIGHT_DEV_TYPE_SINK;
+> +       etr->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_SYSMEM;
+> +       catu->type = CORESIGHT_DEV_TYPE_HELPER;
+> +
+> +       conn.src_dev = etm;
+> +       conn.dest_dev = etf;
+> +       coresight_add_out_conn(dev, etm->pdata, &conn);
+> +
+> +       conn.src_dev = etf;
+> +       conn.dest_dev = etr;
+> +       coresight_add_out_conn(dev, etf->pdata, &conn);
+> +
+> +       conn.src_dev = etr;
+> +       conn.dest_dev = catu;
+> +       coresight_add_out_conn(dev, etr->pdata, &conn);
+> +
+> +       KUNIT_ASSERT_PTR_EQ(test, coresight_find_default_sink(etm), etr);
+> +
+> +       coresight_free_test_device(dev, etm);
+> +       coresight_free_test_device(dev, etf);
+> +       coresight_free_test_device(dev, etr);
+> +       coresight_free_test_device(dev, catu);
+> +}
+> +
+> +static struct kunit_case coresight_testcases[] = {
+> +       KUNIT_CASE(test_default_sink),
+> +       {}
+> +};
+> +
+> +static struct kunit_suite coresight_test_suite = {
+> +       .name = "coresight_test_suite",
+> +       .test_cases = coresight_testcases,
+> +};
+> +
+> +kunit_test_suites(&coresight_test_suite);
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("James Clark <james.clark@linaro.org>");
+> +MODULE_DESCRIPTION("Arm CoreSight KUnit tests");
+> --
+> 2.34.1
 > 
-> - George
-
-
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
