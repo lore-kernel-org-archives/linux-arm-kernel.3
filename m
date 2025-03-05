@@ -4,96 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 225E4C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6019DC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  5 Mar 2025 11:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1QcG68X2dThxXn08oi0mv/sMSvoU2vw3JRxKH+1IpVA=; b=G0wv5IftlwXRCgxtNiNpbxLiSG
-	qRhaCtwuj+9z+SSG5abSGyFxVcaeleS+d5rjjJ493n6+oIspTT1r3VypcfRSrMORZ+q3T9+mPooYz
-	TJI/Ga+iV3xbIt3cytUBo0kFEAIYW/hUywDIC9S7jrfA8Qmr40jkLMrUZLbWASes/qZSs3/f6i7X4
-	nE+akdDOgj8zQemZ6/CgtWBci8irdayOjfHGXHvU2y20z6X7LV8epNBMpsfd50daFh19F7YDBWAvz
-	J0761853PnS8vwg1iVSMwa3N5jVxS6zRIbSH7S9u4x0b3AqTpWGdRN/NI+gJ4fTvKHJjZHUd8nnM+
-	YxpOGnwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rvk/zTrDSTH7fAzp6rZhWBC2bPrMFm+KTZUPS+ByEUo=; b=0QRPQ0efaEhllXdr5etlu3jaAt
+	yoU8JifnpDwqU9uD87epnVQLUN9nqvKkRLotM5d1lqPtPde9oqrR32bsFsxka8vFbHyyg+UNfY1nu
+	5Mbr+IvERZyyGXPRUfI4FF19eQXD9F+Q9ao3JqvOOW773D2ldFBnBGFeWFP6jDFhGJ9/pnNOTioxD
+	EoaNlyUdv14SsH4zyGOehZITpfIBuHjDvVHeM5EzFWTwFgYWawITjAk+ZGgBchV4ak3vb3u1O945D
+	dqufAS7lYZGa574urgihEiG8KJVkCmaKpy7x8xW7yGGAmfySU7xGvNUqOAUd/9Kno0MX301CGMO5B
+	uzHbXFuA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpmvc-00000007rT9-3cOr;
-	Wed, 05 Mar 2025 11:28:44 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tpmxC-00000007rgL-2ju9;
+	Wed, 05 Mar 2025 11:30:22 +0000
+Received: from unicom145.biz-email.net ([210.51.26.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm1Y-00000007gh6-1ivg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 05 Mar 2025 10:30:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=1QcG68X2dThxXn08oi0mv/sMSvoU2vw3JRxKH+1IpVA=; b=pkr2HK9TuboRBbNtEMX+TCd+B8
-	0yNPjDNlILOkDBVSq7PiRJo1OmuZsEcSm7EVbUEDM7oblAhbpkTJ6u5tIExbjXIIATwyaOfT+lESI
-	9ZJIOskkPCL5S36gPpzY2JvF9uJt03oZuGS/dxXWzdhJKKpE5CPv5LFrUX3TX2qyfFQapebLXfARv
-	OyBE4fCuE+OK2OxW8MfeeirRikO37IP4Pep2Y+4nwxGKhl5Akz2sLxmfNFGlSxZBkwoXEf1HZS0z2
-	SBokxZ2ug0x2X1BGb7i1Y5QCd5zzlCfyWXTokHNWoWa220MTIIZYigqar/NF5Z0HUjHwyA6o3Z/Db
-	AqOEutJA==;
-Received: from mgamail.intel.com ([198.175.65.9])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpm1T-00000000TD1-3RYr
+	id 1tpm1f-00000007gi4-3IPu
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 10:30:47 +0000
-X-CSE-ConnectionGUID: cHV4GDjQQnGcPzLrL1uu5w==
-X-CSE-MsgGUID: GTAARaLfRFGKyZkLm9VPow==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="64567009"
-X-IronPort-AV: E=Sophos;i="6.14,222,1736841600"; 
-   d="scan'208";a="64567009"
-Received: from fmviesa003.fm.intel.com ([10.60.135.143])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 02:30:36 -0800
-X-CSE-ConnectionGUID: WDkYJmSHT0OrYH3RzlgbQw==
-X-CSE-MsgGUID: ttOP2cH/SDKXIxbe3IsO4w==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="122783306"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 02:30:26 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andy@kernel.org>)
-	id 1tpm18-0000000HNpF-00A7;
-	Wed, 05 Mar 2025 12:30:22 +0200
-Date: Wed, 5 Mar 2025 12:30:21 +0200
-From: Andy Shevchenko <andy@kernel.org>
-To: George Cherian <george.cherian@marvell.com>
-Cc: linux@roeck-us.net, wim@linux-watchdog.org, jwerner@chromium.org,
-	evanbenn@chromium.org, kabel@kernel.org, krzk@kernel.org,
-	mazziesaccount@gmail.com, thomas.richard@bootlin.com,
-	lma@chromium.org, bleung@chromium.org,
-	support.opensource@diasemi.com, shawnguo@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	paul@crapouillou.net, alexander.usyskin@intel.com,
-	andreas.werner@men.de, daniel@thingy.jp, romain.perier@gmail.com,
-	avifishman70@gmail.com, tmaimon77@gmail.com, tali.perry1@gmail.com,
-	venture@google.com, yuenn@google.com, benjaminfair@google.com,
-	maddy@linux.ibm.com, mpe@ellerman.id.au, npiggin@gmail.com,
-	christophe.leroy@csgroup.eu, naveen@kernel.org, mwalle@kernel.org,
-	xingyu.wu@starfivetech.com, ziv.xu@starfivetech.com,
-	hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
-	linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	chrome-platform@lists.linux.dev, imx@lists.linux.dev,
-	linux-mips@vger.kernel.org, openbmc@lists.ozlabs.org,
-	linuxppc-dev@lists.ozlabs.org, patches@opensource.cirrus.com
-Subject: Re: [PATCH v4 1/2] watchdog: Add a new flag WDIOF_STOP_MAYSLEEP
-Message-ID: <Z8gnvXQ9OMXoq9Fz@smile.fi.intel.com>
-References: <20250305101025.2279951-1-george.cherian@marvell.com>
- <20250305101025.2279951-2-george.cherian@marvell.com>
+	Wed, 05 Mar 2025 10:30:57 +0000
+Received: from jtjnmail201622.home.langchao.com
+        by unicom145.biz-email.net ((D)) with ASMTP (SSL) id 202503051830462016;
+        Wed, 05 Mar 2025 18:30:46 +0800
+Received: from jtjnmail201607.home.langchao.com (10.100.2.7) by
+ jtjnmail201622.home.langchao.com (10.100.2.22) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Wed, 5 Mar 2025 18:30:45 +0800
+Received: from locahost.localdomain (10.94.12.149) by
+ jtjnmail201607.home.langchao.com (10.100.2.7) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.39; Wed, 5 Mar 2025 18:30:44 +0800
+From: Charles Han <hanchunchao@inspur.com>
+To: <victor.liu@nxp.com>, <andrzej.hajda@intel.com>,
+	<neil.armstrong@linaro.org>, <rfoss@kernel.org>,
+	<Laurent.pinchart@ideasonboard.com>, <jonas@kwiboo.se>,
+	<jernej.skrabec@gmail.com>, <maarten.lankhorst@linux.intel.com>,
+	<mripard@kernel.org>, <tzimmermann@suse.de>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <shawnguo@kernel.org>, <s.hauer@pengutronix.de>,
+	<kernel@pengutronix.de>, <festevam@gmail.com>
+CC: <dri-devel@lists.freedesktop.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Charles Han <hanchunchao@inspur.com>
+Subject: [PATCH] drm/imx: legacy-bridge: fix inconsistent indenting warning
+Date: Wed, 5 Mar 2025 18:30:42 +0800
+Message-ID: <20250305103042.3017-1-hanchunchao@inspur.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305101025.2279951-2-george.cherian@marvell.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.94.12.149]
+X-ClientProxiedBy: Jtjnmail201615.home.langchao.com (10.100.2.15) To
+ jtjnmail201607.home.langchao.com (10.100.2.7)
+tUid: 2025305183046060fe9fadcf87c8f56f6a3c52dd092ef
+X-Abuse-Reports-To: service@corp-email.com
+Abuse-Reports-To: service@corp-email.com
+X-Complaints-To: service@corp-email.com
+X-Report-Abuse-To: service@corp-email.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_103044_237724_05B6BB83 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20250305_023056_226522_F76395C2 
+X-CRM114-Status: UNSURE (   7.99  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +82,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 10:10:24AM +0000, George Cherian wrote:
-> A new option flag is added to watchdog_info. This helps the watchdog
-> core to check whether stop functions would sleep or not.
-> The option flags of individual drivers are also updated accordingly.
+Fix below inconsistent indenting smatch warning.
+smatch warnings:
+drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c:79 devm_imx_drm_legacy_bridge() warn: inconsistent indenting
 
-...
+Signed-off-by: Charles Han <hanchunchao@inspur.com>
+---
+ drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
->  	.options =	WDIOF_SETTIMEOUT |
->  			WDIOF_MAGICCLOSE |
-> -			WDIOF_KEEPALIVEPING,
-> +			WDIOF_KEEPALIVEPING |
-> +			WDIOF_STOP_MAYSLEEP,
-
-You may heavily reduce this change if you squeeze the new option just before
-the last one. Currently it's a lot of unneeded churn that makes review a bit
-harder (each needs to be carefully checked for the correctness).
-
+diff --git a/drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c b/drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
+index 3ebf0b9866de..55a763045812 100644
+--- a/drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
++++ b/drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
+@@ -76,9 +76,9 @@ struct drm_bridge *devm_imx_drm_legacy_bridge(struct device *dev,
+ 	imx_bridge->base.ops = DRM_BRIDGE_OP_MODES;
+ 	imx_bridge->base.type = type;
+ 
+-       ret = devm_drm_bridge_add(dev, &imx_bridge->base);
+-       if (ret)
+-               return ERR_PTR(ret);
++	ret = devm_drm_bridge_add(dev, &imx_bridge->base);
++	if (ret)
++		return ERR_PTR(ret);
+ 
+ 	return &imx_bridge->base;
+ }
 -- 
-With Best Regards,
-Andy Shevchenko
-
+2.43.0
 
 
