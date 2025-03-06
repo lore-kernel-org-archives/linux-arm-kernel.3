@@ -4,85 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22DB6C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F97FC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:30:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l11SkgWqUPrtSyPOaTCEHvWbGMPH1FvVn4OSdWqPLcU=; b=1LVIN7kTkNWAaACs10qp+8cx6S
-	q+FST3g3VN5KDCRNW/XTY0iW22eCJJKbwdRMn6qvkmkGqXOrB09LX5wtHfnPlp83x3g71pDmFDCFS
-	U8MO8nMXLncERQsFBdyoUrO8n62Obnf/bPoulLfJ+d+qMjTtNTFH+S3Hs1ArdARHFUzWh3pf0ksDT
-	EZV8HvdSVaNn8MImraaO9YI7uU4i6jUpiFrxaztMQMmOYNuQKeZUVudISXUycFjtX09vLKw2AKFxP
-	4fLy2iM5rWgFgF7pGpsWBDHnnsPDeU5YdHjFtJ8dapqDYFTyrQ22i1YMm1ILrYiQlzIEvZVd5OUvP
-	7+kQsAMg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mLaGdp8YbDuKJDS27qr7DpF30lE39Y2UTMae3idzC+k=; b=Iqxr7XFprDVfVrlSOwn8RS2gkp
+	/ATotv57kHEU+db2o9fZlwJ0CAcvBlOo/W85TrGc6V0dgPwRP34vzNLoWfyWSXIRfAXjdLGUGVkLK
+	0xAF6ZfeCr2RSvHXp4fQErAtmtav7aHRKt/PfZvBekin16bEHNb7ib4x775GwsFXgEIOikIwlOETY
+	MRMrMmxjTqlHIJMZ9asLpFLtkpT3a71U9HzqI54KHb5SNMLYuaUjJG5Jv6jNbCOMnR2Rd3+XqwzpM
+	jOuT5Wu9IjBsbPdT7xo3uhmBwz/Hs8St41lQ+IvDguJ8c4hunykeZRx8RZQlOKQeM6zJzblhuQQLU
+	b40gQVWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6Zs-0000000AL24-0M2x;
-	Thu, 06 Mar 2025 08:27:36 +0000
-Received: from mail-yw1-x1132.google.com ([2607:f8b0:4864:20::1132])
+	id 1tq6cr-0000000ALOW-3yTh;
+	Thu, 06 Mar 2025 08:30:42 +0000
+Received: from relay4-d.mail.gandi.net ([217.70.183.196])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6Xt-0000000AKiy-2ko9
+	id 1tq6bG-0000000ALDu-15jV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:25:35 +0000
-Received: by mail-yw1-x1132.google.com with SMTP id 00721157ae682-6f6ca9a3425so3838267b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:25:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741249532; x=1741854332; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=l11SkgWqUPrtSyPOaTCEHvWbGMPH1FvVn4OSdWqPLcU=;
-        b=nHWTJt4yWMU6DcqaW+vZO1hDLGm07g3r0deV8LABRlqRa3nM6tx1UuLnU3OY2USS4F
-         qMYSY4CaiWyBsZzykrB43F+665nn3LelDqBiPnnb38rnuoWkrkClmLkeQBfoHJqVTLn8
-         /VSTWXrLo1woYmzyI3NYeNLjeoqMVNgKojwjvXr+ahmY6KHpIOLuDHiJda3Ri/QYSnfB
-         T1ISATID0cfwDKEOhMfVk7lZ9mZSKjo4Q3Y1MNvcLYkl+uPq+swM2rkkcXfAiKHdjWfP
-         So7dnQTMEYJ7PLA/pX4eTEGbi0OiYtjF++kfC3p4thAb57H6rdSvlhVVB6DOl90XBOw6
-         NLxA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741249532; x=1741854332;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=l11SkgWqUPrtSyPOaTCEHvWbGMPH1FvVn4OSdWqPLcU=;
-        b=hQakxCeIWDfmZU3nKYYrpEVAZ86hTjmKOhmsH/aafU9E4PrgPcr1uN95RR04nlf9xm
-         HyF+KxVVxFH8FJa+JvtKnCpNSY+6xdFbAjnE8Lc34XMWcW3Pnctp54iWkT5EpWfyXfhm
-         t8Kg1HtZH+Rb936/b3l9XnRM+6gwHRkN3KIDtlaUCyaAM2DUMZnFcXtIwCUK7WTlEZjo
-         y9z3JDToqG5Mxikm2ZN9WmiBmmvmmxwyWIh5X1JajWyO8oJjo3e7gN3g7eMRrnNk219R
-         D+xp+nM3IMvG1zoom1KnM2lBJOSRNdgOPPD4VK5x3elZ5vNbStxARMjBpEGo0p9vRaV1
-         gCig==
-X-Forwarded-Encrypted: i=1; AJvYcCUg8GMjZL5z2iDrXaob6onDhFrRTZcn0E7pBCgCpriNPGlthHJIbZ0oCoJOxliFBLFnpRSQOW+rU3cDuPz2hXq2@lists.infradead.org
-X-Gm-Message-State: AOJu0YyD/cmdW467+P0PR79frlXD+Kw1K823FjVo6zvr8ErpccitY8LM
-	sMA9JXla9F5sPwrAz/AIIQE5huB4jsD7OR1mRn6D9RxnKiqH9cIyW2ezndshk5WsbSYDH/mz8hL
-	IuXsiGnL5NoVFM+hJlBeTq+0yaYs=
-X-Gm-Gg: ASbGncvAsG5887r8wkOcHlSPovFjxgjyKEPAwaqfPkYPxr0xZJ1i4oCQsehIE8X1h8T
-	Xtuqlgu0lfDhRJvMt5beLy0/E3NKoXB/lDR/eeXo4c1hb8+a2RAaAAxiFPVg3QsZmSNksZl0Hs+
-	pi+IyATYzDlgyrrU3UlD42EjH6zC0=
-X-Google-Smtp-Source: AGHT+IFnspkvdpJ+HPHBG/KH8TGaWDZN0+StO/ZWaAuyUTjQwZy69YzKVcuXuloS7kwM1iyp/LGVYtDT6bnacFmZ8Iw=
-X-Received: by 2002:a05:690c:4885:b0:6ef:5097:5daa with SMTP id
- 00721157ae682-6fda30765e7mr87697697b3.34.1741249532155; Thu, 06 Mar 2025
- 00:25:32 -0800 (PST)
+	Thu, 06 Mar 2025 08:29:03 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 284A044537;
+	Thu,  6 Mar 2025 08:28:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741249739;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mLaGdp8YbDuKJDS27qr7DpF30lE39Y2UTMae3idzC+k=;
+	b=QgCkjePBKvLNC63g9kZ5aWfuy70/ftJqqY7atcr7qEA2lv4rKFNJbjUByT/KLZptwsScbU
+	J5AyCoEa/nSAgpbu/XxmJUJHKkWE7Vw2rVX0mePVVfDOQAeuiYobvqs4VOTW7EZTymPpz/
+	G5DuKRw0kKlJ+qPr0Z+Ak9DJnK10JT3czoUGqBPjaaXBMHsqMDlI45haZ9yFLdaMYGWhn/
+	h8iLuwQgVulxGTUGO8GBJohSvnddf+Mns//HDwvFzh6XlvO8v8BUlamYtpAMt3MxYX03eR
+	BG5NcsU0pjcG2pUVpfI5IuVW9JQlL0+mhJNT+5zBegg6g1JMw462WDdstbAXAA==
+Date: Thu, 6 Mar 2025 09:28:57 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Jon Hunter <jonathanh@nvidia.com>, Thierry Reding <treding@nvidia.com>,
+ "Lad,  Prabhakar" <prabhakar.csengg@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+ Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
+ <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 1/2] net: phylink: add functions to
+ block/unblock rx clock stop
+Message-ID: <20250306092857.5cafd6d4@fedora.home>
+In-Reply-To: <E1tpt2t-005UNB-MC@rmk-PC.armlinux.org.uk>
+References: <Z8iRM8Q9Sb-y3fR_@shell.armlinux.org.uk>
+	<E1tpt2t-005UNB-MC@rmk-PC.armlinux.org.uk>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-References: <20250305-spmi-v1-0-c98f561fa99f@gmail.com> <20250305-spmi-v1-2-c98f561fa99f@gmail.com>
- <f17372963b92074144b07d34f3e91ba7.sboyd@kernel.org>
-In-Reply-To: <f17372963b92074144b07d34f3e91ba7.sboyd@kernel.org>
-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
-Date: Thu, 6 Mar 2025 09:25:21 +0100
-X-Gm-Features: AQ5f1JqQuLKh7WecZEc6nmQrvFQ9MPHH5tqpXbx3DWso9KKNvdQNFg8hYDfSVJo
-Message-ID: <CAMT+MTREFq2_ABXZF-WsAkw9qP6eXd7gQwgFGm7fw6nBntdbyQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3] spmi: add a spmi driver for Apple SoC
-To: Stephen Boyd <sboyd@kernel.org>
-Cc: Alyssa Rosenzweig <alyssa@rosenzweig.io>, Conor Dooley <conor+dt@kernel.org>, 
-	Janne Grunau <j@jannau.net>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>, Sven Peter <sven@svenpeter.dev>, 
-	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Jean-Francois Bortolotti <jeff@borto.fr>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejvdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepjhhonhgrthhhrghnhhesnhhvihguihgrrdgtohhmpdhrtghpthhtohepthhrvgguihhnghesnhhvihgui
+ hgrrdgtohhmpdhrtghpthhtohepphhrrggshhgrkhgrrhdrtghsvghnghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvght
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_002533_692815_690CF976 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250306_002902_436545_1718EF19 
+X-CRM114-Status: GOOD (  22.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,33 +86,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Mar 2025 at 23:11, Stephen Boyd <sboyd@kernel.org> wrote:
->
-> Quoting Sasha Finkelstein via B4 Relay (2025-03-05 12:26:40)
-> > +       while (len_to_read < bc) {
-> > +               rsp = read_reg(spmi, SPMI_RSP_REG);
-> > +               i = 0;
-> > +               while ((len_to_read < bc) && (i < 4)) {
-> > +                       __buf[len_to_read++] = ((0xff << (8 * i)) & rsp) >>
-> > +                                              (8 * i);
-> > +                       i += 1;
-> > +               }
->
-> Is this ioread32_rep()?
->
-[...]
-> > +       while (i < bc) {
-> > +               j = 0;
-> > +               spmi_cmd = 0;
-> > +               while ((j < 4) & (i < bc))
-> > +                       spmi_cmd |= __buf[i++] << (j++ * 8);
->
-> Is this iowrite32_rep()? Perhaps unaligned sizes have to be dealt with,
-> but otherwise I suspect it would be more efficient to use
-> iowrite32_rep() until the number of bytes is less than 4 and then do the
-> one extra pack.
+Hello Russell,
 
-I think it would be better to leave them open-coded, io{read,write}32_rep
-casts the buffer to u32 and accesses it that way, probably resulting in
-unaligned accesses, and we are on arm64.
+On Wed, 05 Mar 2025 18:00:39 +0000
+"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
+
+> Some MACs require the PHY receive clock to be running to complete setup
+> actions. This may fail if the PHY has negotiated EEE, the MAC supports
+> receive clock stop, and the link has entered LPI state. Provide a pair
+> of APIs that MAC drivers can use to temporarily block the PHY disabling
+> the receive clock.
+> 
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+
+I only have comments on the implementation, see below :)
+
+> ---
+>  drivers/net/phy/phylink.c | 50 +++++++++++++++++++++++++++++++++++++++
+>  include/linux/phylink.h   |  3 +++
+>  2 files changed, 53 insertions(+)
+> 
+> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
+> index a3b186ab3854..8f93b597d019 100644
+> --- a/drivers/net/phy/phylink.c
+> +++ b/drivers/net/phy/phylink.c
+> @@ -88,6 +88,7 @@ struct phylink {
+>  	bool mac_enable_tx_lpi;
+>  	bool mac_tx_clk_stop;
+>  	u32 mac_tx_lpi_timer;
+> +	u8 mac_rx_clk_stop_blocked;
+>  
+>  	struct sfp_bus *sfp_bus;
+>  	bool sfp_may_have_phy;
+> @@ -2592,6 +2593,55 @@ void phylink_stop(struct phylink *pl)
+>  }
+>  EXPORT_SYMBOL_GPL(phylink_stop);
+>  
+> +
+> +void phylink_rx_clk_stop_block(struct phylink *pl)
+> +{
+> +	ASSERT_RTNL();
+> +
+> +	if (pl->mac_rx_clk_stop_blocked == U8_MAX) {
+> +		phylink_warn(pl, "%s called too many times - ignoring\n",
+> +			     __func__);
+> +		dump_stack();
+> +		return;
+> +	}
+> +
+> +	/* Disable PHY receive clock stop if this is the first time this
+> +	 * function has been called and clock-stop was previously enabled.
+> +	 */
+> +	if (pl->mac_rx_clk_stop_blocked++ == 0 &&
+> +	    pl->mac_supports_eee_ops && pl->phydev)
+> +	    pl->config->eee_rx_clk_stop_enable)
+
+Looks like there's an extra closing ')' here
+
+> +		phy_eee_rx_clock_stop(pl->phydev, false);
+> +}
+
+Do you need an EXPORT_SYMBOL_GPL here as this will be used by MAC
+drivers?
+
+> +
+> +/**
+> + * phylink_rx_clk_stop_unblock() - unblock PHY ability to stop receive clock
+> + * @pl: a pointer to a &struct phylink returned from phylink_create()
+> + *
+> + * All calls to phylink_rx_clk_stop_block() must be balanced with a
+> + * corresponding call to phylink_rx_clk_stop_unblock() to restore the PHYs
+> + * clock stop ability.
+> + */
+> +void phylink_rx_clk_stop_unblock(struct phylink *pl)
+> +{
+> +	ASSERT_RTNL();
+> +
+> +	if (pl->mac_rx_clk_stop_blocked == 0) {
+> +		phylink_warn(pl, "%s called too many times - ignoring\n",
+> +			     __func__);
+> +		dump_stack();
+> +		return;
+> +	}
+> +
+> +	/* Re-enable PHY receive clock stop if the number of unblocks matches
+> +	 * the number of calls to the block function above.
+> +	 */
+> +	if (--pl->mac_rx_clk_stop_blocked == 0 &&
+> +	    pl->mac_supports_eee_ops && pl->phydev &&
+> +	    pl->config->eee_rx_clk_stop_enable)
+> +		phy_eee_rx_clock_stop(pl->phydev, true);
+> +}
+
+Same for the EXPORT_SYMBOL_GPL
+
+Thanks,
+
+Maxime
 
