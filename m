@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC3CBC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 09:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA613C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 09:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W7hiqJkH2laGBUv37vHTLITdmuHBTK9DUbKrGOzOtOc=; b=WeCCKmVkATM8v+SGVEN6dp/bSE
-	lM2DUCHMwr/HBQyom2to44+aNA0DS6t2xHxGrlifxw+k7rbK3EbJfhwCQz3aKJnUnHJ7yi4f7c8LY
-	3gdU0Yl7L27DMYfWtnSlZGzICH8/+6HUcQD8+2R8ygCA2n3N7JhgvBgv23rDP1QFD2vjGD9pQ281B
-	2dujcYgL3Ie7/fkDANVHCIiV8ykgqSqerRjL5yF3wXKNuILvtiZCkMYaICqzjs+gZmhh0kZ0Ie41R
-	TFvjSbnRWY92XLqlno/vpESqxHQ9dSDIYDAxaIKWfpt5/8Jh6wQUuWW46IiMK7CtVkanPN27dxcks
-	J+Rfpp3A==;
+	bh=FRrVZ0Qb4mFOKQncQdIGVomsgNpOi0dxaE9w627ruA0=; b=nvPLR5gfY6J6kterRy1wlHTnW4
+	Po0f/2B/WPUd/AH9LYNhKo+9Rg4MTURv0B6Dv03y8Ys4/QvzErQmVEEBFwXWCNWpYnN+uUAeIsJLI
+	0MbW3z8gnk16PhsSjyC/5uM4FoWuN6H3UZbC8HeeoNmmDoIrBAL70WPOBHo3KaoK1iX6771pmBpuj
+	qyM7QyHWw32IdxOcEiUVVUUr8SPANdPbYYKX3K3YV3HIZ1OeEpd69cgePv7soOWl7dfzn03aBBBpt
+	Fvp4ivGeXtXpl90MVccTkrFEsbeTCh3B9DgRp+S03eDJmVUFv4PHyF/X2om6Cw8nXsx51RBTtDsRk
+	lO6iqULw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7RZ-0000000ATkE-0zN1;
-	Thu, 06 Mar 2025 09:23:05 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7KM-0000000ASOS-3dL4
+	id 1tq7c2-0000000AUwB-1FzM;
+	Thu, 06 Mar 2025 09:33:54 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq6VM-0000000AKH7-31kb
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Mar 2025 08:22:56 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=FRrVZ0Qb4mFOKQncQdIGVomsgNpOi0dxaE9w627ruA0=; b=UYhNVdB7cVR95GaqSkz+Xfecpz
+	YRP/ln9F1JGIeRryMlxklh0PKFSU/Z3VxcCX9qUvtuWH4TcvDfMzcPu6CGZk/S2rA9y6XDYGTwLV2
+	BtE/x3MtDp4SzihmAmYdLy5EVQhc3KjUE4WHZ+zfcld5yw1V306IOUhvgVFl/vnbLJwDP/C5rNjI8
+	eNbfDNwJErb3YOSzqsI3o0vMEzyCsgkAU5QmM+VngM7tnyxyMg+tNWWZ9ZDrPjeiajKPC09VHQOV3
+	OWl5KW1JAh9/HSoSint77jSODxDOJNF375GaRg73OT6a6BBh+37em7xJG5Yg0N+N1XnOLWmsHtJeV
+	0WFSm9bQ==;
+Received: from mail-vk1-f169.google.com ([209.85.221.169])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq6VJ-0000000743I-3KUd
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 09:15:40 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DEB8FFEC;
-	Thu,  6 Mar 2025 01:15:46 -0800 (PST)
-Received: from [10.57.83.26] (unknown [10.57.83.26])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CC0FF3F673;
-	Thu,  6 Mar 2025 01:15:31 -0800 (PST)
-Message-ID: <dfc0b0e1-51fa-47a2-8a8b-87bed173254c@arm.com>
-Date: Thu, 6 Mar 2025 09:15:30 +0000
+	Thu, 06 Mar 2025 08:22:55 +0000
+Received: by mail-vk1-f169.google.com with SMTP id 71dfb90a1353d-523bf140eccso510539e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:22:51 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741249368; x=1741854168;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=FRrVZ0Qb4mFOKQncQdIGVomsgNpOi0dxaE9w627ruA0=;
+        b=mfDUWTEXAO8WNk2ljqS/jhazydTsPEbSAurLCbTZm5XRAoxxwa2XP11iJcHuyC4liu
+         VODaNjsED1CR+2ZugsZtGTU8aCb7Ay+zAqh5jCMXinBWStOyvnFgMT147A4TWj12zT2N
+         t7iWM5FKgkvdWAQhCuUGDaxLMkWScadk3L8WIN8JZm+A3VXnhcdrexsmfvynxQV5vzK3
+         T4qbJChF1ntoyAv/28IoaSOj7jVPVsMpg6KwHtmJp2Dvv4NyDPuHpVT74fkxHGZrafVC
+         3IYLhBPc4J9Ln0/0XJSXvB1Y2l0l1NGl4UszSHi/aboqU2HXdInnLPByfwf6uWiCp6H3
+         5g1A==
+X-Forwarded-Encrypted: i=1; AJvYcCUdKFq2st165V2OoHHp7bPK1ssHwoQAC1/F5ItahsulmVyXAWwYxOfHqQlTUFh/tEQeGv4QxyGFj+RACJXp0PZ9@lists.infradead.org
+X-Gm-Message-State: AOJu0YyB3QUPqFIoHk9dJ8MY9J+VnEeXDmOCLTfF5aV1yFizXcqRX00b
+	Jr0Epamqnr/XJ77I3TgwFsXSUEcOaRhNeW3CML+dWJeGxa+7n8JEOp8SgNs4
+X-Gm-Gg: ASbGncsI5KhRWZRmxQb7XliF5Uhk65a+V2ZlDO6Nyb6qjIRRbJDCSBDLOQp9ZFZIbLz
+	nxOSr8J0o0MahU8IgbJf7fPzZAt3ZyhmtwKV58LtFwpOfAW12JTmXKZSC0y1AFCzvERat0zLp01
+	4HX5oe1f6/05fopg4jC/DdoGuuuPITduhi0NHGVNgXQSZd6rhRmf5DHaSB9o2fgOaTvAyXh8anW
+	5r2qdo4tuSdwWGRCJqECCqLldGZybJ31o/gUHqtlVXCSkw8VHPur91/eF0eJuQoH32ZtKN+7P3h
+	3yCbehMo66j/KS2/sSiuE4Cd4rZIiIoBf+4dgFQZWSrarfoPY5PnH+h1lKWV9tSDiLwu+c3zzM9
+	QGDCx7jo=
+X-Google-Smtp-Source: AGHT+IE5mxaJydlZSajs3Q3W9jJk/H2LCtqWd4kuCb85FzGRk/JslpGwuaBmTgWesQkZU5C3u+Gv4Q==
+X-Received: by 2002:a05:6122:32ce:b0:51e:ffd1:67f3 with SMTP id 71dfb90a1353d-523d5054442mr1250100e0c.7.1741249368188;
+        Thu, 06 Mar 2025 00:22:48 -0800 (PST)
+Received: from mail-ua1-f42.google.com (mail-ua1-f42.google.com. [209.85.222.42])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-523d8ac1ec7sm116094e0c.11.2025.03.06.00.22.46
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Mar 2025 00:22:46 -0800 (PST)
+Received: by mail-ua1-f42.google.com with SMTP id a1e0cc1a2514c-86718541914so1587169241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:22:46 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXvLwJc1G34zUhqXY/rhqMhU4Z8XD2VS3mNgy/xI2pCDUrZil7MR6rXIMUukP57X0LSR+N0HlieJ7fG2GsLle3w@lists.infradead.org
+X-Received: by 2002:a67:f948:0:b0:4c1:b01f:8c7 with SMTP id
+ ada2fe7eead31-4c2f66d367bmr1172152137.8.1741249365980; Thu, 06 Mar 2025
+ 00:22:45 -0800 (PST)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/4] drivers/thermal/exymos: Use guard notation when
- acquiring mutex
-To: Anand Moon <linux.amoon@gmail.com>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
- "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
- Alim Akhtar <alim.akhtar@samsung.com>,
- Daniel Lezcano <daniel.lezcano@linaro.org>,
- open list <linux-kernel@vger.kernel.org>,
- "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
- <linux-arm-kernel@lists.infradead.org>, Zhang Rui <rui.zhang@intel.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, "Rafael J. Wysocki"
- <rafael@kernel.org>
-References: <20250216195850.5352-1-linux.amoon@gmail.com>
- <20250216195850.5352-5-linux.amoon@gmail.com>
- <f44efd1a-1f6e-456d-9395-de2a55ef2279@arm.com>
- <CANAwSgTpV_kGFEU-ND0N+OEtT6+j4ceq37xAoLyC7iHPWAuLjg@mail.gmail.com>
- <CANAwSgSWf_YxSi-pzWPaRoiJx7RLrWUz+HTWx5hf+E2x1ZGmoQ@mail.gmail.com>
- <7a1cac10-b065-4b4c-b048-10d6b4132f3d@arm.com>
- <CANAwSgQErDnKfaBOkpEwpJsoyUMhNTC2TJNW-eQYHgHu46poCA@mail.gmail.com>
-Content-Language: en-US
-From: Lukasz Luba <lukasz.luba@arm.com>
-In-Reply-To: <CANAwSgQErDnKfaBOkpEwpJsoyUMhNTC2TJNW-eQYHgHu46poCA@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250304171154.njoygsvfd567pb66@thinkpad> <20250305173826.GA303920@bhelgaas>
+ <20250305182833.cgrwbrcwzjscxmku@thinkpad> <20250305190955.GK847772@rocinante>
+In-Reply-To: <20250305190955.GK847772@rocinante>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 6 Mar 2025 09:22:34 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdVRSjkss3gPnocXpfPQ=mEo4AevpaU=fdGvm=kb3RTmcQ@mail.gmail.com>
+X-Gm-Features: AQ5f1JrhQM2yc1IEyYpQi2IEGHYpY6yhiE8-bZMdZwiJJ0QwJlNhyHxfSkZ8qMU
+Message-ID: <CAMuHMdVRSjkss3gPnocXpfPQ=mEo4AevpaU=fdGvm=kb3RTmcQ@mail.gmail.com>
+Subject: Re: [PATCH v7 3/5] Add debugfs based silicon debug support in DWC
+To: =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>
+Cc: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <helgaas@kernel.org>, 
+	Fan Ni <nifan.cxl@gmail.com>, Shradha Todi <shradha.t@samsung.com>, 
+	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, 
+	lpieralisi@kernel.org, robh@kernel.org, bhelgaas@google.com, 
+	jingoohan1@gmail.com, Jonathan.Cameron@huawei.com, a.manzanares@samsung.com, 
+	pankaj.dubey@samsung.com, cassel@kernel.org, 18255117159@163.com, 
+	xueshuai@linux.alibaba.com, renyu.zj@linux.alibaba.com, will@kernel.org, 
+	mark.rutland@arm.com, Yoshihiro Shimoda <yoshihiro.shimoda.uh@renesas.com>, 
+	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_011538_998997_8B1011FD 
-X-CRM114-Status: GOOD (  19.60  )
+X-CRM114-CacheID: sfid-20250306_082253_839045_F4CCBD25 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,218 +119,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Krzysztof,
 
+On Wed, 5 Mar 2025 at 20:10, Krzysztof Wilczy=C5=84ski <kw@linux.com> wrote=
+:
+> [...]
+> > > > Even though debugfs_init() failure is not supposed to fail the prob=
+e(),
+> > > > dwc_pcie_rasdes_debugfs_init() has a devm_kzalloc() and propagating=
+ that
+> > > > failure would be canolically correct IMO.
+> > >
+> > > I'm not sure about this.  What's the requirement to propagate
+> > > devm_kzalloc() failures?  I think devres will free any allocs that
+> > > were successful regardless.
+> > >
+> > > IIUC, we resolved the Gray Hawk Single issue by changing
+> > > dwc_pcie_rasdes_debugfs_init() to return success without doing
+> > > anything when there's no RAS DES Capability.
+> > >
+> > > But dwc_pcie_debugfs_init() can still return failure, and that still
+> > > causes dw_pcie_ep_init_registers() to fail, which breaks the "don't
+> > > propagate debugfs issues upstream" rule:
+> > >
+> > >   int dw_pcie_ep_init_registers(struct dw_pcie_ep *ep)
+> > >   {
+> > >           ...
+> > >           ret =3D dwc_pcie_debugfs_init(pci);
+> > >           if (ret)
+> > >                   goto err_remove_edma;
+> > >
+> > >           return 0;
+> > >
+> > >   err_remove_edma:
+> > >           dw_pcie_edma_remove(pci);
+> > >
+> > >           return ret;
+> > >   }
+> > >
+> > > We can say that kzalloc() failure should "never" happen, and therefor=
+e
+> > > it's OK to fail the driver probe if it happens, but that doesn't seem
+> > > like a strong argument for breaking the "don't propagate debugfs
+> > > issues" rule.  And someday there may be other kinds of failures from
+> > > dwc_pcie_debugfs_init().
 
-On 3/5/25 15:59, Anand Moon wrote:
-> Hi Lukasz,
-> 
-> On Wed, 5 Mar 2025 at 14:12, Lukasz Luba <lukasz.luba@arm.com> wrote:
->>
->>
->>
->> On 3/4/25 12:20, Anand Moon wrote:
->>> Hi Lukasz,
->>>
->>> On Sat, 1 Mar 2025 at 00:06, Anand Moon <linux.amoon@gmail.com> wrote:
->>>>
->>>> Hi Lukasz,
->>>>
->>>> On Fri, 28 Feb 2025 at 22:58, Lukasz Luba <lukasz.luba@arm.com> wrote:
->>>>>
->>>>>
->>>>>
->>>>> On 2/16/25 19:58, Anand Moon wrote:
->>>>>> Using guard notation makes the code more compact and error handling
->>>>>> more robust by ensuring that mutexes are released in all code paths
->>>>>> when control leaves critical section.
->>>>>>
->>>>>> Signed-off-by: Anand Moon <linux.amoon@gmail.com>
->>>>>> ---
->>>>>> v3: new patch
->>>>>> ---
->>>>>>     drivers/thermal/samsung/exynos_tmu.c | 21 +++++++--------------
->>>>>>     1 file changed, 7 insertions(+), 14 deletions(-)
->>>>>>
->>>>>> diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
->>>>>> index fe090c1a93ab..a34ba3858d64 100644
->>>>>> --- a/drivers/thermal/samsung/exynos_tmu.c
->>>>>> +++ b/drivers/thermal/samsung/exynos_tmu.c
->>>>>> @@ -256,7 +256,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
->>>>>>         unsigned int status;
->>>>>>         int ret = 0;
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>         clk_enable(data->clk_sec);
->>>>>>
->>>>>> @@ -270,7 +270,6 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
->>>>>>
->>>>>>         clk_disable(data->clk_sec);
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>
->>>>>>         return ret;
->>>>>>     }
->>>>>> @@ -292,13 +291,12 @@ static int exynos_thermal_zone_configure(struct platform_device *pdev)
->>>>>>                 return ret;
->>>>>>         }
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>
->>>>>>         data->tmu_set_crit_temp(data, temp / MCELSIUS);
->>>>>>
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>
->>>>>>         return 0;
->>>>>>     }
->>>>>> @@ -325,12 +323,11 @@ static void exynos_tmu_control(struct platform_device *pdev, bool on)
->>>>>>     {
->>>>>>         struct exynos_tmu_data *data = platform_get_drvdata(pdev);
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>         data->tmu_control(pdev, on);
->>>>>>         data->enabled = on;
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>     }
->>>>>>
->>>>>>     static void exynos_tmu_update_bit(struct exynos_tmu_data *data, int reg_off,
->>>>>> @@ -645,7 +642,7 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
->>>>>>                  */
->>>>>>                 return -EAGAIN;
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>
->>>>>>         value = data->tmu_read(data);
->>>>>> @@ -655,7 +652,6 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
->>>>>>                 *temp = code_to_temp(data, value) * MCELSIUS;
->>>>>>
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>
->>>>>>         return ret;
->>>>>>     }
->>>>>> @@ -720,11 +716,10 @@ static int exynos_tmu_set_emulation(struct thermal_zone_device *tz, int temp)
->>>>>>         if (temp && temp < MCELSIUS)
->>>>>>                 goto out;
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>         data->tmu_set_emulation(data, temp);
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>         return 0;
->>>>>>     out:
->>>>>>         return ret;
->>>>>> @@ -760,14 +755,13 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
->>>>>>
->>>>>>         thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>
->>>>>>         /* TODO: take action based on particular interrupt */
->>>>>>         data->tmu_clear_irqs(data);
->>>>>>
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>
->>>>>>         return IRQ_HANDLED;
->>>>>>     }
->>>>>> @@ -987,7 +981,7 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
->>>>>>     {
->>>>>>         struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
->>>>>>
->>>>>> -     mutex_lock(&data->lock);
->>>>>> +     guard(mutex)(&data->lock);
->>>>>>         clk_enable(data->clk);
->>>>>>
->>>>>>         if (low > INT_MIN)
->>>>>> @@ -1000,7 +994,6 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
->>>>>>                 data->tmu_disable_high(data);
->>>>>>
->>>>>>         clk_disable(data->clk);
->>>>>> -     mutex_unlock(&data->lock);
->>>>>>
->>>>>>         return 0;
->>>>>>     }
->>>>
->>>> Thanks for your review comments.
->>>>>
->>>>> IMO you should be able to even use something like we have
->>>>> core framework:
->>>>>
->>>>> guard(thermal_zone)(tz);
->>>>>
->>>>> Your mutex name is simply 'lock' in the struct exynos_tmu_data
->>>>> so you should be able to leverage this by:
->>>>>
->>>>> guard(exynos_tmu_data)(data);
->>>>>
->>>
->>> If I introduce the guard it creates a compilation error
->>>
->>> amoon@anand-m920q:~/mainline/linux-exynos-6.y-devel$ vi
->>> drivers/thermal/samsung/exynos_tmu.c +306
->>> amoon@anand-m920q:~/mainline/linux-exynos-6.y-devel$ make -j$(nproc)
->>> ARCH=arm CROSS_COMPILE=arm-none-eabi- LOCALVERSION=-u3ml dtbs zImage
->>> modules
->>>     CALL    scripts/checksyscalls.sh
->>>     CHK     kernel/kheaders_data.tar.xz
->>>     CC      drivers/thermal/samsung/exynos_tmu.o
->>>     CC [M]  drivers/md/raid10.o
->>> In file included from ./include/linux/irqflags.h:17,
->>>                    from ./arch/arm/include/asm/bitops.h:28,
->>>                    from ./include/linux/bitops.h:68,
->>>                    from ./include/linux/kernel.h:23,
->>>                    from ./include/linux/clk.h:13,
->>>                    from drivers/thermal/samsung/exynos_tmu.c:14:
->>> drivers/thermal/samsung/exynos_tmu.c: In function 'exynos_tmu_update_bit':
->>> ./include/linux/cleanup.h:258:9: error: unknown type name
->>> 'class_exynos_tmu_data_t'
->>>     258 |         class_##_name##_t var
->>> __cleanup(class_##_name##_destructor) =   \
->>>         |         ^~~~~~
->>> ./include/linux/cleanup.h:309:9: note: in expansion of macro 'CLASS'
->>>     309 |         CLASS(_name, __UNIQUE_ID(guard))
->>>         |         ^~~~~
->>> drivers/thermal/samsung/exynos_tmu.c:338:9: note: in expansion of macro 'guard'
->>>     338 |         guard(exynos_tmu_data)(data);
->>>         |         ^~~~~
->>> drivers/thermal/samsung/exynos_tmu.c:338:9: error: cleanup argument
->>> not a function
->>
->> [snip]
->>
->> Right, you're missing the definition at the begging, like:
->>
->> DEFINE_GUARD(exynos_tmu_data, struct exynos_tmu_data *,
->> mutex_lock(&_T->lock),
->>                mutex_unlock(&_T->lock))
->>
->> below the struct exynos_tmu_data definition.
->>
->> Also, make sure you include the cleanup.h (it might not complain,
->> but it would be explicit and more clear)
-> 
-> Thanks for this tip.
-> However, incorporating guard(exynos_tmu_data)(data); results
-> in a recursive deadlock with the mutex during initialization, as this
-> data structure is common to all the code configurations of Exynos TMU
-> 
+pcie-designware-debugfs.c only does small allocations.  If any of
+these fail, you have much bigger problems, and the system will die soon,
+irrespective of propagating the -ENOMEM or not...
 
-Fair enough, it would be just a cosmetic change, so do fight with it
-too much.
+Another issue is that the caller does not handle failures correctly,
+given (A) the irqdomain WARNING I got, and (B) the half-registered
+PCI bus, oopsing on "lspci"...
 
-Please continue in v4 with your former approach with the 'guard'.
+> > Fine with me. I was not too sure about propagating failure either.
+>
+> What if we do this?
+>
+> diff --git i/drivers/pci/controller/dwc/pcie-designware-debugfs.c w/drive=
+rs/pci/controller/dwc/pcie-designware-debugfs.c
+> index 586a9d107434..fddf71f014c4 100644
+> --- i/drivers/pci/controller/dwc/pcie-designware-debugfs.c
+> +++ w/drivers/pci/controller/dwc/pcie-designware-debugfs.c
+> @@ -162,7 +162,7 @@ void dwc_pcie_debugfs_deinit(struct dw_pcie *pci)
+>         debugfs_remove_recursive(pci->debugfs->debug_dir);
+>  }
+>
+> -int dwc_pcie_debugfs_init(struct dw_pcie *pci)
+> +void dwc_pcie_debugfs_init(struct dw_pcie *pci)
+>  {
+>         char dirname[DWC_DEBUGFS_BUF_MAX];
+>         struct device *dev =3D pci->dev;
+> @@ -174,17 +174,15 @@ int dwc_pcie_debugfs_init(struct dw_pcie *pci)
+>         snprintf(dirname, DWC_DEBUGFS_BUF_MAX, "dwc_pcie_%s", dev_name(de=
+v));
+>         dir =3D debugfs_create_dir(dirname, NULL);
+>         debugfs =3D devm_kzalloc(dev, sizeof(*debugfs), GFP_KERNEL);
+> -       if (!debugfs)
+> -               return -ENOMEM;
+> +       if (!debugfs) {
+> +               dev_err(dev, "failed to allocate memory for debugfs\n");
+
+There is no need to print an error message when a memory allocation
+fails, as the memory allocation core already takes care of that.
+So please drop the dev_err() call.
+
+> +               return;
+> +       }
+>
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
+
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
