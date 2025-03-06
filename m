@@ -4,59 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DBCDC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 09:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872BBC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:11:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rFqlyLCGIWdLZoAWiXyOsHiwObzBDZNEbTkVPcIAMHo=; b=tGAUMZF66p66AU+C9TMxI5BvPe
-	x8OCkTLVEh52IKbIb+7ngNDAPzaxN5VneIIKjehdjtOsANI20rXx3GGBJ5zLBe1KXnUBtcAm6UzEc
-	Q9MzUTatFszdTcfWppSukjcUsI6kDpaXDWP5xhYTo6awetX71jxOWzw/7RiO/LVPytg5nFCjCB3Ce
-	thmpjgehVmEIWauOS5mRzWESYuSmGt5fvJVPok7V5Xa8dU3+2brd8mF1Jp1HiQPTOvGpKtuygNHBf
-	cgQqrSvq1wzHIIwcJ3kznLicsmiGBNpsKSQq4XrvWwQ+VK41x4p2zjutQTx3SV2rPsKuL89qGSkrm
-	Zdd6Jkfw==;
+	bh=XXs8uZWN9WWnGCHphGrfM+z/OKcBjkW6AX8J7E+t69Y=; b=BsddfeJRA8nD4YBCSBmwj7/c9u
+	7vYEhEyMK9OzepzXq+AWL550oAdNYzIzoFV57UbJnjTIKF+sn9VRwp4XXtDg5A6WG3oelrDrDWW6A
+	hcyCRD+pNKbpInRg4PtLjtT8VJnkhcKmeVa5tEH8qrdvcgQ2/BGAuwX7mgGDiSA+bAtu1rD3ocovm
+	g9EIVdWL2ZLQvu6Kk6xf1Xcm1Ptmg+Ce+GGxjPFGY3BUseFFV7vN00eWG7KPg16TywI/wEhKATqOV
+	bcTFO1tinGwl26nDLDx9xvxlQCbRcnU8k7Oowpj7wzV6vVmTqumh8uJCVoa0CcfI7dSPb4tT1gXUD
+	K8E89JOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7wZ-0000000AYaV-34SS;
-	Thu, 06 Mar 2025 09:55:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7pq-0000000AXB3-3yFg
+	id 1tq8CK-0000000Aabw-1CbQ;
+	Thu, 06 Mar 2025 10:11:24 +0000
+Received: from mail-yw1-x1143.google.com ([2607:f8b0:4864:20::1143])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq6y7-0000000AOmm-41oP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 09:48:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A065D1AED;
-	Thu,  6 Mar 2025 01:48:23 -0800 (PST)
-Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id DD8613F673;
-	Thu,  6 Mar 2025 01:48:08 -0800 (PST)
-From: Yeoreum Yun <yeoreum.yun@arm.com>
-To: suzuki.poulose@arm.com,
-	mike.leach@linaro.org,
-	james.clark@linaro.org,
-	alexander.shishkin@linux.intel.com,
-	bigeasy@linutronix.de,
-	clrkwllms@kernel.org,
-	rostedt@goodmis.org
-Cc: coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rt-devel@lists.linux.dev,
-	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v5 3/9] coresight: change coresight_trace_id_map's lock type to raw_spinlock_t
-Date: Thu,  6 Mar 2025 09:47:54 +0000
-Message-Id: <20250306094800.1082950-4-yeoreum.yun@arm.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250306094800.1082950-1-yeoreum.yun@arm.com>
-References: <20250306094800.1082950-1-yeoreum.yun@arm.com>
+	Thu, 06 Mar 2025 08:52:41 +0000
+Received: by mail-yw1-x1143.google.com with SMTP id 00721157ae682-6fead015247so3498247b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:52:39 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741251158; x=1741855958; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=XXs8uZWN9WWnGCHphGrfM+z/OKcBjkW6AX8J7E+t69Y=;
+        b=fvICAx326vhMR+92iBNCAFakpStMIAJ8mwxIh28CNoql9AjhHURm935sA91PHN9xHw
+         a5f24aUaVnS1u+B7hEXbk1bOMvR79qMuwmvYc2qbNBkFkY5LX3OKd2N5R0N/zMtuIScq
+         2WSBSA/jucAe/vr0qU5mSP1JzCk+8FvvvFxNBfxKsAWvur/RG7fma8NS5YJBZqnt/Ier
+         nzoIE1K8oY/JtFqxSRBxNJLMgbatnR6SJpUoceq4USWO/7zGzQUzT58WutYBM7XotqZD
+         zJr5PrlYKRdCDSrQKob/JOaqMntiBpRa7ytAb+bcOsK2DgRthPZGxy4cQfhSK0ydxpsT
+         XX8w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741251158; x=1741855958;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=XXs8uZWN9WWnGCHphGrfM+z/OKcBjkW6AX8J7E+t69Y=;
+        b=Pbl0OWr8Hxv0FYwxhqfVa+fq8yGIbfBjDeZXIS77AwnnvGHUx3oegUw0LtCSvtMPsE
+         MRkSfl2Jdxnygdk9Gp3n9WzbSB0iMt/GiG+YULcyM1axzMjH5Vpq5Z5eANdTgeLkwJra
+         YlD+p9owulOq7b/bYO3vQIdOYxYshIyUhXZSdH+pReyITsBAiJkE9G889VcLWsaNoktu
+         /GFu6IcJGieVxRlKywz6xUwpvtRsOcLwOY7vVDb1NpI6qyF+CQ/VArleRJqsefK/oOpM
+         jtMGsKTXP4lNr5wz1LC8dTXRjiAkMam2YeA9mWjscK/3uXUskz1yuxjDTPlL6fSDbABD
+         oxOA==
+X-Forwarded-Encrypted: i=1; AJvYcCVLjbu6UiIwlgHTyH+qjr1J3IqI9K7Q1XoKpMhE3sRghPPxjXFrRIC5urkjbrzzMhCFW/JmZaBMWVTpPUdR51J1@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8RfFdKS92ATC1lOjBEwLKVVlRhWS7eRPR5G60aCloVXynR6cS
+	H7LBsYgM8KCChZDAP0cOewh5RtjhaBqRD+Figc1jvmKpAgFxrPb+UQqew9D0LXj7VMBElk2K2DB
+	GNNqc5LN1xVxtZV9761W1/sJBppE=
+X-Gm-Gg: ASbGncsFSsku/38T/fbasQB+dmlvy4xpeZBERz+ZKEBLae+dpB7c+m2bY/VmlPthDrD
+	dfy3V9lVT7RvI02XQ6/1XOso6Tl0HzTCxtS6brNOeWRNPOqk6elrduMsxF7rdKMhDZ31cc/Ylv0
+	r0olcbDopueGGbJg1GgAPazH6beQ==
+X-Google-Smtp-Source: AGHT+IHUPHaw0YZdo+mDMRAkSmdnWIm6D16Vg79ihR5A4Mv8LJil7rF/h/OfZk/ywEv5+Ey8+JWj4dl2X5zMiVr1zBQ=
+X-Received: by 2002:a05:690c:2b03:b0:6fe:b88e:4d82 with SMTP id
+ 00721157ae682-6feb88e57c7mr3700567b3.28.1741251158459; Thu, 06 Mar 2025
+ 00:52:38 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
+ <20250303132837.498938-2-dongml2@chinatelecom.cn> <20250303165454.GB11590@noisy.programming.kicks-ass.net>
+ <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
+ <20250304053853.GA7099@noisy.programming.kicks-ass.net> <20250304061635.GA29480@noisy.programming.kicks-ass.net>
+ <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
+ <20250304094220.GC11590@noisy.programming.kicks-ass.net> <6F9EF5C3-4CAE-4C5E-B70E-F73462AC7CA0@zytor.com>
+ <CADxym3busXZKtX=+FY_xnYw7e1CKp5AiHSasZGjVJTdeCZao-g@mail.gmail.com>
+ <20250305100306.4685333a@gandalf.local.home> <CADxym3ZB_eQny=-aO4AwrHiwT264NXitdKwjRUYrnGJ2tH=Qwg@mail.gmail.com>
+ <CAADnVQJ0_+Hij=kf9eVPX_ZND=2=uDHaYPWvv1x-WmR5sZRSmA@mail.gmail.com>
+In-Reply-To: <CAADnVQJ0_+Hij=kf9eVPX_ZND=2=uDHaYPWvv1x-WmR5sZRSmA@mail.gmail.com>
+From: Menglong Dong <menglong8.dong@gmail.com>
+Date: Thu, 6 Mar 2025 16:50:58 +0800
+X-Gm-Features: AQ5f1JpgFvunO0OQTqf93RDkyeUwF-IllYoHkeBCNOU1pNT2c-N8DSTxA6mOAMI
+Message-ID: <CADxym3YMeAPpc+ozM2E7yW1qpB_arKJiDyAcRs8pW8sRqJZOZw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
+To: Alexei Starovoitov <alexei.starovoitov@gmail.com>
+Cc: Steven Rostedt <rostedt@goodmis.org>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Masami Hiramatsu <mhiramat@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
+	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, 
+	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
+	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Jiri Olsa <jolsa@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Nathan Chancellor <nathan@kernel.org>, 
+	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
+	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, dongml2@chinatelecom.cn, 
+	Andrew Morton <akpm@linux-foundation.org>, Rik van Riel <riel@surriel.com>, 
+	Mike Rapoport <rppt@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	LKML <linux-kernel@vger.kernel.org>, 
+	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
+	Network Development <netdev@vger.kernel.org>, clang-built-linux <llvm@lists.linux.dev>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_014811_071920_E8092329 
-X-CRM114-Status: GOOD (  10.98  )
+X-CRM114-CacheID: sfid-20250306_005240_004261_AA17AD39 
+X-CRM114-Status: GOOD (  25.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,134 +118,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-coresight_trace_id_map->lock can be acquired while coresight devices'
-drvdata_lock.
+On Thu, Mar 6, 2025 at 11:39=E2=80=AFAM Alexei Starovoitov
+<alexei.starovoitov@gmail.com> wrote:
+>
+> On Wed, Mar 5, 2025 at 6:59=E2=80=AFPM Menglong Dong <menglong8.dong@gmai=
+l.com> wrote:
+> >
+> > I'm not sure if it works. However, indirect call is also used
+> > in function graph, so we still have better performance. Isn't it?
+> >
+> > Let me have a look at the code of the function graph first :/
+>
+> Menglong,
+>
+> Function graph infra isn't going to help.
+> "call foo" isn't a problem either.
+>
+> But we have to step back.
+> per-function metadata is an optimization and feels like
+> we're doing a premature optimization here without collecting
+> performance numbers first.
+>
+> Let's implement multi-fentry with generic get_metadata_by_ip() first.
+> get_metadata_by_ip() will be a hashtable in such a case and
+> then we can compare its performance when it's implemented as
+> a direct lookup from ip-4 (this patch) vs hash table
+> (that does 'ip' to 'metadata' lookup).
 
-But the drvdata_lock can be raw_spinlock_t (i.e) coresight-etm4x.
+Hi, Alexei
 
-To address this, change type of coresight_trace_id_map->lock to
-raw_spinlock_t
+You are right, I should do such a performance comparison.
 
-Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
-Reviewed-by: James Clark <james.clark@linaro.org>
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
----
- drivers/hwtracing/coresight/coresight-core.c  |  2 +-
- .../hwtracing/coresight/coresight-trace-id.c  | 22 +++++++++----------
- include/linux/coresight.h                     |  2 +-
- 3 files changed, 13 insertions(+), 13 deletions(-)
+>
+> If/when we decide to do this per-function metadata we can also
+> punt to generic hashtable for cfi, IBT, FineIBT, etc configs.
+> When mitigations are enabled the performance suffers anyway,
+> so hashtable lookup vs direct ip-4 lookup won't make much difference.
+> So we can enable per-function metadata only on non-mitigation configs
+> when FUNCTION_ALIGNMENT=3D16.
+> There will be some number of bytes available before every function
+> and if we can tell gcc/llvm to leave at least 5 bytes there
+> the growth of vmlinux .text will be within a noise.
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index bd0a7edd38c9..90649837c29e 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1296,7 +1296,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
- 
- 	if (csdev->type == CORESIGHT_DEV_TYPE_SINK ||
- 	    csdev->type == CORESIGHT_DEV_TYPE_LINKSINK) {
--		spin_lock_init(&csdev->perf_sink_id_map.lock);
-+		raw_spin_lock_init(&csdev->perf_sink_id_map.lock);
- 		csdev->perf_sink_id_map.cpu_map = alloc_percpu(atomic_t);
- 		if (!csdev->perf_sink_id_map.cpu_map) {
- 			kfree(csdev);
-diff --git a/drivers/hwtracing/coresight/coresight-trace-id.c b/drivers/hwtracing/coresight/coresight-trace-id.c
-index 378af743be45..7ed337d54d3e 100644
---- a/drivers/hwtracing/coresight/coresight-trace-id.c
-+++ b/drivers/hwtracing/coresight/coresight-trace-id.c
-@@ -22,7 +22,7 @@ enum trace_id_flags {
- static DEFINE_PER_CPU(atomic_t, id_map_default_cpu_ids) = ATOMIC_INIT(0);
- static struct coresight_trace_id_map id_map_default = {
- 	.cpu_map = &id_map_default_cpu_ids,
--	.lock = __SPIN_LOCK_UNLOCKED(id_map_default.lock)
-+	.lock = __RAW_SPIN_LOCK_UNLOCKED(id_map_default.lock)
- };
- 
- /* #define TRACE_ID_DEBUG 1 */
-@@ -131,11 +131,11 @@ static void coresight_trace_id_release_all(struct coresight_trace_id_map *id_map
- 	unsigned long flags;
- 	int cpu;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
-+	raw_spin_lock_irqsave(&id_map->lock, flags);
- 	bitmap_zero(id_map->used_ids, CORESIGHT_TRACE_IDS_MAX);
- 	for_each_possible_cpu(cpu)
- 		atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	raw_spin_unlock_irqrestore(&id_map->lock, flags);
- 	DUMP_ID_MAP(id_map);
- }
- 
-@@ -144,7 +144,7 @@ static int _coresight_trace_id_get_cpu_id(int cpu, struct coresight_trace_id_map
- 	unsigned long flags;
- 	int id;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
-+	raw_spin_lock_irqsave(&id_map->lock, flags);
- 
- 	/* check for existing allocation for this CPU */
- 	id = _coresight_trace_id_read_cpu_id(cpu, id_map);
-@@ -171,7 +171,7 @@ static int _coresight_trace_id_get_cpu_id(int cpu, struct coresight_trace_id_map
- 	atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), id);
- 
- get_cpu_id_out_unlock:
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	raw_spin_unlock_irqrestore(&id_map->lock, flags);
- 
- 	DUMP_ID_CPU(cpu, id);
- 	DUMP_ID_MAP(id_map);
-@@ -188,12 +188,12 @@ static void _coresight_trace_id_put_cpu_id(int cpu, struct coresight_trace_id_ma
- 	if (!id)
- 		return;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
-+	raw_spin_lock_irqsave(&id_map->lock, flags);
- 
- 	coresight_trace_id_free(id, id_map);
- 	atomic_set(per_cpu_ptr(id_map->cpu_map, cpu), 0);
- 
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	raw_spin_unlock_irqrestore(&id_map->lock, flags);
- 	DUMP_ID_CPU(cpu, id);
- 	DUMP_ID_MAP(id_map);
- }
-@@ -204,9 +204,9 @@ static int coresight_trace_id_map_get_system_id(struct coresight_trace_id_map *i
- 	unsigned long flags;
- 	int id;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
-+	raw_spin_lock_irqsave(&id_map->lock, flags);
- 	id = coresight_trace_id_alloc_new_id(id_map, preferred_id, traceid_flags);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	raw_spin_unlock_irqrestore(&id_map->lock, flags);
- 
- 	DUMP_ID(id);
- 	DUMP_ID_MAP(id_map);
-@@ -217,9 +217,9 @@ static void coresight_trace_id_map_put_system_id(struct coresight_trace_id_map *
- {
- 	unsigned long flags;
- 
--	spin_lock_irqsave(&id_map->lock, flags);
-+	raw_spin_lock_irqsave(&id_map->lock, flags);
- 	coresight_trace_id_free(id, id_map);
--	spin_unlock_irqrestore(&id_map->lock, flags);
-+	raw_spin_unlock_irqrestore(&id_map->lock, flags);
- 
- 	DUMP_ID(id);
- 	DUMP_ID_MAP(id_map);
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index 4541bfc1cc6b..d79a242b271d 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -239,7 +239,7 @@ struct coresight_trace_id_map {
- 	DECLARE_BITMAP(used_ids, CORESIGHT_TRACE_IDS_MAX);
- 	atomic_t __percpu *cpu_map;
- 	atomic_t perf_cs_etm_session_active;
--	spinlock_t lock;
-+	raw_spinlock_t lock;
- };
- 
- /**
--- 
-LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+Sounds great! It's so different to make the per-function metadata
+work in all the cases. Especially, we can't implement it in arm64
+if CFI_CLANG is enabled. And the fallbacking to the hash table makes
+it much easier in these cases.
 
+>
+> So let's figure out the design of multi-fenty first with a hashtable
+> for metadata and decide next steps afterwards.
+
+Ok, I'll develop a version for fentry multi-link with both hashtable
+and function metadata, and do some performance testing. Thank
+you for your advice :/
+
+Thanks!
+Menglong Dong
 
