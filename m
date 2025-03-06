@@ -4,176 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ABD3C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 01:00:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AFAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 01:03:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rt0F4uCjPAszHJEWm9ube4bUlBcoomKxFSCmspLyAyk=; b=Lfgl1TulAYXLRUBumk6dI6EW4R
-	SE59dqHf/w51a0irRxBxb3vxsFixg6aSC3AZsb6WQiRe4DRlx0O0wFKwIZRqLvTBiWvukjNFqJDWx
-	hQpnQpcC6AHo4WfGwq4dugOUQ6UEYSYLSgPRgZnOkXVrOsrjJw1Htb/cLK1fzmIAEOE+3JhZVTchV
-	5huSP7kV9tsk6GY0zKa+LcBGTkDQJJ/7R4UvwhqSfITRnwLff+83KYGEty/7NaZTVPTmd9ekZNdOW
-	cfuYwE0G1/1P6Y1aP07OWst6XYQ1EZyS/1uOsn1I7PwD/BQaLD96U9/ZrxPf9bcXInNKkjwQUaR9N
-	W9n4Ue3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GhVW9oe2cjj3Hs7+7j3GMXcu7eiEDWbnxpNS4pNrjzA=; b=aC6vq5dys8i2glW5ufDYTax03D
+	Mjx5zClQNxBp8Jw015j6YSAWTqojSMH9fUcJwOhKXu66lUn+v0N5tomKkOWHnBlN0lHo7YnR1tegF
+	tbt0WyfOAMaIa/trUN2vFphU9l5ylJUMqqrvslUKw8O7gNtqZWhB5sGH5s+1iHBSB5AYAJjHbRASH
+	Z3LV/Ur1Xz+LwKxLCWB42ly0XexeC+3g2HsSTCPbg81DXiOMlPac5Gb5k/LZIYwKec4P7HmriXdDf
+	3j+Dm/XiCP+tROQNsCM0pVDW768t29uIzunVBDUwO0Zuv+upOItAywnuHuMMz4svRmfKSSGDraMst
+	P8wUfNmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzbJ-00000009kMo-0UYv;
-	Thu, 06 Mar 2025 01:00:37 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1tpzeQ-00000009kdd-1Z4u;
+	Thu, 06 Mar 2025 01:03:50 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzZg-00000009k9T-2ewO
+	id 1tpyfV-00000009f2I-2jfQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 00:58:57 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Iqq3zPi2Zh5GDWhgT77cxU7hnMWSFgZ9OE29ZXNerSr8k1mu3kU73VTUqjvNhdZj4zQLmFFwgpBVTUUJ/XhpbhBadrGe6rwS0hJgYXIvCLJ4BfU4WeWzyuPYDL152J2WvawnQ6V6Lv6ec1Ai1/GWE9+j5Oc64rDdsOmt/sAOh5GuL99kSBIAKn8JTFikSzQZf7ZPDG56ZZd+Gu5jf6+i414Ieq7K/1FrHtYMaTggkx3P2ZPgWkfZT3RMP4CFVD/Y5T/8dXcztAP0cDk2hACMgCS64cMIr0B+tLo+qVuRgJIDLel6oWI36Syv2tOreWHccUfeCpp9n8kRisbnKdSueg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=rt0F4uCjPAszHJEWm9ube4bUlBcoomKxFSCmspLyAyk=;
- b=PhJqWOIqSmVxLUxgl6+CSl7zVrBDRVtU4OzDDqHxfo5CjhWomvnSPNTMAIr3TmipLaewg0oNBTaNU/CBDpjChQHJ3igsCS4kspWMaBZymhMcuj4heV8TpfaGDDRIdIs10miN2Gn13VF2IeTRZUJbCQ5yGNv0Gifuwjlgaw3xnrIDY/libcRIIGHw5Ec0EtVW42nMRkK4jv0/hj7A9SbMHpyvbLT4pCstY0XXWP2uAiTVEmic85YETSU3dE70/30fHceOScE3bdR7Q4KNBnT2wpueHcLJ1ZX8nitQtWSLsg2pVNe9BlfNdsA+dOpFxdnfEmzlk2s5OsYsyZWmgexjXQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=rt0F4uCjPAszHJEWm9ube4bUlBcoomKxFSCmspLyAyk=;
- b=mVw2WhsJeTl+t5aBYi9iN6zn86pvddb6k9Qhr4LcbL5xB9F6CHbIORh17OqSOzEfHUj6ylD4NTh1Ma55MqOaPHOCNeHHTTo/d38UxWhODVKGZZRl6Kz9LTf4SjQPz7+9x9nY3/niSK2VYCmEjaUeRNOLi2wAOsezBjWl9YxO92Btc7DNl/MmRz5ZgXs6xvMN77Mz60DMBjCbIwwkDrV26iiDR13tBUbJ0YDy1LsuBcCy0Cb4Oz8764R7SetbA0gOBjY1eUOZ05BjA2MNe4rZc77Xh4JfQa/+sA3XD1pJHjnVfTFkF9L/lq9ENRvdmO7qAV92T0/qIOU/ayfWeDyc+A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by VI0PR04MB11071.eurprd04.prod.outlook.com (2603:10a6:800:262::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8489.25; Thu, 6 Mar
- 2025 00:43:05 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 00:43:05 +0000
-Date: Thu, 6 Mar 2025 02:43:01 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-Subject: Re: [PATCH iwl-next v8 08/11] igc: add support to set
- tx-min-frag-size
-Message-ID: <20250306004301.evw34gqoyll36mso@skbuf>
-References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-9-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-9-faizal.abdul.rahim@linux.intel.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305130026.642219-9-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-9-faizal.abdul.rahim@linux.intel.com>
-X-ClientProxiedBy: VI1P195CA0057.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:802:5a::46) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	Thu, 06 Mar 2025 00:00:54 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ff64550991so177532a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 16:00:53 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741219253; x=1741824053; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=GhVW9oe2cjj3Hs7+7j3GMXcu7eiEDWbnxpNS4pNrjzA=;
+        b=QiBGludfwNsazLS8lUkTD/zyAWEPjDpFU1mB/3VUDbkVTEphkVzCWQW659pVH2Kg7y
+         RQLmh9pWAee0EXqhlSOKZoI8jXtlTJbJ32/z3Ky9+m+Gd5iOx3szFJ4bu4aTd91imTHm
+         p+A33Q0NUCXT+jTjVS4GKvKYF+99N/cSlsZXmZ5Uv4vWi50VbwAfSKbDe9m+9BQznYLN
+         5AwmTNLwMTpZd/Uk/oD96ntxdJ5J0JxHTaLPoM8Z5FsTdbZLR/sj1OkbTJXJqzYMQtzG
+         JGw7VpAbKfxBFzz/OsIfRMgb6MWKvngJz/Bupg7yhPKpSl2kcV2GgHXE2+Xx16WWRUBx
+         M2YQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741219253; x=1741824053;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=GhVW9oe2cjj3Hs7+7j3GMXcu7eiEDWbnxpNS4pNrjzA=;
+        b=l9E3C++f9jtmmqCAWurwOSwjrT695aSFy2k0OiTTVgUvlLbeA83kcFrXgSGzpV8XrB
+         vD79tsxQ1M4Q6CYFH0kSF2Hn1L07pHIlVKY+vbVMb0PjtKXRUNCtyE5mZbQMpP8I4QRn
+         vX555tyAG4hiI3OOP6k8JqRYgD9bYZe5pKcCZCqXdMjupG5nAmqhXZkJVuSt4rPAOZMs
+         3La+A6om9htLE7xiqjvm6ishPCi0j7BA1StFetECQuqZyR5c3AKPLylo5kteWyrxGyTO
+         yGeECghZ7krPLb88PDeiCdtjb4NQWo1fAiuaEG1Z3L5CqbsgZ7w+wc4CgnpELET89ndm
+         xm/Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV10JkO5veX95cpOkBS/2zDxCjE63tymqi9vJ7cHv/e+gMJ/82WHjDc6/xflX/vZ5EdNoaFgSRAtr3pSkOqGLeH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxx7Z2+FeTbVEeIfcbtiB+vnsGUZ8B0i7uSCb3yENRzt9n6BhkZ
+	9AZiMcVFv4GFEs1qwQ6Zaa7dd96P3m2AoISsEdmQXIfE7lhbxN2H
+X-Gm-Gg: ASbGncsJGmpDj+YIf5GdkRlmywn5Llwsfn1Bp3Mr1Io5koDev0k9yUVb4Ezrm4zmGMT
+	tusgzllQ2mo43pWT8S8uoJZoJJZbkSjcuDBorgapzMUHgcuUr16vqKNhiBFCDd+tKb/+n2Oad/K
+	69tnw1GYZegiQUH9ogT+PKfNzDoU0uiaQq688uDftd0IJ8FJY55yYo/6Wgnx5uzNzL7y6hOe1qD
+	EZWD7QnkJwltvahAuBEXcktGtSbLnxzr0Qg9PiexszxsYqM0Cpcpl47SI9RidrJZ3oVZfA7UDS6
+	Zp6wUQh1R+hVZwVTVI3Xwuee8qWHe1V8h9w1ltMqCsrPMQnqX7aZyH9pu0UVbIhlhS29VbBmgC9
+	5o/6iqio2BvJCE/xuWQ==
+X-Google-Smtp-Source: AGHT+IG0o6NZDwL/ouuTSHVqdZU+QbHNr6bhBHpEI+HHBxP5E469uK+cbJOr5aaDszmuflfUD3yKfQ==
+X-Received: by 2002:a17:90b:2750:b0:2ee:741c:e9f4 with SMTP id 98e67ed59e1d1-2ff4972ad4amr8472496a91.11.1741219252909;
+        Wed, 05 Mar 2025 16:00:52 -0800 (PST)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff6935335asm30567a91.13.2025.03.05.16.00.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 05 Mar 2025 16:00:52 -0800 (PST)
+Message-ID: <5ca55233-b370-4176-9632-8e5df8d4c4ce@roeck-us.net>
+Date: Wed, 5 Mar 2025 16:00:48 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|VI0PR04MB11071:EE_
-X-MS-Office365-Filtering-Correlation-Id: 5240df97-70a7-4de8-1a9c-08dd5c47dba6
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?68tBHlDxL4s2y+3m5LpjYONubCrqmxVCqwqhcnCkzODOIjMjBISLZciRv8UV?=
- =?us-ascii?Q?HN2XrN4qaRX88EJFNSufQYmk9Mqe1SRIC52rU9Br9WvTsMHJy3AMTxhaH0Wr?=
- =?us-ascii?Q?DXFxuUnQYO7DGv/fUBrLUfSfO9Q0w1rwGBlQ5BNzHaZ9IZPKj0vykpNPsoNf?=
- =?us-ascii?Q?hpbY6gsTSKCv12/OXarPVgLHpDFsNzjnUPSr3f/3Qu0ujPpXykNMfyfdPQpV?=
- =?us-ascii?Q?AC+6weOhW8cJv0qaSMdjw90fuFIOOrYrayWZrYLbv0ASdWhnA/jhdGFm6pCa?=
- =?us-ascii?Q?qRHCS5Vo1HPNyhUsulW6Hkgec5WN87LEOcOn6nybsMQbhn/458gbSHeuXYxY?=
- =?us-ascii?Q?NRuxoc+dtHZB8m0MDdIbNFdayhSq7b/oReFop2jWsyYHCLUDGHeFY5qGZ8UC?=
- =?us-ascii?Q?Cq36yJOfyHz9LgHnDArNSfjnAYyawVZVwRE1ZqnJkxqWtYEBHJn6XjgI3Nt/?=
- =?us-ascii?Q?AUPZktivitVuZyCVaISeVggz/GpLL/Q37kfW3U4Ns96NtbSNwRVtwsSBUXQ3?=
- =?us-ascii?Q?hGNJWb/uisgyTyYY/b2aAz9QCeMnNjov7h2pD3eFM1J9doJKO9SeFkbkUcdq?=
- =?us-ascii?Q?gF9feSY/nQ6Tdz2hm9WWAgrB86ATIlbCWUu7fGrTlH1wAFT4J8hfu5lbQXS9?=
- =?us-ascii?Q?QyPW5mufeZJw+LYijjGn0+WOQxYs5QsYBsoSd6w1aaTd7a+pqCfohHYRWR1m?=
- =?us-ascii?Q?l3PR9j3bqRD9WH8omrpjjqAos03vG2EBsnkNzsyoAsarUFvcVOsMPmOuTDTn?=
- =?us-ascii?Q?zq/fV21P8NT5U3SBlut7dopfwKqpXD71qFG5c9bJB16pqZedJcVFU0iMX2u0?=
- =?us-ascii?Q?h8eu+4fhNcQ2IkVhLC4Z5xMJf0/7EKqGte/QE32wfwhMSOgjsfE++otwyhJZ?=
- =?us-ascii?Q?5wrVh0zxhPYki3ke1YPhy2q15OPgR6wgphzTLnyO0eBP8N0Uod1jckhgiH6c?=
- =?us-ascii?Q?HXVRB4okXH5bLcDWhH0Xsr529pEw61eSgBJkUcMYXisvykv2myxv/qLqPAuB?=
- =?us-ascii?Q?kAnrT2HgCaaDbed4exCkz2NPlNdQsmM8CH4Qj+UbhNQGhlFWGoUjTScdCGAp?=
- =?us-ascii?Q?3sffzwsz7JuH2xRKohFKbFu0f4RnfVNQqUJ5OE7VBpyc/32b63sKJNbGq66s?=
- =?us-ascii?Q?U2ZLnJqGKV1eCZDDfK6OiafhsoxjvHvQzBVVGWIqQq/43E0zirrXzMZXLgFR?=
- =?us-ascii?Q?hihy6htbiQFiYXg9Y9x46R+3QRy/YnXppNHX7CShx83j2TWXkhuS68o07N4b?=
- =?us-ascii?Q?A2aZQ0rn+JnaVEK1i0Ulp92He+mN/j7l6Si/Z3c7i9L/Qcs8kaAXFjD2d0fj?=
- =?us-ascii?Q?7dQLAHSRBU53lGM+/xLrpUlvPF/UkbcEOtz2FxwUxtwUtPT3Wwobw8ouILTI?=
- =?us-ascii?Q?eJ2PTRXBiCLysWllKYg01us+8yNI?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Woytg/G2yfArt2O/I0nM0xXgqFARRLg1som9N3i7hFckZDBxs3V8zw5WHtFc?=
- =?us-ascii?Q?EeKwEYYJTt/arew79nmAZePYiQ4V3dzj9Nq40BD73No/8YUEgRH03NFnzRKK?=
- =?us-ascii?Q?l7dlyV8qwpVVsVLiFTZWKCp46g+2qXnOfrMIU+qk39QGq0o2BWxfb/9pC+Ca?=
- =?us-ascii?Q?uZuboIiU6y/ZGv23unChYvpFeZ/QC35NumaLMcBTIiW8bCfXEgmHQMm/sgck?=
- =?us-ascii?Q?zKOHv8Imp8638uBYZWrb6/F0J+FGdfbtMsmwk2W6i/MI59DrPfaj//1Dtasc?=
- =?us-ascii?Q?LIVTmmcIg7PIIgVfLnZnCLKzOAiATYbNZ+crDs45htMrtdvE1DjGUVXCxLbd?=
- =?us-ascii?Q?5Wf+lj30AKsJMWr3+TaMNSYTcR8FxBrHx3GzdAthDr05ghex6g0mco/UDqxB?=
- =?us-ascii?Q?KQMDcw7yKLSiTBz3oCG3uwJSBXcmJOy1K/uZmdfayqc+6SVx1BUZWB1EBEd6?=
- =?us-ascii?Q?zOY5KJpGMyINkbXG6Ljx+dzNtfsCtRQ3TzROzr2KdDCVUzmjl0YQ3WSi66Hi?=
- =?us-ascii?Q?afSThTX4vhLWeu/kbK+keaGGeRXBvxGGgBUuy54SH3PmsYWKyyGnAkTJt2Yn?=
- =?us-ascii?Q?8rmz1FmFFXVrvyUwBpl+e4CkGijBRotzhF5tQhPs4ak078sXv0w53MnZP4ax?=
- =?us-ascii?Q?gS5/jpH5k7FRiwhOu6A4l5BahLALek9CTewhMaYcwQC0ghg78D+L1XB6IEPb?=
- =?us-ascii?Q?ZGHBGufPfmrqZR/Pmd6mgI7WCikMIhERXlo6JEnHUk1ma7IMkZnUYx8yS8O6?=
- =?us-ascii?Q?ygLdMCoR2VWoIYajlOC2+Sm2OxI2nfZhvqUdNxlke8DmN9sYIMcWXjhs/Nvo?=
- =?us-ascii?Q?UfhmE6H2NF3m0N+7Bc/033e6HvzlespeQ7xNkHhd5DZoOEAM24TN52Vyp9Yu?=
- =?us-ascii?Q?eV3mYa6X3u+nsdruMhObaME/ozK7XtbtdTUgCWDuTL4zzwMHaLVPfogyUT74?=
- =?us-ascii?Q?n0elFz2QeKfzII4jJU1i8KnMgAWDIPscGqlZynrtbvvdPjCQeaaCwsEoh5UH?=
- =?us-ascii?Q?NlYoxSdAxk+TkBJU6ExXJE9zTqcAUrNEaMsIhaom2GBPylMl+EK8Gt8Hak0i?=
- =?us-ascii?Q?s2DRP6crLcN7vrxd4RBHZTkd9vbWrruG9/rB2QLPtth3Xmjr2MaPJrGe3Gu6?=
- =?us-ascii?Q?+vH49NkOSWI57LWMjgeFK6IGulOtfNZ7s8hg49CLrE1mxqSGBj745B3GHt/U?=
- =?us-ascii?Q?PU5HNbb2SPWWOhZS6ZVMvfNmej+iRSX14Emd342npoP7PSeOP1XAuTOzZlPD?=
- =?us-ascii?Q?8cNjPcxkFwOljh+ud19fUhvLfbm3cXgVKYQLEmzrXs7L8lxThdxbxBl/p36G?=
- =?us-ascii?Q?n+68JJuseIQyjkIntjqaO6Mpg4HIyJmNCh31R+WtLbL7DsvVxd40e8B0Clc7?=
- =?us-ascii?Q?bbEjvW+CCQzdeeVzEoESaIPuhEtyjUGHKU28mDBeG7D/xDUg1s+nJzJpTg5w?=
- =?us-ascii?Q?DCK9ZUrIZ9WQCJmFaWYR9Kb8BPxnZsjISfJgie0fQzrGSbI8K01gsW7ZWKa0?=
- =?us-ascii?Q?j/v3c4wy1Oi2TLPb8733rt1+y15LiFIstfwRzSN0Xnu7T22wKXq8NaM0jH/1?=
- =?us-ascii?Q?IC3ISF6zL6rb3LX+OqZffef8HaQpUsGzNVoxTKIXnmornAS2ubu14oGdm4EM?=
- =?us-ascii?Q?EA=3D=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5240df97-70a7-4de8-1a9c-08dd5c47dba6
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 00:43:05.5868
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: muHbIc6b13iLTx7zl2obcgKKJnwa41mgf6kTSE6lcaR9C8jYY6WcSLm5i2rzsqck5LniFt9PG45TmRx8lXD8uA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11071
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/2] drivers: watchdog: Add support for panic notifier
+ callback
+To: Andy Shevchenko <andy@kernel.org>,
+ George Cherian <george.cherian@marvell.com>
+Cc: wim@linux-watchdog.org, jwerner@chromium.org, evanbenn@chromium.org,
+ kabel@kernel.org, krzk@kernel.org, mazziesaccount@gmail.com,
+ thomas.richard@bootlin.com, lma@chromium.org, bleung@chromium.org,
+ support.opensource@diasemi.com, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, paul@crapouillou.net,
+ alexander.usyskin@intel.com, andreas.werner@men.de, daniel@thingy.jp,
+ romain.perier@gmail.com, avifishman70@gmail.com, tmaimon77@gmail.com,
+ tali.perry1@gmail.com, venture@google.com, yuenn@google.com,
+ benjaminfair@google.com, maddy@linux.ibm.com, mpe@ellerman.id.au,
+ npiggin@gmail.com, christophe.leroy@csgroup.eu, naveen@kernel.org,
+ mwalle@kernel.org, xingyu.wu@starfivetech.com, ziv.xu@starfivetech.com,
+ hayashi.kunihiko@socionext.com, mhiramat@kernel.org,
+ linux-watchdog@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, chrome-platform@lists.linux.dev,
+ imx@lists.linux.dev, linux-mips@vger.kernel.org, openbmc@lists.ozlabs.org,
+ linuxppc-dev@lists.ozlabs.org, patches@opensource.cirrus.com
+References: <20250305101025.2279951-1-george.cherian@marvell.com>
+ <20250305101025.2279951-3-george.cherian@marvell.com>
+ <Z8gohVIQqlA6QquZ@smile.fi.intel.com>
+Content-Language: en-US
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
+In-Reply-To: <Z8gohVIQqlA6QquZ@smile.fi.intel.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_165856_827012_2F6B57A2 
-X-CRM114-Status: GOOD (  23.36  )
+X-CRM114-CacheID: sfid-20250305_160053_699646_AEDC23C5 
+X-CRM114-Status: GOOD (  13.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,199 +162,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 08:00:23AM -0500, Faizal Rahim wrote:
-> Add support to set tx-min-frag-size via set_mm callback in igc.
-> Increase the max limit of tx-ming-frag-size in ethtool from 252 to 256
-> since i225/6 value range is 64, 128, 192 and 256.
+On 3/5/25 02:33, Andy Shevchenko wrote:
+> On Wed, Mar 05, 2025 at 10:10:25AM +0000, George Cherian wrote:
+>> Watchdog is not turned off in kernel panic situation.
+>> In certain systems this might prevent the successful loading
+>> of kdump kernel. The kdump kernel might hit a watchdog reset
+>> while it is booting.
+>>
+>> To avoid such scenarios add a panic notifier call back function
+>> which can stop the watchdog. This provision can be enabled by
+>> passing watchdog.stop_on_panic=1 via kernel command-line parameter.
 > 
-> Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-> Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-> ---
->  drivers/net/ethernet/intel/igc/igc.h         |  1 +
->  drivers/net/ethernet/intel/igc/igc_defines.h |  1 +
->  drivers/net/ethernet/intel/igc/igc_ethtool.c |  5 +++
->  drivers/net/ethernet/intel/igc/igc_tsn.c     | 37 ++++++++++++++++++--
->  drivers/net/ethernet/intel/igc/igc_tsn.h     |  2 +-
->  net/ethtool/mm.c                             |  2 +-
->  6 files changed, 43 insertions(+), 5 deletions(-)
+> ...
 > 
-> diff --git a/drivers/net/ethernet/intel/igc/igc.h b/drivers/net/ethernet/intel/igc/igc.h
-> index d9ecb7cf80c9..4dfd133b4d6f 100644
-> --- a/drivers/net/ethernet/intel/igc/igc.h
-> +++ b/drivers/net/ethernet/intel/igc/igc.h
-> @@ -42,6 +42,7 @@ void igc_ethtool_set_ops(struct net_device *);
->  
->  struct igc_fpe_t {
->  	struct ethtool_mmsv mmsv;
-> +	u32 tx_min_frag_size;
->  };
->  
->  enum igc_mac_filter_type {
-> diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
-> index 22db1de02964..038ee89f1e08 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_defines.h
-> +++ b/drivers/net/ethernet/intel/igc/igc_defines.h
-> @@ -551,6 +551,7 @@
->  #define IGC_TQAVCTRL_PREEMPT_ENA	0x00000002
->  #define IGC_TQAVCTRL_ENHANCED_QAV	0x00000008
->  #define IGC_TQAVCTRL_FUTSCDDIS		0x00000080
-> +#define IGC_TQAVCTRL_MIN_FRAG_MASK	0x0000C000
->  
->  #define IGC_TXQCTL_QUEUE_MODE_LAUNCHT	0x00000001
->  #define IGC_TXQCTL_STRICT_CYCLE		0x00000002
-> diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-> index b64d5c6c1d20..529654ccd83f 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
-> +++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-> @@ -1789,6 +1789,11 @@ static int igc_ethtool_set_mm(struct net_device *netdev,
->  	struct igc_adapter *adapter = netdev_priv(netdev);
->  	struct igc_fpe_t *fpe = &adapter->fpe;
->  
-> +	fpe->tx_min_frag_size = igc_fpe_get_supported_frag_size(cmd->tx_min_frag_size);
-> +	if (fpe->tx_min_frag_size != cmd->tx_min_frag_size)
-> +		NL_SET_ERR_MSG_MOD(extack,
-> +				   "tx-min-frag-size value set is unsupported. Rounded up to supported value (64, 128, 192, 256)");
-> +
->  	if (fpe->mmsv.pmac_enabled != cmd->pmac_enabled) {
->  		if (cmd->pmac_enabled)
->  			static_branch_inc(&igc_fpe_enabled);
-> diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.c b/drivers/net/ethernet/intel/igc/igc_tsn.c
-> index 0a2c747fde2d..2ec5909bf8b0 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_tsn.c
-> +++ b/drivers/net/ethernet/intel/igc/igc_tsn.c
-> @@ -6,6 +6,12 @@
->  #include "igc_hw.h"
->  #include "igc_tsn.h"
->  
-> +#define MIN_MULTPLIER_TX_MIN_FRAG	0
-> +#define MAX_MULTPLIER_TX_MIN_FRAG	3
-> +/* Frag size is based on the Section 8.12.2 of the SW User Manual */
-> +#define TX_MIN_FRAG_SIZE		64
-> +#define TX_MAX_FRAG_SIZE	(TX_MIN_FRAG_SIZE * (MAX_MULTPLIER_TX_MIN_FRAG + 1))
-> +
->  DEFINE_STATIC_KEY_FALSE(igc_fpe_enabled);
->  
->  static int igc_fpe_init_smd_frame(struct igc_ring *ring,
-> @@ -128,6 +134,7 @@ static const struct ethtool_mmsv_ops igc_mmsv_ops = {
->  
->  void igc_fpe_init(struct igc_adapter *adapter)
->  {
-> +	adapter->fpe.tx_min_frag_size = TX_MIN_FRAG_SIZE;
->  	ethtool_mmsv_init(&adapter->fpe.mmsv, adapter->netdev, &igc_mmsv_ops);
->  }
->  
-> @@ -278,7 +285,7 @@ static int igc_tsn_disable_offload(struct igc_adapter *adapter)
->  	tqavctrl = rd32(IGC_TQAVCTRL);
->  	tqavctrl &= ~(IGC_TQAVCTRL_TRANSMIT_MODE_TSN |
->  		      IGC_TQAVCTRL_ENHANCED_QAV | IGC_TQAVCTRL_FUTSCDDIS |
-> -		      IGC_TQAVCTRL_PREEMPT_ENA);
-> +		      IGC_TQAVCTRL_PREEMPT_ENA | IGC_TQAVCTRL_MIN_FRAG_MASK);
->  
->  	wr32(IGC_TQAVCTRL, tqavctrl);
->  
-> @@ -324,12 +331,34 @@ static void igc_tsn_set_retx_qbvfullthreshold(struct igc_adapter *adapter)
->  	wr32(IGC_RETX_CTL, retxctl);
->  }
->  
-> +static u8 igc_fpe_get_frag_size_mult(const struct igc_fpe_t *fpe)
-> +{
-> +	u8 mult = (fpe->tx_min_frag_size / TX_MIN_FRAG_SIZE) - 1;
-> +
-> +	return clamp_t(u8, mult, MIN_MULTPLIER_TX_MIN_FRAG,
-> +		       MAX_MULTPLIER_TX_MIN_FRAG);
-> +}
-> +
-> +u32 igc_fpe_get_supported_frag_size(u32 frag_size)
-> +{
-> +	const u32 supported_sizes[] = {64, 128, 192, 256};
-> +
-> +	/* Find the smallest supported size that is >= frag_size */
-> +	for (int i = 0; i < ARRAY_SIZE(supported_sizes); i++) {
-> +		if (frag_size <= supported_sizes[i])
-> +			return supported_sizes[i];
-> +	}
-> +
-> +	return TX_MAX_FRAG_SIZE; /* Should not happen, value > 256 is blocked by ethtool */
+> First of all, do we really need a new module parameter for that? Why can't it
+> be done automatically if kdump is expected?
+> 
 
-Try to place comments on separate lines from code.
+Sounds like a good idea to me.
 
-> +}
-> +
->  static int igc_tsn_enable_offload(struct igc_adapter *adapter)
->  {
->  	struct igc_hw *hw = &adapter->hw;
->  	u32 tqavctrl, baset_l, baset_h;
->  	u32 sec, nsec, cycle, rxpbs;
->  	ktime_t base_time, systim;
-> +	u32 frag_size_mult;
->  	int i;
->  
->  	wr32(IGC_TSAUXC, 0);
-> @@ -501,13 +530,15 @@ static int igc_tsn_enable_offload(struct igc_adapter *adapter)
->  	}
->  
->  	tqavctrl = rd32(IGC_TQAVCTRL) & ~(IGC_TQAVCTRL_FUTSCDDIS |
-> -		   IGC_TQAVCTRL_PREEMPT_ENA);
-> -
-> +		   IGC_TQAVCTRL_PREEMPT_ENA | IGC_TQAVCTRL_MIN_FRAG_MASK);
->  	tqavctrl |= IGC_TQAVCTRL_TRANSMIT_MODE_TSN | IGC_TQAVCTRL_ENHANCED_QAV;
->  
->  	if (adapter->fpe.mmsv.pmac_enabled)
->  		tqavctrl |= IGC_TQAVCTRL_PREEMPT_ENA;
->  
-> +	frag_size_mult = igc_fpe_get_frag_size_mult(&adapter->fpe);
-> +	tqavctrl |= FIELD_PREP(IGC_TQAVCTRL_MIN_FRAG_MASK, frag_size_mult);
-> +
->  	adapter->qbv_count++;
->  
->  	cycle = adapter->cycle_time;
-> diff --git a/drivers/net/ethernet/intel/igc/igc_tsn.h b/drivers/net/ethernet/intel/igc/igc_tsn.h
-> index a2534228cc0e..975f4e38836e 100644
-> --- a/drivers/net/ethernet/intel/igc/igc_tsn.h
-> +++ b/drivers/net/ethernet/intel/igc/igc_tsn.h
-> @@ -14,7 +14,7 @@ enum igc_txd_popts_type {
->  DECLARE_STATIC_KEY_FALSE(igc_fpe_enabled);
->  
->  void igc_fpe_init(struct igc_adapter *adapter);
-> -u32 igc_fpe_get_supported_frag_size(u32 user_frag_size);
-> +u32 igc_fpe_get_supported_frag_size(u32 frag_size);
+Guenter
 
-The "-" piece shouldn't exist. You are renaming a function argument for
-a function declaration that shouldn't have existed in the code prior to
-the introduction of its definition. Please delete it from the original
-patch that added it.
-
->  int igc_tsn_offload_apply(struct igc_adapter *adapter);
->  int igc_tsn_reset(struct igc_adapter *adapter);
->  void igc_tsn_adjust_txtime_offset(struct igc_adapter *adapter);
-> diff --git a/net/ethtool/mm.c b/net/ethtool/mm.c
-> index ad9b40034003..4c395cd949ab 100644
-> --- a/net/ethtool/mm.c
-> +++ b/net/ethtool/mm.c
-> @@ -153,7 +153,7 @@ const struct nla_policy ethnl_mm_set_policy[ETHTOOL_A_MM_MAX + 1] = {
->  	[ETHTOOL_A_MM_VERIFY_TIME]	= NLA_POLICY_RANGE(NLA_U32, 1, 128),
->  	[ETHTOOL_A_MM_TX_ENABLED]	= NLA_POLICY_MAX(NLA_U8, 1),
->  	[ETHTOOL_A_MM_PMAC_ENABLED]	= NLA_POLICY_MAX(NLA_U8, 1),
-> -	[ETHTOOL_A_MM_TX_MIN_FRAG_SIZE]	= NLA_POLICY_RANGE(NLA_U32, 60, 252),
-> +	[ETHTOOL_A_MM_TX_MIN_FRAG_SIZE]	= NLA_POLICY_RANGE(NLA_U32, 60, 256),
-
-Please make this a separate patch with a reasonably convincing
-justification for any reader, and also state why it is a change that
-will not introduce regressions to the other drivers. It shows that
-you've done the due dilligence of checking that they all use
-ethtool_mm_frag_size_min_to_add(), which errors out on non-standard
-values.
-
-To be clear, extending the policy from 252 to 256 is just to suppress
-the netlink warning which states that the driver rounds up the minimum
-fragment size, correct? Because even if you pass 252 (the current
-netlink maximum), the driver will still use 256.
-
->  };
->  
->  static void mm_state_to_cfg(const struct ethtool_mm_state *state,
-> -- 
-> 2.34.1
->
 
