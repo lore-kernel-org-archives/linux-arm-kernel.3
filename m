@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F8BBC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:18:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E229C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:20:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8TD/KY01OZz9Nblu7OOwnsyyP52UC74xQLYOzBZ2uMc=; b=2Mkg55Ad22RC1VFDz1O4PQSMk8
-	AdMkw67VCD+1VlOKT15N35CI1sTejssQ93u3WXeBR/8S9Z6GBqgTQVzkFcWwteRFrIaM48S0lpYoZ
-	eOnVeo7WYr0mQCQsvrTZYERqacCL3XSuJ/fAILRpRgz1CcVjTdaI8UbDlI3I5cUO7Akw0/SOOoLFH
-	M0zDS5gC2gYUBzBgnZCWq7EpvwiW6F3Fuv18laanXIzDo+6dkJ0Zedwd7KmP4xMgU/65k7OrGR1K+
-	rkILsdbaB7r5Ah+Ub+qlX+S6lywDMXfTxfyCZ1QZuJyXVZJTza0OiKUj19FgUqfWqkxqV4fSjo0Qr
-	m68oKLaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:Date:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0fa0jpFVGys+Af7ZQ3I/qoj7WI0GjkMs0NhFI0S68Ys=; b=KvGyWXXD6Ytg11s4dNIdXwxh/y
+	yp0hMOSK865WbOq8O9MkVxnAETTXlMXUArPTnAX/Y6GhOTGBO+nezN+QsRlMkyaSk/97vB+gO/NQp
+	4oVtwbguvXx2zF2dlqIfL3oUzXX5GfbCg/jf8qc7ErLW5rXDsgddpBA//8TbbOBtVV3C1gef9vPNI
+	142hR+sHrcaMGHv+Sfa4PG8I3LG+nvSIHEKvE0RoE4OGm24PfAUNf+WFL/NVVYcQMUT5OuHYaeWXe
+	Zt6Jqp6WnGPHIioyGySwP4/A0V4ohr3C4rEi7Y1BCqY/dqrSPOVkEu3c9v2tYqjKWOJloQ7XiYXT5
+	BB3l3F8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5Ux-0000000AC6P-0MQX;
-	Thu, 06 Mar 2025 07:18:27 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1tq5WW-0000000ACHB-3agw;
+	Thu, 06 Mar 2025 07:20:04 +0000
+Received: from fgw20-7.mail.saunalahti.fi ([62.142.5.81])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5Ro-0000000ABiQ-43L5;
-	Thu, 06 Mar 2025 07:15:15 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [IPV6:240e:3b3:2c02:1dd0:964a:aacd:16c3:d0a])
-	by smtp.qiye.163.com (Hmail) with ESMTP id d21cf5a8;
-	Thu, 6 Mar 2025 15:15:07 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: krzk@kernel.org
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	lee@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 2/2] arm64: dts: rockchip: Add rk3528 QoS register node
-Date: Thu,  6 Mar 2025 15:15:02 +0800
-Message-Id: <20250306071502.96949-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <52155b03-20f3-4e64-b636-70042db03ffa@kernel.org>
-References: <52155b03-20f3-4e64-b636-70042db03ffa@kernel.org>
+	id 1tq5SN-0000000ABrI-00hN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 07:15:48 +0000
+Received: from localhost (88-113-26-232.elisa-laajakaista.fi [88.113.26.232])
+	by fgw21.mail.saunalahti.fi (Halon) with ESMTP
+	id cef8990e-fa5a-11ef-8397-005056bdd08f;
+	Thu, 06 Mar 2025 09:15:42 +0200 (EET)
+From: Andy Shevchenko <andy.shevchenko@gmail.com>
+Date: Thu, 6 Mar 2025 09:15:39 +0200
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+	Jose Abreu <Jose.Abreu@synopsys.com>,
+	David E Box <david.e.box@linux.intel.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H . Peter Anvin" <hpa@zytor.com>,
+	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+	David E Box <david.e.box@intel.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Jiawen Wu <jiawenwu@trustnetic.com>,
+	Mengyuan Lou <mengyuanlou@net-swift.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Hans de Goede <hdegoede@redhat.com>,
+	Ilpo =?iso-8859-1?Q?J=E4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+	linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+	platform-driver-x86@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH net-next v9 5/6] net: stmmac: configure SerDes according
+ to the interface mode
+Message-ID: <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
+References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
+ <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDTR0aVkJPGE4fSENNHx0fSlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtJQUofH0tBQk1PGkEaGhgfQUpNGEhBH0saWVdZFhoPEh
-	UdFFlBWU9LSFVKS0lCTUhKVUpLS1VLWQY+
-X-HM-Tid: 0a956a4edab403a2kunmd21cf5a8
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Mjo6Nhw*MjJWMjwpEkhMUTpN
-	KzxPFBpVSlVKTE9KSU9OSEtDT0tLVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUlP
-	Sx5BSBlIQUkYS0lBSh8fS0FCTU8aQRoaGB9BSk0YSEEfSxpZV1kIAVlBSk9PTjcG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_231513_189303_77601874 
-X-CRM114-Status: UNSURE (   8.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_231547_216829_17130BCC 
+X-CRM114-Status: GOOD (  13.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,57 +87,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Thu, Feb 27, 2025 at 08:15:21PM +0800, Choong Yong Liang kirjoitti:
+> Intel platform will configure the SerDes through PMC API based on the
+> provided interface mode.
 
->> Copy QoS nodes and add rk3528 compatible from bsp kernel,
->
-> No, don't copy stuff from BSP kernel. It results in terrible DTS.
+> This patch adds several new functions below:-
+> - intel_tsn_lane_is_available(): This new function reads FIA lane
+>   ownership registers and common lane registers through IPC commands
+>   to know which lane the mGbE port is assigned to.
+> - intel_mac_finish(): To configure the SerDes based on the assigned
+>   lane and latest interface mode, it sends IPC command to the PMC through
+>   PMC driver/API. The PMC acts as a proxy for R/W on behalf of the driver.
+> - intel_set_reg_access(): Set the register access to the available TSN
+>   interface.
 
-But there is no public datasheet for rk3528, it's just a minimal change.
+...
 
-> Did you just define syscon per few registers? Third case last weeks...
-> so no, define what is your device here. 8 registers is not a device usually.
+> config DWMAC_INTEL
 
-As commit 3e712a03d0481f7b0c24d961a43e385dcfa78c74 says:
+>  	default X86
+>  	depends on X86 && STMMAC_ETH && PCI
+>  	depends on COMMON_CLK
+> +	depends on ACPI
 
----
-ARM: dts: rockchip: add qos nodes found on rk3066 and rk3188
-
-QoS nodes keep information about priorites etc on the interconnect
-and loose state when the power-domain gets disabled. Therefore the
-power-domain driver stores the settings of available qos nodes and
-restores them when the power-domain gets enabled again.
----
-
-I add these so they can connect to the power-domains of rk3528 SoC:
-
-	pmu: power-management@ff600000 {
-		compatible = "rockchip,rk3528-pmu", "syscon", "simple-mfd";
-		reg = <0x0 0xff600000 0x0 0x2000>;
-
-		power: power-controller {
-			compatible = "rockchip,rk3528-power-controller";
-			#power-domain-cells = <1>;
-			#address-cells = <1>;
-			#size-cells = <0>;
-
-			pd_gpu@RK3528_PD_GPU {
-				reg = <RK3528_PD_GPU>;
-				clocks = <&cru ACLK_GPU_MALI>,
-					 <&cru PCLK_GPU_ROOT>;
-				pm_qos = <&qos_gpu_m0>,
-					 <&qos_gpu_m1>;
-			};
-                  ......
-		};
-	};
-
-This is also what the other rockchip SoCs do.
-
-Thanks,
-Chukun
+Stray and unexplained change. Please, fix it. We don't need the dependencies
+which are not realised in the compile time.
 
 -- 
-2.25.1
+With Best Regards,
+Andy Shevchenko
+
 
 
