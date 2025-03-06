@@ -4,92 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBFBEC28B24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A348C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:30:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6nLUeGZBsOZaxX7lD0yAqrwnU/9EkCCEKqX2KbebjDY=; b=C0Cl9ICwf1xL7LNL9NN8/L2fEM
-	1zd8UCfUw/3DbgUtSmN24/nROQfFkidh6iSst0Drz6KcUycLFndOUAE3dHYfONw+2exEhbJf4S+Ym
-	AK4GjhC0s/yT4YQGvrqQHFK7yNiJZwgd5aNfbInXwYc6CcqCtdprNeH0JjFwDA8gndYdFlj7bEmCl
-	DJ1UllMMwiOE54O1P5/eKbir430rroxmkMYS8YVTkyGxEkmOzzvQAJrvVFEOWW81w9jyeS1i/dByd
-	DEXaXgH7EuLQkcJPmmsXxpwDNuqg+LtsYu6DrFGAr06tOUrWvAdF/DDyKgMT02j+jE3PCFj5admQ5
-	Qe7BVZyA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0cniJTIAMdIpdeQmR2BhsRWVUgh641WfBYMvCtapTXs=; b=Fuqul9ZwEwKilhSKy9peBrqcsL
+	YvosIHBo2SYvkMP7di7fA0/ove+vd4LbOGWJPrOnHgKP21ztrm4M1EtCr/azLb3Y42bug0XPyQYAx
+	DII8+3pajeQwXJL7gzhblrbL/3CSS6e3qzyc1EHArqFPYV8RkgEH0P+p64m8Q5vHF0JEmQfym9a7z
+	EU4JCWLwLIzk5XCBB0BvRwQybzj7cqSh95jo5bgxo0GxlKkTwkFCM6QIoGEIppAoPFbVa8z98gzrS
+	RZBQWPGLsVlwc5BBRlP5e8bKP2lgjFnZ4I2syk4KE3ayZYgtcnj3DANBKkenT1wgI5VHKcoY64FIn
+	0bVIqnlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIln-0000000CGlZ-2HlS;
-	Thu, 06 Mar 2025 21:28:43 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tqInN-0000000CH1v-13Mw;
+	Thu, 06 Mar 2025 21:30:21 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIiN-0000000CGKr-3Qql
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 21:25:12 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so192937466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 13:25:11 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741296310; x=1741901110; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=6nLUeGZBsOZaxX7lD0yAqrwnU/9EkCCEKqX2KbebjDY=;
-        b=wDsmO3k03SfybzqEh/l6gCkljz/rwrC2dlSYPgtCDBAHLpXutt5V0bmelqr38KHcUg
-         5YGSVePL4RmUvoNFHsRgB1zkkGvE0I6VaQc1gtUjuDwDshwujCEmsh17y0IJv7l3TnrC
-         aUjHz3rO/39rmliHJ49yaFtzTNNcywmXbk0YHUsOt0QTXFE519FOCOqlAgvI47U6yVPe
-         prcFxHylk4NFrqzt6nDngiZU+9CsWkZNWM+PYUsHBczu4z543U8XjF6Af2E12Arl0UOD
-         Y3KC/Je6OcHssA0yabLfwOTqUbeJm6VHs2vOrOmk+heLCU7BQgYRE1xal/bVcnzS9itj
-         aRrg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741296310; x=1741901110;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=6nLUeGZBsOZaxX7lD0yAqrwnU/9EkCCEKqX2KbebjDY=;
-        b=nuQ6JvFRP3lpFGPipgDO4W11uAOwotiU0+Z5ECPBHRH/1gAqfo4Lx2kIx6hTQTMWCl
-         Q+CtUdrE1qJrh1Y5VV91ccosC4JAw7fB5eWIVYFdYfH/7Cz6yxbQ2jixWQy+3WfTnVqH
-         ZNWvzdngHiBp/qi8RxAmN7ZbWMNAZkrmTSEiFIVbUxo5eyQYRU+8+jpqe0YYIadKCLbn
-         ussId4UH57i8vELzsIT0T6yE9u8t/bApjhz/VstopiTLJTmxymrvUHH4dy9WSU+AFd3o
-         XR8MX+L1cn83/c5wk4trP4CtNF33GiDX+SEf7qd+mBOLvkKF++bU2UO2bVNNxaGi4lYA
-         fRzg==
-X-Gm-Message-State: AOJu0YypPWz2BXvS63fZrpWrxDUfIc+Dm3h/YN258PFKASV+Lqunaqvs
-	CQaPLg+WYZwYuMmrOSesw/fDYYqpy/ggXAJdg4M8d7Md+yJ0SQMUZPqE8WuuYeE=
-X-Gm-Gg: ASbGncs5Lu6O89SeBc1j7c5d3En+x6Vxx2sbfDjZwCR34hBZBW8IEQUFMvMM2uXPE1a
-	f/DNAzeAHJM4+PX3r2khoPFEyRNk8bCpTSg6dcpaFcp+rGuzW11h2IvWePfEW8QUuFoU3+uzfxt
-	gqVBsEOi7g0r+Hv99qI3sgttQM/YvXe3hhDWwMiHSD3WTs2T+RMPAITvrsPa5jivOzzaiG3Czxr
-	tp5pGIuag1NH48bexLqQtnekwX2IUaqcUEUF0BB8bJMpTFQD97isnfuyns3wbqrPR1/V1YeSCqz
-	a8S+4IkvlDsxLh7C2/kd7C4LHqBhy1H0eVAlSxiURNHg/2g=
-X-Google-Smtp-Source: AGHT+IEfkrY7UVJaq0/ND9NEi5g0hc9ml44W1eaBzgh92FLmrsjRrsJKvCEmtLb9GKZY9TgjXouEaw==
-X-Received: by 2002:a17:907:3f9b:b0:ac1:ddaa:2c11 with SMTP id a640c23a62f3a-ac25210ff7emr88036066b.0.1741296310064;
-        Thu, 06 Mar 2025 13:25:10 -0800 (PST)
-Received: from salami.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2399d7da1sm156779066b.174.2025.03.06.13.25.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 13:25:09 -0800 (PST)
-Message-ID: <2c1cab545cd3b57a2155df2e87ad9830b2b94ab1.camel@linaro.org>
-Subject: Re: [PATCH v3 3/4] pinctrl: samsung: add gs101 specific eint
- suspend/resume callbacks
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski	
- <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
-	 <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- 	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org, 	kernel-team@android.com,
- jaewon02.kim@samsung.com, stable@vger.kernel.org
-Date: Thu, 06 Mar 2025 21:25:08 +0000
-In-Reply-To: <20250306-pinctrl-fltcon-suspend-v3-3-f9ab4ff6a24e@linaro.org>
-References: <20250306-pinctrl-fltcon-suspend-v3-0-f9ab4ff6a24e@linaro.org>
-	 <20250306-pinctrl-fltcon-suspend-v3-3-f9ab4ff6a24e@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.54.3-2 
+	id 1tqIjw-0000000CGVf-3EvV;
+	Thu, 06 Mar 2025 21:26:50 +0000
 MIME-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1741296406;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0cniJTIAMdIpdeQmR2BhsRWVUgh641WfBYMvCtapTXs=;
+	b=WQFx1oxYMJEnrSFTAQ0UbkBpVyh0nQAgIwQEIXxuZrxgDTGBlVo43SGsVKMZ2CuuVaFS4I
+	sKegnKlrteJk2c0RFwHqlW1CXBvObg64lnLfmmeOOavHBwgqmuknkFtzGQTLiFYomE2ul+
+	Kcj+8Rrs9qPnuIHs5Zpx0ktxl2fRwxZ4ND/TLNIkFbiYdhsX/esaaBDyBNBRiimZ0RzF3a
+	ukmnvwn1RF3g/pSw+jf8W+JrTM6BAYLrk+wjBRSdR/TmkctJHlNPwMM/TI/s4aAjRYAN6e
+	CaqyoPGmG895fskrCqOIb4CwY1YC6gbpJg1UhXAefv9dcHPQH84Ou7Tegiln8g==
+Date: Thu, 06 Mar 2025 22:26:45 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+ <pabeni@redhat.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre
+ Torgue <alexandre.torgue@foss.st.com>, Ezequiel Garcia
+ <ezequiel@vanguardiasur.com.ar>, David Wu <david.wu@rock-chips.com>,
+ netdev@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 2/3] net: stmmac: dwmac-rk: Use DELAY_ENABLE macro for
+ RK3566/RK3568
+In-Reply-To: <20250306203858.1677595-3-jonas@kwiboo.se>
+References: <20250306203858.1677595-1-jonas@kwiboo.se>
+ <20250306203858.1677595-3-jonas@kwiboo.se>
+Message-ID: <73ac54350ee3e42dee2b886403f003de@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
+Content-Transfer-Encoding: 7bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_132511_857777_16564360 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250306_132649_106514_4301D3DB 
+X-CRM114-Status: GOOD (  12.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,29 +80,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2025-03-06 at 20:42 +0000, Peter Griffin wrote:
-> gs101 differs to other SoCs in that fltcon1 register doesn't
-> always exist. Additionally the offset of fltcon0 is not fixed
-> and needs to use the newly added eint_fltcon_offset variable.
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> Fixes: 4a8be01a1a7a ("pinctrl: samsung: Add gs101 SoC pinctrl configurati=
-on")
-> Cc: stable@vger.kernel.org
-> ---
-> Changes since v2:
-> * make it clear exynos_set_wakeup(bank) is conditional on bank type (Andr=
-e)
-> * align style where the '+' is placed (Andre)
-> * remove unnecessary braces (Andre)
-> ---
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 24 ++++-----
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 70 ++++++++++++++++++++++++++
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 2 +
-> =C2=A03 files changed, 84 insertions(+), 12 deletions(-)
+Hello Jonas,
 
-Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+On 2025-03-06 21:38, Jonas Karlman wrote:
+> Support for Rockchip RK3566/RK3568 GMAC was added without use of the
+> DELAY_ENABLE macro to assist with enable/disable use of MAC rx/tx 
+> delay.
+> 
+> Change to use the DELAY_ENABLE macro to help disable MAC delay when
+> RGMII_ID/RXID/TXID is used. This also re-order to enable/disable before
 
+s/re-order/re-orders/
+
+> the delay is written to match all other GMAC and vendor kernel.
+
+s/GMAC/GMACs/
+
+> Fixes: 3bb3d6b1c195 ("net: stmmac: Add RK3566/RK3568 SoC support")
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 9 ++++-----
+>  1 file changed, 4 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> index 297fa93e4a39..37eb86e4e325 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+> @@ -1049,14 +1049,13 @@ static void rk3568_set_to_rgmii(struct
+> rk_priv_data *bsp_priv,
+>  	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
+>  				     RK3568_GRF_GMAC0_CON1;
+> 
+> +	regmap_write(bsp_priv->grf, con1,
+> +		     RK3568_GMAC_PHY_INTF_SEL_RGMII |
+> +		     DELAY_ENABLE(RK3568, tx_delay, rx_delay));
+> +
+>  	regmap_write(bsp_priv->grf, con0,
+>  		     RK3568_GMAC_CLK_RX_DL_CFG(rx_delay) |
+>  		     RK3568_GMAC_CLK_TX_DL_CFG(tx_delay));
+> -
+> -	regmap_write(bsp_priv->grf, con1,
+> -		     RK3568_GMAC_PHY_INTF_SEL_RGMII |
+> -		     RK3568_GMAC_RXCLK_DLY_ENABLE |
+> -		     RK3568_GMAC_TXCLK_DLY_ENABLE);
+>  }
+> 
+>  static void rk3568_set_to_rmii(struct rk_priv_data *bsp_priv)
+
+Thanks for this patch...  It's looking good to me, and good job
+spotting this issue!  Please, free to include:
+
+Reviewed-by: Dragan Simic <dsimic@manjaro.org>
 
