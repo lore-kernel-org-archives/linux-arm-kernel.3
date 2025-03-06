@@ -4,67 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A837C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:11:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B9AC28B22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:11:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U6wIo8sTMBr3RbRnbR8Rzc/ze/1O+F9622aQgZcZWCQ=; b=4N0eC8H0mOFBIwUOfyjkl+Zqtq
-	Ju/vp6F6brSdWMN/pFhWUlA/uAHi+nTNNd0IR1U+1IzlHvTN+yZs9I+ZrlnnkDKT5dUrFY0NRNvzS
-	f9MAEPH3hc9fmzfpuAKB4ZeDxgyo3AM1WsaDIWUvUniHugL8hy21pr3F7Qx9UADNXIwjoANFq9+lS
-	cs/eTCNQizV1ufe4NKLdycEsoUHrZXUfa/86cw6k5OJ5AzjeUG+VZNk8GKAmmehQccT1l1x/sZ+kD
-	u5yPb7v7i6ZFbmwwB4oabIU6p6hfhaLaBaHjpOnDRGCNo38aWNGekU7lkdr5zZjUo3ImhuYet4Kej
-	Sbtx3JqQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zZk3OkAU1AqUqDxdrw3CKq7flSmIjZeU0GWKHI9L5/M=; b=hZkD4hEv1xM6fuGg5iwdsneAbD
+	uacA5yRC/fG3TtLipW08PtjUkEE0dtJBImZx+/WPdMKf3/nGEbkh4xIVcjr1S1m8ZeMznhqq1LYbY
+	PzMgNbik5fEx2N52ZrEVTrmOQqW8oaCphBc0QRXLnQNOZ/ehjXAVHPbXC2pWC1O9qPy45l7G38VVF
+	wEAobHQnqW2wxu/+icq1EDcRZr1Vu1umzn30PCQvXOLIREeKjfouZFpLUZyc0mZT63gL45z5zdZn4
+	OTSnw0nMCcgJBmOWnxhqanBJf1EGYRskc3LIDiEEy8IAfQyXV3Eero7K7tFYJwDyPlPAB7SJIzuxZ
+	+wI9Kn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8CT-0000000Aaku-043g;
-	Thu, 06 Mar 2025 10:11:33 +0000
-Received: from smtp.forwardemail.net ([121.127.44.59])
+	id 1tq8CJ-0000000Aabn-1DxZ;
+	Thu, 06 Mar 2025 10:11:23 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7py-0000000AXEy-0JNv
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 09:48:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741254496;
- bh=U6wIo8sTMBr3RbRnbR8Rzc/ze/1O+F9622aQgZcZWCQ=;
- b=bYiezuGYL9QUDUNDcLiXnal0zi/uoy7W+47GrZDZ1a/ewc3LPfcI0uC6Cyf90MLMH62D7p47k
- aob89hWzUFxS728dbfdBw3WRE8ltFmplefFtP82/50LtoSOvxOwxZ5SXIRgGX3+Jo+Ft8CpDzwd
- CV512fxbNAn18US1aCnWljZBLhG6QKu0o8KylBZu/ldFRyYwsNuHet/T/Xe1WXN5ws3EB4Oe9ml
- 85jmk3pmlD52xMbXk+WT2vk+rWUsW1OXaZGi2Bs8Bw5wKK6V6AI45tCmxjWRhd79DBgrz46HXEK
- 0C6IVnBgDEiuHWPlFSf37ZCwPug1C8UrHqFdsPoL3RMg==
-X-Forward-Email-ID: 67c967d67c40f20919024cb4
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.59
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <ccd8be6a-c8d4-407b-906a-e4788a365775@kwiboo.se>
-Date: Thu, 6 Mar 2025 10:16:00 +0100
+	id 1tq6wG-0000000AOJk-0LKC;
+	Thu, 06 Mar 2025 08:50:45 +0000
+X-UUID: 13b197d6fa6811efa1e849db4cc18d44-20250306
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=zZk3OkAU1AqUqDxdrw3CKq7flSmIjZeU0GWKHI9L5/M=;
+	b=uKOT+d7d6kzJbGCB2W5s1xaEo1QKBmOQqHEDw7LslYWe4U1VgwPYoq9c6ohSse365c8nm5Y7sc+VG3TwirVGtGitq7oHBsk43sKtzFOmgfzplV4B41dJXNnMERQwjP+FeR388M6jWVIm8/jk/ZjjP2D6MXqae1ZMbB2HUc92ZIU=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:b69aaad7-fef3-4adc-bf14-01986cc6b302,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:9dccc249-a527-43d8-8af6-bc8b32d9f5e9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
+	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
+	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 13b197d6fa6811efa1e849db4cc18d44-20250306
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
+	(envelope-from <axe.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1401025294; Thu, 06 Mar 2025 01:50:38 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs11n1.mediatek.inc (172.21.101.185) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 6 Mar 2025 16:50:35 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 6 Mar 2025 16:50:35 +0800
+From: Axe Yang <axe.yang@mediatek.com>
+To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Wenbin Mei
+	<wenbin.mei@mediatek.com>
+CC: <yong.mao@mediatek.com>, <qingliang.li@mediatek.com>,
+	<andy-ld.lu@mediatek.com>, <linux-mmc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Axe Yang <axe.yang@mediatek.com>
+Subject: [PATCH 0/2] mmc: mtk-sd: add support for burst type switch
+Date: Thu, 6 Mar 2025 16:48:04 +0800
+Message-ID: <20250306085028.5024-1-axe.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] rockchip: Add support for onboard eMMC on Radxa E20C
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, heiko@sntech.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-mmc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-References: <20250305214108.1327208-1-jonas@kwiboo.se>
- <20250306090001.113127-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250306090001.113127-1-amadeus@jmu.edu.cn>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_014818_244941_AC7CF486 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250306_005044_121295_C36AC02C 
+X-CRM114-Status: GOOD (  10.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,36 +90,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Chukun,
+Add a device tree property for MSDC node to switch burst type.
+The default burst type is 'single', but for some versions of IP,
+the AMBA type is AXI, which do not support 'single' burst type.
 
-On 2025-03-06 10:00, Chukun Pan wrote:
-> Hi,
-> 
->> Driver changes to use different delay and tap num is needed to be able
->> to support HS400 modes, something for a future series. With this HS200
->> mode should work:
-> 
-> I have tried HS200 mode on other rk3528 boards and it works fine,
-> so can we enable HS200 mode for Radxa E20C first?
+This series of changes provides a way to switch the burst type,
+and is necessary as the AXI bus is being used more frequently
+in the new versions of MSDC IP.
 
-The host controller already report the HS200 mode, and as shown in cover
-letter HS200 mode is being enabled/used with this series.
+Axe Yang (2):
+  dt-bindings: mmc: mtk-sd: add single burst switch
+  mmc: mtk-sd: add support to disable single burst
 
-However, the driver must use different tap/delay num for HS400(ES) modes.
-At top of [1] there is a commit that changes to use same tap/delay num
-as vendor kernel and what I have tested worked in U-Boot. That commit
-needs to be re-worked before it is ready. Also see [2] for pending work
-before I plan to complete before moving on to the dwcmshc driver.
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml |  8 ++++++++
+ drivers/mmc/host/mtk-sd.c                         | 10 ++++++++++
+ 2 files changed, 18 insertions(+)
 
-[1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250227-rk3528-rk3506/
-[2] https://github.com/Kwiboo/linux-rockchip/commits/next-20250305-rk3528/
-
-Regards,
-Jonas
-
-> 
-> Thanks,
-> Chukun
-> 
+-- 
+2.46.0
 
 
