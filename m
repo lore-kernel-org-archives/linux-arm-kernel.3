@@ -4,161 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999F4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 18:03:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB1DC28B24
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 18:04:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=; b=ikEO9ZLh6KP7XdgzRqGQnhL+K5
-	bIZDfV2fzWuKk38ESbQsDOC+1pcQWbW0Z6iW5U861ekx07P9XXGYWb8lBh7dphGjnnSnb7zRReHdV
-	DrhbFBy1VrKjz8y8k+yYf0m+HX3KypLfyFm5ulZE+cMDClfjAtz0e3wTFAVpITx1EcvNtIxUYe/zj
-	sNd+HFsgdidZSo8y66EhGww14smOzUi3YjGTqFfLGryDRBAHG4aRGe19OzdvzUqHSV/QNebMl8XM7
-	D95GUE2x9FX9EpvoLH7XhRQtk7Py3vnqg4byjJhFePuq/vdZGd3b+aGIPMkuuGZQYY7PoRfDEE6zX
-	zDzQDJDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6bMGhfu3cKthCvL1T3G+dPSizYb8EcgG80qlrt/kJJ8=; b=sK7VMjCipD4+hnO1nrEMzQNfkV
+	EL13Bly3EuAFHkewxOK9/j70ryViVib3IjN1ri4Xx2QCJ/Xs+Ej7QpGwPkw8w8ekGB4y+IEImglpi
+	7NB8q6ccssEXNyHh5sf+Fjyw0oTk+/CBF1cIORS9njeSZYeVxxGPf7YsVVauPl1SAPjGhg1xd/0su
+	CFX8Xl+1cILCOoR34JhKWlsB5Ad7W7C7WXdLmLCqNvf2oVMY2oXUlFYh9M2YQOCWSDMyERaB/Ncvg
+	JxRQvHmqn/8PT4od1j/o31vWJBOOCSCV2VX02FTaNPzD6W1m956lqlVrw0F0JCULn9XDnPpqcfYdW
+	w6LyLcgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFYV-0000000BmkK-029n;
-	Thu, 06 Mar 2025 18:02:47 +0000
-Received: from mail-am6eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2612::62f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	id 1tqFZh-0000000Bn34-0kUv;
+	Thu, 06 Mar 2025 18:04:01 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFWr-0000000BmLA-2CFc
+	id 1tqEVU-0000000BaYA-0puw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 18:01:07 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kWF3A0k1Kzp9zeq/kFJ/2ipSVxMI14YHkteaPLbVUaTmWkKuSkBxDTD/VrAqlYvkKlS35gPSX0Nc50ow9ZvoVdfYBlnSiS/2Vu0cIrNtAAtT9lMJ8DqcddgPxuOe+OlnmDixEa/wj5mA199loyB6CSYYzYUlSSaEx5f4maFiDz054S1aYYKkj94lSYVCoU2qh+2oaNN0PnpeOodY/LAixBXSJHNi3d4nmwhZvG0f1XHPSXQHXYsv1bUUBi1h6F/zxCaIAm4LdPJIroRsUtOPgFBkfcUJLQkSj0+YSuy0uLHp/f5uio7qmpGbri2s0yJ4KV1NMLG4riKJB9b4TO0A7Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=;
- b=YGWHrVmOaRfaeOQ569DBxmQHLxznE0YXdDuq4Zc2eAjzbsJRM4umGpT08p1Mb+CBxnb0kcEnHElLbzgbgXJLkFBdLoBPhWcMv/PIUdlbYlLH/rnHrG7Kc06rM7vgxEtkhpahppKCLkZVZOmYoJm68vbuGEUlCakmoQUh489LHHFVv8qmHS7JZIgFgdbLMYpNHS1PjWuscF/I6/GIK54iFA9k4fMHbSXmv8HA3iqLR9HeCsVVQbDtaWeaN3Zl9e4hETKizdSh+H3LP3YWNYPhQE6cDV0pZvmTClx7ssdy1EuJY3I1jP0yx7uxdM/kP7bAvg8lvH2EvE7jxdLuhlDP9g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=;
- b=kMq8zx2VyeVKtwgnML9+jGQaN5BJjAe/zzGafdbU+0IWhtWWna+IauaLpbzkSpw72SQ5D5qY9qpmJ2LXwAtOZEO/YWmuTy+KbPPPGteEj4sxoHlCkAi0FqK2JLQHJMHraa275CXjmkclNu4D8c946Cm7ODwFmTFw23bXTnSkqlcazid2BHgqzP0i7DbDSWvcVzprE06x12x1FNgMyKTxWtSeAyDcPRFenDWX+CZv4EpUGfeXl9EX/dhPE1GWed7KUchmNna8oliIHE02lfJ+sgaF65EtonB86A4iYdXJ6KeikuGte18TH2P23eXoWt0A+YjeyFv/sOVOObW8wl1YLw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10550.eurprd04.prod.outlook.com (2603:10a6:10:586::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.18; Thu, 6 Mar
- 2025 18:00:56 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 18:00:56 +0000
-Date: Thu, 6 Mar 2025 13:00:44 -0500
-From: Frank Li <Frank.li@nxp.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] drm/bridge: fsl-ldb: make warning message more
- informative
-Message-ID: <Z8nizEsd0QbYgsI/@lizhi-Precision-Tower-5810>
-References: <20250306-drm-two-ldb-improvements-v1-0-f139d768b92c@bootlin.com>
- <20250306-drm-two-ldb-improvements-v1-2-f139d768b92c@bootlin.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250306-drm-two-ldb-improvements-v1-2-f139d768b92c@bootlin.com>
-X-ClientProxiedBy: BYAPR05CA0107.namprd05.prod.outlook.com
- (2603:10b6:a03:e0::48) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 06 Mar 2025 16:55:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741280134;
+ bh=6bMGhfu3cKthCvL1T3G+dPSizYb8EcgG80qlrt/kJJ8=;
+ b=j4U/3HjKIlIV0GDb6nSJD/eAMPCeps+0sI81Ny4k++X013ANHaM9kaL4iMBXdz/vIsC6qqbKa
+ Of4mjCmVaWQxz+sJGfRNBloR0WCkjuSBe5VK4VV9bxlVoilDh95UGM5hIiR/XAnsBNByhAuykxJ
+ n1J0s//3SsoM3ZChWgpzYmANw/k+twrQAE5QESJk7Dvi59cHEWuqfGh8jHYAOY9qsDkFWwv0h6R
+ Y58Ey+aS6LO6Kn1nj3zdXqQD6kbc9Kl7ljUy9F5IvOUeWZRuoX6ONN/PSyBzT3izi7hS0nto7gh
+ A3ljRy57mSaNRb033lh10ayhWMQ1cVhwhlQHa4PlCR1g==
+X-Forward-Email-ID: 67c9d3797d53aa09926043e9
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <cdbc1556-4662-4078-a4d6-33545e2e2491@kwiboo.se>
+Date: Thu, 6 Mar 2025 17:55:16 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10550:EE_
-X-MS-Office365-Filtering-Correlation-Id: 57185105-6d55-42bc-c9a7-08dd5cd8d7ca
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+gvsKp0RcoQAD2mxU8+DcKpruw7P1H8ANzsHMZwt5h3Wsys/5ofywwM1Q548?=
- =?us-ascii?Q?beAZNf2Nmzl4Br+CLSXzf07aIJQUCTdBH4/p36I4axrvr3rHgECIl3Txk+SU?=
- =?us-ascii?Q?Jqud8xWiL5zSa9CQdNoIimOVIS3/TtKj77xuTjenFFBaKfG1Mh/5xF8NocAi?=
- =?us-ascii?Q?WO+wlETMXL9jx4S1J6Q4XLKuiDg4OA4159M4Mqgf4VfFwMxir99spGmIFBXm?=
- =?us-ascii?Q?ps+NbInbefJZm7HJ6le6KU7Hqx3HuzRguSk8jJZTlFf368nLEJlMIepiygJc?=
- =?us-ascii?Q?YP2eksSYWUuG8lkzqVrQ1z8diUEsL0sVS0sJbKcJDxAvRgUkvnvdurLrT9h6?=
- =?us-ascii?Q?hLeb36uiX0x2GQi4z9y9GSpGIDbvi18/US6jYHEdbXnRMM2Fva5LGCG13Rno?=
- =?us-ascii?Q?aJ/zA//GXlSB+ebMhh+OcV6w4omGvqG16yLoA5VTBJ4qSXyH4QJACpEnWH7i?=
- =?us-ascii?Q?4+tfz8QHmlNBdB66fNcJ92TpAdH6+c2S/wV/FDhLBykxutkpEePlYSyNXmOc?=
- =?us-ascii?Q?V6Env+KTqnwapiGxFHlNnw/vozmVUE+8DeoyfMPyqOLwmF7spK5J3RmuzKPv?=
- =?us-ascii?Q?o0bXA4c7mPhuEpemkCQ2qYMd9yC5xNriYxDPQ6VU5HRNb0Rb8anEc9nGnLmQ?=
- =?us-ascii?Q?EbHaDf/92iS91JsfeTHC4GOSECFv9uE0Tl7WVgPo+sQ+UmkGa6RpcZrjrhQr?=
- =?us-ascii?Q?Eu+tuqpbpLAUY9sulTN4hgmW3PaO79z8QeG7MXiQ5qmjP0m0Tn6W+yIvZxkr?=
- =?us-ascii?Q?KFODRU/8mGpmMvGGQThrJTYBoGp8uPm26XtQ0bp3MdMDxHvgyaV4SiOuHYNV?=
- =?us-ascii?Q?PRtjmeZ5Vccs5K+383FaV+CgMbdsNFhSTxEq+pZ85vtTg/tnkBUPKDTXQqPp?=
- =?us-ascii?Q?Kt7skLFX7D0wPngSI9TYsDCMbblb2abAZPrXDnHX/9kE3wF+FgaL4gneu/ER?=
- =?us-ascii?Q?Jo3sHPzAQ4mR5mLrkgNlOUr4/72Gt78Rhsx+D9hAf4BHSzmcxhsz5fmMFQGP?=
- =?us-ascii?Q?KIdvGo7b86iHhdhS5nPPSsp15mRBfXheuMsbbz000HdDOpxSj+io1JfVn8jM?=
- =?us-ascii?Q?9b/ZTkP4T9bIRt7o+x3qua/XNJajUeQKXLh6nyNSbcyDEV586sWfhnSFheoq?=
- =?us-ascii?Q?IpShCBAz7H/e5j+Or0B/sBDZDFMxz4DdjqQqNA0W23sOKlx97oZi7QSynwhv?=
- =?us-ascii?Q?3wKVkNPUq57qk8UhCfvnqBBXYsjrFBZGOhb0RzOPUO9AD3uad56ivh27+yvk?=
- =?us-ascii?Q?JqnOmQeUPZNIk+ez+obYCaRUAUki16jv8lUKdGaY75iOTDU3whmE1m4Az9bT?=
- =?us-ascii?Q?eGmfxQdrLo0Rg8O3rd6RZs1HhhBKala43m7ZcWnlnrmWPn8DHtM5XdsQsATh?=
- =?us-ascii?Q?uIKE566NGG8BRoCzc2b+Ztm/kBFAWADoOsB/7NkZPZPPNwi70loN2QviOaLK?=
- =?us-ascii?Q?mVNpzpS9TTA=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LarVKNuMMGkpSdBDStxxnp4m1O1LUYCeM1QF2WXNU/SNph5q8sdtVCw809wf?=
- =?us-ascii?Q?AbNktUSpY4q1G7q3Br+BuubgHrUT+PdBBfbY/giNiUZSHSDQDc+YDrqa8EqE?=
- =?us-ascii?Q?MhFtQI6mfMqRfMvUp8tkZrNfB/oJuBZDs9G6L3yRxcaktIgnVFcGQ+WBSwG7?=
- =?us-ascii?Q?0QiatkMaIky2dHkstHvrmS3c/ibpEXxVJ+UjHmviUJM4xLWsrTv1GuKX6kFO?=
- =?us-ascii?Q?zKxv1w7FG3krUQSjooWsD/7XCxmq07oBD5lZ487tbI6jYYmdtppAl4LpTIQQ?=
- =?us-ascii?Q?svPnfybe4MmxXk8KzakrjSBbNqw7j9NaygpLDpue+rCWzz5+1sxBiyR9kaNc?=
- =?us-ascii?Q?kgyEXMRiJVvmEnZ0qjfIWKn7CctyqCx1kK/GXyIdGH7+Za27sJU25wAYgzV3?=
- =?us-ascii?Q?QY9DLPdeTZuiD3zAqOf48dHOgbGiTnp1Vla9vEU2gDiJL2fdFasyOIK7Ic1x?=
- =?us-ascii?Q?ZG3yo8I0r7MbO6A3lHHbnDgAUU03bgwehx8+J43qjneSLcWxNKPAw+2zcsHf?=
- =?us-ascii?Q?23jaEG1ot0scmh2Seqiv+XImovEGAMA/wAdb+JvsvYz3oG5DD/0z3J9GQqaz?=
- =?us-ascii?Q?Qk4NDoUq7znpt/ajeNmmndfRuKtbIyoMldJIv5vX9TgFfuGiuDXE23OhNqGz?=
- =?us-ascii?Q?DmXVg5an4fc6eY4+xeJitgh0GZsXRCCaBVyvYIyFrsakg0Yc0oTmywUqq7bq?=
- =?us-ascii?Q?PWjNSIze+Go1X2BRR0Uz7wCXslSvzvgyaigmUTGDKzZXBVAgNZYFDJGWhDUR?=
- =?us-ascii?Q?MPwtKvVWXdPUbWNIJS5OrK6wMpF4gtLXLgMQNce4Qr3u5qT75i/myGd7reM4?=
- =?us-ascii?Q?dK71MFZcvjZMhEZxELAOxeC4o2xelDiGph7VzROL9En/O0azn3cDOq2k/vK9?=
- =?us-ascii?Q?6MKzYer0SA68id4zbxTif9QgocFNkU5EygRQFlslnHsV21+2mBSBb8SVysYC?=
- =?us-ascii?Q?JGMY06MI6H26w0/49AFhpxzomf+S8F64uFn3aW/eqWVOrp1WDnKiqgMMg6X3?=
- =?us-ascii?Q?MWRQ7kJkmegk8MPL12USjmBcTZKFEC4GQrEJix8tP7GOSbFXjkZS3ylZud6h?=
- =?us-ascii?Q?xuwJuNvxrb5V939jF/ggKsThP7GjGsVKwtVjRBJX4s26/xU7Zr9KXFBx+6CZ?=
- =?us-ascii?Q?UIjn97Y8tUgJ+3BDwtHRiiehxxOoxGeip6RQBPi457nDUSijT5M6r9gAWj/G?=
- =?us-ascii?Q?FsDqLaoJ3tQeHYVGKYYkmSq2gDffJYrBpx+lmp4jDXpRvk/72bvOq2sISvwQ?=
- =?us-ascii?Q?jKq3flmZrjBf1RVjbIDzFRg61Tn+Y00/aLKKmI4GN4ghGgKCExp1BdjyqGEq?=
- =?us-ascii?Q?W8UcVn/e4dcfa37tvYr88GAtu0E8xELZvrXHlqTh4PK31L4ZjA6HwyH68Jrk?=
- =?us-ascii?Q?O+bWQTDSm095GBcIjmPY7QOEqFnrAFNd8/FBQwGk3823ZAPGU7KiUBdZtryp?=
- =?us-ascii?Q?ELPnrq5Z4dc0WjY39zCAOFG2B3Se3GE2zEXh+UwzFwEhTYyAaDbEXucVlYSN?=
- =?us-ascii?Q?7DGfYN3we/ia3iRYEVeb8RnupXFiE+ZVmMIbEP5juIEzLrf+BeNR4yGqKfzK?=
- =?us-ascii?Q?TBZw6FbTwZeXCneFUJI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 57185105-6d55-42bc-c9a7-08dd5cd8d7ca
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 18:00:56.1584
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fFwX8jDJ0Sfxf9DdnIqHLKfQsYGW/OSpcrtWkYxlqb0mmnuLAxBM7dHyWaaSro0ioQtrzGUjLAIX8soJD15UzQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10550
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add rk3528 QoS register node
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Yao Zi <ziyao@disroot.org>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250306123809.273655-1-amadeus@jmu.edu.cn>
+ <20250306123809.273655-3-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250306123809.273655-3-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_100105_558257_30F13FA0 
-X-CRM114-Status: GOOD (  17.10  )
+X-CRM114-CacheID: sfid-20250306_085536_584133_2A296250 
+X-CRM114-Status: GOOD (  14.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,42 +81,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 06:28:41PM +0100, Luca Ceresoli wrote:
-> This warning notifies a clock was set to an inaccurate value. Modify the
-> string to also show the clock name.
->
-> While doing that also rewrap the entire function call.
->
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Hi Chukun,
+
+On 2025-03-06 13:38, Chukun Pan wrote:
+> The Quality-of-Service (QsS) node stores/restores specific
+> register contents when the power domains is turned off/on.
+> Add QoS node so that they can connect to the power domain.
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 > ---
->  drivers/gpu/drm/bridge/fsl-ldb.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
->
-> diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
-> index 0fc8a14fd80062248a43b8b93272101a7ca6158a..c7c899a9644bb827845fb3fe96a9695d79a91474 100644
-> --- a/drivers/gpu/drm/bridge/fsl-ldb.c
-> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
-> @@ -181,9 +181,9 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
->
->  	configured_link_freq = clk_get_rate(fsl_ldb->clk);
->  	if (configured_link_freq != requested_link_freq)
-> -		dev_warn(fsl_ldb->dev, "Configured LDB clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
-> -			 configured_link_freq,
-> -			 requested_link_freq);
-> +		dev_warn(fsl_ldb->dev,
-> +			 "Configured %pC clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
-> +			 fsl_ldb->clk, configured_link_freq, requested_link_freq);
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 160 +++++++++++++++++++++++
+>  1 file changed, 160 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index b1713ed4d7e2..0c0e7f151462 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -129,6 +129,166 @@ gic: interrupt-controller@fed01000 {
+>  			#interrupt-cells = <3>;
+>  		};
+>  
+> +		qos_crypto_a: qos@ff200000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200000 0x0 0x20>;
+> +		};
+> +
+> +		qos_crypto_p: qos@ff200080 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200080 0x0 0x20>;
+> +		};
+> +
+> +		qos_dcf: qos@ff200100 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200100 0x0 0x20>;
+> +		};
+> +
+> +		qos_dft2apb: qos@ff200200 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200200 0x0 0x20>;
+> +		};
+> +
+> +		qos_dma2ddr: qos@ff200280 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200280 0x0 0x20>;
+> +		};
+> +
+> +		qos_dmac: qos@ff200300 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200300 0x0 0x20>;
+> +		};
+> +
+> +		qos_keyreader: qos@ff200380 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff200380 0x0 0x20>;
+> +		};
+> +
+> +		qos_cpu: qos@ff210000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff210000 0x0 0x20>;
+> +		};
+> +
+> +		qos_debug: qos@ff210080 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff210080 0x0 0x20>;
+> +		};
+> +
+> +		qos_gpu_m0: qos@ff220000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff220000 0x0 0x20>;
+> +		};
+> +
+> +		qos_gpu_m1: qos@ff220080 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff220080 0x0 0x20>;
+> +		};
+> +
+> +		qos_pmu_mcu: qos@ff240000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff240000 0x0 0x20>;
+> +		};
+> +
+> +		qos_rkvdec: qos@ff250000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff250000 0x0 0x20>;
+> +		};
+> +
+> +		qos_rkvenc: qos@ff260000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff260000 0x0 0x20>;
+> +		};
+> +
+> +		qos_gmac0: qos@ff270000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270000 0x0 0x20>;
+> +		};
+> +
+> +		qos_hdcp: qos@ff270080 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270080 0x0 0x20>;
+> +		};
+> +
+> +		qos_jpegdec: qos@ff270100 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270100 0x0 0x20>;
+> +		};
+> +
+> +		qos_rga2_m0ro: qos@ff270200 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270200 0x0 0x20>;
+> +		};
+> +
+> +		qos_rga2_m0wo: qos@ff270280 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270280 0x0 0x20>;
+> +		};
+> +
+> +		qos_sdmmc0: qos@ff270300 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270300 0x0 0x20>;
+> +		};
+> +
+> +		qos_usb2host: qos@ff270380 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270380 0x0 0x20>;
+> +		};
+> +
+> +		qos_vdpp: qos@ff270480 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270480 0x0 0x20>;
+> +		};
+> +
+> +		qos_vop: qos@ff270500 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff270500 0x0 0x20>;
+> +		};
+> +
+> +		qos_emmc: qos@ff280000 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280000 0x0 0x20>;
+> +		};
+> +
+> +		qos_fspi: qos@ff280080 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280080 0x0 0x20>;
+> +		};
+> +
+> +		qos_gmac1: qos@ff280100 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280100 0x0 0x20>;
+> +		};
+> +
+> +		qos_pcie: qos@ff280180 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280180 0x0 0x20>;
+> +		};
+> +
+> +		qos_sdio0: qos@ff280200 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280200 0x0 0x20>;
+> +		};
+> +
+> +		qos_sdio1: qos@ff280280 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280280 0x0 0x20>;
+> +		};
+> +
+> +		qos_tsp: qos@ff280300 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280300 0x0 0x20>;
+> +		};
+> +
+> +		qos_usb3otg: qos@ff280380 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280380 0x0 0x20>;
+> +		};
+> +
+> +		qos_vpu: qos@ff280400 {
+> +			compatible = "rockchip,rk3528-qos", "syscon";
+> +			reg = <0x0 0xff280400 0x0 0x20>;
+> +		};
 
-commit message said show clock name, but %p is for pointer value. Are sure
-it show clock name?
+These QoS node are typically referenced from power domains so that the
+PMU driver know what QoS to save/restore when a power domain is power
+cycled.
 
-Frank
+Vendor kernel only reference the two qos_gpu nodes in it's power domains,
+do you have any documentation or knowledge about what power domain the
+remaining QoS are related to?
 
->
->  	clk_prepare_enable(fsl_ldb->clk);
->
->
-> --
-> 2.48.1
->
+It would have been helpful to include PMU support to help understand the
+QoS <-> PD relationship, on their own they do not tell us that much :-)
+
+Regards,
+Jonas
+
+> +
+>  		cru: clock-controller@ff4a0000 {
+>  			compatible = "rockchip,rk3528-cru";
+>  			reg = <0x0 0xff4a0000 0x0 0x30000>;
+
 
