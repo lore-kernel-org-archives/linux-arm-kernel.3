@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8871BC28B24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A909C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:35:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fw65trX6XvxC2qVeASvsm19lok1nRhBNIXA5fJyExAU=; b=GpsvpCAJ3IxIMgaUn4VzAfELC1
-	pyHLup4hngPrhhmCEy9n9+TaGuJHHuMmMCCF9CJkYpaIRQcFo0WXKvVxuohAkc7em/uzCp/MkuDOK
-	Yu6GSafiDvlZ7+gmgJkGDKCdqd6UdBj6gJxQVeBMcD48wXAjsR3EtTHQ34DgxI2vC9bBPvY4eZ5D4
-	47kIZDD8Iptobj8fpZBjWBo3F1y3OXfoDrh5gOYeLjLk2dpwYmgHfiWKsbYCUKL2IIqqncWuUyBxC
-	7VTe3q+Ci63o5NNKlh9gw8S7oQSI/blKTvgr7sF1nXcnPcNCDTR9bUdpsANV88G6hDBI8XI5ybSTg
-	Wjppba0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CVNkowULM39sQD4iRepTtrOJX4rosnaiKw0o5ScIYJs=; b=4bbFtYoH0nfOnQy8NoZDc1y1UT
+	rtpvGWMX5Buld8EbyCseU2Le7zD8PLBnmJRL0n18WHZS1nH4d9Zih4hG0+esWDBC1wv1njkoSijps
+	4MDeeVXXP2OwpieuXTXt9FCeOZY69heZylqVYHwHUj9YbBXh7WN1KWi1y4xLlgNkC1ak2Lu3d+OHq
+	Dwt92C39ZegSuk26/tWDG/58ByyKZA/8cb5XF+gqSfUXSWfXlJzlK2LMroEyUOQsZ1P3vFw8wbJSA
+	2U5QU5Uwp5tfiQbsxzhULOqBYjIj12Am/oqr+DqFtPSxRYeoFdGaOKaBj+Bpev5r+7zNhZ/W/99sA
+	1a32iz5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqF6e-0000000BhYv-1LlE;
-	Thu, 06 Mar 2025 17:34:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqF81-0000000Bi2I-2HPZ;
+	Thu, 06 Mar 2025 17:35:25 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqE4e-0000000BTwO-2ftX
+	id 1tqF1g-0000000Bgot-01px
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 16:27:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4F1A35C58AE;
-	Thu,  6 Mar 2025 16:25:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F2AA6C4CEE8;
-	Thu,  6 Mar 2025 16:27:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741278471;
-	bh=6CMCRwOUYh67tKcbM/XuwZFGUiXaz18QVK9UO2VRh/Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=o8/rVKxc+BgfIZHssN+untqD7OxtqqKGGYp4111h7EbNrivuEv3U2w9Mh7oJQvVgA
-	 DKc3rDfXmRbLNPALNTjG568jXUYItcNWszXtsRGuMN24TsDMkZand/Rr+duoTls1ov
-	 dBTvq7xsab29aDihh5RVA6HYbMgPAu9l8Hyvpq1g+iDQNbS8pfpErO9PwAakpw0xg/
-	 Ahiv6QmtRPuYAPD+XYTSyf2e6wHrjMce3Wg6oRsLL9VNONpdKh+bYjLSWnXUJj2Bwq
-	 53l5J80twC6Gpd5umt+wmer864ybaHC+ictKumNbw0Qth9cDBaG/yiSgSxBPrg/uwC
-	 ViGMChagTidDQ==
-Date: Thu, 6 Mar 2025 16:27:46 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Dong Aisheng <aisheng.dong@nxp.com>, Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:FREESCALE IMX LPI2C DRIVER" <linux-i2c@vger.kernel.org>,
-	"open list:FREESCALE IMX LPI2C DRIVER" <imx@lists.linux.dev>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/1] dt-bindings: i2c: imx-lpi2c: add i.MX94 LPI2C
-Message-ID: <20250306-backstab-chewing-89e93ccba5d7@spud>
-References: <20250306155815.110514-1-Frank.Li@nxp.com>
+	Thu, 06 Mar 2025 17:28:54 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id E3354441C8;
+	Thu,  6 Mar 2025 17:28:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741282130;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CVNkowULM39sQD4iRepTtrOJX4rosnaiKw0o5ScIYJs=;
+	b=R6oGqZEaXrsGs4X8sof/7YPNpgtIh/xjgsE0XvAmr5kUYc3u8sdhxTscfvpkqkqph5q90v
+	QpADyZ8vzVedw2fmfV6pkwgjuGtOs+Xq4o0kQeWJx3IvBDeAG4km9CNgcUCPlVjLVSgxTl
+	cZwI92sAKlWItgN5iv3W73jL6olmHnbULaee5otrafeGrEf7F0X6ZBMT/Us6TXV4f8d3K2
+	RkiBh7eT7tOeEk/jFk6pNvsJysO/leFxYv4BdrCbaDzoeaDuKnqjd9cZO1+GNOS3EwEXfN
+	GHumXhfB1+V5gDsKYH32NRsTInTtoO2Kp7rVp9sbRt4s91hIx4cohTG/p6osDw==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Date: Thu, 06 Mar 2025 18:28:41 +0100
+Subject: [PATCH 2/2] drm/bridge: fsl-ldb: make warning message more
+ informative
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="FI7Itgj+bcYXrnFK"
-Content-Disposition: inline
-In-Reply-To: <20250306155815.110514-1-Frank.Li@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250306-drm-two-ldb-improvements-v1-2-f139d768b92c@bootlin.com>
+References: <20250306-drm-two-ldb-improvements-v1-0-f139d768b92c@bootlin.com>
+In-Reply-To: <20250306-drm-two-ldb-improvements-v1-0-f139d768b92c@bootlin.com>
+To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdekfeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeeiieeuvdfftefgueduleehueetgffgjeeitedtteetkeeuueeuueekveevvdeuveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtohepjhgvr
+ hhnvghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_082752_716351_20DAD22D 
-X-CRM114-Status: GOOD (  13.73  )
+X-CRM114-CacheID: sfid-20250306_092852_538336_C8CA1599 
+X-CRM114-Status: GOOD (  10.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,52 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This warning notifies a clock was set to an inaccurate value. Modify the
+string to also show the clock name.
 
---FI7Itgj+bcYXrnFK
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+While doing that also rewrap the entire function call.
 
-On Thu, Mar 06, 2025 at 10:58:15AM -0500, Frank Li wrote:
-> Add compatible string "fsl,imx94-lpi2c" for the i.MX94 chip, which is
-> backward compatible with i.MX7ULP. Set it to fall back to
-> "fsl,imx7ulp-lpi2c".
->=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+ drivers/gpu/drm/bridge/fsl-ldb.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+index 0fc8a14fd80062248a43b8b93272101a7ca6158a..c7c899a9644bb827845fb3fe96a9695d79a91474 100644
+--- a/drivers/gpu/drm/bridge/fsl-ldb.c
++++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+@@ -181,9 +181,9 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 
+ 	configured_link_freq = clk_get_rate(fsl_ldb->clk);
+ 	if (configured_link_freq != requested_link_freq)
+-		dev_warn(fsl_ldb->dev, "Configured LDB clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
+-			 configured_link_freq,
+-			 requested_link_freq);
++		dev_warn(fsl_ldb->dev,
++			 "Configured %pC clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
++			 fsl_ldb->clk, configured_link_freq, requested_link_freq);
+ 
+ 	clk_prepare_enable(fsl_ldb->clk);
+ 
 
-> ---
->  Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml | 1 +
->  1 file changed, 1 insertion(+)
->=20
-> diff --git a/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml b/D=
-ocumentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-> index 1dcb9c78de3b5..969030a6f82ab 100644
-> --- a/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-> +++ b/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-> @@ -26,6 +26,7 @@ properties:
->                - fsl,imx8qm-lpi2c
->                - fsl,imx8ulp-lpi2c
->                - fsl,imx93-lpi2c
-> +              - fsl,imx94-lpi2c
->                - fsl,imx95-lpi2c
->            - const: fsl,imx7ulp-lpi2c
-> =20
-> --=20
-> 2.34.1
->=20
+-- 
+2.48.1
 
---FI7Itgj+bcYXrnFK
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8nNAgAKCRB4tDGHoIJi
-0l57AQCqtv96l2iZhR6gqRjBt3zAi8MxJxWpWyM1j5TLuPotSAD9F+lDTHLtWifM
-PYf5w7zIctNlp+bnBCKzUd2Nsh8yFAc=
-=rJKT
------END PGP SIGNATURE-----
-
---FI7Itgj+bcYXrnFK--
 
