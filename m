@@ -4,72 +4,188 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 867B8C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:04:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045ABC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Tf4qn1SMtnbOyldIqSPdGNp5qXPR+vPWw3MQZ0By56Q=; b=InuOejfGu9wyGhZwSjISAMo45x
-	yrOE2Rn024+mVjVDH15KT1Oqh/kSltk86dkcKG0dv207tURYoTGfVRnRZkCyQ+YPC+yJBC5SApg90
-	H4m21oU5p+SlIa4yZN96Wb6LKHJES/hJFRjOz15AmBQnejIZ7tN2kmxCP+vcLJevcm4lK2Z/zokm7
-	m8HsqVX1R+R8rOsFs6LssylKOBggv5j7dyqOCAY5pzM3iiA08LJq1a9+j1OiUO5X2S3wCvkQ7lTDI
-	3njx9vF9r9dIdjPR3XwTLmuHdr77jtZJP2F9Jjiq0B7l/qGKV7Gs5NTwa+SIkHrJsE37SIEpTuShq
-	VUhZDtyw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hy/J3FgWfPLcrfRa08xsgqxGiCT0z0sQ+JQPAAOc4/Q=; b=M9zwiodBMz2+w9OHCvyae83UIP
+	JxveJq7XeTjtz6TuB0UL/0dKnEfxWjBJwgucVPCUn36nfuIiY3FJGQCxJNVa0Qe/zxT3KYDt8R7vC
+	imbmjjRNlVgESBhxgORkvLRgC/pLx/n5AGPUVMydfqhstWrUzGpVsIpUHtBdLpxt9aZbm3T0FBSWD
+	gEEcm15lf1YevaoDpsgiP0WMBb+knrXnD1yDTyj23zQxUVMTYeuaMTrRNRmrS0d0mOLugwJ4mpt7i
+	8jsii8lyveR0Nez+3ozpQjwRrUYOhVZpGR0+MuSa+US+lvtkvpuwL+cULYBg4+xKqWTUCjC8Rww3D
+	QhT4ikNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEdc-0000000BcG6-0AhO;
-	Thu, 06 Mar 2025 17:04:00 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tqEf5-0000000Bcd3-1ZzS;
+	Thu, 06 Mar 2025 17:05:31 +0000
+Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDXu-0000000BNfl-2CQO
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:54:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741276441;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Tf4qn1SMtnbOyldIqSPdGNp5qXPR+vPWw3MQZ0By56Q=;
-	b=VQfdYai7VooQaaAnVcDiMfUucpUyxv4+GR/fsBgiGmcTpc0ooD9x7pbywM300N7WGn7bNO
-	74Jmo7udsDE+7mrM3+DhjgbHT4pRWAoK2GwhjutdJhI0NmfEaA7C5Ab0YVTL5cpAK3mc1E
-	OQt1Iw0brAPKHSeXLOfYmqRSyG3nwUM=
-Received: from mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-605-bIsjJ5o5PyCuZe3Fh1JsTQ-1; Thu,
- 06 Mar 2025 10:52:09 -0500
-X-MC-Unique: bIsjJ5o5PyCuZe3Fh1JsTQ-1
-X-Mimecast-MFC-AGG-ID: bIsjJ5o5PyCuZe3Fh1JsTQ_1741276328
-Received: from mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.40])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 61A691956080;
-	Thu,  6 Mar 2025 15:52:08 +0000 (UTC)
-Received: from [172.64.10.8] (unknown [10.30.34.106])
-	by mx-prod-int-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id DBDD01955DCE;
-	Thu,  6 Mar 2025 15:52:07 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Thu, 06 Mar 2025 15:52:07 -0000
-To: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
- will@kernel.org
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.40
-Message-Id: <11579.125030610520902893@us-mta-605.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: rTkzHFY75IraZI28yhtDUT3yXKBtziPCdH60cXNYL2M_1741276328
-X-Mimecast-Originator: redhat.com
+	id 1tqEWD-0000000BafT-3tvB;
+	Thu, 06 Mar 2025 16:56:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=oLOqS/YdPX6WxCX3zE6SHpXQiqeB+cu6oA1rKlE+BBxsdTlqEt+9BLXnIAg2JlC80m6mtVxz8P7aBobBfacDKr1B4aQ2Vm0i+mPflEPVHo/zEGCltVBsLrdiK58tfNKK1+6DqjuwqhayuWje1MGJ7ec5UCLV93Im7+x/O7oGGkpQwuesQbh6nZgZ9zTywcnQ2adhnZdd1VqazpKaCn4x9YkP7cD6Eh4Fn7ZrCfPOj7XUiqtMo/As7HMxiAwDyO/V6IMV6DtDNz5HfE9WSirK/wKbg2FZ8tbEj43hc42ljyelTwB8LnNNqbsyeLykHMZzkVhxoaVBMAPaBBDUQ4k6tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hy/J3FgWfPLcrfRa08xsgqxGiCT0z0sQ+JQPAAOc4/Q=;
+ b=CldwR0sOp7Dljar9CV87j6TtOBT3UHakJPX6WBTRtc947MmJjm0k5GPEDTXmBBHoseeH2C69XojvIesnZC+8fTNqnJOzkdY2yPauD8WQuSbMaPgptVtCSuJs7n4fj7j+VcQsdOUhBOsKdeAigskMiDY0sfnoYBg0uhjEnRAlqJYVtdYUUkIYE+AKAteYXYDTYlyU3tM0bdgoDf4LD4o0YLPG6XW1awDQPELce3mibN1/4c+nhJcYO4KPrrzQm8hp7yLCi7peoNp3KghT84WHcZfR4ts+0nY4qKL66k/NXLjS8F4w5LSpqyrI1lS2chlKBizS66gUmA1AkiXQwugldw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=wolfvision.net; dmarc=pass action=none
+ header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hy/J3FgWfPLcrfRa08xsgqxGiCT0z0sQ+JQPAAOc4/Q=;
+ b=0sftxhYIrFfb75D+BoFZ1ftN2R3mcZDINnjNVO3IsHWGDpZE7V7uyEImpjMxk0OkYoPVf0knZe4FlMfzY6zwDO3g3tGQxPAPw3CVLvd8WDMAa4uwHMMI+HD1Elh4XgWTcAlj6c0dY7URUOQeJAFnN5bT5/Cm31dBJwZI17hq4WM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=wolfvision.net;
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
+ by GV1PR08MB11001.eurprd08.prod.outlook.com (2603:10a6:150:1f2::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.16; Thu, 6 Mar
+ 2025 16:56:15 +0000
+Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
+ ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
+ 16:56:15 +0000
+From: Michael Riesch <michael.riesch@wolfvision.net>
+Date: Thu, 06 Mar 2025 17:56:05 +0100
+Subject: [PATCH v5 04/11] media: dt-bindings: media: add bindings for
+ rockchip mipi csi host
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250306-v6-8-topic-rk3568-vicap-v5-4-f02152534f3c@wolfvision.net>
+References: <20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net>
+In-Reply-To: <20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net>
+To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ Sebastian Fricke <sebastian.fricke@collabora.com>, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-rockchip@lists.infradead.org, 
+ Michael Riesch <michael.riesch@wolfvision.net>
+X-Mailer: b4 0.13.0
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741280167; l=3933;
+ i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
+ bh=O7q0DghBF8t5TRQzbT427N3gOQpeEIQ++v9y6gnNvtY=;
+ b=OYOscgsCpGT3Yf7q+MkQp1fiVvJ8hO7RG5MbEOFVGJ7XURNyriEn5McgHBY7WZmFmmRTgrr+H
+ mu59mtJW/SlA+medj1OeJSYrtfGu5ha3aV1mGEMgw+2pNEjBrCkQHfp
+X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
+ pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
+X-ClientProxiedBy: VI1PR04CA0133.eurprd04.prod.outlook.com
+ (2603:10a6:803:f0::31) To DU0PR08MB9155.eurprd08.prod.outlook.com
+ (2603:10a6:10:416::5)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|GV1PR08MB11001:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed8e5496-a15e-4102-2b8c-08dd5ccfcea0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YmY5a3FHa3BVODF6NldENEZWcXhhVHpNQVcxUHI3cmlMNFRSaWVoMmJ1ZWE1?=
+ =?utf-8?B?b0V1U2l4MFJEaUM4Vk1ETTFwUVBtNmNNVjNXZTM0dzlhTDNWenN1TUJZQUwr?=
+ =?utf-8?B?ZlVJeFFCUXN6QnZSTXpaMXEvNzVNamMzMlgvWklGcjV1M0pGcmg0U2xiaDg3?=
+ =?utf-8?B?Yy96QjA5d2pEM1ljbm5mMk5oY2hsTzlJTjg0K2d2YmU0ODNxVy8wMzFabHla?=
+ =?utf-8?B?aFBWUGs2VTR3Y3l6WnlRdHJqQ29QMzdxWW9vY2wzOHJRdm9LWjRNVGZMTllm?=
+ =?utf-8?B?aGtGaTNhNHVZakgzclUyYkdsMEszbGRYV3dPenJjZXdTUzlQcllOSUlrOEJk?=
+ =?utf-8?B?Qkg0VURNWUZNT2VoME0vR3ZrQTczS0lyeDZXS1JES1NNS2x4QTJpNnhvR2V4?=
+ =?utf-8?B?V2YwaXJta2x4NVdnMENDWXpFOWRMTDN6Vi9vUjZGMU56VGNJMTA1ZUROUTlW?=
+ =?utf-8?B?R1JyanFxQ0FKRnl5TWllRGhld2ZMOHhCelRaQVBXWDJVMkp6ZzZlTStyNGll?=
+ =?utf-8?B?b1lCMEV2VU9MRjU0aVltVmYrQ01TQjgxaUEwS1IyTzBTeTlZemordVkwUUE1?=
+ =?utf-8?B?bFFtdUlncXJEVzJwVXJJU2VqWitiVndrdFR5SjBVY20yZFN4WEVsTERNWUNG?=
+ =?utf-8?B?V3NiRzVaSWNFcFFpM2lLNGRJcy9QbWZLSmtuQ0hYRjFWY1g5bFlBOUlFeEVa?=
+ =?utf-8?B?dExlY1pxZ1RZYTVyUml2N3BTN1J4WmplTHl2SlZ1V1ZwREdoMTlpZ0U2MGtN?=
+ =?utf-8?B?ZUdiaW90ZlJwN1dKaVlSci8zTmdsdjk3RGI0WkFJOXdmZEwzZ2tnMXl5Y2tN?=
+ =?utf-8?B?Y2FzejhyK2VzblpqK1dtemx3NGpNWXMyWVp4THRrdWhRQytJZGFYL2w5SWdK?=
+ =?utf-8?B?c0w1S25nMUhJMmlIY3hndThNbDR2SVdhbEs4d1ZCNWtRM3MyV3QwZ0FObFJN?=
+ =?utf-8?B?YnllM29uYXFFeGJ5Z0ZiS3ZoSDBmanFnSXlWNGFxRXY3ZGRUSW1rUjVCWjBo?=
+ =?utf-8?B?MzU4azE4MmJINVpZcWkyMmtFTXFqUUwyUDVEM1NFcVNXOEgybUJESm5hR0Ux?=
+ =?utf-8?B?VkNzc3hTd09Lb3MxTjdoaEFlZ1A0YTVuQUVlSXNndE93UG5iTTNtdXpnck1Z?=
+ =?utf-8?B?ZGhVMnN3NXVpWmY3SUQ5VHRhbkE3Nk92WTFIblJCaVJZVUttckczVVNoYmlX?=
+ =?utf-8?B?SUlXOWpaQWRXQ2J2MytXd210MjJtMUxFU01SaTFhVHZvTVkzT0Q4c3Y5WXlD?=
+ =?utf-8?B?M1dCRWhKVTh3UCtLN3hQU3FxZHBWNFd3TUd1b01DRjBhanI2aVdEUURYODU5?=
+ =?utf-8?B?WXlzSW81ZXdPNHIrQTJFeFB0YUUrc0hsR2VoV1FJWng2d0gvU3UxL1U3clFQ?=
+ =?utf-8?B?TVRxM1M5OHJOL1U1dXVrdk51TUNGdXBQZHFld0hDaXpKaU5HMmxxVmY4YTdr?=
+ =?utf-8?B?UlhlK2h3ZGg5TTZjOVh4dzFRNFlnTjArbkdtUll2UHg1RnpqNExMb3d5cENs?=
+ =?utf-8?B?Y0dHUzlnUndKcWs2NVZEOHJJTUZ6VVZoQWlORFUxYk5wV3owckl5MUY1eWhU?=
+ =?utf-8?B?RXJsMER1UkN3TUhjYXN1TCtzU3Y4ZktxMWRIWm9pYTBpSXRxdTFVbHdCMWVO?=
+ =?utf-8?B?cFg0ckNBZEFneG5yL3BQMUUvMmtqSWR6Mys3VEt2TERaVHpsKzh3MFc1dTNx?=
+ =?utf-8?B?azVpQXJHSFlucWZlck52emlsQ0Z0SzUxODh3SkFidVpRakxJUy9YbUF1a0JS?=
+ =?utf-8?B?b0M2L3dVdHBjYW5CVVdqR3d0VnBHVnFxUHdoaE9lQW1CK1dkY1FhZ1JkcHZi?=
+ =?utf-8?B?anprSHBId1JaZjFBcElZM2ZDRFE4aTZ4TnA1TVRyYURQYmZOM3BJZ252SDMy?=
+ =?utf-8?B?M09DR1RjR3MwMXFoek9kc3d0cFF0MFN4ckNzM2daSUYrZHc9PQ==?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dFlpL3BTbzU4WFUxSzVRR1BBYy9mN3Jzai9uWDdIMDBhY3FRR04zRHZFd2FR?=
+ =?utf-8?B?K3AycUZqdkNjZzFjOC83VnRRMVdXZlpmS0owSDQxZWdZbGhoNDBWTldmTkdu?=
+ =?utf-8?B?cWtRd25QbDhKVHdwalZSMUlNNHlucVh1RHptbWNsd0xRSkhKRXVOb2Y0Ryth?=
+ =?utf-8?B?aWErTkIrM0U3ZTRaTXJTaitvV0RTMGJSbzYyNyt6dGRSNUpvWmJERVcvYlFL?=
+ =?utf-8?B?SlEyblp0cUxaSFNFSVFQenFtYTd3YWZuS0IvbU85U3JwYjFLRjA0NUtzK0NP?=
+ =?utf-8?B?bU1LMSsvR2o5czZYbUJJN0drRktkbURxQVlPQVhsY0h3Qm0yM2RRZ1lPK2du?=
+ =?utf-8?B?RzZtaTZJa09KYVRzd1ArYkNoK0l1ckVoeFFPODM0U0pYVWt2ZkpINWVKOW1I?=
+ =?utf-8?B?emFUNE41UytvY1grVG11Z1ZuaDBDREZYbFI1ZkRpRFNib1VxK21WNFdmN3dt?=
+ =?utf-8?B?UGowblJteEtxM29TRW1EbUdSSUgxTy9sVktOQm5lWnQxZnVJV29CWkd2dEJF?=
+ =?utf-8?B?V1BJeUttL3VKRzQrN0JJTDRIcWpRT3ZBV2J4bTY4SXFTemZhNTZoMVZnOHR4?=
+ =?utf-8?B?SzRhOFF0bDVtdmhnclkvdGdTMlZEaVVxY2gyV0NHaUR2QzlZbGgrWDV5dGpB?=
+ =?utf-8?B?VlNBYUhYaUhXMk5zM3BPbzRWNm13Qng4RUdMN2RVV1NiYWR4dzZ3TmxLTUhU?=
+ =?utf-8?B?NndTUUV2N3hiZ01kdVJzNjRXbHpXYnp0ZHlvZlpBYnppQ05pSnhlRkloMmRJ?=
+ =?utf-8?B?SzFTc2MrSlJyblFXMys0cklVOG5rWU9yN1g1VkU2VHc4K3NaK1JhYkxzR0wr?=
+ =?utf-8?B?VWZTSENKOGQvMHdFSVlSTThvR3JxM1hOc0NmcUhBaXBVQ28yN29aUmNLQnAw?=
+ =?utf-8?B?SFdlOFlFaVcxQ2ZtdVFzTnBYSDBEVW8wRjczYU1YZnlmZE05K245QUNreVhj?=
+ =?utf-8?B?YzU2TnY0UzRza0ZRSE9yZEFXUk9ZVmpkMCtkL2psOHhlOVFmVlpwSlVUdWlQ?=
+ =?utf-8?B?czl5T1plRlZPVmFhODlhTkJ1MU9BM21lUGZwakhMdHBKRldlVFlDNWZKTE12?=
+ =?utf-8?B?bWpLbm1YUDhsb0ExcytrNjBOV2haclRwbUtKY1dsRm1HdDdOMkFUbDdTRDZH?=
+ =?utf-8?B?alVET2dhbFRIYVJoalBKZE56QTBJZnUyb1JZZkkrWXlIbG4vUkY0azAwTlE0?=
+ =?utf-8?B?ZUkvMmg3bWc1K1NkMjRZczdIYUpMWkRWbnYvTXFiVktvRnhmRzd3MHNldjRG?=
+ =?utf-8?B?dG1uMFZsUlI3WmVRNUtMd04vclAzM1Q2KzFRdmVuOHZCR0pJa1N0VnFXY2ZQ?=
+ =?utf-8?B?c0t5T09nSEIzaE03TFhVS2ZjNkp0NlVKUlZUVmNjOFk3T2tuTGFYSEZqS3dl?=
+ =?utf-8?B?QnNNQkd5QnVBUU9wVVBidDVkS1NXNE82cTZYYVJtVy80dHJCMisxM01MUUUv?=
+ =?utf-8?B?clNHc3RWWVB6Rm1MVTBYNmlNZkRXU2JabjdLY0c4LzlqdlRtdUJGNUJFOFQ0?=
+ =?utf-8?B?bzFESXByNTRIbnZkRlQveHRiVFZmQ0NMOFh1VmlPY3FGaUFrMTBWK3Q4c1Zp?=
+ =?utf-8?B?eGZBZHRTVUtJOHBCdld3ZnNoNFl1b0dvTHFOckV1UjdRTzRMWExYVVc1SEly?=
+ =?utf-8?B?dVA0dHlML2VENkk3TnVHQTRPVnQ4WG84N2VVSGdMNi9tclRIcG9tT0RMZGVL?=
+ =?utf-8?B?bk94dG1iTnN6Sy9CQTNEVFdOOXpBbDVETjZqQkZXMllhQTQ0OURaVU9PNnpH?=
+ =?utf-8?B?RzZmNTF3bjQvb1RhR01QSENXUkJhMTMrR1MwTjN1dFBpN0VtZjBydkt3OU9E?=
+ =?utf-8?B?NGVrZG1aYVNBeE5pL3JRelYzdXJadWJlNUErMXhuNDY1bysrQ2RFM1o2QStC?=
+ =?utf-8?B?cHY1aDNSendBNExvVitTcTU0NG9va1djZ1RtR3RyTERUWDNiT2IvLzlLSFZs?=
+ =?utf-8?B?UWRnNUxHdys1ZGNVbStLQjNuSitic2NZOWkrV1pBK2VEdmVIMkwyYWU0QS9w?=
+ =?utf-8?B?NUxEQTIybzJwMzk4U2xXelNRWnZCNXZCd2l5UUVFbDVkTGxyTGEwNHJqTFN5?=
+ =?utf-8?B?OFhiMW9pWWV3SjJLQUdjMlIxZUhYQ2JEaEFjWkwybWwyV3IwSWlXK1BpMkIy?=
+ =?utf-8?B?aXoxNVptaGZzUFZxSm1Ca3UwMkxOd3pjTlcxaGhrelZEOHhEWXkxQjJleE9G?=
+ =?utf-8?B?cnc9PQ==?=
+X-OriginatorOrg: wolfvision.net
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed8e5496-a15e-4102-2b8c-08dd5ccfcea0
+X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 16:56:15.2220
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bD0u8J25e3EPPNgrJccvkYnPFrOgeRDNtySmi12PTPFqqPgj5gxm+/0l7+3WXVng24EciNle3VRTLBR8MIovB281M8A6sBDmWjtjhJEPQ+o=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB11001
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_075402_632772_3A60486D 
-X-CRM114-Status: UNSURE (   6.17  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_085621_978305_265D9C09 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +200,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Add documentation for the Rockchip RK3568 MIPI CSI-2 Host unit.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+---
+ .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 114 +++++++++++++++++++++
+ MAINTAINERS                                        |   1 +
+ 2 files changed, 115 insertions(+)
 
-Tested-by: CKI Project <cki-project@redhat.com>
+diff --git a/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+new file mode 100644
+index 000000000000..900f5a32dab9
+--- /dev/null
++++ b/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+@@ -0,0 +1,114 @@
++# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Rockchip RK3568 MIPI CSI-2 Host
++
++maintainers:
++  - Michael Riesch <michael.riesch@wolfvision.net>
++
++description:
++  The Rockchip RK3568 MIPI CSI-2 Host is a CSI-2 bridge with one input port
++  and one output port. It receives the data with the help of an external
++  MIPI PHY (C-PHY or D-PHY) and passes it to the Rockchip RK3568 Video Capture
++  (VICAP) block.
++
++properties:
++  compatible:
++    const: rockchip,rk3568-mipi-csi
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  phys:
++    maxItems: 1
++    description: MIPI C-PHY or D-PHY.
++
++  power-domains:
++    maxItems: 1
++
++  resets:
++    maxItems: 1
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/$defs/port-base
++        unevaluatedProperties: false
++        description: Input port node. Connect to e.g., a MIPI CSI-2 image sensor.
++
++        properties:
++          endpoint:
++            $ref: video-interfaces.yaml#
++            unevaluatedProperties: false
++
++            properties:
++              bus-type:
++                enum: [1, 4]
++
++            required:
++              - bus-type
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: Internal port connected to a RK3568 VICAP port.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - phys
++  - phy-names
++  - ports
++  - power-domains
++  - resets
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/clock/rk3568-cru.h>
++    #include <dt-bindings/power/rk3568-power.h>
++
++    parent {
++        #address-cells = <2>;
++        #size-cells = <2>;
++
++        csi: csi@fdfb0000 {
++            compatible = "rockchip,rk3568-mipi-csi";
++            reg = <0x0 0xfdfb0000 0x0 0x10000>;
++            clocks = <&cru PCLK_CSI2HOST1>;
++            phys = <&csi_dphy>;
++            power-domains = <&power RK3568_PD_VI>;
++            resets = <&cru SRST_P_CSI2HOST1>;
++            status = "disabled";
++
++            ports {
++                #address-cells = <1>;
++                #size-cells = <0>;
++
++                csi_in: port@0 {
++                    reg = <0>;
++                };
++
++                csi_out: port@1 {
++                    reg = <1>;
++
++                    csi_output: endpoint {
++                        remote-endpoint = <&vicap_mipi_input>;
++                    };
++                };
++            };
++        };
++    };
+diff --git a/MAINTAINERS b/MAINTAINERS
+index cd8fa1afe5eb..d83a7762dbe3 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -20407,6 +20407,7 @@ M:	Michael Riesch <michael.riesch@wolfvision.net>
+ L:	linux-media@vger.kernel.org
+ S:	Maintained
+ F:	Documentation/devicetree/bindings/media/rockchip,px30-vip.yaml
++F:	Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.yaml
+ F:	Documentation/devicetree/bindings/media/rockchip,rk3568-vicap.yaml
+ 
+ ROCKCHIP CRYPTO DRIVERS
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1703259619
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1703259619-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+-- 
+2.34.1
 
 
