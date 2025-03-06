@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C268CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:19:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62A7BC28B22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:19:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=; b=vGbxMVJHSGXUIEwltFJSDxq0bR
-	zDAklMWiolKFYcJ348f3kcRdu9ND2NVGmeyvKYinO4DwqWc1O27pTIEXfeTUM28zzz97Dl7XrxvTU
-	y+PQj3MFn+leD2dAeaX905mwvochWJyzkAMNBX4srwZI9nerq+CqM50fWBYbw/4gP7Q8Bm3OxfdOJ
-	wu80xfhtE/W6ydQwEQdqhTUSMqwAltiX5gwJUP8/dyfImhNgTUikrWvSZT8pkuI5Q0xrKKnpuM0uv
-	mmcJKbg7rb3v2Ff9MNpsaNnges896BZah+iPPYwBRPHp6bS5edFYgXaKy09LRl3wuGItLKvT9Ev6s
-	pS1UU6tg==;
+	bh=8hEmsvIcMhwbu7qmMBTCnWlLRUTQP6Sh0jelKQ7eVPQ=; b=X+IiGNmDOCnyuYQecWOqaxqQOt
+	WjqoorD1VhEqTXRxKvXIONvPp7qRCE1gzs9PHYE+VsSzlsfuQivS89kGHOYmaXE9RaCatST31VGrz
+	8/5kjqLGixOj1f8ogmaDrMZbgkfqRpcU1aVZSDjkWA/j3HO+z3f4JPBMT8gdci5Krpukpo6hiXz15
+	/wcYAJE7cyPa7WxTuqf4dkR8SBvQln/Ep3sLh91EAd2lZEUCIqeVYwUQRIfqleLMt4ZElBNebklmI
+	r5imD5j5NpHAfw9wegknowmq+gzPCXsQhLKuTwB0T23Lp+Y4DIQtUuabEbcGXdG0AC0IlNRFCbeNK
+	do/4ayjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8Ja-0000000Ad5O-2Wba;
-	Thu, 06 Mar 2025 10:18:54 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tq8Jb-0000000Ad5l-1Uhg;
+	Thu, 06 Mar 2025 10:18:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq72t-0000000APXu-1YNd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 08:57:35 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=; b=MUaK95loezU2N7j65jjxsS1n1J
-	/KZlwMB2Ra+OhBTJII6kJnMhcb76Gi2ZcJ3Us4vnZ4Y/jbyKjynA1tsGwuBByv7xXB5aJgYblcjDi
-	Hob9qQtLuAXmIhLQNchwxiZPlMj4w74p4dhJFWiiLLmITWdqiAXOXUoSu+xuIWvv6pg2uflATD2VL
-	W57r0qmJX2r+Zmn/kSDdgII719SJJNJWx0jj7n3lMTf3nkvbxixNYQULi2LZgoE7f1YQ1FevKcWt+
-	FR2for/umFdoOZHT3wQWCp2s6KyMjKvc6CgYloAeQt43p/tSZ+7QmCka4c3WSko+jN8mdG1F4/AQ0
-	Bfs3amww==;
-Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq72q-0000000770s-2cmv
+	id 1tq74C-0000000APpY-1bjj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:57:34 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 27221443D1;
-	Thu,  6 Mar 2025 08:57:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741251448;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=;
-	b=aB2pAhX86gJ5Okidw2qqL44L/5oQPxeMT8/W0NaSFXpM4wICQD+xVuyjuP0I8hLLAOHAVT
-	wH9OpIbQtbFkWaXKbxzjWjLiGrlIouHnC+loz/GIPwyQEYgCJXE+9g+vM8/BebvuDf+9Xu
-	yWT/9y3nbhQShoPQHgLd6KIiJdG3233LVuXyToZf+X3NzUWGA1irx00zQFPoYWAVY491GU
-	xSL4L7m2lBinbXXphSxowPEzyYN2JcYiDs0CJf1pk6meg0Q311TwMlylExRJL6SM29ewzQ
-	P8HKGCJMe+qTtGud89KRbhi/0iDQyLHgJNZ2/jxmHmlg7ysZDt7OdRs+EMG/OQ==
-Date: Thu, 6 Mar 2025 09:57:26 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Russell King
- <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v4 02/13] net: phy: Use an internal, searchable
- storage for the linkmodes
-Message-ID: <20250306095726.04125e5f@fedora.home>
-In-Reply-To: <738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
-	<20250303090321.805785-3-maxime.chevallier@bootlin.com>
-	<738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 06 Mar 2025 08:58:57 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43935d1321aso314785e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:58:56 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741251535; x=1741856335; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8hEmsvIcMhwbu7qmMBTCnWlLRUTQP6Sh0jelKQ7eVPQ=;
+        b=ts/CnSRJKSFFOsNJO464xcpvJZprYJKL1hq5UI8mKfLHXMrARIp9i9MpthRssqhnzY
+         raWkqt4jy2AZzXvLSLKavlaCBhnlWaG280+i/WzSkTKP7Izf1Vc0ZZ7YIS37ukXecMUa
+         zndCcAFNoX58W9Z/9KaorFslA4zvpS0cuG5uaSjYz5mncapNS3JAhUuFlqyrRRBDOKrr
+         tK3FiCO5G8sUSxCmNWU6IlZ8BB7oCjuj/5InFf0nD7oLAiebslNpiudcSlKFR5SYtn8C
+         xGDZCcYxRkrv8u9aAjfEcJVcbk28KgLqYjPaVDq0PzYdyJayXLQMnyQOjX4EzmqHsWJp
+         oD5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741251535; x=1741856335;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8hEmsvIcMhwbu7qmMBTCnWlLRUTQP6Sh0jelKQ7eVPQ=;
+        b=JZUkcxXPaRPbM+koTzN77/F1crIV1RUFGNaJ/mZ2Ykh6EWy/SvgTZtu5ueXX02D1NQ
+         mp69SyAQdih8xm1oNHzSJW/Ce83N0VWVvSGSYMcl+j2bALz3thpYT3Wk4TnmY2p9sLpM
+         LC0owCuQ/6RpXak7Y8DhY0YxVXLoOP2xVI/zGiuN8OK4lzJXH9DrSUhGLoklOtsAwa5J
+         V+Qsg0x8MBQVuTJYKDZ6QCgpNBoLGD0krY3twrjUydazQEgCGOnbxiXL78awZVljTzW2
+         MxyK+E/F+vb+89MZCkmNiRygQexNbHv/qrhMND/fMifcsJAuWINYDr7Zh2hI4ASt6PJo
+         p4yw==
+X-Forwarded-Encrypted: i=1; AJvYcCVJsmpaqhBP7imv7cVvDQXGTN0HZwaLDI+Vm+pTgSdhk6TMy4Rw6L60SIAE10P9UWRcJjaLEVQlU11ylsOOYMi0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuN6iqNld718okLYtfaC7CdEFG1VJeUhkEtRdF5n7+tUUFX5tt
+	ev6TUVDd4Y5mRw5+UbaAfISMsuXUQJvJWZT9im9fnOGoxwiR68eEibwfbFpP0lw=
+X-Gm-Gg: ASbGncuh2AUzphJze+ssT+/ohg6ig73N9YMLwAgQayV/Wz5yBHr6ROTFgbQYSulhtOF
+	OIOF8X7Bmj0NT570j49LUqRrX45CO9pbDp+iJ4Q1qJwT3GXFqYD2X1SCuaSehhkZCGi4A2xqkdb
+	FA9zePsUSUZr9bykuUjdO4RoHWsOLs6j93YNQ88psCWgEPvN+DpbPnhOzgWNCG3BS06RP5ut8ao
+	xu3+TleOPu0TpaQo6T/gCw5jUiFYbj+ILJZjYixPhoXkDHnBlwHgSn2GraDu0SbApEgA3Te0pZq
+	Hd7A8sgo96mubsALmqRVNLU3soYf5IH/PWXvKh3FgnmZ9o3YQ8VYWAfS5EU=
+X-Google-Smtp-Source: AGHT+IHIwsYxtasUsH7F1cqK4+j6EXhOQvlZn/zl/WS+mfi7XrhQaNW7pJTzxIk7YBr7G3/zWRlTbA==
+X-Received: by 2002:a05:600c:b8e:b0:439:90f5:3919 with SMTP id 5b1f17b1804b1-43bd29b66eamr20092285e9.4.1741251535085;
+        Thu, 06 Mar 2025 00:58:55 -0800 (PST)
+Received: from krzk-bin.. ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bdd8b046dsm13184405e9.5.2025.03.06.00.58.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 00:58:54 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH 2/2] dt-bindings: memory-controllers: qcom,ebi2: Enforce child props
+Date: Thu,  6 Mar 2025 09:58:49 +0100
+Message-ID: <20250306085849.32852-2-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250306085849.32852-1-krzysztof.kozlowski@linaro.org>
+References: <20250306085849.32852-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepk
- hhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_085732_696954_2FAAC760 
-X-CRM114-Status: GOOD (  13.34  )
+X-CRM114-CacheID: sfid-20250306_005856_420883_DDF94614 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,80 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Paolo,
+Qualcomm EBI2 peripheral properties were moved from the device schema to
+separate "peripheral-props" schema for child node, but the device schema
+does not reference the new one.
 
-On Thu, 6 Mar 2025 09:30:11 +0100
-Paolo Abeni <pabeni@redhat.com> wrote:
+Reference the peripheral-props schema so the child nodes will be
+properly validated from the device schema.
 
-> On 3/3/25 10:03 AM, Maxime Chevallier wrote:
-> [...]
-> > +static int speed_duplex_to_capa(int speed, unsigned int duplex)
-> > +{
-> > +	if (duplex == DUPLEX_UNKNOWN ||
-> > +	    (speed > SPEED_1000 && duplex != DUPLEX_FULL))
-> > +		return -EINVAL;
-> > +
-> > +	switch (speed) {
-> > +	case SPEED_10: return duplex == DUPLEX_FULL ?
-> > +			      LINK_CAPA_10FD : LINK_CAPA_10HD;
-> > +	case SPEED_100: return duplex == DUPLEX_FULL ?
-> > +			       LINK_CAPA_100FD : LINK_CAPA_100HD;
-> > +	case SPEED_1000: return duplex == DUPLEX_FULL ?
-> > +				LINK_CAPA_1000FD : LINK_CAPA_1000HD;
-> > +	case SPEED_2500: return LINK_CAPA_2500FD;
-> > +	case SPEED_5000: return LINK_CAPA_5000FD;
-> > +	case SPEED_10000: return LINK_CAPA_10000FD;
-> > +	case SPEED_20000: return LINK_CAPA_20000FD;
-> > +	case SPEED_25000: return LINK_CAPA_25000FD;
-> > +	case SPEED_40000: return LINK_CAPA_40000FD;
-> > +	case SPEED_50000: return LINK_CAPA_50000FD;
-> > +	case SPEED_56000: return LINK_CAPA_56000FD;
-> > +	case SPEED_100000: return LINK_CAPA_100000FD;
-> > +	case SPEED_200000: return LINK_CAPA_200000FD;
-> > +	case SPEED_400000: return LINK_CAPA_400000FD;
-> > +	case SPEED_800000: return LINK_CAPA_800000FD;
-> > +	}
-> > +  
-> 
-> What about adding some code here to help future patch updating LINK_CAPA
-> definition as needed?
-> 
-> Something alike:
-> 
-> 	pr_err_once("Unknown speed %d, please update LINK_CAPS\n", speed);
-> 
-> 
-> > +	return -EINVAL;
-> > +}
-> > +
-> > +/**
-> > + * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
-> > + */
-> > +void phy_caps_init(void)
-> > +{
-> > +	const struct link_mode_info *linkmode;
-> > +	int i, capa;
-> > +
-> > +	/* Fill the caps array from net/ethtool/common.c */
-> > +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-> > +		linkmode = &link_mode_params[i];
-> > +		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
-> > +
-> > +		if (capa < 0)
-> > +			continue;  
-> 
-> Or even error-out here.
+Fixes: 06652f348f28 ("dt-bindings: memory-controllers: qcom,ebi2: Split out child node properties")
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Good point yes indeed. Russell raised the point for the need of keeping
-this in sync with new SPEED_XXX definitions, I'll add a check that
-errors out.
+---
 
-I hope that's OK though, as higher speeds are introduced and used by
-NICs that usually don't use phylib at all, so there's a good chance
-that the developper introducing the new speed won't have CONFIG_PHYLIB
-enabled.
+Fix for Rob's tree.
+---
+ .../devicetree/bindings/memory-controllers/qcom,ebi2.yaml        | 1 +
+ 1 file changed, 1 insertion(+)
 
-Is that still good ?
+diff --git a/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml b/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
+index 3e6da1ba460e..423d7a75134f 100644
+--- a/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
++++ b/Documentation/devicetree/bindings/memory-controllers/qcom,ebi2.yaml
+@@ -104,6 +104,7 @@ required:
+ patternProperties:
+   "^.*@[0-5],[0-9a-f]+$":
+     type: object
++    $ref: mc-peripheral-props.yaml#
+     additionalProperties: true
+ 
+ additionalProperties: false
+-- 
+2.43.0
 
-Maxime
 
