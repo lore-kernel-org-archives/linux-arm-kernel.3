@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96326C28B22
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 09:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9562BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 09:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:
-	References:In-Reply-To:Subject:To:From:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Owner;
-	bh=4X+FnHVpWzWW4W0hGDVyaY0sBAjRDXZg/ShUEe46pbo=; b=xLvzt2+L4nSNMA0xrndT/AtPHl
-	rP+RJ7wUJzhT6J2kS9i8GwxLtzFSmzoxzDtdIcojdxO1ZKuh/Z/SYslN9XLBSoHu6oRuRTvJ8Qs8b
-	AKN4VR3bHkWkeFjmWtKb6IGrNq6Rl2D+jWLaxVBLpwPcIqarb6zHrarAYo790EVbZUwSJ2LkWSXIt
-	GrhocVa2oSuQHwYHy+uSMvaba89mn4SjNJy01LjDjRXE+JyaO7j1pLkCDc1uWZ39KL7XB3QIkxRUI
-	+bXjqSK7aergTLgMf3Zy6WWgukdPQkSNCawSURuOtwwaTwi823KvCMMxfBK8kZmYDi1KqJfNs/mcn
-	FOh5SwHg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KwHlnuCBqUA7sQzCxY3p0CeockktIaP0NYOfOxBqENo=; b=UOCLlnyLgXFd5IPNvn9Yj9aYIW
+	HKdLkCmRyaP0KzLhESsWbrag+orDHLzvGAespur771+RmZW72F0uNRbbegyuhE+Qaue57fPr3MahZ
+	uhS/FKyyasH3CJFXxKuQCPpsFososI76FRcpyJqlmdFPm1PL+jVFHN9PnAEBaVs0adlednv0ILFv6
+	JBIZ93jNKzoUkrQex6YailLpYamSNNK7NgOXrXVbVeGfOm7liEjOQ4qAqEmrogboL92dTzJAgvTjz
+	HHrcDi2C0StS69ROSdVxZJ3AiAXVznn694E7n8dt+KMs7u8R9rprcmCW0QVJ0c3WDoFz50lWYfmXF
+	xiwGwSrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7qX-0000000AXPI-451c;
-	Thu, 06 Mar 2025 09:48:54 +0000
-Received: from relay6-d.mail.gandi.net ([217.70.183.198])
+	id 1tq7qb-0000000AXRY-0u5q;
+	Thu, 06 Mar 2025 09:48:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6go-0000000ALw1-37Sy;
-	Thu, 06 Mar 2025 08:34:47 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 435F744267;
-	Thu,  6 Mar 2025 08:34:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741250083;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=4X+FnHVpWzWW4W0hGDVyaY0sBAjRDXZg/ShUEe46pbo=;
-	b=mF8P6ZyAPX08OLt4l16Kpo2v7XG2grorpNpUUF2ND52CndXRHfjFV0oy/0WjBehTD5VZE7
-	f+mraZVyAQQPAt4SFEev/YX24UWI4LhjvB3GTRNaQ4YNrbhNUIVGK3QsMawpwpYOW9obEh
-	RsMG6stsKk68DAv6eZY+InvMQF3LSz7/wKKtC+ZkE41HylBQNUuEYyUYSSnscCKfXdnNsV
-	DWqFrp872aRrtLF8IuGFzj8oqNxq61u+Kl1ye0+RDclKmW4kGejtdp8d/4RwrLRPeiOhiS
-	DLrtSBWgq6iM6miU7AmQNzvXBkHjT5nT88HacGvinpbJAQMAPOlu57ikZO4d+A==
-From: Miquel Raynal <miquel.raynal@bootlin.com>
-To: <Manikandan.M@microchip.com>
-Subject: Re: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM
- framework to read MAC Address
-In-Reply-To: <6fee6e71-106f-474b-9a0c-5df5fb0caa00@microchip.com> (Manikandan
-	M.'s message of "Thu, 6 Mar 2025 07:09:44 +0000")
-References: <20250305100134.1171124-1-manikandan.m@microchip.com>
-	<D889CRJC6W19.2LDQCDVG7BLNG@kernel.org>
-	<6fee6e71-106f-474b-9a0c-5df5fb0caa00@microchip.com>
-User-Agent: mu4e 1.12.7; emacs 29.4
-Date: Thu, 06 Mar 2025 09:34:41 +0100
-Message-ID: <87eczawo9q.fsf@bootlin.com>
+	id 1tq6ml-0000000AMoV-1757;
+	Thu, 06 Mar 2025 08:40:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BDF45A43CFD;
+	Thu,  6 Mar 2025 08:35:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0D622C4CEE0;
+	Thu,  6 Mar 2025 08:40:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741250454;
+	bh=HwImz1GMX2O9S3KEUJEyqhf1220r8G2ZhwB4rv3Pob8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=AazKnQU3lpC/mR19m3RChMYXqnp60ihyTBG2Nk16YTshw439YbLi3UHc0ohM67o44
+	 zorrj1vzxP80o3/BFJHS+1NUtAmzFFGo8lawnA1mhSYYLmDZ2KiwEPDZgCXZyDraIT
+	 8THZR42XJinbfZJuUS8K4K03q2XrhXVToJ5CTkSyAReMzmj1ZrIy8Hz0Y+y4Yj4i3O
+	 GdCVUsMW1VDXYZfrAbxc2Je1H9ya97y13KBzSpkagKRML7KdXEabFX7cygCfUXUMLD
+	 gLthe4MlABJWL2NjDRAC5iQ4SqMaA8rIHj3Z4fZTTkd6WoDRI2OcRjOykULzHjNEeK
+	 ex4UUiP3Xd0OQ==
+Date: Thu, 6 Mar 2025 09:40:49 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Shresth Prasad <shresthprasad7@gmail.com>, 
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, Detlev Casanova <detlev.casanova@collabora.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 4/8] dt-bindings: clock: Add GRF clock definition for
+ RK3528
+Message-ID: <20250306-imaginary-fox-of-hurricane-aa1fa9@krzk-bin>
+References: <20250305194217.47052-1-ziyao@disroot.org>
+ <20250305194217.47052-5-ziyao@disroot.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-X-GND-State: clean
-X-GND-Score: 0
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejvdejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecunecujfgurhephffvvefujghffgffkfggtgfgsehtqhertddtreejnecuhfhrohhmpefoihhquhgvlhcutfgrhihnrghluceomhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepffeghfejtdefieeguddukedujeektdeihfelleeuieeuveehkedvleduheeivdefnecukfhppeeltddrkeelrdduieefrdduvdejnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepledtrdekledrudeifedruddvjedphhgvlhhopehlohgtrghlhhhoshhtpdhmrghilhhfrhhomhepmhhiqhhuvghlrdhrrgihnhgrlhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudejpdhrtghpthhtohepofgrnhhikhgrnhgurghnrdfosehmihgtrhhotghhihhprdgtohhmpdhrtghpthhtohepmhifrghllhgvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopefpihgtohhlrghsrdfhvghrrhgvsehmihgtrhhotghhihhprdgto
- hhmpdhrtghpthhtoheprghlvgigrghnughrvgdrsggvlhhlohhnihessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtlhgruhguihhurdgsvgiinhgvrgesthhugihonhdruggvvh
-X-GND-Sasl: miquel.raynal@bootlin.com
+Content-Disposition: inline
+In-Reply-To: <20250305194217.47052-5-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_003446_911920_4A4087F4 
-X-CRM114-Status: UNSURE (   8.94  )
+X-CRM114-CacheID: sfid-20250306_004055_367395_C9ED3EBA 
+X-CRM114-Status: UNSURE (   9.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,44 +76,21 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: robh@kernel.org, conor+dt@kernel.org, mwalle@kernel.org, vigneshr@ti.com, devicetree@vger.kernel.org, richard@nod.at, linux-kernel@vger.kernel.org, alexandre.belloni@bootlin.com, tudor.ambarus@linaro.org, linux-mtd@lists.infradead.org, linux-arm-kernel@lists.infradead.org, claudiu.beznea@tuxon.dev, Varshini.Rajendran@microchip.com, krzk+dt@kernel.org, pratyush@kernel.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 05, 2025 at 07:42:13PM +0000, Yao Zi wrote:
+> These clocks are for SD/SDIO tuning purpose and come with registers
+> in GRF syscon.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  include/dt-bindings/clock/rockchip,rk3528-cru.h | 6 ++++++
+>  1 file changed, 6 insertions(+)
 
->>> +static int sst26vf_nor_post_sfdp(struct spi_nor *nor)
->>> +{
->>> +     struct nvmem_device *nvmem;
->>> +
->>> +     sst26vf_sfdp_nvmem_config.dev =3D nor->dev;
->>> +     sst26vf_sfdp_nvmem_config.size =3D nor->sfdp->num_dwords * sizeof=
-(*nor->sfdp->dwords);
->>> +     sst26vf_sfdp_nvmem_config.priv =3D nor;
->>> +     sst26vf_sfdp_nvmem_config.reg_read =3D sst26vf_sfdp_mac_addr_read;
->>> +
->>> +     nvmem =3D devm_nvmem_register(nor->dev, &sst26vf_sfdp_nvmem_confi=
-g);
->>> +     if (IS_ERR(nvmem)) {
->>> +             dev_err(nor->dev, "failed to register NVMEM device: %ld\n=
-", PTR_ERR(nvmem));
->>> +             return PTR_ERR(nvmem);
->>=20
->> I don't think it makes sense to have this one-off in a particular
->> driver. If at all, this should be handled in the core. Sorry, but
->> this really looks like an ugly hack.
->>=20
->
-> Because the EUI identifier within the SFDP is unique to the=20
-> SST26VF064BEUI flash, I opted to handle it here rather than in the core.
->
-> Also here the MAC address data resides within the 0x260-0x26F range, I=20
-> will resize the nvmem_config.size to 0x10 instead of registering the=20
-> full SFDP region as NVMEM.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Open question to all parties in this thread: how do we give an offset in
-the device tree that is relative to the sfdp region and not the data
-region? I believe we care not to mix these areas while describing.
+Best regards,
+Krzysztof
 
-Thanks,
-Miqu=C3=A8l
 
