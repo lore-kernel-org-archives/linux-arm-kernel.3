@@ -4,74 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F97FC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:30:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAFEC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:32:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mLaGdp8YbDuKJDS27qr7DpF30lE39Y2UTMae3idzC+k=; b=Iqxr7XFprDVfVrlSOwn8RS2gkp
-	/ATotv57kHEU+db2o9fZlwJ0CAcvBlOo/W85TrGc6V0dgPwRP34vzNLoWfyWSXIRfAXjdLGUGVkLK
-	0xAF6ZfeCr2RSvHXp4fQErAtmtav7aHRKt/PfZvBekin16bEHNb7ib4x775GwsFXgEIOikIwlOETY
-	MRMrMmxjTqlHIJMZ9asLpFLtkpT3a71U9HzqI54KHb5SNMLYuaUjJG5Jv6jNbCOMnR2Rd3+XqwzpM
-	jOuT5Wu9IjBsbPdT7xo3uhmBwz/Hs8St41lQ+IvDguJ8c4hunykeZRx8RZQlOKQeM6zJzblhuQQLU
-	b40gQVWA==;
+	bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=; b=IuwblEPxiFF5ZThhKgRd1PnEqm
+	PmETprczgp+0GTKgRNwwuJRUlVbz2mpCBAEZYaGNiNmgiTArFmDVF7R+0+i0AwNZki4Nzee5B27Jq
+	Zy2EWp1jgu+jTPbHU37aEjHo55Pn5mpfRTURuOkUHddFS+Deuk3u+pVpB0LrhMmE7PthcP98dHjlr
+	z+5x890Ih+LCrcz20h3MeW08ivpHYxW50AJPlV3SxMy+aQ7zbcV6AhNXedQonmqFXO4ZHmMxbvvXw
+	0Et+x6fDDtU4o5iK7IIc1evRDbGLw20lWpSlhjdV9P6sDydcMelvzehd4e3/yZkxoIzZpFSunL5Kf
+	E6umg5Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6cr-0000000ALOW-3yTh;
-	Thu, 06 Mar 2025 08:30:42 +0000
-Received: from relay4-d.mail.gandi.net ([217.70.183.196])
+	id 1tq6eR-0000000ALaA-3Se5;
+	Thu, 06 Mar 2025 08:32:19 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6bG-0000000ALDu-15jV
+	id 1tq6cX-0000000ALL2-2ivO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:29:03 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 284A044537;
-	Thu,  6 Mar 2025 08:28:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741249739;
+	Thu, 06 Mar 2025 08:30:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741249819;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=mLaGdp8YbDuKJDS27qr7DpF30lE39Y2UTMae3idzC+k=;
-	b=QgCkjePBKvLNC63g9kZ5aWfuy70/ftJqqY7atcr7qEA2lv4rKFNJbjUByT/KLZptwsScbU
-	J5AyCoEa/nSAgpbu/XxmJUJHKkWE7Vw2rVX0mePVVfDOQAeuiYobvqs4VOTW7EZTymPpz/
-	G5DuKRw0kKlJ+qPr0Z+Ak9DJnK10JT3czoUGqBPjaaXBMHsqMDlI45haZ9yFLdaMYGWhn/
-	h8iLuwQgVulxGTUGO8GBJohSvnddf+Mns//HDwvFzh6XlvO8v8BUlamYtpAMt3MxYX03eR
-	BG5NcsU0pjcG2pUVpfI5IuVW9JQlL0+mhJNT+5zBegg6g1JMw462WDdstbAXAA==
-Date: Thu, 6 Mar 2025 09:28:57 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Jon Hunter <jonathanh@nvidia.com>, Thierry Reding <treding@nvidia.com>,
- "Lad,  Prabhakar" <prabhakar.csengg@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew@lunn.ch>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Heiner Kallweit <hkallweit1@gmail.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>
-Subject: Re: [PATCH net-next 1/2] net: phylink: add functions to
- block/unblock rx clock stop
-Message-ID: <20250306092857.5cafd6d4@fedora.home>
-In-Reply-To: <E1tpt2t-005UNB-MC@rmk-PC.armlinux.org.uk>
-References: <Z8iRM8Q9Sb-y3fR_@shell.armlinux.org.uk>
-	<E1tpt2t-005UNB-MC@rmk-PC.armlinux.org.uk>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=;
+	b=GWwWf5aYRdIsYz2HF9fmKDMB5Q7Q0jCrlRV/+2BUJwj72GUfnkDc/IDBosUEfkwLoF23Fm
+	EvC/DqTOCLO2J0Rtrdh2LIf3ycVeCBPaTIajq4yP0GDWAVGrrMDR+hjc1E4T8L1htUMn4Q
+	PUoh79ab15yzYwhRt828HU1YMafLTD8=
+Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
+ [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-665-YfE6WlxyMnSd3kypQLKpIw-1; Thu, 06 Mar 2025 03:30:15 -0500
+X-MC-Unique: YfE6WlxyMnSd3kypQLKpIw-1
+X-Mimecast-MFC-AGG-ID: YfE6WlxyMnSd3kypQLKpIw_1741249814
+Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43bc97e6360so1489785e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:30:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741249814; x=1741854614;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=;
+        b=wT1JLfu71u8Fa//lo3fKfV9wF7L1heWPawOjWV8Xtl4rZqu01ZPZaZM9/Zoc6vCchS
+         kdu6CtkeHJnlpar9zR3MEodbTVFybWKTra9Ep3hqP7IqtzoFikhIJnJiyF82OC7UTdPf
+         ABozCWzCnrPqfcIaIj4GUABlRQ67nSFktIIESmcOPY6rt9eINZ3chCT6JS0VVEVZsyea
+         ekS16pK0EXI+QoT7cH5+1uqAJL7D9q1S0D1vYqfRH1Wedn/dk7zC3SfTzf0BR1kUUfl7
+         uT5pBjh6+vI9tL95oeppOJ1USpHR9HiXH5f5+AzSrq9ALkXJQf21KMirrSjJPKiemOHE
+         GRzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCViDrcD5mAZT3t4UXJ7oIq3amMNORScX0X1SDHLC7tXWTS/dO+9MUgPmkDN/LSK/JdU3+1u5YAlsVtNAEOOnEu7@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3GOhMMnG6UVkX0ghzMiq7hByA+ALOJYAcbMrMVHtSHfwv6UfE
+	g1Y8hrTh/PnakuP/5D9fj5LyLf7dOX1hzRd8wAQojeWoVfrgWRSvgv8L40pzGduLIVkYnAmTJtq
+	MgNaigXUNEM6fsCB8/rMG+SEpmLoVLtDPoFapeO/9laxH6Yd+aBwPK79dNlFkurM8Cv5JcdSa
+X-Gm-Gg: ASbGncvSY564skj7haNmrwqSXN6zQz6RFcqgfE5bkBBFZxDk6L1XVNEFjSDoOVi22Pd
+	ARXmvMOyVMDt9k/gpbUi2bYknnyqr2Fvpn3ffKSxa584ZyOH/7YQMHLeCLBbjpIZffy/BN4qf+9
+	iKuIonhpNCkBLtXZzH4WxNBUqhMMswjRiH6XlWyj3ARYnIYgLuXcxyVJjiCNRmzasTs6Mxs7R6J
+	To94XZwHAPgTi+W/S3xZcAakLojJ6lOJFLhxNiekGohp0i2/5F9g4vEd8YrFOTNn+YzLwqlag1W
+	oqdOMaqB6Oc8azwtUVaOVUYYi5/w/4AucSdrK8T0WERmRQ==
+X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr59684405e9.16.1741249813969;
+        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IEeiiS7g9xPdRasKEgZd17TDJ4YiUIINUR88fvo+ijeTmx55HfEiBGbbv43iFagWinu4311xw==
+X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr59683995e9.16.1741249813597;
+        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
+Received: from [192.168.88.253] (146-241-81-153.dyn.eolo.it. [146.241.81.153])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bdd8da097sm12217325e9.17.2025.03.06.00.30.12
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
+Message-ID: <738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
+Date: Thu, 6 Mar 2025 09:30:11 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v4 02/13] net: phy: Use an internal, searchable
+ storage for the linkmodes
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
+ Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Russell King <linux@armlinux.org.uk>,
+ Heiner Kallweit <hkallweit1@gmail.com>
+Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Herve Codina <herve.codina@bootlin.com>,
+ Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>,
+ =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
+ Oleksij Rempel <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>,
+ Romain Gantois <romain.gantois@bootlin.com>
+References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
+ <20250303090321.805785-3-maxime.chevallier@bootlin.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250303090321.805785-3-maxime.chevallier@bootlin.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: iZ4wjZ6ccDvEpvXdrxk8PAro4uIa7BGLPZsv0UrVyN4_1741249814
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejvdeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudeipdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohepjhhonhgrthhhrghnhhesnhhvihguihgrrdgtohhmpdhrtghpthhtohepthhrvgguihhnghesnhhvihgui
- hgrrdgtohhmpdhrtghpthhtohepphhrrggshhgrkhgrrhdrtghsvghnghhgsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghlvgigrghnughrvgdrthhorhhguhgvsehfohhsshdrshhtrdgtohhmpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtoheprghnughrvgifodhnvghtuggvvheslhhunhhnrdgthhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvght
-X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_002902_436545_1718EF19 
-X-CRM114-Status: GOOD (  22.77  )
+X-CRM114-CacheID: sfid-20250306_003021_765277_312B2171 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,101 +121,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Russell,
-
-On Wed, 05 Mar 2025 18:00:39 +0000
-"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
-
-> Some MACs require the PHY receive clock to be running to complete setup
-> actions. This may fail if the PHY has negotiated EEE, the MAC supports
-> receive clock stop, and the link has entered LPI state. Provide a pair
-> of APIs that MAC drivers can use to temporarily block the PHY disabling
-> the receive clock.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-I only have comments on the implementation, see below :)
-
-> ---
->  drivers/net/phy/phylink.c | 50 +++++++++++++++++++++++++++++++++++++++
->  include/linux/phylink.h   |  3 +++
->  2 files changed, 53 insertions(+)
-> 
-> diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-> index a3b186ab3854..8f93b597d019 100644
-> --- a/drivers/net/phy/phylink.c
-> +++ b/drivers/net/phy/phylink.c
-> @@ -88,6 +88,7 @@ struct phylink {
->  	bool mac_enable_tx_lpi;
->  	bool mac_tx_clk_stop;
->  	u32 mac_tx_lpi_timer;
-> +	u8 mac_rx_clk_stop_blocked;
->  
->  	struct sfp_bus *sfp_bus;
->  	bool sfp_may_have_phy;
-> @@ -2592,6 +2593,55 @@ void phylink_stop(struct phylink *pl)
->  }
->  EXPORT_SYMBOL_GPL(phylink_stop);
->  
-> +
-> +void phylink_rx_clk_stop_block(struct phylink *pl)
+On 3/3/25 10:03 AM, Maxime Chevallier wrote:
+[...]
+> +static int speed_duplex_to_capa(int speed, unsigned int duplex)
 > +{
-> +	ASSERT_RTNL();
+> +	if (duplex == DUPLEX_UNKNOWN ||
+> +	    (speed > SPEED_1000 && duplex != DUPLEX_FULL))
+> +		return -EINVAL;
 > +
-> +	if (pl->mac_rx_clk_stop_blocked == U8_MAX) {
-> +		phylink_warn(pl, "%s called too many times - ignoring\n",
-> +			     __func__);
-> +		dump_stack();
-> +		return;
+> +	switch (speed) {
+> +	case SPEED_10: return duplex == DUPLEX_FULL ?
+> +			      LINK_CAPA_10FD : LINK_CAPA_10HD;
+> +	case SPEED_100: return duplex == DUPLEX_FULL ?
+> +			       LINK_CAPA_100FD : LINK_CAPA_100HD;
+> +	case SPEED_1000: return duplex == DUPLEX_FULL ?
+> +				LINK_CAPA_1000FD : LINK_CAPA_1000HD;
+> +	case SPEED_2500: return LINK_CAPA_2500FD;
+> +	case SPEED_5000: return LINK_CAPA_5000FD;
+> +	case SPEED_10000: return LINK_CAPA_10000FD;
+> +	case SPEED_20000: return LINK_CAPA_20000FD;
+> +	case SPEED_25000: return LINK_CAPA_25000FD;
+> +	case SPEED_40000: return LINK_CAPA_40000FD;
+> +	case SPEED_50000: return LINK_CAPA_50000FD;
+> +	case SPEED_56000: return LINK_CAPA_56000FD;
+> +	case SPEED_100000: return LINK_CAPA_100000FD;
+> +	case SPEED_200000: return LINK_CAPA_200000FD;
+> +	case SPEED_400000: return LINK_CAPA_400000FD;
+> +	case SPEED_800000: return LINK_CAPA_800000FD;
 > +	}
 > +
-> +	/* Disable PHY receive clock stop if this is the first time this
-> +	 * function has been called and clock-stop was previously enabled.
-> +	 */
-> +	if (pl->mac_rx_clk_stop_blocked++ == 0 &&
-> +	    pl->mac_supports_eee_ops && pl->phydev)
-> +	    pl->config->eee_rx_clk_stop_enable)
 
-Looks like there's an extra closing ')' here
+What about adding some code here to help future patch updating LINK_CAPA
+definition as needed?
 
-> +		phy_eee_rx_clock_stop(pl->phydev, false);
+Something alike:
+
+	pr_err_once("Unknown speed %d, please update LINK_CAPS\n", speed);
+
+
+> +	return -EINVAL;
 > +}
-
-Do you need an EXPORT_SYMBOL_GPL here as this will be used by MAC
-drivers?
-
 > +
 > +/**
-> + * phylink_rx_clk_stop_unblock() - unblock PHY ability to stop receive clock
-> + * @pl: a pointer to a &struct phylink returned from phylink_create()
-> + *
-> + * All calls to phylink_rx_clk_stop_block() must be balanced with a
-> + * corresponding call to phylink_rx_clk_stop_unblock() to restore the PHYs
-> + * clock stop ability.
+> + * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
 > + */
-> +void phylink_rx_clk_stop_unblock(struct phylink *pl)
+> +void phy_caps_init(void)
 > +{
-> +	ASSERT_RTNL();
+> +	const struct link_mode_info *linkmode;
+> +	int i, capa;
 > +
-> +	if (pl->mac_rx_clk_stop_blocked == 0) {
-> +		phylink_warn(pl, "%s called too many times - ignoring\n",
-> +			     __func__);
-> +		dump_stack();
-> +		return;
-> +	}
+> +	/* Fill the caps array from net/ethtool/common.c */
+> +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
+> +		linkmode = &link_mode_params[i];
+> +		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
 > +
-> +	/* Re-enable PHY receive clock stop if the number of unblocks matches
-> +	 * the number of calls to the block function above.
-> +	 */
-> +	if (--pl->mac_rx_clk_stop_blocked == 0 &&
-> +	    pl->mac_supports_eee_ops && pl->phydev &&
-> +	    pl->config->eee_rx_clk_stop_enable)
-> +		phy_eee_rx_clock_stop(pl->phydev, true);
-> +}
+> +		if (capa < 0)
+> +			continue;
 
-Same for the EXPORT_SYMBOL_GPL
+Or even error-out here.
 
-Thanks,
+/P
 
-Maxime
 
