@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF2EC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:02:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3066C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:03:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=; b=K5P4l8Ic9rtxUyZkl6htUTAtJD
-	tgKqsawa0H0Hb2cMDMr0a4CJMPMJO8XWoAoiackKUT94GuzueDQMBtDT/p8F5ncVlcLRxAb43HyUg
-	tu5gLZwADJh23y5JUoVUDFtaJ9Dwk0UZRYryIqkeDxKfek01/v/LmcNtrrGgwj/GkAR6/RhgRDnHa
-	H21gIK9ARmTWfv8T1w4R37YBCEDNbBsb2iiaKVEdoZNWbkYoUFwlVaRRWFYX8JoQzb+FeegVrhzab
-	2ssvY1pdyQXIDXcXMOve/Wz3Qz/cp4rz7ZkWcd3QuAef33q9aOjcdH5WdGMMM7j6n1DVJA3RoXNgT
-	gtQfhcxQ==;
+	bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=; b=WjW8PvtCyoRQgOqosP9yxoKp8m
+	/G0p0B67aVgdgXUu1EpN1KO5M7ZUTcn153PGK9ZTX2ktKOSL1cZ/DNaVCCngkFMmMd2jl3EZ7tuVC
+	uCxf+7xWf+m6sgR6tLr3Bht+XyZzv7mniclK1JHjFaxvozSh+kS/bl94IqBPbsuz1CDzhC3a8ACpK
+	OAkpklSjfe0zoJtADvx+qSfJSZN2ZTa7epuChTrLjuBtxVJP8z79S5K+XfbnvRytlFvFR9bd4KYRc
+	01lkzvUto4dwip9D2KG3HJXQZVAf8aemXixZkVZAL27pt8y49Nt9GmffDKQ0Lzl+Ch/nTL/zz0KdH
+	BHBdFxxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9vD-0000000ArPO-3MQu;
-	Thu, 06 Mar 2025 12:01:51 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tq9wn-0000000ArWV-1tSc;
+	Thu, 06 Mar 2025 12:03:29 +0000
+Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9R9-0000000Aml7-01C5
+	id 1tq9RA-0000000Amm7-0PVh
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:30:48 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43bc31227ecso3063405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:46 -0800 (PST)
+	Thu, 06 Mar 2025 11:30:49 +0000
+Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43bc38bb6baso3034675e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:47 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741260645; x=1741865445; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1741260646; x=1741865446; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=;
-        b=UXsqVVmtgrl8/JixptbYz3okr0MSHKI54WodyF0u6yUG+y3+NeFpSKJDSmqLvzat8o
-         ieVu4kTsixNGM91khatOFk6jGFErVMCjkpiDnaVHtKDfjNzyWIixeT+9C7OQQ/zm+s5e
-         7IJwqacWSW2Awe2ohKqbDblEGg62oKQOsbexo=
+        bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=;
+        b=i09gSUXEbA8y+ayhBdgKHbkLM6axrBFYeu3qK0pQYFanrfcYfKzmegZP5+ae1SArzV
+         Y3v7ABFoAGs3sFH1lKVfr9mLbzEgf9blSJ2bnSZaGjzEIUMVtp+PLhh0ooLUmJCDAgkN
+         RwL5oPKlwE4LvkAK7ShqJd/jW1lYOydqYc8Mo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741260645; x=1741865445;
+        d=1e100.net; s=20230601; t=1741260646; x=1741865446;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=BHj8xJJDjB/nn7+FV+WNgNcGZHPneQlK/63TZumKERk=;
-        b=AgDPuamVVYjqIaVqnchslmfTbvEdTZtmIPXSp73KTAQDA/bRlq6PKEF/hb1aUT4YYa
-         tj3gqMX/+8+HRP7R5UEf0pHEhXOfPEM5tVuOAORnkEL90XLLNiLzhFQcxB1nWVUffsU9
-         5BQSItItILOEOUK/G2ObIoflPqsbxBXy7nit4PQgDhuKO0QiL7O7yRtFoUmEu5EXMFIC
-         yFkNHe2zLoLslTH8nW5ltFylB7gHo+scFQ0VbvQJhCvOMGcox9xaZrk/QRuVJBVfesQi
-         oISBG9xBpfYT8K+dkMLJxEj+8eJDc9Mzj+0GHN199KkeVXx26klvVzEKthuTQz9LjSef
-         Ncqg==
-X-Forwarded-Encrypted: i=1; AJvYcCV8B81u99XvOvDR5SUFSqUGzD03c5PisKyufD9STPgIZ7nupUqRWPrQe0cU+IAKc5YZnRrO26HjPRD4Qe2KXdG8@lists.infradead.org
-X-Gm-Message-State: AOJu0YygcaXbHoalTZezeM85fGEJPGgbNXob5+QFXFaA9ZTooJ9XxEvJ
-	Nebr4NszA9rfQgE7o65AT6gOQXcIQTSCzg4f220jefYcvJFgAfRh1EFrSAJr44g=
-X-Gm-Gg: ASbGncsTHKTpswp6JsFAyU9t1kEWbrA70z7Sfge/VnTMPUU/Qsj7kfyyL5R91qdTzFe
-	uxs/+MoqsgM3IqdTMMDdLSKZkZQa/PwUPN1IflaKkO0MgTggn+Wh92q8aBKOnhMrSKqSQZeGoaL
-	rPE8X/i9toYduVGSIqPkbXsEosIcI/mpfb2eOz+aV2a9ueaIJfjcb4JDvKg2MGvp4YCX1oMeR6I
-	SSWm5kYkfL9A6qi2Tqc+nN3ufXBaeI+olxoo7Mc04gEUPd6VukgBQQEAsvxTJWNKBrrU+AuoFn5
-	AfVZonh9WIHZ4Z9QW1GLbWzl02ccUfAVvryUMfz4Ku2EZ7lNr8wfJ/cWWQQTj0ChAQkhO6JLaox
-	fC2Ot5Q==
-X-Google-Smtp-Source: AGHT+IEIhom6wfbT8hJyrqgr8W86q8u3iJF7VXHkbhSBY+5SfYi4rIInhmlezzKH/X0h3w//D7kRaQ==
-X-Received: by 2002:a05:600c:2e48:b0:439:98ca:e3a4 with SMTP id 5b1f17b1804b1-43bd29b4cdbmr53979685e9.19.1741260645366;
-        Thu, 06 Mar 2025 03:30:45 -0800 (PST)
+        bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=;
+        b=sK+LE+eoD46RtI6bxkT1fB+pvvmTuWl8zSDAuJ8U+0XM2geLHJVl3J5+UkjGbdF6+8
+         jC1cYvdWd5RuamUYD49OaPsC8d/qd1i4XGUe/j2vwiFhi35Y2pN/eIhGQjkdfgmOlyH6
+         Crb5JtuBDmF6SWPNW+vTR4vpbCXumpmnVnPTTT4/rG3Ygrg9mj052s6ZPZDFfIMv7gvK
+         J5aumEVg+VVP4doH/mc7kxc+qEjFBhJFDYsLwrJuZdElfZs0kbCOOb2GY/klZtYCurY9
+         fHnMV9+kvgK/q0oSXkvrwIeaLU5wbnXRWIsPGKN/F+O2DeRJ/I4JMJodxRBZD1hyX56N
+         tFyg==
+X-Forwarded-Encrypted: i=1; AJvYcCVRpRGm0GXYigPDnvoz3QztT268QIPrcEhmGhGKtl5b+acXC2UtFwljR/LdePe3LjJI7swQeiZ7ca4wn/z355hB@lists.infradead.org
+X-Gm-Message-State: AOJu0YzxPv5ngP+AHC+PRkzsRR3+7hKrBOt7D92HA0bRcnoOEUDgvs1I
+	85oHI6pO0a5foSoVIRhKSvrJmnDkZH0skp44adE3gY5aa6ABL+YDzVDOoGK3CXM=
+X-Gm-Gg: ASbGncvFKFGk4OTN8sdf/l0D1gemmeG/iZ6g+CAg9zU3Zm6CRb8YIJ0QqTsfc26A8p9
+	koNaX4KSVeXkX3ygFjXp5eri6vEPrjwsVOcHsOLbory+n5EoZA44oXWOOKYUrFzTjMDbjCi5l/F
+	sC0tRME8daTvvVfsdipglC1axDRnaac/6q6MlOKkme2Rwv1gLMk5Z5ZqMWPiRrWGSrIQhyYNka1
+	Co3IhcfWuwM7vCaw46ZyVSXuRN08K7ou256Ts3NaO0Cem40LAyKTGTsrs4Ohdyg6GRIlf17Njkq
+	4x1/IJBXrk6caMtuqZDF8eUGEzXl5YOLPwsICISk0SYIp16+NLBKl+mF/5jy/6zChwThveb8JwV
+	QQm4DmQ==
+X-Google-Smtp-Source: AGHT+IH78TpklUwBDK3WnRiDd3pPrpHVptMGkVV2plYHJnbyxlkTLYCF4Q+vemKiKROYa/bzJLhC9A==
+X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr66278975e9.16.1741260646580;
+        Thu, 06 Mar 2025 03:30:46 -0800 (PST)
 Received: from localhost.localdomain ([2001:b07:6474:ebbf:4703:aa8c:6eab:8161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.44
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:30:45 -0800 (PST)
+        Thu, 06 Mar 2025 03:30:46 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Stephen Boyd <sboyd@kernel.org>,
@@ -73,28 +73,25 @@ Cc: Stephen Boyd <sboyd@kernel.org>,
 	Abel Vesa <abelvesa@kernel.org>,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
-	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v10 09/18] arm64: dts: imx8mq: add anatop clocks
-Date: Thu,  6 Mar 2025 12:27:58 +0100
-Message-ID: <20250306112959.242131-10-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v10 10/18] clk: imx: add hw API imx_anatop_get_clk_hw
+Date: Thu,  6 Mar 2025 12:27:59 +0100
+Message-ID: <20250306112959.242131-11-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033047_059509_68E90A1B 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_033048_136137_DC08CE78 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,33 +106,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add clocks to anatop node.
+Get the hw of a clock registered by the anatop module. This function is
+preparatory for future developments.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
 ---
 
-(no changes since v4)
+(no changes since v9)
+
+Changes in v9:
+- Add 'Reviewed-by' tag of Peng Fan
+
+Changes in v7:
+- Add device_node type parameter to imx8m_anatop_get_clk_hw()
+- Rename imx8m_anatop_get_clk_hw() to imx_anatop_get_clk_hw()
+- Drop the gaurding macros so the code can be used also by i.MX9
+
+Changes in v5:
+- Consider CONFIG_CLK_IMX8M{M,N,P,Q}_MODULE to fix compilation errors
 
 Changes in v4:
 - New
 
- arch/arm64/boot/dts/freescale/imx8mq.dtsi | 2 ++
- 1 file changed, 2 insertions(+)
+ drivers/clk/imx/clk.c | 15 +++++++++++++++
+ drivers/clk/imx/clk.h |  2 ++
+ 2 files changed, 17 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mq.dtsi b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-index d51de8d899b2..1d1424a136f0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mq.dtsi
-@@ -817,6 +817,8 @@ anatop: clock-controller@30360000 {
- 				reg = <0x30360000 0x10000>;
- 				interrupts = <GIC_SPI 49 IRQ_TYPE_LEVEL_HIGH>;
- 				#clock-cells = <1>;
-+				clocks = <&ckil>, <&osc_25m>, <&osc_27m>;
-+				clock-names = "ckil", "osc_25m", "osc_27m";
- 			};
+diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
+index df83bd939492..a906d3cd960b 100644
+--- a/drivers/clk/imx/clk.c
++++ b/drivers/clk/imx/clk.c
+@@ -128,6 +128,21 @@ struct clk_hw *imx_get_clk_hw_by_name(struct device_node *np, const char *name)
+ }
+ EXPORT_SYMBOL_GPL(imx_get_clk_hw_by_name);
  
- 			snvs: snvs@30370000 {
++struct clk_hw *imx_anatop_get_clk_hw(struct device_node *np, int id)
++{
++	struct of_phandle_args args;
++	struct clk_hw *hw;
++
++	args.np = np;
++	args.args_count = 1;
++	args.args[0] = id;
++
++	hw = __clk_get_hw(of_clk_get_from_provider(&args));
++	pr_debug("%s: got clk: %s\n", __func__, clk_hw_get_name(hw));
++	return hw;
++}
++EXPORT_SYMBOL_GPL(imx_anatop_get_clk_hw);
++
+ /*
+  * This fixups the register CCM_CSCMR1 write value.
+  * The write/read/divider values of the aclk_podf field
+diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
+index aa5202f284f3..50e407cf48d9 100644
+--- a/drivers/clk/imx/clk.h
++++ b/drivers/clk/imx/clk.h
+@@ -487,4 +487,6 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
+ 			       u32 reg, const char **parent_names,
+ 			       u8 num_parents, const u32 *mux_table, u32 mask);
+ 
++struct clk_hw *imx_anatop_get_clk_hw(struct device_node *np, int id);
++
+ #endif
 -- 
 2.43.0
 
