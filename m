@@ -4,103 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E5FC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:17:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DACB7C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=; b=csxT2lQEri2xe+t9vc/sW4QM+g
-	GB0e6C5SNS+M80wVPtTNspQHQtq3GABaHL1S1rOaYYODQN5XWKQPYqFzL6ABTRH30SwDPOn/ZaCt8
-	AcVyBLQMUQZJpqWykAfb/S9Tao9tX3p00XTRtskBJvZ3lKVTsrF/y5vO5pPgZG8MO9tSgc8+gIKvA
-	BlxfGP1RX2sPkX13MAtMyVX/kXyaXHTZfUeRHX2DkHMFHh/SVXqVxFXaAoDbpmOpnHZtLZob61MM7
-	aRpjjbo3C36xIy9zcsH1orsCuF4QoLfwpqc1xb0kASG0aGtVO4uoo4e9EfOYOlhzO9JNmu4RVXZsW
-	G3lAG2fA==;
+	bh=vEXvflwEV04efj6bnvhXaeOA0qHCeEgvrAzgI3xl7wA=; b=YKuErMxdMwITGLFC2cYIGJb9Ef
+	R7U6ZOHcNCMdJf9WrJWlsgiX3cR3L69NAdsXndvkkzAldv5zF29tgnVvP70m8gX9coyLCp+DDuGra
+	WyIrw3YwAwryTxjLdM4J+lAOiT9OKHiCPAPQoYFjRfA/FQqdregzxnv+dlSgoARGGZlIl3HRpzzpw
+	kbOraYy20udaeyAEWkIb5dwoEefnw4mbzNrlqClxg5xYjKR/KFZyWG4FpnRR8ir1MDib49lRVczwF
+	8j7RnbQ76BdVsu/bMmd757jC6VVb8EwzI983nl4DUvYU4kNDSGnnN/TFSRD8mf2qzcWxPW7Zm7yh3
+	c33p4jjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIav-0000000CFST-0TJM;
-	Thu, 06 Mar 2025 21:17:29 +0000
-Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
+	id 1tqIcV-0000000CFgJ-3Pfx;
+	Thu, 06 Mar 2025 21:19:07 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIXQ-0000000CEha-3t2r
+	id 1tqIYt-0000000CF5U-1Q7L
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 21:13:54 +0000
-Received: from hillosipuli.retiisi.eu (2a00-1190-d1dd-0-c641-1eff-feae-163c.v6.cust.suomicom.net [IPv6:2a00:1190:d1dd:0:c641:1eff:feae:163c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: sailus)
-	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4Z82GN1hW5z49Q16;
-	Thu,  6 Mar 2025 23:13:48 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
-	t=1741295629;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=;
-	b=QHKpVznW8iOM4SSfMfAUzcBerrMwpo5ndWtah6O0FYF5U5qIavbQWW0yuVdXBWA1duZfPG
-	/tPNUGI/434peavUNxEA2kX3HSOY9FIMbXWNYSAPJKQdVQ7rgoY+fQnCfgOk1SxxG1BHxc
-	23NY7Y6H0hyhzO6u2omYlpkPPM/s6q9LNlrxIWndp5uz99rOSfAxRhvL92OD3YWvxGpy0U
-	YJ+iPeMNPhJGbqwzzEa0omqYpudmdFN7+Jp4Lz2X86ldR8Sx94xeFlvOhcwhj0cd/io67F
-	W3As/b7mzHhPVyiTFykzsK9o4FIFi5weN9IMheju33jYHCZVd+/nB9nx3wAnZg==
-ARC-Seal: i=1; s=lahtoruutu; d=iki.fi; t=1741295629; a=rsa-sha256;
-	cv=none;
-	b=odHNYxXjVxIMvfaBsNyalVkmcTcgedlDXyrhQhsDLMI56nvguJdnH9gEt1w0TSUd5UJwJ5
-	cLwunozpTjPqWC33xOmxa/EE8rfzQLM4rGvYTc1+ziYvrPJT8zjsyTyAjcQIgQDBDKDQ0L
-	jRAhQ39xD6luECNolcTi0pLdNZGO6cRihpAnNXEKq96nd+JY72TWHGwqDGY+1y2PKVGStZ
-	o3ed7haqNQr3UlHxrQByRgXhgZlI+WQZQUJQPlQ6N8P7y7EkBGzgsu/B5PmeLS9iNA9uUE
-	W98onpkBkWErJ2mECRo0vso+TTrKHKPeeyjv4vfFPSP8hlvPhtE+M210UOlhGg==
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=lahtoruutu; t=1741295629;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=;
-	b=eJzhBEsC+Ytpu13kBlhPZecQyJnWw45qF0/4DHv8VDb+WsOQoiPKvwZDprykmqqd61Tk+W
-	M+/yFaW2nLr3dI+hzkbXgNlIy9WkyjULc0TMPcNPEMWS1lXV2mSQ4gQ//71LERkXyEX8kg
-	GhY/y6YffUbBlB9s8lCfVY3pv0nsFw92Y/OGVWeOF1vBNetpA0guOfq0liwMN9VIX80QII
-	28OgfEKAcYtP8Y69c/6tJkOGvVGjnrB5Vp8xOPj1J7errMK189/gEl57RcyvZN9uuyNTdS
-	5XDgw/x4K0wal3SYfTSUdf4YF8qd2ViDIDxaIeWS09XUPFBG6jdm3zJfi3yDeg==
-Received: from valkosipuli.retiisi.eu (valkosipuli.localdomain [192.168.4.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 095B1634C93;
-	Thu,  6 Mar 2025 23:13:47 +0200 (EET)
-Date: Thu, 6 Mar 2025 21:13:46 +0000
-From: Sakari Ailus <sakari.ailus@iki.fi>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Mathis Foerst <mathis.foerst@mt.com>, linux-kernel@vger.kernel.org,
-	Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, manuel.traut@mt.com,
-	mathis.foerst@zuehlke.com
-Subject: Re: [PATCH v1 1/1] media: imx: csi: Parse link configuration from
- fw_node
-Message-ID: <Z8oQCuqKVH225lPw@valkosipuli.retiisi.eu>
-References: <20250305113802.897087-1-mathis.foerst@mt.com>
- <20250305113802.897087-2-mathis.foerst@mt.com>
- <Z8nOTrjEW_OYBGlq@valkosipuli.retiisi.eu>
- <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
+	Thu, 06 Mar 2025 21:15:24 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-abbb12bea54so233145766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 13:15:22 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741295722; x=1741900522; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=vEXvflwEV04efj6bnvhXaeOA0qHCeEgvrAzgI3xl7wA=;
+        b=SctA2jJEmAdln3o+q8Cej0kt6iA9e/NJ1aB5vNhF3eLWrW0vm2zfOCw84O871OlMPc
+         +w1tNw2nnFFL0ZcxoYsmFuEEfHQ2hhSqu/57E2DA8brMM+gOBNmQxywYO65hJgaAUdZQ
+         f/sXggwsvVSextIRaFF9eyE0N2MafDzuf3YCoL8aso8qwgIWiyego46Z6KgVoaBi+HAH
+         wW6YoIaNM7ODyA/DRaRQUo/3fC1LRi6N5tIG7iDrcRrW2VHVfWTpGB0tiWXyLS2YDaVl
+         /Y8cdhIQZ+oVeIOLUukPRnGd/cFe4sQEGCL58e8Hysg6ipyPt4L+i9r9kFZvp0xyU6nh
+         RrYQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741295722; x=1741900522;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=vEXvflwEV04efj6bnvhXaeOA0qHCeEgvrAzgI3xl7wA=;
+        b=lQr53MVPp3M8+2KThjawvE1848BbxX6clP+CRSy6Y0pXxNfxMA/JIxaCcTK5pMlsSI
+         bJ6vKH4dfEYkbzUREW+Ks2sqIVm/DiePfZ0ZrF9uH1XavilM8JI4eAvxkdYeQeVoi9EJ
+         KZ/yN0Ju3NVpPLEkXy4nsGKHzyHN2BNwF5nZtPFts6z8ApDM3x880aMcbDo+cGtJnB3o
+         peXOf/ql83JBmVdwLommru8k73YAMH6IC73U6iECQpu7GoTVaL0Aar3b3TUlCdWdwGZ9
+         K+RrOBnh6wnzdBoFLAGbTlnfJtegSoYb9RFmtgEmzPu5L1RVQEEphf+2R0NdKSco7AES
+         vaGw==
+X-Gm-Message-State: AOJu0YzOne+osP8nG72b9hIAfhvqpXGZ1DM2PZy80SwhUuQvpFghosDc
+	olg84KWfvK8QLgpnash2CqIRszT894J7V3OrJ76MgeXSLKClnkc5Kk4MpGihf70=
+X-Gm-Gg: ASbGncsZ/1SUsks8EX715LipnwxZc3CZThu/IsWsL0+FIXh+jKlXUk/ib2Yq0ftm2Ob
+	sb17szWHAG59G7GMx7bc9H6qsiHTuUFcRAfaXUK5f6rsn6oi0BRNa5Fk4Hr9GstBeq+pEC6hG+6
+	PfO8G13dpJE2zujRQuPGjRHYc3LFgABwM9cFWIOPN0PMWKO9fTh6gOYEJRAo7slV/1QATxmWXY/
+	MouomlUQQyh3kZVgKxMpAva9E/Nj8FC9jSrhEl46Ue0nhYEi51g5q3FI96LJfWJBOehV41cUmXC
+	IIqLWtwCuMNoBSV/pYtFtdxny6qoOWhmkeZKOWLUT4vifMg=
+X-Google-Smtp-Source: AGHT+IE+LHNfvlp8dFOhg8/hGQEzMaTOw9w3ZnSxV/FqKSm/TD4PkI2UTRYu6TY3+BOkP+WRqnVYGg==
+X-Received: by 2002:a17:907:9490:b0:ac1:ebfe:fd90 with SMTP id a640c23a62f3a-ac2525980femr71342066b.1.1741295721652;
+        Thu, 06 Mar 2025 13:15:21 -0800 (PST)
+Received: from salami.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac239887693sm152427066b.126.2025.03.06.13.15.20
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 13:15:21 -0800 (PST)
+Message-ID: <1418fde488646160a1be14b2153e409488f3d861.camel@linaro.org>
+Subject: Re: [PATCH v3 2/4] pinctrl: samsung: add dedicated SoC eint
+ suspend/resume callbacks
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski	
+ <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
+	 <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ 	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	tudor.ambarus@linaro.org, willmcvicker@google.com,
+ semen.protsenko@linaro.org, 	kernel-team@android.com,
+ jaewon02.kim@samsung.com
+Date: Thu, 06 Mar 2025 21:15:19 +0000
+In-Reply-To: <20250306-pinctrl-fltcon-suspend-v3-2-f9ab4ff6a24e@linaro.org>
+References: <20250306-pinctrl-fltcon-suspend-v3-0-f9ab4ff6a24e@linaro.org>
+	 <20250306-pinctrl-fltcon-suspend-v3-2-f9ab4ff6a24e@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.54.3-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_131353_139079_ED44D63C 
-X-CRM114-Status: GOOD (  44.20  )
+X-CRM114-CacheID: sfid-20250306_131523_392884_B70E0248 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,122 +104,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dan,
+On Thu, 2025-03-06 at 20:42 +0000, Peter Griffin wrote:
+> gs101 needs it's own suspend/resume callbacks to use the newly
+> added eint_fltcon_offset for saving & restoring fltcon0 & fltcon1
+> registers. It also differs to previous SoCs in that fltcon1
+> register doesn't always exist for each bank.
+>=20
+> exynosautov920 also has dedicated logic for using eint_con_offset
+> and eint_mask_offset for saving & restoring it's registers.
+>=20
+> Refactor the existing platform specific suspend/resume callback
+> so that each SoC variant has their own callback containing the
+> SoC specific logic.
+>=20
+> Additionally we now call drvdata->suspend() & drvdata->resume()
+> from within the loop that iterates the banks in
+> samsung_pinctrl_suspend() and samsung_pinctrl_resume().
+>=20
+> This simplifies the logic, and allows us to remove the
+> clk_enable() and clk_disable() from the callbacks.
+>=20
+> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
+> ---
+> Changes since v2:
+> * Remove useless init (Andre)
+> * make it clear set_wakeup is conditional on bank->eint_type (Andre)
+>=20
+> Changes since v1:
+> * Split code refactor & gs101 parts into separate patches (Andre)
+> ---
+> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos-arm64.c |=C2=A0 28 ++--
+> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 201 ++++++++++---------------
+> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 6 +-
+> =C2=A0drivers/pinctrl/samsung/pinctrl-samsung.c=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0 11 +-
+> =C2=A0drivers/pinctrl/samsung/pinctrl-samsung.h=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 |=C2=A0=C2=A0 8 +-
+> =C2=A05 files changed, 109 insertions(+), 145 deletions(-)
 
-On Thu, Mar 06, 2025 at 10:07:20PM +0300, Dan Carpenter wrote:
-> On Thu, Mar 06, 2025 at 04:33:18PM +0000, Sakari Ailus wrote:
-> > Hi Mathis,
-> > 
-> > Thanks for the patch.
-> > 
-> > On Wed, Mar 05, 2025 at 12:38:02PM +0100, Mathis Foerst wrote:
-> > > The imx-media-csi driver requires upstream camera drivers to implement
-> > > the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
-> > > implement this function are not usable on the i.MX6.
-> > > 
-> > > The docs for get_mbus_config [1] say:
-> > > @get_mbus_config: get the media bus configuration of a remote sub-device.
-> > >             The media bus configuration is usually retrieved from the
-> > >             firmware interface at sub-device probe time, immediately
-> > >             applied to the hardware and eventually adjusted by the
-> > >             driver.
-> > > 
-> > > Currently, the imx-media-csi driver is not incorporating the information
-> > > from the firmware interface and therefore relies on the implementation of
-> > > get_mbus_config by the camera driver.
-> > > 
-> > > To be compatible with camera drivers not implementing get_mbus_config
-> > > (which is the usual case), use the bus information from the fw interface:
-> > > 
-> > > The camera does not necessarily has a direct media bus link to the CSI as
-> > > the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
-> > > between them on the media pipeline.
-> > > The CSI driver already implements the functionality to find the connected
-> > > camera sub-device to call get_mbus_config on it.
-> > > 
-> > > At this point the driver is modified as follows:
-> > > In the case that get_mbus_config is not implemented by the upstream
-> > > camera, try to get its endpoint configuration from the firmware interface
-> > > usign v4l2_fwnode_endpoint_parse.
-> > > For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
-> > > V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
-> > > configuration.
-> > > For all other mbus_types, return an error.
-> > > 
-> > > Note that parsing the mbus_config from the fw interface is not done during
-> > > probing because the camera that's connected to the CSI can change based on
-> > > the selected input of the video-mux at runtime.
-> > > 
-> > > [0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
-> > > [1] include/media/v4l2-subdev.h - line 814
-> > > 
-> > > Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
-> > > ---
-> > >  drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
-> > >  1 file changed, 32 insertions(+), 4 deletions(-)
-> > > 
-> > > diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-> > > index 3edbc57be2ca..394a9321a10b 100644
-> > > --- a/drivers/staging/media/imx/imx-media-csi.c
-> > > +++ b/drivers/staging/media/imx/imx-media-csi.c
-> > > @@ -169,6 +169,8 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
-> > >  {
-> > >  	struct v4l2_subdev *sd, *remote_sd;
-> > >  	struct media_pad *remote_pad;
-> > > +	struct fwnode_handle *ep_node;
-> > > +	struct v4l2_fwnode_endpoint ep = { .bus_type = 0 };
-> > 
-> > Are there any defaults in DT bindings (other than 0's)? Also initialising a
-> > field to zero this way is redundant, just use {}.
-> > 
-> 
-> I was going to respond in much the same way.  This is equivalen to:
-> 
-> struct v4l2_fwnode_endpoint ep = { .bus_type = V4L2_MBUS_UNKNOWN };
+Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 
-Thinking about this in a context of parsing the endpoint, in fact the
-bus_type should be specified. Presumably the hardware is D-PHY, so the
-correct value would be V4L2_MBUS_CSI2_DPHY. This way
-v4l2_fwnode_endpoint_parse() doesn't need to guess.
 
-> 
-> > >  	int ret;
-> > >  
-> > >  	if (!priv->src_sd)
-> > > @@ -210,11 +212,37 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
-> > >  
-> > >  	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
-> > >  			       remote_pad->index, mbus_cfg);
-> > > -	if (ret == -ENOIOCTLCMD)
-> > > -		v4l2_err(&priv->sd,
-> > > -			 "entity %s does not implement get_mbus_config()\n",
-> > > -			 remote_pad->entity->name);
-> > > +	if (ret == -ENOIOCTLCMD) {
-> > 
-> > 	if (!ret)
-> > 		return 0;
-> > 
-> > And you can unindent the rest.
-> 
-> I was going to say this too but then I thought actually this needs to
-> be:
-> 
-> 	if (ret != -ENOIOCTLCMD)
-> 		return ret;
-> 
-> Which is weird.  Better to break all the new code into a separate
-> helper function.
-> 
-> 	if (ret == -ENOIOCTLCMD)
-> 		ret = parse_fw_link_config_stuff();
-> 
-> 	return ret;
-
-Indeed. get_mbus_config() presumably wouldn't return an error but
-correctness is usually a good idea.
-
--- 
-Regards,
-
-Sakari Ailus
 
