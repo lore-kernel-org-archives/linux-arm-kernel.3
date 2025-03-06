@@ -4,105 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B11ADC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 03:41:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AB02C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 03:56:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f/eEcM0NHe7IojjfcsfekX/bHp43CZXGZ50QyLmEDFY=; b=qbNV5UUOW8KbSd6jM+tlbqZ3pU
-	mAc1EvhBHCHuQtvfQTEfWFRnrVikx4MHcV/ylkUmfoOVxsLdUhm9GNpeu4FBpUJvqYZ1jsIXXPrww
-	AP08zAHLaen8ZPaaEr+Zt9k2KVa2eyb7i3AG/WsBVS1A54Yt9qk7DA+pCMpj9MzbIOpWcM0LSMlNg
-	zSufWeuCrtJNXB2PF9vxVs0NzFouwFxncZHLj/U8opVH0WjigkclEGdD8VU4nBY2LHtc7U6j6HL9P
-	Kx78A96aZKAUt0rblpT8nXEM94vKTunkA7Tgnead/CNwvP+Ewh2Qj9kUNYXCFuYHlZbc1/4LJc79H
-	5IYJe5lw==;
+	bh=M+tdIbH/OOQ9B2+GPQFTqQLawkecNMO/8W+4Ii4xSzk=; b=wi5ZYqV7e5dkVOGzej0qhd/ICf
+	LfebZP+4HtNhhjQRlqJ5riB6K3/EkMyfwRGcY77ZWZB4q1Vwc/x8oneIiR11sBgasYTrIGMgHQcWJ
+	v9zVCXC/XM7UNjS/Zh5wx11L4AGHuwcJBBlc8B6QhdAb6S4oC3kjKAiiCPCLQZTGmK9PY/6EbPZk+
+	WsDILEADYvWs0WW8jVjt8qwZnqRnCYrYKRx2mpDZ7+oOf8LDMzBr/z7+0P72/EaLMqKAMOweUTGS8
+	cwNO5EtYf2jg0+dbFb6S7nhwMttXC0cSI8rEEnQrX7wALFKYmr8pe00IULtjUKRYQvwvy3o+E7gra
+	DV4QwsAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq26l-00000009wOX-40PI;
-	Thu, 06 Mar 2025 03:41:15 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1tq2L2-00000009xV0-0V1E;
+	Thu, 06 Mar 2025 03:56:00 +0000
+Received: from [203.254.224.25] (helo=mailout2.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq259-00000009wEm-42sa
+	id 1tq2JP-00000009xFT-18Uy
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 03:39:37 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-390e3b3d3f4so72654f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 19:39:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741232374; x=1741837174; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=f/eEcM0NHe7IojjfcsfekX/bHp43CZXGZ50QyLmEDFY=;
-        b=Uzv68AUX6nUPz1ss8n4v+pSAeFI59A++n+2bn1+s+u8ngaWlNNweuZxgs62yCsJiXz
-         s6DrEpPqbD7FecVKFKf5nK5QrpgJO/0LO3ps/GYP3vGYrJE3hTF5/tw0crtRHXzMwjdR
-         Mi3rDFes8F0DeptQVobGdv4VWAVW0wwliVPs1oIDzSE+7SZfSQmrOY7JIKlHCj43k1Ed
-         lHpxGgk+zTWoqH/w4B3gpxAKSWEhdlV7MgatQpCIVOzi/A8QrBJg7t9zhxvuwQioDxsD
-         FS0L+zucPzC7+LdWtRxlSZ3Wyj5vo+7FJS/7M5LNo3IlILgXbR7AyFgOvELhKpSv82Ry
-         qO+g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741232374; x=1741837174;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=f/eEcM0NHe7IojjfcsfekX/bHp43CZXGZ50QyLmEDFY=;
-        b=imb7fk3X2El7gY0C281sWiJGRDliq+Kz4mTtHMVxSgWERlL0RaI/2aToxMYkAaGyqc
-         uHfC9aJcd5XXyTlJwes6oXu+igNdS7LY0SWXgvDflkmsfXVdLLGptUINDjDCKe9q1Auv
-         o6hj3zbR4YT8CwvBRSaVJ7MWNStJKEzIJksn3E8QZUCBe7uKVpfUdBGIID+4QUB3bRsI
-         k3ZQn02FSXC0cAjX8T0kB+NrFH6Sx1bJoixt4qXxVemO4+us+ZYOKALDD3cLLjNtfFkn
-         TFEfDQNOe4spt+8SnO/ARrzlPspUFsLe7KbeZYcKoT/M+pK2eW6p/2+BTo/8v6dOAeE9
-         Am9A==
-X-Forwarded-Encrypted: i=1; AJvYcCXO2QF05CAZKjETpE1sTPuI2cdxhrVe7WDdQeLoMNFxGbW7Yb2cmO4BPghmegOPiPVhMtriWN7FLfPMwFZsLa9L@lists.infradead.org
-X-Gm-Message-State: AOJu0YwadFmF9PRs6VGUqhnBOpbQ/bjLJeGc8sR5Zil+fR056PXetygv
-	LDMSkMXT8QYY19WoKmjIVc2zhbCxKOV5qNbHG35qWFDMX3YZkZI+3/i3E244gd/FCE6XeIqv6wA
-	EbulLI4KSqrNslcpTqKfLjIm1ZC0=
-X-Gm-Gg: ASbGnctGYcHbL5m6S9hVIjYTXtOsdqYOugNqq3/xggUvinjzEWQeq3VFANkSgjnwM9l
-	7t0tVfEJcpV6GQyAtHmnigHKY1REWpnyVI+/4Sb7dg55v9eGN6b034ynzvXL4mldm+O9Z1W/AeP
-	J3P3i0RXHt1XGho4B8XRt6rPEUGyxcoqtGNOtoVE/X/w==
-X-Google-Smtp-Source: AGHT+IH27dDGyBt7hd/VD86i6Z5HrEQ87tPCL5LhwJp6YDp6zkaw2KXN1sF3oSjJz4rUkFgqQ7BDSNeVdPcCH+k+1EA=
-X-Received: by 2002:a5d:59ab:0:b0:391:1139:2653 with SMTP id
- ffacd0b85a97d-3911f7d2142mr4539340f8f.52.1741232372007; Wed, 05 Mar 2025
- 19:39:32 -0800 (PST)
+	Thu, 06 Mar 2025 03:54:21 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250306035412epoutp027ee35dbfb754c31f7a1f73336393bbc7~qGmsJ6Jqo1815818158epoutp02J
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 03:54:12 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250306035412epoutp027ee35dbfb754c31f7a1f73336393bbc7~qGmsJ6Jqo1815818158epoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741233253;
+	bh=M+tdIbH/OOQ9B2+GPQFTqQLawkecNMO/8W+4Ii4xSzk=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=qiGViF3ogjRaWBCI9FhNDOUwoNPTblslDHBLmJRk2eCEzYc5qrWj+G1Kyt5zkiB6M
+	 Q6MIuwEvv3/Q43eiBy4xeLJOnlUS5yv3DqVtXCHV6DOs3gFCzBPE+D8pKt/Y2Dd1I6
+	 8atGyNM9fsTo2sxE94UWczir0VTvjGFF9NFrDOYE=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250306035412epcas5p26ae10de1003a9c71415d135415e756d9~qGmrrFaG00784807848epcas5p26;
+	Thu,  6 Mar 2025 03:54:12 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.174]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Z7bBp3xQ6z4x9Pt; Thu,  6 Mar
+	2025 03:54:10 +0000 (GMT)
+Received: from epcas5p4.samsung.com ( [182.195.41.42]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	6A.7B.19933.26C19C76; Thu,  6 Mar 2025 12:54:10 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250306034103epcas5p2f1f67fe07c770d22c74a5ccabe69430f~qGbNDbm5C2061720617epcas5p2M;
+	Thu,  6 Mar 2025 03:41:03 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250306034103epsmtrp10afca51e630cdde56b25613551c21e60~qGbNCJhEJ1649016490epsmtrp1J;
+	Thu,  6 Mar 2025 03:41:03 +0000 (GMT)
+X-AuditID: b6c32a4a-b87c770000004ddd-8f-67c91c626329
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	98.56.33707.F4919C76; Thu,  6 Mar 2025 12:41:03 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250306034100epsmtip2475c2bc5a013bdb7f4b299ba32f5c694~qGbKRDM9N0050300503epsmtip26;
+	Thu,  6 Mar 2025 03:41:00 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <krzk+dt@kernel.org>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+Cc: <rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
+In-Reply-To: <89dcfb2a-d093-48f9-b6d7-af99b383a1bc@kernel.org>
+Subject: RE: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Thu, 6 Mar 2025 09:10:49 +0530
+Message-ID: <00e301db8e49$95bfbf90$c13f3eb0$@samsung.com>
 MIME-Version: 1.0
-References: <20250303132837.498938-1-dongml2@chinatelecom.cn>
- <20250303132837.498938-2-dongml2@chinatelecom.cn> <20250303165454.GB11590@noisy.programming.kicks-ass.net>
- <CADxym3aVtKx_mh7aZyZfk27gEiA_TX6VSAvtK+YDNBtuk_HigA@mail.gmail.com>
- <20250304053853.GA7099@noisy.programming.kicks-ass.net> <20250304061635.GA29480@noisy.programming.kicks-ass.net>
- <CADxym3bS_6jpGC3vLAAyD20GsR+QZofQw0_GgKT8nN3c-HqG-g@mail.gmail.com>
- <20250304094220.GC11590@noisy.programming.kicks-ass.net> <6F9EF5C3-4CAE-4C5E-B70E-F73462AC7CA0@zytor.com>
- <CADxym3busXZKtX=+FY_xnYw7e1CKp5AiHSasZGjVJTdeCZao-g@mail.gmail.com>
- <20250305100306.4685333a@gandalf.local.home> <CADxym3ZB_eQny=-aO4AwrHiwT264NXitdKwjRUYrnGJ2tH=Qwg@mail.gmail.com>
-In-Reply-To: <CADxym3ZB_eQny=-aO4AwrHiwT264NXitdKwjRUYrnGJ2tH=Qwg@mail.gmail.com>
-From: Alexei Starovoitov <alexei.starovoitov@gmail.com>
-Date: Wed, 5 Mar 2025 19:39:20 -0800
-X-Gm-Features: AQ5f1JrlMjvbkNliJ-RM0--naYFcbVQdQvx8bndtQJGQK7ImHRvWRfp852lYwK0
-Message-ID: <CAADnVQJ0_+Hij=kf9eVPX_ZND=2=uDHaYPWvv1x-WmR5sZRSmA@mail.gmail.com>
-Subject: Re: [PATCH v4 1/4] x86/ibt: factor out cfi and fineibt offset
-To: Menglong Dong <menglong8.dong@gmail.com>
-Cc: Steven Rostedt <rostedt@goodmis.org>, "H. Peter Anvin" <hpa@zytor.com>, 
-	Peter Zijlstra <peterz@infradead.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Masami Hiramatsu <mhiramat@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, 
-	Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>, X86 ML <x86@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Martin KaFai Lau <martin.lau@linux.dev>, Eddy Z <eddyz87@gmail.com>, 
-	Yonghong Song <yonghong.song@linux.dev>, John Fastabend <john.fastabend@gmail.com>, 
-	KP Singh <kpsingh@kernel.org>, Stanislav Fomichev <sdf@fomichev.me>, Jiri Olsa <jolsa@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, David Ahern <dsahern@kernel.org>, 
-	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nick Desaulniers <nick.desaulniers+lkml@gmail.com>, Bill Wendling <morbo@google.com>, 
-	Sami Tolvanen <samitolvanen@google.com>, Kees Cook <kees@kernel.org>, dongml2@chinatelecom.cn, 
-	Andrew Morton <akpm@linux-foundation.org>, Rik van Riel <riel@surriel.com>, 
-	Mike Rapoport <rppt@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
-	LKML <linux-kernel@vger.kernel.org>, 
-	linux-trace-kernel <linux-trace-kernel@vger.kernel.org>, bpf <bpf@vger.kernel.org>, 
-	Network Development <netdev@vger.kernel.org>, clang-built-linux <llvm@lists.linux.dev>
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-in
+Thread-Index: AQHcwqSBZNYxUrKMqce/4F1P5N/GfgGyT6S5AetEnA8CjXdByrMxtKXg
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFmpkl+LIzCtJLcpLzFFi42LZdlhTSzdJ5mS6wZxJshY/X05jtFj+YAer
+	xZq955gs5pxvYbGYf+Qcq8XTY4/YLW4e2Mlk8XLWPTaL8+c3sFtc2NbHarHp8TVWi8u75rBZ
+	dF17wmox7+9aVotjC8Qsvp1+w2ixaOsXdouHH/awWxw584LZ4lL/RCaL/3t2sDuIely+dpHZ
+	Y8vKm0weT/u3snvsnHWX3WPBplKPTas62Tw2L6n32LnjM5PH+31X2Tz6tqxi9Di4z9Dj8ya5
+	AJ6obJuM1MSU1CKF1Lzk/JTMvHRbJe/geOd4UzMDQ11DSwtzJYW8xNxUWyUXnwBdt8wcoF+V
+	FMoSc0qBQgGJxcVK+nY2RfmlJakKGfnFJbZKqQUpOQUmBXrFibnFpXnpenmpJVaGBgZGpkCF
+	CdkZPUf3sxUcF63YseUBWwPjAqEuRk4OCQETicPXVjCD2EICuxklOncUdzFyAdmfGCUevHnI
+	BOe8nbGRDabj78bjUImdjBLL3j9mhHBeMEr0f+hlB6liE9CSWNS3D8wWEdjLJPGsMQCkiFlg
+	AZPExuOLmUASnAJ2Eh8e9oLZwgKBEnOO3WEEsVkEVCRuT1sA1swrYCkx884HNghbUOLkzCcs
+	IDazgLbEsoWvmSFOUpD4+XQZK0RcXOLozx5miMVuEq+efmYHWSwhsJhT4mDDNqgGF4mZK5ez
+	Q9jCEq+Ob4GypSRe9rdB2fESq/uuskDYGRJ3f02E+t9e4sCVOUBxDqBlmhLrd+lDhGUlpp5a
+	xwRxA59E7+8nTBBxXokd82BsZYm/r69BjZSU2Lb0PfsERqVZSF6bheS1WUjemYWwbQEjyypG
+	ydSC4tz01GLTAqO81HJ4jCfn525iBOcFLa8djA8ffNA7xMjEwXiIUYKDWUmE9/Wp4+lCvCmJ
+	lVWpRfnxRaU5qcWHGE2B4T2RWUo0OR+YmfJK4g1NLA1MzMzMTCyNzQyVxHmbd7akCwmkJ5ak
+	ZqemFqQWwfQxcXBKNTAFzfz49MH2JzIq3hsE95mz2U2f/Ojx5o3TRe7vrmOZlS+7KMpPLNL8
+	mfVM4YwXMuntCTaPrK69Ffv5OIKh0T9tgdc6qYdcX/aZhXnaOf4Jqdu/bXvdfdPJ4m0PUh7+
+	PGvEO3133LGNy3LPHBVfOLvEWnOVb7PX+frMJEFfoxbZlaVCbbundl77dfyu3FYF3nV294/b
+	5a221JblS7B9mnY6yv68jmfHGUbh43WTfh9yM5AL/sF8RNGBWVney2nu/ae7tvtySn9Yp/I+
+	9Pf+t3t7bRfuX5XR/7/7vp/dufv/Kuc/q9yz+USt2vLbe4qv/8tTOVkgE3J8gezFhDfZO2sS
+	jztHNFQs9L+SJ3iT8f1FJZbijERDLeai4kQA44zLsZQEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrOIsWRmVeSWpSXmKPExsWy7bCSvK6/5Ml0g/1/5C1+vpzGaLH8wQ5W
+	izV7zzFZzDnfwmIx/8g5Vounxx6xW9w8sJPJ4uWse2wW589vYLe4sK2P1WLT42usFpd3zWGz
+	6Lr2hNVi3t+1rBbHFohZfDv9htFi0dYv7BYPP+xhtzhy5gWzxaX+iUwW//fsYHcQ9bh87SKz
+	x5aVN5k8nvZvZffYOesuu8eCTaUem1Z1snlsXlLvsXPHZyaP9/uusnn0bVnF6HFwn6HH501y
+	ATxRXDYpqTmZZalF+nYJXBndN1axFkwTrXj17BBTA+NLwS5GTg4JAROJvxuPM3UxcnEICWxn
+	lPi45TEbREJS4lPzVFYIW1hi5b/n7BBFzxgl9q9qBStiE9CSWNS3DywhInCaSeJH+z8wh1lg
+	FZPEtqWnoOa+Z5R4/mMJ2CxOATuJDw97mUBsYQF/iaZ7M5lBbBYBFYnb0xawg9i8ApYSM+98
+	YIOwBSVOznzCAmIzC2hL9D5sZYSxly18zQxxn4LEz6fLWCHi4hJHf/aAxUUE3CRePf3MPoFR
+	eBaSUbOQjJqFZNQsJO0LGFlWMYqmFhTnpucmFxjqFSfmFpfmpesl5+duYgSnBa2gHYzL1v/V
+	O8TIxMF4iFGCg1lJhPf1qePpQrwpiZVVqUX58UWlOanFhxilOViUxHmVczpThATSE0tSs1NT
+	C1KLYLJMHJxSDUwWyb90Lb7Iak3+17zBgIdF6PmBQ4+DpkUZRGrzqM5vLXQvuMU4b+8fdvfj
+	t0ryulKSXj282FD+ZJn2SaMdYn65099U1y58n/A8s2r1dpnO5A6Fx3HKwU5/Feax56fbsax6
+	Mjc+/MaMirfvtr8+fthkGXNZd/SNTGWNfwZGBTKpG3l3ma8NKD61KdZ1r13T6R9uK9226W76
+	Y3ciuqCgQeqIT4f35tTH9yL2bfxqFRqUKl0pxSdqvX1lpuPsS9O2aciXsrfeXO9UaDPj6+uE
+	W4u22B0+7fElb7GDlPDV/k+bA8KVXjyWdt3VpqLt8ly839XdKGBRgKnK70xfnrRXNZ+/HV7K
+	+GLvsumJ/B1WO5RYijMSDbWYi4oTAQNZDc96AwAA
+X-CMS-MailID: 20250306034103epcas5p2f1f67fe07c770d22c74a5ccabe69430f
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6
+References: <20250305091246.106626-1-swathi.ks@samsung.com>
+	<CGME20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6@epcas5p1.samsung.com>
+	<20250305091246.106626-2-swathi.ks@samsung.com>
+	<89dcfb2a-d093-48f9-b6d7-af99b383a1bc@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_193936_004899_34104F3C 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20250305_195419_984976_9D49B725 
+X-CRM114-Status: GOOD (  24.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,40 +149,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 5, 2025 at 6:59=E2=80=AFPM Menglong Dong <menglong8.dong@gmail.=
-com> wrote:
->
-> I'm not sure if it works. However, indirect call is also used
-> in function graph, so we still have better performance. Isn't it?
->
-> Let me have a look at the code of the function graph first :/
 
-Menglong,
 
-Function graph infra isn't going to help.
-"call foo" isn't a problem either.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 05 March 2025 21:12
+> To: Swathi K S <swathi.ks=40samsung.com>; krzk+dt=40kernel.org;
+> andrew+netdev=40lunn.ch; davem=40davemloft.net; edumazet=40google.com;
+> kuba=40kernel.org; pabeni=40redhat.com; robh=40kernel.org;
+> conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com
+> Cc: rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org;
+> pankaj.dubey=40samsung.com; ravi.patel=40samsung.com;
+> gost.dev=40samsung.com
+> Subject: Re: =5BPATCH v8 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On 05/03/2025 10:12, Swathi K S wrote:
+> > Add FSD Ethernet compatible in Synopsys dt-bindings document. Add FSD
+> > Ethernet YAML schema to enable the DT validation.
+> >
+> > Signed-off-by: Pankaj Dubey <pankaj.dubey=40samsung.com>
+> > Signed-off-by: Ravi Patel <ravi.patel=40samsung.com>
+> > Signed-off-by: Swathi K S <swathi.ks=40samsung.com>
+>=20
+> <form letter>
+> This is a friendly reminder during the review process.
+>=20
+> It looks like you received a tag and forgot to add it.
+>=20
+> If you do not know the process, here is a short explanation:
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> versions of patchset, under or above your Signed-off-by tag, unless patch
+> changed significantly (e.g. new properties added to the DT bindings). Tag=
+ is
+> =22received=22, when provided in a message replied to you on the mailing =
+list.
+> Tools like b4 can help here. However, there's no need to repost patches
+> *only* to add the tags. The upstream maintainer will do that for tags
+> received on the version they apply.
+>=20
+> Please read:
+> https://protect2.fireeye.com/v1/url?k=3D19972162-781c345b-1996aa2d-
+> 000babffae10-7bd6b1a1d78b210b&q=3D1&e=3D94dcc3a6-5303-441a-8c1e-
+> de696b216f86&u=3Dhttps%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv6.12-
+> rc3%2Fsource%2FDocumentation%2Fprocess%2Fsubmitting-
+> patches.rst%23L577
+>=20
+> If a tag was not added on purpose, please state why and what changed.
 
-But we have to step back.
-per-function metadata is an optimization and feels like
-we're doing a premature optimization here without collecting
-performance numbers first.
+Hi Krzysztof,=20
+As per a review comment received from Russell, I had added 2 new properties=
+ to the DT - assigned-clocks and assigned-clock-parents properties.=20
+The example in the DT binding reflects the same.
+I felt it wouldn't be fair to add 'Reviewed-by' tag without you reviewing t=
+he updates again.
+But I should have mentioned that in cover letter and apologies for missing =
+to do that.
 
-Let's implement multi-fentry with generic get_metadata_by_ip() first.
-get_metadata_by_ip() will be a hashtable in such a case and
-then we can compare its performance when it's implemented as
-a direct lookup from ip-4 (this patch) vs hash table
-(that does 'ip' to 'metadata' lookup).
+- Swathi
 
-If/when we decide to do this per-function metadata we can also
-punt to generic hashtable for cfi, IBT, FineIBT, etc configs.
-When mitigations are enabled the performance suffers anyway,
-so hashtable lookup vs direct ip-4 lookup won't make much difference.
-So we can enable per-function metadata only on non-mitigation configs
-when FUNCTION_ALIGNMENT=3D16.
-There will be some number of bytes available before every function
-and if we can tell gcc/llvm to leave at least 5 bytes there
-the growth of vmlinux .text will be within a noise.
+> </form letter>
+>=20
+> Best regards,
+> Krzysztof
 
-So let's figure out the design of multi-fenty first with a hashtable
-for metadata and decide next steps afterwards.
 
