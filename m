@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3066C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:03:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80384C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=; b=WjW8PvtCyoRQgOqosP9yxoKp8m
-	/G0p0B67aVgdgXUu1EpN1KO5M7ZUTcn153PGK9ZTX2ktKOSL1cZ/DNaVCCngkFMmMd2jl3EZ7tuVC
-	uCxf+7xWf+m6sgR6tLr3Bht+XyZzv7mniclK1JHjFaxvozSh+kS/bl94IqBPbsuz1CDzhC3a8ACpK
-	OAkpklSjfe0zoJtADvx+qSfJSZN2ZTa7epuChTrLjuBtxVJP8z79S5K+XfbnvRytlFvFR9bd4KYRc
-	01lkzvUto4dwip9D2KG3HJXQZVAf8aemXixZkVZAL27pt8y49Nt9GmffDKQ0Lzl+Ch/nTL/zz0KdH
-	BHBdFxxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=; b=lTfZNP/DRSd59twJ4XJAdF4gDr
+	hrDJQ9CttyYsfvjfhsGVSa2PyaHEJ3P0Nb9MOzo/4fZsenMDewDVuc2Q/6xGOEnXbMp4bUCOdw6+w
+	ite3EMWetr0sz9WGJgu7wZBSYVrrAemSWiwQKB0Rv+8MectwtFG8JsXIg+BRzTAD3veUesXTSZAZ1
+	fpY0ECtq1mNRUWJ8+G4b93otIzghAejjMNOnFBT1xbMu5MsXPeFrUnGCVchn6HPj3kXdVAUnfPE0s
+	xpnWzvbSTJhl3ecd/7pdsiGKis8L9tBGpShQXoJKRc1vmmwHFfpFxjs1FiXzrGZ/7rXitB6W6KvwF
+	AJqlh7kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9wn-0000000ArWV-1tSc;
-	Thu, 06 Mar 2025 12:03:29 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1tq9xE-0000000AreM-0hSm;
+	Thu, 06 Mar 2025 12:03:56 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9RA-0000000Amm7-0PVh
+	id 1tq8rP-0000000Ahks-3QOJ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:30:49 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43bc38bb6baso3034675e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:47 -0800 (PST)
+	Thu, 06 Mar 2025 10:53:52 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6f74b78df93so5250997b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:53:51 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741260646; x=1741865446; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=;
-        b=i09gSUXEbA8y+ayhBdgKHbkLM6axrBFYeu3qK0pQYFanrfcYfKzmegZP5+ae1SArzV
-         Y3v7ABFoAGs3sFH1lKVfr9mLbzEgf9blSJ2bnSZaGjzEIUMVtp+PLhh0ooLUmJCDAgkN
-         RwL5oPKlwE4LvkAK7ShqJd/jW1lYOydqYc8Mo=
+        d=linaro.org; s=google; t=1741258430; x=1741863230; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=;
+        b=vWQdUFGFzplBfj2S0OOycs2FtNIep9PSdvjimFvaWYE6eevyA0m/lEuhBQICtTZeC6
+         zTQsGiAVoL3FLX8Ipdrhb34r/+al8gvkRkUNvKqpk/R7FV4Hi32Tuo623nzgkgOsk15x
+         P5zutL2atW9bqzUs5B7lCfcQvosmCNVL1JzozxqkTG8F2z6ndrd2jksiBnTvA4kDAhuf
+         DQHZtDB7/wOoGjnrG3DIzh2KTUEGH/yHcpSWBe02fXxYLzar2ETq2xjxHAFhddlmqehf
+         J/K8UXhQstGCFuCQVcG/mjzEs+4rRyndnUuDIN3rRx24Rg13IwtUMAUjxXc+xMMNJRXn
+         gHFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741260646; x=1741865446;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=gDZuiTdlw8039p8GoLYv+uw7eDAfVUu6FSj2o7a4bY0=;
-        b=sK+LE+eoD46RtI6bxkT1fB+pvvmTuWl8zSDAuJ8U+0XM2geLHJVl3J5+UkjGbdF6+8
-         jC1cYvdWd5RuamUYD49OaPsC8d/qd1i4XGUe/j2vwiFhi35Y2pN/eIhGQjkdfgmOlyH6
-         Crb5JtuBDmF6SWPNW+vTR4vpbCXumpmnVnPTTT4/rG3Ygrg9mj052s6ZPZDFfIMv7gvK
-         J5aumEVg+VVP4doH/mc7kxc+qEjFBhJFDYsLwrJuZdElfZs0kbCOOb2GY/klZtYCurY9
-         fHnMV9+kvgK/q0oSXkvrwIeaLU5wbnXRWIsPGKN/F+O2DeRJ/I4JMJodxRBZD1hyX56N
-         tFyg==
-X-Forwarded-Encrypted: i=1; AJvYcCVRpRGm0GXYigPDnvoz3QztT268QIPrcEhmGhGKtl5b+acXC2UtFwljR/LdePe3LjJI7swQeiZ7ca4wn/z355hB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxPv5ngP+AHC+PRkzsRR3+7hKrBOt7D92HA0bRcnoOEUDgvs1I
-	85oHI6pO0a5foSoVIRhKSvrJmnDkZH0skp44adE3gY5aa6ABL+YDzVDOoGK3CXM=
-X-Gm-Gg: ASbGncvFKFGk4OTN8sdf/l0D1gemmeG/iZ6g+CAg9zU3Zm6CRb8YIJ0QqTsfc26A8p9
-	koNaX4KSVeXkX3ygFjXp5eri6vEPrjwsVOcHsOLbory+n5EoZA44oXWOOKYUrFzTjMDbjCi5l/F
-	sC0tRME8daTvvVfsdipglC1axDRnaac/6q6MlOKkme2Rwv1gLMk5Z5ZqMWPiRrWGSrIQhyYNka1
-	Co3IhcfWuwM7vCaw46ZyVSXuRN08K7ou256Ts3NaO0Cem40LAyKTGTsrs4Ohdyg6GRIlf17Njkq
-	4x1/IJBXrk6caMtuqZDF8eUGEzXl5YOLPwsICISk0SYIp16+NLBKl+mF/5jy/6zChwThveb8JwV
-	QQm4DmQ==
-X-Google-Smtp-Source: AGHT+IH78TpklUwBDK3WnRiDd3pPrpHVptMGkVV2plYHJnbyxlkTLYCF4Q+vemKiKROYa/bzJLhC9A==
-X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr66278975e9.16.1741260646580;
-        Thu, 06 Mar 2025 03:30:46 -0800 (PST)
-Received: from localhost.localdomain ([2001:b07:6474:ebbf:4703:aa8c:6eab:8161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.45
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:30:46 -0800 (PST)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: Stephen Boyd <sboyd@kernel.org>,
-	Peng Fan <peng.fan@nxp.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v10 10/18] clk: imx: add hw API imx_anatop_get_clk_hw
-Date: Thu,  6 Mar 2025 12:27:59 +0100
-Message-ID: <20250306112959.242131-11-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
-References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
+        d=1e100.net; s=20230601; t=1741258430; x=1741863230;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=;
+        b=mY8rDVu2U+B2E6zO9AbqvlsLCbH5dnsfDrJhImAYeo7Uju/KNpFh5ROSnPS2BhN7CA
+         we5KQSqDFIMcoH3e1KiFTxYHA0zuPpXgtjJ6zEayvWasGc4EeZiH1PoFazpuSmwxepZy
+         JN5L38Zqz7AYodAtjA0cWUHXh8XbuaJ3gFQMJI0jt/Er3OCcRNfD8n8LmdcW6pfhqy13
+         3AHeq4N3XUC7Jf/vDe2wpnaDPOsAjDZwYyGbSk9T5D60mn9oRta/cAcfmk6Pq8ELDDSA
+         iPLnfARcvrogRI6h6j7L3QVGqlgET/LAe2My/ZMK7Ul+mRodZ91gbIXpbW1c/HqDyWTW
+         8PWg==
+X-Forwarded-Encrypted: i=1; AJvYcCUmulgg+SIuX8IfNEoZSUgatgkRyfgUy376Uc3l/dHwto8IFMJfq6bqcAuX98IRcIn5K69cQBmNJEMvRCgKf15N@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx1S8JYDkW7e+M3Djb/XiZl+vwXSOHCo4fdZ7NT9IopTHUj0tJh
+	F3+rqNxQ34uNEideYOzkXtDBCF6zhfeG3AY7qy3GLnmTwi4LFC5BR56CCNYdB/PX5bvMY03zJE0
+	JLGa1Yy8HA9RwOiI9Dz8mhUL8J+ZfnZR9iRL/GQ==
+X-Gm-Gg: ASbGncv1rimHQBrDLrv1KqR3mQ4RcQC0UV3bdLs8jONsRYWg9Sw0R3BUVpvxYCcykez
+	/6oRc2AAUzP6f7VRBLkEJhdDFCdIOpzUZepRI77msacVRRU3GoaBOBrqGUl5t2g6kvEoU0dUQbs
+	PgUrwmHL2rMBOsMIPbdkYOfCHKd2U=
+X-Google-Smtp-Source: AGHT+IHveALh7pfAJxb1zQDrWysmjfRsRboRORBFdyusSPBVnlo9Xnd8mhzTm+ZPYxFyYXm4hgY3Nu9iytramRNs4y8=
+X-Received: by 2002:a05:690c:64c1:b0:6fd:44a5:5b68 with SMTP id
+ 00721157ae682-6fda306fffbmr91783397b3.35.1741258430563; Thu, 06 Mar 2025
+ 02:53:50 -0800 (PST)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250306061805.2318154-1-ping.bai@nxp.com>
+In-Reply-To: <20250306061805.2318154-1-ping.bai@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Thu, 6 Mar 2025 11:53:14 +0100
+X-Gm-Features: AQ5f1JoVI52ootMQgeP7Rja3_fKhyfkFzcUyyz4qn2NojBs4a97d8HfR3zSlUrg
+Message-ID: <CAPDyKForY4VNZtqietDPt2FQM3p4OsaoE_oJb0PPLUAh98WsHQ@mail.gmail.com>
+Subject: Re: [PATCH v3] cpuidle: psci: Init cpuidle only for present CPUs
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: lpieralisi@kernel.org, sudeep.holla@arm.com, rafael@kernel.org, 
+	daniel.lezcano@linaro.org, james.morse@arm.com, d-gole@ti.com, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, khilman@baylibre.com, 
+	quic_tingweiz@quicinc.com, quic_yuanjiey@quicinc.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033048_136137_DC08CE78 
-X-CRM114-Status: GOOD (  11.99  )
+X-CRM114-CacheID: sfid-20250306_025351_877749_7F680825 
+X-CRM114-Status: GOOD (  23.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,72 +95,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Get the hw of a clock registered by the anatop module. This function is
-preparatory for future developments.
+On Thu, 6 Mar 2025 at 07:17, Jacky Bai <ping.bai@nxp.com> wrote:
+>
+> for_each_possible_cpu() is currently used to initialize cpuidle
+> in the PSCI cpuidle driver.
+>
+> However, in cpu_dev_register_generic(), for_each_present_cpu()
+> is used to register CPU devices which means the CPU devices are
+> only registered for present CPUs and not all possible CPUs.
+>
+> With nosmp or maxcpus=0, only the boot CPU is present, leading
+> to the failure:
+>
+>   |  Failed to register cpuidle device for cpu1
+>
+> Change for_each_possible_cpu() to for_each_present_cpu() in the
+> PSCI cpuidle driver to ensure it only registers cpuidle devices
+> for CPUs that are actually present.
+>
+> Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
+> Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+Is this problem specific to cpuidle-psci?
 
----
+Others are using for_each_possible_cpu() when registering their cpuidle drivers.
 
-(no changes since v9)
+Kind regards
+Uffe
 
-Changes in v9:
-- Add 'Reviewed-by' tag of Peng Fan
-
-Changes in v7:
-- Add device_node type parameter to imx8m_anatop_get_clk_hw()
-- Rename imx8m_anatop_get_clk_hw() to imx_anatop_get_clk_hw()
-- Drop the gaurding macros so the code can be used also by i.MX9
-
-Changes in v5:
-- Consider CONFIG_CLK_IMX8M{M,N,P,Q}_MODULE to fix compilation errors
-
-Changes in v4:
-- New
-
- drivers/clk/imx/clk.c | 15 +++++++++++++++
- drivers/clk/imx/clk.h |  2 ++
- 2 files changed, 17 insertions(+)
-
-diff --git a/drivers/clk/imx/clk.c b/drivers/clk/imx/clk.c
-index df83bd939492..a906d3cd960b 100644
---- a/drivers/clk/imx/clk.c
-+++ b/drivers/clk/imx/clk.c
-@@ -128,6 +128,21 @@ struct clk_hw *imx_get_clk_hw_by_name(struct device_node *np, const char *name)
- }
- EXPORT_SYMBOL_GPL(imx_get_clk_hw_by_name);
- 
-+struct clk_hw *imx_anatop_get_clk_hw(struct device_node *np, int id)
-+{
-+	struct of_phandle_args args;
-+	struct clk_hw *hw;
-+
-+	args.np = np;
-+	args.args_count = 1;
-+	args.args[0] = id;
-+
-+	hw = __clk_get_hw(of_clk_get_from_provider(&args));
-+	pr_debug("%s: got clk: %s\n", __func__, clk_hw_get_name(hw));
-+	return hw;
-+}
-+EXPORT_SYMBOL_GPL(imx_anatop_get_clk_hw);
-+
- /*
-  * This fixups the register CCM_CSCMR1 write value.
-  * The write/read/divider values of the aclk_podf field
-diff --git a/drivers/clk/imx/clk.h b/drivers/clk/imx/clk.h
-index aa5202f284f3..50e407cf48d9 100644
---- a/drivers/clk/imx/clk.h
-+++ b/drivers/clk/imx/clk.h
-@@ -487,4 +487,6 @@ struct clk_hw *imx_clk_gpr_mux(const char *name, const char *compatible,
- 			       u32 reg, const char **parent_names,
- 			       u8 num_parents, const u32 *mux_table, u32 mask);
- 
-+struct clk_hw *imx_anatop_get_clk_hw(struct device_node *np, int id);
-+
- #endif
--- 
-2.43.0
-
+> ---
+>  - v2 changes:
+>   - Improve the changelog as suggested by Sudeep
+> ---
+>  drivers/cpuidle/cpuidle-psci.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
+> index 2562dc001fc1..00117e9b33e8 100644
+> --- a/drivers/cpuidle/cpuidle-psci.c
+> +++ b/drivers/cpuidle/cpuidle-psci.c
+> @@ -410,7 +410,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
+>         struct cpuidle_driver *drv;
+>         struct cpuidle_device *dev;
+>
+> -       for_each_possible_cpu(cpu) {
+> +       for_each_present_cpu(cpu) {
+>                 ret = psci_idle_init_cpu(&pdev->dev, cpu);
+>                 if (ret)
+>                         goto out_fail;
+> --
+> 2.34.1
+>
 
