@@ -4,55 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F291BC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:49:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7BB7C28B24
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:51:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KeMKQfBcHDO7DZBhjsvd/W7gH+nAdswetcrPQp2f23k=; b=rft/Hm6NW+0wG7UrhVQqEbD+P+
-	y40Tr7Y+C+78REz9gLZCLNZEOQO2ejfQM2I7arcqpEcy5WUTY8QU4w5ubCMp+4OQBR4wzXR4RRkYB
-	FOT03PhwFDlMKQWADLzKQafsFDrhzIt2niwQ/AmTL7OS81kBBaglokDvjooJnn9OWfV8aG1sQ+5Fx
-	+Uoq08sfmjIico2ejai0u7dgHiXLWsnLS1sXnQG8EYUlfROh/rgIEdFeYrtZbGe4K9imbioe3yxB2
-	vz20vAQOJ+5g2Z6frGEqFxsRh+xoRB58eLSEFVnTGjuBnp0Nsyxsm0JtjyBmhKkttwlCAjS7sK1Hw
-	SC7b7nqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GXdvOxYwm7hM8qFWm7NtjTwP2ih4rX1mA4VgeFJOiEo=; b=Tll7OlC/Yj9Zd8EBkFuGPXsWd7
+	Wam1QA+MBudBVeeOreIH3bd3ix6S/wJRe5nPmDdqk4w0tZOOld67e6GaFgxsgJh0RtesW2SVpZ8za
+	geDE6pr631a4clKNSQqRYZITeT+Qo7YuR6N05Rq5W4PtpSzD1iyBReWxsAcWkw2iCLZBMmWkxP170
+	ci+AjvP2+t5qzlTauWBqajdVkOvDGZMTKagFC/ngP1mwih0Fo1x4/aNVNc0ovEVP6WcjCNEwXN53i
+	XKN3B7Oaa5xDFZH5KinpC6ZrfS7uj6rqBST8RjCW5mi6+SlDiHDKdw6RqDR8vetE/bC/HWaHSb2Xw
+	gQZOVM3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDTD-0000000BMuG-3eaC;
-	Thu, 06 Mar 2025 15:49:11 +0000
+	id 1tqDUn-0000000BN7Q-2KRC;
+	Thu, 06 Mar 2025 15:50:49 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDRb-0000000BMdj-1pYq
+	id 1tqDRi-0000000BMes-49By
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:47:32 +0000
+	Thu, 06 Mar 2025 15:47:40 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1632919F0;
-	Thu,  6 Mar 2025 07:47:43 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E11D23F66E;
-	Thu,  6 Mar 2025 07:47:28 -0800 (PST)
-Message-ID: <e432f571-67e4-4ea2-982d-096fb1c35f77@arm.com>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2FB111007;
+	Thu,  6 Mar 2025 07:47:51 -0800 (PST)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3C213F66E;
+	Thu,  6 Mar 2025 07:47:36 -0800 (PST)
 Date: Thu, 6 Mar 2025 15:47:27 +0000
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Alice Ryhl <aliceryhl@google.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [Bug report] Memory leak in scmi_device_create
+Message-ID: <Z8nDj129ZVeZBVSp@pluto>
+References: <Z8g8vhS9rqQ_ez48@google.com>
+ <Z8iFeEWq16pNQdMa@pluto>
+ <Z8mCbc2Z2QGd3f8M@google.com>
+ <Z8my4MZ-In0ibxVY@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: lib: Use MOPS for usercopy routines
-To: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
- James Morse <james.morse@arm.com>
-References: <20250228170006.390100-1-kristina.martsenko@arm.com>
- <20250228170006.390100-4-kristina.martsenko@arm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250228170006.390100-4-kristina.martsenko@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8my4MZ-In0ibxVY@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_074731_621262_BD27387C 
-X-CRM114-Status: GOOD (  22.24  )
+X-CRM114-CacheID: sfid-20250306_074739_279049_1817FED0 
+X-CRM114-Status: GOOD (  32.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,178 +68,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 5:00 pm, Kristina Martšenko wrote:
-> Similarly to what was done with the memcpy() routines, make
-> copy_to_user(), copy_from_user() and clear_user() also use the Armv8.8
-> FEAT_MOPS instructions.
+On Thu, Mar 06, 2025 at 02:36:16PM +0000, Catalin Marinas wrote:
+> On Thu, Mar 06, 2025 at 11:09:33AM +0000, Alice Ryhl wrote:
+> > On Wed, Mar 05, 2025 at 05:10:16PM +0000, Cristian Marussi wrote:
+> > > On Wed, Mar 05, 2025 at 11:59:58AM +0000, Alice Ryhl wrote:
+> > > > This was with a kernel running v6.13-rc3, but as far as I can tell, no
+> > > > relevant changes have landed since v6.13-rc3. My tree *does* include
+> > > > commit 295416091e44 ("firmware: arm_scmi: Fix slab-use-after-free in
+> > > > scmi_bus_notifier()"). I've only seen this kmemleak report once, so it's
+> > > > not happening consistently.
+> > > > 
+> > > > See below for the full kmemleak report.
+> > > > 
+> > > > Alice
+> > > > 
+> > > > $ sudo cat /sys/kernel/debug/kmemleak
+> > > > unreferenced object 0xffffff8106c86000 (size 2048):
+> > > >   comm "swapper/0", pid 1, jiffies 4294893094
+> > > >   hex dump (first 32 bytes):
+> > > >     02 00 00 00 10 00 00 00 c0 01 bc 03 81 ff ff ff  ................
+> > > >     60 67 ba 03 81 ff ff ff 18 60 c8 06 81 ff ff ff  `g.......`......
+> > > >   backtrace (crc feae9680):
+> > > >     [<00000000197aa008>] kmemleak_alloc+0x34/0xa0
+> > > >     [<0000000056fe02c9>] __kmalloc_cache_noprof+0x1e0/0x450
+> > > >     [<00000000a8b3dfe1>] __scmi_device_create+0xb4/0x2b4
+> > > >     [<000000008714917b>] scmi_device_create+0x40/0x194
+> > > >     [<000000001818f3cf>] scmi_chan_setup+0x144/0x3b8
+> > > >     [<00000000970bad38>] scmi_probe+0x584/0xa78
+> > > >     [<000000002600d2fd>] platform_probe+0xbc/0xf0
+> > > >     [<00000000f6f556b4>] really_probe+0x1b8/0x520
+> > > >     [<00000000eed93d59>] __driver_probe_device+0xe0/0x1d8
+> > > >     [<00000000d613b754>] driver_probe_device+0x6c/0x208
+> > > >     [<00000000187a9170>] __driver_attach+0x168/0x328
+> > > >     [<00000000e3ff1834>] bus_for_each_dev+0x14c/0x178
+> > > >     [<00000000984a3176>] driver_attach+0x34/0x44
+> > > >     [<00000000fc35bf2a>] bus_add_driver+0x1bc/0x358
+> > > >     [<00000000747fce19>] driver_register+0xc0/0x1a0
+> > > >     [<0000000081cb8754>] __platform_driver_register+0x40/0x50
+> > > > unreferenced object 0xffffff8103bc01c0 (size 32):
+> > > 
+> > > I could not reproduce on my setup, even though I run a system with
+> > > all the existent SCMI protocols (and related drivers) enabled (and
+> > > so a lot of device creations) and a downstream test driver that causes
+> > > even more SCMI devices to be created/destroyed at load/unload.
+> > > 
+> > > Coming down the path from scmi_chan_setup(), it seems something around
+> > > transport devices creation, but it is not obvious to me where the leak
+> > > could hide....
+> > > 
+> > > ...any particular setup on your side ? ...using LKMs, loading/unloading,
+> > > any usage pattern that could help me reproduce ?
+> > 
+> > I looked into this a bit more, and actually it does happen consistently.
+> > It's just that kmemleak doesn't report it until 10 minutes after
+> > booting, so I did not notice it.
 > 
-> Both MOPS implementation options (A and B) are supported, including
-> asymmetric systems. The exception fixup code fixes up the registers
-> according to the option used.
+> You can force the scanning with:
 > 
-> In case of a fault the routines return precisely how much was not copied
-> (as required by the comment in include/linux/uaccess.h), as unprivileged
-> versions of CPY/SET are guaranteed not to have written past the
-> addresses reported in the GPRs.
+>   echo scan > /sys/kernel/debug/kmemleak
 > 
-> The MOPS instructions could possibly be inlined into callers (and
-> patched to branch to the generic implementation if not detected;
-> similarly to what x86 does), but as a first step this patch just uses
-> them in the out-of-line routines.
+> Just do it a couple of times after boot, no need to wait 10 min for the
+> default background scanning.
+> 
+> > user@rk3588-ci:~$ sudo cat /sys/kernel/debug/kmemleak
+> > unreferenced object 0xffffff81068c0000 (size 2048):
+> >   comm "swapper/0", pid 1, jiffies 4294893128
+> >   hex dump (first 32 bytes):
+> >     02 00 00 00 10 00 00 00 40 a3 7a 03 81 ff ff ff  ........@.z.....
+> >     60 c8 79 03 81 ff ff ff 18 00 8c 06 81 ff ff ff  `.y.............
+> >   backtrace (crc 60df30fb):
+> >     kmemleak_alloc+0x34/0xa0
+> >     __kmalloc_cache_noprof+0x1e0/0x450
+> >     __scmi_device_create+0xb4/0x2b4
+> 
+> Is this the kzalloc() for sizeof(*scmi_dev)? It's surprisingly large, I
+> thought it would go for the kmalloc-1k slab as struct device is below
+> this side, at least for my builds. Anyway...
+> 
+> >     scmi_device_create+0x40/0x194
+> >     scmi_chan_setup+0x144/0x3b8
+> >     scmi_probe+0x51c/0x9fc
+> >     platform_probe+0xbc/0xf0
+> >     really_probe+0x1b8/0x520
+> >     __driver_probe_device+0xe0/0x1d8
+> >     driver_probe_device+0x6c/0x208
+> >     __driver_attach+0x168/0x328
+> >     bus_for_each_dev+0x14c/0x178
+> >     driver_attach+0x34/0x44
+> >     bus_add_driver+0x1bc/0x358
+> >     driver_register+0xc0/0x1a0
+> >     __platform_driver_register+0x40/0x50
+> > unreferenced object 0xffffff81037aa340 (size 32):
+> >   comm "swapper/0", pid 1, jiffies 4294893128
+> >   hex dump (first 32 bytes):
+> >     5f 5f 73 63 6d 69 5f 74 72 61 6e 73 70 6f 72 74  __scmi_transport
+> >     5f 64 65 76 69 63 65 5f 72 78 5f 31 30 00 ff ff  _device_rx_10...
+> >   backtrace (crc 8dab7ca7):
+> >     kmemleak_alloc+0x34/0xa0
+> >     __kmalloc_node_track_caller_noprof+0x234/0x528
+> >     kstrdup+0x48/0x80
+> >     kstrdup_const+0x30/0x3c
+> 
+> These are referenced from the main structure above, so they'd be
+> reported as leaks as well.
+> 
+> This loop in scmi_device_create() looks strange:
+> 
+> 	list_for_each_entry(rdev, phead, node) {
+> 		struct scmi_device *sdev;
+> 
+> 		sdev = __scmi_device_create(np, parent,
+> 					    rdev->id_table->protocol_id,
+> 					    rdev->id_table->name);
+> 		/* Report errors and carry on... */
+> 		if (sdev)
+> 			scmi_dev = sdev;
+> 		else
+> 			pr_err("(%s) Failed to create device for protocol 0x%x (%s)\n",
+> 			       of_node_full_name(parent->of_node),
+> 			       rdev->id_table->protocol_id,
+> 			       rdev->id_table->name);
+> 	}
+> 
+> We can override scmi_dev a few times in the loop and lose the previous
+> sdev allocations. Is this intended?
 
-I still think it's cleaner and demonstrably simpler to keep the 
-clear_user() implementations independent (especially with a mind to 
-future inlining), but we're clearly well into personal preferences on 
-that, so FWIW,
+Yes...it is weird..but by design I would say :P ...
 
-Acked-by: Robin Murphy <robin.murphy@arm.com>
+...because this is called to instantiate one single device OR instantiate at
+once all the multiple devices needed for a protocol: in this latter case it
+returns just one of the created devices to signal success or NULL if all the
+devices' creation failed....we dont need to keep the allocated devices references
+anyway here since on success those devices are now referenced and kept on the
+SCMI bus, so they can be searched/scanned/destroyed from there.
 
-> Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
-> ---
->   arch/arm64/include/asm/asm-uaccess.h |  4 ++++
->   arch/arm64/lib/clear_user.S          | 25 +++++++++++++++++++++----
->   arch/arm64/lib/copy_from_user.S      | 10 ++++++++++
->   arch/arm64/lib/copy_template.S       | 10 ++++++++++
->   arch/arm64/lib/copy_to_user.S        | 10 ++++++++++
->   5 files changed, 55 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/asm-uaccess.h b/arch/arm64/include/asm/asm-uaccess.h
-> index 5b6efe8abeeb..9148f5a31968 100644
-> --- a/arch/arm64/include/asm/asm-uaccess.h
-> +++ b/arch/arm64/include/asm/asm-uaccess.h
-> @@ -61,6 +61,10 @@ alternative_else_nop_endif
->   9999:	x;					\
->   	_asm_extable_uaccess	9999b, l
->   
-> +#define USER_CPY(l, uaccess_is_write, x...)	\
-> +9999:	x;					\
-> +	_asm_extable_uaccess_cpy 9999b, l, uaccess_is_write
-> +
->   /*
->    * Generate the assembly for LDTR/STTR with exception table entries.
->    * This is complicated as there is no post-increment or pair versions of the
-> diff --git a/arch/arm64/lib/clear_user.S b/arch/arm64/lib/clear_user.S
-> index a5a5f5b97b17..de9a303b6ad0 100644
-> --- a/arch/arm64/lib/clear_user.S
-> +++ b/arch/arm64/lib/clear_user.S
-> @@ -17,14 +17,27 @@
->    * Alignment fixed up by hardware.
->    */
->   
-> -	.p2align 4
-> -	// Alignment is for the loop, but since the prologue (including BTI)
-> -	// is also 16 bytes we can keep any padding outside the function
->   SYM_FUNC_START(__arch_clear_user)
->   	add	x2, x0, x1
-> +
-> +#ifdef CONFIG_AS_HAS_MOPS
-> +	.arch_extension mops
-> +alternative_if_not ARM64_HAS_MOPS
-> +	b	.Lno_mops
-> +alternative_else_nop_endif
-> +
-> +USER(9f, setpt	[x0]!, x1!, xzr)
-> +USER(6f, setmt	[x0]!, x1!, xzr)
-> +USER(6f, setet	[x0]!, x1!, xzr)
-> +	mov	x0, #0
-> +	ret
-> +.Lno_mops:
-> +#endif
-> +
->   	subs	x1, x1, #8
->   	b.mi	2f
-> -1:
-> +
-> +1:	.p2align 4
->   USER(9f, sttr	xzr, [x0])
->   	add	x0, x0, #8
->   	subs	x1, x1, #8
-> @@ -47,6 +60,10 @@ USER(7f, sttrb	wzr, [x2, #-1])
->   	ret
->   
->   	// Exception fixups
-> +6:	b.cs	9f
-> +	// Registers are in Option A format
-> +	add	x0, x0, x1
-> +	b	9f
->   7:	sub	x0, x2, #5	// Adjust for faulting on the final byte...
->   8:	add	x0, x0, #4	// ...or the second word of the 4-7 byte case
->   9:	sub	x0, x2, x0
-> diff --git a/arch/arm64/lib/copy_from_user.S b/arch/arm64/lib/copy_from_user.S
-> index 34e317907524..400057d607ec 100644
-> --- a/arch/arm64/lib/copy_from_user.S
-> +++ b/arch/arm64/lib/copy_from_user.S
-> @@ -52,6 +52,13 @@
->   	stp \reg1, \reg2, [\ptr], \val
->   	.endm
->   
-> +	.macro cpy1 dst, src, count
-> +	.arch_extension mops
-> +	USER_CPY(9997f, 0, cpyfprt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9996f, 0, cpyfmrt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9996f, 0, cpyfert [\dst]!, [\src]!, \count!)
-> +	.endm
-> +
->   end	.req	x5
->   srcin	.req	x15
->   SYM_FUNC_START(__arch_copy_from_user)
-> @@ -62,6 +69,9 @@ SYM_FUNC_START(__arch_copy_from_user)
->   	ret
->   
->   	// Exception fixups
-> +9996:	b.cs	9997f
-> +	// Registers are in Option A format
-> +	add	dst, dst, count
->   9997:	cmp	dst, dstin
->   	b.ne	9998f
->   	// Before being absolutely sure we couldn't copy anything, try harder
-> diff --git a/arch/arm64/lib/copy_template.S b/arch/arm64/lib/copy_template.S
-> index 488df234c49a..7f2f5a0e2fb9 100644
-> --- a/arch/arm64/lib/copy_template.S
-> +++ b/arch/arm64/lib/copy_template.S
-> @@ -40,6 +40,16 @@ D_l	.req	x13
->   D_h	.req	x14
->   
->   	mov	dst, dstin
-> +
-> +#ifdef CONFIG_AS_HAS_MOPS
-> +alternative_if_not ARM64_HAS_MOPS
-> +	b	.Lno_mops
-> +alternative_else_nop_endif
-> +	cpy1	dst, src, count
-> +	b	.Lexitfunc
-> +.Lno_mops:
-> +#endif
-> +
->   	cmp	count, #16
->   	/*When memory length is less than 16, the accessed are not aligned.*/
->   	b.lo	.Ltiny15
-> diff --git a/arch/arm64/lib/copy_to_user.S b/arch/arm64/lib/copy_to_user.S
-> index 802231772608..819f2e3fc7a9 100644
-> --- a/arch/arm64/lib/copy_to_user.S
-> +++ b/arch/arm64/lib/copy_to_user.S
-> @@ -51,6 +51,13 @@
->   	user_stp 9997f, \reg1, \reg2, \ptr, \val
->   	.endm
->   
-> +	.macro cpy1 dst, src, count
-> +	.arch_extension mops
-> +	USER_CPY(9997f, 1, cpyfpwt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9996f, 1, cpyfmwt [\dst]!, [\src]!, \count!)
-> +	USER_CPY(9996f, 1, cpyfewt [\dst]!, [\src]!, \count!)
-> +	.endm
-> +
->   end	.req	x5
->   srcin	.req	x15
->   SYM_FUNC_START(__arch_copy_to_user)
-> @@ -61,6 +68,9 @@ SYM_FUNC_START(__arch_copy_to_user)
->   	ret
->   
->   	// Exception fixups
-> +9996:	b.cs	9997f
-> +	// Registers are in Option A format
-> +	add	dst, dst, count
->   9997:	cmp	dst, dstin
->   	b.ne	9998f
->   	// Before being absolutely sure we couldn't copy anything, try harder
+But maybe this is the crux of the matter, or what fools kmemleak...I
+will try to reproduce again.
+
+Thanks,
+Cristian
 
