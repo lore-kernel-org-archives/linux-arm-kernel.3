@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80384C282D1
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5140C28B23
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=; b=lTfZNP/DRSd59twJ4XJAdF4gDr
-	hrDJQ9CttyYsfvjfhsGVSa2PyaHEJ3P0Nb9MOzo/4fZsenMDewDVuc2Q/6xGOEnXbMp4bUCOdw6+w
-	ite3EMWetr0sz9WGJgu7wZBSYVrrAemSWiwQKB0Rv+8MectwtFG8JsXIg+BRzTAD3veUesXTSZAZ1
-	fpY0ECtq1mNRUWJ8+G4b93otIzghAejjMNOnFBT1xbMu5MsXPeFrUnGCVchn6HPj3kXdVAUnfPE0s
-	xpnWzvbSTJhl3ecd/7pdsiGKis8L9tBGpShQXoJKRc1vmmwHFfpFxjs1FiXzrGZ/7rXitB6W6KvwF
-	AJqlh7kQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X0uGPys7OikREDoz8H8cNYAk6Mj7dQKpLuXJaFO3CNE=; b=rjt/1myrSEPXuAabb7CmD7jwo1
+	P87JuObgUQv6HluqOMcpbfNYw4t63xkGxUBv+KvuO7G2W/soS5Si2h/JBvTNWFJ7PNTxqMkYBweqR
+	atDqEJ62F1d1RfibsQn/P3vsw66B5GDTnosX/tOMOU9hm/tEB02PK6Diqc2WLmz4WsEPe/cNLazEg
+	vCdpN/wml3IvoMLRCv2odWW1C+17/5oKxtTkVVD+Ukqf2PpfcwGAvGoP+oxxkFkcs2EqFFC5vl0Ti
+	qOpLavmmvl5Ul4LsharmB5u7N4lkJxEFVmFR88eCIqgM9DeOjtO+wZFoeabiwbKdgBlQV72aLqg8V
+	GwiMrjxQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9xE-0000000AreM-0hSm;
+	id 1tq9xE-0000000Arei-3Aj6;
 	Thu, 06 Mar 2025 12:03:56 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8rP-0000000Ahks-3QOJ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 10:53:52 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-6f74b78df93so5250997b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:53:51 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741258430; x=1741863230; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=;
-        b=vWQdUFGFzplBfj2S0OOycs2FtNIep9PSdvjimFvaWYE6eevyA0m/lEuhBQICtTZeC6
-         zTQsGiAVoL3FLX8Ipdrhb34r/+al8gvkRkUNvKqpk/R7FV4Hi32Tuo623nzgkgOsk15x
-         P5zutL2atW9bqzUs5B7lCfcQvosmCNVL1JzozxqkTG8F2z6ndrd2jksiBnTvA4kDAhuf
-         DQHZtDB7/wOoGjnrG3DIzh2KTUEGH/yHcpSWBe02fXxYLzar2ETq2xjxHAFhddlmqehf
-         J/K8UXhQstGCFuCQVcG/mjzEs+4rRyndnUuDIN3rRx24Rg13IwtUMAUjxXc+xMMNJRXn
-         gHFw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741258430; x=1741863230;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=l3kxF9s0s10HtMJFdaStPVy028iaechePMj70+RdBiw=;
-        b=mY8rDVu2U+B2E6zO9AbqvlsLCbH5dnsfDrJhImAYeo7Uju/KNpFh5ROSnPS2BhN7CA
-         we5KQSqDFIMcoH3e1KiFTxYHA0zuPpXgtjJ6zEayvWasGc4EeZiH1PoFazpuSmwxepZy
-         JN5L38Zqz7AYodAtjA0cWUHXh8XbuaJ3gFQMJI0jt/Er3OCcRNfD8n8LmdcW6pfhqy13
-         3AHeq4N3XUC7Jf/vDe2wpnaDPOsAjDZwYyGbSk9T5D60mn9oRta/cAcfmk6Pq8ELDDSA
-         iPLnfARcvrogRI6h6j7L3QVGqlgET/LAe2My/ZMK7Ul+mRodZ91gbIXpbW1c/HqDyWTW
-         8PWg==
-X-Forwarded-Encrypted: i=1; AJvYcCUmulgg+SIuX8IfNEoZSUgatgkRyfgUy376Uc3l/dHwto8IFMJfq6bqcAuX98IRcIn5K69cQBmNJEMvRCgKf15N@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1S8JYDkW7e+M3Djb/XiZl+vwXSOHCo4fdZ7NT9IopTHUj0tJh
-	F3+rqNxQ34uNEideYOzkXtDBCF6zhfeG3AY7qy3GLnmTwi4LFC5BR56CCNYdB/PX5bvMY03zJE0
-	JLGa1Yy8HA9RwOiI9Dz8mhUL8J+ZfnZR9iRL/GQ==
-X-Gm-Gg: ASbGncv1rimHQBrDLrv1KqR3mQ4RcQC0UV3bdLs8jONsRYWg9Sw0R3BUVpvxYCcykez
-	/6oRc2AAUzP6f7VRBLkEJhdDFCdIOpzUZepRI77msacVRRU3GoaBOBrqGUl5t2g6kvEoU0dUQbs
-	PgUrwmHL2rMBOsMIPbdkYOfCHKd2U=
-X-Google-Smtp-Source: AGHT+IHveALh7pfAJxb1zQDrWysmjfRsRboRORBFdyusSPBVnlo9Xnd8mhzTm+ZPYxFyYXm4hgY3Nu9iytramRNs4y8=
-X-Received: by 2002:a05:690c:64c1:b0:6fd:44a5:5b68 with SMTP id
- 00721157ae682-6fda306fffbmr91783397b3.35.1741258430563; Thu, 06 Mar 2025
- 02:53:50 -0800 (PST)
+	id 1tq8rZ-0000000AhmB-2JRx;
+	Thu, 06 Mar 2025 10:54:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=X0uGPys7OikREDoz8H8cNYAk6Mj7dQKpLuXJaFO3CNE=; b=odLBDurjB9/5kquki5r+UGKTOE
+	+Hx+YeL6yXHydqSsqEOYOmtLnQNkMmbhVBUhwzzyMQFoke6lOBkREDxlzLTqW0+cOf2gdAoUis/X0
+	P755UC8PxSe3Jr8pWoQZbHUq1XM4+8oUXoMaF1RExtRtai5278/S/MXgB+lxvsNcz/oucVL1CmZ1x
+	dX9HFc54grv0JNTzuyClIn2sEOz90EaX0QX2yi6PnU7vcnav1F4EhKi1jhei4Zybx9AexFmKmTQHE
+	vKBQDX3cKrSD5iINPDTqNSVuLUOSg5kXkNSLxmNB3DcH0z8AiEDGSI0d886bKhissECBR9iUchjMf
+	hzFziExA==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq8rW-000000011pc-1958;
+	Thu, 06 Mar 2025 10:54:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741258434;
+	bh=mlfJGkDy4TYPN23XQOALun4gCtktQqPl5OUILFcu94g=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Adxdai4BHQ0nrk+Y8TguTPs3jteQqha22poRWLoQgrvVF+zA3MyEMhAgziIOIy+2y
+	 OjHxAw4IRwy/8GS9KDxEmtD1zT8HvYL/FgVIGbjfuYQ/x6WrDiLPMSXffgT/+oLvCn
+	 ldiABCy7QePDBPP3N77tk/wEL2QI5UDBKC9y4tbGsCf1AdZ/ttOYfaX2DTtEcFql0R
+	 R5KLzKh8zzlBWO1L+/6verr1o91S4KpSsMRqf83LsDREgjMLRGi1Zq4JEFifA9YL8C
+	 nAFJTxWfJmIchSeZFDGM5oQPnzBLPEXGEzLC+hu16nS+sOOi9war6JjdgCsKnlqAVJ
+	 f2Tyj6DiY7lhg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 1037F17E0599;
+	Thu,  6 Mar 2025 11:53:54 +0100 (CET)
+Message-ID: <7af26747-34cd-4088-a6b5-865de9e87fba@collabora.com>
+Date: Thu, 6 Mar 2025 11:53:53 +0100
 MIME-Version: 1.0
-References: <20250306061805.2318154-1-ping.bai@nxp.com>
-In-Reply-To: <20250306061805.2318154-1-ping.bai@nxp.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Thu, 6 Mar 2025 11:53:14 +0100
-X-Gm-Features: AQ5f1JoVI52ootMQgeP7Rja3_fKhyfkFzcUyyz4qn2NojBs4a97d8HfR3zSlUrg
-Message-ID: <CAPDyKForY4VNZtqietDPt2FQM3p4OsaoE_oJb0PPLUAh98WsHQ@mail.gmail.com>
-Subject: Re: [PATCH v3] cpuidle: psci: Init cpuidle only for present CPUs
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: lpieralisi@kernel.org, sudeep.holla@arm.com, rafael@kernel.org, 
-	daniel.lezcano@linaro.org, james.morse@arm.com, d-gole@ti.com, 
-	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, khilman@baylibre.com, 
-	quic_tingweiz@quicinc.com, quic_yuanjiey@quicinc.com
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] mailbox: mtk-cmdq: Refine GCE_GCTL_VALUE setting
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>
+Cc: Nancy Lin <nancy.lin@mediatek.com>, Singo Chang
+ <singo.chang@mediatek.com>, Yongqiang Niu <yongqiang.niu@mediatek.com>,
+ Sirius Wang <sirius.wang@mediatek.com>,
+ Xavier Chang <xavier.chang@mediatek.com>, Fei Shao <fshao@chromium.org>,
+ Chen-yu Tsai <wenst@chromium.org>, Pin-yen Lin <treapking@chromium.org>,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250224105414.3576243-1-jason-jh.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_025351_877749_7F680825 
-X-CRM114-Status: GOOD (  23.37  )
+X-CRM114-CacheID: sfid-20250306_105358_689603_A8E41BE8 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,58 +95,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Mar 2025 at 07:17, Jacky Bai <ping.bai@nxp.com> wrote:
->
-> for_each_possible_cpu() is currently used to initialize cpuidle
-> in the PSCI cpuidle driver.
->
-> However, in cpu_dev_register_generic(), for_each_present_cpu()
-> is used to register CPU devices which means the CPU devices are
-> only registered for present CPUs and not all possible CPUs.
->
-> With nosmp or maxcpus=0, only the boot CPU is present, leading
-> to the failure:
->
->   |  Failed to register cpuidle device for cpu1
->
-> Change for_each_possible_cpu() to for_each_present_cpu() in the
-> PSCI cpuidle driver to ensure it only registers cpuidle devices
-> for CPUs that are actually present.
->
-> Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
-> Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-> Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+Il 24/02/25 11:50, Jason-JH Lin ha scritto:
+> Add cmdq_gctl_value_toggle() to configure GCE_CTRL_BY_SW and GCE_DDR_EN
+> together in the same GCE_GCTL_VALUE register.
+> 
+> For the SoCs whose GCE is located in MMINFRA and uses MMINFRA_AO power,
+> this allows it to be written without enabling the clocks. Otherwise, all
+> GCE registers should be written after the GCE clocks are enabled.
+> Move this function into cmdq_runtime_resume() and cmdq_runtime_suspend()
+> to ensure it is called when the GCE clock is enabled.
+> 
+> Fixes: 7abd037aa581 ("mailbox: mtk-cmdq: add gce ddr enable support flow")
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 
-Is this problem specific to cpuidle-psci?
+I have erroneously picked this patch in the MediaTek tree, as I had misread the
+changed file, thought that it was mtk-cmdq-helper.c.
 
-Others are using for_each_possible_cpu() when registering their cpuidle drivers.
+This patch also has the wrong recipients, as this should not go through the
+MediaTek trees, but through the mailbox one.
 
-Kind regards
-Uffe
+Therefore, I dropped this patch from the MediaTek tree - sorry for the confusion.
 
-> ---
->  - v2 changes:
->   - Improve the changelog as suggested by Sudeep
-> ---
->  drivers/cpuidle/cpuidle-psci.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
->
-> diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-> index 2562dc001fc1..00117e9b33e8 100644
-> --- a/drivers/cpuidle/cpuidle-psci.c
-> +++ b/drivers/cpuidle/cpuidle-psci.c
-> @@ -410,7 +410,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
->         struct cpuidle_driver *drv;
->         struct cpuidle_device *dev;
->
-> -       for_each_possible_cpu(cpu) {
-> +       for_each_present_cpu(cpu) {
->                 ret = psci_idle_init_cpu(&pdev->dev, cpu);
->                 if (ret)
->                         goto out_fail;
-> --
-> 2.34.1
->
+Regards,
+Angelo
 
