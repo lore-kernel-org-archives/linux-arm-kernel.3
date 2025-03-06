@@ -4,112 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBF9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:50:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3D9CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:59:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VjRt78Dq2s+uI5+AwqEfT+jWVL8f1Spro5dG2E/jNI0=; b=GDdIXE16/uL60dxwB+/zvIo/Ll
-	yXEFH0Jcq3wcOElCHv/c0NAjizttjyJiWCWmfxfLNgM8UFBbMGStnyUXvPWxFYfP3kUTIOklFXhkc
-	YKtxrKxQrLfXL8y5Q2hw3xnLpq/+Lesf4u6R0ylymGoj8Cfl1VQRVF+x4gFBG0eXNYU++eBCv8tBe
-	vK0IxencOnbI/530KS2JVkQRHBBhg7TGM/w4bh3hNct0rdK7d6VlB1tWWCucxpJ83SqCjcIwgt1ob
-	jwiGdXKDFtAUVA5s7l5fwB7wLFkbo+RbDrFNCH97+zfkrhGpGSVOvM3fZZhQrKLRAEm0HsVjWFGN8
-	nJyA+edA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HUzA5Pu2VpXIYuAhDxgWPL7oFqKDgn6WYCQ3x4sKcJs=; b=qmLGeqd44ljI4EddHKmBivzJyx
+	AZ/lBO+FocekwT1UbJSfSL6i4UaApSrwGAP27I3m9p4E0E30He5uBu3qNRC8iV7PtPc8HRWEivBab
+	ULYIVVoY5vjJXhgfYLcUjHoKSoZLeV2mCsUzn/J40I23cKT6tfLmj0OJ6V5Lb7FV64whdJ7XI+haV
+	8YcmQwOEm3aUP+WZ6oxLPAPott0Barfg7dL1u2IpLXBKxzTk37mrux/rbeOVFPuLBYFkAfm5jUI39
+	oVm9YLzbnWDU3CVzYBiT7kZFFMAcJWKIeZOBs1JeTcvTa402xbJMSn67qroFa1oY2m9dqWrX/2iMN
+	XrWmiZoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8oP-0000000Ah7W-0ObK;
-	Thu, 06 Mar 2025 10:50:45 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tq8wi-0000000AiEM-2wjS;
+	Thu, 06 Mar 2025 10:59:20 +0000
+Received: from mail-ed1-f49.google.com ([209.85.208.49])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8mm-0000000Agji-081g
+	id 1tq8v7-0000000Ai9G-2KP1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 10:49:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741258143;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=VjRt78Dq2s+uI5+AwqEfT+jWVL8f1Spro5dG2E/jNI0=;
-	b=axrydXgZCZT/b0lMtLVTiPPDWvU6zN8Amnf0SdpLMAdi7js1fJ8BBTTa/+OEPV3BnK5Bp+
-	u1Q2de+PLkuqo8R3oBuiqO5qgxfWlrB2brRppq4tPc8zfUg4tgw6ShCSV3TUsqTCBh9vfy
-	IB4mDIbWJQlukHgV68zcDgOUYlnok3E=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-204-M_TygwomOFmF1XC7afwR8A-1; Thu, 06 Mar 2025 05:47:26 -0500
-X-MC-Unique: M_TygwomOFmF1XC7afwR8A-1
-X-Mimecast-MFC-AGG-ID: M_TygwomOFmF1XC7afwR8A_1741258045
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43bca561111so1976875e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:47:26 -0800 (PST)
+	Thu, 06 Mar 2025 10:57:42 +0000
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5e4d3f92250so649903a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:57:41 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741258660; x=1741863460; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=HUzA5Pu2VpXIYuAhDxgWPL7oFqKDgn6WYCQ3x4sKcJs=;
+        b=W/MeVSCGBoI8XKopG3SZ2Btf3kar7tqr4yR5gUREosPLDcSZWwMlNu70QTVwSR+71h
+         VRjvKKeceBXIglkTToDJH2Rw9dI33V+w74yeS2Xr0y2aAfYFGXceWiQ2BzO0IHcYzHo5
+         NBkF+LJ5wiG3sPNaNy1+6f/scEgFdcEs1l2k/1PKC/895PT7mc8ZHVJBN9nJoWpuc8Hl
+         1pxerstlTtcmH2H+d0I+YDo5693T7gr/AuYiLueNL4b/jUsm7I4npzcsdtBfcOlZle32
+         mmQ7/Umx/h0WvupQ2kW8XSwVot2ON6RhEoh1nG8g539Xw8/RJ1q/H6SziVd8GIte3rkt
+         b7Ug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741258045; x=1741862845;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VjRt78Dq2s+uI5+AwqEfT+jWVL8f1Spro5dG2E/jNI0=;
-        b=E/+L9eT28DM10fYUcNlB/d/wsCarZXiWLHdg4ZZl1dQrxmPXkSrR6c/g0bWL31Pyag
-         tjAMK+dT2Jx7R8sxMsxgaWtB376956jjNSatiYgnu+Ll/BVpFREXIJU53orL4Z+g6gYL
-         vOPRH+WOXUQJBL5FSKvrBlQJub3T8OFU0quvnQ399Os6EWTD2LZ5Uf47BRM/u/3+AqHx
-         Slrhi3yKtBv9YMhjBCvPqWYx1OEmkvXgvGRr6XrTaTD3Utp5TGSPnVoZEvYRboAMov7j
-         k+t9aUR2InR65w+Su8QUQtDVPOWG9DqY2W5LqKoJ6Qh2BKq5OVMz/qVUoZQwjn31wyy/
-         ieSw==
-X-Forwarded-Encrypted: i=1; AJvYcCVZBbZXBHTS2oeXOQJ+PQ6z4d0qUt3qpnFQSMyaSYb+MHMf+VYJM9jl6A7QVPULghIKNXq/5Vi9TuZtJuQp6Dni@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvDs70yHq97Dbt98777/DsQrK9fZYPiv5mC1squtNJ1sGwO5H2
-	W6ehJ4EOGzOFHSSuCJcnt/AXHY8qEkZteYW5IkiAtDkGi40ECmDLxG/q10Y+navdq+ZE1+Dm1l4
-	dfas11A8Ernhyeux1TsRleYBI00UgvqMCZiUkt3RdboetXQ1Lm24WWbTVvHPrhjy9WtyTIctV
-X-Gm-Gg: ASbGncuS4wryjLJvV6txnEdOyWl4iNhgC0LTFGkGrz/+TrueGfWTaZrV+fNPZ/Ghz2e
-	Q4QDvvfxWywmSYXaSu69SMauUI1EmQyyOnMyKsnk4iy3KcJhhe5oRHRbvGSIPAso3JT4DVt7pxX
-	OV+3fl+FZjS7Zgc9K7uOT73Nv9aLbxr++WPUENz75talG0WJAP04GqkL1VZkqGZGbOgaUcScb9L
-	L58yRXOMCp2QMJ05/onl5QlnE4GDHj/Fmip4UPN44kr+iWPGL/WhEUEt8p6h2RtfWBSUAROt3He
-	dXfPnhC3A3dklwakwwhsAXo1Nyoyg2JtcmVJ09kdVV6EMA==
-X-Received: by 2002:a05:600c:474b:b0:43b:caac:5934 with SMTP id 5b1f17b1804b1-43bd2940d7fmr64405845e9.10.1741258045147;
-        Thu, 06 Mar 2025 02:47:25 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEMjHLrijI3JnQ9/rTJXDsThbCAGg6S1g+aRd1hhWjvbEr7MYhP077xwT5HmEDiJR4B8678IQ==
-X-Received: by 2002:a05:600c:474b:b0:43b:caac:5934 with SMTP id 5b1f17b1804b1-43bd2940d7fmr64405645e9.10.1741258044718;
-        Thu, 06 Mar 2025 02:47:24 -0800 (PST)
-Received: from [192.168.88.253] (146-241-81-153.dyn.eolo.it. [146.241.81.153])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd42920a5sm46021545e9.11.2025.03.06.02.47.23
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Mar 2025 02:47:24 -0800 (PST)
-Message-ID: <5d0b952a-ec07-4ebf-8228-a424fc0de4cd@redhat.com>
-Date: Thu, 6 Mar 2025 11:47:22 +0100
+        d=1e100.net; s=20230601; t=1741258660; x=1741863460;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=HUzA5Pu2VpXIYuAhDxgWPL7oFqKDgn6WYCQ3x4sKcJs=;
+        b=kp+AzQ6JjrTyHOQEugtb0VC6pkC6RA+R39mkOy2eduDic83E8uzJPMoyvFobXLfEIQ
+         6nLLp4sa5BFW6ki54C1F6LRB9UrA8KWAg0jkxhLPS/LrdQfDsQ1ZKsCL9CS4oePXYXm1
+         aDshF2Cwv+qrPUO9ES3UFlw6TKTNEN+00k9LgaqTMYtz2UWNrSXbfgV5Av1eHf4teid5
+         8eXsBtVkmx5jj6TPbp4zfhVmE5fpM5B33SQYtvCa5xm3CcvKuUJrZF93nextJ9q3ISYu
+         NEQpDvSV0WjrWZcIJ6qxzy732BMp0Vy7j0G2vFXbrfeML7JeNURRr6KKBf48lKuI5Gb7
+         d6yA==
+X-Forwarded-Encrypted: i=1; AJvYcCVmciwXg882HPjs5TQJN+q7xDdPhRWf9NYUH0GE3zt+eLmN3p7Y+5OlXiPsAibqSLHVYrdWvHcuo7uoXfdPE3f8@lists.infradead.org
+X-Gm-Message-State: AOJu0YypxE7zIH41YmwLzmnciDpCC1pGPe296l26MtBtaL85QHguFbUP
+	YlIuOOJKtFtuan8eZd2RKJO48Cqx+bSHBmyvkNq/z8DSsE6zaK5XuYlr5h5vIps=
+X-Gm-Gg: ASbGncsaEXQidGd7jj5LO2ERSgUIJYDUAkYgYN13cwDKqKEp1lYMKKLNTuXePS668al
+	pUNsAGg2kRAQkZhQ2Utj7H1t/xJqGoiANNTsvTb12vYpjZAl5yaHp8FFH0UH7Yg7d/noVSBXAdw
+	8LtcfQAqxB6jZXy7Vuz4G7wAeL3rnTvkLk6YxFBB3jCGPM9sc/B5tSH/McOr1btYph3I3bX+qni
+	LzADzKCGA2Lxe5vlsJ3uGyJI2PvpwwYMWOSiHZikXHzqUaIDM/SCFpGxaEiCE+tL9VkoCz0qt7Z
+	whEGCObP7YTGzegPtQx23rmvryL/t2i5yl34mcT9DKp8RFE8
+X-Google-Smtp-Source: AGHT+IGeZOiaY1aJKJjqtYueXhMP1BS31yX+hr4PezJXUBtQPVrMxRBsSKLnYFZO+vtwvwtDRkBuEA==
+X-Received: by 2002:a17:906:29c4:b0:ac2:29b8:1f21 with SMTP id a640c23a62f3a-ac229b8202cmr306641066b.49.1741258659698;
+        Thu, 06 Mar 2025 02:57:39 -0800 (PST)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2399d47b5sm74174966b.168.2025.03.06.02.57.38
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 02:57:39 -0800 (PST)
+Message-ID: <b70f17589b91730ecf6080c626492368283ce7a1.camel@linaro.org>
+Subject: Re: [PATCH 0/3] gs101 max77759 enablement (DT)
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon
+ <will@kernel.org>,  Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+ <tudor.ambarus@linaro.org>, Rob Herring	 <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley	 <conor+dt@kernel.org>, Alim
+ Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org
+Date: Thu, 06 Mar 2025 10:57:38 +0000
+In-Reply-To: <20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org>
+References: <20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.53.2-1 
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 02/13] net: phy: Use an internal, searchable
- storage for the linkmodes
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
- Jakub Kicinski <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>,
- Russell King <linux@armlinux.org.uk>, Heiner Kallweit
- <hkallweit1@gmail.com>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
- linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
- <20250303090321.805785-3-maxime.chevallier@bootlin.com>
- <738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
- <20250306095726.04125e5f@fedora.home>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250306095726.04125e5f@fedora.home>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: 9XJ1yT87BvdvLI1Og8cr4tmmdkZ0yIjSLtcTuc0_GSM_1741258045
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_024904_234340_FBD29807 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20250306_025741_594963_D1506DB4 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,46 +103,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/6/25 9:57 AM, Maxime Chevallier wrote:
-> On Thu, 6 Mar 2025 09:30:11 +0100
-> Paolo Abeni <pabeni@redhat.com> wrote:
->> On 3/3/25 10:03 AM, Maxime Chevallier wrote:
-[...]
->>> +/**
->>> + * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
->>> + */
->>> +void phy_caps_init(void)
->>> +{
->>> +	const struct link_mode_info *linkmode;
->>> +	int i, capa;
->>> +
->>> +	/* Fill the caps array from net/ethtool/common.c */
->>> +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
->>> +		linkmode = &link_mode_params[i];
->>> +		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
->>> +
->>> +		if (capa < 0)
->>> +			continue;  
->>
->> Or even error-out here.
-> 
-> Good point yes indeed. Russell raised the point for the need of keeping
-> this in sync with new SPEED_XXX definitions, I'll add a check that
-> errors out.
-> 
-> I hope that's OK though, as higher speeds are introduced and used by
-> NICs that usually don't use phylib at all, so there's a good chance
-> that the developper introducing the new speed won't have CONFIG_PHYLIB
-> enabled.
-> 
-> Is that still good ?
+On Thu, 2025-03-06 at 10:14 +0000, Andr=C3=A9 Draszik wrote:
+> Hi,
+>=20
+> This series enables the recently submitted Maxim max77759 driver and
+> updates the DT for the Google Pixel 6 / Pro (oriole / raven) boards
+> accordingly.
+>=20
+> !!! Dependency note !!!
+>=20
+> This series depends on the corresponding driver and DT bindings
+> proposed in
+> https://lore.kernel.org/r/20250228-max77759-mfd-v3-0-0c3627d42526@linaro.=
+org
+>=20
+> Note that in that series bindings and gpio driver are accepted, but mfd
+> and nvmem drivers are still waiting for review comments.
 
-I think so. New linkmodes should be added on net-next. Booting the
-kernel with phylib support on any device should catch the error. I think
-even the CI should catch this.
+To avoid ambiguity... with 'accepted' I meant reviewed, but not merged!
 
-Thanks,
-
-Paolo
+A.
 
 
