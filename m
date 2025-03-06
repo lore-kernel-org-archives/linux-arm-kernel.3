@@ -4,66 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C560C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F163C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:16:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=r1mvttKmdlTjRafAKsHmhCEZ5T95Om0QyJBHPC6if+o=; b=1RLyoBUgZYOq6E8J8g99xvfpk7
-	XBMJ0dsy7jjojHI1hhCxv18BmpPPhusp/EXCcDeFv8bIMV1HiBrFkr+uGMGk9cwQWn2U8hhdOMC9G
-	N+3qqFn3BLvC/QsXiz7ENZ9y9mYLL5UNYyJzsOhQUU+t+VeVnLpeYWe8A9Dtxd5DQ2u9939GyBzJ5
-	QMOMY0uCPKY/gxAy+69oZgm/ik9yZv1RmmeGZZXIDRspW58mVKnf72j4D38Pugh2PE4wQE0rInYMR
-	BsX0Q/Y4/HjaG4slN+G4URynNQEOFYG6CzhUEb3MH2riZGxC2K1cizLwhScyhl89MGeV+eSay4+Cn
-	bCJMo+7g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GFNB3GQfHuZhgoLh28ySpFkcndevRW3IQZO7WqPJuLc=; b=Yla5sxCIyQWq5cnDBSXrp/3eq8
+	20QGJc8DHNAOZlA6OM/BztBwiUNPSqSRr+Mwe8VN337jlhwUI/WZ5CZdIj4VZ18xCWQ+XQD8augpG
+	GR5WxKqOQ+X9XLL+Lag/32v7lpBh/u806by+tT1+3u5eLs1LZr5Be6me/Pxilcef0jl9EzNiDcCD5
+	3g2OManO9e3/1hPe5DixV1GED8DRp8EtVjEnS4ZxkP5sFf1d26qfoIrBh19IeO3+yhuF0h8NK5j48
+	X6NfWVJ2ydnxfxmi+iQBwYbgt4ItkB/nMfz/OguxzMj5ejziPElJnPMky/T6z0Vloq66Ph3qd2CPk
+	NQB+4l8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6Ct-0000000AHEs-2uan;
-	Thu, 06 Mar 2025 08:03:52 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5DS-0000000AA6V-054L;
-	Thu, 06 Mar 2025 07:00:23 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=r1mvt
-	tKmdlTjRafAKsHmhCEZ5T95Om0QyJBHPC6if+o=; b=FalPWDW582aligSeJEfAG
-	Oz7pbNRCnY6FUKb5mA9MLzgBXqEGm5oRtgNAMLE76osO/UiFQsVFfknfoE7jof4n
-	TQU3m/UScnP2Xo91U81YzeHosLi7Wc8CDt9B+1gVarjhYPJKbbo/QUgBom/poZOw
-	pV4twSAAkiT5FP7MiqAz5M=
-Received: from ProDesk.. (unknown [])
-	by gzga-smtp-mtada-g1-4 (Coremail) with SMTP id _____wA33j_pR8lnNEKOPw--.129S2;
-	Thu, 06 Mar 2025 14:59:57 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: vkoul@kernel.org
-Cc: heiko@sntech.de,
-	kishon@kernel.org,
-	sebastian.reichel@collabora.com,
-	yubing.zhang@rock-chips.com,
-	dmitry.baryshkov@linaro.org,
-	frank.wang@rock-chips.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH] phy: rockchip: usbdp: Check these parameters only when the corresponding set flags are set
-Date: Thu,  6 Mar 2025 14:59:51 +0800
-Message-ID: <20250306065952.485809-1-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
+	id 1tq6OW-0000000AJ2O-3Ym0;
+	Thu, 06 Mar 2025 08:15:52 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq6Ms-0000000AIfw-2bdK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 08:14:13 +0000
+Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250306081359epoutp03c07fdbe7920b002a08d0a0b791c308e0~qKJgM988p2640726407epoutp03_
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 08:13:59 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250306081359epoutp03c07fdbe7920b002a08d0a0b791c308e0~qKJgM988p2640726407epoutp03_
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741248839;
+	bh=GFNB3GQfHuZhgoLh28ySpFkcndevRW3IQZO7WqPJuLc=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=TRRYU3YQJPsGxLk2/M/mc9QNMWkBFVrclJD3t50D40EOYKrvT8TDLWlMOay0wXKA+
+	 Cvn5BD+p9d/jW2OA35+xZx/jx9gzRV3uTqqcOy9l8Z9sarGrw6cZc2wn/Hp/BoKEdE
+	 5v69T4r3M1hrNZNFg4nGR8JhCcKWe4n3pA6twuPg=
+Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250306081358epcas5p45839d254f72b81c22b1854bf49ddf2bd~qKJfudMFH3180531805epcas5p4j;
+	Thu,  6 Mar 2025 08:13:58 +0000 (GMT)
+Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.179]) by
+	epsnrtp2.localdomain (Postfix) with ESMTP id 4Z7hyY07Xjz4x9Q7; Thu,  6 Mar
+	2025 08:13:57 +0000 (GMT)
+Received: from epcas5p2.samsung.com ( [182.195.41.40]) by
+	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	0A.75.19710.44959C76; Thu,  6 Mar 2025 17:13:56 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250306074425epcas5p20a08ef2dbd5705a1044fafb8c4a9ec15~qJvr5Zkdd1625216252epcas5p22;
+	Thu,  6 Mar 2025 07:44:25 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250306074425epsmtrp13d2eb93faea97f50364276552d52caec~qJvr4VzDQ3019030190epsmtrp1-;
+	Thu,  6 Mar 2025 07:44:25 +0000 (GMT)
+X-AuditID: b6c32a44-36bdd70000004cfe-fa-67c959443956
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	41.8E.18729.95259C76; Thu,  6 Mar 2025 16:44:25 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250306074422epsmtip18b4df393bbcbb9f3899d26f119ba0546~qJvpHt7NI2008120081epsmtip1a;
+	Thu,  6 Mar 2025 07:44:22 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <krzk+dt@kernel.org>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+Cc: <rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
+In-Reply-To: <789ecb2f-dddc-491b-b9f8-5fb89058fd1b@kernel.org>
+Subject: RE: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Thu, 6 Mar 2025 13:14:13 +0530
+Message-ID: <012701db8e6b$950550c0$bf0ff240$@samsung.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: _____wA33j_pR8lnNEKOPw--.129S2
-X-Coremail-Antispam: 1Uf129KBjvJXoWxZF1DJFyUtryfWF45ZF1fZwb_yoW5XrW3p3
-	y5JF4Dtr1UGw13Wa9xtr1kCFn8J3Z7ta17JrWakaySqw13A3yrZF929ryfAr4fGr97ZF1f
-	uFW3Ga45CF4DZ3JanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07jFzuAUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/1tbiqBoIXmfJRa42mQAAsO
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-in
+Thread-Index: AQHcwqSBZNYxUrKMqce/4F1P5N/GfgGyT6S5AetEnA8CiHKSMrMyHirw
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Tf1CTdRzH/T7bs2eQs0cE+cIdtKZk4oFbbOuBE5AkeiJJUq+7uro54Gns
+	gG23jQg9L6ydCelwpl48oBArLYSIMWAT+REhNuRARBZw4oGAB04Owp1FKbXxQPHf6/v+vj/f
+	z+f9/d6Xy/IrwIK5SpWe0qrk2QKOL7vxl+0vRyS+51AIz3ZKiMWZ84C4PGZDieqWXoQo6zOw
+	ifLOXpSY6rqPEcPtdoSYoe9xiL6+nzDiVqMRJSwTTpQYuFrGIYqckyhx8VkNSnRVbCae3HwE
+	iMoGN0aMz1/DiM6eaRZxu9iEEP9cs2G7A8gBZz+LtP4wjJBTxQ0YaadHMbLCkktaqgo5ZP23
+	n5J222OEnGsd5JBGaxUgf24VkY8toanr38/alUnJMygtn1KlqzOUKkWs4K0Dsj0yiVQoihBF
+	E68K+Cp5DhUrSNybGpGkzPZkFfA/lmfneqRUuU4n2Bm3S6vO1VP8TLVOHyugNBnZGrEmUifP
+	0eWqFJEqSh8jEgpfkXiMh7IyF2+eA5pZ/JOm3yvRAnBqQxHw4UJcDB+Y/8CKgC/XD28G0Oly
+	c5jFAoDdfzahzOIJgE/dNGe1pMjQvOJqAbD2af2KaxrAOkf7souDh8NKYyvmZX+8BYEPjqV6
+	TSy8AoF1N8yId8MHj4MlxvPLvAl/B5Z13QVeZuNbofWrJraXeXg0vNM1jDK8ETpKJpd1Fr4D
+	XvrGxWJG4sPFqUsoowfC64snPTrX0zgJTvSkeftC/LIPPOamUa8O8UT45UAUU7oJPrxhxRgO
+	hjPFx1dYBq8YB9kMZ8LRv0wr6eNh+50ytvcYFr4d1l7dycgh8Fz3jwgzwQZ46u9JhNF50HZx
+	lbfAZy7nypFBsPG7Oew0ENBrgtFrgtFrwtD/d6sA7CoQRGl0OQoqXaIRqai8/x48XZ1jActf
+	ITzRBobKlyI7AMIFHQByWQJ/Xv/bDoUfL0Oef5jSqmXa3GxK1wEknts2sYID0tWev6TSy0Ti
+	aKFYKpWKo6OkIkEg73O7QeGHK+R6KouiNJR2tQ7h+gQXICnJUXD8tnR+JN+fL90ygiydeS2O
+	jhweS3jRlsi6sOCwTtVmWGOyjrr6267Ub3gj4GCb9jNh7Im8NoO9KbU5eDCiq/T5+UZrWK95
+	Nr/v3f3K5+C8pRtoHoXVG6uFmPU6ht27NTA7ZXSOhP42ML3kyz9dfkb5kXTY5l6Ijy81xplF
+	+WGLyTGmaWRo/cbAWV153lKoa3/Cm3OlLsmOD8a3YuLol3qG8l6XrQsK4R13m/d9P56C7TGf
+	TJLtXafcd//h16FHqg0hh2t3d/psq+ksjD9R8mGaoeHIoRo/+tcDKWkJphatZcw0ykk+GzJx
+	oXQz/2Be+hdL2+oK7Udldx359AsCti5TLgpnaXXyfwEUJ5spkwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA02Sa0hTYRjHec9l52w2PM3KVyOREZZGq3V9lZIssfOlC33ToFp6WNNNbWul
+	flG8dJm5kspwaU3RldNIp+nmvKSZZVrTMm2rJDNLK1A0RAW7uCH47ff8/+/z4/nw0rhonPCn
+	FYnnOHWiTCnmCYj6p+KAzdHHuuRbdU4vNDdeAND9z1YSVTW/xlCRI5tA9zpek2i08wuFnE9s
+	GBo3DPGQw1FNod56PYksIwMkettYxEO6ga8kurvwkESdxjVopvsXQKWPf1NoeLKJQh09Yzh6
+	cy0fQ3+brNS+1ezbgT6cratwYuzotccUazN8olijRctazFd4bG1ZOmuzTmPsRMs7HquvMwO2
+	rUXKTlsCjq6IEeyJ45SK85x6S/gpwZm2NzYyuYZJGZx/SWSAPqEO8GnI7IC6bDtPBwS0iLED
+	+HliEPMUfnAq6xbpYR9Y8ec75Xn0DcDnd2qJxYLHhMBSfYu7WMV0Y3D20h/3gDNmDNaXv3Sr
+	RMwEgOYH8YvMZ8Jhob7AnfswR2DmUCG+yASzHtbdaHBbhUwo7O90kh5eCbsKv7pznNkE84Zz
+	wBKbSn7invMC4dyoifTkvvDZ3NX/Of3/oig40nP6OvAxLDMZlpkMy0yGZdtGQJiBH5esUclV
+	GmmyNJG7INHIVBptolwSm6SyAPdvCAm2ggbzpKQdYDRoB5DGxauEfYe75CJhnCw1jVMnnVRr
+	lZymHaylCbGv0HcsL07EyGXnuASOS+bUSy1G8/0zsPQ1uxUHXxl6dilwVWp2eHTQiQfB0t1Y
+	calr0tWtzGlsYsiRv67cgwHM2j4q9pA65fLT1hmN4sLs7Rc2emVQUGhW2PC2/qqZR/vvVy5Q
+	Bfn2VJN8qCLzkry5Oubk1up3rbXes86Ujcpcr+OyAUfWhvxwW781bPhma+RURGRwrPG9qyej
+	/XuT7KLJGJ1QY0zJL7fP4/HrJOSGwZ3jHzNnS8szH/7+4M2vcOiLVuT6pN0UyBsnjof1cr3p
+	tPeTtobisqmo7cUuQUOgVhkNCyQfCVNSmLbqgJNfkxBin6Gn2iJS/Tuq05uJY5VlMA+NqUN1
+	XiV7j0z/4J39NRrvEBOaMzJpCK7WyP4BMmZmenwDAAA=
+X-CMS-MailID: 20250306074425epcas5p20a08ef2dbd5705a1044fafb8c4a9ec15
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6
+References: <20250305091246.106626-1-swathi.ks@samsung.com>
+	<CGME20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6@epcas5p1.samsung.com>
+	<20250305091246.106626-2-swathi.ks@samsung.com>
+	<789ecb2f-dddc-491b-b9f8-5fb89058fd1b@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_230022_498387_F7A63D73 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250306_001412_085116_DB4B47A4 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,125 +149,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
 
-According documentation of phy_configure_opts_dp, at the configure
-stage, we should only verify/configure the link_rate when set_rate
-flag is set, the same applies to lanes and voltage.
 
-So we do it as the documentation says, also record the link rate
-and lanes in phy internal for set_voltate stage.
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 06 March 2025 12:45
+> To: Swathi K S <swathi.ks=40samsung.com>; krzk+dt=40kernel.org;
+> andrew+netdev=40lunn.ch; davem=40davemloft.net; edumazet=40google.com;
+> kuba=40kernel.org; pabeni=40redhat.com; robh=40kernel.org;
+> conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com
+> Cc: rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org;
+> pankaj.dubey=40samsung.com; ravi.patel=40samsung.com;
+> gost.dev=40samsung.com
+> Subject: Re: =5BPATCH v8 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On 05/03/2025 10:12, Swathi K S wrote:
+> > Add FSD Ethernet compatible in Synopsys dt-bindings document. Add FSD
+> > Ethernet YAML schema to enable the DT validation.
+> >
+> > Signed-off-by: Pankaj Dubey <pankaj.dubey=40samsung.com>
+> > Signed-off-by: Ravi Patel <ravi.patel=40samsung.com>
+> > Signed-off-by: Swathi K S <swathi.ks=40samsung.com>
+> > ---
+> >  .../devicetree/bindings/net/snps,dwmac.yaml   =7C   5 +-
+> >  .../bindings/net/tesla,fsd-ethqos.yaml        =7C 118 ++++++++++++++++=
+++
+> >  2 files changed, 121 insertions(+), 2 deletions(-)  create mode
+> > 100644 Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
+> >
+>=20
+> I tried and did not see any differences, so point me exactly to any diffe=
+rence
+> in the binding (binding=21) which would justify dropping review?
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
----
+Added the following in the example given in DT binding doc:
 
- drivers/phy/rockchip/phy-rockchip-usbdp.c | 63 +++++++++++------------
- 1 file changed, 31 insertions(+), 32 deletions(-)
+assigned-clocks =3D <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
+                                <&clock_peric PERIC_EQOS_PHYRXCLK>;
+assigned-clock-parents =3D <&clock_peric PERIC_EQOS_PHYRXCLK>;
 
-diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-index c04cf64f8a35..d1bbdf382aa2 100644
---- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
-+++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
-@@ -187,6 +187,8 @@ struct rk_udphy {
- 	u32 dp_aux_din_sel;
- 	bool dp_sink_hpd_sel;
- 	bool dp_sink_hpd_cfg;
-+	unsigned int link_rate;
-+	unsigned int lanes;
- 	u8 bw;
- 	int id;
- 
-@@ -1102,42 +1104,39 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
- 	return 0;
- }
- 
--static int rk_udphy_dp_phy_verify_link_rate(unsigned int link_rate)
--{
--	switch (link_rate) {
--	case 1620:
--	case 2700:
--	case 5400:
--	case 8100:
--		break;
--
--	default:
--		return -EINVAL;
--	}
--
--	return 0;
--}
--
- static int rk_udphy_dp_phy_verify_config(struct rk_udphy *udphy,
- 					 struct phy_configure_opts_dp *dp)
- {
--	int i, ret;
-+	int i;
- 
--	/* If changing link rate was required, verify it's supported. */
--	ret = rk_udphy_dp_phy_verify_link_rate(dp->link_rate);
--	if (ret)
--		return ret;
-+	/* Verify link rate. */
-+	if (dp->set_rate) {
-+		switch (dp->link_rate) {
-+		case 1620:
-+		case 2700:
-+		case 5400:
-+		case 8100:
-+			udphy->link_rate = dp->link_rate;
-+			break;
-+
-+		default:
-+			return -EINVAL;
-+		}
-+	}
- 
- 	/* Verify lane count. */
--	switch (dp->lanes) {
--	case 1:
--	case 2:
--	case 4:
--		/* valid lane count. */
--		break;
-+	if (dp->set_lanes) {
-+		switch (dp->lanes) {
-+		case 1:
-+		case 2:
-+		case 4:
-+			/* valid lane count. */
-+			udphy->lanes = dp->lanes;
-+			break;
- 
--	default:
--		return -EINVAL;
-+		default:
-+			return -EINVAL;
-+		}
- 	}
- 
- 	/*
-@@ -1146,7 +1145,7 @@ static int rk_udphy_dp_phy_verify_config(struct rk_udphy *udphy,
- 	 */
- 	if (dp->set_voltages) {
- 		/* Lane count verified previously. */
--		for (i = 0; i < dp->lanes; i++) {
-+		for (i = 0; i < udphy->lanes; i++) {
- 			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
- 				return -EINVAL;
- 
-@@ -1243,9 +1242,9 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,
- 	}
- 
- 	if (dp->set_voltages) {
--		for (i = 0; i < dp->lanes; i++) {
-+		for (i = 0; i < udphy->lanes; i++) {
- 			lane = udphy->dp_lane_sel[i];
--			switch (dp->link_rate) {
-+			switch (udphy->link_rate) {
- 			case 1620:
- 			case 2700:
- 				regmap_update_bits(udphy->pma_regmap,
--- 
-2.34.1
+Given the significance of these changes, I assumed the changes need to be r=
+eviewed again.
+That was why the tag was removed. Please correct me if I am wrong and provi=
+de your feedback on this patch.
+
+- Swathi
+
+>=20
+> Best regards,
+> Krzysztof
 
 
