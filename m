@@ -4,88 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 128BCC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 22:57:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 130E0C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 23:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Nm2qV+PayrFKZi2Qr9jDYU/KnrvQXtIuUzSZ0SYEFfA=; b=ul29vHzA/RX5cYoV44/UgPtvRQ
-	5EgvvIwWl2f3zZ31+WLQ0pYjkHrkFA9WQp6K2EsuzHWN9Bk9morA5H7OVQOXhsaoD/WREhCtmx3g2
-	GrzLUJ+ATYl/Do+6lzbxhC5UFcrriHzJ3d9mjRq3qmdFTefqJ/fl4E7kBtkUh7u2YPuqK/LZ/TsOb
-	3yFqpF6upzUOkHPp6MwRS6pXjz+eVNqa0wiMajP4aX8EuMIQnWW+uSMAj6cfSyelUyH6JikkbsX/j
-	e279fhkU1Z9ME7mHW46d3SwujdrY7o3nwndYUQzFXh8I7+a+VdZfDCkoZa8bJ15aamZNyHhLFy9Td
-	MflDZTQA==;
+	bh=KZTIdA/6vSHu0RdazPPShQ5lrtgQuHNfhrr/whN+ZAg=; b=Okrslzm8VZ3qYZGJRhnui2bTbG
+	WhntlFP8LMR0usSbKb1crQyxLSdq4req4slLuwajeMJitvc9SFASVP+NX0TkmHjLb5/uhQet3WMiL
+	42gSG+7qzX8+FmWJ7caDXy3hsRNwCkv88gUudKG3/Wb4mN4WZGq/T55sp0Ru/sNAJiJ7l+MmKQyl6
+	HNbUR1iZPLPeq3SgMtJdhJf2eS2eChQ3WNR6DmWLXPGAYYCXi1iUbKqQ7SR0IyrE2/6BwqFD8hejp
+	oScvzSTGyC9mZFrE1w6bkCtnlXireVFnCm/OVZkl0hgyCoXeAP0/YUUS1G+NJ+lSiwmJcpL9KMR++
+	VGKmxksA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqK9i-0000000CQNB-1xGw;
-	Thu, 06 Mar 2025 22:57:30 +0000
-Received: from mail-lf1-x12c.google.com ([2a00:1450:4864:20::12c])
+	id 1tqKIz-0000000CRnv-38PT;
+	Thu, 06 Mar 2025 23:07:05 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqK86-0000000CQCW-0cDB
+	id 1tqKHM-0000000CRPy-1HQH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 22:55:51 +0000
-Received: by mail-lf1-x12c.google.com with SMTP id 2adb3069b0e04-54964f8ce4bso1195988e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 14:55:49 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741301748; x=1741906548; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Nm2qV+PayrFKZi2Qr9jDYU/KnrvQXtIuUzSZ0SYEFfA=;
-        b=P5vNZ+UFE/ONpYTblJYJcwFihwJhoansHra1c7J+o3EAgcG/DFu5I2M74aRZoghVbG
-         ADlLbv1rTHlZ/jMuA+pk4R0vWU06XiPjtzti8Q2jLevD8zyHlEGTyXh6Cnu6WsJTyRqb
-         l4pI5BMcm9/6hTL7E5lSurQV+DYr+B4fmhtfVTbFQLe92Hd26dNBKUegDskvejB0KptD
-         yJcmzQrQlxjTNh8AGHasrlbLarjWnADVZ6Ipejm2C76KEghmYQHX8AVtFIGVLB0UQbsk
-         gIkuyNDi0crUpGYFUyJIIz/z0ioqy5r7qFDlMjkAye4vC7UIY9aKy89ywLX45pRBK/jA
-         NyLw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741301748; x=1741906548;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Nm2qV+PayrFKZi2Qr9jDYU/KnrvQXtIuUzSZ0SYEFfA=;
-        b=FF41z18pcUndfVakhwOpjnitGqfME0PGrmbcjn/p8KQz/ct6yPG5VcL0fO2JeAIluY
-         kqsiSIVaYLglJg3qTbgjaYUqXRzc5vx8MG2HO8EntCBxWsyQoEnqaqFYAoA5yy6PzhvL
-         TOvQ8VOqynGDx/bYO4Hneu1GKduKUBI7lLtaL1iAD/gEspvKUNz+KQBLVvqN8ZlWTjvn
-         T+jQi3n5Hjdm6bfPuTUilv9Gsi3eAywz9ANNtut97CarvalzcfzYzO4qbrU6TysTPCWl
-         83EJAl9BTLdajzNVTA0+1xOfMLOP8z7nubW8LxfgzTwJ2lwGWccVkynwslzvypqMvVFJ
-         ruYQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVTHwehJ+v1vM5WCG6SdAlCkNTosNnSFm7+k6bMRUKp5vxtx25pWZqcbFnSNJe9zUKO+MRVvREP6tnzOtk0+jlf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOMT8fZ7KsJthSBHVXfRwdnq3gF9pnZBKGqRvxuYWOZKJp3XOe
-	zYfxzQ86PJvDbIZZ8DyOaujO9dYgTRtT0ocE+0t1TqK/RIPF/dHkm4mdDV+faIR6D4PF4KUF3Tu
-	j1aefLAU6eZDx9dJWNUmdfR6O868=
-X-Gm-Gg: ASbGncveQVq859OjkPrzaAutevuo/t2KuxrUfjyV8d0xmjC3oAlgLB3/nV7x9BL/dYo
-	qCXLdg1rVrUtdOx9uKEKQS68CSciLqrS2/6u1kGvB40LOsLfFMSR0+QfIrCL6t39OxsMCo/NvZ/
-	exhW7JoHeHDsbT9seKvXvQYE9eJKv3x2HyU89hMFja2MZwXnjUty0jr9tpyA==
-X-Google-Smtp-Source: AGHT+IELLnqdwKJ1evQmnO6miMjCOF6kWpjNInySnrLYVu8W39JXHce4tfrcyF/HH/vVvtpBmKUXlY5IKpjWjhg+MpM=
-X-Received: by 2002:a05:6512:1112:b0:549:4d7d:b61b with SMTP id
- 2adb3069b0e04-54990eab0f1mr333594e87.35.1741301747365; Thu, 06 Mar 2025
- 14:55:47 -0800 (PST)
+	Thu, 06 Mar 2025 23:05:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741302323;
+ bh=KZTIdA/6vSHu0RdazPPShQ5lrtgQuHNfhrr/whN+ZAg=;
+ b=WA/pWionz1F1FHSIz+dfv7jmomL1Y/AkWtp9mh/gaPWC/H40hwFc9SHWJ2NYRDAiSE78r5Sja
+ +k5qhHCuW2UUoOiGSzbxOAWymtkA7UQ9mjC3rLzXNZwBHtQEtgUZAb1NQdJd3/qkwqAAm6XoB+5
+ b4gr/lkJsOeLm19ckvAMBiaDEBctShvkiW9ih7pkggq+1ycTFlsG9Gyj4D+XC8eJGb9mGA9U/eO
+ UrgTH7A1djoAsVHfzmfKkJA7qm7jwnm4mUxPrH4LoFCR7PwzdoRlEIDbb5SIz01N8rF3932nl9o
+ Tt67MpJa58qTK6JPVm5Lu5rFBBJPwUgPGwwqzkZlaOfQ==
+X-Forward-Email-ID: 67ca2a31c1763851c065cd4d
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <3d3db030-26e6-4fe1-9158-85f8cebef89c@kwiboo.se>
+Date: Fri, 7 Mar 2025 00:05:16 +0100
 MIME-Version: 1.0
-References: <20250306222359.797855-1-Frank.Li@nxp.com>
-In-Reply-To: <20250306222359.797855-1-Frank.Li@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Thu, 6 Mar 2025 19:55:36 -0300
-X-Gm-Features: AQ5f1Jrc9-FFNpCeyDExi95YGo2Kn5IirxDCaG51gdscsys4mOsD1AzjUc9N6UE
-Message-ID: <CAOMZO5CL-qQSHuSoCtb+f_mqNG8vu4tTVDi-ThoHq+m9SeagxA@mail.gmail.com>
-Subject: Re: [PATCH] ARM64: dts: imx8mp-evk: add ecspi2 support
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>, 
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>, 
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 7/8] arm64: dts: rockchip: Add SDMMC/SDIO controllers
+ for RK3528
+To: Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, cristian.ciocaltea@collabora.com,
+ detlev.casanova@collabora.com, devicetree@vger.kernel.org, heiko@sntech.de,
+ krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-mmc@vger.kernel.org, linux-rockchip@lists.infradead.org
+References: <20250305194612.47171-1-ziyao@disroot.org>
+ <20250306140009.384469-1-amadeus@jmu.edu.cn> <Z8nPjjbZvpRJ2R5B@pie.lan>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <Z8nPjjbZvpRJ2R5B@pie.lan>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_145550_185691_1E3F25BB 
-X-CRM114-Status: UNSURE (   7.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_150524_441323_F6CEFB57 
+X-CRM114-Status: GOOD (  16.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,26 +81,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 6, 2025 at 7:24=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+On 2025-03-06 17:43, Yao Zi wrote:
+> On Thu, Mar 06, 2025 at 10:00:09PM +0800, Chukun Pan wrote:
+>> Hi,
+>>
+>>> +		sdio0: mmc@ffc10000 {
+>>> +			compatible = "rockchip,rk3528-dw-mshc",
+>>> +				     "rockchip,rk3288-dw-mshc";
+>>> +			reg = <0x0 0xffc10000 0x0 0x4000>;
+>>> +			clocks = <&cru HCLK_SDIO0>,
+>>> +				 <&cru CCLK_SRC_SDIO0>,
+>>> +				 <&cru SCLK_SDIO0_DRV>,
+>>> +				 <&cru SCLK_SDIO0_SAMPLE>;
+>>> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+>>> +			fifo-depth = <0x100>;
+>>> +			interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
+>>> +			max-frequency = <150000000>;
+>>> +			pinctrl-names = "default";
+>>> +			pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>,
+>>> +				    <&sdio0_det>, <&sdio0_pwren>;
+>>
+>> The sdio module is usually "non-removable", no need det,
+>> and pwren may be other gpio (use mmc-pwrseq). So it should
+>> be `pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>;`
+> 
+> This doesn't affect the fact that these two pins are assigned as
+> functional pins for SDIO0, as pointed out by the datasheet[1].
+> 
+> But with more digging, I found the reference design[2] of Rockchip
+> actually uses the two pins as normal GPIOs. This is more obvious in
+> downstream devicetree of an EVB[3]. Most of the existing boards (Radxa
+> 2A, ArmSOM Sige 1) follow the reference design.
+> 
+> For me, it's kind of surprising that the SDIO IP functions with two
+> functional pins assigned as different modes. I'm not sure whether we
+> should apply pin configuration for these two pins in the SoC devicetree.
+> Jonas, what do you think about it?
 
-> +&ecspi2 {
-> +       #address-cells =3D <1>;
-> +       #size-cells =3D <0>;
-> +       num-cs =3D <1>;
-> +       pinctrl-names =3D "default";
-> +       pinctrl-0 =3D <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> +       cs-gpios =3D <&gpio5 13 GPIO_ACTIVE_LOW>;
-> +       status =3D "okay";
-> +
-> +       spidev1: spi@0 {
-> +               compatible =3D "rohm,dh2228fv";
+I think it make sense to match the pins used by reference boards, i.e.
+the pinconf most likely to be used by majority of boards that will use
+the sdio interface.
 
-That's not a correct description of the hardware.
+Of my RK3528 boards, only ArmSoM Sige1 use sdio for onboard wifi and
+there I currently have following in my work-in-progress board DT [4]:
 
-Conor's effort was to clean up the abuses of using "rohm,dh2228fv" to
-get spidev support.
+  pinctrl-names = "default";
+  pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>, <&clkm1_32k_out>;
 
-Please check:
+The Radxa ROCK 2A/2F seem to use USB for wifi/bt.
 
-fc28d1c1fe3b3 ("spi: spidev: add correct compatible for Rohm BH2228FV")
+[4] https://github.com/Kwiboo/linux-rockchip/blob/next-20250305-rk3528/arch/arm64/boot/dts/rockchip/rk3528-armsom-sige1.dts
+
+Regards,
+Jonas
+
+> 
+>>> +			resets = <&cru SRST_H_SDIO0>;
+>>> +			reset-names = "reset";
+>>> +			status = "disabled";
+>>> +		};
+>>> +
+>>> +		sdio1: mmc@ffc20000 {
+>>> +			compatible = "rockchip,rk3528-dw-mshc",
+>>> +				     "rockchip,rk3288-dw-mshc";
+>>> +			reg = <0x0 0xffc20000 0x0 0x4000>;
+>>> +			clocks = <&cru HCLK_SDIO1>,
+>>> +				 <&cru CCLK_SRC_SDIO1>,
+>>> +				 <&cru SCLK_SDIO1_DRV>,
+>>> +				 <&cru SCLK_SDIO1_SAMPLE>;
+>>> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
+>>> +			fifo-depth = <0x100>;
+>>> +			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
+>>> +			max-frequency = <150000000>;
+>>> +			pinctrl-names = "default";
+>>> +			pinctrl-0 = <&sdio1_bus4>, <&sdio1_clk>, <&sdio1_cmd>,
+>>> +				    <&sdio1_det>, <&sdio1_pwren>;
+>>
+>> Same here.
+>>
+>>> +			resets = <&cru SRST_H_SDIO1>;
+>>> +			reset-names = "reset";
+>>> +			status = "disabled";
+>>> +		};
+>>
+>> Thanks,
+>> Chukun
+>>
+>> -- 
+>> 2.25.1
+>>
+> 
+> Best regards,
+> Yao Zi
+> 
+> [1]: https://github.com/DeciHD/rockchip_docs/blob/main/rk3528/Rockchip%C2%A0RK3528%C2%A0Datasheet%C2%A0V1.0-20230522.pdf
+> [2]: https://github.com/DeciHD/rockchip_docs/blob/main/rk3528/RK3528_BOX_REF_V10_20230525.pdf
+> [3]: https://github.com/rockchip-linux/kernel/blob/604cec4004abe5a96c734f2fab7b74809d2d742f/arch/arm64/boot/dts/rockchip/rk3528-evb1-ddr4-v10.dtsi#L128
+
 
