@@ -4,69 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69CD1C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 23:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 061F1C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 23:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gQS7/dR2IOT63xM5COWGQS6XYe9zTGeZEWCaupVqONE=; b=WsJnEvxMbXPcDDEr5iG90Y/6cv
-	YRstIl1tkvgr0XxwBZxzX4GAA8E5N3EkQ3Asu2f+Pu0zxN+8lyaxqUnsGfZYAuawzA6mqDtPfaBlH
-	u96MkFH2GWEzqODtt96gR623BS372RZnTn7ccdWzFjPLKmulCYnKLykFRO65aL6xDLTwxF/kyWP5p
-	osg3/yrrXV3U1kiYWatuFMbxCiFywaXpMnryu6R0TEP2u04gHTpwVMIFiMzzkmINXXlJqSXlrC088
-	FJSfuoVtewCr3S1wrInI61ZBf8NCE+tYzlAWl3QI7lZtieTs4u4bCo5vAqsNMF9J6Xqhckkgu1v/6
-	jqe/K+2g==;
+	bh=u+9mxc+l02B65bY510CtDpWfGB/WhaPkpeMd5a2/EoQ=; b=S1Mxo0AaGjhnrg+yUdIbOb0vlO
+	1QYyrUAn9CpOGYAU3E0O3oFa7Zrn29F+futxsri5hQHZMwt07Nx44QIwBFMQVDv4bdBqoZZn3IzL/
+	lc5fU0v40WbfaKY6XWmjxxpQrSP5TyHhGpiu7rpH33wHVxWKGwABOIWLfZafobpTfTBuhKn+Wc5ZK
+	+EceDVZ70xHjpAVEyCXQOdVY1ltMuV1mh8F8UGx2kQesyONHkKwmJlf4vrjjkK3tY+zLdYcPnuDh4
+	q0abVicg0uC1uFwjCryWy1BX78+Rw/6LjrdNAQ1d7/4wP9+sGUKnkxAUGrZTzlU0HSNTV6Xsot9wu
+	v4rwriJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqKs3-0000000CWLy-3uNX;
-	Thu, 06 Mar 2025 23:43:19 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqKov-0000000CViz-1CaK
+	id 1tqKte-0000000CWWj-2OHh;
+	Thu, 06 Mar 2025 23:44:58 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqKp3-0000000CVkU-35jj
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 23:40:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id EB4345C5AEA;
-	Thu,  6 Mar 2025 23:37:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FF55C4CEE0;
-	Thu,  6 Mar 2025 23:40:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741304404;
-	bh=2QSee9WokSYspQJ+xRHNNYB0mN5bS+JLoP/ZWB/o79g=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=rhc1fDh67EBOuiKV1bApq40dxAjAq5x/hauy5rCh6DpnHSwhNcSTIFmjmPMQpai5C
-	 shJSi+TKWch6PItoD7htSicRlB2sHSCDkYo0guwyt7ogxakmmmycXo37+hRMcO2b0n
-	 c5v1gFuSk2PyInqkK3UsRmzbhdaPO+Ru6N5lCGl4KTPc4IydcEnDrTsWqsYXqDv1wz
-	 B4Arp2PgfIzhYVegzstUmNjA814/2FXMYtdwpXPktI0C+Roxlb+0KkLmJitsH08GPD
-	 Ak0a47mxubiTcIVi43Ktk11jaij8nSVZbHLzyXeqzq9YTeR1VPXg3wIay6yL6pJUXb
-	 TXn9plJ9h1pyA==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAFC6380CFF6;
-	Thu,  6 Mar 2025 23:40:38 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Thu, 06 Mar 2025 23:40:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DA1DA169E;
+	Thu,  6 Mar 2025 15:40:18 -0800 (PST)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7EC033F5A1;
+	Thu,  6 Mar 2025 15:40:04 -0800 (PST)
+Date: Thu, 6 Mar 2025 23:39:49 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+ <samuel@sholland.org>, linux-gpio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 4/8] pinctrl: sunxi: support moved power
+ configuration registers
+Message-ID: <20250306233949.23924567@minigeek.lan>
+In-Reply-To: <6028746.MhkbZ0Pkbq@jernej-laptop>
+References: <20250227231447.20161-1-andre.przywara@arm.com>
+	<20250227231447.20161-5-andre.przywara@arm.com>
+	<6028746.MhkbZ0Pkbq@jernej-laptop>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v8 0/2] net: stmmac: dwc-qos: Add FSD EQoS support
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174130443748.1819102.11441827117696182422.git-patchwork-notify@kernel.org>
-Date: Thu, 06 Mar 2025 23:40:37 +0000
-References: <20250305091246.106626-1-swathi.ks@samsung.com>
-In-Reply-To: <20250305091246.106626-1-swathi.ks@samsung.com>
-To: Swathi K S <swathi.ks@samsung.com>
-Cc: krzk+dt@kernel.org, andrew+netdev@lunn.ch, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
- conor+dt@kernel.org, richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, rmk+kernel@armlinux.org.uk,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_154005_371636_9114F021 
-X-CRM114-Status: UNSURE (   9.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_154013_863281_2DF16F36 
+X-CRM114-Status: GOOD (  23.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,32 +71,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, 05 Mar 2025 18:50:34 +0100
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Hi,
 
-On Wed,  5 Mar 2025 14:42:44 +0530 you wrote:
-> FSD platform has two instances of EQoS IP, one is in FSYS0 block and
-> another one is in PERIC block. This patch series add required DT binding
-> and platform driver specific changes for the same.
-> 
-> Changes since v1:
-> 1. Updated dwc_eqos_setup_rxclock() function as per the review comments
-> given by Andrew.
-> 
-> [...]
+> Dne petek, 28. februar 2025 ob 00:14:43 Srednjeevropski standardni =C4=8D=
+as je Andre Przywara napisal(a):
+> > The Allwinner pincontroller IP features some registers to control the
+> > withstand voltage of each pin group. So far those registers were always
+> > located at the same offset, but the A523 SoC has moved them (probably to
+> > accommodate all eleven pin banks).
+> >=20
+> > Add a flag to note this feature, and use that to program the registers
+> > either at offset 0x340 or 0x380. So far no pincontroller driver uses
+> > this flag, but we need it for the upcoming A523 support.
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  drivers/pinctrl/sunxi/pinctrl-sunxi.c | 15 +++++++++++----
+> >  drivers/pinctrl/sunxi/pinctrl-sunxi.h |  7 +++++--
+> >  2 files changed, 16 insertions(+), 6 deletions(-)
+> >=20
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.c b/drivers/pinctrl/su=
+nxi/pinctrl-sunxi.c
+> > index 83a031ceb29f2..fc12e6f807e4d 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.c
+> > @@ -736,9 +736,9 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct sun=
+xi_pinctrl *pctl,
+> >  		val =3D uV > 1800000 && uV <=3D 2500000 ? BIT(bank) : 0;
+> > =20
+> >  		raw_spin_lock_irqsave(&pctl->lock, flags);
+> > -		reg =3D readl(pctl->membase + PIO_POW_MOD_CTL_REG);
+> > +		reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset);
+> >  		reg &=3D ~BIT(bank);
+> > -		writel(reg | val, pctl->membase + PIO_POW_MOD_CTL_REG);
+> > +		writel(reg | val, pctl->membase + pctl->pow_mod_sel_offset); =20
+>=20
+> These two are missing "+ PIO_POW_MOD_CTL_OFS" right?
 
-Here is the summary with links:
-  - [v8,1/2] dt-bindings: net: Add FSD EQoS device tree bindings
-    https://git.kernel.org/netdev/net-next/c/1f6c3899833a
-  - [v8,2/2] net: stmmac: dwc-qos: Add FSD EQoS support
-    https://git.kernel.org/netdev/net-next/c/ae7f6b34f5cd
+Ah, you are right, I mixed that up. Nice catch!
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
+> >  		raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> > =20
+> >  		fallthrough;
+> > @@ -746,9 +746,12 @@ static int sunxi_pinctrl_set_io_bias_cfg(struct su=
+nxi_pinctrl *pctl,
+> >  		val =3D uV <=3D 1800000 ? 1 : 0;
+> > =20
+> >  		raw_spin_lock_irqsave(&pctl->lock, flags);
+> > -		reg =3D readl(pctl->membase + PIO_POW_MOD_SEL_REG);
+> > +		reg =3D readl(pctl->membase + pctl->pow_mod_sel_offset +
+> > +			    PIO_POW_MOD_CTL_OFS);
+> >  		reg &=3D ~(1 << bank);
+> > -		writel(reg | val << bank, pctl->membase + PIO_POW_MOD_SEL_REG);
+> > +		writel(reg | val << bank,
+> > +		       pctl->membase + pctl->pow_mod_sel_offset +
+> > +		       PIO_POW_MOD_CTL_OFS); =20
+>=20
+> And these two have "+ PIO_POW_MOD_CTL_OFS" too much, right?
 
+Indeed, fixed now.
+
+Thanks,
+Andre
+
+> Best regards,
+> Jernej
+>=20
+> >  		raw_spin_unlock_irqrestore(&pctl->lock, flags);
+> >  		return 0;
+> >  	default:
+> > @@ -1520,6 +1523,10 @@ int sunxi_pinctrl_init_with_flags(struct platfor=
+m_device *pdev,
+> >  		pctl->pull_regs_offset =3D PULL_REGS_OFFSET;
+> >  		pctl->dlevel_field_width =3D DLEVEL_FIELD_WIDTH;
+> >  	}
+> > +	if (flags & SUNXI_PINCTRL_ELEVEN_BANKS)
+> > +		pctl->pow_mod_sel_offset =3D PIO_11B_POW_MOD_SEL_REG;
+> > +	else
+> > +		pctl->pow_mod_sel_offset =3D PIO_POW_MOD_SEL_REG;
+> > =20
+> >  	pctl->irq_array =3D devm_kcalloc(&pdev->dev,
+> >  				       IRQ_PER_BANK * pctl->desc->irq_banks,
+> > diff --git a/drivers/pinctrl/sunxi/pinctrl-sunxi.h b/drivers/pinctrl/su=
+nxi/pinctrl-sunxi.h
+> > index 6cf721876d89d..742fc795c7664 100644
+> > --- a/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > +++ b/drivers/pinctrl/sunxi/pinctrl-sunxi.h
+> > @@ -87,9 +87,11 @@
+> >  #define SUNXI_PINCTRL_VARIANT_MASK	GENMASK(7, 0)
+> >  #define SUNXI_PINCTRL_NEW_REG_LAYOUT	BIT(8)
+> >  #define SUNXI_PINCTRL_PORTF_SWITCH	BIT(9)
+> > +#define SUNXI_PINCTRL_ELEVEN_BANKS	BIT(10)
+> > =20
+> > -#define PIO_POW_MOD_SEL_REG	0x340
+> > -#define PIO_POW_MOD_CTL_REG	0x344
+> > +#define PIO_POW_MOD_SEL_REG		0x340
+> > +#define PIO_11B_POW_MOD_SEL_REG		0x380
+> > +#define PIO_POW_MOD_CTL_OFS		0x004
+> > =20
+> >  #define PIO_BANK_K_OFFSET		0x500
+> > =20
+> > @@ -173,6 +175,7 @@ struct sunxi_pinctrl {
+> >  	u32				bank_mem_size;
+> >  	u32				pull_regs_offset;
+> >  	u32				dlevel_field_width;
+> > +	u32				pow_mod_sel_offset;
+> >  };
+> > =20
+> >  #define SUNXI_PIN(_pin, ...)					\
+> >  =20
+>=20
+>=20
+>=20
+>=20
+>=20
 
 
