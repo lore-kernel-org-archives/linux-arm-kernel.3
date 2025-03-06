@@ -4,108 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78AD8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A445C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:38:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e0vWWMcXjFfg9c9qiH6NSV7bmKttHRNGNsOhNehrSvM=; b=Hbg5U6zh+cJX7WxA/dhX5lOya6
-	leWLI1Y9cd2LjhP2YFFcwY5uUCF/tpdAnnNDBGb1zdjHdhsi0oZMso+AgEQzUOugxPJWQvZuDKIIW
-	w17sytHU7fq0G3JZSy+XWhloCxPEKx9DDjg1i7ED6naGM40aP+dpuAsDPjJTDAFn599Rt2x09xSwj
-	IEP3cpmhGlLg6sNXzsr8SfJ6a4RwBXNPpk7LsqzB0CSTWy89aFNFO8txfg8a0wR+R422UIW2yNu67
-	JoCnCTvbi3hAB6lxLpaETEV8HAKC9tYPjh/63jB6Qw8dT0Z+YcSNpbOB/JEarBWgA05k9Dl/Rs2hw
-	eCntlxPg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YT3d+Qhex1K59U3hvKKiBGs0b2avfP/LJEP4j3Rz1fU=; b=eyfVj1l1nUbDmOwJsrdluz0LPP
+	qZA1VpDt29IWS9j45t1QgmQSBa7U9Fwa25tRfC4PujcvH7q+3iVz2kT2lxOkbthmijNDqOKyt1XLj
+	JLSuROmv/QEKYanbykFiaYi9MkyKrGmgnpubu1bgAL20iTx6md5fdyBjgVNn2IYsrguDlxVW08g5L
+	BfMdtT7f/76Ly9M2HibMPhpOKdRWDwtcDtsy+ert3WNhpZuuSaKrgXgs6iv2xrwtd5kBJ5qmqGDrg
+	SYVGJAbAtrXMLVskb4XhXyaj6uNZLr1ZYTtDg1aWVxStQ6HjF6OlBy4SB/7smMxW8g62oDXM5a+1E
+	irIaQcmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCEf-0000000BD5H-0aXc;
-	Thu, 06 Mar 2025 14:30:05 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1tqCML-0000000BDq7-0QbU;
+	Thu, 06 Mar 2025 14:38:01 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCD2-0000000BCd2-119j;
-	Thu, 06 Mar 2025 14:28:25 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-abbb12bea54so150316966b.0;
-        Thu, 06 Mar 2025 06:28:23 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741271302; x=1741876102; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e0vWWMcXjFfg9c9qiH6NSV7bmKttHRNGNsOhNehrSvM=;
-        b=dfnXa6Zc3caRJ3q90eoTQnOdnsvIHDdtkJDqNdkOYDwxMDuozLlPkldjpdFebkC26V
-         A9XgWuPMSXPSp2nTuEBPQ9VhXqhExp7NtRzAPnaSybXS5Jlb32LcJTCk4OSVq6BxmPD8
-         GPvf9d/Q/suwgiDXRN2jg4w08vwWiwrMt4Jfz5qdrGH8kM44nTvab9Q4Am8hBjl2mHjW
-         AtVLqtzhYV+d3pANBahalFiuXK2eDQ6YGFAfvnMs6j9pXxA0XHZg9C9Lc5foUslaDTE8
-         iN6/croAhQwi5nC/kbnwMsYy7Qjm5/UctpV5P5+8QPqJtpEc3c2GLA77ab3aTouG0dLs
-         7SOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741271302; x=1741876102;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e0vWWMcXjFfg9c9qiH6NSV7bmKttHRNGNsOhNehrSvM=;
-        b=cs0rUYMp5Eiqlo/A5O/T6/iF6WW0PGtTvGyGFNLJi5T1CKB8Wd+RCZEcAPcBuItkU5
-         BjEIlPKB7ao2UKMQ2El6ftIo/3QGxZ9aA2JEuvE9jSTdrNO42Y9d6T4szN5W3iU97jQD
-         BzIvf7nouz2MTMxttZ/cwWKRYSLOC6DQ8jCVzSla2YMUK7G3kXlmqWS89VeDLFFgA8oO
-         ijPtIFmEYNaYRwuTEQkN/RvKqfaJoo/oyg11imHTr90a7HvJZTgteJM0atSC/a9Irq9d
-         JyBkcQwLoYgHgsNY5Z0WzidwM+Vxps8f/fF96GPIehgg5jtUwoNK5UOIoWSWr2Sn9C4Y
-         Nk0g==
-X-Forwarded-Encrypted: i=1; AJvYcCVPCYigjh+ZcIlnG6vMSJsD4D7R95FCDun7Sfk6wp9shYCQmKh9onovFVCOzgEPT4R7SjNSpm9oYy3GA021/ERW@lists.infradead.org, AJvYcCVg++kDdejMH4Ovk3kxaYPxKRVbeA5d2SyvihkeA1RgxOMuyiTC42O/z7eM1hgFzkin0MOaP3uqgG4q9D6/cHo=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoCkLCyoV5dlqiLK6uxvUBkK/7gVFv7VrQBX9bMkSR+jrjXJgP
-	Vlvd90pn+/IyR3xTmvklIbb/71rEAEqIsQt3XfWA2H4l2Md7wCDS
-X-Gm-Gg: ASbGncvrQeUGNooNf+PS9OaskMWFJhyCJMHMYXbpkLHq8AUoiWWNGHGbTQION4u1sFT
-	i3RpIsE+IgpGHqmgPZHNGcGBOpXEdlmGubega6O+cjZqHiG5RbwBa1gFlkqQh4jqFOQnVeCrXRS
-	X49z8mPsLMSaYypKVrxn0e8woNSoGzSgcGn7E25bN14oSAPbfpYyU78i3TmTuxiKwBBIrUC3dfI
-	scD1ybJGtfLL4G+FlsWo9yRkJp8tCqbvWYQ9gakNWAO9Rs2qY4AlW9Bivj8fHncH+wgf3kc84gc
-	CWsXiZbNyTIF0u+okp1196Cq8snVEqYYQFz1wcKdISvLBJT5YOooS29DXHoq7lQKLXoQaixDKnz
-	zyrjmNMZalBmE3EDUqQIUp2qskQ==
-X-Google-Smtp-Source: AGHT+IFozHswlf0bg9ThZSp1FbgljtVYCPPvnTD1k5tckBB+eJRBJhF1NQdof80kjppsiFvLEvgOsA==
-X-Received: by 2002:a17:907:3da2:b0:ac1:e2e0:f8d6 with SMTP id a640c23a62f3a-ac20d8bcb19mr672425066b.17.1741271302225;
-        Thu, 06 Mar 2025 06:28:22 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2399d4ed4sm104210166b.178.2025.03.06.06.28.20
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 Mar 2025 06:28:21 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH 0/6] Add support for RK3588 DisplayPort Controller
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-X-Priority: 3
-In-Reply-To: <252BB2E2-4BC5-4402-953D-F7B30EA5DE14@gmail.com>
-Date: Thu, 6 Mar 2025 15:28:08 +0100
-Cc: heiko@sntech.de,
- neil.armstrong@linaro.org,
- sebastian.reichel@collabora.com,
- devicetree@vger.kernel.org,
- hjc@rock-chips.com,
- mripard@kernel.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com,
- dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>,
- krzk+dt@kernel.org,
- robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <326B91E9-FB91-43C3-B98B-3EF079F313C6@gmail.com>
-References: <25401bfa.291d.19564244e54.Coremail.andyshrk@163.com>
- <75189787-28E1-4FC2-8E10-4960B3877A6F@gmail.com>
- <28b0d3fc.bb3.19568f6b5f8.Coremail.andyshrk@163.com>
- <44213B17-FE14-4FB8-8319-1E31BBF6EAA0@gmail.com>
- <74c154b6.8c50.1956aa8c8d2.Coremail.andyshrk@163.com>
- <1573D5D6-AFED-4D92-8112-B0C6BB52D5FF@gmail.com>
- <46c0d239.a4f5.1956b619b97.Coremail.andyshrk@163.com>
- <252BB2E2-4BC5-4402-953D-F7B30EA5DE14@gmail.com>
-To: Andy Yan <andyshrk@163.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tqCKi-0000000BDf9-4BoO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 14:36:22 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 85E25A43521;
+	Thu,  6 Mar 2025 14:30:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7979C4CEE0;
+	Thu,  6 Mar 2025 14:36:18 +0000 (UTC)
+Date: Thu, 6 Mar 2025 14:36:16 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Alice Ryhl <aliceryhl@google.com>
+Cc: Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [Bug report] Memory leak in scmi_device_create
+Message-ID: <Z8my4MZ-In0ibxVY@arm.com>
+References: <Z8g8vhS9rqQ_ez48@google.com>
+ <Z8iFeEWq16pNQdMa@pluto>
+ <Z8mCbc2Z2QGd3f8M@google.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8mCbc2Z2QGd3f8M@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_062824_284593_435FA956 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_063621_184448_C60A0ED4 
+X-CRM114-Status: GOOD (  26.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,83 +65,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 06, 2025 at 11:09:33AM +0000, Alice Ryhl wrote:
+> On Wed, Mar 05, 2025 at 05:10:16PM +0000, Cristian Marussi wrote:
+> > On Wed, Mar 05, 2025 at 11:59:58AM +0000, Alice Ryhl wrote:
+> > > This was with a kernel running v6.13-rc3, but as far as I can tell, no
+> > > relevant changes have landed since v6.13-rc3. My tree *does* include
+> > > commit 295416091e44 ("firmware: arm_scmi: Fix slab-use-after-free in
+> > > scmi_bus_notifier()"). I've only seen this kmemleak report once, so it's
+> > > not happening consistently.
+> > > 
+> > > See below for the full kmemleak report.
+> > > 
+> > > Alice
+> > > 
+> > > $ sudo cat /sys/kernel/debug/kmemleak
+> > > unreferenced object 0xffffff8106c86000 (size 2048):
+> > >   comm "swapper/0", pid 1, jiffies 4294893094
+> > >   hex dump (first 32 bytes):
+> > >     02 00 00 00 10 00 00 00 c0 01 bc 03 81 ff ff ff  ................
+> > >     60 67 ba 03 81 ff ff ff 18 60 c8 06 81 ff ff ff  `g.......`......
+> > >   backtrace (crc feae9680):
+> > >     [<00000000197aa008>] kmemleak_alloc+0x34/0xa0
+> > >     [<0000000056fe02c9>] __kmalloc_cache_noprof+0x1e0/0x450
+> > >     [<00000000a8b3dfe1>] __scmi_device_create+0xb4/0x2b4
+> > >     [<000000008714917b>] scmi_device_create+0x40/0x194
+> > >     [<000000001818f3cf>] scmi_chan_setup+0x144/0x3b8
+> > >     [<00000000970bad38>] scmi_probe+0x584/0xa78
+> > >     [<000000002600d2fd>] platform_probe+0xbc/0xf0
+> > >     [<00000000f6f556b4>] really_probe+0x1b8/0x520
+> > >     [<00000000eed93d59>] __driver_probe_device+0xe0/0x1d8
+> > >     [<00000000d613b754>] driver_probe_device+0x6c/0x208
+> > >     [<00000000187a9170>] __driver_attach+0x168/0x328
+> > >     [<00000000e3ff1834>] bus_for_each_dev+0x14c/0x178
+> > >     [<00000000984a3176>] driver_attach+0x34/0x44
+> > >     [<00000000fc35bf2a>] bus_add_driver+0x1bc/0x358
+> > >     [<00000000747fce19>] driver_register+0xc0/0x1a0
+> > >     [<0000000081cb8754>] __platform_driver_register+0x40/0x50
+> > > unreferenced object 0xffffff8103bc01c0 (size 32):
+> > 
+> > I could not reproduce on my setup, even though I run a system with
+> > all the existent SCMI protocols (and related drivers) enabled (and
+> > so a lot of device creations) and a downstream test driver that causes
+> > even more SCMI devices to be created/destroyed at load/unload.
+> > 
+> > Coming down the path from scmi_chan_setup(), it seems something around
+> > transport devices creation, but it is not obvious to me where the leak
+> > could hide....
+> > 
+> > ...any particular setup on your side ? ...using LKMs, loading/unloading,
+> > any usage pattern that could help me reproduce ?
+> 
+> I looked into this a bit more, and actually it does happen consistently.
+> It's just that kmemleak doesn't report it until 10 minutes after
+> booting, so I did not notice it.
 
+You can force the scanning with:
 
-> Wiadomo=C5=9B=C4=87 napisana przez Piotr Oniszczuk =
-<piotr.oniszczuk@gmail.com> w dniu 6 mar 2025, o godz. 15:08:
->=20
->=20
->=20
->> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
-6 mar 2025, o godz. 13:15:
->>=20
->> Hi Piotr,
->>=20
->>=20
->>=20
->> Then when you DP cable plugin, you can run command as bellow to see =
-if the driver detects the HPD:
->>=20
->> # cat /sys/class/drm/card0-DP-1/status=20
->> connected
->> #=20
->>=20
->=20
->=20
-> Andy,
-> Thx!
->=20
-> With above changes i=E2=80=99m getting =E2=80=9Econnected=E2=80=9D.
-> Also it looks crtc gets reasonable mode: =
-https://gist.github.com/warpme/d6220e3cc502086a4c95f05bd9f9cf0c
->=20
-> Still black screen however=E2=80=A6
->  =20
+  echo scan > /sys/kernel/debug/kmemleak
 
-some additional data point: /sys/kernel/debug/dri/1/vop2/summary=20
+Just do it a couple of times after boot, no need to wait 10 min for the
+default background scanning.
 
+> user@rk3588-ci:~$ sudo cat /sys/kernel/debug/kmemleak
+> unreferenced object 0xffffff81068c0000 (size 2048):
+>   comm "swapper/0", pid 1, jiffies 4294893128
+>   hex dump (first 32 bytes):
+>     02 00 00 00 10 00 00 00 40 a3 7a 03 81 ff ff ff  ........@.z.....
+>     60 c8 79 03 81 ff ff ff 18 00 8c 06 81 ff ff ff  `.y.............
+>   backtrace (crc 60df30fb):
+>     kmemleak_alloc+0x34/0xa0
+>     __kmalloc_cache_noprof+0x1e0/0x450
+>     __scmi_device_create+0xb4/0x2b4
 
-working hdmi:
+Is this the kzalloc() for sizeof(*scmi_dev)? It's surprisingly large, I
+thought it would go for the kmalloc-1k slab as struct device is below
+this side, at least for my builds. Anyway...
 
-Video Port1: ACTIVE
-    Connector: HDMI-A-1
-        bus_format[0]: Unknown
-        output_mode[f] color_space[0]
-    Display mode: 1920x1080p60
-        clk[148500] real_clk[148500] type[48] flag[5]
-        H: 1920 2008 2052 2200
-        V: 1080 1084 1089 1125
-    Cluster0-win0: ACTIVE
-        win_id: 0
-        format: XR24 little-endian (0x34325258) glb_alpha[0xff]
-        rotate: xmirror: 0 ymirror: 0 rotate_90: 0 rotate_270: 0
-        zpos: 0
-        src: pos[0, 0] rect[1920 x 1080]
-        dst: pos[0, 0] rect[1920 x 1080]
-        buf[0]: addr: 0x00000000017e1000 pitch: 7680 offset: 0
-Video Port2: DISABLED
+>     scmi_device_create+0x40/0x194
+>     scmi_chan_setup+0x144/0x3b8
+>     scmi_probe+0x51c/0x9fc
+>     platform_probe+0xbc/0xf0
+>     really_probe+0x1b8/0x520
+>     __driver_probe_device+0xe0/0x1d8
+>     driver_probe_device+0x6c/0x208
+>     __driver_attach+0x168/0x328
+>     bus_for_each_dev+0x14c/0x178
+>     driver_attach+0x34/0x44
+>     bus_add_driver+0x1bc/0x358
+>     driver_register+0xc0/0x1a0
+>     __platform_driver_register+0x40/0x50
+> unreferenced object 0xffffff81037aa340 (size 32):
+>   comm "swapper/0", pid 1, jiffies 4294893128
+>   hex dump (first 32 bytes):
+>     5f 5f 73 63 6d 69 5f 74 72 61 6e 73 70 6f 72 74  __scmi_transport
+>     5f 64 65 76 69 63 65 5f 72 78 5f 31 30 00 ff ff  _device_rx_10...
+>   backtrace (crc 8dab7ca7):
+>     kmemleak_alloc+0x34/0xa0
+>     __kmalloc_node_track_caller_noprof+0x234/0x528
+>     kstrdup+0x48/0x80
+>     kstrdup_const+0x30/0x3c
 
+These are referenced from the main structure above, so they'd be
+reported as leaks as well.
 
+This loop in scmi_device_create() looks strange:
 
+	list_for_each_entry(rdev, phead, node) {
+		struct scmi_device *sdev;
 
-non-working DP:
+		sdev = __scmi_device_create(np, parent,
+					    rdev->id_table->protocol_id,
+					    rdev->id_table->name);
+		/* Report errors and carry on... */
+		if (sdev)
+			scmi_dev = sdev;
+		else
+			pr_err("(%s) Failed to create device for protocol 0x%x (%s)\n",
+			       of_node_full_name(parent->of_node),
+			       rdev->id_table->protocol_id,
+			       rdev->id_table->name);
+	}
 
-Video Port1: DISABLED
-Video Port2: ACTIVE
-    Connector: DP-1
-        bus_format[100a]: RGB888_1X24
-        output_mode[f] color_space[0]
-    Display mode: 1920x1080p60
-        clk[148500] real_clk[148500] type[48] flag[5]
-        H: 1920 2008 2052 2200
-        V: 1080 1084 1089 1125
-    Cluster1-win0: ACTIVE
-        win_id: 1
-        format: XR24 little-endian (0x34325258) glb_alpha[0xff]
-        rotate: xmirror: 0 ymirror: 0 rotate_90: 0 rotate_270: 0
-        zpos: 0
-        src: pos[0, 0] rect[1920 x 1080]
-        dst: pos[0, 0] rect[1920 x 1080]
-        buf[0]: addr: 0x00000000007ed000 pitch: 7680 offset: 0
+We can override scmi_dev a few times in the loop and lose the previous
+sdev allocations. Is this intended?
 
+-- 
+Catalin
 
