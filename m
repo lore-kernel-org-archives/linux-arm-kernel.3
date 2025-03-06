@@ -4,89 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F2AC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A76F6C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:56:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=g7J8wmkWZo5IYBvTh/ckag45HZ0pb7VqSGKmkZsfd3w=; b=GeVrVQTnXSJqUkkL9SCeOf+v2i
-	UV8g0LGFvulKzMi+DQ+h/psJgwU5htKGks6AfasJjwR7jImKAamDisin149Ib/Hsv7BMqveygO3p7
-	0rCQI/ecxm7HwNP0rIOXN5zDmXZVZ+5sIr7f2xpYLQKISPbU/RTkpJdrtR/2YrmyCEXjCYiPB4ApQ
-	PzqTlsO2S2G3JiYLXYGWymPuMDpntnqF+U6vsoyZxrNkOOL7VlmTJe2ubjKYxXejHLIK8sERsN9LD
-	fjNg3Q8bnxp51oYrCp1HbdEarbb9eMaRND9Bg0xvMdy+4sdbJMm29i6bDghBGfJooPR8RaWP1pJVZ
-	yp7tESxA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FKaVUl5lLXUSuhCF1ZlPAyZO1YDz2MZPYUTwBAZE0yM=; b=kutF2vi4SYHIiUTII4pQW0r6sP
+	1luo4Yjk1IzMCF5GDPzYwReqGa0PeLoqWIytSvqRCA9XUA8sSyaclFkTRAkKtbL/zWJfpsIo/bLfQ
+	dhYbb88UCjkkLRa73BnJAkM2KhIjC7gYjDERG7pwRFk0jz3X1p+uwOKSNaephtmTdBSqB6bhzxhVb
+	0tPG/VD4XDJTyFZlEobQNFB/pVf7Sy//kb1kjtUrHGSrLHyXTFEESCoXWD/Gu9SUUtQSGNzwvlrlB
+	VndWzS4d4w0xG+T+tViu+dNsWDHBH8mH90MKG7/YhAEaZce93Af0ceet7H4YWnXjb9LoGWhd1kQng
+	xgM3FOOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCXm-0000000BFEK-13DC;
-	Thu, 06 Mar 2025 14:49:50 +0000
-Received: from mgamail.intel.com ([192.198.163.8])
+	id 1tqCe6-0000000BG2v-1SFn;
+	Thu, 06 Mar 2025 14:56:22 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCW9-0000000BEpW-1Lj6
+	id 1tqCcT-0000000BFnx-0PTY
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 14:48:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741272489; x=1772808489;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=bla4hIb0IkIaS1NTrqHiiXPmlh5fLuqeLRBBeaE0n+8=;
-  b=LaOl/uWbS+p6nmlAiHQbY8qM0ODvS8+p+9Vl6EWZnI+IjKMC0cyLnF2N
-   x82IOHZvNIGnjoOzSgu3SA9staFIlZ6WXtuw6FbFBIoFrUmQoOXT0wc7m
-   yGTmpR/YNyMX+gmFP39299tGmS3HnQ6lxUR8pBQhLyC/62jy9AWtcLI8v
-   sfvkinz05KOdIM2zNtf8CFkUKwHOJbRkMejSHyN/MpWMNpwOkORk30ZJA
-   iPbG6B/d04b7YY3DeTLTGyulp5etig4pxj4Clis7X2eGb69LUsAOyBSrN
-   wRDeD2Pr39QAvNhBihlyWzIXOYk+LzkQwfJIwKyjzsQY2fmD1im7YkTmY
-   Q==;
-X-CSE-ConnectionGUID: 2jXIg81sRMq1gZgTTwXr3w==
-X-CSE-MsgGUID: 8OCtcYVQTHaUX/MwcbI+sg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="59830993"
-X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
-   d="scan'208";a="59830993"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 06:48:04 -0800
-X-CSE-ConnectionGUID: o4CM4XnkTwKUZWqrou7E7A==
-X-CSE-MsgGUID: gJEqCfufS6On0GZn3XiLUw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
-   d="scan'208";a="119052400"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by fmviesa007.fm.intel.com with ESMTP; 06 Mar 2025 06:48:00 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tqCVx-000NAs-1f;
-	Thu, 06 Mar 2025 14:47:57 +0000
-Date: Thu, 6 Mar 2025 22:47:34 +0800
-From: kernel test robot <lkp@intel.com>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev,
-	Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>,
-	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
-Subject: Re: [PATCH v8 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-Message-ID: <202503062204.QeQoZBYt-lkp@intel.com>
-References: <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
+	Thu, 06 Mar 2025 14:54:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741272880;
+ bh=FKaVUl5lLXUSuhCF1ZlPAyZO1YDz2MZPYUTwBAZE0yM=;
+ b=0vrjD4l4oJPyR53lZ0IQM2n1LSqvXnArtSq5UlvlNY4CwBCnFFGGYUxMF3co1yad3hjBbSLSy
+ 1aXjB7YAsE0BC86yXYWI1pG1YSJUtOSwy4ek9SdVffkZ7trpcXcw9HRNHu17PfE6DUf72U1Ltft
+ vuM4tWA4o8xCM2gDNE4TXQxPE/IDt2XMsJXaJ1NwEPiymrgE4HS29QYX2HJDm4gEjBEH9TDIi0k
+ eRasZiW4WFGAd8NM5VNYw9c1GbAH9OyhEPn+Wu6aX3wH+2SSNtYckIWPv/7vvwB48U3EFu4bOd6
+ 4JJFYTWEL9ZcmU5vTfx6QC5EITQZiZcH1gWpyCafj/MA==
+X-Forward-Email-ID: 67c9b7257d53aa09926020ca
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <3181e8a0-b98f-4860-a0fa-abc3130c9b35@kwiboo.se>
+Date: Thu, 6 Mar 2025 15:54:24 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/1] arm64: dts: rockchip: enable SCMI clk for RK3528 SoC
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250306131016.281290-1-amadeus@jmu.edu.cn>
+ <20250306131016.281290-2-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250306131016.281290-2-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_064809_392769_2FE21B37 
-X-CRM114-Status: GOOD (  12.78  )
+X-CRM114-CacheID: sfid-20250306_065441_476639_4020BF6E 
+X-CRM114-Status: GOOD (  14.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,80 +80,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ciprian,
+Hi Chukun,
 
-kernel test robot noticed the following build errors:
+On 2025-03-06 14:10, Chukun Pan wrote:
+> Same as RK3568, RK3528 uses SCMI clk instead of ARMCLK.
+> Add SCMI clk for CPU, GPU and RNG will also use it.
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 32 ++++++++++++++++++++++++
+>  1 file changed, 32 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 0c0e7f151462..aa68c2fef2f3 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -59,6 +59,7 @@ cpu0: cpu@0 {
+>  			reg = <0x0>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>  		};
+>  
+>  		cpu1: cpu@1 {
+> @@ -66,6 +67,7 @@ cpu1: cpu@1 {
+>  			reg = <0x1>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>  		};
+>  
+>  		cpu2: cpu@2 {
+> @@ -73,6 +75,7 @@ cpu2: cpu@2 {
+>  			reg = <0x2>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>  		};
+>  
+>  		cpu3: cpu@3 {
+> @@ -80,6 +83,22 @@ cpu3: cpu@3 {
+>  			reg = <0x3>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +		};
+> +	};
+> +
+> +	firmware {
+> +		scmi: scmi {
+> +			compatible = "arm,scmi-smc";
+> +			arm,smc-id = <0x82000010>;
+> +			shmem = <&scmi_shmem>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			scmi_clk: protocol@14 {
+> +				reg = <0x14>;
+> +				#clock-cells = <1>;
+> +			};
+>  		};
+>  	};
+>  
+> @@ -110,6 +129,19 @@ gmac0_clk: clock-gmac50m {
+>  		#clock-cells = <0>;
+>  	};
+>  
+> +	sram@10f000 {
+> +		compatible = "mmio-sram";
+> +		reg = <0x0 0x0010f000 0x0 0x100>;
+> +		ranges = <0 0x0 0x0010f000 0x100>;
+> +		#address-cells = <1>;
+> +		#size-cells = <1>;
+> +
+> +		scmi_shmem: sram@0 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x100>;
+> +		};
+> +	};
 
-[auto build test ERROR on robh/for-next]
-[also build test ERROR on arm64/for-next/core krzk-dt/for-next linus/master v6.14-rc5 next-20250306]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+This does not look correct, the shared memory is located in DRAM not in
+SRAM. I used reserved-memory in my work-in-progress commit for adding
+the GPU [1], something like, not sure if this is more correct:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ciprian-Costea/dt-bindings-rtc-add-schema-for-NXP-S32G2-S32G3-SoCs/20250228-162229
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250228081812.3115478-3-ciprianmarian.costea%40oss.nxp.com
-patch subject: [PATCH v8 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
-config: hexagon-allyesconfig (https://download.01.org/0day-ci/archive/20250306/202503062204.QeQoZBYt-lkp@intel.com/config)
-compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250306/202503062204.QeQoZBYt-lkp@intel.com/reproduce)
+	reserved-memory  {
+		#address-cells = <2>;
+		#size-cells = <2>;
+		ranges;
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503062204.QeQoZBYt-lkp@intel.com/
+		scmi_shmem: scmi-shmem@10f000 {
+			compatible = "arm,scmi-shmem";
+			reg = <0x0 0x0010f000 0x0 0x100>;
+			no-map;
+		};
+	};
 
-All errors (new ones prefixed by >>):
+[1] https://github.com/Kwiboo/linux-rockchip/commit/f1cd58b2431a01e8cf6a430922204a71fee484f3
 
->> drivers/rtc/rtc-s32g.c:204:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
-     204 |         rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
-         |                ^
-   1 error generated.
+Regards,
+Jonas
 
+> +
+>  	soc {
+>  		compatible = "simple-bus";
+>  		ranges = <0x0 0xfe000000 0x0 0xfe000000 0x0 0x2000000>;
 
-vim +/FIELD_PREP +204 drivers/rtc/rtc-s32g.c
-
-   196	
-   197	static int rtc_clk_src_setup(struct rtc_priv *priv)
-   198	{
-   199		u32 rtcc;
-   200	
-   201		if (priv->rtc_data->reserved_clk_mask & (1 << priv->clk_src_idx))
-   202			return -EOPNOTSUPP;
-   203	
- > 204		rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
-   205	
-   206		switch (priv->rtc_data->clk_div) {
-   207		case DIV512_32:
-   208			rtcc |= RTCC_DIV512EN;
-   209			rtcc |= RTCC_DIV32EN;
-   210			break;
-   211		case DIV512:
-   212			rtcc |= RTCC_DIV512EN;
-   213			break;
-   214		case DIV32:
-   215			rtcc |= RTCC_DIV32EN;
-   216			break;
-   217		case DIV1:
-   218			break;
-   219		default:
-   220			return -EINVAL;
-   221		}
-   222	
-   223		rtcc |= RTCC_APIEN | RTCC_APIIE;
-   224		/*
-   225		 * Make sure the CNTEN is 0 before we configure
-   226		 * the clock source and dividers.
-   227		 */
-   228		s32g_rtc_disable(priv);
-   229		writel(rtcc, priv->rtc_base + RTCC_OFFSET);
-   230		s32g_rtc_enable(priv);
-   231	
-   232		return 0;
-   233	}
-   234	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
