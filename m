@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E7D7C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:13:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BF4DC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:15:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FS59gZd32BjVBMnl0y8BuCd7aMfa22x1ZHu9pei4qQQ=; b=Rk6R2Ciq3CLwRa7EJ6tPRQ3GvD
-	y99+ScYmQH/EOmDANYzosvmC9u/bZ0X9SZvxFxyva286gX0zI8EfIM+xwY3JnsdJtLv+WkYz78kYi
-	ihdxrysiVQ2N2SKH4M+pRfpYBZZIClnyYS16FALkxPj5SljyekzxgIXWniJVJaowc9macyd2E/b7Y
-	R+6RWOsoDMwML+jECDbibe7Hm0KK0jZmr0flYGJKYfkKWrJaVcD1IJAUuIcjV3UdqVpHd/bFX5yTp
-	1EE3oKNQav8a3azjbL77Aep98fc7drBWOfdgcKdCPXaQhUjCXXCRiSRKW28WNjodtsNPNDuo03A+5
-	GvGaWvPg==;
+	bh=8grfYWwIX4hpiA7jlx82Mk2yoAsYJcNHuOuvJvnYwRc=; b=iNIdJYIaThosyGE5lT6pon5nSR
+	HnIDYM2343qoHNs1MwukfabZ9SI5F0rgxWa4Y8CbzQ3yQy2mcVGA6OmaVPqwQPN+5t7HMt0VEATT/
+	7Apyd7WQvanljpNyntPgLIrhQxRUnDO53g83FMS8nnP1uGJQWTi10Y2eB84WiPgDSwSDExdSN044i
+	0jZHSOm8i3OvwzQ645c9qaw3rcI+5nE5FDzC1S1KFcPOBwpHACXO9WbFNOvvSVxG7HqOLfckj4v8G
+	kLFBtjgPLxFKgqzuuDXvI43M51PighebAgSFqwW10E+jymqDwcMGVLec6v/6Sp/MS8D5L1bLegeFK
+	mwFpDEVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqA6E-0000000At3V-3I5x;
-	Thu, 06 Mar 2025 12:13:14 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tqA7r-0000000AtJN-2IHw;
+	Thu, 06 Mar 2025 12:14:55 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9RI-0000000AmpS-0rFw
+	id 1tq9RJ-0000000Amps-2NLt
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:30:57 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-390e6ac844fso465936f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:56 -0800 (PST)
+	Thu, 06 Mar 2025 11:30:58 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43bcc85ba13so4085825e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:57 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741260655; x=1741865455; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1741260656; x=1741865456; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FS59gZd32BjVBMnl0y8BuCd7aMfa22x1ZHu9pei4qQQ=;
-        b=R9CFdeMqnsCWcW4R8z/AI9nMzJotl4ZTZV5YtvYp8KR4rtcAXoxruCIJ1SSe58cPiP
-         FPU7aJEl/JAx++zJsp2S2nghR2JBg1AYZtWs8Q+qM6z2Xi3fybUvd95xXhw+lmwF2oua
-         i5kiB87NiF6iXYDIUd8XfQDqU8NGAQXy7riX8=
+        bh=8grfYWwIX4hpiA7jlx82Mk2yoAsYJcNHuOuvJvnYwRc=;
+        b=R/soemuLcWPgB0SOIluudKvTZj8FIAxAeGSsdCdi/YBn/UK5bd+fy7zRlqyeoYS2MK
+         aecyRo8kOkls0TMk2ehS8Y5yEJvLTIlEZpxS3Dj9Ond6SbwzeX44e7WE2raOsKXOmoO/
+         xdK3zjXhCDBzwhQvtYoG4qahBL/m2jSiIoszA=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741260655; x=1741865455;
+        d=1e100.net; s=20230601; t=1741260656; x=1741865456;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FS59gZd32BjVBMnl0y8BuCd7aMfa22x1ZHu9pei4qQQ=;
-        b=edynVAGaeKteg8CQUkYhCYvZ7EAf7PGjVa0/YS0m6a2UfqSLnx3IhD5Pq/UctMyNwY
-         P3chh7Xp+d7XOSIiTOFhR3Gum+dSNYmaQR7n/NJgmo34KAtNDFOWPi67SF77+6r/2141
-         fFvhLkLJ+UJfqJYY6fprzTMoXvVeMq0+WJG+hMYOJLkq3+z9OEobUQErmNgdn6hdRo+4
-         M2wKXvf7g6WA0dF0Nq3JXniC4LguigMpZ3KW5UFbPvdtPsKhdic9RGTnRRszfjRAZx6c
-         aj82qSKzyfBCzgjhE1hbF0brLTL3n/i5vG+Kk+KIEK6PeeKrK816po9tgp9WVXgrmp85
-         EWfA==
-X-Forwarded-Encrypted: i=1; AJvYcCUCpDaVR3Mj9FDt2GbAQtuIrRRvAnrfdefhnq1HB/6RlvFR8j5cjX+k7CtRNcIf7382jKFTKE/2R+sWpyw6+4QV@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDETTQY0wYHrr6a73pTCgrmsxv/3P3ikUH+oMlNB2mcgu/JPiu
-	GYsH1yduIQwacjlmLWQHN/Uz4OWmeXVjs558DEWzL08uYNg5Phax/sbKV2gui2A=
-X-Gm-Gg: ASbGncsDdlHgfXqGcYsnyu+5BFl5ByisipbmLcbJuXMhAlW/IvUjdN/hqpkPxsjmC1H
-	8u3Zm+2Ei7RIc5ugGoWA0Im1v9JnR09HrQ0CdWM4+28TUAb54i2mBHJZNrUKXRHoZUzf+TAe+Ep
-	nhWEqne7rYrA8HCx08u1tCDvpfHVZSEUEw73viBrVAnQntUsURfHp6ltRnSKd1YxRSxmTIDf9d4
-	6QbEH8S1OuGLOROttwF8PR/W0ZnThcyWk+sKnqEaA7M2UDYZnK0/EbkBaqdYfJGXgxsxPh11s2b
-	W5+2Yn4G3cAYGGRSIvtACstknUxVshVUKpADHUcIUF2pKcYPQMJGruOEh6fSZ2AbB+0H6kMStBW
-	BgelhGQ==
-X-Google-Smtp-Source: AGHT+IEZn/9kHcDhx+uHLD679Aq/6iWA+3OuKqlfoSyRAz/qXxji0vn2yOVWqnfvegWeGGNMCqwuaw==
-X-Received: by 2002:a05:6000:1788:b0:390:f9a5:bd79 with SMTP id ffacd0b85a97d-3911f74e675mr5508637f8f.26.1741260654829;
-        Thu, 06 Mar 2025 03:30:54 -0800 (PST)
+        bh=8grfYWwIX4hpiA7jlx82Mk2yoAsYJcNHuOuvJvnYwRc=;
+        b=BjHuQa2WhnwuF1fEI8dOAzUTNkF3+zHP1Xjjzr1XFoTWJCxotFKFyY7oR2JenCo3HZ
+         IiMtWnsddF5WmE227PUTK2NyQ7n1L8/prPEdhmFJRhdt4AauwJjjucF09uhX/XhmczSb
+         C4MhgSgPprxjC2gOgE9vwnbivf4f0dQR7LsDct259YxAvRUasxoovryHe5BvDtKEtQr9
+         n7LYYM15ta6v/0/McwQAht/TQU9oR0em4+R9XLVFj8O5nWCwsNG33hQXU+3hEqRq9dQq
+         8RyAb/xbwrw98xM2gPXBCMJYvXjJLsnEKfPLlFwc4npI8kKsDCyjUghhLgMT3lwoPYjY
+         uIzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWuNCajI/h7Zq/yBFD+vtcY0KvNze+IQUd2dIdz7tBbp8bYH3AXNGELTC3J5myUEDITSwtPCFiu+l/WXb7B85xR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzo5QD3QTmMeqrMnX3vPrVLuiZI/G+AKyJDJsc33Tc3SbWzYToC
+	/KPkrTZ18as/WRz9IXWofAIN7fTBNRIlN7sB8RebgqXdy0DU4kbtVSTbunH+GdE=
+X-Gm-Gg: ASbGnctjSgEZ9ij5EAyvbLuCx42J3TCN5S2567yan64EurVUi+JFnDJ6ZCWwUSfpgxO
+	E/pPV1r8m+0Cm6GLLNVigN5F30+7++aED/3OOmkWkkGfalxahvDRSeqfsEniMy1UesVOHEb0+ac
+	lCr5JYKDZkNFcCuMUDsdDrObgkK8Fyv3jh37y04d2Gr6hPHKq/XKj1xu899ec7scLa8iBnPT3nI
+	gFWauDSdsc41A+sBqr7sXhPIoZ+gVKeW7t9Qtb4OBqWIdfQ8lVVLu+Tz/7tNWFfkO2KZkug97r9
+	r7m7h6IJlLuWqbTWGZAGi6IRp2rKpV707Fqe5HtnwuD3Eun/CQLae1Aiqfm3iBmqu9z2ZXYmnVT
+	jl5+1Vg==
+X-Google-Smtp-Source: AGHT+IFeKvGyyBqN0xdpou0tHRjJGAp0jFx4x573e2BTr5KjxvJqJCsFOx3f7ZBV0vsm+afHKUXGSA==
+X-Received: by 2002:a05:600c:3b87:b0:439:6101:5440 with SMTP id 5b1f17b1804b1-43bd296abc2mr49684235e9.8.1741260656050;
+        Thu, 06 Mar 2025 03:30:56 -0800 (PST)
 Received: from localhost.localdomain ([2001:b07:6474:ebbf:4703:aa8c:6eab:8161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.53
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:30:54 -0800 (PST)
+        Thu, 06 Mar 2025 03:30:55 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Stephen Boyd <sboyd@kernel.org>,
@@ -83,16 +83,16 @@ Cc: Stephen Boyd <sboyd@kernel.org>,
 	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v10 16/18] arm64: dts: imx8mm: add PLLs to clock controller module (CCM)
-Date: Thu,  6 Mar 2025 12:28:05 +0100
-Message-ID: <20250306112959.242131-17-dario.binacchi@amarulasolutions.com>
+Subject: [PATCH v10 17/18] arm64: dts: imx8mn: add PLLs to clock controller module (CCM)
+Date: Thu,  6 Mar 2025 12:28:06 +0100
+Message-ID: <20250306112959.242131-18-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033056_239554_5C4758FE 
+X-CRM114-CacheID: sfid-20250306_033057_628900_40F421C1 
 X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -120,30 +120,30 @@ Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 Changes in v4:
 - New
 
- arch/arm64/boot/dts/freescale/imx8mm.dtsi | 9 +++++++--
+ arch/arm64/boot/dts/freescale/imx8mn.dtsi | 9 +++++++--
  1 file changed, 7 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mm.dtsi b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-index 597041a05073..79f4c1ae7d8b 100644
---- a/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mm.dtsi
-@@ -642,9 +642,14 @@ clk: clock-controller@30380000 {
+diff --git a/arch/arm64/boot/dts/freescale/imx8mn.dtsi b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+index 49be492b5687..01013c1fd61d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mn.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mn.dtsi
+@@ -643,9 +643,14 @@ clk: clock-controller@30380000 {
  					     <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
  				#clock-cells = <1>;
  				clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
 -					 <&clk_ext3>, <&clk_ext4>;
 +					 <&clk_ext3>, <&clk_ext4>,
-+					 <&anatop IMX8MM_ANATOP_AUDIO_PLL1>,
-+					 <&anatop IMX8MM_ANATOP_AUDIO_PLL2>,
-+					 <&anatop IMX8MM_ANATOP_DRAM_PLL>,
-+					 <&anatop IMX8MM_ANATOP_VIDEO_PLL>;
++					 <&anatop IMX8MN_ANATOP_AUDIO_PLL1>,
++					 <&anatop IMX8MN_ANATOP_AUDIO_PLL2>,
++					 <&anatop IMX8MN_ANATOP_DRAM_PLL>,
++					 <&anatop IMX8MN_ANATOP_VIDEO_PLL>;
  				clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
 -					      "clk_ext3", "clk_ext4";
 +					      "clk_ext3", "clk_ext4", "audio_pll1", "audio_pll2",
 +					      "dram_pll", "video_pll";
- 				assigned-clocks = <&clk IMX8MM_CLK_A53_SRC>,
- 						<&clk IMX8MM_CLK_A53_CORE>,
- 						<&clk IMX8MM_CLK_NOC>,
+ 				assigned-clocks = <&clk IMX8MN_CLK_A53_SRC>,
+ 						<&clk IMX8MN_CLK_A53_CORE>,
+ 						<&clk IMX8MN_CLK_NOC>,
 -- 
 2.43.0
 
