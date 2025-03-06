@@ -4,118 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6220DC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB90EC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MBMAI6UleQiLqCNQprE9b3/wLngLV6Qif5ixnHLKdic=; b=nz/iab+yGMPmmw93WbgWpeOK+E
-	BkmeOS5rofWuByDYq7EzXbB5qNvS5XvyscxXUKQPnLW7QW7s/y2X6f8f3G6elACmx+wODfd58LhqO
-	2sQs5IIrsjCn6lCcCG+T3khuzKzjkA+TBBYst7OP1y0IZoQWlveurQygLQqsaa9CVK2a062bkdEGn
-	HgLi2Aa/l71cgHuc7/Ink0WTUornnIQPLirFeukoub7bqmQ35LbHlXrPBYDvpQlyzoxEYikV0YxRV
-	e4LvvNH/QuCpVlguhtqzrQepyvKSY4XqPnwiBIMdNyUs8+RSgxlKFULCnO7GC503Ix3scJmOunlRG
-	lGrZVG6g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+DzXmk4dFbeO+m8INiuwLYdFt5umLSVckqHmHFprSKg=; b=W4J4825SoawK3DD9GPiWVhDK1F
+	/7/5NkwQH+8QQbB6VIm4ZAuDkwXEJnGx7Kna8HDQNxB4DmqvwIoPG6InPzTjaWxyDz0p0rRL8K6HJ
+	2gSYHD5dj0eAG2v6mC2tQZNaZeUZVQv8gUVdhoB2zc+5m1+yNnQrhwUy2AUDpvONnEbu58q7Hhzrp
+	KRPrvyepni/SalIYTlWzxOAC5P2zQRy4oVVwFJ0x0iXW1nyflsht4sIUnQq2dwUNW/IITCGb/rzhU
+	FMSWWjypn8hnVsrMYXfrXeF2+x9seFwkOSJpBjlWUOOeDYZYSt4djyI3rBYZNsdxKZKz0go5Bw9Ph
+	8aOdyGbw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqB26-0000000B0up-1HDH;
-	Thu, 06 Mar 2025 13:13:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tqB3g-0000000B1Ag-1SsF;
+	Thu, 06 Mar 2025 13:14:40 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqAeE-0000000Axw5-3Rkt;
-	Thu, 06 Mar 2025 12:48:24 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4F4E5A44BA8;
-	Thu,  6 Mar 2025 12:42:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0894C4CEE0;
-	Thu,  6 Mar 2025 12:48:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741265301;
-	bh=5C7aROZo8+xCUQ9LcbbPat4a/6LWWgnqoOkYrP/axQY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C0dgUpT3AcWMxxfCM0o8x+nvhUdzFJXIQ1okOfU996ZWHfSQYOAPJg7BGS9veGuAC
-	 UpwoAePiIHwN3xuLBJp7nEtY6+TIVVLsx0RSOXhptZj61m8wfNAxT8D4w1tIw2azgU
-	 Puf95ciKBzaPBefD4qJ9Ob6p7WTR1W3wZvt9SqqadCeE5cboZPsmB/WVbEFSA1j7Vh
-	 R7lI/8Maafiky0wzs6tnUbnnsAKnOg1wsvvKZMWscd8Nr8bBnsHIZIF2xRhzJAH8io
-	 QjV3QccuD1ThV1FyAYAJUN7BSsHsMLfTRw6efSHvql2Ed+VbCHh9meYKyD9ANmZ521
-	 wtRgCRvpkJ+Hw==
-Message-ID: <463ca2df-a0ee-4b9e-a988-12f316ae7d1a@kernel.org>
-Date: Thu, 6 Mar 2025 13:48:13 +0100
+	id 1tqAeO-0000000Axx8-1l6m
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 12:48:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+DzXmk4dFbeO+m8INiuwLYdFt5umLSVckqHmHFprSKg=; b=CxxAsc2me4QVCsLdkb0TVQu/h+
+	R9lAsFcYFiT7hXeI1jTEY5Uu58JXIQjI3gtjpM+pgssnH97R7qM9eahOg2aZPqHkH8tWttXmwvKmt
+	12Tc0Fgpt8cCB9suT7loDaMO3O3+7xHS/UIW72QUAE2quCTqsvRmgGoaLrOzD0WFxvtumRDY5+5OA
+	+p+q99J6JRgZ0nngzpfFEIHB3pXGInsxjScLQd02zDVYMpSh0wK/yon0/5m8+/w7E7nLIMCt28zMA
+	ghSe+sBkFss3w2hxOhxiJSePMHyU5+ma38K79kcOC8t/GszICm62dUH2h3oQtVG3PxuK07YK+Cwt2
+	1adcMuyw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40594)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tqAeA-0005rj-0H;
+	Thu, 06 Mar 2025 12:48:18 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tqAe5-0006no-2J;
+	Thu, 06 Mar 2025 12:48:13 +0000
+Date: Thu, 6 Mar 2025 12:48:13 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?iso-8859-1?Q?K=F6ry?= Maincent <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v4 09/13] net: phylink: Use phy_caps_lookup for
+ fixed-link configuration
+Message-ID: <Z8mZjabeITVg1Khg@shell.armlinux.org.uk>
+References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
+ <20250303090321.805785-10-maxime.chevallier@bootlin.com>
+ <20250304154330.6e00961b@fedora.home>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: memory: mediatek: Add SMI reset and
- clamp for MT8188
-To: =?UTF-8?B?RnJpZGF5IFlhbmcgKOadqOmYsyk=?= <Friday.Yang@mediatek.com>,
- "robh@kernel.org" <robh@kernel.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- =?UTF-8?B?WW9uZyBXdSAo5ZC05YuHKQ==?= <Yong.Wu@mediatek.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- Project_Global_Chrome_Upstream_Group
- <Project_Global_Chrome_Upstream_Group@mediatek.com>
-References: <20250221074846.14105-1-friday.yang@mediatek.com>
- <20250221074846.14105-2-friday.yang@mediatek.com>
- <0dcb2efd-6bbb-4701-960a-74930eb457e4@collabora.com>
- <264f78c1067e363c69e146543ebb77dbedfbd181.camel@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <264f78c1067e363c69e146543ebb77dbedfbd181.camel@mediatek.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304154330.6e00961b@fedora.home>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_044823_024068_2591BF79 
-X-CRM114-Status: GOOD (  13.60  )
+X-CRM114-CacheID: sfid-20250306_044832_500223_2C37E3E3 
+X-CRM114-Status: GOOD (  23.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,63 +93,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03/2025 13:45, Friday Yang (杨阳) wrote:
->>> +          const: mediatek,mt8188-smi-larb
->>> +        mediatek,larb-id:
->>> +          oneOf:
->>
->> Are you really sure that you need 'oneOf' here? :-)
->>
->> Regards,
->> Angelo
+On Tue, Mar 04, 2025 at 03:43:30PM +0100, Maxime Chevallier wrote:
+> On Mon,  3 Mar 2025 10:03:15 +0100
+> Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 > 
-> Yes, I have tested it. If I try to modify the 'examples'
-> like this. That is:
->   change the compatible to "mediatek,mt8188-smi-larb",
->   add 'mediatek,larb-id = <10>;'
+> > When phylink creates a fixed-link configuration, it finds a matching
+> > linkmode to set as the advertised, lp_advertising and supported modes
+> > based on the speed and duplex of the fixed link.
+> > 
+> > Use the newly introduced phy_caps_lookup to get these modes instead of
+> > phy_lookup_settings(). This has the side effect that the matched
+> > settings and configured linkmodes may now contain several linkmodes (the
+> > intersection of supported linkmodes from the phylink settings and the
+> > linkmodes that match speed/duplex) instead of the one from
+> > phy_lookup_settings().
+> > 
+> > Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> > ---
 > 
-> examples:
->   - |+
->     #include <dt-bindings/clock/mt8173-clk.h>
->     #includ
-> e <dt-bindings/power/mt8173-power.h>
-> 
->     larb1: larb@16010000 {
->       compatible = "mediatek,mt8188-smi-larb";
->       reg = <0x16010000 0x1000>;
->       mediatek,smi = <&smi_common>;
->       mediatek,larb-id = <10>;
->       power-domains = <&scpsys MT8188_POWER_DOMAIN_VDEC>;
->       clocks = <&vdecsys CLK_VDEC_CKEN>,
->                <&vdecsys CLK_VDEC_LARB_CKEN>;
->       clock-names = "apb", "smi";
->     };
-> 
-> The 'dt_binding_check' could give the following
-> errors:
-> 
-> Documentation/devicetree/bindings/memory-controllers/mediatek,smi-
-> larb.example.dtb: larb@16010000: 'resets' is a required property
-> from schema $id: 
-> http://devicetree.org/schemas/memory-controllers/mediatek,smi-larb.yaml#
-> Documentation/devicetree/bindings/memory-controllers/mediatek,smi-
-> larb.example.dtb: larb@16010000: 'reset-names' is a required property
-> from schema $id:  
-> http://devicetree.org/schemas/memory-controllers/mediatek,smi-larb.yaml#
-> 
-> And this is what I want to achieve. On the MediaTek MT8188 SoC
-> platform, 'resets' and 'reset-names' are only required for SMI LARBs
-> located in image, camera and ipe subsys. Others can be ignored. And the
-> 'larb-id' of these SMI LARBs are shown in this array: [ 9, 10, 11, 12,
-> 13, 16, 17, 18, 19, 20 ].
-> 
-> Please feel free to let me know if you have any doubts.
+> Maybe before anything goes further with this patch, I'd like to get
+> some feedback from it on a particular point. This changes the linkmodes
+> that are reported on fixed-link interfaces. Instead of reporting one
+> single mode, we report all modes supported by the fixed-link' speed and
+> duplex settings.
 
-You did not really answer the question. Where is anything about oneOf in
-your reply?
+This is a good question. We have historically only used the baseT link
+modes because the software PHY implementation was based around clause
+22 baseT PHYs (although that doesn't support >1G of course.)
 
-I am dropping this patchset from my queue.
+The real question is... does it matter, to which I'd say I don't know.
+One can argue that it shouldn't matter, and I think userspace would be
+unlikely to break, but userspace tends to do weird stuff all the time
+so there's never any guarantee.
 
-Best regards,
-Krzysztof
+> The fixed-link in question is for the CPU port of a DSA switch.
+> 
+> In my opinion, this is OK as the linkmodes expressed here don't match
+> physical linkmodes on an actual wire, but as this is a user visible
+> change, I'd like to make sure this is OK. Any comment here is more than
+> welcome.
+
+Maybe Andrew has an opinion, but I suspect like me, it's really a case
+that "we don't know".
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
