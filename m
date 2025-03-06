@@ -4,83 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44720C28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:11:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCC2AC28B22
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:11:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YT4fyw15FhC7ENEFEWrArUC0UmuVlfAgskEDQIOVO24=; b=sv0i5MS8H+eWNpUbqG3JIhN/6I
-	IhsvlNSNzBABhd67ANZoO5XZKYr0pBVAg5wvbtfOrP58G5YG9nrlM+sbL+fYgL7N2TfbgSyai29Am
-	S5ASoRnOnqnXqbXcjmHgK4nZ1ll4I4JZtN+amYk6CbbtLjQH79ZQMCRn3R5d9re20SIHsH1f9WX88
-	OTeh2wHerjzkyHdAjgIK4q3L48/UtPrX3t5+oaWEtPLHFx+Dm4TRfaPR6GXXBp+90hqUtmmmil19N
-	O0pEZZZoiY4XwaWMFsqqRfI+4cVpwOAFeNBe3GIYXnK4+fDuHdHSHNCMX1ILl/GZ2X6uTTWp3L4jz
-	V67prVaQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=t8QBsY44aeHsnC8jmAJ8//UtQanr3bN3Vc/JtHR8dwQ=; b=H6nvNjj1p9WriYVH+wvw4GyKp5
+	GxFWAqiSwIOJDq0l7vyBL3t6U/cOz0R2HadeWXMRgqRHQJTZ1Tva2idhy9JNrqHsKU+/ConaKNSua
+	ge+fBVlcp2UEvMzvg1wgZbPqG0BRDT/7R/SGUC00O3I7S+FxpNUyfsxsEnRKzktNSLgzhJIKX7bXa
+	YYbOu9ReZg1bx4Xj4Xpa8EvK/QgfVSpTus1Tq5fZGEZn9BC2XoI1qJNAKfUuzx9w3U5V2znuRFuVt
+	w+BSOXal1Vor0QRQzkAinbEGJjKpKvBQJLYFfwOydZyvKpxRYOQ9lfmLVCvx7ygbJ+cT0xw4rsZ9b
+	QlfvKBmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8CZ-0000000Aau2-47hw;
-	Thu, 06 Mar 2025 10:11:39 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7yr-0000000AYvX-1auu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 09:57:29 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YT4fyw15FhC7ENEFEWrArUC0UmuVlfAgskEDQIOVO24=; b=LQQO45zthZBeUXPkP9cZjYPDMs
-	UopQYhao0EzROyVXwPLxofjo+KrrQT77H4aKDHfuFzIwNzd3poez2MjYEZsIuloyaH1hjREYf67P4
-	00uipXLCXTS5U2RD+xFJ3VwB0SFpwctl7AL0eVxMyZKFRBmeUDcVuh84yxNazg/blu7Dmm3aT7BJ4
-	GrW1w4DgUmm47g/jCtXqHnxJoDBMHxf0bBPORqbQzLH5teq+lENvv3jboB/1i9fpm5M7IaFu46890
-	45SRDtAoUpfOBNnv3YEUGxznX1s+4lLg+JwnwMFYZlUFzcZH47kO9OUmKlsmjry7gSS0+oVJUYRmk
-	GUaOHWUg==;
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq7yn-00000007C7K-3Duz
+	id 1tq8CY-0000000AarL-0vUI;
+	Thu, 06 Mar 2025 10:11:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq7q3-0000000AXHo-2sab
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 09:57:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4C44D5C4B74;
-	Thu,  6 Mar 2025 09:54:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 335F6C4CEE2;
-	Thu,  6 Mar 2025 09:57:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741255035;
-	bh=wsDrmZWqNwZ8Z92QvIsMkJWkfZRuwXzjXEV5bkQIeE8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BkUmWWfq0wnktTbrQMOzFCxZ1idiOiZOA0Td5RKlwaMZLIzNz8MCsANI6ruO+VVZp
-	 gbGm7NG8dpfDTk4y3ua5cy3hTFiR8v4JXyYFNoQE450Jkq+dXHs9gXxrUbNs7B7+q4
-	 xySW/R9nLFVa21UfFdAEhuSjeQJh/tp6GlJbhPT3tEcjlRW6hLVnCgjQ0rtGnls/dz
-	 tlLYsYOaP4jm3eK0Ipat41qGStDjxly3buRLC7i+x/V7WgMlU7AerBmYZ26g9j/0Fi
-	 hLTgZNC0sfOIk976NyWco3xeMZQ5uQndGt+QKyO3FUfl5L3DdTnKUCV1f0RFX7wxY9
-	 QETTN5tbBhK3w==
-Date: Thu, 6 Mar 2025 09:57:10 +0000
-From: Simon Horman <horms@kernel.org>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
+	Thu, 06 Mar 2025 09:48:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DE2A21007;
+	Thu,  6 Mar 2025 01:48:35 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0DD043F673;
+	Thu,  6 Mar 2025 01:48:20 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org
+Cc: coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>
-Subject: Re: [PATCH net-next] net: stmmac: simplify phylink_suspend() and
- phylink_resume() calls
-Message-ID: <20250306095710.GR3666230@kernel.org>
-References: <E1tpQL1-005St4-Hn@rmk-PC.armlinux.org.uk>
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v5 9/9] coresight/ultrasoc: change smb_drv_data spinlock's type to raw_spinlock_t
+Date: Thu,  6 Mar 2025 09:48:00 +0000
+Message-Id: <20250306094800.1082950-10-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250306094800.1082950-1-yeoreum.yun@arm.com>
+References: <20250306094800.1082950-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <E1tpQL1-005St4-Hn@rmk-PC.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_095725_931062_104A9E93 
-X-CRM114-Status: GOOD (  10.00  )
+X-CRM114-CacheID: sfid-20250306_014823_867135_089C48B7 
+X-CRM114-Status: GOOD (  13.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,26 +71,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 11:21:27AM +0000, Russell King (Oracle) wrote:
-> Currently, the calls to phylink's suspend and resume functions are
-> inside overly complex tests, and boil down to:
-> 
-> 	if (device_may_wakeup(priv->device) && priv->plat->pmt) {
-> 		call phylink
-> 	} else {
-> 		call phylink and
-> 		if (device_may_wakeup(priv->device))
-> 			do something else
-> 	}
-> 
-> This results in phylink always being called, possibly with differing
-> arguments for phylink_suspend().
-> 
-> Simplify this code, noting that each site is slightly different due to
-> the order in which phylink is called and the "something else".
-> 
-> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
+during __schedule() by perf_event_task_sched_out()/in().
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+Since smb__drv_data->spinlock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+
+To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
+which can be called by perf_event_task_sched_out()/in(),
+from spinlock_t to raw_spinlock_t.
+
+Reviewed-by: James Clark <james.clark@linaro.org>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
+ drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
+ 2 files changed, 7 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+index dc3c9504dd7c..26cfc939e5bd 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.c
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+@@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
+ 	struct smb_drv_data *drvdata = container_of(file->private_data,
+ 					struct smb_drv_data, miscdev);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	if (drvdata->reading)
+ 		return -EBUSY;
+@@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
+ 	struct smb_drv_data *drvdata = container_of(file->private_data,
+ 					struct smb_drv_data, miscdev);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 	drvdata->reading = false;
+ 
+ 	return 0;
+@@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
+ 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 	int ret = 0;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* Do nothing, the trace data is reading by other interface now */
+ 	if (drvdata->reading)
+@@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
+ {
+ 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	if (drvdata->reading)
+ 		return -EBUSY;
+@@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
+ 	if (!buf)
+ 		return 0;
+ 
+-	guard(spinlock)(&drvdata->spinlock);
++	guard(raw_spinlock)(&drvdata->spinlock);
+ 
+ 	/* Don't do anything if another tracer is using this sink. */
+ 	if (csdev->refcnt != 1)
+@@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
+ 
+ 	smb_reset_buffer(drvdata);
+ 	platform_set_drvdata(pdev, drvdata);
+-	spin_lock_init(&drvdata->spinlock);
++	raw_spin_lock_init(&drvdata->spinlock);
+ 	drvdata->pid = -1;
+ 
+ 	ret = smb_register_sink(pdev, drvdata);
+diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
+index a91d39cfccb8..c4c111275627 100644
+--- a/drivers/hwtracing/coresight/ultrasoc-smb.h
++++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
+@@ -115,7 +115,7 @@ struct smb_drv_data {
+ 	struct coresight_device	*csdev;
+ 	struct smb_data_buffer sdb;
+ 	struct miscdevice miscdev;
+-	spinlock_t spinlock;
++	raw_spinlock_t spinlock;
+ 	bool reading;
+ 	pid_t pid;
+ };
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
+
 
