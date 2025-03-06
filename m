@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A62CC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE12CC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:20:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvc2qCSEoHcInumCsCUHzJOPxNrN7pZm1b9N0GuNels=; b=210FiICrVlB3qzTYHR9L6/75Sf
-	d6L/CxBY9LyJluyN345NVPpMuPe2i+9AdYwcBNtuW3xo1Ow2ZE7QU9FJhL7IeHKlA9haIA0Unm7CR
-	RWAWNxMnJxft0F6jsIXh/w0sZSoVg1BMamyZkrQ8SstEzIvkwSgRnDTcVb9jaCBRTsxqbi9D/jJCv
-	ZQN/u9ZnmCzAIf3x8gZVgg+Fic0DMxKLihoook+esAOvoOadjyQOBKA6aW1qXYfeA6IueVw7IVC1i
-	hrldVg15Wni6sU+rT8MXRqP436MIW2uJatItTohb97tYc7RAZIkxGc54lxtcSplKGhu9VlSXNQW6h
-	Mtx+tbAQ==;
+	bh=bSj1C9yFpOlVHlNAi/SSxHqbpb4YSZ3mNkSnP4A2WLE=; b=Qxe7sK5rNk5kPDa9oap74H4513
+	nsGQghPz24H0fTH3goITJwN652czfkpVO5A74u238wOcMvFNy8L/9G449tcSfB2xVwaUS3Hpv4Ptb
+	9OIq1igjx4homv4iKzIcmD8Xe37kv5bu/tCWVyrIYsuS68ItxhOYaEvWEfiCTR+WmIhbDqcAYuRTT
+	wILhiWrqBg+yVSTsaqp1GUBVrX7RmuMS2TxzlnSUMBoI0yQqTlC0ltoflLOFYRzJozykOWGQXmhT3
+	pN5tB8fFMLypx9wMc5LkELyQYcAKzVPx2SC8jaaaNcD5fhHTbScwSkl/s1Du+gfcYPreZ+dmlVZ26
+	mKRPHU3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqABl-0000000Atb6-1fZW;
-	Thu, 06 Mar 2025 12:18:57 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1tqACj-0000000Atph-0t81;
+	Thu, 06 Mar 2025 12:19:57 +0000
+Received: from mgamail.intel.com ([198.175.65.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8yQ-0000000Aic6-1PGF
+	id 1tq9U5-0000000AnHk-0Oyc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:01:07 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43bc5a18c52so2097815e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:01:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741258864; x=1741863664; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=cvc2qCSEoHcInumCsCUHzJOPxNrN7pZm1b9N0GuNels=;
-        b=ysRLjEAhvHfMfl+cIamFwVtR2v/upiZfNmR9ciMGMnE6/6Vdy4VnqP54+46bJEenno
-         HU/DvpR4Tl+4Vhzv/6A0baAIdjGvJ2ebLHQdXVb/hdtx79vVaHKVvzWXgSK60JCwy1z8
-         IR8wA1wPel3GAsAbIwgbHHW+PGNzbZRMIOHKHGYG2D9Gq2URqsmTYRuaqLYFTpyqDtak
-         O5o9T2WpQ79s3Vw3e9mH7Djxkztg70eTF1DzttaDb0KbEsdMIrBg77IRn6MzhPUPfwO4
-         rqZ1rUkGY6G/ParCOMFINz+u0i0wuww+lXuDJQxll4EhKIYCat+Nh521M/dukpOvM6eV
-         SZEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741258864; x=1741863664;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=cvc2qCSEoHcInumCsCUHzJOPxNrN7pZm1b9N0GuNels=;
-        b=KrBQrqAqvFtF+QZjzXDykEnRxO1snyp9KMFIj7wrCB0Awq3oKqyf9THMGc6mxbfaKG
-         Lzq4h0M4UaQagUCjSXw7J6VzZ+KOyaOxmg7kyNdDlWLKkczOxWMXb3dY//IhcqBRC1rX
-         G4AgJMJrUQ5dtwin4jalcTiOH0YJugZQT8S3wLjler8DILeDcM1lRY6dFqhBLZMoCqkg
-         g1HOBUlszGw7cPMw+zZWC+/EbDvmkueqbLObimPExvYP0cYpeVbmFWerBL13BxvZq4qA
-         80nUxD3+BRa1pk7fn/8bxMBxd+k/IGqrtIhRlxaevywmFQcSyPGP8g+dI2eeH6dvqw95
-         Arrg==
-X-Forwarded-Encrypted: i=1; AJvYcCV+4i0gYtYa107GCuznN24sdfq4yI0rEpX4wbAu3XPDJz3RFw9db3xmYDx6j7ZwPWKSDFvcKGuEjQJFx2ls6Ny3@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0h4lzuLJA3w9bDFrNsWOZi0+wgsL0CGeyAr0/CJnhfHR87HPH
-	SmJGQWMtaeMu7KdgDTUiyBU+fp8D++mAeOZ6zJ2U3PVhopxmAC/icgLUJM9j07ny+oVFuqVQ/tE
-	piIMrzMwJ1vXm4IhSxQ==
-X-Google-Smtp-Source: AGHT+IHEXjKh7uYAxIDUZT7+S3GCsAIurCSRFsj7/bmhTfFhgEBZjfPhhhAzv3sciVIkINBKdc3gwmpKNB2CG4iV
-X-Received: from wmbeu10.prod.google.com ([2002:a05:600c:81ca:b0:43b:bec3:e552])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:1c95:b0:439:9b3f:2de1 with SMTP id 5b1f17b1804b1-43bd29ad100mr55221025e9.15.1741258864402;
- Thu, 06 Mar 2025 03:01:04 -0800 (PST)
-Date: Thu,  6 Mar 2025 11:00:38 +0000
-In-Reply-To: <20250306110038.3733649-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250306110038.3733649-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
-Message-ID: <20250306110038.3733649-10-vdonnefort@google.com>
-Subject: [PATCH v2 9/9] KVM: arm64: np-guest CMOs with PMD_SIZE fixmap
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 06 Mar 2025 11:33:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741260829; x=1772796829;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0RkHv2NVUIjDTMRzp3ZLW9jex5M/ZIevpBWyXbznxKs=;
+  b=GaHMeaxfxIgR3PCBUrmb3wFabOW0Rxo66uk+znuSkpqSHkZJhfIdOhHD
+   04Rb2BX5qu3dSWWprhxvr676rQShXBmsk97eRX2ZCiTHQfTLwaem5A/iq
+   deBQprpDW33041M3Jzqt+iKmAD2ni0rRbFx5QYfG10SabQeumtn0iI62q
+   BMlQKgydlittr8563lIg5wy8mVgOMx2z8x7IWB/BzP+iDNMzc7TU2Gtx8
+   gp7zGXgz03gLnKO5jbN8gGHlIC/L/xxtsie1h5Jn2A82mPN4Yl8Wui+8R
+   9Enar5okKU/QCWQfzxfZrpHPFlTfx084jVvHK1sbaveo9oEzRHMxl8MvF
+   A==;
+X-CSE-ConnectionGUID: GmbUlYyvRkGZfX7d3eHPxQ==
+X-CSE-MsgGUID: ZzG8KyXdQZuvGYlVN5M9+w==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="59673237"
+X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
+   d="scan'208";a="59673237"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 03:33:45 -0800
+X-CSE-ConnectionGUID: iKI6AAlYRAmEUJI/bGQSYA==
+X-CSE-MsgGUID: wyJvtgh2SWSibKMKNc9NZg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
+   d="scan'208";a="124093820"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa004.fm.intel.com with ESMTP; 06 Mar 2025 03:33:42 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tq9Tw-000Mz8-1P;
+	Thu, 06 Mar 2025 11:33:40 +0000
+Date: Thu, 6 Mar 2025 19:33:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Robin Murphy <robin.murphy@arm.com>, vkoul@kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
+	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+Message-ID: <202503061910.eJW7M2H3-lkp@intel.com>
+References: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_030106_378576_B3B3CFCB 
-X-CRM114-Status: GOOD (  17.73  )
+X-CRM114-CacheID: sfid-20250306_033349_219979_F41F8447 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,314 +87,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With the introduction of stage-2 huge mappings in the pKVM hypervisor,
-guest pages CMO is needed for PMD_SIZE size. Fixmap only supports
-PAGE_SIZE and iterating over the huge-page is time consuming (mostly due
-to TLBI on hyp_fixmap_unmap) which is a problem for EL2 latency.
+Hi Robin,
 
-Introduce a shared PMD_SIZE fixmap (hyp_fixblock_map/hyp_fixblock_unmap)
-to improve guest page CMOs when stage-2 huge mappings are installed.
+kernel test robot noticed the following build warnings:
 
-On a Pixel6, the iterative solution resulted in a latency of ~700us,
-while the PMD_SIZE fixmap reduces it to ~100us.
+[auto build test WARNING on vkoul-dmaengine/next]
+[also build test WARNING on linus/master v6.14-rc5 next-20250305]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Because of the horrendous private range allocation that would be
-necessary, this is disabled for 64KiB pages systems.
+url:    https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/dt-bindings-dma-Add-Arm-DMA-350/20250301-012733
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
+patch link:    https://lore.kernel.org/r/55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy%40arm.com
+patch subject: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
+config: nios2-randconfig-r111-20250306 (https://download.01.org/0day-ci/archive/20250306/202503061910.eJW7M2H3-lkp@intel.com/config)
+compiler: nios2-linux-gcc (GCC) 14.2.0
+reproduce: (https://download.01.org/0day-ci/archive/20250306/202503061910.eJW7M2H3-lkp@intel.com/reproduce)
 
-Suggested-by: Quentin Perret <qperret@google.com>
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-Signed-off-by: Quentin Perret <qperret@google.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503061910.eJW7M2H3-lkp@intel.com/
 
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 1b43bcd2a679..2888b5d03757 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -59,6 +59,11 @@ typedef u64 kvm_pte_t;
- 
- #define KVM_PHYS_INVALID		(-1ULL)
- 
-+#define KVM_PTE_TYPE			BIT(1)
-+#define KVM_PTE_TYPE_BLOCK		0
-+#define KVM_PTE_TYPE_PAGE		1
-+#define KVM_PTE_TYPE_TABLE		1
-+
- #define KVM_PTE_LEAF_ATTR_LO		GENMASK(11, 2)
- 
- #define KVM_PTE_LEAF_ATTR_LO_S1_ATTRIDX	GENMASK(4, 2)
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/mm.h b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-index 230e4f2527de..b0c72bc2d5ba 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/mm.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/mm.h
-@@ -13,9 +13,11 @@
- extern struct kvm_pgtable pkvm_pgtable;
- extern hyp_spinlock_t pkvm_pgd_lock;
- 
--int hyp_create_pcpu_fixmap(void);
-+int hyp_create_fixmap(void);
- void *hyp_fixmap_map(phys_addr_t phys);
- void hyp_fixmap_unmap(void);
-+void *hyp_fixblock_map(phys_addr_t phys);
-+void hyp_fixblock_unmap(void);
- 
- int hyp_create_idmap(u32 hyp_va_bits);
- int hyp_map_vectors(void);
-diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-index b7a995a1d70b..5710c97cafb0 100644
---- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-@@ -220,17 +220,53 @@ static void guest_s2_put_page(void *addr)
- 	hyp_put_page(&current_vm->pool, addr);
- }
- 
-+static void *__fixmap_guest_page(void *va, size_t *size)
-+{
-+	if (IS_ALIGNED(*size, PMD_SIZE)) {
-+		void *addr = hyp_fixblock_map(__hyp_pa(va));
-+
-+		if (addr)
-+			return addr;
-+
-+		*size = PAGE_SIZE;
-+	}
-+
-+	if (IS_ALIGNED(*size, PAGE_SIZE))
-+		return hyp_fixmap_map(__hyp_pa(va));
-+
-+	WARN_ON(1);
-+
-+	return NULL;
-+}
-+
-+static void __fixunmap_guest_page(size_t size)
-+{
-+	switch (size) {
-+	case PAGE_SIZE:
-+		hyp_fixmap_unmap();
-+		break;
-+	case PMD_SIZE:
-+		hyp_fixblock_unmap();
-+		break;
-+	default:
-+		WARN_ON(1);
-+	}
-+}
-+
- static void clean_dcache_guest_page(void *va, size_t size)
- {
- 	if (WARN_ON(!PAGE_ALIGNED(size)))
- 		return;
- 
- 	while (size) {
--		__clean_dcache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
--					  PAGE_SIZE);
--		hyp_fixmap_unmap();
--		va += PAGE_SIZE;
--		size -= PAGE_SIZE;
-+		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
-+		void *addr = __fixmap_guest_page(va, &fixmap_size);
-+
-+		__clean_dcache_guest_page(addr, fixmap_size);
-+		__fixunmap_guest_page(fixmap_size);
-+
-+		size -= fixmap_size;
-+		va += fixmap_size;
- 	}
- }
- 
-@@ -240,11 +276,14 @@ static void invalidate_icache_guest_page(void *va, size_t size)
- 		return;
- 
- 	while (size) {
--		__invalidate_icache_guest_page(hyp_fixmap_map(__hyp_pa(va)),
--					       PAGE_SIZE);
--		hyp_fixmap_unmap();
--		va += PAGE_SIZE;
--		size -= PAGE_SIZE;
-+		size_t fixmap_size = size == PMD_SIZE ? size : PAGE_SIZE;
-+		void *addr = __fixmap_guest_page(va, &fixmap_size);
-+
-+		__invalidate_icache_guest_page(addr, fixmap_size);
-+		__fixunmap_guest_page(fixmap_size);
-+
-+		size -= fixmap_size;
-+		va += fixmap_size;
- 	}
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/mm.c b/arch/arm64/kvm/hyp/nvhe/mm.c
-index f41c7440b34b..e3b1bece8504 100644
---- a/arch/arm64/kvm/hyp/nvhe/mm.c
-+++ b/arch/arm64/kvm/hyp/nvhe/mm.c
-@@ -229,9 +229,8 @@ int hyp_map_vectors(void)
- 	return 0;
- }
- 
--void *hyp_fixmap_map(phys_addr_t phys)
-+static void *fixmap_map_slot(struct hyp_fixmap_slot *slot, phys_addr_t phys)
- {
--	struct hyp_fixmap_slot *slot = this_cpu_ptr(&fixmap_slots);
- 	kvm_pte_t pte, *ptep = slot->ptep;
- 
- 	pte = *ptep;
-@@ -243,10 +242,21 @@ void *hyp_fixmap_map(phys_addr_t phys)
- 	return (void *)slot->addr;
- }
- 
-+void *hyp_fixmap_map(phys_addr_t phys)
-+{
-+	return fixmap_map_slot(this_cpu_ptr(&fixmap_slots), phys);
-+}
-+
- static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- {
- 	kvm_pte_t *ptep = slot->ptep;
- 	u64 addr = slot->addr;
-+	u32 level;
-+
-+	if (FIELD_GET(KVM_PTE_TYPE, *ptep) == KVM_PTE_TYPE_PAGE)
-+		level = KVM_PGTABLE_LAST_LEVEL;
-+	else
-+		level = KVM_PGTABLE_LAST_LEVEL - 1; /* create_fixblock() guarantees PMD level */
- 
- 	WRITE_ONCE(*ptep, *ptep & ~KVM_PTE_VALID);
- 
-@@ -260,7 +270,7 @@ static void fixmap_clear_slot(struct hyp_fixmap_slot *slot)
- 	 * https://lore.kernel.org/kvm/20221017115209.2099-1-will@kernel.org/T/#mf10dfbaf1eaef9274c581b81c53758918c1d0f03
- 	 */
- 	dsb(ishst);
--	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), KVM_PGTABLE_LAST_LEVEL);
-+	__tlbi_level(vale2is, __TLBI_VADDR(addr, 0), level);
- 	dsb(ish);
- 	isb();
- }
-@@ -273,9 +283,9 @@ void hyp_fixmap_unmap(void)
- static int __create_fixmap_slot_cb(const struct kvm_pgtable_visit_ctx *ctx,
- 				   enum kvm_pgtable_walk_flags visit)
- {
--	struct hyp_fixmap_slot *slot = per_cpu_ptr(&fixmap_slots, (u64)ctx->arg);
-+	struct hyp_fixmap_slot *slot = (struct hyp_fixmap_slot *)ctx->arg;
- 
--	if (!kvm_pte_valid(ctx->old) || ctx->level != KVM_PGTABLE_LAST_LEVEL)
-+	if (!kvm_pte_valid(ctx->old) || (ctx->end - ctx->start) != kvm_granule_size(ctx->level))
- 		return -EINVAL;
- 
- 	slot->addr = ctx->addr;
-@@ -296,13 +306,73 @@ static int create_fixmap_slot(u64 addr, u64 cpu)
- 	struct kvm_pgtable_walker walker = {
- 		.cb	= __create_fixmap_slot_cb,
- 		.flags	= KVM_PGTABLE_WALK_LEAF,
--		.arg = (void *)cpu,
-+		.arg = (void *)per_cpu_ptr(&fixmap_slots, cpu),
- 	};
- 
- 	return kvm_pgtable_walk(&pkvm_pgtable, addr, PAGE_SIZE, &walker);
- }
- 
--int hyp_create_pcpu_fixmap(void)
-+#ifndef CONFIG_ARM64_64K_PAGES
-+static struct hyp_fixmap_slot hyp_fixblock_slot;
-+static DEFINE_HYP_SPINLOCK(hyp_fixblock_lock);
-+
-+void *hyp_fixblock_map(phys_addr_t phys)
-+{
-+	hyp_spin_lock(&hyp_fixblock_lock);
-+	return fixmap_map_slot(&hyp_fixblock_slot, phys);
-+}
-+
-+void hyp_fixblock_unmap(void)
-+{
-+	fixmap_clear_slot(&hyp_fixblock_slot);
-+	hyp_spin_unlock(&hyp_fixblock_lock);
-+}
-+
-+static int create_fixblock(void)
-+{
-+	struct kvm_pgtable_walker walker = {
-+		.cb	= __create_fixmap_slot_cb,
-+		.flags	= KVM_PGTABLE_WALK_LEAF,
-+		.arg = (void *)&hyp_fixblock_slot,
-+	};
-+	unsigned long addr;
-+	phys_addr_t phys;
-+	int ret, i;
-+
-+	/* Find a RAM phys address, PMD aligned */
-+	for (i = 0; i < hyp_memblock_nr; i++) {
-+		phys = ALIGN(hyp_memory[i].base, PMD_SIZE);
-+		if (phys + PMD_SIZE < (hyp_memory[i].base + hyp_memory[i].size))
-+			break;
-+	}
-+
-+	if (i >= hyp_memblock_nr)
-+		return -EINVAL;
-+
-+	hyp_spin_lock(&pkvm_pgd_lock);
-+	addr = ALIGN(__io_map_base, PMD_SIZE);
-+	ret = __pkvm_alloc_private_va_range(addr, PMD_SIZE);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = kvm_pgtable_hyp_map(&pkvm_pgtable, addr, PMD_SIZE, phys, PAGE_HYP);
-+	if (ret)
-+		goto unlock;
-+
-+	ret = kvm_pgtable_walk(&pkvm_pgtable, addr, PMD_SIZE, &walker);
-+
-+unlock:
-+	hyp_spin_unlock(&pkvm_pgd_lock);
-+
-+	return ret;
-+}
-+#else
-+void hyp_fixblock_unmap(void) { WARN_ON(1); }
-+void *hyp_fixblock_map(phys_addr_t phys) { return NULL; }
-+static int create_fixblock(void) { return 0; }
-+#endif
-+
-+int hyp_create_fixmap(void)
- {
- 	unsigned long addr, i;
- 	int ret;
-@@ -322,7 +392,7 @@ int hyp_create_pcpu_fixmap(void)
- 			return ret;
- 	}
- 
--	return 0;
-+	return create_fixblock();
- }
- 
- int hyp_create_idmap(u32 hyp_va_bits)
-diff --git a/arch/arm64/kvm/hyp/nvhe/setup.c b/arch/arm64/kvm/hyp/nvhe/setup.c
-index d62bcb5634a2..fb69cf5e6ea8 100644
---- a/arch/arm64/kvm/hyp/nvhe/setup.c
-+++ b/arch/arm64/kvm/hyp/nvhe/setup.c
-@@ -295,7 +295,7 @@ void __noreturn __pkvm_init_finalise(void)
- 	if (ret)
- 		goto out;
- 
--	ret = hyp_create_pcpu_fixmap();
-+	ret = hyp_create_fixmap();
- 	if (ret)
- 		goto out;
- 
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index df5cc74a7dd0..c351b4abd5db 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -11,12 +11,6 @@
- #include <asm/kvm_pgtable.h>
- #include <asm/stage2_pgtable.h>
- 
--
--#define KVM_PTE_TYPE			BIT(1)
--#define KVM_PTE_TYPE_BLOCK		0
--#define KVM_PTE_TYPE_PAGE		1
--#define KVM_PTE_TYPE_TABLE		1
--
- struct kvm_pgtable_walk_data {
- 	struct kvm_pgtable_walker	*walker;
- 
+sparse warnings: (new ones prefixed by >>)
+>> drivers/dma/arm-dma350.c:485:31: sparse: sparse: dubious: !x & y
+   drivers/dma/arm-dma350.c: note: in included file (through include/linux/smp.h, include/linux/lockdep.h, include/linux/spinlock.h, ...):
+   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+
+vim +485 drivers/dma/arm-dma350.c
+
+   462	
+   463	static irqreturn_t d350_irq(int irq, void *data)
+   464	{
+   465		struct d350_chan *dch = data;
+   466		struct device *dev = dch->vc.chan.device->dev;
+   467		struct virt_dma_desc *vd = &dch->desc->vd;
+   468		u32 ch_status;
+   469	
+   470		ch_status = readl(dch->base + CH_STATUS);
+   471		if (!ch_status)
+   472			return IRQ_NONE;
+   473	
+   474		if (ch_status & CH_STAT_INTR_ERR) {
+   475			u32 errinfo = readl_relaxed(dch->base + CH_ERRINFO);
+   476	
+   477			if (errinfo & (CH_ERRINFO_AXIRDPOISERR | CH_ERRINFO_AXIRDRESPERR))
+   478				vd->tx_result.result = DMA_TRANS_READ_FAILED;
+   479			else if (errinfo & CH_ERRINFO_AXIWRRESPERR)
+   480				vd->tx_result.result = DMA_TRANS_WRITE_FAILED;
+   481			else
+   482				vd->tx_result.result = DMA_TRANS_ABORTED;
+   483	
+   484			vd->tx_result.residue = d350_get_residue(dch);
+ > 485		} else if (!ch_status & CH_STAT_INTR_DONE) {
+   486			dev_warn(dev, "Unexpected IRQ source? 0x%08x\n", ch_status);
+   487		}
+   488		writel_relaxed(ch_status, dch->base + CH_STATUS);
+   489	
+   490		spin_lock(&dch->vc.lock);
+   491		vchan_cookie_complete(vd);
+   492		if (ch_status & CH_STAT_INTR_DONE) {
+   493			dch->status = DMA_COMPLETE;
+   494			dch->residue = 0;
+   495			d350_start_next(dch);
+   496		} else {
+   497			dch->status = DMA_ERROR;
+   498			dch->residue = vd->tx_result.residue;
+   499		}
+   500		spin_unlock(&dch->vc.lock);
+   501	
+   502		return IRQ_HANDLED;
+   503	}
+   504	
+
 -- 
-2.48.1.711.g2feabab25a-goog
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
