@@ -4,54 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C38C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:19:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FA99C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:21:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9u/g5Sv9S270wjV6iCQUW19y+diRdBt2j8yIDmSJ5n8=; b=bKERdrZRopGOao5pHkJJY+4b0w
-	vSvYbyxsen37W5jnFAhLRf3HsC3vR30pL6Bt33aaMkXXbIuK5C+LVGn+/KFGCZK46uL+rF7XQj4gh
-	O+IJigdG9s+a1csY2PdubvVXpv4z45DRpap4UEspPk+A87/kGHWGLPtWs38ckRD7YzGq74O9thOf7
-	XsTVNGIlN2s9RIU6Vi0kYuXWAmJZevAoO6/rGALYy8452EP13oZv28OclwWAHSX0+Rf3YRdLgDR1e
-	03XGP08Wp8ORcN4fpwvaN0ruCXIPdZ+hUi+YNKXZbTL5f8IhpJeUg1zmgobbPx4XXoeoYBInsmcZY
-	yvrEqlPg==;
+	bh=/nVfiSll248rUsfwTdZE7ebVgcWytnodaotzGSUKaQ4=; b=aK/4F3PGONx6MPKcthiC8O2GF1
+	JAZdXqe4p5KRq9RHuGi/lKwYpftD7N34OFqf5Gjlq3svbbVWed2yVI/bWDkBtsY3P+o12BLm+r9jY
+	RezUtHlsZzCCA/higc5kozmmv/5Q10YyMrljGAynw/yAUu7+QKaQ3MokjxoqXLcWddils5dv//DAk
+	ZAZk+Q6QGZyHtC5ihuJNJrKmd7IFWCw0CAqUCphn5a52+nmhT83D6BUHFUkAXwZiQz+JXQ9wsESaz
+	3EyDkvyd+tekjdxYnEsRjU7d5OB3IWnZVMUvab9pcZx6OYsYTpovhvutdh/SXT4lb+kwv03Y0lLwK
+	PB+95qvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqC3x-0000000BBKf-2cTS;
-	Thu, 06 Mar 2025 14:19:01 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqAgM-0000000AyDE-4AmE
+	id 1tqC5o-0000000BBrg-1gNe;
+	Thu, 06 Mar 2025 14:20:56 +0000
+Received: from mail-ej1-f41.google.com ([209.85.218.41])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqC4B-0000000BBSW-1Crm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 12:50:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 43E1E1007;
-	Thu,  6 Mar 2025 04:50:47 -0800 (PST)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 392143F673;
-	Thu,  6 Mar 2025 04:50:33 -0800 (PST)
-Date: Thu, 6 Mar 2025 12:50:17 +0000
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Alice Ryhl <aliceryhl@google.com>
-Cc: Cristian Marussi <cristian.marussi@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [Bug report] Memory leak in scmi_device_create
-Message-ID: <Z8maCX5QJRqODl6u@pluto>
-References: <Z8g8vhS9rqQ_ez48@google.com>
- <Z8iFeEWq16pNQdMa@pluto>
- <Z8mCbc2Z2QGd3f8M@google.com>
+	Thu, 06 Mar 2025 14:19:16 +0000
+Received: by mail-ej1-f41.google.com with SMTP id a640c23a62f3a-abf538f7be0so137045266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 06:19:14 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741270750; x=1741875550;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=/nVfiSll248rUsfwTdZE7ebVgcWytnodaotzGSUKaQ4=;
+        b=tUSrNqSiQarPnMN/jH8l6thzo7nWklr9talCGwhUR8/VARCEJwjazVGEaQ/ejzpn42
+         2uxvg41W7rDAlg4lBfnsiCCypAxfGpm2942nw8pcY26GXf4FtTbsQOMNjpk/7XElmy0i
+         9wRKXjD6Xhme3w4YMfnnpjRpz/M10WjuwdjslAM05RJhhjBzvKyy2tcqJhkvJqB5TqnL
+         Dcvj4UT8RiWIGdx05qqy/pBeKHRy0Ztv7HrDOJ6EphcMstSNxjBMA6o2hrhBWO3dujxL
+         QG/jd6fqwxzGTbRKYuljgdCpGRcUjAnaYcw/1Nn4zgg706rqqrOtksWcXx5oYDnzWfvj
+         d6DQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWwdGtYWSZajBoqm8euRKeTiYqktwzTZYaOAYF2RTR6AnN5czh/H6sUSLaDCnsrAAM0ZMq+aPgCxGySmPY4WFYp@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyj8BXavg+VQ79peANlkOPyF1WwmOahxqnWZiQBJJQcffF/UOCN
+	vgIB72NXSFFL0efQuOT7U395xOIiGFpWUmPKKygRavBY4TBQx/9UQ6P/+39oYd8=
+X-Gm-Gg: ASbGncshjlqkLXFuR3zCkTBkTsrRmHlbay4qY5klaoLk8VkRh2d7fgco7xN+wMB+jnw
+	Io71KiHHLqWPn4VOVmDhjtWwQmwRNnnx1wa7mKxm0gtdqNag+3GuOnRy58/vZ2/CVFlNO2r8c4h
+	SWDFzvQALWlgU5cnmpl+//doKtb0Z6qsBichkFFm8v7B2GFWJ7Cjkq5RnS24of4bHe0oaCqEjcv
+	HhdDoivbuED/VuDwiUTlZjiOb5f+ES2SyTHIV4LICYcTlDAsOPqgM0be2c4Ai5WOYDGQFCy42rM
+	Ar4aT+jl3xa7BzRxElch6kVWHRWuITWA+fMNFfufXDdZXX+0jvzw6IUA3QCRXy0DpE1FqnpYZtw
+	YeDtR+gI=
+X-Google-Smtp-Source: AGHT+IEjlJ9azKzuKGAjvSMcGoMI2iANlWSlO9YFDe8ijHb4DqvVrpl3xvI9pRfS+rdDhCaL0/Pxpw==
+X-Received: by 2002:a17:907:7f86:b0:ac1:f5a4:6da5 with SMTP id a640c23a62f3a-ac20da895cfmr803654566b.37.1741270749967;
+        Thu, 06 Mar 2025 06:19:09 -0800 (PST)
+Received: from mail-ej1-f42.google.com (mail-ej1-f42.google.com. [209.85.218.42])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2399d47c8sm100454466b.182.2025.03.06.06.19.06
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Mar 2025 06:19:06 -0800 (PST)
+Received: by mail-ej1-f42.google.com with SMTP id a640c23a62f3a-abf518748cbso131675266b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 06:19:06 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUAJ4vvEy+DpTkdT/MZYkAUDZa+iZcr0dL5LSl3fIP1LMZctBxCc2oWzkbonHCrF0j7hH/0pNm/2k4mcPNhEE7S@lists.infradead.org
+X-Received: by 2002:a17:907:c27:b0:abc:c34:4130 with SMTP id
+ a640c23a62f3a-ac20d8bf8c7mr709557766b.18.1741270746647; Thu, 06 Mar 2025
+ 06:19:06 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8mCbc2Z2QGd3f8M@google.com>
+References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com> <20250227122453.30480-3-john.madieu.xa@bp.renesas.com>
+In-Reply-To: <20250227122453.30480-3-john.madieu.xa@bp.renesas.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 6 Mar 2025 15:18:51 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdUoXSerYfb2L_tLmC2-5w9mhoZHc20LSYQgCHxB+bJOtw@mail.gmail.com>
+X-Gm-Features: AQ5f1JpSCkfow0oWUCpHHLfYKAm9cW04YyVX-MUYgns8UbS1cnyHUBvgSNPUv8M
+Message-ID: <CAMuHMdUoXSerYfb2L_tLmC2-5w9mhoZHc20LSYQgCHxB+bJOtw@mail.gmail.com>
+Subject: Re: [PATCH v2 2/7] clk: renesas: r9a09g047: Add clock and reset
+ signals for the TSU IP
+To: John Madieu <john.madieu.xa@bp.renesas.com>
+Cc: magnus.damm@gmail.com, mturquette@baylibre.com, sboyd@kernel.org, 
+	rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
+	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	p.zabel@pengutronix.de, catalin.marinas@arm.com, will@kernel.org, 
+	john.madieu@gmail.com, linux-renesas-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	linux-pm@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, biju.das.jz@bp.renesas.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_045035_141485_4D8CBE4F 
-X-CRM114-Status: GOOD (  32.45  )
+X-CRM114-CacheID: sfid-20250306_061915_325684_D721994B 
+X-CRM114-Status: GOOD (  15.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,94 +101,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 11:09:33AM +0000, Alice Ryhl wrote:
-> On Wed, Mar 05, 2025 at 05:10:16PM +0000, Cristian Marussi wrote:
-> > On Wed, Mar 05, 2025 at 11:59:58AM +0000, Alice Ryhl wrote:
-> > > Dear SYSTEM CONTROL & POWER/MANAGEMENT INTERFACE (SCPI/SCMI) Message
-> > > Protocol drivers maintainers,
-> > > 
-> > > I flashed a v6.13-rc3 kernel onto a Rock5B board and noticed the
-> > > following output in my terminal:
-> > > 
-> > > [  687.694465] kmemleak: 4 new suspected memory leaks (see /sys/kernel/debug/kmemleak)
-> > > 
-> > > It seems that there is a memory leak for devices created with
-> > > scmi_device_create.
-> > > 
-> > `
-> > Hi Alice,
-> > 
-> > thanks for this report.
-> > 
-> > > This was with a kernel running v6.13-rc3, but as far as I can tell, no
-> > > relevant changes have landed since v6.13-rc3. My tree *does* include
-> > > commit 295416091e44 ("firmware: arm_scmi: Fix slab-use-after-free in
-> > > scmi_bus_notifier()"). I've only seen this kmemleak report once, so it's
-> > > not happening consistently.
-> > > 
-> > > See below for the full kmemleak report.
-> > > 
-> > > Alice
-> > > 
-> > > $ sudo cat /sys/kernel/debug/kmemleak
-> > > unreferenced object 0xffffff8106c86000 (size 2048):
-> > >   comm "swapper/0", pid 1, jiffies 4294893094
-> > >   hex dump (first 32 bytes):
-> > >     02 00 00 00 10 00 00 00 c0 01 bc 03 81 ff ff ff  ................
-> > >     60 67 ba 03 81 ff ff ff 18 60 c8 06 81 ff ff ff  `g.......`......
-> > >   backtrace (crc feae9680):
-> > >     [<00000000197aa008>] kmemleak_alloc+0x34/0xa0
-> > >     [<0000000056fe02c9>] __kmalloc_cache_noprof+0x1e0/0x450
-> > >     [<00000000a8b3dfe1>] __scmi_device_create+0xb4/0x2b4
-> > >     [<000000008714917b>] scmi_device_create+0x40/0x194
-> > >     [<000000001818f3cf>] scmi_chan_setup+0x144/0x3b8
-> > >     [<00000000970bad38>] scmi_probe+0x584/0xa78
-> > >     [<000000002600d2fd>] platform_probe+0xbc/0xf0
-> > >     [<00000000f6f556b4>] really_probe+0x1b8/0x520
-> > >     [<00000000eed93d59>] __driver_probe_device+0xe0/0x1d8
-> > >     [<00000000d613b754>] driver_probe_device+0x6c/0x208
-> > >     [<00000000187a9170>] __driver_attach+0x168/0x328
-> > >     [<00000000e3ff1834>] bus_for_each_dev+0x14c/0x178
-> > >     [<00000000984a3176>] driver_attach+0x34/0x44
-> > >     [<00000000fc35bf2a>] bus_add_driver+0x1bc/0x358
-> > >     [<00000000747fce19>] driver_register+0xc0/0x1a0
-> > >     [<0000000081cb8754>] __platform_driver_register+0x40/0x50
-> > > unreferenced object 0xffffff8103bc01c0 (size 32):
-> > 
-> > I could not reproduce on my setup, even though I run a system with
-> > all the existent SCMI protocols (and related drivers) enabled (and
-> > so a lot of device creations) and a downstream test driver that causes
-> > even more SCMI devices to be created/destroyed at load/unload.
-> > 
-> > Coming down the path from scmi_chan_setup(), it seems something around
-> > transport devices creation, but it is not obvious to me where the leak
-> > could hide....
-> > 
-> > ...any particular setup on your side ? ...using LKMs, loading/unloading,
-> > any usage pattern that could help me reproduce ?
-> 
-> I looked into this a bit more, and actually it does happen consistently.
-> It's just that kmemleak doesn't report it until 10 minutes after
-> booting, so I did not notice it.
-> 
-> As for my setup, well, I boot the kernel over pxe and the rootfs is
-> mounted over NFSv4. The memory leak happens even if I don't do anything
-> at all - I just boot and wait. The device is a Radxa Rock5B.
-> 
-> Not sure what other information there is to give.
-> 
+On Thu, 27 Feb 2025 at 13:25, John Madieu <john.madieu.xa@bp.renesas.com> wrote:
+> Add required clocks and resets signals for the TSU IP available on the
+> Renesas RZ/G3E SoC
+>
+> Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
 
-My question as stated above was mainly to understand if the SCMI stack
-was built-in or compiled as loadable modules (lsmod|grep -i scmi)...
-...I am just to try to pin down a possible 'more-vulnerable' configuration..
-..I could not see any report even triggering a kmemleak scan on v6.14-rc5
-BUT I only tested with a fully built-in SCMI stack indeed as of now...so
-the question.
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-clk for v6.15.
 
-> I tried again with v6.14-rc5, and I still got the leak:
+Gr{oetje,eeting}s,
 
-Ok...thanks I will investigate with different configs.
+                        Geert
 
-Thanks,
-Cristian
+-- 
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
