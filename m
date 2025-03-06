@@ -4,63 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 222A7C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:49:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61F2AC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3kMKMNk89kKsZCjXxjBBI8NIybR6lWMPNsWpQjmGwm0=; b=LludA1B2Opwhu8gkeQNzv1EXh0
-	MwOQdYacqy+I2q2j0UOJgC3/3dy/nlDKk1OW905GmjXtmFuhIuT/GmJwOlg4+7HHZcIONAUClytjR
-	bXNDQyzHkkc0kKT2lsyrAfaT2smUm4yRlljEMRg9QZYDBHV9ovZ9v0giYYcEw5GlI8HkjgBdqUh/2
-	Bj3QCsQ+8JGv/DaT9rQ0BGuACK6fmeroxV6NviQrq7XKzF3cM95u+DCwYzlYy4wj/2+yd0VQdUuEu
-	c40rXTEyNFoArzEkL/MAYCMNIO1Cle9RMxtTPrRqQTffL2M08Flje1/nzrGDe6dW7TzYrukNYoFba
-	VCxMZnWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g7J8wmkWZo5IYBvTh/ckag45HZ0pb7VqSGKmkZsfd3w=; b=GeVrVQTnXSJqUkkL9SCeOf+v2i
+	UV8g0LGFvulKzMi+DQ+h/psJgwU5htKGks6AfasJjwR7jImKAamDisin149Ib/Hsv7BMqveygO3p7
+	0rCQI/ecxm7HwNP0rIOXN5zDmXZVZ+5sIr7f2xpYLQKISPbU/RTkpJdrtR/2YrmyCEXjCYiPB4ApQ
+	PzqTlsO2S2G3JiYLXYGWymPuMDpntnqF+U6vsoyZxrNkOOL7VlmTJe2ubjKYxXejHLIK8sERsN9LD
+	fjNg3Q8bnxp51oYrCp1HbdEarbb9eMaRND9Bg0xvMdy+4sdbJMm29i6bDghBGfJooPR8RaWP1pJVZ
+	yp7tESxA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCX1-0000000BEx4-1UxX;
-	Thu, 06 Mar 2025 14:49:03 +0000
-Received: from mail-m49198.qiye.163.com ([45.254.49.198])
+	id 1tqCXm-0000000BFEK-13DC;
+	Thu, 06 Mar 2025 14:49:50 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBSM-0000000B564-2DBu;
-	Thu, 06 Mar 2025 13:40:12 +0000
-Received: from localhost.localdomain (unknown [119.122.215.89])
-	by smtp.qiye.163.com (Hmail) with ESMTP id d2ca2ec5;
-	Thu, 6 Mar 2025 21:40:07 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: heiko@sntech.de
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	ziyao@disroot.org
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: enable SCMI clk for RK3528 SoC
-Date: Thu,  6 Mar 2025 21:40:02 +0800
-Message-Id: <20250306134002.380690-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <4856313.kQq0lBPeGt@diego>
-References: <4856313.kQq0lBPeGt@diego>
+	id 1tqCW9-0000000BEpW-1Lj6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 14:48:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741272489; x=1772808489;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=bla4hIb0IkIaS1NTrqHiiXPmlh5fLuqeLRBBeaE0n+8=;
+  b=LaOl/uWbS+p6nmlAiHQbY8qM0ODvS8+p+9Vl6EWZnI+IjKMC0cyLnF2N
+   x82IOHZvNIGnjoOzSgu3SA9staFIlZ6WXtuw6FbFBIoFrUmQoOXT0wc7m
+   yGTmpR/YNyMX+gmFP39299tGmS3HnQ6lxUR8pBQhLyC/62jy9AWtcLI8v
+   sfvkinz05KOdIM2zNtf8CFkUKwHOJbRkMejSHyN/MpWMNpwOkORk30ZJA
+   iPbG6B/d04b7YY3DeTLTGyulp5etig4pxj4Clis7X2eGb69LUsAOyBSrN
+   wRDeD2Pr39QAvNhBihlyWzIXOYk+LzkQwfJIwKyjzsQY2fmD1im7YkTmY
+   Q==;
+X-CSE-ConnectionGUID: 2jXIg81sRMq1gZgTTwXr3w==
+X-CSE-MsgGUID: 8OCtcYVQTHaUX/MwcbI+sg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="59830993"
+X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
+   d="scan'208";a="59830993"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 06:48:04 -0800
+X-CSE-ConnectionGUID: o4CM4XnkTwKUZWqrou7E7A==
+X-CSE-MsgGUID: gJEqCfufS6On0GZn3XiLUw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
+   d="scan'208";a="119052400"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa007.fm.intel.com with ESMTP; 06 Mar 2025 06:48:00 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tqCVx-000NAs-1f;
+	Thu, 06 Mar 2025 14:47:57 +0000
+Date: Thu, 6 Mar 2025 22:47:34 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-rtc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	NXP S32 Linux <s32@nxp.com>, imx@lists.linux.dev,
+	Christophe Lizzi <clizzi@redhat.com>,
+	Alberto Ruiz <aruizrui@redhat.com>,
+	Enric Balletbo <eballetb@redhat.com>,
+	Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>,
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>,
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>
+Subject: Re: [PATCH v8 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+Message-ID: <202503062204.QeQoZBYt-lkp@intel.com>
+References: <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCThhPVkxNSklOSRhKSBhIQlYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVDQllXWRYaDxIVHRRZQVlPS0hVSktJQk1KSlVKS0tVS1
-	kG
-X-HM-Tid: 0a956baf532603a2kunmd2ca2ec5
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MTo6HAw*SjICKjMhGUICDks9
-	FhZPCilVSlVKTE9KSU1DT0tMTE5IVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
-	QlVKSUlVSUpOVUNCWVdZCAFZQUhJQjcG
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250228081812.3115478-3-ciprianmarian.costea@oss.nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_054010_731821_7800C481 
-X-CRM114-Status: UNSURE (   4.95  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_064809_392769_2FE21B37 
+X-CRM114-Status: GOOD (  12.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,19 +101,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Ciprian,
 
-> That sram is part of the soc (and has an mmio-address), so I'd think
-> it should live inside the soc node?
+kernel test robot noticed the following build errors:
 
-But soc ranges starts from 0xfe000000, I don't know whether to change it.
-And all other nodes are 0xf..., except this sram.
-Any suggestions would be greatly appreciated.
+[auto build test ERROR on robh/for-next]
+[also build test ERROR on arm64/for-next/core krzk-dt/for-next linus/master v6.14-rc5 next-20250306]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Thanks,
-Chukun
+url:    https://github.com/intel-lab-lkp/linux/commits/Ciprian-Costea/dt-bindings-rtc-add-schema-for-NXP-S32G2-S32G3-SoCs/20250228-162229
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250228081812.3115478-3-ciprianmarian.costea%40oss.nxp.com
+patch subject: [PATCH v8 2/4] rtc: s32g: add NXP S32G2/S32G3 SoC support
+config: hexagon-allyesconfig (https://download.01.org/0day-ci/archive/20250306/202503062204.QeQoZBYt-lkp@intel.com/config)
+compiler: clang version 18.1.8 (https://github.com/llvm/llvm-project 3b5b5c1ec4a3095ab096dd780e84d7ab81f3d7ff)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250306/202503062204.QeQoZBYt-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503062204.QeQoZBYt-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/rtc/rtc-s32g.c:204:9: error: call to undeclared function 'FIELD_PREP'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+     204 |         rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
+         |                ^
+   1 error generated.
+
+
+vim +/FIELD_PREP +204 drivers/rtc/rtc-s32g.c
+
+   196	
+   197	static int rtc_clk_src_setup(struct rtc_priv *priv)
+   198	{
+   199		u32 rtcc;
+   200	
+   201		if (priv->rtc_data->reserved_clk_mask & (1 << priv->clk_src_idx))
+   202			return -EOPNOTSUPP;
+   203	
+ > 204		rtcc = FIELD_PREP(RTCC_CLKSEL_MASK, priv->clk_src_idx);
+   205	
+   206		switch (priv->rtc_data->clk_div) {
+   207		case DIV512_32:
+   208			rtcc |= RTCC_DIV512EN;
+   209			rtcc |= RTCC_DIV32EN;
+   210			break;
+   211		case DIV512:
+   212			rtcc |= RTCC_DIV512EN;
+   213			break;
+   214		case DIV32:
+   215			rtcc |= RTCC_DIV32EN;
+   216			break;
+   217		case DIV1:
+   218			break;
+   219		default:
+   220			return -EINVAL;
+   221		}
+   222	
+   223		rtcc |= RTCC_APIEN | RTCC_APIIE;
+   224		/*
+   225		 * Make sure the CNTEN is 0 before we configure
+   226		 * the clock source and dividers.
+   227		 */
+   228		s32g_rtc_disable(priv);
+   229		writel(rtcc, priv->rtc_base + RTCC_OFFSET);
+   230		s32g_rtc_enable(priv);
+   231	
+   232		return 0;
+   233	}
+   234	
 
 -- 
-2.25.1
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
