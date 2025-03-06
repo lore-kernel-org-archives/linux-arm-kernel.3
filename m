@@ -4,161 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 269F0C28B24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 19:26:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79828C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 19:31:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vx4J6Q6VAVkg2JVsE8EDpiA9BoJyxAL58fb2isy9EhI=; b=tKKI+9gpIpaeRfp2Gfj/fD9VS6
-	OjMWfgjD0/66YI7kfk0ivTbVZqQAI++HxScjA6U0SVk13eacKNm0O4wl4y8pf57N3J5quXZDTmDXP
-	/18/tJmT98CCHHwzzmHQWjDDUgRvnQHFFl1GAOstlCAViaMHtrIxgJa4Pkuxswg8qc2PIiDcCmTOM
-	9U4AcBbgHRhV410VzqdHSixHnTSM7VycRBdPkS5AozMGOstKHkVzpuWXEYXEaMIO/p1tJdist1TxH
-	S6MGM9cLRAdsNTmQKTN4lL7yLfjJ8UHBEgZMjXA1rzx98PdGHZGEpEydLhHVlIsNPg6HnLCnEBvmt
-	OYzL+faw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=J3FMXf/kAUtNvuSZsQyWBK8cEK4f3VIEHblgAMIBzL4=; b=D1SkohZ/M39xtmQqm1n2bNuV2q
+	FLZTaJjZS2/oiYuXwZLK1UaQmrlCz9MI87tmLZ9Es95bsyUU5hj9YAeJ/jYS2iLEx6cBCvJjHsouD
+	QS9Xk8fZrsspb4GFqFHYB2g+9/yIOg9lqDSsbm57TrLemr6WGu5bXC4fcecrPJ6836WxRPEqCuisC
+	Xz0GqXykFyzAN8s6eCjTA3T87yFqY3BGMTCXIo8kMvZIt5aH9IxXixV8UzGpzwSyJtle+hHJPZPYG
+	Ud1N/dSPvBSKOfKSt2alw0+zvdBPF6qoFfEXopYpBpwbnuJ/y8wLH31S5yDXQNfdDl71G2Nsns9bY
+	j4PtddCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqGrX-0000000C0B7-1hlx;
-	Thu, 06 Mar 2025 19:26:31 +0000
-Received: from mail-mw2nam12olkn20806.outbound.protection.outlook.com ([2a01:111:f403:2805::806] helo=NAM12-MW2-obe.outbound.protection.outlook.com)
+	id 1tqGwW-0000000C1Jf-2kQH;
+	Thu, 06 Mar 2025 19:31:40 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqGoT-0000000BzlZ-0326
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 19:23:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bkIGAD5xaV3jupcIzHGWHezLoDzM8tXkF75dqF04RAoCwSpa6fO3SJVbSR472FCFghHf5eCaUipT1e2Jd9lu+VGfCrgWqp4xEAcjmbifnXZuct5nvbQbpCQeqOgL4rp5VHdCAL5J8FYCEcntOZKN4eA6Fe+uwiYjXM5Q5yGG78moQrHtTIPYrnn4/B3wPNn4m0t+0bzD5uU2ZWoSZEMMHgVczTUTzwNCDQCy+zWw7avn8WI7+QNl0629BGntzrZKdT/iLVGCZzWMkC9jJEO4oqOIy1gtEzrdRuHURuwy+iJ4l0kJYXc1iGXmVcjmLj6q6Up1XwroFEAL8hP/bzxf5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vx4J6Q6VAVkg2JVsE8EDpiA9BoJyxAL58fb2isy9EhI=;
- b=n7MJoaEsx4WWKi2Hd6PV6LPf47Qv3XSrGOo3zOfS3hG5UzyP9zcZTI+KbQ0WfPRHnYlMUjEL4Xl05v3XOkbBPW2lYxKrKtf/Dv0MEs8V0QBI4ToV9VhXONIHXlfrAszGmK7uDYokt3uQEHBGSGvCjkEaCP4QpmuUbObC0QaeXJXQ6aCcCOYxAXoEjUlE4R/wOdh9385H8y6h7x8lZFmpYkiVmhkO++oCMZ/sqip/ShUISUNnCGDC4qVb15pICsTpLsrFf4eMi9X/3ziu0MYQMfkDn3e0EnGVGWr4HnRPeY0zBmOyvXbTKww1JXWlYIXGh+vwiGyCVXGTVAZyH/owRw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vx4J6Q6VAVkg2JVsE8EDpiA9BoJyxAL58fb2isy9EhI=;
- b=aseoHKPTxiBeTkrzFEF0Z/+ids5hjB9O+lu5FrD8D4n9av088zdZKnp5QJvI9aI3bO6xmobY+mzdoqJSCDTok2mffqy6PnIzZDoixdrulOhZvlzOI4mnLBpY7kDYNB+kRa0p6ld8l2eC1JOSOxQlG+qi8Hq9n2sZskteZ2qSkUWH9EbUatiPFRl8V2oOK21dKQ8kEgzmIp+dzZ83xHf+QF903lcAHIWNU2N1g0X/UdukoJdFfoXaS9YLWxObo4S/lE5aKTG3jp8253isKjs6WddleYOw351bwF+qzqhe+XJDm61/7oPAOumcy2sTp6jgGynDqzvWk50p1792sZnb3w==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by SA2PR02MB7803.namprd02.prod.outlook.com (2603:10b6:806:142::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8335.18; Thu, 6 Mar
- 2025 19:23:16 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 19:23:16 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
-	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
-	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
-	"mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
-	"apais@linux.microsoft.com" <apais@linux.microsoft.com>,
-	"Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
-	"stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>, "prapal@linux.microsoft.com"
-	<prapal@linux.microsoft.com>, "muislam@microsoft.com"
-	<muislam@microsoft.com>, "anrayabh@linux.microsoft.com"
-	<anrayabh@linux.microsoft.com>, "rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-Subject: RE: [PATCH v5 06/10] Drivers/hv: Export some functions for use by
- root partition module
-Thread-Topic: [PATCH v5 06/10] Drivers/hv: Export some functions for use by
- root partition module
-Thread-Index: AQHbiKNtW0Y30QgwXES/BYcc94DkpLNmiCvw
-Date: Thu, 6 Mar 2025 19:23:15 +0000
-Message-ID: <SN6PR02MB415706E75693B821FAF0A231D4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|SA2PR02MB7803:EE_
-x-ms-office365-filtering-correlation-id: 732999b8-5d17-403b-48e4-08dd5ce4584e
-x-microsoft-antispam: BCL:0;ARA:14566002|15080799006|461199028|19110799003|12121999004|8062599003|8060799006|41001999003|102099032|440099028|3412199025;
-x-microsoft-antispam-message-info: =?us-ascii?Q?yuWVpOOn6fmiPxyGpO5RV2yOLcLHNR7e4rcZGULGvxdaoq61tjxm1hdu5Epp?=
- =?us-ascii?Q?0sxO7WT/mn9O9y4UaEhPnJmhs6yoiQpcpLyaFfs3Q9QWAAvEDdXU4Ruhzv+5?=
- =?us-ascii?Q?mosRxYYnuZ44CsyETuvApiV8gAsRzIAjrRsPJhqI5RpvV1+QxRfV63juYg5o?=
- =?us-ascii?Q?FxP1huhds6jPPSndGJvJvcCCQeDvRQSrBokSS8paw3eHNp7A4oRP4hCZvM4M?=
- =?us-ascii?Q?VqsH+PYPU++j6hQYwn2aczS9M/cr+LzTBl7EPc3EF0ZfTEwNrTzraxJdEvPh?=
- =?us-ascii?Q?W4zkgkXhWBw3qlXQhuhC/xd57dTtqZvZowQ+fKIwtS8ATt+2VJmIN+rZOMXF?=
- =?us-ascii?Q?m++ORacEyZtcCJisGkOykmF5mfSjblN//wKXqcMfSRuR/v008ZP1QgvB3rCx?=
- =?us-ascii?Q?YgVj6TT6MDxPO18obe7Xhe/OxxDq/xqZbsYxJPmFUOiKxbtMfNhU3HgwhoAN?=
- =?us-ascii?Q?EmfV5vcwn5tuZD8FRa4xeprhdyzZuzRvduDvRjprncN+jy/lQOqkt1ahCt4E?=
- =?us-ascii?Q?eQF/Xeq6uanP5DluPFrACm13kL6eYaRCElUYWKs8FnPJIfFtLo+3pj2T5TQl?=
- =?us-ascii?Q?qonEQ8psR3LnA7kQP8n7Nvq3eAfBOHKsKc6fSHmwugA1kDy8WImBfBn5nfXL?=
- =?us-ascii?Q?eawAUdwn1rFSdsM1kt95DM3uCIs7JQJgODNPKjjRY8K3y2C8juu8TtOekA1m?=
- =?us-ascii?Q?YHd532sSUhnEaGngWA/njXxLc6WOT/yRWWXPqUtjJi2zEqMztwY2oyrK1rYp?=
- =?us-ascii?Q?oZuvFemr3sVh+YnOX9VkJIv6oVDmohrCeHfG3oBCS+7x2lRoRzC+Moy7dkqp?=
- =?us-ascii?Q?ao+4fceFECQiefpItzDM/oqe3S56s4/GKh0pEbBvHu7c/64mzJpBgl7AdhVv?=
- =?us-ascii?Q?qR2zrr+Yj+BN5DHAnXh15Czs6FpWe9L44+1ApjVrmiVWn4ib21a94lROY/YO?=
- =?us-ascii?Q?6yGzyUruzL2dF/A9Z14aOnPQHjY2cQPtWDOb27tdhHXhFATbR6OZ2TcYnMbW?=
- =?us-ascii?Q?E96t19JaaN9TaL5hWqSch6Q7xaAjPuA92BMioVOMnfPsFF125h4F+kSrD+hB?=
- =?us-ascii?Q?NCPh6NOHpvd6GO+jb80K8uNBXjNjEnivUatFwlJGU0LTWp9HeFE=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?+aKu4c2eqA3ZJyxmQ1YYVpp4P/XzwG/j7kqLopfcka7ZcOtWICGS4HqF6Bn/?=
- =?us-ascii?Q?tBf8JL+PzczCJkP0P5TmmZNOqKzn6HhP1Cm4usRf9XlXKyysXyAcsuF46r/u?=
- =?us-ascii?Q?yD0/DaWYWQtV87txgoirvnBjXMscgPqiKZogAm3dG7w95LGjDZhOBhpEb/o5?=
- =?us-ascii?Q?1rlGVGAqGaGoJWIInVJAFblPACXcEoAwaXk1fzPaG60mDdYodqwVQXdl7QVt?=
- =?us-ascii?Q?85onpP+gfI7pPhvXqbt138QTmm0xKxuOV+x9BancKmWHb7x7iCzJ7mITINGu?=
- =?us-ascii?Q?xl4FfFFxwDZAYKp8cVBN/cp+PMNa2LPSKcGfdi06WSauXBqrpt6CHqVDAVOv?=
- =?us-ascii?Q?gS/oQ/YekozLeUBU79FGoSuImThjn8BksjrG5iJUDB2121ADf2UHPUVYFr7U?=
- =?us-ascii?Q?0uZqHjF9ZGneOQPv33AJtIbhkfonAupgPRLfnLnSBkuK2ESMW/i2bE5QCzqr?=
- =?us-ascii?Q?ZcSn2zi4BlWYndE8VEqSiqDtjQSHN344Zg7+OE5EShHGD122dZ6FfwvjiHpN?=
- =?us-ascii?Q?8oFtIAAC3q52h9qQwSdKRrIBUfyxq7G3cX4Y2/mlyfUajDqSWAqU5Rr4l9Q6?=
- =?us-ascii?Q?nve68qnAFpH4ArSkgXDDGVeZj/XxUIoTaPd6AQ+HdD2e+MDW6oKi7i4SQTZS?=
- =?us-ascii?Q?A+d/EG3vzm/yPrGvAxCNfUppuk9noSC6T6UCXuyxELB7VhUzyEQWihg7/2AN?=
- =?us-ascii?Q?RoC3+ylUMtxgcgEMcJi29etSCXAUHiMLAKUAyuubN2HCnDezTEiZolp/cxRp?=
- =?us-ascii?Q?08BFKFIAy8Yda7NmMpi4FCopZ3t6vdHLgwTqc3bFgLDf0/53VUOQQfXyb8wt?=
- =?us-ascii?Q?TkCQ/xLWobR2XK1CbacTlNqDrskCjnvK20C7rYkWKGoW7PiYGZC4740AKBML?=
- =?us-ascii?Q?vAL2bFI/g2H+Y6up/2JhToivRpanzAIm79dLfabFoI5U/5g6Itk9f5gK6Tfz?=
- =?us-ascii?Q?9S+nA9bgr+Sr+dcg4FDm2tUTyJtWdiy3P9fPsqtOT4h8HOHPowqkH/854OuA?=
- =?us-ascii?Q?M8APVOsXZ4W9c6OTmT2dzZPARpdHaCKZ8d5/Mo2Vb1SZCE44Yxi4UWd4wVEv?=
- =?us-ascii?Q?+f8DgvK77gr/ISZhTOfYd16twNCKfSsG74r5ChmllhyDDSIDojdONN80s8rt?=
- =?us-ascii?Q?dVb2NJvL0HnzoTCsT6+Kk8509lJt4AkAPDxuNHfTFC5AHqDs2nWZRXY1epH4?=
- =?us-ascii?Q?/ozdGR3v8P8X3XMNkMc2/HIAwccJY7vFI0gGn8Mv2v8fCNLdPG9j4mH1jCU?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tqGus-0000000C0xv-0lKz;
+	Thu, 06 Mar 2025 19:29:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741289383; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=LhMQiTrpinuACBWF/TfiUv/6m6Uc4ebC3J70WJ19u2mQa8pvSEgzxdtBKfmEfSsepufdZxQvWHnIJWiqAaJa2Y/MTRw7vLqLAwrSObGVxWvM3h642MRu8/iLmpqERyLMD8xPiL/tH38PvBosUGgU6ol4yacFd8+6AgoMMg09zKk=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741289383; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=J3FMXf/kAUtNvuSZsQyWBK8cEK4f3VIEHblgAMIBzL4=; 
+	b=HWWgtKzuBpEKEh1FNUZrVY183c66clDbM0xCkHWA6lDQk8+19U56cJeKuBhTzRhIEJcEiCl3s+lbDFoHLSDVLBx2ssR+oCc6FC48Y0QhC4sHUoPTRpvtcFiGgb+YmAukG4wL6gGNFaH4Pp7YNpcb2nmRlXMIfL3pfjmDZiX4lC8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741289383;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=J3FMXf/kAUtNvuSZsQyWBK8cEK4f3VIEHblgAMIBzL4=;
+	b=dS4u8h0NFBtvoCdx0cRje9ZUFtqr9u6I+Waj98wTjoDcIF02fcnN2+87Kgu/gXMx
+	hF1i3mUJIiEmyg2OPIf9/hr8/yWauX/Jfmmh34u6wwCvvmJjsQa0sP/NOJYHWSW6nP2
+	Gg93d9qk9xHLhjs0gCHSEdjTlTPo8OJc21GIUgoo=
+Received: by mx.zohomail.com with SMTPS id 1741289381820148.17280241335516;
+	Thu, 6 Mar 2025 11:29:41 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Thu, 06 Mar 2025 20:29:23 +0100
+Subject: [PATCH] phy: phy-rockchip-samsung-hdptx: Add support for RK3576
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 732999b8-5d17-403b-48e4-08dd5ce4584e
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Mar 2025 19:23:15.9832
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA2PR02MB7803
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250306-rk3576-hdptx-phy-v1-1-288cc4b0611a@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAJL3yWcC/y3MQQrDIBCF4avIrDtgYp1CrlKySHVSpcRYtcUSc
+ vdK0+X/4H0bZE6eMwxig8Rvn/0aWnQnAcZN4c7obWvoZa+lkoTpofSF0NlYKkb3wTPPREp2RMZ
+ Cu8XEs68/8joenfj5anI5RrhNmdGsy+LLIALXgn9dw7jvX+t/1NeTAAAA
+X-Change-ID: 20250306-rk3576-hdptx-phy-4ef6630166cd
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>, Andy Yan <andyshrk@163.com>, 
+ Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>
+Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ kernel@collabora.com, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_112321_058475_BE61C958 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250306_112958_295210_FE41500D 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,94 +83,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, Fe=
-bruary 26, 2025 3:08 PM
->=20
+Despite the compatible already being listed in the bindings, the PHY
+driver never gained explicit support for it. This is especially a
+problem because the explicitly listed PHY addresses need to be specified
+for each SoC.
 
-Nit: For the patch Subject line, use prefix "Drivers: hv:" instead of with =
-a slash.
-That's what we usually use and what you have used for other patches in this
-series.
+To solve this, add the compatible, and a PHY config, with the address
+gleaned from rk3576.dtsi.
 
-> get_hypervisor_version, hv_call_deposit_pages, hv_call_create_vp,
-> hv_call_deposit_pages, and hv_call_create_vp are all needed in module
-> with CONFIG_MSHV_ROOT=3Dm.
->=20
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+I thought this must've been already submitted somewhere, but it wasn't
+in linux-next and searching for the modified file on lore also didn't
+yield any results. I guess this slipped through the cracks, and
+torpedoes HDMI support for RK3576 entirely until merged, so it'd be
+great if this could be merged in time for 6.15.
 
-Modulo the nit:
+Let me know if I'm just very confused and this is already handled in
+some other series that's about to be applied.
+---
+ drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+index f88369864c50e4563834ccbb26f1f9f440e99271..fe7c057483563686b8076cf2ce562440cfa6fe55 100644
+--- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
++++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+@@ -2017,6 +2017,13 @@ static const struct dev_pm_ops rk_hdptx_phy_pm_ops = {
+ 		       rk_hdptx_phy_runtime_resume, NULL)
+ };
+ 
++static const struct rk_hdptx_phy_cfg rk3576_hdptx_phy_cfgs = {
++	.num_phys = 1,
++	.phy_ids = {
++		0x2b000000,
++	},
++};
++
+ static const struct rk_hdptx_phy_cfg rk3588_hdptx_phy_cfgs = {
+ 	.num_phys = 2,
+ 	.phy_ids = {
+@@ -2026,6 +2033,10 @@ static const struct rk_hdptx_phy_cfg rk3588_hdptx_phy_cfgs = {
+ };
+ 
+ static const struct of_device_id rk_hdptx_phy_of_match[] = {
++	{
++		.compatible = "rockchip,rk3576-hdptx-phy",
++		.data = &rk3576_hdptx_phy_cfgs
++	},
+ 	{
+ 		.compatible = "rockchip,rk3588-hdptx-phy",
+ 		.data = &rk3588_hdptx_phy_cfgs
 
-> ---
->  arch/arm64/hyperv/mshyperv.c   | 1 +
->  arch/x86/kernel/cpu/mshyperv.c | 1 +
->  drivers/hv/hv_common.c         | 1 +
->  drivers/hv/hv_proc.c           | 3 ++-
->  4 files changed, 5 insertions(+), 1 deletion(-)
->=20
-> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-> index 2265ea5ce5ad..4e27cc29c79e 100644
-> --- a/arch/arm64/hyperv/mshyperv.c
-> +++ b/arch/arm64/hyperv/mshyperv.c
-> @@ -26,6 +26,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_versi=
-on_info
-> *info)
->=20
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->=20
->  static int __init hyperv_init(void)
->  {
-> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyper=
-v.c
-> index 2c29dfd6de19..0116d0e96ef9 100644
-> --- a/arch/x86/kernel/cpu/mshyperv.c
-> +++ b/arch/x86/kernel/cpu/mshyperv.c
-> @@ -420,6 +420,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_ver=
-sion_info
-> *info)
->=20
->  	return 0;
->  }
-> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->=20
->  static void __init ms_hyperv_init_platform(void)
->  {
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index ce20818688fe..252fd66ad4db 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -717,6 +717,7 @@ int hv_result_to_errno(u64 status)
->  	}
->  	return -EIO;
->  }
-> +EXPORT_SYMBOL_GPL(hv_result_to_errno);
->=20
->  void hv_identify_partition_type(void)
->  {
-> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-> index 8fc30f509fa7..20c8cee81e2b 100644
-> --- a/drivers/hv/hv_proc.c
-> +++ b/drivers/hv/hv_proc.c
-> @@ -108,6 +108,7 @@ int hv_call_deposit_pages(int node, u64 partition_id,=
- u32 num_pages)
->  	kfree(counts);
->  	return ret;
->  }
-> +EXPORT_SYMBOL_GPL(hv_call_deposit_pages);
->=20
->  int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
->  {
-> @@ -194,4 +195,4 @@ int hv_call_create_vp(int node, u64 partition_id, u32=
- vp_index, u32 flags)
->=20
->  	return ret;
->  }
-> -
-> +EXPORT_SYMBOL_GPL(hv_call_create_vp);
-> --
-> 2.34.1
+---
+base-commit: a03be51d680391ba113e2e22b38743c276b6e2fa
+change-id: 20250306-rk3576-hdptx-phy-4ef6630166cd
+
+Best regards,
+-- 
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
