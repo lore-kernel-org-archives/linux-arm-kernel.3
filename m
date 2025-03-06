@@ -4,133 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D23C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 03:57:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A76AC28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 04:27:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DXfDqyB+rOhMKjLXfrimA7pgRFXTlWdnO4cbB4v1SdY=; b=fB78M8pt8uGWL7oPBW+9SAnGcH
-	wOIiHInw5ek07VruwTNzdoOaJqDyL8OYzGGmv6tGuKtgXqb0uCV/sVzWBKO4OGXfSEJBKJNF2X2s+
-	GsrDwGhhyyT4W9leT5bjNMeLN1bBoiOUV3UwY9pspu9hewoYs4X9tS0C6ZvkeALDsf6ODQaRqQQM4
-	CoqzHUhktBW9tSuxCrW69bF3pO4mWKlRoKYX53JxewVucud7jyt2ZeHrpY4IflpgtXStc7nurJjio
-	yXCfU1TA4YZgiaCu31Ll63EGBgspH4AmDVje5LxE0J8Smco6rtqYMTHGIko2lsoFxfdZJaDApBWFK
-	CJmykInw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rmRUdLwRT253XRNVBOSsbJJnJV886Qwg23c4xdwRS08=; b=s9WnHh+j1HAOTSOGyc+2vVve0Q
+	PSYuTfQR+wX+raKJ1JWezBivJqOf2gtraLBkXYKNqsr2mJp3z8Lh4fjvNhGhFvdwkOIjEE+uSzT6p
+	BGytKcIayUS6BliDOhHUl/6Yv9KcF/5FCln6OjxJgTnB4v+RaiweNH/OnLLJZcRs/M+ud5+uCnvah
+	SvUNUrn7wj0u6jhBlSbw4sJNQkJEkS8e99u8jPaiVWEGNFW9I8Jsf9cuJKAreCZTkv2Z2lGkZNYhI
+	XzOL8MUJFz6ToSyotFxQLwR6ldsBNSzP47u32dmohLrgrE74st4FHzCPMYi6A92vEv57Ol3r1jsTc
+	Sh6gTzZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq2Mb-00000009xcQ-3wFS;
-	Thu, 06 Mar 2025 03:57:37 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1tq2pk-00000009zAn-10SL;
+	Thu, 06 Mar 2025 04:27:44 +0000
+Received: from mgamail.intel.com ([198.175.65.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq2JW-00000009xG0-1MS5
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 03:54:28 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250306035417epoutp031de8e034e9b5295a67182caee35f6b55~qGmwf-3-i2009520095epoutp03b
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 03:54:17 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250306035417epoutp031de8e034e9b5295a67182caee35f6b55~qGmwf-3-i2009520095epoutp03b
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741233257;
-	bh=DXfDqyB+rOhMKjLXfrimA7pgRFXTlWdnO4cbB4v1SdY=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=EeOmRY61sEKDO0l7sOdjyCn+ZPZV4UGF0WLSmIOgmlbgPD2ZR+Usrbcbd0FBNfRnc
-	 pyPCHa/Nu+ecaiyboYVpMv6oCWjcc6kAGhp21Ymlcx+rkM5aCX877alVyS1VFxJ0cl
-	 j4ybLqSQPs3P3bOlngGINXC2gaSIXtliv4z+KNRQ=
-Received: from epsnrtp2.localdomain (unknown [182.195.42.163]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20250306035417epcas5p1558e19e920f71ce54e9b929f23ebb9fb~qGmv9b5UE2592825928epcas5p1j;
-	Thu,  6 Mar 2025 03:54:17 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.174]) by
-	epsnrtp2.localdomain (Postfix) with ESMTP id 4Z7bBt6v0cz4x9Q1; Thu,  6 Mar
-	2025 03:54:14 +0000 (GMT)
-Received: from epcas5p4.samsung.com ( [182.195.41.42]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	7E.76.20052.66C19C76; Thu,  6 Mar 2025 12:54:14 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250306034910epcas5p3e2ae456558f38e44a3fb55bf878d4abc~qGiSLgvFs1755017550epcas5p3R;
-	Thu,  6 Mar 2025 03:49:10 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250306034910epsmtrp296caea2bdd3a7a864c9828418b7d2075~qGiSKVou30610606106epsmtrp2g;
-	Thu,  6 Mar 2025 03:49:10 +0000 (GMT)
-X-AuditID: b6c32a49-3d20270000004e54-9b-67c91c66a7c6
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	17.E6.33707.63B19C76; Thu,  6 Mar 2025 12:49:10 +0900 (KST)
-Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250306034907epsmtip2ecdb5a27d89d31aa4ee2d2e8068aff98~qGiP9j43W0601306013epsmtip26;
-	Thu,  6 Mar 2025 03:49:07 +0000 (GMT)
-From: "Swathi K S" <swathi.ks@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <krzk+dt@kernel.org>,
-	<linux-fsd@tesla.com>, <robh@kernel.org>, <conor+dt@kernel.org>,
-	<richardcochran@gmail.com>, <alim.akhtar@samsung.com>
-Cc: <jayati.sahu@samsung.com>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
-In-Reply-To: <7328e538-31cf-4674-83d2-943f1a2d1455@kernel.org>
-Subject: RE: [PATCH v7 1/2] arm64: dts: fsd: Add Ethernet support for FSYS0
- Block of FSD SoC
-Date: Thu, 6 Mar 2025 09:18:34 +0530
-Message-ID: <00e801db8e4a$b7c2e990$2748bcb0$@samsung.com>
+	id 1tq2o5-00000009z2f-28Rp;
+	Thu, 06 Mar 2025 04:26:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741235161; x=1772771161;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NJCVt2+YUa5c5YJ95PV1i2GlvWFyPhsZJ0jvLUACEOY=;
+  b=Sr67g3dwGjC7npAIfDwmSLNd5SS0qeikz2HabGSols+FRvcwyxRdaMWG
+   nd/gbnJjlD5lqZltbwOTHA+Q0rYuH1Okki/nitHw6uAf7UxqA4E0IY/0I
+   +76NJf8lv5HIdrwVij7WcIf1c4dbNPhpghRZh6DI/ssn4SngTNVVQTuHP
+   Exkarop9dalnY+t6xQ0QYj7ilX1Uki148ZJmM0zHAFwQuo+/XftPehKLw
+   yEHjeIUUwGkrKIGHAuhjGCBiNTsW5LtJ+2ElpLC3NQfol6TI12K3uCEsM
+   FoBWQ4wg1OG40ci1cl+CAiotREC2daU2qWj93ysEctx115ekwBB8Z/ppH
+   A==;
+X-CSE-ConnectionGUID: eGEsYc1DSB6qfMAZzj4ncw==
+X-CSE-MsgGUID: 2dcgLPZZTFeA516DTixBCQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="46003571"
+X-IronPort-AV: E=Sophos;i="6.14,225,1736841600"; 
+   d="scan'208";a="46003571"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 20:25:56 -0800
+X-CSE-ConnectionGUID: Wox4vV5jSb64q56XBB+2rg==
+X-CSE-MsgGUID: BmO2x536SbCjV5jLKsr7Dg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,225,1736841600"; 
+   d="scan'208";a="119075926"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 05 Mar 2025 20:25:51 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tq2ns-000MWc-2Z;
+	Thu, 06 Mar 2025 04:25:49 +0000
+Date: Thu, 6 Mar 2025 12:24:46 +0800
+From: kernel test robot <lkp@intel.com>
+To: Manikandan Muralidharan <manikandan.m@microchip.com>, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, tudor.ambarus@linaro.org,
+	pratyush@kernel.org, mwalle@kernel.org, miquel.raynal@bootlin.com,
+	richard@nod.at, vigneshr@ti.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-mtd@lists.infradead.org
+Cc: oe-kbuild-all@lists.linux.dev, manikandan.m@microchip.com,
+	Varshini Rajendran <varshini.rajendran@microchip.com>
+Subject: Re: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM
+ framework to read MAC Address
+Message-ID: <202503061244.wH2sylN8-lkp@intel.com>
+References: <20250305100134.1171124-1-manikandan.m@microchip.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Content-Language: en-in
-Thread-Index: AQHnZW/QZNZXP7mFyf6Or/FDfq+edAEP4FfLAl/FyHABH54M5LMpTuNQ
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrNJsWRmVeSWpSXmKPExsWy7bCmlm6azMl0g7vLzC0ezNvGZrFm7zkm
-	i/lHzrFa3Dywk8niyKklTBYvZ91jszh/fgO7xabH11gtHr4Kt7i8aw6bxYzz+5gsji0Qs1i0
-	9Qu7xcMPe9gtjpx5wWzxf88OdgcBj52z7rJ7bFrVyeaxeUm9R9+WVYwe/5rmsnt83iQXwBaV
-	bZORmpiSWqSQmpecn5KZl26r5B0c7xxvamZgqGtoaWGupJCXmJtqq+TiE6DrlpkDdLWSQlli
-	TilQKCCxuFhJ386mKL+0JFUhI7+4xFYptSAlp8CkQK84Mbe4NC9dLy+1xMrQwMDIFKgwITtj
-	78pdLAVbeCtO7NjP1MC4iLuLkZNDQsBE4vCPI4xdjFwcQgK7GSW+7O1khnA+MUpcOfmTEc65
-	NfEoO0zL5neP2CASOxklPh/9DVX1glHi7/M1YFVsAloSi/r2sYMkRAT2M0qcnvABzGEWmMYk
-	cWTmayaQKk4BO4lVr0+wgdjCAnESfVffAcU5OFgEVCQ6NnKAhHkFLCWeHfrFBmELSpyc+YQF
-	xGYW0JZYtvA1M8RJChI/ny5jhYiLSxz92QMWFxFwk2h58oIJouYOh8TVOWYQtovE3tszoOLC
-	Eq+Ob4F6TUri87u9bBB2vMTqvqssEHaGxN1fE6Hi9hIHrsxhATmTWUBTYv0ufYiwrMTUU+uY
-	IE7gk+j9/QRqPK/EjnkwtrLE39fXoEZKSmxb+p59AqPSLCSfzULy2Swk38xC2LaAkWUVo2Rq
-	QXFuemqxaYFhXmo5PMaT83M3MYJTtZbnDsa7Dz7oHWJk4mA8xCjBwawkwvv61PF0Id6UxMqq
-	1KL8+KLSnNTiQ4ymwNCeyCwlmpwPzBZ5JfGGJpYGJmZmZiaWxmaGSuK8zTtb0oUE0hNLUrNT
-	UwtSi2D6mDg4pRqYYu+bvUl8aV/hnGqefOnHoyXHc75+sZEUe8zdLe7yd2X9dbbKNdkW0aWC
-	FwrmzT/Ju8Npg22qV562/uPqSyWG8439tmy/+2yzw9rllgZOb3xdNE8frd/90ehuZe1aeTd9
-	Mdeu8ier0/Ys2f4maJ6ixr9Fdd3WyWejN6x5qOM3azNfpr7HoSkNcWotR7N+N7R+n8g0xSSh
-	9VajhvQirQ9Mqn3qm6eELLr5J/rin+yS71VVEx737tldle5Yse5fz5w97oyaZ869VX8mIBP8
-	deeDObkS91nD765e79kVk1BjscK8dts59if7boWFJKZrcZbH3I8qnptXciDVge0kq8IS20/F
-	D4pPTnFTXL/58tIyJZbijERDLeai4kQAuMf5RV4EAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFlrPIsWRmVeSWpSXmKPExsWy7bCSvK6Z9Ml0g1PXWCwezNvGZrFm7zkm
-	i/lHzrFa3Dywk8niyKklTBYvZ91jszh/fgO7xabH11gtHr4Kt7i8aw6bxYzz+5gsji0Qs1i0
-	9Qu7xcMPe9gtjpx5wWzxf88OdgcBj52z7rJ7bFrVyeaxeUm9R9+WVYwe/5rmsnt83iQXwBbF
-	ZZOSmpNZllqkb5fAlbFq2mzGgu88FTcmvWFvYHzM1cXIySEhYCKx+d0jti5GLg4hge2MEqvO
-	H2CCSEhKfGqeygphC0us/PecHaLoGaPEwkdHwIrYBLQkFvXtA0uICBxnlJj+cAkziMMssIBJ
-	4kPvXzaQKiGBt4wSW9/ZgdicAnYSq16fAIsLC8RIPDnyiLGLkYODRUBFomMjB0iYV8BS4tmh
-	X2wQtqDEyZlPWEBsZgFtid6HrYww9rKFr5khrlOQ+Pl0GStEXFzi6M8esLiIgJtEy5MXTBMY
-	hWchGTULyahZSEbNQtK+gJFlFaNoakFxbnpucoGhXnFibnFpXrpecn7uJkZwnGoF7WBctv6v
-	3iFGJg7GQ4wSHMxKIryvTx1PF+JNSaysSi3Kjy8qzUktPsQozcGiJM6rnNOZIiSQnliSmp2a
-	WpBaBJNl4uCUamAqUHrF7rwsfQZz8ueWp+c9zlXucth1arFMqqDzjAlqD1w27G660Kh1W2zC
-	+VDJZzeNckT2RTH+NTHear1mTug8d84/myN1eL2OuX1icGpkt5jL+29WTwCHqp3wlqnf5a7/
-	iWd7tGsqi+pHO9FjXWWiz9Y0vys8LTBr06sqXe7qVU0hu1jvcrXWG6dESZlaVV9LfvU1cm9P
-	ykMd9VPdqp+aXT4FmSSqJ6+Xmc6fLBLwZbvbJTOj938bU1k6UhdtfvdZJW/i7f+NH/9z9VTM
-	X5t6nqGl+O77dR42c2/uyNqUe9XC8a/hbtmK494vz/GFfDz2/v/lJ4dS7h1yNK1ril25pfr8
-	78Y4mZUfhc8YPHyjxFKckWioxVxUnAgAFoU4UkIDAAA=
-X-CMS-MailID: 20250306034910epcas5p3e2ae456558f38e44a3fb55bf878d4abc
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250220073944epcas5p495ee305ca577a7e1be51ff916f20fc53
-References: <20250220073527.22233-1-swathi.ks@samsung.com>
-	<CGME20250220073944epcas5p495ee305ca577a7e1be51ff916f20fc53@epcas5p4.samsung.com>
-	<20250220073527.22233-2-swathi.ks@samsung.com>
-	<7328e538-31cf-4674-83d2-943f1a2d1455@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250305100134.1171124-1-manikandan.m@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_195426_676936_A3C94EE2 
-X-CRM114-Status: GOOD (  16.66  )
+X-CRM114-CacheID: sfid-20250305_202601_632115_138A97AD 
+X-CRM114-Status: GOOD (  13.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,54 +94,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Manikandan,
+
+kernel test robot noticed the following build warnings:
+
+[auto build test WARNING on mtd/spi-nor/next]
+[also build test WARNING on robh/for-next abelloni/rtc-next linus/master v6.14-rc5 next-20250305]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Manikandan-Muralidharan/ARM-dts-microchip-sama5d29_curiosity-Add-nvmem-layout-in-QSPI-to-describe-EUI48-MAC-address-region/20250305-180433
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git spi-nor/next
+patch link:    https://lore.kernel.org/r/20250305100134.1171124-1-manikandan.m%40microchip.com
+patch subject: [PATCH 1/2] mtd: spi-nor: sst: register SFDP region into NVMEM framework to read MAC Address
+config: m68k-stmark2_defconfig (https://download.01.org/0day-ci/archive/20250306/202503061244.wH2sylN8-lkp@intel.com/config)
+compiler: m68k-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250306/202503061244.wH2sylN8-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503061244.wH2sylN8-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+>> drivers/mtd/spi-nor/sst.c:75: warning: Function parameter or struct member 'off' not described in 'sst26vf_sfdp_mac_addr_read'
+>> drivers/mtd/spi-nor/sst.c:75: warning: Excess function parameter 'offset' description in 'sst26vf_sfdp_mac_addr_read'
 
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 01 March 2025 19:29
-> To: Swathi K S <swathi.ks=40samsung.com>; krzk+dt=40kernel.org; linux-
-> fsd=40tesla.com; robh=40kernel.org; conor+dt=40kernel.org;
-> richardcochran=40gmail.com; alim.akhtar=40samsung.com
-> Cc: jayati.sahu=40samsung.com; linux-arm-kernel=40lists.infradead.org; li=
-nux-
-> samsung-soc=40vger.kernel.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; netdev=40vger.kernel.org;
-> pankaj.dubey=40samsung.com; ravi.patel=40samsung.com;
-> gost.dev=40samsung.com
-> Subject: Re: =5BPATCH v7 1/2=5D arm64: dts: fsd: Add Ethernet support for=
- FSYS0
-> Block of FSD SoC
->=20
-> On 20/02/2025 08:35, Swathi K S wrote:
-> >  &pinctrl_peric =7B
-> > diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi
-> > b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> > index 690b4ed9c29b..01850fbf761f 100644
-> > --- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-> > +++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-> > =40=40 -1007,6 +1007,26 =40=40
-> >  			clocks =3D <&clock_fsys0
-> UFS0_MPHY_REFCLK_IXTAL26>;
-> >  			clock-names =3D =22ref_clk=22;
-> >  		=7D;
-> > +
-> > +		ethernet0: ethernet=4015300000 =7B
-> > +			compatible =3D =22tesla,fsd-ethqos=22;
->=20
-> I don't see bindings in the linux-next, so I am dropping this patch from =
-my
-> queue. Please resend when the bindings hit the linux-next.
+vim +75 drivers/mtd/spi-nor/sst.c
 
-Thanks for informing me.
-I have posted v8 of DT bindings: https://lore.kernel.org/netdev/89dcfb2a-d0=
-93-48f9-b6d7-af99b383a1bc=40kernel.org/
-Will wait for some time for the DT binding to reflect on linux-next before =
-posting v8 patches of DT files.
+    61	
+    62	/**
+    63	 * sst26vf_sfdp_mac_addr_read() - check if the EUI-48 MAC Address is programmed
+    64	 * and read the data from the prestored SFDP data
+    65	 *
+    66	 * @priv: User context passed to read callbacks.
+    67	 * @offset: Offset within the NVMEM device.
+    68	 * @val: pointer where to fill the ethernet address
+    69	 * @bytes: Length of the NVMEM cell
+    70	 *
+    71	 * Return: 0 on success, -EINVAL  otherwise.
+    72	 */
+    73	static int sst26vf_sfdp_mac_addr_read(void *priv, unsigned int off,
+    74					      void *val, size_t bytes)
+  > 75	{
+    76		struct spi_nor *nor = priv;
+    77		struct sfdp *sfdp = nor->sfdp;
+    78		loff_t offset = off;
+    79		size_t sfdp_size;
+    80	
+    81		/*
+    82		 * Check if the EUI-48 MAC address is programmed in the next six address
+    83		 * locations.
+    84		 * @off is programmed in the DT and stores the start of MAC Address
+    85		 * byte, (off - 1) stores the bit length of the Extended Unique
+    86		 * Identifier
+    87		 */
+    88		if (SST26VF_SFDP_EUI48 != *((u8 *)sfdp->dwords + (offset - 1)))
+    89			return -EINVAL;
+    90	
+    91		sfdp_size = sfdp->num_dwords * sizeof(*sfdp->dwords);
+    92		memory_read_from_buffer(val, bytes, &offset, sfdp->dwords,
+    93					sfdp_size);
+    94		return 0;
+    95	}
+    96	
 
-- Swathi
-
->=20
-> Best regards,
-> Krzysztof
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
