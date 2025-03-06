@@ -4,92 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30087C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:33:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEAFC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:34:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iIFvuaqHhFntvQlpRTIvoKjIOarKQMOq9Ag0pcr/34A=; b=wPpjqn2hZ1x0n5424ppu8cH/Ko
-	Wdr39t26ecAmHPRFnfZUg/jD10BW4CqqgwGMa5waGOannJ5iz074muj2lCX/xaHL2mqo33mtxmXYG
-	4RSGn2O35CcmO729ZcOFRLWOJLTdZ39P2tzLBwV/KtLCZfyCYUO4hT/3218XHY10ZAR6BmBclqJ0I
-	alaBgY5TPbfn6pmPbV/caE0JNXLXw3YIt+p5WkIncyt7mzXVNXRHoR6CWPj3+Fyk+xzNR6VomCDSe
-	jFS7GdNTN7sPL8SEiBAaMPByOBLR92+LSu1SKznNYMKiUb1zAY+aCLT4V3C0P2lNC9Trhn8HFq+KO
-	0QQWtV9w==;
+	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=; b=tvJXVp13IN8WBWXfp1Kl7EMlBM
+	eb5BvFcoif3saCqYfENQHtRuYOEmy7kXrRWerJbGB4Q06gXd3Vpx0jq6FDQPUwFPUz/G0mRg4gRg2
+	CN5f+dMN+GErvKS3y95+YXMR7Iz7DU47+y3XUGH7nb9rfIFPvz+Pjq6+UJ5KiebdIvJckgObunqt0
+	FIuh0BwBz0jvor6o8gaNmR+7lfE2aVLmYaU76BOQ8cYQP65ghhSSRXmt1WljsN4bgfTmroZBBElmH
+	ss7+z+cdSbUgJZZq/pevygfruxkHI5C++vRn/SYtvqZ7AuJullD6qLw2U+EhF1PccAjKmQXnwf6PL
+	L7RPra1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDDm-0000000BKrE-0qsO;
-	Thu, 06 Mar 2025 15:33:14 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1tqDEV-0000000BL4L-3fqk;
+	Thu, 06 Mar 2025 15:33:59 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqD7I-0000000BJcw-0R2k
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:26:33 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e4bed34bccso1267892a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 07:26:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741274790; x=1741879590; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=iIFvuaqHhFntvQlpRTIvoKjIOarKQMOq9Ag0pcr/34A=;
-        b=Fq6jdWxxv2tUrSlbDJ6CcoaA5Ark+4uUOMKOyOCC9yun6Ma0jBXEjPazAAubSl5OMY
-         Oq9R5IHWL7sq+nZciIuTQNS+l4sqpzJ/e0fSR3A52asRaybC/rTNIqLrHghuGt7e/Z45
-         XQEJhIF8VbllKlPpeonRnRf0/wo6eJhHviBuQHQuHBA0YksouVy0ua4urtISgImi9aw/
-         5H3A9fGtAyrYsGjm7BOM7gCsSUEr/nnKb29kmgV7ZV0Hizwsyi92yEhcEd7csabYLg68
-         II7hZ0Jzo120jLAW5iVF1Bg4YuAuA1TdsypXjN+50ocW8iZw3g7Fp7PSOu0E4mtjRCtH
-         fDkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741274790; x=1741879590;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=iIFvuaqHhFntvQlpRTIvoKjIOarKQMOq9Ag0pcr/34A=;
-        b=N/oiFS3c1YTNwZ85a17vy0Q3JVppnUE2xaGhO3a9ElEdPk2CE6uGBuWBwjSjHbU5sq
-         phECv6wSUk4nWdOlLAhzX7EHao+iC/sj2AmCyXULbhG1326TR41b02PRzMswNm21VFx8
-         xbv0SK4RRyzDHjVFXHngIcwRqh0uGHUSnBoYBs9pVrO3HZDFfnUdUm5LO3ZX7aPiP6DW
-         b5q47y7LH6qGpICJrmhNnMZkOt2bX3taOVLzVZazfzkgc3WNn9tp6qwtlKY9yLCqnD+3
-         MTUwN7JkEfoXzUdKYU8iFqmN4cp1OIisFT1c4Ku2CgjN7dAeWGrM0q4iYSkhxYmC4Kfd
-         yN4g==
-X-Gm-Message-State: AOJu0Ywvov84tIJYW8+OicWp05POD7l3oRO89lFtQhJTA+5JQNhPC21x
-	V9ZFzDp4f7iPIbXN51xU1DHp1x1HQAbsNHg/xay5IFFSXf1FdgCipQiBtZeZy6A=
-X-Gm-Gg: ASbGncsyLvKytWO3q0Lx5bgAwrUqfLKgb4yNvXAI10Iba/H3awz8bPpJfJtFbxzmMZy
-	scbGmyFw+vjhiTN04YzNGwXPqqEFlNsYdNEA+dZKNez39jOyGnJxq96lawYdp+udI5flulnRvxl
-	tIJTCIYnkLfUX0HoEKY9Qzt9OnJ60t1aeeE3CYYneNt7PZeydLKkDt8GDLA6HNc6zIUqt3M/cJi
-	Wxtzb2mzC7q4VXu1JrtEtffJB9SUwaPlM3ABDuJhBBHud2rR53A4zuRn6kcc3fucaefv9sdlTpT
-	hrLxRhWSLaUZYOAKjxsja/5wqwxZrcFZvg03a60+FdaMwgO3
-X-Google-Smtp-Source: AGHT+IH0jkdkKlxaqF3wkqHwudjs10mK4wes1NDX4QS5VUliT9VayRAZEVO93js8rAurkPGvYT2syQ==
-X-Received: by 2002:a05:6402:234a:b0:5d0:8197:7ab3 with SMTP id 4fb4d7f45d1cf-5e59f353369mr8529169a12.3.1741274790139;
-        Thu, 06 Mar 2025 07:26:30 -0800 (PST)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c766a5bcsm1078630a12.52.2025.03.06.07.26.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 07:26:29 -0800 (PST)
-Message-ID: <ac831e724393dd928d3e62a4cfe2d9d30af7a081.camel@linaro.org>
-Subject: Re: [PATCH v2 4/4] pinctrl: samsung: Add filter selection support
- for alive bank on gs101
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski	
- <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
-	 <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- 	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org, 	kernel-team@android.com,
- jaewon02.kim@samsung.com
-Date: Thu, 06 Mar 2025 15:26:28 +0000
-In-Reply-To: <20250301-pinctrl-fltcon-suspend-v2-4-a7eef9bb443b@linaro.org>
-References: <20250301-pinctrl-fltcon-suspend-v2-0-a7eef9bb443b@linaro.org>
-	 <20250301-pinctrl-fltcon-suspend-v2-4-a7eef9bb443b@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
+	id 1tqB2i-0000000B10o-3cj5;
+	Thu, 06 Mar 2025 13:13:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741266806; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=Ln67D7B8R/emwNovVLhkaz7xbVh04EGL2fSTkLDhliu0yFF5HPOStn0Fyk7RGUSm6kz3daWv2CrhBsEXy5NJydyy2CaaXI30XHo8uo38Ng0OYX1igVJcmSzIsV3OL1w4E/4RfOr0qKK6iJs+ZrcRuTffIcpmK0FAp0SAVAEM4YQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741266806; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=; 
+	b=MMm0eR+LmbNeSFSuObeLJGIE34hmTdHHG+dO6tTDWE1hVzlgVjE9tnZIEqsZbRWhIdFXkx/nPiRl+PTGYUaqS22megAsU4oUjwdDdVt9zrkcXLANi2CANfUR3Gl8dxw14v2w/5zlrF3Qc5vLy8dmkkS2IHvEtTwDHQGaMpvi4Vg=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741266806;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=;
+	b=jLTo6eWuwglmC71EtgyEJQ8kL0bFRLESM9jvJbnBxLKoc4vQBGYlIU3eCrW82lcq
+	VVceuFNVewMSvTKT54YH8U8WN8NraGIPvbNxZ0XrB47XCseCv3JRCN2U7fAQVMb90wI
+	M0/ZAU/gqUDRQ3YvHFtJeQdvnxMJgFKwn+UZxeV0=
+Received: by mx.zohomail.com with SMTPS id 1741266806086596.4769996246168;
+	Thu, 6 Mar 2025 05:13:26 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+Subject: Re: [PATCH 3/7] ASoC: dt-bindings: add schema for rockchip SAI controllers
+Date: Thu, 06 Mar 2025 14:13:18 +0100
+Message-ID: <2376575.ElGaqSPkdT@workhorse>
+In-Reply-To: <ffd6287c-cbfd-4ba8-9332-45bad4e60583@kernel.org>
+References: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
+ <20250305-rk3576-sai-v1-3-64e6cf863e9a@collabora.com>
+ <ffd6287c-cbfd-4ba8-9332-45bad4e60583@kernel.org>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_072632_149607_93410D6E 
-X-CRM114-Status: GOOD (  30.18  )
+X-CRM114-CacheID: sfid-20250306_051340_976733_54DDC6C7 
+X-CRM114-Status: GOOD (  31.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,176 +88,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2025-03-01 at 11:43 +0000, Peter Griffin wrote:
-> Newer Exynos based SoCs have a filter selection bitfield in the filter
-> configuration registers on alive bank pins. This allows the selection of
-> a digital or analog delay filter for each pin. Add support for selecting
-> and enabling the filter.
->=20
-> On suspend we set the analog filter to all pins in the bank (as the
-> digital filter relies on a clock). On resume the digital filter is
-> reapplied to all pins in the bank. The digital filter is working via
-> a clock and has an adjustable filter delay flt_width bitfield, whereas
-> the analog filter uses a fixed delay.
->=20
-> The filter determines to what extent signal fluctuations received through
-> the pad are considered glitches.
->=20
-> The code path can be exercised using
-> echo mem > /sys/power/state
-> And then wake the device using a eint gpio
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> ---
->=20
-> Changes since v1:
-> * Remove eint_flt_selectable bool as it can be deduced from EINT_TYPE_WKU=
-P (Peter)
-> * Move filter config comment to header (Andre)
-> * Rename EXYNOS_FLTCON_DELAY to EXYNOS_FLTCON_ANALOG (Andre)
-> * Remove misleading old comment (Andre)
-> * Refactor exynos_eint_update_flt_reg() into a loop (Andre)
->=20
-> Note: this patch was previously sent as part of the initial gs101/ Pixel =
-6
-> series and was dropped in v6. This new version incorporates the review
-> feedback from Sam Protsenko here in v5.
->=20
-> Link: https://lore.kernel.org/all/20231201160925.3136868-1-peter.griffin@=
-linaro.org/T/#m79ced98939e895c840d812c8b4c2b3f33ce604c8
->=20
-> Changes since previous version
-> * Drop fltcon_type enum and use bool eint_flt_selectable (Sam)
-> * Refactor and add exynos_eint_update_flt_reg() (Sam)
-> * Rename function to exynos_eint_set_filter() for easier readability (Sam=
-)
-> * Remove comments and `if bank->fltcon_type !=3D FLT_DEFAULT)` checks and=
- indentation (Sam)
-> ---
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.c | 35 +++++++++++++++++++++=
-+++++++++++
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.h | 21 +++++++++++++++++++
-> =C2=A02 files changed, 56 insertions(+)
->=20
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.c b/drivers/pinctrl/s=
-amsung/pinctrl-exynos.c
-> index ddc7245ec2e5..4c467651b034 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos.c
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos.c
-> @@ -369,6 +369,39 @@ struct exynos_eint_gpio_save {
-> =C2=A0	u32 eint_mask;
-> =C2=A0};
-> =C2=A0
-> +static void exynos_eint_update_flt_reg(void __iomem *reg, int cnt, int c=
-on)
-> +{
-> +	unsigned int val, shift;
-> +	int i;
-> +
-> +	val =3D readl(reg);
-> +	for (i =3D 0; i < cnt; i++) {
-> +		shift =3D i * EXYNOS_FLTCON_LEN;
-> +		val |=3D con << shift;
+On Thursday, 6 March 2025 08:42:54 Central European Standard Time Krzysztof 
+Kozlowski wrote:
+> On 05/03/2025 22:24, Nicolas Frattaroli wrote:
+> > Rockchip introduced a new audio controller called the "Serial Audio
+> > Interface", or "SAI" for short, on some of their newer SoCs. In
+> > particular, this controller is used several times on the RK3576 SoC.
+> > 
+> > Add a schema for it, with only an RK3576 compatible for now. Other SoCs
+> > may follow as mainline support for them lands.
+> > 
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> > 
+> >  .../devicetree/bindings/sound/rockchip,sai.yaml    | 151
+> >  +++++++++++++++++++++
+> Filename based on compatible.
 
-EXYNOS_FLTCON_ANALOG =3D=3D 0, so this code still needs to clear
-bit 6 to undo a previous enabling of digital filter:
+Sure, but more compatibles will follow. Are you certain you want a file named 
+rockchip,rk3576-sai.yaml to then contain rockchip,rk3528-sai? If so then I do 
+not understand the reason behind this policy.
 
-    val &=3D ~(EXYNOS_FLTCON_DIGITAL << shift);
-    val |=3D con << shift;
+> 
+> >  MAINTAINERS                                        |   6 +
+> >  2 files changed, 157 insertions(+)
+> 
+> ...
+> 
+> > +
+> > +  dma-names:
+> > +    minItems: 1
+> > +    maxItems: 2
+> > +    oneOf:
+> > +      - const: tx
+> > +      - const: rx
+> > +      - items:
+> > +          - const: tx
+> > +          - const: rx
+> 
+> Why all combinations are possible?
 
+Because they are. sai5 in rk3576 is rx only. sai7 is tx only. Others are both 
+tx and rx. Do you want me to enforce that those with both are always tx 
+followed by rx?
 
-> +	}
-> +	writel(val, reg);
-> +}
-> +
-> +/*
-> + * Set the desired filter (digital or analog delay) and enable it to
-> + * every pin in the bank. Note the filter selection bitfield is only
-> + * found on alive banks. The filter determines to what extent signal
-> + * fluctuations received through the pad are considered glitches.
-> + */
-> +static void exynos_eint_set_filter(struct samsung_pin_bank *bank, int fi=
-lter)
-> +{
-> +	unsigned int off =3D EXYNOS_GPIO_EFLTCON_OFFSET + bank->eint_fltcon_off=
-set;
-> +	void __iomem *reg =3D bank->drvdata->virt_base + off;
-> +	unsigned int con =3D EXYNOS_FLTCON_EN | filter;
-> +
-> +	if (bank->eint_type !=3D EINT_TYPE_WKUP)
-> +		return;
-> +
-> +	for (int n =3D 0; n < bank->nr_pins; n +=3D 4)
-> +		exynos_eint_update_flt_reg(reg + n,
-> +					=C2=A0=C2=A0 min(bank->nr_pins - n, 4), con);
-> +}
-> +
-> =C2=A0/*
-> =C2=A0 * exynos_eint_gpio_init() - setup handling of external gpio interr=
-upts.
-> =C2=A0 * @d: driver data of samsung pinctrl driver.
-> @@ -834,6 +867,7 @@ void gs101_pinctrl_suspend(struct samsung_pin_bank *b=
-ank)
-> =C2=A0		pr_debug("%s: save=C2=A0=C2=A0=C2=A0 mask %#010x\n",
-> =C2=A0			 bank->name, save->eint_mask);
-> =C2=A0	}
-> +	exynos_eint_set_filter(bank, EXYNOS_FLTCON_ANALOG);
+> 
+> > +
+> > +  clocks:
+> > +    items:
+> > +      - description: master audio clock
+> > +      - description: AHB clock driving the interface
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: mclk
+> > +      - const: hclk
+> > +
+> > +  resets:
+> > +    minItems: 1
+> > +    maxItems: 2
+> > +    description: resets for the mclk domain and ahb domain
+> 
+> List the items instead with description and minItems: 1.
 
-Similar to patch 2, might be nicer to have this all if / else if to
-make it more obvious that set_filter() is not unconditional.
+Will do
 
+> 
+> > +
+> > +  reset-names:
+> > +    minItems: 1
+> > +    items:
+> > +      - const: m
+> > +      - const: h
+> > +
+> > +  port:
+> > +    $ref: audio-graph-port.yaml#
+> > +    unevaluatedProperties: false
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  "#sound-dai-cells":
+> > +    const: 0
+> > +
+> > +  rockchip,sai-rx-route:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> > +    description:
+> > +      Defines the mapping of the controller's SDI ports to actual input
+> > lanes, +      as well as the number of input lanes.
+> > +      rockchip,sai-rx-route = <3> would mean sdi3 is receiving from
+> > data0, and +      that there is only one receiving lane.
+> > +      This property's absence is to be understood as only one receiving
+> > lane +      being used if the controller has capture capabilities.
+> > +    maxItems: 4
+> > +    items:
+> > +      enum: [0, 1, 2, 3]
+> > +
+> > +  rockchip,sai-tx-route:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
+> > +    description:
+> > +      Defines the mapping of the controller's SDO ports to actual output
+> > lanes, +      as well as the number of output lanes.
+> > +      rockchip,sai-tx-route = <3> would mean sdo3 is sending to data0,
+> > and
+> 
+> I understand this is only example because = <3> would not be allowed
+> (test it).
 
-> =C2=A0}
-> =C2=A0
-> =C2=A0void exynosautov920_pinctrl_suspend(struct samsung_pin_bank *bank)
-> @@ -889,6 +923,7 @@ void gs101_pinctrl_resume(struct samsung_pin_bank *ba=
-nk)
-> =C2=A0		writel(save->eint_mask, regs + bank->irq_chip->eint_mask
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset);
-> =C2=A0	}
-> +	exynos_eint_set_filter(bank, EXYNOS_FLTCON_DIGITAL);
+I'll have to look into that, I was fairly certain I tested it, but maybe I 
+forgot to run a CHECK_DTBS with it in.
 
-dito.
+> 
+> > +      that there is only one transmitting lane.
+> > +      This property's absence is to be understood as only one
+> > transmitting lane +      being used if the controller has playback
+> > capabilities.
+> > +    maxItems: 4
+> > +    items:
+> > +      enum: [0, 1, 2, 3]
+> > +
+> > +  rockchip,always-on:
+> > +    type: boolean
+> > +    description:
+> > +      The hardware requires this controller to remain turned on.
+> 
+> How hardware requires this? You rather miss proper PM domain handling or
+> some other resources.
+
+This isn't about power domains. It's about the FS/SCLK generator inside the 
+IP. I'll remove it in the next revision since downstream only uses it for a 
+different IP on the RK3588, and I'd rather not get bogged down by discussions 
+as to whether SAI should be modelled as a clock provider.
+
+> 
+> > +
+> > +
+> 
+> Just one blank line.
+
+Will do
+
+> 
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - dmas
+> > +  - dma-names
+> > +  - clocks
+> > +  - clock-names
+> > +  - "#sound-dai-cells"
+> > +
+> > +unevaluatedProperties: false
+> 
+> Best regards,
+> Krzysztof
 
 Cheers,
-Andre'
+Nicolas Frattaroli
 
-> =C2=A0}
-> =C2=A0
-> =C2=A0void exynos_pinctrl_resume(struct samsung_pin_bank *bank)
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/s=
-amsung/pinctrl-exynos.h
-> index 773f161a82a3..203d4b76a956 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos.h
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
-> @@ -52,6 +52,27 @@
-> =C2=A0#define EXYNOS_EINT_MAX_PER_BANK	8
-> =C2=A0#define EXYNOS_EINT_NR_WKUP_EINT
-> =C2=A0
-> +/*
-> + * EINT filter configuration register (on alive banks) has
-> + * the following layout.
-> + *
-> + * BitfieldName[PinNum][Bit:Bit]
-> + * FLT_EN[3][31] FLT_SEL[3][30] FLT_WIDTH[3][29:24]
-> + * FLT_EN[2][23] FLT_SEL[2][22] FLT_WIDTH[2][21:16]
-> + * FLT_EN[1][15] FLT_SEL[1][14] FLT_WIDTH[1][13:8]
-> + * FLT_EN[0][7]=C2=A0 FLT_SEL[0][6]=C2=A0 FLT_WIDTH[0][5:0]
-> + *
-> + * FLT_EN	0x0 =3D Disable, 0x1=3DEnable
-> + * FLT_SEL	0x0 =3D Analog delay filter, 0x1 Digital filter (clock count)
-> + * FLT_WIDTH	Filtering width. Valid when FLT_SEL is 0x1
-> + */
-> +
-> +#define EXYNOS_FLTCON_EN		BIT(7)
-> +#define EXYNOS_FLTCON_DIGITAL		BIT(6)
-> +#define EXYNOS_FLTCON_ANALOG		(0 << 6)
-> +#define EXYNOS_FLTCON_MASK		GENMASK(7, 0)
-> +#define EXYNOS_FLTCON_LEN		8
-> +
-> =C2=A0#define EXYNOS_PIN_BANK_EINTN(pins, reg, id)		\
-> =C2=A0	{						\
-> =C2=A0		.type		=3D &bank_type_off,	\
->=20
+
 
 
