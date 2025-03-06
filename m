@@ -4,155 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B635C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:00:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE7DC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:02:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eKLQOo+h6wkMC29fzswqSWk9MTt9qVypWoHFeqmEG58=; b=ljqJUUCyCo85QKviABraPfXsOP
-	Z9bdWyqMUgGPp+6qUinto2KQvJA30ztyXj57Ir7pTHC7bnL8bg1JYnK98q10sJC8VmZ7cQmKJGIVh
-	/VadV71gLw2Wfnk59GLxmM+Ff+M7RuGZydFHdiez5eI3SOA/zoYGG5BTwuA+PPqFn58rKX7GBAd0Z
-	UQPDiPLTTowVEq3Si9AUY1kqpdEgdJK9zV7kKXKgfFB+/+Dj1X3+/9kQN2znNgNc36CVzpZjXO/5H
-	2yw4lo11cPhGRUeu+FK1db/SLNXM8y3DDEhu5GkB4L7hVPGsb+SUcdmEY+qB+oxdAQn5tF5mawkjj
-	+nM7P/yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rr6HJYrIFdh0rI3RgJKPVqyOkkzSUwbjgMWnVkXlprE=; b=F+Gu91wKqLbpmZ3dsFIzrlEevY
+	6tLclIeB5RItc341wus7Z6Vh0nnfaW6l46MW0HTaS68nRmgnKF0fTsLCSdzJvVhvqsXlyyy5zlBHq
+	DkL5U8fcKr0QSm1nRTYbtOf6gjV7ibGKyJtxj7MzOg+IFozVmCtGo25M+ijqDolQOneYTUu4h1a1w
+	PmFXBjHagqxdqTU/7PDI0qnYLNk4Zwsxe/eiP7KQMcfHr6HvQyZs7dC0h7IJXlHiDFlHHo4QbDDkQ
+	Kt7b8L/iuKJR39aOzwy/OFgU5GGkPayk3fepWAeDzWEMIodqMneRR6akx2sqsz4ViETsEDBLbL9Gk
+	Ly4H/i/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDdt-0000000BOnA-2IZG;
-	Thu, 06 Mar 2025 16:00:13 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tqDfT-0000000BPBu-2Pkd;
+	Thu, 06 Mar 2025 16:01:51 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDcG-0000000BOGs-1uWM
+	id 1tqDck-0000000BONT-2RcH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:58:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RwFsHksBAkGAV+hr3M7ycoH/dDwXWl/ocuDJUACYFvtf6tsDiIqIcuNbUjxMnIUAzlIEmdHvuZe39mwUMCxOxUdTT9uoQzdvPcH2m1/lJbhlLUVEWuHceolTofdPyBca1ZTynDxEVb4WyjIvPmI9wAzLNLoJZ0WUxPWzlpWxBj7LdqE+pGrzx+Xt+I3j11e+cjuPc/KJkYYYQwlHh4NgNShxQ/HPNMqtKH2N4UAR442IBpAQPCVVyZWdSwYmEcEfRTAvGUvWs6f1GEoVg7SNGv2gCzmwT+I7PAePREHztbNXcY1elyZF4jczHEkI2XXl9zoZvBbIzfJWBt890Mp2bA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=eKLQOo+h6wkMC29fzswqSWk9MTt9qVypWoHFeqmEG58=;
- b=v9T/OIR0FgH8Nl4pNf1lWGKb+3PM9Jr3dKMEmSJlO5RHfs3VMgMfwdPNWoEFZwRx3PJ0p9LEcABPMk27IIyhYlOn2KOYTMNwYRjLDv3luDfiPRy+jcyTYJzlK/CCeeWfiguWqFcx6gFGU028tne7myXGBeAsymApW6heNx8viSP8hibr0oCM2giZ4gwr/4nESnWTV7euNQAE/7j7T76JmvLD3Y7+CuLCsBDasu7VGepeyi7DxQ8rqK5lNjsspNZNqb+/hN0SE+LvEVrnbUHLckW38swv//I5rbuT+trKIfYEaS0Zo4IeelSMIELx7mHTMCDocvYli4GnWDH1OS9kLA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=eKLQOo+h6wkMC29fzswqSWk9MTt9qVypWoHFeqmEG58=;
- b=QvwurLY0k4T6MNNsxWhYlBmoArhDBn8iVdY9dPeolod6XTGoTNP3UWsR3BMv958V/TypMJm4VqHIhmTJgJJpz2RzVhRErsfPcZdVOi3e3TXCc2RTn3q6KllsGw3m3UrdGsUNXgjyyMEpJmjvNqOCJ4h7A+3eqtxOdK8m2eae4LvEbo9qFctbUHcpF841iS7lXYyDMU0nIBkpMxZ3OklnHsM1Tq3vbHhEeOE4JT9VliA99ovCs9dNNI75OO1wDXQRmVjlBY7BNJWH69/Lnb85oHTe3bJIU7bmi75bq9edj6bX0aWZMSpPc0PdSHAJA+V5DKopBN14xxqLDAIszR4pZw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DB9PR04MB9330.eurprd04.prod.outlook.com (2603:10a6:10:36e::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Thu, 6 Mar
- 2025 15:58:29 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 15:58:29 +0000
-From: Frank Li <Frank.Li@nxp.com>
-To: Dong Aisheng <aisheng.dong@nxp.com>,
-	Andi Shyti <andi.shyti@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	linux-i2c@vger.kernel.org (open list:FREESCALE IMX LPI2C DRIVER),
-	imx@lists.linux.dev (open list:FREESCALE IMX LPI2C DRIVER),
-	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
-	linux-kernel@vger.kernel.org (open list)
-Cc: imx@lists.linux.dev
-Subject: [PATCH 1/1] dt-bindings: i2c: imx-lpi2c: add i.MX94 LPI2C
-Date: Thu,  6 Mar 2025 10:58:15 -0500
-Message-Id: <20250306155815.110514-1-Frank.Li@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: BY5PR17CA0022.namprd17.prod.outlook.com
- (2603:10b6:a03:1b8::35) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Thu, 06 Mar 2025 15:59:05 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43bcc04d4fcso5560335e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 07:59:01 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741276740; x=1741881540; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rr6HJYrIFdh0rI3RgJKPVqyOkkzSUwbjgMWnVkXlprE=;
+        b=QV+EPi8GK4sWahhEAOZTs6MRLKh+cP5zIlD7gAqtvJ1xp/1hN/5hilNJrTtCOCUHh9
+         jWU6lnNY0v7YciBo4mp5AG35Ld0kNKF12eGQdMli85FVC5FRoDg/bfIDuG0Yrl54PI0M
+         2RshPPVZlVnNiLCdRzrBHtJRbZTQrxQCE/U7Vg+GIE7vehItKFjmm0JkB2Z71tieyEyl
+         /YpVZqN83H27OKP4Ly4Ot56aCXm54GtPUEErvo7AohxVZ7kaZQwlS6pvS2q+7zSSq4yn
+         t7N3GEBtPLI1bcgpQ07T/QoYsslyU3pNBP+x0Xq8HDvfQdzQwjf/mZvx4EOKshJ7jtBA
+         gRig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741276740; x=1741881540;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=rr6HJYrIFdh0rI3RgJKPVqyOkkzSUwbjgMWnVkXlprE=;
+        b=ZK1iHmu1lHphlbmEnmbEv+t8m/FnJ/2xkwNe8Jpa5K/nKT8X+Qy1OAFUVDMujzRwF8
+         rqLEhADVKBekZ/eO0cMGmois16OAOzV9FaRf4kZ+JzKaFseZref3QLHFA1QaQ/4PCxaP
+         teCOMD0q5lPBQhkbzGqfrtJVcVm3u4j0F64YSArLjpksoD5zRrl14+14zrTT8QX7rlro
+         13lugovtA0OZWk8/Ld0SwEIZeL/gQRxIvEWrRU/YAWPYu8tBPl4M8vFNpG8MPr+H32oB
+         cYzeWEYLqXdHgD9xl0/Hkiv/Qqdu13ZsT6Cp1OZoaAY6Wki+pmRahqNMrM+n7PeSX/Fc
+         7bbQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUwBJhz3y4UPjL41HMd6dMuL4umdulnJ45/hc86rVHrYjnVrBwEtv7A0MrFIsWnddvqHVjOnHtjX0YV9egSVt1W@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKVqG5qfIaDwW8Fup+kS8Whd/O37e4yRMdeyQs00yTfSjozFS+
+	eAQrzScd5id48RxDgTStNbOulipB77mhK4IcNLpRrgJ/ayxSEewrb4uVyrVl6ss=
+X-Gm-Gg: ASbGnctnBt5nVMNW8LB3bbBOqXmGLGxEV+XCnO4PCSYydDff5ASOz0HL9V3tCZp8k9L
+	zcfny2uOB9vKgZq56ZfIeAE9MxA5FDMN8Alghf+gHyWEcKHiMUxvW4uYb0h+ML82FoK5/UnEx0Z
+	b9AN3hGWDcpI29JOEFMy1KMg7WO+8yHTqvd7YXuYwVLhic/Z2snsMLoi2ESP/424DHj1xHAsXwz
+	jJ9rc1DdSCCr3jtmyHUT9Ka9lXXIAjA394yYm0DDnxAMmQylSw1tQA3Zr1R0dqQCY9rSjCmakkZ
+	ll0D4PfF7Ihxv7dRALBM/o4c70o4wYCcVaz2ZMCsDMM=
+X-Google-Smtp-Source: AGHT+IHVG48PQ3PbBxa6Pppm5OOQfY2250cBwz7kifepeP6HNmcBzErFykhRYqq1LVB1ReOFWmHCsg==
+X-Received: by 2002:a05:6000:4020:b0:391:2e0f:efec with SMTP id ffacd0b85a97d-3912e0ff334mr1501348f8f.7.1741276740418;
+        Thu, 06 Mar 2025 07:59:00 -0800 (PST)
+Received: from localhost ([2a01:e0a:3c5:5fb1:29d4:36d9:5043:acd])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3912c103f41sm2391111f8f.85.2025.03.06.07.58.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 07:58:59 -0800 (PST)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski <krzk+dt@kernel.org>,
+  Conor Dooley <conor+dt@kernel.org>,  Jaroslav Kysela <perex@perex.cz>,
+  Takashi Iwai <tiwai@suse.com>,  Neil Armstrong
+ <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
+ Blumenstingl <martin.blumenstingl@googlemail.com>,  Michael Turquette
+ <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
+  jiebing.chen@amlogic.com,  linux-sound@vger.kernel.org,
+  devicetree@vger.kernel.org,  linux-kernel@vger.kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-amlogic@lists.infradead.org,
+  linux-clk@vger.kernel.org,  jian.xu@amlogic.com,  shuai.li@amlogic.com,
+  zhe.wang@amlogic.com
+Subject: Re: [PATCH v3 5/6] ASoC: meson: s4: Add s4 tocodec driver
+In-Reply-To: <20250228-audio_drvier-v3-5-dbfd30507e4c@amlogic.com> (jiebing
+	chen via's message of "Fri, 28 Feb 2025 16:04:13 +0800")
+References: <20250228-audio_drvier-v3-0-dbfd30507e4c@amlogic.com>
+	<20250228-audio_drvier-v3-5-dbfd30507e4c@amlogic.com>
+User-Agent: mu4e 1.12.8; emacs 29.4
+Date: Thu, 06 Mar 2025 16:58:59 +0100
+Message-ID: <1jfrjq5ews.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DB9PR04MB9330:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8e76b1b7-de1b-4248-2d35-08dd5cc7bca1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?hcBuNtGhykuoHr1HOLPeCy/bgT9lVV24SMeREzvKvHrzEc3WBjGquPMNhlb9?=
- =?us-ascii?Q?Ly2smjP2D/0yCUAayJErFKGrrSxvgQl/GefAqlSgixsJFpNTTEuqOI2z8gzD?=
- =?us-ascii?Q?ngL6Qa1ZYsaniX16FthwyMK/l9zVscFUlDuR5NQigeyKNtkET/TJhDfcHPgZ?=
- =?us-ascii?Q?hypmiR/nx+zw37EYbB5djiwEIjUGL6WPlUQRfa1pYZUOSAfTpTGIETXNXL2o?=
- =?us-ascii?Q?2cmqlATnhMGNUldlTsvNFRvF9Cayyl04gfDHS52UPFEEsA1qW0s5v5DrkFWG?=
- =?us-ascii?Q?erECGu0p/p98Lvs7XOHJ9jwizl0rsCGfdgSEZKJ7Zei7/GzqXN7bjTm8DiVp?=
- =?us-ascii?Q?om0zR9PyA/J0oh6JB7Kq1Ty71zRPUe91K/HeCtR5ZCsKbiGNa3lsPA16b9ob?=
- =?us-ascii?Q?pedBnfnzl6/Da09vGexVczKE3gC8WvBPFg3CVteOL2YgBtYHtZfNDfaAZcMM?=
- =?us-ascii?Q?DrZw597BUhYu9B+Z1adnH8ajp2Vptn/Flx8X2CBPnUsFYwvLBuGZAXsKooQ0?=
- =?us-ascii?Q?Uoz/LFunrKtFCufDNcwzUL2c9cwVef75ucPHgLnDXlnwMuHzmohWPk2nlklo?=
- =?us-ascii?Q?KRkFjOzGQI3MlPdRcpRGObc6N5kGDgBAMfsfubEUVQn/2SwxctqynilSRDfT?=
- =?us-ascii?Q?nKnLDCkn+VSO5miGX9h9M6a2iQEgbdCdcYOGTmSCSZFqtLR4mYNFHOu3KrU4?=
- =?us-ascii?Q?6l707151+n5OJQcVAnYIZDHWlG8AR1rNlOM/WGE9GiAmOdSsVz/TD6EpbXS7?=
- =?us-ascii?Q?xpN5jOtYHPfNU54W1wfPxTBjZeopGZb3LnaNWj+rRiTDVIS7xiOT1xNtEb0A?=
- =?us-ascii?Q?iDKuAf66FAE09WUljEXFVB5gTV5nzsUDsZihx5Kl5Z9lw6MVGxFaY8X1CB09?=
- =?us-ascii?Q?+0v0BJPAculJVNd4D8FFhlI46I7zjUMXocrALk8zJrqWeCoX14uRdZdMijNk?=
- =?us-ascii?Q?1GJ5K7HX4AJgK+NPx9GRNShQG8cQdt0P75PeFmLpo5Q7xpPPLF6iXWk+4G8+?=
- =?us-ascii?Q?96745ckfNJn5SAu+6Od13kbdIb3KqCdyj47Q9+7hqjjHZmSpSKVV/Unw65Pz?=
- =?us-ascii?Q?sSo75Ii0S/hKw00SFwhn0LU62vib7xAxFdCCRhsUIV7aeOx7Q41ry83zijnf?=
- =?us-ascii?Q?TXOEbjYdvyie0rf7WHdi1yt4ZeSzW2oM0G+MqzGnVZpjNtg1SEjeHY3Q2fjR?=
- =?us-ascii?Q?D4zzdgT8gFOl9mncdovL7evIweTMJGQabKDwxM5NLrLgnsky/UNjUxo3RrNd?=
- =?us-ascii?Q?tpKKsK6H/mAgQnilVFZncHEDw6V4AJca0LTjapxh4FHFQpC/cIY4himV/Sf1?=
- =?us-ascii?Q?SCMnD19T8mXqvSAHyo8CBHt9rBBmVPCbjHq7C+lGVIzQJgSyNQJr+n7cu2k+?=
- =?us-ascii?Q?w3xM6vrPFGAyxHSjbZK7pODLC6MbFuFYBiHKmv8NzcWA/eD6BnD8oZ5n/rVT?=
- =?us-ascii?Q?MJazUecZdAlNYdAVjS0DgBOp5Vn6h6zTt8kUjw82pQ7wIpc3LxuiSg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?BegnxSriWLAhDvxmDYv4ghCVYF45Qorwu7x3300r4+oKugXuRcwLrkZKFeC6?=
- =?us-ascii?Q?mX7WexCQq68bSKBDGuQvJXzCqKbfsiiYQw5L568fc6S+wPQSqlVB1BDHtv/x?=
- =?us-ascii?Q?0lxoh2HW1HN2zk4P4ho8G8s76+5zA48ISv0JqHyq7LIuCO83USUFKogZqKRW?=
- =?us-ascii?Q?/UNWlwLuothmpT3b/tXCxFl14THDEVN9QPIv4Lc4L/L61J8uBn+cmYh/logW?=
- =?us-ascii?Q?IzNuyZVrgmvNpMdvS2+5WW3AI1PuLLYdLfl6Mr2GVPU2CLgKbZAXhAuuoOyj?=
- =?us-ascii?Q?AvDiPKoXG0j3ERU6RkSYJXPhQXBeuYleZW7CuX3Q9r9wrwJPlzw8Tqtey7+3?=
- =?us-ascii?Q?IoT4dMtuy93UL1y4zkbrL5PSJnSmHU18TWXvGsT1wMhkOEN1n/vAXUBP+gsY?=
- =?us-ascii?Q?xgDSVEhVV09qfhlrUW6ObIdAwQ4YEBY7iaMlcNugKO/ooIjDEzYflAqH13uK?=
- =?us-ascii?Q?l0ylwwsficEowVvGU6KGJoZsWniQCgsHpodwXCkZAn0co1Sh8j6MQJNyLZs/?=
- =?us-ascii?Q?+T5u9Y1lSD1KnlYst1JdOIzTKGEzjqqZNAS3AN7Cyzks3AoYmdhX+RHuuRqC?=
- =?us-ascii?Q?08KtkiVuh6tTdAD20Z4nzJTZccIlgXxtd4c0lv9pZAddK8xsQDgulnHKqFxR?=
- =?us-ascii?Q?870niuVjSbvibR4PkAtq3agkABG0x6Z//pnBwa4RlNGxQJxWr38R/hP/2FSr?=
- =?us-ascii?Q?t1FTsd16G8yFZEpfnB1bCQy91Zo4nQEXNF+6FU4agQ5aQdXYSpNhegOmBY9J?=
- =?us-ascii?Q?n+421voxwtm4NbhRLs6K4ZwKbUKACtADfe/EQEMWW5NmT6xEOki4kBOwtI1/?=
- =?us-ascii?Q?14jcsDM1h9LCFi1TX8Uqby73uJeWV5XA9h/xVnB1gAP3y6sjhi1/+p8AnDut?=
- =?us-ascii?Q?FpJ32oW6m1AVQ1o20/yJBRHleatmt7xpNzpvw2oPos6GxBdJZoaEM9eQbfD/?=
- =?us-ascii?Q?VJT486SiGFTsPCyJ58tBwAf8fv81STapIc/CaCPpx/SVUPzRd+yAiVe4lN/m?=
- =?us-ascii?Q?bcDtRCF8h7wMUx7LYTGGHKzdlFnwIA1gXcb2wbIFXoVUJFCLxh0sTFNlYqQs?=
- =?us-ascii?Q?oPvoLJHkjzN2JviTkNknWaAJvjTprgIEch7yG7fdUQrj5lcSyHD7eTNQpQoz?=
- =?us-ascii?Q?E2GWD4id+N4xba8J35/O0+pzZfHMZeFBqeEBzrKRdbl9Nr/hsqY/1g0oYXKs?=
- =?us-ascii?Q?KYkTI6qF8/Wa9twdh1jwrxoZ7uAyqHctk/+f/AD5645g5ISpMvC5Pw9DKA0R?=
- =?us-ascii?Q?9owYjxqBEiVQvel59VGTBrvCKB2bkqGynoG99e9HkX1f+DoDy+44FW91KQ2c?=
- =?us-ascii?Q?iCo+SXxTJoFgmVhtnrwPMVhNIRzLeFDJxQV3+ZSjyRBGSrxvrL8kDyXFyNZs?=
- =?us-ascii?Q?ExigfVMKvhpcojIuELX4EmnMobaFLSbNRlcixy0xfeKL8k8mFM22SthS7auX?=
- =?us-ascii?Q?xtzQzOXT4IWGP4IVRpbSvfIeW0lBXz7xEWGzYI0KIjd0Q5UZTA4rTpGggKiL?=
- =?us-ascii?Q?GtzkL+Y0i3nVdasWh+LWtsWlDoObHzWuuvOjvd0ti+awsh988V+257+7zGCa?=
- =?us-ascii?Q?RaChGnaQCrodr7vdzE7t9c7LFetxzLhslHXid+ak?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8e76b1b7-de1b-4248-2d35-08dd5cc7bca1
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 15:58:29.2604
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: rdTVcv2mC0hojZHk25/TyA0fDL/Wx3F0hcrpCjlL1JE2HqPWj5z0A81g+FpbFkFlxWiJpdIUMJwJ5tl8U8i8yw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9330
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_075832_494469_0AC17ADE 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_075902_898887_F1AFF44A 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,28 +108,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string "fsl,imx94-lpi2c" for the i.MX94 chip, which is
-backward compatible with i.MX7ULP. Set it to fall back to
-"fsl,imx7ulp-lpi2c".
+On Fri 28 Feb 2025 at 16:04, jiebing chen via B4 Relay <devnull+jiebing.chen.amlogic.com@kernel.org> wrote:
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
- Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml | 1 +
- 1 file changed, 1 insertion(+)
+> From: jiebing chen <jiebing.chen@amlogic.com>
+>
+> S4 tocodec support 8 lane to input, It need to enable
+> bclk and mclk control bit when work
+>
+> Signed-off-by: jiebing chen <jiebing.chen@amlogic.com>
+> ---
+>  sound/soc/meson/g12a-toacodec.c | 51 +++++++++++++++++++++++++++++++++++++++++
+>  1 file changed, 51 insertions(+)
+>
+> diff --git a/sound/soc/meson/g12a-toacodec.c b/sound/soc/meson/g12a-toacodec.c
+> index 531bb8707a3ec4c47814d6a0676d5c62c705da75..41eef9980059285275f0189a06469fc694775955 100644
+> --- a/sound/soc/meson/g12a-toacodec.c
+> +++ b/sound/soc/meson/g12a-toacodec.c
+> @@ -41,6 +41,9 @@
+>  #define  CTRL0_BCLK_SEL_LSB		4
+>  #define  CTRL0_MCLK_SEL			GENMASK(2, 0)
+>  
+> +#define CTRL0_BCLK_ENABLE_SHIFT		30
+> +#define CTRL0_MCLK_ENABLE_SHIFT		29
+> +
+>  #define TOACODEC_OUT_CHMAX		2
+>  
+>  struct g12a_toacodec {
+> @@ -129,6 +132,10 @@ static const struct snd_kcontrol_new g12a_toacodec_out_enable =
+>  	SOC_DAPM_SINGLE_AUTODISABLE("Switch", TOACODEC_CTRL0,
+>  				    CTRL0_ENABLE_SHIFT, 1, 0);
+>  
+> +static const struct snd_kcontrol_new s4_toacodec_clk_enable =
+> +	SOC_DAPM_DOUBLE("Switch", TOACODEC_CTRL0,
+> +			CTRL0_BCLK_ENABLE_SHIFT, CTRL0_MCLK_ENABLE_SHIFT, 1, 0);
+> +
+>  static const struct snd_soc_dapm_widget g12a_toacodec_widgets[] = {
+>  	SND_SOC_DAPM_MUX("SRC", SND_SOC_NOPM, 0, 0,
+>  			 &g12a_toacodec_mux),
+> @@ -143,6 +150,15 @@ static const struct snd_soc_dapm_widget sm1_toacodec_widgets[] = {
+>  			    &g12a_toacodec_out_enable),
+>  };
+>  
+> +static const struct snd_soc_dapm_widget s4_toacodec_widgets[] = {
+> +	SND_SOC_DAPM_MUX("SRC", SND_SOC_NOPM, 0, 0,
+> +			 &sm1_toacodec_mux),
+> +	SND_SOC_DAPM_SWITCH("OUT EN", SND_SOC_NOPM, 0, 0,
+> +			    &g12a_toacodec_out_enable),
+> +	SND_SOC_DAPM_SWITCH("CLK EN", SND_SOC_NOPM, 0, 0,
+> +			    &s4_toacodec_clk_enable),
 
-diff --git a/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml b/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-index 1dcb9c78de3b5..969030a6f82ab 100644
---- a/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-+++ b/Documentation/devicetree/bindings/i2c/i2c-imx-lpi2c.yaml
-@@ -26,6 +26,7 @@ properties:
-               - fsl,imx8qm-lpi2c
-               - fsl,imx8ulp-lpi2c
-               - fsl,imx93-lpi2c
-+              - fsl,imx94-lpi2c
-               - fsl,imx95-lpi2c
-           - const: fsl,imx7ulp-lpi2c
- 
+I don't see a reason for the user to control that.
+
+A user controls if the component is enable or not, and possibly select
+the lane ... but that's it
+
+You could have to flipped automatically which dapm when the component is
+powered, that would make a lot more sense.
+
+> +};
+> +
+>  static int g12a_toacodec_input_hw_params(struct snd_pcm_substream *substream,
+>  					 struct snd_pcm_hw_params *params,
+>  					 struct snd_soc_dai *dai)
+> @@ -228,6 +244,15 @@ static const struct snd_soc_dapm_route g12a_toacodec_routes[] = {
+>  	{ "OUT Capture", NULL, "OUT EN" },
+>  };
+>  
+> +static const struct snd_soc_dapm_route s4_toacodec_routes[] = {
+> +	{ "SRC", "I2S A", "IN A Playback" },
+> +	{ "SRC", "I2S B", "IN B Playback" },
+> +	{ "SRC", "I2S C", "IN C Playback" },
+> +	{ "OUT EN", "Switch", "SRC" },
+> +	{ "CLK EN", "Switch", "OUT EN" },
+> +	{ "OUT Capture", NULL, "CLK EN" },
+> +};
+> +
+>  static const struct snd_kcontrol_new g12a_toacodec_controls[] = {
+>  	SOC_SINGLE("Lane Select", TOACODEC_CTRL0, CTRL0_LANE_SEL, 3, 0),
+>  };
+> @@ -236,6 +261,10 @@ static const struct snd_kcontrol_new sm1_toacodec_controls[] = {
+>  	SOC_SINGLE("Lane Select", TOACODEC_CTRL0, CTRL0_LANE_SEL_SM1, 3, 0),
+>  };
+>  
+> +static const struct snd_kcontrol_new s4_toacodec_controls[] = {
+> +	SOC_SINGLE("Lane Select", TOACODEC_CTRL0, CTRL0_LANE_SEL_SM1, 7, 0),
+> +};
+> +
+>  static const struct snd_soc_component_driver g12a_toacodec_component_drv = {
+>  	.probe			= g12a_toacodec_component_probe,
+>  	.controls		= g12a_toacodec_controls,
+> @@ -258,6 +287,17 @@ static const struct snd_soc_component_driver sm1_toacodec_component_drv = {
+>  	.endianness		= 1,
+>  };
+>  
+> +static const struct snd_soc_component_driver s4_toacodec_component_drv = {
+> +	.probe			= sm1_toacodec_component_probe,
+> +	.controls		= s4_toacodec_controls,
+> +	.num_controls		= ARRAY_SIZE(s4_toacodec_controls),
+> +	.dapm_widgets		= s4_toacodec_widgets,
+> +	.num_dapm_widgets	= ARRAY_SIZE(s4_toacodec_widgets),
+> +	.dapm_routes		= s4_toacodec_routes,
+> +	.num_dapm_routes	= ARRAY_SIZE(s4_toacodec_routes),
+> +	.endianness		= 1,
+> +};
+> +
+>  static const struct regmap_config g12a_toacodec_regmap_cfg = {
+>  	.reg_bits	= 32,
+>  	.val_bits	= 32,
+> @@ -278,6 +318,13 @@ static const struct g12a_toacodec_match_data sm1_toacodec_match_data = {
+>  	.field_bclk_sel	= REG_FIELD(TOACODEC_CTRL0, 4, 6),
+>  };
+>  
+> +static const struct g12a_toacodec_match_data s4_toacodec_match_data = {
+> +	.component_drv	= &s4_toacodec_component_drv,
+> +	.field_dat_sel	= REG_FIELD(TOACODEC_CTRL0, 19, 20),
+> +	.field_lrclk_sel = REG_FIELD(TOACODEC_CTRL0, 12, 14),
+> +	.field_bclk_sel	= REG_FIELD(TOACODEC_CTRL0, 4, 6),
+> +};
+> +
+>  static const struct of_device_id g12a_toacodec_of_match[] = {
+>  	{
+>  		.compatible = "amlogic,g12a-toacodec",
+> @@ -287,6 +334,10 @@ static const struct of_device_id g12a_toacodec_of_match[] = {
+>  		.compatible = "amlogic,sm1-toacodec",
+>  		.data = &sm1_toacodec_match_data,
+>  	},
+> +	{
+> +		.compatible = "amlogic,s4-toacodec",
+> +		.data = &s4_toacodec_match_data,
+> +	},
+>  	{}
+>  };
+>  MODULE_DEVICE_TABLE(of, g12a_toacodec_of_match);
+
 -- 
-2.34.1
-
+Jerome
 
