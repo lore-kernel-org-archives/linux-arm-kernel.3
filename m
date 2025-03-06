@@ -4,109 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FAFEC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:32:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF012C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:34:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=; b=IuwblEPxiFF5ZThhKgRd1PnEqm
-	PmETprczgp+0GTKgRNwwuJRUlVbz2mpCBAEZYaGNiNmgiTArFmDVF7R+0+i0AwNZki4Nzee5B27Jq
-	Zy2EWp1jgu+jTPbHU37aEjHo55Pn5mpfRTURuOkUHddFS+Deuk3u+pVpB0LrhMmE7PthcP98dHjlr
-	z+5x890Ih+LCrcz20h3MeW08ivpHYxW50AJPlV3SxMy+aQ7zbcV6AhNXedQonmqFXO4ZHmMxbvvXw
-	0Et+x6fDDtU4o5iK7IIc1evRDbGLw20lWpSlhjdV9P6sDydcMelvzehd4e3/yZkxoIzZpFSunL5Kf
-	E6umg5Qg==;
+	bh=6d9bOIitsXNF7ElNYxgMsKE5tr4YN1MDBpJTX3ROucs=; b=dQVA7MpDWop+wHOX69oCae/+F4
+	ruu8MstUl+ivBT+T0b2HGCxV9g51azzVntAFCV9CdHykkvLyeNqMbRDYksc45bjZC59vcrV8joNF2
+	IAwpckMbpNNs7TjNp1grnQw4ZKI/vgX59FqDm16dtV7Fq/wC1SGBK/f1sJHH9KmbhdkgjUEFIji/r
+	PJHHmMZ7T6JGqPFjkymu45+R1/KcQMyYC2WI+9uMLHmW4rU+bWQJoQQgelKSUGge489aJqkeFrC59
+	vlZj5+tzOF2Wu4hfxxd05dCMEs78DvX0GtAMZajaLcSw95XfgfRhevbhKPQFlefAcCi0q+V5NGLR5
+	Kjd8rBkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6eR-0000000ALaA-3Se5;
-	Thu, 06 Mar 2025 08:32:19 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tq6g7-0000000ALoc-0r4t;
+	Thu, 06 Mar 2025 08:34:03 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6cX-0000000ALL2-2ivO
+	id 1tq6eH-0000000ALZ9-2FGT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:30:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741249819;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=;
-	b=GWwWf5aYRdIsYz2HF9fmKDMB5Q7Q0jCrlRV/+2BUJwj72GUfnkDc/IDBosUEfkwLoF23Fm
-	EvC/DqTOCLO2J0Rtrdh2LIf3ycVeCBPaTIajq4yP0GDWAVGrrMDR+hjc1E4T8L1htUMn4Q
-	PUoh79ab15yzYwhRt828HU1YMafLTD8=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-665-YfE6WlxyMnSd3kypQLKpIw-1; Thu, 06 Mar 2025 03:30:15 -0500
-X-MC-Unique: YfE6WlxyMnSd3kypQLKpIw-1
-X-Mimecast-MFC-AGG-ID: YfE6WlxyMnSd3kypQLKpIw_1741249814
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-43bc97e6360so1489785e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:30:14 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741249814; x=1741854614;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zsCMTPwBZxgkhOa7brSI6tFSY0lECBrdeb8WRKOM7b4=;
-        b=wT1JLfu71u8Fa//lo3fKfV9wF7L1heWPawOjWV8Xtl4rZqu01ZPZaZM9/Zoc6vCchS
-         kdu6CtkeHJnlpar9zR3MEodbTVFybWKTra9Ep3hqP7IqtzoFikhIJnJiyF82OC7UTdPf
-         ABozCWzCnrPqfcIaIj4GUABlRQ67nSFktIIESmcOPY6rt9eINZ3chCT6JS0VVEVZsyea
-         ekS16pK0EXI+QoT7cH5+1uqAJL7D9q1S0D1vYqfRH1Wedn/dk7zC3SfTzf0BR1kUUfl7
-         uT5pBjh6+vI9tL95oeppOJ1USpHR9HiXH5f5+AzSrq9ALkXJQf21KMirrSjJPKiemOHE
-         GRzQ==
-X-Forwarded-Encrypted: i=1; AJvYcCViDrcD5mAZT3t4UXJ7oIq3amMNORScX0X1SDHLC7tXWTS/dO+9MUgPmkDN/LSK/JdU3+1u5YAlsVtNAEOOnEu7@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx3GOhMMnG6UVkX0ghzMiq7hByA+ALOJYAcbMrMVHtSHfwv6UfE
-	g1Y8hrTh/PnakuP/5D9fj5LyLf7dOX1hzRd8wAQojeWoVfrgWRSvgv8L40pzGduLIVkYnAmTJtq
-	MgNaigXUNEM6fsCB8/rMG+SEpmLoVLtDPoFapeO/9laxH6Yd+aBwPK79dNlFkurM8Cv5JcdSa
-X-Gm-Gg: ASbGncvSY564skj7haNmrwqSXN6zQz6RFcqgfE5bkBBFZxDk6L1XVNEFjSDoOVi22Pd
-	ARXmvMOyVMDt9k/gpbUi2bYknnyqr2Fvpn3ffKSxa584ZyOH/7YQMHLeCLBbjpIZffy/BN4qf+9
-	iKuIonhpNCkBLtXZzH4WxNBUqhMMswjRiH6XlWyj3ARYnIYgLuXcxyVJjiCNRmzasTs6Mxs7R6J
-	To94XZwHAPgTi+W/S3xZcAakLojJ6lOJFLhxNiekGohp0i2/5F9g4vEd8YrFOTNn+YzLwqlag1W
-	oqdOMaqB6Oc8azwtUVaOVUYYi5/w/4AucSdrK8T0WERmRQ==
-X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr59684405e9.16.1741249813969;
-        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IEeiiS7g9xPdRasKEgZd17TDJ4YiUIINUR88fvo+ijeTmx55HfEiBGbbv43iFagWinu4311xw==
-X-Received: by 2002:a05:600c:5117:b0:439:a6db:1824 with SMTP id 5b1f17b1804b1-43bd29d6c7fmr59683995e9.16.1741249813597;
-        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
-Received: from [192.168.88.253] (146-241-81-153.dyn.eolo.it. [146.241.81.153])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bdd8da097sm12217325e9.17.2025.03.06.00.30.12
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 06 Mar 2025 00:30:13 -0800 (PST)
-Message-ID: <738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
-Date: Thu, 6 Mar 2025 09:30:11 +0100
+	Thu, 06 Mar 2025 08:32:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 1B5DE5C5575;
+	Thu,  6 Mar 2025 08:29:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9D1A6C4CEE4;
+	Thu,  6 Mar 2025 08:32:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741249928;
+	bh=Asa+Q9Dadytnu7IE9OxlqukGoe3IuAv6i5AaA0FHBGk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=AuL6yP092N4mZZp4lPZrPmir5Z0U1OP8VCaF3OvFoWFlwHXcR7zwaz0Tjy60P+VXS
+	 LE6RgdmuzLV1/8aRbMJlrm4nhinol3hhizwCOGZ+TTEu39zsVtwl5ETW+w6f5r/wmI
+	 RRB7jbefUMLD9GhAQLcU3wzlsuPGocOxrGOUC5cnK49qBSQvAuJwd6MJtKcq2Osj7P
+	 xQ9CR+dv2Rco8rfKTkePMbob+wUoO1Nk8/Z9jq0ynY4wJoX9hSBF2WiksKa0+1OgQD
+	 KG9mvAIviuc4xFGBBKleov7vBsfAstwQhmQoTEgZo/Hj2Hn7ZixWrzb6To4Vn6St7i
+	 Q8ks3xoloqH/g==
+Message-ID: <1f14fdfe-379b-4718-812b-820c90f58e27@kernel.org>
+Date: Thu, 6 Mar 2025 09:31:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v4 02/13] net: phy: Use an internal, searchable
- storage for the linkmodes
-To: Maxime Chevallier <maxime.chevallier@bootlin.com>, davem@davemloft.net,
- Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, Russell King <linux@armlinux.org.uk>,
- Heiner Kallweit <hkallweit1@gmail.com>
-Cc: netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Herve Codina <herve.codina@bootlin.com>,
- Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>,
- =?UTF-8?Q?K=C3=B6ry_Maincent?= <kory.maincent@bootlin.com>,
- Oleksij Rempel <o.rempel@pengutronix.de>, Simon Horman <horms@kernel.org>,
- Romain Gantois <romain.gantois@bootlin.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
- <20250303090321.805785-3-maxime.chevallier@bootlin.com>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250303090321.805785-3-maxime.chevallier@bootlin.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: iZ4wjZ6ccDvEpvXdrxk8PAro4uIa7BGLPZsv0UrVyN4_1741249814
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+To: Swathi K S <swathi.ks@samsung.com>, krzk+dt@kernel.org,
+ andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, robh@kernel.org, conor+dt@kernel.org,
+ richardcochran@gmail.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com
+Cc: rmk+kernel@armlinux.org.uk, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ pankaj.dubey@samsung.com, ravi.patel@samsung.com, gost.dev@samsung.com
+References: <20250305091246.106626-1-swathi.ks@samsung.com>
+ <CGME20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6@epcas5p1.samsung.com>
+ <20250305091246.106626-2-swathi.ks@samsung.com>
+ <789ecb2f-dddc-491b-b9f8-5fb89058fd1b@kernel.org>
+ <012701db8e6b$950550c0$bf0ff240$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <012701db8e6b$950550c0$bf0ff240$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_003021_765277_312B2171 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250306_003209_711006_EBC7837F 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,65 +127,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/3/25 10:03 AM, Maxime Chevallier wrote:
-[...]
-> +static int speed_duplex_to_capa(int speed, unsigned int duplex)
-> +{
-> +	if (duplex == DUPLEX_UNKNOWN ||
-> +	    (speed > SPEED_1000 && duplex != DUPLEX_FULL))
-> +		return -EINVAL;
-> +
-> +	switch (speed) {
-> +	case SPEED_10: return duplex == DUPLEX_FULL ?
-> +			      LINK_CAPA_10FD : LINK_CAPA_10HD;
-> +	case SPEED_100: return duplex == DUPLEX_FULL ?
-> +			       LINK_CAPA_100FD : LINK_CAPA_100HD;
-> +	case SPEED_1000: return duplex == DUPLEX_FULL ?
-> +				LINK_CAPA_1000FD : LINK_CAPA_1000HD;
-> +	case SPEED_2500: return LINK_CAPA_2500FD;
-> +	case SPEED_5000: return LINK_CAPA_5000FD;
-> +	case SPEED_10000: return LINK_CAPA_10000FD;
-> +	case SPEED_20000: return LINK_CAPA_20000FD;
-> +	case SPEED_25000: return LINK_CAPA_25000FD;
-> +	case SPEED_40000: return LINK_CAPA_40000FD;
-> +	case SPEED_50000: return LINK_CAPA_50000FD;
-> +	case SPEED_56000: return LINK_CAPA_56000FD;
-> +	case SPEED_100000: return LINK_CAPA_100000FD;
-> +	case SPEED_200000: return LINK_CAPA_200000FD;
-> +	case SPEED_400000: return LINK_CAPA_400000FD;
-> +	case SPEED_800000: return LINK_CAPA_800000FD;
-> +	}
-> +
+On 06/03/2025 08:44, Swathi K S wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: 06 March 2025 12:45
+>> To: Swathi K S <swathi.ks@samsung.com>; krzk+dt@kernel.org;
+>> andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
+>> kuba@kernel.org; pabeni@redhat.com; robh@kernel.org;
+>> conor+dt@kernel.org; richardcochran@gmail.com;
+>> mcoquelin.stm32@gmail.com; alexandre.torgue@foss.st.com
+>> Cc: rmk+kernel@armlinux.org.uk; netdev@vger.kernel.org;
+>> devicetree@vger.kernel.org; linux-stm32@st-md-mailman.stormreply.com;
+>> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org;
+>> pankaj.dubey@samsung.com; ravi.patel@samsung.com;
+>> gost.dev@samsung.com
+>> Subject: Re: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree
+>> bindings
+>>
+>> On 05/03/2025 10:12, Swathi K S wrote:
+>>> Add FSD Ethernet compatible in Synopsys dt-bindings document. Add FSD
+>>> Ethernet YAML schema to enable the DT validation.
+>>>
+>>> Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
+>>> Signed-off-by: Ravi Patel <ravi.patel@samsung.com>
+>>> Signed-off-by: Swathi K S <swathi.ks@samsung.com>
+>>> ---
+>>>  .../devicetree/bindings/net/snps,dwmac.yaml   |   5 +-
+>>>  .../bindings/net/tesla,fsd-ethqos.yaml        | 118 ++++++++++++++++++
+>>>  2 files changed, 121 insertions(+), 2 deletions(-)  create mode
+>>> 100644 Documentation/devicetree/bindings/net/tesla,fsd-ethqos.yaml
+>>>
+>>
+>> I tried and did not see any differences, so point me exactly to any difference
+>> in the binding (binding!) which would justify dropping review?
+> 
+> Added the following in the example given in DT binding doc:
 
-What about adding some code here to help future patch updating LINK_CAPA
-definition as needed?
+OK, but that's an example, not the binding, so no new properties in the
+binding.
 
-Something alike:
+> 
+> assigned-clocks = <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
+>                                 <&clock_peric PERIC_EQOS_PHYRXCLK>;
+> assigned-clock-parents = <&clock_peric PERIC_EQOS_PHYRXCLK>;
+> 
+> Given the significance of these changes, I assumed the changes need to be reviewed again.
 
-	pr_err_once("Unknown speed %d, please update LINK_CAPS\n", speed);
+Adding standard properties to the example is not significant change. It
+is really a minor change.
 
 
-> +	return -EINVAL;
-> +}
-> +
-> +/**
-> + * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
-> + */
-> +void phy_caps_init(void)
-> +{
-> +	const struct link_mode_info *linkmode;
-> +	int i, capa;
-> +
-> +	/* Fill the caps array from net/ethtool/common.c */
-> +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
-> +		linkmode = &link_mode_params[i];
-> +		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
-> +
-> +		if (capa < 0)
-> +			continue;
 
-Or even error-out here.
-
-/P
-
+Best regards,
+Krzysztof
 
