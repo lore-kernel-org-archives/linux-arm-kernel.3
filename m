@@ -4,106 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52E80C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:10:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C38C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:19:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kWV8ljageqb0izUaC+/nzAbBvrv81I+4eNjdwXRR/Fs=; b=SM/U84KtOcEGfilaDihfs7fCed
-	zMVDhHU77YMah3GXPcHUDT7tMxNp1Kz5Oevut4YIndjU1jCZaNhOAskWmy3BDXc+eoIUsJVrwyPNb
-	hpf+yirvf/fovo1T+Vh+2Jfpxd2RbCyKLHoymvsAF4wmR1SWmcjdBFnL5d5Uc9eveTg9xHXW1Stdg
-	kc2Q/eMBNVLRBfFxVO43Ti+bLpFgakxkpwbM+AdoJNG+j9gplQe6sE+OHWXKTHGeD1eB9FMmkNKit
-	v3cjcI++R+TPeVoWvDRkaAmXm/kMisQydlUys6cQEAvlSaDJM5mObV22nd4u3FVav0eGl/mlCXPp1
-	knLShlJw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=eGUMGHsMeb6CDekXNib8NcewB1o0trIH1XTqYThLLsA=; b=h6zMV+6mCXuiZn3Er62p67923Q
+	IGX1G/VbNSmSpczEm21FNXytIlOuqS3DOTukxwehC7Y++Ple8swILqZoXdYEBayy8qAW+OBRtfKHm
+	p/VORWMIgvNy5TP+ltUCRvImYyEkrq3Dr/h0JEXR9uY+hrF56QSDk4/gYA1GTvOAoaXeUMpmLiYKw
+	oppw+KMc/ZCfA6tcxPhGrdvB8QBnh3ny2O24GT83ZjrQPvNzeuwUZzaOOXre2aWEXUJ4JDlBKQQTl
+	S/yVX1eNVjoIvFAG9KLTclhuK9E41dU5UpTq0DVkYEVHnw7MBi7OHHhvSsRbTKYeVPuXgvRqeU+An
+	kXmNi15A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBvP-0000000B9ld-3iav;
-	Thu, 06 Mar 2025 14:10:11 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tqC3u-0000000BBIy-2iKo;
+	Thu, 06 Mar 2025 14:18:58 +0000
+Received: from mail-m49197.qiye.163.com ([45.254.49.197])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBtn-0000000B9ZU-2rx4;
-	Thu, 06 Mar 2025 14:08:33 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e57c81d5d0so839488a12.2;
-        Thu, 06 Mar 2025 06:08:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741270110; x=1741874910; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=kWV8ljageqb0izUaC+/nzAbBvrv81I+4eNjdwXRR/Fs=;
-        b=FKzXl6ImPAK42sC4/r/SbrkaIkgX+QCY/eUxKAT7n+mPiEEWucFBbt9ID4aDHPekho
-         UYZgXkuunboZpUtlDygraK4WpqNw/Kwt0UV4+AhVShcH9j4iXSA7+VxvV22aFdAxnn2K
-         CKkzPdAKscEAJrjGlrw6e53asWlE3ojz9gGrrWCrU0+r1WvSI9/bQ9llC8rBl1r9as6o
-         6YSHuRvLI8f4/ob8q+2e+QIQpbaL51V15TgkL8n9eGNTyOfM7wTGz0HUwIZDpN/kOhoQ
-         MYYFwGVcd73SzOj1Zgcp8KBHqjU63294a1/WUovl9/U52aefxr5x70hUxvA2Zneq2nHB
-         m7Vg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741270110; x=1741874910;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=kWV8ljageqb0izUaC+/nzAbBvrv81I+4eNjdwXRR/Fs=;
-        b=YbJLyN3U2zywwsv/1GTmBQpthafPOO6MrZK+DUfAjzX2RY/HxPQsWhs4tE/QXPGZCg
-         T4evuYbL7W0t5EwGTvo3n2XUDNqSRsk0cwIE6IQi/gwwu9+RU/4WwUqkPAm15umgmN5E
-         uhqA5IfhLDzfuSkZgjOhymWM5Af7FtatNsvMHzxfbUiXk2BofcMgJtz1o/D3+C/26NdY
-         VW9sDNuzQiBIVIC4+1GLS/abE0a5IEzC6oRIJy7G9Zk+BcVC30IfZPWW3l46/rbsk9+R
-         TNi24lTbyNTbaHItbqVY0ekeu31BxnDCHH3GhYBYkkGgFtkuuUGNzyfr3oEB93vRnHaI
-         cOLw==
-X-Forwarded-Encrypted: i=1; AJvYcCU8sLlt4aGQjBVdIGs9BNHkFlLy/ixZH4r8LWA9OhyvAEbMa15GwbY1ewJ0IHeTQ9rjBzaeylpOTE87CISvs8I=@lists.infradead.org, AJvYcCWASSjc/4YBUf6ZJSoJoBgBOjCh4LQRwAZ4DrLC3g2m+Bc/OvcvajqofXRNpgSa3uLrat7dh+38LrBiTewqiNnt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8kB/l6wZJezpSDMOTmECObd0Tta6ADPBV7Rq9VRhjQpABwc5w
-	E7BdepuWgAkax+ElOnLPUMBGq2OXFzxWM5iHb48o95hCsE2uJ/1R
-X-Gm-Gg: ASbGnctWiGbWBDEJ1zUNuu7yhQNU+xiwoeEgWcOg9nK+TUMlUJun2CKl9SJZGdAZ0Sf
-	1IyMrf10cEat+3oaHz3sifbyD/jUUJih3RUfnnvJG8p7cKaEUp6fYWii6w8y/3VdgKEUoF3ynfw
-	gfOktOAL0fmM32NBIQ+SfzY4PZg7kf9fyTW2SQxH7YFUNidpHfYFbCbXmuBt0EzL13hGzfMXc6P
-	uQ4Jk3fCv/KmSE4gSz4hD1irafnqKFXjlUYGiv/g5OHhwsldwIn+L8fyjasMV/1LHuqC33q6xPS
-	ZBYR/E4H27XaeoScifN9eVDwTI8s//YpAs2aWziHK1e5Q2JSzo/j+GaPkf2e/GgxPu4ma7vtKwJ
-	DiaXeykzqMDYVjRpOe2hdECKvdQ==
-X-Google-Smtp-Source: AGHT+IEjOK8tItru0CnDJMfpuW+YocWEOgCRwuy6WiSEato+NxCIl7mKq10KFt+G6Q2r3z6rTWjduA==
-X-Received: by 2002:a05:6402:2186:b0:5e5:be7f:a1f6 with SMTP id 4fb4d7f45d1cf-5e5be7fa870mr8495205a12.1.1741270109496;
-        Thu, 06 Mar 2025 06:08:29 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c7475e9dsm989794a12.30.2025.03.06.06.08.26
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 Mar 2025 06:08:28 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH 0/6] Add support for RK3588 DisplayPort Controller
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-X-Priority: 3
-In-Reply-To: <46c0d239.a4f5.1956b619b97.Coremail.andyshrk@163.com>
-Date: Thu, 6 Mar 2025 15:08:14 +0100
-Cc: heiko@sntech.de,
- neil.armstrong@linaro.org,
- sebastian.reichel@collabora.com,
- devicetree@vger.kernel.org,
- hjc@rock-chips.com,
- mripard@kernel.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com,
- dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>,
- krzk+dt@kernel.org,
- robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <252BB2E2-4BC5-4402-953D-F7B30EA5DE14@gmail.com>
-References: <25401bfa.291d.19564244e54.Coremail.andyshrk@163.com>
- <75189787-28E1-4FC2-8E10-4960B3877A6F@gmail.com>
- <28b0d3fc.bb3.19568f6b5f8.Coremail.andyshrk@163.com>
- <44213B17-FE14-4FB8-8319-1E31BBF6EAA0@gmail.com>
- <74c154b6.8c50.1956aa8c8d2.Coremail.andyshrk@163.com>
- <1573D5D6-AFED-4D92-8112-B0C6BB52D5FF@gmail.com>
- <46c0d239.a4f5.1956b619b97.Coremail.andyshrk@163.com>
-To: Andy Yan <andyshrk@163.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tqAZP-0000000AxQz-3Yxf;
+	Thu, 06 Mar 2025 12:43:25 +0000
+Received: from localhost.localdomain (unknown [119.122.215.89])
+	by smtp.qiye.163.com (Hmail) with ESMTP id d2b83ca5;
+	Thu, 6 Mar 2025 20:38:17 +0800 (GMT+08:00)
+From: Chukun Pan <amadeus@jmu.edu.cn>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Lee Jones <lee@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	Chukun Pan <amadeus@jmu.edu.cn>
+Subject: [PATCH v2 0/2] arm64: dts: rockchip: Add rk3528 QoS register node
+Date: Thu,  6 Mar 2025 20:38:07 +0800
+Message-Id: <20250306123809.273655-1-amadeus@jmu.edu.cn>
+X-Mailer: git-send-email 2.25.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVkZTB5LVh4eSUlMHhlKT0hLS1YeHw5VEwETFhoSFy
+	QUDg9ZV1kYEgtZQVlKSkJVSklJVUlKTlVDQllXWRYaDxIVHRRZQVlPS0hVSktISk5MTlVKS0tVSk
+	JLS1kG
+X-HM-Tid: 0a956b76b74203a2kunmd2b83ca5
+X-HM-MType: 10
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6NC46SRw*CDJWCDMwTxoSIxYY
+	OgIaCiJVSlVKTE9KSU1PTUJMQ0xPVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUpK
+	QlVKSUlVSUpOVUNCWVdZCAFZQU9LSzcG
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_060831_722891_1B208243 
-X-CRM114-Status: UNSURE (   7.07  )
+X-CRM114-CacheID: sfid-20250306_044324_050272_EF1649BC 
+X-CRM114-Status: UNSURE (   4.78  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,30 +74,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Changes in v2:
+  Improve commit message
+  Add missing QoS compatible in DT
 
+Chukun Pan (2):
+  dt-bindings: mfd: syscon: Add rk3528 QoS register compatible
+  arm64: dts: rockchip: Add rk3528 QoS register node
 
-> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
-6 mar 2025, o godz. 13:15:
->=20
-> Hi Piotr,
->=20
->=20
->=20
-> Then when you DP cable plugin, you can run command as bellow to see if =
-the driver detects the HPD:
->=20
-> # cat /sys/class/drm/card0-DP-1/status=20
-> connected
-> #=20
->=20
+ .../devicetree/bindings/mfd/syscon.yaml       |   2 +
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 160 ++++++++++++++++++
+ 2 files changed, 162 insertions(+)
 
+-- 
+2.25.1
 
-Andy,
-Thx!
-
-With above changes i=E2=80=99m getting =E2=80=9Econnected=E2=80=9D.
-Also it looks crtc gets reasonable mode: =
-https://gist.github.com/warpme/d6220e3cc502086a4c95f05bd9f9cf0c
-
-Still black screen however... =20=
 
