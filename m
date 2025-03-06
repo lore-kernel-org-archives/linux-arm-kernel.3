@@ -4,76 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7018AC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59E5FC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 21:17:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tqXzHpdb6Olp1PANz4c+wlUcYsphsIvloySoU21/Xn4=; b=cJr5Bn00G8XnidwB1IHz0pvzq/
-	zQWZQP0pvwV7cz5QWbSTYcIBf1p6vuFjeLoB+eflyV+Rw9r43V9ThdpkbI0BbVi60MSXwsZVP3am+
-	YgH9SpWLG/xpvdZDnV3nL2kkfGhOvbbzXqORI119QQ80kK112Y29KoL1JQ5C3aXosnKHzB3MiAsXA
-	qVMoR1UUFWp+HAafPgOlQO5HH1M8aLLVOtg5oT0qevhxFIruY5dFTamr3KJG1PmHz2Ps8X6alOTs9
-	ndYt8IY7ak+3VuC2DlT2aJBqKPj50NBT0RwToqqB0K880HP81ilCCa4/tw1I3GmFyAOfsORhKw2nC
-	SRNrq5sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=; b=csxT2lQEri2xe+t9vc/sW4QM+g
+	GB0e6C5SNS+M80wVPtTNspQHQtq3GABaHL1S1rOaYYODQN5XWKQPYqFzL6ABTRH30SwDPOn/ZaCt8
+	AcVyBLQMUQZJpqWykAfb/S9Tao9tX3p00XTRtskBJvZ3lKVTsrF/y5vO5pPgZG8MO9tSgc8+gIKvA
+	BlxfGP1RX2sPkX13MAtMyVX/kXyaXHTZfUeRHX2DkHMFHh/SVXqVxFXaAoDbpmOpnHZtLZob61MM7
+	aRpjjbo3C36xIy9zcsH1orsCuF4QoLfwpqc1xb0kASG0aGtVO4uoo4e9EfOYOlhzO9JNmu4RVXZsW
+	G3lAG2fA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIZL-0000000CFAo-1mqF;
-	Thu, 06 Mar 2025 21:15:51 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1tqIav-0000000CFST-0TJM;
+	Thu, 06 Mar 2025 21:17:29 +0000
+Received: from lahtoruutu.iki.fi ([2a0b:5c81:1c1::37])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqITv-0000000CDvn-0h6i
+	id 1tqIXQ-0000000CEha-3t2r
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 21:10:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1741295414; bh=tqXzHpdb6Olp1PANz4c+wlUcYsphsIvloySoU21/Xn4=;
- b=dy339YAoeHpKGTasIJtgXW5pDVfVqRkLnZVtNCn2enWrMLftjMvElP/MEFTnv8L/Ncw3zPC50
- 1UHRrilJeuYfnJSSWgdwEb2x1wFX4QL1/CV8CVuPTQhAPMfwHShMYW6K6h6ELRo8HJwAV/lGvhv
- 59HFA91xAW1tsgReYUff1wh6cI5PTQvgau9zu1mJylgiVhPs2XSrgleUR8tnuR/PVWreW3q9GXB
- rS3G1oGTHaEXTavWCB7sDRaMa74CqgAPZB81aviNHTQHvTgD1KM3wN4pqy/qlyw8X3p1fIOg+Nk
- m+p9uyuPcnXCi3X+v388ZY/9Uz7f4WzN1gpFn0nr8tkw==
-X-Forward-Email-ID: 67ca0f2ead3e70e1cd99d838
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-From: Jonas Karlman <jonas@kwiboo.se>
-To: Heiko Stuebner <heiko@sntech.de>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH 2/2] net: stmmac: dwmac-rk: Validate rockchip,grf and php-grf during probe
-Date: Thu,  6 Mar 2025 21:09:46 +0000
-Message-ID: <20250306210950.1686713-3-jonas@kwiboo.se>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250306210950.1686713-1-jonas@kwiboo.se>
-References: <20250306210950.1686713-1-jonas@kwiboo.se>
+	Thu, 06 Mar 2025 21:13:54 +0000
+Received: from hillosipuli.retiisi.eu (2a00-1190-d1dd-0-c641-1eff-feae-163c.v6.cust.suomicom.net [IPv6:2a00:1190:d1dd:0:c641:1eff:feae:163c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by lahtoruutu.iki.fi (Postfix) with ESMTPSA id 4Z82GN1hW5z49Q16;
+	Thu,  6 Mar 2025 23:13:48 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=lahtoruutu;
+	t=1741295629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=;
+	b=QHKpVznW8iOM4SSfMfAUzcBerrMwpo5ndWtah6O0FYF5U5qIavbQWW0yuVdXBWA1duZfPG
+	/tPNUGI/434peavUNxEA2kX3HSOY9FIMbXWNYSAPJKQdVQ7rgoY+fQnCfgOk1SxxG1BHxc
+	23NY7Y6H0hyhzO6u2omYlpkPPM/s6q9LNlrxIWndp5uz99rOSfAxRhvL92OD3YWvxGpy0U
+	YJ+iPeMNPhJGbqwzzEa0omqYpudmdFN7+Jp4Lz2X86ldR8Sx94xeFlvOhcwhj0cd/io67F
+	W3As/b7mzHhPVyiTFykzsK9o4FIFi5weN9IMheju33jYHCZVd+/nB9nx3wAnZg==
+ARC-Seal: i=1; s=lahtoruutu; d=iki.fi; t=1741295629; a=rsa-sha256;
+	cv=none;
+	b=odHNYxXjVxIMvfaBsNyalVkmcTcgedlDXyrhQhsDLMI56nvguJdnH9gEt1w0TSUd5UJwJ5
+	cLwunozpTjPqWC33xOmxa/EE8rfzQLM4rGvYTc1+ziYvrPJT8zjsyTyAjcQIgQDBDKDQ0L
+	jRAhQ39xD6luECNolcTi0pLdNZGO6cRihpAnNXEKq96nd+JY72TWHGwqDGY+1y2PKVGStZ
+	o3ed7haqNQr3UlHxrQByRgXhgZlI+WQZQUJQPlQ6N8P7y7EkBGzgsu/B5PmeLS9iNA9uUE
+	W98onpkBkWErJ2mECRo0vso+TTrKHKPeeyjv4vfFPSP8hlvPhtE+M210UOlhGg==
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=lahtoruutu; t=1741295629;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RyXNjuHLnx3cU+qPnE9MNm9qjAiojX2ux1nNWDZm2TY=;
+	b=eJzhBEsC+Ytpu13kBlhPZecQyJnWw45qF0/4DHv8VDb+WsOQoiPKvwZDprykmqqd61Tk+W
+	M+/yFaW2nLr3dI+hzkbXgNlIy9WkyjULc0TMPcNPEMWS1lXV2mSQ4gQ//71LERkXyEX8kg
+	GhY/y6YffUbBlB9s8lCfVY3pv0nsFw92Y/OGVWeOF1vBNetpA0guOfq0liwMN9VIX80QII
+	28OgfEKAcYtP8Y69c/6tJkOGvVGjnrB5Vp8xOPj1J7errMK189/gEl57RcyvZN9uuyNTdS
+	5XDgw/x4K0wal3SYfTSUdf4YF8qd2ViDIDxaIeWS09XUPFBG6jdm3zJfi3yDeg==
+Received: from valkosipuli.retiisi.eu (valkosipuli.localdomain [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 095B1634C93;
+	Thu,  6 Mar 2025 23:13:47 +0200 (EET)
+Date: Thu, 6 Mar 2025 21:13:46 +0000
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Mathis Foerst <mathis.foerst@mt.com>, linux-kernel@vger.kernel.org,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, manuel.traut@mt.com,
+	mathis.foerst@zuehlke.com
+Subject: Re: [PATCH v1 1/1] media: imx: csi: Parse link configuration from
+ fw_node
+Message-ID: <Z8oQCuqKVH225lPw@valkosipuli.retiisi.eu>
+References: <20250305113802.897087-1-mathis.foerst@mt.com>
+ <20250305113802.897087-2-mathis.foerst@mt.com>
+ <Z8nOTrjEW_OYBGlq@valkosipuli.retiisi.eu>
+ <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_131015_228302_7D694C2E 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250306_131353_139079_ED44D63C 
+X-CRM114-Status: GOOD (  44.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,606 +115,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-All Rockchip GMAC variants require writing to GRF to configure e.g.
-interface mode and MAC rx/tx delay. The GRF syscon regmap is located
-with help of a rockchip,grf and rockchip,php-grf phandle.
+Hi Dan,
 
-However, validating the rockchip,grf and rockchip,php-grf syscon regmap
-is deferred until e.g. interface mode or speed is configured, inside the
-indivitual SoC specific operations.
+On Thu, Mar 06, 2025 at 10:07:20PM +0300, Dan Carpenter wrote:
+> On Thu, Mar 06, 2025 at 04:33:18PM +0000, Sakari Ailus wrote:
+> > Hi Mathis,
+> > 
+> > Thanks for the patch.
+> > 
+> > On Wed, Mar 05, 2025 at 12:38:02PM +0100, Mathis Foerst wrote:
+> > > The imx-media-csi driver requires upstream camera drivers to implement
+> > > the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
+> > > implement this function are not usable on the i.MX6.
+> > > 
+> > > The docs for get_mbus_config [1] say:
+> > > @get_mbus_config: get the media bus configuration of a remote sub-device.
+> > >             The media bus configuration is usually retrieved from the
+> > >             firmware interface at sub-device probe time, immediately
+> > >             applied to the hardware and eventually adjusted by the
+> > >             driver.
+> > > 
+> > > Currently, the imx-media-csi driver is not incorporating the information
+> > > from the firmware interface and therefore relies on the implementation of
+> > > get_mbus_config by the camera driver.
+> > > 
+> > > To be compatible with camera drivers not implementing get_mbus_config
+> > > (which is the usual case), use the bus information from the fw interface:
+> > > 
+> > > The camera does not necessarily has a direct media bus link to the CSI as
+> > > the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
+> > > between them on the media pipeline.
+> > > The CSI driver already implements the functionality to find the connected
+> > > camera sub-device to call get_mbus_config on it.
+> > > 
+> > > At this point the driver is modified as follows:
+> > > In the case that get_mbus_config is not implemented by the upstream
+> > > camera, try to get its endpoint configuration from the firmware interface
+> > > usign v4l2_fwnode_endpoint_parse.
+> > > For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
+> > > V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
+> > > configuration.
+> > > For all other mbus_types, return an error.
+> > > 
+> > > Note that parsing the mbus_config from the fw interface is not done during
+> > > probing because the camera that's connected to the CSI can change based on
+> > > the selected input of the video-mux at runtime.
+> > > 
+> > > [0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
+> > > [1] include/media/v4l2-subdev.h - line 814
+> > > 
+> > > Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
+> > > ---
+> > >  drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
+> > >  1 file changed, 32 insertions(+), 4 deletions(-)
+> > > 
+> > > diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+> > > index 3edbc57be2ca..394a9321a10b 100644
+> > > --- a/drivers/staging/media/imx/imx-media-csi.c
+> > > +++ b/drivers/staging/media/imx/imx-media-csi.c
+> > > @@ -169,6 +169,8 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > >  {
+> > >  	struct v4l2_subdev *sd, *remote_sd;
+> > >  	struct media_pad *remote_pad;
+> > > +	struct fwnode_handle *ep_node;
+> > > +	struct v4l2_fwnode_endpoint ep = { .bus_type = 0 };
+> > 
+> > Are there any defaults in DT bindings (other than 0's)? Also initialising a
+> > field to zero this way is redundant, just use {}.
+> > 
+> 
+> I was going to respond in much the same way.  This is equivalen to:
+> 
+> struct v4l2_fwnode_endpoint ep = { .bus_type = V4L2_MBUS_UNKNOWN };
 
-Change to validate the rockchip,grf and rockchip,php-grf syscon regmap
-at probe time to simplify all SoC specific operations.
+Thinking about this in a context of parsing the endpoint, in fact the
+bus_type should be specified. Presumably the hardware is D-PHY, so the
+correct value would be V4L2_MBUS_CSI2_DPHY. This way
+v4l2_fwnode_endpoint_parse() doesn't need to guess.
 
-Prior to this, use of a device tree without a rockchip,grf would fail
-when interface mode or speed is configured, with this use of such device
-tree would instead result in failure at probe time.
+> 
+> > >  	int ret;
+> > >  
+> > >  	if (!priv->src_sd)
+> > > @@ -210,11 +212,37 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > >  
+> > >  	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
+> > >  			       remote_pad->index, mbus_cfg);
+> > > -	if (ret == -ENOIOCTLCMD)
+> > > -		v4l2_err(&priv->sd,
+> > > -			 "entity %s does not implement get_mbus_config()\n",
+> > > -			 remote_pad->entity->name);
+> > > +	if (ret == -ENOIOCTLCMD) {
+> > 
+> > 	if (!ret)
+> > 		return 0;
+> > 
+> > And you can unindent the rest.
+> 
+> I was going to say this too but then I thought actually this needs to
+> be:
+> 
+> 	if (ret != -ENOIOCTLCMD)
+> 		return ret;
+> 
+> Which is weird.  Better to break all the new code into a separate
+> helper function.
+> 
+> 	if (ret == -ENOIOCTLCMD)
+> 		ret = parse_fw_link_config_stuff();
+> 
+> 	return ret;
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 269 ++----------------
- 1 file changed, 18 insertions(+), 251 deletions(-)
+Indeed. get_mbus_config() presumably wouldn't return an error but
+correctness is usually a good idea.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 79db81d68afd..ba1cd079adf2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -105,13 +105,6 @@ struct rk_priv_data {
- 
- static void px30_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, PX30_GRF_GMAC_CON1,
- 		     PX30_GMAC_PHY_INTF_SEL_RMII);
- }
-@@ -185,13 +178,6 @@ static const struct rk_gmac_ops px30_ops = {
- static void rk3128_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3128_GRF_MAC_CON1,
- 		     RK3128_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3128_GMAC_RMII_MODE_CLR);
-@@ -203,13 +189,6 @@ static void rk3128_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3128_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3128_GRF_MAC_CON1,
- 		     RK3128_GMAC_PHY_INTF_SEL_RMII | RK3128_GMAC_RMII_MODE);
- }
-@@ -218,11 +197,6 @@ static void rk3128_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3128_GRF_MAC_CON1,
- 			     RK3128_GMAC_CLK_2_5M);
-@@ -240,11 +214,6 @@ static void rk3128_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3128_GRF_MAC_CON1,
- 			     RK3128_GMAC_RMII_CLK_2_5M |
-@@ -301,13 +270,6 @@ static const struct rk_gmac_ops rk3128_ops = {
- static void rk3228_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3228_GRF_MAC_CON1,
- 		     RK3228_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3228_GMAC_RMII_MODE_CLR |
-@@ -320,13 +282,6 @@ static void rk3228_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3228_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3228_GRF_MAC_CON1,
- 		     RK3228_GMAC_PHY_INTF_SEL_RMII |
- 		     RK3228_GMAC_RMII_MODE);
-@@ -339,11 +294,6 @@ static void rk3228_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3228_GRF_MAC_CON1,
- 			     RK3228_GMAC_CLK_2_5M);
-@@ -361,11 +311,6 @@ static void rk3228_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3228_GRF_MAC_CON1,
- 			     RK3228_GMAC_RMII_CLK_2_5M |
-@@ -423,13 +368,6 @@ static const struct rk_gmac_ops rk3228_ops = {
- static void rk3288_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3288_GRF_SOC_CON1,
- 		     RK3288_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3288_GMAC_RMII_MODE_CLR);
-@@ -441,13 +379,6 @@ static void rk3288_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3288_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3288_GRF_SOC_CON1,
- 		     RK3288_GMAC_PHY_INTF_SEL_RMII | RK3288_GMAC_RMII_MODE);
- }
-@@ -456,11 +387,6 @@ static void rk3288_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3288_GRF_SOC_CON1,
- 			     RK3288_GMAC_CLK_2_5M);
-@@ -478,11 +404,6 @@ static void rk3288_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3288_GRF_SOC_CON1,
- 			     RK3288_GMAC_RMII_CLK_2_5M |
-@@ -515,13 +436,6 @@ static const struct rk_gmac_ops rk3288_ops = {
- 
- static void rk3308_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3308_GRF_MAC_CON0,
- 		     RK3308_GMAC_PHY_INTF_SEL_RMII);
- }
-@@ -530,11 +444,6 @@ static void rk3308_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3308_GRF_MAC_CON0,
- 			     RK3308_GMAC_SPEED_10M);
-@@ -587,13 +496,6 @@ static const struct rk_gmac_ops rk3308_ops = {
- static void rk3328_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3328_GRF_MAC_CON1,
- 		     RK3328_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3328_GMAC_RMII_MODE_CLR |
-@@ -606,14 +508,8 @@ static void rk3328_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3328_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	unsigned int reg;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	reg = bsp_priv->integrated_phy ? RK3328_GRF_MAC_CON2 :
- 		  RK3328_GRF_MAC_CON1;
- 
-@@ -626,11 +522,6 @@ static void rk3328_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3328_GRF_MAC_CON1,
- 			     RK3328_GMAC_CLK_2_5M);
-@@ -649,11 +540,6 @@ static void rk3328_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- 	struct device *dev = &bsp_priv->pdev->dev;
- 	unsigned int reg;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	reg = bsp_priv->integrated_phy ? RK3328_GRF_MAC_CON2 :
- 		  RK3328_GRF_MAC_CON1;
- 
-@@ -714,13 +600,6 @@ static const struct rk_gmac_ops rk3328_ops = {
- static void rk3366_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3366_GRF_SOC_CON6,
- 		     RK3366_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3366_GMAC_RMII_MODE_CLR);
-@@ -732,13 +611,6 @@ static void rk3366_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3366_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3366_GRF_SOC_CON6,
- 		     RK3366_GMAC_PHY_INTF_SEL_RMII | RK3366_GMAC_RMII_MODE);
- }
-@@ -747,11 +619,6 @@ static void rk3366_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3366_GRF_SOC_CON6,
- 			     RK3366_GMAC_CLK_2_5M);
-@@ -769,11 +636,6 @@ static void rk3366_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3366_GRF_SOC_CON6,
- 			     RK3366_GMAC_RMII_CLK_2_5M |
-@@ -825,13 +687,6 @@ static const struct rk_gmac_ops rk3366_ops = {
- static void rk3368_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3368_GRF_SOC_CON15,
- 		     RK3368_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3368_GMAC_RMII_MODE_CLR);
-@@ -843,13 +698,6 @@ static void rk3368_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3368_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3368_GRF_SOC_CON15,
- 		     RK3368_GMAC_PHY_INTF_SEL_RMII | RK3368_GMAC_RMII_MODE);
- }
-@@ -858,11 +706,6 @@ static void rk3368_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3368_GRF_SOC_CON15,
- 			     RK3368_GMAC_CLK_2_5M);
-@@ -880,11 +723,6 @@ static void rk3368_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3368_GRF_SOC_CON15,
- 			     RK3368_GMAC_RMII_CLK_2_5M |
-@@ -936,13 +774,6 @@ static const struct rk_gmac_ops rk3368_ops = {
- static void rk3399_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3399_GRF_SOC_CON5,
- 		     RK3399_GMAC_PHY_INTF_SEL_RGMII |
- 		     RK3399_GMAC_RMII_MODE_CLR);
-@@ -954,13 +785,6 @@ static void rk3399_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3399_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RK3399_GRF_SOC_CON5,
- 		     RK3399_GMAC_PHY_INTF_SEL_RMII | RK3399_GMAC_RMII_MODE);
- }
-@@ -969,11 +793,6 @@ static void rk3399_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10)
- 		regmap_write(bsp_priv->grf, RK3399_GRF_SOC_CON5,
- 			     RK3399_GMAC_CLK_2_5M);
-@@ -991,11 +810,6 @@ static void rk3399_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RK3399_GRF_SOC_CON5,
- 			     RK3399_GMAC_RMII_CLK_2_5M |
-@@ -1040,14 +854,8 @@ static const struct rk_gmac_ops rk3399_ops = {
- static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	u32 con0, con1;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	con0 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON0 :
- 				     RK3568_GRF_GMAC0_CON0;
- 	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
-@@ -1064,14 +872,8 @@ static void rk3568_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3568_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	u32 con1;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	con1 = (bsp_priv->id == 1) ? RK3568_GRF_GMAC1_CON1 :
- 				     RK3568_GRF_GMAC0_CON1;
- 	regmap_write(bsp_priv->grf, con1, RK3568_GMAC_PHY_INTF_SEL_RMII);
-@@ -1149,14 +951,8 @@ static const struct rk_gmac_ops rk3568_ops = {
- static void rk3576_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	unsigned int offset_con;
- 
--	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
--		dev_err(dev, "Missing rockchip,grf or rockchip,php-grf property\n");
--		return;
--	}
--
- 	offset_con = bsp_priv->id == 1 ? RK3576_GRF_GMAC_CON1 :
- 					 RK3576_GRF_GMAC_CON0;
- 
-@@ -1182,14 +978,8 @@ static void rk3576_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3576_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	unsigned int offset_con;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	offset_con = bsp_priv->id == 1 ? RK3576_GRF_GMAC_CON1 :
- 					 RK3576_GRF_GMAC_CON0;
- 
-@@ -1308,14 +1098,8 @@ static const struct rk_gmac_ops rk3576_ops = {
- static void rk3588_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
- 	u32 offset_con, id = bsp_priv->id;
- 
--	if (IS_ERR(bsp_priv->grf) || IS_ERR(bsp_priv->php_grf)) {
--		dev_err(dev, "Missing rockchip,grf or rockchip,php_grf property\n");
--		return;
--	}
--
- 	offset_con = bsp_priv->id == 1 ? RK3588_GRF_GMAC_CON9 :
- 					 RK3588_GRF_GMAC_CON8;
- 
-@@ -1335,13 +1119,6 @@ static void rk3588_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rk3588_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->php_grf)) {
--		dev_err(dev, "%s: Missing rockchip,php_grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->php_grf, RK3588_GRF_GMAC_CON0,
- 		     RK3588_GMAC_PHY_INTF_SEL_RMII(bsp_priv->id));
- 
-@@ -1424,13 +1201,6 @@ static const struct rk_gmac_ops rk3588_ops = {
- 
- static void rv1108_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RV1108_GRF_GMAC_CON0,
- 		     RV1108_GMAC_PHY_INTF_SEL_RMII);
- }
-@@ -1439,11 +1209,6 @@ static void rv1108_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
- {
- 	struct device *dev = &bsp_priv->pdev->dev;
- 
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	if (speed == 10) {
- 		regmap_write(bsp_priv->grf, RV1108_GRF_GMAC_CON0,
- 			     RV1108_GMAC_RMII_CLK_2_5M |
-@@ -1492,13 +1257,6 @@ static const struct rk_gmac_ops rv1108_ops = {
- static void rv1126_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 				int tx_delay, int rx_delay)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "Missing rockchip,grf property\n");
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RV1126_GRF_GMAC_CON0,
- 		     RV1126_GMAC_PHY_INTF_SEL_RGMII |
- 		     RV1126_GMAC_M0_RXCLK_DLY_ENABLE |
-@@ -1517,13 +1275,6 @@ static void rv1126_set_to_rgmii(struct rk_priv_data *bsp_priv,
- 
- static void rv1126_set_to_rmii(struct rk_priv_data *bsp_priv)
- {
--	struct device *dev = &bsp_priv->pdev->dev;
--
--	if (IS_ERR(bsp_priv->grf)) {
--		dev_err(dev, "%s: Missing rockchip,grf property\n", __func__);
--		return;
--	}
--
- 	regmap_write(bsp_priv->grf, RV1126_GRF_GMAC_CON0,
- 		     RV1126_GMAC_PHY_INTF_SEL_RMII);
- }
-@@ -1813,8 +1564,24 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 
- 	bsp_priv->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							"rockchip,grf");
--	bsp_priv->php_grf = syscon_regmap_lookup_by_phandle(dev->of_node,
--							    "rockchip,php-grf");
-+	if (IS_ERR(bsp_priv->grf)) {
-+		ret = PTR_ERR(bsp_priv->grf);
-+		dev_err_probe(dev, ret, "failed to lookup rockchip,grf\n");
-+		return ERR_PTR(ret);
-+	}
-+
-+	bsp_priv->php_grf =
-+		syscon_regmap_lookup_by_phandle_optional(dev->of_node,
-+							 "rockchip,php-grf");
-+	if ((of_device_is_compatible(dev->of_node, "rockchip,rk3588-gmac") ||
-+	     of_device_is_compatible(dev->of_node, "rockchip,rk3576-gmac")) &&
-+	    !bsp_priv->php_grf)
-+		bsp_priv->php_grf = ERR_PTR(-ENODEV);
-+	if (IS_ERR(bsp_priv->php_grf)) {
-+		ret = PTR_ERR(bsp_priv->php_grf);
-+		dev_err_probe(dev, ret, "failed to lookup rockchip,php-grf\n");
-+		return ERR_PTR(ret);
-+	}
- 
- 	if (plat->phy_node) {
- 		bsp_priv->integrated_phy = of_property_read_bool(plat->phy_node,
 -- 
-2.48.1
+Regards,
 
+Sakari Ailus
 
