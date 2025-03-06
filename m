@@ -4,94 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2718BC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:18:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C268CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:19:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bTX2x3w2+rrqKrzKo+38sY9i/3t1a9Grj2c0VzKk3Q8=; b=kuGHsvr1NeTWLJiwMb5a4gKSGM
-	8zGnTjgEq7ONOLvvdzjvxzGqDx0ATuG9LVQ+8xyD5ZYygSE4ryZu8U7D8TsQxfr2R8xAV6FM+v8Ht
-	05PUzhi9CwSAWOGPmV/b969myvuvAyNHDIy1lSPVWe1uX2Ryz5fL7lpXLey13x6WPpZtdQ5IykRgf
-	+ISe5MgjYppS3SwCEXVkFtHtBxKUJuce7WeXF9C7cV+dblO6jJx7WEviaq68f0MavTybavyrdwOtb
-	XsNWNKMrk7JjUtSH2FZjhA4W0+jgE0sF4nC77HLv7chmBucY3fSMD3kMs0bUGkrCY+pnv4CM7NYbs
-	gbvwZ4Dg==;
+	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=; b=vGbxMVJHSGXUIEwltFJSDxq0bR
+	zDAklMWiolKFYcJ348f3kcRdu9ND2NVGmeyvKYinO4DwqWc1O27pTIEXfeTUM28zzz97Dl7XrxvTU
+	y+PQj3MFn+leD2dAeaX905mwvochWJyzkAMNBX4srwZI9nerq+CqM50fWBYbw/4gP7Q8Bm3OxfdOJ
+	wu80xfhtE/W6ydQwEQdqhTUSMqwAltiX5gwJUP8/dyfImhNgTUikrWvSZT8pkuI5Q0xrKKnpuM0uv
+	mmcJKbg7rb3v2Ff9MNpsaNnges896BZah+iPPYwBRPHp6bS5edFYgXaKy09LRl3wuGItLKvT9Ev6s
+	pS1UU6tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8Ir-0000000Acny-3zSv;
-	Thu, 06 Mar 2025 10:18:09 +0000
-Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
+	id 1tq8Ja-0000000Ad5O-2Wba;
+	Thu, 06 Mar 2025 10:18:54 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8Ff-0000000AcCW-3SRM
+	id 1tq72t-0000000APXu-1YNd
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Mar 2025 08:57:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=; b=MUaK95loezU2N7j65jjxsS1n1J
+	/KZlwMB2Ra+OhBTJII6kJnMhcb76Gi2ZcJ3Us4vnZ4Y/jbyKjynA1tsGwuBByv7xXB5aJgYblcjDi
+	Hob9qQtLuAXmIhLQNchwxiZPlMj4w74p4dhJFWiiLLmITWdqiAXOXUoSu+xuIWvv6pg2uflATD2VL
+	W57r0qmJX2r+Zmn/kSDdgII719SJJNJWx0jj7n3lMTf3nkvbxixNYQULi2LZgoE7f1YQ1FevKcWt+
+	FR2for/umFdoOZHT3wQWCp2s6KyMjKvc6CgYloAeQt43p/tSZ+7QmCka4c3WSko+jN8mdG1F4/AQ0
+	Bfs3amww==;
+Received: from relay9-d.mail.gandi.net ([2001:4b98:dc4:8::229])
+	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq72q-0000000770s-2cmv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 10:14:52 +0000
-Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5dca468c5e4so792805a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:14:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741256089; x=1741860889; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bTX2x3w2+rrqKrzKo+38sY9i/3t1a9Grj2c0VzKk3Q8=;
-        b=jcuEPdGB66SPKI/Xrja6sjqeiqWTvd8ygegZZF0NM8+oTW/CortONYiIKicAn7VycD
-         /6l4W45U570CAHvl0794+1R/DYaVxhqDTcLQ3YKQLQp0q1IrcS4zqVwdOz2ybxcl4PIW
-         y16EhujIbJi9vEtbsKFRgSdbOgP8GaZyhmzXYfCLAnH1LuMQy/kNR5TlhyIX3pTlGYxe
-         TFQJeTx2z7oN9x7HHkriw0pMbty28dwTg/GHHwlrXfDR50A+eTe+5xgvgYDPGAk5jN/+
-         6p3OX7WuMZWczjtitRfk0bsUOtk3YyLnxCx+DeCt1NpvfiVpncsP6H1YeG8BDdaj1UHJ
-         7MOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741256089; x=1741860889;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=bTX2x3w2+rrqKrzKo+38sY9i/3t1a9Grj2c0VzKk3Q8=;
-        b=PU/4io+3vr87KS64OncskmnI2yv56kSN6cnjh3eIt3qtr9ZdtS6eVt4faotQkNhN7G
-         g3rEpWJ09p0NWSg/06W7Y7f1eTSMxn85O2erpNf21OZIiEzC2lvuM7zKse+3LEO/X2dq
-         y3HyyBoTI/kf1eWFxuPnZfd5wsnCRtpG/RbeRtcBL3mI8Ss2JAOtsVT3wr3C1irVGFdB
-         AClUlgI94upID9GmXcFpp6WjFe9vrY2HUuHEK+3CRRArcVeBvUgVoZRbbO2pvFLXIhXJ
-         BssKmklos4RbAIUqYNlmvFPXTTJBSFQKqyKaOGF1WEn7NI/bnR2nApnuYzi2UGfQIAb6
-         o8ug==
-X-Forwarded-Encrypted: i=1; AJvYcCXN3vdExxUiTMYA+PyaMHvU1yXRrzUaYYg1MAi+a5iuMYzD3AHDqQOn8ZqCFePoI9l6IyenpiZVZqMTbpJ0KiZQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqPYuWMMrQ4iNMoWvx0jROseSBAe5HeY9J1SmXuGRW7/mUuGz5
-	ffz93YRIGAwXb3r0nIl/Cx/vuPSbjTB98CySHVnOfZRvZwWypIwWaIgVJRJ2QE8=
-X-Gm-Gg: ASbGncvhw9Q9BlOR9PEW+W/EiRg3aj2BOZVW+nx2O+DpXPQuTfrpuQwmyY3D901YyCE
-	r7eVGC8fxnz6as32IRrkqtrdn6e79svIUH4BI6bAaD6GnaMOC2uOWe+1BvdRV7DD2mPAi8TPIHJ
-	ENnxzwddR2HDN6/JbamgEhruo3kYc4dPCu2twan40dD3AwO4ASiTaT/SkVIQt+AxOtQLp3S6VIU
-	YWX9/vwV7g8XgfyhBD9IPLf/9WZCreOv727dAunnDpTB0a/qHM6ELjr9Ml9omfdE0JMpp0rx12y
-	QQ1lT2gvUB3830NnnNfsEMi72NnPakZzd6EY1Hq8Jsf9ml5nDMwfhF3mhxmLKT/LtZMo3XINclx
-	bLMjY3fWyh7dNwHlnGrs7XTf49rda
-X-Google-Smtp-Source: AGHT+IE/o3v5XJFu7xvLRW9BZC3NmMkBoh78OMt+bw+ZmwbbxHMBjWL9+2GSNHmM24JOepTrXIj9dg==
-X-Received: by 2002:a05:6402:3902:b0:5e5:b3cb:38aa with SMTP id 4fb4d7f45d1cf-5e5b3cb3c80mr4508256a12.25.1741256089661;
-        Thu, 06 Mar 2025 02:14:49 -0800 (PST)
-Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a6af7sm708972a12.33.2025.03.06.02.14.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 02:14:49 -0800 (PST)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Thu, 06 Mar 2025 10:14:46 +0000
-Subject: [PATCH 1/3] arm64: defconfig: enable Maxim max77759 driver
+	Thu, 06 Mar 2025 08:57:34 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 27221443D1;
+	Thu,  6 Mar 2025 08:57:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741251448;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=j8Ai/j9FWWA8BuJUB3RoPY/GqoMvHgqve37LLwirBbU=;
+	b=aB2pAhX86gJ5Okidw2qqL44L/5oQPxeMT8/W0NaSFXpM4wICQD+xVuyjuP0I8hLLAOHAVT
+	wH9OpIbQtbFkWaXKbxzjWjLiGrlIouHnC+loz/GIPwyQEYgCJXE+9g+vM8/BebvuDf+9Xu
+	yWT/9y3nbhQShoPQHgLd6KIiJdG3233LVuXyToZf+X3NzUWGA1irx00zQFPoYWAVY491GU
+	xSL4L7m2lBinbXXphSxowPEzyYN2JcYiDs0CJf1pk6meg0Q311TwMlylExRJL6SM29ewzQ
+	P8HKGCJMe+qTtGud89KRbhi/0iDQyLHgJNZ2/jxmHmlg7ysZDt7OdRs+EMG/OQ==
+Date: Thu, 6 Mar 2025 09:57:26 +0100
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: Paolo Abeni <pabeni@redhat.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Russell King
+ <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
+ <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
+ Simon Horman <horms@kernel.org>, Romain Gantois
+ <romain.gantois@bootlin.com>
+Subject: Re: [PATCH net-next v4 02/13] net: phy: Use an internal, searchable
+ storage for the linkmodes
+Message-ID: <20250306095726.04125e5f@fedora.home>
+In-Reply-To: <738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
+References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
+	<20250303090321.805785-3-maxime.chevallier@bootlin.com>
+	<738bd67c-8688-4902-805f-4e35e6aaed4a@redhat.com>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250306-b4-max77759-mfd-dts-v1-1-9fe8b0eb8123@linaro.org>
-References: <20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org>
-In-Reply-To: <20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org>
-To: Catalin Marinas <catalin.marinas@arm.com>, 
- Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepk
+ hhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_021451_860514_46EBE1DC 
-X-CRM114-Status: UNSURE (   8.87  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_085732_696954_2FAAC760 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,31 +104,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the Maxim max77759 as this is used by the gs101-oriole and
-gs101-raven (Google Pixel 6 and Pixel 6 Pro) boards,
+Hello Paolo,
 
-The child devices' defaults are based on this MFD driver's state, so
-this commit enables those implicitly as well.
+On Thu, 6 Mar 2025 09:30:11 +0100
+Paolo Abeni <pabeni@redhat.com> wrote:
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+> On 3/3/25 10:03 AM, Maxime Chevallier wrote:
+> [...]
+> > +static int speed_duplex_to_capa(int speed, unsigned int duplex)
+> > +{
+> > +	if (duplex == DUPLEX_UNKNOWN ||
+> > +	    (speed > SPEED_1000 && duplex != DUPLEX_FULL))
+> > +		return -EINVAL;
+> > +
+> > +	switch (speed) {
+> > +	case SPEED_10: return duplex == DUPLEX_FULL ?
+> > +			      LINK_CAPA_10FD : LINK_CAPA_10HD;
+> > +	case SPEED_100: return duplex == DUPLEX_FULL ?
+> > +			       LINK_CAPA_100FD : LINK_CAPA_100HD;
+> > +	case SPEED_1000: return duplex == DUPLEX_FULL ?
+> > +				LINK_CAPA_1000FD : LINK_CAPA_1000HD;
+> > +	case SPEED_2500: return LINK_CAPA_2500FD;
+> > +	case SPEED_5000: return LINK_CAPA_5000FD;
+> > +	case SPEED_10000: return LINK_CAPA_10000FD;
+> > +	case SPEED_20000: return LINK_CAPA_20000FD;
+> > +	case SPEED_25000: return LINK_CAPA_25000FD;
+> > +	case SPEED_40000: return LINK_CAPA_40000FD;
+> > +	case SPEED_50000: return LINK_CAPA_50000FD;
+> > +	case SPEED_56000: return LINK_CAPA_56000FD;
+> > +	case SPEED_100000: return LINK_CAPA_100000FD;
+> > +	case SPEED_200000: return LINK_CAPA_200000FD;
+> > +	case SPEED_400000: return LINK_CAPA_400000FD;
+> > +	case SPEED_800000: return LINK_CAPA_800000FD;
+> > +	}
+> > +  
+> 
+> What about adding some code here to help future patch updating LINK_CAPA
+> definition as needed?
+> 
+> Something alike:
+> 
+> 	pr_err_once("Unknown speed %d, please update LINK_CAPS\n", speed);
+> 
+> 
+> > +	return -EINVAL;
+> > +}
+> > +
+> > +/**
+> > + * phy_caps_init() - Initializes the link_caps array from the link_mode_params.
+> > + */
+> > +void phy_caps_init(void)
+> > +{
+> > +	const struct link_mode_info *linkmode;
+> > +	int i, capa;
+> > +
+> > +	/* Fill the caps array from net/ethtool/common.c */
+> > +	for (i = 0; i < __ETHTOOL_LINK_MODE_MASK_NBITS; i++) {
+> > +		linkmode = &link_mode_params[i];
+> > +		capa = speed_duplex_to_capa(linkmode->speed, linkmode->duplex);
+> > +
+> > +		if (capa < 0)
+> > +			continue;  
+> 
+> Or even error-out here.
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index a1cc3814b09b31ee659536a64b7db704153d6fe9..eaa88c3e6a93ce555468458763c2531fee2a903f 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -763,6 +763,7 @@ CONFIG_MFD_EXYNOS_LPASS=m
- CONFIG_MFD_HI6421_PMIC=y
- CONFIG_MFD_HI655X_PMIC=y
- CONFIG_MFD_MAX77620=y
-+CONFIG_MFD_MAX77759=m
- CONFIG_MFD_MT6360=y
- CONFIG_MFD_MT6397=y
- CONFIG_MFD_SPMI_PMIC=y
+Good point yes indeed. Russell raised the point for the need of keeping
+this in sync with new SPEED_XXX definitions, I'll add a check that
+errors out.
 
--- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+I hope that's OK though, as higher speeds are introduced and used by
+NICs that usually don't use phylib at all, so there's a good chance
+that the developper introducing the new speed won't have CONFIG_PHYLIB
+enabled.
 
+Is that still good ?
+
+Maxime
 
