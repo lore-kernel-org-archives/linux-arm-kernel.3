@@ -4,75 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE12CC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:20:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72C09C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:21:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bSj1C9yFpOlVHlNAi/SSxHqbpb4YSZ3mNkSnP4A2WLE=; b=Qxe7sK5rNk5kPDa9oap74H4513
-	nsGQghPz24H0fTH3goITJwN652czfkpVO5A74u238wOcMvFNy8L/9G449tcSfB2xVwaUS3Hpv4Ptb
-	9OIq1igjx4homv4iKzIcmD8Xe37kv5bu/tCWVyrIYsuS68ItxhOYaEvWEfiCTR+WmIhbDqcAYuRTT
-	wILhiWrqBg+yVSTsaqp1GUBVrX7RmuMS2TxzlnSUMBoI0yQqTlC0ltoflLOFYRzJozykOWGQXmhT3
-	pN5tB8fFMLypx9wMc5LkELyQYcAKzVPx2SC8jaaaNcD5fhHTbScwSkl/s1Du+gfcYPreZ+dmlVZ26
-	mKRPHU3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=F/L+RRxLwgh0dEYpJxUZjS3x+KfBkwJXyP1HxNij8yA=; b=DHTDB1aWm8PbCffC+ckPKFSPGp
+	KBBwty4XujdDX2krC8sOiqJrEou210rv3bkkBjVhAWJDVE7mUszT8TZH1qJ2//tXur6kckda7tYAl
+	dyzu1fgihN6AHjhMm/9518GpeqqYqXann6LHSJgM0QjVSepw0ZsAj6h3ibPoRCMrBrj7PGDpxM+rD
+	g5dnDdw2p+zgpf4wiHoSgPPKJOJKjWsezCBExrJmG2kk1WwXFDdVZdrKIjoEhRJNTer7fDEjbyWWA
+	YBWHJ5hc2on9wpdJzI8diVP+nuI9UmzdedlKVW8olFySdJGDwvsm9dKMybaq+/OtFN/wB+/O8IMJ+
+	MMr0yr+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqACj-0000000Atph-0t81;
-	Thu, 06 Mar 2025 12:19:57 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tqAEK-0000000Atzo-43LW;
+	Thu, 06 Mar 2025 12:21:36 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9U5-0000000AnHk-0Oyc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:33:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741260829; x=1772796829;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0RkHv2NVUIjDTMRzp3ZLW9jex5M/ZIevpBWyXbznxKs=;
-  b=GaHMeaxfxIgR3PCBUrmb3wFabOW0Rxo66uk+znuSkpqSHkZJhfIdOhHD
-   04Rb2BX5qu3dSWWprhxvr676rQShXBmsk97eRX2ZCiTHQfTLwaem5A/iq
-   deBQprpDW33041M3Jzqt+iKmAD2ni0rRbFx5QYfG10SabQeumtn0iI62q
-   BMlQKgydlittr8563lIg5wy8mVgOMx2z8x7IWB/BzP+iDNMzc7TU2Gtx8
-   gp7zGXgz03gLnKO5jbN8gGHlIC/L/xxtsie1h5Jn2A82mPN4Yl8Wui+8R
-   9Enar5okKU/QCWQfzxfZrpHPFlTfx084jVvHK1sbaveo9oEzRHMxl8MvF
-   A==;
-X-CSE-ConnectionGUID: GmbUlYyvRkGZfX7d3eHPxQ==
-X-CSE-MsgGUID: ZzG8KyXdQZuvGYlVN5M9+w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="59673237"
-X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
-   d="scan'208";a="59673237"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 03:33:45 -0800
-X-CSE-ConnectionGUID: iKI6AAlYRAmEUJI/bGQSYA==
-X-CSE-MsgGUID: wyJvtgh2SWSibKMKNc9NZg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,226,1736841600"; 
-   d="scan'208";a="124093820"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by fmviesa004.fm.intel.com with ESMTP; 06 Mar 2025 03:33:42 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tq9Tw-000Mz8-1P;
-	Thu, 06 Mar 2025 11:33:40 +0000
-Date: Thu, 6 Mar 2025 19:33:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Robin Murphy <robin.murphy@arm.com>, vkoul@kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, devicetree@vger.kernel.org,
-	dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
-Message-ID: <202503061910.eJW7M2H3-lkp@intel.com>
-References: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
+	id 1tq9W1-0000000Any4-3PDy;
+	Thu, 06 Mar 2025 11:35:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741260948;
+	bh=rKDNbvpRbRo31mPlwFN0GzLQBxytG0a+UvjZcL3yDdk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=Tsa4/NcivS40dSdQreSG1Eb59F37D1Ghsbu5spIDUnDtPq71HjWmhuLiGRXx4otQh
+	 HOVxk8WSUJrW/ewnhm3cyrwy7wyfWfUnnqLNJxlvDrQRfD5DLtJ8Kf2oc0SIyU58hh
+	 ngSy2qJDsdJbRouSx5V7PIY6Wr1E+UyrGVF1ZihAl++XnLTmg82GcWUkg/IzfeV8HM
+	 lQ2mGlUtz4QymdoJ089OyxdtYnIVsyalmEYrSH1uWtJIAVFZ48CYH2l5YTknaXCYnB
+	 G1P8KUFW7abGtN9UrohvtdlOPjl2WE3Po4f1iSaRUZYcEWYtbMLjbI9Ou0IWQ/CkbW
+	 QAWC+l3VEt9RA==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id AD1C517E05E7;
+	Thu,  6 Mar 2025 12:35:47 +0100 (CET)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: arm-soc <arm@kernel.org>,
+	soc <soc@kernel.org>
+Cc: matthias.bgg@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: [GIT,PULL,1/2] MediaTek ARM64 DTS updates for v6.15
+Date: Thu,  6 Mar 2025 12:34:52 +0100
+Message-ID: <20250306113540.148342-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033349_219979_F41F8447 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250306_033550_005703_5ABDEBE3 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,84 +73,157 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Robin,
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-kernel test robot noticed the following build warnings:
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
 
-[auto build test WARNING on vkoul-dmaengine/next]
-[also build test WARNING on linus/master v6.14-rc5 next-20250305]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+are available in the Git repository at:
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Robin-Murphy/dt-bindings-dma-Add-Arm-DMA-350/20250301-012733
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/vkoul/dmaengine.git next
-patch link:    https://lore.kernel.org/r/55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy%40arm.com
-patch subject: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
-config: nios2-randconfig-r111-20250306 (https://download.01.org/0day-ci/archive/20250306/202503061910.eJW7M2H3-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 14.2.0
-reproduce: (https://download.01.org/0day-ci/archive/20250306/202503061910.eJW7M2H3-lkp@intel.com/reproduce)
+  https://git.kernel.org/pub/scm/linux/kernel/git/mediatek/linux.git tags/mtk-dts64-for-v6.15
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503061910.eJW7M2H3-lkp@intel.com/
+for you to fetch changes up to 4c8ff61199a70e73e6c4d5e8a03f02d32730821c:
 
-sparse warnings: (new ones prefixed by >>)
->> drivers/dma/arm-dma350.c:485:31: sparse: sparse: dubious: !x & y
-   drivers/dma/arm-dma350.c: note: in included file (through include/linux/smp.h, include/linux/lockdep.h, include/linux/spinlock.h, ...):
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
-   include/linux/list.h:83:21: sparse: sparse: self-comparison always evaluates to true
+  arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa 8 HD panel (2025-03-06 10:53:07 +0100)
 
-vim +485 drivers/dma/arm-dma350.c
+----------------------------------------------------------------
+MediaTek ARM64 DTS updates for v6.15
 
-   462	
-   463	static irqreturn_t d350_irq(int irq, void *data)
-   464	{
-   465		struct d350_chan *dch = data;
-   466		struct device *dev = dch->vc.chan.device->dev;
-   467		struct virt_dma_desc *vd = &dch->desc->vd;
-   468		u32 ch_status;
-   469	
-   470		ch_status = readl(dch->base + CH_STATUS);
-   471		if (!ch_status)
-   472			return IRQ_NONE;
-   473	
-   474		if (ch_status & CH_STAT_INTR_ERR) {
-   475			u32 errinfo = readl_relaxed(dch->base + CH_ERRINFO);
-   476	
-   477			if (errinfo & (CH_ERRINFO_AXIRDPOISERR | CH_ERRINFO_AXIRDRESPERR))
-   478				vd->tx_result.result = DMA_TRANS_READ_FAILED;
-   479			else if (errinfo & CH_ERRINFO_AXIWRRESPERR)
-   480				vd->tx_result.result = DMA_TRANS_WRITE_FAILED;
-   481			else
-   482				vd->tx_result.result = DMA_TRANS_ABORTED;
-   483	
-   484			vd->tx_result.residue = d350_get_residue(dch);
- > 485		} else if (!ch_status & CH_STAT_INTR_DONE) {
-   486			dev_warn(dev, "Unexpected IRQ source? 0x%08x\n", ch_status);
-   487		}
-   488		writel_relaxed(ch_status, dch->base + CH_STATUS);
-   489	
-   490		spin_lock(&dch->vc.lock);
-   491		vchan_cookie_complete(vd);
-   492		if (ch_status & CH_STAT_INTR_DONE) {
-   493			dch->status = DMA_COMPLETE;
-   494			dch->residue = 0;
-   495			d350_start_next(dch);
-   496		} else {
-   497			dch->status = DMA_ERROR;
-   498			dch->residue = vd->tx_result.residue;
-   499		}
-   500		spin_unlock(&dch->vc.lock);
-   501	
-   502		return IRQ_HANDLED;
-   503	}
-   504	
+This adds new SoCs and new machines, other than improving support for
+currently supported ones.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+In particular, for SoCs:
+ - Airoha EN7581 gets support for its SCU clock controller, SPI NAND,
+   hardware RNG, pinctrl, and i2c controllers;
+ - MediaTek MT8365 SoC gets support for all of its Display Controller
+   components;
+ - MediaTek Genio 510 MT8370 - a lower binned variant of Genio 700
+   MT8390 (which, in turn, is the same as MT8188) - is introduced;
+ - MT8188 gets support for more Display Controller components (DSC
+   and MERGE), for the tertiary MSDC (eMMC/SD/SDIO) controller, and
+   for the MTU3 USB DRD controllers;
+ - MT8195 and MT8188 both get migrated to the new OF Graph used for
+   defining a pipeline for the Display Controller components (as
+   this was previously hardcoded per-board in the drm driver, ugh!);
+
+..and for boards:
+ - Google Kukui (MT8183) is switched to Elan touchscreen driver
+   instead of hid-over-i2c to fix probe failures in some cases;
+ - Google Cherry (MT8195) and Geralt (MT8188) Chromebooks get
+   migrated to using OF Graph for defining their board specific
+   part of the display pipeline;
+ - MediaTek Genio 350 (mt8365) EVK board adds support for HDMI output
+   through the iTE IT66121 chip, and for DSI output to the Startek
+   KD070FHFID015 display;
+ - MediaTek Genio 510 EVK board is introduced with a common devicetree
+   between mt8390 and mt8370 (Genio 700 and Genio 510) EVKs;
+ - MediaTek Genio 700 (and 510) EVKs get support for their integrated
+   dual Digital Microphones, for their RichTek RT1715 USB Type-C
+   Controller with USB-PD capability, the iTE IT5205 Alternate Mode
+   Passive MUX (USB3.1/DP1.4), and for USB Gadget/Host switching
+   through the MTU3 DRD Controller, other than for USB in general;
+ - MediaTek Genio 1200 EVK gets support for its MediaTek MT6360 PMIC
+   integrated Type-C Controller, and the IT5205 MUX;
+ - Radxa NIO-12L gets its DSI display pipeline preconfigured and also
+   the introduction of a devicetree overlay for the official Radxa
+   8HD DSI panel, enabling display output over DSI.
+
+And fixes/cleanups:
+ - MT8173 gets fixes for bindings validation: PMIC node drops the
+   unnecessary address/size cells, disp-pwm gets its compatibles
+   list fixed (as mt6595 was not expected there), and some nodes
+   got the right name (clock controllers were disguides as power
+   controllers, and intpol was changed to interrupt-controller);
+ - MT8188-based (MT8390) Genio boards get a fix for duplicated
+   regulator name;
+ - MT6359 PMIC gets fixes for audio-codec node validation.
+
+----------------------------------------------------------------
+Alexandre Mergnat (2):
+      arm64: dts: mediatek: add display blocks support for the MT8365 SoC
+      arm64: dts: mediatek: add display support for mt8365-evk
+
+AngeloGioacchino Del Regno (11):
+      arm64: dts: mediatek: mt8188: Add VDO0's DSC and MERGE block nodes
+      arm64: dts: mediatek: mt8188: Add tertiary eMMC/SD/SDIO controller
+      dt-bindings: usb: mediatek,mtk-xhci: Add port for SuperSpeed EP
+      arm64: dts: mediatek: mt8188: Add MTU3 nodes and correctly describe USB
+      arm64: dts: mediatek: mt8390-genio-700: Add USB, TypeC Controller, MUX
+      arm64: dts: mediatek: mt8188: Add base display controller graph
+      arm64: dts: mediatek: mt8188-geralt: Add graph for DSI and DP displays
+      arm64: dts: mediatek: mt8390-genio-common: Configure touch vreg pins
+      arm64: dts: mediatek: mt8195: Add base display controller graph
+      arm64: mediatek: mt8195-cherry: Add graph for eDP and DP displays
+      arm64: dts: mediatek: mt8395-nio-12l: Preconfigure DSI0 pipeline
+
+Chen-Yu Tsai (3):
+      arm64: dts: mediatek: mt8173-elm: Drop pmic's #address-cells and #size-cells
+      arm64: dts: mediatek: mt8173: Fix disp-pwm compatible string
+      arm64: dts: mediatek: mt8173: Fix some node names
+
+Christian Marangi (3):
+      arm64: dts: airoha: en7581: Add Clock Controller node
+      arm64: dts: airoha: en7581: Add SNAND node
+      arm64: dts: airoha: en7581: Add default partition table for EVB board
+
+Fabien Parent (1):
+      arm64: dts: mediatek: mt8395-genio-1200-evk: add support for TCPC port
+
+Hsin-Te Yuan (1):
+      arm64: dts: mediatek: mt8183: Switch to Elan touchscreen driver
+
+Julien Massot (2):
+      arm64: dts: mediatek: mt8395-nio-12l: Prepare MIPI DSI port
+      arm64: dts: mediatek: mt8395-radxa-nio-12l: Add Radxa 8 HD panel
+
+Lorenzo Bianconi (2):
+      arm64: dts: airoha: en7581: Add more nodes to EN7581 SoC evaluation board
+      arm64: dts: airoha: en7581: Fix clock-controller address
+
+Louis-Alexis Eyraud (5):
+      dt-bindings: arm: mediatek: add mt8370-evk board
+      arm64: dts: mediatek: add support for MT8370 SoC
+      arm64: dts: mediatek: mt8390-genio-700-evk: Move common parts to dtsi
+      arm64: dts: mediatek: add device-tree for Genio 510 EVK board
+      arm64: dts: mediatek: mt8390-genio-common: Fix duplicated regulator name
+
+Macpaul Lin (2):
+      arm64: dts: mediatek: mt6359: fix dtbs_check error for audio-codec
+      dt-bindings: usb: mtu3: Add ports property
+
+Nícolas F. R. A. Prado (3):
+      arm64: dts: mediatek: mt8188: Assign apll1 clock as parent to avoid hang
+      arm64: dts: mediatek: mt8390-genio-common: Add routes for DMIC
+      arm64: dts: mediatek: mt8390-genio-common: Add delay codec for DMIC
+
+ Documentation/devicetree/bindings/arm/mediatek.yaml               |    5 +
+ Documentation/devicetree/bindings/usb/mediatek,mtk-xhci.yaml      |    4 +
+ Documentation/devicetree/bindings/usb/mediatek,mtu3.yaml          |   12 +
+ arch/arm64/boot/dts/airoha/en7581-evb.dts                         |   44 +++
+ arch/arm64/boot/dts/airoha/en7581.dtsi                            |   91 ++++++
+ arch/arm64/boot/dts/mediatek/Makefile                             |    3 +
+ arch/arm64/boot/dts/mediatek/mt6359.dtsi                          |    3 +-
+ arch/arm64/boot/dts/mediatek/mt8173-elm.dtsi                      |    2 -
+ arch/arm64/boot/dts/mediatek/mt8173.dtsi                          |   12 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-damu.dts        |    9 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku1.dts |    8 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku6.dts |    8 +-
+ arch/arm64/boot/dts/mediatek/mt8183-kukui-jacuzzi-fennel-sku7.dts |    8 +-
+ arch/arm64/boot/dts/mediatek/mt8188-geralt.dtsi                   |  173 +++++++++-
+ arch/arm64/boot/dts/mediatek/mt8188.dtsi                          |  307 +++++++++++++++---
+ arch/arm64/boot/dts/mediatek/mt8195-cherry.dtsi                   |  184 ++++++++++-
+ arch/arm64/boot/dts/mediatek/mt8195.dtsi                          |  129 ++++++++
+ arch/arm64/boot/dts/mediatek/mt8365-evk.dts                       |  245 +++++++++++++-
+ arch/arm64/boot/dts/mediatek/mt8365.dtsi                          |  336 +++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dts             |   19 ++
+ arch/arm64/boot/dts/mediatek/mt8370.dtsi                          |   64 ++++
+ arch/arm64/boot/dts/mediatek/mt8390-genio-700-evk.dts             | 1033 +----------------------------------------------------------
+ arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi             | 1223 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ arch/arm64/boot/dts/mediatek/mt8395-genio-1200-evk.dts            |  102 ++++++
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso |   84 +++++
+ arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l.dts             |   71 +++++
+ 26 files changed, 3051 insertions(+), 1128 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8370-genio-510-evk.dts
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8370.dtsi
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8390-genio-common.dtsi
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8395-radxa-nio-12l-8-hd-panel.dtso
 
