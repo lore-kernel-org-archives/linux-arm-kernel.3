@@ -4,56 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68CEBC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7408C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:26:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YP0/bP3ktskhGR0SY1QXCj30UaF9Xt4ygKAPZKHzZ0I=; b=USnkG4am8ek1+d2d8lKgr1A3dc
-	kTYh2vB8Udo1Boi0vvJsisAzYGiJF/eMpV/4r3Qx/eCtc+E4eMJP5m44iF6uowxcuV6yK8UvPKzC5
-	JHXgmDE/+xSSUB0iWdhtNH0SVxWum9V6eNfoz9V/K+MHhBsBq7zQ1P3qgyyMXriH+gFQa4OElhvGB
-	lPZ6TwwzhMSmyPulcsh2kx1r888jvKYec0SESmKZUoSRP0oEmqjd/dOR6ysgq0M4IsQ3kKzn75AFX
-	0O1PJQtee2jpiaaFW03I/p1KoPcFBhr1pZBbVtqMbMcDKlQyKdtUGvZbuR6zfu6j9BKJo/ao3C+a4
-	xH2aNM5Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=R2zhQ4Pm2jNY/eOab+WCiVsh8dTyvXui2Cp/FvWzXlI=; b=18o53+iGPiw4erekGMnhNXe1hR
+	wrDR/44C+zgzOG1gsnaz7yY92km1V8l+EgOZDdVDIf2p7qtRtGEpcqTI2i9d0Vk9RIKVwyY15E7Ol
+	bvSImMsmsIvp9tN5zb93Fn8HmorVqY8CConlj3Ktpe4SarqLJnr9CrC2fQgdaZ+RM2VtKchY3iQO5
+	MdPaYI3O9iNwcPYyhXkaEaFUEiZ26ZK560fHxtIZiurk3MaCbEW0sN2onAtQ+E2w7jkcDrZBwsu1c
+	z+d0++RwfQiOwae5mXR2xwwLCuqeYAplRaxv+IT3DhSfQElFvm5oGjjn+fOkMPD3gD6cdxvKLnwZA
+	Juz00Cqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqD5q-0000000BJIG-1XVo;
-	Thu, 06 Mar 2025 15:25:02 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqD4F-0000000BJ9a-0183
+	id 1tqD7R-0000000BJee-042T;
+	Thu, 06 Mar 2025 15:26:41 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqD4y-0000000BJCA-2AZb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:23:24 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E38CA1007;
-	Thu,  6 Mar 2025 07:23:34 -0800 (PST)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 17B273F66E;
-	Thu,  6 Mar 2025 07:23:20 -0800 (PST)
-Message-ID: <9d9569fa-79f5-4603-a4b4-98577006498e@arm.com>
-Date: Thu, 6 Mar 2025 15:23:19 +0000
+	Thu, 06 Mar 2025 15:24:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=R2zhQ4Pm2jNY/eOab+WCiVsh8dTyvXui2Cp/FvWzXlI=; b=hwdu5oWWDsv1M1nPGXWRtmOoBa
+	ZTzMnK3JxL54nbJSZPSc12uQI8Is7OP+DnjUU1HtB1gGdm45wIEF5o5Aj9OZG9GPOdpBkVCZvEIDC
+	G9nTJhOKDMtc18p5uq+PficPxFkNowL/jDwSy398f+R7d2rd2x5swVQQjrUaSmUxBSZ/UxTGpk7iw
+	P+jM4++UFdAkIX5aympIv4ymay6a9twZ9OWHtxyCctY4Tf4H5igv4M2TJErGD0wXpxZThv1cS2kP4
+	Hu758r1IIkdEgRtQ6TxRpxZa8qGQ1pYgbiguJXz3xjyUXpAhmemv5jwWQzvln6vfO1SfDRkmtFaWI
+	wgHSgPBg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:41572)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tqD4n-00064v-2p;
+	Thu, 06 Mar 2025 15:23:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tqD4j-0006tm-31;
+	Thu, 06 Mar 2025 15:23:53 +0000
+Date: Thu, 6 Mar 2025 15:23:53 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jon Hunter <jonathanh@nvidia.com>, Thierry Reding <treding@nvidia.com>,
+	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH RFC net-next v2 0/3] net: stmmac: approach 2 to solve EEE LPI
+ reset issues
+Message-ID: <Z8m-CRucPxDW5zZK@shell.armlinux.org.uk>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/3] arm64: extable: Add fixup handling for uaccess
- CPY* instructions
-To: =?UTF-8?Q?Kristina_Mart=C5=A1enko?= <kristina.martsenko@arm.com>,
- linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Tong Tiangen <tongtiangen@huawei.com>,
- James Morse <james.morse@arm.com>
-References: <20250228170006.390100-1-kristina.martsenko@arm.com>
- <20250228170006.390100-2-kristina.martsenko@arm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250228170006.390100-2-kristina.martsenko@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_072323_166247_E3AE026D 
-X-CRM114-Status: GOOD (  22.19  )
+X-CRM114-CacheID: sfid-20250306_072408_558854_96E16B7A 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,141 +86,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 28/02/2025 5:00 pm, Kristina Martšenko wrote:
-> A subsequent patch will use CPY* instructions to copy between user and
-> kernel memory. Add a new exception fixup type to avoid fixing up faults
-> on kernel memory accesses, in order to make it easier to debug kernel
-> bugs and to keep the same behavior as with regular loads/stores.
+Hi,
 
-Trusting my "the rest looks OK to me" from last time since I've already 
-paged the details back out again... :)
+This is a second approach to solving the STMMAC reset issues caused by
+the lack of receive clock from the PHY where the media is in low power
+mode with a PHY that supports receive clock-stop.
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+The first approach centred around only addressing the issue in the
+resume path, but it seems to also happen when the platform glue module
+is removed and re-inserted (Jon - can you check whether that's also
+the case for you please?)
 
-> Signed-off-by: Kristina Martšenko <kristina.martsenko@arm.com>
-> ---
->   arch/arm64/include/asm/asm-extable.h | 10 +++++++++-
->   arch/arm64/include/asm/extable.h     |  2 +-
->   arch/arm64/mm/extable.c              | 25 ++++++++++++++++++++++++-
->   arch/arm64/mm/fault.c                |  2 +-
->   4 files changed, 35 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
-> index b8a5861dc7b7..292f2687a12e 100644
-> --- a/arch/arm64/include/asm/asm-extable.h
-> +++ b/arch/arm64/include/asm/asm-extable.h
-> @@ -9,7 +9,8 @@
->   #define EX_TYPE_BPF			1
->   #define EX_TYPE_UACCESS_ERR_ZERO	2
->   #define EX_TYPE_KACCESS_ERR_ZERO	3
-> -#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	4
-> +#define EX_TYPE_UACCESS_CPY		4
-> +#define EX_TYPE_LOAD_UNALIGNED_ZEROPAD	5
->   
->   /* Data fields for EX_TYPE_UACCESS_ERR_ZERO */
->   #define EX_DATA_REG_ERR_SHIFT	0
-> @@ -23,6 +24,9 @@
->   #define EX_DATA_REG_ADDR_SHIFT	5
->   #define EX_DATA_REG_ADDR	GENMASK(9, 5)
->   
-> +/* Data fields for EX_TYPE_UACCESS_CPY */
-> +#define EX_DATA_UACCESS_WRITE	BIT(0)
-> +
->   #ifdef __ASSEMBLY__
->   
->   #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
-> @@ -69,6 +73,10 @@
->   	.endif
->   	.endm
->   
-> +	.macro		_asm_extable_uaccess_cpy, insn, fixup, uaccess_is_write
-> +	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
-> +	.endm
-> +
->   #else /* __ASSEMBLY__ */
->   
->   #include <linux/stringify.h>
-> diff --git a/arch/arm64/include/asm/extable.h b/arch/arm64/include/asm/extable.h
-> index 72b0e71cc3de..5892b8977710 100644
-> --- a/arch/arm64/include/asm/extable.h
-> +++ b/arch/arm64/include/asm/extable.h
-> @@ -45,5 +45,5 @@ bool ex_handler_bpf(const struct exception_table_entry *ex,
->   }
->   #endif /* !CONFIG_BPF_JIT */
->   
-> -bool fixup_exception(struct pt_regs *regs);
-> +bool fixup_exception(struct pt_regs *regs, unsigned long esr);
->   #endif
-> diff --git a/arch/arm64/mm/extable.c b/arch/arm64/mm/extable.c
-> index 228d681a8715..afb5241e4d91 100644
-> --- a/arch/arm64/mm/extable.c
-> +++ b/arch/arm64/mm/extable.c
-> @@ -8,8 +8,18 @@
->   #include <linux/uaccess.h>
->   
->   #include <asm/asm-extable.h>
-> +#include <asm/esr.h>
->   #include <asm/ptrace.h>
->   
-> +static bool cpy_faulted_on_uaccess(const struct exception_table_entry *ex,
-> +				   unsigned long esr)
-> +{
-> +	bool uaccess_is_write = FIELD_GET(EX_DATA_UACCESS_WRITE, ex->data);
-> +	bool fault_on_write = esr & ESR_ELx_WNR;
-> +
-> +	return uaccess_is_write == fault_on_write;
-> +}
-> +
->   static inline unsigned long
->   get_ex_fixup(const struct exception_table_entry *ex)
->   {
-> @@ -29,6 +39,17 @@ static bool ex_handler_uaccess_err_zero(const struct exception_table_entry *ex,
->   	return true;
->   }
->   
-> +static bool ex_handler_uaccess_cpy(const struct exception_table_entry *ex,
-> +				   struct pt_regs *regs, unsigned long esr)
-> +{
-> +	/* Do not fix up faults on kernel memory accesses */
-> +	if (!cpy_faulted_on_uaccess(ex, esr))
-> +		return false;
-> +
-> +	regs->pc = get_ex_fixup(ex);
-> +	return true;
-> +}
-> +
->   static bool
->   ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
->   				  struct pt_regs *regs)
-> @@ -56,7 +77,7 @@ ex_handler_load_unaligned_zeropad(const struct exception_table_entry *ex,
->   	return true;
->   }
->   
-> -bool fixup_exception(struct pt_regs *regs)
-> +bool fixup_exception(struct pt_regs *regs, unsigned long esr)
->   {
->   	const struct exception_table_entry *ex;
->   
-> @@ -70,6 +91,8 @@ bool fixup_exception(struct pt_regs *regs)
->   	case EX_TYPE_UACCESS_ERR_ZERO:
->   	case EX_TYPE_KACCESS_ERR_ZERO:
->   		return ex_handler_uaccess_err_zero(ex, regs);
-> +	case EX_TYPE_UACCESS_CPY:
-> +		return ex_handler_uaccess_cpy(ex, regs, esr);
->   	case EX_TYPE_LOAD_UNALIGNED_ZEROPAD:
->   		return ex_handler_load_unaligned_zeropad(ex, regs);
->   	}
-> diff --git a/arch/arm64/mm/fault.c b/arch/arm64/mm/fault.c
-> index ef63651099a9..da4854fc6150 100644
-> --- a/arch/arm64/mm/fault.c
-> +++ b/arch/arm64/mm/fault.c
-> @@ -375,7 +375,7 @@ static void __do_kernel_fault(unsigned long addr, unsigned long esr,
->   	 * Are we prepared to handle this kernel fault?
->   	 * We are almost certainly not prepared to handle instruction faults.
->   	 */
-> -	if (!is_el1_instruction_abort(esr) && fixup_exception(regs))
-> +	if (!is_el1_instruction_abort(esr) && fixup_exception(regs, esr))
->   		return;
->   
->   	if (WARN_RATELIMIT(is_spurious_el1_translation_fault(addr, esr, regs),
+As this is more targetted, I've dropped the patches from this series
+which move the call to phylink_resume(), so the link may still come
+up too early on resume - but that's something I also intend to fix.
+
+This is experimental - so I value test reports for this change.
+
+As mentioned recently, the reset timeout will only occur if the PHY
+receive clock is actually stopped at the moment that stmmac_reset()
+is called and remains stopped for the duration of the timeout.
+Network activity can wake up the link, causing the PHY to restart
+its receive clock and allow reset to complete. So, careful testing
+with and without these patches is necessary.
+
+v2: add EXPORT_SYMBOL_GPL(), fix if() statement, add kerneldoc
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c |  3 ++
+ drivers/net/phy/phylink.c                         | 54 ++++++++++++++++++++++-
+ include/linux/phylink.h                           |  3 ++
+ 3 files changed, 59 insertions(+), 1 deletion(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
