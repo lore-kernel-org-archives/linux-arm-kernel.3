@@ -4,104 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3796DC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:30:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E626C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:34:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IWLhMtPmFMuDBi8nE11mfbblZDKaB0YiSOyw42ff0Ao=; b=wFkVtRw332R72mfTYwLhNFzb6x
-	7myUKBZQkBvXLuR15cNPZeeDiZ9fXOiap6f6q5oo52NGslJb/1/fMOrjDEmlu0v4rHTMoY0wjkyq+
-	NGSP9KnRMNi74UQU5+Mjl82uLJuNAyaIJ2hXJ4XalEHtJ3EANxQLyYFFW8/pxDxZD+IBb1ijAUziM
-	ogVNF94Ccbh5ZOGe7EstcajueXtYFsp4Ms0jXgk2rhShassB8Bl3HLtHz9lq+IyLbWkYRcHRVnR5E
-	VqIYt/+JDeRZCb7fb2I5UwtCeZsBDPFt0QJ+jIC8xyudzRRHG22MWhPxt2p/RNXKuziGaD2bnOrTX
-	AfiBG0Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=IldYrjBrNiicEKDypgdTmvOYJP/ivQY5AR+49uR4q4s=; b=2ofvd4ochPZzc5
+	6/mIFCkgY85WNJ2lkB0wKazK6mRqzcnJVEojp6zfX3wVu2zfqew0WVIpEi+GLp5j1ANzd5nFfC2Gx
+	V5h09yvHMsgDPF7h5ZmscX9fucHlOBwqGSPso9reZu59qRVYfmQES3fxu/Gwb8fFfPAZlUs3wJid1
+	BhSd1HG5hPD0A/2M771RaTh3QY4LFSG3NiPSGsCbPHZ6uENlEU+AzjvvvBDp3/wCcyfqB2ASpxxy4
+	a80rHB//jl9DmKpRjbiuGV2UebVwRBeP2VI2niCtjfxWDs64+bBvcALjOhCeIjHCfcyE5xvpk2bza
+	wXZ+De59yLWcOm2byeVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqF3H-0000000BhBg-3bqV;
-	Thu, 06 Mar 2025 17:30:31 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tqF6R-0000000BhXi-2yqK;
+	Thu, 06 Mar 2025 17:33:47 +0000
+Received: from relay2-d.mail.gandi.net ([2001:4b98:dc4:8::222])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEwR-0000000Bg74-1hBp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 17:23:27 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Message-Id:MIME-Version:To:Date:Subject:From:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=IWLhMtPmFMuDBi8nE11mfbblZDKaB0YiSOyw42ff0Ao=; b=m3dOn0HijNoAg6oWahL5IRSP1P
-	3nUEl4JX10YHRoSexGxtpC6aH7QBeRQeMJwQ8djQTzMKOLjQQLLedbIdvZO9kgndIkyfHQUgoYtmq
-	IUq4NCi661hGyTEG/v0ct7+9lHfPFdhJa+kWSO8jGn2UHmEg4sC03lE1pj/uKlKtcGYwEg0vi+olg
-	0C9GuN1SP/YEYIeVjkC5WEZyP6ffFveZBzyZcq9eJdglfs/bVUTwL4Wg1kGQ0gLZw6X95Md1H+u+e
-	jU1hZXIXCq0pnSA6Pb0zOi+TK9nNRLh4ML94d/6tVOWM2/AzSkEFSRgHiLmr56Ph6RUSWHFJq6DLB
-	wqDXex9g==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEwN-0000000AzRa-3ypE
+	id 1tqF1f-0000000Bgoe-42aq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 17:23:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741281792;
+	Thu, 06 Mar 2025 17:28:53 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id B0340441CA;
+	Thu,  6 Mar 2025 17:28:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741282127;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding;
-	bh=IWLhMtPmFMuDBi8nE11mfbblZDKaB0YiSOyw42ff0Ao=;
-	b=VK4ngJfqYKwWDyNj/Wq/gqH2UMcZaVytvurjSgAW843smE10kIG3aa9sHa5v3oalp1T+r1
-	tK6osbbURDcwBrZ49i31AWpOM4X2b0eKUvIgIyTSI1J+iun2AZwAO6WLaGO0Lu7fAFJhD5
-	Nw39jLh/Chuf9fNVMra8N783vCs2JKg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741281792;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=IWLhMtPmFMuDBi8nE11mfbblZDKaB0YiSOyw42ff0Ao=;
-	b=VK4ngJfqYKwWDyNj/Wq/gqH2UMcZaVytvurjSgAW843smE10kIG3aa9sHa5v3oalp1T+r1
-	tK6osbbURDcwBrZ49i31AWpOM4X2b0eKUvIgIyTSI1J+iun2AZwAO6WLaGO0Lu7fAFJhD5
-	Nw39jLh/Chuf9fNVMra8N783vCs2JKg=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741281801;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=IWLhMtPmFMuDBi8nE11mfbblZDKaB0YiSOyw42ff0Ao=;
-	b=fXJwutQQgqitJyNjwqWVaMgvBt0fYVC/LUqJebXWtXLmgPs7dPxQVw5+lWlADSuPeHN/3Q
-	SBpbT4AcL+QjVb6RdNhWUHBfzUvFd+jYnzsGjtijBHy+8k94JorbzIpycL181D2s82nrCL
-	IwdJsDLZFnosZOZ1XjMRz5uxjHaeMaw=
-Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-128-x6f2Y7pNNr-2qZow0WRFcA-1; Thu,
- 06 Mar 2025 12:23:08 -0500
-X-MC-Unique: x6f2Y7pNNr-2qZow0WRFcA-1
-X-Mimecast-MFC-AGG-ID: x6f2Y7pNNr-2qZow0WRFcA_1741281788
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9924E1956070;
-	Thu,  6 Mar 2025 17:23:07 +0000 (UTC)
-Received: from [172.64.10.8] (unknown [10.30.34.106])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B3F591956095;
-	Thu,  6 Mar 2025 17:23:06 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Thu, 06 Mar 2025 17:23:06 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	bh=IldYrjBrNiicEKDypgdTmvOYJP/ivQY5AR+49uR4q4s=;
+	b=JcLC4Hym6wDZYoTWvWQwnoD16J/nAvplEwRb46CpXZhipbjm93flldHOu3X+STp8fRlch/
+	FPXG7UCpdAbC6aIk8JGplgeHhvNtLwHR/wqsEjdu9BIk96+G3NjiaApdSNNoarwdqxEC4E
+	CVe2TIwoQ5lPhp8XZOTGJlEknbdowNXyg5osqINEWUpJxaY5yho0w+MTzcdtF5Mps/VAzr
+	H3AOLSy/Y0AAvhwc4wFy+YEiqXZK6UG87ejBsxmHRtMo3vA7ltP9YcYsDTzUioneoSj/zt
+	3KbHGlEBuPSqW4w4ZY7m81UkbbYcKTB5MEYTQRlA0qYeJshK3TCcnRj8dAmYOA==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH 0/2] drm/bridge: two minor code improvements
+Date: Thu, 06 Mar 2025 18:28:39 +0100
+Message-Id: <20250306-drm-two-ldb-improvements-v1-0-f139d768b92c@bootlin.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <06769.125030612230803399@us-mta-128.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: -4BuGLtMJy8EbUv1ffC92Ot2fH6KgcKVKXbHOhgsigc_1741281788
-X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAEfbyWcC/x3MwQqEIBCA4VeJOTdgLRn0KtHB1bEGUmMMW4jef
+ aXjd/j/GzIJU4apuUGocOYUK7q2AbuZuBKyq4Ze9YP6KI1OAp5Xwt19kcMhqVCgeGbstDd6tFa
+ R8VDzQ8jz713Py/P8AYlH8OhqAAAA
+X-Change-ID: 20250306-drm-two-ldb-improvements-16fa67cc0eaf
+To: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.2
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdekfeehucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomhepnfhutggrucevvghrvghsohhlihcuoehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeektedvtdfhhedvveeiveffheefffejvefgleekhfelueefveeiveefhfejtefgveenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegsvgegudemleehvgejmeefgeefmeeludefvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtvdemieejtdemvddtvddtmegvrgdtudemsggvgedumeelhegvjeemfeegfeemledufegvpdhhvghloheplgduledvrdduieekrddujeekrdduudekngdpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghpthhtohepnhgvihhlrdgrrhhmshhtrhhonhhgsehlihhnrghrohdrohhrghdprhgtphhtthhopehjohhnrghssehkfihisghoohdrshgvpdhrtghpthhtohepjhgvrhhnv
+ ghjrdhskhhrrggsvggtsehgmhgrihhlrdgtohhmpdhrtghpthhtoheprghnughriigvjhdrhhgrjhgurgesihhnthgvlhdrtghomhdprhgtphhtthhopegrihhrlhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtoheprhhfohhssheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Sasl: luca.ceresoli@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_172324_083409_437B3954 
-X-CRM114-Status: UNSURE (   5.60  )
+X-CRM114-CacheID: sfid-20250306_092852_516899_5F605D2A 
+X-CRM114-Status: UNSURE (   6.72  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -117,48 +89,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+This small series brings small improvements to two bridge drivers.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+---
+Luca Ceresoli (2):
+      drm/bridge: imx8qxp-ldb: cleanup return value
+      drm/bridge: fsl-ldb: make warning message more informative
 
-Tested-by: CKI Project <cki-project@redhat.com>
+ drivers/gpu/drm/bridge/fsl-ldb.c         | 6 +++---
+ drivers/gpu/drm/bridge/imx/imx8qxp-ldb.c | 2 +-
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+---
+base-commit: 7eb172143d5508b4da468ed59ee857c6e5e01da6
+change-id: 20250306-drm-two-ldb-improvements-16fa67cc0eaf
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1703414689
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1703414689-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+Best regards,
+-- 
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
