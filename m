@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EBA5C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 11:51:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7DDC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 11:53:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PAwLX9is3aL3ULWeL+vv+ajzLUfc+N8ATyeSLCWRPJk=; b=sgcNXCR++k8YR97zKHipNijWP8
-	kbOF3EPK7Sieb3+amyoFllanZheyo6aRQ7hg9v0/LxxZ/yi53u4zoPR300/vKbCz+qepR/ECwz7Vz
-	U/JsSdEGEryoYYiwds2TIK2aP3F+Hi6ojjIfWNjfzTRL7bK8dANaVyRtjF+FfMREYyOe5pxvm+YWI
-	HafQ3Z5xsb5N2uf9I2pmRH5ktecmJNsXuPcCC835tOdWSwmZofM4XJgDsO8DRaRzFDCnDm+8tnWfI
-	L0/zQ1FLSyIw43DelRW9CZiv1of/YAhfr9R61zICdNXQ32+BZfDs22GMZS0MY+cygIW1rB1Qs/9Rr
-	jxD4thoQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=QwtYTrDkWH6misbjcDOah4aj3UXSwDbuBhEff6JQElI=; b=KlrSuR8uelJtsK7fTJ2R6nowdn
+	CJzPkXmOA07cEXf+9gvpXsnWFeOf/MVhiQYk1HzeT9MVASjwxjBGI1DAOEy5sZ+igPy/LnIW3Do/N
+	QgBvu1g2649GLA1i2EIagmc8LroVOjhYPwWjFgrtsNrtuCVtQIJEu4UEeV5GQkiE9lxPBX2j58FRA
+	DPXEZrUuPDN43JcAokwlG0XLEw9oUx3qyaSIRBLQjZJlrd1EMDL7jXVhlii2TcOVzM5hXwISewvqb
+	bAwgtkJt8Uqf1wrbKJRelJfgOAJrvuOgrynzyFIihDMpU4PTmnUXP/CTc16wSQOtgnBizso89iO3b
+	zkGTUxCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9l0-0000000AqVE-04S1;
-	Thu, 06 Mar 2025 11:51:18 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tq9mY-0000000AqhN-3LTb;
+	Thu, 06 Mar 2025 11:52:54 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9LU-0000000Am1j-3AVI
+	id 1tq9Qw-0000000Amgj-0Oj1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:24:58 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-abf3d64849dso71673266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:24:56 -0800 (PST)
+	Thu, 06 Mar 2025 11:30:35 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38f403edb4eso309108f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:33 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741260295; x=1741865095; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=PAwLX9is3aL3ULWeL+vv+ajzLUfc+N8ATyeSLCWRPJk=;
-        b=v6lFOk3aDGVPiRpnb/LACdXcUU44J99WxhDfLPI9z5ba0RAoRJjt75u2ePGAhSFDMl
-         HIyCtzwBz6Slg3fQ4I6RDJjtSp8VeNt1V0hffH6Cr1xN1hCMuG35km4u3SDRTtj9DLXr
-         MoJzGUatcp+87eI6zoGwN2a6/vw2VDVD2RqM8KSTWAtPMLWsPmlAeABLHVNlRFCjAbRw
-         T+uw0Dj/DkKxZ9thdMvOM0tox7W4goxgSXUCRZHq8zy0KWQvQjDJS53EcssIjsi4i25T
-         yhGnxQoDtfkhdgDuZGfwlRfnRGd3xUS0dQsfcPWOmPmA+BL2gzxUg9MxJhFkAWAvAW2Z
-         1NHw==
+        d=amarulasolutions.com; s=google; t=1741260632; x=1741865432; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=QwtYTrDkWH6misbjcDOah4aj3UXSwDbuBhEff6JQElI=;
+        b=DRbgs4I0jfLqz0RaYbaegKEE8AxfCxh99vvoKshJtR56J74DdxaHX7bBzc7Hx/hUzw
+         qgz2sxDZhzQ0t+42LzD8Wvb/F2qZvGEWkK6JSwKyaGA6ELZoTncyyFiv/Ea1RdfKe2km
+         0bhtnpOR73LV/YfqwrBSugoVUR3+/ic8iAUUc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741260295; x=1741865095;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PAwLX9is3aL3ULWeL+vv+ajzLUfc+N8ATyeSLCWRPJk=;
-        b=VOeQEYWjq1Niyhq3D6PtJhivIbUYSav1hgKocNcs4KEoOjWDa9euzKzZflkG7ZOC/P
-         aFRhQDO9w8JiTGSh/WGWuOqX1JzCJH6uu7FkuqbkXfASVCNvSWsluso8Cpkw2I0+IVIO
-         Rjmk4QYFWqy4A5Ic3qYOf3VrE0aOu3vi9SKZfNSCMivavphKWZvjXqQQGGINwi881BO6
-         Y1ODnqgouKihVPJGrX56aWbZqjkP0ROD5JfFMcGm1z9HqTSLNN3VM0tfP18VTuRK0Sme
-         CaIJFJP8vtuwwIfemGMe+q/KCnfOqWreTnR0xvV7vdjiBJM2naZNBOwzk3vS+sisQzot
-         ujSg==
-X-Gm-Message-State: AOJu0YwlK/tr58e7tKy8EI3docOKxkFzSe2ywAo7srri1Fom1NIoUXIM
-	G22T0R7eRnRiHcCVy6MLYjYNYnBjZvkx3VX4pYYUpF3XkFeEzJX7iaj7V/bMLLk=
-X-Gm-Gg: ASbGncuNRLEWLmXoDzsJStuH276dYh1ILadBBD/1/xCK2Dil2uBbxkFi35MQtsiHk3c
-	92D67AmwvSrXL9k/iGN4OpsmGJwV0ZJRYMCOSlD41CYvXCS4HmwMOxao9pYM5vE75UBNxAXrcCi
-	DJyhrjJ+CHFmVA4+Vvkr7O7jZTK3A5oagiUK51+sMxz8VijSq5/LghM2C0JZXWOshHQy9DIApXg
-	vRBopmTpNesX1F1AYi9+q7KgBTqZwqjfaB0dXmTpXfY6AFmkEYgsLoeVJGDIKapy9CvoiD87xbT
-	6vasmFwbgg2uBkxve0r61IxPgRNU7NMWS1sGVf0a
-X-Google-Smtp-Source: AGHT+IHFHyx72/rUkO3YjxgA1iwqALKfUPcjawRZGk3ORB79xxVr1WX10axbXJs3pqJiVjvlnJgRwA==
-X-Received: by 2002:a05:6402:5241:b0:5e5:c847:1a56 with SMTP id 4fb4d7f45d1cf-5e5c8472453mr3341954a12.10.1741260295016;
-        Thu, 06 Mar 2025 03:24:55 -0800 (PST)
-Received: from localhost ([2001:4091:a245:8327:7bba:546d:aa63:621e])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-5e5c745c552sm828535a12.17.2025.03.06.03.24.53
+        d=1e100.net; s=20230601; t=1741260632; x=1741865432;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=QwtYTrDkWH6misbjcDOah4aj3UXSwDbuBhEff6JQElI=;
+        b=CDvnnI6GZ7y/IqYCZyPpAvnDOyzyaBrxmTYVbpZBrYDfFzyzT16II0SRLe9TdWfiLM
+         O5Dk5d0f+kP2RQwPXxAOjq9/RggL6O2LIvLotuuyprA60/7d4rzSvi6daYfCDEI+iLyl
+         xdcDFddqVdOudRHOETRrNrKG81S7aBHaJgFKUDrtG1WpdYi6gIBwWde2ZnSus9xxIkSF
+         CJairu7P36U014BRVQ9LewU6JhxiSI/6ZHxwifCEi22Efrap166BFsW0YkD+dRCS5Hzx
+         gKbbTRD+Q2itbzuQWE3TyGLtp+OVnSypdcODh2LsAkolYakwbEcK9o4Bi2lk7Y68ae9K
+         Axhw==
+X-Forwarded-Encrypted: i=1; AJvYcCV1cXby8x3xTTMUIoXKytmij71gWNUk4ovsWwsvgOFYl1wsHRgkM6zKHdNJb2z/QJb7UALxpg4v6xPa+pDgypdP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz9k4TYnwNs6D5ziJW1nIUze0ZU7xIEiw5tySsCW4krmoPWmMct
+	MLh7RPzcnukxO/bsLvCgHCP+kPQpKLsgkP5muDdGRrlpy/33Cp6N6aFQ2XZb/F8=
+X-Gm-Gg: ASbGncuN4ii1/XDQLTV1vjeNrK2duEInuN0+7WvNVJwovXJoWvOAnCShubUNetVMfWr
+	ZFJ87sx5GjLFjd7UmLOPRP1+Uooe9h67k0cHBX1iOtk9oCRA4610K/UE872BDtl/O3QYroPMlEs
+	R3hjUkkQJTr4z4IgKOzUMqAC/4GekO6m5v2dlDsg/cdjybETa3tlzMlULxiSnrlbEJq/Uone5J5
+	XmibLrLozC2wU+7MUvTPYMyqqHpguGjxp7d8U66GXxE2Fypnf2VoKFBBjAF7PBMSfp8gDDk7qyn
+	MVwidb9oSEbiRC6KNYRrDjfb0zEztTFxJW0dWFOaPZ24Z1vEYeqi+tmXLkn+EORsyaV5qnRephT
+	n94MqLA==
+X-Google-Smtp-Source: AGHT+IG+TcbJyD3W5mUa064KhIh9QfeUH7pp3e0x4snBKzkDHDCXO3ufzJW4A84fTYipKUabpUNjwQ==
+X-Received: by 2002:a05:6000:4022:b0:390:ffd0:4138 with SMTP id ffacd0b85a97d-3911f756719mr5772700f8f.24.1741260632475;
+        Thu, 06 Mar 2025 03:30:32 -0800 (PST)
+Received: from localhost.localdomain ([2001:b07:6474:ebbf:4703:aa8c:6eab:8161])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:24:53 -0800 (PST)
-Date: Thu, 6 Mar 2025 12:24:52 +0100
-From: Markus Schneider-Pargmann <msp@baylibre.com>
-To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
-	Santosh Shilimkar <ssantosh@kernel.org>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Anand Gadiyar <gadiyar@ti.com>, 
-	Chandrasekar Ramakrishnan <rcsekar@samsung.com>, Marc Kleine-Budde <mkl@pengutronix.de>, 
-	Vincent Mailhol <mailhol.vincent@wanadoo.fr>
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, Vishal Mahaveer <vishalm@ti.com>, 
-	Kevin Hilman <khilman@baylibre.com>, Dhruva Gole <d-gole@ti.com>, Akashdeep Kaur <a-kaur@ti.com>, 
-	Kendall Willis <k-willis@ti.com>, linux-can@vger.kernel.org
-Subject: Re: [PATCH v5 00/13] firmware: ti_sci: Partial-IO support
-Message-ID: <kzmgga2d64ic5dxohu4jnmwqg4t5febclzh2mg5g57ygvfkwva@jniad5zhdwg7>
-References: <20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com>
+        Thu, 06 Mar 2025 03:30:31 -0800 (PST)
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+To: linux-kernel@vger.kernel.org
+Cc: Stephen Boyd <sboyd@kernel.org>,
+	Peng Fan <peng.fan@nxp.com>,
+	Abel Vesa <abelvesa@kernel.org>,
+	linux-amarula@amarulasolutions.com,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH v10 00/18] Support spread spectrum clocking for i.MX8M PLLs
+Date: Thu,  6 Mar 2025 12:27:49 +0100
+Message-ID: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gnrxwuclzc4ha34t"
-Content-Disposition: inline
-In-Reply-To: <20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_032456_798922_C28E27B1 
-X-CRM114-Status: GOOD (  42.33  )
+X-CRM114-CacheID: sfid-20250306_033034_170009_5310EDF7 
+X-CRM114-Status: GOOD (  22.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,212 +108,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+This version keeps the version v9 patches that can be merged and
+removes the patches that will need to be modified in case Peng's
+PR https://github.com/devicetree-org/dt-schema/pull/154 is accepted.
+The idea is to speed up the merging of the patches in the series
+that have already been reviewed and are not dependent on the
+introduction of the assigned-clocks-sscs property, and postpone
+the patches for spread spectrum to a future series once it becomes
+clear what needs to be done.
 
---gnrxwuclzc4ha34t
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v5 00/13] firmware: ti_sci: Partial-IO support
-MIME-Version: 1.0
+Specifically, the patches:
 
-On Thu, Mar 06, 2025 at 12:14:38PM +0100, Markus Schneider-Pargmann wrote:
-> Hi,
->=20
-> up to last series, the Partial-IO support consisted of two independent
-> series. As this last rework introduced file-based conflicts, I merged
-> the mcan series introducing wakeup support into this series:
->=20
->   can: m_can: Add am62 wakeup support
->   https://lore.kernel.org/lkml/20241219-topic-mcan-wakeup-source-v6-12-v6=
--0-1356c7f7cfda@baylibre.com/
->=20
-> Series
-> ------
-> The series contains three parts:
->  - m_can support for Partial-IO, in particular 'wakeup' pinctrl support.
->  - ti_sci support for Partial-IO, which checks wakeup-sources if they
->    are enabled for Partial-IO
->  - DT description of system states on am62, am62a, am62p and the
->    enabling of wakeup support on the starter kits that support it.
->=20
-> The series is based on v6.14-rc1.
+01/18 dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+02/18 clk: imx8mm: rename video_pll1 to video_pll
+03/18 dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+04/18 clk: imx8mp: rename video_pll1 to video_pll
 
-Small correction here, this is based on next-20250305.
+are a replica for i.MX8MM and i.MX8MP of the patch for i.MX8MM
+bedcf9d1dcf88 ("clk: imx: rename video_pll1 to video_pll"), which was
+merged some time ago. The patches are split into four because, during
+the review, Krzysztof asked me to separate the driver modifications
+from the dt-bindings changes.
 
-Best
-Markus
+All the other patches in the series, from 5 to 18, are necessary for
+the implementation of the anatop driver for i.MX8M{M,N,P}. The review of
+this series has taken a long time, partly due to misunderstandings
+arising from incorrect design choices.
 
->=20
-> Partial-IO
-> ----------
-> Partial-IO is a low power system state in which nearly everything is
-> turned off except the pins of the CANUART group. CANUART contains the
-> mcu_mcan0, mcu_mcan1, wkup_uart0 and mcu_uart0 devices. These can
-> trigger a wakeup of the system on pin activity. Note that this does not
-> resume the system as the DDR is off as well. So this state can be
-> considered a power-off state with wakeup capabilities.
->=20
-> The wakeup capability of a device is described in the devicetree with
-> the wakeup-source property. This can hold phandles to system states in
-> which the device is capable of wakeup. Additionally a WKUP_EN flag is
-> set in the pinctrl of devices that are wakeup enabled.
->=20
-> On poweroff ti_sci checks if potential wakeup-sources for Partial-IO are
-> wakeup-enabled by the user. If that is the case, the poweroff is done
-> by TI_SCI by sending a PREPARE_SLEEP message with a specific mode. Once
-> sent the system will poweroff apart from the CANUART pins.
->=20
-> Dependencies
-> ------------
-> This series requires an updated DT binding for the wakeup-source
-> property that allows the use of system-states which are also being added
-> in this pullrequest:
->  - dt-schema wakeup-source binding update
->    https://github.com/devicetree-org/dt-schema/pull/150
->=20
-> Testing
-> -------
-> After enabling Wake-on-LAN the system can be powered off and will enter
-> the Partial-IO state in which it can be woken up by activity on the
-> specific pins:
->     ethtool -s can0 wol p
->     ethtool -s can1 wol p
->     poweroff
->=20
-> These patches are tested on am62-lp-sk on linux-next.
->=20
-> Best,
-> Markus
->=20
-> Previous versions "firmware: ti_sci: Partial-IO support":
->  v1: https://lore.kernel.org/lkml/20240523080225.1288617-1-msp@baylibre.c=
-om/
->  v2: https://lore.kernel.org/lkml/20240729080101.3859701-1-msp@baylibre.c=
-om/
->  v3: https://lore.kernel.org/r/20241012-topic-am62-partialio-v6-13-b4-v3-=
-0-f7c6c2739681@baylibre.com
->  v4: https://lore.kernel.org/r/20241219-topic-am62-partialio-v6-12-b4-v4-=
-0-1cb8eabd407e@baylibre.com
->=20
-> Previous versions "can: m_can: Add am62 wakeup support":
->  v1: https://lore.kernel.org/lkml/20240523075347.1282395-1-msp@baylibre.c=
-om/
->  v2: https://lore.kernel.org/lkml/20240729074135.3850634-1-msp@baylibre.c=
-om/
->  v3: https://lore.kernel.org/lkml/20241011-topic-mcan-wakeup-source-v6-12=
--v3-0-9752c714ad12@baylibre.com
->  v4: https://lore.kernel.org/r/20241015-topic-mcan-wakeup-source-v6-12-v4=
--0-fdac1d1e7aa6@baylibre.com
->  v5: https://lore.kernel.org/r/20241028-topic-mcan-wakeup-source-v6-12-v5=
--0-33edc0aba629@baylibre.com
->  v6: https://lore.kernel.org/r/20241219-topic-mcan-wakeup-source-v6-12-v6=
--0-1356c7f7cfda@baylibre.com
->=20
-> Changes in v5:
->  - Rebased to v6.14-rc1
->  - Merged m_can and ti_sci series to avoid conflicts and show
->    dependencies more easily
->  - Added definitions of system-states for am62/am62a/am62p
->  - Moved wakeup-source definitions into board dts files as they require
->    a bit of support on the board.
->  - Updated ti_sci support to walk through the wakeup-source phandle
->    lists
->  - Added pinctrl settings for mcu_mcan0/1 on all boards
->  - Minor style updates for ti_sci support for transfers without response
->  - Update and move the dt-binding for wakeup-source from the m_can
->    binding to the dt-schema repository
->=20
-> Changes in v4:
->  - Rebased to v6.13-rc1
->  - Removed all regulator related structures from patches and implemented
->    the wakeup-source property use instead.
->=20
-> Changes in v3:
->  - Remove other modes declared for PREPARE_SLEEP as they probably won't
->    ever be used in upstream.
->  - Replace the wait loop after sending PREPARE_SLEEP with msleep and do
->    an emergency_restart if it exits
->  - Remove uarts from DT wakeup sources
->  - Split no response handling in ti_sci_do_xfer() into a separate patch
->    and use goto instead of if ()
->  - Remove DT binding parital-io-wakeup-sources. Instead I am modeling
->    the devices that are in the relevant group that are powered during
->    Partial-IO with the power supplies that are externally provided to
->    the SoC. In this case they are provided through 'vddshv_canuart'. All
->    devices using this regulator can be considered a potential wakeup
->    source if they are wakeup capable and wakeup enabled.
->  - Added devicetree patches adding vcc_3v3_sys regulator and
->    vddshv_canuart for am62-lp-sk
->  - Add pinctrl entries for am62-lp-sk to add WKUP_EN for mcu_mcan0 and
->    mcu_mcan1
->=20
-> Changes in v2:
->  - Rebase to v6.11-rc1
->  - dt-binding:
->     - Update commit message
->     - Add more verbose description of the new binding for a better
->       explanation.
->  - ti_sci driver:
->     - Combine ti_sci_do_send() into ti_sci_do_xfer and only wait on a
->       response if a flag is set.
->     - On failure to enter Partial-IO, do emergency_restart()
->     - Add comments
->     - Fix small things
->=20
-> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
-> ---
-> Markus Schneider-Pargmann (13):
->       firmware: ti_sci: Support transfers without response
->       firmware: ti_sci: Partial-IO support
->       dt-bindings: can: m_can: Add wakeup properties
->       can: m_can: Map WoL to device_set_wakeup_enable
->       can: m_can: Return ERR_PTR on error in allocation
->       can: m_can: Support pinctrl wakeup state
->       arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
->       arm64: dts: ti: k3-am62: Define possible system states
->       arm64: dts: ti: k3-am62a: Define possible system states
->       arm64: dts: ti: k3-am62p: Define possible system states
->       arm64: dts: ti: k3-am62-lp-sk: Set wakeup-source system-states
->       arm64: dts: ti: k3-am62a7-sk: Set wakeup-source system-states
->       arm64: dts: ti: k3-am62p5-sk: Set wakeup-source system-states
->=20
->  .../devicetree/bindings/net/can/bosch,m_can.yaml   |  18 +++
->  arch/arm64/boot/dts/ti/k3-am62-lp-sk.dts           |  60 +++++++++
->  arch/arm64/boot/dts/ti/k3-am62.dtsi                |  22 ++++
->  arch/arm64/boot/dts/ti/k3-am62a.dtsi               |  27 +++++
->  arch/arm64/boot/dts/ti/k3-am62a7-sk.dts            |  76 ++++++++++++
->  arch/arm64/boot/dts/ti/k3-am62p.dtsi               |  27 +++++
->  arch/arm64/boot/dts/ti/k3-am62p5-sk.dts            |  76 ++++++++++++
->  arch/arm64/boot/dts/ti/k3-pinctrl.h                |   2 +
->  drivers/firmware/ti_sci.c                          | 134 +++++++++++++++=
-+++++-
->  drivers/firmware/ti_sci.h                          |   5 +
->  drivers/net/can/m_can/m_can.c                      | 111 +++++++++++++++=
-+-
->  drivers/net/can/m_can/m_can.h                      |   4 +
->  drivers/net/can/m_can/m_can_pci.c                  |   4 +-
->  drivers/net/can/m_can/m_can_platform.c             |   4 +-
->  drivers/net/can/m_can/tcan4x5x-core.c              |   4 +-
->  15 files changed, 562 insertions(+), 12 deletions(-)
-> ---
-> base-commit: 7ec162622e66a4ff886f8f28712ea1b13069e1aa
-> change-id: 20241008-topic-am62-partialio-v6-12-b4-c273fbac4447
->=20
-> Best regards,
-> --=20
-> Markus Schneider-Pargmann <msp@baylibre.com>
->=20
+As Peng stated in [1]:
+"In current design, CCM is taken as producer of CLK_IMX8M_VIDEO_PLL, not consumer."
 
---gnrxwuclzc4ha34t
-Content-Type: application/pgp-signature; name="signature.asc"
+These patches fix this issue by ensuring that the PLLs are now produced by
+Anatop and consumed by CCM, aligning with the hardware logic.
 
------BEGIN PGP SIGNATURE-----
+Finally, a clarification: I decided to keep the same title for the series
+despite having removed all the patches for spread spectrum support in order
+to maintain a clear connection with the previous versions.
 
-iHUEABYKAB0WIQTd8KHufh7XoFiu4kEkjLTi1BWuPwUCZ8mGAAAKCRAkjLTi1BWu
-P3PjAQDt4mEbKQtVnYaQmmc3B3LmQD2DDd6V/a2t0VWHH1BtqgEArDHbE684gnnH
-crTyi3FZu+K9XCPdDYdVJUKKmLJDRQg=
-=yywR
------END PGP SIGNATURE-----
+[1] https://patchwork.kernel.org/project/linux-clk/patch/20241106090549.3684963-2-dario.binacchi@amarulasolutions.com/
 
---gnrxwuclzc4ha34t--
+Changes in v10:
+- Drop the v9 patches:
+  16/23 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+  17/23 clk: imx: pll14xx: support spread spectrum clock generation
+  17/23 clk: imx8mn: support spread spectrum clock generation
+  21/23 clk: imx8mp: support spread spectrum clock generation
+  23/23 clk: imx8mm: support spread spectrum clock generation
+
+Changes in v9:
+- Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
+- Fix building warning raised by the kernel test robot for patch
+  v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
+- Add patches for imx8m{m,p} platforms:
+  - 23/23 clk: imx8mm: support spread spectrum clock generation
+  - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
+  - 21/23 clk: imx8mp: support spread spectrum clock generation
+  - 20/23 clk: imx8mp: rename ccm_base to base
+  - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
+
+Changes in v8:
+- Drop the patches added in version 7:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+
+Changes in v7:
+- Add and manage fsl,anatop property as phandle to the anatop node with
+  the new patches:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+
+Changes in v6:
+- Merge patches:
+  10/20 dt-bindings: clock: imx8mm: add binding definitions for anatop
+  11/20 dt-bindings: clock: imx8mn: add binding definitions for anatop
+  12/20 dt-bindings: clock: imx8mp: add binding definitions for anatop
+  to
+  05/20 dt-bindings: clock: imx8m-anatop: define clocks/clock-names
+  now renamed
+  05/18 dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+- Split the patch
+  15/20 dt-bindings-clock-imx8m-clock-support-spread-spectru.patch
+  into
+  12/18 dt-bindings: clock: imx8m-clock: add PLLs
+  16/18 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+
+Changes in v5:
+- Fix compilation errors.
+- Separate driver code from dt-bindings
+
+Changes in v4:
+- Add dt-bindings for anatop
+- Add anatop driver
+- Drop fsl,ssc-clocks from spread spectrum dt-bindings
+
+Changes in v3:
+- Patches 1/8 has been added in version 3. The dt-bindings have
+  been moved from fsl,imx8m-anatop.yaml to imx8m-clock.yaml. The
+  anatop device (fsl,imx8m-anatop.yaml) is indeed more or less a
+  syscon, so it represents a memory area accessible by ccm
+  (imx8m-clock.yaml) to setup the PLLs.
+- Patches {3,5}/8 have been added in version 3.
+- Patches {4,6,8}/8 use ccm device node instead of the anatop one.
+
+Changes in v2:
+- Add "allOf:" and place it after "required:" block, like in the
+  example schema.
+- Move the properties definition to the top-level.
+- Drop unit types as requested by the "make dt_binding_check" command.
+
+Dario Binacchi (18):
+  dt-bindings: clock: imx8mm: add VIDEO_PLL clocks
+  clk: imx8mm: rename video_pll1 to video_pll
+  dt-bindings: clock: imx8mp: add VIDEO_PLL clocks
+  clk: imx8mp: rename video_pll1 to video_pll
+  dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+  arm64: dts: imx8mm: add anatop clocks
+  arm64: dts: imx8mn: add anatop clocks
+  arm64: dts: imx8mp: add anatop clocks
+  arm64: dts: imx8mq: add anatop clocks
+  clk: imx: add hw API imx_anatop_get_clk_hw
+  clk: imx: add support for i.MX8MM anatop clock driver
+  clk: imx: add support for i.MX8MN anatop clock driver
+  clk: imx: add support for i.MX8MP anatop clock driver
+  clk: imx8mp: rename ccm_base to base
+  dt-bindings: clock: imx8m-clock: add PLLs
+  arm64: dts: imx8mm: add PLLs to clock controller module (CCM)
+  arm64: dts: imx8mn: add PLLs to clock controller module (CCM)
+  arm64: dts: imx8mp: add PLLs to clock controller module (CCM)
+
+ .../bindings/clock/fsl,imx8m-anatop.yaml      |  53 +-
+ .../bindings/clock/imx8m-clock.yaml           |  27 +-
+ arch/arm64/boot/dts/freescale/imx8mm.dtsi     |  11 +-
+ arch/arm64/boot/dts/freescale/imx8mn.dtsi     |  11 +-
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  11 +-
+ arch/arm64/boot/dts/freescale/imx8mq.dtsi     |   2 +
+ drivers/clk/imx/Makefile                      |   6 +-
+ drivers/clk/imx/clk-imx8mm-anatop.c           | 287 ++++++++
+ drivers/clk/imx/clk-imx8mm.c                  | 262 ++++---
+ drivers/clk/imx/clk-imx8mn-anatop.c           | 283 ++++++++
+ drivers/clk/imx/clk-imx8mn.c                  | 183 +++--
+ drivers/clk/imx/clk-imx8mp-anatop.c           | 306 ++++++++
+ drivers/clk/imx/clk-imx8mp.c                  | 672 +++++++++---------
+ drivers/clk/imx/clk.c                         |  15 +
+ drivers/clk/imx/clk.h                         |   2 +
+ include/dt-bindings/clock/imx8mm-clock.h      |  76 +-
+ include/dt-bindings/clock/imx8mn-clock.h      |  64 ++
+ include/dt-bindings/clock/imx8mp-clock.h      |  80 ++-
+ 18 files changed, 1740 insertions(+), 611 deletions(-)
+ create mode 100644 drivers/clk/imx/clk-imx8mm-anatop.c
+ create mode 100644 drivers/clk/imx/clk-imx8mn-anatop.c
+ create mode 100644 drivers/clk/imx/clk-imx8mp-anatop.c
+
+-- 
+2.43.0
+
 
