@@ -4,56 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA311C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:59:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDB9CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 14:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MWIAtWLslTPzG3y3/kbS9eLGVE4ztu8pAkuIHhaS/8k=; b=jtjGU+Tt1Fmc8oHeD3LaZDib0n
-	/bgESnQG1HndLhJXau7L2Ihl5mKX++Pp+ibS1Px3h9FRypYvBxelsadFwZxxlwEk8hzi/5FbV4rRp
-	HfN+mcSmVv1pc/XWdgXPmUF/YqZOBTePcBCum/JxUi58uLE40wt6bSeya8Gz/m3DzudKtIysoWZr0
-	AGk7SuWD7pulfJfo2dVECLfqKqDqQV4ixnVsGb1+FJKTePW8vagKL/aeJF0eKtj07D+X54tTLtdaJ
-	bKyWGgN7/54MhvG1lTftxsAKQULjgdTav+L2uub3x/4TlYhXVC03qeglT8rW+7O8eS7egrtjFdthM
-	wSOxOVLw==;
+	bh=MDHqWx3qK8RGM3fr6S9WaYEhaVQkVBdZ75ZCdRSLAdY=; b=qwK2MLtgXkKJMK/RDo+ESTDwkW
+	oV2lj9Fl+1chkxhfA8IvmQzc50rYwg7e47JVCSKd45FZ+dU0Q+o1dy2MQahDtX6G1rP51pZ9dF/K/
+	GBQHdGdprHP+wnjRuqOsDebRm7qCuwAdgQNeRqewjAazZa1eGm8HlRCzOij3M9kPIzvSlNeSlMy6t
+	AsKnjEq6NS7V8BhFmli9kZW493hfjvH5nVI9oVxLJpTHlbF4F8rFCUVK/Ghlo9J6rc3h5tUpRfzVA
+	uFqWE5faKAlLDnvTbxBTYLsN0C48ReGLBH1D03JrRp0CINpGMw88MDnmERRVBWPkW9TNyQiq9CJIt
+	2ycCUJXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBki-0000000B7pV-0t6W;
-	Thu, 06 Mar 2025 13:59:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tqBmH-0000000B84n-3z2w;
+	Thu, 06 Mar 2025 14:00:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBXx-0000000B5xJ-26Yj;
-	Thu, 06 Mar 2025 13:45:58 +0000
+	id 1tqBd2-0000000B6wx-3PWY
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 13:51:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CB88C5C550D;
-	Thu,  6 Mar 2025 13:43:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 129A5C4CEE0;
-	Thu,  6 Mar 2025 13:45:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 659845C02E7;
+	Thu,  6 Mar 2025 13:48:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C3D6C4CEE4;
+	Thu,  6 Mar 2025 13:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741268755;
-	bh=lUDIx8cRoGJFhjhDxOz8LvIHrj8yIQp4abSALcX5iKQ=;
+	s=k20201202; t=1741269071;
+	bh=MDHqWx3qK8RGM3fr6S9WaYEhaVQkVBdZ75ZCdRSLAdY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=rxUCETqaapLYu0EO251fg/Sc6Lo2+5mJ8Y45kyIHRNN2etGI4/pe1nKecWhbO3rZN
-	 utwlv50Y/pTH+btfFqkNtKmKhRBmkkcGK9ERRe8VWmAbyqMz5kbZ3yYrHfwJpKsqtt
-	 bS55FGPdd9CNdG/q5uowwtKfsZVuWCy/Y0Gmpa2qQrCFzA3L01HI/mKwOe4Qfe6izx
-	 whrjeR0I0Jzdzjl7zAuqbhr8bpXcgHGMyN3z75B9p7N5ZjXQ1Xy+9mgyZ7ah0u/Azc
-	 QVEHC9NKhqAdwpykIuX1EbHgQtPK3nGavbPDxcwFHTR3cXqb3LF2MtPYS/wWVE0E7R
-	 /XQ9OIyhQiZ0Q==
-Message-ID: <10115c0f-4a7f-460a-a0bd-0c86d1e7d3b6@kernel.org>
-Date: Thu, 6 Mar 2025 14:45:49 +0100
+	b=CY5IBsiFS9eBDNIWJ7sQjbryFpiM2GgSdUyXXiqGdWXk8uyLplvdlIkMSTgkEJfEl
+	 oIbo4qRtoLfrO/QJIs7+mdUyKWhMU7elEfrNasigeMs09OkxxC4Tj1zSL4PDsh7d15
+	 3B4MfCcLZgca4I+d7qvBH7bLyT6mG9aN7unQL7SEM+uejp2HsetY636RFHmAd+HUqz
+	 E1KfN4g9Mk3Ufe40wVwhVmVMRmaWmssNWvf9uajzHFaVM5dG6TUyDn2FVyoTDhXoTS
+	 dvk7Xnb1rGlGn9g64KmHOd22Kg3m+FJOxBVuDNQLlCR27sEGy0lLWtWVn/038Io9cB
+	 TeN3yHfWu+D6g==
+Message-ID: <ab483a68-40a8-4b44-ad73-d8a34bd32c69@kernel.org>
+Date: Thu, 6 Mar 2025 14:51:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/1] arm64: dts: rockchip: enable SCMI clk for RK3528 SoC
-To: Chukun Pan <amadeus@jmu.edu.cn>, heiko@sntech.de
-Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org, robh@kernel.org, ziyao@disroot.org
-References: <4856313.kQq0lBPeGt@diego>
- <20250306134002.380690-1-amadeus@jmu.edu.cn>
-Content-Language: en-US
+Subject: Re: [PATCH 1/2] dt-bindings: memory-controllers:
+ samsung,exynos4210-srom: Enforce child props
+To: Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, Bjorn Andersson <andersson@kernel.org>,
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250306085849.32852-1-krzysztof.kozlowski@linaro.org>
+ <CAL_JsqKODHZcrpqskA2aeK6EqGNx9aGNuPqGzhcZ_Nqiu+Ccww@mail.gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -97,12 +102,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250306134002.380690-1-amadeus@jmu.edu.cn>
+In-Reply-To: <CAL_JsqKODHZcrpqskA2aeK6EqGNx9aGNuPqGzhcZ_Nqiu+Ccww@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_054557_660048_0DD3F410 
-X-CRM114-Status: UNSURE (   8.76  )
+X-CRM114-CacheID: sfid-20250306_055112_941937_8240E012 
+X-CRM114-Status: UNSURE (   7.46  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -118,20 +123,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03/2025 14:40, Chukun Pan wrote:
-> Hi,
-> 
->> That sram is part of the soc (and has an mmio-address), so I'd think
->> it should live inside the soc node?
-> 
-> But soc ranges starts from 0xfe000000, I don't know whether to change it.
-> And all other nodes are 0xf..., except this sram.
+On 06/03/2025 14:39, Rob Herring wrote:
+> Why do we need this? Any child node should have a schema which needs
+> to include mc-peripheral-props.yaml if any properties from it can be
+> used.
 
-Maybe they are wrong?
+From correctness point of view, you are right, we don't need it. However:
 
-> Any suggestions would be greatly appreciated.
-Where is the SRAM located? Inside the SoC or is it carved out external
-ROM/RAM?
+1. Convention was so far to have in every controller. I think this also
+is easier to understand whenever one reads the bindings - clear
+documentation what children on this bus should look like.
+
+2. To clearly document from where samsung,srom-timing comes in the
+required block:
+
+https://web.git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git/tree/Documentation/devicetree/bindings/memory-controllers/exynos-srom.yaml?h=dt/next#n50
+Otherwise for me it is a bit confusing to require a property which is
+nowhere here defined.
+
 
 Best regards,
 Krzysztof
