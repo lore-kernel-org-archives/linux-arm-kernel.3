@@ -4,160 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5525DC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 999F4C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 18:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dxMXgDLbrG32/f38i9JjHZIUrjfzGchsc4HHXcuLRk=; b=TKBXcIZGDFtvi/KQIJWlIsFrSy
-	xrEMWty4WVXx7WJ+3pxErFgeN4IwhFecNmbhyvAmtyx5nZGTJu6sSYeBHRXKCL2R3+RxqNOvl5C4T
-	XvjLaFOluVRAgk9to0q+64g/Ql1uowHegdIeGXrEkqCBwvGUsDdwnsx56CKkhpgkShAPcAiOHF/Bx
-	iGw4BjKdYKkRYU0onXNyjd23wDObXVQq5ITyo/WZlNUURjbKE/LmN0Sk8xpl5/s2hG+B9pe9uKTuJ
-	9S+klWj35Cx56VgsRvJH+Gu0szhIhZ1Pwm695dX+emYfuzp6eDNaYWOOZr0hQ1dNF1SiDVwQf0Pdh
-	9m4VDLkQ==;
+	bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=; b=ikEO9ZLh6KP7XdgzRqGQnhL+K5
+	bIZDfV2fzWuKk38ESbQsDOC+1pcQWbW0Z6iW5U861ekx07P9XXGYWb8lBh7dphGjnnSnb7zRReHdV
+	DrhbFBy1VrKjz8y8k+yYf0m+HX3KypLfyFm5ulZE+cMDClfjAtz0e3wTFAVpITx1EcvNtIxUYe/zj
+	sNd+HFsgdidZSo8y66EhGww14smOzUi3YjGTqFfLGryDRBAHG4aRGe19OzdvzUqHSV/QNebMl8XM7
+	D95GUE2x9FX9EpvoLH7XhRQtk7Py3vnqg4byjJhFePuq/vdZGd3b+aGIPMkuuGZQYY7PoRfDEE6zX
+	zDzQDJDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFVM-0000000BlYS-3bZK;
-	Thu, 06 Mar 2025 17:59:32 +0000
-Received: from mail-westusazolkn190120001.outbound.protection.outlook.com ([2a01:111:f403:d001::1] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1tqFYV-0000000BmkK-029n;
+	Thu, 06 Mar 2025 18:02:47 +0000
+Received: from mail-am6eur05on2062f.outbound.protection.outlook.com ([2a01:111:f403:2612::62f] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqFTj-0000000BlG2-4BxS
+	id 1tqFWr-0000000BmLA-2CFc
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 17:57:53 +0000
+	Thu, 06 Mar 2025 18:01:07 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yXo2uVHTOn86yTEowS3SYfnh2m0RZ27YpzW5E4GVHrKvwzzuYCZzJAERi1jqY6mr+LWn3Bf15MfZkORUpqskzcluoWulhyhH2nYci1/ZUAC8tH/bNa/N2p9blGnwHkohFyMpWwXn8LsRwsLDbST9/NhSVnYUqYTtQbuZXehi56/6mGjxH9rKhhsdkptbkiOnlSBck7ZmtIC905hcMNKS596zviOF/9HcLc8ousDCxSZf9vaoPN3SDVEnPfdqvyu4YIOgPnI8Z11I7MzWsr8lUQYwXxrNslYZ5Ie191pziSQebGKdMsXInPy+ON5Rm6Ra8D2rYqfjU3XbFeXdnFByvg==
+ b=kWF3A0k1Kzp9zeq/kFJ/2ipSVxMI14YHkteaPLbVUaTmWkKuSkBxDTD/VrAqlYvkKlS35gPSX0Nc50ow9ZvoVdfYBlnSiS/2Vu0cIrNtAAtT9lMJ8DqcddgPxuOe+OlnmDixEa/wj5mA199loyB6CSYYzYUlSSaEx5f4maFiDz054S1aYYKkj94lSYVCoU2qh+2oaNN0PnpeOodY/LAixBXSJHNi3d4nmwhZvG0f1XHPSXQHXYsv1bUUBi1h6F/zxCaIAm4LdPJIroRsUtOPgFBkfcUJLQkSj0+YSuy0uLHp/f5uio7qmpGbri2s0yJ4KV1NMLG4riKJB9b4TO0A7Q==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+dxMXgDLbrG32/f38i9JjHZIUrjfzGchsc4HHXcuLRk=;
- b=dBer98fmClbIxHFnj/3WpFD5upK7ilSE6mHrICRSwjdjvLIuo0zDIiyig9/Atq3/DYfk2yfDItQGtkt6MPxxRg6v+i6q5+lvw7MgeXtnqhKCYxC/tcTKNs7V2RCwmUb1jEp6JCGpguFHlw6Qg0dD6cIwEgn3OQ1RBVKmOXy7RyOzo2VJq1CaoWwMPWO2lTcV2UprKMMO3BltLq10ktQzc7SG8rRcuAYnS3PDdqBArWBXpm5jYPFF1c5KIADkfx7thyOAbIqStg6ZZra1O2gKu3VtlzpdkLFSxbYKPfS5cDGVSKl0qEjpMjBXSlBCauNIbAAhVg792KUlPv3pu0UdpA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
+ bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=;
+ b=YGWHrVmOaRfaeOQ569DBxmQHLxznE0YXdDuq4Zc2eAjzbsJRM4umGpT08p1Mb+CBxnb0kcEnHElLbzgbgXJLkFBdLoBPhWcMv/PIUdlbYlLH/rnHrG7Kc06rM7vgxEtkhpahppKCLkZVZOmYoJm68vbuGEUlCakmoQUh489LHHFVv8qmHS7JZIgFgdbLMYpNHS1PjWuscF/I6/GIK54iFA9k4fMHbSXmv8HA3iqLR9HeCsVVQbDtaWeaN3Zl9e4hETKizdSh+H3LP3YWNYPhQE6cDV0pZvmTClx7ssdy1EuJY3I1jP0yx7uxdM/kP7bAvg8lvH2EvE7jxdLuhlDP9g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+dxMXgDLbrG32/f38i9JjHZIUrjfzGchsc4HHXcuLRk=;
- b=SgIWpIeDCe03d7bYR9Xj0g12bELvYQpubTs1ZDvmMo5ToMCGeDqqg8XRZIswWrP+HLJBK2cIGsicgOTNsxHsbMSNx85bDg25LhgRQkP4hM8rWwiT/GN5nP3rSiOxsq7r796NBauVJzkJQ+jTmn6Lp6xBldXoQwScSQ7MiaoGE4djDOcjrkR15w8/ZbIrqeqxGCKF7cJiIfOu/xswhJM1SdOOLnDl6KLP03UKsV8uOUyMeGfFYfwnB+YeKaJ4caxjbq3QcOY2G6Y3zE2lfb04j6Ve0Bh71CyzCQ2K1M03NKOj/u6/hxM80vEw11VUf45fc3GaqEhvjRkMgD1brnsXZg==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by MW4PR02MB7476.namprd02.prod.outlook.com (2603:10b6:303:67::8) with
+ bh=IJJXpttBSmz8sla8/4n2nNCaQ/ZLlwIn0fmDtCZNOD8=;
+ b=kMq8zx2VyeVKtwgnML9+jGQaN5BJjAe/zzGafdbU+0IWhtWWna+IauaLpbzkSpw72SQ5D5qY9qpmJ2LXwAtOZEO/YWmuTy+KbPPPGteEj4sxoHlCkAi0FqK2JLQHJMHraa275CXjmkclNu4D8c946Cm7ODwFmTFw23bXTnSkqlcazid2BHgqzP0i7DbDSWvcVzprE06x12x1FNgMyKTxWtSeAyDcPRFenDWX+CZv4EpUGfeXl9EX/dhPE1GWed7KUchmNna8oliIHE02lfJ+sgaF65EtonB86A4iYdXJ6KeikuGte18TH2P23eXoWt0A+YjeyFv/sOVOObW8wl1YLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10550.eurprd04.prod.outlook.com (2603:10a6:10:586::22) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8466.18; Thu, 6 Mar
- 2025 17:57:45 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 17:57:45 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
-	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
-	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
-	"mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
-	"apais@linux.microsoft.com" <apais@linux.microsoft.com>,
-	"Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
-	"stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>, "prapal@linux.microsoft.com"
-	<prapal@linux.microsoft.com>, "muislam@microsoft.com"
-	<muislam@microsoft.com>, "anrayabh@linux.microsoft.com"
-	<anrayabh@linux.microsoft.com>, "rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-Subject: RE: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-Thread-Topic: [PATCH v5 01/10] hyperv: Convert Hyper-V status codes to strings
-Thread-Index: AQHbiKNs/uCEZOh33UCUZSZ5oZ+szbNma5PQ
-Date: Thu, 6 Mar 2025 17:57:44 +0000
-Message-ID: <SN6PR02MB41577560030C55503D1BAFDCD4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740611284-27506-2-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|MW4PR02MB7476:EE_
-x-ms-office365-filtering-correlation-id: f39e481c-b6cf-469d-7ccf-08dd5cd865e7
-x-microsoft-antispam: BCL:0;ARA:14566002|461199028|19110799003|8060799006|8062599003|15080799006|12121999004|102099032|13041999003|440099028|3412199025|12091999003|41001999003;
-x-microsoft-antispam-message-info: =?us-ascii?Q?hZzawpkJrxmSN/MDMpqJGDgz26ApBWsnXLI5x0U4/XkTjI1q9IVpRRQvkMWL?=
- =?us-ascii?Q?vrWVv8g2o8Lw9aTzkq9AWmL6+cwNm93Gc4tF3yZY9UBiAQx4j0BiZ/FnCxW0?=
- =?us-ascii?Q?tMUflixfjkNyx2gWXYjvW5gOOl5YwZlio9ul9Cx0NdNclh6grJPau2O2tZaX?=
- =?us-ascii?Q?SVhFtvEp9IMCqB9F1K6zCLefjQ9FNZF5y5yWDwOXFJBAKHKud9Mqkbjda4HA?=
- =?us-ascii?Q?SEbk00BpWX4MHGpEHPZCusRRkSNfdO/VTXpmAbyR9oomkFwN3iuxm77ul7xd?=
- =?us-ascii?Q?SfOnoJ3FKiJ04vvt16QAFZkMeALRVi2WE1paXpBeehucYh5LwHyBSexxlf4y?=
- =?us-ascii?Q?Dxwqb+ng/bq1TNBzkA4WKbBqEb97J7TRGrImPPmkJi4Ht7n4K2TsD8z9RUhT?=
- =?us-ascii?Q?riXBIbsA9X65pzFpSCduwUBjG2kletHbOKn/ju8SxwY8mxFx/BtfkLWf8MUf?=
- =?us-ascii?Q?RL/LRr6od4HXnU+HcQeUTbrdrE6KoDjanHww3KULdydT/j4mtT1ICKIDBLH3?=
- =?us-ascii?Q?29cm8L/vlG0FeHDsQ60u3e3sf5lg2Cj7hSqF9C7RBZdgu234OZCkA4IrGh4A?=
- =?us-ascii?Q?0tYHkBomS/Xf1mWHgRBT6O1snwDcxTZftwl+w4XQHPqIKqIWRnn0ocVdLv3c?=
- =?us-ascii?Q?7c3lXquV02UJRtoOgHl/qs6WMb3rCZjGnLHi63b5ub5v9LLt7BEwQlS8ToHR?=
- =?us-ascii?Q?heMwuH50i0lj/F8WlKX7lb1tRUeGdNzRPbXsNDlQBJILKNxrD1IO7uB5frP0?=
- =?us-ascii?Q?+hZ/tNa51CvWIzae+HLjiVZcJpsGIdLMr3arcFSKBMcxTWYrSBGnygYdDhZN?=
- =?us-ascii?Q?Ei4Urd9OK5GWppmvL4er1GV8S0awQdJnLnxefezCY+vByxEvHjk786Y9t/2f?=
- =?us-ascii?Q?D3VefSrhkDXpK/BCorfgIE3TpCjqnTLXmeJcI4c5sgUA3v9mTkSWunuJqSUs?=
- =?us-ascii?Q?i+1+Htdmr/ULiIvaXrMaY0s6ZxRdgkuYIWzBjL7dbUS9VeQycN7zxvaQ+QZR?=
- =?us-ascii?Q?UW70FBiDi5ylJBs7mAI1ZaVOC1BOLfsY5LRvP4jfL7k//1fDat7xJuJs0fYK?=
- =?us-ascii?Q?TjNGr9cLfvz7PdFUfIl3vXvAnjYk69SRvhXtLQyym3lGjv4VUFtymZ25JokA?=
- =?us-ascii?Q?jCpDw9pfpCf4wr0f9t0zODiRX1xwefxlQnI5qlsrMaiDjUidVUt9sJg=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?u8uFEyIWHgowUZWtSLKihC7OUItTGqk5jLQrSN4Yzgei/QZYkkolKC+mLlQl?=
- =?us-ascii?Q?C6VDRknmVuwqyGOKnQuzFfMtNWm+0Zjh1T9cYD4z7KnTies/6UKOxJcfK1eY?=
- =?us-ascii?Q?mX4PaCpE/dcSx6lL6MP9OkURUlNFoxIfxCLXcKWDt9yfDHHLHOkYKp1tkKtL?=
- =?us-ascii?Q?YagMyKg0Jw8pmESgmmXnDkeCxupTB7Pl26yovhUAfFWm9hIFJ6Qjyo+ywz7T?=
- =?us-ascii?Q?k4914ThSBjujDdfIoq/lu2U98jT9xdc3fN9LAW5KJ3929P61MxIDccVF24yN?=
- =?us-ascii?Q?7ro5i5uoWPrZ7GGIvK8ovITMKnULeN3XtmBsO7dOsod1MSBayYstl/zSu1Sb?=
- =?us-ascii?Q?PVZXLSULsSdV6TCipyfRN8z+uZ/w+fY5IOdmqwMMV7nXX/rjD0WgUOX8m9+D?=
- =?us-ascii?Q?p6/qIITJCMPKEO4AQ8KZtp4c+5fI3lZzQgEMVeRXBbS+U57oBlsraazGbQZC?=
- =?us-ascii?Q?Y399uqJ4oQuZoX1OaVs67GktJa992PzHEY0yqXKWk2uOQdCOpK6b+eXdPm1n?=
- =?us-ascii?Q?pDB9VB8KDaXh7qMU6jIUXsXR6jC8Um5Bq6yemC7jHiFGaFqcSTekOzKWzDiv?=
- =?us-ascii?Q?7RGgtkh52L8v2ORN9AP7BHFr6HRgGPQ6r6eBjrwRklvz+N5++CTF4g1Yt1To?=
- =?us-ascii?Q?97KXY3yTtsHcY2gq5IKBbTAWoiCry5rlHzXku6ePxOgEIR0rzH580S1guBDs?=
- =?us-ascii?Q?LEJfrD5yTYV+HsoVW+dV1H2TVnjbkMndBm2gYKelrojAfijjyFxhyecN47lL?=
- =?us-ascii?Q?Qojy0HJSjAxzMdbyKT9VkSge0tSGuZl1dTS+vn0OH5q9QfWPCPjPZ4795Fr4?=
- =?us-ascii?Q?95tLyZXx1wroLqsrUoBZiYEoGfw9ki53R2mk0yPvVuXBJeZj2wF1btZ36icd?=
- =?us-ascii?Q?MFAbJqm1uBRFLJ5eW0snTOk/Pp8Xh7CFj9jVK8ZzR7BPBJ9i2J3G3KjzvdeZ?=
- =?us-ascii?Q?LzwNCLt3scQLwbgkkVrAqLEPj2pg4IV9Poeqfp0BhMD7FwdiwthCSiEEHUUs?=
- =?us-ascii?Q?8GfzzU420jCciRRuY4UsjXrSs3l8oLLKedkDmTmhI/S6Ws/PFwpiFUyoLFbM?=
- =?us-ascii?Q?t8Q4BBXeJEzgv0MNQ/i6V4ANH/gwssAzOvg4/OT8a9bUiNzNAdo9tLyev2yh?=
- =?us-ascii?Q?BMeiFf1I7qcP9NYwX3sbU4uxC3MGNOZfEwa0tzUTYiN20yOeUL/FBLgM9+Z5?=
- =?us-ascii?Q?vAmsgeQc5ErDkzd7Z+1GDvJxSpTqrlwTb5ERbDv8KCO4X0e1ZCW/6+IOLBE?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.18; Thu, 6 Mar
+ 2025 18:00:56 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
+ 18:00:56 +0000
+Date: Thu, 6 Mar 2025 13:00:44 -0500
+From: Frank Li <Frank.li@nxp.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Cc: Liu Ying <victor.liu@nxp.com>, Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] drm/bridge: fsl-ldb: make warning message more
+ informative
+Message-ID: <Z8nizEsd0QbYgsI/@lizhi-Precision-Tower-5810>
+References: <20250306-drm-two-ldb-improvements-v1-0-f139d768b92c@bootlin.com>
+ <20250306-drm-two-ldb-improvements-v1-2-f139d768b92c@bootlin.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250306-drm-two-ldb-improvements-v1-2-f139d768b92c@bootlin.com>
+X-ClientProxiedBy: BYAPR05CA0107.namprd05.prod.outlook.com
+ (2603:10b6:a03:e0::48) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10550:EE_
+X-MS-Office365-Filtering-Correlation-Id: 57185105-6d55-42bc-c9a7-08dd5cd8d7ca
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+gvsKp0RcoQAD2mxU8+DcKpruw7P1H8ANzsHMZwt5h3Wsys/5ofywwM1Q548?=
+ =?us-ascii?Q?beAZNf2Nmzl4Br+CLSXzf07aIJQUCTdBH4/p36I4axrvr3rHgECIl3Txk+SU?=
+ =?us-ascii?Q?Jqud8xWiL5zSa9CQdNoIimOVIS3/TtKj77xuTjenFFBaKfG1Mh/5xF8NocAi?=
+ =?us-ascii?Q?WO+wlETMXL9jx4S1J6Q4XLKuiDg4OA4159M4Mqgf4VfFwMxir99spGmIFBXm?=
+ =?us-ascii?Q?ps+NbInbefJZm7HJ6le6KU7Hqx3HuzRguSk8jJZTlFf368nLEJlMIepiygJc?=
+ =?us-ascii?Q?YP2eksSYWUuG8lkzqVrQ1z8diUEsL0sVS0sJbKcJDxAvRgUkvnvdurLrT9h6?=
+ =?us-ascii?Q?hLeb36uiX0x2GQi4z9y9GSpGIDbvi18/US6jYHEdbXnRMM2Fva5LGCG13Rno?=
+ =?us-ascii?Q?aJ/zA//GXlSB+ebMhh+OcV6w4omGvqG16yLoA5VTBJ4qSXyH4QJACpEnWH7i?=
+ =?us-ascii?Q?4+tfz8QHmlNBdB66fNcJ92TpAdH6+c2S/wV/FDhLBykxutkpEePlYSyNXmOc?=
+ =?us-ascii?Q?V6Env+KTqnwapiGxFHlNnw/vozmVUE+8DeoyfMPyqOLwmF7spK5J3RmuzKPv?=
+ =?us-ascii?Q?o0bXA4c7mPhuEpemkCQ2qYMd9yC5xNriYxDPQ6VU5HRNb0Rb8anEc9nGnLmQ?=
+ =?us-ascii?Q?EbHaDf/92iS91JsfeTHC4GOSECFv9uE0Tl7WVgPo+sQ+UmkGa6RpcZrjrhQr?=
+ =?us-ascii?Q?Eu+tuqpbpLAUY9sulTN4hgmW3PaO79z8QeG7MXiQ5qmjP0m0Tn6W+yIvZxkr?=
+ =?us-ascii?Q?KFODRU/8mGpmMvGGQThrJTYBoGp8uPm26XtQ0bp3MdMDxHvgyaV4SiOuHYNV?=
+ =?us-ascii?Q?PRtjmeZ5Vccs5K+383FaV+CgMbdsNFhSTxEq+pZ85vtTg/tnkBUPKDTXQqPp?=
+ =?us-ascii?Q?Kt7skLFX7D0wPngSI9TYsDCMbblb2abAZPrXDnHX/9kE3wF+FgaL4gneu/ER?=
+ =?us-ascii?Q?Jo3sHPzAQ4mR5mLrkgNlOUr4/72Gt78Rhsx+D9hAf4BHSzmcxhsz5fmMFQGP?=
+ =?us-ascii?Q?KIdvGo7b86iHhdhS5nPPSsp15mRBfXheuMsbbz000HdDOpxSj+io1JfVn8jM?=
+ =?us-ascii?Q?9b/ZTkP4T9bIRt7o+x3qua/XNJajUeQKXLh6nyNSbcyDEV586sWfhnSFheoq?=
+ =?us-ascii?Q?IpShCBAz7H/e5j+Or0B/sBDZDFMxz4DdjqQqNA0W23sOKlx97oZi7QSynwhv?=
+ =?us-ascii?Q?3wKVkNPUq57qk8UhCfvnqBBXYsjrFBZGOhb0RzOPUO9AD3uad56ivh27+yvk?=
+ =?us-ascii?Q?JqnOmQeUPZNIk+ez+obYCaRUAUki16jv8lUKdGaY75iOTDU3whmE1m4Az9bT?=
+ =?us-ascii?Q?eGmfxQdrLo0Rg8O3rd6RZs1HhhBKala43m7ZcWnlnrmWPn8DHtM5XdsQsATh?=
+ =?us-ascii?Q?uIKE566NGG8BRoCzc2b+Ztm/kBFAWADoOsB/7NkZPZPPNwi70loN2QviOaLK?=
+ =?us-ascii?Q?mVNpzpS9TTA=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?LarVKNuMMGkpSdBDStxxnp4m1O1LUYCeM1QF2WXNU/SNph5q8sdtVCw809wf?=
+ =?us-ascii?Q?AbNktUSpY4q1G7q3Br+BuubgHrUT+PdBBfbY/giNiUZSHSDQDc+YDrqa8EqE?=
+ =?us-ascii?Q?MhFtQI6mfMqRfMvUp8tkZrNfB/oJuBZDs9G6L3yRxcaktIgnVFcGQ+WBSwG7?=
+ =?us-ascii?Q?0QiatkMaIky2dHkstHvrmS3c/ibpEXxVJ+UjHmviUJM4xLWsrTv1GuKX6kFO?=
+ =?us-ascii?Q?zKxv1w7FG3krUQSjooWsD/7XCxmq07oBD5lZ487tbI6jYYmdtppAl4LpTIQQ?=
+ =?us-ascii?Q?svPnfybe4MmxXk8KzakrjSBbNqw7j9NaygpLDpue+rCWzz5+1sxBiyR9kaNc?=
+ =?us-ascii?Q?kgyEXMRiJVvmEnZ0qjfIWKn7CctyqCx1kK/GXyIdGH7+Za27sJU25wAYgzV3?=
+ =?us-ascii?Q?QY9DLPdeTZuiD3zAqOf48dHOgbGiTnp1Vla9vEU2gDiJL2fdFasyOIK7Ic1x?=
+ =?us-ascii?Q?ZG3yo8I0r7MbO6A3lHHbnDgAUU03bgwehx8+J43qjneSLcWxNKPAw+2zcsHf?=
+ =?us-ascii?Q?23jaEG1ot0scmh2Seqiv+XImovEGAMA/wAdb+JvsvYz3oG5DD/0z3J9GQqaz?=
+ =?us-ascii?Q?Qk4NDoUq7znpt/ajeNmmndfRuKtbIyoMldJIv5vX9TgFfuGiuDXE23OhNqGz?=
+ =?us-ascii?Q?DmXVg5an4fc6eY4+xeJitgh0GZsXRCCaBVyvYIyFrsakg0Yc0oTmywUqq7bq?=
+ =?us-ascii?Q?PWjNSIze+Go1X2BRR0Uz7wCXslSvzvgyaigmUTGDKzZXBVAgNZYFDJGWhDUR?=
+ =?us-ascii?Q?MPwtKvVWXdPUbWNIJS5OrK6wMpF4gtLXLgMQNce4Qr3u5qT75i/myGd7reM4?=
+ =?us-ascii?Q?dK71MFZcvjZMhEZxELAOxeC4o2xelDiGph7VzROL9En/O0azn3cDOq2k/vK9?=
+ =?us-ascii?Q?6MKzYer0SA68id4zbxTif9QgocFNkU5EygRQFlslnHsV21+2mBSBb8SVysYC?=
+ =?us-ascii?Q?JGMY06MI6H26w0/49AFhpxzomf+S8F64uFn3aW/eqWVOrp1WDnKiqgMMg6X3?=
+ =?us-ascii?Q?MWRQ7kJkmegk8MPL12USjmBcTZKFEC4GQrEJix8tP7GOSbFXjkZS3ylZud6h?=
+ =?us-ascii?Q?xuwJuNvxrb5V939jF/ggKsThP7GjGsVKwtVjRBJX4s26/xU7Zr9KXFBx+6CZ?=
+ =?us-ascii?Q?UIjn97Y8tUgJ+3BDwtHRiiehxxOoxGeip6RQBPi457nDUSijT5M6r9gAWj/G?=
+ =?us-ascii?Q?FsDqLaoJ3tQeHYVGKYYkmSq2gDffJYrBpx+lmp4jDXpRvk/72bvOq2sISvwQ?=
+ =?us-ascii?Q?jKq3flmZrjBf1RVjbIDzFRg61Tn+Y00/aLKKmI4GN4ghGgKCExp1BdjyqGEq?=
+ =?us-ascii?Q?W8UcVn/e4dcfa37tvYr88GAtu0E8xELZvrXHlqTh4PK31L4ZjA6HwyH68Jrk?=
+ =?us-ascii?Q?O+bWQTDSm095GBcIjmPY7QOEqFnrAFNd8/FBQwGk3823ZAPGU7KiUBdZtryp?=
+ =?us-ascii?Q?ELPnrq5Z4dc0WjY39zCAOFG2B3Se3GE2zEXh+UwzFwEhTYyAaDbEXucVlYSN?=
+ =?us-ascii?Q?7DGfYN3we/ia3iRYEVeb8RnupXFiE+ZVmMIbEP5juIEzLrf+BeNR4yGqKfzK?=
+ =?us-ascii?Q?TBZw6FbTwZeXCneFUJI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57185105-6d55-42bc-c9a7-08dd5cd8d7ca
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: f39e481c-b6cf-469d-7ccf-08dd5cd865e7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 06 Mar 2025 17:57:44.8379
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 18:00:56.1584
  (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR02MB7476
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: fFwX8jDJ0Sfxf9DdnIqHLKfQsYGW/OSpcrtWkYxlqb0mmnuLAxBM7dHyWaaSro0ioQtrzGUjLAIX8soJD15UzQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10550
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_095752_063528_5396D399 
-X-CRM114-Status: GOOD (  19.62  )
+X-CRM114-CacheID: sfid-20250306_100105_558257_30F13FA0 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,172 +173,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, Fe=
-bruary 26, 2025 3:08 PM
->=20
-> Introduce hv_result_to_string() for this purpose. This allows
-> hypercall failures to be debugged more easily with dmesg.
->=20
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+On Thu, Mar 06, 2025 at 06:28:41PM +0100, Luca Ceresoli wrote:
+> This warning notifies a clock was set to an inaccurate value. Modify the
+> string to also show the clock name.
+>
+> While doing that also rewrap the entire function call.
+>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 > ---
->  drivers/hv/hv_common.c         | 65 ++++++++++++++++++++++++++++++++++
->  drivers/hv/hv_proc.c           | 13 ++++---
->  include/asm-generic/mshyperv.h |  1 +
->  3 files changed, 74 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index 9804adb4cc56..ce20818688fe 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -740,3 +740,68 @@ void hv_identify_partition_type(void)
->  			pr_crit("Hyper-V: CONFIG_MSHV_ROOT not enabled!\n");
->  	}
->  }
-> +
-> +const char *hv_result_to_string(u64 hv_status)
-> +{
-> +	switch (hv_result(hv_status)) {
-> +	case HV_STATUS_SUCCESS:
-> +		return "HV_STATUS_SUCCESS";
-> +	case HV_STATUS_INVALID_HYPERCALL_CODE:
-> +		return "HV_STATUS_INVALID_HYPERCALL_CODE";
-> +	case HV_STATUS_INVALID_HYPERCALL_INPUT:
-> +		return "HV_STATUS_INVALID_HYPERCALL_INPUT";
-> +	case HV_STATUS_INVALID_ALIGNMENT:
-> +		return "HV_STATUS_INVALID_ALIGNMENT";
-> +	case HV_STATUS_INVALID_PARAMETER:
-> +		return "HV_STATUS_INVALID_PARAMETER";
-> +	case HV_STATUS_ACCESS_DENIED:
-> +		return "HV_STATUS_ACCESS_DENIED";
-> +	case HV_STATUS_INVALID_PARTITION_STATE:
-> +		return "HV_STATUS_INVALID_PARTITION_STATE";
-> +	case HV_STATUS_OPERATION_DENIED:
-> +		return "HV_STATUS_OPERATION_DENIED";
-> +	case HV_STATUS_UNKNOWN_PROPERTY:
-> +		return "HV_STATUS_UNKNOWN_PROPERTY";
-> +	case HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE:
-> +		return "HV_STATUS_PROPERTY_VALUE_OUT_OF_RANGE";
-> +	case HV_STATUS_INSUFFICIENT_MEMORY:
-> +		return "HV_STATUS_INSUFFICIENT_MEMORY";
-> +	case HV_STATUS_INVALID_PARTITION_ID:
-> +		return "HV_STATUS_INVALID_PARTITION_ID";
-> +	case HV_STATUS_INVALID_VP_INDEX:
-> +		return "HV_STATUS_INVALID_VP_INDEX";
-> +	case HV_STATUS_NOT_FOUND:
-> +		return "HV_STATUS_NOT_FOUND";
-> +	case HV_STATUS_INVALID_PORT_ID:
-> +		return "HV_STATUS_INVALID_PORT_ID";
-> +	case HV_STATUS_INVALID_CONNECTION_ID:
-> +		return "HV_STATUS_INVALID_CONNECTION_ID";
-> +	case HV_STATUS_INSUFFICIENT_BUFFERS:
-> +		return "HV_STATUS_INSUFFICIENT_BUFFERS";
-> +	case HV_STATUS_NOT_ACKNOWLEDGED:
-> +		return "HV_STATUS_NOT_ACKNOWLEDGED";
-> +	case HV_STATUS_INVALID_VP_STATE:
-> +		return "HV_STATUS_INVALID_VP_STATE";
-> +	case HV_STATUS_NO_RESOURCES:
-> +		return "HV_STATUS_NO_RESOURCES";
-> +	case HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED:
-> +		return "HV_STATUS_PROCESSOR_FEATURE_NOT_SUPPORTED";
-> +	case HV_STATUS_INVALID_LP_INDEX:
-> +		return "HV_STATUS_INVALID_LP_INDEX";
-> +	case HV_STATUS_INVALID_REGISTER_VALUE:
-> +		return "HV_STATUS_INVALID_REGISTER_VALUE";
-> +	case HV_STATUS_OPERATION_FAILED:
-> +		return "HV_STATUS_OPERATION_FAILED";
-> +	case HV_STATUS_TIME_OUT:
-> +		return "HV_STATUS_TIME_OUT";
-> +	case HV_STATUS_CALL_PENDING:
-> +		return "HV_STATUS_CALL_PENDING";
-> +	case HV_STATUS_VTL_ALREADY_ENABLED:
-> +		return "HV_STATUS_VTL_ALREADY_ENABLED";
-> +	default:
-> +		return "Unknown";
-> +	};
-> +	return "Unknown";
-> +}
-> +EXPORT_SYMBOL_GPL(hv_result_to_string);
-> +
-> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
-> index 2fae18e4f7d2..8fc30f509fa7 100644
-> --- a/drivers/hv/hv_proc.c
-> +++ b/drivers/hv/hv_proc.c
-> @@ -87,7 +87,8 @@ int hv_call_deposit_pages(int node, u64 partition_id, u=
-32
-> num_pages)
->  				     page_count, 0, input_page, NULL);
->  	local_irq_restore(flags);
->  	if (!hv_result_success(status)) {
-> -		pr_err("Failed to deposit pages: %lld\n", status);
-> +		pr_err("%s: Failed to deposit pages: %s\n", __func__,
-> +		       hv_result_to_string(status));
->  		ret =3D hv_result_to_errno(status);
->  		goto err_free_allocations;
->  	}
-> @@ -137,8 +138,9 @@ int hv_call_add_logical_proc(int node, u32 lp_index, =
-u32 apic_id)
->=20
->  		if (hv_result(status) !=3D HV_STATUS_INSUFFICIENT_MEMORY) {
->  			if (!hv_result_success(status)) {
-> -				pr_err("%s: cpu %u apic ID %u, %lld\n", __func__,
-> -				       lp_index, apic_id, status);
-> +				pr_err("%s: cpu %u apic ID %u, %s\n",
-> +				       __func__, lp_index, apic_id,
-> +				       hv_result_to_string(status));
->  				ret =3D hv_result_to_errno(status);
->  			}
->  			break;
-> @@ -179,8 +181,9 @@ int hv_call_create_vp(int node, u64 partition_id, u32=
- vp_index,
-> u32 flags)
->=20
->  		if (hv_result(status) !=3D HV_STATUS_INSUFFICIENT_MEMORY) {
->  			if (!hv_result_success(status)) {
-> -				pr_err("%s: vcpu %u, lp %u, %lld\n", __func__,
-> -				       vp_index, flags, status);
-> +				pr_err("%s: vcpu %u, lp %u, %s\n",
-> +				       __func__, vp_index, flags,
-> +				       hv_result_to_string(status));
->  				ret =3D hv_result_to_errno(status);
->  			}
->  			break;
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
-v.h
-> index b13b0cda4ac8..dc4729dba9ef 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -298,6 +298,7 @@ static inline int cpumask_to_vpset_skip(struct hv_vps=
-et *vpset,
->  	return __cpumask_to_vpset(vpset, cpus, func);
->  }
->=20
-> +const char *hv_result_to_string(u64 hv_status);
->  int hv_result_to_errno(u64 status);
->  void hyperv_report_panic(struct pt_regs *regs, long err, bool in_die);
->  bool hv_is_hyperv_initialized(void);
+>  drivers/gpu/drm/bridge/fsl-ldb.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+> index 0fc8a14fd80062248a43b8b93272101a7ca6158a..c7c899a9644bb827845fb3fe96a9695d79a91474 100644
+> --- a/drivers/gpu/drm/bridge/fsl-ldb.c
+> +++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+> @@ -181,9 +181,9 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+>
+>  	configured_link_freq = clk_get_rate(fsl_ldb->clk);
+>  	if (configured_link_freq != requested_link_freq)
+> -		dev_warn(fsl_ldb->dev, "Configured LDB clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
+> -			 configured_link_freq,
+> -			 requested_link_freq);
+> +		dev_warn(fsl_ldb->dev,
+> +			 "Configured %pC clock (%lu Hz) does not match requested LVDS clock: %lu Hz\n",
+> +			 fsl_ldb->clk, configured_link_freq, requested_link_freq);
+
+commit message said show clock name, but %p is for pointer value. Are sure
+it show clock name?
+
+Frank
+
+>
+>  	clk_prepare_enable(fsl_ldb->clk);
+>
+>
 > --
-> 2.34.1
-
-I've read through the other comments on this patch. I definitely vote
-for outputting both the hex code along with a string translation, which
-could be empty if the hex code is unrecognized by the translation code.
-
-I can see providing something like hv_hvcall_err() as Nuno proposed, since
-that standardizes the text output. But I wonder if it would be too limiting=
-.
-For example, in the changes above, both hv_call_add_logical_proc() and
-hv_call_create_vp() output additional debugging values, which we probably
-don't want to give up.
-
-Lastly, from an implementation standpoint, rather than using a big
-switch statement, build a static array of entries that each have the
-hex code and string equivalent. Then hv_result_to_string() loops through
-the array looking for a match. This won't be any slower than the big switch
-statement. I've seen other places in the kernel where string names are
-output, and looking up the strings in a static array is the typical approac=
-h.
-You'll have to work through the details and see if avoids being too clumsy,
-but I think it will be OK.
-
-Michael
+> 2.48.1
+>
 
