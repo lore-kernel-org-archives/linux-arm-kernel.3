@@ -4,65 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B115C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:12:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 191C0C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:20:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+bX0OCi+CMyhwXy9lrE4UMSExGRWJd/dorD/PBzaX5o=; b=IfvxG9US8IaRY8VkqKWS7mLzbi
-	9BzLXYEWgDjbiEaYcM4DDYj32teVWLdi5VHfL4A4n28GhgzoZIGO6JLoPuQf4A7L9G1PuUFWwuUR3
-	lJWAD/0ZQ3lcs9fXR0SQX4h4pBvvHPAtsWaE0/9WwUzW57dkrfEgx0DVrJdTLJO7hMkRQ9bGn0D/r
-	gz3+uZEUnyzEgBHq34ehP5tZXsRvoAVpWwqV1ktTHvIpmpNgbNE+w8vqubE7FD/An744y1/AudwqG
-	DH4uzepQPtURLCpE6dUMrfte18qjpj/jBFU3Rp81JGL3LimCcRo40yNWyNxnBws6lXyQnX7lm+o1S
-	bphhLk+A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WVQO/etdAW8haAAARVR4LNY3kInIlCvn9+r2nwljM48=; b=EUA4owMS/8ATkPgrkti7CpNv1V
+	uxlf2sc4/2yfzUFmmqYFIsIZHWgh/lCNJiSk93lwRKH02LZLTiW/6TGgqgt+c7RVl4b04afCd8r2C
+	MvGcW8XD7vbISxx14WZ2Jh3qRXUBjTwRAKbZ08jZf/aGYqYDYHqmBIZEqt+5Xacal9w45ojsDDP7/
+	7dyF0adglFxD44ouRwMyvdEsiqJQXmYnX7viOX2BSVWxQbNA2kvXvUbHnxA7grwsY+hRzrNYQi+N6
+	zRIAlfTFjh9ZfJdgD7Jz7gUpcvOJRneoKqbQWSZPFIPD48xbz1vovw+SBVK5lo0Mdu6pxN7ioItcq
+	vLpLC2Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDpg-0000000BRZu-1AWG;
-	Thu, 06 Mar 2025 16:12:24 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tqDxP-0000000BSRU-3fjk;
+	Thu, 06 Mar 2025 16:20:23 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDo2-0000000BR5Y-3GYo
+	id 1tqDvm-0000000BS8E-3svp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 16:10:44 +0000
+	Thu, 06 Mar 2025 16:18:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 314CE5C5807;
-	Thu,  6 Mar 2025 16:08:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11E12C4AF09;
-	Thu,  6 Mar 2025 16:10:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741277441;
-	bh=dO5KuEHT5N6JPz0mZT1IGgNKs9grKUWa+Hx4+yx3kc4=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=JCqBfelle7bd3f+VaMdYkAAJYOLVyqPuRy+iagi9Fuw7JAId6/MsywpvuUBHTwnq1
-	 KvNpYZCs3czm870bWeKDTn0jRE0gxCsoMYcIrC5aYwe5zx/2k9GYF0rw9epTuSDhUV
-	 S0lLbFRV6Ur7yI9KI0CV5CJguD66+/7N1mtPAc6kcrNYarmwS6dTZSHWzB2SZhLc0f
-	 Z+lCGPXOl3bMpSMFPt078zrZtRfxTWL2o3ldBZqMbFYKHtYm4jHknp88vi7GI+GY8V
-	 BuL7zfDzeiyVfRUcZqHoX0TT6Yh8JmS0UYqTnAGpkX09C/tWXrJzOM7bg+FSs6SCkt
-	 wmh0cJSryQ2bA==
-From: Mark Brown <broonie@kernel.org>
-To: Patrice Chotard <patrice.chotard@foss.st.com>, 
- Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>, linux-spi@vger.kernel.org, 
- linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel-janitors@vger.kernel.org
-In-Reply-To: <bc4c9123-df43-4616-962f-765801d30b4c@stanley.mountain>
-References: <bc4c9123-df43-4616-962f-765801d30b4c@stanley.mountain>
-Subject: Re: [PATCH next] spi: stm32-ospi: Fix an IS_ERR() vs NULL bug in
- stm32_ospi_get_resources()
-Message-Id: <174127743980.139137.18227484559909848489.b4-ty@kernel.org>
-Date: Thu, 06 Mar 2025 16:10:39 +0000
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7A5675C20FE;
+	Thu,  6 Mar 2025 16:16:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C8BE4C4CEE0;
+	Thu,  6 Mar 2025 16:18:40 +0000 (UTC)
+Date: Thu, 6 Mar 2025 16:18:38 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: Alice Ryhl <aliceryhl@google.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	linux-arm-kernel@lists.infradead.org, arm-scmi@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [Bug report] Memory leak in scmi_device_create
+Message-ID: <Z8nK3uFkspy61yjP@arm.com>
+References: <Z8g8vhS9rqQ_ez48@google.com>
+ <Z8iFeEWq16pNQdMa@pluto>
+ <Z8mCbc2Z2QGd3f8M@google.com>
+ <Z8my4MZ-In0ibxVY@arm.com>
+ <Z8nDj129ZVeZBVSp@pluto>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8nDj129ZVeZBVSp@pluto>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_081042_879423_D1CD173B 
-X-CRM114-Status: GOOD (  10.45  )
+X-CRM114-CacheID: sfid-20250306_081843_006375_9DE4FB8C 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,38 +66,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 06 Mar 2025 12:48:34 +0300, Dan Carpenter wrote:
-> The devm_ioremap() function returns NULL on error, it doesn't return
-> error pointers.  Fix the check to match.
+On Thu, Mar 06, 2025 at 03:47:27PM +0000, Cristian Marussi wrote:
+> On Thu, Mar 06, 2025 at 02:36:16PM +0000, Catalin Marinas wrote:
+> > This loop in scmi_device_create() looks strange:
+> > 
+> > 	list_for_each_entry(rdev, phead, node) {
+> > 		struct scmi_device *sdev;
+> > 
+> > 		sdev = __scmi_device_create(np, parent,
+> > 					    rdev->id_table->protocol_id,
+> > 					    rdev->id_table->name);
+> > 		/* Report errors and carry on... */
+> > 		if (sdev)
+> > 			scmi_dev = sdev;
+> > 		else
+> > 			pr_err("(%s) Failed to create device for protocol 0x%x (%s)\n",
+> > 			       of_node_full_name(parent->of_node),
+> > 			       rdev->id_table->protocol_id,
+> > 			       rdev->id_table->name);
+> > 	}
+> > 
+> > We can override scmi_dev a few times in the loop and lose the previous
+> > sdev allocations. Is this intended?
 > 
+> Yes...it is weird..but by design I would say :P ...
 > 
+> ...because this is called to instantiate one single device OR instantiate at
+> once all the multiple devices needed for a protocol: in this latter case it
+> returns just one of the created devices to signal success or NULL if all the
+> devices' creation failed....we dont need to keep the allocated devices references
+> anyway here since on success those devices are now referenced and kept on the
+> SCMI bus, so they can be searched/scanned/destroyed from there.
 
-Applied to
+Not sure why the pointer isn't found, device_add() should link it with
+the parent. Unless something else fails, the parent is freed and the
+linked devices unreachable. I'm not familiar at all with this code, I
+just saw kmemleak and thought of replying.
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+The loop is still weird, scmi_chan_setup() seems to use the pointer to
+scmi_device for something more meaningful than a pass/fail check. Also
+the overall result is based only on what the last __scmi_device_create()
+return value was, irrespective of the previous iterations of the loop.
+You do have a pr_err() but no early bailing out of the loop on failure.
+I'm curious if there are any SCMI errors in the Alice's kernel log.
 
-Thanks!
-
-[1/1] spi: stm32-ospi: Fix an IS_ERR() vs NULL bug in stm32_ospi_get_resources()
-      commit: 7dfc9bdde9fa20cf1ac5cbea97b0446622ca74c7
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
-
+-- 
+Catalin
 
