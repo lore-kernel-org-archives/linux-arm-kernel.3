@@ -4,106 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF14C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:04:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB34EC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:06:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vtNbkKW92oiyf/MEWed49iOf2vBzLZ2dwi5nMQkMZIc=; b=ZM48XCIorU4YcOX0kLe6Bmfbu+
-	P7mojJD/dUz8sfspEm3S+/KrZL/0dH8qHzfHTQkg/HPKaQH3HTB1TBjN3Pnj7XPN5wLhAPXL/I+Hx
-	xQLlKH3c7rvux7aIf4mA0lhzRtSv35HypPWzMGLiZ37twZ21QVU7Mrim2ATYNrf9W4rbQPY3RmsrZ
-	roSw/f4Q0+ZIxJ1Pv8WGDM8yhKZQc/IV7thIPmDjg1w7IBztghh0k3fI8rp0j8EhTKMAFZn5Jlp3u
-	wKl4tB7EuhTzTruFcQPjK+Hk7HgLQe8YFVQhQays58D4G3UlOfkUBQPVc3QkO1T4XwnhVPRmPLfPy
-	ea2PyMQg==;
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5dj5w9ejPiVsrAbB6Q5urj8yOwJqRMJj3W1QeDdAQbk=; b=Tx4VAPPhwRCVw/q/Gryjvlorfa
+	i1bf9+/AQ+hx2gk+oN/S1WarPCrmN0zpAcKgmCAAnn/IwQoyzLgVNvyU1e9YPtmrtZ1A9Db8m3Jaj
+	sZRWi4eXQKXkYxQI0bH9Btdn2O9d8cjGEfb8FcP/l2+5n8MFaNwVHcDChJFrsYKGP1FUqmFU8Z1b6
+	M8NyibMdwLoU0WdJua3mOasP83ZD/OtTLeZNPPBxVPQv6x33o1LuW5Ky7Uek7lLGcnJU4mGyJl2Lv
+	/QQ3vJbT0w+jiP1B+CBEvU9iPuj5sPMFAonbQnNDsDM0qxoc2qS1RR/5o3+wpTAv6PJKMHcMT7LcG
+	+Ch/r+LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHSM-0000000C5Ln-3FdL;
-	Thu, 06 Mar 2025 20:04:34 +0000
-Received: from fhigh-a7-smtp.messagingengine.com ([103.168.172.158])
+	id 1tqHTy-0000000C5kF-2GW5;
+	Thu, 06 Mar 2025 20:06:14 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHKk-0000000C46k-2HXc
+	id 1tqHR1-0000000C4u6-0v9o
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 19:56:43 +0000
-Received: from phl-compute-08.internal (phl-compute-08.phl.internal [10.202.2.48])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id E3F2E114018C;
-	Thu,  6 Mar 2025 14:56:38 -0500 (EST)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-08.internal (MEProxy); Thu, 06 Mar 2025 14:56:38 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
-	 t=1741290998; x=1741377398; bh=vtNbkKW92oiyf/MEWed49iOf2vBzLZ2d
-	wi5nMQkMZIc=; b=ouj9JeLTgrXCx8BuncX57zY1qS606ouLDBYXMspDJxMXAsBu
-	DTd4CaabpmKucH4R1TrWq7V9s2nb4u2yIMNAkVEvE0BNBv0HRt91tkmkl98nwr+G
-	aEG13IPuK0QnOWCv4qdsc3ijIetAip87ac9VdPoSyKjpThkc6D1SswQ7+HLTqNzH
-	fDnokTMxpin6dtQZvIl5NFJeQ9kdJcK+PvhT+qv0fyMcNQZNuRSNFG4/1wqhvEll
-	Rou9mdzh2eo/txOI9sw4SNPwqNUHbwi5HbTnl8SbQjVeZGU6nHc/KVqtntmUoRgF
-	3TUkM4TxNa8Ivg4ud6imy6BCPTwefyFD5Nlu+g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741290998; x=
-	1741377398; bh=vtNbkKW92oiyf/MEWed49iOf2vBzLZ2dwi5nMQkMZIc=; b=N
-	xX0pN5HeT34HZqxVu98+U7wiz6BYZ90rGbPc80C4MHpde5rPS43wGMX6OSHbjlcT
-	miGKGxE7J2Cd51IfqMK2CrLYtrM5KcKSqj8RNbUJjUtG8CaJeETx9f6fL5JCFDTR
-	MpjTQ0NB0m6EG7uyoFIZnLxK7bVZCCtuy1xxl4CjDzcKMbpMv159gUp1V8llAm9L
-	MOZzlbDTO0dympwy617AOzYQLHqjJE/LdfG+I+odMG6KR5l8KELKotktrsOv3oL1
-	US4fmSY2bIgvswal9++vjq/HZQnSdmrVFr17KMgXp0ekwo2uLyvD6fjicwZvaFQS
-	1SLlZIzZu0OurTWmJeOhA==
-X-ME-Sender: <xms:9v3JZ7lvEmwPT69snFH8eVv6Y42cnFRNAxH62XeI8RhyBgkXw4DjoA>
-    <xme:9v3JZ-3ju0g6eTH2TOwJsO3v17HEOipiVN8BXvhaS8tGRYGUrkKUt87pPm-f1Pkvq
-    jSsJgIDtOq9xrhxJRM>
-X-ME-Received: <xmr:9v3JZxpSo2LAYSTDuCr3JYdLG4prV5_rPIGsYXUOUuJfwCkbQzVv29RVIaTWJS2C3LDWniEda3hg8WA3cJJzyMidwBh7g9j2I4A4_sP5HC7MoMNNqWk0R0zx2fjz6zQETA5dnl3bCWd0xbH2cgnC46ydLeW9t9jV_QTMVOWW5fR4_OVJ8Qt7dxHqPq99Yoycpa0W>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdekieegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvegjfhfukfffgggtgffosehtjeertder
-    tdejnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehsvhgvnhesshhvvghnphgvthgvrh
-    druggvvheqnecuggftrfgrthhtvghrnhepfeefjeeiueejteffjeetueekjedtgfehiedt
-    uefgtdeuvdfgfefhledufeevgffgnecuffhomhgrihhnpehgihhthhhusgdrtghomhenuc
-    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsvhgvnhes
-    shhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthhtohepuddtpdhmohguvgepshhmth
-    hpohhuthdprhgtphhtthhopeguvghvihgtvghtrhgvvgesvhhgvghrrdhkvghrnhgvlhdr
-    ohhrghdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlh
-    drohhrghdprhgtphhtthhopehtohifihhntghhvghnmhhisehgmhgrihhlrdgtohhmpdhr
-    tghpthhtohepjhesjhgrnhhnrghurdhnvghtpdhrtghpthhtohepkhhriihkodgutheskh
-    gvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehl
-    ihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtoheprghlhihsshgrsehroh
-    hsvghniiifvghighdrihhopdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdp
-    rhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdguvghv
-X-ME-Proxy: <xmx:9v3JZzm9KDznGdcZs_dVEDUiTzahiftdf77uyXeSGDPY694uzATSiA>
-    <xmx:9v3JZ52LKVIos3GMrngwOoYyiEe77xOfpbtd12UjzPoy1qOkqay0vg>
-    <xmx:9v3JZyscwqqR5mEQZdaIw3O15X4JmrOyqfGKgtudAPOd3xkwcjMRsA>
-    <xmx:9v3JZ9UxNs7g636yz5cb4TwjvoH995PVjcj-iPpW_YhyXlB6r-EDVQ>
-    <xmx:9v3JZys_LuNuW9qp-z_RihXTje-4G52tbfTkXAq3RrKBRAwdWzSDRrH1>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Thu,
- 6 Mar 2025 14:56:36 -0500 (EST)
-From: Sven Peter <sven@svenpeter.dev>
-To: Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Nick Chan <towinchenmi@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250228-dwi-dt-v2-0-69e450bc4bfb@gmail.com>
-References: <20250228-dwi-dt-v2-0-69e450bc4bfb@gmail.com>
-Subject: Re: [PATCH RESEND v2 0/5] arm64: dts: apple: Add DWI backlight dt
- nodes
-Message-Id: <174129099660.23709.379545131530961336.b4-ty@svenpeter.dev>
-Date: Thu, 06 Mar 2025 20:56:36 +0100
+	Thu, 06 Mar 2025 20:03:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741291390;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=5dj5w9ejPiVsrAbB6Q5urj8yOwJqRMJj3W1QeDdAQbk=;
+	b=AkzVgAnKZHnc934/B1Ln8dTyfi4bRI355rCw3prUHKq7xWxKY+5p1qEJsCYv/0r0eO2rei
+	RbMidomwLWOTjOV/faMrD5gaYsAcxq03mcYkH9tWvVWhfipLPJvFjgoN42mzDHrG8ZQNXF
+	xdtZhxyemQFXt3GlY01xWEwWK4ZLrM0=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-672-hcoNBT96N2ebxPzqXd2EpQ-1; Thu,
+ 06 Mar 2025 15:03:05 -0500
+X-MC-Unique: hcoNBT96N2ebxPzqXd2EpQ-1
+X-Mimecast-MFC-AGG-ID: hcoNBT96N2ebxPzqXd2EpQ_1741291385
+Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9F4711800266;
+	Thu,  6 Mar 2025 20:03:04 +0000 (UTC)
+Received: from [172.64.10.8] (unknown [10.30.34.106])
+	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D55EF18001E9;
+	Thu,  6 Mar 2025 20:03:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
+ upstream-arm-next, 14d05f12)
+Date: Thu, 06 Mar 2025 20:03:03 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
+Message-Id: <04773.125030615030600374@us-mta-672.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: sBOluBz-GZShde2IZgTEglfYfdOCw_q50Ra6BO2Icik_1741291385
+X-Mimecast-Originator: redhat.com
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.13.0
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_115642_668410_E85BF52E 
-X-CRM114-Status: UNSURE (   6.65  )
+X-CRM114-CacheID: sfid-20250306_120311_328792_74446DA7 
+X-CRM114-Status: UNSURE (   6.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -119,32 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 28 Feb 2025 12:32:11 +0800, Nick Chan wrote:
-> Add device tree nodes for DWI backlight found on some Apple iPhones, iPads
-> and iPod touches. Not all devices have this feature, as some devices
-> instead have their backlights directly connected to the WLED output of a
-> PMU or use self-emissive panels.
-> 
-> Resned because a network error occured and some patches failed to send.
-> 
-> [...]
+Hi, we tested your kernel and here are the results:
 
-Applied to git@github.com:AsahiLinux/linux.git (asahi-soc/dt), thanks!
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
 
-[1/5] arm64: dts: apple: s5l8960x: Add backlight nodes
-      https://github.com/AsahiLinux/linux/commit/0f8f64b2329f
-[2/5] arm64: dts: apple: t7000: Add backlight nodes
-      https://github.com/AsahiLinux/linux/commit/897359ae3c50
-[3/5] arm64: dts: apple: s800-0-3: Add backlight nodes
-      https://github.com/AsahiLinux/linux/commit/4384b6c781bc
-[4/5] arm64: dts: apple: t8010: Add backlight nodes
-      https://github.com/AsahiLinux/linux/commit/074db7d6f51b
-[5/5] arm64: dts: apple: t8015: Add backlight nodes
-      https://github.com/AsahiLinux/linux/commit/e1bc21d8f8fd
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Best regards,
--- 
-Sven Peter <sven@svenpeter.dev>
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1703653448
+
+One or more kernel builds failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1703653448-aarch64-kernel
+                   Issue: [upstream] error: initializer-string for array of=
+ 'char' is too long [-Werror=3Dunterminated-string-initialization]
+                          https://gitlab.com/cki-project/infrastructure/-/i=
+ssues/473
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
