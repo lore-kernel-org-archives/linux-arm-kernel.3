@@ -4,76 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAEAFC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:34:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F1E2C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=; b=tvJXVp13IN8WBWXfp1Kl7EMlBM
-	eb5BvFcoif3saCqYfENQHtRuYOEmy7kXrRWerJbGB4Q06gXd3Vpx0jq6FDQPUwFPUz/G0mRg4gRg2
-	CN5f+dMN+GErvKS3y95+YXMR7Iz7DU47+y3XUGH7nb9rfIFPvz+Pjq6+UJ5KiebdIvJckgObunqt0
-	FIuh0BwBz0jvor6o8gaNmR+7lfE2aVLmYaU76BOQ8cYQP65ghhSSRXmt1WljsN4bgfTmroZBBElmH
-	ss7+z+cdSbUgJZZq/pevygfruxkHI5C++vRn/SYtvqZ7AuJullD6qLw2U+EhF1PccAjKmQXnwf6PL
-	L7RPra1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+s8Sa65V/9ddeKgx8N3fRnLsd8R6GrlW9UDyXRKo1Ek=; b=AYG21H6KiqAoHgdo5CKgw3zbcb
+	0YkMM20BYicd/EENCgQzyr6yij8VPjrBLz473mMwg+dEAeOIH8x+Q9OeUOxbI8Od+3th28A1VwUiX
+	KSw0UWXviJEdryQ2EOK8gaYKGARW1I2Zi9ZFNdFzi4/gEoduv6h4+vq0/30SzFIH4A89H4bE37NCo
+	/J69G5JOP2R6JCuFyVg8hJvhMRKjJnNHA5yi1FSBKvOoSgkcAOJ8Dznu4zFijxdodf+r3D2RgLXhz
+	YCkEkon1/VcpL/7A95fHhgwiPVVFRoanahSRuV0uGGTc7aIdT2dguUhXOmGsOBiT5jiPWPJNgpWDg
+	tVbON4sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqDEV-0000000BL4L-3fqk;
-	Thu, 06 Mar 2025 15:33:59 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tqDEY-0000000BL6w-2uf2;
+	Thu, 06 Mar 2025 15:34:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqB2i-0000000B10o-3cj5;
-	Thu, 06 Mar 2025 13:13:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741266806; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Ln67D7B8R/emwNovVLhkaz7xbVh04EGL2fSTkLDhliu0yFF5HPOStn0Fyk7RGUSm6kz3daWv2CrhBsEXy5NJydyy2CaaXI30XHo8uo38Ng0OYX1igVJcmSzIsV3OL1w4E/4RfOr0qKK6iJs+ZrcRuTffIcpmK0FAp0SAVAEM4YQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741266806; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=; 
-	b=MMm0eR+LmbNeSFSuObeLJGIE34hmTdHHG+dO6tTDWE1hVzlgVjE9tnZIEqsZbRWhIdFXkx/nPiRl+PTGYUaqS22megAsU4oUjwdDdVt9zrkcXLANi2CANfUR3Gl8dxw14v2w/5zlrF3Qc5vLy8dmkkS2IHvEtTwDHQGaMpvi4Vg=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741266806;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=R/l3297Aly6n/qBAueWz12hEPxnEHvfm6GKPejWJ/Vw=;
-	b=jLTo6eWuwglmC71EtgyEJQ8kL0bFRLESM9jvJbnBxLKoc4vQBGYlIU3eCrW82lcq
-	VVceuFNVewMSvTKT54YH8U8WN8NraGIPvbNxZ0XrB47XCseCv3JRCN2U7fAQVMb90wI
-	M0/ZAU/gqUDRQ3YvHFtJeQdvnxMJgFKwn+UZxeV0=
-Received: by mx.zohomail.com with SMTPS id 1741266806086596.4769996246168;
-	Thu, 6 Mar 2025 05:13:26 -0800 (PST)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Sugar Zhang <sugar.zhang@rock-chips.com>,
- Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
-Subject: Re: [PATCH 3/7] ASoC: dt-bindings: add schema for rockchip SAI controllers
-Date: Thu, 06 Mar 2025 14:13:18 +0100
-Message-ID: <2376575.ElGaqSPkdT@workhorse>
-In-Reply-To: <ffd6287c-cbfd-4ba8-9332-45bad4e60583@kernel.org>
-References: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
- <20250305-rk3576-sai-v1-3-64e6cf863e9a@collabora.com>
- <ffd6287c-cbfd-4ba8-9332-45bad4e60583@kernel.org>
+	id 1tqCEs-0000000BD7t-2Az6
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 14:30:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741271417;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=+s8Sa65V/9ddeKgx8N3fRnLsd8R6GrlW9UDyXRKo1Ek=;
+	b=Exnx43dv+l99gKvHZZyHl+o3Qmi1tbwpMY8LZyFc0HSEdpFpK44DfpwfZ0BQAZIsQZvCML
+	jNE//bcVPyKuclyMCMyPdslhMYVvR5lZu++MOxY51ZLrbhByq4HuQzWlgEXK04fazNOFrd
+	wqFrjE+dDQj0aOdgc1csjMf3YXw6kko=
+Received: from mail-wr1-f71.google.com (mail-wr1-f71.google.com
+ [209.85.221.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-640-tYbW5N9aOma98QhJK0xLXQ-1; Thu, 06 Mar 2025 09:29:53 -0500
+X-MC-Unique: tYbW5N9aOma98QhJK0xLXQ-1
+X-Mimecast-MFC-AGG-ID: tYbW5N9aOma98QhJK0xLXQ_1741271392
+Received: by mail-wr1-f71.google.com with SMTP id ffacd0b85a97d-3912a0439afso290992f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 06:29:53 -0800 (PST)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741271392; x=1741876192;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=+s8Sa65V/9ddeKgx8N3fRnLsd8R6GrlW9UDyXRKo1Ek=;
+        b=KLv4UqdwuqqcKXXGYJUAN4Wipmbm+ReXfjfMG5xiAx+J8nEzi6R0FmhtGbIc0Im58o
+         KUEBfYUd4Tiko9iHzUOZWH7XhL3vkDqN7FT1amqmqtGaNeGm90QBDjissJYxKF2CGWQ9
+         OmEgfpWyJB0RaPWb0yHWC43bjhzxAqIrn80sLP9xQ93vgdfZDRMMk88W4xzjspN+6Ev1
+         1VIaariHr8ox0A104L/Y+5xDwcu1SX0UuansuaXYUYuAxtwzmzDI1/o8LbfNO/WFGQP3
+         eSuNUDtapD1l2lJ74UcGiNCY6wmZMMVSc0B6Zr2w/V4C9SddSDqJnqivPBTYxFbqEXIS
+         kAuw==
+X-Forwarded-Encrypted: i=1; AJvYcCVgG1Ol95ELaVyJrCQRll5yWsoMtilVV1/KzHTdEuDZAQEg1Dh5WGTqTw8oTEX6vM/AWc9accK/+ivyLvyt6R+d@lists.infradead.org
+X-Gm-Message-State: AOJu0Yza+i4EvnTvlVdFHpITqv4jtAgaFAT73mwGUAWhMU3DSNNhLzDL
+	gzRwOt9220KNXioUHf38sB6uVfQMU6bDn5Hdl4D8w4d8q2SfosVEA6Dt3gq4MPgQTAfE1LCN0dK
+	5zhFuF9so/O0FnKQIcBeCmDjHcAZ925YEfhtnBLxBPNnbtS/4/TB+tfHqBUYPWkja7ygZoYXM
+X-Gm-Gg: ASbGnctw0NTH4N35Jr1BkLUywySPgGBJpZGEgZG8ZlNkIBn25fgxOmnQjx5MGtAyLL2
+	VJHxV7D8AtgBGnDsTdeucwEpwGg4Sv2KFbQxQUxWZespmfF1KMd2mUy+84w+99zotxg2LDUZQML
+	IHdwxh1WpwMQHoe5du5nmHtTDPGQ/7+/b1y0pLZ3vZYyvIxzPA3D/ScIKMjuh4VMloiVMHoQ6kY
+	geKg3DTaJA4P1N71Mp4lOG4qNc0MEGSxW+UDJpS3pgC0cGYA6mG00aAI4DW+XLH0vNx/THtfuvb
+	vX+/jfusSeX5p7PXX+bxr+nUzjayoHUn6Edao1tGdlrwEQ==
+X-Received: by 2002:a5d:47c3:0:b0:391:300f:7474 with SMTP id ffacd0b85a97d-391300f7814mr755628f8f.18.1741271391436;
+        Thu, 06 Mar 2025 06:29:51 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IFmNrvNwgj8JP10FUTkFjkayzhqglMLbK2EPOM2dy9cPE1fLkIBgeqVz0hx1d6bSuhoE5j+XQ==
+X-Received: by 2002:a5d:47c3:0:b0:391:300f:7474 with SMTP id ffacd0b85a97d-391300f7814mr755608f8f.18.1741271391040;
+        Thu, 06 Mar 2025 06:29:51 -0800 (PST)
+Received: from [192.168.88.253] (146-241-81-153.dyn.eolo.it. [146.241.81.153])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c102e01sm2234126f8f.93.2025.03.06.06.29.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 06 Mar 2025 06:29:50 -0800 (PST)
+Message-ID: <03492277-b7e8-4cd1-b92e-699ee0d7dc85@redhat.com>
+Date: Thu, 6 Mar 2025 15:29:49 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 net-next 04/13] net: enetc: add MAC filter for i.MX95
+ ENETC PF
+To: Wei Fang <wei.fang@nxp.com>, claudiu.manoil@nxp.com,
+ vladimir.oltean@nxp.com, xiaoning.wang@nxp.com, andrew+netdev@lunn.ch,
+ davem@davemloft.net, edumazet@google.com, kuba@kernel.org
+Cc: christophe.leroy@csgroup.eu, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-arm-kernel@lists.infradead.org
+References: <20250304072201.1332603-1-wei.fang@nxp.com>
+ <20250304072201.1332603-5-wei.fang@nxp.com>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <20250304072201.1332603-5-wei.fang@nxp.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: tgTa-9GwCkYhncdMhV3pXNfbNphMJ7SwRgC9mwHKNHs_1741271392
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_051340_976733_54DDC6C7 
-X-CRM114-Status: GOOD (  31.12  )
+X-CRM114-CacheID: sfid-20250306_063018_646688_6868C968 
+X-CRM114-Status: GOOD (  10.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,164 +114,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 6 March 2025 08:42:54 Central European Standard Time Krzysztof 
-Kozlowski wrote:
-> On 05/03/2025 22:24, Nicolas Frattaroli wrote:
-> > Rockchip introduced a new audio controller called the "Serial Audio
-> > Interface", or "SAI" for short, on some of their newer SoCs. In
-> > particular, this controller is used several times on the RK3576 SoC.
-> > 
-> > Add a schema for it, with only an RK3576 compatible for now. Other SoCs
-> > may follow as mainline support for them lands.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> > 
-> >  .../devicetree/bindings/sound/rockchip,sai.yaml    | 151
-> >  +++++++++++++++++++++
-> Filename based on compatible.
-
-Sure, but more compatibles will follow. Are you certain you want a file named 
-rockchip,rk3576-sai.yaml to then contain rockchip,rk3528-sai? If so then I do 
-not understand the reason behind this policy.
-
-> 
-> >  MAINTAINERS                                        |   6 +
-> >  2 files changed, 157 insertions(+)
-> 
-> ...
-> 
-> > +
-> > +  dma-names:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +    oneOf:
-> > +      - const: tx
-> > +      - const: rx
-> > +      - items:
-> > +          - const: tx
-> > +          - const: rx
-> 
-> Why all combinations are possible?
-
-Because they are. sai5 in rk3576 is rx only. sai7 is tx only. Others are both 
-tx and rx. Do you want me to enforce that those with both are always tx 
-followed by rx?
-
-> 
-> > +
-> > +  clocks:
-> > +    items:
-> > +      - description: master audio clock
-> > +      - description: AHB clock driving the interface
-> > +
-> > +  clock-names:
-> > +    items:
-> > +      - const: mclk
-> > +      - const: hclk
-> > +
-> > +  resets:
-> > +    minItems: 1
-> > +    maxItems: 2
-> > +    description: resets for the mclk domain and ahb domain
-> 
-> List the items instead with description and minItems: 1.
-
-Will do
-
-> 
-> > +
-> > +  reset-names:
-> > +    minItems: 1
-> > +    items:
-> > +      - const: m
-> > +      - const: h
-> > +
-> > +  port:
-> > +    $ref: audio-graph-port.yaml#
-> > +    unevaluatedProperties: false
-> > +
-> > +  power-domains:
-> > +    maxItems: 1
-> > +
-> > +  "#sound-dai-cells":
-> > +    const: 0
-> > +
-> > +  rockchip,sai-rx-route:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > +    description:
-> > +      Defines the mapping of the controller's SDI ports to actual input
-> > lanes, +      as well as the number of input lanes.
-> > +      rockchip,sai-rx-route = <3> would mean sdi3 is receiving from
-> > data0, and +      that there is only one receiving lane.
-> > +      This property's absence is to be understood as only one receiving
-> > lane +      being used if the controller has capture capabilities.
-> > +    maxItems: 4
-> > +    items:
-> > +      enum: [0, 1, 2, 3]
-> > +
-> > +  rockchip,sai-tx-route:
-> > +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> > +    description:
-> > +      Defines the mapping of the controller's SDO ports to actual output
-> > lanes, +      as well as the number of output lanes.
-> > +      rockchip,sai-tx-route = <3> would mean sdo3 is sending to data0,
-> > and
-> 
-> I understand this is only example because = <3> would not be allowed
-> (test it).
-
-I'll have to look into that, I was fairly certain I tested it, but maybe I 
-forgot to run a CHECK_DTBS with it in.
-
-> 
-> > +      that there is only one transmitting lane.
-> > +      This property's absence is to be understood as only one
-> > transmitting lane +      being used if the controller has playback
-> > capabilities.
-> > +    maxItems: 4
-> > +    items:
-> > +      enum: [0, 1, 2, 3]
-> > +
-> > +  rockchip,always-on:
-> > +    type: boolean
-> > +    description:
-> > +      The hardware requires this controller to remain turned on.
-> 
-> How hardware requires this? You rather miss proper PM domain handling or
-> some other resources.
-
-This isn't about power domains. It's about the FS/SCLK generator inside the 
-IP. I'll remove it in the next revision since downstream only uses it for a 
-different IP on the RK3588, and I'd rather not get bogged down by discussions 
-as to whether SAI should be modelled as a clock provider.
-
-> 
-> > +
-> > +
-> 
-> Just one blank line.
-
-Will do
-
-> 
-> > +required:
-> > +  - compatible
-> > +  - reg
-> > +  - dmas
-> > +  - dma-names
-> > +  - clocks
-> > +  - clock-names
-> > +  - "#sound-dai-cells"
-> > +
-> > +unevaluatedProperties: false
-> 
-> Best regards,
-> Krzysztof
-
-Cheers,
-Nicolas Frattaroli
+On 3/4/25 8:21 AM, Wei Fang wrote:
+> +static void enetc_mac_list_del_matched_entries(struct enetc_pf *pf, u16 si_bit,
+> +					       struct enetc_mac_addr *mac,
+> +					       int mac_cnt)
+> +{
+> +	struct enetc_mac_list_entry *entry;
+> +	int i;
+> +
+> +	for (i = 0; i < mac_cnt; i++) {
+> +		entry = enetc_mac_list_lookup_entry(pf, mac[i].addr);
+> +		if (entry) {
+> +			entry->si_bitmap &= ~si_bit;
+> +			if (!entry->si_bitmap) {
 
 
+Minor nit: here and elsewhere you could reduce the level of indentation
+restructoring the code as:
+
+		if (!entry)
+			continue;
+
+		entry->si_bitmap &= ~si_bit;
+		if (entry->si_bitmap)
+			continue;
+/P
 
 
