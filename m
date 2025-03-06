@@ -4,67 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7FD2C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:42:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 200F4C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:47:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfUhAo+atCGxKbgDynhG8+exAGkzvMvPHlUVaCXqecY=; b=g4sp52VlQzB3jAZhQ7G3WDf+vF
-	nR0T9jvHypj3SqcVoo8KAXo/amxDe6Ry8mHtfiqBKp8jMMrQX0zdMi5ZJBtsM4k97uv0B65wYGxNS
-	GK1tAkR60zWPMxphpa14fhM7/dk/Xmc4ifB92AHIkR6I76nLGzadcY2HLbsndy3WferyVBhmwt6NZ
-	kKS37LGdQlbt1UM1O2uJdr9aDh4DGOorlgvOQRMSP5fGOzojpeKNkcLjq8jYJN2562EMqVxy7fQTK
-	zT5fY/IW4JMRK4qJLEErgVJ8HuApBKqeYohK+MX7fpilYyuZaRsk9d0YsCzU9FCAeYVaWiJsxcXrn
-	y8eQYQHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=e1PLVkKiN56Ya4maBrOxQSy4Oun8BAWhqNDU9AJlFdI=; b=JyL71mVn8QcVtNNSvXzVafekuW
+	ZMMCU4WwstgNCwvZAUVNNpQS7CCaF6KjL/gK6vqgzpprJPnr4wFupiW2m8J28j2LtAL5v8/7KqdDL
+	z0sfWvhnczOXhN4Fr6LWW3FdwA1nh32s3aub7w0sompr1j+otl0Tj5eH1L7lNg8gQQ3jkJtYZ6f/k
+	6GlIuLRh/bOCm8rbCXyoqa2/MfHwBysKCzJAptRdAYGtKc2RAdMEEeNlVf/8KgXRPZnsUsFdWiUOO
+	9FnQ6MR6Nk9xbY8yleExjFSLTXZfhbD2bnPBxHi0Kw8Mq5+ArzRL1qEyRHX7u6uuOYdn/UEbP+80a
+	zICZAG7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBUP-0000000B5NF-41o4;
-	Thu, 06 Mar 2025 13:42:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tqBZA-0000000B66W-0qA8;
+	Thu, 06 Mar 2025 13:47:12 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBNj-0000000B4Tk-3j5Q;
-	Thu, 06 Mar 2025 13:35:25 +0000
+	id 1tqBSQ-0000000B56k-1kfy
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 13:40:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 147E5A44C5D;
-	Thu,  6 Mar 2025 13:29:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DE9BAC4CEE5;
-	Thu,  6 Mar 2025 13:35:21 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id F0B9EA44D12
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 13:34:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4C117C4CEEB
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 13:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741268122;
-	bh=TEsU6Ht+78gm09L1SBIsP4bdIB/vCUld4RHRuN+JlCg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Q+TL6TFUsUtdn/wseDX/hYan08UFevaGvb3dKbl/pMQO1gxynYz1WPVc+GwbDdGSg
-	 G6VVxvTMlQ151wtr2rH2dXaRev4a14umu7sY4Zpa2E8jjqn2gzTw/l+8SCDIEpXjkQ
-	 SSvUXWrM+81mTvqh60ZrJFDki3uEYB6At22GMnkZYwODW1iKnJgtlGNQ18rpCVuwuZ
-	 rA923hDM/3tLy0TqI8K+ZM49CkkiPZGP4b/ICuIOQNEH0aHIwSOuINFcFghhD2ubZW
-	 qGqH8P7KYxHxv4Pt5qntnkp7sYPguNuZ0Rl6JwC+DQwcBKr6i/dsnUfA0pel585GA0
-	 i0LNrLA0fM4/A==
-Date: Thu, 6 Mar 2025 14:35:19 +0100
-From: Maxime Ripard <mripard@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, kernel@collabora.com, linux-kernel@vger.kernel.org, 
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v4 03/12] phy: rockchip: samsung-hdptx: Fix clock ratio
- setup
-Message-ID: <20250306-masked-voracious-octopus-be05b8@houat>
-References: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
- <20250304-phy-sam-hdptx-bpc-v4-3-8657847c13f7@collabora.com>
- <20250304-small-mindful-mongrel-bd6f8b@houat>
- <155f609f-994f-4140-8453-7e38a5e6deef@collabora.com>
+	s=k20201202; t=1741268413;
+	bh=2mSyakUOyo08l4OiCw4nRuD9nEYgVqyIBYFul/OR6iM=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=p1N9mnaP340A/wWlypAiLFCrdWOF0xMeWFyAlmpSuDtd3GP4DMVjl+sCZNm0Zi+7P
+	 H7KhOV3UR4DCuASANAWLPrXGpm6QRYBoYHCJkS1m2IiGZNbQrLJR9YmLWrC+2gr81K
+	 JoJy0KjiCoNkCIFMzp5maxBn7tfZdMV6HkU8uzBx4CbPyIrydyyOD9L2Wfq0027PSp
+	 0DBNjjO/g9xSZI+hIP/o4RVKowA+vqskkJCh3TctS9VEC9693ffTajySV31CsSXzjd
+	 0eOWc5w9UYNeNlqMtsPMNAKi7ZgJY/uFYXGjEl6GroQcPH9eBp5Cv82/QEVrrsGJQb
+	 bibT+KI4vZ9zQ==
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-5e4ce6e3b8cso1180532a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 05:40:13 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCXjG71IcG5gJiFRQUj4FKYUi1ntvHULwhiNEiVvAXba537jQ95v0+kSs0TEMzhVENJ9jl1vd24Sk4/VfCBIsX77@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+Z6Rgga2Ixck21ctnY22DC8QAaoTEgQIjdqcoeasWYuWkV2dJ
+	wv7Qylwf4f9fKGyaivcbTVYSAvWOPH/woHhyIwyAr6IwrcfuALYD4IYti4AkjylwWDJhhqJqaXN
+	ypK6Xg442Cqqxchbz4nPfvM8Jcw==
+X-Google-Smtp-Source: AGHT+IGj+xYZZsPz4jo/iFpv6TDQ/flAGSh5fwxEf3UPQtG9b2FsLgBktltZesQa3BHxfQan3/3TV66VU1r+mDDfBHM=
+X-Received: by 2002:a05:6402:5113:b0:5e4:d27a:d868 with SMTP id
+ 4fb4d7f45d1cf-5e5c1a6463bmr3852917a12.0.1741268411865; Thu, 06 Mar 2025
+ 05:40:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="5o2wzlaqjbtp76c4"
-Content-Disposition: inline
-In-Reply-To: <155f609f-994f-4140-8453-7e38a5e6deef@collabora.com>
+References: <20250306085849.32852-1-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250306085849.32852-1-krzysztof.kozlowski@linaro.org>
+From: Rob Herring <robh@kernel.org>
+Date: Thu, 6 Mar 2025 07:39:59 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqKODHZcrpqskA2aeK6EqGNx9aGNuPqGzhcZ_Nqiu+Ccww@mail.gmail.com>
+X-Gm-Features: AQ5f1Jqm2v42Q6wtTkhP_amcTxbY2Gmov9aAKcbCh_hPzmOQ2Z0TQ2BFM2Dah1A
+Message-ID: <CAL_JsqKODHZcrpqskA2aeK6EqGNx9aGNuPqGzhcZ_Nqiu+Ccww@mail.gmail.com>
+Subject: Re: [PATCH 1/2] dt-bindings: memory-controllers: samsung,exynos4210-srom:
+ Enforce child props
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Bjorn Andersson <andersson@kernel.org>, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_053524_058292_19DC25CB 
-X-CRM114-Status: GOOD (  25.87  )
+X-CRM114-CacheID: sfid-20250306_054014_593237_3A3750FB 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,92 +87,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Mar 6, 2025 at 2:58=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> Samsung Exynos SROM peripheral properties were moved from the device
+> schema to separate "peripheral-props" schema for child node, but the
+> device schema does not reference the new one.
+>
+> Reference the peripheral-props schema so the child nodes will be
+> properly validated from the device schema.
+>
+> Fixes: 67bf606fcf18 ("dt-bindings: memory-controllers: samsung,exynos4210=
+-srom: Split out child node properties")
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>
+> ---
+>
+> Fix for Rob's tree.
+> ---
+>  .../devicetree/bindings/memory-controllers/exynos-srom.yaml      | 1 +
+>  1 file changed, 1 insertion(+)
+>
+> diff --git a/Documentation/devicetree/bindings/memory-controllers/exynos-=
+srom.yaml b/Documentation/devicetree/bindings/memory-controllers/exynos-sro=
+m.yaml
+> index 2267c5107d60..1578514ec58d 100644
+> --- a/Documentation/devicetree/bindings/memory-controllers/exynos-srom.ya=
+ml
+> +++ b/Documentation/devicetree/bindings/memory-controllers/exynos-srom.ya=
+ml
+> @@ -38,6 +38,7 @@ properties:
+>  patternProperties:
+>    "^.*@[0-3],[a-f0-9]+$":
+>      type: object
+> +    $ref: mc-peripheral-props.yaml#
 
---5o2wzlaqjbtp76c4
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 03/12] phy: rockchip: samsung-hdptx: Fix clock ratio
- setup
-MIME-Version: 1.0
+Why do we need this? Any child node should have a schema which needs
+to include mc-peripheral-props.yaml if any properties from it can be
+used.
 
-On Tue, Mar 04, 2025 at 02:04:18PM +0200, Cristian Ciocaltea wrote:
-> Hi Maxime,
->=20
-> On 3/4/25 10:13 AM, Maxime Ripard wrote:
-> > Hi,
-> >=20
-> > On Tue, Mar 04, 2025 at 03:44:02AM +0200, Cristian Ciocaltea wrote:
-> >> The switch from 1/10 to 1/40 clock ratio must happen when exceeding the
-> >> 340 MHz rate limit of HDMI 1.4, i.e. when entering the HDMI 2.0 domain,
-> >> and not before.
-> >>
-> >> While at it, introduce a define for this rate limit constant.
-> >>
-> >> Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY dr=
-iver")
-> >> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> >> ---
-> >>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 3 ++-
-> >>  1 file changed, 2 insertions(+), 1 deletion(-)
-> >>
-> >> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drive=
-rs/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> >> index f88369864c50e4563834ccbb26f1f9f440e99271..cf2c3a46604cb9d8c26fe5=
-ec8346904e0b62848f 100644
-> >> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> >> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
-> >> @@ -320,6 +320,7 @@
-> >>  #define LN3_TX_SER_RATE_SEL_HBR2_MASK	BIT(3)
-> >>  #define LN3_TX_SER_RATE_SEL_HBR3_MASK	BIT(2)
-> >> =20
-> >> +#define HDMI14_MAX_RATE			340000000
-> >>  #define HDMI20_MAX_RATE			600000000
-> >> =20
-> >>  enum dp_link_rate {
-> >> @@ -1072,7 +1073,7 @@ static int rk_hdptx_ropll_tmds_mode_config(struc=
-t rk_hdptx_phy *hdptx,
-> >> =20
-> >>  	regmap_write(hdptx->regmap, LNTOP_REG(0200), 0x06);
-> >> =20
-> >> -	if (rate >=3D 3400000) {
-> >> +	if (rate > HDMI14_MAX_RATE / 100) {
-> >=20
-> > The rate seems to come from rk_hdptx_phy_power_on and eventually from
-> > tmds_char_rate in the PHY config options, so its rate is in Hertz.
->=20
-> The rate coming from rk_hdptx_phy_power_on() is in hHz, since it passed
-> via dw_hdmi_qp_rockchip_encoder_enable() as
->=20
->   phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
->=20
-> > HDMI14_MAX_RATE and HDMI20_MAX_RATE are both defined in Hertz as well.
-> > It seems super odd to mee that you then convert HDMI14_MAX_RATE to hHz?
->=20
-> This stems from the ropll_tmds_cfg table containing the configuration
-> params for the supported rates which requires the search keys to be
-> provided in hHz rather than Hz.
->=20
-> I agree this is nothing but confusing, that's why I fixed this up in
-> "phy: rockchip: samsung-hdptx: Avoid Hz-hHz unit conversion overhead"
-
-Yeah, sorry, I noticed it after sending the review. Still, I'd advise to
-put that patch first, it's a bit weird to add more patch we're going to
-rework later on.
-
-Maxime
-
---5o2wzlaqjbtp76c4
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCZ8mklwAKCRAnX84Zoj2+
-dqsKAX4nqDcG5Vb45Qfy+reElIgfRIEkKdypEs03k8+dDGrmbgN4qMjCkJ/EBkjn
-HbmMAisBfRB4vWfpfcqsMV2LqZBvfAivr19nVh8LflLAH8Q/WFHnP5NlHsqmOcuv
-WXoDH3DoGQ==
-=ZIQ8
------END PGP SIGNATURE-----
-
---5o2wzlaqjbtp76c4--
+Rob
 
