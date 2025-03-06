@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24160C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85349C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 16:40:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FU1dvFue8oQTK3aBF6A/gGzFXjSlyHzhzEo8txyLQPU=; b=elXMJbiDd5a96pF+dkrSo8jDQc
-	KbWHg3SWO6QCCICZyXGL1e29pidwnTagUzwdH3+dx0lyFfnvMHsKJTYvqf+u4FQfrAYn8NDbdb725
-	HcFsLkbtQPGlWo/Poue1ECPZTlaapmczWUohVa5PL+xNuF+xCFMjW9iiD2TKvND0ePA4nxUcWWECw
-	rvFhCrZl+2uZGO7+U1BaGvuXMqqjLTzoaWlx2DyXauSnbmsJ+2hLb7Nh8yVBdKTREUx6Y/l46qLUh
-	BFDqx4PUgs4s6ZHIdmn8/KHuOx7mPwAxu7+mdILziS8IpjmFGyK+7NOafkvK14ZMAOry0k8fhK5ry
-	VYgWPiqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NqZMxRQcJzuL5kVAQA84YZMYDUrKDc919jORJe1PgMw=; b=2CprHKC2Ys/g6a1a6bUjyeM5g3
+	63VP4XKnTvA717F/RpUR5uOhzTk2i5nzo4tsPS7kZaKiLvNtCPdkD2Odi5YOaaJHvddNNRXcXXJtx
+	w62VPQ5AeoYzXTgRpblp3ZmAKNSeVlb5Mnto4AKO7QqWawDui4xi9aQ5NrSzQ3zuLxwLS9iBSYkKI
+	CZMkk1T+dl2YC1Pm3l6xX4u3K7f4Xzf5qmvTIZnZ7FIPpjcUrBmTfDnt64WG5BqKAN4rvTCXRQqTq
+	2YWEAnf3FWAZeN/mlxwKT3G6hXUMVV8JUsyIQKUVDK1izmVkoMVYewAIEKbs+//PKjiGztlMMXpLI
+	uWn7tzhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEE6-0000000BX4s-0TcY;
-	Thu, 06 Mar 2025 16:37:38 +0000
-Received: from meesny.iki.fi ([195.140.195.201])
+	id 1tqEH0-0000000BXfe-3z2T;
+	Thu, 06 Mar 2025 16:40:38 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEA9-0000000BW7l-343a
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 16:33:35 +0000
-Received: from hillosipuli.retiisi.eu (2a00-1190-d1dd-0-c641-1eff-feae-163c.v6.cust.suomicom.net [IPv6:2a00:1190:d1dd:0:c641:1eff:feae:163c])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	id 1tqEFN-0000000BXMu-3j9w;
+	Thu, 06 Mar 2025 16:38:59 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741279135;
+	bh=pf36QmNJXVaZuz3s0mehd9lTyDeLXhfnvdrEPGA0Fj8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LVdJ9bO6yHENnaiGBkjkHB6ID9jroBGW+832lD2QHbp1MoPDOdOrLAFh5PK67eH3B
+	 J8hW+/HhpWumL0HgRcfXj2n1b964Dgd8IrMCFuVesFqGfwbOHN7DRsMd9U3Y9bJGLq
+	 /1SKMpO2qRhSrh5oztFLL3if988MSDBQxXrnXsaogjwuLH0UpNhEFzfHgjpU4SGLaO
+	 vFlF264y7A44/zYXFotkTS6KgYN/PsL23H8Hw7ZwxYICU3/sySmMCbfoNNICpYPIUu
+	 J087mlZc7AmqD2XPxjTg1d3O7lmHAf3H074JopdaaJYcuvc8+QEn/vrnRaaAV1bdiS
+	 WylyrhmOK71AQ==
+Received: from [192.168.1.90] (unknown [84.232.140.93])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: sailus)
-	by meesny.iki.fi (Postfix) with ESMTPSA id 4Z7w2l38DYzyNC;
-	Thu,  6 Mar 2025 18:33:19 +0200 (EET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
-	t=1741278802;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FU1dvFue8oQTK3aBF6A/gGzFXjSlyHzhzEo8txyLQPU=;
-	b=krhmM5S23MXIk6gZMykk21LK/zIPu1rqMfjwHioPy9BIQygmc1k1BDThwP0FfLcyP89/x2
-	b0aFigklgjtgVIa1fNkCUJicde2yBf1DPrUOOBQqqXte5R9EjZlHBKPi1F5ciVNfgWhxbZ
-	ssajOLoE9KXYCbxfbj6bWyiXmGO4Hx8=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
-	s=meesny; t=1741278802;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=FU1dvFue8oQTK3aBF6A/gGzFXjSlyHzhzEo8txyLQPU=;
-	b=fUfFyRsoegM4MnO2Zbhp69jDOLRMFOxbStL/SIzzNirCLgtYDC2Sy8jfpZ8B54ZTQdUlJR
-	pXr6Xs+W79Q60zh9PeEfKmcl7h8SK60fKiOSpPsehUU/4U2UJW2KPckIIQqkHYlxtbU0cO
-	CGF1ln7BGgAW/N7ZLiNa46bQmi7OVJM=
-ARC-Authentication-Results: i=1;
-	ORIGINATING;
-	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
-ARC-Seal: i=1; s=meesny; d=iki.fi; t=1741278802; a=rsa-sha256; cv=none;
-	b=h1BTf/HNzJqS0lWKnc3Auqvdnegs18T2wlEKyb/i7YrmPWa1aNKDa8UP8TGJ9Re43CCWJT
-	zQ+5EQRJRUtf8ogmnHUdgTKLpObuFstm22EUntSsz+sYXKSYmmPYRz9iwiL0YE2FHGZyPX
-	BTX6fQCporPXmRCOrgZwqynpzmSCbcs=
-Received: from valkosipuli.retiisi.eu (valkosipuli.localdomain [192.168.4.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id CC6CE634C93;
-	Thu,  6 Mar 2025 18:33:18 +0200 (EET)
-Date: Thu, 6 Mar 2025 16:33:18 +0000
-From: Sakari Ailus <sakari.ailus@iki.fi>
-To: Mathis Foerst <mathis.foerst@mt.com>
-Cc: linux-kernel@vger.kernel.org, Steve Longerbeam <slongerbeam@gmail.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
-	linux-staging@lists.linux.dev, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, manuel.traut@mt.com,
-	mathis.foerst@zuehlke.com
-Subject: Re: [PATCH v1 1/1] media: imx: csi: Parse link configuration from
- fw_node
-Message-ID: <Z8nOTrjEW_OYBGlq@valkosipuli.retiisi.eu>
-References: <20250305113802.897087-1-mathis.foerst@mt.com>
- <20250305113802.897087-2-mathis.foerst@mt.com>
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3232D17E086B;
+	Thu,  6 Mar 2025 17:38:55 +0100 (CET)
+Message-ID: <0600430d-12c1-4af7-9082-76448943b02a@collabora.com>
+Date: Thu, 6 Mar 2025 18:38:53 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305113802.897087-2-mathis.foerst@mt.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 03/12] phy: rockchip: samsung-hdptx: Fix clock ratio
+ setup
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, kernel@collabora.com,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250304-phy-sam-hdptx-bpc-v4-0-8657847c13f7@collabora.com>
+ <20250304-phy-sam-hdptx-bpc-v4-3-8657847c13f7@collabora.com>
+ <20250304-small-mindful-mongrel-bd6f8b@houat>
+ <155f609f-994f-4140-8453-7e38a5e6deef@collabora.com>
+ <20250306-masked-voracious-octopus-be05b8@houat>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20250306-masked-voracious-octopus-be05b8@houat>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_083333_944787_DA7506EE 
-X-CRM114-Status: GOOD (  40.79  )
+X-CRM114-CacheID: sfid-20250306_083858_080374_9DD7DBDC 
+X-CRM114-Status: GOOD (  19.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,141 +83,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mathis,
-
-Thanks for the patch.
-
-On Wed, Mar 05, 2025 at 12:38:02PM +0100, Mathis Foerst wrote:
-> The imx-media-csi driver requires upstream camera drivers to implement
-> the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
-> implement this function are not usable on the i.MX6.
+On 3/6/25 3:35 PM, Maxime Ripard wrote:
+> On Tue, Mar 04, 2025 at 02:04:18PM +0200, Cristian Ciocaltea wrote:
+>> Hi Maxime,
+>>
+>> On 3/4/25 10:13 AM, Maxime Ripard wrote:
+>>> Hi,
+>>>
+>>> On Tue, Mar 04, 2025 at 03:44:02AM +0200, Cristian Ciocaltea wrote:
+>>>> The switch from 1/10 to 1/40 clock ratio must happen when exceeding the
+>>>> 340 MHz rate limit of HDMI 1.4, i.e. when entering the HDMI 2.0 domain,
+>>>> and not before.
+>>>>
+>>>> While at it, introduce a define for this rate limit constant.
+>>>>
+>>>> Fixes: 553be2830c5f ("phy: rockchip: Add Samsung HDMI/eDP Combo PHY driver")
+>>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>>>> ---
+>>>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 3 ++-
+>>>>  1 file changed, 2 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>>>> index f88369864c50e4563834ccbb26f1f9f440e99271..cf2c3a46604cb9d8c26fe5ec8346904e0b62848f 100644
+>>>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>>>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
+>>>> @@ -320,6 +320,7 @@
+>>>>  #define LN3_TX_SER_RATE_SEL_HBR2_MASK	BIT(3)
+>>>>  #define LN3_TX_SER_RATE_SEL_HBR3_MASK	BIT(2)
+>>>>  
+>>>> +#define HDMI14_MAX_RATE			340000000
+>>>>  #define HDMI20_MAX_RATE			600000000
+>>>>  
+>>>>  enum dp_link_rate {
+>>>> @@ -1072,7 +1073,7 @@ static int rk_hdptx_ropll_tmds_mode_config(struct rk_hdptx_phy *hdptx,
+>>>>  
+>>>>  	regmap_write(hdptx->regmap, LNTOP_REG(0200), 0x06);
+>>>>  
+>>>> -	if (rate >= 3400000) {
+>>>> +	if (rate > HDMI14_MAX_RATE / 100) {
+>>>
+>>> The rate seems to come from rk_hdptx_phy_power_on and eventually from
+>>> tmds_char_rate in the PHY config options, so its rate is in Hertz.
+>>
+>> The rate coming from rk_hdptx_phy_power_on() is in hHz, since it passed
+>> via dw_hdmi_qp_rockchip_encoder_enable() as
+>>
+>>   phy_set_bus_width(hdmi->phy, div_u64(rate, 100));
+>>
+>>> HDMI14_MAX_RATE and HDMI20_MAX_RATE are both defined in Hertz as well.
+>>> It seems super odd to mee that you then convert HDMI14_MAX_RATE to hHz?
+>>
+>> This stems from the ropll_tmds_cfg table containing the configuration
+>> params for the supported rates which requires the search keys to be
+>> provided in hHz rather than Hz.
+>>
+>> I agree this is nothing but confusing, that's why I fixed this up in
+>> "phy: rockchip: samsung-hdptx: Avoid Hz-hHz unit conversion overhead"
 > 
-> The docs for get_mbus_config [1] say:
-> @get_mbus_config: get the media bus configuration of a remote sub-device.
->             The media bus configuration is usually retrieved from the
->             firmware interface at sub-device probe time, immediately
->             applied to the hardware and eventually adjusted by the
->             driver.
-> 
-> Currently, the imx-media-csi driver is not incorporating the information
-> from the firmware interface and therefore relies on the implementation of
-> get_mbus_config by the camera driver.
-> 
-> To be compatible with camera drivers not implementing get_mbus_config
-> (which is the usual case), use the bus information from the fw interface:
-> 
-> The camera does not necessarily has a direct media bus link to the CSI as
-> the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
-> between them on the media pipeline.
-> The CSI driver already implements the functionality to find the connected
-> camera sub-device to call get_mbus_config on it.
-> 
-> At this point the driver is modified as follows:
-> In the case that get_mbus_config is not implemented by the upstream
-> camera, try to get its endpoint configuration from the firmware interface
-> usign v4l2_fwnode_endpoint_parse.
-> For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
-> V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
-> configuration.
-> For all other mbus_types, return an error.
-> 
-> Note that parsing the mbus_config from the fw interface is not done during
-> probing because the camera that's connected to the CSI can change based on
-> the selected input of the video-mux at runtime.
-> 
-> [0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
-> [1] include/media/v4l2-subdev.h - line 814
-> 
-> Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
-> ---
->  drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
->  1 file changed, 32 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
-> index 3edbc57be2ca..394a9321a10b 100644
-> --- a/drivers/staging/media/imx/imx-media-csi.c
-> +++ b/drivers/staging/media/imx/imx-media-csi.c
-> @@ -169,6 +169,8 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
->  {
->  	struct v4l2_subdev *sd, *remote_sd;
->  	struct media_pad *remote_pad;
-> +	struct fwnode_handle *ep_node;
-> +	struct v4l2_fwnode_endpoint ep = { .bus_type = 0 };
+> Yeah, sorry, I noticed it after sending the review. Still, I'd advise to
+> put that patch first, it's a bit weird to add more patch we're going to
+> rework later on.
 
-Are there any defaults in DT bindings (other than 0's)? Also initialising a
-field to zero this way is redundant, just use {}.
-
->  	int ret;
->  
->  	if (!priv->src_sd)
-> @@ -210,11 +212,37 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
->  
->  	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
->  			       remote_pad->index, mbus_cfg);
-> -	if (ret == -ENOIOCTLCMD)
-> -		v4l2_err(&priv->sd,
-> -			 "entity %s does not implement get_mbus_config()\n",
-> -			 remote_pad->entity->name);
-> +	if (ret == -ENOIOCTLCMD) {
-
-	if (!ret)
-		return 0;
-
-And you can unindent the rest.
-
-> +		/*
-> +		 * If the upstream sd does not implement get_mbus_config,
-> +		 * try to parse the link configuration from its fw_node
-> +		 */
-> +		ep_node = fwnode_graph_get_endpoint_by_id(dev_fwnode(remote_sd->dev),
-
-Always parse only local, not remote endpoints.
-
-Also: instead of supporting get_mbus_config() in a driver, we would ideally
-have a helper that optionally uses it and secondarily gets the endpoint
-configuration from a local endpoint. It's better to do that once rather
-than have every driver do this differently, including a different set of
-bugs.
-
-That being said, V4L2 fwnode endpoint parsing is a somewhat driver specific
-task and that should remain with the driver. So I'd think the helper should
-take a driver-parsed struct v4l2_fwnode_endpoint as an argument, for that
-endpoint.
-
-I'm not saying no to this patch though. But in the long run we'll be better
-off with a helper in the framework.
-
-> +							  0, 0,
-> +							  FWNODE_GRAPH_ENDPOINT_NEXT);
-> +		if (!ep_node)
-> +			return -ENOTCONN;
-> +
-> +		ret = v4l2_fwnode_endpoint_parse(ep_node, &ep);
-> +		fwnode_handle_put(ep_node);
-> +		if (ret)
-> +			return ret;
->  
-> +		mbus_cfg->type = ep.bus_type;
-> +		switch (ep.bus_type) {
-> +		case V4L2_MBUS_PARALLEL:
-> +		case V4L2_MBUS_BT656:
-> +			mbus_cfg->bus.parallel = ep.bus.parallel;
-> +			break;
-> +		case V4L2_MBUS_CSI2_DPHY:
-> +			mbus_cfg->bus.mipi_csi2 = ep.bus.mipi_csi2;
-> +			break;
-> +		default:
-> +			v4l2_err(&priv->sd, "Unsupported mbus_type: %i\n",
-> +				 ep.bus_type);
-> +			return -EINVAL;
-> +		}
-> +	}
->  	return ret;
->  }
->  
-
--- 
-Kind regards,
-
-Sakari Ailus
+No worries and yes, I've already planned to move the patch before all
+the others adding more stuff.  I'd still keep this patch as is, to make
+it easier for backporting, as well as the next three patches dropping
+stuff, before continuing with the unit conversion.
 
