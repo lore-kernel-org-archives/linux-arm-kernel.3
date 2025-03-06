@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB34EC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:06:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B640FC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:15:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5dj5w9ejPiVsrAbB6Q5urj8yOwJqRMJj3W1QeDdAQbk=; b=Tx4VAPPhwRCVw/q/Gryjvlorfa
-	i1bf9+/AQ+hx2gk+oN/S1WarPCrmN0zpAcKgmCAAnn/IwQoyzLgVNvyU1e9YPtmrtZ1A9Db8m3Jaj
-	sZRWi4eXQKXkYxQI0bH9Btdn2O9d8cjGEfb8FcP/l2+5n8MFaNwVHcDChJFrsYKGP1FUqmFU8Z1b6
-	M8NyibMdwLoU0WdJua3mOasP83ZD/OtTLeZNPPBxVPQv6x33o1LuW5Ky7Uek7lLGcnJU4mGyJl2Lv
-	/QQ3vJbT0w+jiP1B+CBEvU9iPuj5sPMFAonbQnNDsDM0qxoc2qS1RR/5o3+wpTAv6PJKMHcMT7LcG
-	+Ch/r+LQ==;
+	Content-Type:Mime-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F87C4wjGEeOaXJ9FYvPi3cAmLDRogSysr9OIdS0ekAs=; b=AYNtNTZWsZ2Sm87GLJk8bVHKLM
+	8J+jXOZ15lZvT54txkwuoydcQCpxsembg8D50WUOKbi7OewJ/e6R7yiFS+3+SrlFvENAnkfi7d7lG
+	hoBUODyNK1wTe6X9IUAOaBux+BVu246Mr6cglVQptI+0OVslXZi6BN+qJ/XgsvFC5dXLzFiQsfyWU
+	DX728t0aC7rSuoor3E/8BgMmnlf1OOBoCFVK1ZRWts6wgMNhQoNiiWF6Upp3aoGfQdFRbNaOcWWv9
+	8cZq3gLbVVR3V1SoB8HT0SWoLw2MLoeum5I2LrIQG37Al4zqOPk3qpZz9KXpAxgbxyBlEzLRRKx87
+	jmMF8/Nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHTy-0000000C5kF-2GW5;
-	Thu, 06 Mar 2025 20:06:14 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqHR1-0000000C4u6-0v9o
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 20:03:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741291390;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=5dj5w9ejPiVsrAbB6Q5urj8yOwJqRMJj3W1QeDdAQbk=;
-	b=AkzVgAnKZHnc934/B1Ln8dTyfi4bRI355rCw3prUHKq7xWxKY+5p1qEJsCYv/0r0eO2rei
-	RbMidomwLWOTjOV/faMrD5gaYsAcxq03mcYkH9tWvVWhfipLPJvFjgoN42mzDHrG8ZQNXF
-	xdtZhxyemQFXt3GlY01xWEwWK4ZLrM0=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-672-hcoNBT96N2ebxPzqXd2EpQ-1; Thu,
- 06 Mar 2025 15:03:05 -0500
-X-MC-Unique: hcoNBT96N2ebxPzqXd2EpQ-1
-X-Mimecast-MFC-AGG-ID: hcoNBT96N2ebxPzqXd2EpQ_1741291385
-Received: from mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.93])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9F4711800266;
-	Thu,  6 Mar 2025 20:03:04 +0000 (UTC)
-Received: from [172.64.10.8] (unknown [10.30.34.106])
-	by mx-prod-int-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id D55EF18001E9;
-	Thu,  6 Mar 2025 20:03:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Thu, 06 Mar 2025 20:03:03 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
-MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.93
-Message-Id: <04773.125030615030600374@us-mta-672.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: sBOluBz-GZShde2IZgTEglfYfdOCw_q50Ra6BO2Icik_1741291385
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+	id 1tqHcd-0000000C6cN-3Aup;
+	Thu, 06 Mar 2025 20:15:11 +0000
+Received: from mail.mvand.net ([185.229.52.35])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqHb0-0000000C6Pe-30EC;
+	Thu, 06 Mar 2025 20:13:31 +0000
+Received: from [127.0.0.1] (localhost [127.0.0.1])
+	by mail.mvand.net (Postfix) with ESMTPSA id 20E551FFBE;
+	Thu,  6 Mar 2025 21:13:28 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=martijnvandeventer.nl; s=default; t=1741292008;
+	bh=Cgdy+MoS5drv8lXdb22ppJ0XjnIjqmgcB7r94/9mKUA=;
+	h=From:To:Cc:References:In-Reply-To:Subject:Date:From;
+	b=dGhADVRM3Zmg4x5jYwZff6ZrtJpm2vttKQC/YMrDTscaLRqd5tODw5ozbBXiKYgok
+	 Pmzp957BJE0rcZLmw1bDfpA2od0rQL1OB9n6lLNAWulycXkgl91lMesltuFWr0dUhm
+	 gcgHJHT78nIm59YuSP4tudZ0RCUPezElCf9bY9qrpN/RDf402faQvDTuhzfb8Z/SRR
+	 +BZJcnPZHkHSuVyF6Y2ur99XAl9agj2t5y6rxbtzG2kUJCaSYQjHMLg47xaGcpzl2U
+	 /v272BM1oQwqFG6Ez8vpTKLRPWDnp/IcTFEbf5GQQqPOTTDhvHDYSiS2jxkC5tKnmZ
+	 qeg7rEW5Y8WOA==
+From: <linux@martijnvandeventer.nl>
+To: "'Jerome Brunet'" <jbrunet@baylibre.com>
+Cc: "'Neil Armstrong'" <neil.armstrong@linaro.org>,
+	"'Michael Turquette'" <mturquette@baylibre.com>,
+	"'Stephen Boyd'" <sboyd@kernel.org>,
+	"'Kevin Hilman'" <khilman@baylibre.com>,
+	"'Martin Blumenstingl'" <martin.blumenstingl@googlemail.com>,
+	<linux-amlogic@lists.infradead.org>,
+	<linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+References: <20250213221702.606-1-linux@martijnvandeventer.nl>	<1jpljkzyf0.fsf@starbuckisacylon.baylibre.com>	<003301db888e$8ea84e90$abf8ebb0$@martijnvandeventer.nl>	<1jplj3g21q.fsf@starbuckisacylon.baylibre.com>	<004801db8eb7$99808e20$cc81aa60$@martijnvandeventer.nl> <1j4j065avo.fsf@starbuckisacylon.baylibre.com>
+In-Reply-To: <1j4j065avo.fsf@starbuckisacylon.baylibre.com>
+Subject: RE: [PATCH] clk: meson: g12a: Fix kernel warnings when no display attached
+Date: Thu, 6 Mar 2025 21:13:27 +0100
+Message-ID: <001401db8ed4$392ef030$ab8cd090$@martijnvandeventer.nl>
+Mime-Version: 1.0
+Content-Type: text/plain;
+	charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+Thread-Index: AQH3Houg6kGqwWGxu7A7A+ZA83tGEAI4axMrAfruu2QCUs8BLwIt43dLAg23U/Sy2VxfgA==
+Content-Language: en-us
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_120311_328792_74446DA7 
-X-CRM114-Status: UNSURE (   6.40  )
+X-CRM114-CacheID: sfid-20250306_121330_905468_00D5C12F 
+X-CRM114-Status: UNSURE (   9.19  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,48 +79,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hi Jerome,
+> 
+> Once again, you are encouraged to fix things up ... where fixes are needed.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+Encouragement is not the problem, time is ;-)
 
-Tested-by: CKI Project <cki-project@redhat.com>
+> DRM is hardly immutable. If you don't feel like you can do it on your own,
+> you can still engage with the other contributors who may know this
+> better and help you.
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
+Maybe in a few months when I have some more time. Thanks.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1703653448
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1703653448-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+> >
+> > On the other hand, I also understand that if you, as a maintainer, allow
+> > that, chances are it will never see a proper fix. :-)
+> >
+> > Cheers!
+> >
+-- 
+Best regards,
+Martijn
 
 
