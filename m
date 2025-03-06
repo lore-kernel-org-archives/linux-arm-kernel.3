@@ -4,97 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E3AC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:45:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303ADC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:48:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1PhHSgsfjYNIGnBNH0w6RUzdB5lrqVK96yTRr4dVnvM=; b=sxjfI1laG0mnwQWFPhwbOeUA3C
-	Xt35hijAPoxfuZgAaC8889QVytLB7MmReYUEIdeZJVimlvqMaRAMQVZMnz6euW+06+g3E/uI5huY8
-	xm7ZwlI1m+hJ6uja1AA9aHDYRIGf9cPq4jTmoMWUDe9hTdEhSckIShF2Ya++FFIlIPu4P1Z2uKARq
-	o5B5moeFLjJ0oQpVQ8wkW+Qw9p3G2S7PZWSG/HosGBESMst7SVjIRNO02gZTclpiFvXiSkKsdS+DO
-	tcbuWNuhN+ya22j+5hWXPlR6UqOOAItPlMZ+Ie+LJKcP5e67U6iFKiv7vYhNX0ZF13QNqLHcXUi7T
-	XgB2Nncg==;
+	bh=mcl6sGfOXxz2wVCK7AnSLNHITansIH0yOzXR+7u97no=; b=W7WlcqEPzBEs6uu1FC2gjDiVWO
+	zrt6GjWZmf0nVZ05FvkoXzQwHJv+LAixVMwixGV4mkhxScF4OFtfKIXh7OdC/sCZk8YIuQ1UjMUjK
+	JvQLKRykdOCbcnJYIwYkxK8Nb3rC0M/1wCvQ5/6waxRn+Qu0YB4xcXTJpNIlVJTaBmYUsD6R9HmBk
+	sbshNIqZjRi8Qo3sxkUvk3/G2pHRUMkMOgI/pTyU3k47iqegUtViqIudf6pdCMfWSD7TfNSRLJEPR
+	xAsUdc6qPTMagBg5/0YhKq+Vsmk94uDtub0q9ITVoZBeZ8o3jh4CElnRQB67n8vI7S7Ah0tuBOEK/
+	DKTGZYpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6r8-0000000ANbM-0Alw;
-	Thu, 06 Mar 2025 08:45:26 +0000
-Received: from mgamail.intel.com ([198.175.65.21])
+	id 1tq6uI-0000000ANwO-0OOH;
+	Thu, 06 Mar 2025 08:48:42 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6li-0000000AMZJ-2RMr
+	id 1tq6oV-0000000AN0K-1koO
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:39:52 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741250390; x=1772786390;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=7WIRXk0lkMJA49/eFijGOr0gBbp7GJYo8Y5tLpulrd0=;
-  b=CHIcHn8aGLF3Rvn83/EBw/A1XT/L8p7LwK2bzwNJ8Z+HAsHI+/0qmXoP
-   YCswzTRgOZXzNUrrEpDiRTKpYvXuKn6DyVp+Dn0HofFHAaeRDtjeNVtES
-   P41PWn6QXSoqJLeWECDA8OXrpeWS2INs//onMKTOaM1ups9mLRQTbiXAS
-   JIECvH5BNQ6nrTizjdMeEyl7eOilVj4cTUxUxz1QUEYWSbCJ8qLitDKRX
-   b7aUP/mhclj6FL/27Une+unP8NM/2b1kAiRohQWiLAuON9Lr5c/9j0VPz
-   d/bwOyr6LgwG28aiQjlr6Tm2GBAmMQ1hFPIh7s3sZOIHQ7OGAiAtpLUiq
-   w==;
-X-CSE-ConnectionGUID: SsWSPJ0kSGCpRHONZb7IIw==
-X-CSE-MsgGUID: EaFQev4HTeu1MlfvWQmK4g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="42162165"
-X-IronPort-AV: E=Sophos;i="6.14,225,1736841600"; 
-   d="scan'208";a="42162165"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 00:39:49 -0800
-X-CSE-ConnectionGUID: E3nQX3CgSkGV1z1AAcpQgg==
-X-CSE-MsgGUID: ytnhRbI4SIiTiI1GaBHdcQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="118872684"
-Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.67.95]) ([10.247.67.95])
-  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 00:39:41 -0800
-Message-ID: <601c88fb-8ec8-4866-a45d-f28dea6d9625@linux.intel.com>
-Date: Thu, 6 Mar 2025 16:39:38 +0800
+	Thu, 06 Mar 2025 08:42:45 +0000
+Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5267Sk7N015077;
+	Thu, 6 Mar 2025 09:42:28 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	mcl6sGfOXxz2wVCK7AnSLNHITansIH0yOzXR+7u97no=; b=xAzJdlwnXlBNm1Wa
+	7Ife+ee+VgwahclxL70yp7tvaLJa4H1ObaqD15ZCyqlBMH8sFnRdZUvn31Mp/SYY
+	A6pIR/FJjc7B6PXCWpy9ykshds9Lejm8g+cCQeGONwjQjacbntQuag08ox4s2mY8
+	ddSQ/IRWGPpgvpnKCy7O/ZJ9kLoESBL6G08fUFrN7asYyBbMFxOJt7yJNxjYNB+k
+	iILuXTz1faI7GfE3vI91cHBsKtfVb54RKddtFw73nEowe2PMhzDlVNnwOq6/WEbb
+	xLIadHIi8b/hnQpaRc5nb2vNJe8YRQrNEGYudS/Re0U0EgUNScrj9SFkBxGHFMvf
+	Xt/NHA==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 456krth50w-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 06 Mar 2025 09:42:28 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 54F7C40052;
+	Thu,  6 Mar 2025 09:41:17 +0100 (CET)
+Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 83009441E5C;
+	Thu,  6 Mar 2025 09:40:12 +0100 (CET)
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
+ (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Mar
+ 2025 09:40:12 +0100
+Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Mar
+ 2025 09:40:11 +0100
+Message-ID: <32aad66e-a9ae-493a-8bea-a06e096c88f2@foss.st.com>
+Date: Thu, 6 Mar 2025 09:40:10 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v9 5/6] net: stmmac: configure SerDes according
- to the interface mode
-To: Andy Shevchenko <andy.shevchenko@gmail.com>
-Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
- Jose Abreu <Jose.Abreu@synopsys.com>,
- David E Box <david.e.box@linux.intel.com>,
- Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
- Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
- "H . Peter Anvin" <hpa@zytor.com>,
- Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
- David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
- Mengyuan Lou <mengyuanlou@net-swift.com>,
- Heiner Kallweit <hkallweit1@gmail.com>, Russell King
- <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
- =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
- Richard Cochran <richardcochran@gmail.com>,
- Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- platform-driver-x86@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org
-References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
- <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
- <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
+Subject: Re: [PATCH v3 3/8] iio: trigger: stm32-lptimer: add support for
+ stm32mp25
+To: Jonathan Cameron <jic23@kernel.org>
+CC: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
+        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>,
+        <catalin.marinas@arm.com>, <will@kernel.org>,
+        <devicetree@vger.kernel.org>, <wbg@kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
+        <olivier.moysan@foss.st.com>
+References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
+ <20250305094935.595667-4-fabrice.gasnier@foss.st.com>
+ <20250305144539.54a75689@jic23-huawei>
 Content-Language: en-US
-From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-In-Reply-To: <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250305144539.54a75689@jic23-huawei>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.86.222]
+X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-06_03,2025-03-06_01,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_003950_703376_F6849F54 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250306_004243_747724_8A03062A 
+X-CRM114-Status: UNSURE (   9.86  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,35 +106,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 6/3/2025 3:15 pm, Andy Shevchenko wrote:
-> Thu, Feb 27, 2025 at 08:15:21PM +0800, Choong Yong Liang kirjoitti:
->> Intel platform will configure the SerDes through PMC API based on the
->> provided interface mode.
->> This patch adds several new functions below:-
->> - intel_tsn_lane_is_available(): This new function reads FIA lane
->>    ownership registers and common lane registers through IPC commands
->>    to know which lane the mGbE port is assigned to.
->> - intel_mac_finish(): To configure the SerDes based on the assigned
->>    lane and latest interface mode, it sends IPC command to the PMC through
->>    PMC driver/API. The PMC acts as a proxy for R/W on behalf of the driver.
->> - intel_set_reg_access(): Set the register access to the available TSN
->>    interface.
-> ...
+On 3/5/25 15:45, Jonathan Cameron wrote:
+> On Wed, 5 Mar 2025 10:49:30 +0100
+> Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
 > 
->> config DWMAC_INTEL
->>   	default X86
->>   	depends on X86 && STMMAC_ETH && PCI
->>   	depends on COMMON_CLK
->> +	depends on ACPI
-> Stray and unexplained change. Please, fix it. We don't need the dependencies
-> which are not realised in the compile time.
+>> From: Olivier Moysan <olivier.moysan@foss.st.com>
+>>
+>> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
+>> this new HW variant. Add new trigger definitions that can be used by the
+>> stm32 analog-to-digital converter. Use compatible data to identify them.
+>>
+>> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
+>> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+> Hi. Oops I replied to v1 without looking for other versions.
+> From a quick glance feedback still applies here.
+
+Hi Jonathan,
+
+Thanks for reviewing, I've noticed your review comments on V1, I'll take
+care of these in next revision (v4).
+
+Best Regards,
+Fabrice
+
 > 
-> -- With Best Regards, Andy Shevchenko
-
-Hi Andy,
-
-The dependency on ACPI is necessary because the intel_pmc_ipc.h header 
-relies on ACPI functionality to interact with the Intel PMC.
 
