@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7122EC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:19:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61E8FC28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bmEpDJxx2OzmVfL6/VYy6h8feqAIkK4MJB/oMsoScns=; b=l8EKwo2DQGjk4oOTT+CyOgvrFF
-	uRhRNAxNrSeZuOfb2IoWIo+jyFKwmm0CjpUSjzV6WfmHssIDZ19fC1H05+c7cjnVKv/Pd0NBAUcoZ
-	GWfpaDRMyaIHcWCfFTwFzCjnCIpfn8mEwbtuC6GmnwXWm8Nfj0C4/ILiUlYy0DdIJMUNO8nomdURu
-	ZXt2Pfy6/d1kqiEHWUzNGeCGacYAPeWYIURX6N6ZOhqd2v9PzH8KpXRWt0Wv8ykl5r9RSuANhzjLh
-	6VOFiQHG9F5oPmZLVIkNVKi30lbRVd77oBzdZiP/mozRQr9J6jG1z7wWM7bZ+5R4v+3WQCDwDIBu1
-	a47nBSaQ==;
+	bh=DOVqMOdoYgDbI3s4q2wNweWZOHmBh2nVQMXWQXaXjpc=; b=xYWGhsd2Jw6LvVaOSVkxJs6p7I
+	8QOH8OsC5weE7TGPHz0JLhH0Ge1yh8OkbhiUkkxWCC7DykJ3pPw8pCuyoEnGNXbORsou8LjTfu80G
+	64cwzo7uEU/iDtEUygmaH1hXViyf34vZHDl5mIem722JO/OSk2RjwtKR48tYSeNOYM1LB8hIY1ScN
+	/Xur9J3GkVmKQZbYQ8i4Yawse9PMsDKAX0o5lkCHfkEzKzog/tRPNwXlrHQqiNcJklSBIrkExLH/i
+	E1nJexZvz5hFQQur0TEhebE1CWqAqblPxSEz2SsO7PF1Q7ZQowEy1ywt0RGUMJrQX2/ZqaEwUsdOI
+	GR4/PNiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqB7q-0000000B1z4-0GlF;
-	Thu, 06 Mar 2025 13:18:58 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tqB7r-0000000B1zp-1wro;
+	Thu, 06 Mar 2025 13:18:59 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9RB-0000000Ammg-1V72
+	id 1tq9RK-0000000Amqj-36JI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:30:50 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-390e3b3d3f4so295112f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:49 -0800 (PST)
+	Thu, 06 Mar 2025 11:31:00 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43bc0b8520cso3301555e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:30:58 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741260648; x=1741865448; darn=lists.infradead.org;
+        d=amarulasolutions.com; s=google; t=1741260657; x=1741865457; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=bmEpDJxx2OzmVfL6/VYy6h8feqAIkK4MJB/oMsoScns=;
-        b=YQEwiPgq4zVDyPvkCGCd3Y+ZT8MyyVnQkKl473fqq+DYfnS5z8jdvJ8+jiTD7ZzR51
-         LKhLm5jUO1p0Jk68s+9AXNC2NqcFERwexfCI9DTn1Sj5NH96OFbfQS4JiMo3ZDgf36LH
-         c5ML6P24ZXA269W3/O1AGlig3+DcCJkhFdwb4=
+        bh=DOVqMOdoYgDbI3s4q2wNweWZOHmBh2nVQMXWQXaXjpc=;
+        b=hJW9USLVhGaxwemGb6yxtlwHY/0ugaCzMBvYfaV+qEQkUE7s7LEZxIo7EOHdt3RS8w
+         GPtyaZys7SEFIBaM3gt/wmwkqDlsndGXwga5Z3nCfHDY89Ph+KsQ3qJikfDH+RbridQo
+         e5XgBPb/o0n16lmqDJ/WCQLaP2XdQHuhHOztE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741260648; x=1741865448;
+        d=1e100.net; s=20230601; t=1741260657; x=1741865457;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=bmEpDJxx2OzmVfL6/VYy6h8feqAIkK4MJB/oMsoScns=;
-        b=Yp6O/O60hp4CTtJ7VXMpLjk5+I4Spx5OqDDEIX4TbZgwhtuoz932i8c5fiEXt1ilnJ
-         yzipLqTk3FgmUbs9cyXXaXDi3OZpFTVE6Uc4kRZW42Msi/zEX1EAevcb7k3LTW9k+blP
-         SlA+cmwZ8oGaKvXi/j+TTR5wRh3VFd32TDgrvgpZJHw1yEGFb1J6OWp37Igk7tEnvqBs
-         2Wy9aj45fmTY94+lJeO0mYgiTvr1PqZnAxRMEDegSvYYLajR8JZ3/HdY6uULRAF++auu
-         yXgq8tXfM5how4HmxGN3h6ypsBomU8W1wo6wvYs8ebLGS8I9m2jQnSpjvju2xpl1GBJF
-         ABBA==
-X-Forwarded-Encrypted: i=1; AJvYcCUcrBo4P4j3drLTlxRgcJ82NBmx8TpjOWCLgynzvnNUPLjnN2DDKpVfkVhYf287ZXr3iQiWB44G5jU/NOIkGuNQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdVViDYPNH+qTMfKpSwcnhIUy7OCuTsI3lz1PrA9GobALjgU1x
-	pXyGn08b12P+kQmm71kCP8YeDid0op8NNj8JEAl2ILo+LtPCX9Z8kfcMJyfMtT8=
-X-Gm-Gg: ASbGncu/hhrIV/mgRceFWvx1t5llAFo4GzYsysdtVCot3pCVnN4uXTMBaiJWHomvzHt
-	speMvOJBLbIbNMSb4QUIH4tdU3R3rPiZOSvWLmqLMVWxxmuE0X3HyKgzKPgfVPLQQrLJFTcPWWE
-	jpbEChB0YIKoFu9lR6zqWNaT99BM7CHG+1okoGka4st4xTvvUTJGgDXkC2jpK9cz3+Bp1Sbhbm+
-	Hxy7TA4Yz4JzypEnV2eJk6rvH5nUDbXrLvFmS38M+xStNJD2cySjax01ZNHONwVkGh88kGhiawc
-	/ESRooupBdSdfXfJ1KbqHw52tJpUlO38yp07Hph4TJshjW5w6ph3dVmv7u2eu+fS1RUDtSBfD8s
-	agJt0+w==
-X-Google-Smtp-Source: AGHT+IE9papAQcrF6NLPl4NoenFALVJD3kfQarBrNB98z/DGfx7u9RqkicFBlNR38/H6kPCQQBjQHg==
-X-Received: by 2002:a5d:64ae:0:b0:391:10c5:d1c6 with SMTP id ffacd0b85a97d-3911f72ff44mr6272763f8f.2.1741260647904;
-        Thu, 06 Mar 2025 03:30:47 -0800 (PST)
+        bh=DOVqMOdoYgDbI3s4q2wNweWZOHmBh2nVQMXWQXaXjpc=;
+        b=WnMEzzj2An5wBqMgXLpurN5mFwlJtMjwUnxF7IqY9pK0r+FcBTtyfufQilUhUtKM6X
+         i1iRi4m2sUNnt8YHdJfLE6GtH5G0LQullN1m43XrIseJQLpy4EsUT7h8T5azCPnXt8Ot
+         XRpDBxqe0/pcAZlq0o6cwuAihT84lqqKt2O5ZxBywAtzdNJOV1IElg9Uoqe0ZpfflSme
+         5AL6NaurUy2Iy8i2wDCGsQSRMi53utkAqLgymW2U59ZVKXeq2PzKVsTrfKXxL5RygSvu
+         PFMemaJx9xg7eNiJzj5qUqIARyDSgbGpSgJFdFJGxAS1CTiVHqnHDILo1m8A2hVjlexY
+         0Kcg==
+X-Forwarded-Encrypted: i=1; AJvYcCVO/B+OSrxkWxVaYdPl1LpwnPHsxOQugjRf/NeuIeD1Mpn1JJwywQ6Ra5FWYOfesafT1u3xWwc+swzqC2aZfRUt@lists.infradead.org
+X-Gm-Message-State: AOJu0YyUNjkvJ+0wzmF98SEaZYdrqHWcjrEdjIYAF4nMiBlTz61mQTuw
+	9QXfXMyukj/ClXpXotei76raSULvxPeeRfoCeBfET6s9OVnxN8YpiOTZjf21JpM=
+X-Gm-Gg: ASbGncsXoLsVatAiZhmkdKlGn7YS/CDmjsfyEz93Iys6ASHGbmUm7wNaxG8v+foxeZr
+	XAANp9fQo75PcQ7LM2mVmp6JuQDB9UwbuAoI3ifvF3gh0+N/CXELVWAkyxKQLSGrO0Ib+c9+L8a
+	z+f4RF+ojzmn9aoHNkOZR75xsVws2WTTMMEsAK267diPE8bPFPVyj3K6T/KHj1TzJ9VUzQhCt4c
+	bXIAoCWSsZ8rKBG5kE1Sdgqm83Wm5FO7Pj3WyPztvfmAs6XjZ5GgljwLY2ObOn1ZyjRjuJcrPf0
+	5gvmWKPl8H8iqUd2aeKPiYD5TBxxLn6zm56XwH2AhvR5pF51KtmxDlF1qQuS+Tk8RQajgrGJUDm
+	syHdb+w==
+X-Google-Smtp-Source: AGHT+IFgPl8ZKMnUf3wGRInXWeZOMK2GwX9o32ww5mgLwS3armZaCHWO1p7ddK+A7zbcx0o2y6edHA==
+X-Received: by 2002:a05:600c:1c09:b0:439:9946:af60 with SMTP id 5b1f17b1804b1-43bd2ae76c6mr47045825e9.25.1741260657417;
+        Thu, 06 Mar 2025 03:30:57 -0800 (PST)
 Received: from localhost.localdomain ([2001:b07:6474:ebbf:4703:aa8c:6eab:8161])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.46
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb79b9sm1749650f8f.3.2025.03.06.03.30.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:30:47 -0800 (PST)
+        Thu, 06 Mar 2025 03:30:57 -0800 (PST)
 From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
 To: linux-kernel@vger.kernel.org
 Cc: Stephen Boyd <sboyd@kernel.org>,
@@ -73,25 +73,27 @@ Cc: Stephen Boyd <sboyd@kernel.org>,
 	Abel Vesa <abelvesa@kernel.org>,
 	linux-amarula@amarulasolutions.com,
 	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
-	Michael Turquette <mturquette@baylibre.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Shawn Guo <shawnguo@kernel.org>,
+	devicetree@vger.kernel.org,
 	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v10 11/18] clk: imx: add support for i.MX8MM anatop clock driver
-Date: Thu,  6 Mar 2025 12:28:00 +0100
-Message-ID: <20250306112959.242131-12-dario.binacchi@amarulasolutions.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v10 18/18] arm64: dts: imx8mp: add PLLs to clock controller module (CCM)
+Date: Thu,  6 Mar 2025 12:28:07 +0100
+Message-ID: <20250306112959.242131-19-dario.binacchi@amarulasolutions.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 References: <20250306112959.242131-1-dario.binacchi@amarulasolutions.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033049_583794_76CFE3FB 
-X-CRM114-Status: GOOD (  18.32  )
+X-CRM114-CacheID: sfid-20250306_033058_821070_31677E06 
+X-CRM114-Status: GOOD (  17.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,553 +108,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support NXP i.MX8M anatop PLL module which generates PLLs to CCM root.
-By doing so, we also simplify the CCM driver code. The changes are
-backward compatible.
+Add the PLLs generated by anatop to the clock list of the Clock
+Controller Module (CCM) node.
 
 Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+
 ---
 
-(no changes since v1)
+Changes in v10:
+- Drop the v9 patches:
+  16/23 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+  17/23 clk: imx: pll14xx: support spread spectrum clock generation
+  17/23 clk: imx8mn: support spread spectrum clock generation
+  21/23 clk: imx8mp: support spread spectrum clock generation
+  23/23 clk: imx8mm: support spread spectrum clock generation
 
- drivers/clk/imx/Makefile            |   2 +-
- drivers/clk/imx/clk-imx8mm-anatop.c | 287 ++++++++++++++++++++++++++++
- drivers/clk/imx/clk-imx8mm.c        | 172 ++++++++---------
- 3 files changed, 367 insertions(+), 94 deletions(-)
- create mode 100644 drivers/clk/imx/clk-imx8mm-anatop.c
+Changes in v9:
+- Add 'Reviewed-by' tag of Peng Fan for imx8mn platform patches
+- Fix building warning raised by the kernel test robot for patch
+  v8, 11/18 clk: imx: add support for i.MX8MN anatop clock driver
+- Add patches for imx8m{m,p} platforms:
+  - 23/23 clk: imx8mm: support spread spectrum clock generation
+  - 22/23 clk: imx: add support for i.MX8MM anatop clock driver
+  - 21/23 clk: imx8mp: support spread spectrum clock generation
+  - 20/23 clk: imx8mp: rename ccm_base to base
+  - 19/23 clk: imx: add support for i.MX8MP anatop clock driver
 
-diff --git a/drivers/clk/imx/Makefile b/drivers/clk/imx/Makefile
-index 03f2b2a1ab63..bf35b1236591 100644
---- a/drivers/clk/imx/Makefile
-+++ b/drivers/clk/imx/Makefile
-@@ -25,7 +25,7 @@ mxc-clk-objs += clk-sscg-pll.o
- mxc-clk-objs += clk-gpr-mux.o
- obj-$(CONFIG_MXC_CLK) += mxc-clk.o
- 
--obj-$(CONFIG_CLK_IMX8MM) += clk-imx8mm.o
-+obj-$(CONFIG_CLK_IMX8MM) += clk-imx8mm-anatop.o clk-imx8mm.o
- obj-$(CONFIG_CLK_IMX8MN) += clk-imx8mn.o
- obj-$(CONFIG_CLK_IMX8MP) += clk-imx8mp.o clk-imx8mp-audiomix.o
- obj-$(CONFIG_CLK_IMX8MQ) += clk-imx8mq.o
-diff --git a/drivers/clk/imx/clk-imx8mm-anatop.c b/drivers/clk/imx/clk-imx8mm-anatop.c
-new file mode 100644
-index 000000000000..4ac870df6370
---- /dev/null
-+++ b/drivers/clk/imx/clk-imx8mm-anatop.c
-@@ -0,0 +1,287 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * clk-imx8mm-anatop.c - NXP i.MX8MM anatop clock driver
-+ *
-+ * Copyright (c) 2025 Dario Binacchi <dario.binacchi@amarulasolutions.com>
-+ */
-+
-+#include <dt-bindings/clock/imx8mm-clock.h>
-+
-+#include <linux/clk.h>
-+#include <linux/clk-provider.h>
-+#include <linux/err.h>
-+#include <linux/io.h>
-+#include <linux/module.h>
-+#include <linux/of_address.h>
-+#include <linux/platform_device.h>
-+#include <linux/of_platform.h>
-+
-+#include "clk.h"
-+
-+#define IMX8MM_ANATOP_CLK_END		(IMX8MM_ANATOP_CLK_CLKOUT2 + 1)
-+
-+static const char * const pll_ref_sels[] = { "osc_24m", "dummy", "dummy", "dummy", };
-+static const char * const audio_pll1_bypass_sels[] = {"audio_pll1", "audio_pll1_ref_sel", };
-+static const char * const audio_pll2_bypass_sels[] = {"audio_pll2", "audio_pll2_ref_sel", };
-+static const char * const video_pll_bypass_sels[] = {"video_pll", "video_pll_ref_sel", };
-+static const char * const dram_pll_bypass_sels[] = {"dram_pll", "dram_pll_ref_sel", };
-+static const char * const gpu_pll_bypass_sels[] = {"gpu_pll", "gpu_pll_ref_sel", };
-+static const char * const vpu_pll_bypass_sels[] = {"vpu_pll", "vpu_pll_ref_sel", };
-+static const char * const arm_pll_bypass_sels[] = {"arm_pll", "arm_pll_ref_sel", };
-+static const char * const sys_pll3_bypass_sels[] = {"sys_pll3", "sys_pll3_ref_sel", };
-+static const char * const clkout_sels[] = {"audio_pll1_out", "audio_pll2_out", "video_pll_out",
-+					   "dummy", "dummy", "gpu_pll_out", "vpu_pll_out",
-+					   "arm_pll_out", "sys_pll1", "sys_pll2", "sys_pll3",
-+					   "dummy", "dummy", "osc_24m", "dummy", "osc_32k"};
-+
-+static struct clk_hw_onecell_data *clk_hw_data;
-+static struct clk_hw **hws;
-+
-+static int imx8mm_anatop_clocks_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *np = dev->of_node;
-+	void __iomem *base;
-+	int ret;
-+
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(base)) {
-+		dev_err(dev, "failed to get base address\n");
-+		return PTR_ERR(base);
-+	}
-+
-+	clk_hw_data = devm_kzalloc(dev, struct_size(clk_hw_data, hws,
-+						    IMX8MM_ANATOP_CLK_END),
-+				   GFP_KERNEL);
-+	if (WARN_ON(!clk_hw_data))
-+		return -ENOMEM;
-+
-+	clk_hw_data->num = IMX8MM_ANATOP_CLK_END;
-+	hws = clk_hw_data->hws;
-+
-+	hws[IMX8MM_ANATOP_CLK_DUMMY] = imx_clk_hw_fixed("dummy", 0);
-+	hws[IMX8MM_ANATOP_CLK_32K] = imx_get_clk_hw_by_name(np, "osc_32k");
-+	hws[IMX8MM_ANATOP_CLK_24M] = imx_get_clk_hw_by_name(np, "osc_24m");
-+
-+	hws[IMX8MM_ANATOP_AUDIO_PLL1_REF_SEL] =
-+		imx_clk_hw_mux("audio_pll1_ref_sel", base + 0x0, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_AUDIO_PLL2_REF_SEL] =
-+		imx_clk_hw_mux("audio_pll2_ref_sel", base + 0x14, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_VIDEO_PLL_REF_SEL] =
-+		imx_clk_hw_mux("video_pll_ref_sel", base + 0x28, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_DRAM_PLL_REF_SEL] =
-+		imx_clk_hw_mux("dram_pll_ref_sel", base + 0x50, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_GPU_PLL_REF_SEL] =
-+		imx_clk_hw_mux("gpu_pll_ref_sel", base + 0x64, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_VPU_PLL_REF_SEL] =
-+		imx_clk_hw_mux("vpu_pll_ref_sel", base + 0x74, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_ARM_PLL_REF_SEL] =
-+		imx_clk_hw_mux("arm_pll_ref_sel", base + 0x84, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+	hws[IMX8MM_ANATOP_SYS_PLL3_REF_SEL] =
-+		imx_clk_hw_mux("sys_pll3_ref_sel", base + 0x114, 0, 2,
-+			       pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
-+
-+	hws[IMX8MM_ANATOP_AUDIO_PLL1] =
-+		imx_clk_hw_pll14xx("audio_pll1", "audio_pll1_ref_sel",
-+				   base, &imx_1443x_pll);
-+	hws[IMX8MM_ANATOP_AUDIO_PLL2] =
-+		imx_clk_hw_pll14xx("audio_pll2", "audio_pll2_ref_sel",
-+				   base + 0x14, &imx_1443x_pll);
-+	hws[IMX8MM_ANATOP_VIDEO_PLL] =
-+		imx_clk_hw_pll14xx("video_pll", "video_pll_ref_sel",
-+				   base + 0x28, &imx_1443x_pll);
-+	hws[IMX8MM_ANATOP_DRAM_PLL] =
-+		imx_clk_hw_pll14xx("dram_pll", "dram_pll_ref_sel",
-+				   base + 0x50, &imx_1443x_dram_pll);
-+	hws[IMX8MM_ANATOP_GPU_PLL] =
-+		imx_clk_hw_pll14xx("gpu_pll", "gpu_pll_ref_sel",
-+				   base + 0x64, &imx_1416x_pll);
-+	hws[IMX8MM_ANATOP_VPU_PLL] =
-+		imx_clk_hw_pll14xx("vpu_pll", "vpu_pll_ref_sel",
-+				   base + 0x74, &imx_1416x_pll);
-+	hws[IMX8MM_ANATOP_ARM_PLL] =
-+		imx_clk_hw_pll14xx("arm_pll", "arm_pll_ref_sel",
-+				   base + 0x84, &imx_1416x_pll);
-+	hws[IMX8MM_ANATOP_SYS_PLL1] = imx_clk_hw_fixed("sys_pll1", 800000000);
-+	hws[IMX8MM_ANATOP_SYS_PLL2] = imx_clk_hw_fixed("sys_pll2", 1000000000);
-+	hws[IMX8MM_ANATOP_SYS_PLL3] =
-+		imx_clk_hw_pll14xx("sys_pll3", "sys_pll3_ref_sel",
-+				   base + 0x114, &imx_1416x_pll);
-+
-+	/* PLL bypass out */
-+	hws[IMX8MM_ANATOP_AUDIO_PLL1_BYPASS] =
-+		imx_clk_hw_mux_flags("audio_pll1_bypass", base, 16, 1,
-+				     audio_pll1_bypass_sels,
-+				     ARRAY_SIZE(audio_pll1_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_AUDIO_PLL2_BYPASS] =
-+		imx_clk_hw_mux_flags("audio_pll2_bypass", base + 0x14, 16, 1,
-+				     audio_pll2_bypass_sels,
-+				     ARRAY_SIZE(audio_pll2_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_VIDEO_PLL_BYPASS] =
-+		imx_clk_hw_mux_flags("video_pll_bypass", base + 0x28, 16, 1,
-+				     video_pll_bypass_sels,
-+				     ARRAY_SIZE(video_pll_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_DRAM_PLL_BYPASS] =
-+		imx_clk_hw_mux_flags("dram_pll_bypass", base + 0x50, 16, 1,
-+				     dram_pll_bypass_sels,
-+				     ARRAY_SIZE(dram_pll_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_GPU_PLL_BYPASS] =
-+		imx_clk_hw_mux_flags("gpu_pll_bypass", base + 0x64, 28, 1,
-+				     gpu_pll_bypass_sels,
-+				     ARRAY_SIZE(gpu_pll_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_VPU_PLL_BYPASS] =
-+		imx_clk_hw_mux_flags("vpu_pll_bypass", base + 0x74, 28, 1,
-+				     vpu_pll_bypass_sels,
-+				     ARRAY_SIZE(vpu_pll_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_ARM_PLL_BYPASS] =
-+		imx_clk_hw_mux_flags("arm_pll_bypass", base + 0x84, 28, 1,
-+				     arm_pll_bypass_sels,
-+				     ARRAY_SIZE(arm_pll_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_ANATOP_SYS_PLL3_BYPASS] =
-+		imx_clk_hw_mux_flags("sys_pll3_bypass", base + 0x114, 28, 1,
-+				     sys_pll3_bypass_sels,
-+				     ARRAY_SIZE(sys_pll3_bypass_sels),
-+				     CLK_SET_RATE_PARENT);
-+
-+	/* PLL out gate */
-+	hws[IMX8MM_ANATOP_AUDIO_PLL1_OUT] =
-+		imx_clk_hw_gate("audio_pll1_out", "audio_pll1_bypass",
-+				base, 13);
-+	hws[IMX8MM_ANATOP_AUDIO_PLL2_OUT] =
-+		imx_clk_hw_gate("audio_pll2_out", "audio_pll2_bypass",
-+				base + 0x14, 13);
-+	hws[IMX8MM_ANATOP_VIDEO_PLL_OUT] =
-+		imx_clk_hw_gate("video_pll_out", "video_pll_bypass",
-+				base + 0x28, 13);
-+	hws[IMX8MM_ANATOP_DRAM_PLL_OUT] =
-+		imx_clk_hw_gate("dram_pll_out", "dram_pll_bypass",
-+				base + 0x50, 13);
-+	hws[IMX8MM_ANATOP_GPU_PLL_OUT] =
-+		imx_clk_hw_gate("gpu_pll_out", "gpu_pll_bypass",
-+				base + 0x64, 11);
-+	hws[IMX8MM_ANATOP_VPU_PLL_OUT] =
-+		imx_clk_hw_gate("vpu_pll_out", "vpu_pll_bypass",
-+				base + 0x74, 11);
-+	hws[IMX8MM_ANATOP_ARM_PLL_OUT] =
-+		imx_clk_hw_gate("arm_pll_out", "arm_pll_bypass",
-+				base + 0x84, 11);
-+	hws[IMX8MM_ANATOP_SYS_PLL3_OUT] =
-+		imx_clk_hw_gate("sys_pll3_out", "sys_pll3_bypass",
-+				base + 0x114, 11);
-+
-+	/* SYS PLL1 fixed output */
-+	hws[IMX8MM_ANATOP_SYS_PLL1_OUT] =
-+		imx_clk_hw_gate("sys_pll1_out", "sys_pll1",
-+				base + 0x94, 11);
-+
-+	hws[IMX8MM_ANATOP_SYS_PLL1_40M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_40m", "sys_pll1_out", 1, 20);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_80M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_80m", "sys_pll1_out", 1, 10);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_100M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_100m", "sys_pll1_out", 1, 8);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_133M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_133m", "sys_pll1_out", 1, 6);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_160M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_160m", "sys_pll1_out", 1, 5);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_200M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_200m", "sys_pll1_out", 1, 4);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_266M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_266m", "sys_pll1_out", 1, 3);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_400M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_400m", "sys_pll1_out", 1, 2);
-+	hws[IMX8MM_ANATOP_SYS_PLL1_800M] =
-+		imx_clk_hw_fixed_factor("sys_pll1_800m", "sys_pll1_out", 1, 1);
-+
-+	/* SYS PLL2 fixed output */
-+	hws[IMX8MM_ANATOP_SYS_PLL2_OUT] =
-+		imx_clk_hw_gate("sys_pll2_out", "sys_pll2",
-+				base + 0x104, 11);
-+
-+	hws[IMX8MM_ANATOP_SYS_PLL2_50M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_50m", "sys_pll2_out", 1, 20);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_100M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_100m", "sys_pll2_out", 1, 10);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_125M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_125m", "sys_pll2_out", 1, 8);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_166M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_166m", "sys_pll2_out", 1, 6);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_200M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_200m", "sys_pll2_out", 1, 5);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_250M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_250m", "sys_pll2_out", 1, 4);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_333M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_333m", "sys_pll2_out", 1, 3);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_500M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_500m", "sys_pll2_out", 1, 2);
-+	hws[IMX8MM_ANATOP_SYS_PLL2_1000M] =
-+		imx_clk_hw_fixed_factor("sys_pll2_1000m", "sys_pll2_out", 1, 1);
-+
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT1_SEL] =
-+		imx_clk_hw_mux2("clkout1_sel", base + 0x128, 4, 4,
-+				clkout_sels, ARRAY_SIZE(clkout_sels));
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT1_DIV] =
-+		imx_clk_hw_divider("clkout1_div", "clkout1_sel",
-+				   base + 0x128, 0, 4);
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT1] =
-+		imx_clk_hw_gate("clkout1", "clkout1_div", base + 0x128, 8);
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT2_SEL] =
-+		imx_clk_hw_mux2("clkout2_sel", base + 0x128, 20, 4,
-+				clkout_sels, ARRAY_SIZE(clkout_sels));
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT2_DIV] =
-+		imx_clk_hw_divider("clkout2_div", "clkout2_sel", base + 0x128,
-+				   16, 4);
-+	hws[IMX8MM_ANATOP_CLK_CLKOUT2] =
-+		imx_clk_hw_gate("clkout2", "clkout2_div", base + 0x128, 24);
-+
-+	imx_check_clk_hws(hws, IMX8MM_ANATOP_CLK_END);
-+
-+	ret = of_clk_add_hw_provider(np, of_clk_hw_onecell_get, clk_hw_data);
-+	if (ret < 0) {
-+		imx_unregister_hw_clocks(hws, IMX8MM_ANATOP_CLK_END);
-+		return dev_err_probe(dev, ret,
-+				     "failed to register anatop clock provider\n");
-+	}
-+
-+	dev_info(dev, "NXP i.MX8MM anatop clock driver probed\n");
-+	return 0;
-+}
-+
-+static const struct of_device_id imx8mm_anatop_clk_of_match[] = {
-+	{ .compatible = "fsl,imx8mm-anatop" },
-+	{ /* Sentinel */ },
-+};
-+MODULE_DEVICE_TABLE(of, imx8mm_anatop_clk_of_match);
-+
-+static struct platform_driver imx8mm_anatop_clk_driver = {
-+	.probe = imx8mm_anatop_clocks_probe,
-+	.driver = {
-+		.name = "imx8mm-anatop",
-+		/*
-+		 * Disable bind attributes: clocks are not removed and
-+		 * reloading the driver will crash or break devices.
-+		 */
-+		.suppress_bind_attrs = true,
-+		.of_match_table = imx8mm_anatop_clk_of_match,
-+	},
-+};
-+
-+module_platform_driver(imx8mm_anatop_clk_driver);
-+
-+MODULE_AUTHOR("Dario Binacchi <dario.binacchi@amarulasolutions.com>");
-+MODULE_DESCRIPTION("NXP i.MX8MM anatop clock driver");
-+MODULE_LICENSE("GPL");
-diff --git a/drivers/clk/imx/clk-imx8mm.c b/drivers/clk/imx/clk-imx8mm.c
-index 8a1fc7e17ba2..d39de0a81a6f 100644
---- a/drivers/clk/imx/clk-imx8mm.c
-+++ b/drivers/clk/imx/clk-imx8mm.c
-@@ -25,16 +25,6 @@ static u32 share_count_disp;
- static u32 share_count_pdm;
- static u32 share_count_nand;
- 
--static const char *pll_ref_sels[] = { "osc_24m", "dummy", "dummy", "dummy", };
--static const char *audio_pll1_bypass_sels[] = {"audio_pll1", "audio_pll1_ref_sel", };
--static const char *audio_pll2_bypass_sels[] = {"audio_pll2", "audio_pll2_ref_sel", };
--static const char *video_pll_bypass_sels[] = {"video_pll", "video_pll_ref_sel", };
--static const char *dram_pll_bypass_sels[] = {"dram_pll", "dram_pll_ref_sel", };
--static const char *gpu_pll_bypass_sels[] = {"gpu_pll", "gpu_pll_ref_sel", };
--static const char *vpu_pll_bypass_sels[] = {"vpu_pll", "vpu_pll_ref_sel", };
--static const char *arm_pll_bypass_sels[] = {"arm_pll", "arm_pll_ref_sel", };
--static const char *sys_pll3_bypass_sels[] = {"sys_pll3", "sys_pll3_ref_sel", };
--
- /* CCM ROOT */
- static const char *imx8mm_a53_sels[] = {"osc_24m", "arm_pll_out", "sys_pll2_500m", "sys_pll2_1000m",
- 					"sys_pll1_800m", "sys_pll1_400m", "audio_pll1_out", "sys_pll3_out", };
-@@ -288,21 +278,20 @@ static const char *imx8mm_clko1_sels[] = {"osc_24m", "sys_pll1_800m", "dummy", "
- static const char *imx8mm_clko2_sels[] = {"osc_24m", "sys_pll2_200m", "sys_pll1_400m", "sys_pll2_166m",
- 					  "sys_pll3_out", "audio_pll1_out", "video_pll_out", "osc_32k", };
- 
--static const char * const clkout_sels[] = {"audio_pll1_out", "audio_pll2_out", "video_pll_out",
--					   "dummy", "dummy", "gpu_pll_out", "vpu_pll_out",
--					   "arm_pll_out", "sys_pll1", "sys_pll2", "sys_pll3",
--					   "dummy", "dummy", "osc_24m", "dummy", "osc_32k"};
--
- static struct clk_hw_onecell_data *clk_hw_data;
- static struct clk_hw **hws;
- 
- static int imx8mm_clocks_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
--	struct device_node *np = dev->of_node;
-+	struct device_node *np = dev->of_node, *anp;
- 	void __iomem *base;
- 	int ret;
- 
-+	base = devm_platform_ioremap_resource(pdev, 0);
-+	if (WARN_ON(IS_ERR(base)))
-+		return PTR_ERR(base);
-+
- 	clk_hw_data = kzalloc(struct_size(clk_hw_data, hws,
- 					  IMX8MM_CLK_END), GFP_KERNEL);
- 	if (WARN_ON(!clk_hw_data))
-@@ -311,96 +300,92 @@ static int imx8mm_clocks_probe(struct platform_device *pdev)
- 	clk_hw_data->num = IMX8MM_CLK_END;
- 	hws = clk_hw_data->hws;
- 
--	hws[IMX8MM_CLK_DUMMY] = imx_clk_hw_fixed("dummy", 0);
--	hws[IMX8MM_CLK_24M] = imx_get_clk_hw_by_name(np, "osc_24m");
--	hws[IMX8MM_CLK_32K] = imx_get_clk_hw_by_name(np, "osc_32k");
-+	anp = of_find_compatible_node(NULL, NULL, "fsl,imx8mm-anatop");
-+	if (!anp)
-+		return dev_err_probe(dev, -ENODEV, "missing anatop\n");
-+
-+	of_node_put(anp);
-+
-+	hws[IMX8MM_CLK_DUMMY] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_DUMMY);
-+	hws[IMX8MM_CLK_24M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_24M);
-+	hws[IMX8MM_CLK_32K] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_32K);
- 	hws[IMX8MM_CLK_EXT1] = imx_get_clk_hw_by_name(np, "clk_ext1");
- 	hws[IMX8MM_CLK_EXT2] = imx_get_clk_hw_by_name(np, "clk_ext2");
- 	hws[IMX8MM_CLK_EXT3] = imx_get_clk_hw_by_name(np, "clk_ext3");
- 	hws[IMX8MM_CLK_EXT4] = imx_get_clk_hw_by_name(np, "clk_ext4");
- 
--	np = of_find_compatible_node(NULL, NULL, "fsl,imx8mm-anatop");
--	base = of_iomap(np, 0);
--	of_node_put(np);
--	if (WARN_ON(!base))
--		return -ENOMEM;
--
--	hws[IMX8MM_AUDIO_PLL1_REF_SEL] = imx_clk_hw_mux("audio_pll1_ref_sel", base + 0x0, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_AUDIO_PLL2_REF_SEL] = imx_clk_hw_mux("audio_pll2_ref_sel", base + 0x14, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_VIDEO_PLL_REF_SEL] = imx_clk_hw_mux("video_pll_ref_sel", base + 0x28, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_DRAM_PLL_REF_SEL] = imx_clk_hw_mux("dram_pll_ref_sel", base + 0x50, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_GPU_PLL_REF_SEL] = imx_clk_hw_mux("gpu_pll_ref_sel", base + 0x64, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_VPU_PLL_REF_SEL] = imx_clk_hw_mux("vpu_pll_ref_sel", base + 0x74, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_ARM_PLL_REF_SEL] = imx_clk_hw_mux("arm_pll_ref_sel", base + 0x84, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--	hws[IMX8MM_SYS_PLL3_REF_SEL] = imx_clk_hw_mux("sys_pll3_ref_sel", base + 0x114, 0, 2, pll_ref_sels, ARRAY_SIZE(pll_ref_sels));
--
--	hws[IMX8MM_AUDIO_PLL1] = imx_clk_hw_pll14xx("audio_pll1", "audio_pll1_ref_sel", base, &imx_1443x_pll);
--	hws[IMX8MM_AUDIO_PLL2] = imx_clk_hw_pll14xx("audio_pll2", "audio_pll2_ref_sel", base + 0x14, &imx_1443x_pll);
--	hws[IMX8MM_VIDEO_PLL] = imx_clk_hw_pll14xx("video_pll", "video_pll_ref_sel", base + 0x28, &imx_1443x_pll);
--	hws[IMX8MM_DRAM_PLL] = imx_clk_hw_pll14xx("dram_pll", "dram_pll_ref_sel", base + 0x50, &imx_1443x_dram_pll);
--	hws[IMX8MM_GPU_PLL] = imx_clk_hw_pll14xx("gpu_pll", "gpu_pll_ref_sel", base + 0x64, &imx_1416x_pll);
--	hws[IMX8MM_VPU_PLL] = imx_clk_hw_pll14xx("vpu_pll", "vpu_pll_ref_sel", base + 0x74, &imx_1416x_pll);
--	hws[IMX8MM_ARM_PLL] = imx_clk_hw_pll14xx("arm_pll", "arm_pll_ref_sel", base + 0x84, &imx_1416x_pll);
--	hws[IMX8MM_SYS_PLL1] = imx_clk_hw_fixed("sys_pll1", 800000000);
--	hws[IMX8MM_SYS_PLL2] = imx_clk_hw_fixed("sys_pll2", 1000000000);
--	hws[IMX8MM_SYS_PLL3] = imx_clk_hw_pll14xx("sys_pll3", "sys_pll3_ref_sel", base + 0x114, &imx_1416x_pll);
-+	hws[IMX8MM_AUDIO_PLL1_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL1_REF_SEL);
-+	hws[IMX8MM_AUDIO_PLL2_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL2_REF_SEL);
-+	hws[IMX8MM_VIDEO_PLL_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VIDEO_PLL_REF_SEL);
-+	hws[IMX8MM_DRAM_PLL_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_DRAM_PLL_REF_SEL);
-+	hws[IMX8MM_GPU_PLL_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_GPU_PLL_REF_SEL);
-+	hws[IMX8MM_VPU_PLL_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VPU_PLL_REF_SEL);
-+	hws[IMX8MM_ARM_PLL_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_ARM_PLL_REF_SEL);
-+	hws[IMX8MM_SYS_PLL3_REF_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL3_REF_SEL);
-+
-+	hws[IMX8MM_AUDIO_PLL1] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL1);
-+	hws[IMX8MM_AUDIO_PLL2] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL2);
-+	hws[IMX8MM_VIDEO_PLL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VIDEO_PLL);
-+	hws[IMX8MM_DRAM_PLL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_DRAM_PLL);
-+	hws[IMX8MM_GPU_PLL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_GPU_PLL);
-+	hws[IMX8MM_VPU_PLL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VPU_PLL);
-+	hws[IMX8MM_ARM_PLL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_ARM_PLL);
-+	hws[IMX8MM_SYS_PLL1] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1);
-+	hws[IMX8MM_SYS_PLL2] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2);
-+	hws[IMX8MM_SYS_PLL3] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL3);
- 
- 	/* PLL bypass out */
--	hws[IMX8MM_AUDIO_PLL1_BYPASS] = imx_clk_hw_mux_flags("audio_pll1_bypass", base, 16, 1, audio_pll1_bypass_sels, ARRAY_SIZE(audio_pll1_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_AUDIO_PLL2_BYPASS] = imx_clk_hw_mux_flags("audio_pll2_bypass", base + 0x14, 16, 1, audio_pll2_bypass_sels, ARRAY_SIZE(audio_pll2_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_VIDEO_PLL_BYPASS] = imx_clk_hw_mux_flags("video_pll_bypass", base + 0x28, 16, 1, video_pll_bypass_sels, ARRAY_SIZE(video_pll_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_DRAM_PLL_BYPASS] = imx_clk_hw_mux_flags("dram_pll_bypass", base + 0x50, 16, 1, dram_pll_bypass_sels, ARRAY_SIZE(dram_pll_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_GPU_PLL_BYPASS] = imx_clk_hw_mux_flags("gpu_pll_bypass", base + 0x64, 28, 1, gpu_pll_bypass_sels, ARRAY_SIZE(gpu_pll_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_VPU_PLL_BYPASS] = imx_clk_hw_mux_flags("vpu_pll_bypass", base + 0x74, 28, 1, vpu_pll_bypass_sels, ARRAY_SIZE(vpu_pll_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_ARM_PLL_BYPASS] = imx_clk_hw_mux_flags("arm_pll_bypass", base + 0x84, 28, 1, arm_pll_bypass_sels, ARRAY_SIZE(arm_pll_bypass_sels), CLK_SET_RATE_PARENT);
--	hws[IMX8MM_SYS_PLL3_BYPASS] = imx_clk_hw_mux_flags("sys_pll3_bypass", base + 0x114, 28, 1, sys_pll3_bypass_sels, ARRAY_SIZE(sys_pll3_bypass_sels), CLK_SET_RATE_PARENT);
-+	hws[IMX8MM_AUDIO_PLL1_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL1_BYPASS);
-+	hws[IMX8MM_AUDIO_PLL2_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL2_BYPASS);
-+	hws[IMX8MM_VIDEO_PLL_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VIDEO_PLL_BYPASS);
-+	hws[IMX8MM_DRAM_PLL_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_DRAM_PLL_BYPASS);
-+	hws[IMX8MM_GPU_PLL_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_GPU_PLL_BYPASS);
-+	hws[IMX8MM_VPU_PLL_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VPU_PLL_BYPASS);
-+	hws[IMX8MM_ARM_PLL_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_ARM_PLL_BYPASS);
-+	hws[IMX8MM_SYS_PLL3_BYPASS] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL3_BYPASS);
- 
- 	/* PLL out gate */
--	hws[IMX8MM_AUDIO_PLL1_OUT] = imx_clk_hw_gate("audio_pll1_out", "audio_pll1_bypass", base, 13);
--	hws[IMX8MM_AUDIO_PLL2_OUT] = imx_clk_hw_gate("audio_pll2_out", "audio_pll2_bypass", base + 0x14, 13);
--	hws[IMX8MM_VIDEO_PLL_OUT] = imx_clk_hw_gate("video_pll_out", "video_pll_bypass", base + 0x28, 13);
--	hws[IMX8MM_DRAM_PLL_OUT] = imx_clk_hw_gate("dram_pll_out", "dram_pll_bypass", base + 0x50, 13);
--	hws[IMX8MM_GPU_PLL_OUT] = imx_clk_hw_gate("gpu_pll_out", "gpu_pll_bypass", base + 0x64, 11);
--	hws[IMX8MM_VPU_PLL_OUT] = imx_clk_hw_gate("vpu_pll_out", "vpu_pll_bypass", base + 0x74, 11);
--	hws[IMX8MM_ARM_PLL_OUT] = imx_clk_hw_gate("arm_pll_out", "arm_pll_bypass", base + 0x84, 11);
--	hws[IMX8MM_SYS_PLL3_OUT] = imx_clk_hw_gate("sys_pll3_out", "sys_pll3_bypass", base + 0x114, 11);
-+	hws[IMX8MM_AUDIO_PLL1_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL1_OUT);
-+	hws[IMX8MM_AUDIO_PLL2_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_AUDIO_PLL2_OUT);
-+	hws[IMX8MM_VIDEO_PLL_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VIDEO_PLL_OUT);
-+	hws[IMX8MM_DRAM_PLL_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_DRAM_PLL_OUT);
-+	hws[IMX8MM_GPU_PLL_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_GPU_PLL_OUT);
-+	hws[IMX8MM_VPU_PLL_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_VPU_PLL_OUT);
-+	hws[IMX8MM_ARM_PLL_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_ARM_PLL_OUT);
-+	hws[IMX8MM_SYS_PLL3_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL3_OUT);
- 
- 	/* SYS PLL1 fixed output */
--	hws[IMX8MM_SYS_PLL1_OUT] = imx_clk_hw_gate("sys_pll1_out", "sys_pll1", base + 0x94, 11);
--
--	hws[IMX8MM_SYS_PLL1_40M] = imx_clk_hw_fixed_factor("sys_pll1_40m", "sys_pll1_out", 1, 20);
--	hws[IMX8MM_SYS_PLL1_80M] = imx_clk_hw_fixed_factor("sys_pll1_80m", "sys_pll1_out", 1, 10);
--	hws[IMX8MM_SYS_PLL1_100M] = imx_clk_hw_fixed_factor("sys_pll1_100m", "sys_pll1_out", 1, 8);
--	hws[IMX8MM_SYS_PLL1_133M] = imx_clk_hw_fixed_factor("sys_pll1_133m", "sys_pll1_out", 1, 6);
--	hws[IMX8MM_SYS_PLL1_160M] = imx_clk_hw_fixed_factor("sys_pll1_160m", "sys_pll1_out", 1, 5);
--	hws[IMX8MM_SYS_PLL1_200M] = imx_clk_hw_fixed_factor("sys_pll1_200m", "sys_pll1_out", 1, 4);
--	hws[IMX8MM_SYS_PLL1_266M] = imx_clk_hw_fixed_factor("sys_pll1_266m", "sys_pll1_out", 1, 3);
--	hws[IMX8MM_SYS_PLL1_400M] = imx_clk_hw_fixed_factor("sys_pll1_400m", "sys_pll1_out", 1, 2);
--	hws[IMX8MM_SYS_PLL1_800M] = imx_clk_hw_fixed_factor("sys_pll1_800m", "sys_pll1_out", 1, 1);
-+	hws[IMX8MM_SYS_PLL1_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_OUT);
-+
-+	hws[IMX8MM_SYS_PLL1_40M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_40M);
-+	hws[IMX8MM_SYS_PLL1_80M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_80M);
-+	hws[IMX8MM_SYS_PLL1_100M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_100M);
-+	hws[IMX8MM_SYS_PLL1_133M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_133M);
-+	hws[IMX8MM_SYS_PLL1_160M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_160M);
-+	hws[IMX8MM_SYS_PLL1_200M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_200M);
-+	hws[IMX8MM_SYS_PLL1_266M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_266M);
-+	hws[IMX8MM_SYS_PLL1_400M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_400M);
-+	hws[IMX8MM_SYS_PLL1_800M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL1_800M);
- 
- 	/* SYS PLL2 fixed output */
--	hws[IMX8MM_SYS_PLL2_OUT] = imx_clk_hw_gate("sys_pll2_out", "sys_pll2", base + 0x104, 11);
--	hws[IMX8MM_SYS_PLL2_50M] = imx_clk_hw_fixed_factor("sys_pll2_50m", "sys_pll2_out", 1, 20);
--	hws[IMX8MM_SYS_PLL2_100M] = imx_clk_hw_fixed_factor("sys_pll2_100m", "sys_pll2_out", 1, 10);
--	hws[IMX8MM_SYS_PLL2_125M] = imx_clk_hw_fixed_factor("sys_pll2_125m", "sys_pll2_out", 1, 8);
--	hws[IMX8MM_SYS_PLL2_166M] = imx_clk_hw_fixed_factor("sys_pll2_166m", "sys_pll2_out", 1, 6);
--	hws[IMX8MM_SYS_PLL2_200M] = imx_clk_hw_fixed_factor("sys_pll2_200m", "sys_pll2_out", 1, 5);
--	hws[IMX8MM_SYS_PLL2_250M] = imx_clk_hw_fixed_factor("sys_pll2_250m", "sys_pll2_out", 1, 4);
--	hws[IMX8MM_SYS_PLL2_333M] = imx_clk_hw_fixed_factor("sys_pll2_333m", "sys_pll2_out", 1, 3);
--	hws[IMX8MM_SYS_PLL2_500M] = imx_clk_hw_fixed_factor("sys_pll2_500m", "sys_pll2_out", 1, 2);
--	hws[IMX8MM_SYS_PLL2_1000M] = imx_clk_hw_fixed_factor("sys_pll2_1000m", "sys_pll2_out", 1, 1);
--
--	hws[IMX8MM_CLK_CLKOUT1_SEL] = imx_clk_hw_mux2("clkout1_sel", base + 0x128, 4, 4, clkout_sels, ARRAY_SIZE(clkout_sels));
--	hws[IMX8MM_CLK_CLKOUT1_DIV] = imx_clk_hw_divider("clkout1_div", "clkout1_sel", base + 0x128, 0, 4);
--	hws[IMX8MM_CLK_CLKOUT1] = imx_clk_hw_gate("clkout1", "clkout1_div", base + 0x128, 8);
--	hws[IMX8MM_CLK_CLKOUT2_SEL] = imx_clk_hw_mux2("clkout2_sel", base + 0x128, 20, 4, clkout_sels, ARRAY_SIZE(clkout_sels));
--	hws[IMX8MM_CLK_CLKOUT2_DIV] = imx_clk_hw_divider("clkout2_div", "clkout2_sel", base + 0x128, 16, 4);
--	hws[IMX8MM_CLK_CLKOUT2] = imx_clk_hw_gate("clkout2", "clkout2_div", base + 0x128, 24);
--
--	np = dev->of_node;
--	base = devm_platform_ioremap_resource(pdev, 0);
--	if (WARN_ON(IS_ERR(base)))
--		return PTR_ERR(base);
-+	hws[IMX8MM_SYS_PLL2_OUT] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_OUT);
-+
-+	hws[IMX8MM_SYS_PLL2_50M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_50M);
-+	hws[IMX8MM_SYS_PLL2_100M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_100M);
-+	hws[IMX8MM_SYS_PLL2_125M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_125M);
-+	hws[IMX8MM_SYS_PLL2_166M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_166M);
-+	hws[IMX8MM_SYS_PLL2_200M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_200M);
-+	hws[IMX8MM_SYS_PLL2_250M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_250M);
-+	hws[IMX8MM_SYS_PLL2_333M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_333M);
-+	hws[IMX8MM_SYS_PLL2_500M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_500M);
-+	hws[IMX8MM_SYS_PLL2_1000M] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_SYS_PLL2_1000M);
-+
-+	hws[IMX8MM_CLK_CLKOUT1_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT1_SEL);
-+	hws[IMX8MM_CLK_CLKOUT1_DIV] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT1_DIV);
-+	hws[IMX8MM_CLK_CLKOUT1] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT1);
-+	hws[IMX8MM_CLK_CLKOUT2_SEL] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT2_SEL);
-+	hws[IMX8MM_CLK_CLKOUT2_DIV] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT2_DIV);
-+	hws[IMX8MM_CLK_CLKOUT2] = imx_anatop_get_clk_hw(anp, IMX8MM_ANATOP_CLK_CLKOUT2);
- 
- 	/* Core Slice */
- 	hws[IMX8MM_CLK_A53_DIV] = imx8m_clk_hw_composite_core("arm_a53_div", imx8mm_a53_sels, base + 0x8000);
-@@ -611,6 +596,7 @@ static int imx8mm_clocks_probe(struct platform_device *pdev)
- 
- 	imx_register_uart_clocks();
- 
-+	dev_info(dev, "NXP i.MX8MM ccm clock driver probed\n");
- 	return 0;
- 
- unregister_hws:
+Changes in v8:
+- Drop the patches added in version 7:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+
+Changes in v7:
+- Add and manage fsl,anatop property as phandle to the anatop node with
+  the new patches:
+  - 10/23 dt-bindings: clock: imx8m-clock: add phandle to the anatop
+  - 11/23 arm64: dts: imx8mm: add phandle to anatop within CCM
+  - 12/23 arm64: dts: imx8mn: add phandle to anatop within CCM
+  - 13/23 arm64: dts: imx8mp: add phandle to anatop within CCM
+  - 14/23 arm64: dts: imx8mq: add phandle to anatop within CCM
+
+Changes in v6:
+- Merge patches:
+  10/20 dt-bindings: clock: imx8mm: add binding definitions for anatop
+  11/20 dt-bindings: clock: imx8mn: add binding definitions for anatop
+  12/20 dt-bindings: clock: imx8mp: add binding definitions for anatop
+  to
+  05/20 dt-bindings: clock: imx8m-anatop: define clocks/clock-names
+  now renamed
+  05/18 dt-bindings: clock: imx8m-anatop: add oscillators and PLLs
+- Split the patch
+  15/20 dt-bindings-clock-imx8m-clock-support-spread-spectru.patch
+  into
+  12/18 dt-bindings: clock: imx8m-clock: add PLLs
+  16/18 dt-bindings: clock: imx8m-clock: support spread spectrum clocking
+
+Changes in v5:
+- Fix compilation errors.
+- Separate driver code from dt-bindings
+
+Changes in v4:
+- Add dt-bindings for anatop
+- Add anatop driver
+- Drop fsl,ssc-clocks from spread spectrum dt-bindings
+- New
+
+Changes in v3:
+- Patches 1/8 has been added in version 3. The dt-bindings have
+  been moved from fsl,imx8m-anatop.yaml to imx8m-clock.yaml. The
+  anatop device (fsl,imx8m-anatop.yaml) is indeed more or less a
+  syscon, so it represents a memory area accessible by ccm
+  (imx8m-clock.yaml) to setup the PLLs.
+- Patches {3,5}/8 have been added in version 3.
+- Patches {4,6,8}/8 use ccm device node instead of the anatop one.
+
+Changes in v2:
+- Add "allOf:" and place it after "required:" block, like in the
+  example schema.
+- Move the properties definition to the top-level.
+- Drop unit types as requested by the "make dt_binding_check" command.
+
+ arch/arm64/boot/dts/freescale/imx8mp.dtsi | 9 +++++++--
+ 1 file changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+index 0b928e173f29..eab05170442d 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+@@ -751,9 +751,14 @@ clk: clock-controller@30380000 {
+ 					     <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
+ 				#clock-cells = <1>;
+ 				clocks = <&osc_32k>, <&osc_24m>, <&clk_ext1>, <&clk_ext2>,
+-					 <&clk_ext3>, <&clk_ext4>;
++					 <&clk_ext3>, <&clk_ext4>,
++					 <&anatop IMX8MP_ANATOP_AUDIO_PLL1>,
++					 <&anatop IMX8MP_ANATOP_AUDIO_PLL2>,
++					 <&anatop IMX8MP_ANATOP_DRAM_PLL>,
++					 <&anatop IMX8MP_ANATOP_VIDEO_PLL>;
+ 				clock-names = "osc_32k", "osc_24m", "clk_ext1", "clk_ext2",
+-					      "clk_ext3", "clk_ext4";
++					      "clk_ext3", "clk_ext4", "audio_pll1", "audio_pll2",
++					      "dram_pll", "video_pll";
+ 				assigned-clocks = <&clk IMX8MP_CLK_A53_SRC>,
+ 						  <&clk IMX8MP_CLK_A53_CORE>,
+ 						  <&clk IMX8MP_CLK_NOC>,
 -- 
 2.43.0
 
