@@ -4,103 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3FC34C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:53:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E8E2C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:55:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WE8HEXPDHlP3/Ze6vBhaSEBaCZ2xj3Huz/M2ft6sExY=; b=d3ToGNPaYSes2lvH2znduIBDKL
-	Smr01mdzRW2FMDw0+ow6ZTSH5Sl5Mt9A+sZ7s+Dyj8P4xnMRxxbE8VI2ECqMywWt/aDLbhrPOnSgZ
-	n3gFX0fLYOQo62IoIhfyQu4WnEBuhaC7oVjek+n/lqw9n8JlYG9jj4ynXxWkZfzQju7hewBosDAya
-	57xPgjsBPISN9Po5GvEexx+N1S1SyrqXW/laG+R/LFvdkoBvrnTvWZ6sh6b5DGgbBuFAKnMLAPI3v
-	Z70bBh+N14QlvkK+kMj/xe1J/Xm8wq6W4P2TALMch2ESZhjvH1823bVfhEm55rRKdObT0qaskjku0
-	lnmMARIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+L7XbtqDHwNvJUYAa1gSH9tcjYho7+xK58vS0fLoWWw=; b=nyDhtKjqh3D1R7KbHXH6SApp6v
+	L4+A54dT+Z5gHOF4MhxPgYlFbCSZsbr2WVaVn9knFa6ALX5Pc3/5UwvULGKAYtgo8zZFAky9RzJaO
+	Aj0jnjE7TmA/c/eIS28mOHwXFjtyaLQDMrvx+v2C8actWZ6f9EIBej0z6QqoCT6XonEBWF5lpWjl/
+	F9T9noYyr8A4WcqRzpFuLMW72qt4hp5Ct2vb3yUvz0wWNIaTx0x1Tv/ZbcmnwwJOCGgs7CVfqW96D
+	03O7Okyqt9+EJxo5co65SIzSGEwpYk3qLFB3muzhIarAEZvTu/X3TypCSvFlWE+u8q992Xiktjd8C
+	f7rSmWgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6z1-0000000AOtt-34UG;
-	Thu, 06 Mar 2025 08:53:35 +0000
-Received: from mail-lf1-x136.google.com ([2a00:1450:4864:20::136])
+	id 1tq70c-0000000APBW-2i7X;
+	Thu, 06 Mar 2025 08:55:14 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6vb-0000000AOEC-2hIP;
-	Thu, 06 Mar 2025 08:50:04 +0000
-Received: by mail-lf1-x136.google.com with SMTP id 2adb3069b0e04-5494bc4d796so474901e87.3;
-        Thu, 06 Mar 2025 00:50:03 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741251002; x=1741855802; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WE8HEXPDHlP3/Ze6vBhaSEBaCZ2xj3Huz/M2ft6sExY=;
-        b=F4lDzico2boWTPAiGvXPUQYm7s+t9GEj4CA41WzPOB1e4XmlQ6wKgRvXbl2Me2TSSu
-         zRBfQNezsgz2c9U7SzgKqbSWO9iDSMRlcUE7AXpsHr5zBVqK7+3A2b++e9O2W/cssMn2
-         O/gOFsSP0t24eENxz0EWHSImp3cr/1ZilFPgNd0Rb6FCM6ZB58f+zXYOMes3yx1Ki/so
-         Tg6girLmsDWQ52yZ1xnf7UREPkx4MUZWLMsSWQaO/vauLfxYlhAXFQKyUBx3sgxTlOkc
-         m/h8R1q5xokIskk7dYpp402VMmFBGvsgQvFI0mWAt2D3Giv6Dr6VoN4tG+30Ttt0m640
-         hJ5A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741251002; x=1741855802;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WE8HEXPDHlP3/Ze6vBhaSEBaCZ2xj3Huz/M2ft6sExY=;
-        b=p/Olb52BR5VeQTQo4RgFkwhoJq6q4EgGtBp233gp7KBw5o3i5Gqx9qYknq5ahWUxxH
-         nOqW6V74POkF6E0Svx9zZAk9etO4MVAZgTpd8d+rlt+/2k5kGsFih1BF1Pjnt8JFD5YG
-         nlGy74Cnwcz1SqnjOcL/a6HT2FqMi0OO8MDD1dWkWs/A0F+S+Tsw5DSkQpvkhJ3Q2K+3
-         VXlwBehq5bnLBmE2ZEDyTsomrYW/iwaAVDrdXwCANx6aD1/eE50OqrWhGakiNrjeHp7N
-         FR/53KXpuRSOGNuhft4UJj6ToUJdcBGMNSVTcBCoK2y5iZp+dIsAF5fOltYWA0T6nOLL
-         iTSw==
-X-Forwarded-Encrypted: i=1; AJvYcCUm6TQZ4rIUdyv+v0fwpnNn+jvdDlHfcvSB8macrwl5rCWJxRyJZ7o8ti6wqyHc+Qiuj+72fFP9qOdQ95L74rTR@lists.infradead.org, AJvYcCXX9zFuvrQQ7qW9JQ6VyYL22W7OzMWhzIz4D+fkFtP4pv9dmMUkzUg7hT3vNDoVbeyjzGJRrJdywoNH4DxbZ5c=@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz93bQt5xGGxgGUiYOGlSSA8zjcKOUZ5QxVBG6/cOuXf04K4OZT
-	uMACwxQ7809cy16UT8UFRORquXlTjSaTf4aOj9Ve+FSjspCAbIEmgp4ILw==
-X-Gm-Gg: ASbGnctLvKC6OtvmNWF118ZrjlsUO9JXRbGBUt3TBlbl+HQvSw7PWAC199RJ/xHk9gs
-	/UAMgICcAeUVsF6rW0XFzh36TuRvyv+eyGqcKZjZSAf4ewNgGbsnskj1tOHeBjpCxl75e19h1gd
-	18SmvNDZviuKhcD1cpYgVTR+zBdeFdgdFRigXtZrNsPfUT4ohWilookujxb6WG2CSgw2EjHC50N
-	BAnNq9xvqUQVjPr3eTgExRzRjCMc2647EwtnUgDlbY9emnfldEyEmtZrBbgANfGdfdp6OFmpuzQ
-	mOrPABkbX+JlCdYx9GCF4d4yS6072mqfhsJsn1CQdS8y8OHO6SY8IuyEtUN159shQ3/wYRbDSzI
-	EU0KS4IsKw5jkXrZtczlD9UohIg==
-X-Google-Smtp-Source: AGHT+IH7rJ0bI5uRIzIqrHdOqVbIP+Y1Jj/C4uRWsNFMJDfrRYE/cGnXxp+rRBuh8BWvmklTgurn9A==
-X-Received: by 2002:a05:6402:2157:b0:5e5:b9b1:8117 with SMTP id 4fb4d7f45d1cf-5e5b9b18547mr3313222a12.18.1741250533408;
-        Thu, 06 Mar 2025 00:42:13 -0800 (PST)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c766a5f7sm587786a12.58.2025.03.06.00.42.11
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 06 Mar 2025 00:42:13 -0800 (PST)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH 0/6] Add support for RK3588 DisplayPort Controller
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-X-Priority: 3
-In-Reply-To: <28b0d3fc.bb3.19568f6b5f8.Coremail.andyshrk@163.com>
-Date: Thu, 6 Mar 2025 09:42:00 +0100
-Cc: heiko@sntech.de,
- neil.armstrong@linaro.org,
- sebastian.reichel@collabora.com,
- devicetree@vger.kernel.org,
- hjc@rock-chips.com,
- mripard@kernel.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com,
- dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>,
- krzk+dt@kernel.org,
- robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <44213B17-FE14-4FB8-8319-1E31BBF6EAA0@gmail.com>
-References: <25401bfa.291d.19564244e54.Coremail.andyshrk@163.com>
- <75189787-28E1-4FC2-8E10-4960B3877A6F@gmail.com>
- <28b0d3fc.bb3.19568f6b5f8.Coremail.andyshrk@163.com>
-To: Andy Yan <andyshrk@163.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tq6wF-0000000AOJO-3k2M;
+	Thu, 06 Mar 2025 08:50:45 +0000
+X-UUID: 14509ce6fa6811efa1e849db4cc18d44-20250306
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=+L7XbtqDHwNvJUYAa1gSH9tcjYho7+xK58vS0fLoWWw=;
+	b=PbHGUyWLkS78neyhusP+36+5eaglCBmiBvkfFR7EIngAe7RuFS/7QohJs6tRm6gD0dA1k6d7dxXLFp41K5dRs1RqQJqdk5c5ihyObwXjAO/ujXjSObtY0S+emqcmYLUBR3YgSO8Hn1zSn7b+LfohNBcXAsUnog427EYAAgjIx0M=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:e2c79104-eeec-4312-9867-eeb2ebe9485d,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:b21618ce-23b9-4c94-add0-e827a7999e28,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:-3
+	,IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV
+	:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 14509ce6fa6811efa1e849db4cc18d44-20250306
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <axe.yang@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1291107859; Thu, 06 Mar 2025 01:50:39 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Thu, 6 Mar 2025 16:50:36 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Thu, 6 Mar 2025 16:50:36 +0800
+From: Axe Yang <axe.yang@mediatek.com>
+To: Chaotian Jing <chaotian.jing@mediatek.com>, Ulf Hansson
+	<ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+	<matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Wenbin Mei
+	<wenbin.mei@mediatek.com>
+CC: <yong.mao@mediatek.com>, <qingliang.li@mediatek.com>,
+	<andy-ld.lu@mediatek.com>, <linux-mmc@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	Axe Yang <axe.yang@mediatek.com>
+Subject: [PATCH 1/2] dt-bindings: mmc: mtk-sd: add single burst switch
+Date: Thu, 6 Mar 2025 16:48:05 +0800
+Message-ID: <20250306085028.5024-2-axe.yang@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250306085028.5024-1-axe.yang@mediatek.com>
+References: <20250306085028.5024-1-axe.yang@mediatek.com>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_005003_696442_824A866B 
-X-CRM114-Status: UNSURE (   5.58  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_005043_975287_891D8A9C 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,23 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add 'mediatek,disable-single-burst' setting. This property can be
+used to switch bus burst type, from single burst to INCR, which is
+determined by the bus type within the IP. Some versions of the IP
+are using AXI bus, thus this switch is necessary as 'single' is not
+the burst type supported by the bus.
 
+Signed-off-by: Axe Yang <axe.yang@mediatek.com>
+---
+ Documentation/devicetree/bindings/mmc/mtk-sd.yaml | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
-6 mar 2025, o godz. 01:59:
->=20
->=20
->=20
->=20
-> Both of the two config options should be enabled.
-> andy@Pro480:~/WorkSpace/linux-next$ rg DW_DP .config
-> 4044:CONFIG_ROCKCHIP_DW_DP=3Dy
-
-here i=E2=80=99m a bit lost=E2=80=A6.
-greping on full kernel sources (with applied =
-https://patchwork.kernel.org/project/linux-rockchip/list/?series=3D936784)=
- gives me no single appearance of ROCKCHIP_DW_DP=E2=80=A6
-Do i miss something?
-
+diff --git a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+index 0debccbd6519..6076aff0a689 100644
+--- a/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
++++ b/Documentation/devicetree/bindings/mmc/mtk-sd.yaml
+@@ -100,6 +100,14 @@ properties:
+     minimum: 0
+     maximum: 0xffffffff
+ 
++  mediatek,disable-single-burst:
++    $ref: /schemas/types.yaml#/definitions/flag
++    description:
++      Burst type setting. For some versions of the IP that do not use
++      AHB bus, the burst type need to be switched to INCR.
++      If present, use INCR burst type.
++      If not present, use single burst type.
++
+   mediatek,hs200-cmd-int-delay:
+     $ref: /schemas/types.yaml#/definitions/uint32
+     description:
+-- 
+2.46.0
 
 
