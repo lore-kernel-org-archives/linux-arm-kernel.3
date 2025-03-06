@@ -4,82 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F440C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 00:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C06CAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 00:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fo7blU2Bz0ygJPtG4Wn+lGih/daURM9cZ9yeAGPof3Q=; b=0MN089ytL0peiLO2Wnh5bWfdNN
-	qvXJf7K+ZdTJBrCWuPLa3MTjQPXmNdN2NUWH3y5k1Fsh0nYbmraA5QmlV9rOasWiObiS2+IwZ9g9Y
-	xzYjEtaPc5hrlNmSfryLnUEMyeXX1SJQYNcZQ7l9pv8JYvjkBL41jf+Hi1UAcaXkL7mAqDS1NUiX3
-	l74WLHKNgE8tynUbluEI2CFtx35k8V0ZIXIKEkZxp9/juGWVoidJ0cLIDzNXfmRt03wC8TgIFQNOo
-	tX84w6keII/wiEkDX5lI/plqbjBybPFW1EvBQnVWD53qvsEXnOtzTn7ul2pjT4tTWwevjsgHCxDlC
-	hPOXS+0Q==;
+	bh=z0jexsz4Wxrqqk8gxPBvWplk5xhjM+SjaxN91QcSHFU=; b=1XB1hTWbh42NfbcTzQaCFjK60u
+	Ge73p45vzcObFR7pt7Gq2m9BXXdP89D9jXHRfjKgJWIR4L0O+Lg/WhOjAStMJarB6eSuq8iXhitjp
+	leiGHYLl5NVt1wO4VO+8ZwyTDG60d6a/joWPPPFGa4BX0zgeUE+K4+5dGJnxHG4VLNbLPexxPdzMH
+	iKaCspv4Cn1PrGWgH4RcWXqkKrWVSdmKMpVevZhp5YJ7p83I6LXzjJaJ0YIEQb4uTo82VKzh828Ow
+	2IrCUb4juiRXeQsUj1eiwXJ48+xQDgTH/Fd9TLE7IOdQ2MLsM+S+IfeMAqD94/1xGCfBnFJmmSLsM
+	8vwdGuDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzBM-00000009hue-1qoe;
-	Thu, 06 Mar 2025 00:33:48 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1tpzJT-00000009iU4-2Wq0;
+	Thu, 06 Mar 2025 00:42:11 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpy1t-00000009bmj-2Go0
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 05 Mar 2025 23:19:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741216798; x=1772752798;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=jNjm1cYUFMQZ9mfrDQzo9hhp7ND5yA4DLzm1+XAQYrg=;
-  b=SL8Xl7DW3+RK4xFON3XCeQaMyp9PPsmBPUxs3nqneWq9WTRShCEA50Dp
-   X47jUTVSP8Iood3l9P9UodIJ9UeZWbRghDKU450N8zcwnndmBUHeBSYV4
-   W0I84V0wkZBlpzQWsvOUfJyTOSkjXuYxAOqK4akrKxeUfdD5AJrmheV4Z
-   O9Lu4kICK8NutvEwGzkhPTHe0pA7XrefDzAw0bpMTV2HPbstQPUVLAvzk
-   dC3So5hVoCCh560dDhquGAEHI8p9HLBpOwcv6Mu9dlNPERWHG9Vlavssd
-   GTD5pfXRllm5VZBuLuoBc9XYYhE/QCXY8scVbdPUU1I/AebWBcJe+N+Ja
-   A==;
-X-CSE-ConnectionGUID: A47IXzCeSbSEWMQKczmdVQ==
-X-CSE-MsgGUID: Gl900U07QOWOwAJQl7KDTQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="59613115"
-X-IronPort-AV: E=Sophos;i="6.14,224,1736841600"; 
-   d="scan'208";a="59613115"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 15:19:52 -0800
-X-CSE-ConnectionGUID: HlxSlCs0TSCIaan0QpIjmA==
-X-CSE-MsgGUID: jCEax0NNT1Cswvrw3DHVZw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,224,1736841600"; 
-   d="scan'208";a="149607166"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa002.jf.intel.com with ESMTP; 05 Mar 2025 15:19:48 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tpy1h-000MJ6-2W;
-	Wed, 05 Mar 2025 23:19:45 +0000
-Date: Thu, 6 Mar 2025 07:19:10 +0800
-From: kernel test robot <lkp@intel.com>
-To: Kevin Chen <kevin_chen@aspeedtech.com>, lee@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
-	andrew@codeconstruct.com.au, derek.kiernan@amd.com,
-	dragan.cvetic@amd.com, arnd@arndb.de, gregkh@linuxfoundation.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org
-Cc: Paul Gazzillo <paul@pgazz.com>,
-	Necip Fazil Yildiran <fazilyildiran@gmail.com>,
-	oe-kbuild-all@lists.linux.dev,
-	Kevin Chen <kevin_chen@aspeedtech.com>
-Subject: Re: [PATCH v2 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
-Message-ID: <202503060750.pkwFWR24-lkp@intel.com>
-References: <20250304104434.481429-4-kevin_chen@aspeedtech.com>
+	id 1tpzHs-00000009iMN-3nEN;
+	Thu, 06 Mar 2025 00:40:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id E3D96A463FB;
+	Thu,  6 Mar 2025 00:35:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A35A2C4CED1;
+	Thu,  6 Mar 2025 00:40:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741221631;
+	bh=spSyanY6lDrTp4+hUvjUAceIgKiQRFt9KTi6mE0l0WU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Tu6cTkdvPoLQBKt2y/ctCltQcUs578ttgYaqT+9P8WCOzeCN+KQAdPooLUq0p7ifC
+	 LXmV3wyHRMH73JIqXofxR1Bsr+PbvF6Sk91wUwRr15/yiH1J7d2ZjRXRr9stmi2Y41
+	 4YobdTP7NzBS0yyw99givCjWxqJ1++rAgI+lwSStzhUx67Hoxj/mZhsHwAfo2sXKs+
+	 pGW3nKBh6LX9/LRrJgYubthnI/vWP4Y+AKYCQkDgkeZE0acWx3++QM6y5eaP/BqdUE
+	 ey372jXyHj/pbw+bLkBINGuUvNpxx04Z61baOpcVSAdMFYMT0xN0lixFEhENq9NU8P
+	 /fkWuv57Bd+Hw==
+Date: Wed, 5 Mar 2025 16:40:29 -0800
+From: Lee Jones <lee@kernel.org>
+To: Mark Brown <broonie@kernel.org>
+Cc: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+	Macpaul Lin <macpaul.lin@mediatek.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, kernel@collabora.com,
+	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
+	Andrew Perepech <andrew.perepech@mediatek.com>
+Subject: Re: [PATCH v3 03/20] mfd: mt6397-core: Add mfd_cell for mt6359-accdet
+Message-ID: <20250306004029.GB8350@google.com>
+References: <20250304-mt6359-accdet-dts-v3-0-5b0eafc29f5b@collabora.com>
+ <20250304-mt6359-accdet-dts-v3-3-5b0eafc29f5b@collabora.com>
+ <a8fbb536-a246-4650-8085-d576652b0301@sirena.org.uk>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250304104434.481429-4-kevin_chen@aspeedtech.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <a8fbb536-a246-4650-8085-d576652b0301@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_151957_623799_12D6ED2E 
-X-CRM114-Status: GOOD (  10.41  )
+X-CRM114-CacheID: sfid-20250305_164033_005747_79ECAFC2 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,36 +86,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Kevin,
+On Tue, 04 Mar 2025, Mark Brown wrote:
 
-kernel test robot noticed the following build warnings:
+> On Tue, Mar 04, 2025 at 12:15:44PM -0300, Nícolas F. R. A. Prado wrote:
+> > From: Andrew Perepech <andrew.perepech@mediatek.com>
+> > 
+> > Add an mfd_cell for mt6359-accdet and describe its IRQ resources to
+> > allow the mt6359-accdet driver to probe.
+> 
+> Lee, is this OK to merge via ASoC?
 
-[auto build test WARNING on char-misc/char-misc-testing]
-[also build test WARNING on char-misc/char-misc-next char-misc/char-misc-linus lee-leds/for-leds-next lee-mfd/for-mfd-next robh/for-next lee-mfd/for-mfd-fixes linus/master v6.14-rc5 next-20250305]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Yeah, should be okay.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Kevin-Chen/ARM-dts-aspeed-g6-Add-AST2600-LPC-PCC-support/20250304-194530
-base:   char-misc/char-misc-testing
-patch link:    https://lore.kernel.org/r/20250304104434.481429-4-kevin_chen%40aspeedtech.com
-patch subject: [PATCH v2 3/3] soc: aspeed: lpc-pcc: Add PCC controller support
-config: s390-kismet-CONFIG_MFD_SYSCON-CONFIG_ASPEED_LPC_PCC-0-0 (https://download.01.org/0day-ci/archive/20250306/202503060750.pkwFWR24-lkp@intel.com/config)
-reproduce: (https://download.01.org/0day-ci/archive/20250306/202503060750.pkwFWR24-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503060750.pkwFWR24-lkp@intel.com/
-
-kismet warnings: (new ones prefixed by >>)
->> kismet: WARNING: unmet direct dependencies detected for MFD_SYSCON when selected by ASPEED_LPC_PCC
-   WARNING: unmet direct dependencies detected for MFD_SYSCON
-     Depends on [n]: HAS_IOMEM [=n]
-     Selected by [y]:
-     - ASPEED_LPC_PCC [=y]
+Acked-by: Lee Jones <lee@kernel.org>
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Lee Jones [李琼斯]
 
