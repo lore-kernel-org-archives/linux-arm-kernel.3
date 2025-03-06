@@ -4,35 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27B9BC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C17A5C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:55:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t8QBsY44aeHsnC8jmAJ8//UtQanr3bN3Vc/JtHR8dwQ=; b=AonrlaN4awUjQG5tzIu+rhJLU3
-	vmt1O3EpZWgN8zgc9ZAsxraH9KbAnV6cbU1Y9UY9+SQwB/NwqpsXM33dhPzWFHcKuzDOKfZrFW0DI
-	5aUPf4eZQwh5zt+NjNgqZQxHpzaiRGOsrX6BZ2TGpRXaMLbAVGC2zbEwMgveQtp9z2UN/DWZssv7Q
-	dKOiinagTqUsE0ZapXaE1D0OPPUrvb5ftmkPP8OU89vbsyAiAUxCcIrbzAvHKjsjW/U5eOFh3j2tt
-	TJFTyKpJizxdwuKb6WKJ0J6bOkoYdkj92xgVBlI3I8qCnKPOz1VL/fMUZkLLKDt4wqpcSMpRwBTuG
-	J4H3gDxg==;
+	bh=athFdHaahbzI9h0YxgSoN2Xc2NUeOCuA6bbdmfAAvAE=; b=bKBVVZt29guEF6GhQEtCrVw+ob
+	9KPS23a+KBVFb0ybj2f4AgLOqSNCTqm4X9hhu6kn+RaKGMklf0uDGJGFVBRZEmnBucD0LaICyjCbJ
+	qJGy9rUbEsTUK0CEsa0p6RUeT+1drJYQpGhGwXkN4k3P0PV4BGVZzGGu/Mdy4uAw4fPooRUmc0P60
+	rY/MAkKU7pqF+5VhtALlieOKxZd2qcZpKshIC/QOrdv8Gy7YKp5GVkrGIUa26bxcGM+ziwzuHpGoA
+	CrLzdjzE8hd/FZIGZFbgsTER59uZxj0YxxRkbzEAU/weeM1L6lOZniXy0en3V+trawdnk4jwbGjEY
+	bmVmHoJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqAjA-0000000AyPo-1wze;
-	Thu, 06 Mar 2025 12:53:28 +0000
+	id 1tqAkk-0000000AyXT-0Xwh;
+	Thu, 06 Mar 2025 12:55:06 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqA4p-0000000Asqc-3Dvv
+	for linux-arm-kernel@bombadil.infradead.org;
+	Thu, 06 Mar 2025 12:11:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=athFdHaahbzI9h0YxgSoN2Xc2NUeOCuA6bbdmfAAvAE=; b=a085PRYztMLj+/gIga1VXO+qtJ
+	n54xf8sHlHbXW47uaVs+G8MbeOwAker8HU8tbMDkZchL60aTtCi7928Hg9VmRRgzkq+hHcjl8l2mw
+	49sBFeDdEdG7vd4XTOrPnYwzWG4Wz3DYXnwC10xTVtY6/pDKr0XPSR5VH9xCuYTiMbltcdSVvc9L4
+	io4bk0PrezwLJhhvO6h2UMf8Nk4ZUi5lwsVnCJ5CRIMNSNG5zdb6AqAtLpCZiOY09hvn79QaKb+7j
+	R/DP+j1DVctvCaEfmXdyzjiqubkMw6/DjstvkH3QoBN3fXcHli1oqfwYX6eLzCyW+CYbV4lL4CIAZ
+	v0hshVXw==;
 Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqA4l-0000000AspZ-1v7e
+	by casper.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqA4h-000000095gn-2J5s
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 12:11:44 +0000
+	Thu, 06 Mar 2025 12:11:45 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3B4151BC0;
-	Thu,  6 Mar 2025 04:11:56 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0D5FC1007;
+	Thu,  6 Mar 2025 04:11:50 -0800 (PST)
 Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 816673F673;
-	Thu,  6 Mar 2025 04:11:41 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4D4E13F673;
+	Thu,  6 Mar 2025 04:11:24 -0800 (PST)
 From: Yeoreum Yun <yeoreum.yun@arm.com>
 To: suzuki.poulose@arm.com,
 	mike.leach@linaro.org,
@@ -46,17 +61,17 @@ Cc: coresight@lists.linaro.org,
 	linux-kernel@vger.kernel.org,
 	linux-rt-devel@lists.linux.dev,
 	Yeoreum Yun <yeoreum.yun@arm.com>
-Subject: [PATCH v6 9/9] coresight/ultrasoc: change smb_drv_data spinlock's type to raw_spinlock_t
-Date: Thu,  6 Mar 2025 12:11:10 +0000
-Message-Id: <20250306121110.1647948-10-yeoreum.yun@arm.com>
+Subject: [PATCH v6 6/9] coresight-funnel: change funnel_drvdata spinlock's type to raw_spinlock_t
+Date: Thu,  6 Mar 2025 12:11:07 +0000
+Message-Id: <20250306121110.1647948-7-yeoreum.yun@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250306121110.1647948-1-yeoreum.yun@arm.com>
 References: <20250306121110.1647948-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_041143_613018_D097E8FF 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250306_121140_110735_4FF5C395 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,96 +86,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In ultrasoc-smb drivers, smb_drv_data->spinlock can be held
+In coresight-funnel drivers, cti_drvdata->spinlock can be held
 during __schedule() by perf_event_task_sched_out()/in().
 
-Since smb__drv_data->spinlock type is spinlock_t and
+Since funnel_drvdata->spinlock type is spinlock_t and
 perf_event_task_sched_out()/in() is called after acquiring rq_lock,
 which is raw_spinlock_t (an unsleepable lock),
 this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
 
-To address this, change type smb_drv_data->spinlock in ultrasoc-smb drivers,
-which can be called by perf_event_task_sched_out()/in(),
-from spinlock_t to raw_spinlock_t.
+To address this, change type funnel_drvdata->spinlock in
+coresight-funnel drivers, which can be called by
+perf_event_task_sched_out()/in(), from spinlock_t to raw_spinlock_t.
 
-Reviewed-by: James Clark <james.clark@linaro.org>
 Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+Reviewed-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 ---
- drivers/hwtracing/coresight/ultrasoc-smb.c | 12 ++++++------
- drivers/hwtracing/coresight/ultrasoc-smb.h |  2 +-
- 2 files changed, 7 insertions(+), 7 deletions(-)
+ drivers/hwtracing/coresight/coresight-funnel.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
-index dc3c9504dd7c..26cfc939e5bd 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.c
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
-@@ -98,7 +98,7 @@ static int smb_open(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
+diff --git a/drivers/hwtracing/coresight/coresight-funnel.c b/drivers/hwtracing/coresight/coresight-funnel.c
+index 8faf51469bb8..0541712b2bcb 100644
+--- a/drivers/hwtracing/coresight/coresight-funnel.c
++++ b/drivers/hwtracing/coresight/coresight-funnel.c
+@@ -47,7 +47,7 @@ struct funnel_drvdata {
+ 	struct clk		*pclk;
+ 	struct coresight_device	*csdev;
+ 	unsigned long		priority;
+-	spinlock_t		spinlock;
++	raw_spinlock_t		spinlock;
+ };
  
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
+ static int dynamic_funnel_enable_hw(struct funnel_drvdata *drvdata, int port)
+@@ -85,7 +85,7 @@ static int funnel_enable(struct coresight_device *csdev,
+ 	unsigned long flags;
+ 	bool first_enable = false;
  
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -152,7 +152,7 @@ static int smb_release(struct inode *inode, struct file *file)
- 	struct smb_drv_data *drvdata = container_of(file->private_data,
- 					struct smb_drv_data, miscdev);
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (in->dest_refcnt == 0) {
+ 		if (drvdata->base)
+ 			rc = dynamic_funnel_enable_hw(drvdata, in->dest_port);
+@@ -94,7 +94,7 @@ static int funnel_enable(struct coresight_device *csdev,
+ 	}
+ 	if (!rc)
+ 		in->dest_refcnt++;
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 	drvdata->reading = false;
+ 	if (first_enable)
+ 		dev_dbg(&csdev->dev, "FUNNEL inport %d enabled\n",
+@@ -129,13 +129,13 @@ static void funnel_disable(struct coresight_device *csdev,
+ 	unsigned long flags;
+ 	bool last_disable = false;
  
- 	return 0;
-@@ -245,7 +245,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 	int ret = 0;
+-	spin_lock_irqsave(&drvdata->spinlock, flags);
++	raw_spin_lock_irqsave(&drvdata->spinlock, flags);
+ 	if (--in->dest_refcnt == 0) {
+ 		if (drvdata->base)
+ 			dynamic_funnel_disable_hw(drvdata, in->dest_port);
+ 		last_disable = true;
+ 	}
+-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
++	raw_spin_unlock_irqrestore(&drvdata->spinlock, flags);
  
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
+ 	if (last_disable)
+ 		dev_dbg(&csdev->dev, "FUNNEL inport %d disabled\n",
+@@ -266,7 +266,7 @@ static int funnel_probe(struct device *dev, struct resource *res)
+ 	}
+ 	dev->platform_data = pdata;
  
- 	/* Do nothing, the trace data is reading by other interface now */
- 	if (drvdata->reading)
-@@ -280,7 +280,7 @@ static int smb_disable(struct coresight_device *csdev)
- {
- 	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	if (drvdata->reading)
- 		return -EBUSY;
-@@ -378,7 +378,7 @@ static unsigned long smb_update_buffer(struct coresight_device *csdev,
- 	if (!buf)
- 		return 0;
- 
--	guard(spinlock)(&drvdata->spinlock);
-+	guard(raw_spinlock)(&drvdata->spinlock);
- 
- 	/* Don't do anything if another tracer is using this sink. */
- 	if (csdev->refcnt != 1)
-@@ -563,7 +563,7 @@ static int smb_probe(struct platform_device *pdev)
- 
- 	smb_reset_buffer(drvdata);
- 	platform_set_drvdata(pdev, drvdata);
 -	spin_lock_init(&drvdata->spinlock);
 +	raw_spin_lock_init(&drvdata->spinlock);
- 	drvdata->pid = -1;
- 
- 	ret = smb_register_sink(pdev, drvdata);
-diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.h b/drivers/hwtracing/coresight/ultrasoc-smb.h
-index a91d39cfccb8..c4c111275627 100644
---- a/drivers/hwtracing/coresight/ultrasoc-smb.h
-+++ b/drivers/hwtracing/coresight/ultrasoc-smb.h
-@@ -115,7 +115,7 @@ struct smb_drv_data {
- 	struct coresight_device	*csdev;
- 	struct smb_data_buffer sdb;
- 	struct miscdevice miscdev;
--	spinlock_t spinlock;
-+	raw_spinlock_t spinlock;
- 	bool reading;
- 	pid_t pid;
- };
+ 	desc.type = CORESIGHT_DEV_TYPE_LINK;
+ 	desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
+ 	desc.ops = &funnel_cs_ops;
 -- 
 LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
