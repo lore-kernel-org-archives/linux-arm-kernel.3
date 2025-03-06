@@ -4,190 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93254C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:17:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BE5C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:18:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GADnoYshuvKf8MjgcGBM075hZ+scoIrwJ3loAJXtSZE=; b=zphv7jb8PB3TwU/AI0b7nNEaSc
-	PGzBfXkn1tJwoI5zxqHjM4PBWBQMxusMeZnjsQTuQlOkONce38DM4/PfW+04+uxo757d/U8NPkYhD
-	8nOynxsMoatiUbEwVJfBo07zJAsiNCprWy+Z1FfYHGzcVQET/ODqrJ4+KlxukGcr+UxvglubnwZ9k
-	bBRvrQgtm59OCBXtSWDp5qvESrHM6BNvgyCboWxx2WFz23S37So0Sa0I2m7Eb7TrqkARQ9hRV8RZN
-	KenKnulThnxtum6wJQsL1kCfnhF7alDd6e1womZxXdseApwCIRfAzTjilcEN2oXfHu+i4Y2sdzJYt
-	V+Rd4nDA==;
+	bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=; b=JL2Ky2xYNmzCZqub6jWLwFURLi
+	mnvmIzIS8qhWZKpI1vQpFOxI5pi82MYgFNZcNWa8GXruG0IcUpPig7XN5m+QQ5D8pk1yGonlOWlzs
+	ClJhOhkYWkPi4J0egMDBb9rVxg6XAp67E3GFlZ5K5Lm7EpU0NnBCxgO9vx2oXcNxV26ptkRI1Sti9
+	+gyNQB0cXBCF6eiYLG2HQNjHMlLguAr2mkhpqbyx0WF2zzQnjZFr1VluNjeWDVEzIziLyM5H8xhK5
+	8YtDIoZ7qSbE0c6FUt1rVKldkWXZ/O2ZC+a2MZF86thK7qQ+VKQ0KwHDTYmg+OnUbCTE7qrwe6/XC
+	UKqCdLew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEqC-0000000BeqR-16UY;
-	Thu, 06 Mar 2025 17:17:00 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tqErm-0000000Bf7S-1C4S;
+	Thu, 06 Mar 2025 17:18:38 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEWR-0000000BafT-19hy;
-	Thu, 06 Mar 2025 16:56:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VyVClWE48uJEZ2tcGSeBHvgQx9XJcFbainAV5EkPDU2L/KRk3g2cAxD2/XTjMfooT7cLzUPB6+bip4P3zn9zuKes3TA+XuEdJUwxqxipSDkLv9w8pztLsKz7fRGdyGxq+10hCB9c+/n20nenomX2W47z4kJjNw6jrkTrx78jU6oTawXRhBpGsss0ONaSttp6drbInt+ZB653xn7eTv+7m2dT4CFVPLb3K+4sM1vPbGkEjMm0B+l2/66vu1f9Bhc2cB7ePuf6daJdzxgdP+dZBlmj8N5tlklc0ruq6K+EbqtX5iYo1FbqoaP8SY1s9H7c6ctwftU8sCjcen4dHQQjqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GADnoYshuvKf8MjgcGBM075hZ+scoIrwJ3loAJXtSZE=;
- b=EXpmINVKWTHx6IuS5/OhQUJkXKXQxyiqgMb9G37SzQaVLYA+tvIOBJgLVoBCJi0tZHxpeSoSsBZvmK0+nUu32TxhEAS6+8ApvozhPNxfmLlXNcp7HyJ4z0ZfJnAeMw4E8JnPRW0EPpqhrnh5GIi2as0s87WxsTD72e6sQrnPh0Jx7YSo+RC+hqQLbe7+lZ6SAwFskIvjkAtAyVlnLyINH6bgOdZzXU2ICEKqcN+KanS2Tafgb5QmZJL9vat8GXXcgBYXkjt3jokqMX8+OLwRb3788mEQ0LYpwRa+Q7Xptr8WNI8l92nH5vnt6OQuZLNKdYRO0ZeX7a1c5XGXq4w5wA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=wolfvision.net; dmarc=pass action=none
- header.from=wolfvision.net; dkim=pass header.d=wolfvision.net; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=wolfvision.net;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=GADnoYshuvKf8MjgcGBM075hZ+scoIrwJ3loAJXtSZE=;
- b=uLikhVFLYt9PMW8eoU+/MTkmcLcVfEK7Yb3pp6NTjPDc7POb3IVviyHUVVEvbPW9Cse8LG91cdjO5RM4tKO69GuSAIsaXi9HDKR6NtGD1eO8uz0i7KSjJYhEerXAlNTW9ytuS2oLaAbOj5vG0BlU91pqCayyViUhVwluGklD5ts=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=wolfvision.net;
-Received: from DU0PR08MB9155.eurprd08.prod.outlook.com (2603:10a6:10:416::5)
- by GV1PR08MB11001.eurprd08.prod.outlook.com (2603:10a6:150:1f2::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.16; Thu, 6 Mar
- 2025 16:56:26 +0000
-Received: from DU0PR08MB9155.eurprd08.prod.outlook.com
- ([fe80::4e72:c5d4:488e:f16d]) by DU0PR08MB9155.eurprd08.prod.outlook.com
- ([fe80::4e72:c5d4:488e:f16d%5]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 16:56:26 +0000
-From: Michael Riesch <michael.riesch@wolfvision.net>
-Date: Thu, 06 Mar 2025 17:56:12 +0100
-Subject: [PATCH v5 11/11] arm64: dts: rockchip: enable vicap dvp on
- wolfvision pf5 io expander
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250306-v6-8-topic-rk3568-vicap-v5-11-f02152534f3c@wolfvision.net>
-References: <20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net>
-In-Reply-To: <20250306-v6-8-topic-rk3568-vicap-v5-0-f02152534f3c@wolfvision.net>
-To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
- Maxime Chevallier <maxime.chevallier@bootlin.com>, 
- =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
- Gerald Loacker <gerald.loacker@wolfvision.net>, 
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
- Kever Yang <kever.yang@rock-chips.com>, 
- Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
- Sebastian Fricke <sebastian.fricke@collabora.com>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Paul Kocialkowski <paulk@sys-base.io>, 
- Alexander Shiyan <eagle.alexander923@gmail.com>, 
- Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>, 
- Philipp Zabel <p.zabel@pengutronix.de>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>
-Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, 
- Michael Riesch <michael.riesch@wolfvision.net>
-X-Mailer: b4 0.13.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1741280167; l=1481;
- i=michael.riesch@wolfvision.net; s=20240405; h=from:subject:message-id;
- bh=JMzBYOKMxZG1zypK2Xw9X9mgiNJ0ITgNFxK18RCULX4=;
- b=sJ2BqVzYxUd8+VVbsTi2B1SUc7WGN/9qqX2kTeEKO3U4U7DX5kfMFrxtGSHTcYZwRU+DJt2zv
- A6ff8xos26eAvhRxRsrA3+R3r4qVYpw2ea/tdUyPazTNtNAnQ5wWLwC
-X-Developer-Key: i=michael.riesch@wolfvision.net; a=ed25519;
- pk=cSJmgKSH3B6kdCIDCl+IYDW1Pw/Ybc6g9rmnUd/G7Ck=
-X-ClientProxiedBy: VI1PR04CA0133.eurprd04.prod.outlook.com
- (2603:10a6:803:f0::31) To DU0PR08MB9155.eurprd08.prod.outlook.com
- (2603:10a6:10:416::5)
+	id 1tqEXc-0000000Bazo-2WZa
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 16:57:49 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-22423adf751so7309545ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 08:57:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741280267; x=1741885067; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=;
+        b=rsGotNiiy6icgxuvoqOhwt23JEnhcdIdy7sczCPeRqH2gFd5x7pszByaMeqSqW97E5
+         KVAsukRg/GPfR1+4UzAyl+32rHojB+CxujV0wiPk6XAzATSqI2XM7vwQ4lx0bqyOB86L
+         V8UXi9lotpZd7ycfcI1I2NRkKF8GqNZRe1Jm6/AKahAOsBv2a9tJofxJY2vpnthVij7g
+         MeLbi/l1J57OfROOdUfOJJLxdIlq3Lkik75C+YvWiUFZd9H0D2BSVtgV/GtLFSZEDgDo
+         aRxvETX17n/k1ztuBjD9k+QipQ6cEu6xNpUFeYA4icI5m0qmTERskUdwcRKXsEeVeORj
+         MiBw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741280267; x=1741885067;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=;
+        b=Y2u8/ramtxbxiESZ2pS3CcWTTZYNCjR8IuJiQGM/zN+XZ4ghvUtQ/yNu5tD9+I+pT2
+         h/2OF50YvhrYAj12Wsm0vy9D2rsPSTMOQJ8muBnuAEEzCnFAdaitDm4DMYtaf4jqJMQI
+         Yuw1iPzzjZu7yVd3s6n5DDEhxwPd49b9zuiPDUOji97lpaqfVpPyfIdvoiE3bjr8kudS
+         SZJkhYo8Z5wlL+1qVY3kDqrOMAsX/dMhJTaE9og350G5M2RUd4dN3peP/9zrPhlAD/V1
+         tGxycmpaxBThIQ8ns0YCFtjxkx99qPzv65JLeeobtTOeQO1ZW8LnjDqxwOLCXri+pcgN
+         MKFw==
+X-Forwarded-Encrypted: i=1; AJvYcCUVaLWNf92v685bBDEYah7WBl/Z74fB1NYq48hnVf/Tjd2CZew47ulPX4eBH3LEhnj0g0jiBqAvWo+y8nTo3mLL@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeJtvwgn5sYHauNHlLrCyfG0XtNazZYHv0pQiKCCUaCPIIEI2k
+	KrKg6IYXY+ha+RzK0U9xRfplr0f5bMaS/vNAsnZrZ76XVDZJplaoLLgRpH1xZHa8QqSDVF4vROf
+	Bt+iIZZYzryQ3iMtyA6a8PchF4FaVKOrQnAkHaQ==
+X-Gm-Gg: ASbGncv5sRzu9rIfBvaDDcpkeZI6sSMgUyNf7ySEmFIpg6dsynEBdbIm1aeoR/87rcM
+	PQpi9OSXRvUW0fm2HODrzl8NtyI482J3ntW334PR9pHjCrSZWmnFfeRCTbXNktzlOvg6837mmfP
+	BaH9xqwUVPHtCKQLK0yT8xsFbg4qk=
+X-Google-Smtp-Source: AGHT+IFSILdL9gbquB4cJiTN2WJfhWPVNdAcHWiK58AOk52WrMFPjK/+cifJuWBrga9oy5DCzHOlrArOLOW8Kf0BBPo=
+X-Received: by 2002:aa7:81c9:0:b0:736:9e40:13b1 with SMTP id
+ d2e1a72fcca58-7369e401d84mr2472384b3a.23.1741280267339; Thu, 06 Mar 2025
+ 08:57:47 -0800 (PST)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU0PR08MB9155:EE_|GV1PR08MB11001:EE_
-X-MS-Office365-Filtering-Correlation-Id: 514fde20-913f-437f-02f6-08dd5ccfd567
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?MUtuOG9YZ3dLMHp4UlJzVTBiZ2hkdmxyVzlrQXdXSWNia1cyOTI0eGlWb2xo?=
- =?utf-8?B?Z3Z5YlI2K2RIY2pieHVsQ09obWhEaGk2eFRyZ20rWGd0MGlEOXI3YWFQVjZ6?=
- =?utf-8?B?QitDaDR5eXh6ZmZBSThkVnZMTzFmeDl4UEVFdmhmNXV1d1RNeWw3V1dwczQw?=
- =?utf-8?B?WFJUUDZCak9GVlVNejFaN2VZeDhxR1dvYUZPRWRyQk0ydTh0Q2JEdkJrMzRS?=
- =?utf-8?B?dlczQnkzMW5mRFFCenhxQnNHVG8vcWMvT3JMTHBkNG1LWE9ZYVdLZDZGUXpr?=
- =?utf-8?B?VDFRdjFjdnBhWElmZzFiVDJGa1hGbDFTdkdDYWVEWk9LeHRtRi9DSzVIcFRl?=
- =?utf-8?B?Mm9FV2F4RDBFRTVKQXVvQzg3S3hBd1h2Rk1DbEFRdlVHWTdwVWsrM1F0TlJO?=
- =?utf-8?B?clZTTXhPRDRobGtibUFEWTlvUWt1UktzZGJlaENONHFiazFtdmJWeTNlKzAz?=
- =?utf-8?B?R2w4cUtweWRzbEFLVENVQnBzcWxndFFobVcydU9RYTh5Qi94bGMyS3VzR0hh?=
- =?utf-8?B?TFdDcXMxWENoMXk3RlRMcm9LSGFrTmd5d2t6Y1ZIdUlZdFpvZjZFTmlKYzlO?=
- =?utf-8?B?bGZkRiszMEM3RXRzUWhja3N4S2Nha3VnQ3djTXpJb2k0eWYrT2lSR2pFUFVD?=
- =?utf-8?B?ZHZVcnhqamFtZ3Eva3pYNTIxQkN5blNVWkpYQ0t1bkU4RzJFRGdRTG5jQWdB?=
- =?utf-8?B?SHpJb040dkVUdWlxNzVlTW1DWTVrYmpSWmtmS2RnR1RGVzN4QVFGZitKMDZN?=
- =?utf-8?B?czFLa05ESlJpeUllcWxiM25GNUJyQlJTcmY5N2czZXJFcm4rM0tZNmV0Z0Zw?=
- =?utf-8?B?Z1FnVm5MTGpEZnJrYVkxOFpvYzNUaEl6ZWdHRUdyTDNLSnNzeWx5WllYMjdC?=
- =?utf-8?B?N2VURGMvZjVJekZlMFhma3JWSmIvVVJpU1BpbFdoOGJRSGoxeFdnd3hHd3A3?=
- =?utf-8?B?NzhxVlFxSTdtdVc0VktRK3F4NlRLcWUvYmRVdDlaWnI2UnQ1U0FHcWdZVHBp?=
- =?utf-8?B?Ym8vd0poeUdrdnlqNFVSZGRiZW5HS1NvNHFIK2tsajh5eWtlNDBkdHZiQnVn?=
- =?utf-8?B?TC9uTmxiaG9lUnF3eUV5a3llaG9Yc1BmNEV2M05oRFR4eEErblRkWi83cWhJ?=
- =?utf-8?B?QWM3eXdFaWFrRWRZOEllY2R6RERBOGRrbjJoUTFHVXIrTGRwMGVEN3VwWFJP?=
- =?utf-8?B?Z0xxQ2FwckhvS3RIdG5mampsRTFPTTYzdkdPTTQ4dkQvWlJNSHk1VXdXaW94?=
- =?utf-8?B?Q2NxaUFKcnRiREQ4VE1NUjZYdFZRUSszOHlJWThlWFNRRUoxUm5TbnArdWND?=
- =?utf-8?B?dVhOTE9IQVoxQi9JbHZzeHp6ZXp3WllBNzEyTDZBa1dnL3JNUnJsNHpnd1hP?=
- =?utf-8?B?akVvdEpub1R0TnJ5aWY1QW5ZNkJLT0EwK09UOTdPMmN1SmlIMm13azdBeEo3?=
- =?utf-8?B?SWJDZ3Z6Y3RhdStxTzZweTZwUTBoOGZMVnhoZlBMZFVKcmZZUzNjRC92czhW?=
- =?utf-8?B?ZXNsSGtHc0xPazZ2My9QSW0vdWZuVWhYZm1zVUt6aCt4NTRJUUhqZkpOOUVB?=
- =?utf-8?B?R2VkSHBtaFJJMThUSVpXWFArVHN2MFlCVTJlVVdwMVlqa2xGdnZZZUsyK0tN?=
- =?utf-8?B?eVZQNmJUeVFRSW5TcDFPL2pjTVNEVHUxaUo0VW1BZC8wb0tsTWFzRG5kaU1M?=
- =?utf-8?B?RXZjcTB2SVZJWFVpSVZGYkdkbFBodCtYdmdQR2dKWTc3R0kwWElzY3AyZ2tw?=
- =?utf-8?B?RG4yb0N0bVErNE9ENzR2Z0ZUUnpYNGRYc1JocmliR1QwRzl3OVF4eVFzRFRk?=
- =?utf-8?B?a0hRT2k3K1FVNWFxOFNhclg1cUJtekNGU01hQmFlQTNsTHZwSFBYc2ZFQmgw?=
- =?utf-8?B?WU1EbDRNSzBWMkMxeE5Cd2cvbit1RXJadHE0eDdXODd5UndieHB5Ykd1R2dv?=
- =?utf-8?B?QS8yN3YvcjNQN3d6blhJc0I3Q0tNL1hKYXNEdXViU3EvdjFrUFlIWjVnWDdD?=
- =?utf-8?B?dTN4MDhrWWFRPT0=?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU0PR08MB9155.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cS9HcFFON1FJNEFNVzVHcnRiM3RxaUllUDY2WDloZHZVYzdOQ0hpYStTeG9w?=
- =?utf-8?B?WXdLZ0NaeWhERXBlL2x0Wk5HWTMwemVqVmUwTlhncXVZcFVJU2JobjFKR1hL?=
- =?utf-8?B?OElRdHZqRVpCcUhEendFWXdmTEJMbEhUVmhGNTZWWUNaNVpaY2RKZmxYVXgy?=
- =?utf-8?B?c1Z1dUZ1WEFaWk9SRDRTeVJQSEtYbXBRM1pkeWQvWFhBaXNIcVp4NFo3YXk2?=
- =?utf-8?B?VHBCTFFxbS9VbW9nQkRmb20yZEswdnlVZjJXMEIrY1Jrc3IyYXBNNCs2eDZ2?=
- =?utf-8?B?QWwxNnV6Y3VhekxuZmxEOWZpZkp5M1htaHZxREVaYXFaT0RsUW1NcHFxMWhQ?=
- =?utf-8?B?UFJmazJSd1VINGZRc3o3V2hMV2JiUGcveThOVkEybzlwb1U4VW9Tb2NUNEVD?=
- =?utf-8?B?MUpsbFJZMG9tYVJIR2k0eHhsZlRCY2kxVS9SWjNxOFQya2hQaFVjV3RGVjky?=
- =?utf-8?B?dzZTWWRNQTFMdm16cXBwOFZxWFRrQjZjeGE5RTNjbXl5SFNzRUgrdlNlQklq?=
- =?utf-8?B?aWoyUitEOU5PbVpZUGlZYmcxNVpZbGl6NEZOLzVQUmpoNGJycWFPdG0rVlFE?=
- =?utf-8?B?aU5zMzkrdDZSeklIT1UwQVVySzgxb1ZDQ2dBVkZMeFVLVzdZNG05M3VZUXY3?=
- =?utf-8?B?TFF5V1J4RHVQbXQ4U3ZObWtqeWxNS3BvdlRvK1dHREdHSHF6aUNVVllSQVpp?=
- =?utf-8?B?NmwyZWNtVUlpY3Y5T2RlY1NURERPVDB1LzhjcUJYcWJTYmk0clJxYzlqN0xD?=
- =?utf-8?B?cEN3cmlkYnkweElvanFZeW03ZlVpK2Y4cjRFSFNhdm9nUVRLKzlTQ3Roa0N6?=
- =?utf-8?B?OVNyOE1meXZQSHJFQlZjYVJmeFFTbVo2QW5lY3NxVjgvTmwweGdhMEQyWnd5?=
- =?utf-8?B?ZVJnMzdqK3NaaDIxOXlTYUVNR3g1RGJqckVNNFh1RVpQWHFCM2NvRTFTTVJz?=
- =?utf-8?B?dXhHRWJnRk51aHFFY1YxRzJadTB6YlRhQjFQdXFIeml4eCtGcUhJMkZNWDNp?=
- =?utf-8?B?WlU0T2xVUzJITThvblJzaEVHKzRhdVF2bFM2cnZGaEJZeWRnVDdZSWNSR3dk?=
- =?utf-8?B?Vy90R1J6emZGZXlPdVNSSHdzQ3BMdHVXbmhxTkMrVmZQQ21yS0x4Z3lBNGp2?=
- =?utf-8?B?NEg0Z0xpU2RVWDQ4RkNpeVpwUXRtN3B0bG1SaFFyVWgzcmtjcGdRc21qZEln?=
- =?utf-8?B?c0N1S28zL21UdURyNS9HcWNnS2svc01ENlYrQW5DclF1S01MNnc5L1B0MUVl?=
- =?utf-8?B?eHpRbFpWalVRV3BGTExlQXkwSXp6WW1GdXpOSnhJN2w5OWZLQ0JrZ1dHb3Nx?=
- =?utf-8?B?TWJ2aFUrcWNOVUtNQnQ2MXdaSEtyUVJnRHZrWTA2VkZJbDJHK3pLQmNJRU5X?=
- =?utf-8?B?TWprNmJVcXFEOWN1R05zNFFiKzdHKzNZVVE2QVk5ckVyMkRaK2RHd3VacUVy?=
- =?utf-8?B?dFU1cEJSNFFVY3BvWW5BaEVvWFY4NFUyTGVMVkdPTkxWU0hGdXd1Nk4ycTg4?=
- =?utf-8?B?U0hza2pOSUlmUG5QQURmc3dPcU1XY1VNcmdDK3RCdlR0aHJkRDN0S0ZNMkVG?=
- =?utf-8?B?U1J4WEVrc0FMVlJQak1vbHF1ekFudUdxV2o5TXhLTkY2OFQ2ZFBhNUIvTXY1?=
- =?utf-8?B?blhPVWI4eng0WDRqYVVGN3JWL2JnazZPV08ybnJkc2xtdXRaQ1VKdDVJakhL?=
- =?utf-8?B?WFNGN2Z5RXdwU1kzbUJHdlpLYy9qSlRvNFFwRmwrNmN6Mjl0QnRscW1teDhL?=
- =?utf-8?B?SmdRaSt6cjVHZlhoS3lyZm0xU0gyTXZyNXppczFQT2ZreE1lT25nbjBCQzVH?=
- =?utf-8?B?THBqMlJaOVlHYWFrRHVNVmtmdXhMVllzSnY1VXVlZ2dFQWpUNWFCVDhzdUNz?=
- =?utf-8?B?S05uYjZxcWxVc2RWeUI3aUV6RWxDYitrNldtWHY3d1BNcE9QMmhzM1d2UFZp?=
- =?utf-8?B?UlcvSVRQU1hZVTE3emo4a1dMYTRONDREL1BWaVFONDhXTXU1TmlkY2N4VUNH?=
- =?utf-8?B?SitzSmFkQ0w3SDN5eWdlTHpRdTY4VUJiSzFKT1pONXQ1cEFJR1VpSXNZbEVE?=
- =?utf-8?B?cUwzc0sxUzhiL0NBQW5OS3NtUGVsOUdPVnVBR3A5ZWlqVW5LQm4yUlRwYldU?=
- =?utf-8?B?RVplUEFBWVJvYWtUazBTdW1ZeGNVRHZKYlhTYU5jb3FUc002TW9JcjZaQ3Ew?=
- =?utf-8?B?TEE9PQ==?=
-X-OriginatorOrg: wolfvision.net
-X-MS-Exchange-CrossTenant-Network-Message-Id: 514fde20-913f-437f-02f6-08dd5ccfd567
-X-MS-Exchange-CrossTenant-AuthSource: DU0PR08MB9155.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 16:56:26.6188
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: e94ec9da-9183-471e-83b3-51baa8eb804f
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: fF2aGxYHE9U6oWsFL9RH+PhfAv+LT9QQcKhD5FFsRloSB19HH7lSXQ4Js/mq1RBuNqhA77cK5C2c2m5FaOGy4P/N+oYke5TvrZQfkjhXkAo=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR08MB11001
+References: <20250227092640.2666894-1-quic_songchai@quicinc.com> <20250227092640.2666894-3-quic_songchai@quicinc.com>
+In-Reply-To: <20250227092640.2666894-3-quic_songchai@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 6 Mar 2025 16:57:35 +0000
+X-Gm-Features: AQ5f1JqTdlROGkZvhS3goiHemEI-Ou9K5R8l6YZoCNZ_BnPwM7nXi9j3dLITMbQ
+Message-ID: <CAJ9a7Vip6Dda1q7R_LoQjB4696Yi3iDv6512Vsy6aqdpiPTWgw@mail.gmail.com>
+Subject: Re: [PATCH v3 2/7] coresight: Add coresight TGU driver
+To: songchai <quic_songchai@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_085635_322143_1611E0CA 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250306_085748_652297_D211D1D0 
+X-CRM114-Status: GOOD (  37.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -202,53 +96,365 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Digital Video Port (DVP, the 16-bit variant) of the RK3568 VICAP
-is broken out to the PF5 mainboard expansion header.
-Enable it in the device tree overlay for the WolfVision PF5 IO
-Expander board.
+Hi,
 
-Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
----
- .../rockchip/rk3568-wolfvision-pf5-io-expander.dtso  | 20 ++++++++++++++++++++
- 1 file changed, 20 insertions(+)
+On Thu, 27 Feb 2025 at 09:27, songchai <quic_songchai@quicinc.com> wrote:
+>
+> From: Songwei Chai <quic_songchai@quicinc.com>
+>
+> Add driver to support Coresight device TGU (Trigger Generation Unit).
+> TGU is a Data Engine which can be utilized to sense a plurality of
+> signals and create a trigger into the CTI or generate interrupts to
+> processors. Add probe/enable/disable functions for tgu.
+>
+> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+> Signed-off-by: songchai <quic_songchai@quicinc.com>
+> ---
+>  .../testing/sysfs-bus-coresight-devices-tgu   |   9 +
+>  drivers/hwtracing/coresight/Kconfig           |  11 +
+>  drivers/hwtracing/coresight/Makefile          |   1 +
+>  drivers/hwtracing/coresight/coresight-tgu.c   | 218 ++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tgu.h   |  36 +++
+>  5 files changed, 275 insertions(+)
+>  create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+>  create mode 100644 drivers/hwtracing/coresight/coresight-tgu.c
+>  create mode 100644 drivers/hwtracing/coresight/coresight-tgu.h
+>
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+> new file mode 100644
+> index 000000000000..741bc9fd9df5
+> --- /dev/null
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+> @@ -0,0 +1,9 @@
+> +What:          /sys/bus/coresight/devices/<tgu-name>/enable_tgu
+> +Date:          February 2025
+> +KernelVersion  6.15
+> +Contact:       Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
+> +Description:
+> +               (RW) Set/Get the enable/disable status of TGU
+> +               Accepts only one of the 2 values -  0 or 1.
+> +               0 : disable TGU.
+> +               1 : enable TGU.
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index 06f0a7594169..3fe59c745dd4 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -247,4 +247,15 @@ config CORESIGHT_DUMMY
+>
+>           To compile this driver as a module, choose M here: the module will be
+>           called coresight-dummy.
+> +
+> +config CORESIGHT_TGU
+> +       tristate "CoreSight Trigger Generation Unit driver"
+> +       help
+> +         This driver provides support for Trigger Generation Unit that is
+> +         used to detect patterns or sequences on a given set of signals.
+> +         TGU is used to monitor a particular bus within a given region to
+> +         detect illegal transaction sequences or slave responses. It is also
+> +         used to monitor a data stream to detect protocol violations and to
+> +         provide a trigger point for centering data around a specific event
+> +         within the trace data buffer.
+>  endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 4ba478211b31..7c2b9e9cf1cd 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o       coresight-cti-platform.o \
+>                    coresight-cti-sysfs.o
+>  obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>  obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+> +obj-$(CONFIG_CORESIGHT_TGU) += coresight-tgu.o
+> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
+> new file mode 100644
+> index 000000000000..da4c04ac1097
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
+> @@ -0,0 +1,218 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#include <linux/amba/bus.h>
+> +#include <linux/coresight.h>
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/io.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +
+> +#include "coresight-priv.h"
+> +#include "coresight-tgu.h"
+> +
+> +DEFINE_CORESIGHT_DEVLIST(tgu_devs, "tgu");
+> +
+> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+> +{
+> +       CS_UNLOCK(drvdata->base);
+> +       /* Enable TGU to program the triggers */
+> +       tgu_writel(drvdata, 1, TGU_CONTROL);
+> +       CS_LOCK(drvdata->base);
+> +}
+> +
+> +static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
+> +                     void *data)
+> +{
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +       spin_lock(&drvdata->spinlock);
+> +
+> +       if (drvdata->enable) {
+> +               spin_unlock(&drvdata->spinlock);
+> +               return -EBUSY;
+> +       }
+> +       tgu_write_all_hw_regs(drvdata);
+> +       drvdata->enable = true;
+> +
+> +       spin_unlock(&drvdata->spinlock);
+> +       return 0;
+> +}
+> +
+> +static int tgu_disable(struct coresight_device *csdev, void *data)
+> +{
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> +
+> +       spin_lock(&drvdata->spinlock);
+> +
+> +       if (!drvdata->enable) {
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-index 048933de2943..411b06b534f8 100644
---- a/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-wolfvision-pf5-io-expander.dtso
-@@ -11,6 +11,7 @@
- #include <dt-bindings/clock/rk3568-cru.h>
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/media/video-interfaces.h>
- #include <dt-bindings/pinctrl/rockchip.h>
- 
- &{/} {
-@@ -134,3 +135,22 @@ &usb2phy0_host {
- 	phy-supply = <&usb_host_vbus>;
- 	status = "okay";
- };
-+
-+&vicap {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&cif_clk &cif_dvp_clk &cif_dvp_bus16>;
-+	rockchip,cif-clk-delaynum = <10>;
-+	status = "okay";
-+};
-+
-+&vicap_dvp {
-+	vicap_dvp_input: endpoint {
-+		bus-type = <MEDIA_BUS_TYPE_BT656>;
-+		bus-width = <16>;
-+		pclk-sample = <MEDIA_PCLK_SAMPLE_DUAL_EDGE>;
-+	};
-+};
-+
-+&vicap_mmu {
-+	status = "okay";
-+};
+Could simplify by changing logic here -
+if (enable) { do disable stuff }
+
+and have a single return point
+
+> +               spin_unlock(&drvdata->spinlock);
+> +               return 0;
+> +       }
+> +
+> +       CS_UNLOCK(drvdata->base);
+> +       tgu_writel(drvdata, 0, TGU_CONTROL);
+> +       CS_LOCK(drvdata->base);
+> +
+> +       drvdata->enable = false;
+> +       spin_unlock(&drvdata->spinlock);
+> +       return 0;
+> +}
+> +
+> +static ssize_t enable_tgu_show(struct device *dev,
+> +                              struct device_attribute *attr, char *buf)
+> +{
+> +       bool enabled;
+> +
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +
+> +       spin_lock(&drvdata->spinlock);
+> +       enabled = drvdata->enable;
+> +       spin_unlock(&drvdata->spinlock);
+> +
+> +       return sprintf(buf, "%d\n", enabled);
+
+sysfs_emit() should be used here.
+
+> +}
+> +
+> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
+> +static ssize_t enable_tgu_store(struct device *dev,
+> +                               struct device_attribute *attr, const char *buf,
+> +                               size_t size)
+> +{
+> +       int ret = 0;
+> +       unsigned long val;
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +
+> +       ret = kstrtoul(buf, 0, &val);
+> +       if (ret)
+> +               return ret;
+> +
+> +       if (val) {
+> +               ret = pm_runtime_resume_and_get(dev->parent);
+> +               if (ret)
+> +                       return ret;
+> +               ret = tgu_enable(drvdata->csdev, CS_MODE_SYSFS, NULL);
+> +               if (ret)
+> +                       pm_runtime_put(dev->parent);
+> +       } else {
+> +               ret = tgu_disable(drvdata->csdev, NULL);
+> +               if (!ret)
+
+
+redundant - tgu_disable always returns 0.
+
+> +                       pm_runtime_put(dev->parent);
+> +       }
+> +
+> +       if (ret)
+> +               return ret;
+> +       return size;
+> +}
+> +static DEVICE_ATTR_RW(enable_tgu);
+> +
+> +static const struct coresight_ops_helper tgu_helper_ops = {
+> +       .enable = tgu_enable,
+> +       .disable = tgu_disable,
+> +};
+> +
+> +static const struct coresight_ops tgu_ops = {
+> +       .helper_ops = &tgu_helper_ops,
+> +};
+> +
+> +static struct attribute *tgu_common_attrs[] = {
+> +       &dev_attr_enable_tgu.attr,
+> +       NULL,
+> +};
+> +
+> +static const struct attribute_group tgu_common_grp = {
+> +       .attrs = tgu_common_attrs,
+> +       NULL,
+> +};
+> +
+> +static const struct attribute_group *tgu_attr_groups[] = {
+> +       &tgu_common_grp,
+> +       NULL,
+> +};
+> +
+> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+> +{
+> +       int ret = 0;
+> +       struct device *dev = &adev->dev;
+> +       struct coresight_desc desc = { 0 };
+> +       struct coresight_platform_data *pdata;
+> +       struct tgu_drvdata *drvdata;
+> +
+> +       desc.name = coresight_alloc_device_name(&tgu_devs, dev);
+> +       if (!desc.name)
+> +               return -ENOMEM;
+> +
+> +       pdata = coresight_get_platform_data(dev);
+> +       if (IS_ERR(pdata))
+> +               return PTR_ERR(pdata);
+> +
+> +       adev->dev.platform_data = pdata;
+> +
+> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
+> +       if (!drvdata)
+> +               return -ENOMEM;
+> +
+> +       drvdata->dev = &adev->dev;
+> +       dev_set_drvdata(dev, drvdata);
+> +
+> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
+> +       if (!drvdata->base)
+> +               return -ENOMEM;
+> +
+> +       spin_lock_init(&drvdata->spinlock);
+> +
+> +       drvdata->enable = false;
+> +       desc.type = CORESIGHT_DEV_TYPE_HELPER;
+> +       desc.pdata = adev->dev.platform_data;
+> +       desc.dev = &adev->dev;
+> +       desc.ops = &tgu_ops;
+> +       desc.groups = tgu_attr_groups;
+> +
+> +       drvdata->csdev = coresight_register(&desc);
+> +       if (IS_ERR(drvdata->csdev)) {
+> +               ret = PTR_ERR(drvdata->csdev);
+> +               goto err;
+> +       }
+> +
+> +       pm_runtime_put(&adev->dev);
+> +       return 0;
+> +err:
+> +       pm_runtime_put(&adev->dev);
+> +       return ret;
+> +}
+> +
+> +static void tgu_remove(struct amba_device *adev)
+> +{
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(&adev->dev);
+> +
+> +       coresight_unregister(drvdata->csdev);
+> +}
+> +
+> +static const struct amba_id tgu_ids[] = {
+> +       {
+> +               .id = 0x000f0e00,
+> +               .mask = 0x000fffff,
+> +               .data = "TGU",
+> +       },
+> +       { 0, 0, NULL },
+> +};
+> +
+> +MODULE_DEVICE_TABLE(amba, tgu_ids);
+> +
+> +static struct amba_driver tgu_driver = {
+> +       .drv = {
+> +               .name = "coresight-tgu",
+> +               .suppress_bind_attrs = true,
+> +       },
+> +       .probe  = tgu_probe,
+> +       .remove = tgu_remove,
+> +       .id_table       = tgu_ids,
+> +};
+> +
+> +module_amba_driver(tgu_driver);
+> +
+> +MODULE_LICENSE("GPL");
+> +MODULE_DESCRIPTION("CoreSight TGU driver");
+> diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
+> new file mode 100644
+> index 000000000000..380686f94130
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-tgu.h
+> @@ -0,0 +1,36 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +/*
+> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+> + */
+> +
+> +#ifndef _CORESIGHT_TGU_H
+> +#define _CORESIGHT_TGU_H
+> +
+> +/* Register addresses */
+> +#define TGU_CONTROL 0x0000
+> +
+> +/* Register read/write */
+> +#define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
+> +#define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
+> +
+> +/**
+> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit) device
+> + * @base: Memory-mapped base address of the TGU device
+> + * @dev: Pointer to the associated device structure
+> + * @csdev: Pointer to the associated coresight device
+> + * @spinlock: Spinlock for handling concurrent access
+> + * @enable: Flag indicating whether the TGU device is enabled
+> + *
+> + * This structure defines the data associated with a TGU device, including its base
+> + * address, device pointers, clock, spinlock for synchronization, trigger data pointers,
+
+I don't see any trigger data pointers or limits here. Comment on what
+is there, if more is added later, expand the comment later.
+
+> + * maximum limits for various trigger-related parameters, and enable status.
+> + */
+> +struct tgu_drvdata {
+> +       void __iomem *base;
+> +       struct device *dev;
+> +       struct coresight_device *csdev;
+> +       spinlock_t spinlock;
+> +       bool enable;
+> +};
+> +
+> +#endif
+>
+
+Regards
+
+Mike
 
 -- 
-2.34.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
