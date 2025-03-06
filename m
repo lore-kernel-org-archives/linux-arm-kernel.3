@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84F61C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 11:35:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A81C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 11:38:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nKABIWtcV5iN1s5ZB+QKBynZqHqAumHFyPcKwtZx728=; b=XukI716Oq2CLN3FCzBoKmgr/a/
-	Hf/m1agtWTqChm46eCY/wmixLH+S+p+i5Ropn1k+DPzqSccKscdyFiTgyPVayt1UlXkVM5wXBrjlW
-	ewMTRNSx9SR/9GaD2Lswvho2avhTJxPk9MaCRaoz5c4nDmQJVqCGlBfFR7vvYBBp7i7ew8uKqroJa
-	eZPAQW3X+sEljh0XmigJdAiQJtFrAMCBWrt/EPDqgLWmLYhwgkQyJmVeGjBublwhDm/EfEFFiJmzN
-	Jc5pS24IHncurQh9WhbHvLPE3jDj6p7ZnIWm9z/KeRoa/zQHUNGZV8xCJUoXO02Ajk6fuWfbI9j7V
-	wTJi+84A==;
+	bh=DFWairiFktoGc2odXSwmyM/8KlG/z88XFaQU/RvUTy0=; b=e9MD/fksp49dNRu3Lm95RsSbpd
+	2Qbdu9EKyBLV5Gy+O6UpfGNbIhjVOWKPFnuY7p/JufgQlVXKV72KViVeHohJLnUEXqZBhPwn21d/S
+	63XcfMnxCF3Ryk/wijXGivMn+SgLL6DfGfp5vIgAx+d0u43ir3i90xWC/hTdG0k4OMxhd71E0Z2Fc
+	i7MwVkARvYMRfvJso9d7X/bIUjBApvVcOi0//N7r9F0R0WHxFGQtUdihRJwOWohI3nVenKGh3ITVJ
+	FC6DRYXcPp/pkNEOkRnCmNr5GZGhhqb4Xy1C3XA47E8oYAshw+zPNuZo29SG4/TGinecWWGl5VS0P
+	Lt8e1lFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9VG-0000000Anhu-0Ddb;
-	Thu, 06 Mar 2025 11:35:02 +0000
+	id 1tq9YP-0000000AoI3-0CP1;
+	Thu, 06 Mar 2025 11:38:17 +0000
 Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9Ct-0000000Akct-3Inq
+	id 1tq9Cw-0000000Akdi-0czI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:16:04 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ac2400d1c01so48328166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:16:03 -0800 (PST)
+	Thu, 06 Mar 2025 11:16:07 +0000
+Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso80551666b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:16:06 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741259762; x=1741864562; darn=lists.infradead.org;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1741259765; x=1741864565; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=nKABIWtcV5iN1s5ZB+QKBynZqHqAumHFyPcKwtZx728=;
-        b=U3hCzYhgKIYbKNHMsSV3OrLRqGNLMajCMnHq9Kr7TB1rS6uA2ivQZInXDBm8Q90F5R
-         aeILF7ChmraCltzZp4HCbuSl99cCILlOIWCAhkCb5F+AS1nEFcb4fcok3aou+iKfAgFu
-         MRnM7Lx3noyAAyQFd0ShS3O26ux37W1Ozj2w31WD8NPpe/WLbipOa0UzuyItp4rblops
-         /Vu0gDaqDwjemuZ27Ziykx4QF7AhAF9EDOjUjy7GgJfnv5kgZqOckH1aV3F4Lci85g+D
-         V3xLA+jNvrgHXe8qIZfDJqYcRUi/N/JKcP3smTj7PmxmsfNNRURvzv94LV4/C7L1uoWF
-         8ZIQ==
+        bh=DFWairiFktoGc2odXSwmyM/8KlG/z88XFaQU/RvUTy0=;
+        b=xGExgAdr+ZQ4i60izuDa3IJ+pOnzFNQMbQinY2HmLgPoz4ZxyqUoguj3t5p2JDputI
+         Zb5ntAVS4MlSUSR8JDyFyP7Lw3NeygnXy9Nt4VDM7Llk7BYKWxjXypY5K38sOme7pXdY
+         AiLxAKlb+MQ4yTSPMJPhlbraTrR3UA3cXtP1655fqBRffXQL/fk8PbFiojatKm/c6DPd
+         9CGFH45BBeDyiL5IYRddOScMPfpfnWCR5QRE88P7UNrovvXxdq++tUlKaV8yjpMtDXux
+         5j2T7T1ZSiOmkh9AgIc9JH4p7hdJyJfsXBenqV+3gwoSfzOxMkYVvuc7H5a5uF0sgBay
+         nKUQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741259762; x=1741864562;
+        d=1e100.net; s=20230601; t=1741259765; x=1741864565;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=nKABIWtcV5iN1s5ZB+QKBynZqHqAumHFyPcKwtZx728=;
-        b=VGKsZTCQt4EwHMobM4bwOd5qppXmfxoMZRsaZOP1S/HA2beDFrnilvoQF8kMNDW9J0
-         SFXJ0g9gKwVdriyGtEWnQdoDB1eaV6LQDMI1cn6OAfxzv29o0173xI0glHfMFbRZuB+q
-         6KdfgCBD3xR/pv3oSYqdsH7lRWad88s/QinFN19H4QZxyuOYYCpDgLOWuHkSgpOYRQQd
-         pYUWzBa8LITuzQyreBMzDQwHO3uF3gynDnk4ojmSx4+vSTIsLSNi+IM1kAjo/3eljHRB
-         +43eT486J+1aSxLEa7XSpzIyYd+a3p9u/c+A6IIVvfwWywAr8DXVMoFLYKdxgGyAuZxs
-         Lq6g==
-X-Gm-Message-State: AOJu0Yz6eQoxPYiCe6OVOwpFGYiL3QqWBFljCEkZM/qiGtqk++KvxWMs
-	SZdN9sAyhJbWq/88F54Kgc/D0imDSUrTUKxFlm0LN3VESOpJcDR7xtcJyZhD5wHwe29zjhNUxK+
-	l
-X-Gm-Gg: ASbGnctnY35Pxtd1cuLh20+5XstByAV8HAEtSuLDnmXi0g2d1InT495R+/bU+Cu+Xo5
-	szJZGO3LZ7h2hCSEr0T1fH+6X1vk2BCx6e/x3RNoLC57yc4jg8usRlZXjyGw8lhy4oLrooVJfRR
-	T7tdXP6861b57QBuHNhYF/ndbFLF0YggEreVxhVC9k6rhpR+SIQ0kQcJXpMbOTw2CauSrAdHINw
-	MNQ0Ze8XrC+wwsOY1F1IJxo1M/nwV0KjuAdTs1zuwhxJ/D6VCcCnGomWvSGroMQNAO0mrnyTx44
-	Kz22HyiBvxiNb3XvgjiXXnQDlvPcunos6ft3dmtbZQ==
-X-Google-Smtp-Source: AGHT+IFzQjVI6La/fumbYhe/tIf2DHPmT0/Tg7rUjpYZXnegofxlVrDrXprOyMSVtKs+Ncydte7CDQ==
-X-Received: by 2002:a17:906:c142:b0:abf:7a26:c473 with SMTP id a640c23a62f3a-ac22cba0296mr292630166b.13.1741259762247;
-        Thu, 06 Mar 2025 03:16:02 -0800 (PST)
+        bh=DFWairiFktoGc2odXSwmyM/8KlG/z88XFaQU/RvUTy0=;
+        b=r4Un/MLBIIQWUAY0iwCLF8JcDRZLjtEMdVJQVcq0ZXGDIWFtQI3/tBsbYnT/ZM++fw
+         lpWE7GJKoWfnHN7NRa+9ssykgBxWKDPaUfTRvIudEu0dLcFYUcGQFClPF+49bRoaw0k2
+         cqr/GzBtROHLw1psOtz8rrSVfOvJJCBZeuoXTL+dlyh+qDi5F8EsFsEUN9cqdvkpsd4k
+         Xx+KTMxCedvzS9IF01viTmedjiw7mPBG0kH5yP0nWX0wqxGE5k4PqMHa8UE6G2f9J6yS
+         0MngNP/CMzqFhWl2E1+xxBbCOqrsfF+37CQj6t18MUQWpz3QySEfzvTfbQ0Dk+Ew78iE
+         h/HQ==
+X-Gm-Message-State: AOJu0YwyVOa/kQJIl7QUHaOb3Qd4yTZcIRFJfseQpvedQiD9AMnlwiq6
+	S8wpkCTOob2r6iKXkAJDiJVvBhbZXpp2L24PNE+M3tIWXsazrkC19KWM2Frn/AvV97Iec5cDYQS
+	M
+X-Gm-Gg: ASbGncvB8bwmk3YGKZvCrVEkjvlCK+OPkeDcd2zbR6i7Y925EzVu/I7BOm3/GKOMVNI
+	/i6eeYMTnojfnaxJd/fDbwgCDD97nyjaXT4qz1LYFwzrzILOVNQ6Xy7HnNcBHcjvnHaKOW7i2Gv
+	swcWYrxoK/wHUefurEj0Qb/eK+SdW55PVWemf3boDqRE3OEAI8531V89a4840lMm6q/cuTMn2rq
+	vxNR+9VnL6ZoZYP23GwwSM8e613mgXq7q8TnMIY+wBLdwVSgyoDfJK+2cLD2OK7OEnRJb98nZ6S
+	mNGbR3Z4/KPYRYoBy5dU2FwuBhFv5YuNjQ7NG9yA0Q==
+X-Google-Smtp-Source: AGHT+IEOjp1rPMG7K9BeDF47/kaJ0MaWl8YKzHhaw5DH+VYb1REqVhPOfAx7ij8510KBR1jG4vUuww==
+X-Received: by 2002:a17:907:7214:b0:abf:75d7:72a2 with SMTP id a640c23a62f3a-ac20dd077ecmr706422966b.38.1741259764790;
+        Thu, 06 Mar 2025 03:16:04 -0800 (PST)
 Received: from localhost ([2001:4091:a245:8327:80ad:8144:3b07:4679])
-        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac239482096sm80348766b.54.2025.03.06.03.16.01
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac2399d3dc4sm79424866b.170.2025.03.06.03.16.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 03:16:01 -0800 (PST)
+        Thu, 06 Mar 2025 03:16:04 -0800 (PST)
 From: Markus Schneider-Pargmann <msp@baylibre.com>
-Date: Thu, 06 Mar 2025 12:14:43 +0100
-Subject: [PATCH v5 05/13] can: m_can: Return ERR_PTR on error in allocation
+Date: Thu, 06 Mar 2025 12:14:45 +0100
+Subject: [PATCH v5 07/13] arm64: dts: ti: k3-pinctrl: Add WKUP_EN flag
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250306-topic-am62-partialio-v6-12-b4-v5-5-f9323d3744a2@baylibre.com>
+Message-Id: <20250306-topic-am62-partialio-v6-12-b4-v5-7-f9323d3744a2@baylibre.com>
 References: <20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com>
 In-Reply-To: <20250306-topic-am62-partialio-v6-12-b4-v5-0-f9323d3744a2@baylibre.com>
 To: Nishanth Menon <nm@ti.com>, Tero Kristo <kristo@kernel.org>, 
@@ -91,17 +91,18 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
  Akashdeep Kaur <a-kaur@ti.com>, Kendall Willis <k-willis@ti.com>, 
  linux-can@vger.kernel.org, Markus Schneider-Pargmann <msp@baylibre.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3520; i=msp@baylibre.com;
- h=from:subject:message-id; bh=fPymUYl9ngaWf3SHgyvMGysC90ZPypUMCZh825GprU8=;
- b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJPNh94ufOPjv+RD2e8Djx/5537bMpvzlkf2iSfHpr5+
- anYpxtWcR2lLAxiHAyyYoosdz8sfFcnd31BxLpHjjBzWJlAhjBwcQrARParMzJ8iI+2fDgjeiN3
- 1El57vOn5t7QYzO+uUujujv+rcOUcG1tRoYpU+48DnrfuCtm4V2B4sxvocHHjyxNYks+1xJ18c6
- tX94cAA==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1123; i=msp@baylibre.com;
+ h=from:subject:message-id; bh=SuWEbpCuQ4MLb4zR/ahkYmnYDXwRgcVXgN8O0qdv1Nw=;
+ b=owGbwMvMwCGm0rPl0RXRdfaMp9WSGNJPNp/cNK079dTCQKN/34//lTh9rrrqtIWVgvHXFwujV
+ uzw0VpU1lHKwiDGwSArpshy98PCd3Vy1xdErHvkCDOHlQlkCAMXpwBMZIMLI8Pum0vEYg8bZnfm
+ f3a99ow1a2XyuuTegykXUo2LIjbvE1nB8Ju9NeKsx+4FdZqK7FMcd++wSLVsq/GY96LrY+aVd3u
+ L7XkB
 X-Developer-Key: i=msp@baylibre.com; a=openpgp;
  fpr=BADD88DB889FDC3E8A3D5FE612FA6A01E0A45B41
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_031603_884065_99405CCE 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20250306_031606_197788_5843B5C6 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,94 +117,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We have more detailed error values available, return them in the core
-driver and the calling drivers to return proper errors to callers.
+WKUP_EN is a flag to enable pin wakeup. Any activity will wakeup the SoC
+in that case.
 
-Reviewed-by: Vincent Mailhol <mailhol.vincent@wanadoo.fr>
 Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
 ---
- drivers/net/can/m_can/m_can.c          | 6 +++---
- drivers/net/can/m_can/m_can_pci.c      | 4 ++--
- drivers/net/can/m_can/m_can_platform.c | 4 ++--
- drivers/net/can/m_can/tcan4x5x-core.c  | 4 ++--
- 4 files changed, 9 insertions(+), 9 deletions(-)
+ arch/arm64/boot/dts/ti/k3-pinctrl.h | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
-index 20f7533ad9e7735013ff000e6f3b11d016f8a09f..20fbef50db20ab5cea5afe4c44fda8b03e5c8c85 100644
---- a/drivers/net/can/m_can/m_can.c
-+++ b/drivers/net/can/m_can/m_can.c
-@@ -2392,7 +2392,7 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 					     sizeof(mram_config_vals) / 4);
- 	if (ret) {
- 		dev_err(dev, "Could not get Message RAM configuration.");
--		goto out;
-+		return ERR_PTR(ret);
- 	}
+diff --git a/arch/arm64/boot/dts/ti/k3-pinctrl.h b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+index cac7cccc111212eba520454396c8cc5c9fcba9b1..79a9f54fa0095c4e3864872bc06ef3d033215b2b 100644
+--- a/arch/arm64/boot/dts/ti/k3-pinctrl.h
++++ b/arch/arm64/boot/dts/ti/k3-pinctrl.h
+@@ -18,6 +18,7 @@
+ #define DS_OUT_VAL_SHIFT	(26)
+ #define DS_PULLUD_EN_SHIFT	(27)
+ #define DS_PULLTYPE_SEL_SHIFT	(28)
++#define WKUP_EN_SHIFT		(29)
  
- 	if (dev->of_node && of_property_read_bool(dev->of_node, "wakeup-source"))
-@@ -2407,7 +2407,7 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 	net_dev = alloc_candev(sizeof_priv, tx_fifo_size);
- 	if (!net_dev) {
- 		dev_err(dev, "Failed to allocate CAN device");
--		goto out;
-+		return ERR_PTR(-ENOMEM);
- 	}
+ #define PULL_DISABLE		(1 << PULLUDEN_SHIFT)
+ #define PULL_ENABLE		(0 << PULLUDEN_SHIFT)
+@@ -56,6 +57,7 @@
+ #define PIN_DS_PULLUD_DISABLE		(1 << DS_PULLUD_EN_SHIFT)
+ #define PIN_DS_PULL_DOWN		(0 << DS_PULLTYPE_SEL_SHIFT)
+ #define PIN_DS_PULL_UP			(1 << DS_PULLTYPE_SEL_SHIFT)
++#define WKUP_EN				(1 << WKUP_EN_SHIFT)
  
- 	class_dev = netdev_priv(net_dev);
-@@ -2416,7 +2416,7 @@ struct m_can_classdev *m_can_class_allocate_dev(struct device *dev,
- 	SET_NETDEV_DEV(net_dev, dev);
- 
- 	m_can_of_parse_mram(class_dev, mram_config_vals);
--out:
-+
- 	return class_dev;
- }
- EXPORT_SYMBOL_GPL(m_can_class_allocate_dev);
-diff --git a/drivers/net/can/m_can/m_can_pci.c b/drivers/net/can/m_can/m_can_pci.c
-index 9ad7419f88f83016e93667f4847fe536eca39ad1..eb31ed1f964491ab41c7811be317706a09951390 100644
---- a/drivers/net/can/m_can/m_can_pci.c
-+++ b/drivers/net/can/m_can/m_can_pci.c
-@@ -111,8 +111,8 @@ static int m_can_pci_probe(struct pci_dev *pci, const struct pci_device_id *id)
- 
- 	mcan_class = m_can_class_allocate_dev(&pci->dev,
- 					      sizeof(struct m_can_pci_priv));
--	if (!mcan_class)
--		return -ENOMEM;
-+	if (IS_ERR(mcan_class))
-+		return PTR_ERR(mcan_class);
- 
- 	priv = cdev_to_priv(mcan_class);
- 
-diff --git a/drivers/net/can/m_can/m_can_platform.c b/drivers/net/can/m_can/m_can_platform.c
-index b832566efda042929486578fad1879c7ad4a0cff..40bd10f71f0e2fab847c40c5bd5f7d85d3d46712 100644
---- a/drivers/net/can/m_can/m_can_platform.c
-+++ b/drivers/net/can/m_can/m_can_platform.c
-@@ -87,8 +87,8 @@ static int m_can_plat_probe(struct platform_device *pdev)
- 
- 	mcan_class = m_can_class_allocate_dev(&pdev->dev,
- 					      sizeof(struct m_can_plat_priv));
--	if (!mcan_class)
--		return -ENOMEM;
-+	if (IS_ERR(mcan_class))
-+		return PTR_ERR(mcan_class);
- 
- 	priv = cdev_to_priv(mcan_class);
- 
-diff --git a/drivers/net/can/m_can/tcan4x5x-core.c b/drivers/net/can/m_can/tcan4x5x-core.c
-index e5c162f8c589b2c75c51cd8a994fc93ab507b9dc..5523ad8c9175cacd330a330b0f45d2c6515d11fa 100644
---- a/drivers/net/can/m_can/tcan4x5x-core.c
-+++ b/drivers/net/can/m_can/tcan4x5x-core.c
-@@ -401,8 +401,8 @@ static int tcan4x5x_can_probe(struct spi_device *spi)
- 
- 	mcan_class = m_can_class_allocate_dev(&spi->dev,
- 					      sizeof(struct tcan4x5x_priv));
--	if (!mcan_class)
--		return -ENOMEM;
-+	if (IS_ERR(mcan_class))
-+		return PTR_ERR(mcan_class);
- 
- 	ret = m_can_check_mram_cfg(mcan_class, TCAN4X5X_MRAM_SIZE);
- 	if (ret)
+ /* Default mux configuration for gpio-ranges to use with pinctrl */
+ #define PIN_GPIO_RANGE_IOPAD	(PIN_INPUT | 7)
 
 -- 
 2.47.2
