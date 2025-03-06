@@ -4,107 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C7EFC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:16:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B011C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 15:18:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t63bq+d/LpsIykq1hi1k/LtwI40WtvQ23p3N/1mWz+k=; b=viZQPHOJR9xUgudbrgEhrAZy/X
-	ut3j7hcziw9yERmQ3WmN15sO0X+m0gG931gCPJ5tq/hd0Oh7aMAZ9+CIrrPUWIvTX7LZhrzxw7s9g
-	eAHTokpk0mWFgp7jfYTVzHiDNBi+NrGoqYexuipnj2WnTEmLztMy478UXdZvaIlU4ptwxjorYWTLs
-	xrsWD5jEXrYpTjxaqds8Aoki6sk3IupbqT0WkHO3r3lXydbUecBboHplpheKfn3KCcuJkHFutd7O2
-	IiRcSWLVc3IECpQiY3gf06+zosgGkDHRSA15NCwMZAHU+ftefTBZrcG9oBeGNAwlI8XGW1s/79N4y
-	azFeI80Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v3aEbi3vbvtvRY+uN9WWZd+0zMgBkgvraJ9LrR9SE5c=; b=cNqG9cH9//Yc6+qQHCfPTlPwFe
+	r78bCsM4LCo2M2gEpgG/enqgMniWGJyW4+WhbwBp2uD1hNxjTpsVRYi/NjNBLMt5cJDAskPbz2wLW
+	NryCXwAtURKDSd29n21xe7V5h5V+QD/OGy0MMU4AkxY1yFY7Yl1CmvjxDeWY1rlVRqt19Vxtqnzmh
+	VOOSQYECU2SuVjytR89spv9GbXpfn2JnkZ8Bc1zAY/nJSr/703wONNe+21AhdhHGdZPMCKJjBTgbl
+	rzPhI7WPzuij/XhYfn+WiGHe5Hnxp0auc96pD1DKTNQX2rHUlHIyW1nfZPl/6H5IBwsvD7YZMfUDN
+	VnWo7igg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCwy-0000000BI2J-39Bi;
-	Thu, 06 Mar 2025 15:15:52 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tqCyz-0000000BIDW-33Sq;
+	Thu, 06 Mar 2025 15:17:57 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCtt-0000000BHlU-3XED
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 15:12:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=t63bq+d/LpsIykq1hi1k/LtwI40WtvQ23p3N/1mWz+k=; b=GVJ/h0Pq3trQO5lgpvtQuaPr7r
-	loNqRRfzjFQBsEr6oMKAEb5q8rgyveodGboq4LTm30hNZQUkIB5SREdtOZVaG4K7y1bfGbmpdrOgJ
-	5yD4nwWk5SVmQimwJ7CNLpJMsw01GZ3NQA7jTDKNjG0SBUDQYriGNUGfik/aL9vsvypKG2LLGylHY
-	QXjDo3cbxamuyLs/rQu4O4+RsOSzj0Nyun1hGT+jQwF9nVllI893KlYOiG9UVI+bdSfbM5U+YlNYe
-	oiWE5BsIg4dkwo0puwjvpbrc5N107JcSIOM7bRoR3KtHEd3/kRIJhFfYB+cTBr3vU1EeWz/PRcbzb
-	D2DhLbJQ==;
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqCtp-0000000ANOQ-0T8U
+	id 1tqCxO-0000000BI5v-1VsN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 15:12:40 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-abec8b750ebso132772766b.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 07:12:35 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741273954; x=1741878754; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=t63bq+d/LpsIykq1hi1k/LtwI40WtvQ23p3N/1mWz+k=;
-        b=qv1VRsvL0oB1vqeBFrqwLcTmqHW082eyd/BfDhTL7KNGVOamvDgOUfikDeo8fnpFQH
-         6DwPHj+J/Yed3r8PmxNL0oAEwhxuhmaPZL5tnJu4npyXNcqrXf9kTvZ19w2T43cjvhla
-         3fBedTH3yxCpVgL0avSqlWYs51ef6MIc660uitWTwz3VVPF2jtJAAq7Oto0Z8FZctLq1
-         yxpdm318yIVASbV1Gy5grU4IVlELQwZXdhyKFM+dxWXqhKurydLt9am8uHl/FatX7e/S
-         ZOrQ0whMZYzT3BEmOwcec8v7mrBtIa921F/XDJI2VFl78xEc03F8c2V2Pr6LLWIDxUDt
-         i+Kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741273954; x=1741878754;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=t63bq+d/LpsIykq1hi1k/LtwI40WtvQ23p3N/1mWz+k=;
-        b=je9p1gfmQkhNxplbmEoIyfptf2TmSq8n3AC0Ok6yE5oBb5hcN3yGTjuZNIH4oxqj5l
-         vmy8HtghIKAXtVllmgH+0QW+AwSxgSu9Je9dG3/TzPiq2onilQMdUvd8ogwqcBIT8iQ3
-         JeRmCOE/iyp0Kz1e6oh371uJM15WO4bnzPw/SFeV7fS0XLYYpMPa1LVa+0+K/hxWaif2
-         pxWh1Cfv+zz1/H8uLo1IR33aP5aA19jbCUQRzlmv6CnyFr6MyUdyUQPttsOqEygdXfd6
-         iOGTVdHalELH5yRa33/hJTl8Gz4dVUfEOwKek6NsSaa3npSGcNfIY0vHYTfsugu1p61A
-         CHkQ==
-X-Gm-Message-State: AOJu0Yy23dDsmqNkvBS6TyaoxenEfjwfEz/cUihT7meMdPBp81vFotSq
-	s181ZCz7ToNXuWMlbvZ/EWYynLy8veJYwIgID6gOh8o8u1oKudYfZOxqQn/n4gU=
-X-Gm-Gg: ASbGncuBqquGVUplCqW9PBkRQixh1gOrHxNg/mghxTW8Drh7jxh5e6zmLAx+XK6LHGS
-	rjNVNTj7Z/CJ9RcSdQi5Uqu+KsA5Ea7f+VQqh1Om+mq2k44I2215DIPAeUg0ohnLxLjPheSubnA
-	1Ums+49PV9feW/ss6PJqfsOmpXZTyUmAq6VpLxuQZKuwkjzBK41Fs/zLv4iFu+PhmWFIiZqMZ1s
-	XB34YNtGm4oAZq5wGPK0VwFRbser/0ZsGY4RY40FgitKc7qs7PAGF9uN1jKPf4f1f+D8p44ZAzq
-	VpxMyQ4yqt6pzBILl/OMKMG7tTzgUwG/dpaONdL3/kmTmiQK
-X-Google-Smtp-Source: AGHT+IH7SBrGMUK6lepD8VBY8jodF8Fc1H+Cg8ymOlKEi3QzrC0KSEIuP1OA3o6i6LlXHdXrzopcZA==
-X-Received: by 2002:a17:907:7f89:b0:ac1:db49:99b7 with SMTP id a640c23a62f3a-ac20e42964amr851164166b.51.1741273954310;
-        Thu, 06 Mar 2025 07:12:34 -0800 (PST)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac239488be1sm110733966b.74.2025.03.06.07.12.33
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 07:12:33 -0800 (PST)
-Message-ID: <5fe34e1193a167c24c7af900f5b7cf85140d66e0.camel@linaro.org>
-Subject: Re: [PATCH v2 3/4] pinctrl: samsung: add gs101 specific eint
- suspend/resume callbacks
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, Krzysztof Kozlowski	
- <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar
-	 <alim.akhtar@samsung.com>, Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- 	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	tudor.ambarus@linaro.org, willmcvicker@google.com,
- semen.protsenko@linaro.org, 	kernel-team@android.com,
- jaewon02.kim@samsung.com, stable@vger.kernel.org
-Date: Thu, 06 Mar 2025 15:12:32 +0000
-In-Reply-To: <20250301-pinctrl-fltcon-suspend-v2-3-a7eef9bb443b@linaro.org>
-References: <20250301-pinctrl-fltcon-suspend-v2-0-a7eef9bb443b@linaro.org>
-	 <20250301-pinctrl-fltcon-suspend-v2-3-a7eef9bb443b@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.53.2-1 
+	Thu, 06 Mar 2025 15:16:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741274176;
+ bh=v3aEbi3vbvtvRY+uN9WWZd+0zMgBkgvraJ9LrR9SE5c=;
+ b=sCnMgo2xx8FAVt7UTYtQP74jNhGUNvtPg1IsmBUQ/q6f7D3CyhlwBaJ6nW+oIqZGf8gHdsvL/
+ haRx4svJQ1aHZs/6uaByehicEmuZ5IBrInzGcB+7VGlFidDxs0ePdNNizmJenvoBaXJE53yce/i
+ MhBBf1wJbV7ZFQkSu+PwztsQ2hJdezYu3tn82idLqlsrOS7v6cShLR9au+Jlu7hYCKsH/pDgES9
+ xaad1yENhayoGJeU5LIKN8mGAMqNJwgYtDAjUCZSI2kGAX/wFTI0FOPypq++2rpyprtoYnM9omr
+ AdlXPG5KE4KrEhb2vXETlpqsUZdc7CZAWsfeFqoRJKZQ==
+X-Forward-Email-ID: 67c9bc3e7d53aa09926028af
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <281b8025-8288-4274-b863-f091c05cbabe@kwiboo.se>
+Date: Thu, 6 Mar 2025 16:16:09 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/1] arm64: dts: rockchip: enable SCMI clk for RK3528
+ SoC
+To: Chukun Pan <amadeus@jmu.edu.cn>, Heiko Stuebner <heiko@sntech.de>
+Cc: Yao Zi <ziyao@disroot.org>, Rob Herring <robh@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org
+References: <20250306150017.488975-1-amadeus@jmu.edu.cn>
+ <20250306150017.488975-2-amadeus@jmu.edu.cn>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250306150017.488975-2-amadeus@jmu.edu.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_151237_982392_46E8B053 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250306_071618_500895_B84D572C 
+X-CRM114-Status: GOOD (  13.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,216 +81,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 2025-03-01 at 11:43 +0000, Peter Griffin wrote:
-> gs101 differs to other SoCs in that fltcon1 register doesn't
-> always exist. Additionally the offset of fltcon0 is not fixed
-> and needs to use the newly added eint_fltcon_offset variable.
->=20
-> Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> Fixes: 4a8be01a1a7a ("pinctrl: samsung: Add gs101 SoC pinctrl configurati=
-on")
-> Cc: stable@vger.kernel.org
+Hi Chukun,
+
+On 2025-03-06 16:00, Chukun Pan wrote:
+> Same as RK3568, RK3528 uses SCMI clk instead of ARMCLK.
+> Add SCMI clk for CPU, GPU and RNG will also use it.
+> 
+> Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
 > ---
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos-arm64.c | 24 ++++-----
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 71 ++++++++++++++++++++++++++
-> =C2=A0drivers/pinctrl/samsung/pinctrl-exynos.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 2 +
-> =C2=A03 files changed, 85 insertions(+), 12 deletions(-)
->=20
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c b/drivers/pin=
-ctrl/samsung/pinctrl-exynos-arm64.c
-> index 57c98d2451b5..fca447ebc5f5 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos-arm64.c
-> @@ -1455,15 +1455,15 @@ static const struct samsung_pin_ctrl gs101_pin_ct=
-rl[] __initconst =3D {
-> =C2=A0		.pin_banks	=3D gs101_pin_alive,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_alive),
-> =C2=A0		.eint_wkup_init =3D exynos_eint_wkup_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume		=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	}, {
-> =C2=A0		/* pin banks of gs101 pin-controller (FAR_ALIVE) */
-> =C2=A0		.pin_banks	=3D gs101_pin_far_alive,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_far_alive),
-> =C2=A0		.eint_wkup_init =3D exynos_eint_wkup_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume		=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	}, {
-> =C2=A0		/* pin banks of gs101 pin-controller (GSACORE) */
-> =C2=A0		.pin_banks	=3D gs101_pin_gsacore,
-> @@ -1477,29 +1477,29 @@ static const struct samsung_pin_ctrl gs101_pin_ct=
-rl[] __initconst =3D {
-> =C2=A0		.pin_banks	=3D gs101_pin_peric0,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_peric0),
-> =C2=A0		.eint_gpio_init =3D exynos_eint_gpio_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume		=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	}, {
-> =C2=A0		/* pin banks of gs101 pin-controller (PERIC1) */
-> =C2=A0		.pin_banks	=3D gs101_pin_peric1,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_peric1),
-> =C2=A0		.eint_gpio_init =3D exynos_eint_gpio_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume	=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	}, {
-> =C2=A0		/* pin banks of gs101 pin-controller (HSI1) */
-> =C2=A0		.pin_banks	=3D gs101_pin_hsi1,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_hsi1),
-> =C2=A0		.eint_gpio_init =3D exynos_eint_gpio_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume		=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	}, {
-> =C2=A0		/* pin banks of gs101 pin-controller (HSI2) */
-> =C2=A0		.pin_banks	=3D gs101_pin_hsi2,
-> =C2=A0		.nr_banks	=3D ARRAY_SIZE(gs101_pin_hsi2),
-> =C2=A0		.eint_gpio_init =3D exynos_eint_gpio_init,
-> -		.suspend	=3D exynos_pinctrl_suspend,
-> -		.resume		=3D exynos_pinctrl_resume,
-> +		.suspend	=3D gs101_pinctrl_suspend,
-> +		.resume		=3D gs101_pinctrl_resume,
-> =C2=A0	},
-> =C2=A0};
-> =C2=A0
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.c b/drivers/pinctrl/s=
-amsung/pinctrl-exynos.c
-> index d65a9fba0781..ddc7245ec2e5 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos.c
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos.c
-> @@ -801,6 +801,41 @@ void exynos_pinctrl_suspend(struct samsung_pin_bank =
-*bank)
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> +void gs101_pinctrl_suspend(struct samsung_pin_bank *bank)
-> +{
-> +	struct exynos_eint_gpio_save *save =3D bank->soc_priv;
-> +	const void __iomem *regs =3D bank->eint_base;
-> +
-> +	exynos_set_wakeup(bank);
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 33 ++++++++++++++++++++++++
+>  1 file changed, 33 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index b1713ed4d7e2..476b83f98834 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -59,6 +59,9 @@ cpu0: cpu@0 {
+>  			reg = <0x0>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			assigned-clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +			assigned-clock-rates = <1200000000>;
 
-As for patch 2, would be good to have this if / else, to make it more
-obvious that this is conditional, too.
+This is new compared to v1, please add operating-points instead.
+cpu_pvtpll is already initialized to 1.2 GHz by firmware, see e.g. [1].
 
-> +
-> +	if (bank->eint_type =3D=3D EINT_TYPE_GPIO) {
-> +		save->eint_con =3D readl(regs + EXYNOS_GPIO_ECON_OFFSET
-> +				=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset);
-> +
-> +		save->eint_fltcon0 =3D readl(regs + EXYNOS_GPIO_EFLTCON_OFFSET +
-> +					=C2=A0=C2=A0 bank->eint_fltcon_offset);
+[1] https://lore.kernel.org/u-boot/20250123224844.3104592-5-jonas@kwiboo.se/
 
-If there's another version, maybe align style where the '+'
-is placed (end of line vs start of line). It seems this file
-generally uses + at start of line.
+Regards,
+Jonas
 
+>  		};
+>  
+>  		cpu1: cpu@1 {
+> @@ -66,6 +69,7 @@ cpu1: cpu@1 {
+>  			reg = <0x1>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>  		};
+>  
+>  		cpu2: cpu@2 {
+> @@ -73,6 +77,7 @@ cpu2: cpu@2 {
+>  			reg = <0x2>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+>  		};
+>  
+>  		cpu3: cpu@3 {
+> @@ -80,6 +85,22 @@ cpu3: cpu@3 {
+>  			reg = <0x3>;
+>  			device_type = "cpu";
+>  			enable-method = "psci";
+> +			clocks = <&scmi_clk SCMI_CLK_CPU>;
+> +		};
+> +	};
 > +
-> +		/* fltcon1 register only exists for pins 4-7 */
-> +		if (bank->nr_pins > 4)
-> +			save->eint_fltcon1 =3D readl(regs +
-> +						EXYNOS_GPIO_EFLTCON_OFFSET +
-> +						bank->eint_fltcon_offset + 4);
+> +	firmware {
+> +		scmi: scmi {
+> +			compatible = "arm,scmi-smc";
+> +			arm,smc-id = <0x82000010>;
+> +			shmem = <&scmi_shmem>;
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
 > +
-> +		save->eint_mask =3D readl(regs + bank->irq_chip->eint_mask
-> +					+ bank->eint_offset);
+> +			scmi_clk: protocol@14 {
+> +				reg = <0x14>;
+> +				#clock-cells = <1>;
+> +			};
+>  		};
+>  	};
+>  
+> @@ -88,6 +109,18 @@ psci {
+>  		method = "smc";
+>  	};
+>  
+> +	reserved-memory {
+> +		#address-cells = <2>;
+> +		#size-cells = <2>;
+> +		ranges;
 > +
-> +		pr_debug("%s: save=C2=A0=C2=A0=C2=A0=C2=A0 con %#010x\n",
-> +			 bank->name, save->eint_con);
-> +		pr_debug("%s: save fltcon0 %#010x\n",
-> +			 bank->name, save->eint_fltcon0);
-> +		if (bank->nr_pins > 4)
-> +			pr_debug("%s: save fltcon1 %#010x\n",
-> +				 bank->name, save->eint_fltcon1);
-> +		pr_debug("%s: save=C2=A0=C2=A0=C2=A0 mask %#010x\n",
-> +			 bank->name, save->eint_mask);
-> +	}
-> +}
+> +		scmi_shmem: shmem@10f000 {
+> +			compatible = "arm,scmi-shmem";
+> +			reg = <0x0 0x0010f000 0x0 0x100>;
+> +			no-map;
+> +		};
+> +	};
 > +
-> =C2=A0void exynosautov920_pinctrl_suspend(struct samsung_pin_bank *bank)
-> =C2=A0{
-> =C2=A0	struct exynos_eint_gpio_save *save =3D bank->soc_priv;
-> @@ -820,6 +855,42 @@ void exynosautov920_pinctrl_suspend(struct samsung_p=
-in_bank *bank)
-> =C2=A0	}
-> =C2=A0}
-> =C2=A0
-> +void gs101_pinctrl_resume(struct samsung_pin_bank *bank)
-> +{
-> +	struct exynos_eint_gpio_save *save =3D bank->soc_priv;
-> +
-> +	void __iomem *regs =3D bank->eint_base;
-> +	void __iomem *eint_fltcfg0 =3D regs + EXYNOS_GPIO_EFLTCON_OFFSET
-> +		=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_fltcon_offset;
-> +
-> +	if (bank->eint_type =3D=3D EINT_TYPE_GPIO) {
-> +		pr_debug("%s:=C2=A0=C2=A0=C2=A0=C2=A0 con %#010x =3D> %#010x\n", bank-=
->name,
-> +			 readl(regs + EXYNOS_GPIO_ECON_OFFSET
-> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset), save->eint=
-_con);
-> +
-> +		pr_debug("%s: fltcon0 %#010x =3D> %#010x\n", bank->name,
-> +			 readl(eint_fltcfg0), save->eint_fltcon0);
-> +
-> +		/* fltcon1 register only exists for pins 4-7 */
-> +		if (bank->nr_pins > 4) {
-> +			pr_debug("%s: fltcon1 %#010x =3D> %#010x\n", bank->name,
-> +				 readl(eint_fltcfg0 + 4), save->eint_fltcon1);
-> +		}
-
-If there's another version, braces are not needed here.
-
-Cheers,
-Andre'
-
-
-> +		pr_debug("%s:=C2=A0=C2=A0=C2=A0 mask %#010x =3D> %#010x\n", bank->name=
-,
-> +			 readl(regs + bank->irq_chip->eint_mask
-> +			=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset), save->eint=
-_mask);
-> +
-> +		writel(save->eint_con, regs + EXYNOS_GPIO_ECON_OFFSET
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset);
-> +		writel(save->eint_fltcon0, eint_fltcfg0);
-> +
-> +		if (bank->nr_pins > 4)
-> +			writel(save->eint_fltcon1, eint_fltcfg0 + 4);
-> +		writel(save->eint_mask, regs + bank->irq_chip->eint_mask
-> +		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 + bank->eint_offset);
-> +	}
-> +}
-> +
-> =C2=A0void exynos_pinctrl_resume(struct samsung_pin_bank *bank)
-> =C2=A0{
-> =C2=A0	struct exynos_eint_gpio_save *save =3D bank->soc_priv;
-> diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/s=
-amsung/pinctrl-exynos.h
-> index 35c2bc4ea488..773f161a82a3 100644
-> --- a/drivers/pinctrl/samsung/pinctrl-exynos.h
-> +++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
-> @@ -225,6 +225,8 @@ void exynosautov920_pinctrl_resume(struct samsung_pin=
-_bank *bank);
-> =C2=A0void exynosautov920_pinctrl_suspend(struct samsung_pin_bank *bank);
-> =C2=A0void exynos_pinctrl_suspend(struct samsung_pin_bank *bank);
-> =C2=A0void exynos_pinctrl_resume(struct samsung_pin_bank *bank);
-> +void gs101_pinctrl_suspend(struct samsung_pin_bank *bank);
-> +void gs101_pinctrl_resume(struct samsung_pin_bank *bank);
-> =C2=A0struct samsung_retention_ctrl *
-> =C2=A0exynos_retention_init(struct samsung_pinctrl_drv_data *drvdata,
-> =C2=A0		=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct samsung_retention_dat=
-a *data);
->=20
+>  	timer {
+>  		compatible = "arm,armv8-timer";
+>  		interrupts = <GIC_PPI 13 (GIC_CPU_MASK_SIMPLE(4) | IRQ_TYPE_LEVEL_LOW)>,
 
 
