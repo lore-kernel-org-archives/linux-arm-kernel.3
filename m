@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7288DC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:14:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 411C0C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 10:16:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SFqK7fZR0TmLvJNaC6gEPC6OF78JWtmfQ3Z2qsh5268=; b=XDVb+DijKmYOTPb/AQmpHQdN/8
-	BfhPLxJgqUUQvgGBWxr60ZPlbUhHB8c9NTR819e/0QZl2OVd7XP3uCgFA5a4dOBRE0IqBpM4atIMu
-	aaYuDok4g+E2HGWI7/3jT0kHOJ3hvxz7bPa5HF8RTEQjhOhKdM62hoehU55q2JZlYAAecqUbmAmij
-	OqH9b7YW1sU0/W0mWrm/KPOoS7TyCzlJpyr+jUisb+5VdWLocNzaOYiHHQ/rbTXyVtkVEQyPnL7rf
-	+1l2iyhXK3s92djkcqbVxmaCvF3P0pdP6yDlqTnvomAxJNh6PgnBWThUhSHIXxz1r5PEOpKCBwU15
-	UYH3Kjgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=gea8RDhxW52XRzq4nksHK4G+nluCQdGJ7LngFtiewMU=; b=NglTSXWl8hjG3I
+	Qx254NK00rKSkSCA9jC7OUlf3v/BPI5E4hhl+SfG5bBv9RSs8xi6r0V/MO0aALtd5VcCd+Y5m6peg
+	NLDSLbohV8AJKIA4tL4iUf/aL6xcqInxdCB2lr6xAhFuN7Yxtwc1duqoXxqPAqF2FyzRyD21LM8tf
+	t4t6h52TxA1O2jlS/Cm8vdKRi1m04fYHEie8cTYC0CFJa+21v6JPXgHc9AHb25Pbaw4pMgqzMwv0L
+	1U1LvG6gZsWrq/4BYRyY+PTv0s3Pmbv43SETGnLNj6NrfYxOmXLy6ruF73Uc8Ng14/fxIIjVvaaJx
+	OGLBI2VbcL25x1cRJ7mg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8Ez-0000000Ac1I-1Abs;
-	Thu, 06 Mar 2025 10:14:09 +0000
-Received: from relay7-d.mail.gandi.net ([2001:4b98:dc4:8::227])
+	id 1tq8HI-0000000AcVz-0evV;
+	Thu, 06 Mar 2025 10:16:32 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq8DM-0000000AbTN-1cKJ
+	id 1tq8Ff-0000000AcCV-1ziV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 10:12:29 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id DCE0E4316C;
-	Thu,  6 Mar 2025 10:12:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741255944;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=SFqK7fZR0TmLvJNaC6gEPC6OF78JWtmfQ3Z2qsh5268=;
-	b=IYTXaMViXgT4KDoKBENK6wDNSEV6WK78C9Au7GqDTJzzAT2HcOM7fAAZJSA8MwgO7w+jNY
-	5IwSkf6puZecNxcMRlYPdotuX+ILjvpfD4OMVpC8rKHEGIMseZLKhZto/yvChJ5fTpjpt6
-	W38VbKmpRiVWpRf7Dv/+KEJRPBmMim7AOSvLhKbow+PP9cCdNDirlyKQIrdjsOo1qe6+78
-	Ta/oj1Q/VrSkeYjHQzw7WDqHLo8O/1vaQn5eUpb6w/FMAm22cIn0qXM2FClpmoMaKdpLET
-	tQ66l08Xfge6lqjH5Htj5r4Ui4QuTPuYmBYGMjtwsXje6T88ogtgVEBYMlGD2A==
-Date: Thu, 6 Mar 2025 11:12:20 +0100
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: Paolo Abeni <pabeni@redhat.com>
-Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
- <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Russell King
- <linux@armlinux.org.uk>, Heiner Kallweit <hkallweit1@gmail.com>,
- netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
- Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
- <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, =?UTF-8?B?S8O2cnk=?= Maincent
- <kory.maincent@bootlin.com>, Oleksij Rempel <o.rempel@pengutronix.de>,
- Simon Horman <horms@kernel.org>, Romain Gantois
- <romain.gantois@bootlin.com>
-Subject: Re: [PATCH net-next v4 09/13] net: phylink: Use phy_caps_lookup for
- fixed-link configuration
-Message-ID: <20250306111220.28798e6b@fedora.home>
-In-Reply-To: <350bb4f6-f4b5-44c3-a821-ac53c8641705@redhat.com>
-References: <20250303090321.805785-1-maxime.chevallier@bootlin.com>
-	<20250303090321.805785-10-maxime.chevallier@bootlin.com>
-	<350bb4f6-f4b5-44c3-a821-ac53c8641705@redhat.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 06 Mar 2025 10:14:52 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-5dc89df7eccso740564a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 02:14:50 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741256089; x=1741860889; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=gea8RDhxW52XRzq4nksHK4G+nluCQdGJ7LngFtiewMU=;
+        b=cq+p3TEtGhQTutfUVFsncpqJl18tSC8VVFT5nfTIdtRI7NqJN3jhmhzB8iT69FtHYR
+         cSaE0FBKuYzSut7wtxHlsC3FTB7yX0arza1FlhxWp0w2J3UQcDzFnfUiX8D5NDr3EsUl
+         NK4xGQGEBhfI3YgDM5QBdHI2PaMbcvIPct2oaw3RUgpcRJBbcCoHSl963mVNLA6jQhrg
+         dgOSgu5lcbYgzKciQryKwtlq8UTGPqSRlJ6DdYpGXbcOd7bnluTFIbVgvEwK9gYSChIN
+         1byNKVFOIeuB080EYDtDb+pJ662S4yDcn2X8A+ipbBa/1/qdJDcE41u1MjQwInOgbCaW
+         i/dg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741256089; x=1741860889;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gea8RDhxW52XRzq4nksHK4G+nluCQdGJ7LngFtiewMU=;
+        b=ZAnLWD8PIsbt2/zp06M4YR8zO8aKX9NJ6d97T+1zxx3Ca/A6zXRYQMEsLtyDbTQ4sq
+         wla6CbZp0htjrNg/s5q+HOfLzQVq8Up5zb8x+SNxFPHk96MJJZK0Sv04z3RHuooYovyb
+         en9ZXTeu93vWBhhvRibu6AK6Vrc8TYC8DrkBWMTV78ylKEtU0z+EtHVWQg9RLvocm9Un
+         apPciyH3xHtoX6e9WcAn3jW+r1VU6DLkdrJpjebAsRweZO8pTr0bXwXvmikKP0zVt7jT
+         AoBMZxtLHMJEJiMN5B1GC62SVNtshNWctXgFApoDiAfW9ddE2QucJBTyY0IeYS7XezOP
+         XdXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWj5WRM5lNapBZfhlCuJRZT59jFd4ie/8TBv64RM909b5Uw5J0bd/gr7z2/zfk8x1bdXuMtuFeISVrEF3T7WD/2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSuXEz7iP1kSfGzdIg/NGAVL/MkKDwAxjnwHFlx80NxB2Z/ry6
+	4Fv6PqlCUYp2Gv1xlPvKAHjLa/LWYqjm3BB0AeJP7bDpbd/9vhWMEkUkLjfQvD0=
+X-Gm-Gg: ASbGnctyVj9vWVStRU3enrJi+HcX8aylIB1GOjDQWq6kNuj6rjdKS6rsEcz8w1Dxptq
+	qctzlc7jGwpnVUiwRdB5iB2c+nt/JszcSIjaB1hMqBZgD2lrUfs2pl9hu6LlCkALzHbqppI+Fom
+	cjPbv6rsls1ohxE37vQo44+TvZ8ORbQTgGEuSqhREpPHxKW1sg16hK4t0zyv9uJPvcsJ4rNY9dt
+	+fGoiY11YPj9lzySQhbvaAuRr6s/TVwha+sv/LFr6uTqWgyp2n/pd6oX//CgV4EaZ3ZT4Q6PfOl
+	PfLxwg1KDOgMKKVYP/rLvDweJHtfKKwCP3fhPlp5DxVfOPuLqHZQnz/DdMwNX4WKM2LYBnTFn1n
+	DvcQK9wEEy3xg8eURUvnheU6U1lEA
+X-Google-Smtp-Source: AGHT+IEgLGcDGlkE6kWAXN5bUDSnAdelHUlOLrSKWe6iPW2qcxJJbof7KnLLgyUzGGWjzI7ZpD00UQ==
+X-Received: by 2002:a05:6402:434a:b0:5e5:c0e7:f455 with SMTP id 4fb4d7f45d1cf-5e5c0e7f696mr2569873a12.8.1741256089115;
+        Thu, 06 Mar 2025 02:14:49 -0800 (PST)
+Received: from puffmais.c.googlers.com (30.171.91.34.bc.googleusercontent.com. [34.91.171.30])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a6af7sm708972a12.33.2025.03.06.02.14.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 02:14:48 -0800 (PST)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH 0/3] gs101 max77759 enablement (DT)
+Date: Thu, 06 Mar 2025 10:14:45 +0000
+Message-Id: <20250306-b4-max77759-mfd-dts-v1-0-9fe8b0eb8123@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgddutdejgeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgeevledtvdevueehhfevhfelhfekveeftdfgiedufeffieeltddtgfefuefhueeknecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudelpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepk
- hhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIAJV1yWcC/x3MywqAIBBA0V+JWTdgD7X6lWiROtYseqARQvTvS
+ cuzuPeBSIEpwlA8EOjmyMeeUZUF2HXeF0J22VCLWopGKDQtbnPSWsseN+/QXRG96TqjrDJOCcj
+ lGchz+q/j9L4fWtwzJWUAAAA=
+X-Change-ID: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_021228_756783_05F8F547 
-X-CRM114-Status: GOOD (  13.64  )
+X-CRM114-CacheID: sfid-20250306_021451_515405_1265443F 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,65 +107,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 6 Mar 2025 09:56:32 +0100
-Paolo Abeni <pabeni@redhat.com> wrote:
+Hi,
 
-> On 3/3/25 10:03 AM, Maxime Chevallier wrote:
-> > @@ -879,8 +880,10 @@ static int phylink_parse_fixedlink(struct phylink *pl,
-> >  	linkmode_copy(pl->link_config.advertising, pl->supported);
-> >  	phylink_validate(pl, pl->supported, &pl->link_config);
-> >  
-> > -	s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
-> > -			       pl->supported, true);
-> > +	c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
-> > +			    pl->supported, true);
-> > +	if (c)
-> > +		linkmode_and(match, pl->supported, c->linkmodes);  
-> 
-> How about using only the first bit from `c->linkmodes`, to avoid
-> behavior changes?
+This series enables the recently submitted Maxim max77759 driver and
+updates the DT for the Google Pixel 6 / Pro (oriole / raven) boards
+accordingly.
 
-If what we want is to keep the exact same behaviour, then we need to
-go one step further and make sure we keep the same one as before, and
-it's not guaranteed that the first bit in c->linkmodes is this one.
+!!! Dependency note !!!
 
-We could however have a default supported mask for fixed-link in phylink
-that contains all the linkmodes we allow for fixed links, then filter
-with the lookup, something like :
+This series depends on the corresponding driver and DT bindings
+proposed in
+https://lore.kernel.org/r/20250228-max77759-mfd-v3-0-0c3627d42526@linaro.org
 
+Note that in that series bindings and gpio driver are accepted, but mfd
+and nvmem drivers are still waiting for review comments.
 
--       linkmode_fill(pl->supported);
-+       /* (in a dedicated helper) Linkmodes reported for fixed links below
-+        * 10G */
-+       linkmode_zero(pl->supported);
-+
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Half_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_10baseT_Full_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Half_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_100baseT_Full_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Half_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_1000baseT_Full_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_2500baseT_Full_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_5000baseT_Full_BIT, pl->supported);
-+       linkmode_set_bit(ETHTOOL_LINK_MODE_10000baseT_Full_BIT, pl->supported);
-+
-        linkmode_copy(pl->link_config.advertising, pl->supported);
-        phylink_validate(pl, pl->supported, &pl->link_config);
- 
--       s = phy_lookup_setting(pl->link_config.speed, pl->link_config.duplex,
--                              pl->supported, true);
-+       c = phy_caps_lookup(pl->link_config.speed, pl->link_config.duplex,
-+                           pl->supported, true);
-+       if (c)
-+               linkmode_and(match, pl->supported, c->linkmodes);
+!!! Dependency note end !!!
 
-That way we should have a consistent behaviour with what we currently
-have, and to me it's more explicit what will the  fixed-link linkmodes
-be.
+This gives us some extra GPIOs, and enables NVMEM which is used to
+communicate the requested boot mode to the bootloader when doing a cold
+reset.
 
-I'd like to make sure Russell is OK with that though :)
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+André Draszik (3):
+      arm64: defconfig: enable Maxim max77759 driver
+      arm64: dts: exynos: gs101-pixel-common: add the MAX77759 PMIC
+      arm64: dts: exynos: gs101-pixel-common: add nvmem-reboot-mode
 
-Thanks you for the review Paolo !
+ .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 75 ++++++++++++++++++++++
+ arch/arm64/configs/defconfig                       |  1 +
+ 2 files changed, 76 insertions(+)
+---
+base-commit: 0226d0ce98a477937ed295fb7df4cc30b46fc304
+change-id: 20250306-b4-max77759-mfd-dts-fb88b6c6bd60
 
-Maxime
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
+
 
