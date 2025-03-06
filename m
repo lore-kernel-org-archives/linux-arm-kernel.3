@@ -4,70 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9CFAC28B24
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52D13C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:19:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OvUClJvCvROtSsX/B8tse9df1SrMaEYA9Byj/NN1S5o=; b=YJ+V3JrzfHCQhVNRwi/8viC/P7
-	reJxDVUAUYx99JVKiPPyuZRlRJgT27ErLqvOtl2n8JRN5njolWLhe8ZnU6vQoOCNz7MC02wfv9q7f
-	Jzx9bN6cOlGy/FJqJlPpmZ9sKHThubm04SfT8eKYsJ9NK3Wg47lGo2Uu8tjZ4/wANNWX5TJIXzAma
-	7H/t4khVIDZMfADrRK2b7/6s/cpdPe07QQRfyDdbMihw8eUDyc32GZS91ZEPkYugwp7sGIYfFUiWQ
-	/hIXEyD6XMeisqEedZG8OwLB/RCJVQAjSkEY09TeF48JcMF2Ok/cSS7wUIQwAFB3Wfnp8xbFdcbEL
-	fN6gXuMg==;
+	bh=k6mnkPFomq2MGfRQMtgnPUDBce80u9EQGOgXgPA1+xs=; b=wzcsXEk0T+U74ojCCEZEOlRDpG
+	0vUi8DbsDL7+jvMUV/dkj04oPihwHElvyuPPeKOgQrqec+/u1xSIt0STIq9JZtjGvfcafFcU6I2TS
+	WEoUFEPBmxfmtPiiyZ1Y4OokAI+ctx1nQkoHaG+/QuXYLNKan4WcVQDlVrY0KszkW3ZjbMMWSiS+M
+	3HI5J7+PW3L0Pz/Zl0l3Go+YPCSG9UvJSLlf9orhleEBII/FaRbVl3nVWhKTVQvu48aX3u/l0+ljM
+	AjzT9bSQ5bHBW20wSkf2dpWj0H5aN815exb3XWcQ8Cmqg+bUEb+PqOqKXX78IPZaHKUVeuG2UYFGa
+	O1yrxWQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6RQ-0000000AJTQ-3Y08;
-	Thu, 06 Mar 2025 08:18:52 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tq6Rh-0000000AJbB-17i7;
+	Thu, 06 Mar 2025 08:19:09 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5Ir-0000000AAS9-0fc6
+	id 1tq6Mu-0000000AIh8-3KLH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 07:05:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC015A44A84;
-	Thu,  6 Mar 2025 07:00:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46D99C4CEED;
-	Thu,  6 Mar 2025 07:05:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741244756;
-	bh=0pW/AzRF/RuX+cwE3R6LyUhFONr4bslHUHFeHtCPcU8=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=LngcmC5hlaMxZxKui39ZWm3OV7a8sOWHNSWyRPVrCBcU5tgJpETNKoILjc2V0v7Ft
-	 B5ARU6Mq3XMQhSytdSe/GTY7/AAgHbFJ9ThhpJwws0kVBImfTYqL54bS6ZnEx2lAPs
-	 NmYMDhSZmJFHtwbXfZo6DxyEvK/qeaJuJb2YQcjR2kTnIKSghdhUU3r0atc8q4c0Ju
-	 D6QVS5goosTY45uzv0oW6QxlCxRCvWKSDbe2uJ5aWBTxHDeYbzeFbcAJz19OC6hvlo
-	 bxz461xpxbEzGUNO+1/VgJe6qo7QTawxnlj/If1wFr9RTY3CW2eZ4cSlv+qkGhxyVy
-	 Ouoyas0f4ld1w==
-From: William Breathitt Gray <wbg@kernel.org>
-Date: Thu, 06 Mar 2025 16:05:44 +0900
-Subject: [PATCH 2/2] counter: microchip-tcb-capture: Add support for RC
- Compare
+	Thu, 06 Mar 2025 08:14:15 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250306081408epoutp03223aa7a0e579f030eaefa7f97001fa35~qKJo1cpuQ2553325533epoutp03i
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 08:14:08 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250306081408epoutp03223aa7a0e579f030eaefa7f97001fa35~qKJo1cpuQ2553325533epoutp03i
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741248848;
+	bh=k6mnkPFomq2MGfRQMtgnPUDBce80u9EQGOgXgPA1+xs=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=HF0rffSXDqhsnmM54aUq5+ZRyqRdGkmV1MvgSSslW7Rh3O0cwX548zh/Y6/nACohJ
+	 Qe0idONuj5mZcuhCKJ2z2CQGKJURQhIAm1fOsvSPhk2Jmh9o6G3BjQg3DHFiItcGBz
+	 WbyRNkdAkdgu8dXGyNoEJLPC1eTfTqbGutSS5LOk=
+Received: from epsnrtp4.localdomain (unknown [182.195.42.165]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
+	20250306081408epcas5p2cc5cdb6d66503223b5cebc08e06df4f9~qKJoSUYnV1774417744epcas5p2J;
+	Thu,  6 Mar 2025 08:14:08 +0000 (GMT)
+Received: from epsmgec5p1new.samsung.com (unknown [182.195.38.177]) by
+	epsnrtp4.localdomain (Postfix) with ESMTP id 4Z7hyk0Pxzz4x9QK; Thu,  6 Mar
+	2025 08:14:06 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmgec5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	10.85.19710.D4959C76; Thu,  6 Mar 2025 17:14:05 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250306074847epcas5p286f512436a15d1b62ee1e5cc65b8a291~qJzgaAEVu2622726227epcas5p2O;
+	Thu,  6 Mar 2025 07:48:47 +0000 (GMT)
+Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250306074847epsmtrp2908ed13f055262cc6cec405330b5e0af~qJzgY7Ck91823218232epsmtrp2N;
+	Thu,  6 Mar 2025 07:48:47 +0000 (GMT)
+X-AuditID: b6c32a44-36bdd70000004cfe-14-67c9594d1953
+Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
+	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	92.FE.18729.F5359C76; Thu,  6 Mar 2025 16:48:47 +0900 (KST)
+Received: from FDSFTE596 (unknown [107.122.82.131]) by epsmtip2.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250306074844epsmtip29eefffb54bed9090fc6baa6289c5ff5b~qJzdkUr7x2203522035epsmtip2g;
+	Thu,  6 Mar 2025 07:48:44 +0000 (GMT)
+From: "Swathi K S" <swathi.ks@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <krzk+dt@kernel.org>,
+	<andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+	<kuba@kernel.org>, <pabeni@redhat.com>, <robh@kernel.org>,
+	<conor+dt@kernel.org>, <richardcochran@gmail.com>,
+	<mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
+Cc: <rmk+kernel@armlinux.org.uk>, <netdev@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<pankaj.dubey@samsung.com>, <ravi.patel@samsung.com>, <gost.dev@samsung.com>
+In-Reply-To: <a9ddeccf-8fc6-453c-af62-55e895888a77@kernel.org>
+Subject: RE: [PATCH v8 1/2] dt-bindings: net: Add FSD EQoS device tree
+ bindings
+Date: Thu, 6 Mar 2025 13:18:37 +0530
+Message-ID: <012901db8e6c$3179a730$946cf590$@samsung.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Content-Language: en-in
+Thread-Index: AQHcwqSBZNYxUrKMqce/4F1P5N/GfgGyT6S5AetEnA8CjXdBygKIabXqAWIbQ0mzEqYV4A==
+X-Brightmail-Tracker: H4sIAAAAAAAAA01Te0xTVxzOubftLQpyByJH9khTTQhslFZKdzCUmY3NuxdjD93GNuECdy0C
+	bdPHcGbO6tA4Bi3ofDWVl1NcGbh1QAoKImgZolRkFInrFAcISkTGQgIbspYLG/995/u+3/n9
+	vnPy4+NBRiKMn6XSM1oVnSPkreA0tEeER735YadCXNQdj2bGjgBUdcfBRT80d2PI6srnoLJL
+	3Vw07LxLoIHWRgyNWX7nIZfrRwJdbzBxkf0PNxf1Nll5qMA9xEWlczVc5Cxfg6a7xgGqrP+L
+	QIOPzhPo0tVRHN0wl2Bo/ryD2BRC9bp7cKru+wGMGjbXE1SjxUNQ5XYDZbd9zaN+/m431eiY
+	wqiJlj4eZaqzAepii4Sasj+T7J+SHa9k6ExGK2BUGerMLJVCLnz93dSXUmNlYkmUJA49LxSo
+	6FxGLkx8Iznqlawcb1ah4DM6x+ClkmmdThidEK9VG/SMQKnW6eVCRpOZo5FqRDo6V2dQKUQq
+	Rr9RIhZviPUa07KVta3tQLNfsKNjupAwgn1PFgA/PiSlcOToCaIArOAHkecALNp/iOMTgsg/
+	AWyaTGKFaQBHHx8mlipuTY7xWKEZwPbifi57GAXwjG2a53PxyEhYaWpZqFhNNmNwZE+yz4ST
+	5Rj8qeMk5hP8yATYO9KL+3Aw+Ta0On8DPswh18PxvdULngAyDt4/MgtY/ATsPD60MB9OPgtP
+	VzzA2ZEEcGb4NJflQ+HlmUIvz/c23gq/tW319YVklR+c6rvGYf2JsPHQUm0wvN9RtxgtDE49
+	bOaxOBVWm/oW/UromS1Z5F+Arb9aOb77cTICnm2KZumn4eErtRg7wipY9PcQxvIB0FG6hNfB
+	uQfuxSvXwoZTE0QxEFqWJbMsS2ZZlsbyf7dywLGBtYxGl6tgMmI1EhWT99+HZ6hz7WBhFSIT
+	HeBm2WNRG8D4oA1APi5cHdCT1KkICsikP9/JaNWpWkMOo2sDsd7nLsHDQjLU3l1S6VMl0jix
+	VCaTSeNiZBJhaMBXjfmKIFJB65lshtEw2qU6jO8XZsQEB4j019zUGm3FUMW8w9/UVdv/xcUt
+	mz0t4Rd0Edcdw+mhN17eIG/xp9/PxNJGRQ/Xmdy7inecdLuDtZXDc8pvnNXiLdVv3Qu8reko
+	KufXEJtcbkPxwWbzreK6Vo05haRWlealVHyaf7B9m3bCEwI+PofjxsmNr2ZHZ/Vw9jzXYzx7
+	Jt4ym7TdVW/cvWtbv7z6l0+eMp+wfymirC/Gm+94yMs9hpu30zgrXahbdKzwwF7rsZWB3Pds
+	0ojCWPlVxRXncee9wXx6e0Zv1QdlDfYLkcmSa55HmwvJ/sEaevKjBHGMLB3mdVFxdeED7wSe
+	coz7tcpy5+/G/LOvLC+qyb5TyNEpaUkkrtXR/wJmf8iikwQAAA==
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFnrJIsWRmVeSWpSXmKPExsWy7bCSvG588Ml0gwNrNS1+vpzGaLH8wQ5W
+	izV7zzFZzDnfwmIx/8g5Vounxx6xW9w8sJPJ4uWse2wW589vYLe4sK2P1WLT42usFpd3zWGz
+	6Lr2hNVi3t+1rBbHFohZfDv9htFi0dYv7BYPP+xhtzhy5gWzxaX+iUwW//fsYHcQ9bh87SKz
+	x5aVN5k8nvZvZffYOesuu8eCTaUem1Z1snlsXlLvsXPHZyaP9/uusnn0bVnF6HFwn6HH501y
+	ATxRXDYpqTmZZalF+nYJXBmPZq5mK5gjX3FpWkUD42ypLkZODgkBE4nbH1+ydTFycQgJ7GaU
+	uHH+IDtEQlLiU/NUVghbWGLlv+fsEEXPGCV+9/awgCTYBLQkFvXtA0uICJxmkvjR/g/MYRZY
+	xSSxbekpJoiW80wSN+Y8YgNp4RSwk7j87DIziC0s4C/RdG8mmM0ioCLxpmk1E4jNK2Ap8Wra
+	L0YIW1Di5MwnYOuYBbQleh+2MsLYyxa+Zoa4T0Hi59NlrBBxcYmjP3uA4hxAJ4VJTFkVNoFR
+	eBaSSbOQTJqFZNIsJN0LGFlWMUqmFhTnpucWGxYY5qWW6xUn5haX5qXrJefnbmIEpwYtzR2M
+	21d90DvEyMTBeIhRgoNZSYT3ot/JdCHelMTKqtSi/Pii0pzU4kOM0hwsSuK84i96U4QE0hNL
+	UrNTUwtSi2CyTBycUg1MPUI/s/Tl+z92JAp5H98/Le33Kd3lQcdzHd0nbbHhP8DzOoSpd5re
+	/4O6HJOOeDSbPFSYtUYyySFpYySThYWthFfI7pKvprbXp/kuTtyb8X6egK/Q1Zp9H8O9ZOzO
+	NMiacTgcUMqYLm736EbE2TUPHqz9ujM+e8sUfqbwXdqfG/o3P75stys3OKBQrDIzWfWRttdq
+	bT7LyQkcvZ/apKyvmq3zm+4vOulentPispXRFjrvLn1YnnhUvOQIf5Rm08yZF79o/VESiztR
+	55xmdzRMpSFLofj4lq2/PJuilrOXtAlJ+sYlbjcTYtXU6svad6bu/8kySb2nd/mbHT5PebSl
+	VIr1k8C7hEVGB2M8PJVYijMSDbWYi4oTATPsM7d8AwAA
+X-CMS-MailID: 20250306074847epcas5p286f512436a15d1b62ee1e5cc65b8a291
+X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250306-introduce-compare-component-v1-2-93993b3dca9c@kernel.org>
-References: <20250306-introduce-compare-component-v1-0-93993b3dca9c@kernel.org>
-In-Reply-To: <20250306-introduce-compare-component-v1-0-93993b3dca9c@kernel.org>
-To: csokas.bence@prolan.hu, Kamel Bouhara <kamel.bouhara@bootlin.com>
-Cc: linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- William Breathitt Gray <wbg@kernel.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2155; i=wbg@kernel.org;
- h=from:subject:message-id; bh=0pW/AzRF/RuX+cwE3R6LyUhFONr4bslHUHFeHtCPcU8=;
- b=owGbwMvMwCW21SPs1D4hZW3G02pJDOknPQN+hHXN4+LN2LD/lehFfe9NrXdmsbyaqhYsbN4xL
- 90pVNC6o5SFQYyLQVZMkaXX/OzdB5dUNX68mL8NZg4rE8gQBi5OAZiIvhDDH449rk1dhyMEJCZL
- Wz9msHgacf+Mt/CddxPzrnw//7RUNJnhf6Fr2Ra7ySGTe6PP/C6+9vOr06yGC2cSWqSZdBeVqnJ
- 4MgMA
-X-Developer-Key: i=wbg@kernel.org; a=openpgp;
- fpr=8D37CDDDE0D22528F8E89FB6B54856CABE12232B
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6
+References: <20250305091246.106626-1-swathi.ks@samsung.com>
+	<CGME20250305091852epcas5p18a0853e85a5ed3d36d5d42ef89735ca6@epcas5p1.samsung.com>
+	<20250305091246.106626-2-swathi.ks@samsung.com>
+	<89dcfb2a-d093-48f9-b6d7-af99b383a1bc@kernel.org>
+	<00e301db8e49$95bfbf90$c13f3eb0$@samsung.com>
+	<a9ddeccf-8fc6-453c-af62-55e895888a77@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_230557_373746_45E6D587 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250306_001413_146223_19906827 
+X-CRM114-Status: GOOD (  31.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,70 +151,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In Capture mode, the RC register serves as a compare register for the
-Timer Counter Channel. When a the Counter Value reaches the RC value, a
-RC Compare event occurs (COUNTER_EVENT_THRESHOLD). This patch exposes
-the RC register to userspace as the 'compare' Count extension, thus
-allowing users to configure the threshold condition for these events.
 
-Signed-off-by: William Breathitt Gray <wbg@kernel.org>
----
- drivers/counter/microchip-tcb-capture.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
 
-diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
-index 2f096a5b973d18edf5de5a2b33f2f72571deefb7..e32f8d324cb373909e0a093b14d742fa0a93e07e 100644
---- a/drivers/counter/microchip-tcb-capture.c
-+++ b/drivers/counter/microchip-tcb-capture.c
-@@ -247,6 +247,37 @@ static int mchp_tc_count_read(struct counter_device *counter,
- 	return 0;
- }
- 
-+static int mchp_tc_count_compare_read(struct counter_device *counter, struct counter_count *count,
-+				      u64 *val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+	u32 cnt;
-+	int ret;
-+
-+	ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), &cnt);
-+	if (ret < 0)
-+		return ret;
-+
-+	*val = cnt;
-+
-+	return 0;
-+}
-+
-+static int mchp_tc_count_compare_write(struct counter_device *counter, struct counter_count *count,
-+				       u64 val)
-+{
-+	struct mchp_tc_data *const priv = counter_priv(counter);
-+
-+	if (val > U32_MAX)
-+		return -ERANGE;
-+
-+	return regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RC), val);
-+}
-+
-+static struct counter_comp mchp_tc_count_ext[] = {
-+	COUNTER_COMP_COMPARE(mchp_tc_count_compare_read, mchp_tc_count_compare_write),
-+};
-+
- static struct counter_count mchp_tc_counts[] = {
- 	{
- 		.id = 0,
-@@ -255,6 +286,8 @@ static struct counter_count mchp_tc_counts[] = {
- 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
- 		.synapses = mchp_tc_count_synapses,
- 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
-+		.ext = mchp_tc_count_ext,
-+		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
- 	},
- };
- 
+> -----Original Message-----
+> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> Sent: 06 March 2025 12:35
+> To: Swathi K S <swathi.ks=40samsung.com>; krzk+dt=40kernel.org;
+> andrew+netdev=40lunn.ch; davem=40davemloft.net; edumazet=40google.com;
+> kuba=40kernel.org; pabeni=40redhat.com; robh=40kernel.org;
+> conor+dt=40kernel.org; richardcochran=40gmail.com;
+> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com
+> Cc: rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> devicetree=40vger.kernel.org; linux-stm32=40st-md-mailman.stormreply.com;
+> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org;
+> pankaj.dubey=40samsung.com; ravi.patel=40samsung.com;
+> gost.dev=40samsung.com
+> Subject: Re: =5BPATCH v8 1/2=5D dt-bindings: net: Add FSD EQoS device tre=
+e
+> bindings
+>=20
+> On 06/03/2025 04:40, Swathi K S wrote:
+> >
+> >
+> >> -----Original Message-----
+> >> From: Krzysztof Kozlowski <krzk=40kernel.org>
+> >> Sent: 05 March 2025 21:12
+> >> To: Swathi K S <swathi.ks=40samsung.com>; krzk+dt=40kernel.org;
+> >> andrew+netdev=40lunn.ch; davem=40davemloft.net;
+> edumazet=40google.com;
+> >> kuba=40kernel.org; pabeni=40redhat.com; robh=40kernel.org;
+> >> conor+dt=40kernel.org; richardcochran=40gmail.com;
+> >> mcoquelin.stm32=40gmail.com; alexandre.torgue=40foss.st.com
+> >> Cc: rmk+kernel=40armlinux.org.uk; netdev=40vger.kernel.org;
+> >> devicetree=40vger.kernel.org; linux-stm32=40st-md-
+> mailman.stormreply.com;
+> >> linux-arm-kernel=40lists.infradead.org; linux-kernel=40vger.kernel.org=
+;
+> >> pankaj.dubey=40samsung.com; ravi.patel=40samsung.com;
+> >> gost.dev=40samsung.com
+> >> Subject: Re: =5BPATCH v8 1/2=5D dt-bindings: net: Add FSD EQoS device
+> >> tree bindings
+> >>
+> >> On 05/03/2025 10:12, Swathi K S wrote:
+> >>> Add FSD Ethernet compatible in Synopsys dt-bindings document. Add
+> >>> FSD Ethernet YAML schema to enable the DT validation.
+> >>>
+> >>> Signed-off-by: Pankaj Dubey <pankaj.dubey=40samsung.com>
+> >>> Signed-off-by: Ravi Patel <ravi.patel=40samsung.com>
+> >>> Signed-off-by: Swathi K S <swathi.ks=40samsung.com>
+> >>
+> >> <form letter>
+> >> This is a friendly reminder during the review process.
+> >>
+> >> It looks like you received a tag and forgot to add it.
+> >>
+> >> If you do not know the process, here is a short explanation:
+> >> Please add Acked-by/Reviewed-by/Tested-by tags when posting new
+> >> versions of patchset, under or above your Signed-off-by tag, unless
+> >> patch changed significantly (e.g. new properties added to the DT
+> >> bindings). Tag is =22received=22, when provided in a message replied t=
+o you
+> on the mailing list.
+> >> Tools like b4 can help here. However, there's no need to repost
+> >> patches
+> >> *only* to add the tags. The upstream maintainer will do that for tags
+> >> received on the version they apply.
+> >>
+> >> Please read:
+> >> https://protect2.fireeye.com/v1/url?k=3D19972162-781c345b-1996aa2d-
+> >> 000babffae10-7bd6b1a1d78b210b&q=3D1&e=3D94dcc3a6-5303-441a-8c1e-
+> >> de696b216f86&u=3Dhttps%3A%2F%2Felixir.bootlin.com%2Flinux%2Fv6.12-
+> >> rc3%2Fsource%2FDocumentation%2Fprocess%2Fsubmitting-
+> >> patches.rst%23L577
+> >>
+> >> If a tag was not added on purpose, please state why and what changed.
+> >
+> > Hi Krzysztof,
+> > As per a review comment received from Russell, I had added 2 new
+> properties to the DT - assigned-clocks and assigned-clock-parents propert=
+ies.
+> > The example in the DT binding reflects the same.
+> > I felt it wouldn't be fair to add 'Reviewed-by' tag without you reviewi=
+ng the
+> updates again.
+> > But I should have mentioned that in cover letter and apologies for miss=
+ing
+> to do that.
+> Nothing in changelog explained new properties. Nothing mentioned
 
--- 
-2.48.1
+Had mentioned under 'changes since v7' in the cover letter patch where I ha=
+d mentioned about addressing Russell's comment and corresponding DT binding=
+ example changes of setting clock tree in DT.
+
+- Swathi=20
+
+> dropping tag, which you always must explicitly say.
+>=20
+> Best regards,
+> Krzysztof
 
 
