@@ -4,91 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A0E3C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 04:30:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A19D9C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 05:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=LmbMgLZE7b6ypDWrYFdumpBtIii9gwTKgDBjmZLXE6M=; b=qGEXB/+xBXJG7nxq0TRipz4wPA
-	wG/v9G63qlfutCzSR7YDcCu8Jf7Zf+birv2o+TyufW5SKP+G9PG96QnrkeIlNqYbT1twTXptXgLxh
-	K5cJuvAaS3Jw+bAUaQXvj/sf/XweO8HCpDxxLjip4GFpqswy0VcIxAEyKFX1EAN6BJi/Cgxct5v6O
-	GZBgdwtYiR23WXevfJx+CL2Vx82eqJcZ0H+Kt8n1brolc9QIPTdHztR5S4Tqko8uKjlg0ayXUAX5c
-	lFXAZjFuVjSMvz1QRw8U8ugiQSlT7JegvmRmy/n4SoJlmJIKY23oiMUOxtfgag+HtdOLrUKdJ99ZI
-	h7QzfKcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8G2aY5sjB6hS79dBzmv3nLrVDBe7J/6IiIOIxegPv5I=; b=WdH3IQAFZzZzxNY8x44VVG1ISM
+	2ydkesQ6uolUKOS2BCFKM9kCH5dHvVDA4ZhtNl6f5Bw6NRcpI4XDJQtIyPIPuF9jwyFaM6Mn4pFG4
+	XGiEoS+Fhis4wpbnLiPOX2RWQb4Ke9KAxWipUd0+1vdkOplrbo2TRVUAHJpq4eB3EmYJSLcLouzlp
+	AEMM6RsZy6TzlxR7ehgGjUoW4FmdLlDpDZEpUkRs+P1laSx43TEzbgj1s3wZ6/5VzMixdgMIQURUx
+	MmizendS083/0VLY2m7ot2j+63KzoFrB3l0IB84aOIAOp9GuNR16iiBwwmYpu3bqMK6MabqMLlwkA
+	GNwX5HAA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq2rm-00000009zRV-2z1q;
-	Thu, 06 Mar 2025 04:29:50 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tq3Uz-0000000A1db-0RzJ;
+	Thu, 06 Mar 2025 05:10:21 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq2qB-00000009zF7-27bZ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 04:28:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=LmbMgLZE7b6ypDWrYFdumpBtIii9gwTKgDBjmZLXE6M=; b=fONIF490oO+k8y2bj/J/d1g0dq
-	LAQXE4a0Vf10Bx+Se/C+wQZUaiACDu9iJk4ZN6DhUM6QXOJqXXyrtAP1SaDT6bv7qq1Q/PwWRjYzX
-	DypJbIfGU32mkR9DdeNZfIo+ouGgk2fXi0odHlLr/RukfKl+7OaJkdxrFM0hLkjMk1pV4YrlidPou
-	5vMFQ0ZBXJ/W3vP7NSPyiE1OQjgo+hxyi1wFWeL2RzYPRY4X+AfDz9l+Ukr1xqN3UIDKsS1wStSI7
-	QS6d+WqYbtzsGAEptGMqHmu1VuQYRqoUZpCw7g6fD8O/BfCtHA7MLA0Iv3g4pS1CA15rEyjrH7xAP
-	V3W6i2FA==;
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq2q6-00000000u0F-1ZvA
+	id 1tq3TM-0000000A1TY-2I3H
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 04:28:09 +0000
-Received: from localhost.localdomain (unknown [124.16.141.245])
-	by APP-01 (Coremail) with SMTP id qwCowADn7286JMlno9vFEg--.61141S2;
-	Thu, 06 Mar 2025 12:27:42 +0800 (CST)
-From: Wentao Liang <vulab@iscas.ac.cn>
-To: jani.nikula@linux.intel.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com
-Cc: dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Wentao Liang <vulab@iscas.ac.cn>
-Subject: [PATCH] drm/exynos/vidi: Remove redundant error handling in vidi_get_modes()
-Date: Thu,  6 Mar 2025 12:27:20 +0800
-Message-ID: <20250306042720.2296-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.42.0.windows.2
+	Thu, 06 Mar 2025 05:08:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741237721; x=1772773721;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=+viV11nQBG/pa4OYx4X5/r1x+AdDiOmvsrgtAtgFNcs=;
+  b=FcFF3uXIjnFUSzyB6wGggWwcNzVNfWmve3vqRqEyKuQQ2tpdmPb6+UDu
+   anj5L7OvdhBh7PD+58tYgX0csUuo+SUQt0DxaXONCS1ECcqROuSjDoMwg
+   yde3oAi7cSJjM1KnIQ1Alt6+XgUrTNGwzXUkKh5Jim2R9QoNY0d6RVvAp
+   rVnVN5Ye80win3X2eczuaR5HZQV1mouB+KUIpxhhUDeYXZ5P1vCr1NXFO
+   8kTxkMSZqWodFfuILsY1rI57+TTyPAE5m8tCMcqaMRRKkSM6JsMsZMQ25
+   xXhgL2JemIPqYYmzkmPb3Zy85PX0oQrjK7visTDkloVtISwFGSaA4AYLd
+   w==;
+X-CSE-ConnectionGUID: ZpwRTr3lRtanHadECkWznw==
+X-CSE-MsgGUID: enHPOSFdSLyFwM+JLvYMTw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="53216195"
+X-IronPort-AV: E=Sophos;i="6.14,225,1736841600"; 
+   d="scan'208";a="53216195"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 05 Mar 2025 21:08:39 -0800
+X-CSE-ConnectionGUID: 3xZfakiyQbySmXPipKosRQ==
+X-CSE-MsgGUID: oTR3TydRSpSUiPDMcps1RA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="119822472"
+Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 05 Mar 2025 21:08:34 -0800
+Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tq3TD-000MYs-1d;
+	Thu, 06 Mar 2025 05:08:31 +0000
+Date: Thu, 6 Mar 2025 13:08:16 +0800
+From: kernel test robot <lkp@intel.com>
+To: Ryan Roberts <ryan.roberts@arm.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Christoph Hellwig <hch@infradead.org>,
+	David Hildenbrand <david@redhat.com>,
+	"Matthew Wilcox (Oracle)" <willy@infradead.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Alexandre Ghiti <alexghiti@rivosinc.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Linux Memory Management List <linux-mm@kvack.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 04/11] arm64/mm: Refactor __set_ptes() and
+ __ptep_get_and_clear()
+Message-ID: <202503061237.QurSXHSC-lkp@intel.com>
+References: <20250304150444.3788920-5-ryan.roberts@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowADn7286JMlno9vFEg--.61141S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7urW5Ww1UGr1DurWkXr4fKrg_yoW8GryxpF
-	W7Kr92yryDt3yrAa4jyF1FkFyYya9FkFWqgr4Duwnxur4UArn7ZF4ft3WUXa48Cr95Z34j
-	v3WDtrs8JF1kCr7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUBj14x267AKxVW8JVW5JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r1I6r4UM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
-	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF7I0E
-	8cxan2IY04v7MxkF7I0En4kS14v26r1q6r43MxkIecxEwVAFwVW8XwCF04k20xvY0x0EwI
-	xGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480
-	Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7
-	IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k2
-	6cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxV
-	AFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0JUhZ2-UUUUU=
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiCQ4MA2fIkRkNFQACs1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304150444.3788920-5-ryan.roberts@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_042807_472279_7610FFF7 
-X-CRM114-Status: UNSURE (   8.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_210840_682386_9E9AABA6 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,36 +102,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In the vidi_get_modes() function, if either drm_edid_dup() or 
-drm_edid_alloc() fails, the function will immediately return 0,
-indicating that no display modes can be retrieved. However, in
-the event of failure in these two functions, it is still necessary
-to call the subsequent drm_edid_connector_update() function with
-a NULL drm_edid as an argument. This ensures that operations such
-as connector settings are performed in its callee function, 
-_drm_edid_connector_property_update. To maintain the integrity of
-the operation, redundant error handling needs to be removed.
+Hi Ryan,
 
-Signed-off-by: Wentao Liang <vulab@iscas.ac.cn>
----
- drivers/gpu/drm/exynos/exynos_drm_vidi.c | 3 ---
- 1 file changed, 3 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_vidi.c b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-index fd388b1dbe68..a956cdb2f33a 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_vidi.c
-@@ -312,9 +312,6 @@ static int vidi_get_modes(struct drm_connector *connector)
- 	else
- 		drm_edid = drm_edid_alloc(fake_edid_info, sizeof(fake_edid_info));
- 
--	if (!drm_edid)
--		return 0;
--
- 	drm_edid_connector_update(connector, drm_edid);
- 
- 	count = drm_edid_connector_add_modes(connector);
+[auto build test ERROR on linus/master]
+[also build test ERROR on v6.14-rc5 next-20250305]
+[cannot apply to arm64/for-next/core akpm-mm/mm-everything arm-perf/for-next/perf]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Ryan-Roberts/arm64-hugetlb-Cleanup-huge_pte-size-discovery-mechanisms/20250304-230647
+base:   linus/master
+patch link:    https://lore.kernel.org/r/20250304150444.3788920-5-ryan.roberts%40arm.com
+patch subject: [PATCH v3 04/11] arm64/mm: Refactor __set_ptes() and __ptep_get_and_clear()
+config: arm64-randconfig-001-20250305 (https://download.01.org/0day-ci/archive/20250306/202503061237.QurSXHSC-lkp@intel.com/config)
+compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250306/202503061237.QurSXHSC-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503061237.QurSXHSC-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+   In file included from arch/arm64/kernel/asm-offsets.c:12:
+   In file included from include/linux/ftrace.h:10:
+   In file included from include/linux/trace_recursion.h:5:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/arm64/include/asm/hardirq.h:17:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:14:
+   In file included from arch/arm64/include/asm/io.h:12:
+   In file included from include/linux/pgtable.h:6:
+>> arch/arm64/include/asm/pgtable.h:639:7: error: duplicate case value '536870912'
+           case PUD_SIZE:
+                ^
+   include/asm-generic/pgtable-nopud.h:20:20: note: expanded from macro 'PUD_SIZE'
+   #define PUD_SIZE        (1UL << PUD_SHIFT)
+                           ^
+   arch/arm64/include/asm/pgtable.h:636:7: note: previous case defined here
+           case PMD_SIZE:
+                ^
+   include/asm-generic/pgtable-nopmd.h:22:20: note: expanded from macro 'PMD_SIZE'
+   #define PMD_SIZE        (1UL << PMD_SHIFT)
+                           ^
+   In file included from arch/arm64/kernel/asm-offsets.c:12:
+   In file included from include/linux/ftrace.h:10:
+   In file included from include/linux/trace_recursion.h:5:
+   In file included from include/linux/interrupt.h:11:
+   In file included from include/linux/hardirq.h:11:
+   In file included from arch/arm64/include/asm/hardirq.h:17:
+   In file included from include/asm-generic/hardirq.h:17:
+   In file included from include/linux/irq.h:20:
+   In file included from include/linux/io.h:14:
+   In file included from arch/arm64/include/asm/io.h:12:
+   In file included from include/linux/pgtable.h:6:
+   arch/arm64/include/asm/pgtable.h:1303:7: error: duplicate case value '536870912'
+           case PUD_SIZE:
+                ^
+   include/asm-generic/pgtable-nopud.h:20:20: note: expanded from macro 'PUD_SIZE'
+   #define PUD_SIZE        (1UL << PUD_SHIFT)
+                           ^
+   arch/arm64/include/asm/pgtable.h:1300:7: note: previous case defined here
+           case PMD_SIZE:
+                ^
+   include/asm-generic/pgtable-nopmd.h:22:20: note: expanded from macro 'PMD_SIZE'
+   #define PMD_SIZE        (1UL << PMD_SHIFT)
+                           ^
+   2 errors generated.
+   make[3]: *** [scripts/Makefile.build:102: arch/arm64/kernel/asm-offsets.s] Error 1 shuffle=4064171735
+   make[3]: Target 'prepare' not remade because of errors.
+   make[2]: *** [Makefile:1264: prepare0] Error 2 shuffle=4064171735
+   make[2]: Target 'prepare' not remade because of errors.
+   make[1]: *** [Makefile:251: __sub-make] Error 2 shuffle=4064171735
+   make[1]: Target 'prepare' not remade because of errors.
+   make: *** [Makefile:251: __sub-make] Error 2 shuffle=4064171735
+   make: Target 'prepare' not remade because of errors.
+
+
+vim +/536870912 +639 arch/arm64/include/asm/pgtable.h
+
+   626	
+   627	static inline void set_ptes_anysz(struct mm_struct *mm, pte_t *ptep, pte_t pte,
+   628					  unsigned int nr, unsigned long pgsize)
+   629	{
+   630		unsigned long stride = pgsize >> PAGE_SHIFT;
+   631	
+   632		switch (pgsize) {
+   633		case PAGE_SIZE:
+   634			page_table_check_ptes_set(mm, ptep, pte, nr);
+   635			break;
+   636		case PMD_SIZE:
+   637			page_table_check_pmds_set(mm, (pmd_t *)ptep, pte_pmd(pte), nr);
+   638			break;
+ > 639		case PUD_SIZE:
+   640			page_table_check_puds_set(mm, (pud_t *)ptep, pte_pud(pte), nr);
+   641			break;
+   642		default:
+   643			VM_WARN_ON(1);
+   644		}
+   645	
+   646		__sync_cache_and_tags(pte, nr * stride);
+   647	
+   648		for (;;) {
+   649			__check_safe_pte_update(mm, ptep, pte);
+   650			__set_pte(ptep, pte);
+   651			if (--nr == 0)
+   652				break;
+   653			ptep++;
+   654			pte = pte_advance_pfn(pte, stride);
+   655		}
+   656	}
+   657	
+
 -- 
-2.42.0.windows.2
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
