@@ -4,170 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D65BAC28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:18:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46BB9C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 12:19:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7hl5iS6eOs+7nCIqGUHYgqSGfWd6yqE4neebcee/8p4=; b=FkHW+eRJ3wFP9mnp8/qxy5PWTq
-	+Z1OIc0nkXinjDO2u9+EiDESymkvnFg6wMFGo04GTzat4PipiJ4Ub7J4xYCpKaVzi7Y/9BYwWc0+j
-	IH5g8n1lqDx8dtsAKrcXdQbEtysruZt75MWXfw2OeMqWJiQLHyBY//G5F/vyw9N3WZZJd6vcyUKoM
-	WR+/seLnRmc266yPoMPiCB5auYf8nJ6RBAd7IjuzHGqLf8tfijXqypy/P4Pcuv2O8Oz4oCurNAbrX
-	h2pYXCBuJcBybMji8c78lUccM9hFlVqGB8qgc7mDcipuj/552a1dip0xaA+8K3SvDR350rMEMUMuN
-	xBJyNxww==;
+	bh=KTPitoEhlDo5P7Fhw0/so0kkZd/7LTKjAqNYGdJzP/Q=; b=2iSL8HWRarYIyMDZtzVF7HiyPM
+	lBH/M0oCmlOQa6RMQSQbqsUr03z7Dxt083s+PhVUm1eaOJSxJ1JeSf1GNq3B4yQ85efzX0eFWIZPe
+	UpqJvs1XBEUnW4TLiodfwGMcFCIq8ZV2yeYyrZqJsnCckIju1fT4qMZSss1hzW4tnwFvd1K8l9XAq
+	1cD3gjeGCSS8k1JAW8Gl7RM0S9kbwwOUX3DOhDzc41p4j+1GFncKONIZDz8NGLKMHQNflAvAEW5bP
+	o8whphjVuySXhUqfIqMOfdXsLxAntUobhNvWJeicsWIPSiGXD7yJGsW6WYm9lzqPVV/BqLs7deznu
+	cuMwOJAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqAB6-0000000AtW4-27Qn;
-	Thu, 06 Mar 2025 12:18:16 +0000
-Received: from mail-dm6nam12on20613.outbound.protection.outlook.com ([2a01:111:f403:2417::613] helo=NAM12-DM6-obe.outbound.protection.outlook.com)
+	id 1tqABk-0000000Ataz-3MNh;
+	Thu, 06 Mar 2025 12:18:56 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9RT-0000000Amsp-1OGO
+	id 1tq8yK-0000000AiY7-2JLN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:31:08 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=syYs9vNnH2M/U3ijoImakRQ+skd0YfL+CfxaQ6EBNDNsyfS/lH1UeqWX6d23ysW/ebMd6lRx4Pn0CdK3dC2UnoC86B5fE/1O9Hin0J+WLINwwqkrQNDCyedrSNm5ST5/ycjvW1E0/VGDIH1e5q5pWaav2yEEpizL0/Sklhhxm4FZCLY8/8bspIm0m+9bx+0qLqfusnBUg0sxTVqEg9JxQFaQtb6RQJXk2mVLvw79k+LJ9KxC+bvWgyinqZ/Q0h7IPZL0xVfhy54pWMFKoWbJqAi73mOpYgRdnBhJv1ipGeQXr29TJEOT2K0a/IeMpccgMQjCK+gowTwG8rA+U95I8g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7hl5iS6eOs+7nCIqGUHYgqSGfWd6yqE4neebcee/8p4=;
- b=bXgdS1OGs5WGtwHTQ9Aw6aifcHrJyWdzpgNRjmQLyOQjo+SA644wO2BSeAPKq2WL1Q0G4Aoe8He6I68g8o8qA44RgmeqLp/vCOdZYazbFR3SBnSHQdCQ1oFM8iax0dNGAF9IIXncFkB6eZokdxsNUa0ca8ay9rUTigUWzDMy7JI6Ukj14Oq2iTB8dwnx89i5vNsusCHX2iL0YVBS9OHzBakUQ+p+00qVbDQ5hNBngtma+fsdzMVqJ1VbJ+xe4ZJkVlMaxVxJjLxB/4SXJ3E0dM45jxGQSiE+jVEutdiL477vRggzWznJliSNV+UyEg9iR/U7i3+BulO7R2Dq6L4Zxg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7hl5iS6eOs+7nCIqGUHYgqSGfWd6yqE4neebcee/8p4=;
- b=OHCTsWgpK+pa+XetZS/0tim3Yj6tBBHj6nRI/0SpynDw9R9O0C7OmJYAUzAhAZevfQqGKfybUY3ASOAD2HzCkzXVe46dE7abnZqEp7LfG+Pn5zOP9niIK9upUelr5BhdtMHMnPdrm2+r2JG84D5eMyDeWD/se0HCzCpe9ylWwrxhrkSl4RMPRrltQwpSBzCxYCWzczsW4y8xwMh9L+OQlgZbDyetmvBFI9OGxK3wLpvDXXgRExdB+Q/SgGzii3kYK1KjTofMThStZ4252zO1YinlYokq+GcCSIrJDCC85hkT8Ziyz8ybJm3xIu+0AdyXdJr8neJQ43kcycJ88Dbw6A==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com (2603:10b6:a03:4d0::11)
- by BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.16; Thu, 6 Mar
- 2025 11:30:59 +0000
-Received: from SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9]) by SJ2PR12MB8784.namprd12.prod.outlook.com
- ([fe80::1660:3173:eef6:6cd9%6]) with mapi id 15.20.8511.017; Thu, 6 Mar 2025
- 11:30:58 +0000
-Message-ID: <f783cf9c-9f79-4680-a6e9-d078abbd96ec@nvidia.com>
-Date: Thu, 6 Mar 2025 11:30:53 +0000
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 0/5] net: stmmac: fix resume failures due to RX clock
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Paolo Abeni <pabeni@redhat.com>, Thierry Reding <treding@nvidia.com>,
- "linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-References: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-From: Jon Hunter <jonathanh@nvidia.com>
-Content-Language: en-US
-In-Reply-To: <Z8B4tVd4nLUKXdQ4@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: LO4P123CA0377.GBRP123.PROD.OUTLOOK.COM
- (2603:10a6:600:18e::22) To SJ2PR12MB8784.namprd12.prod.outlook.com
- (2603:10b6:a03:4d0::11)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ2PR12MB8784:EE_|BL3PR12MB6571:EE_
-X-MS-Office365-Filtering-Correlation-Id: 494b445d-242d-4f4e-2845-08dd5ca25da9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bzJGWDB3clFsWndjSDFZeWpDcTh2aVZmd2lzSmJVWUZpamFEckZ3NFVQN2NX?=
- =?utf-8?B?dzY3TEJHVTFZa3FjZjlMdHBKZEF6VWZUMlB1Z0RkTUg3bytNNjc0SVhGdmhT?=
- =?utf-8?B?QlJ5MkZoRjNBemJPSVJOZElraDJFUll0MytOZ1NmcU5UaUhrUXJlVGVzQndk?=
- =?utf-8?B?K3pCb2RFTFpFRFRIOGJycVhsLzJTOUhMbGlHSEVhSzFrS2loMDFxTkZ6WEVE?=
- =?utf-8?B?Vm45ZDRibW0yRjRWcW1kc1lxYlF6NjFjSWQ4YWNCQlNBbm9Ka0I4OGFoNDJv?=
- =?utf-8?B?RmVqQnRCL2xYc3hHQm9WUzB0R2ZUNm9oSUZpOFNwTzF1YXNKTU03V295RzN3?=
- =?utf-8?B?T2tOcTFOWllSQXByRTRRZEVBQUg3cWxtYkZLMmNyWTRPZjVNeHVvUGlGdEFz?=
- =?utf-8?B?MTJnVEtjTFNwcnIxMGQrUGl6WTQwQWpITGpKOXpqZ0JycUdSaU9LRy9vS1ov?=
- =?utf-8?B?SFplYkxVK3Q1RDRMamtoR2x5ZlRBWkU2REFZcGVyRmJrVEp2WFJiRXF6MnNR?=
- =?utf-8?B?TzlPa1VhcjA3SEd1Vk90NFpKNlB2Y1l3WGhiUitvdElKUG1FWWxxcUtiem9r?=
- =?utf-8?B?cnRLVGhOMERCY0FWMVByUkJvS2tvM0tMS0YxU2doNVQvNWJqVmtKVWY5N0ZW?=
- =?utf-8?B?bk42WjhJLzcrM0djMGQzVjB5THF2ZWVRZENMZTJXTXlDTkRyKzJ2ODB1Z3p0?=
- =?utf-8?B?VTJCZ2NjVnpDMDdyWlpDcWQrMnFaMWRaWWI2d0Q2UEExQ2NKNzlwMjVvZENX?=
- =?utf-8?B?aitqb0lMQnFtUW9HU2xpKytSa2hkT2luZENHVHdlZkFISDNLOWxyVm82SjM5?=
- =?utf-8?B?WDBBTEx1UVFKQXJzckFuNVo5RmFIdEZZenIxK3R2UTBLRm13NFg4MHVFWW9Z?=
- =?utf-8?B?aHZka1BSd2dmYWI0Qmw4V1NiOTJlNUR6N3JlK2l6NVB5Z0Fva01jRnhYMkFn?=
- =?utf-8?B?UmpGOHJiNTBpSmhPT0RNVkZNUmJ4ZnkxQnRidktadnYyblVjM1Q2ZGpsNmpY?=
- =?utf-8?B?bm5uZUpoNjBtZHBHV001VWQxSmVMcTlzYXo0VDN5TmM4STlKRXJ2anV4U3k5?=
- =?utf-8?B?T3U2bC9GY2pCTVBDejYxWEg4TDVieVNTd1pFdm4vZTBrVkNTUmhZVnVMcDlM?=
- =?utf-8?B?NTBHK1Bpa1NHRldIV1NLT3lWMFVTK2lQRTNyMmlDVEtLbkVlbVpDSTJ6VU1G?=
- =?utf-8?B?SmFPQ1czYXowMUNpcVFmbFpsdU1Fd2U5VVAwYUMyaHUrakRNbTdvem9BbStn?=
- =?utf-8?B?enZxbnp3ZFQ0RGwyRCtpZEVSUFRsdEN3ZHV2VWJrVnpkZmc2TEZKcVhHNGE3?=
- =?utf-8?B?c0ZQbmFCUEVkWWpsaWQwS1BjRW9YL0ZTbFNIamN5VDJ6S0tvemt4dkhESmgy?=
- =?utf-8?B?YTcxdUpsU1NUZ1BZdGJFWWM1ejFBM2RRcUpQdG1TQWh2ZU1rWVpZSWdwY3pz?=
- =?utf-8?B?c25jMytpQmtMVDNrVWl0NTNGV2dJRy9QNWRrU01vTDRndHA5TEp4bWxlMlhl?=
- =?utf-8?B?SlhFSWk0cXlGbyt6RWJTZlQzSDBJdlI2VzJ0UWs4RnBDOUwxWXMvaW1uTzlD?=
- =?utf-8?B?Z2JQZXYyWUVIVnNUZjhaSVlUbHowVEJRTWJwclc4RFQxRkQwQ1hxcEMvWTB1?=
- =?utf-8?B?czdESUduWlFCODdkZlpTbjFTL0JkeGFKSXNheWI2MmFxZUJJM3NhN0xRdjd1?=
- =?utf-8?B?VzhvQ1JUcTQxcEh0OEhiRTlOdnJ0RjZ6ZXNrWnV3emk3UFp3Z2VMZ0JxVGJj?=
- =?utf-8?B?Ri92Q0ZUTjhnZGEzM2FWQlcrejgwMFRZaldPQ2ttdDRnTEN5dWlIdlV0Ym9Q?=
- =?utf-8?B?bFFCb3FPY0ZBbUFGV0FPRkYyWVNwc01PeWxobWhGWmcreGZ5RmxmbXRaa1lq?=
- =?utf-8?Q?Y4LBltASFudyx?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR12MB8784.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MG1lN2pVYXFYQ1RQellJNmVGcXpZT254a2hQYjlGaW1DaDczb1JTVXRBQ3NL?=
- =?utf-8?B?cjFxa1NSZmpoWFZWdWRaNG90TmppdkUyRVpDK3Aram9TdmFTVjZlUU9Qc3hV?=
- =?utf-8?B?emhmSDkzVGJXUEZSdUVMVzJTbXNuMi95MG8wcDlnRUVVVWhyL3pUdW1QclBt?=
- =?utf-8?B?MmNQczdZUlI2a2JxaS9BTVQ5OHQxakgvZzAzelhKS1BGOTl6aEM4c0ZpWDIv?=
- =?utf-8?B?cm5CZGZNOGxKREs3T3RnMGdpbTBydXY5SVVaQXpoMW40U1NYZUI4TWE5MUhk?=
- =?utf-8?B?QnpVaDdYNFd4V3pmVFJzRVNROXZ3L3dUZ2k3UFZRTTdQUEJhVVZNNEh4TjZ0?=
- =?utf-8?B?NXpBSzBrdkIzU29yenUva1Q5b0JCejRkUTI1RG8xTDdvcU1LYmNrOFdxZGFi?=
- =?utf-8?B?ZjZjbmx5a2NObzlWRkhid3dFQXNqNVBVR2NzdzFTNmxzNml3MUxBdnkyNjBQ?=
- =?utf-8?B?U2FqR1psdVZsZjVLdHdPclowcFJnb0Vtb1F6V2FBaHlqQmkyR05VTE5EWkNj?=
- =?utf-8?B?ZG5hSXNUajdYdmJUN1JtQzk1VllDNkxmSTBjN1dOV2FVenVmcTB2WmhId09s?=
- =?utf-8?B?VmpnWGNUR3luWmlXalRKbmovMGxwSzdhTmhlM2JvTytlQ0NIMTVFZVplUVYv?=
- =?utf-8?B?b1FaZmxmTXE0cWt0WmdGakhYNDdNdFI3OGNicFV6VVVtbmdiUGZBZ3pjenJo?=
- =?utf-8?B?cm80NzdKWXFPdmZKN0VIcUMzbEE5c0txZUhOY0t0NEN5ZkMyRmtTQ0s2R3RK?=
- =?utf-8?B?cmRqZFUyQUluRndaZUhHaTN5Q29hRTJNb2UrL1ErdVlTaE53NHcwY0pjNU5w?=
- =?utf-8?B?OUp0WE52cGl4MTh2SCtibXp5azJ3V21UY2VBK0ZvUVg4MXhrV2l6Zm5oNThL?=
- =?utf-8?B?T1ZjVm9PbzZMZTl0Nld6QmtWamlCMW1QVTcyQjBzY1U0d2liSnBraS9NNmd4?=
- =?utf-8?B?SHI5Y0ttR1pDbHpxOVlZbEFySDBrZlk5Q1ArcVRmdU5odXJNVk5Nd0ZFUmRW?=
- =?utf-8?B?SXlvdmFBUXlDVlBnZDhWQTNBYmxnanhvQXU1dGxjR3NGY2xmcUVLNTRJcWlQ?=
- =?utf-8?B?VE8vUzZCY1FjcG9GVjJqY0FRMFh3Snoyd292QWtZL2xqcjFURzV1TWxhditZ?=
- =?utf-8?B?MHZ4N3BSUml0bnZTQmpRckNOTUx0dkZFN3cxeEkxWFFmR2JBczFPL3krTXpL?=
- =?utf-8?B?WGZtNHdsbWY4Qml6VUUzRWFROG93dk01aldzMEcwTjNvb254bGFHUmFQTXpW?=
- =?utf-8?B?WjdmNTJlQmFZNjFMNTRJOEtsdUxocDNaTFNQZHVxUnpDVUE3K3BiZmgvamUv?=
- =?utf-8?B?U1E5aUZjZ21OT1RuM1Y5dHdoYURKQjQ4TmEzOGVtbVMwWWJHSzM1OWU4MFpa?=
- =?utf-8?B?eElPd1ZIRWFwTSs1RUtURXp4WG56THMvYkpmZUwxd2tITDRpdnZUUFVTbzJR?=
- =?utf-8?B?RER3dUtTMTRHbVNYanhkTWdvNXR3MzhPaVJjTW5zOXFUN2lVOHBJdFdwWHJW?=
- =?utf-8?B?NTZTMjNpdFBlOXlLWkNEbmI0ZGhTbWxjN2VOV1luZFAyMkUyRWRsNXZnRnB2?=
- =?utf-8?B?YnU3VVFLYXVVTi9yai81ay90MEQyUnpxOGtMbjV3c1BTNGJxdmFJMjZiVmRm?=
- =?utf-8?B?QnBxNnpZOXhmVmxCdDY1SXNyeXhKVkVtcUE4cWZlRDZETm1YSEdpdWVwYUxL?=
- =?utf-8?B?OVlkZzFRdDhrSk8ydFlGZlRmSDZIekx6QTZsdkZNbGppTlArN1JKN1dJa2s4?=
- =?utf-8?B?Um1udUQ4bDdhb1ROb2s1c0ZUaWNGUDVYMFhNb0R1dmRGSG9FWTNNbmJtNmp5?=
- =?utf-8?B?K20xVUxmUFdZSHNaK1lNcHp5bVV1aFJWN21pTDBLRVhvYmg2bFZJVTZBRW0r?=
- =?utf-8?B?eTU1QWJQYWF0blh5Y1VZN1BaaFR2SVZvbURpQ3FUNXBmMW5OV0dJaUhTSVYx?=
- =?utf-8?B?eWZPdkdUZGd2ZjFLejAwcUoxYlJXOGRyWjlFNnJpaWNSMnVRVTNPS2xTV2di?=
- =?utf-8?B?Znp1NTlZeUJyd0VXM0pQUVVwQm5aV2t6L2JRdC82S0ZHSCtSVXdxamEvWVhU?=
- =?utf-8?B?UGhwSmxIYjcvQ095WTB1T3lHU3RKcUl0cEo2OXhIVmNSQ0syQ2xvN3ZSeUx3?=
- =?utf-8?Q?aZPjX/YL3h1CYo9KDtfH8WbM9?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 494b445d-242d-4f4e-2845-08dd5ca25da9
-X-MS-Exchange-CrossTenant-AuthSource: SJ2PR12MB8784.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Mar 2025 11:30:58.5740
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: PVFjr93KUWYWLQQuxttU74MZhnhvIE9+XaasMORL8qSqIzrMqUTI4JBHv6ZF9TAsL7jqfoFuMkJ9PTOYINwZ3g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR12MB6571
+	Thu, 06 Mar 2025 11:01:01 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-390fd681712so255397f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:00:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741258858; x=1741863658; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=KTPitoEhlDo5P7Fhw0/so0kkZd/7LTKjAqNYGdJzP/Q=;
+        b=bpwgbUGqyd2O85Fi/uDLF4A4l3U5bAAx1dzmq6sJlEXKffO2q+4f3TkmxcwmpcIZUS
+         lHZYGbs1UY4ZxSe6PxF/d1DZtoanD+1lN8TAKvW2ALGmnt2s3JBxWkOTOVI3L3XUw24h
+         m1Q9Z4naFAgTMCAY4gfHs1/b6PfHeS6HzLfuiHJ/R8kfrV+O/wvD3ct4m5ijae1twopM
+         TfHhASvhwT4BUKjW5WKoDZU7Dm8KMMRh560p3jlpJElhuoTE258orzO8Rq1a2m0ZC0Qo
+         o30CFjW5QveeiYRkMHeD6hXgyxQyBW+otK9GUFc3kV2F+QQYnC3IkXs3ymWm7KTK11ER
+         RZlQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741258858; x=1741863658;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KTPitoEhlDo5P7Fhw0/so0kkZd/7LTKjAqNYGdJzP/Q=;
+        b=pT/BEdAhj893gBOlUEgp5L3Xrn/Jt/4ydT7fNWpmzCdpKDuFQOuv4BG2XzxLZA1YED
+         gUTDQZRQCH1KD9AUDwEzWXxhEvRMQhVzdn5sPdoGdEOpaN6K6Z+gzZYegL4+gxvrivFG
+         CI6qf8CdNXqNj3YJ+ETVoAlJ8JDV5W9I2By37FLd4Ne3bsZhOPHf8eQg/u4dLjd0l7HP
+         uYTZ5cxokF1IMYv6Qruxo+/luW/JWW3bCIeOhrgL4HLfimDOnjGAqGKPYwf54vK802/F
+         vw3NBkg/3fA7+HF/B9Vx+/qG3G4MXlMLjO5Txwed1p+0/WgjKbPyY6DeFphX1H+4xsW0
+         SAWg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEC68d+7vFGy2bLPt+/Gj52aECXvi7ELeyfQZ6Sp3tZy3jJtcPjKO1dyF9eqbvkHJ18PqC3LSykTcRYbXJdeCZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwvAST1abVTuWopRa3biYHO2sjT5uWTl7qClDCcfp0j/RRwNxwS
+	sqpp8ofwrQQKlLxv0Y1/PLH1w7YZ2oFCiBWYGsrwK4ajm7+hoIhD0gkKcpBuzsm5MSC6MlBUBE5
+	8hbIThZlGW2XVGv9HPA==
+X-Google-Smtp-Source: AGHT+IEQXtW78/QgWwghNEF6Ze5xCQXvF/c8p86Yy8JUgqzhZp0+q+YljOi0jNJBtHSuvG1B9ZTMgCSQ9MCrQG8P
+X-Received: from wmpz20.prod.google.com ([2002:a05:600c:a14:b0:43b:d6ca:6dd3])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6000:1fa9:b0:391:c42:dbc with SMTP id ffacd0b85a97d-3911f72608amr6177818f8f.8.1741258858144;
+ Thu, 06 Mar 2025 03:00:58 -0800 (PST)
+Date: Thu,  6 Mar 2025 11:00:35 +0000
+In-Reply-To: <20250306110038.3733649-1-vdonnefort@google.com>
+Mime-Version: 1.0
+References: <20250306110038.3733649-1-vdonnefort@google.com>
+X-Mailer: git-send-email 2.48.1.711.g2feabab25a-goog
+Message-ID: <20250306110038.3733649-7-vdonnefort@google.com>
+Subject: [PATCH v2 6/9] KVM: arm64: Convert pkvm_mappings to interval tree
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_033107_391034_4D5E1EDB 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_030100_596991_2BC3C59A 
+X-CRM114-Status: GOOD (  16.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,28 +92,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+From: Quentin Perret <qperret@google.com>
 
-On 27/02/2025 14:37, Russell King (Oracle) wrote:
-> Hi,
-> 
-> This series is likely dependent on the "net: stmmac: cleanup transmit
-> clock setting" series which was submitted earlier today.
+In preparation for supporting stage-2 huge mappings for np-guest, let's
+convert pgt.pkvm_mappings to an interval tree.
 
-I tested this series without the above on top of mainline and I still 
-saw some issues with suspend. However, when testing this on top of -next 
-(which has the referenced series) it works like a charm. So yes it does 
-appear to be dependent indeed.
+No functional change intended.
 
-I have tested this on Tegra186, Tegra194 and Tegra234 with -next and all 
-are working fine. So with that feel free to add my ...
+Suggested-by: Vincent Donnefort <vdonnefort@google.com>
+Signed-off-by: Quentin Perret <qperret@google.com>
+Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-Tested-by: Jon Hunter <jonathanh@nvidia.com>
-
-Thanks!
-Jon
-
+diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+index 6b9d274052c7..1b43bcd2a679 100644
+--- a/arch/arm64/include/asm/kvm_pgtable.h
++++ b/arch/arm64/include/asm/kvm_pgtable.h
+@@ -413,7 +413,7 @@ static inline bool kvm_pgtable_walk_lock_held(void)
+  */
+ struct kvm_pgtable {
+ 	union {
+-		struct rb_root					pkvm_mappings;
++		struct rb_root_cached				pkvm_mappings;
+ 		struct {
+ 			u32					ia_bits;
+ 			s8					start_level;
+diff --git a/arch/arm64/include/asm/kvm_pkvm.h b/arch/arm64/include/asm/kvm_pkvm.h
+index eb65f12e81d9..f0d52efb858e 100644
+--- a/arch/arm64/include/asm/kvm_pkvm.h
++++ b/arch/arm64/include/asm/kvm_pkvm.h
+@@ -166,6 +166,7 @@ struct pkvm_mapping {
+ 	struct rb_node node;
+ 	u64 gfn;
+ 	u64 pfn;
++	u64 __subtree_last;	/* Internal member for interval tree */
+ };
+ 
+ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 2eb1cc30124e..da637c565ac9 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -5,6 +5,7 @@
+  */
+ 
+ #include <linux/init.h>
++#include <linux/interval_tree_generic.h>
+ #include <linux/kmemleak.h>
+ #include <linux/kvm_host.h>
+ #include <asm/kvm_mmu.h>
+@@ -270,80 +271,63 @@ static int __init finalize_pkvm(void)
+ }
+ device_initcall_sync(finalize_pkvm);
+ 
+-static int cmp_mappings(struct rb_node *node, const struct rb_node *parent)
++static u64 __pkvm_mapping_start(struct pkvm_mapping *m)
+ {
+-	struct pkvm_mapping *a = rb_entry(node, struct pkvm_mapping, node);
+-	struct pkvm_mapping *b = rb_entry(parent, struct pkvm_mapping, node);
+-
+-	if (a->gfn < b->gfn)
+-		return -1;
+-	if (a->gfn > b->gfn)
+-		return 1;
+-	return 0;
++	return m->gfn * PAGE_SIZE;
+ }
+ 
+-static struct rb_node *find_first_mapping_node(struct rb_root *root, u64 gfn)
++static u64 __pkvm_mapping_end(struct pkvm_mapping *m)
+ {
+-	struct rb_node *node = root->rb_node, *prev = NULL;
+-	struct pkvm_mapping *mapping;
+-
+-	while (node) {
+-		mapping = rb_entry(node, struct pkvm_mapping, node);
+-		if (mapping->gfn == gfn)
+-			return node;
+-		prev = node;
+-		node = (gfn < mapping->gfn) ? node->rb_left : node->rb_right;
+-	}
+-
+-	return prev;
++	return (m->gfn + 1) * PAGE_SIZE - 1;
+ }
+ 
+-/*
+- * __tmp is updated to rb_next(__tmp) *before* entering the body of the loop to allow freeing
+- * of __map inline.
+- */
++INTERVAL_TREE_DEFINE(struct pkvm_mapping, node, u64, __subtree_last,
++		     __pkvm_mapping_start, __pkvm_mapping_end, static,
++		     pkvm_mapping);
++
+ #define for_each_mapping_in_range_safe(__pgt, __start, __end, __map)				\
+-	for (struct rb_node *__tmp = find_first_mapping_node(&(__pgt)->pkvm_mappings,		\
+-							     ((__start) >> PAGE_SHIFT));	\
++	for (struct pkvm_mapping *__tmp = pkvm_mapping_iter_first(&(__pgt)->pkvm_mappings,	\
++								  __start, __end - 1);		\
+ 	     __tmp && ({									\
+-				__map = rb_entry(__tmp, struct pkvm_mapping, node);		\
+-				__tmp = rb_next(__tmp);						\
++				__map = __tmp;							\
++				__tmp = pkvm_mapping_iter_next(__map, __start, __end - 1);	\
+ 				true;								\
+ 		       });									\
+-	    )											\
+-		if (__map->gfn < ((__start) >> PAGE_SHIFT))					\
+-			continue;								\
+-		else if (__map->gfn >= ((__end) >> PAGE_SHIFT))					\
+-			break;									\
+-		else
++	    )
+ 
+ int pkvm_pgtable_stage2_init(struct kvm_pgtable *pgt, struct kvm_s2_mmu *mmu,
+ 			     struct kvm_pgtable_mm_ops *mm_ops)
+ {
+-	pgt->pkvm_mappings	= RB_ROOT;
++	pgt->pkvm_mappings	= RB_ROOT_CACHED;
+ 	pgt->mmu		= mmu;
+ 
+ 	return 0;
+ }
+ 
+-void pkvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
++static int __pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 start, u64 end)
+ {
+ 	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+ 	pkvm_handle_t handle = kvm->arch.pkvm.handle;
+ 	struct pkvm_mapping *mapping;
+-	struct rb_node *node;
++	int ret;
+ 
+ 	if (!handle)
+-		return;
++		return 0;
+ 
+-	node = rb_first(&pgt->pkvm_mappings);
+-	while (node) {
+-		mapping = rb_entry(node, struct pkvm_mapping, node);
+-		kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn);
+-		node = rb_next(node);
+-		rb_erase(&mapping->node, &pgt->pkvm_mappings);
++	for_each_mapping_in_range_safe(pgt, start, end, mapping) {
++		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn, 1);
++		if (WARN_ON(ret))
++			return ret;
++		pkvm_mapping_remove(mapping, &pgt->pkvm_mappings);
+ 		kfree(mapping);
+ 	}
++
++	return 0;
++}
++
++void pkvm_pgtable_stage2_destroy(struct kvm_pgtable *pgt)
++{
++	__pkvm_pgtable_stage2_unmap(pgt, 0, ~(0ULL));
+ }
+ 
+ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+@@ -371,28 +355,16 @@ int pkvm_pgtable_stage2_map(struct kvm_pgtable *pgt, u64 addr, u64 size,
+ 	swap(mapping, cache->mapping);
+ 	mapping->gfn = gfn;
+ 	mapping->pfn = pfn;
+-	WARN_ON(rb_find_add(&mapping->node, &pgt->pkvm_mappings, cmp_mappings));
++	pkvm_mapping_insert(mapping, &pgt->pkvm_mappings);
+ 
+ 	return ret;
+ }
+ 
+ int pkvm_pgtable_stage2_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size)
+ {
+-	struct kvm *kvm = kvm_s2_mmu_to_kvm(pgt->mmu);
+-	pkvm_handle_t handle = kvm->arch.pkvm.handle;
+-	struct pkvm_mapping *mapping;
+-	int ret = 0;
++	lockdep_assert_held_write(&kvm_s2_mmu_to_kvm(pgt->mmu)->mmu_lock);
+ 
+-	lockdep_assert_held_write(&kvm->mmu_lock);
+-	for_each_mapping_in_range_safe(pgt, addr, addr + size, mapping) {
+-		ret = kvm_call_hyp_nvhe(__pkvm_host_unshare_guest, handle, mapping->gfn, 1);
+-		if (WARN_ON(ret))
+-			break;
+-		rb_erase(&mapping->node, &pgt->pkvm_mappings);
+-		kfree(mapping);
+-	}
+-
+-	return ret;
++	return __pkvm_pgtable_stage2_unmap(pgt, addr, addr + size);
+ }
+ 
+ int pkvm_pgtable_stage2_wrprotect(struct kvm_pgtable *pgt, u64 addr, u64 size)
 -- 
-nvpublic
+2.48.1.711.g2feabab25a-goog
 
 
