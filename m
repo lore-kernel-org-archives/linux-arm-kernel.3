@@ -4,94 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 303ADC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:48:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C49B0C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:50:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mcl6sGfOXxz2wVCK7AnSLNHITansIH0yOzXR+7u97no=; b=W7WlcqEPzBEs6uu1FC2gjDiVWO
-	zrt6GjWZmf0nVZ05FvkoXzQwHJv+LAixVMwixGV4mkhxScF4OFtfKIXh7OdC/sCZk8YIuQ1UjMUjK
-	JvQLKRykdOCbcnJYIwYkxK8Nb3rC0M/1wCvQ5/6waxRn+Qu0YB4xcXTJpNIlVJTaBmYUsD6R9HmBk
-	sbshNIqZjRi8Qo3sxkUvk3/G2pHRUMkMOgI/pTyU3k47iqegUtViqIudf6pdCMfWSD7TfNSRLJEPR
-	xAsUdc6qPTMagBg5/0YhKq+Vsmk94uDtub0q9ITVoZBeZ8o3jh4CElnRQB67n8vI7S7Ah0tuBOEK/
-	DKTGZYpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=exM5WeQf7V88qX4aXEQgDj3AKfapiBe/11rzDjhEwBc=; b=O60ADSoovGS2N/QkLaZRAjamkX
+	SRs3xi1UyxEa30kLIgqohzWWuIrJinPpS0k2fc/OH2WPp0vfCqvAmZgVbrD4LN4CZ7PiALvvYRRZm
+	nA9BLEi+9K/+f62v1lXQ0dwmcy0J1H54tofo7SMrigW4RodVYkX999Ax1DKslF8/GlS/BYuFIiCZe
+	z8kAqyLdE4SRwedP5gHHjWAfAlCSz9umASjS9zOZl2yBbcqVohQfZHxl6Jb/AFhtRJYjQjJMhdtu9
+	URVuVnrmjsakvoVT1X5BTeHy3ZzcEAfx42jJJHrDNVqE7C+IMs7vEF4mLK7SSdDJ/4c1qxJaB2FA0
+	wuTDo41A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6uI-0000000ANwO-0OOH;
-	Thu, 06 Mar 2025 08:48:42 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tq6vr-0000000AOGA-3ZXJ;
+	Thu, 06 Mar 2025 08:50:19 +0000
+Received: from mail-wm1-x32e.google.com ([2a00:1450:4864:20::32e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6oV-0000000AN0K-1koO
+	id 1tq6re-0000000ANef-1Wqs
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:42:45 +0000
-Received: from pps.filterd (m0046661.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5267Sk7N015077;
-	Thu, 6 Mar 2025 09:42:28 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	mcl6sGfOXxz2wVCK7AnSLNHITansIH0yOzXR+7u97no=; b=xAzJdlwnXlBNm1Wa
-	7Ife+ee+VgwahclxL70yp7tvaLJa4H1ObaqD15ZCyqlBMH8sFnRdZUvn31Mp/SYY
-	A6pIR/FJjc7B6PXCWpy9ykshds9Lejm8g+cCQeGONwjQjacbntQuag08ox4s2mY8
-	ddSQ/IRWGPpgvpnKCy7O/ZJ9kLoESBL6G08fUFrN7asYyBbMFxOJt7yJNxjYNB+k
-	iILuXTz1faI7GfE3vI91cHBsKtfVb54RKddtFw73nEowe2PMhzDlVNnwOq6/WEbb
-	xLIadHIi8b/hnQpaRc5nb2vNJe8YRQrNEGYudS/Re0U0EgUNScrj9SFkBxGHFMvf
-	Xt/NHA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 456krth50w-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Mar 2025 09:42:28 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 54F7C40052;
-	Thu,  6 Mar 2025 09:41:17 +0100 (CET)
-Received: from Webmail-eu.st.com (eqndag1node5.st.com [10.75.129.134])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 83009441E5C;
-	Thu,  6 Mar 2025 09:40:12 +0100 (CET)
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNDAG1NODE5.st.com
- (10.75.129.134) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Mar
- 2025 09:40:12 +0100
-Received: from [10.48.86.222] (10.48.86.222) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Thu, 6 Mar
- 2025 09:40:11 +0100
-Message-ID: <32aad66e-a9ae-493a-8bea-a06e096c88f2@foss.st.com>
-Date: Thu, 6 Mar 2025 09:40:10 +0100
+	Thu, 06 Mar 2025 08:45:59 +0000
+Received: by mail-wm1-x32e.google.com with SMTP id 5b1f17b1804b1-43bcf9612f4so2940115e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 00:45:57 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741250756; x=1741855556; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=exM5WeQf7V88qX4aXEQgDj3AKfapiBe/11rzDjhEwBc=;
+        b=ylPVirzKYl3TNJSps4mD8gBkWvlrFC8iaVe5Y22xkQqiezHA0/xdSx9O7n3B+69ug7
+         I/hz7oIwjNyGK2sIzaTI3mkDamCHyhNUhZhqpjF8pCVJsbDrWwFAXitipw0YIhWBcSay
+         dMPUWshJq8CmX9xNnPC05SzgOiBbbqnA15hAcmxwOcwNsCECwczc7bvWg7FOSGAKjIqi
+         4HS7sZkZINQTiXbgFpIXyvk5ZIre0ukwsMgZqKwsYb2KVUIf7eqZ+dAksQ6b85hZS/TR
+         H2e9F0tGz2y+6rrWFUyVFMDATrU5YqDQzWdM5zEOaeJI8dBm03TToNxsX6FNug8Y84h0
+         /IgQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741250756; x=1741855556;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=exM5WeQf7V88qX4aXEQgDj3AKfapiBe/11rzDjhEwBc=;
+        b=CarruKpMSKnoNfBKXZrjx+r8mlgBMxWEzjs355ClA5tgOi69f1ydqbM1bZYQZqwDgl
+         TJO+mugYtbXvFkoOfqlk3PFIOeIGJDWPIQc7F4UH0lVR44te0BdjE6SmScRROYlwGuxa
+         Df/NmNz9CUCRsHWE4g86ew2GVhpA4Wsz8HbOCrULHd8VHT9p0koomE9ysuIAyWbMmlO6
+         1L7S2hnkV34pYTTqWgD/tb/6Xc70WxdvMbLMU4eMGGwX47g9nYybpsO6oNSjTTWMxN0Q
+         8r7Grfal/aZP1Onqyy6PKsg+Q8gazogIhT3idf/E8/TSqXXCb/2eBfFh4T3WCz7IQqJ4
+         DgoA==
+X-Gm-Message-State: AOJu0YxUUp4L1GVaxz55wjDt4enXANNh8KJUz1DVr4ElqswEiRoBgi/B
+	4By5+Q2eRJGV0LsV0gpfHpGTrXIzLhuIBM2dBTk0pjpkfJFJ2D+54pjL9nnI+2I=
+X-Gm-Gg: ASbGncvL25MJUgsRunPZyrkcVyge1C7plX0WV5J/q/JgDfhdYUCUl72ZlDIVSXpXhGF
+	x3R7jE7ntysoBGNlObka+RHup4o8LzHpfD0F+gPiCyiDhKs2nD6PAIHC2HmPCuinFPPEl4UKBgO
+	YlP68b+rgozoqR2dqZSM0/rUAvUKXKEUdDR2qznn6r8RLQ8iSHC/0pnJ13TbxUIeWca1XGEom1m
+	ITS6jSlSiqvNX8pyQP88kudYfovHglKg3tgKbEoTRoeHzCupuKLyJxl6I/C3UUoKO+5M9nUR35f
+	sUwJFJkm9w4Z0lmhj75P8RmQdtRHNCnBEarUOrBk9fg=
+X-Google-Smtp-Source: AGHT+IHDs91S0oaws6PWoor39yct8o1C0NI6ivNX/zDIW11OE8J6I3CdTUAnY4C9EKwnKsz0wC36kw==
+X-Received: by 2002:a05:600c:450a:b0:439:9a43:dd62 with SMTP id 5b1f17b1804b1-43bd2ae5de9mr46019805e9.24.1741250756015;
+        Thu, 06 Mar 2025 00:45:56 -0800 (PST)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:ce13:b3e4:d0d:c6a2])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bdd8dbb2fsm12631655e9.20.2025.03.06.00.45.55
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 06 Mar 2025 00:45:55 -0800 (PST)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Thomas Gleixner <tglx@linutronix.de>,
+	Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [PATCH] irqchip: davinci: remove leftover header
+Date: Thu,  6 Mar 2025 09:45:52 +0100
+Message-ID: <20250306084552.15894-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/8] iio: trigger: stm32-lptimer: add support for
- stm32mp25
-To: Jonathan Cameron <jic23@kernel.org>
-CC: <lee@kernel.org>, <ukleinek@kernel.org>, <alexandre.torgue@foss.st.com>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <daniel.lezcano@linaro.org>, <tglx@linutronix.de>,
-        <catalin.marinas@arm.com>, <will@kernel.org>,
-        <devicetree@vger.kernel.org>, <wbg@kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-iio@vger.kernel.org>, <linux-pwm@vger.kernel.org>,
-        <olivier.moysan@foss.st.com>
-References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
- <20250305094935.595667-4-fabrice.gasnier@foss.st.com>
- <20250305144539.54a75689@jic23-huawei>
-Content-Language: en-US
-From: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-In-Reply-To: <20250305144539.54a75689@jic23-huawei>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.222]
-X-ClientProxiedBy: EQNCAS1NODE3.st.com (10.75.129.80) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-06_03,2025-03-06_01,2024-11-22_01
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_004243_747724_8A03062A 
-X-CRM114-Status: UNSURE (   9.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_004558_409123_1F17BEA1 
+X-CRM114-Status: GOOD (  12.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,28 +95,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/5/25 15:45, Jonathan Cameron wrote:
-> On Wed, 5 Mar 2025 10:49:30 +0100
-> Fabrice Gasnier <fabrice.gasnier@foss.st.com> wrote:
-> 
->> From: Olivier Moysan <olivier.moysan@foss.st.com>
->>
->> Add support for STM32MP25 SoC. Use newly introduced compatible to handle
->> this new HW variant. Add new trigger definitions that can be used by the
->> stm32 analog-to-digital converter. Use compatible data to identify them.
->>
->> Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
->> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> Hi. Oops I replied to v1 without looking for other versions.
-> From a quick glance feedback still applies here.
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Hi Jonathan,
+Commit fa8dede4d0a0 ("irqchip: remove davinci aintc driver") removed the
+davinci aintc driver but left behind the associated header. Remove it
+now.
 
-Thanks for reviewing, I've noticed your review comments on V1, I'll take
-care of these in next revision (v4).
+Fixes: fa8dede4d0a0 ("irqchip: remove davinci aintc driver")
+Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+---
+ include/linux/irqchip/irq-davinci-aintc.h | 27 -----------------------
+ 1 file changed, 27 deletions(-)
+ delete mode 100644 include/linux/irqchip/irq-davinci-aintc.h
 
-Best Regards,
-Fabrice
+diff --git a/include/linux/irqchip/irq-davinci-aintc.h b/include/linux/irqchip/irq-davinci-aintc.h
+deleted file mode 100644
+index ea4e087fac98..000000000000
+--- a/include/linux/irqchip/irq-davinci-aintc.h
++++ /dev/null
+@@ -1,27 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0-or-later */
+-/*
+- * Copyright (C) 2019 Texas Instruments
+- */
+-
+-#ifndef _LINUX_IRQ_DAVINCI_AINTC_
+-#define _LINUX_IRQ_DAVINCI_AINTC_
+-
+-#include <linux/ioport.h>
+-
+-/**
+- * struct davinci_aintc_config - configuration data for davinci-aintc driver.
+- *
+- * @reg: register range to map
+- * @num_irqs: number of HW interrupts supported by the controller
+- * @prios: an array of size num_irqs containing priority settings for
+- *         each interrupt
+- */
+-struct davinci_aintc_config {
+-	struct resource reg;
+-	unsigned int num_irqs;
+-	u8 *prios;
+-};
+-
+-void davinci_aintc_init(const struct davinci_aintc_config *config);
+-
+-#endif /* _LINUX_IRQ_DAVINCI_AINTC_ */
+-- 
+2.45.2
 
-> 
 
