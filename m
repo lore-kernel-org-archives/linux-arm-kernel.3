@@ -4,70 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E16C8C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:31:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78038C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:40:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8S+FMPQJh0uKY/DiMnH2uLJLnus46YRdNmqshtBkr4s=; b=lIcP7LqN/t2GjOjXJtXUEer9sf
-	j9yKzWcn2rB8icHUSXTfi8wbaR9+b6cQw02UuZPo+g6pm8t4xPUjbWAcpmBaot/3Pw7+VUvXZFHzL
-	GK3QDlTbBAiTkmDFScVo5i/68kQuqPOD5by/MPE0SbPbR7+TS/JK2bZi0xqfd71wcz20eKfWoZQ5O
-	CkSV0XQGXQHU8Tc+Xy4KlMbtcLTnKaSWhW8Yq6DFWAspjJE4GpXXGx5+rmkyEDMdLJrd70qmkeAYD
-	w0P5RIxTFs1BOTU0HCo0AzyHG9WpcxTSFgjj4tqG43vPpotPZR0VQ0pKCkXf1DmYWwpxFAB2HVbEK
-	qXUBa5vw==;
+	bh=qGiwgfzxuI2MXclU4qbyscvLNhLlFkn83tAyg3rs0P4=; b=GOqvEe2M0fkDGJoC3g1XeKTVf+
+	fNAZyIl3YylWwrs9ThlT26xYaLBfTO0EEgScdDg/9scVN1Ev/mf5QHZ1GI0NETgWNr8wufhL16Opl
+	IUfuR3FMCBh8TWGdOmoL16LBQP8YW2MfFZaUTesPQGE/RPT0+pPQDPZrz+sFUqPM+LukQM2OZj4JD
+	iNQ0ShglTQe0DXPbZ90A9r6htCMweo5ltTQ60GOCmIX9zKGwnO7qNAtuZ+hd9p2s75uJyaaLhCD88
+	uQkh2Rx4/RO1OM1b5oLKZm81e7NT6NzhoiKeB9MI80Z6POpkVUBkXThkTdnwg6ajU/y0QaKf3VXmB
+	jb8HdkKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5h5-0000000ADfo-14fy;
-	Thu, 06 Mar 2025 07:30:59 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tq5pd-0000000AENi-2IXK;
+	Thu, 06 Mar 2025 07:39:49 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5fS-0000000AD1t-2FpK
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 07:29:19 +0000
+	id 1tq5o2-0000000AEEL-1qtT;
+	Thu, 06 Mar 2025 07:38:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=qGiwgfzxuI2MXclU4qbyscvLNhLlFkn83tAyg3rs0P4=; b=njpNRtrhpZP4ZzHiIw/7ShvmPw
+	dynIWO6vl8XyBPgpCGGaKILR5sCpg+HoctcNVsFzx6BQpVXQOmgQN9iFHBxxx8VBD1O/o0aIuyTBF
+	j1tDln1VTc7kXw3CKKUSa92dkeeJSru5WKEUuWYrsxQPejvRzhpPKZCpJpiSpCMu3F24Gl91AOcsU
+	HfmYO8MefvKNxAwe9t9NjKXNP58v7iKiAFyckte2qmIRxTu5RWMHemL4LFxRBJ5lsRsEzfAwhnS5z
+	EBOhog48OU2b0cm2dp2UPcpJhjgBr+I2h+X6ViUl4co3nQR9XIK9tDc3f4jfK5bVhp2sMYhMTfbPK
+	zKdlDpag==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq5nz-00000000wzi-1UmE;
+	Thu, 06 Mar 2025 07:38:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB080A40EFC;
-	Thu,  6 Mar 2025 07:23:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78660C4CEE0;
-	Thu,  6 Mar 2025 07:29:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6EDD0A4056F;
+	Thu,  6 Mar 2025 07:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC65CC4CEE0;
+	Thu,  6 Mar 2025 07:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741246154;
-	bh=UHABwz7deCMq6VmoeOJOZCNr+1pSSgpT8myP0hHyVAA=;
+	s=k20201202; t=1741246685;
+	bh=rFPZE20n9wv4t8EMIVt3RGa0RZ2Yy2nLVqSAsVGRS+w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WjmW+W5QWjTTfJGBg1pHU0Xy8F+3x1lSda3sHWSURxiky9YUedB+h/g2fHrcuBtHN
-	 TZuFxuiMoJGvkzraI+i/F6d1q/LRfvoKJGKLm0KWnqInACm6i5Mfyj5TBwhv01A3p7
-	 LGYnc6ZqtbHFLZzJBd5W/mk09goT+Ps3G1hbGDewdL8iwbpCoxr6+xHBZt7a1Ganke
-	 p6Abpq6xfhslIvl2TPfYbyNokfI1T3eTKZJkC5ntNwR2OVtA7MG8qG6PZxjOJiVfXc
-	 jjZFSsoRAHtuHZC1ffuOQrre6Aj0LCpWU4/J1R/PohJe4RQGH4VftBAIysxMMQKtWH
-	 7+Xh6+XMbAslA==
-Message-ID: <03b14353-5d47-48de-99fd-9cc48bad5651@kernel.org>
-Date: Thu, 6 Mar 2025 08:29:06 +0100
+	b=I/6gab8a+V9MXEtW7WeV9EZmRpdko3E+eujj5dgQCdAyNbG1pUMCDD6/f3761D1ze
+	 isNClkFhOGFJMpaY5F+EH1vkmjF73NO7CQvEYYS42sETIrmfFyrXzCt4hx+88AQGGn
+	 l+yHl6jZXh/WpwT6C7mE4xMhyM/3HFzJfGuANjzGaHYY7dbPOsIq4/CCD8A1cAwJs3
+	 RKL1QFKIuH/AnumyiMcEev5XJegIEw1f+91v+yyh4tUIVRJiJubEANYUINzDaAGcNE
+	 gulwjBxT6pz4t30fYqWW1ByRHs0cX1ieI6jBK8iVHslif1yZvbsqGScL7KMHsc1Zcf
+	 PHwxtBg5ag8Tg==
+Message-ID: <20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org>
+Date: Thu, 6 Mar 2025 08:37:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add reset controller
- node
-To: Wilson Ding <dingwei@marvell.com>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "robh@kernel.org" <robh@kernel.org>
-Cc: "andrew@lunn.ch" <andrew@lunn.ch>,
- "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
- "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- Sanghoon Lee <salee@marvell.com>, Geethasowjanya Akula <gakula@marvell.com>
-References: <20250227192536.2426490-1-dingwei@marvell.com>
- <20250227192536.2426490-4-dingwei@marvell.com>
- <d085c34a-fdbf-4950-a2e3-b3d25a1c0145@kernel.org>
- <BY3PR18MB46730C150D4CB9619B3B05FBA7CC2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
- <BY3PR18MB46739700B533630D65C60808A7C82@BY3PR18MB4673.namprd18.prod.outlook.com>
- <87b9e9c3-87db-4ebe-96b0-4f04705ef6f8@kernel.org>
- <BY3PR18MB4673B4CEB60D3D21AB17B01DA7C82@BY3PR18MB4673.namprd18.prod.outlook.com>
+Subject: Re: [PATCH 4/7] ASoC: rockchip: add Serial Audio Interface (SAI)
+ driver
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Sugar Zhang <sugar.zhang@rock-chips.com>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>, kernel@collabora.com,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
+References: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
+ <20250305-rk3576-sai-v1-4-64e6cf863e9a@collabora.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -113,12 +123,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <BY3PR18MB4673B4CEB60D3D21AB17B01DA7C82@BY3PR18MB4673.namprd18.prod.outlook.com>
+In-Reply-To: <20250305-rk3576-sai-v1-4-64e6cf863e9a@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_232918_722755_3CC08C21 
-X-CRM114-Status: GOOD (  11.52  )
+X-CRM114-CacheID: sfid-20250306_073807_732246_8BFA8A68 
+X-CRM114-Status: GOOD (  20.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -133,28 +143,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 20:08, Wilson Ding wrote:
-> 
-> I did consider shrinking the syscon's register address range to
-> make the reset-controller node to be independent from the
-> syscon node. However, I found the syscon node is also referred
-> by some devices for miscellaneous configurations . The reset
-> configuration register happens to be located in between these
-> registers and clock/GPIO registers.
-> 
->> drop offset in your patch or unify everything into 'reg'.
->>
-> 
-> This is exactly what I proposed in v3 patch. Do I misunderstand
-> you?
-> 
-> CP11X_LABEL(swrst): reset-controller@268 {
-> 	compatible = "marvell,armada8k-reset";
-> 	reg = <0x268 0x4>;
-> 	#reset-cells = <1>;
-> };
+On 05/03/2025 22:24, Nicolas Frattaroli wrote:
+...
 
-I don't see the other device being fixed here. How did you unify them?
+> +
+> +static int rockchip_sai_runtime_resume(struct device *dev)
+> +{
+> +	struct rk_sai_dev *sai = dev_get_drvdata(dev);
+> +	unsigned long flags;
+> +	int ret;
+> +
+> +	dev_dbg(dev, "Runtime resuming device!\n");
+
+Drop probe entry/exit messages. Core already gives you tracing for this.
+
+> +
+> +	ret = clk_prepare_enable(sai->hclk);
+> +	if (ret)
+> +		goto err_hclk;
+> +
+> +	ret = clk_prepare_enable(sai->mclk);
+> +	if (ret)
+> +		goto err_mclk;
+> +
+> +	regcache_cache_only(sai->regmap, false);
+> +	regcache_mark_dirty(sai->regmap);
+> +	ret = regcache_sync(sai->regmap);
+> +	if (ret)
+> +		goto err_regmap;
+> +
+> +	if (sai->quirks & QUIRK_ALWAYS_ON && sai->is_master_mode) {
+> +		spin_lock_irqsave(&sai->xfer_lock, flags);
+> +		regmap_update_bits(sai->regmap, SAI_XFER,
+> +				   SAI_XFER_CLK_MASK |
+> +				   SAI_XFER_FSS_MASK,
+> +				   SAI_XFER_CLK_EN |
+> +				   SAI_XFER_FSS_EN);
+> +		spin_unlock_irqrestore(&sai->xfer_lock, flags);
+> +	}
+> +
+
+...
+
+> +
+> +	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to register PCM: %d\n", ret);
+> +		goto err_runtime_suspend;
+> +	}
+> +
+> +	ret = devm_snd_soc_register_component(&pdev->dev,
+> +					      &rockchip_sai_component,
+> +					      dai, 1);
+> +	if (ret) {
+> +		dev_err(&pdev->dev, "Failed to register component: %d\n", ret);
+> +		goto err_runtime_suspend;
+> +	}
+> +
+> +	pm_runtime_use_autosuspend(&pdev->dev);
+> +	pm_runtime_put(&pdev->dev);
+> +
+> +	/*
+> +	 * runtime_resume already enabled our hclk again, so we need to also
+> +	 * get rid of the manual enable we did earlier to balance the counts.
+> +	 */
+
+Your way of handling this is extra confusing. You rely on some other
+methods to poke the enable/disable count. It is rather expected that
+each function handles this fully, so it disables what it have enabled.
+You must not rely on PM runtime to do something with clocks which you
+now unwind.
+
+> +	clk_disable_unprepare(sai->hclk);
+> +
+> +	return 0;
+> +
+> +err_runtime_suspend:
+> +	/* If we're !CONFIG_PM, we get -ENOSYS and disable manually */
+> +	if (pm_runtime_put(&pdev->dev))
+> +		rockchip_sai_runtime_suspend(&pdev->dev);
+> +err_disable_hclk:
+> +	clk_disable_unprepare(sai->hclk);
+> +
+> +	return ret;
+> +}
+> +
+
+_device_id tables are supposed to be around probe, not beginning of the
+file.
+
+> +static void rockchip_sai_remove(struct platform_device *pdev)
+> +{
+> +#ifndef CONFIG_PM
+> +	rockchip_sai_runtime_suspend(&pdev->dev);> +#endif
+> +}
+> +
+> +static const struct dev_pm_ops rockchip_sai_pm_ops = {
+> +	SET_RUNTIME_PM_OPS(rockchip_sai_runtime_suspend, rockchip_sai_runtime_resume, NULL)
+> +	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
+> +};
+> +
+> +static struct platform_driver rockchip_sai_driver = {
+> +	.probe = rockchip_sai_probe,
+> +	.remove = rockchip_sai_remove,
+> +	.driver = {
+> +		.name = DRV_NAME,
+> +		.of_match_table = of_match_ptr(rockchip_sai_match),
+
+Drop of_match_ptr, you have warning here.
+
+> +		.pm = &rockchip_sai_pm_ops,
+> +	},
+> +};
+> +module_platform_driver(rockchip_sai_driver);
+> +
+> +MODULE_DESCRIPTION("Rockchip SAI ASoC Interface");
+> +MODULE_AUTHOR("Sugar Zhang <sugar.zhang@rock-chips.com>");
+> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
+> +MODULE_LICENSE("GPL");
+> +MODULE_ALIAS("platform:" DRV_NAME);
+
+You should not need MODULE_ALIAS() in normal cases. If you need it,
+usually it means your device ID table is wrong (e.g. misses either
+entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
+for incomplete ID table.
+
+
+> +MODULE_DEVICE_TABLE(of, rockchip_sai_match);
+
 
 Best regards,
 Krzysztof
