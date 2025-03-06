@@ -4,63 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78038C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:40:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 611B6C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 07:41:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGiwgfzxuI2MXclU4qbyscvLNhLlFkn83tAyg3rs0P4=; b=GOqvEe2M0fkDGJoC3g1XeKTVf+
-	fNAZyIl3YylWwrs9ThlT26xYaLBfTO0EEgScdDg/9scVN1Ev/mf5QHZ1GI0NETgWNr8wufhL16Opl
-	IUfuR3FMCBh8TWGdOmoL16LBQP8YW2MfFZaUTesPQGE/RPT0+pPQDPZrz+sFUqPM+LukQM2OZj4JD
-	iNQ0ShglTQe0DXPbZ90A9r6htCMweo5ltTQ60GOCmIX9zKGwnO7qNAtuZ+hd9p2s75uJyaaLhCD88
-	uQkh2Rx4/RO1OM1b5oLKZm81e7NT6NzhoiKeB9MI80Z6POpkVUBkXThkTdnwg6ajU/y0QaKf3VXmB
-	jb8HdkKw==;
+	bh=Q9+yWSQQX1ZXsLppaW5B65iMai/6pkneuNXOEtzJyxk=; b=f1Id9krWduj3HdOjUojj0VgIbT
+	WREJQMMIJGGcjgwrgNetNZC6bsa2Q+A3ehoPkpEtCHIhofhT53LFCLbUiy7ql22YXkj3kmLpZAVF/
+	zcVIOJiEsXQ+tl1c5EkwmqGk9i5YyOvQrdMYfgOrAkDT81xCSXshl/HYzDLeFWT2m9NSXu8w5qoAC
+	0CB6uYgS4FK0KHFCoa9knWTHEsfCfsDrqeIgDae3Rb/i9LDqfM/9udWtOO/xKtsNBPmdNhHNgo/gv
+	jprMOcUlpNBlP6xZiAFL1KRG2ar1uQTWIPes3C+Tb2GJcsx6oTnXk+lWFG+tEiOlSi0cDVM2qLwRJ
+	Peya7PFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5pd-0000000AENi-2IXK;
-	Thu, 06 Mar 2025 07:39:49 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tq5rD-0000000AEZI-2bDV;
+	Thu, 06 Mar 2025 07:41:27 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5o2-0000000AEEL-1qtT;
-	Thu, 06 Mar 2025 07:38:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qGiwgfzxuI2MXclU4qbyscvLNhLlFkn83tAyg3rs0P4=; b=njpNRtrhpZP4ZzHiIw/7ShvmPw
-	dynIWO6vl8XyBPgpCGGaKILR5sCpg+HoctcNVsFzx6BQpVXQOmgQN9iFHBxxx8VBD1O/o0aIuyTBF
-	j1tDln1VTc7kXw3CKKUSa92dkeeJSru5WKEUuWYrsxQPejvRzhpPKZCpJpiSpCMu3F24Gl91AOcsU
-	HfmYO8MefvKNxAwe9t9NjKXNP58v7iKiAFyckte2qmIRxTu5RWMHemL4LFxRBJ5lsRsEzfAwhnS5z
-	EBOhog48OU2b0cm2dp2UPcpJhjgBr+I2h+X6ViUl4co3nQR9XIK9tDc3f4jfK5bVhp2sMYhMTfbPK
-	zKdlDpag==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq5nz-00000000wzi-1UmE;
-	Thu, 06 Mar 2025 07:38:09 +0000
+	id 1tq5p0-0000000AEJq-3FMK;
+	Thu, 06 Mar 2025 07:39:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6EDD0A4056F;
-	Thu,  6 Mar 2025 07:32:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC65CC4CEE0;
-	Thu,  6 Mar 2025 07:37:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id C69BC5C20FE;
+	Thu,  6 Mar 2025 07:36:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DAA41C4CEE0;
+	Thu,  6 Mar 2025 07:39:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741246685;
-	bh=rFPZE20n9wv4t8EMIVt3RGa0RZ2Yy2nLVqSAsVGRS+w=;
+	s=k20201202; t=1741246749;
+	bh=yd3hdP6ibVhZ0o9gpyI7jYeuazV3JKJBYYbwXbdhElQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I/6gab8a+V9MXEtW7WeV9EZmRpdko3E+eujj5dgQCdAyNbG1pUMCDD6/f3761D1ze
-	 isNClkFhOGFJMpaY5F+EH1vkmjF73NO7CQvEYYS42sETIrmfFyrXzCt4hx+88AQGGn
-	 l+yHl6jZXh/WpwT6C7mE4xMhyM/3HFzJfGuANjzGaHYY7dbPOsIq4/CCD8A1cAwJs3
-	 RKL1QFKIuH/AnumyiMcEev5XJegIEw1f+91v+yyh4tUIVRJiJubEANYUINzDaAGcNE
-	 gulwjBxT6pz4t30fYqWW1ByRHs0cX1ieI6jBK8iVHslif1yZvbsqGScL7KMHsc1Zcf
-	 PHwxtBg5ag8Tg==
-Message-ID: <20e4754b-ea9a-404d-b529-ec44a7263cbf@kernel.org>
-Date: Thu, 6 Mar 2025 08:37:54 +0100
+	b=S1uzu+FAiSnXxlTXQGpeLzsWUk7zlQbDkuzmCNlLvoPzLxL+qmXr4LdqcJIrQ8mF7
+	 pZIeq1whJE3PQHITv+La936/noeutrnSBbkLvbKZRV4XupZqV7c4IZXJlR9xkSzj1/
+	 78FZAoiC1/zUNJRq0ACuHdXOsLT9kSa1p1fwFVYtFBDCMwTIog+Rv9ODu/CfbNgQps
+	 4HjycScgYW2NtqizEyqrEw9bHW/XaF9+41I6S+p92aDm+88umt9/FpK27aFfzktG7Y
+	 ALBkCCIdTfvG9ZEfHEF4UwNHteXY9SoSYWJJV0+AJuQcEbgmO+LgkZfZdphimSqGio
+	 g/8hlpArIbDcQ==
+Message-ID: <295caed0-7db6-4b87-9991-e4b7e7621f38@kernel.org>
+Date: Thu, 6 Mar 2025 08:38:58 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/7] ASoC: rockchip: add Serial Audio Interface (SAI)
- driver
+Subject: Re: [PATCH 1/7] dt-bindings: clock: rk3576: add IOC gated clocks
 To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
  <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -77,9 +62,9 @@ Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>,
  linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
  linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org
 References: <20250305-rk3576-sai-v1-0-64e6cf863e9a@collabora.com>
- <20250305-rk3576-sai-v1-4-64e6cf863e9a@collabora.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+ <20250305-rk3576-sai-v1-1-64e6cf863e9a@collabora.com>
 Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
  xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
  cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
@@ -123,12 +108,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250305-rk3576-sai-v1-4-64e6cf863e9a@collabora.com>
+In-Reply-To: <20250305-rk3576-sai-v1-1-64e6cf863e9a@collabora.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_073807_732246_8BFA8A68 
-X-CRM114-Status: GOOD (  20.73  )
+X-CRM114-CacheID: sfid-20250305_233910_982573_B1198BF5 
+X-CRM114-Status: UNSURE (   7.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,133 +130,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 05/03/2025 22:24, Nicolas Frattaroli wrote:
-...
+> Certain clocks on the RK3576 are additionally essentially "gated" behind
+> some bit toggles in the IOC GRF range. Downstream ungates these by
+> adding a separate clock driver that maps over the GRF range and leaks
+> their implementation of this into the DT.
+> 
 
-> +
-> +static int rockchip_sai_runtime_resume(struct device *dev)
-> +{
-> +	struct rk_sai_dev *sai = dev_get_drvdata(dev);
-> +	unsigned long flags;
-> +	int ret;
-> +
-> +	dev_dbg(dev, "Runtime resuming device!\n");
-
-Drop probe entry/exit messages. Core already gives you tracing for this.
-
-> +
-> +	ret = clk_prepare_enable(sai->hclk);
-> +	if (ret)
-> +		goto err_hclk;
-> +
-> +	ret = clk_prepare_enable(sai->mclk);
-> +	if (ret)
-> +		goto err_mclk;
-> +
-> +	regcache_cache_only(sai->regmap, false);
-> +	regcache_mark_dirty(sai->regmap);
-> +	ret = regcache_sync(sai->regmap);
-> +	if (ret)
-> +		goto err_regmap;
-> +
-> +	if (sai->quirks & QUIRK_ALWAYS_ON && sai->is_master_mode) {
-> +		spin_lock_irqsave(&sai->xfer_lock, flags);
-> +		regmap_update_bits(sai->regmap, SAI_XFER,
-> +				   SAI_XFER_CLK_MASK |
-> +				   SAI_XFER_FSS_MASK,
-> +				   SAI_XFER_CLK_EN |
-> +				   SAI_XFER_FSS_EN);
-> +		spin_unlock_irqrestore(&sai->xfer_lock, flags);
-> +	}
-> +
-
-...
-
-> +
-> +	ret = devm_snd_dmaengine_pcm_register(&pdev->dev, NULL, 0);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Failed to register PCM: %d\n", ret);
-> +		goto err_runtime_suspend;
-> +	}
-> +
-> +	ret = devm_snd_soc_register_component(&pdev->dev,
-> +					      &rockchip_sai_component,
-> +					      dai, 1);
-> +	if (ret) {
-> +		dev_err(&pdev->dev, "Failed to register component: %d\n", ret);
-> +		goto err_runtime_suspend;
-> +	}
-> +
-> +	pm_runtime_use_autosuspend(&pdev->dev);
-> +	pm_runtime_put(&pdev->dev);
-> +
-> +	/*
-> +	 * runtime_resume already enabled our hclk again, so we need to also
-> +	 * get rid of the manual enable we did earlier to balance the counts.
-> +	 */
-
-Your way of handling this is extra confusing. You rely on some other
-methods to poke the enable/disable count. It is rather expected that
-each function handles this fully, so it disables what it have enabled.
-You must not rely on PM runtime to do something with clocks which you
-now unwind.
-
-> +	clk_disable_unprepare(sai->hclk);
-> +
-> +	return 0;
-> +
-> +err_runtime_suspend:
-> +	/* If we're !CONFIG_PM, we get -ENOSYS and disable manually */
-> +	if (pm_runtime_put(&pdev->dev))
-> +		rockchip_sai_runtime_suspend(&pdev->dev);
-> +err_disable_hclk:
-> +	clk_disable_unprepare(sai->hclk);
-> +
-> +	return ret;
-> +}
-> +
-
-_device_id tables are supposed to be around probe, not beginning of the
-file.
-
-> +static void rockchip_sai_remove(struct platform_device *pdev)
-> +{
-> +#ifndef CONFIG_PM
-> +	rockchip_sai_runtime_suspend(&pdev->dev);> +#endif
-> +}
-> +
-> +static const struct dev_pm_ops rockchip_sai_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(rockchip_sai_runtime_suspend, rockchip_sai_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(pm_runtime_force_suspend, pm_runtime_force_resume)
-> +};
-> +
-> +static struct platform_driver rockchip_sai_driver = {
-> +	.probe = rockchip_sai_probe,
-> +	.remove = rockchip_sai_remove,
-> +	.driver = {
-> +		.name = DRV_NAME,
-> +		.of_match_table = of_match_ptr(rockchip_sai_match),
-
-Drop of_match_ptr, you have warning here.
-
-> +		.pm = &rockchip_sai_pm_ops,
-> +	},
-> +};
-> +module_platform_driver(rockchip_sai_driver);
-> +
-> +MODULE_DESCRIPTION("Rockchip SAI ASoC Interface");
-> +MODULE_AUTHOR("Sugar Zhang <sugar.zhang@rock-chips.com>");
-> +MODULE_AUTHOR("Nicolas Frattaroli <nicolas.frattaroli@collabora.com>");
-> +MODULE_LICENSE("GPL");
-> +MODULE_ALIAS("platform:" DRV_NAME);
-
-You should not need MODULE_ALIAS() in normal cases. If you need it,
-usually it means your device ID table is wrong (e.g. misses either
-entries or MODULE_DEVICE_TABLE()). MODULE_ALIAS() is not a substitute
-for incomplete ID table.
-
-
-> +MODULE_DEVICE_TABLE(of, rockchip_sai_match);
-
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
