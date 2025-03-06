@@ -4,101 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F06C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:50:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0BD10C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:52:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:References:
-	In-Reply-To:Message-ID:To:From:Date:Reply-To:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=F58zD1KPXjvS97YM9EyLtNejKNfhEHL4YP2fhCSVYAI=; b=iSIUoqSPO3V7tM
-	guhx3FEUrfHcgGaAGy1+zZ05jOxoF5HG8TxTjetkXXHlY/5kUGQqMKBojCBRkMf1Q6yqL7MgsY4UL
-	blbcJn0eT6Pvae98OEBQBt3pLaxx4+V6Sze8HujvElC835WO+JKM/KEmmjwI9603AaZljxcMyVKht
-	nJjVzYFp7Pw9imE5SJyAiadGtgnhkRycIMKyhYR9CY9iqS5EofzuDC7B2uem+LJmsNWj3mE4q5obT
-	QvhsZl4qfmlG+53RW5UyLQi3N8SBCptyJvh/HhcithVdHgWabwU5hqXijWXjAK7l7XCc4IJePyrGT
-	4tCgb4/oH7BDVX+pqRsw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eNQAhRGX/wh34NPimgYMcgnXW/agDCzGruasLJVYJVs=; b=IiJ8FmBXgOJpPlN+tGpydXpoVY
+	LCocMnBf79EKuHWWU/fisYI45EoLBM/AEp8vF5oT56PZAVfGagE/wzUNJVViLnnkURpHEdo7be2Rf
+	bpwLbGwKcMfGfIUJ0m2WvEgCXeebu94ps5gROoZpJ6dRAtzhheqJwCwwRb7XDz7ldxA7Te7spAwsB
+	BgXwzFthBVq+PHHn7C40a2nmKvpW8E5zjn/NqymBXVXYAfHJwMHXQ5RrcJ3WxXqEt5EqEocQs/J8t
+	qwAWTwUgEUFn/b/PN/QR7H4PF/IpMWBOqOp3EIR2YP8OCjgE6BIR+SHx1rJdMEqOWvsb+Z1VbCMbB
+	UeryEc7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBcL-0000000B6ne-1Btn;
-	Thu, 06 Mar 2025 13:50:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tqBdu-0000000B76w-41Ju;
+	Thu, 06 Mar 2025 13:52:06 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBWC-0000000B5dK-2pTl
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 13:44:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=F58zD1KPXjvS97YM9EyLtNejKNfhEHL4YP2fhCSVYAI=; b=DDPDAN/Rc5SfJsR0zihLgneYQ7
-	yBkKxPDWYALvWTOa+Fmtxzm3wogSzRiEuu3lsK+pywBjqI/O0LzxIFP/QqsTjpcWsBeMOAJLSyziz
-	e2zYWbAkFrStkVyCj9hKzzYfdMH3jfgosghgmVNyPvFudadpMkt/h+kwJg06rKH/UZcm+sy7bLuQq
-	SPrLVgGxMRjZgmnlLI0YR1zvOCY5I8SNkfHQ3xqgFqRo4kRMqm8B/ulpfgZfKMvEVDvPGRDMCy6Li
-	u98iYMGR24qg8kHq7qtBItSjUs0RiWVLECuWUe/kIG3m43EOePHJEaEe1a4dst2FgkVhWJJSW3qRP
-	kAxHJlWQ==;
-Received: from server.wki.vra.mybluehostin.me ([162.240.238.73])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBW8-000000016V5-3PHZ
+	id 1tqBWy-0000000B5je-0jBp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 13:44:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
-	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
-	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=F58zD1KPXjvS97YM9EyLtNejKNfhEHL4YP2fhCSVYAI=; b=GLNF7/vViLVas2l4dYtlA7nzRv
-	VN37Fu9gMHnjYGhgF8QsrXLgZ/Nn+taCvR1fBkOZ1I4NijVwkTB88HB85SYt3EbOg/P/qtBv73B2B
-	u8xH8lsIA6U9QMt1QWKe28dusvfqVf+fwj14n57KayEt81Tj+TiBqQUVip/cZS50PhKs1HP0YMA0+
-	nm/Dj95s1UkxuaxSP3LuLPMddc3v6VYQvcdpvM2AyPC8yGWl/Q63y9TCHEM3PdlR/nhBbD9YJX/tZ
-	4vBfHQ65x4JFJ3V4G305lalGh5kIQhROwSZBSKWItn8nYbRMw6y+kWnwp0i6XuTtcUFJlHSLBnBt4
-	OCCAuqFw==;
-Received: from [122.175.9.182] (port=34841 helo=zimbra.couthit.local)
-	by server.wki.vra.mybluehostin.me with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.1)
-	(envelope-from <parvathi@couthit.com>)
-	id 1tqBVL-0000000020s-0x6M;
-	Thu, 06 Mar 2025 19:13:15 +0530
-Received: from zimbra.couthit.local (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTPS id B5E4E178247D;
-	Thu,  6 Mar 2025 19:13:06 +0530 (IST)
-Received: from localhost (localhost [127.0.0.1])
-	by zimbra.couthit.local (Postfix) with ESMTP id 955EC1781E38;
-	Thu,  6 Mar 2025 19:13:06 +0530 (IST)
-Received: from zimbra.couthit.local ([127.0.0.1])
-	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id Fa2jILuXZBoo; Thu,  6 Mar 2025 19:13:06 +0530 (IST)
-Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
-	by zimbra.couthit.local (Postfix) with ESMTP id 547BC1781C4E;
-	Thu,  6 Mar 2025 19:13:06 +0530 (IST)
-Date: Thu, 6 Mar 2025 19:13:06 +0530 (IST)
-From: Parvathi Pudi <parvathi@couthit.com>
-To: nm <nm@ti.com>
-Message-ID: <1229872038.768025.1741268586173.JavaMail.zimbra@couthit.local>
-In-Reply-To: <506678778.717678.1740740287558.JavaMail.zimbra@couthit.local>
-References: <20250214054702.1073139-1-parvathi@couthit.com> <20250226184408.d4gpr3uu2dm7oxa2@handwork> <506678778.717678.1740740287558.JavaMail.zimbra@couthit.local>
-Subject: Re: [PATCH net-next v3 00/10] PRU-ICSSM Ethernet Driver
+	Thu, 06 Mar 2025 13:44:57 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id B74E3A0C5E;
+	Thu,  6 Mar 2025 14:44:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=eNQAhRGX/wh34NPimgYM
+	cgnXW/agDCzGruasLJVYJVs=; b=O+F9Cfm/viKK3zcMxZNg+2mYzecMbzAGFR21
+	E3wb/NULHc7hwYf2jpgbKjs6iwbHIlMKIILKUo/wpuWoaVCdCd9GGzwT2sAk5Iew
+	4VkrGRdjYHuN0lM95Li2PDAnYu09Cay/JFfNFs9yXxDG8h4/3SDgzsTKhAmuf4U4
+	/WPhyZEP7HED0O2GrJ8mdZXB0Vfu5uuTsZsRb8GH9CmUCcB7ULSZ4IdarsOL5FNo
+	tAMBd3ClQ/sQBWBzDx1WFbG6S8gM5+uRxWqiAKqVzz3LSMRlOeZEyVef25SgryL2
+	BztuEDEiISIBM+2k/9B03oHi2rynoP/59WQffyjSfOXzTOVOvKVQ/pszptVdMbvu
+	JZGhG1sCb8V4e1+dG4fG0eAXWXp4aHXG7LcsMdo6tia597MH+86QTTXYTSLArM8R
+	LAYOHGBcQTZN0yKU/fpeFviKdIqzq+MUXQgTl5DVd/IUaFMqOKGNjlsI5VAUaNbV
+	ZKuhhvzC1CNUjGyHnrnqfZ61MuRnsT8HEa6Z502im+WYQixhXWQOZGsU0CXQ/afQ
+	fuIMLnNAPOT9cjhHvx3ZKybhT2o3F6EhwzKfr4w8GdM5XQDx1feKHt9COgZIGMU2
+	SIl+9FGG3KPvB8bTWE/w5e2hSPHervFXsYVQCCh/n4cnTaCB/7n/Pmg3Wc5rX8RX
+	LDHu3K0=
+From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
+To: <linux-arm-kernel@lists.infradead.org>, <linux-iio@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "William
+ Breathitt Gray" <wbg@kernel.org>, Kamel Bouhara <kamel.bouhara@bootlin.com>
+Subject: [PATCH v8 2/2] counter: microchip-tcb-capture: Add capture extensions for registers RA/RB
+Date: Thu, 6 Mar 2025 14:44:37 +0100
+Message-ID: <20250306134441.582819-3-csokas.bence@prolan.hu>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250306134441.582819-1-csokas.bence@prolan.hu>
+References: <20250306134441.582819-1-csokas.bence@prolan.hu>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.10.10.103]
-X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - FF113 (Linux)/8.8.15_GA_3968)
-Thread-Topic: PRU-ICSSM Ethernet Driver
-Thread-Index: IPUW/PB0LmhbxyH+Oxy+FoQN15s69iwVZZVb
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - server.wki.vra.mybluehostin.me
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - couthit.com
-X-Get-Message-Sender-Via: server.wki.vra.mybluehostin.me: authenticated_id: smtp@couthit.com
-X-Authenticated-Sender: server.wki.vra.mybluehostin.me: smtp@couthit.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1741268685;VERSION=7985;MC=3713256715;ID=1566298;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
+X-ESET-Antispam: OK
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852637C6A
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_134405_413544_FE684034 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250306_054456_654036_81E9D22D 
+X-CRM114-Status: GOOD (  13.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,59 +78,138 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, edumazet <edumazet@google.com>, krishna <krishna@couthit.com>, pmohan <pmohan@couthit.com>, diogo ivo <diogo.ivo@siemens.com>, robh <robh@kernel.org>, javier carrasco cruz <javier.carrasco.cruz@gmail.com>, m-karicheri2 <m-karicheri2@ti.com>, basharath <basharath@couthit.com>, kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, devicetree <devicetree@vger.kernel.org>, conor+dt <conor+dt@kernel.org>, schnelle <schnelle@linux.ibm.com>, mohan <mohan@couthit.com>, richardcochran <richardcochran@gmail.com>, Prajith Jayarajan <prajith@ti.com>, rogerq <rogerq@kernel.org>, jacob e keller <jacob.e.keller@intel.com>, ssantosh <ssantosh@kernel.org>, linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, rogerq <rogerq@ti.com>, srk <srk@ti.com>, pratheesh <pratheesh@ti.com>, m-malladi <m-malladi@ti.com>, netdev <netdev@vger.kernel.org>, linux-kernel <linux-kernel@vger.kernel.org>, danishanwar <danishanwar@ti.com>, afd <afd@ti.com>, andrew+netdev <andrew+netdev@lunn.ch>, horms <horms@kernel.org>, krzk+dt <krzk+dt@kernel.org>, davem <davem@davemloft.net>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+TCB hardware is capable of capturing the timer value to registers RA and
+RB. Add these registers as capture extensions.
 
->> On 11:16-20250214, parvathi wrote:
->> [...]
->>> The patches presented in this series have gone through the patch verification
->>> tools and no warnings or errors are reported. Sample test logs verifying the
->>> functionality on Linux next kernel are available here:
->>> 
->>> [Interface up
->>> Testing](https://gist.github.com/ParvathiPudi/f481837cc6994e400284cb4b58972804)
->>> 
->>> [Ping
->>> Testing](https://gist.github.com/ParvathiPudi/a121aad402defcef389e93f303d79317)
->>> 
->>> [Iperf
->>> Testing](https://gist.github.com/ParvathiPudi/581db46b0e9814ddb5903bdfee73fc6f)
->>> 
->> 
->> 
->> I am looking at
->> https://lore.kernel.org/all/20250214085315.1077108-11-parvathi@couthit.com/
->> and wondering if i can see the test log for am335x and am47xx to make
->> sure that PRUs are functional on those two?
->> 
-> 
-> In this patch series we have added support for PRU-ICSS on the AM57x SOC.
-> Hence the test log was only included for the AM57x SOC. We are working in
-> parallel
-> to add support for PRU-ICSS on the AM33x and AM43x SOC's as well. We will send
-> it as
-> a separate patch series at a later time.
-> 
+Acked-by: William Breathitt Gray <wbg@kernel.org>
+Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
+---
 
-Further update:
+Notes:
+    Changes in v2:
+    * Add IRQs
+    Changes in v3:
+    * Move IRQs to previous patch
+    Changes in v4:
+    * Return the status of the regmap_*() operations
+    * Add names for the extension numbers
+    Changes in v6:
+    * Remove RC, as it is not a capture register
+    Changes in v7:
+    * Change enums to #define's in UAPI header
+    * Return early on error in `mchp_tc_count_cap_read()`
+    Changes in v8:
+    * Collect William's tag
 
-We have successfully cross compiled the kernel (linux-next) with this patch series
-for AM335x and AM437x SOC respectively.
+ drivers/counter/microchip-tcb-capture.c       | 58 +++++++++++++++++++
+ .../linux/counter/microchip-tcb-capture.h     |  6 ++
+ 2 files changed, 64 insertions(+)
 
-Kernel is booting well on both the SOCs and we have verified PRU functionality by
-loading simple example application (pru_addition.elf) on the PRU cores, by using
-"remoteproc" driver from mainline kernel.
+diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+index 16707099bd69..aeaee6e0245e 100644
+--- a/drivers/counter/microchip-tcb-capture.c
++++ b/drivers/counter/microchip-tcb-capture.c
+@@ -253,6 +253,62 @@ static int mchp_tc_count_read(struct counter_device *counter,
+ 	return 0;
+ }
+ 
++static int mchp_tc_count_cap_read(struct counter_device *counter,
++				  struct counter_count *count, size_t idx, u64 *val)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	u32 cnt;
++	int ret;
++
++	switch (idx) {
++	case COUNTER_MCHP_EXCAP_RA:
++		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), &cnt);
++		break;
++	case COUNTER_MCHP_EXCAP_RB:
++		ret = regmap_read(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), &cnt);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	if (ret < 0)
++		return ret;
++
++	*val = cnt;
++
++	return 0;
++}
++
++static int mchp_tc_count_cap_write(struct counter_device *counter,
++				   struct counter_count *count, size_t idx, u64 val)
++{
++	struct mchp_tc_data *const priv = counter_priv(counter);
++	int ret;
++
++	if (val > U32_MAX)
++		return -ERANGE;
++
++	switch (idx) {
++	case COUNTER_MCHP_EXCAP_RA:
++		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RA), val);
++		break;
++	case COUNTER_MCHP_EXCAP_RB:
++		ret = regmap_write(priv->regmap, ATMEL_TC_REG(priv->channel[0], RB), val);
++		break;
++	default:
++		return -EINVAL;
++	}
++
++	return ret;
++}
++
++static DEFINE_COUNTER_ARRAY_CAPTURE(mchp_tc_cnt_cap_array, 2);
++
++static struct counter_comp mchp_tc_count_ext[] = {
++	COUNTER_COMP_ARRAY_CAPTURE(mchp_tc_count_cap_read, mchp_tc_count_cap_write,
++				   mchp_tc_cnt_cap_array),
++};
++
+ static struct counter_count mchp_tc_counts[] = {
+ 	{
+ 		.id = 0,
+@@ -261,6 +317,8 @@ static struct counter_count mchp_tc_counts[] = {
+ 		.num_functions = ARRAY_SIZE(mchp_tc_count_functions),
+ 		.synapses = mchp_tc_count_synapses,
+ 		.num_synapses = ARRAY_SIZE(mchp_tc_count_synapses),
++		.ext = mchp_tc_count_ext,
++		.num_ext = ARRAY_SIZE(mchp_tc_count_ext),
+ 	},
+ };
+ 
+diff --git a/include/uapi/linux/counter/microchip-tcb-capture.h b/include/uapi/linux/counter/microchip-tcb-capture.h
+index f3ef315fe9f6..136e2faa7730 100644
+--- a/include/uapi/linux/counter/microchip-tcb-capture.h
++++ b/include/uapi/linux/counter/microchip-tcb-capture.h
+@@ -12,6 +12,8 @@
+  * Count 0
+  * \__  Synapse 0 -- Signal 0 (Channel A, i.e. TIOA)
+  * \__  Synapse 1 -- Signal 1 (Channel B, i.e. TIOB)
++ * \__  Extension capture0    (RA register)
++ * \__  Extension capture1    (RB register)
+  *
+  * It also supports the following events:
+  *
+@@ -25,6 +27,10 @@
+  * - RC compare triggered
+  */
+ 
++/* Capture extensions */
++#define COUNTER_MCHP_EXCAP_RA 0
++#define COUNTER_MCHP_EXCAP_RB 1
++
+ /* Event channels */
+ #define COUNTER_MCHP_EVCHN_CV 0
+ #define COUNTER_MCHP_EVCHN_RA 0
+-- 
+2.48.1
 
-Below are the logs for the SOCs with boot log and running PRU with elf file specified
-above:
 
-AM335x test log: <https://gist.github.com/ParvathiPudi/87d7ddf949913b80f022ed99706337ac>
-AM437x test log: <https://gist.github.com/ParvathiPudi/b2d556829cb4a9e3b6b4c5656dbdd594>
-
-
-Thanks and Regards,
-Parvathi.
 
