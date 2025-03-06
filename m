@@ -4,103 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE1BEC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27E3AC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 08:45:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=F6UvJ+1JmZo8VlXWPT14cPudFRqzt3cpJOHCBheUtjk=; b=QN8BPDe3ZtlKoxMtb6juX5yjZt
-	zb+mZM8Eh23BOYKBodfXQCNxcmbfVdp8Sa0D3WFg7LoASMoABroGFk77hXJWVh4sjGq2IkIt6LUgg
-	y295WWSuRjMityaSbTTco+p8vV7VNNxbBmz5GfdtOrRzq8EzWmONRTfRirFNSukNlxIw8dLzI8OZw
-	GSICYbr+cmsE+fPtA3QgcN3+tCyHGrTjPvxKDQrS4hpwv8ex/XM6AYSkZNPG7SP4jMVaLrDjf+X2m
-	MrJNcZAQ9xvo/dhBk9C8Bw2edpnND93Y5DLi8ITal/BblFHZkT4G1Lzss6sBXm2K3tqLDK9t4L4h0
-	vu3HpMtQ==;
+	bh=1PhHSgsfjYNIGnBNH0w6RUzdB5lrqVK96yTRr4dVnvM=; b=sxjfI1laG0mnwQWFPhwbOeUA3C
+	Xt35hijAPoxfuZgAaC8889QVytLB7MmReYUEIdeZJVimlvqMaRAMQVZMnz6euW+06+g3E/uI5huY8
+	xm7ZwlI1m+hJ6uja1AA9aHDYRIGf9cPq4jTmoMWUDe9hTdEhSckIShF2Ya++FFIlIPu4P1Z2uKARq
+	o5B5moeFLjJ0oQpVQ8wkW+Qw9p3G2S7PZWSG/HosGBESMst7SVjIRNO02gZTclpiFvXiSkKsdS+DO
+	tcbuWNuhN+ya22j+5hWXPlR6UqOOAItPlMZ+Ie+LJKcP5e67U6iFKiv7vYhNX0ZF13QNqLHcXUi7T
+	XgB2Nncg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6pZ-0000000ANMR-1NO4;
-	Thu, 06 Mar 2025 08:43:49 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tq6r8-0000000ANbM-0Alw;
+	Thu, 06 Mar 2025 08:45:26 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq6ld-0000000AMYQ-209T
+	id 1tq6li-0000000AMZJ-2RMr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 08:39:46 +0000
-Received: from pps.filterd (m0279871.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5267mMfb005490;
-	Thu, 6 Mar 2025 08:39:38 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	F6UvJ+1JmZo8VlXWPT14cPudFRqzt3cpJOHCBheUtjk=; b=gWafXzhhInKMRMT+
-	CwbGsjN+fFw1KfJ0x6+7zQdyY/+JANnxFw0DcSWq5Nn6WQTtNR4+BHQIDfA37B9o
-	dhx16MCKDyxeKnsMErADEuT3/VS5Qp2LuX6k0LZN5tl4qzCC8Jsy7MJtz5GkKzcP
-	U4nvkjActoBUNsk1rSu1MsSge56AhTTv50kXUCFkTJa7aObASipg817eW7E+kR5J
-	2rH4ecV6OcuLdgf35KI91s5wbprJbEqOWnF1o49q53JYIscCzJpJCVMV1XVis0UF
-	P4nF1Juf/FvW1sASowjiZUeyYSwxNCi29bt4meK1k2EVrY/QYGK13BgXtCvJ0uWn
-	IiHAnA==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 4577mx84ps-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 06 Mar 2025 08:39:37 +0000 (GMT)
-Received: from nalasex01b.na.qualcomm.com (nalasex01b.na.qualcomm.com [10.47.209.197])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5268daBx000978
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 6 Mar 2025 08:39:36 GMT
-Received: from [10.239.133.114] (10.80.80.8) by nalasex01b.na.qualcomm.com
- (10.47.209.197) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 6 Mar 2025
- 00:39:30 -0800
-Message-ID: <7c702a81-fb6c-4399-8d7d-d8c4ad9a8c65@quicinc.com>
-Date: Thu, 6 Mar 2025 16:39:27 +0800
+	Thu, 06 Mar 2025 08:39:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741250390; x=1772786390;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=7WIRXk0lkMJA49/eFijGOr0gBbp7GJYo8Y5tLpulrd0=;
+  b=CHIcHn8aGLF3Rvn83/EBw/A1XT/L8p7LwK2bzwNJ8Z+HAsHI+/0qmXoP
+   YCswzTRgOZXzNUrrEpDiRTKpYvXuKn6DyVp+Dn0HofFHAaeRDtjeNVtES
+   P41PWn6QXSoqJLeWECDA8OXrpeWS2INs//onMKTOaM1ups9mLRQTbiXAS
+   JIECvH5BNQ6nrTizjdMeEyl7eOilVj4cTUxUxz1QUEYWSbCJ8qLitDKRX
+   b7aUP/mhclj6FL/27Une+unP8NM/2b1kAiRohQWiLAuON9Lr5c/9j0VPz
+   d/bwOyr6LgwG28aiQjlr6Tm2GBAmMQ1hFPIh7s3sZOIHQ7OGAiAtpLUiq
+   w==;
+X-CSE-ConnectionGUID: SsWSPJ0kSGCpRHONZb7IIw==
+X-CSE-MsgGUID: EaFQev4HTeu1MlfvWQmK4g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11363"; a="42162165"
+X-IronPort-AV: E=Sophos;i="6.14,225,1736841600"; 
+   d="scan'208";a="42162165"
+Received: from orviesa010.jf.intel.com ([10.64.159.150])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 00:39:49 -0800
+X-CSE-ConnectionGUID: E3nQX3CgSkGV1z1AAcpQgg==
+X-CSE-MsgGUID: ytnhRbI4SIiTiI1GaBHdcQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="118872684"
+Received: from choongyo-mobl.gar.corp.intel.com (HELO [10.247.67.95]) ([10.247.67.95])
+  by orviesa010-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 00:39:41 -0800
+Message-ID: <601c88fb-8ec8-4866-a45d-f28dea6d9625@linux.intel.com>
+Date: Thu, 6 Mar 2025 16:39:38 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/5] coresight-tnoc: add nodes to configure flush
-To: Leo Yan <leo.yan@arm.com>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>,
-        Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>, <kernel@quicinc.com>,
-        <linux-kernel@vger.kernel.org>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <kernel@oss.qualcomm.com>,
-        <linux-arm-msm@vger.kernel.org>, <devicetree@vger.kernel.org>
-References: <20250226-trace-noc-driver-v2-0-8afc6584afc5@quicinc.com>
- <20250226-trace-noc-driver-v2-3-8afc6584afc5@quicinc.com>
- <20250227162349.GB2157064@e132581.arm.com>
+Subject: Re: [PATCH net-next v9 5/6] net: stmmac: configure SerDes according
+ to the interface mode
+To: Andy Shevchenko <andy.shevchenko@gmail.com>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>,
+ Jose Abreu <Jose.Abreu@synopsys.com>,
+ David E Box <david.e.box@linux.intel.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>,
+ Borislav Petkov <bp@alien8.de>, Dave Hansen <dave.hansen@linux.intel.com>,
+ "H . Peter Anvin" <hpa@zytor.com>,
+ Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>,
+ David E Box <david.e.box@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
+ Mengyuan Lou <mengyuanlou@net-swift.com>,
+ Heiner Kallweit <hkallweit1@gmail.com>, Russell King
+ <linux@armlinux.org.uk>, Hans de Goede <hdegoede@redhat.com>,
+ =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>,
+ Richard Cochran <richardcochran@gmail.com>,
+ Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org,
+ linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
+ <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
+ <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
 Content-Language: en-US
-From: Yuanfang Zhang <quic_yuanfang@quicinc.com>
-In-Reply-To: <20250227162349.GB2157064@e132581.arm.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+In-Reply-To: <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01b.na.qualcomm.com (10.47.209.197)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: QRLqa4920E4y2cbs84gFza1SbRHm6_IA
-X-Authority-Analysis: v=2.4 cv=cOIaskeN c=1 sm=1 tr=0 ts=67c95f49 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=TTx7VNbxHRw4qo8MNLMA:9
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22 a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: QRLqa4920E4y2cbs84gFza1SbRHm6_IA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-06_03,2025-03-06_01,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015
- priorityscore=1501 suspectscore=0 adultscore=0 phishscore=0 spamscore=0
- lowpriorityscore=0 bulkscore=0 mlxscore=0 impostorscore=0 mlxlogscore=999
- malwarescore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503060064
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_003945_660621_07F00452 
-X-CRM114-Status: GOOD (  29.69  )
+X-CRM114-CacheID: sfid-20250306_003950_703376_F6849F54 
+X-CRM114-Status: GOOD (  13.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,156 +111,33 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 2/28/2025 12:23 AM, Leo Yan wrote:
-> On Wed, Feb 26, 2025 at 07:05:52PM +0800, Yuanfang Zhang wrote:
->>
->> Two nodes for configure flush are added here:
->> 1. flush_req: write 1 to initiates a flush sequence.
->>
->> 2. flush_state: read this node to get flush status. 0: sequence in
->> progress; 1: sequence has been completed.
->>
->> Signed-off-by: Yuanfang Zhang <quic_yuanfang@quicinc.com>
->> ---
->>  drivers/hwtracing/coresight/coresight-tnoc.c | 73 ++++++++++++++++++++++++++++
->>  drivers/hwtracing/coresight/coresight-tnoc.h |  4 ++
->>  2 files changed, 77 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.c b/drivers/hwtracing/coresight/coresight-tnoc.c
->> index fad8e61f05ef25989aba1be342c547f835e8953a..20231f28ddcb6a60d9b3c1ca3e0ca4d731dac39c 100644
->> --- a/drivers/hwtracing/coresight/coresight-tnoc.c
->> +++ b/drivers/hwtracing/coresight/coresight-tnoc.c
->> @@ -16,6 +16,78 @@
->>  #include "coresight-tnoc.h"
->>  #include "coresight-trace-id.h"
->>
->> +static ssize_t flush_req_store(struct device *dev,
->> +                              struct device_attribute *attr,
->> +                              const char *buf,
->> +                              size_t size)
->> +{
->> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +       struct coresight_device *csdev = drvdata->csdev;
->> +       unsigned long val;
->> +       u32 reg;
->> +
->> +       if (kstrtoul(buf, 10, &val))
->> +               return -EINVAL;
->> +
->> +       if (val != 1)
->> +               return -EINVAL;
->> +
->> +       spin_lock(&drvdata->spinlock);
->> +       if (csdev->refcnt == 0) {
->> +               spin_unlock(&drvdata->spinlock);
->> +               return -EPERM;
->> +       }
->> +
->> +       reg = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
->> +       reg = reg | TRACE_NOC_CTRL_FLUSHREQ;
->> +       writel_relaxed(reg, drvdata->base + TRACE_NOC_CTRL);
+On 6/3/2025 3:15 pm, Andy Shevchenko wrote:
+> Thu, Feb 27, 2025 at 08:15:21PM +0800, Choong Yong Liang kirjoitti:
+>> Intel platform will configure the SerDes through PMC API based on the
+>> provided interface mode.
+>> This patch adds several new functions below:-
+>> - intel_tsn_lane_is_available(): This new function reads FIA lane
+>>    ownership registers and common lane registers through IPC commands
+>>    to know which lane the mGbE port is assigned to.
+>> - intel_mac_finish(): To configure the SerDes based on the assigned
+>>    lane and latest interface mode, it sends IPC command to the PMC through
+>>    PMC driver/API. The PMC acts as a proxy for R/W on behalf of the driver.
+>> - intel_set_reg_access(): Set the register access to the available TSN
+>>    interface.
+> ...
 > 
-> How can userspace determine when to trigger a flush?
-It can be triggered under any circumstances.
+>> config DWMAC_INTEL
+>>   	default X86
+>>   	depends on X86 && STMMAC_ETH && PCI
+>>   	depends on COMMON_CLK
+>> +	depends on ACPI
+> Stray and unexplained change. Please, fix it. We don't need the dependencies
+> which are not realised in the compile time.
 > 
-> Generally, a driver kicks off a flush operation for a hardware before
-> reading data from buffer or when disable a link path.  I don't know the
-> hardware mechanism of TNOC, but seems to me, it does not make sense to
-> let the userspace to trigger a hardware flush, given the userspace has
-> no knowledge for device's state.
-TNOC supports the aforementioned flush operation, and it also adds this
-flush functionality, allowing users to set the flush themselves.
-> 
-> Furthermore, based on my understanding for patch 02 and 03, the working
-> flow is also concerned me.  IIUC, you want to use the driver to create
-> a linkage and then use userspace program to poll state and trigger
-> flushing.  Could you explain why use this way for managing the device?
-> 
-TNOC support flush just like other links. This interface simply provides
-customers with an additional option to trigger the flush.
+> -- With Best Regards, Andy Shevchenko
 
-> Thanks,
-> Leo
-> 
->> +
->> +       spin_unlock(&drvdata->spinlock);
->> +
->> +       return size;
->> +}
->> +static DEVICE_ATTR_WO(flush_req);
->> +
->> +/*
->> + * flush-sequence status:
->> + * value 0: sequence in progress;
->> + * value 1: sequence has been completed.
->> + */
->> +static ssize_t flush_status_show(struct device *dev,
->> +                                struct device_attribute *attr,
->> +                                char *buf)
->> +{
->> +       struct trace_noc_drvdata *drvdata = dev_get_drvdata(dev->parent);
->> +       struct coresight_device *csdev = drvdata->csdev;
->> +       u32 val;
->> +
->> +       spin_lock(&drvdata->spinlock);
->> +       if (csdev->refcnt == 0) {
->> +               spin_unlock(&drvdata->spinlock);
->> +               return -EPERM;
->> +       }
->> +
->> +       val = readl_relaxed(drvdata->base + TRACE_NOC_CTRL);
->> +       spin_unlock(&drvdata->spinlock);
->> +       return sysfs_emit(buf, "%lu\n", BMVAL(val, 2, 2));
->> +}
->> +static DEVICE_ATTR_RO(flush_status);
->> +
->> +static struct attribute *trace_noc_attrs[] = {
->> +       &dev_attr_flush_req.attr,
->> +       &dev_attr_flush_status.attr,
->> +       NULL,
->> +};
->> +
->> +static struct attribute_group trace_noc_attr_grp = {
->> +       .attrs = trace_noc_attrs,
->> +};
->> +
->> +static const struct attribute_group *trace_noc_attr_grps[] = {
->> +       &trace_noc_attr_grp,
->> +       NULL,
->> +};
->> +
->>  static void trace_noc_enable_hw(struct trace_noc_drvdata *drvdata)
->>  {
->>         u32 val;
->> @@ -142,6 +214,7 @@ static int trace_noc_probe(struct amba_device *adev, const struct amba_id *id)
->>                 return ret;
->>
->>         desc.ops = &trace_noc_cs_ops;
->> +       desc.groups = trace_noc_attr_grps;
->>         desc.type = CORESIGHT_DEV_TYPE_LINK;
->>         desc.subtype.link_subtype = CORESIGHT_DEV_SUBTYPE_LINK_MERG;
->>         desc.pdata = adev->dev.platform_data;
->> diff --git a/drivers/hwtracing/coresight/coresight-tnoc.h b/drivers/hwtracing/coresight/coresight-tnoc.h
->> index b6bd1ef659897d8e0994c5e8514e8cbdd16eebd8..d0fe8f52709ff4147d66dbf90987595012cfaa4e 100644
->> --- a/drivers/hwtracing/coresight/coresight-tnoc.h
->> +++ b/drivers/hwtracing/coresight/coresight-tnoc.h
->> @@ -10,6 +10,10 @@
->>
->>  /* Enable generation of output ATB traffic.*/
->>  #define TRACE_NOC_CTRL_PORTEN  BIT(0)
->> +/* Writing 1 to initiate a flush sequence.*/
->> +#define TRACE_NOC_CTRL_FLUSHREQ        BIT(1)
->> +/* 0: sequence in progress; 1: sequence has been completed.*/
->> +#define TRACE_NOC_CTRL_FLUSHSTATUS     BIT(2)
->>  /* Writing 1 to issue a FREQ or FREQ_TS packet*/
->>  #define TRACE_NOC_CTRL_FREQTSREQ       BIT(5)
->>  /* Sets the type of issued ATB FLAG packets. 0: 'FLAG' packets; 1: 'FLAG_TS' packets.*/
->>
->> --
->> 2.34.1
->>
->> _______________________________________________
->> CoreSight mailing list -- coresight@lists.linaro.org
->> To unsubscribe send an email to coresight-leave@lists.linaro.org
+Hi Andy,
 
+The dependency on ACPI is necessary because the intel_pmc_ipc.h header 
+relies on ACPI functionality to interact with the Intel PMC.
 
