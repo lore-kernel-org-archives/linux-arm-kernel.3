@@ -4,95 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD055C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 660A0C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 13:49:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J7YyaxuyjzZE9rRVT+aVgEUuE6f/mN7Q1m2L/2ehXpc=; b=fTvOE1IYzykHnoq4PhvBAWuUeH
-	svlck9QOwhHxEk9LcYP1YxnU6sQHruFa/zAGU6wOa+6u6q7ZQDxjLO/vo8utqpeNYLa24gUZlxYPu
-	E0KsUcSGKOktaw81FY4KlK3gY6iknd2ouGzUubjhmDhu6xTtDtt0nkWu7Ff213eh6TQuyXzlIzFv3
-	+u+yvALLWaO+0szMutMXxDz3DtMHSRXv38mPM1k5HQ75tVW4eqGnrksV0cvdo4El3SXM8J9qGZ8QL
-	rVlOAL+nYiRw7rw/tO+XQyk3rgXXGPDkFIK10c0f1FjigfuUHZq10WpsxxccS11b4O6GborQPaUcB
-	fbxGmI8w==;
+	bh=hGTT8BZYwqAY4OLBiOPgHFjwLzPAgGqZCD7Pl7ml/Cs=; b=VNZK5/pYOknY+DxEh2kGrnCi0n
+	Ci672nlSJhsA20Iyxl5dbwPBGVeUyImIW6VyJYEKqYMbbzJzEj8hXLSvwsC65XDNenmhwBq42L/5J
+	YF3hXY9VDcN3to0QnHy2sEG5wPZ/0OHG3mssbXGRInpAbfsXHMOeLhUVAtYRf4Pwo1aUIR3pvBpij
+	aDDYp/PuNlTmqeVLr86w4q+vFxW/zYlwgn+YJ7owU4K8Jmk1geWB6zChl7PYy1+tLyMgfdHdqJd8X
+	PAt3QUcOQNYf3Jm/sHR+5HHaTJn8qcDv4noCA65xl2p2pTKRA+rMiPPh8X1mOaYnQVPAGNbiH1WRC
+	r/JPdBow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqBat-0000000B6LA-27rO;
-	Thu, 06 Mar 2025 13:48:59 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9XI-0000000AoBB-0rGV
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 06 Mar 2025 11:37:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=J7YyaxuyjzZE9rRVT+aVgEUuE6f/mN7Q1m2L/2ehXpc=; b=nonbztPWM6p9rqJR2hNrcNFSUn
-	5Wbs21AgAfHoGWiF1uvMgCL8QWH+IjziX4iNj13idfwWmYsqAPvE6CthQ3mNDfuP73KFVJjFaGgCA
-	7wanqYmXa3mvG7bWUTq7MNK6NLWpv0c878BLY+2X9eT65PNU1nkymiUzmStflN7HuvySKYfdZT9wx
-	VsIO/BF8u9SfZIiUzDiriKP/Por28pDGueRrbCbchhO23qaQb5pOTxdIM+d+uPthZVWWJkkzhjPjM
-	sT5VSAGoNvVQgc+EhylxTRPcknrurOj0XYclrKW4fe+nyJqCpgR19HLSFj1rl3Mmn3wK6C0PClGPG
-	sKC5zoqQ==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by casper.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq9XF-00000008ADU-1SZq
+	id 1tqBau-0000000B6M5-1iEi;
+	Thu, 06 Mar 2025 13:49:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqA4K-0000000Asjh-0iJ4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 11:37:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 6ECE6A43E6B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 11:31:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8576FC4CEED
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  6 Mar 2025 11:36:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741261019;
-	bh=J7YyaxuyjzZE9rRVT+aVgEUuE6f/mN7Q1m2L/2ehXpc=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=oKzo6U209sNppYHc6sLdNcpyjyK6SqEQnFg0sdVpTiwIlDzaWElb4aACfqV07f0DS
-	 MP4IxKYG4uxqb7HfH1z15wrpRANN/sxA7rUdePL+JwAVM7XQ5K3QvRApdWyaT+2q6h
-	 K6sV0pGTnNDhbeOkYMwcmGe95/alky+/VV50Nxnb45VIpTWuPR09Fbrb+yYLHCZTub
-	 ZZRP1eKkDZClNJKz0R0RpKyHRr2PQPe/1tEGP6/bvykyEcjtv6P+Ig+X8LsJ7e+83t
-	 Uo4J2oR3eE6j/Jf4QaqjExxhBk/n5qzzau0wKGyP3bL5jw+4rHiaK9ot+YOJfUjiWc
-	 nugrFRR0MnXSA==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-5494cb8c2e7so641013e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 03:36:59 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUAzc0JaaXXsVkRn6E5eBMi1/7gPRQgFDb9U5RBy38zoRCp/VZLxBRaObFx7tnJwolldBkvTo4WJnqs1AR0NDar@lists.infradead.org
-X-Gm-Message-State: AOJu0YwZFcmKJxjtFBJ8qmMOawLUWTqOsk6l5AsfjlK9NHgDNwuJoT9E
-	INbEnGfh04x3r7Gm2MQiJHmP71gvAdgtDHkdpxqYfx5V23fNBo9ZPoM63DfjswwfSUfO4txvnjT
-	Gwx21T+wpAQZbmddFRkEZGcURZJY=
-X-Google-Smtp-Source: AGHT+IFzAyFRwVte8Hotabo7FMYBd05dZcaElxdlKllY9eUVFhjtPLRMD29Y6HH4VN6rZ8EcX8AQhANlE5QfwByaun0=
-X-Received: by 2002:a05:6512:3ca2:b0:549:4ab7:7221 with SMTP id
- 2adb3069b0e04-5497d382feemr3061824e87.50.1741261018116; Thu, 06 Mar 2025
- 03:36:58 -0800 (PST)
+	Thu, 06 Mar 2025 12:11:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C147A1BC0;
+	Thu,  6 Mar 2025 04:11:28 -0800 (PST)
+Received: from e129823.cambridge.arm.com (e129823.arm.com [10.1.197.6])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 12D093F673;
+	Thu,  6 Mar 2025 04:11:13 -0800 (PST)
+From: Yeoreum Yun <yeoreum.yun@arm.com>
+To: suzuki.poulose@arm.com,
+	mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org
+Cc: coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Subject: [PATCH v6 1/9] coresight: change coresight_device lock type to raw_spinlock_t
+Date: Thu,  6 Mar 2025 12:11:02 +0000
+Message-Id: <20250306121110.1647948-2-yeoreum.yun@arm.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250306121110.1647948-1-yeoreum.yun@arm.com>
+References: <20250306121110.1647948-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-References: <20250210164245.282886-1-ojeda@kernel.org> <CAK7LNAQBFX5q6yyKBJoxMoD5d9SwdKm0c23J4+LpjwA1eh=bZw@mail.gmail.com>
- <CANiq72n=95jgJs17NFAkit5uzxqtO9xij9Um3ybd_RiMCpFrDQ@mail.gmail.com>
-In-Reply-To: <CANiq72n=95jgJs17NFAkit5uzxqtO9xij9Um3ybd_RiMCpFrDQ@mail.gmail.com>
-From: Masahiro Yamada <masahiroy@kernel.org>
-Date: Thu, 6 Mar 2025 20:36:21 +0900
-X-Gmail-Original-Message-ID: <CAK7LNAQC5Q5EQjuvMEWS5NAs-pixj3b--rkCHZ=xGQDTHqBBFQ@mail.gmail.com>
-X-Gm-Features: AQ5f1JreRF_M4JISf0E2-xc60a7758UzryRd2z_zSk0dC77hJQoqe1lml4uhHqY
-Message-ID: <CAK7LNAQC5Q5EQjuvMEWS5NAs-pixj3b--rkCHZ=xGQDTHqBBFQ@mail.gmail.com>
-Subject: Re: [PATCH] kbuild: rust: add rustc-min-version support function
-To: Miguel Ojeda <miguel.ojeda.sandonis@gmail.com>
-Cc: Miguel Ojeda <ojeda@kernel.org>, Jonathan Corbet <corbet@lwn.net>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alex Gaynor <alex.gaynor@gmail.com>, Nathan Chancellor <nathan@kernel.org>, 
-	Nicolas Schier <nicolas@fjasle.eu>, linux-kbuild@vger.kernel.org, linux-doc@vger.kernel.org, 
-	moderated for non-subscribers <linux-arm-kernel@lists.infradead.org>, Boqun Feng <boqun.feng@gmail.com>, 
-	Gary Guo <gary@garyguo.net>, =?UTF-8?Q?Bj=C3=B6rn_Roy_Baron?= <bjorn3_gh@protonmail.com>, 
-	Benno Lossin <benno.lossin@proton.me>, Andreas Hindborg <a.hindborg@kernel.org>, 
-	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>, 
-	Danilo Krummrich <dakr@kernel.org>, rust-for-linux@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, patches@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_113705_473338_41069216 
-X-CRM114-Status: GOOD (  13.41  )
+X-CRM114-CacheID: sfid-20250306_041116_333347_D0BFE9CE 
+X-CRM114-Status: GOOD (  13.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,33 +71,145 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Feb 15, 2025 at 3:48=E2=80=AFAM Miguel Ojeda
-<miguel.ojeda.sandonis@gmail.com> wrote:
->
-> On Fri, Feb 14, 2025 at 2:39=E2=80=AFAM Masahiro Yamada <masahiroy@kernel=
-.org> wrote:
-> >
-> > Do you want me to pick it up to kbuild tree,
-> > or will you take it with my Ack?
-> >
-> > If you go with the latter,
-> > Acked-by: Masahiro Yamada <masahiroy@kernel.org>
->
-> Thanks a lot Masahiro -- happy to take it on my side if that means
-> less work for you.
->
-> Cheers,
-> Miguel
->
+coresight_device->cscfg_csdev_lock can be held during __schedule()
+by perf_event_task_sched_out()/in().
 
-This has not been picked up by any one in linux-next.
+Since coresight->cscfg_csdev_lock type is spinlock_t and
+perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+which is raw_spinlock_t (an unsleepable lock),
+this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
 
-I applied this to linux-kbuild now. Thanks.
+To address this, change type of coresight_device->cscfg_csdev_lock
+from spinlock_t to raw_spinlock_t.
 
+Reviewed-by: James Clark <james.clark@linaro.org>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+Signed-off-by: Yeoreum Yun <yeoreum.yun@arm.com>
+---
+ .../hwtracing/coresight/coresight-syscfg.c    | 26 +++++++++----------
+ include/linux/coresight.h                     |  2 +-
+ 2 files changed, 14 insertions(+), 14 deletions(-)
 
+diff --git a/drivers/hwtracing/coresight/coresight-syscfg.c b/drivers/hwtracing/coresight/coresight-syscfg.c
+index 11138a9762b0..a70c1454b410 100644
+--- a/drivers/hwtracing/coresight/coresight-syscfg.c
++++ b/drivers/hwtracing/coresight/coresight-syscfg.c
+@@ -89,9 +89,9 @@ static int cscfg_add_csdev_cfg(struct coresight_device *csdev,
+ 	}
+ 	/* if matched features, add config to device.*/
+ 	if (config_csdev) {
+-		spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++		raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 		list_add(&config_csdev->node, &csdev->config_csdev_list);
+-		spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++		raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 	}
+ 
+ 	return 0;
+@@ -194,9 +194,9 @@ static int cscfg_load_feat_csdev(struct coresight_device *csdev,
+ 
+ 	/* add to internal csdev feature list & initialise using reset call */
+ 	cscfg_reset_feat(feat_csdev);
+-	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 	list_add(&feat_csdev->node, &csdev->feature_csdev_list);
+-	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 
+ 	return 0;
+ }
+@@ -765,7 +765,7 @@ static int cscfg_list_add_csdev(struct coresight_device *csdev,
+ 
+ 	INIT_LIST_HEAD(&csdev->feature_csdev_list);
+ 	INIT_LIST_HEAD(&csdev->config_csdev_list);
+-	spin_lock_init(&csdev->cscfg_csdev_lock);
++	raw_spin_lock_init(&csdev->cscfg_csdev_lock);
+ 
+ 	return 0;
+ }
+@@ -855,7 +855,7 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+ 	struct cscfg_feature_csdev *feat_csdev;
+ 	unsigned long flags;
+ 
+-	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 	if (list_empty(&csdev->feature_csdev_list))
+ 		goto unlock_exit;
+ 
+@@ -863,7 +863,7 @@ void cscfg_csdev_reset_feats(struct coresight_device *csdev)
+ 		cscfg_reset_feat(feat_csdev);
+ 
+ unlock_exit:
+-	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ }
+ EXPORT_SYMBOL_GPL(cscfg_csdev_reset_feats);
+ 
+@@ -1059,7 +1059,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+ 	 * Look for matching configuration - set the active configuration
+ 	 * context if found.
+ 	 */
+-	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 	list_for_each_entry(config_csdev_item, &csdev->config_csdev_list, node) {
+ 		config_desc = config_csdev_item->config_desc;
+ 		if ((atomic_read(&config_desc->active_cnt)) &&
+@@ -1069,7 +1069,7 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+ 			break;
+ 		}
+ 	}
+-	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 
+ 	/*
+ 	 * If found, attempt to enable
+@@ -1090,12 +1090,12 @@ int cscfg_csdev_enable_active_config(struct coresight_device *csdev,
+ 			 *
+ 			 * Set enabled if OK, err if not.
+ 			 */
+-			spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++			raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 			if (csdev->active_cscfg_ctxt)
+ 				config_csdev_active->enabled = true;
+ 			else
+ 				err = -EBUSY;
+-			spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++			raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 		}
+ 	}
+ 	return err;
+@@ -1124,7 +1124,7 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+ 	 * If it was not enabled, we have no work to do, otherwise mark as disabled.
+ 	 * Clear the active config pointer.
+ 	 */
+-	spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_lock_irqsave(&csdev->cscfg_csdev_lock, flags);
+ 	config_csdev = (struct cscfg_config_csdev *)csdev->active_cscfg_ctxt;
+ 	if (config_csdev) {
+ 		if (!config_csdev->enabled)
+@@ -1133,7 +1133,7 @@ void cscfg_csdev_disable_active_config(struct coresight_device *csdev)
+ 			config_csdev->enabled = false;
+ 	}
+ 	csdev->active_cscfg_ctxt = NULL;
+-	spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
++	raw_spin_unlock_irqrestore(&csdev->cscfg_csdev_lock, flags);
+ 
+ 	/* true if there was an enabled active config */
+ 	if (config_csdev)
+diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+index 89b781e70fe7..4541bfc1cc6b 100644
+--- a/include/linux/coresight.h
++++ b/include/linux/coresight.h
+@@ -302,7 +302,7 @@ struct coresight_device {
+ 	/* system configuration and feature lists */
+ 	struct list_head feature_csdev_list;
+ 	struct list_head config_csdev_list;
+-	spinlock_t cscfg_csdev_lock;
++	raw_spinlock_t cscfg_csdev_lock;
+ 	void *active_cscfg_ctxt;
+ };
+ 
+-- 
+LEVI:{C3F47F37-75D8-414A-A8BA-3980EC8A46D7}
 
-
---
-Best Regards
-Masahiro Yamada
 
