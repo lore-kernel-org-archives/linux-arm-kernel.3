@@ -4,84 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BE5C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:18:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99774C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 17:19:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=; b=JL2Ky2xYNmzCZqub6jWLwFURLi
-	mnvmIzIS8qhWZKpI1vQpFOxI5pi82MYgFNZcNWa8GXruG0IcUpPig7XN5m+QQ5D8pk1yGonlOWlzs
-	ClJhOhkYWkPi4J0egMDBb9rVxg6XAp67E3GFlZ5K5Lm7EpU0NnBCxgO9vx2oXcNxV26ptkRI1Sti9
-	+gyNQB0cXBCF6eiYLG2HQNjHMlLguAr2mkhpqbyx0WF2zzQnjZFr1VluNjeWDVEzIziLyM5H8xhK5
-	8YtDIoZ7qSbE0c6FUt1rVKldkWXZ/O2ZC+a2MZF86thK7qQ+VKQ0KwHDTYmg+OnUbCTE7qrwe6/XC
-	UKqCdLew==;
+	bh=NP2tg5M5BstwrE4rb5+QBH+28CpybiGjlFefOr7WAdI=; b=3B2tMCcR+mg3VcK0oOYpd9B6sz
+	7JXnvknv5UFgGC4/s018r8dPpD9InIGIsKJ4XFsJlStFZnAPiQRib+PDW9xYDLGWeJikvfLgNyY4u
+	Pv0gPmr50IuFGjoo3cHvtx06ohUzU6cA7v3KkO/yNSI3Y56ylmfOIOwxYTBzuU54Jaj9Lnbi0relV
+	lW5HgEmz9dj31wQL3RRHTLEbGvkudez0n7PRFOtLplEgSqSVQVQfzZq8HCdlqxj1J6SCC7n8BIaqs
+	p9DGCW0oyJR/Pors+Ppzo0ellPCni8nd7v/GtGmtJ25wLmBOXxDmfvA7VSwPzO7UzWSwcVEDDvOd1
+	4r9/4LCw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqErm-0000000Bf7S-1C4S;
-	Thu, 06 Mar 2025 17:18:38 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tqEs7-0000000BfCW-3aR4;
+	Thu, 06 Mar 2025 17:19:00 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqEXc-0000000Bazo-2WZa
+	id 1tqDhI-0000000BPf6-0Wg6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 06 Mar 2025 16:57:49 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-22423adf751so7309545ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 06 Mar 2025 08:57:48 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741280267; x=1741885067; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=;
-        b=rsGotNiiy6icgxuvoqOhwt23JEnhcdIdy7sczCPeRqH2gFd5x7pszByaMeqSqW97E5
-         KVAsukRg/GPfR1+4UzAyl+32rHojB+CxujV0wiPk6XAzATSqI2XM7vwQ4lx0bqyOB86L
-         V8UXi9lotpZd7ycfcI1I2NRkKF8GqNZRe1Jm6/AKahAOsBv2a9tJofxJY2vpnthVij7g
-         MeLbi/l1J57OfROOdUfOJJLxdIlq3Lkik75C+YvWiUFZd9H0D2BSVtgV/GtLFSZEDgDo
-         aRxvETX17n/k1ztuBjD9k+QipQ6cEu6xNpUFeYA4icI5m0qmTERskUdwcRKXsEeVeORj
-         MiBw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741280267; x=1741885067;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MTMiYHneXp94DLeHXQsW830wBQws5W30d/JjL49grQE=;
-        b=Y2u8/ramtxbxiESZ2pS3CcWTTZYNCjR8IuJiQGM/zN+XZ4ghvUtQ/yNu5tD9+I+pT2
-         h/2OF50YvhrYAj12Wsm0vy9D2rsPSTMOQJ8muBnuAEEzCnFAdaitDm4DMYtaf4jqJMQI
-         Yuw1iPzzjZu7yVd3s6n5DDEhxwPd49b9zuiPDUOji97lpaqfVpPyfIdvoiE3bjr8kudS
-         SZJkhYo8Z5wlL+1qVY3kDqrOMAsX/dMhJTaE9og350G5M2RUd4dN3peP/9zrPhlAD/V1
-         tGxycmpaxBThIQ8ns0YCFtjxkx99qPzv65JLeeobtTOeQO1ZW8LnjDqxwOLCXri+pcgN
-         MKFw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVaLWNf92v685bBDEYah7WBl/Z74fB1NYq48hnVf/Tjd2CZew47ulPX4eBH3LEhnj0g0jiBqAvWo+y8nTo3mLL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeJtvwgn5sYHauNHlLrCyfG0XtNazZYHv0pQiKCCUaCPIIEI2k
-	KrKg6IYXY+ha+RzK0U9xRfplr0f5bMaS/vNAsnZrZ76XVDZJplaoLLgRpH1xZHa8QqSDVF4vROf
-	Bt+iIZZYzryQ3iMtyA6a8PchF4FaVKOrQnAkHaQ==
-X-Gm-Gg: ASbGncv5sRzu9rIfBvaDDcpkeZI6sSMgUyNf7ySEmFIpg6dsynEBdbIm1aeoR/87rcM
-	PQpi9OSXRvUW0fm2HODrzl8NtyI482J3ntW334PR9pHjCrSZWmnFfeRCTbXNktzlOvg6837mmfP
-	BaH9xqwUVPHtCKQLK0yT8xsFbg4qk=
-X-Google-Smtp-Source: AGHT+IFSILdL9gbquB4cJiTN2WJfhWPVNdAcHWiK58AOk52WrMFPjK/+cifJuWBrga9oy5DCzHOlrArOLOW8Kf0BBPo=
-X-Received: by 2002:aa7:81c9:0:b0:736:9e40:13b1 with SMTP id
- d2e1a72fcca58-7369e401d84mr2472384b3a.23.1741280267339; Thu, 06 Mar 2025
- 08:57:47 -0800 (PST)
+	Thu, 06 Mar 2025 16:03:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
+  t=1741277024; x=1772813024;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=T+l6OVVT45tzMYV8TY6DeZg93MwIQ0gaakx3sxA0rT0=;
+  b=jg8n4sXvixhrRjg8gIKNxq8ZUHABYB0PZPaqJgQq/KmFQHCCqJLopTW9
+   jBEt6e0oh07cg6ruWz6uuHbyN2coUYQze8Xvgh5wQXhBwVCRn/L5R5o68
+   xLk/vxaSnjcmH4er7DgH4ySRGwUqfJcnnbHjiAu6M2kxCh8WQ/ZyPoKej
+   vOkXQRZA8xGIUJdjKKdk03e231k9UGaBDfo5dBZz5wtQKNx87zKovY/IG
+   Tt28+ahWXay2g/vZvJhqyOVFE4vB1YFM0CcrbCWsKwC7fvehUpBVvl/Z+
+   nzdIDn4JYeEB8eAvqLJZnXoUMhUVSxSetRiw2Km8PJcHXvcvMv5Z7iLXY
+   Q==;
+X-CSE-ConnectionGUID: Mtzc/U5nQtqKRw1uIzvygw==
+X-CSE-MsgGUID: q+68X2whTyi3QABO9oC+Fw==
+X-IronPort-AV: E=Sophos;i="6.14,226,1736838000"; 
+   d="scan'208";a="269901969"
+X-Amp-Result: SKIPPED(no attachment in message)
+Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 06 Mar 2025 09:03:42 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.35; Thu, 6 Mar 2025 09:02:57 -0700
+Received: from ryan-Precision-3630-Tower.microchip.com (10.10.85.11) by
+ chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
+ 15.1.2507.35 via Frontend Transport; Thu, 6 Mar 2025 09:02:57 -0700
+From: <Ryan.Wanner@microchip.com>
+To: <lee@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>, <nicolas.ferre@microchip.com>,
+	<alexandre.belloni@bootlin.com>, <claudiu.beznea@tuxon.dev>
+CC: <gregkh@linuxfoundation.org>, <jirislaby@kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, <linux-gpio@vger.kernel.org>,
+	<linux-spi@vger.kernel.org>, <linux-serial@vger.kernel.org>,
+	<linus.walleij@linaro.org>, <ryan.wanner@microchip.com>, "Dharma
+ Balasubiramani" <dharma.b@microchip.com>
+Subject: [RESEND PATCH v6 1/3] dt-bindings: serial: atmel,at91-usart: add microchip,sama7d65-usart
+Date: Thu, 6 Mar 2025 09:03:18 -0700
+Message-ID: <07aa3489013b4d4105edb50d99fbee6a70ffca1e.1736522006.git.Ryan.Wanner@microchip.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1736522006.git.Ryan.Wanner@microchip.com>
+References: <cover.1736522006.git.Ryan.Wanner@microchip.com>
 MIME-Version: 1.0
-References: <20250227092640.2666894-1-quic_songchai@quicinc.com> <20250227092640.2666894-3-quic_songchai@quicinc.com>
-In-Reply-To: <20250227092640.2666894-3-quic_songchai@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 6 Mar 2025 16:57:35 +0000
-X-Gm-Features: AQ5f1JqTdlROGkZvhS3goiHemEI-Ou9K5R8l6YZoCNZ_BnPwM7nXi9j3dLITMbQ
-Message-ID: <CAJ9a7Vip6Dda1q7R_LoQjB4696Yi3iDv6512Vsy6aqdpiPTWgw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/7] coresight: Add coresight TGU driver
-To: songchai <quic_songchai@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_085748_652297_D211D1D0 
-X-CRM114-Status: GOOD (  37.11  )
+X-CRM114-CacheID: sfid-20250306_080344_168624_96237B57 
+X-CRM114-Status: UNSURE (   7.31  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,366 +90,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
+Message-ID: <20250306160318.vhPzJLjl19Vq9am9RRbuv5ddmQ6GCEND-YNvPKKtAtU@z>
 
-Hi,
+From: Dharma Balasubiramani <dharma.b@microchip.com>
 
-On Thu, 27 Feb 2025 at 09:27, songchai <quic_songchai@quicinc.com> wrote:
->
-> From: Songwei Chai <quic_songchai@quicinc.com>
->
-> Add driver to support Coresight device TGU (Trigger Generation Unit).
-> TGU is a Data Engine which can be utilized to sense a plurality of
-> signals and create a trigger into the CTI or generate interrupts to
-> processors. Add probe/enable/disable functions for tgu.
->
-> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
-> Signed-off-by: songchai <quic_songchai@quicinc.com>
-> ---
->  .../testing/sysfs-bus-coresight-devices-tgu   |   9 +
->  drivers/hwtracing/coresight/Kconfig           |  11 +
->  drivers/hwtracing/coresight/Makefile          |   1 +
->  drivers/hwtracing/coresight/coresight-tgu.c   | 218 ++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tgu.h   |  36 +++
->  5 files changed, 275 insertions(+)
->  create mode 100644 Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
->  create mode 100644 drivers/hwtracing/coresight/coresight-tgu.c
->  create mode 100644 drivers/hwtracing/coresight/coresight-tgu.h
->
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-> new file mode 100644
-> index 000000000000..741bc9fd9df5
-> --- /dev/null
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-> @@ -0,0 +1,9 @@
-> +What:          /sys/bus/coresight/devices/<tgu-name>/enable_tgu
-> +Date:          February 2025
-> +KernelVersion  6.15
-> +Contact:       Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-> +Description:
-> +               (RW) Set/Get the enable/disable status of TGU
-> +               Accepts only one of the 2 values -  0 or 1.
-> +               0 : disable TGU.
-> +               1 : enable TGU.
-> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-> index 06f0a7594169..3fe59c745dd4 100644
-> --- a/drivers/hwtracing/coresight/Kconfig
-> +++ b/drivers/hwtracing/coresight/Kconfig
-> @@ -247,4 +247,15 @@ config CORESIGHT_DUMMY
->
->           To compile this driver as a module, choose M here: the module will be
->           called coresight-dummy.
-> +
-> +config CORESIGHT_TGU
-> +       tristate "CoreSight Trigger Generation Unit driver"
-> +       help
-> +         This driver provides support for Trigger Generation Unit that is
-> +         used to detect patterns or sequences on a given set of signals.
-> +         TGU is used to monitor a particular bus within a given region to
-> +         detect illegal transaction sequences or slave responses. It is also
-> +         used to monitor a data stream to detect protocol violations and to
-> +         provide a trigger point for centering data around a specific event
-> +         within the trace data buffer.
->  endif
-> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-> index 4ba478211b31..7c2b9e9cf1cd 100644
-> --- a/drivers/hwtracing/coresight/Makefile
-> +++ b/drivers/hwtracing/coresight/Makefile
-> @@ -51,3 +51,4 @@ coresight-cti-y := coresight-cti-core.o       coresight-cti-platform.o \
->                    coresight-cti-sysfs.o
->  obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->  obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
-> +obj-$(CONFIG_CORESIGHT_TGU) += coresight-tgu.o
-> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
-> new file mode 100644
-> index 000000000000..da4c04ac1097
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
-> @@ -0,0 +1,218 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#include <linux/amba/bus.h>
-> +#include <linux/coresight.h>
-> +#include <linux/device.h>
-> +#include <linux/err.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +
-> +#include "coresight-priv.h"
-> +#include "coresight-tgu.h"
-> +
-> +DEFINE_CORESIGHT_DEVLIST(tgu_devs, "tgu");
-> +
-> +static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
-> +{
-> +       CS_UNLOCK(drvdata->base);
-> +       /* Enable TGU to program the triggers */
-> +       tgu_writel(drvdata, 1, TGU_CONTROL);
-> +       CS_LOCK(drvdata->base);
-> +}
-> +
-> +static int tgu_enable(struct coresight_device *csdev, enum cs_mode mode,
-> +                     void *data)
-> +{
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +
-> +       if (drvdata->enable) {
-> +               spin_unlock(&drvdata->spinlock);
-> +               return -EBUSY;
-> +       }
-> +       tgu_write_all_hw_regs(drvdata);
-> +       drvdata->enable = true;
-> +
-> +       spin_unlock(&drvdata->spinlock);
-> +       return 0;
-> +}
-> +
-> +static int tgu_disable(struct coresight_device *csdev, void *data)
-> +{
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +
-> +       if (!drvdata->enable) {
+Add SAMA7D65 USART compatible to DT bindings documentation.
 
-Could simplify by changing logic here -
-if (enable) { do disable stuff }
+Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+Signed-off-by: Ryan Wanner <Ryan.Wanner@microchip.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-and have a single return point
-
-> +               spin_unlock(&drvdata->spinlock);
-> +               return 0;
-> +       }
-> +
-> +       CS_UNLOCK(drvdata->base);
-> +       tgu_writel(drvdata, 0, TGU_CONTROL);
-> +       CS_LOCK(drvdata->base);
-> +
-> +       drvdata->enable = false;
-> +       spin_unlock(&drvdata->spinlock);
-> +       return 0;
-> +}
-> +
-> +static ssize_t enable_tgu_show(struct device *dev,
-> +                              struct device_attribute *attr, char *buf)
-> +{
-> +       bool enabled;
-> +
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       enabled = drvdata->enable;
-> +       spin_unlock(&drvdata->spinlock);
-> +
-> +       return sprintf(buf, "%d\n", enabled);
-
-sysfs_emit() should be used here.
-
-> +}
-> +
-> +/* enable_tgu_store - Configure Trace and Gating Unit (TGU) triggers. */
-> +static ssize_t enable_tgu_store(struct device *dev,
-> +                               struct device_attribute *attr, const char *buf,
-> +                               size_t size)
-> +{
-> +       int ret = 0;
-> +       unsigned long val;
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +
-> +       ret = kstrtoul(buf, 0, &val);
-> +       if (ret)
-> +               return ret;
-> +
-> +       if (val) {
-> +               ret = pm_runtime_resume_and_get(dev->parent);
-> +               if (ret)
-> +                       return ret;
-> +               ret = tgu_enable(drvdata->csdev, CS_MODE_SYSFS, NULL);
-> +               if (ret)
-> +                       pm_runtime_put(dev->parent);
-> +       } else {
-> +               ret = tgu_disable(drvdata->csdev, NULL);
-> +               if (!ret)
-
-
-redundant - tgu_disable always returns 0.
-
-> +                       pm_runtime_put(dev->parent);
-> +       }
-> +
-> +       if (ret)
-> +               return ret;
-> +       return size;
-> +}
-> +static DEVICE_ATTR_RW(enable_tgu);
-> +
-> +static const struct coresight_ops_helper tgu_helper_ops = {
-> +       .enable = tgu_enable,
-> +       .disable = tgu_disable,
-> +};
-> +
-> +static const struct coresight_ops tgu_ops = {
-> +       .helper_ops = &tgu_helper_ops,
-> +};
-> +
-> +static struct attribute *tgu_common_attrs[] = {
-> +       &dev_attr_enable_tgu.attr,
-> +       NULL,
-> +};
-> +
-> +static const struct attribute_group tgu_common_grp = {
-> +       .attrs = tgu_common_attrs,
-> +       NULL,
-> +};
-> +
-> +static const struct attribute_group *tgu_attr_groups[] = {
-> +       &tgu_common_grp,
-> +       NULL,
-> +};
-> +
-> +static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
-> +{
-> +       int ret = 0;
-> +       struct device *dev = &adev->dev;
-> +       struct coresight_desc desc = { 0 };
-> +       struct coresight_platform_data *pdata;
-> +       struct tgu_drvdata *drvdata;
-> +
-> +       desc.name = coresight_alloc_device_name(&tgu_devs, dev);
-> +       if (!desc.name)
-> +               return -ENOMEM;
-> +
-> +       pdata = coresight_get_platform_data(dev);
-> +       if (IS_ERR(pdata))
-> +               return PTR_ERR(pdata);
-> +
-> +       adev->dev.platform_data = pdata;
-> +
-> +       drvdata = devm_kzalloc(dev, sizeof(*drvdata), GFP_KERNEL);
-> +       if (!drvdata)
-> +               return -ENOMEM;
-> +
-> +       drvdata->dev = &adev->dev;
-> +       dev_set_drvdata(dev, drvdata);
-> +
-> +       drvdata->base = devm_ioremap_resource(dev, &adev->res);
-> +       if (!drvdata->base)
-> +               return -ENOMEM;
-> +
-> +       spin_lock_init(&drvdata->spinlock);
-> +
-> +       drvdata->enable = false;
-> +       desc.type = CORESIGHT_DEV_TYPE_HELPER;
-> +       desc.pdata = adev->dev.platform_data;
-> +       desc.dev = &adev->dev;
-> +       desc.ops = &tgu_ops;
-> +       desc.groups = tgu_attr_groups;
-> +
-> +       drvdata->csdev = coresight_register(&desc);
-> +       if (IS_ERR(drvdata->csdev)) {
-> +               ret = PTR_ERR(drvdata->csdev);
-> +               goto err;
-> +       }
-> +
-> +       pm_runtime_put(&adev->dev);
-> +       return 0;
-> +err:
-> +       pm_runtime_put(&adev->dev);
-> +       return ret;
-> +}
-> +
-> +static void tgu_remove(struct amba_device *adev)
-> +{
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(&adev->dev);
-> +
-> +       coresight_unregister(drvdata->csdev);
-> +}
-> +
-> +static const struct amba_id tgu_ids[] = {
-> +       {
-> +               .id = 0x000f0e00,
-> +               .mask = 0x000fffff,
-> +               .data = "TGU",
-> +       },
-> +       { 0, 0, NULL },
-> +};
-> +
-> +MODULE_DEVICE_TABLE(amba, tgu_ids);
-> +
-> +static struct amba_driver tgu_driver = {
-> +       .drv = {
-> +               .name = "coresight-tgu",
-> +               .suppress_bind_attrs = true,
-> +       },
-> +       .probe  = tgu_probe,
-> +       .remove = tgu_remove,
-> +       .id_table       = tgu_ids,
-> +};
-> +
-> +module_amba_driver(tgu_driver);
-> +
-> +MODULE_LICENSE("GPL");
-> +MODULE_DESCRIPTION("CoreSight TGU driver");
-> diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
-> new file mode 100644
-> index 000000000000..380686f94130
-> --- /dev/null
-> +++ b/drivers/hwtracing/coresight/coresight-tgu.h
-> @@ -0,0 +1,36 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +/*
-> + * Copyright (c) 2024-2025 Qualcomm Innovation Center, Inc. All rights reserved.
-> + */
-> +
-> +#ifndef _CORESIGHT_TGU_H
-> +#define _CORESIGHT_TGU_H
-> +
-> +/* Register addresses */
-> +#define TGU_CONTROL 0x0000
-> +
-> +/* Register read/write */
-> +#define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
-> +#define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
-> +
-> +/**
-> + * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit) device
-> + * @base: Memory-mapped base address of the TGU device
-> + * @dev: Pointer to the associated device structure
-> + * @csdev: Pointer to the associated coresight device
-> + * @spinlock: Spinlock for handling concurrent access
-> + * @enable: Flag indicating whether the TGU device is enabled
-> + *
-> + * This structure defines the data associated with a TGU device, including its base
-> + * address, device pointers, clock, spinlock for synchronization, trigger data pointers,
-
-I don't see any trigger data pointers or limits here. Comment on what
-is there, if more is added later, expand the comment later.
-
-> + * maximum limits for various trigger-related parameters, and enable status.
-> + */
-> +struct tgu_drvdata {
-> +       void __iomem *base;
-> +       struct device *dev;
-> +       struct coresight_device *csdev;
-> +       spinlock_t spinlock;
-> +       bool enable;
-> +};
-> +
-> +#endif
->
-
-Regards
-
-Mike
-
+diff --git a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
+index f466c38518c4..087a8926f8b4 100644
+--- a/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
++++ b/Documentation/devicetree/bindings/serial/atmel,at91-usart.yaml
+@@ -26,6 +26,7 @@ properties:
+           - enum:
+               - microchip,sam9x60-usart
+               - microchip,sam9x7-usart
++              - microchip,sama7d65-usart
+           - const: atmel,at91sam9260-usart
+       - items:
+           - const: microchip,sam9x60-dbgu
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.43.0
+
 
