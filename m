@@ -4,91 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 301C2C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A9A0C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 20:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i6EP+Y6+a/PS+jPdVIF9Pf1+jm7iiLkPpuNEKDvE7pE=; b=4B6IROtwPrvHM/7HUjNSKsw3wS
-	+qTfrlWISYEaJ/1Fe/IjTKtxN/GVa1tIlIDSqXtlBsCPrRJKwXUR3R1VIErLSzo5YblwvLgORlJS1
-	lZDVAsqx54KUV1QKvfGOsks3mMC1s8G4+Y0wnUZ7Au2yX4e/I4NsrAPAEojoJOeE5iYUlLI3Mw9pU
-	EtrZ9JkbsWCI2QLhiNG4wHyEf/alaxMYtj4t06tIsdvNRF2OHVSbS6mBdkhHOWBpD+eEGdIAxNnx5
-	DZejFrhDiQI0BVP3brBlMn496hNQlFsG+n3bZfDfkLNnd6ZvAQbeHAyjaS9aGFN5dHO5/8DMmLuK6
-	73lXyIZw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gI6MH74pu/dRhk5X72FUXHDVuktiWcOf6ajc9zt5WpA=; b=QrNfA6CqWEOByIollFUkh+OP/5
+	yiDnxOhvJnXVFMxurH4rfpZDX68kS0mqW1zVp47m4kV8UuQm1Aas0GBpUfWHc1xIK1epfT4qrwTh3
+	1Yc0uCn/BdsNEXFcCyaJfmce3CS5bFOnNvQWkMflBXykkDotmCP3+o0/qkBO0O/uOSgxrcYI1584r
+	YX8DUSviDoLuoxJ+qFug0k6UP+LdpSXTX1Y7zCm60AlMjKpDeXhCse736lI/rYGClZxxos1KrEVle
+	EgSUlZpw9vWH6z27mySRmo9tUdX6KWNuyWnEzfWDGIcSRdWY9r9r6AhXmcQdufFOFRHvUEwkiyav/
+	sGfSkmPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIHK-0000000CBbP-2EOy;
-	Thu, 06 Mar 2025 20:57:14 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1tqIIv-0000000CBt9-0dFd;
+	Thu, 06 Mar 2025 20:58:53 +0000
+Received: from mgamail.intel.com ([192.198.163.13])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqIAg-0000000CA4q-10gK;
-	Thu, 06 Mar 2025 20:50:23 +0000
+	id 1tqICp-0000000CAde-1MTM
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 20:52:36 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741294222; x=1772830222;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:content-transfer-encoding:in-reply-to;
-  bh=cvf/ipSb+K3a68VNt2N4RXjMJlyp30yAxRniCB2UBM8=;
-  b=EDOq3SMP3IXlw3P9P8kIevr6kjQeouQKtq7mLfDW122xFzgzL2NBoKcj
-   Nvxhhha69exEETRSPqRZnkEJ9bbGQoWBg3wz1DXLBEPRMXlruB+Ud25W3
-   BdifYSOzo4nLOccQmpuNC/i3+2AP1gO7mxOG6IU3vwJafTWlSgmXn1ivE
-   NAjWojETHi8bWL6emRUquPiJEOauqjCNrITBf48pvRPUPC6MyepwuceVa
-   +SWyXvxLAan2ymzCroV4DcyHsEX3JV93lAmwJWmcsM2x0krDTMNfnuEaX
-   iI+StqYsagb2MQrT6K825U+KgqnnCx+69oRvwbdac6d2PcVUOD4NgYthS
-   Q==;
-X-CSE-ConnectionGUID: zfBb+dWEQcaEqGsvJANQBg==
-X-CSE-MsgGUID: IGWLSihqSemBISKOdxALeQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="41502046"
+  t=1741294355; x=1772830355;
+  h=message-id:subject:from:reply-to:to:cc:date:in-reply-to:
+   references:content-transfer-encoding:mime-version;
+  bh=9/k5vAQPlllkqeoVC6KPl7jGub6QSCj8r/sPKoAFx1g=;
+  b=f/8EM43Z96l6d9i2Ni3p5VPnKMkH/LM2+klpareB/MseZ9iYPf5umpH1
+   SjrOpl3grg/dSRgp1TehLpzFuS3i6tZJfaO0ZRTWQQzezIKvLhbJ5ACZs
+   kVkffT9QRfwmXqvRsfwVHfzZNVOK+g4+ie60993rOXfrqpfl7esagz69M
+   nmRBBhTp07bWuxRRQKwS1D6nAlxnxPSGrow2J/FdNAlgcotrgSN8Fw7tZ
+   IZxFC4rNWbCxyXq8BSidQSh5LxT19cFj9+gsfsQEeYDzzyWfmwUjAobjl
+   fvxDAOAY2JzQMaqLqAaOA5f8ZURKTEtFhJim96CgJwePkOqhdUho9/mpo
+   A==;
+X-CSE-ConnectionGUID: LAelcqvKQ+WeQ78Etuysgg==
+X-CSE-MsgGUID: eERh5fY2TZaZIoBHdnN+iw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="45135678"
 X-IronPort-AV: E=Sophos;i="6.14,227,1736841600"; 
-   d="scan'208";a="41502046"
-Received: from orviesa010.jf.intel.com ([10.64.159.150])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 12:50:20 -0800
-X-CSE-ConnectionGUID: ZCMNw3ZDQFC0f7jhlngx6A==
-X-CSE-MsgGUID: qh4lq5bpSq+Xez7Ou7jcRQ==
+   d="scan'208";a="45135678"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 12:52:32 -0800
+X-CSE-ConnectionGUID: NWY+K21hQYiBE5DOFr55fw==
+X-CSE-MsgGUID: sBEcyVq0Q/OUlTi1Db5nYQ==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
-   d="scan'208";a="119052143"
-Received: from lkp-server02.sh.intel.com (HELO 76cde6cc1f07) ([10.239.97.151])
-  by orviesa010.jf.intel.com with ESMTP; 06 Mar 2025 12:50:09 -0800
-Received: from kbuild by 76cde6cc1f07 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tqIAQ-000NbS-31;
-	Thu, 06 Mar 2025 20:50:06 +0000
-Date: Fri, 7 Mar 2025 04:49:17 +0800
-From: kernel test robot <lkp@intel.com>
-To: =?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
-	Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>
-Cc: oe-kbuild-all@lists.linux.dev, kernel@collabora.com,
-	linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-pm@vger.kernel.org,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
-	Andrew Perepech <andrew.perepech@mediatek.com>
-Subject: Re: [PATCH v3 04/20] ASoC: mediatek: mt6359-accdet: Add compatible
- property
-Message-ID: <202503070421.25fbw6zg-lkp@intel.com>
-References: <20250304-mt6359-accdet-dts-v3-4-5b0eafc29f5b@collabora.com>
+   d="scan'208";a="156354902"
+Received: from linux.intel.com ([10.54.29.200])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 12:52:32 -0800
+Received: from [10.54.75.34] (debox1-desk1.jf.intel.com [10.54.75.34])
+	by linux.intel.com (Postfix) with ESMTP id 455C920B5736;
+	Thu,  6 Mar 2025 12:52:31 -0800 (PST)
+Message-ID: <257769403908de3ac6271059e1febee88654fbdc.camel@linux.intel.com>
+Subject: Re: [PATCH net-next v9 5/6] net: stmmac: configure SerDes according
+ to the interface mode
+From: "David E. Box" <david.e.box@linux.intel.com>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>, Andy Shevchenko
+	 <andy.shevchenko@gmail.com>
+Cc: Simon Horman <horms@kernel.org>, Jose Abreu <joabreu@synopsys.com>, Jose
+ Abreu <Jose.Abreu@synopsys.com>, Thomas Gleixner <tglx@linutronix.de>, Ingo
+ Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave Hansen
+ <dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>, Rajneesh
+ Bhardwaj <irenic.rajneesh@gmail.com>, David E Box <david.e.box@intel.com>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+ <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jiawen Wu <jiawenwu@trustnetic.com>,
+ Mengyuan Lou <mengyuanlou@net-swift.com>, Heiner Kallweit
+ <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, Hans de Goede
+ <hdegoede@redhat.com>, Ilpo =?ISO-8859-1?Q?J=E4rvinen?=
+ <ilpo.jarvinen@linux.intel.com>, Richard Cochran
+ <richardcochran@gmail.com>, Serge Semin <fancer.lancer@gmail.com>,
+ x86@kernel.org, linux-kernel@vger.kernel.org,  netdev@vger.kernel.org,
+ platform-driver-x86@vger.kernel.org, 
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+Date: Thu, 06 Mar 2025 12:52:31 -0800
+In-Reply-To: <d7c0094e-7fd3-4113-8d00-91b7a83ffd1f@linux.intel.com>
+References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
+	 <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
+	 <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain>
+	 <601c88fb-8ec8-4866-a45d-f28dea6d9625@linux.intel.com>
+	 <CAHp75VeOKbAsvSuf5+VQnGFmUcN92TNnR2eF1+70h3PjaMdMqA@mail.gmail.com>
+	 <d7c0094e-7fd3-4113-8d00-91b7a83ffd1f@linux.intel.com>
+Autocrypt: addr=david.e.box@linux.intel.com; prefer-encrypt=mutual;
+ keydata=mQENBF2w2YABCACw5TpqmFTR6SgsrNqZE8ro1q2lUgVZda26qIi8GeHmVBmu572RfPydisEpCK246rYM5YY9XAps810ZxgFlLyBqpE/rxB4Dqvh04QePD6fQNui/QCSpyZ6j9F8zl0zutOjfNTIQBkcar28hazL9I8CGnnMko21QDl4pkrq1dgLSgl2r2N1a6LJ2l8lLnQ1NJgPAev4BWo4WAwH2rZ94aukzAlkFizjZXmB/6em+lhinTR9hUeXpTwcaAvmCHmrUMxeOyhx+csO1uAPUjxL7olj2J83dv297RrpjMkDyuUOv8EJlPjvVogJF1QOd5MlkWdj+6vnVDRfO8zUwm2pqg25DABEBAAG0KkRhdmlkIEUuIEJveCA8ZGF2aWQuZS5ib3hAbGludXguaW50ZWwuY29tPokBTgQTAQgAOBYhBBFoZ8DYRC+DyeuV6X7Mry1gl3p/BQJdsNmAAhsDBQsJCAcCBhUKCQgLAgQWAgMBAh4BAheAAAoJEH7Mry1gl3p/NusIAK9z1xnXphedgZMGNzifGUs2UUw/xNl91Q9qRaYGyNYATI6E7zBYmynsUL/4yNFnXK8P/I7WMffiLoMqmUvNp9pG6oYYj8ouvbCexS21jgw54I3m61M+wTokieRIO/GettVlCGhz7YHlHtGGqhzzWB3CGPSJMwsouDPvyFFE+28p5d2v9l6rXSb7T297Kh50VX9Ele8QEKngrG+Z/u2lr/bHEhvx24vI8ka22cuTaZvThYMwLTSC4kq9L9WgRv31JBSa1pcbcHLOCoUl0RaQwe6J8w9hN2uxCssHrrfhSA4YjxKNIIp3YH4IpvzuDR3AadYz1klFTnEOxIM7fvQ2iGu5AQ0EXbDZgAEIAPGbL3wvbYUDGMoBSN89GtiC6ybWo28JSiYIN5N9LhDTwfWROenkRvmTESaE5fAM24sh8S0h+F+eQ7j/E/RF3pM31gSovTKw0Pxk7GorK
+	FSa25CWemxSV97zV8fVegGkgfZkBMLUId+AYCD1d2R+tndtgjrHtVq/AeN0N09xv/d3a+Xzc4ib/SQh9mM50ksqiDY70EDe8hgPddYH80jHJtXFVA7Ar1ew24TIBF2rxYZQJGLe+Mt2zAzxOYeQTCW7WumD/ZoyMm7bg46/2rtricKnpaACM7M0r7g+1gUBowFjF4gFqY0tbLVQEB/H5e9We/C2zLG9r5/Lt22dj7I8A6kAEQEAAYkBNgQYAQgAIBYhBBFoZ8DYRC+DyeuV6X7Mry1gl3p/BQJdsNmAAhsMAAoJEH7Mry1gl3p/Z/AH/Re8YwzY5I9ByPM56B3Vkrh8qihZjsF7/WB14Ygl0HFzKSkSMTJ+fvZv19bk3lPIQi5lUBuU5rNruDNowCsnvXr+sFxFyTbXw0AQXIsnX+EkMg/JO+/V/UszZiqZPkvHsQipCFVLod/3G/yig9RUO7A/1efRi0E1iJAa6qHrPqE/kJANbz/x+9wcx1VfFwraFXbdT/P2JeOcW/USW89wzMRmOo+AiBSnTI4xvb1s/TxSfoLZvtoj2MR+2PW1zBALWYUKHOzhfFKs3cMufwIIoQUPVqGVeH+u6Asun6ZpNRxdDONop+uEXHe6q6LzI/NnczqoZQLhM8d1XqokYax/IZ4=
+Organization: David E. Box
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.50.4 (3.50.4-3.fc39) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250304-mt6359-accdet-dts-v3-4-5b0eafc29f5b@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_125022_294326_03CFA3CD 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250306_125235_400883_71DC748D 
+X-CRM114-Status: GOOD (  26.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +112,82 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: david.e.box@linux.intel.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Nícolas,
+On Thu, 2025-03-06 at 20:56 +0800, Choong Yong Liang wrote:
+>=20
+>=20
+> On 6/3/2025 5:05 pm, Andy Shevchenko wrote:
+> > On Thu, Mar 6, 2025 at 10:39=E2=80=AFAM Choong Yong Liang
+> > <yong.liang.choong@linux.intel.com> wrote:
+> > > On 6/3/2025 3:15 pm, Andy Shevchenko wrote:
+> > > > Thu, Feb 27, 2025 at 08:15:21PM +0800, Choong Yong Liang kirjoitti:
+> > ...
+> >=20
+> > > > > config DWMAC_INTEL
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 default X86
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 depends on X86 && STMMAC_ETH && PC=
+I
+> > > > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 depends on COMMON_CLK
+> > > > > +=C2=A0=C2=A0=C2=A0 depends on ACPI
+> > > > Stray and unexplained change. Please, fix it. We don't need the
+> > > > dependencies
+> > > > which are not realised in the compile time.
+> > > The dependency on ACPI is necessary because the intel_pmc_ipc.h heade=
+r
+> > > relies on ACPI functionality to interact with the Intel PMC.
+> > So, that header has to be fixed as ACPI here is really unneeded
+> > dependency for the cases when somebody (for whatever reasons) want to
+> > build a kernel without ACPI support but with the driver enabled for
+> > let's say PCI device.
+> >=20
+> >=20
+> > -- With Best Regards, Andy Shevchenko
+>=20
+> Hi Andy,
+>=20
+> Thank you for your feedback, Andy.
+> I appreciate your insights regarding the ACPI dependency.
+> The intel_pmc_ipc.h header is under the ownership of David E Box, who=20
+> focuses on the platform code, while my focus is on the netdev.
+>=20
+> Hi David,
+>=20
+> if you could kindly look into making the ACPI dependency optional in the=
+=20
+> intel_pmc_ipc.h header, it would be greatly appreciated.
+> I am more than willing to provide any support necessary to ensure a smoot=
+h=20
+> resolution.
 
-kernel test robot noticed the following build warnings:
+Choong you only need put the function under a #if CONFIG_ACPI block and pro=
+vide
+an alternative that returns an error when the code is not build. Like this,
 
-[auto build test WARNING on 20d5c66e1810e6e8805ec0d01373afb2dba9f51a]
+#if CONFIG_ACPI
+static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc_ipc=
+_rbuf
+*rbuf)
+{
+   ...
+}
+#else
+static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc_ipc=
+_rbuf
+*rbuf) { return -ENODEV; }
+#endif
 
-url:    https://github.com/intel-lab-lkp/linux/commits/N-colas-F-R-A-Prado/ASoC-dt-bindings-Add-document-for-mt6359-accdet/20250304-233834
-base:   20d5c66e1810e6e8805ec0d01373afb2dba9f51a
-patch link:    https://lore.kernel.org/r/20250304-mt6359-accdet-dts-v3-4-5b0eafc29f5b%40collabora.com
-patch subject: [PATCH v3 04/20] ASoC: mediatek: mt6359-accdet: Add compatible property
-config: s390-randconfig-r133-20250306 (https://download.01.org/0day-ci/archive/20250307/202503070421.25fbw6zg-lkp@intel.com/config)
-compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
-reproduce: (https://download.01.org/0day-ci/archive/20250307/202503070421.25fbw6zg-lkp@intel.com/reproduce)
+David
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503070421.25fbw6zg-lkp@intel.com/
+>=20
+> This patch series has already been accepted, but we recognize the=20
+> importance of addressing this issue in the next patch series for upstream=
+.
+> Our goal is to ensure that the driver can be compiled and function=20
+> correctly in both ACPI and non-ACPI environments.
+>=20
+> Thank you both for your understanding and collaboration.
 
-sparse warnings: (new ones prefixed by >>)
->> sound/soc/codecs/mt6359-accdet.c:1050:27: sparse: sparse: symbol 'accdet_of_match' was not declared. Should it be static?
-
-vim +/accdet_of_match +1050 sound/soc/codecs/mt6359-accdet.c
-
-  1049	
-> 1050	const struct of_device_id accdet_of_match[] = {
-  1051		{ .compatible = "mediatek,mt6359-accdet", },
-  1052		{ /* sentinel */ },
-  1053	};
-  1054	MODULE_DEVICE_TABLE(of, accdet_of_match);
-  1055	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
