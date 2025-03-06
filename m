@@ -4,67 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73B9FC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 02:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B38E0C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  6 Mar 2025 02:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c5JuR3E2F/2Ntx+ArgglektIJJZC/Y0atJH8Fy4DVwE=; b=Xu1ng0oJU8shj0H6rfBxai+xVR
-	cytFT8AYhyx6vZGPRQMTXrCI5RLsVO9PSuJ2dgbx74jxxz33UJXuI3TkTjvrmJhiqHuezBIQ1LZQC
-	rCKDfYQMFT61PYq4ADnA5qt1eVWX8lcW7FRdci9t+NRU6PsCP5S5RvZzYyUX2vJng83l6NcbuYXA0
-	R7TIHaGxiQwmordUj8HqEFX/C+zA5xMtDRkYBHcCrwl8gjrNPmGCS4Dj2aOQ4+E64XCbvlSA5urg3
-	pQ9m2/4rzy7+fzMjyNuJDZY18Ps5MGXbjIyFaBFsHGp4pmZDRc4HNCZjopnNPuwzDWsf3Sv+c9jX9
-	KMvPdntA==;
+	bh=z1rT13AxT6i7F5Ycxl5JT25b4uDj1fZ8K6rhKfIa2rM=; b=11mGByqqFGBwAq0EPKXu72xBrv
+	XTwtKT7WxjD7MJ/7TqS+AAPGHEk6ZLeNA0+B3YzU+ZjjJzjMazt7McwyHO2OET34UO3EklbnH8xCT
+	x+fw9NA1cBCcUNU63kXJ/9UJ9lI7LXMCvVjRHIr9WhuYIPB9AJQNnW04HQpDO5wo2/3phP61fjWEq
+	DH8vMJNtfBbEJO/k5K45CwK58dvowx0MyK91N4L+j606jGUpa5zXIxDySbxEtHLUcO02SC7eV6m4h
+	6J8xSYXcHYQSlceIJ6+6lbEmU6iooQv0EnLy07pomcQGTRMD03dKjHagA80dbza9VUWdY4AtYkoeY
+	WzGe1X0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tq0aT-00000009pBZ-1KEi;
-	Thu, 06 Mar 2025 02:03:49 +0000
-Received: from m16.mail.163.com ([220.197.31.5])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tpzaS-00000009kFp-38lz;
-	Thu, 06 Mar 2025 00:59:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=PMDmUXSIdq2f/nNiLc3wTT/iCwj2VpHuoogdeFCSGXI=; b=h
-	8YMtUapnYGyIdc6KXijq7eDjxK5Fzb6FN58zHAcyKJi9X6I7AfreyRhAF6tyk2XN
-	dXyyAMfZIC3Jw8RC6K7iymB6vBLMGv+B0oCvojWZtKtZzwSwUnvwWVdIdBebFjdw
-	8KqLAuQ2JmcKMtbcjuhvln2pg6VEAXA3OcGCEHKrA0=
-Received: from andyshrk$163.com ( [103.29.142.67] ) by
- ajax-webmail-wmsvr-40-118 (Coremail) ; Thu, 6 Mar 2025 08:59:13 +0800 (CST)
-X-Originating-IP: [103.29.142.67]
-Date: Thu, 6 Mar 2025 08:59:13 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Piotr Oniszczuk" <piotr.oniszczuk@gmail.com>
-Cc: heiko@sntech.de, neil.armstrong@linaro.org,
-	sebastian.reichel@collabora.com, devicetree@vger.kernel.org,
-	hjc@rock-chips.com, mripard@kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, yubing.zhang@rock-chips.com,
-	dri-devel@lists.freedesktop.org,
-	"Andy Yan" <andy.yan@rock-chips.com>, krzk+dt@kernel.org,
-	robh@kernel.org, linux-arm-kernel@lists.infradead.org
-Subject: Re:Re: [PATCH 0/6] Add support for RK3588 DisplayPort Controller
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <75189787-28E1-4FC2-8E10-4960B3877A6F@gmail.com>
-References: <25401bfa.291d.19564244e54.Coremail.andyshrk@163.com>
- <75189787-28E1-4FC2-8E10-4960B3877A6F@gmail.com>
-X-NTES-SC: AL_Qu2fA/6ZvU8u5SefbOkfmkcVgOw9UcO5v/Qk3oZXOJF8jDDp2ycwUUJSDXLaweO0FQ+OmgmGXTtC9/R7f4VTVaQNWrfgx5ouyclyVgmtq3rycg==
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tq0hZ-00000009pxd-1Bbe;
+	Thu, 06 Mar 2025 02:11:09 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tq0fx-00000009pfD-11LN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 06 Mar 2025 02:09:30 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-223785beedfso1598685ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 05 Mar 2025 18:09:28 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741226968; x=1741831768; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=z1rT13AxT6i7F5Ycxl5JT25b4uDj1fZ8K6rhKfIa2rM=;
+        b=l+yJKsqIYBaKZ3mM+3uXsH30/7AYTiXFYjOx7tqMExMDx/aRaFFrIWkJ6VdmQ0QcCl
+         64F4E1vvJB5a++rZCI58OD2pkLIggFLI4aTn23mCUgkRoVTIcInU3Ma7lXFE5N0x8zOi
+         a0PFqW3eGizavR+T2CXz2GPzBXfJXfHpUKomOerpCL0YtNAXxleeiJv5SfEYoerJTOes
+         SygCQhAvFETJHwXgQ6tXtjM+9ZJdx7zrNlVEp0Id1QIZtrEQZUP8Ya0LZ4+lf5V5CO/s
+         YvpmQEsdzop62/qTBC54ouBR0cMPYRuvd2iQtTZ88DNiWOCwgJSpDW9BxVcySFrxDAET
+         YaJA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741226968; x=1741831768;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=z1rT13AxT6i7F5Ycxl5JT25b4uDj1fZ8K6rhKfIa2rM=;
+        b=mpXPwEs/MJQ5pkGKf9yAhd0+AH+xzHJXz+bYSwrC793ZNyZbkHVTUXg4fYbZzAfI5d
+         1ppq4mKUPKqdt5d59tVo3qNzOjKhQuvwuh/Y/Tpvdxh6B00x1D6+mWGRf5NcolR/JOGr
+         LNIRHXvvMmcw7XkMRJg8qTaDED3NH4isz6idFGYmNssEjYfBpDhRPfVLFrNZUF8HrD8N
+         140Dc8ulm/3YB9oR+cGtTxaz1Rdm7eBzzC8+kYNPBDFKmiiLVmCnAR8bU04PnMBaxhPx
+         lTmI0Rr+/00q+zLjYTIP9xGpkrlxCXO8pbZo+x6M1VLSa4XaakGHeWaesWq43oePND24
+         pi8g==
+X-Forwarded-Encrypted: i=1; AJvYcCWL5/RGjWTItqDS286JZFvfGSsdfv/iI65lHey/3k7LaZ+JOpcyv6I4NqLGPS819zrc90E4hMzDKm4I80Tjhkzx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwKaNIu7erl9zVnAy1BCRA8mB7pRcttGiljlFrKnJydi1lLvsqh
+	2y/osscqRX8+eBW9kVK0kAYMC9YfccCcM1hUJB1a8x4TcxJ7chKM
+X-Gm-Gg: ASbGnctmNDVAQ52SJQsKRXp8Qj5ghq0p6lysWKcoRwDKbUVEW4jOLiNl2YF78y5wBck
+	8USRMjBEUVR7ThMQ+rtl5MskflhKs2OeKRPr6/7EdVhmoWM+SgSa4NNiiNFWDlE0acLo/n3drq3
+	YlRE+iidjLRCGHa17ZWsVyK78+DyIK1bscSJOcovrbbKzQYpUaEy4K4mBx9JA16fjkT99BGYho8
+	eJuPbUdlDKfHKVi9FUICgnbeDqzVv4eVUNrdrweX+EIOuWYwQ3sWHq1e3E0K7nQ5AG2B5osJbFo
+	vkVDWuz06RtEq5JBfE2dgg6i9zIe+8LdCWXPEA==
+X-Google-Smtp-Source: AGHT+IF9QeRgv+6Z/cPJtnzTG5KuBBCd8Qdr6JTrB73F+Bp0n4Wqinq/xvlObO2mPBHhOim0ujthOA==
+X-Received: by 2002:a05:6a00:889:b0:736:55ec:ea8b with SMTP id d2e1a72fcca58-73682d00a42mr7712708b3a.24.1741226967842;
+        Wed, 05 Mar 2025 18:09:27 -0800 (PST)
+Received: from localhost ([144.24.43.60])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73698519026sm139246b3a.144.2025.03.05.18.09.18
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 05 Mar 2025 18:09:27 -0800 (PST)
+Date: Thu, 6 Mar 2025 10:09:13 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel
+ <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Simon Horman <horms@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Serge Semin <fancer.lancer@gmail.com>, Xiaolei Wang
+ <xiaolei.wang@windriver.com>, Suraj Jaiswal <quic_jsuraj@quicinc.com>, Kory
+ Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>, Jesper
+ Nilsson <jesper.nilsson@axis.com>, Choong Yong Liang
+ <yong.liang.choong@linux.intel.com>, Chwee-Lin Choong
+ <chwee.lin.choong@intel.com>, Kunihiko Hayashi
+ <hayashi.kunihiko@socionext.com>, Vinicius Costa Gomes
+ <vinicius.gomes@intel.com>, intel-wired-lan@lists.osuosl.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v8 01/11] net: stmmac: move frag_size handling
+ out of spin_lock
+Message-ID: <20250306100913.00005bb8@gmail.com>
+In-Reply-To: <20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
+References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
+	<20250305130026.642219-2-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-Message-ID: <28b0d3fc.bb3.19568f6b5f8.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: digvCgC3FURh88hnLg13AA--.6915W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkBkIXmfI596+CwACs+
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250305_165945_165351_9396E0AF 
-X-CRM114-Status: UNSURE (   6.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250305_180929_367228_268550A4 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +119,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIFBpb3RyLAoK5ZyoIDIwMjUtMDMtMDUgMjE6NTY6MTLvvIwiUGlvdHIgT25pc3pjenVrIiA8
-cGlvdHIub25pc3pjenVrQGdtYWlsLmNvbT4g5YaZ6YGT77yaCj4KPgo+PiBXaWFkb21vxZvEhyBu
-YXBpc2FuYSBwcnpleiBBbmR5IFlhbiA8YW5keXNocmtAMTYzLmNvbT4gdyBkbml1IDUgbWFyIDIw
-MjUsIG8gZ29kei4gMDM6MzA6Cj4+IAo+Pj4gCj4+IAo+PiBJIG9ubHkgc2VlIHRoZSBIRE1JIGNv
-bm5lY3RvciBmcm9tIHlvdXIgZHJpL3N0YXRlIDsgc28gaXQgYXBwZWFycyB0aGUgRFAgZHJpdmVy
-IGhhc24ndCBiZWVuIHN1Y2Nlc3NmdWxseQo+PiBpbml0aWFsaXplZO+8iEkgdGhpbmsga2VybmVs
-IGRtZXNnIGNhbiB0ZWxsIHRoYXTvvIkuIAo+PiBIYXZlIHlvdSBlbmFibGVkIENPTkZJR19ST0NL
-Q0hJUF9EV19EUCA/IFRoaXMgaXMgbmVlZGVkLgo+PiAKPgo+Cj5BbmR5LAo+Cj5EbyB5b3UgbWVh
-biBDT05GSUdfUk9DS0NISVBfRFdfRFAgb3IgQ09ORklHX0RSTV9EV19EUCA/Cj4KPklmIENPTkZJ
-R19EUk1fRFdfRFAgLSB0aGVuIHllcyAtIGkgaGF2ZSBpdDogaHR0cHM6Ly9naXRodWIuY29tL3dh
-cnBtZS9taW5pbXl0aDIvYmxvYi8yZTI2Nzg0MmIxMDMzYmJjNGMyYzVkODBjMTc1NmExNDJlMzQ3
-Y2M1L3NjcmlwdC9rZXJuZWwvbGludXgtNi4xNC9maWxlcy9saW51eC02LjE0LWFybTY0LWFybXY4
-LmNvbmZpZyNMNTAyNAo+Cj5LZXJuZWwgZG1lc2c6IGh0dHBzOi8vdGVybWJpbi5jb20vdWl1cAoK
-CkJvdGggb2YgdGhlIHR3byBjb25maWcgb3B0aW9ucyBzaG91bGQgYmUgZW5hYmxlZC4KYW5keUBQ
-cm80ODA6fi9Xb3JrU3BhY2UvbGludXgtbmV4dCQgcmcgRFdfRFAgLmNvbmZpZwo0MDQ0OkNPTkZJ
-R19ST0NLQ0hJUF9EV19EUD15CjQyMTg6Q09ORklHX0RSTV9EV19EUD15CgpBbmQgaWYgZHcgZHAg
-ZHJpdmVyIGJvb3RzIHN1Y2Nlc3MsIHlvdSB3aWxsIHNlZSBkbWVzZyBsaWtlIGJlbGxvdzoKCiBb
-ICAgIDEuMDU4NjM0XSBhcm0tc21tdS12MyBmYzkwMDAwMC5pb21tdTogbXNpX2RvbWFpbiBhYnNl
-bnQgLSBmYWxsaW5nIGJhY2sgdG8gd2lyZWQgaXJxcwpbICAgIDEuMDYyNDU4XSByb2NrY2hpcC12
-b3AyIGZkZDkwMDAwLnZvcDogQWRkaW5nIHRvIGlvbW11IGdyb3VwIDAKWyAgICAxLjA2NzkwOF0g
-cm9ja2NoaXAtZHJtIGRpc3BsYXktc3Vic3lzdGVtOiBib3VuZCBmZGQ5MDAwMC52b3AgKG9wcyB2
-b3AyX2NvbXBvbmVudF9vcHMpClsgICAgMS4wNjg5ODFdIHJvY2tjaGlwLWRybSBkaXNwbGF5LXN1
-YnN5c3RlbTogYm91bmQgZmRlNjAwMDAuZHAgKG9wcyBkd19kcF9yb2NrY2hpcF9jb21wb25lbnRf
-b3BzKQpbICAgIDEuMDcwMTMzXSBkd2hkbWlxcC1yb2NrY2hpcCBmZGU4MDAwMC5oZG1pOiByZWdp
-c3RlcmVkIERlc2lnbldhcmUgSERNSSBRUCBJMkMgYnVzIGRyaXZlcgpbICAgIDEuMDcwODU5XSBy
-b2NrY2hpcC1kcm0gZGlzcGxheS1zdWJzeXN0ZW06IGJvdW5kIGZkZTgwMDAwLmhkbWkgKG9wcyBk
-d19oZG1pX3FwX3JvY2tjaGlwX29wcykKWyAgICAxLjA3MjEwM10gW2RybV0gSW5pdGlhbGl6ZWQg
-cm9ja2NoaXAgMS4wLjAgZm9yIGRpc3BsYXktc3Vic3lzdGVtIG9uIG1pbm9yIDAKWyAgICAxLjA4
-MDE5MV0gbG9vcDogbW9kdWxlIGxvYWRlZAoKQnV0IEkganVzdCBzZWUgaGRtaSAgZHJpdmVyIGJv
-b3RzIGZyb20geW91ciBkbWVzZy4KCj4KPgo+Cg==
+On Wed,  5 Mar 2025 08:00:16 -0500
+Faizal Rahim <faizal.abdul.rahim@linux.intel.com> wrote:
+
+> The upcoming patch will extract verification logic into a new module,
+> MMSV (MAC Merge Software Verification). MMSV will handle most FPE fields,
+> except frag_size. It introduces its own lock (mmsv->lock), replacing
+> fpe_cfg->lock.
+> 
+> Since frag_size handling remains in the driver, the existing rtnl_lock()
+> is sufficient. Move frag_size handling out of spin_lock_irq_save() to keep
+> the upcoming patch a pure refactoring without behavior changes.
+> 
+> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c | 11 ++++++-----
+>  1 file changed, 6 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> index 918a32f8fda8..cfe5aea24549 100644
+> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c
+> @@ -1216,6 +1216,10 @@ static int stmmac_get_mm(struct net_device *ndev,
+>  	if (!stmmac_fpe_supported(priv))
+>  		return -EOPNOTSUPP;
+>  
+> +	state->rx_min_frag_size = ETH_ZLEN;
+> +	frag_size = stmmac_fpe_get_add_frag_size(priv);
+> +	state->tx_min_frag_size = ethtool_mm_frag_size_add_to_min(frag_size);
+> +
+>  	spin_lock_irqsave(&priv->fpe_cfg.lock, flags);
+>  
+>  	state->max_verify_time = STMMAC_FPE_MM_MAX_VERIFY_TIME_MS;
+> @@ -1224,7 +1228,6 @@ static int stmmac_get_mm(struct net_device *ndev,
+>  	state->verify_time = priv->fpe_cfg.verify_time;
+>  	state->tx_enabled = priv->fpe_cfg.tx_enabled;
+>  	state->verify_status = priv->fpe_cfg.status;
+> -	state->rx_min_frag_size = ETH_ZLEN;
+>  
+>  	/* FPE active if common tx_enabled and
+>  	 * (verification success or disabled(forced))
+> @@ -1236,9 +1239,6 @@ static int stmmac_get_mm(struct net_device *ndev,
+>  	else
+>  		state->tx_active = false;
+>  
+> -	frag_size = stmmac_fpe_get_add_frag_size(priv);
+> -	state->tx_min_frag_size = ethtool_mm_frag_size_add_to_min(frag_size);
+> -
+>  	spin_unlock_irqrestore(&priv->fpe_cfg.lock, flags);
+>  
+>  	return 0;
+> @@ -1258,6 +1258,8 @@ static int stmmac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+>  	if (err)
+>  		return err;
+>  
+> +	stmmac_fpe_set_add_frag_size(priv, frag_size);
+> +
+>  	/* Wait for the verification that's currently in progress to finish */
+>  	timer_shutdown_sync(&fpe_cfg->verify_timer);
+>  
+> @@ -1271,7 +1273,6 @@ static int stmmac_set_mm(struct net_device *ndev, struct ethtool_mm_cfg *cfg,
+>  	if (!cfg->verify_enabled)
+>  		fpe_cfg->status = ETHTOOL_MM_VERIFY_STATUS_DISABLED;
+>  
+> -	stmmac_fpe_set_add_frag_size(priv, frag_size);
+>  	stmmac_fpe_apply(priv);
+>  
+>  	spin_unlock_irqrestore(&fpe_cfg->lock, flags);
+
+Reviewed-by: Furong Xu <0x1207@gmail.com>
+
 
