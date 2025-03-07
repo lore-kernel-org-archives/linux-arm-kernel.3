@@ -4,93 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99184C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:08:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AA99C28B31
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:09:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
-	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iArDif38+fZWZHkgSuOxfgSy+rEDqBvDc+u/YR4aXK4=; b=4uogeNG260b3r1lD26shjbR9xd
-	GVo/4l+lPQE/hWowcPLbl+O5w2W+tVK1K18F6IzXyC85wp8mHdE+/4Fg3RC8lS4BjlVIl/8s8p3XT
-	mTtAVb+YffqdRWjlijZHWet3sJc3yZvtxFaekV0Aka68xRulez9+2xxuFQiyEesMmjt1ExvGO/5MW
-	KRmUn02tDfGfTuWmN+fVUT3gjLINYiMTuvzvrwAFuWBj7Z4d2TtFheUGlZuNZBRMoj5hrch8sAKlN
-	mYbGyvtDCLQPa8pJeHE/JEgck/7DWOS7YZoVCImxBROKspd5EhbiGin2RvzSTcXztvdhpEtjgY3gW
-	eJRDewCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+YoQ2bMScfM3XAjlW+ut1pe8WVSp2EYOFx87rsgzN5k=; b=s4zYYIkVH9eJ32j+6/6h60iatW
+	5d2AUq130E2sQ9ebOE2EmcZa4YEiPqu52FkWk6jrgneSwXoV5duKkZsVxO3n76TOh3/YdNcniUxSy
+	MwbnZIyQJ2o093k31dnETX0UpBjmGodJCExIy0CkeXv8itIVcp+rF0Eyw1CSbzlcathsxKxGjE1kX
+	1HKMBUHgColqbXsMBVz4ngbMews5GsJzyt3HQrGAaVu33Kxsd5ue4CdutBlM57Q6Ah7fKQz9lN1Hg
+	UdiRT1QfFnOvIT2wbwCpOD5NuB//iPRrygtW4L9NKOaLsQj8slc+iGeFFDpwjgtcz5iVc0zLGDMgB
+	2nvAiscw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZJ5-0000000EYCY-1pB3;
-	Fri, 07 Mar 2025 15:08:11 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tqZKg-0000000EYgi-0iHF;
+	Fri, 07 Mar 2025 15:09:50 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZHS-0000000EY0Z-09y9
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 15:06:31 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3912a28e629so66615f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 07:06:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741359988; x=1741964788; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=iArDif38+fZWZHkgSuOxfgSy+rEDqBvDc+u/YR4aXK4=;
-        b=CBFIqE/908LPqkoCGoPMoOtp+yEyfJTYzBAnyqRVIZnMbnDzmxmrwqMERknwyDsC1H
-         tNLsUJNG3bSmVTnDskM5MctKhUwBcsfroBLp0oEkWolhvcl572vP28v8bQCgJ3ezImog
-         VtBid6dk6lw+5/iv/5EFHV1lPYTrQs10MY5enoMIXU+sVNlI6hEdTvUi6wpkJIsKIDl9
-         ftUtD2TBxJaFCP3SJ+5sBVgcvGOM683Xv2KNhO6IKi9oiu9g+aVgvFaxS9YfUY7YlEJ6
-         LOgetwUezpA5fGYoFHp1VhTsjCc20fAkWSxm2Q0SbRqIki7ieBuv9wHQEz0GzVRcBdeH
-         Svhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741359988; x=1741964788;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=iArDif38+fZWZHkgSuOxfgSy+rEDqBvDc+u/YR4aXK4=;
-        b=ZvfIRlBYbBv1+FqibBtw4S8/I0IBh9MBpl0GwtTOLvbzN8VhvhyGqTdAGqmhCXISIG
-         lYU3R05730aozYXnNMB+DpUvDsfA3OHEw2R8t6cGTzTA7yf9Z843ujurVcGmnZYknIbv
-         cusTlfnCj7ntto8DOvg2lqbt968tQ917cJ0edmMHNuZltqf4L45YO47jGINwPMWf1gFQ
-         OJjWo99S+CmFxzWTV67DGRUw/iIsgV6mE6y7UtiDMh52dbIgrJeuGc6pw2mTjoN6UNmC
-         N/aK/6EjFHkSCTDAaeOhRdbii9GtfjTNkTWp04Ca/kHedL01W09VaeTP0RS7aYMv3hE3
-         D1Pw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqoWgITLUuV4dFIoumLCSXnQgjoKL8rNrn5rhHPHtQXlyeuqi9McJj15L3UtbeIqD65LyKCcxvyYlun+qnmRF0@lists.infradead.org
-X-Gm-Message-State: AOJu0YzXmzkjOkAc/jQL9pq1MxEXd5BVvWlch8t5Ri8PL9QuEuHKeQ2H
-	FD6cBwkmmtKRolc31dL2G8EHNs9WrllMtEmlIG8RpggBvZaaAjCx5ZdUZ2MV0f8=
-X-Gm-Gg: ASbGncshUN7X7cc29f4f5IzbyDiypDC7PKhuhWqDYyC7YUVcvoBdyH5r1zFoVaJl21u
-	JvirXmEz4obeIaFHVr3rYa+FmLUH8YsmdLTB/b/sPu7jTcG1rXZnZLeAhxNtVP6Ik1i5cunComD
-	xFYkew4YGxOJF0QdROh93RAVYQOZPRgXI+iqUZuj5QFGssK/oGyBs0RfrnwXhSRYpAMjAdbLdju
-	82+z7ADBASCNA1zYgAVNIcjVkIVKPrN0jTtT08CkBcD2tDDG2FWvPHNJYzcRLymdfFMUZNitNh/
-	bdBZshTFD+Kqk4VDhMpOEV5sfLKnw/8fRwMcd3vDeyPZNLFPNfoXe1BbD+30
-X-Google-Smtp-Source: AGHT+IEepjQ7imgYoD7q4HWijAiTHHIHKB+RaF8r7Ya6WdH9B4Go9g4Q6bd0zl6386Q12ZEaV7KLTg==
-X-Received: by 2002:a5d:5f92:0:b0:38f:2b3c:569e with SMTP id ffacd0b85a97d-3913a8b4205mr53814f8f.11.1741359988167;
-        Fri, 07 Mar 2025 07:06:28 -0800 (PST)
-Received: from [127.0.1.1] ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c0e4065sm5694633f8f.62.2025.03.07.07.06.26
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 07:06:27 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- linux-fsd@tesla.com, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250219085726.70824-1-krzysztof.kozlowski@linaro.org>
-References: <20250219085726.70824-1-krzysztof.kozlowski@linaro.org>
-Subject: Re: [PATCH 1/2] arm64: dts: exynos: gs101: Change labels to
- lower-case
-Message-Id: <174135998630.202917.16887190642980215810.b4-ty@linaro.org>
-Date: Fri, 07 Mar 2025 16:06:26 +0100
+	id 1tqZIH-0000000EY66-1Za7;
+	Fri, 07 Mar 2025 15:07:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=+YoQ2bMScfM3XAjlW+ut1pe8WVSp2EYOFx87rsgzN5k=; b=yW0AcufOGRYzmpgjGUgGNmg/0F
+	56qmo0oQ6Pdz6e0J5QHj/u774MNjQpmgTkNm+4Z8BViLIV96x9aPBHpaG529Rn9Y9cYfKboGR2qfX
+	1wNc3hnNoSARSM4ggrltwjCJJfa61gsC3vk5Nb2/f7d1VqjEMsOr2WEEa6T4QXBsqulZlf/fIfABR
+	r390rRxnArS/qTzhbLk5afn2oiPQRawCCjC9QIBgjvYNE/j/QUzUzUnx86lj365Vo0vpxJzlanMxA
+	w+GBPP64swpFjcRItYcpFUsgWldeODSnI6aEXLNBJuhpPKTMAb47O43gsDJkOTqmGIGNlD2AP20O3
+	mMjClxuQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:34076)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tqZHh-0007ZK-2W;
+	Fri, 07 Mar 2025 15:06:45 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tqZHX-0007uI-2E;
+	Fri, 07 Mar 2025 15:06:35 +0000
+Date: Fri, 7 Mar 2025 15:06:35 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>
+Subject: Re: [PATCH net-next v7 4/4] net: stmmac: Add glue layer for Sophgo
+ SG2044 SoC
+Message-ID: <Z8sLeyixPzH60mJ_@shell.armlinux.org.uk>
+References: <20250307011623.440792-1-inochiama@gmail.com>
+ <20250307011623.440792-5-inochiama@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250307011623.440792-5-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_070630_093760_EA172A83 
-X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-CacheID: sfid-20250307_070721_689743_6F5E0B46 
+X-CRM114-Status: UNSURE (   6.04  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -106,22 +111,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 19 Feb 2025 09:57:25 +0100, Krzysztof Kozlowski wrote:
-> DTS coding style expects labels to be lowercase.  No functional impact.
-> Verified with comparing decompiled DTB (dtx_diff and fdtdump+diff).
+On Fri, Mar 07, 2025 at 09:16:17AM +0800, Inochi Amaoto wrote:
+> Adds Sophgo dwmac driver support on the Sophgo SG2044 SoC.
 > 
-> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 
-Applied, thanks!
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-[1/2] arm64: dts: exynos: gs101: Change labels to lower-case
-      https://git.kernel.org/krzk/linux/c/73fd2bb607387a77b2dde43a2c47db2b71c65a96
-[2/2] arm64: dts: tesla: Change labels to lower-case
-      https://git.kernel.org/krzk/linux/c/056106b030b73c7d53749469bd1cdbc89b4d2daf
+Thanks!
 
-Best regards,
 -- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
