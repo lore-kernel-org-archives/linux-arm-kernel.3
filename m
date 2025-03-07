@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 735EBC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A80F6C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBIXxrcBrCU8gSPBHd/jAHltxSRSe7nuoZNbpUeVov8=; b=hlG0ldjfZmyGMGRmg7fhew7nhA
-	thcxlTMM0WuFfNF1KWnZs5CE+DxzNjF8L7ndo2zlbjfLHhVMHVMqHgr6yyEYmVhukGaHbVcaLsF+d
-	OvB3re3cSGCA9xKJfydjI0LSJ7bhIYbPxEJU+7+ewLAD5K0sqCOrHjRZMLy9WHhNASgNFU6uv2oon
-	k/jXJh1a7KKdJn0bCDqg21XFeb6N4X3WUQhpCL/l3rqOzGti4O4I4Jgp4UKVc+UJOhLKrey3GHGAA
-	WDa0Uzy1Q/k1RqFGZuvx6gAdK5mDDaTL89MoJ2+UIk7NXuhBKPeTJ8G46vBeJoAB2GpDizPQB3/Ra
-	izgG+ZwA==;
+	bh=XlcdbkrabUG2lcUBU5BlLlpmLXWnOKhgRPLM1uz4Ib0=; b=nXgf05RwycXjZQsEObzQ6mBZrB
+	0fA9QdjX+k4M1Qfwt6hLBEyF8aFFTsFLsPy2e1MDzK2vJOgzwisQoMtmuusEhf4drgPmpp9a/+JGJ
+	vcYqfHohH7BIIYbAxdxqyvFme3EIXC7aT8v42STWlNBEHSkv6aXYXrS2RvPfc4LSVg4s3GbLjmg7h
+	6b6EmA/6IkajVh+5bZtcBg7xQZ8OH84k4Ym36AsDje8/hXAyraFvKZEAIGLIPFf4HWzjaKV8voRnk
+	FuWFxL0UP1ZeQDVkuaqFx9hxW2mkmVjGdiXYWGpnV1ri4IT+9ozLPJymb5PY+FVMpd3SHXYOSrDCd
+	qQbENyZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeHv-0000000FUDK-0VnZ;
-	Fri, 07 Mar 2025 20:27:19 +0000
+	id 1tqeJV-0000000FUNl-3Y3h;
+	Fri, 07 Mar 2025 20:28:57 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeEl-0000000FTl6-1uFC
+	id 1tqeEu-0000000FTnK-02mF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 20:24:04 +0000
+	Fri, 07 Mar 2025 20:24:13 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6D6271477;
-	Fri,  7 Mar 2025 12:24:15 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E667716A3;
+	Fri,  7 Mar 2025 12:24:23 -0800 (PST)
 Received: from e128066.arm.com (unknown [10.57.40.70])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 2B5CE3F5A1;
-	Fri,  7 Mar 2025 12:23:59 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id A99083F5A1;
+	Fri,  7 Mar 2025 12:24:07 -0800 (PST)
 From: mark.barnett@arm.com
 To: peterz@infradead.org,
 	mingo@redhat.com,
@@ -52,17 +52,17 @@ Cc: ben.gainey@arm.com,
 	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	Mark Barnett <mark.barnett@arm.com>
-Subject: [PATCH v3 1/5] perf: Record sample last_period before updating
-Date: Fri,  7 Mar 2025 20:22:43 +0000
-Message-Id: <20250307202247.648633-2-mark.barnett@arm.com>
+Subject: [PATCH v3 2/5] perf: Allow periodic events to alternate between two sample periods
+Date: Fri,  7 Mar 2025 20:22:44 +0000
+Message-Id: <20250307202247.648633-3-mark.barnett@arm.com>
 X-Mailer: git-send-email 2.25.1
 In-Reply-To: <20250307202247.648633-1-mark.barnett@arm.com>
 References: <20250307202247.648633-1-mark.barnett@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_122403_594799_8C78C113 
-X-CRM114-Status: GOOD (  15.37  )
+X-CRM114-CacheID: sfid-20250307_122412_134598_D8D3F77B 
+X-CRM114-Status: GOOD (  21.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,151 +77,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Mark Barnett <mark.barnett@arm.com>
+From: Ben Gainey <ben.gainey@arm.com>
 
-This change alters the PowerPC and x86 driver implementations to record
-the last sample period before the event is updated for the next period.
+This change modifies perf_event_attr to add a second, alternative
+sample period field, and modifies the core perf overflow handling
+such that when specified an event will alternate between two sample
+periods.
 
-A common pattern in PMU driver implementations is to have a
-"*_event_set_period" function which takes care of updating the various
-period-related fields in a perf_event structure. In most cases, the
-drivers choose to call this function after initializing a sample data
-structure with perf_sample_data_init. The x86 and PowerPC drivers
-deviate from this, choosing to update the period before initializing the
-sample data. When using an event with an alternate sample period, this
-causes an incorrect period to be written to the sample data that gets
-reported to userspace.
+Currently, perf does not provide a  mechanism for decoupling the period
+over which counters are counted from the period between samples. This is
+problematic for building a tool to measure per-function metrics derived
+from a sampled counter group. Ideally such a tool wants a very small
+sample window in order to correctly attribute the metrics to a given
+function, but prefers a larger sample period that provides representative
+coverage without excessive probe effect, triggering throttling, or
+generating excessive amounts of data.
 
-Link: https://lore.kernel.org/r/20240515193610.2350456-4-yabinc@google.com
+By alternating between a long and short sample_period and subsequently
+discarding the long samples, tools may decouple the period between
+samples that the tool cares about from the window of time over which
+interesting counts are collected.
+
+It is expected that typically tools would use this feature with the
+cycles or instructions events as an approximation for time, but no
+restrictions are applied to which events this can be applied to.
+
+Signed-off-by: Ben Gainey <ben.gainey@arm.com>
 Signed-off-by: Mark Barnett <mark.barnett@arm.com>
 ---
- arch/powerpc/perf/core-book3s.c  | 3 ++-
- arch/powerpc/perf/core-fsl-emb.c | 3 ++-
- arch/x86/events/core.c           | 4 +++-
- arch/x86/events/intel/core.c     | 5 ++++-
- arch/x86/events/intel/knc.c      | 4 +++-
- 5 files changed, 14 insertions(+), 5 deletions(-)
+ include/linux/perf_event.h      |  5 +++++
+ include/uapi/linux/perf_event.h |  3 +++
+ kernel/events/core.c            | 39 ++++++++++++++++++++++++++++++++-
+ 3 files changed, 46 insertions(+), 1 deletion(-)
 
-diff --git a/arch/powerpc/perf/core-book3s.c b/arch/powerpc/perf/core-book3s.c
-index 2b79171ee185..234803441caa 100644
---- a/arch/powerpc/perf/core-book3s.c
-+++ b/arch/powerpc/perf/core-book3s.c
-@@ -2231,6 +2231,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
- 			       struct pt_regs *regs)
- {
- 	u64 period = event->hw.sample_period;
-+	const u64 last_period = event->hw.last_period;
- 	s64 prev, delta, left;
- 	int record = 0;
- 
-@@ -2296,7 +2297,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
- 	if (record) {
- 		struct perf_sample_data data;
- 
--		perf_sample_data_init(&data, ~0ULL, event->hw.last_period);
-+		perf_sample_data_init(&data, ~0ULL, last_period);
- 
- 		if (event->attr.sample_type & PERF_SAMPLE_ADDR_TYPE)
- 			perf_get_data_addr(event, regs, &data.addr);
-diff --git a/arch/powerpc/perf/core-fsl-emb.c b/arch/powerpc/perf/core-fsl-emb.c
-index 1a53ab08447c..d2ffcc7021c5 100644
---- a/arch/powerpc/perf/core-fsl-emb.c
-+++ b/arch/powerpc/perf/core-fsl-emb.c
-@@ -590,6 +590,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
- 			       struct pt_regs *regs)
- {
- 	u64 period = event->hw.sample_period;
-+	const u64 last_period = event->hw.last_period;
- 	s64 prev, delta, left;
- 	int record = 0;
- 
-@@ -632,7 +633,7 @@ static void record_and_restart(struct perf_event *event, unsigned long val,
- 	if (record) {
- 		struct perf_sample_data data;
- 
--		perf_sample_data_init(&data, 0, event->hw.last_period);
-+		perf_sample_data_init(&data, 0, last_period);
- 
- 		if (perf_event_overflow(event, &data, regs))
- 			fsl_emb_pmu_stop(event, 0);
-diff --git a/arch/x86/events/core.c b/arch/x86/events/core.c
-index 8f218ac0d445..a78a8f3244ef 100644
---- a/arch/x86/events/core.c
-+++ b/arch/x86/events/core.c
-@@ -1673,6 +1673,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
- 	struct cpu_hw_events *cpuc;
- 	struct perf_event *event;
- 	int idx, handled = 0;
-+	u64 last_period;
- 	u64 val;
- 
- 	cpuc = this_cpu_ptr(&cpu_hw_events);
-@@ -1692,6 +1693,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
- 			continue;
- 
- 		event = cpuc->events[idx];
-+		last_period = event->hw.last_period;
- 
- 		val = static_call(x86_pmu_update)(event);
- 		if (val & (1ULL << (x86_pmu.cntval_bits - 1)))
-@@ -1705,7 +1707,7 @@ int x86_pmu_handle_irq(struct pt_regs *regs)
- 		if (!static_call(x86_pmu_set_period)(event))
- 			continue;
- 
--		perf_sample_data_init(&data, 0, event->hw.last_period);
-+		perf_sample_data_init(&data, 0, last_period);
- 
- 		perf_sample_save_brstack(&data, event, &cpuc->lbr_stack, NULL);
- 
-diff --git a/arch/x86/events/intel/core.c b/arch/x86/events/intel/core.c
-index 7601196d1d18..add791c6e3d9 100644
---- a/arch/x86/events/intel/core.c
-+++ b/arch/x86/events/intel/core.c
-@@ -3116,16 +3116,19 @@ static int handle_pmi_common(struct pt_regs *regs, u64 status)
- 
- 	for_each_set_bit(bit, (unsigned long *)&status, X86_PMC_IDX_MAX) {
- 		struct perf_event *event = cpuc->events[bit];
-+		u64 last_period;
- 
- 		handled++;
- 
- 		if (!test_bit(bit, cpuc->active_mask))
- 			continue;
- 
-+		last_period = event->hw.last_period;
+diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+index 8333f132f4a9..99ba72c8fb6d 100644
+--- a/include/linux/perf_event.h
++++ b/include/linux/perf_event.h
+@@ -276,6 +276,11 @@ struct hw_perf_event {
+ 	 */
+ 	u64				freq_time_stamp;
+ 	u64				freq_count_stamp;
 +
- 		if (!intel_pmu_save_and_restart(event))
- 			continue;
++	/*
++	 * Indicates that the alternative sample period is used
++	 */
++	bool				using_alt_sample_period;
+ #endif
+ };
  
--		perf_sample_data_init(&data, 0, event->hw.last_period);
-+		perf_sample_data_init(&data, 0, last_period);
+diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+index 0524d541d4e3..499a8673df8e 100644
+--- a/include/uapi/linux/perf_event.h
++++ b/include/uapi/linux/perf_event.h
+@@ -379,6 +379,7 @@ enum perf_event_read_format {
+ #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
+ #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
+ #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
++#define PERF_ATTR_SIZE_VER9	144	/* add: alt_sample_period */
  
- 		if (has_branch_stack(event))
- 			intel_pmu_lbr_save_brstack(&data, cpuc, event);
-diff --git a/arch/x86/events/intel/knc.c b/arch/x86/events/intel/knc.c
-index 034a1f6a457c..3e8ec049b46d 100644
---- a/arch/x86/events/intel/knc.c
-+++ b/arch/x86/events/intel/knc.c
-@@ -241,16 +241,18 @@ static int knc_pmu_handle_irq(struct pt_regs *regs)
+ /*
+  * Hardware event_id to monitor via a performance monitoring event:
+@@ -531,6 +532,8 @@ struct perf_event_attr {
+ 	__u64	sig_data;
  
- 	for_each_set_bit(bit, (unsigned long *)&status, X86_PMC_IDX_MAX) {
- 		struct perf_event *event = cpuc->events[bit];
-+		u64 last_period;
+ 	__u64	config3; /* extension of config2 */
++
++	__u64	alt_sample_period;
+ };
  
- 		handled++;
+ /*
+diff --git a/kernel/events/core.c b/kernel/events/core.c
+index bcb09e011e9e..7ec8ec6ba7ef 100644
+--- a/kernel/events/core.c
++++ b/kernel/events/core.c
+@@ -4178,6 +4178,8 @@ static void perf_adjust_period(struct perf_event *event, u64 nsec, u64 count, bo
+ 	s64 period, sample_period;
+ 	s64 delta;
  
- 		if (!test_bit(bit, cpuc->active_mask))
- 			continue;
++	WARN_ON_ONCE(hwc->using_alt_sample_period);
++
+ 	period = perf_calculate_period(event, nsec, count);
  
-+		last_period = event->hw.last_period;
- 		if (!intel_pmu_save_and_restart(event))
- 			continue;
+ 	delta = (s64)(period - hwc->sample_period);
+@@ -9894,6 +9896,7 @@ static int __perf_event_overflow(struct perf_event *event,
+ 				 int throttle, struct perf_sample_data *data,
+ 				 struct pt_regs *regs)
+ {
++	struct hw_perf_event *hwc = &event->hw;
+ 	int events = atomic_read(&event->event_limit);
+ 	int ret = 0;
  
--		perf_sample_data_init(&data, 0, event->hw.last_period);
-+		perf_sample_data_init(&data, 0, last_period);
+@@ -9913,6 +9916,18 @@ static int __perf_event_overflow(struct perf_event *event,
+ 	    !bpf_overflow_handler(event, data, regs))
+ 		goto out;
  
- 		if (perf_event_overflow(event, &data, regs))
- 			x86_pmu_stop(event, 0);
++	/*
++	 * Swap the sample period to the alternative period
++	 */
++	if (event->attr.alt_sample_period) {
++		bool using_alt = hwc->using_alt_sample_period;
++		u64 sample_period = (using_alt ? event->attr.sample_period
++					       : event->attr.alt_sample_period);
++
++		hwc->sample_period = sample_period;
++		hwc->using_alt_sample_period = !using_alt;
++	}
++
+ 	/*
+ 	 * XXX event_limit might not quite work as expected on inherited
+ 	 * events
+@@ -12335,9 +12350,19 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
+ 	if (attr->freq && attr->sample_freq)
+ 		hwc->sample_period = 1;
+ 	hwc->last_period = hwc->sample_period;
+-
+ 	local64_set(&hwc->period_left, hwc->sample_period);
+ 
++	/*
++	 * alt_sample_period cannot be used with freq
++	 */
++	if (attr->freq && attr->alt_sample_period)
++		goto err_ns;
++
++	if (attr->alt_sample_period) {
++		hwc->sample_period = attr->alt_sample_period;
++		hwc->using_alt_sample_period = true;
++	}
++
+ 	/*
+ 	 * We do not support PERF_SAMPLE_READ on inherited events unless
+ 	 * PERF_SAMPLE_TID is also selected, which allows inherited events to
+@@ -12807,9 +12832,21 @@ SYSCALL_DEFINE5(perf_event_open,
+ 	if (attr.freq) {
+ 		if (attr.sample_freq > sysctl_perf_event_sample_rate)
+ 			return -EINVAL;
++		if (attr.alt_sample_period)
++			return -EINVAL;
+ 	} else {
+ 		if (attr.sample_period & (1ULL << 63))
+ 			return -EINVAL;
++		if (attr.alt_sample_period) {
++			if (!attr.sample_period)
++				return -EINVAL;
++			if (attr.alt_sample_period & (1ULL << 63))
++				return -EINVAL;
++			if (attr.alt_sample_period > attr.sample_period)
++				return -EINVAL;
++			if (attr.alt_sample_period == attr.sample_period)
++				attr.alt_sample_period = 0;
++		}
+ 	}
+ 
+ 	/* Only privileged users can get physical addresses */
 -- 
 2.43.0
 
