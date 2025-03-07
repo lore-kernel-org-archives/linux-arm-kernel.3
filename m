@@ -4,157 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59A31C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 08:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91D1CC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 08:15:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=B3ey7F8EiGCoepLHHpxOERrf1kCtSlujFO9JhRDC8hs=; b=JviMbd7lCOSA61YCG3U3Ekhcu9
-	wHh/yt3Bq0HQsYQrGc74aOS8l1TatdJhIQCr68TD9tbYcdIzETfoFh+4AVDP7QqYH+6aj7ubDitYp
-	dIwUx0NzB8or4h6OEwiVtTmMzi+7NgrfZisnMKtgI99CusQfBCEEgR54NYf3nLxNfNBT5MSGr8LeO
-	Ba8+e9hz43QjEZQv7jQalKGwzTRpiqzkWOHkcJpJvFVb+UuzR0HDKe0SQYNPL6TMWR8UPCUJiaJuK
-	6+Y8qQor0ONjZa8lGYTlQi6l6Uep4F7v5KBXs9uOnp4ibx85ArisvQVraxDEsUMHThg9K8c+uSenc
-	lDd7OXmw==;
+	bh=aWHK9yli0arAp4uGJvEOq4N98UZnlQVuehVV6E0itOc=; b=t5Jdc4+cihWkCD5phQJaX2eHB+
+	d3g4GWAxZEcLd8pTwhTu0Gj7kz4BUgauXf5WsgJsAgyoSxaFNZGhFxRAAfS/5VXKbCPhd2Rp4twQL
+	n8HTO3Yrpk5G5Hme7lfqyp2nQjNk03/Bd17RExpa/Hw8MnakQfTXWJ20bq02bA1jAd5HDjfq4BM4n
+	gTXGXb1HZei8qv5/HnezHlo19q5hJvw4toG6jYYhoGKu++b1WIY7CiyGPsXJvJ0tJCJ3o+NKW37kS
+	WHKY/F8mm4AI4+mieP5b64Hsw7p8TBpwqiOsTeNJY7xlrYPIz5tKsjZgbtFyffBdkL7kQ7x732ON+
+	mYjJpI0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqShb-0000000DV0k-01Qw;
-	Fri, 07 Mar 2025 08:05:03 +0000
-Received: from mail-am0eur02on2060d.outbound.protection.outlook.com ([2a01:111:f403:2606::60d] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tqSrh-0000000DWdS-0Gp2;
+	Fri, 07 Mar 2025 08:15:29 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqSeq-0000000DUcs-1cg9;
-	Fri, 07 Mar 2025 08:02:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Sbsci04fY76JhJwTmX0vFy1FhKeRRpOg0YyjCHwqfTFt//hst0Bfu6FGK0LU5IU+suRzD3XXgJ31hayzBFsNQ8MYFOYBWnrSzvPlFutcKOSn+xpCiuOER/Tg4IMVjsblpB3wQKqSj3BqPq8dTy+N3DJJR59vcQPO6JDCvv6EwWXgdxtMEWiz47LWq+yEWBe1SJ++p3Tjuyrjqopk2oo9e1HS9DV+qTVuYVUktw9Bsi5aHZoVdCoS4i2TIWeZN9w8pwctbeUIDqKdPPVOYm+6gtCw/+sTmMv7TD7KH3wtcopbFgdF318z+ZP53L3fbKLw5NUr3qa8otaUmeUtsLVYAg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=B3ey7F8EiGCoepLHHpxOERrf1kCtSlujFO9JhRDC8hs=;
- b=V1Wt6vdfgWmKzsVJE8Mka8YG9303GGKB4LUwx6VZu3FPxXK9Q54pug172cVLkixIAcfz7iUQNxq4w/zRTwiByZKxVT72pTjwDwX2MGYqopyOF/cJ/Z2pGy3Xrp4b/XvPvW+iZvr9GeDFD6L9VaYys2oEFkrjWdil4iaDcTlOb2QhSB8qN+0F3jILuEwNnesYD0e57NJI5HtsjXtGV0eKsGGwbkmbvmgITOcswoWdh1b0Q6sA8TnfO2VD/KhcKpzNK1ijNB1KIMd+uvQcAjy2qVLqbTLNKMoltYuI+GCUJDMkm/8JWhNwHG8qbOMr/KYvbKIcbSSoZFyZcuzvJaHMaw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=B3ey7F8EiGCoepLHHpxOERrf1kCtSlujFO9JhRDC8hs=;
- b=M/I8XfRzLBK0ZcAO8we36SsPTRm71GGtmi7niguThRF4wWX1OlDbe4yJbN2fZDSA+pOW6EjSZDlogqTu3hg2Dg4qzjyPJ2Hz4/8TKPOIGU7woQgd1am1rxcN0r9qCd2ONP6CIz5NLNXraKqBPdztGB0Om6JV+C5NsSKXgy3nswntE/kp80wQIPX7i9uApbaPJGONEUxuiNwD6LMpCvVI0Ld+GptfmVQiQeGl+aaqlnZFAE84AzuBwJbTLbIZCAXFLj972pWrYuYThcG2BqEf4fanSNfg9bOpq69nhf3ZigQkILPacd84+nGjUPO8M7EGrTcFa3DSnApFCC3Oh4RWTw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by PAXPR04MB8335.eurprd04.prod.outlook.com (2603:10a6:102:1c2::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
- 2025 08:02:07 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
- 08:02:07 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	lpieralisi@kernel.org,
-	sudeep.holla@arm.com,
-	ulf.hansson@linaro.org,
-	james.morse@arm.com,
-	d-gole@ti.com,
-	anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-pm@vger.kernel.org,
+	id 1tqSq3-0000000DWHo-0afx
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 08:13:48 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43bca8cabc8so1645595e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 00:13:46 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741335225; x=1741940025; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aWHK9yli0arAp4uGJvEOq4N98UZnlQVuehVV6E0itOc=;
+        b=w3J20infl/eUmDV8Q7/13Q0emON7Oc+D2Fw8Oi3gjIHZ9bYJ6yQVEXrM5YC001LAYq
+         NkRWQv6g/zKOdA+mdh5LMyHBGp6xlqFodtXw05KBJIYZjYqdT9mtT2aIpwnm7AzfrHxm
+         grwqLXqzseW5PtOttJpq1Qt0nkN/LEfhdi2t6T4K5bx0CcJkB8xvOfzP4PEf7tUV7dmE
+         lllhInWECDTF6jVibpCIrImJ7L6yZqfpX6MkEK2IS7UQUV5Ffsa+2pImLZPJb16ByEXm
+         /l72Sl8JN0NEubWNDWfzq3h3ejKI0cuAzB2RjpBL39xMIyU6cdddIkgG0ppnCK/L0Qmc
+         RWCg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741335225; x=1741940025;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aWHK9yli0arAp4uGJvEOq4N98UZnlQVuehVV6E0itOc=;
+        b=MaYQMXLZBkFwPf1KWVgA503a7PDyvGfEMab+HqLcdLD3job/cvQi1x5HQz2XWAlBES
+         uA+YfuwArYL+04+s5gHqf9Ei9XyVkfEpRUWSKF0KEB2Nc3wi6OTynHVzszHNIfVqj05q
+         l7EjJTAj1u5d48fVyIX+99nTOK4k+CJHIc/jGJzPIvOC3Il9hUTdshFccsou+Iv7sgpw
+         w3B7RN4w1jILtkju2SKo6zd0H48euzJioMMGySC4jLWNGAo04CcxgOwlAq8AjmFftBKO
+         VGbcg//PJRi5zxmPyLiPxDC8r9Um8yYbIwskpiUVws/ve/z1MrG6y/gbBD+vJiBpEvmE
+         vELQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDooAv5iwNx5EVYAM5i1vic+6XvkRX5kp5d8G7SxKivAo1JHPSDZd+/RB5fwfZe5qbZN6vUAjSqzAZFDRvS2j0@lists.infradead.org
+X-Gm-Message-State: AOJu0YxeYBWoHh0m3iO0MCGYeH/53ZqI7uvuty1dlLLCA/QGdE8KRwa4
+	P+WM6Xv9oK9L6wnL16HhIRxO7wmx18PPKWS/BBbENwAFLTWxUDTnJz/UU1WOjKE=
+X-Gm-Gg: ASbGnctlJ7KZeZUjsUr/o3OHpk7H1yIfPNnXRMQYQjery/Wy+XGHNBztq6WUWXZWsEZ
+	r2cZiMWrEFmYneOYSe+uCATSYMfJs4NKPCsweyGSiiPU9tkUiquNWGGajUHE58tK/ZaI3uuZHcI
+	a+CQJi7l5YBiKafqUuqxYLGCTFLTP5/l/XcHVGQ3StYQZC+9wNre0G13LPWog3E6hhDNYPD3Xa7
+	JBzQr/U1bf7Cbo7ddQFG4ot8i2Rw0OuhAX7YV15cqU0tzJjYQ+h++oCvljheXB3scYSW3sc7xn3
+	Cf7b1r4IZg2SYzCgn2zAkuSQLP+GFK549pI5FWl9rlP226HRGYSKGefXTkk=
+X-Google-Smtp-Source: AGHT+IF4UvKX11yMkyXP1QJeL56hmM+u2mk3Z+n8AmkHahFOQAmYaNbSy5nTjDw60A7BEfx1RoKOQg==
+X-Received: by 2002:a05:600c:1d9a:b0:43b:d547:6336 with SMTP id 5b1f17b1804b1-43c601da744mr6450845e9.8.1741335225207;
+        Fri, 07 Mar 2025 00:13:45 -0800 (PST)
+Received: from krzk-bin.. ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd91338cesm62267155e9.7.2025.03.07.00.13.43
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Mar 2025 00:13:44 -0800 (PST)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Sam Protsenko <semen.protsenko@linaro.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	imx@lists.linux.dev,
-	khilman@baylibre.com,
-	quic_tingweiz@quicinc.com,
-	quic_yuanjiey@quicinc.com
-Subject: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-Date: Fri,  7 Mar 2025 16:03:03 +0800
-Message-Id: <20250307080303.2660506-1-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR06CA0236.apcprd06.prod.outlook.com
- (2603:1096:4:ac::20) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [PATCH] dt-bindings: soc: samsung: exynos-usi: Drop unnecessary status from example
+Date: Fri,  7 Mar 2025 09:13:41 +0100
+Message-ID: <20250307081341.35197-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|PAXPR04MB8335:EE_
-X-MS-Office365-Filtering-Correlation-Id: b08323f0-c541-45b5-6fc3-08dd5d4e5aef
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?p9ZNQ5RZ3CdLh7xFtl0cPUmS6eiuIlJqW/zlQgnVagwVmuIJF+Sts8o0w7pH?=
- =?us-ascii?Q?Yi+fZS7zAesV+xKEggRkJX+Yw4WiAf+vOkYK/6IeBfSLlSnUdb/kxw3FadnQ?=
- =?us-ascii?Q?iUkwGHt3FeEq/ZSg/RoOkxVrTAiSJAlLUTjj6nR9LwaaayV9GVmJMteGJZPE?=
- =?us-ascii?Q?wfGNnSKmYjLeZkx9G/lPlyQasysnwiFRIgXuZS7KTCs09wy2WMDQn5pUhO48?=
- =?us-ascii?Q?Ni6oyLrhzXcQoCaaJlFASXKPf1tNx5WMjRRKTWmGxYE+SqtyH4RtJjxUCVmU?=
- =?us-ascii?Q?DLsFxchU3xuGaCQjN9ThNQyHFGjP7I65vHx+YUihGpxurrJGds1Z0HnuyXVX?=
- =?us-ascii?Q?ploXpeHvS83yDuq4XTmqL/s8pJvqeWyFFTVl2ZZLS/49v1hznRbG7QfFG7/E?=
- =?us-ascii?Q?oLWPuD7tyP0h9TO8j4G9uWasf0VpD8qrrL342noz8IW3Gy9mu25Pi1vndTAo?=
- =?us-ascii?Q?7brbfBd7FVnFrsFx+wMtuCRJCX3eZMgtB8ShLNRyTsN0ESd8/krC1rnhb20b?=
- =?us-ascii?Q?b6N4H408gD889/b07WDl1yNGNHxFlWGK611J8w9KLYynsE4dfLeFqC6EaDr6?=
- =?us-ascii?Q?bsLmiIW99DQPsyXhFSvu9xDEjvoC4+DfY1M06D00xu8u1lQKepJiGX9pL29W?=
- =?us-ascii?Q?xkzqKllepvO0NwikpIA5H1JXzLGU2Bf2g4hdHVTWDvUkfPfiaHONQTDHWPJA?=
- =?us-ascii?Q?czlDPc7iye3IsAc/Qu+LSNVeQeOv37TXby4Va1UKinK75+4JjVpiz96W3YRw?=
- =?us-ascii?Q?AzTCHQfutSGdxW1EGxn5zfzjuh/XXRZ6CJQnVSFprHp1BYLc+JYrBOOZqZO0?=
- =?us-ascii?Q?Etr5DXnyS406Xv/OCJDX8vrmOYLEd3C9iWBeGLnwRvR/rzm5THrzvqJTgGzP?=
- =?us-ascii?Q?VrDencjU1H59M+LcI4QvOp6W7oY5bcJlWCD/ApL3A/4kXO96dFN6ZcIxRVil?=
- =?us-ascii?Q?bm+uUe8yip65GLGJXB+RS3El3wBczZ3fLoBUa41yRbnMUg3b3wHCygC0r4l8?=
- =?us-ascii?Q?LetENixbsP0DMnWb1+ckW7RSSAWckMcxBOCkVL8xNq32vNjk03RX1NR7S3yo?=
- =?us-ascii?Q?JSKlBkLl/MlseOuDUpuFNoO/NIh3C85N9WkVG44th3x0z3jeprntrWmYEgPX?=
- =?us-ascii?Q?o1F6rwhVZye3ZbF+Nb6ybAMtinlXKRJqUeVvyzxtU4goInQzBvkeJmTK5brd?=
- =?us-ascii?Q?SKZ1dxrPUdJXB8CIJ/wDEO8nYcP79+pJuv45rKCnku4nj+JNgoJ42ozysYPX?=
- =?us-ascii?Q?E7vzgE/6xnoyJjOzt+X5L2iUboi04x81iQi4ivnhzF41slCFcdLZVt4wMGc7?=
- =?us-ascii?Q?GZ+7i445cMYS0RNhGML6Xe3XPdmuSeFPiAr279zHZsbsJzujs52hHLi29BBY?=
- =?us-ascii?Q?IMLKf96YgdbEDWwMRlDfgpRmzV293MKuJu36gSBYJpn+ctvoBvC6QuuyhxMA?=
- =?us-ascii?Q?eCsptvU0WCRNRqjpwxqEaK2N5vB8BIYCnD/7AynEUXKQUoXeaP2TpQ=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QkZ3lHu/z5JkVUGJ7GLW6CINi/aQitgSV62Dv3A+VW9xmoR5uRikiKkVXMQh?=
- =?us-ascii?Q?L4JTVhB4izirOq/p0u/PQHWjEDN8toNfurwmslEdjY7vMcnPnEZ4rbtFdiFM?=
- =?us-ascii?Q?PKXI13dukP1tXoYKP7PYpl1oZP4SDE0mSfq4n5NLEWriCsRoM8rxvrq1EAvS?=
- =?us-ascii?Q?Qk3zdj+oI0zt6/Fh3lSf6mFsUfA7+DuN0lQFYQW2N2E68VbpN6XQVpILnQd5?=
- =?us-ascii?Q?l9l+RXCBB9baIJkooIPlqq1EA+stqjj0sEtiz+YTDS0hYxnPvVcbERxesnEx?=
- =?us-ascii?Q?aiN01amvjjVNHJUOl0GTma5Vmn3hljGASJP3QBXg7P75Z49wY9Tplcx/8BkB?=
- =?us-ascii?Q?JuZqpCozV20wvFETG7SL2qfM9aUDdmog10paKI2e0Q1r1ujmsMaDUPkIT9fr?=
- =?us-ascii?Q?vhEUaIbfz2s9jfou0Ngxaf3C/IK/W3ljnF8eOmKBWB4d9Q9VHOJm4rhh+gwm?=
- =?us-ascii?Q?hkTQ1ezFD0Xzb8p6WJYNf5wBtcs3p39bOdV8eTXdjk2fsLSuBNxPkTLX5zsB?=
- =?us-ascii?Q?s1nM2NZZKkAcQkNF3ZQqP/hr+uJCCxP54INnGS3TXUYn9K9Ugn3bbzKGTiN6?=
- =?us-ascii?Q?XyMYHFd9sQHq6Lg7Tlwp1+VcmSEuBwaoh/uHsuMq0W3Tt414iC2SCh7vm+5g?=
- =?us-ascii?Q?RnyOerA21W1AtCXU1s0eK9SPxtoynrb5KG5lTZprqKTH26zP+H4IDvGQ0LKc?=
- =?us-ascii?Q?MzT/uTQB7rPIh4DYZ3f+WgTYZ4wl/tBehaxNT+PTCuizAWYDiEkZq/Aa0A7a?=
- =?us-ascii?Q?POow/OiuO3xfsQTtdm2R3/Aqxuxp6EKpzAe5mcqowYGpuz8XJYQwWgwOOK/M?=
- =?us-ascii?Q?BaPhniklzVfbqPRSpxPv0JSso8GQjShMtRxa6oi5frQW+TvkQbgFQLZ4wxuo?=
- =?us-ascii?Q?fzm2djGUHOeQGbzIJ7993wJD9viWUCxNpHokRdvmzF56yX4UoTf2xbG6SmKo?=
- =?us-ascii?Q?snnA17B5Kg/iF6msqHLH39oYeFHgFCGEl2YwpnACaNKS7BkzeoW5gs+Tct7z?=
- =?us-ascii?Q?XBTBAoeT8nM54pK4FHQ8jXGRqm1MRXi/LjZCCeR4ur7zhWWyujTwI8s/OcSd?=
- =?us-ascii?Q?xw7Bho7TH0CXzhoQP/nO2vlrxwWegpIVKs2TjUwYyKk4Dz5BznbULNcqJv6o?=
- =?us-ascii?Q?FmzQ34Nf2rV9aNH7/q0ASKvjaw0M5oeeqKTAGZ8AD2XSioYqQwyYgKgDhyvH?=
- =?us-ascii?Q?5jBg9ww9uHRvkctuWIPGCTFB3HhkpgrDLT5B5Y4EkpycaEdWOpVqO9ZDd43h?=
- =?us-ascii?Q?tcdue0n/lqgJ8W471LSRuRdGYy5T5Ji0OX+GmLsvqWy3RH43K9uP63HCdNX6?=
- =?us-ascii?Q?jpeHIcBDIwD3AimbElCU7njgmVQrOvTaxuMGcNmUSC58DFaldrO9Ahveggj6?=
- =?us-ascii?Q?lRRe5Vog+VRBqKq++65qqW/nisw56fSKQOBcFxEosoS8UPvcx+o18vCNmiUH?=
- =?us-ascii?Q?SuCx7QxkXXIe+GUHG8TVCGDSBCPIUc/uBR5FLnaE4O6gLiJwcEJ7RbUR6fxt?=
- =?us-ascii?Q?gGqiv9H0PGJ8ExzeXx+J4UaDHcqmkg/QWEo0qc3Pb58ocYImMscHuoxHVDp5?=
- =?us-ascii?Q?mQnJ636DMRCgppkyQXaWhuNDVClPCMwH0vzryzpm?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: b08323f0-c541-45b5-6fc3-08dd5d4e5aef
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 08:02:07.2798
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: O4QXU/e/3Mu7PeLZb/+07Rk6k9ROJSXt4mu598GqdQ/8lqRCSz/ADNO5TQqXId9dCT2Ack9t+GpMzvnB0BiTtw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8335
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_000212_453564_1E9D4AEC 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250307_001347_175967_E5C7FF2B 
+X-CRM114-Status: GOOD (  10.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,124 +101,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_possible_cpu() is currently used to initialize cpuidle
-in below cpuidle drivers:
-  drivers/cpuidle/cpuidle-arm.c
-  drivers/cpuidle/cpuidle-big_little.c
-  drivers/cpuidle/cpuidle-psci.c
-  drivers/cpuidle/cpuidle-riscv-sbi.c
+Device nodes in the examples are supposed to be enabled, so the schema
+will be validated against them.  Keeping them disabled hides potential
+errors.  Only one child of Samsung Exynos USI device node should be
+enabled.  The node in the example already selected 'USI_MODE_UART', so
+enable the serial node while keeping second - I2C - disabled.
 
-However, in cpu_dev_register_generic(), for_each_present_cpu()
-is used to register CPU devices which means the CPU devices are
-only registered for present CPUs and not all possible CPUs.
-
-With nosmp or maxcpus=0, only the boot CPU is present, lead
-to the failure:
-
-  |  Failed to register cpuidle device for cpu1
-
-Then rollback to cancel all CPUs' cpuidle registration.
-
-Change for_each_possible_cpu() to for_each_present_cpu() in the
-above cpuidle drivers to ensure it only registers cpuidle devices
-for CPUs that are actually present.
-
-Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 ---
- - v4 changes:
-  - add changes for other cpuidle driver that has the similar issue
-    as cpuidle-pcsi driver.
+ Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 -
+ 1 file changed, 1 deletion(-)
 
- - v3 changes:
-  - improve the changelog as suggested by Sudeep
----
- drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
- drivers/cpuidle/cpuidle-big_little.c | 2 +-
- drivers/cpuidle/cpuidle-psci.c       | 4 ++--
- drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
- 4 files changed, 9 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/cpuidle/cpuidle-arm.c b/drivers/cpuidle/cpuidle-arm.c
-index caba6f4bb1b7..e044fefdb816 100644
---- a/drivers/cpuidle/cpuidle-arm.c
-+++ b/drivers/cpuidle/cpuidle-arm.c
-@@ -137,9 +137,9 @@ static int __init arm_idle_init_cpu(int cpu)
- /*
-  * arm_idle_init - Initializes arm cpuidle driver
-  *
-- * Initializes arm cpuidle driver for all CPUs, if any CPU fails
-- * to register cpuidle driver then rollback to cancel all CPUs
-- * registration.
-+ * Initializes arm cpuidle driver for all present CPUs, if any
-+ * CPU fails to register cpuidle driver then rollback to cancel
-+ * all CPUs registration.
-  */
- static int __init arm_idle_init(void)
- {
-@@ -147,7 +147,7 @@ static int __init arm_idle_init(void)
- 	struct cpuidle_driver *drv;
- 	struct cpuidle_device *dev;
+diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+index f711e23c0686..cb22637091e8 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+@@ -191,7 +191,6 @@ examples:
+             interrupts = <GIC_SPI 227 IRQ_TYPE_LEVEL_HIGH>;
+             clocks = <&cmu_peri 32>, <&cmu_peri 31>;
+             clock-names = "uart", "clk_uart_baud0";
+-            status = "disabled";
+         };
  
--	for_each_possible_cpu(cpu) {
-+	for_each_present_cpu(cpu) {
- 		ret = arm_idle_init_cpu(cpu);
- 		if (ret)
- 			goto out_fail;
-diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
-index 74972deda0ea..4abba42fcc31 100644
---- a/drivers/cpuidle/cpuidle-big_little.c
-+++ b/drivers/cpuidle/cpuidle-big_little.c
-@@ -148,7 +148,7 @@ static int __init bl_idle_driver_init(struct cpuidle_driver *drv, int part_id)
- 	if (!cpumask)
- 		return -ENOMEM;
- 
--	for_each_possible_cpu(cpu)
-+	for_each_present_cpu(cpu)
- 		if (smp_cpuid_part(cpu) == part_id)
- 			cpumask_set_cpu(cpu, cpumask);
- 
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index dd8d776d6e39..b46a83f5ffe4 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -403,7 +403,7 @@ static int psci_idle_init_cpu(struct device *dev, int cpu)
- /*
-  * psci_idle_probe - Initializes PSCI cpuidle driver
-  *
-- * Initializes PSCI cpuidle driver for all CPUs, if any CPU fails
-+ * Initializes PSCI cpuidle driver for all present CPUs, if any CPU fails
-  * to register cpuidle driver then rollback to cancel all CPUs
-  * registration.
-  */
-@@ -413,7 +413,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
- 	struct cpuidle_driver *drv;
- 	struct cpuidle_device *dev;
- 
--	for_each_possible_cpu(cpu) {
-+	for_each_present_cpu(cpu) {
- 		ret = psci_idle_init_cpu(&pdev->dev, cpu);
- 		if (ret)
- 			goto out_fail;
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0c92a628bbd4..0fe1ece9fbdc 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -529,8 +529,8 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
--	/* Initialize CPU idle driver for each CPU */
--	for_each_possible_cpu(cpu) {
-+	/* Initialize CPU idle driver for each present CPU */
-+	for_each_present_cpu(cpu) {
- 		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
- 		if (ret) {
- 			pr_debug("HART%ld: idle driver init failed\n",
+         hsi2c_0: i2c@13820000 {
 -- 
-2.34.1
+2.43.0
 
 
