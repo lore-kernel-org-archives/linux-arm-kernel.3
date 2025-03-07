@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFD0CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:22:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D655C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z+uQ2Wn4ySNjA4YqhL8upI/rtbTDYMIRJfwFcarTlc8=; b=qxWnUFMBeajJN0GqLb3wrzAj4L
-	btXytXck0FBrKaCvPs/UOZkvxFhtDkpaOIJmt4jnKjQRMSq4Xa7hVuREMgYsKWYtyEXx8e6g3rf0H
-	P8P5bsW9joa5z7nt4ybZMakUoWShiBXBOLuXqjgjPf/RhXrso5vVrbB2ssUk2tIOj6mNjEbwM9CCS
-	JrNQOgftZlR6eB/aJS3hBChtBYJp2dEHmUW6uVkvuufy+2kcVXtoWCadMYrwHzeECGXUdyEMCeDKJ
-	p6FZiAw38AuS7pcMmB8VtOVNvXVB8CdYk7xELub3mC7fB2UInvjPMbqaLu2X/gmPsQFVr/xBylUZ8
-	jNJy6RNQ==;
+	bh=cenv/3gRGb0pvSEAUPl9yl1LnfUBOEHyNdBcjbzhWJg=; b=vO/wuzfOT2f/p//hU2mRQCFPF+
+	JSxaT4jCn7scpvLjjO22DcsNhknlgiQZqzazM7R8sBjykTMCWmNncu2K1NKNrXSuBbAni1qwRpwwJ
+	XUuIlGg72TC69bqzrPqLB+L4pB8h9h52qWBvM8QC5ZHi5/XI5G/W0D9RBxrMVrGHQM5bxev2OnIuS
+	NofBfi87s++kGX6+OYl44xCUXdVD01sBuVaZm2ldmsABEI//BNnd7/kAlW7kbWm7u9YCrwieqmmqA
+	1+OeFryxLC/igvl6FAFYT25Pzl4qoG1KLyB0xMrRdUEbpn9qZVDOTC2ypOKb/95W+WUL1HcftU9fq
+	3t22H7xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMQ5-0000000CmxO-0X3m;
-	Fri, 07 Mar 2025 01:22:33 +0000
+	id 1tqMRf-0000000CnAC-3IFh;
+	Fri, 07 Mar 2025 01:24:11 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM25-0000000ChzN-0rqs
+	id 1tqM28-0000000Chzz-2eTx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 00:57:46 +0000
+	Fri, 07 Mar 2025 00:57:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AE2991BC0;
-	Thu,  6 Mar 2025 16:57:57 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 07C4D1BC0;
+	Thu,  6 Mar 2025 16:58:01 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7B9A03F5A1;
-	Thu,  6 Mar 2025 16:57:43 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CADB33F5A1;
+	Thu,  6 Mar 2025 16:57:46 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -44,17 +44,18 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 12/15] arm64: dts: allwinner: a523: add X96Q-Pro+ support
-Date: Fri,  7 Mar 2025 00:57:09 +0000
-Message-ID: <20250307005712.16828-13-andre.przywara@arm.com>
+Subject: [PATCH v3 14/15] dt-bindings: arm: sunxi: Add YuzukiHD Chameleon board name
+Date: Fri,  7 Mar 2025 00:57:11 +0000
+Message-ID: <20250307005712.16828-15-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250307005712.16828-1-andre.przywara@arm.com>
 References: <20250307005712.16828-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165745_333422_DDF6090E 
-X-CRM114-Status: GOOD (  21.41  )
+X-CRM114-CacheID: sfid-20250306_165748_709029_73274202 
+X-CRM114-Status: UNSURE (   8.83  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,348 +70,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The X96QPro+ is a TV box using the Allwinner H728 SoC. That SoC seems to
-be a package variant of the A523 family, at least it uses the same SoC
-ID and is compatible as far as we can assess.
+The Chameleon is an Open Source hardware board designed by YuzkuiHD,
+using the Allwinner H618 SoC: https://github.com/YuzukiHD/YuzukiChameleon
 
-It comes with the following specs:
-  - Allwinner H728 SoC: 8 Arm Cortex-A55 cores, Mali-G57 MC1 GPU
-  - 2 or 4GiB DDR3L DRAM
-  - 32, 64, or 128 GiB eMMC flash
-  - AXP717 + AXP323 PMICs
-  - Gigabit Ethernet (using MAXIO PHY)
-  - HDMI port
-  - 2 * USB 2.0 ports
-  - 1 * USB 3.0 port
-  - microSD card slot
-  - TOSLINK digital audio output
-  - 3.5mm A/V port
-  - infrared sensor
-  - 7-segment display
-  - 5V barrel plug power supply
-  - power button
-
-The PCB provides holes for soldering a UART header or cable, this is
-connected to the debug UART0. There is another set of UART pins
-available. The board also features a FEL button (accessible through the
-3.5mm socket) and a reset button (only accessible when case is open).
-
-This .dts just describes the basic peripherals as far as we support them
-at the moment. The PMIC rail assignments are reverse engineered as far
-as possible, by dumping them from a running Android system, and correlating
-them to other boards using the same SoC.
+Add its compatible name to the list of valid board name.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 ---
- arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 287 ++++++++++++++++++
- 2 files changed, 288 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+ Documentation/devicetree/bindings/arm/sunxi.yaml | 5 +++++
+ 1 file changed, 5 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 0d678a7499e3c..983be49ea6ef8 100644
---- a/arch/arm64/boot/dts/allwinner/Makefile
-+++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -52,4 +52,5 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-2024.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-h.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-plus.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-new file mode 100644
-index 0000000000000..c0bce3f4fa925
---- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
-@@ -0,0 +1,287 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+// Copyright (C) 2024 Arm Ltd.
+diff --git a/Documentation/devicetree/bindings/arm/sunxi.yaml b/Documentation/devicetree/bindings/arm/sunxi.yaml
+index 80096819fda91..cce31492b0f11 100644
+--- a/Documentation/devicetree/bindings/arm/sunxi.yaml
++++ b/Documentation/devicetree/bindings/arm/sunxi.yaml
+@@ -1091,4 +1091,9 @@ properties:
+           - const: yuzukihd,avaota-a1
+           - const: allwinner,sun55i-t527
+ 
++      - description: YuzukiHD Chameleon
++        items:
++          - const: yuzukihd,chameleon
++          - const: allwinner,sun50i-h618
 +
-+/dts-v1/;
-+
-+#include "sun55i-a523.dtsi"
-+
-+#include <dt-bindings/gpio/gpio.h>
-+
-+/ {
-+	model = "X96Q Pro+";
-+	compatible = "amediatech,x96q-pro-plus", "allwinner,sun55i-h728";
-+
-+	aliases {
-+		serial0 = &uart0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial0:115200n8";
-+	};
-+
-+	ext_osc32k: ext-osc32k-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		clock-output-names = "ext_osc32k";
-+	};
-+
-+	reg_vcc5v: vcc5v {
-+		/* board wide 5V supply from the barrel plug */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-5v";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		regulator-always-on;
-+	};
-+
-+	reg_vcc3v3: vcc3v3 {
-+		/* 3.3V dummy supply for the SD card */
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc-3v3";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&reg_vcc5v>;
-+		regulator-always-on;
-+	};
-+};
-+
-+&ehci0 {
-+	status = "okay";
-+};
-+
-+&ehci1 {
-+	status = "okay";
-+};
-+
-+&mmc0 {
-+	vmmc-supply = <&reg_vcc3v3>;
-+	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
-+	bus-width = <4>;
-+	disable-wp;
-+	status = "okay";
-+};
-+
-+&mmc2 {
-+	vmmc-supply = <&reg_cldo3>;
-+	vqmmc-supply = <&reg_cldo1>;
-+	bus-width = <8>;
-+	non-removable;
-+	cap-mmc-hw-reset;
-+	mmc-ddr-1_8v;
-+	mmc-hs200-1_8v;
-+	status = "okay";
-+};
-+
-+&ohci0 {
-+	status = "okay";
-+};
-+
-+&ohci1 {
-+	status = "okay";
-+};
-+
-+&pio {
-+	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pc-supply = <&reg_cldo1>;
-+	vcc-pd-supply = <&reg_dcdc4>;
-+	vcc-pe-supply = <&reg_dcdc4>;
-+	vcc-pf-supply = <&reg_cldo3>;	/* actually switchable */
-+	vcc-pg-supply = <&reg_bldo1>;
-+	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pi-supply = <&reg_dcdc4>;
-+	vcc-pj-supply = <&reg_dcdc4>;
-+	vcc-pk-supply = <&reg_bldo3>;
-+};
-+
-+&r_i2c0 {
-+	status = "okay";
-+
-+	axp717: pmic@34 {
-+		compatible = "x-powers,axp717";
-+		reg = <0x34>;
-+		interrupt-controller;
-+		#interrupt-cells = <1>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+		vin4-supply = <&reg_vcc5v>;
-+		aldoin-supply = <&reg_vcc5v>;
-+		bldoin-supply = <&reg_vcc5v>;
-+		cldoin-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			/* Supplies the "little" cluster (1.0(?) GHz cores) */
-+			reg_dcdc1: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpul";
-+			};
-+
-+			reg_dcdc2: dcdc2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <920000>;
-+				regulator-max-microvolt = <920000>;
-+				regulator-name = "vdd-gpu-sys";
-+			};
-+
-+			reg_dcdc3: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1360000>;
-+				regulator-max-microvolt = <1360000>;
-+				regulator-name = "vdd-dram";
-+			};
-+
-+			reg_dcdc4: dcdc4 {
-+				regulator-min-microvolt = <1000000>;
-+				regulator-max-microvolt = <1000000>;
-+				regulator-name = "vdd-dcdc4";
-+			};
-+
-+			reg_aldo1: aldo1 {
-+				/* not connected */
-+			};
-+
-+			reg_aldo2: aldo2 {
-+				/* not connected */
-+			};
-+
-+			reg_aldo3: aldo3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-aldo3";
-+			};
-+
-+			reg_aldo4: aldo4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pll-dxco-avcc";
-+			};
-+
-+			reg_bldo1: bldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pg-wifi-lvds";
-+			};
-+
-+			reg_bldo2: bldo2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-dram-1v8";
-+			};
-+
-+			reg_bldo3: bldo3 {
-+				regulator-min-microvolt = <2800000>;
-+				regulator-max-microvolt = <2800000>;
-+				regulator-name = "vcc-bldo3";
-+			};
-+
-+			reg_bldo4: bldo4 {
-+				/* not connected */
-+			};
-+
-+			reg_cldo1: cldo1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-codec-sd";
-+			};
-+
-+			reg_cldo2: cldo2 {
-+			};
-+
-+			reg_cldo3: cldo3 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-codec-eth-sd";
-+			};
-+
-+			reg_cldo4: cldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-eth-phy";
-+			};
-+
-+			reg_cpusldo: cpusldo {
-+				/* supplies the management core */
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-cpus";
-+			};
-+		};
-+	};
-+
-+	axp323: pmic@36 {
-+		compatible = "x-powers,axp323";
-+		reg = <0x36>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		status = "okay";
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			aldo1 {
-+				/* not connected */
-+			};
-+
-+			dldo1 {
-+				/* not connected */
-+			};
-+
-+			/* Supplies the "big" cluster (1.8 GHz cores) */
-+			reg_dcdc1_323: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpub";
-+			};
-+
-+			/* DCDC2 is polyphased with DCDC1 */
-+
-+			reg_dcdc3_323: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1050000>;
-+				regulator-max-microvolt = <1050000>;
-+				regulator-name = "vdd-dcdc3";
-+			};
-+		};
-+	};
-+};
-+
-+&r_pio {
-+/*
-+ * Specifying the supply would create a circular dependency.
-+ *
-+ *	vcc-pl-supply = <&reg_aldo3>;
-+ */
-+	vcc-pm-supply = <&reg_aldo3>;
-+};
-+
-+&uart0 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
-+	status = "okay";
-+};
-+
-+&usb_otg {
-+	/* USB0 is a USB-A receptacle, always powered, so force host mode. */
-+	dr_mode = "host";
-+	status = "okay";
-+};
-+
-+&usbphy {
-+	status = "okay";
-+};
+ additionalProperties: true
 -- 
 2.46.3
 
