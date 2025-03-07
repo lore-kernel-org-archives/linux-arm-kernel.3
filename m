@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D58CC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:56:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB82DC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:57:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=579JrFWpi95wWUZ2IKof6bunu2c/sHpygySN/3e4uJg=; b=E8jB7buHGPD7crcNSqfgRe9yok
-	1hym6NtWfzwQpxqCnL/w/wieusgRjPWNCPdkX32bjS/MWrbhvrhf+/9MQm3tez/kIbVS+Xhfkbuzq
-	3Of/Fogaum/KxaQ8poxaprgQZijnieNUo1xT0W6IRUQ2wgfgqyKlW/Viny2/0LaTo18fxRb+4Rc6R
-	hLIzxl6sKbVPOe0//OoRCZEt1G1sc+c+MWFCh6EIb1rYH5/hd1tx63lKXzOfJyihkGNl7o/vISGJU
-	46g8NCo4fYNoGIz7TVRfeF89SUOApzkFwwcBfQFs+DLjpbiIejFwvStaJKUPChswe7ocdtIxpH0M9
-	DJj0mF4g==;
+	bh=GVVvuFqlzvu5sPz8ho1aRl4B81EpOIBwcWCUoVpBuVM=; b=Q8+vHMe8N0F1Vwbo9clOT1OStQ
+	rmACaCARXTIU4CIezclvgyBh+QfDLJGTpTvSyGTxWFb9+so6xP13FwRA/MePTCrF6VL4rJIMt5RzE
+	FKVMRGgfxTvFBZGlpQnM0y9UtHXDFyIX99yVMJedzELzYDaZ6UqYj3ZByLH6sO9UvjMR3Hly87XcP
+	2iqdg556Wdenu012wGtig2Y4hNugkjENVvyHLx+cmt1GcCW1aYpVzUialesTiReQHkf4uqESNXClx
+	XkfKnH6iuu063RkP4CGhyKgj6bsWByfwaxjoj8llr3iNIu4UsFE7bGyZgFDnwvAh4GBo3o7M8UjJ2
+	c8qfI3Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXFC-0000000EF2X-38dk;
-	Fri, 07 Mar 2025 12:56:02 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1tqXGm-0000000EFCM-3R9O;
+	Fri, 07 Mar 2025 12:57:40 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqX8S-0000000EDlx-1mc5;
-	Fri, 07 Mar 2025 12:49:05 +0000
-X-UUID: 8c1d6386fb5211ef83f2a1c9db70dae0-20250307
+	id 1tqX8T-0000000EDmH-1Qrg;
+	Fri, 07 Mar 2025 12:49:06 +0000
+X-UUID: 8a020d0efb5211efa1e849db4cc18d44-20250307
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=579JrFWpi95wWUZ2IKof6bunu2c/sHpygySN/3e4uJg=;
-	b=bpZcIkwpq+XpBw2w7/kBl/rU3C6icF+bEk81ugnV3Mk5pe/LoqVEYnICI1Jc2DWhVbcr+w5NaFEgNjL5hJIAjuPlCYUntZMvlEzf9O7BpKxGVb3mXXq8+rckJ5N+i5y8GJNYy4dXodYmssHt/uXdR8wtduQF2W47MC1CxGZek+E=;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=GVVvuFqlzvu5sPz8ho1aRl4B81EpOIBwcWCUoVpBuVM=;
+	b=SGYXn9V3AGkBmu5P1AdIubJeBdVz2jlm2OArYJcCz/J6kfwFFwS0QPhOuWx/I1F3+5NK5TLPzuLZmEG2CSgZwbbDck+/z5eZGXyVghxqBLfdhTaYnRxvQZE2HThisGAoKA7o4mdgPnpx4vc18WSsQzLufYxtue88UIQy9AkPIo0=;
 X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:d1ce64f9-2aa2-43ad-897d-41aad2595022,IP:0,UR
+X-CID-O-INFO: VERSION:1.2.1,REQID:86e9ce1b-b707-4b1b-be7e-5c2bf1c937c3,IP:0,UR
 	L:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
 	:release,TS:-25
-X-CID-META: VersionHash:0ef645f,CLOUDID:0c4927ce-23b9-4c94-add0-e827a7999e28,B
+X-CID-META: VersionHash:0ef645f,CLOUDID:fcca0dc6-16da-468a-87f7-8ca8d6b3b9f7,B
 	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
 	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
 	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
 X-CID-BVR: 0
 X-CID-BAS: 0,_,0,_
 X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 8c1d6386fb5211ef83f2a1c9db70dae0-20250307
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw01.mediatek.com
+X-UUID: 8a020d0efb5211efa1e849db4cc18d44-20250307
+Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
 	(envelope-from <darren.ye@mediatek.com>)
 	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1888745673; Fri, 07 Mar 2025 05:49:02 -0700
+	with ESMTP id 877317264; Fri, 07 Mar 2025 05:48:59 -0700
 Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
- mtkmbs11n2.mediatek.inc (172.21.101.187) with Microsoft SMTP Server
+ mtkmbs13n1.mediatek.inc (172.21.101.193) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 7 Mar 2025 20:48:59 +0800
+ 15.2.1258.28; Fri, 7 Mar 2025 20:48:57 +0800
 Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
  mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 7 Mar 2025 20:48:59 +0800
+ 15.2.1258.28 via Frontend Transport; Fri, 7 Mar 2025 20:48:56 +0800
 From: Darren.Ye <darren.ye@mediatek.com>
 To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
  Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
@@ -64,9 +64,9 @@ CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
 	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
 	<darren.ye@mediatek.com>
-Subject: [PATCH 06/14] ASoC: mediatek: mt8196: support audio GPIO control
-Date: Fri, 7 Mar 2025 20:47:32 +0800
-Message-ID: <20250307124841.23777-7-darren.ye@mediatek.com>
+Subject: [PATCH 05/14] ASoC: mediatek: mt8196: support audio clock control
+Date: Fri, 7 Mar 2025 20:47:31 +0800
+Message-ID: <20250307124841.23777-6-darren.ye@mediatek.com>
 X-Mailer: git-send-email 2.46.0
 In-Reply-To: <20250307124841.23777-1-darren.ye@mediatek.com>
 References: <20250307124841.23777-1-darren.ye@mediatek.com>
@@ -75,8 +75,8 @@ Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_044904_472926_1B330AC3 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20250307_044905_405468_04C1791F 
+X-CRM114-Status: GOOD (  17.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,323 +93,1037 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Darren Ye <darren.ye@mediatek.com>
 
-Implement mode switching for audio GPIO.
+Add audio clock wrapper and audio tuner control.
 
 Signed-off-by: Darren Ye <darren.ye@mediatek.com>
 ---
- sound/soc/mediatek/mt8196/mt8196-afe-gpio.c | 239 ++++++++++++++++++++
- sound/soc/mediatek/mt8196/mt8196-afe-gpio.h |  58 +++++
- 2 files changed, 297 insertions(+)
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-gpio.c
- create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-gpio.h
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c | 698 +++++++++++++++++++++
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.h | 313 +++++++++
+ 2 files changed, 1011 insertions(+)
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
 
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-gpio.c b/sound/soc/mediatek/mt8196/mt8196-afe-gpio.c
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.c b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
 new file mode 100644
-index 000000000000..17ba409af7c4
+index 000000000000..d1407d7bf775
 --- /dev/null
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-gpio.c
-@@ -0,0 +1,239 @@
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+@@ -0,0 +1,698 @@
 +// SPDX-License-Identifier: GPL-2.0
 +/*
-+ *  mt8196-afe-gpio.c  --  Mediatek 8196 afe gpio ctrl
++ *  mt8196-afe-clk.c  --  Mediatek 8196 afe clock ctrl
 + *
 + *  Copyright (c) 2024 MediaTek Inc.
 + *  Author: Darren Ye <darren.ye@mediatek.com>
 + */
 +
-+#include <linux/gpio.h>
-+#include <linux/pinctrl/consumer.h>
-+
++#include <linux/clk.h>
++#include <linux/regmap.h>
++#include <linux/mfd/syscon.h>
 +#include "mt8196-afe-common.h"
-+#include "mt8196-afe-gpio.h"
++#include "mt8196-afe-clk.h"
 +
-+struct pinctrl *aud_pinctrl;
-+struct audio_gpio_attr {
-+	const char *name;
-+	bool gpio_prepare;
-+	struct pinctrl_state *gpioctrl;
++static DEFINE_MUTEX(mutex_request_dram);
++
++static const char *aud_clks[CLK_NUM] = {
++	[CLK_HOPPING] = "aud_hopping_clk",
++	[CLK_F26M] = "aud_f26m_clk",
++	[CLK_UL0_ADC_CLK] = "aud_ul0_adc_clk",
++	[CLK_UL0_ADC_HIRES_CLK] = "aud_ul0_adc_hires_clk",
++	[CLK_UL1_ADC_CLK] = "aud_ul1_adc_clk",
++	[CLK_UL1_ADC_HIRES_CLK] = "aud_ul1_adc_hires_clk",
++	[CLK_APLL1] = "aud_apll1_clk",
++	[CLK_APLL2] = "aud_apll2_clk",
++	[CLK_APLL1_TUNER] = "aud_apll_tuner1_clk",
++	[CLK_APLL2_TUNER] = "aud_apll_tuner2_clk",
++	[CLK_VLP_MUX_AUDIOINTBUS] = "vlp_mux_audio_int",
++	[CLK_VLP_MUX_AUD_ENG1] = "vlp_mux_aud_eng1",
++	[CLK_VLP_MUX_AUD_ENG2] = "vlp_mux_aud_eng2",
++	[CLK_VLP_MUX_AUDIO_H] = "vlp_mux_audio_h",
++	[CLK_VLP_CLK26M] = "vlp_clk26m_clk",
++	[CLK_CK_MAINPLL_D4_D4] = "ck_mainpll_d4_d4",
++	[CLK_CK_MUX_AUD_1] = "ck_mux_aud_1",
++	[CLK_CK_APLL1_CK] = "ck_apll1_ck",
++	[CLK_CK_MUX_AUD_2] = "ck_mux_aud_2",
++	[CLK_CK_APLL2_CK] = "ck_apll2_ck",
++	[CLK_CK_APLL1_D4] = "ck_apll1_d4",
++	[CLK_CK_APLL2_D4] = "ck_apll2_d4",
++	[CLK_CK_I2SIN0_M_SEL] = "ck_i2sin0_m_sel",
++	[CLK_CK_I2SIN1_M_SEL] = "ck_i2sin1_m_sel",
++	[CLK_CK_FMI2S_M_SEL] = "ck_fmi2s_m_sel",
++	[CLK_CK_TDMOUT_M_SEL] = "ck_tdmout_m_sel",
++	[CLK_CK_APLL12_DIV_I2SIN0] = "ck_apll12_div_i2sin0",
++	[CLK_CK_APLL12_DIV_I2SIN1] = "ck_apll12_div_i2sin1",
++	[CLK_CK_APLL12_DIV_FMI2S] = "ck_apll12_div_fmi2s",
++	[CLK_CK_APLL12_DIV_TDMOUT_M] = "ck_apll12_div_tdmout_m",
++	[CLK_CK_APLL12_DIV_TDMOUT_B] = "ck_apll12_div_tdmout_b",
++	[CLK_CK_ADSP_SEL] = "ck_adsp_sel",
++	[CLK_CLK26M] = "ck_clk26m_clk",
 +};
 +
-+static struct audio_gpio_attr aud_gpios[MT8196_AFE_GPIO_GPIO_NUM] = {
-+	[MT8196_AFE_GPIO_DAT_MISO0_OFF] = {"aud-dat-miso0-off", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MISO0_ON] = {"aud-dat-miso0-on", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MISO1_OFF] = {"aud-dat-miso1-off", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MISO1_ON] = {"aud-dat-miso1-on", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MOSI_OFF] = {"aud-dat-mosi-off", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MOSI_ON] = {"aud-dat-mosi-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT0_OFF] = {"aud-gpio-i2sout0-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT0_ON] = {"aud-gpio-i2sout0-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN0_OFF] = {"aud-gpio-i2sin0-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN0_ON] = {"aud-gpio-i2sin0-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT1_OFF] = {"aud-gpio-i2sout1-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT1_ON] = {"aud-gpio-i2sout1-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN1_OFF] = {"aud-gpio-i2sin1-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN1_ON] = {"aud-gpio-i2sin1-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT4_OFF] = {"aud-gpio-i2sout4-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT4_ON] = {"aud-gpio-i2sout4-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN4_OFF] = {"aud-gpio-i2sin4-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN4_ON] = {"aud-gpio-i2sin4-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT6_OFF] = {"aud-gpio-i2sout6-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT6_ON] = {"aud-gpio-i2sout6-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN6_OFF] = {"aud-gpio-i2sin6-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN6_ON] = {"aud-gpio-i2sin6-on", false, NULL},
-+	[MT8196_AFE_GPIO_AP_DMIC_OFF] = {"aud-gpio-ap-dmic-off", false, NULL},
-+	[MT8196_AFE_GPIO_AP_DMIC_ON] = {"aud-gpio-ap-dmic-on", false, NULL},
-+	[MT8196_AFE_GPIO_AP_DMIC1_OFF] = {"aud-gpio-ap-dmic1-off", false, NULL},
-+	[MT8196_AFE_GPIO_AP_DMIC1_ON] = {"aud-gpio-ap-dmic1-on", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MOSI_CH34_OFF] = {"aud-dat-mosi-ch34-off", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MOSI_CH34_ON] = {"aud-dat-mosi-ch34-on", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MISO_ONLY_OFF] = {"aud-dat-miso-only-off", false, NULL},
-+	[MT8196_AFE_GPIO_DAT_MISO_ONLY_ON] = {"aud-dat-miso-only-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT3_OFF] = {"aud-gpio-i2sout3-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SOUT3_ON] = {"aud-gpio-i2sout3-on", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN3_OFF] = {"aud-gpio-i2sin3-off", false, NULL},
-+	[MT8196_AFE_GPIO_I2SIN3_ON] = {"aud-gpio-i2sin3-on", false, NULL},
-+};
-+
-+static DEFINE_MUTEX(gpio_request_mutex);
-+
-+int mt8196_afe_gpio_init(struct mtk_base_afe *afe)
++int mt8196_set_audio_int_bus_parent(struct mtk_base_afe *afe,
++				    int clk_id, bool int_bus)
 +{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	struct clk *clk;
 +	int ret;
-+	int i = 0;
 +
-+	aud_pinctrl = devm_pinctrl_get(afe->dev);
-+	if (IS_ERR(aud_pinctrl)) {
-+		ret = PTR_ERR(aud_pinctrl);
-+		dev_info(afe->dev, "%s(), ret %d, cannot get aud_pinctrl!\n",
-+			 __func__, ret);
-+		return -ENODEV;
-+	}
-+
-+	for (i = 0; i < MT8196_AFE_GPIO_GPIO_NUM; i++) {
-+		if (!aud_gpios[i].name) {
-+			dev_info(afe->dev, "%s(), gpio id %d not define!!!\n",
-+				 __func__, i);
-+		}
-+	}
-+
-+	for (i = 0; i < ARRAY_SIZE(aud_gpios); i++) {
-+		aud_gpios[i].gpioctrl = pinctrl_lookup_state(aud_pinctrl,
-+							     aud_gpios[i].name);
-+		if (IS_ERR(aud_gpios[i].gpioctrl)) {
-+			ret = PTR_ERR(aud_gpios[i].gpioctrl);
-+			dev_info(afe->dev, "%s(), pinctrl_lookup_state %s fail, ret %d\n",
-+				 __func__, aud_gpios[i].name, ret);
-+		} else {
-+			aud_gpios[i].gpio_prepare = true;
-+		}
-+	}
-+
-+	/* gpio status init */
-+	mt8196_afe_gpio_request(afe, false, MT8196_DAI_ADDA, 0);
-+	mt8196_afe_gpio_request(afe, false, MT8196_DAI_ADDA, 1);
-+
-+	return 0;
-+}
-+
-+static int mt8196_afe_gpio_select(struct mtk_base_afe *afe,
-+				  enum mt8196_afe_gpio type)
-+{
-+	int ret = 0;
-+
-+	dev_dbg(afe->dev, "%s(), type: %d.\n", __func__, type);
-+
-+	if (type >= MT8196_AFE_GPIO_GPIO_NUM) {
-+		dev_info(afe->dev, "%s(), error, invalid gpio type %d\n",
-+			 __func__, type);
++	if (clk_id >= CLK_NUM || clk_id < 0)
 +		return -EINVAL;
-+	}
 +
-+	if (!aud_gpios[type].gpio_prepare) {
-+		dev_info(afe->dev, "%s(), error, gpio type %d not prepared\n",
-+			 __func__, type);
-+		return -EIO;
-+	}
-+
-+	ret = pinctrl_select_state(aud_pinctrl,
-+				   aud_gpios[type].gpioctrl);
++	clk = int_bus ? afe_priv->clk[CLK_VLP_MUX_AUDIOINTBUS] :
++			afe_priv->clk[CLK_VLP_MUX_AUDIO_H];
++	ret = clk_set_parent(clk, afe_priv->clk[clk_id]);
 +	if (ret)
-+		dev_info(afe->dev, "%s(), error, can not set gpio type %d\n",
-+			 __func__, type);
++		dev_err(afe->dev, "%s() clk_set_parent %s fail %d, int_bus %d\n",
++			__func__, aud_clks[clk_id], ret, int_bus);
 +
 +	return ret;
 +}
 +
-+int mt8196_afe_gpio_request(struct mtk_base_afe *afe, bool enable,
-+			    int dai, int uplink)
++static int apll1_mux_setting(struct mtk_base_afe *afe, bool enable)
 +{
-+	dev_dbg(afe->dev, "%s(), enable: %d, dai: %d, uplink: %d.\n", __func__,
-+		enable, dai, uplink);
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret = 0;
 +
-+	mutex_lock(&gpio_request_mutex);
-+	switch (dai) {
-+	case MT8196_DAI_ADDA:
-+		break;
-+	case MT8196_DAI_ADDA_CH34:
-+		break;
-+	case MT8196_DAI_ADDA_CH56:
-+		break;
-+	case MT8196_DAI_I2S_IN0:
-+	case MT8196_DAI_I2S_OUT0:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN0_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT0_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN0_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT0_OFF);
++	dev_dbg(afe->dev, "%s(), enable: %d\n", __func__, enable);
++
++	if (enable) {
++		ret = clk_prepare_enable(afe_priv->clk[CLK_CK_MUX_AUD_1]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_1], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_I2S_IN1:
-+	case MT8196_DAI_I2S_OUT1:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN1_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT1_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN1_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT1_OFF);
++		ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_1],
++				     afe_priv->clk[CLK_CK_APLL1_CK]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_1],
++				aud_clks[CLK_CK_APLL1_CK], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_I2S_IN3:
-+	case MT8196_DAI_I2S_OUT3:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN3_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT3_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN3_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT3_OFF);
++
++		/* 180.6336 / 4 = 45.1584MHz */
++		ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUD_ENG1]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG1], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_I2S_IN4:
-+	case MT8196_DAI_I2S_OUT4:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN4_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT4_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN4_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT4_OFF);
++		ret = clk_set_parent(afe_priv->clk[CLK_VLP_MUX_AUD_ENG1],
++				     afe_priv->clk[CLK_CK_APLL1_D4]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG1],
++				aud_clks[CLK_CK_APLL1_D4], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_I2S_IN6:
-+	case MT8196_DAI_I2S_OUT6:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN6_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT6_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SIN6_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_I2SOUT6_OFF);
++		ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUDIO_H], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_VOW:
-+		break;
-+	case MT8196_DAI_VOW_SCP_DMIC:
-+		break;
-+	case MT8196_DAI_MTKAIF:
-+		if (enable) {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO1_ON);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO0_ON);
-+		} else {
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO1_OFF);
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO0_OFF);
++
++		mt8196_set_audio_int_bus_parent(afe, CLK_CK_APLL1_CK, false);
++	} else {
++		ret = clk_set_parent(afe_priv->clk[CLK_VLP_MUX_AUD_ENG1],
++				     afe_priv->clk[CLK_VLP_CLK26M]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG1],
++				aud_clks[CLK_VLP_CLK26M], ret);
++			goto EXIT;
 +		}
-+		break;
-+	case MT8196_DAI_MISO_ONLY:
-+		if (enable)
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO_ONLY_ON);
-+		else
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_DAT_MISO_ONLY_OFF);
-+		break;
-+	case MT8196_DAI_AP_DMIC:
-+		if (enable)
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_AP_DMIC_ON);
-+		else
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_AP_DMIC_OFF);
-+		break;
-+	case MT8196_DAI_AP_DMIC_CH34:
-+		if (enable)
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_AP_DMIC1_ON);
-+		else
-+			mt8196_afe_gpio_select(afe, MT8196_AFE_GPIO_AP_DMIC1_OFF);
-+		break;
-+	default:
-+		mutex_unlock(&gpio_request_mutex);
-+		dev_info(afe->dev, "%s(), invalid dai %d\n", __func__, dai);
-+		return -EINVAL;
++		clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUD_ENG1]);
++
++		ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_1],
++				     afe_priv->clk[CLK_CLK26M]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_1],
++				aud_clks[CLK_CLK26M], ret);
++			goto EXIT;
++		}
++		clk_disable_unprepare(afe_priv->clk[CLK_CK_MUX_AUD_1]);
++
++		mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, false);
++		clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
 +	}
-+	mutex_unlock(&gpio_request_mutex);
++
++EXIT:
++	return 0;
++}
++
++static int apll2_mux_setting(struct mtk_base_afe *afe, bool enable)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret = 0;
++
++	dev_dbg(afe->dev, "%s(), enable: %d\n", __func__, enable);
++
++	if (enable) {
++		ret = clk_prepare_enable(afe_priv->clk[CLK_CK_MUX_AUD_2]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_2], ret);
++			goto EXIT;
++		}
++		ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_2],
++				     afe_priv->clk[CLK_CK_APLL2_CK]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_2],
++				aud_clks[CLK_CK_APLL2_CK], ret);
++			goto EXIT;
++		}
++
++		/* 196.608 / 4 = 49.152MHz */
++		ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUD_ENG2]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG2], ret);
++			goto EXIT;
++		}
++		ret = clk_set_parent(afe_priv->clk[CLK_VLP_MUX_AUD_ENG2],
++				     afe_priv->clk[CLK_CK_APLL2_D4]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG2],
++				aud_clks[CLK_CK_APLL2_D4], ret);
++			goto EXIT;
++		}
++		ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUDIO_H], ret);
++			goto EXIT;
++		}
++
++		mt8196_set_audio_int_bus_parent(afe, CLK_CK_APLL2_CK, false);
++	} else {
++		ret = clk_set_parent(afe_priv->clk[CLK_VLP_MUX_AUD_ENG2],
++				     afe_priv->clk[CLK_VLP_CLK26M]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_VLP_MUX_AUD_ENG2],
++				aud_clks[CLK_VLP_CLK26M], ret);
++			goto EXIT;
++		}
++		clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUD_ENG2]);
++
++		ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_2],
++				     afe_priv->clk[CLK_CLK26M]);
++		if (ret) {
++			dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[CLK_CK_MUX_AUD_2],
++				aud_clks[CLK_CLK26M], ret);
++			goto EXIT;
++		}
++		clk_disable_unprepare(afe_priv->clk[CLK_CK_MUX_AUD_2]);
++
++		mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, false);
++		clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++	}
++EXIT:
++	return 0;
++}
++
++int mt8196_afe_disable_apll(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret = 0;
++
++	dev_dbg(afe->dev, "%s() successfully start\n", __func__);
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_VLP_MUX_AUDIO_H], ret);
++		goto EXIT;
++	}
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_CK_MUX_AUD_1]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_CK_MUX_AUD_1], ret);
++		goto EXIT;
++	}
++
++	ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_1],
++			     afe_priv->clk[CLK_CLK26M]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++			__func__, aud_clks[CLK_CK_MUX_AUD_1],
++			aud_clks[CLK_CLK26M], ret);
++		goto EXIT;
++	}
++	ret = clk_prepare_enable(afe_priv->clk[CLK_CK_MUX_AUD_2]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_CK_MUX_AUD_2], ret);
++		goto EXIT;
++	}
++
++	ret = clk_set_parent(afe_priv->clk[CLK_CK_MUX_AUD_2],
++			     afe_priv->clk[CLK_CLK26M]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_set_parent %s-%s fail %d\n",
++			__func__, aud_clks[CLK_CK_MUX_AUD_2],
++			aud_clks[CLK_CLK26M], ret);
++		goto EXIT;
++	}
++
++	clk_disable_unprepare(afe_priv->clk[CLK_CK_MUX_AUD_1]);
++	clk_disable_unprepare(afe_priv->clk[CLK_CK_MUX_AUD_2]);
++	mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, false);
++	clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++
++	return 0;
++EXIT:
++	return ret;
++}
++
++static int mt8196_afe_apll_init(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	/* VLP_APLL1_CON0 = 0x6f28bd4c
++	 * VLP_APLL2_CON2 = 0x78FD5264
++	 * VLP_APLL1_TUNER_CON0 = 0x6f28bd4d
++	 * VLP_APLL2_TUNER_CON0 = 0x78fd5265
++	 */
++	if (afe_priv->vlp_ck) {
++		regmap_write(afe_priv->vlp_ck, VLP_APLL1_TUNER_CON0, 0x6f28bd4d);
++		regmap_write(afe_priv->vlp_ck, VLP_APLL2_TUNER_CON0, 0x78fd5265);
++	} else {
++		dev_warn(afe->dev, "%s vlp_ck regmap is null ptr\n", __func__);
++	}
++	return 0;
++}
++
++int mt8196_afe_enable_clock(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret = 0;
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_CK_ADSP_SEL]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_CK_ADSP_SEL], ret);
++		goto CLK_CK_ADSP_SEL_ERR;
++	}
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUDIOINTBUS]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_VLP_MUX_AUDIOINTBUS], ret);
++		goto CLK_MUX_AUDIO_INTBUS_ERR;
++	}
++	ret = mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, true);
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_VLP_MUX_AUDIO_H], ret);
++		goto CLK_AUDIO_H_ERR;
++	}
++	mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, false);
++
++	/* IPM2.0: USE HOPPING & 26M */
++	ret = clk_prepare_enable(afe_priv->clk[CLK_HOPPING]);
++	if (ret) {
++		dev_err(afe->dev, "%s() clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_HOPPING], ret);
++		goto CLK_AFE_ERR;
++	}
++	ret = clk_prepare_enable(afe_priv->clk[CLK_F26M]);
++	if (ret) {
++		dev_err(afe->dev, "%s() clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_F26M], ret);
++		goto CLK_AFE_ERR;
++	}
++
++	return 0;
++
++CLK_AFE_ERR:
++	/* IPM2.0: Use HOPPING & 26M */
++	clk_disable_unprepare(afe_priv->clk[CLK_HOPPING]);
++	clk_disable_unprepare(afe_priv->clk[CLK_F26M]);
++CLK_AUDIO_H_ERR:
++	clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++CLK_MUX_AUDIO_INTBUS_ERR:
++	clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIOINTBUS]);
++CLK_CK_ADSP_SEL_ERR:
++	clk_disable_unprepare(afe_priv->clk[CLK_CK_ADSP_SEL]);
++	return ret;
++}
++
++void mt8196_afe_disable_clock(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	dev_dbg(afe->dev, "%s() successfully start\n", __func__);
++
++	/* IPM2.0: Use HOPPING & 26M */
++	clk_disable_unprepare(afe_priv->clk[CLK_HOPPING]);
++	clk_disable_unprepare(afe_priv->clk[CLK_F26M]);
++	mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, false);
++	clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIO_H]);
++	mt8196_set_audio_int_bus_parent(afe, CLK_VLP_CLK26M, true);
++	clk_disable_unprepare(afe_priv->clk[CLK_VLP_MUX_AUDIOINTBUS]);
++	clk_disable_unprepare(afe_priv->clk[CLK_CK_ADSP_SEL]);
++}
++
++int mt8196_afe_dram_request(struct device *dev)
++{
++	struct mtk_base_afe *afe = dev_get_drvdata(dev);
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	dev_dbg(dev, "%s(), dram_resource_counter %d\n",
++		__func__, afe_priv->dram_resource_counter);
++
++	mutex_lock(&mutex_request_dram);
++
++	afe_priv->dram_resource_counter++;
++	mutex_unlock(&mutex_request_dram);
 +
 +	return 0;
 +}
-+EXPORT_SYMBOL_GPL(mt8196_afe_gpio_request);
 +
-+bool mt8196_afe_gpio_is_prepared(enum mt8196_afe_gpio type)
++int mt8196_afe_dram_release(struct device *dev)
 +{
-+	return aud_gpios[type].gpio_prepare;
-+}
-+EXPORT_SYMBOL(mt8196_afe_gpio_is_prepared);
++	struct mtk_base_afe *afe = dev_get_drvdata(dev);
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
 +
-diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-gpio.h b/sound/soc/mediatek/mt8196/mt8196-afe-gpio.h
++	dev_dbg(dev, "%s(), dram_resource_counter %d\n",
++		__func__, afe_priv->dram_resource_counter);
++
++	mutex_lock(&mutex_request_dram);
++	afe_priv->dram_resource_counter--;
++
++	if (afe_priv->dram_resource_counter < 0) {
++		dev_warn(dev, "%s(), dram_resource_counter %d\n",
++			 __func__, afe_priv->dram_resource_counter);
++		afe_priv->dram_resource_counter = 0;
++	}
++	mutex_unlock(&mutex_request_dram);
++	return 0;
++}
++
++int mt8196_apll1_enable(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret;
++
++	/* setting for APLL */
++	apll1_mux_setting(afe, true);
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_APLL1]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_APLL1], ret);
++		goto ERR_CLK_APLL1;
++	}
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_APLL1_TUNER]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_APLL1_TUNER], ret);
++		goto ERR_CLK_APLL1_TUNER;
++	}
++
++	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG,
++			   0x0000FFF7, 0x00000372);
++	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG, 0x1, 0x1);
++
++	regmap_update_bits(afe->regmap, AUDIO_ENGEN_CON0,
++			   AUDIO_APLL1_EN_ON_MASK_SFT,
++			   0x1 << AUDIO_APLL1_EN_ON_SFT);
++	return 0;
++
++ERR_CLK_APLL1_TUNER:
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL1_TUNER]);
++ERR_CLK_APLL1:
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL1]);
++
++	return ret;
++}
++
++void mt8196_apll1_disable(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	regmap_update_bits(afe->regmap, AUDIO_ENGEN_CON0,
++			   AUDIO_APLL1_EN_ON_MASK_SFT,
++			   0x0 << AUDIO_APLL1_EN_ON_SFT);
++
++	regmap_update_bits(afe->regmap, AFE_APLL1_TUNER_CFG, 0x1, 0x0);
++
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL1_TUNER]);
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL1]);
++
++	apll1_mux_setting(afe, false);
++}
++
++int mt8196_apll2_enable(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int ret;
++
++	/* setting for APLL */
++	apll2_mux_setting(afe, true);
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_APLL2]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_APLL2], ret);
++		goto ERR_CLK_APLL2;
++	}
++
++	ret = clk_prepare_enable(afe_priv->clk[CLK_APLL2_TUNER]);
++	if (ret) {
++		dev_err(afe->dev, "%s clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[CLK_APLL2_TUNER], ret);
++		goto ERR_CLK_APLL2_TUNER;
++	}
++
++	regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG,
++			   0x0000FFF7, 0x00000374);
++	regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG, 0x1, 0x1);
++
++	regmap_update_bits(afe->regmap, AUDIO_ENGEN_CON0,
++			   AUDIO_APLL2_EN_ON_MASK_SFT,
++			   0x1 << AUDIO_APLL2_EN_ON_SFT);
++
++	return 0;
++
++ERR_CLK_APLL2_TUNER:
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL2_TUNER]);
++ERR_CLK_APLL2:
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL2]);
++
++	return ret;
++
++	return 0;
++}
++
++void mt8196_apll2_disable(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	regmap_update_bits(afe->regmap, AUDIO_ENGEN_CON0,
++			   AUDIO_APLL2_EN_ON_MASK_SFT,
++			   0x0 << AUDIO_APLL2_EN_ON_SFT);
++
++	regmap_update_bits(afe->regmap, AFE_APLL2_TUNER_CFG, 0x1, 0x0);
++
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL2_TUNER]);
++	clk_disable_unprepare(afe_priv->clk[CLK_APLL2]);
++
++	apll2_mux_setting(afe, false);
++}
++
++int mt8196_get_apll_rate(struct mtk_base_afe *afe, int apll)
++{
++	return (apll == MT8196_APLL1) ? 180633600 : 196608000;
++}
++
++int mt8196_get_apll_by_rate(struct mtk_base_afe *afe, int rate)
++{
++	return ((rate % 8000) == 0) ? MT8196_APLL2 : MT8196_APLL1;
++}
++
++int mt8196_get_apll_by_name(struct mtk_base_afe *afe, const char *name)
++{
++	if (strcmp(name, APLL1_W_NAME) == 0)
++		return MT8196_APLL1;
++	else
++		return MT8196_APLL2;
++}
++
++/* mck */
++struct mt8196_mck_div {
++	int m_sel_id;
++	int div_clk_id;
++};
++
++static const struct mt8196_mck_div mck_div[MT8196_MCK_NUM] = {
++	[MT8196_I2SIN0_MCK] = {
++		.m_sel_id = CLK_CK_I2SIN0_M_SEL,
++		.div_clk_id = CLK_CK_APLL12_DIV_I2SIN0,
++	},
++	[MT8196_I2SIN1_MCK] = {
++		.m_sel_id = CLK_CK_I2SIN1_M_SEL,
++		.div_clk_id = CLK_CK_APLL12_DIV_I2SIN1,
++	},
++	[MT8196_FMI2S_MCK] = {
++		.m_sel_id = CLK_CK_FMI2S_M_SEL,
++		.div_clk_id = CLK_CK_APLL12_DIV_FMI2S,
++	},
++	[MT8196_TDMOUT_MCK] = {
++		.m_sel_id = CLK_CK_TDMOUT_M_SEL,
++		.div_clk_id = CLK_CK_APLL12_DIV_TDMOUT_M,
++	},
++	[MT8196_TDMOUT_BCK] = {
++		.m_sel_id = -1,
++		.div_clk_id = CLK_CK_APLL12_DIV_TDMOUT_B,
++	},
++};
++
++int mt8196_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int apll = mt8196_get_apll_by_rate(afe, rate);
++	int apll_clk_id = apll == MT8196_APLL1 ?
++			  CLK_CK_MUX_AUD_1 : CLK_CK_MUX_AUD_2;
++	int m_sel_id = 0;
++	int div_clk_id = 0;
++	int ret = 0;
++
++	dev_dbg(afe->dev, "%s(), mck_id: %d\n", __func__, mck_id);
++
++	if (mck_id >= MT8196_MCK_NUM || mck_id < 0)
++		return -EINVAL;
++
++	m_sel_id = mck_div[mck_id].m_sel_id;
++	div_clk_id = mck_div[mck_id].div_clk_id;
++
++	/* select apll */
++	if (m_sel_id >= 0) {
++		ret = clk_prepare_enable(afe_priv->clk[m_sel_id]);
++		if (ret) {
++			dev_err(afe->dev, "%s(), clk_prepare_enable %s fail %d\n",
++				__func__, aud_clks[m_sel_id], ret);
++			return ret;
++		}
++		ret = clk_set_parent(afe_priv->clk[m_sel_id],
++				     afe_priv->clk[apll_clk_id]);
++		if (ret) {
++			dev_err(afe->dev, "%s(), clk_set_parent %s-%s fail %d\n",
++				__func__, aud_clks[m_sel_id],
++				aud_clks[apll_clk_id], ret);
++			return ret;
++		}
++	}
++
++	/* enable div, set rate */
++	if (div_clk_id < 0) {
++		dev_err(afe->dev, "%s(), invalid div_clk_id %d\n", __func__, div_clk_id);
++		return -EINVAL;
++	}
++	if (div_clk_id == CLK_CK_APLL12_DIV_TDMOUT_B)
++		rate = rate * 16;
++	ret = clk_prepare_enable(afe_priv->clk[div_clk_id]);
++	if (ret) {
++		dev_err(afe->dev, "%s(), clk_prepare_enable %s fail %d\n",
++			__func__, aud_clks[div_clk_id], ret);
++		return ret;
++	}
++	ret = clk_set_rate(afe_priv->clk[div_clk_id], rate);
++	if (ret) {
++		dev_err(afe->dev, "%s(), clk_set_rate %s, rate %d, fail %d\n",
++			__func__, aud_clks[div_clk_id],
++			rate, ret);
++		return ret;
++	}
++	return 0;
++}
++
++int mt8196_mck_disable(struct mtk_base_afe *afe, int mck_id)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int m_sel_id = 0;
++	int div_clk_id = 0;
++
++	dev_dbg(afe->dev, "%s(), mck_id: %d.\n", __func__, mck_id);
++
++	if (mck_id < 0) {
++		dev_err(afe->dev, "%s(), mck_id = %d < 0\n",
++			__func__, mck_id);
++		return -EINVAL;
++	}
++
++	m_sel_id = mck_div[mck_id].m_sel_id;
++	div_clk_id = mck_div[mck_id].div_clk_id;
++
++	if (div_clk_id < 0) {
++		dev_err(afe->dev, "%s(), div_clk_id = %d < 0\n",
++			__func__, div_clk_id);
++		return -EINVAL;
++	}
++	clk_disable_unprepare(afe_priv->clk[div_clk_id]);
++
++	if (m_sel_id >= 0)
++		clk_disable_unprepare(afe_priv->clk[m_sel_id]);
++
++	return 0;
++}
++
++int mt8196_init_clock(struct mtk_base_afe *afe)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++	int i = 0;
++
++	afe_priv->clk = devm_kcalloc(afe->dev, CLK_NUM, sizeof(*afe_priv->clk),
++				     GFP_KERNEL);
++	if (!afe_priv->clk)
++		return -ENOMEM;
++
++	for (i = 0; i < CLK_NUM; i++) {
++		if (!aud_clks[i]) {
++			dev_err(afe->dev, "%s(), clk id %d not define!!!\n",
++				__func__, i);
++		}
++
++		afe_priv->clk[i] = devm_clk_get(afe->dev, aud_clks[i]);
++		if (IS_ERR(afe_priv->clk[i])) {
++			dev_err(afe->dev, "%s devm_clk_get %s fail, ret %ld\n",
++				__func__,
++				aud_clks[i], PTR_ERR(afe_priv->clk[i]));
++			afe_priv->clk[i] = NULL;
++		}
++	}
++
++	afe_priv->vlp_ck = syscon_regmap_lookup_by_phandle(afe->dev->of_node,
++							   "vlpcksys");
++	if (IS_ERR(afe_priv->vlp_ck)) {
++		dev_err(afe->dev, "%s() Cannot find vlpcksys: %ld\n",
++			__func__, PTR_ERR(afe_priv->vlp_ck));
++		afe_priv->vlp_ck = NULL;
++	}
++
++	afe_priv->cksys_ck = syscon_regmap_lookup_by_phandle(afe->dev->of_node,
++							     "cksys");
++	if (IS_ERR(afe_priv->cksys_ck)) {
++		dev_err(afe->dev, "%s() Cannot find cksys controller: %ld\n",
++			__func__, PTR_ERR(afe_priv->cksys_ck));
++		afe_priv->cksys_ck  = NULL;
++	}
++
++	mt8196_afe_apll_init(afe);
++	mt8196_afe_disable_apll(afe);
++
++	return 0;
++}
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-clk.h b/sound/soc/mediatek/mt8196/mt8196-afe-clk.h
 new file mode 100644
-index 000000000000..b36a8201d649
+index 000000000000..0094aebc8bba
 --- /dev/null
-+++ b/sound/soc/mediatek/mt8196/mt8196-afe-gpio.h
-@@ -0,0 +1,58 @@
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-clk.h
+@@ -0,0 +1,313 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
-+ * mt8196-afe-gpio.h  --  Mediatek 8196 afe gpio ctrl definition
++ * mt8196-afe-clk.h  --  Mediatek 8196 afe clock ctrl definition
 + *
-+ *  Copyright (c) 2023 MediaTek Inc.
++ * Copyright (c) 2024 MediaTek Inc.
 + *  Author: Darren Ye <darren.ye@mediatek.com>
 + */
 +
-+#ifndef _MT8196_AFE_GPIO_H_
-+#define _MT8196_AFE_GPIO_H_
-+#include "mt8196-afe-common.h"
++#ifndef _MT8196_AFE_CLOCK_CTRL_H_
++#define _MT8196_AFE_CLOCK_CTRL_H_
 +
-+enum mt8196_afe_gpio {
-+	MT8196_AFE_GPIO_DAT_MISO0_OFF,
-+	MT8196_AFE_GPIO_DAT_MISO0_ON,
-+	MT8196_AFE_GPIO_DAT_MISO1_OFF,
-+	MT8196_AFE_GPIO_DAT_MISO1_ON,
-+	MT8196_AFE_GPIO_DAT_MOSI_OFF,
-+	MT8196_AFE_GPIO_DAT_MOSI_ON,
-+	MT8196_AFE_GPIO_DAT_MOSI_CH34_OFF,
-+	MT8196_AFE_GPIO_DAT_MOSI_CH34_ON,
-+	MT8196_AFE_GPIO_DAT_MISO_ONLY_OFF,
-+	MT8196_AFE_GPIO_DAT_MISO_ONLY_ON,
-+	MT8196_AFE_GPIO_I2SIN0_OFF,
-+	MT8196_AFE_GPIO_I2SIN0_ON,
-+	MT8196_AFE_GPIO_I2SOUT0_OFF,
-+	MT8196_AFE_GPIO_I2SOUT0_ON,
-+	MT8196_AFE_GPIO_I2SIN1_OFF,
-+	MT8196_AFE_GPIO_I2SIN1_ON,
-+	MT8196_AFE_GPIO_I2SOUT1_OFF,
-+	MT8196_AFE_GPIO_I2SOUT1_ON,
-+	MT8196_AFE_GPIO_I2SIN4_OFF,
-+	MT8196_AFE_GPIO_I2SIN4_ON,
-+	MT8196_AFE_GPIO_I2SOUT4_OFF,
-+	MT8196_AFE_GPIO_I2SOUT4_ON,
-+	MT8196_AFE_GPIO_I2SIN6_OFF,
-+	MT8196_AFE_GPIO_I2SIN6_ON,
-+	MT8196_AFE_GPIO_I2SOUT6_OFF,
-+	MT8196_AFE_GPIO_I2SOUT6_ON,
-+	MT8196_AFE_GPIO_AP_DMIC_OFF,
-+	MT8196_AFE_GPIO_AP_DMIC_ON,
-+	MT8196_AFE_GPIO_AP_DMIC1_OFF,
-+	MT8196_AFE_GPIO_AP_DMIC1_ON,
-+	MT8196_AFE_GPIO_I2SIN3_OFF,
-+	MT8196_AFE_GPIO_I2SIN3_ON,
-+	MT8196_AFE_GPIO_I2SOUT3_OFF,
-+	MT8196_AFE_GPIO_I2SOUT3_ON,
-+	MT8196_AFE_GPIO_GPIO_NUM
++// vlp_cksys_clk: 0x1c016000
++#define VLP_AP_PLL_CON3 0x0264
++#define VLP_APLL1_CON0 0x0274
++#define VLP_APLL1_CON1 0x0278
++#define VLP_APLL1_CON2 0x027c
++#define VLP_APLL1_CON4 0x0284
++#define VLP_APLL1_TUNER_CON0 0x02a4
++
++#define VLP_APLL2_CON0 0x028c
++#define VLP_APLL2_CON1 0x0290
++#define VLP_APLL2_CON2 0x0294
++#define VLP_APLL2_CON4 0x029c
++#define VLP_APLL2_TUNER_CON0 0x02a8
++#define VLP_CLK_CFG_UPDATE1 0x0008
++
++// cksys_clk: 0x10000000
++#define CLK_CFG_13 0x00e0
++#define CLK_CFG_UPDATE1 0x0008
++
++#define CLK_AUDDIV_0 0x020c
++#define CLK_AUDDIV_2 0x0214
++#define CLK_AUDDIV_5 0x0228
++
++#define CKSYS_AUD_TOP_CFG 0x0218
++
++/* CLK_AUDDIV_0 */
++#define APLL12_DIV_I2SIN0_PDN_SFT               0
++#define APLL12_DIV_I2SIN0_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN0_PDN_MASK_SFT          (0x1 << 0)
++#define APLL12_DIV_I2SIN1_PDN_SFT               1
++#define APLL12_DIV_I2SIN1_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN1_PDN_MASK_SFT          (0x1 << 1)
++#define APLL12_DIV_I2SIN2_PDN_SFT               2
++#define APLL12_DIV_I2SIN2_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN2_PDN_MASK_SFT          (0x1 << 2)
++#define APLL12_DIV_I2SIN3_PDN_SFT               3
++#define APLL12_DIV_I2SIN3_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN3_PDN_MASK_SFT          (0x1 << 3)
++#define APLL12_DIV_I2SIN4_PDN_SFT               4
++#define APLL12_DIV_I2SIN4_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN4_PDN_MASK_SFT          (0x1 << 4)
++#define APLL12_DIV_I2SIN6_PDN_SFT               5
++#define APLL12_DIV_I2SIN6_PDN_MASK              0x1
++#define APLL12_DIV_I2SIN6_PDN_MASK_SFT          (0x1 << 5)
++#define APLL12_DIV_I2SOUT0_PDN_SFT              6
++#define APLL12_DIV_I2SOUT0_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT0_PDN_MASK_SFT         (0x1 << 6)
++#define APLL12_DIV_I2SOUT1_PDN_SFT              7
++#define APLL12_DIV_I2SOUT1_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT1_PDN_MASK_SFT         (0x1 << 7)
++#define APLL12_DIV_I2SOUT2_PDN_SFT              8
++#define APLL12_DIV_I2SOUT2_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT2_PDN_MASK_SFT         (0x1 << 8)
++#define APLL12_DIV_I2SOUT3_PDN_SFT              9
++#define APLL12_DIV_I2SOUT3_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT3_PDN_MASK_SFT         (0x1 << 9)
++#define APLL12_DIV_I2SOUT4_PDN_SFT              10
++#define APLL12_DIV_I2SOUT4_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT4_PDN_MASK_SFT         (0x1 << 10)
++#define APLL12_DIV_I2SOUT6_PDN_SFT              11
++#define APLL12_DIV_I2SOUT6_PDN_MASK             0x1
++#define APLL12_DIV_I2SOUT6_PDN_MASK_SFT         (0x1 << 11)
++#define APLL12_DIV_FMI2S_PDN_SFT                12
++#define APLL12_DIV_FMI2S_PDN_MASK               0x1
++#define APLL12_DIV_FMI2S_PDN_MASK_SFT           (0x1 << 12)
++#define APLL12_DIV_TDMOUT_M_PDN_SFT             13
++#define APLL12_DIV_TDMOUT_M_PDN_MASK            0x1
++#define APLL12_DIV_TDMOUT_M_PDN_MASK_SFT        (0x1 << 13)
++#define APLL12_DIV_TDMOUT_B_PDN_SFT             14
++#define APLL12_DIV_TDMOUT_B_PDN_MASK            0x1
++#define APLL12_DIV_TDMOUT_B_PDN_MASK_SFT        (0x1 << 14)
++#define APLL_I2SIN0_MCK_SEL_SFT                 16
++#define APLL_I2SIN0_MCK_SEL_MASK                0x1
++#define APLL_I2SIN0_MCK_SEL_MASK_SFT            (0x1 << 16)
++#define APLL_I2SIN1_MCK_SEL_SFT                 17
++#define APLL_I2SIN1_MCK_SEL_MASK                0x1
++#define APLL_I2SIN1_MCK_SEL_MASK_SFT            (0x1 << 17)
++#define APLL_I2SIN2_MCK_SEL_SFT                 18
++#define APLL_I2SIN2_MCK_SEL_MASK                0x1
++#define APLL_I2SIN2_MCK_SEL_MASK_SFT            (0x1 << 18)
++#define APLL_I2SIN3_MCK_SEL_SFT                 19
++#define APLL_I2SIN3_MCK_SEL_MASK                0x1
++#define APLL_I2SIN3_MCK_SEL_MASK_SFT            (0x1 << 19)
++#define APLL_I2SIN4_MCK_SEL_SFT                 20
++#define APLL_I2SIN4_MCK_SEL_MASK                0x1
++#define APLL_I2SIN4_MCK_SEL_MASK_SFT            (0x1 << 20)
++#define APLL_I2SIN6_MCK_SEL_SFT                 21
++#define APLL_I2SIN6_MCK_SEL_MASK                0x1
++#define APLL_I2SIN6_MCK_SEL_MASK_SFT            (0x1 << 21)
++#define APLL_I2SOUT0_MCK_SEL_SFT                22
++#define APLL_I2SOUT0_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT0_MCK_SEL_MASK_SFT           (0x1 << 22)
++#define APLL_I2SOUT1_MCK_SEL_SFT                23
++#define APLL_I2SOUT1_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT1_MCK_SEL_MASK_SFT           (0x1 << 23)
++#define APLL_I2SOUT2_MCK_SEL_SFT                24
++#define APLL_I2SOUT2_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT2_MCK_SEL_MASK_SFT           (0x1 << 24)
++#define APLL_I2SOUT3_MCK_SEL_SFT                25
++#define APLL_I2SOUT3_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT3_MCK_SEL_MASK_SFT           (0x1 << 25)
++#define APLL_I2SOUT4_MCK_SEL_SFT                26
++#define APLL_I2SOUT4_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT4_MCK_SEL_MASK_SFT           (0x1 << 26)
++#define APLL_I2SOUT6_MCK_SEL_SFT                27
++#define APLL_I2SOUT6_MCK_SEL_MASK               0x1
++#define APLL_I2SOUT6_MCK_SEL_MASK_SFT           (0x1 << 27)
++#define APLL_FMI2S_MCK_SEL_SFT                  28
++#define APLL_FMI2S_MCK_SEL_MASK                 0x1
++#define APLL_FMI2S_MCK_SEL_MASK_SFT             (0x1 << 28)
++#define APLL_TDMOUT_MCK_SEL_SFT                 29
++#define APLL_TDMOUT_MCK_SEL_MASK                0x1
++#define APLL_TDMOUT_MCK_SEL_MASK_SFT            (0x1 << 29)
++
++/* CLK_AUDDIV_1 */
++#define APLL12_DIV_I2SIN0_INV_SFT               0
++#define APLL12_DIV_I2SIN0_INV_MASK              0x1
++#define APLL12_DIV_I2SIN0_INV_MASK_SFT          (0x1 << 0)
++#define APLL12_DIV_I2SIN1_INV_SFT               1
++#define APLL12_DIV_I2SIN1_INV_MASK              0x1
++#define APLL12_DIV_I2SIN1_INV_MASK_SFT          (0x1 << 1)
++#define APLL12_DIV_I2SIN2_INV_SFT               2
++#define APLL12_DIV_I2SIN2_INV_MASK              0x1
++#define APLL12_DIV_I2SIN2_INV_MASK_SFT          (0x1 << 2)
++#define APLL12_DIV_I2SIN3_INV_SFT               3
++#define APLL12_DIV_I2SIN3_INV_MASK              0x1
++#define APLL12_DIV_I2SIN3_INV_MASK_SFT          (0x1 << 3)
++#define APLL12_DIV_I2SIN4_INV_SFT               4
++#define APLL12_DIV_I2SIN4_INV_MASK              0x1
++#define APLL12_DIV_I2SIN4_INV_MASK_SFT          (0x1 << 4)
++#define APLL12_DIV_I2SIN6_INV_SFT               5
++#define APLL12_DIV_I2SIN6_INV_MASK              0x1
++#define APLL12_DIV_I2SIN6_INV_MASK_SFT          (0x1 << 5)
++#define APLL12_DIV_I2SOUT0_INV_SFT              6
++#define APLL12_DIV_I2SOUT0_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT0_INV_MASK_SFT         (0x1 << 6)
++#define APLL12_DIV_I2SOUT1_INV_SFT              7
++#define APLL12_DIV_I2SOUT1_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT1_INV_MASK_SFT         (0x1 << 7)
++#define APLL12_DIV_I2SOUT2_INV_SFT              8
++#define APLL12_DIV_I2SOUT2_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT2_INV_MASK_SFT         (0x1 << 8)
++#define APLL12_DIV_I2SOUT3_INV_SFT              9
++#define APLL12_DIV_I2SOUT3_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT3_INV_MASK_SFT         (0x1 << 9)
++#define APLL12_DIV_I2SOUT4_INV_SFT              10
++#define APLL12_DIV_I2SOUT4_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT4_INV_MASK_SFT         (0x1 << 10)
++#define APLL12_DIV_I2SOUT6_INV_SFT              11
++#define APLL12_DIV_I2SOUT6_INV_MASK             0x1
++#define APLL12_DIV_I2SOUT6_INV_MASK_SFT         (0x1 << 11)
++#define APLL12_DIV_FMI2S_INV_SFT                12
++#define APLL12_DIV_FMI2S_INV_MASK               0x1
++#define APLL12_DIV_FMI2S_INV_MASK_SFT           (0x1 << 12)
++#define APLL12_DIV_TDMOUT_M_INV_SFT             13
++#define APLL12_DIV_TDMOUT_M_INV_MASK            0x1
++#define APLL12_DIV_TDMOUT_M_INV_MASK_SFT        (0x1 << 13)
++#define APLL12_DIV_TDMOUT_B_INV_SFT             14
++#define APLL12_DIV_TDMOUT_B_INV_MASK            0x1
++#define APLL12_DIV_TDMOUT_B_INV_MASK_SFT        (0x1 << 14)
++
++/* CLK_AUDDIV_2 */
++#define APLL12_CK_DIV_I2SIN0_SFT                0
++#define APLL12_CK_DIV_I2SIN0_MASK               0xff
++#define APLL12_CK_DIV_I2SIN0_MASK_SFT           (0xff << 0)
++#define APLL12_CK_DIV_I2SIN1_SFT                8
++#define APLL12_CK_DIV_I2SIN1_MASK               0xff
++#define APLL12_CK_DIV_I2SIN1_MASK_SFT           (0xff << 8)
++#define APLL12_CK_DIV_I2SIN2_SFT                16
++#define APLL12_CK_DIV_I2SIN2_MASK               0xff
++#define APLL12_CK_DIV_I2SIN2_MASK_SFT           (0xff << 16)
++#define APLL12_CK_DIV_I2SIN3_SFT                24
++#define APLL12_CK_DIV_I2SIN3_MASK               0xff
++#define APLL12_CK_DIV_I2SIN3_MASK_SFT           (0xff << 24)
++
++/* AUD_TOP_CFG */
++#define AUD_TOP_CFG_SFT                         0
++#define AUD_TOP_CFG_MASK                        0xffffffff
++#define AUD_TOP_CFG_MASK_SFT                    (0xffffffff << 0)
++
++/* AUD_TOP_MON */
++#define AUD_TOP_MON_SFT                         0
++#define AUD_TOP_MON_MASK                        0xffffffff
++#define AUD_TOP_MON_MASK_SFT                    (0xffffffff << 0)
++
++/* CLK_AUDDIV_3 */
++#define APLL12_CK_DIV_I2SIN4_SFT                0
++#define APLL12_CK_DIV_I2SIN4_MASK               0xff
++#define APLL12_CK_DIV_I2SIN4_MASK_SFT           (0xff << 0)
++#define APLL12_CK_DIV_I2SIN6_SFT                8
++#define APLL12_CK_DIV_I2SIN6_MASK               0xff
++#define APLL12_CK_DIV_I2SIN6_MASK_SFT           (0xff << 8)
++#define APLL12_CK_DIV_I2SOUT0_SFT               16
++#define APLL12_CK_DIV_I2SOUT0_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT0_MASK_SFT          (0xff << 16)
++#define APLL12_CK_DIV_I2SOUT1_SFT               24
++#define APLL12_CK_DIV_I2SOUT1_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT1_MASK_SFT          (0xff << 24)
++
++/* CLK_AUDDIV_4 */
++#define APLL12_CK_DIV_I2SOUT2_SFT               0
++#define APLL12_CK_DIV_I2SOUT2_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT2_MASK_SFT          (0xff << 0)
++#define APLL12_CK_DIV_I2SOUT3_SFT               8
++#define APLL12_CK_DIV_I2SOUT3_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT3_MASK_SFT          (0xff << 8)
++#define APLL12_CK_DIV_I2SOUT4_SFT               16
++#define APLL12_CK_DIV_I2SOUT4_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT4_MASK_SFT          (0xff << 16)
++#define APLL12_CK_DIV_I2SOUT6_SFT               24
++#define APLL12_CK_DIV_I2SOUT6_MASK              0xff
++#define APLL12_CK_DIV_I2SOUT6_MASK_SFT          (0xff << 24)
++
++/* CLK_AUDDIV_5 */
++#define APLL12_CK_DIV_FMI2S_SFT                 0
++#define APLL12_CK_DIV_FMI2S_MASK                0xff
++#define APLL12_CK_DIV_FMI2S_MASK_SFT            (0xff << 0)
++#define APLL12_CK_DIV_TDMOUT_M_SFT              8
++#define APLL12_CK_DIV_TDMOUT_M_MASK             0xff
++#define APLL12_CK_DIV_TDMOUT_M_MASK_SFT         (0xff << 8)
++#define APLL12_CK_DIV_TDMOUT_B_SFT              16
++#define APLL12_CK_DIV_TDMOUT_B_MASK             0xff
++#define APLL12_CK_DIV_TDMOUT_B_MASK_SFT         (0xff << 16)
++
++/* APLL */
++#define APLL1_W_NAME "APLL1"
++#define APLL2_W_NAME "APLL2"
++enum {
++	MT8196_APLL1 = 0,
++	MT8196_APLL2,
++};
++
++enum {
++	/* afe clk */
++	CLK_HOPPING = 0,
++	CLK_F26M,
++	CLK_UL0_ADC_CLK,
++	CLK_UL0_ADC_HIRES_CLK,
++	CLK_UL1_ADC_CLK,
++	CLK_UL1_ADC_HIRES_CLK,
++	CLK_APLL1,
++	CLK_APLL2,
++	CLK_APLL1_TUNER,
++	CLK_APLL2_TUNER,
++	/* vlp clk */
++	CLK_VLP_MUX_AUDIOINTBUS,
++	CLK_VLP_MUX_AUD_ENG1,
++	CLK_VLP_MUX_AUD_ENG2,
++	CLK_VLP_MUX_AUDIO_H,
++	CLK_VLP_CLK26M,
++	/* ck clk */
++	CLK_CK_MAINPLL_D4_D4,
++	CLK_CK_MUX_AUD_1,
++	CLK_CK_APLL1_CK,
++	CLK_CK_MUX_AUD_2,
++	CLK_CK_APLL2_CK,
++	CLK_CK_APLL1_D4,
++	CLK_CK_APLL2_D4,
++	CLK_CK_I2SIN0_M_SEL,
++	CLK_CK_I2SIN1_M_SEL,
++	CLK_CK_FMI2S_M_SEL,
++	CLK_CK_TDMOUT_M_SEL,
++	CLK_CK_APLL12_DIV_I2SIN0,
++	CLK_CK_APLL12_DIV_I2SIN1,
++	CLK_CK_APLL12_DIV_FMI2S,
++	CLK_CK_APLL12_DIV_TDMOUT_M,
++	CLK_CK_APLL12_DIV_TDMOUT_B,
++	CLK_CK_ADSP_SEL,
++	CLK_CLK26M,
++	CLK_NUM
 +};
 +
 +struct mtk_base_afe;
 +
-+int mt8196_afe_gpio_init(struct mtk_base_afe *afe);
-+int mt8196_afe_gpio_request(struct mtk_base_afe *afe, bool enable,
-+			    int dai, int uplink);
-+bool mt8196_afe_gpio_is_prepared(enum mt8196_afe_gpio type);
++int mt8196_init_clock(struct mtk_base_afe *afe);
++int mt8196_afe_enable_clock(struct mtk_base_afe *afe);
++void mt8196_afe_disable_clock(struct mtk_base_afe *afe);
++int mt8196_afe_disable_apll(struct mtk_base_afe *afe);
++
++int mt8196_afe_dram_request(struct device *dev);
++int mt8196_afe_dram_release(struct device *dev);
++
++int mt8196_apll1_enable(struct mtk_base_afe *afe);
++void mt8196_apll1_disable(struct mtk_base_afe *afe);
++
++int mt8196_apll2_enable(struct mtk_base_afe *afe);
++void mt8196_apll2_disable(struct mtk_base_afe *afe);
++
++int mt8196_get_apll_rate(struct mtk_base_afe *afe, int apll);
++int mt8196_get_apll_by_rate(struct mtk_base_afe *afe, int rate);
++int mt8196_get_apll_by_name(struct mtk_base_afe *afe, const char *name);
++
++void aud_intbus_mux_sel(unsigned int aud_idx);
++
++/* these will be replaced by using CCF */
++int mt8196_mck_enable(struct mtk_base_afe *afe, int mck_id, int rate);
++int mt8196_mck_disable(struct mtk_base_afe *afe, int mck_id);
++
++int mt8196_set_audio_int_bus_parent(struct mtk_base_afe *afe,
++				    int clk_id, bool int_bus);
 +
 +#endif
 -- 
