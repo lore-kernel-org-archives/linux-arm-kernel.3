@@ -4,157 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A84D0C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 942DDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OOZT9ACCIXTZeWBzoFzxF/jWtPg0jUQ2U1wCLx+nOUA=; b=PXvJ11adZnrb/Gg2IuWmM2CAP7
-	xzr6FZebbzv7az3AIocvjq2WUZo11qUUxhd5DtdSy5aZsifwpiZ4+/Z2MNWinW4z+QpYX8jEQz3Ae
-	w8prza+VuBQIfJwmRultN59IYpAZA/NO4ItUEYFETUC+Fbeo+Xa39mYgkcrx5O1d4lfWT+1TJta17
-	XU2MM7vWwH/+Wg+XyTvKipoekJL2LwqMmyu8DMVSpYc5au/W/y/uejBcp5Vs6qLFogkc2ecd5mXpe
-	Yw77kfcvfR6ETcPOo+6vigp4vF7twfQ6kcQOVDLKQhS12rBbWlq290WG/iyWEGw3eGFKoHtiS6aw2
-	K5sDbgtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CG/0+ifxr75o2y5vXP38zdPvnGa50K7D2JsI3Q0oVMA=; b=pOD2IqA5LbCmFBEfWM6mN6yu+d
+	oc4K+VjE5ND4uOgyhHEaAyWAgC0L+fuCRX3FzN+dC3/pX/eOxBpjBubdGARuyFCzS5wQyGChGUpnb
+	8DEp0UOlvPgAIJVpueXQ+vGBQooo2iidbmk9OjCWb3chztpxjDf5YFM4V4la3wbGp0MM2yjkhg2Y6
+	JQlvxwqeVeh3wRJrhz0GdxBwxDExuGU+1lJZDNT3uwvfD48hSxU2hJmI2OEzo0x1pV0E6pjlUs1GL
+	6NU7ZFN7dqbAc/s1n6AuMyV4D787gWV4sXRp5VApYbopCPOmqkyKLnr5hy+Odxj9jZR5KDtjPnITb
+	zsuTM9Zg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZ7f-0000000EWMe-3b43;
-	Fri, 07 Mar 2025 14:56:23 +0000
-Received: from mail-vi1eur03on20602.outbound.protection.outlook.com ([2a01:111:f403:260c::602] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
+	id 1tqZDj-0000000EXAo-3VZT;
+	Fri, 07 Mar 2025 15:02:39 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZ62-0000000EVvE-06UT;
-	Fri, 07 Mar 2025 14:54:43 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=OmFzTFmca7Oq6avp1bKg/o48Zh0ebL/S0thCGly7PpunSU9lPW2GiMosj4pcY0TnUajfyqbX7EG1TFJ3bzwwFSJed0IfriMB7JhGoYXMAki5ne+iEZG2nqnFTHWmW5aIOm/R43KLdZV+gj+Sz8fjKVrE9ZtuOIjSyx1DNg1vAejAUPFj5rq4yBUOJQFrHAJPdQ9uoWiPBaSmiFjO/9s2KH9suxNnAluYammHJtSDjSvpbcb1gjhKIzjjT26D11QR+HH8zY7985/Zq08HF9NurQ71Sc66h78Qqe4rVCvlVqKXdnPkPbdxxjghizVnOjqMKuFyYr/ml/iHgLoNOUwWOQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OOZT9ACCIXTZeWBzoFzxF/jWtPg0jUQ2U1wCLx+nOUA=;
- b=guRe+IXVVpSpQNilwCOb4VN/xPmyeQg47JC0g043jXybeU+SEhWC6uSxEktn4ky0b3FjQDkLnGm5gXgpAHIzJ9V3J/MNwerFS/+YiuiXi14umInutcbsYSBLiLU/d/5xPis0MNj7I+JcwnGjrYqdYFXeesL2ejuiaEDeTAn04BPq14VD5QjsI7qEpOjW5FU7PPbITo7Z9CkFxEy1tVE0y45LV5sEvKbf54Ku4b70W6OJMr+hd1wkMw0f5UWMznI+w3NNZtuRLscVDwqaIaTdLLPDzgQYhTq5FaJypZiGdimPwtdfNBS74lgyXOEMUqkjT5vAgJX7xROgC3iVT9teyw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OOZT9ACCIXTZeWBzoFzxF/jWtPg0jUQ2U1wCLx+nOUA=;
- b=YhzaBEt3d6RkCJcTtXV/yQgTGjcVfG6AxpYwEB0+DvLfzdU/uzTrwmuEUVTDE7e5Hyhkf+sFuk2HYMZ9GgeHX51oGPJViNTGQfntamf6wkqM/cYG919DSlSFwEU/aGuCCe1M/iDl/+5NEd0yqAKdUaS7KKwJ1cR8hqUE2VIXFqbtYaz4L2FWBpnA0NAgI4P9pMC0rqfpIRbSyBpuR8rXcoAHrEeptTDh5tp9zpW3Zsl/kABkizTOeISYGWJh5BMQm+YlcumjN88sY9uzVrDaKfL4ff6BmlLGmUep+q0106cw/pQM0MrkE3/L2oGxg/ixlDxjnTHRGme0XjrSckKwpA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by VI1PR04MB9908.eurprd04.prod.outlook.com (2603:10a6:800:1d0::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
- 2025 14:54:36 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
- 14:54:36 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: rafael@kernel.org,
-	daniel.lezcano@linaro.org,
-	lpieralisi@kernel.org,
-	sudeep.holla@arm.com,
-	ulf.hansson@linaro.org,
-	james.morse@arm.com,
-	d-gole@ti.com,
-	anup@brainfault.org,
-	paul.walmsley@sifive.com,
-	palmer@dabbelt.com,
-	aou@eecs.berkeley.edu
-Cc: linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-riscv@lists.infradead.org,
-	imx@lists.linux.dev,
-	khilman@baylibre.com,
-	quic_tingweiz@quicinc.com,
-	quic_yuanjiey@quicinc.com
-Subject: [PATCH v5] cpuidle: Init cpuidle only for present CPUs
-Date: Fri,  7 Mar 2025 22:55:47 +0800
-Message-Id: <20250307145547.2784821-1-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SI1PR02CA0038.apcprd02.prod.outlook.com
- (2603:1096:4:1f6::15) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	id 1tqZC7-0000000EX0o-0MBk
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 15:01:00 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43bc2f816daso2108425e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 07:00:58 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741359657; x=1741964457; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=CG/0+ifxr75o2y5vXP38zdPvnGa50K7D2JsI3Q0oVMA=;
+        b=g+ES69jwX3nAZPZEr4zGoFtB03/hbPBtrm3QP/0noiWdO4fZpcF9C4UkIwPlQmpDzW
+         elhZa1+x/g4VVo3mv8LtuoGravZcKv/dRr/paaUFbxwfyuNM8qxszQt7/UcfMlGedz06
+         56eQR34nB9FzPKqk0xsMcHI3oQk4mns+ZCdNVOLO6kvhwXW30n3GFp6ebTNV1pAMSaKf
+         sizSAY0En4hvhrVUdl3nuNKB4hccsk0EoPQs+85AK2IHFcXM4vefSCGd7nrGcmkpE17c
+         Ypu4lBWSSg8dd7iH8Ch60YOViyYIGxPoXmnYMMiuDReziHVeKoXj9fUM9pvyRk9kwVqL
+         g7cQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741359657; x=1741964457;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CG/0+ifxr75o2y5vXP38zdPvnGa50K7D2JsI3Q0oVMA=;
+        b=fRcPr3mYwbjXlgC+xAoX7rwcJNyH0f79o+dDbJEUJpurBoGwCvkLk1iub3/Az5frsc
+         HXlG97M3xCo4EE5ZnymAMTqQMwxOl6wLvTHfjIwG6PKTYbnIlbzxJOPTNIkpQW0Pshuy
+         KbDPD2SfRfMfkYYdzlj0oVDUlpvB84tNZvr+7kYxw+cDw/unaURzj7gJ2ZcCJnvjlKWy
+         I/QQRr/In3fd0aM2aAyMqTdpQ29uWclq7XajbAHrpnFSSMakojP74bOxZiSzPxWPMWFx
+         xNu3H/wsisWkKVn1kuHnCKGCSgy7/DNM98pYp7DSQHGkHR4uBtCCrReRZBJZBkgzbu42
+         it6g==
+X-Forwarded-Encrypted: i=1; AJvYcCUUHedjEc08HInLleWaPUdBqH5ECcDYSnViJ+YUZRU+HVnN10j9OE2ycBYqdkna9xe15k/3vyv7+AsrE0qAwlVq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxxN1WUpxGIa9sE60PqmPZO/lnFjfe2itOqtBJVdtFavyuueSnq
+	ARASr04mKu38wgIUoKYIrgOdQ7f3BK2jgUHdPF8FfhI7PEZY1F/9AbJUFC1VgsY=
+X-Gm-Gg: ASbGncvxc2ILwnf71lZp/xZE4Ourlgdnn4ksBvhsptgiQ7+m+w9pukg5ZLzb4bU+Rk3
+	SJWOuT6BQxYvxl3SCHRT+RzsZtlIN356mjSjZyDSGmao6fNfhI7O8eKPrpyxh0vdpEbFQunGpeH
+	xiCV4q9tZ1sUeVLig47+285bghYNk44rZo8xY26e6ubLEDQzlObAU535arPoafHHpcHgEr5s3MP
+	lRjfRSWECUQo6zCm9t+2O+rjVg/9qEh3g8GY+qBsTBbmVyzJbrnkDwYr1ltygpEj/FwddMZDfKn
+	OteFP8Hyk6vbOmhurSWXzaRiuv7W4plMj2r3YcG+jWZlDM5MN7x/rm6Z5tcW+NAu
+X-Google-Smtp-Source: AGHT+IGGZYO9R1Ir9jZGE3PRQGONJFCKHQHAZ8yS9pdVo8obZtmL6fx1WKDeNC/DhwpJv1mJ7ANdZg==
+X-Received: by 2002:a05:600c:5108:b0:439:90f5:3919 with SMTP id 5b1f17b1804b1-43c5c4bb61fmr11520345e9.4.1741359656901;
+        Fri, 07 Mar 2025 07:00:56 -0800 (PST)
+Received: from [192.168.1.20] ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c11e9desm5476847f8f.101.2025.03.07.07.00.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Mar 2025 07:00:56 -0800 (PST)
+Message-ID: <ceb3be8e-8f5c-43a8-a4b9-3ee62e67dfd6@linaro.org>
+Date: Fri, 7 Mar 2025 16:00:53 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|VI1PR04MB9908:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8a27993e-4d49-4ebd-6d01-08dd5d87faa7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|1800799024|366016|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nbcMkQmfqr8YHFkuR0VWcCKaAiKEXlbHeuiQODt4T+/skYx68AlLsZnwfCdf?=
- =?us-ascii?Q?+f1eb6FYcMykFbpIOX73fXiObBvRNMnUAVH6jfSGlq2hzE1agyyUe8dPlrmH?=
- =?us-ascii?Q?6lBDgusZto4UEiFzjUR2UdaCT/LnKoDwqkg/DOmsLg47X6uWDIXGGg/GQhqS?=
- =?us-ascii?Q?LaFTo8tDsy0vOmrQ5ZIdhuqSaOylFd+X5R9utKJx7UG0Kh6m45GLwX356Qxd?=
- =?us-ascii?Q?DomjkEHezTya9xiC9EeDJimNdRK9pFOKz2gvGrZcat2hFTqheob69ieWK+HN?=
- =?us-ascii?Q?7uAqMYT6ssTeOj5QSajN05bidF/pf095tuhkHvAiP1hOaSjAhJjZTTTBIg6G?=
- =?us-ascii?Q?lglQacTHUf1z9FC8ZuTA5uxrvT7gXapmT6uUYw18NmXcndQAVbAEXxRPMYfN?=
- =?us-ascii?Q?8VxMA3es03gkCbWRDmCAD7F8QrZ1DpKuplYr7gnq8yyvoAt4JbSQ/wtnBujT?=
- =?us-ascii?Q?A0nDBvSAS+fMLdFe4KywjrmXjVkfs5rn9fSbQTBeMc+3DNpq2PwO5BhirAuT?=
- =?us-ascii?Q?C7E23JWBoTU4fZbcyPpm63j7UnrQPOjwNSiSfwUThrU913EwhV8OHGdttgSN?=
- =?us-ascii?Q?BzdyzQ24hMedgTaNtEqDgM/f5gjcTc+/RnVydM/wa6Z7Dh+XzcXtx+kiEp+o?=
- =?us-ascii?Q?9p/Psmvb/bs1iM+ozIBAXsf+3Ged0Bt3j+vRmiOoWWOYSWz2qZUU0sGBjdSc?=
- =?us-ascii?Q?g7PLUEcSmJ4pilvkYeymC33VqtxTRjz1hmORNvitc+IDd6soSuecg0qKszLY?=
- =?us-ascii?Q?2R9oNWfQ7BtgPjXWP0jrtvN8MUaOV40Rs5p/2r7oT724NmQ4ISXmseaWAJhT?=
- =?us-ascii?Q?d3pUUeIpsEKOKZzioVboQU58nlVkF8MpAWCAL3IcnRFLRHf+aBJx5PvHCQiT?=
- =?us-ascii?Q?5Z1uF6urLiZ46tjrF09m23NBsP3WnyVHHXEQv7XMcs6bI/UhW9AwWPdoTwQk?=
- =?us-ascii?Q?iLN447SpOFSA0Yh299rNfrq0WaC+1vnbJR2+aBTCdDYPnk8IpToZjwX8EYAe?=
- =?us-ascii?Q?jbBWQEk/0R2tfMAY9fHOeM7lklVGdk5IX1Lt/obpTBfz87Oq+/7RZFEuoFX3?=
- =?us-ascii?Q?8qUzk6U0vF3Gky1r/Q07FC3X+/cWtvqwIJcKDHwCxkW6509eviaAN1COYpTC?=
- =?us-ascii?Q?H2Dg5dxL9QG4HvbapCAqwLGfQd5qFIZpdgbsZPNJvhmdWX0I3twpLhQuDcQw?=
- =?us-ascii?Q?Ke1OHO+1VnUBRlBadYFUB1taHBIzdDt6Enc9yUvzTf8ej/A0yN8Wb9NrFw9v?=
- =?us-ascii?Q?mPmVYj6157xQTq/MWs3Qf7IRPvNFFC6fkqLrQDX3alPnXRvxyX+dqwd2MmFn?=
- =?us-ascii?Q?e4jNaBA8AxJI82bFv/u5zTkWN/2LJd/8MRSWnNViGCgPNl5BPu+sA0Ik31gt?=
- =?us-ascii?Q?PJBg5j9vx4zgV+P2rxwlZd7DaPuOQXkmKvx/AD0Yb77sxyqgQDoQyJfgC4MU?=
- =?us-ascii?Q?FZxxcqnkD0sxfK1f9eNCy8b6wnQNDB1OJPz8rKP2DJHcDbbuZ/IZ1w=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GV8Zk4a9FPMYfKwvbdXfGFzqWHMSQhnjuzpSayC9AEpv3AA7zIebxSJbkKIn?=
- =?us-ascii?Q?o43ZH2MHfORw3jEmI5aJQBgh4qFkbT016Kmd6apdqdLXmpdYWYerFaVhoVoD?=
- =?us-ascii?Q?/9uVqV+5NPRYrsCBpoEpk4cq8Zg8bbKMVqOrVW5ACfbPoz/ccedwybT6HetG?=
- =?us-ascii?Q?JZBimWyw1x3OITe04mQjOEYxh5214wV1Xx1xjexGZwztEG34DhDPoGLBdOBO?=
- =?us-ascii?Q?GDKtvh5CHnVXdraDLVCAwkeU0hHpN0E+j3jGy/jJnAUZzC8J1I+S1Blt5c+P?=
- =?us-ascii?Q?0RsN2VcNOndnUPR40VHdU4O0cqMs3K/UdFmeHEtOtt8J3PYGnysxdCYDVxCp?=
- =?us-ascii?Q?4NEBsT4USzcKeub1QrhVVQcRA5TvjAeBDLLkjFwlU42kEs4F2wibe9jh81lU?=
- =?us-ascii?Q?J+jcAtpsosQFFnvVyYljGQoXhJploGgv26j294pV0swC1jZIb9uqpHKcx816?=
- =?us-ascii?Q?JrOYY0kEC+5a8Ej8hZCAwQdflzRRoh+1ACJCkSZvIFiY1d3FbHj8HY4CwrOR?=
- =?us-ascii?Q?wY28CqKXRjwoFfeXX5jBR9srU7lgIqHP4j9oxFqM7sJWG5RgHdBJdWUoUFw1?=
- =?us-ascii?Q?94NDLJDZFkdiU73fy+Hd1x+6tDFnyHKbNWSd7sxE3uDYhwHwNuuxGpij3h11?=
- =?us-ascii?Q?ZWYHhmCu368p1wbBd2K8fwscQ5eKDdB1U5/6Syy6ta7EBFYdeGlIrHEgzFiw?=
- =?us-ascii?Q?F4jMq5euVWJBXaPfjSfm0wxx/6Ukar+kbM/bOZUibBNxAMFsAd0h8CQgWn6T?=
- =?us-ascii?Q?8lbL5OhpzfCXBaBv7BR2khDteLL/CFyYVjJzULmFSymsV5PAWkFeJ51GHDjQ?=
- =?us-ascii?Q?mhl7gOPF8GOzFVSZWVvyxWem6VaypzuGqYf+mGjdyPl8AKpV0JYEdPsMsm2z?=
- =?us-ascii?Q?PlmoeY+qpq57WmPDhqFI4dtaQ3UQncW/xqeSNsvnAZi3stXvzT0LNRVF6e7W?=
- =?us-ascii?Q?Og2cHBOmShswk8fdHNGdmQ3Kk6/ME6NaRt1gc5wUXnov7pnIU4ewgl08n2lj?=
- =?us-ascii?Q?ADSHUbUhNSa3hegVwbKj5QYMCDD6Ljlp2ndj7sB+VxwvOaZLdKH6Gu5OA/mf?=
- =?us-ascii?Q?aKuDa8dJivTC+GBfyNZbNSYWL3cI4fWkCaUmdjOcCpwQm3fLaqmvJSGjBsv/?=
- =?us-ascii?Q?7T0aiF3gFQDRoibIFqKMEQrfAIW9CXg7ya37/8rybbn/XQYOlr9BM2hqVXM0?=
- =?us-ascii?Q?+Bx9kxjjBxSEmEmHfcWxVOfrOzVKx32Ef5lAGy36th1PS/GEIyXm0CpeV9oB?=
- =?us-ascii?Q?J1bsmeLV7bVV3gDuFjEBgQmY0sSOdWG6QIw2tbw2hc5sWIR0gDBWDDUV6hMo?=
- =?us-ascii?Q?6qQfkqG/LG9pdertMWXm6TtghdQlYEBjYGIGgyXIwrfgoPAr9GS8kIoGvNBz?=
- =?us-ascii?Q?CvMDpSQyFgZ8IRjSUF/BWQhzFGiu73+ztQOaD6Frmtg3hZZSXWgaoGuhnEFQ?=
- =?us-ascii?Q?nE+n/Woj2nbONqa7VuAPiWAnEUII2+OTiHbZKzrXwEzIWpXOOT2RAmZmuL9O?=
- =?us-ascii?Q?NctYb7WZRJOjuOr26/CEE9qTCGSiy/06xFQDg8YGcW6Pr3hwqtnr0QzzFndR?=
- =?us-ascii?Q?oKNuO4h/1Y8txWakMPJ8jw9HRBbRFHLcFhd+rDZC?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8a27993e-4d49-4ebd-6d01-08dd5d87faa7
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 14:54:36.7693
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gsPu1cpxXoHLbsd1ImHLVxGJsEmWfBBW36dmUVTMl438yIiyze3Hai+v/CWuJGMhcKrffOtA/C2O+iPwVXRZfQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB9908
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC/RFT 00/12] clk: samsung: Use platform_driver_probe()
+ to avoid __refdata
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Sam Protsenko <semen.protsenko@linaro.org>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250305-clk-samsung-ref-init-data-v1-0-a4e03a019306@linaro.org>
+ <01cdf3a68e120d30bdcf4fc225bb236dba47fdff.camel@linaro.org>
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Language: en-US
+Autocrypt: addr=krzysztof.kozlowski@linaro.org; keydata=
+ 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
+ D2GYIS41Kv4Isx2dEFh+/Q==
+In-Reply-To: <01cdf3a68e120d30bdcf4fc225bb236dba47fdff.camel@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_065442_091186_C0A057E6 
-X-CRM114-Status: GOOD (  18.64  )
+X-CRM114-CacheID: sfid-20250307_070059_136213_CE30E22A 
+X-CRM114-Status: GOOD (  13.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,142 +153,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-for_each_possible_cpu() is currently used to initialize cpuidle
-in below cpuidle drivers:
-  drivers/cpuidle/cpuidle-arm.c
-  drivers/cpuidle/cpuidle-big_little.c
-  drivers/cpuidle/cpuidle-psci.c
-  drivers/cpuidle/cpuidle-qcom-spm.c
-  drivers/cpuidle/cpuidle-riscv-sbi.c
+On 07/03/2025 15:29, André Draszik wrote:
+> Hi Krzysztof,
+> 
+> Nice idea!
+> 
+> On Wed, 2025-03-05 at 22:43 +0100, Krzysztof Kozlowski wrote:
+>> RFT/RFC because testing needed. I tried to do the same on exynos5-subcmu
+>> and it caused weird oopses which even KASAN did not narrow. Probably
+>> because of multiple exynos5-subcmu devices?
+> 
+> I've tried this on top of next-20250225, and it doesn't work on gs101
+> either and OOPSes several times during boot in different places, but
+> I can not dig deeper right now.
+> 
+> [   11.502919][   T58] Unable to handle kernel paging request at virtual address ffffbfe2ab25cc30
 
-However, in cpu_dev_register_generic(), for_each_present_cpu()
-is used to register CPU devices which means the CPU devices are
-only registered for present CPUs and not all possible CPUs.
+Thanks. I'll dig more once have a bit more time. The calltrace is
+exactly what I saw with exynos5-subcmu and it puzzles me.
 
-With nosmp or maxcpus=0, only the boot CPU is present, lead
-to the failure:
-
-  |  Failed to register cpuidle device for cpu1
-
-Then rollback to cancel all CPUs' cpuidle registration.
-
-Change for_each_possible_cpu() to for_each_present_cpu() in the
-above cpuidle drivers to ensure it only registers cpuidle devices
-for CPUs that are actually present.
-
-Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DEVICES")
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
-Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
----
- - v5 changes:
-   - add changes for cpuidle-qcom-spm
-
- - v4 changes:
-  - add changes for other cpuidle driver that has the similar issue
-    as cpuidle-pcsi driver.
-
- - v3 changes:
-  - improve the changelog as suggested by Sudeep
----
- drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
- drivers/cpuidle/cpuidle-big_little.c | 2 +-
- drivers/cpuidle/cpuidle-psci.c       | 4 ++--
- drivers/cpuidle/cpuidle-qcom-spm.c   | 2 +-
- drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
- 5 files changed, 10 insertions(+), 10 deletions(-)
-
-diff --git a/drivers/cpuidle/cpuidle-arm.c b/drivers/cpuidle/cpuidle-arm.c
-index caba6f4bb1b7..e044fefdb816 100644
---- a/drivers/cpuidle/cpuidle-arm.c
-+++ b/drivers/cpuidle/cpuidle-arm.c
-@@ -137,9 +137,9 @@ static int __init arm_idle_init_cpu(int cpu)
- /*
-  * arm_idle_init - Initializes arm cpuidle driver
-  *
-- * Initializes arm cpuidle driver for all CPUs, if any CPU fails
-- * to register cpuidle driver then rollback to cancel all CPUs
-- * registration.
-+ * Initializes arm cpuidle driver for all present CPUs, if any
-+ * CPU fails to register cpuidle driver then rollback to cancel
-+ * all CPUs registration.
-  */
- static int __init arm_idle_init(void)
- {
-@@ -147,7 +147,7 @@ static int __init arm_idle_init(void)
- 	struct cpuidle_driver *drv;
- 	struct cpuidle_device *dev;
- 
--	for_each_possible_cpu(cpu) {
-+	for_each_present_cpu(cpu) {
- 		ret = arm_idle_init_cpu(cpu);
- 		if (ret)
- 			goto out_fail;
-diff --git a/drivers/cpuidle/cpuidle-big_little.c b/drivers/cpuidle/cpuidle-big_little.c
-index 74972deda0ea..4abba42fcc31 100644
---- a/drivers/cpuidle/cpuidle-big_little.c
-+++ b/drivers/cpuidle/cpuidle-big_little.c
-@@ -148,7 +148,7 @@ static int __init bl_idle_driver_init(struct cpuidle_driver *drv, int part_id)
- 	if (!cpumask)
- 		return -ENOMEM;
- 
--	for_each_possible_cpu(cpu)
-+	for_each_present_cpu(cpu)
- 		if (smp_cpuid_part(cpu) == part_id)
- 			cpumask_set_cpu(cpu, cpumask);
- 
-diff --git a/drivers/cpuidle/cpuidle-psci.c b/drivers/cpuidle/cpuidle-psci.c
-index dd8d776d6e39..b46a83f5ffe4 100644
---- a/drivers/cpuidle/cpuidle-psci.c
-+++ b/drivers/cpuidle/cpuidle-psci.c
-@@ -403,7 +403,7 @@ static int psci_idle_init_cpu(struct device *dev, int cpu)
- /*
-  * psci_idle_probe - Initializes PSCI cpuidle driver
-  *
-- * Initializes PSCI cpuidle driver for all CPUs, if any CPU fails
-+ * Initializes PSCI cpuidle driver for all present CPUs, if any CPU fails
-  * to register cpuidle driver then rollback to cancel all CPUs
-  * registration.
-  */
-@@ -413,7 +413,7 @@ static int psci_cpuidle_probe(struct platform_device *pdev)
- 	struct cpuidle_driver *drv;
- 	struct cpuidle_device *dev;
- 
--	for_each_possible_cpu(cpu) {
-+	for_each_present_cpu(cpu) {
- 		ret = psci_idle_init_cpu(&pdev->dev, cpu);
- 		if (ret)
- 			goto out_fail;
-diff --git a/drivers/cpuidle/cpuidle-qcom-spm.c b/drivers/cpuidle/cpuidle-qcom-spm.c
-index 3ab240e0e122..5f386761b156 100644
---- a/drivers/cpuidle/cpuidle-qcom-spm.c
-+++ b/drivers/cpuidle/cpuidle-qcom-spm.c
-@@ -135,7 +135,7 @@ static int spm_cpuidle_drv_probe(struct platform_device *pdev)
- 	if (ret)
- 		return dev_err_probe(&pdev->dev, ret, "set warm boot addr failed");
- 
--	for_each_possible_cpu(cpu) {
-+	for_each_present_cpu(cpu) {
- 		ret = spm_cpuidle_register(&pdev->dev, cpu);
- 		if (ret && ret != -ENODEV) {
- 			dev_err(&pdev->dev,
-diff --git a/drivers/cpuidle/cpuidle-riscv-sbi.c b/drivers/cpuidle/cpuidle-riscv-sbi.c
-index 0c92a628bbd4..0fe1ece9fbdc 100644
---- a/drivers/cpuidle/cpuidle-riscv-sbi.c
-+++ b/drivers/cpuidle/cpuidle-riscv-sbi.c
-@@ -529,8 +529,8 @@ static int sbi_cpuidle_probe(struct platform_device *pdev)
- 			return ret;
- 	}
- 
--	/* Initialize CPU idle driver for each CPU */
--	for_each_possible_cpu(cpu) {
-+	/* Initialize CPU idle driver for each present CPU */
-+	for_each_present_cpu(cpu) {
- 		ret = sbi_cpuidle_init_cpu(&pdev->dev, cpu);
- 		if (ret) {
- 			pr_debug("HART%ld: idle driver init failed\n",
--- 
-2.34.1
-
+Best regards,
+Krzysztof
 
