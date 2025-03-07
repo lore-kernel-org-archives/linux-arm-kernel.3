@@ -4,64 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9527C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:49:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DEDEC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:51:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QODTcsgTD5yMXiVKe+OF+Jq9+cxUR/s/m66SUVGxel0=; b=yCtrR9DjDNMtU6Kc5MiIFg7nhi
-	7lWnJeJviVubpEakkCqn7puce21RQijAbocn3CxyM/3EIo7GKgKatmp7Dj+Mic5mALvWXv4m9E49z
-	Euc70hoYyvcAvaprXeugPca21oerDJAGgWJGvp/O9c25iHBKsPJV+PxWLRrmLI55+xUT2pxv6R8rU
-	hTYZAmDN+S7u9dFXGE8J9iC8HFhTYgYab4QTqLqaiSjh7gjCcHPEYBkcJ6hpIZEwh/tDVZ7/HKgm1
-	8bDbPItbbjWFrXcqZaWZwYh02kfkxYwY7JZoNvVeUUrfx2njoVXef4/8jWqGa+8kM20u/uMeTS10W
-	EavyosDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Pe7b7A70Vz3Lju1AeGWi5s+Vf18PLq+33L4MxDC5Fxc=; b=fyIUnL1zRLoGUriSgQpAZBuVlX
+	vUbOg+L6aMa5Um92XA93HKc1I4KaW3QvauEhmu8gqD6yynQB52FwBS+i+XhVrZNDQBhUZ9nX4mv/D
+	gkx/QC5rvNZX3X3GxjHizA0CEkfFehZCVM1qV9C5y2MgOWA7fv54XN7Pr32/sO6Tlj7LJQd8IhWOw
+	yxQ8+bJULFom5ZQ14nQB4s1fOHadA2+GiEb3LtrU4Rrf87u5Y2Rti3Q4PBrBCVXlXVIo4nz4uEgCm
+	UiwrADPqllEusYDU0wi8z3S789B0v+my5ZMbSYALMOProtccihCNtYArp4rClWrV21tERErNp+Nyb
+	wZv7ZDgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZxO-0000000ElIq-2kGb;
-	Fri, 07 Mar 2025 15:49:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZrm-0000000Ek3c-1lo7
+	id 1tqZyz-0000000ElaM-1Jrf;
+	Fri, 07 Mar 2025 15:51:29 +0000
+Received: from mail-am7eur03on20609.outbound.protection.outlook.com ([2a01:111:f403:260e::609] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqZsV-0000000EkDO-132Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 15:44:04 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8239C1477;
-	Fri,  7 Mar 2025 07:44:10 -0800 (PST)
-Received: from [10.1.35.22] (e122027.cambridge.arm.com [10.1.35.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D558B3F66E;
-	Fri,  7 Mar 2025 07:43:53 -0800 (PST)
-Message-ID: <4566d2d1-1f59-49e3-ad75-45c27ac4dfda@arm.com>
-Date: Fri, 7 Mar 2025 15:43:51 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 12/45] arm64: RME: Allocate/free RECs to match vCPUs
-To: Gavin Shan <gshan@redhat.com>, kvm@vger.kernel.org, kvmarm@lists.linux.dev
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Shanker Donthineni <sdonthineni@nvidia.com>, Alper Gun
- <alpergun@google.com>, "Aneesh Kumar K . V" <aneesh.kumar@kernel.org>
-References: <20250213161426.102987-1-steven.price@arm.com>
- <20250213161426.102987-13-steven.price@arm.com>
- <7639eca7-8fd8-491c-90bd-1be084fbd710@redhat.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <7639eca7-8fd8-491c-90bd-1be084fbd710@redhat.com>
-Content-Type: text/plain; charset=UTF-8
+	Fri, 07 Mar 2025 15:44:48 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fNcpcTms4jEGuy4IXK3ezQzEjqB1l143aLPWGfvqDcX68Ug2jLg33VT0qdgzwKss5sdlqafLw7EDFPBhTPftA58F8PFa/3qgwATCLmoo5ZJoqn4/9XOuq4omN4yf0MpEKHFnBGs/dDay/Uy9oM4lqxNhwQD0JU8CBsULyUulz0vE+O7EWIWHql4a9v5K8AV9mX10BnqmibK/yKqbdtxWQOSCZMiFBOt4G15nqSLNH2Af/ltmflOYCyMTvQBEq16PZn7/ZktK45KKXFX5m7/bqk5h5SD/hh+AQTZ0Dl29iPG062BxEo1OZzAQQreTw49DaLv6EOd2wf0HpEHBoh7Lxw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Pe7b7A70Vz3Lju1AeGWi5s+Vf18PLq+33L4MxDC5Fxc=;
+ b=vCccNnZHOAvs3yASSXngFD4mcFCGU8dQVmi4OSoZWFDbRoOFO0Ad7R6VZteTuAJDW3menZKokliwSW4hvkR3IL0gKKoc5cdvzotZbvVYkabraoMbhDV11rgMkhOxQF3QaRMEihflLQhk+4o4KJ5dpd2kkHNuXXiBpJEOFe9WFAbxFyJdPu5LNmZmX/7dNO7xbZE3uo0riGbpxtxigpBX/UZIRitGp6pAcL27qnhphA1O8P8Ie5xndH424bwQ4afGuh5KmyqdFip26f9AP0RQk8tUZMXqrHqUn2gusW3TmeXc2Tky4qaLAKAFUQje7yIKOWGBAkZgP4edMJpxGyNZ4g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Pe7b7A70Vz3Lju1AeGWi5s+Vf18PLq+33L4MxDC5Fxc=;
+ b=LaFjyP2xOaWCv7rCsVoAvFQW5HzZ+l3carEZN0TWJqqzKPqm+T84MxPbX+NmyHmWb9ahRFnSc/zDVXnufcob16JCTd5G3WJO2JYllPgyr7fznkALvGiRhZ0JiL0/4zN5aidu02Ceq2eoi51BjUTpS6ya6nBnntS9YT+NbRsxQa/OiyNmRHzyZP26UASSLLR8He8WCwSyYRU/dF08O4EnuC8rVzn9VcOtFiBm+p/TuYgVMx5iavGylbBdnSjG7R7JI6BxAUFsso8X2TZK0anepacI5U8wDiYpSXy9VJS/yJA6ocp/i4WmcS+5nzMcvSSRaHbinDS4oJ+tmFhsCoVl2Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10550.eurprd04.prod.outlook.com (2603:10a6:10:586::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.18; Fri, 7 Mar
+ 2025 15:44:42 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 15:44:42 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	linux-watchdog@vger.kernel.org (open list:WATCHDOG DEVICE DRIVERS),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx7ulp-wdt: Add i.MX94 support
+Date: Fri,  7 Mar 2025 10:44:24 -0500
+Message-Id: <20250307154424.2613795-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR06CA0009.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::22) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10550:EE_
+X-MS-Office365-Filtering-Correlation-Id: 539c3787-074d-49ec-4637-08dd5d8ef9f3
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|376014|7416014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?99Q7Eq95NadjXtR5zdSLvFAfrrTREQlyLEusbwpaZa4OzUKjHvWo2kkuCLeZ?=
+ =?us-ascii?Q?3N6rvPapEHvrMiTUp2qEXe1f/lEuV+Ui49PmFKBObpwCVL7vsEu8aBY9CZNf?=
+ =?us-ascii?Q?Fd1dMNj4eNAHqwhV92WP4swkBau2AW+D4Ph4FzqeDc1ysOD3/Tv3BqTckPGK?=
+ =?us-ascii?Q?F35+FQPlIYL/68EjO0HbnwAtQXQQ5759jlYUBXUsxPL9znwC2Fk17Gumy4sA?=
+ =?us-ascii?Q?XUdPRdqlgFEQvVxbJwT7witE+KOuT3o51eTyoSK0Se7+OA+a0GsZeb4FTgEi?=
+ =?us-ascii?Q?oFcSWwLwuXz+44HAJ30AoBDYEMoWJpSYAvPeHbfYlApKTFfgCUIn7Bvz0KxJ?=
+ =?us-ascii?Q?7yILbMN8Uy7/NOmItoR0qPU0PxsNv/Frp2hHFaRYbM53vKzYbWhkmGb9S54v?=
+ =?us-ascii?Q?2G16ktzRdGNO9k5F/uheNz2ZSV+XyLn8BZt8OnjXFe59hr1805YFU0JmTaSv?=
+ =?us-ascii?Q?iXphdUaXEAGCN9iBN7J80Z75PE1WMLIE9ZRmxvf3oV+p75DRgYCuY1fXNxXw?=
+ =?us-ascii?Q?Cz07Iud0STwN+9EKe1O/MEjNq2V5ROiioJr3lBleZo1uKyIm7bAal8tMOhxe?=
+ =?us-ascii?Q?sqRxqScdZINwVrNSGM1+kt6A1vuT8s9tezlxyAGSGX4xVpL6DfmR8sDOfguI?=
+ =?us-ascii?Q?pXjc+r9ddc6yHLf6apuHSOv+4zoRiOBEQKImMHRTmoEARzjkqODvmMFdZME+?=
+ =?us-ascii?Q?c9pmEQgjZAH/Cv4ztitJZFG10V2hghI/RZHoDFyJMhomM/oG98hvzHjjXOpF?=
+ =?us-ascii?Q?vB8kOArXTja1Lwuup+xKDs2+IStWXurUOBmixey6IQFP6BEL9aU5BEw4XZTq?=
+ =?us-ascii?Q?BY0yHN+nW2D4Z5v3JIkQ+1YBOEv7eFME125+M6lFqt81bPWzILCwe7bFl/ZN?=
+ =?us-ascii?Q?sAFdGcbn4k5vb6/yGjp2vmcEx9u5kgAdZH7ZH5GcHHJZEykbIK1x5ZiHYFJo?=
+ =?us-ascii?Q?rcnpAKYN8OLRCgb/EmhMNJQWJUSucusx9Dg6XYCl2rM8iSVg5sLem8uuPoK7?=
+ =?us-ascii?Q?tZeRCBdYDIX3uT2XJPa5a2izCKdUWgZk+0/S4BNv7gnZikkBE5xVgthUgU1l?=
+ =?us-ascii?Q?vvRjLLcRhTcOYVn1OBwfr/l0KNKLWWGVYuyv4KY3gf0V8jCisqX5PrDcOXTK?=
+ =?us-ascii?Q?bV520YAqho3hxKHplh0GdcXhIAsEbJXzyj92RBm5LBgCPndpYSd3fDHJ2+Ep?=
+ =?us-ascii?Q?qbPAYg1sldYkO5hwpjpSA5aQ+QG2j5VLyiR64dNvZQgerYmSZFXQiJwMN3DS?=
+ =?us-ascii?Q?b7l01jlhvAx0LurmCYyGqqJJ3/EL6urjvImJE0yfhBbprI4nh7op8b/IMydU?=
+ =?us-ascii?Q?qp66o4ruppleD7DxUTi9EM3YoN642cD6pF+pV/uWTPCdQROuvfvsik0fP32g?=
+ =?us-ascii?Q?8PPqKXPhLRQljiE8OaH/c0T8e4P0gvIcS2SLk/RSZFJzDRuGTqaFIwUNRx2G?=
+ =?us-ascii?Q?u0vXSjzHm1hUqKJuvHf9O8hrLMSxJ+kwcmlyai8hew+6OgvjoUTvVw=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(376014)(7416014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Bs4t5/6Yjsy7RRUOqclm73VehoEYTjAuqI7Gg6+B2vbvA8MFN9723xGP/JUH?=
+ =?us-ascii?Q?+tG+4tOUw6yKfTLj6Wf4pKVfqWlfSQYI3NM/0gTqqoXpDLabiNDfgo9fp6hv?=
+ =?us-ascii?Q?XnXw/blqbBPdWm7c2eDvDrauFpso9ppRSl0/ufUehRW2iUW8SwvIpFRvgduE?=
+ =?us-ascii?Q?idbISCTQBUwZf1cLMr8NBsXmmTG1YZzw6ZBLjgDsCCHZWKj/JZiWbSQzPIAI?=
+ =?us-ascii?Q?S8I7nBeUuhDq8nhnFxkvuEdZ1F5nuUb3b0JUs7pjs82M2muOaUxgfmCO/rQq?=
+ =?us-ascii?Q?WLsdtdObTm+iCcpN8PABhbo7JDtDFFI6C6uSvqS9m9wIqyW+imbLpipsgNV+?=
+ =?us-ascii?Q?wRZhf+zV+5MIMv+jzxfLVohed/D0Ur10QNz+N2W4aGLag8jWZ4RyDuUOv1KX?=
+ =?us-ascii?Q?c7VSK+P3gRZRY4ceztErZlq9g3oHOUyOARcY6rBZU8zSbB78Z7N+oUXOvJHA?=
+ =?us-ascii?Q?16DMUJ5JUvrVGx5M3GdV9RNlxJzLYpss1Ao1hDKQ267XOdwQ9/pFLFDtifEv?=
+ =?us-ascii?Q?uydyrEv8kvmMElEr0abUTKChjavaC8YCitLxuTR0p0Q+D4Cno9HvmnxRr6dE?=
+ =?us-ascii?Q?tWLW8hbMpqR217dxbJCT0A7o4J4uvQB48nqLdxkbQcuX0XmY7Y7fvvebe+cF?=
+ =?us-ascii?Q?fwLGKIFnhivWPX+Dz+Z/6DcLzOsxE/Cv4AkZgLM2UgKXGeYF2LU8i17KOyfe?=
+ =?us-ascii?Q?PWI/d0uM9w+95ke6TQ3M74b2hrlYYDgkd+AtRaL8HkMGXf87XDFik7QWzG7W?=
+ =?us-ascii?Q?ofvl/Qq503jPDnbtxUmkjE2M1umX1WnhHFySkYEWF8KfzUbNKZuGH+t1/h3D?=
+ =?us-ascii?Q?U+OxswbSiCk0RMF2morNi1fDJkSGZxSwtTvo83N8icR1OYT1PpvfOjVh2PyE?=
+ =?us-ascii?Q?F1Tq87uzCibJGnXZKC7XqdAONdQ2b2c+GcT0CBjxRKHDnH/GOUD1Fr/seU1j?=
+ =?us-ascii?Q?mUBzRI049NuvR+Zir4KTWCA9ENoBYBP4Ehj9AeHrP5lW2JPWn1SMX6Gey8eY?=
+ =?us-ascii?Q?/aZWo7qFgrws3ClAIioYJNkS5/b513q7wMjD4SwXTC6s9d7bizMvJYtKXF1m?=
+ =?us-ascii?Q?LrjtTU+RhW4U6mXNSBtVLl0sQNyINJjPYSCXOWGTDGDk5F8zNhu/IfLDSTAd?=
+ =?us-ascii?Q?45oVvVa+c0FovCy2XrJEqwsXzywaqX3zZM7lKq6XFw7YK5TR8DUYdsKh0yVs?=
+ =?us-ascii?Q?9axZ+DK6FfD1Bum+K+el2FAyPbBLjQBUDAzSpujecUM+TLEFpaJEH3tbyGaD?=
+ =?us-ascii?Q?rGQXnc5Xtehq05ySxSmYrnsjt3aqCJZZ45/LuG1H3/B/Ek03QrlpDIUy32Jg?=
+ =?us-ascii?Q?w7l+Cy7SscNBrlQmqdoHpTUfEPTJaCcVtm0MccbWAZBdZqizEVNZGQGfRwKw?=
+ =?us-ascii?Q?sBnNre+c7ncur++mHDzkcAMAT1pk4owdYd8yq4ZfyuN0KA7Y8zzf8oFF8DgN?=
+ =?us-ascii?Q?l2GZw0yaqyZx8pZ2iiq56L7c2DxRvyhfJJuegz4tVwTC4m38P5DcRZwU1lj3?=
+ =?us-ascii?Q?2fmMVHHp/uh1gs2LpryOaN/pTmM35emVjW6Gxui4bTRvxD1U7Ssuep6iWlTl?=
+ =?us-ascii?Q?gyvHAQxXfE2xEiM7L0pTY7hJjRCR3x4s3d38dV9Q?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 539c3787-074d-49ec-4637-08dd5d8ef9f3
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 15:44:41.9846
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: EIrq6Yl78/H1Y02p2zhp/LyCvwpRwnD/FedXo0u8qDRRJ8I2ZVwKnONyc/RhoOrWPppsVZBqk80jclL4Lpiz5w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10550
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_074402_550848_F3326F10 
-X-CRM114-Status: GOOD (  32.36  )
+X-CRM114-CacheID: sfid-20250307_074447_289540_59831910 
+X-CRM114-Status: UNSURE (   9.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,132 +167,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gavin,
+Add compatible string "fsl,imx94-wdt" for the i.MX94 chip, which is
+backward compatible with i.MX93. Set it to fall back to "fsl,imx93-wdt".
 
-On 03/03/2025 07:08, Gavin Shan wrote:
-> On 2/14/25 2:13 AM, Steven Price wrote:
->> The RMM maintains a data structure known as the Realm Execution Context
->> (or REC). It is similar to struct kvm_vcpu and tracks the state of the
->> virtual CPUs. KVM must delegate memory and request the structures are
->> created when vCPUs are created, and suitably tear down on destruction.
->>
->> RECs must also be supplied with addition pages - auxiliary (or AUX)
->> granules - for storing the larger registers state (e.g. for SVE). The
->> number of AUX granules for a REC depends on the parameters with which
->> the Realm was created - the RMM makes this information available via the
->> RMI_REC_AUX_COUNT call performed after creating the Realm Descriptor
->> (RD).
->>
->> Note that only some of register state for the REC can be set by KVM, the
->> rest is defined by the RMM (zeroed). The register state then cannot be
->> changed by KVM after the REC is created (except when the guest
->> explicitly requests this e.g. by performing a PSCI call). The RMM also
->> requires that the VMM creates RECs in ascending order of the MPIDR.
->>
->> See Realm Management Monitor specification (DEN0137) for more
->> information:
->> https://developer.arm.com/documentation/den0137/
->>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> ---
->> Changes since v6:
->>   * Avoid reporting the KVM_ARM_VCPU_REC feature if the guest isn't a
->>     realm guest.
->>   * Support host page size being larger than RMM's granule size when
->>     allocating/freeing aux granules.
->> Changes since v5:
->>   * Separate the concept of vcpu_is_rec() and
->>     kvm_arm_vcpu_rec_finalized() by using the KVM_ARM_VCPU_REC feature as
->>     the indication that the VCPU is a REC.
->> Changes since v2:
->>   * Free rec->run earlier in kvm_destroy_realm() and adapt to previous
->> patches.
->> ---
->>   arch/arm64/include/asm/kvm_emulate.h |   7 ++
->>   arch/arm64/include/asm/kvm_host.h    |   3 +
->>   arch/arm64/include/asm/kvm_rme.h     |  18 +++
->>   arch/arm64/kvm/arm.c                 |  13 +-
->>   arch/arm64/kvm/reset.c               |  11 ++
->>   arch/arm64/kvm/rme.c                 | 179 +++++++++++++++++++++++++++
->>   6 files changed, 229 insertions(+), 2 deletions(-)
->>
-> 
-> With the following one comment addressed:
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> 
-> [...]
-> 
->>     /*
->> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/
->> asm/kvm_rme.h
->> index 698bb48a8ae1..5db377943db4 100644
->> --- a/arch/arm64/include/asm/kvm_rme.h
->> +++ b/arch/arm64/include/asm/kvm_rme.h
->> @@ -6,6 +6,7 @@
->>   #ifndef __ASM_KVM_RME_H
->>   #define __ASM_KVM_RME_H
->>   +#include <asm/rmi_smc.h>
->>   #include <uapi/linux/kvm.h>
->>     /**
->> @@ -65,6 +66,21 @@ struct realm {
->>       unsigned int ia_bits;
->>   };
->>   +/**
->> + * struct realm_rec - Additional per VCPU data for a Realm
->> + *
->> + * @mpidr: MPIDR (Multiprocessor Affinity Register) value to identify
->> this VCPU
->> + * @rec_page: Kernel VA of the RMM's private page for this REC
->> + * @aux_pages: Additional pages private to the RMM for this REC
->> + * @run: Kernel VA of the RmiRecRun structure shared with the RMM
->> + */
->> +struct realm_rec {
->> +    unsigned long mpidr;
->> +    void *rec_page;
->> +    struct page *aux_pages[REC_PARAMS_AUX_GRANULES];
->> +    struct rec_run *run;
->> +};
->> +
-> 
-> REC_PARAMS_AUX_GRANULES represents the maximal number of the auxiliary
-> granules.
-> Since the base page size is always larger than or equal to granule size
-> (4KB).
-> The capacity of array @aux_pages[] needs to be REC_PARAMS_AUX_GRANULES.
-> Ideally,
-> the array's size can be computed dynamically and it's allocated in
-> kvm_create_rec().
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+change from v1 to v2
+- fix typo im94 in compatible string
+---
+ .../devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml         | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-This is indeed another example of where pages and granules have got
-mixed. The RMM specification provides a maximum number of granules (and
-there's a similar array in struct rec_params). Here the use of
-REC_PARAMS_AUX_GRANULES is just to keep the structure more simple (no
-dynamic allocation) with the cost of ~128bytes. Obviously if
-PAGE_SIZE>4k then this array could be smaller.
-
-> Alternatively, to keep the code simple, a comment is needed here to
-> explain why
-> the array's size has been set to REC_PARAMS_AUX_GRANULES.
-
-Definitely a valid point - this could do with a comment explaining the
-situation.
-
-> An relevant question: Do we plan to support differentiated sizes between
-> page
-> and granule? I had the assumption this feature will be supported in the
-> future
-> after the base model (equal page and granule size) gets merged first.
-
-Yes I do plan to support it. This series actually has the basic support
-in it already, with an experimental patch at the end enabling that
-support. It "works" but I haven't tested it well and I think some of the
-error handling isn't quite right yet.
-
-But there's also a bunch more work to be done (like here) to avoid
-over-allocating memory when PAGE_SIZE>4k. E.g. RTTs need an
-sub-allocator so that we don't waste an entire (larger) page on each RTT.
-
-Steve
+diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
+index a09686b3030db..6ec391b9723a5 100644
+--- a/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
+@@ -22,6 +22,10 @@ properties:
+           - const: fsl,imx8ulp-wdt
+           - const: fsl,imx7ulp-wdt
+       - const: fsl,imx93-wdt
++      - items:
++          - enum:
++              - fsl,imx94-wdt
++          - const: fsl,imx93-wdt
+ 
+   reg:
+     maxItems: 1
+-- 
+2.34.1
 
 
