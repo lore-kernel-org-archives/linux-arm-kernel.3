@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E49FC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:46:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EC76C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:48:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bczNVcoTFII+wpIctbrNn7C9IZ/Opqlcg9xtqGAnx3A=; b=Zaxnuy+BieHCbyWIPOk0marbyM
-	INxr0faMSTd+Kfu1/NyUs9fNdgTnfCN6WX3+PMpG1Nsn+7suGxyLOvq39nY4oRZP73SIzRERwDUjD
-	O59pHCzp0DGP474eRp0wu48gmrLwwUnPkmGioP19UkPGm2DFKN9h+UwhgdSNdN/WKbE2gcgstCGBs
-	Xtj7ZEjgyHS6wLxof3on+ayMIRY60pjOgThaIiLSmSyLXL97/q1zFuVB5W/GGrUQt76sDUzXJkUjE
-	J6Jc3hgmONkjtEI9ANSwpBhYTOEPXoYNf3h8C1MUSKbLykWnEGZHk5t2veqbmi/vHGeEj48Vl8aqZ
-	CNYv59Ug==;
+	bh=W6BLQhWfPEb3RjuSi7nFDbdiLZza3hK4II394oCdm8Y=; b=0JWbyor+avB7mGrIzyY4nYNKt3
+	4lqukAt45l2olUM5BVAfm7SoZv/bXxilk0z+FrGKpVZfmdmH1dN1oERcSKsvBPjWkoyXr78HcH7kn
+	ZmZ4O5AbKfuj+kt01vYuVkjZ2sDPaeDzVEEyNDnKtiBFX+2Cb7/UMWhn8auT7nazti6RzDz/WAwPA
+	/GllsMiNxrUwLz6ZfOWyYyaCCpas3H2Gev+juUfOMSOcbydsbqA+skLKiafFvMr0AoJzY0BlJ3zOH
+	BF+aZacB/w5opDsAq6ywOFZCw7X9NrEPgp8axF9th4qms5qHE88VkujzoZoYkONmQgOsyFgGAOGrL
+	S/M3qbkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZuC-0000000EkZN-0uJN;
-	Fri, 07 Mar 2025 15:46:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqZvn-0000000EkyR-3Zem;
+	Fri, 07 Mar 2025 15:48:11 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZlx-0000000Ei5H-1UxV;
-	Fri, 07 Mar 2025 15:38:02 +0000
+	id 1tqZqV-0000000EjfI-3VZq;
+	Fri, 07 Mar 2025 15:42:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C59FD5C06E2;
-	Fri,  7 Mar 2025 15:35:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A64BC4CED1;
-	Fri,  7 Mar 2025 15:37:57 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 609E7A4588B;
+	Fri,  7 Mar 2025 15:37:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19D3FC4CED1;
+	Fri,  7 Mar 2025 15:42:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741361880;
-	bh=yN1dKWUGjtltzBE/WNByPB2L5yvAiNaSW2puRpSmGZI=;
+	s=k20201202; t=1741362162;
+	bh=/6SO0EcADvKbiU2IUbCpmVnHTLreXfwak6PliDc6LIM=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hb7UWL5h7uttVEAWxXxcGBZPDwSXkjXXYUYlIGcsycLnWgiNZTrVPf6ahCuMsRcjv
-	 YL7tG606+7RziFoN1r5Y9xCm1dqvvYCHAvlsuqr9HZshGJxZfx7YK5UNO6foU2tPUj
-	 o6uCDcmyhljV4Uvu2r3WlG66Kt9+Ja4VXchtHgkSvxmB3UEW/hdrdVam1zezjd59In
-	 8MmduJpPRfE8P0Td8dbrBkh7vG/A9p9xPZonV8gRJOMKzs+0yum5aPXtvFoQe7rItU
-	 39c45ZZMOT7r01FePYgpQ0UBuq82LoXOBUyaIeo2oXStAQGUtXGt9mN7kVmf2bGYcE
-	 t6A7lH+GaDgNg==
-Date: Fri, 7 Mar 2025 15:37:54 +0000
+	b=KpRVUrtEQlJ/hOslRpwQkyvvb8x0q7U4z7yGhb4IqPrOi132Pl5AhyBUKor82AU88
+	 YuCBNG8P0re5CI4t6N4R/Jo8X6lEAiujVN5BVJ8fxSZosNSrsQPnj4ulUvG3dL8h0N
+	 WM1nK1DFWuePX1WRRJOp+OopOssB8j59RDKFTUqpLaF7au3H6Oq6CnK+4eSJIF6Wxi
+	 ero7/47yLDfxcyeJs1cHxDLrqL75KcnaKl6w8nIpiAiRFDGnIBxdE1w1I3lF+BGLUn
+	 J3CCCiR5JyvBvMv5TmGnXQKg4xH9rlHMPQBZxLFi/AAj3+U8/1NHLjewvghgaLYhdw
+	 aviKA5meeNWug==
+Date: Fri, 7 Mar 2025 15:42:36 +0000
 From: Conor Dooley <conor@kernel.org>
-To: xianwei.zhao@amlogic.com
-Cc: Thomas Gleixner <tglx@linutronix.de>, Rob Herring <robh@kernel.org>,
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-amlogic@lists.infradead.org
-Subject: Re: [PATCH v4 1/4] dt-bindings: interrupt-controller: Add support
- for Amlogic A4 and A5 SoCs
-Message-ID: <20250307-villain-blustery-8668e70cc005@spud>
-References: <20250307-irqchip-gpio-a4-a5-v4-0-d03a9424151b@amlogic.com>
- <20250307-irqchip-gpio-a4-a5-v4-1-d03a9424151b@amlogic.com>
+	David Wu <david.wu@rock-chips.com>, Yao Zi <ziyao@disroot.org>,
+	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/4] dt-bindings: net: rockchip-dwmac: Add compatible
+ string for RK3528
+Message-ID: <20250307-tipping-womanlike-a1ce2370d8d3@spud>
+References: <20250306221402.1704196-1-jonas@kwiboo.se>
+ <20250306221402.1704196-2-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="uCezGwJWEIthy7K/"
+	protocol="application/pgp-signature"; boundary="nXvMqSCu4bHBti4w"
 Content-Disposition: inline
-In-Reply-To: <20250307-irqchip-gpio-a4-a5-v4-1-d03a9424151b@amlogic.com>
+In-Reply-To: <20250306221402.1704196-2-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_073801_490006_7F312F95 
-X-CRM114-Status: GOOD (  15.67  )
+X-CRM114-CacheID: sfid-20250307_074244_044813_C0F4B0FC 
+X-CRM114-Status: GOOD (  20.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +83,86 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---uCezGwJWEIthy7K/
+--nXvMqSCu4bHBti4w
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Fri, Mar 07, 2025 at 04:49:22PM +0800, Xianwei Zhao via B4 Relay wrote:
-> From: Xianwei Zhao <xianwei.zhao@amlogic.com>
+On Thu, Mar 06, 2025 at 10:13:54PM +0000, Jonas Karlman wrote:
+> Rockchip RK3528 has two Ethernet controllers based on Synopsys DWC
+> Ethernet QoS IP.
 >=20
-> Update dt-binding document for GPIO interrupt controller
-> of Amlogic A4 and A5 SoCs
+> Add compatible string for the RK3528 variant.
 >=20
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 > ---
->  .../interrupt-controller/amlogic,meson-gpio-intc.yaml | 19 +++++++++++++=
-+++++-
->  1 file changed, 18 insertions(+), 1 deletion(-)
+> I was not able to restrict the minItems change to only apply to the new
+> compatible, please advise on how to properly restrict the minItems
+> change if needed.
+
+What do you mean by that? As in, what did you try and did not work?
+Usually you do something like
+if:
+  not:
+    compatible:
+      contains:
+        rockchip,rk3528-gmac
+then:
+  properties:
+    clocks:
+      minItems: 5
+
 >=20
-> diff --git a/Documentation/devicetree/bindings/interrupt-controller/amlog=
-ic,meson-gpio-intc.yaml b/Documentation/devicetree/bindings/interrupt-contr=
-oller/amlogic,meson-gpio-intc.yaml
-> index a93744763787..3d60d9e9e208 100644
-> --- a/Documentation/devicetree/bindings/interrupt-controller/amlogic,meso=
-n-gpio-intc.yaml
-> +++ b/Documentation/devicetree/bindings/interrupt-controller/amlogic,meso=
-n-gpio-intc.yaml
-> @@ -35,6 +35,9 @@ properties:
->                - amlogic,meson-sm1-gpio-intc
->                - amlogic,meson-a1-gpio-intc
->                - amlogic,meson-s4-gpio-intc
-> +              - amlogic,a4-gpio-intc
-> +              - amlogic,a4-gpio-ao-intc
-> +              - amlogic,a5-gpio-intc
->                - amlogic,c3-gpio-intc
->                - amlogic,t7-gpio-intc
->            - const: amlogic,meson-gpio-intc
-> @@ -49,7 +52,7 @@ properties:
-> =20
->    amlogic,channel-interrupts:
->      description: Array with the upstream hwirq numbers
-> -    minItems: 8
-> +    minItems: 2
->      maxItems: 12
->      $ref: /schemas/types.yaml#/definitions/uint32-array
-> =20
-> @@ -60,6 +63,20 @@ required:
->    - "#interrupt-cells"
->    - amlogic,channel-interrupts
-> =20
-> +if:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        const: amlogic,a4-gpio-ao-intc
-> +then:
-> +  properties:
-> +    amlogic,channel-interrupts:
-> +      maxItems: 2
-> +else:
-> +  properties:
-> +    amlogic,channel-interrupts:
-> +      minItems: 8
-> +
->  additionalProperties: false
-> =20
->  examples:
+> Also, because snps,dwmac-4.20a is already listed in snps,dwmac.yaml
+> adding the rockchip,rk3528-gmac compatible did not seem necessary.
+> ---
+>  Documentation/devicetree/bindings/net/rockchip-dwmac.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 >=20
+> diff --git a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml b/=
+Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> index 05a5605f1b51..3c25b49bd78e 100644
+> --- a/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> +++ b/Documentation/devicetree/bindings/net/rockchip-dwmac.yaml
+> @@ -24,6 +24,7 @@ select:
+>            - rockchip,rk3366-gmac
+>            - rockchip,rk3368-gmac
+>            - rockchip,rk3399-gmac
+> +          - rockchip,rk3528-gmac
+>            - rockchip,rk3568-gmac
+>            - rockchip,rk3576-gmac
+>            - rockchip,rk3588-gmac
+> @@ -49,6 +50,7 @@ properties:
+>                - rockchip,rv1108-gmac
+>        - items:
+>            - enum:
+> +              - rockchip,rk3528-gmac
+>                - rockchip,rk3568-gmac
+>                - rockchip,rk3576-gmac
+>                - rockchip,rk3588-gmac
+> @@ -56,7 +58,7 @@ properties:
+>            - const: snps,dwmac-4.20a
+> =20
+>    clocks:
+> -    minItems: 5
+> +    minItems: 4
+>      maxItems: 8
+> =20
+>    clock-names:
 > --=20
-> 2.37.1
->=20
+> 2.48.1
 >=20
 
---uCezGwJWEIthy7K/
+--nXvMqSCu4bHBti4w
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8sS0gAKCRB4tDGHoIJi
-0tLcAP0ab+eCyxWATmSaxQwJSP8SxJFf5vnViJI7+FDedfojRgEAqJJlUHhpTFfu
-RHSHT6nbo2scx2atcuuOt9dgB0VPpwA=
-=n9nr
+iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8sT7AAKCRB4tDGHoIJi
+0udWAQDKedml54kYUJVxrtEqR1NZzEn4apvbK6/9yyqKPmhoTgEAm7XXd7+22bQ4
+e+hQ7xUKSRFfeiw9diT+3VJ3kwyPBQY=
+=97ov
 -----END PGP SIGNATURE-----
 
---uCezGwJWEIthy7K/--
+--nXvMqSCu4bHBti4w--
 
