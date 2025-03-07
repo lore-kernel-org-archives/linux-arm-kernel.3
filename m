@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DE8C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 05:47:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C32BC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 05:54:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=sb9MNp7gIFnjf4puevqUWTv9bTnAa3A6ErG94WVlhYc=; b=ZLxWXLr4rK5i7GnCmGlhcde6Cz
-	N2gi99ZyGUcdUAZO9ViOJfR5FGBrpwayTn2oi5ND0WGFLjuSuA553b+qpeidQZirXQJp06DKKCKnQ
-	mH4JTxFYB1r4wo8O5h9lMno9hRdNtJRoYsQbY+c5CdOgi9lL/YyTxuxXiSfFJJdXWpHt0YTVmF2k0
-	tMVAzbwkl/IXc19Hqo1d13OszodRn6MPIQY3/H/R8DqET15atUofb4T6nYGaSkZo+ex48o2I0brda
-	CfPdQhLHIk7JoBdngIWjeKbvL/WdJ/HwI27+5RoWcDyi4Gq4MAdm5txGG77ZuwrcQnqriGIDmFUp4
-	e43uePSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=olxLrd0QC9zoKYMcXvUz70QEQ37Dr3MKljzYN3XTg3w=; b=wdr5jbI0zr5tUTt+X+PFyAjdYJ
+	NSHpiXu0CNF8Rbk3BX6XCAtUjpgvNhWsOs1oQfZ/8vCytNQfa2XYaszkRvU8RaJp5Nc5ZzrkJcIv0
+	oA0s08NlTVHj0gb91+OijYZDlqubq8WrizEgpcWGToX25i1IIwWBpuwFRqzlY8/I3XlUQY/2XeLbj
+	MjnGl3I9EiufXn79Hr+6UJv+joHObhmF/W/0OAjK1DzcOow/lhcgeFKCLzPbBOSwWmc9RtgyOSKR8
+	9cTC7V2rO3Wrz/IoLwEm8u9Uce9PyybFtR/NCmZ12Zeu2wrApiNlIUdPDiPsmUNeCnjD++zHMfg3P
+	wASHc6Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqQY8-0000000DF5R-3vZd;
-	Fri, 07 Mar 2025 05:47:08 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1tqQfZ-0000000DG0Q-47fJ;
+	Fri, 07 Mar 2025 05:54:49 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqQWW-0000000DF11-2fxH;
-	Fri, 07 Mar 2025 05:45:29 +0000
-X-UUID: 5bc81b12fb1711efa1e849db4cc18d44-20250306
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=sb9MNp7gIFnjf4puevqUWTv9bTnAa3A6ErG94WVlhYc=;
-	b=uOjyGJgkU2vTgU9aaxr5SIKnt1JAPVDefpRFX0lBZOfC2vjiXHbZEhf8GQbooiyelQkLdmi2T16re8ehWYh5P9JA6d/8r4MjD45mbtSPpvkKGJ6C3momeieje3G1kgAQUhoxboF/AbRk2RkJ1K8yhkljQwd+2wWLalNKGtmF4W8=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.2.1,REQID:23e00922-710c-48de-bd2f-968c1518359b,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:0ef645f,CLOUDID:4bd4118c-f5b8-47d5-8cf3-b68fe7530c9a,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102,TC:nil,Content:0|50,EDM:-3,IP:ni
-	l,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES
-	:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 0
-X-CID-BAS: 0,_,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-UUID: 5bc81b12fb1711efa1e849db4cc18d44-20250306
-Received: from mtkmbs11n1.mediatek.inc [(172.21.101.185)] by mailgw02.mediatek.com
-	(envelope-from <xueqi.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1660429155; Thu, 06 Mar 2025 22:45:21 -0700
-Received: from mtkmbs13n2.mediatek.inc (172.21.101.108) by
- mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.28; Fri, 7 Mar 2025 13:45:18 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs13n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1258.28 via Frontend Transport; Fri, 7 Mar 2025 13:45:18 +0800
-From: Xueqi Zhang <xueqi.zhang@mediatek.com>
-To: Yong Wu <yong.wu@mediatek.com>, Krzysztof Kozlowski <krzk@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>
-CC: <Project_Global_Chrome_Upstream_Group@mediatek.com>,
-	<linux-mediatek@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, Xueqi Zhang
-	<xueqi.zhang@mediatek.com>
-Subject: [PATCH] memory: mtk-smi: Add ostd setting for mt8192
-Date: Fri, 7 Mar 2025 13:45:08 +0800
-Message-ID: <20250307054515.23455-1-xueqi.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1tqQdx-0000000DFu9-1EFl;
+	Fri, 07 Mar 2025 05:53:10 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 1E15425D53;
+	Fri,  7 Mar 2025 06:52:59 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id tckWDYJ3Tzh5; Fri,  7 Mar 2025 06:52:58 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1741326778; bh=8pUgSgop8ysTVfRFBXPiQaRHFFGbXmooM4lxtk87R90=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=AOZJ9o5FvW8yfwecTcbsNRyFRpzyskfWAfP8kCR0cykMVfEp3cnzJUryHx1DxeEYh
+	 p3MsEvNrV3rvJencFZY1bQERwvUPvH1zgd5RsKXwdnEXuoYDKaRcW4XbiEUtunLxRw
+	 b0yHFE/cOsdfgQ1y9kotL5mg0VVt1Qc2Rq/DobUuFkohMiutlIqopJXbDFG4+TsMiY
+	 PzDkpIT6teC+LBBIGipyajKr45tBW+C9FarX8+euI6lkalw+53DIYdiArukvfPAyeG
+	 2HoUaEG1audW1E9M2y525bHuexgCGddvX+I5Qe/AP271yw9lj2reCV/tjvtvIoY2d4
+	 YpIzFCRidQNtg==
+Date: Fri, 7 Mar 2025 05:52:42 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Chukun Pan <amadeus@jmu.edu.cn>
+Cc: conor+dt@kernel.org, cristian.ciocaltea@collabora.com,
+	detlev.casanova@collabora.com, devicetree@vger.kernel.org,
+	heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2 8/8] arm64: dts: rockchip: Enable SD-card interface on
+ Radxa E20C
+Message-ID: <Z8qJqpUwi7VV8tJk@pie>
+References: <20250305194638.47187-1-ziyao@disroot.org>
+ <20250307033508.656479-1-amadeus@jmu.edu.cn>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250307033508.656479-1-amadeus@jmu.edu.cn>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_214528_686371_351DDFD0 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_215309_749152_DE2EE555 
+X-CRM114-Status: GOOD (  11.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,69 +76,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add initial ostd setting for mt8192. All the settings come from DE.
-These settings help adjust Multimedia HW's bandwidth limits to achieve
-a balanced bandwidth requirement.
-Without this, the VENC HW work abnormal while stress testing.
+On Fri, Mar 07, 2025 at 11:35:08AM +0800, Chukun Pan wrote:
+> Hi,
+> 
+> > +&sdmmc {
+> > +	bus-width = <4>;
+> > +	cap-mmc-highspeed;
+> > +	cap-sd-highspeed;
+> > +	disable-wp;
+> > +	no-sdio;
+> 
+> With 'no-sdio' property:
+> [  129.608986] mmc_host mmc1: Bus speed (slot 0) = 400000Hz (slot req 400000Hz, actual 400000HZ div = 0)
+> [  130.711168] mmc1: Card stuck being busy! __mmc_poll_for_busy
+> [  130.725536] mmc_host mmc1: Bus speed (slot 0) = 300000Hz (slot req 300000Hz, actual 300000HZ div = 0)
+> [  131.751240] mmc1: Card stuck being busy! __mmc_poll_for_busy
+> [  131.765608] mmc_host mmc1: Bus speed (slot 0) = 200000Hz (slot req 200000Hz, actual 200000HZ div = 0)
+> [  132.825083] mmc1: Card stuck being busy! __mmc_poll_for_busy
+> [  132.839413] mmc_host mmc1: Bus speed (slot 0) = 187500Hz (slot req 187500Hz, actual 187500HZ div = 0)
+> [  133.960141] mmc1: Card stuck being busy! __mmc_poll_for_busy
+> 
+> Without 'no-sdio' property:
+> [  105.224019] mmc1: error -22 whilst initialising SDIO card
+> [  106.290838] mmc1: Card stuck being busy! __mmc_poll_for_busy
+> [  106.801931] dwmmc_rockchip ffc30000.mmc: Busy; trying anyway
+> [  107.385835] mmc_host mmc1: Timeou sending command (cmd 0x202000 arg 0x0 status 0x80202000)
+> [  107.400425] mmc_host mmc1: Bus speed (slot 0) = 300000Hz (slot req 300000Hz, actual 300000HZ div = 0)
+> [  107.431561] mmc_host mmc1: Bus speed (slot 0) = 49800000Hz (slot req 50000000Hz, actual 49800000HZ div = 0)
+> [  107.433107] mmc1: new high speed SDIO card at address 0001
 
-Fixes: 02c02ddce427 ("memory: mtk-smi: Add mt8192 support")
-Signed-off-by: Xueqi Zhang <xueqi.zhang@mediatek.com>
----
- drivers/memory/mtk-smi.c | 33 +++++++++++++++++++++++++++++++++
- 1 file changed, 33 insertions(+)
+So it seems the sdmmc controller actually works with SDIO commands as
+well? I don't expect that since the datasheet says RK3528 has only two
+SDIO 3.0 controllers.
 
-diff --git a/drivers/memory/mtk-smi.c b/drivers/memory/mtk-smi.c
-index 5710348f72f6..a8f5467d6b31 100644
---- a/drivers/memory/mtk-smi.c
-+++ b/drivers/memory/mtk-smi.c
-@@ -332,6 +332,38 @@ static const u8 mtk_smi_larb_mt8188_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[25] = {0x01},
- };
- 
-+static const u8 mtk_smi_larb_mt8192_ostd[][SMI_LARB_PORT_NR_MAX] = {
-+	[0] = {0x2, 0x2, 0x28, 0xa, 0xc, 0x28,},
-+	[1] = {0x2, 0x2, 0x18, 0x18, 0x18, 0xa, 0xc, 0x28,},
-+	[2] = {0x5, 0x5, 0x5, 0x5, 0x1,},
-+	[3] = {},
-+	[4] = {0x28, 0x19, 0xb, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x4, 0x1,},
-+	[5] = {0x1, 0x1, 0x4, 0x1, 0x1, 0x1, 0x1, 0x16,},
-+	[6] = {},
-+	[7] = {0x1, 0x3, 0x2, 0x1, 0x1, 0x5, 0x2, 0x12, 0x13, 0x4, 0x4, 0x1,
-+	       0x4, 0x2, 0x1,},
-+	[8] = {},
-+	[9] = {0xa, 0x7, 0xf, 0x8, 0x1, 0x8, 0x9, 0x3, 0x3, 0x6, 0x7, 0x4,
-+	       0xa, 0x3, 0x4, 0xe, 0x1, 0x7, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+	       0x1, 0x1, 0x1, 0x1, 0x1,},
-+	[10] = {},
-+	[11] = {0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1, 0x1,
-+		0x1, 0x1, 0x1, 0xe, 0x1, 0x7, 0x8, 0x7, 0x7, 0x1, 0x6, 0x2,
-+		0xf, 0x8, 0x1, 0x1, 0x1,},
-+	[12] = {},
-+	[13] = {0x2, 0xc, 0xc, 0xe, 0x6, 0x6, 0x6, 0x6, 0x6, 0x12, 0x6, 0x28,
-+		0x2, 0xc, 0xc, 0x28, 0x12, 0x6,},
-+	[14] = {},
-+	[15] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x4, 0x28, 0x14, 0x4, 0x4, 0x4, 0x2,
-+		0x4, 0x2, 0x8, 0x4, 0x4,},
-+	[16] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x4, 0x28, 0x14, 0x4, 0x4, 0x4, 0x2,
-+		0x4, 0x2, 0x8, 0x4, 0x4,},
-+	[17] = {0x28, 0x14, 0x2, 0xc, 0x18, 0x4, 0x28, 0x14, 0x4, 0x4, 0x4, 0x2,
-+		0x4, 0x2, 0x8, 0x4, 0x4,},
-+	[18] = {0x2, 0x2, 0x4, 0x2,},
-+	[19] = {0x9, 0x9, 0x5, 0x5, 0x1, 0x1,},
-+};
-+
- static const u8 mtk_smi_larb_mt8195_ostd[][SMI_LARB_PORT_NR_MAX] = {
- 	[0] = {0x0a, 0xc, 0x22, 0x22, 0x01, 0x0a,}, /* larb0 */
- 	[1] = {0x0a, 0xc, 0x22, 0x22, 0x01, 0x0a,}, /* larb1 */
-@@ -427,6 +459,7 @@ static const struct mtk_smi_larb_gen mtk_smi_larb_mt8188 = {
- 
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt8192 = {
- 	.config_port                = mtk_smi_larb_config_port_gen2_general,
-+	.ostd			    = mtk_smi_larb_mt8192_ostd,
- };
- 
- static const struct mtk_smi_larb_gen mtk_smi_larb_mt8195 = {
--- 
-2.46.0
+We could remove the "no-sdio" property if SDIO actually works. Will
+apply it in the next version if there's no objection against this.
 
+Further tests about the capabilities of the controller are welcome.
+
+> # cat /sys/kernel/debug/mmc1/ios
+> clock:          50000000 Hz
+> vdd:            21 (3.3 ~ 3.4 V)
+> bus mode:       2 (push-pull)
+> chip select:    0 (don't care)
+> power mode:     2 (on)
+> bus width:      2 (4 bits)
+> timing spec:    2 (sd high-speed)
+> signal voltage: 0 (3.30 V)
+> driver type:    0 (driver type B)
+> 
+> Thanks,
+> Chukun
+> 
+> -- 
+> 2.25.1
+> 
+
+Best regards,
+Yao Zi
 
