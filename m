@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 445D1C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:52:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D72FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:54:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Gv5g3lJSEQAWXZM3XwaU06yz84+apKewnJfFnIBLU0s=; b=jNcKMf32asz2Hh3GA887gBKe+B
-	i4szFHArgTQdsClE7x3iEEHy+CLSw9Aq0sY5+tjjyohfyHCRf5gdc+GO2TUM78F85cwSw7ljRIH5b
-	t2aLf7KXr1gMAJSqe8Ie0jVEnCQYuvLDpsR8vcWOI9MZhTo/x4avRVSeWHNcCi08luvlEQVKCokQJ
-	A6Icg3do/3+LJ+YIJw0XFMjl+aQNhSpme52xmP0iwXwyyyVoWcs3blL/Dm0RT8QyeUvnQOhDjrHW5
-	9khV1f2NrH3buZK3nyzaeVJHyJQW0UQSERP0UML910OFvTmFOyMkWSDudxLoEAP5lTSih6J/H+gEu
-	HcbGZ6tA==;
+	bh=/q/4BzWAkO+zh9PIsVSkrHOjIySSifAyOimM8ksoJNM=; b=j2OWF6Jh5pxn1jjp9Qyc6uBSRB
+	RAQOpFqCxdimBVSp3GNbuJNPnCkJfTdfgtuDV8ztzdOJ3KZnwOOuL6Ve6R8bcnynJKVGTcvkrOrDU
+	N4wXFCuOCmZasFNXnQRjilUEjwM7/nSlzOw8E6VvX4X+frFQMS9+AriFisx/K6yL5jS2RyjIwx+ri
+	FubpfPGo0WtA7MmCFoBlvdksyGX2ZICSxNyI/MZ2nAw7AM3jV8cYT1D5aS2ZRZCV6CySF0hyE3GNZ
+	WK13eZXr/0rv25UiC8Jq0L8UcgR2MnUyeNu/y4rtDscjv6fej2Ow4WzE9hMia8fQFU1UxSh7s2BGB
+	SloeLoNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVJc-0000000DwA1-3ahK;
-	Fri, 07 Mar 2025 10:52:28 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tqVLD-0000000DwYI-2WLf;
+	Fri, 07 Mar 2025 10:54:07 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV4A-0000000DttU-3OK3
+	id 1tqV4T-0000000Dtyl-0nSn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:36:32 +0000
+	Fri, 07 Mar 2025 10:36:50 +0000
 Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AaLnA344561
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AakJR3942632
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Fri, 7 Mar 2025 04:36:21 -0600
+	Fri, 7 Mar 2025 04:36:46 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741343781;
-	bh=Gv5g3lJSEQAWXZM3XwaU06yz84+apKewnJfFnIBLU0s=;
+	s=ti-com-17Q1; t=1741343806;
+	bh=/q/4BzWAkO+zh9PIsVSkrHOjIySSifAyOimM8ksoJNM=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=XT4wEqAvYJ83Njy8ZFvObjrXbTRKqkZcg9fsmzPXtw9k9ZGe2iayo+Tv9VDDtajmK
-	 u4udPtHZP0dCjwMdsksZLqgE+kOJLhgYNQyWjgJFk1c19VisxZpnMykEVmRYJG/oI4
-	 pCWzcH2EU8DXFXneMjK4bTYMjU9PxugKErgok/YA=
-Received: from DFLE104.ent.ti.com (dfle104.ent.ti.com [10.64.6.25])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AaLNs029394;
-	Fri, 7 Mar 2025 04:36:21 -0600
-Received: from DFLE100.ent.ti.com (10.64.6.21) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
+	b=RgBVVqVgcvK/Nii3mcdbyFJ86WQJZs6WZZYiHykmh9RuaLfH5KWoOJfnclNADCM1N
+	 U9OsSZbW6sHY3XqqpmKmsjpg3atje4+Of5hv3/XPAi8VbMpVv0bKHRkJz6pFP7PE4B
+	 awZQ4hsP7p6RCupDTlppHCeKxmsoN2NexubF5v68=
+Received: from DLEE104.ent.ti.com (dlee104.ent.ti.com [157.170.170.34])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AakT9029556;
+	Fri, 7 Mar 2025 04:36:46 -0600
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE104.ent.ti.com
+ (157.170.170.34) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Mar 2025 04:36:21 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 04:36:45 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Mar 2025 04:36:21 -0600
+ Frontend Transport; Fri, 7 Mar 2025 04:36:45 -0600
 Received: from uda0132425.dhcp.ti.com (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AaH3S021509;
-	Fri, 7 Mar 2025 04:36:18 -0600
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527Aaf28021789;
+	Fri, 7 Mar 2025 04:36:42 -0600
 From: Vignesh Raghavendra <vigneshr@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Vaishnav Achath <vaishnav.a@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, <linux-kernel@vger.kernel.org>,
-        <jai.luthra@linux.dev>, <y-abhilashchandra@ti.com>
-Subject: Re: [PATCH 0/5] Add J722S CSI support
-Date: Fri, 7 Mar 2025 16:06:15 +0530
-Message-ID: <174133309362.1072814.5440404016847301624.b4-ty@ti.com>
+        <conor+dt@kernel.org>, Wadim Egorov <w.egorov@phytec.de>
+CC: Vignesh Raghavendra <vigneshr@ti.com>,
+        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+Subject: Re: [PATCH v2 1/5] arm64: dts: ti: k3-am62x-phyboard-lyra: Add boot phase tags
+Date: Fri, 7 Mar 2025 16:06:36 +0530
+Message-ID: <174133309362.1072814.1438889304366712802.b4-ty@ti.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250218185452.600797-1-vaishnav.a@ti.com>
-References: <20250218185452.600797-1-vaishnav.a@ti.com>
+In-Reply-To: <20250305085537.3976579-1-w.egorov@phytec.de>
+References: <20250305085537.3976579-1-w.egorov@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_023630_952174_DC09EB73 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250307_023649_320095_81E3A784 
+X-CRM114-Status: GOOD (  12.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,33 +85,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Vaishnav Achath,
+Hi Wadim Egorov,
 
-On Wed, 19 Feb 2025 00:24:47 +0530, Vaishnav Achath wrote:
-> This series adds support for CSI2RX capture on J722S EVM
-> and enables IMX219 and OV5640 overlays to enables
-> 4 sensors on EVM, this provides a reference for a user to
-> enable a different sensor on any of the ports.
+On Wed, 05 Mar 2025 09:55:33 +0100, Wadim Egorov wrote:
+> The bootph-all and bootph-pre-ram tags were introduced in dt-schema
+> (dtschema/schemas/bootph.yaml) to define node usage across different
+> boot phases.
 > 
-> Test logs:
-> IMX219: https://gist.github.com/vaishnavachath/60cc2ef257601f27f28a315f8cf669c4
-> OV5640: https://gist.github.com/vaishnavachath/648202286d4d34d4d25f7c8c9db8b8bd
+> Add boot phase tags to all required nodes to ensure boot support from
+> all sources, including UART, USB (DFU), Ethernet, uSD card, eMMC, and
+> OSPI NOR Flash.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/5] arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
-      commit: fb1b230bf9c45f5d6579dc329c2aafcd1263b70a
-[2/5] arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
-      commit: 8fea4519f625e6c1b05078f2ecea252b7b28b06e
-[3/5] arm64: dts: ti: k3-j722s-evm: Add camera peripherals
-      commit: ce553288ad2368f0d27e47b39a23121a825a2b33
-[4/5] arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
-      commit: c24ccb1cd77fb44087b2f7008d99626796b33ca4
-[5/5] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
-      commit: 938806652b0a3c90d67e7137c91708d06940b03d
+[1/5] arm64: dts: ti: k3-am62x-phyboard-lyra: Add boot phase tags
+      commit: c2d18ec0ea4ce9d6d8be5a1a9b266f57a40b5e24
+[2/5] arm64: dts: ti: k3-am62a-phycore-som: Add boot phase tags
+      commit: a5965ee0107a37ca4c73f05f06f55dad759572d2
+[3/5] arm64: dts: ti: k3-am642-phyboard-electra: Add boot phase tags
+      commit: a9c8485cd13cdffee5bdcda6b625f678900994c4
+[4/5] arm64: dts: ti: k3-am642-phyboard-electra: Reorder properties per DTS coding style
+      commit: 61a12b5a9923e4beec5595fed3b9c3d5c0c25c32
+[5/5] arm64: dts: ti: k3-am62a-phycore-som: Reorder properties per DTS coding style
+      commit: a89d3f47b09c793d0454350739ee8695ff30fb5c
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
