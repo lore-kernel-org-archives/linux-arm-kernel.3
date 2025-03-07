@@ -4,66 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 906BBC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:22:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D10FC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:25:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0w9s1AI3PGuJyduvF2wijkKODXuhx642loI9TLD2zUg=; b=Np1qEgZwjAUgF0tQdaaauFlwt7
-	GuhQoB1jAU7SnbpJzcmX+lIC+A6OG/Eun/y0TBRdsVk+sn5GvBx2fB0JkT/xyBg4nLG/q1AqNEw+c
-	JaFS08tZEiiXESrchUGnTUfX0CO1RX64N1ccC5cFkc4tBvZfIwXcZkiwoQXnr8P0NuUXO6xTn64ah
-	IUlMWxwpZ0oLEvZRvCZ/WyRHqACcMtfref6lnuR3qLtKc61JBv2x1M+zRuNqwDjoL55BuY0Z4YFww
-	txqqi35NV788Reyo4f0ecTPlzxq4awF8whJ0748aagan3pWuL/GGjv8uZAA7CDeAmdtSo7/ETz0S4
-	3MPdJKzg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ljJyP84rONJ/tJuivtpXVzAymOXv6cYvJIzqR2k7UV4=; b=oqKRzpORU17gRSaCt1B9XRrQJm
+	mNfyUp5ICP/PuVgigSuTPJYTrg/A9Bpwlo0W/D/G+xFYBVYBSoshbtHoDjEhETtZX/IJxHJGPUKaz
+	jX6PeNdH6cWpqJORqYntEOGkk2/f8jCinUOw3JdI3G3/0EPbv2WofgOqsFdJXYUI66cQnWqr9IlKU
+	m1hxzziWrgnSEfA+TVRwD4zvxz7KiiIO39/YuLRsAkx+/ZJrJWCGdetiNUqaXjtJPQC8jEKZHmQRo
+	a5d6ICJ42T3qmmyR2ioCOnv71H1OUZKoazWIeefZYU7aiHkBqv+SzJX3kgePmQkSq/5FUEfCrXaA2
+	VN80E3jw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeCp-0000000FTY5-2Dxe;
-	Fri, 07 Mar 2025 20:22:03 +0000
+	id 1tqeGL-0000000FU5v-1xaK;
+	Fri, 07 Mar 2025 20:25:41 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeBC-0000000FTSJ-3bZk
+	id 1tqeEg-0000000FTkD-29dD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 20:20:24 +0000
+	Fri, 07 Mar 2025 20:24:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 55B7413D5;
-	Fri,  7 Mar 2025 12:20:34 -0800 (PST)
-Received: from [10.57.37.135] (unknown [10.57.37.135])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A666F3F5A1;
-	Fri,  7 Mar 2025 12:20:17 -0800 (PST)
-Message-ID: <ea78c21b-db4a-4144-b1b5-b1a37e1ed51c@arm.com>
-Date: Fri, 7 Mar 2025 20:20:15 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 207EB13D5;
+	Fri,  7 Mar 2025 12:24:06 -0800 (PST)
+Received: from e128066.arm.com (unknown [10.57.40.70])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 8AF3C3F5A1;
+	Fri,  7 Mar 2025 12:23:49 -0800 (PST)
+From: mark.barnett@arm.com
+To: peterz@infradead.org,
+	mingo@redhat.com,
+	acme@kernel.org,
+	namhyung@kernel.org,
+	irogers@google.com
+Cc: ben.gainey@arm.com,
+	deepak.surti@arm.com,
+	ak@linux.intel.com,
+	will@kernel.org,
+	james.clark@arm.com,
+	mark.rutland@arm.com,
+	alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org,
+	adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Mark Barnett <mark.barnett@arm.com>
+Subject: [PATCH v3 0/5] A mechanism for efficient support for per-function metrics
+Date: Fri,  7 Mar 2025 20:22:42 +0000
+Message-Id: <20250307202247.648633-1-mark.barnett@arm.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
- path
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Russell King <linux@armlinux.org.uk>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
- Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
- <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
- Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
- Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
- Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- iommu@lists.linux.dev, devicetree@vger.kernel.org,
- linux-pci@vger.kernel.org, Charan Teja Kalla <quic_charante@quicinc.com>
-References: <cover.1740753261.git.robin.murphy@arm.com>
- <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
- <Z8sBuzx6sGq24n0g@lpieralisi>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <Z8sBuzx6sGq24n0g@lpieralisi>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_122022_945841_CA4AD06D 
-X-CRM114-Status: GOOD (  14.12  )
+X-CRM114-CacheID: sfid-20250307_122358_650595_D1045DF8 
+X-CRM114-Status: GOOD (  38.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,41 +75,274 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-07 2:24 pm, Lorenzo Pieralisi wrote:
-[...]
->> diff --git a/drivers/acpi/arm64/dma.c b/drivers/acpi/arm64/dma.c
->> index 52b2abf88689..f30f138352b7 100644
->> --- a/drivers/acpi/arm64/dma.c
->> +++ b/drivers/acpi/arm64/dma.c
->> @@ -26,6 +26,11 @@ void acpi_arch_dma_setup(struct device *dev)
->>   	else
->>   		end = (1ULL << 32) - 1;
->>   
->> +	if (dev->dma_range_map) {
->> +		dev_dbg(dev, "dma_range_map already set\n");
->> +		return;
->> +	}
->> +
-> 
-> Why are we checking that dev->dma_range_map exists here rather than
-> at function entry ? Is that because we want to run the previous code
-> for some reasons even if dev->dma_range_map is already set ?
-> 
-> Just noticed, the OF counterpart does not seem to take the same
-> approach, so I am just flagging this up if it matters at all.
+From: Mark Barnett <mark.barnett@arm.com>
 
-The intent is just to ensure it's safe to come through this path more 
-than once for the time being - it doesn't really matter whether or not 
-we repeat anything apart from allocating and assigning dma_range_map, 
-since that leaks the previous allocation. Thus this check is logically 
-guarding the acpi_dma_get_range() call in this path, and the 
-of_dma_get_range() call in the other.
 
-> Other than that, for acpi/arm64:
-> 
-> Reviewed-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
+This patch introduces the concept of an alternating sample rate to perf
+core and provides the necessary basic changes in the tools to activate
+that option.
 
-Thanks!
+The primary use case for this change is to be able to enable collecting
+per-function performance metrics using the Arm PMU, as per the following 
+approach:
 
-Robin.
+ * Starting with a simple periodic sampling (hotspot) profile,
+   augment each sample with PMU counters accumulated over a short window
+   up to the point the sample was taken.
+ * For each sample, perform some filtering to improve attribution of
+   the accumulated PMU counters (ensure they are attributed to a single
+   function)
+ * For each function accumulate a total for each PMU counter so that
+   metrics may be derived.
+
+Without modification, and sampling at a typical rate associated
+with hotspot profiling (~1mS) leads to poor results. Such an
+approach gives you a reasonable estimation of where the profiled
+application is spending time for relatively low overhead, but the
+PMU counters cannot easily be attributed to a single function as the
+window over which they are collected is too large. A modern CPU may
+execute many millions of instructions over many thousands of functions
+within 1mS window. With this approach, the per-function metrics tend
+to trend to some average value across the top N functions in the
+profile.
+
+In order to ensure a reasonable likelihood that the counters are
+attributed to a single function, the sampling window must be rather
+short; typically something in the order of a few hundred cycles proves
+well as tested on a range of aarch64 Cortex and Neoverse cores.
+
+As it stands, it is possible to achieve this with perf using a very high
+sampling rate (e.g ~300cy), but there are at least three major concerns
+with this approach:
+
+ * For speculatively executing, out of order cores, can the results be
+   accurately attributed to a give function or the given sample window?
+ * A short sample window is not guaranteed to cover a single function.
+ * The overhead of sampling every few hundred cycles is very high and
+   is highly likely to cause throttling which is undesirable as it leads
+   to patchy results; i.e. the profile alternates between periods of 
+   high frequency samples followed by longer periods of no samples. 
+
+This patch does not address the first two points directly. Some means
+to address those are discussed on the RFC v2 cover letter. The patch
+focuses on addressing the final point, though happily this approach
+gives us a way to perform basic filtering on the second point.
+
+The alternating sample period allows us to do two things:
+
+ * We can control the risk of throttling and reduce overhead by
+   alternating between a long and short period. This allows us to
+   decouple the "periodic" sampling rate (as might be used for hotspot
+   profiling) from the short sampling window needed for collecting
+   the PMU counters.
+ * The sample taken at the end of the long period can be otherwise 
+   discarded (as the PMU data is not useful), but the
+   PERF_RECORD_CALLCHAIN information can be used to identify the current
+   function at the start of the short sample window. This is useful
+   for filtering samples where the PMU counter data cannot be attributed
+   to a single function.
+
+There are several reasons why it is desirable to reduce the overhead and
+risk of throttling:
+
+  * PMU counter overflow typically causes an interrupt into the kernel;
+    this affects program runtime, and can affect things like branch
+    prediction, cache locality and so on which can skew the metrics.
+  * The very high sample rate produces significant amounts of data.
+    Depending on the configuration of the profiling session and machine,
+    it is easily possible to produce many orders of magnitude more data
+    which is costly for tools to post-process and increases the chance
+    of data loss. This is especially relevant on larger core count
+    systems where it is very easy to produce massive recordings.
+    Whilst the kernel will throttle such a configuration,
+    which helps to mitigate a large portion of the bandwidth and capture
+    overhead, it is not something that can be controlled for on a per
+    event basis, or for non-root users, and because throttling is
+    controlled as a percentage of time its affects vary from machine to
+    machine. AIUI throttling may also produce an uneven temporal
+    distribution of samples. Finally, whilst throttling does a good job
+    at reducing the overall amount of data produced, it still leads to
+    much larger captures than with this method; typically we have
+    observed 1-2 orders of magnitude larger captures.
+
+This patch set modifies perf core to support alternating between two
+sample_period values, providing a simple and inexpensive way for tools
+to separate out the sample window (time over which events are
+counted) from the sample period (time between interesting samples). 
+
+It is expected to be used with the cycle counter event, alternating
+between a long and short period and subsequently discarding the counter
+data for samples with the long period. The combined long and short
+period gives the overall sampling period, and the short sample period 
+gives the sample window. The symbol taken from the sample at the end of
+the long period can be used by tools to ensure correct attribution as
+described previously. The cycle counter is recommended as it provides
+fair temporal distribution of samples as would be required for the
+per-symbol sample count mentioned previously, and because the PMU can
+be programmed to overflow after a sufficiently short window (which may
+not be possible with software timer, for example). This patch does not
+restrict to only the cycle counter, it is possible there could be other
+novel uses based on different events, or more appropriate counters on
+other architectures. This patch set does not modify or otherwise disable
+the kernel's existing throttling behaviour; if a configuration is given
+that would lead high CPU usage, then throttling still occurs.
+
+
+To test this a simple `perf script` based python script was developed.
+For a limited set of Arm PMU events it will post process a
+`perf record`-ing and generate a table of metrics. Along side this a
+benchmark application was developed that rotates through a sequence
+of different classes of behaviour that can be detected by the Arm PMU
+(eg. mispredicts, cache misses, different instruction mixes). The path
+through the benchmark can be rotated after each iteration so as to
+ensure the results don't land on some lucky harmonic with the sample
+period. The script can be used with and without this patch allowing
+comparison of the results. Testing was on Juno (A53+A57), N1SDP,
+Gravaton 2 and 3. In addition this approach has been applied to a few
+of Arm's tools projects and has correctly identified improvements and
+regressions.
+
+Headline results from testing indicate that ~300 cycles sample window
+gives good results with or without this patch. Typical output on N1SDP (Neoverse-N1)
+for the provided benchmark when run as:
+
+    perf record -T --sample-cpu --call-graph fp,4 --user-callchains \
+        -k CLOCK_MONOTONIC_RAW \
+        -e '{cycles/period=999700,alt-period=300/,instructions,branch-misses,cache-references,cache-misses}:uS' \
+        benchmark 0 1
+
+    perf script -s generate-function-metrics.py -- -s discard
+
+Looks like (reformatted for email brevity):
+
+    Symbol              #     CPI   BM/KI  CM/KI  %CM   %CY   %I    %BM   %L1DA  %L1DM
+    fp_divider_stalls   6553   4.9   0.0     0.0   0.0  41.8  22.9   0.1   0.6    0.0
+    int_divider_stalls  4741   3.5   0.0     0.0   1.1  28.3  21.5   0.1   1.9    0.2
+    isb                 3414  20.1   0.2     0.0   0.4  17.6   2.3   0.1   0.8    0.0
+    branch_mispredicts  1234   1.1  33.0     0.0   0.0   6.1  15.2  99.0  71.6    0.1
+    double_to_int        694   0.5   0.0     0.0   0.6   3.4  19.1   0.1   1.2    0.1
+    nops                 417   0.3   0.2     0.0   2.8   1.9  18.3   0.6   0.4    0.1
+    dcache_miss          185   3.6   0.4   184.7  53.8   0.7   0.5   0.0  18.4   99.1
+
+(CPI = Cycles/Instruction, BM/KI = Branch Misses per 1000 Instruction,
+ CM/KI = Cache Misses per 1000 Instruction, %CM = Percent of Cache
+ accesses that miss, %CY = Percentage of total cycles, %I = Percentage
+ of total instructions, %BM = Percentage of total branch mispredicts,
+ %L1DA = Percentage of total cache accesses, %L1DM = Percentage of total
+ cache misses)
+
+When the patch is used, the resulting `perf.data` files are typically
+between 25-50x smaller than without, and take ~25x less time for the
+python script to post-process. For example, running the following:
+
+    perf record -i -vvv -e '{cycles/period=1000000/,instructions}:uS' benchmark 0 1
+    perf record -i -vvv -e '{cycles/period=1000/,instructions}:uS' benchmark 0 1
+    perf record -i -vvv -e '{cycles/period=300/,instructions}:uS' benchmark 0 1
+
+produces captures on N1SDP (Neoverse-N1) of the following sizes:
+
+    * period=1000000: 2.601 MB perf.data (55780 samples), script time = 0m0.362s
+    * period=1000: 283.749 MB perf.data (6162932 samples), script time = 0m33.100s
+    * period=300: 304.281 MB perf.data (6614182 samples), script time = 0m35.826s
+
+The "script time" is the user time from running "time perf script -s generate-function-metrics.py"
+on the recording. Similar processing times were observed for "time perf report --stdio|cat"
+as well.
+
+By comparison, with the patch active:
+
+    perf record -i -vvv -e '{cycles/period=999700,alt-period=300/,instructions}:uS' benchmark 0 1
+
+produces 4.923 MB perf.data (107512 samples), and script time = 0m0.578s.
+Which is as expected ~2x the size and ~2x the number of samples as per
+the period=1000000 recording. When compared to the period=300 recording,
+the results from the provided post-processing script are (within margin
+of error) the same, but the data file is ~62x smaller. The same affect
+is seen for the post-processing script runtime.
+
+Notably, without the patch enable, L1D cache miss rates are often higher
+than with, which we attribute to increased impact on the cache that
+trapping into the kernel every 300 cycles has.
+
+These results are given with `perf_cpu_time_max_percent=25`. When tested
+with `perf_cpu_time_max_percent=100` the size and time comparisons are
+more significant. Disabling throttling did not lead to obvious
+improvements in the collected metrics, suggesting that the sampling
+approach is sufficient to collect representative metrics.
+
+Cursory testing on a Xeon(R) W-2145 with a 300 *instruction* sample
+window (with and without the patch) suggests this approach might work
+for some counters. Using the same test script, it was possible to identify
+branch mispredicts correctly. However, whilst the patch is functionally 
+correct, differences in the architectures may mean that this approach it
+enables does not apply as a means to collect per-function metrics on x86.
+
+Changes since v2:
+ - Rebased onto latest perf-tools-next.
+ - Reordered patch series so that "Record sample last_period before updating"
+   applies first.
+ - Addressed issue reported by LKP tests.
+ - Addressed review comments from Leo Yan.
+
+Changes since v1:
+ - Rebased onto perf-tools-next, as per request from Ian Rogers.
+ - Removed unnecessary code that truncated period_left to 0 and restarted
+   the PMU.
+ - Renamed variables to use the shorter 'alt_period' instead of 
+   'alterantive_period'.
+ - Addressed review comments from Leo Yan.
+ - Added patch #5 that addresses an issue in the x86 and PowerPC drivers that
+   caused the opposite period to be reported in the sample record.
+   
+Changes since RFC v2:
+ - Rebased on v6.12-rc6.
+
+Changes since RFC v1:
+ - Rebased on v6.9-rc1.
+ - Refactored from arm_pmu based extension to core feature
+ - Added the ability to jitter the sample window based on feedback
+   from Andi Kleen.
+ - Modified perf tool to parse the "alt-period" and "alt-period-jitter"
+   terms in the event specification.
+
+Ben Gainey (4):
+  perf: Allow periodic events to alternate between two sample periods
+  perf: Allow adding fixed random jitter to the alternate sampling
+    period
+  tools/perf: Modify event parser to support alt-period term
+  tools/perf: Modify event parser to support alt-period-jitter term
+
+Mark Barnett (1):
+  perf: Record sample last_period before updating
+
+ arch/powerpc/perf/core-book3s.c               |  3 +-
+ arch/powerpc/perf/core-fsl-emb.c              |  3 +-
+ arch/x86/events/core.c                        |  4 +-
+ arch/x86/events/intel/core.c                  |  5 ++-
+ arch/x86/events/intel/knc.c                   |  4 +-
+ include/linux/perf_event.h                    |  5 +++
+ include/uapi/linux/perf_event.h               | 10 ++++-
+ kernel/events/core.c                          | 44 ++++++++++++++++++-
+ tools/include/uapi/linux/perf_event.h         | 10 ++++-
+ tools/perf/tests/shell/attr/base-record       |  4 +-
+ tools/perf/tests/shell/attr/base-record-spe   |  2 +
+ tools/perf/tests/shell/attr/base-stat         |  4 +-
+ tools/perf/tests/shell/attr/system-wide-dummy |  4 +-
+ .../attr/test-record-alt-period-jitter-term   | 13 ++++++
+ .../shell/attr/test-record-alt-period-term    | 12 +++++
+ .../tests/shell/attr/test-record-dummy-C0     |  4 +-
+ tools/perf/tests/shell/lib/attr.py            |  2 +
+ tools/perf/util/evsel.c                       |  2 +
+ tools/perf/util/parse-events.c                | 30 +++++++++++++
+ tools/perf/util/parse-events.h                |  4 +-
+ tools/perf/util/parse-events.l                |  2 +
+ tools/perf/util/perf_event_attr_fprintf.c     |  1 +
+ tools/perf/util/pmu.c                         |  4 +-
+ 23 files changed, 162 insertions(+), 14 deletions(-)
+ create mode 100644 tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
+ create mode 100644 tools/perf/tests/shell/attr/test-record-alt-period-term
+
+-- 
+2.43.0
+
 
