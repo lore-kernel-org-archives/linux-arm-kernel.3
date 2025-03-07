@@ -4,192 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C7C4C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 21:23:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B0D6C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 21:39:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	References:To:From:Subject:Cc:Message-Id:Date:Content-Type:
-	Content-Transfer-Encoding:Reply-To:Content-ID:Content-Description:Resent-Date
-	:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lKBsNQNu7EgwdJ9mezfJK3/YtwYfn9rAHb5B3qRECv8=; b=e6eS3t1eO/02ZZoNZ02ffb5emS
-	U0zwogjfGtxmEDKbVjbx+ygmdhRMZIC2WzXkvx82eYRLGzcfSWxBAV2zI2LGd41HTVABinzcFQt/X
-	gCOq1+joHaGvHswjmOVIA6XzeibfupCin603wKUUOkLap1wvgyRs6YWzDHZQXQl+GOUPKSKMHlpY1
-	1Xl68VxSUpIiGeKMXs7s5cHjDVqHKmhNhnEu3S9eeIGslkbXVh1/NVFStag4ZFCOEnLihblt0bF1c
-	+x0bWLNw2US/d93ttyzeVsHmTvUFHXxgM03A0Qxeyojgq+JgrZ/uGLTnilXV5J0lYhE7fncO75VF+
-	/7BhMp2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AQn5ANn8sPdQThZDb40ZlQuiCV58eIp0gfyjJ434Q7Y=; b=cbF3fKIpiJfsBPcvpWlPQaLBZd
+	mLGurikssCBnA11g+2859EJ2QeaICYmuhoPFCUbGnCkbNrqyCawVfhH98SW4m6NfSklZzmBc1soDh
+	4vn43cXJ/DElEH1A69txn08d0aNoDnTLZFMOkwhA8885lrA7C1ZrrvkTQTUDaK3cdmHnEwXNs8o8A
+	aXfde2mhUSFslmvBhkwd3Bfq0o039COu0fkl992wpMI6TR6UBDsyzFqNYRUe77o5koRVw1JekMMvP
+	juee/4HQzx9B7sbfz7hVX9EHVjOaVCDPC1FMgEeQanU6ec+IUa1/TpgGZArtAM21cqMgFWIyrf81d
+	0IhtU1zQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqf9t-0000000FZL8-18s7;
-	Fri, 07 Mar 2025 21:23:05 +0000
-Received: from mail-bn8nam11on2071f.outbound.protection.outlook.com ([2a01:111:f403:2414::71f] helo=NAM11-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqf8G-0000000FYwn-0x1q
+	id 1tqfP7-0000000Fai7-00ob;
+	Fri, 07 Mar 2025 21:38:49 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqfNU-0000000FaRI-2c8Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 21:21:25 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=bynzdKR+F5qRE0Fai+ArcoDUBFPgd4ctZqVYZX2sP9V6aUlwCa4BHZ41XKEKbHWPSrtsxcwajR1WGTAYY+gUd2FHgDUqBnFHNYD8oWvo5agIhymiqJjEKG7x3H0yrfTkRZwK1p8te3Vzdxlqlu6l7DqiZm12Zsrll8aygtJFzNECebLef5KLMSva/P9uDMFNNlmHsV0EB0oncnz89oxDK3ujq0VE5w+7Iw0gPriB+lZqDyEOui77Ube98je/511e2LBL0IPWAGaqxP4g9XNZXRnBPTWq5BKh4HDAFgbFdCyE40ekhrWB/M5rbPawuXZoHdL0sAbLDArGHkn+ItJPhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=lKBsNQNu7EgwdJ9mezfJK3/YtwYfn9rAHb5B3qRECv8=;
- b=skACrX4jIK8EcKlK6Obp1/zdNCZkvQe8mT9+HfexJSBPV6Cxhw147uQOAhhs8C81DBR3yfkWdipz7PqRFuGGqkh2D05W6T61B/4UuuanfGXr6u9/TW5nCAs+scWM8u9UUw8krjHVKRPAinHV9ao1oFwIGpTyShLU/PvMe995A4iDAH/iGGkfRNmtbCwULCtJLQRfnUVO65pCNKuVtFAPXayvlhrpSdgchU6cKHKe8+O9OG37xveHrNCq4L+FN+1Tt5/sp0aeavpF2ov6bCntIf8R9zSWFZGu/+eSzAlJKU0KMrUE0XT5vy64s4bEkkks7eC30dXCktKnlAP1ozboNw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=d3embedded.com; dmarc=pass action=none
- header.from=d3embedded.com; dkim=pass header.d=d3embedded.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=d3engineering.onmicrosoft.com; s=selector2-d3engineering-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=lKBsNQNu7EgwdJ9mezfJK3/YtwYfn9rAHb5B3qRECv8=;
- b=KhoTttBwMZMTmCnOgzAcodxULrqUTgLZWbAV1EeE/yFUy5sbCHWS3xPzISanDP2Sfh81HdSCQw9urJTWu4vVZHEp/d3NW384D8dBdivqh+nl7y6aT4AmOFRDwBUjOWqdDHJDHiNAl6Yw+knau8Pf/YGR3jEfZYmjNMIq9UFZQks=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=d3embedded.com;
-Received: from BY5PR14MB4194.namprd14.prod.outlook.com (2603:10b6:a03:20a::7)
- by BY5PR14MB3670.namprd14.prod.outlook.com (2603:10b6:a03:1db::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
- 2025 21:21:14 +0000
-Received: from BY5PR14MB4194.namprd14.prod.outlook.com
- ([fe80::8455:2eef:6470:1665]) by BY5PR14MB4194.namprd14.prod.outlook.com
- ([fe80::8455:2eef:6470:1665%4]) with mapi id 15.20.8489.025; Fri, 7 Mar 2025
- 21:21:14 +0000
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
-Date: Fri, 07 Mar 2025 16:21:09 -0500
-Message-Id: <D8ACKEK4QS1G.2QTKXG691PVZY@d3embedded.com>
-Cc: =?utf-8?b?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- "Abel Vesa" <abel.vesa@linaro.org>, "Achath Vaishnav" <vaishnav.a@ti.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "Ard Biesheuvel" <ardb@kernel.org>, "Benjamin Mugnier"
- <benjamin.mugnier@foss.st.com>, "Biju Das" <biju.das.jz@bp.renesas.com>,
- "Bjorn Andersson" <quic_bjorande@quicinc.com>, "Catalin Marinas"
- <catalin.marinas@arm.com>, "Conor Dooley" <conor+dt@kernel.org>, "Dmitry
- Baryshkov" <dmitry.baryshkov@linaro.org>, "Elinor Montmasson"
- <elinor.montmasson@savoirfairelinux.com>, "Fabio Estevam"
- <festevam@gmail.com>, "Geert Uytterhoeven" <geert+renesas@glider.be>, "Hans
- Verkuil" <hverkuil@xs4all.nl>, "Javier Carrasco"
- <javier.carrasco@wolfvision.net>, "Jianzhong Xu" <xuj@ti.com>, "Julien
- Massot" <julien.massot@collabora.com>, "Kieran Bingham"
- <kieran.bingham@ideasonboard.com>, "Kory Maincent"
- <kory.maincent@bootlin.com>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@linaro.org>, "Laurent Pinchart"
- <laurent.pinchart@ideasonboard.com>, "Mauro Carvalho Chehab"
- <mchehab@kernel.org>, "Mikhail Rudenko" <mike.rudenko@gmail.com>, "Nishanth
- Menon" <nm@ti.com>, "Pengutronix Kernel Team" <kernel@pengutronix.de>, "Rob
- Herring" <robh@kernel.org>, "Sakari Ailus" <sakari.ailus@linux.intel.com>,
- "Sascha Hauer" <s.hauer@pengutronix.de>, "Shawn Guo" <shawnguo@kernel.org>,
- "Stuart Burtner" <sburtner@d3embedded.com>, "Tero Kristo"
- <kristo@kernel.org>, "Thakkar Devarsh" <devarsht@ti.com>, "Tomi Valkeinen"
- <tomi.valkeinen@ideasonboard.com>, "Umang Jain"
- <umang.jain@ideasonboard.com>, "Vignesh Raghavendra" <vigneshr@ti.com>,
- "Will Deacon" <will@kernel.org>, "Zhi Mao" <zhi.mao@mediatek.com>
-Subject: Re: [PATCH 2/4] media: i2c: Add driver for Sony IMX728
-From: "Sebastian LaVine" <slavine@d3embedded.com>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>, <devicetree@vger.kernel.org>,
- <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>, <linux-media@vger.kernel.org>
-X-Mailer: aerc 0.20.1
-References: <20250212195656.69528-1-slavine@d3embedded.com>
- <20250212195656.69528-3-slavine@d3embedded.com>
- <f18d5d31-09ab-4422-b56d-3361e4d3b9c8@kernel.org>
-In-Reply-To: <f18d5d31-09ab-4422-b56d-3361e4d3b9c8@kernel.org>
-X-ClientProxiedBy: CH0PR04CA0011.namprd04.prod.outlook.com
- (2603:10b6:610:76::16) To BY5PR14MB4194.namprd14.prod.outlook.com
- (2603:10b6:a03:20a::7)
+	Fri, 07 Mar 2025 21:37:09 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 0A4072038F3B;
+	Fri,  7 Mar 2025 13:37:06 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0A4072038F3B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741383426;
+	bh=AQn5ANn8sPdQThZDb40ZlQuiCV58eIp0gfyjJ434Q7Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ri9FeBsdG2ROc74ZZVyndfL8/sgWlsUjKGFmQR0ft2q7cEBE5djWuwF6Ww5NkMOaa
+	 O8OXBrORBWvVyXpqCzrNeWmckkZbq8mL9EZ0fXEJd47nUue5TWp9E35X5SwB6miF2f
+	 CGgKsRXHGQy2tjtOS98IBThSjmzM1p9VmGwbcf0U=
+Message-ID: <7f689725-f676-4465-974d-ca2477d445f7@linux.microsoft.com>
+Date: Fri, 7 Mar 2025 13:36:48 -0800
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BY5PR14MB4194:EE_|BY5PR14MB3670:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0ef69cc2-639e-480d-5f97-08dd5dbdfd98
-X-LD-Processed: b7153db5-3376-478b-b601-92ce9bc0d3bc,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eWswdWFudS8vVk9hb0lKM2EvWmp1QlNEdDZpbmRyUWdKQVhIbWRoem1Pb0Iv?=
- =?utf-8?B?UWxIWEY1ZDZtb1o3WDZ6UUVrdm9UZTkzaE84RmltbGFJelpJNHhzNHd4aXBR?=
- =?utf-8?B?amNrL3ZYSFZsVzZUNnZkRzVoMEgxK2c0THk3dUZXQmpSQkI2cFQ3Q3A5QnhL?=
- =?utf-8?B?VytqMzFTTTEzdXNycTZiallqSHlkQTIvWjFVSzR1R2M5LzZocU1UT0Jrd0RI?=
- =?utf-8?B?UFhqQVJqOXp2ZUJUT3dPSVVKQjhwRHBsZjVVNnZZeEZQaG96UGI0cU5ab0xj?=
- =?utf-8?B?NHRwdHkrcjAwZHRCclN4aG1nbDlPNUttMVV6OVUzSm1oWnFINzA1TlhxeDdF?=
- =?utf-8?B?aTJobGRmMW8yT1JOM255UVpRdlFuTEJLbzZaa2NBT09naE1ZMjcyMTZIT3JM?=
- =?utf-8?B?Q3NFbml4R0M1Zm1ud09XeVJoS1k2SGJlN0w1eUVWWkpydzdnVEFSbjI0dXFO?=
- =?utf-8?B?aGF2WHhjczZTUFlpNHJMRk5iVzQ3TElFVlZ2eDR2NW9EVGNPKzZqOFllMkpJ?=
- =?utf-8?B?Nm13WVRaaGhqaW1DTEQ4YWQxbU91QjAybk9wamNzRnhiWEpsWndHejhxemhk?=
- =?utf-8?B?OXRLQ0M5dEZYNS92NkhkdzViY2pOSkMwTlhHUGQ3MGdmbC9PTWI4a3RjQVU2?=
- =?utf-8?B?Z0Y4RmFTcGJNVm1hMm5Xck84dGdqemNINTRPd1VueURDeVNUZjU5azk2Wk1k?=
- =?utf-8?B?NUp5MXFtTE5xM1pYOEJWY2poSUZZc0JoSXBOM3V5Sm96R01QbUVwbG96SUdh?=
- =?utf-8?B?a0d4SUcxRzNBM09UaFZpZkxBeXFzMlJqVmYxTXpPWW1uQUFnejdLdng0N3NZ?=
- =?utf-8?B?bUZYQTIyaTVzWFduZzhFMi9HRnRzTmRzd0tsUFRpZkx2MWZpd2RURERjRk1Y?=
- =?utf-8?B?SlM2UVdFTTZXaXo5Y0xUeWlQUCtBaHRVTFFyWHowYVpjWUVTejZpcTM5YVh4?=
- =?utf-8?B?VzdPTWNtSjl4TzJlVTY0bzFTKy9ZdjBBR3NMMjNBaThPcCtENlZKYkdiSmpP?=
- =?utf-8?B?RmxDMlA1RlAzVVhnZDBiRHkxdGM3bW9oL0hwazVpQ1dyNTVYcW1KU2QrejRr?=
- =?utf-8?B?Mko2eG54eWtvbk82cFdXWlZRb0NYelBJcGJrQTZBamluMXNJWlNRbnV2clFN?=
- =?utf-8?B?cTI5amRoVFA5MDdua0ZpNDZMTS9yem9GVWViYi9lR21MbTllOEZqQ1pOUnB0?=
- =?utf-8?B?MVFRWVluWS80RlFYdjRuV2s4S2R6bzF1eGxYcXhpWEdwS1pFQkhvdi9aMUxo?=
- =?utf-8?B?V3FwS3pXdFFpZVA0SmZTK28yYlIva1Zud3FzdXV0NmxQSlBTYW10TWNDNkJ6?=
- =?utf-8?B?NmxUSktrQlArbFZkYlZQRzJDTGdldm1qcUxONlpmeGpud3BUUW0wcHBaVXNO?=
- =?utf-8?B?REI3QlN5YmRTcnp5RkEvNFVNM1FUNWJ5c2pzbHJXWnlaL2hjejcxcTgwWGtC?=
- =?utf-8?B?Um0yMDRveGVXbVlaT2RacFdJbU9kNTRNZ0RXV3NkNHNXTmg2NjZnOWs0NUlC?=
- =?utf-8?B?ZlVzRXpQMVlnK1lSaE5jMXZJaFhyS0x1UUIzbXFhTXlsdTEzOHlFcnpnSmlX?=
- =?utf-8?B?aFBHQ2Uza040ajBHMmxoR1ZhZWd0MlA2OGxwb2loZlhpbytiQVBrOG5Ub0hC?=
- =?utf-8?B?aUJHMW1ieVB4bWlGbm9aQldxeks5WHVxZCtOeENjWVJOSXIxcW5LZVZBbUps?=
- =?utf-8?B?SDBmSXVDNFhJVTBBRU4wOFByZk0rZEc3VVNaQ1VNUWoyOUxsR2VMRnZJdWEy?=
- =?utf-8?B?M1g4V0x0K01MRmdDZm9SN3RJaXFTaCtPOGZCNkhEYWszS1JNTlIvc1l2blM1?=
- =?utf-8?B?a29rd2E5QlBNNkduQXNteFVoZktxTTc4bTdYKzBhZStQUWtIRWtGY2lYQXZq?=
- =?utf-8?Q?1gfTIPfsngzl9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BY5PR14MB4194.namprd14.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UDBwVmdPSVlXejQva1ZpVVhJUjRGRzVUZm9WczNoOVowWnBtc1FGbU96U3Vj?=
- =?utf-8?B?YWJnY3Z1UzJONWVKVXhKQk1ZY0g1QUc5bmlPVXVXUDBLQlRGaVdUcmVxZkZG?=
- =?utf-8?B?R1N5UUl0TzVXL2JGY003TUVLRkdpRWhTamRqamlXaWxvN1JBaE1wTGxnc3ds?=
- =?utf-8?B?UlNTc1lOK1dwWE13MzlCeEh2Z0dUU2JlNDVFcDFYbWZTM1JzaUhXMnU5U0Mr?=
- =?utf-8?B?b1dEKzh5ZjBPOEVwMXFWQ3IvMHlTRm0raUtmMHcvMnRsM085elRiRUh5cjVk?=
- =?utf-8?B?V3ZDeS9XdStycXRvWGFzMW41SWlUVFNkU1dQVkJTWkp5Z0JxNHJlUzYrSU9V?=
- =?utf-8?B?ZFdXd2F6WlBsNjlia3JpK0swOVltd0JHb2NKR2x1QzVDcGpQMFhqUzZaeFlZ?=
- =?utf-8?B?bHFiVW5LcVQxVU5Jb1hMRFJONUZYaW5xSHFvWUR6N1hmNElQWk1uclNEY093?=
- =?utf-8?B?Mi94WDNUSkorVWhXL2Q5c2tRcmlmVkZ1VXE4bytmZ2tmTGhSelRkRDJ3ai9s?=
- =?utf-8?B?cm1Bcm5Yb0Z2TGI2cmRPMjAyYVpuN0g2M1FDeFNNcTdZT2dEN0VjTENGdUtt?=
- =?utf-8?B?a2tYYkJjTWdJbFZHS1dseGc3SzFJdEE0elg1MzE2QnovSDg4c2M3ZVd4ODJJ?=
- =?utf-8?B?U2J1dFA4VGlpWXZ3YXlXaXNGZEJkSGIwNDhnOXJGZ3lhckErRjhKZVVtaGsz?=
- =?utf-8?B?bXBYdG1jQWJab25TbnE1RGZVeVJpY3lkZ0JtOS9HSm1XV0o5ZFBsZE04NUxi?=
- =?utf-8?B?bU9HU1FKWThPaUE2VWFJNjFpS3JEVjI5RDZrN0J2VS9MeEV0anB3VTR3WFZ5?=
- =?utf-8?B?czFLbXhld0hPRW1wcEUrTkxHSkVwSS9KZzkza2oweSttSWptRTNTb3EvUzE1?=
- =?utf-8?B?UEIrUXd1VEFOc0RJRVdPcEhEVXNSZThFZUZMZk5wOFB1QUxzNnUxaGx1SUpv?=
- =?utf-8?B?ZlBuNUNxQlpEeTlTeUtVSFRCM2QzZERxem1QSFVwTkthanprVWkrN1BmN2Vi?=
- =?utf-8?B?aVBKRlYxOTVFSVJVaHlFZnFnUDl5OS94Z212WXFqMWpwT1JaaUhwR3ZZWDZw?=
- =?utf-8?B?NFNIcGZyUVpCT0tpcmdCRGhWM2NKNU1hdzB6UXNIZ0dtR1Q0MDNzNWJwRFRa?=
- =?utf-8?B?dk9NcCtmd2xmVjFibHJ2c1pXMHV1c011T3JyZGY3YUZWTkFlVDlIT3licVc2?=
- =?utf-8?B?OWxkVDlvbnhZcTM3a0FoTTJ2TU5qMzVtOFdOa3l1WGhTTVJjZHZMZ0YwNlVT?=
- =?utf-8?B?Yi9DK3puN2F6NGVjSk9scWdKcU1pOFJoUTl1YUt1TzZ3WHZSMlk2Y1NucUVP?=
- =?utf-8?B?THY3TS9mSE9LN1JwUC91eTBIMVE0QU1qYjBnVlNyMEZzZEJIL2ovbGhSN0k0?=
- =?utf-8?B?ZzI3NEhvcUJUeHB1OFZNU2xCVFdheGtjeTROL2I4cGtyTkVqU3k1L1dkMk4x?=
- =?utf-8?B?Mk9ZRGMzY0JMV1U4NkJiWFhMVzBjWFNpTWJCQ0xFT3phQlBnZXQxWUI0SDlu?=
- =?utf-8?B?VlZnTDZISy9WMG5DRGFaQW4yTWhraDNac2x4OGZjdFlmQkxtZTdRYk5BSGpi?=
- =?utf-8?B?YzhpNTJndlh6Q01yVHdHUEljbVAxR0FIMXR2RHRZdzlhN0hVTnc2ZDJSaTQ4?=
- =?utf-8?B?RFJwaGRHeFpMYVBzL09BZ3QxMHRlVTNGL1poK0RyOWQwNno5NHJDWXVnTndR?=
- =?utf-8?B?VEJyUzhsSFRuOVFBQlZHRndQRHVPajlYdHM4Mll0QTRyRUV6SXEvNm9ab3JK?=
- =?utf-8?B?OEJWcjZvVU5JdWxRWWlyRVJTaHVWVkdSajZKaVRYM2NFRG9UVHFhVnQ1R3Rk?=
- =?utf-8?B?a21DSy81ZGNmUHFjRDFxT3QxMjhlakJuSnpjSHdvMUZFVERhWTU5dWE2cnpt?=
- =?utf-8?B?Q3N1QnVkM3RaVEM2L2t6YzA2cVlpZU54emZBcWJwS21aWGt5bVpPZm1SbXNo?=
- =?utf-8?B?VlFOY3NIc1gyUERFSGdzTWdvVE1kRU01QVpoQnhCeHU1ZW9venBOcEUvbGwz?=
- =?utf-8?B?VXVmeERMYTFVMkdTUEk2NUNqL2FaRE54dC9jalFXdnNaRG9CNXBWOFk0NUZj?=
- =?utf-8?B?WnZXZUNCTU1UZStLa2hSTmJ5aEZNTm5MMjRjcWtvdjJZRmJLWGJpVmFWYjJW?=
- =?utf-8?B?RnhBK3h1eDZ0NS9iQXZ1TGVtNTVBYVRQd1ZqcGhvcTlDQTJaR2I3eWdVdDdG?=
- =?utf-8?B?V0E9PQ==?=
-X-OriginatorOrg: d3embedded.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0ef69cc2-639e-480d-5f97-08dd5dbdfd98
-X-MS-Exchange-CrossTenant-AuthSource: BY5PR14MB4194.namprd14.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 21:21:14.2567
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: b7153db5-3376-478b-b601-92ce9bc0d3bc
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Tv7hRG6iWaihLVvyVV3IMiDPKZYK4twDIK6UmWzGyAHVQGWB/vSedw+12L//LYqH7TOrXaRqas+ByFEuoTBpKQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR14MB3670
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 03/10] arm64/hyperv: Add some missing functions to
+ arm64
+To: Michael Kelley <mhklinux@outlook.com>,
+ Easwar Hariharan <eahariha@linux.microsoft.com>
+Cc: "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "muislam@microsoft.com" <muislam@microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-4-git-send-email-nunodasneves@linux.microsoft.com>
+ <5f3d660d-fe2e-4ac1-94a7-66d6c8ffe579@linux.microsoft.com>
+ <2fee888a-4f81-40aa-9545-617a49a7fb30@linux.microsoft.com>
+ <SN6PR02MB41579F4147561B96A2C1C057D4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB41579F4147561B96A2C1C057D4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_132124_277494_A2C253CD 
-X-CRM114-Status: UNSURE (   9.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_133708_720001_9DBA98CE 
+X-CRM114-Status: GOOD (  26.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,28 +109,141 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu Feb 13, 2025 at 1:19 PM EST, Krzysztof Kozlowski wrote:
->
-> ...
->
->> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
->> index c62831e61586..0ff578bb4645 100644
->> --- a/arch/arm64/configs/defconfig
->> +++ b/arch/arm64/configs/defconfig
->> @@ -852,6 +852,7 @@ CONFIG_VIDEO_TI_J721E_CSI2RX=3Dm
->>  CONFIG_VIDEO_HANTRO=3Dm
->>  CONFIG_VIDEO_IMX219=3Dm
->>  CONFIG_VIDEO_IMX412=3Dm
->> +CONFIG_VIDEO_IMX728=3Dm
->>  CONFIG_VIDEO_OV5640=3Dm
->
-> This is not related to this patch and should target different subsystem
-> with its own explanation why you thing this should be in common defconfig=
-.
+On 3/6/2025 11:05 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Thursday, February 27, 2025 4:21 PM
+>>
+>> On 2/26/2025 9:56 PM, Easwar Hariharan wrote:
+>>> On 2/26/2025 3:07 PM, Nuno Das Neves wrote:
+>>>> These non-nested msr and fast hypercall functions are present in x86,
+>>>> but they must be available in both architetures for the root partition
+>>>
+>>> nit: *architectures*
+>>>
+>>>
+>> Thanks!
+>>
+>>>> driver code.
+>>>>
+>>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>>> ---
+>>>>  arch/arm64/hyperv/hv_core.c       | 17 +++++++++++++++++
+>>>>  arch/arm64/include/asm/mshyperv.h | 12 ++++++++++++
+>>>>  include/asm-generic/mshyperv.h    |  2 ++
+>>>>  3 files changed, 31 insertions(+)
+>>>>
+>>>> diff --git a/arch/arm64/hyperv/hv_core.c b/arch/arm64/hyperv/hv_core.c
+>>>> index 69004f619c57..e33a9e3c366a 100644
+>>>> --- a/arch/arm64/hyperv/hv_core.c
+>>>> +++ b/arch/arm64/hyperv/hv_core.c
+>>>> @@ -53,6 +53,23 @@ u64 hv_do_fast_hypercall8(u16 code, u64 input)
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(hv_do_fast_hypercall8);
+>>>>
+>>>> +/*
+>>>> + * hv_do_fast_hypercall16 -- Invoke the specified hypercall
+>>>> + * with arguments in registers instead of physical memory.
+>>>> + * Avoids the overhead of virt_to_phys for simple hypercalls.
+>>>> + */
+>>>> +u64 hv_do_fast_hypercall16(u16 code, u64 input1, u64 input2)
+>>>> +{
+>>>> +	struct arm_smccc_res	res;
+>>>> +	u64			control;
+>>>> +
+>>>> +	control = (u64)code | HV_HYPERCALL_FAST_BIT;
+>>>> +
+>>>> +	arm_smccc_1_1_hvc(HV_FUNC_ID, control, input1, input2, &res);
+>>>> +	return res.a0;
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(hv_do_fast_hypercall16);
+>>>> +
+>>>
+>>> I'd like this to have been in arch/arm64/include/asm/mshyperv.h like its x86
+>>> counterpart, but that's just my personal liking of symmetry. I see why it's here
+>>> with its slow and 8-byte brethren.
+>>>
+>> Good point, I don't see a good reason this can't be in the header.
+> 
+> I was trying to remember if there was some reason I originally put
+> hv_do_hypercall() and hv_do_fast_hypercall8() in the .c file instead of
+> the header like on x86. But I don't remember a reason. During
+> development, the code changed several times, and there might have
+> been a reason that didn't persistent in the version that was finally
+> accepted upstream.
+> 
+> My only comment is that hv_do_hypercall() and the 8 and 16 "fast"
+> versions should probably stay together one place on the arm64 side,
+> even if it doesn't match x86.
+> 
 
-Thanks, I will remove this in v4.
+I think I'll just keep them together here for now then. They
+could be moved to the header in future if it seems worth doing.
 
--Sebastian
-Please be aware that this email includes email addresses outside of the org=
-anization.
+>>
+>>>>  /*
+>>>>   * Set a single VP register to a 64-bit value.
+>>>>   */
+>>>> diff --git a/arch/arm64/include/asm/mshyperv.h
+>> b/arch/arm64/include/asm/mshyperv.h
+>>>> index 2e2f83bafcfb..2a900ba00622 100644
+>>>> --- a/arch/arm64/include/asm/mshyperv.h
+>>>> +++ b/arch/arm64/include/asm/mshyperv.h
+>>>> @@ -40,6 +40,18 @@ static inline u64 hv_get_msr(unsigned int reg)
+>>>>  	return hv_get_vpreg(reg);
+>>>>  }
+>>>>
+>>>> +/*
+>>>> + * Nested is not supported on arm64
+>>>> + */
+>>>> +static inline void hv_set_non_nested_msr(unsigned int reg, u64 value)
+>>>> +{
+>>>> +	hv_set_msr(reg, value);
+>>>> +}
+>>>
+>>> empty line preferred here, also reported by checkpatch
+>>>
+>> Good point, missed that one...
+>>
+>>>> +static inline u64 hv_get_non_nested_msr(unsigned int reg)
+>>>> +{
+>>>> +	return hv_get_msr(reg);
+>>>> +}
+>>>> +
+>>>>  /* SMCCC hypercall parameters */
+>>>>  #define HV_SMCCC_FUNC_NUMBER	1
+>>>>  #define HV_FUNC_ID	ARM_SMCCC_CALL_VAL(			\
+>>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>>>> index c020d5d0ec2a..258034dfd829 100644
+>>>> --- a/include/asm-generic/mshyperv.h
+>>>> +++ b/include/asm-generic/mshyperv.h
+>>>> @@ -72,6 +72,8 @@ extern void * __percpu *hyperv_pcpu_output_arg;
+>>>>
+>>>>  extern u64 hv_do_hypercall(u64 control, void *inputaddr, void *outputaddr);
+>>>>  extern u64 hv_do_fast_hypercall8(u16 control, u64 input8);
+>>>> +extern u64 hv_do_fast_hypercall16(u16 control, u64 input1, u64 input2);
+>>>> +
+>>>
+>>> checkpatch warns against putting externs in header files, and FWIW, if
+>> hv_do_fast_hypercall16()
+>>> for arm64 were in arch/arm64/include/asm/mshyperv.h like its x86 counterpart, you
+>> probably
+>>> wouldn't need this?
+>>>
+>> Yes I wondered about that warning. That's true, if I just put it in the arm64 header
+>> then this won't be needed at all, so I might just do that!
+> 
+> I always thought the checkpatch warning was simply that "extern" on a function
+> declaration is superfluous. You can omit "extern" and nothing changes. Of
+> course, the same is not true for data items.
+> Good point, I think I'll clean up these "extern"s in the next version.
+
+Nuno
+
+> Michael
+> 
+>>
+>>>>  bool hv_isolation_type_snp(void);
+>>>>  bool hv_isolation_type_tdx(void);
+>>>>
+> 
+
 
