@@ -4,72 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7ED2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:47:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5508C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:49:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1EB0+H8ssDaD4ySB+9WHDQdY3BnmMqaLsGTM6itu2Cg=; b=cCDgIfFS6nfWEysGOnU34ATxa1
-	FdHkyR3/pi8tiwAIBlNeyt0DDaZpnHJMHanqle7IOOPgKVCjvGEOdWrQI/2yPXgmc5BXYex4cry15
-	G41fi5EPAhrwNe01+aBEs65QsXIsSY0EjDjmmEZqyIUG/xSNfy4WnJDbmuB5/nR3J119pesholoaq
-	uMLGgNswFrPSRfue3i2tBR9YZ5H8l77Ui/sXG9HgzJeN5/YfxGwdx97WD6wWYs0mWOxLkZtZFk/91
-	940J4BHX/VQ4+mehVoBWlYp6kDAmnnbfCXKuinqKehfEhX0SofFqjNTHbPnsDd/FYue5C0JjybWdr
-	4PhocOlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gWdPIaObctAFLenCR68iVhRvFpVcjAdMR3Ra7YLkhsk=; b=lfhqab3aZLeM++F1tpodpHa4gX
+	C6TBZawkSIyUNG4IQAq49ws8MHWsDHZ7JEbJNLwQDTmd3nmaEYV1Cq0dfIlUSiAdhW+RXAxaX6H2q
+	1vdneFxjuYFAft30cKCdFND+c37sTolwBYd2f2x+lHOeDHZTOw0hamA1o1Vgyl44Rl8KvNZ8TiscP
+	f+utYbQmLrudMwfiKySEqy/lEKX7qM8ZAsbzJ5jJG5pGaE7QeF/ihiFucSry9EeNHALEa7NSypRVF
+	iJ79vuZ1EC3a/kSkAPoHs2Oxe3imTJMe481XGTMpNGdekDGsq4c+6fNEgy1mx4m9aSngxNblLldAx
+	XDwD40Tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVEr-0000000DvEe-2qlC;
-	Fri, 07 Mar 2025 10:47:33 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tqVGR-0000000DvQ9-1xk3;
+	Fri, 07 Mar 2025 10:49:11 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV01-0000000Dt4S-2L1S
+	id 1tqV04-0000000Dt5z-29ML
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:32:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741343532;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=1EB0+H8ssDaD4ySB+9WHDQdY3BnmMqaLsGTM6itu2Cg=;
-	b=STeiyJ2e0o4mgkTJ52zO9i7DL9m1SAQBANGwPtQkQZjo1v8uRBXiZ6ZbGkAwHSIb3Hb0iK
-	tNGsl5AGfjONhZPbldgwbyvXW2283kcI7HC3ePwY9089R2tAaVtM3DV/hOMco2a4+4Tcp/
-	txE1Oqx9zeH2D4QgwftgiRd9r8tEOf8=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-100-Kw35tQnkMV-hGz6JNbYRkg-1; Fri,
- 07 Mar 2025 05:32:09 -0500
-X-MC-Unique: Kw35tQnkMV-hGz6JNbYRkg-1
-X-Mimecast-MFC-AGG-ID: Kw35tQnkMV-hGz6JNbYRkg_1741343528
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D464A1800267;
-	Fri,  7 Mar 2025 10:32:07 +0000 (UTC)
-Received: from [172.64.10.8] (unknown [10.30.34.106])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3F4D2180174F;
-	Fri,  7 Mar 2025 10:32:07 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Fri, 07 Mar 2025 10:32:06 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	Fri, 07 Mar 2025 10:32:17 +0000
+Received: from lelv0266.itg.ti.com ([10.180.67.225])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AVrsd343912
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+	Fri, 7 Mar 2025 04:31:53 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741343513;
+	bh=gWdPIaObctAFLenCR68iVhRvFpVcjAdMR3Ra7YLkhsk=;
+	h=From:To:CC:Subject:Date:In-Reply-To:References;
+	b=o/LtjNU6UtuYlYW3rP7wA4CE3z0/Bvfo/R1N3XIPoZ01XFeWHJdNsaEkuAiAFGwd9
+	 txuGJZj47kBuHmV5YRj6iXgZkeuAJt4wPouN51d5Lr5BuypRIHWT1+oNe2XI7h3+Fl
+	 s7ldFUKj8qirdYgM8kWfQc0mC5hO8U3EJgeHgy6U=
+Received: from DLEE106.ent.ti.com (dlee106.ent.ti.com [157.170.170.36])
+	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AVrBY026836;
+	Fri, 7 Mar 2025 04:31:53 -0600
+Received: from DLEE105.ent.ti.com (157.170.170.35) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
+ Mar 2025 04:31:52 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 7 Mar 2025 04:31:52 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AVSQ6016876;
+	Fri, 7 Mar 2025 04:31:48 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <vigneshr@ti.com>, <kishon@kernel.org>,
+        <cassel@kernel.org>, <wojciech.jasko-EXT@continental-corporation.com>,
+        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>
+CC: <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH 4/4] PCI: j721e: Add support to build as a loadable module
+Date: Fri, 7 Mar 2025 16:01:28 +0530
+Message-ID: <20250307103128.3287497-5-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250307103128.3287497-1-s-vadapalli@ti.com>
+References: <20250307103128.3287497-1-s-vadapalli@ti.com>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
-Message-Id: <20477.125030705320900185@us-mta-100.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: ZPXEW9mY5HHRMKsLKNDd0ziY16Ua_PdqYVG2LpNR8QM_1741343528
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_023213_666585_EB784536 
-X-CRM114-Status: UNSURE (   6.51  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_023216_651092_FC060172 
+X-CRM114-Status: GOOD (  17.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +88,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+The 'pci-j721e.c' driver is the application/glue/wrapper driver for the
+Cadence PCIe Controllers on TI SoCs. Implement support for building it as a
+loadable module.
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
+ drivers/pci/controller/cadence/Kconfig     |  6 ++--
+ drivers/pci/controller/cadence/pci-j721e.c | 37 ++++++++++++++++++++--
+ 2 files changed, 38 insertions(+), 5 deletions(-)
 
-Tested-by: CKI Project <cki-project@redhat.com>
-
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1704576917
-
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1704576917-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
+diff --git a/drivers/pci/controller/cadence/Kconfig b/drivers/pci/controller/cadence/Kconfig
+index 82b58096eea0..72d7d264d6c3 100644
+--- a/drivers/pci/controller/cadence/Kconfig
++++ b/drivers/pci/controller/cadence/Kconfig
+@@ -43,10 +43,10 @@ config PCIE_CADENCE_PLAT_EP
+ 	  different vendors SoCs.
+ 
+ config PCI_J721E
+-	bool
++	tristate
+ 
+ config PCI_J721E_HOST
+-	bool "TI J721E PCIe controller (host mode)"
++	tristate "TI J721E PCIe controller (host mode)"
+ 	depends on ARCH_K3 || COMPILE_TEST
+ 	depends on OF
+ 	select PCIE_CADENCE_HOST
+@@ -57,7 +57,7 @@ config PCI_J721E_HOST
+ 	  core.
+ 
+ config PCI_J721E_EP
+-	bool "TI J721E PCIe controller (endpoint mode)"
++	tristate "TI J721E PCIe controller (endpoint mode)"
+ 	depends on ARCH_K3 || COMPILE_TEST
+ 	depends on OF
+ 	depends on PCI_ENDPOINT
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 0341d51d6aed..0900e7dd6ac7 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -15,6 +15,7 @@
+ #include <linux/irqchip/chained_irq.h>
+ #include <linux/irqdomain.h>
+ #include <linux/mfd/syscon.h>
++#include <linux/module.h>
+ #include <linux/of.h>
+ #include <linux/pci.h>
+ #include <linux/platform_device.h>
+@@ -27,6 +28,7 @@
+ #define cdns_pcie_to_rc(p) container_of(p, struct cdns_pcie_rc, pcie)
+ 
+ #define ENABLE_REG_SYS_2	0x108
++#define ENABLE_CLR_REG_SYS_2	0x308
+ #define STATUS_REG_SYS_2	0x508
+ #define STATUS_CLR_REG_SYS_2	0x708
+ #define LINK_DOWN		BIT(1)
+@@ -116,6 +118,15 @@ static irqreturn_t j721e_pcie_link_irq_handler(int irq, void *priv)
+ 	return IRQ_HANDLED;
+ }
+ 
++static void j721e_pcie_disable_link_irq(struct j721e_pcie *pcie)
++{
++	u32 reg;
++
++	reg = j721e_pcie_intd_readl(pcie, ENABLE_CLR_REG_SYS_2);
++	reg |= pcie->linkdown_irq_regfield;
++	j721e_pcie_intd_writel(pcie, ENABLE_CLR_REG_SYS_2, reg);
++}
++
+ static void j721e_pcie_config_link_irq(struct j721e_pcie *pcie)
+ {
+ 	u32 reg;
+@@ -632,9 +643,27 @@ static void j721e_pcie_remove(struct platform_device *pdev)
+ 	struct j721e_pcie *pcie = platform_get_drvdata(pdev);
+ 	struct cdns_pcie *cdns_pcie = pcie->cdns_pcie;
+ 	struct device *dev = &pdev->dev;
++	struct cdns_pcie_ep *ep;
++	struct cdns_pcie_rc *rc;
++
++	if (pcie->mode == PCI_MODE_RC) {
++		rc = container_of(cdns_pcie, struct cdns_pcie_rc, pcie);
++		cdns_pcie_host_disable(rc);
++	} else {
++		ep = container_of(cdns_pcie, struct cdns_pcie_ep, pcie);
++		cdns_pcie_ep_disable(ep);
++	}
++
++	if (pcie->reset_gpio) {
++		msleep(PCIE_T_PVPERL_MS);
++		gpiod_set_value_cansleep(pcie->reset_gpio, 1);
++	}
++
++	if (pcie->refclk)
++		clk_disable_unprepare(pcie->refclk);
+ 
+-	clk_disable_unprepare(pcie->refclk);
+ 	cdns_pcie_disable_phy(cdns_pcie);
++	j721e_pcie_disable_link_irq(pcie);
+ 	pm_runtime_put(dev);
+ 	pm_runtime_disable(dev);
+ }
+@@ -729,4 +758,8 @@ static struct platform_driver j721e_pcie_driver = {
+ 		.pm	= pm_sleep_ptr(&j721e_pcie_pm_ops),
+ 	},
+ };
+-builtin_platform_driver(j721e_pcie_driver);
++module_platform_driver(j721e_pcie_driver);
++
++MODULE_LICENSE("GPL");
++MODULE_DESCRIPTION("PCIe controller driver for TI's J721E and related SoCs");
++MODULE_AUTHOR("Kishon Vijay Abraham I <kishon@ti.com>");
+-- 
+2.34.1
 
 
