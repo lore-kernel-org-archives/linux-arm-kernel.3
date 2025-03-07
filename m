@@ -4,67 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AC84C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 02:01:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88086C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 02:20:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gEpCNTpbQ67qH/ZUirGVx/dXQL025PflkfHYH5o9vy8=; b=XGYpmx/ueXZ8lcaHELIGtugigQ
-	BGfXRFcrSqTjouef4BODOt91kEedSagdwlMEdqe+3jl0KRhHw864qGrE6Csv4fHG6jfBrR8byREG6
-	ReH8vBwWoBN11j+oUjDtlHfphvtdhDu3EgmeF4z25FtreOfuHf72RP/yM5xrveyHsEB7PxYeVbYm+
-	OqwKYgA6q5KzFNGNiPgsNRS3uuAPO5+cUGMD6HjjL1GG6/EV2dxNwh5q8A3YmhTMJgPVpWPHyARVx
-	IXUOVQRwtpU7lmmfC3OQTNMo+cBhApMS0N4Rm1723D5CMoN2AjsffWnAewtcChbtUUoZ2DOXyItGA
-	MEHRGjvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RwtXUnQwcyYRw9GdUt7n+q2Pr23vZGyPqjLwuPaVZ3s=; b=Wr2FW4q4lH6CqQavytgn9bE21x
+	OUK5PTgV/9CvXxardbyr8O0wiiCgrpCqtKgYNYr+vK1LQEG74afpSQFTgSJlneRsO8lXCaXnfPFbD
+	vuNwcxikMnf6d7Ydzn9ED0EnBkcqemZcOgecq1fkNTcyDarjS9bIAUW9FT+RyKMA+pPT6iQyHykto
+	M68mjb6ZMcSU9n1xs11WqmXA9eVZT9NzmpYIbFKUsywcwGetx5Z1NfnsF1LMueaSdvX810xa94sdx
+	enVHKg2wIF0DPLlLFhk6CmCpC2jmymyOcsCRHay0vUxLW8k7+pI1kC3YTo7zTNTvwkEIgso9b/W05
+	UuSV9HKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqN1x-0000000Cs5v-27eN;
-	Fri, 07 Mar 2025 02:01:41 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tqNJp-0000000CtQu-1KNA;
+	Fri, 07 Mar 2025 02:20:09 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqN0K-0000000CrwE-06fB
+	id 1tqNIB-0000000Ct5U-2j7g
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 02:00:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 729BDA453B6;
-	Fri,  7 Mar 2025 01:54:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A711CC4CEE0;
-	Fri,  7 Mar 2025 01:59:58 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741312798;
-	bh=ulj+vhipmfz34qioaiFLWEsQ+Aq8r+/RSLJ+tVnvt0o=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=N5Pqh2+p2XL+6S6QKqbBBqoLPRvmmAuyO2i2szgqMImDiNdWeONioiCzTmsjTGmbC
-	 p29GZY9lV/Sg8SCvBoMQ0jMdDb9OR9hHUCb33rY+7J/T8xw9g7CLNfBw/5GOty0e+S
-	 FHCvX3YqkXdI2Otl2KWLtwn/RrNNwlhN3fHNOCPP8dIPZYAM+mHxn9caHI2vXVooyv
-	 GkpZbZgtmEEJR0OPd76Td8BaX5/Lg6EBGih4lYPhqoRJdsYK6DToQNcaPEA9RUghYH
-	 NZaSzn/mLkpjIsh2OuHdfbRAP4z8R19sFhPnUjmDxH+zMJKeCW3Tv6VUIWB12PvPZx
-	 VBDA0x//a+Y6g==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 34917380CFF6;
-	Fri,  7 Mar 2025 02:00:33 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Fri, 07 Mar 2025 02:18:29 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4Z88xD0nfJzvWrq;
+	Fri,  7 Mar 2025 10:14:24 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 4B7B8140257;
+	Fri,  7 Mar 2025 10:18:12 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Fri, 7 Mar 2025 10:18:11 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
+	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
+	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>
+CC: <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
+	<prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>, <linuxarm@huawei.com>
+Subject: [PATCH 0/2] Update the watchdog period according to real CPU frequency
+Date: Fri, 7 Mar 2025 10:18:09 +0800
+Message-ID: <20250307021811.46981-1-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v4 0/2] Add perout configuration support in IEP
- driver
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174131283199.1853786.11033321360799820644.git-patchwork-notify@kernel.org>
-Date: Fri, 07 Mar 2025 02:00:31 +0000
-References: <20250304105753.1552159-1-m-malladi@ti.com>
-In-Reply-To: <20250304105753.1552159-1-m-malladi@ti.com>
-To: Meghana Malladi <m-malladi@ti.com>
-Cc: javier.carrasco.cruz@gmail.com, diogo.ivo@siemens.com, horms@kernel.org,
- richardcochran@gmail.com, pabeni@redhat.com, kuba@kernel.org,
- edumazet@google.com, davem@davemloft.net, andrew+netdev@lunn.ch,
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com, vigneshr@ti.com,
- rogerq@kernel.org, danishanwar@ti.com
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_180000_156709_9EE1B42B 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250306_181827_893835_F92A75C2 
+X-CRM114-Status: UNSURE (   8.35  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,31 +72,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-This series was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+watchdog perf needs architecture to provide method for converting the watchdog
+thresh to counter period. For arm64 we're using the max CPU frequency for
+doing the conversion which is from cpufreq driver. But some cpufreq driver
+are registered lately, for example cppc_cpufreq will be registered at late
+initcall which is after the initialization of watchdog perf (initialized in
+armv8_pmuv3 of device initcall). In such case the period of watchdog will not
+be accurate enough. Fix this by registering a cpufreq notifier and update the
+watchdog period once the cpufreq driver is initialized.
 
-On Tue, 4 Mar 2025 16:27:51 +0530 you wrote:
-> IEP driver supported both perout and pps signal generation
-> but perout feature is faulty with half-cooked support
-> due to some missing configuration. Hence perout feature is
-> removed as a bug fix. This patch series adds back this feature
-> which configures perout signal based on the arguments passed
-> by the perout request.
-> 
-> [...]
+Yicong Yang (2):
+  watchdog/perf: Provide function for adjusting the event period
+  arm64/watchdog_hld: Add a cpufreq notifier for update watchdog thresh
 
-Here is the summary with links:
-  - [net-next,v4,1/2] net: ti: icss-iep: Add pwidth configuration for perout signal
-    https://git.kernel.org/netdev/net-next/c/e5b456a14215
-  - [net-next,v4,2/2] net: ti: icss-iep: Add phase offset configuration for perout signal
-    https://git.kernel.org/netdev/net-next/c/220cb1be647a
+ arch/arm64/kernel/watchdog_hld.c | 34 ++++++++++++++++++++++++++++++++
+ include/linux/nmi.h              |  2 ++
+ kernel/watchdog_perf.c           | 21 ++++++++++++++++++++
+ 3 files changed, 57 insertions(+)
 
-You are awesome, thank you!
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
+2.24.0
 
 
