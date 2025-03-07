@@ -4,160 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DA0C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:11:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FF79C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:13:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=; b=mLJklPVz2cmiaGb7xvFJj2DeeO
-	QFn4n9pX5+2IsDaJ9HQThpb6s0P6MYlIBB26Lbv38Db2awjl6g18hSqIlf4fffoSw7k11MxnbhiHI
-	snCf1Gyb6hzcLAxV+TXqsfVpq3VnIhUC53ug0zaFC59csFS3e1LxBZ85QAjw78E/LC5BqJP7VH6yj
-	gPCbKV40/IpXYcdDGK1Fc3yylmulZU6/gcU52U+G4v6tWCXf7os48d2ZDP9DaT6MYDjlvUzF4i8Pn
-	GBpBW/j3kRR6TFdWNrdtHzbg9nifPK43Cq3BPKq8YwnqA3QzoGDOY2uhoUkQN+MmC90QcLmqZa3JP
-	Y7aiDHcw==;
+	bh=L/N4JFlusujbcoj0jCEsI/xwSAFfnYWQZ2QHzQLeD/A=; b=MkelKvVz8mw0XtM9XI9GtzzuVB
+	E8UIVC9xdeSMTORm7NUbrAP7fwQ9smzwGVxScpOvHw331QSEt/k8lhL/fTg0NhIOeemQ021rsuUNb
+	nRG30ZTpZc4rSwlhxiRKdwmRz9o0PnildtW/CuauHyyQObUijAKSReGrvLkwgX937TKzXdFGDB0QB
+	Th+yxVNpiKVxhnfnWEmhgXm5LhcU0N5pCL7ZsLYsNoK19dS8mtb+c8zijIcmR4pdfhM32RCvbg/qG
+	q/GJ3ozga+t3s61kuj26hPPw2Dfw858yHl2H3ac4dmMsiBld51JvJGm34KDUSpFZOxYsVGN3XJL3l
+	SJiZG/pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqcAG-0000000FB8P-1bqq;
-	Fri, 07 Mar 2025 18:11:16 +0000
-Received: from mail-bn8nam12olkn20810.outbound.protection.outlook.com ([2a01:111:f403:2c18::810] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tqcBr-0000000FBKt-0mta;
+	Fri, 07 Mar 2025 18:12:55 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbko-0000000F671-1Hkn
+	id 1tqboW-0000000F6rO-22qc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 17:44:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xTLApNqDNCW/n9lhmNMaqeTR5LcRQw0DarZQmlt8As2Q1AL2WT7ouYzPGyMQiMPyD2SVOmnRm0vMsd05IkqRcrHjODdw19dw7oaQNSSTpGQ16FdGhHXCCw0WpoHCMLIR7JeAwbPfE3G7liCicn7Rl2Ixq6i1pGvS+lOA1pSEsaFmW785Bk3/UK2f+N7XzqSfvDJCbivPhhr5O+NHS6c0GedgY5cBvLX4L7SFYR4+7MVUFWvh9DLVSi0M/3Oc3aqwCMau8sGgOw9+OnvbkNnpK47hTXZCUiW/0I4UydJbhYmlzbMUGWSbKn+iO/u6+an/9DWSt8g/1kxwTrGOPJWWIw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=;
- b=oLyIaat2uZBieIzqYkINJsq1KiadhSRK/daqYf/k0QmLl8/iJPRFDKHFresw5eVUEDrbqSIwa/oEmpDX4sc0DP83lAFUzhGqTydymTy6VBt8OPzl1ZdEvud1TIgSIa6bLGCP64pikjK9zssX/G2gh29tB5qrl8ek1uW/0OebnL0PzNELYLBkhHQ0SQ1KcSsj1kvnTk4VBpdIqcG0wbCiF4kMf6H3OFp12kfqcXi8mGk0VjTqreEIMVcXP5jExWrfs+b/jnKrhH5J16/nLuWTuU1YCMc95ILaeqPl+JJIkJqb6hrf0LcKFq6iIf3VRqJimbco+ddM71GBqET+FgLz7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
- dkim=none; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=;
- b=UOOFFYBG7kjnZIKSPYSAFhKY24YYN12OGyaQHhqVURH1rVixOroSOCfnibZ0Z5y5XY98usbJiLoU1lHwr2Di2B4u6Qajmr4Q1U3IipOaj5UUcRphRkhAd5l1F00ySPsr3q5tfzggXPeVimVVNI0I3hyim91QAaTZkHg/HjiBAY88d9RTKTgmEnsf7feUOsn/EGfX6rXjzrKvS3rS7Fhc9aNrb+jjzP8bzOMyvX4quOnn7imLr8KIFkfTxmIwwPJ35WsHXc0PNgaS1vyOdApTRh99hgFPY/S7MBFW/5N4X7KmJuj9IxQZUClKi1us3sk2/Dmuc15DAyDTXZ2mVwbfVQ==
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
- by BL3PR02MB7970.namprd02.prod.outlook.com (2603:10b6:208:355::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
- 2025 17:44:50 +0000
-Received: from SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
- ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
- 17:44:50 +0000
-From: Michael Kelley <mhklinux@outlook.com>
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
-	"x86@kernel.org" <x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
-	<linux-arch@vger.kernel.org>, "linux-acpi@vger.kernel.org"
-	<linux-acpi@vger.kernel.org>
-CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
-	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
-	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
-	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
-	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
-	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
-	<hpa@zytor.com>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"joro@8bytes.org" <joro@8bytes.org>, "robin.murphy@arm.com"
-	<robin.murphy@arm.com>, "arnd@arndb.de" <arnd@arndb.de>,
-	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
-	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
-	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
-	"mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
-	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
-	"apais@linux.microsoft.com" <apais@linux.microsoft.com>,
-	"Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
-	"stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
-	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
-	"vkuznets@redhat.com" <vkuznets@redhat.com>, "prapal@linux.microsoft.com"
-	<prapal@linux.microsoft.com>, "muislam@microsoft.com"
-	<muislam@microsoft.com>, "anrayabh@linux.microsoft.com"
-	<anrayabh@linux.microsoft.com>, "rafael@kernel.org" <rafael@kernel.org>,
-	"lenb@kernel.org" <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-Subject: RE: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
- setup function
-Thread-Topic: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
- setup function
-Thread-Index: AQHbiKNt6Dmf5ml0nkycDSKgcIRUw7Nn/hsg
-Date: Fri, 7 Mar 2025 17:44:50 +0000
-Message-ID: <SN6PR02MB415730AA9A9BFFBB9A62F195D4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BL3PR02MB7970:EE_
-x-ms-office365-filtering-correlation-id: 600fd99e-7ad6-4356-19f3-08dd5d9fc2c1
-x-microsoft-antispam: BCL:0;ARA:14566002|19110799003|15080799006|8060799006|8062599003|461199028|102099032|440099028|3412199025;
-x-microsoft-antispam-message-info: =?us-ascii?Q?kz6jOW7e5OUAOq6DABWsud/pzw+EsIOnIucx25Vx9LkGFcKcR45NXL8pAnXO?=
- =?us-ascii?Q?nGFJg/bNJp9CTTJBbWig4/I9u6Ups1kX0ihB8Gnr13SWOKna2In/XVYhOryk?=
- =?us-ascii?Q?NPtsRL2iYaQZjrqHVPc05Eh/WRYnJtZa9TXbONN0qW+2glL+O2UJT3hSnPB0?=
- =?us-ascii?Q?o4J1+cwTUidPHZz8ENkepJt4d5N7HZE98CKUjA9dAwbZmut2NYeB7zO+csmE?=
- =?us-ascii?Q?bZ6ScIseVte2wo8WdEkafqssAjSpkMwgsXqF5uI5uBr6agQbehbeCfNUNrdv?=
- =?us-ascii?Q?11Ab5WfR9QwnspqqDGApdrCiBuyfY1GCHLkDD+a7XSFpJLLiBEOmPrIYkebL?=
- =?us-ascii?Q?A6iRypknumQ5HUL/oD2GoXNJr+B43WAcfIxuEvYi1oBfV0cFkhGHbYDrFb21?=
- =?us-ascii?Q?iQmAppGA9jnGQVg5JVtxXbzCI7aijvyInvnjXlgCFbnC5q0gZvWUfXz2QKrV?=
- =?us-ascii?Q?D2C+47O6IIBNJHtxySzB9bSHed+44zH+jJEZWKLxRatuI+THInwhL/Pp9RKd?=
- =?us-ascii?Q?hoeJDmVoQExTDVKhGAIkm4H5ksZFOphLOfoNZzanWNolaVn7seWvJ/8MCcO0?=
- =?us-ascii?Q?GR/Em530BdxyaELa57bbXJXAj8f4TArZYBXGRU8dNVD5hW45i8Pay7OpGTlU?=
- =?us-ascii?Q?1pfz/kSPUbk8FpQCzKj2tgYT2SKvNt0fJiCd2WXiWnYXdfvVb57xAbqe5sCN?=
- =?us-ascii?Q?gug6pBgf+FaETHftKsKmw7yomNTNqt2AtUKbJdU3QgpyFp2L27kN8+KhYriq?=
- =?us-ascii?Q?Qdd9NRiuvqLVvtVda6zcg/0ZjooIy6a6AINpiielgLFfoJercGnNyWr5MFEB?=
- =?us-ascii?Q?1fjdy2FCnGw792E+saYDOYrHmiq8lxojllHUcSrBubc0f1ljWZK8fNA9BYjU?=
- =?us-ascii?Q?yvF6gz9Qo8n29kgpWzXHTT4y4OMZ6OVfae0aXgb/kWAUeSbJXSls+lEKb9Rj?=
- =?us-ascii?Q?WtQMtFLnuNCJJDufhskUP7x8Mx+6WJw2bR5WZmZdQbx8tQStkzbI01sGMTud?=
- =?us-ascii?Q?TMz7Na0MhAzgewdtOTFy+L+pSMKePTwCAOtqPICUSOQq0As=3D?=
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DcV42RIjh4FDcwHEL89pKM0xrqrVrmzRNXrmdgTZtzQu83CgFItojQjgfT97?=
- =?us-ascii?Q?DR6cgr0CkusWgOjsMPramFUI9cL+IMRKrZGn8lbEkJXXJEZ1z8wTMF2nTOM/?=
- =?us-ascii?Q?tBeaiphNt4nZ1l/eeVtTKnKKxBqYltYCldeWlZHABDrA4NZ+KW0ggQ0aRBLe?=
- =?us-ascii?Q?NkGLNlNFc6lQz7Ai5ba5/OKH8KwejECVd/XxQAWdnsXg2Rh87KKsYXe8N5rq?=
- =?us-ascii?Q?n/0UrQjB4YTioNoolgrNG07Z35uz62iT036qAa024W75HwbMuIi25ZE0sQUP?=
- =?us-ascii?Q?3llBKNh3VEF7CCFjVH/0rg3C0eArsOv/bbJKueXaAzViC+J+WZjwql5WcMs5?=
- =?us-ascii?Q?8x1erBExR+HaLNTvWzVTGTwyUPTRB6v6N5Mvnw3EWJ3QYmXC6re7HNvPTfGx?=
- =?us-ascii?Q?RQPnNJzXLx6sI/Y+jw/H9zRjymhwOvBzOHPje9UtMbLBDMGu5glk0DGQ/64x?=
- =?us-ascii?Q?SndS1SqMHi0hmqwzB5zqOwiaMM2hMOj/IfJ7voMWlSD1Bw2G+MtgecpNqH7o?=
- =?us-ascii?Q?rsUebBn8sXlGeV92LcTHerKmasoCHBFF+L2XUP9L/4Re+LIie3iVizLmv4QB?=
- =?us-ascii?Q?9vUh8wa+7mCYAmJyz7xDsLdBtjfufYay8SK9u411WBuov4ioqOtPaGu75+oj?=
- =?us-ascii?Q?r73h9vmPV2Em4mTKlIONGk1BEHfpWviMPcEe3DDmJu3lp2Mtrb6j1irGtuw3?=
- =?us-ascii?Q?9uFk/uVfI7HQbZcpqdTjJr0LyfBVxbBgVvOXZMOg/ruRCgM625tY4gsXXotw?=
- =?us-ascii?Q?EN4crVqhRMk9xw7N8cZuIJJEo2JQVa2uqF/MpIoYXdCAcq5KNK72M5y5Sq29?=
- =?us-ascii?Q?2FhaCe308ga3O4R9BRovgPYVokUhG3o6T4kLhTqasvKNKiE0Vx/EUsIf/w93?=
- =?us-ascii?Q?DwpWZ91cDnUUm88Fu9WGmCVb7j6NqGJJ8/myI2mDWbu4gqo8SMathJZwmuBd?=
- =?us-ascii?Q?nzP2TATD2OoaqEiK9Js/Y5XTzmekFM5g3A245JTDKzAzmVNek4aw1nSTARZH?=
- =?us-ascii?Q?uF78qtxMeVeb4sbZJq85TgMOhTV1Smp4uEBpXaNKV8Hyd9GUqNZqtj4QPLy/?=
- =?us-ascii?Q?eKBlVZUfQHiq4l1gcMEuOBzd6LUSlahtOcRyIz2GmWZaqii++DbLGFYyL2dj?=
- =?us-ascii?Q?XoSDSPSRvaE7qFcOdVV8mwJ774xKEHDPv0Z5a7lAIHZ3p1Zph3gKdz2pY02+?=
- =?us-ascii?Q?rDssaWcJeO5bkjMZYkN5z9pdYFQneTd+LWwMEXvKz+Z68j6LaI/AA3FNTp4?=
- =?us-ascii?Q?=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 07 Mar 2025 17:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C15EFA42DAA;
+	Fri,  7 Mar 2025 17:43:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46DACC4CEE2;
+	Fri,  7 Mar 2025 17:48:43 +0000 (UTC)
+Date: Fri, 7 Mar 2025 23:18:39 +0530
+From: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+To: Bo Sun <Bo.Sun.CN@windriver.com>
+Cc: Manivannan Sadhasivam <mani@kernel.org>, Kexin.Hao@windriver.com,
+	linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org,
+	Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Vidya Sagar <vidyas@nvidia.com>
+Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
+ PCI_PROBE_ONLY is enabled
+Message-ID: <20250307174839.7nd7mhc5ebmokumu@thinkpad>
+References: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
+ <20250210103707.c5ubeaowk7xwt6p5@thinkpad>
+ <df5d3c54-d436-43bb-8b40-665c020d6bb5@windriver.com>
+ <20250214170057.o3ffoiuxn4hxqqqe@thinkpad>
+ <55a33534-bff0-488c-a2a2-2898d54bd62f@windriver.com>
+ <20250305060607.ygsafql53h2ujwjp@thinkpad>
+ <416a2d7d-eeb6-4163-8805-3178476f5a8d@windriver.com>
 MIME-Version: 1.0
-X-OriginatorOrg: outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-CrossTenant-Network-Message-Id: 600fd99e-7ad6-4356-19f3-08dd5d9fc2c1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 17:44:50.4952
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
-X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR02MB7970
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <416a2d7d-eeb6-4163-8805-3178476f5a8d@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_094458_361922_3CA9858F 
-X-CRM114-Status: GOOD (  17.09  )
+X-CRM114-CacheID: sfid-20250307_094848_609411_73C1F64C 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -172,99 +75,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, Fe=
-bruary 26, 2025 3:08 PM
+On Fri, Mar 07, 2025 at 06:14:26PM +0800, Bo Sun wrote:
 
->=20
-> This will handle SYNIC interrupts such as intercepts, doorbells, and
-> scheduling messages intended for the mshv driver.
+[...]
 
-Could you provide a bit more detailed commit message? How does
-the mshv_handler() relate to the vmbus_handler()? From the code
-mshv_handler() goes first, and I'm assuming it processes what it
-knows about (intercepts, doorbells, scheduling messages?) and
-then hands off control to the vmbus_handler() to handle the usual
-VMbus-related message and channel interrupts. But it would be
-nice to have the commit message or code comments describe the
-overall intent and any obscure aspects of the relationship.
+> > > So, I propose the following solution as a workaround to handle these edge
+> > > cases.
+> > > 
+> > > diff --git a/drivers/pci/quirks.c b/drivers/pci/quirks.c
+> > > index 82b21e34c545..af8efebc7e7d 100644
+> > > --- a/drivers/pci/quirks.c
+> > > +++ b/drivers/pci/quirks.c
+> > > @@ -6181,6 +6181,13 @@ DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1536,
+> > > rom_bar_overlap_defect);
+> > >   DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1537,
+> > > rom_bar_overlap_defect);
+> > >   DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_INTEL, 0x1538,
+> > > rom_bar_overlap_defect);
+> > > 
+> > > +static void quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr(struct pci_dev
+> > > *dev)
+> > > +{
+> > > +       if (!pci_has_flag(PCI_PROBE_ONLY))
+> > > +               pci_add_flags(PCI_REASSIGN_ALL_BUS);
+> > > +}
+> > > +DECLARE_PCI_FIXUP_EARLY(PCI_VENDOR_ID_CAVIUM, 0xa002,
+> > > quirk_marvell_cn96xx_cn10xxx_reassign_all_busnr);
+> > > +
+> > 
+> > LGTM. Please add a comment about this quirk too.
+> 
+> OK, I'll add the comment. Should I send the v2 patch?
+> 
 
-And avoid references to "This" or "This patch". :-)
+Yes, ofc. You should send v2 with the quirk change.
 
->=20
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> Reviewed-by: Wei Liu <wei.liu@kernel.org>
-> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
-> ---
->  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
->  drivers/hv/hv_common.c         | 5 +++++
->  include/asm-generic/mshyperv.h | 1 +
->  3 files changed, 15 insertions(+)
->=20
-> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyper=
-v.c
-> index 0116d0e96ef9..616e9a5d77b4 100644
-> --- a/arch/x86/kernel/cpu/mshyperv.c
-> +++ b/arch/x86/kernel/cpu/mshyperv.c
-> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
->  }
->  EXPORT_SYMBOL_GPL(hv_set_msr);
->=20
-> +static void (*mshv_handler)(void);
->  static void (*vmbus_handler)(void);
->  static void (*hv_stimer0_handler)(void);
->  static void (*hv_kexec_handler)(void);
-> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->  	struct pt_regs *old_regs =3D set_irq_regs(regs);
->=20
->  	inc_irq_stat(irq_hv_callback_count);
-> +	if (mshv_handler)
-> +		mshv_handler();
-> +
->  	if (vmbus_handler)
->  		vmbus_handler();
->=20
-> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->  	set_irq_regs(old_regs);
->  }
->=20
-> +void hv_setup_mshv_handler(void (*handler)(void))
-> +{
-> +	mshv_handler =3D handler;
-> +}
-> +
->  void hv_setup_vmbus_handler(void (*handler)(void))
->  {
->  	vmbus_handler =3D handler;
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index 2763cb6d3678..f5a07fd9a03b 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
->  }
->  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
->=20
-> +void __weak hv_setup_mshv_handler(void (*handler)(void))
-> +{
-> +}
-> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
-> +
->  void __weak hv_setup_kexec_handler(void (*handler)(void))
->  {
->  }
-> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
-v.h
-> index 1f46d19a16aa..a05f12e63ccd 100644
-> --- a/include/asm-generic/mshyperv.h
-> +++ b/include/asm-generic/mshyperv.h
-> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
->  void hv_remove_kexec_handler(void);
->  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
->  void hv_remove_crash_handler(void);
-> +void hv_setup_mshv_handler(void (*handler)(void));
->=20
->  extern int vmbus_interrupt;
->  extern int vmbus_irq;
-> --
-> 2.34.1
+- Mani
 
+-- 
+மணிவண்ணன் சதாசிவம்
 
