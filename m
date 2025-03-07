@@ -4,101 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08A85C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 03:23:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BB4AC282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 03:27:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gdn4lX+kFQyWfA92qDWyZd8yYqxG7AVp6aPd2bjWTIg=; b=i7ItX9Q8YxGOdtvbR2+iLmlMu+
-	pS8VDVA1hFq7QDl9gp1+4Lulp0bWZ748nD+gc0OKj6OBJr8w3Msz04JeuGhh2gwAj9MUE/xLUxFLP
-	gxUzN7Of3RZxZ/2Wg6PNjSvqdMczaoNM2HK53gB9aQlFF2ESSqw+68dsHGd+RwPJE78g23bQy0q4/
-	sKagl+cSG3TrYKI3ukjLxNt1eGAmKKrKAAPPIo2SpaqCjSMZ8ims9A9g4C1W3m4EfimDhhmr97Pjn
-	Cds4t7LLWhhOETZUBHMleX2SMUrnx5qo5ykFo04FNuUwydwg3KerEfnJwOiL7XT1euv2yNce6abgX
-	/QU3vlwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mlxhPvZm2quipPXq17CccutVkhRwgR1GhsKWvxs+kjk=; b=Sqk7YAvPHb6Usc4Z8ejg4vFOi+
+	ySlobnIVu+PW/Tp41bnarAGiHGMI4P/Dwcd/0DKJEEYTYi4yXvWgSF4jYJ5ztP3tOAUMRp7xf8hpA
+	w6aQ20pJcbOlggoSxm2NepxWgvIdsOpLKj3/cPRyFaw/wcic74YSImAUvq0CPF9fg5LbB2uk45DV3
+	WWaK1NSi9NdHui75Dw1WqaPrw797xRDJriS76mCD8mchYLPfUESKpYcC/hAmtAI4UFKHX8pk9WRc0
+	hhtsS5jJHHoBD06Ym8xQhMEeU0aM9rfNQ5tReULPzDEvctN+tQGEG0jECwwch87aDjsR6nJ9Bh3YF
+	yV2QDdcQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqOIi-0000000Cyhe-3iZT;
-	Fri, 07 Mar 2025 03:23:04 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1tqON9-0000000Cz3M-34EB;
+	Fri, 07 Mar 2025 03:27:39 +0000
+Received: from unicom145.biz-email.net ([210.51.26.145])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqOH6-0000000CyUm-15w2
+	id 1tqOLW-0000000CyvK-1Ssx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 03:21:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741317684; x=1772853684;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=Jg5XeRxyuKD825uDbJYMZSOpqP9zMmh8t5nyw3/cSXk=;
-  b=eVKYI77CQg1VBIAf3OxuOQrecRd1/4XNcA6wNVhduzIa7gX9tb5hf+Vu
-   k9i6sqD8EQzt5uLhJ7LZ4ZDpO6FNEaw8jYbOCYKOh80+WJm+qZmWQrJwV
-   Cit4b+ZOWvSjS4ZM/Xx368Uek4dio7dQJUK2agC17J6ARiioZRQ93hlUb
-   sEpFfS3ZLcNDyUGqakmanJAmSxVSuMkAQimAZ0TFyMhv8/ldc/5ygpw+y
-   FFwAYIYIP3lnCD+cUckJG9nmRV/48zOD28NQ8qSragERDKxpRPNf1AEaA
-   zftZQxxU0h8593rqSZeIiGc4SsPI+Oe/Or7XcOhV79q1AfTzLgE+flQMZ
-   g==;
-X-CSE-ConnectionGUID: uNE8Zf0CRDaEK/iuO0pEeg==
-X-CSE-MsgGUID: H3NIFVoxQ76bfwV3ZPrH8w==
-X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="45164193"
-X-IronPort-AV: E=Sophos;i="6.14,228,1736841600"; 
-   d="scan'208";a="45164193"
-Received: from fmviesa008.fm.intel.com ([10.60.135.148])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 19:21:23 -0800
-X-CSE-ConnectionGUID: iDlWGXgBRa+qU7VDX2G/zg==
-X-CSE-MsgGUID: jWEeBpZ0ToCaX0rjX89xkQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,228,1736841600"; 
-   d="scan'208";a="119388873"
-Received: from mohdfai2-mobl.gar.corp.intel.com (HELO [10.247.100.177]) ([10.247.100.177])
-  by fmviesa008-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Mar 2025 19:20:57 -0800
-Message-ID: <df5f2ff0-2ead-4074-a40e-8a2fc9b63339@linux.intel.com>
-Date: Fri, 7 Mar 2025 11:20:53 +0800
+	Fri, 07 Mar 2025 03:25:59 +0000
+Received: from jtjnmail201610.home.langchao.com
+        by unicom145.biz-email.net ((D)) with ASMTP (SSL) id 202503071125354834;
+        Fri, 07 Mar 2025 11:25:35 +0800
+Received: from locahost.localdomain (10.94.18.185) by
+ jtjnmail201610.home.langchao.com (10.100.2.10) with Microsoft SMTP Server id
+ 15.1.2507.39; Fri, 7 Mar 2025 11:25:34 +0800
+From: Charles Han <hanchunchao@inspur.com>
+To: <broonie@kernel.org>, <mcoquelin.stm32@gmail.com>,
+	<alexandre.torgue@foss.st.com>, <patrice.chotard@foss.st.com>
+CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	Charles Han <hanchunchao@inspur.com>
+Subject: [PATCH] spi: stm32: Fix a NULL vs IS_ERR() bug
+Date: Fri, 7 Mar 2025 11:25:28 +0800
+Message-ID: <20250307032530.116837-1-hanchunchao@inspur.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH iwl-next v8 11/11] igc: add support to get frame
- preemption statistics via ethtool
-To: Vladimir Oltean <vladimir.oltean@nxp.com>
-Cc: Tony Nguyen <anthony.l.nguyen@intel.com>,
- Przemek Kitszel <przemyslaw.kitszel@intel.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Simon Horman <horms@kernel.org>, Russell King <linux@armlinux.org.uk>,
- Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>, Furong Xu <0x1207@gmail.com>,
- Russell King <rmk+kernel@armlinux.org.uk>,
- Serge Semin <fancer.lancer@gmail.com>,
- Xiaolei Wang <xiaolei.wang@windriver.com>,
- Suraj Jaiswal <quic_jsuraj@quicinc.com>,
- Kory Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>,
- Jesper Nilsson <jesper.nilsson@axis.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Chwee-Lin Choong <chwee.lin.choong@intel.com>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Vinicius Costa Gomes <vinicius.gomes@intel.com>,
- intel-wired-lan@lists.osuosl.org, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
-References: <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-1-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-12-faizal.abdul.rahim@linux.intel.com>
- <20250305130026.642219-12-faizal.abdul.rahim@linux.intel.com>
- <20250306004809.q2x565rys5zja6kh@skbuf>
-Content-Language: en-US
-From: "Abdul Rahim, Faizal" <faizal.abdul.rahim@linux.intel.com>
-In-Reply-To: <20250306004809.q2x565rys5zja6kh@skbuf>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.94.18.185]
+tUid: 2025307112535a815d6c3a2c39f102f9dbacaeff8520a
+X-Abuse-Reports-To: service@corp-email.com
+Abuse-Reports-To: service@corp-email.com
+X-Complaints-To: service@corp-email.com
+X-Report-Abuse-To: service@corp-email.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_192124_351347_7D324AC4 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250306_192558_654680_752CA0BD 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,43 +69,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The devm_ioremap() function doesn't return error pointers, it may
+returns NULL.  Update the error checking to match.
 
+Fixes: 79b8a705e26c ("spi: stm32: Add OSPI driver")
+Signed-off-by: Charles Han <hanchunchao@inspur.com>
+---
+ drivers/spi/spi-stm32-ospi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-On 6/3/2025 8:48 am, Vladimir Oltean wrote:
-> On Wed, Mar 05, 2025 at 08:00:26AM -0500, Faizal Rahim wrote:
->> +/* Received out of order packets with SMD-C */
->> +#define IGC_PRMEXCPRCNT_OOO_SMDC			0x000000FF
->> +/* Received out of order packets with SMD-C and wrong Frame CNT */
->> +#define IGC_PRMEXCPRCNT_OOO_FRAME_CNT			0x0000FF00
->> +/* Received out of order packets with SMD-C and wrong Frag CNT */
->> +#define IGC_PRMEXCPRCNT_OOO_FRAG_CNT			0x00FF0000
->> +/* Received packets with SMD-S and wrong Frag CNT and Frame CNT */
->> +#define IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT		0xFF000000
->>   
->> +/**
->> + * igc_ethtool_get_frame_ass_error - Get the frame assembly error count.
->> + * @reg_value: Register value for IGC_PRMEXCPRCNT
->> + * Return: The count of frame assembly errors.
->> + */
->> +static u64 igc_ethtool_get_frame_ass_error(u32 reg_value)
->> +{
->> +	u32 ooo_frame_cnt, ooo_frag_cnt; /* Out of order statistics */
->> +	u32 miss_frame_frag_cnt;
->> +
->> +	ooo_frame_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAME_CNT, reg_value);
->> +	ooo_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAG_CNT, reg_value);
->> +	miss_frame_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT, reg_value);
->> +
->> +	return ooo_frame_cnt + ooo_frag_cnt + miss_frame_frag_cnt;
->> +}
-> 
-> These counters are quite small (8 bits each). What is their behavior
-> once they reach 255? Saturate? Truncate? Do they clear on read?
-> 
-Hi Vladimir,
-
-These are part of the statistic registers, which in IGC, reset upon read. 
-When they reach their maximum value, each field remain at 0xFF.
-
+diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
+index 8eadcb64f34a..a544d7897edf 100644
+--- a/drivers/spi/spi-stm32-ospi.c
++++ b/drivers/spi/spi-stm32-ospi.c
+@@ -835,10 +835,10 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
+ 	if (rmem) {
+ 		ospi->mm_size = rmem->size;
+ 		ospi->mm_base = devm_ioremap(dev, rmem->base, rmem->size);
+-		if (IS_ERR(ospi->mm_base)) {
++		if (!ospi->mm_base) {
+ 			dev_err(dev, "unable to map memory region: %pa+%pa\n",
+ 				&rmem->base, &rmem->size);
+-			ret = PTR_ERR(ospi->mm_base);
++			ret = -ENOMEM;
+ 			goto err_dma;
+ 		}
+ 
+-- 
+2.43.0
 
 
