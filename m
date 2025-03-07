@@ -4,74 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AE4C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:42:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 954A1C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:51:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tB47NhdW21VLiNaIVnaYUHqCrFxwfPm+U7cfkK9z7Nc=; b=r4r/2t/CHWrYIkBgm3qviw0yOE
-	+R9vAZER6niWcnc2lbWlCpEdVCKLUaL9M2Pu7XPGVHnMXQcHI3AvfHzrzkjI5hP8XJk7ZbENYr5tp
-	GpsbAElGUxiOZNCcGEQx6MBOKJpaCO45DAooM7jk4zwb0k9h4Z8vK5HaLJTsmYV1UdCw6YL78YHBD
-	H8bthScTzsxzg9roJS0yfj7HqEEC+paz33I9VErtf1yQ4avQEeoVg0l86O6IkGwcerAK+CgG6iiw3
-	bE/gZAINmYGOEvZhXgJPEbqsq15Ef6o7c/v29V8HvxyjExzwU8fVdx3mZ6zrUE7axvL23+PybwhTa
-	cfT+nYrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=53gg/aCTFTibjY5aJ4alNpQJDsk/0FoKqcakSxNP730=; b=pLgA5uiUIoZuBF2Kv8/nJMlX1j
+	dKm0JR9sZQ9NENY4GQM3bab38fPTJDwPbj52sgaxRBdoW+dbpoDDo2RO5q2M1Qs5u7aCa2hZSMQbF
+	Kf/1eDf6Jw1Iu3h0NZqx+c6ZD3jsGa/hby/VtEX92uXeOHY3h+ISfrmoXU10YADrq7jve8KqGWtXK
+	MhQQyq+kkWTw4ieZBUNXzw3eXUgAM9XC/mHxB3MDvpgReDb8B+Pygnw/QA9Y408EOyQFXG2ci9083
+	TkdBzphTCig3flWUYkX5h0GZ8cupqpjNEJ9EpXR9w7mNFeum2osKC+0nL0oUAGt2ueMNtA2R73FcE
+	tahUYlGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYtf-0000000EUQW-2Mzs;
-	Fri, 07 Mar 2025 14:41:55 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tqZ2p-0000000EVVv-3YST;
+	Fri, 07 Mar 2025 14:51:23 +0000
+Received: from mout.web.de ([212.227.15.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYs2-0000000EU9q-2bPc
+	id 1tqZ1C-0000000EVJ3-32ng
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 14:40:16 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tqYrk-0004Bx-MV; Fri, 07 Mar 2025 15:39:56 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tqYrk-004VBw-0X;
-	Fri, 07 Mar 2025 15:39:56 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tqYrk-000XG3-06;
-	Fri, 07 Mar 2025 15:39:56 +0100
-Date: Fri, 7 Mar 2025 15:39:56 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 0/5] imx8mp: add support for the IMX AIPSTZ bridge
-Message-ID: <20250307143956.aft3xolakts3nlja@pengutronix.de>
-References: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
- <20250226212219.lthoofw7nrs3gtg6@pengutronix.de>
- <20250227112856.aylsurbt3uqm4ivw@pengutronix.de>
- <541539db-0015-41de-837f-aabbea68486a@gmail.com>
+	Fri, 07 Mar 2025 14:49:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1741358922; x=1741963722; i=markus.elfring@web.de;
+	bh=53gg/aCTFTibjY5aJ4alNpQJDsk/0FoKqcakSxNP730=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=Rk2JI14N4ARXCHpuTNyNOcInGRlDkRyGaOnvc0XIXeYUutcybCjAHABLG1wnNfQL
+	 E0OC5UbS4qsIGNhktZhmXoeEx+Rj72xBVVV5biYD7UGcnPWwGnbEy+cIEpPiwEY8Q
+	 Xodz7LO2kOD6E581tYK5/diCEoHmiUPXXACz+eniUXpob/rHZRB6LSDtrR4em4otj
+	 DHvyto3q+jXv/haoOKN4VlAgedztXJx3HGpJK3IXxDnYbd0yiQHutog9A9GfqHObn
+	 X9w/r421MIcII9vZKaJkV5o9w9NykVGYUR174njtFLopu5pgjOxmwCNUMkaRt8n1d
+	 mcWxNyu2oF7hNonkgA==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.70.70]) by smtp.web.de (mrweb005
+ [213.165.67.108]) with ESMTPSA (Nemesis) id 1MzTLI-1t4OGg00aO-00rs3h; Fri, 07
+ Mar 2025 15:48:42 +0100
+Message-ID: <c29a5d6e-335b-463e-a318-e8d78d176a9f@web.de>
+Date: Fri, 7 Mar 2025 15:48:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <541539db-0015-41de-837f-aabbea68486a@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+To: vulab@iscas.ac.cn, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Cc: LKML <linux-kernel@vger.kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>, David Airlie <airlied@gmail.com>,
+ Inki Dae <inki.dae@samsung.com>, Jani Nikula <jani.nikula@linux.intel.com>,
+ Krzysztof Kozlowski <krzk@kernel.org>,
+ Kyungmin Park <kyungmin.park@samsung.com>,
+ Seung-Woo Kim <sw0312.kim@samsung.com>, Simona Vetter <simona@ffwll.ch>
+References: <20250306042720.2296-1-vulab@iscas.ac.cn>
+Subject: Re: [PATCH] drm/exynos/vidi: Remove redundant error handling in
+ vidi_get_modes()
+Content-Language: en-GB
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20250306042720.2296-1-vulab@iscas.ac.cn>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:EcZzEqOUckJHTaTmMgt0SzYVfd5Np76gwmwaGPdRegKbmAQG2ie
+ RCevNQmV/4Ln5FLn/62gjIXAXTwQiqbh+/CATnHMYczi6MEkvoN2BjaOvrQfw+HYKHhR5Bx
+ mzIvsJgE1sKOnRViNKz2N+UpbCZJft0aRieW7CKidbc7mLkcQbyX+KULpqBHO9Kegi+W8x5
+ R1QalZUFSCke95V9fRkHg==
+UI-OutboundReport: notjunk:1;M01:P0:BhmL7JB8mZw=;0Gs9w1jIrIJFlQZ4oQBwgNG9PdQ
+ nXplFJ+a+QA1RHvsThhDSdcjEM6cRz//u9FqvZxcsmEBbR773A8sqENDuyC31AAE+qnnv+dM1
+ iHBdO9C+ZSifqcBqSc2q5HZoTkkvWvGup0113DCSPJfZPERdC3223HQkp+iG0GOLMILqGPKcw
+ niOa21dCv/jZS3BW/bAfHnpXtsKxgfUKScVf/seSgmtGPRoEk25fzMUrGjAEFStd9rXnHK6rc
+ HCNpN+VULvHVxPbYV2GqqAJENiWcPEOiaSb+LdZzppnTd6/8HW9Gg7PIZFLFWcPAvz2hp2JhI
+ xnV9t/wmBN8zqmCUkvu1WqOaM56US9q6VhRJubmvtugstNNrH/qUP8JVRQvmASuFzjsdQ8djo
+ gdvQjyB11O/cVHQKIKOt8kPvEB0bRdvGRdZP1C2DIln6PxsQOVsPhd9gkLu5lL/Grds458w7b
+ KYSUYAwfbNAgXSGKh7/NE9DTLh/50oMB/JIReQM9UDyyQ62IxnSuF4zkxqYLH8JzjByh9blAR
+ l/sWdgXXKczn48QXbrGJiN2orUU8kwFaEWXW5ojieXNgY8QaYRSf18bigyo+4a75sF8S6ntua
+ fPAk+gFh2I0XTgqkKcARKzBvsby9t7IYc9UuVW2rrmOOVPaUHaIiN3fq3LgEj65+iWO3pGGEN
+ ZgaAgZoHthKpXVnNG0hHAde92foYQV1SQhViNw0sjD3OyyYqTSNau5sjNuOJptKEroDWWzHVw
+ CAVxO0IsEnMN2aRwDSNQ8QO/fd2qp2RkE4/YC//NzSNh+N8eX+NBNBK2vb2qfoC34OzZCoE4O
+ /o4Xy3iPiQ51JAb8lVeadSMR7aPbro9HOWvHzbPy/tHkVEd826PFhyTTO1GLNLXchFNkURLMi
+ RE1lxllCOUI+2xgyJxQn0grSkFgWCfZ7lJ6H2sf/dOGUjb1gzmUmPdhnn02h5z5RDIC3yLW+a
+ L07FuFRq0El4llj695N14l2b8OpLs1fKpO1qh2sThOXovc5dyl3pxcXcjQYTZwu/9sLtS1P2D
+ yl2v+e8F3S7npQJXYV5aDzAwEJ5wnCtVdcjDMXJl4uItgWrmvumM3DwxU8jq8PO4Eln4DdjTU
+ WLsSDnYoCewDHiu6WutEun9F6faMuYA+boXsa8ZMMJNAQMcdSe/Xy7eWyOLIZrRIYRDaZ+FSo
+ VGPuvzCbdvH74SnrGbHKU/8gdPfrhy4wc7aYCllaOKC5BfEguPh9v085UDotW1Knlx5qMUa6Q
+ ZL7cESsZmIWCdP9uPrTX9DCROhJ7SPXS31VSNGoOlD3NOkJ+4tyBj/uykw8/0rJrGISorqFzj
+ wHir6t6hzukRwaNVGNeAUqn+shSuKB+km2H1t+Lp+gsNm2aN6bkSwWv9I5sY1Ru2R/vW39YSu
+ ZQDHxb2D8DrJvQfi+iXsotjngUP4ea81CQRft+Aw2iBfHBaQE4LGZ8KxmSAMFBFIHeoeb8eBr
+ KFtS6Kg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_064014_661044_4774DF61 
-X-CRM114-Status: GOOD (  40.54  )
+X-CRM114-CacheID: sfid-20250307_064943_046050_B5C655A4 
+X-CRM114-Status: UNSURE (   7.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,127 +108,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-05, Laurentiu Mihalcea wrote:
-> 
-> On 2/27/2025 1:28 PM, Marco Felsch wrote:
-> > Hi Laurentiu,
-> >
-> > On 25-02-26, Marco Felsch wrote:
-> >> Hi,
-> >>
-> >> On 25-02-26, Laurentiu Mihalcea wrote:
-> >>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>>
-> >>> The AIPSTZ bridge offers some security-related configurations which can
-> >>> be used to restrict master access to certain peripherals on the bridge.
-> >>>
-> >>> Normally, this could be done from a secure environment such as ATF before
-> >>> Linux boots but the configuration of AIPSTZ5 is lost each time the power
-> >>> domain is powered off and then powered on. Because of this, it has to be
-> >>> configured each time the power domain is turned on and before any master
-> >>> tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
-> >> My question still stands:
-> >>
-> >> Setting these bits requires very often that the core is running at EL3
-> >> (e.g. secure-monitor) which is not the case for Linux. Can you please
-> >> provide more information how Linux can set these bits?
-> > Sorry I didn't noticed your response:
-> >
-> > https://lore.kernel.org/all/a62ab860-5e0e-4ebc-af1f-6fb7ac621e2b@gmail.com/
-> >
-> > If EL1 is allowed to set the security access configuration of the IP
-> > cores doesn't this mean that a backdoor can be opened? E.g. your
-> > secure-boot system configures one I2C IP core to be accessible only from
-> > secure-world S-EL1 (OP-TEE) and after the power-domain was power-cycled
-> > it's accessible from EL1 again. This doesn't seem right. Why should a
-> > user be able to limit the access permissions to an IP core to only be
-> > accessible from secure-world if the IP core is accessible from
-> > normal-world after the power-domain was power-cycled.
-> >
-> > Regards,
-> >   Marco
-> 
-> I'm no security expert so please feel free to correct me if I get
-> something wrong.
-> 
-> This isn't about S/NS world. The bridge AC doesn't offer any
-> configurations for denying access to peripherals based on S/NS world.
+=E2=80=A6
+> drm_edid_alloc() fails, the function will immediately return 0,
+=E2=80=A6
 
-It does, please see the AIPSTZ_OPACR register definition. The imx-atf of
-sets OPACR registers to 0 (of course), which means that the S/NS is not
-checked _but_ it can be configured.
+                   failed?
 
-Also please see chapter 4.7.6.1 Security Block:
 
-The AIPSTZ contains a security block that is connected to each
-off-platform peripheral. This block filters accesses based on
-write/read, non-secure, and supervisor signals.
+=E2=80=A6
+> the event of failure in these two functions, it is still necessary
+> to call the subsequent drm_edid_connector_update() function with
+=E2=80=A6
 
-> AFAIK that's the job of the CSU (central security unit), which is a
-> different IP.
+You may occasionally put more than 66 characters into text lines
+of such a change description.
 
-Please see above.
 
-> Perhaps I shouldn't have used the term "trusted" as it might have
-> ended up creating more confusion? If so, please do let me know so I
-> can maybe add a comment about it in one of the commit messages. In
-> this context, "master X is trusted for read/writes" means "master X is
-> allowed to perform read/write transactions".
+>                                    =E2=80=A6 To maintain the integrity o=
+f
+> the operation, redundant error handling needs to be removed.
 
-No you didn't confused me but you triggered my interest :) and I started
-to check the (S)TRM.
-
-> Even if the bridge is configured to allow read/write transactions from
-> a master (i.e: master is marked as trusted for read/writes) that
-> wouldn't be very helpful.
-
-We're talking about the IP access permissions, right. If the
-"secure-I2C" is accessible from NS world this would make a difference of
-course.
-
-> You'd still have to bypass the CSU configuration which as far as I
-> understand is also used by the bridge to deny access to peripherals
-> (e.g: if transaction is secure+privileged then forward to peripheral,
-> otherwise abort it). See the "4.7.6.1 Security Block" and "4.7.4 
-> Access Protections" chapters from the IMX8MP RM.
-
-I have read this too, also that the AIPSTZ can force the mode into
-user_mode regardless of the CSU settings, if I get this correct.
-
-What I don't understand as of now is the interaction of the AIPSTZ and
-the CSU. You can configure different bus-masters within the CSU to be
-S/NS as well as the pheripherals. Now the part which I don't understand
-right now: According the OPACx register description:
-
-x0xx SP0 — This peripheral does not require supervisor privilege level
-           for accesses.
-x1xx SP1 — This peripheral requires supervisor privilege level for
-           accesses. The master privilege level must indicate supervisor
-	   via the hprot[1] access attribute, and the MPROTx[MPL] control
-	   bit for the master must be set. If not, the access is
-	   terminated with an error response and no peripheral access is
-	   initiated on the IPS bus.
-
-The peripheral can be configured via the AIPSTZ as well. So which IP
-(CSU or AIPSTZ) override the other if the settings don't match, e.g. if
-CSU says: "this I2C controller for secure-world" and the AIPSTZ says:
-"this I2C is for non-secure-world".
-
-> Given all of this, I think the purpose of this IP's AC is to add some
-> extra, light, security features on top of the CSU.
-
-Or to override the CSU settings like the MPROTOx values:
-
-xxx0 MPL0 — Accesses from this master are forced to user-mode
-           (ips_supervisor_access is forced to zero) regardless of the
-	   hprot[1] access attribute.
-xxx1 MPL1 — Accesses from this master are not forced to user-mode. The
-            hprot[1] access attribute is used directly to determine
-	    ips_supervisor_access.
-
-Can you pleae elaborate a bit more how NXP designed the interaction
-between both the AIPSTZ and the CSU?
+How do you think about to add any tags (like =E2=80=9CFixes=E2=80=9D and =
+=E2=80=9CCc=E2=80=9D) accordingly?
+https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tre=
+e/Documentation/process/submitting-patches.rst?h=3Dv6.14-rc5#n145
 
 Regards,
-  Marco
+Markus
 
