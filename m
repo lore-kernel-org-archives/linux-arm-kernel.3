@@ -4,84 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA555C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 13:35:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A8CDC28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 13:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qefuz4/zXGnZQBriDiq772OSKh+NBl3pjLrowf6tFto=; b=tGLEt6JBq3GuaVly62HJpVNBca
-	fy1CIS/Dh7qQ/tbFeHi541b1NBahdRQbCEY7sEKtNO1BBghpnAvlUOld2HB26sfYj+GQdU62vLQ8M
-	sdicKdLa5onbG497JqnfYThmZUI2OASKY0tDI4MhYlXc3YPU3p3j4rqUKKxPU7XGQhjppC004UNep
-	YN9ZOtXq9KpBrQBK2f/ATnBlBn9TnRJXoeUZzaj5pGl26ztfZinvsfswcfSVuF2x+DTJpYAHw5cY7
-	TPT5SOaX8oURDKc4itAYztiYle22AWo7JnJXfxkN8jM+05saQqUyk7AZ7dEP3WuuJwC6M6z0Q6SM7
-	fFvK0d2Q==;
+	bh=Z4Fwuntd5k4pzx4sjSOCt+EHZTrpZASJNn/tK0Fdke0=; b=YfR8kTfphFgTfIBPD3mtm5o15U
+	+YbeB7/953ZmD2PbFRcAJBYqLkCc1I6uVgmMX2n2fkX+sB+O+W+6NAzzx+o2UR2KzyKC+lpUWElXo
+	cD6XdGwYpSk+t3fxz4NtHN3GV5opOBKbglDc6dB0S0UEpJ6QrtX05Du7mkoBfId9r0QjHx7Vcy8nL
+	JkpkC5XdmyzeGsk4fc6UFRNv8/bm6vFXKDtafjsTptiPnhS1d931VsiNU2LSxr4KG8OoJkLM8ZpRC
+	HTOIotwZojk9OTTcQejDyavx1o4OQoHAh3sxZcwPdM78FFxk/9ALSkPEarpW40E1p+x22rxJUUcXj
+	bhZ+1eMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXrP-0000000ELcI-1odo;
-	Fri, 07 Mar 2025 13:35:31 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tqXwD-0000000EM34-1qaC;
+	Fri, 07 Mar 2025 13:40:29 +0000
+Received: from mail-vi1eur03on2062a.outbound.protection.outlook.com ([2a01:111:f403:260c::62a] helo=EUR03-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXpm-0000000ELSb-31f4
+	id 1tqXuW-0000000ELrs-0Ozj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 13:33:51 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-2240b4de12bso6144505ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 05:33:50 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741354430; x=1741959230; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Qefuz4/zXGnZQBriDiq772OSKh+NBl3pjLrowf6tFto=;
-        b=BxVswqLKlERwh96xO/25LlMj0KYr4kf71g2n029ZeGoho5irVDdpjPup9pE7tapgXc
-         Iolyxu7WgFRl/tF3POzSsRs5k0cvCE5QbA85rSdkTRXf9ZUHIUS0Zc0xUFtxoYU5abGL
-         w35NOD+n9/fBXR0+z4o1JzNwrSjFDFmp9/wSSEHJd1QduuPVMol2seegHVnxW4mlYsWP
-         O0LlZELcB7AazjOC7+6bITYtov7bLxZe84lDsWYyOcLQq+2tNlH605B4SY17UF6N9K6J
-         +N00v6pn9ey3JL2yNesqsN7bbGl1k6uyCHXchfjf7sHnSUbz1PkUr3ATuvi1pGOGlcBf
-         idGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741354430; x=1741959230;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Qefuz4/zXGnZQBriDiq772OSKh+NBl3pjLrowf6tFto=;
-        b=CSLiwKDlorTkK0PlFKCUFy9AGkI+V8OR1Hu9U6to2tG8s2XCgaWOM6fvqNf8o066F5
-         8lKMHscq9q6Kimqh5G5o6V4Fwd2Yf3FI0Sx72hp3qP9jgxE+Z3oVTr2eBOd6ogPnp3Kw
-         PF0graAwje1MVHPk1ekDTMfGzaw4Pci8x+eJFDAaKB29JF3CRn3EI4gnvq3nAiPG6Zoh
-         vVta2PItPNHOW6Qi5C/1MQQhVqMFJ2aPeNJn6CBXAVltyiwGB0E+t9qxIwkat4a8NP7f
-         Wpvd8XuZ340YQA1r/1iPi3C/x1URDbxcPz5GflLxRFODbP1SYRtpjsOo17Hczh790VCM
-         C0vQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3AwUd2lGUEyDQIDhS+46yrPi7GIwiPBg0xh+KbdeC/Y0yNqrfnAIOWXEJhEHvPaoC43AT7olYSsfQnPWC9kP4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz7Anh11KkXi8m/569f6eLwxtZuJ9ifgHjYvv8PBKaCBQ1iSL/s
-	XOtFvC+XjtuNs+tnWR9e9wH9U8umIfCYnUQf6vk6LO9x5zrZ/Mxjols3AVFZqiVRgFPdxAWLpir
-	z69NR0Mm9zGZkeVmRNU2GpAcp8mg6rZWQYgSK0w==
-X-Gm-Gg: ASbGncsfEgUvZGDF6T/weZ50OJN1xNMntxt6IeAP2MBvA8bEvKLQ9t1UDpA+PgfXSdv
-	ES9ZTPIJMxU7m2C9q2ynWTHedyG6dYTkhSs7AxP8MKCM8mx7HhXqu4n6R3toJjAavhXDEma4zlH
-	cDylD4NjTcpSZfiqN0vT72ztsJVs8=
-X-Google-Smtp-Source: AGHT+IHRGxC49ANZft/8x4Umwrvd3CXrktB6JJunoqMwcMyPwq3u1UK1JigVlbNzMjMBwBcmwlqKciC3HjjxVzAjDN0=
-X-Received: by 2002:a05:6a20:4322:b0:1f1:a608:230b with SMTP id
- adf61e73a8af0-1f544c6869emr6393060637.26.1741354429780; Fri, 07 Mar 2025
- 05:33:49 -0800 (PST)
+	Fri, 07 Mar 2025 13:38:45 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jv9tkyL/K6ObTRcFjbkFf0EkizbupqtwUaEMLS4ov6+WHEKvuQDxhSm9AYKGV42j7qPaJ5xVhTsF7BrqOp/c/51e0yCbjfNsavu8hl/apsPsrqPYiZUqCGkk6toGyejyUTMtRtkLfduic6tQ39rksB/aIKYn0co7Kxc2jhAa9Kf1DlTPWasFrUVVSBt1z1fmfvJEwy7YJJoh9rT2YvQ0Mh4XcRB6ibBnDHXpAQuydeilmeK95CG9u5IDgfeV1+Cp/GECJibP74kr78KHE39YWROc+CGZInvNZYgwlf+3S+azmHmpCNT8GJyyAnRp59c4XGbF4DGvXa4ZmkQP7dsh2A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z4Fwuntd5k4pzx4sjSOCt+EHZTrpZASJNn/tK0Fdke0=;
+ b=gEDUvpq4qNJiEcX/A3epiigCAYetMLyqCv1K6pG6gt6iu/GPeiUo/RtLc6cZ37G8Rx39NPQW0A+JdtBPk9qS+qy1hUpyToOHHwXl0Oy1LSpqfI9Dis4mY12nBk+yQCIfL6lx67AdjIBQ7lHMHUILOFJSi97vMvgysxkc/3KSfSpT+MZdhdpOFfqHGQKl+Y8z7OfUJPQh12ACzTou9Zma0AeNBxHM3M9BJI/tOZPCu6vGKEquBdtAVVCOJOUHqJ4/Ar/3EIM3uFK1V9wzvXwrBEaRmhyCjc8IHHHCKaEgWSDY3jh+ZckAKU3jIguapVFTPj/8CJ2DJrJXivx299FpjQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=mt.com; dmarc=pass action=none header.from=mt.com; dkim=pass
+ header.d=mt.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mt.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z4Fwuntd5k4pzx4sjSOCt+EHZTrpZASJNn/tK0Fdke0=;
+ b=cKXQdUKO15Wy6l0wWuqABFgmAUUUbvfBRk5HpBbmox5Lx/8Q4hsw7mWfmnaaAFfz8ILphMQ2lUrWu/G4HX6+RLCxCkLVBWFdDi6Y7enz3RqUaS2TKNPfuHK1/8At+hp+IlgzKgkgfq1l4ZbkbCaQfkHtI4ZyByvH2zDgOx2GEIKwT6qbTWq4J0UcXcAM5j2jhrOg6h8RmrFrm8LZtdghqHjiHxliNAIk032D1OH0UIiMd8ewNl2c9yaydE6ic72KrkBJCTzlKyrEwEhEWndLbuzlkULl5veWqVJXW0u17ARescFgFj4MOEwljnKOu/wobPIXieWcEOJAPV5/k/mZLw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=mt.com;
+Received: from DBBPR03MB10396.eurprd03.prod.outlook.com (2603:10a6:10:53a::11)
+ by VI1PR03MB6431.eurprd03.prod.outlook.com (2603:10a6:800:195::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
+ 2025 13:38:35 +0000
+Received: from DBBPR03MB10396.eurprd03.prod.outlook.com
+ ([fe80::ee3c:c9be:681:c0bf]) by DBBPR03MB10396.eurprd03.prod.outlook.com
+ ([fe80::ee3c:c9be:681:c0bf%7]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 13:38:35 +0000
+Date: Fri, 7 Mar 2025 14:38:29 +0100
+From: Mathis Foerst <mathis.foerst@mt.com>
+To: Sakari Ailus <sakari.ailus@iki.fi>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, linux-kernel@vger.kernel.org,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, manuel.traut@mt.com,
+	mathis.foerst@zuehlke.com
+Subject: Re: [PATCH v1 1/1] media: imx: csi: Parse link configuration from
+ fw_node
+Message-ID: <Z8r21Z2HthBwGDSq@mt.com>
+References: <20250305113802.897087-1-mathis.foerst@mt.com>
+ <20250305113802.897087-2-mathis.foerst@mt.com>
+ <Z8nOTrjEW_OYBGlq@valkosipuli.retiisi.eu>
+ <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
+ <Z8oQCuqKVH225lPw@valkosipuli.retiisi.eu>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8oQCuqKVH225lPw@valkosipuli.retiisi.eu>
+X-ClientProxiedBy: ZR2P278CA0002.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:50::7) To DBBPR03MB10396.eurprd03.prod.outlook.com
+ (2603:10a6:10:53a::11)
 MIME-Version: 1.0
-References: <20250227092640.2666894-1-quic_songchai@quicinc.com> <20250227092640.2666894-8-quic_songchai@quicinc.com>
-In-Reply-To: <20250227092640.2666894-8-quic_songchai@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Fri, 7 Mar 2025 13:33:38 +0000
-X-Gm-Features: AQ5f1JrIaweQlcl4Gi_z5MPaMgCPO4piq25c6LCh0NkwnAfTW-agNeURPRb-cXk
-Message-ID: <CAJ9a7Vh4OTZdbEygtwc7BxRJSLgkALoaNRPEiQLJQgZvFtnTtw@mail.gmail.com>
-Subject: Re: [PATCH v3 7/7] coresight-tgu: add reset node to initialize
-To: songchai <quic_songchai@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andy Gross <agross@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DBBPR03MB10396:EE_|VI1PR03MB6431:EE_
+X-MS-Office365-Filtering-Correlation-Id: cf480bc9-5d7f-47d7-0259-08dd5d7d5c29
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1LIpBUXSfHVpWS3TKq9SkxfE+H1KeBQrJ+0+2QwNNgfgEnPXvwcWAL3QBzE8?=
+ =?us-ascii?Q?1LFOx9mxB7aB+cCjm1xS2kGjKkdH2pDhM+5RfEX8WzUYG/HH+qwuyKq5qV6h?=
+ =?us-ascii?Q?53gGU3j9Y4oPk36PIwNHQktg1K+D8TJ9OdXNIBPD85b5CVRtxWAgDHAw1lSP?=
+ =?us-ascii?Q?cYpsWu8LmjpU0FabLX25KcbtfXjIW1ZRBCOzvMqyL0OxbFtNbQZYBUuUk6I7?=
+ =?us-ascii?Q?a7itT+qZzeP2PZe8MoOVmpdSm9XJYxdWzIBXUrhcTnHoSuAWD0Q342G83F5w?=
+ =?us-ascii?Q?1vBa7JOWsTEkoob4NBzmDaCWh/TVx2umyZ0HgH+lQa3iVILq8dl7298u0JMn?=
+ =?us-ascii?Q?2dTw/QvRdLJUKHryr0Asib0a0MQ/4xK7DD+kXFddhUY1BfpOkK6GiMslDqr9?=
+ =?us-ascii?Q?lJb9lzxLFMaqEKJyxX109tGPgkkv0RQAz2ONwMqdqmRZPeT1kubTwwb3ZzNn?=
+ =?us-ascii?Q?GaXLE2+HsHjyCcDvW8wYA7UbwSdWB1Zg0Hhk4PkcC97dCc1Ud2sDuf2qg4h+?=
+ =?us-ascii?Q?M/tkW4H0dSZhk1iGFnAFNaND0D7vX7VHDtZIYN6ygUC4E9BQmJgXFlY+Du1w?=
+ =?us-ascii?Q?8nkGNDmrc5z+nvRfvZZIxK6BDthOEfYWhYg7iSC//7wV5hOxOZh2FHYLVGPC?=
+ =?us-ascii?Q?c/blvAokclfA84yznhU1Kzr+BqsE/Xzzd7jqA5OkxOeN6eZCEc7gl/AbjHio?=
+ =?us-ascii?Q?rEVH4ayW1LkaIV2hzF5tbq3r+UWt6hSo03XiErgXhwqk0AG0KUDide2V7Fd8?=
+ =?us-ascii?Q?Rs6v3AT1dw0cLzXKSjqRqXjXYVzND+dmyPn7vXDoNfQfAXeZR9pQhdYiPDIu?=
+ =?us-ascii?Q?kGHiJ4WL9pbRg7o8bKkWJbBZ7OoVW7OHGpQLDGjPNjmK6u4xlfSbvci9LnN3?=
+ =?us-ascii?Q?JG0qKJU4huun35UprnRtoayHU9hHvhSeBFMmDQxeWv3xKEfZeYGoXJueUQy5?=
+ =?us-ascii?Q?AuyZ+GEi9xrHZnz5Z6XW8gu5V5Ni4vrEeT46HkxH/5WS6PhVJEq9G2ymyM7g?=
+ =?us-ascii?Q?mPhzFXyKsPYOitC3MCRy5UDJn/jbKF3yvv6oYaxCyBn/wE0LlBq4AHRCqRmN?=
+ =?us-ascii?Q?XtY5g17I+NiK1cl+UgWdNbQL3TbhGasMynLwJYXTis2l1atgoL42yhS4ZhkA?=
+ =?us-ascii?Q?JgUnZ4EmxGuR8fuBQrv32n75bxmTmCktznOBsH7eg+oeKWlv5URES/l6B1kM?=
+ =?us-ascii?Q?8BVEb8cu2rE7vMldZOHFpTvzgq9as50Eo4cvsdHhg1Dmh9sJbAu6bj7j9t2P?=
+ =?us-ascii?Q?Q9rPRZK0Rlk9JEcwvr+HoshxTb/BwDhff5JpZFmo9o9a/LEUVBLAqr4wh6Mo?=
+ =?us-ascii?Q?q8tf325g0rvb91RIiZjVrmyP+nuv1CWsjKSJoNTDN+RKqjpVQ9b3fxWEE/2o?=
+ =?us-ascii?Q?6+nYnPDCR2c3FHhbfQL00F3QKxplhak1Xhf8WdltZDMapQ2axZtqcJfCiGUP?=
+ =?us-ascii?Q?tKjP6lL4aLSU+wVBFP81QORAoEhPOyRh?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DBBPR03MB10396.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?onBAQfV9YLLW/a0SVS/OZmyPwv3KJgCA3Exymbgq3+Kj6yPbRidLtlqcDvTj?=
+ =?us-ascii?Q?qq9vtgGACJJTeB2n7JRCwR/oGgpqXYs2kdr+AJRhZkmijQ1qXKj8QvcTV1+N?=
+ =?us-ascii?Q?E5aRFGiEy49Z9UezsypvEpi7cZb4aNuZWmaUo3G2bwAvRYQ37xJqPy/7lzK/?=
+ =?us-ascii?Q?XUY1S38Kdgmpw87hTbunIFID/jDsG5alyPb1/8k6Pat9t0tLKuVcyIIGqGRw?=
+ =?us-ascii?Q?aOlvHBwt0PZZc1gfs1JVieFl+sE6yoO8W5b3ZSq1mnvBuZwSENmADxSjb17l?=
+ =?us-ascii?Q?MU+ia4gb2YLfQY0KzQ1dLn6zaTPeFUOe8YajvcGi9ayw9I4GXqdzQ69KQrj2?=
+ =?us-ascii?Q?dvx8/jKXsEd7ldBp7M/h4AwW9fK5TJ4X+OnwS+c6gmmUO33UN/qoSip82eWB?=
+ =?us-ascii?Q?Wudx29vAp+5EHStoZu4eSc0wbMtPUZv9kdYBZj5kWk/J8OeGj2BVIcuvMZGg?=
+ =?us-ascii?Q?MPV5mZ6HeVqrXJ1Zm6PZGdQhbqYCWpRz1uXA/g+RPHTzZoQ0yOAyptmJUhnf?=
+ =?us-ascii?Q?7EiwP4cuGc+fiwKgEIqakKhi5JPnvuERzFtwKI8JMTqA4ehGbMGywlupl6km?=
+ =?us-ascii?Q?9437opTIRTXPzNCfM5+dnlFGXxMIaNry6AZyQj7u7yCip8VfG8ouMS36UUJJ?=
+ =?us-ascii?Q?L9FVp7a3yETeiOno+Giiv/HvDvxnR6GSa79KJ1mEx81wAcx/mCrdtVv3BObk?=
+ =?us-ascii?Q?Kc/pKhHr7eiqErGK3IJDE6wRYRfdStIkr1CwSjkzuN5hyN/34DMqIcj4lnA0?=
+ =?us-ascii?Q?abmRNrT7VoUKcSfKFE7K1vtTAVTB3/BvLX40HBtNxh5yj6jk6WimyNpric3N?=
+ =?us-ascii?Q?8CZq02mTYca1LDQuLha3yPUCefr0Om/x2JTzxyXQDp08RmVU1Feh+SK3mJJG?=
+ =?us-ascii?Q?usvX9Uom0Tr92OBCo9HlsGbaIjPBaUj2O9kufU2g+G8hP0vqxhxXeLfkLoFw?=
+ =?us-ascii?Q?De547LDu6sEBxAQCyUJfawXX0zr59n9jFC079o4ZioUJWWRak118ntUDURL2?=
+ =?us-ascii?Q?S69D2RKk6JkD55mmWwktP07XATNlKQ3GvwEVH7KMYRWzxeLuGmPU6EFxw2aA?=
+ =?us-ascii?Q?JUc5c7Y/VHenHN50oFaduyC/HE1Xun4KI0etZW/0wKvgVl7LXzdHC2SWoINe?=
+ =?us-ascii?Q?arHyfwfo6BowiD+Pb/eRPaqLDBa/JXAgMznqqvKsbcgsViXabbpXXBWf19Ct?=
+ =?us-ascii?Q?jIWQgiI7e/53SHHlEX8yHEO0Zwf44a7iJUZWWVKz+bs6LY9ryYoJL/dm3Abt?=
+ =?us-ascii?Q?sBrkP+V/X2wmJA76XBLGfKOnERo37/n5vr/4Vptc+kSfKShiBFSZ3QViC4tZ?=
+ =?us-ascii?Q?2SFCRg+OLUIIVC7FcFD1t8rfrRe5wZj7v6yapuDcKp+6jSykgoKK/aQvXUDi?=
+ =?us-ascii?Q?gERKRVkFaSfcfK+5KoFOYTNNSyVpHUqJK9YFs6RjQS3SJSPO4ItLVpWZ5as5?=
+ =?us-ascii?Q?uizq40JmkH7MuR4pEO3p+A0Qa9vroyhunOcTeVmjUyP5oh+XTpJycgMAmcvw?=
+ =?us-ascii?Q?IqsHNo+N7UES+LigYwgxgxzkEVIiy11ejDyADc3PQBV0eAXLaDtJG2pkeIiW?=
+ =?us-ascii?Q?8EBbLchs/BvCCmq+vDaqaoafx14O1VuAmgdVv7bZ?=
+X-OriginatorOrg: mt.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: cf480bc9-5d7f-47d7-0259-08dd5d7d5c29
+X-MS-Exchange-CrossTenant-AuthSource: DBBPR03MB10396.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 13:38:35.7443
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fb4c0aee-6cd2-482f-a1a5-717e7c02496b
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: mWOYyKQ74/2X7NBB/B6cxETzpBEiOdbPStqvdZlePh3Zkcj6NidP3bIGz3WoFIPe+asgThoVrcZPxrKZa0Yk/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB6431
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_053350_765476_49DF27CC 
-X-CRM114-Status: GOOD (  24.91  )
+X-CRM114-CacheID: sfid-20250307_053844_612296_2548799B 
+X-CRM114-Status: GOOD (  49.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,154 +170,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Sakari, Hi Dan,
 
-On Thu, 27 Feb 2025 at 09:27, songchai <quic_songchai@quicinc.com> wrote:
->
-> From: Songwei Chai <quic_songchai@quicinc.com>
->
-> Add reset node to initialize the value of
-> priority/condition_decode/condition_select/timer/counter nodes
->
-> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
-> Signed-off-by: songchai <quic_songchai@quicinc.com>
-> ---
->  .../testing/sysfs-bus-coresight-devices-tgu   |  7 ++
->  drivers/hwtracing/coresight/coresight-tgu.c   | 79 +++++++++++++++++++
->  2 files changed, 86 insertions(+)
->
-> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-> index d88d05fbff43..8fb5afd7c655 100644
-> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
-> @@ -42,3 +42,10 @@ KernelVersion   6.15
->  Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
->  Description:
->                  (RW) Set/Get the counter value with specific step for TGU.
-> +
-> +What:           /sys/bus/coresight/devices/<tgu-name>/reset_tgu
-> +Date:           February 2025
-> +KernelVersion   6.15
-> +Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
-> +Description:
-> +                (Write) Reset the dataset for TGU.
+thanks a lot for your feedback.
 
-Document the value needed to initiate the reset.
+On Thu, Mar 06, 2025 at 09:13:46PM +0000, Sakari Ailus wrote:
+> Hi Dan,
+> 
+> On Thu, Mar 06, 2025 at 10:07:20PM +0300, Dan Carpenter wrote:
+> > On Thu, Mar 06, 2025 at 04:33:18PM +0000, Sakari Ailus wrote:
+> > > Hi Mathis,
+> > > 
+> > > Thanks for the patch.
+> > > 
+> > > On Wed, Mar 05, 2025 at 12:38:02PM +0100, Mathis Foerst wrote:
+> > > > The imx-media-csi driver requires upstream camera drivers to implement
+> > > > the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
+> > > > implement this function are not usable on the i.MX6.
+> > > > 
+> > > > The docs for get_mbus_config [1] say:
+> > > > @get_mbus_config: get the media bus configuration of a remote sub-device.
+> > > >             The media bus configuration is usually retrieved from the
+> > > >             firmware interface at sub-device probe time, immediately
+> > > >             applied to the hardware and eventually adjusted by the
+> > > >             driver.
+> > > > 
+> > > > Currently, the imx-media-csi driver is not incorporating the information
+> > > > from the firmware interface and therefore relies on the implementation of
+> > > > get_mbus_config by the camera driver.
+> > > > 
+> > > > To be compatible with camera drivers not implementing get_mbus_config
+> > > > (which is the usual case), use the bus information from the fw interface:
+> > > > 
+> > > > The camera does not necessarily has a direct media bus link to the CSI as
+> > > > the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
+> > > > between them on the media pipeline.
+> > > > The CSI driver already implements the functionality to find the connected
+> > > > camera sub-device to call get_mbus_config on it.
+> > > > 
+> > > > At this point the driver is modified as follows:
+> > > > In the case that get_mbus_config is not implemented by the upstream
+> > > > camera, try to get its endpoint configuration from the firmware interface
+> > > > usign v4l2_fwnode_endpoint_parse.
+> > > > For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
+> > > > V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
+> > > > configuration.
+> > > > For all other mbus_types, return an error.
+> > > > 
+> > > > Note that parsing the mbus_config from the fw interface is not done during
+> > > > probing because the camera that's connected to the CSI can change based on
+> > > > the selected input of the video-mux at runtime.
+> > > > 
+> > > > [0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
+> > > > [1] include/media/v4l2-subdev.h - line 814
+> > > > 
+> > > > Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
+> > > > ---
+> > > >  drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
+> > > >  1 file changed, 32 insertions(+), 4 deletions(-)
+> > > > 
+> > > > diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+> > > > index 3edbc57be2ca..394a9321a10b 100644
+> > > > --- a/drivers/staging/media/imx/imx-media-csi.c
+> > > > +++ b/drivers/staging/media/imx/imx-media-csi.c
+> > > > @@ -169,6 +169,8 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > > >  {
+> > > >  	struct v4l2_subdev *sd, *remote_sd;
+> > > >  	struct media_pad *remote_pad;
+> > > > +	struct fwnode_handle *ep_node;
+> > > > +	struct v4l2_fwnode_endpoint ep = { .bus_type = 0 };
+> > > 
+> > > Are there any defaults in DT bindings (other than 0's)? Also initialising a
+> > > field to zero this way is redundant, just use {}.
+> > > 
+> > 
+> > I was going to respond in much the same way.  This is equivalen to:
+> > 
+> > struct v4l2_fwnode_endpoint ep = { .bus_type = V4L2_MBUS_UNKNOWN };
+> 
+> Thinking about this in a context of parsing the endpoint, in fact the
+> bus_type should be specified. Presumably the hardware is D-PHY, so the
+> correct value would be V4L2_MBUS_CSI2_DPHY. This way
+> v4l2_fwnode_endpoint_parse() doesn't need to guess.
 
-> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
-> index 693d632fb079..b36ced761c0d 100644
-> --- a/drivers/hwtracing/coresight/coresight-tgu.c
-> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
-> @@ -343,6 +343,84 @@ static ssize_t enable_tgu_store(struct device *dev,
->  }
->  static DEVICE_ATTR_RW(enable_tgu);
->
-> +/* reset_tgu_store - Reset Trace and Gating Unit (TGU) configuration. */
-> +static ssize_t reset_tgu_store(struct device *dev,
-> +                              struct device_attribute *attr, const char *buf,
-> +                              size_t size)
-> +{
-> +       unsigned long value;
-> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
-> +       int i, j, ret;
-> +
-> +       if (kstrtoul(buf, 0, &value))
-> +               return -EINVAL;
-> +
+I think we must use "bus_type = V4L2_MBUS_UNKNOWN" here:
 
-Check "value" here and bail out with an error code if 0.
+The i.MX6 has two types of camera interfaces: Parallel and MIPI CSI-2.
+They are connected either directly or via a video-mux to the CSIs
+(See IMX6DQRM.pdf - Figure 9-3 for the connection diagram)
 
-> +       if (!drvdata->enable) {
-> +               ret = pm_runtime_get_sync(drvdata->dev);
-> +               if (ret < 0) {
-> +                       pm_runtime_put(drvdata->dev);
-> +                       return ret;
-> +               }
-> +       }
-> +
-> +       spin_lock(&drvdata->spinlock);
-> +       CS_UNLOCK(drvdata->base);
-> +
-> +       if (value) {
-drop this line
+Pre-defining V4L2_MBUS_CSI2_DPHY here would let
+v4l2_fwnode_endpoint_parse() fail if the camera uses the parallel bus.
 
-> +               tgu_writel(drvdata, 0, TGU_CONTROL);
-> +
-> +               if (drvdata->value_table->priority)
-> +                       memset(drvdata->value_table->priority, 0,
-> +                              MAX_PRIORITY * drvdata->max_step *
-> +                                      drvdata->max_reg * sizeof(unsigned int));
-> +
-> +               if (drvdata->value_table->condition_decode)
-> +                       memset(drvdata->value_table->condition_decode, 0,
-> +                              drvdata->max_condition_decode * drvdata->max_step *
-> +                                      sizeof(unsigned int));
-> +
-> +               /* Initialize all condition registers to NOT(value=0x1000000) */
-> +               for (i = 0; i < drvdata->max_step; i++) {
-> +                       for (j = 0; j < drvdata->max_condition_decode; j++) {
-> +                               drvdata->value_table
-> +                                       ->condition_decode[calculate_array_location(
-> +                                               drvdata, i, TGU_CONDITION_DECODE, j)] =
-> +                                       0x1000000;
-> +                       }
-> +               }
-> +
-> +               if (drvdata->value_table->condition_select)
-> +                       memset(drvdata->value_table->condition_select, 0,
-> +                              drvdata->max_condition_select * drvdata->max_step *
-> +                                      sizeof(unsigned int));
-> +
-> +               if (drvdata->value_table->timer)
-> +                       memset(drvdata->value_table->timer, 0,
-> +                              (drvdata->max_step) *
-> +                                      (drvdata->max_timer_counter) *
-> +                                      sizeof(unsigned int));
-> +
-> +               if (drvdata->value_table->counter)
-> +                       memset(drvdata->value_table->counter, 0,
-> +                              (drvdata->max_step) *
-> +                                      (drvdata->max_timer_counter) *
-> +                                      sizeof(unsigned int));
-> +
-> +               dev_dbg(dev, "Coresight-TGU reset complete\n");
-> +       } else {
-> +               dev_dbg(dev, "Coresight-TGU invalid input\n");
+We could distinguish between MIPI CSI-2 and Parallel input by checking
+the grp_id of the upstream device like it's already done in
+csi_get_upstream_mbus_config().
+But for the Parallel case we still can't know if we should set bus_type
+to V4L2_MBUS_PARALLEL or to V4L2_MBUS_BT656 - the i.MX6 supports both
+formats on the parallel interface.
 
-not needed if early exit on input errror
+That's why I would argue that v4l2_fwnode_endpoint_parse() must figure
+out the bus_type from the fw node.
 
-> +       }
-> +
-> +       CS_LOCK(drvdata->base);
-> +
-> +       drvdata->enable = false;
-> +       spin_unlock(&drvdata->spinlock);
-> +       pm_runtime_put(drvdata->dev);
-> +
-> +       return size;
-> +}
-> +static DEVICE_ATTR_WO(reset_tgu);
-> +
->  static const struct coresight_ops_helper tgu_helper_ops = {
->         .enable = tgu_enable,
->         .disable = tgu_disable,
-> @@ -354,6 +432,7 @@ static const struct coresight_ops tgu_ops = {
->
->  static struct attribute *tgu_common_attrs[] = {
->         &dev_attr_enable_tgu.attr,
-> +       &dev_attr_reset_tgu.attr,
->         NULL,
->  };
->
->
+> 
+> > 
+> > > >  	int ret;
+> > > >  
+> > > >  	if (!priv->src_sd)
+> > > > @@ -210,11 +212,37 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > > >  
+> > > >  	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
+> > > >  			       remote_pad->index, mbus_cfg);
+> > > > -	if (ret == -ENOIOCTLCMD)
+> > > > -		v4l2_err(&priv->sd,
+> > > > -			 "entity %s does not implement get_mbus_config()\n",
+> > > > -			 remote_pad->entity->name);
+> > > > +	if (ret == -ENOIOCTLCMD) {
+> > > 
+> > > 	if (!ret)
+> > > 		return 0;
+> > > 
+> > > And you can unindent the rest.
+> > 
+> > I was going to say this too but then I thought actually this needs to
+> > be:
+> > 
+> > 	if (ret != -ENOIOCTLCMD)
+> > 		return ret;
+> > 
+> > Which is weird.  Better to break all the new code into a separate
+> > helper function.
+> > 
+> > 	if (ret == -ENOIOCTLCMD)
+> > 		ret = parse_fw_link_config_stuff();
+> > 
+> > 	return ret;
+
+Good point. I factored out a helper function as suggested.
+
+> 
+> Indeed. get_mbus_config() presumably wouldn't return an error but
+> correctness is usually a good idea.
+> 
+> -- 
+> Regards,
+> 
+> Sakari Ailus
 
 
-Regards
+Best regards,
+Mathis Foerst
 
-Mike
-
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
 
