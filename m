@@ -4,80 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 124E8C28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:04:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73613C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:06:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gWeqvh8QTIhH2uGBkRVJadWUIdnz/egznXSfSJY0rjs=; b=B9lSFs3LPBNCPlSY9Y63XVgOjt
-	cdkYwu/ew/fZNA4rqXyqjRST90lEEcR41Olex4XHBqGfIkkrFk0MILkUTOkoj+/NbQ+cMsbG5vyTI
-	aKn6AZ65gW33Hwpq7gpg8CGF9UmzSa2i0iaQC3DUqXDQzuej0iYcl/hxs5BgOhiLeMBCtNWuiY7xA
-	+az2JrDl1j2XR+fi+hl39NCyeemfbx8dkovMNaqt0HCSD1CVkSvs/7mv3mcTLFHotIXLkSBjA1UrK
-	cvgU7Gn1AYijTKbC73eXjWZVLI3AjoRhLO4Of9GRq3ocx3L3eYvb0RXeiDDb5WEAM027JClky2oHe
-	6+EJGTEw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=h3IKLMIA7CBcH7MnwDH36sV9Q5qEghEi/O1Z5TpEyrk=; b=MZ8OoH/h3LvJgpGtf6EI9lbWG2
+	O821ZHqpvKEyNKU67+IUUzsw3IvyniLWWFU5mgQCCo0CIYE4B63xxM+MJdUpYGFiSCxuesnn/KB03
+	Rt5gZQuAGzMHkEGj2vqASKQ0NkwrS9dfM8EYvz0eHWjXoPoBLLCAqD1IxAwzuNZSIdh8O0QoT4WG7
+	rRr8/oRTpsS9hEDV2ot7tn4J5jyEK+s2e8sXCvoqWDDW4DCIm2uigA+UjwsS/532XQxiP1YWerMil
+	dxzm0eEOAYklP36xAqhPyOFPgNYAakSkurGaacZS+NJ0Sm9zhzpJhDH8ytsCF3nmtI6RT5NMphrKT
+	ajEeVbLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqc3r-0000000F9sN-1051;
-	Fri, 07 Mar 2025 18:04:39 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tqc5S-0000000FADc-07DM;
+	Fri, 07 Mar 2025 18:06:18 +0000
+Received: from mgamail.intel.com ([198.175.65.19])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbce-0000000F41r-2P9g
+	id 1tqbdd-0000000F4Ie-44y9
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 17:36:33 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 0024220581;
-	Fri,  7 Mar 2025 17:36:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741368991;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gWeqvh8QTIhH2uGBkRVJadWUIdnz/egznXSfSJY0rjs=;
-	b=CWYu9IxP+MkP/3cXsHHgzYL1REjvSHiwyDQCL/2PhhDxz8cMCQCVpOHSvep0/+BdEG0csK
-	phaOhJZNn8qC6rp/87TD4ihpDYjy29zaS0Tr0ybv1uvsJH6s0QYJNKg2sAnVOc2XZdQjs7
-	PsZNUBscIpZ3ynbRT851nqZAmv0z32ZOrLqQbQ+Zr4gkvPjVgAzvt6CnLJHPTqjoQ3vWP3
-	EGsRu0nukXTR8PO7l6UKYHBpxsK0vn3S0Jv0OOyr9CHhIESUqgE8b5Z4EUR4alhPJNCumn
-	oCv5h+KNrwv7DfnuB39ZFWjmEscZ96njK6uPycMu+KDtaCLYW10/0biJFeypQw==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>
-Subject: [PATCH net-next v5 13/13] net: phylink: Use phy_caps to get an interface's capabilities and modes
-Date: Fri,  7 Mar 2025 18:36:10 +0100
-Message-ID: <20250307173611.129125-14-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
-References: <20250307173611.129125-1-maxime.chevallier@bootlin.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudduvdekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgepuddvnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvtddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegvughum
- hgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehlihhnuhigsegrrhhmlhhinhhugidrohhrghdruhhkpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+	Fri, 07 Mar 2025 17:37:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741369055; x=1772905055;
+  h=date:from:to:cc:subject:message-id;
+  bh=HoisvTAve/i2XZXjO3B7EzMgqF+FZl/MgaE3yJn6jqs=;
+  b=AVJDOm/ypESWW/ToUHwN09koys4F6U0Hyszka24cKITCjgWbNMLjbCXS
+   vVeMqIZmtKqM6y/+qFTDG8TgfJ2ZDCWiOjRgzVsxPiQ/Q5HknAAFpw+ho
+   xUbpKupwtEUzR0ue2Hinbqo0Fu2Pt/EYwbl/uSuQI1MTiAUgPPwEy5SaI
+   afqMyONdY3bjQjiboAPr1WaOuALj2wJhQAPZkfd0i+GTFtdnYWLcyxZO9
+   KIyaugaDjb8WlqEnMo6J+gyBg6SCEPy4izTeSuiU4N1Yfp0Mai+Z2eQ1E
+   qxoQCZTKgR+rBLCEdh1DOPtuYVhpq78nvPEFgYmMEePtjb+01nuMBZOXm
+   A==;
+X-CSE-ConnectionGUID: 0JU1S8JSRc2uMfRL8uMk8A==
+X-CSE-MsgGUID: Lncobb6MTquVrYYL5cwnpA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="42281841"
+X-IronPort-AV: E=Sophos;i="6.14,229,1736841600"; 
+   d="scan'208";a="42281841"
+Received: from orviesa008.jf.intel.com ([10.64.159.148])
+  by orvoesa111.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2025 09:37:33 -0800
+X-CSE-ConnectionGUID: CfX1LHUAQZazjz9SGJxeCA==
+X-CSE-MsgGUID: tCIG44TLRiyoJc/IqQ//5A==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="120294078"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by orviesa008.jf.intel.com with ESMTP; 07 Mar 2025 09:37:31 -0800
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tqbdY-0000rz-1y;
+	Fri, 07 Mar 2025 17:37:28 +0000
+Date: Sat, 08 Mar 2025 01:36:38 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:for-next] BUILD SUCCESS
+ a84db892511ab79e7a817a171fb4765daccffb88
+Message-ID: <202503080132.BdRVQJNr-lkp@intel.com>
+User-Agent: s-nail v14.9.24
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_093632_765861_04F48E07 
-X-CRM114-Status: GOOD (  16.39  )
+X-CRM114-CacheID: sfid-20250307_093734_053087_90F38E91 
+X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,264 +83,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Phylink has internal code to get the MAC capabilities of a given PHY
-interface (what are the supported speed and duplex).
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+branch HEAD: a84db892511ab79e7a817a171fb4765daccffb88  soc: document merges
 
-Extract that into phy_caps, but use the link_capa for conversion. Add an
-internal phylink helper for the link caps -> mac caps conversion, and
-use this in phylink_caps_to_linkmodes().
+elapsed time: 1457m
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V5: Rename the patch with the phylink prefix
+configs tested: 74
+configs skipped: 0
 
- drivers/net/phy/phy-caps.h |  4 ++
- drivers/net/phy/phy_caps.c | 92 ++++++++++++++++++++++++++++++++++++++
- drivers/net/phy/phylink.c  | 90 ++++++-------------------------------
- 3 files changed, 110 insertions(+), 76 deletions(-)
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-diff --git a/drivers/net/phy/phy-caps.h b/drivers/net/phy/phy-caps.h
-index 7fc930876e33..157759966650 100644
---- a/drivers/net/phy/phy-caps.h
-+++ b/drivers/net/phy/phy-caps.h
-@@ -8,6 +8,7 @@
- #define __PHY_CAPS_H
- 
- #include <linux/ethtool.h>
-+#include <linux/phy.h>
- 
- enum {
- 	LINK_CAPA_10HD = 0,
-@@ -32,6 +33,8 @@ enum {
- 	__LINK_CAPA_MAX,
- };
- 
-+#define LINK_CAPA_ALL	GENMASK((__LINK_CAPA_MAX - 1), 0)
-+
- struct link_capabilities {
- 	int speed;
- 	unsigned int duplex;
-@@ -45,6 +48,7 @@ size_t phy_caps_speeds(unsigned int *speeds, size_t size,
- void phy_caps_linkmode_max_speed(u32 max_speed, unsigned long *linkmodes);
- bool phy_caps_valid(int speed, int duplex, const unsigned long *linkmodes);
- void phy_caps_linkmodes(unsigned long caps, unsigned long *linkmodes);
-+unsigned long phy_caps_from_interface(phy_interface_t interface);
- 
- const struct link_capabilities *
- phy_caps_lookup_by_linkmode(const unsigned long *linkmodes);
-diff --git a/drivers/net/phy/phy_caps.c b/drivers/net/phy/phy_caps.c
-index fc1568f83c1a..703321689726 100644
---- a/drivers/net/phy/phy_caps.c
-+++ b/drivers/net/phy/phy_caps.c
-@@ -265,3 +265,95 @@ void phy_caps_linkmodes(unsigned long caps, unsigned long *linkmodes)
- 		linkmode_or(linkmodes, linkmodes, link_caps[capa].linkmodes);
- }
- EXPORT_SYMBOL_GPL(phy_caps_linkmodes);
-+
-+/**
-+ * phy_caps_from_interface() - Get the link capa from a given PHY interface
-+ * @interface: The PHY interface we want to get the possible Speed/Duplex from
-+ *
-+ * Returns: A bitmask of LINK_CAPA_xxx values that can be achieved with the
-+ *          provided interface.
-+ */
-+unsigned long phy_caps_from_interface(phy_interface_t interface)
-+{
-+	unsigned long link_caps = 0;
-+
-+	switch (interface) {
-+	case PHY_INTERFACE_MODE_USXGMII:
-+		link_caps |= BIT(LINK_CAPA_10000FD) | BIT(LINK_CAPA_5000FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_10G_QXGMII:
-+		link_caps |= BIT(LINK_CAPA_2500FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_RGMII_TXID:
-+	case PHY_INTERFACE_MODE_RGMII_RXID:
-+	case PHY_INTERFACE_MODE_RGMII_ID:
-+	case PHY_INTERFACE_MODE_RGMII:
-+	case PHY_INTERFACE_MODE_PSGMII:
-+	case PHY_INTERFACE_MODE_QSGMII:
-+	case PHY_INTERFACE_MODE_QUSGMII:
-+	case PHY_INTERFACE_MODE_SGMII:
-+	case PHY_INTERFACE_MODE_GMII:
-+		link_caps |= BIT(LINK_CAPA_1000HD) | BIT(LINK_CAPA_1000FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_REVRMII:
-+	case PHY_INTERFACE_MODE_RMII:
-+	case PHY_INTERFACE_MODE_SMII:
-+	case PHY_INTERFACE_MODE_REVMII:
-+	case PHY_INTERFACE_MODE_MII:
-+		link_caps |= BIT(LINK_CAPA_10HD) | BIT(LINK_CAPA_10FD);
-+		fallthrough;
-+
-+	case PHY_INTERFACE_MODE_100BASEX:
-+		link_caps |= BIT(LINK_CAPA_100HD) | BIT(LINK_CAPA_100FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_TBI:
-+	case PHY_INTERFACE_MODE_MOCA:
-+	case PHY_INTERFACE_MODE_RTBI:
-+	case PHY_INTERFACE_MODE_1000BASEX:
-+		link_caps |= BIT(LINK_CAPA_1000HD);
-+		fallthrough;
-+	case PHY_INTERFACE_MODE_1000BASEKX:
-+	case PHY_INTERFACE_MODE_TRGMII:
-+		link_caps |= BIT(LINK_CAPA_1000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_2500BASEX:
-+		link_caps |= BIT(LINK_CAPA_2500FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_5GBASER:
-+		link_caps |= BIT(LINK_CAPA_5000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_XGMII:
-+	case PHY_INTERFACE_MODE_RXAUI:
-+	case PHY_INTERFACE_MODE_XAUI:
-+	case PHY_INTERFACE_MODE_10GBASER:
-+	case PHY_INTERFACE_MODE_10GKR:
-+		link_caps |= BIT(LINK_CAPA_10000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_25GBASER:
-+		link_caps |= BIT(LINK_CAPA_25000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_XLGMII:
-+		link_caps |= BIT(LINK_CAPA_40000FD);
-+		break;
-+
-+	case PHY_INTERFACE_MODE_INTERNAL:
-+		link_caps |= LINK_CAPA_ALL;
-+		break;
-+
-+	case PHY_INTERFACE_MODE_NA:
-+	case PHY_INTERFACE_MODE_MAX:
-+		break;
-+	}
-+
-+	return link_caps;
-+}
-+EXPORT_SYMBOL_GPL(phy_caps_from_interface);
-diff --git a/drivers/net/phy/phylink.c b/drivers/net/phy/phylink.c
-index a75aad5e4563..08a2f0f7c08e 100644
---- a/drivers/net/phy/phylink.c
-+++ b/drivers/net/phy/phylink.c
-@@ -335,6 +335,18 @@ static unsigned long phylink_caps_to_link_caps(unsigned long caps)
- 	return link_caps;
- }
- 
-+static unsigned long phylink_link_caps_to_mac_caps(unsigned long link_caps)
-+{
-+	unsigned long caps = 0;
-+	int i;
-+
-+	for (i = 0; i <  ARRAY_SIZE(phylink_caps_params); i++)
-+		if (link_caps & phylink_caps_params[i].caps_bit)
-+			caps |= phylink_caps_params[i].mask;
-+
-+	return caps;
-+}
-+
- /**
-  * phylink_caps_to_linkmodes() - Convert capabilities to ethtool link modes
-  * @linkmodes: ethtool linkmode mask (must be already initialised)
-@@ -412,86 +424,12 @@ static unsigned long phylink_get_capabilities(phy_interface_t interface,
- 					      unsigned long mac_capabilities,
- 					      int rate_matching)
- {
-+	unsigned long link_caps = phy_caps_from_interface(interface);
- 	int max_speed = phylink_interface_max_speed(interface);
- 	unsigned long caps = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
- 	unsigned long matched_caps = 0;
- 
--	switch (interface) {
--	case PHY_INTERFACE_MODE_USXGMII:
--		caps |= MAC_10000FD | MAC_5000FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_10G_QXGMII:
--		caps |= MAC_2500FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_RGMII_TXID:
--	case PHY_INTERFACE_MODE_RGMII_RXID:
--	case PHY_INTERFACE_MODE_RGMII_ID:
--	case PHY_INTERFACE_MODE_RGMII:
--	case PHY_INTERFACE_MODE_PSGMII:
--	case PHY_INTERFACE_MODE_QSGMII:
--	case PHY_INTERFACE_MODE_QUSGMII:
--	case PHY_INTERFACE_MODE_SGMII:
--	case PHY_INTERFACE_MODE_GMII:
--		caps |= MAC_1000HD | MAC_1000FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_REVRMII:
--	case PHY_INTERFACE_MODE_RMII:
--	case PHY_INTERFACE_MODE_SMII:
--	case PHY_INTERFACE_MODE_REVMII:
--	case PHY_INTERFACE_MODE_MII:
--		caps |= MAC_10HD | MAC_10FD;
--		fallthrough;
--
--	case PHY_INTERFACE_MODE_100BASEX:
--		caps |= MAC_100HD | MAC_100FD;
--		break;
--
--	case PHY_INTERFACE_MODE_TBI:
--	case PHY_INTERFACE_MODE_MOCA:
--	case PHY_INTERFACE_MODE_RTBI:
--	case PHY_INTERFACE_MODE_1000BASEX:
--		caps |= MAC_1000HD;
--		fallthrough;
--	case PHY_INTERFACE_MODE_1000BASEKX:
--	case PHY_INTERFACE_MODE_TRGMII:
--		caps |= MAC_1000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_2500BASEX:
--		caps |= MAC_2500FD;
--		break;
--
--	case PHY_INTERFACE_MODE_5GBASER:
--		caps |= MAC_5000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_XGMII:
--	case PHY_INTERFACE_MODE_RXAUI:
--	case PHY_INTERFACE_MODE_XAUI:
--	case PHY_INTERFACE_MODE_10GBASER:
--	case PHY_INTERFACE_MODE_10GKR:
--		caps |= MAC_10000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_25GBASER:
--		caps |= MAC_25000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_XLGMII:
--		caps |= MAC_40000FD;
--		break;
--
--	case PHY_INTERFACE_MODE_INTERNAL:
--		caps |= ~0;
--		break;
--
--	case PHY_INTERFACE_MODE_NA:
--	case PHY_INTERFACE_MODE_MAX:
--		break;
--	}
-+	caps |= phylink_link_caps_to_mac_caps(link_caps);
- 
- 	switch (rate_matching) {
- 	case RATE_MATCH_OPEN_LOOP:
--- 
-2.48.1
+tested configs:
+alpha                             allnoconfig    gcc-14.2.0
+arc                               allnoconfig    gcc-13.2.0
+arc                   randconfig-001-20250307    gcc-13.2.0
+arc                   randconfig-002-20250307    gcc-13.2.0
+arm                               allnoconfig    clang-17
+arm                         assabet_defconfig    clang-21
+arm                   randconfig-001-20250307    clang-21
+arm                   randconfig-002-20250307    gcc-14.2.0
+arm                   randconfig-003-20250307    clang-19
+arm                   randconfig-004-20250307    clang-21
+arm64                             allnoconfig    gcc-14.2.0
+arm64                 randconfig-001-20250307    gcc-14.2.0
+arm64                 randconfig-002-20250307    clang-15
+arm64                 randconfig-003-20250307    gcc-14.2.0
+arm64                 randconfig-004-20250307    clang-15
+csky                  randconfig-001-20250307    gcc-14.2.0
+csky                  randconfig-002-20250307    gcc-14.2.0
+hexagon               randconfig-001-20250307    clang-21
+hexagon               randconfig-002-20250307    clang-21
+i386                              allnoconfig    gcc-12
+i386        buildonly-randconfig-001-20250307    clang-19
+i386        buildonly-randconfig-002-20250307    clang-19
+i386        buildonly-randconfig-003-20250307    gcc-11
+i386        buildonly-randconfig-004-20250307    clang-19
+i386        buildonly-randconfig-005-20250307    gcc-12
+i386        buildonly-randconfig-006-20250307    clang-19
+loongarch             randconfig-001-20250307    gcc-14.2.0
+loongarch             randconfig-002-20250307    gcc-14.2.0
+m68k                              allnoconfig    gcc-14.2.0
+m68k                          amiga_defconfig    gcc-14.2.0
+microblaze                        allnoconfig    gcc-14.2.0
+mips                              allnoconfig    gcc-14.2.0
+nios2                             allnoconfig    gcc-14.2.0
+nios2                 randconfig-001-20250307    gcc-14.2.0
+nios2                 randconfig-002-20250307    gcc-14.2.0
+parisc                randconfig-001-20250307    gcc-14.2.0
+parisc                randconfig-002-20250307    gcc-14.2.0
+powerpc                  mpc885_ads_defconfig    clang-18
+powerpc               randconfig-001-20250307    gcc-14.2.0
+powerpc               randconfig-002-20250307    clang-21
+powerpc               randconfig-003-20250307    clang-19
+powerpc64             randconfig-001-20250307    clang-21
+powerpc64             randconfig-002-20250307    gcc-14.2.0
+powerpc64             randconfig-003-20250307    gcc-14.2.0
+riscv                 randconfig-001-20250307    gcc-14.2.0
+riscv                 randconfig-002-20250307    clang-19
+s390                             allmodconfig    clang-19
+s390                             allyesconfig    gcc-14.2.0
+s390                  randconfig-001-20250307    gcc-14.2.0
+s390                  randconfig-002-20250307    gcc-14.2.0
+sh                               allmodconfig    gcc-14.2.0
+sh                                allnoconfig    gcc-14.2.0
+sh                               allyesconfig    gcc-14.2.0
+sh                    randconfig-001-20250307    gcc-14.2.0
+sh                    randconfig-002-20250307    gcc-14.2.0
+sparc                            allmodconfig    gcc-14.2.0
+sparc                             allnoconfig    gcc-14.2.0
+sparc                 randconfig-001-20250307    gcc-14.2.0
+sparc                 randconfig-002-20250307    gcc-14.2.0
+sparc64               randconfig-001-20250307    gcc-14.2.0
+sparc64               randconfig-002-20250307    gcc-14.2.0
+um                    randconfig-001-20250307    clang-17
+um                    randconfig-002-20250307    clang-21
+x86_64                            allnoconfig    clang-19
+x86_64      buildonly-randconfig-001-20250307    clang-19
+x86_64      buildonly-randconfig-002-20250307    gcc-12
+x86_64      buildonly-randconfig-003-20250307    clang-19
+x86_64      buildonly-randconfig-004-20250307    clang-19
+x86_64      buildonly-randconfig-005-20250307    clang-19
+x86_64      buildonly-randconfig-006-20250307    gcc-12
+x86_64                              defconfig    gcc-11
+xtensa                            allnoconfig    gcc-14.2.0
+xtensa                randconfig-001-20250307    gcc-14.2.0
+xtensa                randconfig-002-20250307    gcc-14.2.0
 
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
