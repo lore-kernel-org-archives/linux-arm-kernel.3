@@ -4,94 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE219C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 21:42:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CEF2AC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 21:53:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PErTl8OjCmr+pXwdzsQjeewJzsWEtdQvnkkFx+B+7d4=; b=ehNGQ/a/Zv6hn1XxCue8Ptp4Bc
-	IeRkVoavdorqx0a8PfAl4EMWCwakE8wV871x+YtHds3gpa935T72tnDGUWPVO5B/mo6ozJk5b94Mz
-	d0IOf2EFnpl1znHPEUPZp3RhvNxdCP/o91SNvVljGAld7OyBYJILTocsS1VX3oJFF5BUcYC5ZAnUT
-	knFCccNKOarp3flwF+VUOgLfm/tGekEsYVzDnqVl2r55WQQK6baY8f9aA4ObLvpOKdnDgTMQCMZ5B
-	aLjW11AwO0Dtk1efxOT4tQePTHwnkptKymzmHkN9njReSn4R1HxvJaSGN/+RBG+DtGcBNRuAj3B+n
-	+Zu/TUBw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=KCcw1nOGksNE0agITQ1tlIJWmMWgi+GlTbteT3MWbLM=; b=gRRCWqfoR37PRoULwVL/r5ocnv
+	5mtsSd0BXPdMBL7olGUypSBwsUch98K6hn9QY3VkHmTvGNbNXfwLmeMePx0Jph9KxSMSU1Wn7B/0y
+	8Y3uRCage+y9v4u9iCJzUHYqHiAb3UkWdNWikFC9DTUohnOkYL0Ru4q7VlKb+Ib4K55z9PqsMLjvB
+	FV0ga6q0KdmvSVjzTJD7XHdEEZZ9D/0l8hKSicxqrSEZyzxcxMww/i3997g2IeAhE0b2jlfVFgE5O
+	KLQ8odzjMnqzXL5Mb+iiuL7keHkYncsxdYsgXpF+3WHEphMRj0l3ePWXZjvwjxr3fHE2jm+0O+zjX
+	E+6To9LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfSI-0000000FbM2-2d9o;
-	Fri, 07 Mar 2025 21:42:06 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfPJ-0000000Fakt-0bFN
+	id 1tqfcr-0000000FccZ-1f0B;
+	Fri, 07 Mar 2025 21:53:01 +0000
+Received: from mail-am6eur05on20606.outbound.protection.outlook.com ([2a01:111:f403:2612::606] helo=EUR05-AM6-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqfbE-0000000FcN9-0VaW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 21:39:02 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5141B2038F3B;
-	Fri,  7 Mar 2025 13:38:59 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5141B2038F3B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741383540;
-	bh=PErTl8OjCmr+pXwdzsQjeewJzsWEtdQvnkkFx+B+7d4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I19wXnmtMTh5TKUlGJZ1jrhcfilqlen7AEI9d0oLMxbG8/LUNvkfP6s7gePdSXzP4
-	 atNUJWmjNO40FAQcmyGeeiz6CUyVP5t/l6f4UyWBLO8gk2CkeZnnor3kJ8YVqEjKMd
-	 6KM77EOO72WSaKZMIexUsot5lon5rj3stvV+gx/c=
-Message-ID: <bed778c5-4642-4429-914d-7ef2e6ecccc6@linux.microsoft.com>
-Date: Fri, 7 Mar 2025 13:38:42 -0800
+	Fri, 07 Mar 2025 21:51:21 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pchOQ8FM+5R2SuAAKN7pRwkhLl+7wzewGkJwGslreyEdi4bkzFKoWyS10IHleix0dpG8QQBccppSkdaQxn55BP0lxABbTAArOknPKDYJrLaz/P9JmCFq5Ac01F4YQPI105pn/YrIXCP1mD3pusYSmdQHq3C9gkOXw5hHPgQrq8IVjipE1EfC9Y+9X9e3dMpbNKFULOAFMDbCdPoMnRtriutxrcb68S8+U3+igGwZOJyxowzw62byMFvEdQ489BRU3kYPZZny9x0q/l1O+2Kpv34U0l2cqdZtnmYCQz2HnpVkU4IOpaMZmzK6wC3OxJHiE8Tj+7eajw+Vxsl6siAeXg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KCcw1nOGksNE0agITQ1tlIJWmMWgi+GlTbteT3MWbLM=;
+ b=ITtPQsgeXw8eRCD/q2ZmoIeMMhB/mpqHjcGevabn07uGHsxkEnYmmcNWZA8c44jFj6nejCtc0Po0Ge3h5E9QIyyKfYESifsS38DXcQfxKYWYLMh6HKqiXfRsMVY05XPalvZvnPPdvURHfAmTZXnPZq5TV7AZvoTv6MA6M+fw4mWFlQiV7WcwdUl1pZC8m+wsNo8jAppl0gbmmmt9N3wGdSKt8lYmr1E/04plwC8WxcGmWRkudGr8oq13OC2MsUthNgmQoBeQSQQxRqvrscGCoeHwt03lq8e122aF/xIjI47gu6E439O6pJndbt6mfGhG8xPb7uIy1z7fUDESYwCTow==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KCcw1nOGksNE0agITQ1tlIJWmMWgi+GlTbteT3MWbLM=;
+ b=em4kC5Ek7j7+yUHo7pqsca6Jg4eNfAWhfRfGwdKtb9BOB5S0rRez70/9z34fdHaTF5oDmUaA8Hed1Q54U0rE2cT/3fkdD1q7abMF/4mfHNtKVRAZaSMtbxOfPi5MiU+xsBpJ/MLH7868hxfP5YDnE9XLUQKucA/myHnLLZ9/aSGlWN2uR6YuGYiQIS6gHKJXg4abczGEoE7tMjYNcCMu0WSE2VhFBGVuI3WvSnys+LJTc1gLGGtHL9vQBiRmxXCw8Etsejii7+BtAARZekcxY2DcCd7eZnVRKR8X9pW6YRX5GKrCOBuhASfuQpY0jL40A/q6/q24kAZnmaOOLiZQxA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU2PR04MB8871.eurprd04.prod.outlook.com (2603:10a6:10:2e2::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.19; Fri, 7 Mar
+ 2025 21:51:16 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%6]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 21:51:16 +0000
+From: Frank Li <Frank.Li@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Marek Vasut <marex@denx.de>,
+	dmaengine@vger.kernel.org (open list:DMA GENERIC OFFLOAD ENGINE SUBSYSTEM),
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	imx@lists.linux.dev (open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Cc: imx@lists.linux.dev
+Subject: [PATCH] dt-bindings: dma: fsl-mxs-dma: Add compatible string for i.MX8 chips
+Date: Fri,  7 Mar 2025 16:50:59 -0500
+Message-Id: <20250307215100.3257649-1-Frank.Li@nxp.com>
+X-Mailer: git-send-email 2.34.1
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: BYAPR06CA0017.namprd06.prod.outlook.com
+ (2603:10b6:a03:d4::30) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 06/10] Drivers/hv: Export some functions for use by
- root partition module
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
- <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
- "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
- "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
- "muislam@microsoft.com" <muislam@microsoft.com>,
- "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
- "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
- <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-7-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB415706E75693B821FAF0A231D4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB415706E75693B821FAF0A231D4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU2PR04MB8871:EE_
+X-MS-Office365-Filtering-Correlation-Id: d3325d9a-2c66-4691-ba5f-08dd5dc22f65
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|52116014|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?khMteRcvz832rrARq/ccTksx3GWw6rW8DIlHHn8Uij8qSRfqWpCFaIAiJTNb?=
+ =?us-ascii?Q?WgLvYKx8aizecfBd7a5MWy4CCLZHzfaP8xcq5na0jqJYYHUuRk7eGd58qk5r?=
+ =?us-ascii?Q?2Y8sGwXRZsOCArlHBrFSW7JhV+1YaCvRxBh2to348CXi2rR2bNhkrPx4h8Tn?=
+ =?us-ascii?Q?ezrLUua37apNtPYcnSgb5CTTp0F5K4YPx5ZWe3M/VKmc9HcdUvrcK6RtRtcL?=
+ =?us-ascii?Q?u9Ul4rIqLrvZQDm+ofQ8TgSu3QRqkVHeFV3KQBCBGHZ3nSL4fJuf6TerR5LR?=
+ =?us-ascii?Q?aCGDUyGmcGaAg8PoZfztW+bedjM4PCby4/chk07gTdlsrwvgcaIc0T5NqKdS?=
+ =?us-ascii?Q?GhYpgTEt2kzYkyFC7A6MPvyw2muU1NDLBAz5r5lQqlIuW4DgP+QWpdT6Czqx?=
+ =?us-ascii?Q?7uL8N754SEZ+vx/5GVs5VcPaVWmLDc5+1wp4C7phyEjPm5B615nzhG7ZOFne?=
+ =?us-ascii?Q?CkB2Dp/tjfFx89cs7VMyR+6se4zWmAT61+zBEcVT+Kjo0hKawNW8944sZFvn?=
+ =?us-ascii?Q?KYTQIxKhOtGAuLMgypEa7zhyqwO1Avj4eNP5WkEAf7lHDMHnOBCcjXzNU98F?=
+ =?us-ascii?Q?+kiCJ6ha08ngLjBbilYgQL8tqFOumTb7AsC543LQqdHsPOftzX6VsyYDOmvX?=
+ =?us-ascii?Q?1ET6T9YCJbfpFoxbDOQosWShX4QkA8wqM3G6U1Nw6RhCLCjGdqrwkrbLGPbk?=
+ =?us-ascii?Q?RFtH5QgoZ7GKI/zJ1QInA9doKX61qVl8WBYEBdKaZc0ZPAqFisymDOfAjdDE?=
+ =?us-ascii?Q?4t8UQ6phgjA+cT/USac8ZQsMkWJmy9RTj/C7rA0CS/ljNMvRfdzK3VWlh9lB?=
+ =?us-ascii?Q?JYXlxpQ+7ntGIfcN9ujMBb8oJoJSQ1exN7iuizl6X5D7f53vmrlxv46+X9eX?=
+ =?us-ascii?Q?zHK1Hi1TN4fpLbI3uS5up/X5IgyUBg4rJlQCi9Hg4of9t8uLCSJe6Wfd4dBD?=
+ =?us-ascii?Q?ayAB+/w87qODsQgzL7tFe8M8wP+yM+pcHZnc2DbKlNIZCSKo62xYURKPym43?=
+ =?us-ascii?Q?H3PAZrU+0KYRc3DnR4eC3B8bZv3pVkY170rBhhOVPMnJQRmGB3XXS5CUVW4P?=
+ =?us-ascii?Q?JrhTNiDRBtRReSioMkt+biLgmNkL85OCYbEc3RSjhLqL3Ltyc3vIKcvwBngV?=
+ =?us-ascii?Q?TEUov0VFUHxNlELHhGSzAFmy7k0GXONJC1FZkCFFLW81Y7v3tVnQzw36zr64?=
+ =?us-ascii?Q?EsrpSnS82CM8+YmvZ/TO6L2WzfLlks+3Uy7AfsXKjVUZl1rJmXGLlD1292jg?=
+ =?us-ascii?Q?z3CA5uqxZnuJAuPW6G3eqGj3h0N3OtC2jxeEUp9Vz3eC17/hOHAnGKDgjsMx?=
+ =?us-ascii?Q?2Qx4OnVhVa9tFPlDqtdtW6yKKloht33CaMwNOHeJ+aG5gNEyyI6py+IRZzCF?=
+ =?us-ascii?Q?YsgkoxnKcHo0imhW/CNO1I0fT+W97cHYJioJAav+0tASsc5cpnGvVwNXkGiK?=
+ =?us-ascii?Q?s046RWOll5J7g8JLFcDuBGG6DAfj+HPYIled8jZlXmYGkFMUO7X9/Q=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(52116014)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?KJJGz04nkVf0cvtXTaODatQO2j8NKpwPvZGeKfUNzhz4VXm0RHpfoeaTzMwS?=
+ =?us-ascii?Q?Y3Apse1Li+SMJCn/o6Q3Qo8NgdiVcoGYOVq3wo4CoMm9YnECKIzsSTlfSMop?=
+ =?us-ascii?Q?ynCsl2KsE4mMaD5XwIc0QWgUv3GD+KF/PMQKDL5R0xjSzODvXHhzGk5Ods6W?=
+ =?us-ascii?Q?67yr/P909jdEVtdyx55Bx4GfShsi/+HaDtfvPtF6SdDh9QoxtSz/BemcgFOR?=
+ =?us-ascii?Q?T4Mxuqf+irkS6v58qFszDNPCpKjHcWEoRm1EV3rL4R+nniwOMa8oZV6sIZrp?=
+ =?us-ascii?Q?4vjY6EcHSzLDn+mNfudd606Ylu2b4sOXeHk97yxAX4TLaoF8afU4hHpzFA1y?=
+ =?us-ascii?Q?WC31jjTU3yaJsKJgrqG79j0FamIiWgrOva1RB0uYInBFvBpPo5Tlu1ftUwJl?=
+ =?us-ascii?Q?6i/QDstW3WT2fO3DeYjRe2r0uxxQS6Q84VdhVZ6TAkdbsDhdymZfzpCOxtfV?=
+ =?us-ascii?Q?krtRtugB+da5jlFMWDeIDdUb5BpQwTMdsDcjH5opnCi0c3EwiGoLhnrRe1bF?=
+ =?us-ascii?Q?5VrM3CZ7oQ3lELKeFglifI3YQHjKRPyWz1v9FpR7+GlFnvn0DXZKmxcR/miJ?=
+ =?us-ascii?Q?ZWVrvvQkeZO0uARKGnrRS6G3n0Tx61MfvZehk0TSotmroGDuz1y0Has5BPdJ?=
+ =?us-ascii?Q?5mnX9dY2f4fXNYV05Am+/u69dsRjwfYOv+D7KEFENAf/ort1lk8wSgB0UgVn?=
+ =?us-ascii?Q?D5CG0ciw2j8rgnENqvOVu9KXQSOVV+YL8oySRzgSxtyzDxzyykUJR0GIjL82?=
+ =?us-ascii?Q?w4Ph5Y7GkqcfBlULnHjc/xeLp89fP0cz5d1vVksyOOf58WY8eEzpO0RAghU8?=
+ =?us-ascii?Q?wEIVVAICnfRorq9REFyyf/rSRf7BY+ngpNbCNN1Nue85QbUMSxWkL7qb3/bl?=
+ =?us-ascii?Q?RRZiD7iOObN6DQR/izKMfZ8h529CiOL4enFiqXlQ7gyh67LeBdfxug/7y7IB?=
+ =?us-ascii?Q?oRPf4RYHyUGjUQ1Lhdk77hGSm/qGLe515XvtVI1XyOmLPNnnFw4VhK2H2zm0?=
+ =?us-ascii?Q?7lEz2TYQr7oNyTrXczmMDj/5vu9+Az8iVfQ4ob4Yg9R1COGRUZjWKCA/YnEr?=
+ =?us-ascii?Q?yKruLeBHNpbqtnl1J8BJiNiEzMZwt3jzxvuDU/u7svnixbCjXwGmH+abhywa?=
+ =?us-ascii?Q?mFraudQtvYu8z16CmUW3kuXx68/pVeaQemXHHdKSxD171ktU8BfUg7dWobb/?=
+ =?us-ascii?Q?XaXbZ27invtahPsA2b2/52EhPk50ANVRps+FJe0te+9B7ltU+Q4Qa9K5EnBG?=
+ =?us-ascii?Q?rsR+dzYC4t4c83OP3dSI1aCotnhL+IKFEZrW6Z6U5s8au8lSXt+lZot+MgVo?=
+ =?us-ascii?Q?9hoCgttZCvMvJAX3nPZFxUtLuwIlGwVeY/lQ9Wx8lIM79yNE6iCnqb/SzFMT?=
+ =?us-ascii?Q?30CDwz3pgz5ANG+jESM59eDH+xq+45g9muzUUSr1ytHD0ulAQd5zY3kAdpsA?=
+ =?us-ascii?Q?ukTv62sjvPp+twbcU2xBdrir0lvx65jnhzU6I8RmWBIybUdXqj2t9MwfkCl2?=
+ =?us-ascii?Q?YJATs4pKLD5dxIeSZGjlhiNna6V8ZSFGMsUIg7hwB2vQ+ZfV3/BXQFHztPwI?=
+ =?us-ascii?Q?DjHK/z80WwqxE2FPgo8=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d3325d9a-2c66-4691-ba5f-08dd5dc22f65
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 21:51:15.9715
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: piHZJ6mWw14nr4bVnkfYCN91yUmiDtb7ltilLgg3v8ZGLYvNEW9kHj1ecqL+AAPYPx2dwge3gtxFi5sVOO5gxg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8871
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_133901_235681_DF047F66 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250307_135120_181582_CBCB8F44 
+X-CRM114-Status: UNSURE (   8.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,90 +167,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/6/2025 11:23 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 26, 2025 3:08 PM
->>
-> 
-> Nit: For the patch Subject line, use prefix "Drivers: hv:" instead of with a slash.
-> That's what we usually use and what you have used for other patches in this
-> series.
-> 
-Thanks, I thought I checked these but I guess I missed this! I'll update for v6.
+Add compatible string for all i.MX8 chips, which is backward compatible
+with i.MX28. Set it to fall back to "fsl,imx28-dma-apbh".
 
->> get_hypervisor_version, hv_call_deposit_pages, hv_call_create_vp,
->> hv_call_deposit_pages, and hv_call_create_vp are all needed in module
->> with CONFIG_MSHV_ROOT=m.
->>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> 
-> Modulo the nit:
-> 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
-> 
->> ---
->>  arch/arm64/hyperv/mshyperv.c   | 1 +
->>  arch/x86/kernel/cpu/mshyperv.c | 1 +
->>  drivers/hv/hv_common.c         | 1 +
->>  drivers/hv/hv_proc.c           | 3 ++-
->>  4 files changed, 5 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
->> index 2265ea5ce5ad..4e27cc29c79e 100644
->> --- a/arch/arm64/hyperv/mshyperv.c
->> +++ b/arch/arm64/hyperv/mshyperv.c
->> @@ -26,6 +26,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info
->> *info)
->>
->>  	return 0;
->>  }
->> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->>
->>  static int __init hyperv_init(void)
->>  {
->> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
->> index 2c29dfd6de19..0116d0e96ef9 100644
->> --- a/arch/x86/kernel/cpu/mshyperv.c
->> +++ b/arch/x86/kernel/cpu/mshyperv.c
->> @@ -420,6 +420,7 @@ int hv_get_hypervisor_version(union hv_hypervisor_version_info
->> *info)
->>
->>  	return 0;
->>  }
->> +EXPORT_SYMBOL_GPL(hv_get_hypervisor_version);
->>
->>  static void __init ms_hyperv_init_platform(void)
->>  {
->> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->> index ce20818688fe..252fd66ad4db 100644
->> --- a/drivers/hv/hv_common.c
->> +++ b/drivers/hv/hv_common.c
->> @@ -717,6 +717,7 @@ int hv_result_to_errno(u64 status)
->>  	}
->>  	return -EIO;
->>  }
->> +EXPORT_SYMBOL_GPL(hv_result_to_errno);
->>
->>  void hv_identify_partition_type(void)
->>  {
->> diff --git a/drivers/hv/hv_proc.c b/drivers/hv/hv_proc.c
->> index 8fc30f509fa7..20c8cee81e2b 100644
->> --- a/drivers/hv/hv_proc.c
->> +++ b/drivers/hv/hv_proc.c
->> @@ -108,6 +108,7 @@ int hv_call_deposit_pages(int node, u64 partition_id, u32 num_pages)
->>  	kfree(counts);
->>  	return ret;
->>  }
->> +EXPORT_SYMBOL_GPL(hv_call_deposit_pages);
->>
->>  int hv_call_add_logical_proc(int node, u32 lp_index, u32 apic_id)
->>  {
->> @@ -194,4 +195,4 @@ int hv_call_create_vp(int node, u64 partition_id, u32 vp_index, u32 flags)
->>
->>  	return ret;
->>  }
->> -
->> +EXPORT_SYMBOL_GPL(hv_call_create_vp);
->> --
->> 2.34.1
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+ Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml b/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
+index a17cf2360dd4a..75a7d9556699c 100644
+--- a/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
++++ b/Documentation/devicetree/bindings/dma/fsl,mxs-dma.yaml
+@@ -31,6 +31,12 @@ properties:
+               - fsl,imx6q-dma-apbh
+               - fsl,imx6sx-dma-apbh
+               - fsl,imx7d-dma-apbh
++              - fsl,imx8dxl-dma-apbh
++              - fsl,imx8mm-dma-apbh
++              - fsl,imx8mn-dma-apbh
++              - fsl,imx8mp-dma-apbh
++              - fsl,imx8mq-dma-apbh
++              - fsl,imx8qm-dma-apbh
+               - fsl,imx8qxp-dma-apbh
+           - const: fsl,imx28-dma-apbh
+       - enum:
+-- 
+2.34.1
 
 
