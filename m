@@ -4,87 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26A05C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66437C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:18:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=60re8BiRqNaxfgjZjOXpMIdToHtt/3wVQ2TQ428IPn8=; b=ECsx950C3dz3JsdMjrkLh7STOG
-	M5rG3R6HHjop0B+Nk39cUkPOCD1eFfzscMDIHGc1rYYwDZr5iNsXu3p8ZU3LOz5AJroV+qiX4dNXd
-	kqcHNwh7oI19lEaD5Ttk56L1cy/oyq9HiwbBOR7WzChLNqgl5r5Mi814B0fuh3mLK3GhY+mKGiznC
-	EaITb1FNx2tLFSwAFgiiHChGjmplaEPvA/pZRHjFBjcNzaq7aJgWtOli9qhwti9g8+BccBqWmI18A
-	Vm8A38cKXcrCR/wBhleUKS9t/Ns0COKyZsrSSf2uB7IxH8IHEDockBscdjyNZ8mv9XUNSWKjzzCGW
-	q63AwqsQ==;
+	bh=3O3AnmpQI3jBSfzVaFR0gisRYPo1AftdSa2GSlKHZsw=; b=I05Zgbf7cOzGbR4K5gTBjmFXVo
+	LcuLmneOrKPQAsPcMqWgQd1tCtaYL6+8jHKULlQeAohJfZaOwJsBL1iHTys6TaRYsxAtV6LHKYP4M
+	YPK8HjLHMOaeBRliVzkmbV8BR++OOhhGi6vK7KhlfGzcpD3xN2zU71Ihl1bEdtvs4rBCYUpoUsdTb
+	n/Bx0TOsP4uDfOLCJQKjD5Ggobf6uu/p3ONrPlO7aeyE7FQLluWnkUvV6RnCW6NDDTLziO0CmdzPt
+	RuDLDQ3M8lIF208FgGwrtm/uOO/XOqtaI3VN0WbBUWgJUOQoyfgz1fqVCFTMUhFpSOWDNKoVehjwF
+	5JUjLPvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYTG-0000000EQhE-0G4L;
-	Fri, 07 Mar 2025 14:14:38 +0000
-Received: from mail-oo1-xc31.google.com ([2607:f8b0:4864:20::c31])
+	id 1tqYXE-0000000ERNg-3zdW;
+	Fri, 07 Mar 2025 14:18:44 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYRd-0000000EQZo-3ENZ
+	id 1tqYVa-0000000ER9U-46nd
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 14:12:58 +0000
-Received: by mail-oo1-xc31.google.com with SMTP id 006d021491bc7-60010601291so375321eaf.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 06:12:57 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741356776; x=1741961576; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=60re8BiRqNaxfgjZjOXpMIdToHtt/3wVQ2TQ428IPn8=;
-        b=JqAFO6keoZ/xV/WaoSl0nlR8sk5yg1uNk6A6EvexvXXrlXdo1qvfafhA6E/7iXuIck
-         qqTQqZ8x5iSmrON+cGvaiZZQ3A/P+smcSemLHDiFEV/X57keejQtHb1mptBsZRZNl1dX
-         AFUUXDr4t1zifGhXw/0zh8Zw6RButh1dDGlHSRngoavncHcZbgNPMqgO23JUSI1ykwqN
-         FzWqeGQVi3og03KHLy6K4uhV+Ztz5p7t+dhhfYakLEY9l53Jql8weCfarlmZu4Y8ZrrO
-         8fh8CiXLtxe3BQZZ31VW8wDkLZqEuYQuNiRaNjv+ucauSD4rQOjHJX4ZMXZraG8GYlNJ
-         un+Q==
+	Fri, 07 Mar 2025 14:17:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741357021;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=3O3AnmpQI3jBSfzVaFR0gisRYPo1AftdSa2GSlKHZsw=;
+	b=itPl7SK/Z26G/7CRkdMyajb1KYkC//i7dm2IQ1Vl9G9GlOrsaUeKWrBEy2UkJ/y2KULdL3
+	5Kl3hbsTav4Qalu5zH8JCQrqBoL5bcn7JIsamlsYX+CfDuehj9tGzPhzNLesb+X2vN3Y5T
+	RisoaJF7fUay9pmojeu6nsxlHXangYs=
+Received: from mail-lj1-f199.google.com (mail-lj1-f199.google.com
+ [209.85.208.199]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-621-M6TIZUB7M4Cy3RWcS4Aomw-1; Fri, 07 Mar 2025 09:15:27 -0500
+X-MC-Unique: M6TIZUB7M4Cy3RWcS4Aomw-1
+X-Mimecast-MFC-AGG-ID: M6TIZUB7M4Cy3RWcS4Aomw_1741356926
+Received: by mail-lj1-f199.google.com with SMTP id 38308e7fff4ca-30bfaec88edso1888891fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 06:15:27 -0800 (PST)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741356776; x=1741961576;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=60re8BiRqNaxfgjZjOXpMIdToHtt/3wVQ2TQ428IPn8=;
-        b=ZsNn3Zbgz/aDVUOiZkHGtbNaYBR6Jye8A3DKn3FJJj3MIQcQNzdXp/ehRyLVbS+Iu3
-         tdVTTOVH1ogQgus0tjrWSHLyLjM4wBeIn5J7CjEGZuLkfoRSEkV6AoQ2B3wXH7Q04yZv
-         8j2i0qef4a7qURgr/l+gPwOMNP9NemIEHkwjW+1qvfOaeBWOCnpLsVL8CQK+PYiuLqk9
-         E7FMsWIdeBQ8rdpxv7voMIbVROG/YRdwJ9d2g5SzLUo4OSRzZr6j+pm/oGSRB9rUyuEk
-         YktHA37pfcyNpF7JcjOao/sj9L4ql5KGBsSNNs7XNjQNy3yhwP7Pl77tid0R09T//AWf
-         jIFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWgOKqn1xYP4K+bFnx74gQU43Hz4eRoQwKJQnFRzsCjuh4o/81ZCMOq9p9fyCqbWuFHQjU/yA21CGAxDAtN6Ug6@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRYeKEgSkozY6ceUdkkStczJPukt4X8YO+S4LGiuPbUAcjElyB
-	PCc28h2phZQPp0NTIYc63kKI5rU++q9P51Iry1BtHEUrNaUEvWQIxMelkN9w/YRSNxYerrte85j
-	63tPmOwabnXtnJrf7Qm2VE0jFj7wzmz1pudEtnna0WFY0XEpntvc=
-X-Gm-Gg: ASbGnctwuAFOl1depL01ZJ746KbTgkWgoKrTeCT37n+0wwgG0BD6oKrzaJg9Jwc4chq
-	ypgXzjeUqJxUG/pqUEuur+lGy2jDCx3ezu1foPmrRx9FTYZki19b773exoZ5zD6TuvqZT0a0UGS
-	IWacq/Bl2gWMP/GNDKpqmLTc7NSu0=
-X-Google-Smtp-Source: AGHT+IH9L2ObJ6dDXOCpIMSXNSBNafNehee0qnPWJxOsmaTrt6AVB5PDvXlGpGJ+NlBDx4GXdCpmmJeVhirk9krz6vY=
-X-Received: by 2002:a4a:ec4c:0:b0:5fe:9a72:3dea with SMTP id
- 006d021491bc7-6004a767138mr1732794eaf.1.1741356776690; Fri, 07 Mar 2025
- 06:12:56 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741356926; x=1741961726;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=3O3AnmpQI3jBSfzVaFR0gisRYPo1AftdSa2GSlKHZsw=;
+        b=sagAb+u+vL8TSLaxZ6MyeWgro214cJ3PdV7NjIRUz5PvMaDpP+cmOlJ84wmsc0/fqq
+         rZeZPyQnGZwUgvi29q0DO08hgO1F4C/UzYnAVEOjQ7gtjpBpfceNmQqFtRvbjjBVD8mW
+         IvaSmXj9jkMro9WqpxpPhSbOHDFKDn1BN538d9+5bNf5+OX6LyIBE3ub9szklMyoqHjX
+         0fIZlOQ++7uK5BG7u/+uC/lAG2SHO7uWW38wAFhXk2H74zi21u9S7VbnsVixMDoMFdcI
+         OjqSPrCrqshvTQNpQKpZf/dh0GMrCmP08dEeghTxbfWnnkAvGEYoRfjGd+jrKGqR6c/p
+         wnPA==
+X-Forwarded-Encrypted: i=1; AJvYcCXVblr8t8VScKrZDUgamB4DTvKO4TVoDkbRPfFUI8FOv3IKz2s1krZfD6WjWzGX3YM9sKsAr4h4prfuirTt0O90@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywod238Ad+MXn68EVcfaQcq2g3z1ikAZpTgJ7u4XR9GX/qDfuv7
+	pkYI8QFN3mktm2asRtTdBd17j3uxGBCmY+SvBGqJJs01yTx4AowZY2Xu+iJPapFvYsJrmZnAD3g
+	uTPsfEU2wSFlG4XrSP4b2gU2SoYvcgqso2x8fdPJQedswhQd7CPo9baBr74OZTOTuoQ7s0qsb
+X-Gm-Gg: ASbGncvjXw9SL0rhO1j7HHKwIdEUPe1jcTcl4I7S2UdhAz7uH/pcGch8bhHW7+X/wCj
+	9YdDN4H/FUutko4YV/2KSeFKOpk5ebY0CJkr/VAJSR9//RgKMZ2cDobSdSGGnUpWWcQaH6vRsay
+	WVE0akqqoZnV/MkQiI8HJCKcmE5Ic9KB4ZvNzTNmtLC5phWhlGJyZt2TAJ8I28u1aTgBVuZQtKB
+	c5Y/HYR/1IVXJMK62NnrH8CxZIHlPiIHNyGr+riG3oL3ENU0qt0nGU2L8PnF8HWL7ae8d3AJDo5
+	YNvP8UotH/lf
+X-Received: by 2002:a05:6512:3e08:b0:549:8c0c:f059 with SMTP id 2adb3069b0e04-549903f7501mr1328599e87.10.1741356925925;
+        Fri, 07 Mar 2025 06:15:25 -0800 (PST)
+X-Google-Smtp-Source: AGHT+IE3xCZIBKOSDK+lcZFrDyk8zQiKyadlLEz2VUX4gZrVM2Ry982AQyl3kHsVBYxqC5TNxfqK0A==
+X-Received: by 2002:a05:6512:3e08:b0:549:8c0c:f059 with SMTP id 2adb3069b0e04-549903f7501mr1328584e87.10.1741356925465;
+        Fri, 07 Mar 2025 06:15:25 -0800 (PST)
+Received: from alrua-x1.borgediget.toke.dk ([2a0c:4d80:42:443::2])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5498ae58e4fsm500345e87.82.2025.03.07.06.15.23
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Mar 2025 06:15:24 -0800 (PST)
+Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
+	id C544C18B8B34; Fri, 07 Mar 2025 15:15:22 +0100 (CET)
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+To: Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net,
+ kuba@kernel.org, pabeni@redhat.com
+Cc: zhangkun09@huawei.com, liuyonglong@huawei.com, fanghaiqing@huawei.com,
+ Yunsheng Lin <linyunsheng@huawei.com>, Alexander Lobakin
+ <aleksander.lobakin@intel.com>, Robin Murphy <robin.murphy@arm.com>,
+ Alexander Duyck <alexander.duyck@gmail.com>, Andrew Morton
+ <akpm@linux-foundation.org>, Gaurav Batra <gbatra@linux.ibm.com>, Matthew
+ Rosato <mjrosato@linux.ibm.com>, IOMMU <iommu@lists.linux.dev>, MM
+ <linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+ <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, John
+ Fastabend <john.fastabend@gmail.com>, Matthias Brugger
+ <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, netdev@vger.kernel.org,
+ intel-wired-lan@lists.osuosl.org, bpf@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH net-next v11 0/4] fix the DMA API misuse problem for
+ page_pool
+In-Reply-To: <20250307092356.638242-1-linyunsheng@huawei.com>
+References: <20250307092356.638242-1-linyunsheng@huawei.com>
+X-Clacks-Overhead: GNU Terry Pratchett
+Date: Fri, 07 Mar 2025 15:15:22 +0100
+Message-ID: <87v7slvsed.fsf@toke.dk>
 MIME-Version: 1.0
-References: <20250305-clk-samsung-headers-cleanup-v2-0-ea1ae8e9e2bf@linaro.org>
- <20250305-clk-samsung-headers-cleanup-v2-1-ea1ae8e9e2bf@linaro.org>
-In-Reply-To: <20250305-clk-samsung-headers-cleanup-v2-1-ea1ae8e9e2bf@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 7 Mar 2025 14:12:44 +0000
-X-Gm-Features: AQ5f1JrAJDWL1aZmpxNwroG6aOpF70B9j3ySId9aUtSrljkJO2C5fdV0SfrMx24
-Message-ID: <CADrjBPqxTiy8D8PVpZBzYnes-hxqKX+gd6a4WgJeDE=x7YQKAA@mail.gmail.com>
-Subject: Re: [PATCH v2 1/2] clk: samsung: Add missing mod_devicetable.h header
-To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Sylwester Nawrocki <s.nawrocki@samsung.com>, 
-	Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Sam Protsenko <semen.protsenko@linaro.org>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, linux-samsung-soc@vger.kernel.org, 
-	linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: JJCH9_NK5o6QlpdEnXKsABC---wG0seqcqaFm1LPsac_1741356926
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_061257_814556_27BE8A78 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_061703_083570_8CF26216 
+X-CRM114-Status: GOOD (  33.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,16 +121,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Mar 2025 at 20:03, Krzysztof Kozlowski
-<krzysztof.kozlowski@linaro.org> wrote:
->
-> Add an include for <mod_devicetable.h> in the drivers which use
-> of_device_id table to bring its declaration directly, not through some
-> other headers.
->
-> Reviewed-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> ---
+Yunsheng Lin <linyunsheng@huawei.com> writes:
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> This patchset fix the dma API misuse problem as below:
+> Networking driver with page_pool support may hand over page
+> still with dma mapping to network stack and try to reuse that
+> page after network stack is done with it and passes it back
+> to page_pool to avoid the penalty of dma mapping/unmapping.
+> With all the caching in the network stack, some pages may be
+> held in the network stack without returning to the page_pool
+> soon enough, and with VF disable causing the driver unbound,
+> the page_pool does not stop the driver from doing it's
+> unbounding work, instead page_pool uses workqueue to check
+> if there is some pages coming back from the network stack
+> periodically, if there is any, it will do the dma unmmapping
+> related cleanup work.
+>
+> As mentioned in [1], attempting DMA unmaps after the driver
+> has already unbound may leak resources or at worst corrupt
+> memory. Fundamentally, the page pool code cannot allow DMA
+> mappings to outlive the driver they belong to.
+>
+> By using the 'struct page_pool_item' referenced by page->pp_item,
+> page_pool is not only able to keep track of the inflight page to
+> do dma unmmaping if some pages are still handled in networking
+> stack when page_pool_destroy() is called, and networking stack is
+> also able to find the page_pool owning the page when returning
+> pages back into page_pool:
+> 1. When a page is added to the page_pool, an item is deleted from
+>    pool->hold_items and set the 'pp_netmem' pointing to that page
+>    and set item->state and item->pp_netmem accordingly in order to
+>    keep track of that page, refill from pool->release_items when
+>    pool->hold_items is empty or use the item from pool->slow_items
+>    when fast items run out.
+> 2. When a page is released from the page_pool, it is able to tell
+>    which page_pool this page belongs to by masking off the lower
+>    bits of the pointer to page_pool_item *item, as the 'struct
+>    page_pool_item_block' is stored in the top of a struct page.
+>    And after clearing the pp_item->state', the item for the
+>    released page is added back to pool->release_items so that it
+>    can be reused for new pages or just free it when it is from the
+>    pool->slow_items.
+> 3. When page_pool_destroy() is called, item->state is used to tell
+>    if a specific item is being used/dma mapped or not by scanning
+>    all the item blocks in pool->item_blocks, then item->netmem can
+>    be used to do the dma unmmaping if the corresponding inflight
+>    page is dma mapped.
+
+You are making this incredibly complicated. You've basically implemented
+a whole new slab allocator for those page_pool_item objects, and you're
+tracking every page handed out by the page pool instead of just the ones
+that are DMA-mapped. None of this is needed.
+
+I took a stab at implementing the xarray-based tracking first suggested
+by Mina[0]:
+
+https://git.kernel.org/toke/c/e87e0edf9520
+
+And, well, it's 50 lines of extra code, none of which are in the fast
+path.
+
+Jesper has kindly helped with testing that it works for normal packet
+processing, but I haven't yet verified that it resolves the original
+crash. Will post the patch to the list once I have verified this (help
+welcome!).
+
+-Toke
+
+[0] https://lore.kernel.org/all/CAHS8izPg7B5DwKfSuzz-iOop_YRbk3Sd6Y4rX7KBG9DcVJcyWg@mail.gmail.com/
+
 
