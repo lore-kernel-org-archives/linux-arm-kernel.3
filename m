@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6206DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:16:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99D59C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:19:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xagIauEMH2hsyco8lHzEvpdcABe5odxpu3TW12tDQlc=; b=Q19YtWaS/z9OsbSCH5BBKZ8O/6
-	dQfSCNBcAu/kcm6n3l4HUPtzBcEmhSD2pVR3r/cu98Z2g/X6DEQ6sdLgy4eS4LVsROwmKbtudb4FB
-	PQNMLuMLEWaptwam8CvF8v+pxuFYU0JRLjy1NKovuQY8nwSOb04gg9gcRemh98tPk0dIHs/Pqr00M
-	oCAtxMgLQrBtwSUEUkmYqn4yij6YJuqTUrvjCDVQ/o5+FwFvVqUOiOAcejMgSQFcrUP3pr9XNisf5
-	MIz2iabEDmdlVfqBh99vojhsLD3CCBK0Y6y4Oa91eeomfBMLwZ/eIAOejFkKcG0HRGDxCZPPAaM4x
-	nXfuivhg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=se78CTgWSMz3fwwLUHiO5oHWeH+WmhQaI4Bm8mflklg=; b=kQh+FtI+AupFzSHqnIqtDWdMdS
+	qyf/qVUKEqv+pAUQrppzGD2D19mQzZjPjIbct36g8VT8cG7oKRKC6E3FwZv20ZRXluDSKsTk1JS4O
+	RYmHaAdruz69JQ0KaSVJvt3w6tZd5WZkFUScSj9HYFRI0Mfepaj6U22twiHwIId4RkWcqYwGYi4NK
+	L59snOdNbnrK8j80k6oPSvgCcqYV7WORhBA9VThTKvKRS0IJUanuWUtE5oZlz2jFvx+32upJpjrZ3
+	Pj8qg1LcfGTs6NZocT3pw9RseELljPd4f69GOinx65+zl5yrBQCMcZB8ZVlXlDAJGllBAlHedzLBI
+	BXwaR+Pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqaNH-0000000ErI3-0ud3;
-	Fri, 07 Mar 2025 16:16:35 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
+	id 1tqaPl-0000000Erwp-0SKn;
+	Fri, 07 Mar 2025 16:19:09 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqaJJ-0000000EqGI-2iYw
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 16:12:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741363949; x=1772899949;
-  h=date:from:to:cc:subject:message-id;
-  bh=VRoLuPo3xrt75CmGjktPfkYGpTEDc3ENUDbG3/QqJQ0=;
-  b=QY8T+EEfUpu4Uo9zREPRIXxSNGEzt17Y5NXefrrFkHjOAxdhqP5Xku4X
-   +SW+SMDpeL66PKszAX7qx1nn9Box/FIajW+zcOBrQYQoMJLctx5LugbiN
-   A94gldjUeuEcRDVN4wMTT31eVzHNoY2D/TNDSJGmJ4k+F1hlimvC8rzw4
-   XfNI0YdU+Jwz4kfIjFKO3vbcrrhytYwjn5Ec0iIJJWcU00Nz3FnqaPTWj
-   3v+Goqsmh751Nqfq55WH5a6IoZvt+nWG9iVUVGbsqcs8gSI+q0xag3r1M
-   uaCWY+pf/Hg/eXAc5dS7nvDH1xWJ/r1zLZ83w2KfEtfWRXWrh5Gr96lJK
-   A==;
-X-CSE-ConnectionGUID: y94/hsgdQrCDUGUuxOVlxQ==
-X-CSE-MsgGUID: MBgL2aI5RjOnFsuJ28Ze3A==
-X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="53806042"
-X-IronPort-AV: E=Sophos;i="6.14,229,1736841600"; 
-   d="scan'208";a="53806042"
-Received: from orviesa009.jf.intel.com ([10.64.159.149])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2025 08:12:27 -0800
-X-CSE-ConnectionGUID: hzEgr66/T/WXPOCCrvSCBA==
-X-CSE-MsgGUID: ri6uC7xpQXeb24GCD6VUHw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,229,1736841600"; 
-   d="scan'208";a="119113540"
-Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
-  by orviesa009.jf.intel.com with ESMTP; 07 Mar 2025 08:12:24 -0800
-Received: from kbuild by a4747d147074 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1tqaJC-0000im-28;
-	Fri, 07 Mar 2025 16:12:22 +0000
-Date: Sat, 08 Mar 2025 00:11:48 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:arm/fixes] BUILD SUCCESS
- 98f3ab18a0a55aa1ff2cd6b74bd0c02c8f76f17e
-Message-ID: <202503080042.qBbdAnTj-lkp@intel.com>
-User-Agent: s-nail v14.9.24
+	id 1tqZKC-0000000EYYs-3t0p;
+	Fri, 07 Mar 2025 15:09:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=se78CTgWSMz3fwwLUHiO5oHWeH+WmhQaI4Bm8mflklg=; b=x9Anm586sYnv+cpZc9KXc48alS
+	wvsfTYgeanUiP4jsGZqdyqbURpfrkFuA+oIVM3tAqrpgP/ei3SdmEjrVugVb1T4eNFuTg7gtmDO2c
+	T7a4F/KTMociRYbUrWS1heoWUbcadNzERNMbOmQuq2vZKK7+3D428CHMxRBQP+2DdkVgkcLyfl4nn
+	bDxMLyNlWEnP/MaPIVd8zOV8bn265VkptQ3RoAnqdCZi4l2574oRqixKb8ZQTg0H5Nd3evL2gVNUv
+	PLY4iDtOB0drDRnq7p6bwDfViFApqU5L0t2R0L4fMDZJmgngG7RVHJEtQYWhWZfQTg0Pp/KV1eGrQ
+	WKe7OdsQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:45108)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tqZJn-0007Zx-1M;
+	Fri, 07 Mar 2025 15:08:55 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tqZJj-0007uQ-0o;
+	Fri, 07 Mar 2025 15:08:51 +0000
+Date: Fri, 7 Mar 2025 15:08:51 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Inochi Amaoto <inochiama@gmail.com>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen Wang <unicorn_wang@outlook.com>,
+	Inochi Amaoto <inochiama@outlook.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Richard Cochran <richardcochran@gmail.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>,
+	=?iso-8859-1?Q?Cl=E9ment_L=E9ger?= <clement.leger@bootlin.com>,
+	Emil Renner Berthing <emil.renner.berthing@canonical.com>,
+	"Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
+	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
+	Jisheng Zhang <jszhang@kernel.org>,
+	Vladimir Oltean <olteanv@gmail.com>, Furong Xu <0x1207@gmail.com>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Lothar Rubusch <l.rubusch@gmail.com>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>,
+	Longbin Li <looong.bin@gmail.com>, Andrew Lunn <andrew@lunn.ch>
+Subject: Re: [PATCH net-next v7 2/4] net: stmmac: platform: Group GMAC4
+ compatible check
+Message-ID: <Z8sMAyH0qsMyXmjX@shell.armlinux.org.uk>
+References: <20250307011623.440792-1-inochiama@gmail.com>
+ <20250307011623.440792-3-inochiama@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250307011623.440792-3-inochiama@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_081229_731991_E9BA9A80 
-X-CRM114-Status: UNSURE (   5.62  )
+X-CRM114-CacheID: sfid-20250307_070920_969664_1634B71B 
+X-CRM114-Status: UNSURE (   6.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,84 +111,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
-branch HEAD: 98f3ab18a0a55aa1ff2cd6b74bd0c02c8f76f17e  ARM: OMAP1: select CONFIG_GENERIC_IRQ_CHIP
+On Fri, Mar 07, 2025 at 09:16:15AM +0800, Inochi Amaoto wrote:
+> Use of_device_compatible_match to group existing compatible
+> check of GMAC4 device.
+> 
+> Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
+> Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
+> Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 
-elapsed time: 1454m
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-configs tested: 64
-configs skipped: 1
+Thanks!
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
-
-tested configs:
-arc                  randconfig-001-20250307    gcc-13.2.0
-arc                  randconfig-002-20250307    gcc-13.2.0
-arm                  randconfig-001-20250307    clang-21
-arm                  randconfig-002-20250307    gcc-14.2.0
-arm                  randconfig-003-20250307    clang-19
-arm                  randconfig-004-20250307    clang-21
-arm64                randconfig-001-20250307    gcc-14.2.0
-arm64                randconfig-002-20250307    clang-15
-arm64                randconfig-003-20250307    gcc-14.2.0
-arm64                randconfig-004-20250307    clang-15
-csky                 randconfig-001-20250307    gcc-14.2.0
-csky                 randconfig-002-20250307    gcc-14.2.0
-hexagon              randconfig-001-20250307    clang-21
-hexagon              randconfig-002-20250307    clang-21
-i386       buildonly-randconfig-001-20250307    clang-19
-i386       buildonly-randconfig-002-20250307    clang-19
-i386       buildonly-randconfig-003-20250307    gcc-11
-i386       buildonly-randconfig-004-20250307    clang-19
-i386       buildonly-randconfig-005-20250307    gcc-12
-i386       buildonly-randconfig-006-20250307    clang-19
-loongarch            randconfig-001-20250307    gcc-14.2.0
-loongarch            randconfig-002-20250307    gcc-14.2.0
-m68k                             allnoconfig    gcc-14.2.0
-nios2                randconfig-001-20250307    gcc-14.2.0
-nios2                randconfig-002-20250307    gcc-14.2.0
-openrisc                         allnoconfig    gcc-14.2.0
-parisc                           allnoconfig    gcc-14.2.0
-parisc               randconfig-001-20250307    gcc-14.2.0
-parisc               randconfig-002-20250307    gcc-14.2.0
-powerpc                          allnoconfig    gcc-14.2.0
-powerpc              randconfig-001-20250307    gcc-14.2.0
-powerpc              randconfig-002-20250307    clang-21
-powerpc              randconfig-003-20250307    clang-19
-powerpc64            randconfig-001-20250307    clang-21
-powerpc64            randconfig-002-20250307    gcc-14.2.0
-powerpc64            randconfig-003-20250307    gcc-14.2.0
-riscv                            allnoconfig    gcc-14.2.0
-riscv                randconfig-001-20250307    gcc-14.2.0
-riscv                randconfig-002-20250307    clang-19
-s390                            allmodconfig    clang-19
-s390                             allnoconfig    clang-15
-s390                            allyesconfig    gcc-14.2.0
-s390                 randconfig-001-20250307    gcc-14.2.0
-s390                 randconfig-002-20250307    gcc-14.2.0
-sh                              allmodconfig    gcc-14.2.0
-sh                              allyesconfig    gcc-14.2.0
-sh                   randconfig-001-20250307    gcc-14.2.0
-sh                   randconfig-002-20250307    gcc-14.2.0
-sparc                           allmodconfig    gcc-14.2.0
-sparc                randconfig-001-20250307    gcc-14.2.0
-sparc                randconfig-002-20250307    gcc-14.2.0
-sparc64              randconfig-001-20250307    gcc-14.2.0
-sparc64              randconfig-002-20250307    gcc-14.2.0
-um                               allnoconfig    clang-18
-um                   randconfig-001-20250307    clang-17
-um                   randconfig-002-20250307    clang-21
-x86_64     buildonly-randconfig-001-20250307    clang-19
-x86_64     buildonly-randconfig-002-20250307    gcc-12
-x86_64     buildonly-randconfig-003-20250307    clang-19
-x86_64     buildonly-randconfig-004-20250307    clang-19
-x86_64     buildonly-randconfig-005-20250307    clang-19
-x86_64     buildonly-randconfig-006-20250307    gcc-12
-xtensa               randconfig-001-20250307    gcc-14.2.0
-xtensa               randconfig-002-20250307    gcc-14.2.0
-
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
