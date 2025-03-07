@@ -4,61 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29C8CC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 02:23:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA643C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 02:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ON6xK4tUoplLsWJ2JnviQP/r6hQ62Z7pTsiZtrYdS08=; b=stEZjPdp4vzWF/QJ0AYYKha1QZ
-	DS79SAzhlxZSNJ2Ojhf2xQNodoieAOygOW65dMdnuGB/d7F6cQrZYufMOZ8738fdKxvkOGBKxCNNN
-	t6iNzFr2Guc/H2KICr1kox/V61EalPgAFkC1GPIszceedE8eIs2nJDXL2N1ye5pQKBsl0IcC2RdPo
-	aZvZW/unkFXIKlTvoVAPcpWXrdL2PODca2lY3tKzHjdfDYX0osNux1kHMpgKL9nrTfZcXZ2Er9ipf
-	wF0hh8sQcf6uZvacJcsD+fJFfSNNqHpFs+nTnKv37wo/bAWu9Nxq90lCg4cp9n8wXvo45rKcyALta
-	cF56BJoQ==;
+	bh=Xqb11img7g92lGY1mx1LVHStmK2NldRTq+vMCuO53Ig=; b=fWWRfkc4UIsyuTmkFCsT944it0
+	IzlKy0aOIkbpN/L4A5V1lTSdZfbZFVuhPYBeXETB3oqIYmzoVAVAkJZ+VuacT1nN1uQB7Qor7tpFI
+	J3jjzEPqSdT8xIADNPybTvXylxiMbZXC1ldSFUudsl/s+pLL4OtMZ0Q0VR3rsF4CNU6F5M7bbQ+i/
+	4JeEQM5gOejDDdQkYcHc2YaSOx+bcmPmt+yNXhVZGfwDC+xJxc8s0lxohBKzUcBrqM9tzx3HXUKVh
+	Pj+/AvggtGSGbqycCsFwPI/UgWrFp3FcUmu8BgACKYfEItGMXgVTJCgmnfuziff2SvqMgymm2JXwJ
+	nzii0DOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqNN0-0000000Cttc-2jHE;
-	Fri, 07 Mar 2025 02:23:26 +0000
-Received: from szxga06-in.huawei.com ([45.249.212.32])
+	id 1tqNYD-0000000CulI-1pXw;
+	Fri, 07 Mar 2025 02:35:01 +0000
+Received: from mail-vi1eur05on20630.outbound.protection.outlook.com ([2a01:111:f403:2613::630] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqNID-0000000Ct5S-1sHf
+	id 1tqNWb-0000000Cufc-159J
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 02:18:31 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.234])
-	by szxga06-in.huawei.com (SkyGuard) with ESMTP id 4Z892G647zz17LVC;
-	Fri,  7 Mar 2025 10:18:46 +0800 (CST)
-Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id D92241402C4;
-	Fri,  7 Mar 2025 10:18:12 +0800 (CST)
-Received: from localhost.localdomain (10.50.165.33) by
- kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Fri, 7 Mar 2025 10:18:12 +0800
-From: Yicong Yang <yangyicong@huawei.com>
-To: <catalin.marinas@arm.com>, <will@kernel.org>, <akpm@linux-foundation.org>,
-	<dianders@chromium.org>, <sumit.garg@linaro.org>, <kernelfans@gmail.com>,
-	<lecopzer.chen@mediatek.com>, <tglx@linutronix.de>, <song@kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-CC: <jonathan.cameron@huawei.com>, <zhanjie9@hisilicon.com>,
-	<prime.zeng@hisilicon.com>, <yangyicong@hisilicon.com>, <linuxarm@huawei.com>
-Subject: [PATCH 1/2] watchdog/perf: Provide function for adjusting the event period
-Date: Fri, 7 Mar 2025 10:18:10 +0800
-Message-ID: <20250307021811.46981-2-yangyicong@huawei.com>
-X-Mailer: git-send-email 2.31.0
-In-Reply-To: <20250307021811.46981-1-yangyicong@huawei.com>
-References: <20250307021811.46981-1-yangyicong@huawei.com>
+	Fri, 07 Mar 2025 02:33:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=OvBJ0TpYGcfLgaPilz0uGmK5bQlrhgbDTNIyZgJAIdsaXCcgDHKSzd3Dvhw3zhSW54NgfEiSfFI3tw1hQoxu49Vp8E5EnZhqlibL3fsvv85UVO2IvxoovQJ7VDOyNxJVz6CPJqam/ja0ljPuJP646gE1CF9505rERefvexS71J6QIaVh7Ue3o7d1qV7ppYX1nFFrkkcsVgdW7lX5XrrBUDJKuhQlASEU1iO4psNRbL9iPMibc1aJLabsfWi7o3dEWN9UXXIBDmb47B786jUmt6XiJQV8StHZuclN+fc260A7TazUUZXCrmf5yUhUJAGr2Una9AgDss1VpQFM9T8qsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Xqb11img7g92lGY1mx1LVHStmK2NldRTq+vMCuO53Ig=;
+ b=TBuNTYUyxzbqiFhfNpv9w7eHDmROI/I+r0+jZw8HSlHUMYj/JDg+5H0EKK02XoRcdfMxPwbOS3WgSM0pp78Xd+qfjFUkQPrbPiCY8hqueAZJTWYDTcyXRA4KW5LzeUQJlegbHPfhIhVi/2ms0pEt5NnTym91JSjZxebzPgNviv1mgm4yn4GNcLyvTp5BaW9L6Dmg81sipYmAoOmFOiLn2paQUPzFSkzlZglPhxsHYmbQxvP3TSlaLOk8NdrZxnwUJtauB5Mcx7gab9Dfjr4SiyzbhqSZS3dRwvjg71OwMZ3NUZOwf+tRPDKPQcvQQqnIuwfyTigWoICc/wqglkZLGA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Xqb11img7g92lGY1mx1LVHStmK2NldRTq+vMCuO53Ig=;
+ b=mLPyGMzXzH4jbUR1Xj6YSJaMuXiLN4dG6+cAZWRkAiPjAKD7U1sjxaJzdpAUNNuodjT9YXrfOO3s4TsX9GYS1H0KuZP4KQllr6aNd7/TeWBHCJ9BSwExAfFrI3cCJbJ4fWtbd0zuryY5ovbnJ10cxtwr7P51bRD5bQ132Rbf6+kqMsu4qyn3tyh3d8VTRFDJlDjFHw2x9mjkXkXc7TAG09hZxvzS+IgzKUB0tK3RPEU7TRUf+fhhZBYogoto36sCk8fdowXtMbLjOxeKlPqInUzwrZd+aFluVF+Bc38MCitfBjSGAQrvTCMiN+QySpP0X6rQktFuPZSmuvkpNjX2NA==
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
+ by DU2PR04MB9065.eurprd04.prod.outlook.com (2603:10a6:10:2f0::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
+ 2025 02:33:13 +0000
+Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
+ ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
+ 02:33:13 +0000
+From: Jacky Bai <ping.bai@nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>, Ulf Hansson <ulf.hansson@linaro.org>
+CC: "lpieralisi@kernel.org" <lpieralisi@kernel.org>, "rafael@kernel.org"
+	<rafael@kernel.org>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"james.morse@arm.com" <james.morse@arm.com>, "d-gole@ti.com" <d-gole@ti.com>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"khilman@baylibre.com" <khilman@baylibre.com>, "quic_tingweiz@quicinc.com"
+	<quic_tingweiz@quicinc.com>, "quic_yuanjiey@quicinc.com"
+	<quic_yuanjiey@quicinc.com>
+Subject: RE: [PATCH v3] cpuidle: psci: Init cpuidle only for present CPUs
+Thread-Topic: [PATCH v3] cpuidle: psci: Init cpuidle only for present CPUs
+Thread-Index: AQHbjl9kwy62452AHkWtGDUjwc/9LLNl7ywAgAAekoCAAOb48A==
+Date: Fri, 7 Mar 2025 02:33:13 +0000
+Message-ID: <AS8PR04MB864268FE54C7EE0E51D2875087D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
+References: <20250306061805.2318154-1-ping.bai@nxp.com>
+ <CAPDyKForY4VNZtqietDPt2FQM3p4OsaoE_oJb0PPLUAh98WsHQ@mail.gmail.com>
+ <Z8mYP7AGBPeDTvXn@bogus>
+In-Reply-To: <Z8mYP7AGBPeDTvXn@bogus>
+Accept-Language: zh-CN, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|DU2PR04MB9065:EE_
+x-ms-office365-filtering-correlation-id: 070926b8-56ac-4a41-f418-08dd5d2068d5
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?WKfO16BBtMVLQwI8SwlIQKAl21XLvnTXAc7IRo+ZHqywSIGdvhY4qSLxj+Q1?=
+ =?us-ascii?Q?1Uf3RgMoCMGjc3q1YS1fLAYRlwKaTwJPiT8Ku89n47M4Y/yTcDDuE5/Tazow?=
+ =?us-ascii?Q?yAV3/+iJMzY/Ko3aXix87egMWrfBXGCLG2+zLbOTPD4BzXFWifaNgysR1R39?=
+ =?us-ascii?Q?WPBGbuyaTVP6AULm1ZqgwTGYucym54lY7LMLQyTUbZmzr9Zczj/CxHPK60GC?=
+ =?us-ascii?Q?ho1oP+vMGqJPz0HYeXjL5Z2OzhcqD+OdKrS7JDQbiQb91kdLW5krrHr4ZA6u?=
+ =?us-ascii?Q?ALZtevu8KNUMnBBUxyvbfJV3Rj9D2RYDicyyA1DiEcUQ8gOftr4fjifXQ7ZH?=
+ =?us-ascii?Q?6PjgDcW4AErR+XD2GgeX1teYwTZSsHZGdcXxdm16WYbjq7OIunHqfLgPlMJn?=
+ =?us-ascii?Q?JKBfP7sThJ3d327nzqb/cRFLkr9W0amd7Z3/7sIkELUYL98AobvMymYdDKhP?=
+ =?us-ascii?Q?X+b3XZ70H5mAgSQHcYamd95l3Mli/HqpKCAZyCjVr3sohg7sZOJH4RcltJU+?=
+ =?us-ascii?Q?2rthS3uAPsgxEWahNIyqtxSfXNcp90j6IRF4c0q/9u9CJk+C8JwTAVpqu7oE?=
+ =?us-ascii?Q?7tJBilYn9/ruoscLAsD+eeOKjcSXkGrMIcMl/J26R2L1dW/DS4YnjJKV4CgL?=
+ =?us-ascii?Q?R8W2mO2fsIbinKprgt3BanmeVUSaU15onkr2CBWLISyiAIV2v25WYBrIgktQ?=
+ =?us-ascii?Q?QVTdsStjkAc5tV8WqdCxQpQ3SQF58FDUTzcuqPcLhCOKcQS3JKOnr2OV21K6?=
+ =?us-ascii?Q?LbCZYwzzhVoLCCrFXlzgqWWQW7QchXCzJVJYCpf3rqT5XfrXTDpjCIAGwa75?=
+ =?us-ascii?Q?PHOX0fi2+GgOpBhU7auijMi4X5ymM5EaC7nUr+YnUpBM5QBuLfHbYtacoQfK?=
+ =?us-ascii?Q?IyAGP5D9TQ2J3nqcBUMaUktPWQX16DxxXHLGbSa+FKfGRmvDBA3v0ObDYNQY?=
+ =?us-ascii?Q?+YkW3FII1mJea8WSnTpe/gfZqFsBq6LoRXJh46ba48CfrgTE34BG+kiPdqJ5?=
+ =?us-ascii?Q?ILc8rskUsI/aPqh3Vja5i8kSmDBadptyDd51zBwhmFNAtfx3CMwvakcYD/MY?=
+ =?us-ascii?Q?suRauhtzpV+Gqp1J44viKqPrKmtrSgQw4FFm4OBE7L5Jj4Y4OXASqSdIhK89?=
+ =?us-ascii?Q?LO1T6Tsar6VjnXgcHEeCtn+HqZdyoVPbniSQulrPKyAU+BHtvmQ1WOsDX3mp?=
+ =?us-ascii?Q?gQ8wjgaFLInx6wPplBvd44XsRV08zfgpvhGkeu3BruFZZRSMDexEJdw7Y9b2?=
+ =?us-ascii?Q?KLcpcOxqspkX3fxw5pOzHFhgf3RkmdvmTifyM5VmPI52e9Nm6EKfzmxq+e2z?=
+ =?us-ascii?Q?JgPGU6/X/TqAC2KBgpavQXAt0PT5rHa1WPASX71DYe1Q3d4u5fWnvutMCOq0?=
+ =?us-ascii?Q?WyXPh/xIWL0sXS2zGceZYppJvbqvA8FRTF3Wq02oaeEf9hoy+brSh/4Adv59?=
+ =?us-ascii?Q?vzID3JXNc18LMqQzV4UtwXM901Ok0HLN?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?OSPtL7knWKxAerIKhLtsVbAIkdr+ZmHqIMwato2/TpqpAhIZuLs/csyQJ41G?=
+ =?us-ascii?Q?eVUZP/WBQSLfU0GK26Av+qDUKh3Ae4n1hJjdpzkA9SnrwdZc2bELi29nMZYw?=
+ =?us-ascii?Q?FK0Gla/BM5Q4ShHp1B5zXZGijISaOSJqMx3MDOOFhSGdHNRZzTk48WdTo826?=
+ =?us-ascii?Q?h4BHXYTkpmbPXwWNlXQmvp7V08C78+35IsqaqmMc2OWXZ1jV369mSHtY+88E?=
+ =?us-ascii?Q?Qdvetiavr33/SAqDTUDKt1n8YYcsv760GWVLheR/pdmxIP34E2KICos9xH0A?=
+ =?us-ascii?Q?OwQbDH/5uWSW9q/1R8eUZMw1sMLn8VjU0fYcnO0efy50htZYLSSHK6DnZWtF?=
+ =?us-ascii?Q?Zo+4BqJBpYHss59OnMruZU0Q80dCGWIEpU4ulGGeAYDKJofdYG01jp/fxzcV?=
+ =?us-ascii?Q?WD+Nlz9luMpAMys0qSwDm6mBTApw8HOVvLcmvthM1efKK8UZuWd6COs8tob4?=
+ =?us-ascii?Q?tpfuw9RmUZrp05qETFk8KZ/KZWL56wyk7PsniZol1eDzU3pS7qPkvwK5X36N?=
+ =?us-ascii?Q?ldPzoeY/0yNfgTxcWSSjpWsuZuYLxk30Uhc1/ptLB+dwRbM9KTI1k06P9Oc5?=
+ =?us-ascii?Q?QjP+LC5J1s7vgfnhqgVlZXgz/QWPgaePyazhHCI4DZPBiPrKuAD1cuWJQvWp?=
+ =?us-ascii?Q?FVywfH3LgfrrIc69b6kW01SSq4w5bNdhApFpQs5bISdxB/RFWfrL2kx6eLCO?=
+ =?us-ascii?Q?5Meject+G+Gvzncsh0pQjHwHy90LlI8A1DTCng0xoWg0B6HVOKBjPZoi0pSe?=
+ =?us-ascii?Q?tiPcR1qLVbwoldJvIhEvjDc0GojQBC0dkD+pnfgCTU50J6glo8ghVZfFSrDd?=
+ =?us-ascii?Q?Ld9k34DFfrX+Ab5bW9VLzym38iCVKeQf5926DgF4ly2L1kr9UY3KF7YDY7nv?=
+ =?us-ascii?Q?HY3V5FQmfKz03Rod6AU71Oie6oAhqET4DEgrGmvecmSbwQyEaMBxC9R9XSt1?=
+ =?us-ascii?Q?c2LlBLY1EWfMpOd40yYF0PHYp4zwkwYXjtqkKGN46wuPOuJxiLJ4k9MMPWvb?=
+ =?us-ascii?Q?wUTzKygouGfP39LWq3JmMA68PU1JMXLIUpZe1nbTb0jhXMd2/XHgUBhSTLWY?=
+ =?us-ascii?Q?VUxOPMjw29MDrs6oWpeOcS6nHAEGAcWrQZFg9v+zGwNGGVdA8LZPuJeUCvJU?=
+ =?us-ascii?Q?zivMOxasr4L4xiPGYCYtB+JFnjS1LKcYpCQDbZKE+iqh0H4qBpyrbNZCoLZq?=
+ =?us-ascii?Q?lWJZIt+wVzbbXhjS7Kto51Aku9pOx+FzybafHm4P5sWvILINGaHx/M8mkGOf?=
+ =?us-ascii?Q?JAN9uJSNcpGsKLPxVAIU9ybKr6yqJYfCBT6IS10f9f1p1rgFEeAvL5K5bNud?=
+ =?us-ascii?Q?NRgz4m+IUTFB3pVshR5I5UfTh+tyDd1WpgZopgixT2xGqYW7ZrZqMdyS6tNB?=
+ =?us-ascii?Q?okLcj0J0c/ig76gmjEsebhgd9X9NTYgU/rXAM2s8IlXHIVvaxnaRvxfCZZ3S?=
+ =?us-ascii?Q?uOHUwurZS7lVK8CgZpZYbsLtFwU6/UrlR0j9dugb+uN23f6vPQ6F2UnWSOzR?=
+ =?us-ascii?Q?gWqAB4IyIoN9J41mtMBJbWtXjLJDDBu1BuGJqBQh2DaiLMVitFX+Y4WNQcZE?=
+ =?us-ascii?Q?K7CUG+jQOpUInI45nuU=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.50.165.33]
-X-ClientProxiedBy: dggems704-chm.china.huawei.com (10.3.19.181) To
- kwepemd200014.china.huawei.com (7.221.188.8)
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 070926b8-56ac-4a41-f418-08dd5d2068d5
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 02:33:13.5081
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: p/wPhOUOLTJXgDdt+mLx+t7nYLqR6RSMWBCZrd5n9fBT9N1bF+NRqrGRxN7+kp/oUy+UCsoUKKnqNrW4HFk/Vw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9065
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_181829_796384_655C627B 
-X-CRM114-Status: GOOD (  12.28  )
+X-CRM114-CacheID: sfid-20250306_183321_299984_2B56FCF6 
+X-CRM114-Status: GOOD (  23.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,75 +168,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Yicong Yang <yangyicong@hisilicon.com>
+> Subject: Re: [PATCH v3] cpuidle: psci: Init cpuidle only for present CPUs
+>=20
+> On Thu, Mar 06, 2025 at 11:53:14AM +0100, Ulf Hansson wrote:
+> > On Thu, 6 Mar 2025 at 07:17, Jacky Bai <ping.bai@nxp.com> wrote:
+> > >
+> > > for_each_possible_cpu() is currently used to initialize cpuidle in
+> > > the PSCI cpuidle driver.
+> > >
+> > > However, in cpu_dev_register_generic(), for_each_present_cpu() is
+> > > used to register CPU devices which means the CPU devices are only
+> > > registered for present CPUs and not all possible CPUs.
+> > >
+> > > With nosmp or maxcpus=3D0, only the boot CPU is present, leading to
+> > > the failure:
+> > >
+> > >   |  Failed to register cpuidle device for cpu1
+> > >
+> > > Change for_each_possible_cpu() to for_each_present_cpu() in the PSCI
+> > > cpuidle driver to ensure it only registers cpuidle devices for CPUs
+> > > that are actually present.
+> > >
+> > > Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in
+> > > GENERIC_CPU_DEVICES")
+> > > Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > > Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+> > > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> >
+> > Is this problem specific to cpuidle-psci?
+> >
+> > Others are using for_each_possible_cpu() when registering their cpuidle
+> drivers.
+> >
+>=20
+> Good point. I assumed as this was very old patch, only this is left witho=
+ut
+> conversion to using present_cpumask. Looks like there are many other driv=
+ers
+> that need similar change. May be PSCI is most commonly used ones these
+> days and hardly anyone tests with nosmp or maxcpus=3D1 on those platforms=
+.
+>=20
+> But yes, all the users of for_each_possible_cpu() need to move to
+> for_each_present_cpu() if they are relying on CPU device being registered=
+.
+>=20
 
-Architecture's using perf events for hard lockup detection needs to
-convert the watchdog_thresh to the event's period, some architecture
-for example arm64 perform this conversion using the CPU's maximum
-frequency which will be acquired by cpufreq. However by the time
-the lockup detector's initialized the cpufreq driver may not be
-initialized, thus launch a watchdog with inaccurate period. Provide
-a function dhardlockup_detector_perf_adjust_period() to allowing
-adjust the event period. Then architecture can update with more
-accurate period if cpufreq is initialized.
+Yes, there are several other cpuidle drivers should have the similar issue,=
+ also
+some other driver like cpufreq also need to covert to use present mask.
 
-Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
----
- include/linux/nmi.h    |  2 ++
- kernel/watchdog_perf.c | 21 +++++++++++++++++++++
- 2 files changed, 23 insertions(+)
+I will do a further check and fix them all together.
 
-diff --git a/include/linux/nmi.h b/include/linux/nmi.h
-index a8dfb38c9bb6..2200ce481439 100644
---- a/include/linux/nmi.h
-+++ b/include/linux/nmi.h
-@@ -106,11 +106,13 @@ extern void hardlockup_detector_perf_stop(void);
- extern void hardlockup_detector_perf_restart(void);
- extern void hardlockup_detector_perf_cleanup(void);
- extern void hardlockup_config_perf_event(const char *str);
-+extern void hardlockup_detector_perf_adjust_period(int cpu, u64 period);
- #else
- static inline void hardlockup_detector_perf_stop(void) { }
- static inline void hardlockup_detector_perf_restart(void) { }
- static inline void hardlockup_detector_perf_cleanup(void) { }
- static inline void hardlockup_config_perf_event(const char *str) { }
-+static inline void hardlockup_detector_perf_adjust_period(int cpu, u64 period) { }
- #endif
- 
- void watchdog_hardlockup_stop(void);
-diff --git a/kernel/watchdog_perf.c b/kernel/watchdog_perf.c
-index 59c1d86a73a2..bc00985d1f69 100644
---- a/kernel/watchdog_perf.c
-+++ b/kernel/watchdog_perf.c
-@@ -211,6 +211,27 @@ void hardlockup_detector_perf_cleanup(void)
- 	cpumask_clear(&dead_events_mask);
- }
- 
-+/**
-+ * hardlockup_detector_perf_adjust_period - Adjust the events period due
-+ *                                          to cpu frequency change
-+ */
-+void hardlockup_detector_perf_adjust_period(int cpu, u64 period)
-+{
-+	struct perf_event *event = per_cpu(watchdog_ev, cpu);
-+
-+	if (!(watchdog_enabled & WATCHDOG_HARDLOCKUP_ENABLED))
-+		return;
-+
-+	if (!event)
-+		return;
-+
-+	if (event->attr.sample_period == period)
-+		return;
-+
-+	if (perf_event_period(event, period))
-+		pr_err("failed to change period to %llu\n", period);
-+}
-+
- /**
-  * hardlockup_detector_perf_stop - Globally stop watchdog events
-  *
--- 
-2.24.0
-
+BR
+> --
+> Regards,
+> Sudeep
 
