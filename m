@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 558C7C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 00:17:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78EC9C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 00:18:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q8v6FqGBLcIgD0IKorolr/eW5VRYMlf3vVnAR1Zl+FQ=; b=gjIcTBnhvd6ofdWSZLKh8ET1lz
-	fWU0U1YGC4mNRQcBtJNPuCuDnjtqX6MvgWpDYQ90QCKUrqf2h5HtsFUeROv31vdLzH8oirXbHLez/
-	c6NTEy0uUu9Hq6rQiamnplFYGSEA83TOfZhMfUlAC7v2y4GQeFDHb52LYmluS2V9WUTfGMG1bshhT
-	BW7rUhZelkD1Td+XsnL3DvzSpPRr4v3ydXR04LbYN94KcBLZK0SIQEJuBcz3aPbJf2EQdCQo1C5nn
-	IU6Psl8noM689nOB9BXGK8yqROQXEf+BIWuGgva55tu+w58ZXrYe4eljTIgZ/ivVsi+r/7Zwo0fIX
-	0jpHLwEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6aEgnpw6gQBxCmSgxUBsuH9P0cxS5+KhOP2L7j4QauA=; b=z2Q97dkcjQ7BvV5IYx97JluBh7
+	i0TMDNjKhVbjJC80KiJvS2IHnvAnc4ArcD3TbIoTwP3eDeY30q+p3t0sqyRWdzEJ+ecpJC4cdGUGO
+	OXELgdur6D/yL44Bq85Thg5BuLycsz3B5ECXZu8eqTCHD3/cakpwKAo5ElqLwRW9rOHkpGqzckeg4
+	tF+Fxu3ap3sfGKAbPtSCmyNsc1a3h22qyBE+gRgqy32Qk+wfHUmENfU7yG2Ym/kDA8sNskQ2OuV+2
+	s5d6yuOvCoeEZnW31tpldC8dKvo65h1NOFPqUJ4Ame9vNYNs77M8UQ10Cb58BcKbLQj5Y1/5xSu6q
+	9JWHjdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqLOX-0000000CbuW-1Vf1;
-	Fri, 07 Mar 2025 00:16:53 +0000
-Received: from smtp.forwardemail.net ([121.127.44.59])
+	id 1tqLQ7-0000000CcAZ-1nZK;
+	Fri, 07 Mar 2025 00:18:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqLDl-0000000CZp9-0wcr
+	id 1tqLJo-0000000Cahc-050r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 00:05:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741305944;
- bh=q8v6FqGBLcIgD0IKorolr/eW5VRYMlf3vVnAR1Zl+FQ=;
- b=CCdYMv62PAM5XwyrmCnPlPjQviHH5oHNDcfbDqolVt9QNJc4uga6UxnZUPIyvpSNK2t9aJtbY
- rLFD04beNCXgCzNjeFaa0fHeL1O2YN6SP8IyKaKtF1GOywnGO9IWoBNba2z2Qa9DN7zcCidxdHT
- tV5ofi2rchTs3VRMsmWp8lQu2EUJyp1C5CqgK6LAiid6+ipWK/wG5/e60itJ/A6FTIrCJ1keC7b
- e7iZaeTzmnEmmZDgbRQ0hm4b89wI/RO0uSlL5lMI2oQQyf4UGR0hZBSALIGNbcyW3P8/rpx63L2
- qZnjrLhXJfTuxS3lbwMNWx9A0LqW43pL09lbVom73ghw==
-X-Forward-Email-ID: 67ca3854d01a7bf632cb828f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.59
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <003d3726-680a-4e91-89cd-d127bc3b5609@kwiboo.se>
-Date: Fri, 7 Mar 2025 01:05:34 +0100
+	Fri, 07 Mar 2025 00:12:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=6aEgnpw6gQBxCmSgxUBsuH9P0cxS5+KhOP2L7j4QauA=; b=yoxavBy9uMeaqY5Luix2nzWH9K
+	jSgO1V/jHBPZ65NR7Fk5R+2DTz30tS2MJUgN16e2mn6pUy1DxEWnUW+nW+hrVsHpJMT/MqrN0OD9h
+	Zhr40BaND0BIuUZVZc4VwsLYASrglP1gWGmeQqytogdFtVSXHrhVWs2GmMFjgsS6oKXad9NoabOpP
+	rTU97JRvvHe46czyKVpBCt52PDxcAKSW66e1+J4Bt0I2pRo8hgh4r8N8xlImqMQhfI7Tjvgwf6tuO
+	1K8tLtoFqE7QjNbWknn/kRWwJmkpo2ZHXtu+svmOKa/aHIp/Y1jBlQwi2n+XIxzWK3rQUZoohsaNa
+	kZpcF4CA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43876 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tqLJd-0006ft-2l;
+	Fri, 07 Mar 2025 00:11:49 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tqLJJ-005aQm-Mv; Fri, 07 Mar 2025 00:11:29 +0000
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next] net: stmmac: remove write-only priv->speed
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add GMAC nodes for RK3528
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
- "David S . Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
- linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250306221402.1704196-1-jonas@kwiboo.se>
- <20250306221402.1704196-4-jonas@kwiboo.se>
- <a827e7e9-882a-40c6-9f2c-03d8181dff88@lunn.ch>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <a827e7e9-882a-40c6-9f2c-03d8181dff88@lunn.ch>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tqLJJ-005aQm-Mv@rmk-PC.armlinux.org.uk>
+Date: Fri, 07 Mar 2025 00:11:29 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_160545_350658_9E176F42 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20250306_161200_064260_FD15D702 
+X-CRM114-Status: UNSURE (   9.95  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,72 +86,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrew,
+priv->speed is only ever written to in two locations, but never
+read. Therefore, it serves no useful purpose. Remove this unnecessary
+struct member.
 
-On 2025-03-06 23:46, Andrew Lunn wrote:
-> On Thu, Mar 06, 2025 at 10:13:56PM +0000, Jonas Karlman wrote:
->> Rockchip RK3528 has two Ethernet controllers based on Synopsys DWC
->> Ethernet QoS IP.
->>
->> Add device tree nodes for the two Ethernet controllers in RK3528.
->>
->> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
->> ---
->> gmac0 is missing the integrated-phy and has not been tested bacause I do
->> not have any board that use this Ethernet controller.
-> 
-> What do you know about the integrated PHY? Does it use one of the
-> standard phy-modes? RMII? Does the datasheet indicate what address it
-> uses on the MDIO bus? If you know these two bits of information, you
-> can probably add it.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h      | 1 -
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 3 ---
+ 2 files changed, 4 deletions(-)
 
-The SoC datasheet lists following:
-
-  MAC 10/100/1000 Ethernet Controller (gmac1)
-  - Support 10/100/1000 Mbps data transfer rates with the RGMII interfaces
-  - Support 10/100 Mbps data transfer rates with the RMII interfaces
-  - Support both full-duplex and half-duplex operation
-  - Supports IEEE 802.1Q VLAN tag detection for reception frames
-  - Support detection of LAN wake-up frames and AMD Magic Packet frames
-  - Support checking IPv4 header checksum and TCP, UDP, or ICMP checksum
-    encapsulated in IPv4 or IPv6 datagram
-  - Support for TCP Segmentation Offload (TSO) and UDP Fragmentation
-    Offload (UFO)
-
-  MAC 10/100M Ethernet controller and MAC PHY (gmac0)
-  - Support one Ethernet controllers
-  - Support 10/100-Mbps data transfer rates with the RMII interfaces
-  - Support both full-duplex and half-duplex operation
-
-and vendor kernel use following DT node:
-
-	phy-mode = "rmii";
-	clock_in_out = "input";
-	phy-handle = <&rmii0_phy>;
-
-	mdio0: mdio {
-		compatible = "snps,dwmac-mdio";
-		#address-cells = <0x1>;
-		#size-cells = <0x0>;
-
-		rmii0_phy: ethernet-phy@2 {
-			compatible = "ethernet-phy-id0044.1400", "ethernet-phy-ieee802.3-c22";
-			reg = <2>;
-			clocks = <&cru CLK_MACPHY>;
-			resets = <&cru SRST_MACPHY>;
-			phy-is-integrated;
-			pinctrl-names = "default";
-			pinctrl-0 = <&fephym0_led_link &fephym0_led_spd>;
-		};
-	};
-
-I could possible add something like that to the device tree, or I could
-drop the entire gmac0 node and instead have it added in a future series.
-
-Regards,
-Jonas
-
-> 
->     Andrew
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+index 04197496ee87..bddfa0f4aa21 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
+@@ -282,7 +282,6 @@ struct stmmac_priv {
+ 	/* Generic channel for NAPI */
+ 	struct stmmac_channel channel[STMMAC_CH_MAX];
+ 
+-	int speed;
+ 	unsigned int pause_time;
+ 	struct mii_bus *mii;
+ 
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index 2ce18f52b717..982b7d82fd53 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -1029,8 +1029,6 @@ static void stmmac_mac_link_up(struct phylink_config *config,
+ 		}
+ 	}
+ 
+-	priv->speed = speed;
+-
+ 	if (priv->plat->fix_mac_speed)
+ 		priv->plat->fix_mac_speed(priv->plat->bsp_priv, speed, mode);
+ 
+@@ -7859,7 +7857,6 @@ int stmmac_suspend(struct device *dev)
+ 	if (stmmac_fpe_supported(priv))
+ 		timer_shutdown_sync(&priv->fpe_cfg.verify_timer);
+ 
+-	priv->speed = SPEED_UNKNOWN;
+ 	return 0;
+ }
+ EXPORT_SYMBOL_GPL(stmmac_suspend);
+-- 
+2.30.2
 
 
