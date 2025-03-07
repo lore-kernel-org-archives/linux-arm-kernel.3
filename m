@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 978C9C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:26:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED106C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:27:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sg5LwJe3gEtTqLE5ESnNQIHRTHitROM3mpBkTunx92M=; b=QRGXfYbN77ZsfV5Jsn+WOzYPQX
-	UXVjZ9w72bQI67XvCtH8EFYwf9d4f89mZ1XsZlBisSBoUhPvJUbdu/j2KyP9sDwNFPeOjY4aNK698
-	Cku0E2TiXH/1ujDlsCV4GMQDa1yg5UYx7JnMrWI7o38mle0p3aWlri9mtaICYDhn4Pcd0y3MjEa6u
-	edGQyjdjLVDepGsoeqMxXCeKpIzGhVBYiRcpse2xTS89Co8mNh/xxYptJ1rSHc3o7RnpWGH5R7uGr
-	5ICSmy9igi//7xgiGPShSgL2IQYmDPAcsug8/KsxBNU5lhwqx+LkGokYohD85R4pU5MWWBv+WcY60
-	G60CejeA==;
+	bh=1ZtCGP1EJNMM07+tqhiu5Gi0BpOuN5yo33kkHuZCeTY=; b=F/NHsBJqJ7CwKoGmzINTV/Bfnv
+	gDTKbJulP+0ljvTHKN4CFPHShc1BbsFR4mpnWkT452MeCOzTrWwvvs62ad6/kvDp8NFQkZxfGGOUN
+	AfXwucmceSEANBCo84xl4adF3HeUTNf71LZRde8q/+UQkcCrLaZxxSRZxl67pWxozV28LVjhCTWI6
+	c86ncHPYlEEdB9QD/Q5eW74SSF4Xwvuj8kdq/fwfkvVMhHntjpLIw2GD6mkYr8E6N0y2RLSAb+ckB
+	bhs+U+R9PL0xGuzbT9sHeLdy6gFWOUWNpQ/hunYbpIwReqbiAGUJstwv3vAWA2nN6Ujs8ThMKibN1
+	ADvLyYEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMTF-0000000CnG5-1pce;
-	Fri, 07 Mar 2025 01:25:49 +0000
+	id 1tqMUq-0000000CnOW-0MbT;
+	Fri, 07 Mar 2025 01:27:28 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM29-0000000Ci0W-2Tu8
+	id 1tqM2A-0000000Ci0v-0oPN
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Mar 2025 00:57:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A24F169E;
-	Thu,  6 Mar 2025 16:57:59 -0800 (PST)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ABB9B2103;
+	Thu,  6 Mar 2025 16:58:02 -0800 (PST)
 Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2946E3F5A1;
-	Thu,  6 Mar 2025 16:57:45 -0800 (PST)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 789303F5A1;
+	Thu,  6 Mar 2025 16:57:48 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -44,17 +44,17 @@ Cc: devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 13/15] arm64: dts: allwinner: a523: add Radxa A5E support
-Date: Fri,  7 Mar 2025 00:57:10 +0000
-Message-ID: <20250307005712.16828-14-andre.przywara@arm.com>
+Subject: [PATCH v3 15/15] arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
+Date: Fri,  7 Mar 2025 00:57:12 +0000
+Message-ID: <20250307005712.16828-16-andre.przywara@arm.com>
 X-Mailer: git-send-email 2.46.3
 In-Reply-To: <20250307005712.16828-1-andre.przywara@arm.com>
 References: <20250307005712.16828-1-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165749_722790_6A48F1D5 
-X-CRM114-Status: GOOD (  23.66  )
+X-CRM114-CacheID: sfid-20250306_165750_325519_BB88E769 
+X-CRM114-Status: GOOD (  18.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,70 +69,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Radxa A5E is a development board using the Allwinner A527 SoC, which
-is using the same die as the A523 SoC, just exposing the pins of more
-peripherals (like HDMI or the 2nd MAC). The board features:
+The Chameleon board is an OpenHardware devboard made by YuzukiTsuru.
+The form factor resembles the Raspberry Pi Model A boards, though it
+differs significantly in its features:
 
-  - Allwinner A527/T527 SoC: 8 ARM Cortex-A55 cores, Mali-G57 MC1 GPU
-  - 1GiB/2GiB/4GiB LPDDR4 DRAM
-  - AXP717 + AXP323 PMICs
-  - Raspberry-Pi-2 compatible 40pin GPIO header
-  - 1 USB 2.0 type C port (OTG), also power supply
-  - 1 USB 3.0 type A host port (multiplexed with M.2 slot)
-  - 1 M.2 M-key 2230 slot, with 1 PCIe2.1 lane connected (multiplexed
-    with USB 3.0 port)
-  - MicroSD slot
-  - optional eMMC, 8, 16 or 32GB available
-  - optional on-board 16MiB bootable SPI NOR flash
-  - two 1Gbps Ethernet ports (via MAXIO MAE0621A PHYs)
-  - PoE header for optional supply circuit on one Ethernet port
-  - WiFi 802.11 a/b/g/n/ac/ax (LB-Link BL-M8800DS2 module using AIC8800)
-  - HDMI port
-  - camera and LCD connectors
-  - power supply via USB-C connector (but no PD) or GPIO header pins
+  - Allwinner H618 SoC (4 * Arm Cortex-A53 cores, 1MB L2 cache, 1.4 GHz)
+  - between 512MiB and 2GiB DDR3 DRAM
+  - up to 128 GiB eMMC flash
+  - AXP313a PMIC
+  - 100 Mbit/s Ethernet pins on a header
+  - XR829 WIFI+Bluetooth chip
+  - 4 * USB 2.0 USB-C ports
+  - microSD card slot
+  - 3.5mm A/V port
 
-This .dts describes the devices as far as we support them at the moment.
-The PMIC rails have been assigned as per the schematics.
+Add the devicetree describing the board's peripherals and their
+connections.
 
 Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
  arch/arm64/boot/dts/allwinner/Makefile        |   1 +
- .../dts/allwinner/sun55i-a527-radxa-a5e.dts   | 299 ++++++++++++++++++
- 2 files changed, 300 insertions(+)
- create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+ .../sun50i-h618-yuzukihd-chameleon.dts        | 222 ++++++++++++++++++
+ 2 files changed, 223 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
 
 diff --git a/arch/arm64/boot/dts/allwinner/Makefile b/arch/arm64/boot/dts/allwinner/Makefile
-index 983be49ea6ef8..9d5e14695af0b 100644
+index 9d5e14695af0b..c15f6a0d8d55a 100644
 --- a/arch/arm64/boot/dts/allwinner/Makefile
 +++ b/arch/arm64/boot/dts/allwinner/Makefile
-@@ -52,5 +52,6 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-2024.dtb
+@@ -48,6 +48,7 @@ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-longanpi-3h.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero2w.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-orangepi-zero3.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-transpeed-8k618-t.dtb
++dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h618-yuzukihd-chameleon.dtb
+ dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-2024.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-h.dtb
  dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-plus.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun50i-h700-anbernic-rg35xx-sp.dtb
-+dtb-$(CONFIG_ARCH_SUNXI) += sun55i-a527-radxa-a5e.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-h728-x96qpro+.dtb
- dtb-$(CONFIG_ARCH_SUNXI) += sun55i-t527-avaota-a1.dtb
-diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
 new file mode 100644
-index 0000000000000..912e1bda974ce
+index 0000000000000..eae56908b9b4e
 --- /dev/null
-+++ b/arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
-@@ -0,0 +1,299 @@
-+// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-+// Copyright (C) 2025 Arm Ltd.
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+@@ -0,0 +1,222 @@
++// SPDX-License-Identifier: (GPL-2.0 OR MIT)
++/*
++ * Copyright (C) 2024 Arm Ltd.
++ */
 +
 +/dts-v1/;
 +
-+#include "sun55i-a523.dtsi"
++#include "sun50i-h616.dtsi"
++#include "sun50i-h616-cpu-opp.dtsi"
 +
 +#include <dt-bindings/gpio/gpio.h>
++#include <dt-bindings/interrupt-controller/arm-gic.h>
 +
 +/ {
-+	model = "Radxa A5E";
-+	compatible = "radxa,cubie-a5e", "allwinner,sun55i-a527";
++	model = "Yuzuki Chameleon";
++	compatible = "yuzukihd,chameleon", "allwinner,sun50i-h618";
 +
 +	aliases {
++		ethernet1 = &sdio_wifi;
 +		serial0 = &uart0;
 +	};
 +
@@ -140,15 +138,8 @@ index 0000000000000..912e1bda974ce
 +		stdout-path = "serial0:115200n8";
 +	};
 +
-+	ext_osc32k: ext-osc32k-clk {
-+		#clock-cells = <0>;
-+		compatible = "fixed-clock";
-+		clock-frequency = <32768>;
-+		clock-output-names = "ext_osc32k";
-+	};
-+
 +	reg_vcc5v: vcc5v {
-+		/* board wide 5V supply from the USB-C connector */
++		/* board wide 5V supply directly from the USB-C socket */
 +		compatible = "regulator-fixed";
 +		regulator-name = "vcc-5v";
 +		regulator-min-microvolt = <5000000>;
@@ -156,15 +147,23 @@ index 0000000000000..912e1bda974ce
 +		regulator-always-on;
 +	};
 +
-+	reg_usb_vbus: vbus {
-+		compatible = "regulator-fixed";
-+		regulator-name = "usb-vbus";
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&reg_vcc5v>;
-+		gpio = <&r_pio 0 8 GPIO_ACTIVE_HIGH>;	/* PL8 */
-+		enable-active-high;
++	wifi_pwrseq: pwrseq {
++		compatible = "mmc-pwrseq-simple";
++		clocks = <&rtc CLK_OSC32K_FANOUT>;
++		clock-names = "ext_clock";
++		pinctrl-0 = <&x32clk_fanout_pin>;
++		pinctrl-names = "default";
++		reset-gpios = <&pio 6 11 GPIO_ACTIVE_LOW>; /* PG11 */
 +	};
++};
++
++&codec {
++	allwinner,audio-routing = "Line Out", "LINEOUT";
++	status = "okay";
++};
++
++&cpu0 {
++	cpu-supply = <&reg_dcdc2>;
 +};
 +
 +&ehci0 {
@@ -175,10 +174,45 @@ index 0000000000000..912e1bda974ce
 +	status = "okay";
 +};
 +
++&ehci2 {
++	status = "okay";
++};
++
++&ehci3 {
++	status = "okay";
++};
++
 +&mmc0 {
-+	vmmc-supply = <&reg_cldo3>;
-+	cd-gpios = <&pio 5 6 (GPIO_ACTIVE_LOW | GPIO_PULL_DOWN)>; /* PF6 */
 +	bus-width = <4>;
++	cd-gpios = <&pio 5 6 GPIO_ACTIVE_LOW>;	/* PF6 */
++	disable-wp;
++	vmmc-supply = <&reg_dldo1>;
++	status = "okay";
++};
++
++&mmc1 {
++	bus-width = <4>;
++	mmc-pwrseq = <&wifi_pwrseq>;
++	non-removable;
++	vmmc-supply = <&reg_dldo1>;
++	vqmmc-supply = <&reg_dldo1>;
++	status = "okay";
++
++	sdio_wifi: wifi@1 {
++		reg = <1>;
++		interrupt-parent = <&pio>;
++		interrupts = <6 12 IRQ_TYPE_LEVEL_LOW>;  /* PG12 */
++		interrupt-names = "host-wake";
++	};
++};
++
++&mmc2 {
++	bus-width = <8>;
++	cap-mmc-hw-reset;
++	mmc-ddr-3_3v;
++	non-removable;
++	vmmc-supply = <&reg_dldo1>;
++	vqmmc-supply = <&reg_dldo1>;
 +	status = "okay";
 +};
 +
@@ -190,232 +224,114 @@ index 0000000000000..912e1bda974ce
 +	status = "okay";
 +};
 +
-+&pio {
-+	vcc-pb-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pc-supply = <&reg_cldo1>;
-+	vcc-pd-supply = <&reg_cldo3>;
-+	vcc-pe-supply = <&reg_aldo2>;
-+	vcc-pf-supply = <&reg_cldo3>;	/* actually switchable */
-+	vcc-pg-supply = <&reg_bldo1>;
-+	vcc-ph-supply = <&reg_cldo3>;	/* via VCC-IO */
-+	vcc-pi-supply = <&reg_cldo3>;
-+	vcc-pj-supply = <&reg_cldo4>;
-+	vcc-pk-supply = <&reg_cldo1>;
++&ohci2 {
++	status = "okay";
 +};
 +
-+&r_i2c0 {
++&ohci3 {
++	status = "okay";
++};
++
++&pio {
++	vcc-pc-supply = <&reg_dldo1>;
++	vcc-pf-supply = <&reg_dldo1>;	/* via VCC_IO */
++	vcc-pg-supply = <&reg_dldo1>;
++	vcc-ph-supply = <&reg_dldo1>;	/* via VCC_IO */
++	vcc-pi-supply = <&reg_dldo1>;
++};
++
++&r_i2c {
 +	status = "okay";
 +
-+	axp717: pmic@34 {
-+		compatible = "x-powers,axp717";
-+		reg = <0x34>;
-+		interrupt-controller;
++	axp313: pmic@36 {
++		compatible = "x-powers,axp313a";
++		reg = <0x36>;
 +		#interrupt-cells = <1>;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
++		interrupt-controller;
++		interrupt-parent = <&pio>;
++		interrupts = <2 2 IRQ_TYPE_LEVEL_LOW>;	/* PC2 */
 +
 +		vin1-supply = <&reg_vcc5v>;
 +		vin2-supply = <&reg_vcc5v>;
 +		vin3-supply = <&reg_vcc5v>;
-+		vin4-supply = <&reg_vcc5v>;
-+		aldoin-supply = <&reg_vcc5v>;
-+		bldoin-supply = <&reg_vcc5v>;
-+		cldoin-supply = <&reg_vcc5v>;
 +
 +		regulators {
-+			/* Supplies the "little" cluster (1.4 GHz cores) */
++			/* Supplies VCC-PLL, so needs to be always on. */
++			reg_aldo1: aldo1 {
++				regulator-always-on;
++				regulator-min-microvolt = <1800000>;
++				regulator-max-microvolt = <1800000>;
++				regulator-name = "vcc1v8";
++			};
++
++			/* Supplies VCC-IO, so needs to be always on. */
++			reg_dldo1: dldo1 {
++				regulator-always-on;
++				regulator-min-microvolt = <3300000>;
++				regulator-max-microvolt = <3300000>;
++				regulator-name = "vcc3v3";
++			};
++
 +			reg_dcdc1: dcdc1 {
 +				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpul";
++				regulator-min-microvolt = <810000>;
++				regulator-max-microvolt = <990000>;
++				regulator-name = "vdd-gpu-sys";
 +			};
 +
 +			reg_dcdc2: dcdc2 {
 +				regulator-always-on;
-+				regulator-min-microvolt = <920000>;
-+				regulator-max-microvolt = <920000>;
-+				regulator-name = "vdd-gpu-sys";
++				regulator-min-microvolt = <810000>;
++				regulator-max-microvolt = <1100000>;
++				regulator-name = "vdd-cpu";
 +			};
 +
 +			reg_dcdc3: dcdc3 {
 +				regulator-always-on;
-+				regulator-min-microvolt = <1100000>;
-+				regulator-max-microvolt = <1100000>;
++				regulator-min-microvolt = <1500000>;
++				regulator-max-microvolt = <1500000>;
 +				regulator-name = "vdd-dram";
 +			};
-+
-+			reg_aldo1: aldo1 {
-+				/* not connected */
-+			};
-+
-+			reg_aldo2: aldo2 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pe";
-+			};
-+
-+			reg_aldo3: aldo3 {
-+				/* supplies the I2C pins for this PMIC */
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-pl-usb";
-+			};
-+
-+			reg_aldo4: aldo4 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pll-dxco-avcc";
-+			};
-+
-+			reg_bldo1: bldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pg-iowifi";
-+			};
-+
-+			reg_bldo2: bldo2 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pm-lpddr4";
-+			};
-+
-+			reg_bldo3: bldo3 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-mipi-cam";
-+			};
-+
-+			reg_bldo4: bldo4 {
-+				/* not connected */
-+			};
-+
-+			reg_cldo1: cldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-pc-and-their-dog";
-+			};
-+
-+			reg_cldo2: cldo2 {
-+				/* not connected */
-+			};
-+
-+			reg_cldo3: cldo3 {
-+				/* IO, USB-2, 3V3, card, NAND, sensor, PI */
-+				regulator-always-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-io-mmc-spi-ana";
-+			};
-+
-+			reg_cldo4: cldo4 {
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+				regulator-name = "vcc-pj-phy";
-+			};
-+
-+			reg_cpusldo: cpusldo {
-+				/* supplies the management core */
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-cpus";
-+			};
 +		};
 +	};
-+
-+	axp323: pmic@36 {
-+		compatible = "x-powers,axp323";
-+		reg = <0x36>;
-+		#interrupt-cells = <1>;
-+		interrupt-controller;
-+		interrupt-parent = <&nmi_intc>;
-+		interrupts = <0 IRQ_TYPE_LEVEL_LOW>;
-+		status = "okay";
-+
-+		vin1-supply = <&reg_vcc5v>;
-+		vin2-supply = <&reg_vcc5v>;
-+		vin3-supply = <&reg_vcc5v>;
-+
-+		regulators {
-+			aldo1 {
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+				regulator-name = "vcc-mipi-dsi";
-+			};
-+
-+			dldo1 {
-+				/* not connected */
-+			};
-+
-+			/* Supplies the "big" cluster (1.8 GHz cores) */
-+			reg_dcdc1_323: dcdc1 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <1160000>;
-+				regulator-name = "vdd-cpub";
-+			};
-+
-+			/* DCDC2 is polyphased with DCDC1 */
-+
-+			/* RISC-V management core supply */
-+			reg_dcdc3_323: dcdc3 {
-+				regulator-always-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+				regulator-name = "vdd-dnr";
-+			};
-+		};
-+	};
-+};
-+
-+&r_pio {
-+/*
-+ * Specifying the supply would create a circular dependency.
-+ *
-+ *	vcc-pl-supply = <&reg_aldo3>;
-+ */
-+	vcc-pm-supply = <&reg_aldo3>;
 +};
 +
 +&uart0 {
 +	pinctrl-names = "default";
-+	pinctrl-0 = <&uart0_pb_pins>;
++	pinctrl-0 = <&uart0_ph_pins>;
 +	status = "okay";
 +};
 +
-+&usb_otg {
++/* Connected to the Bluetooth UART pins of the XR829 Wifi/BT chip. */
++&uart1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&uart1_pins>, <&uart1_rts_cts_pins>;
++	uart-has-rtscts;
++	status = "okay";
++};
++
++&usbotg {
 +	/*
-+	 * The USB-C port is the primary power supply, so in this configuration
-+	 * relies on the other end of the USB cable to supply the VBUS power.
-+	 * So use this port in peripheral mode.
-+	 * It is possible to supply the board with the 5V pins on the GPIO
-+	 * header, and since the DCIN_5V line is hardwired to the USB-C VBUS
-+	 * pins, the port turns into a host port, unconditionally supplying
-+	 * power. The dr_mode property should be changed to "host" here, if
-+	 * users choose this setup.
++	 * PHY0 pins are connected to a USB-C socket, but a role switch
++	 * is not implemented: both CC pins are pulled to GND.
++	 * The VBUS pins power the device, so a fixed peripheral mode
++	 * is the best choice.
++	 * The board can be powered via GPIOs, in this case port0 *can*
++	 * act as a host (with a cable/adapter ignoring CC), as VBUS is
++	 * then provided by the GPIOs. Any user of this setup would
++	 * need to adjust the DT accordingly: dr_mode set to "host",
++	 * enabling OHCI0 and EHCI0.
 +	 */
 +	dr_mode = "peripheral";
 +	status = "okay";
 +};
 +
-+/*
-+ * The schematic describes USB0_ID (PL10), measuring VBUS_5V, which looks to
-+ * be always on. Also there is USB-VBUSDET (PL2), which is measuring the same
-+ * VBUS_5V. There is also DCIN_DET, which measures DCIN_5V, so the power
-+ * input rail.
-+ * None of them seem to make any sense in relation to detecting USB devices
-+ * or whether there is power provided via any USB pins: they would always
-+ * report high, otherwise the system wouldn't be running.
-+ * The AXP717C provides proper USB-C CC pin functionality, but the PMIC is
-+ * not connected to those pins of the USB-C connector.
-+ */
 +&usbphy {
++	usb0_id_det-gpios = <&pio 6 18 GPIO_ACTIVE_HIGH>; /* PG18 */
 +	usb0_vbus-supply = <&reg_vcc5v>;
-+	usb1_vbus-supply = <&reg_usb_vbus>;
++	usb1_vbus-supply = <&reg_vcc5v>;
++	usb2_vbus-supply = <&reg_vcc5v>;
++	usb3_vbus-supply = <&reg_vcc5v>;
 +	status = "okay";
 +};
 -- 
