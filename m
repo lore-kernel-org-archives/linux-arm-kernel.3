@@ -4,72 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01551C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:25:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6FFCC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:31:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WgeaBNIFtxakkyQFJqROax8VL+tYZf3yM6KtyuMVs0Q=; b=nFmDBcp9pugC/iG9eFKokzHrm1
-	1tSAYQ7ekdwBD6+jTberOT6DryDHsWcLIuKycejuav0J/nFZdq3XGWIEg015G5ImGKGReYn+Wbajm
-	zakPnTRJ7EbmLqyL3udwnjn/zvYc+AhF4DLYJCXaJyUHwBNKtaAiNoIBbJMRn0GhUMAWJ+cCFLnze
-	o6NeLvNI1PPQDCxz3SJfxZHKig27ria2eM/rsrGE3IKiChGOIl8oZbw50VAf9mi46YYFx7YOdk/Pr
-	lC7dWIHVLTJ2IKZfNq3RgUh6FkAUC4k/VqYJ3Wm5SYcDXDSmN3d9ZqFaMW3UokBg5qg8YIdt+qExL
-	UXfH21gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JjerLCo/Vx+u2IcERkPYduGM/CF946cLg9oPJ/k7GMw=; b=f8tsgwy49w1IeMkhlMZZ9LGtjm
+	Za7BDaTW5qLJjVQStdueLot/jlMDWD3zlZHV3VdcuJCLNl4UeXDb+VGbtIPFB23uVMqYvbHJdWgiN
+	i733A/8VFnuMPkJjmUdb2JoRX2czVw0Jc0BicuB9/FBKGlJwnK3csNXG3blJpjF87pj80M9GNl1St
+	N6wdvTyocdUcwm8Mx9yEL2jhau6T8eyNhxrK/Pj1yueGjSxyupo218yDiaUyTMbWaflitOTk4mcM5
+	9wq87DVgl/3RSxTXaJEXIilKwwKE6PbtjkL+BuWdNdv5tEP/iIz9UPkkf0vqZb+T+y50pBYFOvrh/
+	7WVAtPpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWlL-0000000EB05-1wpT;
-	Fri, 07 Mar 2025 12:25:11 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1tqWra-0000000EBjC-2T6y;
+	Fri, 07 Mar 2025 12:31:38 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWiY-0000000EAjX-3xY6
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 12:22:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741350137;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=WgeaBNIFtxakkyQFJqROax8VL+tYZf3yM6KtyuMVs0Q=;
-	b=b8GWF7ucQ0LH819YY5lSX9YVQpv/3yaOdM1SaeeK8Ystp0bgTaF/jKu9TbkzQ7mFuUPa6N
-	MAYhrqNDInYvI3VCNvVG7gDUcUA6FBFeGP1yDmKdachEOgv9UdYraixlP6LQMYbrnFQKyR
-	SGwHz0Mm/2JiLX/sIWk0NHXV7yrklSM=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-412-VMn1_8XCMnylYMD_wCvc8A-1; Fri,
- 07 Mar 2025 07:22:14 -0500
-X-MC-Unique: VMn1_8XCMnylYMD_wCvc8A-1
-X-Mimecast-MFC-AGG-ID: VMn1_8XCMnylYMD_wCvc8A_1741350133
-Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id DE57D1828AAE;
-	Fri,  7 Mar 2025 12:22:08 +0000 (UTC)
-Received: from [172.64.10.8] (unknown [10.30.34.106])
-	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id A2A021956095;
-	Fri,  7 Mar 2025 12:22:07 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
- upstream-arm-next, 14d05f12)
-Date: Fri, 07 Mar 2025 12:22:07 -0000
-To: catalin.marinas@arm.com, will@kernel.org,
- linux-arm-kernel@lists.infradead.org
+	id 1tqWpx-0000000EBXk-0aHJ;
+	Fri, 07 Mar 2025 12:29:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 27BE2A45740;
+	Fri,  7 Mar 2025 12:24:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CC0ECC4CED1;
+	Fri,  7 Mar 2025 12:29:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741350595;
+	bh=+VVBJtiF5Ii7M1lEfiI1i4POFsGEnlp4WuusV3Xil4g=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WjdsCdjobZNT+sMdck8xTcbhwFdqsgPOwF9xU1fXrTskcvBDGPgiQFzK98ciQU0cd
+	 JABhDQAT0cZMUbb9t7vOq4WzCEXQ8ZsRGoEwBjEiiPTQ/0ZClb/ugUwQcJHJDM9KNd
+	 5n2yT/Qp88Rva/vrA4+DQAxGW1Yy5X4P4HUcGHCxqukqflJvQ08QwQazhNe9zLcXXi
+	 k4iCVhUUfn976KmDME8sHmSrItXj5+rtDMs3ld2IOaXRQJbox0GRupEniQdPgKub1N
+	 n/pk+d1ER7Dtt/oxzNAxyYIjZdKorT5mo1dy6cXu7HAmqqoVCPDb1+Tusr6yOSGSrY
+	 p1W012/Vs+/+A==
+Date: Fri, 7 Mar 2025 13:29:50 +0100
+From: Niklas Cassel <cassel@kernel.org>
+To: Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Damien Le Moal <dlemoal@kernel.org>,
+	Shawn Lin <shawn.lin@rock-chips.com>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 2/2] PCI: dw-rockchip: hide broken ATS capability
+Message-ID: <Z8rmviTHs92699jQ@ryzen>
+References: <20250221202646.395252-3-cassel@kernel.org>
+ <20250221202646.395252-4-cassel@kernel.org>
+ <20250222160837.mropn3laiyv3acaa@thinkpad>
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
-Message-Id: <08392.125030707221400751@us-mta-412.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: yh0sL6u7wzfa26-mzH_JYWAUtIofTSuRoPsHC1RqoBE_1741350133
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250222160837.mropn3laiyv3acaa@thinkpad>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_042219_058476_6A94B076 
-X-CRM114-Status: UNSURE (   6.59  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_042957_349878_610E036E 
+X-CRM114-Status: GOOD (  41.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,48 +78,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+Hello Mani,
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
+On Sat, Feb 22, 2025 at 09:38:37PM +0530, Manivannan Sadhasivam wrote:
+> On Fri, Feb 21, 2025 at 09:26:48PM +0100, Niklas Cassel wrote:
+> > When running the rk3588 in endpoint mode, with an Intel host with IOMMU
+> > enabled, the host side prints:
+> > DMAR: VT-d detected Invalidation Time-out Error: SID 0
+> > 
+> > When running the rk3588 in endpoint mode, with an AMD host with IOMMU
+> > enabled, the host side prints:
+> > iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
+> > 
+> > Usually, to handle these issues, we add a quirk for the PCI vendor and
+> > device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
+> > we cannot usually modify the capabilities on the EP side.
+> > 
+> > In this case, we can modify the capabilties on the EP side. Thus, hide the
+> > broken ATS capability on rk3588 when running in EP mode. That way,
+> > we don't need any quirk on the host side, and we see no errors on the host
+> > side, and we can run pci_endpoint_test successfully, with the IOMMU
+> > enabled on the host side.
+> > 
+> > Signed-off-by: Niklas Cassel <cassel@kernel.org>
+> > ---
+> >  drivers/pci/controller/dwc/pcie-dw-rockchip.c | 46 +++++++++++++++++++
+> >  1 file changed, 46 insertions(+)
+> > 
+> > diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > index 836ea10eafbb..2be005c1a161 100644
+> > --- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > +++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
+> > @@ -242,6 +242,51 @@ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
+> >  	.init = rockchip_pcie_host_init,
+> >  };
+> >  
+> > +/*
+> > + * ATS does not work on rk3588 when running in EP mode.
+> > + * After a host has enabled ATS on the EP side, it will send an IOTLB
+> > + * invalidation request to the EP side. The rk3588 will never send a completion
+> > + * back and eventually the host will print an IOTLB_INV_TIMEOUT error, and the
+> > + * EP will not be operational. If we hide the ATS cap, things work as expected.
+> > + */
+> > +static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
+> > +{
+> > +	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
+> > +	struct device *dev = pci->dev;
+> > +	unsigned int spcie_cap_offset, next_cap_offset;
+> > +	u32 spcie_cap_header, next_cap_header;
+> > +
+> > +	/* only hide the ATS cap for rk3588 running in EP mode */
+> > +	if (!of_device_is_compatible(dev->of_node, "rockchip,rk3588-pcie-ep"))
+> > +		return;
+> 
+> Compatible checks always tend to extend. So please use a boolean flag to
+> identify the quirk in 'struct rockchip_pcie_of_data' and set it in
+> 'rockchip_pcie_ep_of_data_rk3588'. This way, other SoCs could also reuse the
+> flag if required.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+I agree that in many cases, compatible checks tend to extend.
 
-Kernel information:
-    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
-for-kernelci
+However, the ATS capability is broken only for rk3588, thus we need to provide
+the ATS cap_id and the cap_id for the CAP immediately preceding the ATS cap_id.
 
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1704775335
+The linked list of capabilities will be different for every SoC.
+If we look at the only other SoC supported by this EPC, rk3568, it does not
+even have the ATS cap in the linked list.
 
-One or more kernel builds failed:
-    We also see the following known issues which are not related to your ch=
-anges:
-         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
-t:1704775335-aarch64-kernel
-                   Issue: [upstream] error: initializer-string for array of=
- 'char' is too long [-Werror=3Dunterminated-string-initialization]
-                          https://gitlab.com/cki-project/infrastructure/-/i=
-ssues/473
+Thus, I think that creating a boolean flag for this is wrong.
+Even in the unlikely scenario that there will come a Rockchip SoC in the
+future with an identical linked list of capabilities, I think that what you
+are proposing this is premature optimization (AKA the root of all evil :P)
 
 
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
+> 
+> > +
+> > +	spcie_cap_offset = dw_pcie_find_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI);
+> > +	if (!spcie_cap_offset)
+> > +		return;
+> > +
+> > +	spcie_cap_header = dw_pcie_readl_dbi(pci, spcie_cap_offset);
+> > +	next_cap_offset = PCI_EXT_CAP_NEXT(spcie_cap_header);
+> > +
+> > +	next_cap_header = dw_pcie_readl_dbi(pci, next_cap_offset);
+> > +	if (PCI_EXT_CAP_ID(next_cap_header) != PCI_EXT_CAP_ID_ATS)
+> > +		return;
+> > +
+> > +	/* clear next ptr */
+> > +	spcie_cap_header &= ~GENMASK(31, 20);
+> > +
+> > +	/* set next ptr to next ptr of ATS_CAP */
+> > +	spcie_cap_header |= next_cap_header & GENMASK(31, 20);
+> > +
+> > +	dw_pcie_dbi_ro_wr_en(pci);
+> > +	dw_pcie_writel_dbi(pci, spcie_cap_offset, spcie_cap_header);
+> > +	dw_pcie_dbi_ro_wr_dis(pci);
+> 
+> This code is mostly generic. So please move it to pcie-designware-ep.c. The
+> function should just accept two CAP IDs (prev and target) and hide the target
+> capability. Like,
+> 
+> 	dw_pcie_hide_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI,
+> 				    PCI_EXT_CAP_ID_ATS);
 
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
+Sure, I will create a generic function in pcie-designware-ep.c.
 
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
 
+> 
+> Its too bad that we cannot traverse back from the target capability. We could
+> open code dw_pcie_ep_find_ext_capability() to keep track of the prev_cap_offset
+> though.
+
+I'd rather skip this. Seems like too many special cases.
+E.g. what should dw_pcie_ep_find_ext_capability() return if there is no prev?
+It seems easier to just need to provide prev_cap_id as well.
+
+
+Kind regards,
+Niklas
 
