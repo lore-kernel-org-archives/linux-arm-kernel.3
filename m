@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB30C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7F6DC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:52:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7+7O13uHulZbXdhe36Q5BR5+IY9+h/5KwXoJ3LLSuIE=; b=pwIfabfvHl+j6bnycWSwp8VkmW
-	Fnf8YFYz+JRBnFYEKhNtsV5HEZjpVw3CvRYKE9d9GjIOrJqGx2J8VdzCwAwi2KfXuxdpeeehz1BA3
-	L2BE0YGijC1ow646PH4tuiXQuFIZxU5Hc5NT1wdJNtD1IWKUUyBFE0f+yJJhpSQvK5aIDhuoXaNki
-	llZB9YPHAAYKFX3OCj4iS+J/XJZeWmJwc/pPby3+gXshxUwSLUSsiTUlEOXs35dLMX1Imxn+vP69u
-	CrRcwKh6/Y2t2alIoPB24nc/TzU7e4MSDlI/BS7a0XoVhuC6mrnUrS+mEufyhAgRptwZ4i4mKrU2z
-	IrO3k6dw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=T9Q64H7eOqwbabEl9fMLo/Azsox+IgNpX2vvtqqW2qw=; b=MRL2/cHwPccDFiVP1E4gs2rfMP
+	V3eezVlxcazlJv/7fL7bJCL55KxHNlm+Fd/kwitbHmB4kaN94dcymwkviqaJvHAdwABNq1xJC9i1R
+	SHgD7z5K6jkuHUaGK0EPYxkl3JGOkWKl4MZpjoJ970l24ak7TYcSbApwAjsJaxn/7HvWTewNBWu1z
+	sult5YojwfsqpJXsf8mP3Y1g4C9+sbvjjysYDr5sOW+QwG7SyQ9BxNt3NwOZ2CtD6+3vfDQlVSYNb
+	7zzpYZQxH9uTo87tEpjlHEbcl4oEuQ22s1SMwxFJ+VFiwkOLLCmXgyQ+FY/6mOljzyqRNqftbUTFW
+	J/inEn8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXAQ-0000000EEEz-1OJT;
-	Fri, 07 Mar 2025 12:51:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tqXC0-0000000EEYL-3664;
+	Fri, 07 Mar 2025 12:52:44 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqX7J-0000000EDee-0cpT;
-	Fri, 07 Mar 2025 12:47:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 86801A45776;
-	Fri,  7 Mar 2025 12:42:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02946C4CED1;
-	Fri,  7 Mar 2025 12:47:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741351671;
-	bh=yMoYyGKM6FbagclOTpM00d2Qgsis276wrIoNJyyP4ys=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BBJ1kRJym+MLwffziarp2SQHYX9pyoStle3jVRUQBNdBy3oDTq4dDapuJPRmxunJI
-	 w09KYtz1P+421K4elybUlI8X05IOOYpOZqmovKrBpZlIvc346m7Ci7balOmeQn7gh4
-	 48RPPPEeNBPlAXbIp29J89DRDMtZacL1bbuSjm7Dbak7nM7/+A2Mj9j5VWlkE/dApe
-	 ey0VWv7kjjmylm40OXOcVQkFzoefoRSj6rKBMZ7McpOtFbi9jrlEhv8OfATBNEOJNQ
-	 Aqkc4sqmjA1mdA9Di9IgxHvN4xsL2OE7CoEUwZQBsJfLAH/rydd2OlsTLSS9ZoAzEz
-	 Z3hguMCot8d1A==
-From: Niklas Cassel <cassel@kernel.org>
-To: Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kw@linux.com>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Shawn Lin <shawn.lin@rock-chips.com>,
-	Damien Le Moal <dlemoal@kernel.org>,
-	Niklas Cassel <cassel@kernel.org>,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH v2 2/2] PCI: dw-rockchip: Hide broken ATS capability
-Date: Fri,  7 Mar 2025 13:47:35 +0100
-Message-ID: <20250307124732.704375-6-cassel@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250307124732.704375-4-cassel@kernel.org>
-References: <20250307124732.704375-4-cassel@kernel.org>
+	id 1tqX8I-0000000EDkA-17Aw;
+	Fri, 07 Mar 2025 12:48:55 +0000
+X-UUID: 8339e2f8fb5211ef83f2a1c9db70dae0-20250307
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=T9Q64H7eOqwbabEl9fMLo/Azsox+IgNpX2vvtqqW2qw=;
+	b=i84q0r2MXPRG68MkBg/YXfM/45iplZe6eYKHIcISNB/VEuz8tFdMJcUQLKTnOgfg3KOMc/gCf6F6XRB+8pLFJX2HuqX1IfqJdz6RljVnOWSSLYBDb7+B6zwHcEJtRawCmjh4S2iypqPPsyk6qGJxXtbGrctlc6Q4lPx0hgVnbgo=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:c755f913-2bbc-41f9-92fe-9bf14571735f,IP:0,UR
+	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
+	elease,TS:0
+X-CID-META: VersionHash:0ef645f,CLOUDID:d152168c-f5b8-47d5-8cf3-b68fe7530c9a,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|102,TC:nil,Content:0|50,EDM:-3,IP
+	:nil,URL:1,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:0,
+	LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_ULS,TF_CID_SPAM_SNR
+X-UUID: 8339e2f8fb5211ef83f2a1c9db70dae0-20250307
+Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw01.mediatek.com
+	(envelope-from <darren.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1298808667; Fri, 07 Mar 2025 05:48:47 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 7 Mar 2025 20:48:45 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 7 Mar 2025 20:48:44 +0800
+From: Darren.Ye <darren.ye@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, Linus
+ Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
+	<darren.ye@mediatek.com>
+Subject: [PATCH 00/14] ASoC: mediatek: Add support for MT8196 SoC
+Date: Fri, 7 Mar 2025 20:47:26 +0800
+Message-ID: <20250307124841.23777-1-darren.ye@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-X-Developer-Signature: v=1; a=openpgp-sha256; l=3114; i=cassel@kernel.org; h=from:subject; bh=yMoYyGKM6FbagclOTpM00d2Qgsis276wrIoNJyyP4ys=; b=owGbwMvMwCV2MsVw8cxjvkWMp9WSGNJPvXq6heN+eXtTh3Nz7VpNf+O8nt0i97p2qMsq3tJcz yKwftvDjlIWBjEuBlkxRRbfHy77i7vdpxxXvGMDM4eVCWQIAxenAExk1WyG/4VC5o0b+TZrSTI8 c2G0+L/5Cvfiiv25Eq4xz0ILbq6ZqMjw359lfYihXWdqwdfrhueelSuudWreHn436bgJ+wVufe2 97AA=
-X-Developer-Key: i=cassel@kernel.org; a=openpgp; fpr=5ADE635C0E631CBBD5BE065A352FE6582ED9B5DA
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_044753_352073_9C0EF391 
-X-CRM114-Status: GOOD (  18.35  )
+X-CRM114-CacheID: sfid-20250307_044854_311470_546C7F0E 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,83 +89,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When running the rk3588 in endpoint mode, with an Intel host with IOMMU
-enabled, the host side prints:
+From: Darren Ye <darren.ye@mediatek.com>
 
-  DMAR: VT-d detected Invalidation Time-out Error: SID 0
+This series of patches adds support for Mediatek AFE of MT8196 SoC.
+Patches are based on broonie tree "for-next" branch.
 
-When running the rk3588 in endpoint mode, with an AMD host with IOMMU
-enabled, the host side prints:
-
-  iommu ivhd0: AMD-Vi: Event logged [IOTLB_INV_TIMEOUT device=63:00.0 address=0x42b5b01a0]
-
-Rockchip has confirmed that the ATS support for rk3588 only works when
-running the PCIe controller in RC mode [0].
-
-Usually, to handle these issues, we add a quirk for the PCI vendor and
-device ID in drivers/pci/quirks.c with quirk_no_ats(). That is because
-we cannot usually modify the capabilities on the EP side.
-
-In this case, we can modify the capabilities on the EP side. Thus, hide the
-broken ATS capability on rk3588 when running in EP mode. That way,
-we don't need any quirk on the host side, and we see no errors on the host
-side, and we can run pci_endpoint_test successfully, with the IOMMU
-enabled on the host side.
-
-[0] https://lore.kernel.org/linux-pci/93cdce39-1ae6-4939-a3fc-db10be7564e5@rock-chips.com/
-
-Acked-by: Shawn Lin <shawn.lin@rock-chips.com>
-Signed-off-by: Niklas Cassel <cassel@kernel.org>
 ---
- drivers/pci/controller/dwc/pcie-dw-rockchip.c | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+This series patches dependent on:
+[1]
+https://lore.kernel.org/all/20250307032942.10447-1-guangjie.song@mediatek.com/
 
-diff --git a/drivers/pci/controller/dwc/pcie-dw-rockchip.c b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-index 836ea10eafbb..bc4339252a03 100644
---- a/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-+++ b/drivers/pci/controller/dwc/pcie-dw-rockchip.c
-@@ -242,6 +242,32 @@ static const struct dw_pcie_host_ops rockchip_pcie_host_ops = {
- 	.init = rockchip_pcie_host_init,
- };
- 
-+/*
-+ * ATS does not work on rk3588 when running in EP mode.
-+ * After a host has enabled ATS on the EP side, it will send an IOTLB
-+ * invalidation request to the EP side. The rk3588 will never send a completion
-+ * back and eventually the host will print an IOTLB_INV_TIMEOUT error, and the
-+ * EP will not be operational. If we hide the ATS cap, things work as expected.
-+ */
-+static void rockchip_pcie_ep_hide_broken_ats_cap_rk3588(struct dw_pcie_ep *ep)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-+	struct device *dev = pci->dev;
-+
-+	/* Only hide the ATS cap for rk3588 running in EP mode */
-+	if (!of_device_is_compatible(dev->of_node, "rockchip,rk3588-pcie-ep"))
-+		return;
-+
-+	if (dw_pcie_ep_hide_ext_capability(pci, PCI_EXT_CAP_ID_SECPCI,
-+					   PCI_EXT_CAP_ID_ATS))
-+		dev_err(dev, "failed to hide ATS cap\n");
-+}
-+
-+static void rockchip_pcie_ep_pre_init(struct dw_pcie_ep *ep)
-+{
-+	rockchip_pcie_ep_hide_broken_ats_cap_rk3588(ep);
-+}
-+
- static void rockchip_pcie_ep_init(struct dw_pcie_ep *ep)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_ep(ep);
-@@ -314,6 +340,7 @@ rockchip_pcie_get_features(struct dw_pcie_ep *ep)
- 
- static const struct dw_pcie_ep_ops rockchip_pcie_ep_ops = {
- 	.init = rockchip_pcie_ep_init,
-+	.pre_init = rockchip_pcie_ep_pre_init,
- 	.raise_irq = rockchip_pcie_raise_irq,
- 	.get_features = rockchip_pcie_get_features,
- };
+Darren Ye (14):
+  ASoC: mediatek: common: modify mtk afe common driver for mt8196
+  ASoC: mediatek: common: modify mtk afe platform driver for mt8196
+  ASoC: mediatek: mt8196: add common header
+  ASoC: mediatek: mt8196: add common interface for mt8196 DAI driver
+  ASoC: mediatek: mt8196: support audio clock control
+  ASoC: mediatek: mt8196: support audio GPIO control
+  ASoC: mediatek: mt8196: support ADDA in platform driver
+  ASoC: mediatek: mt8196: support I2S in platform driver
+  ASoC: mediatek: mt8196: support TDM in platform driver
+  ASoC: mediatek: mt8196: support CM in platform driver
+  ASoC: mediatek: mt8196: add platform driver
+  dt-bindings: mediatek: mt8196: add audio AFE document
+  ASoC: mediatek: mt8196: add machine driver with mt6681
+  dt-bindings: mediatek: mt8196: add mt8196-mt6681 document
+
+ .../bindings/sound/mediatek,mt8196-afe.yaml   |   259 +
+ .../sound/mediatek,mt8196-mt6681.yaml         |   122 +
+ sound/soc/mediatek/Kconfig                    |    30 +
+ sound/soc/mediatek/Makefile                   |     1 +
+ sound/soc/mediatek/common/mtk-afe-fe-dai.c    |    30 +-
+ sound/soc/mediatek/common/mtk-afe-fe-dai.h    |     6 +
+ .../mediatek/common/mtk-afe-platform-driver.c |    63 +-
+ .../mediatek/common/mtk-afe-platform-driver.h |     5 +
+ sound/soc/mediatek/common/mtk-base-afe.h      |    13 +
+ sound/soc/mediatek/mt8196/Makefile            |    19 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.c    |   698 +
+ sound/soc/mediatek/mt8196/mt8196-afe-clk.h    |   313 +
+ sound/soc/mediatek/mt8196/mt8196-afe-cm.c     |    94 +
+ sound/soc/mediatek/mt8196/mt8196-afe-cm.h     |    23 +
+ sound/soc/mediatek/mt8196/mt8196-afe-common.h |   290 +
+ .../soc/mediatek/mt8196/mt8196-afe-control.c  |   109 +
+ sound/soc/mediatek/mt8196/mt8196-afe-gpio.c   |   239 +
+ sound/soc/mediatek/mt8196/mt8196-afe-gpio.h   |    58 +
+ sound/soc/mediatek/mt8196/mt8196-afe-pcm.c    |  5134 +++++++
+ sound/soc/mediatek/mt8196/mt8196-dai-adda.c   |  2207 +++
+ sound/soc/mediatek/mt8196/mt8196-dai-i2s.c    |  4399 ++++++
+ sound/soc/mediatek/mt8196/mt8196-dai-tdm.c    |   837 ++
+ .../mediatek/mt8196/mt8196-interconnection.h  |   121 +
+ sound/soc/mediatek/mt8196/mt8196-mt6681.c     |   879 ++
+ sound/soc/mediatek/mt8196/mt8196-reg.h        | 12133 ++++++++++++++++
+ 25 files changed, 28055 insertions(+), 27 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-afe.yaml
+ create mode 100644 Documentation/devicetree/bindings/sound/mediatek,mt8196-mt6681.yaml
+ create mode 100644 sound/soc/mediatek/mt8196/Makefile
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-clk.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-cm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-cm.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-common.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-control.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-gpio.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-gpio.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-pcm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-adda.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-i2s.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-dai-tdm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-interconnection.h
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-mt6681.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-reg.h
+
 -- 
-2.48.1
+2.45.2
 
 
