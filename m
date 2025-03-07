@@ -4,65 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C39C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:04:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FFD8C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 14:08:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nB1Ff94gX6hUEiR4vaLcBQczfcyrPErlm6RF/exj1rY=; b=fyLtimWvjDV1P+Afhi2OkfrowS
-	9T22p5xvTj1HLjSZXGFcbdDf+hnQ07bb+l81XotBusAb4440vEs3k0R148Vi7xQq+1/SQ8wIJUu1P
-	9Faf1wfnV3b6f77XNrusd8Dw3qEAQzwgCgq4dElOdX91nkW77m19yFdgY4eqywUqCbhldYKiJfVM4
-	pdksmdP4yEh4hiJfy6OCAhW0RLPPpcACt2Oe4jL1sTSnsZNBXYDXhVkoHJiuv7O+mpFDrgYpRVU57
-	gidwLOmvGikvF2I5+od2YR+OZ1vbQym9FQMQwZYOxU84zuzb9rRvwjYcbWuUONJzUuQ3gIdEAONU9
-	jlzK7joA==;
+	bh=FP+ifasHniIC8neSq6VwSq5ZsIenCwU36aCvQ3EbV9k=; b=pTGe1tDLNnanUazk0W3fDdFGtF
+	cQ9JmPbIWnXmJ6hJ5NtrcO39Pm0wksIjkxCxBTzj3kdvOE72ww7Zd0dSwd920Vc/c6KT/EVUUp++E
+	SGowRCCOn1ay1KQz2GWvOo4DX3I0h7/Vah+4ZH3fAPp8jpL/PoJFIOrZ6KexfdSDqvEj9px965Fyh
+	FxbbTafP1MjeYs5ETC+cj/EU15dbpfXKTU4ahYPheNM/q4UyxscX0BxXVSEpdlqSPS0LeO5PDemIO
+	twE5jBLXuuWknGxKyJPd0sBufC1w74XOUKPhPdP573lw35mCPCcQHaO5MBiI/Vu2xqX6rUsWFStPo
+	lBDZ9cPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYJh-0000000EPMw-0UOf;
-	Fri, 07 Mar 2025 14:04:45 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1tqYMx-0000000EPwb-098Y;
+	Fri, 07 Mar 2025 14:08:07 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqYI4-0000000EPCc-0uqX;
-	Fri, 07 Mar 2025 14:03:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=nB1Ff94gX6hUEiR4vaLcBQczfcyrPErlm6RF/exj1rY=; b=YC2hEVy4NZANVuitqKYVpsTfLw
-	Vq53fYjnsZ/1ipxexmYUW+xwwvwoTr6C2S4WvrqLu/Wx/vj7Bfejk8gxeXpGpMi9v41K7xmJNq4KH
-	294pI4i61HdG3JE6B7pDvyY8tUpME3f5/uDtjCZDQwO1PVRguDqOkUFJoi5SAEEV5xbI=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1tqYHs-0039gt-1L; Fri, 07 Mar 2025 15:02:52 +0100
-Date: Fri, 7 Mar 2025 15:02:52 +0100
-From: Andrew Lunn <andrew@lunn.ch>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
-	linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 3/4] arm64: dts: rockchip: Add GMAC nodes for RK3528
-Message-ID: <f6c6aeb5-bdec-4283-87c8-e870f59008c8@lunn.ch>
-References: <20250306221402.1704196-1-jonas@kwiboo.se>
- <20250306221402.1704196-4-jonas@kwiboo.se>
- <a827e7e9-882a-40c6-9f2c-03d8181dff88@lunn.ch>
- <003d3726-680a-4e91-89cd-d127bc3b5609@kwiboo.se>
+	id 1tqYLK-0000000EPdb-0Lmy;
+	Fri, 07 Mar 2025 14:06:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741356358; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=RUSqeTjX0/f+vSCIJFG7Ivi/H9ExZZOTIGsH8b/7NgnDNY+UPVZ7ECjWzwOuDI3RzpTfQqmbZSAsfna/nJrzgxqNHi9CItEF9nS40fA67K5OyjyabwmfpK9um35EBQjHtXoOmHIdnjUaDBCCDMC8yAzHg++9XIkIh6wtiClIxik=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741356358; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=FP+ifasHniIC8neSq6VwSq5ZsIenCwU36aCvQ3EbV9k=; 
+	b=M4EErEyApvaCAnFL5c92n1M0wMYZ4/LNdYQL/JjFfVIWr1+oWZ7LWHG91M7LH/wdakw0O6B/Z6DdW1CFhUYSU8YrcdcDdi/S/B33oM+ZFqVbEURJgvl8Ve4JwYi+DVhf5OMbdwCpJiS1Sj2d8rpDnz9ZN6y3eCQFi/Cx2aen930=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741356358;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=FP+ifasHniIC8neSq6VwSq5ZsIenCwU36aCvQ3EbV9k=;
+	b=k4LLpH1xLhH5D3H7h2upAramGsfkMWDuPKZ9FZ0XGVS9QKMQsdQP0bKN4azcuUGk
+	pMfBCbFEZtyQaxyMl/XEFyBtH0id4McTIUQZz/KeSYcNbJQotbnjO7wP5JrTi+oGXgB
+	95fO8bj46v0ezvai2ZHpniitwdl6VAtoA17B70u4=
+Received: by mx.zohomail.com with SMTPS id 1741356356876241.9419093370691;
+	Fri, 7 Mar 2025 06:05:56 -0800 (PST)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Daniel Golle <daniel@makrotopia.org>,
+ Aurelien Jarno <aurelien@aurel32.net>, Olivia Mackall <olivia@selenic.com>,
+ Herbert Xu <herbert@gondor.apana.org.au>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-crypto@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH v2] dt-bindings: rng: rockchip,rk3588-rng: Drop unnecessary status
+ from example
+Date: Fri, 07 Mar 2025 15:05:50 +0100
+Message-ID: <5417098.31r3eYUQgx@workhorse>
+In-Reply-To: <20250307093309.44950-1-krzysztof.kozlowski@linaro.org>
+References: <20250307093309.44950-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <003d3726-680a-4e91-89cd-d127bc3b5609@kwiboo.se>
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_060304_254850_824AD926 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20250307_060626_184686_2D9C8ACC 
+X-CRM114-Status: GOOD (  17.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,47 +82,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-So this is a bit more complicated than i first guessed...
-
-> 	phy-mode = "rmii";
-> 	clock_in_out = "input";
-
-Probably will not get passed the DT maintainers. The clocking needs
-investigating.
-
-> 	phy-handle = <&rmii0_phy>;
+On Friday, 7 March 2025 10:33:09 Central European Standard Time Krzysztof 
+Kozlowski wrote:
+> Device nodes are enabled by default, so no need for 'status = "okay"' in
+> the DTS example.
 > 
-> 	mdio0: mdio {
-> 		compatible = "snps,dwmac-mdio";
-> 		#address-cells = <0x1>;
-> 		#size-cells = <0x0>;
+> Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 > 
-> 		rmii0_phy: ethernet-phy@2 {
-> 			compatible = "ethernet-phy-id0044.1400", "ethernet-phy-ieee802.3-c22";
-> 			reg = <2>;
-> 			clocks = <&cru CLK_MACPHY>;
-> 			resets = <&cru SRST_MACPHY>;
+> ---
+> 
+> Changes in v2:
+> 1. Drop unnecessary full stop in subject prefix after ':'.
+> 2. Add Rb tag.
+> ---
+>  Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml index
+> 757967212f55..ca71b400bcae 100644
+> --- a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> +++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> @@ -53,7 +53,6 @@ examples:
+>          interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+>          clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
+>          resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
+> -        status = "okay";
+>        };
+>      };
 
-Using the ID suggests there might be a chicken/egg with the reset and
-clock. The ID registers cannot be read from the PHY?
+Hi,
 
-> 			phy-is-integrated;
+is there the possibility we could make dtschema as invoked by `make 
+dt_binding_check W=1` (or W=2) add a warning for examples that have disabled 
+or explicitly listed status properties when not needed? Or is this something 
+better handled in, say, checkpatch.pl?
 
-This suggests the possibility exists to route the RMII interface to the
-outside world:
+The question arises because dumb mistakes by me like this should ideally be 
+caught before they waste precious maintainer time.
 
-  phy-is-integrated:
-    $ref: /schemas/types.yaml#/definitions/flag
-    description:
-      If set, indicates that the PHY is integrated into the same
-      physical package as the Ethernet MAC. If needed, muxers
-      should be configured to ensure the integrated PHY is
-      used. The absence of this property indicates the muxers
-      should be configured so that the external PHY is used.
+If it's best handled in dtschema, I can look into working on that so you guys 
+don't have to do even more work due to me.
 
-Given these issues, i suggest you keep with the DT as you have it
-now. Adding the PHY node will require access to hardware and some
-investigations.
+Cheers,
+Nicolas Frattaroli
 
-	Andrew
+
 
