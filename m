@@ -4,57 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3203AC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:23:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA4AC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:25:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TUIpcEC4TM+kELVJUpyhpFBd8j2jrm6anGOOdFHUNyE=; b=23mmk/D5Trx0aA1MihAV8syFix
-	4+TTROS7/SIn/dYeHyozDOUxNCswyLpGvy+fk1y1Wqz4S5O+V7xLLTqGauEJJiwowa9oQpZUO207H
-	wGg3fccnvB0PBn0sx/0Ms5jEp5PDzBRFp8D6XL8EI7eA9RP8MVgWu6muqOEWMimfydckYK3Pgbot9
-	hHdTeSxzi5JBD0uV+naOYZdYZ7tIy6mvvR1erUl/l+VrlSAKs5vvTRIq1YoEfu5S9/1fvuVNyDlLB
-	R+A0dAHTSaze21iHI9bUuCMxkXrAbyqOGpA/BKXJnoU3xTlCWBuXpC9rL7fb6ADxXlKHgk4X/+blF
-	avWBg4rA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oc7YHSjsxtVonlvoGk2xIqyBO7/KdbIfRxzx7Tv596M=; b=1GNZWZhLWnefP/YWqrqevHYcm8
+	lGrtZQUGGbpIr1Spb66+bhHZyM+3l3+trlZFIVZiyqF3DOTm88P9JTHzHJBaCXlxVyjabBFVsecti
+	7IhuO7zUWJObuPrpENFfhDDPmQTZZE2cwyLu38zC76DuxxRxZu7ndNJWbXpSv/G2wZTSZL0rS/EJP
+	Whns8W7HyyPtGnyCUwoW3HbbIjmaGwk6YxDtfmHVpjbwLIT/FqgY1OfAcdqQDDyMojH0i2CALRLex
+	xQmte5pMM7jS8FzYdpl1lj3dRUyx2oKueRDcD+xk2bFpXUFkUC1+bqSA+cUTwSYW4ib8oeV/QoeqA
+	9w1aIBMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTvE-0000000DhTd-1PEa;
-	Fri, 07 Mar 2025 09:23:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTtA-0000000Dgj7-1i6B
+	id 1tqTwp-0000000Dhjy-0ciE;
+	Fri, 07 Mar 2025 09:24:51 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqTuI-0000000DhD6-0bpH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 09:21:06 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 451521477;
-	Fri,  7 Mar 2025 01:21:16 -0800 (PST)
-Received: from [10.162.42.6] (a077893.blr.arm.com [10.162.42.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 03DC93F66E;
-	Fri,  7 Mar 2025 01:20:59 -0800 (PST)
-Message-ID: <c3dddb6f-dce1-45a6-b5f1-1fd247c510ab@arm.com>
-Date: Fri, 7 Mar 2025 14:50:56 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/mm: Define PTE_SHIFT
-To: Ryan Roberts <ryan.roberts@arm.com>, linux-arm-kernel@lists.infradead.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Mark Rutland <mark.rutland@arm.com>, Andrey Ryabinin
- <ryabinin.a.a@gmail.com>, Alexander Potapenko <glider@google.com>,
- Andrey Konovalov <andreyknvl@gmail.com>, Dmitry Vyukov <dvyukov@google.com>,
- Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org,
- kasan-dev@googlegroups.com
-References: <20250307050851.4034393-1-anshuman.khandual@arm.com>
- <17931f83-7142-4ca6-8bfe-466ec53b6e2c@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <17931f83-7142-4ca6-8bfe-466ec53b6e2c@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Fri, 07 Mar 2025 09:22:16 +0000
+Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250307092210epoutp03ce37498ddf58278ae9cf7de69ed4e4e4~qeuUq4B4U1373813738epoutp03R
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Mar 2025 09:22:10 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250307092210epoutp03ce37498ddf58278ae9cf7de69ed4e4e4~qeuUq4B4U1373813738epoutp03R
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741339330;
+	bh=oc7YHSjsxtVonlvoGk2xIqyBO7/KdbIfRxzx7Tv596M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SVXi5s96pzun31fhXZuRUZlpWrvhPhyP1XSFcG3ypgD2IKjCzN5Zog+SZ9JFDOJSD
+	 vX0+Ax5J/R9IewH+a6driVCzNPboBzzExVAVVvbC22lFG87Flb6sFkkxxC2ir5ACQP
+	 2C2iO6IwXklvHeu6QbKU4o2FBtn3gKfRVlsR2wiM=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
+	20250307092209epcas5p4b17984afa515636d2f1cab81c4c66706~qeuUBnDJk0294602946epcas5p4x;
+	Fri,  7 Mar 2025 09:22:09 +0000 (GMT)
+Received: from epsmges5p2new.samsung.com (unknown [182.195.38.176]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z8LQm0f4pz4x9Q8; Fri,  7 Mar
+	2025 09:22:08 +0000 (GMT)
+Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
+	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	23.B0.19933.FBABAC76; Fri,  7 Mar 2025 18:22:07 +0900 (KST)
+Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4~qbFZ4U9cz2885928859epcas5p3s;
+	Fri,  7 Mar 2025 04:55:24 +0000 (GMT)
+Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
+	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250307045524epsmtrp271a8640a0655ee2f0981cdd6e9fe965e~qbFZ3Lrii1515815158epsmtrp2t;
+	Fri,  7 Mar 2025 04:55:24 +0000 (GMT)
+X-AuditID: b6c32a4a-c1fda70000004ddd-ec-67cababfc24e
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	69.9C.23488.C3C7AC76; Fri,  7 Mar 2025 13:55:24 +0900 (KST)
+Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250307045522epsmtip124914e600f7411a4d5d0d92eca178c8c~qbFXpYlwQ1085010850epsmtip1C;
+	Fri,  7 Mar 2025 04:55:22 +0000 (GMT)
+From: Swathi K S <swathi.ks@samsung.com>
+To: krzk+dt@kernel.org, linux-fsd@tesla.com, robh@kernel.org,
+	conor+dt@kernel.org, richardcochran@gmail.com, alim.akhtar@samsung.com
+Cc: jayati.sahu@samsung.com, swathi.ks@samsung.com,
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	netdev@vger.kernel.org, pankaj.dubey@samsung.com, ravi.patel@samsung.com,
+	gost.dev@samsung.com
+Subject: [PATCH v8 2/2] arm64: dts: fsd: Add Ethernet support for PERIC
+ Block of FSD SoC
+Date: Fri,  7 Mar 2025 10:19:04 +0530
+Message-Id: <20250307044904.59077-3-swathi.ks@samsung.com>
+X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20250307044904.59077-1-swathi.ks@samsung.com>
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnk+LIzCtJLcpLzFFi42LZdlhTXffArlPpBn+FLR7M28ZmsWbvOSaL
+	+UfOsVrcPLCTyeLIqSVMFi9n3WOz2PT4GqvFw1fhFpd3zWGzmHF+H5PFsQViFou2fmG3ePhh
+	D7vFkTMvmC3+79nBbvFl4012BwGPnbPusntsWtXJ5rF5Sb1H35ZVjB7/muaye3zeJBfAFpVt
+	k5GamJJapJCal5yfkpmXbqvkHRzvHG9qZmCoa2hpYa6kkJeYm2qr5OIToOuWmQN0tJJCWWJO
+	KVAoILG4WEnfzqYov7QkVSEjv7jEVim1ICWnwKRArzgxt7g0L10vL7XEytDAwMgUqDAhO2Nt
+	+wH2grnqFad/bmNqYDyq0MXIySEhYCJxd8tN9i5GLg4hgd2MEpMnnGGGcD4xSrxaMIERwvnG
+	KHFt4n82mJZTn84zgdhCAnsZJc6ti4co+sIo0bHjNjNIgk1AQ+L6iu1gc0UE2hgljj1tBHOY
+	BeYySaw6uA1slLBAlMT1/idgNouAqsSWVWvBbF4BK4ll+/ayQqyTl1i94QDYVE4Ba4lz++6C
+	DZIQ6OWQ+PSqnQWiyEWieVsbI4QtLPHq+BZ2CFtK4vO7vVB3x0us7rsKVZ8hcffXRKi4vcSB
+	K3OA4hxA12lKrN+lDxGWlZh6ah3Ym8wCfBK9v58wQcR5JXbMg7GVJf6+vgY1UlJi29L37CBj
+	JAQ8JO4ezISESh+jxNSOVawTGOVmIWxYwMi4ilEytaA4Nz212LTAKC+1HB5tyfm5mxjBKVPL
+	awfjwwcf9A4xMnEwHmKU4GBWEuFV234qXYg3JbGyKrUoP76oNCe1+BCjKTD8JjJLiSbnA5N2
+	Xkm8oYmlgYmZmZmJpbGZoZI4b/POlnQhgfTEktTs1NSC1CKYPiYOTqkGpo3tNRm+MsUHlpfo
+	nW2Kztnnv68+XzOpXK1W5pcmz+tlS3+8FOsRyVlq0JUfVBEWvnmy8gdd3vCP98MNA9ycfz+P
+	l3CM2eul57U65GBASl/Dt6ltH0Xku4z2rzcyu1T7Y+Wr7Uc+JHxdlzgrcPb6LSU8+nJc9yQE
+	LYs/rU12Ep5/LfVr9v/7z2e69TdwLgv229fvcXNnsUWkVWt4wcx/bj/b5q/k2+MpL3D7Zfze
+	a1vfKm34Ga0kP7en7GfTxVTPhqfBc5gLz1V8sBLSWem+gE15y9efriytOwqn5ud1v7t9ekV7
+	5sJqX//NTZPUw64t1P2RUnteTmlHRv3nOsGbjjoHPP1/tS1X72WL/+SoxFKckWioxVxUnAgA
+	AgCv4iIEAAA=
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrGLMWRmVeSWpSXmKPExsWy7bCSnK5Nzal0g7nnxS0ezNvGZrFm7zkm
+	i/lHzrFa3Dywk8niyKklTBYvZ91js9j0+BqrxcNX4RaXd81hs5hxfh+TxbEFYhaLtn5ht3j4
+	YQ+7xZEzL5gt/u/ZwW7xZeNNdgcBj52z7rJ7bFrVyeaxeUm9R9+WVYwe/5rmsnt83iQXwBbF
+	ZZOSmpNZllqkb5fAlbG2/QB7wVz1itM/tzE1MB5V6GLk5JAQMJE49ek8E4gtJLCbUeLodgGI
+	uKTEp+aprBC2sMTKf8/ZIWo+MUpM2qYMYrMJaEhcX7EdKM7FISLQxyixYXsrC4jDLLCcSWLB
+	gQZGkCphgQiJc2f6mUFsFgFViS2r1rKB2LwCVhLL9u2F2iAvsXrDAbAaTgFriXP77kJts5KY
+	PX0u+wRGvgWMDKsYJVMLinPTc5MNCwzzUsv1ihNzi0vz0vWS83M3MYKDWktjB+O7b036hxiZ
+	OBgPMUpwMCuJ8ApuPpkuxJuSWFmVWpQfX1Sak1p8iFGag0VJnHelYUS6kEB6YklqdmpqQWoR
+	TJaJg1OqgUn6442lcyqvp1U5iy+9GdWzPGx/evPuPSsXf6jSmKp7MP/iidePp31T2sAUuydS
+	5FrPtx+/452Vr9ddc/xXHHe9/nqXqOBk7dz8pPfHQqNCpHT7f7r9DhSZzfb/xsQ1bV949GRD
+	lGX+q82tl/1W9eLlrNs95ziELGZ+bFGymePIq2ytUco232PiM5+2vfMavAs7ngrqJR2svftQ
+	agpH+6TjLft9db7Lp3RkSk7P0fw6wyRUcKLvNJ/m1SvdHs+aMyk08YNaQv+H5ohdsbZOe/7X
+	Z9z8caD6GcfTT6v/7H4/YclHFu/1wfpTgrkqJph18q25OLNiae3mS0GdHo6mp3Z2352u1Tm5
+	cB0nw70dvm+UWIozEg21mIuKEwEy5iyx2QIAAA==
+X-CMS-MailID: 20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4
+References: <20250307044904.59077-1-swathi.ks@samsung.com>
+	<CGME20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_012104_545549_8A1889E5 
-X-CRM114-Status: GOOD (  22.12  )
+X-CRM114-CacheID: sfid-20250307_012214_531772_E684E349 
+X-CRM114-Status: GOOD (  15.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,223 +138,153 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+The FSD SoC contains two instances of Synopsys DWC QoS Ethernet IP, one in
+FSYS0 block and other in PERIC block.
+The ethernet interface is connected to a switch which is not managed by
+Linux.
 
+Adds device tree node for Ethernet in PERIC Block and enables the same for
+FSD platform.
 
-On 3/7/25 14:37, Ryan Roberts wrote:
-> On 07/03/2025 05:08, Anshuman Khandual wrote:
->> Address bytes shifted with a single 64 bit page table entry (any page table
->> level) has been always hard coded as 3 (aka 2^3 = 8). Although intuitive it
->> is not very readable or easy to reason about. Besides it is going to change
->> with D128, where each 128 bit page table entry will shift address bytes by
->> 4 (aka 2^4 = 16) instead.
->>
->> Let's just formalise this address bytes shift value into a new macro called
->> PTE_SHIFT establishing a logical abstraction, thus improving readability as
->> well. This does not cause any functional change.
->>
->> Cc: Catalin Marinas <catalin.marinas@arm.com>
->> Cc: Will Deacon <will@kernel.org>
->> Cc: Mark Rutland <mark.rutland@arm.com>
->> Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
->> Cc: Alexander Potapenko <glider@google.com>
->> Cc: Andrey Konovalov <andreyknvl@gmail.com>
->> Cc: Dmitry Vyukov <dvyukov@google.com>
->> Cc: Ard Biesheuvel <ardb@kernel.org>
->> Cc: Ryan Roberts <ryan.roberts@arm.com>
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-kernel@vger.kernel.org
->> Cc: kasan-dev@googlegroups.com
->> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
-> 
-> 
-> +1 for PTDESC_ORDER
+Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
+Signed-off-by: Jayati Sahu <jayati.sahu@samsung.com>
+Signed-off-by: Swathi K S <swathi.ks@samsung.com>
+---
+ arch/arm64/boot/dts/tesla/fsd-evb.dts      | 10 ++++
+ arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi | 56 ++++++++++++++++++++++
+ arch/arm64/boot/dts/tesla/fsd.dtsi         | 30 ++++++++++++
+ 3 files changed, 96 insertions(+)
 
-Alright.
+diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+index 321270a07651..9ff22e1c8723 100644
+--- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
++++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
+@@ -74,6 +74,16 @@
+ 	};
+ };
+ 
++&ethernet1 {
++	status = "okay";
++
++	phy-mode = "rgmii-id";
++	fixed-link {
++		speed = <1000>;
++		full-duplex;
++	};
++};
++
+ &fin_pll {
+ 	clock-frequency = <24000000>;
+ };
+diff --git a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
+index cb437483ff6e..6f4658f57453 100644
+--- a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
++++ b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
+@@ -437,6 +437,62 @@
+ 		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
+ 		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
+ 	};
++
++	eth1_tx_clk: eth1-tx-clk-pins {
++		samsung,pins = "gpf2-0";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_tx_data: eth1-tx-data-pins {
++		samsung,pins = "gpf2-1", "gpf2-2", "gpf2-3", "gpf2-4";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_tx_ctrl: eth1-tx-ctrl-pins {
++		samsung,pins = "gpf2-5";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_phy_intr: eth1-phy-intr-pins {
++		samsung,pins = "gpf2-6";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
++	};
++
++	eth1_rx_clk: eth1-rx-clk-pins {
++		samsung,pins = "gpf3-0";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_rx_data: eth1-rx-data-pins {
++		samsung,pins = "gpf3-1", "gpf3-2", "gpf3-3", "gpf3-4";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_rx_ctrl: eth1-rx-ctrl-pins {
++		samsung,pins = "gpf3-5";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
++	};
++
++	eth1_mdio: eth1-mdio-pins {
++		samsung,pins = "gpf3-6", "gpf3-7";
++		samsung,pin-function = <FSD_PIN_FUNC_2>;
++		samsung,pin-pud = <FSD_PIN_PULL_UP>;
++		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
++	};
+ };
+ 
+ &pinctrl_pmu {
+diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
+index 01850fbf761f..0fb1b508be52 100644
+--- a/arch/arm64/boot/dts/tesla/fsd.dtsi
++++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
+@@ -979,6 +979,36 @@
+ 			memory-region = <&mfc_left>;
+ 		};
+ 
++		ethernet1: ethernet@14300000 {
++			compatible = "tesla,fsd-ethqos";
++			reg = <0x0 0x14300000 0x0 0x10000>;
++			interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq";
++			clocks = <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
++				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
++				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
++				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_I>,
++				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
++				 <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK>,
++				 <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK>,
++				 <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
++				 <&clock_peric PERIC_EQOS_PHYRXCLK>,
++				 <&clock_peric PERIC_DOUT_RGMII_CLK>;
++			clock-names = "ptp_ref", "master_bus", "slave_bus", "tx", "rx",
++				      "master2_bus", "slave2_bus", "eqos_rxclk_mux",
++				      "eqos_phyrxclk", "dout_peric_rgmii_clk";
++			assigned-clocks = <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
++					  <&clock_peric PERIC_EQOS_PHYRXCLK>;
++			assigned-clock-parents = <&clock_peric PERIC_EQOS_PHYRXCLK>;
++			pinctrl-names = "default";
++			pinctrl-0 = <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_ctrl>,
++				    <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_data>,
++				    <&eth1_rx_ctrl>, <&eth1_mdio>;
++			local-mac-address = [00 00 00 00 00 00];
++			iommus = <&smmu_peric 0x0 0x1>;
++			status = "disabled";
++		};
++
+ 		ufs: ufs@15120000 {
+ 			compatible = "tesla,fsd-ufs";
+ 			reg = <0x0 0x15120000 0x0 0x200>,  /* 0: HCI standard */
+-- 
+2.17.1
 
-> 
-> Implementation looks good to me so:
-> 
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-Thanks !
-
-> 
-> one nit below.
-> 
->> ---
->> This patch applies on v6.14-rc5
->>
->>  arch/arm64/Kconfig                      |  2 +-
->>  arch/arm64/include/asm/kernel-pgtable.h |  3 ++-
->>  arch/arm64/include/asm/pgtable-hwdef.h  | 26 +++++++++++++------------
->>  arch/arm64/kernel/pi/map_range.c        |  2 +-
->>  arch/arm64/mm/kasan_init.c              |  6 +++---
->>  5 files changed, 21 insertions(+), 18 deletions(-)
->>
->> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
->> index 940343beb3d4..fd3303f2ccda 100644
->> --- a/arch/arm64/Kconfig
->> +++ b/arch/arm64/Kconfig
->> @@ -323,7 +323,7 @@ config ARCH_MMAP_RND_BITS_MIN
->>  	default 18
->>  
->>  # max bits determined by the following formula:
->> -#  VA_BITS - PAGE_SHIFT - 3
->> +#  VA_BITS - PAGE_SHIFT - PTE_SHIFT
->>  config ARCH_MMAP_RND_BITS_MAX
->>  	default 19 if ARM64_VA_BITS=36
->>  	default 24 if ARM64_VA_BITS=39
->> diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
->> index fd5a08450b12..7150a7a10f00 100644
->> --- a/arch/arm64/include/asm/kernel-pgtable.h
->> +++ b/arch/arm64/include/asm/kernel-pgtable.h
->> @@ -49,7 +49,8 @@
->>  	(SPAN_NR_ENTRIES(vstart, vend, shift) + (add))
->>  
->>  #define EARLY_LEVEL(lvl, lvls, vstart, vend, add)	\
->> -	(lvls > lvl ? EARLY_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + lvl * (PAGE_SHIFT - 3), add) : 0)
->> +	(lvls > lvl ? EARLY_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + \
->> +	lvl * (PAGE_SHIFT - PTE_SHIFT), add) : 0)
-> 
-> nit: not sure what style guide says, but I would indent this continuation an
-> extra level.
-
-IIUC - An indentation is not normally required with a line continuation although
-the starting letter should match the starting letter in the line above but after
-the '(' (if any).
-
-> 
-> Thanks,
-> Ryan
-> 
->>  
->>  #define EARLY_PAGES(lvls, vstart, vend, add) (1 	/* PGDIR page */				\
->>  	+ EARLY_LEVEL(3, (lvls), (vstart), (vend), add) /* each entry needs a next level page table */	\
->> diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
->> index a9136cc551cc..43f98eac7653 100644
->> --- a/arch/arm64/include/asm/pgtable-hwdef.h
->> +++ b/arch/arm64/include/asm/pgtable-hwdef.h
->> @@ -7,40 +7,42 @@
->>  
->>  #include <asm/memory.h>
->>  
->> +#define PTE_SHIFT 3
->> +
->>  /*
->>   * Number of page-table levels required to address 'va_bits' wide
->>   * address, without section mapping. We resolve the top (va_bits - PAGE_SHIFT)
->> - * bits with (PAGE_SHIFT - 3) bits at each page table level. Hence:
->> + * bits with (PAGE_SHIFT - PTE_SHIFT) bits at each page table level. Hence:
->>   *
->> - *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - 3))
->> + *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - PTE_SHIFT))
->>   *
->>   * where DIV_ROUND_UP(n, d) => (((n) + (d) - 1) / (d))
->>   *
->>   * We cannot include linux/kernel.h which defines DIV_ROUND_UP here
->>   * due to build issues. So we open code DIV_ROUND_UP here:
->>   *
->> - *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - 3) - 1) / (PAGE_SHIFT - 3))
->> + *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - PTE_SHIFT) - 1) / (PAGE_SHIFT - PTE_SHIFT))
->>   *
->>   * which gets simplified as :
->>   */
->> -#define ARM64_HW_PGTABLE_LEVELS(va_bits) (((va_bits) - 4) / (PAGE_SHIFT - 3))
->> +#define ARM64_HW_PGTABLE_LEVELS(va_bits) (((va_bits) - PTE_SHIFT - 1) / (PAGE_SHIFT - PTE_SHIFT))
->>  
->>  /*
->>   * Size mapped by an entry at level n ( -1 <= n <= 3)
->> - * We map (PAGE_SHIFT - 3) at all translation levels and PAGE_SHIFT bits
->> + * We map (PAGE_SHIFT - PTE_SHIFT) at all translation levels and PAGE_SHIFT bits
->>   * in the final page. The maximum number of translation levels supported by
->>   * the architecture is 5. Hence, starting at level n, we have further
->>   * ((4 - n) - 1) levels of translation excluding the offset within the page.
->>   * So, the total number of bits mapped by an entry at level n is :
->>   *
->> - *  ((4 - n) - 1) * (PAGE_SHIFT - 3) + PAGE_SHIFT
->> + *  ((4 - n) - 1) * (PAGE_SHIFT - PTE_SHIFT) + PAGE_SHIFT
->>   *
->>   * Rearranging it a bit we get :
->> - *   (4 - n) * (PAGE_SHIFT - 3) + 3
->> + *   (4 - n) * (PAGE_SHIFT - PTE_SHIFT) + PTE_SHIFT
->>   */
->> -#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - 3) * (4 - (n)) + 3)
->> +#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - PTE_SHIFT) * (4 - (n)) + PTE_SHIFT)
->>  
->> -#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - 3))
->> +#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - PTE_SHIFT))
->>  
->>  /*
->>   * PMD_SHIFT determines the size a level 2 page table entry can map.
->> @@ -49,7 +51,7 @@
->>  #define PMD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(2)
->>  #define PMD_SIZE		(_AC(1, UL) << PMD_SHIFT)
->>  #define PMD_MASK		(~(PMD_SIZE-1))
->> -#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - 3))
->> +#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - PTE_SHIFT))
->>  #endif
->>  
->>  /*
->> @@ -59,14 +61,14 @@
->>  #define PUD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(1)
->>  #define PUD_SIZE		(_AC(1, UL) << PUD_SHIFT)
->>  #define PUD_MASK		(~(PUD_SIZE-1))
->> -#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - 3))
->> +#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - PTE_SHIFT))
->>  #endif
->>  
->>  #if CONFIG_PGTABLE_LEVELS > 4
->>  #define P4D_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(0)
->>  #define P4D_SIZE		(_AC(1, UL) << P4D_SHIFT)
->>  #define P4D_MASK		(~(P4D_SIZE-1))
->> -#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - 3))
->> +#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - PTE_SHIFT))
->>  #endif
->>  
->>  /*
->> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
->> index 2b69e3beeef8..3530a5427f57 100644
->> --- a/arch/arm64/kernel/pi/map_range.c
->> +++ b/arch/arm64/kernel/pi/map_range.c
->> @@ -31,7 +31,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
->>  {
->>  	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
->>  	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
->> -	int lshift = (3 - level) * (PAGE_SHIFT - 3);
->> +	int lshift = (3 - level) * (PAGE_SHIFT - PTE_SHIFT);
->>  	u64 lmask = (PAGE_SIZE << lshift) - 1;
->>  
->>  	start	&= PAGE_MASK;
->> diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
->> index b65a29440a0c..90548079b42e 100644
->> --- a/arch/arm64/mm/kasan_init.c
->> +++ b/arch/arm64/mm/kasan_init.c
->> @@ -190,7 +190,7 @@ static void __init kasan_pgd_populate(unsigned long addr, unsigned long end,
->>   */
->>  static bool __init root_level_aligned(u64 addr)
->>  {
->> -	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - 3);
->> +	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - PTE_SHIFT);
->>  
->>  	return (addr % (PAGE_SIZE << shift)) == 0;
->>  }
->> @@ -245,7 +245,7 @@ static int __init root_level_idx(u64 addr)
->>  	 */
->>  	u64 vabits = IS_ENABLED(CONFIG_ARM64_64K_PAGES) ? VA_BITS
->>  							: vabits_actual;
->> -	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - 3);
->> +	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - PTE_SHIFT);
->>  
->>  	return (addr & ~_PAGE_OFFSET(vabits)) >> (shift + PAGE_SHIFT);
->>  }
->> @@ -269,7 +269,7 @@ static void __init clone_next_level(u64 addr, pgd_t *tmp_pg_dir, pud_t *pud)
->>   */
->>  static int __init next_level_idx(u64 addr)
->>  {
->> -	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - 3);
->> +	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - PTE_SHIFT);
->>  
->>  	return (addr >> (shift + PAGE_SHIFT)) % PTRS_PER_PTE;
->>  }
-> 
 
