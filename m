@@ -4,101 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B388C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09E46C28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HxS+VSdF+25Ta0OPbr+oK1VDaaV8dgOLYKtTqCm4wmA=; b=bR8bF2EgSXyFgw/9jh5d5TGs64
-	jly5gz2G+UlenbcQE1uWydyALsWfo37SzrvNhvFpohIdKk3rPNXMe16GmUFfng5k0U8ZhpueT894N
-	a2vpzxk3m6YCWiOjmT/qhofoPuOemcvRz0mYXFbRS7ijS8nfwsK8jgSmmCBZP1yewmxrYEPPRXBc5
-	onxN9feHnhvyRA0Muj3eUmrjgkkfeYtfARTBcuaFwlMzdiiUb/w+jpzKdTUZaoP3aKtF0u72NhMMQ
-	2BY32OmZTtevGJlzI+4ZM7tCMMip778HxAxWyXbRvPPI1G+VSxUTCihON5Gswg+/rZlgExYcsza9G
-	wTHKW50g==;
+	bh=YUDKNDG/tInyWlHoCkbaR1ggJD0IdtGW73EaUN7wdZw=; b=cCylCcJ8G6tdYsSaFbZOFPGkUj
+	XdNC+qXWDV6aQcQ2t7ksFwt+zt58M6qcVONKG9tJDBSSbjLwWGDPFvz/9P9EAeK9t685QD5ATcyqU
+	imr3Ej+IGKoIBlDs16Jf94fSVv4uvrl75l2ZCJaJV5E4PmaqPdzQQB+qwMRr4VWf15p7xIih5K2KQ
+	n3uGNtjTFG162B81y950KlFveQhIiN3vNK8viwN5fnaW1QwtpDlkJZbnfDbdSLmsPjk5AhsgYfq9u
+	OJ0RrCO3xtCF8cX2cDjje9wVRLVSf0y6wNUyjRxuz5+alL/rg7esGM4BWYUQTTxuKscSOpfdzxqrc
+	zh6pYGFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMpW-0000000CqNn-3b0a;
-	Fri, 07 Mar 2025 01:48:50 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tqMr7-0000000CqcJ-0RQy;
+	Fri, 07 Mar 2025 01:50:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMNh-0000000CmlV-1cSx;
-	Fri, 07 Mar 2025 01:20:06 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c3b44dabe0so153313485a.1;
-        Thu, 06 Mar 2025 17:20:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741310404; x=1741915204; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HxS+VSdF+25Ta0OPbr+oK1VDaaV8dgOLYKtTqCm4wmA=;
-        b=Z4kgRSfUpbvrRI1j1wRiMPlVXFvRl4o4DF8LP3UJYU1YPJocDYJe1XiGi12HC0qyRT
-         3WxNyIr0EKLRLqbk5L2gCCSObUmDwLV3a/TYjrSaUnpW/MMIV4VYkdyw2BEi+Qqjgphr
-         xrdnw6hRLodmw+FjHsb8uvZE442i+bGWsXDunAQNS+8OwxHyCusKEAMtenR5FLzcGehp
-         JrTBtyTl2PYEWQpfALpO+SJl0QCLqji3PTcQUn/EivWKZ3NuwHMo+Ou+xNRP+z3leuiZ
-         XKSOLQzxP7Qugbq8J+1TP4xgqyl1X6hghLkLC7Gm69oN9AsVHEScimViumzaMBJhGhbi
-         9ckQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741310404; x=1741915204;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=HxS+VSdF+25Ta0OPbr+oK1VDaaV8dgOLYKtTqCm4wmA=;
-        b=HzTUSS+fbP5WxKb1hSGpGIoeO5aM5Kq6AjM9CdCuy4CqBmnq0T3Ds8FFOAwPDJE7Aa
-         0t8HmObTh7sks/64pyxBxPeygP/fBguE8MldQq7FqOCVQz+hkg09kPkbAM2PR7lG9p9N
-         Gpup8IrRizVxVHBFkVzl50fBUDj7Z3hs0Ld1ofIs80aaUPl1hkYs9c6Hj4aRb+lPNQvE
-         eSqwLZ50ewwTqu/LUsgCsXRCsjo4d6neqtl3QTo/AnWFXhm32gw1VCXG462ZSSoG9W73
-         VkybgNDjbydhcpIdv0fDf9uVzjI4W5KJesl1jG+RKvsOd+nF0SjKfk5MJda81Nf13IRn
-         8QjA==
-X-Forwarded-Encrypted: i=1; AJvYcCU2NrnB6YT2HtU6eiYHkIPRruYOlZQSHWKkg2v5BGr/I+pEFZEljL3IPr3W7X5aMTejOcab+nb4oeiwW5GUT9wc@lists.infradead.org, AJvYcCUu3NYRS5Cqy9ID/5LSiH2wltO8IpRV68nzDeS0CVrhd2TnKIDF7WOeUY9StDKw0+NkknZ/WumiP6yhjNY=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwAPJHHlM9KTunJGDD4kr5NWwXPP4xxJf72tfQXG15J8+/mzCSy
-	UQkl/+lD/nYyZojsc9omhNLKhkgS9Ol85rmRJZfNFF2+oLaPlU9c
-X-Gm-Gg: ASbGnct/ISKG2fOYlwMMas8TyoyB0GH6UcCzzc7uZiiJHttmmtvtwKtk5eDKThl1jZO
-	/dI9cQm6fpspOGBwAZvVTUopYciQh+CtYSb88GofYI2b7XH6c19m6QceWP8FGwcNdNkPkYdAzjM
-	qbO41Pe7vSmK/4qMJB1zzpz5nAqclPl7f0Innu9KF2DS3ybGtrQfwMfE6c5fBB3c21xh1N45DQd
-	Vt1ba7ngw4hbuVti/IGav+HpLF+5o1aEgc93udrw3oE1764AFV0jOhDB61oP/6p4twcLWTsPCXd
-	8LJM/RPIFopdv8H+fh/u
-X-Google-Smtp-Source: AGHT+IGUO6/phCwAva8wDxFUHQEGREx4oP4CpMn1qmy+ZBLZmOEMjsqOLMniC66oleMf4LpqVxo2lw==
-X-Received: by 2002:a05:620a:838c:b0:7c0:a0ba:2029 with SMTP id af79cd13be357-7c4e6178ce4mr254618085a.40.1741310404496;
-        Thu, 06 Mar 2025 17:20:04 -0800 (PST)
-Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c3e551181dsm164602585a.110.2025.03.06.17.20.02
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 17:20:04 -0800 (PST)
-Date: Fri, 7 Mar 2025 09:20:00 +0800
-From: Inochi Amaoto <inochiama@gmail.com>
-To: Jakub Kicinski <kuba@kernel.org>, Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, 
-	"David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Chen Wang <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran <richardcochran@gmail.com>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Romain Gantois <romain.gantois@bootlin.com>, 
-	Hariprasad Kelam <hkelam@marvell.com>, Jisheng Zhang <jszhang@kernel.org>, 
-	=?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <clement.leger@bootlin.com>, "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>, 
-	Simon Horman <horms@kernel.org>, Furong Xu <0x1207@gmail.com>, 
-	Lothar Rubusch <l.rubusch@gmail.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Giuseppe Cavallaro <peppe.cavallaro@st.com>, 
-	Jose Abreu <joabreu@synopsys.com>, netdev@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, sophgo@lists.linux.dev, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, Yixun Lan <dlan@gentoo.org>, 
-	Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v6 0/4] riscv: sophgo: Add ethernet support for
- SG2044
-Message-ID: <w7p3jnevmwumcblrkbpot7wpvajgf6enwpl4db5rbme4322hej@mxm54kytlguy>
-References: <20250305063920.803601-1-inochiama@gmail.com>
- <20250306165931.7ffefe3a@kernel.org>
- <ptq4ujomkffgpizhikejfjjbjcg44vyzw4pwbs7kureqqndy6e@alxgdc3qkm7q>
+	id 1tqMPw-0000000CmwM-1zgt;
+	Fri, 07 Mar 2025 01:22:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9D8B85C5AEE;
+	Fri,  7 Mar 2025 01:20:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EFD6CC4CEE0;
+	Fri,  7 Mar 2025 01:22:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741310543;
+	bh=qoWrscZOahCo4c1kw/Xs9+mG1u4iBzWCpyeXDPmje18=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ixMTgMBN5bEz5ywSEjw16lOymw3RAJaEk2QN1yCrCQ0/VC/jp02rZwjim3bweOKU1
+	 inl9oBWKtjr0LIOvJJ6bs6vrkJexp+13IoBrLc+gxuGzZXYLMjpSjHO0WKu0udD6gi
+	 YOPtf2AUGSLOC2QVKO/Gx59xuWDmBDnu5kq8yeGzjOH790tpdJE7RNCk/maGNdbumO
+	 uOhSjdhOaiJipTJjCHQVW5CxwryBHVpxn6hXQOLyRtM72BW6Yin+U2n2XYDey1hGok
+	 GTVwxD73YcSoxwO7jfitu7qi7esTTxO+LgD8RsUgFAt3X6RldmxuxrnNqPB23LwmKf
+	 fgi8nNNzcIFRw==
+Date: Thu, 6 Mar 2025 17:22:20 -0800
+From: Namhyung Kim <namhyung@kernel.org>
+To: Ian Rogers <irogers@google.com>
+Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v4 06/11] perf dso: Add support for reading the e_machine
+ type for a dso
+Message-ID: <Z8pKTE7tOqdqNUdA@google.com>
+References: <20250304050305.901167-1-irogers@google.com>
+ <20250304050305.901167-7-irogers@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <ptq4ujomkffgpizhikejfjjbjcg44vyzw4pwbs7kureqqndy6e@alxgdc3qkm7q>
+In-Reply-To: <20250304050305.901167-7-irogers@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_172005_438304_CE4ADCFB 
-X-CRM114-Status: GOOD (  13.30  )
+X-CRM114-CacheID: sfid-20250306_172224_598795_32FA4E17 
+X-CRM114-Status: GOOD (  20.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,24 +94,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 09:12:33AM +0800, Inochi Amaoto wrote:
-> On Thu, Mar 06, 2025 at 04:59:31PM -0800, Jakub Kicinski wrote:
-> > On Wed,  5 Mar 2025 14:39:12 +0800 Inochi Amaoto wrote:
-> > > The ethernet controller of SG2044 is Synopsys DesignWare IP with
-> > > custom clock. Add glue layer for it.
-> > 
-> > Looks like we have a conflict on the binding, could you rebase
-> > against latest net-next/main and repost?
-> > -- 
-> > pw-bot: cr
+On Mon, Mar 03, 2025 at 09:03:00PM -0800, Ian Rogers wrote:
+> For ELF file dsos read the e_machine from the ELF header. For kernel
+> types assume the e_machine matches the perf tool. In other cases
+> return EM_NONE.
 > 
-> Yeah, I see a auto merge when cherry-pick here. I will send a
-> new version for it.
+> Signed-off-by: Ian Rogers <irogers@google.com>
+> ---
+>  tools/perf/util/dso.c | 54 +++++++++++++++++++++++++++++++++++++++++++
+>  tools/perf/util/dso.h |  1 +
+>  2 files changed, 55 insertions(+)
 > 
+> diff --git a/tools/perf/util/dso.c b/tools/perf/util/dso.c
+> index 5c6e85fdae0d..7f2f1af4f73b 100644
+> --- a/tools/perf/util/dso.c
+> +++ b/tools/perf/util/dso.c
+> @@ -1170,6 +1170,60 @@ ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+>  	return data_read_write_offset(dso, machine, offset, data, size, true);
+>  }
+>  
+> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine)
+> +{
+> +	uint16_t e_machine = EM_NONE;
+> +	int fd;
+> +
+> +	switch (dso__binary_type(dso)) {
+> +	case DSO_BINARY_TYPE__KALLSYMS:
+> +	case DSO_BINARY_TYPE__GUEST_KALLSYMS:
+> +	case DSO_BINARY_TYPE__VMLINUX:
+> +	case DSO_BINARY_TYPE__GUEST_VMLINUX:
+> +	case DSO_BINARY_TYPE__GUEST_KMODULE:
+> +	case DSO_BINARY_TYPE__GUEST_KMODULE_COMP:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP:
+> +	case DSO_BINARY_TYPE__KCORE:
+> +	case DSO_BINARY_TYPE__GUEST_KCORE:
+> +	case DSO_BINARY_TYPE__BPF_PROG_INFO:
+> +	case DSO_BINARY_TYPE__BPF_IMAGE:
+> +	case DSO_BINARY_TYPE__OOL:
+> +	case DSO_BINARY_TYPE__JAVA_JIT:
 
-Here is the new version:
-https://lore.kernel.org/netdev/20250307011623.440792-1-inochiama@gmail.com/
+I think some of them can be possible in recorded data.  But let's go
+simple with EM_HOST as we haven't supported cross-arch trace.
 
-Regards,
-Inochi
+
+> +		return EM_HOST;
+> +	case DSO_BINARY_TYPE__DEBUGLINK:
+> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE:
+> +	case DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__SYSTEM_PATH_DSO:
+> +	case DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__FEDORA_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__UBUNTU_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO:
+> +	case DSO_BINARY_TYPE__BUILDID_DEBUGINFO:
+> +		break;
+> +	case DSO_BINARY_TYPE__NOT_FOUND:
+> +	default:
+> +		return EM_NONE;
+> +	}
+> +
+> +	pthread_mutex_lock(&dso__data_open_lock);
+
+Hmm.. I'm afraid it'd slow down perf trace a bit more.  It sees
+occasional LOST events.  But it may be ok as it's cached in thread later.
+
+
+> +
+> +	/*
+> +	 * dso__data(dso)->fd might be closed if other thread opened another
+> +	 * file (dso) due to open file limit (RLIMIT_NOFILE).
+> +	 */
+> +	try_to_open_dso(dso, machine);
+> +	fd = dso__data(dso)->fd;
+> +	if (fd >= 0) {
+> +		_Static_assert(offsetof(Elf32_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		_Static_assert(offsetof(Elf64_Ehdr, e_machine) == 18, "Unexpected offset");
+> +		if (pread(fd, &e_machine, sizeof(e_machine), 18) != sizeof(e_machine))
+
+I think it needs to check the endianess and swap the data.
+
+Thanks,
+Namhyung
+
+
+> +			e_machine = EM_NONE;
+> +	}
+> +	pthread_mutex_unlock(&dso__data_open_lock);
+> +	return e_machine;
+> +}
+> +
+>  /**
+>   * dso__data_read_addr - Read data from dso address
+>   * @dso: dso object
+> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
+> index f3ca2a5e7670..ba9b83db061a 100644
+> --- a/tools/perf/util/dso.h
+> +++ b/tools/perf/util/dso.h
+> @@ -818,6 +818,7 @@ int dso__data_file_size(struct dso *dso, struct machine *machine);
+>  off_t dso__data_size(struct dso *dso, struct machine *machine);
+>  ssize_t dso__data_read_offset(struct dso *dso, struct machine *machine,
+>  			      u64 offset, u8 *data, ssize_t size);
+> +uint16_t dso__e_machine(struct dso *dso, struct machine *machine);
+>  ssize_t dso__data_read_addr(struct dso *dso, struct map *map,
+>  			    struct machine *machine, u64 addr,
+>  			    u8 *data, ssize_t size);
+> -- 
+> 2.48.1.711.g2feabab25a-goog
+> 
 
