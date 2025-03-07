@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FEC3C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8969DC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:18:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iGuHmE2gbtDvOko+hzXt49EHmrzYrq8xqM8VYRFGXqM=; b=2Q7qCYl4+8CjZXUqSpBGfORyzI
-	Y4j6yH4HYHB72p/GJwFxWQy2CQOikRNRLMlJN3K0oUKfT38YIyoeUq0mMQDdvrtVhVKRI4TcVAIAi
-	MncEkahtmSZcpvaLBTZhAzX5L4HiZKuiB31EAlTWBZSrbpd8Yj0VKVSUQ1tgt7QEFCnvRcll6BbdQ
-	58E+S8hHMuemVc8UQLl4Kl/pH+DTvJHsFXgLifZjwydlm81gidQqynuCODKpsfwwtjEhJJbJd9wDu
-	X4cuEIrMwH7Ukb9+7S8qyJw/Jo9nHYT15Bu2SHdfuFMFAHDSWnbUA0Q1VnNTY5/3xjtfHdnmlDuqf
-	y3CmTRng==;
+	bh=aR5FsxsIycmRcn42PG+oTQzQG5IybM8JAOJ2uJYYZWk=; b=x0PG4FdsDfDYpGeNfCZUCjLMLd
+	G3Ixz+93KcjSE4JY/v6LdfKvknAL55Y4if00kIbNqlIDez0IEq3BIL23NS4ZbBJne4MQUqXCvdWIE
+	VTY12rtUUkHakBQKnOKH7XU6gprxN/06ykv4+9tbCbpc5voUDj6Gd2GLmM84Cr8zNMGdN4ugD1qcT
+	l9YZrSlC/hLbfYZJPNr6whyv7I/3KN8pB27nVvRBFcfb9ZlFgMbt0bx8G173rTkYT8aqY1nusTCx0
+	+8cwNKKV/0pufMVZvM+CALst8ONzBZ2mEYuOtEUca+WhB/yYpMALH6ZtWhYcqv1MAiio5HXlhNc10
+	psAgzuSA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfzR-0000000FgfT-2bd8;
-	Fri, 07 Mar 2025 22:16:21 +0000
+	id 1tqg12-0000000Fgyf-1VoE;
+	Fri, 07 Mar 2025 22:18:00 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfme-0000000Fdyl-3Kto
+	id 1tqfmf-0000000FdzB-1QJ3
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Mar 2025 22:03:10 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 2CDDA2038F47;
+	by linux.microsoft.com (Postfix) with ESMTPSA id 869FD2038F48;
 	Fri,  7 Mar 2025 14:03:08 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 2CDDA2038F47
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 869FD2038F48
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
 	s=default; t=1741384988;
-	bh=iGuHmE2gbtDvOko+hzXt49EHmrzYrq8xqM8VYRFGXqM=;
+	bh=aR5FsxsIycmRcn42PG+oTQzQG5IybM8JAOJ2uJYYZWk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=dP08kpaQ0+FluYjvhFx+l39uxftz+ykdKaCySFFfbst7F4t8LYKRKXhmhyDLM9c4U
-	 vV69jsYfc36IetKlG21KRoK0S4xRD3I8jHvNPPosiJqdz4TfyBbfcfZ+4dreINnf5C
-	 SS1ztKs4C+kM3RlAitAn+HrbVOiWFbr3tPjumNf4=
+	b=OS0h5GSdSB83+eNsI9lehhfII7iCqqXhVnSvJ/hbLXpRQzaqZfooB0Vzd+4V8oTk6
+	 i26BmsHR2wCE6ElhQM5dcmfdZVOjl4nsRhp6ZKiSYY8qb4iAGpBMXT4fZHiUUwFHGM
+	 lHsypdTC78wxPh3kC8K/061cp7wmt0we2hrq4iZY=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,18 +81,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add interrupts and DMA coherence
-Date: Fri,  7 Mar 2025 14:02:59 -0800
-Message-ID: <20250307220304.247725-8-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v5 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
+Date: Fri,  7 Mar 2025 14:03:00 -0800
+Message-ID: <20250307220304.247725-9-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250307220304.247725-1-romank@linux.microsoft.com>
 References: <20250307220304.247725-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_140308_853845_F0818E13 
-X-CRM114-Status: UNSURE (   8.92  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_140309_409237_2FD7CF60 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,50 +106,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-To boot on ARM64, VMBus requires configuring interrupts. Missing
-DMA coherence property is sub-optimal as the VMBus transations are
-cache-coherent.
+The VMBus driver uses ACPI for interrupt assignment on
+arm64 hence it won't function in the VTL mode where only
+DeviceTree can be used.
 
-Add interrupts to be able to boot on ARM64. Add DMA coherence to
-avoid doing extra work on maintaining caches on ARM64.
+Update the VMBus driver to discover interrupt configuration
+from DT.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- .../devicetree/bindings/bus/microsoft,vmbus.yaml          | 8 +++++++-
- 1 file changed, 7 insertions(+), 1 deletion(-)
+ drivers/hv/vmbus_drv.c | 36 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 36 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-index a8d40c766dcd..3ab7d0116626 100644
---- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-+++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
-@@ -28,13 +28,16 @@ properties:
- required:
-   - compatible
-   - ranges
-+  - interrupts
-   - '#address-cells'
-   - '#size-cells'
+diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+index 75eb1390b45c..c8474b48dcd2 100644
+--- a/drivers/hv/vmbus_drv.c
++++ b/drivers/hv/vmbus_drv.c
+@@ -2345,6 +2345,36 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+ }
+ #endif
  
--additionalProperties: false
-+additionalProperties: true
++static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
++{
++	struct irq_data *data;
++	int irq;
++	irq_hw_number_t hwirq;
++
++	irq = platform_get_irq(pdev, 0);
++	if (irq == 0) {
++		pr_err("VMBus interrupt mapping failure\n");
++		return -EINVAL;
++	}
++	if (irq < 0) {
++		pr_err("VMBus interrupt data can't be read from DeviceTree, error %d\n", irq);
++		return irq;
++	}
++
++	data = irq_get_irq_data(irq);
++	if (!data) {
++		pr_err("No interrupt data for VMBus virq %d\n", irq);
++		return -ENODEV;
++	}
++	hwirq = irqd_to_hwirq(data);
++
++	vmbus_irq = irq;
++	vmbus_interrupt = hwirq;
++	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
++
++	return 0;
++}
++
+ static int vmbus_device_add(struct platform_device *pdev)
+ {
+ 	struct resource **cur_res = &hyperv_mmio;
+@@ -2359,6 +2389,12 @@ static int vmbus_device_add(struct platform_device *pdev)
+ 	if (ret)
+ 		return ret;
  
- examples:
-   - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-     soc {
-         #address-cells = <2>;
-         #size-cells = <1>;
-@@ -49,6 +52,9 @@ examples:
-                 #address-cells = <2>;
-                 #size-cells = <1>;
-                 ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
-+                dma-coherent;
-+                interrupt-parent = <&gic>;
-+                interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
-             };
-         };
-     };
++#ifndef HYPERVISOR_CALLBACK_VECTOR
++	ret = vmbus_set_irq(pdev);
++	if (ret)
++		return ret;
++#endif
++
+ 	for_each_of_range(&parser, &range) {
+ 		struct resource *res;
+ 
 -- 
 2.43.0
 
