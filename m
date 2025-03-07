@@ -4,91 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBE7EC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:20:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 642BAC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:22:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K0tTBBkSXXJKUR9oaU2RMjBJaq/Kyp/6BfjUzv+/56o=; b=URs9V708eM6ogdJiQlwiS1oJv7
-	Q+IYzQubdvU9/5oOA9evBPy3AcsC5o9+mwIWgrHNfn+Ky63AjPKsZg8W+du+7It4EklfaL2F3ZtU/
-	4iGCkASJXuLzACcr6gri4CdMojPJib7qdlDC8xRmX/EJQ1BqGtJ8F06lrUzkdik3ZZgcFlPzL5aCk
-	coxWS7489zjGPLTq51cTFSSb9FX9RY5eimnmIEM8YrhwK2xlQym37gdYEynKWsnHH49mB3OZyjQHR
-	QUeLjJQost/Vikoth2j29bPY3pLDFVzvl+haxggX1wMjuOxQEBRKM/odyA6M5QyuVm8kbK55iJDKM
-	0KGsg3FA==;
+	bh=Hv/gVLl2qHT3OP5ugQYjdLZvq+nefm2QS0Hproa/Q1s=; b=1wkF9l9qyRhhnc9gw/bnboqY9X
+	6WwatwCxIPPiAVmDPBBAKHYF3Pd2txS5ap2+IGIrH5JCsLw7P4sDzAxvDjEfpoCe3EegV9OfOAKY0
+	gFn3PU9opWhD4LaqlcH7qJZ38R0YwtLru8c0DxOEdtJ/1cJKwDr4AN+2NjXnYpvKa0dTQXuv7fMF6
+	uWEKgckZiE1l1alUnLQe6ZdOF+Vh1a2QpnYtTZNlLYwer5rFbqMpJRowUtoasWhSf7UMUH0qEaSrR
+	rFf6MiR4gloOBSDZEveC5HXJ07VsQ0BArlmnMSCFnyGYJIdBg8BKRD8qApXuryjB4bfQuowZ8ypsU
+	E8JeYNBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWgZ-0000000EAUW-2bxN;
-	Fri, 07 Mar 2025 12:20:15 +0000
-Received: from mail-ed1-f44.google.com ([209.85.208.44])
+	id 1tqWiA-0000000EAej-1BSW;
+	Fri, 07 Mar 2025 12:21:54 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWcO-0000000E9l9-1VLy;
-	Fri, 07 Mar 2025 12:15:57 +0000
-Received: by mail-ed1-f44.google.com with SMTP id 4fb4d7f45d1cf-5dccaaca646so3617790a12.0;
-        Fri, 07 Mar 2025 04:15:55 -0800 (PST)
+	id 1tqWdj-0000000EA54-1m0c
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 12:17:20 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-224171d6826so3281905ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 04:17:18 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741349838; x=1741954638; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Hv/gVLl2qHT3OP5ugQYjdLZvq+nefm2QS0Hproa/Q1s=;
+        b=Z9M8plVojVgXuhueF+TMqFKMUJp7OK1wDiEZMULShASI06ibn81nw/AmCVIVRrHOI7
+         BM3K5BJyVzEr76D+B10A+IcOBIHlukIBBAXOW+AaY5SwVVEXZbs14joCD/c8x4UDSJvU
+         gRFtzRwGy5g9mk5TlbW9xbdm/gQUV9ofbPSxkwteyB1uZmj3oTKBEOv9SIo5VkU8SrdI
+         /b0pG/n/kFXdA7oA3RkJbdShodGZVwzVyo15bwjhI9c+IPBNKVyVT/EimqnvHgS1cKfb
+         0b4wYJWTluDtnZY6KhRIbonWtiYLGOzStBz0E6VkegSLqRV5vT16/Mg3Mb1pKlryXOMK
+         iGkQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741349750; x=1741954550;
+        d=1e100.net; s=20230601; t=1741349838; x=1741954638;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=K0tTBBkSXXJKUR9oaU2RMjBJaq/Kyp/6BfjUzv+/56o=;
-        b=J7mOiI2pWFErHWmXt54NLflTuql9IOrTaOsO3T7Vgtnbyt6eOFYAuTvkebzSQRWYF3
-         0jO/q+vKcFqJRaJoa3UTJ/15w3GpC/eMcisIhSr3sltWL01cYOk3ifdl2jrKiQRqDGwk
-         63RoTrf52W5ceRrwHJW6iHFa5YTeG3JGH29A3QKEcg6vZf2zdlZ7fsHJ2XknWpkjtohg
-         IfDQ8NVAPe0VVm+Abph/LR5qauIe3egwKL268eAeBISUcBwYxZwTsb39C3BCzQChA8FR
-         AvgmXr5AqzpTHQlVrf3YyJs/O3ZNqI7dxGQ1u2gafRvaw/msWM/V2os/LGjMCmBgPgN1
-         Wimw==
-X-Forwarded-Encrypted: i=1; AJvYcCVqs9GgfRpcvy5/D/KLyX2qDOMm10g88fMG5GiH0E8VdZ0+pZfC5FTA9AxxkY8mTtYBC4ukBUY7nz27UXIiBZ1F@lists.infradead.org, AJvYcCXpYsOFVB20V3wBoLMbl4/3QgnhtLgHhAI7wSL4ND9+GNEQVIrgvca6F8EHcTLIx3j7xlZZkIyjIJsU8X/pR5a/JA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwX+SiuJ7HFUB2+/7f4KkNYOIuIU5o1D3utkkbDLPZ9UQofSHtj
-	CS3mN/LPODGiGBnISa+zCombySccQe9LnIa46Bxu5F/fEQ/lcrJMEcPwbhnHqAE=
-X-Gm-Gg: ASbGncuN5m0cSRm82uoeq6kBkzrK+atgGa5O3IriklPnsyH46qmtIAdpdxkeokHYAgU
-	/qWG7iwVek80r32qpqRzNQoLZVg7dBPa89vaHJFU1RQYkspnwGDLb7pJbD0fatmx6mjIw1RC7RA
-	X/iCIQ8b3XgfEkKAKSK1Pv2YgZDSJfs9SRP1tNQr4zoFLJkscUTOFpYZjI8qeu9VyRZvT2wyDu6
-	TWto+wsTgPNHhQ3+GZTMzc+yuJUSpOIylE2PUr8v9UDKY37ywCuXQRCXiaESWImdEy+ToCrbVol
-	PCIksi797xI7CoXOLBw7Y5doZlPf+Ya0xGyFAof+2WYzlZixVIfyydqfun/tk5aThicD+NyBWPp
-	++uqq6FY=
-X-Google-Smtp-Source: AGHT+IHzmqG0s8KbhRwJgKsN3xNWaolaSa63Uz9hpncdytfr8WZx7JjM4aC226UW+KKgDaLKWcS98Q==
-X-Received: by 2002:a05:6402:3586:b0:5de:d932:a54c with SMTP id 4fb4d7f45d1cf-5e5c1afab02mr7385086a12.2.1741349749870;
-        Fri, 07 Mar 2025 04:15:49 -0800 (PST)
-Received: from mail-ej1-f43.google.com (mail-ej1-f43.google.com. [209.85.218.43])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c768ecb5sm2463671a12.77.2025.03.07.04.15.47
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 04:15:48 -0800 (PST)
-Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-ac256f4b3ecso107019666b.0;
-        Fri, 07 Mar 2025 04:15:47 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCU9if5LA8AhvK+DQlehzMNk5j2Z82W/118H5GjXnL+i0ySzQUOVyCWj7C0Im7uP2UctHUmZjFI5LQMD0r1WbvSx/Q==@lists.infradead.org, AJvYcCXjevYi3N26XZGsVP3sVUXz353HARtWpc0UNZoVJcgrIFRSkZ+rSOEs74/dgR22aQ++qeFSrl0BI3cTDmCSRjlO@lists.infradead.org
-X-Received: by 2002:a17:906:59a1:b0:abf:555a:899f with SMTP id
- a640c23a62f3a-ac24e8a165dmr392518166b.6.1741349746952; Fri, 07 Mar 2025
- 04:15:46 -0800 (PST)
+        bh=Hv/gVLl2qHT3OP5ugQYjdLZvq+nefm2QS0Hproa/Q1s=;
+        b=RdnZf+LxD+Y7WVtKUwyP2Hflj3htY6Nf7CwZkWqtD0p8mf0cuJzXPJjWbft6ql0OVt
+         LRqUxAJWThRz69SZQe+FyQcaT3hi+wMssB6T/q/nLtzYXHVuspOHIZRjbGxkzCNgQxCk
+         faztQvRNARE5Pio+NejcezyIRAur8nv+FX+BHltReYhH4GTWzFt5VYNXkbHfSKuCwMw5
+         pBoDWOWi9rWRnMWopYokqNI4Az3PAxxiNqEx9Gtj8mfbsTnAhiHLy7Q9neaAk0Wfw/9I
+         y9tR6RIoiaW//WNFz3pInmSEwQ4EymGqbK3z1tIZ+q2rolUmsbTnHKUjbjGmnHyiGiJk
+         PU1Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWDem6j7WljeWD4a60mQCbozE1rmQJdz02uQ78LmvxI3ihszMjYKQ7gB0uHvLOo49Wf/Mro4fuE6X/JlvWqPCyD@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxb5txfwD3hrFXZ7kuQEYCOUOv8yHw49+bB3I1wZfSJWiSYC6bN
+	+2nb+CZ2YLntsJo807FinZKtAopmbGsZg5dgY/DZy3HCkTmsdezmwg369uGxq+tDwmJ3jjR3+KG
+	s8X015G0X/YUgGXbRDV9zTceQIsSGNIMFqZbldQ==
+X-Gm-Gg: ASbGncuWJmPObXvy9us5M8FzitplYYfM4nfIl5xNMw/60ZqyYkjkPVUr/b/JXTbA5yA
+	tWIv2ZdPXMgoONrr5z3Gzi33QPyFRPQZGS28SfPEA4B/3z3d1OpCMgCsgxif8G3c1LruwhjJePA
+	cG/g/Y4GhQLTL9ckTp70ORuiQ499w=
+X-Google-Smtp-Source: AGHT+IH573IS5QtUx20I6gmw8IwbjOS9N3JKhGKodkJA2RjHHnjVw0eGQJw9/ecW7LGByF/yQgZQ/285vJSUaEc7A0Y=
+X-Received: by 2002:a05:6a00:843:b0:736:a973:748 with SMTP id
+ d2e1a72fcca58-736aaad3d00mr5126533b3a.22.1741349838300; Fri, 07 Mar 2025
+ 04:17:18 -0800 (PST)
 MIME-Version: 1.0
-References: <20250307-vsprintf-pcn-v1-0-df0b2ccf610f@bootlin.com> <20250307-vsprintf-pcn-v1-2-df0b2ccf610f@bootlin.com>
-In-Reply-To: <20250307-vsprintf-pcn-v1-2-df0b2ccf610f@bootlin.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 7 Mar 2025 13:15:32 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUzZ8GK1mqXw+YgvFZ5xhOy-v_oOeaVrCtFUhk=n+rF8g@mail.gmail.com>
-X-Gm-Features: AQ5f1JpiPD-qF9biv1S8tlEkcmxPY9MCTwa00AZqEgKbE5uM-n1NMvZ7sTZ9fuM
-Message-ID: <CAMuHMdUzZ8GK1mqXw+YgvFZ5xhOy-v_oOeaVrCtFUhk=n+rF8g@mail.gmail.com>
-Subject: Re: [PATCH 2/2] vsprintf: remove redundant and unused %pCn format specifier
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Petr Mladek <pmladek@suse.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20250227092640.2666894-1-quic_songchai@quicinc.com> <20250227092640.2666894-4-quic_songchai@quicinc.com>
+In-Reply-To: <20250227092640.2666894-4-quic_songchai@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 7 Mar 2025 12:17:05 +0000
+X-Gm-Features: AQ5f1JokkN84bPdZY7gP5fhbY5F7Y4Itc_hcgefVYh4EcU6KzYt95XIRUUYFQ2Q
+Message-ID: <CAJ9a7Vi9CWGKGYe6jBELFN_X6dSG4EfQQd5moju5ekbrLWxi2g@mail.gmail.com>
+Subject: Re: [PATCH v3 3/7] coresight-tgu: Add signal priority support
+To: songchai <quic_songchai@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_041556_394017_9CA4A180 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20250307_041719_487349_484FDC81 
+X-CRM114-Status: GOOD (  29.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +96,368 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
+Hi
 
-On Fri, 7 Mar 2025 at 12:19, Luca Ceresoli <luca.ceresoli@bootlin.com> wrote:
-> %pC and %pCn print the same string, and commit 900cca294425 ("lib/vsprintf:
-> add %pC{,n,r} format specifiers for clocks") introducing them does not
-> clarify any intended difference. It can be assumed %pC is a default for
-> %pCn as some other specifiers do, but not all are consistent with this
-> policy. Moreover there is now no other suffix other than 'n', which makes a
-> default not really useful.
-
-The original intention was indeed to serve as a default, like some
-other formats also have ("%pa[p]", %pOF[f]").
-
-> All users in the kernel were using %pC except for one which has been
-> converted. So now remove %pCn and all the unnecessary extra code and
-> documentation.
+On Thu, 27 Feb 2025 at 09:27, songchai <quic_songchai@quicinc.com> wrote:
 >
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> From: Songwei Chai <quic_songchai@quicinc.com>
+>
+> Like circuit of a Logic analyzer, in TGU, the requirement could be
+> configured in each step and the trigger will be created once the
+> requirements are met. Add priority functionality here to sort the
+> signals into different priorities. The signal which is wanted could
+> be configured in each step's priority node, the larger number means
+> the higher priority and the signal with higher priority will be sensed
+> more preferentially.
+>
+> Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+> Signed-off-by: songchai <quic_songchai@quicinc.com>
+> ---
+>  .../testing/sysfs-bus-coresight-devices-tgu   |   7 +
+>  drivers/hwtracing/coresight/coresight-tgu.c   | 139 ++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tgu.h   | 110 ++++++++++++++
+>  3 files changed, 256 insertions(+)
+>
+> diff --git a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+> index 741bc9fd9df5..af7332153833 100644
+> --- a/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+> +++ b/Documentation/ABI/testing/sysfs-bus-coresight-devices-tgu
+> @@ -7,3 +7,10 @@ Description:
+>                 Accepts only one of the 2 values -  0 or 1.
+>                 0 : disable TGU.
+>                 1 : enable TGU.
+> +
+> +What:           /sys/bus/coresight/devices/<tgu-name>/step[0:7]_priority[0:3]/reg[0:17]
+> +Date:           February 2025
+> +KernelVersion   6.15
+> +Contact:        Jinlong Mao (QUIC) <quic_jinlmao@quicinc.com>, Sam Chai (QUIC) <quic_songchai@quicinc.com>
+> +Description:
+> +                (RW) Set/Get the sensed siganal with specific step and priority for TGU.
 
-I guess this is a worthwhile cleanup.
+sp/siganal/signal
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> diff --git a/drivers/hwtracing/coresight/coresight-tgu.c b/drivers/hwtracing/coresight/coresight-tgu.c
+> index da4c04ac1097..f28761619ebe 100644
+> --- a/drivers/hwtracing/coresight/coresight-tgu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tgu.c
+> @@ -17,9 +17,92 @@
+>
+>  DEFINE_CORESIGHT_DEVLIST(tgu_devs, "tgu");
+>
+> +static int calculate_array_location(struct tgu_drvdata *drvdata, int step_index,
+> +                         int operation_index, int reg_index)
+> +{
+> +       int ret = -EINVAL;
+> +
+> +       ret = operation_index * (drvdata->max_step) *
+> +                     (drvdata->max_reg) + step_index * (drvdata->max_reg)
+> +                               + reg_index;
+> +
+> +       return ret;
+> +}
+> +
+> +static ssize_t tgu_dataset_show(struct device *dev,
+> +                               struct device_attribute *attr, char *buf)
+> +{
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +       struct tgu_attribute *tgu_attr =
+> +               container_of(attr, struct tgu_attribute, attr);
+> +
+> +       return sysfs_emit(buf, "0x%x\n",
+> +                         drvdata->value_table->priority[calculate_array_location(
+> +                                 drvdata, tgu_attr->step_index,
+> +                                 tgu_attr->operation_index, tgu_attr->reg_num)]);
+> +
+> +}
+> +
+> +static ssize_t tgu_dataset_store(struct device *dev,
+> +                                struct device_attribute *attr, const char *buf,
+> +                                size_t size)
+> +{
+> +       unsigned long val;
+> +       ssize_t ret = -EINVAL;
+> +
+> +       struct tgu_drvdata *tgu_drvdata = dev_get_drvdata(dev->parent);
+> +       struct tgu_attribute *tgu_attr =
+> +               container_of(attr, struct tgu_attribute, attr);
+> +
+> +       if (kstrtoul(buf, 0, &val))
+> +               return ret;
+> +
+> +       guard(spinlock)(&tgu_drvdata->spinlock);
+> +       tgu_drvdata->value_table->priority[calculate_array_location(
+> +               tgu_drvdata, tgu_attr->step_index, tgu_attr->operation_index,
+> +               tgu_attr->reg_num)] = val;
+> +       ret = size;
+> +
+> +       return ret;
 
-Gr{oetje,eeting}s,
+ret is unneeded - directly return either size or -EINVAL.
 
-                        Geert
+> +}
+> +
+> +static umode_t tgu_node_visible(struct kobject *kobject, struct attribute *attr,
+> +                               int n)
+> +{
+> +       struct device *dev = kobj_to_dev(kobject);
+> +       struct tgu_drvdata *drvdata = dev_get_drvdata(dev->parent);
+> +       int ret = 0;
+> +
+> +       struct device_attribute *dev_attr =
+> +               container_of(attr, struct device_attribute, attr);
+> +       struct tgu_attribute *tgu_attr =
+> +               container_of(dev_attr, struct tgu_attribute, attr);
+> +
+> +       if (tgu_attr->step_index < drvdata->max_step) {
+> +               ret = (tgu_attr->reg_num < drvdata->max_reg) ?
+> +                                           attr->mode : 0;
+> +               return ret;
+> +       }
+> +       return SYSFS_GROUP_INVISIBLE;
+> +}
 
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+default ret as SYSFS_GROUP_INVISIBLE, and returnret at end
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +
+>  static void tgu_write_all_hw_regs(struct tgu_drvdata *drvdata)
+>  {
+> +       int i, j, k;
+> +
+>         CS_UNLOCK(drvdata->base);
+> +
+> +       for (i = 0; i < drvdata->max_step; i++) {
+> +               for (j = 0; j < MAX_PRIORITY; j++) {
+> +                       for (k = 0; k < drvdata->max_reg; k++) {
+> +                               tgu_writel(drvdata,
+> +                                          drvdata->value_table->priority
+> +                                                  [calculate_array_location(drvdata, i, j, k)],
+> +                                          PRIORITY_REG_STEP(i, j, k));
+> +                       }
+> +               }
+> +       }
+> +
+>         /* Enable TGU to program the triggers */
+>         tgu_writel(drvdata, 1, TGU_CONTROL);
+>         CS_LOCK(drvdata->base);
+> @@ -130,6 +213,38 @@ static const struct attribute_group tgu_common_grp = {
+>
+>  static const struct attribute_group *tgu_attr_groups[] = {
+>         &tgu_common_grp,
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(0, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(0, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(0, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(0, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(1, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(1, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(1, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(1, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(2, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(2, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(2, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(2, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(3, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(3, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(3, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(3, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(4, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(4, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(4, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(4, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(5, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(5, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(5, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(5, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(6, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(6, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(6, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(6, 3),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(7, 0),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(7, 1),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(7, 2),
+> +       PRIORITY_ATTRIBUTE_GROUP_INIT(7, 3),
+>         NULL,
+>  };
+>
+> @@ -164,6 +279,30 @@ static int tgu_probe(struct amba_device *adev, const struct amba_id *id)
+>
+>         spin_lock_init(&drvdata->spinlock);
+>
+> +       ret = of_property_read_u32(adev->dev.of_node, "tgu-regs",
+> +                                  &drvdata->max_reg);
+> +       if (ret)
+> +               return -EINVAL;
+> +
+> +       ret = of_property_read_u32(adev->dev.of_node, "tgu-steps",
+> +                                  &drvdata->max_step);
+> +       if (ret)
+> +               return -EINVAL;
+> +
+> +       drvdata->value_table =
+> +               devm_kzalloc(dev, sizeof(*drvdata->value_table), GFP_KERNEL);
+> +       if (!drvdata->value_table)
+> +               return -ENOMEM;
+> +
+> +       drvdata->value_table->priority = devm_kzalloc(
+> +               dev,
+> +               MAX_PRIORITY * drvdata->max_reg * drvdata->max_step *
+> +                       sizeof(*(drvdata->value_table->priority)),
+> +               GFP_KERNEL);
+> +
+> +       if (!drvdata->value_table->priority)
+> +               return -ENOMEM;
+> +
+>         drvdata->enable = false;
+>         desc.type = CORESIGHT_DEV_TYPE_HELPER;
+>         desc.pdata = adev->dev.platform_data;
+> diff --git a/drivers/hwtracing/coresight/coresight-tgu.h b/drivers/hwtracing/coresight/coresight-tgu.h
+> index 380686f94130..6e5d465117df 100644
+> --- a/drivers/hwtracing/coresight/coresight-tgu.h
+> +++ b/drivers/hwtracing/coresight/coresight-tgu.h
+> @@ -13,6 +13,110 @@
+>  #define tgu_writel(drvdata, val, off) __raw_writel((val), drvdata->base + off)
+>  #define tgu_readl(drvdata, off) __raw_readl(drvdata->base + off)
+>
+> +/*
+> + *  TGU configuration space                              Step configuration
+> + *  offset table                                         space layout
+> + * x-------------------------x$                          x-------------x$
+> + * |                         |$                          |             |$
+> + * |                         |                           |   reserve   |$
+> + * |                         |                           |             |$
+> + * |coresight management     |                           |-------------|base+n*0x1D8+0x1F4$
+> + * |     registe             |                     |---> |prioroty[3]  |$
+> + * |                         |                     |     |-------------|base+n*0x1D8+0x194$
+> + * |                         |                     |     |prioroty[2]  |$
+> + * |-------------------------|                     |     |-------------|base+n*0x1D8+0x134$
+> + * |                         |                     |     |prioroty[1]  |$
+> + * |         step[7]         |                     |     |-------------|base+n*0x1D8+0xD4$
+> + * |-------------------------|->base+0x40+7*0x1D8  |     |prioroty[0]  |$
+> + * |                         |                     |     |-------------|base+n*0x1D8+0x74$
+> + * |         ...             |                     |     |  condition  |$
+> + * |                         |                     |     |   select    |$
+> + * |-------------------------|->base+0x40+1*0x1D8  |     |-------------|base+n*0x1D8+0x60$
+> + * |                         |                     |     |  condition  |$
+> + * |         step[0]         |-------------------->      |   decode    |$
+> + * |-------------------------|-> base+0x40               |-------------|base+n*0x1D8+0x50$
+> + * |                         |                           |             |$
+> + * | Control and status space|                           |Timer/Counter|$
+> + * |        space            |                           |             |$
+> + * x-------------------------x->base                     x-------------x base+n*0x1D8+0x40$
+> + *
+> + */
+> +
+> +/* Calculate compare step addresses */
+> +#define PRIORITY_REG_STEP(step, priority, reg)\
+> +       (0x0074 + 0x60 * priority + 0x4 * reg + 0x1D8 * step)
+> +
+
+use #defines + explanation instead of arbitrary magic numbers
+
+> +#define tgu_dataset_ro(name, step_index, type, reg_num)     \
+> +       (&((struct tgu_attribute[]){ {                      \
+> +               __ATTR(name, 0444, tgu_dataset_show, NULL), \
+> +               step_index,                                 \
+> +               type,                                       \
+> +               reg_num,                                    \
+> +       } })[0].attr.attr)
+> +
+
+
+This define unused in this patch, Drop till it is used.
+
+> +#define tgu_dataset_rw(name, step_index, type, reg_num)                  \
+> +       (&((struct tgu_attribute[]){ {                                   \
+> +               __ATTR(name, 0644, tgu_dataset_show, tgu_dataset_store), \
+> +               step_index,                                              \
+> +               type,                                                    \
+> +               reg_num,                                                 \
+> +       } })[0].attr.attr)
+> +
+> +#define STEP_PRIORITY(step_index, reg_num, priority)                     \
+> +       tgu_dataset_rw(reg##reg_num, step_index, TGU_PRIORITY##priority, \
+> +                      reg_num)
+> +
+> +#define STEP_PRIORITY_LIST(step_index, priority)  \
+> +       {STEP_PRIORITY(step_index, 0, priority),  \
+> +        STEP_PRIORITY(step_index, 1, priority),  \
+> +        STEP_PRIORITY(step_index, 2, priority),  \
+> +        STEP_PRIORITY(step_index, 3, priority),  \
+> +        STEP_PRIORITY(step_index, 4, priority),  \
+> +        STEP_PRIORITY(step_index, 5, priority),  \
+> +        STEP_PRIORITY(step_index, 6, priority),  \
+> +        STEP_PRIORITY(step_index, 7, priority),  \
+> +        STEP_PRIORITY(step_index, 8, priority),  \
+> +        STEP_PRIORITY(step_index, 9, priority),  \
+> +        STEP_PRIORITY(step_index, 10, priority), \
+> +        STEP_PRIORITY(step_index, 11, priority), \
+> +        STEP_PRIORITY(step_index, 12, priority), \
+> +        STEP_PRIORITY(step_index, 13, priority), \
+> +        STEP_PRIORITY(step_index, 14, priority), \
+> +        STEP_PRIORITY(step_index, 15, priority), \
+> +        STEP_PRIORITY(step_index, 16, priority), \
+> +        STEP_PRIORITY(step_index, 17, priority), \
+> +        NULL                   \
+> +       }
+> +
+> +#define PRIORITY_ATTRIBUTE_GROUP_INIT(step, priority)\
+> +       (&(const struct attribute_group){\
+> +               .attrs = (struct attribute*[])STEP_PRIORITY_LIST(step, priority),\
+> +               .is_visible = tgu_node_visible,\
+> +               .name = "step" #step "_priority" #priority \
+> +       })
+> +
+> +enum operation_index {
+> +       TGU_PRIORITY0,
+> +       TGU_PRIORITY1,
+> +       TGU_PRIORITY2,
+> +       TGU_PRIORITY3
+> +
+> +};
+> +
+> +/* Maximum priority that TGU supports */
+> +#define MAX_PRIORITY 4
+> +
+> +struct tgu_attribute {
+> +       struct device_attribute attr;
+> +       u32 step_index;
+> +       enum operation_index operation_index;
+> +       u32 reg_num;
+> +};
+> +
+> +struct value_table {
+> +       unsigned int *priority;
+> +};
+> +
+>  /**
+>   * struct tgu_drvdata - Data structure for a TGU (Trigger Generator Unit) device
+>   * @base: Memory-mapped base address of the TGU device
+> @@ -20,6 +124,9 @@
+>   * @csdev: Pointer to the associated coresight device
+>   * @spinlock: Spinlock for handling concurrent access
+>   * @enable: Flag indicating whether the TGU device is enabled
+> + * @value_table: Store given value based on relevant parameters.
+> + * @max_reg: Maximum number of registers
+> + * @max_step: Maximum step size
+>   *
+>   * This structure defines the data associated with a TGU device, including its base
+>   * address, device pointers, clock, spinlock for synchronization, trigger data pointers,
+> @@ -31,6 +138,9 @@ struct tgu_drvdata {
+>         struct coresight_device *csdev;
+>         spinlock_t spinlock;
+>         bool enable;
+> +       struct value_table *value_table;
+> +       int max_reg;
+> +       int max_step;
+>  };
+>
+>  #endif
+
+Regards
+
+Mike
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
