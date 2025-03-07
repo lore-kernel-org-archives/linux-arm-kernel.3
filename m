@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25B68C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:44:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5551C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:45:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fnUFYilpgj+lApe/lLMUPIRjzjwA/TjaOromIwsEgpY=; b=RJDGWdyHO7QVwmV+LBqZky4F8H
-	lSFucPz2gWarrUjGiSIObRSQQvFGM6qu1TU2JMJw07m3oAaPsrUlkhD3ec4XPcnsN+is1LFtMS7Bq
-	DAMm5nRxfJ/tb/3bqetk6pWcj7WVe3TZryPuUgztGvbOL9QtSGXzYRthbA06/+8LNLMvrA9sayczR
-	x5vnRPLIOspAmyY5RVlCYv9jJkDSpgSsgL34qBNCkCkoYiqotsk+Wi9cWo0anPhqIww39W3AZaYnh
-	l+JbqbfLCFbqdRA3rRM4copQAQt9Oo40N7vSCmtlq3iFVQ+Mn/yPyO3sDlBlKxf+3LkUgw6Su4lNh
-	Py2WyHVg==;
+	bh=/nls7kmdirsxklQsEsdMD6n3p+K9nTnYY1CAEZgsVHU=; b=YOeECVgna/YPHfzZisCcHwK773
+	L7M6xHTri+kWA0r8aZt7OmmUnJ26bMmx0wVtaOLGLfoXHm5VcX+LDOYElJuaoxxCI0hT8gUJhwqpJ
+	NCBTu7K7Bse9t2XEh4EYviomF5zI1HPriMsXoDfWdNKLc65V2qfT4J//BZams1k4M/Go1RI+v/OU8
+	b6Xrec+LHO3rXH0vx8GA7zrFD53uu/sO7XAcHuXaiBnvD79q8ZTSlejywq57hXeXHsT8uULy3+YnL
+	Tt/M4F0g8sFIOFk73LESmfCrMrtsWMrzEsY/ifEPkL//kyJ3zBP4ZPXzlD/ENnahh3XwFVnqP++lk
+	P/RM18jA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMkk-0000000Cpbr-3j1U;
-	Fri, 07 Mar 2025 01:43:54 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1tqMmL-0000000Cpsg-0bcY;
+	Fri, 07 Mar 2025 01:45:33 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMKo-0000000CmJv-1HZE;
-	Fri, 07 Mar 2025 01:17:07 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-7c07b65efeeso125343185a.2;
-        Thu, 06 Mar 2025 17:17:05 -0800 (PST)
+	id 1tqMKr-0000000CmLB-3gmm;
+	Fri, 07 Mar 2025 01:17:11 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-6e41e17645dso12137776d6.2;
+        Thu, 06 Mar 2025 17:17:09 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741310225; x=1741915025; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741310229; x=1741915029; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fnUFYilpgj+lApe/lLMUPIRjzjwA/TjaOromIwsEgpY=;
-        b=PsLjNdojdUlsjti5TgYz6UYRYoIR0/+Pwb8xqg1hyQ2ClEIg226kS4VySWpYH7k9ti
-         qNfID6lyuxBfSMkIC4/YFEcMja6Fj3RtI0Zoq4eJzJVrySJ3VZk2R6TEEp3nKB321SbG
-         rLf6HDWAQ9fArOpP7GTaxVNnMnlT4N4Fi6ySYv/GHgNU4V53Eud7lwFYFJ+5jbyg+W9g
-         pQTmYqxs5b3JaVhv2IiovSUCfDBnF5tUo8MFjYVE0vRQb4yBRg8vpDVbOjh/lnes+Roq
-         sr+VmBGGigsE7Ft02hTuunXA/uWEqlhnYrDuNLmsyXJro5ElqzG4tK79HnhBovMK7han
-         nxbA==
+        bh=/nls7kmdirsxklQsEsdMD6n3p+K9nTnYY1CAEZgsVHU=;
+        b=HKchh17Kx+B837QNlAVKOGlq/Jhz9An3pWiXE98kA/uU9kkRip6UBPjFhLBivyP8bs
+         OGGNtgmoO+QU25eayM2dG+3LqDsfzccLu3pe/bRzwn2eiq+Gxg3cUmCmkf8zwR4nZLEG
+         FdcrKIEOsfiJ2PuBYlCj8H1eotMKovw0D1mdTNaTzxvQeTVPa+JbzIdhxbnuD5XmHOoa
+         Gt1LfAqGldmOl38H/e35bs6JmFwzjBaVhRnaQaBiK2y+1szXbhwv09yXpexP0ESNZTQl
+         N2eRo3/DxVSORpCJ3tei3BSZ80vBl8sguDFpfMJjOl3dG5Tx51HWp6lCIz32ZvOXt48L
+         QRHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741310225; x=1741915025;
+        d=1e100.net; s=20230601; t=1741310229; x=1741915029;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=fnUFYilpgj+lApe/lLMUPIRjzjwA/TjaOromIwsEgpY=;
-        b=XUYfApR+h7AivN/m1ZSIl9NDpn0FkaLnalz5sXyGYuE0BCw7vsc4In/gsihUMdkSa6
-         Ur8wfcejuNbIhTr3cS98zn9A9cAPpoRhcFWvoy9pQQgeEF0VzwiwnJ1VX7WJT/4WWVew
-         QZEFviBNu0AIJqJlV9XD+s1lTxQXJNpkXQy1IlIaM6MsLaDkVjs99rWu5CRZrAvTJgu6
-         Q9xfrUTQa4ZP4eutFJMYzASh/m2G4Kor8X/SOpo10pNPWD9Mn/mw0YzPVCgrPGU344GC
-         btrEilLfOi7GEh5YietUQP1mPzeTK2iDSf2Rs38kCOtasRhOIQIBzn78+YIUgUuwStl3
-         4U3A==
-X-Forwarded-Encrypted: i=1; AJvYcCVhlasHnc5PNe43M3znRll7lJKuqCZ4wWVWTabU8oSn1Hx4HD6JCVOwB3rMNggG9k7x9FmIPsi1AzERvuW6VupB@lists.infradead.org, AJvYcCWgf4+8FYx4VBcGjCJWQnAUZrvb4BFYPvCJKLxYlUiciZXwoh3n5a33gt0MDrIh9YZS+A4qKUu5gzlQfVs=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzhIlXzPkZ9FGvtwtSX5Da6Oio9MjLhbksgkNkMNr/rI4+yZJsa
-	CXMKr0uIsRs6lYHVlwpd699GrFTGAQGLHZmiDJkzxGUrrihH7pIp
-X-Gm-Gg: ASbGncsxB7QV1f46zuicLiD/CbOYIXlpu0bdDJMMg/YNjU4f85PtkXsQmeWhBZPGxCi
-	n9g7QM3iRcyLsDJlPrtxnABzVfJyVBlnYArOHZXuPhCeyUflxvH/BMG36zBQH5HL3DNM/IbNfcX
-	DiRu7P55jyy6b/zePDN5imV2N6Sddrkn9YMusD+UDiUCu2I6D8zt9E3sWQD4xQR75+JAh1Zeshi
-	oX5jLjNGzEm6o++cfLFkkpB2SYxepuVTH+GFT1v21zLmmkalp1m4OZXC3uTnHXrb9GYK5vw/rbt
-	+C4Y9oWgTd29Uo5h++V1
-X-Google-Smtp-Source: AGHT+IGYsH3sSP+qAZYndPm/6yCLkWYSNzyIRwRqHTgXvkWd663LqIaipq1S+8GRypyA2mF4w7TN/g==
-X-Received: by 2002:a05:620a:8b14:b0:7c3:9d0a:6959 with SMTP id af79cd13be357-7c4e61137e4mr162902885a.27.1741310225187;
-        Thu, 06 Mar 2025 17:17:05 -0800 (PST)
+        bh=/nls7kmdirsxklQsEsdMD6n3p+K9nTnYY1CAEZgsVHU=;
+        b=r8PLkRyqpTtCFSgsG0Tfmp+1TFxeM95fttr4XDL6c7hqiVIyMSlAy5PrkenmzOCGIL
+         IQ+4Va9CpmBKqHFYP5BjEdR7SGIKIGXt689mX1bCmN+/v0z7s0VSCxdoOvuEs2xwziug
+         zKiWUnjxMauLnRPsGf4WRRhxrjJL8mEmzArDtfi2v89HEjMrvTI+TWyap6bYhcFbiopx
+         pqzpzo4mKFlRAyKxZD4BlHigGhQBhl8UqQqJhgV+Hw/SmDVupifjSOp+lVYXUKt0xTIK
+         EeXuagvjBf6crqQUmnZw4DxLg/4LxVdnWz2ouZctrMLnUZhzMCw648JjMi0D9Sn/CoZp
+         CXPg==
+X-Forwarded-Encrypted: i=1; AJvYcCUnc5zjbyowfW6fMgHjURv7R3ojSvRlC2RCo2W3RUOhukmzCbQXzinHYFQZvggYmm5C+E7ZwjymtBR+BVVDjHuE@lists.infradead.org, AJvYcCXvjlhE8IBtGT9vgN3FKE8EdZMRYJLI7xzt3PLDaCSmwpZoVOa9Hh9aqhuGuGGyPvapwuudSZ7HiICWVkw=@lists.infradead.org
+X-Gm-Message-State: AOJu0YxHrk8z+jvNfltN9F0WGuqQi+q7iohgK7+gKu7qdldPKNxBeOj+
+	vttrABmVMcP1+4xamT4IO777QWYdpkyuM7KAoF1udElMPdqdjLVn
+X-Gm-Gg: ASbGncuVLeCJQ+RcaeEaszcmydRp0WcRoxH5Q+Fz80PVCsT82rCNTTDx/XVLgOFqBYs
+	pH8uMqZnYiyBFZoYbNeBaV+dgJh5ei4FEFyvEs9BW3kP0hHbB8oEQBK/aOgEync0xLt8LaJ70uX
+	i3dIF+E8USqntpOj0mSaOYQNyEWX3i5sO+WgMNfRHYfMlD9EMePtBrLN4Ut94iokRTzWMJHhb+u
+	ijN0iXGandnfnSvbH1LNnGLTnvBOeUgqJf54L6ONW3uREP5k6zlO4uLUDRyJNhVJYpXPRAl+2n9
+	zJV6GQDi0BEW4K7uidl3
+X-Google-Smtp-Source: AGHT+IEnrSWy5fjmLrRLRXpT+vxP0RMfjP0l1E+1UYAsKLj6QeQ3FFyDDhycz4+StwMi79ZnygBHvA==
+X-Received: by 2002:a05:6214:2428:b0:6e6:698f:cb00 with SMTP id 6a1803df08f44-6e9006942bamr20372866d6.42.1741310228685;
+        Thu, 06 Mar 2025 17:17:08 -0800 (PST)
 Received: from localhost ([2001:da8:7001:11::cb])
-        by smtp.gmail.com with UTF8SMTPSA id af79cd13be357-7c3e7c0a266sm142441085a.30.2025.03.06.17.17.02
+        by smtp.gmail.com with UTF8SMTPSA id 6a1803df08f44-6e8fa5cff36sm10687056d6.68.2025.03.06.17.17.07
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 06 Mar 2025 17:17:04 -0800 (PST)
+        Thu, 06 Mar 2025 17:17:08 -0800 (PST)
 From: Inochi Amaoto <inochiama@gmail.com>
 To: Andrew Lunn <andrew+netdev@lunn.ch>,
 	"David S. Miller" <davem@davemloft.net>,
@@ -110,17 +110,18 @@ Cc: Inochi Amaoto <inochiama@gmail.com>,
 	Yixun Lan <dlan@gentoo.org>,
 	Longbin Li <looong.bin@gmail.com>,
 	Andrew Lunn <andrew@lunn.ch>
-Subject: [PATCH net-next v7 2/4] net: stmmac: platform: Group GMAC4 compatible check
-Date: Fri,  7 Mar 2025 09:16:15 +0800
-Message-ID: <20250307011623.440792-3-inochiama@gmail.com>
+Subject: [PATCH net-next v7 3/4] net: stmmac: platform: Add snps,dwmac-5.30a IP compatible string
+Date: Fri,  7 Mar 2025 09:16:16 +0800
+Message-ID: <20250307011623.440792-4-inochiama@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250307011623.440792-1-inochiama@gmail.com>
 References: <20250307011623.440792-1-inochiama@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_171706_336815_35C7EB5C 
-X-CRM114-Status: GOOD (  11.04  )
+X-CRM114-CacheID: sfid-20250306_171709_909736_B12EB441 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -135,50 +136,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use of_device_compatible_match to group existing compatible
-check of GMAC4 device.
+Add "snps,dwmac-5.30a" compatible string for 5.30a version that can avoid
+to define some platform data in the glue layer.
 
 Signed-off-by: Inochi Amaoto <inochiama@gmail.com>
 Reviewed-by: Romain Gantois <romain.gantois@bootlin.com>
 Reviewed-by: Andrew Lunn <andrew@lunn.ch>
 ---
- .../ethernet/stmicro/stmmac/stmmac_platform.c    | 16 +++++++++++-----
- 1 file changed, 11 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 1 +
+ 1 file changed, 1 insertion(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index d0e61aa1a495..4a3fe44b780d 100644
+index 4a3fe44b780d..8dc3bd6946c6 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -405,6 +405,16 @@ static int stmmac_of_get_mac_mode(struct device_node *np)
- 	return -ENODEV;
- }
+@@ -412,6 +412,7 @@ static const char * const stmmac_gmac4_compats[] = {
+ 	"snps,dwmac-4.20a",
+ 	"snps,dwmac-5.10a",
+ 	"snps,dwmac-5.20",
++	"snps,dwmac-5.30a",
+ 	NULL
+ };
  
-+/* Compatible string array for all gmac4 devices */
-+static const char * const stmmac_gmac4_compats[] = {
-+	"snps,dwmac-4.00",
-+	"snps,dwmac-4.10a",
-+	"snps,dwmac-4.20a",
-+	"snps,dwmac-5.10a",
-+	"snps,dwmac-5.20",
-+	NULL
-+};
-+
- /**
-  * stmmac_probe_config_dt - parse device-tree driver parameters
-  * @pdev: platform_device structure
-@@ -538,11 +548,7 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 		plat->pmt = 1;
- 	}
- 
--	if (of_device_is_compatible(np, "snps,dwmac-4.00") ||
--	    of_device_is_compatible(np, "snps,dwmac-4.10a") ||
--	    of_device_is_compatible(np, "snps,dwmac-4.20a") ||
--	    of_device_is_compatible(np, "snps,dwmac-5.10a") ||
--	    of_device_is_compatible(np, "snps,dwmac-5.20")) {
-+	if (of_device_compatible_match(np, stmmac_gmac4_compats)) {
- 		plat->has_gmac4 = 1;
- 		plat->has_gmac = 0;
- 		plat->pmt = 1;
 -- 
 2.48.1
 
