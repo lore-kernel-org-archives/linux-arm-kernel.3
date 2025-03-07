@@ -4,94 +4,160 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FB29C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:09:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59DA0C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:11:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=gbhsOaksWfSrIW8u1uBJdU7SRRrY2hqIxanWZ0O00C8=; b=Bwidxpk3oCrvy+
-	AVlR3R43qyI/FUqMJn/uY2zWSUERRBqF8t2I4KEqe85YXDTSG2SeBZPpKFQvJsNapFRApFWdwUjY8
-	cxZlnarNKR79gaoJSi4MEb6ALLDOe+KtnVVAxQVv5Gm1TMgYPvQ1TtrNTKpzJ2Z+jK7IC5QC2H5dH
-	QhOHJorZq0T7ROpr+WwkaN8YaSi4IX30cotk8prB3g9/04+wgk9TEtc6yzfw8eDJJ0otr+J0f34vx
-	nwAayTb7cYJJnRCj+EGXXX0R/xsTgpTmZIXkaHDUNGcVegu3kZpt7SJCm+3ReGpcTM/7Ovnr1io2R
-	krjoEkfKdKXsciah/Ptg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=; b=mLJklPVz2cmiaGb7xvFJj2DeeO
+	QFn4n9pX5+2IsDaJ9HQThpb6s0P6MYlIBB26Lbv38Db2awjl6g18hSqIlf4fffoSw7k11MxnbhiHI
+	snCf1Gyb6hzcLAxV+TXqsfVpq3VnIhUC53ug0zaFC59csFS3e1LxBZ85QAjw78E/LC5BqJP7VH6yj
+	gPCbKV40/IpXYcdDGK1Fc3yylmulZU6/gcU52U+G4v6tWCXf7os48d2ZDP9DaT6MYDjlvUzF4i8Pn
+	GBpBW/j3kRR6TFdWNrdtHzbg9nifPK43Cq3BPKq8YwnqA3QzoGDOY2uhoUkQN+MmC90QcLmqZa3JP
+	Y7aiDHcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqc8e-0000000FAnE-31ol;
-	Fri, 07 Mar 2025 18:09:36 +0000
-Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
+	id 1tqcAG-0000000FB8P-1bqq;
+	Fri, 07 Mar 2025 18:11:16 +0000
+Received: from mail-bn8nam12olkn20810.outbound.protection.outlook.com ([2a01:111:f403:2c18::810] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbew-0000000F4cC-1fGp
+	id 1tqbko-0000000F671-1Hkn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 17:38:56 +0000
-Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-4394345e4d5so12702185e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 09:38:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741369132; x=1741973932; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=gbhsOaksWfSrIW8u1uBJdU7SRRrY2hqIxanWZ0O00C8=;
-        b=XRG0qs7uYFRfbQ9Zui9NvGFbsJEduDcS/JMfNX+/cv5lT5S0NbdVP0M13DcJA1gdTJ
-         NcJFNh5Au+AGsKIM+x0r4UjALurziv1/Nj0qgAg/eeX5vKkhyMomYiVEe6sv+tYGSso2
-         yo19P/vIJH9Xc4V1Yk7ij5WWbaWsBwZHBpU4YjvhL6Ax6ieXmTyhob7a2XeMGhH9YJvu
-         VRf3dy7/Gi6tEES1q0sj3eK07DXDNE8urjTb1LSKMa3lHSSvoVbN55LHgoEkrC4/9ytB
-         fBVL4NeROaj6ljU8hOCyIY5QINjT/CPgvZGrD/ZsxbX3nlmVIzmg/Tudho/fjvg83F82
-         KYhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741369132; x=1741973932;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gbhsOaksWfSrIW8u1uBJdU7SRRrY2hqIxanWZ0O00C8=;
-        b=eyvq8K4J7Z+tPAV97jE167Mrqc/xkzfIUYdHkyH9OVzhmnOlTbx7VZOAvXsvbXrTWG
-         Cz+iA8eIUCZA7/vTqwBu7KlW6GRS6p5K040oSsFZvrzqt9ttvuhIss3cv/AdyAHc789v
-         WyzTQbgTcwCzNtvI9uv6Z5jjtV8CwxOU40/xmju9jjF8ugWHOQ1KlJ2fzJ89FNTtATfl
-         /VF64/31cKGaZpGwjP3bUra6+xo0KexgHdH+5xkOMaJZokJYg9PggHkicLqal9ldEeGg
-         ElSEbInc9a4hBBrF5p/9zUPg0dMSROiOeISaoFItYevy1ZpuLwS9iFbjd4luGotbkjhV
-         QCEg==
-X-Forwarded-Encrypted: i=1; AJvYcCXxjz62+4OpmF3Ex6PtiW/xujFXWqpSx/S+7uh1q0YyHNEaos6GkMrixCPPpfBYU1BIkFWmdNC3Ij7q8uAt325J@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUNuA2UH1jlHDgz38T4hS1GZ07TshkYADWf5PkzsGXH7ckEKj6
-	qETvKnLMNVwLm/6EDMkc7L95uPUuf672sDK1cdN0QpAarjN0fLguT3eu7wuwPZk=
-X-Gm-Gg: ASbGncvLjLQ3lxEIT2O+S6EmMQHyhd2T/w/IevBkdccUZ/aS3bh7ZSEJkalJ/W+dRom
-	9VUziQ+98hre5G8AdPL67AbhGUk3EYruPnwp0c8cq+rXd0yhefi2LewQ9rBLnTEnOB0d/xAGSDb
-	k+V+SHTK8Zeej69fQYVR9w7ZA+gtnjVEKfp9ydiizsvDzYBKWBICAqAfrf3YCO+jEFZqjPWghpm
-	ugHvNMakeZJxs5eDSYgGfME2tXUAFyNkZUbM+x/EfMA56Oh2Ch6rK6OB7sdcNt9uaFGcsS5OPf4
-	+f654v8GX/N5X9CUY/j1wOrFIKxFZWq0VpH5gpmmFD/P+CRAzg==
-X-Google-Smtp-Source: AGHT+IGjlugzKmmxYS6YdwzXxtlXE4bzioPLgN5lZda7k+mvVXrIjN3iK1ETSrhFkaR7AXVaN1i8cA==
-X-Received: by 2002:a05:600c:4f11:b0:439:9f97:7d67 with SMTP id 5b1f17b1804b1-43c601e1173mr37208455e9.16.1741369132091;
-        Fri, 07 Mar 2025 09:38:52 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43bd42c6203sm87520795e9.24.2025.03.07.09.38.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 09:38:51 -0800 (PST)
-Date: Fri, 7 Mar 2025 20:38:48 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev, Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>,
-	Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Abel Vesa <abel.vesa@linaro.org>
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 4/8] phy: move phy-qcom-snps-eusb2 out of its vendor
- sub-directory
-Message-ID: <551a7b8d-1f2d-429f-b7fd-c8ea1afdcf25@stanley.mountain>
+	Fri, 07 Mar 2025 17:44:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=xTLApNqDNCW/n9lhmNMaqeTR5LcRQw0DarZQmlt8As2Q1AL2WT7ouYzPGyMQiMPyD2SVOmnRm0vMsd05IkqRcrHjODdw19dw7oaQNSSTpGQ16FdGhHXCCw0WpoHCMLIR7JeAwbPfE3G7liCicn7Rl2Ixq6i1pGvS+lOA1pSEsaFmW785Bk3/UK2f+N7XzqSfvDJCbivPhhr5O+NHS6c0GedgY5cBvLX4L7SFYR4+7MVUFWvh9DLVSi0M/3Oc3aqwCMau8sGgOw9+OnvbkNnpK47hTXZCUiW/0I4UydJbhYmlzbMUGWSbKn+iO/u6+an/9DWSt8g/1kxwTrGOPJWWIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=;
+ b=oLyIaat2uZBieIzqYkINJsq1KiadhSRK/daqYf/k0QmLl8/iJPRFDKHFresw5eVUEDrbqSIwa/oEmpDX4sc0DP83lAFUzhGqTydymTy6VBt8OPzl1ZdEvud1TIgSIa6bLGCP64pikjK9zssX/G2gh29tB5qrl8ek1uW/0OebnL0PzNELYLBkhHQ0SQ1KcSsj1kvnTk4VBpdIqcG0wbCiF4kMf6H3OFp12kfqcXi8mGk0VjTqreEIMVcXP5jExWrfs+b/jnKrhH5J16/nLuWTuU1YCMc95ILaeqPl+JJIkJqb6hrf0LcKFq6iIf3VRqJimbco+ddM71GBqET+FgLz7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=zxaRTV+2u2c565c4AuFhOsryXHN0KWdm59m1dKiohYc=;
+ b=UOOFFYBG7kjnZIKSPYSAFhKY24YYN12OGyaQHhqVURH1rVixOroSOCfnibZ0Z5y5XY98usbJiLoU1lHwr2Di2B4u6Qajmr4Q1U3IipOaj5UUcRphRkhAd5l1F00ySPsr3q5tfzggXPeVimVVNI0I3hyim91QAaTZkHg/HjiBAY88d9RTKTgmEnsf7feUOsn/EGfX6rXjzrKvS3rS7Fhc9aNrb+jjzP8bzOMyvX4quOnn7imLr8KIFkfTxmIwwPJ35WsHXc0PNgaS1vyOdApTRh99hgFPY/S7MBFW/5N4X7KmJuj9IxQZUClKi1us3sk2/Dmuc15DAyDTXZ2mVwbfVQ==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by BL3PR02MB7970.namprd02.prod.outlook.com (2603:10b6:208:355::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
+ 2025 17:44:50 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 17:44:50 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
+	"linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+	"x86@kernel.org" <x86@kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arch@vger.kernel.org"
+	<linux-arch@vger.kernel.org>, "linux-acpi@vger.kernel.org"
+	<linux-acpi@vger.kernel.org>
+CC: "kys@microsoft.com" <kys@microsoft.com>, "haiyangz@microsoft.com"
+	<haiyangz@microsoft.com>, "wei.liu@kernel.org" <wei.liu@kernel.org>,
+	"decui@microsoft.com" <decui@microsoft.com>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"tglx@linutronix.de" <tglx@linutronix.de>, "mingo@redhat.com"
+	<mingo@redhat.com>, "bp@alien8.de" <bp@alien8.de>,
+	"dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"joro@8bytes.org" <joro@8bytes.org>, "robin.murphy@arm.com"
+	<robin.murphy@arm.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+	"muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+	"skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+	"mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+	"apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+	"Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+	"stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+	"gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+	"vkuznets@redhat.com" <vkuznets@redhat.com>, "prapal@linux.microsoft.com"
+	<prapal@linux.microsoft.com>, "muislam@microsoft.com"
+	<muislam@microsoft.com>, "anrayabh@linux.microsoft.com"
+	<anrayabh@linux.microsoft.com>, "rafael@kernel.org" <rafael@kernel.org>,
+	"lenb@kernel.org" <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+Subject: RE: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
+ setup function
+Thread-Topic: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
+ setup function
+Thread-Index: AQHbiKNt6Dmf5ml0nkycDSKgcIRUw7Nn/hsg
+Date: Fri, 7 Mar 2025 17:44:50 +0000
+Message-ID: <SN6PR02MB415730AA9A9BFFBB9A62F195D4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BL3PR02MB7970:EE_
+x-ms-office365-filtering-correlation-id: 600fd99e-7ad6-4356-19f3-08dd5d9fc2c1
+x-microsoft-antispam: BCL:0;ARA:14566002|19110799003|15080799006|8060799006|8062599003|461199028|102099032|440099028|3412199025;
+x-microsoft-antispam-message-info: =?us-ascii?Q?kz6jOW7e5OUAOq6DABWsud/pzw+EsIOnIucx25Vx9LkGFcKcR45NXL8pAnXO?=
+ =?us-ascii?Q?nGFJg/bNJp9CTTJBbWig4/I9u6Ups1kX0ihB8Gnr13SWOKna2In/XVYhOryk?=
+ =?us-ascii?Q?NPtsRL2iYaQZjrqHVPc05Eh/WRYnJtZa9TXbONN0qW+2glL+O2UJT3hSnPB0?=
+ =?us-ascii?Q?o4J1+cwTUidPHZz8ENkepJt4d5N7HZE98CKUjA9dAwbZmut2NYeB7zO+csmE?=
+ =?us-ascii?Q?bZ6ScIseVte2wo8WdEkafqssAjSpkMwgsXqF5uI5uBr6agQbehbeCfNUNrdv?=
+ =?us-ascii?Q?11Ab5WfR9QwnspqqDGApdrCiBuyfY1GCHLkDD+a7XSFpJLLiBEOmPrIYkebL?=
+ =?us-ascii?Q?A6iRypknumQ5HUL/oD2GoXNJr+B43WAcfIxuEvYi1oBfV0cFkhGHbYDrFb21?=
+ =?us-ascii?Q?iQmAppGA9jnGQVg5JVtxXbzCI7aijvyInvnjXlgCFbnC5q0gZvWUfXz2QKrV?=
+ =?us-ascii?Q?D2C+47O6IIBNJHtxySzB9bSHed+44zH+jJEZWKLxRatuI+THInwhL/Pp9RKd?=
+ =?us-ascii?Q?hoeJDmVoQExTDVKhGAIkm4H5ksZFOphLOfoNZzanWNolaVn7seWvJ/8MCcO0?=
+ =?us-ascii?Q?GR/Em530BdxyaELa57bbXJXAj8f4TArZYBXGRU8dNVD5hW45i8Pay7OpGTlU?=
+ =?us-ascii?Q?1pfz/kSPUbk8FpQCzKj2tgYT2SKvNt0fJiCd2WXiWnYXdfvVb57xAbqe5sCN?=
+ =?us-ascii?Q?gug6pBgf+FaETHftKsKmw7yomNTNqt2AtUKbJdU3QgpyFp2L27kN8+KhYriq?=
+ =?us-ascii?Q?Qdd9NRiuvqLVvtVda6zcg/0ZjooIy6a6AINpiielgLFfoJercGnNyWr5MFEB?=
+ =?us-ascii?Q?1fjdy2FCnGw792E+saYDOYrHmiq8lxojllHUcSrBubc0f1ljWZK8fNA9BYjU?=
+ =?us-ascii?Q?yvF6gz9Qo8n29kgpWzXHTT4y4OMZ6OVfae0aXgb/kWAUeSbJXSls+lEKb9Rj?=
+ =?us-ascii?Q?WtQMtFLnuNCJJDufhskUP7x8Mx+6WJw2bR5WZmZdQbx8tQStkzbI01sGMTud?=
+ =?us-ascii?Q?TMz7Na0MhAzgewdtOTFy+L+pSMKePTwCAOtqPICUSOQq0As=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?DcV42RIjh4FDcwHEL89pKM0xrqrVrmzRNXrmdgTZtzQu83CgFItojQjgfT97?=
+ =?us-ascii?Q?DR6cgr0CkusWgOjsMPramFUI9cL+IMRKrZGn8lbEkJXXJEZ1z8wTMF2nTOM/?=
+ =?us-ascii?Q?tBeaiphNt4nZ1l/eeVtTKnKKxBqYltYCldeWlZHABDrA4NZ+KW0ggQ0aRBLe?=
+ =?us-ascii?Q?NkGLNlNFc6lQz7Ai5ba5/OKH8KwejECVd/XxQAWdnsXg2Rh87KKsYXe8N5rq?=
+ =?us-ascii?Q?n/0UrQjB4YTioNoolgrNG07Z35uz62iT036qAa024W75HwbMuIi25ZE0sQUP?=
+ =?us-ascii?Q?3llBKNh3VEF7CCFjVH/0rg3C0eArsOv/bbJKueXaAzViC+J+WZjwql5WcMs5?=
+ =?us-ascii?Q?8x1erBExR+HaLNTvWzVTGTwyUPTRB6v6N5Mvnw3EWJ3QYmXC6re7HNvPTfGx?=
+ =?us-ascii?Q?RQPnNJzXLx6sI/Y+jw/H9zRjymhwOvBzOHPje9UtMbLBDMGu5glk0DGQ/64x?=
+ =?us-ascii?Q?SndS1SqMHi0hmqwzB5zqOwiaMM2hMOj/IfJ7voMWlSD1Bw2G+MtgecpNqH7o?=
+ =?us-ascii?Q?rsUebBn8sXlGeV92LcTHerKmasoCHBFF+L2XUP9L/4Re+LIie3iVizLmv4QB?=
+ =?us-ascii?Q?9vUh8wa+7mCYAmJyz7xDsLdBtjfufYay8SK9u411WBuov4ioqOtPaGu75+oj?=
+ =?us-ascii?Q?r73h9vmPV2Em4mTKlIONGk1BEHfpWviMPcEe3DDmJu3lp2Mtrb6j1irGtuw3?=
+ =?us-ascii?Q?9uFk/uVfI7HQbZcpqdTjJr0LyfBVxbBgVvOXZMOg/ruRCgM625tY4gsXXotw?=
+ =?us-ascii?Q?EN4crVqhRMk9xw7N8cZuIJJEo2JQVa2uqF/MpIoYXdCAcq5KNK72M5y5Sq29?=
+ =?us-ascii?Q?2FhaCe308ga3O4R9BRovgPYVokUhG3o6T4kLhTqasvKNKiE0Vx/EUsIf/w93?=
+ =?us-ascii?Q?DwpWZ91cDnUUm88Fu9WGmCVb7j6NqGJJ8/myI2mDWbu4gqo8SMathJZwmuBd?=
+ =?us-ascii?Q?nzP2TATD2OoaqEiK9Js/Y5XTzmekFM5g3A245JTDKzAzmVNek4aw1nSTARZH?=
+ =?us-ascii?Q?uF78qtxMeVeb4sbZJq85TgMOhTV1Smp4uEBpXaNKV8Hyd9GUqNZqtj4QPLy/?=
+ =?us-ascii?Q?eKBlVZUfQHiq4l1gcMEuOBzd6LUSlahtOcRyIz2GmWZaqii++DbLGFYyL2dj?=
+ =?us-ascii?Q?XoSDSPSRvaE7qFcOdVV8mwJ774xKEHDPv0Z5a7lAIHZ3p1Zph3gKdz2pY02+?=
+ =?us-ascii?Q?rDssaWcJeO5bkjMZYkN5z9pdYFQneTd+LWwMEXvKz+Z68j6LaI/AA3FNTp4?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250223122227.725233-5-ivo.ivanov.ivanov1@gmail.com>
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: 600fd99e-7ad6-4356-19f3-08dd5d9fc2c1
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 17:44:50.4952
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL3PR02MB7970
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_093854_445459_093B10FA 
-X-CRM114-Status: GOOD (  10.94  )
+X-CRM114-CacheID: sfid-20250307_094458_361922_3CA9858F 
+X-CRM114-Status: GOOD (  17.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,123 +172,99 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ivaylo,
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, Fe=
+bruary 26, 2025 3:08 PM
 
-kernel test robot noticed the following build warnings:
+>=20
+> This will handle SYNIC interrupts such as intercepts, doorbells, and
+> scheduling messages intended for the mshv driver.
 
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Could you provide a bit more detailed commit message? How does
+the mshv_handler() relate to the vmbus_handler()? From the code
+mshv_handler() goes first, and I'm assuming it processes what it
+knows about (intercepts, doorbells, scheduling messages?) and
+then hands off control to the vmbus_handler() to handle the usual
+VMbus-related message and channel interrupts. But it would be
+nice to have the commit message or code comments describe the
+overall intent and any obscure aspects of the relationship.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Ivaylo-Ivanov/dt-bindings-phy-rename-qcom-snps-eusb2-phy-binding-to-snps-eusb2-phy/20250223-202709
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250223122227.725233-5-ivo.ivanov.ivanov1%40gmail.com
-patch subject: [PATCH v2 4/8] phy: move phy-qcom-snps-eusb2 out of its vendor sub-directory
-config: sh-randconfig-r073-20250307 (https://download.01.org/0day-ci/archive/20250307/202503072305.Osodtcnk-lkp@intel.com/config)
-compiler: sh4-linux-gcc (GCC) 14.2.0
+And avoid references to "This" or "This patch". :-)
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202503072305.Osodtcnk-lkp@intel.com/
-
-smatch warnings:
-drivers/phy/phy-snps-eusb2.c:452 snps_eusb2_hsphy_probe() warn: passing zero to 'PTR_ERR'
-
-vim +/PTR_ERR +452 drivers/phy/phy-snps-eusb2.c
-
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  399  static int snps_eusb2_hsphy_probe(struct platform_device *pdev)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  400  {
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  401  	struct device *dev = &pdev->dev;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  402  	struct device_node *np = dev->of_node;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  403  	struct snps_eusb2_hsphy *phy;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  404  	struct phy_provider *phy_provider;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  405  	struct phy *generic_phy;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  406  	const struct snps_eusb2_phy_drvdata *drv_data;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  407  	int ret, i;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  408  	int num;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  409  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  410  	phy = devm_kzalloc(dev, sizeof(*phy), GFP_KERNEL);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  411  	if (!phy)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  412  		return -ENOMEM;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  413  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  414  	drv_data = of_device_get_match_data(dev);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  415  	if (!drv_data)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  416  		return -EINVAL;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  417  	phy->data = drv_data;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  418  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  419  	phy->base = devm_platform_ioremap_resource(pdev, 0);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  420  	if (IS_ERR(phy->base))
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  421  		return PTR_ERR(phy->base);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  422  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  423  	phy->phy_reset = devm_reset_control_get_exclusive(dev, NULL);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  424  	if (IS_ERR(phy->phy_reset))
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  425  		return PTR_ERR(phy->phy_reset);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  426  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  427  	phy->clks = devm_kcalloc(dev,
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  428  				 phy->data->num_clks,
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  429  				 sizeof(*phy->clks),
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  430  				 GFP_KERNEL);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  431  	if (!phy->clks)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  432  		return -ENOMEM;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  433  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  434  	for (int i = 0; i < phy->data->num_clks; ++i)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  435  		phy->clks[i].id = phy->data->clk_names[i];
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  436  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  437  	ret = devm_clk_bulk_get(dev, phy->data->num_clks,
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  438  				phy->clks);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  439  	if (ret)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  440  		return dev_err_probe(dev, ret,
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  441  				     "failed to get phy clock(s)\n");
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  442  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  443  	phy->ref_clk = NULL;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  444  	for (int i = 0; i < phy->data->num_clks; ++i) {
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  445  		if (!strcmp(phy->clks[i].id, "ref")) {
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  446  			phy->ref_clk = phy->clks[i].clk;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  447  			break;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  448  		}
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  449  	}
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  450  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  451  	if (IS_ERR_OR_NULL(phy->ref_clk))
-15a1981f608b0f Ivaylo Ivanov 2025-02-23 @452  		return dev_err_probe(dev, PTR_ERR(phy->ref_clk),
-
-PTR_ERR(phy->ref_clk) is success.
-
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  453  				     "failed to get ref clk\n");
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  454  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  455  	num = ARRAY_SIZE(phy->vregs);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  456  	for (i = 0; i < num; i++)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  457  		phy->vregs[i].supply = eusb2_hsphy_vreg_names[i];
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  458  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  459  	ret = devm_regulator_bulk_get(dev, num, phy->vregs);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  460  	if (ret)
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  461  		return dev_err_probe(dev, ret,
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  462  				     "failed to get regulator supplies\n");
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  463  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  464  	phy->repeater = devm_of_phy_get_by_index(dev, np, 0);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  465  	if (IS_ERR(phy->repeater))
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  466  		return dev_err_probe(dev, PTR_ERR(phy->repeater),
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  467  				     "failed to get repeater\n");
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  468  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  469  	generic_phy = devm_phy_create(dev, NULL, &snps_eusb2_hsphy_ops);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  470  	if (IS_ERR(generic_phy)) {
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  471  		dev_err(dev, "failed to create phy %d\n", ret);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  472  		return PTR_ERR(generic_phy);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  473  	}
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  474  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  475  	dev_set_drvdata(dev, phy);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  476  	phy_set_drvdata(generic_phy, phy);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  477  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  478  	phy_provider = devm_of_phy_provider_register(dev, of_phy_simple_xlate);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  479  	if (IS_ERR(phy_provider))
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  480  		return PTR_ERR(phy_provider);
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  481  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  482  	dev_info(dev, "Registered Snps-eUSB2 phy\n");
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  483  
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  484  	return 0;
-15a1981f608b0f Ivaylo Ivanov 2025-02-23  485  }
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>=20
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Reviewed-by: Wei Liu <wei.liu@kernel.org>
+> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
+> ---
+>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
+>  drivers/hv/hv_common.c         | 5 +++++
+>  include/asm-generic/mshyperv.h | 1 +
+>  3 files changed, 15 insertions(+)
+>=20
+> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyper=
+v.c
+> index 0116d0e96ef9..616e9a5d77b4 100644
+> --- a/arch/x86/kernel/cpu/mshyperv.c
+> +++ b/arch/x86/kernel/cpu/mshyperv.c
+> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
+>  }
+>  EXPORT_SYMBOL_GPL(hv_set_msr);
+>=20
+> +static void (*mshv_handler)(void);
+>  static void (*vmbus_handler)(void);
+>  static void (*hv_stimer0_handler)(void);
+>  static void (*hv_kexec_handler)(void);
+> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>  	struct pt_regs *old_regs =3D set_irq_regs(regs);
+>=20
+>  	inc_irq_stat(irq_hv_callback_count);
+> +	if (mshv_handler)
+> +		mshv_handler();
+> +
+>  	if (vmbus_handler)
+>  		vmbus_handler();
+>=20
+> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>  	set_irq_regs(old_regs);
+>  }
+>=20
+> +void hv_setup_mshv_handler(void (*handler)(void))
+> +{
+> +	mshv_handler =3D handler;
+> +}
+> +
+>  void hv_setup_vmbus_handler(void (*handler)(void))
+>  {
+>  	vmbus_handler =3D handler;
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 2763cb6d3678..f5a07fd9a03b 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
+>  }
+>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
+>=20
+> +void __weak hv_setup_mshv_handler(void (*handler)(void))
+> +{
+> +}
+> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
+> +
+>  void __weak hv_setup_kexec_handler(void (*handler)(void))
+>  {
+>  }
+> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyper=
+v.h
+> index 1f46d19a16aa..a05f12e63ccd 100644
+> --- a/include/asm-generic/mshyperv.h
+> +++ b/include/asm-generic/mshyperv.h
+> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
+>  void hv_remove_kexec_handler(void);
+>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+>  void hv_remove_crash_handler(void);
+> +void hv_setup_mshv_handler(void (*handler)(void));
+>=20
+>  extern int vmbus_interrupt;
+>  extern int vmbus_irq;
+> --
+> 2.34.1
 
 
