@@ -4,75 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8C99C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:24:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3247C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:31:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fhjx6pxvag6i+ct5LgrY68O1Q0Fj9xs6220lz64mf6E=; b=SKqOkbeIdU3WEhJ2GhY4hG4cMG
-	2v9z7OBDZFjF7HNfoXFLsnIJayMFRn2BwtkRlRi833Hx5I0HJbn9nlaaTi8eDYFBApbpodgYZ9idx
-	GMg6ETnmGaSOqnexeOVxzRV+Y2stRqLtOrUJpWj6XmfrgCJvyC5ARrmzEMZpqvRU4Ok/YResa4cej
-	1JsdVW9ZIJkWSPDcxtNmVFCb3xwV6EFF+uSqqKr69q1cA7c/8cl/5obe/RT0yb0jGLh3zE2BhpErz
-	g5EmtI3TkAPWwbzBMpA8u7vytZSI7GrG8H7I+rNqi6zgGdzMDin58PG7FeaFSOmM8kG8BjV2D/4Hd
-	KCgYycjQ==;
+	bh=A+S4RIbdJJnLd8q03RHbHALetITl10NO/5kMAF25RI4=; b=RnLbGR4DQ9jbUXGUZwnUpHIwch
+	GrMdoTPF+XE5qqub0HsramQWVg1v9moFrY2W2Zq6eAp/u4iInhdOxbyfKDdp0hii493z+KJg4Ufjz
+	ALkbKel6XoeEnBDnYp5CfSsXRsXWqaZ3cWpLuoZIXHIfZ+s3ps0LDluj0YaVZ2GEYcJLsZ8kea6jz
+	4v1ZVhzrA2wRNlRIJBSso/4+xIuXPZfpUwz7UT695508WjEUOpOqEr0Wrqo/6ZyFaKGrGBWukBNgj
+	tObjvjFEQSiVrQHqLijqQAgama0a2XWB1+cAR2s8VKED6ohn3x43RNgZSzbsr8FNlPL6k5OLii29P
+	lyoZZcKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqh3d-0000000FnLM-0D4s;
-	Fri, 07 Mar 2025 23:24:45 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqh1z-0000000Fn1X-0fYz
+	id 1tqhAF-0000000FoXO-2cqE;
+	Fri, 07 Mar 2025 23:31:35 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqh8c-0000000FoGU-0wWa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 23:23:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741389781;
- bh=Fhjx6pxvag6i+ct5LgrY68O1Q0Fj9xs6220lz64mf6E=;
- b=ur8yO4HbFD/sPXeKXNW5cEH7I57uMF9amQliaKNfq13n9hQiQEl0EiR8/th+SuxDxkyduIeUY
- LDubE+MOtQRZ4C9HCN4DHqntr0yGfvClnhVMDLU8OFLOvYAr1sEncyrab/i69xgTE0uy+j9Ckp8
- GUUUzxY5Dl5KXC/GrAwMVMx9+q0/+n7BG8CnQwwd6uO+4/m6Pn4TgbJIu+86efow4CCFCmAlMpt
- V5Y95bdkWotbZtNZDdtAavlWlVKktbEAw3RTAHK5kALHTo9yQMZaosvjnBaN3hw5MJDSF0Lk/di
- j7PYyYMCCPgzg0Uqne1qhablgG6Dx/cdmZFnm+5XWkiA==
-X-Forward-Email-ID: 67cb7fcd789af4fdcbb0e87f
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <56181131-3e48-4c76-87c7-2388a9964727@kwiboo.se>
-Date: Sat, 8 Mar 2025 00:22:48 +0100
+	Fri, 07 Mar 2025 23:29:55 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 850AF2038F3E;
+	Fri,  7 Mar 2025 15:29:52 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 850AF2038F3E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741390193;
+	bh=A+S4RIbdJJnLd8q03RHbHALetITl10NO/5kMAF25RI4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kwuSZI9PwG4viI97Hm3DoeHH2U9GBgal8aEQ1fN6b4NxNi1YF4VCJP6opazvgnQ0O
+	 bqFTaDP+78vMUGaD0QWLd6fF64ipXAE4/mPqy7+zMzkpRNWYgA0dXdtDxz1mEMoeuY
+	 PqCIUH3akwZU2TzJZBkInP56RdekIKeCi96/Qt4Q=
+Message-ID: <86bf7bae-9423-4413-8986-364d96243c82@linux.microsoft.com>
+Date: Fri, 7 Mar 2025 15:29:35 -0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/8] arm64: dts: rockchip: Add SDMMC/SDIO controllers
- for RK3528
-To: Yao Zi <ziyao@disroot.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Shresth Prasad <shresthprasad7@gmail.com>,
- Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
- Detlev Casanova <detlev.casanova@collabora.com>,
- Chukun Pan <amadeus@jmu.edu.cn>, linux-mmc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-clk@vger.kernel.org
-References: <20250305194217.47052-1-ziyao@disroot.org>
- <20250305194612.47171-1-ziyao@disroot.org>
+Subject: Re: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
+ setup function
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "muislam@microsoft.com" <muislam@microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB415730AA9A9BFFBB9A62F195D4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250305194612.47171-1-ziyao@disroot.org>
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB415730AA9A9BFFBB9A62F195D4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_152303_603783_146C7F8C 
-X-CRM114-Status: GOOD (  12.71  )
+X-CRM114-CacheID: sfid-20250307_152954_319040_E5E7AA00 
+X-CRM114-Status: GOOD (  19.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,113 +106,120 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao Zi,
-
-On 2025-03-05 20:46, Yao Zi wrote:
-> RK3528 features two SDIO controllers and one SD/MMC controller, describe
-> them in devicetree. Since their sample and drive clocks are located in
-> the VO and VPU GRFs, corresponding syscons are added to make these
-> clocks available.
+On 3/7/2025 9:44 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 26, 2025 3:08 PM
 > 
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 70 ++++++++++++++++++++++++
->  1 file changed, 70 insertions(+)
+>>
+>> This will handle SYNIC interrupts such as intercepts, doorbells, and
+>> scheduling messages intended for the mshv driver.
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index d3e2a64ff2d5..363023314e9c 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -130,6 +130,16 @@ gic: interrupt-controller@fed01000 {
->  			#interrupt-cells = <3>;
->  		};
->  
-> +		vpu_grf: syscon@ff340000 {
-> +			compatible = "rockchip,rk3528-vpu-grf", "syscon";
-> +			reg = <0x0 0xff340000 0x0 0x8000>;
-> +		};
-> +
-> +		vo_grf: syscon@ff360000 {
-> +			compatible = "rockchip,rk3528-vo-grf", "syscon";
-> +			reg = <0x0 0xff360000 0x0 0x10000>;
-> +		};
-> +
->  		cru: clock-controller@ff4a0000 {
->  			compatible = "rockchip,rk3528-cru";
->  			reg = <0x0 0xff4a0000 0x0 0x30000>;
-> @@ -274,6 +284,66 @@ saradc: adc@ffae0000 {
->  			resets = <&cru SRST_P_SARADC>;
->  			reset-names = "saradc-apb";
->  			#io-channel-cells = <1>;
-> +		};
+> Could you provide a bit more detailed commit message? How does
+> the mshv_handler() relate to the vmbus_handler()? From the code
+> mshv_handler() goes first, and I'm assuming it processes what it
+> knows about (intercepts, doorbells, scheduling messages?) and
+> then hands off control to the vmbus_handler() to handle the usual
+> VMbus-related message and channel interrupts. But it would be
+> nice to have the commit message or code comments describe the
+> overall intent and any obscure aspects of the relationship.
+> 
+> And avoid references to "This" or "This patch". :-)
+> 
 
-Look like this patch accidentally drops status = "disabled" from the
-adc@ffae0000 node.
+You've described it pretty well, I don't know if there's too much
+more to say given this patch doesn't introduce the handler code.
 
-Regards,
-Jonas
+I can try to improve it, something like:
+"
+mshv_handler() will be used to process messages related to managing
+guest partitions such as intercepts, doorbells, and scheduling messages.
 
-> +
-> +		sdio0: mmc@ffc10000 {
-> +			compatible = "rockchip,rk3528-dw-mshc",
-> +				     "rockchip,rk3288-dw-mshc";
-> +			reg = <0x0 0xffc10000 0x0 0x4000>;
-> +			clocks = <&cru HCLK_SDIO0>,
-> +				 <&cru CCLK_SRC_SDIO0>,
-> +				 <&cru SCLK_SDIO0_DRV>,
-> +				 <&cru SCLK_SDIO0_SAMPLE>;
-> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-> +			fifo-depth = <0x100>;
-> +			interrupts = <GIC_SPI 137 IRQ_TYPE_LEVEL_HIGH>;
-> +			max-frequency = <150000000>;
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&sdio0_bus4>, <&sdio0_clk>, <&sdio0_cmd>,
-> +				    <&sdio0_det>, <&sdio0_pwren>;
-> +			resets = <&cru SRST_H_SDIO0>;
-> +			reset-names = "reset";
-> +			status = "disabled";
-> +		};
-> +
-> +		sdio1: mmc@ffc20000 {
-> +			compatible = "rockchip,rk3528-dw-mshc",
-> +				     "rockchip,rk3288-dw-mshc";
-> +			reg = <0x0 0xffc20000 0x0 0x4000>;
-> +			clocks = <&cru HCLK_SDIO1>,
-> +				 <&cru CCLK_SRC_SDIO1>,
-> +				 <&cru SCLK_SDIO1_DRV>,
-> +				 <&cru SCLK_SDIO1_SAMPLE>;
-> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-> +			fifo-depth = <0x100>;
-> +			interrupts = <GIC_SPI 138 IRQ_TYPE_LEVEL_HIGH>;
-> +			max-frequency = <150000000>;
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&sdio1_bus4>, <&sdio1_clk>, <&sdio1_cmd>,
-> +				    <&sdio1_det>, <&sdio1_pwren>;
-> +			resets = <&cru SRST_H_SDIO1>;
-> +			reset-names = "reset";
-> +			status = "disabled";
-> +		};
-> +
-> +		sdmmc: mmc@ffc30000 {
-> +			compatible = "rockchip,rk3528-dw-mshc",
-> +				     "rockchip,rk3288-dw-mshc";
-> +			reg = <0x0 0xffc30000 0x0 0x4000>;
-> +			clocks = <&cru HCLK_SDMMC0>,
-> +				 <&cru CCLK_SRC_SDMMC0>,
-> +				 <&cru SCLK_SDMMC_DRV>,
-> +				 <&cru SCLK_SDMMC_SAMPLE>;
-> +			clock-names = "biu", "ciu", "ciu-drive", "ciu-sample";
-> +			fifo-depth = <0x100>;
-> +			interrupts = <GIC_SPI 133 IRQ_TYPE_LEVEL_HIGH>;
-> +			max-frequency = <150000000>;
-> +			pinctrl-names = "default";
-> +			pinctrl-0 = <&sdmmc_bus4>, <&sdmmc_clk>, <&sdmmc_cmd>,
-> +				    <&sdmmc_det>;
-> +			resets = <&cru SRST_H_SDMMC0>;
-> +			reset-names = "reset";
-> +			rockchip,default-sample-phase = <90>;
->  			status = "disabled";
->  		};
->  
+In a (non-nested) root partition, the same interrupt vector is shared
+between the vmbus and mshv_root drivers.
+
+Introduce a stub for mshv_handler() and call it in
+sysvec_hyperv_callback alongside vmbus_handler().
+
+Even though both handlers will be called for every Hyper-V interrupt,
+the messages for each driver are delivered to different offsets within
+the SYNIC message page, so they won't step on each other.
+"
+
+Does that work?
+
+Nuno
+>>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> Reviewed-by: Wei Liu <wei.liu@kernel.org>
+>> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
+>> ---
+>>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
+>>  drivers/hv/hv_common.c         | 5 +++++
+>>  include/asm-generic/mshyperv.h | 1 +
+>>  3 files changed, 15 insertions(+)
+>>
+>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+>> index 0116d0e96ef9..616e9a5d77b4 100644
+>> --- a/arch/x86/kernel/cpu/mshyperv.c
+>> +++ b/arch/x86/kernel/cpu/mshyperv.c
+>> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
+>>  }
+>>  EXPORT_SYMBOL_GPL(hv_set_msr);
+>>
+>> +static void (*mshv_handler)(void);
+>>  static void (*vmbus_handler)(void);
+>>  static void (*hv_stimer0_handler)(void);
+>>  static void (*hv_kexec_handler)(void);
+>> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>>  	struct pt_regs *old_regs = set_irq_regs(regs);
+>>
+>>  	inc_irq_stat(irq_hv_callback_count);
+>> +	if (mshv_handler)
+>> +		mshv_handler();
+>> +
+>>  	if (vmbus_handler)
+>>  		vmbus_handler();
+>>
+>> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>>  	set_irq_regs(old_regs);
+>>  }
+>>
+>> +void hv_setup_mshv_handler(void (*handler)(void))
+>> +{
+>> +	mshv_handler = handler;
+>> +}
+>> +
+>>  void hv_setup_vmbus_handler(void (*handler)(void))
+>>  {
+>>  	vmbus_handler = handler;
+>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>> index 2763cb6d3678..f5a07fd9a03b 100644
+>> --- a/drivers/hv/hv_common.c
+>> +++ b/drivers/hv/hv_common.c
+>> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
+>>  }
+>>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
+>>
+>> +void __weak hv_setup_mshv_handler(void (*handler)(void))
+>> +{
+>> +}
+>> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
+>> +
+>>  void __weak hv_setup_kexec_handler(void (*handler)(void))
+>>  {
+>>  }
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index 1f46d19a16aa..a05f12e63ccd 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
+>>  void hv_remove_kexec_handler(void);
+>>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+>>  void hv_remove_crash_handler(void);
+>> +void hv_setup_mshv_handler(void (*handler)(void));
+>>
+>>  extern int vmbus_interrupt;
+>>  extern int vmbus_irq;
+>> --
+>> 2.34.1
 
 
