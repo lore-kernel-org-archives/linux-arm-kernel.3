@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A180C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:21:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A068BC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:23:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xg8ME5dONHSFnRO8dojS197sIBlu9wGWCIsq5ezNrqQ=; b=qKE5TI0kN0qwBwFxQoKcxH0IhE
-	GLpZD7FdFO/jVOUfP6RtyVmujVkBvlsMgjF2lSeC7cgETEzIFYq9TDICTAjZbuwshLbKUEoCYpWVF
-	Ir40lVFteaSKfpUYYJOHKkY1sRUs42Pn2LKiKYkYyw0pY3qnApA8QoSWJPDnBKHO8QevQCVheVvma
-	HQNCwfAmJQ0sWMnGcVdPL8wD5YZHh/JD3l4YMb2bvqNMCnSUleB3vx5ueLjI382RpRFolw8Ri0iMJ
-	icqrXDaYIrOHUCnuAwqHsTAuCyjreRPlrIJhwP/jpAagXY4ZDU6zv/9jY1PFwZizxDK+13rX1Y9bc
-	OF3J8Icw==;
+	bh=B5hsLkIIQHRBbaSv3v+Ds4WX3/ha0axnhDxusO+bLK8=; b=w9dsYn+vZbat/mbBB40bq6VePZ
+	hZ3lNE1FurGhlKntLjxf/OyamiAPDUr+B7TKyOQQpvPbA8VSb9+ExWrRv6yJ9PcL+/AW7dr2U1FZZ
+	Lyrs0MOKHR42wMvjsrCKobGOMs53NcOOyXJaazU7I20F8MD1lYLtGSKMQ1f4ojXqXQE0aCLTesvVD
+	zEgFHrdXRSG1NmrF03C99DeVwdQyk4QYTVoYippRpKgIsIztv5KVYA1FmA5N76K1kASqKzFJnVu7P
+	mGZAxaSn70ZaG99QzGDKVMH3XEJn+vxrK9pQq+X16w4VrlXcwU765E02sd/5zEqd3KaxcpGBAzynO
+	VXYkj0Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqg4E-0000000FhE8-3QCd;
-	Fri, 07 Mar 2025 22:21:18 +0000
+	id 1tqg5p-0000000FhJt-33W1;
+	Fri, 07 Mar 2025 22:22:57 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfmf-0000000FdyK-36TN
+	id 1tqfmg-0000000FdyM-17Wd
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Mar 2025 22:03:11 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 4D2132038F4A;
+	by linux.microsoft.com (Postfix) with ESMTPSA id AAA482038F4B;
 	Fri,  7 Mar 2025 14:03:09 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 4D2132038F4A
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AAA482038F4B
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741384989;
-	bh=Xg8ME5dONHSFnRO8dojS197sIBlu9wGWCIsq5ezNrqQ=;
+	s=default; t=1741384990;
+	bh=B5hsLkIIQHRBbaSv3v+Ds4WX3/ha0axnhDxusO+bLK8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=FvvM3kdoL3jyLeJuKYumMqYAyA7ZKisqeRofTGX7CZuahsdA/KFoN79jaiuovFjmW
-	 SgfVVQdBA3CySpRBGmfE5tfg5HPbHEFDV1YeKA+7/KN8wD2yFlalkMMuVM5M7QwjRR
-	 xqzaHSDQs4q8k4fZX1/P0yyILm1TXHTIA5aBumgM=
+	b=VWMx1A8cvwJ+9Lsto0d6on3jXNC+IMlxDwKxqC6OrCvjKJtjfai0Gv5FOohlsSpnH
+	 dwGk16wQvvzv8CPi1uKH7Z+cbHOQRrILujcG5kLWK8k1whdcFVIn9/b1s17zv0EpvJ
+	 jLb1OWLgYSCX1542iIyBgx0MF9f8+s0l0jkUWi00=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,18 +81,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v5 10/11] ACPI: irq: Introduce acpi_get_gsi_dispatcher()
-Date: Fri,  7 Mar 2025 14:03:02 -0800
-Message-ID: <20250307220304.247725-11-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v5 11/11] PCI: hv: Get vPCI MSI IRQ domain from DeviceTree
+Date: Fri,  7 Mar 2025 14:03:03 -0800
+Message-ID: <20250307220304.247725-12-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250307220304.247725-1-romank@linux.microsoft.com>
 References: <20250307220304.247725-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_140309_872395_D3256781 
-X-CRM114-Status: UNSURE (   9.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_140310_352456_A60F1411 
+X-CRM114-Status: GOOD (  16.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,77 +106,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using acpi_irq_create_hierarchy() in the cases where the code
-also handles OF leads to code duplication as the ACPI subsystem
-doesn't provide means to compute the IRQ domain parent whereas
-the OF does.
+The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
+arm64. It won't be able to do that in the VTL mode where only DeviceTree
+can be used.
 
-Introduce acpi_get_gsi_dispatcher() so that the drivers relying
-on both ACPI and OF may use irq_domain_create_hierarchy() in the
-common code paths.
-
-No functional changes.
+Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
+case, too.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 ---
- drivers/acpi/irq.c   | 14 ++++++++++++--
- include/linux/acpi.h |  5 ++++-
- 2 files changed, 16 insertions(+), 3 deletions(-)
+ drivers/pci/controller/pci-hyperv.c | 79 ++++++++++++++++++++++++++---
+ 1 file changed, 73 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/acpi/irq.c b/drivers/acpi/irq.c
-index 1687483ff319..6243db610137 100644
---- a/drivers/acpi/irq.c
-+++ b/drivers/acpi/irq.c
-@@ -12,7 +12,7 @@
+diff --git a/drivers/pci/controller/pci-hyperv.c b/drivers/pci/controller/pci-hyperv.c
+index 6084b38bdda1..9740006a8c73 100644
+--- a/drivers/pci/controller/pci-hyperv.c
++++ b/drivers/pci/controller/pci-hyperv.c
+@@ -50,6 +50,7 @@
+ #include <linux/irqdomain.h>
+ #include <linux/acpi.h>
+ #include <linux/sizes.h>
++#include <linux/of_irq.h>
+ #include <asm/mshyperv.h>
  
- enum acpi_irq_model_id acpi_irq_model;
+ /*
+@@ -817,9 +818,17 @@ static int hv_pci_vec_irq_gic_domain_alloc(struct irq_domain *domain,
+ 	int ret;
  
--static struct fwnode_handle *(*acpi_get_gsi_domain_id)(u32 gsi);
-+static acpi_gsi_domain_disp_fn acpi_get_gsi_domain_id;
- static u32 (*acpi_gsi_to_irq_fallback)(u32 gsi);
+ 	fwspec.fwnode = domain->parent->fwnode;
+-	fwspec.param_count = 2;
+-	fwspec.param[0] = hwirq;
+-	fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
++	if (is_of_node(fwspec.fwnode)) {
++		/* SPI lines for OF translations start at offset 32 */
++		fwspec.param_count = 3;
++		fwspec.param[0] = 0;
++		fwspec.param[1] = hwirq - 32;
++		fwspec.param[2] = IRQ_TYPE_EDGE_RISING;
++	} else {
++		fwspec.param_count = 2;
++		fwspec.param[0] = hwirq;
++		fwspec.param[1] = IRQ_TYPE_EDGE_RISING;
++	}
  
- /**
-@@ -307,12 +307,22 @@ EXPORT_SYMBOL_GPL(acpi_irq_get);
-  *	for a given GSI
-  */
- void __init acpi_set_irq_model(enum acpi_irq_model_id model,
--			       struct fwnode_handle *(*fn)(u32))
-+	acpi_gsi_domain_disp_fn fn)
- {
- 	acpi_irq_model = model;
- 	acpi_get_gsi_domain_id = fn;
- }
+ 	ret = irq_domain_alloc_irqs_parent(domain, virq, 1, &fwspec);
+ 	if (ret)
+@@ -887,10 +896,53 @@ static const struct irq_domain_ops hv_pci_domain_ops = {
+ 	.activate = hv_pci_vec_irq_domain_activate,
+ };
  
-+/**
-+ * acpi_get_gsi_dispatcher - Returns dispatcher function that
-+ *                           computes the domain fwnode for a
-+ *                           given GSI.
-+ */
-+acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void)
++#ifdef CONFIG_OF
++
++static struct irq_domain *hv_pci_of_irq_domain_parent(void)
 +{
-+	return acpi_get_gsi_domain_id;
++	struct device_node *parent;
++	struct irq_domain *domain;
++
++	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
++	domain = NULL;
++	if (parent) {
++		domain = irq_find_host(parent);
++		of_node_put(parent);
++	}
++
++	return domain;
 +}
 +
- /**
-  * acpi_set_gsi_to_irq_fallback - Register a GSI transfer
-  * callback to fallback to arch specified implementation.
-diff --git a/include/linux/acpi.h b/include/linux/acpi.h
-index 4e495b29c640..abc51288e867 100644
---- a/include/linux/acpi.h
-+++ b/include/linux/acpi.h
-@@ -336,8 +336,11 @@ int acpi_register_gsi (struct device *dev, u32 gsi, int triggering, int polarity
- int acpi_gsi_to_irq (u32 gsi, unsigned int *irq);
- int acpi_isa_irq_to_gsi (unsigned isa_irq, u32 *gsi);
- 
-+typedef struct fwnode_handle *(*acpi_gsi_domain_disp_fn)(u32);
++#endif
 +
- void acpi_set_irq_model(enum acpi_irq_model_id model,
--			struct fwnode_handle *(*)(u32));
-+	acpi_gsi_domain_disp_fn fn);
-+acpi_gsi_domain_disp_fn acpi_get_gsi_dispatcher(void);
- void acpi_set_gsi_to_irq_fallback(u32 (*)(u32));
++#ifdef CONFIG_ACPI
++
++static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
++{
++	struct irq_domain *domain;
++	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
++
++	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
++		return NULL;
++	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
++	if (!gsi_domain_disp_fn)
++		return NULL;
++	domain = irq_find_matching_fwnode(gsi_domain_disp_fn(0),
++				     DOMAIN_BUS_ANY);
++
++	if (!domain)
++		return NULL;
++
++	return domain;
++}
++
++#endif
++
+ static int hv_pci_irqchip_init(void)
+ {
+ 	static struct hv_pci_chip_data *chip_data;
+ 	struct fwnode_handle *fn = NULL;
++	struct irq_domain *irq_domain_parent = NULL;
+ 	int ret = -ENOMEM;
  
- struct irq_domain *acpi_irq_create_hierarchy(unsigned int flags,
+ 	chip_data = kzalloc(sizeof(*chip_data), GFP_KERNEL);
+@@ -907,9 +959,24 @@ static int hv_pci_irqchip_init(void)
+ 	 * way to ensure that all the corresponding devices are also gone and
+ 	 * no interrupts will be generated.
+ 	 */
+-	hv_msi_gic_irq_domain = acpi_irq_create_hierarchy(0, HV_PCI_MSI_SPI_NR,
+-							  fn, &hv_pci_domain_ops,
+-							  chip_data);
++#ifdef CONFIG_ACPI
++	if (!acpi_disabled)
++		irq_domain_parent = hv_pci_acpi_irq_domain_parent();
++#endif
++#if defined(CONFIG_OF)
++	if (!irq_domain_parent)
++		irq_domain_parent = hv_pci_of_irq_domain_parent();
++#endif
++	if (!irq_domain_parent) {
++		WARN_ONCE(1, "Invalid firmware configuration for VMBus interrupts\n");
++		ret = -EINVAL;
++		goto free_chip;
++	}
++
++	hv_msi_gic_irq_domain = irq_domain_create_hierarchy(
++		irq_domain_parent, 0, HV_PCI_MSI_SPI_NR,
++		fn, &hv_pci_domain_ops,
++		chip_data);
+ 
+ 	if (!hv_msi_gic_irq_domain) {
+ 		pr_err("Failed to create Hyper-V arm64 vPCI MSI IRQ domain\n");
 -- 
 2.43.0
 
