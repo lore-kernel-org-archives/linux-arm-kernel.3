@@ -4,80 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C1DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:12:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A9A5C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MbwoBFfg5pVaSdi+Qssvq+8QdxwNch8vbgxAm8z822M=; b=oDo/PDchyxMBlgVXyfQTjmXQGl
-	GB5juoWQZIQVtByvDLF3Ql/EbhLsKEIjloCbVOqJ+g8Ve6ZEOdwKWQXDRYOwRGujupgLI+7e0rTvk
-	YsIr1Zx4s/vYgyxQ52dFJgw5N5YAwo4G8fcquSNpWTjX5FWANYuAH0wCZT16agw8lLnWPGYAzKh6Q
-	4IxeLZgNBGQTUPrzZb6oo43QunupHUHxocNzL67V+Dad4bv2OCYuZwbJQecOMLxT2khCVSitSO/uv
-	XGpb8ki2b/jmApJ4I9YlwFK2KrFmDgg4e46u9U2D1vuu1sdWMIFJit/OjD4vlJ3iLFRMhi0OMRGPx
-	+VI9O/5A==;
+	bh=l7Bmpx1B1OFaUSgPQarXLFPl0uH+PohveX2hywvmfnE=; b=FVNbq8rIC/IXGCQtSu5CW9zHy1
+	ycg8civRQJDYMapvsZlz/iLbuKJ1z0ZrbkG1HYz3fW0MKVQrlY+TKgG+AHLj0bA2WG4XlVIW8wMEN
+	eH0XEvdVVa3CnNgt4E60XFVaVpuRqVtCd93nJOG5vsnRKAJIZgLbva9G80dxr3ulk/LQJBb/6o6LE
+	Nlp+z77415ZhW2Qhhl48Hh1iRzIkGjOyhSDz15T9JJB9a1trUYALVaa86CgjFi0/PL4oeajDjZcVx
+	SflEuMM5TSNsKsPShM6Tdf8eXYj82jnk9l/4+iKCTZUk6I5mavjAkgo91RmCnzBcfbYmJW8F9ubKM
+	FENeOcYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTl8-0000000DfH5-1I9d;
-	Fri, 07 Mar 2025 09:12:46 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1tqTqM-0000000Dg2E-3afl;
+	Fri, 07 Mar 2025 09:18:10 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTjT-0000000Df7j-2Lf3
+	id 1tqTok-0000000DfmU-1S58
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 09:11:07 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5277MpKU029564;
-	Fri, 7 Mar 2025 10:10:43 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	MbwoBFfg5pVaSdi+Qssvq+8QdxwNch8vbgxAm8z822M=; b=xlqJ5gvN1TnsNDm4
-	1CT8YWBcB/a5XeRyb/I/ol1Rnvx1KlSG991Qw5SL25FfA+1/kLwJCEKmhodmujYx
-	Y2oqilb2hWxwhZaDMWoVY+oGOHvBRR9/bM7nyfENFeJH+NcnoqkSC2rgyPz3XeJA
-	z4v/Hjo3D6+Ub91QfXyPTJ9ak1QUGkh7wJ5pG6ZSvXqe+BMz5gEDdvS6B2UIUdr4
-	BVdL6T8kFTVlSVXmOdA+q1/Kjx48ChQS/0S4f607E9DC0nMECo2GmM8H1O0jm9TN
-	D4p+lrEDeU0e9xh6Zai9P+OLCH1h0ueMxQ47Smx8JPj5MkkgCArHduDdDTp3aS9l
-	44j1dA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 457286vefq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 07 Mar 2025 10:10:43 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id A1001400F0;
-	Fri,  7 Mar 2025 10:09:23 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id BABD85AC8BC;
-	Fri,  7 Mar 2025 09:59:43 +0100 (CET)
-Received: from [10.252.19.16] (10.252.19.16) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 7 Mar
- 2025 09:59:43 +0100
-Message-ID: <dfd831ec-e004-4132-94f0-3bdc755907cd@foss.st.com>
-Date: Fri, 7 Mar 2025 09:59:42 +0100
+	Fri, 07 Mar 2025 09:16:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741338989;
+ bh=l7Bmpx1B1OFaUSgPQarXLFPl0uH+PohveX2hywvmfnE=;
+ b=fKCB3ZkXgkgd94FL2tgf5rfWgT6Ulw8NqjUBCtU4u9nUuc1r1vyTM1m+Qwjz7AfVlh/D5DXuC
+ C57oN/xSWwbIHTkDfpibuJRgIpKZNx2W2lqtKaKc5/v9Ri0r/mQxAKRQofpLW5QIvAixx3S9eNo
+ 9AU3ZV/UWyFVAOGazb/NRCz/0+8mNTLSB7TOozNy6zQJRscQ8ARGEtGpcAvT6ygglWwzQ+5blpT
+ cOLCjkGxhPazs12xknx8b1gftFe5TCbc02nlq2pktPgMuQNKB4/ZY91cXBEWaLRM38OOPI/GrzS
+ /VpMqQlubWXMk0YcjykalEpbK9NowFWaj4YIvT4TvdFQ==
+X-Forward-Email-ID: 67cab95fd992817a57e35d57
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <cbd6d3ee-8ad1-443f-9506-e28240ffb09e@kwiboo.se>
+Date: Fri, 7 Mar 2025 10:16:08 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] spi: stm32: Fix a NULL vs IS_ERR() bug
-To: Charles Han <hanchunchao@inspur.com>, <broonie@kernel.org>,
-        <mcoquelin.stm32@gmail.com>, <alexandre.torgue@foss.st.com>
-CC: <linux-spi@vger.kernel.org>, <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-References: <20250307032530.116837-1-hanchunchao@inspur.com>
+Subject: Re: [PATCH 4/4] arm64: dts: rockchip: Enable Ethernet controller on
+ Radxa E20C
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
+ "David S . Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Yao Zi <ziyao@disroot.org>,
+ linux-rockchip@lists.infradead.org, netdev@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250306221402.1704196-1-jonas@kwiboo.se>
+ <20250306221402.1704196-5-jonas@kwiboo.se>
+ <e0e8fa5e-07a2-4f4f-80b9-ddb2332c27ea@lunn.ch>
 Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250307032530.116837-1-hanchunchao@inspur.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <e0e8fa5e-07a2-4f4f-80b9-ddb2332c27ea@lunn.ch>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.252.19.16]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-07_03,2025-03-06_04,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_011104_227227_8AF0B0F3 
-X-CRM114-Status: GOOD (  15.54  )
+X-CRM114-CacheID: sfid-20250307_011630_722163_5CC4705F 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,42 +87,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Andrew,
 
-
-On 3/7/25 04:25, Charles Han wrote:
-> The devm_ioremap() function doesn't return error pointers, it may
-> returns NULL.  Update the error checking to match.
+On 2025-03-06 23:49, Andrew Lunn wrote:
+>> +&mdio1 {
+>> +	rgmii_phy: ethernet-phy@1 {
+>> +		compatible = "ethernet-phy-ieee802.3-c22";
 > 
-> Fixes: 79b8a705e26c ("spi: stm32: Add OSPI driver")
-> Signed-off-by: Charles Han <hanchunchao@inspur.com>
-> ---
->  drivers/spi/spi-stm32-ospi.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
+> The compatible is not needed. That is the default.
+
+Interesting, however I rather be explicit to not cause any issue for
+U-Boot or any other user of the device trees beside Linux kernel.
+
+Regards,
+Jonas
+
 > 
-> diff --git a/drivers/spi/spi-stm32-ospi.c b/drivers/spi/spi-stm32-ospi.c
-> index 8eadcb64f34a..a544d7897edf 100644
-> --- a/drivers/spi/spi-stm32-ospi.c
-> +++ b/drivers/spi/spi-stm32-ospi.c
-> @@ -835,10 +835,10 @@ static int stm32_ospi_get_resources(struct platform_device *pdev)
->  	if (rmem) {
->  		ospi->mm_size = rmem->size;
->  		ospi->mm_base = devm_ioremap(dev, rmem->base, rmem->size);
-> -		if (IS_ERR(ospi->mm_base)) {
-> +		if (!ospi->mm_base) {
->  			dev_err(dev, "unable to map memory region: %pa+%pa\n",
->  				&rmem->base, &rmem->size);
-> -			ret = PTR_ERR(ospi->mm_base);
-> +			ret = -ENOMEM;
->  			goto err_dma;
->  		}
->  
+> 	Andrew
 
-Hi
-
-No need to copy/paste other contributor's patch by just swapping some 
-words in title/commit message.
-
-This fix has already sent By Dan Carpenter and merged.
-
-Patrice
 
