@@ -4,68 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76E2DC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 04:45:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF221C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 04:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2lcpX+IlnKiqGflIhoKQBvRKuXdx1/MDcNs/9JevPw=; b=HCcPl4OgIugzwR9ugVC3b7Z2iH
-	Ss3kBEL02FVN3WRT+R2qazKxktjcotpQ5j6d7x74nf0OYZMcNCCNpGZWALWhsYhHBM2YsAH+eUWzh
-	C7mHLmIKLHq1q+a2fE8xTJ/WfjRqNVgGM00N0Q68dCt/P26cpWy4Y1Nq753C58zDzn7Qh+oBJPlfN
-	9mT10klc/YaXBm1WdH5W7s9Gv1JTHkggQQ83lBtjYgXqjSd0u8fLkUGLT3YK4lJOxO0gCj5If5iyG
-	/Jhg4O3wy7DkxO92WbJynAEOjISU/mcSl++WfAMeuk4O5Cz3EEKcfbmvVaTF+z3YTkV4c6XDbz5UR
-	slteUcKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v4XNv8CC09SA69nviikFXOXcWlFsUuyKqjKBhX9eIEE=; b=fjcP2nKOEjfBTs+7+euWzQi7EV
+	jpxgoazCpX42kYQ7W65NWjQ1UslmLjL3lvodBYgcEjn6F3yJHFYiihTsLl1oj6+DXStm5hvIvzcct
+	VTDitvSR69obPdOwaj6syqOhod2Zz3vE07FSklGplfDZmdHqjjEFS+eAilAhXRqBw4NeD807D7d8r
+	hEXdhSb5JIHc/wnJKobKx559ST9rqP59vAjkFK+JRSSIQRoLO5GFyR9c/NR+3a/HC3Af1t5WN9dKu
+	xF17/dX/8+1cbBAlNyJCYG89Ubpga/U48OaPXYE3rBSA/TgEl54ft6wb6KFssSlNwQP0J9LdPIGvS
+	LZ41asVw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqPa5-0000000D9Es-3KuL;
-	Fri, 07 Mar 2025 04:45:05 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tqPbf-0000000D9Nc-34Mp;
+	Fri, 07 Mar 2025 04:46:43 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqP8P-0000000D668-0ulf;
-	Fri, 07 Mar 2025 04:16:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 87A8EA45181;
-	Fri,  7 Mar 2025 04:10:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9DFD3C4CED1;
-	Fri,  7 Mar 2025 04:16:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741320987;
-	bh=ajKfc7gigb87SKdIwwoyRysY03B56hMMZRp8G59YjxI=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=CL8qtgn4sJhzjtBviEMGu4ppipSMtJP1w4YUcCjeddS/TRxWje5+TJIy3dXVaUI6A
-	 u5aFCJGR3DzAofl6XVgrJDurLXP0fkkO5TTHU8VlztHuKM3SnugeseRfiprGsKPt1F
-	 eCHE+DV/OdEbO0DNd0r4S0wjHRkpL2+J66I0jkFNx35ap50y+r1uZTWtaVKHQCuMp/
-	 q0K9I1KC1M0XV2CIWBY9Rx8yXkC18p9jUmC8GgN88p8mByq379KjmUD35A/7QVupeb
-	 iLJ7UW5iJEAlTK3uebsBOKmYokopK1R3yHgo7M2n3WZJD/HSLz3aifEIMGKMQZ5oLT
-	 0jFmn7DGsrUlg==
-Date: Thu, 06 Mar 2025 22:16:26 -0600
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1tqPEq-0000000D6pv-11eB
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 04:23:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741321387;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=v4XNv8CC09SA69nviikFXOXcWlFsUuyKqjKBhX9eIEE=;
+	b=dzdE82YikZlYtmmxujbElj47Kqgk1bUK5ZDNKBRPESvN6aKbJALj8xaTxJmdHyO9ktUiHt
+	pUELpk9DAE2yTbQHxaNaxRNaRlZCFE6ScGOchaQSUGTFbS0ffKGXrFupgtmFo3DSLxVaKS
+	BFlk4fUNzjiJaUWIaqubTy3UOV2+7X4=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-302-1JWQnIVUPGKgsOGnmPcuTg-1; Thu,
+ 06 Mar 2025 23:23:05 -0500
+X-MC-Unique: 1JWQnIVUPGKgsOGnmPcuTg-1
+X-Mimecast-MFC-AGG-ID: 1JWQnIVUPGKgsOGnmPcuTg_1741321385
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A6027180AF52;
+	Fri,  7 Mar 2025 04:23:04 +0000 (UTC)
+Received: from [172.64.10.8] (unknown [10.30.34.106])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 962FE1954B07;
+	Fri,  7 Mar 2025 04:23:03 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc5,
+ upstream-arm-next, 14d05f12)
+Date: Fri, 07 Mar 2025 04:23:03 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- linux-arm-kernel@lists.infradead.org, 
- Project_Global_Chrome_Upstream_Group@mediatek.com, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- Richard Cochran <richardcochran@gmail.com>, linux-clk@vger.kernel.org, 
- netdev@vger.kernel.org, devicetree@vger.kernel.org
-To: Guangjie Song <guangjie.song@mediatek.com>
-In-Reply-To: <20250307032942.10447-7-guangjie.song@mediatek.com>
-References: <20250307032942.10447-1-guangjie.song@mediatek.com>
- <20250307032942.10447-7-guangjie.song@mediatek.com>
-Message-Id: <174132098632.2770289.10803747794522136743.robh@kernel.org>
-Subject: Re: [PATCH 06/26] dt-bindings: clock: mediatek: Add new MT8196
- clock
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <25841.125030623230600141@us-mta-302.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Q5uXQTql_vgZbJ3I7SvzkHOBhdprR5ns_EVLEauNr9s_1741321385
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_201629_342915_FB10C5C3 
-X-CRM114-Status: GOOD (  10.16  )
+X-CRM114-CacheID: sfid-20250306_202308_356173_FB4A47CF 
+X-CRM114-Status: UNSURE (   6.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,45 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi, we tested your kernel and here are the results:
 
-On Fri, 07 Mar 2025 11:27:02 +0800, Guangjie Song wrote:
-> Add the new binding documentation for system clock and functional clock
-> on Mediatek MT8196.
-> 
-> Signed-off-by: Guangjie Song <guangjie.song@mediatek.com>
-> ---
->  .../bindings/clock/mediatek,mt8196-clock.yaml |   66 +
->  .../clock/mediatek,mt8196-sys-clock.yaml      |   63 +
->  include/dt-bindings/clock/mt8196-clk.h        | 1503 +++++++++++++++++
->  3 files changed, 1632 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-clock.yaml
->  create mode 100644 Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
->  create mode 100644 include/dt-bindings/clock/mt8196-clk.h
-> 
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
 
-My bot found errors running 'make dt_binding_check' on your patch:
+Tested-by: CKI Project <cki-project@redhat.com>
 
-yamllint warnings/errors:
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
 
-dtschema/dtc warnings/errors:
-/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.example.dtb: clock-controller@10000800: reg: [[0, 268437504], [0, 4096]] is too long
-	from schema $id: http://devicetree.org/schemas/mfd/syscon-common.yaml#
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1704159050
 
-doc reference errors (make refcheckdocs):
+One or more kernel builds failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1704159050-aarch64-kernel
+                   Issue: [upstream] error: initializer-string for array of=
+ 'char' is too long [-Werror=3Dunterminated-string-initialization]
+                          https://gitlab.com/cki-project/infrastructure/-/i=
+ssues/473
 
-See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250307032942.10447-7-guangjie.song@mediatek.com
 
-The base for the series is generally the latest rc1. A different dependency
-should be noted in *this* patch.
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
 
-If you already ran 'make dt_binding_check' and didn't see the above
-error(s), then make sure 'yamllint' is installed and dt-schema is up to
-date:
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
 
-pip3 install dtschema --upgrade
-
-Please check and re-submit after running the above command yourself. Note
-that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-your schema. However, it must be unset to test all examples with your schema.
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
