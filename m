@@ -4,94 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64651C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:37:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB5B0C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fU0HHdQ1hyz6Oi/pxgyRXXgGFlp0DgTNlBw/r19mLUE=; b=oNMdX/eXR4O7HuPONLJ02yxatf
-	9PdeOpt8DUWzyhJWl7NFTDLXm/3o4nAoNI4Z97YVsOLacccJYiCZl/4UMFh46lVKTnDIBc3sRsk/V
-	d4GJn4CdHifG2nBAVbq3L1pS73x1+ge12fNdef/w8YvRnBp7uQqoqJcaQp6G4JfF9ehYyy1DKSIMk
-	9BkQHWXZHqye1beVdbugmpSfZtu9TYjq0zRQvDZQJMGO73O29HpdlYeSMOso0hLI7j4DPmFlOiTT3
-	SBko3ruW+JTGvJElaNdOeJTvJEQbWM9SEa2HYYOhBNTQZ0urhWCTkmv0CKY7F/HCMOhZe1s/XCNcy
-	9rzZD1YA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=R840fbpOCY97ygCHkbEX+Ner86gAnwGHvg1aopa7qhQ=; b=DJiEl27Sy2TI8GzL2nAFSWbwPQ
+	0WAnvBsuTKe788h8K/AfTgSly2YfOMa2ZFI7Rx536xv36jz+ayIeTqqTyzcr+iQCjgQ1mL0optKEE
+	ob/VeQ0JPqx+qlNK4PC2UiLna/TBLygtGdSIu88lOtbEvGXR0bji86Tc6R/SDR9m4FAJzigMHWb/M
+	dx2suXjEbVlsZANdleir1om2/3FqdsQ9zdQl6VCXhqQATJQ2h8baL1FS3Bsy+KGpk0JC9tPDJdWuO
+	dpCWA3YI7fLFSsxVO9DqU4RWMTCoitGpGPVmMOV9eoWr6+EyNMTwmTfeC7lvdBVLPN7HiBRTQfGfE
+	PzB5geeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqU8Z-0000000DjvO-2RSX;
-	Fri, 07 Mar 2025 09:36:59 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tqUAA-0000000Dk9g-1Rpf;
+	Fri, 07 Mar 2025 09:38:38 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqU4x-0000000Dj1M-2LEr
+	id 1tqU60-0000000DjFY-18Oy
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 09:33:16 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5ded500589aso246696a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 01:33:15 -0800 (PST)
+	Fri, 07 Mar 2025 09:34:21 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43bc1aa0673so6902425e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 01:34:18 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741339994; x=1741944794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fU0HHdQ1hyz6Oi/pxgyRXXgGFlp0DgTNlBw/r19mLUE=;
-        b=R9gWkMLrzJUCsy0Nce+HXb+6FI9Of9JLAEdPwsc0cUqJsnnC8nImAkIOutUsgHo/ix
-         qYoop9cuHV+ktJM70t8JljdpeB4F23OIEgM+9d3LQzjEW7c1wDaJmItBvsNON8c+itHZ
-         RkxJUB6hVePRuHR1h0U1BAmNhWFT0YCkIamEWZx0mkBvKjNaaXS6w7YwGIjiShRbDqVF
-         EkrSdJi0d+2k5gpVRvuwp7pT+xm/VcaZ+cgr92rlbcP04wPT0HnEBS71Pth/+Zj97PxZ
-         rmpMJ8Up0fpxNYpukTgfiQ7AbbIaheTIBC8AMZUIMfzyByZYkZlGCkAMgSpMOy9VdE0u
-         hk6A==
+        d=google.com; s=20230601; t=1741340057; x=1741944857; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=R840fbpOCY97ygCHkbEX+Ner86gAnwGHvg1aopa7qhQ=;
+        b=T+xUV7sINNsWxU5v5k1L0pqEoDPxiSrtcplFI5JQAtNqndKFUPe+l2xK7lhK27xPI6
+         H/lN+YUCIYUF1EpP0jhW+5HALitYutIl0ZEal/2HgIZ8bDclHf2bh2/3ZLkGwUmRHp3v
+         CFdSqTP0h0/FFZMexdSjGtzRfP2wdgAqvVUMpJvFhFYJaDOyzJbneJ7uzkW+e3jTx5IM
+         JAoTn9cNsSlZvqO5ZIblNxiW0YqyZ7A+wL/eXKo0qPAhEQB+aVOFbzytMeK2jRuSAGY7
+         SWihemkPJ4MdBwFHpi5ApLCer7btAwL+dEjGTeMNOCXHV055OaFmJ5sFAaYc/wukR39t
+         wXXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741339994; x=1741944794;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fU0HHdQ1hyz6Oi/pxgyRXXgGFlp0DgTNlBw/r19mLUE=;
-        b=qPPrPdysLIj5xxQ2XJYDs5dk1UXlTxugg7tTZG/PzU4QqodYDVQJ3beDSAicfZ1q7Z
-         iX9X9wV5j1lIBAJw5NTkBNUvwB1x4wGpbIWpGT++aokI+MdnxOdPBIYwJFaTfuRqcdYD
-         hyDYrdk09dUn90r/LdWJh81fJ28gBpbPXu18mWVBXCdw8CqDU/fptSZRiAvwfuFlVg0K
-         yTJM/QbV30l8sR2NR0Ewk9AKFJDJJajF7sK4/TQ3NhxfV8jHqhfoD9/F0j3lR+hlGw1R
-         QzuHpmpAtnc6YwYVPDrauBN0zQdz+GVuXoGasHC6x0tgnlMwcMe7Bu6s3nEx2IJvlKpm
-         LWEw==
-X-Forwarded-Encrypted: i=1; AJvYcCUiDb40LAU56r/Bgfhn5onMDCsKo0irNkBNrOIKrYIMUj/6W2sOpohV7EmzlfuYsErwzkStn8kkTdRZbVVLsHVR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjFiREjb9Ap8sTpawjoND961GgjIkRKNu8kLlHS6+HbpQhOe0a
-	6oc8wQY4mfmVPBZ8RFY8R5JXuskNdrshH2tmoCvn/SSb6v/dNZUQB/Z43INuxSM=
-X-Gm-Gg: ASbGncuj5V/G3/jWKJZsiEtfmTID0yDGUMRuzNcUGrFukY5hN3Qep2OhKcAh0sd3IvM
-	xZYsIa0xVdwABBgDZgevNG/uxx68DiJX41nDaEW2+LhbIyjkOBoVWV38laeqMFxoqkGYLttWzjk
-	8DILrO/JgVawkcdj1NHLlwPQ7SMGdOwRDClF0muLaKlVARvfgLLDdi4bCq5ecTW+SWF6UxKQrVf
-	+gQPpsseRIXmbmvaWAMvlB4eoaQJdE8AsI6/vLus0YsBGGgJK8X4YPkykME2jk/yqf2goP2zL+P
-	T44TfbHsZLGIygIlHLOr35Xt3C9TNIepzkVGY/eRJNLMdGDAIPUhB2u4FGg=
-X-Google-Smtp-Source: AGHT+IEAJGcNFFbHug7ITx5iMdjawlkckyUu9cdR2GxHKINK8WVBM4YprSaxysEv0Z5OJYbITLcdkQ==
-X-Received: by 2002:a05:6402:51c9:b0:5e5:e17f:22fc with SMTP id 4fb4d7f45d1cf-5e5e22ae3c4mr1030915a12.2.1741339993683;
-        Fri, 07 Mar 2025 01:33:13 -0800 (PST)
-Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a82ecsm2275091a12.37.2025.03.07.01.33.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 01:33:13 -0800 (PST)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Daniel Golle <daniel@makrotopia.org>,
-	Aurelien Jarno <aurelien@aurel32.net>,
-	Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-	Olivia Mackall <olivia@selenic.com>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-crypto@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v2] dt-bindings: rng: rockchip,rk3588-rng: Drop unnecessary status from example
-Date: Fri,  7 Mar 2025 10:33:09 +0100
-Message-ID: <20250307093309.44950-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+        d=1e100.net; s=20230601; t=1741340057; x=1741944857;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=R840fbpOCY97ygCHkbEX+Ner86gAnwGHvg1aopa7qhQ=;
+        b=I3X0UqIcVyab0vGTjlgp9mMT7XWBdp6ph6X+BracCdEH9oapnBZ9M1HHeuqOfgd+x1
+         qUCdIWCKiW91FeeOMldbOITYG3sIya0LFKCNNubdjLZZSnePqXNKLxfmKHJKm1W/TjSI
+         fNte8KK63dj45LMDgiRRqhWnJKOw06OZ5TDK6MoWc9mb4c3CQa/XuUUKvCGzoEvElqda
+         yu+F1A8AbDUe/wkoCcQUCLdPZrzzM3EINtVdJ4nqE8I1zNXRCZoSb27/O7g/ePmGlb2F
+         1uXu1AlLX3nWlj1VhzBQpQEYOdeXzCyjjw8e4v2YA1jU8z43RZRLo1wGsHZqltpy/PZ2
+         t3UQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV/RHA5X612ElzLuyKbLsqOKNUzj9xlYQC/knUAF90a9hw2QgpfU4+xu3vZEIXT9MrUii6hTiBxvMhpmjyBmFu3@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJ/p+9WsdbSZ+1MnYD+4fW9KqxNphcVeHkEUb+Wf9iccer+2e1
+	FWjnTxghVqkuH6fzxYaJ9AnEvoBW+pzZ2XJyd6HjU/n1fUmCaDj+olQfrSQZXSp9y2tyH05eOzv
+	oHuCxt9wYkeRv/A==
+X-Google-Smtp-Source: AGHT+IFY1Xk8hcEAqu7olINreEmrik4Yk5IQrPDjwNCaSq6h11n3n3dB0r47iG1PlbW7axsMkqZodWf0on/+u8o=
+X-Received: from wmbfl19.prod.google.com ([2002:a05:600c:b93:b0:43b:cfc3:aabb])
+ (user=aliceryhl job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:4f8b:b0:43b:d12a:40e1 with SMTP id 5b1f17b1804b1-43c5a611738mr17712685e9.18.1741340057664;
+ Fri, 07 Mar 2025 01:34:17 -0800 (PST)
+Date: Fri, 7 Mar 2025 09:34:15 +0000
+In-Reply-To: <20250306185447.2039336-1-cristian.marussi@arm.com>
+Mime-Version: 1.0
+References: <20250306185447.2039336-1-cristian.marussi@arm.com>
+Message-ID: <Z8q9l0vDTLpbo8UR@google.com>
+Subject: Re: [PATCH] firmware: arm_scmi: Balance device refcount when
+ destroying devices
+From: Alice Ryhl <aliceryhl@google.com>
+To: Cristian Marussi <cristian.marussi@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	arm-scmi@vger.kernel.org, Sudeep Holla <sudeep.holla@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_013315_610996_9EA7ED11 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250307_013420_306956_9D89188A 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,34 +90,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Device nodes are enabled by default, so no need for 'status = "okay"' in
-the DTS example.
+On Thu, Mar 06, 2025 at 06:54:47PM +0000, Cristian Marussi wrote:
+> Using device_find_child() to lookup the proper SCMI device to destroy
+> causes an unbalance in device refcount, since device_find_child() calls an
+> implicit get_device(): this, in turns, inhibits the call of the provided
+> release methods upon devices destruction.
+> 
+> As a consequence, one of the structures that is not freed properly upon
+> destruction is the internal struct device_private dev->p populated by the
+> drivers subsystem core.
+> 
+> KMemleak detects this situation since loading/unloding some SCMI driver
+> causes related devices to be created/destroyed without calling any
+> device_release method.
+> 
+> unreferenced object 0xffff00000f583800 (size 512):
+>   comm "insmod", pid 227, jiffies 4294912190
+>   hex dump (first 32 bytes):
+>     00 00 00 00 ad 4e ad de ff ff ff ff 00 00 00 00  .....N..........
+>     ff ff ff ff ff ff ff ff 60 36 1d 8a 00 80 ff ff  ........`6......
+>   backtrace (crc 114e2eed):
+>     kmemleak_alloc+0xbc/0xd8
+>     __kmalloc_cache_noprof+0x2dc/0x398
+>     device_add+0x954/0x12d0
+>     device_register+0x28/0x40
+>     __scmi_device_create.part.0+0x1bc/0x380
+>     scmi_device_create+0x2d0/0x390
+>     scmi_create_protocol_devices+0x74/0xf8
+>     scmi_device_request_notifier+0x1f8/0x2a8
+>     notifier_call_chain+0x110/0x3b0
+>     blocking_notifier_call_chain+0x70/0xb0
+>     scmi_driver_register+0x350/0x7f0
+>     0xffff80000a3b3038
+>     do_one_initcall+0x12c/0x730
+>     do_init_module+0x1dc/0x640
+>     load_module+0x4b20/0x5b70
+>     init_module_from_file+0xec/0x158
+> 
+> $ ./scripts/faddr2line ./vmlinux device_add+0x954/0x12d0
+> device_add+0x954/0x12d0:
+> kmalloc_noprof at include/linux/slab.h:901
+> (inlined by) kzalloc_noprof at include/linux/slab.h:1037
+> (inlined by) device_private_init at drivers/base/core.c:3510
+> (inlined by) device_add at drivers/base/core.c:3561
+> 
+> Balance device refcount by issuing a put_device() on devices found via
+> device_find_child().
+> 
+> Reported-by: Alice Ryhl <aliceryhl@google.com>
+> Closes: https://lore.kernel.org/linux-arm-kernel/Z8nK3uFkspy61yjP@arm.com/T/#mc1f73a0ea5e41014fa145147b7b839fc988ada8f
+> CC: Sudeep Holla <sudeep.holla@arm.com>
+> CC: Catalin Marinas <catalin.marinas@arm.com>
+> Fixes: d4f9dddd21f3 ("firmware: arm_scmi: Add dynamic scmi devices creation")
+> Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I was not able to reproduce the memory leak after applying this patch.
 
----
-
-Changes in v2:
-1. Drop unnecessary full stop in subject prefix after ':'.
-2. Add Rb tag.
----
- Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml | 1 -
- 1 file changed, 1 deletion(-)
-
-diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-index 757967212f55..ca71b400bcae 100644
---- a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-+++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-@@ -53,7 +53,6 @@ examples:
-         interrupts = <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
-         clocks = <&scmi_clk SCMI_HCLK_SECURE_NS>;
-         resets = <&scmi_reset SCMI_SRST_H_TRNG_NS>;
--        status = "okay";
-       };
-     };
- 
--- 
-2.43.0
-
+Tested-by: Alice Ryhl <aliceryhl@google.com>
 
