@@ -4,114 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32CAC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4AABC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:43:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9SEfoAFu8/oHpZxG6qPAzqkRftJzPKDIOgBhvzS+uIU=; b=fyLiZAZ2+uNHD+Zq/4MiVl2nGo
-	TrnOtxIu+QdKmGX+OWyRYpBSiXEhtAqt43MDUJLtk86CB1nGnlcWhBMAIdsZYuImZXy4NcwXv22ca
-	Rkztd1d1zpqnWhCE9ocVt+0MkMGchDLAGFQdx5iS/YHBnpOTttV9+/DQ0xSeDzCTxsTbSebLhuQml
-	ZYtjkuT6Xrz1rGWSZWBAd2k+PuIEI9kaMNRg1nUzLkSJdUolwNNe9VcME6lgHtQk3hz1exXON1Lh7
-	J6rZHMFs+R9xCMENQcG5wOAH9rxOvxkELu84Ni+aLU12IIuJgsm/3ZfJCqShZG3idOR/5YJZa5Z2q
-	h883Uviw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IrUixsbCmGFc3Mb5jVerQvdFB2Sf4Sem97OC8v/IYVw=; b=uJhnbo5MPxJwoRMSiQTNJSDhY2
+	HYgxR1dPrvwxCSvJpjmxiEI8umh9cCIGZOMFZJsG0lkUP0cfVO0tuTszlVRuhbePAwBitPRrXcYN6
+	38I8XormoOypl8RfdgLtSJ/jdcTV3Eoz0UsrFkiV/kqDkTpJp2zn+BE8R74YYTOGx89neQzgmRYc2
+	AcPnfcQX1hcFEXoCIjIv01Eb26gAyiqJnF7UZSEagJZ9TNIRYrMPR1xawfOPqNfBnAZMUVJn7foB6
+	TxYMwiVqIbxRdj8BfahfSZyLkEIOJ2+zlGiPAsG53iC8uozUqgvf7xxRnawZRgjdm2Z04QHxScOg5
+	3ZGKOg5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZpO-0000000EjI4-47Tt;
-	Fri, 07 Mar 2025 15:41:34 +0000
+	id 1tqZr0-0000000EjsJ-0XiU;
+	Fri, 07 Mar 2025 15:43:14 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZhb-0000000EgUV-13Zq;
-	Fri, 07 Mar 2025 15:33:32 +0000
+	id 1tqZj6-0000000EhBn-23R0
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 15:35:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D65475C5AA9;
-	Fri,  7 Mar 2025 15:31:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBF8EC4CEE3;
-	Fri,  7 Mar 2025 15:33:24 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E67165C5A39;
+	Fri,  7 Mar 2025 15:32:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE02C4CED1;
+	Fri,  7 Mar 2025 15:34:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741361610;
-	bh=fucjhRt4B4i0MTYMnz37VVRApNqvklUwdMNx/EW2P5Y=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=QZ/JP1O2zukR7U7fBlk9fa48mjUe5AXkUXRMmycfdndQ1qw2DCMMPm9dvJrrXRXkd
-	 JWIP9KeMxkEXY9AEGh93YG1IVUO/72+K6yrhwp4Reh6tto37Q7kW+6zg1AAVZ4iVNQ
-	 5FWVR/g0cRoNm2il2BCh9XYz7ndB2+Cb/cRA75+/blUj0BysXNcdiltZx0Rfrgmszt
-	 yv6u+NDa/CoUOwtmGc6OXrlru9mgsNIMg4vsBc1l86ZoEGNn2n0by71x4nQ2IVWgbi
-	 YPZl87JZJLqTdu65mHhmwfGputu1IA3P6R3j2CzyyNLti0Dc8fMJTjDD/CCcwXe0y3
-	 n2+a9whRnFTug==
-Message-ID: <40bb42ca-52f5-4579-a9c7-58e6ff5dbbb5@kernel.org>
-Date: Fri, 7 Mar 2025 16:33:22 +0100
+	s=k20201202; t=1741361703;
+	bh=Yy8lewVJwdLyTidZznICK53OeIQJkdUqGtk8gBdoVns=;
+	h=From:To:Cc:Subject:Date:From;
+	b=XppAGao6CvdwA1HttSn95LUSxPj9MadeAM0KoLcpm9PCQl32MJQEYB6yIVFWJLjkW
+	 zb+5DYuv9VduXbP9ob7u2GOWZalo4hLR/m7aQJGlr13ZVQE0WIPXs906vz2EtxFnTH
+	 F+iuayLBSsgB05LdpwU5JS8VXZLoyystD+ncHM8h1FOfCaukGVEb2jAawM54cVerfG
+	 s8nEQrnjh8SNKObc6JcRnf/+btl9/uuQi7OiQeN5mp1pWIcTNEPhF3BV2lZDmJyHiG
+	 x0TY3Tp8r7rxpDihA1gHI2sJOf4ksOP44MR8pLQ+YZEW3AiHhm6fq7DhwWJuLCUAdf
+	 DEBZLv4o1Xx8A==
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ingo Molnar <mingo@kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	James Clark <james.clark@linaro.org>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	Clark Williams <williams@redhat.com>,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Andi Kleen <ak@linux.intel.com>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Ingo Molnar <mingo@redhat.com>,
+	John Garry <john.g.garry@oracle.com>,
+	Leo Yan <leo.yan@linux.dev>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Michael Petlan <mpetlan@redhat.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Tavian Barnes <tavianator@tavianator.com>,
+	Veronika Molnarova <vmolnaro@redhat.com>,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH 1/1 next] perf libunwind: Fixup conversion perf_sample->user_regs to a pointer
+Date: Fri,  7 Mar 2025 12:34:48 -0300
+Message-ID: <20250307153448.250871-1-acme@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/14] ASoC: mediatek: mt8196: support CM in platform
- driver
-To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Linus Walleij <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
-References: <20250307124841.23777-1-darren.ye@mediatek.com>
- <20250307124841.23777-11-darren.ye@mediatek.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <20250307124841.23777-11-darren.ye@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_073331_387710_AA194A56 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_073504_633517_D29DB1B8 
+X-CRM114-Status: GOOD (  16.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,26 +92,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/03/2025 13:47, Darren.Ye wrote:
-> +int mt8196_enable_cm_bypass(struct mtk_base_afe *afe, int id, bool en)
-> +{
-> +	int reg = AFE_CM0_CON0 + 0x10 * id;
-> +
-> +	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_BYPASS_MODE_MASK,
-> +			       en, AFE_CM_BYPASS_MODE_SFT);
-> +
-> +	return 0;
-> +}
-> +EXPORT_SYMBOL_GPL(mt8196_enable_cm_bypass);
-> +
-> +MODULE_DESCRIPTION("Mediatek afe cm");
-> +MODULE_AUTHOR("darren ye <darren.ye@mediatek.com>");
-> +MODULE_LICENSE("GPL");
+From: Arnaldo Carvalho de Melo <acme@redhat.com>
 
-If this is module, where is Makefile and Kconfig?
+The dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs optional") misses
+the changes to a file, resulting in this problem:
 
-All previous comments about missing kerneldoc also apply.
+  $ make LIBUNWIND=1 -C tools/perf O=/tmp/build/perf-tools-next install-bin
+  <SNIP>
+    CC      /tmp/build/perf-tools-next/util/unwind-libunwind-local.o
+    CC      /tmp/build/perf-tools-next/util/unwind-libunwind.o
+  <SNIP>
+  util/unwind-libunwind-local.c: In function ‘access_mem’:
+  util/unwind-libunwind-local.c:582:56: error: ‘ui->sample->user_regs’ is a pointer; did you mean to use ‘->’?
+    582 |         if (__write || !stack || !ui->sample->user_regs.regs) {
+        |                                                        ^
+        |                                                        ->
+  util/unwind-libunwind-local.c:587:38: error: passing argument 2 of ‘perf_reg_value’ from incompatible pointer type [-Wincompatible-pointer-types]
+    587 |         ret = perf_reg_value(&start, &ui->sample->user_regs,
+        |                                      ^~~~~~~~~~~~~~~~~~~~~~
+        |                                      |
+        |                                      struct regs_dump **
+<SNIP>
+  ⬢ [acme@toolbox perf-tools-next]$ git bisect bad
+  dc6d2bc2d893a878e7b58578ff01b4738708deb4 is the first bad commit
+  commit dc6d2bc2d893a878e7b58578ff01b4738708deb4 (HEAD)
+  Author: Ian Rogers <irogers@google.com>
+  Date:   Mon Jan 13 11:43:45 2025 -0800
 
-Best regards,
-Krzysztof
+      perf sample: Make user_regs and intr_regs optional
+
+Detected using:
+
+  make -C tools/perf build-test
+
+Fixes: dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs optional")
+Cc: Adrian Hunter <adrian.hunter@intel.com>
+Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
+Cc: Andi Kleen <ak@linux.intel.com>
+Cc: Charlie Jenkins <charlie@rivosinc.com>
+Cc: Ian Rogers <irogers@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: James Clark <james.clark@linaro.org>
+Cc: John Garry <john.g.garry@oracle.com>
+Cc: Kan Liang <kan.liang@linux.intel.com>
+Cc: Leo Yan <leo.yan@linux.dev>
+Cc: Mark Rutland <mark.rutland@arm.com>
+Cc: Michael Petlan <mpetlan@redhat.com>
+Cc: Namhyung Kim <namhyung@kernel.org>
+Cc: Peter Zijlstra <peterz@infradead.org>
+Cc: Tavian Barnes <tavianator@tavianator.com>
+Cc: Veronika Molnarova <vmolnaro@redhat.com>
+Cc: coresight@lists.linaro.org
+Cc: linux-arm-kernel@lists.infradead.org
+Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
+---
+ tools/perf/util/unwind-libunwind-local.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
+index 16c2b03831f39afc..cc0e41f2c2f2ef10 100644
+--- a/tools/perf/util/unwind-libunwind-local.c
++++ b/tools/perf/util/unwind-libunwind-local.c
+@@ -579,12 +579,12 @@ static int access_mem(unw_addr_space_t __maybe_unused as,
+ 	int ret;
+ 
+ 	/* Don't support write, probably not needed. */
+-	if (__write || !stack || !ui->sample->user_regs.regs) {
++	if (__write || !stack || !ui->sample->user_regs->regs) {
+ 		*valp = 0;
+ 		return 0;
+ 	}
+ 
+-	ret = perf_reg_value(&start, &ui->sample->user_regs,
++	ret = perf_reg_value(&start, perf_sample__user_regs(ui->sample),
+ 			     perf_arch_reg_sp(arch));
+ 	if (ret)
+ 		return ret;
+@@ -628,7 +628,7 @@ static int access_reg(unw_addr_space_t __maybe_unused as,
+ 		return 0;
+ 	}
+ 
+-	if (!ui->sample->user_regs.regs) {
++	if (!ui->sample->user_regs->regs) {
+ 		*valp = 0;
+ 		return 0;
+ 	}
+@@ -637,7 +637,7 @@ static int access_reg(unw_addr_space_t __maybe_unused as,
+ 	if (id < 0)
+ 		return -EINVAL;
+ 
+-	ret = perf_reg_value(&val, &ui->sample->user_regs, id);
++	ret = perf_reg_value(&val, perf_sample__user_regs(ui->sample), id);
+ 	if (ret) {
+ 		if (!ui->best_effort)
+ 			pr_err("unwind: can't read reg %d\n", regnum);
+@@ -741,7 +741,7 @@ static int get_entries(struct unwind_info *ui, unwind_entry_cb_t cb,
+ 	unw_cursor_t c;
+ 	int ret, i = 0;
+ 
+-	ret = perf_reg_value(&val, &ui->sample->user_regs,
++	ret = perf_reg_value(&val, perf_sample__user_regs(ui->sample),
+ 			     perf_arch_reg_ip(arch));
+ 	if (ret)
+ 		return ret;
+@@ -808,7 +808,7 @@ static int _unwind__get_entries(unwind_entry_cb_t cb, void *arg,
+ 		.best_effort  = best_effort
+ 	};
+ 
+-	if (!data->user_regs.regs)
++	if (!data->user_regs->regs)
+ 		return -EINVAL;
+ 
+ 	if (max_stack <= 0)
+-- 
+2.47.0
+
 
