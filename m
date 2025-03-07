@@ -4,58 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5663AC282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 05:11:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A58CC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 05:28:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gZfaWFrnyRTRlDZleXMbzRz2449564iW/nkLH7vcD3I=; b=JXpZK3pOP52vtnMakkYPYR9kjQ
-	KxvCnKLUeJhT5vCtY1N9KjDtQsrOtUKZW4O5NJ8VP80vVWM6MUmWf3PfmM9WMR+pjgU2w6gZgk2dW
-	ovqWahLXaNZdJZhtRRE4+bVe/v+b+31g+oMOTe0VcbxUCfICtGrr1ozs1X7z8A1KqZJ9GTnHdj9+4
-	RRKmUJS7SWXSPqxBfir6Z25+IbHCx/nDA/Vsoqs8G0XvpMZ3krVtQvEz2Q9LLiKXAuyOUIArjA2BR
-	qa4dPr/jEG+umLTP5TNH4UiuNM7OwGQDegaQoa/aGjvODzC4oGlyV9SnDb9lo3DWm6noftQfvt5bD
-	CFiEH+hA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EKKkZXzY9c4q96XtpktiMNrtD9uE58f7VtgJ5KCKcKo=; b=rf9Y9vZdvvMG6r9/1tNwkLRtnz
+	8kStsv/QI5dnr/4OhAj80VEdW8M8YGz5WB7ww4b82aNLzwS+lSRULy4LWKRxrx++cXMqe9PuQFUZN
+	GFInrk2xlkIIbsoAT74nUerJiLRu6ox//icQ8PGbImfU0XSFPQHD/b5Zwbxa0ZnlfWyTyclMok4vD
+	cfDDMRvZfLhXO3IanrG7RaesBcKmRTDhdb0HhbIPtenoQlcP8HvrGWeOpFhtkntB4CjSMeMG2lIvG
+	2udQ21Qz/eUiN3C8+7JEFVW9+GPbYiRY/M7VohHP82+1Um2A2QiF5JIcHCDgDVxwoYuLSDeLSfawT
+	aGp3JGVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqPyy-0000000DBRg-42mw;
-	Fri, 07 Mar 2025 05:10:48 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqPxL-0000000DBFh-0vVR
+	id 1tqQGK-0000000DCk7-05eU;
+	Fri, 07 Mar 2025 05:28:44 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqQEh-0000000DCdW-47Jz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 05:09:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F939150C;
-	Thu,  6 Mar 2025 21:09:16 -0800 (PST)
-Received: from a077893.blr.arm.com (a077893.blr.arm.com [10.162.42.6])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 054D83F66E;
-	Thu,  6 Mar 2025 21:08:58 -0800 (PST)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: [PATCH] arm64/mm: Define PTE_SHIFT
-Date: Fri,  7 Mar 2025 10:38:51 +0530
-Message-Id: <20250307050851.4034393-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Fri, 07 Mar 2025 05:27:05 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=CEs6OB0/1zIHHpWCKTAV2p6dFHWNa6BDtK9lHcGpjKH/mL7Y0pJr2WmGM4lmZ468j6S1ROo24FydZsEixHMAY8iDdvAp/XKR2P7kR6ivpMPu6NWtUMghUyAB4343xp0bDthE7+d7nAVV2qXSzFhaFgKIzpNV5C3ruDCZSeAN34S7D76zfV0REdMGC/NfWFdD8xCj7A9Eah7iRxuajsRhjxd99kBhh6ikmtWS+DBM8lq5AEPqlON57W5nVfl+/D6q/oGOZVKQnTx+24Ywi0nciNtdGIB4pN4fyFBg2XRh0UvvROJBSNzp6enn471MChHhHGcHxVHFmrrfzYCyvWQLtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=EKKkZXzY9c4q96XtpktiMNrtD9uE58f7VtgJ5KCKcKo=;
+ b=v/0Yfnb7P5NbapCuR2rFoCXHVOCqxR4qvDRr1/a2z+VPdRtZ3tZ+a54Sm6tTRFvYbReQ1vTrt8sbmWcBHuYIm1acf41otCiF5d3MiXvcoBc3Upbg7psAmlmNAzyeVuUeRi58uG8kpYNX1PuA/U8Se72iOK2UiaOMEoZ2bNIwEGiAFRF8xR/wxrL52mh3ENQmF2PmJxfm5ARnHSBc+8dK2rjWVXTRmijKAzNyfQA9WPY5cdCCDJMbYCt9qOHev6E/uDExbn0wgtTnNyMcBK815hYygSDHfo56Plu2UgHPAqAKaHIkgeJtFM+sK3rIVmwBM5dqDigBkADaT6h6vn+RVA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=EKKkZXzY9c4q96XtpktiMNrtD9uE58f7VtgJ5KCKcKo=;
+ b=ic1lparpwKKPv8raQnhgSd+0tc8kVeuISNsyeSyiDDDyKgMuF3RNYCD5uu8eC212l82CYSFfN/iOYh9u3SIowGZps/iUKWUGXTdQGI1vDiE7WYrZ7Fz3RI4/OpQHvAWfBboPd/zES253D4as9mYV+usmUa1BF6xlxKyhB64yAGt/FgC8DaL9yjMM0C80Z9kdTmiJ/b1NrzWpXSpzo5FgVx1loKGSZ5eNds9i8LuKXUjibMFMlMk7oSDAFIsn0KTNhQQsKjnDu9ezJ+kwiFLc2UK+FZ6VG+SlmvdKt8UyQKH491Jl4OoQVn+8FHneBwbg3WyKvIiM5Fat7TbP1MAQIA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by PAXPR04MB9679.eurprd04.prod.outlook.com (2603:10a6:102:23d::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.19; Fri, 7 Mar
+ 2025 05:26:54 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::d1ce:ea15:6648:6f90%4]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 05:26:54 +0000
+Message-ID: <2a24baaf-343b-442e-8d43-7238eaa01272@nxp.com>
+Date: Fri, 7 Mar 2025 13:28:05 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/imx: legacy-bridge: fix inconsistent indenting
+ warning
+To: Charles Han <hanchunchao@inspur.com>, andrzej.hajda@intel.com,
+ neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com
+Cc: dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250305103042.3017-1-hanchunchao@inspur.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20250305103042.3017-1-hanchunchao@inspur.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0037.apcprd02.prod.outlook.com
+ (2603:1096:4:196::8) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|PAXPR04MB9679:EE_
+X-MS-Office365-Filtering-Correlation-Id: 832b5f7f-e221-469f-4462-08dd5d38abea
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?d3h2Sy9uTGJna3NXOVZ1NmZIVjAybm9jYTNkWlRtZS9XcHBVRzhkQzBIV1BK?=
+ =?utf-8?B?dGdBSHN1Zjl3clVSbzBVRHdWNG5QVXhVQkkzREJpbmpzUWFYWjBqWWpvdk1o?=
+ =?utf-8?B?MFU2TkVOQVdIei9mdzdzYWlJOGFqdVZ1VTdSY0lLVFNqeVFVenA3cjBBdWVG?=
+ =?utf-8?B?djdZTE9PbUdIaklJS3pQUHN6d3lRSWUzdzNTMC8vMEY5RlJEQ0dJaG02YkdS?=
+ =?utf-8?B?WWNHMG9ET1V6a2Jja0lBaExZUWdnU0FPM00yTmNnWWowUmMrWjByQ2xTTU9q?=
+ =?utf-8?B?UWFUczI5L3ZJdUkwd2dOSG9PdC8zbWhEZTJ6OFh3MWZ1YVltdytzYmIrZkY2?=
+ =?utf-8?B?T0NWeGpXeU1ZVks1ejNuZTBQZ2JkRmdtYWVDVCtYMUxjM01DcnRNdndGdUZs?=
+ =?utf-8?B?NDIyL2d2cjI4TVNvTlREUTRtcm5vMzlRaWQvVFRHYzhpSmhHNVZJdnFlVno2?=
+ =?utf-8?B?NzlOZzJ4M3pXQ1A3RGlMcXhreW9WWXdQT2oyQjhCaFEyM1NFaXl6eWY3eUZN?=
+ =?utf-8?B?blhyTUw2cHZWZWpKUXRUUnRQNlBWb0cyYkJkelJ5YmpKN2VNRG1kVlZiK2Vh?=
+ =?utf-8?B?MURBQ2RtaFdBOVlpSmxPUjZjUW5EVTd0V0Jzb0hPYjF5bGh4S1lJT2t4czBM?=
+ =?utf-8?B?aGRLclJ1Z1VzMXZVZ1BoUkdHTkp5a2I0RnBBNjRFTUl1SEpZSHpaU0pSc2xa?=
+ =?utf-8?B?TlZzMWszY0V1eTZxcEZkK1BOTDJoMFF6NTlRQnZSdFZlcWwwOFhUb3hWV1JC?=
+ =?utf-8?B?ai9aTnBuQWFyQzZwT2V4OXgrZmdWTzh4cWRaNmF3YWxxRkp4N00wVjVxZEZK?=
+ =?utf-8?B?MjN1VWVRZWs2em84aXRVcEFXVkNXWTVyQWhaZmxuUGxFOFVQWFNpYm9BZDhi?=
+ =?utf-8?B?SkpJcWZrREhkRWdUR1dlWWE4ekhITGVCNDZPS2RKNnFURk5ZekVxdUxJSHY1?=
+ =?utf-8?B?RkkrR3Blblp6TEZVZ0lLNGVMRlRGWHIyS3JkUUFOUmF1OGFRbVBUYUEvM0hC?=
+ =?utf-8?B?akFTajF2Z0RsZXZQekVWZEhMc0FaSjltRllWbEpGSXNLVi9yVWp1Y3hHbXpQ?=
+ =?utf-8?B?NnNCTjBhOFI4dWFYQklpVStJNy9sTnlYVGpRL3hqMEloVkNFUnUzSnlWcFNI?=
+ =?utf-8?B?cFJmVjlpU1IwME9UcVp2NWFGYjd5RmlJcDhvQ3V1dzQ5c2I2N01MZXh5VlNU?=
+ =?utf-8?B?RmpNR2NvRjAyM2E2RW44T0xVQ1BxUVZGeDVERGRleTNjVU1OSjN0UDZzZXRv?=
+ =?utf-8?B?WTZMQUxMdEE2WlBWbStoa0llWWNCVlM1Wi9LMXYxNHZXVWp6Y0RhdjNHaS9F?=
+ =?utf-8?B?WHZKemtQRmFrdHZORWdGb2o1QUVwTGZWS08vZHlNWDkyRHVUQ25QRlR2aE5W?=
+ =?utf-8?B?UnkxMDh6cjN4ZVVCM0NkRitxMWtKZVVRVlMrRTlvYW5sSU5peDlXRlJsTGl0?=
+ =?utf-8?B?aTlJVlpvY0ZQYkd4dUY4Y2xTdlVpLzZDWURSMFlSbDBRbktqOTNyMkpacitU?=
+ =?utf-8?B?UGJLUDJBek1paTZuaDVBUFcybFpIcFd5c2NVUDNCc3F2OUdSUVY1Ty9OVHZ4?=
+ =?utf-8?B?emJ6d3RjcmhjT1pzMFVQeEF4akdCRDVxQVBVTWU5ZFF0SENsNnFMZ1lDSTkx?=
+ =?utf-8?B?RXBlbmJKZnpZWkZuUFgrY2xldGhVbFR1dEtFL2RTaWNSVDY4aW1ZbVEyR01O?=
+ =?utf-8?B?dUppYWU3Z2Y2Z0xNVzlUdXdTMmtRSnNnaTAzSk5SQ2x4b2xQTC9lT1dzS1Fa?=
+ =?utf-8?B?enRTRldpSjRwb0VqbGxOSVVCNHF4U2dvaHdCamNJK0FrbU5XRVBIMVZJeTJP?=
+ =?utf-8?B?SEpnWkdUa2JzMFNIcy9yYXU3RkVycnZtYjlUZkR1eC9TRWN2WmdMYlZTTWxQ?=
+ =?utf-8?B?OHNsd2k1TStOajEzZUxMZVdqSFN5WmVrcFlHODl3T2ZiTXRLSHBsTTZ5RERR?=
+ =?utf-8?Q?+2GruOUw/1U=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFA4cGM1ZEZhV1c5ZmZIVUFLdUxCRUEzQ0Q4Mld1VEZFa2x0eVJ2WlYxT3pS?=
+ =?utf-8?B?R2ZKZ3YwMnNINzd0MHMrbzdEYThKck9WdHJFSWVQcmlFZXJlb2ZkV3N0bWh1?=
+ =?utf-8?B?SEx4S1hDcjkzTXRnMXZnSEFwMzZUVnFmZTdnL3BCTVJTcXNpeURlbDNPRHRJ?=
+ =?utf-8?B?ek5pKzQvNHh4dnAvYmhzU1BsbUMxZEFWVCtZakF5ZExVWEdvOTRaVU1ZM2hh?=
+ =?utf-8?B?STdwaEtMUC9qZ3FZVlNTVWxicFJpcFJkYUQ5TUdLM3c3RDJ3MEpSTE5JLzI5?=
+ =?utf-8?B?MEszODlTUlVjeEMwenZsV1BwYVB2UVZNNGhUY0hxUi91QStad3VzNUp1MUx2?=
+ =?utf-8?B?eFNxWU9xazRYdFgrMkJLSTRaeFJleWYwTmg1YjR3dGoyd01pcWxJMXQwT3lC?=
+ =?utf-8?B?cW5lTHpSNFZGUWFJRTRPUjhKZ1NxdFVaWGZ4VjhHQzlkVXlKd1pScWpyOHU2?=
+ =?utf-8?B?U2pONVNyMnVMcENqUFpoT0dId0hyTW5DanpXL3N1ZHlBR3ZGNm1KYkNXVnd1?=
+ =?utf-8?B?L2w1enVKaWtGa0RZVG14Ky9SVmN0VlZmcEdNaW5LcWtjR3VLbC90UHNyRnd0?=
+ =?utf-8?B?dWZMUFp0WUtTZG9aanQvaGtuWmQzdHF6WklOSGRiRFp5UmhsNVY5RWFtbUJZ?=
+ =?utf-8?B?Q1JrMWV3ZGxzd3ZtTVFZUW55bDAzUnNISzhRWGhiVkRPWlM2QXlwWkpBd1l3?=
+ =?utf-8?B?b2lzMXVjY3NQakJ3WFJKRzlacFJMcU1lYUd3SWZwclZDTDZZOEtjejhrb2sx?=
+ =?utf-8?B?V3F6S1AyVSthTzBxMFk2S2NOQlRVZEgxMDR6a01kMndhMkxUSkxOQ01kL3RI?=
+ =?utf-8?B?aHFxalJjN2xpRVJ5VmtxRWxaM1lSWlh2TEgvclhZMklzSFdvMVB2cUk5eEFG?=
+ =?utf-8?B?VkJwa0I5aW1WQlQ1ZWg1STBYSDhTd2FJb0pOUE16MFQzTlVheXIxdFBrVFU0?=
+ =?utf-8?B?Y2lGUXN5a3VNakVKb1IyMW1EZ21QMEw5VncrWU5YQ2orWUdxV3BNcUs3eWhj?=
+ =?utf-8?B?SVArVGZQN3B1MXNCV0l5UnQwUzBjMXM2UHl0NlZmVmZneDhZc0QvdDg3UEkw?=
+ =?utf-8?B?UmxaakwwWk9IVzlJWjF4N2E0MUszYnZyY1BrS0x4RlgrNHR4a2M4OWptNkEr?=
+ =?utf-8?B?ZlhmTkdHUXZWYWV0a2d0dGplQWptbk5GSEMwSmNzSTZ5OFhIRGRGaVp1cldT?=
+ =?utf-8?B?TFJRWTRGZTlncEtWSFF4VXpsWUNaSHZGL0ZsNzBLVW5naHkzdzJRTzdZNW03?=
+ =?utf-8?B?c2FjVWVHNTZSZG5IZ2VDdkJBQml3M2gwekZvaVQxVlBmSHpwVm5tNkpBQkFh?=
+ =?utf-8?B?RXZMTHFlcDRjcDNTRVlVWVBRN0huREZxc212UG92SFFkaXQwekhULy93NCsw?=
+ =?utf-8?B?UC9PWFlFYVBpMDNjSlRDUHFJWkpsTHI5S2IrSzJRZWtHMHpFaWMyQ1djc2pO?=
+ =?utf-8?B?a1IrWGxGeWVjU2FuQmNzb1ByMzdLTXJpdUFYUGdnV2U3OGJJdHZDc2RublA2?=
+ =?utf-8?B?SDJ6czFDVnJxbDlFcFpPQUxoeFAydzZqc29UYzZzdG10UHRGT1U2VHY4ZERL?=
+ =?utf-8?B?Uk51Z29vWGJLZit5UkJuQmszYmp5SDdnaTNUckhWZ1RteHNhRWh3dUZzNGRH?=
+ =?utf-8?B?RDJEYU5GaEp6TWxmMzhaclVyd0tpL1p2eXh2R1pJaHFJMFZpYUZGdHZLVUFC?=
+ =?utf-8?B?U25FVStITk1maXBRYjRoUS9Gb2ZvSkNWdm9BenA0dzlpQU1DeUxlbnl6N2Ny?=
+ =?utf-8?B?cUNJRzlac1U5SEZKWlEyTjU0L05VSit0WDlBeEFiTHBOOHB5RSsrVWVEV1J2?=
+ =?utf-8?B?K056ZU8wSkJObGZNV1hlN1lvNFQ3U3k2UWU4ZFNtaHNkSDhKbStvdzlHbGZ3?=
+ =?utf-8?B?dlhHcGtFZU8zYlE1VjRMc3NiRHdIMXZWZDJJczBkREhJSEZaa1F2RDZTSld2?=
+ =?utf-8?B?VFpXeWxDTjV4b0Zaam9IakU5WFBaTlpxWlJQNXJ6NlhNS29TRVpVamNxQit5?=
+ =?utf-8?B?Z1hKWWJUUGthbmJTWjNMMWpjN0p6QlVkZ3J0WHdWVUMxcjFIWU1rWmhEb1VB?=
+ =?utf-8?B?NXdmWWVIVGhXUCt3N2NzeFhuczBqMHNjVlJ0c2xyR29JeE5KOVJIK21PRy9l?=
+ =?utf-8?Q?CZJcIeem6Skjk4T5WGtKUbW79?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 832b5f7f-e221-469f-4462-08dd5d38abea
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 05:26:54.7441
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ncCDwuX+O0jL6CkOQ44BIrefuyZOxowT6ibazdIc4h0VtMulZHjC782jp8Bum00DyVdvE5qLrFTVKxy/HRSOaw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9679
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_210907_347902_04F93F4B 
-X-CRM114-Status: GOOD (  14.81  )
+X-CRM114-CacheID: sfid-20250306_212704_049198_4DAF7AEA 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,193 +183,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Address bytes shifted with a single 64 bit page table entry (any page table
-level) has been always hard coded as 3 (aka 2^3 = 8). Although intuitive it
-is not very readable or easy to reason about. Besides it is going to change
-with D128, where each 128 bit page table entry will shift address bytes by
-4 (aka 2^4 = 16) instead.
+On 03/05/2025, Charles Han wrote:
+> Fix below inconsistent indenting smatch warning.
+> smatch warnings:
+> drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c:79 devm_imx_drm_legacy_bridge() warn: inconsistent indenting
+> 
+> Signed-off-by: Charles Han <hanchunchao@inspur.com>
+> ---
+>  drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 
-Let's just formalise this address bytes shift value into a new macro called
-PTE_SHIFT establishing a logical abstraction, thus improving readability as
-well. This does not cause any functional change.
+Applied to misc/kernel.git (drm-misc-next).
+Thanks!
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: kasan-dev@googlegroups.com
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
----
-This patch applies on v6.14-rc5
-
- arch/arm64/Kconfig                      |  2 +-
- arch/arm64/include/asm/kernel-pgtable.h |  3 ++-
- arch/arm64/include/asm/pgtable-hwdef.h  | 26 +++++++++++++------------
- arch/arm64/kernel/pi/map_range.c        |  2 +-
- arch/arm64/mm/kasan_init.c              |  6 +++---
- 5 files changed, 21 insertions(+), 18 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..fd3303f2ccda 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -323,7 +323,7 @@ config ARCH_MMAP_RND_BITS_MIN
- 	default 18
- 
- # max bits determined by the following formula:
--#  VA_BITS - PAGE_SHIFT - 3
-+#  VA_BITS - PAGE_SHIFT - PTE_SHIFT
- config ARCH_MMAP_RND_BITS_MAX
- 	default 19 if ARM64_VA_BITS=36
- 	default 24 if ARM64_VA_BITS=39
-diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
-index fd5a08450b12..7150a7a10f00 100644
---- a/arch/arm64/include/asm/kernel-pgtable.h
-+++ b/arch/arm64/include/asm/kernel-pgtable.h
-@@ -49,7 +49,8 @@
- 	(SPAN_NR_ENTRIES(vstart, vend, shift) + (add))
- 
- #define EARLY_LEVEL(lvl, lvls, vstart, vend, add)	\
--	(lvls > lvl ? EARLY_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + lvl * (PAGE_SHIFT - 3), add) : 0)
-+	(lvls > lvl ? EARLY_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + \
-+	lvl * (PAGE_SHIFT - PTE_SHIFT), add) : 0)
- 
- #define EARLY_PAGES(lvls, vstart, vend, add) (1 	/* PGDIR page */				\
- 	+ EARLY_LEVEL(3, (lvls), (vstart), (vend), add) /* each entry needs a next level page table */	\
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index a9136cc551cc..43f98eac7653 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -7,40 +7,42 @@
- 
- #include <asm/memory.h>
- 
-+#define PTE_SHIFT 3
-+
- /*
-  * Number of page-table levels required to address 'va_bits' wide
-  * address, without section mapping. We resolve the top (va_bits - PAGE_SHIFT)
-- * bits with (PAGE_SHIFT - 3) bits at each page table level. Hence:
-+ * bits with (PAGE_SHIFT - PTE_SHIFT) bits at each page table level. Hence:
-  *
-- *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - 3))
-+ *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - PTE_SHIFT))
-  *
-  * where DIV_ROUND_UP(n, d) => (((n) + (d) - 1) / (d))
-  *
-  * We cannot include linux/kernel.h which defines DIV_ROUND_UP here
-  * due to build issues. So we open code DIV_ROUND_UP here:
-  *
-- *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - 3) - 1) / (PAGE_SHIFT - 3))
-+ *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - PTE_SHIFT) - 1) / (PAGE_SHIFT - PTE_SHIFT))
-  *
-  * which gets simplified as :
-  */
--#define ARM64_HW_PGTABLE_LEVELS(va_bits) (((va_bits) - 4) / (PAGE_SHIFT - 3))
-+#define ARM64_HW_PGTABLE_LEVELS(va_bits) (((va_bits) - PTE_SHIFT - 1) / (PAGE_SHIFT - PTE_SHIFT))
- 
- /*
-  * Size mapped by an entry at level n ( -1 <= n <= 3)
-- * We map (PAGE_SHIFT - 3) at all translation levels and PAGE_SHIFT bits
-+ * We map (PAGE_SHIFT - PTE_SHIFT) at all translation levels and PAGE_SHIFT bits
-  * in the final page. The maximum number of translation levels supported by
-  * the architecture is 5. Hence, starting at level n, we have further
-  * ((4 - n) - 1) levels of translation excluding the offset within the page.
-  * So, the total number of bits mapped by an entry at level n is :
-  *
-- *  ((4 - n) - 1) * (PAGE_SHIFT - 3) + PAGE_SHIFT
-+ *  ((4 - n) - 1) * (PAGE_SHIFT - PTE_SHIFT) + PAGE_SHIFT
-  *
-  * Rearranging it a bit we get :
-- *   (4 - n) * (PAGE_SHIFT - 3) + 3
-+ *   (4 - n) * (PAGE_SHIFT - PTE_SHIFT) + PTE_SHIFT
-  */
--#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - 3) * (4 - (n)) + 3)
-+#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - PTE_SHIFT) * (4 - (n)) + PTE_SHIFT)
- 
--#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - PTE_SHIFT))
- 
- /*
-  * PMD_SHIFT determines the size a level 2 page table entry can map.
-@@ -49,7 +51,7 @@
- #define PMD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(2)
- #define PMD_SIZE		(_AC(1, UL) << PMD_SHIFT)
- #define PMD_MASK		(~(PMD_SIZE-1))
--#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - PTE_SHIFT))
- #endif
- 
- /*
-@@ -59,14 +61,14 @@
- #define PUD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(1)
- #define PUD_SIZE		(_AC(1, UL) << PUD_SHIFT)
- #define PUD_MASK		(~(PUD_SIZE-1))
--#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - PTE_SHIFT))
- #endif
- 
- #if CONFIG_PGTABLE_LEVELS > 4
- #define P4D_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(0)
- #define P4D_SIZE		(_AC(1, UL) << P4D_SHIFT)
- #define P4D_MASK		(~(P4D_SIZE-1))
--#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - PTE_SHIFT))
- #endif
- 
- /*
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 2b69e3beeef8..3530a5427f57 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -31,7 +31,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
- {
- 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
- 	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
--	int lshift = (3 - level) * (PAGE_SHIFT - 3);
-+	int lshift = (3 - level) * (PAGE_SHIFT - PTE_SHIFT);
- 	u64 lmask = (PAGE_SIZE << lshift) - 1;
- 
- 	start	&= PAGE_MASK;
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index b65a29440a0c..90548079b42e 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -190,7 +190,7 @@ static void __init kasan_pgd_populate(unsigned long addr, unsigned long end,
-  */
- static bool __init root_level_aligned(u64 addr)
- {
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - PTE_SHIFT);
- 
- 	return (addr % (PAGE_SIZE << shift)) == 0;
- }
-@@ -245,7 +245,7 @@ static int __init root_level_idx(u64 addr)
- 	 */
- 	u64 vabits = IS_ENABLED(CONFIG_ARM64_64K_PAGES) ? VA_BITS
- 							: vabits_actual;
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - PTE_SHIFT);
- 
- 	return (addr & ~_PAGE_OFFSET(vabits)) >> (shift + PAGE_SHIFT);
- }
-@@ -269,7 +269,7 @@ static void __init clone_next_level(u64 addr, pgd_t *tmp_pg_dir, pud_t *pud)
-  */
- static int __init next_level_idx(u64 addr)
- {
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - PTE_SHIFT);
- 
- 	return (addr >> (shift + PAGE_SHIFT)) % PTRS_PER_PTE;
- }
 -- 
-2.30.2
-
+Regards,
+Liu Ying
 
