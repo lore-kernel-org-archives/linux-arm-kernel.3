@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47125C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:43:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5889C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4cFLCcUVpb4fVdYybTqcQl4iUfdLFhB/qPA6ZRJ3EzQ=; b=I4voJRkB+MLsxkGBMrpJOBk8it
-	+48IYheCcqJJLCnDa+IJY/i2/pVr9s8itU4KlwHOzRJYelVroHicZsuhf4NCt4J6caitYHHSBoImh
-	x6L9oGrCrGpjfzkKLEUUEkbfEIpDK00JxftelCDZb9jfqIMDhUmwiFF9VHtGkv86/vkDPuz72CU8P
-	gyBFhV9JQ6HJss3KypLWmr/6AfCabr1KNYq/GnGrREW9gNffqtWxX7gkiQV6L0qdNrtt524LlZxtO
-	V/togzJXcXbJdgv7kkdn2K67RKSbp3uey7Ci1GiHLVT63/Sg3tjnNWbFv03u7vGGVgFmWEJnxB8NT
-	gv9y2w9A==;
+	bh=mgf9TKVShsbgf58T+DVRs7PUBhUxrsl3Z29fBsYWAlg=; b=zLBkXwz+KwZwT3p3Hd6BKOONRQ
+	+rko4SKqXFEchS2TcXEns7kS7t1csSkh3lBPUwY0kyN2yCvnjx4CUsEsE2uma2H2ZRx0M2+QZWbM0
+	pyDpJaTPM6rkItF99B+nVAiRYkq7hRb+fumhJsV7NEvkm/xUIFIsSqnR+m9aBTKMFGXkSqfg9W/ca
+	cmg6pxmDF8PIU9pRH35stP+UVrQrJ0HFnuBnLcTkaf7I4aVhZracGDnzZv+oA8he40gAWoIgZC+JZ
+	pJl1UKBoofxG099Ikx0Y0CX6Jrxl6C9hfdKABBn5BkqzWNuDsSYzI9Ut/nYaTNMx/xThoTkFG1ZIM
+	dm8HIl9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhLC-0000000FqKb-2haP;
-	Fri, 07 Mar 2025 23:42:54 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tqhMn-0000000FqVJ-1ABh;
+	Fri, 07 Mar 2025 23:44:33 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhGM-0000000FpTU-3IxJ
+	id 1tqhGR-0000000FpUF-0Ypw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 23:37:55 +0000
+	Fri, 07 Mar 2025 23:38:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 645405C64F6;
-	Fri,  7 Mar 2025 23:35:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E4DC4CED1;
-	Fri,  7 Mar 2025 23:37:53 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 95D655C624E;
+	Fri,  7 Mar 2025 23:35:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E84F2C4CED1;
+	Fri,  7 Mar 2025 23:37:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741390674;
-	bh=ua0QgEy0dtgEEi4JLJEBT5g3dBO7iHT7Cgd7aa1B+Bg=;
+	s=k20201202; t=1741390678;
+	bh=/Vd5KWvSiGu6/wCPX+6AfloWDVGSa9tpnOhgexIbXEQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Xa4liii3Xc5XxFFQL/XL0QZzGnmQmkhiGfhADFOcOCnT1EjvZ1UHgXBePJR6QYXV3
-	 vRSyXotvvUma0enW3P3Hz5UchElelf+MHveAv49uy8ZtnWSa7B2pTGGtQufFMNwOhu
-	 S7JMWx9w41is4jaJncM6XbSpZHKDQHIRFNU/i3pmhHyAyEjFuh/ZXoyq5qzZALLoSF
-	 2DKkZ24v6T2wlcVkoQeFyeHPdaq+MeUc8kAlwNRs/WpRBskBiUBzhyzGjRa8yJHX+2
-	 VbAmbRdLKNgDsWHmQ1fDIwPNcxqQY1vUplr99mv3a4Q26RKQBzX8gpZ1jxKEs7stBY
-	 2ld1PzjsN/poQ==
+	b=Acw2g1gVGlLFYF0SltDeaIZQ9KwE6vcOMVM6luvqFnf40847eeFswIpbIcKP7nYmK
+	 kLfy9MxLzQTzSH6s3Z89HAKeYyAkRWntv/8ABqAaA448ttme/dLea5kZsaYAmqFFP6
+	 ewMoOpEu5OkfDAbLuh5EASyV3tIAxSSUSiaBKwXNsmbTY+PqEmSmd/X16B+bxvRwXa
+	 9F/AJYwbCjcu98r6x2PN4GM8JR6ll0mddTmGzUA4jduF9Jzp4gcmcMbI/9IvFdElM6
+	 jH8I65HYqEKV1VKtGUdzKPSm++TdZHO7sRTdZkbXMfSAhq3YKLvpUe7U34881mIz0B
+	 r8S0mvulLLNqA==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -63,17 +63,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH 1/4] PCI: dwc: Move cfg0 setup to dw_pcie_cfg0_setup()
-Date: Fri,  7 Mar 2025 17:37:41 -0600
-Message-Id: <20250307233744.440476-2-helgaas@kernel.org>
+Subject: [PATCH 2/4] PCI: dwc: Delay cfg0 setup until after discovering bridge windows
+Date: Fri,  7 Mar 2025 17:37:42 -0600
+Message-Id: <20250307233744.440476-3-helgaas@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250307233744.440476-1-helgaas@kernel.org>
 References: <20250307233744.440476-1-helgaas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_153754_881451_4FFE1FED 
-X-CRM114-Status: GOOD (  12.10  )
+X-CRM114-CacheID: sfid-20250307_153759_222346_2165631E 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,69 +90,37 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bjorn Helgaas <bhelgaas@google.com>
 
-Move pp->cfg0 setup to dw_pcie_cfg0_setup().  No functional change
-intended.
+devm_pci_alloc_host_bridge() reads host bridge windows and any translation
+offsets.  Some .cpu_addr_fixup() implementations depend on the window
+offset, e.g., imx_pcie_cpu_addr_fixup() uses the offset of the first bridge
+window.
 ---
- .../pci/controller/dwc/pcie-designware-host.c | 34 +++++++++++++------
- 1 file changed, 23 insertions(+), 11 deletions(-)
+ drivers/pci/controller/dwc/pcie-designware-host.c | 8 ++++----
+ 1 file changed, 4 insertions(+), 4 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index 1206b26bff3f..de2f2dcf5c40 100644
+index de2f2dcf5c40..b9eaba157dae 100644
 --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -418,22 +418,12 @@ static void dw_pcie_host_request_msg_tlp_res(struct dw_pcie_rp *pp)
- 	}
- }
+@@ -456,14 +456,14 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+ 	if (ret)
+ 		return ret;
  
--int dw_pcie_host_init(struct dw_pcie_rp *pp)
-+static int dw_pcie_cfg0_setup(struct dw_pcie_rp *pp)
- {
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct device *dev = pci->dev;
--	struct device_node *np = dev->of_node;
- 	struct platform_device *pdev = to_platform_device(dev);
--	struct resource_entry *win;
--	struct pci_host_bridge *bridge;
- 	struct resource *res;
--	int ret;
--
--	raw_spin_lock_init(&pp->lock);
--
--	ret = dw_pcie_get_resources(pci);
+-	ret = dw_pcie_cfg0_setup(pp);
 -	if (ret)
 -		return ret;
+-
+ 	bridge = devm_pci_alloc_host_bridge(dev, 0);
+ 	if (!bridge)
+ 		return -ENOMEM;
  
- 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "config");
- 	if (!res) {
-@@ -448,6 +438,28 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
- 	if (IS_ERR(pp->va_cfg0_base))
- 		return PTR_ERR(pp->va_cfg0_base);
- 
-+	return 0;
-+}
-+
-+int dw_pcie_host_init(struct dw_pcie_rp *pp)
-+{
-+	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-+	struct device *dev = pci->dev;
-+	struct device_node *np = dev->of_node;
-+	struct resource_entry *win;
-+	struct pci_host_bridge *bridge;
-+	int ret;
-+
-+	raw_spin_lock_init(&pp->lock);
-+
-+	ret = dw_pcie_get_resources(pci);
-+	if (ret)
-+		return ret;
-+
 +	ret = dw_pcie_cfg0_setup(pp);
 +	if (ret)
 +		return ret;
 +
- 	bridge = devm_pci_alloc_host_bridge(dev, 0);
- 	if (!bridge)
- 		return -ENOMEM;
+ 	pp->bridge = bridge;
+ 
+ 	/* Get the I/O range from DT */
 -- 
 2.34.1
 
