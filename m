@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E744BC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:41:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47125C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:43:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=9ONfCbFvRTC0wtjI4q0xkEGyj03AMzM22PYHe8Bw4+g=; b=wTTcfk+dwnHW1I8mqi4tHamk+P
-	Wh+mYshSkCrOJ18J+NYKsJB6dsis54N2RZOYPUiBeYnsQtA/xLLpTckuGpT0BcI9KjMz+DP8C1cwu
-	z5Lpw2ZYDXUuGDWu0PCBiryF75ZTL8+x2fDfi9lNRgngdxYRAoAZ298qD/+H+xpm6dAlQYclXrnZK
-	Q7EvaIxAl3XsrBFqUKccRq3jumU53J5k/mvwwXpf42nm1g+2v6Jwh56yGcojpS7tse0qdGmC3/KVZ
-	T4ptC6YHtbA0FuGSit9prvmrscz6T/7SR2dVeTXZwwjFGIipG1fTigoY+UE6GgenOmxzFpgSUOnbq
-	yDShIhqw==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4cFLCcUVpb4fVdYybTqcQl4iUfdLFhB/qPA6ZRJ3EzQ=; b=I4voJRkB+MLsxkGBMrpJOBk8it
+	+48IYheCcqJJLCnDa+IJY/i2/pVr9s8itU4KlwHOzRJYelVroHicZsuhf4NCt4J6caitYHHSBoImh
+	x6L9oGrCrGpjfzkKLEUUEkbfEIpDK00JxftelCDZb9jfqIMDhUmwiFF9VHtGkv86/vkDPuz72CU8P
+	gyBFhV9JQ6HJss3KypLWmr/6AfCabr1KNYq/GnGrREW9gNffqtWxX7gkiQV6L0qdNrtt524LlZxtO
+	V/togzJXcXbJdgv7kkdn2K67RKSbp3uey7Ci1GiHLVT63/Sg3tjnNWbFv03u7vGGVgFmWEJnxB8NT
+	gv9y2w9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhJb-0000000FqBW-3rI8;
-	Fri, 07 Mar 2025 23:41:15 +0000
+	id 1tqhLC-0000000FqKb-2haP;
+	Fri, 07 Mar 2025 23:42:54 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhGL-0000000FpTD-2ZXY
+	id 1tqhGM-0000000FpTU-3IxJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 23:37:54 +0000
+	Fri, 07 Mar 2025 23:37:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8C9575C624E;
-	Fri,  7 Mar 2025 23:35:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D3A26C4CED1;
-	Fri,  7 Mar 2025 23:37:51 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 645405C64F6;
+	Fri,  7 Mar 2025 23:35:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C2E4DC4CED1;
+	Fri,  7 Mar 2025 23:37:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741390672;
-	bh=ntJVwAlnC7PYrvIOC5jK7B6yxVs/a1jXq1ba53Gp12E=;
-	h=From:To:Cc:Subject:Date:From;
-	b=uLya8N82ynikuLeVwl0uwksI1eaD3k60c8OjDE2TxI/rfoZC6qD9odpBM2qVC4tSv
-	 0t42V9ybYVU1PznQs3ZBnY8c/MKiauAjGnQz8dAlQo095PH1h9l1UNSsuMpFndvpWD
-	 CaUsPUNvOLBT8joky0bNXIuxaQnK5hB6xJ4288VdQ7VwPgVhlOyoBKM49S4cV+Y0Z9
-	 ISDeTw3g2z+CCbPhu2IzM5YAOQouFxRBh7pT3w0jqN7DybrRjxHufkgB/2OTr+JuD5
-	 XvCkZcpq3OdmFfjdoZ4DKBwY5hhtJpLAkarFmedPmTw4cm1LC4Gpm3vhTVadTMzdJg
-	 xAagsnBPxfhOw==
+	s=k20201202; t=1741390674;
+	bh=ua0QgEy0dtgEEi4JLJEBT5g3dBO7iHT7Cgd7aa1B+Bg=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Xa4liii3Xc5XxFFQL/XL0QZzGnmQmkhiGfhADFOcOCnT1EjvZ1UHgXBePJR6QYXV3
+	 vRSyXotvvUma0enW3P3Hz5UchElelf+MHveAv49uy8ZtnWSa7B2pTGGtQufFMNwOhu
+	 S7JMWx9w41is4jaJncM6XbSpZHKDQHIRFNU/i3pmhHyAyEjFuh/ZXoyq5qzZALLoSF
+	 2DKkZ24v6T2wlcVkoQeFyeHPdaq+MeUc8kAlwNRs/WpRBskBiUBzhyzGjRa8yJHX+2
+	 VbAmbRdLKNgDsWHmQ1fDIwPNcxqQY1vUplr99mv3a4Q26RKQBzX8gpZ1jxKEs7stBY
+	 2ld1PzjsN/poQ==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -63,15 +63,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH 0/4] PCI: dwc: .cpu_addr_fixup() sketch
-Date: Fri,  7 Mar 2025 17:37:40 -0600
-Message-Id: <20250307233744.440476-1-helgaas@kernel.org>
+Subject: [PATCH 1/4] PCI: dwc: Move cfg0 setup to dw_pcie_cfg0_setup()
+Date: Fri,  7 Mar 2025 17:37:41 -0600
+Message-Id: <20250307233744.440476-2-helgaas@kernel.org>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250307233744.440476-1-helgaas@kernel.org>
+References: <20250307233744.440476-1-helgaas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_153753_765171_18C4CBBA 
-X-CRM114-Status: GOOD (  15.17  )
+X-CRM114-CacheID: sfid-20250307_153754_881451_4FFE1FED 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,58 +90,69 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bjorn Helgaas <bhelgaas@google.com>
 
-This is not complete or ready to merge at all.  It's just a sketch to see
-if this approach to moving away from the .cpu_addr_fixup() approach is
-feasible.
+Move pp->cfg0 setup to dw_pcie_cfg0_setup().  No functional change
+intended.
+---
+ .../pci/controller/dwc/pcie-designware-host.c | 34 +++++++++++++------
+ 1 file changed, 23 insertions(+), 11 deletions(-)
 
-This is based on Frank's series at
-https://lore.kernel.org/r/20250128-pci_fixup_addr-v9-0-3c4bb506f665@nxp.com,
-and these apply on top of these patches from that series, which applies on
-v6.15-rc1:
-
-      PCI: dwc: Use resource start as iomap() input in dw_pcie_pme_turn_off()
-      PCI: dwc: Rename cpu_addr to parent_bus_addr for ATU configuration
-      PCI: Add parent_bus_offset to resource_entry
-
-The idea is that on some systems the PCI controller lives in a different
-address space (an "intermediate" address space) than the CPU physical
-address space.  Frank has a beautiful picture of this at
-https://lore.kernel.org/r/20250128-pci_fixup_addr-v9-4-3c4bb506f665@nxp.com
-
-The devicetree *should* describe the fabric address translation between the
-CPU and intermediate address spaces, but historically we haven't taken
-advantage of that and have used .cpu_addr_fixup() functions to convert CPU
-to intermediate addresses each time we program the ATU.
-
-What I tried to do here was to:
-
-  - Try to extract the offset from devicetree using the 'reg' property
-    (this is from Frank's patch at the link above)
-
-  - If a .cpu_addr_fixup() function exists, run that as well and compare
-    with the offset from devicetree
-
-  - Save the offset in struct dw_pcie_rp and apply that instead of calling
-    .cpu_addr_fixup() in the future
-
-  - Emit messages about devicetree offsets that don't match what
-    .cpu_addr_fixup() did, or about .cpu_addr_fixup() methods that are
-    superfluous because they *do* match the devicetree offset
-
-I only looked at the RC side and didn't do anything at all with the EP
-side.
-
-Bjorn Helgaas (4):
-  PCI: dwc: Move cfg0 setup to dw_pcie_cfg0_setup()
-  PCI: dwc: Delay cfg0 setup until after discovering bridge windows
-  PCI: dwc: Look up 'config' address
-  PCI: dwc: Use parent_bus_offset
-
- .../pci/controller/dwc/pcie-designware-host.c | 88 +++++++++++++++----
- drivers/pci/controller/dwc/pcie-designware.c  |  3 -
- drivers/pci/controller/dwc/pcie-designware.h  |  1 +
- 3 files changed, 72 insertions(+), 20 deletions(-)
-
+diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+index 1206b26bff3f..de2f2dcf5c40 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-host.c
++++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+@@ -418,22 +418,12 @@ static void dw_pcie_host_request_msg_tlp_res(struct dw_pcie_rp *pp)
+ 	}
+ }
+ 
+-int dw_pcie_host_init(struct dw_pcie_rp *pp)
++static int dw_pcie_cfg0_setup(struct dw_pcie_rp *pp)
+ {
+ 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+ 	struct device *dev = pci->dev;
+-	struct device_node *np = dev->of_node;
+ 	struct platform_device *pdev = to_platform_device(dev);
+-	struct resource_entry *win;
+-	struct pci_host_bridge *bridge;
+ 	struct resource *res;
+-	int ret;
+-
+-	raw_spin_lock_init(&pp->lock);
+-
+-	ret = dw_pcie_get_resources(pci);
+-	if (ret)
+-		return ret;
+ 
+ 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "config");
+ 	if (!res) {
+@@ -448,6 +438,28 @@ int dw_pcie_host_init(struct dw_pcie_rp *pp)
+ 	if (IS_ERR(pp->va_cfg0_base))
+ 		return PTR_ERR(pp->va_cfg0_base);
+ 
++	return 0;
++}
++
++int dw_pcie_host_init(struct dw_pcie_rp *pp)
++{
++	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
++	struct device *dev = pci->dev;
++	struct device_node *np = dev->of_node;
++	struct resource_entry *win;
++	struct pci_host_bridge *bridge;
++	int ret;
++
++	raw_spin_lock_init(&pp->lock);
++
++	ret = dw_pcie_get_resources(pci);
++	if (ret)
++		return ret;
++
++	ret = dw_pcie_cfg0_setup(pp);
++	if (ret)
++		return ret;
++
+ 	bridge = devm_pci_alloc_host_bridge(dev, 0);
+ 	if (!bridge)
+ 		return -ENOMEM;
 -- 
 2.34.1
 
