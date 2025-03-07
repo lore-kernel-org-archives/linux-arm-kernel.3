@@ -4,95 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316C5C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 599F6C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:16:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3KPjXWWPyK0oX1t83TQ9M25n1uZNpHn3HsSYBqjRW2A=; b=sEX7zPNKvMIXjeP5pnGDYHLnEe
-	s6yQ1G9F/eo9en7tE9eHW5WMhgc/MQe5XIb0JAxQvwHKLD70+AwtY+SXM1PDpXDhFE+Ot4l6/j47z
-	qxiR2BIpywjb0PKfBfFp0O66AqlNL+6QxsOFbhSaPZZIYQuJBda42jPD31b22Cz1GNP+rvSYy9isJ
-	q65978lJUD++5u7cPoCyvtuCIa5X8c9JvHVd8s4ianrlwjD/5L/st+koxzqtPaYMG4mtoIK7jYYKN
-	GemGp/xiaYoT8TzhHtpxnGTkT3MUnOnI9YkWfZY1VhSu+mrzMt9lHoQNr1prvD5X4B2N/3qIgSrQS
-	0jPqJ6bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sB7XnKgplaU4P6P82tu6LVf3urHQQZTgQT+PALmFIdg=; b=KN7UAGT3C+5cLCDikLpLjPfDUQ
+	2GNhLWPRbJb4OJ0rJOcUorJV4DrOC6IytsxdObWw6fEk7jsjvOOsFj8TERXEjElEiGwPw2ulLARWJ
+	zFae4Bu5bvode/3yF+c6BENs/Hg8hWjbUB/uMQqfGZ0oZA5ehYFvoip/IGNSgAfr4q5C6omplc7zo
+	vmxES3A4SFDZKt2GMVOYW4YjK6LyJwKr5lsYlPdCDTneUGd8NBJRiL8OCLuGluRncv/bu0GqJjB80
+	Xzdssh7Rt4EZHrR/cJmLHBjaQpVwR/ptOaZXSX+s3wfptzLwhRM1zfppPMO7w+zjMkZyXUe0/hD2R
+	j0ZVw2UA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZPk-0000000EbPp-44aM;
-	Fri, 07 Mar 2025 15:15:04 +0000
-Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
+	id 1tqZRL-0000000Ebjt-2zfz;
+	Fri, 07 Mar 2025 15:16:43 +0000
+Received: from mail-japaneastazlp170110002.outbound.protection.outlook.com ([2a01:111:f403:c405::2] helo=TYVP286CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqZN6-0000000EagA-06KC
+	id 1tqZOw-0000000Eb7m-0kQa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 15:12:21 +0000
-Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-390f69e71c8so1148664f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 07:12:19 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741360338; x=1741965138; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=3KPjXWWPyK0oX1t83TQ9M25n1uZNpHn3HsSYBqjRW2A=;
-        b=eFao/uQEPb8ARNzraKS9/wXIPSzQ8ZtJGtzvDpa1fTHUsFoaYkM9hrwY4f6GP4Vluz
-         IRqwLfvhfwreVzwUvzAWQInKkcwlkLzIuYvScFCGkrf1UBEJ2kynZKA/fEHmVDFGyx+X
-         tQ31euNifjFwYkWv7BZ+ukRJfQYjn+WWfEGKGsUPOP7RvjGD6fRI/gXS0AvS21MEbJwt
-         NFW/gUNr6E1lrNUGltvjmMG4IvmqI2T8o7cBkIGIL/8iOqfOaYtKUVtHN7RY6K2bZjjk
-         yfBigqZ3oD6zK4VsFR+k4hnQqaHB/vL/nWkwnqUoEwGIXCMtB1XurLUdulDs+wgPJXV8
-         beYw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741360338; x=1741965138;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3KPjXWWPyK0oX1t83TQ9M25n1uZNpHn3HsSYBqjRW2A=;
-        b=jesKSnk8eYSpXDaqMfaaX2imD1eONZgEeFk/vC1/UN7F9+7DCUEZszxZvfjYc4/Za6
-         nNOSNtzE5kw2u458agSm3dxacezL93PoU1wLBiOwSr2LIjGdkqu0vAghlzrT+2F8FG6F
-         KOXZeMh907u+Pi0vRyGEB5sbg7gXaYOqK5CIn3y+VIzFA8n/k+eFTMkuyCkgk8vBF//B
-         hsmV0+AEpvsSSlSHu/L4dWPXOckA0p6KdeUOs1ozafFYyr1l/u7/DG1GZIBLT57G7JRf
-         qHK8FeTfpX7oW85f6n5SDOnilFXjp0NlJIrxcW6PjKZwVELmT2vYnzI7tcyz715iOJC1
-         bBYg==
-X-Forwarded-Encrypted: i=1; AJvYcCWHy6qyIJfLhO0Pb+mWWvPu39Cgu0nxJAsqvUIu3qNjE9uR+60SFWI3iQ3bC//NN7WLotrBYcauvAQR9X8PZwT9@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ6eeeBTXMEtgVhuOvHUb9T6+2laVGokL62RPuTc609xKThvDs
-	aSX98AXWmsFucjKXnf5R2zkmkixiXVcKakc0HLDscurq2t3s7VhjciHfIDS5P5M=
-X-Gm-Gg: ASbGncvyxIN7nJAA+3Y9m7Kas+fXLWeLQUaZoqsnvoSVeBPjrarI7qRh/0KbQHcmm/C
-	DAQwtoI2BSJN+pdYCZHv5Jxey+POMSW217tEdemnLct28Kag4jsOLrX9pbIyBWtLAF5LzWJQHzR
-	1Hzzh7xtCCnLaZKhUrzl8NaynfV05j4Ofngjr/YlRATnl8fxroAo83RLH+bIrXMkuQHHJ1J4IEV
-	/eMtlKdpn4l8R/PubOm1yrhjOinVxDhPZeLVq7bcpTsPBE198wRuIxy/3I6n32T0CW05hP82iiX
-	2kuGMZBeSKYV6lTvOgj2ZmCHmibHuzs/9dAi96LK3nBjFB/v1L9wGc4ljCcifjRJfsVfyuQ4+uY
-	RYkmqwmQk
-X-Google-Smtp-Source: AGHT+IF/RAT3IwHfPoJTNREYxSSMrMjlEJSFksJXdPdttaAQyHvw/bJK7g/nq3YVVLUv/LTreYAVjw==
-X-Received: by 2002:a5d:59ae:0:b0:391:22e2:ccd2 with SMTP id ffacd0b85a97d-391296c2485mr5482638f8f.3.1741360338305;
-        Fri, 07 Mar 2025 07:12:18 -0800 (PST)
-Received: from [192.168.10.46] (146725694.box.freepro.com. [130.180.211.218])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3912c104acesm5662531f8f.98.2025.03.07.07.12.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 07:12:17 -0800 (PST)
-Message-ID: <83283a94-6833-4d7d-8d89-6ba42b43b96c@linaro.org>
-Date: Fri, 7 Mar 2025 16:12:16 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/8] clocksource: stm32-lptimer: add support for
- stm32mp25
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>, lee@kernel.org,
- ukleinek@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, jic23@kernel.org, tglx@linutronix.de
-Cc: catalin.marinas@arm.com, will@kernel.org, devicetree@vger.kernel.org,
- wbg@kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
- olivier.moysan@foss.st.com
-References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
- <20250305094935.595667-5-fabrice.gasnier@foss.st.com>
+	Fri, 07 Mar 2025 15:14:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=LftYp7PtgtIWw3OdkvAGhiDzWXhWbpBhiHsFvKzDTa1nuuaXmUFIh5NK9RSNBP5aoUhDFSHFpiB0kfythSRHc7tY5mU494KdqLlR9ESzp/bLqOdy3ZmqXpuq02xzXRTwh+Sy76/TYcD0IwlWqqvvtZSX8e8ywwnyGAAoBMDCEj4pPYtWtizbySH2BIuVwIr/hd7/hX0oOo3dK5Dymo/SAu12lZnuJBCPgxfpRY8emcDy+ne6StjVFi+XvAed61MBpjZ5zh8EIbb2wf3r07q+vy/DIzlegTB8oitHxjkGkPoLRXSWZgMOQoLqkCsW7R5w+LC5+xsQZuQv1j6/AnV4iQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sB7XnKgplaU4P6P82tu6LVf3urHQQZTgQT+PALmFIdg=;
+ b=Vpaiqe/tqZ/GhP2SwPsTnJHo1LxCj8890Ope6ehqSiBJAnnci5Uk44aYQA6449RNti8UzRaAp7Y8oIABLG+MeVPvE9IuaObdI/s0gXwzYVgtzMoXFXFIB8LxigAKxkVB3SHv+nTtk3+bIsskG+rT6V/SJ8X+YQ0RJ+WljZvE/4uPJKkljs0pmPpj7hFtJR4yKU7iFw4U289V1fjP2GRDE9eEXllEdzBQudGcnAoBYW/yprix9m1FjvlaWIDWWAzpiQBs+6awzgYl8ZjsTnAUDOJAlhiJZC0RelAn5vMLUIhrPTPrKtPc2V6VYldUZs3srdYvQqmagGloHTUee5WL7g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sB7XnKgplaU4P6P82tu6LVf3urHQQZTgQT+PALmFIdg=;
+ b=qLA8j9NNlEOTj+2wfbNJiqP2rAA3thKWGQ6xStOrG4rXf4E8RKQ/8BMl4gkJrX+kfrFkuWl0xRW6VyVRWDnlDLDrrVuyw/0A+FjVVeea4D1ga6fCuP/WPDDGhpJxMXY45YrNrM0tA3kGWJ6VpOQ20pqEIOg/Srz07ZjzRGiO+u4=
+Received: from OSBPR01MB2775.jpnprd01.prod.outlook.com (2603:1096:604:13::17)
+ by TY4PR01MB12838.jpnprd01.prod.outlook.com (2603:1096:405:1ea::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.19; Fri, 7 Mar
+ 2025 15:14:05 +0000
+Received: from OSBPR01MB2775.jpnprd01.prod.outlook.com
+ ([fe80::54f7:9a51:ae47:185b]) by OSBPR01MB2775.jpnprd01.prod.outlook.com
+ ([fe80::54f7:9a51:ae47:185b%4]) with mapi id 15.20.8489.025; Fri, 7 Mar 2025
+ 15:14:05 +0000
+From: John Madieu <john.madieu.xa@bp.renesas.com>
+To: Conor Dooley <conor@kernel.org>
+CC: "geert+renesas@glider.be" <geert+renesas@glider.be>,
+	"magnus.damm@gmail.com" <magnus.damm@gmail.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"rafael@kernel.org" <rafael@kernel.org>, "daniel.lezcano@linaro.org"
+	<daniel.lezcano@linaro.org>, "rui.zhang@intel.com" <rui.zhang@intel.com>,
+	"lukasz.luba@arm.com" <lukasz.luba@arm.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "p.zabel@pengutronix.de"
+	<p.zabel@pengutronix.de>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"john.madieu@gmail.com" <john.madieu@gmail.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Biju Das <biju.das.jz@bp.renesas.com>
+Subject: RE: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
+ TSU unit
+Thread-Topic: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
+ TSU unit
+Thread-Index: AQHbiRKwzjBFhg3PXkG3oKF6ljEYA7NdFKWAgAc7OeA=
+Date: Fri, 7 Mar 2025 15:14:05 +0000
+Message-ID: <OSBPR01MB2775DFC184F78E9FB50F28FFFFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
+References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
+ <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
+ <20250228-shampoo-uprising-44ae0d3bd68b@spud>
+In-Reply-To: <20250228-shampoo-uprising-44ae0d3bd68b@spud>
+Accept-Language: en-GB, en-US
 Content-Language: en-US
-From: Daniel Lezcano <daniel.lezcano@linaro.org>
-In-Reply-To: <20250305094935.595667-5-fabrice.gasnier@foss.st.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSBPR01MB2775:EE_|TY4PR01MB12838:EE_
+x-ms-office365-filtering-correlation-id: 6d98c16e-5943-4e8c-2d4e-08dd5d8ab357
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?xUbMlMAIGubrEgOZ2KW7G9Z2O1DR+xfZV7kuJWBAR0PvOW2aB0L38E5O5O+b?=
+ =?us-ascii?Q?tzuvHAWZd4miupZLzkQ4cGjXiqu44804w0xQl6YsftxKOiX3KJxH6/x2rXG/?=
+ =?us-ascii?Q?7ABBRPk2Sj8U9agUBtzsCqUXdYHMVgOf62V3Q9TjrvZaop1/XZCVgS62nOen?=
+ =?us-ascii?Q?WAN8AYRv6Ba5dK2r7gOKC5kSUJlLNVuOPPsPyc65ViyFB4KjotYePCiTqm2K?=
+ =?us-ascii?Q?jFiAShimvR/mwMvrGGgoJw0sDyJFLRvePvPp8eVKOF9CVjqqKHthBjVRE31W?=
+ =?us-ascii?Q?fZXuLq1us9Eokl7k+JoLm8CBF4QJqU8wdOp/2p+Tk2pcuF3TrO72CbTWbvdb?=
+ =?us-ascii?Q?UGkSvn28dCvZT0V+/7UE6vPmxMms5G605VRr9j5V6AiNQ3OswrLcFbPAcXVy?=
+ =?us-ascii?Q?vFdnkDoWS7AaFoJ+jJttwCefFLvLf2nt/JeiUxSDvOgU7qmv8rtKcHlOs6Ph?=
+ =?us-ascii?Q?SNJXvtwe8scB88WRpK6zuCrQM8rXzsE61zxwy0qPqHgFfv039yn06Ya/agtw?=
+ =?us-ascii?Q?JtkEEUBA51JK4x8SQA1xk7XHz8NQOp8TNDfyo/SLSm0gtLp6MhMTlydO3PXu?=
+ =?us-ascii?Q?HHTuxrE+UMgnVTaLUkRG7TKbGak/hmQ2jK9n98+kDQzFqybhBRiPVbWKfSQ5?=
+ =?us-ascii?Q?osbTUFZuVutlb2Az5Z8F798SWjdgtPOnZqXWvH/a4EzJOWrd9fUr/R/DT7Wc?=
+ =?us-ascii?Q?obKBupkcPp7ibwhob0Meifk7818bOZp1k7Q0FYJ1dxHecLYwuLpBN/79XwOW?=
+ =?us-ascii?Q?qETtg3IQxONlUqQc6DHCnrFxfAt31vXKkff/9LFSTq14PQ/XbuhZepTFB6s6?=
+ =?us-ascii?Q?/Cj4cW2rn3ZotrZ8KoQBpQ1+8OoQ+uZoOaTJvuvrCEfnYT35dTEzGDHl/asJ?=
+ =?us-ascii?Q?y3hG4Hyj5dvvLGhOhXlKfph+63FPYM1NoJiJ3+y4XsUiwKS9SBLqx3JPHcmk?=
+ =?us-ascii?Q?H2sBMahNUMTthnEfw/kfX/ecH3cfUqZFhBjZohjqg2xTQHs+FuBuPWwEJy5A?=
+ =?us-ascii?Q?yLCF3CThsavCJmj4yyQN3Vox/52mbLlsTg+G4s3top1b1CbMkkRzRVRpOiry?=
+ =?us-ascii?Q?+nDpJGWtwDKqjWkiMFCjcAJuaGbHULHIuUJ5Q5xt8ihjIYgKDdpi1Y4bkrYC?=
+ =?us-ascii?Q?d3ySSTEd/q1RnazFDiMMDAhDLjL1fTdMDzP4FF6lt9ZM38MYVYR7YhRAVvXc?=
+ =?us-ascii?Q?Hcl+/q/Wo4aq7ij9TCmSu7U75WCKEooJ6p6QGTphXgTAMvgQQqnStiHtpoc8?=
+ =?us-ascii?Q?aHaFIuBC7uQt/KS8G4XdDmcfl1EwDthOB0KiLTF2rV/5uerX+XnqSkJLTQoZ?=
+ =?us-ascii?Q?lZk40ANGyyVPj9FwXgg/j2PTZQl3DAz3/JA6l+cinrBYV6ljNMvQD5uGPZS1?=
+ =?us-ascii?Q?hbinvqeu8c/ESio4fkQ1XnUq0VeOGYQxFnNzgxZsds5jvezP8g=3D=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSBPR01MB2775.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uqMSe2aGcGYlmSA4fXAG5FCKOqUceIM0tnyXZVwnwq83sTz3QY5Gox5DV24k?=
+ =?us-ascii?Q?ImhhIoYCLPjw29WWpMbIerWbL70z+KkUvK0GjdNsAxw9zHHVsrlL3xksbqCK?=
+ =?us-ascii?Q?Ay/q1P8pPYqj8GPU8dSRJ96iUU0+Gjt6BBdeCigWIOKx1RbtW8xNbBy8WIcg?=
+ =?us-ascii?Q?ROXxOLF6uSwXUqJzvv8dhFdMogIsLBY2f0Rivv9HcRBBTuvPD92kBXG4RG7G?=
+ =?us-ascii?Q?AQWSvI6KoxGGiRwOABdJclwAEyKTbAeFLV44irBH1w6hO0xYgdPMUuD6fWSQ?=
+ =?us-ascii?Q?kjtimrIemOibNpLzP4FwosmzgTx+elL570UoBRYFVa6Ix53JbwLcbarfQU5s?=
+ =?us-ascii?Q?nfpkEXha1Iq0GxsSauJgMlWLXUGYkKUAtLplKxpL4udhfKfDJDtw4JydhCUC?=
+ =?us-ascii?Q?Yck8Bx+17X33hxuKgY8hhHTJQmdoG0+4KBudmofhv0rGHue4R5w9N87UZcK2?=
+ =?us-ascii?Q?HBNnTx3yy1IBFBkA5R8W0P69dvMZBm7M2JK+5Jg0IX74PJ1+tWAQITABrYac?=
+ =?us-ascii?Q?TYPtR5jAUjvQixqKSKxmPA7lJG2fSFRTEubpXfT5ZyL+uz/Wvjy5vhm4xZb8?=
+ =?us-ascii?Q?S3dgRKB10crXx2pKVoT/lb6lF+GQ8vHYPgME1dTk9BuarxXzyS5I8LyMYrVP?=
+ =?us-ascii?Q?2S4qP3geV9rx8w81tFYimL+ig3kjrRpC52gwNL7/OnYfISpq5KCtTriNsdiq?=
+ =?us-ascii?Q?KBcG+2y3VnidDsTZThtOhigRLhjbX3HnawiZdiMdsaJnfnj8CHIVJA7tU1wK?=
+ =?us-ascii?Q?ggr4DpkbHMRYp16gS7UyGkmEhudyFfPFbdlqWTHuJV+kHnqEct2al0+a0rxd?=
+ =?us-ascii?Q?RK627P+xtAJmxN5+hNvWwKuB5Y1ZlJroesIFPMAC8omsS1qahjfl2HhZ7mJp?=
+ =?us-ascii?Q?Bl/06aI5UOY31qQ/GCuk6zWUpsRsBwDqXMBHVfa07u2+Rct/+1jW2X+MOvTj?=
+ =?us-ascii?Q?wuXaMCru2fVmdY4elTzQE+/ILjhRY8dbwMi+7qX4RJJmWKem/Mrl2xgMJtw2?=
+ =?us-ascii?Q?wSzuCbwStzt1muKgxZcnv8Oh5q4n34QCuUmfiyChXyw4S3lYxiMK8GqmXxjR?=
+ =?us-ascii?Q?ow4NBiZnPZbLIgH2FEYQf4S+yFAcBG748Pb3OsjkboDYrVJ6AfK2zEy6oyEM?=
+ =?us-ascii?Q?0zVRDJ7ZzgGaC5bZMd5xJU9NWYkD17gkop4DQh8vy6nOWjoyKfkk4NYBfTO0?=
+ =?us-ascii?Q?UHmsxND92FA2miQCnCaH8To30m+s7Aot/7/AIGYR3RCz/HyHfaZfZdyV977F?=
+ =?us-ascii?Q?LE1UUBbBPFnom94CyKf6kNOzDCphvGJO98oNQk3YZSFpyd5wlZ6dEyGt/Uzg?=
+ =?us-ascii?Q?ZP58PF2W2NOAcK+4/+KkyXH4ZhBGMXydEB9ESu0qAwtsUOLbcUB/eov9bvJM?=
+ =?us-ascii?Q?+zVliGntS86xGFVPKoPLIqbSJ7PJVnmJjBhbGmsdJsPhmE9IJwwdiK9m4zXU?=
+ =?us-ascii?Q?aJbDOxkdwB6epZtT6gPgatHawrcD97fwT1GFQKDx/0t89q+p+koBXu9ey5uQ?=
+ =?us-ascii?Q?UNuNknXDwQcJruvyZaK/fXKuf3mjXQprPwAm4SwV2t/E96pDBVFvan48oMGC?=
+ =?us-ascii?Q?wT3jbwuc2gI0rpAr3Lvk75M4mbY9eRueLck+ycJTd4WZYV1PmyrO5q6ghXGW?=
+ =?us-ascii?Q?4g=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSBPR01MB2775.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d98c16e-5943-4e8c-2d4e-08dd5d8ab357
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 15:14:05.2038
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: zmrwHvZz2q3mRftcGkixyeCYc4mYcOkcBXr2HyOXzAtRLHhRDV8ygqqq1LNmJROFL/2ocBzpZRX+1Fun1n9UFHpFCdFf1opPvIhJbUfgU7w=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY4PR01MB12838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_071220_070120_7C323D3D 
-X-CRM114-Status: GOOD (  22.87  )
+X-CRM114-CacheID: sfid-20250307_071414_733537_A55ECE0C 
+X-CRM114-Status: GOOD (  27.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,109 +179,188 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 05/03/2025 10:49, Fabrice Gasnier wrote:
-> On stm32mp25, DIER (former IER) must only be modified when the lptimer
-> is enabled. On earlier SoCs, it must be only be modified when it is
-> disabled. Read the LPTIM_VERR register to properly manage the enable
-> state, before accessing IER.
-> 
-> Signed-off-by: Patrick Delaunay <patrick.delaunay@foss.st.com>
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-> ---
-> Changes in V2:
-> - rely on fallback compatible as no specific .data is associated to the
->    driver. Use version data from MFD core.
-> - Added interrupt enable register access update in (missed in V1)
-> ---
->   drivers/clocksource/timer-stm32-lp.c | 26 ++++++++++++++++++++++----
->   1 file changed, 22 insertions(+), 4 deletions(-)
-> 
-> diff --git a/drivers/clocksource/timer-stm32-lp.c b/drivers/clocksource/timer-stm32-lp.c
-> index a4c95161cb22..96d975adf7a4 100644
-> --- a/drivers/clocksource/timer-stm32-lp.c
-> +++ b/drivers/clocksource/timer-stm32-lp.c
-> @@ -25,6 +25,7 @@ struct stm32_lp_private {
->   	struct clock_event_device clkevt;
->   	unsigned long period;
->   	struct device *dev;
-> +	bool ier_wr_enabled;	/* Enables LPTIMER before writing into IER register */
->   };
->   
->   static struct stm32_lp_private*
-> @@ -37,8 +38,15 @@ static int stm32_clkevent_lp_shutdown(struct clock_event_device *clkevt)
->   {
->   	struct stm32_lp_private *priv = to_priv(clkevt);
->   
-> -	regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-> +	/* Disable LPTIMER either before or after writing IER register (else, keep it enabled) */
-> +	if (!priv->ier_wr_enabled)
-> +		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-> +
->   	regmap_write(priv->reg, STM32_LPTIM_IER, 0);
-> +
+Hi Conor,
 
-Why not encapsulate the function ?
+Thanks for your review!
 
-	regmap_write_ier(struct stm32_lp_private *priv, int value)
-	{
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Friday, February 28, 2025 8:03 PM
+> To: John Madieu <john.madieu.xa@bp.renesas.com>
+> Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document
+> the TSU unit
+>=20
+> On Thu, Feb 27, 2025 at 01:24:39PM +0100, John Madieu wrote:
+> > The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block
+> > designed to measure the junction temperature. The device provides
+> > real-time temperature measurements for thermal management, utilizing a
+> > single dedicated channel (channel 1) for temperature sensing.
+> >
+> > Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
+> > ---
+> > v1 -> v2:
+> >  * Fix reg property specifier to get rid of yamlint warnings
+> >  * Fix IRQ name to reflect TSU expectations
+> >
+> >  .../thermal/renesas,r9a09g047-tsu.yaml        | 123 ++++++++++++++++++
+> >  1 file changed, 123 insertions(+)
+> >  create mode 100644
+> > Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+> >
+> > diff --git
+> > a/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+> > b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.yaml
+> > new file mode 100644
+> > index 000000000000..e786561ddbe3
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/thermal/renesas,r9a09g047-tsu.
+> > +++ yaml
+> > @@ -0,0 +1,123 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause) %YAML 1.2
+> > +---
+> > +$id:
+> > +http://devicetree.org/schemas/thermal/renesas,r9a09g047-tsu.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Renesas RZ/G3E Temperature Sensor Unit (TSU)
+> > +
+> > +maintainers:
+> > +  - John Madieu <john.madieu.xa@bp.renesas.com>
+> > +
+> > +description:
+> > +  The Temperature Sensor Unit (TSU) is an integrated thermal sensor
+> > +that
+> > +  monitors the chip temperature on the Renesas RZ/G3E SoC. The TSU
+> > +provides
+> > +  real-time temperature measurements for thermal management.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    const: renesas,r9a09g047-tsu
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  interrupts:
+> > +    description: |
+> > +      Interrupt specifiers for the TSU:
+> > +      - S12TSUADI1: Conversion complete interrupt signal (pulse)
+> > +      - S12TSUADCMPI1: Comparison result interrupt signal (level)
+> > +
+> > +  interrupt-names:
+> > +    items:
+> > +      - const: adi
+> > +      - const: adcmpi
+> > +
+> > +  "#thermal-sensor-cells":
+> > +    const: 0
+> > +
+> > +  renesas,tsu-calibration-sys:
+> > +    $ref: /schemas/types.yaml#/definitions/phandle
+> > +    description: |
+> > +      Phandle to the system controller (sys) that contains the TSU
+> > +      calibration values used for temperature calculations.
+> > +
+> > +  renesas,tsu-operating-mode:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    enum: [0, 1]
+> > +    description: |
+> > +      TSU operating mode:
+> > +      0: Mode 0 - Conversion started by software
+> > +      1: Mode 1 - Conversion started by ELC trigger
+>=20
+> Can you make this "software" and "elc" or something please, unless people
+> will genuinely find "0" and 1" to be more informative.
+> And why doesn't the property have a default?
 
-		/* A comment ... */
-		if (!priv->ier_wr_enabled)
-			regmap_write(priv->reg, STM32_LPTIM_CR, 0);
+Sorry for miss-specifying.
+ELC is an external event trigger. May be should I specify it like that ?
 
-		regmap_write(priv->reg, STM32_LPTIM_IER, value);
+To make sure I got your point, do you mean specifying a default value in
+bindings ?
 
-		if (!priv->ier_wr_enabled)
-			regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-	}
+>=20
+> cheers,
+> Conor.
 
+Regards,
+John
 
-> +	if (priv->ier_wr_enabled)
-> +		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-> +
-
->   	/* clear pending flags */
->   	regmap_write(priv->reg, STM32_LPTIM_ICR, STM32_LPTIM_ARRMCF);
->   
-> @@ -51,12 +59,21 @@ static int stm32_clkevent_lp_set_timer(unsigned long evt,
->   {
->   	struct stm32_lp_private *priv = to_priv(clkevt);
->   
-> -	/* disable LPTIMER to be able to write into IER register*/
-> -	regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-> +	if (!priv->ier_wr_enabled) {
-> +		/* Disable LPTIMER to be able to write into IER register */
-> +		regmap_write(priv->reg, STM32_LPTIM_CR, 0);
-> +	} else {
-> +		/* Enable LPTIMER to be able to write into IER register */
-> +		regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-> +	}
-> +
->   	/* enable ARR interrupt */
->   	regmap_write(priv->reg, STM32_LPTIM_IER, STM32_LPTIM_ARRMIE);
-> +
->   	/* enable LPTIMER to be able to write into ARR register */
-> -	regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-> +	if (!priv->ier_wr_enabled)
-> +		regmap_write(priv->reg, STM32_LPTIM_CR, STM32_LPTIM_ENABLE);
-> +
->   	/* set next event counter */
->   	regmap_write(priv->reg, STM32_LPTIM_ARR, evt);
->   
-> @@ -151,6 +168,7 @@ static int stm32_clkevent_lp_probe(struct platform_device *pdev)
->   		return -ENOMEM;
->   
->   	priv->reg = ddata->regmap;
-> +	priv->ier_wr_enabled = ddata->version == STM32_LPTIM_VERR_23;
->   	ret = clk_prepare_enable(ddata->clk);
->   	if (ret)
->   		return -EINVAL;
-
-
--- 
-<http://www.linaro.org/> Linaro.org │ Open source software for ARM SoCs
-
-Follow Linaro:  <http://www.facebook.com/pages/Linaro> Facebook |
-<http://twitter.com/#!/linaroorg> Twitter |
-<http://www.linaro.org/linaro-blog/> Blog
+>=20
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - resets
+> > +  - power-domains
+> > +  - interrupts
+> > +  - interrupt-names
+> > +  - "#thermal-sensor-cells"
+> > +  - renesas,tsu-operating-mode
+> > +  - renesas,tsu-calibration-sys
+> > +
+> > +additionalProperties: false
+> > +
+> > +examples:
+> > +  - |
+> > +    #include <dt-bindings/clock/renesas,r9a09g047-cpg.h>
+> > +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> > +
+> > +    tsu: thermal@14002000 {
+> > +        compatible =3D "renesas,r9a09g047-tsu";
+> > +        reg =3D <0x14002000 0x1000>;
+> > +        clocks =3D <&cpg CPG_MOD 0x10a>;
+> > +        resets =3D <&cpg 0xf8>;
+> > +        power-domains =3D <&cpg>;
+> > +        interrupts =3D <GIC_SPI 250 IRQ_TYPE_EDGE_RISING>,
+> > +                     <GIC_SPI 251 IRQ_TYPE_LEVEL_HIGH>;
+> > +        interrupt-names =3D "adi", "adcmpi";
+> > +        #thermal-sensor-cells =3D <0>;
+> > +        renesas,tsu-operating-mode =3D <0>;
+> > +        renesas,tsu-calibration-sys =3D <&sys>;
+> > +    };
+> > +
+> > +    thermal-zones {
+> > +        cpu-thermal {
+> > +            polling-delay =3D <1000>;
+> > +            polling-delay-passive =3D <250>;
+> > +            thermal-sensors =3D <&tsu>;
+> > +
+> > +            cooling-maps {
+> > +                map0 {
+> > +                    trip =3D <&target>;
+> > +                    cooling-device =3D <&cpu0 0 3>, <&cpu1 0 3>,
+> > +                                     <&cpu2 0 3>, <&cpu3 0 3>;
+> > +                    contribution =3D <1024>;
+> > +                };
+> > +            };
+> > +
+> > +            trips {
+> > +                target: trip-point {
+> > +                    temperature =3D <95000>;
+> > +                    hysteresis =3D <1000>;
+> > +                    type =3D "passive";
+> > +                };
+> > +
+> > +                sensor_crit: sensor-crit {
+> > +                    temperature =3D <120000>;
+> > +                    hysteresis =3D <1000>;
+> > +                    type =3D "critical";
+> > +                };
+> > +            };
+> > +        };
+> > +    };
+> > --
+> > 2.25.1
+> >
 
