@@ -4,77 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4D54C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 11:04:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7C13C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 11:05:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aFXBjMpQQucibqgokFHkSZnj9y5cZChrzp1Sa0fcrAc=; b=WmNR7+j040wpPL8AGj24O96QlL
-	9sIJMC/Ej55234k0BigNnOAfc91e6Vghtt+gtBFZQYsmk2zK6A7tF1q4q6L7szZGTSdRaeRjfJoti
-	cXJAj6B+JfPWFgEvUaElEqifywZFSGnJyHLoKF2voLYys28+snT51jJHx2jRJYuygU4/ublRSCtnS
-	TiolAW1CbDECQpDSKZLak/5NrlbjL+nHovuyhI7TWz+qw09JpS4csOEi13icallmy0H6pwaJso8iW
-	hbwHvn55D+2zMsZxlSWqUvcUoQNMuwR9CM1ERIGTn9KAv7YB5FlZYqk0Qg43yCsgYwhbkv6KzRgxO
-	EUKxx97Q==;
+	bh=84BQ3xuE/YOejwCkRVmGYfJqvNZTn+GmxFcneIOkJqE=; b=WEdvfx3sDgCiwxsCoU4AWP07XR
+	gKZppMkm7w3f0a2XO0WgXcs++KnZ2jYy1upEKhTrG/iv8V2XcjZoSv9IVYC2j+7VpOPlG3DJ6ZfUx
+	EirSJ3I3Icw546z2Go6SfHvzGk5ZpSTM3rrjADzuvLGWyTV6Pm0/WwgasbvHJ0+H8qBEasqM6Ln/+
+	/v50JigfRstNqesJ1GdbwuHRaRq8T3IhQr5QFXeI2AmiXHPWgy6lBmikUBKYHbyu7qZjCO3S2RH8w
+	dCvnSI9zNy58GZmA1gEMQrlUl8rB92FFpxvO7L+KCs6xg56E5Vp8yrbNKtr1n2qlqfrF6fhEAd9eE
+	/Kdil51Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVUl-0000000DyHN-0eHm;
-	Fri, 07 Mar 2025 11:03:59 +0000
-Received: from mail-pl1-x62f.google.com ([2607:f8b0:4864:20::62f])
+	id 1tqVWL-0000000Dye8-3l9N;
+	Fri, 07 Mar 2025 11:05:37 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVMm-0000000DwnC-0Lvk
+	id 1tqVMq-0000000DwpZ-2euQ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:55:45 +0000
-Received: by mail-pl1-x62f.google.com with SMTP id d9443c01a7336-223fb0f619dso32864555ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 02:55:43 -0800 (PST)
+	Fri, 07 Mar 2025 10:55:49 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-223594b3c6dso29389255ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 02:55:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1741344943; x=1741949743; darn=lists.infradead.org;
+        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1741344947; x=1741949747; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=aFXBjMpQQucibqgokFHkSZnj9y5cZChrzp1Sa0fcrAc=;
-        b=m14fJ9wgje7+GGAE285xKxEKoSjPNpQ0AR2CYEqcGEJ3obHSfkTBk27vR1+YrizOWd
-         pnmppsO5FFDJGtyyqq3VY9dloDmZsNuIMIdfJVrh3I8Xz7z4VoSCUmMvdlTdPdTV7CJm
-         AUiU8yqTViGsvpjuO+YTeTAPejRuDJpD+qsZWErXm6aJwOxqMazNJih+XiNyAOuUPSxb
-         ePEIIodq7QkFkq59tfiIUlvPjQOCXiHaUq1vdh8n2Lw7B2v6dQS2CyzIJxCViW9uRFpx
-         Ljc/OBPOXZ7U/Nxatlbf5qnxKku/IxRo6MBv7gN+FYMEK/HGfTIN1nhHl0d8pRgYHeTl
-         Iopw==
+        bh=84BQ3xuE/YOejwCkRVmGYfJqvNZTn+GmxFcneIOkJqE=;
+        b=NR3bKu0Gmj7f4LfrLSvU/juXx8HJxkgVKP8F+C1FR0EGnuhAQQ5QjjBBLhzY055bgQ
+         aI5tNZSRyxCeNp/JyjL3Bk4SoxvODAv/bw95HuoMc5Jkiq7zqIPx3aVbuwMiyyYmSKeQ
+         iu1Z4XI/rTb8FA79rKIEG/Aryq8kpdcYVHE0q9V8B5KMNWqK+UkRCIsiBsTHV1eFfsVq
+         u3ataOja/Gu7Gf6syDvkOVLwR83YIBge7n7AXH9io623gevqpZoH2v/3TSKjMSbkl5Yw
+         bNDDT3/S7mbvQV8gbveECHuT0uQKvKYENrhgKWG+VrHff0rYzbLpfVny/xgda2oXEtRB
+         K07g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741344943; x=1741949743;
+        d=1e100.net; s=20230601; t=1741344947; x=1741949747;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=aFXBjMpQQucibqgokFHkSZnj9y5cZChrzp1Sa0fcrAc=;
-        b=fAckQjI4TVSvyRNWu38N9zM0ihNb23Kxa8VLQzpmszvbo3IsPrFvOMfqDLuZN0GWht
-         jfS8F8ylCoYO9gSBYCczWj+uf2+5xbe5ydn8UPi/hP57uB9dW/nysnE9Or/Uw9mdi5AX
-         Lu6BMoNwSGtzNDJeQv7i/jR2oN+fEtMpPxN9nSU9EU46Xrl6xz5+1DLayAKJ7XTrqipT
-         iSCoEaCk2HoKSPTJCIDbu8lSV0EfQeMjM0VFc2eYVwcM8UYbEPZzNSGAkxXlD2FSgrkI
-         QmXnlTkklZgI41UAUXcKgfjhZF3brkh9hlTa2NuQhcNTgXDgt+YTy3iU9ML+9dXf6cxR
-         ZQag==
-X-Gm-Message-State: AOJu0YwZh8y5ApEfQhE2Vdgm1LduQVtOAdwm22s8ni7zSV5NPBXz2NMx
-	BipjHTAa5SDmOMdetUtdQ+akp1CKTOBzSHw0CQOj2Pv2ZgC6XJRFA7sbxYhkG20=
-X-Gm-Gg: ASbGncvp0yCohfDhQuJBF52jr1nzJCZwPGZjD3GPSB/XCJ0UzGKJHOQgUkiIjOz3Ee7
-	Tv3x8oXzF1wXtQm5mN7ggTgEH79EurcJ3cl0apHnwo27esGpvMvEfbPLPBSqp3CyrBP7/p9DrkC
-	LClPuCs1x1vVygzgCZWnrAv5yJNF7jsmlrO6ZvQaPs+pAGccjd/vK2/AX9eSx7K+TeX2trgnS0K
-	y4eBClLsPjchjJpIJcljqL3or+eXv7XHPzcRUlygjv1Tcd5nl9E/dmZDoESHtUE7hXs4PsT2b67
-	WXjnwO0TPVpuqa48u+S9DBcJNQkYa6+eKR6L6VoG/LPtA5W3
-X-Google-Smtp-Source: AGHT+IEoXfkwPsJZHGHUH2StrQHAqmGfaA3Jdeh6jSgOLkAwNCLg5rn0a7T5je10X9eqSxa+av8pdw==
-X-Received: by 2002:a05:6a20:1590:b0:1f3:47cf:514b with SMTP id adf61e73a8af0-1f544acd2b0mr5322641637.3.1741344943258;
-        Fri, 07 Mar 2025 02:55:43 -0800 (PST)
+        bh=84BQ3xuE/YOejwCkRVmGYfJqvNZTn+GmxFcneIOkJqE=;
+        b=l+zxt8b3sCJ916WGXUgvN7y1vjvUPfjVaSjB/G1oT+HNreZUrNr8wfBL3tR/r4lLQe
+         zJzZZRZmxTgkXcRaDXYA0oihk5LTc+cA5zIpoE653fe2gVnwHVULzm0eEzx/dKRyinHD
+         5j1GsZbx7Pk8B4Y6dqf67mEloSjOLNQd7qBj/BExb5pmuML0GynSlVY14Rx2BkRAHe7U
+         dqqWuqXHcwYK0rVTg3cVKrXMzuvKc6N0DSiVhteUQbGIkL0u6y0jqNJ1wWOQmoTsWq1x
+         St09tIXNVJKcGQRsrpUSdS6Me8XzT51rGAunuu9xYIsQeGargR05lGqTbZDTMIw0+eaq
+         uszQ==
+X-Gm-Message-State: AOJu0YwrYGVxjpa6qyMURgMNU4RcJ+2t60gV+0dPy8+8b+67Iv+YwqQt
+	siFdopUewoJlSyFbshGMuDrGlg9j6bRGiLTAAqtNQewqwZTFdJQJmeIY8XcASfw=
+X-Gm-Gg: ASbGncsdUwy43QD1RtGR/sOeI9YfJQWC48390vQyeRZC5/N3VoKnAWfC1QTDhyPenPd
+	j5Sgz2HSJhHC4ZHGccVaF19OsdK+D3iCd2BKzVcQ7vWorX02bST7xq97CA9KSckkUy4QLtKaq/Y
+	v5XjhWTPszL9sRrtdbuWtKtkFu2KVzZA0gechC0v2JN6RrzepRwDS15ea+Gw8xBNnNhfmbRp0mn
+	3tq8SU/0l1uOHNg3vy2mUPoecZ+Uk1OHhKPi1p0FUCAKHQ5zbD3xroTGOlsXsdXTVHDqwdFQ/Nh
+	bulnSwfK0hyz8lBgX5C2Xr72b8iFn/rOCzN0uK/fJLdwHr4m
+X-Google-Smtp-Source: AGHT+IF+CLimdfiOZ0VORULGUWByolFc/6pJXp6pWb1JSm9n2C2SEbnZP1Xs53CSe+DMcCSm/ABWvA==
+X-Received: by 2002:a05:6a00:174b:b0:736:6ac4:d204 with SMTP id d2e1a72fcca58-736aaa0f48amr3972025b3a.11.1741344947618;
+        Fri, 07 Mar 2025 02:55:47 -0800 (PST)
 Received: from localhost ([157.82.205.237])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-736ab812cb0sm1257087b3a.164.2025.03.07.02.55.40
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-736985191cfsm3016761b3a.145.2025.03.07.02.55.44
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 02:55:42 -0800 (PST)
+        Fri, 07 Mar 2025 02:55:47 -0800 (PST)
 From: Akihiko Odaki <akihiko.odaki@daynix.com>
-Date: Fri, 07 Mar 2025 19:55:29 +0900
-Subject: [PATCH v2 2/3] KVM: arm64: PMU: Reload when user modifies
- registers
+Date: Fri, 07 Mar 2025 19:55:30 +0900
+Subject: [PATCH v2 3/3] KVM: arm64: PMU: Set raw values from user to
+ PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250307-pmc-v2-2-6c3375a5f1e4@daynix.com>
+Message-Id: <20250307-pmc-v2-3-6c3375a5f1e4@daynix.com>
 References: <20250307-pmc-v2-0-6c3375a5f1e4@daynix.com>
 In-Reply-To: <20250307-pmc-v2-0-6c3375a5f1e4@daynix.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
@@ -87,8 +87,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
  Akihiko Odaki <akihiko.odaki@daynix.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_025544_133403_F8F00262 
-X-CRM114-Status: GOOD (  12.57  )
+X-CRM114-CacheID: sfid-20250307_025548_688010_864CDDC5 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,62 +103,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit d0c94c49792c ("KVM: arm64: Restore PMU configuration on first
-run") added the code to reload the PMU configuration on first run.
-Trigger the code when a user modifies a PMU register instead so that
-PMU configuration changes made by users will be applied also after the
-first run.
+Commit a45f41d754e0 ("KVM: arm64: Add {get,set}_user for
+PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}") changed KVM_SET_ONE_REG to update
+the mentioned registers in a way matching with the behavior of guest
+register writes. This is a breaking change of a UAPI though the new
+semantics looks cleaner and VMMs are not prepared for this.
 
+Firecracker, QEMU, and crosvm perform migration by listing registers
+with KVM_GET_REG_LIST, getting their values with KVM_GET_ONE_REG and
+setting them with KVM_SET_ONE_REG. This algorithm assumes
+KVM_SET_ONE_REG restores the values retrieved with KVM_GET_ONE_REG
+without any alteration. However, bit operations added by the earlier
+commit do not preserve the values retried with KVM_GET_ONE_REG and
+potentially break migration.
+
+Remove the bit operations that alter the values retrieved with
+KVM_GET_ONE_REG.
+
+Fixes: a45f41d754e0 ("KVM: arm64: Add {get,set}_user for PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}")
 Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
 ---
- arch/arm64/kvm/pmu-emul.c | 3 ---
- arch/arm64/kvm/sys_regs.c | 5 +++++
- 2 files changed, 5 insertions(+), 3 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 21 +--------------------
+ 1 file changed, 1 insertion(+), 20 deletions(-)
 
-diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-index 1402cce5625bffa706aabe5e6121d1f3817a0aaf..04eb3856b96576fad5afc8927c8916ff9738f9d7 100644
---- a/arch/arm64/kvm/pmu-emul.c
-+++ b/arch/arm64/kvm/pmu-emul.c
-@@ -888,9 +888,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu)
- 		   return -EINVAL;
- 	}
- 
--	/* One-off reload of the PMU on first run */
--	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
--
- 	return 0;
- }
- 
 diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-index 27418dac791df9a89124f867879e899db175e506..51054b7befc0b4bd822cecf717ee4a4740c4a685 100644
+index 51054b7befc0b4bd822cecf717ee4a4740c4a685..2f44d4d4f54112787683dd75ea93fd60e92dd31f 100644
 --- a/arch/arm64/kvm/sys_regs.c
 +++ b/arch/arm64/kvm/sys_regs.c
-@@ -1162,6 +1162,8 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
- 	else
- 		__vcpu_sys_reg(vcpu, r->reg) &= ~val;
+@@ -1142,26 +1142,7 @@ static bool access_pmu_evtyper(struct kvm_vcpu *vcpu, struct sys_reg_params *p,
  
-+	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-+
+ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 val)
+ {
+-	bool set;
+-
+-	val &= kvm_pmu_valid_counter_mask(vcpu);
+-
+-	switch (r->reg) {
+-	case PMOVSSET_EL0:
+-		/* CRm[1] being set indicates a SET register, and CLR otherwise */
+-		set = r->CRm & 2;
+-		break;
+-	default:
+-		/* Op2[0] being set indicates a SET register, and CLR otherwise */
+-		set = r->Op2 & 1;
+-		break;
+-	}
+-
+-	if (set)
+-		__vcpu_sys_reg(vcpu, r->reg) |= val;
+-	else
+-		__vcpu_sys_reg(vcpu, r->reg) &= ~val;
+-
++	__vcpu_sys_reg(vcpu, r->reg) = val & kvm_pmu_valid_counter_mask(vcpu);
+ 	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+ 
  	return 0;
- }
- 
-@@ -1322,6 +1324,8 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- 		val |= ARMV8_PMU_PMCR_LC;
- 
- 	__vcpu_sys_reg(vcpu, r->reg) = val;
-+	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-+
- 	return 0;
- }
- 
-@@ -4276,6 +4280,7 @@ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu)
- 	}
- 
- 	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
-+	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
- }
- 
- /**
 
 -- 
 2.48.1
