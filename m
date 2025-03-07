@@ -4,110 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5B0FC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:37:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA2BC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:39:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XpHtfXZMtovgp9ILU8zfEF7HMKzE1ti5rdjRAjVazZg=; b=WPMSPEsb/akUWSwoeBspuK8KHF
-	24b2+hHJ4mC4FMLYcWMbJ5hyBh9v3fWqgawxb34Rz3PejkF36uozcQqhUeAna6mPKIASgXcDAmU2O
-	MFlCxx3iYB+c8u/dCuHCGQ9wwx5+ScRplu8jL5oZLAsvLGTBFtWdgGqGQVDe67flrEqHeA71CIEPN
-	Acf6A+HD22QfAYwU/C6vOsEmx5YwZKvOZIKvrtJdUTJo/IfXlJkdUCDIryjDB0EwEOlo38NYNiIJU
-	YL1jNW1sOa8YXcsqn6nvh0BSzjY2eDDiVdOSbhEd/Z2r8/9JjLRmo59gwRF91gRFQ7g51pNlBawsm
-	E342hqSQ==;
+	bh=o06VURZdv6TpTGBcJJyPYbkacPk57jeEgcFoNnbN4aE=; b=n21qCQAP87dhL5QF0hFQewA7u8
+	X5TcOde6Gm/Fi3ESMOScUijDBOIB6lMaK5yE8J1h+WnkUnSL4cDzbXsyR2mC8RFukF1XTF7BOOePH
+	3PCwsp8HDPn4RO/7/do0fjhsA8E5gk4hWPF7qTx6ZWQfJNU9rHxtkkU4dRPx4YQeCcxC2OOOhEd3M
+	CHOvBj+3qDYv+AqbxTp7OLlDhafIgPhy3Lyo2Yx/wGgOEFY47M5zAnLWJGBJl+tlMcIOEpyG+/FMj
+	tVjM1mxl/iHcQfk58pK2TtkwXBZoJGxXk9+ZdgRyUKPDO6bxHRh4c1gb3HmLaOzfjJQG/XB4UfYYs
+	L96dm7Ow==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV5K-0000000Du83-1Sfx;
-	Fri, 07 Mar 2025 10:37:42 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tqV6v-0000000DuM7-0Lkz;
+	Fri, 07 Mar 2025 10:39:21 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUxP-0000000DsOT-1rpI
+	id 1tqUym-0000000DslL-206W
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:29:32 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-38f403edb4eso915483f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 02:29:30 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741343370; x=1741948170; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=XpHtfXZMtovgp9ILU8zfEF7HMKzE1ti5rdjRAjVazZg=;
-        b=iiyewD5F3ykH5vYk5DF64gkDG9+1/G0nbh9i8EeGdxqDzBGPbjpMLnb9NTpJnXA6hw
-         FPLa5HLfjVUvrZe4wcSLTxyKcJmdlMiIp8zV7Ou9c3X1mCX452v1ir6mPJ2ZxiUOWfw6
-         ziS1ZXiccIDOKo7J3+zpG3NdPW73SWs4hh127qt1f/oxXzLTs2wVifqmGbETC5DR4aBV
-         FBNFYjGaCF/u1yRxG5sxAbkIW6g+ysweS13ZYx75Il87TtR60jQL3aSL4kOPouRUBExU
-         1Zn8KAj2vk74ZgGa7dKFZdCkNW8/VeBy1huHPTnbphIdpgnhBIMIJZh34T05R77Bz+gN
-         tuew==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741343370; x=1741948170;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XpHtfXZMtovgp9ILU8zfEF7HMKzE1ti5rdjRAjVazZg=;
-        b=tpzPeiyOHPTvD2E4btmTn4IC5EgXwloAm+MwkM25EaHniurongZxJhh3PWAPkFHjE/
-         0Rce6XIVBrkAqisxev6sEkXfrnVqqc+jbq3MT2Dg7MCETOJhYUzoQmK4b1i1dn8HZ48V
-         2LYbIaoX2pWxb8MyvwuvB8asubj/UREdNeyGlQvcEABvMI9e8unL8IMpsvRJVFoqVtsJ
-         SBg3wA6S5cCdCTDJjAcgccnyGKZrpZyL0V+shJMYvaA4poywk9PK2Ecf6fbmcI2rwAv9
-         StbN17FHFS5myLeZueTZ8h/jWX6GrhbYN9ndH9RIG7QORPlzNuBUUZlB/tY7lXy3y6s4
-         KDkg==
-X-Gm-Message-State: AOJu0YwsY3zTFK1FL9ZvtsOYEFmK4Wc0Gtpa30HZL2H2MhrT8ETbziCH
-	nG+bATlIoGnyeLILd/0aXc4GJIl5Xcd5UgN1yeNZ4ZBC+dU9MrC0ahyJhMiG5RM=
-X-Gm-Gg: ASbGncsI8SDhohTk3anmfGqYjwau05yq+1EUBfy/1RYzL9LszhaG0evzHWYJu4T9Qo8
-	aQdumhNVvUOOhN9VuhQp/vmNBsZb0Z3ZzyvsWNi5FbCR25el5a3hS/x5+0mWNuR4SKZjDgqu7HZ
-	k4XImVgEKLCDcKRur2xZBYD7iOou/MdrDiPNaP0mjJSWTMHAS+pVJLjjQtUhQQ1Ec13UFUE+GFR
-	MIRlF+ybWAC8NPz2/DkKRCrQ/CHQTOD8goffSG5Qi3DSgF3N3+0EW9KQJKLYr+bBnWqbhYOQRh1
-	I9lNmGFki7BZEjPhZw67BLi00o1yK/Gh6a1djmjaOMp++u8JIVlAxP6vtbkrEC3fQ3SezzZtQ8E
-	=
-X-Google-Smtp-Source: AGHT+IELqpVmd0fvvLrbeGlBslX14EFMXRP9VSs8vnkHH4WGNHv+xxIo63qhgA6uSenseZlnpH1JeQ==
-X-Received: by 2002:a05:6000:4112:b0:391:d52:d042 with SMTP id ffacd0b85a97d-39132d883f3mr1316285f8f.32.1741343369573;
-        Fri, 07 Mar 2025 02:29:29 -0800 (PST)
-Received: from gpeter-l.roam.corp.google.com ([145.224.90.122])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bdd8b0461sm49192955e9.4.2025.03.07.02.29.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 02:29:29 -0800 (PST)
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Fri, 07 Mar 2025 10:29:08 +0000
-Subject: [PATCH v4 4/4] pinctrl: samsung: Add filter selection support for
- alive bank on gs101
+	Fri, 07 Mar 2025 10:30:57 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AUlJJ243303
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 7 Mar 2025 04:30:47 -0600
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741343447;
+	bh=o06VURZdv6TpTGBcJJyPYbkacPk57jeEgcFoNnbN4aE=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=KGumB7H4cAQuFzdLuZycJZSpzg4QLD+dAHTuVBw8wXFNQprMsQ6eDC1tUtMpvhhb3
+	 4yo1Mfqb25UBTSJsBbPGMMIxW/zK5kLtIyv1S6n6mSYX9agzI58VKgMGEsvlls8dRy
+	 s9UzPLM1SjLU/JUpCgSeR5VofbJ+/CiONUvr/mTc=
+Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 527AUlqh015612
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 7 Mar 2025 04:30:47 -0600
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE109.ent.ti.com
+ (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
+ Mar 2025 04:30:46 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Fri, 7 Mar 2025 04:30:46 -0600
+Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AUf4v015736;
+	Fri, 7 Mar 2025 04:30:42 -0600
+Message-ID: <3931a391-3967-4260-a104-4eb313810c0d@ti.com>
+Date: Fri, 7 Mar 2025 16:00:40 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250307-pinctrl-fltcon-suspend-v4-4-2d775e486036@linaro.org>
-References: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
-In-Reply-To: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
-To: Krzysztof Kozlowski <krzk@kernel.org>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Linus Walleij <linus.walleij@linaro.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- andre.draszik@linaro.org, tudor.ambarus@linaro.org, willmcvicker@google.com, 
- semen.protsenko@linaro.org, kernel-team@android.com, 
- jaewon02.kim@samsung.com, Peter Griffin <peter.griffin@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5749;
- i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=0g0PL41FvwddA+yzjOccP1eOi8+XeiX+2I7QmRbycHw=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBnysqBWYKPT3JlFe3EPL9ZQ4Cxe9Oo6QkFzQ3J3
- g/okGUam0KJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCZ8rKgQAKCRDO6LjWAjRy
- utzhD/9SPJA0sK/S5QY+aQ2jbKWzDSNcZLzygXB/AH06vQGgCdMyqqV4uA5fnVT/7UQvweoR8jx
- TwEWWZEPyFhTyVinHXgBNc674T4NE1hHF5KYtVgU7GYV+j+Fpm3PfbJPKvvHzHncNmvE+l654Nu
- YqdVf8q3Y8+gMPqtL+C+tR/9sLO471lzqCm3qXZO95ZFSFXz9XMjCBOcAI3wS4rHq/2ydG94tZw
- 02PGCPpj1gHbSOEKlwQ84OVEC8aVsWKpbF+b1Jrz1Hhd+4lpxb0SC0CbZPFFRWM38iNUFj9rihp
- d0HjNZ789nCTQR58nAAYndk62BVkK/YNKBTRDeNVl1h4IBQvFTRTP/QJjRPmWA5fUz6NpgFwmLY
- XYj0h4xhtHsNtS+6+UBwtDzyEv8ZwzT6zcxkNzTlDKqqThUcQ3sgp9cBdP1EevUWAqhj48mog4w
- 3RalHQj7D5sedV0N9l1tOzwF+hW63cdSwegrbCWleLUy+ATb3W3opbrTbpquFExfx2XTYC/9QDr
- 9eHpuqsNZGx4X+GnM9VMqiRWbRf8MiB/NV64I9BNzx1b6mg4LV7FuyP8+5la26T58ddcAhoLeq5
- 3IvWYWer8IQ6sECPJTX6FznWnZ0eRq+8ZvOYiW0IbEkaCcnPxNhQXG2oRgAM58nFtMaop1qDPWH
- OyUnDN56Ht4kWOA==
-X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
- fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add ICSSG FW Stats
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, Meghana Malladi <m-malladi@ti.com>,
+        Diogo Ivo <diogo.ivo@siemens.com>, Lee Trager <lee@trager.us>,
+        Andrew Lunn
+	<andrew+netdev@lunn.ch>,
+        Roger Quadros <rogerq@kernel.org>, Jonathan Corbet
+	<corbet@lwn.net>,
+        Simon Horman <horms@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>,
+        Eric Dumazet <edumazet@google.com>,
+        "David S. Miller"
+	<davem@davemloft.net>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>
+References: <20250305111608.520042-1-danishanwar@ti.com>
+ <20250306165513.541ff46e@kernel.org>
+Content-Language: en-US
+From: MD Danish Anwar <danishanwar@ti.com>
+In-Reply-To: <20250306165513.541ff46e@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_022931_488373_C93FCA58 
-X-CRM114-Status: GOOD (  21.34  )
+X-CRM114-CacheID: sfid-20250307_023056_694450_C075933D 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,151 +97,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Newer Exynos based SoCs have a filter selection bitfield in the filter
-configuration registers on alive bank pins. This allows the selection of
-a digital or analog delay filter for each pin. Add support for selecting
-and enabling the filter.
+Hi Jakub
 
-On suspend we set the analog filter to all pins in the bank (as the
-digital filter relies on a clock). On resume the digital filter is
-reapplied to all pins in the bank. The digital filter is working via
-a clock and has an adjustable filter delay flt_width bitfield, whereas
-the analog filter uses a fixed delay.
+On 07/03/25 6:25 am, Jakub Kicinski wrote:
+> On Wed, 5 Mar 2025 16:46:08 +0530 MD Danish Anwar wrote:
+>> + - ``FW_RTU_PKT_DROP``: Diagnostic error counter which increments when RTU drops a locally injected packet due to port being disabled or rule violation.
+>> + - ``FW_Q0_OVERFLOW``: TX overflow counter for queue0
+>> + - ``FW_Q1_OVERFLOW``: TX overflow counter for queue1
+>> + - ``FW_Q2_OVERFLOW``: TX overflow counter for queue2
+>> + - ``FW_Q3_OVERFLOW``: TX overflow counter for queue3
+>> + - ``FW_Q4_OVERFLOW``: TX overflow counter for queue4
+>> + - ``FW_Q5_OVERFLOW``: TX overflow counter for queue5
+>> + - ``FW_Q6_OVERFLOW``: TX overflow counter for queue6
+>> + - ``FW_Q7_OVERFLOW``: TX overflow counter for queue7
+> ...
+> 
+> Thanks for the docs, it looks good. Now, do all of these get included
+> in the standard stats returned by icssg_ndo_get_stats64 ?
+> That's the primary source of information for the user regarding packet
+> loss.
 
-The filter determines to what extent signal fluctuations received through
-the pad are considered glitches.
+No, these are not reported via icssg_ndo_get_stats64.
 
-The code path can be exercised using
-echo mem > /sys/power/state
-And then wake the device using a eint gpio
+.ndo_get_stats64 populates stats that are part of `struct
+rtnl_link_stats64`. icssg_ndo_get_stats64 populates those stats wherever
+applicable. These firmware stats are not same as the ones defined in
+`icssg_ndo_get_stats64` hence they are not populated. They are not
+standard stats, they will be dumped by `ethtool -S`. Wherever there is a
+standard stats, I will make sure it gets dumped from the standard
+interface instead of `ethtool -S`
 
-Reviewed-by: André Draszik <andre.draszik@linaro.org>
-Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
----
+Only below stats are included in the standard stats returned by
+icssg_ndo_get_stats64
+- rx_packets
+- rx_bytes
+- tx_packets
+- tx_bytes
+- rx_crc_errors
+- rx_over_errors
+- rx_multicast_frames
 
-Changes since v2:
-* Ensure EXYNOS_FLTCON_DIGITAL bit is cleared (Andre)
-* Make it obvious that exynos_eint_set_filter() is conditional on bank type (Andre)
+> 
+>>  	if (prueth->pa_stats) {
+>>  		for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++) {
+>> -			reg = ICSSG_FW_STATS_BASE +
+>> -			      icssg_all_pa_stats[i].offset *
+>> -			      PRUETH_NUM_MACS + slice * sizeof(u32);
+>> +			reg = icssg_all_pa_stats[i].offset +
+>> +			      slice * sizeof(u32);
+>>  			regmap_read(prueth->pa_stats, reg, &val);
+>>  			emac->pa_stats[i] += val;
+> 
+> This gets called by icssg_ndo_get_stats64() which is under RCU 
 
-Changes since v1:
-* Remove eint_flt_selectable bool as it can be deduced from EINT_TYPE_WKUP (Peter)
-* Move filter config comment to header (Andre)
-* Rename EXYNOS_FLTCON_DELAY to EXYNOS_FLTCON_ANALOG (Andre)
-* Remove misleading old comment (Andre)
-* Refactor exynos_eint_update_flt_reg() into a loop (Andre)
+Yes, this does get called by icssg_ndo_get_stats64(). Apart from that
+there is a workqueue (`icssg_stats_work_handler`) that calls this API
+periodically and updates the emac->stats and emac->pa_stats arrays.
 
-Note: this patch was previously sent as part of the initial gs101/ Pixel 6
-series and was dropped in v6. This new version incorporates the review
-feedback from Sam Protsenko here in v5.
+> protection and nothing else. I don't see any locking here, and
 
-Link: https://lore.kernel.org/all/20231201160925.3136868-1-peter.griffin@linaro.org/T/#m79ced98939e895c840d812c8b4c2b3f33ce604c8
+There is no locking here. I don't think this is related to the patch.
+The API emac_update_hardware_stats() updates all the stats supported by
+ICSSG not just standard stats.
 
-Changes since previous version
-* Drop fltcon_type enum and use bool eint_flt_selectable (Sam)
-* Refactor and add exynos_eint_update_flt_reg() (Sam)
-* Rename function to exynos_eint_set_filter() for easier readability (Sam)
-* Remove comments and `if bank->fltcon_type != FLT_DEFAULT)` checks and indentation (Sam)
----
- drivers/pinctrl/samsung/pinctrl-exynos.c | 37 +++++++++++++++++++++++++++++++-
- drivers/pinctrl/samsung/pinctrl-exynos.h | 20 +++++++++++++++++
- 2 files changed, 56 insertions(+), 1 deletion(-)
+> I hope the regmap doesn't sleep. cat /proc/net/dev to test.
+> You probably need to send some fixes to net.
 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.c b/drivers/pinctrl/samsung/pinctrl-exynos.c
-index 5f0045d03346600557fa6735bad709897c71935c..1d2a4f4b825fce4be3f3d337145f2a4128315f0b 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos.c
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos.c
-@@ -369,6 +369,37 @@ struct exynos_eint_gpio_save {
- 	u32 eint_mask;
- };
- 
-+static void exynos_eint_update_flt_reg(void __iomem *reg, int cnt, int con)
-+{
-+	unsigned int val, shift;
-+	int i;
-+
-+	val = readl(reg);
-+	for (i = 0; i < cnt; i++) {
-+		shift = i * EXYNOS_FLTCON_LEN;
-+		val &= ~(EXYNOS_FLTCON_DIGITAL << shift);
-+		val |= con << shift;
-+	}
-+	writel(val, reg);
-+}
-+
-+/*
-+ * Set the desired filter (digital or analog delay) and enable it to
-+ * every pin in the bank. Note the filter selection bitfield is only
-+ * found on alive banks. The filter determines to what extent signal
-+ * fluctuations received through the pad are considered glitches.
-+ */
-+static void exynos_eint_set_filter(struct samsung_pin_bank *bank, int filter)
-+{
-+	unsigned int off = EXYNOS_GPIO_EFLTCON_OFFSET + bank->eint_fltcon_offset;
-+	void __iomem *reg = bank->drvdata->virt_base + off;
-+	unsigned int con = EXYNOS_FLTCON_EN | filter;
-+
-+	for (int n = 0; n < bank->nr_pins; n += 4)
-+		exynos_eint_update_flt_reg(reg + n,
-+					   min(bank->nr_pins - n, 4), con);
-+}
-+
- /*
-  * exynos_eint_gpio_init() - setup handling of external gpio interrupts.
-  * @d: driver data of samsung pinctrl driver.
-@@ -828,8 +859,10 @@ void gs101_pinctrl_suspend(struct samsung_pin_bank *bank)
- 				 bank->name, save->eint_fltcon1);
- 		pr_debug("%s: save    mask %#010x\n",
- 			 bank->name, save->eint_mask);
--	} else if (bank->eint_type == EINT_TYPE_WKUP)
-+	} else if (bank->eint_type == EINT_TYPE_WKUP) {
- 		exynos_set_wakeup(bank);
-+		exynos_eint_set_filter(bank, EXYNOS_FLTCON_ANALOG);
-+	}
- }
- 
- void exynosautov920_pinctrl_suspend(struct samsung_pin_bank *bank)
-@@ -883,6 +916,8 @@ void gs101_pinctrl_resume(struct samsung_pin_bank *bank)
- 			writel(save->eint_fltcon1, eint_fltcfg0 + 4);
- 		writel(save->eint_mask, regs + bank->irq_chip->eint_mask
- 		       + bank->eint_offset);
-+	} else if (bank->eint_type == EINT_TYPE_WKUP) {
-+		exynos_eint_set_filter(bank, EXYNOS_FLTCON_DIGITAL);
- 	}
- }
- 
-diff --git a/drivers/pinctrl/samsung/pinctrl-exynos.h b/drivers/pinctrl/samsung/pinctrl-exynos.h
-index 773f161a82a38cbaad05fcbc09a936300f5c7595..66acbd08d3445ca6ee7358d3c4a6cb2be5d82842 100644
---- a/drivers/pinctrl/samsung/pinctrl-exynos.h
-+++ b/drivers/pinctrl/samsung/pinctrl-exynos.h
-@@ -52,6 +52,26 @@
- #define EXYNOS_EINT_MAX_PER_BANK	8
- #define EXYNOS_EINT_NR_WKUP_EINT
- 
-+/*
-+ * EINT filter configuration register (on alive banks) has
-+ * the following layout.
-+ *
-+ * BitfieldName[PinNum][Bit:Bit]
-+ * FLT_EN[3][31] FLT_SEL[3][30] FLT_WIDTH[3][29:24]
-+ * FLT_EN[2][23] FLT_SEL[2][22] FLT_WIDTH[2][21:16]
-+ * FLT_EN[1][15] FLT_SEL[1][14] FLT_WIDTH[1][13:8]
-+ * FLT_EN[0][7]  FLT_SEL[0][6]  FLT_WIDTH[0][5:0]
-+ *
-+ * FLT_EN	0x0 = Disable, 0x1=Enable
-+ * FLT_SEL	0x0 = Analog delay filter, 0x1 Digital filter (clock count)
-+ * FLT_WIDTH	Filtering width. Valid when FLT_SEL is 0x1
-+ */
-+
-+#define EXYNOS_FLTCON_EN		BIT(7)
-+#define EXYNOS_FLTCON_DIGITAL		BIT(6)
-+#define EXYNOS_FLTCON_ANALOG		(0 << 6)
-+#define EXYNOS_FLTCON_LEN		8
-+
- #define EXYNOS_PIN_BANK_EINTN(pins, reg, id)		\
- 	{						\
- 		.type		= &bank_type_off,	\
+I checked cat /proc/net/dev and the stats shown there are not related to
+the stats I am introducing in this series.
+
+The fix could be to add a lock in this function, but we have close to 90
+stats and this function is called not only from icssg_ndo_get_stats64()
+but from emac_get_ethtool_stats(). The function also gets called
+periodically (Every 25 Seconds for 1G Link). I think every time locking
+90 regmap_reads() could result in performance degradation.
+
+I only see couple of drivers acquiring spin lock before reading the
+stats for .ndo_get_stats64. Most of the drivers are not using any lock.
+
+I did some testing and did not see any discrepancy in the stats `cat
+/proc/net/dev` without the lock.
+
+Furthermore, the fix is independent of this patch. I can send out a
+separate fix to net to add cpu locks to this function. But I don't think
+there is any change needed in this patch.
+
+Let me know what should be done here.
 
 -- 
-2.49.0.rc0.332.g42c0ae87b1-goog
-
+Thanks and Regards,
+Danish
 
