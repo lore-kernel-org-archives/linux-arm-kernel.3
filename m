@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C34C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D071C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:14:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ejp9VKGmkMNi+YMzNEKy938J5ilfGRLZaNcUOciZXc=; b=Bqp4p5+Ka2ld10637hN7tz6wP6
-	gCmDnjrd2N/9eIwkGaat6b69Kyj8dci6/4BIOkOI+wXuHNAoHrFBn21avPA5f0HV+KhloY//iuVTF
-	U3lBbMxb1v3kvVrQEw6J7qg8fw6lqmU54EKBF0/vU7ix8TOL1mYB6W2KnJXgYMiKLdqpb2cvuUDsV
-	0r8r2JnrqQkmIsn1P5xIC44BNKtQ2EQivTFwCwfGvoAtlinoS0jFk4AGTM4T8TO+pkEI20zooH5NH
-	JmOu8nv9j1+y30AwWvaXTkzb3mX6Uit1eyrN/GJJNR5V1xh/a6x6iODf7mSyamMb6kgI60qFplHh6
-	mHLArMHQ==;
+	bh=DHCZgN2nv/auyPY8jlf5/CxWk9DcxsvUe9NZhUMgcn4=; b=twPlQcY8dbdoS7xY5ung9/JWhX
+	F+c567IUVmns5G62RO2WaM36DVNNFd2f9bctAJbXupxFgxb6B0ghn6HSejIvkmxXHPQBK1Mu7SyZn
+	/nL94vmbJABPBTfE0kNT7p7HXw/mn7vMiQocZasMRWxhdAy44HEnBABfEMlWGRJgucu1QEjSQLzNx
+	TdMly1dLzIgcHFoNSBbxJCijNEZjQL5a8gMltlYDxYqVc4c2bL++g/DaCf8HmZaKDM5Ja4OiNmnJr
+	thuFRkzIGt4IdH6/GDxdlrum4tE/FAulMLftxCkUkK2+q8zGEJQTbLgjgTd2jQ04/q9ekUK/YVG76
+	iGea0I3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfwG-0000000FgFY-0wds;
-	Fri, 07 Mar 2025 22:13:04 +0000
+	id 1tqfxq-0000000FgRX-43a9;
+	Fri, 07 Mar 2025 22:14:42 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfme-0000000FdyK-24Vb
+	id 1tqfme-0000000FdyM-2U3K
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 22:03:09 +0000
+	Fri, 07 Mar 2025 22:03:10 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 6F4FE2038F42;
+	by linux.microsoft.com (Postfix) with ESMTPSA id C7C432038F46;
 	Fri,  7 Mar 2025 14:03:07 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 6F4FE2038F42
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com C7C432038F46
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741384987;
-	bh=6ejp9VKGmkMNi+YMzNEKy938J5ilfGRLZaNcUOciZXc=;
+	s=default; t=1741384988;
+	bh=DHCZgN2nv/auyPY8jlf5/CxWk9DcxsvUe9NZhUMgcn4=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=IpqejOvogwQq7fkkJFIx5UBw258yMNgVwiwVKJvbpy7zSfNJoFCESKEOdRtEsRVzU
-	 KtEBac0X5rQj0SiRXp2qHjP14FGW3zGctOmx//BDA18H70eNtXBrxpaTt9aPiUX8DM
-	 nM3PNV8Mzyu/hfO+lGVVs4oJe5vB/dYj7w9l6J10=
+	b=MnViV2cok80SEu3yXZPLruR5ncKfFuUB/DN7G00ORVAuMxkiQGqPfq064cRXssxSt
+	 SfJhMBk2aVXinFXplzZThgtTbdnZR2XdvsyJlDk6Q6MLVD9keTNL32J4TCwZ6P9x4k
+	 ig35M2awNRwyMkTjxYPev4uCYmeSyu1H+cHpbIIo=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,18 +81,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v5 05/11] arm64: hyperv: Initialize the Virtual Trust Level field
-Date: Fri,  7 Mar 2025 14:02:57 -0800
-Message-ID: <20250307220304.247725-6-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v5 06/11] arm64, x86: hyperv: Report the VTL the system boots in
+Date: Fri,  7 Mar 2025 14:02:58 -0800
+Message-ID: <20250307220304.247725-7-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250307220304.247725-1-romank@linux.microsoft.com>
 References: <20250307220304.247725-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_140308_552906_A19282E6 
-X-CRM114-Status: UNSURE (   8.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_140308_657721_18E96B0D 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,30 +106,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Various parts of the hyperv code need to know what VTL
-the kernel runs at, most notably VMBus needs that to
-establish communication with the host.
+The hyperv guest code might run in various Virtual Trust Levels.
 
-Initialize the Virtual Trust Level field to enable
-booting in the Virtual Trust Level.
+Report the level when the kernel boots in the non-default (0)
+one.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 ---
- arch/arm64/hyperv/mshyperv.c | 1 +
- 1 file changed, 1 insertion(+)
+ arch/arm64/hyperv/mshyperv.c | 2 ++
+ arch/x86/hyperv/hv_vtl.c     | 2 +-
+ 2 files changed, 3 insertions(+), 1 deletion(-)
 
 diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
-index c647db56fd6b..a7db03f5413d 100644
+index a7db03f5413d..3bc16dbee758 100644
 --- a/arch/arm64/hyperv/mshyperv.c
 +++ b/arch/arm64/hyperv/mshyperv.c
-@@ -107,6 +107,7 @@ static int __init hyperv_init(void)
- 
+@@ -108,6 +108,8 @@ static int __init hyperv_init(void)
  	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
  		hv_get_partition_id();
-+	ms_hyperv.vtl = get_vtl();
+ 	ms_hyperv.vtl = get_vtl();
++	if (ms_hyperv.vtl > 0) /* non default VTL */
++		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
  
  	ms_hyperv_late_init();
  
+diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
+index 4e1b1e3b5658..c21bee7e8ff3 100644
+--- a/arch/x86/hyperv/hv_vtl.c
++++ b/arch/x86/hyperv/hv_vtl.c
+@@ -24,7 +24,7 @@ static bool __init hv_vtl_msi_ext_dest_id(void)
+ 
+ void __init hv_vtl_init_platform(void)
+ {
+-	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
++	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
+ 
+ 	x86_platform.realmode_reserve = x86_init_noop;
+ 	x86_platform.realmode_init = x86_init_noop;
 -- 
 2.43.0
 
