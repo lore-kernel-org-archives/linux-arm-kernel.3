@@ -4,65 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60E2C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 00:59:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F7BC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oM+1xVy2MVqCP/92ea+MEGO8ESmszjwDRyMA4/v2fvg=; b=YS9oPrZJod3A6rMgBFDBzrsK1C
-	4qy1ESBfhooO/czkgBFvBpwMINr0PV9RzUh6zfBx7DiBOknE/PM+nuJilRTPtasTbHjUifNZE8J4v
-	75mzMLFW1+m9JQ687ws7OUttWAC/FUetio7FDAHcuwhopBgHgrreNnsR0LzGWNoTZq5HKK28m75cd
-	P3FM+NMcmA3JGUspks3cJhmMWBby/HcillKLMGF2q1wsS9RFULLsZK8PY2gvWfgarppPRPksTZ1HP
-	F508c7zYopVQQiLMonME/3/ifspciyzKwRiWmjVpuCWAXOS7yN4vP8xQzeLhnmAKufOylJmsugZO1
-	14JLmbKg==;
+	bh=rLa1foUxsBIXYDL+Vi7Ah0I6tnQqwLN9iYPwBRBiHlY=; b=U0fKgZhv/3AlFBw0ytwxl8GtUd
+	u3fXkTQ7UzhGN+R7ZtWQ/LUf5s9aZMiLOqAfI75P1XrVnYjn5gVxz/eQ6dIk5qZTHJYmS3zfB3CCr
+	e+4j6CpoO7qEEubukXnJITjjOXI9bbbBbn6mwYI8Zi2qp2wwRHpSilTOX068KYAA/pyCACA2SkP2S
+	clahS73pigQSjBw+KMqmXSgkrrcmWRnmGngnrLfs8PTfZCJ6IwRYQ9iq+ToGedpK4X40FDg0Nvq3t
+	YOhr3KPigpR7qn4ClFhUOEtNUbafIoUk1R/n40mi85DXhdEv0jXPVAUnomXRr2I8XqfDgKLCxs6w2
+	JZcXZOoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM3r-0000000Cic7-03B4;
-	Fri, 07 Mar 2025 00:59:35 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqLzg-0000000ChUM-1iwi
+	id 1tqM5R-0000000Cj5f-2wah;
+	Fri, 07 Mar 2025 01:01:13 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqM0O-0000000ChfI-1o64
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 00:55:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 52612A45063;
-	Fri,  7 Mar 2025 00:49:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F97C4CEE0;
-	Fri,  7 Mar 2025 00:55:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741308914;
-	bh=xek2BHPVZ26qJOlIwvynXxMSgyWkeMn3liBIClkp3lI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=QrpItbReJvXV4f5NgW5mLT6raAXR9ILcWXRqNJek5KIcTTvGN4K/B/vomAxa0s7LW
-	 u4aZDEn0nSrDXhaoRTqiVXvn3VaThme6YX8s6fmORw6eDBPiM8AqInegTSJnIygUbN
-	 kmkzeTMC5o/97KmCJg36JTQAlrvaMcAxFirIDLb5xVmPAOJVe3jVwL0fCb3/QRj3A+
-	 wH5k2Okk0ScuJX1DrWC0/L8AYVJCKq8PdMiLFuNuJ8B4IhoS4LvwUN5iu2xUu8z5hV
-	 86lbzUFCHlPP2SMdOd/H4zSLjWAQwKdWKWfq348B2QMnnbe/oMlMH5KgNaN3ZRDPCA
-	 yO7SLVnzsbOzA==
-Date: Thu, 6 Mar 2025 16:55:13 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: MD Danish Anwar <danishanwar@ti.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Meghana Malladi
- <m-malladi@ti.com>, Diogo Ivo <diogo.ivo@siemens.com>, Lee Trager
- <lee@trager.us>, Andrew Lunn <andrew+netdev@lunn.ch>, Roger Quadros
- <rogerq@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Simon Horman
- <horms@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
- <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
- <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
- <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>
-Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add ICSSG FW Stats
-Message-ID: <20250306165513.541ff46e@kernel.org>
-In-Reply-To: <20250305111608.520042-1-danishanwar@ti.com>
-References: <20250305111608.520042-1-danishanwar@ti.com>
+	Fri, 07 Mar 2025 00:56:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CD7F169E;
+	Thu,  6 Mar 2025 16:56:12 -0800 (PST)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19EB63F5A1;
+	Thu,  6 Mar 2025 16:55:57 -0800 (PST)
+Date: Fri, 7 Mar 2025 00:55:55 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel
+ Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 08/15] arm64: dts: allwinner: Add Allwinner A523
+ .dtsi file
+Message-ID: <20250307005555.2c52199a@minigeek.lan>
+In-Reply-To: <2646028.Lt9SDvczpP@jernej-laptop>
+References: <20250304222309.29385-1-andre.przywara@arm.com>
+	<20250304222309.29385-9-andre.przywara@arm.com>
+	<2646028.Lt9SDvczpP@jernej-laptop>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165516_544483_6D845A63 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250306_165600_520156_99359DBE 
+X-CRM114-Status: GOOD (  21.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,37 +70,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Mar 2025 16:46:08 +0530 MD Danish Anwar wrote:
-> + - ``FW_RTU_PKT_DROP``: Diagnostic error counter which increments when RTU drops a locally injected packet due to port being disabled or rule violation.
-> + - ``FW_Q0_OVERFLOW``: TX overflow counter for queue0
-> + - ``FW_Q1_OVERFLOW``: TX overflow counter for queue1
-> + - ``FW_Q2_OVERFLOW``: TX overflow counter for queue2
-> + - ``FW_Q3_OVERFLOW``: TX overflow counter for queue3
-> + - ``FW_Q4_OVERFLOW``: TX overflow counter for queue4
-> + - ``FW_Q5_OVERFLOW``: TX overflow counter for queue5
-> + - ``FW_Q6_OVERFLOW``: TX overflow counter for queue6
-> + - ``FW_Q7_OVERFLOW``: TX overflow counter for queue7
-...
+On Wed, 05 Mar 2025 19:46:20 +0100
+Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
 
-Thanks for the docs, it looks good. Now, do all of these get included
-in the standard stats returned by icssg_ndo_get_stats64 ?
-That's the primary source of information for the user regarding packet
-loss.
+Hi,
 
->  	if (prueth->pa_stats) {
->  		for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++) {
-> -			reg = ICSSG_FW_STATS_BASE +
-> -			      icssg_all_pa_stats[i].offset *
-> -			      PRUETH_NUM_MACS + slice * sizeof(u32);
-> +			reg = icssg_all_pa_stats[i].offset +
-> +			      slice * sizeof(u32);
->  			regmap_read(prueth->pa_stats, reg, &val);
->  			emac->pa_stats[i] += val;
+> Dne torek, 4. marec 2025 ob 23:23:02 Srednjeevropski standardni =C4=8Das =
+je Andre Przywara napisal(a):
+> > The Allwinner A523, and its siblings A527 and T527, which share the same
+> > die, are a new family of SoCs introduced in 2023. They features eight
+> > Arm Cortex-A55 cores, and, among the other usual peripherals, a PCIe and
+> > USB 3.0 controller.
+> >=20
+> > Add the basic SoC devicetree .dtsi for the chip, describing the
+> > fundamental peripherals: the cores, GIC, timer, RTC, CCU and pinctrl.
+> > Also some other peripherals are fully compatible with previous IP, so
+> > add the USB and MMC nodes as well.
+> > The other peripherals will be added in the future, once we understand
+> > their compatibility and DT requirements.
+> >=20
+> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+> > ---
+> >  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 598 ++++++++++++++++++
+> >  1 file changed, 598 insertions(+)
+> >  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> >=20
+> > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm6=
+4/boot/dts/allwinner/sun55i-a523.dtsi
+> > new file mode 100644
+> > index 0000000000000..01e662bdf5521
+> > --- /dev/null
+> > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+> > @@ -0,0 +1,598 @@
+> > +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
+> > +// Copyright (C) 2023-2024 Arm Ltd.
+> > +
 
-This gets called by icssg_ndo_get_stats64() which is under RCU 
-protection and nothing else. I don't see any locking here, and
-I hope the regmap doesn't sleep. cat /proc/net/dev to test.
-You probably need to send some fixes to net.
--- 
-pw-bot: cr
+ ...
+
+> > +
+> > +			mmc2_pins: mmc2-pins {
+> > +				pins =3D "PC1" ,"PC5", "PC6", "PC8", "PC9",
+> > +				       "PC10", "PC11", "PC13", "PC14", "PC15",
+> > +				       "PC16"; =20
+>=20
+> I guess PC0 should be also included, for HS400 capable cards.
+
+Sure, it doesn't conflict with much else (just NAND flash), so that's
+no problem.
+
+> With that fixed:
+> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+
+Many thanks for that!
+
+Cheers,
+Andre
+
+>=20
+> Best regards,
+> Jernej
+>=20
+
 
