@@ -4,158 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC68CC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:05:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E69C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YLNeC3cCrLgVG95IZnNEOhI7zuA5YiCMnWZMJ3rpIFI=; b=JpfBkJhevYKKvcz/h72LHxx5lJ
-	HHRWmZ2kEsD2zoTT2L3ZF/3Txd4o9X35xcn+brMLUtS1XwKfNOxiBG2N3AGiwXmx+33sZEr1qRgvj
-	ZxinnCjOj0rK1Hs93XCo+0FMKLiB2b0Cu+1o7hz19eH7i8/nPTWQOKlnS5cwOoXObC/FxhxyN3an+
-	uP1jtixrt1LTeorsjhtsu9PcDhQn1GmvlDm6guF0J6pAMRT66RUI0rIPnzENeS7s4DyZpIm4mXGhp
-	k8zlH/AJtC6JmdwYCai8xre8C0kcRIwMUluoB8jeOQBHJErx8LYpFxUA3NJbR2jLlsJJZL1nrZNb6
-	XtcVNB5g==;
+	bh=ZgX7UYYnL+/ISH1rT2YC/gRfHWzR+cvyMXMr/EdhRQc=; b=on/+VS7SrmWrGyQkCFuq/bTzbJ
+	wHP9om/svcJ0PpQP9AO3VE9fCrSCgWpIUfawOOjVHkDD4NTX914mDTIyjdGxziF2EHex/zr0125Uw
+	dtHKVzt7/KwB18f8Qc5C5jWj095Tj9LvzUD1sobdvaSRizgAJHSPXNNrIIhbiaCKZRWKiCAgthQk6
+	naRuBBXP9p8W3HuUwkfmghHPdyRdrSZjCST5uuutZaIgjw0TObx7qiGVklW3YS2rq3UrlEoGRsrXg
+	AzHawZsEeb6oeKj3YXadIGMi9GO/WUIuDQYqBKT617ke4/WuiDT3+cNR4SlJQSnvh6vzETvi4Hoh3
+	+7JwRJOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUZy-0000000Dndi-2McZ;
-	Fri, 07 Mar 2025 10:05:18 +0000
-Received: from mail-am7eur03on20603.outbound.protection.outlook.com ([2a01:111:f403:260e::603] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUX7-0000000DmyK-3rsq;
-	Fri, 07 Mar 2025 10:02:23 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pMk37CQnAFH0CVwd2Zmu5p1lArt8unGsrgKL8n4obY4F7kLQjt4c5CvWwOwqvg5RZnM+VkHM1oiulGQQMmWoWivnT8DNJYxwxp35C/84K4hoVDsy1O/eTFBzLB4uLtfuzuZVU/36whTlRcNiopRmsWxMniyErfAjIVPS2YH6CgIgRrIuyNQgEcwX/uZaOJ3BoU/cEQC5A4WI635WtHpn0RbRBnOJFeb8POK7HN6WY+lg/db7EhphEW/TSFN2SsZVJxAl+4YS7BNGyX7kBkiRyR52xv0LOV6mQLtVNXNpA1ziG8HW3JeP3W7DLnaZs9QUOU8L26MnVmecEmUdoaKPSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YLNeC3cCrLgVG95IZnNEOhI7zuA5YiCMnWZMJ3rpIFI=;
- b=Bi3iMhgZ3R7jDis4YRkWRzeSPlCdcne4JnACZbirRedV+Ec41JTlCCk1cu6EgSFuyL+V/nm478lAl6l5a/PlAFeOYPjOdlh3KLJxof2Mp6Z9h5/dbuM5XIqipn08vDor7PEkrbYpQAiegDOJQt8r3ZxfiCBPvcfo72L2PbBFE19+ABO4ejnQUccOhbtJ5UJvemBeKxSUFoT8luRYayAVTQY+kMcOrhPFoV6NVNzIakG41o1fWx1FkzP8XooZRjmvwWuPpR0iJyZfThv8DSPg05AlPD8fM4sonSS7F7UufiJtEbQLOvbogGWGV6dT7m4JfuNqiyx9AC94xztCDv1A1A==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YLNeC3cCrLgVG95IZnNEOhI7zuA5YiCMnWZMJ3rpIFI=;
- b=NCPBBNB9kC6IesR8ANO+rGVKWFz03UPNJw4XqGFdQPkJjUUDX056ARgt8W+K1DhjNUbyrxBVg/PZmiwwF7LWDvSs/DE2oRoWVWEBYsx+zso9aqOHob12AhkrQx42FZW0q2+Rg25D6DteaYeJlbXEK8FOTK0nvz6EfQBCxuqc0OJnjEhKl23rcE2Hl+QfSUaTfRmnK1+a4xuuoKYb3OBTPY0X+kyZ2mb5RLw4iV7iyxitU+jJbz4hOBTUvlXN1ZzAJr4ufyqM4Ek6+kksOI83Z3tTNL/kgXssjMj1DagUtwsPFxSuc125ECRDSOCgvfKvItBfuuF9hP7JMyDwZg8VvQ==
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by VI2PR04MB10167.eurprd04.prod.outlook.com (2603:10a6:800:22c::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.19; Fri, 7 Mar
- 2025 10:02:14 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8511.019; Fri, 7 Mar 2025
- 10:02:14 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>
-CC: "rafael@kernel.org" <rafael@kernel.org>, "daniel.lezcano@linaro.org"
-	<daniel.lezcano@linaro.org>, "lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>, "james.morse@arm.com"
-	<james.morse@arm.com>, "d-gole@ti.com" <d-gole@ti.com>, "anup@brainfault.org"
-	<anup@brainfault.org>, "paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>, "aou@eecs.berkeley.edu"
-	<aou@eecs.berkeley.edu>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-riscv@lists.infradead.org"
-	<linux-riscv@lists.infradead.org>, "imx@lists.linux.dev"
-	<imx@lists.linux.dev>, "khilman@baylibre.com" <khilman@baylibre.com>,
+	id 1tqUbY-0000000Dntd-3Uva;
+	Fri, 07 Mar 2025 10:06:56 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqUYr-0000000DnRX-0xwn;
+	Fri, 07 Mar 2025 10:04:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C04F2150C;
+	Fri,  7 Mar 2025 02:04:20 -0800 (PST)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 123553F66E;
+	Fri,  7 Mar 2025 02:04:04 -0800 (PST)
+Date: Fri, 7 Mar 2025 10:04:02 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: "rafael@kernel.org" <rafael@kernel.org>,
+	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
+	"james.morse@arm.com" <james.morse@arm.com>,
+	"d-gole@ti.com" <d-gole@ti.com>,
+	"anup@brainfault.org" <anup@brainfault.org>,
+	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
+	"palmer@dabbelt.com" <palmer@dabbelt.com>,
+	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"khilman@baylibre.com" <khilman@baylibre.com>,
 	"quic_tingweiz@quicinc.com" <quic_tingweiz@quicinc.com>,
 	"quic_yuanjiey@quicinc.com" <quic_yuanjiey@quicinc.com>
-Subject: RE: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-Thread-Topic: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-Thread-Index: AQHbjzc48QAeOzv5L02tuSUugwb8UbNnbkUAgAAAI3A=
-Date: Fri, 7 Mar 2025 10:02:14 +0000
-Message-ID: <AS8PR04MB86425B7CEE7443F822A2DBCA87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
+Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
+Message-ID: <Z8rEkgYoThJAJdPV@bogus>
 References: <20250307080303.2660506-1-ping.bai@nxp.com>
  <Z8rBYuDiIyo8y6HT@bogus>
-In-Reply-To: <Z8rBYuDiIyo8y6HT@bogus>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: AS8PR04MB8642:EE_|VI2PR04MB10167:EE_
-x-ms-office365-filtering-correlation-id: fba5d259-c3fc-47db-6146-08dd5d5f22a8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?9wfYWpjh/p0Kqk2GXNSj0o7d7tSy0OjXvXvDDd/6kpgM43Vu/Gdm/eKi3W+7?=
- =?us-ascii?Q?5ZLg8nYnNAJk31sSqZMM8bKuPFqYsIqqgFsnCFJOqBtP+SHxJqE2m51rZiiG?=
- =?us-ascii?Q?EWyYWAhMJ+1cM6c+Rl69NEoPbOhaR4WnqAWP94gmIXFyob5uZvQ23gC9CIas?=
- =?us-ascii?Q?0VuPdHFLNNrL6/X4cZzuo+4/H3ar3pfCR+tTQdzxtdNE+JkU2OhgkCFc21a9?=
- =?us-ascii?Q?+PhrBG14+fae08ijF0V1jNthDRxyWPn3cz3EmlnGjNHjXKwrXrcQ5BEhjJeP?=
- =?us-ascii?Q?M4+khQ14YpEYiCqUA1w0HcEMzHjzpbFSQ/V2eG4b9QJ+1PhHnnbZ7UreeWhR?=
- =?us-ascii?Q?9hsoaERG970Eaas8O+qCxDbv7ukhsOVsJQWJaPihaK/J5I+92nMvxQSdL1RR?=
- =?us-ascii?Q?ywSlQ4wsVBDHASTuC1UOKLLLV+s2RbGZPzx9zuk2uhxYfweRyQNFNqAxxn+V?=
- =?us-ascii?Q?TS69elHaHOz+HRkqp/OwnIFYICgdrD0lT/ZQQQn7DQmaLDyEZmIGx1vJYbmf?=
- =?us-ascii?Q?4c5xNAvDhgnWiLRLg3igZHwTC/YLM3raEN1XXTDjv4SSh7LYBj1Tcdi9DiIO?=
- =?us-ascii?Q?q4BzTcLZNwGvjb5iy/0zgiVblFAmnIa9LwVff4BmUboLqsLzCNgVWlf3cddW?=
- =?us-ascii?Q?e/+D0IO3fd524BbAVa0mVWqL9ssteeTiWJw2C4iJJzbcEQxj6SRcV169TyXe?=
- =?us-ascii?Q?7H3z4GbcqeIQvpFcgrTtwavF6E6gf7J89+u01CyRq91tjdHjLWgLZZmC+axe?=
- =?us-ascii?Q?rkoZPdAfzcYnSmKWL61Z5uy2S/sNsDpLHVIig+ZTLonfAvQyM6qeTUMoFhN7?=
- =?us-ascii?Q?3GG/SAW0ybQpqKYwCPxS9d7ZKZAQMy1ArHuP3bWLZvsusWa4PAPL0WxODHjm?=
- =?us-ascii?Q?kgviXeE+BBn5Pn0YhLcMiq082AOsy5/bE3IwD6UDRGNi0bpf64wg9i9XQ2kZ?=
- =?us-ascii?Q?5JVGZlVaL4rsk2JjyC4+MCcU+6bWQVwjpife+ZLHeItG+E4+3WH+7fbonjhL?=
- =?us-ascii?Q?srkU37qlvNGxiINvg9RWMrIE3Pai9fFhgMYidsMJojaAfEDjKC5QpAAk4x6z?=
- =?us-ascii?Q?KX065kNpWZnJCX/ywe+ZCmGq//d+bYvL4FUqHXRdoQgyPzEZ92nUOgpz+WhQ?=
- =?us-ascii?Q?y7z2SqkauOnOmnGEL/wPSHjYvnRPvuOmD4/cBtBbLzfxe3ne/L2ZAOm4GkL5?=
- =?us-ascii?Q?kLfVfPZjrL0OkOIv3SvFKKZl3SDt6gl8sgpi4h5uvdnt0kufiq4/OhEOxzZo?=
- =?us-ascii?Q?Gtvk8QU3n2CJZ0zThgiOhKvZ+7VtE7d7xSi5uN40mLZgB4OvpkDGcThs4tuv?=
- =?us-ascii?Q?+oMKEKBOTsD4DwcQJEhCNLUc8wO7vT3Ere5g/Nkd6d+Qu6ONQPJbA9h7RgeT?=
- =?us-ascii?Q?7HRQAHYTwox4TlcqpyWjHyj1YgGPYI4sIF7McYAyFZa9nE6zGUaAL11imdVD?=
- =?us-ascii?Q?ju7L1sm9qRd6oJbOcaQOgTQsyHZBF2Rn?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?h4EObjfEEsLnsNzqLX1aZZ3EIxcVhUy0SovR96JG3dgo05/MfEESg+sPJF0x?=
- =?us-ascii?Q?b6C9EBERzPJlT2rrsUrOGV7CoFB2g8lWYl7hn4mvJtrWjjqZAduiXjmNye95?=
- =?us-ascii?Q?VwwX1JkyyoPN7hqIV1DgoLxOY40pNsZ9Wbq7ya6jdE0t1lVqRY1XJhfVjJ3g?=
- =?us-ascii?Q?BEgiJugKAaE+IGeSNkYVPfRpXZZk7n+d2o9gqjFeKFW8Ukhhaj87vlaIYFk+?=
- =?us-ascii?Q?7eCD0gUg8IDSl2tCBSLxXXzLbAGG83JB57GTjvvtVnD3mjBjYXpsmnGWjqbu?=
- =?us-ascii?Q?YTWD55n22trQSdGLYHmXKbwc7uMMfL5HSnfoWLeU6Y7LWXpxdEiC1XpFFvba?=
- =?us-ascii?Q?QZwHB5QZHATMGztrjbUMuT04ZRP6v8s0vruGwH1rd55Ccn0rVIgWfgYgpCOG?=
- =?us-ascii?Q?u2Zd9SsaVzIdC3KpiytlvgGY2dJWxshd607ah4DVWyUaeeUoX+s2mlkZP753?=
- =?us-ascii?Q?edDyrxw7/4a/VGuApyl2jwDHduVooRsskzQtVs8JpHuVQ0WY4nGEozTX1tCX?=
- =?us-ascii?Q?/vHtCpe0CadMw+Bm0KmVhLMniY+7+rNRHb0BR7ebC1cFnlW6le3512jNeaWK?=
- =?us-ascii?Q?9pf5bOUW5Yl0+ZjSnOJUejKUBX3K67qeFaW90RZl6g8PztjU8gdgO4VHEDXs?=
- =?us-ascii?Q?hVhuqUTtbuzG67i0vkEqdJyzOlXkxn1tzZBn9mlKpIEjEzhC11vGrg4p6AAj?=
- =?us-ascii?Q?2P2nR7XLD5eiWuAfYnpwV1volDXVUfDY8oUx05WPZrVB6AzfyGUmb2h2V0Mp?=
- =?us-ascii?Q?llITV0fhxzVrU53M/H1N7eXPv5sFQvL+igbvehJJk133Zw3VPAWX8xUG+/JU?=
- =?us-ascii?Q?36dIuoxeLmcNNRtj4cgzT8VAuvMrKXXNBtUEcwDbs+BE4CqPcYpcUiKHqfY6?=
- =?us-ascii?Q?8EVvvOgt5np1D0d8rVwJyXWApmUfnHCPcREfpjOz5phBPOQHEVMFC6RZWqNn?=
- =?us-ascii?Q?zDNBl2Ft9XB8U8dEIdh7syCL5wYNsDskHIl6hmL9aIgr7xRDxx0KhDA4GvD6?=
- =?us-ascii?Q?tQQZzQvbrDhndnHGxLxDE8goarKS6hyFHAZGTdhB7ZsQI0DIShy5/rn0ORag?=
- =?us-ascii?Q?fY3IbQ6+b2p2uvA8UmKDSM+JGK3MKtjY8YpmUu4SRY5dRDKvT04TGR3VR7LN?=
- =?us-ascii?Q?0q708+EauQjo8RhsqhRPCyjqq16XMfIZqKmV9tWPq9sAayHAqPLm1Kap9cOZ?=
- =?us-ascii?Q?+gD5Zw2bVUEea6AJZGo6FLLK151Yvlf7uYIJSY8j4nApOTrumLv1NoK+73fb?=
- =?us-ascii?Q?kcPhBKtWZ85kEbuxQzWR2szV1MamuLSdyd7Zg2du8pFzDEWtiJMyCnRX14vf?=
- =?us-ascii?Q?qf41qbIzWPWzw8zeSfLCE3KLBVNkGe62tR48pc+GAWFBRA5ocx/C1Melkevu?=
- =?us-ascii?Q?RIx8FFGSxW9FrRzQzKR+NEfIyDi+ycvxhd9Hi9RU8B/LCiYc50Ximqhom87P?=
- =?us-ascii?Q?IB76EI723FI6BmTb9K9DGU6U2LcSSAmGNy2/T7LE7MxAUkwME7WW2dtKkwUQ?=
- =?us-ascii?Q?rOHUHKZipY2hvhuymgWmUPENlonJ9tba7O9YCQMVT6QrppGrWnulXnpOi5iC?=
- =?us-ascii?Q?QWYhMIC5/vvmsSISHFE=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+ <AS8PR04MB86425B7CEE7443F822A2DBCA87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fba5d259-c3fc-47db-6146-08dd5d5f22a8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 10:02:14.1072
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: Zo+KCOXlR6zekveSUN4b/LOHTWVyPWVHhk6IPWn/sWeGBhj8QzbNgoMDW35DYowJEQKuJOD6GT1sa+EMcYYjAw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10167
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <AS8PR04MB86425B7CEE7443F822A2DBCA87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_020221_980496_4A949282 
-X-CRM114-Status: GOOD (  22.00  )
+X-CRM114-CacheID: sfid-20250307_020409_357406_F877A6ED 
+X-CRM114-Status: GOOD (  23.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -170,74 +79,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sudeep,
+On Fri, Mar 07, 2025 at 10:02:14AM +0000, Jacky Bai wrote:
+> Hi Sudeep,
+> 
+> > Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
+> > 
+> > On Fri, Mar 07, 2025 at 04:03:03PM +0800, Jacky Bai wrote:
+> > > for_each_possible_cpu() is currently used to initialize cpuidle in
+> > > below cpuidle drivers:
+> > >   drivers/cpuidle/cpuidle-arm.c
+> > >   drivers/cpuidle/cpuidle-big_little.c
+> > >   drivers/cpuidle/cpuidle-psci.c
+> > >   drivers/cpuidle/cpuidle-riscv-sbi.c
+> > >
+> > > However, in cpu_dev_register_generic(), for_each_present_cpu() is used
+> > > to register CPU devices which means the CPU devices are only
+> > > registered for present CPUs and not all possible CPUs.
+> > >
+> > > With nosmp or maxcpus=0, only the boot CPU is present, lead to the
+> > > failure:
+> > >
+> > >   |  Failed to register cpuidle device for cpu1
+> > >
+> > > Then rollback to cancel all CPUs' cpuidle registration.
+> > >
+> > > Change for_each_possible_cpu() to for_each_present_cpu() in the above
+> > > cpuidle drivers to ensure it only registers cpuidle devices for CPUs
+> > > that are actually present.
+> > >
+> > > Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in
+> > > GENERIC_CPU_DEVICES")
+> > > Reviewed-by: Dhruva Gole <d-gole@ti.com>
+> > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
+> > > Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
+> > > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
+> > > ---
+> > >  - v4 changes:
+> > >   - add changes for other cpuidle driver that has the similar issue
+> > >     as cpuidle-pcsi driver.
+> > >
+> > >  - v3 changes:
+> > >   - improve the changelog as suggested by Sudeep
+> > > ---
+> > >  drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
+> > >  drivers/cpuidle/cpuidle-big_little.c | 2 +-
+> > >  drivers/cpuidle/cpuidle-psci.c       | 4 ++--
+> > >  drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
+> > 
+> > 
+> > Why have you spared drivers/cpuidle/cpuidle-qcom-spm.c ? IIUC the issue
+> > exists there as well.
+> > 
+> 
+> For qcom-spm driver, it has below code logic to handle no cpu device case, and
+> no rollback to cancel the whole cpuidle registration. So I just leave it as it is.
+> Do we need to update it?
+> 
+> for_each_possible_cpu(cpu) {
+>         ret = spm_cpuidle_register(&pdev->dev, cpu);
 
-> Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
->=20
-> On Fri, Mar 07, 2025 at 04:03:03PM +0800, Jacky Bai wrote:
-> > for_each_possible_cpu() is currently used to initialize cpuidle in
-> > below cpuidle drivers:
-> >   drivers/cpuidle/cpuidle-arm.c
-> >   drivers/cpuidle/cpuidle-big_little.c
-> >   drivers/cpuidle/cpuidle-psci.c
-> >   drivers/cpuidle/cpuidle-riscv-sbi.c
-> >
-> > However, in cpu_dev_register_generic(), for_each_present_cpu() is used
-> > to register CPU devices which means the CPU devices are only
-> > registered for present CPUs and not all possible CPUs.
-> >
-> > With nosmp or maxcpus=3D0, only the boot CPU is present, lead to the
-> > failure:
-> >
-> >   |  Failed to register cpuidle device for cpu1
-> >
-> > Then rollback to cancel all CPUs' cpuidle registration.
-> >
-> > Change for_each_possible_cpu() to for_each_present_cpu() in the above
-> > cpuidle drivers to ensure it only registers cpuidle devices for CPUs
-> > that are actually present.
-> >
-> > Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in
-> > GENERIC_CPU_DEVICES")
-> > Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> > ---
-> >  - v4 changes:
-> >   - add changes for other cpuidle driver that has the similar issue
-> >     as cpuidle-pcsi driver.
-> >
-> >  - v3 changes:
-> >   - improve the changelog as suggested by Sudeep
-> > ---
-> >  drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
-> >  drivers/cpuidle/cpuidle-big_little.c | 2 +-
-> >  drivers/cpuidle/cpuidle-psci.c       | 4 ++--
-> >  drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
->=20
->=20
-> Why have you spared drivers/cpuidle/cpuidle-qcom-spm.c ? IIUC the issue
-> exists there as well.
->=20
+Did you look into this function ?
 
-For qcom-spm driver, it has below code logic to handle no cpu device case, =
-and
-no rollback to cancel the whole cpuidle registration. So I just leave it as=
- it is.
-Do we need to update it?
-
-for_each_possible_cpu(cpu) {
-        ret =3D spm_cpuidle_register(&pdev->dev, cpu);
-        if (ret && ret !=3D -ENODEV) {
-                dev_err(&pdev->dev,
-                        "Cannot register for CPU%d: %d\n", cpu, ret);
-        }
-}
-
-BR
-Jacky Bai
-> --
-> Regards,
-> Sudeep
+-- 
+Regards,
+Sudeep
 
