@@ -4,85 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DA2BC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:39:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38BEAC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o06VURZdv6TpTGBcJJyPYbkacPk57jeEgcFoNnbN4aE=; b=n21qCQAP87dhL5QF0hFQewA7u8
-	X5TcOde6Gm/Fi3ESMOScUijDBOIB6lMaK5yE8J1h+WnkUnSL4cDzbXsyR2mC8RFukF1XTF7BOOePH
-	3PCwsp8HDPn4RO/7/do0fjhsA8E5gk4hWPF7qTx6ZWQfJNU9rHxtkkU4dRPx4YQeCcxC2OOOhEd3M
-	CHOvBj+3qDYv+AqbxTp7OLlDhafIgPhy3Lyo2Yx/wGgOEFY47M5zAnLWJGBJl+tlMcIOEpyG+/FMj
-	tVjM1mxl/iHcQfk58pK2TtkwXBZoJGxXk9+ZdgRyUKPDO6bxHRh4c1gb3HmLaOzfjJQG/XB4UfYYs
-	L96dm7Ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L8uOvoVLDeLOL1fDGRqGNDMqZxmbAi0wKgSFV9Fi1vY=; b=sOXNYMKftNBjfjlyBuIodaLkkR
+	nOvoZ245+x3uEXzhmECUc0fDGK14ISfr924HRTOZfIdrr2MurSK+yrcUw2hMqKCThfNKN7UqY+Tf0
+	pV4gxqJg0uPQiPf3DJqOQ9gAc6WvT8UJx2sIhiEfb0BVGoj4vwN/SVN5vu2bOoVp5OAB8A8qGeM9x
+	Uc6hz030HfbvMAtE9TdG8mixwzY3RSfbwJ/YTU0vO4ony5QGJkGTJRso4SkVJ1XeSf45v1RMAut2D
+	eKvVL8hPMLPSg5Hfy9uwpf7t6rVG97F9Zh0/Eh66IIEGMxh5wkcAWHxUZZea4jdILrx9kckrY3CSd
+	L/1vRY2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV6v-0000000DuM7-0Lkz;
-	Fri, 07 Mar 2025 10:39:21 +0000
+	id 1tqV8V-0000000DucX-3GbE;
+	Fri, 07 Mar 2025 10:40:59 +0000
 Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUym-0000000DslL-206W
+	id 1tqUzk-0000000Dt00-3jWF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:30:57 +0000
+	Fri, 07 Mar 2025 10:31:58 +0000
 Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AUlJJ243303
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AVYRl243376
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 7 Mar 2025 04:30:47 -0600
+	Fri, 7 Mar 2025 04:31:34 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741343447;
-	bh=o06VURZdv6TpTGBcJJyPYbkacPk57jeEgcFoNnbN4aE=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=KGumB7H4cAQuFzdLuZycJZSpzg4QLD+dAHTuVBw8wXFNQprMsQ6eDC1tUtMpvhhb3
-	 4yo1Mfqb25UBTSJsBbPGMMIxW/zK5kLtIyv1S6n6mSYX9agzI58VKgMGEsvlls8dRy
-	 s9UzPLM1SjLU/JUpCgSeR5VofbJ+/CiONUvr/mTc=
-Received: from DLEE109.ent.ti.com (dlee109.ent.ti.com [157.170.170.41])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 527AUlqh015612
+	s=ti-com-17Q1; t=1741343494;
+	bh=L8uOvoVLDeLOL1fDGRqGNDMqZxmbAi0wKgSFV9Fi1vY=;
+	h=From:To:CC:Subject:Date;
+	b=Vf012oGjFcG9hNrgbt4V3FRaWISgjJEy65aGrdFrjn/SN0YmbXfpFs91jqq6n2UiI
+	 1qT8m0N9Dm/WUfzJDTS5zLsYzzr4lXN43u6Mssy/zHgsy2PbA1omcpszd1bgNFVTHx
+	 ig981d7OJGsXFCxYkPPRtYmCISYCE/GQONw/L0fE=
+Received: from DFLE109.ent.ti.com (dfle109.ent.ti.com [10.64.6.30])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 527AVXIB016599
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 7 Mar 2025 04:30:47 -0600
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE109.ent.ti.com
- (157.170.170.41) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 7 Mar 2025 04:31:33 -0600
+Received: from DFLE103.ent.ti.com (10.64.6.24) by DFLE109.ent.ti.com
+ (10.64.6.30) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Mar 2025 04:30:46 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 04:31:33 -0600
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Mar 2025 04:30:46 -0600
-Received: from [10.24.69.25] (danish-tpc.dhcp.ti.com [10.24.69.25])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AUf4v015736;
-	Fri, 7 Mar 2025 04:30:42 -0600
-Message-ID: <3931a391-3967-4260-a104-4eb313810c0d@ti.com>
-Date: Fri, 7 Mar 2025 16:00:40 +0530
+ Frontend Transport; Fri, 7 Mar 2025 04:31:33 -0600
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527AVSQ2016876;
+	Fri, 7 Mar 2025 04:31:29 -0600
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <lpieralisi@kernel.org>, <kw@linux.com>,
+        <manivannan.sadhasivam@linaro.org>, <robh@kernel.org>,
+        <bhelgaas@google.com>, <vigneshr@ti.com>, <kishon@kernel.org>,
+        <cassel@kernel.org>, <wojciech.jasko-EXT@continental-corporation.com>,
+        <thomas.richard@bootlin.com>, <bwawrzyn@cisco.com>
+CC: <linux-pci@vger.kernel.org>, <linux-omap@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH 0/4] Loadable Module support for PCIe Cadence and J721E
+Date: Fri, 7 Mar 2025 16:01:24 +0530
+Message-ID: <20250307103128.3287497-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add ICSSG FW Stats
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, Meghana Malladi <m-malladi@ti.com>,
-        Diogo Ivo <diogo.ivo@siemens.com>, Lee Trager <lee@trager.us>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        Roger Quadros <rogerq@kernel.org>, Jonathan Corbet
-	<corbet@lwn.net>,
-        Simon Horman <horms@kernel.org>, Paolo Abeni
-	<pabeni@redhat.com>,
-        Eric Dumazet <edumazet@google.com>,
-        "David S. Miller"
-	<davem@davemloft.net>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>
-References: <20250305111608.520042-1-danishanwar@ti.com>
- <20250306165513.541ff46e@kernel.org>
-Content-Language: en-US
-From: MD Danish Anwar <danishanwar@ti.com>
-In-Reply-To: <20250306165513.541ff46e@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_023056_694450_C075933D 
-X-CRM114-Status: GOOD (  25.42  )
+X-CRM114-CacheID: sfid-20250307_023157_018876_2C6BD37D 
+X-CRM114-Status: GOOD (  14.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,94 +87,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jakub
+Hello,
 
-On 07/03/25 6:25 am, Jakub Kicinski wrote:
-> On Wed, 5 Mar 2025 16:46:08 +0530 MD Danish Anwar wrote:
->> + - ``FW_RTU_PKT_DROP``: Diagnostic error counter which increments when RTU drops a locally injected packet due to port being disabled or rule violation.
->> + - ``FW_Q0_OVERFLOW``: TX overflow counter for queue0
->> + - ``FW_Q1_OVERFLOW``: TX overflow counter for queue1
->> + - ``FW_Q2_OVERFLOW``: TX overflow counter for queue2
->> + - ``FW_Q3_OVERFLOW``: TX overflow counter for queue3
->> + - ``FW_Q4_OVERFLOW``: TX overflow counter for queue4
->> + - ``FW_Q5_OVERFLOW``: TX overflow counter for queue5
->> + - ``FW_Q6_OVERFLOW``: TX overflow counter for queue6
->> + - ``FW_Q7_OVERFLOW``: TX overflow counter for queue7
-> ...
-> 
-> Thanks for the docs, it looks good. Now, do all of these get included
-> in the standard stats returned by icssg_ndo_get_stats64 ?
-> That's the primary source of information for the user regarding packet
-> loss.
+This series enables support to build the PCIe Cadence Controller drivers
+and the PCI J721E Application/Wrapper/Glue driver as Loadable Kernel
+Modules. The motivation for this series is that PCIe is not a necessity
+for booting the SoC, due to which it doesn't have to be a built-in
+module. Additionally, the defconfig doesn't enable the PCIe Cadence
+Controller drivers and the PCI J721E driver, due to which PCIe is not
+supported by default. Enabling the configs as of now (i.e. without this
+series) will result in built-in drivers i.e. a bloated Linux Image for
+everyone who doesn't have the PCIe Controller. Therefore, with this
+series, after enabling support for building the drivers as loadable
+modules, the driver configs can be enabled in the defconfig to build
+the drivers as loadable modules, thereby enabling PCIe.
 
-No, these are not reported via icssg_ndo_get_stats64.
+Series is based on linux-next tagged next-20250306.
 
-.ndo_get_stats64 populates stats that are part of `struct
-rtnl_link_stats64`. icssg_ndo_get_stats64 populates those stats wherever
-applicable. These firmware stats are not same as the ones defined in
-`icssg_ndo_get_stats64` hence they are not populated. They are not
-standard stats, they will be dumped by `ethtool -S`. Wherever there is a
-standard stats, I will make sure it gets dumped from the standard
-interface instead of `ethtool -S`
+--------------------------
+Series has been tested for
+--------------------------
+[1] Loading and Unloading the PCI J721E driver when operating in the
+Root-Complex mode on J721E-EVM with an NVMe SSD connected to the PCIe
+Connector. "hdparm" based reads of the NVMe SSD have been performed to
+validated functionality before and after a module unload-load sequence
+using modprobe. Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/085fd24d416bab5dc7d798156ce130b3
 
-Only below stats are included in the standard stats returned by
-icssg_ndo_get_stats64
-- rx_packets
-- rx_bytes
-- tx_packets
-- tx_bytes
-- rx_crc_errors
-- rx_over_errors
-- rx_multicast_frames
+[2] Loading and Unloading the PCI J721E driver when operating in the
+Endpoint mode on J784S4-EVM with 6 Physical Functions configured in the
+Endpoint and connected to the J721E-EVM as the Root-Complex. Logs:
+https://gist.github.com/Siddharth-Vadapalli-at-TI/1ec568a76bc3ebc1082d434aab4ab00b
 
-> 
->>  	if (prueth->pa_stats) {
->>  		for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++) {
->> -			reg = ICSSG_FW_STATS_BASE +
->> -			      icssg_all_pa_stats[i].offset *
->> -			      PRUETH_NUM_MACS + slice * sizeof(u32);
->> +			reg = icssg_all_pa_stats[i].offset +
->> +			      slice * sizeof(u32);
->>  			regmap_read(prueth->pa_stats, reg, &val);
->>  			emac->pa_stats[i] += val;
-> 
-> This gets called by icssg_ndo_get_stats64() which is under RCU 
+The following changes to arch/arm64/configs/defconfig were made to test
+this series and will be posted as a patch after this series gets merged:
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 3a3706db2982..0ca073141c3e 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -209,6 +209,12 @@ CONFIG_NFC=m
+ CONFIG_NFC_NCI=m
+ CONFIG_NFC_S3FWRN5_I2C=m
+ CONFIG_PCI=y
++CONFIG_PCI_J721E=m
++CONFIG_PCI_J721E_HOST=m
++CONFIG_PCI_J721E_EP=m
++CONFIG_PCIE_CADENCE=m
++CONFIG_PCIE_CADENCE_HOST=m
++CONFIG_PCIE_CADENCE_EP=m
+ CONFIG_PCIEPORTBUS=y
+ CONFIG_PCIEAER=y
+ CONFIG_PCI_IOV=y
 
-Yes, this does get called by icssg_ndo_get_stats64(). Apart from that
-there is a workqueue (`icssg_stats_work_handler`) that calls this API
-periodically and updates the emac->stats and emac->pa_stats arrays.
+Regards,
+Siddharth.
 
-> protection and nothing else. I don't see any locking here, and
+Kishon Vijay Abraham I (1):
+  PCI: cadence: Add support to build pcie-cadence library as a kernel
+    module
 
-There is no locking here. I don't think this is related to the patch.
-The API emac_update_hardware_stats() updates all the stats supported by
-ICSSG not just standard stats.
+Siddharth Vadapalli (3):
+  PCI: cadence-host: Introduce cdns_pcie_host_disable helper for cleanup
+  PCI: cadence-ep: Introduce cdns_pcie_ep_disable helper for cleanup
+  PCI: j721e: Add support to build as a loadable module
 
-> I hope the regmap doesn't sleep. cat /proc/net/dev to test.
-> You probably need to send some fixes to net.
-
-I checked cat /proc/net/dev and the stats shown there are not related to
-the stats I am introducing in this series.
-
-The fix could be to add a lock in this function, but we have close to 90
-stats and this function is called not only from icssg_ndo_get_stats64()
-but from emac_get_ethtool_stats(). The function also gets called
-periodically (Every 25 Seconds for 1G Link). I think every time locking
-90 regmap_reads() could result in performance degradation.
-
-I only see couple of drivers acquiring spin lock before reading the
-stats for .ndo_get_stats64. Most of the drivers are not using any lock.
-
-I did some testing and did not see any discrepancy in the stats `cat
-/proc/net/dev` without the lock.
-
-Furthermore, the fix is independent of this patch. I can send out a
-separate fix to net to add cpu locks to this function. But I don't think
-there is any change needed in this patch.
-
-Let me know what should be done here.
+ drivers/pci/controller/cadence/Kconfig        |  12 +-
+ drivers/pci/controller/cadence/pci-j721e.c    |  37 +++++-
+ .../pci/controller/cadence/pcie-cadence-ep.c  |  16 +++
+ .../controller/cadence/pcie-cadence-host.c    | 113 ++++++++++++++++++
+ drivers/pci/controller/cadence/pcie-cadence.c |  12 ++
+ drivers/pci/controller/cadence/pcie-cadence.h |  14 ++-
+ 6 files changed, 194 insertions(+), 10 deletions(-)
 
 -- 
-Thanks and Regards,
-Danish
+2.34.1
+
 
