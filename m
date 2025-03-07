@@ -4,40 +4,40 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8969DC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:18:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B2BC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 22:19:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aR5FsxsIycmRcn42PG+oTQzQG5IybM8JAOJ2uJYYZWk=; b=x0PG4FdsDfDYpGeNfCZUCjLMLd
-	G3Ixz+93KcjSE4JY/v6LdfKvknAL55Y4if00kIbNqlIDez0IEq3BIL23NS4ZbBJne4MQUqXCvdWIE
-	VTY12rtUUkHakBQKnOKH7XU6gprxN/06ykv4+9tbCbpc5voUDj6Gd2GLmM84Cr8zNMGdN4ugD1qcT
-	l9YZrSlC/hLbfYZJPNr6whyv7I/3KN8pB27nVvRBFcfb9ZlFgMbt0bx8G173rTkYT8aqY1nusTCx0
-	+8cwNKKV/0pufMVZvM+CALst8ONzBZ2mEYuOtEUca+WhB/yYpMALH6ZtWhYcqv1MAiio5HXlhNc10
-	psAgzuSA==;
+	bh=RnBu2ZStCw20R54YIGGFM80PlgjrKLos5zUu92A3sAY=; b=xZMXcCadqickLiK21QjbQxH3QK
+	7c6gw16fVkxw/Ifnr74b+V54Rsgg+Cb8/FIlzmMK7leoCUOUy4Ld40DgPD4/p/FU8umTDP5msbaml
+	v0UUE61eQeP2rQDCOAj/rm6DnMUAnb6MDPR/UBTN9+kL8dYUWY5M1a7XoWmyZW8JXQyryn8NnuK8U
+	3dxnVR3dbzOuFBW7cLWJvzjeme2xJA+VH7wCLrEPJos8v3volm7WWS1vwdgwqhXuf3qiB8WloIzrI
+	vBnOe03A1SywOVR26LTZVDjpcaHgLc4qsUHYNFOehS1i0mUQPVW5QR2XuCFUF28lzmZFdJADKDZ+p
+	s2RQ0ZWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqg12-0000000Fgyf-1VoE;
-	Fri, 07 Mar 2025 22:18:00 +0000
+	id 1tqg2e-0000000Fh83-0RIv;
+	Fri, 07 Mar 2025 22:19:40 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqfmf-0000000FdzB-1QJ3
+	id 1tqfmf-0000000FdzI-1k6Z
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 07 Mar 2025 22:03:10 +0000
 Received: from romank-3650.corp.microsoft.com (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 869FD2038F48;
+	by linux.microsoft.com (Postfix) with ESMTPSA id E48E22038F49;
 	Fri,  7 Mar 2025 14:03:08 -0800 (PST)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 869FD2038F48
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com E48E22038F49
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741384988;
-	bh=aR5FsxsIycmRcn42PG+oTQzQG5IybM8JAOJ2uJYYZWk=;
+	s=default; t=1741384989;
+	bh=RnBu2ZStCw20R54YIGGFM80PlgjrKLos5zUu92A3sAY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OS0h5GSdSB83+eNsI9lehhfII7iCqqXhVnSvJ/hbLXpRQzaqZfooB0Vzd+4V8oTk6
-	 i26BmsHR2wCE6ElhQM5dcmfdZVOjl4nsRhp6ZKiSYY8qb4iAGpBMXT4fZHiUUwFHGM
-	 lHsypdTC78wxPh3kC8K/061cp7wmt0we2hrq4iZY=
+	b=iBGHimUaz7nSniGi92IPqwTc8s1B3OFyfQZ8Xgs+Bw+hsOAqpAcPyiK0tH7X78bMW
+	 KwEldsjFk1uCyIUpwpURzzoPgFu3ft6Dmo9S3HIzrjs3AGhbf1Rli++ggN3YzjViLv
+	 muwgCnhOg1upZtMWMn69B7+jkBsb40A5xP76EBpc=
 From: Roman Kisel <romank@linux.microsoft.com>
 To: arnd@arndb.de,
 	bhelgaas@google.com,
@@ -81,17 +81,17 @@ Cc: apais@microsoft.com,
 	benhill@microsoft.com,
 	bperkins@microsoft.com,
 	sunilmut@microsoft.com
-Subject: [PATCH hyperv-next v5 08/11] Drivers: hv: vmbus: Get the IRQ number from DeviceTree
-Date: Fri,  7 Mar 2025 14:03:00 -0800
-Message-ID: <20250307220304.247725-9-romank@linux.microsoft.com>
+Subject: [PATCH hyperv-next v5 09/11] Drivers: hv: vmbus: Introduce hv_get_vmbus_root_device()
+Date: Fri,  7 Mar 2025 14:03:01 -0800
+Message-ID: <20250307220304.247725-10-romank@linux.microsoft.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250307220304.247725-1-romank@linux.microsoft.com>
 References: <20250307220304.247725-1-romank@linux.microsoft.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_140309_409237_2FD7CF60 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20250307_140309_539157_99A31573 
+X-CRM114-Status: GOOD (  14.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,73 +106,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VMBus driver uses ACPI for interrupt assignment on
-arm64 hence it won't function in the VTL mode where only
-DeviceTree can be used.
+The ARM64 PCI code for hyperv needs to know the VMBus root
+device, and it is private.
 
-Update the VMBus driver to discover interrupt configuration
-from DT.
+Provide a function that returns it. Rename it from "hv_dev"
+as "hv_dev" as a symbol is very overloaded. No functional
+changes.
 
 Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
-Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 ---
- drivers/hv/vmbus_drv.c | 36 ++++++++++++++++++++++++++++++++++++
- 1 file changed, 36 insertions(+)
+ drivers/hv/vmbus_drv.c | 23 +++++++++++++++--------
+ include/linux/hyperv.h |  2 ++
+ 2 files changed, 17 insertions(+), 8 deletions(-)
 
 diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
-index 75eb1390b45c..c8474b48dcd2 100644
+index c8474b48dcd2..7bfafe702963 100644
 --- a/drivers/hv/vmbus_drv.c
 +++ b/drivers/hv/vmbus_drv.c
-@@ -2345,6 +2345,36 @@ static int vmbus_acpi_add(struct platform_device *pdev)
- }
- #endif
+@@ -45,7 +45,8 @@ struct vmbus_dynid {
+ 	struct hv_vmbus_device_id id;
+ };
  
-+static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
+-static struct device  *hv_dev;
++/* VMBus Root Device */
++static struct device  *vmbus_root_device;
+ 
+ static int hyperv_cpuhp_online;
+ 
+@@ -80,9 +81,15 @@ static struct resource *fb_mmio;
+ static struct resource *hyperv_mmio;
+ static DEFINE_MUTEX(hyperv_mmio_lock);
+ 
++struct device *hv_get_vmbus_root_device(void)
 +{
-+	struct irq_data *data;
-+	int irq;
-+	irq_hw_number_t hwirq;
-+
-+	irq = platform_get_irq(pdev, 0);
-+	if (irq == 0) {
-+		pr_err("VMBus interrupt mapping failure\n");
-+		return -EINVAL;
-+	}
-+	if (irq < 0) {
-+		pr_err("VMBus interrupt data can't be read from DeviceTree, error %d\n", irq);
-+		return irq;
-+	}
-+
-+	data = irq_get_irq_data(irq);
-+	if (!data) {
-+		pr_err("No interrupt data for VMBus virq %d\n", irq);
-+		return -ENODEV;
-+	}
-+	hwirq = irqd_to_hwirq(data);
-+
-+	vmbus_irq = irq;
-+	vmbus_interrupt = hwirq;
-+	pr_debug("VMBus virq %d, hwirq %d\n", vmbus_irq, vmbus_interrupt);
-+
-+	return 0;
++	return vmbus_root_device;
 +}
++EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
 +
- static int vmbus_device_add(struct platform_device *pdev)
+ static int vmbus_exists(void)
  {
- 	struct resource **cur_res = &hyperv_mmio;
-@@ -2359,6 +2389,12 @@ static int vmbus_device_add(struct platform_device *pdev)
+-	if (hv_dev == NULL)
++	if (vmbus_root_device == NULL)
+ 		return -ENODEV;
+ 
+ 	return 0;
+@@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
+ 	 * On x86/x64 coherence is assumed and these calls have no effect.
+ 	 */
+ 	hv_setup_dma_ops(child_device,
+-		device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
++		device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
+ 	return 0;
+ }
+ 
+@@ -1930,7 +1937,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
+ 		     &child_device_obj->channel->offermsg.offer.if_instance);
+ 
+ 	child_device_obj->device.bus = &hv_bus;
+-	child_device_obj->device.parent = hv_dev;
++	child_device_obj->device.parent = vmbus_root_device;
+ 	child_device_obj->device.release = vmbus_device_release;
+ 
+ 	child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
+@@ -2292,7 +2299,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+ 	struct acpi_device *ancestor;
+ 	struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
+ 
+-	hv_dev = &device->dev;
++	vmbus_root_device = &device->dev;
+ 
+ 	/*
+ 	 * Older versions of Hyper-V for ARM64 fail to include the _CCA
+@@ -2383,7 +2390,7 @@ static int vmbus_device_add(struct platform_device *pdev)
+ 	struct device_node *np = pdev->dev.of_node;
+ 	int ret;
+ 
+-	hv_dev = &pdev->dev;
++	vmbus_root_device = &pdev->dev;
+ 
+ 	ret = of_range_parser_init(&parser, np);
+ 	if (ret)
+@@ -2702,7 +2709,7 @@ static int __init hv_acpi_init(void)
  	if (ret)
  		return ret;
  
-+#ifndef HYPERVISOR_CALLBACK_VECTOR
-+	ret = vmbus_set_irq(pdev);
-+	if (ret)
-+		return ret;
-+#endif
-+
- 	for_each_of_range(&parser, &range) {
- 		struct resource *res;
+-	if (!hv_dev) {
++	if (!vmbus_root_device) {
+ 		ret = -ENODEV;
+ 		goto cleanup;
+ 	}
+@@ -2733,7 +2740,7 @@ static int __init hv_acpi_init(void)
  
+ cleanup:
+ 	platform_driver_unregister(&vmbus_platform_driver);
+-	hv_dev = NULL;
++	vmbus_root_device = NULL;
+ 	return ret;
+ }
+ 
+diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
+index 7f4f8d8bdf43..1f0851fde041 100644
+--- a/include/linux/hyperv.h
++++ b/include/linux/hyperv.h
+@@ -1333,6 +1333,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
+ 	return dev_get_drvdata(&dev->device);
+ }
+ 
++struct device *hv_get_vmbus_root_device(void);
++
+ struct hv_ring_buffer_debug_info {
+ 	u32 current_interrupt_mask;
+ 	u32 current_read_index;
 -- 
 2.43.0
 
