@@ -4,143 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0396AC28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:07:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADE96C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:09:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4Zb+NvzLUHQoq1FpAOfoO3rgYMLTUz+QxxpRaXvte7s=; b=NY1efQiO5grzGBgsJJNcTtHUYK
-	vapcpDunUNrrENik271rnux43P+ISKk3SkFKUrtGfq5leF3kb7EcG3sxxWwOpYbzWN+Vo+3tNKtt+
-	sY//Yt2gJJaB79zB81JAuVfUSx/9t7uLak9FkBhWb3+u1yemZ6yWAoMzJhDcjqjF6HaWwMVfQ0v4M
-	noMLTsInUQjE+MxXd5NZmzyi/uxwW9gpAbFm6YeBymVM6DGdIISJo2ke3v1jyUDaGTsC+lBswQXSo
-	EGxhXvkGf88VvPdY2tYCoUr2xGSGknueBYgTY8LQMTPAxgd8tf4CMhUmBT/ChSLLtCQe6Q02L8lz2
-	2tjLZhPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l5fyjOg8mqfWfC3KOyV6/MWYR6QrmfV+xzV1wfE7gh8=; b=brpWvX4yToUB6xFDLv5TZsXXh6
+	lkSJlBOKorQZ1UHBsYS+vNHt8KFHd4ypU7LyVGBAC8JLVnt/0/Nqr6W6Fj5rr5kjne3RvClv6ryYI
+	GHDrHw3wJG0tiMCnVYyMGV59qSxtYIqwDDyoQFlttobkIKBA/8DCqaWzHcHaNjWGt939Ztn84qcxW
+	iXtKmK6nWGgfdHa0c9plQRdkFGP5/Q68Oq9G4L0ItojKEM+zVnlcAM0uxcLYIPW6g1v+vvbr3bOU4
+	YOUP1kXmGC9XuqfhhcXlvu85P8o13taloaojZogRQxnIoy0dn+RFjzRFG9xfDRAf1JpJXbZltQ63F
+	TqT2hjAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqaEI-0000000EosC-13oI;
-	Fri, 07 Mar 2025 16:07:18 +0000
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
+	id 1tqaFs-0000000EpGq-1dHu;
+	Fri, 07 Mar 2025 16:08:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqa9g-0000000Eo99-2weW
+	id 1tqaB0-0000000EoO8-14Yr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 16:02:33 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-2235189adaeso34761795ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 08:02:31 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741363351; x=1741968151; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=4Zb+NvzLUHQoq1FpAOfoO3rgYMLTUz+QxxpRaXvte7s=;
-        b=KfuX0Dd8pd1e3ZW2iX+7+nj8NbRTrPlL2dFnEXOkwBcFP8GH8ujn8wKaxkXs+LJXwf
-         83tIRdlQ1Huq4gaj/tZdjcWSg0oJTfgFIIZ/dRAdkU79p6sIQPAVpj+Ky3Cr/N8KJyXP
-         I7CYQYBOu03J7n/bwcBEKwfubwKIu5/mf0H7XXvrDGKoL1oS/zZqUjYDJpwW0zO8ITd3
-         Ecm7D5c72FmmO150vvWTqMaOHwHNSKEXAeG3qKxp4aB77HO/G0+22UHk64/NJL7wnviH
-         ABu01kQi149Gv0NoPTebbEe7cMaI5VJxzONatxahVZXg+aZ6x3u0SYr+0fHL8gNDiS32
-         NjbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741363351; x=1741968151;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=4Zb+NvzLUHQoq1FpAOfoO3rgYMLTUz+QxxpRaXvte7s=;
-        b=qDGxDc9QHTK1Ai0jPVTtwQDPMsazDOjkfGbu4YSO3G4HFGfiCuyGvBRBhjvXPH4McV
-         ko+cp3jugh0oze5XfgCi5mwFBQkS9EzvXiomXKajIV14mUDRrql+IfHc8LP8kFT3HlKm
-         4SDiDUdv1Q8RKPAOXIqATAXa8d2W6vVJirdkdOxELs/+p7Ws2HoNm7+SCY9umEzDF5Wl
-         uisIRltog+Ed+Tl+54OPnArF8/DGDtJzvCehGV5LmOYiOofoR2emCizh0TY2ZDGMu6vW
-         NlOgdgYXReAMlyGtctNY05AQbXddxMNNUw5gd5WiRo84AtMDsEPplTpD8ZoqqXWVwpGs
-         +DFA==
-X-Forwarded-Encrypted: i=1; AJvYcCU6/efVFTlmNrjXIDZJk4iFUbnxPvdMss7aTkWA2c6BZpIGlAznqPX4LDuDCm2yJcTmtYQQcisqG3VQdPIFV3Ws@lists.infradead.org
-X-Gm-Message-State: AOJu0YxgtEtk9LWkGzA/bN8cIGzWLAyYD6n4RYy3YdqIaHGv7Ay9qxFh
-	DJ8EBRc2Lf88/uxcAM9zn74awkgFgq5KY3SIrN6FvwZLT2hwqDy5
-X-Gm-Gg: ASbGncuFu6YStdgDc+huMe7GMjyj5PRwqdnV6mDvKTyDTToV+qDuytzvXorEbLVTZiM
-	OUeO7ch0zX49po/4qBBo73mZCVsKE9brhy5Jw4bPYH64m8tzA0tJQpHJ7VlZ5sV++qNadjQ2EfA
-	y6+PZ8diruC8Hw2tHSvzDuNJnVqy67iu4Ne6Br6f5oMsjoCkoOmtFYECi+ShdeQUwubaCTIV6K0
-	vcsjOXWZmr58TvRkiPH3qC5+yy5LCPTUJBXs7PoR1hZayTrhzSiT1+RiVKWfGnK7dczz5GOGx53
-	j4xXPBshUpra1qetQfCSuK+BG7GbSHbYVyQGDKPcdlfoWW8ciJ86zVXJkWxlIIWpT2QZCCxj6yW
-	DfxpFhhXVp4QQpXvqog==
-X-Google-Smtp-Source: AGHT+IGznSvrYjNrYuAgQA1A2W1jR7Q+mpt9Mdt9FcdIUUbJ2WN2Iq2LMwq9M4nmJ7MiIMinbFk74A==
-X-Received: by 2002:a17:903:1a10:b0:221:8568:c00f with SMTP id d9443c01a7336-2244b098602mr1713835ad.0.1741363350733;
-        Fri, 07 Mar 2025 08:02:30 -0800 (PST)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af512724c14sm468713a12.37.2025.03.07.08.02.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 08:02:29 -0800 (PST)
-Message-ID: <64d7d06b-337e-498a-87dd-03ae41e6a2de@roeck-us.net>
-Date: Fri, 7 Mar 2025 08:02:27 -0800
+	Fri, 07 Mar 2025 16:03:55 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C4195A458B2;
+	Fri,  7 Mar 2025 15:58:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65FF8C4CEE3;
+	Fri,  7 Mar 2025 16:03:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741363433;
+	bh=jKcE6LBMQIEZD2siLfa8qIZAQzMXrOFejG9YW9TQFCA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uqtpgJxM+FeMrOrrVjR4r9cUjgMcwN9iUIv+6+iR8KBfhyMfBbVmAMm+VSjWprAou
+	 Hbymjq5Syj6JTZBa8Xjni9057HvoMx9qOQLbtsVRXcgEAHwb5dogZFSDMmyBGLqPUT
+	 AtOU81kinqiCYTA+fCx98rXK7uz5ZXzgoooO5oYNjrkNQZXgZak8KAnZhlAVdCk3Bc
+	 X2zpr2dmAZ8FE+P4BinuR9nTL4qyGZJXZGapTjFcAXfpoIaTMPinysbS6k/eZP5Zbl
+	 vlvqKNeR4VPnGk7kmjAYk1FuHqrgxWTPWcTzqZYHzfkgUWJkXty0GgdyQO5oY/9Zpm
+	 fQ7VtAswFxmfg==
+Date: Fri, 7 Mar 2025 16:03:46 +0000
+From: Conor Dooley <conor@kernel.org>
+To: John Madieu <john.madieu.xa@bp.renesas.com>
+Cc: "robh@kernel.org" <robh@kernel.org>,
+	"geert+renesas@glider.be" <geert+renesas@glider.be>,
+	"magnus.damm@gmail.com" <magnus.damm@gmail.com>,
+	"mturquette@baylibre.com" <mturquette@baylibre.com>,
+	"sboyd@kernel.org" <sboyd@kernel.org>,
+	"rafael@kernel.org" <rafael@kernel.org>,
+	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+	"rui.zhang@intel.com" <rui.zhang@intel.com>,
+	"lukasz.luba@arm.com" <lukasz.luba@arm.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"john.madieu@gmail.com" <john.madieu@gmail.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Biju Das <biju.das.jz@bp.renesas.com>
+Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
+ TSU unit
+Message-ID: <20250307-barbell-pretzel-368d6a4d1336@spud>
+References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
+ <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
+ <20250228-shampoo-uprising-44ae0d3bd68b@spud>
+ <OSBPR01MB2775DFC184F78E9FB50F28FFFFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
+ <20250307-everyone-ragweed-e05a10a9646b@spud>
+ <OSBPR01MB277531D7C872C9EB0B287069FFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx7ulp-wdt: Add i.MX94
- support
-To: Frank Li <Frank.Li@nxp.com>, Wim Van Sebroeck <wim@linux-watchdog.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20250307154424.2613795-1-Frank.Li@nxp.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- mDW4+i+XlNFUPUYMrIKi9joBhu18ssf5i5Q=
-In-Reply-To: <20250307154424.2613795-1-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="FptXTXAIhD0gPfos"
+Content-Disposition: inline
+In-Reply-To: <OSBPR01MB277531D7C872C9EB0B287069FFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_080232_744295_7A4AFA4A 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250307_080354_468844_587251B1 
+X-CRM114-Status: GOOD (  36.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,35 +98,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/7/25 07:44, Frank Li wrote:
-> Add compatible string "fsl,imx94-wdt" for the i.MX94 chip, which is
-> backward compatible with i.MX93. Set it to fall back to "fsl,imx93-wdt".
-> 
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+--FptXTXAIhD0gPfos
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-> ---
-> change from v1 to v2
-> - fix typo im94 in compatible string
-> ---
->   .../devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml         | 4 ++++
->   1 file changed, 4 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml b/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
-> index a09686b3030db..6ec391b9723a5 100644
-> --- a/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
-> +++ b/Documentation/devicetree/bindings/watchdog/fsl-imx7ulp-wdt.yaml
-> @@ -22,6 +22,10 @@ properties:
->             - const: fsl,imx8ulp-wdt
->             - const: fsl,imx7ulp-wdt
->         - const: fsl,imx93-wdt
-> +      - items:
-> +          - enum:
-> +              - fsl,imx94-wdt
-> +          - const: fsl,imx93-wdt
->   
->     reg:
->       maxItems: 1
+On Fri, Mar 07, 2025 at 03:55:27PM +0000, John Madieu wrote:
+> Hi Conor,
+>=20
+> > -----Original Message-----
+> > From: Conor Dooley <conor@kernel.org>
+> > Sent: Friday, March 7, 2025 4:33 PM
+> > To: John Madieu <john.madieu.xa@bp.renesas.com>
+> > Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Docume=
+nt
+> > the TSU unit
+> >=20
+> > On Fri, Mar 07, 2025 at 03:14:05PM +0000, John Madieu wrote:
+> > > Hi Conor,
+> > >
+> > > Thanks for your review!
+> > >
+> > > > -----Original Message-----
+> > > > From: Conor Dooley <conor@kernel.org>
+> > > > Sent: Friday, February 28, 2025 8:03 PM
+> > > > To: John Madieu <john.madieu.xa@bp.renesas.com>
+> > > > Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu:
+> > > > Document the TSU unit
+> > > >
+> > > > On Thu, Feb 27, 2025 at 01:24:39PM +0100, John Madieu wrote:
+> > > > > The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block
+> > > > > designed to measure the junction temperature. The device provides
+> > > > > real-time temperature measurements for thermal management,
+> > > > > utilizing a single dedicated channel (channel 1) for temperature
+> > sensing.
+> > > > >
+> > > > > Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
+> > > > > ---
+> > > > > v1 -> v2:
+> > > > >  * Fix reg property specifier to get rid of yamlint warnings
+> > > > >  * Fix IRQ name to reflect TSU expectations
+> > > > >
+> > > > > +    enum: [0, 1]
+> > > > > +    description: |
+> > > > > +      TSU operating mode:
+> > > > > +      0: Mode 0 - Conversion started by software
+> > > > > +      1: Mode 1 - Conversion started by ELC trigger
+> > > >
+> > > > Can you make this "software" and "elc" or something please, unless
+> > > > people will genuinely find "0" and 1" to be more informative.
+> > > > And why doesn't the property have a default?
+> > >
+> > > Sorry for miss-specifying.
+> > > ELC is an external event trigger. May be should I specify it like tha=
+t ?
+> >=20
+> > If "elc trigger" is meaningful to people using hte device (IOW, it matc=
+hes
+> > datasheet wording) then that's fine I think.
+>=20
+> "elc trigger" matches datasheet wording.
+>=20
+> >=20
+> > > To make sure I got your point, do you mean specifying a default value
+> > > in bindings ?
+> >=20
+> > The property doesn't actually need to be required, it could easily have=
+ a
+> > default (say software) and only be set in the case of using the elc
+> > trigger - which brings you to Rob's comment that it can just be a boole=
+an,
+> > setting the property if elc and leaving it out of software.
+>=20
+> Got the point now. I can make it default to software trigger, and add opt=
+ional
+> Boolean property to ELC trigger. Let's say "renesas,elc-trigger;"
 
+Yah, that works.
+
+>=20
+> >=20
+> > Rob's other comment was
+> >=20
+> > | Who/what decides the mode? If a user is going to want to change this,
+> > | then it should be a runtime control, not a DT property.
+>=20
+> Changes are not possible at runtime. Some customers may want software,
+> while other may want the external trigger, and this is immutable=20
+> configuration.
+
+What makes it immutable? Set by some wiring on the board? I couldn't
+find the user in your driver patches to better understand how you were
+using it.
+
+--FptXTXAIhD0gPfos
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHQEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8sY4gAKCRB4tDGHoIJi
+0ut/APj8ly7agJVBfsuReMJT8RtHUn7mZHkeTYHpMWJm/lYEAQDHM+aoQ7IZhrsm
+zco87OB941IsVq/iRfFQNx78HSNvAQ==
+=kAfv
+-----END PGP SIGNATURE-----
+
+--FptXTXAIhD0gPfos--
 
