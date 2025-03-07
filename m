@@ -4,101 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E71DC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:21:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A575BC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:23:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8wkOomTGttoakawgqhoO+GpdOmml5a28PHZWdVY9aEg=; b=LPCd+yZDzBGogjnKzMhAbeeUcs
-	rjvVTLfIG7zVgc/5Fx5h5T+kIkGoNlqBzVhXvYrGnQcwrpqZlZogvRLABJaEA1/R3YSrfG3ui/f88
-	d6hs4QLC9xEFDH5Ct6twAJOlhrJdbaYwxW8pkA0SH7rshTy38GMwSV1bDUzX+m49Yu/ItU2GRYNH9
-	66V9gKgCG8YmLKf8FfNLyFukdkbpSslAhaG2Yvop/GwD7PAzWxXfDaxvyRK+s6gFPKl5e9PAXRIU9
-	8TjRQrehpYY1La+EtQTXHui1VpwaCIKkwo3520DTwBw8aN3W67q9tsvgTD7AHX1dHdCa9d6EQk+9Z
-	RqKEYkTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=8+TKCxbwqJes92lMhlLHImc+PLCTPhiFwxlQPXUvOgI=; b=d4F3jd5YAFb0Q7
+	GJnH7n4c0Y62FemFk564INYgumN14ktZh/PrA72pGaZFFG2kB33sWkUXAoA4fnUGcZB+48PobRmkf
+	3D9u8DrFKsshq6I1wO6JunB9XqfFysvqDRds34pYe3G8qf3G6B46guwyCZtstyJDveem+lqBMSRIF
+	lqblSGblzQCQiqMPOd/lB4k1F9zaeK+KoSaWU9LLSBGMO+EtWN7a7/vU7JgtO7CwRbLEe6Edu+RIz
+	qxoJ4GRIbMDxRXL9qEa953hMtISFnkI+wbOgb/1fRJXbR7rNpInh8J7JBVgBCs0HiPTysbNDFK55/
+	rW73ShzaZ4+bfF2jkNNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqcJq-0000000FCgl-1j7I;
-	Fri, 07 Mar 2025 18:21:10 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1tqcLS-0000000FCvH-0aqz;
+	Fri, 07 Mar 2025 18:22:50 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqc6H-0000000FARZ-1KlH
+	id 1tqc9a-0000000FB0h-3r1t
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 18:07:10 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-abf518748cbso392457666b.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 10:07:08 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741370827; x=1741975627; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8wkOomTGttoakawgqhoO+GpdOmml5a28PHZWdVY9aEg=;
-        b=XEmzFIgQOsWe53642qEcrELBz4CA+Gj4t9Tq18qVldJ7am8GsI6ELI9+Uu5igaBIot
-         THVZMul6mbXLxQsru5b25skGbAsID9wc9badhraCvHcQPVf8sNpjHSbF9SO8l+qsZ2kT
-         6fPxuBWjxV5yLtSj51dUWwW7ofhX+cikNhrY5ngsokAULWQopGk5AmcEA3C49l06lzA9
-         40KSyd9C1anciNzTgqkBbOmks6nNjf3P3H5uaTVfpJes/vQjy1G8qrPxZWFA0k5BJH7x
-         rKieoz0yRUkN82JTBitmB90FNPHWRK1YtGHujpqX/z+9MkQWMaRaqePYdm7ifl8dvGYi
-         KYhA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741370827; x=1741975627;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8wkOomTGttoakawgqhoO+GpdOmml5a28PHZWdVY9aEg=;
-        b=CNiH284pH1I+716+yvTzj5h8N0omNOPrMMV1OFtkv1fzwNV16Wh0I70y830Yi7lWVE
-         BDU49aY+Sj25Qes5CwhIdUlQMVnH6tD4pvqXkqAst/UGSi3/a7Y+1X4WLk2vbewVTXBE
-         mHMkL3BBxAyFnlyMgB7Avo/+XVLUyC+b+xn+/TZXXHFHQRZk2lDvrDL9XzZfiNF9czgz
-         WqXtvI5RLlC2vH5AZCbJNAfgvJCkWurULo4YSp+SrnfhCrlllFIIjJAgvYJa3SFcI8TQ
-         T531hJhT2SKr/ujx4JuBOEOWqnK8r4O6k794HI0UfoR9xE0s1akl6A/eHl5YUPJiXMWT
-         v2Jw==
-X-Forwarded-Encrypted: i=1; AJvYcCXATYvpm23i4Gl7pFYuiEQQH8PkZ1J0xmAG62J64x2twlgg2JOMVTMuKpfOuZ5gXz27w0qVK5Q1WIw35K/JvjLi@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCCPUQkKfQvzc5dtWBs7dK5WXM56/Udly/sWIXNyJQNmWrMSt6
-	tXtU/7getc3HCBWxjcLW8lqaBqUNaC9uGxBxDU4C7y34kiOVwvZemIp9/EzgBYEoTRl6EOgO2eg
-	wO1D1WId+z//h94Efz6qXfUdN81c=
-X-Gm-Gg: ASbGncuosAUOuh+Fmn5k1UYzzfd2k1+OAtPoz6sxYfSMqXlRV0WnuIHE22moeH8Q3OG
-	T043Q9glEDbWYM2ud+0RyeaCRjOb7pqqvjp2a1PKhnfo7KknSPxY600s75OVg7GvHkDEDZyBZ4d
-	aPnV2FYwuMxBra6ky72t66DzhMgnoh
-X-Google-Smtp-Source: AGHT+IFBf7glgDcgWmZiKnDmmcF21bxMSuMDhbcpDZPMMBRIr6Vb+pd9XoZN62iofvl9sTrgCJwFci7pDGa5B6mFURE=
-X-Received: by 2002:a17:907:a193:b0:abf:51b7:6071 with SMTP id
- a640c23a62f3a-ac2525f212emr392804766b.13.1741370826759; Fri, 07 Mar 2025
- 10:07:06 -0800 (PST)
+	Fri, 07 Mar 2025 18:10:36 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7A1BBA44FD4;
+	Fri,  7 Mar 2025 18:05:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E4F4C4CED1;
+	Fri,  7 Mar 2025 18:10:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741371033;
+	bh=K0tUHzI8OKoRWIYQDOa+2EnNYsctDP70uHmCUK0x8Lg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=GpUHJXI5ChlPy4F4Qj5hYF3elWoaO75TPl7SfEi95HPOJBnGZQiJXI8pMvY+zQgV+
+	 fvprYE46QUNt/pXyO0IKJpu+DO2xx+l5Gcgdmr6OCNL3da/9KVfg4n6PcQmtj2f+BM
+	 QOhFt6Yu+ia8iH/5m71pmGiHTNotcU7oqXA1+Hl0PKfsEVfOaVM6LCj3G/kLwGdGBE
+	 gs6jrXQWNSeRvYD2dpkl24B1+gtnAJY7NbwNgdEW8BN/F2KgfN6XP1V2QWDG21rqm+
+	 fAmIcyVbImlBT3BdvG4yALqj9sEVmaFgdfNp6OgJuFHUhZMhG+Z2/pC54LsZ7r5UTE
+	 NfgPW8pP7TvdA==
+Date: Fri, 7 Mar 2025 12:10:32 -0600
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Bo Sun <Bo.Sun.CN@windriver.com>
+Cc: Kexin.Hao@windriver.com, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	stable@vger.kernel.org, Will Deacon <will@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Vidya Sagar <vidyas@nvidia.com>
+Subject: Re: [PATCH] PCI: controller: Restore PCI_REASSIGN_ALL_BUS when
+ PCI_PROBE_ONLY is enabled
+Message-ID: <20250307181032.GA416164@bhelgaas>
 MIME-Version: 1.0
-References: <20250227121522.1802832-1-yong.liang.choong@linux.intel.com>
- <20250227121522.1802832-6-yong.liang.choong@linux.intel.com>
- <Z8lLm9Ze9VAx3cE_@surfacebook.localdomain> <601c88fb-8ec8-4866-a45d-f28dea6d9625@linux.intel.com>
- <CAHp75VeOKbAsvSuf5+VQnGFmUcN92TNnR2eF1+70h3PjaMdMqA@mail.gmail.com>
- <d7c0094e-7fd3-4113-8d00-91b7a83ffd1f@linux.intel.com> <257769403908de3ac6271059e1febee88654fbdc.camel@linux.intel.com>
- <19b78790-d4d3-45db-9b1f-fbe40f8ed795@linux.intel.com>
-In-Reply-To: <19b78790-d4d3-45db-9b1f-fbe40f8ed795@linux.intel.com>
-From: Andy Shevchenko <andy.shevchenko@gmail.com>
-Date: Fri, 7 Mar 2025 20:06:30 +0200
-X-Gm-Features: AQ5f1JoeMb52MrYyvd86gAym0UFqsglYSq0MjE2RDPOAAk4Ejr9eExmge1UjnS8
-Message-ID: <CAHp75VcXtwe3zutnZUDNXBPe1qgwP+GbBF9KSFHOPioEvSk3Pw@mail.gmail.com>
-Subject: Re: [PATCH net-next v9 5/6] net: stmmac: configure SerDes according
- to the interface mode
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: david.e.box@linux.intel.com, Simon Horman <horms@kernel.org>, 
-	Jose Abreu <joabreu@synopsys.com>, Jose Abreu <Jose.Abreu@synopsys.com>, 
-	Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, 
-	Dave Hansen <dave.hansen@linux.intel.com>, "H . Peter Anvin" <hpa@zytor.com>, 
-	Rajneesh Bhardwaj <irenic.rajneesh@gmail.com>, David E Box <david.e.box@intel.com>, 
-	Andrew Lunn <andrew+netdev@lunn.ch>, "David S . Miller" <davem@davemloft.net>, 
-	Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Jiawen Wu <jiawenwu@trustnetic.com>, Mengyuan Lou <mengyuanlou@net-swift.com>, 
-	Heiner Kallweit <hkallweit1@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Hans de Goede <hdegoede@redhat.com>, =?UTF-8?Q?Ilpo_J=C3=A4rvinen?= <ilpo.jarvinen@linux.intel.com>, 
-	Richard Cochran <richardcochran@gmail.com>, Serge Semin <fancer.lancer@gmail.com>, x86@kernel.org, 
-	linux-kernel@vger.kernel.org, netdev@vger.kernel.org, 
-	platform-driver-x86@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250117082428.129353-1-Bo.Sun.CN@windriver.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_100709_361792_4D397A4C 
-X-CRM114-Status: GOOD (  34.45  )
+X-CRM114-CacheID: sfid-20250307_101035_129323_BEBCBA7A 
+X-CRM114-Status: GOOD (  30.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,96 +77,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 7, 2025 at 7:28=E2=80=AFAM Choong Yong Liang
-<yong.liang.choong@linux.intel.com> wrote:
-> On 7/3/2025 4:52 am, David E. Box wrote:
-> > On Thu, 2025-03-06 at 20:56 +0800, Choong Yong Liang wrote:
-> >> On 6/3/2025 5:05 pm, Andy Shevchenko wrote:
-> >>> On Thu, Mar 6, 2025 at 10:39=E2=80=AFAM Choong Yong Liang
-> >>> <yong.liang.choong@linux.intel.com> wrote:
-> >>>> On 6/3/2025 3:15 pm, Andy Shevchenko wrote:
-> >>>>> Thu, Feb 27, 2025 at 08:15:21PM +0800, Choong Yong Liang kirjoitti:
+On Fri, Jan 17, 2025 at 04:24:14PM +0800, Bo Sun wrote:
+> On our Marvell OCTEON CN96XX board, we observed the following panic on
+> the latest kernel:
+> Unable to handle kernel NULL pointer dereference at virtual address 0000000000000080
+> Mem abort info:
+>   ESR = 0x0000000096000005
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x05: level 1 translation fault
+> Data abort info:
+>   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+>   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [0000000000000080] user address but active_mm is swapper
+> Internal error: Oops: 0000000096000005 [#1] PREEMPT SMP
+> Modules linked in:
+> CPU: 9 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.13.0-rc7-00149-g9bffa1ad25b8 #1
+> Hardware name: Marvell OcteonTX CN96XX board (DT)
+> pstate: 60400009 (nZCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : of_pci_add_properties+0x278/0x4c8
+> lr : of_pci_add_properties+0x258/0x4c8
+> sp : ffff8000822ef9b0
+> x29: ffff8000822ef9b0 x28: ffff000106dd8000 x27: ffff800081bc3b30
+> x26: ffff800081540118 x25: ffff8000813d2be0 x24: 0000000000000000
+> x23: ffff00010528a800 x22: ffff000107c50000 x21: ffff0001039c2630
+> x20: ffff0001039c2630 x19: 0000000000000000 x18: ffffffffffffffff
+> x17: 00000000a49c1b85 x16: 0000000084c07b58 x15: ffff000103a10f98
+> x14: ffffffffffffffff x13: ffff000103a10f96 x12: 0000000000000003
+> x11: 0101010101010101 x10: 000000000000002c x9 : ffff800080ca7acc
+> x8 : ffff0001038fd900 x7 : 0000000000000000 x6 : 0000000000696370
+> x5 : 0000000000000000 x4 : 0000000000000002 x3 : ffff8000822efa40
+> x2 : ffff800081341000 x1 : ffff000107c50000 x0 : 0000000000000000
+> Call trace:
+>  of_pci_add_properties+0x278/0x4c8 (P)
+>  of_pci_make_dev_node+0xe0/0x158
+>  pci_bus_add_device+0x158/0x210
+>  pci_bus_add_devices+0x40/0x98
+>  pci_host_probe+0x94/0x118
+>  pci_host_common_probe+0x120/0x1a0
+>  platform_probe+0x70/0xf0
+>  really_probe+0xb4/0x2a8
+>  __driver_probe_device+0x80/0x140
+>  driver_probe_device+0x48/0x170
+>  __driver_attach+0x9c/0x1b0
+>  bus_for_each_dev+0x7c/0xe8
+>  driver_attach+0x2c/0x40
+>  bus_add_driver+0xec/0x218
+>  driver_register+0x68/0x138
+>  __platform_driver_register+0x2c/0x40
+>  gen_pci_driver_init+0x24/0x38
+>  do_one_initcall+0x4c/0x278
+>  kernel_init_freeable+0x1f4/0x3d0
+>  kernel_init+0x28/0x1f0
+>  ret_from_fork+0x10/0x20
+> Code: aa1603e1 f0005522 d2800044 91000042 (f94040a0)
+> 
+> This regression was introduced by commit 7246a4520b4b ("PCI: Use
+> preserve_config in place of pci_flags"). On our board, the 002:00:07.0
+> bridge is misconfigured by the bootloader. Both its secondary and
+> subordinate bus numbers are initialized to 0, while its fixed secondary
+> bus number is set to 8. However, bus number 8 is also assigned to another
+> bridge (0002:00:0f.0). Although this is a bootloader issue, before the
+> change in commit 7246a4520b4b, the PCI_REASSIGN_ALL_BUS flag was
+> set by default when PCI_PROBE_ONLY was enabled, ensuing that all the
+> bus number for these bridges were reassigned, avoiding any conflicts.
+> 
+> After the change introduced in commit 7246a4520b4b, the bus numbers
+> assigned by the bootloader are reused by all other bridges, except
+> the misconfigured 002:00:07.0 bridge. The kernel attempt to reconfigure
+> 002:00:07.0 by reusing the fixed secondary bus number 8 assigned by
+> bootloader. However, since a pci_bus has already been allocated for
+> bus 8 due to the probe of 0002:00:0f.0, no new pci_bus allocated for
+> 002:00:07.0. This results in a pci bridge device without a pci_bus
+> attached (pdev->subordinate == NULL). Consequently, accessing
+> pdev->subordinate in of_pci_prop_bus_range() leads to a NULL pointer
+> dereference.
+> 
+> To summarize, we need to restore the PCI_REASSIGN_ALL_BUS flag when
+> PCI_PROBE_ONLY is enabled in order to work around issue like the one
+> described above.
 
-...
+When you send v2,
 
-> >>>>>> config DWMAC_INTEL
-> >>>>>>        default X86
-> >>>>>>        depends on X86 && STMMAC_ETH && PCI
-> >>>>>>        depends on COMMON_CLK
-> >>>>>> +    depends on ACPI
-> >>>>> Stray and unexplained change. Please, fix it. We don't need the
-> >>>>> dependencies
-> >>>>> which are not realised in the compile time.
-> >>>> The dependency on ACPI is necessary because the intel_pmc_ipc.h head=
-er
-> >>>> relies on ACPI functionality to interact with the Intel PMC.
-> >>> So, that header has to be fixed as ACPI here is really unneeded
-> >>> dependency for the cases when somebody (for whatever reasons) want to
-> >>> build a kernel without ACPI support but with the driver enabled for
-> >>> let's say PCI device.
+  - Thanks for including the panic info above, but I think you can
+    remove most of it while preserving the essential details.  E.g., I
+    think the "NULL pointer dereference", kernel version, pc, and a
+    couple call trace entries would be enough.
 
-> >> Thank you for your feedback, Andy.
-> >> I appreciate your insights regarding the ACPI dependency.
-> >> The intel_pmc_ipc.h header is under the ownership of David E Box, who
-> >> focuses on the platform code, while my focus is on the netdev.
-> >>
-> >> if you could kindly look into making the ACPI dependency optional in t=
-he
-> >> intel_pmc_ipc.h header, it would be greatly appreciated.
-> >> I am more than willing to provide any support necessary to ensure a sm=
-ooth
-> >> resolution.
-> >
-> > Choong you only need put the function under a #if CONFIG_ACPI block and=
- provide
-> > an alternative that returns an error when the code is not build. Like t=
-his,
-> >
-> > #if CONFIG_ACPI
-> > static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc=
-_ipc_rbuf
-> > *rbuf)
-> > {
-> >     ...
-> > }
-> > #else
-> > static inline int intel_pmc_ipc(struct pmc_ipc_cmd *ipc_cmd, struct pmc=
-_ipc_rbuf
-> > *rbuf) { return -ENODEV; }
-> > #endif
-> >
-> >> This patch series has already been accepted, but we recognize the
-> >> importance of addressing this issue in the next patch series for upstr=
-eam.
-> >> Our goal is to ensure that the driver can be compiled and function
-> >> correctly in both ACPI and non-ACPI environments.
-> >>
-> >> Thank you both for your understanding and collaboration.
+  - "002:00:07.0" is not a valid address (in dmesg log, domain would
+    be 4 hex digits).  Perhaps quote relevant dmesg lines directly,
+    showing the secondary bus info for these bridges.
 
-> The current ACPI dependency for the config DWMAC_INTEL is necessary,
+  - I think it's a little sketchy that of_pci_add_properties() and
+    of_pci_prop_bus_range() assume a valid secondary bus, even if this
+    patch avoids that situation in this case.  There are always
+    potential cases where we don't have bus numbers to assign for a
+    secondary bus.  I think we should check, maybe by omitting
+    'bus-range' if there is no secondary bus.
 
-I can argue on this. The driver worked without problems on the cases I
-explained, so the dependency introduced very recently and only for a
-subset of the cases. What you probably wanted to say is that "the
-dependency is needed to avoid compilation errors in CONFIG_ACPI=3Dn
-cases since the used API doesn't (yet) provide the necessary stubs".
-With that being assumed I agree.
+  - This might lead to two patches: (1) to fix the regression that we
+    used to set PCI_REASSIGN_ALL_BUS but 7246a4520b4b broke that, and
+    (2) avoid the of_pci_prop_bus_range() NULL pointer dereference in
+    all cases.
 
-> but I
-> agree on making it optional.
->
-> Implementing the suggestion from David using the "#if CONFIG_ACPI" approa=
-ch
-> would address your concern about users who need to build a kernel without
-> ACPI support.
->
-> If you are okay with this approach, then I will submit the solution for
-> upstream.
-
-Yes, please do it as the ACPI dependency brings a few hundreds of
-kilobytes into the kernel with a lot of possible unneeded stuff.
-
---=20
-With Best Regards,
-Andy Shevchenko
+> Cc: stable@vger.kernel.org
+> Fixes: 7246a4520b4b ("PCI: Use preserve_config in place of pci_flags")
+> Signed-off-by: Bo Sun <Bo.Sun.CN@windriver.com>
+> ---
+>  drivers/pci/controller/pci-host-common.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/drivers/pci/controller/pci-host-common.c b/drivers/pci/controller/pci-host-common.c
+> index cf5f59a745b3..615923acbc3e 100644
+> --- a/drivers/pci/controller/pci-host-common.c
+> +++ b/drivers/pci/controller/pci-host-common.c
+> @@ -73,6 +73,10 @@ int pci_host_common_probe(struct platform_device *pdev)
+>  	if (IS_ERR(cfg))
+>  		return PTR_ERR(cfg);
+>  
+> +	/* Do not reassign resources if probe only */
+> +	if (!pci_has_flag(PCI_PROBE_ONLY))
+> +		pci_add_flags(PCI_REASSIGN_ALL_BUS);
+> +
+>  	bridge->sysdata = cfg;
+>  	bridge->ops = (struct pci_ops *)&ops->pci_ops;
+>  	bridge->msi_domain = true;
+> -- 
+> 2.48.1
+> 
 
