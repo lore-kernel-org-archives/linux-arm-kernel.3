@@ -4,69 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90FBDC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:24:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75574C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ihBwoMdbNNFlIwWR2b65nlX0jWHgu1HWO+UxkGp3QAs=; b=BtZgX2Pkphq0gSWxYUedqtFE0i
-	4BXqEbO4H7OyCjjuFJblOKP2aP6gM8Xnk5eWE3nV5KdQi9T3ebVsxgs81lBfCJ+9tC+fa3Z5qxJeE
-	2uGMlfyGqWASHCbj94QDeMy6bzEQG35bOTFHhz1azfwv+EoIO78gHJZLcVjUzS7ml8jbw/pxAM/1F
-	GTDm1gRAnj67MIMovpcOSC5wxItjl/qaayn+QAp01A180GRH/CueAY+Ey1y8gYQTRPUp4v/CPxjjz
-	c8Nq5HFwwZ7lPRQZjnBD2SGwG68EyGCX36lLhOjj2LVgv14yC03PjFKniJCN95bDu5pMHmoQ8kaCJ
-	LNMn3omQ==;
+	bh=u5NnMAuoCpHi6I8onFu4kw3+wMiYKvzXi7R0wbc3Y8Y=; b=FyiqmihyDEilZq/UiJUZR5zizv
+	k29jSsXYBl+yOW26VefkZ99ffPY4d7U3W/XZfQFocDMqBvOFiUdH5AqH3YSmPb1PpuRbWMDPkr+sS
+	Rcems5+h35R35a70pr7VNj2jhTOzGrIYfO2UE31i3pJvJZnGNkW66dY9atw14YXOUiCb/OUch9lbv
+	WOQLw7xECYTbtNTKlWyiz39LbOLANkK3Clnw329KVx08qT4JUhPY9Pz3Q/8ieaIHtxVRQUbSbcoxw
+	taxxGu4lqCFIa969T/AhX54AqdvJhQjc8BYV9/Za5cfiK0qdj3fudfP1nQqaNrL6Vm1QVM4d5/Tnz
+	Dzfkm+Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUsm-0000000DrKZ-480r;
-	Fri, 07 Mar 2025 10:24:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqUnQ-0000000Dpfw-0avW;
-	Fri, 07 Mar 2025 10:19:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id AC65D150C;
-	Fri,  7 Mar 2025 02:19:21 -0800 (PST)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F3D943F66E;
-	Fri,  7 Mar 2025 02:19:05 -0800 (PST)
-Date: Fri, 7 Mar 2025 10:19:03 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: "rafael@kernel.org" <rafael@kernel.org>,
-	"daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"ulf.hansson@linaro.org" <ulf.hansson@linaro.org>,
-	"james.morse@arm.com" <james.morse@arm.com>,
-	"d-gole@ti.com" <d-gole@ti.com>,
-	"anup@brainfault.org" <anup@brainfault.org>,
-	"paul.walmsley@sifive.com" <paul.walmsley@sifive.com>,
-	"palmer@dabbelt.com" <palmer@dabbelt.com>,
-	"aou@eecs.berkeley.edu" <aou@eecs.berkeley.edu>,
-	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-riscv@lists.infradead.org" <linux-riscv@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"khilman@baylibre.com" <khilman@baylibre.com>,
-	"quic_tingweiz@quicinc.com" <quic_tingweiz@quicinc.com>,
-	"quic_yuanjiey@quicinc.com" <quic_yuanjiey@quicinc.com>
-Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-Message-ID: <Z8rIF3fQr958cf8g@bogus>
-References: <20250307080303.2660506-1-ping.bai@nxp.com>
- <Z8rBYuDiIyo8y6HT@bogus>
- <AS8PR04MB86425B7CEE7443F822A2DBCA87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
- <Z8rEkgYoThJAJdPV@bogus>
- <AS8PR04MB86425524495B3FEF19F32E6B87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
+	id 1tqUuO-0000000Drkm-1TIs;
+	Fri, 07 Mar 2025 10:26:24 +0000
+Received: from mx1.tq-group.com ([93.104.207.81])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqUnc-0000000Dpiv-1UiE
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 10:19:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=tq-group.com; i=@tq-group.com; q=dns/txt; s=key1;
+  t=1741342764; x=1772878764;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=u5NnMAuoCpHi6I8onFu4kw3+wMiYKvzXi7R0wbc3Y8Y=;
+  b=J03FearFn58Kx3W8twHScxp6NmlNJ5MX8esNUhpIQUF9GJCHJrTWJo21
+   UeA2Sk7bk92SBhPWx+5F7oLCpsVUumXg/BtnwMkxDRJJaM+HSIDinaAua
+   DIqfjKu92G9JF14JGvfQob4gq/7UiETV5WallJE1VsrnJzLDJgqLEL5cF
+   Y2ZbzTqFN1OLcfOV53YO75i+rG6MOKzvovrVuBMGARSjqoSh0hSpEeMhw
+   mZHVvc2blmfyub6haIGoEY/tNj9XAgamO/IK5GreViJMz2jy/8l7Hplto
+   amm2di34+HeTdAFgrC3LumyLK3W0nexcGGPQj0P23x8OahxmpAuNvdwQS
+   Q==;
+X-CSE-ConnectionGUID: cwth3I3+SFm4GbrvFaS44w==
+X-CSE-MsgGUID: KT/ZiaJFTAmCZXaQrXGPxg==
+X-IronPort-AV: E=Sophos;i="6.14,228,1736809200"; 
+   d="scan'208";a="42425425"
+Received: from vmailcow01.tq-net.de ([10.150.86.48])
+  by mx1.tq-group.com with ESMTP; 07 Mar 2025 11:19:19 +0100
+X-CheckPoint: {67CAC827-10-DC4DC9A0-F4F29281}
+X-MAIL-CPID: 3340A31ABDE18E85EDAED8C6EBB5AE90_0
+X-Control-Analysis: str=0001.0A00639E.67CAC82B.0057,ss=1,re=0.000,recu=0.000,reip=0.000,cl=1,cld=1,fgs=0
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id EB938171FED;
+	Fri,  7 Mar 2025 11:19:13 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ew.tq-group.com;
+	s=dkim; t=1741342755;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=u5NnMAuoCpHi6I8onFu4kw3+wMiYKvzXi7R0wbc3Y8Y=;
+	b=qoELbrT7dqpxKdLBtp+15LkU3jggW0iYoWlp1nDF01+0gZva1+FyuliyvzFZ5DsiNYOLof
+	AltMCxXCtqdGzpkM+azfga6QX/0CBE5/GBypvksQ8AE1juhqQW4cz5uVMDPAeWfkpfZwER
+	Pchb8NZEMFFLfIsjUHgaJfMtXMLXs+JXbqslBec1iOLC5vNEPqQzO+lajV0px7IKvig9t8
+	NzUuRxF0VdRIjJdcpSpVv+5hKzNrc+QbWobBYh+z0U3wHiRKgJAyAuBzy8HLu2cao1oMZ/
+	K35gyL2hXJUnlSBBJf87+SD+aiKrmzGzhaVztcw3jKW+7lT/4/+DNEDimu3AWw==
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>,
+ "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
+ <devicetree@vger.kernel.org>,
+ "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+ "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+Cc: imx@lists.linux.dev, Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH] arm64: dtsi: imx93: add alias id for bbnsm_rtc
+Date: Fri, 07 Mar 2025 11:19:13 +0100
+Message-ID: <116096172.nniJfEyVGO@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250306193014.490091-1-Frank.Li@nxp.com>
+References: <20250306193014.490091-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <AS8PR04MB86425524495B3FEF19F32E6B87D52@AS8PR04MB8642.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="iso-8859-1"
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_021912_270393_4936F1A5 
-X-CRM114-Status: GOOD (  29.57  )
+X-CRM114-CacheID: sfid-20250307_021924_898369_B5E00200 
+X-CRM114-Status: GOOD (  11.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,81 +103,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 10:10:50AM +0000, Jacky Bai wrote:
-> > Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-> > 
-> > On Fri, Mar 07, 2025 at 10:02:14AM +0000, Jacky Bai wrote:
-> > > Hi Sudeep,
-> > >
-> > > > Subject: Re: [PATCH v4] cpuidle: Init cpuidle only for present CPUs
-> > > >
-> > > > On Fri, Mar 07, 2025 at 04:03:03PM +0800, Jacky Bai wrote:
-> > > > > for_each_possible_cpu() is currently used to initialize cpuidle in
-> > > > > below cpuidle drivers:
-> > > > >   drivers/cpuidle/cpuidle-arm.c
-> > > > >   drivers/cpuidle/cpuidle-big_little.c
-> > > > >   drivers/cpuidle/cpuidle-psci.c
-> > > > >   drivers/cpuidle/cpuidle-riscv-sbi.c
-> > > > >
-> > > > > However, in cpu_dev_register_generic(), for_each_present_cpu() is
-> > > > > used to register CPU devices which means the CPU devices are only
-> > > > > registered for present CPUs and not all possible CPUs.
-> > > > >
-> > > > > With nosmp or maxcpus=0, only the boot CPU is present, lead to the
-> > > > > failure:
-> > > > >
-> > > > >   |  Failed to register cpuidle device for cpu1
-> > > > >
-> > > > > Then rollback to cancel all CPUs' cpuidle registration.
-> > > > >
-> > > > > Change for_each_possible_cpu() to for_each_present_cpu() in the
-> > > > > above cpuidle drivers to ensure it only registers cpuidle devices
-> > > > > for CPUs that are actually present.
-> > > > >
-> > > > > Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in
-> > > > > GENERIC_CPU_DEVICES")
-> > > > > Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> > > > > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > > > > Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-> > > > > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-> > > > > ---
-> > > > >  - v4 changes:
-> > > > >   - add changes for other cpuidle driver that has the similar issue
-> > > > >     as cpuidle-pcsi driver.
-> > > > >
-> > > > >  - v3 changes:
-> > > > >   - improve the changelog as suggested by Sudeep
-> > > > > ---
-> > > > >  drivers/cpuidle/cpuidle-arm.c        | 8 ++++----
-> > > > >  drivers/cpuidle/cpuidle-big_little.c | 2 +-
-> > > > >  drivers/cpuidle/cpuidle-psci.c       | 4 ++--
-> > > > >  drivers/cpuidle/cpuidle-riscv-sbi.c  | 4 ++--
-> > > >
-> > > >
-> > > > Why have you spared drivers/cpuidle/cpuidle-qcom-spm.c ? IIUC the
-> > > > issue exists there as well.
-> > > >
-> > >
-> > > For qcom-spm driver, it has below code logic to handle no cpu device
-> > > case, and no rollback to cancel the whole cpuidle registration. So I just leave
-> > it as it is.
-> > > Do we need to update it?
-> > >
-> > > for_each_possible_cpu(cpu) {
-> > >         ret = spm_cpuidle_register(&pdev->dev, cpu);
-> > 
-> > Did you look into this function ?
-> 
-> Yes, at the very beginning of this function it will check if the cpu device
-> is available, if not, directly return -ENODEV, something I misunderstood?
-> 
+Hi,
 
-So why do you think spm_cpuidle_register() does anything different than
-psci_idle_init_cpu(). They do exactly same check and yet you apply the
-change for psci_idle_init_cpu() but not for spm_cpuidle_register().
-What am I missing ?
+Am Donnerstag, 6. M=E4rz 2025, 20:30:14 CET schrieb Frank Li:
+> From: Joy Zou <joy.zou@nxp.com>
+>=20
+> Add rtc0 alias to set bbnsm_rtc as the default rtc.
+>=20
+> Signed-off-by: Joy Zou <joy.zou@nxp.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> ---
+>  arch/arm64/boot/dts/freescale/imx93.dtsi | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx93.dtsi b/arch/arm64/boot/d=
+ts/freescale/imx93.dtsi
+> index 56766fdb0b1e5..7d9aa15ebf5d0 100644
+> --- a/arch/arm64/boot/dts/freescale/imx93.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx93.dtsi
+> @@ -34,6 +34,7 @@ aliases {
+>  		mmc0 =3D &usdhc1;
+>  		mmc1 =3D &usdhc2;
+>  		mmc2 =3D &usdhc3;
+> +		rtc0 =3D &bbnsm_rtc;
 
--- 
-Regards,
-Sudeep
+IMHO this is a board property, not SoC property.
+
+Best regards
+Alexander
+
+>  		serial0 =3D &lpuart1;
+>  		serial1 =3D &lpuart2;
+>  		serial2 =3D &lpuart3;
+>=20
+
+
+=2D-=20
+TQ-Systems GmbH | M=FChlstra=DFe 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht M=FCnchen, HRB 105018
+Gesch=E4ftsf=FChrer: Detlef Schneider, R=FCdiger Stahl, Stefan Schneider
+http://www.tq-group.com/
+
+
 
