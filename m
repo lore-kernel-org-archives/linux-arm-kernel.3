@@ -4,81 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20045C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:37:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20F1EC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:39:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2mm8uS2I+4GgUGHxOBD4Ymm1IPQqV/WDFQWvxBJZrms=; b=B+KmaDkcbhWWau97JevZWUxaa6
-	lxbfzHlutXhgRy4kJus83QKAry15N9RSUPgr5Ru3W9IlGHTd9JLpIx7or9KaDEOne6NEdtGbzRslB
-	sbVjTW5S6xNXnRqIis9gDGU93enVt0uLEa/wGteFZpeieiF5E5PE/fwNG6I+UrmuyB7R+Qu+aDgfK
-	vlPZr3IJ/ia+7bNjDDnsoI+kKexbzT63VKMxfhVDF9vU0Bv56EGIRYkbcv+19JFB8pJr2Ee1PkJ0A
-	FSyue+S23Os4qkyOg0Hq6JbPTmPyO0yayChzkt+5JKV2ESXSYxE/ZMZnVXp1ccy8/TN2Tg+D4oj+4
-	aZi41K/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rxfohd/24q2m0TM0jOBNK8SiI0OJ/yR4konJCniJ330=; b=UijN5y38flI5JPiQJIpDXLZhjJ
+	TlEdmHuvQRP9CAUBw90OYNJi0DoSY07azsvIrGNR+/CO6UhYzRQXXB5ZVkgDmcpgwcz7oPnPAapSz
+	iBBXFXpXO/kqpqRPx03wZD9Gl+OusFY6Ra1QulfcQrSZvH+W08TSie5G0qChpDKUmeGVYuBRDRYv3
+	KP6FtzzjUtzDKNBEOXIiemtUcekJfHjhuTjGjoxsYrfrE1T/oQeVS86hzGkR7M2K31A3hhf8loGad
+	Wsz4ygyBMpMbBHc9GnADJe2JTlMA4hiFPdgiXfBdrTSgn+Cg2DL5bVZQp2LpNje9YSXuJJ5gts8Uy
+	xm+urvkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMeN-0000000Cof0-434w;
-	Fri, 07 Mar 2025 01:37:19 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tqMfx-0000000CoyL-2iwM;
+	Fri, 07 Mar 2025 01:38:57 +0000
+Received: from gandalf.ozlabs.org ([150.107.74.76] helo=mail.ozlabs.org)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMIe-0000000ClvB-2lTD;
-	Fri, 07 Mar 2025 01:14:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00365A45055;
-	Fri,  7 Mar 2025 01:09:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 338C5C4CEE0;
-	Fri,  7 Mar 2025 01:14:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741310091;
-	bh=nPxi1R9wqYshB4RGiTst8wDkKwvkQuArDF4nSaRBlDs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CUBIFdar1gT515+tHm6gO96vw+nqaC6RkPVMIA+BsRvDwqu5CnK0oZfhGQRFen92F
-	 eOUoDGJuYo7CZ34AatHnJR4uEy10PfyOOWiRpX5sCYKkn5/cRvc4moHASFKZ2fATsN
-	 2HZpL+c3/5mxhuZZXftf0ksK7gsx+Z2Ewxw6jMvkjHW4ObqSsJ9BQKwLnAxvKO8EZN
-	 KP32Jt7QF5g5aAC7NKb1O+xDPKVWw/l5WDEUGni+nrjYnDzH+4Vwkpkr2RpC9B/KXC
-	 9n+jKqEg0wE5KAV2a8f4MPIMn2zxI6s02aMYTVGe7EckwbbLXXm/3ahE3RXMlDL1dt
-	 SE60x/Ygw1kIw==
-Date: Thu, 6 Mar 2025 17:14:48 -0800
-From: Namhyung Kim <namhyung@kernel.org>
-To: Ian Rogers <irogers@google.com>
-Cc: Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
-	guoren <guoren@kernel.org>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Albert Ou <aou@eecs.berkeley.edu>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Jiri Slaby <jirislaby@kernel.org>,
-	=?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>,
-	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
-	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
-Subject: Re: [PATCH v4 02/11] perf dso: kernel-doc for enum dso_binary_type
-Message-ID: <Z8pIiM2Z_jtNNUhN@google.com>
-References: <20250304050305.901167-1-irogers@google.com>
- <20250304050305.901167-3-irogers@google.com>
+	id 1tqMJ1-0000000Cm11-3BtN
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 01:15:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=201702; t=1741310113;
+	bh=rxfohd/24q2m0TM0jOBNK8SiI0OJ/yR4konJCniJ330=;
+	h=Date:From:To:Cc:Subject:From;
+	b=okvB4MVOYZajPcs9G5Oln3/zTkauHrYQkfqRSTZ3/phgJHEEPbKJ0sE0V/9KKylJD
+	 TLxxHqZp/S70nrn+ehB2HLUhXsz2HawWOaAtbIfi1nzXYNECMOXXDbpcYQPLvSjcos
+	 I26qOBQUguQWyt1T1iloJpisACpXksHbq1VrTsP4+U+CaTqFSyVckOtVfamw/aCDJV
+	 d9N2LCvp7J1QKoaLft/cVhHgJnN0KCwCAewiYCMQoj3eAPoM6sGXW1H3cYam6/oEAM
+	 jz1LWq59IWyKNCFhMMsWFiTa2yca2DXbBjXjkglyiHAcx+lEbXwlq/OAzFnPkX3lKU
+	 e1DpGevmz/S9A==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Z87cx0v3Hz4whq;
+	Fri,  7 Mar 2025 12:15:12 +1100 (AEDT)
+Date: Fri, 7 Mar 2025 12:15:12 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Colin Cross <ccross@android.com>, Thierry Reding <treding@nvidia.com>,
+ Arnd Bergmann <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patch in the tegra tree
+Message-ID: <20250307121512.5735349a@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250304050305.901167-3-irogers@google.com>
+Content-Type: multipart/signed; boundary="Sig_/DjRuCVHZy0gCdu/6S+BRLEK";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_171452_877201_472940C8 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20250306_171515_945477_533A1334 
+X-CRM114-Status: UNSURE (   9.01  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,120 +73,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 03, 2025 at 09:02:56PM -0800, Ian Rogers wrote:
-> There are many and non-obvious meanings to the dso_binary_type enum
-> values. Add kernel-doc to speed interpretting their meanings.
-> 
-> Signed-off-by: Ian Rogers <irogers@google.com>
-> ---
->  tools/perf/util/dso.h | 53 +++++++++++++++++++++++++++++++++++++++++++
->  1 file changed, 53 insertions(+)
-> 
-> diff --git a/tools/perf/util/dso.h b/tools/perf/util/dso.h
-> index dfd763a0bd9d..f3ca2a5e7670 100644
-> --- a/tools/perf/util/dso.h
-> +++ b/tools/perf/util/dso.h
-> @@ -20,30 +20,83 @@ struct perf_env;
->  #define DSO__NAME_KALLSYMS	"[kernel.kallsyms]"
->  #define DSO__NAME_KCORE		"[kernel.kcore]"
->  
-> +/**
-> + * enum dso_binary_type - The kind of DSO generally associated with a memory
-> + *                        region (struct map).
-> + */
+--Sig_/DjRuCVHZy0gCdu/6S+BRLEK
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Thanks for adding these comments!
+Hi all,
 
+The following commit is also in the arm-soc tree as a different commit
+(but the same patch):
 
->  enum dso_binary_type {
-> +	/** @DSO_BINARY_TYPE__KALLSYMS: Symbols from /proc/kallsyms file. */
->  	DSO_BINARY_TYPE__KALLSYMS = 0,
-> +	/** @DSO_BINARY_TYPE__GUEST_KALLSYMS: Guest /proc/kallsyms file. */
->  	DSO_BINARY_TYPE__GUEST_KALLSYMS,
-> +	/** @DSO_BINARY_TYPE__VMLINUX: Path to guest kernel /boot/vmlinux file. */
->  	DSO_BINARY_TYPE__VMLINUX,
+  90a1dc90d08b ("arm64: tegra: Remove unused and undocumented "regulator-ra=
+mp-delay-scale" property")
 
-It's not for guest.  Also I think the vmlinux file can come from
-different places.
+This is commit
 
+  828678a1f638 ("arm64: dts: nvidia: Remove unused and undocumented "regula=
+tor-ramp-delay-scale" property")
 
-> +	/** @DSO_BINARY_TYPE__GUEST_VMLINUX: Path to kernel /boot/vmlinux file. */
->  	DSO_BINARY_TYPE__GUEST_VMLINUX,
+in the arm-soc tree.
 
-This is for guest. :)
+--=20
+Cheers,
+Stephen Rothwell
 
-Thanks,
-Namhyung
+--Sig_/DjRuCVHZy0gCdu/6S+BRLEK
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
 
+-----BEGIN PGP SIGNATURE-----
 
-> +	/** @DSO_BINARY_TYPE__JAVA_JIT: Symbols from /tmp/perf.map file. */
->  	DSO_BINARY_TYPE__JAVA_JIT,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__DEBUGLINK: Debug file readable from the file path
-> +	 * in the .gnu_debuglink ELF section of the dso.
-> +	 */
->  	DSO_BINARY_TYPE__DEBUGLINK,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE: File named after buildid located in
-> +	 * the buildid cache with an elf filename.
-> +	 */
->  	DSO_BINARY_TYPE__BUILD_ID_CACHE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO: File named after buildid
-> +	 * located in the buildid cache with a debug filename.
-> +	 */
->  	DSO_BINARY_TYPE__BUILD_ID_CACHE_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__FEDORA_DEBUGINFO: Debug file in /usr/lib/debug
-> +	 * with .debug suffix.
-> +	 */
->  	DSO_BINARY_TYPE__FEDORA_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__UBUNTU_DEBUGINFO: Debug file in /usr/lib/debug. */
->  	DSO_BINARY_TYPE__UBUNTU_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO: dso__long_name debuginfo
-> +	 * file in /usr/lib/debug/lib rather than the expected
-> +	 * /usr/lib/debug/usr/lib.
-> +	 */
->  	DSO_BINARY_TYPE__MIXEDUP_UBUNTU_DEBUGINFO,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__BUILDID_DEBUGINFO: File named after buildid located
-> +	 * in /usr/lib/debug/.build-id/.
-> +	 */
->  	DSO_BINARY_TYPE__BUILDID_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_DSO: A regular executable/shared-object file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_DSO,
-> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE: Guest kernel module .ko file. */
->  	DSO_BINARY_TYPE__GUEST_KMODULE,
-> +	/** @DSO_BINARY_TYPE__GUEST_KMODULE_COMP: Guest kernel module .ko.gz file. */
->  	DSO_BINARY_TYPE__GUEST_KMODULE_COMP,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE: Kernel module .ko file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE,
-> +	/** @DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP: Kernel module .ko.gz file. */
->  	DSO_BINARY_TYPE__SYSTEM_PATH_KMODULE_COMP,
-> +	/** @DSO_BINARY_TYPE__KCORE: /proc/kcore file. */
->  	DSO_BINARY_TYPE__KCORE,
-> +	/** @DSO_BINARY_TYPE__GUEST_KCORE: Guest /proc/kcore file. */
->  	DSO_BINARY_TYPE__GUEST_KCORE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO: Openembedded/Yocto -dbg
-> +	 * package debug info.
-> +	 */
->  	DSO_BINARY_TYPE__OPENEMBEDDED_DEBUGINFO,
-> +	/** @DSO_BINARY_TYPE__BPF_PROG_INFO: jitted BPF code. */
->  	DSO_BINARY_TYPE__BPF_PROG_INFO,
-> +	/** @DSO_BINARY_TYPE__BPF_IMAGE: jitted BPF trampoline or dispatcher code. */
->  	DSO_BINARY_TYPE__BPF_IMAGE,
-> +	/**
-> +	 * @DSO_BINARY_TYPE__OOL: out of line code such as kprobe-replaced
-> +	 * instructions or optimized kprobes or ftrace trampolines.
-> +	 */
->  	DSO_BINARY_TYPE__OOL,
-> +	/** @DSO_BINARY_TYPE__NOT_FOUND: Unknown DSO kind. */
->  	DSO_BINARY_TYPE__NOT_FOUND,
->  };
->  
-> -- 
-> 2.48.1.711.g2feabab25a-goog
-> 
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmfKSKAACgkQAVBC80lX
+0GxRMQf9Fv+jSV2kmmBDisN0YxBC0vJ8s/ufyPNnFsaJcZsq2qKxPhlWH5tveuco
+AtG1SF6b18LESJgKY3Gg5L1hv0Ghx6rFSMHxPunTee7wkRBXsJquFt/SWQM9Kwm5
+9dZOs+TVd6poHbwyB6Rf1DKx0bh0iMEvDOqXvHNzyZnepyfIWE2S2gSUPnJzNwg0
+gibqrKqdcSNQCi2tNDloBA8Bw8NEp4oCABJQwTx9pysqkeIM1cAumy2fNz9JTAUt
+X5gpxdvFPCn6B8x5//IKcZNEgC3PPnqe55RWBnTgFuW/WY+78RcTiRN8Q43l4cEx
+8m6BP33llGIiSeXaZVKUsr5vHfmFXA==
+=tXMm
+-----END PGP SIGNATURE-----
+
+--Sig_/DjRuCVHZy0gCdu/6S+BRLEK--
 
