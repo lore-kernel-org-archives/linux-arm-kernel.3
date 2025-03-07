@@ -4,72 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ADD1C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:57:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70199C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 15:59:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v94MezOQhRnuevnsFvJKjsqRZa1z/RtCibUzJ1SotTE=; b=L6+eiSJPZS736iasW6p29DPjJl
-	P+IqL8fNkGS9tnbTfKEBqN0kt0xnMbFmfnVke4QL1aBI21GYPDUnwx43rwFa89VVsD4bQawTUMN64
-	G+a9EjPzQ6YTcytbBvrl5jNO3C6cTOOqlE/DS2NKz+sD3kcdcIYASH987xsJGblu4FyPZCJDCHPlP
-	uhf25Rl2ITtJ6tmNiB3jDIlsR5Ba4qNe02dIqp4dM07q6AH9pMkhZSSEYpyXDyjpyWMCStB0bOmVM
-	gUqZgQeTf0WSF0oNMBHr4szjFZ3JhNjjV0w0Am8H5pZDly5wbVWf2tgmiEHmhN6t9b0NoMiLHlmVk
-	5Qg+eXIg==;
+	bh=t+TPUM6lLT4F42aTHtMfIaGIT64ZHrncuMb2K0KsmI4=; b=R9/B4HQDJCn2eNZ1pTLLvIq8Oj
+	LCxi8t0F6JR97pBS44blBPSmQk8Wq+ogzPkogUEL/D9ieNcunLJYNytMejmyqB01e/tOpGb7C8hMI
+	mnWw/u7b1S3xJPwtaeK3cs8VR8PwuEQaqGWP/G/bnqTY7p9W4e/vKbZ7DAPdXYwY+0iEp6xStke8L
+	oMU6MFFeye1xa1HwKMTktyCwxBx0n/Ffz0Z2Wzt5X6msruN654a8rkW8YrQCj4Bc80FA6N8M5Uo6d
+	0gTPwGuAPrwbWQV8cS5P6kwmUhmpjy61ecXo1kaIDYwVUE7G2HKvjZPtXDoiIgSfwENiedPcc7qZM
+	UqdIWTWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqa4f-0000000Emnt-41Gk;
-	Fri, 07 Mar 2025 15:57:21 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tqa6G-0000000EnCv-2U6X;
+	Fri, 07 Mar 2025 15:59:00 +0000
+Received: from mail-japanwestazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c407::1] helo=OS0P286CU010.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqa2o-0000000EmMy-1J04
+	id 1tqa2t-0000000EmOC-1NsY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 15:55:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A1BB7A458B4;
-	Fri,  7 Mar 2025 15:49:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0E4DC4CED1;
-	Fri,  7 Mar 2025 15:55:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741362924;
-	bh=v94MezOQhRnuevnsFvJKjsqRZa1z/RtCibUzJ1SotTE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=O/61PfAQ93ufWXMcgKxUgEGqdTNAQgNeJVu9LQxevXTkAsvJquDlOqUdRugmO2pcp
-	 NgoSnCjgIcpQGSAQhaWvYFvO7RwRQ/jABlLo/O92DQsbaa2l8x+GOn9GEYfh+d0IDu
-	 fuXXlce4ph5eX0jt49En2jbp0IcQkolnt3TXjJOhhm1DFLD5mFEJaTmDY6IVOUzKeX
-	 7VgXYpHCGDnNm7ZEweqZlSVEGdVqqR1oFUtQ9QGD3u4iLYNIUW2ieZl6pIJfIW6g11
-	 fhEIjOSkDa+emHYGZn0tL3C50jrHYcKCEt8KZ3QE3hQMXRNepGlFJDPGSrlxdd3svq
-	 Qq4gt8k8hdWeQ==
-Date: Fri, 7 Mar 2025 15:55:19 +0000
-From: Conor Dooley <conor@kernel.org>
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Wim Van Sebroeck <wim@linux-watchdog.org>,
-	Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	"open list:WATCHDOG DEVICE DRIVERS" <linux-watchdog@vger.kernel.org>,
-	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
-	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
-	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
-	open list <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2 1/1] dt-bindings: watchdog: fsl-imx7ulp-wdt: Add
- i.MX94 support
-Message-ID: <20250307-violator-marmalade-87886dc56c83@spud>
-References: <20250307154424.2613795-1-Frank.Li@nxp.com>
+	Fri, 07 Mar 2025 15:55:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KuQwpBSktw08vMhDNVHAEV75jLhRSff9YpCQyogE/75meAoHfQMaCQyr9bjftgfKPvmTIZQc3hrY5nc+sDTHDXJnNT7TbHTpJLos50I6v60yGFERRcXK/WUgg9XJCDGEqXqaqhoWRlJiBntSPvCGVOWhl0SG/+AoUldBgXtzIfIiuW5v584/oGPj1X9z4JGRt2IFFDHEBWYreRsa8+7rWpX8cGkuSn6VCOCRyrY3aPf3JSeoX4jRWR1I8msKOltvP0iA/8hZvdX3m8CH+DUAz+c0odQLTz9gczbpo6C34qHaEVEwLzLIe78RX3ouHH6beFulWH4cB/89FZdZZ9O3Tg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=t+TPUM6lLT4F42aTHtMfIaGIT64ZHrncuMb2K0KsmI4=;
+ b=ko91cnJXY/iQR//cAwiz720eBsjyt3Q5YiHNH4fCIb+xSsuwyw/Qf67uYp0jLHDuD7GO7781Esb52Ib5k9EiUcmFDXxzq4n4F3fNOxFltby9hgitVyB/Lya0wjoO1Kt+sVxTyilMTAjPpcgUsIziooMD9XiKZVM88b5LKo66BujN5vMtxBptmMpHxAzzBirzQaA/vAU31dwkESPWh9baUp1wtyxV17AERKFVIADHtdVpKffksD5x+MuBdKUVfU6TqV8GK85BJAXZ/zu3WQf2PZATMi9IGMA0Wk5oxhesrGMDJwIwIY0OejUys77M3M/3u6OQ7QVATSOW9Be+00ucFA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=bp.renesas.com; dmarc=pass action=none
+ header.from=bp.renesas.com; dkim=pass header.d=bp.renesas.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bp.renesas.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=t+TPUM6lLT4F42aTHtMfIaGIT64ZHrncuMb2K0KsmI4=;
+ b=CcAOD66vR8aHMZ4udMyrP9Oy9nnxYJriClkgMSLMf67puOY4FUveRsNFNzlremh/tGCy7uZ4IqRq3gKswUJoa2t2OEuSh0fNAkUym57zS1hZaRpN/W/gUDxbbr6oYggHDA5W616eiBwwlHYYB3jzQi+AYPKHgE/ERA1Yof0yQug=
+Received: from OSBPR01MB2775.jpnprd01.prod.outlook.com (2603:1096:604:13::17)
+ by TYCPR01MB10605.jpnprd01.prod.outlook.com (2603:1096:400:300::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
+ 2025 15:55:28 +0000
+Received: from OSBPR01MB2775.jpnprd01.prod.outlook.com
+ ([fe80::54f7:9a51:ae47:185b]) by OSBPR01MB2775.jpnprd01.prod.outlook.com
+ ([fe80::54f7:9a51:ae47:185b%4]) with mapi id 15.20.8489.025; Fri, 7 Mar 2025
+ 15:55:28 +0000
+From: John Madieu <john.madieu.xa@bp.renesas.com>
+To: Conor Dooley <conor@kernel.org>, "robh@kernel.org" <robh@kernel.org>
+CC: "geert+renesas@glider.be" <geert+renesas@glider.be>,
+	"magnus.damm@gmail.com" <magnus.damm@gmail.com>, "mturquette@baylibre.com"
+	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>,
+	"rafael@kernel.org" <rafael@kernel.org>, "daniel.lezcano@linaro.org"
+	<daniel.lezcano@linaro.org>, "rui.zhang@intel.com" <rui.zhang@intel.com>,
+	"lukasz.luba@arm.com" <lukasz.luba@arm.com>, "krzk+dt@kernel.org"
+	<krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"p.zabel@pengutronix.de" <p.zabel@pengutronix.de>, "catalin.marinas@arm.com"
+	<catalin.marinas@arm.com>, "will@kernel.org" <will@kernel.org>,
+	"john.madieu@gmail.com" <john.madieu@gmail.com>,
+	"linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-pm@vger.kernel.org" <linux-pm@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Biju Das <biju.das.jz@bp.renesas.com>
+Subject: RE: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
+ TSU unit
+Thread-Topic: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document the
+ TSU unit
+Thread-Index: AQHbiRKwzjBFhg3PXkG3oKF6ljEYA7NdFKWAgAc7OeCAA4ptgIAAAsFw
+Date: Fri, 7 Mar 2025 15:55:27 +0000
+Message-ID: <OSBPR01MB277531D7C872C9EB0B287069FFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
+References: <20250227122453.30480-1-john.madieu.xa@bp.renesas.com>
+ <20250227122453.30480-4-john.madieu.xa@bp.renesas.com>
+ <20250228-shampoo-uprising-44ae0d3bd68b@spud>
+ <OSBPR01MB2775DFC184F78E9FB50F28FFFFD52@OSBPR01MB2775.jpnprd01.prod.outlook.com>
+ <20250307-everyone-ragweed-e05a10a9646b@spud>
+In-Reply-To: <20250307-everyone-ragweed-e05a10a9646b@spud>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=bp.renesas.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: OSBPR01MB2775:EE_|TYCPR01MB10605:EE_
+x-ms-office365-filtering-correlation-id: 162e482f-d38b-4f08-4221-08dd5d907b28
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?66t9DjxM9xxcxTSpx6ZersGiLuk213a5c7XD6FJqEs0+tTSfgnHCc3zgi+be?=
+ =?us-ascii?Q?b8MLmONu5LWVeRW53Mqcz2u8shFmEPJk+rwfph2zWnr6fvZQaKbBXlDxzuCN?=
+ =?us-ascii?Q?tuiTvfiAFoyqIzvDb3DFOkl3EUO0jg4GLvCb07eAnoS1BLmocyu8hAT4YnuV?=
+ =?us-ascii?Q?L9w6WNp0K+ucldZy9Nt/jIFFQlwteWkG3atPCxntVPzUI08B1HFnfW6uCvEd?=
+ =?us-ascii?Q?ImhcpTxXCXt4ugEh5/xEWZzwMO3aQaWhIRrknkbAMNuUQpkxWPhMJ3ePUvc9?=
+ =?us-ascii?Q?t9CB8wEdrp6xS0X1t34dXwex01lP6gYM+oQrCX9QGxyEhi+UCafEdiWbMTgf?=
+ =?us-ascii?Q?VJqaY8qfFJo6i5Sha/2PQI+RUH9s7ZeTW7esmGP6um/tePrwMIvRTcp6HhtL?=
+ =?us-ascii?Q?I9wKIuoYeBbTQ+BilZoiaijCEh+segCKht9hCPAR0Z6fJ4e4CemDATUZ/paq?=
+ =?us-ascii?Q?L/OJd6iPCMbZtjS8+7E+I7RXYfatvNsie2Oi1Nts7+uZrAFpJXjgPSxwiAaQ?=
+ =?us-ascii?Q?96zj5vXTwm0doI1grNq9IqJyH53/LoIRJzOhaIklxwELX/WgMVL6cBYha92p?=
+ =?us-ascii?Q?WFdVTr77T5wiaikxR8NCUOSbqcZMBFFJWhnpO1xwgvvnbQfkpYNtVGq9js4c?=
+ =?us-ascii?Q?1PQQddINc/iJz1hSN3VO/A+QB3Pbl2K6w+EgUahUkfYe/Jd3soT6XrHAkX+5?=
+ =?us-ascii?Q?ugM/+Rlfdpk3MAd8FcBgGrGpUUOUQCT+v4QR9K6Hggov+Fe7lEhMrNdpYgXU?=
+ =?us-ascii?Q?ay/iExTC/KgYlhbdtEijQsStpRTdOGGH5bovzxZ/gqysIRWMWgdtXX62/cxP?=
+ =?us-ascii?Q?7SqrPf5Qcg6o03e4Yi0vHr6koNvfjMBZ+e3oqyTKxkCJNPuliCW80TAaKjmF?=
+ =?us-ascii?Q?gCR/C43l3pzNlbpVjyOozMUSoC9gz4ErYLqqfBH5B7sAIzsY8yAXWvn3vHvY?=
+ =?us-ascii?Q?jM2wisQZeXE3DNUA1cR5dhLcMELf7leeaSRbVxDq2J1eOx0fPwsJQKIOpc+8?=
+ =?us-ascii?Q?01YrYwNKCQii86Aql8zf7xg5NTqbKQqM4qIJ6IU+kIJS+zeFmopMGB7f/soP?=
+ =?us-ascii?Q?RYOs04T5HsmmUfVmK4ZAxqibqiVCd2cHtWiOdxeayQnEmB49kKSvAlkbwsmN?=
+ =?us-ascii?Q?BLogOssn2pGGavPErqjcAiskKq8jW72jf8XiJjSk2pWdGkTRdtozrOLbzkBa?=
+ =?us-ascii?Q?z5Nx0BBovD9xJhQQIoHT56ey47duElJOmCNx3BqGbLpOBI/Es81uYXOFFXhX?=
+ =?us-ascii?Q?geaLMcGD9yf1c8zfoqcYco51XA/o8m+/7Ut9OJA11xJn3nPHFrAqgHE2l5gx?=
+ =?us-ascii?Q?6u2UUPlUancwpykeoHJ4w8xP8OuFPF1Ssk/ccYnnjSy1FEIIXk5uYEWRvuRi?=
+ =?us-ascii?Q?W3fM52oNmOsVJzolP4r6XwZp/khpMs1b173E3wFwMn70k6fYeTPvpLS51wV7?=
+ =?us-ascii?Q?rMAcuO5y2BxX026sUltq9555qVQNcjH1?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:OSBPR01MB2775.jpnprd01.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?JBHb0ISVi8RXvLN95Th5pueHc8KjhLHZ36OxYPHzghS8J/hVKOho8q1azmgU?=
+ =?us-ascii?Q?fksAXjQ5IJUWrjkConc9vfsg3Ybfd4N6LRGMNKh6M+Y2J4ZNcvDLvy+3ri4b?=
+ =?us-ascii?Q?IrQs9lomjD/ZgNygQ1o4f7OIcy48Xb+Vbf2QH/ABzx1nQtJta5L6KNwt5fov?=
+ =?us-ascii?Q?uFc4wZUjc3hp10Emhg5Sm5r1Z0RlDHT2WEmZUwASJ7diCwR5Q/9IInSB8ajt?=
+ =?us-ascii?Q?vk/8z0ROrMR1PSQ9E8YLRCwnrZn1iG/n2FKqmUVNRaaiSquhsQYYBHWw6Ipa?=
+ =?us-ascii?Q?Q8osiG9FiVplqz2P5pm8xZnBS9JOcWMmbOIhizFMwX3PGdnuKbMX+wqcT9wT?=
+ =?us-ascii?Q?IC9XZmBqQA9LfxEqkO0Q5OhvnQ3aDEthBEbg0oCtU8H8OM0Zf1EBFKgvWa50?=
+ =?us-ascii?Q?Z02zRj1DrfCa0jhYrGhsvWAyBjJG+/r89iR7cfX7Aa8x7Mo77yiU6OmIgATV?=
+ =?us-ascii?Q?QoZNCY05wBdltUuxmBmO7as2Zb/a3ePittvEC5oO4IuvlTLt2oPHBTyhwQF8?=
+ =?us-ascii?Q?8DZuj251XCPnSkSyUu2OnE1kXZgYuVuvHhF1U0ztAZocM6oC/Ian5KoiBSq9?=
+ =?us-ascii?Q?bwIjjL7Xzn4+9oPpQYQivzPAaJca85bI2qDSRXLR0agRxHK6J5E3mQf/cLEq?=
+ =?us-ascii?Q?1ALKrzU6jyUMhIYzNPSGH6tU7v5/AgeSVhzGIfgV9fq+CZXPk2yehVr6GTAg?=
+ =?us-ascii?Q?U3+gyd0zjHwlpA6DLqLQ+cuPXOuUKdWJ4mUnTN2Tn1hsnhDnCPp6G3k0tvcS?=
+ =?us-ascii?Q?YQgNE7rLLXmFGq99ok3t43HF2gJP/AbnP9/gLinnIujnTlxKnqDRhRHt2A4e?=
+ =?us-ascii?Q?M/Au8LVoGJT3vo4Bhbl/T2bVcGMO/8ARaz4FAM6bv8CNHWbVFdn8PDBeBqKP?=
+ =?us-ascii?Q?eDp+iG/W3d1BbleQMGAVhSX8zPzrOhQw3UP1Ts+AiX+ra6Yv5CxmKNJy9RdI?=
+ =?us-ascii?Q?mXIlCyITCK8rtPFBlhZaFmMt8gw7Z3K0LnBVmV32qdbS2m8M0fAhsOsFCTJU?=
+ =?us-ascii?Q?vaDES1ESJd2rRtMeytn8L/9IBwKnrmtTiSdvYufhCXd77LfgcPOIyUNKDmOM?=
+ =?us-ascii?Q?1y6/zWXH9P6T/DO71mGUD1Sp/nsGJIlKF1evYEl3OIU4bdryOIE3uRA6ppmH?=
+ =?us-ascii?Q?AMP9lEeuOmdKu7Jl96s2ZVmazm4REH0XB9+LCPR5yG6cL8Xh2Y2w33Ecl6sM?=
+ =?us-ascii?Q?KWXn7XorTMrjrHXzyF0QY6pntZxh0oDmnkcxIEvj30hzdCmdfqr2I9olWQjS?=
+ =?us-ascii?Q?AAjae1VnQ0kTW/5N1Q7Dy/0xkOjVikTHd8eZISqkRjVM80lgWXNz1Vh8HSet?=
+ =?us-ascii?Q?HwBBWMiLPj6a0/qpSAjKK621nX1FyBE6/LKSgV7Odr3uqf2mnKKmxKalHlNX?=
+ =?us-ascii?Q?UR3YdsgSeTJgsXhRFeQlO0pJ5Xd/CQTG/riJ+cRojDa7vcXqNfEANZC7guS7?=
+ =?us-ascii?Q?yXUgBIB/KuRERPlIA1iOKWy7JmXsumtM+ObETP6WwgZGWgLZC3LQ+xQjFKJT?=
+ =?us-ascii?Q?xkJQRxlHFZElSICrqm/9xraSUM2Gjxt1UQt1Xyg0ftBak/Z6wFVB2BHWIavH?=
+ =?us-ascii?Q?+nDHDa2NHFOe9bSly3yKhIgtYnjJdeu9j7sLCsHEN3yF7uuthjBgfgs5ZK0x?=
+ =?us-ascii?Q?hQ=3D=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha256;
-	protocol="application/pgp-signature"; boundary="JWIgyfPzyRrzUsA9"
-Content-Disposition: inline
-In-Reply-To: <20250307154424.2613795-1-Frank.Li@nxp.com>
+X-OriginatorOrg: bp.renesas.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: OSBPR01MB2775.jpnprd01.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 162e482f-d38b-4f08-4221-08dd5d907b28
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Mar 2025 15:55:27.8841
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 53d82571-da19-47e4-9cb4-625a166a4a2a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: EJc1y6TmK6HRMp1vXRCMVnSqNoqRsBhgTSLh9N2FltR8/l2A9rzbshPL4E409q9t72EuS6AvcD48RTlo6WkTPJm770+EfA0E3hHSsOrJevE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: TYCPR01MB10605
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_075526_435702_A9C712C7 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_075531_489779_EA50EBC2 
+X-CRM114-Status: GOOD (  32.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,30 +181,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Conor,
 
---JWIgyfPzyRrzUsA9
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-
-On Fri, Mar 07, 2025 at 10:44:24AM -0500, Frank Li wrote:
-> Add compatible string "fsl,imx94-wdt" for the i.MX94 chip, which is
-> backward compatible with i.MX93. Set it to fall back to "fsl,imx93-wdt".
+> -----Original Message-----
+> From: Conor Dooley <conor@kernel.org>
+> Sent: Friday, March 7, 2025 4:33 PM
+> To: John Madieu <john.madieu.xa@bp.renesas.com>
+> Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu: Document
+> the TSU unit
 >=20
-> Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> On Fri, Mar 07, 2025 at 03:14:05PM +0000, John Madieu wrote:
+> > Hi Conor,
+> >
+> > Thanks for your review!
+> >
+> > > -----Original Message-----
+> > > From: Conor Dooley <conor@kernel.org>
+> > > Sent: Friday, February 28, 2025 8:03 PM
+> > > To: John Madieu <john.madieu.xa@bp.renesas.com>
+> > > Subject: Re: [PATCH v2 3/7] dt-bindings: thermal: r9a09g047-tsu:
+> > > Document the TSU unit
+> > >
+> > > On Thu, Feb 27, 2025 at 01:24:39PM +0100, John Madieu wrote:
+> > > > The Renesas RZ/G3E SoC includes a Thermal Sensor Unit (TSU) block
+> > > > designed to measure the junction temperature. The device provides
+> > > > real-time temperature measurements for thermal management,
+> > > > utilizing a single dedicated channel (channel 1) for temperature
+> sensing.
+> > > >
+> > > > Signed-off-by: John Madieu <john.madieu.xa@bp.renesas.com>
+> > > > ---
+> > > > v1 -> v2:
+> > > >  * Fix reg property specifier to get rid of yamlint warnings
+> > > >  * Fix IRQ name to reflect TSU expectations
+> > > >
+> > > > +    enum: [0, 1]
+> > > > +    description: |
+> > > > +      TSU operating mode:
+> > > > +      0: Mode 0 - Conversion started by software
+> > > > +      1: Mode 1 - Conversion started by ELC trigger
+> > >
+> > > Can you make this "software" and "elc" or something please, unless
+> > > people will genuinely find "0" and 1" to be more informative.
+> > > And why doesn't the property have a default?
+> >
+> > Sorry for miss-specifying.
+> > ELC is an external event trigger. May be should I specify it like that =
+?
+>=20
+> If "elc trigger" is meaningful to people using hte device (IOW, it matche=
+s
+> datasheet wording) then that's fine I think.
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+"elc trigger" matches datasheet wording.
 
---JWIgyfPzyRrzUsA9
-Content-Type: application/pgp-signature; name="signature.asc"
+>=20
+> > To make sure I got your point, do you mean specifying a default value
+> > in bindings ?
+>=20
+> The property doesn't actually need to be required, it could easily have a
+> default (say software) and only be set in the case of using the elc
+> trigger - which brings you to Rob's comment that it can just be a boolean=
+,
+> setting the property if elc and leaving it out of software.
 
------BEGIN PGP SIGNATURE-----
+Got the point now. I can make it default to software trigger, and add optio=
+nal
+Boolean property to ELC trigger. Let's say "renesas,elc-trigger;"
 
-iHUEABYIAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCZ8sW5wAKCRB4tDGHoIJi
-0q3eAQD4aBNrwfVgzEHcIRDVmVUsrx3rUlqj7jGYo1JtyG2m0wEApKIwEgi9CVW1
-m6ZG/qm0OpmWLiDOQ50X8qGLV8M3pwg=
-=WgEH
------END PGP SIGNATURE-----
+>=20
+> Rob's other comment was
+>=20
+> | Who/what decides the mode? If a user is going to want to change this,
+> | then it should be a runtime control, not a DT property.
 
---JWIgyfPzyRrzUsA9--
+Changes are not possible at runtime. Some customers may want software,
+while other may want the external trigger, and this is immutable=20
+configuration.
+
+>=20
+> which I think needs an answer ;)
+
+Regards,
+John
 
