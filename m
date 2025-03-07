@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 995D3C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:46:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5D38C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 23:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hFUBkPdrvb3+Gb+g41wZJKmSb+tO09XbzEaZdRyDfMM=; b=aV9hFLQRYKVkSdi3TiM357H+0f
-	tr4MhNz0SS5L3n6yPzNm9nP6SYzvPCcdDOkvsCSoKShfArrAaTLcZdHMYN0rrVeZsV7h/6Gz5tuwS
-	PffrKB5KcGMhGBtVVablFxcC6tb6M0+ZfgWcH8a9cRaHSYdVbR1EVtRZHkLOHug6x0DuzlKB282BL
-	YM5HbP3mr2B3QKg2dy6LCcID+1Vle+QJHTu4pLvUPV6g1/nrT/vrFLUhq8S7zzJ3CVhjdMWrO+JQq
-	fN+GV56zpiOrQIzClxtx5VFZs0prl2HjlZcD5dShIe96yYa8uyRbmFMqrgy6OI2vbRlnDIz7WqvxY
-	CRePYNpA==;
+	bh=ySsn7dF/7Om+1GZfPcsWhSV1dmkm+FN1w5E4eHT2ni8=; b=eNF4IhfpAoApuNo6DMRWrwyNmT
+	zhu6JsYrWrcEoLHNEU3sQxEJPExwyI6wPFNglkZ1p3E6jpcoEq9bdHltB5qIPL6//fNZKM2xrB0vB
+	Awgban/FqMUwxclEB1TZET2XQMG6LuwveU/YVr++Cb8pXffIm6zc3TD1CNNFi+1XLb9peBD6qrOge
+	2yFR7B0mOsRe7dB+ogO7MnVJpycqX45mKZDVXe0OZ0gisKSMCNxFspZIq35yPwzdBTbtEAKsZWSqS
+	FS7ZIpz94yZO9889Y2iitEFOI/+HAMKG3WuI94RAhXZ2W8sCKBkMfWOgMKQ5kFM2Moq5skAF9lax+
+	l1BBq9SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhOQ-0000000FqmB-0Ipz;
-	Fri, 07 Mar 2025 23:46:14 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tqhQ0-0000000Fquv-34Dm;
+	Fri, 07 Mar 2025 23:47:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqhGW-0000000FpVv-1Df0
+	id 1tqhGX-0000000FpWg-1Oqs
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 23:38:05 +0000
+	Fri, 07 Mar 2025 23:38:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9DDE8A45627;
-	Fri,  7 Mar 2025 23:32:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A0311C4CEEE;
-	Fri,  7 Mar 2025 23:38:02 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id D8B3C5C64F6;
+	Fri,  7 Mar 2025 23:35:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57CD0C4CEE9;
+	Fri,  7 Mar 2025 23:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741390682;
-	bh=9huYHohH+gOJUkoeThHaODlEFocAowbh3DJVYqegdA4=;
+	s=k20201202; t=1741390684;
+	bh=awyxVGLYLrPGk2ph0vC9xWww4UwkrrLl5cXRfJqJlA0=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=exc99kmdGHpYV6kL6OhjqqdbMWYSyTNNn80GYi2Uc+VGV55ZsasQb1TE6cGi5R6to
-	 38jeJdJmaoQrR9WMNt9kfO/wzRwJ8vSP1XRtHW22eTs9DdavO/Ye5cXvtEY5hYsMXZ
-	 PbTWPMGSCekt20ls3uamd0Xi2PLFd/LjElBtXUnHmepsGBFqztBbEDGcurcL+6iGUM
-	 0PG9WS0ohUvDp11N5TeD1pnusirSM1jZiMfVNEqF41rVNMqttdhmHsv5IT8DusD+Vs
-	 gm9ePcCelLJErYpjQlWNp8P3gqtxbqrVukcyKMtvW5n9Rur+rjzM8YTbUUq51t0R6p
-	 lxFlFr0Tfm6ag==
+	b=CTVoSv901qPSH0kq0SRi45h38A2I+kzNId6N7kN8mUDSfb6d97vw8m4klIvm5tqeU
+	 GAAPZ5h8bTAR47cLw04L8I7NjH5O/CDqd25IsGFixaVCi5ZEhO4yXYmreSFZzmYMrK
+	 XaHNENqH+Q/S6PlDJq0DxFh0/6b+0WoOEf2ZXcZhM2du4yDrJASDBW4+8oX8QNwjdN
+	 p54qwFQwhzKPPTNYZw6cjZYMCH1dPSzf3d1OomHr3NmfONYvc+Yfozq1yDf9csiFzw
+	 uL8QR7UnDcubB4ogUeQwavpsm9bsM3+0DxVajnJXq4IXlJIuaAT4Ry1NxjECm27jxA
+	 wcuiivr40Jl9w==
 From: Bjorn Helgaas <helgaas@kernel.org>
 To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>,
@@ -63,17 +63,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	imx@lists.linux.dev,
 	Bjorn Helgaas <bhelgaas@google.com>
-Subject: [PATCH 3/4] PCI: dwc: Look up 'config' address
-Date: Fri,  7 Mar 2025 17:37:43 -0600
-Message-Id: <20250307233744.440476-4-helgaas@kernel.org>
+Subject: [PATCH 4/4] PCI: dwc: Use parent_bus_offset
+Date: Fri,  7 Mar 2025 17:37:44 -0600
+Message-Id: <20250307233744.440476-5-helgaas@kernel.org>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250307233744.440476-1-helgaas@kernel.org>
 References: <20250307233744.440476-1-helgaas@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_153804_503374_6B55DA26 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20250307_153805_486829_93B3BC58 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,92 +90,92 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Bjorn Helgaas <bhelgaas@google.com>
 
-Set pp->parent_bus_offset based on the parent bus address from the "config"
-reg entry if it exists.
+We know the parent_bus_offset, either computed from a DT reg property (the
+offset is the CPU physical addr - the 'config' address on the parent bus)
+or from a .cpu_addr_fixup() (which may have used a host bridge window
+offset).
 
-.cpu_addr_fixup(res->start) (if implemented) should return the parent bus
-address corresponding to res->start.
+Apply that parent_bus_offset instead of calling .cpu_addr_fixup() again.
 
-Sets pp->parent_bus_offset, but doesn't use it, so no functional change
-intended yet.
+This assumes that all intermediate addresses are at the same offset from
+the CPU physical addresses.
 ---
- .../pci/controller/dwc/pcie-designware-host.c | 42 +++++++++++++++++++
- drivers/pci/controller/dwc/pcie-designware.h  |  1 +
- 2 files changed, 43 insertions(+)
+ drivers/pci/controller/dwc/pcie-designware-host.c | 12 ++++++------
+ drivers/pci/controller/dwc/pcie-designware.c      |  3 ---
+ 2 files changed, 6 insertions(+), 9 deletions(-)
 
 diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-index b9eaba157dae..e22f650ada5a 100644
+index e22f650ada5a..3378f905b3bd 100644
 --- a/drivers/pci/controller/dwc/pcie-designware-host.c
 +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-@@ -423,7 +423,11 @@ static int dw_pcie_cfg0_setup(struct dw_pcie_rp *pp)
- 	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
- 	struct device *dev = pci->dev;
- 	struct platform_device *pdev = to_platform_device(dev);
-+	struct device_node *np = dev->of_node;
- 	struct resource *res;
-+	int index;
-+	u64 reg_addr, fixup_addr;
-+	u64 (*fixup)(struct dw_pcie *pcie, u64 cpu_addr);
+@@ -670,7 +670,7 @@ static void __iomem *dw_pcie_other_conf_map_bus(struct pci_bus *bus,
+ 		type = PCIE_ATU_TYPE_CFG1;
  
- 	res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "config");
- 	if (!res) {
-@@ -434,6 +438,44 @@ static int dw_pcie_cfg0_setup(struct dw_pcie_rp *pp)
- 	pp->cfg0_size = resource_size(res);
- 	pp->cfg0_base = res->start;
+ 	atu.type = type;
+-	atu.parent_bus_addr = pp->cfg0_base;
++	atu.parent_bus_addr = pp->cfg0_base - pp->parent_bus_offset;
+ 	atu.pci_addr = busdev;
+ 	atu.size = pp->cfg0_size;
  
-+	/* [mem 0x7ff00000-] in example */
-+	dev_info(dev, "%pR config CPU physical\n", res);
-+
-+	/* Look up "config" address on parent bus */
-+	reg_addr = 0;
-+	index = of_property_match_string(np, "reg-names", "config");
-+	if (index >= 0) {
-+		of_property_read_reg(np, index, &reg_addr, NULL);
-+		/* [ia  0x8ff00000-] in example */
-+		dev_info(dev, "%#010llx config reg[%d] parent bus addr\n",
-+			 reg_addr, index);
-+	} else {
-+		reg_addr = res->start;
-+		dev_warn(dev, "%#010llx assumed parent bus addr (no config reg-names entry)\n",
-+			 reg_addr);
-+	}
-+
-+	fixup = pci->ops->cpu_addr_fixup;
-+	if (fixup) {
-+		fixup_addr = fixup(pci, res->start);
-+		dev_info(dev, "%#010llx result of %ps(%#010llx)\n",
-+			 fixup_addr, fixup, res->start);
-+		if (reg_addr == fixup_addr) {
-+			dev_info(dev, "%#010llx config reg[%d] == %#010llx; %ps is redundant\n",
-+				 reg_addr, index, fixup_addr, fixup);
-+		} else {
-+			dev_warn(dev, "%#010llx config reg[%d] != %#010llx fixed up addr; DT is broken\n",
-+				 reg_addr, index, fixup_addr);
-+			reg_addr = fixup_addr;
-+		}
-+	}
-+
-+	/* 0x7ff00000 - 0x8ff00000 == 0xf0000000 */
-+	pp->parent_bus_offset = res->start - reg_addr;
-+	dev_info(dev, "%#010llx config parent bus offset\n",
-+		 pp->parent_bus_offset);
-+
-+
- 	pp->va_cfg0_base = devm_pci_remap_cfg_resource(dev, res);
- 	if (IS_ERR(pp->va_cfg0_base))
- 		return PTR_ERR(pp->va_cfg0_base);
-diff --git a/drivers/pci/controller/dwc/pcie-designware.h b/drivers/pci/controller/dwc/pcie-designware.h
-index ac23604c829f..eeca38ec3a2b 100644
---- a/drivers/pci/controller/dwc/pcie-designware.h
-+++ b/drivers/pci/controller/dwc/pcie-designware.h
-@@ -362,6 +362,7 @@ struct dw_pcie_rp {
- 	u64			cfg0_base;
- 	void __iomem		*va_cfg0_base;
- 	u32			cfg0_size;
-+	u64			parent_bus_offset;
- 	resource_size_t		io_base;
- 	phys_addr_t		io_bus_addr;
- 	u32			io_size;
+@@ -695,7 +695,7 @@ static int dw_pcie_rd_other_conf(struct pci_bus *bus, unsigned int devfn,
+ 
+ 	if (pp->cfg0_io_shared) {
+ 		atu.type = PCIE_ATU_TYPE_IO;
+-		atu.parent_bus_addr = pp->io_base;
++		atu.parent_bus_addr = pp->io_base - pp->parent_bus_offset;
+ 		atu.pci_addr = pp->io_bus_addr;
+ 		atu.size = pp->io_size;
+ 
+@@ -721,7 +721,7 @@ static int dw_pcie_wr_other_conf(struct pci_bus *bus, unsigned int devfn,
+ 
+ 	if (pp->cfg0_io_shared) {
+ 		atu.type = PCIE_ATU_TYPE_IO;
+-		atu.parent_bus_addr = pp->io_base;
++		atu.parent_bus_addr = pp->io_base - pp->parent_bus_offset;
+ 		atu.pci_addr = pp->io_bus_addr;
+ 		atu.size = pp->io_size;
+ 
+@@ -790,7 +790,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+ 
+ 		atu.index = i;
+ 		atu.type = PCIE_ATU_TYPE_MEM;
+-		atu.parent_bus_addr = entry->res->start;
++		atu.parent_bus_addr = entry->res->start - pp->parent_bus_offset;
+ 		atu.pci_addr = entry->res->start - entry->offset;
+ 
+ 		/* Adjust iATU size if MSG TLP region was allocated before */
+@@ -812,7 +812,7 @@ static int dw_pcie_iatu_setup(struct dw_pcie_rp *pp)
+ 		if (pci->num_ob_windows > ++i) {
+ 			atu.index = i;
+ 			atu.type = PCIE_ATU_TYPE_IO;
+-			atu.parent_bus_addr = pp->io_base;
++			atu.parent_bus_addr = pp->io_base - pp->parent_bus_offset;
+ 			atu.pci_addr = pp->io_bus_addr;
+ 			atu.size = pp->io_size;
+ 
+@@ -956,7 +956,7 @@ static int dw_pcie_pme_turn_off(struct dw_pcie *pci)
+ 	atu.size = resource_size(pci->pp.msg_res);
+ 	atu.index = pci->pp.msg_atu_index;
+ 
+-	atu.parent_bus_addr = pci->pp.msg_res->start;
++	atu.parent_bus_addr = pci->pp.msg_res->start - pci->pp.parent_bus_offset;
+ 
+ 	ret = dw_pcie_prog_outbound_atu(pci, &atu);
+ 	if (ret)
+diff --git a/drivers/pci/controller/dwc/pcie-designware.c b/drivers/pci/controller/dwc/pcie-designware.c
+index 9d0a5f75effc..640caf4a084f 100644
+--- a/drivers/pci/controller/dwc/pcie-designware.c
++++ b/drivers/pci/controller/dwc/pcie-designware.c
+@@ -474,9 +474,6 @@ int dw_pcie_prog_outbound_atu(struct dw_pcie *pci,
+ 	u32 retries, val;
+ 	u64 limit_addr;
+ 
+-	if (pci->ops && pci->ops->cpu_addr_fixup)
+-		parent_bus_addr = pci->ops->cpu_addr_fixup(pci, parent_bus_addr);
+-
+ 	limit_addr = parent_bus_addr + atu->size - 1;
+ 
+ 	if ((limit_addr & ~pci->region_limit) != (parent_bus_addr & ~pci->region_limit) ||
 -- 
 2.34.1
 
