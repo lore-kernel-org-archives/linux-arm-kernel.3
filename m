@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 640E2C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:55:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CCCAAC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 10:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C1++GN37YacsvtvGJVQ2tP4MeEDYm2OhNRDU8/ZHW64=; b=YJt/dcsdvwtXjHPVeG0eXKFrKs
-	mB1DEOTl6fg6M8m4jDLTA4beFZu4u5h67FCEKURrrCL6D8OGgDgBqKt9biMNYqok4L72YruPltttZ
-	7pDgQbuhoaFyykHPnikVIdUbxWSMb0Qp85usNa9+hrB8fj2oEDuQENceaJCRMO6KcTTaWl7fXRZkA
-	CHzkwFDfWX+753LdoF6AacIwVvYT+W2Kopf4EEFcc80o3WYszT0MTFiUcB5s6zEU5o36jH6oM/TJO
-	cfos/qLVDYWmT1r6wM6nTynIVovAwKOU2ddS+z8pdBcPr+zp6ZokIWW+IL1qzkvX5oo6Q4fM1Bk6R
-	8ps4j09Q==;
+	bh=YU88KIu28z7FJc3ACej39tJ8cAKVnj4yM8ha3DZROns=; b=J9/+AOlvV77T/G+uC7BWI0Z6cL
+	66wTiOl8YmEWBQaQfiaRo20uYB7gpzgE4DlOOkmeV/hWmD6YBKKEHSlyb+Rkq+DthjVf8dn3+P3zI
+	Z/LZz7in4SSw8+mhnsmvwY1ufNjkEnDP1nBSFJ4cNLV2gdnbzZkFomTld2sJ7IDQs0jXylbYOirCr
+	xmCzGbE8TyLX/ifxM6Y8SeCZ8RLH1DT8ZTlzayRjr5AWRbY8RxMe37onunpSdIfNkkwBcoBiWxv2/
+	/HjYN6odtNj1vi8SttTavP9BWzwi0CMezEZQvaA8QBJlqOrlGqOLX2ozZHk8MvKZZlldKZMNJjkYc
+	oxqzjUnA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqVMo-0000000DwoV-3iTu;
-	Fri, 07 Mar 2025 10:55:46 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tqVOO-0000000Dx7R-2NDM;
+	Fri, 07 Mar 2025 10:57:24 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqV5g-0000000DuAv-1atX
+	id 1tqV6o-0000000DuKM-0v28
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 10:38:05 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527Ac0tQ244116
+	Fri, 07 Mar 2025 10:39:15 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 527AdAd94040303
 	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Fri, 7 Mar 2025 04:38:00 -0600
+	Fri, 7 Mar 2025 04:39:11 -0600
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741343881;
-	bh=C1++GN37YacsvtvGJVQ2tP4MeEDYm2OhNRDU8/ZHW64=;
+	s=ti-com-17Q1; t=1741343951;
+	bh=YU88KIu28z7FJc3ACej39tJ8cAKVnj4yM8ha3DZROns=;
 	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=ZeUFC5Fr9NyqOc65rZANb7X3bc///Ar7dClPMnYVrozGbFxKmFFTGE41EsMmF/YjD
-	 VvAjuQOBY5Eii6qYpuOiPO2E9OQO7PQy0L0WVpC5SmQq0PgluzAqgRlH70VSRwU+0o
-	 Dqzbt+1gBW4psqz49DZG8xNGWGOMhNVy/l220pBA=
-Received: from DLEE101.ent.ti.com (dlee101.ent.ti.com [157.170.170.31])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 527Ac0a5088612
+	b=YmgbTYzpuzp2KYj0yx0UEIjAjZFY/Ns7gVzjbZXvDPQOF90datY/E1DWIswto0oDP
+	 cTn89tlo+BCHcA/MGcdgi9li1WjQ3h7q7ExNliNOjzZaHdE24hvTnXRqDFruBu7K1k
+	 DF46X4VLGzHEKqt1gxVt9U2OhsroZ113B0TdFVXI=
+Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 527AdA44004468
 	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 7 Mar 2025 04:38:00 -0600
-Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 7 Mar 2025 04:39:10 -0600
+Received: from DFLE102.ent.ti.com (10.64.6.23) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Fri, 7
- Mar 2025 04:38:00 -0600
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE103.ent.ti.com
- (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ Mar 2025 04:39:10 -0600
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE102.ent.ti.com
+ (10.64.6.23) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Fri, 7 Mar 2025 04:38:00 -0600
+ Frontend Transport; Fri, 7 Mar 2025 04:39:10 -0600
 Received: from uda0132425.dhcp.ti.com (dhcp-10-24-69-250.dhcp.ti.com [10.24.69.250])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527Abt74022744;
-	Fri, 7 Mar 2025 04:37:56 -0600
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 527Ad65t082496;
+	Fri, 7 Mar 2025 04:39:07 -0600
 From: Vignesh Raghavendra <vigneshr@ti.com>
 To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <j-choudhary@ti.com>, <rogerq@kernel.org>,
-        Siddharth
- Vadapalli <s-vadapalli@ti.com>
-CC: Vignesh Raghavendra <vigneshr@ti.com>, <stable@vger.kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH v2] arm64: dts: ti: k3-j784s4-j742s2-main-common: Fix serdes_ln_ctrl reg-masks
-Date: Fri, 7 Mar 2025 16:07:53 +0530
-Message-ID: <174133309359.1072814.1136748837607533827.b4-ty@ti.com>
+        Daniel Schultz
+	<d.schultz@phytec.de>
+CC: Vignesh Raghavendra <vigneshr@ti.com>, <w.egorov@phytec.de>,
+        <upstream@lists.phytec.de>
+Subject: Re: [PATCH v2] arm64: dts: ti: am64-phyboard-electra: Add DT overlay for X27 connector
+Date: Fri, 7 Mar 2025 16:09:03 +0530
+Message-ID: <174133309360.1072814.5781136460553851194.b4-ty@ti.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250228053850.506028-1-s-vadapalli@ti.com>
-References: <20250228053850.506028-1-s-vadapalli@ti.com>
+In-Reply-To: <20250128100356.462934-1-d.schultz@phytec.de>
+References: <20250128100356.462934-1-d.schultz@phytec.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_023804_515641_99DA3ABA 
-X-CRM114-Status: GOOD (  12.82  )
+X-CRM114-CacheID: sfid-20250307_023914_346733_21025CD6 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,23 +88,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth Vadapalli,
+Hi Daniel Schultz,
 
-On Fri, 28 Feb 2025 11:08:50 +0530, Siddharth Vadapalli wrote:
-> Commit under Fixes added the 'idle-states' property for SERDES4 lane muxes
-> without defining the corresponding register offsets and masks for it in the
-> 'mux-reg-masks' property within the 'serdes_ln_ctrl' node.
+On Tue, 28 Jan 2025 02:03:56 -0800, Daniel Schultz wrote:
+> Add a device tree overlay for SPI1 , UART3 and GPIO1 on
+> X27 connector.
 > 
-> Fix this.
-> 
+> By default, not all interfaces on the X27 connector are accessible
+> due to being disabled or set to alternative pin mux configurations.
+> This overlay activates and configures these interfaces to support
+> connections with external devices.
 > 
 > [...]
 
 I have applied the following to branch ti-k3-dts-next on [1].
 Thank you!
 
-[1/1] arm64: dts: ti: k3-j784s4-j742s2-main-common: Fix serdes_ln_ctrl reg-masks
-      commit: 38e7f9092efbbf2a4a67e4410b55b797f8d1e184
+[1/1] arm64: dts: ti: am64-phyboard-electra: Add DT overlay for X27 connector
+      commit: 638ab30ce4c63edae4934dcaa7a61f37b96efe6c
 
 All being well this means that it will be integrated into the linux-next
 tree (usually sometime in the next 24 hours) and sent up the chain during
