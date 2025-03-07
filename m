@@ -4,114 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDD0C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 13:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF533C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 13:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NsbOBhG0nk4ZmGJboXLglXUWJRRf4NORS0maYADDKI4=; b=HCNu85COAJW+Y6oBxu9127jRsy
-	smHNfJDirES4yagK7Oz5HEt0tmkD84JpngO0pOo4BF1fMFdIJG2Xhab2ZlxlIoNoikaOdtXAIf7l+
-	nsqtWgrhQH2h05oA0kD5mzGzTXjYuLxyoES8fVqCTm57L6JVDFiNBdkmIDtjn+rMY18v2Z5Opk2hB
-	XkfeLSZVnti/cB2YhhOiU9TDB8IvLfNpoWRkTqgR18IE4nWjg5Jq9Hm3yvx0J6AzFvgDVuBjhsKI2
-	cLyavOkjBqHUVO7Syj2t4cRlkfNJPJ48Z6LR/ZjMjXF8La4xXOyK+RGQIcyGj1Q5BwAxccTPEym3L
-	qYi1FA4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=46TuSHd10UP8OUoJJnde8lojq/wh9uzhaE+3oLPotOE=; b=iQ0Y2vsL3N9m6z5CGQSZmPoPVy
+	qxG1df3rBFA06mzDqWFo+twVdkiKBJV1LzHr6xe5qhsk0ZJVRhu47OZ1LXyCHDuNUUxjlHL65riv0
+	aVl6c6eJEj0z/Fzm42z2dCKV9UcyCMSNiPNQaPWhkKi49MRKZwaZupUcB3ZEqx43O3gaRt2YORlM9
+	B1Wd/eg/74nmrI+jzU+oianPA6pmzcGhE4lefU1Niyn095smTvEOzaE3PGEsUdykP3M5yCFSQ8vg0
+	oMaSQ6Jp4jtcxWuCQ3MtSN+L0E+omBovbPKIAuMOoF4RzTG7Ve5EcqyWuTm1lcTmIfzHmday1Ylno
+	RKdQpIrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqXJy-0000000EFem-3e5w;
-	Fri, 07 Mar 2025 13:00:58 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqXLl-0000000EFoq-1ffL;
+	Fri, 07 Mar 2025 13:02:49 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqX8Y-0000000EDo7-1NEF
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 12:49:11 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id D2D925C5BAF;
-	Fri,  7 Mar 2025 12:46:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4B953C4CEE7;
-	Fri,  7 Mar 2025 12:49:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741351749;
-	bh=3W8+PXmFf+vfNSA0B4k7RZ7X8c6vyGTNNd3pjI3VyVM=;
-	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=jrpxYXCsE/Eaj6GJ9dvPBSkVz3zJgHeOa8z8l5IzqX7Bd8vaVS4qA1Ei8dzfsXynE
-	 zqXLmt2kaV0Kau3pTe+qnkkJRkz55mQV4PP6Pj9mM1TuYQG8BXUXcnStKrBkcLu0Bt
-	 9iroej4WZid2e8pktnOZfUyqrMf8AltG6WWmCCt1kRkJiPuxi9Nt5KNBe84Nu+NOEh
-	 L9UfjHD2H9AwIeKyXg5IVjDnfy3olMn65j5QQVLdVZII+gpktGcMocA1+mBzmQYmAO
-	 +CVrmEVpeH0XXItlgMHEq7aXENiEVjsug0szmE67nisPW+wYGW+X6hP5eVFS7+eC9C
-	 091/khfcm0L6g==
-Message-ID: <2090b241-8780-4897-b898-4c55e4f80028@kernel.org>
-Date: Fri, 7 Mar 2025 13:49:02 +0100
+	id 1tqX8c-0000000EDpR-1mc1;
+	Fri, 07 Mar 2025 12:49:15 +0000
+X-UUID: 9143e1befb5211ef83f2a1c9db70dae0-20250307
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:To:From; bh=46TuSHd10UP8OUoJJnde8lojq/wh9uzhaE+3oLPotOE=;
+	b=D8E1kDCG3lez9XLOa7ME45S4aqW5M1vAdwFaj9tCzIeCPgEYFq8JhTltP/ag6ZbZA4Xpmlue/U0I7bQ7E1dFHtrUqSjUFu47wYFQLE5AamgT70rwxbNKIGn0CvQ60pQHfVdEEG34bfQ5I5X6WQFcI1KwWLDUcE1z1NSOlVR/t+M=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.2.1,REQID:b625178d-d6e8-4c30-a47d-3956963fc1e2,IP:0,UR
+	L:0,TC:0,Content:0,EDM:-25,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:-25
+X-CID-META: VersionHash:0ef645f,CLOUDID:dc13d249-a527-43d8-8af6-bc8b32d9f5e9,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:81|82|102,TC:nil,Content:0|50,EDM:1,
+	IP:nil,URL:0,File:nil,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,OSA:0,AV:
+	0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 0
+X-CID-BAS: 0,_,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR
+X-UUID: 9143e1befb5211ef83f2a1c9db70dae0-20250307
+Received: from mtkmbs10n2.mediatek.inc [(172.21.101.183)] by mailgw01.mediatek.com
+	(envelope-from <darren.ye@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1874811707; Fri, 07 Mar 2025 05:49:11 -0700
+Received: from mtkmbs13n1.mediatek.inc (172.21.101.193) by
+ mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.28; Fri, 7 Mar 2025 20:49:08 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs13n1.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1258.28 via Frontend Transport; Fri, 7 Mar 2025 20:49:07 +0800
+From: Darren.Ye <darren.ye@mediatek.com>
+To: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, "Rob
+ Herring" <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, "Linus
+ Walleij" <linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+CC: <linux-sound@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-mediatek@lists.infradead.org>, <linux-gpio@vger.kernel.org>, Darren Ye
+	<darren.ye@mediatek.com>
+Subject: [PATCH 10/14] ASoC: mediatek: mt8196: support CM in platform driver
+Date: Fri, 7 Mar 2025 20:47:36 +0800
+Message-ID: <20250307124841.23777-11-darren.ye@mediatek.com>
+X-Mailer: git-send-email 2.46.0
+In-Reply-To: <20250307124841.23777-1-darren.ye@mediatek.com>
+References: <20250307124841.23777-1-darren.ye@mediatek.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM64: dts: imx8mp-evk: add ecspi2 support
-To: Frank Li <Frank.Li@nxp.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- "open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS"
- <devicetree@vger.kernel.org>,
- "open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
- "moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE"
- <linux-arm-kernel@lists.infradead.org>,
- open list <linux-kernel@vger.kernel.org>
-References: <20250306222359.797855-1-Frank.Li@nxp.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250306222359.797855-1-Frank.Li@nxp.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_044910_457459_2767B8AE 
-X-CRM114-Status: UNSURE (   6.12  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_044914_469503_66CCA950 
+X-CRM114-Status: GOOD (  15.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,23 +91,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03/2025 23:23, Frank Li wrote:
-> +&ecspi2 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +	num-cs = <1>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&pinctrl_ecspi2 &pinctrl_ecspi2_cs>;
-> +	cs-gpios = <&gpio5 13 GPIO_ACTIVE_LOW>;
-> +	status = "okay";
-> +
-> +	spidev1: spi@0 {
-> +		compatible = "rohm,dh2228fv";
+From: Darren Ye <darren.ye@mediatek.com>
 
-NAK, not true. You do not have there DH2228FV.
+Add mt8196 CM driver support for ADDA multi-channel.
 
-Stop sending blindly your downstream commits.
+Signed-off-by: Darren Ye <darren.ye@mediatek.com>
+---
+ sound/soc/mediatek/mt8196/mt8196-afe-cm.c | 94 +++++++++++++++++++++++
+ sound/soc/mediatek/mt8196/mt8196-afe-cm.h | 23 ++++++
+ 2 files changed, 117 insertions(+)
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-cm.c
+ create mode 100644 sound/soc/mediatek/mt8196/mt8196-afe-cm.h
 
-Best regards,
-Krzysztof
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-cm.c b/sound/soc/mediatek/mt8196/mt8196-afe-cm.c
+new file mode 100644
+index 000000000000..b923844a76f8
+--- /dev/null
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-cm.c
+@@ -0,0 +1,94 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Copyright (C) 2024 MediaTek Inc.
++ * Author: Darren Ye <darren.ye@mediatek.com>
++ */
++
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/regmap.h>
++#include <sound/soc.h>
++
++#include "mtk-afe-fe-dai.h"
++#include "mtk-base-afe.h"
++
++#include "mt8196-afe-cm.h"
++#include "mt8196-afe-common.h"
++
++void mt8196_set_cm_rate(struct mtk_base_afe *afe, int id, unsigned int rate)
++{
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	afe_priv->cm_rate[id] = rate;
++}
++EXPORT_SYMBOL_GPL(mt8196_set_cm_rate);
++
++static int mt8196_convert_cm_ch(unsigned int ch)
++{
++	return ch - 1;
++}
++
++static unsigned int calculate_cm_update(int rate, int ch)
++{
++	unsigned int update_val;
++
++	update_val = 26000000 / rate / (ch / 2);
++	update_val = update_val * 10 / 7;
++	if (update_val > 100)
++		update_val = 100;
++	if (update_val < 7)
++		update_val = 7;
++
++	return update_val;
++}
++
++int mt8196_set_cm(struct mtk_base_afe *afe, int id,
++		  bool update, bool swap, unsigned int ch)
++{
++	unsigned int rate = 0;
++	unsigned int update_val = 0;
++	int reg;
++	struct mt8196_afe_private *afe_priv = afe->platform_priv;
++
++	dev_dbg(afe->dev, "%s()-0, CM%d, rate %d, update %d, swap %d, ch %d\n",
++		__func__, id, rate, update, swap, ch);
++
++	rate = afe_priv->cm_rate[id];
++	update_val = update ? calculate_cm_update(rate, (int)ch) : 0x64;
++
++	reg = AFE_CM0_CON0 + 0x10 * id;
++	/* update cnt */
++	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_UPDATE_CNT_MASK,
++			       update_val, AFE_CM_UPDATE_CNT_SFT);
++
++	/* rate */
++	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_1X_EN_SEL_FS_MASK,
++			       rate, AFE_CM_1X_EN_SEL_FS_SFT);
++
++	/* ch num */
++	ch = mt8196_convert_cm_ch(ch);
++	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_CH_NUM_MASK,
++			       ch, AFE_CM_CH_NUM_SFT);
++
++	/* swap */
++	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_BYTE_SWAP_MASK,
++			       swap, AFE_CM_BYTE_SWAP_SFT);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(mt8196_set_cm);
++
++int mt8196_enable_cm_bypass(struct mtk_base_afe *afe, int id, bool en)
++{
++	int reg = AFE_CM0_CON0 + 0x10 * id;
++
++	mtk_regmap_update_bits(afe->regmap, reg, AFE_CM_BYPASS_MODE_MASK,
++			       en, AFE_CM_BYPASS_MODE_SFT);
++
++	return 0;
++}
++EXPORT_SYMBOL_GPL(mt8196_enable_cm_bypass);
++
++MODULE_DESCRIPTION("Mediatek afe cm");
++MODULE_AUTHOR("darren ye <darren.ye@mediatek.com>");
++MODULE_LICENSE("GPL");
+diff --git a/sound/soc/mediatek/mt8196/mt8196-afe-cm.h b/sound/soc/mediatek/mt8196/mt8196-afe-cm.h
+new file mode 100644
+index 000000000000..18115ec8fa70
+--- /dev/null
++++ b/sound/soc/mediatek/mt8196/mt8196-afe-cm.h
+@@ -0,0 +1,23 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright (C) 2024 MediaTek Inc.
++ * Author: Darren Ye <darren.ye@mediatek.com>
++ */
++
++#ifndef MTK_AFE_CM_H_
++#define MTK_AFE_CM_H_
++enum {
++	CM0,
++	CM1,
++	CM2,
++	CM_NUM,
++};
++
++void mt8196_set_cm_rate(struct mtk_base_afe *afe, int id, unsigned int rate);
++
++int mt8196_set_cm(struct mtk_base_afe *afe, int id, bool update,
++		  bool swap, unsigned int ch);
++int mt8196_enable_cm_bypass(struct mtk_base_afe *afe, int id, bool en);
++
++#endif /* MTK_AFE_CM_H_ */
++
+-- 
+2.45.2
+
 
