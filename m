@@ -4,95 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BC48C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 17:20:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A800FC28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 17:24:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k9Cha+dgi8a38Pik2ENWO+BK+Ri5/Qy44eJcx2dhylo=; b=RFNJS6HDDYWWq6M50Kgb8B9JzM
-	aMCrzXc40rM0qeYamDPfXBTkmNcKf4FHmkxV+8R4cUmFMry5P3IWbMvN1bsppINSpcLzNTEplOu9D
-	oXPzhm34tRlrzhVop2OFUYLGggxySgaTtFSmga716lDGl/RaYEehCJ8LH9KBQROHJT8R8duN5QSU5
-	9zWrAGVm93AYr5j32xu6IIjGPSF4/T/nLtaYb9J4bMz3ehQ0l5BeQxmuPnrVhTDQBb21VOCnEObQE
-	6P5jvnbMA21P9JjImK5Osj+4dheMUKJ3wYCLfG+ClGYRLa4ZZ8NQowK6B+L9AhWMgycx1evIErI7r
-	2rcPshtg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vse37ndJVrSuVrU7yJGVW1Lu8SXvK77ID0V4XIpDEEM=; b=zWQWm6IPsy5cKfaCKLpDBrWASX
+	ut6LXaUczAf2GH5VJYKPsQJvIizXujW6p78yXEj8iJtmHtNeVoecicD1dwrSM7sparh1X4JL/xDOQ
+	5ryaDaMLUMDQ0j6gx2r4rUum3nA03RQqojWy1HH2pTh4mbYow1odhJjDKqD0KtrhZFFbnk12QdHwP
+	ltk7xyQFocvppsGgfXVTZBediE5EkdDm7TFheb3ZSC850O2rUcLYn7vKq/tvb9+7pQVR+1PIXD9Tb
+	z+GvyAthbIZWLbBoInIE2lW18TRqwZBKFAh9wgH1BPD/Xs/3UFsKDkKmX1DvjgqH3DtgUeuuSkdPW
+	j2hRoP3Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbMY-0000000F29S-1xfI;
-	Fri, 07 Mar 2025 17:19:54 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1tqbQe-0000000F2XJ-2n0U;
+	Fri, 07 Mar 2025 17:24:08 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbKQ-0000000F1oy-0mjM;
-	Fri, 07 Mar 2025 17:17:43 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741367862; x=1772903862;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=ayzf6oEExh0PtPYBdOQ9otAoW9YyMP1K3uyxhu94de4=;
-  b=Xb/bw9++mK76UlTOJwJE9FFlhKOcdvgA7bxZkddSf0emvIn2eX8BBIS3
-   thKw9xZvLG+2BS6mlAmLt18iMPAl/tH6wqe0M4Dfo8bMUKQgir7XJmyQx
-   NPMjbA2J6nAjo1GWq2Swwyo7y+94av/bjkoebNnfDn3k2G7MWM47un/4f
-   ufMYVfhCW4CI74/cUWBmjP1oO5ELzNdpJWlxrhyyC0nDyUo/mmEyar+PT
-   JXyzI/7XpQMRiwJSwzHrGLe26nIbJqhVsrdXkf0FEddvXsR/m6ry22PDX
-   aq5PbSkffQj0O+wqJBe8mJhSQgtOXvbJSKZo9TSe5f8VqGuMxKb8FGNTj
-   w==;
-X-CSE-ConnectionGUID: eqX38p5nQu+v7H45cEge3Q==
-X-CSE-MsgGUID: 3SWehFGkQxKyjstZAayjvA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11365"; a="53414615"
-X-IronPort-AV: E=Sophos;i="6.14,229,1736841600"; 
-   d="scan'208";a="53414615"
-Received: from orviesa004.jf.intel.com ([10.64.159.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2025 09:17:35 -0800
-X-CSE-ConnectionGUID: aQOK4EGdTBuEwbKEaJD8SQ==
-X-CSE-MsgGUID: 9gRU9mptSOCxD63e8cCy+Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,229,1736841600"; 
-   d="scan'208";a="124402684"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa004.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2025 09:17:31 -0800
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tqbKA-00000000T8j-2Fr2;
-	Fri, 07 Mar 2025 19:17:26 +0200
-Date: Fri, 7 Mar 2025 19:17:26 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Petr Mladek <pmladek@suse.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org,
-	linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH 2/2] vsprintf: remove redundant and unused %pCn format
- specifier
-Message-ID: <Z8sqJhbqEBla_Ch7@smile.fi.intel.com>
-References: <20250307-vsprintf-pcn-v1-0-df0b2ccf610f@bootlin.com>
- <20250307-vsprintf-pcn-v1-2-df0b2ccf610f@bootlin.com>
+	id 1tqbP1-0000000F2Qh-0v7y
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 17:22:28 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-abec8b750ebso359424666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 09:22:26 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741368145; x=1741972945; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Vse37ndJVrSuVrU7yJGVW1Lu8SXvK77ID0V4XIpDEEM=;
+        b=pa6XOWSnWVaH9To7XifJZ2WuCW3SPzRx0wif/5vD9vZyg17yhll/RHhr2llcB9kRMf
+         lOg99CRg18sZA1lLzQNbqYZ9edXJ8ydBtHN60fbkqQj5pHW4QFKm5KRAGlvKxh2NpUG/
+         2qp+ll/0cPXjf2j19OWGlseSVtRoNfU19loYInSm7sJ/CRnOjUERIfHWS1lSc9RwNPlH
+         omZTteU4aa8irc9VgRuxWPdPNQIQLJeSG+4E5aHFxGAnGqlU+SwTAnsOTtBVuu1211f5
+         J8D7zyZGF+qVWsnsXUWjIAh3qXwBvKJcd8Wffpj9K4bP1ZgoijQ73vY17mbDLWzyi69U
+         BxSA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741368145; x=1741972945;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Vse37ndJVrSuVrU7yJGVW1Lu8SXvK77ID0V4XIpDEEM=;
+        b=VTghbWMAbFSzyoNEUtcZvmjL7uPBgATyppYhKpKdwaCxQ+6/qxRZbZTtCC3qXIUEOh
+         wqKF/3N/H0MFHaan4debgKH2Y+s5Gk/8mqI8GeEkMZEd457gz6u83Ky7Np3Otw8urqva
+         dSivPK+dWYIPKLa/m+7FHtM+VgPvTIBHinnkRj7P5enpf6suDRU16Oc0BQidxno4v+0k
+         1Pmz84zfP/safMIuPj8lUDuNf53StjZ/R+3sbRbWFbXiLKhbQrxuMJ2dpYhoUQPAt/vG
+         kvRxwjWXJpAEd3JZXb7JP02jPbKVEepSfiVoPoy89VkmItIiwnMrY20UUPjeuJjrTmcM
+         WsoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVX3PV+O4yrH/LcciD+QDsvWnE83Ropc3yPtfdb0s3Br6fJpt1lsvEvYTViPJeHGOfxsd1OOPCXicDYDRG4ITdx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyagnaH4WSVFrmBUouJGm1ZCvNPrXNC85nBMjfNmURhmspJlY8/
+	iNXFrdoQju/EkmWmTcuaHsAwKOg9jXEW4sYEPwfbqpOgZtnGfrfDvEdmF/oUfIg=
+X-Gm-Gg: ASbGncsz/ribRRMafaNzom5WqYONgK+CZ1dvbzLeLJhZCMzIsrw1R5tKX7atsV/7Wwr
+	w9RrUpKLjq9z6sEO+nRCtLMRkUbegKksuk6NjPQnR5CzDpJAIreEf8BMrhJDmqr24iP7YpIiazV
+	sS7h7h8/E2miqM78+rdNC1OSFmaIxsPjI0E0q/6PBKOwE0MDI9X4xl02niMj3KPnMndn65o+W+V
+	b84JlyBcyNW9sRQ6+g4bCtYV6xXg/skBLgWRGKH3JDN/WrybAP11QJu/B+0M4nOARK7VoC5Zgwx
+	/Yrydimz5Y3wFwH40+h90X0Us459uhR63aLKQKQYv+idNm9+oyYwnF7St0DCW+Q=
+X-Google-Smtp-Source: AGHT+IGr645XsGNFfy2D7vw+gO6HKk73sp4lP/e3Bd4vMO2M4emrS5p1ZDikAS21V2w6uEA4dxu5ag==
+X-Received: by 2002:a17:907:94ce:b0:ac1:e1e1:1f37 with SMTP id a640c23a62f3a-ac25273af3dmr535156566b.10.1741368145070;
+        Fri, 07 Mar 2025 09:22:25 -0800 (PST)
+Received: from [192.168.68.113] ([5.133.47.210])
+        by smtp.googlemail.com with ESMTPSA id a640c23a62f3a-ac2395174c8sm300319266b.85.2025.03.07.09.22.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 07 Mar 2025 09:22:24 -0800 (PST)
+Message-ID: <f662da0e-431f-4e04-b8ee-e8b04a08337d@linaro.org>
+Date: Fri, 7 Mar 2025 17:22:23 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250307-vsprintf-pcn-v1-2-df0b2ccf610f@bootlin.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/3] dt-bindings: nvmem: rockchip,otp: Add support for
+ rk3562 and rk3568
+To: Kever Yang <kever.yang@rock-chips.com>, heiko@sntech.de
+Cc: linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
+ Conor Dooley <conor+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+References: <20250227110804.2342976-1-kever.yang@rock-chips.com>
+Content-Language: en-US
+From: Srinivas Kandagatla <srinivas.kandagatla@linaro.org>
+In-Reply-To: <20250227110804.2342976-1-kever.yang@rock-chips.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_091742_276735_4D5F2355 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250307_092227_271930_CAEA81F5 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,23 +102,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 12:19:08PM +0100, Luca Ceresoli wrote:
-> %pC and %pCn print the same string, and commit 900cca294425 ("lib/vsprintf:
-> add %pC{,n,r} format specifiers for clocks") introducing them does not
-> clarify any intended difference. It can be assumed %pC is a default for
-> %pCn as some other specifiers do, but not all are consistent with this
-> policy. Moreover there is now no other suffix other than 'n', which makes a
-> default not really useful.
+Hi Kever,
+
+
+On 27/02/2025 11:08, Kever Yang wrote:
+> Add compatible entry for the otp controller in rk3562 and rk3568, add schema
+> for different clock names for new entry.
 > 
-> All users in the kernel were using %pC except for one which has been
-> converted. So now remove %pCn and all the unnecessary extra code and
-> documentation.
+> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
+> ---
 
-You seem forgot to update translation(s) of the documentation.
-
--- 
-With Best Regards,
-Andy Shevchenko
+Am unable to apply this patch, Could you rebase it on top of linux-next 
+or 
+https://web.git.kernel.org/pub/scm/linux/kernel/git/srini/nvmem.git/log/?h=for-next
 
 
+--srini
+
+> 
+> Changes in v2:
+> - Update the commit message and add maxItems in schema.
+> 
+>   .../bindings/nvmem/rockchip,otp.yaml          | 53 ++++++++++++++++---
+>   1 file changed, 46 insertions(+), 7 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> index a44d44b32809..7572f4a1d73b 100644
+> --- a/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> +++ b/Documentation/devicetree/bindings/nvmem/rockchip,otp.yaml
+> @@ -14,6 +14,8 @@ properties:
+>       enum:
+>         - rockchip,px30-otp
+>         - rockchip,rk3308-otp
+> +      - rockchip,rk3562-otp
+> +      - rockchip,rk3568-otp
+>         - rockchip,rk3588-otp
+>   
+>     reg:
+> @@ -25,19 +27,15 @@ properties:
+>   
+>     clock-names:
+>       minItems: 3
+> -    items:
+> -      - const: otp
+> -      - const: apb_pclk
+> -      - const: phy
+> -      - const: arb
+> +    maxItems: 4
+>   
+>     resets:
+>       minItems: 1
+> -    maxItems: 3
+> +    maxItems: 4
+>   
+>     reset-names:
+>       minItems: 1
+> -    maxItems: 3
+> +    maxItems: 4
+>   
+>   required:
+>     - compatible
+> @@ -62,12 +60,45 @@ allOf:
+>         properties:
+>           clocks:
+>             maxItems: 3
+> +        clock-names:
+> +          items:
+> +            - const: otp
+> +            - const: apb_pclk
+> +            - const: phy
+>           resets:
+>             maxItems: 1
+>           reset-names:
+>             items:
+>               - const: phy
+>   
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - rockchip,rk3562-otp
+> +              - rockchip,rk3568-otp
+> +    then:
+> +      properties:
+> +        clocks:
+> +          minItems: 4
+> +          maxItems: 4
+> +        clock-names:
+> +          items:
+> +            - const: usr
+> +            - const: sbpi
+> +            - const: apb_pclk
+> +            - const: phy
+> +        resets:
+> +          minItems: 4
+> +          maxItems: 4
+> +        reset-names:
+> +          items:
+> +            - const: usr
+> +            - const: sbpi
+> +            - const: apb
+> +            - const: phy
+> +
+>     - if:
+>         properties:
+>           compatible:
+> @@ -78,8 +109,16 @@ allOf:
+>         properties:
+>           clocks:
+>             minItems: 4
+> +          maxItems: 4
+> +        clock-names:
+> +          items:
+> +            - const: otp
+> +            - const: apb_pclk
+> +            - const: phy
+> +            - const: arb
+>           resets:
+>             minItems: 3
+> +          maxItems: 3
+>           reset-names:
+>             items:
+>               - const: otp
 
