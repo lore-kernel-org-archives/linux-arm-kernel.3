@@ -4,65 +4,226 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36416C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:34:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E970C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 20:35:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ewgzt3SkmZo7H0PuNRIxWwTKzQuiUxBFzmDNyKLJvVo=; b=lJnfXnePHMNGYNX6Rg/hSK2j1/
-	UIajnxBEvSY+ob4d4b+luYv9gxcaz6lkWHfBCqerDJyVmMqpAKGj/ob/Q6dU9qucYVEh0GS++4wD9
-	xZqnXV//xkoyvHW2D6RK0MlKn4gq9HRcPXrlPEpggGY4hP0F2DeMi9yWbFVGJMlQjGRE88AfKrrpP
-	KL5PizLSecalXez5zkq1PKA541CLIErMYzSOnGrQHfo1DriXi/VE9u6O/iEQSCicZju8BU+3xj+wr
-	3T8mUGlqzYcMG7toYaiVADjq1bLQENYtuJ5oPn+5D+PxnPf47Cd8kd9TCccO7TFxAyF1urvGn7IFo
-	i8hI9Y1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y8DaUg0EWwcSKMTTwvCanrcDjLZMF4lXvCi8asDeXIE=; b=l5ZMWpaxJ/kEz4+nPQNWS/nH/F
+	fm6iRP2+Fsp+W8o1dflPf//MFsQ7WT9XUs1tM4MtI1Cf+ezpqZYfb7oXRoeFVMNZ5gqQyDsXDcNBM
+	WXIVwDq+HC61wL2x1mTKmbRG/K9PKDJfnGkVioLBrkomqvu3EyejZwlo0cE6byPsGvTMIkixOGdzI
+	AU3wKoTrFtgD3wUuILSTV7zTin8WwdXMGHz59A5zSuV0evMBj3baCltiPpD/jtGvuFEzgWQlShmJN
+	MSsZDcubAqllejIEWmavtvrDzMlV/SRmDY9peo3nzjSV3laQntY6zj81gambJumSBDGg5ShgKdXHN
+	h/s1a3Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeOI-0000000FUr8-0yQr;
-	Fri, 07 Mar 2025 20:33:54 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqeFG-0000000FTtt-03Ql
+	id 1tqePt-0000000FV6K-0rdR;
+	Fri, 07 Mar 2025 20:35:33 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=outbound.mail.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tqeJE-0000000FUL7-0zaD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 20:24:35 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 186E322EE;
-	Fri,  7 Mar 2025 12:24:46 -0800 (PST)
-Received: from e128066.arm.com (unknown [10.57.40.70])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id B4A5C3F5A1;
-	Fri,  7 Mar 2025 12:24:29 -0800 (PST)
-From: mark.barnett@arm.com
-To: peterz@infradead.org,
-	mingo@redhat.com,
-	acme@kernel.org,
-	namhyung@kernel.org,
-	irogers@google.com
-Cc: ben.gainey@arm.com,
-	deepak.surti@arm.com,
-	ak@linux.intel.com,
-	will@kernel.org,
-	james.clark@arm.com,
-	mark.rutland@arm.com,
-	alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org,
-	adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Mark Barnett <mark.barnett@arm.com>
-Subject: [PATCH v3 5/5] tools/perf: Modify event parser to support alt-period-jitter term
-Date: Fri,  7 Mar 2025 20:22:47 +0000
-Message-Id: <20250307202247.648633-6-mark.barnett@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250307202247.648633-1-mark.barnett@arm.com>
-References: <20250307202247.648633-1-mark.barnett@arm.com>
+	Fri, 07 Mar 2025 20:28:42 +0000
+ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
+ b=sx0Kq0rB9APdo+eF6YxbGSPOj/At8J2ixhEiZUx8NNNRXqwQk1XPWB2vBriGI1zEUvYOnIR9kLmlCVI7GskSY1W6G1wVeBmKhBQZ2XsdeDPvksuX9ZLuaPJfwlX7TPHbgwJ4JsicabnsvoMGGWGOVuDCe3nJ3x2zG9YoIexBZEGBQzdIpI1zKKKYAei+Ho5uyvl20HPskOM+NsVzP30eGxUZ4AbbUVISltsr029/yriNIjpDwx7Bva7bkLDMY+Cd3XCuatm4myZ7UjD4na/0TskC6uMQOruA/nxclBDHdnMsCaNR6uQrQuU6GqwgU/0KnYOl5GH3fC9YcsCQppDxUQ==
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y8DaUg0EWwcSKMTTwvCanrcDjLZMF4lXvCi8asDeXIE=;
+ b=siA/qLYhtdTkIRz37jXLjMsMLntQW71fScyOYp50WCW221dgr7VX9dGy80qD3r+uvLp00RHkWvjP2GKFFr6r2fiuNATPe6AGF+7z8dwVnAFO64wg0RrEsbq+d31Fu2EX9J9CQbjoF+E3MYB+yV090DCnCwCJpkF8iroY0vkhq4KM/pNyJ0PMU75SHMcsEmeVRs+D40ac+wKhXqRTO/mj0hiTUXYw17WOz7qLVn26jwZKRsBcHxroQeZCYgUGuy8PDPkassgoTWw9Gduvq+vuh+DRjZ2PyYu5BaU2z3mhN8lXtEFGdZHpGIQ0Cf1VNgb0Nz0LDm5ukIdDCEAexW1y+g==
+ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
+ 63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
+ dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
+ dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
+ spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
+ dmarc=[1,1,header.from=arm.com])
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y8DaUg0EWwcSKMTTwvCanrcDjLZMF4lXvCi8asDeXIE=;
+ b=a3PmN6BZrsH3Wwv7glvT37h6P/svqIEHt8ZrcoHjJ4QJ0s3hEHi+m93sSHQjCmNYl0u0IFRNn0kftzV8UwhNd+DgcHz9q6d2E80OsTcQeecVA+G0Lj9buZh+/u5e8IQ/S0ELYWMm/+05BH9gXoYt4J3a7VQA02WJjodM8tvgE+E=
+Received: from AS4PR09CA0020.eurprd09.prod.outlook.com (2603:10a6:20b:5d4::7)
+ by DB9PR08MB6377.eurprd08.prod.outlook.com (2603:10a6:10:259::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Fri, 7 Mar
+ 2025 20:28:30 +0000
+Received: from AMS0EPF000001AE.eurprd05.prod.outlook.com
+ (2603:10a6:20b:5d4:cafe::4e) by AS4PR09CA0020.outlook.office365.com
+ (2603:10a6:20b:5d4::7) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.22 via Frontend Transport; Fri,
+ 7 Mar 2025 20:28:30 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
+ smtp.mailfrom=arm.com; dkim=pass (signature was verified)
+ header.d=arm.com;dmarc=pass action=none header.from=arm.com;
+Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
+ 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
+ client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
+ pr=C
+Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
+ AMS0EPF000001AE.mail.protection.outlook.com (10.167.16.154) with Microsoft
+ SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.15
+ via Frontend Transport; Fri, 7 Mar 2025 20:28:30 +0000
+Received: ("Tessian outbound c3a902884497:v585"); Fri, 07 Mar 2025 20:28:29 +0000
+X-CheckRecipientChecked: true
+X-CR-MTA-CID: 71ec563f0a98e457
+X-TessianGatewayMetadata: OLLKm3K1NSZGsOKwv1Wf8YDZX0lJw5y31H2qv6C/xuCkQHr0yniwDRUHOiez5xhm7gbT/6iSNRHvbv+xQDBRe5vnJCZtv0jpDnRfdPUfF520Rf6ci/3c4Lsn2288Q0ETSGXCJaBXTHNtTl2smm8kS4LJFCRgRS3ozM0QcA4hRzo=
+X-CR-MTA-TID: 64aa7808
+Received: from Lf6df87b1f986.3
+	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 4276B66A-DE5F-4670-95B1-5DA88F4CA3D3.1;
+	Fri, 07 Mar 2025 20:28:19 +0000
+Received: from EUR02-AM0-obe.outbound.protection.outlook.com
+    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id Lf6df87b1f986.3
+    (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
+    Fri, 07 Mar 2025 20:28:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bNMalycQtMcWyMhMYLxq8/ZhJJ/qTTMvQNhXRdqelB2rW7SNoGiYfJ17qEyPeTaNjHcfz7N2jqoHMb+C8pxTwWfjnDYtH7T3yVsjkEzBfcN64ZsQZinembWskWrLgOOMQ47UjNcfDIVkdNoreRScNH7gz6qxrfA1VyRXFAlRJKiPzCmp+WSXGQK7LgPNGL3AsMXmdR4LfP/VdOqjvpMbJIMariQKQ7dqD7SIIlA2b7+NdXb/7h2eLdZjMRpYJniFZItANA0SmOrvlh03tJ4nHA8Ivx8+KGRrxeXxE9WC9Qcjghq6UsSMwYWKHHfi6Ve/8v6pkCMqsS0vDHZYpvBRsA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Y8DaUg0EWwcSKMTTwvCanrcDjLZMF4lXvCi8asDeXIE=;
+ b=uvFqR3bIEKRC0lVFnabMQGCRQz/A1MJDruils1oHZD6Mu6nOmD0lf9BAMaBnjHqBLezXQIqQrKHxMgw9sJU5d9yy0bfMWWZXDZ+2Cq8m1MXiMnSvFnmvtaUWMlqEnMfvF1ziDC+Dzq0+R5rUtZDT11Iaq7T2H8Wyzuu/ZghRjrmbK/iUPiLTLSKaqBZT8ECTwrBpw0LwRYM073A9URZ5Mafvtp+TiRwN8u/lWz923FdDW0/42XX2ticA6M05U3+yxPmpSzJ2+xBiei8msCFnWLkwmK/JC9htAgwSJfPltevWg04QIPFRqgZYCJ+3NSRp7ibWEsvM24dj5PkxlgHD1g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
+ header.d=arm.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y8DaUg0EWwcSKMTTwvCanrcDjLZMF4lXvCi8asDeXIE=;
+ b=a3PmN6BZrsH3Wwv7glvT37h6P/svqIEHt8ZrcoHjJ4QJ0s3hEHi+m93sSHQjCmNYl0u0IFRNn0kftzV8UwhNd+DgcHz9q6d2E80OsTcQeecVA+G0Lj9buZh+/u5e8IQ/S0ELYWMm/+05BH9gXoYt4J3a7VQA02WJjodM8tvgE+E=
+Authentication-Results-Original: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+Received: from DB9PR08MB7584.eurprd08.prod.outlook.com (2603:10a6:10:308::6)
+ by DU0PR08MB8161.eurprd08.prod.outlook.com (2603:10a6:10:3ec::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.17; Fri, 7 Mar
+ 2025 20:28:16 +0000
+Received: from DB9PR08MB7584.eurprd08.prod.outlook.com
+ ([fe80::5144:343:7017:bacb]) by DB9PR08MB7584.eurprd08.prod.outlook.com
+ ([fe80::5144:343:7017:bacb%5]) with mapi id 15.20.8511.017; Fri, 7 Mar 2025
+ 20:28:16 +0000
+Message-ID: <c62a9f8a-312d-4f9e-9022-265e53564101@arm.com>
+Date: Fri, 7 Mar 2025 20:28:13 +0000
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/5] perf: Allow periodic events to alternate between
+ two sample periods
+To: Leo Yan <leo.yan@arm.com>
+Cc: peterz@infradead.org, mingo@redhat.com, acme@kernel.org,
+ namhyung@kernel.org, irogers@google.com, ben.gainey@arm.com,
+ deepak.surti@arm.com, ak@linux.intel.com, will@kernel.org,
+ james.clark@arm.com, mark.rutland@arm.com,
+ alexander.shishkin@linux.intel.com, jolsa@kernel.org,
+ adrian.hunter@intel.com, linux-perf-users@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250106120156.227273-1-mark.barnett@arm.com>
+ <20250106120156.227273-2-mark.barnett@arm.com>
+ <20250121130154.GA416913@e132581.arm.com>
+Content-Language: en-US
+From: Mark Barnett <mark.barnett@arm.com>
+In-Reply-To: <20250121130154.GA416913@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO4P302CA0022.GBRP302.PROD.OUTLOOK.COM
+ (2603:10a6:600:2c1::7) To DB9PR08MB7584.eurprd08.prod.outlook.com
+ (2603:10a6:10:308::6)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-TrafficTypeDiagnostic: DB9PR08MB7584:EE_|DU0PR08MB8161:EE_|AMS0EPF000001AE:EE_|DB9PR08MB6377:EE_
+X-MS-Office365-Filtering-Correlation-Id: b3efbaf2-7e7d-4f35-7dc1-08dd5db69fac
+x-checkrecipientrouted: true
+NoDisclaimer: true
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info-Original: =?utf-8?B?dDBXekxXY25hV0hSS2ZIbCt3aFJXSFlSbCtyY3dBcnlYMGhTVXlJODJKNUJO?=
+ =?utf-8?B?TFRzM05rVHUxdXhpWldFeW5ibTBGM0FJcHFWRVB2M1dzdTRQNHMwUXdwV0Nq?=
+ =?utf-8?B?b3o3dTRPYWtoNzVqZ1Y1OFhqWTNWWGd2TEVMUFQ4R3hWa2o2ZjNNY1hIcXR3?=
+ =?utf-8?B?TENicDF3M3FvekxpQjkzU0doZWxxSzdua08wbXlkSE11eEZOT1lQejdISXZ0?=
+ =?utf-8?B?RUc0WENMOTR4dHdSTUFPTHFxRmRCT1c4a2lNWm5CWW11eno5NFcvbERhclBz?=
+ =?utf-8?B?M2p4MHJkS1JEcEtmR1p6TkJoTHJVNEJLbURTVWZ4MnhmSzZJSlpUbW4zakc3?=
+ =?utf-8?B?a2o5Y1E0WENWZkkwT0h5cm83QUgrMlZYVkdhWjlodHpPNytBRlNQcjlqQ0pZ?=
+ =?utf-8?B?dWh5Yjg1YWpaWTg4eStZNUlOKzZXSW9ybEJCRThBMS81YkE0YkdGeEhhVlBZ?=
+ =?utf-8?B?NW85dHN4L3Eza2hlbERxVzBvelNtY1FwWDBZZklGM1lJdk1HY2dmZVdjeXdM?=
+ =?utf-8?B?cFpvZXNTNjNaampFaFZJYWd1WjUwVXVIY1pVYUJTN2dqTEppeXQ0NVRXZE5q?=
+ =?utf-8?B?VUNwcnE5OFhrZ25TbnRUMm9pWkc4K0ZkZzc5L0hYY28rbjVRZEt3KzNzR3BU?=
+ =?utf-8?B?Nmg1OGF2bE5xOEJ4cFlDM2VFT1c0YXgxQmlRTngyVWp5dm1TdjFHSkIya2hL?=
+ =?utf-8?B?M2xhTk9udVdzU2xnT2ZBanhrNWFhT2Y2U1I5STFtL1g4SThjVGd4WVZka2Y2?=
+ =?utf-8?B?ZnIwU0srRFNERVVZWU4zQ2g3blN3eGo1ZHR4K2VNeXpEK3pianFCY1FoMUlz?=
+ =?utf-8?B?bzlyaTFrUFJJNWt6S1ZSRmtJcXpENlRYSGg3RVR3dXpxRzVYdWU0VmhFNVhE?=
+ =?utf-8?B?cmRiblplS0lHZGk3M1FqV0NqMmZHRUpqams0dWdwckZXMThwZVg0eXdkYjR2?=
+ =?utf-8?B?QUpYbTdpVmVyZXRFM09XaEF0UEs5dEtnSGtabDZRenRlZFdCdGNUdmxORXky?=
+ =?utf-8?B?RGovL0t3a3AxaUo1QlVzRExCenV4VjcrZHBjTVZIcURRNUpPd2syUUpMb0d2?=
+ =?utf-8?B?aHg5ZndPOGJWMDAxUEFnZjRNQzJVY1lOOEFzUEhyYlZ0c1oyZDR2SFRWNFVy?=
+ =?utf-8?B?QlhzZzk1VU1SZ3BnU3I2MWU5RzA4VjZwNytBTkg3d2xwd29UZWRGaWVjWHBL?=
+ =?utf-8?B?VUZ2Tm1RRjdlQXRJMTRwVFF2dzRmNW1HMWtRSjUzeElmbkhHSkhWZStkNGN6?=
+ =?utf-8?B?QkJIT2hMT2l2bWF3L3BXbkhYVHg3MVlLRWFsS1puTE54THNGL2owbm9CWVRU?=
+ =?utf-8?B?RkRjQ01pTkdRU2lmZlhYdFo1UzFEYWNrWVJ4S2poL3NGNHVJWXRwTk1HTHNZ?=
+ =?utf-8?B?L21UYlI1cm9oUlNvbnU5enB3amt3NUY0bzdWY1Z3MG43bWo5dzJ5Mk9KQk5a?=
+ =?utf-8?B?dEdIbkZxSTQzeC9ZOU12VFhwWTlFNVlucW5KUU5MU3lKd3RGazBxdXh1Y2Ev?=
+ =?utf-8?B?SXd6b01uUFNoN2tYMG5oMC90enhyS0FKM25uTkg2VUlwdGRHVC9rclF2elVx?=
+ =?utf-8?B?UzZmUUpsNmlYQ3RVd0huQ0FWSzE2Yi9FZEV5RjFmRkRFSG1KclV0YTdKaHJZ?=
+ =?utf-8?B?WElRanNOR2ZkZFVuRHU0VzlVcVJURGZSYWY4SExqaSs5NUVlNnJlYTkrenRQ?=
+ =?utf-8?B?OUJ4dVFvQ2JFNDZHcXY1Y3dOaTVsZGZJeFJTWWxydFlmU2pBcURSeUVaTjla?=
+ =?utf-8?B?eHZlY3c2ZlRmb0lhODVUdHBSc1lzcS9zRVQxdTF3bnJLNEZ2OWE2OFBMSDUr?=
+ =?utf-8?B?V3RhZEg3N2RybDFXWUV3L2RnS09mVkhFNkpvUjRhaU11bExKZDM0bzRRSnNq?=
+ =?utf-8?Q?Zl9B021KE9kJx?=
+X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR08MB7584.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR08MB8161
+Original-Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=arm.com;
+X-EOPAttributedMessage: 0
+X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:10:308::6];domain=DB9PR08MB7584.eurprd08.prod.outlook.com
+X-MS-Exchange-Transport-CrossTenantHeadersStripped: AMS0EPF000001AE.eurprd05.prod.outlook.com
+X-MS-PublicTrafficType: Email
+X-MS-Office365-Filtering-Correlation-Id-Prvs: e9f56739-f817-4b3c-198b-08dd5db69779
+X-Microsoft-Antispam: BCL:0;ARA:13230040|14060799003|82310400026|376014|36860700013|35042699022|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YVFNSUc3a0lPQjZKdjZ0L2wzekQ0QmR2UW1zbjlkMHJ3eThEVS8vK2lDY2oz?=
+ =?utf-8?B?RHd3STE0U0REbU4yQ09FdlAvWmZSeXRFaGo0YXp5RHR0RUNtTDgxWTlWbDB5?=
+ =?utf-8?B?R3FGdVF2NlYvRmVqbkxUNS84RkFhaXZWaEx3a1hIUnNlemV3bXB6NHZhZnps?=
+ =?utf-8?B?WGIxVU5NbVorQ1FnOWZ1UHFuTWd4eXVRQjRndy9vT0tjVEk0MDNWZHJ2RVZR?=
+ =?utf-8?B?ay9keG51ZGgzQUg5aGlRc2NESmk1Y25FanJWd0pTcmR3amQ2M1VSMitCeVJ0?=
+ =?utf-8?B?MEU1Qy9yRVRLOWxVdTZRTVpVYnkvd1Y2ODRvRjV3ZkFVc2NFUGZ4cTM3SVVP?=
+ =?utf-8?B?YTcweU9uTlZienNUd1htSzFDcHlWd3h4YUNmMkhFeTgra1B0N2E4T0JGeDhJ?=
+ =?utf-8?B?aENMVTJadEtzMmEzaUxMOTJmTUVIUWEyKzF4ckM0NFQvMHkveWlaNzJwZHdq?=
+ =?utf-8?B?WmpnVjVlYzRFZFhSc2h0WGxxOFphSFJFWFdSQkZKbnNqQzNTdjdwUDV4Nzdv?=
+ =?utf-8?B?S1dXdWprZU1kcHRXZ2w0bWdoSGtTOUVOYUgvbzVueTg1dHdlQzJOWTFyMFpH?=
+ =?utf-8?B?VGNyU2NyWkV2aXVQd0svT1FzcHJCa3F5b1M1MmhUcTlvTTFtdXhSeUNnSW5P?=
+ =?utf-8?B?V0wyOVA3T1ZmTGNxamtFVmZMOUNUWm1OUHcyaTlsRGtuaDA2RUkyWW9XQ0U2?=
+ =?utf-8?B?Ym8rU1NJYkpuMUJxZm5DaVhkWHlaN3E2RHI1SGd1WGtCenp4UHR4OVRMTCtY?=
+ =?utf-8?B?UkhqTlZPS2NiYTE4ZmticWhCZmhHME8wMFVyRDdlZ1FZUkZuU2hhUDk0S1d2?=
+ =?utf-8?B?TjNNN2JUMzd6SGRKdmh3N0VVUCtXNHhzZEt4VG53d3BrQkNISlJCQk5OTUxP?=
+ =?utf-8?B?OUI2NmJ1Q3VHMGkxY1ZpVXJoTzNpT1RzcjVKdGFHK2VTNDVBVWxhSmdTdE9N?=
+ =?utf-8?B?TkJpTUF1M0NwQXRuR0dhVEgrRlpYZlBBaVNYb211dDJ1cEt3UzhVQ205YUc5?=
+ =?utf-8?B?WUx4QW5HMlVyYmZOc05oNWhMS3hmYUFxVUtCamU4emV3ZTRRbFhYU21TU2JN?=
+ =?utf-8?B?dU9qR1hYaGY3UHRQakVFVmJxaHhZa0hac1luNVMxUEtWQnRoKzB3WmJFbi9O?=
+ =?utf-8?B?a0UwODIzRnZqL1daM1JDbmpXNW5IZGJCTDg4R2JmdWFPL3RlK2hpQlU5OVpp?=
+ =?utf-8?B?NE1IWmo3YWw0ZU9sVkpVUEZyOUo3LzRmc2RKcjlWQ3pEenZYaE94b1dIZ3Nr?=
+ =?utf-8?B?dDByc3hEOXJybHk0NGtQZ2JCQTdhWVdScUFaUkplbmZzenVNVUlYblI5Ky9O?=
+ =?utf-8?B?b2xybmovYVJDR0RpcG9hbnBzV1d4ZTRtdWFUb2l4Y05sN3BKQmQvRHFoQzcr?=
+ =?utf-8?B?bnM2RC9SV1BVZFZkUUFtL0FVT2VYZlNEcC8vd1lqaE1uRTh1NWFNcjVkRWxs?=
+ =?utf-8?B?MGtNd0hjeENiZ3laMW4wdXZjeTVJQ3E5RThqN0I2QkZWTHg2OElUTGRSK0Zx?=
+ =?utf-8?B?SWpFNnhha2hXRVBzZHR3TGhWeEFxcm8rekhwK1g5eTZDbHM2Yjg4MTd2a2pw?=
+ =?utf-8?B?TkovWFZnOTlicGEvdjd4eDArTEZ4NVV3SWgzNlhObTdrZW5IWTZJZGY3TTJ4?=
+ =?utf-8?B?czhhUVl3Tm1yUnFiUXdGK2lydm5vajIvc1RPcjQycTZZT0Foa3hIK1VCVUhw?=
+ =?utf-8?B?R0NLZytINkJMR0J3V0xoaWs0d3JZN0xlaStYYnJ0NElFMHR5QlowNmxJQXRr?=
+ =?utf-8?B?akE1SG93RHJ1VU9icjYvTzNucFcyWE9md3B2aVhvdWowcG1mOEFiVGc2Vysv?=
+ =?utf-8?B?U2dZR1NPUnRXZ2JrWlYxbldBR2pQVFpiem82enl5ZytLQm9UZ0hxMnNyYTFm?=
+ =?utf-8?B?VXNPanhTK2JEcElnVVV6bHF0ZTR2K3BuNHFOV2N5WTZSNDRaMUJpRWVhbThx?=
+ =?utf-8?B?YnNxMXN6aTdhUW1mV3NnejU3cnIrRFErNnBzdE9QQld0ZVBFaHp0bmoxYmgr?=
+ =?utf-8?Q?INgU8v2JEMfTMFVz+HwGtyuYsboYR8=3D?=
+X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:64aa7808-outbound-1.mta.getcheckrecipient.com;CAT:NONE;SFS:(13230040)(14060799003)(82310400026)(376014)(36860700013)(35042699022)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: arm.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Mar 2025 20:28:30.0166
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: b3efbaf2-7e7d-4f35-7dc1-08dd5db69fac
+X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001AE.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB6377
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_122434_150271_54FDD0CA 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250307_122840_580765_796A1F3D 
+X-CRM114-Status: GOOD (  14.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,246 +238,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ben Gainey <ben.gainey@arm.com>
+On 1/21/25 13:01, Leo Yan wrote:
+>>   	local64_set(&hwc->period_left, hwc->sample_period);
+>>   
+>> +	if (attr->alt_sample_period) {
+>> +		hwc->sample_period = attr->alt_sample_period;
+>> +		hwc->using_alt_sample_period = true;
+>> +	}
+> 
+> My understanding it sets a short sample window for the first period.
+> Would it initialize the `hwc->period_left` with the updated sample
+> period?
+> 
 
-parse-events is modified, adding the "alt-period-jitter" term which
-can be used to enable random jitter of the alternative sample
-period.
+It sets the long period first: hwc->period_left is used to program the 
+PMU when setting up the event, and hwc->sample_period is queued up as 
+the next period to switch to.
 
-Signed-off-by: Ben Gainey <ben.gainey@arm.com>
-Signed-off-by: Mark Barnett <mark.barnett@arm.com>
----
- tools/include/uapi/linux/perf_event.h             |  7 ++++++-
- tools/perf/tests/shell/attr/base-record           |  1 +
- tools/perf/tests/shell/attr/base-record-spe       |  1 +
- tools/perf/tests/shell/attr/base-stat             |  1 +
- tools/perf/tests/shell/attr/system-wide-dummy     |  1 +
- .../shell/attr/test-record-alt-period-jitter-term | 13 +++++++++++++
- tools/perf/tests/shell/attr/test-record-dummy-C0  |  1 +
- tools/perf/tests/shell/lib/attr.py                |  1 +
- tools/perf/util/evsel.c                           |  1 +
- tools/perf/util/parse-events.c                    | 15 +++++++++++++++
- tools/perf/util/parse-events.h                    |  3 ++-
- tools/perf/util/parse-events.l                    |  1 +
- tools/perf/util/pmu.c                             |  3 ++-
- 13 files changed, 46 insertions(+), 3 deletions(-)
- create mode 100644 tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
+>> +
+>> +	/*
+>> +	 * alt_sample_period cannot be used with freq
+>> +	 */
+>> +	if (attr->freq && attr->alt_sample_period)
+>> +		goto err_ns;
+>> +
+> 
+> It is good to validate parameters first. So move the checking before
+> the adjustment for the alt sample period.
+> 
 
-diff --git a/tools/include/uapi/linux/perf_event.h b/tools/include/uapi/linux/perf_event.h
-index 499a8673df8e..c0076ce8f80a 100644
---- a/tools/include/uapi/linux/perf_event.h
-+++ b/tools/include/uapi/linux/perf_event.h
-@@ -461,7 +461,12 @@ struct perf_event_attr {
- 				inherit_thread :  1, /* children only inherit if cloned with CLONE_THREAD */
- 				remove_on_exec :  1, /* event is removed from task on exec */
- 				sigtrap        :  1, /* send synchronous SIGTRAP on event */
--				__reserved_1   : 26;
-+				/*
-+				 * Add a limited amount of jitter on each alternate period, where
-+				 * the jitter is between [0, (2<<jitter_alt_period) - 1]
-+				 */
-+				jitter_alt_period : 3,
-+				__reserved_1   : 23;
- 
- 	union {
- 		__u32		wakeup_events;	  /* wakeup every n events */
-diff --git a/tools/perf/tests/shell/attr/base-record b/tools/perf/tests/shell/attr/base-record
-index 28a7233f7bc1..1f5ab125c78d 100644
---- a/tools/perf/tests/shell/attr/base-record
-+++ b/tools/perf/tests/shell/attr/base-record
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/base-record-spe b/tools/perf/tests/shell/attr/base-record-spe
-index ad8eb72e655a..b35ca04b2ce4 100644
---- a/tools/perf/tests/shell/attr/base-record-spe
-+++ b/tools/perf/tests/shell/attr/base-record-spe
-@@ -39,3 +39,4 @@ branch_sample_type=*
- sample_regs_user=*
- sample_stack_user=*
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/base-stat b/tools/perf/tests/shell/attr/base-stat
-index 2de92c5c300d..2d90a055686a 100644
---- a/tools/perf/tests/shell/attr/base-stat
-+++ b/tools/perf/tests/shell/attr/base-stat
-@@ -40,3 +40,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/system-wide-dummy b/tools/perf/tests/shell/attr/system-wide-dummy
-index c0a17bb3c022..527707b505e0 100644
---- a/tools/perf/tests/shell/attr/system-wide-dummy
-+++ b/tools/perf/tests/shell/attr/system-wide-dummy
-@@ -51,3 +51,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term b/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
-new file mode 100644
-index 000000000000..6b31c898c905
---- /dev/null
-+++ b/tools/perf/tests/shell/attr/test-record-alt-period-jitter-term
-@@ -0,0 +1,13 @@
-+[config]
-+command = record
-+args    = --no-bpf-event -e cycles/period=3,alt-period=2,alt-period-jitter=7/ -- kill >/dev/null 2>&1
-+ret     = 1
-+kernel_since = 6.11
-+
-+[event-10:base-record]
-+sample_period=3
-+alt_sample_period=2
-+jitter_alt_period=7
-+
-+freq=0
-+sample_type=7
-diff --git a/tools/perf/tests/shell/attr/test-record-dummy-C0 b/tools/perf/tests/shell/attr/test-record-dummy-C0
-index e6315918a95e..436534df0434 100644
---- a/tools/perf/tests/shell/attr/test-record-dummy-C0
-+++ b/tools/perf/tests/shell/attr/test-record-dummy-C0
-@@ -54,3 +54,4 @@ branch_sample_type=0
- sample_regs_user=0
- sample_stack_user=0
- alt_sample_period=0
-+jitter_alt_period=0
-diff --git a/tools/perf/tests/shell/lib/attr.py b/tools/perf/tests/shell/lib/attr.py
-index 04e95f76005a..d15363e925fe 100644
---- a/tools/perf/tests/shell/lib/attr.py
-+++ b/tools/perf/tests/shell/lib/attr.py
-@@ -92,6 +92,7 @@ class Event(dict):
-         'sample_regs_user',
-         'sample_stack_user',
-         'alt_sample_period',
-+        'jitter_alt_period',
-     ]
- 
-     def add(self, data):
-diff --git a/tools/perf/util/evsel.c b/tools/perf/util/evsel.c
-index 0657e580ea13..2bb3e346f2b9 100644
---- a/tools/perf/util/evsel.c
-+++ b/tools/perf/util/evsel.c
-@@ -181,6 +181,7 @@ static int store_event(struct perf_event_attr *attr, pid_t pid, struct perf_cpu
- 	WRITE_ASS(sample_regs_user,   "llu");
- 	WRITE_ASS(sample_stack_user,  PRIu32);
- 	WRITE_ASS(alt_sample_period,  "llu");
-+	WRITE_ASS(jitter_alt_period,  "d");
- 
- 	fclose(file);
- 	return 0;
-diff --git a/tools/perf/util/parse-events.c b/tools/perf/util/parse-events.c
-index 653d84080bc7..2e0ecfb77af3 100644
---- a/tools/perf/util/parse-events.c
-+++ b/tools/perf/util/parse-events.c
-@@ -806,6 +806,7 @@ const char *parse_events__term_type_str(enum parse_events__term_type term_type)
- 		[PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE]          = "legacy-cache",
- 		[PARSE_EVENTS__TERM_TYPE_HARDWARE]              = "hardware",
- 		[PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD]	= "alt-period",
-+		[PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER]	= "alt-period-jitter",
- 	};
- 	if ((unsigned int)term_type >= __PARSE_EVENTS__TERM_TYPE_NR)
- 		return "unknown term";
-@@ -835,6 +836,7 @@ config_term_avail(enum parse_events__term_type term_type, struct parse_events_er
- 	case PARSE_EVENTS__TERM_TYPE_METRIC_ID:
- 	case PARSE_EVENTS__TERM_TYPE_SAMPLE_PERIOD:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	case PARSE_EVENTS__TERM_TYPE_PERCORE:
- 		return true;
- 	case PARSE_EVENTS__TERM_TYPE_USER:
-@@ -993,6 +995,16 @@ do {									   \
- 		}
- 		attr->alt_sample_period = term->val.num;
- 		break;
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
-+		CHECK_TYPE_VAL(NUM);
-+		if ((unsigned int)term->val.num > 7) {
-+			parse_events_error__handle(err, term->err_val,
-+						strdup("expected a value between 0-7"),
-+						NULL);
-+			return -EINVAL;
-+		}
-+		attr->jitter_alt_period = (unsigned int)term->val.num;
-+		break;
- 	case PARSE_EVENTS__TERM_TYPE_DRV_CFG:
- 	case PARSE_EVENTS__TERM_TYPE_USER:
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
-@@ -1121,6 +1133,7 @@ static int config_term_tracepoint(struct perf_event_attr *attr,
- 	case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 	case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 	case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+	case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 	default:
- 		if (err) {
- 			parse_events_error__handle(err, term->err_term,
-@@ -1256,6 +1269,7 @@ do {								\
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-@@ -1311,6 +1325,7 @@ static int get_config_chgs(struct perf_pmu *pmu, struct parse_events_terms *head
- 		case PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE:
- 		case PARSE_EVENTS__TERM_TYPE_HARDWARE:
- 		case PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD:
-+		case PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 		default:
- 			break;
- 		}
-diff --git a/tools/perf/util/parse-events.h b/tools/perf/util/parse-events.h
-index d00bb6c5d9ab..dafd4b4d0f0e 100644
---- a/tools/perf/util/parse-events.h
-+++ b/tools/perf/util/parse-events.h
-@@ -81,7 +81,8 @@ enum parse_events__term_type {
- 	PARSE_EVENTS__TERM_TYPE_LEGACY_CACHE,
- 	PARSE_EVENTS__TERM_TYPE_HARDWARE,
- 	PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD,
--#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD + 1)
-+	PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER,
-+#define	__PARSE_EVENTS__TERM_TYPE_NR (PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER + 1)
- };
- 
- struct parse_events_term {
-diff --git a/tools/perf/util/parse-events.l b/tools/perf/util/parse-events.l
-index 9c64434167b7..91d312a23769 100644
---- a/tools/perf/util/parse-events.l
-+++ b/tools/perf/util/parse-events.l
-@@ -336,6 +336,7 @@ aux-action		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_ACTION); }
- aux-sample-size		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_AUX_SAMPLE_SIZE); }
- metric-id		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_METRIC_ID); }
- alt-period		{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_SAMPLE_PERIOD); }
-+alt-period-jitter	{ return term(yyscanner, PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER); }
- cpu-cycles|cycles				{ return hw_term(yyscanner, PERF_COUNT_HW_CPU_CYCLES); }
- stalled-cycles-frontend|idle-cycles-frontend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_FRONTEND); }
- stalled-cycles-backend|idle-cycles-backend	{ return hw_term(yyscanner, PERF_COUNT_HW_STALLED_CYCLES_BACKEND); }
-diff --git a/tools/perf/util/pmu.c b/tools/perf/util/pmu.c
-index 7576fe35a869..c665dc35ad6b 100644
---- a/tools/perf/util/pmu.c
-+++ b/tools/perf/util/pmu.c
-@@ -1429,7 +1429,7 @@ static int pmu_config_term(const struct perf_pmu *pmu,
- 			break;
- 		case PARSE_EVENTS__TERM_TYPE_USER: /* Not hardcoded. */
- 			return -EINVAL;
--		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_HARDWARE:
-+		case PARSE_EVENTS__TERM_TYPE_NAME ... PARSE_EVENTS__TERM_TYPE_ALT_PERIOD_JITTER:
- 			/* Skip non-config terms. */
- 			break;
- 		default:
-@@ -1805,6 +1805,7 @@ int perf_pmu__for_each_format(struct perf_pmu *pmu, void *state, pmu_format_call
- 		"aux-action=(pause|resume|start-paused)",
- 		"aux-sample-size=number",
- 		"alt-period=number",
-+		"alt-period-jitter=number",
- 	};
- 	struct perf_pmu_format *format;
- 	int ret;
--- 
-2.43.0
+Ack. Done.
+
+>>   	/*
+>>   	 * We do not support PERF_SAMPLE_READ on inherited events unless
+>>   	 * PERF_SAMPLE_TID is also selected, which allows inherited events to
+>> @@ -12763,9 +12788,19 @@ SYSCALL_DEFINE5(perf_event_open,
+>>   	if (attr.freq) {
+>>   		if (attr.sample_freq > sysctl_perf_event_sample_rate)
+>>   			return -EINVAL;
+>> +		if (attr.alt_sample_period)
+>> +			return -EINVAL;
+>>   	} else {
+>>   		if (attr.sample_period & (1ULL << 63))
+>>   			return -EINVAL;
+>> +		if (attr.alt_sample_period) {
+>> +			if (!attr.sample_period)
+>> +				return -EINVAL;
+>> +			if (attr.alt_sample_period & (1ULL << 63))
+>> +				return -EINVAL;
+>> +			if (attr.alt_sample_period == attr.sample_period)
+>> +				attr.alt_sample_period = 0;
+> 
+> In theory, the attr.alt_sample_period should be less than
+> attr.sample_period, right?
+> 
+
+Added some validation for this.
 
 
