@@ -4,126 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CA4AC19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:25:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 953E8C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:30:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oc7YHSjsxtVonlvoGk2xIqyBO7/KdbIfRxzx7Tv596M=; b=1GNZWZhLWnefP/YWqrqevHYcm8
-	lGrtZQUGGbpIr1Spb66+bhHZyM+3l3+trlZFIVZiyqF3DOTm88P9JTHzHJBaCXlxVyjabBFVsecti
-	7IhuO7zUWJObuPrpENFfhDDPmQTZZE2cwyLu38zC76DuxxRxZu7ndNJWbXpSv/G2wZTSZL0rS/EJP
-	Whns8W7HyyPtGnyCUwoW3HbbIjmaGwk6YxDtfmHVpjbwLIT/FqgY1OfAcdqQDDyMojH0i2CALRLex
-	xQmte5pMM7jS8FzYdpl1lj3dRUyx2oKueRDcD+xk2bFpXUFkUC1+bqSA+cUTwSYW4ib8oeV/QoeqA
-	9w1aIBMA==;
+	bh=9LozWTu8KuZwTBoDAKofTRfh40nSpSm6qy1uB6jmrPY=; b=TqlOqFquDt0qlYSmnd0dGtz9ct
+	r9vPXD+sklU55uBYc6o2jfaRwAdFb7jbPNjjIPA0fDdUEHe+7AT5mVGYinIE3/1nO/9MKfEZfIemf
+	M5DgAvEASwyyIVTKCua6FYqugdz01HD3Z7JSK/F5yTjfNw7f0wD81lN+kJo+YURK63x4QKCgpI0tm
+	asSQR5S58d5sK4VK+qwPOpdckuaztxW+6lBG4OwXsO8jISbP+EM4TKWuGPg3qkGMJ0pNqTDUoCg0U
+	Zk+UTjTxa8wiPonGkW3odK5E8eUOmAl8NNJG42eYs0fK7VqCxGWS/lgwA6T28Vp2UJn/hR6z/47yS
+	cA/Q6CYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTwp-0000000Dhjy-0ciE;
-	Fri, 07 Mar 2025 09:24:51 +0000
-Received: from mailout3.samsung.com ([203.254.224.33])
+	id 1tqU2D-0000000DiNs-0EK0;
+	Fri, 07 Mar 2025 09:30:25 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTuI-0000000DhD6-0bpH
+	id 1tqU0Z-0000000Di5u-0DnC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 09:22:16 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250307092210epoutp03ce37498ddf58278ae9cf7de69ed4e4e4~qeuUq4B4U1373813738epoutp03R
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Mar 2025 09:22:10 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250307092210epoutp03ce37498ddf58278ae9cf7de69ed4e4e4~qeuUq4B4U1373813738epoutp03R
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741339330;
-	bh=oc7YHSjsxtVonlvoGk2xIqyBO7/KdbIfRxzx7Tv596M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SVXi5s96pzun31fhXZuRUZlpWrvhPhyP1XSFcG3ypgD2IKjCzN5Zog+SZ9JFDOJSD
-	 vX0+Ax5J/R9IewH+a6driVCzNPboBzzExVAVVvbC22lFG87Flb6sFkkxxC2ir5ACQP
-	 2C2iO6IwXklvHeu6QbKU4o2FBtn3gKfRVlsR2wiM=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTP id
-	20250307092209epcas5p4b17984afa515636d2f1cab81c4c66706~qeuUBnDJk0294602946epcas5p4x;
-	Fri,  7 Mar 2025 09:22:09 +0000 (GMT)
-Received: from epsmges5p2new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4Z8LQm0f4pz4x9Q8; Fri,  7 Mar
-	2025 09:22:08 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmges5p2new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	23.B0.19933.FBABAC76; Fri,  7 Mar 2025 18:22:07 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4~qbFZ4U9cz2885928859epcas5p3s;
-	Fri,  7 Mar 2025 04:55:24 +0000 (GMT)
-Received: from epsmgmc1p1new.samsung.com (unknown [182.195.42.40]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250307045524epsmtrp271a8640a0655ee2f0981cdd6e9fe965e~qbFZ3Lrii1515815158epsmtrp2t;
-	Fri,  7 Mar 2025 04:55:24 +0000 (GMT)
-X-AuditID: b6c32a4a-c1fda70000004ddd-ec-67cababfc24e
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmc1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	69.9C.23488.C3C7AC76; Fri,  7 Mar 2025 13:55:24 +0900 (KST)
-Received: from cheetah.samsungds.net (unknown [107.109.115.53]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250307045522epsmtip124914e600f7411a4d5d0d92eca178c8c~qbFXpYlwQ1085010850epsmtip1C;
-	Fri,  7 Mar 2025 04:55:22 +0000 (GMT)
-From: Swathi K S <swathi.ks@samsung.com>
-To: krzk+dt@kernel.org, linux-fsd@tesla.com, robh@kernel.org,
-	conor+dt@kernel.org, richardcochran@gmail.com, alim.akhtar@samsung.com
-Cc: jayati.sahu@samsung.com, swathi.ks@samsung.com,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	netdev@vger.kernel.org, pankaj.dubey@samsung.com, ravi.patel@samsung.com,
-	gost.dev@samsung.com
-Subject: [PATCH v8 2/2] arm64: dts: fsd: Add Ethernet support for PERIC
- Block of FSD SoC
-Date: Fri,  7 Mar 2025 10:19:04 +0530
-Message-Id: <20250307044904.59077-3-swathi.ks@samsung.com>
-X-Mailer: git-send-email 2.17.1
-In-Reply-To: <20250307044904.59077-1-swathi.ks@samsung.com>
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFupnk+LIzCtJLcpLzFFi42LZdlhTXffArlPpBn+FLR7M28ZmsWbvOSaL
-	+UfOsVrcPLCTyeLIqSVMFi9n3WOz2PT4GqvFw1fhFpd3zWGzmHF+H5PFsQViFou2fmG3ePhh
-	D7vFkTMvmC3+79nBbvFl4012BwGPnbPusntsWtXJ5rF5Sb1H35ZVjB7/muaye3zeJBfAFpVt
-	k5GamJJapJCal5yfkpmXbqvkHRzvHG9qZmCoa2hpYa6kkJeYm2qr5OIToOuWmQN0tJJCWWJO
-	KVAoILG4WEnfzqYov7QkVSEjv7jEVim1ICWnwKRArzgxt7g0L10vL7XEytDAwMgUqDAhO2Nt
-	+wH2grnqFad/bmNqYDyq0MXIySEhYCJxd8tN9i5GLg4hgd2MEpMnnGGGcD4xSrxaMIERwvnG
-	KHFt4n82mJZTn84zgdhCAnsZJc6ti4co+sIo0bHjNjNIgk1AQ+L6iu1gc0UE2hgljj1tBHOY
-	BeYySaw6uA1slLBAlMT1/idgNouAqsSWVWvBbF4BK4ll+/ayQqyTl1i94QDYVE4Ba4lz++6C
-	DZIQ6OWQ+PSqnQWiyEWieVsbI4QtLPHq+BZ2CFtK4vO7vVB3x0us7rsKVZ8hcffXRKi4vcSB
-	K3OA4hxA12lKrN+lDxGWlZh6ah3Ym8wCfBK9v58wQcR5JXbMg7GVJf6+vgY1UlJi29L37CBj
-	JAQ8JO4ezISESh+jxNSOVawTGOVmIWxYwMi4ilEytaA4Nz212LTAKC+1HB5tyfm5mxjBKVPL
-	awfjwwcf9A4xMnEwHmKU4GBWEuFV234qXYg3JbGyKrUoP76oNCe1+BCjKTD8JjJLiSbnA5N2
-	Xkm8oYmlgYmZmZmJpbGZoZI4b/POlnQhgfTEktTs1NSC1CKYPiYOTqkGpo3tNRm+MsUHlpfo
-	nW2Kztnnv68+XzOpXK1W5pcmz+tlS3+8FOsRyVlq0JUfVBEWvnmy8gdd3vCP98MNA9ycfz+P
-	l3CM2eul57U65GBASl/Dt6ltH0Xku4z2rzcyu1T7Y+Wr7Uc+JHxdlzgrcPb6LSU8+nJc9yQE
-	LYs/rU12Ep5/LfVr9v/7z2e69TdwLgv229fvcXNnsUWkVWt4wcx/bj/b5q/k2+MpL3D7Zfze
-	a1vfKm34Ga0kP7en7GfTxVTPhqfBc5gLz1V8sBLSWem+gE15y9efriytOwqn5ud1v7t9ekV7
-	5sJqX//NTZPUw64t1P2RUnteTmlHRv3nOsGbjjoHPP1/tS1X72WL/+SoxFKckWioxVxUnAgA
-	AgCv4iIEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFjrGLMWRmVeSWpSXmKPExsWy7bCSnK5Nzal0g7nnxS0ezNvGZrFm7zkm
-	i/lHzrFa3Dywk8niyKklTBYvZ91js9j0+BqrxcNX4RaXd81hs5hxfh+TxbEFYhaLtn5ht3j4
-	YQ+7xZEzL5gt/u/ZwW7xZeNNdgcBj52z7rJ7bFrVyeaxeUm9R9+WVYwe/5rmsnt83iQXwBbF
-	ZZOSmpNZllqkb5fAlbG2/QB7wVz1itM/tzE1MB5V6GLk5JAQMJE49ek8E4gtJLCbUeLodgGI
-	uKTEp+aprBC2sMTKf8/ZIWo+MUpM2qYMYrMJaEhcX7EdKM7FISLQxyixYXsrC4jDLLCcSWLB
-	gQZGkCphgQiJc2f6mUFsFgFViS2r1rKB2LwCVhLL9u2F2iAvsXrDAbAaTgFriXP77kJts5KY
-	PX0u+wRGvgWMDKsYJVMLinPTc5MNCwzzUsv1ihNzi0vz0vWS83M3MYKDWktjB+O7b036hxiZ
-	OBgPMUpwMCuJ8ApuPpkuxJuSWFmVWpQfX1Sak1p8iFGag0VJnHelYUS6kEB6YklqdmpqQWoR
-	TJaJg1OqgUn6442lcyqvp1U5iy+9GdWzPGx/evPuPSsXf6jSmKp7MP/iidePp31T2sAUuydS
-	5FrPtx+/452Vr9ddc/xXHHe9/nqXqOBk7dz8pPfHQqNCpHT7f7r9DhSZzfb/xsQ1bV949GRD
-	lGX+q82tl/1W9eLlrNs95ziELGZ+bFGymePIq2ytUco232PiM5+2vfMavAs7ngrqJR2svftQ
-	agpH+6TjLft9db7Lp3RkSk7P0fw6wyRUcKLvNJ/m1SvdHs+aMyk08YNaQv+H5ohdsbZOe/7X
-	Z9z8caD6GcfTT6v/7H4/YclHFu/1wfpTgrkqJph18q25OLNiae3mS0GdHo6mp3Z2352u1Tm5
-	cB0nw70dvm+UWIozEg21mIuKEwEy5iyx2QIAAA==
-X-CMS-MailID: 20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4
-References: <20250307044904.59077-1-swathi.ks@samsung.com>
-	<CGME20250307045524epcas5p3f4ef3398f70f8286ddd9903a4e1d68f4@epcas5p3.samsung.com>
+	Fri, 07 Mar 2025 09:28:44 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-2239f8646f6so30087515ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 01:28:42 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741339722; x=1741944522; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=9LozWTu8KuZwTBoDAKofTRfh40nSpSm6qy1uB6jmrPY=;
+        b=W+BVxEyCA3WHDjp6c6/5Tl5Ks/XNh6oVon8+AF9PeYopGG+xEEXkG8iDO4TdrM/BKj
+         QcFqd91hhfvvOTWxrdJY0Ate9GZDbY4WfzVi950nFPPJkFLKeUnswMheigJs5bMjzbmI
+         uM3U2KMcTIFeAfWKPRg+h9CceQwgWpEPfAVm2I7RaaaPLYJxkSZLuTpkVplms9Ru/Dgn
+         rcrWCV7obF/245cPu6e1BlyZX8UyaRJJbHl/kPHJJ4TxeoIcFnuAjd1xFJBn4VcMNzXE
+         JSOyiLHXmC0PjzACPEAoLNB8Bt/RQnKqYgaS/n2vmdb+2lSjMtvOoljHibM38Cxuy0TD
+         vrzw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741339722; x=1741944522;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=9LozWTu8KuZwTBoDAKofTRfh40nSpSm6qy1uB6jmrPY=;
+        b=YkrSh4bnq0LCVo8vJLBjXIqxIyrucLzW4FFNpUskkMvOr/AUCleqLvxok0xb9yOQsE
+         C+vKfaV1dupaJmlpoN47v58i4EE3ld9WAwn+J3jkuWsoj4ooo2eCC6M++pHn6k03k9Z5
+         OkC96gMz+n5hm/2odDteBMJfZmaPNEuZ6NJXBCD76f4DxeBiG47E/TljDKWpWqOQO9Jr
+         IyZvNMKDmzhmu6oNNTbDBMOyKd7rVF+PRO/+GaAXC7//E7gq4nKZBDreEoKbl3Wx71UC
+         goWlZ5WddVulToBW3h/ZU8iGLtNDCRy6Lf+lQIWHHZeKx2pmE1auexoYiMSY263J0x3L
+         bT3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCW6oeHKykAfmcij833rjlMHW2W/M7PbFFbIDt6cbOi+ftKES6a+cXyRolXOiJI/1VpajjhRD3+3gzfxE7WznsQV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxlQVPM9AhJFtu4KA2lxb7Pu0BmP75ltboe3lC9f49Jjxo6RbNJ
+	+4RHDerllkg5gtA+yYFFv4eMwSavfRWJSI8szq9KHfKx1tn9Ch/GMz4Tp6ZIxMkmUUchXtuk79S
+	1o9Qha9ktFL3A1ufo4C0ORWlTTAPoobVYCgK6nQ==
+X-Gm-Gg: ASbGncveShsAbnUmW4Lk3ibqwG89b2PFE+NiSrjzHrAmkjDPDSEEgIlXRCmbtDSD8lo
+	IaSKkDSllMcTQHOfXY1N0FbzQLtXlE6DoJ94hsex+bJrwcdMYPr0I9txcw2OQkjyHrianUAoAWd
+	UZoTSqmWeY84rSJfNSv0YT3kpoRTA=
+X-Google-Smtp-Source: AGHT+IEHRyep+CWHS6MMha8nUs8GPhmkNXh4lCyvkD09UFdn8zd5EhwUXs2EBs8mRJAWZqt2jvGg4lY4AfpwLNMYolA=
+X-Received: by 2002:a05:6a00:4f90:b0:736:4a5b:7f08 with SMTP id
+ d2e1a72fcca58-736aaae86d4mr3932036b3a.22.1741339721658; Fri, 07 Mar 2025
+ 01:28:41 -0800 (PST)
+MIME-Version: 1.0
+References: <20250227092640.2666894-1-quic_songchai@quicinc.com>
+ <20250227092640.2666894-2-quic_songchai@quicinc.com> <20250304-certain-aboriginal-magpie-cade86@krzk-bin>
+In-Reply-To: <20250304-certain-aboriginal-magpie-cade86@krzk-bin>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 7 Mar 2025 09:28:29 +0000
+X-Gm-Features: AQ5f1JoxSZ1K86_Hd1c_UCyRuSfkTy9x4ZTGUItIE7TwPlDH-oNja8NI8CjlxzU
+Message-ID: <CAJ9a7VjOU2d0tGjvbMBWwWtjKp38hj_NptVYFHDy9Zrs-sdOeg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/7] dt-bindings: arm: Add support for Coresight TGU trace
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: songchai <quic_songchai@quicinc.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	James Clark <james.clark@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Andy Gross <agross@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Rob Herring <robh+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_012214_531772_E684E349 
-X-CRM114-Status: GOOD (  15.60  )
+X-CRM114-CacheID: sfid-20250307_012843_105877_3CE1B500 
+X-CRM114-Status: GOOD (  45.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,153 +98,235 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The FSD SoC contains two instances of Synopsys DWC QoS Ethernet IP, one in
-FSYS0 block and other in PERIC block.
-The ethernet interface is connected to a switch which is not managed by
-Linux.
+Hi,
 
-Adds device tree node for Ethernet in PERIC Block and enables the same for
-FSD platform.
+On Tue, 4 Mar 2025 at 08:05, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On Thu, Feb 27, 2025 at 05:26:34PM +0800, songchai wrote:
+> > From: Songwei Chai <quic_songchai@quicinc.com>
+> >
+> > The Trigger Generation Unit (TGU) is designed to detect patterns or
+> > sequences within a specific region of the System on Chip (SoC). Once
+> > configured and activated, it monitors sense inputs and can detect a
+> > pre-programmed state or sequence across clock cycles, subsequently
+> > producing a trigger.
+> >
+> >    TGU configuration space
+> >         offset table
+> >  x-------------------------x
+> >  |                         |
+> >  |                         |
+> >  |                         |                           Step configuration
+> >  |                         |                             space layout
+> >  |   coresight management  |                           x-------------x
+> >  |        registers        |                     |---> |             |
+> >  |                         |                     |     |  reserve    |
+> >  |                         |                     |     |             |
+> >  |-------------------------|                     |     |-------------|
+> >  |                         |                     |     | priority[3] |
+> >  |         step[7]         |<--                  |     |-------------|
+> >  |-------------------------|   |                 |     | priority[2] |
+> >  |                         |   |                 |     |-------------|
+> >  |           ...           |   |Steps region     |     | priority[1] |
+> >  |                         |   |                 |     |-------------|
+> >  |-------------------------|   |                 |     | priority[0] |
+> >  |                         |<--                  |     |-------------|
+> >  |         step[0]         |-------------------->      |             |
+> >  |-------------------------|                           |  condition  |
+> >  |                         |                           |             |
+> >  |     control and status  |                           x-------------x
+> >  |           space         |                           |             |
+> >  x-------------------------x                           |Timer/Counter|
+> >                                                        |             |
+> >                                                      x-------------x
+> > TGU Configuration in Hardware
+> >
+> > The TGU provides a step region for user configuration, similar
+> > to a flow chart. Each step region consists of three register clusters:
+> >
+> > 1.Priority Region: Sets the required signals with priority.
+> > 2.Condition Region: Defines specific requirements (e.g., signal A
+> > reaches three times) and the subsequent action once the requirement is
+> > met.
+> > 3.Timer/Counter (Optional): Provides timing or counting functionality.
+> >
+> > Add a new coresight-tgu.yaml file to describe the bindings required to
+> > define the TGU in the device trees.
+> >
+> > Signed-off-by: Songwei Chai <quic_songchai@quicinc.com>
+> > Signed-off-by: songchai <quic_songchai@quicinc.com>
+>
+> Don't duplicate yourself.
+>
+> Anyway, this is marked as v3, I cannot find previous versions, no
+> changelog, no references.
+>
+> What happened here in this binding?
+>
+> > ---
+> >  .../bindings/arm/qcom,coresight-tgu.yaml      | 135 ++++++++++++++++++
+> >  1 file changed, 135 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml b/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
+> > new file mode 100644
+> > index 000000000000..a41ac68a4fe7
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/arm/qcom,coresight-tgu.yaml
+> > @@ -0,0 +1,135 @@
+> > +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> > +# Copyright (c) 2023-2025 Qualcomm Innovation Center, Inc. All rights reserved.
+>
+> 2023 and 2024? Where was it published in these years?
+>
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/arm/qcom,coresight-tgu.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Trigger Generation Unit - TGU
+> > +
+> > +description: |
+> > +  The Trigger Generation Unit (TGU) is a Data Engine which can be utilized
+> > +  to sense a plurality of signals and create a trigger into the CTI or
+> > +  generate interrupts to processors. The TGU is like the trigger circuit
+> > +  of a Logic Analyzer. The corresponding trigger logic can be realized by
+> > +  configuring the conditions for each step after sensing the signal.
+> > +  Once setup and enabled, it will observe sense inputs and based upon
+> > +  the activity of those inputs, even over clock cycles, may detect a
+> > +  preprogrammed state/sequence and then produce a trigger or interrupt.
+> > +
+> > +  The primary use case of the TGU is to detect patterns or sequences on a
+> > +  given set of signals within some region of the SoC.
+> > +
+> > +maintainers:
+> > +  - Mao Jinlong <quic_jinlmao@quicinc.com>
+> > +  - Sam Chai <quic_songchai@quicinc.com>
+> > +
+> > +# Need a custom select here or 'arm,primecell' will match on lots of nodes
+> > +select:
+> > +  properties:
+> > +    compatible:
+> > +      contains:
+> > +        enum:
+> > +          - qcom,coresight-tgu
+> > +  required:
+> > +    - compatible
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - const: qcom,coresight-tgu
+> > +      - const: arm,primecell
+> > +
+> > +  reg:
+> > +    maxItems: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: apb_pclk
+> > +
+> > +  qcom,tgu-steps:
+> > +    description:
+> > +      The trigger logic is realized by configuring each step after sensing
+> > +      the signal. The parameter here is used to describe the maximum of steps
+> > +      that could be configured in the current TGU.
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    minimum: 1
+> > +    maximum: 8
+> > +
 
-Signed-off-by: Pankaj Dubey <pankaj.dubey@samsung.com>
-Signed-off-by: Jayati Sahu <jayati.sahu@samsung.com>
-Signed-off-by: Swathi K S <swathi.ks@samsung.com>
----
- arch/arm64/boot/dts/tesla/fsd-evb.dts      | 10 ++++
- arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi | 56 ++++++++++++++++++++++
- arch/arm64/boot/dts/tesla/fsd.dtsi         | 30 ++++++++++++
- 3 files changed, 96 insertions(+)
+Hardware features are usually defined by ID registers in coresight
+devices. e.g. ETM has a number of ID registers that describe the
+number of comparators / counters etc.
+Does this device not have similar registers? Is there not a unique ID
+for each hardware variant - hardware discoverablility is an
+architecture requirement for coresight devices?
 
-diff --git a/arch/arm64/boot/dts/tesla/fsd-evb.dts b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-index 321270a07651..9ff22e1c8723 100644
---- a/arch/arm64/boot/dts/tesla/fsd-evb.dts
-+++ b/arch/arm64/boot/dts/tesla/fsd-evb.dts
-@@ -74,6 +74,16 @@
- 	};
- };
- 
-+&ethernet1 {
-+	status = "okay";
-+
-+	phy-mode = "rgmii-id";
-+	fixed-link {
-+		speed = <1000>;
-+		full-duplex;
-+	};
-+};
-+
- &fin_pll {
- 	clock-frequency = <24000000>;
- };
-diff --git a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-index cb437483ff6e..6f4658f57453 100644
---- a/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd-pinctrl.dtsi
-@@ -437,6 +437,62 @@
- 		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
- 		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
- 	};
-+
-+	eth1_tx_clk: eth1-tx-clk-pins {
-+		samsung,pins = "gpf2-0";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_DOWN>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_tx_data: eth1-tx-data-pins {
-+		samsung,pins = "gpf2-1", "gpf2-2", "gpf2-3", "gpf2-4";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_tx_ctrl: eth1-tx-ctrl-pins {
-+		samsung,pins = "gpf2-5";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_phy_intr: eth1-phy-intr-pins {
-+		samsung,pins = "gpf2-6";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
-+	};
-+
-+	eth1_rx_clk: eth1-rx-clk-pins {
-+		samsung,pins = "gpf3-0";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_rx_data: eth1-rx-data-pins {
-+		samsung,pins = "gpf3-1", "gpf3-2", "gpf3-3", "gpf3-4";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_rx_ctrl: eth1-rx-ctrl-pins {
-+		samsung,pins = "gpf3-5";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV6>;
-+	};
-+
-+	eth1_mdio: eth1-mdio-pins {
-+		samsung,pins = "gpf3-6", "gpf3-7";
-+		samsung,pin-function = <FSD_PIN_FUNC_2>;
-+		samsung,pin-pud = <FSD_PIN_PULL_UP>;
-+		samsung,pin-drv = <FSD_PIN_DRV_LV4>;
-+	};
- };
- 
- &pinctrl_pmu {
-diff --git a/arch/arm64/boot/dts/tesla/fsd.dtsi b/arch/arm64/boot/dts/tesla/fsd.dtsi
-index 01850fbf761f..0fb1b508be52 100644
---- a/arch/arm64/boot/dts/tesla/fsd.dtsi
-+++ b/arch/arm64/boot/dts/tesla/fsd.dtsi
-@@ -979,6 +979,36 @@
- 			memory-region = <&mfc_left>;
- 		};
- 
-+		ethernet1: ethernet@14300000 {
-+			compatible = "tesla,fsd-ethqos";
-+			reg = <0x0 0x14300000 0x0 0x10000>;
-+			interrupts = <GIC_SPI 176 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-names = "macirq";
-+			clocks = <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_PTP_REF_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_ACLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_HCLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_RGMII_CLK_I>,
-+				 <&clock_peric PERIC_EQOS_TOP_IPCLKPORT_CLK_RX_I>,
-+				 <&clock_peric PERIC_BUS_D_PERIC_IPCLKPORT_EQOSCLK>,
-+				 <&clock_peric PERIC_BUS_P_PERIC_IPCLKPORT_EQOSCLK>,
-+				 <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-+				 <&clock_peric PERIC_EQOS_PHYRXCLK>,
-+				 <&clock_peric PERIC_DOUT_RGMII_CLK>;
-+			clock-names = "ptp_ref", "master_bus", "slave_bus", "tx", "rx",
-+				      "master2_bus", "slave2_bus", "eqos_rxclk_mux",
-+				      "eqos_phyrxclk", "dout_peric_rgmii_clk";
-+			assigned-clocks = <&clock_peric PERIC_EQOS_PHYRXCLK_MUX>,
-+					  <&clock_peric PERIC_EQOS_PHYRXCLK>;
-+			assigned-clock-parents = <&clock_peric PERIC_EQOS_PHYRXCLK>;
-+			pinctrl-names = "default";
-+			pinctrl-0 = <&eth1_tx_clk>, <&eth1_tx_data>, <&eth1_tx_ctrl>,
-+				    <&eth1_phy_intr>, <&eth1_rx_clk>, <&eth1_rx_data>,
-+				    <&eth1_rx_ctrl>, <&eth1_mdio>;
-+			local-mac-address = [00 00 00 00 00 00];
-+			iommus = <&smmu_peric 0x0 0x1>;
-+			status = "disabled";
-+		};
-+
- 		ufs: ufs@15120000 {
- 			compatible = "tesla,fsd-ufs";
- 			reg = <0x0 0x15120000 0x0 0x200>,  /* 0: HCI standard */
+> > +  qcom,tgu-regs:
+> > +    description:
+> > +      There are some "groups" register clusters in each step, which are used to
+> > +      configure the signal that we want to detect. Meanwhile, each group has its
+> > +      own priority, and the priority increases with number of groups. For example,
+> > +      group3 has a higher priority than group2, the signal configured in group3
+> > +      will be sensed more preferentially than the signal which is configured in group2.
+> > +      The parameter here is used to describe the signal number that each group
+> > +      could be configured.
+>
+> And all groups are indexed by number? Or do they have names?
+>
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    minimum: 1
+> > +    maximum: 18
+> > +
+> > +  qcom,tgu-conditions:
+> > +    description:
+> > +      A condition sets a specific requirement for a step and defines the subsequent
+> > +      action once the requirement is met. For example, in step two, if signal A is
+> > +      detected three times, the process jumps back to step one. The parameter describes
+> > +      the register number for each functionality, whether it is setting a specific
+> > +      requirement or defining a subsequent action.
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    minimum: 1
+> > +    maximum: 4
+> > +
+> > +  qcom,tgu-timer-counters:
+> > +    description:
+> > +      TGU has timer and counter which are used to set some requirement on each step.
+>
+> Wrap according to Linux coding style, so at 80.
+>
+> > +      For example, we could use counter to create a trigger into CTI once TGU senses
+> > +      the target signal three times.This parameter is used to describe the number of
+> > +      Timers/Counters in TGU.
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    minimum: 0
+>
+> Drop
+>
+> > +    maximum: 2
+> > +
+> > +  in-ports:
+> > +    $ref: /schemas/graph.yaml#/properties/ports
+> > +    additionalProperties: false
+> > +
+> > +    properties:
+> > +      port:
+> > +        description: AXI Slave connected to another Coresight component
+>
+> So this TGU can be connected to anything in coresight graph, no
+> restrictions?
+>
+
+
+Coresight uses APB for register access and ATB for moving trace from
+source to sink. The only use of AXI is on the ETR/CATU output saving
+trace data into system memory.
+
+> > +        $ref: /schemas/graph.yaml#/properties/port
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - clocks
+> > +  - clock-names
+>
+> Most likely you miss also: in-ports
+>
+>
+> Best regards,
+> Krzysztof
+>
+
+Regards
+
+Mike
+
 -- 
-2.17.1
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
