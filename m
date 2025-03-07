@@ -4,78 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D655C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:29:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51C40C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:30:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BRcpbMCmSTtf8OzCIeJhkL1o7h95pO1Ek6cj8Lqm8K0=; b=qA31XBzHnYEQ82W6sd2ihVD6eB
-	US/tJZu+/s24ecWOA4WnqFvj5D6RMj5R4wEo4VCzGurT87ZL7k9dKK+Xw3A47fBHn41oLJu/gSOeL
-	6AktVnct8SV3ojaGG0yS3+ONXTxsbF3+UAsotFhG4PdiE5DvTGWseWIg4Lh5aDJS66XZjBPJt/jVs
-	jGMDgQmVVHOOjCvFEgFi3TxQIALMbc+qY82vmKWQ+TFDgPHVMwi9cOtbb6lc6yX/JiLuchGaqTC7D
-	g+DIMmoA14w0YHHnrfhc56nM1ZEx1CDGqIQV3zp3prd/zXae16lp1hAiDyAkBb1cVP/qyYdDjlkun
-	Siu5lceA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BJ9FQjBK0iPM9zCWhA27A3nTc/CYXoM2APiu0/H6r18=; b=RQ8UQ2w4H2TRPw9WULznQYkSUh
+	/shwMlxNx3eeGi2raY0VV6rRjW+jFW8SUgSVCkePrmjTgZYU2YG9IvOFbe1cbCWCXQUt5Bo0388os
+	OiIjxlgAKRNC/1JEzhNDTnMq9IsmPCMPgdNMI+5jC7fNOr8uyz3o3QAiNC9D45Mv6xH5v5qkTtY0v
+	1PJjc2W4c4C7xRf2ctwO/mVoal2NHTZ6YLS82H1APVF/Vyhu7kVhsbWQZIANFuFUs3QJvTMlFAaWU
+	NINrMqo+5qccqLrT7nqNmvRfxUdnlmjvzYAP7+Hp+rYgUj4k7GDGZ6S2K7QM/WkwVoa+P5Qb1kuEN
+	PPmGzA2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqMWQ-0000000Cniw-03qE;
-	Fri, 07 Mar 2025 01:29:06 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqMY2-0000000CnyV-0IXo;
+	Fri, 07 Mar 2025 01:30:46 +0000
+Received: from mail.ozlabs.org ([2404:9400:2221:ea00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM3q-0000000CibX-20h5;
-	Fri, 07 Mar 2025 00:59:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1C2FE5C5B33;
-	Fri,  7 Mar 2025 00:57:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 37826C4CEE0;
-	Fri,  7 Mar 2025 00:59:32 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741309173;
-	bh=Cg2qsx4qx6dQxL2dKMoV09fLDr7a4hn6EBItwZqDGGk=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Xx49e8odjgKN5abFOiSV4WP/FDGjg6AN+86g670RJ4qn7DNDD6tzDFYOf5sO6pYyg
-	 J9uIA95n5YPjL3ubaBjCrbvqO/lwtwbrBPvSulpqdMwTdF4+H5O+MSorPu282E7sIp
-	 WGJ05Mge/msv+7DjZ7soWwFlJCMjX5LTiP8Xndj5HiEDpr1Cfoizm0THFCdyq98nJs
-	 0s2TJysz2Q0ybXYPB42JpVxbGuwEYcntGG7VjIBoSJp7zY8QgZqRJdmtqUBYKoGKwK
-	 EncNbvLjrOCcLU5aGpV9/7TwEVK9R3DoU6vLDbykGzcGDCapLljk5XvGICRlR8A4ZY
-	 FITRCI7Qg0q2g==
-Date: Thu, 6 Mar 2025 16:59:31 -0800
-From: Jakub Kicinski <kuba@kernel.org>
-To: Inochi Amaoto <inochiama@gmail.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
- <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
- <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen Wang
- <unicorn_wang@outlook.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Richard Cochran
- <richardcochran@gmail.com>, Paul Walmsley <paul.walmsley@sifive.com>,
- Palmer Dabbelt <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
- Romain Gantois <romain.gantois@bootlin.com>, Hariprasad Kelam
- <hkelam@marvell.com>, Jisheng Zhang <jszhang@kernel.org>, =?UTF-8?B?Q2w=?=
- =?UTF-8?B?w6ltZW50IEzDqWdlcg==?= <clement.leger@bootlin.com>, "Jan Petrous
- (OSS)" <jan.petrous@oss.nxp.com>, Simon Horman <horms@kernel.org>, Furong
- Xu <0x1207@gmail.com>, Lothar Rubusch <l.rubusch@gmail.com>, Joe Hattori
- <joe@pf.is.s.u-tokyo.ac.jp>, Bartosz Golaszewski
- <bartosz.golaszewski@linaro.org>, Giuseppe Cavallaro
- <peppe.cavallaro@st.com>, Jose Abreu <joabreu@synopsys.com>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, sophgo@lists.linux.dev,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- Yixun Lan <dlan@gentoo.org>, Longbin Li <looong.bin@gmail.com>
-Subject: Re: [PATCH net-next v6 0/4] riscv: sophgo: Add ethernet support for
- SG2044
-Message-ID: <20250306165931.7ffefe3a@kernel.org>
-In-Reply-To: <20250305063920.803601-1-inochiama@gmail.com>
-References: <20250305063920.803601-1-inochiama@gmail.com>
+	id 1tqMDx-0000000Ckkp-0qPL
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 01:10:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=canb.auug.org.au;
+	s=201702; t=1741309796;
+	bh=BJ9FQjBK0iPM9zCWhA27A3nTc/CYXoM2APiu0/H6r18=;
+	h=Date:From:To:Cc:Subject:From;
+	b=BdRgdTRyYrCbHAlFXg8AovE6WI2vZfqis6FemK1c84GL5HZUuRI6yRUVlWuNNW6zo
+	 egn9uJkXrFkAahoTQSfEthy9BHkXcb+DnD4xjYTbwinpU3tTwsrdNTO4jDkU+9b7Sc
+	 +FPLRju5fI+hvzw2e7YaOrysL3VCg5wGnJFRy1zogv8124p5VtbZ3FYUIVbxN6PtKs
+	 o5gwZyMX9HJ0ABNhg0jpeHlJ0Cw/1UcUtUlxHiwWIIge3A5c11VAHq9kRXfivDTlVV
+	 QFJlSo27tKf2hQ1wSse8FsHJdZM21CGx7Mv/bvyJycVJG28D7mi+ZS4OcFDMYvpPei
+	 9c84dh0TMGSGw==
+Received: from authenticated.ozlabs.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by mail.ozlabs.org (Postfix) with ESMTPSA id 4Z87Vq2lVXz4x3d;
+	Fri,  7 Mar 2025 12:09:55 +1100 (AEDT)
+Date: Fri, 7 Mar 2025 12:09:54 +1100
+From: Stephen Rothwell <sfr@canb.auug.org.au>
+To: Florian Fainelli <f.fainelli@gmail.com>, Arnd Bergmann <arnd@arndb.de>
+Cc: ARM <linux-arm-kernel@lists.infradead.org>, Linux Kernel Mailing List
+ <linux-kernel@vger.kernel.org>, Linux Next Mailing List
+ <linux-next@vger.kernel.org>
+Subject: linux-next: duplicate patch in the broadcom tree
+Message-ID: <20250307120954.351dd8ae@canb.auug.org.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="Sig_/B=r6jVDdyEw7VYbERN.W4G1";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165934_567558_C0CFE448 
-X-CRM114-Status: UNSURE (   6.51  )
+X-CRM114-CacheID: sfid-20250306_171001_612130_20EC1365 
+X-CRM114-Status: UNSURE (   9.12  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,12 +72,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed,  5 Mar 2025 14:39:12 +0800 Inochi Amaoto wrote:
-> The ethernet controller of SG2044 is Synopsys DesignWare IP with
-> custom clock. Add glue layer for it.
+--Sig_/B=r6jVDdyEw7VYbERN.W4G1
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Looks like we have a conflict on the binding, could you rebase
-against latest net-next/main and repost?
--- 
-pw-bot: cr
+Hi all,
+
+The following commit is also in the arm-soc-fixes tree as a different
+commit (but the same patch):
+
+  d0b7662f9a68 ("ARM: dts: bcm2711: Fix xHCI power-domain")
+
+This is commit
+
+  f44fa354a071 ("ARM: dts: bcm2711: Fix xHCI power-domain")
+
+in the arm-soc-fixes tree.
+
+--=20
+Cheers,
+Stephen Rothwell
+
+--Sig_/B=r6jVDdyEw7VYbERN.W4G1
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEENIC96giZ81tWdLgKAVBC80lX0GwFAmfKR2IACgkQAVBC80lX
+0GwqKgf/Vras2HyGkXQy8bLVkGjsZqBPaHc0hW+CFQwl8ZMBaKODtAbKzhcT7iUV
+COIY2btPkafkZ1KgjJpjQHLL0aRtYybs8oGlP2ne9VWbrj6FODc9oppSnk7ceDIm
+PX+eg93zbDEN99l99o1yPh12WcwOK+E7+ZaxRlA2OcgjpkWi81MdR89iAbjdEytF
+/SaPM1FJgzY3QUBSYevG2mJVvipsmwTA23utc0wKIVmX0nUgfeqdYjDLkoT3w4bO
+s4A7KcbgcwQSFB82+89gHhnf44fXGRVPpfew2z/aYS00EAJxzzq/3NErd2vgRBXh
+Z1pith6W28hKPEz/0jHk5pRhOOtiHg==
+=rEIt
+-----END PGP SIGNATURE-----
+
+--Sig_/B=r6jVDdyEw7VYbERN.W4G1--
 
