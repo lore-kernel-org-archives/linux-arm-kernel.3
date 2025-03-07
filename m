@@ -4,58 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2F7BC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90438C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 01:03:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rLa1foUxsBIXYDL+Vi7Ah0I6tnQqwLN9iYPwBRBiHlY=; b=U0fKgZhv/3AlFBw0ytwxl8GtUd
-	u3fXkTQ7UzhGN+R7ZtWQ/LUf5s9aZMiLOqAfI75P1XrVnYjn5gVxz/eQ6dIk5qZTHJYmS3zfB3CCr
-	e+4j6CpoO7qEEubukXnJITjjOXI9bbbBbn6mwYI8Zi2qp2wwRHpSilTOX068KYAA/pyCACA2SkP2S
-	clahS73pigQSjBw+KMqmXSgkrrcmWRnmGngnrLfs8PTfZCJ6IwRYQ9iq+ToGedpK4X40FDg0Nvq3t
-	YOhr3KPigpR7qn4ClFhUOEtNUbafIoUk1R/n40mi85DXhdEv0jXPVAUnomXRr2I8XqfDgKLCxs6w2
-	JZcXZOoQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ErW0zgz54C6JdXQ1+OigKjnMom/zPCM1d/U9wkyxK3M=; b=mxlJhGR4VYjxOb+KEvLDcrxxea
+	WWH3RVZlRdhSvvQxUG/9J8ieoeE6IgDSPAsyenGMpkcAJImsjavqay9IonQggfsDN8qqrRczzJe6l
+	69DedZRbY2ty0xGkSrxRBf7foDHqgQkdO4KBTdPpaDJByBGDEs5xmAzU4oiefDJB0g1pKbFnWswF7
+	u2uulJlVLDKa0VrwVCgoYKss3D8qCy1Tk4ZZmHD4Z/r64JjFfSqfEEYjGKLAukh6ym+p668Of6VfX
+	z7y+W0fnPLNHJmE+eis7KYdf2i70y7sUkYFAWZNZ4cqshO4DPJdE8HpvNVq/GBw7XmGvbpKlhgErz
+	O79xZHQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM5R-0000000Cj5f-2wah;
-	Fri, 07 Mar 2025 01:01:13 +0000
+	id 1tqM72-0000000Cjd7-26Gx;
+	Fri, 07 Mar 2025 01:02:52 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM0O-0000000ChfI-1o64
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 00:56:01 +0000
+	id 1tqM1i-0000000Chr0-45LA;
+	Fri, 07 Mar 2025 00:57:24 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3CD7F169E;
-	Thu,  6 Mar 2025 16:56:12 -0800 (PST)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 19EB63F5A1;
-	Thu,  6 Mar 2025 16:55:57 -0800 (PST)
-Date: Fri, 7 Mar 2025 00:55:55 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53AB7169E;
+	Thu,  6 Mar 2025 16:57:35 -0800 (PST)
+Received: from localhost.localdomain (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 22E7A3F5A1;
+	Thu,  6 Mar 2025 16:57:20 -0800 (PST)
 From: Andre Przywara <andre.przywara@arm.com>
-To: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel
- Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 08/15] arm64: dts: allwinner: Add Allwinner A523
- .dtsi file
-Message-ID: <20250307005555.2c52199a@minigeek.lan>
-In-Reply-To: <2646028.Lt9SDvczpP@jernej-laptop>
-References: <20250304222309.29385-1-andre.przywara@arm.com>
-	<20250304222309.29385-9-andre.przywara@arm.com>
-	<2646028.Lt9SDvczpP@jernej-laptop>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	linux-mmc@vger.kernel.org,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	Guenter Roeck <linux@roeck-us.net>,
+	linux-watchdog@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	linux-phy@lists.infradead.org
+Subject: [PATCH v3 00/15] arm64: dts: allwinner: Add basic Allwinner A523 support
+Date: Fri,  7 Mar 2025 00:56:57 +0000
+Message-ID: <20250307005712.16828-1-andre.przywara@arm.com>
+X-Mailer: git-send-email 2.46.3
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165600_520156_99359DBE 
-X-CRM114-Status: GOOD (  21.50  )
+X-CRM114-CacheID: sfid-20250306_165723_110047_EBBFB4FE 
+X-CRM114-Status: GOOD (  21.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,66 +75,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Mar 2025 19:46:20 +0100
-Jernej =C5=A0krabec <jernej.skrabec@gmail.com> wrote:
-
 Hi,
 
-> Dne torek, 4. marec 2025 ob 23:23:02 Srednjeevropski standardni =C4=8Das =
-je Andre Przywara napisal(a):
-> > The Allwinner A523, and its siblings A527 and T527, which share the same
-> > die, are a new family of SoCs introduced in 2023. They features eight
-> > Arm Cortex-A55 cores, and, among the other usual peripherals, a PCIe and
-> > USB 3.0 controller.
-> >=20
-> > Add the basic SoC devicetree .dtsi for the chip, describing the
-> > fundamental peripherals: the cores, GIC, timer, RTC, CCU and pinctrl.
-> > Also some other peripherals are fully compatible with previous IP, so
-> > add the USB and MMC nodes as well.
-> > The other peripherals will be added in the future, once we understand
-> > their compatibility and DT requirements.
-> >=20
-> > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
-> > ---
-> >  .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 598 ++++++++++++++++++
-> >  1 file changed, 598 insertions(+)
-> >  create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> >=20
-> > diff --git a/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi b/arch/arm6=
-4/boot/dts/allwinner/sun55i-a523.dtsi
-> > new file mode 100644
-> > index 0000000000000..01e662bdf5521
-> > --- /dev/null
-> > +++ b/arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
-> > @@ -0,0 +1,598 @@
-> > +// SPDX-License-Identifier: (GPL-2.0-only OR MIT)
-> > +// Copyright (C) 2023-2024 Arm Ltd.
-> > +
+this in an update to the series introducing the basic DT support for the
+Allwinner A523 SoC. It now comes with DTs for three boards, using
+slightly different packages of that SoC.[1]
+Functionality-wise it relies on the pinctrl[2] and clock[3] support
+series, though there are no direct code dependency series between the
+series. Two binding patches from there are required to pass dtbs_check,
+git put their patch IDs in the footer below.
+Compared to v2 only small fixes in the NMI controller driver: renaming
+the struct to better reflect its new usage, add adding the DS pin to
+the eMMC pingroup list. Adding accrued tags on the way, many thanks to
+the diligent reviewers! More detailed changelog below.
 
- ...
+The first patches add DT binding documentation for the most basic
+peripherals, most of them actually being already supported, courtesy of
+identical IP being used. This includes MMC and USB 2.0, so with the above
+mentioned clock and pinctrl support this gives an already somewhat usable
+mainline support for this new SoC family.
+The watchdog is not completely compatible, but is an easy addition, so
+this bit is included in here as well, the same is true for the NMI
+controller, required for delivering PMIC interrupts.
 
-> > +
-> > +			mmc2_pins: mmc2-pins {
-> > +				pins =3D "PC1" ,"PC5", "PC6", "PC8", "PC9",
-> > +				       "PC10", "PC11", "PC13", "PC14", "PC15",
-> > +				       "PC16"; =20
->=20
-> I guess PC0 should be also included, for HS400 capable cards.
+The A523 features 8 Arm Cortex-A55 cores, organised in two clusters,
+clocked separately, with different OPP limits, in some kind of
+little/LITTLE configuration. The GPU is a Arm Mali G57 MC01, and the chip
+also features a single PCIe 2.1 lane, sharing a PHY with some USB 3.1
+controller - which means only one of the two can be used.
+The rest of the SoC is the usual soup of multimedia SoC IP, with eDP
+support and two Gigabit Ethernet MACs among the highlights.
 
-Sure, it doesn't conflict with much else (just NAND flash), so that's
-no problem.
+The main feature is patch 08/15, which adds the SoC .dtsi. This for now
+is limited to the parts that are supported and could be tested. Compared
+to v1 we now have some basic TF-A support, so the PSCI nodes are in now.
 
-> With that fixed:
-> Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+The final patches add basic support for the Avaota-A1 router board, the
+X96QPro+ TV box, and the Radxa A5E development board.
 
-Many thanks for that!
+The mainline firmware side in general is coming together now: we have
+basic U-Boot support working (including MMC and USB), most importantly
+with proper DRAM support, so no more binary blobs, and some basic TF-A
+support.
+
+Please have a look at those DT bits here, ideally compare them to the
+available user manual, and test them if you have access to hardware.
+
+Based on v6.14-rc1.
+I pushed a branch with all the three series combined here:
+https://github.com/apritzel/linux/commits/a523-v3/
 
 Cheers,
 Andre
 
->=20
-> Best regards,
-> Jernej
->=20
+Changelog v2 .. v3:
+- split NMI controller register offset into sub-struct
+- properly align NMI controller data definition
+- adding ACKs from Rob and Jernej (with thanks!)
+
+Changelog v1 .. v2:
+- drop USB, I2C, RTC binding patches: already merged
+- add tags from reviewers (with thanks!)
+- drop unrelated deprecation comment from MMC binding patch
+- drop fallback compatible for NMI controller, stands on its own now
+- adjust PHY binding to merged A100 binding (dropping tag)
+- .dtsi: add secondary cores
+- .dtsi: enable PSCI
+- .dtsi: move 32K oscillator to board .dts files
+- .dtsi: adjust CCU source clocks
+- .dtsi: add MMC1 node (typcially for SDIO WiFi)
+- .dtsi: add remaining UARTs
+- .dtsi: add remaing I2C devices
+- add two new board .dts files
+- add DT bindings for those two new board names
+- avaota.dts: drop reserved memory from (TF-A now in SRAM)
+- avaota.dts: drop SD card dummy supply node
+- avaota.dts: add eMMC node (shipped on most boards)
+- avaota.dts: fix OTG mode, explain situation
+- add Chameleon .dts file (depends on YuzukiHD vendor name patch)
+
+[1] https://linux-sunxi.org/A523#Family_of_sun55iw3
+[2] https://lore.kernel.org/linux-sunxi/20250306235827.4895-1-andre.przywara@arm.com/T/#u
+[3] https://lore.kernel.org/linux-sunxi/20250307002628.10684-1-andre.przywara@arm.com/T/#u
+
+Andre Przywara (15):
+  dt-bindings: mmc: sunxi: Simplify compatible string listing
+  dt-bindings: mmc: sunxi: add compatible strings for Allwinner A523
+  dt-bindings: watchdog: sunxi: add Allwinner A523 compatible string
+  watchdog: sunxi_wdt: Add support for Allwinner A523
+  dt-bindings: irq: sun7i-nmi: document the Allwinner A523 NMI
+    controller
+  irqchip/sunxi-nmi: Support Allwinner A523 NMI controller
+  dt-bindings: phy: document Allwinner A523 USB-2.0 PHY
+  arm64: dts: allwinner: Add Allwinner A523 .dtsi file
+  dt-bindings: vendor-prefixes: Add YuzukiHD name
+  dt-bindings: arm: sunxi: Add new board names for A523 generation
+  arm64: dts: allwinner: a523: add Avaota-A1 router support
+  arm64: dts: allwinner: a523: add X96Q-Pro+ support
+  arm64: dts: allwinner: a523: add Radxa A5E support
+  dt-bindings: arm: sunxi: Add YuzukiHD Chameleon board name
+  arm64: dts: allwinner: h616: add YuzukiHD Chameleon support
+
+ .../devicetree/bindings/arm/sunxi.yaml        |  20 +
+ .../allwinner,sun7i-a20-sc-nmi.yaml           |   1 +
+ .../bindings/mmc/allwinner,sun4i-a10-mmc.yaml |  38 +-
+ .../phy/allwinner,sun50i-a64-usb-phy.yaml     |   4 +-
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ .../watchdog/allwinner,sun4i-a10-wdt.yaml     |   2 +
+ arch/arm64/boot/dts/allwinner/Makefile        |   4 +
+ .../sun50i-h618-yuzukihd-chameleon.dts        | 222 +++++++
+ .../arm64/boot/dts/allwinner/sun55i-a523.dtsi | 598 ++++++++++++++++++
+ .../dts/allwinner/sun55i-a527-radxa-a5e.dts   | 299 +++++++++
+ .../dts/allwinner/sun55i-h728-x96qpro+.dts    | 287 +++++++++
+ .../dts/allwinner/sun55i-t527-avaota-a1.dts   | 308 +++++++++
+ drivers/irqchip/irq-sunxi-nmi.c               |  76 ++-
+ drivers/watchdog/sunxi_wdt.c                  |  11 +
+ 14 files changed, 1821 insertions(+), 51 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun50i-h618-yuzukihd-chameleon.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a523.dtsi
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-a527-radxa-a5e.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-h728-x96qpro+.dts
+ create mode 100644 arch/arm64/boot/dts/allwinner/sun55i-t527-avaota-a1.dts
+
+
+base-commit: 2014c95afecee3e76ca4a56956a936e23283f05b
+prerequisite-patch-id: 5b8a883819d2f3dfc975735a855291cb8b02dd39
+prerequisite-patch-id: 26d4fd19d9e9cf345261bbad4b8c3697fe773e7c
+-- 
+2.46.3
 
 
