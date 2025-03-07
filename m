@@ -4,87 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9226CC28B23
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:16:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E230C19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 18:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Content-Type:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=J90ROVYIlVunjJAyLM7koC/nUgKephX5yjyqgLDTy/o=; b=AKAeK6VtiiGic1PO83V2U+gZLk
-	bSmiRj63mmo8o8eC6vWIAcYM+1qoS0v1txVazwZYr+l0XQKB5YMwZPvJUMbcMlEVjST4adWYIx6Qh
-	OexvXtQAEVW/kjTKmdD1N8ndzAeiixeWPax8kQx5FKbQQIlW8wCsnI2F06V9BVeU+I2qSWn2elVaP
-	xOqiLu4nIT730mquI1S8v8eVWHhD4nKHMR+JS9G0I38wq3LnvtKFDYyOWtS0M+I1pt484Yg4TrKKD
-	KFzz0a4dzEZNSSeavsSeCvgemtw6e0Yyk3Opm8i6TlwBvi6vkIe0c2ohQAu/jPztSkXowFEa1DR19
-	NzukUJqw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WJ1zrRI4K++dFlRsD6m9PO8egu70610iojmXcynhYbY=; b=bLyfyrgKuf4ksGaSC4JS7zsyjh
+	yHzOyNWMHJksb7ONbZRrzwcesRGFMqSBwy+U2CDB8/e+LEdpSBF/vQaFe47AdKrRkrDbydbrJELx+
+	m0trNSm5P28RQ88nevZE+WOF5UJQ9Sc2oLqWQG/QrlKo7Ebwv/+DqiAbYFm/7L2kspeCrTXUV2MVI
+	8gVPssIBGaXhUwaC+/8GfpuOZuqMsqM4nb1wqzT13OjuqlLogoyPvP42nDaZOKK+tXV+8gfNc1P2j
+	oiESf05HiPVz79VDThUTI/G822USApSVfG2C4PX4SFUt3Bc8zsrj6g6TjDJmUkzOZA9Tw+/jqGJxs
+	VH1IdAPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqcF3-0000000FBtc-2R4B;
-	Fri, 07 Mar 2025 18:16:13 +0000
-Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
+	id 1tqcGf-0000000FC9E-0zW7;
+	Fri, 07 Mar 2025 18:17:53 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqbpO-0000000F6zY-06mT
+	id 1tqbt8-0000000F7f6-0hGx
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 17:49:43 +0000
-Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38f406e9f80so1572956f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 09:49:41 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741369780; x=1741974580; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=J90ROVYIlVunjJAyLM7koC/nUgKephX5yjyqgLDTy/o=;
-        b=Ph8CEDdpyvlBhLlv0xurZCqsOxAEB1kZKca4Z2/2d8628BtZCZiKm1WmeavcxWDC+q
-         ku5VIWvrGooQ93kQshPTzvf4NS36IM88bVz0gTE9FrDk1HS7o7J9K9PU8Hc0VHkV108r
-         zsyq+LPjBMDPXqj3pWMAxgqp/uJgyjPop1oGFSENEWMbabkyPuMBhZflX5vwUiq+lC8O
-         DPXRnxQihDMZNx6EGuVnpylvC4IcpcKaHEeZfi3VR3thw3IbD1DFWAlIsnD9HaWtceq0
-         Ln4yrzHaQ144/hvVhp5AknGOvpf9E67tOP29qEc9XOCk6IjCy7kaeRbV5MjvrB88G0HQ
-         eM3A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741369780; x=1741974580;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=J90ROVYIlVunjJAyLM7koC/nUgKephX5yjyqgLDTy/o=;
-        b=PTEYfT1HQZk5gkmfU5dDLu/qXXgcRjX2hMIMUHa3NnQ/u2A4Z5U0YZRgRZo7L955ww
-         0eDtTASjkvobzdLtV9NUW22xmsG/hNtNiEhbVKs9vrNtDsNUB/FiXC6Kra8LV+pV462j
-         11nkmiDFMV9Z7pxhT1IkTHCagDyArIiPA5co+cTpjQmoB/Qyp8nEQ+DPVRClEHkGmSDQ
-         wS0iRp1/WjojxokV+d+Q1F508BIddXnI3snjyWU6VjHwhmQgMUKhOc4MEwqIaRrx2TL4
-         X7apwaidderaXAlyMPbnHHGMffw4zlLf3fGeDMDLnQ2eJxJBK/YrshgnRdqt+/y0FsNs
-         HkcA==
-X-Forwarded-Encrypted: i=1; AJvYcCVxcQBeziTXuTBK0XALJi0waJWP1B3Tou/vuwKwrA+8SNq9s9L/iIWZsj55anHa8c0xQZ9vvgyl91CXrXYLOUo1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyVitCdR75ujwC/yEIdr0bzKISZOFu1z9wVLHX36inC4nuvIung
-	zmP+wvv4AUvscHVmgDz6/jo3e8Fh+r7l6nd0Qfd7EzUKZGxxfqDf5WvcJw==
-X-Gm-Gg: ASbGncu3IZVxNuyVgfkqh53wHlkMyquNsWsTkb1AlW30ROT9pITeuBB7WwsDStUdUS1
-	9BxUX8ywkTiPQK9ICEruxEa84CvwQhqjUh4AILUBoXMrhvLRC29xZ0XymdWWjOXP19OPfOf7xEj
-	iyB8rmj+UiuFXqwx5AYPkSWf4dQsHe6++V/yCHyOqhU/FHS+oyhFwtipGD6oJ90n1m+H+o2B83P
-	KT0IjCh+9Sa0ZjzDK1k68ouMyPiqVWtOwXyBxRmsLTDpO25OB3oIgf5IIDy5ljN86Cr1x9p6vs9
-	E+bAqd0leDy6u9wXTYF382QiFBhNAcG7Qg+TKcM/jvQY312PQscudw1HyONWUXD7Z/7+RdLzN6W
-	vHnGS3KrlGaqF9JkVfrBoZTAJx84j2tYlerlz
-X-Google-Smtp-Source: AGHT+IFQwfhw0TWFcyPyKOcZOJGtcyGZ4hJE72wsBJf4kNuTmJUWQ1NzJYzItPPrui90jo20M3KYow==
-X-Received: by 2002:a05:6000:402a:b0:390:e535:8758 with SMTP id ffacd0b85a97d-39132d2afc2mr2954780f8f.9.1741369780278;
-        Fri, 07 Mar 2025 09:49:40 -0800 (PST)
-Received: from localhost (p200300e41f3a9f00f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f3a:9f00:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43bdd8b04casm58181535e9.8.2025.03.07.09.49.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 09:49:39 -0800 (PST)
-From: Thierry Reding <thierry.reding@gmail.com>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: Thierry Reding <thierry.reding@gmail.com>,
-	Jon Hunter <jonathanh@nvidia.com>,
-	linux-tegra@vger.kernel.org,
+	Fri, 07 Mar 2025 17:53:35 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tqbsk-0007Ns-8T; Fri, 07 Mar 2025 18:53:10 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tqbsj-004Wj2-1G;
+	Fri, 07 Mar 2025 18:53:09 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tqbsj-000Zmp-0n;
+	Fri, 07 Mar 2025 18:53:09 +0100
+Date: Fri, 7 Mar 2025 18:53:09 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Mark Brown <broonie@kernel.org>,
+	Daniel Baluta <daniel.baluta@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [GIT PULL v2] arm64: tegra: Device tree changes for v6.15-rc1
-Date: Fri,  7 Mar 2025 18:49:37 +0100
-Message-ID: <20250307174938.3456275-1-thierry.reding@gmail.com>
-X-Mailer: git-send-email 2.48.1
-Content-Type: text/plain; charset="utf-8"
+Subject: Re: [PATCH v4 1/3] ASoC: dt-bindings: support imx95's CM7 core
+Message-ID: <20250307175309.od3grjzr63dxp6ec@pengutronix.de>
+References: <20250211225808.3050-1-laurentiumihalcea111@gmail.com>
+ <20250211225808.3050-2-laurentiumihalcea111@gmail.com>
+ <20250212093610.x4ixrackmn3u2xrf@pengutronix.de>
+ <CAEnQRZBeQdnC+K92+Udb5awTmom10YHHNt7Ld-pYK4A1i8sr3Q@mail.gmail.com>
+ <d66996eb-f49b-448b-9743-d19a3c3eba52@sirena.org.uk>
+ <e45411df-1b8b-4f21-878d-d52e1112e62d@gmail.com>
+ <20250213064724.kbmxsk5szpxwclj6@pengutronix.de>
+ <88584d8f-e1cd-4b56-8906-461e1e6d9cc9@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <88584d8f-e1cd-4b56-8906-461e1e6d9cc9@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_094942_064119_D02FD286 
-X-CRM114-Status: GOOD (  10.20  )
+X-CRM114-CacheID: sfid-20250307_095334_205586_2BC15777 
+X-CRM114-Status: GOOD (  45.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,51 +92,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi ARM SoC maintainers,
+On 25-03-04, Laurentiu Mihalcea wrote:
+> On 2/13/2025 8:47 AM, Marco Felsch wrote:
+> > Hi Laurentiu, Daniel,
+> >
+> > On 25-02-12, Laurentiu Mihalcea wrote:
+> >> On 2/12/2025 2:38 PM, Mark Brown wrote:
+> >>> On Wed, Feb 12, 2025 at 12:11:49PM +0200, Daniel Baluta wrote:
+> >>>> On Wed, Feb 12, 2025 at 11:38 AM Marco Felsch <m.felsch@pengutronix.de> wrote:
+> >>>>> On 25-02-11, Laurentiu Mihalcea wrote:
+> >>>>>> +    const: fsl,imx95-cm7-sof
+> >>>>> Albeit Krzysztof already add his Reviewed-by, can I ask why we need to
+> >>>>> add the -sof suffix instead of -audio or so? SOF is a software project
+> >>>>> but you can clearly run different software on the audio-copro as well.
+> >>>> Sure you can run a different software project on the audio DSP but
+> >>>> you will need a way to distinguish between the different projects.
+> >>>> There might be different mailbox, memory configurations. So you will  need
+> >>>> to invent another suffix specific to the new project.
+> >>>> We can make  const: fsl,imx95-cm7-audio as the one used with SOF
+> >>>> and think about a different name later for when another project will
+> >>>> want to use the DSP.
+> >>> I think the point here was that the DT should stay the same even if the
+> >>> DSP firwmare changes, just as how changing the main OS shouldn't affect
+> >>> the DT.
+> >> It's rather unfortunate but based on the experience from the 8 series
+> >> (imx8qm, imx8qxp, imx8mp), the programming model can differ quite
+> >> a bit (e.g: remoteproc vs SOF) even if the core is the same (i.e: DSP core).
+> >>
+> >> The different programming models also required different DT configurations
+> >> (e.g: dif. mboxes as Daniel mentioned, some extra properties (i.e: reg-names), etc...)
+> >>
+> >> The "-sof" suffix was chosen here instead of the more generic "-audio" (or whatever else
+> >> alternative) because the DT configuration is specific to SOF's programming model. Other
+> >> audio applications running on the same core may have dif. configurations (e.g: use
+> >> DTCM/ITCM for memory instead of DDR, dif. mbox count, etc...). I suppose this kind of thing
+> >> is bound to happen to some degree since the DT node doesn't just describe the CM7 core
+> >> (but, rather, it also encompasses information on the memory, mboxes, etc. used)
+> >> but perhaps I'm wrong?
+> > Time will tell if there will be any other user except for SOF for the
+> > DSP but and this is what I wanted to point out: the DTS should abstract
+> > the HW. IMHO The CM7-Audio node should contain all properties required
+> > to turn power and reset the core (e.g. clocks, reset, pm-domains). I get
+> > your point regarding different configs but please have a look at
+> > mt8183-kukui.dtsi. Here the rpmsg config is a subnode of the actual
+> > system-control-proc. This makes much more sense to me since the HW part
+> > is part of the generic core-node and all the software config goes into a
+> > separate subnode.
+> >
+> > Regards,
+> >   Marco
+> 
+> I understand your point but we're dealing with 2 different programming
+> models here: SOF and remoteproc as opposed to just remoteproc as it's
+> the case for Mediatek.
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+The idea is exactly to decouple the CM7 HW config from the
+software/firmware running on it and this is what MediaTek did.
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+Of course they are only interested in teh RPMsg part but this approach
+could be used to decouple the HW and the FW part which is your use-case
+(different FWs running on the CM7).
 
-are available in the Git repository at:
+> Going for a similar approach would also mean quite a bit of software
+> changes as we'd need to factor out the common bits (most importantly here:
+> core operations like start/stop) and placing them in a common driver. 
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/tegra/linux.git tags/tegra-for-6.15-arm64-dt-v2
+Exactly but shouldn't be to hard to implement. Of course it is more work
+than just adapting the compatible.
 
-for you to fetch changes up to 65d691a4400e111e8bb2422a5f4f28de34298be7:
+> This is not trivial and I'm not sure it's worth the effort right now
+> given that:
+> 
+>     1) The current way we model the hardware inside the DT is not exactly inaccurate.
+>     The core does physically use those memory regions, mailboxes, etc.
+> 
+>     2) Whatever we do, the information in the DT will still depend on the programming model.
+>     It's just that you're placing it in a child node, instead of the parent, which is arguably not that
+>     big of an improvement?
 
-  arm64: tegra: p2180: Add TMP451 temperature sensor node (2025-03-07 18:38:29 +0100)
+The benefit is to have different configs in place and a board can choose
+between them, e.g.:
 
-Thanks,
-Thierry
+	sof_cpu: cm7-cpu@80000000 {
+		compatible = "fsl,imx95-cm7";
+		reg = <0x0 0x80000000 0x0 0x6100000>;
+		reg-names = "sram";
+		clocks = <...>;
+		resets = <...>;
+		access-controllers = <...>;
 
-----------------------------------------------------------------
-arm64: tegra: Device tree changes for v6.15-rc1
+		firmware-name = "nxp/foo";
+		firmware-config = <&cm7_sof>;
 
-This contains a patch to remove an unusable key that was erroneously
-exposed as well as a fix to support GPUs with a large amount of video
-memory on IGX Orin.
+		cm7_sof: cm7-sof {
+			compatible = "fsl,imx95-sof";
+			memory-region = <&adma_res>;
+			memory-region-names = "dma";
+			mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
+			mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
 
-Finally, some additional devices, such as a temperature sensor, are
-enabled on Jetson TX1, the output voltage of some pins is adjusted and
-the VDD_LCD_1V8_DIS power supply now uses the correct enable GPIO.
+			cpu: port {
+				cpu_ep: endpoint {
+					remote-endpoint = <&codec_ep>;
+				};
+			};
+		};
 
-----------------------------------------------------------------
-Diogo Ivo (4):
-      arm64: tegra: p2597: Fix gpio for vdd-1v8-dis regulator
-      arm64: tegra: Define pinmuxing for gpio pads on Tegra210
-      arm64: tegra: p2597: Enable TCA9539 as IRQ controllers
-      arm64: tegra: p2180: Add TMP451 temperature sensor node
+		cm7_rpmsg: cm7-rpmsg {
+			compatible = "fsl,imx95-rpmsg";
+		};
 
-Jon Hunter (1):
-      arm64: tegra: Resize aperture for the IGX PCIe C5 slot
+		cm7_foo: cm7-foo {
+			compatible = "fsl,imx95-foo";
+		};
+	};
 
-Ninad Malwade (1):
-      arm64: tegra: Remove the Orin NX/Nano suspend key
+I get your point and I'm not against your patchset. Just IMHO the above
+example would make more sense to me since the CM7 hardware handling
+(en-/disable/access/reset/clock) can be done by a common driver and must
+not be done by each subsystem driver: sof, rpmsg, etc. Also the since
+the driver would be common it could be reused by other CoProcessors
+within the system as well since there are now more and more CoProcessors
+on a SoC.
 
- arch/arm64/boot/dts/nvidia/tegra210-p2180.dtsi       | 13 +++++++++++++
- arch/arm64/boot/dts/nvidia/tegra210-p2597.dtsi       | 20 +++++++++++++++++++-
- arch/arm64/boot/dts/nvidia/tegra210.dtsi             | 10 ++++++++++
- .../dts/nvidia/tegra234-p3740-0002+p3701-0008.dts    | 10 ++++++++++
- .../boot/dts/nvidia/tegra234-p3768-0000+p3767.dtsi   |  7 -------
- 5 files changed, 52 insertions(+), 8 deletions(-)
+Regards,
+  Marco
 
