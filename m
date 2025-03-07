@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D76C282D0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 08:59:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03E82C282D0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 09:01:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HHx88Grymc30MTgvPA/PEHWbEAMukoJEE7cpZfe/FD8=; b=Fo6x/VUmbhQyVdI/WFC8v0G+K9
-	mlH4kxnqezEeCNTu4Cu9b5dI7cdAfls+fDtLi10ycW/UIkRHAta1/UTknIHb6qESuaylAS3SJogiV
-	e4hWtZpgBGqt8G870UDgbtcjx2cEVfFyR00N/HFISxrdZC3q8PzAKpZ5SjvyqCmaKijmOSNRgzy4+
-	/0NzZJvflCs7uwo2uI2TZR8hhim1K2MjwoBtb/e/fW0T5EDrj2LxqlBb3Is0WK/xR7vFOuDQpujfX
-	m30vOS8EgriwSzRYkPs3xHlMfQBMAcxcfRG5lLAZTArrg2/uj3lZN0TJFrBURL3LbEvs0n4TCh1WY
-	DDZaxheA==;
+	bh=l2l5VejYaza20/TP5Ads5gBrzF4iFY7ffEoJHKGsjt8=; b=kphLFlIcaV+W4Zn61wm3KwFHic
+	+rmEa9wWh80hFdSEM/7QVohxgm8t3OMFCsFyLm9JUfeqCz/l3rZhLvstS/o7zw+UCroT29wmk6bs+
+	LwHaAp/latGfzTr8Bb/ZA/Iq+E7D/nR99aTeIV5UVwFCZpG9GTyNhOk4iF1FvhBwecVsad9qX7U9C
+	CJZmlL0rZ0BiDpD6lieg9la/nXGR47TtpDOxvZDoN2nPfL4VswH84uOVfwtBpBmGctrAaJ0+hSwyl
+	kv7qR0MgU8Eq7Grrg3cGzThkxvY1QWhyubsAQ3aCetMpEClN0C8goZtily0c6ZsXHk9Vskh4uAL5S
+	A6iJNmDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTY8-0000000DdSU-3DNv;
-	Fri, 07 Mar 2025 08:59:20 +0000
+	id 1tqTaE-0000000Ddlv-2ELv;
+	Fri, 07 Mar 2025 09:01:30 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqTVx-0000000Dd2L-2c74
+	id 1tqTYa-0000000DdZk-3h84
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 08:57:06 +0000
+	Fri, 07 Mar 2025 08:59:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id F1BDA5C0453;
-	Fri,  7 Mar 2025 08:54:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 83B75C4CED1;
-	Fri,  7 Mar 2025 08:56:59 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6A3325C4CD0;
+	Fri,  7 Mar 2025 08:57:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09EC7C4CED1;
+	Fri,  7 Mar 2025 08:59:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741337824;
-	bh=GdvVVcDXx825xwHiDeenmFGVQv+cy7j7wXByGy3GLRA=;
+	s=k20201202; t=1741337987;
+	bh=OUm7r7IpsmT73wpd2azBUljbUrW/IqVpCS+NbA3cdD8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Q8DCTYdo+Xi9+P2rH/JhJ2Z8naxSK1QwDzwMWmhO2epqAOBNa+SZOA8OsM+jdzVgt
-	 8rQx8cHWBr6hpVTUDYj5u+99BIQ2ga6pSgyon6ACNHyFBy6fD/JaUCkDG6XkSI/cDi
-	 5Zb0gOt/oVIPUj0LozoFvBhCTR5v83aNNmV5q06Ppl2QaAZpuAVrP9z+n7q2LbQAEu
-	 veaTzYie9lg55aNKqGSkqLWajDVlwhoIcOrMCSFsnrKZkT8RmXkIQUHmQAyW2NkPSn
-	 FRIu0yStlp8hO9dXQIydoMGnGrfkK7trduXY7lv4nHs13LZpGsJLSNAp+6eqGor7rE
-	 UqaiDwUlLqt8g==
-Message-ID: <f8e2091b-52dc-4b7a-b781-84588dd6b1ba@kernel.org>
-Date: Fri, 7 Mar 2025 09:56:56 +0100
+	b=ernTCcp2o/kCxExwSGkbZOyzh6oF9W/6wtDyKXNyH900Nr+5vjVjbCzhxnoBlYtym
+	 HLFZVN2MhtEYTdw9aPiCSX+aMKWnb3OySFZ6jaFmOnJHIQ9sAuuaAH6caSepvR/uqf
+	 WC1rA+By+L0IxyLYkAHhAeslfFc2keV7H0cr+0u7HhFuu1hUiy0OM86F60PkWYDr32
+	 pUjyYIANYz4kRLOTYS9OQ0rlsW20BdgbeMbIhkT9IlHPmCfqpyABZRZzKnWhYe8JUD
+	 6x2qI1C1/ulCK+pl34ozOSypZ/H0lXk6Jh9Uh6MqRjGwPQUO+RbaOU69T3EvRXNUVJ
+	 idKQ/9hRlbG7w==
+Message-ID: <2f39acd2-e378-47cf-b852-bee1a38108c5@kernel.org>
+Date: Fri, 7 Mar 2025 09:59:40 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Add Armada8K reset controller
-To: Wilson Ding <dingwei@marvell.com>, "Rob Herring (Arm)" <robh@kernel.org>
-Cc: "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, Sanghoon Lee <salee@marvell.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
+Subject: Re: [EXTERNAL] Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add
+ reset controller node
+To: Wilson Ding <dingwei@marvell.com>,
  "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
- "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- Geethasowjanya Akula <gakula@marvell.com>,
  "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "andrew@lunn.ch" <andrew@lunn.ch>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>,
- "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "robh@kernel.org" <robh@kernel.org>
+Cc: "andrew@lunn.ch" <andrew@lunn.ch>,
+ "gregory.clement@bootlin.com" <gregory.clement@bootlin.com>,
+ "sebastian.hesselbarth@gmail.com" <sebastian.hesselbarth@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ Sanghoon Lee <salee@marvell.com>, Geethasowjanya Akula <gakula@marvell.com>
 References: <20250227192536.2426490-1-dingwei@marvell.com>
- <20250227192536.2426490-2-dingwei@marvell.com>
- <174068786548.161165.4348563654300627455.robh@kernel.org>
- <BY3PR18MB467346EB1FA7CEF0A3300350A7CD2@BY3PR18MB4673.namprd18.prod.outlook.com>
- <d2929546-27de-4893-a611-dd4a3bca1a64@kernel.org>
- <BY3PR18MB46734A2425361D8BE83E4282A7D52@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <20250227192536.2426490-4-dingwei@marvell.com>
+ <d085c34a-fdbf-4950-a2e3-b3d25a1c0145@kernel.org>
+ <BY3PR18MB46730C150D4CB9619B3B05FBA7CC2@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <050ae833-10b5-4d80-9856-8bc2f434a74f@kernel.org>
+ <BY3PR18MB46739700B533630D65C60808A7C82@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <87b9e9c3-87db-4ebe-96b0-4f04705ef6f8@kernel.org>
+ <BY3PR18MB4673B4CEB60D3D21AB17B01DA7C82@BY3PR18MB4673.namprd18.prod.outlook.com>
+ <03b14353-5d47-48de-99fd-9cc48bad5651@kernel.org>
+ <BY3PR18MB4673BD07048F8AF7EA55282CA7CA2@BY3PR18MB4673.namprd18.prod.outlook.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -110,12 +115,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <BY3PR18MB46734A2425361D8BE83E4282A7D52@BY3PR18MB4673.namprd18.prod.outlook.com>
+In-Reply-To: <BY3PR18MB4673BD07048F8AF7EA55282CA7CA2@BY3PR18MB4673.namprd18.prod.outlook.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_005705_751485_B9C13769 
-X-CRM114-Status: GOOD (  19.64  )
+X-CRM114-CacheID: sfid-20250307_005949_004632_D93F8C6C 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,60 +135,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/03/2025 01:03, Wilson Ding wrote:
->> reset.example.dts
->>>   DTC [C]
->>> Documentation/devicetree/bindings/reset/marvell,armada8k-reset.example
->>> .dtb
->>>
+On 06/03/2025 18:42, Wilson Ding wrote:
+> 
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: Wednesday, March 5, 2025 11:29 PM
+>> To: Wilson Ding <dingwei@marvell.com>; linux-kernel@vger.kernel.org;
+>> devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org;
+>> robh@kernel.org
+>> Cc: andrew@lunn.ch; gregory.clement@bootlin.com;
+>> sebastian.hesselbarth@gmail.com; krzk+dt@kernel.org; conor+dt@kernel.org;
+>> p.zabel@pengutronix.de; Sanghoon Lee <salee@marvell.com>;
+>> Geethasowjanya Akula <gakula@marvell.com>
+>> Subject: [EXTERNAL] Re: [PATCH v3 3/3] arm64: dts: marvell: cp11x: Add reset
+>> controller node
 >>
->> That's a bit odd but anyway warning is correct: you cannot have such
->> compatibles alone.
+>> On 04/03/2025 20:08, Wilson Ding wrote:
+>>>
+>>> I did consider shrinking the syscon's register address range to make
+>>> the reset-controller node to be independent from the syscon node.
+>>> However, I found the syscon node is also referred by some devices for
+>>> miscellaneous configurations . The reset configuration register
+>>> happens to be located in between these registers and clock/GPIO
+>>> registers.
+>>>
+>>>> drop offset in your patch or unify everything into 'reg'.
+>>>>
+>>>
+>>> This is exactly what I proposed in v3 patch. Do I misunderstand you?
+>>>
+>>> CP11X_LABEL(swrst): reset-controller@268 {
+>>> 	compatible = "marvell,armada8k-reset";
+>>> 	reg = <0x268 0x4>;
+>>> 	#reset-cells = <1>;
+>>> };
+>>
+>> I don't see the other device being fixed here. How did you unify them?
 > 
-> I understand I need to add one compatible here to resolve the
-> warning. However, as we agreed, we keep the sud-nodes while
-> there will be no new compatibles in parent node. So how shall
-> I avoid this warning?
-> 
-> If we do want to add a compatible in parent node, what should
-> be used for the compatible name? I think the most suitable name
-> would be something like "marvell,cp110-system-controller0".
+> This patch series is about the proposal of Armada8K's reset controller
+> dt-binding. The dt-bindings issues of clock/GPIO controllers have been
+> there for years. Having to say, it is not just a simple patch to fix it. It
 
-I don't know. I don't work in Marvell, I know nothing about Marvell
-Armada and I was not involved in any Armada SoCs.
 
-Read your datasheet and come up with some reasonable name based on
-datasheet. Why do you ask people who do not have datasheet?
+I understand, you just want to throw your patch here over the wall. It's
+reasonable, I feel it. Just like previous cases for this binding -
+everyone wanted one subnode at a time, ignoring bigger picture, each
+time making it franken-node or franken-binding.
 
-> However, it was already taken for in Armada clock controller to
-> be compatible for legacy dt.
-> 
-> https://lore.kernel.org/all/bb21ee9acc55efac884450ff710049b99b27f8bf.1496328934.git-series.gregory.clement@free-electrons.com/
+Please listen to Greg's talk from years ago about upstreaming. "I don't
+want your code":
+https://www.youtube.com/watch?v=fMeH7wqOwXA
 
-I don't understand what it means.
 
-> 
-> This is something about 8 years ago. I wonder if we do need to
-> have the backward compatibility for the field devices at that
-> time. Can we drop it now?
-
-Drop what? You need to keep ABI.
-
-> 
->     syscon0: system-controller@440000 {
->         compatible = "marvell,cp110-system-controller0",
->                                 "syscon", "simple-mfd";
->         reg = <0x440000 0x2000>;
->         #address-cells = <1>;
->         #size-cells = <1>;
-> 
->         swrst: reset-controller@268 {
->             compatible = "marvell,armada8k-reset";
->             reg = <0x268 0x4>;
->             #reset-cells = <1>;
->         };
->     };
-> 
 Best regards,
 Krzysztof
 
