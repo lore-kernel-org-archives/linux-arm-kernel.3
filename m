@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE3F6C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:56:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B6FFC28B23
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 16:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X0Zt2jhA7ZU0TgS/MrOl7ZuQLXDeL147bPK0+m8I4Uk=; b=jfOUVyG8S6UY3UNt9AB5DzbJIb
-	6iBlD8YHWpcQwsM7KTa+gY6WhPRpI8SRVObVTqIz+bjzUdtmCJ6RPoGlWJGpyvQ1txkx6unuoChpb
-	QMDPN6Y2XR2DJV8WtZVheIcXoXxttwg5B0FHkmLbW05ntSNVQiUM4QO7DDOUVTbsPHIvfg3fsdRcr
-	yRwTA3DPZ4dD2oKG8Vfg5sqrd/YshAw9zsYfVMQT3sk7aOrfr7IVpFnME6Qq0Bv7BUPjC2saMKO26
-	fVdBaBW8pArEj1ygL/65p5CCHJte9kaT4UgfFMzUofD7voJRRM91RZxyTLYAxPg068iN9AZKvMR1B
-	ZeHf7PMA==;
+	bh=V9qFhwXNt5nOCJzEqj8JB0MpQ/9Z77x05iZAh1+O/5I=; b=zmtGwDawwaIxN3ExuzuOHQctVy
+	6k+NKiC91qoBWQOu+hmhKYku/9SGg1pB09DEr08f4Xbb7kZCG1iaZ/wM2WRtrFnk5Q03UcFERUZyK
+	J0SSLXN45dmPq0emfyvJLyrGHzKPHU1ooZCW13oPbcvLMYV0U5CVXrKMblb2PpZTRz0tIrM1ijcJS
+	G69b1PVP1+ORgebo/X5wQF4UqVTkOmebNEMDfzNMezUkt4dK4XoLCK1uRCPdOHgWYb2Ho0SLJUKHm
+	unjMRIk6exF8nCvvIpf1ynbWUBIrTpU88YUzC21FwoTbTnYH+ZcECcBh4ZVJ/qw1ow+JDKyuyVpWs
+	uqBlYFTg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqb02-0000000EyfH-3H6l;
-	Fri, 07 Mar 2025 16:56:38 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1tqb1d-0000000Eyrm-2Xh5;
+	Fri, 07 Mar 2025 16:58:17 +0000
+Received: from mail-lf1-x12a.google.com ([2a00:1450:4864:20::12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqax6-0000000EyJt-1G7i
+	id 1tqaxT-0000000EyLe-3KhI
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 16:53:37 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-30bf3f3539dso10635591fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 08:53:35 -0800 (PST)
+	Fri, 07 Mar 2025 16:54:00 +0000
+Received: by mail-lf1-x12a.google.com with SMTP id 2adb3069b0e04-5499659e669so514445e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 08:53:59 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1741366413; x=1741971213; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1741366436; x=1741971236; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=X0Zt2jhA7ZU0TgS/MrOl7ZuQLXDeL147bPK0+m8I4Uk=;
-        b=MGY2wMCCs5bec12z1UQxx7eWaOW7AiUwXf5lxzfkQZVPCE0XqpVHsbOsxrlW6n2Dsi
-         78n/iCme3Y/hcpaUEP+RU/yGRmDOyi52OdUnr9NXdgxv6ISAO5Z/9eXsPTztTJYhs0kX
-         dg8mdZGj40yyhKgTkGAYtATrpAfzKntTZQ5XI=
+        bh=V9qFhwXNt5nOCJzEqj8JB0MpQ/9Z77x05iZAh1+O/5I=;
+        b=YGn4KSjKsmNKssExP98HAJFoFLylCE9JHHFn1Cv/iH7Wl7PS2IH7T4MKORXswTZkMM
+         oj1100FVMxXW3ad6LhqfofPaoycVyuRJTt5wWMPiDAGwCaO47pLR1xYgfxDLUZDqnTwn
+         umbRe7cMIPo2MjVT4YzfZckBBeX/fcIilSig8=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741366413; x=1741971213;
+        d=1e100.net; s=20230601; t=1741366436; x=1741971236;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=X0Zt2jhA7ZU0TgS/MrOl7ZuQLXDeL147bPK0+m8I4Uk=;
-        b=OCkVk3Y7ddxpv1pnGR/ZqjtiD5LjMlRVQVMyoZ310rkrM81zGSjSyzkqKk2zHtyfRe
-         fydwA8NnPRyKFOveo9CLErpIU8ImU+nPswV5kf+qNTGWrsVAVekQ/ttQzjc6pMr21ZwZ
-         U6v4NxuBtcFgWsfgbE8U2mkbxINU3ryXujbFXbl3NyW111wK41pq3Mu7aorEWUThyiNz
-         VeN5RfmEAy9v0V2yBYxv6PSd/IS4JwnnAHwIJEcpdu6b0kiRWb894gIfkiVPKxLICsdE
-         ZTfV88eg8TS2RYGk5lg4mKA1prulL4OyOE/Iz68QgpVwbsSN8qaG72GkIp1sfTIvs/BA
-         V2Hg==
-X-Forwarded-Encrypted: i=1; AJvYcCWouXvWJYT3p0EJKV6Qwa/S7tsgbNnoBGLRJ7euI0k0kpvuQEo7c9srlrINGH1ZfEBej2EZ/WjQhsssgB4wC5Da@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAvwY1gHoBZPScuaHJwiuWJ3DZb5YPM0eIWFaeLcITLXE7G0wJ
-	9jKdgmiD4/C8hGw+B3vDclyESpaxwxN8bwc68Hg99vyp9dPvoR+6VxWEsT8MnAee3oke3EsAew/
-	cBA==
-X-Gm-Gg: ASbGnctsiilEZnS9IfTV45TiECBy+VRXud5E08NJLEZWEee7uu9wOuAf/ZNhGad1Zif
-	TSAf8gOi9wKCcnnGBaV5f5FWsLJXgZ7EWDLf99oUAUK4JYL7ZONOjm36ODpKhHzX3ALG3uiH91M
-	EgrFVquMYl5wefl6YDeX8qwzkfshEtH3Ambjga42JY2Nc6bkf+LXBYDkKWPCVHx0/NLJI5GUlK7
-	KCFW/YfX5WYEybHiIwcjAoIIGK3eipxM8zRaun+KxBkfx5vmUItphxVRwCKRprIShC0mKlautBJ
-	Lpje9GYnVLJ1M0E++qE+xVxE7H0SWapk0eK+Tcbz1r5paFgMeahLgxhF3yck99Dfp7jf3C/8PTc
-	ZRjrhW7KE
-X-Google-Smtp-Source: AGHT+IFr2kFn3rToZdRG8ApibwBTjwN014kZPIALD3hMDMmu9U0fKkoGUr+65hjE2VPiPMdsud1Cfg==
-X-Received: by 2002:a2e:be03:0:b0:30b:f924:3544 with SMTP id 38308e7fff4ca-30bfe42d9a0mr935471fa.10.1741366412539;
-        Fri, 07 Mar 2025 08:53:32 -0800 (PST)
-Received: from mail-lf1-f46.google.com (mail-lf1-f46.google.com. [209.85.167.46])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30bf11ffed0sm4132691fa.102.2025.03.07.08.53.31
+        bh=V9qFhwXNt5nOCJzEqj8JB0MpQ/9Z77x05iZAh1+O/5I=;
+        b=WruYWNP7qOTfDr/iHVIEn8xh2ei1FworA6lLceOwiQPPaGITEDqCPBSvgoWQJMXBFA
+         zxMpKkgW2pGBmmSVVKjp8DyfI+2z+euUTb6GygHlIcjJ1FUHJnUfuN87twvvutsS3ei1
+         B5oXVbP0R+CC+u7AtnYm6nT1Du2mK49tqHPHYh0rg1UFrf3vkA9AX8UWhXqumPYxJ4XO
+         VyEi8bDf7l6kBIes+7aFuxrSBVq7hkISfNif2gyunGU674rE9+Z+0cQp1CjY/hsOgXMU
+         XE9tOCRVq7xfpZUYwvWRoR1O5QVemsWC0oK4y1zoyfcA2Rc+y3IHxr+lRukkSKW1/oZ+
+         N5QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX5s1H5gUcf10WAdf1GRyAFAgz0P9xeviTWYgvi7FCsuc7eMb1qIwh4e2u+DpUYZkIvM/s7DM4r23YhCwF3C+Rw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz3iaCwDdtY2A2is9Xyn/Hi3F4QC+q7bdqVOYR31QblL9Q8GBNO
+	VVscLlnbuGMlJNK5U7xMRx/LaNjjaS72G+v56lIzKUdIaF1zb8Qeu8sHUZTVII54RyVsuYP8fuM
+	nxA==
+X-Gm-Gg: ASbGncvzzWnTBhO1gHJE4kYhbwb8FWH3T27Us86jAZEnbmpgsPf3gEHNo4m4xlTKrS7
+	vjXPRvzsxKH/zDs09RbdL2Pbp+QX88nWyEgl9l3QcXKJH6vSwpWznLVPSStpSbPT4KzQs3+wRq4
+	YioR1xreVO8YtQHBkncI18q6MLLxJr0J2w6UKBsTBS8dpZTKPnW+NR1p6PSyDkuZeeJhFP909od
+	TGQyy6/4Uf2c62Fn9QUJImpM9r0PwyazUvAloWFYGoxzvodX45QpqiJyimLSyBt+aQOhuzzaW6H
+	ACoWu4mKLE+JTVntwE+tG1TVreVfJH6TqpbQf8b86t/EIkVQ2HOLn4GHERSTcEWm4gVVJGevTB4
+	H51Dc9EGkmoap
+X-Google-Smtp-Source: AGHT+IGCnlplwMh+4riIwZj+YuJ9RZvqRfreYalWpn2AiDKISS67n8UeJY8SeMpnMV2QjvZ5fZv0rQ==
+X-Received: by 2002:a05:6512:ea5:b0:549:7145:5d2f with SMTP id 2adb3069b0e04-54990eb8e3fmr1843250e87.33.1741366436101;
+        Fri, 07 Mar 2025 08:53:56 -0800 (PST)
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com. [209.85.208.179])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5498b1c3da9sm530605e87.252.2025.03.07.08.53.50
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 08:53:31 -0800 (PST)
-Received: by mail-lf1-f46.google.com with SMTP id 2adb3069b0e04-54957f0c657so2384943e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 08:53:31 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCXMia0FHN6h2e4cIyKubCbEHToCfJ/tEh/g6YzKPgCEisVd1PPk659/dbhwBuSI11ZVfWMQ6aLMfPwqot4jDwgP@lists.infradead.org
-X-Received: by 2002:a05:6512:2386:b0:549:8b4d:bd47 with SMTP id
- 2adb3069b0e04-54997e4cf86mr85675e87.9.1741366410846; Fri, 07 Mar 2025
- 08:53:30 -0800 (PST)
+        Fri, 07 Mar 2025 08:53:50 -0800 (PST)
+Received: by mail-lj1-f179.google.com with SMTP id 38308e7fff4ca-30bf2513a2dso15333161fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 08:53:50 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCUWeeUp7MXOAyxGIqea/KgKpi/Q4MzpJZqFX4v8yTORMNeVNIn5g/FAY4/9hUCNZFybXEZUVF8EPJH2w5W/Ex0g@lists.infradead.org
+X-Received: by 2002:a2e:be1e:0:b0:30b:ef38:22ce with SMTP id
+ 38308e7fff4ca-30bf4635c48mr16484231fa.31.1741366429347; Fri, 07 Mar 2025
+ 08:53:49 -0800 (PST)
 MIME-Version: 1.0
-References: <20250307021811.46981-1-yangyicong@huawei.com> <20250307021811.46981-2-yangyicong@huawei.com>
-In-Reply-To: <20250307021811.46981-2-yangyicong@huawei.com>
+References: <20250307021811.46981-1-yangyicong@huawei.com> <20250307021811.46981-3-yangyicong@huawei.com>
+In-Reply-To: <20250307021811.46981-3-yangyicong@huawei.com>
 From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 7 Mar 2025 08:53:18 -0800
-X-Gmail-Original-Message-ID: <CAD=FV=WfB6inJPuwfhbw4mtFBYpr+3ot2J+SJAZ3pT3t4fW7cw@mail.gmail.com>
-X-Gm-Features: AQ5f1JpI_gfdx4CVaz6hX7OKn6TzrUz6O9Q4J2HqOQo2t3L5O5xDD303Pb33Xyc
-Message-ID: <CAD=FV=WfB6inJPuwfhbw4mtFBYpr+3ot2J+SJAZ3pT3t4fW7cw@mail.gmail.com>
-Subject: Re: [PATCH 1/2] watchdog/perf: Provide function for adjusting the
- event period
+Date: Fri, 7 Mar 2025 08:53:37 -0800
+X-Gmail-Original-Message-ID: <CAD=FV=XLn9Dz8rhRnjTKdbbeS3YP+XZFzpSV0C6+DakWOUmMpA@mail.gmail.com>
+X-Gm-Features: AQ5f1Jp6kJhnI2pkqsYSqzqRYdTDnZIcksY6a7eiW1i7qvQnjUMx9E9FYEZtyO0
+Message-ID: <CAD=FV=XLn9Dz8rhRnjTKdbbeS3YP+XZFzpSV0C6+DakWOUmMpA@mail.gmail.com>
+Subject: Re: [PATCH 2/2] arm64/watchdog_hld: Add a cpufreq notifier for update
+ watchdog thresh
 To: Yicong Yang <yangyicong@huawei.com>
 Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org, 
 	sumit.garg@linaro.org, kernelfans@gmail.com, lecopzer.chen@mediatek.com, 
@@ -93,8 +93,8 @@ Cc: catalin.marinas@arm.com, will@kernel.org, akpm@linux-foundation.org,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_085336_364333_6EC5AD13 
-X-CRM114-Status: GOOD (  11.38  )
+X-CRM114-CacheID: sfid-20250307_085359_840862_E836A991 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,32 +114,85 @@ Hi,
 On Thu, Mar 6, 2025 at 6:18=E2=80=AFPM Yicong Yang <yangyicong@huawei.com> =
 wrote:
 >
-> @@ -211,6 +211,27 @@ void hardlockup_detector_perf_cleanup(void)
->         cpumask_clear(&dead_events_mask);
->  }
+> From: Yicong Yang <yangyicong@hisilicon.com>
 >
-> +/**
-> + * hardlockup_detector_perf_adjust_period - Adjust the events period due
-> + *                                          to cpu frequency change
-> + */
-> +void hardlockup_detector_perf_adjust_period(int cpu, u64 period)
+> arm64 depends on the cpufreq driver to gain the maximum cpu frequency
+> to convert the watchdog_thresh to perf event period. cpufreq drivers
+> like cppc_cpufreq will be initialized lately after the initializing of
+> the hard lockup detector so just use a safe cpufreq which will be
+> inaccurency. Use a cpufreq notifier to adjust the event's period to
+> a more accurate one.
+>
+> Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+> ---
+>  arch/arm64/kernel/watchdog_hld.c | 34 ++++++++++++++++++++++++++++++++
+>  1 file changed, 34 insertions(+)
+>
+> diff --git a/arch/arm64/kernel/watchdog_hld.c b/arch/arm64/kernel/watchdo=
+g_hld.c
+> index dcd25322127c..719ae39e8bc0 100644
+> --- a/arch/arm64/kernel/watchdog_hld.c
+> +++ b/arch/arm64/kernel/watchdog_hld.c
+> @@ -34,3 +34,37 @@ bool __init arch_perf_nmi_is_available(void)
+>          */
+>         return arm_pmu_irq_is_nmi();
+>  }
+> +
+> +static int watchdog_freq_notifier_callback(struct notifier_block *nb,
+> +                                          unsigned long val, void *data)
+> +{
+> +       struct cpufreq_policy *policy =3D data;
+> +       unsigned long max_cpu_freq;
 
-Running `scripts/kernel-doc -v kernel/watchdog_perf.c > /dev/null`
-after your patch shows:
-
-kernel/watchdog_perf.c:219: warning: Function parameter or struct
-member 'cpu' not described in 'hardlockup_detector_perf_adjust_period'
-kernel/watchdog_perf.c:219: warning: Function parameter or struct
-member 'period' not described in
-'hardlockup_detector_perf_adjust_period'
+Feels like max_cpu_freq should be a u64. It probably should have been
+u64 in hw_nmi_get_sample_period() as well. Otherwise you could end up
+with a problem if the max CPU frequency is above ~4.3GHz and "unsigned
+long" is 32-bits (I think it technically could be?)
 
 
-Other than that, this seems reasonable to me.
+> +       u64 new_period;
+> +       int cpu;
+> +
+> +       if (val !=3D CPUFREQ_CREATE_POLICY)
+> +               return 0;
 
-...but I'd also have to ask: is there a reason you're using the "perf"
-hard-lockup detector instead of the buddy one? In my mind, the "buddy"
-watchdog is better in almost all ways (I believe it's lower power,
-doesn't waste a "perf" controller, and doesn't suffer from frequency
-issues). It's even crossed my mind whether the "perf" lockup detector
-should be deprecated. ;-)
+nit: maybe better documenting to return "NOTIFY_DONE" instead of 0?
+
+
+> +       for_each_cpu(cpu, policy->cpus) {
+> +               max_cpu_freq =3D cpufreq_get_hw_max_freq(cpu) * 1000UL;
+> +               if (!max_cpu_freq)
+> +                       continue;
+> +
+> +               new_period =3D watchdog_thresh * max_cpu_freq;
+> +               hardlockup_detector_perf_adjust_period(cpu, new_period);
+> +       }
+> +
+> +       return 0;
+> +}
+> +
+> +static struct notifier_block watchdog_freq_notifier =3D {
+> +       .notifier_call =3D watchdog_freq_notifier_callback,
+> +};
+> +
+> +static int __init init_watchdog_freq_notifier(void)
+> +{
+> +       return cpufreq_register_notifier(&watchdog_freq_notifier,
+> +                                        CPUFREQ_POLICY_NOTIFIER);
+> +}
+> +core_initcall(init_watchdog_freq_notifier);
+
+I haven't dug into everything, but don't you have a potential blind
+spot, though? What if the order is this:
+
+1. hw_nmi_get_sample_period() is called
+2. cpufreq driver probes
+3. init_watchdog_freq_notifier() initcall runs
+
+Since the cpufreq driver proved before you registered for the
+notifier, won't you miss the creation of the policy? Maybe instead of
+registering for an initcall you should somehow trigger off the first
+call to hw_nmi_get_sample_period() and register at that point in time?
+
+-Doug
 
