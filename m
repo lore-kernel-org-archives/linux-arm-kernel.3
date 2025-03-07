@@ -4,67 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F81C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 00:58:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C60E2C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 00:59:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=53dc8KCtgrVy3f7DB5Y8qDpa77xGhyKHpyGKs68Zw0A=; b=FSNsalODR4lFGYh/G+TXPQhnR6
-	g9X5yNBDJuTd0z1Abx8h/UbYUBE1hcYMWFXei9c9bH/BDql/8vzMrwuBRsT0SV/lG7kS3+Q+QDx0k
-	RjeWjvFj92pF/WVh9Oq9mxOr0gAbVoNja+lypL3PwWtiVG5hcvjw9+VdjptzYH01sGHyIW0XoVyJy
-	ZhWPcWXhpElyGSVTKoLmZDkNshA40Tz/S7dx+1HU2ddqJ+nfOflF5IBHMTnwyokq9PLDTASUrhAgU
-	0EW84HWuvZB4WoLPJGoup30W7vfSSLnEviDdktih5VnfIaIF7QP7RX62Hg4Qb/uZIZcQi0p/9yczW
-	nf/TbMag==;
+	bh=oM+1xVy2MVqCP/92ea+MEGO8ESmszjwDRyMA4/v2fvg=; b=YS9oPrZJod3A6rMgBFDBzrsK1C
+	4qy1ESBfhooO/czkgBFvBpwMINr0PV9RzUh6zfBx7DiBOknE/PM+nuJilRTPtasTbHjUifNZE8J4v
+	75mzMLFW1+m9JQ687ws7OUttWAC/FUetio7FDAHcuwhopBgHgrreNnsR0LzGWNoTZq5HKK28m75cd
+	P3FM+NMcmA3JGUspks3cJhmMWBby/HcillKLMGF2q1wsS9RFULLsZK8PY2gvWfgarppPRPksTZ1HP
+	F508c7zYopVQQiLMonME/3/ifspciyzKwRiWmjVpuCWAXOS7yN4vP8xQzeLhnmAKufOylJmsugZO1
+	14JLmbKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqM2F-0000000Ci2v-2tP1;
-	Fri, 07 Mar 2025 00:57:55 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqM3r-0000000Cic7-03B4;
+	Fri, 07 Mar 2025 00:59:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqLuh-0000000CgVh-32Nq
+	id 1tqLzg-0000000ChUM-1iwi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 07 Mar 2025 00:50:09 +0000
+	Fri, 07 Mar 2025 00:55:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3FB075C569F;
-	Fri,  7 Mar 2025 00:47:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D42C9C4CEE5;
-	Fri,  7 Mar 2025 00:50:06 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 52612A45063;
+	Fri,  7 Mar 2025 00:49:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D0F97C4CEE0;
+	Fri,  7 Mar 2025 00:55:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741308606;
-	bh=5E7QrRtVE031fm+0oQBlEfIWLHzTajXqxBcwX74S8Q4=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=frIgPf6wI9fVxTERiWPafyss4uNcBrf+ieJqOGr/EklkxPj8AM+kQ+DlxgC4qnXxK
-	 F32IvEiXGrSp7TH99vvRvJ83UoD2CQgUwoBld7Gs1nrNQS53jO+MBJhoir1dhh/XKT
-	 6y7BHdLmtpl9X9y6rfM1T/f5uC3japAQ267W0fkIysS3yGBP0W4BsYQLB9ItFZN2RS
-	 pzG/9Uzc3Urxk5Fo2wxHUJi33DxXsWRvtzLGZhrFkJOmGfzQ003C/Tv+6xBBze5dPG
-	 xMRI3t3jSd4oAFITDWyqjdzrqBmO4zd0/J7pZo4NPKI9+iTsQPP3N/rdknhgpomLAi
-	 3xOBZ8PEp+dZw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70BD1380CFF6;
-	Fri,  7 Mar 2025 00:50:41 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1741308914;
+	bh=xek2BHPVZ26qJOlIwvynXxMSgyWkeMn3liBIClkp3lI=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=QrpItbReJvXV4f5NgW5mLT6raAXR9ILcWXRqNJek5KIcTTvGN4K/B/vomAxa0s7LW
+	 u4aZDEn0nSrDXhaoRTqiVXvn3VaThme6YX8s6fmORw6eDBPiM8AqInegTSJnIygUbN
+	 kmkzeTMC5o/97KmCJg36JTQAlrvaMcAxFirIDLb5xVmPAOJVe3jVwL0fCb3/QRj3A+
+	 wH5k2Okk0ScuJX1DrWC0/L8AYVJCKq8PdMiLFuNuJ8B4IhoS4LvwUN5iu2xUu8z5hV
+	 86lbzUFCHlPP2SMdOd/H4zSLjWAQwKdWKWfq348B2QMnnbe/oMlMH5KgNaN3ZRDPCA
+	 yO7SLVnzsbOzA==
+Date: Thu, 6 Mar 2025 16:55:13 -0800
+From: Jakub Kicinski <kuba@kernel.org>
+To: MD Danish Anwar <danishanwar@ti.com>
+Cc: Vignesh Raghavendra <vigneshr@ti.com>, Meghana Malladi
+ <m-malladi@ti.com>, Diogo Ivo <diogo.ivo@siemens.com>, Lee Trager
+ <lee@trager.us>, Andrew Lunn <andrew+netdev@lunn.ch>, Roger Quadros
+ <rogerq@kernel.org>, Jonathan Corbet <corbet@lwn.net>, Simon Horman
+ <horms@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Eric Dumazet
+ <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ <linux-doc@vger.kernel.org>, <netdev@vger.kernel.org>, <srk@ti.com>
+Subject: Re: [PATCH net-next v2] net: ti: icssg-prueth: Add ICSSG FW Stats
+Message-ID: <20250306165513.541ff46e@kernel.org>
+In-Reply-To: <20250305111608.520042-1-danishanwar@ti.com>
+References: <20250305111608.520042-1-danishanwar@ti.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next] net: stmmac: avoid shadowing global buf_sz
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <174130864025.1835493.2395705293072394933.git-patchwork-notify@kernel.org>
-Date: Fri, 07 Mar 2025 00:50:40 +0000
-References: <E1tpswi-005U6C-Py@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1tpswi-005U6C-Py@rmk-PC.armlinux.org.uk>
-To: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-Cc: andrew@lunn.ch, hkallweit1@gmail.com, alexandre.torgue@foss.st.com,
- ast@kernel.org, andrew+netdev@lunn.ch, bpf@vger.kernel.org,
- daniel@iogearbox.net, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, hawk@kernel.org, john.fastabend@gmail.com,
- linux-arm-kernel@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, mcoquelin.stm32@gmail.com,
- netdev@vger.kernel.org, pabeni@redhat.com
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250306_165007_812985_53510684 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250306_165516_544483_6D845A63 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,29 +77,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Wed, 5 Mar 2025 16:46:08 +0530 MD Danish Anwar wrote:
+> + - ``FW_RTU_PKT_DROP``: Diagnostic error counter which increments when RTU drops a locally injected packet due to port being disabled or rule violation.
+> + - ``FW_Q0_OVERFLOW``: TX overflow counter for queue0
+> + - ``FW_Q1_OVERFLOW``: TX overflow counter for queue1
+> + - ``FW_Q2_OVERFLOW``: TX overflow counter for queue2
+> + - ``FW_Q3_OVERFLOW``: TX overflow counter for queue3
+> + - ``FW_Q4_OVERFLOW``: TX overflow counter for queue4
+> + - ``FW_Q5_OVERFLOW``: TX overflow counter for queue5
+> + - ``FW_Q6_OVERFLOW``: TX overflow counter for queue6
+> + - ``FW_Q7_OVERFLOW``: TX overflow counter for queue7
+...
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+Thanks for the docs, it looks good. Now, do all of these get included
+in the standard stats returned by icssg_ndo_get_stats64 ?
+That's the primary source of information for the user regarding packet
+loss.
 
-On Wed, 05 Mar 2025 17:54:16 +0000 you wrote:
-> stmmac_rx() declares a local variable named "buf_sz" but there is also
-> a global variable for a module parameter which is called the same. To
-> avoid confusion, rename the local variable.
-> 
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+>  	if (prueth->pa_stats) {
+>  		for (i = 0; i < ARRAY_SIZE(icssg_all_pa_stats); i++) {
+> -			reg = ICSSG_FW_STATS_BASE +
+> -			      icssg_all_pa_stats[i].offset *
+> -			      PRUETH_NUM_MACS + slice * sizeof(u32);
+> +			reg = icssg_all_pa_stats[i].offset +
+> +			      slice * sizeof(u32);
+>  			regmap_read(prueth->pa_stats, reg, &val);
+>  			emac->pa_stats[i] += val;
 
-Here is the summary with links:
-  - [net-next] net: stmmac: avoid shadowing global buf_sz
-    https://git.kernel.org/netdev/net-next/c/876cfb20e889
-
-You are awesome, thank you!
+This gets called by icssg_ndo_get_stats64() which is under RCU 
+protection and nothing else. I don't see any locking here, and
+I hope the regmap doesn't sleep. cat /proc/net/dev to test.
+You probably need to send some fixes to net.
 -- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+pw-bot: cr
 
