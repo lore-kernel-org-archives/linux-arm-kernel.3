@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2A8E7C19F32
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D001EC19F32
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  7 Mar 2025 12:18:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROcyeVCYncbaGDV5GQ7+90dm5cD3FAezni/Ys9hsv1U=; b=lC2PWCvC5j/L7Uz/8WbSb1dIPH
-	j6DDY8oO7uQkd3UqSTW2qRaRchp9mSv0llCseEaIzNdAnZxYRkQJpv3BmJtC5HkAm1uPBkFEp+Xn5
-	IUHWUsB3aaLbk155XFRofTJXXHYXPmsTTrLCOSklETsLpAHx+sOQFA+UYfxe4noR4K9UsDT178q+z
-	MI+5Sp7+DgbAAgplFLXRGK3AF/jwFA/nbJbLn+7EXxNMVjfakou+NVDBq1CAUGMbN3/p0M0muIB/O
-	nzDolqrlz3+vkOYWpKaDutI5TJxGLfy89jql77OioKEqDP+tNTnTBipaTei0/VpHJK6UeiyCHVFCA
-	gAUj2frw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=diMBy43YOQ25qtnwPvyqEuoVEZ4fTwQ8qQCsxL/aRcI=; b=bGLVKc0ol1zRbv3KxnREyMpIyL
+	EBCfwSW9Xbjslq90lOCrswLQapPbQ5eT8PS1h6DXHoABRmB8PgrZXLP4Q4nDB14EVCJZiyeUN2AWT
+	7FnezsT9ybhyVi5rBLuhB2kM4eUj29F/pmTA9TWMxGshyM8V1nVFTnj8i+X6LI5ukdrPB98j66kOo
+	pewmFiz56xnzR0a/cEg67rMUKTZHvlmL0q5YFJLDfYJ3O2/OCOSUeWN3nbPLsx13Y9VP5iGkQeylb
+	Yjs0ueKUlrqU2Sm5of3XW34Ov2Q3dB1nGjjbLre5UEnI00G45TIByKSEFbnEoNuyg/gdfGaKMey1l
+	Dcks6DNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWdO-0000000E9ze-0mtE;
-	Fri, 07 Mar 2025 12:16:58 +0000
-Received: from mail-ed1-f43.google.com ([209.85.208.43])
+	id 1tqWey-0000000EAGv-2GDO;
+	Fri, 07 Mar 2025 12:18:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqWar-0000000E9Qg-2pG3;
-	Fri, 07 Mar 2025 12:14:22 +0000
-Received: by mail-ed1-f43.google.com with SMTP id 4fb4d7f45d1cf-5e4d3f92250so2571268a12.1;
-        Fri, 07 Mar 2025 04:14:21 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741349658; x=1741954458;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ROcyeVCYncbaGDV5GQ7+90dm5cD3FAezni/Ys9hsv1U=;
-        b=bHtjSHigEvf0w/irHb0xWyV034uFx1C3FHhMkMpt0f5Yx2TeW6W8WmI+wPf5E92avv
-         lYOx9I5MjIHn4fPGvUmKnfxHgwZC8ZGsxxQxdugaZmsF32gIe1BcyFnysa1BZX+rZpSu
-         zjWSqtB0tDgy+ej8v8881X7TEZqk3r1fiEnODVP+42IF/4Rl4Egwt299vHwm6E2XOH1L
-         b/c4csBtZIk5TvULN1FAe/uDYK8Js6MNWP0Gmx6pvM0dwOy2MbCF/GoSauOgAKOl/uP3
-         aQU1dVyQjqwooXlJvprtZE93wGD2km8HVhkZQaCu6vGXNK2qkq5H7a1apm9gawhlcTq/
-         dAuQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUvtnv11TBMxSngFWvRGYAAkM5EufG2+iyieQJm3RjM/7dUocVvreGwZcRZSdde4WDF92ulVVEFKjUXKzZvT2+DYg==@lists.infradead.org, AJvYcCX5wtYJLu1ijXw7Cf6xB7ocUsTtRyQSeY1tnJWn623zNWptbrt+pAibBKlj9uBnnCNBDdKoif7R0kUlNaJFsR9c@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2KnpEEXQ8WHxPlQBT5l05/W2Q0kPZoQp6Uv70BK8B+MRfUcr0
-	mg7aYVn127fs3I9vOyfaiLqxG3tsyhRMjLAsiJy3ss0CDBW7zDNbzeQ2lKYcjDo=
-X-Gm-Gg: ASbGnctqyAm4GnAesGynCJmZbCblXGj+6rZ65UH+Q4r3rqnD0OjOx9ujcGopXvxGfYd
-	PsQC94j87FT4uzWYUw98DDBoMgYT4kMTLZFmkfDVT0PNHN0ljzliz/jZkZzCnydoQVelJj1My3I
-	3yms78B/ZukCsjnc7wWFEtQVZ4punc9xi8uI+FWZbKQdcVTesM/E+711u1CUBep2pQyeFvRFvIv
-	bfzkdh4qFa1BBksfUIkT7sjfZ5cl2RIqVdYxWXkV4/npDc2EjzRKYqhaNCtO3kqIQ5ULEB7OWRA
-	jADE8qutcsGBk00pxucHSO1PEmngMKrW2lKzVVY1G63sjceLC1M5gAs2FGJkVHbRCL4NX/UTmR2
-	5EdvW/LA=
-X-Google-Smtp-Source: AGHT+IFZPK1Nc7tv86+TOgwXXK1IAIHdARBuhu5iZjSpF1Ws3HgA3Q8ypafdnvonew96jFslpMjplA==
-X-Received: by 2002:a17:907:944d:b0:ac2:8db:7057 with SMTP id a640c23a62f3a-ac25274a067mr275936566b.3.1741349657922;
-        Fri, 07 Mar 2025 04:14:17 -0800 (PST)
-Received: from mail-ej1-f46.google.com (mail-ej1-f46.google.com. [209.85.218.46])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2399d3c0esm262732866b.181.2025.03.07.04.14.17
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 07 Mar 2025 04:14:17 -0800 (PST)
-Received: by mail-ej1-f46.google.com with SMTP id a640c23a62f3a-abf42913e95so263770566b.2;
-        Fri, 07 Mar 2025 04:14:17 -0800 (PST)
-X-Forwarded-Encrypted: i=1; AJvYcCUJLLlkZNB5HAzNl4iFIwA0wXmLCa2eAQETyheQA714+vCBmDAwAPoDvkfdUzj2WZe6OisAqGoLf4Qpp3ps4xgC@lists.infradead.org, AJvYcCWWTR9XMNNaF6BEKBcTuhCQU9EoAcWrJZUej9bVPNMFldykhH4ZSUNb2vaaFppjKKTAUcyV12/1cGrHkIpG4a4qDg==@lists.infradead.org
-X-Received: by 2002:a17:907:3e8f:b0:ac1:f5a4:6db3 with SMTP id
- a640c23a62f3a-ac252b59b7fmr392509366b.33.1741349657119; Fri, 07 Mar 2025
- 04:14:17 -0800 (PST)
+	id 1tqWcF-0000000E9ip-0TMw
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 07 Mar 2025 12:15:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 78DEBA45757
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Mar 2025 12:10:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACA5EC4CEE8
+	for <linux-arm-kernel@lists.infradead.org>; Fri,  7 Mar 2025 12:15:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741349745;
+	bh=NUTcwqh7MCASvD4w+bVQSfE4QAqRs9qXkw2IdgX9WCo=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=QAx0mt9ExXV5hggC/+MxyKsU0jZkRktXz8OxehcXJcyZh1o9vlwub2+ig0vt8jec8
+	 6rX7tSL86uv0pL/9c0VGRLHTGQCZfVYmZiDh0X2BlXgelBaTEbZ3hSxrx1IcvwFnMK
+	 1nSe1gYdRrv9XNyYQbVSqGQoatlGFpMe5EZc8RhKKX+60N5XNcTJjw2Fr8yBcMDJZp
+	 EGOQ5whrZM/v+0HjQuttTXVzlYlmExawYdtRZdVnKK5ca86eWkFjSWp/+CLcvU+K09
+	 77IW07Nz8NRLKfrsgJpeEIIMvoemRxShTvz3HFKdb1/vsq72NfxIYqbVo6hH+KIuT2
+	 5tmnZYgwZ3XQg==
+Received: by mail-ed1-f51.google.com with SMTP id 4fb4d7f45d1cf-5e5e0caa151so1721512a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 04:15:45 -0800 (PST)
+X-Forwarded-Encrypted: i=1; AJvYcCWybE6whnj/glnOYCPeNCeV747pjrH/jhWhLZ0vLu+zqqM3WMxPN9EP8KMR/O241e27lKPJCdpRiMJ8YKSaf3j5@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywn2O5SGW1YYKsSrCFvo6GK7HbR1QY4kvwmE1+OEwhQfreWIniL
+	foqUlOJYKVfDUbcSoMqvliNnP1SVzYj/Y1GRWFcJ3tFxSEU1BmHEkTZtB7zfTO+RfvsLLuJSMRm
+	kCjzLu3HymowVaDKKYDJzYKaZTQ==
+X-Google-Smtp-Source: AGHT+IGVdHSFZn3+WiSlThdpTVs0r4OoYpx/U2Lbt6NNoKziKPQIgxGTCb1pgFt4bob2aUbhXriG1Al/+sIfqRUQvOM=
+X-Received: by 2002:a17:907:2d92:b0:ac1:fab4:a83 with SMTP id
+ a640c23a62f3a-ac252b5a837mr346883966b.25.1741349744102; Fri, 07 Mar 2025
+ 04:15:44 -0800 (PST)
 MIME-Version: 1.0
-References: <20250307-vsprintf-pcn-v1-0-df0b2ccf610f@bootlin.com> <20250307-vsprintf-pcn-v1-1-df0b2ccf610f@bootlin.com>
-In-Reply-To: <20250307-vsprintf-pcn-v1-1-df0b2ccf610f@bootlin.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 7 Mar 2025 13:13:59 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdVzQfGUr-wyHW3z=KN65OFpXWgfqBru9e_z8MKtk3pmfA@mail.gmail.com>
-X-Gm-Features: AQ5f1JrXAoSReqv06x2VIYWRPdg-xCyJZ1PBeew-FyYu-xLixRBhXK4dP3ysYK8
-Message-ID: <CAMuHMdVzQfGUr-wyHW3z=KN65OFpXWgfqBru9e_z8MKtk3pmfA@mail.gmail.com>
-Subject: Re: [PATCH 1/2] thermal: bcm2835: use %pC instead of %pCn
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Daniel Lezcano <daniel.lezcano@linaro.org>, 
-	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Petr Mladek <pmladek@suse.com>, 
-	Steven Rostedt <rostedt@goodmis.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>, 
-	Rasmus Villemoes <linux@rasmusvillemoes.dk>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>, 
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>, 
-	Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org, linux-pm@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20250218185452.600797-1-vaishnav.a@ti.com> <20250218185452.600797-6-vaishnav.a@ti.com>
+In-Reply-To: <20250218185452.600797-6-vaishnav.a@ti.com>
+From: Rob Herring <robh@kernel.org>
+Date: Fri, 7 Mar 2025 06:15:32 -0600
+X-Gmail-Original-Message-ID: <CAL_JsqLxHKdQujWdSkGe6_cUftdgNgJ2PyVZR41A_LJ241_D3g@mail.gmail.com>
+X-Gm-Features: AQ5f1JomHAua_qKY6p65rhjGZzmCsboNe30YpEDs67TH3wT0hxy-QRQycqLiaFA
+Message-ID: <CAL_JsqLxHKdQujWdSkGe6_cUftdgNgJ2PyVZR41A_LJ241_D3g@mail.gmail.com>
+Subject: Re: [PATCH 5/5] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
+To: Vaishnav Achath <vaishnav.a@ti.com>
+Cc: nm@ti.com, vigneshr@ti.com, kristo@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	jai.luthra@linux.dev, y-abhilashchandra@ti.com
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_041421_709710_086FA94E 
-X-CRM114-Status: GOOD (  15.80  )
+X-CRM114-CacheID: sfid-20250307_041547_331692_275182E5 
+X-CRM114-Status: GOOD (  18.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,22 +85,395 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 7 Mar 2025 at 12:19, Luca Ceresoli <luca.ceresoli@bootlin.com> wrote:
-> The %pC and %pCn printk format specifiers produce the exact same string. In
-> preparation for removing %pCn, use %pC.
+On Tue, Feb 18, 2025 at 12:55=E2=80=AFPM Vaishnav Achath <vaishnav.a@ti.com=
+> wrote:
 >
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> TechNexion TEVI OV5640 camera is a 5MP camera that can be used with
+> J722S EVM through the 22-pin CSI-RX connector. Add a reference overlay
+> for quad TEVI OV5640 modules on J722S EVM.
+>
+> Signed-off-by: Vaishnav Achath <vaishnav.a@ti.com>
+> ---
+>  arch/arm64/boot/dts/ti/Makefile               |   4 +
+>  .../k3-j722s-evm-csi2-quad-tevi-ov5640.dtso   | 319 ++++++++++++++++++
+>  2 files changed, 323 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov=
+5640.dtso
+>
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Mak=
+efile
+> index 9ae0917e5763..0370392abda8 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -120,6 +120,7 @@ dtb-$(CONFIG_ARCH_K3) +=3D k3-j721s2-evm-pcie1-ep.dtb=
+o
+>  dtb-$(CONFIG_ARCH_K3) +=3D k3-am67a-beagley-ai.dtb
+>  dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm.dtb
+>  dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+> +dtb-$(CONFIG_ARCH_K3) +=3D k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+>
+>  # Boards with J784s4 SoC
+>  dtb-$(CONFIG_ARCH_K3) +=3D k3-am69-sk.dtb
+> @@ -212,6 +213,8 @@ k3-j721s2-evm-pcie1-ep-dtbs :=3D k3-j721s2-common-pro=
+c-board.dtb \
+>         k3-j721s2-evm-pcie1-ep.dtbo
+>  k3-j722s-evm-csi2-quad-rpi-cam-imx219-dtbs :=3D k3-j722s-evm.dtb \
+>         k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtbo
+> +k3-j722s-evm-csi2-quad-tevi-ov5640-dtbs :=3D k3-j722s-evm.dtb \
+> +       k3-j722s-evm-csi2-quad-tevi-ov5640.dtbo
+>  k3-j784s4-evm-pcie0-pcie1-ep-dtbs :=3D k3-j784s4-evm.dtb \
+>         k3-j784s4-evm-pcie0-pcie1-ep.dtbo
+>  k3-j784s4-evm-quad-port-eth-exp1-dtbs :=3D k3-j784s4-evm.dtb \
+> @@ -247,6 +250,7 @@ dtb- +=3D k3-am625-beagleplay-csi2-ov5640.dtb \
+>         k3-j721e-sk-csi2-dual-imx219.dtb \
+>         k3-j721s2-evm-pcie1-ep.dtb \
+>         k3-j722s-evm-csi2-quad-rpi-cam-imx219.dtb \
+> +       k3-j722s-evm-csi2-quad-tevi-ov5640.dtb \
+>         k3-j784s4-evm-pcie0-pcie1-ep.dtb \
+>         k3-j784s4-evm-quad-port-eth-exp1.dtb \
+>         k3-j784s4-evm-usxgmii-exp1-exp2.dtb
+> diff --git a/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dt=
+so b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+> new file mode 100644
+> index 000000000000..f33f50465a07
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-j722s-evm-csi2-quad-tevi-ov5640.dtso
+> @@ -0,0 +1,319 @@
+> +// SPDX-License-Identifier: GPL-2.0-only OR MIT
+> +/*
+> + * 4 x TEVI OV5640 MIPI Camera module on RPI camera connector.
+> + *
+> + * Copyright (C) 2024 Texas Instruments Incorporated - https://www.ti.co=
+m/
+> + */
+> +
+> +/dts-v1/;
+> +/plugin/;
+> +
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include "k3-pinctrl.h"
+> +
+> +&{/} {
+> +       clk_ov5640_fixed: ov5640-xclk {
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+clock-24000000 for the node name.
 
-Gr{oetje,eeting}s,
+> +               compatible =3D "fixed-clock";
+> +               #clock-cells =3D <0>;
+> +               clock-frequency =3D <24000000>;
+> +       };
+> +};
+> +
+> +
+> +&main_pmx0 {
+> +       cam0_reset_pins_default: cam0-reset-pins-default {
 
-                        Geert
+Doesn't match the schema. Please test your changes:
 
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+pinctrl@f4000: 'cam0-reset-pins-default', 'cam1-reset-pins-default',
+'cam2-reset-pins-default', 'cam3-reset-pins-default' do not match any
+of the regexes: '-pins(-[0-9]+)?$|-pin$', 'pinctrl-[0-9]+'
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+> +               pinctrl-single,pins =3D <
+> +                       J722S_IOPAD(0x03c, PIN_OUTPUT, 7)
+> +               >;
+> +       };
+> +
+> +       cam1_reset_pins_default: cam1-reset-pins-default {
+> +               pinctrl-single,pins =3D <
+> +                       J722S_IOPAD(0x044, PIN_OUTPUT, 7)
+> +               >;
+> +       };
+> +
+> +       cam2_reset_pins_default: cam2-reset-pins-default {
+> +               pinctrl-single,pins =3D <
+> +                       J722S_IOPAD(0x04c, PIN_OUTPUT, 7)
+> +               >;
+> +       };
+> +
+> +       cam3_reset_pins_default: cam3-reset-pins-default {
+> +               pinctrl-single,pins =3D <
+> +                       J722S_IOPAD(0x054, PIN_OUTPUT, 7)
+> +               >;
+> +       };
+> +};
+> +
+> +&exp1 {
+> +       p06-hog{
+> +               /* P06 - CSI01_MUX_SEL_2 */
+> +               gpio-hog;
+> +               gpios =3D <6 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI01_MUX_SEL_2";
+> +       };
+> +
+> +       p07-hog{
+> +               /* P01 - CSI23_MUX_SEL_2 */
+> +               gpio-hog;
+> +               gpios =3D <7 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI23_MUX_SEL_2";
+> +       };
+> +};
+> +
+> +&main_gpio0 {
+> +       p15-hog {
+> +               /* P15 - CSI2_CAMERA_GPIO1 */
+> +               gpio-hog;
+> +               gpios =3D <15 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI2_CAMERA_GPIO1";
+> +       };
+> +
+> +       p17-hog {
+> +               /* P17 - CSI2_CAMERA_GPIO2 */
+> +               gpio-hog;
+> +               gpios =3D <17 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI2_CAMERA_GPIO2";
+> +       };
+> +
+> +       p19-hog {
+> +               /* P19 - CSI2_CAMERA_GPIO3 */
+> +               gpio-hog;
+> +               gpios =3D <19 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI2_CAMERA_GPIO3";
+> +       };
+> +
+> +       p21-hog {
+> +               /* P21 - CSI2_CAMERA_GPIO4 */
+> +               gpio-hog;
+> +               gpios =3D <21 GPIO_ACTIVE_HIGH>;
+> +               output-high;
+> +               line-name =3D "CSI2_CAMERA_GPIO4";
+> +       };
+> +};
+> +
+> +&pca9543_0 {
+> +       #address-cells =3D <1>;
+> +       #size-cells =3D <0>;
+> +
+> +       i2c-alias-pool =3D /bits/ 16 <0x3c 0x3d>;
+> +
+> +       i2c@0 {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +               reg =3D <0>;
+> +
+> +               ov5640_0: camera@3c {
+> +                       compatible =3D "ovti,ov5640";
+> +                       reg =3D <0x3c>;
+> +                       clocks =3D <&clk_ov5640_fixed>;
+> +                       clock-names =3D "xclk";
+> +
+> +                       pinctrl-names =3D "default";
+> +                       pinctrl-0 =3D <&cam0_reset_pins_default>;
+> +
+> +                       port {
+> +                               csi2_cam0: endpoint {
+> +                                       remote-endpoint =3D <&csi2rx0_in_=
+sensor>;
+> +                                       clock-lanes =3D <0>;
+> +                                       data-lanes =3D <1 2>;
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +
+> +       i2c@1 {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +               reg =3D <1>;
+> +
+> +               ov5640_1: camera@3c {
+> +                       compatible =3D "ovti,ov5640";
+> +                       reg =3D <0x3c>;
+> +                       clocks =3D <&clk_ov5640_fixed>;
+> +                       clock-names =3D "xclk";
+> +
+> +                       pinctrl-names =3D "default";
+> +                       pinctrl-0 =3D <&cam1_reset_pins_default>;
+> +
+> +                       port {
+> +                               csi2_cam1: endpoint {
+> +                                       remote-endpoint =3D <&csi2rx1_in_=
+sensor>;
+> +                                       clock-lanes =3D <0>;
+> +                                       data-lanes =3D <1 2>;
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&pca9543_1 {
+> +       #address-cells =3D <1>;
+> +       #size-cells =3D <0>;
+> +
+> +       i2c-alias-pool =3D /bits/ 16 <0x3c 0x3d>;
+> +
+> +       i2c@0 {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +               reg =3D <0>;
+> +
+> +               ov5640_2: camera@3c {
+> +                       compatible =3D "ovti,ov5640";
+> +                       reg =3D <0x3c>;
+> +                       clocks =3D <&clk_ov5640_fixed>;
+> +                       clock-names =3D "xclk";
+> +
+> +                       pinctrl-names =3D "default";
+> +                       pinctrl-0 =3D <&cam2_reset_pins_default>;
+> +
+> +                       port {
+> +                               csi2_cam2: endpoint {
+> +                                       remote-endpoint =3D <&csi2rx2_in_=
+sensor>;
+> +                                       clock-lanes =3D <0>;
+> +                                       data-lanes =3D <1 2>;
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +
+> +       i2c@1 {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +               reg =3D <1>;
+> +
+> +               ov5640_3: camera@3c {
+> +                       compatible =3D "ovti,ov5640";
+> +                       reg =3D <0x3c>;
+> +                       clocks =3D <&clk_ov5640_fixed>;
+> +                       clock-names =3D "xclk";
+> +
+> +                       pinctrl-names =3D "default";
+> +                       pinctrl-0 =3D <&cam3_reset_pins_default>;
+> +
+> +                       port {
+> +                               csi2_cam3: endpoint {
+> +                                       remote-endpoint =3D <&csi2rx3_in_=
+sensor>;
+> +                                       clock-lanes =3D <0>;
+> +                                       data-lanes =3D <1 2>;
+> +                               };
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&cdns_csi2rx0 {
+> +       ports {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +
+> +               csi0_port0: port@0 {
+> +                       reg =3D <0>;
+> +                       status =3D "okay";
+> +
+> +                       csi2rx0_in_sensor: endpoint {
+> +                               remote-endpoint =3D <&csi2_cam0>;
+> +                               bus-type =3D <4>; /* CSI2 DPHY */
+> +                               clock-lanes =3D <0>;
+> +                               data-lanes =3D <1 2>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&cdns_csi2rx1 {
+> +       ports {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +
+> +               csi1_port0: port@0 {
+> +                       reg =3D <0>;
+> +                       status =3D "okay";
+> +
+> +                       csi2rx1_in_sensor: endpoint {
+> +                               remote-endpoint =3D <&csi2_cam1>;
+> +                               bus-type =3D <4>; /* CSI2 DPHY */
+> +                               clock-lanes =3D <0>;
+> +                               data-lanes =3D <1 2>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&cdns_csi2rx2 {
+> +       ports {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +
+> +               csi2_port0: port@0 {
+> +                       reg =3D <0>;
+> +                       status =3D "okay";
+> +
+> +                       csi2rx2_in_sensor: endpoint {
+> +                               remote-endpoint =3D <&csi2_cam2>;
+> +                               bus-type =3D <4>; /* CSI2 DPHY */
+> +                               clock-lanes =3D <0>;
+> +                               data-lanes =3D <1 2>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&cdns_csi2rx3 {
+> +       ports {
+> +               #address-cells =3D <1>;
+> +               #size-cells =3D <0>;
+> +
+> +               csi3_port0: port@0 {
+> +                       reg =3D <0>;
+> +                       status =3D "okay";
+> +
+> +                       csi2rx3_in_sensor: endpoint {
+> +                               remote-endpoint =3D <&csi2_cam3>;
+> +                               bus-type =3D <4>; /* CSI2 DPHY */
+> +                               clock-lanes =3D <0>;
+> +                               data-lanes =3D <1 2>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&ti_csi2rx0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&dphy0 {
+> +       status =3D "okay";
+> +};
+> +
+> +&ti_csi2rx1 {
+> +       status =3D "okay";
+> +};
+> +
+> +&dphy1 {
+> +       status =3D "okay";
+> +};
+> +
+> +
+> +&ti_csi2rx2 {
+> +       status =3D "okay";
+> +};
+> +
+> +&dphy2 {
+> +       status =3D "okay";
+> +};
+> +
+> +
+> +&ti_csi2rx3 {
+> +       status =3D "okay";
+> +};
+> +
+> +&dphy3 {
+> +       status =3D "okay";
+> +};
+> --
+> 2.34.1
+>
 
