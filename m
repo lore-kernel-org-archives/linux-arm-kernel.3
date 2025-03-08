@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E18CCC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 19:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB766C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 19:46:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eTVbXxjWlsf93+TNBRlPrQnC9sQtCvCemMI+xBM+RLA=; b=uP77V0sofGvrMLtrH3VbDb29Wx
-	8exXm1BpkopnpyPTi7gmDidp+VrVBVLENPS0m4QpmxjDySkhByrRuxugYrx4B47wshKDHvPHZLjbA
-	rWi2kxH7NeYqE8jNCQ5Gz/wxOu3OXX0bRzitDx8DATdsW0QTJbMte0pZBRMgdhrN1KChiAREtkRz3
-	rKxR8N8A2lJY3bMyEsayV31vowL2ghQCm5MZR3sux+eZxOd/k6OjRYqa4WJE2yXwdhWteg/CcyOWM
-	AoqeohOlzTLFJZLM6+SHow+xL/Hd/1eJi1zvKjDKef0AifvGzTZFziZtsw8A12VFcf1vDxNXkO+Sj
-	xGFl9tjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F/73JC/lQZJdJ3xzvnS5c1g0xscrSX8ylkZ9UGc86hw=; b=R6eiC1v5RfplsBKU+Gzx+qdm0m
+	g1MzD4W5UkeqPUeK9ugEr542KUGraTlCBQAeT9auOVhxaK8KKIGUaggjBR8U6LosbWgw7AXOOAX5k
+	VMTRYtxAYpXT1wsz1NZYtzur2iI2xobZ0WIinmCzRzisVHO3kmgd76TH6Hhr35qQdFZtF9ezQkpmj
+	IVjiOIzjHmCT+iQgqR+V6T0Hpoy6+g7W6gKy6yYK/XMT0Q2wzP4RBeL9Q4vMLX9WBiI1AkIWLK56s
+	L/VKsrR3F4mCiQSXCdymo357zS+fAJ/X+Dj6RBEVwmG2sPKpskSkA+bUfoVSiA6E5p+KY5bRBIAu0
+	992ESIng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqzeI-0000000H5nr-1UVY;
-	Sat, 08 Mar 2025 19:15:50 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1tr07j-0000000H7F8-20T7;
+	Sat, 08 Mar 2025 19:46:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqzSv-0000000H4TJ-3xAI;
-	Sat, 08 Mar 2025 19:04:07 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30bf7d0c15eso18098541fa.0;
-        Sat, 08 Mar 2025 11:04:05 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741460644; x=1742065444; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=eTVbXxjWlsf93+TNBRlPrQnC9sQtCvCemMI+xBM+RLA=;
-        b=NEFAknFBFjuW6KcMKzgk54xA1fzoRSKTGklo/MOVlRIrPnymTg6q6iefP/dHUpfBXn
-         zR9FuCvl9SdvIEB84of8hCISAtXrlI1FGs6tyN6QVn8qCXipgwKZfUdfssAxkTMAmMMU
-         NT0ZfBMUiR7zG3mN92clf1axHnLSEx6FjMQPW1qFXYZXmsGzD0hWgEMuyYQcA4rD5kG8
-         Akr//wVwcuvviPatnMYVzoHpFqXt+s/zqD8VX9A8TcQp5M7rieGapiE8IBJ9VC7Qe7wt
-         IL50UQaYO8cj22f+E+7KNabpqzasrGDdQzr+03ok4QFwR7VjFGoKIvIO9l8iEWiBEiwM
-         3irQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741460644; x=1742065444;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=eTVbXxjWlsf93+TNBRlPrQnC9sQtCvCemMI+xBM+RLA=;
-        b=Vo/LIt/KMb3xxps0YUjkMGljEStKvJwGn6/upjqS47IaF9LhX9Boyj3ly9HRWSQ0dN
-         uIrRbOtpmmebpMDQdxvJYQpAJbDukTgOka+vrMosfcVTdrp9u44yiDa3K4wQrPbv4F1z
-         /K1mL7BGeJsQDARlsqr7hRu3zbN+s8ZC5fl1ozfojXVMgmS68g/F2VzYWEKwS7M34tdx
-         JKV8nWcRXT/Lg7KJHwCpxYLB9n+z8z7sBtrdrCxSPOuztXnixIncQt8q6cmreBRbtOvI
-         kkxtqmHUvX0Xs0pTKQaRCzCQHM4zHxSwkWmcaR3MRg4WkJ+nKGQEG0k4vtCCIEkMtlXG
-         9SxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+erupjGOitqFJcXdi9/KigAudhXPQbzqaEqxi5uM4IAJwYlUNld/4Pc9WILOyuPCbJHRl3TLPJ/9/zaaGG4Q=@lists.infradead.org, AJvYcCUfpUh+gTQkP1jG+PLeYLuXvHXu4rpfmXJr456tHE3+VJ7jM/v25NZuv+c8+l9yH+k/t7SItK+Dw5Wo6l+L1dkg@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1QlSE0pGKyMRHOJEKiKgUa6Ad98s3iny7kkVAAalmTz7RIcG8
-	eKrOG8tYaM4TsvPoMdo2EJWTcu0CmBKED/+qcaY/rfXiI0TXlrZy
-X-Gm-Gg: ASbGnctZz3NwxZ6qfyL2C9nma74v0DVqdah8mFvFiAIMbM9kruUiMp/cKLTBPDKbpBg
-	Ls1pCbwk6LTOwin4n+NbhhlMGrpjRnSelfRGmx/9I1Ccg2+6r/IkZVccPInwAbWiD+qbaI3uwu7
-	gwjsR3doctcwe+NewY+Zv766386eq3Nke7usTdvhkp0k9TeVbAvjJNbDkb5qL4V+1VhmZB+Kttq
-	RpsYUwkJCtS+ebLhW9iLmwA1NzTk6b/cp0jheugfscwN+i2KF7e9P17wGmG0enT9WjTxudb8sOo
-	46kZv3jHvQ37GsfkEGzf2mxdTYyne7aKDzZ78DlAibzdvOvOwOXO02w5gvk=
-X-Google-Smtp-Source: AGHT+IHONdtOGFlS7xPC7CsMoQUtrhTnztXQBlowSZtaB1Dgbc0GCjes4fUV0lQgJ2cvnPRqYxqQbg==
-X-Received: by 2002:a05:6512:a93:b0:545:2fa9:8cf5 with SMTP id 2adb3069b0e04-549910b7c6fmr3484311e87.49.1741460643774;
-        Sat, 08 Mar 2025 11:04:03 -0800 (PST)
-Received: from [192.168.3.116] ([78.56.129.233])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5498b1c3adcsm883370e87.249.2025.03.08.11.04.00
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Mar 2025 11:04:02 -0800 (PST)
-Message-ID: <5bb045fe-89c3-46dd-bd9a-dee8800a6d58@gmail.com>
-Date: Sat, 8 Mar 2025 21:03:59 +0200
+	id 1tr065-0000000H79Y-1ehS
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 19:44:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5D89B5C61FC;
+	Sat,  8 Mar 2025 19:42:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7F9C0C4CEE0;
+	Sat,  8 Mar 2025 19:44:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741463071;
+	bh=WH7ragwrHlwuij9dMvPOSWuZiuTHQ1s+svKzfPzvvuA=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=riP0IyqtTT36pME2aDILYcOKdGQiC1l+NduMZWCe/7KZ6Ce4hvZVAlipLR+lqrImc
+	 aE2oulRYfxV9lcv8FbAIRsJjYjwdnwzimm+AwAqMITy3lfQnyB2KwQwi9XGsYV+SFc
+	 hKmB/q/QiKkncAhQQnZYUwxsR5/tpSfFfLHxMjU+E+/TKPVTubTDfGwDkKk0PVt6tD
+	 JhrnL6/gKO6MTku6s0IAOfR5rVR3UlqMzQ9iHf3xSzo/xPfXQTpZgxL9+zCCpdWFWK
+	 DU40utvTxgaxb0a9z3hCso1gJZQN2gMa8gFvJiT4KZWo3GIyZaqfjguvh9die/sM+f
+	 0Mr9uJFA1W4gw==
+Date: Sat, 08 Mar 2025 13:44:30 -0600
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Xunlong Orange Pi 3B
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240626230319.1425316-1-jonas@kwiboo.se>
- <20240626230319.1425316-3-jonas@kwiboo.se>
- <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
- <29739e60-15f5-4361-a57a-2e6b93fba09c@kwiboo.se>
-Content-Language: en-US
-From: Arturas Moskvinas <arturas.moskvinas@gmail.com>
-In-Reply-To: <29739e60-15f5-4361-a57a-2e6b93fba09c@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-gpio@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>, 
+ =?utf-8?q?Niklas_S=C3=B6derlund?= <niklas.soderlund@ragnatech.se>, 
+ linux-staging@lists.linux.dev, Mark Brown <broonie@kernel.org>, 
+ Bjorn Andersson <quic_bjorande@quicinc.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Benjamin Mugnier <benjamin.mugnier@foss.st.com>, 
+ Kieran Bingham <kieran.bingham@ideasonboard.com>, 
+ Taniya Das <quic_tdas@quicinc.com>, Zhi Mao <zhi.mao@mediatek.com>, 
+ Umang Jain <umang.jain@ideasonboard.com>, 
+ =?utf-8?q?N=C3=ADcolas_F_=2E_R_=2E_A_=2E_Prado?= <nfraprado@collabora.com>, 
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org, 
+ Catalin Marinas <catalin.marinas@arm.com>, 
+ Liam Girdwood <lgirdwood@gmail.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Dan Carpenter <dan.carpenter@linaro.org>, 
+ Biju Das <biju.das.jz@bp.renesas.com>, 
+ Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>, 
+ Cosmin Tanislav <cosmin.tanislav@analog.com>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Ross Burton <ross.burton@arm.com>, 
+ Julien Massot <julien.massot@collabora.com>, 
+ Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Ricardo Ribalda <ribalda@chromium.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Ihor Matushchak <ihor.matushchak@foobox.net>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Eric Biggers <ebiggers@google.com>, linux-arm-kernel@lists.infradead.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Tommaso Merciai <tomm.merciai@gmail.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Will Deacon <will@kernel.org>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Dongcheng Yan <dongcheng.yan@intel.com>, 
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, 
+ Javier Carrasco <javier.carrasco@wolfvision.net>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+In-Reply-To: <20250308183410.3013996-19-demonsingur@gmail.com>
+References: <20250308183410.3013996-1-demonsingur@gmail.com>
+ <20250308183410.3013996-19-demonsingur@gmail.com>
+Message-Id: <174146307027.3480579.7919845264276459579.robh@kernel.org>
+Subject: Re: [RFC PATCH 18/24] dt-bindings: media: i2c: max96712: add
+ support for I2C MUX
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_110405_985187_38E09124 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20250308_114433_521625_9ADE6E9B 
+X-CRM114-Status: GOOD (  17.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,22 +106,87 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 3/8/25 6:34 PM, Jonas Karlman wrote:
-> This is because of a reset issue with Ethernet PHYs in Linux, see [1].
->
-> Two workarounds:
-> 1. Let boot firmware reset the PHY before Linux, i.e. use U-Boot
->     v2024.10 or newer.
-> 2. Use a ethernet-phy-id compatible with correct phy-id to force Linux
->     to attach the PHY.
->
-> I suggest you try to wipe U-Boot from SPI flash on your board and update
-> to use U-Boot v2025.01 and try again.
-Wiping board SPI flash which contained old U-boot and using 2025.01 from 
-SD card fixed issue hence DTS is OK.
-Though I do not remember that I ever wrote anything into SPI flash in 
-first place (I touched board almost year ago so potentially forgot about 
-it) maybe it was shipped like that with the board...
+On Sat, 08 Mar 2025 20:33:47 +0200, Cosmin Tanislav wrote:
+> MAX96712 and MAX96724 have more than one GMSL2 link, and each link is
+> capable of connecting to a separate serializer. If these serializers
+> have the same CFG pins configuration, they will also have the same I2C
+> address, causing conflicts unless the deserializer muxes the I2C
+> channels. Moreover, the serializers can have the same hardware attached
+> to their respective I2C bus.
+> 
+> The MAX96712 and MAX96724 suppot I2C channel muxing via the GMSL2 link
+> to facilitate communication to each of the connected serializers.
+> 
+> Document this capability.
+> 
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
+> ---
+>  .../devicetree/bindings/media/i2c/maxim,max96712.yaml | 11 +++++++++++
+>  1 file changed, 11 insertions(+)
+> 
 
-Arturas Moskvinas
+My bot found errors running 'make dt_binding_check' on your patch:
+
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg:items: 'oneOf' conditional failed, one must be fixed:
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg:items: 'anyOf' conditional failed, one must be fixed:
+		'min' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+		'type' was expected
+		from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg:items: 'anyOf' conditional failed, one must be fixed:
+		'max' is not one of ['$ref', 'additionalItems', 'additionalProperties', 'allOf', 'anyOf', 'const', 'contains', 'default', 'dependencies', 'dependentRequired', 'dependentSchemas', 'deprecated', 'description', 'else', 'enum', 'exclusiveMaximum', 'exclusiveMinimum', 'items', 'if', 'minItems', 'minimum', 'maxItems', 'maximum', 'multipleOf', 'not', 'oneOf', 'pattern', 'patternProperties', 'properties', 'required', 'then', 'typeSize', 'unevaluatedProperties', 'uniqueItems']
+		'type' was expected
+		from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+	{'min': 0, 'max': 3} is not of type 'array'
+	from schema $id: http://devicetree.org/meta-schemas/keywords.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg: 'anyOf' conditional failed, one must be fixed:
+	'maxItems' is a required property
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'items' is not one of ['maxItems', 'description', 'deprecated']
+		hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+	'items' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+	/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg:items: 'oneOf' conditional failed, one must be fixed:
+		/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: properties:i2c-mux:patternProperties:^i2c@[0-3]$:properties:reg:items: 'anyOf' conditional failed, one must be fixed:
+			'maxItems' is a required property
+				hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+			'min' is not one of ['maxItems', 'description', 'deprecated']
+				hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+			'max' is not one of ['maxItems', 'description', 'deprecated']
+				hint: Only "maxItems" is required for a single entry if there are no constraints defined for the values.
+			Additional properties are not allowed ('max', 'min' were unexpected)
+				hint: Arrays must be described with a combination of minItems/maxItems/items
+			'min' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+				hint: "items" can be a list defining each entry or a schema applying to all items. A list has an implicit size. A schema requires minItems/maxItems to define the size.
+			'max' is not one of ['description', 'deprecated', 'const', 'enum', 'minimum', 'maximum', 'multipleOf', 'default', '$ref', 'oneOf']
+				hint: "items" can be a list defining each entry or a schema applying to all items. A list has an implicit size. A schema requires minItems/maxItems to define the size.
+			hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+			from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+		{'min': 0, 'max': 3} is not of type 'array'
+		hint: "items" can be a list defining each entry or a schema applying to all items. A list has an implicit size. A schema requires minItems/maxItems to define the size.
+		from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+	hint: cell array properties must define how many entries and what the entries are when there is more than one entry.
+	from schema $id: http://devicetree.org/meta-schemas/core.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: i2c-mux: Missing additionalProperties/unevaluatedProperties constraint
+
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml: ^i2c@[0-3]$: Missing additionalProperties/unevaluatedProperties constraint
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250308183410.3013996-19-demonsingur@gmail.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
