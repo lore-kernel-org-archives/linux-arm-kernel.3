@@ -4,63 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6153BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 10:03:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AD3C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 11:19:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lpW3RTHrfPs5zZ9oBlA5lEMbQKxW+E5CLf7PMMfGE+k=; b=RYSPLn2r7ml6TvZX35E9Gu8atK
-	zT4gBOhH982jndXgKkrnLFfBDQRoQUW778MCHqxB+3WKp0yil26z1G/I5J1+DNL+AUbw0uwiwfuMe
-	alJFCaDoq01xfll1lBRSfKOXUaG/XOkytIo2zWipXUWvSIm7xNGkOkcJZ8a0EF5JnbtU3DrE9FZ33
-	MIqm5tnuS3JBA22i7jAAadNWtL4fSyw884GjYNDjhxxWJoByZFKt+t0eKT4eBJ3NFPcbPJlQJv5JJ
-	yj00+RKwmn3Q48wGy/FRNVN+O89oV8yyHliEXXoEJjtNI6F7NBlNDh+uD1mOyE9O2QYkAJqhS3NkU
-	WHsqqHkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=; b=PG3U8RwWc8m8IwpgQnViHudlkm
+	6CpadV5/FukzrPmv9i3oX/P90crFIMINgGKn0iT4NOTZGqgeOBM9+nMySE/X3DEh57gU98a6z2QU6
+	MPB7Le6/5bMNRWnbEgE9XA6oDWdQ0YaKpw+QY/HRUdNkHylq2htCHP5ujt0BRhLG+wwmEbb2Vybtd
+	D0Iid7PoRjRJVKxNUKxUuerkE3MvgrOVLMW3RRtZ+wfdufAS2ckdwF2+vW0jf6Kz73S4vfBIdERpe
+	jPcYaPPBuu4jQQ5X8czKjFqzBheyNdG0vcBjUaJFn5c4BUnq+bhdQevzmy41S1TqlUlT3d44zzkk1
+	kDclKMSg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqr1m-0000000GTMf-1OM3;
-	Sat, 08 Mar 2025 10:03:30 +0000
-Received: from mail-m155101.qiye.163.com ([101.71.155.101])
+	id 1tqsCd-0000000GXjS-2Kkf;
+	Sat, 08 Mar 2025 11:18:47 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqqyX-0000000GSzk-3CYO;
-	Sat, 08 Mar 2025 10:00:11 +0000
-Received: from amadeus-Vostro-3710.lan (unknown [IPV6:240e:3b3:2c00:3300:217:f42e:f419:35e])
-	by smtp.qiye.163.com (Hmail) with ESMTP id d8ad0332;
-	Sat, 8 Mar 2025 18:00:07 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Rob Herring <robh@kernel.org>,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Subject: [PATCH 1/1] arm64: dts: rockchip: rk356x: Move SHMEM memory to reserved memory
-Date: Sat,  8 Mar 2025 18:00:01 +0800
-Message-Id: <20250308100001.572657-2-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250308100001.572657-1-amadeus@jmu.edu.cn>
-References: <20250308100001.572657-1-amadeus@jmu.edu.cn>
+	id 1tqsB1-0000000GXh9-1gdj
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 11:17:08 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-390cf7458f5so2617944f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 03:17:07 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741432626; x=1742037426; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=;
+        b=MQKcmJg3JQUizDg/wufBUIUrvC3IPR6Y95a8RetVyyginKgFEABMBFT5t2QPqQkCKN
+         13VGLOcX5o47t7DXGkrQa5QGBD9HXbGe+8b2SmFPcdIdkVPikgilHsSdj20zZI694+Jc
+         DvulmJmqgW+aPHjxhEivwzRtsccphODxqWJ4j+W0yPsVZmEpMj/0WKHndRxOohT+gm1P
+         WrdRb1MKTXF0uNwWn17havZOv30ADzUpx6NvdSeQecMPDay39l4hPOTyYq9BBUrZZ99F
+         CEOuZIiO03XN+p18xj3hiR0cLYq+zlT6micZeVKtnTodKVif6LAXWcEQaZRinrCyD/fY
+         xT+Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741432626; x=1742037426;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=;
+        b=tyKSmgvjgUwaTuoS8zx8dmBPqIt8ErgP+MT2zLG62/d2zrZF5WL9DhvmuL7Acn2vpe
+         Hp7qlrY3KXz6ZMxKv8JMS5k/rpARtlkIOpdeVTTdC+7/SrfTROIMH/dbxFclIhvL4uGs
+         hl9VGwB3g2sqP/XZwb2sYYILOPwiyaqrruA9qjJpi3YUrPa+6rBTGYiz/l085G/IeNbX
+         LSXCwVBgMp6m+8BQmpyOL0Z/WYLIib/873oYXaIkurkK7bm/ibMDpkqRjRSrBVjKmhxY
+         DhujdbhoTA8ydeCeSMLAfxKYRhzpT8mCazD73lwVGOK7jSHNwbSit3OFuc8U23l8YGHs
+         tDIA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNUhtAkZVB4RNzeGJR2oFwt7wAScXCdFp1o2WKCe9b42fVDiID4eCKBq8knb/nrh3443rA0nYZpO/n4IsFdp3E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxnDH7ohj/l4SB66Nxy0tFDvRWqxFUkH8vR7ZAaiSB0mHqsltXW
+	vUPfyKCDFWv+EpjLzYuX92HQssNy2eDN0EyTT40PT7k9UAWcWHSkx5c4IHXzlspfgPAT6AVyBeO
+	7
+X-Gm-Gg: ASbGncsLJleTXTysZ09ReqoSA0RObGhS1mPgQKOKAE0qF3TyZP/xXVldg9EDX4sG2wk
+	fioNc9djhqxx79kYDivvXzqFbhLBiJYQ1+g0J5t/lzhZXoOOAqBtK9jpjyUrlVbnILTruQWEz/q
+	iypZzgPs8e+uuO1yxK7iDgxBd2hKloU+MAslbjeMPRnl+SEBiF0eeSc6D891TbAMae9w5iYl4Zf
+	xDqSrKYqTY9mnL7ODk/C6OSDnwjYkxs8AZXN4oa3mIzSwAyw+Pw8ryJ677tVM1ZffUvxD9XBw3X
+	1rM+2EUghPCrXCfy98fTcm80aLUj5MVf6D9aywznHYSIDordLg==
+X-Google-Smtp-Source: AGHT+IHgPy2ipS9U13tlaxW/er4uS9dL0vgcgs/ixqt3JyEdpvktSnhmqJQ1s8kCsjFpv/J/9JwBaQ==
+X-Received: by 2002:a05:6000:1fa9:b0:391:212:459a with SMTP id ffacd0b85a97d-39132d3b46fmr6741762f8f.22.1741432625810;
+        Sat, 08 Mar 2025 03:17:05 -0800 (PST)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3912c015d1csm8339913f8f.44.2025.03.08.03.17.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Mar 2025 03:17:05 -0800 (PST)
+Date: Sat, 8 Mar 2025 14:17:00 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+Cc: linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: [bug report] net: stmmac: configure SerDes according to the
+ interface mode
+Message-ID: <677ffce5-0d76-4b97-abd3-1ac7608417f3@stanley.mountain>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCGB5DVkIfSEJKGkpNTEwZSVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlJT0seQUgZSEFJGEtLQUhIS0tBSUpMQR1PSR5BHU9KQkFITh5ZV1kWGg8SFR
-	0UWUFZT0tIVUpLSU9PT0tVSktLVUtZBg++
-X-HM-Tid: 0a957532a0cf03a2kunmd8ad0332
-X-HM-MType: 10
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MAw6Eww5DTJWECkIPCs9Dy8V
-	Qk4wCzdVSlVKTE9KT0lDS0tMTExIVTMWGhIXVRoWGh8eDgg7ERYOVR4fDlUYFUVZV1kSC1lBWUlP
-	Sx5BSBlIQUkYS0tBSEhLS0FJSkxBHU9JHkEdT0pCQUhOHllXWQgBWUFKTkpJNwY+
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_020009_963583_DD4005ED 
-X-CRM114-Status: UNSURE (   8.59  )
+X-CRM114-CacheID: sfid-20250308_031707_442551_92CC4CD7 
+X-CRM114-Status: UNSURE (   8.86  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -76,59 +96,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-0x0 to 0xf0000000 are SDRAM memory areas where 0x10f000 is located.
-So move the SHMEM memory of arm_scmi to the reserved memory node.
+Hello Choong Yong Liang,
 
-Fixes: a3adc0b9071d ("arm64: dts: rockchip: add core dtsi for RK3568 SoC")
-Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
----
- arch/arm64/boot/dts/rockchip/rk356x-base.dtsi | 25 +++++++++----------
- 1 file changed, 12 insertions(+), 13 deletions(-)
+Commit a42f6b3f1cc1 ("net: stmmac: configure SerDes according to the
+interface mode") from Feb 27, 2025 (linux-next), leads to the
+following Smatch static checker warning:
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-index 4f11141ea146..fd2214b6fad4 100644
---- a/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk356x-base.dtsi
-@@ -174,6 +174,18 @@ psci {
- 		method = "smc";
- 	};
- 
-+	reserved-memory {
-+		#address-cells = <2>;
-+		#size-cells = <2>;
-+		ranges;
-+
-+		scmi_shmem: shmem@10f000 {
-+			compatible = "arm,scmi-shmem";
-+			reg = <0x0 0x0010f000 0x0 0x100>;
-+			no-map;
-+		};
-+	};
-+
- 	timer {
- 		compatible = "arm,armv8-timer";
- 		interrupts = <GIC_PPI 13 IRQ_TYPE_LEVEL_HIGH>,
-@@ -199,19 +211,6 @@ xin32k: xin32k {
- 		#clock-cells = <0>;
- 	};
- 
--	sram@10f000 {
--		compatible = "mmio-sram";
--		reg = <0x0 0x0010f000 0x0 0x100>;
--		#address-cells = <1>;
--		#size-cells = <1>;
--		ranges = <0 0x0 0x0010f000 0x100>;
--
--		scmi_shmem: sram@0 {
--			compatible = "arm,scmi-shmem";
--			reg = <0x0 0x100>;
--		};
--	};
--
- 	sata1: sata@fc400000 {
- 		compatible = "rockchip,rk3568-dwc-ahci", "snps,dwc-ahci";
- 		reg = <0 0xfc400000 0 0x1000>;
--- 
-2.25.1
+	drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:497 intel_tsn_lane_is_available()
+	warn: missing error code? 'ret'
 
+drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+    472 static int intel_tsn_lane_is_available(struct net_device *ndev,
+    473                                        struct intel_priv_data *intel_priv)
+    474 {
+    475         struct stmmac_priv *priv = netdev_priv(ndev);
+    476         struct pmc_ipc_cmd tmp = {};
+    477         struct pmc_ipc_rbuf rbuf = {};
+    478         int ret = 0, i, j;
+
+Better to avoid initializing ret so that bug show up as uninitialized
+variables.
+
+    479         const int max_fia_regs = 5;
+    480 
+    481         tmp.cmd = IPC_SOC_REGISTER_ACCESS;
+    482         tmp.sub_cmd = IPC_SOC_SUB_CMD_READ;
+    483 
+    484         for (i = 0; i < max_fia_regs; i++) {
+    485                 tmp.wbuf[0] = R_PCH_FIA_15_PCR_LOS1_REG_BASE + i;
+    486 
+    487                 ret = intel_pmc_ipc(&tmp, &rbuf);
+    488                 if (ret < 0) {
+    489                         netdev_info(priv->dev, "Failed to read from PMC.\n");
+    490                         return ret;
+    491                 }
+    492 
+    493                 for (j = 0; j <= intel_priv->max_tsn_lane_regs; j++)
+    494                         if ((rbuf.buf[0] >>
+    495                                 (4 * (intel_priv->tsn_lane_regs[j] % 8)) &
+    496                                         B_PCH_FIA_PCR_L0O) == 0xB)
+--> 497                                 return ret;
+
+This should probably be return -EINVAL, right?
+
+    498         }
+    499 
+    500         return ret;
+
+It's more clear to just return 0 for the success path.  Otherwise you
+have to read the code a bit.
+
+    501 }
+
+regards,
+dan carpenter
 
