@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6ACA3C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 18:44:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F3DFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 18:46:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niTukLIvAiAEZdTX9VzP25J+OMwBy7xtkz5/2stDFtA=; b=j0beDGK66Q5aEt6g7/UHaV/SVX
-	6zEGDaG531witjPNPNYDzS93iewbFbWqB49ZgUPDg9gIGD1O/wsish0bWx4GnO4t10xaOsdGs+QMc
-	e4ikQLjCZtB+9YtTDamQZdKA2CoR37eO2Pw02Fob0kpr1XZ+8pw9B4DUbUA6atPso7deVLudnrwpi
-	o6vZUh04bp1Ms5KHIHBn5O7spMzeUMXs/mN6QmuMW86ABu5spcDM+YBmvAEJZSb/U76RWW8mOw1xP
-	IKAs7AJCJpfPjT3NleAjytKIxX/LU0gQbuLsyB3Ugr2vicqVx4R/eypqDLQ7UNVUrDIp8JoA09qhz
-	DGELOOYw==;
+	bh=aaoNQqy4aLD9/xA6TRYAtkr7klI/0e6BppeUXZTiyUI=; b=bKuItlAuUX3MXO9C8tfQzI8Ez+
+	chIzT25sfE/fpe3N0mZFFDyBNynDRZHP5JoLz8XNAhxSjA5S65MRjgtYKGAXY5t2833vKNY6naQFB
+	01iXK5LxwE5Cf51PGuEkVCPx5027ZM/wQNiNQWH7A2FSFYVQFqNgnvcEcsvWQLHFqKATLWwoKeWQr
+	lxsDei8KxfWOLtOfk7ZodKplA7aEnpRScjH1ybmCKmps1bWsEfg2R/zdPwkn04id2LMHOUtNA+KoC
+	1u0x2riAvOlUwGATEJhlqrSrmxxKKdjlMKAkk5h5OZDJfBDGQPelA2+t4biJAfMdJF3p6shysZebY
+	iOqGZQbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqz9x-0000000H2Ht-3InB;
-	Sat, 08 Mar 2025 18:44:29 +0000
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	id 1tqzBZ-0000000H2bH-1pGZ;
+	Sat, 08 Mar 2025 18:46:09 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqz0a-0000000H0Az-3wcC
+	id 1tqz0f-0000000H0CF-0Szt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 18:34:50 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-5e5e0caa151so3653901a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:34:48 -0800 (PST)
+	Sat, 08 Mar 2025 18:34:54 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ac25313ea37so349742766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:34:52 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741458887; x=1742063687; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741458891; x=1742063691; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=niTukLIvAiAEZdTX9VzP25J+OMwBy7xtkz5/2stDFtA=;
-        b=PkGFPPwe+Gn7qnCHHQJW7PutnFkkviPBfilFUhiGj/fd1RWnwZofBRAmb3bdVaIVDm
-         t8OZg4VDz09flUnPzHJTmdFcqrOhc2YP9TZ9E6AsxV8UrNdYThzUIV03rEWKIsVpFJxh
-         5vLgAxUk+DE7UK+Y/jC4wFCTKNNljcN7Zrpr3vC13hVK5gfOpzaNRfycLzq0U4tG/fwE
-         w7rB5rwfvx3reAeqmZ47km28DhMJQE5T4pGFJU7IGoCtM5YqDuECe3i7ynZKPD9umeIu
-         Q7/pZMcEO3Z8XuBgXz+FGH1EWkvKOnZKKTPccZGmKNYAA25sDM3DCqpNcDO1GgxVImPO
-         HOYg==
+        bh=aaoNQqy4aLD9/xA6TRYAtkr7klI/0e6BppeUXZTiyUI=;
+        b=JCEm7Nqs4zp0zoMTKkMn+5Gsq17+C74dF4bCuKdcLov6iM61jjl/PEdlr8sHD9qmkU
+         KX4Vrb9j+PaIpLT+Gs0Ok6Jr/V/Rh/h4hF6j6qQb3bdEsu3oR8otIKKVWIpENs7WnPCV
+         7VDSMHIS1ER5RxjMG0++S/UKYKC/QmyLvEudjncZf1W5bD8oPF2zFlPY2CG0yfxjqPAJ
+         CkgWd9xkkymWO1B+tu6Rqp7Fufk7xyBC3BcXPt/3UMEmYgNxRCB8LwdjiFvCDXB1X15z
+         cLFO1c+IPxLUpCfJUwdfR15JrbVR00E1m9kWrvOE3kC4UUydNnaZrJ+oFiQT20NgTfvv
+         abHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741458887; x=1742063687;
+        d=1e100.net; s=20230601; t=1741458891; x=1742063691;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=niTukLIvAiAEZdTX9VzP25J+OMwBy7xtkz5/2stDFtA=;
-        b=mrLMIY87vZyQYsb+C5C2p3/I13dVdjaz5WW3mXkQI6uGdsP5kGmzU5Hy1uiZB8CCEz
-         sVU3zZFpLTWhlorBRb0RjFfWblh4NTobkcpqKHxF1s6aIG6R5Z9BigYfzxxJFcdbqjBt
-         KTqvZ7MrjSm0TS2EU7ei40NInp5RnNnxsmQFahVC1EMiomQOhq1SSgNO9eCISf7jPrUS
-         UWCZGqcl6CygOKTmRtm6luhAPldL9yNxn3IpfS9JHGJ6V8C5OzcjpxwQBjpxh7tZpOK1
-         DFd4oS8FmMNO8rjubbBvQBaFHDkD7d1Tl0cOOSMSn6DjTSdGwhChLENJbzLE/z+pEGs5
-         Filg==
-X-Forwarded-Encrypted: i=1; AJvYcCUQjziCAHz7iyAH4nsIOIdzRHSTfSMcgtwibdHRN2BLywQP4V0Sr1kaCx9WgGGsovS68lyN94wn1wT2AAmKVOzM@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY6iPDUG1Kxpc56y3OFVQKB/8ZGUVdsR9lSrsA+EA/e8nXdIJS
-	7yMnsoAeqolTh4X9pR7RtiE2rqD7ld6ZYQoZgo9otYtNi/c8aVuP
-X-Gm-Gg: ASbGncsjCWGL78p0CEpvL/FcrzVicJq62/AqalyPGBvg2GfaHrK2dXbAk2oMUq38GzN
-	WXhoPHksgalcp7fZ7BE6w9eKdiK0tjaKG2cYmZIgJoXrxM9mcUJvRe+MFBxBqxmgF1tYMvpXA4m
-	y7SOkeuXrnLhsDkN89e6Hn2PSVaWyBWy56TSQz1PIqgl8kdqu1n/qBajnwB3VAee5x2APiNwcim
-	0aT64MFmvm7L0S/+JmtC3sbTZuaBPALj9U6esIEnIePQJrlvPejo+0octhuN62kPKJmDXz/drxJ
-	MlgLDRm2HTd3EBWDXlZNjvwvgMhzKtfU4ZL0owMwY5EfZPafIiC9VjGCoQ==
-X-Google-Smtp-Source: AGHT+IEYfnZZSKKwlnhzVkFTovCEetnxmc3aAYiYEW+59CxQQ6vlMjKTl8zXdIYjCmymG9n4u7FXQg==
-X-Received: by 2002:a17:906:f59c:b0:abf:6389:6d19 with SMTP id a640c23a62f3a-ac252a9e5demr952699666b.15.1741458887103;
-        Sat, 08 Mar 2025 10:34:47 -0800 (PST)
+        bh=aaoNQqy4aLD9/xA6TRYAtkr7klI/0e6BppeUXZTiyUI=;
+        b=JGNZOSPAxDLy1kzRU50yzZX9nVlVu98VfU3tzXXj+ouT9Ts3NBcKvkYBLhYKVvZUOk
+         rmDRY3GpLsVGZUovI1SZ5I+zkk+UPM51vZejo2siYJRgUmYXcaEV+jR4/kWS6biNfymO
+         6gwApzpCqSO1+VkzgdSnA1iouEJ2R1Vde8L6cIo7/+aJMIyY8EL1l0XegSsNQVgzayir
+         UoDczPpx7clr/oa0kzEg/Ac2zqSNz9HIEZMSq/cACZ4sS4+zF3hHgwZJlihMxMwhrejR
+         YKrCzXsRX+ddOZ2FXRtKIUn7+rodj5+Gs5Ol1Tzo2xA83N9qVljvc+ByUn7Ii7Oezmu0
+         wklA==
+X-Forwarded-Encrypted: i=1; AJvYcCX6nRpmuV+vWeDx4DvSIDG9hAoBiZsYT6ytfhq4H2VKy/CEvg0DDHtbAKCEixfTK8EfLo5QEFVG1U/v3VdQep2W@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCaBQJ47FV7DvMh1Z7X5zHfJIFeB5z0FNUcv7cNq6nE3CcYp8U
+	Wzcp2SJJcELqhuR0+4zatc7OJGxIe5tTWgW6m0sAmnDgO6ZS1I0B
+X-Gm-Gg: ASbGncvHGEJd7RpyMFfomQOpQHXvAP+2b2n2SNze7o36Su+tDLuXvrcuYVbUw4GJI5b
+	44o8TT4gI4xJ51u5ujBuHYQb3RP/DEEhK9WDt3Iw4EWeQAxUtSboOzOWXAwAzSgn2ljHrLFmtXl
+	heeB9pwh7kqi3cw5eEILMzRW1YNo2+5qpOanRuQm9QGseLuNr3Zyt5+QiLEXufXt391hjQNzj3s
+	RBf80nNLUgqAnbe8FEoWsv+HylwsgVhZgngmVTvGmbspXQr3pSZRRWrQli3d5RJ9NlCa9Q4voFT
+	xg9gzZugMXzA9nsSPRRxBmcJT/NWuYrbuXD+lPLXHNhX+OgKrkwc19nxKw==
+X-Google-Smtp-Source: AGHT+IFezFam6alDx90TUfBdNmoublXmOdXfqhoT08gBkDkGLkO7nMPBmg+CdG3FyRvs8OOwhJtfsw==
+X-Received: by 2002:a17:907:7ba4:b0:abc:c34:4130 with SMTP id a640c23a62f3a-ac2525f958amr896455566b.18.1741458891246;
+        Sat, 08 Mar 2025 10:34:51 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.34.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.34.47
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 10:34:46 -0800 (PST)
+        Sat, 08 Mar 2025 10:34:50 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -116,17 +116,17 @@ Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [RFC PATCH 05/24] dt-bindings: media: i2c: max96717: add support for MAX9295A
-Date: Sat,  8 Mar 2025 20:33:34 +0200
-Message-ID: <20250308183410.3013996-6-demonsingur@gmail.com>
+Subject: [RFC PATCH 06/24] dt-bindings: media: i2c: max96717: add support for MAX96793
+Date: Sat,  8 Mar 2025 20:33:35 +0200
+Message-ID: <20250308183410.3013996-7-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250308183410.3013996-1-demonsingur@gmail.com>
 References: <20250308183410.3013996-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_103448_978797_90FFAF67 
-X-CRM114-Status: GOOD (  11.84  )
+X-CRM114-CacheID: sfid-20250308_103453_150663_92385163 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,35 +141,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-MAX9295A is an older variant of the MAX96717 which does not support
-tunnel mode.
+MAX96793 is a newer variant of the MAX96717 which also supports GMSL3
+links.
 
-Document the compatibility.
+Document this compatibility.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../devicetree/bindings/media/i2c/maxim,max96717.yaml          | 3 +++
- 1 file changed, 3 insertions(+)
+ Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml | 2 ++
+ 1 file changed, 2 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-index 20114c252e01..1e5b85167d0e 100644
+index 1e5b85167d0e..2d7440049318 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-@@ -24,11 +24,14 @@ description:
+@@ -27,6 +27,7 @@ description:
  
-   The GMSL2 serial link operates at a fixed rate of 3Gbps or 6Gbps in the
-   forward direction and 187.5Mbps in the reverse direction.
-+
    MAX96717F only supports a fixed rate of 3Gbps in the forward direction.
-+  MAX9295A only supports pixel mode.
+   MAX9295A only supports pixel mode.
++  MAX96793 also supports GMSL3 mode.
  
  properties:
    compatible:
-     oneOf:
-+      - const: maxim,max9295a
-       - const: maxim,max96717f
+@@ -36,6 +37,7 @@ properties:
        - items:
            - enum:
+               - maxim,max96717
++              - maxim,max96793
+           - const: maxim,max96717f
+ 
+   '#gpio-cells':
 -- 
 2.48.1
 
