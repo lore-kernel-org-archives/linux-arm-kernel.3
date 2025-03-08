@@ -4,106 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E227C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 12:45:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B9FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 14:08:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xrHqPe4qI/nAbruW3F2vRPvWp4Qoww7mexetKwU+H74=; b=N+J3J8Gabery7OWdrAnjc6ulb/
-	e7DHpm6+kC5EuVX7MFNF0FJBdXiGmqwMwSlKAlsIQy0bCk10ZM97QAZJRvkVyxwkzd/0ufClgET1F
-	WD5rYWawdPWTheIRJNfxQprpYVm/gcuZsQZjBP5pMdP/cagewWDdxU73s5szdqUwXF/bM7xkNnCAV
-	Ex/Z7w97Zwmig+nqRJ/heQWvZdNVp0qiZzxuoQ5x57QZf+ze5u8eR6NdA0+VCQToMNKKTDP90kXKo
-	srApE5rzAzDX5DzBxrSdPwW+Vh8Ihpg2d8UDb9vuyQyGxaKK5Q1lJYSdmgD2bmJY/kSnS70vvS7Ts
-	zvnOsveQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tYiraGWlPW4DWJ0Nap4om7B1ISIymguW/oJ4HMGmsB4=; b=2q0Elg5F4XqhSI/A06YMLJJYFk
+	sZhRfioqoX+wIPpsAoJZYPx/suTd68Ox+U7HkHmyvspneU89Mgvh2s4iy0M/eby5rP0woDsOuEtGQ
+	Ak5XObiQN21TuTcVyZxg6s60rcqbp3X+d7vN4WOXDSoJ8o/FyTX2XDGK20SAaS0u5eNaAU95zBEHY
+	VvVcc/9wRBEfCuP6MiI83JQ5LrWje0vIxXFoVZQ+utAR2w99o8xcqRAgbHaNcfoZrMaD36asmzeBu
+	c8e8TFiLkRGl4xxy9zZXNhKJIUF4qB2+JwH8paBUSSaJYe5ssc4wfLNTcBclzGFLR6dxpK6QBI2d/
+	6E702/+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqtXz-0000000GcnH-3wFs;
-	Sat, 08 Mar 2025 12:44:55 +0000
-Received: from mail-pl1-x641.google.com ([2607:f8b0:4864:20::641])
+	id 1tquqa-0000000Ghh2-100t;
+	Sat, 08 Mar 2025 14:08:12 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqtNM-0000000GbB6-3tEf;
-	Sat, 08 Mar 2025 12:33:58 +0000
-Received: by mail-pl1-x641.google.com with SMTP id d9443c01a7336-22334203781so72269775ad.0;
-        Sat, 08 Mar 2025 04:33:56 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741437236; x=1742042036; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xrHqPe4qI/nAbruW3F2vRPvWp4Qoww7mexetKwU+H74=;
-        b=iLWHr8xzFUpDtyNQ/C5plHsex9LFt2BBTJvZtP1EcCrNnSctIZ8bUZr+B4b1DMtYsp
-         oWyIoV1t7wMdAHjFA6Nb4LWfpnb1Z1LOOCOC5YYppfcSRMCFUCigfcrJBPDaTL9vA7kg
-         iSWj50LQgtDyfuXUKyPjGGGcz08a+AIwPgaTGld37YBaL2+e3EVLTYU1Aeo5LuRwyK/z
-         WGU4DnaGoDu7hs/eJuMgEO3hAuybJa8qLmcf99V7oIl5VV52wwOLEDuKXis47sfmqEnC
-         zk6P1BPtePJI4sp9A7lMcslEUA++buK+hZ27e/L8GerOu6gzUFut+J9TLHv5NBmIDY3v
-         k4+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741437236; x=1742042036;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xrHqPe4qI/nAbruW3F2vRPvWp4Qoww7mexetKwU+H74=;
-        b=cWKwo6MfS1+QQ37eWIG6+TnyZrznV/i8hrtK8Jq18CbKDXll2iIXy5I1+7p/20TF1J
-         aEtyvraOtWukTMmMfdwj2N/UdIIlRF3bpvHN5vKmsiOrupx48mOodh4ZUNJpHjbYsC1Y
-         vTuRxd2ZDvhhO07Kp91/ZtZkokXSj3p6966hTtncOwDQpFZp4NwuTfHY92Z4s5hcik9g
-         VDjAwZY8eL4hYf6t8IZUzqzQ5S7eI9L0fI0WMQscvwlap3GQLpDhi7YGvhET6A24BsBt
-         xKIE0mCCnLiwWaOUzUCMer/b1eVf6G0YopowNLmHYlQ3TFsNgHbrQNVcjMXYCtZ9AGJ+
-         S0QQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV3T7YnWM20cAZN4O2g/WS/6XNAW03ojqz+rxGMksAqn/mkl4b9Ed41l9fPZcEaKVgtd1VeMCi3n1/wnI/s6Y8=@lists.infradead.org, AJvYcCWUlrXFf2+0pUFEN9MaYM0FSWcW1Jb7F4WPO/qUyk3R16B8M/K+kgMeSwX/0YVeM9JIUxba2gsqsGG1r+xDIwPL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxBU68I5qgV3q/P096TjEzrZM1cAWyRcLbkMpMyNXAO8HO/vNrb
-	9qxxHQraZViwJP/nw8BThTQQVMEgdIBv2CQcqQsQa06Nj09/J5XR
-X-Gm-Gg: ASbGncsuGE8fiHwlPayeq0SMaE9T6KcTqd9RU2EAzyHl0J/4wYYLC8T9gAy5bE1hZ6X
-	xvKlj0dFBOb8VBC1i0ef6mqV0WfTz0mZ8eXHsttFmMEk/e9jp+d1Rx5jXKYfwS1LeTRbpj3MJRm
-	XVlrNS3URs2bd765M7IJVZBkhfXtaWe+5Xvf9p2G4ept3aTbA4q80zBDAFdYSymosqo/gwK1fjI
-	FPUQeJrMYLXzOiuStOsZfOXDz04WlJtPGg++JSY573yDGThVLbcA8zbhu0kpEhSBsgIuVo39wpj
-	7p8jyuSQVG3+F3FumpZ+hQJrY3qFcfxwkCNuTpBhWDOgBoVW25xxRy46JCn1K1LbbrkJlg/YXpb
-	tVAhBmhbFRx41FArBmDupEIYLXdE2GbTx
-X-Google-Smtp-Source: AGHT+IEq4oVqwhl+HcBlEEt5O5mLwczA0MCHU/VL6TVKG4WcVGMzJn/E2qe19p7uaCmDiiGmZcFF6w==
-X-Received: by 2002:a05:6a00:816:b0:736:aea8:c9b7 with SMTP id d2e1a72fcca58-736bbf4af5dmr6123665b3a.2.1741437235636;
-        Sat, 08 Mar 2025 04:33:55 -0800 (PST)
-Received: from ?IPV6:2409:8a55:301b:e120:9c19:1482:d401:437c? ([2409:8a55:301b:e120:9c19:1482:d401:437c])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-73698450244sm4918282b3a.80.2025.03.08.04.33.49
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Mar 2025 04:33:55 -0800 (PST)
-Message-ID: <40b33879-509a-4c4a-873b-b5d3573b6e14@gmail.com>
-Date: Sat, 8 Mar 2025 20:33:44 +0800
+	id 1tquow-0000000GhaG-0t1R;
+	Sat, 08 Mar 2025 14:06:31 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 211B825D93;
+	Sat,  8 Mar 2025 15:06:22 +0100 (CET)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id preILQABPQVZ; Sat,  8 Mar 2025 15:06:17 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1741442777; bh=kGemAZ9EVDuCpSfW33snc8SJJJ1dseQQAUsecXVAtcY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To;
+	b=Ng0E9bDJucpkyJhzo+6yIzH66iSp0oNsv9ZSg44P/KyxctIGSs9wnhL2rp+IwWsRZ
+	 WjkB0pK7LqQxgnt7AgzYku0wiM3bXJIs40NPXJvOyvQd9+0WoeM3Y9FZM7T/foMIJ1
+	 RnQGVuXdJpeu5jQULN0gIixh9PFqdOkgC8Nm1Jdd4DTEZ4kPaJZlubQLcSnmRatsXp
+	 ZIrM+UHeucNDRvoEqTN27oS7sSEfpJzO6S2j5somCX80RMpci0UnF1vU7StNghauPr
+	 4qE7T4/kcmEA2adZg5y0BeH+MtD9exyyXQrYwI3yVigIBd5vToyuAce+4a4WxVmie8
+	 LqmTuoIAN7Yvg==
+Date: Sat, 8 Mar 2025 14:05:53 +0000
+From: Yao Zi <ziyao@disroot.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Ulf Hansson <ulf.hansson@linaro.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Shresth Prasad <shresthprasad7@gmail.com>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Detlev Casanova <detlev.casanova@collabora.com>,
+	Chukun Pan <amadeus@jmu.edu.cn>, linux-mmc@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 7/8] arm64: dts: rockchip: Add SDMMC/SDIO controllers
+ for RK3528
+Message-ID: <Z8xOwbfNqBfkRAi6@pie>
+References: <20250305194217.47052-1-ziyao@disroot.org>
+ <20250305194612.47171-1-ziyao@disroot.org>
+ <56181131-3e48-4c76-87c7-2388a9964727@kwiboo.se>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v11 0/4] fix the DMA API misuse problem for
- page_pool
-To: =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
- Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net, kuba@kernel.org,
- pabeni@redhat.com
-Cc: zhangkun09@huawei.com, liuyonglong@huawei.com, fanghaiqing@huawei.com,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Robin Murphy <robin.murphy@arm.com>,
- Alexander Duyck <alexander.duyck@gmail.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Gaurav Batra <gbatra@linux.ibm.com>, Matthew Rosato
- <mjrosato@linux.ibm.com>, IOMMU <iommu@lists.linux.dev>,
- MM <linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>,
- Daniel Borkmann <daniel@iogearbox.net>,
- Jesper Dangaard Brouer <hawk@kernel.org>,
- John Fastabend <john.fastabend@gmail.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
- bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Eric Dumazet <edumazet@google.com>
-References: <20250307092356.638242-1-linyunsheng@huawei.com>
- <87v7slvsed.fsf@toke.dk>
-Content-Language: en-US
-From: Yunsheng Lin <yunshenglin0825@gmail.com>
-In-Reply-To: <87v7slvsed.fsf@toke.dk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <56181131-3e48-4c76-87c7-2388a9964727@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_043356_968677_B9A3CFF9 
-X-CRM114-Status: GOOD (  18.61  )
+X-CRM114-CacheID: sfid-20250308_060630_664877_AD6BFFD6 
+X-CRM114-Status: GOOD (  17.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,62 +85,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/7/2025 10:15 PM, Toke Høiland-Jørgensen wrote:
-
-...
-
+On Sat, Mar 08, 2025 at 12:22:48AM +0100, Jonas Karlman wrote:
+> Hi Yao Zi,
 > 
-> You are making this incredibly complicated. You've basically implemented
-> a whole new slab allocator for those page_pool_item objects, and you're
-> tracking every page handed out by the page pool instead of just the ones
-> that are DMA-mapped. None of this is needed.
- > > I took a stab at implementing the xarray-based tracking first suggested
-> by Mina[0]:
-
-I did discuss Mina' suggestion with Ilias below in case you didn't
-notice:
-https://lore.kernel.org/all/0ef315df-e8e9-41e8-9ba8-dcb69492c616@huawei.com/
-
-Anyway, It is great that you take the effort to actually implement
-the idea to have some more concrete comparison here.
-
+> On 2025-03-05 20:46, Yao Zi wrote:
+> > RK3528 features two SDIO controllers and one SD/MMC controller, describe
+> > them in devicetree. Since their sample and drive clocks are located in
+> > the VO and VPU GRFs, corresponding syscons are added to make these
+> > clocks available.
+> > 
+> > Signed-off-by: Yao Zi <ziyao@disroot.org>
+> > ---
+> >  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 70 ++++++++++++++++++++++++
+> >  1 file changed, 70 insertions(+)
+> > 
+> > diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > index d3e2a64ff2d5..363023314e9c 100644
+> > --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> > @@ -130,6 +130,16 @@ gic: interrupt-controller@fed01000 {
+> >  			#interrupt-cells = <3>;
+> >  		};
+> >  
+> > +		vpu_grf: syscon@ff340000 {
+> > +			compatible = "rockchip,rk3528-vpu-grf", "syscon";
+> > +			reg = <0x0 0xff340000 0x0 0x8000>;
+> > +		};
+> > +
+> > +		vo_grf: syscon@ff360000 {
+> > +			compatible = "rockchip,rk3528-vo-grf", "syscon";
+> > +			reg = <0x0 0xff360000 0x0 0x10000>;
+> > +		};
+> > +
+> >  		cru: clock-controller@ff4a0000 {
+> >  			compatible = "rockchip,rk3528-cru";
+> >  			reg = <0x0 0xff4a0000 0x0 0x30000>;
+> > @@ -274,6 +284,66 @@ saradc: adc@ffae0000 {
+> >  			resets = <&cru SRST_P_SARADC>;
+> >  			reset-names = "saradc-apb";
+> >  			#io-channel-cells = <1>;
+> > +		};
 > 
-> https://git.kernel.org/toke/c/e87e0edf9520
-> 
-> And, well, it's 50 lines of extra code, none of which are in the fast
-> path.
+> Look like this patch accidentally drops status = "disabled" from the
+> adc@ffae0000 node.
 
-I wonder what is the overhead for the xarray idea regarding the
-time_bench_page_pool03_slow() testcase before we begin to discuss
-if xarray idea is indeed possible.
+It's a mistake during rebasing, I'll fix it in v3.
 
-> 
-> Jesper has kindly helped with testing that it works for normal packet
-> processing, but I haven't yet verified that it resolves the original
-> crash. Will post the patch to the list once I have verified this (help
-> welcome!).
+> Regards,
+> Jonas
 
-RFC seems like a good way to show and discuss the basic idea.
-
-I only took a glance at git code above, it seems reusing the
-_pp_mapping_pad for pp_dma_index seems like a wrong direction
-as mentioned in discussion with Ilias above as the field might
-be used when a page is mmap'ed to user space, and reusing that
-field in 'struct page' seems to disable the tcp_zerocopy feature,
-see the below commit from Eric:
-https://github.com/torvalds/linux/commit/577e4432f3ac810049cb7e6b71f4d96ec7c6e894
-
-Also, I am not sure if a page_pool owned page can be spliced into the fs
-subsystem yet, but if it does, I am not sure how is reusing the
-page->mapping possible if that page is called in __filemap_add_folio()?
-
-https://elixir.bootlin.com/linux/v6.14-rc5/source/mm/filemap.c#L882
-
-> 
-> -Toke
-> 
-> [0] https://lore.kernel.org/all/CAHS8izPg7B5DwKfSuzz-iOop_YRbk3Sd6Y4rX7KBG9DcVJcyWg@mail.gmail.com/
-> 
-> 
-
+Thanks,
+Yao Zi
 
