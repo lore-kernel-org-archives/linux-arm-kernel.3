@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1021DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 19:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CE86C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 19:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DCsk/rfL/dXjGmxlvAv4Wmgs717Q0qsPD356Vdw2nxQ=; b=Qzf+Sz5ZoyS4IHGkOydN+99evS
-	Ev1b7UWdgTeQN6Bod/NVG0Th554tNm/rGlqR4xKGMYjolAojeIsNqFautVyMf1R0mIAQ2eioJxNAr
-	D+LXqtO+HoCW5F+p4wWkvoGnJUaa+36aImdFdMfkGf2S1bRGC1hbfAJXH3HH5vqCJG+BwaK+jKqet
-	bhhBlfR4T/FQhbKV1dh2/Y4Qn8cETfDVh0hXvTRGMIqg/cXAsKrLvKgHnIoyXzSRDIuIeWPZxZTaK
-	UM2JYcqDJspRfsIbOn9H/2YO0a04DCpTm/VAniF/PtoYLwvpZYdZhsY/LMu72hX8XaZbLimgLSm/j
-	ckMh418g==;
+	bh=2cOgPHAoL12m9EBozXzMPJw28vDXvvK81+CTquR3Aqw=; b=OzQNOhC9jHtilj/PCh6BSWQhZl
+	cjjjYPBGo82y+SmEOYnldhiAslLfBfta4py57u5+16TAQXlM5Eli4GWWA4prxHCbe5EtkwPhu3tKi
+	GUWsRBSpIDKAmQcDi8X90kKy2yoYdNL0aK+v6DjFI5lgZjTKgW+Ap4W2FtRbqtZOQXUh/kA7W3z/6
+	9Q6qAkIVG34+wC90QZDrKXrzdY4hiW40b6gZU0kCaMRQZ3MNL5xtetnlo8FCPzIHDfCfzoroUFCKt
+	MvefrlT0Uds8kJrWBKRdMvgsbZP8STGD4C6Bx29EoM0oLJ2129zMy809MrZhkzULhZFCz4Zbq5jVp
+	hfPE8K3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqzPv-0000000H4F1-1t4r;
-	Sat, 08 Mar 2025 19:00:59 +0000
-Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
+	id 1tqzRW-0000000H4Ld-0pKK;
+	Sat, 08 Mar 2025 19:02:38 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqz1N-0000000H0QW-0tec
+	id 1tqz1Q-0000000H0Re-32g9
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 18:35:38 +0000
-Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-ac25520a289so299946666b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:35:37 -0800 (PST)
+	Sat, 08 Mar 2025 18:35:41 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-abbb12bea54so553858466b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:35:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741458936; x=1742063736; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741458939; x=1742063739; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DCsk/rfL/dXjGmxlvAv4Wmgs717Q0qsPD356Vdw2nxQ=;
-        b=frL+T7qZY3LDxfV2eHTe3W0d3yrOrGu9Ubdq+5bBKqOT2yQbxe6jRUgg3C1opl0yK2
-         q7GQNdvjLB7P2NW+4wR0ja97v5DKFa0qHf1ygF5j4vp4m6IIxSh9vkvHuszNZlWTlOzI
-         YE8KsO+CMAlnaR/7mKAy8oqyhnHV3pEGyDVQDS22yZlNzUTiI7EGtmIRthHrROgw3f3b
-         +7IlYmn5jC2SUxXl3hxTQnOXTPHp4EZTDcNusKWOh6inVySxzaCIvTKIsWv61rNmNd5x
-         hn94kzp2R7mxFrrT7lu+BppKechcqWL/SnP0W2XbtfFGC4bTduNIrKBwCm26Qkki5KuL
-         nscA==
+        bh=2cOgPHAoL12m9EBozXzMPJw28vDXvvK81+CTquR3Aqw=;
+        b=d13YdlY73yguvJQgJQ6aSoZmmBuyYAo/DiBCjVWS1obTHZ6wdcFJ+6A/e+l6Ijz/gU
+         5CLaOO/M5IXWG+cv2jUwdTCRAs4EUiXKGV13aG0PPMdqlmqE+ZAW0Qp7K5FHMlA83LMs
+         uPR74SsPNDIUdMeVYkxRgBrfUOhQW0iljQ3KG65k2BXhXG9wkffMw6C2TFlEoQ/qZiiG
+         RtCDDQb4FSCtrocqED3QE5aIKtT5mX1NprXbHJdfOkGb4kBXgfPRGevlAaUvVRDNfWJc
+         J1P/kWD28btQlI/bNaTZK8uoPFGxwfmbP6WXThaZdMyV4MSaA+/LbJca51fSP2a+3l4I
+         jymw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741458936; x=1742063736;
+        d=1e100.net; s=20230601; t=1741458939; x=1742063739;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=DCsk/rfL/dXjGmxlvAv4Wmgs717Q0qsPD356Vdw2nxQ=;
-        b=fNw09svd4h+dhyfRZrjUfTLxAUxuZPg3MIwg0ch68GmK3Dda1k72zOs1uCsRmT7V5U
-         iYWX5iYLcLjkopIaiB2HcHJ1tioq6MTI9gWjHJ89seizW2dwRhf9aCLSnoAvezuPNEXa
-         pDzAoy3s6jJ0G/wklGLa0iLYqlyfjEA/Auv5dIWNjC9hbrjbhzJND77KxsZi+BsXEHbR
-         IWnpUUCC5jIJSLr4CyEBWg58iKnyUK3PRECT9PnHeo6mWwcUNMF/LxfJlrFSWoZG7Kdw
-         cgfNFW8kWdhhNpltx8bKM31+IosTnLo6dRMzRMjXDgBbZHzRoqfx0s54br7nsY3NTCrX
-         k+JQ==
-X-Forwarded-Encrypted: i=1; AJvYcCURVi8G9mJ7npfKcrxn9kR92fAPj5jL9VlQRArhtw9qc3SSaRCOOR6qFxWqBxwl6BHcyl9Az3mzDFOprCq3BCDv@lists.infradead.org
-X-Gm-Message-State: AOJu0YymgspFZsTcOoZ3ECul1ieFWgB7gY76l36OoZtYKy3GnxcKbTcI
-	Ect20UKvBIoTKWeV8yF3gIoytWRd44hXLsiZrkiqZ4fJhyZzmd7h
-X-Gm-Gg: ASbGncvPygWdWk3QpThRYmKgTAhkw6fu0fr+lkQIKhkQMtRe+D/JAtrCwOqOC9cfVG0
-	xuhy/PrFKbZ9W9gP0pLX/bmzrwDT46IAm1IcSjMulCqNi4LczGaA6sF559jqSMWhpoV3Jh1/ZLX
-	uqvO6YfX92Rh93ZwoCMDfSM+p4kYJh+pSz7HTpS4ApVZrifx1TPZDrfd4/K7qKmwq6JIUnF5V4d
-	UmVC7D2pqVhHXDvNKyiEPGtuqBmgO71w+oX2g404bgu/JoLKEeLFIFdU161wE7EKzuCF0NTKd6h
-	5y4L+ZOwpnkkjzlelHic9xfw8vXQ0Phr85EdffeBUeNdI6dhbBb49mSEsw==
-X-Google-Smtp-Source: AGHT+IGuZkxoe/YU55gAOydwcd3lXHtaguNyV0TNC5ENcmXJiPj/O25J37irkr3OZx/XpOJhzTPfZQ==
-X-Received: by 2002:a17:907:1c9c:b0:abf:69e6:438b with SMTP id a640c23a62f3a-ac2525e040bmr1055808066b.9.1741458935572;
-        Sat, 08 Mar 2025 10:35:35 -0800 (PST)
+        bh=2cOgPHAoL12m9EBozXzMPJw28vDXvvK81+CTquR3Aqw=;
+        b=JqCBVkdk8VfEFLyeJd1RzbhtUSHEGvGk4XHIoMHnJGAVDePab81k/khxTCYNqtc+1X
+         BPJAs9tb3i6BvHGNsjH8HLp1jjhg0EMLjnc+isvX4Oo2GpHI5bXMjBfL1Cgr/KZtBNzf
+         1o/Iap9PxrSivtUa6tvFfSzifEvnek+T7jB0A4yeu58SIbxQrElOr8kU2TAflskG0+E2
+         npBt1Lwse1oQHUUZZcWlleyyjOkIesKKyYT1t4YqJLfAATa+kq2QRv0h984+1UzYWbMB
+         OSibtFP+X9EdcMcb1SBP46AQJuYfIBSjo2LZirw+OTV4hl4GC4MEoCEbG4cdO9gDddXb
+         HjgA==
+X-Forwarded-Encrypted: i=1; AJvYcCXsQy/SHJpIuVxLTDM5HOvjFUfIouI74tegyAvavA+e7pnr5J9d7jqEEAfd/4OI8DF2GHtbk4oMAcTBYW4ay0aR@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDXRkwNEqWJqO8bPKWLnWFM26+98ClmR7/sQUOMZxAxTWRG1NS
+	miMxVG9Qvom31KZDOZl98WHqJHgrB3OLykB/b0oGBl3Oy8DaI2vk
+X-Gm-Gg: ASbGncvI2+Jzdheg0YA1bjXH9+IsFaz6hmEY2v+Wk1ndyLFmvjzEnNjFFuU2MZM1Xtd
+	2Nhw111tZ086CSJnMdhsqVz+CZPw+LBXDOMsAu3a+++JNvhmQIhKsIa0J+ISdNTrelFDMVlVPP7
+	R/UDf2dheKN+XIt0F8frfeWJBBB1irj3oCSH0kV3jSofKaqyDx5zUbfqV+LZkJSvawbtXK+3i6U
+	0U/GMaRc8GtPcxZXRqGzYvNLf7h5hjF6iA76J53/+dxTCqFXxDZ0hhkofaf+JYhOYlhN96xIcRC
+	g0w3ZBz7F+Ne6M0TZerWc104DYtkL8cbjCT3UXdowa4EtZu6pcmVsNRFMQ==
+X-Google-Smtp-Source: AGHT+IHcPwKF5eB7VgOS8H61Ng0ywU+slTryB/Bsve8lxLP4Zc7Uc+Ntz4kGcsZJIup2zLzGgH7gHw==
+X-Received: by 2002:a17:906:5ac8:b0:ac2:7a6d:c918 with SMTP id a640c23a62f3a-ac27a6dd696mr229761566b.57.1741458939203;
+        Sat, 08 Mar 2025 10:35:39 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.35.32
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.35.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 10:35:35 -0800 (PST)
+        Sat, 08 Mar 2025 10:35:38 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -116,18 +116,17 @@ Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [RFC PATCH 15/24] dt-bindings: media: i2c: max96712: add myself as maintainer
-Date: Sat,  8 Mar 2025 20:33:44 +0200
-Message-ID: <20250308183410.3013996-16-demonsingur@gmail.com>
+Subject: [RFC PATCH 16/24] dt-bindings: media: i2c: max96712: use pattern properties for input ports
+Date: Sat,  8 Mar 2025 20:33:45 +0200
+Message-ID: <20250308183410.3013996-17-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250308183410.3013996-1-demonsingur@gmail.com>
 References: <20250308183410.3013996-1-demonsingur@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_103537_250329_D2B1E527 
-X-CRM114-Status: GOOD (  13.62  )
+X-CRM114-CacheID: sfid-20250308_103540_776532_6D63FFBD 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,40 +141,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Analog Devices is taking responsability for the maintenance of the Maxim
-GMSL2/3 devices.
-Add myself to the maintainers list and to the device tree bindings.
+The input ports are all the same, use patternProperties for them.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml | 1 +
- MAINTAINERS                                                     | 1 +
- 2 files changed, 2 insertions(+)
+ .../bindings/media/i2c/maxim,max96712.yaml     | 18 +++---------------
+ 1 file changed, 3 insertions(+), 15 deletions(-)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-index 26f85151afbd..efdece2b33b9 100644
+index efdece2b33b9..148d196b9acc 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-@@ -9,6 +9,7 @@ title: Quad GMSL2 to CSI-2 Deserializer with GMSL1 Compatibility
+@@ -40,22 +40,10 @@ properties:
+   ports:
+     $ref: /schemas/graph.yaml#/properties/ports
  
- maintainers:
-   - Niklas Söderlund <niklas.soderlund+renesas@ragnatech.se>
-+  - Cosmin Tanislav <cosmin.tanislav@analog.com>
+-    properties:
+-      port@0:
++    patternProperties:
++      port@[0-3]:
+         $ref: /schemas/graph.yaml#/properties/port
+-        description: GMSL Input 0
+-
+-      port@1:
+-        $ref: /schemas/graph.yaml#/properties/port
+-        description: GMSL Input 1
+-
+-      port@2:
+-        $ref: /schemas/graph.yaml#/properties/port
+-        description: GMSL Input 2
+-
+-      port@3:
+-        $ref: /schemas/graph.yaml#/properties/port
+-        description: GMSL Input 3
++        description: GMSL Input port
  
- description: |
-   The MAX96712 deserializer converts GMSL2 or GMSL1 serial inputs into MIPI
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7fcdcc57c8ba..84078626ed5a 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -14184,6 +14184,7 @@ F:	drivers/media/i2c/max9286.c
- 
- MAX96712 QUAD GMSL2 DESERIALIZER DRIVER
- M:	Niklas Söderlund <niklas.soderlund@ragnatech.se>
-+M:	Cosmin Tanislav <cosmin.tanislav@analog.com>
- L:	linux-media@vger.kernel.org
- S:	Maintained
- F:	Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
+       port@4:
+         $ref: /schemas/graph.yaml#/$defs/port-base
 -- 
 2.48.1
 
