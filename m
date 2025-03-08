@@ -4,159 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E15A7C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 02:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E9DEC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 02:35:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e2PtgFb6B6Nsje0z6HDmc1vvWNo0dV1VutTqdYOm1NE=; b=vxRjL1rQp4i8Q9i2u/QrnuAGp8
-	9i5Mukb8un+JsKrmAG3cTn0kfGCN8xmth3A4nQU6eBeuGqTDOdK/laVxLqWIw75wTl2+8Y+SLcwRO
-	5wKMZTlQ+kFwD9YS65fkE+lxaIkBS9E5OsuJsiYGkKXlynQwZaBGQdhQrr018LuL1wdkqhVy/twzh
-	/yZZL407IdbSPkIH1dy6xoWND1V6IuUuVKsL83KEqIQM+xm51vH9g51aJm6nnfp728zSZp9NJnxUT
-	t92LUhZ3V/y9wSKtUvqBvEIlmNLweKpCkrI0zUR/nnI8DM+0ot6Q2xE3ifdM3t/bM3NCUTtvD45pO
-	2mbk8RFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jKzjjHkyghJxAnuAXwC3PWRJfez3LkNv1m9ZaRZ16eg=; b=KQ+E6CxQGionR4ryWm5gF8kpi0
+	EdR+ZFS+mxanrVdEm+jBz0YWlTN4+TEJWDxEGUAGfGS4yVhv90RWi1N45iAC1LWRVsX8UFm5FaXsp
+	z4i1OkEeCGTeJLEBFcbiHs6s1NsCk7WZdL9JWfKXsUiEIHT9dMXM2MOM9KV6Kh3PpGhR2k3T5u16Y
+	MxQ+m3lJdH7jaHISpsyZXcBCPdtXkGGDDZhycTZTC3q9I4zytLIQkJlpb6ckgaZ8O2mawGd2BYTzA
+	ZeW5+rncWWA9mMi2YeJ/LrBAQqXI3xVzspXuYuUfDPto+cGBIIG0aJ8Wv5wwEgLZKdPSRtElx/6V3
+	dgpuAaMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqjb2-0000000G2Vn-04yb;
-	Sat, 08 Mar 2025 02:07:24 +0000
-Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1tqk1k-0000000G3dg-2Myy;
+	Sat, 08 Mar 2025 02:35:00 +0000
+Received: from mail-oo1-xc4a.google.com ([2607:f8b0:4864:20::c4a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqjZO-0000000G2Oc-3tAf
+	id 1tqk06-0000000G3XM-3wm8
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 02:05:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VodN8Y76iZyL8wzqlYvXBLHDiV9SKplWRvaO+ds6cOz1ZmctDZvSH5LAgM+EoLcUiTN9qwdGd7QHyWm7Tf+lr2BhNr+8gVcFqr632UcoNg09A+mqaM0XxpgAY36P+dAm1/vJ944qEUqcGRabq7nTBo/xPanvkS26nMfR+2/0V3WZBIxef1mbXrUNq6lNCCxqzYq1Fr5zHyrbhr09EtSgZlCnb3L3UNRdvYFURMCL29Cktk4EuFSeGhCjtjjSWXuPuyLhhaDushjA8nk3+Txtrow+xeQi+iW8c+FbhFcHV5BpOidpSEW8Mf1UvGw2PXzdBu0jcsU8tJ8t5eNpByC/TA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=e2PtgFb6B6Nsje0z6HDmc1vvWNo0dV1VutTqdYOm1NE=;
- b=BU2IiRdfzMmyfSN6+aLw7Xv+6Qd1adJwMy8XkodN3CbdjHZzfTbWPeD7yXKADrh9a2uh5fWhd3iBClZT7sx82FXBdDtr32vnD29TQp3fGyg8QjPDuysGZsN5YeNhnIjI/W9Lycq4WXHsIv5pMRk1wCkdmE7h6Xzm/qNrVO2KYX/7YeEBE2kjxfgI4pphdfDa8zVPUhUWue/hgpSU8fqKgDtqwvLdgX8cR3hR3llhsHsFk6Clfm/NyImktf18DOuqOxmALklyVu0gv1dHYtQLLmaWQCQvQF1Q3kwH0KQTbW/k924RTjoYJeOP6r16JomxPcnltvyprWhp4BcUIIJkXA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=e2PtgFb6B6Nsje0z6HDmc1vvWNo0dV1VutTqdYOm1NE=;
- b=FVrXrqgu64l0DByk0AVVLgmPJWFD/azs6SNJWOZad8pu+l9guOXhE6tqGdLAoaZFgQL63zM0l5dyJNVIObYws6PblBG/HViPOt3CIEXfs1Iicot6ZPlge7zb3Rh2QM4aTKkrQTJe5RZkWkvXumi0MHotAJnSzOJcpL5Etf4r2vnQA67qRDEYiVIPtQ5v4RcHeMEjaEnamV7xYKQ2LQCdTzsJTZVEfD+YdtKS0qhad8Vwtj9DGSrUYS08oN/TrWrpKH9rqGsB6M0gA/J+z0fRFmHLbL3Se48PQtCC7rdNuEMvg4ffhazSNosGZCTnBTJnp5gtDcwUqjbqchRnci/mKA==
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by AM9PR04MB7668.eurprd04.prod.outlook.com (2603:10a6:20b:2dd::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.20; Sat, 8 Mar
- 2025 02:05:36 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8511.017; Sat, 8 Mar 2025
- 02:05:36 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
-	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
-	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
-	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
-	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
-	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
-	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
-Subject: RE: [PATCH v3 net-next 01/13] net: enetc: add initial netc-lib driver
- to support NTMP
-Thread-Topic: [PATCH v3 net-next 01/13] net: enetc: add initial netc-lib
- driver to support NTMP
-Thread-Index: AQHbjNiMrmwkTzPG206zUiHxDe17mbNmtIkAgAAxcACAAZzhYA==
-Date: Sat, 8 Mar 2025 02:05:35 +0000
-Message-ID: <PAXPR04MB8510771650890E8B7395B2DA88D42@PAXPR04MB8510.eurprd04.prod.outlook.com>
-References: <20250304072201.1332603-1-wei.fang@nxp.com>
-	<20250304072201.1332603-2-wei.fang@nxp.com>
- <20250306142842.476db52c@kernel.org>
- <PAXPR04MB85107A1E5990FBB63F12C3B888D52@PAXPR04MB8510.eurprd04.prod.outlook.com>
-In-Reply-To: <PAXPR04MB85107A1E5990FBB63F12C3B888D52@PAXPR04MB8510.eurprd04.prod.outlook.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|AM9PR04MB7668:EE_
-x-ms-office365-filtering-correlation-id: 4b63c16b-4bf4-4eb6-e821-08dd5de5b744
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?rvb23W07Mos5lUeDZstJUfiTns7O5ZqVmq+HwOcztePtunzfoXOKxV0oTe9h?=
- =?us-ascii?Q?Hanrh4TRAbkM5+uqgQI35+8ai4CQ892EyFfQCYiaeIy6CkLsl4p8F07kiXok?=
- =?us-ascii?Q?1ojT93fwU2uRX457EmpE14jd5xalCG64LIdkQKkwP6Jn209Ahb2rm8947wSN?=
- =?us-ascii?Q?QUxqnrYk3OYhNSFkehIYukOCmtzUd5rBIIxUMX65YdZzY2ijtDbtdlmHrSmu?=
- =?us-ascii?Q?9HwDMD4P/50HzY77RCMnQQBTyqovQwakuoOrvntg67XfekM1XVWuFmNQkXF/?=
- =?us-ascii?Q?+WIO0Q2eqcXwsRnN4u2uhb0lrLjcmgpJs4uXEbuQIZWYlqKdjDaFt/C/BFoL?=
- =?us-ascii?Q?XVW5ARvgepSxvfygJ2HGI0z6lDI1QBgFOeiffXbjutHL7PMZHVRuPjSojy8h?=
- =?us-ascii?Q?om4RpmA7GbowHWEbhSiWFKj5fJRdZ02G/34aaAHIKiw0qG+LDyhVgLdx0vRJ?=
- =?us-ascii?Q?wd9DkLFjHl2Z6RMVT6DwgQ+1Ua9k9Pe10VOgihiyvsBt9Fh1pyf8AoS/cEII?=
- =?us-ascii?Q?uAlo2qaS/fm6kuTvV6l43rEIB5yqFhPsqkC2RFhYGz1q8L1w1tVM6ensvMhr?=
- =?us-ascii?Q?4IxMQMZpgUmg6W7yycv8LgF4aGtJ25BowmdZc103lMfNUkeYTIxLmkuNF3R/?=
- =?us-ascii?Q?fRxaE+XEx0ZEAayCREAnXLs5uyBgnL5xFkOu9OPVt4EGaWSQKdaR3Xb7uhzy?=
- =?us-ascii?Q?IY5xz0g1HOyuWAF18bCeikf8MgAML4LTuKZA3vtYYDTIqgl+WhAMJGzCOQVX?=
- =?us-ascii?Q?WUf6ziShDDmS0BKI35jg3cJXh38DtdJ2ov2T96lyKrqg2Xkoq2YA5YfAcE6C?=
- =?us-ascii?Q?CLAvz4sNsVgXgVYnOOwVkh4AtW2VhHtxjJzAS/4iB23KLlRL8Hf5LxeHMt2B?=
- =?us-ascii?Q?zwOxIiHvNlEbTFwV2aWuapU9fh1aU87MYwym8960BuDuVdu6eL9zcq1KkRob?=
- =?us-ascii?Q?cZeMB7amFTEjfGGRzbYsh+bJGuO5gEzAXLmBU1x98+lOB0HgUYd9ROUOQ4cn?=
- =?us-ascii?Q?Ip3jXj6Qoy9Kr2gz3JUtzA1bBPPn5CbYcz6XMyxf7LJgn/ZUrbKduKxajBt2?=
- =?us-ascii?Q?U5DvL+SguzbZ6uq1EzzOyZtDf8w2DC8oqOQPBXSvSMp8yOWI24unUK6Yz2Gw?=
- =?us-ascii?Q?q89Tzc45qlHPwu7hhgpl+YFzNHXNSgmTnHtDcTGfqw83VTrbSjisIc0F+Tf3?=
- =?us-ascii?Q?paxYq50R5PKMD6+U48xleb6cS0eNTZw7UCDXha5sPmFcetCLsjRt+FAsaTJf?=
- =?us-ascii?Q?79lq6/5xBXbIMFHn/QZd/GWFsmxSl1MNbJtmZi5lQVlp01BEQiEoEFWQEbcx?=
- =?us-ascii?Q?7wY2mfL4Bhc9Hsesdb/vfeOXgF8D4A1y+6XkJ76xmRsS3ya7gmXw1syc1fPG?=
- =?us-ascii?Q?37yO2gjsW7DhEf1VP4irIHqfKxMTpXIGxz6OnPaO6hna1OWHX92o9SUCf+YW?=
- =?us-ascii?Q?mxOOHEd77ZlPa9MQoTgpHJBzjCzj952o?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?uLJ596OwPwJQJADAct7Q+a5yd4gpilvyj0RjzEW5d6xI3MZ1aLgrLAnYLFY+?=
- =?us-ascii?Q?/sX7cvRFBZUbPYQ2OeI29BQv7CB4j+SBpegOHwKaeAoafLeIJAOBkfrTVu1T?=
- =?us-ascii?Q?wYLojGcjfun/cuxrUrET2GdaJAKMBS9Iqbg3QZUJzn7cS6Ymr/PQjJpqk5Us?=
- =?us-ascii?Q?J0MRXwPZLOrJV3i/BZ0ZJNxj/6ANdhEpAIYRaf6nyL4EMzFO+2MWGAyVrCQi?=
- =?us-ascii?Q?eZCQSIP0r02BbI29QUrY0g8A4IF3fCfcj+c4Sy4RYmTEw0Jl6LWrcuob7xmh?=
- =?us-ascii?Q?Qb/x3X1v/N97YG9RzV8YlcRSP9bLG+wxyMovimDZGKkis6LxQ0ZLJVJRGzSN?=
- =?us-ascii?Q?PqXL7vO9XA9UYhaPHRNoKJ+c03Fatt30oWxMcy+CMHdFfIRnQ9Y4iSlNXWlj?=
- =?us-ascii?Q?CZLRnOAmyhzr3qI3+8qGIcTDmowLedH5yNy54+DxsP0Z5F5EjdLRGriV3esY?=
- =?us-ascii?Q?ZyT5eXtLLbunNm396WymX3NaMzkP0bLG3lIg9tkl9U4yu0Y/5v2vWnSn6GWr?=
- =?us-ascii?Q?AGHyBqH65DIpaJu9RgkicgEXfBzxjnbZewCuNJvcGjoIbSXPVjpJVD0XkzTx?=
- =?us-ascii?Q?/CHPfnhXyp7iYYzrRynE8YrJy9TX3YNjjdTAw9M+ncvi4bQKxF3mmaX/avXz?=
- =?us-ascii?Q?6gxSbNCS6odnkYDtkHx++ZUc0OUSgpXn6QJCN6hIa1gwZeowpJYoSEwgg6NJ?=
- =?us-ascii?Q?toV00TZ3VUT1b0Bw+xTf4wWHnZczmZBUYrHrafQUDtQV+XX8DYoSeYDb/C9E?=
- =?us-ascii?Q?p2kHbEZmhFNRZ4pxMpbou8V6D9oErubEWBLnSs6AxQdbcyExxTy/5rVKrE0B?=
- =?us-ascii?Q?Cl6IRmuhZGWD2kvhS6llvASvXGEvDgg7bsdRDEAPos2rmRzkp7CtdxAZMK6f?=
- =?us-ascii?Q?dVmQ9UwxO5Fjtgflx6Pq9cml74xRHpfAgBRxJ1/vXv/gRcOq3lmW8XOV03lG?=
- =?us-ascii?Q?oAofRot7HzYtowHVK7+WpIbsBNHp034siNqpxw4ALaRbGeMVjzZoSjMNQn/H?=
- =?us-ascii?Q?cDkxA5OACXUAatOra4HG9yyi7gtvJEV435BM9z/TEGiHUuhbQaDy6wvvEKMy?=
- =?us-ascii?Q?V8C7JbcRCMo0zCP/wN5cbNiC+/jB7fJmWNbP6/9KUY7FA3mliAKiwOrHL6Ng?=
- =?us-ascii?Q?WNegSNthSlwlch2//wDgB8noLgQMskicZMX93/urqGNKqEcyJQmaFwtEK1+9?=
- =?us-ascii?Q?cqs7+PnJ1sPa+l6ElN6NeDDf9vWaJgnB9qsIs6G6bwM8vBkOJnOazGlFfqFF?=
- =?us-ascii?Q?D14qR461N8YBwtDS9WMjTpzSLfbS1UcWQ6BavceZrrS6Cj4F3EbhYcZBe9ml?=
- =?us-ascii?Q?vVreVZAYi/hyAwWeLGi0K8XDNMnkoBdbF2oe/IiK72J6wVuIOZycu19b6I3f?=
- =?us-ascii?Q?17bXgorLMVMh6OthIf65AD8G//6Bh6aR8Mpi+GiBnPSo8BE1vp6ZrtCgFtsA?=
- =?us-ascii?Q?IJ5/DgztE0dcWceAVCLq2PjIT7/syeOp9hLpyviL6zz9qz/2ff870LL4W5EC?=
- =?us-ascii?Q?/TfFu57rApDZSeU90+VoOjSMqJd2i0LOrGoxAuvB+xikTZX2wYdoEIV9eg4m?=
- =?us-ascii?Q?j+lbAa8CeL4WVNTsiUY=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
-MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b63c16b-4bf4-4eb6-e821-08dd5de5b744
-X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Mar 2025 02:05:35.9994
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: TFems3hoJLgJ3d0gZJxEgaHsiPVl3NcXLJqLyjU3HncN9QGnuv2YU5pr5t77EmKUp++F+aRkc7DYAcPGUUz16A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB7668
+	Sat, 08 Mar 2025 02:33:20 +0000
+Received: by mail-oo1-xc4a.google.com with SMTP id 006d021491bc7-5fce04707a2so856035eaf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 18:33:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741401197; x=1742005997; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=jKzjjHkyghJxAnuAXwC3PWRJfez3LkNv1m9ZaRZ16eg=;
+        b=3/tP9oEK/Nn8Sm56+yu92vO7qqD0LIX0DRdJCgcnWQY6gxhEJqWJWkGt2erSruYW+i
+         KXKlAC+UVGXlMxAsh09d6nCF5Ksp02OrOtj4lzMQZLI+YLTs//wVeZ4kqmmw4CuNhtqd
+         Krk7J0tu7UON5ywXQby//0iBNIJ7gUNqjZI49FCZg0aIbFJYBkWcZDMGNvwwyJ6SfzZ2
+         NBlkoj9UkHe924Gmp+RCuBuGXXGFSpmr9bR2TBvsQ7u+cY/j1ls4/CCV+FiautV5dlMQ
+         EAU6tgyqu/x30wd/8lOJO8tsI87Rt63YxGfx5ZlpgOL6ttBWYLbJ/lpxggqqYJ0dV0fg
+         OMVg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741401197; x=1742005997;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=jKzjjHkyghJxAnuAXwC3PWRJfez3LkNv1m9ZaRZ16eg=;
+        b=hvdamkBQ7ud9RPsG/d/W9m1ZCd+70YzpaRVBmoreO0VSz0wrmu60z0lJOWz1mw2oyw
+         T9QuhaJGa7kqcFxnjOuR2Fnkb+wzhXLZaB9S9Y00Nx05/DoatchK4tI0dp+UpakCbhiH
+         pJc0H/YLDfh7Qs6umOIiTNg2CMQtH/pEqvRlok852t+akI5Nj2FX6Rk4lD1yf70wyZzn
+         mEmHrKLd4A8KuPF0aGFIwwKsK9kGWQUmaHcRvnOO9dCP6FnHRpcLue4VL2EuoCPh+cS5
+         UOmkJ4dD2fuaNYOPtTCOcZXUD9zXQJXAXqCMNFSuYA8LuvbRavhLGS4sD+C5l2eZY/Md
+         NpEQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXNbFI1osxj6Xp1O6jQYR4B8uWyJTNl3Q2u1/5LkTNcNxqeCBng2lGUK5UsZ0vKBVkixyE0DwozdMnFc7A8gmgN@lists.infradead.org
+X-Gm-Message-State: AOJu0YzAnoxqmC4eayABMioE2vqVGmuZp4vYwJpUokcF4ebOp4eVhDw7
+	x0L4aITCZCnQ2VYHKJ8PsE+ko2Ts0ZWWxEkRgrIu+xDcBLCpaXDdHJ5lVzcopFZRqg==
+X-Google-Smtp-Source: AGHT+IFFZMokntAqkxOEmyT2cvJ9U4fSWph4TCXA8wvZ1kT5cN4sra8A6sENMM+l+kubdYKyBOP+ETg=
+X-Received: from oabnw7.prod.google.com ([2002:a05:6870:bb07:b0:2c1:c983:48c1])
+ (user=pcc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6830:264e:b0:727:345d:3b7b
+ with SMTP id 46e09a7af769-72a37b41aafmr3231129a34.5.1741401197125; Fri, 07
+ Mar 2025 18:33:17 -0800 (PST)
+Date: Fri,  7 Mar 2025 18:33:13 -0800
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+Message-ID: <20250308023314.3981455-1-pcc@google.com>
+Subject: [PATCH] string: Disable read_word_at_a_time() optimizations if kernel
+ MTE is enabled
+From: Peter Collingbourne <pcc@google.com>
+To: Alexander Viro <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, 
+	Andrew Morton <akpm@linux-foundation.org>, Kees Cook <kees@kernel.org>, 
+	Andy Shevchenko <andy@kernel.org>, Andrey Konovalov <andreyknvl@gmail.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>
+Cc: Peter Collingbourne <pcc@google.com>, linux-fsdevel@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-hardening@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_180542_987088_09E46077 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20250307_183318_977904_65CB551F 
+X-CRM114-Status: GOOD (  15.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,63 +91,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > On Tue,  4 Mar 2025 15:21:49 +0800 Wei Fang wrote:
-> > > +config NXP_NETC_LIB
-> > > +	tristate "NETC Library"
-> >
-> > Remove the string after "tristate", the user should not be prompted
-> > to make a choice for this, since the consumers "select" this config
-> > directly.
-> >
->=20
-> Okay, I will remove it.
->=20
-> > > +	help
-> > > +	  This module provides common functionalities for both ENETC and NE=
-TC
-> > > +	  Switch, such as NETC Table Management Protocol (NTMP) 2.0,
-> common
-> > tc
-> > > +	  flower and debugfs interfaces and so on.
-> > > +
-> > > +	  If compiled as module (M), the module name is nxp-netc-lib.
-> >
-> > Not sure if the help makes sense for an invisible symbol either.
->=20
-> Yes, I think it can also be removed. Thanks.
-> >
-> > >  config FSL_ENETC
-> > >  	tristate "ENETC PF driver"
-> > >  	depends on PCI_MSI
-> > > @@ -40,6 +50,7 @@ config NXP_ENETC4
-> > >  	select FSL_ENETC_CORE
-> > >  	select FSL_ENETC_MDIO
-> > >  	select NXP_ENETC_PF_COMMON
-> > > +	select NXP_NETC_LIB
-> > >  	select PHYLINK
-> > >  	select DIMLIB
-> > >  	help
-> >
-> > > +#pragma pack(1)
-> >
-> > please don't blindly pack all structs, only if they are misaligned
-> > or will otherwise have holes.
->=20
-> Because these structures are in hardware buffer format and need
-> to be aligned, so for convenience, I simply used pack(1). You are right,
-> I should use pack() for structures with holes. Thanks.
-> >
-> > > +#if IS_ENABLED(CONFIG_NXP_NETC_LIB)
-> >
-> > why the ifdef, all callers select the config option
->=20
-> hm..., there are some interfaces of netc-lib are used in common .c files
-> in downstream, so I used "ifdef" in downstream. Now for the upstream,
-> I'm going to separate them from the common .c files. So yes, we can
-> remove it now.
+The optimized strscpy() and dentry_string_cmp() routines will read 8
+unaligned bytes at a time via the function read_word_at_a_time(), but
+this is incompatible with MTE which will fault on a partially invalid
+read. The attributes on read_word_at_a_time() that disable KASAN are
+invisible to the CPU so they have no effect on MTE. Let's fix the
+bug for now by disabling the optimizations if the kernel is built
+with HW tag-based KASAN and consider improvements for followup changes.
 
-Sorry, I misread the header file. The ifdef in ntmp.h is needed because
-the interfaces in this header file will be used by the enetc-core and
-enetc-vf drivers. For the ENETC v1 (LS1028A platform), it will not select
-NXP_NETC_LIB.
+Signed-off-by: Peter Collingbourne <pcc@google.com>
+Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf98ada827fdf755548
+Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
+Cc: stable@vger.kernel.org
+---
+ fs/dcache.c  | 2 +-
+ lib/string.c | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/fs/dcache.c b/fs/dcache.c
+index e3634916ffb93..71f0830ac5e69 100644
+--- a/fs/dcache.c
++++ b/fs/dcache.c
+@@ -223,7 +223,7 @@ fs_initcall(init_fs_dcache_sysctls);
+  * Compare 2 name strings, return 0 if they match, otherwise non-zero.
+  * The strings are both count bytes long, and count is non-zero.
+  */
+-#ifdef CONFIG_DCACHE_WORD_ACCESS
++#if defined(CONFIG_DCACHE_WORD_ACCESS) && !defined(CONFIG_KASAN_HW_TAGS)
+ 
+ #include <asm/word-at-a-time.h>
+ /*
+diff --git a/lib/string.c b/lib/string.c
+index eb4486ed40d25..9a43a3824d0d7 100644
+--- a/lib/string.c
++++ b/lib/string.c
+@@ -119,7 +119,8 @@ ssize_t sized_strscpy(char *dest, const char *src, size_t count)
+ 	if (count == 0 || WARN_ON_ONCE(count > INT_MAX))
+ 		return -E2BIG;
+ 
+-#ifdef CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS
++#if defined(CONFIG_HAVE_EFFICIENT_UNALIGNED_ACCESS) && \
++	!defined(CONFIG_KASAN_HW_TAGS)
+ 	/*
+ 	 * If src is unaligned, don't cross a page boundary,
+ 	 * since we don't know if the next page is mapped.
+-- 
+2.49.0.rc0.332.g42c0ae87b1-goog
+
 
