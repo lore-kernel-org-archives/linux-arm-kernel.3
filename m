@@ -4,99 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F08DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 05:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17474C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 05:43:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=; b=sdOQRyFxFhU8ekuM3onfDxroaH
-	ITODskRQigkVp7Mkuo7Qr/gRAnWgRCWZHmZRMdkuoAN44tMZP/63R1oQN77yYLZUxzPE5HmOhDZZg
-	pxXqeeIucJxDgYhDaLcXQ3YVgfMVvTHLZhoyydwk9haPYwC8RqgpkBt7z2eF5soaTY5MYxIl7TKKG
-	LD45142kFtD8WaiXm6c/btyU/sjJO6R+Bn8FZFciE1hR3k0YUH8k/XhIrMxPwH+ds3VjZJSAA1VGb
-	I/mRV308BKtYbwJ1mG8VspFVK+T94J8e9grQMjAQqRCxPR+TvyBmuFiMeT3r5Irs+o/ZnFq2vukRi
-	YhCJhvXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=; b=pK5r+/mBxWNWnfSNaVCoOiF9ub
+	5QfgYGMckLQZSQclFa4RlK5eZa2LVl9fWMPCSLoOe+yoJqrIUNblKe4xEaf3kI3nhDiitBizWiBaG
+	JOkfljH5wIzCPe9QFpNgRboOjCXT/c46d6Uoys0eIjthCnbgCvKuZOQTjURQaB+OnELqgqeaKwWBQ
+	UpsEhDu+5WHubaWa4ZFtf370iG/DeZpAK0iNfnBKc4HHQHBKYDruNlVrqBM8nCpEYSpYJaBpsuWlh
+	FurrHJe9fbUj0yYSlnhZXQxI+StjOzWkFHLy+80VwKXqraQpdp30wBG3zruRwa5TB25tu6psLNiov
+	N7PR0+Ew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqmSg-0000000GCeE-0h2V;
-	Sat, 08 Mar 2025 05:10:58 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1tqmy6-0000000GEZT-3wjz;
+	Sat, 08 Mar 2025 05:43:26 +0000
+Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqmR3-0000000GCYQ-2IMX
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 05:09:18 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-307c13298eeso30219681fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 21:09:16 -0800 (PST)
+	id 1tqmwU-0000000GERq-0n2Z;
+	Sat, 08 Mar 2025 05:41:47 +0000
+Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-86b9d1f7249so1973263241.2;
+        Fri, 07 Mar 2025 21:41:45 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741410555; x=1742015355; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=;
-        b=IGoDci5QF2cRG+3jbdgMUWoU3uKQ6m1fCS/OeB2dS/D6nLaRxjECCiQ0K7GDLiW1BQ
-         Nf3fqEZShawOYcdhoZ2VZ+JxedHHdEzOLjLnoShUEeAzfxHA6ZruI/v144Xo240ANRJ1
-         BVflPWy9n2GbwrlJX/eYEDuVXWZXXVdRp+UY3MEun/1+//FmMTX5fPzeh1o/gZml6yQl
-         bGqkDE4USM0mP+TPR9tbXIreB7rV6N6VthN6K8vbpi1oEMpiNtN29h3BLCLPalGT9fNZ
-         94TUMgzOJ6umZgEXgQmhXvwLz8/P800drowx2M5Hf/7w2CkyWINtvGsr4+jbsltlxwXN
-         OUrQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741410555; x=1742015355;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=gmail.com; s=20230601; t=1741412504; x=1742017304; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=;
-        b=Bb+/0a5AgNXP/zzklr5FcB1tCD7OIhWEIz92HUnngj0un2Krd14EeKm48RD90GFru0
-         z8mxjGRU6culWrC5tTDdR5CLe93wgRL9/xjWE6BtlJwo7f0Jw3CvpUl6fObqyPVEWtp/
-         5u6B41VxXontiqJ0GS/RYBilxlEY/oZhzHrILEYPeCqOpBVf0Saoxf6u58ww2i69Fsd2
-         3zpcwEcvfyfEsdrPN7g69MqYYO7qyopMpBfxTyLlkEG7WIfkPDTDQJl0N/Jo73bLgFzI
-         Ok4N1XbxeJ69so757RtWXkKjf1KRLIEWvc8DyEcMRbPZfeCbWQ6btxlAmbZ3ASo0NAT9
-         Qyfw==
-X-Forwarded-Encrypted: i=1; AJvYcCXsUIpuPEhnmNy1NzpNBU/ueAi1j+onoIjzXlfMSzuVLwA94zlbYcU8UkoaChlOWO4ekHI7OM4g5oVyPluQKC5Z@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUujpiUh8oRUtz7WZlP6WO3q1WFHsGJUjkN7HJ+tnbtm0tR7VP
-	qGa+8kfZTkMAjE7TKtcdVsp0XVrXw/bXqdMZLBP0BvmqWjuHOKvmXl26tcO87As=
-X-Gm-Gg: ASbGncs+u156BNXMvYLsjh8LkhEsngZpkvW+MgBlayF4rYcNGh81mhmXTaU5g6lF7mW
-	NEWCw2WIsxtNI5UPpAjgoRGaThsUdAnV00Ipwf0XULc5+ha6trTbdSE0lcPNkjV9PSVNt7BXuz7
-	tUL+GgYWCC3nHrg5iyu8/67U/Er/wWHet3y4rRO4VOEQmsRzGY1R5PgEVZi0W07OwfIZfy/P2hY
-	J24GT8lnrDeEh0dhUIP+l08zUp5019V9XNXof6g/l2GmviehGcIGcE1jk97xRkTHQ+aofYNvula
-	OYfW7AJpDxgylmmvHt+pTZAFfqH75ApVfxMkAsbZH8zy8XsKf3YpnWcLJ+Ga95lzvYHIQi4agQj
-	lYz3Yq1jmEdeEdfvcwc/Rsv+u
-X-Google-Smtp-Source: AGHT+IF7bjBB5aMjSIOWPIZXx3se8ZXwg6KEPXnQgNtkefZ48n8buFCzC0ExNuYMF9We4+jwIP9GuA==
-X-Received: by 2002:a2e:be91:0:b0:30b:c608:22bf with SMTP id 38308e7fff4ca-30bfe429ce8mr7170571fa.9.1741410555213;
-        Fri, 07 Mar 2025 21:09:15 -0800 (PST)
-Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30be98d0bf3sm7872791fa.8.2025.03.07.21.09.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 07 Mar 2025 21:09:13 -0800 (PST)
-Date: Sat, 8 Mar 2025 07:09:11 +0200
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, Sean Paul <sean@poorly.run>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, 
-	David Airlie <airlied@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, devicetree@vger.kernel.org, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Rob Clark <robdclark@gmail.com>, 
-	Kuogee Hsieh <quic_khsieh@quicinc.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Simona Vetter <simona@ffwll.ch>, freedreno@lists.freedesktop.org, 
-	Bjorn Andersson <andersson@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Jonathan Marek <jonathan@marek.ca>, 
-	Maxime Ripard <mripard@kernel.org>, iommu@lists.linux.dev, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
-	Will Deacon <will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
-Subject: Re: [PATCH 05/10] dt-bindings: display/msm: Add Qualcomm SAR2130P
-Message-ID: <nddxntwmiyurqew75gc6yoj2dcinhjqu36cdujhruqyrz62ry5@4e2y76ghmo4h>
-References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
- <20250308-sar2130p-display-v1-5-1d4c30f43822@linaro.org>
- <174140525677.1770282.3232695979994091275.robh@kernel.org>
+        bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=;
+        b=gYJRFfL40QRWKK4p9qPT/tjl/HPl/ak9wPnCi5SfcfGWtbjsNKFift2paHkXB5mkq1
+         MARQWUzvJ9UTOvVbnqQcF5J01FPESHCLBst3KuOvN5FyFo2ze6MCkIEhWft5YvJOMpXs
+         AqEtdi7qCqYRl/ptCyK8cw1WkUniUEVna+BGSOqqzQ84fD8IwlyhE9UQNTm4gVMREsA5
+         T7GvPyZFHk5bzuoi5ZFuJ1uCMtj1HwcuIpuxWgMIPP6d4h9E5mMjRvfZEwsOOZTVKRp+
+         5Um/OF/ALyAHf1Owv0n38PTOCxV5iT+fROy8pq8/3EawlLMFnsygzQsfvNwrnRl+jKjT
+         /zBQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741412504; x=1742017304;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=;
+        b=Pqurlwz9X2jqmfJgG265xU6eD/TKjuwf8ypwcStQZn8wq1c93iGphDIe18tt55PWon
+         UW+jVS4Lq+egqfJTm8jISKldgaNfKsIwLGx4awkdTVEf5TRODXcGzf7iKTNTRDZ3aLf6
+         LMjemOojrXgtQ9HlkteZ/l2tF44vm2MsxZmoavsHiEl4LgEfiWFjo/x2SHPcbRirI3ja
+         vHdk+unDfgdy6NnEhrkeV7EGbD/o48En0xGLicz8PnCpIzgz/sA2KnvIEz3EDnTX7B2p
+         2SmCttjFp3O08X6JxAmaInQz9nRcHfZ/5lbkCmxAMfgW1lEcOjFLJYDScTWvgtIaQUWp
+         HRCw==
+X-Forwarded-Encrypted: i=1; AJvYcCVRcuT5vSuxZ80YGDSgSLHSOx6MKAn4Y+qi79OgaNQWGVfoyX+2GwYmChpLM5xJuOvjShsqL/7MiDzyfh/4kosg@lists.infradead.org, AJvYcCXwLgkaS8asai6gxSEwlwA3sJ3aEsoCg5GEvSR3ao58iilpvWgrzODKaDnXRiRLLFKPB2r6zDU2fpkq00rt1so=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzEPFygQDsH0zqGP9cM21i8XYoUfDaQZhkylY7qSBgfQGoq0pbz
+	oJTEox6uMdgOg8hMr8Q/HipsvjFH0mD1/PBtkHjjcZovBSiHG5INWLTqy34jaVWbb/N7cPcqqQK
+	iYBKoPL4QvpnHWUVEIRZJ7yakTD8=
+X-Gm-Gg: ASbGncvs5kcB4FEUwckNYi5hWp7FmJOG8kgDlRSBoMv6oQ6GfmLz0VE4go1JH+Bf898
+	E0TiacbIdcOZp18x5zaBmyGdGNKk3+0ahru6rwUAr64DLA5Jk05c3UDgKF0Iwn0M6dkgMDlzVE8
+	X5sF/Wr7S0pQcpAWUWuCE6oCHUNkc7a/sdc1VF
+X-Google-Smtp-Source: AGHT+IHHggIPKrL5d8yR6LTugXbBrgtYx9QYjOVM0FXkszko5m8Bp+SYzJZbZ7yqbzdNsHG/XrgFTdExUecoVmk9yWY=
+X-Received: by 2002:a05:6102:809c:b0:4bb:9b46:3f6f with SMTP id
+ ada2fe7eead31-4c30a538979mr4607096137.1.1741412504595; Fri, 07 Mar 2025
+ 21:41:44 -0800 (PST)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <174140525677.1770282.3232695979994091275.robh@kernel.org>
+References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com> <CAKEwX=NfKrisQL-DBcNxBwK2ErK-u=MSzHNpETcuWWNBh9s9Bg@mail.gmail.com>
+In-Reply-To: <CAKEwX=NfKrisQL-DBcNxBwK2ErK-u=MSzHNpETcuWWNBh9s9Bg@mail.gmail.com>
+From: Barry Song <21cnbao@gmail.com>
+Date: Sat, 8 Mar 2025 18:41:33 +1300
+X-Gm-Features: AQ5f1JoraQfrjgklIeJVnsPlZLYjnVJdWtNTlR00z_Bw9q9Ie66lMyjY9JB8lAo
+Message-ID: <CAGsJ_4ysL1xV=902oNM3vBfianF6F_iqDgyck6DGzFrZCtOprw@mail.gmail.com>
+Subject: Re: [PATCH 0/2] Improve Zram by separating compression context from kswapd
+To: Nhat Pham <nphamcs@gmail.com>
+Cc: Qun-Wei Lin <qun-wei.lin@mediatek.com>, Jens Axboe <axboe@kernel.dk>, 
+	Minchan Kim <minchan@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
+	Vishal Verma <vishal.l.verma@intel.com>, Dan Williams <dan.j.williams@intel.com>, 
+	Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
+	Andrew Morton <akpm@linux-foundation.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chris Li <chrisl@kernel.org>, 
+	Ryan Roberts <ryan.roberts@arm.com>, "Huang, Ying" <ying.huang@intel.com>, 
+	Kairui Song <kasong@tencent.com>, Dan Schatzberg <schatzberg.dan@gmail.com>, 
+	Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org, 
+	linux-block@vger.kernel.org, nvdimm@lists.linux.dev, linux-mm@kvack.org, 
+	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+	Casper Li <casper.li@mediatek.com>, Chinwen Chang <chinwen.chang@mediatek.com>, 
+	Andrew Yang <andrew.yang@mediatek.com>, James Hsu <james.hsu@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_210917_600456_61675999 
-X-CRM114-Status: GOOD (  22.31  )
+X-CRM114-CacheID: sfid-20250307_214146_226829_582830FC 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,65 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 09:40:56PM -0600, Rob Herring (Arm) wrote:
-> 
-> On Sat, 08 Mar 2025 03:42:23 +0200, Dmitry Baryshkov wrote:
-> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > 
-> > Describe the Mobile Display SubSystem (MDSS) device present on the
-> > Qualcomm SAR2130P platform. It looks pretty close to SM8550 on the
-> > system level. SAR2130P features two DSI hosts and single DisplayPort
-> > controller.
-> > 
-> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> > ---
-> >  .../bindings/display/msm/qcom,sar2130p-mdss.yaml   | 445 +++++++++++++++++++++
-> >  1 file changed, 445 insertions(+)
-> > 
-> 
-> My bot found errors running 'make dt_binding_check' on your patch:
-> 
-> yamllint warnings/errors:
-> 
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae94000: compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['qcom,sar2130p-dsi-ctrl', 'qcom,mdss-dsi-ctrl'] is too long
-> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,apq8064-dsi-ctrl', 'qcom,msm8226-dsi-ctrl', 'qcom,msm8916-dsi-ctrl', 'qcom,msm8953-dsi-ctrl', 'qcom,msm8974-dsi-ctrl', 'qcom,msm8976-dsi-ctrl', 'qcom,msm8996-dsi-ctrl', 'qcom,msm8998-dsi-ctrl', 'qcom,qcm2290-dsi-ctrl', 'qcom,sc7180-dsi-ctrl', 'qcom,sc7280-dsi-ctrl', 'qcom,sdm660-dsi-ctrl', 'qcom,sdm670-dsi-ctrl', 'qcom,sdm845-dsi-ctrl', 'qcom,sm6115-dsi-ctrl', 'qcom,sm6125-dsi-ctrl', 'qcom,sm6150-dsi-ctrl', 'qcom,sm6350-dsi-ctrl', 'qcom,sm6375-dsi-ctrl', 'qcom,sm7150-dsi-ctrl', 'qcom,sm8150-dsi-ctrl', 'qcom,sm8250-dsi-ctrl', 'qcom,sm8350-dsi-ctrl', 'qcom,sm8450-dsi-ctrl', 'qcom,sm8550-dsi-ctrl', 'qcom,sm8650-dsi-ctrl']
-> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,dsi-ctrl-6g-qcm2290', 'qcom,mdss-dsi-ctrl']
-> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
+On Sat, Mar 8, 2025 at 12:03=E2=80=AFPM Nhat Pham <nphamcs@gmail.com> wrote=
+:
+>
+> On Fri, Mar 7, 2025 at 4:02=E2=80=AFAM Qun-Wei Lin <qun-wei.lin@mediatek.=
+com> wrote:
+> >
+> > This patch series introduces a new mechanism called kcompressd to
+> > improve the efficiency of memory reclaiming in the operating system. Th=
+e
+> > main goal is to separate the tasks of page scanning and page compressio=
+n
+> > into distinct processes or threads, thereby reducing the load on the
+> > kswapd thread and enhancing overall system performance under high memor=
+y
+> > pressure conditions.
+>
+> Please excuse my ignorance, but from your cover letter I still don't
+> quite get what is the problem here? And how would decouple compression
+> and scanning help?
 
-It looks like the patch 2 could not be applied and was skipped. Is the
-bot parsing the dependencies from the cover letter?
+My understanding is as follows:
 
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae94000: Unevaluated properties are not allowed ('compatible' was unexpected)
-> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae96000: compatible: 'oneOf' conditional failed, one must be fixed:
-> 	['qcom,sar2130p-dsi-ctrl', 'qcom,mdss-dsi-ctrl'] is too long
-> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,apq8064-dsi-ctrl', 'qcom,msm8226-dsi-ctrl', 'qcom,msm8916-dsi-ctrl', 'qcom,msm8953-dsi-ctrl', 'qcom,msm8974-dsi-ctrl', 'qcom,msm8976-dsi-ctrl', 'qcom,msm8996-dsi-ctrl', 'qcom,msm8998-dsi-ctrl', 'qcom,qcm2290-dsi-ctrl', 'qcom,sc7180-dsi-ctrl', 'qcom,sc7280-dsi-ctrl', 'qcom,sdm660-dsi-ctrl', 'qcom,sdm670-dsi-ctrl', 'qcom,sdm845-dsi-ctrl', 'qcom,sm6115-dsi-ctrl', 'qcom,sm6125-dsi-ctrl', 'qcom,sm6150-dsi-ctrl', 'qcom,sm6350-dsi-ctrl', 'qcom,sm6375-dsi-ctrl', 'qcom,sm7150-dsi-ctrl', 'qcom,sm8150-dsi-ctrl', 'qcom,sm8250-dsi-ctrl', 'qcom,sm8350-dsi-ctrl', 'qcom,sm8450-dsi-ctrl', 'qcom,sm8550-dsi-ctrl', 'qcom,sm8650-dsi-ctrl']
-> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,dsi-ctrl-6g-qcm2290', 'qcom,mdss-dsi-ctrl']
-> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae96000: Unevaluated properties are not allowed ('compatible' was unexpected)
-> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
-> 
-> doc reference errors (make refcheckdocs):
-> 
-> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250308-sar2130p-display-v1-5-1d4c30f43822@linaro.org
-> 
-> The base for the series is generally the latest rc1. A different dependency
-> should be noted in *this* patch.
-> 
-> If you already ran 'make dt_binding_check' and didn't see the above
-> error(s), then make sure 'yamllint' is installed and dt-schema is up to
-> date:
-> 
-> pip3 install dtschema --upgrade
-> 
-> Please check and re-submit after running the above command yourself. Note
-> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
-> your schema. However, it must be unset to test all examples with your schema.
-> 
+When kswapd attempts to reclaim M anonymous folios and N file folios,
+the process involves the following steps:
 
--- 
-With best wishes
-Dmitry
+* t1: Time to scan and unmap anonymous folios
+* t2: Time to compress anonymous folios
+* t3: Time to reclaim file folios
+
+Currently, these steps are executed sequentially, meaning the total time
+required to reclaim M + N folios is t1 + t2 + t3.
+
+However, Qun-Wei's patch enables t1 + t3 and t2 to run in parallel,
+reducing the total time to max(t1 + t3, t2). This likely improves the
+reclamation speed, potentially reducing allocation stalls.
+
+I don=E2=80=99t have concrete data on this. Does Qun-Wei have detailed
+performance data?
+
+>
+> >
+> > Problem:
+> >  In the current system, the kswapd thread is responsible for both
+> >  scanning the LRU pages and compressing pages into the ZRAM. This
+> >  combined responsibility can lead to significant performance bottleneck=
+s,
+>
+> What bottleneck are we talking about? Is one stage slower than the other?
+>
+> >  especially under high memory pressure. The kswapd thread becomes a
+> >  single point of contention, causing delays in memory reclaiming and
+> >  overall system performance degradation.
+> >
+> > Target:
+> >  The target of this invention is to improve the efficiency of memory
+> >  reclaiming. By separating the tasks of page scanning and page
+> >  compression into distinct processes or threads, the system can handle
+> >  memory pressure more effectively.
+>
+> I'm not a zram maintainer, so I'm definitely not trying to stop this
+> patch. But whatever problem zram is facing will likely occur with
+> zswap too, so I'd like to learn more :)
+
+Right, this is likely something that could be addressed more generally
+for zswap and zram.
+
+Thanks
+Barry
 
