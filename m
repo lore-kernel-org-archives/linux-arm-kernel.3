@@ -4,92 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17474C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 05:43:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD28FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 07:00:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=; b=pK5r+/mBxWNWnfSNaVCoOiF9ub
-	5QfgYGMckLQZSQclFa4RlK5eZa2LVl9fWMPCSLoOe+yoJqrIUNblKe4xEaf3kI3nhDiitBizWiBaG
-	JOkfljH5wIzCPe9QFpNgRboOjCXT/c46d6Uoys0eIjthCnbgCvKuZOQTjURQaB+OnELqgqeaKwWBQ
-	UpsEhDu+5WHubaWa4ZFtf370iG/DeZpAK0iNfnBKc4HHQHBKYDruNlVrqBM8nCpEYSpYJaBpsuWlh
-	FurrHJe9fbUj0yYSlnhZXQxI+StjOzWkFHLy+80VwKXqraQpdp30wBG3zruRwa5TB25tu6psLNiov
-	N7PR0+Ew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=q6pZ8rkdSaVuEJ8JCUWFQBGtDJeMckIEv/9XXffG91Y=; b=GyPJdZJ3pRx0HOoU8EoslWOiFs
+	0oXEC2GQ/bTE94LTmuB877ARokvvefDd+SSFybucpvsbRGC7DMTKgZ1QzhJsQmbZ5Elxu4ix9K58R
+	8Re6U97W2fUawp44Y6EHx/HgctR7M5noT8bu7cu3HhQnf1r0SedFNGGbFkxRmTgSRjYYCfQvBOxvB
+	KRkdaijQQf+cR0jfLDmDKP4q6r6aQGRrJqHlV9NU6VND+Rehs4xOC4COjjW5/sK7AO+fK0NZodFxe
+	CTV3DTq3NAMfgKXX0kjV2qwr7XW1xmaCMu2e/mBPWFsdGU0JnoECcn4I9qAP5aS0ABuMzgx6KhDHd
+	af9mVsKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqmy6-0000000GEZT-3wjz;
-	Sat, 08 Mar 2025 05:43:26 +0000
-Received: from mail-ua1-x935.google.com ([2607:f8b0:4864:20::935])
+	id 1tqoAX-0000000GHHT-01YB;
+	Sat, 08 Mar 2025 07:00:21 +0000
+Received: from mail-db8eur05on2061a.outbound.protection.outlook.com ([2a01:111:f403:2614::61a] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqmwU-0000000GERq-0n2Z;
-	Sat, 08 Mar 2025 05:41:47 +0000
-Received: by mail-ua1-x935.google.com with SMTP id a1e0cc1a2514c-86b9d1f7249so1973263241.2;
-        Fri, 07 Mar 2025 21:41:45 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741412504; x=1742017304; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=;
-        b=gYJRFfL40QRWKK4p9qPT/tjl/HPl/ak9wPnCi5SfcfGWtbjsNKFift2paHkXB5mkq1
-         MARQWUzvJ9UTOvVbnqQcF5J01FPESHCLBst3KuOvN5FyFo2ze6MCkIEhWft5YvJOMpXs
-         AqEtdi7qCqYRl/ptCyK8cw1WkUniUEVna+BGSOqqzQ84fD8IwlyhE9UQNTm4gVMREsA5
-         T7GvPyZFHk5bzuoi5ZFuJ1uCMtj1HwcuIpuxWgMIPP6d4h9E5mMjRvfZEwsOOZTVKRp+
-         5Um/OF/ALyAHf1Owv0n38PTOCxV5iT+fROy8pq8/3EawlLMFnsygzQsfvNwrnRl+jKjT
-         /zBQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741412504; x=1742017304;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EJmfZfA0tNqTdg8bAfZWDeUCZMhc8ZXDtBpkPMyhAvk=;
-        b=Pqurlwz9X2jqmfJgG265xU6eD/TKjuwf8ypwcStQZn8wq1c93iGphDIe18tt55PWon
-         UW+jVS4Lq+egqfJTm8jISKldgaNfKsIwLGx4awkdTVEf5TRODXcGzf7iKTNTRDZ3aLf6
-         LMjemOojrXgtQ9HlkteZ/l2tF44vm2MsxZmoavsHiEl4LgEfiWFjo/x2SHPcbRirI3ja
-         vHdk+unDfgdy6NnEhrkeV7EGbD/o48En0xGLicz8PnCpIzgz/sA2KnvIEz3EDnTX7B2p
-         2SmCttjFp3O08X6JxAmaInQz9nRcHfZ/5lbkCmxAMfgW1lEcOjFLJYDScTWvgtIaQUWp
-         HRCw==
-X-Forwarded-Encrypted: i=1; AJvYcCVRcuT5vSuxZ80YGDSgSLHSOx6MKAn4Y+qi79OgaNQWGVfoyX+2GwYmChpLM5xJuOvjShsqL/7MiDzyfh/4kosg@lists.infradead.org, AJvYcCXwLgkaS8asai6gxSEwlwA3sJ3aEsoCg5GEvSR3ao58iilpvWgrzODKaDnXRiRLLFKPB2r6zDU2fpkq00rt1so=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEPFygQDsH0zqGP9cM21i8XYoUfDaQZhkylY7qSBgfQGoq0pbz
-	oJTEox6uMdgOg8hMr8Q/HipsvjFH0mD1/PBtkHjjcZovBSiHG5INWLTqy34jaVWbb/N7cPcqqQK
-	iYBKoPL4QvpnHWUVEIRZJ7yakTD8=
-X-Gm-Gg: ASbGncvs5kcB4FEUwckNYi5hWp7FmJOG8kgDlRSBoMv6oQ6GfmLz0VE4go1JH+Bf898
-	E0TiacbIdcOZp18x5zaBmyGdGNKk3+0ahru6rwUAr64DLA5Jk05c3UDgKF0Iwn0M6dkgMDlzVE8
-	X5sF/Wr7S0pQcpAWUWuCE6oCHUNkc7a/sdc1VF
-X-Google-Smtp-Source: AGHT+IHHggIPKrL5d8yR6LTugXbBrgtYx9QYjOVM0FXkszko5m8Bp+SYzJZbZ7yqbzdNsHG/XrgFTdExUecoVmk9yWY=
-X-Received: by 2002:a05:6102:809c:b0:4bb:9b46:3f6f with SMTP id
- ada2fe7eead31-4c30a538979mr4607096137.1.1741412504595; Fri, 07 Mar 2025
- 21:41:44 -0800 (PST)
-MIME-Version: 1.0
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com> <CAKEwX=NfKrisQL-DBcNxBwK2ErK-u=MSzHNpETcuWWNBh9s9Bg@mail.gmail.com>
-In-Reply-To: <CAKEwX=NfKrisQL-DBcNxBwK2ErK-u=MSzHNpETcuWWNBh9s9Bg@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Sat, 8 Mar 2025 18:41:33 +1300
-X-Gm-Features: AQ5f1JoraQfrjgklIeJVnsPlZLYjnVJdWtNTlR00z_Bw9q9Ie66lMyjY9JB8lAo
-Message-ID: <CAGsJ_4ysL1xV=902oNM3vBfianF6F_iqDgyck6DGzFrZCtOprw@mail.gmail.com>
-Subject: Re: [PATCH 0/2] Improve Zram by separating compression context from kswapd
-To: Nhat Pham <nphamcs@gmail.com>
-Cc: Qun-Wei Lin <qun-wei.lin@mediatek.com>, Jens Axboe <axboe@kernel.dk>, 
-	Minchan Kim <minchan@kernel.org>, Sergey Senozhatsky <senozhatsky@chromium.org>, 
-	Vishal Verma <vishal.l.verma@intel.com>, Dan Williams <dan.j.williams@intel.com>, 
-	Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.weiny@intel.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Chris Li <chrisl@kernel.org>, 
-	Ryan Roberts <ryan.roberts@arm.com>, "Huang, Ying" <ying.huang@intel.com>, 
-	Kairui Song <kasong@tencent.com>, Dan Schatzberg <schatzberg.dan@gmail.com>, 
-	Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org, 
-	linux-block@vger.kernel.org, nvdimm@lists.linux.dev, linux-mm@kvack.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	Casper Li <casper.li@mediatek.com>, Chinwen Chang <chinwen.chang@mediatek.com>, 
-	Andrew Yang <andrew.yang@mediatek.com>, James Hsu <james.hsu@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"
+	id 1tqo8t-0000000GH9I-29Pd
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 06:58:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Pz20XAbJdgb2L61WKsfRwz0vWnqzq8hM9I2LdDE0E8wew1KWckfefQj0rjLPgj7DuPVydEtVt8jd4e6zJStahiISiAFm7uIMCzZ/6M+QUfWWmpnl+2yHL3AQqNgZw1PcEcjlL61yxeCChqrTYaVuYRgRJYdpmlkgd/V9u0S+Dy7jJBj1eh3i8XWkt8o7/ZM0Z/8fAX/0cxGPybK7bNfVzEfY5KIvvy2VeqnGn5G2KaBsqC5xP3k6Vq+4UQsJTt80UVGSi3pgMOwfIvWCVbnajK4dwhEzywIJ/RP3t3rhbbDpDaf2MjRxdjuK7fSNdtAeKO01VUB99MhGeCVKTF6XeQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=q6pZ8rkdSaVuEJ8JCUWFQBGtDJeMckIEv/9XXffG91Y=;
+ b=fBaaLHV0TEB77cxcOgmgfXu6PWOD5/Flrlkp3sbBd7TLmzSUvKd9w6LVrCsyeiu8L8qv8RUGhaFYKK677gfa85vlS2NbZ105WDDjsbyaJtErHewbf23lfEb4auuifgfzYMjcmdsPnnULvtfBv1z5UiX6muD+fHWQ5fe2aPs8CTGImoCFwv9npXyKuB16BBpVdzTXh+IXHrkoUIyoCFtHoYf3kZaOW+YYKIRPQ8taNMIjh0iISA22nG7peDgZBimr+8p9po4GF0KCoO4xsSoW/vh5BoR67d2asTKgwbm25OXSRltYaafYxDKazao6WL6PUuK6iQRNgKFOIUcThYrq3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=q6pZ8rkdSaVuEJ8JCUWFQBGtDJeMckIEv/9XXffG91Y=;
+ b=TyjKv87CxLi7NxqgSOUekzBzSunDW8gNbpzHPDNJgAsmUeVEfDhjj3gnTm+/1wbrEdxJOjGn0mNRWA7Z+HtNKxvsTUltP3ofASdsn75WN/aZDWyF1PDZ6pnIPkTgUD1FshV7XJZZ8+a1D/HwUGHH1D2bFGDkxecRVrk+TsogN9PzO9HRVqksILzstsDwWtcHaUbERgWJ5mHsculF2KIf0S4V4E0d+FZyZc89DFf5PlLKb22Gm3EzDX7xirhWe8fHqwfBOuFXY61Zz1UGGcqIdRi9Sx4TFZM6YSwRSckvHh6tuW8a9l1xckiKnBFQbdnTGmURMpXkONP1TuIUEFkNdQ==
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+ by GVXPR04MB9904.eurprd04.prod.outlook.com (2603:10a6:150:119::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.22; Sat, 8 Mar
+ 2025 06:58:29 +0000
+Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
+ ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8511.017; Sat, 8 Mar 2025
+ 06:58:29 +0000
+From: Wei Fang <wei.fang@nxp.com>
+To: Jakub Kicinski <kuba@kernel.org>
+CC: Claudiu Manoil <claudiu.manoil@nxp.com>, Vladimir Oltean
+	<vladimir.oltean@nxp.com>, Clark Wang <xiaoning.wang@nxp.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "davem@davemloft.net"
+	<davem@davemloft.net>, "edumazet@google.com" <edumazet@google.com>,
+	"pabeni@redhat.com" <pabeni@redhat.com>, "christophe.leroy@csgroup.eu"
+	<christophe.leroy@csgroup.eu>, "netdev@vger.kernel.org"
+	<netdev@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: RE: [PATCH v3 net-next 01/13] net: enetc: add initial netc-lib driver
+ to support NTMP
+Thread-Topic: [PATCH v3 net-next 01/13] net: enetc: add initial netc-lib
+ driver to support NTMP
+Thread-Index: AQHbjNiMrmwkTzPG206zUiHxDe17mbNmtIkAgAAxcACAAZzhYIAAD4wAgABB49A=
+Date: Sat, 8 Mar 2025 06:58:29 +0000
+Message-ID: <PAXPR04MB851024A8448430F298831ADD88D42@PAXPR04MB8510.eurprd04.prod.outlook.com>
+References: <20250304072201.1332603-1-wei.fang@nxp.com>
+	<20250304072201.1332603-2-wei.fang@nxp.com>
+	<20250306142842.476db52c@kernel.org>
+	<PAXPR04MB85107A1E5990FBB63F12C3B888D52@PAXPR04MB8510.eurprd04.prod.outlook.com>
+	<PAXPR04MB8510771650890E8B7395B2DA88D42@PAXPR04MB8510.eurprd04.prod.outlook.com>
+ <20250307185902.384554a5@kernel.org>
+In-Reply-To: <20250307185902.384554a5@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8510:EE_|GVXPR04MB9904:EE_
+x-ms-office365-filtering-correlation-id: 6e963b29-9bc1-415b-9123-08dd5e0ea1e6
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?EUM8864rqNGFFZoCMcw3B5xIlTnvvuxiAP6KoozgO6m6hIvrTtufwVptMnxF?=
+ =?us-ascii?Q?BybD3pcDz1DDaswgVNd2oVVyjpP9mM8Jq+ivS00oAtYmv3SZkZ5OqmER4+0U?=
+ =?us-ascii?Q?YTXqX6wnJ7j6gXeWCceSAnNpF108ZlgRyMFXHkdyD4gZqo3Y4+P1S67c+Twy?=
+ =?us-ascii?Q?ukHi8VK80po+6Drs+B3TYno+otSqJpD4dluOJTE/DuxTt/enS17BD/IP2uiS?=
+ =?us-ascii?Q?I0TetdFRYme+c/+7TBZHpJOnaVPXkYGJ2WktjDtBtIX4Taqg8/PLvQqaAgqF?=
+ =?us-ascii?Q?QQlyABOcN7/QqQA4PlniQI7VLEd4XGY7rRWEbcsD/UMfHQ6Yo694tsik4nzT?=
+ =?us-ascii?Q?D5Njy0ALA2C61xZP5qlIK5U4uoLRTdwUB1gvfp4NdJDlfp1P1DaLjDWO1puU?=
+ =?us-ascii?Q?uH4+IwPDbmNx91BL19t3tgfgkkUOvIE80GzTNmIGmrX6TtA9sI0m5OWYh96A?=
+ =?us-ascii?Q?n4AwIPvSARGAGp/itfg5G7Jmor31Xch0Tkp210exoffBJ+xXzGP9zXVq9wJv?=
+ =?us-ascii?Q?8cBxwpHlf1zitouORDDWQAagFKmNcIoWG651/E3S9+7S8UNEEYC2juvjt+yB?=
+ =?us-ascii?Q?fTIrADIxUShDCgF4MJtu3/ieO3uz0iQMQTnFm3fQEggCyhesXQfE9HJf/YJA?=
+ =?us-ascii?Q?eYCKjGv/7DKltTH8AcHKJOMnBIneVmi8ds4VL9ef99mwgGA5/4VCqhJN+VwD?=
+ =?us-ascii?Q?qbfcFGO4AyAigly2aYtml/c7I5SbxerkDWYb9cFzk2t3ui40AuQDtgwhe+FN?=
+ =?us-ascii?Q?Kyc3ITdK4xbSy5UJjB0DNSMcqh5sZu9SA8gUuCYiF5B4Rx49ihyIUaboRKt4?=
+ =?us-ascii?Q?MPJ9NDCMX0c3cZIyX1M5Vt1Ek4CAzc59qk/IAttvZlAGZ4z/8Ve5qbv8RtVf?=
+ =?us-ascii?Q?ACr0pdqDBHIUzOUiGN9DiRWY5IgYECfRPZ/C9cfWTsVHWN0Bc9gHpXzuWFeV?=
+ =?us-ascii?Q?8oN7+eZo855jJLs93brm//1pmelgiPBXMSGD+hKmfK11mD9EnB92E2arJamr?=
+ =?us-ascii?Q?hftO4lz6ICyinD6LtOvIT6ibOCtiLojLsNTSrHNbaJGZi7rlSygOT8Bosuzu?=
+ =?us-ascii?Q?ActvfmyLFyl3Gs8VV9fQ98X6DEyipyl3RVcLc0cMBOM88FaC2EK2eNtLfSqC?=
+ =?us-ascii?Q?2Vr3bV1sq3LaDmQ+LlFZq2Yd77vSBG/LSfd7S5W5iQmhHWvh6xx1nj2DffD3?=
+ =?us-ascii?Q?GHSOnDsVYl1We/EXBPVABDKBwpFM9/QgBKi8d4Q/m0fovuedMT3ei4MbhXNo?=
+ =?us-ascii?Q?1sErGEDa9ZAjQGnvNbQhZuD3hLR3wB0tL/sDL7Ga4MrS4dQKJNgog9ZLdCNF?=
+ =?us-ascii?Q?gWvigjyXpHbeCP/CGVCmf18G/4SjK5ON3C33jeirreN7OXfIOlDkNGugQ+tz?=
+ =?us-ascii?Q?X3Wr8XrblTMD0EEnZ+GLyrAdoHVNUD6FFZ3fRiDyxoVGly0LA+12ATAbFF6P?=
+ =?us-ascii?Q?YdpQ4qgD5mg2TQycirFz25QbJD5ZqMwR?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?ky/jifM7S8igPF8HgGqCwTHDdbuZrUcf4pzdbyUGlFi5Wynjz6SxVSB6Ok+N?=
+ =?us-ascii?Q?I5EKi5wtU24XMD8shpEI9aOY20AbS08z9kGCnilGtXA0MjtuU9O8Jt6eQ0K/?=
+ =?us-ascii?Q?95Ezf4Qm1O1DIeU0yI974sJCT1esBC2/Us3fcq12uH3B4FHPTaIR+EnsIZ8d?=
+ =?us-ascii?Q?SvmEAAam/h2bCISNdANv4JmeB8XtYRjGNhtCVfjwziPcmQMFAjsoAqr3n0b1?=
+ =?us-ascii?Q?Z6uw7/3Oupkfi2E9g16CoavgZU+AxNVFxY/yFNXpAEz3ZiA8ZxQMBSg1Ztz7?=
+ =?us-ascii?Q?Hh3le6jF4WaQFiDB2TfBOM+Kj49f1+CvzwvF9OIfl5iP9GfW+L6fQyrShZCX?=
+ =?us-ascii?Q?MzYb/22vJr2lR49OPqayLB/uaKf+jTld5o8jwRyVkUvWJ+MNR0k/oXsrt/UT?=
+ =?us-ascii?Q?AQSJWBl7BM4wHhE8PBIwS4mE9yiKKhmHchbnoy06mUWZAVKSYf4v5K0hjM0b?=
+ =?us-ascii?Q?PaLqSEKwsGNH8F+yXcMo0gBRPya50EDL8uMVrLmkNFyEvfSYEkN5wtbNDZ7b?=
+ =?us-ascii?Q?gZTNzM7ypuxu5QBToBqWU2olXXKxN/ijEXVeXDB6hmSBUTl8Ny5oifXyQgfg?=
+ =?us-ascii?Q?bY93TB0DKwWone5ukO5OdW5iYj99AEiWEs8CL44ExgR4Kf1cHWDeVX3h8hHt?=
+ =?us-ascii?Q?/WoHqZOID34k+So43pWDBGWBFyd/6IKbl57yzgUTY6T3xvlUt9a0UjfbN32D?=
+ =?us-ascii?Q?deNuk9Ud4FAg6r2KPql7oYLHsBxYdfjm19Vetxsp7FJnkAldOv25uS9qYypt?=
+ =?us-ascii?Q?wG5KzkWSWoicgnixwa4vldHB13ytq2LQmxMJY3+zNxn0wcqp/5PL5pcV4uj9?=
+ =?us-ascii?Q?IrdG5c1o/5bc8UOz65wfHpNvVFj8ZKguj581eeO+CLRR+hxuetfteiRaQLcS?=
+ =?us-ascii?Q?zvQ3/E+ccNuiSR0KkpNAf4RPev0xi84/CNJWBRI1cPobovHa4lAgDejpcZjP?=
+ =?us-ascii?Q?BuE3g4Kvcnr7SyZkVehsqQvyRKLBeTI/30l6p7vr9owrJEaBs8R3H4i0ULpf?=
+ =?us-ascii?Q?S2GzSt4nsC5/mSmwGQrlXmAGtUw+ajcZDZ6VRptCusfxZUA55abGfHpWcfkn?=
+ =?us-ascii?Q?7GA8yUfA9jsIGvssXu8sMGS1Gfg2V/+Uw1SmPuS9YxPZumGIYYtdA5V4EjxD?=
+ =?us-ascii?Q?of+tOQThJFhRLmwQzceQn/NV9HX6xztYku2yfb4KmVbDZCkVW1oOCKJqGC52?=
+ =?us-ascii?Q?XOxtd/hVHPpi0nyDkv8qiIF3/A9aOdisVyfdUyrf5gCVQ/455hpT5G7gxAHM?=
+ =?us-ascii?Q?8GFpjTdUrwRer4uoiawOWI8Qu0Hl6iw755y8cpWgMcIlbk0P4d/PWXfGyCyo?=
+ =?us-ascii?Q?TdnP+TjG9kSljRPHbNbAIcddDoXvt6F7h5LJV01aA8UrzElWhF/YX0MPocuw?=
+ =?us-ascii?Q?70HkzVZqKFa6Hjle0AkT0o0YrDqGbiXb82I26HI9DRSlGc9/l3iwPXK5wqMF?=
+ =?us-ascii?Q?kkhdQqD+I7OgCbaDG9cGFGkm/lG0DIBYvldWg7PwimpoULXG1xZW8F8/SCu1?=
+ =?us-ascii?Q?uTKfVzaRD636AII8WcIPadbwbJxZP2CIkbAwz1OE7hzFz2LAIn0a1Cl/lfZ6?=
+ =?us-ascii?Q?HRClsj3FG//5YefJjf4=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6e963b29-9bc1-415b-9123-08dd5e0ea1e6
+X-MS-Exchange-CrossTenant-originalarrivaltime: 08 Mar 2025 06:58:29.4954
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: jNxz+MimmLvb8wMI2n6OySl6AKALg9sBIheosoMoW0v5Q6fmOf4+kNMA/J47oFIM/v5FS1mA9tO1MDgEUMrH6Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9904
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_214146_226829_582830FC 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20250307_225839_577281_C180071A 
+X-CRM114-Status: GOOD (  17.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,72 +173,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 8, 2025 at 12:03=E2=80=AFPM Nhat Pham <nphamcs@gmail.com> wrote=
-:
->
-> On Fri, Mar 7, 2025 at 4:02=E2=80=AFAM Qun-Wei Lin <qun-wei.lin@mediatek.=
-com> wrote:
+> On Sat, 8 Mar 2025 02:05:35 +0000 Wei Fang wrote:
+> > > > On Tue,  4 Mar 2025 15:21:49 +0800 Wei Fang wrote:
+> > > hm..., there are some interfaces of netc-lib are used in common .c
+> > > files in downstream, so I used "ifdef" in downstream. Now for the
+> > > upstream, I'm going to separate them from the common .c files. So
+> > > yes, we can remove it now.
 > >
-> > This patch series introduces a new mechanism called kcompressd to
-> > improve the efficiency of memory reclaiming in the operating system. Th=
-e
-> > main goal is to separate the tasks of page scanning and page compressio=
-n
-> > into distinct processes or threads, thereby reducing the load on the
-> > kswapd thread and enhancing overall system performance under high memor=
-y
-> > pressure conditions.
->
-> Please excuse my ignorance, but from your cover letter I still don't
-> quite get what is the problem here? And how would decouple compression
-> and scanning help?
+> > Sorry, I misread the header file. The ifdef in ntmp.h is needed
+> > because the interfaces in this header file will be used by the
+> > enetc-core and enetc-vf drivers. For the ENETC v1 (LS1028A platform),
+> > it will not select NXP_NETC_LIB.
+>=20
+> Meaning FSL_ENETC ? And the calls are in FSL_ENETC_CORE ?
 
-My understanding is as follows:
-
-When kswapd attempts to reclaim M anonymous folios and N file folios,
-the process involves the following steps:
-
-* t1: Time to scan and unmap anonymous folios
-* t2: Time to compress anonymous folios
-* t3: Time to reclaim file folios
-
-Currently, these steps are executed sequentially, meaning the total time
-required to reclaim M + N folios is t1 + t2 + t3.
-
-However, Qun-Wei's patch enables t1 + t3 and t2 to run in parallel,
-reducing the total time to max(t1 + t3, t2). This likely improves the
-reclamation speed, potentially reducing allocation stalls.
-
-I don=E2=80=99t have concrete data on this. Does Qun-Wei have detailed
-performance data?
-
->
-> >
-> > Problem:
-> >  In the current system, the kswapd thread is responsible for both
-> >  scanning the LRU pages and compressing pages into the ZRAM. This
-> >  combined responsibility can lead to significant performance bottleneck=
-s,
->
-> What bottleneck are we talking about? Is one stage slower than the other?
->
-> >  especially under high memory pressure. The kswapd thread becomes a
-> >  single point of contention, causing delays in memory reclaiming and
-> >  overall system performance degradation.
-> >
-> > Target:
-> >  The target of this invention is to improve the efficiency of memory
-> >  reclaiming. By separating the tasks of page scanning and page
-> >  compression into distinct processes or threads, the system can handle
-> >  memory pressure more effectively.
->
-> I'm not a zram maintainer, so I'm definitely not trying to stop this
-> patch. But whatever problem zram is facing will likely occur with
-> zswap too, so I'd like to learn more :)
-
-Right, this is likely something that could be addressed more generally
-for zswap and zram.
-
-Thanks
-Barry
+Yes, ENETC v1 uses FSL_ENETC, and some of the functions in ntmp.h
+are called in FSL_ENETC_CORE, enetc-core is common driver which
+provides interfaces to ENETC (v1 and v4) PF and VF drivers.
 
