@@ -4,69 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C0BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:36:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5617C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:38:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XfxZ2EUMtcYRuh5iiI7Ca6IZaZJZ9N99juCripq5x6I=; b=pDBbCWV8tOAqulQA5RtPLKxBou
-	cS1dKNExEBc5bXO3MTfLMwlRd6BdBVVFMPNfz8/hiDqoqf1H35MTVVuTG7+6oXlhE0zql6H8nbYZA
-	153mzmMCfzsYcuVf17bOlY6r/V9fFk5775jBPaWioKGd/2IhjzdozidRmvQwqMeyhBjuyyryjPgCj
-	oLV58peE9rJVUDCHYWpXWz2Q76ZuTLlJvvyxyr1SqxG4HaksbxZDtw2KGmNm6RBGJ/PJ4rO8ps3i7
-	3rI+xklkUILbUKT4dyG2m0VBQDvWy+Nqft3jOfpeysf63nP30RTcn4O2zoYHkjCGmRCC9qWCPhnRB
-	QMGfbgHg==;
+	bh=jz9BB591012Qa1FYcCC9cC4/JIUQd6UFu0pnJo6hJL8=; b=FT6aBnIatl9Sso7oztR1GQGFL1
+	NJfEdLs2QY/EemexJ+edrcu7925OLa0r2vqzS4qKZGUnJoqBkgLDB8oDjrouaYmK1CVxXH7qmxdMK
+	egSRz+Y6iH1kuNN2v/HIdevvnx1/9l46fAplnmGwlD5vM/YLsKW7r9gEQtb+RqO+H+QYzIL3O4dmR
+	BUDTV/MzyV+k7zXarKaa+o5B4z/dxwTfVvsXLKGjn8TPDKhQi14ehmz/S9OSDry+BnyqNdYvGcQo1
+	hRKmb1xkkW/qHU1nZlhieyaO5r1LmExGEA2O70AhdrLa57udn4xJavyF6wOVBayZou7hNH7rubLvc
+	3Bc8HwzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqx9y-0000000GsGP-0PyL;
-	Sat, 08 Mar 2025 16:36:22 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1tqxBY-0000000GsO9-3Dfm;
+	Sat, 08 Mar 2025 16:38:00 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqx8K-0000000Grz6-3nZ6
+	id 1tqx8w-0000000Gs8L-1DQX
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 16:34:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741451678;
- bh=XfxZ2EUMtcYRuh5iiI7Ca6IZaZJZ9N99juCripq5x6I=;
- b=YKnIHgllVMG4nqeiNKXcYeefh5vxyg+fKHO9y5caNmXmsutbXOuXOLH5UuJaMhRN54CzgJgD4
- NpDUgKYX1gxOv2tf4RGFVd+gvJwgzPn6XuErUaJFDgqzntHfdU1IGSUjwN1WfqGNd5g/hSRPztg
- +yevr9xYaCQxgXKRydyDyhabhdOFbpyWVA2qAtojzDajypNQ5PkY2bCUzVohRGx2uSbLID7H1PL
- dFXewjohkiPxksqGyv9+P0hILkedh9ZjcOi1TK+vEP+yCcpekEjxZbxfiCgsdZS7MnBYrUXrs68
- YaQl3L6Vi0B2nKq0Fy10c0I/8NO/rzjOy6yU8/W9937w==
-X-Forward-Email-ID: 67cc719a91daabb65c1b40e8
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <29739e60-15f5-4361-a57a-2e6b93fba09c@kwiboo.se>
-Date: Sat, 8 Mar 2025 17:34:29 +0100
+	Sat, 08 Mar 2025 16:35:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id EA00DA45956;
+	Sat,  8 Mar 2025 16:29:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B9B44C4CEE0;
+	Sat,  8 Mar 2025 16:35:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741451717;
+	bh=hHfV8kx8wrHR7+8E6WI3ssEv6MnebcU05CUBb1yiFgs=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=X/aNA7Z3E5cln+jCB0zSs1H9LkqPep9eoxzzWKcZIU+8eV5SJC7Niy4qJcuheOy7M
+	 9jXNklRhgO0354yo/C0Y7a9lNVMmswFZstnIFJkTrL4Q5IsPNPf7lX2oHj1TIk1U+7
+	 Zn9MUQGVFMy4M9oEc8qByBN/K1guazaezxjZ73xjTCxKLUEDWOcydNFoRPX+WtRPjb
+	 FMRb2z0PoepLTIe3zlLIcWgjAVQLXvmF1dLr8Gd2x9jcyfsZO3qx9SRix/detu8+k4
+	 x0fa1g2TCb2uW0OhpL58j6TrY/YF4JNNEywgQLK5/8XFYN5XqNbBpzphLfSouQURjD
+	 ymqt8ajSytsyQ==
+Date: Sat, 8 Mar 2025 16:35:05 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen
+ <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, Nuno Sa
+ <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>, Javier
+ Carrasco <javier.carrasco.cruz@gmail.com>, Olivier Moysan
+ <olivier.moysan@foss.st.com>, Guillaume Stols <gstols@baylibre.com>,
+ Dumitru Ceclan <mitrutzceclan@gmail.com>, Trevor Gamblin
+ <tgamblin@baylibre.com>, Matteo Martelli <matteomartelli3@gmail.com>,
+ Alisa-Dariana Roman <alisadariana@gmail.com>, Andy Shevchenko
+ <andriy.shevchenko@linux.intel.com>, linux-iio@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v5 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
+Message-ID: <20250308163505.200135cc@jic23-huawei>
+In-Reply-To: <aabd8836dbe54ef54730d1cd112edb52a57cd353.1740993491.git.mazziesaccount@gmail.com>
+References: <cover.1740993491.git.mazziesaccount@gmail.com>
+	<aabd8836dbe54ef54730d1cd112edb52a57cd353.1740993491.git.mazziesaccount@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Xunlong Orange Pi 3B
-To: Arturas Moskvinas <arturas.moskvinas@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20240626230319.1425316-1-jonas@kwiboo.se>
- <20240626230319.1425316-3-jonas@kwiboo.se>
- <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_083441_029884_B8FEFF9F 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250308_083518_397405_44C8BC38 
+X-CRM114-Status: GOOD (  12.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,91 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arturas,
+On Mon, 3 Mar 2025 13:33:02 +0200
+Matti Vaittinen <mazziesaccount@gmail.com> wrote:
 
-On 2025-03-08 15:53, Arturas Moskvinas wrote:
-> On 6/27/24 2:03 AM, Jonas Karlman wrote:
+> The new devm_iio_adc_device_alloc_chaninfo() -helper is intended to help
+> drivers avoid open-coding the for_each_node -loop for getting the
+> channel IDs. The helper provides standard way to detect the ADC channel
+> nodes (by the node name), and a standard way to convert the "reg"
+> -propereties to channel identification numbers, used in the struct
+
+same typo.
+
+> iio_chan_spec. Furthermore, the helper can optionally check the found
+> channel IDs are smaller than given maximum. This is useful for callers
+> which later use the IDs for example for indexing a channel data array.
 > 
->> The Xunlong Orange Pi 3B is a single-board computer based on the
->> Rockchip RK3566 SoC.
-> ...> +
->> +&gmac1 {
->> +	phy-handle = <&rgmii_phy1>;
->> +	status = "okay";
->> +};
->> +
->> +&mdio1 {
->> +	rgmii_phy1: ethernet-phy@1 {
->> +		compatible = "ethernet-phy-ieee802.3-c22";
->> +		reg = <1>;
+> The original driver treated all found child nodes as channel nodes. The
+> new helper requires channel nodes to be named channel[@N]. This should
+> help avoid problems with devices which may contain also other but ADC
+> child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
+> string didn't reveal any in-tree .dts with channel nodes named
+> otherwise. Also, same grep shows all the in-tree .dts seem to have
+> channel IDs between 0..num of channels.
 > 
-> Jonas, were you able to test V1.1 board's Ethernet?
-
-Yes, I have both a v1.1.1 and v2.1 hw revision of this board and
-Ethernet should be working on both hw revisions.
-
+> Use the new helper.
 > 
-> Whenever I start the board - Ethernet initialization fails with:
-> ```
-> [   21.140055] rk_gmac-dwmac fe010000.ethernet eth0: __stmmac_open: 
-> Cannot attach to PHY (error: -19)
-> ```
-
-This is because of a reset issue with Ethernet PHYs in Linux, see [1].
-
-Two workarounds:
-1. Let boot firmware reset the PHY before Linux, i.e. use U-Boot
-   v2024.10 or newer.
-2. Use a ethernet-phy-id compatible with correct phy-id to force Linux
-   to attach the PHY.
-
-I suggest you try to wipe U-Boot from SPI flash on your board and update
-to use U-Boot v2025.01 and try again.
-
+> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
 > 
-> But if reset is performed inside gmac - initialization succeeds.
-
-Use of deprecated snps,reset- props is not a proper fix for this issue,
-instead Linux could use an improve Ethernet PHY initialization handling
-and ensuring the PHY is reset before it tries to read a phy-id from it.
-
-[1] https://lore.kernel.org/r/47d55aca-bee6-810f-379f-9431649fefa6@kwiboo.se/
-
-Regards,
-Jonas
-
-> 
-> Eg. patch:
-> ```
-> --- 
-> linux-6.12.17.orig/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
-> +++ linux-6.12.17/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
-> @@ -16,14 +16,14 @@
->   &gmac1 {
->   	phy-handle = <&rgmii_phy1>;
->   	status = "okay";
-> +	snps,reset-gpio = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	snps,reset-active-low;
-> +	snps,reset-delays-us = <0 50000 200000>;
->   };
-> 
->   &mdio1 {
->   	rgmii_phy1: ethernet-phy@1 {
->   		compatible = "ethernet-phy-ieee802.3-c22";
->   		reg = <1>;
-> -		reset-assert-us = <20000>;
-> -		reset-deassert-us = <50000>;
-> -		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
->   	};
->   };
-> ```
->> +		reset-assert-us = <20000>;
->> +		reset-deassert-us = <50000>;
->> +		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
->> +	};
->> +};
-> 
-> 
-> Arturas Moskvinas
-
+Otherwise LGTM
 
