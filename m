@@ -4,84 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AD3C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 11:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC7C6C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 12:23:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=; b=PG3U8RwWc8m8IwpgQnViHudlkm
-	6CpadV5/FukzrPmv9i3oX/P90crFIMINgGKn0iT4NOTZGqgeOBM9+nMySE/X3DEh57gU98a6z2QU6
-	MPB7Le6/5bMNRWnbEgE9XA6oDWdQ0YaKpw+QY/HRUdNkHylq2htCHP5ujt0BRhLG+wwmEbb2Vybtd
-	D0Iid7PoRjRJVKxNUKxUuerkE3MvgrOVLMW3RRtZ+wfdufAS2ckdwF2+vW0jf6Kz73S4vfBIdERpe
-	jPcYaPPBuu4jQQ5X8czKjFqzBheyNdG0vcBjUaJFn5c4BUnq+bhdQevzmy41S1TqlUlT3d44zzkk1
-	kDclKMSg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Vb6sJAg24kLvIOpQde/RtAhZDpEGn6B9vU5177r2bYI=; b=XqFsITOykVGnj80frLUlFv3woj
+	/KVUF6DcTcBYt05GTgp/iDDyUs9lFplYhZ7NjC7H9UL/K7aFA8KMKAtz6BlCVxPQFVBQ+KdV2XNGy
+	gAMXLc/yIwYI2EkuXyhRTdyrXcLmtF1mLRH7gfbIE+K5YN5pM7TE7gnf7iK/65I02dUPkoEJc6rCu
+	7sQCw2xeQhkucYossDbGDcrnSrREoYxTNkMW7gokAvl0AOyWyIfGO+Pb/TrVU4AoYJ5T9MS78ZYky
+	yrW/zuJjuJ1vYJdMM/Zbos9C/qzZdazk4fSOck9DoWEKR3zL0bXtP7v+5mwYFBhXmGPFTetiZmliJ
+	1FpK745Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqsCd-0000000GXjS-2Kkf;
-	Sat, 08 Mar 2025 11:18:47 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1tqtD1-0000000GZwN-1rPU;
+	Sat, 08 Mar 2025 12:23:15 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqsB1-0000000GXh9-1gdj
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 11:17:08 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-390cf7458f5so2617944f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 03:17:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741432626; x=1742037426; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=;
-        b=MQKcmJg3JQUizDg/wufBUIUrvC3IPR6Y95a8RetVyyginKgFEABMBFT5t2QPqQkCKN
-         13VGLOcX5o47t7DXGkrQa5QGBD9HXbGe+8b2SmFPcdIdkVPikgilHsSdj20zZI694+Jc
-         DvulmJmqgW+aPHjxhEivwzRtsccphODxqWJ4j+W0yPsVZmEpMj/0WKHndRxOohT+gm1P
-         WrdRb1MKTXF0uNwWn17havZOv30ADzUpx6NvdSeQecMPDay39l4hPOTyYq9BBUrZZ99F
-         CEOuZIiO03XN+p18xj3hiR0cLYq+zlT6micZeVKtnTodKVif6LAXWcEQaZRinrCyD/fY
-         xT+Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741432626; x=1742037426;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xnnNqxownKeU3GNDrkJTrs8uiEmC7dJ+ZmSVhNEpneo=;
-        b=tyKSmgvjgUwaTuoS8zx8dmBPqIt8ErgP+MT2zLG62/d2zrZF5WL9DhvmuL7Acn2vpe
-         Hp7qlrY3KXz6ZMxKv8JMS5k/rpARtlkIOpdeVTTdC+7/SrfTROIMH/dbxFclIhvL4uGs
-         hl9VGwB3g2sqP/XZwb2sYYILOPwiyaqrruA9qjJpi3YUrPa+6rBTGYiz/l085G/IeNbX
-         LSXCwVBgMp6m+8BQmpyOL0Z/WYLIib/873oYXaIkurkK7bm/ibMDpkqRjRSrBVjKmhxY
-         DhujdbhoTA8ydeCeSMLAfxKYRhzpT8mCazD73lwVGOK7jSHNwbSit3OFuc8U23l8YGHs
-         tDIA==
-X-Forwarded-Encrypted: i=1; AJvYcCWNUhtAkZVB4RNzeGJR2oFwt7wAScXCdFp1o2WKCe9b42fVDiID4eCKBq8knb/nrh3443rA0nYZpO/n4IsFdp3E@lists.infradead.org
-X-Gm-Message-State: AOJu0YxnDH7ohj/l4SB66Nxy0tFDvRWqxFUkH8vR7ZAaiSB0mHqsltXW
-	vUPfyKCDFWv+EpjLzYuX92HQssNy2eDN0EyTT40PT7k9UAWcWHSkx5c4IHXzlspfgPAT6AVyBeO
-	7
-X-Gm-Gg: ASbGncsLJleTXTysZ09ReqoSA0RObGhS1mPgQKOKAE0qF3TyZP/xXVldg9EDX4sG2wk
-	fioNc9djhqxx79kYDivvXzqFbhLBiJYQ1+g0J5t/lzhZXoOOAqBtK9jpjyUrlVbnILTruQWEz/q
-	iypZzgPs8e+uuO1yxK7iDgxBd2hKloU+MAslbjeMPRnl+SEBiF0eeSc6D891TbAMae9w5iYl4Zf
-	xDqSrKYqTY9mnL7ODk/C6OSDnwjYkxs8AZXN4oa3mIzSwAyw+Pw8ryJ677tVM1ZffUvxD9XBw3X
-	1rM+2EUghPCrXCfy98fTcm80aLUj5MVf6D9aywznHYSIDordLg==
-X-Google-Smtp-Source: AGHT+IHgPy2ipS9U13tlaxW/er4uS9dL0vgcgs/ixqt3JyEdpvktSnhmqJQ1s8kCsjFpv/J/9JwBaQ==
-X-Received: by 2002:a05:6000:1fa9:b0:391:212:459a with SMTP id ffacd0b85a97d-39132d3b46fmr6741762f8f.22.1741432625810;
-        Sat, 08 Mar 2025 03:17:05 -0800 (PST)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-3912c015d1csm8339913f8f.44.2025.03.08.03.17.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 03:17:05 -0800 (PST)
-Date: Sat, 8 Mar 2025 14:17:00 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Choong Yong Liang <yong.liang.choong@linux.intel.com>
-Cc: linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org
-Subject: [bug report] net: stmmac: configure SerDes according to the
- interface mode
-Message-ID: <677ffce5-0d76-4b97-abd3-1ac7608417f3@stanley.mountain>
+	id 1tqtBN-0000000GZb9-354S;
+	Sat, 08 Mar 2025 12:21:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741436491;
+	bh=iDVPebVtBVKbo8sc+q34EtLBvJPNOV2/Slk4+XhkzX8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=jWHd00EJ9hnePWEz/DrdG7009UAG36ybY9d22YaIM0Q9eNBvahc9jVuXRkdTbN8xa
+	 jq5AORSVk3/Wq0jZLut0P3wQMbPm8zmaqr/1NjeEtMlkm+u/nBB/ER14LPhRLAQWxp
+	 dB5lk0tvG1GFCBfDbRtpeGTCzlKQDj9X1R+XyPq/eZN/35Lv9Z9RSAqDkiBO4Atj15
+	 RSgGGZKouWZPXAiJ1VU0sWgCTXL6QfNQmNeIGsR+CALva+qJXxfSApC87tJ2e+zQPJ
+	 0ApPrwiWFVO9MwcKQuu39fsDMSUN+dUCmoIpAzhEnJs5NbNxaIiTvYmxe9wQMrBCjc
+	 z8tAr39JqFiNQ==
+Received: from localhost (unknown [84.232.140.93])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 8496F17E0B12;
+	Sat,  8 Mar 2025 13:21:31 +0100 (CET)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Sat, 08 Mar 2025 14:21:10 +0200
+Subject: [PATCH v5 01/12] phy: Add HDMI configuration options
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250308-phy-sam-hdptx-bpc-v5-1-35087287f9d1@collabora.com>
+References: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com>
+In-Reply-To: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com>
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>
+Cc: Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>, 
+ Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_031707_442551_92CC4CD7 
-X-CRM114-Status: UNSURE (   8.86  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250308_042133_968853_09F0F68A 
+X-CRM114-Status: GOOD (  14.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,58 +78,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Choong Yong Liang,
+From: Sandor Yu <Sandor.yu@nxp.com>
 
-Commit a42f6b3f1cc1 ("net: stmmac: configure SerDes according to the
-interface mode") from Feb 27, 2025 (linux-next), leads to the
-following Smatch static checker warning:
+Allow HDMI PHYs to be configured through the generic
+functions through a custom structure added to the generic union.
 
-	drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c:497 intel_tsn_lane_is_available()
-	warn: missing error code? 'ret'
+The parameters added here are based on HDMI PHY
+implementation practices.  The current set of parameters
+should cover the potential users.
 
-drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
-    472 static int intel_tsn_lane_is_available(struct net_device *ndev,
-    473                                        struct intel_priv_data *intel_priv)
-    474 {
-    475         struct stmmac_priv *priv = netdev_priv(ndev);
-    476         struct pmc_ipc_cmd tmp = {};
-    477         struct pmc_ipc_rbuf rbuf = {};
-    478         int ret = 0, i, j;
+Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Reviewed-by: Maxime Ripard <mripard@kernel.org>
+Acked-by: Vinod Koul <vkoul@kernel.org>
+Link: https://lore.kernel.org/r/d1cff6c03ec3732d2244022029245ab2d954d997.1734340233.git.Sandor.yu@nxp.com
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ include/linux/phy/phy-hdmi.h | 19 +++++++++++++++++++
+ include/linux/phy/phy.h      |  7 ++++++-
+ 2 files changed, 25 insertions(+), 1 deletion(-)
 
-Better to avoid initializing ret so that bug show up as uninitialized
-variables.
+diff --git a/include/linux/phy/phy-hdmi.h b/include/linux/phy/phy-hdmi.h
+new file mode 100644
+index 0000000000000000000000000000000000000000..6a696922bc7f29af63d88646701b2c0fcee5c885
+--- /dev/null
++++ b/include/linux/phy/phy-hdmi.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0 */
++/*
++ * Copyright 2022,2024 NXP
++ */
++
++#ifndef __PHY_HDMI_H_
++#define __PHY_HDMI_H_
++
++/**
++ * struct phy_configure_opts_hdmi - HDMI configuration set
++ * @tmds_char_rate: HDMI TMDS Character Rate in Hertz.
++ *
++ * This structure is used to represent the configuration state of a HDMI phy.
++ */
++struct phy_configure_opts_hdmi {
++	unsigned long long tmds_char_rate;
++};
++
++#endif /* __PHY_HDMI_H_ */
+diff --git a/include/linux/phy/phy.h b/include/linux/phy/phy.h
+index 03cd5bae92d3f189d739c453fe4c160dd2a5063e..4ac486b101fe4023b8f2a84e907e65a0ff0a5ede 100644
+--- a/include/linux/phy/phy.h
++++ b/include/linux/phy/phy.h
+@@ -17,6 +17,7 @@
+ #include <linux/regulator/consumer.h>
+ 
+ #include <linux/phy/phy-dp.h>
++#include <linux/phy/phy-hdmi.h>
+ #include <linux/phy/phy-lvds.h>
+ #include <linux/phy/phy-mipi-dphy.h>
+ 
+@@ -42,7 +43,8 @@ enum phy_mode {
+ 	PHY_MODE_MIPI_DPHY,
+ 	PHY_MODE_SATA,
+ 	PHY_MODE_LVDS,
+-	PHY_MODE_DP
++	PHY_MODE_DP,
++	PHY_MODE_HDMI,
+ };
+ 
+ enum phy_media {
+@@ -60,11 +62,14 @@ enum phy_media {
+  *		the DisplayPort protocol.
+  * @lvds:	Configuration set applicable for phys supporting
+  *		the LVDS phy mode.
++ * @hdmi:	Configuration set applicable for phys supporting
++ *		the HDMI phy mode.
+  */
+ union phy_configure_opts {
+ 	struct phy_configure_opts_mipi_dphy	mipi_dphy;
+ 	struct phy_configure_opts_dp		dp;
+ 	struct phy_configure_opts_lvds		lvds;
++	struct phy_configure_opts_hdmi		hdmi;
+ };
+ 
+ /**
 
-    479         const int max_fia_regs = 5;
-    480 
-    481         tmp.cmd = IPC_SOC_REGISTER_ACCESS;
-    482         tmp.sub_cmd = IPC_SOC_SUB_CMD_READ;
-    483 
-    484         for (i = 0; i < max_fia_regs; i++) {
-    485                 tmp.wbuf[0] = R_PCH_FIA_15_PCR_LOS1_REG_BASE + i;
-    486 
-    487                 ret = intel_pmc_ipc(&tmp, &rbuf);
-    488                 if (ret < 0) {
-    489                         netdev_info(priv->dev, "Failed to read from PMC.\n");
-    490                         return ret;
-    491                 }
-    492 
-    493                 for (j = 0; j <= intel_priv->max_tsn_lane_regs; j++)
-    494                         if ((rbuf.buf[0] >>
-    495                                 (4 * (intel_priv->tsn_lane_regs[j] % 8)) &
-    496                                         B_PCH_FIA_PCR_L0O) == 0xB)
---> 497                                 return ret;
+-- 
+2.48.1
 
-This should probably be return -EINVAL, right?
-
-    498         }
-    499 
-    500         return ret;
-
-It's more clear to just return 0 for the success path.  Otherwise you
-have to read the code a bit.
-
-    501 }
-
-regards,
-dan carpenter
 
