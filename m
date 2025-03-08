@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA8B1C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 21:39:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E72C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 21:42:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKVPFM3sM6NsoiVf8w+etPqEHxvCwW6Ue1sPujMeiBA=; b=vc2LRH+3xux2iBCoxtPy1yGDJH
-	eH32+gX9DXNE7a9kAw5MntPwuFEDnwVkDeSeQf1IGXfQ4Pdi4hxaoINqS+8uQRTQIF6tu3a+f/cRR
-	PJEsdPYKjK0NTtKPz8z8y8N+vTKlwId2Uv3iMIs8ng6zQuHfk6rhR5P/gY/zxM+d7DPsxD2aAoaXx
-	uCG/DtCcjY/SyyK3kF4CNenXipstTSTPxWvlkeOsVL//rmM3sd0M3pch7ZN/Qd5d/Dw8/DnbYn6GN
-	csDWGqnF7H47B0BVa24mAsRPOvtbtster2mpYOxrovqavAA6sKP5ah31K15WAh0YeYYI2d32gaELX
-	gtPelVGg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Og8w880XlSA9NZ+b1EwPhuTpUeEE3P898ptqmOlNFR8=; b=LCxZUkMPdBxeaWblPwGT8Nq2af
+	Pqc3xfoWe+LHS7Jrty0R5BzKV2fExhKANChPAhQhqwY1Z8aZBPDq6h9w5xC/dgPNopYdW8Rh/vzyZ
+	mK109C/5NZP7bs/sT0sWaZFoylbnorM8qYoZnSFU46zdQ6FRVM0zOqVC5s1F0gHQ/JkuCcyu06cmC
+	TkyqN5yz8eHtiZ53QqbrAdKQ9rEKLJOLpdI69s1ruy2DMt8A+E/5lAQh0jR0lJci8UsBKBYYH9pST
+	eHCwqnUBEPcuDX484dR9dmEenP/2M6H5gx4SmS9lPl7CAJy6fXstFC4T4QwjPetkW77zvM2y3f+YI
+	lV0U1ZpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr1tD-0000000HDay-2uWb;
-	Sat, 08 Mar 2025 21:39:23 +0000
-Received: from smtp.forwardemail.net ([121.127.44.73])
+	id 1tr1wR-0000000HEgY-3rBm;
+	Sat, 08 Mar 2025 21:42:43 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr1rZ-0000000HDAn-1zV3
+	id 1tr1rc-0000000HDBy-2TFP
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 21:37:43 +0000
+	Sat, 08 Mar 2025 21:37:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1741469860; bh=MKVPFM3sM6NsoiVf8w+etPqEHxvCwW6Ue1sPujMeiBA=;
- b=aydM2nQZIQ3eSaXhJfKGdJv3xWYlvATFCt2Qg7j6i5tHuxejev59n/7SzdDWprXR0EGpLhNIC
- pUi/ZWoSIZ8lDarDZVHunhhyomQBqdPHrKovD/q2uiCDlIyKko0LVTYbdbw/YNPHQao5mHXOLZy
- r86dR2caFoj9Wtp3rcsQTf/SDN+sCLiZjUJgDE4SGijew1F7iyNP9Ht61cR7iAxD8wS2rLowbbV
- xFwNM8dNkgnKRD8pwwUagWOolSVwyyhiuxRglRuTBrEMwfkumeCRvqjhPt3t1r1ni22zKPMClkQ
- Ia3K8g8kfG2sSgKh9ePXbVqQ+lHxAWbhdjdKxCGPXQNQ==
-X-Forward-Email-ID: 67ccb8a0bfe70eb1bfc13b1e
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1741469863;
+ bh=Og8w880XlSA9NZ+b1EwPhuTpUeEE3P898ptqmOlNFR8=;
+ b=YU9SKSSQsa9yD+Bni9IEC7BfM/WovJ1E2+4/NklgTFneKXrodS03IofYnv7LMgSMR55wb7HR2
+ NpZiFqdSMGY4bJ9LBL4e7nGGtZmmcNv2Bm54QaiSzYIqRU75DYGr+/nr/vzNukScF6BX397tMXW
+ eOm1xgcVCax2NQk/bwQZdKMPk2we+39nby0QegpVPD2U7n0CRq69TX6LFIgFcXmM7bV17gRw2GC
+ RPjLw1cybsqXrjHQzMFT00WtPabGdCx53mZok08I3ZxQ6lLheq8wHxSHkghWnLvArf8okRDYWVf
+ LgTkmHhWI25vqTq+peUjI3U0otv/xDwXclBOFvyrE7cg==
+X-Forward-Email-ID: 67ccb897bfe70eb1bfc13af4
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.73
+ 149.28.215.223
 X-Forward-Email-Version: 0.4.40
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -50,9 +50,7 @@ To: Heiko Stuebner <heiko@sntech.de>,
 	"David S . Miller" <davem@davemloft.net>,
 	Eric Dumazet <edumazet@google.com>,
 	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
+	Paolo Abeni <pabeni@redhat.com>
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -61,19 +59,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v2 2/3] net: stmmac: dwmac-rk: Validate GRF and peripheral GRF during probe
-Date: Sat,  8 Mar 2025 21:37:14 +0000
-Message-ID: <20250308213720.2517944-3-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 0/3] net: stmmac: dwmac-rk: Validate GRF and peripheral GRF during probe
+Date: Sat,  8 Mar 2025 21:37:12 +0000
+Message-ID: <20250308213720.2517944-1-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250308213720.2517944-1-jonas@kwiboo.se>
-References: <20250308213720.2517944-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_133741_912642_D17AA8E0 
-X-CRM114-Status: GOOD (  14.83  )
+X-CRM114-CacheID: sfid-20250308_133744_661855_E66984D1 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,87 +90,34 @@ RK3588 use a mix of GRF and peripheral GRF regs. These syscon regmaps is
 located with help of a rockchip,grf and rockchip,php-grf phandle.
 
 However, validating the rockchip,grf and rockchip,php-grf syscon regmap
-is deferred until e.g. interface mode or speed is configured, inside the
-individual SoC specific operations.
+is deferred until e.g. interface mode or speed is configured.
 
-Change to validate the rockchip,grf and rockchip,php-grf syscon regmap
-at probe time to simplify all SoC specific operations.
+This series change to validate the GRF and peripheral GRF syscon regmap
+at probe time to help simplify the SoC specific operations.
 
 This should not introduce any backward compatibility issues as all
 GMAC nodes have been added together with a rockchip,grf phandle (and
 rockchip,php-grf where required) in their initial commit.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
 Changes in v2:
 - Split removal of the IS_ERR() check in each SoC specific operation to
   a separate patch
+- Disable rockchip,php-grf in schema for GMAC not requiring it
 - Add a php_grf_required flag to indicate when peripheral GRF is
   required
 - Only lookup rockchip,php-grf phandle when php_grf_required is true
 - Use ERR_CAST() instead of ERR_PTR()
 
-The pending addition of RK3562 support [1] must be adjusted to set
-.php_grf_required = true, or this will break RK3562 support.
+Jonas Karlman (3):
+  dt-bindings: net: rockchip-dwmac: Require rockchip,grf and
+    rockchip,php-grf
+  net: stmmac: dwmac-rk: Validate GRF and peripheral GRF during probe
+  net: stmmac: dwmac-rk: Remove unneeded GRF and peripheral GRF checks
 
-[1] https://lore.kernel.org/r/20250227110652.2342729-2-kever.yang@rock-chips.com/
----
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 21 +++++++++++++++++--
- 1 file changed, 19 insertions(+), 2 deletions(-)
+ .../bindings/net/rockchip-dwmac.yaml          |  21 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 270 ++----------------
+ 2 files changed, 37 insertions(+), 254 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 003fa5cf42c3..5615f015c5fe 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -33,6 +33,7 @@ struct rk_gmac_ops {
- 	void (*set_clock_selection)(struct rk_priv_data *bsp_priv, bool input,
- 				    bool enable);
- 	void (*integrated_phy_powerup)(struct rk_priv_data *bsp_priv);
-+	bool php_grf_required;
- 	bool regs_valid;
- 	u32 regs[];
- };
-@@ -1254,6 +1255,7 @@ static const struct rk_gmac_ops rk3576_ops = {
- 	.set_rgmii_speed = rk3576_set_gmac_speed,
- 	.set_rmii_speed = rk3576_set_gmac_speed,
- 	.set_clock_selection = rk3576_set_clock_selection,
-+	.php_grf_required = true,
- 	.regs_valid = true,
- 	.regs = {
- 		0x2a220000, /* gmac0 */
-@@ -1401,6 +1403,7 @@ static const struct rk_gmac_ops rk3588_ops = {
- 	.set_rgmii_speed = rk3588_set_gmac_speed,
- 	.set_rmii_speed = rk3588_set_gmac_speed,
- 	.set_clock_selection = rk3588_set_clock_selection,
-+	.php_grf_required = true,
- 	.regs_valid = true,
- 	.regs = {
- 		0xfe1b0000, /* gmac0 */
-@@ -1812,8 +1815,22 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 
- 	bsp_priv->grf = syscon_regmap_lookup_by_phandle(dev->of_node,
- 							"rockchip,grf");
--	bsp_priv->php_grf = syscon_regmap_lookup_by_phandle(dev->of_node,
--							    "rockchip,php-grf");
-+	if (IS_ERR(bsp_priv->grf)) {
-+		dev_err_probe(dev, PTR_ERR(bsp_priv->grf),
-+			      "failed to lookup rockchip,grf\n");
-+		return ERR_CAST(bsp_priv->grf);
-+	}
-+
-+	if (ops->php_grf_required) {
-+		bsp_priv->php_grf =
-+			syscon_regmap_lookup_by_phandle(dev->of_node,
-+							"rockchip,php-grf");
-+		if (IS_ERR(bsp_priv->php_grf)) {
-+			dev_err_probe(dev, PTR_ERR(bsp_priv->php_grf),
-+				      "failed to lookup rockchip,php-grf\n");
-+			return ERR_CAST(bsp_priv->php_grf);
-+		}
-+	}
- 
- 	if (plat->phy_node) {
- 		bsp_priv->integrated_phy = of_property_read_bool(plat->phy_node,
 -- 
 2.48.1
 
