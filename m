@@ -4,88 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A29BC28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 02:00:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F472C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 02:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvsK5PJzKoEUCx2OZQqsqEDS6WdgNXiRKfigcHVh3wM=; b=kPAxu+oaRMAfNaTS/ioqnAeSmS
-	f01cr1zwDgi3I7vmjqFz0O0RIgsorkKXFSP6eIrW7d7bOMYrr8xEf7Zrh1zklZ4H5roVqjAKOq4tB
-	cTTf2rO5+8BGVeNhV+S/aM8dCs53PAJYP75z9J2RUa5Opq2Cg0S37eYycm78TgAGfSdr9z37wzal8
-	PjUzgv6OPAnVoouoGC1Ba7whfciz3q5wEfirXhcl39k3vJOqlcBRtLIjDzaZ9tG0aOcLs/aZnHNJv
-	ct9DW7ABRpF6LUWSvEn4Uh2cLIvxOtIJCwT6v3gfl2oFAA9GG9lF8JBvuX7fOVcSZOh1vv3O4Fn+L
-	JuuDQw2w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OFFqiceVJiuepFpOMx5gYNKEGC4/EV80IqJP+L8e/Gg=; b=EoTLND4o8CaBxe/we/M+kftbuv
+	4/pzJLcPUKwoAF5Zf9Cd8M9CZQ4OyvTv9+ykFNyxPJeBXCbi5v8+HrTINIhx0kj3IaI3sU7BlRn7x
+	QYu47fV4pi4c6AoL/G9J+ShQIJ21gTqna+sqV7T5oAvk3Rw+pGRaTJeVLqxQEGsaYOxmWYlOJpVI8
+	7YbkOHFEnRyga9FJHvyORgCn9ZpDXRdQDjm8+ubb8Ox1LfGGz/vp6DkxTd2yfiz5Gg7rZp/YUF65Y
+	wEDi/8Nj+GatUmOTgl7em3Q3zmbhUXdt+MWi3it08wjOfwxs6rXj3ijfWswTJ1Sf06+1+nIb/q0e8
+	dlYdBEmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqjUa-0000000G1v8-2FFf;
-	Sat, 08 Mar 2025 02:00:44 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tqjWB-0000000G21E-0plu;
+	Sat, 08 Mar 2025 02:02:23 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqjDs-0000000G0M2-2tbX
+	id 1tqjNO-0000000G1O3-27Ne
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 01:43:29 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 29CFE5C65E0;
-	Sat,  8 Mar 2025 01:41:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 53669C4CEED;
-	Sat,  8 Mar 2025 01:43:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741398207;
-	bh=scVuFqmthjt4nB7PMI1tI9SNsFHVIWQaqhXo3mM1pj0=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZI+cIxYElUN/cn8eM6dg1kRkiMVsHlld8q8b1R1j24PvI0juxCEWYltA8GYew2Noi
-	 lvsiIt3dDO3EhRqmNvaMUEJSJa5+ZQE8QCuKnkDNBf08jc1YyaS/f0EuUXAP2iEPl1
-	 1U4uxTeRS3XknO2sdppGecn4SjyP4Z4tP8Onxa9gUaQrWhm0OEvyPS6tlF/sxb1uK+
-	 uFi1a9g0S8G0t2kbBHFztqVrYNV1a3FpmrO/8oIjobmDV5JAUUg30j2IeSi115rsHZ
-	 A41JSLOTmToc3DaS+vIr31ipoGzzacyovJ3FvERrGYzSuAGIf559ktmzehMqMyiKuF
-	 OqePzNYOtfFIA==
-From: Dmitry Baryshkov <lumag@kernel.org>
-Date: Sat, 08 Mar 2025 03:42:28 +0200
-Subject: [PATCH 10/10] arm64: dts: qcom: sar2130p: add display nodes
+	Sat, 08 Mar 2025 01:53:20 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741398798; x=1772934798;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=j9kwnFeKpGqZY7TWgppnlC/2G2kF5YU2Ca2Dt7U2oD8=;
+  b=PRLrRuIUpAkSLpa/eFZ07G1dsCHary552CzeJbcBogN/0WxUVbZMWy68
+   OsdbuhUaubShvykLIeCpVK5wPi0Q8wmVkhXnVCslxWcwFQqqnirfcbVo8
+   KpkM7gFeXwwYt4KruYphZIRLMzUqHBhAqngTyBzclfddPx5jqkbYLBLjR
+   kkUuSRRm8wjeW58FHrdNGKZdcDA5JPXIXssjN8Xtv8UK3+LTdDNwe2p/l
+   Oe7Cso/CBlFxf/JUkDQfjVIsNCoRTX9Hz7EpshUBlJzvE0M8l5rsEFR8w
+   khEvB61IVLj9YxD5amosvXfG1bPGws8SpU3MSuTQfbUBDGVsb2hqObn21
+   g==;
+X-CSE-ConnectionGUID: FCA+o98JQ0CIIpL8JHgCqg==
+X-CSE-MsgGUID: lTzlaVsDQvSM35gZ17xw6A==
+X-IronPort-AV: E=McAfee;i="6700,10204,11366"; a="42376443"
+X-IronPort-AV: E=Sophos;i="6.14,230,1736841600"; 
+   d="scan'208";a="42376443"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 07 Mar 2025 17:53:14 -0800
+X-CSE-ConnectionGUID: 0S3wscT1R/amxXwCI+LZ+w==
+X-CSE-MsgGUID: TPjLzn4ZQ26Rld6kSI3owg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="150430059"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa001.fm.intel.com with ESMTP; 07 Mar 2025 17:53:12 -0800
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tqjNF-0001Ku-2s;
+	Sat, 08 Mar 2025 01:53:09 +0000
+Date: Sat, 8 Mar 2025 09:53:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Yang Shi <yang@os.amperecomputing.com>, ryan.roberts@arm.com,
+	will@kernel.org, catalin.marinas@arm.com, Miko.Lenczewski@arm.com,
+	scott@os.amperecomputing.com, cl@gentwo.org
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [v3 PATCH 4/6] arm64: mm: support large block mapping when
+ rodata=full
+Message-ID: <202503080930.7ZetfmFz-lkp@intel.com>
+References: <20250304222018.615808-5-yang@os.amperecomputing.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250308-sar2130p-display-v1-10-1d4c30f43822@linaro.org>
-References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
-In-Reply-To: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
-To: Rob Clark <robdclark@gmail.com>, 
- Abhinav Kumar <quic_abhinavk@quicinc.com>, 
- Dmitry Baryshkov <lumag@kernel.org>, Sean Paul <sean@poorly.run>, 
- Marijn Suijten <marijn.suijten@somainline.org>, 
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Kuogee Hsieh <quic_khsieh@quicinc.com>, 
- Krishna Manikandan <quic_mkrishn@quicinc.com>, 
- Jonathan Marek <jonathan@marek.ca>, Bjorn Andersson <andersson@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, Will Deacon <will@kernel.org>, 
- Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>, 
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, 
- freedreno@lists.freedesktop.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=11241;
- i=dmitry.baryshkov@linaro.org; h=from:subject:message-id;
- bh=i4kIrbZ/RQ68gjN6Dn5barew5iqYzvtVV45dXxAtKPE=;
- b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBny6CAo/Ij1I/VekrzfEt+bkPydowqU5fHuzEHO
- +gyROI38DaJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCZ8uggAAKCRCLPIo+Aiko
- 1RtpB/0TJPdUwqjVunbKQ0jS9H+mUm6++VMTFOeLxSOVvuDD5T4/p8YDYSl4Qho3IpFMVz0Nl7Y
- jqpz+drHFJTPwXDwcjSK6BMCV43ymAVn7ciDtKZa7rxdbhIlnqMafzWIX7IKaWkTkpvjPw+XgGW
- H3WM1/lg1YbF3KOhCjcT8r1NBrlqa8Jj7BGY8Ouo/HODxNES+fWQPPNDhNiRlxiegcuLldhf8Cs
- DCY8/amk7mpLA0qy1mAzT6SN9w7SL13+E7+JXKmFyqyKOc0yuFBSnCrsnoNQFbDoDLcCC8l+mm8
- Nb3ynZjyvHg9TBPkQ/+xlLAv6LWRqDG6m5eFtUNYMX2cIjoP
-X-Developer-Key: i=dmitry.baryshkov@linaro.org; a=openpgp;
- fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304222018.615808-5-yang@os.amperecomputing.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_174328_832010_F009AEE2 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250307_175318_594119_00EC7727 
+X-CRM114-Status: GOOD (  14.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,437 +90,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Hi Yang,
 
-Add display controller, two DSI hosts, two DSI PHYs and a single DP
-controller. Link DP to the QMP Combo PHY.
+kernel test robot noticed the following build warnings:
 
-Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
----
- arch/arm64/boot/dts/qcom/sar2130p.dtsi | 394 +++++++++++++++++++++++++++++++++
- 1 file changed, 394 insertions(+)
+[auto build test WARNING on arm64/for-next/core]
+[also build test WARNING on linus/master v6.14-rc5 next-20250307]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-diff --git a/arch/arm64/boot/dts/qcom/sar2130p.dtsi b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-index dd832e6816be85817fd1ecc853f8d4c800826bc4..4e1816fcda8168e98e27b8bc0f8b5150c03276d2 100644
---- a/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-+++ b/arch/arm64/boot/dts/qcom/sar2130p.dtsi
-@@ -6,6 +6,7 @@
- #include <dt-bindings/clock/qcom,rpmh.h>
- #include <dt-bindings/clock/qcom,sar2130p-gcc.h>
- #include <dt-bindings/clock/qcom,sar2130p-gpucc.h>
-+#include <dt-bindings/clock/qcom,sm8550-dispcc.h>
- #include <dt-bindings/clock/qcom,sm8550-tcsr.h>
- #include <dt-bindings/dma/qcom-gpi.h>
- #include <dt-bindings/interconnect/qcom,icc.h>
-@@ -1854,6 +1855,7 @@ port@2 {
- 					reg = <2>;
- 
- 					usb_dp_qmpphy_dp_in: endpoint {
-+						remote-endpoint = <&mdss_dp0_out>;
- 					};
- 				};
- 			};
-@@ -1951,6 +1953,398 @@ usb_1_dwc3_ss: endpoint {
- 			};
- 		};
- 
-+		mdss: display-subsystem@ae00000 {
-+			compatible = "qcom,sar2130p-mdss";
-+			reg = <0x0 0x0ae00000 0x0 0x1000>;
-+			reg-names = "mdss";
-+
-+			interrupts = <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
-+			interrupt-controller;
-+			#interrupt-cells = <1>;
-+
-+			clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&gcc GCC_DISP_HF_AXI_CLK>,
-+				 <&dispcc DISP_CC_MDSS_MDP_CLK>;
-+
-+			resets = <&dispcc DISP_CC_MDSS_CORE_BCR>;
-+
-+			power-domains = <&dispcc MDSS_GDSC>;
-+
-+			interconnects = <&mmss_noc MASTER_MDP QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &mc_virt SLAVE_EBI1 QCOM_ICC_TAG_ACTIVE_ONLY>,
-+					<&gem_noc MASTER_APPSS_PROC QCOM_ICC_TAG_ACTIVE_ONLY
-+					 &config_noc SLAVE_DISPLAY_CFG QCOM_ICC_TAG_ACTIVE_ONLY>;
-+			interconnect-names = "mdp0-mem", "cpu-cfg";
-+
-+			iommus = <&apps_smmu 0x2000 0x402>;
-+
-+			#address-cells = <2>;
-+			#size-cells = <2>;
-+			ranges;
-+
-+			status = "disabled";
-+
-+			mdss_mdp: display-controller@ae01000 {
-+				compatible = "qcom,sar2130p-dpu";
-+				reg = <0x0 0x0ae01000 0x0 0x8f000>,
-+				      <0x0 0x0aeb0000 0x0 0x2008>;
-+				reg-names = "mdp",
-+					    "vbif";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <0>;
-+
-+				clocks = <&gcc GCC_DISP_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_LUT_CLK>,
-+					 <&dispcc DISP_CC_MDSS_MDP_CLK>,
-+					 <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				clock-names = "bus",
-+					      "nrt_bus",
-+					      "iface",
-+					      "lut",
-+					      "core",
-+					      "vsync";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_VSYNC_CLK>;
-+				assigned-clock-rates = <19200000>;
-+
-+				operating-points-v2 = <&mdp_opp_table>;
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu_intf1_out: endpoint {
-+							remote-endpoint = <&mdss_dsi0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu_intf2_out: endpoint {
-+							remote-endpoint = <&mdss_dsi1_in>;
-+						};
-+					};
-+
-+					port@2 {
-+						reg = <2>;
-+
-+						dpu_intf0_out: endpoint {
-+							remote-endpoint = <&mdss_dp0_in>;
-+						};
-+					};
-+				};
-+
-+				mdp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-200000000 {
-+						opp-hz = /bits/ 64 <200000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-325000000 {
-+						opp-hz = /bits/ 64 <325000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-514000000 {
-+						opp-hz = /bits/ 64 <514000000>;
-+						required-opps = <&rpmhpd_opp_turbo>;
-+					};
-+				};
-+			};
-+
-+			mdss_dp0: displayport-controller@ae90000 {
-+				compatible = "qcom,sar2130p-dp",
-+					     "qcom,sm8350-dp";
-+				reg = <0x0 0xae90000 0x0 0x200>,
-+				      <0x0 0xae90200 0x0 0x200>,
-+				      <0x0 0xae90400 0x0 0xc00>,
-+				      <0x0 0xae91000 0x0 0x400>,
-+				      <0x0 0xae91400 0x0 0x400>;
-+				interrupt-parent = <&mdss>;
-+				interrupts = <12>;
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel";
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>;
-+				assigned-clock-parents = <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+							 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>;
-+
-+				phys = <&usb_dp_qmpphy QMP_USB43DP_DP_PHY>;
-+				phy-names = "dp";
-+
-+				#sound-dai-cells = <0>;
-+
-+				operating-points-v2 = <&dp_opp_table>;
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss_dp0_in: endpoint {
-+							remote-endpoint = <&dpu_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss_dp0_out: endpoint {
-+							remote-endpoint = <&usb_dp_qmpphy_dp_in>;
-+						};
-+					};
-+				};
-+
-+				dp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-162000000 {
-+						opp-hz = /bits/ 64 <162000000>;
-+						required-opps = <&rpmhpd_opp_low_svs_d1>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0: dsi@ae94000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae94000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <4>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE0_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC0_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE0_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK0_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi0_phy 0>,
-+							 <&mdss_dsi0_phy 1>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi0_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi0_in: endpoint {
-+							remote-endpoint = <&dpu_intf1_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi0_out: endpoint {
-+						};
-+					};
-+				};
-+
-+				mdss_dsi_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-187500000 {
-+						opp-hz = /bits/ 64 <187500000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-300000000 {
-+						opp-hz = /bits/ 64 <300000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-358000000 {
-+						opp-hz = /bits/ 64 <358000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss_dsi0_phy: phy@ae95000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae95000 0x0 0x200>,
-+				      <0x0 0x0ae95200 0x0 0x280>,
-+				      <0x0 0x0ae95500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss_dsi1: dsi@ae96000 {
-+				compatible = "qcom,sar2130p-dsi-ctrl",
-+					     "qcom,mdss-dsi-ctrl";
-+				reg = <0x0 0x0ae96000 0x0 0x400>;
-+				reg-names = "dsi_ctrl";
-+
-+				interrupt-parent = <&mdss>;
-+				interrupts = <5>;
-+
-+				clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_BYTE1_INTF_CLK>,
-+					 <&dispcc DISP_CC_MDSS_PCLK1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_ESC1_CLK>,
-+					 <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&gcc GCC_DISP_HF_AXI_CLK>;
-+				clock-names = "byte",
-+					      "byte_intf",
-+					      "pixel",
-+					      "core",
-+					      "iface",
-+					      "bus";
-+
-+				power-domains = <&rpmhpd RPMHPD_MMCX>;
-+
-+				assigned-clocks = <&dispcc DISP_CC_MDSS_BYTE1_CLK_SRC>,
-+						  <&dispcc DISP_CC_MDSS_PCLK1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss_dsi1_phy 0>,
-+							 <&mdss_dsi1_phy 1>;
-+
-+				operating-points-v2 = <&mdss_dsi_opp_table>;
-+
-+				phys = <&mdss_dsi1_phy>;
-+				phy-names = "dsi";
-+
-+				#address-cells = <1>;
-+				#size-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+						mdss_dsi1_in: endpoint {
-+							remote-endpoint = <&dpu_intf2_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+						mdss_dsi1_out: endpoint {
-+						};
-+					};
-+				};
-+			};
-+
-+			mdss_dsi1_phy: phy@ae97000 {
-+				compatible = "qcom,sar2130p-dsi-phy-5nm";
-+				reg = <0x0 0x0ae97000 0x0 0x200>,
-+				      <0x0 0x0ae97200 0x0 0x280>,
-+				      <0x0 0x0ae97500 0x0 0x400>;
-+				reg-names = "dsi_phy",
-+					    "dsi_phy_lane",
-+					    "dsi_pll";
-+
-+				clocks = <&dispcc DISP_CC_MDSS_AHB_CLK>,
-+					 <&rpmhcc RPMH_CXO_CLK>;
-+				clock-names = "iface", "ref";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+		};
-+
-+		dispcc: clock-controller@af00000 {
-+			compatible = "qcom,sar2130p-dispcc";
-+			reg = <0x0 0x0af00000 0x0 0x20000>;
-+			clocks = <&rpmhcc RPMH_CXO_CLK>,
-+				 <&rpmhcc RPMH_CXO_CLK_A>,
-+				 <&gcc GCC_DISP_AHB_CLK>,
-+				 <&sleep_clk>,
-+				 <&mdss_dsi0_phy 0>,
-+				 <&mdss_dsi0_phy 1>,
-+				 <&mdss_dsi1_phy 0>,
-+				 <&mdss_dsi1_phy 1>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_LINK_CLK>,
-+				 <&usb_dp_qmpphy QMP_USB43DP_DP_VCO_DIV_CLK>,
-+				 <0>, /* dp1 */
-+				 <0>,
-+				 <0>, /* dp2 */
-+				 <0>,
-+				 <0>, /* dp3 */
-+				 <0>;
-+			power-domains = <&rpmhpd RPMHPD_MMCX>;
-+			#clock-cells = <1>;
-+			#reset-cells = <1>;
-+			#power-domain-cells = <1>;
-+		};
-+
- 		pdc: interrupt-controller@b220000 {
- 			compatible = "qcom,sar2130p-pdc", "qcom,pdc";
- 			reg = <0x0 0x0b220000 0x0 0x30000>, <0x0 0x174000f0 0x0 0x64>;
+url:    https://github.com/intel-lab-lkp/linux/commits/Yang-Shi/arm64-Add-BBM-Level-2-cpu-feature/20250305-062252
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git for-next/core
+patch link:    https://lore.kernel.org/r/20250304222018.615808-5-yang%40os.amperecomputing.com
+patch subject: [v3 PATCH 4/6] arm64: mm: support large block mapping when rodata=full
+config: arm64-randconfig-002-20250308 (https://download.01.org/0day-ci/archive/20250308/202503080930.7ZetfmFz-lkp@intel.com/config)
+compiler: aarch64-linux-gcc (GCC) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250308/202503080930.7ZetfmFz-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503080930.7ZetfmFz-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   arch/arm64/mm/mmu.c: In function 'alloc_init_pud':
+>> arch/arm64/mm/mmu.c:511:35: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
+     511 |                 pud_clear_fixmap();
+         |                                   ^
+   arch/arm64/mm/mmu.c: In function 'alloc_init_p4d':
+   arch/arm64/mm/mmu.c:570:35: warning: suggest braces around empty body in an 'if' statement [-Wempty-body]
+     570 |                 p4d_clear_fixmap();
+         |                                   ^
+
+
+vim +/if +511 arch/arm64/mm/mmu.c
+
+d27cfa1fc823d3 Ard Biesheuvel    2017-03-09  428  
+2451145c9a60e0 Yang Shi          2025-03-04  429  static int alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
+da141706aea52c Laura Abbott      2015-01-21  430  			  phys_addr_t phys, pgprot_t prot,
+90292aca9854a2 Yu Zhao           2019-03-11  431  			  phys_addr_t (*pgtable_alloc)(int),
+c0951366d4b7e0 Ard Biesheuvel    2017-03-09  432  			  int flags)
+c1cc1552616d0f Catalin Marinas   2012-03-05  433  {
+c1cc1552616d0f Catalin Marinas   2012-03-05  434  	unsigned long next;
+2451145c9a60e0 Yang Shi          2025-03-04  435  	int ret = 0;
+e9f6376858b979 Mike Rapoport     2020-06-04  436  	p4d_t p4d = READ_ONCE(*p4dp);
+6ed8a3a094b43a Ard Biesheuvel    2024-02-14  437  	pud_t *pudp;
+6fad683b9a5c21 Yang Shi          2025-03-04  438  	bool split = flags & SPLIT_MAPPINGS;
+6fad683b9a5c21 Yang Shi          2025-03-04  439  
+6fad683b9a5c21 Yang Shi          2025-03-04  440  	if (split) {
+6fad683b9a5c21 Yang Shi          2025-03-04  441  		BUG_ON(p4d_none(p4d));
+6fad683b9a5c21 Yang Shi          2025-03-04  442  		pudp = pud_offset(p4dp, addr);
+6fad683b9a5c21 Yang Shi          2025-03-04  443  		goto split_pgtable;
+6fad683b9a5c21 Yang Shi          2025-03-04  444  	}
+c1cc1552616d0f Catalin Marinas   2012-03-05  445  
+e9f6376858b979 Mike Rapoport     2020-06-04  446  	if (p4d_none(p4d)) {
+efe72541355d4d Yicong Yang       2024-11-02  447  		p4dval_t p4dval = P4D_TYPE_TABLE | P4D_TABLE_UXN | P4D_TABLE_AF;
+132233a759580f Laura Abbott      2016-02-05  448  		phys_addr_t pud_phys;
+87143f404f338d Ard Biesheuvel    2021-03-10  449  
+87143f404f338d Ard Biesheuvel    2021-03-10  450  		if (flags & NO_EXEC_MAPPINGS)
+87143f404f338d Ard Biesheuvel    2021-03-10  451  			p4dval |= P4D_TABLE_PXN;
+132233a759580f Laura Abbott      2016-02-05  452  		BUG_ON(!pgtable_alloc);
+90292aca9854a2 Yu Zhao           2019-03-11  453  		pud_phys = pgtable_alloc(PUD_SHIFT);
+2451145c9a60e0 Yang Shi          2025-03-04  454  		if (!pud_phys)
+2451145c9a60e0 Yang Shi          2025-03-04  455  			return -ENOMEM;
+0e9df1c905d829 Ryan Roberts      2024-04-12  456  		pudp = pud_set_fixmap(pud_phys);
+0e9df1c905d829 Ryan Roberts      2024-04-12  457  		init_clear_pgtable(pudp);
+0e9df1c905d829 Ryan Roberts      2024-04-12  458  		pudp += pud_index(addr);
+87143f404f338d Ard Biesheuvel    2021-03-10  459  		__p4d_populate(p4dp, pud_phys, p4dval);
+0e9df1c905d829 Ryan Roberts      2024-04-12  460  	} else {
+e9f6376858b979 Mike Rapoport     2020-06-04  461  		BUG_ON(p4d_bad(p4d));
+e9f6376858b979 Mike Rapoport     2020-06-04  462  		pudp = pud_set_fixmap_offset(p4dp, addr);
+0e9df1c905d829 Ryan Roberts      2024-04-12  463  	}
+0e9df1c905d829 Ryan Roberts      2024-04-12  464  
+6fad683b9a5c21 Yang Shi          2025-03-04  465  split_pgtable:
+c1cc1552616d0f Catalin Marinas   2012-03-05  466  	do {
+20a004e7b017cc Will Deacon       2018-02-15  467  		pud_t old_pud = READ_ONCE(*pudp);
+e98216b52176ba Ard Biesheuvel    2016-10-21  468  
+c1cc1552616d0f Catalin Marinas   2012-03-05  469  		next = pud_addr_end(addr, end);
+206a2a73a62d37 Steve Capper      2014-05-06  470  
+6fad683b9a5c21 Yang Shi          2025-03-04  471  		if (split) {
+6fad683b9a5c21 Yang Shi          2025-03-04  472  			ret = split_pud(pudp, old_pud, pgtable_alloc);
+6fad683b9a5c21 Yang Shi          2025-03-04  473  			if (ret)
+6fad683b9a5c21 Yang Shi          2025-03-04  474  				break;
+6fad683b9a5c21 Yang Shi          2025-03-04  475  
+6fad683b9a5c21 Yang Shi          2025-03-04  476  			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+6fad683b9a5c21 Yang Shi          2025-03-04  477  						  pgtable_alloc, flags);
+6fad683b9a5c21 Yang Shi          2025-03-04  478  			if (ret)
+6fad683b9a5c21 Yang Shi          2025-03-04  479  				break;
+6fad683b9a5c21 Yang Shi          2025-03-04  480  
+6fad683b9a5c21 Yang Shi          2025-03-04  481  			continue;
+6fad683b9a5c21 Yang Shi          2025-03-04  482  		}
+6fad683b9a5c21 Yang Shi          2025-03-04  483  
+206a2a73a62d37 Steve Capper      2014-05-06  484  		/*
+206a2a73a62d37 Steve Capper      2014-05-06  485  		 * For 4K granule only, attempt to put down a 1GB block
+206a2a73a62d37 Steve Capper      2014-05-06  486  		 */
+1310222c276b79 Anshuman Khandual 2022-02-16  487  		if (pud_sect_supported() &&
+1310222c276b79 Anshuman Khandual 2022-02-16  488  		   ((addr | next | phys) & ~PUD_MASK) == 0 &&
+c0951366d4b7e0 Ard Biesheuvel    2017-03-09  489  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
+20a004e7b017cc Will Deacon       2018-02-15  490  			pud_set_huge(pudp, phys, prot);
+206a2a73a62d37 Steve Capper      2014-05-06  491  
+206a2a73a62d37 Steve Capper      2014-05-06  492  			/*
+e98216b52176ba Ard Biesheuvel    2016-10-21  493  			 * After the PUD entry has been populated once, we
+e98216b52176ba Ard Biesheuvel    2016-10-21  494  			 * only allow updates to the permission attributes.
+206a2a73a62d37 Steve Capper      2014-05-06  495  			 */
+e98216b52176ba Ard Biesheuvel    2016-10-21  496  			BUG_ON(!pgattr_change_is_safe(pud_val(old_pud),
+20a004e7b017cc Will Deacon       2018-02-15  497  						      READ_ONCE(pud_val(*pudp))));
+206a2a73a62d37 Steve Capper      2014-05-06  498  		} else {
+2451145c9a60e0 Yang Shi          2025-03-04  499  			ret = alloc_init_cont_pmd(pudp, addr, next, phys, prot,
+c0951366d4b7e0 Ard Biesheuvel    2017-03-09  500  					    pgtable_alloc, flags);
+2451145c9a60e0 Yang Shi          2025-03-04  501  			if (ret)
+2451145c9a60e0 Yang Shi          2025-03-04  502  				break;
+e98216b52176ba Ard Biesheuvel    2016-10-21  503  
+e98216b52176ba Ard Biesheuvel    2016-10-21  504  			BUG_ON(pud_val(old_pud) != 0 &&
+20a004e7b017cc Will Deacon       2018-02-15  505  			       pud_val(old_pud) != READ_ONCE(pud_val(*pudp)));
+206a2a73a62d37 Steve Capper      2014-05-06  506  		}
+c1cc1552616d0f Catalin Marinas   2012-03-05  507  		phys += next - addr;
+20a004e7b017cc Will Deacon       2018-02-15  508  	} while (pudp++, addr = next, addr != end);
+f4710445458c0a Mark Rutland      2016-01-25  509  
+6fad683b9a5c21 Yang Shi          2025-03-04  510  	if (!split)
+f4710445458c0a Mark Rutland      2016-01-25 @511  		pud_clear_fixmap();
+2451145c9a60e0 Yang Shi          2025-03-04  512  
+2451145c9a60e0 Yang Shi          2025-03-04  513  	return ret;
+c1cc1552616d0f Catalin Marinas   2012-03-05  514  }
+c1cc1552616d0f Catalin Marinas   2012-03-05  515  
 
 -- 
-2.39.5
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
