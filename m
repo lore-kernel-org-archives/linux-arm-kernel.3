@@ -4,86 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EE5BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 04:36:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F08DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 05:11:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=S92lWIfKVIn+dIfxP3BSAW+MFQMr9+wTt9Aqjone+IQ=; b=x4qLaaAOQGKofnXwd4bvy2fwGJ
-	kST7BkuDMTAyJOUeJmcXVzqIW2VsvdBg3zGaICPXuy0eI9HUkSBk0C3jW0jvG/OLdZU8B1Zg2w1Nl
-	vXP3Xnq2R/baC34oYbkFiMSrIPDtKXsFpo+vQmQK84QMqWSkJ/V3qJiAp93fE+bWS9zA4f37qqxMR
-	DFyTClf3CSznB/8zKgtGR5dNeKOIHrDk460heMMGgnjVRp/T5PJKQOjGF8SIQT1i7yERNe76vJKi4
-	RrPv+E2iuOaES1Dg/cuADUBMMhvUpDS+3InFBmnwHurycZT4cSU4BYAoBQIoNqW9m72Y3HKfag7Ws
-	O3uAhtVg==;
+	bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=; b=sdOQRyFxFhU8ekuM3onfDxroaH
+	ITODskRQigkVp7Mkuo7Qr/gRAnWgRCWZHmZRMdkuoAN44tMZP/63R1oQN77yYLZUxzPE5HmOhDZZg
+	pxXqeeIucJxDgYhDaLcXQ3YVgfMVvTHLZhoyydwk9haPYwC8RqgpkBt7z2eF5soaTY5MYxIl7TKKG
+	LD45142kFtD8WaiXm6c/btyU/sjJO6R+Bn8FZFciE1hR3k0YUH8k/XhIrMxPwH+ds3VjZJSAA1VGb
+	I/mRV308BKtYbwJ1mG8VspFVK+T94J8e9grQMjAQqRCxPR+TvyBmuFiMeT3r5Irs+o/ZnFq2vukRi
+	YhCJhvXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqlvY-0000000GB40-00EP;
-	Sat, 08 Mar 2025 04:36:44 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1tqmSg-0000000GCeE-0h2V;
+	Sat, 08 Mar 2025 05:10:58 +0000
+Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqltu-0000000GB0x-2xTq;
-	Sat, 08 Mar 2025 04:35:04 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43bcad638efso14841775e9.2;
-        Fri, 07 Mar 2025 20:35:01 -0800 (PST)
+	id 1tqmR3-0000000GCYQ-2IMX
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 05:09:18 +0000
+Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-307c13298eeso30219681fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 07 Mar 2025 21:09:16 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741408500; x=1742013300; darn=lists.infradead.org;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=S92lWIfKVIn+dIfxP3BSAW+MFQMr9+wTt9Aqjone+IQ=;
-        b=Uh5AtOcf8mmaUKt5FT2OlaMnsXAN2PAHxtXCx2rcvGdw8zoqGHNq3meXxFqZUnZ2z+
-         z1MhNzEx2z55dSpiM703lzuUWqv4YE3a+wO1mAKQlHaGdX4hh8pURdKWch1qsOpzX3u1
-         tM8QJH6iGpRoSOYTgJpU5JQO2ZdY2BcQnYuJ8/KRQvKR+4sB7B+nt0R8oByl4ImAt56m
-         tToPvT1DJWUxJ30jUk9bhFF3YkebS+dvvaARM4ticJWM0xiX+PlPcwCndE7v4BEbtB3D
-         q80tC/Yvy/d6+KCXorVEjMyfxa9Wp0SWv3nnXWwKbi7q7o9ASwZKRWsjn0keSVMZ7kc2
-         ufbg==
+        d=linaro.org; s=google; t=1741410555; x=1742015355; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=;
+        b=IGoDci5QF2cRG+3jbdgMUWoU3uKQ6m1fCS/OeB2dS/D6nLaRxjECCiQ0K7GDLiW1BQ
+         Nf3fqEZShawOYcdhoZ2VZ+JxedHHdEzOLjLnoShUEeAzfxHA6ZruI/v144Xo240ANRJ1
+         BVflPWy9n2GbwrlJX/eYEDuVXWZXXVdRp+UY3MEun/1+//FmMTX5fPzeh1o/gZml6yQl
+         bGqkDE4USM0mP+TPR9tbXIreB7rV6N6VthN6K8vbpi1oEMpiNtN29h3BLCLPalGT9fNZ
+         94TUMgzOJ6umZgEXgQmhXvwLz8/P800drowx2M5Hf/7w2CkyWINtvGsr4+jbsltlxwXN
+         OUrQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741408500; x=1742013300;
-        h=content-transfer-encoding:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=S92lWIfKVIn+dIfxP3BSAW+MFQMr9+wTt9Aqjone+IQ=;
-        b=lZKcRe0+0MSRYRaxmEb0xu1Td+KdibbJWPfNUtiJ9M44xf3sHJQV87nMfvlDifJDoX
-         a0cfqD+oXO90ITTNo4e8PyqP7ixPd44pxFNkuCYhZyQH5Hl5pL3wfOiCSr7x3j104IQX
-         mmKAt2GDmzLO2eKPxaoxt80A/4qJNHncyAyW4jFSDBwCJSDX0fxDqQ12JlZxuuxL3kiT
-         t++GINxeN+012t2jMsfLsobvb+ot+FHQKQMWVaWZx6Ms+JgZAAMqf+ljv5qXOY9fwRvv
-         K8/FyOEqaJK9jjs98heX5ULT23MhIHi5r2tXPqYlwDiiyFrQkp92tENqUoOjsdIgF1OL
-         97xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXHzWE7CfajJRNJVXBuAWLZPJQQWyH7EAbPdiQoTsV6pz9Z7xEQhO8ChAHUOadILG3xTgHYdxhekeYnlmxTkREp@lists.infradead.org, AJvYcCXkvVFfYAKPbZU9Tjv6v1Hkpc579SHThXZVibf0xBF1rGM/7q+Esm/6koEfCUkVu+MtdR3LHJSU8kxg0T1l2gg=@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywv3yc4uu0EQmJ4Tw21UPRBjGBIvcNOxiXOnjiYMioCWRClAfr1
-	w7i3dD+eAKVVQ4xbw+bvo0O4kj/JuInlgY2TyUJCKMznbfYbS/jZO5zZzv2xLcDgKlb0plZwLOc
-	t/TkoADTj95n8qr/75je82Iw8OOw=
-X-Gm-Gg: ASbGnctCTM63+Wmu5GQNMKRcrushn0i2YLdx6p8X/5srJ8AXXg0YanUtU0qse0GEmkT
-	tnjdDLcqB+Rt9MWNOs+LSXcRyOOapgF1mJFtpV+yrBuxvo5Zzr5mUM/PE6kQv1m7MLITfJyLx3k
-	aHrw3Mf5j3oBp8Vf6WKNLiko6QfVfThv9CYAIJ+bbfI7U+6VJjubELEle3mg==
-X-Google-Smtp-Source: AGHT+IHAfzw5XZrxzz41zgMCfkMjKfpkf7QBQ6PlsSgwZXw3Uw/YaCNH673ZsxlButmZYr+AA4ocdp1HOEtWSPIb7r8=
-X-Received: by 2002:a05:600c:3502:b0:43b:cd15:2eb0 with SMTP id
- 5b1f17b1804b1-43ce17f6952mr18183765e9.25.1741408499618; Fri, 07 Mar 2025
- 20:34:59 -0800 (PST)
+        d=1e100.net; s=20230601; t=1741410555; x=1742015355;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ulAMfJbRFBT/fSAG0Qg9z+1DBNf6VyZHT1tEXJwkloQ=;
+        b=Bb+/0a5AgNXP/zzklr5FcB1tCD7OIhWEIz92HUnngj0un2Krd14EeKm48RD90GFru0
+         z8mxjGRU6culWrC5tTDdR5CLe93wgRL9/xjWE6BtlJwo7f0Jw3CvpUl6fObqyPVEWtp/
+         5u6B41VxXontiqJ0GS/RYBilxlEY/oZhzHrILEYPeCqOpBVf0Saoxf6u58ww2i69Fsd2
+         3zpcwEcvfyfEsdrPN7g69MqYYO7qyopMpBfxTyLlkEG7WIfkPDTDQJl0N/Jo73bLgFzI
+         Ok4N1XbxeJ69so757RtWXkKjf1KRLIEWvc8DyEcMRbPZfeCbWQ6btxlAmbZ3ASo0NAT9
+         Qyfw==
+X-Forwarded-Encrypted: i=1; AJvYcCXsUIpuPEhnmNy1NzpNBU/ueAi1j+onoIjzXlfMSzuVLwA94zlbYcU8UkoaChlOWO4ekHI7OM4g5oVyPluQKC5Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUujpiUh8oRUtz7WZlP6WO3q1WFHsGJUjkN7HJ+tnbtm0tR7VP
+	qGa+8kfZTkMAjE7TKtcdVsp0XVrXw/bXqdMZLBP0BvmqWjuHOKvmXl26tcO87As=
+X-Gm-Gg: ASbGncs+u156BNXMvYLsjh8LkhEsngZpkvW+MgBlayF4rYcNGh81mhmXTaU5g6lF7mW
+	NEWCw2WIsxtNI5UPpAjgoRGaThsUdAnV00Ipwf0XULc5+ha6trTbdSE0lcPNkjV9PSVNt7BXuz7
+	tUL+GgYWCC3nHrg5iyu8/67U/Er/wWHet3y4rRO4VOEQmsRzGY1R5PgEVZi0W07OwfIZfy/P2hY
+	J24GT8lnrDeEh0dhUIP+l08zUp5019V9XNXof6g/l2GmviehGcIGcE1jk97xRkTHQ+aofYNvula
+	OYfW7AJpDxgylmmvHt+pTZAFfqH75ApVfxMkAsbZH8zy8XsKf3YpnWcLJ+Ga95lzvYHIQi4agQj
+	lYz3Yq1jmEdeEdfvcwc/Rsv+u
+X-Google-Smtp-Source: AGHT+IF7bjBB5aMjSIOWPIZXx3se8ZXwg6KEPXnQgNtkefZ48n8buFCzC0ExNuYMF9We4+jwIP9GuA==
+X-Received: by 2002:a2e:be91:0:b0:30b:c608:22bf with SMTP id 38308e7fff4ca-30bfe429ce8mr7170571fa.9.1741410555213;
+        Fri, 07 Mar 2025 21:09:15 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30be98d0bf3sm7872791fa.8.2025.03.07.21.09.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 07 Mar 2025 21:09:13 -0800 (PST)
+Date: Sat, 8 Mar 2025 07:09:11 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, Sean Paul <sean@poorly.run>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, 
+	David Airlie <airlied@gmail.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Abhinav Kumar <quic_abhinavk@quicinc.com>, devicetree@vger.kernel.org, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Clark <robdclark@gmail.com>, 
+	Kuogee Hsieh <quic_khsieh@quicinc.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Simona Vetter <simona@ffwll.ch>, freedreno@lists.freedesktop.org, 
+	Bjorn Andersson <andersson@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Jonathan Marek <jonathan@marek.ca>, 
+	Maxime Ripard <mripard@kernel.org>, iommu@lists.linux.dev, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, linux-arm-kernel@lists.infradead.org, 
+	Will Deacon <will@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>
+Subject: Re: [PATCH 05/10] dt-bindings: display/msm: Add Qualcomm SAR2130P
+Message-ID: <nddxntwmiyurqew75gc6yoj2dcinhjqu36cdujhruqyrz62ry5@4e2y76ghmo4h>
+References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
+ <20250308-sar2130p-display-v1-5-1d4c30f43822@linaro.org>
+ <174140525677.1770282.3232695979994091275.robh@kernel.org>
 MIME-Version: 1.0
-References: <20250227235623.1624-1-honyuenkwun@gmail.com> <20250227235623.1624-4-honyuenkwun@gmail.com>
- <5qi24bxuamu3agtldyxhrnlefao6zy2mw2qmx62ycsdg3v6sbz@2jeawstukcyd>
-In-Reply-To: <5qi24bxuamu3agtldyxhrnlefao6zy2mw2qmx62ycsdg3v6sbz@2jeawstukcyd>
-From: Jimmy Hon <honyuenkwun@gmail.com>
-Date: Fri, 7 Mar 2025 22:34:48 -0600
-X-Gm-Features: AQ5f1JoI5m6n5697WKDKj8u5pVOu_T48foDQrrZDPAuJnh6Ijn2qNDM1LR15lvU
-Message-ID: <CALWfF7LcUUFUnESrGTE10VS7S1+G=sXWkD7iZjbufpgGWQnFbg@mail.gmail.com>
-Subject: Re: [PATCH UNTESTED 3/4] arm64: dts: rockchip: Enable HDMI1 on Orange
- Pi 5 Plus
-To: =?UTF-8?Q?Ond=C5=99ej_Jirman?= <megi@xff.cz>, 
-	Jimmy Hon <honyuenkwun@gmail.com>, Heiko Stuebner <heiko@sntech.de>, 
-	Cenk Uluisik <cenk.uluisik@googlemail.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Florian Klink <flokli@flokli.de>, Muhammed Efe Cetin <efectn@protonmail.com>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <174140525677.1770282.3232695979994091275.robh@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250307_203502_749153_6FC3AFE0 
-X-CRM114-Status: GOOD (  29.02  )
+X-CRM114-CacheID: sfid-20250307_210917_600456_61675999 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,174 +111,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Feb 28, 2025 at 5:15=E2=80=AFAM Ond=C5=99ej Jirman <megi@xff.cz> wr=
-ote:
->
-> Hello Jimmy,
->
-> On Thu, Feb 27, 2025 at 05:56:22PM -0600, Jimmy Hon wrote:
-> > Enable the second HDMI output port on the Orange Pi 5 Plus
->
-> RK3588 hardware design guide states that:
->
->   - When working in HDMI2.1 mode, HDMI0_TX_ON_H is configured as low leve=
-l,
->     Q1700, Q1701, Q1702, and Q1703 are not turned on.
->
->   - When working in HDMI2.0 and below modes, HDMI0_TX_ON_H is configured =
-as high
->     level, Q5007, Q5004, Q5005, and Q5006 are turned on, and the 499ohm r=
-esistor
->     to ground and the 50ohm pull-up resistor at the Sink end form a DC bi=
-as of
->     about 3V.
->
->   If you only need to support HDMI2.0 and below modes, Q5007, Q5004, Q500=
-5, and
->   Q5006 cannot be omitted. It is necessary to ensure that the tube is not=
- turned
->   on when the machine is not turned on, because the HDMI CTS Test ID 7-3 =
-TMDS
->   Voff test item requires that the Voff voltage must be within AVcc+-10mV=
- when
->   the DUT is not powered on, otherwise this test item cannot pass. 2: The=
- Coss
->   of the control MOS tube cannot be too large, otherwise it will affect t=
-he
->   signal quality. It is recommended to follow the reference figure model =
-or the
->   corresponding Coss value.
->
-> And Orange Pi 5 schematic (which has almost the same circuit as Plus vari=
-ant)
-> states this explicitely too:
->
->   https://megous.com/dl/tmp/5dc98e91dfee3b5a.png
->
-> The same applies to HDMI1.
->
-> Maybe it would be better to pull up HDMI1_TX_ON_H more explicitely for no=
-w via:
->
-> &hdmi1 {
-> + pinctrl-0 =3D <&hdmim2_tx1_cec &hdmim0_tx1_hpd
-> +              &hdmim1_tx1_scl &hdmim1_tx1_sda
-> +              &hdmi1_tx_on_h>;
-> };
->
-> &pinctrl {
-> ...
-> + hdmi {
-> +         hdmi1_tx_on_h: hdmi1-tx-on-h {
-> +                 rockchip,pins =3D <4 RK_PB2 RK_FUNC_GPIO &pcfg_pull_up>=
-;
-> +         };
-> + };
-> ...
-> };
->
-> AFAIK FRL is not supported, yet, so this may be a better default for HDMI=
-1_TX_ON_H.
-I am going to defer adding a temporary workaround and keep hdmi1
-behavior the same as hdmi0. [1] I don't want to introduce something
-that will hinder the upcoming FRL development when it tries to support
-an old DTB. I'm hoping Cristian could start adding the HDMI0_TX_ON_H
-to the dt-bindings, even before the full FRL support is added, so at
-least all the DTS could have "enable-gpios" property defined [2], and
-then the DTSs be ready to go when FRL support is ready. That way the
-HDMI0_TX_ON_H will be pulled correctly depending what mode is being
-used.
-
-[1] https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/=
-tree/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts?h=3Dv6.14-rc1#=
-n113
-[2] https://github.com/radxa/kernel/blob/linux-6.1-stan-rkr4.1/arch/arm64/b=
-oot/dts/rockchip/rk3588-rock-5b.dts#L564
-
->
-> In any case,
->
-> Reviewed-by: Ondrej Jirman <megi@xff.cz>
->
->
-> And I've also tested and used identical patch for a few weeks already on =
-my
-> Orange Pi 5+. :)
->
-> Kind regards,
->         o.
->
-> > Signed-off-by: Jimmy Hon <honyuenkwun@gmail.com>
+On Fri, Mar 07, 2025 at 09:40:56PM -0600, Rob Herring (Arm) wrote:
+> 
+> On Sat, 08 Mar 2025 03:42:23 +0200, Dmitry Baryshkov wrote:
+> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > 
+> > Describe the Mobile Display SubSystem (MDSS) device present on the
+> > Qualcomm SAR2130P platform. It looks pretty close to SM8550 on the
+> > system level. SAR2130P features two DSI hosts and single DisplayPort
+> > controller.
+> > 
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > > ---
-> >  .../dts/rockchip/rk3588-orangepi-5-plus.dts   | 38 +++++++++++++++++++
-> >  1 file changed, 38 insertions(+)
-> >
-> > diff --git a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts b/=
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > index 0f874b87b47e..53797f633d3a 100644
-> > --- a/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > +++ b/arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dts
-> > @@ -26,6 +26,17 @@ hdmi0_con_in: endpoint {
-> >               };
-> >       };
-> >
-> > +     hdmi1-con {
-> > +             compatible =3D "hdmi-connector";
-> > +             type =3D "a";
-> > +
-> > +             port {
-> > +                     hdmi1_con_in: endpoint {
-> > +                             remote-endpoint =3D <&hdmi1_out_con>;
-> > +                     };
-> > +             };
-> > +     };
-> > +
-> >       ir-receiver {
-> >               compatible =3D "gpio-ir-receiver";
-> >               gpios =3D <&gpio4 RK_PB3 GPIO_ACTIVE_LOW>;
-> > @@ -125,10 +136,30 @@ hdmi0_out_con: endpoint {
-> >       };
-> >  };
-> >
-> > +&hdmi1 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> > +&hdmi1_in {
-> > +     hdmi1_in_vp1: endpoint {
-> > +             remote-endpoint =3D <&vp1_out_hdmi1>;
-> > +     };
-> > +};
-> > +
-> > +&hdmi1_out {
-> > +     hdmi1_out_con: endpoint {
-> > +             remote-endpoint =3D <&hdmi1_con_in>;
-> > +     };
-> > +};
-> > +
-> >  &hdptxphy0 {
-> >       status =3D "okay";
-> >  };
-> >
-> > +&hdptxphy1 {
-> > +     status =3D "okay";
-> > +};
-> > +
-> >  &hym8563 {
-> >       interrupt-parent =3D <&gpio0>;
-> >       interrupts =3D <RK_PB0 IRQ_TYPE_LEVEL_LOW>;
-> > @@ -342,3 +373,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-> >               remote-endpoint =3D <&hdmi0_in_vp0>;
-> >       };
-> >  };
-> > +
-> > +&vp1 {
-> > +     vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
-> > +             reg =3D <ROCKCHIP_VOP2_EP_HDMI1>;
-> > +             remote-endpoint =3D <&hdmi1_in_vp1>;
-> > +     };
-> > +};
-> > --
-> > 2.48.1
-> >
+> >  .../bindings/display/msm/qcom,sar2130p-mdss.yaml   | 445 +++++++++++++++++++++
+> >  1 file changed, 445 insertions(+)
+> > 
+> 
+> My bot found errors running 'make dt_binding_check' on your patch:
+> 
+> yamllint warnings/errors:
+> 
+> dtschema/dtc warnings/errors:
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae94000: compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['qcom,sar2130p-dsi-ctrl', 'qcom,mdss-dsi-ctrl'] is too long
+> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,apq8064-dsi-ctrl', 'qcom,msm8226-dsi-ctrl', 'qcom,msm8916-dsi-ctrl', 'qcom,msm8953-dsi-ctrl', 'qcom,msm8974-dsi-ctrl', 'qcom,msm8976-dsi-ctrl', 'qcom,msm8996-dsi-ctrl', 'qcom,msm8998-dsi-ctrl', 'qcom,qcm2290-dsi-ctrl', 'qcom,sc7180-dsi-ctrl', 'qcom,sc7280-dsi-ctrl', 'qcom,sdm660-dsi-ctrl', 'qcom,sdm670-dsi-ctrl', 'qcom,sdm845-dsi-ctrl', 'qcom,sm6115-dsi-ctrl', 'qcom,sm6125-dsi-ctrl', 'qcom,sm6150-dsi-ctrl', 'qcom,sm6350-dsi-ctrl', 'qcom,sm6375-dsi-ctrl', 'qcom,sm7150-dsi-ctrl', 'qcom,sm8150-dsi-ctrl', 'qcom,sm8250-dsi-ctrl', 'qcom,sm8350-dsi-ctrl', 'qcom,sm8450-dsi-ctrl', 'qcom,sm8550-dsi-ctrl', 'qcom,sm8650-dsi-ctrl']
+> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,dsi-ctrl-6g-qcm2290', 'qcom,mdss-dsi-ctrl']
+> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
+
+It looks like the patch 2 could not be applied and was skipped. Is the
+bot parsing the dependencies from the cover letter?
+
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae94000: Unevaluated properties are not allowed ('compatible' was unexpected)
+> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae96000: compatible: 'oneOf' conditional failed, one must be fixed:
+> 	['qcom,sar2130p-dsi-ctrl', 'qcom,mdss-dsi-ctrl'] is too long
+> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,apq8064-dsi-ctrl', 'qcom,msm8226-dsi-ctrl', 'qcom,msm8916-dsi-ctrl', 'qcom,msm8953-dsi-ctrl', 'qcom,msm8974-dsi-ctrl', 'qcom,msm8976-dsi-ctrl', 'qcom,msm8996-dsi-ctrl', 'qcom,msm8998-dsi-ctrl', 'qcom,qcm2290-dsi-ctrl', 'qcom,sc7180-dsi-ctrl', 'qcom,sc7280-dsi-ctrl', 'qcom,sdm660-dsi-ctrl', 'qcom,sdm670-dsi-ctrl', 'qcom,sdm845-dsi-ctrl', 'qcom,sm6115-dsi-ctrl', 'qcom,sm6125-dsi-ctrl', 'qcom,sm6150-dsi-ctrl', 'qcom,sm6350-dsi-ctrl', 'qcom,sm6375-dsi-ctrl', 'qcom,sm7150-dsi-ctrl', 'qcom,sm8150-dsi-ctrl', 'qcom,sm8250-dsi-ctrl', 'qcom,sm8350-dsi-ctrl', 'qcom,sm8450-dsi-ctrl', 'qcom,sm8550-dsi-ctrl', 'qcom,sm8650-dsi-ctrl']
+> 	'qcom,sar2130p-dsi-ctrl' is not one of ['qcom,dsi-ctrl-6g-qcm2290', 'qcom,mdss-dsi-ctrl']
+> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
+> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/display/msm/qcom,sar2130p-mdss.example.dtb: dsi@ae96000: Unevaluated properties are not allowed ('compatible' was unexpected)
+> 	from schema $id: http://devicetree.org/schemas/display/msm/dsi-controller-main.yaml#
+> 
+> doc reference errors (make refcheckdocs):
+> 
+> See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250308-sar2130p-display-v1-5-1d4c30f43822@linaro.org
+> 
+> The base for the series is generally the latest rc1. A different dependency
+> should be noted in *this* patch.
+> 
+> If you already ran 'make dt_binding_check' and didn't see the above
+> error(s), then make sure 'yamllint' is installed and dt-schema is up to
+> date:
+> 
+> pip3 install dtschema --upgrade
+> 
+> Please check and re-submit after running the above command yourself. Note
+> that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+> your schema. However, it must be unset to test all examples with your schema.
+> 
+
+-- 
+With best wishes
+Dmitry
 
