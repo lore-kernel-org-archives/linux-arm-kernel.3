@@ -4,43 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A82BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DB62C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8lTePh5igrJf98LbOL5d9KS99/l+mQeh0K7EPVRWoY=; b=PMgibk3/ECZbAhOo1aCyFVcos6
-	sTYtV0+iGl8LAcdYV9D0OZPM+73TzVfjznKMFHM4t3LiFfdw4AUzMKQ7QxYkRbbYlDWWPUHLgOIkr
-	lPNIAmSIrNIhMmktqmiNsO/3dOM5jhALE6hF6roasEwKtJW7TldSU8Mo7tAT3b7WYpbSJKFa7xyAf
-	XegvmH8vIXBR8allXuQNJE1Z4O1FXSnD3DxVH3qfJo1jK0RxMf1Qt0ryUbmUx4aqgOwB1YFXTml4Y
-	oJlVE4p8dc/Rv9y+ZKun5b1XdZbgEGwgJF3QSWI521J6BGkljuzWWfHRJyY4VzBnCGxMHifNTVOs0
-	CTPubhEQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kexZQrMIpEE9IN4eQEzAttyVP9Nr79fTq/+KRV6gDuQ=; b=VndOhcuqeiJDfvrWoG2Mzdm8cB
+	rOxQJdPl9eIU9KnkHqB6D/swMBEL9emLBczDJAZ8dvOI+uIoufS8KCrUYts5I49e4gv9hE9UUqsoD
+	mcexWVTJzaJKoiTCw85lU41B9RjaIuncYbsMJ5quGLo68TveP1im9bn+zlCANkLg/y2nttN81/j4j
+	asmpDyJjSnxK9JcdbBUkPqhyvnY6Eq8/0ljstuTMtb6o+JOASRrvzgiHwEYCKQ06u/4Y38i4FTXBA
+	fAKsdlfgpfz+MHJF6pTMkMQXjbD8cNALfNdLgb71BGdVq/t2d4hg8vU9G0HrVDCB5fkSQs1K5EGXi
+	I5+x965g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwbW-0000000GpbV-22yA;
-	Sat, 08 Mar 2025 16:00:46 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tqwd7-0000000Gpik-11br;
+	Sat, 08 Mar 2025 16:02:25 +0000
+Received: from relay3-d.mail.gandi.net ([217.70.183.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwVm-0000000Goi6-1UTF
+	id 1tqwVl-0000000Gogp-3LLF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 15:54:51 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 972D8204CE;
-	Sat,  8 Mar 2025 15:54:47 +0000 (UTC)
+	Sat, 08 Mar 2025 15:54:52 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id C75B120457;
+	Sat,  8 Mar 2025 15:54:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741449288;
+	t=1741449284;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=y8lTePh5igrJf98LbOL5d9KS99/l+mQeh0K7EPVRWoY=;
-	b=fXq86bdXUirnhOxsT/MX/YCd60ZbNC125GoMRr+xobiWX1j2tWdpiFEPNw0+IBVxfcMizG
-	VcowSAtjWuKj5Idvv6W4zAQIyE8W4T1AYXqswekR/qfftTPLDUIni3a5GLcKKUTBr/NG8k
-	me7+iO/j+JKNTNT9HyMC0HCD0UzKI7urejNsYNmPBShTvBWt43WXtzZ+NzdAklpS2ouapO
-	FUS8LFmUd8u3VdBH7eEs8i+2rhjwkM9bQFlij0u4V12EibmPbgJAiFdBb2kqut8tcpeHPg
-	at5Ew9rCXQUJt6HW1vBCnSkPPnziXGBhJrJFzS7GNi+IuhJH3rdme3UR9h1Smw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=kexZQrMIpEE9IN4eQEzAttyVP9Nr79fTq/+KRV6gDuQ=;
+	b=ZWqrBJ5wl8fIPZJ8s24rmk+Lc8BcNkhWk/zxay2V/CyQD8Fh8KHKQAm9jg8X0bDfbrjMMW
+	jbQ8IXcEqxKv3/O1Qxpvh4LdHDv3Sg/IwbFKafmIsl8BN0LOrlEeKg2OLcDTtoQ/INpfUv
+	ucDmxBf5+pT8r1OTc5JQl2QHIGRuyAUEeqRlc+8GTBRv7/TgY89bNzaKduT5WPwdQSnEsF
+	baIcyMEyFTPdhwvjyT7oR5VMAAcGPaswoQaQFFLSo8ywp8fKG5t4MsCPx68EB/gtl3MwJI
+	2G/7Jn4ojtY88A9wDOK7wkZ7fY6uF8VGNo7zd7lD66udwb1io3JkGvYi1vTQ3A==
 From: Maxime Chevallier <maxime.chevallier@bootlin.com>
 To: davem@davemloft.net,
 	Andrew Lunn <andrew@lunn.ch>,
@@ -64,22 +63,20 @@ Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
 	Romain Gantois <romain.gantois@bootlin.com>,
 	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>,
 	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v2 3/7] net: ethtool: netlink: Introduce command-specific dump_one_dev
-Date: Sat,  8 Mar 2025 16:54:35 +0100
-Message-ID: <20250308155440.267782-4-maxime.chevallier@bootlin.com>
+Subject: [PATCH net-next v2 0/7] net: ethtool: Introduce ethnl dump helpers
+Date: Sat,  8 Mar 2025 16:54:32 +0100
+Message-ID: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
-References: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmr
- giivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffoggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepjefhleeihefgffeiffdtffeivdehfeetheekudekgfetffetveffueeujeeitdevnecuffhomhgrihhnpehkvghrnhgvlhdrohhrghenucfkphepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvpdhhvghlohepfhgvughorhgrrdhhohhmvgdpmhgrihhlfhhrohhmpehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedvvddprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvl
+ hdrohhrghdprhgtphhtthhopegvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehmrgigihhmvgdrtghhvghvrghllhhivghrsegsohhothhlihhnrdgtohhmpdhrtghpthhtohepnhgvthguvghvsehvghgvrhdrkhgvrhhnvghlrdhorhhg
 X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_075450_568652_9C6D168B 
-X-CRM114-Status: GOOD (  20.42  )
+X-CRM114-CacheID: sfid-20250308_075450_570578_EF093CC8 
+X-CRM114-Status: GOOD (  13.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,212 +91,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Prepare more generic ethnl DUMP hanldling, by allowing netlink commands
-to register their own dump_one_dev() callback. This avoids having to
-roll with a fully custom genl ->dumpit callback, allowing the re-use of some
-ethnl plumbing.
+Hi everyone,
 
-Fallback to the default dump_one_dev behaviour when no custom callback
-is found.
+This is V2 for the ethnl dump support, allowing better handling of
+per-phy dump but also any other dump operation that needs to dump more
+than one message per netdev.
 
-The command dump context is maintained within the ethnl_dump_ctx, that
-we move in netlink.h so that command handlers can access it.
+Changes in V2:
+ - Rebased on the netdev_lock work by Stanislav and the fixes from Eric
+ - Fixed a bissectability issue
+ - Fixed kdoc for the new ethnl ops and fields
 
-This context can be allocated/freed in new ->dump_start() and
-->dump_done() callbacks.
+V1: https://lore.kernel.org/netdev/20250305141938.319282-1-maxime.chevallier@bootlin.com/
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V2: - Fix kdoc
+As of today when using ethnl's default ops, the DUMP requests will
+simply perform a GET for each netdev.
 
- net/ethtool/netlink.c | 62 +++++++++++++++++++++++++------------------
- net/ethtool/netlink.h | 35 ++++++++++++++++++++++++
- 2 files changed, 71 insertions(+), 26 deletions(-)
+That hits limitations for commands that may return multiple messages for
+a single netdev, such as :
 
-diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
-index f391a11242de..ae06b72239a8 100644
---- a/net/ethtool/netlink.c
-+++ b/net/ethtool/netlink.c
-@@ -338,24 +338,6 @@ int ethnl_multicast(struct sk_buff *skb, struct net_device *dev)
- 
- /* GET request helpers */
- 
--/**
-- * struct ethnl_dump_ctx - context structure for generic dumpit() callback
-- * @ops:        request ops of currently processed message type
-- * @req_info:   parsed request header of processed request
-- * @reply_data: data needed to compose the reply
-- * @pos_ifindex: saved iteration position - ifindex
-- *
-- * These parameters are kept in struct netlink_callback as context preserved
-- * between iterations. They are initialized by ethnl_default_start() and used
-- * in ethnl_default_dumpit() and ethnl_default_done().
-- */
--struct ethnl_dump_ctx {
--	const struct ethnl_request_ops	*ops;
--	struct ethnl_req_info		*req_info;
--	struct ethnl_reply_data		*reply_data;
--	unsigned long			pos_ifindex;
--};
--
- static const struct ethnl_request_ops *
- ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
- 	[ETHTOOL_MSG_STRSET_GET]	= &ethnl_strset_request_ops,
-@@ -539,9 +521,9 @@ static int ethnl_default_doit(struct sk_buff *skb, struct genl_info *info)
- 	return ret;
- }
- 
--static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
--				      const struct ethnl_dump_ctx *ctx,
--				      const struct genl_info *info)
-+static int ethnl_default_dump_one(struct sk_buff *skb,
-+				  const struct ethnl_dump_ctx *ctx,
-+				  const struct genl_info *info)
- {
- 	void *ehdr;
- 	int ret;
-@@ -552,15 +534,15 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
- 	if (!ehdr)
- 		return -EMSGSIZE;
- 
--	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
- 	rtnl_lock();
--	netdev_lock_ops(dev);
-+	netdev_lock_ops(ctx->reply_data->dev);
- 	ret = ctx->ops->prepare_data(ctx->req_info, ctx->reply_data, info);
--	netdev_unlock_ops(dev);
-+	netdev_unlock_ops(ctx->reply_data->dev);
- 	rtnl_unlock();
- 	if (ret < 0)
- 		goto out;
--	ret = ethnl_fill_reply_header(skb, dev, ctx->ops->hdr_attr);
-+	ret = ethnl_fill_reply_header(skb, ctx->reply_data->dev,
-+				      ctx->ops->hdr_attr);
- 	if (ret < 0)
- 		goto out;
- 	ret = ctx->ops->fill_reply(skb, ctx->req_info, ctx->reply_data);
-@@ -568,11 +550,29 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
- out:
- 	if (ctx->ops->cleanup_data)
- 		ctx->ops->cleanup_data(ctx->reply_data);
--	ctx->reply_data->dev = NULL;
-+
- 	if (ret < 0)
- 		genlmsg_cancel(skb, ehdr);
- 	else
- 		genlmsg_end(skb, ehdr);
-+
-+	return ret;
-+}
-+
-+static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
-+				      struct ethnl_dump_ctx *ctx,
-+				      const struct genl_info *info)
-+{
-+	int ret;
-+
-+	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
-+
-+	if (ctx->ops->dump_one_dev)
-+		ret = ctx->ops->dump_one_dev(skb, ctx, info);
-+	else
-+		ret = ethnl_default_dump_one(skb, ctx, info);
-+
-+	ctx->reply_data->dev = NULL;
- 	return ret;
- }
- 
-@@ -601,6 +601,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
- 			dev_hold(dev);
- 			rcu_read_unlock();
- 
-+			ctx->req_info->dev = dev;
- 			ret = ethnl_default_dump_one_dev(skb, dev, ctx,
- 							 genl_info_dump(cb));
- 
-@@ -663,6 +664,12 @@ static int ethnl_default_start(struct netlink_callback *cb)
- 	ctx->reply_data = reply_data;
- 	ctx->pos_ifindex = 0;
- 
-+	if (ctx->ops->dump_start) {
-+		ret = ctx->ops->dump_start(ctx);
-+		if (ret)
-+			goto free_reply_data;
-+	}
-+
- 	return 0;
- 
- free_reply_data:
-@@ -678,6 +685,9 @@ static int ethnl_default_done(struct netlink_callback *cb)
- {
- 	struct ethnl_dump_ctx *ctx = ethnl_dump_context(cb);
- 
-+	if (ctx->ops->dump_done)
-+		ctx->ops->dump_done(ctx);
-+
- 	kfree(ctx->reply_data);
- 	kfree(ctx->req_info);
- 
-diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
-index 4aaa73282d6a..79fe98190c64 100644
---- a/net/ethtool/netlink.h
-+++ b/net/ethtool/netlink.h
-@@ -307,6 +307,26 @@ struct ethnl_reply_data {
- 	struct net_device		*dev;
- };
- 
-+/**
-+ * struct ethnl_dump_ctx - context structure for generic dumpit() callback
-+ * @ops:        request ops of currently processed message type
-+ * @req_info:   parsed request header of processed request
-+ * @reply_data: data needed to compose the reply
-+ * @pos_ifindex: saved iteration position - ifindex
-+ * @cmd_ctx: command-specific context to maintain across the dump.
-+ *
-+ * These parameters are kept in struct netlink_callback as context preserved
-+ * between iterations. They are initialized by ethnl_default_start() and used
-+ * in ethnl_default_dumpit() and ethnl_default_done().
-+ */
-+struct ethnl_dump_ctx {
-+	const struct ethnl_request_ops	*ops;
-+	struct ethnl_req_info		*req_info;
-+	struct ethnl_reply_data		*reply_data;
-+	unsigned long			pos_ifindex;
-+	void				*cmd_ctx;
-+};
-+
- int ethnl_ops_begin(struct net_device *dev);
- void ethnl_ops_complete(struct net_device *dev);
- 
-@@ -373,6 +393,15 @@ int ethnl_sock_priv_set(struct sk_buff *skb, struct net_device *dev, u32 portid,
-  *	 - 0 if no configuration has changed
-  *	 - 1 if configuration changed and notification should be generated
-  *	 - negative errno on errors
-+ * @dump_start:
-+ *	Optional callback to prepare a dump operation, should there be a need
-+ *	to maintain some context across the dump.
-+ * @dump_one_dev:
-+ *	Optional callback to generate all messages for a given netdev. This
-+ *	is relevant only when a request can produce different results for the
-+ *	same netdev depending on command-specific attributes.
-+ * @dump_done:
-+ *	Optional callback to cleanup any context allocated in ->dump_start()
-  *
-  * Description of variable parts of GET request handling when using the
-  * unified infrastructure. When used, a pointer to an instance of this
-@@ -409,6 +438,12 @@ struct ethnl_request_ops {
- 			    struct genl_info *info);
- 	int (*set)(struct ethnl_req_info *req_info,
- 		   struct genl_info *info);
-+
-+	int (*dump_start)(struct ethnl_dump_ctx *ctx);
-+	int (*dump_one_dev)(struct sk_buff *skb,
-+			    struct ethnl_dump_ctx *ctx,
-+			    const struct genl_info *info);
-+	void (*dump_done)(struct ethnl_dump_ctx *ctx);
- };
- 
- /* request handlers */
+ - RSS (listing contexts)
+ - All PHY-specific commands (PLCA, PSE-PD, phy)
+ - tsinfo (one item for the netdev +  one per phy)
+
+ Commands that need a non-default DUMP support have to re-implement
+ ->dumpit() themselves, which prevents using most of ethnl's internal
+ circuitry.
+
+This series therefore introduces a better support for dump operations in
+ethnl.
+
+The patches 1 and 2 introduce the support for filtered DUMPs, where an
+ifindex/ifname can be passed in the request header for the DUMP
+operation. This is for when we want to dump everything a netdev
+supports, but without doing so for every single netdev. ethtool's
+"--show-phys ethX" option for example performs a filtered dump.
+
+Patch 3 introduces 3 new ethnl ops : 
+ ->dump_start() to initialize a dump context
+ ->dump_one_dev(), that can be implemented per-command to dump
+ everything on a given netdev
+ ->dump_done() to release the context
+
+The default behaviour for dumps remains the same, calling the whole
+->doit() path for each netdev.
+
+Patch 4 introduces a set of ->dump_start(), ->dump_one_dev() and
+->dump_done() callback implementations that can simply be plugged into
+the existing commands that list objects per-phy, making the 
+phy-targeting command behaviour more coherent.
+
+Patch 5 uses that new set of helpers to rewrite the phy.c support, which
+now uses the regulat ethnl_ops instead of fully custom genl ops. This
+one is the hardest to review, sorry about that, I couldn't really manage
+to incrementally rework that file :(
+
+Patches 6 and 7 are where the new dump infra shines, adding per-netdev
+per-phy dump support for PLCA and PSE-PD.
+
+We could also consider converting tsinfo/tsconfig, rss and tunnels to
+these new ->dump_***() operations as well, but that's out of this
+series' scope.
+
+Maxime Chevallier (7):
+  net: ethtool: netlink: Allow per-netdevice DUMP operations
+  net: ethtool: netlink: Rename ethnl_default_dump_one
+  net: ethtool: netlink: Introduce command-specific dump_one_dev
+  net: ethtool: netlink: Introduce per-phy DUMP helpers
+  net: ethtool: phy: Convert the PHY_GET command to generic phy dump
+  net: ethtool: plca: Use per-PHY DUMP operations
+  net: ethtool: pse-pd: Use per-PHY DUMP operations
+
+ net/ethtool/netlink.c | 165 ++++++++++++++------
+ net/ethtool/netlink.h |  47 +++++-
+ net/ethtool/phy.c     | 343 ++++++++++++------------------------------
+ net/ethtool/plca.c    |  12 ++
+ net/ethtool/pse-pd.c  |   6 +
+ 5 files changed, 280 insertions(+), 293 deletions(-)
+
 -- 
 2.48.1
 
