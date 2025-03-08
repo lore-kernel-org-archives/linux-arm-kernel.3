@@ -4,62 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AAAFC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 21:07:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FA2C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 21:10:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W4poDmOA64pY4uvHZcOCt8hPoavx9e3hXSZvtxdXHKk=; b=dfCcCoB/Rejcw4udW5bvojf05T
-	6nz/FfVnZFhN617MOjm8KuYVF9jE43jpHmi8yVGbEeJ4x4DKo5mcwl4yxclktwsjwo9rXpr1M4czt
-	uxSaOO4GWf/NOCqPCXCWngOSjXhNmlES664t11kCtlnNOtSRZ0LVJQ5qV9UUg0PZY+V1CvUOmCR09
-	TlGESe1s+crPNHIssCXN20/6wdhkEeL/NBHIgILKDjeWPYoclCaiIpA9e4EIGM0xV6z5Sw3NEZ2AP
-	hGGhe5rmEt45e98SCwbfr10xqj936da8rf392v9hujKmNHHUiBLnnfx8sQkOja6uU5LwEcFy4h8Uc
-	FFoHbBzg==;
+	bh=k+KV9tKviVmM2X3+Wn2rrN1rFxZjkLzC9PykDJ3S5x8=; b=TBLUB0DPCw7SnSr8Vk3nDoK+zX
+	GmZF9AsTVgQtx6Pg63zD1cxkVohjHy5lL4hMTLk+QpXPUfOgZWfU0W5NPwzmnDQDk0CEzU5+jtUTp
+	S+S+bkYPAPEfFBPFtvcYQ7Htvu4yNH1XZzZx5hpdvcQHQZt6xgSXlzVgyzLnaI+flJ8DzIk9dowfx
+	bOY9WxfYkMNA0oxegW1QQUbsIqYW7gUN9UG6MqwyreOLiI0lpaG8yqW6scDBsuT+cymtM8NO3hqKL
+	OGymwU/PVNm4PCL0KfVNlfcFoSDTsgvSpIbCkQqvOhHm8Yga03Sgm/o+0QAD8ojVavjveMuufjvLf
+	pCNm2e3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr1ON-0000000HBZi-3IJa;
-	Sat, 08 Mar 2025 21:07:31 +0000
+	id 1tr1RS-0000000HBli-2L26;
+	Sat, 08 Mar 2025 21:10:42 +0000
 Received: from flow-a6-smtp.messagingengine.com ([103.168.172.141])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr1Mk-0000000HBTI-1CBs
+	id 1tr1Po-0000000HBes-3sMU
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 21:05:51 +0000
+	Sat, 08 Mar 2025 21:09:02 +0000
 Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
-	by mailflow.phl.internal (Postfix) with ESMTP id DE8FE2017E6;
-	Sat,  8 Mar 2025 16:05:46 -0500 (EST)
+	by mailflow.phl.internal (Postfix) with ESMTP id 3281A2018F1;
+	Sat,  8 Mar 2025 16:09:00 -0500 (EST)
 Received: from phl-imap-11 ([10.202.2.101])
-  by phl-compute-07.internal (MEProxy); Sat, 08 Mar 2025 16:05:46 -0500
+  by phl-compute-07.internal (MEProxy); Sat, 08 Mar 2025 16:09:00 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
 	:cc:content-transfer-encoding:content-type:content-type:date
 	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm3; t=1741467946;
-	 x=1741475146; bh=W4poDmOA64pY4uvHZcOCt8hPoavx9e3hXSZvtxdXHKk=; b=
-	PbjaYFSX9IBx2Zrs40HbC9+xW+mfnGRXkjrLnF/lmBTxXHH5vogiHSSOspqIeun1
-	NHfBh6H00r3dQfPeg/5Np/6Z9XnSuH0FKD+DR2HubpiuMGQ/cIlXZj4R8B8ROhDL
-	goKIgFL/GsoFSOene+PO+8yhXJyNpaw+RIaTc2mAtJJGV6CjknGC9TlrbTxPTF9X
-	pWcsaTZU3KhhEbiIyNbOPqhcecuUGjnfGnDJ2dWkoU+YL+V5DIIga1Rn2j0Bl5qL
-	u59YI9TE/OHE24iRU+89XEMwS2VxZLS7RtbtY5u5kVRUVTePTpxwefPCm6nJdU9/
-	et5ORwsXOuqEk213wxjyfw==
+	:references:reply-to:subject:subject:to:to; s=fm3; t=1741468140;
+	 x=1741475340; bh=k+KV9tKviVmM2X3+Wn2rrN1rFxZjkLzC9PykDJ3S5x8=; b=
+	Nv/GxENcjbiTXX0M/0R6ZGrLyeXCXkxkr2aOaYV8bkV5CzS5a4FV6e3tiqaYopTP
+	KCdgyCmDjRQlD4HYMx4ZrDAmyEwyEk8NYG9/Z/Hn8RYfAfhPx/SMIbe+IAw48qm8
+	2spqL17hTDE03Nm+AAH2TCmss64eFXkteWrxEL33X8uQXJofMhhDDt6R9flV2pvB
+	dqI8yMcFAPFLA2/aLSfzyhwMfKk5Awg87dTS3HoH4PnOKSEgwRxJzY73vw4o3J5b
+	UZ+eSFoMtKcEkf0trJxIjrysUU/ZRPZv6TS1vRENCVHlUxgiicRwH5g73NFjmhkI
+	hGovT0nQCGrLVYaWvF4Fnw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
 	messagingengine.com; h=cc:cc:content-transfer-encoding
 	:content-type:content-type:date:date:feedback-id:feedback-id
 	:from:from:in-reply-to:in-reply-to:message-id:mime-version
 	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741467946; x=
-	1741475146; bh=W4poDmOA64pY4uvHZcOCt8hPoavx9e3hXSZvtxdXHKk=; b=2
-	k09chLWM/lSt9ok/EPaPM1tR7eBje/kIsmlJQe/3mXR56QFqC9W69F7BHwDF0fGM
-	kODKlY76T3e9H8oa0C+vm3AnKrYBg4EHOFO+NeDTv9i2LVhrbDe+4On1enx+SXkf
-	jCuY+jGWCb7dq6bVKRic6ilsWWRffPxqNl3G4H3ZyFTFR5vG3CC93kYg0GtIJREx
-	i7ppS1ZpZObOXtg1acJC8U8r4gnYj7l+dkuLnVJPKp/LgM21hZnVKFd/s3wHJv+C
-	oYUKaTLoubtPOBBZsxqlbvftF3FJJh5RQfjk0WIAx3lkCwrtVye9WojKDgsaWm8w
-	eqXtQNTKoXuDuJ4eq/jTA==
-X-ME-Sender: <xms:KrHMZwqQWf1vmDRRZmKYix9_AvEX71hk9A5-PUg-mMHoqyGuX43GTw>
-    <xme:KrHMZ2psuRMKaam0ybx-JZLEC1a7vUGqphSu1hLVSUR3YOE3xwz-daI2PPjxwEq4X
-    bngyXPelqUm1rvI9Vg>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudegheekucetufdoteggodetrf
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741468140; x=
+	1741475340; bh=k+KV9tKviVmM2X3+Wn2rrN1rFxZjkLzC9PykDJ3S5x8=; b=e
+	I5CCWFTua5Fc7wh24wgGy94EUNDorBhALYhPof+wHpXd43yI8TfqZpqnKbISITx3
+	23l8jrvqes/RxrsBaFjmclqur1DZW6vyWZS3rccojFaKRkQk0Z4BwO03SSqJenux
+	SCERBGpODmJWY7GmVysGWLu4pMBXR3anTPRx4BBNlDSPaczNSBANOvsA6lJSQCaa
+	8DL/XFWm3/PeUhN0oP+g6YCJCMvc9yB1w+tTPbxagrMsM9mj7zG5L7dHfs74KVK/
+	uc/ZLA27AUG2r/rMdQnxwzzeGNXhWP/EYJX88JyZr/AdEDUIxQVp57uUKsyTIAYK
+	BM9GOfQrFUh8VzkgLvkcg==
+X-ME-Sender: <xms:67HMZ9KWp6ZYUbeFsuY3l09pr50Dj-C3sup9kOX8ZswgBJI6emuGJA>
+    <xme:67HMZ5L_afSSPqyVTd_Z-aahy3HFR6QTjlwC9xXNpbF98_vUtFhk2jDwNyHxNtxVQ
+    NhfKPRdBce2O3xlR10>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudegheelucetufdoteggodetrf
     dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
     pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
     gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
@@ -75,17 +75,17 @@ X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudegheekucetufdote
     gtohhmpdhrtghpthhtohepsghhvghlghgrrghssehgohhoghhlvgdrtghomhdprhgtphht
     thhopeihuhiivghnghhhuhhisehhuhgrfigvihdrtghomhdprhgtphhtthhopegtohhnoh
     hrodgutheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:KrHMZ1O9ctL676w5AHUIxE0SC1uXzVCBMq5d4oaLxLgUSw773mfxVg>
-    <xmx:KrHMZ36aWng3VojtFfg9JWrEIO2NAAnLf-1dP-OHoquiOYe6lO0u_Q>
-    <xmx:KrHMZ_6_zJEf_V0pq87wzL4JG8U2CRExCG9veX074cbH5tYyr-yvvg>
-    <xmx:KrHMZ3iPusvaeexA7SSSlwDrRNP8bOUuPa3aybP_Ilx1k2AiNrnRHA>
-    <xmx:KrHMZxAOYkkYPw5ZnbYA_W8w8hNAHsxDFHKJb1ECP7qxkoZka0El8mlf>
+X-ME-Proxy: <xmx:67HMZ1tVt3rXCzZQeGE66XMoKGj9boBkgSZbx2lOmdz7VHEQMfkFRw>
+    <xmx:67HMZ-aFhtXfWkZsKg1bH24QbhtNlbIsGdltt8xDedSN0t6gkv2AlQ>
+    <xmx:67HMZ0Zr3-aXmtSBqKsorxnr3ZynTyqVlYGpxf94c8rgG28VIRwAdg>
+    <xmx:67HMZyAt8CCVl4VoHRCjlAysj6-YlkMjPri4pn4apoSxpNnBi2v0jA>
+    <xmx:7LHMZ9haW67EhlxVxdsnGax7T6bJXPMulYE31rfpgxTnTOdc2B3HmTw6>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id E676A2220072; Sat,  8 Mar 2025 16:05:45 -0500 (EST)
+	id B040E2220072; Sat,  8 Mar 2025 16:08:59 -0500 (EST)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-Date: Sat, 08 Mar 2025 22:05:24 +0100
+Date: Sat, 08 Mar 2025 22:08:39 +0100
 From: "Arnd Bergmann" <arnd@arndb.de>
 To: "Roman Kisel" <romank@linux.microsoft.com>, bhelgaas@google.com,
  "Borislav Petkov" <bp@alien8.de>,
@@ -114,16 +114,17 @@ To: "Roman Kisel" <romank@linux.microsoft.com>, bhelgaas@google.com,
  linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
 Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
  sunilmut@microsoft.com
-Message-Id: <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
-In-Reply-To: <20250307220304.247725-4-romank@linux.microsoft.com>
+Message-Id: <d15274c2-6d61-4db3-ab0f-90591d28bc34@app.fastmail.com>
+In-Reply-To: <20250307220304.247725-2-romank@linux.microsoft.com>
 References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-4-romank@linux.microsoft.com>
-Subject: Re: [PATCH hyperv-next v5 03/11] Drivers: hv: Enable VTL mode for arm64
+ <20250307220304.247725-2-romank@linux.microsoft.com>
+Subject: Re: [PATCH hyperv-next v5 01/11] arm64: kvm, smccc: Introduce and use API for
+ detectting hypervisor presence
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_130550_602616_1C52B5B8 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20250308_130901_037923_59D55778 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,40 +141,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On Fri, Mar 7, 2025, at 23:02, Roman Kisel wrote:
-> @@ -5,18 +5,20 @@ menu "Microsoft Hyper-V guest support"
->  config HYPERV
->  	tristate "Microsoft Hyper-V client drivers"
->  	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
-> -		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
-> +		|| (ARM64 && !CPU_BIG_ENDIAN)
-> +	depends on (ACPI || HYPERV_VTL_MODE)
->  	select PARAVIRT
->  	select X86_HV_CALLBACK_VECTOR if X86
-> -	select OF_EARLY_FLATTREE if OF
->  	help
->  	  Select this option to run Linux as a Hyper-V client operating
->  	  system.
-> 
->  config HYPERV_VTL_MODE
->  	bool "Enable Linux to boot in VTL context"
-> -	depends on X86_64 && HYPERV
-> +	depends on (X86_64 || ARM64)
->  	depends on SMP
-> +	select OF_EARLY_FLATTREE
-> +	select OF
->  	default n
->  	help
+> The KVM/arm64 uses SMCCC to detect hypervisor presence. That code is
+> private, and it follows the SMCCC specification. Other existing and
+> emerging hypervisor guest implementations can and should use that
+> standard approach as well.
+>
+> Factor out a common infrastructure that the guests can use, update KVM
+> to employ the new API. The cenrtal notion of the SMCCC method is the
+> UUID of the hypervisor, and the API follows that.
+>
+> No functional changes. Validated with a KVM/arm64 guest.
+>
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 
-Having the dependency below the top-level Kconfig entry feels a little
-counterintuitive. You could flip that back as it was before by doing
+Acked-by: Arnd Bergmann <arnd@arndb.de>
 
-      select HYPERV_VTL_MODE if !ACPI
-      depends on ACPI || SMP
-
-in the HYPERV option, leaving the dependency on HYPERV in
-HYPERV_VTL_MODE.
-
-Is OF_EARLY_FLATTREE actually needed on x86?
-
-      Arnd
 
