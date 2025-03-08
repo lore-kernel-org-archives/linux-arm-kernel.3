@@ -4,77 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4BEC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:31:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20C0BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:36:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=E4BDdolMJwhTmd3sg9nav24+PSwSQ3Or8NtyKYxub74=; b=OwlsyzaF/fc+9dU1Aks7eadMXo
-	Fhji/Lcxc625mD+AbsEDKbj+sE6edEKTv7wHO/A4HVp1FZ2BnoN+6nH00spsNnJ51bInrrLvSbKVA
-	qqhwUtmdsUPdz4r2NFacsewGoBlDr90+XYEovgdc6kb4Xps2gGtGdTf8Rugnf8vyTxvldeHQZaDzg
-	kLlslptqX0m4+oxS6m5LXrmlY6i/kHI4lH27bnWAPBrAUJpd03lcyd2elJpfDj+izjrhvVBvitduu
-	/jYA2lf0+VNdhpGvL6TVc0xlko7mBqYKv2QMFCl7bHn6xQ854er8bZ8v17MJfUGB/ZQTpkobNOQuj
-	t1lsMOQA==;
+	bh=XfxZ2EUMtcYRuh5iiI7Ca6IZaZJZ9N99juCripq5x6I=; b=pDBbCWV8tOAqulQA5RtPLKxBou
+	cS1dKNExEBc5bXO3MTfLMwlRd6BdBVVFMPNfz8/hiDqoqf1H35MTVVuTG7+6oXlhE0zql6H8nbYZA
+	153mzmMCfzsYcuVf17bOlY6r/V9fFk5775jBPaWioKGd/2IhjzdozidRmvQwqMeyhBjuyyryjPgCj
+	oLV58peE9rJVUDCHYWpXWz2Q76ZuTLlJvvyxyr1SqxG4HaksbxZDtw2KGmNm6RBGJ/PJ4rO8ps3i7
+	3rI+xklkUILbUKT4dyG2m0VBQDvWy+Nqft3jOfpeysf63nP30RTcn4O2zoYHkjCGmRCC9qWCPhnRB
+	QMGfbgHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqx5C-0000000GrnZ-2Njd;
-	Sat, 08 Mar 2025 16:31:26 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tqx9y-0000000GsGP-0PyL;
+	Sat, 08 Mar 2025 16:36:22 +0000
+Received: from smtp.forwardemail.net ([121.127.44.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqx3Y-0000000Grfo-3Sdy
+	id 1tqx8K-0000000Grz6-3nZ6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 16:29:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 67570A459DF;
-	Sat,  8 Mar 2025 16:24:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0032C4CEE0;
-	Sat,  8 Mar 2025 16:29:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741451383;
-	bh=SdeY4HUDR25gSwHntex8TgQMRjhWp1R3x/osJlwkf2A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=NSzp+BIy+RyYAh5eXPfpEeXytNRO+Yn6QDm61AqJR8JPEZz8lPYUdH5rwAtQ05Xgi
-	 nJ52JT45pfwi6qQmjNAQl3PQm42j3TaIFdCd9qBeOGwEiLP5I4ChuxG/eiUIvHz+gf
-	 vFNeOPjjYakfsWHf3baQaOKsl1voaEzszbfYyZf3MV94dErx1nbWai2CFl3Azkw15j
-	 rPpzaDB7MAis2oreAPGOwD994ClDh/BRvfWkNboiV69CTNipPu/XspI5zRPgzAWTgR
-	 owYLqgaQkKxX174yazNjuFoEFyme0FYmA2oF6DDFWudPFsQy0VFIbtdTW9FkcU73tW
-	 wdzVAijHUAy0A==
-Date: Sat, 8 Mar 2025 16:29:28 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Matti Vaittinen
- <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen <lars@metafoo.de>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
- <nuno.sa@analog.com>, Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>, Dumitru Ceclan
- <mitrutzceclan@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>, Matteo
- Martelli <matteomartelli3@gmail.com>, Alisa-Dariana Roman
- <alisadariana@gmail.com>, Ramona Alexandra Nechita
- <ramona.nechita@analog.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v5 03/10] iio: adc: add helpers for parsing ADC nodes
-Message-ID: <20250308162928.72bd1d1b@jic23-huawei>
-In-Reply-To: <54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
-References: <cover.1740993491.git.mazziesaccount@gmail.com>
-	<e71c63c2f61135f9a8c7884525aab2c48f1e84c2.1740993491.git.mazziesaccount@gmail.com>
-	<CAMknhBGQaqFZJsPAoauZL4S5MYtN05EOQ-BO2vw5gH+Z2RLOhw@mail.gmail.com>
-	<54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	Sat, 08 Mar 2025 16:34:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741451678;
+ bh=XfxZ2EUMtcYRuh5iiI7Ca6IZaZJZ9N99juCripq5x6I=;
+ b=YKnIHgllVMG4nqeiNKXcYeefh5vxyg+fKHO9y5caNmXmsutbXOuXOLH5UuJaMhRN54CzgJgD4
+ NpDUgKYX1gxOv2tf4RGFVd+gvJwgzPn6XuErUaJFDgqzntHfdU1IGSUjwN1WfqGNd5g/hSRPztg
+ +yevr9xYaCQxgXKRydyDyhabhdOFbpyWVA2qAtojzDajypNQ5PkY2bCUzVohRGx2uSbLID7H1PL
+ dFXewjohkiPxksqGyv9+P0hILkedh9ZjcOi1TK+vEP+yCcpekEjxZbxfiCgsdZS7MnBYrUXrs68
+ YaQl3L6Vi0B2nKq0Fy10c0I/8NO/rzjOy6yU8/W9937w==
+X-Forward-Email-ID: 67cc719a91daabb65c1b40e8
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <29739e60-15f5-4361-a57a-2e6b93fba09c@kwiboo.se>
+Date: Sat, 8 Mar 2025 17:34:29 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Xunlong Orange Pi 3B
+To: Arturas Moskvinas <arturas.moskvinas@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20240626230319.1425316-1-jonas@kwiboo.se>
+ <20240626230319.1425316-3-jonas@kwiboo.se>
+ <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_082944_993109_98BA58DD 
-X-CRM114-Status: GOOD (  47.82  )
+X-CRM114-CacheID: sfid-20250308_083441_029884_B8FEFF9F 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,175 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 5 Mar 2025 12:54:33 +0200
-Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+Hi Arturas,
 
-> Thanks for the review David.
->=20
-> On 04/03/2025 11:25, David Lechner wrote:
-> > On Mon, Mar 3, 2025 at 12:32=E2=80=AFPM Matti Vaittinen
-> > <mazziesaccount@gmail.com> wrote: =20
-> >>
-> >> There are ADC ICs which may have some of the AIN pins usable for other
-> >> functions. These ICs may have some of the AIN pins wired so that they
-> >> should not be used for ADC.
-> >>
-> >> (Preferred?) way for marking pins which can be used as ADC inputs is to
-> >> add corresponding channels@N nodes in the device tree as described in
-> >> the ADC binding yaml.
-> >>
-> >> Add couple of helper functions which can be used to retrieve the chann=
-el
-> >> information from the device node.
-> >>
-> >> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> >>
-> >> --- =20
->=20
-> >> + *
-> >> + * Return:     Number of found channels on succes. Negative value to =
-indicate =20
-> >=20
-> > s/succes/success/ =20
->=20
-> Thanks!
->=20
-> >> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
-> >> +                                         const struct iio_chan_spec *=
-template,
-> >> +                                         int max_chan_id,
-> >> +                                         struct iio_chan_spec **cs)
-> >> +{
-> >> +       struct iio_chan_spec *chan_array, *chan;
-> >> +       int num_chan =3D 0, ret;
-> >> +
-> >> +       num_chan =3D iio_adc_device_num_channels(dev);
-> >> +       if (num_chan < 1)
-> >> +               return num_chan;
-> >> +
-> >> +       chan_array =3D devm_kcalloc(dev, num_chan, sizeof(*chan_array),
-> >> +                                 GFP_KERNEL);
-> >> +       if (!chan_array)
-> >> +               return -ENOMEM;
-> >> +
-> >> +       chan =3D &chan_array[0];
-> >> +
-> >> +       device_for_each_child_node_scoped(dev, child) {
-> >> +               u32 ch;
-> >> +
-> >> +               if (!fwnode_name_eq(child, "channel"))
-> >> +                       continue;
-> >> +
-> >> +               ret =3D fwnode_property_read_u32(child, "reg", &ch);
-> >> +               if (ret)
-> >> +                       return ret;
-> >> +
-> >> +               if (max_chan_id !=3D -1 && ch > max_chan_id)
-> >> +                       return -ERANGE;
-> >> + =20
-> >=20
-> > Should we use return dev_err_probe() on these to help with debugging a =
-bad dtb?
-> >  =20
->=20
-> I am not fan of using dev_err_probe() in a 'library code'. This is=20
-> because we never know if there'll be some odd use-case where this is not=
-=20
-> called from the probe.
->=20
-> All in all, I'd leave adding most of the debugs to the callers -=20
-> especially because we do not expect to have bad device-trees after the=20
-> initial 'development stage' of a board. The board 'development stage'=20
-> should really reveal bugs which prevent the channels from being=20
-> registered - and after the DT is correct, these debug prints become=20
-> unnecessary (albeit minor) binary bloat.
->=20
-> >> +               *chan =3D *template;
-> >> +               chan->channel =3D ch;
-> >> +               chan++;
-> >> +       }
-> >> +
-> >> +       *cs =3D chan_array;
-> >> +
-> >> +       return num_chan;
-> >> +}
-> >> +EXPORT_SYMBOL_NS_GPL(devm_iio_adc_device_alloc_chaninfo_se, "IIO_DRIV=
-ER"); =20
-> >=20
-> > We can make this less verbose by setting #define
-> > DEFAULT_SYMBOL_NAMESPACE at the start of the file. Then we can just do
-> > EXPORT_SYMBOL_GPL() throughout the rest of the file. =20
->=20
-> I am not sure what to think of this. I use the good old 'ctrl + ]' in my=
-=20
-> editor when I need to check how a function was supposed to be used. That=
-=20
-> jumps to the spot of code where the function is. I'd like to see the=20
-> namespace mentioned there in order to not accidentally miss the fact the=
-=20
-> function belongs to one.
->=20
-> OTOH, I do like simplifications. Yet, the added simplification might not=
-=20
-> warrant the namespace not being visible in the function definition.
->=20
-> > Also, I would prefer if the namespace matched config name (IIO_ADC_HELP=
-ER). =20
->=20
-> I had some lengthy discussion about this with Andy and Jonathan during=20
-> earlier review versions. In short, I don't like the idea of very=20
-> fragmented namespaces in IIO, which will just complicate the drivers=20
-> without providing any obvious benefit.
->=20
-> https://lore.kernel.org/all/20250222174842.57c091c5@jic23-huawei/
->=20
-> >> +
-> >> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
-> >> +                                         const struct iio_chan_spec *=
-template,
-> >> +                                         int max_chan_id,
-> >> +                                         struct iio_chan_spec **cs);
-> >> + =20
-> >=20
-> > There are some different opinions on this, but on the last patch I did
-> > introducing a new namespace, the consensus seems to be that putting
-> > the MODULE_IMPORT_NS() in the header file was convenient so that users
-> > of the API don't have to remember to both include the header and add
-> > the import macro.
-> >  =20
->=20
-> I do like this suggestion, and I believe this would be the balance=20
-> between getting the benefit of hiding part of the symbols - while not=20
-> unnecessarily complicating the callers. I know some people are opposing=20
-> it though. My personal opinion is that having the MODULE_IMPORT_NS() in=20
-> a header would be neatly simplifying the calling code with very little=20
-> harm, especially here where including the header hardly has use-cases=20
-> outside the IIO ADC.
->=20
-> Unfortunately, the "safety" seems to often be a synonym for just "making=
-=20
-> it intentionally hard". As Finnish people say: "K=C3=A4rsi, k=C3=A4rsi,=20
-> kirkkaamman kruunun saat". :)
-> (Roughly translated as "Suffer, suffer, you will get a brighter crown").
->=20
-> Let's hear what Jonathan thinks of your suggestion.
+On 2025-03-08 15:53, Arturas Moskvinas wrote:
+> On 6/27/24 2:03 AM, Jonas Karlman wrote:
+> 
+>> The Xunlong Orange Pi 3B is a single-board computer based on the
+>> Rockchip RK3566 SoC.
+> ...> +
+>> +&gmac1 {
+>> +	phy-handle = <&rgmii_phy1>;
+>> +	status = "okay";
+>> +};
+>> +
+>> +&mdio1 {
+>> +	rgmii_phy1: ethernet-phy@1 {
+>> +		compatible = "ethernet-phy-ieee802.3-c22";
+>> +		reg = <1>;
+> 
+> Jonas, were you able to test V1.1 board's Ethernet?
 
-For this particular case my intent was that all the IIO exports that
-are suitable for use in simple IIO drives will be in this namespace,
-we just haven't started that conversion yet.
+Yes, I have both a v1.1.1 and v2.1 hw revision of this board and
+Ethernet should be working on both hw revisions.
 
-As such, having it defined from a header for this helper isn't a good
-thing to do.  Generally I prefer to see in driver code what namespaces
-are involved but do understand the other viewpoint. In this case I
-definitely don't think it is appropriate unless we go for a specific namesp=
-ace
-for just this helper.
+> 
+> Whenever I start the board - Ethernet initialization fails with:
+> ```
+> [   21.140055] rk_gmac-dwmac fe010000.ethernet eth0: __stmmac_open: 
+> Cannot attach to PHY (error: -19)
+> ```
 
-Jonathan
+This is because of a reset issue with Ethernet PHYs in Linux, see [1].
 
->=20
-> Thanks!
-> 	-- Matti
->=20
+Two workarounds:
+1. Let boot firmware reset the PHY before Linux, i.e. use U-Boot
+   v2024.10 or newer.
+2. Use a ethernet-phy-id compatible with correct phy-id to force Linux
+   to attach the PHY.
+
+I suggest you try to wipe U-Boot from SPI flash on your board and update
+to use U-Boot v2025.01 and try again.
+
+> 
+> But if reset is performed inside gmac - initialization succeeds.
+
+Use of deprecated snps,reset- props is not a proper fix for this issue,
+instead Linux could use an improve Ethernet PHY initialization handling
+and ensuring the PHY is reset before it tries to read a phy-id from it.
+
+[1] https://lore.kernel.org/r/47d55aca-bee6-810f-379f-9431649fefa6@kwiboo.se/
+
+Regards,
+Jonas
+
+> 
+> Eg. patch:
+> ```
+> --- 
+> linux-6.12.17.orig/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
+> +++ linux-6.12.17/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
+> @@ -16,14 +16,14 @@
+>   &gmac1 {
+>   	phy-handle = <&rgmii_phy1>;
+>   	status = "okay";
+> +	snps,reset-gpio = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
+> +	snps,reset-active-low;
+> +	snps,reset-delays-us = <0 50000 200000>;
+>   };
+> 
+>   &mdio1 {
+>   	rgmii_phy1: ethernet-phy@1 {
+>   		compatible = "ethernet-phy-ieee802.3-c22";
+>   		reg = <1>;
+> -		reset-assert-us = <20000>;
+> -		reset-deassert-us = <50000>;
+> -		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
+>   	};
+>   };
+> ```
+>> +		reset-assert-us = <20000>;
+>> +		reset-deassert-us = <50000>;
+>> +		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
+>> +	};
+>> +};
+> 
+> 
+> Arturas Moskvinas
 
 
