@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B43E7C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 18:54:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EF01C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 18:56:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=StYjAl/VAK0MYL6WYMTcRj5E6kmKjD+sp6An2vGqQtw=; b=2/3pnygHZu4hdBGbWkAtCFleuj
-	xfnkbAMyf7M8EO3RXR+2dzHLp1LMjFu7ykHn5prS5V8Gx0wRDrHPLuRTYfDATqPfrFJAi07t2avF5
-	ViA/bUHBYIDk9PEAg5ggWvFYhaIdPlvz88g3tu0sXVjS4F1fZ3Gs7tRM5n0UUc96DWetsFamJkpzY
-	CmkS5Ifa0CihndkHSJfwxxHWUVMQ8sEq3fF1lkxptA68EDMpj6E+SEHWjohzb2F8iba+nPqClTCQc
-	lv1kBT2Q0o5quf3BCkeKTbHCK5ItI/O+eznJVxlRq9BOBJC29hKtlvceKbaRlC44cdwVvLJENcyo2
-	zYg+zI/w==;
+	bh=J6+z5mwvOpLxFkXjmRmdjGwPnNX9qEV+1prpbhSFJtE=; b=1jitX7nO5ZcEf1SZx1nOUhUl5A
+	20MUWsAVRO3ULrmycifxKo3WfcXuH2xRvziiG0Jnl42BcbG13K8psinc0ugehZyHXFPBg+uoyvn9G
+	glXvPNLyJFAfbHwc80xw/gwZq57hTznC/8UAtpOp0GO75rqqn55T3MD1jp+Hq5GanhTt/8NlBu45d
+	5xBYCfEXrrYemJAxgr+iavgY+ZCUilXk/KpYVNKDCH03meaSEq7CkZ14wRmvlvaTUPNtNsVsQ7Ial
+	uM1EtZX+HdJ16xGcwHhvwE8bxT8kPfdNQ/Cxp1x91otfdzlCkiZXhXXpiKPi4QKbcpXKvmVRMwXZU
+	s51uFlQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqzJX-0000000H3l4-3F96;
-	Sat, 08 Mar 2025 18:54:23 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1tqzL8-0000000H3rV-2CIo;
+	Sat, 08 Mar 2025 18:56:02 +0000
+Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqz0x-0000000H0Jc-3pLU
+	id 1tqz11-0000000H0Kc-1OK3
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 18:35:13 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaf0f1adef8so510722266b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:35:11 -0800 (PST)
+	Sat, 08 Mar 2025 18:35:16 +0000
+Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-ac25520a289so299913266b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 10:35:15 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741458910; x=1742063710; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741458914; x=1742063714; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=StYjAl/VAK0MYL6WYMTcRj5E6kmKjD+sp6An2vGqQtw=;
-        b=PdCy5k7lwQVCQR7bC2GTTwjojgjaJTuF/5GkPun90H3PIsSyukteDzT77MhPYBss+Q
-         DcL782uKCIfsNYczfXhzf92Drgpg7Zqz6aFTvg/1I0NdLW8LwMc/M3lOiJ67WHPf78De
-         StSR4UIypqL4/zBo1FptFygW9kyzhoL/mtJ6S9+DmHG2fiYYbuDkom6zW3XS6yHJayGL
-         jX67l+xuspuUdVVbe/vt+phwR/tWBKyu0PzgLA/fdAov5nhAES1kZ5Umkwx241rtCK4H
-         JCTCaRvBh+FsSAuqm2PB0BhRhpRTZxwyLoWeFGJ0rFebN+gh2ukyt47zaGH9X1I3iFhu
-         Wj5w==
+        bh=J6+z5mwvOpLxFkXjmRmdjGwPnNX9qEV+1prpbhSFJtE=;
+        b=jH/4RB+AwXz7qAkW4JJrIJFqsNCQuVLfKQV4HvIV/aZceh4Z8uXWUmjWOc35ULXhvv
+         5vwc9ZLy1rBwm38L87VsDX2LwRa0R58nZdQQ4LyavBxf+L/F8m0fAsAsWTAksa6KnHOB
+         L/28OTfxtpE5m3CY+0/DD2h5Ff+1IPNpjrghFn/RksAxuitw3h9J4ufkTlDcq2ghyFGD
+         ekYc5mjZEfMwsaPTioJabYsqDKF10fuPtDEEQTbi+Z2RLrSNe3629T0dxHn840cSlPdA
+         kSZ3wsWr1sOGHVUa3AaJpcp1MzGmnLejLXJZRkOI3yNa1k4yEjgXk7ATsEgP91eHInzV
+         pPTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741458910; x=1742063710;
+        d=1e100.net; s=20230601; t=1741458914; x=1742063714;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=StYjAl/VAK0MYL6WYMTcRj5E6kmKjD+sp6An2vGqQtw=;
-        b=ZgGndf5165On046UjW4upgB/Dbj85XqIPACD+1QWoPcdVNgKpqXf+/HG+hyaS93xiM
-         V0hh7ExrgTcapA0fTMWGtV+HZD/P1O6BNyIfE8JFClx0mobUGAURysT6tGKUIw5fWV3J
-         aiFrfHNDzNhRghWkzsdx9+4cQyMGPFP8YWe53PCFlDOVICONHUPzzfzWaduS4DiZ6Sd6
-         tZzNtV4m3mAVxv+7y8x1txT1Vs4OWbz1Wt15wMCG/pbMxf3kRhsQXj7jRgaLCMuJZWt9
-         AfqYfk5WAIi7VnxaoiG1P9M/twfawohcOHSSS5YjEruprC4hRNMtKBWKzx0F2QoD8yj1
-         o4OQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWL6m7viC4gpaFcHXbk3kY/aZYVkpld/SbqHeYz3Np2SbRAYRUMuwQ57YCZu1XID/n0MPCOgThJisNX2biWUYiI@lists.infradead.org
-X-Gm-Message-State: AOJu0YwpkPUWA4aT3eFsOzY/TZnRSXL1IX2/3sBr3dx2JDW227UJQ/DW
-	BSpm9tTu9k1nmnzRK4p5i6Hlh6oyAu5tN1AK/D1u4OrI1hlnchfX
-X-Gm-Gg: ASbGncs+5l8Qs2RwzjYU3o60RkkxXAIRCJfZPTGyZ+JkRswLTJLGUzsRk4xyv31imDS
-	Gdo7mf8C1QKo6UYtbNqqJ6U7YcdhTwsoUOi5jDRtoytfMJXOyD+4sfneIy2zMvi+bx+bZ6qxfZ6
-	3tA4DIB9kGrSfojyWeKBg2XfHH7OS/u3gyum9K1zqySQD4FfU3905pAr62azFwj/fg2tJCuDaNw
-	697erHlEh6Y9yZ804S6L2hn/par1v8d7+90V5VCVBufHYvvgeLWJShTqkTzUnaF8qD6R6ybNmHp
-	lOkpQruZ09ZnxiUcLsZQjPYoYEmbTGtVccXz6OgWnZ6trkd1qnVO7bLhdA==
-X-Google-Smtp-Source: AGHT+IFkml8eKK0tt9HJFaDP4zPVB3vHkGahRibCFcb1VL1+aECeQ55QqNbdYqCYjZhicTjwIyr4zA==
-X-Received: by 2002:a17:907:1b16:b0:abf:742e:1fca with SMTP id a640c23a62f3a-ac252a9e1e0mr879939566b.18.1741458910140;
-        Sat, 08 Mar 2025 10:35:10 -0800 (PST)
+        bh=J6+z5mwvOpLxFkXjmRmdjGwPnNX9qEV+1prpbhSFJtE=;
+        b=ICvBUh7rpMSIl/wo4QORwBQDSEh2eV8johbs7WdC5FGvrIFlnC/BF0fVE6AadNUayE
+         wH+5sK1k1yVL4TCSYDjNzZn+HjexhLJ/27OM4A+dcJVdWatzwwJQBz+POlLAX9oCDc9D
+         F7/CDyhwH26PR61EVUzQ5VmLILi3CFFg5kxchM0+vqWBYtLO5FSc/2MhaqYEnAyasHib
+         qjjASi5XA/3OseyXvrGJLTvKKL7u26CY5//MIAMJiSeQgTLYLZS8qOe85whO6hqck5Bd
+         Ct3GJwcQcm1QX+SqrnJrhxfy+xcMTT784rPB08lDIMluSmgltN0ebYe8kH63LtG7ZAy+
+         kqqw==
+X-Forwarded-Encrypted: i=1; AJvYcCXCdmXWWv7U650MvBPjpQGY9zVPtYu2xH6p6buJRIpv2yOFzVQL5qSIXypSQ/X0AffaMWiDJdJC7ZulVWN0MLWX@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUbGkQtfC5GQ78LUzdffh+ewzT/ZWkBBZb0mT5iBfmMwln4pHX
+	RFB47fbmouOxa21XR3OSrk+9jzW++ZsLIoY9fnyX1tYVaehQxxDL
+X-Gm-Gg: ASbGncvRLm3s4dtNyXGIcoRVKUAJkmLMsWPLJNHIzv4AXlOuEw3fDR0N36pafvUYen5
+	cAMss6xwD89jqqcCeHE/EdLWSYFPeEGUPWBd+hs4HS968K+gVOCGfOjeMlMwgSPpjDbBJ1T5+82
+	24RBBR0/DltM+vG27X1DBIdEoR9EwlXApqV1SXQvavAdjA8LRjNfOZ4r2VBIrM88r00gtFK0SDG
+	iPhb8Y9y+4t+ZvhES5hpLQfyv1PdhwBgl6TSpGAHAt+V5VW2LWPI2IKRoikV7zLGbtBHJLQOIMc
+	Zrp+XqCTfbGtAT57lyjvIhz0V9UI+3PIpxmCpHcgtpP+g8cmMc5nE64vVw==
+X-Google-Smtp-Source: AGHT+IFh4qSdAc0ziZwtQFqR3gB3PLHeMZTKtpDvQwy/JOvsAtBLR6l0SztItz/m5ITqfugVt1AvgQ==
+X-Received: by 2002:a17:907:3f9b:b0:abf:c20d:501a with SMTP id a640c23a62f3a-ac25264ca27mr967872266b.16.1741458913731;
+        Sat, 08 Mar 2025 10:35:13 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.35.07
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac24a84397fsm379693666b.96.2025.03.08.10.35.10
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 10:35:09 -0800 (PST)
+        Sat, 08 Mar 2025 10:35:13 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -116,17 +116,17 @@ Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [RFC PATCH 11/24] dt-bindings: media: i2c: max96714: make supply conditional on compatible
-Date: Sat,  8 Mar 2025 20:33:40 +0200
-Message-ID: <20250308183410.3013996-12-demonsingur@gmail.com>
+Subject: [RFC PATCH 12/24] dt-bindings: media: i2c: max96714: add support for MAX9296A
+Date: Sat,  8 Mar 2025 20:33:41 +0200
+Message-ID: <20250308183410.3013996-13-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250308183410.3013996-1-demonsingur@gmail.com>
 References: <20250308183410.3013996-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_103511_954888_775ADE50 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250308_103515_371409_3805200F 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,40 +141,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Devices to be added in following patches have more input ports, and,
-implicitly, more POC supplies.
-
-Make this property conditional on the compatible strings.
+MAX9296A is an older variant of the MAX96714 which doesn't support
+tunnel mode, but has two GMSL2 links.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../devicetree/bindings/media/i2c/maxim,max96714.yaml       | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ .../bindings/media/i2c/maxim,max96714.yaml    | 87 +++++++++++++++++++
+ 1 file changed, 87 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-index f0ae069c93b5..5bbd36c55ab4 100644
+index 5bbd36c55ab4..9c6c79a770ed 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-@@ -41,9 +41,6 @@ properties:
-     description:
-       Specifier for the GPIO connected to the PWDNB pin.
+@@ -22,11 +22,14 @@ description:
  
--  port0-poc-supply:
--    description: Regulator providing Power over Coax for the GMSL port
--
- required:
-   - compatible
-   - reg
-@@ -62,6 +59,9 @@ allOf:
-         - ports
- 
-       properties:
-+        port0-poc-supply:
-+          description: Regulator providing Power over Coax for the GMSL port
+   The GMSL2 serial link operates at a fixed rate of 3Gbps or 6Gbps in the
+   forward direction and 187.5Mbps in the reverse direction.
 +
-         i2c-gate:
-           $ref: /schemas/i2c/i2c-gate.yaml
-           unevaluatedProperties: false
+   MAX96714F only supports a fixed rate of 3Gbps in the forward direction.
++  MAX9296A only supports pixel mode, and has two GMSL2 links.
+ 
+ properties:
+   compatible:
+     oneOf:
++      - const: maxim,max9296a
+       - const: maxim,max96714f
+       - items:
+           - enum:
+@@ -109,6 +112,90 @@ allOf:
+           required:
+             - port@1
+ 
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - maxim,max9296a
++    then:
++      allOf:
++        - $ref: /schemas/i2c/i2c-atr.yaml#
++
++      properties:
++        i2c-alias-pool:
++          maxItems: 2
++
++        i2c-atr:
++          patternProperties:
++            '^i2c@[0-1]$':
++              $ref: /schemas/i2c/i2c-controller.yaml#
++              properties:
++                reg:
++                  items:
++                    min: 0
++                    max: 1
++
++  - if:
++      properties:
++        compatible:
++          contains:
++            enum:
++              - maxim,max9296a
++    then:
++      properties:
++        port0-poc-supply:
++          description: Regulator providing Power over Coax for GMSL port 0
++
++        port1-poc-supply:
++          description: Regulator providing Power over Coax for GMSL port 1
++
++        ports:
++          $ref: /schemas/graph.yaml#/properties/ports
++
++          patternProperties:
++            port@[0-1]:
++              $ref: /schemas/graph.yaml#/properties/port
++              unevaluatedProperties: false
++              description: GMSL Input
++              properties:
++                endpoint:
++                  $ref: /schemas/media/video-interfaces.yaml#
++                  unevaluatedProperties: false
++                  description:
++                    Endpoint for GMSL2-Link port.
++
++            port@[2-3]:
++              $ref: /schemas/graph.yaml#/$defs/port-base
++              unevaluatedProperties: false
++              description: CSI-2 Output port
++
++              properties:
++                endpoint:
++                  $ref: /schemas/media/video-interfaces.yaml#
++                  unevaluatedProperties: false
++
++                  properties:
++                    data-lanes:
++                      minItems: 1
++                      maxItems: 4
++
++                    lane-polarities:
++                      minItems: 1
++                      maxItems: 5
++
++                    link-frequencies:
++                      maxItems: 1
++
++                  required:
++                    - data-lanes
++
++          anyOf:
++            - required:
++                - port@2
++            - required:
++                - port@3
++
+ examples:
+   - |
+     #include <dt-bindings/gpio/gpio.h>
 -- 
 2.48.1
 
