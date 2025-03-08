@@ -4,139 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67090C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 15:59:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A82BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:00:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2Kk7zM0eOg+x2C4vQ/WSq9xOyqsqVq7QtUIFCoh00Q=; b=OvZkYBPaSo67JsO1AjABABwEaY
-	sTzhbALm3tPBm34UUnrgBhf5CEqoUe2pvMv4e0Xf/KaM3wjmRWWc9rV7ZB46iLpoA0NWbllE2gCh0
-	d1uCRowOmkfhcOWNlFqmhkPm+IogMKR/AdOvSIeUSI0S2HEzak1f5C/TVDKc9k/LyRRA9sL1wlLoc
-	IDixuh0+J0Wtkvg+EEpw0Rk3mzv8MJCxjQZoq8eiDBcXjrujyDglRwdcK+6ee91ntdECTglq3Rjjh
-	tzsYnJCFLYE21Mnes+BdfAe2qRJV51W7nvk/mj/IfeJJ4+/1dHurJ74jHGCTXj81CjylMx/f6uvxC
-	VeMXwXxA==;
+	bh=y8lTePh5igrJf98LbOL5d9KS99/l+mQeh0K7EPVRWoY=; b=PMgibk3/ECZbAhOo1aCyFVcos6
+	sTYtV0+iGl8LAcdYV9D0OZPM+73TzVfjznKMFHM4t3LiFfdw4AUzMKQ7QxYkRbbYlDWWPUHLgOIkr
+	lPNIAmSIrNIhMmktqmiNsO/3dOM5jhALE6hF6roasEwKtJW7TldSU8Mo7tAT3b7WYpbSJKFa7xyAf
+	XegvmH8vIXBR8allXuQNJE1Z4O1FXSnD3DxVH3qfJo1jK0RxMf1Qt0ryUbmUx4aqgOwB1YFXTml4Y
+	oJlVE4p8dc/Rv9y+ZKun5b1XdZbgEGwgJF3QSWI521J6BGkljuzWWfHRJyY4VzBnCGxMHifNTVOs0
+	CTPubhEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwZt-0000000GpRK-49WL;
-	Sat, 08 Mar 2025 15:59:05 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1tqwbW-0000000GpbV-22yA;
+	Sat, 08 Mar 2025 16:00:46 +0000
+Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwVF-0000000GoYZ-1kGD
+	id 1tqwVm-0000000Goi6-1UTF
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 15:54:20 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250308155411epoutp013fe5e7d100cd8df35b69abc9d73658d3~q3t4cHxNL2550425504epoutp01I
-	for <linux-arm-kernel@lists.infradead.org>; Sat,  8 Mar 2025 15:54:11 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250308155411epoutp013fe5e7d100cd8df35b69abc9d73658d3~q3t4cHxNL2550425504epoutp01I
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741449251;
-	bh=x2Kk7zM0eOg+x2C4vQ/WSq9xOyqsqVq7QtUIFCoh00Q=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=p8tH4CgyJFH6eqasRyYeM3RAuXuKF/5JGxOiakhX29CtDdG+g8ni1x1kVob47+y42
-	 ho5MrYSAHHwSz+w5q63081gK5gsaxl2Nwsth735NvODZaDjDLviHqIS2r1yfL2mJIx
-	 vnzPdsBlVUqHupzEbH6zMurPdsFb/QcMCWRGkhKo=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTP id
-	20250308155409epcas5p31ec0bded70d0235ef1078dad3134d8b0~q3t27g-tx2173221732epcas5p3l;
-	Sat,  8 Mar 2025 15:54:09 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.176]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4Z974b6Tccz4x9Pp; Sat,  8 Mar
-	2025 15:54:07 +0000 (GMT)
-Received: from epcas5p1.samsung.com ( [182.195.41.39]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	2D.91.20052.F186CC76; Sun,  9 Mar 2025 00:54:07 +0900 (KST)
-Received: from epsmtrp2.samsung.com (unknown [182.195.40.14]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250307094754epcas5p49b48fe616b8f4cbe880f979fa1341708~qfEyNozm60463904639epcas5p4-;
-	Fri,  7 Mar 2025 09:47:54 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp2.samsung.com (KnoxPortal) with ESMTP id
-	20250307094754epsmtrp20a5e1096d994e76a5c86cef66f52243d~qfEyMlfzP2554325543epsmtrp2T;
-	Fri,  7 Mar 2025 09:47:54 +0000 (GMT)
-X-AuditID: b6c32a49-3d20270000004e54-5d-67cc681f2b8f
-Received: from epsmtip2.samsung.com ( [182.195.34.31]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	2F.E4.18729.9C0CAC76; Fri,  7 Mar 2025 18:47:53 +0900 (KST)
-Received: from FDSFTE462 (unknown [107.122.81.248]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250307094751epsmtip280ce2f05b4121b89120543ee4f99d4b0~qfEvdJFPB3075730757epsmtip2l;
-	Fri,  7 Mar 2025 09:47:51 +0000 (GMT)
-From: "Shradha Todi" <shradha.t@samsung.com>
-To: "'Fan Ni'" <nifan.cxl@gmail.com>
-Cc: =?UTF-8?Q?'Krzysztof_Wilczy=C5=84ski'?= <kw@linux.com>,
-	<linux-kernel@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-perf-users@vger.kernel.org>,
-	<manivannan.sadhasivam@linaro.org>, <lpieralisi@kernel.org>,
-	<robh@kernel.org>, <bhelgaas@google.com>, <jingoohan1@gmail.com>,
-	<Jonathan.Cameron@huawei.com>, <a.manzanares@samsung.com>,
-	<pankaj.dubey@samsung.com>, <cassel@kernel.org>, <18255117159@163.com>,
-	<xueshuai@linux.alibaba.com>, <renyu.zj@linux.alibaba.com>,
-	<will@kernel.org>, <mark.rutland@arm.com>
-In-Reply-To: <Z8fSWcR_aXyxmFEZ@debian>
-Subject: RE: [PATCH v7 5/5] Add debugfs based statistical counter support in
- DWC
-Date: Fri, 7 Mar 2025 15:17:50 +0530
-Message-ID: <075501db8f45$ff6f9620$fe4ec260$@samsung.com>
+	Sat, 08 Mar 2025 15:54:51 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 972D8204CE;
+	Sat,  8 Mar 2025 15:54:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741449288;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=y8lTePh5igrJf98LbOL5d9KS99/l+mQeh0K7EPVRWoY=;
+	b=fXq86bdXUirnhOxsT/MX/YCd60ZbNC125GoMRr+xobiWX1j2tWdpiFEPNw0+IBVxfcMizG
+	VcowSAtjWuKj5Idvv6W4zAQIyE8W4T1AYXqswekR/qfftTPLDUIni3a5GLcKKUTBr/NG8k
+	me7+iO/j+JKNTNT9HyMC0HCD0UzKI7urejNsYNmPBShTvBWt43WXtzZ+NzdAklpS2ouapO
+	FUS8LFmUd8u3VdBH7eEs8i+2rhjwkM9bQFlij0u4V12EibmPbgJAiFdBb2kqut8tcpeHPg
+	at5Ew9rCXQUJt6HW1vBCnSkPPnziXGBhJrJFzS7GNi+IuhJH3rdme3UR9h1Smw==
+From: Maxime Chevallier <maxime.chevallier@bootlin.com>
+To: davem@davemloft.net,
+	Andrew Lunn <andrew@lunn.ch>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
+	netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	thomas.petazzoni@bootlin.com,
+	linux-arm-kernel@lists.infradead.org,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Herve Codina <herve.codina@bootlin.com>,
+	Florian Fainelli <f.fainelli@gmail.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Vladimir Oltean <vladimir.oltean@nxp.com>,
+	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
+	Oleksij Rempel <o.rempel@pengutronix.de>,
+	Simon Horman <horms@kernel.org>,
+	Romain Gantois <romain.gantois@bootlin.com>,
+	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>,
+	Stanislav Fomichev <sdf@fomichev.me>
+Subject: [PATCH net-next v2 3/7] net: ethtool: netlink: Introduce command-specific dump_one_dev
+Date: Sat,  8 Mar 2025 16:54:35 +0100
+Message-ID: <20250308155440.267782-4-maxime.chevallier@bootlin.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
+References: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQJfby7SiE0e/TbLvAHLJIl0P7SXpgHkH4XnAk8q5KUB3hA60AHBUHtxAYzlJhAB7JKozgKp5GvQse/7dKA=
-Content-Language: en-in
-X-Brightmail-Tracker: H4sIAAAAAAAAA01Te0xTVxzO6W1vC1pzrQWOxE12fSyIPAptd7sAI5txd4MpmXNLSBxe4Kwl
-	lNumD9kjKowyAkEEpwGqYRYrAoIsRV7KS0AZCCMLDYYBnXM4cYy5ASMwZFtLy8Z/3+873/l9
-	v++c/ASYaAn3F6SyBqRjGTWJe3ObegJfDt6pGlSGZV0Ipey5K3yqpOclyvq5irpXVIVRVQtl
-	fKrGMopTmQUrPMr20yiPGrl1CaeGyvtwyt54g0uZnpu41KQpj0ddffAdh1ptagdUReMCn7Jk
-	PwXUP20tfMo0IaOeLTfgMWL6StV5Hl1bXgvoVvMkn75sM9Km3lkebavJw+mJ0Tacbv1RQU/Z
-	Szh0g/U0XXizBtDzthfjNyekRaoQk4J0AYhN1qSkssooMvZI4huJMnmYJFiioF4hA1gmHUWR
-	B+Ligw+mqp0hyYATjNropOIZvZ4MjY7UaYwGFKDS6A1RJNKmqLVSbYieSdcbWWUIiwyvSsLC
-	wmVO4fE0lWWxi6+dC/94ds7OyQT1knzgJYCEFJbNZvHygbdARNwG8Iu/xrjuYg7Azou9HHex
-	COD8QB93/Uqdfcajagdw6dcnuLuYBrC/oGNNhRP74ZT9OebCYmI3XLJXApcII9q4cCzn/NqB
-	F7EXPn1yhp8PBIJtxLtw8I89Lprr1H/zswV30UJCAW3PUl20kNgK+8um1tpjRBCstMxg7oEC
-	4PLjSp5LLiaS4PAMdEv84N3lAszlColrXrC+zuoJcAA+GFzlu/E2+EvfTQ/2h/O/teNurITV
-	DaWe/mq42GDluPFrsMt+ievywohAWH8r1E2/AC8M3OC4fbfAMytTHrkQtpSv411wYbXNM8J2
-	WH5vhFcESPOGZOYNycwbIpj/d7sMuDVgO9Lq05VIL9NKWJTx338na9JtYG0F9r3VAiYf/h7S
-	DTgC0A2gACPFwr3NA0qRMIX55FOk0yTqjGqk7wYy52sXY/4+yRrnDrGGRIlUESaVy+VSRYRc
-	QvoJs1tNShGhZAwoDSEt0q3f4wi8/DM5ddLAzRNnhbUn76yGb/EtCC++7pdYbesIOeHgi4sj
-	RJ3GoObxk3feaRRadozdz3Uk9c1GHCs2zCxcVQthqObcTCMaHfIbLz32VSebo+lvjWsbfvjn
-	fPPru2VHUmLZvNhTPXkidpOvtHBsE4i+WNWV9mYC+gD5+FIfnYqxlvrKZ3MDv7WUEocMEYr9
-	3sHL4qoY2eHv67cW7URDS48S7p42H9cxLenjA007ciqID69Nf73ydm/3uZz58p4OugRzeDXG
-	cY+OWMfOZkZW/63I+MERuIeNHA69vfS4Im1XULa9oeNgRldRkg2ffh8ao9SfjaPCL33uRx/N
-	is6kD11/75HDQXL1KkayD9PpmX8BI1MvCosEAAA=
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFrrPIsWRmVeSWpSXmKPExsWy7bCSvO7JA6fSDR48sbG40v6b3WL6YUWL
-	JU0ZFscmrGC2WPFlJrvFqoXX2Cwaen6zWmx6fI3V4vKuOWwWZ+cdZ7O4snUdi0XLnxYWi7st
-	nawWS69fZLL4u20vo8WirV/YLRY2v2S0+L9nB7tFyx1Ti/c/N7M5iHgsXjGF1WPNvDWMHjtn
-	3WX3WLCp1KPlyFtWj02rOtk87lzbw+ax86Glx5Mr05k8Ni+p9+jbsorR4/MmuQCeKC6blNSc
-	zLLUIn27BK6M86t2Mhc8VK5oWzSZtYHxmUwXIyeHhICJxNorr1lAbCGB3YwSV+4EQMQlJT5f
-	XMcEYQtLrPz3nL2LkQuo5hmjxMWTL1lBEmwCOhJPrvxhBrFFBFQkflxZxghSxCxwgUWia8Fd
-	Voipd5gkJh0wBrE5BdQkXj7vZQexhQUCJH5u6gdrZgFqPvFsIVsXIwcHr4ClxKb3mSBhXgFB
-	iZMzn4AdxyygLdH7sJURxl628DUzxHEKEj+fLmMFaRURSJI4/1oCokRc4ujPHuYJjMKzkEya
-	hWTSLCSTZiFpWcDIsopRMrWgODc9t9iwwDAvtVyvODG3uDQvXS85P3cTIzgNaGnuYNy+6oPe
-	IUYmDsZDjBIczEoivGrbT6UL8aYkVlalFuXHF5XmpBYfYpTmYFES5xV/0ZsiJJCeWJKanZpa
-	kFoEk2Xi4JRqYGp4cYvpRKBbxsXti15M/haQE3swIUPuD0+x0JmExvMnyz6FzvTe1N7l0/Ns
-	8oZTUpVRfHYf/p6xKq+Z150soFEruadlZUSRpGLMw2kPHkxoWaH5T+TDv5Svezx6PTbvSjI7
-	GMbsddc48Ere+gtN+pcdo+/OT73dFlT1zZvNpEZJRHe10I5JHywu/i/Zn6+a9m+91s8WPqsr
-	k39KiQpEvuxQNJklv0/YoXX69BMFB52/9U9e82qOijvfs5X/otw27l00cdmjnJ8pFs8rl2ju
-	cp2Voeh+0+/8igu24n+ztj08Jb7NsNgv9JOTjcCxdv9Xs69uZqr898/qfde9+CifjydL/c4Z
-	aVS0iB/TLYs4vVaJpTgj0VCLuag4EQCVKSVzcgMAAA==
-X-CMS-MailID: 20250307094754epcas5p49b48fe616b8f4cbe880f979fa1341708
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250221132043epcas5p27fde98558b13b3311cdc467e8f246380
-References: <20250221131548.59616-1-shradha.t@samsung.com>
-	<CGME20250221132043epcas5p27fde98558b13b3311cdc467e8f246380@epcas5p2.samsung.com>
-	<20250221131548.59616-6-shradha.t@samsung.com> <Z8XuuNb6TRevUlHH@debian>
-	<20250303194228.GB1552306@rocinante> <Z8YZEALV71PUkXpF@debian>
-	<061401db8d28$5f0a4b40$1d1ee1c0$@samsung.com> <Z8fSWcR_aXyxmFEZ@debian>
+Content-Transfer-Encoding: 8bit
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgepudenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmr
+ giivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: maxime.chevallier@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_075417_767801_33623F1E 
-X-CRM114-Status: GOOD (  11.66  )
+X-CRM114-CacheID: sfid-20250308_075450_568652_9C6D168B 
+X-CRM114-Status: GOOD (  20.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -151,93 +94,213 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Prepare more generic ethnl DUMP hanldling, by allowing netlink commands
+to register their own dump_one_dev() callback. This avoids having to
+roll with a fully custom genl ->dumpit callback, allowing the re-use of some
+ethnl plumbing.
 
+Fallback to the default dump_one_dev behaviour when no custom callback
+is found.
 
-> -----Original Message-----
-> From: Fan Ni <nifan.cxl=40gmail.com>
-> Sent: 05 March 2025 09:56
-> To: Shradha Todi <shradha.t=40samsung.com>
-> Cc: 'Fan Ni' <nifan.cxl=40gmail.com>; 'Krzysztof Wilczy=C5=84ski'=20<kw=
-=40linux.com>;=20linux-kernel=40vger.kernel.org;=20linux-pci=40vger.kernel.=
-org;=0D=0A>=20linux-arm-kernel=40lists.infradead.org;=20linux-perf-users=40=
-vger.kernel.org;=20manivannan.sadhasivam=40linaro.org;=20lpieralisi=40kerne=
-l.org;=0D=0A>=20robh=40kernel.org;=20bhelgaas=40google.com;=20jingoohan1=40=
-gmail.com;=20Jonathan.Cameron=40huawei.com;=20a.manzanares=40samsung.com;=
-=0D=0A>=20pankaj.dubey=40samsung.com;=20cassel=40kernel.org;=2018255117159=
-=40163.com;=20xueshuai=40linux.alibaba.com;=20renyu.zj=40linux.alibaba.com;=
-=0D=0A>=20will=40kernel.org;=20mark.rutland=40arm.com=0D=0A>=20Subject:=20R=
-e:=20=5BPATCH=20v7=205/5=5D=20Add=20debugfs=20based=20statistical=20counter=
-=20support=20in=20DWC=0D=0A>=20=0D=0A>=20On=20Tue,=20Mar=2004,=202025=20at=
-=2010:40:43PM=20+0530,=20Shradha=20Todi=20wrote:=0D=0A>=20>=0D=0A>=20>=0D=
-=0A>=20>=20>=20-----Original=20Message-----=0D=0A>=20>=20>=20From:=20Fan=20=
-Ni=20<nifan.cxl=40gmail.com>=0D=0A>=20>=20>=20Sent:=2004=20March=202025=200=
-2:33=0D=0A>=20>=20>=20To:=20Krzysztof=20Wilczy=C5=84ski=20<kw=40linux.com>=
-=0D=0A>=20>=20>=20Cc:=20Fan=20Ni=20<nifan.cxl=40gmail.com>;=20Shradha=20Tod=
-i=0D=0A>=20>=20>=20<shradha.t=40samsung.com>;=20linux-kernel=40vger.kernel.=
-org;=20linux-=0D=0A>=20>=20>=20pci=40vger.kernel.org;=20linux-arm-kernel=40=
-lists.infradead.org;=0D=0A>=20>=20>=20linux-perf-users=40vger.kernel.org;=
-=20manivannan.sadhasivam=40linaro.org;=0D=0A>=20>=20>=20lpieralisi=40kernel=
-.org;=20robh=40kernel.org;=20bhelgaas=40google.com;=0D=0A>=20>=20>=20jingoo=
-han1=40gmail.com;=20Jonathan.Cameron=40huawei.com;=0D=0A>=20>=20>=20a.manza=
-nares=40samsung.com;=20pankaj.dubey=40samsung.com;=0D=0A>=20>=20>=20cassel=
-=40kernel.org;=2018255117159=40163.com;=20xueshuai=40linux.alibaba.com;=0D=
-=0A>=20>=20>=20renyu.zj=40linux.alibaba.com;=20will=40kernel.org;=20mark.ru=
-tland=40arm.com=0D=0A>=20>=20>=20Subject:=20Re:=20=5BPATCH=20v7=205/5=5D=20=
-Add=20debugfs=20based=20statistical=20counter=0D=0A>=20>=20>=20support=20in=
-=20DWC=0D=0A>=20>=20>=0D=0A>=20>=20>=20On=20Tue,=20Mar=2004,=202025=20at=20=
-04:42:28AM=20+0900,=20Krzysztof=20Wilczy=C5=84ski=20wrote:=0D=0A>=20>=20>=
-=20>=20Hello,=0D=0A>=20>=20>=20>=0D=0A>=20>=20>=20>=20=5B...=5D=0D=0A>=20>=
-=20>=20>=20>=20>=20+static=20ssize_t=20counter_value_read(struct=20file=20*=
-file,=20char=0D=0A>=20>=20>=20>=20>=20>=20+__user=20*buf,=20size_t=20count,=
-=20loff_t=20*ppos)=20=7B=0D=0A>=20>=20>=20>=20>=20>=20+=09struct=20dwc_pcie=
-_rasdes_priv=20*pdata=20=3D=20file->private_data;=0D=0A>=20>=20>=20>=20>=20=
->=20+=09struct=20dw_pcie=20*pci=20=3D=20pdata->pci;=0D=0A>=20>=20>=20>=20>=
-=20>=20+=09struct=20dwc_pcie_rasdes_info=20*rinfo=20=3D=20pci->debugfs->ras=
-des_info;=0D=0A>=20>=20>=20>=20>=20>=20+=09char=20debugfs_buf=5BDWC_DEBUGFS=
-_BUF_MAX=5D;=0D=0A>=20>=20>=20>=20>=20>=20+=09ssize_t=20pos;=0D=0A>=20>=20>=
-=20>=20>=20>=20+=09u32=20val;=0D=0A>=20>=20>=20>=20>=20>=20+=0D=0A>=20>=20>=
-=20>=20>=20>=20+=09mutex_lock(&rinfo->reg_event_lock);=0D=0A>=20>=20>=20>=
-=20>=20>=20+=09set_event_number(pdata,=20pci,=20rinfo);=0D=0A>=20>=20>=20>=
-=20>=20>=20+=09val=20=3D=20dw_pcie_readl_dbi(pci,=20rinfo->ras_cap_offset=
-=20+=20RAS_DES_EVENT_COUNTER_DATA_REG);=0D=0A>=20>=20>=20>=20>=20>=20+=09mu=
-tex_unlock(&rinfo->reg_event_lock);=0D=0A>=20>=20>=20>=20>=20>=20+=09pos=20=
-=3D=20scnprintf(debugfs_buf,=20DWC_DEBUGFS_BUF_MAX,=20=22Counter=0D=0A>=20>=
-=20>=20>=20>=20>=20+value:=20%d=5Cn=22,=20val);=0D=0A>=20>=20>=20>=20>=20>=
-=20+=0D=0A>=20>=20>=20>=20>=20>=20+=09return=20simple_read_from_buffer(buf,=
-=20count,=20ppos,=0D=0A>=20>=20>=20>=20>=20>=20+debugfs_buf,=20pos);=20=7D=
-=0D=0A>=20>=20>=20>=20>=0D=0A>=20>=20>=20>=20>=20Do=20we=20need=20to=20chec=
-k=20whether=20the=20counter=20is=20enabled=20or=20not=20for=0D=0A>=20>=20>=
-=20>=20>=20the=20event=20before=20retrieving=20the=20counter=20value?=0D=0A=
->=20>=20>=20>=0D=0A>=20>=20>=20>=20I=20believe,=20we=20have=20a=20patch=20t=
-hat=20aims=20to=20address,=20have=20a=20look=20at:=0D=0A>=20>=20>=20>=0D=0A=
->=20>=20>=20>=0D=0A>=20>=20>=20>=20https://lore.kernel.org/linux-pci/202502=
-25171239.19574-1-manivanna=0D=0A>=20>=20>=20>=20n.sa=0D=0A>=20>=20>=20>=20d=
-hasivam=40linaro.org=0D=0A>=20>=20>=0D=0A>=20>=20>=20Maybe=20I=20missed=20s=
-omething,=20that=20seems=20to=20fix=20counter_enable_read(),=20but=20here=
-=20is=20to=20retrieve=20counter=20value.=0D=0A>=20>=20>=20How=20dw_pcie_rea=
-dl_dbi()=20can=20return=20something=20like=20=22Counter=20Disabled=22?=0D=
-=0A>=20>=20>=0D=0A>=20>=20>=20Fan=0D=0A>=20>=0D=0A>=20>=20Hey=20Fan,=0D=0A>=
-=20>=20So=20the=20counter=20value=20will=20show=200=20in=20case=20it=20is=
-=20disabled=20so=20there=20will=0D=0A>=20>=20not=20be=20any=20issues=20as=
-=20per=20say.=20We=20could=20add=20the=20check=20here=20but=20I=20feel=20I=
-=0D=0A>=20>=20have=20already=20exposed=20the=20functionality=20to=20check=
-=20if=20a=20counter=20is=20enabled=20or=20disabled,=20(by=20reading=20the=
-=20counter_enable=20debugfs=20entry)=0D=0A>=20so=20this=20could=20be=20hand=
-led=20in=20user=20space=20to=20only=20read=20the=20counter=20if=20it's=20en=
-abled.=0D=0A>=20Ok.=0D=0A>=20Returning=200=20when=20the=20counter=20is=20di=
-sabled=20makes=20sense=20to=20me.=0D=0A>=20=0D=0A>=20Just=20some=20thought.=
-=0D=0A>=20=0D=0A>=20It=20seems=20natural=20to=20me=20if=20we=20make=20=22co=
-unter_value=22=20only=20visiable=20to=20users=20when=20the=20counter=20is=
-=20enabled.=0D=0A>=20=0D=0A=0D=0AHey=20Fan,=0D=0A=0D=0AThis=20looks=20like=
-=20a=20good=20suggestion=20to=20me.=20I=20have=20implemented=20this=20and=
-=20in=20the=20process=20of=20testing.=20Since=20there=20is=20no=20support=
-=20in=20the=0D=0Adebugfs=20framework=20for=20conditionally=20hiding=20certa=
-in=20files=20from=20user,=20the=20custom=20implementation=20is=20a=20little=
-=20tricky=20and=20will=20need=20some=0D=0Adiscussion=20before=20taking=20in=
-.=20So=20let's=20take=20this=20up=20as=20a=20top=20up=20patch=20and=20live=
-=20with=20returning=200=20when=20the=20counter=20is=20disabled=20for=20now?=
-=0D=0A=0D=0AThanks=20a=20lot=20for=20the=20suggestion.=0D=0AShradha=20=0D=
-=0A=0D=0A>=20Fan=0D=0A>=20>=0D=0A>=20>=20>=20>=0D=0A>=20>=20>=20>=20Thank=
-=20you=21=0D=0A>=20>=20>=20>=0D=0A>=20>=20>=20>=20=09Krzysztof=0D=0A>=20>=
-=0D=0A>=20>=0D=0A=0D=0A
+The command dump context is maintained within the ethnl_dump_ctx, that
+we move in netlink.h so that command handlers can access it.
+
+This context can be allocated/freed in new ->dump_start() and
+->dump_done() callbacks.
+
+Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+---
+V2: - Fix kdoc
+
+ net/ethtool/netlink.c | 62 +++++++++++++++++++++++++------------------
+ net/ethtool/netlink.h | 35 ++++++++++++++++++++++++
+ 2 files changed, 71 insertions(+), 26 deletions(-)
+
+diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
+index f391a11242de..ae06b72239a8 100644
+--- a/net/ethtool/netlink.c
++++ b/net/ethtool/netlink.c
+@@ -338,24 +338,6 @@ int ethnl_multicast(struct sk_buff *skb, struct net_device *dev)
+ 
+ /* GET request helpers */
+ 
+-/**
+- * struct ethnl_dump_ctx - context structure for generic dumpit() callback
+- * @ops:        request ops of currently processed message type
+- * @req_info:   parsed request header of processed request
+- * @reply_data: data needed to compose the reply
+- * @pos_ifindex: saved iteration position - ifindex
+- *
+- * These parameters are kept in struct netlink_callback as context preserved
+- * between iterations. They are initialized by ethnl_default_start() and used
+- * in ethnl_default_dumpit() and ethnl_default_done().
+- */
+-struct ethnl_dump_ctx {
+-	const struct ethnl_request_ops	*ops;
+-	struct ethnl_req_info		*req_info;
+-	struct ethnl_reply_data		*reply_data;
+-	unsigned long			pos_ifindex;
+-};
+-
+ static const struct ethnl_request_ops *
+ ethnl_default_requests[__ETHTOOL_MSG_USER_CNT] = {
+ 	[ETHTOOL_MSG_STRSET_GET]	= &ethnl_strset_request_ops,
+@@ -539,9 +521,9 @@ static int ethnl_default_doit(struct sk_buff *skb, struct genl_info *info)
+ 	return ret;
+ }
+ 
+-static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
+-				      const struct ethnl_dump_ctx *ctx,
+-				      const struct genl_info *info)
++static int ethnl_default_dump_one(struct sk_buff *skb,
++				  const struct ethnl_dump_ctx *ctx,
++				  const struct genl_info *info)
+ {
+ 	void *ehdr;
+ 	int ret;
+@@ -552,15 +534,15 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ 	if (!ehdr)
+ 		return -EMSGSIZE;
+ 
+-	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
+ 	rtnl_lock();
+-	netdev_lock_ops(dev);
++	netdev_lock_ops(ctx->reply_data->dev);
+ 	ret = ctx->ops->prepare_data(ctx->req_info, ctx->reply_data, info);
+-	netdev_unlock_ops(dev);
++	netdev_unlock_ops(ctx->reply_data->dev);
+ 	rtnl_unlock();
+ 	if (ret < 0)
+ 		goto out;
+-	ret = ethnl_fill_reply_header(skb, dev, ctx->ops->hdr_attr);
++	ret = ethnl_fill_reply_header(skb, ctx->reply_data->dev,
++				      ctx->ops->hdr_attr);
+ 	if (ret < 0)
+ 		goto out;
+ 	ret = ctx->ops->fill_reply(skb, ctx->req_info, ctx->reply_data);
+@@ -568,11 +550,29 @@ static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *de
+ out:
+ 	if (ctx->ops->cleanup_data)
+ 		ctx->ops->cleanup_data(ctx->reply_data);
+-	ctx->reply_data->dev = NULL;
++
+ 	if (ret < 0)
+ 		genlmsg_cancel(skb, ehdr);
+ 	else
+ 		genlmsg_end(skb, ehdr);
++
++	return ret;
++}
++
++static int ethnl_default_dump_one_dev(struct sk_buff *skb, struct net_device *dev,
++				      struct ethnl_dump_ctx *ctx,
++				      const struct genl_info *info)
++{
++	int ret;
++
++	ethnl_init_reply_data(ctx->reply_data, ctx->ops, dev);
++
++	if (ctx->ops->dump_one_dev)
++		ret = ctx->ops->dump_one_dev(skb, ctx, info);
++	else
++		ret = ethnl_default_dump_one(skb, ctx, info);
++
++	ctx->reply_data->dev = NULL;
+ 	return ret;
+ }
+ 
+@@ -601,6 +601,7 @@ static int ethnl_default_dumpit(struct sk_buff *skb,
+ 			dev_hold(dev);
+ 			rcu_read_unlock();
+ 
++			ctx->req_info->dev = dev;
+ 			ret = ethnl_default_dump_one_dev(skb, dev, ctx,
+ 							 genl_info_dump(cb));
+ 
+@@ -663,6 +664,12 @@ static int ethnl_default_start(struct netlink_callback *cb)
+ 	ctx->reply_data = reply_data;
+ 	ctx->pos_ifindex = 0;
+ 
++	if (ctx->ops->dump_start) {
++		ret = ctx->ops->dump_start(ctx);
++		if (ret)
++			goto free_reply_data;
++	}
++
+ 	return 0;
+ 
+ free_reply_data:
+@@ -678,6 +685,9 @@ static int ethnl_default_done(struct netlink_callback *cb)
+ {
+ 	struct ethnl_dump_ctx *ctx = ethnl_dump_context(cb);
+ 
++	if (ctx->ops->dump_done)
++		ctx->ops->dump_done(ctx);
++
+ 	kfree(ctx->reply_data);
+ 	kfree(ctx->req_info);
+ 
+diff --git a/net/ethtool/netlink.h b/net/ethtool/netlink.h
+index 4aaa73282d6a..79fe98190c64 100644
+--- a/net/ethtool/netlink.h
++++ b/net/ethtool/netlink.h
+@@ -307,6 +307,26 @@ struct ethnl_reply_data {
+ 	struct net_device		*dev;
+ };
+ 
++/**
++ * struct ethnl_dump_ctx - context structure for generic dumpit() callback
++ * @ops:        request ops of currently processed message type
++ * @req_info:   parsed request header of processed request
++ * @reply_data: data needed to compose the reply
++ * @pos_ifindex: saved iteration position - ifindex
++ * @cmd_ctx: command-specific context to maintain across the dump.
++ *
++ * These parameters are kept in struct netlink_callback as context preserved
++ * between iterations. They are initialized by ethnl_default_start() and used
++ * in ethnl_default_dumpit() and ethnl_default_done().
++ */
++struct ethnl_dump_ctx {
++	const struct ethnl_request_ops	*ops;
++	struct ethnl_req_info		*req_info;
++	struct ethnl_reply_data		*reply_data;
++	unsigned long			pos_ifindex;
++	void				*cmd_ctx;
++};
++
+ int ethnl_ops_begin(struct net_device *dev);
+ void ethnl_ops_complete(struct net_device *dev);
+ 
+@@ -373,6 +393,15 @@ int ethnl_sock_priv_set(struct sk_buff *skb, struct net_device *dev, u32 portid,
+  *	 - 0 if no configuration has changed
+  *	 - 1 if configuration changed and notification should be generated
+  *	 - negative errno on errors
++ * @dump_start:
++ *	Optional callback to prepare a dump operation, should there be a need
++ *	to maintain some context across the dump.
++ * @dump_one_dev:
++ *	Optional callback to generate all messages for a given netdev. This
++ *	is relevant only when a request can produce different results for the
++ *	same netdev depending on command-specific attributes.
++ * @dump_done:
++ *	Optional callback to cleanup any context allocated in ->dump_start()
+  *
+  * Description of variable parts of GET request handling when using the
+  * unified infrastructure. When used, a pointer to an instance of this
+@@ -409,6 +438,12 @@ struct ethnl_request_ops {
+ 			    struct genl_info *info);
+ 	int (*set)(struct ethnl_req_info *req_info,
+ 		   struct genl_info *info);
++
++	int (*dump_start)(struct ethnl_dump_ctx *ctx);
++	int (*dump_one_dev)(struct sk_buff *skb,
++			    struct ethnl_dump_ctx *ctx,
++			    const struct genl_info *info);
++	void (*dump_done)(struct ethnl_dump_ctx *ctx);
+ };
+ 
+ /* request handlers */
+-- 
+2.48.1
+
 
