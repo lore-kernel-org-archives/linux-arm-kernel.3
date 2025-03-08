@@ -4,124 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76AE5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 15:10:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69D2DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 15:27:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7gGa4aZilPyCyYaUtOkyKJLgEGpI8bxypefG7qwCZ+M=; b=MOvkdyNjU9aeoOVSDbToc7j4RL
-	Bs7JNZMJZXvvTdwiWaxhjAAEa0aq+HZg5JmhsXV0jpHpw+L0iGMMkX+stuEu3EbWF/zSvfdRU2Y+L
-	2GpSvcNUJyWbcc/5vCV4CiDtR8lCLHxC3MgNuQLmwbL7TNGQU/u9ekBfD0ZNnZjAayB64CjUNkrAo
-	SLOnNp8LWuMUJIFauwyP/Z4NFYVDWvbqNolxJhRBNZbrHXeEqQIq1go6FUJ2z7MGpWuxyD6ZwnLG1
-	pWE7AN2akPhaTNKAN5DzpRkAZ6sIqXg4bt8m/oh3WXKZ/0kbwvR56U5BFwSRSTO6XmoDTXSV3/Q0W
-	atxM0Bsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HKBg6m2ZBD+SRolEbJmxTaEbWBs0aYZ+E9F5kWCXB5g=; b=gQ4UthpqM+73Jfrn4HS2MKROVE
+	V/4RxHP/e6JNkqbfro8Tq32xgfOnn7C6JzkeGsbYk/Ect9Ycd4z+33jor2mrfXZtoF7LmcUyxH+90
+	TREqnClvGX9JZQnfEA3f0FEtwsm8HUCXkBtyRwlWZ9PgI3ZDA1vOjzNMrR5TWoePX0MSUgG1SQxiW
+	UXvMwFzh00akV2MltbcHKXZ2Aqtd7HvDlKD/CrDtdVQWkf0fMJE0T96h1/hgMWPP0XjI2OOkl+akp
+	xh1BcZKkukuoBG/53PAVSDvWx9z5xPOD1HCW89mOVVzJ1DMKdSBJG8gEDeGDXcQbBvGvG+bHokJaT
+	j+/GnhnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqvov-0000000Gm5S-265I;
-	Sat, 08 Mar 2025 15:10:33 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1tqw4s-0000000Gn2Y-3Dqx;
+	Sat, 08 Mar 2025 15:27:02 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqvm0-0000000Glmx-2220
+	id 1tqw3F-0000000Gmw1-0Klq
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 15:07:33 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 528CVgal013894
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 8 Mar 2025 15:07:31 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	7gGa4aZilPyCyYaUtOkyKJLgEGpI8bxypefG7qwCZ+M=; b=QhGn7ZsS3LO0WODO
-	oRf1M2GnRuCy1OnVi7pwmk5bkxm07W4HD+Hdgrqc6udDywKidh2GQcWbCDW1em8q
-	KGdezKiyvA4+2a2xwei7sOFksWugzh3vkEA47uU46TYm4tXFP8zVbdt7vCMsDlp/
-	e8QgekpnPgAOdkoF/p3WwNy3mLR3scauqyF9b8hInq5Nhcaohu60r+aveFptooVr
-	kpR4VYZ1Rduvl+8sCu/1rPvUU/a2TKqOs7hOviU4WMhis/I5rQuzGeQtaOkqPEBR
-	AV6vPlPprXi0O8iwn/3pqEzTptF2TaUK7jYFpCg73sAovsWAjJl4trmAaQNuJVdX
-	DJTlJw==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458ex0rrg1-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 15:07:31 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4766ce9a08cso292731cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 07:07:31 -0800 (PST)
+	Sat, 08 Mar 2025 15:25:22 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-30795988ebeso29195931fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 07:25:20 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741447519; x=1742052319; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=HKBg6m2ZBD+SRolEbJmxTaEbWBs0aYZ+E9F5kWCXB5g=;
+        b=dakNTSbtbcQS+J88gSg4jQ0BdDWsOudorvPYI8J0ZOvsTvZbSW3fIyletzXenX2xWA
+         q1HHg3CJh7rBDK9hLGBEMqHjd80UFmToaNpnWqiOu/7b7CR8JvqH7Yj1OZVDhEfjxB9g
+         poZ/uk8XMlS13TKrlzqNvMs0cLnwz1UEALgYPY+SbBQfFXsTfuHvSX4aHbJld0/OpXJW
+         ZvvG06zl3NAJV8wkRze8jw31KVmJtyk0eDG8vWmb2TASDB0o/U4pIS0418PcLkVE7Z63
+         FG/qfH8WiV1/OSQX31KOSnyI8rbSSCO55AmonLsJxDwKn9NZhFFbMGvMRgsc5Cwd7CLD
+         Pbow==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741446450; x=1742051250;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=7gGa4aZilPyCyYaUtOkyKJLgEGpI8bxypefG7qwCZ+M=;
-        b=m3i12eYzdV1xkHw0D13vwdsaBR6Bt8M2CED2sK7fTEk0zUUjdEs9dTZ5VxK9iut3nO
-         shTVsMKp9ZwF3znkER0KEOopwURqSYHQHK4Eblf/FcbMsUrD3mRug1CwlG9zhfJ8SUDe
-         PDhjSmS1ox/jG5R8Zwi0nFomjFfmsNfGP2E9gDsDP9XuB8JG5rqV/7QPZWxxVVJ/b07I
-         I5Apy1INwgaklC3IuJ90RSW/Wc9o2DCet2rBsTtn+kgxZn9mGUFnrk1HCqkc5JlCDfKU
-         mxvgrB7nV8yVcXmzCrYGl8a6gyXAFogdSJJGgvRzapxmc30OfjbH/qqmop5DrwV2mcG3
-         PF7Q==
-X-Forwarded-Encrypted: i=1; AJvYcCV+PDe1a5e2yv1aNMtY/9PZT2/ryen4UDnOAXf2Vw8JMskl8jC1nSeFVhLWtNStIiW7h5OfPzPGaeOn8gELsCMW@lists.infradead.org
-X-Gm-Message-State: AOJu0YztXFQUQjEEL11OhOw+72C4vXPgmXkrSCum6Dx9jA0BS6RGpJF1
-	DeKwfreYn8UWASVf31eLPJp283Nkat34gJ0SPuWmUnVt9gasbies7v1055GkQtBaC0qji2IL5iX
-	PoTB6uu7BDk7BOtopuIkdFgXIhFO2xKLjVg/hZ61ia90RlYFVK1yv/023O8n6sUPFi66tG5VBnQ
-	==
-X-Gm-Gg: ASbGncvz5N9gWhDniJBH37IWzzNjjnQ3MCt5ET1d4yFY2V1oRVFg14jkkNHPnD2JaJD
-	4YF8BonPO9oZLq+cA0oBMOePg6TJXhyq+BtiqklcAMui2bVVuvsNbWn27xETPUyiC47mRaUx713
-	lhB9/NALko3MxpdCXHPzVpnj6duqfLVDds0lvjP/XN7lHUuvZ9KpeiIyOysK1WcYr24PGHx83ee
-	cNymrL6KXoAKtQaTMMfyGZdAF7AO8S6i/QWPkRsF3NZnnbHV8ORCy1oUw3yJnEqXGxL78q90fy8
-	Bg7cjI7PHR7Iwl4rqy102q6CQzZMTpCuvVgwVE6l1TCIlvgLQd7OUe5TZ6PC7VKk+u/V5w==
-X-Received: by 2002:a05:622a:1342:b0:471:ea1a:d9e with SMTP id d75a77b69052e-47666c9c2efmr15222171cf.12.1741446450575;
-        Sat, 08 Mar 2025 07:07:30 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IG16fJ1s25av/19NCMWWvw3UdbNssC4iChQRcYwnRiDIAmzLAMyr8NziGv9MuhUVNksyID2cQ==
-X-Received: by 2002:a05:622a:1342:b0:471:ea1a:d9e with SMTP id d75a77b69052e-47666c9c2efmr15221891cf.12.1741446450220;
-        Sat, 08 Mar 2025 07:07:30 -0800 (PST)
-Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac284f76a22sm24449066b.149.2025.03.08.07.07.27
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Mar 2025 07:07:29 -0800 (PST)
-Message-ID: <aca09e7c-53e2-45a3-8281-7df9951549eb@oss.qualcomm.com>
-Date: Sat, 8 Mar 2025 16:07:26 +0100
+        d=1e100.net; s=20230601; t=1741447519; x=1742052319;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=HKBg6m2ZBD+SRolEbJmxTaEbWBs0aYZ+E9F5kWCXB5g=;
+        b=Br1nuZZVqozHd64NCYqIPuN76eoKzH210gnMDGijo5ahGCo01H9AufITnktdpvgxNI
+         pHS4+qtmzZXndfMkCa5L0pI/WDjO63a7Pv4pkuaGXii/ccoegqagUXjTSy0GE+K50ga9
+         L4OZ8yAEWZv7glb9zexUepg/ogy47efbHWTgHKQVaH0zRFXg2ITn3zokaXAQJc5BH324
+         DxZIMePQRakMtSqOv2MUsdRrqH/sEndb/lthqDN1OzpTIMw0mPwIzv2wqCobC6fjjTFk
+         LvTIG5GvlA+AmDVHfHnmFkcv0z9K2D489jzRF4d+MIWlVum9hQW5bw6zyz2j/4TAawSb
+         /VTg==
+X-Forwarded-Encrypted: i=1; AJvYcCUWpszURHkelaMpm9/LNlHasfesxFtGzkKOq2kgUuiXPeDO25bhOI3TFHmvYym4kmVw4EN4T/Yqgc4zfHVygJt8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZDXhLmZqg7EASkRhpuMDxbJeZbTSHqz/V+EQE7A47B/OrJJLd
+	+lRQjAK0XgJHK8rxvsyyt1f/52U/IBq/WEcKpEOD+WhJ4ia8ue4LVkLaye3ej0Y=
+X-Gm-Gg: ASbGnctKeN+A9c4ILjeCX9GfK19yY66qDTUwMAZ1MPi/88cWShd/a+0NhKV6n8+3Iil
+	KyChODcbbPLLEQ9OXXxWCUo3/NW0v6IsRCC2AoXrXFUP9RAAKVI2mFvzxUMreZHYCJy/x4xi5MU
+	bzE6Adl82xrmUJXjdUe1RKglX2MFhpcuZkwDp99WEyusTxe9D9WnJcktkwPCBxicii8X2cnuIhm
+	7cCw3NlxKwIOSBQdjYriCkzU6yDxj6H2jul3dw7i5/76TQUyHWwBCDrc1SVNYE+/gV6H3aEnNA8
+	bxuZdFtQXhMQblZKH+qJCVFrljjXVPa5yua8fsvZIQG2hCCSCtIzB6fwakm7HLjLpvIShag5fBe
+	eF8+QdZ5Fl97aZG1hWt0oLlDP
+X-Google-Smtp-Source: AGHT+IGa+Ul+zGmtbtHzOv+NiUo+h+jc38TvQkxrCnLVKsfBxUNjbh9YNgRAJWxI0GRtuRncaHMZ6w==
+X-Received: by 2002:a05:651c:19a1:b0:30b:ec4d:e5df with SMTP id 38308e7fff4ca-30bf466dbcfmr32754081fa.34.1741447518937;
+        Sat, 08 Mar 2025 07:25:18 -0800 (PST)
+Received: from eriador.lumag.spb.ru (2001-14ba-a0c3-3a00--7a1.rev.dnainternet.fi. [2001:14ba:a0c3:3a00::7a1])
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-30be99c85c0sm9452071fa.87.2025.03.08.07.25.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Mar 2025 07:25:17 -0800 (PST)
+Date: Sat, 8 Mar 2025 17:25:15 +0200
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+To: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, Rob Clark <robdclark@gmail.com>, 
+	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kuogee Hsieh <quic_khsieh@quicinc.com>, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, Jonathan Marek <jonathan@marek.ca>, 
+	Bjorn Andersson <andersson@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 07/10] drm/msm/dsi/phy: add configuration for SAR2130P
+Message-ID: <qextyfjeniihulyilehcldd5x5pdpaxo3etstlcq4a43cka3a4@4n3mqkjjysqt>
+References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
+ <20250308-sar2130p-display-v1-7-1d4c30f43822@linaro.org>
+ <53c3d2c3-2bfb-43f9-ad25-0d1fdd96f19f@oss.qualcomm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 7/9] arm64: dts: qcom: sm8750: Add USB support to
- SM8750 SoCs
-To: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Wesley Cheng <quic_wcheng@quicinc.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Philipp Zabel <p.zabel@pengutronix.de>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
- <20250304-sm8750_usb_master-v2-7-a698a2e68e06@quicinc.com>
-Content-Language: en-US
-From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-In-Reply-To: <20250304-sm8750_usb_master-v2-7-a698a2e68e06@quicinc.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: B-6VSrL4yrpcUwEEavX6KJG_XhN1dg_Q
-X-Authority-Analysis: v=2.4 cv=f/qyBPyM c=1 sm=1 tr=0 ts=67cc5d33 cx=c_pps a=JbAStetqSzwMeJznSMzCyw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=wuHw7GjLwNk9Z1BGEEEA:9 a=QEXdDO2ut3YA:10
- a=uxP6HrT_eTzRwkO_Te1X:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: B-6VSrL4yrpcUwEEavX6KJG_XhN1dg_Q
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-08_05,2025-03-07_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0 spamscore=0
- bulkscore=0 phishscore=0 lowpriorityscore=0 mlxlogscore=999 clxscore=1015
- priorityscore=1501 malwarescore=0 adultscore=0 suspectscore=0 mlxscore=0
- classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503080113
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <53c3d2c3-2bfb-43f9-ad25-0d1fdd96f19f@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_070732_653513_58AC0B80 
-X-CRM114-Status: GOOD (  16.15  )
+X-CRM114-CacheID: sfid-20250308_072521_140524_CEBEEC64 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,74 +111,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 4.03.2025 10:56 PM, Melody Olvera wrote:
-> From: Wesley Cheng <quic_wcheng@quicinc.com>
+On Sat, Mar 08, 2025 at 03:17:23PM +0100, Konrad Dybcio wrote:
+> On 8.03.2025 2:42 AM, Dmitry Baryshkov wrote:
+> > From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > 
+> > Qualcomm SAR2130P requires slightly different setup for the DSI PHY. It
+> > is a 5nm PHY (like SM8450), so supplies are the same, but the rest of
+> > the configuration is the same as SM8550 DSI PHY.
+> > 
+> > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> > ---
+> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy.c     |  2 ++
+> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy.h     |  1 +
+> >  drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c | 23 +++++++++++++++++++++++
+> >  3 files changed, 26 insertions(+)
+> > 
+> > diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
+> > index c0bcc68289633fd7506ce4f1f963655d862e8f08..a58bafe9fe8635730cb82e8c82ec1ded394988cd 100644
+> > --- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
+> > +++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.c
+> > @@ -581,6 +581,8 @@ static const struct of_device_id dsi_phy_dt_match[] = {
+> >  	  .data = &dsi_phy_7nm_cfgs },
+> >  	{ .compatible = "qcom,dsi-phy-7nm-8150",
+> >  	  .data = &dsi_phy_7nm_8150_cfgs },
+> > +	{ .compatible = "qcom,sar2130p-dsi-phy-5nm",
+> > +	  .data = &dsi_phy_5nm_sar2130p_cfgs },
+> >  	{ .compatible = "qcom,sc7280-dsi-phy-7nm",
+> >  	  .data = &dsi_phy_7nm_7280_cfgs },
+> >  	{ .compatible = "qcom,sm6375-dsi-phy-7nm",
+> > diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
+> > index 1925418d9999a24263d6621299cae78f1fb9455c..1ed08b56e056094bc0096d07d4470b89d9824060 100644
+> > --- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
+> > +++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy.h
+> > @@ -59,6 +59,7 @@ extern const struct msm_dsi_phy_cfg dsi_phy_7nm_8150_cfgs;
+> >  extern const struct msm_dsi_phy_cfg dsi_phy_7nm_7280_cfgs;
+> >  extern const struct msm_dsi_phy_cfg dsi_phy_5nm_8350_cfgs;
+> >  extern const struct msm_dsi_phy_cfg dsi_phy_5nm_8450_cfgs;
+> > +extern const struct msm_dsi_phy_cfg dsi_phy_5nm_sar2130p_cfgs;
+> >  extern const struct msm_dsi_phy_cfg dsi_phy_4nm_8550_cfgs;
+> >  extern const struct msm_dsi_phy_cfg dsi_phy_4nm_8650_cfgs;
+> >  
+> > diff --git a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> > index a92decbee5b5433853ed973747f7705d9079068d..cad55702746b8d35949d22090796cca60f03b9e1 100644
+> > --- a/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> > +++ b/drivers/gpu/drm/msm/dsi/phy/dsi_phy_7nm.c
+> > @@ -1289,6 +1289,29 @@ const struct msm_dsi_phy_cfg dsi_phy_5nm_8450_cfgs = {
+> >  	.quirks = DSI_PHY_7NM_QUIRK_V4_3,
+> >  };
+> >  
+> > +const struct msm_dsi_phy_cfg dsi_phy_5nm_sar2130p_cfgs = {
+> > +	.has_phy_lane = true,
+> > +	.regulator_data = dsi_phy_7nm_97800uA_regulators,
+> > +	.num_regulators = ARRAY_SIZE(dsi_phy_7nm_97800uA_regulators),
+> > +	.ops = {
+> > +		.enable = dsi_7nm_phy_enable,
+> > +		.disable = dsi_7nm_phy_disable,
+> > +		.pll_init = dsi_pll_7nm_init,
+> > +		.save_pll_state = dsi_7nm_pll_save_state,
+> > +		.restore_pll_state = dsi_7nm_pll_restore_state,
+> > +		.set_continuous_clock = dsi_7nm_set_continuous_clock,
+> > +	},
+> > +	.min_pll_rate = 600000000UL,
+> > +#ifdef CONFIG_64BIT
+> > +	.max_pll_rate = 5000000000UL,
+> > +#else
+> > +	.max_pll_rate = ULONG_MAX,
+> > +#endif
+> > +	.io_start = { 0xae95000, 0xae97000 },
+> > +	.num_dsi_phy = 2,
+> > +	.quirks = DSI_PHY_7NM_QUIRK_V5_2,
+> > +};
 > 
-> Add the base USB devicetree definitions for SM8750 platforms.  The overall
-> chipset contains a single DWC3 USB3 controller (rev. 200a), SS QMP PHY
-> (rev. v8) and M31 eUSB2 PHY.  The major difference for SM8750 is the
-> transition to using the M31 eUSB2 PHY compared to previous SoCs.
-> 
-> Enable USB support on SM8750 MTP and QRD variants. SM8750 has a QMP combo
-> PHY for the SSUSB path, and a M31 eUSB2 PHY for the HSUSB path.
-> 
-> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
-> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
-> ---
+> I'm squinting very very hard and can't tell how this is different from
+> dsi_phy_4nm_8550_cfgs
 
-[...]
+97800 uA vs 98400 uA is the only difference AFAIK.
 
-> +		usb_1: usb@a6f8800 {
-> +			compatible = "qcom,sm8750-dwc3", "qcom,dwc3";
-> +			reg = <0x0 0x0a6f8800 0x0 0x400>;
-> +			status = "disabled";
-> +			#address-cells = <2>;
-> +			#size-cells = <2>;
-> +			ranges;
-
-Please follow property order / general style found in x1e80100.dtsi
-
-> +
-> +			clocks = <&gcc GCC_CFG_NOC_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MASTER_CLK>,
-> +				 <&gcc GCC_AGGRE_USB3_PRIM_AXI_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_SLEEP_CLK>,
-> +				 <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +				 <&tcsrcc TCSR_USB3_CLKREF_EN>;
-> +			clock-names = "cfg_noc",
-> +				      "core",
-> +				      "iface",
-> +				      "sleep",
-> +				      "mock_utmi",
-> +				      "xo";
-> +
-> +			assigned-clocks = <&gcc GCC_USB30_PRIM_MOCK_UTMI_CLK>,
-> +					  <&gcc GCC_USB30_PRIM_MASTER_CLK>;
-> +			assigned-clock-rates = <19200000>, <200000000>;
-> +
-> +			interrupts-extended = <&intc GIC_SPI 130 IRQ_TYPE_LEVEL_HIGH>,
-> +						  <&intc GIC_SPI 131 IRQ_TYPE_LEVEL_HIGH>,
-> +					      <&pdc 14 IRQ_TYPE_EDGE_BOTH>,
-> +					      <&pdc 15 IRQ_TYPE_EDGE_BOTH>,
-> +					      <&pdc 17 IRQ_TYPE_LEVEL_HIGH>;
-> +			interrupt-names = "pwr_event",
-> +					  "hs_phy_irq",
-> +					  "dp_hs_phy_irq",
-> +					  "dm_hs_phy_irq",
-> +					  "ss_phy_irq";
-> +
-> +			power-domains = <&gcc GCC_USB30_PRIM_GDSC>;
-> +			required-opps = <&rpmhpd_opp_nom>;
-> +
-> +			resets = <&gcc GCC_USB30_PRIM_BCR>;
-> +
-> +			interconnects = <&aggre1_noc MASTER_USB3_0 0 &mc_virt SLAVE_EBI1 0>,
-
-QCOM_ICC_TAG_ALWAYS
-
-> +					<&gem_noc MASTER_APPSS_PROC 0 &config_noc SLAVE_USB3_0 0>;
-
-QCOM_ICC_TAG_ACTIVE_ONLY
-
-Konrad
+-- 
+With best wishes
+Dmitry
 
