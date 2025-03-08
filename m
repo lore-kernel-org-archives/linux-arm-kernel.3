@@ -4,89 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D6D5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 14:55:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 480D4C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 15:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Keyp5UqooSuCZNdvM6L5386ygoD++VE/io10zX0U4b4=; b=GiK39xxk+n1xYrnb4s8tEIGn6H
-	s9S9oHpYri3qvXCPEtZqQxIH/Ne7r+kkhydNmJH/Kga65S1pwFrbWeM/hTeSNOWjbw3Ulal8AKHfX
-	q54oIOxVZIo/AdvKifjDuT/x7a5KV9YkC2OZ2WknA6lysjlsWPmgqM08zdVZL3PVIt+bH+e9VLCrh
-	kuKsStlo7CaUukyLCtOu2hhdLRMz3mbxaGp0ng6Dh1UXKrZtSiDXXw61dKOf0+H5rMX0dKinfRD8n
-	C3c6yJrIhN85Y4qK3Sx7zB8w2ttPDzlVUQnJf75WKB3d/k2ss9B3S3An4V2Zq/6vDAfRTo+WVhjXJ
-	uxHj75UQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cIkpMMOrooRfoB89nv81A52fCW7P0hiA+4NtK19/7lM=; b=lI4wJ9lxcqng4ckgZvU417TDZx
+	6e34BLAR/jIC8vtiUNIMNUP4hTdqlBMOL6l/fLJBf9oqwZ+y56c/kI8qnkt/hUPYssRx141i24rdr
+	4C23wRZgKlqs6fIlJ6Y5w7OQ+MnkXSOFMTJjK/WsGTn/6HpDIoQu+Pl6GItbrHSpbrY12RH0jzP8E
+	2z7S9tWlbe9qIh9T8jHY9y9j0DQBuCmNYeCMAZIDy4BtC3AhVdqNs2OA58fbqkyQROHmXig2NmBam
+	UgwgmwP67AKH/U9JSy84dNJyNQg4sVBN0jCxZPGw8qmkE6AHRYVxOTNZsx2qfXCi+C+eBp7hkmYj5
+	iIIlRmQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqvaa-0000000Gl29-09GN;
-	Sat, 08 Mar 2025 14:55:44 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1tqvlj-0000000Gljj-31BF;
+	Sat, 08 Mar 2025 15:07:15 +0000
+Received: from relay.smtp-ext.broadcom.com ([192.19.144.207])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqvYw-0000000GkvN-3LW0;
-	Sat, 08 Mar 2025 14:54:03 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-543d8badc30so3185043e87.0;
-        Sat, 08 Mar 2025 06:54:02 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741445641; x=1742050441; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=Keyp5UqooSuCZNdvM6L5386ygoD++VE/io10zX0U4b4=;
-        b=TUI7uOiadRYfS2OyIOo1cwx+WKaCJqunqDAsBDNXAouUDd86fEQQGrftMIiuBTnNju
-         /WiaSCLYOpZEt5H8h00Cuipu/EJPajVOlQrnkRxdzH/yzC9WOMeXO931IfcshA2fov8Q
-         nKhJTbxTlPGbL7VO6uukveVS9kd/ULOmNiZW+cuHxRiDrHs2WmZn9W22nP9BNNkel4RA
-         +BwTfZtUbNgfqe6JV4XoMYG+nb6ZuCqGqAv9gC+VW0/8yGVTXHCM86TYmU2z1zSq95Dw
-         yZ4DbyLbhOd7qEkDAUsaOm69m9fVujz7meK4tMw0bH85y1fhnNveAYHyOogdl7BGRycT
-         nQXA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741445641; x=1742050441;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Keyp5UqooSuCZNdvM6L5386ygoD++VE/io10zX0U4b4=;
-        b=FAIbnpJkAVjGRdlSd/gUeJvPFhrrYXuoxdUI/s4iqxoJmI8sEoBkNfsPPuDuTYVK15
-         9zh0z3RnfY8DzPV5gmRfANq98XMz/HOo4DpYlZEsN53usqz6WBEJUvjccjAG7OScP5bS
-         ytRJF4PnKZQixXjamLWJosqVwVw0x0Z902ieRnxt1WUU9pNmYAmVcHRiN+cA0VgE41fT
-         EG7TAlXPFzFvH0WpAbHx4NnUdQnEpXVYi1BVwXh1n5X4NJdaWGkpkgrE4ZM9lQdD0Vz/
-         z7yRbpQlCO4701GTC17ZHVn9I+/W6srKwTYEczq+rs1RBONh+Qe/MTpz94DDuzVq1iQv
-         XcbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCU+Nm/Qoer61y3btd+GBvG++yLP0eJdki4CjTlLuE5Ic6Lu9QSculMf8CJSJJ2M3pQxZagyERYOOzy3hCIjuF8=@lists.infradead.org, AJvYcCXrjWveJzLiUXeRyh8WFECJS3/ia7VSKvYH79mbZpvgKDvg8Q7+05KEZ/5Imr8Rx05quEvHiFtDhHAfdiGyFPp1@lists.infradead.org
-X-Gm-Message-State: AOJu0YyP8xzQ+FqY9p6kaiX16lWdcnNMoXX9VzFp6YFtv9Gymz06PHh7
-	mZ9HJ4lWgpCKOX+PeHX0D/X2CA/KuDrVKjJNGXU2E7Tm6drGXb+i
-X-Gm-Gg: ASbGncsCpl3YFQOiiaWdCeyg/Pmz8bFuT1pHZTiksJmgHx3m1R3h3KOjxA0CRh1zM2S
-	tI3+u4aM2/ZJW4khjIoj6i+4GyUccWhEmNENFloTQUvYpFiZUdLd3X5dSn4uIWzoiNTnAMZ+0rK
-	sETDFhGpE2Tfxvi4lC3KtErjbWVJ58csEkgLrPw4POFERcpZcHAJAh+YlJ/n36movmQCdJeuJHy
-	rkEwgmjTMe1lrr2b6lJhQIhIZtjdCJLqvlHgs9PBFM0jcUQ7ap9KXP8gXMRuWP5u0/U9mylb/ac
-	ToyBYoEJDaByvDeuLwHFGD0/bvInK0cQwpJWpwf+6cCED2ECCjQunnXv8Ive8hYAgQ3xmw==
-X-Google-Smtp-Source: AGHT+IFdMQ6igpHYoU+OFcqiUCRXxji/FOXpGlAvF0Doh5wY4O8NygnwUp3CThZfRGttQjNw6hi+jQ==
-X-Received: by 2002:a05:6512:3d27:b0:549:8fc0:bc30 with SMTP id 2adb3069b0e04-54990e2bbcdmr2520218e87.2.1741445640251;
-        Sat, 08 Mar 2025 06:54:00 -0800 (PST)
-Received: from [192.168.3.116] ([78.56.129.233])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5498b0bd128sm831788e87.152.2025.03.08.06.53.57
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 08 Mar 2025 06:53:59 -0800 (PST)
-Message-ID: <d1c600f1-a874-4bb8-8b9f-22a3414edfcc@gmail.com>
-Date: Sat, 8 Mar 2025 16:53:56 +0200
+	id 1tqvk6-0000000GlZI-1em1
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 15:05:35 +0000
+Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
+	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id 27291C003DF1;
+	Sat,  8 Mar 2025 07:05:32 -0800 (PST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com 27291C003DF1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
+	s=dkimrelay; t=1741446332;
+	bh=B+Gq/2+MF8fl1OnIPd3GKAn4DQ0rzPiBBwdtmpyDsZ4=;
+	h=From:To:Cc:Subject:Date:From;
+	b=mwnpKLxAzG+nX2ywY5/RN0cXhYU2n/mAakXUwREpQhtOO4mckC+JqV2hFvwAgL/li
+	 fqzRpzVLktbEljWVbQabIcZfnXJ5rovgX9XO8njs8j1C/hLkFeRk6pUOXwrg0Sg6Gb
+	 mKpWh/2dmiU7YKdKpRa+qpP8ezh50grhoUj+QRdw=
+Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id B64D61800051A;
+	Sat,  8 Mar 2025 07:05:31 -0800 (PST)
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+To: soc@kernel.org
+Cc: "Chester A . Unal" <chester.a.unal@arinc9.com>,
+	Tom Brautaset <tbrautaset@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Phil Elwell <phil@raspberrypi.com>,
+	Stefan Wahren <wahrenst@gmx.net>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	arnd@arndb.de,
+	khilman@kernel.org,
+	bcm-kernel-feedback-list@broadcom.com
+Subject: [GIT PULL] Broadcom devicetree fixes for 6.14 part 2
+Date: Sat,  8 Mar 2025 07:05:28 -0800
+Message-ID: <20250308150528.1900822-1-florian.fainelli@broadcom.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: Add Xunlong Orange Pi 3B
-To: Jonas Karlman <jonas@kwiboo.se>, Heiko Stuebner <heiko@sntech.de>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20240626230319.1425316-1-jonas@kwiboo.se>
- <20240626230319.1425316-3-jonas@kwiboo.se>
-Content-Language: en-US
-From: Arturas Moskvinas <arturas.moskvinas@gmail.com>
-In-Reply-To: <20240626230319.1425316-3-jonas@kwiboo.se>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_065402_841896_5DDCB0B6 
-X-CRM114-Status: UNSURE (   8.60  )
+X-CRM114-CacheID: sfid-20250308_070534_541575_47ADC6D0 
+X-CRM114-Status: UNSURE (   8.52  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -102,61 +80,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 6/27/24 2:03 AM, Jonas Karlman wrote:
+The following changes since commit 7eb172143d5508b4da468ed59ee857c6e5e01da6:
 
-> The Xunlong Orange Pi 3B is a single-board computer based on the
-> Rockchip RK3566 SoC.
-...> +
-> +&gmac1 {
-> +	phy-handle = <&rgmii_phy1>;
-> +	status = "okay";
-> +};
-> +
-> +&mdio1 {
-> +	rgmii_phy1: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <1>;
+  Linux 6.14-rc5 (2025-03-02 11:48:20 -0800)
 
-Jonas, were you able to test V1.1 board's Ethernet?
+are available in the Git repository at:
 
-Whenever I start the board - Ethernet initialization fails with:
-```
-[   21.140055] rk_gmac-dwmac fe010000.ethernet eth0: __stmmac_open: 
-Cannot attach to PHY (error: -19)
-```
+  https://github.com/Broadcom/stblinux.git tags/arm-soc/for-6.14/devicetree-fixes-part2
 
-But if reset is performed inside gmac - initialization succeeds.
+for you to fetch changes up to 24d4c56dd68906bf55ff8fc2e2d36760f97dce5f:
 
-Eg. patch:
-```
---- 
-linux-6.12.17.orig/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
-+++ linux-6.12.17/arch/arm64/boot/dts/rockchip/rk3566-orangepi-3b-v1.1.dts
-@@ -16,14 +16,14 @@
-  &gmac1 {
-  	phy-handle = <&rgmii_phy1>;
-  	status = "okay";
-+	snps,reset-gpio = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
-+	snps,reset-active-low;
-+	snps,reset-delays-us = <0 50000 200000>;
-  };
+  ARM: dts: BCM5301X: Fix switch port labels of ASUS RT-AC3200 (2025-03-08 07:03:46 -0800)
 
-  &mdio1 {
-  	rgmii_phy1: ethernet-phy@1 {
-  		compatible = "ethernet-phy-ieee802.3-c22";
-  		reg = <1>;
--		reset-assert-us = <20000>;
--		reset-deassert-us = <50000>;
--		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
-  	};
-  };
-```
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <50000>;
-> +		reset-gpios = <&gpio3 RK_PC2 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
+----------------------------------------------------------------
+This pull request contains Broadcom ARM-based SoCs Device Tree fixes for
+6.14, please pull the following:
 
+- Chester fixes the switch port assignments on the ASUS RT-AC3200 and
+  RT-AC5300 routers
 
-Arturas Moskvinas
+- Phil removes a Device Tree property flagging the BCM2711 ARM timers as
+  not being configured which would have prevented the use of vDSO on the
+  Pi 4 running a 32-bit kernel
+
+----------------------------------------------------------------
+Chester A. Unal (2):
+      ARM: dts: BCM5301X: Fix switch port labels of ASUS RT-AC5300
+      ARM: dts: BCM5301X: Fix switch port labels of ASUS RT-AC3200
+
+Phil Elwell (1):
+      ARM: dts: bcm2711: Don't mark timer regs unconfigured
+
+ arch/arm/boot/dts/broadcom/bcm2711.dtsi                | 2 --
+ arch/arm/boot/dts/broadcom/bcm4709-asus-rt-ac3200.dts  | 8 ++++----
+ arch/arm/boot/dts/broadcom/bcm47094-asus-rt-ac5300.dts | 8 ++++----
+ 3 files changed, 8 insertions(+), 10 deletions(-)
 
