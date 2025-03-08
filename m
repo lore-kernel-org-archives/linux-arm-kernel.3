@@ -4,83 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03727C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:12:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29329C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:27:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ILe6nI6Ki42KcccEbLeCevH0sAe1JndgxjyaSZB5rZs=; b=1ZNIzfc0Pj8a2+HKW3kzGmNkq+
-	vBF1sn6p3BTHb6J+4Dgsgf2VaOXy5epNHSBMPg2DdJrgEMmPIJH26HqCRCkmoHwdyujRSBc4jnRkF
-	GrFAk65LDY+Nyz4VSWSZORTl92Q82fJ4pNHyB+u+GqqHMwy/bDyqHecFP4dBjUgGb7urRw3nl2mnS
-	6vrYVEsZ3gDPPEMFFVCuAFYOH2dUARVdssslDCL0wP0V3kSCFcXaNVEsqTtHIvTyaxqOSKCErzDq1
-	+Yw9/YFcS3cDQsJKx7U1tmc90HwUg4ReKbL95hbjR1TmEmmdSCXXQsRZXlyK3IEr7j7tfkid2/xig
-	1EuJMsFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OD2hOtHQa0uwK+Cr0jnQY97FmNfZwoPMsZKx2Stcwn4=; b=0fzknTA+yzMCLm5lBaiMbWe+cj
+	3ea5Nik3qbW6RtoVrPk5i5iabt+zqmIIbFCDt2BsHDCleYVgACjHH7sCZf20R9HCoA7br1woGDhJW
+	Nmcda+ZqlqA505OE1HfoTwPJKFlPBhxuw1rmEIiwdnNlDBSYfzqeakmQx9cN8ON5QYipItnKY3Bdt
+	ZV+VTNQObC84jpx1minwzlHTHAwsYx3e7X/PSSDzperPPFOoisdgiWYrDN22L1e4C9TvLS2d0HJP0
+	rqCQ8s0uPo6vtF0D1/iayevXX15RGlzoTTQVSQDfXxr2quIrWBAr09AtBOrGK7UbG9ucH1XAdsKEy
+	eQDX4wLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwmg-0000000GqRV-0ssm;
-	Sat, 08 Mar 2025 16:12:18 +0000
-Received: from relay3-d.mail.gandi.net ([2001:4b98:dc4:8::223])
+	id 1tqx10-0000000GrV0-1gbz;
+	Sat, 08 Mar 2025 16:27:06 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwVr-0000000Gokd-2T31
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 08 Mar 2025 15:54:56 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D4ADB2057E;
-	Sat,  8 Mar 2025 15:54:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741449294;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ILe6nI6Ki42KcccEbLeCevH0sAe1JndgxjyaSZB5rZs=;
-	b=aq2NocH9h4KO6RCWTD52ysb3UUY2rngTh3huiE4ND/emR2/PwABy1MuqxzlmAip9zYh/W4
-	Zsx9fYHsmJ3Qi+n8kIDp0z0bTCqfU9+EJAHOjobYGkgw9ubSnPwQahh9BzU/fMCvI9jelf
-	FuEMWNITeyVkgcpnkO8Fb0iKqNixvJCUhocZNJ4hsasQZg7FufYYlFyzflsbD4PIHFw4Vw
-	U+1e3/hMRw8lDZATB8pbRCslz0nIGoEWiMoE5NHIDHOicCq3xpXcYyG0hBaS730cuuVBDI
-	naBi3rON3vRnk1/LuJaoKzTg/12N0eMiLyqlVsMgEy3M7YYKNsKWZjgpz11YqA==
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-To: davem@davemloft.net,
-	Andrew Lunn <andrew@lunn.ch>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	thomas.petazzoni@bootlin.com,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Florian Fainelli <f.fainelli@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	=?UTF-8?q?K=C3=B6ry=20Maincent?= <kory.maincent@bootlin.com>,
-	Oleksij Rempel <o.rempel@pengutronix.de>,
-	Simon Horman <horms@kernel.org>,
-	Romain Gantois <romain.gantois@bootlin.com>,
-	Piergiorgio Beruto <piergiorgio.beruto@gmail.com>,
-	Stanislav Fomichev <sdf@fomichev.me>
-Subject: [PATCH net-next v2 7/7] net: ethtool: pse-pd: Use per-PHY DUMP operations
-Date: Sat,  8 Mar 2025 16:54:39 +0100
-Message-ID: <20250308155440.267782-8-maxime.chevallier@bootlin.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
-References: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
+	id 1tqwzN-0000000GrQI-1dbJ;
+	Sat, 08 Mar 2025 16:25:26 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=OD2hOtHQa0uwK+Cr0jnQY97FmNfZwoPMsZKx2Stcwn4=; b=Xt+M408YamdyCB/pMOD0BkKihm
+	Hg6ZflaaQS2yqz405faQ82I6AxOV5ze5MwaXsxDiX7jKdOlcr18KDU9B5DRXEe4CHalzrA6aic/MM
+	ITyEbZ0xgApQGzSXFTa71eg+cMXC+e9NvmU84UNo8p24AytPE34azJbvb5lU3TqzADoEc+h+nIbAT
+	VTHUHySoUwGoyGdt5VQqBXcDVHq1KTZYnQx4OXtPUSrYIX9K1aYSr7O8ORPhsXPJMdipeOTo8byPj
+	0aFzVLwicZTfM69yy6XoIt4cW8DCrHzIRLL27pKTUkjOD4ZK9UPEbOnMW+GXEyLIa2la5dZUzh2VN
+	gdlbWLzA==;
+Received: from [194.95.143.137] (helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tqwz8-0003oR-SC; Sat, 08 Mar 2025 17:25:10 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>,
+ Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
+ Yao Zi <ziyao@disroot.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pwm@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: pwm: rockchip: Add rockchip,rk3528-pwm
+Date: Sat, 08 Mar 2025 17:25:09 +0100
+Message-ID: <5942715.DvuYhMxLoT@phil>
+In-Reply-To: <pnlkcc2rl7fegltovgtvp4xdxhonw72rclvhn7qmvb7xyuullm@xf5x6lcigji3>
+References: <20250307120004.959980-1-amadeus@jmu.edu.cn>
+ <20250307120004.959980-2-amadeus@jmu.edu.cn>
+ <pnlkcc2rl7fegltovgtvp4xdxhonw72rclvhn7qmvb7xyuullm@xf5x6lcigji3>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudefleeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhvfevufffkffojghfggfgsedtkeertdertddtnecuhfhrohhmpeforgigihhmvgcuvehhvghvrghllhhivghruceomhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepveegtdffleffleevueellefgjeefvedvjefhheegfefgffdvfeetgeevudetffdtnecukfhppedvrgdtudemtggsudelmeekugegtgemlehftddtmegstgdvudemkeekleelmeehgedttgemvgehlegvnecuvehluhhsthgvrhfuihiivgepgeenucfrrghrrghmpehinhgvthepvdgrtddumegtsgduleemkegugegtmeelfhdttdemsggtvddumeekkeelleemheegtdgtmegvheelvgdphhgvlhhopehfvgguohhrrgdrhhhomhgvpdhmrghilhhfrhhomhepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepuggrvhgvmhesuggrvhgvmhhlohhfthdrnhgvthdprhgtphhtthhopegrnhgurhgvfieslhhunhhnrdgthhdprhgtphhtthhopehkuhgsrgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepvgguuhhmr
- giivghtsehgohhoghhlvgdrtghomhdprhgtphhtthhopehprggsvghnihesrhgvughhrghtrdgtohhmpdhrtghpthhtohephhhkrghllhifvghithdusehgmhgrihhlrdgtohhmpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-GND-Sasl: maxime.chevallier@bootlin.com
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_075455_771593_F320CBF9 
-X-CRM114-Status: UNSURE (   7.97  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250308_082525_449024_9BC49AD0 
+X-CRM114-Status: GOOD (  13.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,32 +78,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Leverage the per-phy ethnl DUMP helpers in case we have more that one
-PSE PHY on the link.
+Hi Uwe,
 
-Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
----
-V2: No changes
+Am Freitag, 7. M=C3=A4rz 2025, 18:07:47 MEZ schrieb Uwe Kleine-K=C3=B6nig:
+> On Fri, Mar 07, 2025 at 08:00:03PM +0800, Chukun Pan wrote:
+> > Document pwm compatible for rk3528 which is fallback compatible
+> > of rk3328-pwm group.
+> >=20
+> > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+>=20
+> to prevent binding warnings it's probably sensible to let both patches
+> go in via the same tree at the same time. Feel free to take the binding
+> patch via rockchip/arm-soc.
+>=20
+> Acked-by: Uwe Kleine-K=C3=B6nig <ukleinek@kernel.org>
 
- net/ethtool/pse-pd.c | 6 ++++++
- 1 file changed, 6 insertions(+)
+You already have the rk3562 binding in your for-next branch [0], which
+could create merge-conflicts later on.
 
-diff --git a/net/ethtool/pse-pd.c b/net/ethtool/pse-pd.c
-index 4f6b99eab2a6..f3d14be8bdd9 100644
---- a/net/ethtool/pse-pd.c
-+++ b/net/ethtool/pse-pd.c
-@@ -314,4 +314,10 @@ const struct ethnl_request_ops ethnl_pse_request_ops = {
- 
- 	.set			= ethnl_set_pse,
- 	/* PSE has no notification */
-+
-+	.dump_start		= ethnl_dump_start_perphy,
-+	.dump_one_dev		= ethnl_dump_one_dev_perphy,
-+	.dump_done		= ethnl_dump_done_perphy,
-+
-+	.allow_pernetdev_dump	= true,
- };
--- 
-2.48.1
+This patch already contains it, so should fit neatly onto your branch.
+
+And binding warnings only come from linux-next, so won't trigger as the
+pwm will feed the binding there too :-)
+
+So I guess it might be better to take the binding through the pwm tree
+and me then picking up the dts patch.
+
+=46or the binding
+Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+
+
+[0] https://web.git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/=
+commit/?h=3Dpwm/for-next&id=3D058210e84b48dbb670a6bf72afaed6fbd8043a37
+
 
 
