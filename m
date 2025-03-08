@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29329C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:27:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D4BEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  8 Mar 2025 16:31:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OD2hOtHQa0uwK+Cr0jnQY97FmNfZwoPMsZKx2Stcwn4=; b=0fzknTA+yzMCLm5lBaiMbWe+cj
-	3ea5Nik3qbW6RtoVrPk5i5iabt+zqmIIbFCDt2BsHDCleYVgACjHH7sCZf20R9HCoA7br1woGDhJW
-	Nmcda+ZqlqA505OE1HfoTwPJKFlPBhxuw1rmEIiwdnNlDBSYfzqeakmQx9cN8ON5QYipItnKY3Bdt
-	ZV+VTNQObC84jpx1minwzlHTHAwsYx3e7X/PSSDzperPPFOoisdgiWYrDN22L1e4C9TvLS2d0HJP0
-	rqCQ8s0uPo6vtF0D1/iayevXX15RGlzoTTQVSQDfXxr2quIrWBAr09AtBOrGK7UbG9ucH1XAdsKEy
-	eQDX4wLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=E4BDdolMJwhTmd3sg9nav24+PSwSQ3Or8NtyKYxub74=; b=OwlsyzaF/fc+9dU1Aks7eadMXo
+	Fhji/Lcxc625mD+AbsEDKbj+sE6edEKTv7wHO/A4HVp1FZ2BnoN+6nH00spsNnJ51bInrrLvSbKVA
+	qqhwUtmdsUPdz4r2NFacsewGoBlDr90+XYEovgdc6kb4Xps2gGtGdTf8Rugnf8vyTxvldeHQZaDzg
+	kLlslptqX0m4+oxS6m5LXrmlY6i/kHI4lH27bnWAPBrAUJpd03lcyd2elJpfDj+izjrhvVBvitduu
+	/jYA2lf0+VNdhpGvL6TVc0xlko7mBqYKv2QMFCl7bHn6xQ854er8bZ8v17MJfUGB/ZQTpkobNOQuj
+	t1lsMOQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqx10-0000000GrV0-1gbz;
-	Sat, 08 Mar 2025 16:27:06 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tqx5C-0000000GrnZ-2Njd;
+	Sat, 08 Mar 2025 16:31:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tqwzN-0000000GrQI-1dbJ;
-	Sat, 08 Mar 2025 16:25:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=OD2hOtHQa0uwK+Cr0jnQY97FmNfZwoPMsZKx2Stcwn4=; b=Xt+M408YamdyCB/pMOD0BkKihm
-	Hg6ZflaaQS2yqz405faQ82I6AxOV5ze5MwaXsxDiX7jKdOlcr18KDU9B5DRXEe4CHalzrA6aic/MM
-	ITyEbZ0xgApQGzSXFTa71eg+cMXC+e9NvmU84UNo8p24AytPE34azJbvb5lU3TqzADoEc+h+nIbAT
-	VTHUHySoUwGoyGdt5VQqBXcDVHq1KTZYnQx4OXtPUSrYIX9K1aYSr7O8ORPhsXPJMdipeOTo8byPj
-	0aFzVLwicZTfM69yy6XoIt4cW8DCrHzIRLL27pKTUkjOD4ZK9UPEbOnMW+GXEyLIa2la5dZUzh2VN
-	gdlbWLzA==;
-Received: from [194.95.143.137] (helo=phil.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tqwz8-0003oR-SC; Sat, 08 Mar 2025 17:25:10 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: Chukun Pan <amadeus@jmu.edu.cn>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <ukleinek@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Jonas Karlman <jonas@kwiboo.se>,
- Yao Zi <ziyao@disroot.org>, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: pwm: rockchip: Add rockchip,rk3528-pwm
-Date: Sat, 08 Mar 2025 17:25:09 +0100
-Message-ID: <5942715.DvuYhMxLoT@phil>
-In-Reply-To: <pnlkcc2rl7fegltovgtvp4xdxhonw72rclvhn7qmvb7xyuullm@xf5x6lcigji3>
-References: <20250307120004.959980-1-amadeus@jmu.edu.cn>
- <20250307120004.959980-2-amadeus@jmu.edu.cn>
- <pnlkcc2rl7fegltovgtvp4xdxhonw72rclvhn7qmvb7xyuullm@xf5x6lcigji3>
+	id 1tqx3Y-0000000Grfo-3Sdy
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 08 Mar 2025 16:29:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 67570A459DF;
+	Sat,  8 Mar 2025 16:24:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0032C4CEE0;
+	Sat,  8 Mar 2025 16:29:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741451383;
+	bh=SdeY4HUDR25gSwHntex8TgQMRjhWp1R3x/osJlwkf2A=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NSzp+BIy+RyYAh5eXPfpEeXytNRO+Yn6QDm61AqJR8JPEZz8lPYUdH5rwAtQ05Xgi
+	 nJ52JT45pfwi6qQmjNAQl3PQm42j3TaIFdCd9qBeOGwEiLP5I4ChuxG/eiUIvHz+gf
+	 vFNeOPjjYakfsWHf3baQaOKsl1voaEzszbfYyZf3MV94dErx1nbWai2CFl3Azkw15j
+	 rPpzaDB7MAis2oreAPGOwD994ClDh/BRvfWkNboiV69CTNipPu/XspI5zRPgzAWTgR
+	 owYLqgaQkKxX174yazNjuFoEFyme0FYmA2oF6DDFWudPFsQy0VFIbtdTW9FkcU73tW
+	 wdzVAijHUAy0A==
+Date: Sat, 8 Mar 2025 16:29:28 +0000
+From: Jonathan Cameron <jic23@kernel.org>
+To: Matti Vaittinen <mazziesaccount@gmail.com>
+Cc: David Lechner <dlechner@baylibre.com>, Matti Vaittinen
+ <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen <lars@metafoo.de>,
+ Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Lad Prabhakar
+ <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
+ <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
+ <nuno.sa@analog.com>, Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+ Guillaume Stols <gstols@baylibre.com>, Dumitru Ceclan
+ <mitrutzceclan@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>, Matteo
+ Martelli <matteomartelli3@gmail.com>, Alisa-Dariana Roman
+ <alisadariana@gmail.com>, Ramona Alexandra Nechita
+ <ramona.nechita@analog.com>, AngeloGioacchino Del Regno
+ <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH v5 03/10] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <20250308162928.72bd1d1b@jic23-huawei>
+In-Reply-To: <54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
+References: <cover.1740993491.git.mazziesaccount@gmail.com>
+	<e71c63c2f61135f9a8c7884525aab2c48f1e84c2.1740993491.git.mazziesaccount@gmail.com>
+	<CAMknhBGQaqFZJsPAoauZL4S5MYtN05EOQ-BO2vw5gH+Z2RLOhw@mail.gmail.com>
+	<54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_082525_449024_9BC49AD0 
-X-CRM114-Status: GOOD (  13.80  )
+X-CRM114-CacheID: sfid-20250308_082944_993109_98BA58DD 
+X-CRM114-Status: GOOD (  47.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,38 +89,175 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Uwe,
+On Wed, 5 Mar 2025 12:54:33 +0200
+Matti Vaittinen <mazziesaccount@gmail.com> wrote:
 
-Am Freitag, 7. M=C3=A4rz 2025, 18:07:47 MEZ schrieb Uwe Kleine-K=C3=B6nig:
-> On Fri, Mar 07, 2025 at 08:00:03PM +0800, Chukun Pan wrote:
-> > Document pwm compatible for rk3528 which is fallback compatible
-> > of rk3328-pwm group.
+> Thanks for the review David.
+>=20
+> On 04/03/2025 11:25, David Lechner wrote:
+> > On Mon, Mar 3, 2025 at 12:32=E2=80=AFPM Matti Vaittinen
+> > <mazziesaccount@gmail.com> wrote: =20
+> >>
+> >> There are ADC ICs which may have some of the AIN pins usable for other
+> >> functions. These ICs may have some of the AIN pins wired so that they
+> >> should not be used for ADC.
+> >>
+> >> (Preferred?) way for marking pins which can be used as ADC inputs is to
+> >> add corresponding channels@N nodes in the device tree as described in
+> >> the ADC binding yaml.
+> >>
+> >> Add couple of helper functions which can be used to retrieve the chann=
+el
+> >> information from the device node.
+> >>
+> >> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+> >>
+> >> --- =20
+>=20
+> >> + *
+> >> + * Return:     Number of found channels on succes. Negative value to =
+indicate =20
 > >=20
-> > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
+> > s/succes/success/ =20
 >=20
-> to prevent binding warnings it's probably sensible to let both patches
-> go in via the same tree at the same time. Feel free to take the binding
-> patch via rockchip/arm-soc.
+> Thanks!
 >=20
-> Acked-by: Uwe Kleine-K=C3=B6nig <ukleinek@kernel.org>
+> >> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
+> >> +                                         const struct iio_chan_spec *=
+template,
+> >> +                                         int max_chan_id,
+> >> +                                         struct iio_chan_spec **cs)
+> >> +{
+> >> +       struct iio_chan_spec *chan_array, *chan;
+> >> +       int num_chan =3D 0, ret;
+> >> +
+> >> +       num_chan =3D iio_adc_device_num_channels(dev);
+> >> +       if (num_chan < 1)
+> >> +               return num_chan;
+> >> +
+> >> +       chan_array =3D devm_kcalloc(dev, num_chan, sizeof(*chan_array),
+> >> +                                 GFP_KERNEL);
+> >> +       if (!chan_array)
+> >> +               return -ENOMEM;
+> >> +
+> >> +       chan =3D &chan_array[0];
+> >> +
+> >> +       device_for_each_child_node_scoped(dev, child) {
+> >> +               u32 ch;
+> >> +
+> >> +               if (!fwnode_name_eq(child, "channel"))
+> >> +                       continue;
+> >> +
+> >> +               ret =3D fwnode_property_read_u32(child, "reg", &ch);
+> >> +               if (ret)
+> >> +                       return ret;
+> >> +
+> >> +               if (max_chan_id !=3D -1 && ch > max_chan_id)
+> >> +                       return -ERANGE;
+> >> + =20
+> >=20
+> > Should we use return dev_err_probe() on these to help with debugging a =
+bad dtb?
+> >  =20
+>=20
+> I am not fan of using dev_err_probe() in a 'library code'. This is=20
+> because we never know if there'll be some odd use-case where this is not=
+=20
+> called from the probe.
+>=20
+> All in all, I'd leave adding most of the debugs to the callers -=20
+> especially because we do not expect to have bad device-trees after the=20
+> initial 'development stage' of a board. The board 'development stage'=20
+> should really reveal bugs which prevent the channels from being=20
+> registered - and after the DT is correct, these debug prints become=20
+> unnecessary (albeit minor) binary bloat.
+>=20
+> >> +               *chan =3D *template;
+> >> +               chan->channel =3D ch;
+> >> +               chan++;
+> >> +       }
+> >> +
+> >> +       *cs =3D chan_array;
+> >> +
+> >> +       return num_chan;
+> >> +}
+> >> +EXPORT_SYMBOL_NS_GPL(devm_iio_adc_device_alloc_chaninfo_se, "IIO_DRIV=
+ER"); =20
+> >=20
+> > We can make this less verbose by setting #define
+> > DEFAULT_SYMBOL_NAMESPACE at the start of the file. Then we can just do
+> > EXPORT_SYMBOL_GPL() throughout the rest of the file. =20
+>=20
+> I am not sure what to think of this. I use the good old 'ctrl + ]' in my=
+=20
+> editor when I need to check how a function was supposed to be used. That=
+=20
+> jumps to the spot of code where the function is. I'd like to see the=20
+> namespace mentioned there in order to not accidentally miss the fact the=
+=20
+> function belongs to one.
+>=20
+> OTOH, I do like simplifications. Yet, the added simplification might not=
+=20
+> warrant the namespace not being visible in the function definition.
+>=20
+> > Also, I would prefer if the namespace matched config name (IIO_ADC_HELP=
+ER). =20
+>=20
+> I had some lengthy discussion about this with Andy and Jonathan during=20
+> earlier review versions. In short, I don't like the idea of very=20
+> fragmented namespaces in IIO, which will just complicate the drivers=20
+> without providing any obvious benefit.
+>=20
+> https://lore.kernel.org/all/20250222174842.57c091c5@jic23-huawei/
+>=20
+> >> +
+> >> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
+> >> +                                         const struct iio_chan_spec *=
+template,
+> >> +                                         int max_chan_id,
+> >> +                                         struct iio_chan_spec **cs);
+> >> + =20
+> >=20
+> > There are some different opinions on this, but on the last patch I did
+> > introducing a new namespace, the consensus seems to be that putting
+> > the MODULE_IMPORT_NS() in the header file was convenient so that users
+> > of the API don't have to remember to both include the header and add
+> > the import macro.
+> >  =20
+>=20
+> I do like this suggestion, and I believe this would be the balance=20
+> between getting the benefit of hiding part of the symbols - while not=20
+> unnecessarily complicating the callers. I know some people are opposing=20
+> it though. My personal opinion is that having the MODULE_IMPORT_NS() in=20
+> a header would be neatly simplifying the calling code with very little=20
+> harm, especially here where including the header hardly has use-cases=20
+> outside the IIO ADC.
+>=20
+> Unfortunately, the "safety" seems to often be a synonym for just "making=
+=20
+> it intentionally hard". As Finnish people say: "K=C3=A4rsi, k=C3=A4rsi,=20
+> kirkkaamman kruunun saat". :)
+> (Roughly translated as "Suffer, suffer, you will get a brighter crown").
+>=20
+> Let's hear what Jonathan thinks of your suggestion.
 
-You already have the rk3562 binding in your for-next branch [0], which
-could create merge-conflicts later on.
+For this particular case my intent was that all the IIO exports that
+are suitable for use in simple IIO drives will be in this namespace,
+we just haven't started that conversion yet.
 
-This patch already contains it, so should fit neatly onto your branch.
+As such, having it defined from a header for this helper isn't a good
+thing to do.  Generally I prefer to see in driver code what namespaces
+are involved but do understand the other viewpoint. In this case I
+definitely don't think it is appropriate unless we go for a specific namesp=
+ace
+for just this helper.
 
-And binding warnings only come from linux-next, so won't trigger as the
-pwm will feed the binding there too :-)
+Jonathan
 
-So I guess it might be better to take the binding through the pwm tree
-and me then picking up the dts patch.
-
-=46or the binding
-Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-
-
-[0] https://web.git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git/=
-commit/?h=3Dpwm/for-next&id=3D058210e84b48dbb670a6bf72afaed6fbd8043a37
-
+>=20
+> Thanks!
+> 	-- Matti
+>=20
 
 
