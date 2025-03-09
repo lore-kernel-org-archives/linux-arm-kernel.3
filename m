@@ -4,96 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D85C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7AEC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:53:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=DaUClHKbrw3O3VoC5TI5qZwqGGAi6KJugps1aNy905c=; b=HVs90JhDRV0tEXBFZKNUNpMZpu
-	aDN1QX8HWIrPXbiUFKRkKvB0mf5MEmVDE3eNSAivZQPoGJ4eR/vBnhZRAiTbmI+6B77HiKIp3SExI
-	1n6WUgwjH9VcNySdGPi9bZVyuEgr3J5bolxxwft/KcabnvbG1DUAaIPwrMUMXSQdev+cNBcw9pS6B
-	Vx0v7udHB19iLuie2EStp4gIvvrHSSvcVYaUVQ1mouoj6JksNQvDlR96+CrWxBaeZ5lDvEqA1lFEO
-	v7b1LjzUAzlXjr1be6UwlnDkQ26smzn0DVn4KrRiQklF5VRjYuMPYiGc9BnzPvsd/CmxGy5kopLcH
-	ixHE6tAg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qmS7nqpKiN5EX5M1pPLcoLmn7dsa/ZTSXRmm6zpZCdQ=; b=LtstqcfKDLNo86H4caBKya2Vsk
+	JKlYI59HPDXkFri7v9xP2BQafoOOMX+yH2u/S4eA/whvXOuYiCeJ659rDrxxNsQUyXE6NHVy0T4Nd
+	a2XGBt1Qnx3WYhwesCu0Aof/j0/nrp0ym7AR4oODvS6o8m1tGkhoI58Yfeu1Dol9CSoODko8/slro
+	+W3rp1o63E8LVlY5TZNnlQQ8PbYSvfx61z8VPauydkYZbH4/Mu7bQJlDU3/7jC3sMKUWw9WGtfq8A
+	VNFTbakckTlsxhXCDxBI2dPY49GUIavXaZDrRlByCvuUfg0NnzLE6cbB5mVWfMgBhnTNB6T8+GFXK
+	Y8/HB+3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMgi-000000015zH-2avn;
-	Sun, 09 Mar 2025 19:51:52 +0000
-Received: from fhigh-a3-smtp.messagingengine.com ([103.168.172.154])
+	id 1trMiI-0000000167U-1LQB;
+	Sun, 09 Mar 2025 19:53:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMf5-000000015l3-3QmY
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 19:50:13 +0000
-Received: from phl-compute-10.internal (phl-compute-10.phl.internal [10.202.2.50])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 9BE011140126;
-	Sun,  9 Mar 2025 15:50:10 -0400 (EDT)
-Received: from phl-mailfrontend-02 ([10.202.2.163])
-  by phl-compute-10.internal (MEProxy); Sun, 09 Mar 2025 15:50:10 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1741549810; x=1741636210; bh=DaUClHKbrw
-	3O3VoC5TI5qZwqGGAi6KJugps1aNy905c=; b=woALsv8FyOgj8kYQA2rUo80QBC
-	z2wp7bM167KITuyD9pzCV/pcoPNc8bjUNMgYWuqDDTjV8Biv+8kgxudPfJ1EEfzt
-	0s9gDCspKHMaMsIXPhXFamWeN3097JBiDVTVttHowq46t2R0cxDDyr0jiXZcqmAn
-	QYEZW9/6APuDw9tdviCJWHj5gnsglZkH2yFfZpgPFvdXkgCW9K0WnZIpvRPpebr/
-	wXsQSfm6u0GnZJnozLlGdiKQQyWeeWamQC69E31gK6jY2vNcnu3VE7yPo4dvIjRA
-	90Zc4eZR171B+vHBYpjR64VL6yk3XinD+fvcGTuhgVtNwOZfDqA0wqxV6uCQ==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1741549810; x=1741636210; bh=DaUClHKbrw3O3VoC5TI5qZwqGGAi6KJugps
-	1aNy905c=; b=ShV/1LmmFrGPE6HYczmAX9GCGEss9pPdhLj2wSGtdu1mHlnPghe
-	wX2YH+i0vmfcSxgwhVi8DmzYFHyQhzWa6HsZpjBU9EGi3hRYbMLQ1lgDpQJM+/Gc
-	bwiHTMma1iebDwHx47PEMp9rwnBE9hz2wPtmyVpx2lf7kDRqnN9E7YbesJrjZKhb
-	dvf5u3CuvJ2XV4jAQ0qtIXmRcOh0H2t2F2bqsrhS+k1v3A7HK9M3xq2YYFgFBysW
-	BO7IWnDpZLSWRj8kVpcvkM1YZXDOsUTK/WyAfZ2ytzTyhvmp+GaKQZ7QMCDtP+16
-	Ib+rPrnYifuFi/94rRsYZEpQBA62lGoyLNg==
-X-ME-Sender: <xms:8vDNZ8q18oWNmIYj0GAuYMd8yGee5y_xdXmLyk7FPzjzeF0dT4WqzQ>
-    <xme:8vDNZyr_2CG-UAxaCjdRC3E7zZgccatvH13yorIqCxrw16LDrvu6mEwkWMH_ogHZb
-    k3OyWayBgK3ShiMfco>
-X-ME-Received: <xmr:8vDNZxO5vPxSDic7Y4BBrc1UPBjqCFehqIqfwNPJ2NmxCd19CJOsORwbyb4kFtOvW6aKQpnEDKRb9rgcJ1NUZLAOabW4SN6h9xdXmhUCP0IZK6xA9B_FjJMbwvy6z5g>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudejfeefucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvf
-    evufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehs
-    vhgvnhesshhvvghnphgvthgvrhdruggvvheqnecuggftrfgrthhtvghrnhepudeiiefhge
-    etgfektdeiffekhfejgeeikefftdfghfegveegkeegjeetueffvdeinecuffhomhgrihhn
-    pehgihhthhhusgdrtghomhenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmh
-    grihhlfhhrohhmpehsvhgvnhesshhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthht
-    ohepgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtohepshhotgeslhhishhtshdrlh
-    hinhhugidruggvvhdprhgtphhtthhopegrshgrhhhisehlihhsthhsrdhlihhnuhigrdgu
-    vghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinh
-    hfrhgruggvrggurdhorhhgpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgv
-    rhdrkhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:8vDNZz5LCYcM-4Ppa7AOKDtq9eMw4qvkPyo7O6E5GGTjFOQrUg0CWw>
-    <xmx:8vDNZ76B-jVf8fH8XvgGOXO04NF6RiEP9cuHhoqBvuqZzEIvRgRLcw>
-    <xmx:8vDNZziOSOwVrP2G0OqvYplgvNaDUX78kx5xkWtOj8ycUg_EOVmVkA>
-    <xmx:8vDNZ15v6OjduFyzo4Pi3I2viOjfp_9VVrBiCA9gNqPt5nRibJ6_fg>
-    <xmx:8vDNZ-1LqTIRdsGedz1GOZetkVdp4JoVcWROu9GVApsj5VXiiW-Tzyhq>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 9 Mar 2025 15:50:09 -0400 (EDT)
-From: Sven Peter <sven@svenpeter.dev>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Apple SoC MAINTAINERS updates for v6.14 / arm/fixes
-Date: Sun,  9 Mar 2025 20:49:26 +0100
-Message-Id: <20250309194926.51824-1-sven@svenpeter.dev>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	id 1trMfj-000000015rG-0chH;
+	Sun, 09 Mar 2025 19:50:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5677F5C295C;
+	Sun,  9 Mar 2025 19:48:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D01DDC4CEED;
+	Sun,  9 Mar 2025 19:50:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741549849;
+	bh=8ySbkKhFRXNuJHrR+dQojieyUf+Le6VlZ6dqAVE1rBA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=vL4uHPJ9xNFvMEfLN4Ec7wuCyQBk4CvGg96VRLiQVjTdErydTSp7ri+PuMR/AqNvE
+	 Kmgts1dW8zJBzTEUubXkXyzukwbGalmCnd/ojq/0vSQE12plU3rrF54+8cge6/zdoz
+	 Bbnjlswtzje1uBkOeg6DHIWLXh07ojZf0+S86fVRH1SplUiVWdh0Rq58oevPcccqC1
+	 tu0B8TVkzt2MJsS4wJjDkZPYnQfIRa1yNK1V7pmaD2/CCmWCK3bbQAdvYACbUdlPqT
+	 Z80aksp2iPxS9LGFWTaCTU8qI5zHnwm9m6z3Fr2E2A8w72C8vFdVyOpUDGr50KAjPO
+	 TaRGpHsWSquBQ==
+Message-ID: <668ada6a-3e53-474d-be81-d69d75277c26@kernel.org>
+Date: Sun, 9 Mar 2025 20:50:39 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/19] dt-bindings: mfd: mediatek: mt6397: Add accdet
+ subnode
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ kernel@collabora.com, linux-sound@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-pm@vger.kernel.org
+References: <20250305-mt6359-accdet-dts-v4-0-e5ffa5ee9991@collabora.com>
+ <20250305-mt6359-accdet-dts-v4-1-e5ffa5ee9991@collabora.com>
+ <20250306-certain-jasmine-mastiff-fd67ba@krzk-bin>
+ <2fa6037d-b5e9-45b2-a5d5-dbc92fb3434b@notapiano>
+ <0663e03e-e331-4a06-be95-ce8d9059ed6b@kernel.org>
+ <cb2820d8-84e8-49ca-b497-1ea815679a3d@notapiano>
+Content-Language: en-US
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <cb2820d8-84e8-49ca-b497-1ea815679a3d@notapiano>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_125011_926941_83EB61AF 
-X-CRM114-Status: UNSURE (   8.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250309_125051_277767_1B2B4EC2 
+X-CRM114-Status: GOOD (  17.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,48 +132,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Arnd,
+On 07/03/2025 14:22, Nícolas F. R. A. Prado wrote:
+> On Fri, Mar 07, 2025 at 08:11:26AM +0100, Krzysztof Kozlowski wrote:
+>> On 06/03/2025 13:19, Nícolas F. R. A. Prado wrote:
+>>>>>    It is interfaced to host controller using SPI interface by a proprietary hardware
+>>>>>    called PMIC wrapper or pwrap. MT6397/MT6323 PMIC is a child device of pwrap.
+>>>>> @@ -224,6 +225,30 @@ properties:
+>>>>>      description:
+>>>>>        Pin controller
+>>>>>  
+>>>>> +  accdet:
+>>>>> +    type: object
+>>>>> +    additionalProperties: false
+>>>>> +    description:
+>>>>> +      The Accessory Detection module found on the PMIC allows detecting audio
+>>>>> +      jack insertion and removal, as well as identifying the type of events
+>>>>> +      connected to the jack.
+>>>>> +
+>>>>> +    properties:
+>>>>> +      compatible:
+>>>>> +        const: mediatek,mt6359-accdet
+>>>>
+>>>> You just removed the other file, no folding happened here. Drop the
+>>>> accdet node and fold this into parent.
+>>>
+>>> Sorry, I'm still not sure what you mean by folding here then. Right now the
+>>> accdet is a subnode of the PMIC. If you want me to remove the accdet node, where
+>>
+>> Yes
+>>
+>>> would its compatible and property go?
+>>
+>> compatible: nowhere, because it is close to redundancy.
+>>
+>> property: to the parent pmic node.
+>>
+>>     pmic {
+>>         compatible = "mediatek,mt6359";
+>>         interrupt-controller;
+>>         #interrupt-cells = <2>;
+>>
+>>         mediatek,hp-eint-high;
+>>     };
+> 
+> I'm not sure that's right. The ACCDET submodule does have some resources, IRQs,
+> that it registers in its mfd cell, see patch 2 of this series [1]. It also has
 
-As briefly mentioned on IRC we also have updates for our section in the
-MAINTAINERS file. We're adding Neal Gompa as a reviewer and I also picked
-up a patch from November last year that got lost (ouch) which adds the files
-for our SPI controller to make sure we're CC'ed for any patches.
+Binding is supposed to be complete, so why suddenly we have here some
+resources which you did not add?
 
-Please note that this is based on 6.14-rc5 like your arm/fixes branch
-since we would otherwise get a conflict with previous updates to MAINTAINERS.
-Hope that works!
+Post complete binding, so you will get proper review.
 
+> its own driver (sound/soc/codecs/mt6359-accdet.c) that probes based on this
 
-Best,
+Drivers do not define bindings.
 
-Sven
+> compatible and handles those interrupts. Why would it not get its own node like
 
+Sorry, cannot go. You cannot document binding post factum and claim "I
+have a driver which uses that compatible".
 
-The following changes since commit 7eb172143d5508b4da468ed59ee857c6e5e01da6:
+This would be a nice way to bypass review.
 
-  Linux 6.14-rc5 (2025-03-02 11:48:20 -0800)
+> the other MFD cells?
 
-are available in the Git repository at:
+I explained why. I gave you the exact reason.
 
-  https://github.com/AsahiLinux/linux.git tags/asahi-soc-maintainers-6.14-fixes
-
-for you to fetch changes up to 3a0d2facfa645ce2fca794a1105d0634ab722008:
-
-  MAINTAINERS: Add myself (Neal Gompa) as a reviewer for ARM Apple support (2025-03-09 20:34:36 +0100)
-
-----------------------------------------------------------------
-Two updates to our ARM/APPLE MACHINE SUPPORT section in MAINTAINERS:
-
-- Added Neal Gompa as reviewer
-- Added the files for our SPI controller driver
-
-----------------------------------------------------------------
-Hector Martin (1):
-      MAINTAINERS: Add apple-spi driver & binding files
-
-Neal Gompa (1):
-      MAINTAINERS: Add myself (Neal Gompa) as a reviewer for ARM Apple support
-
- MAINTAINERS | 3 +++
- 1 file changed, 3 insertions(+)
+Best regards,
+Krzysztof
 
