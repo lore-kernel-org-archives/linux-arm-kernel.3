@@ -4,77 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C5C2C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:54:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEACC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:56:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nHea8PmPDTeNeLkkCyL7fF90d0PRsdlWXm0yd05eBrY=; b=vMLqeA45k7ThGYnAkbRU6QROlK
-	gihBEhcV+upB7Z8Ezvy4qM77emqYhx1sro3HJXfzL7tS/YDEsVK9MQDx8W/MKkgiP7kvqI3iNaXPf
-	GBWJBZcvE3JwSJS6qOJ0nEUvG1Cc7ZPx01aYBauv0u0KH/n8xGuyQV1bKH26/Qtjk8KdjftZXuvN/
-	cJQoU5qvvFw/MIIDfxJ9IaqCQk5F5cK3z6UTqRZm3O/tk3W1W0eVByhPeLBsawcaX+o2f6hLPRunH
-	5MojZefj/0vapEAQUw0yaqng9XWy2xcGe2YadG+N0i7SgTt0WDDSZDRCDELHCgMlPeBeKXUC9OMzf
-	3UdnsilQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=; b=UulPkfqZf1U638qkF1a96a7KoK
+	mOttApRpeth+k2f3s54XEZ/KQ2enTdWox433GY7HoAFv24m6bmgGaVijzvY1F6rBuOS5caYcGjbOP
+	Eznk03KXysKmhseDKW4ws2rP0GZBxFWyITItxHiktu7D1FVrG9qJfJX0nV6P4gJTBfwkgbO4PN1H6
+	E9qrtfoZ69g9Vjecsj/wi8QtWawQBWur0Kd5gOqe7qzqTA9mvucx/kI9m/D0LAvuu5gLXQaSRfVbC
+	E/xjyJ35lg1XqoFbfvHrv7ksoBNW48nhb+GRoEqFQ82RyYnljAkAyeFLlpzSCDux4Q7bgUborz3P5
+	m8pEgcrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAYb-000000004wi-1eDk;
-	Sun, 09 Mar 2025 06:54:41 +0000
-Received: from smtpbg151.qq.com ([18.169.211.239])
+	id 1trAaC-0000000056v-1Y7b;
+	Sun, 09 Mar 2025 06:56:20 +0000
+Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAWi-000000004me-1IQa;
-	Sun, 09 Mar 2025 06:52:46 +0000
-X-QQ-mid: bizesmtpip2t1741503090t8sbs1w
-X-QQ-Originating-IP: XwhKMfl3zf720/W1DEA9jiyONxzExdR32tccPWBx8ps=
-Received: from [IPV6:240f:10b:7440:1:893e:bed3 ( [localhost])
-	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sun, 09 Mar 2025 14:51:24 +0800 (CST)
-X-QQ-SSF: 0000000000000000000000000000000
-X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 12559739766669339929
-Message-ID: <4F8F58DC9699ED12+95e301f9-a9f1-4f6b-8b8f-21c6c1df5cc2@radxa.com>
-Date: Sun, 9 Mar 2025 15:51:24 +0900
+	id 1trAX7-000000004pO-0oZM
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 06:53:10 +0000
+Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso5249585a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:53:08 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741503187; x=1742107987; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=;
+        b=cvaM8HCBBS9BkbdmUFsCelp3N55657b1A840YHtRv5CNmFLXj8qpdtAT2RfHPWqtZA
+         QK+oV1vt/m391EZJCDERUO5jzXjQtUsR1ZBdfmkOS7WwBPsyUHzdByS6ApivLak1Ly4j
+         t4IYWh907+m7GqU1OsN6J1f5WZQLYsGTF0eg360vY8I2af3xvS1VO8ykDeHPWepke7YV
+         pPoBGsVo6OrP0GKJXu7v+0Tp1xbY41THDUeh4ijMXekusCuhTW3604B9vln3hSTE2wPx
+         IareXm2QfrHgexkEqKWYjh2cfraI4vx5BiCaSWkxdY0VH2EjxdU7d+3B+YqbQ6qmafB+
+         JpIQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741503187; x=1742107987;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=;
+        b=aR0szLIqOpZ5aQ1j6qB6uyhj6runpQI9fZyGoMO7+pisF6QK3asOAXNcxhx95fbzlQ
+         92FWPjK+FDs7sm2aOlgA9/dGjhdC0GH9uh6fWTG5inNneN3mZbelaoAKykauWTg8fHE/
+         jAe/gZ0qiY6lIuUStK3qHAuukE9tTPX8nb1KXT+BKGdoGvc75QiTyEY7kr0U6gZH6ifX
+         E8HqXTT1A1mLsXHdehxQknD6NAPBEE74EgoBJ2zn4kRXVP2tlb66U29DjpCUQ6FAFbOe
+         ALxekBHJXhm8Fp8V37iTclbJ5C3KFqbFBZb/+9dRha00CnyxK9ckl+Dc6sz+imx/IvA1
+         yYoQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULf1U4Bqw+2KsMddAyz4Ubxrq9iS6X2F2aUHNgspTLesNsuocEh0pkWBH/asVwq8+Q5QADnlpAUGnIORjMKJqZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywq6b0f6kqsMnz9AQXPth/OAG1z/jZBKwFxNUl9gEx5igIimKq9
+	KhAT4filBDLWn6PaA8AYY1KWkS7P0nlsQLqOkgkg4omYT8b1R75q
+X-Gm-Gg: ASbGncsiiSwFwRmGKskQyPiNLKYiqXJgtFddRNBBcmUHnZuGAIj6rRob8McuRoAQOd/
+	oEog2RRzaqI5HBXFwebQlJwLCFscd6ohtYeApTBXbdVC7SKzB1Vt6anBP385AAy5ym78Tbruolk
+	o0HLE6Ob8asp821kFlw/lgaRGwhcJOnrOyKoUE29S2xpP3G3hEvcoQb6xKWwoXIjOU7jfX0Rueq
+	rZs8Sj7620Wr/PLVU+wO9ES4xf2f9WIdMyunPvzFbZxEuQZwXc2LwLGfswY40ujE8DKygsFjuRq
+	tQUVb/EOr3M6OdLIYU0tpC4Gn0v9KkJhAOK0wCMC1+p7thYG0jRz6j9aFKirYi6nyg==
+X-Google-Smtp-Source: AGHT+IEozQjXyjRcOAbnbhkCB/GeONnnBAob1GnncFL/WgIvYzJGUOAd/PvSRjZxlM/Y0ifrf89/uw==
+X-Received: by 2002:a05:6402:5387:b0:5e0:9254:c10e with SMTP id 4fb4d7f45d1cf-5e5e22dbbf6mr10635788a12.11.1741503187497;
+        Sat, 08 Mar 2025 22:53:07 -0800 (PST)
+Received: from jernej-laptop.localnet ([188.159.248.16])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a7176sm4845027a12.35.2025.03.08.22.53.05
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 08 Mar 2025 22:53:06 -0800 (PST)
+From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v4 09/14] clk: sunxi-ng: a523: add interface mod clocks
+Date: Sun, 09 Mar 2025 07:53:05 +0100
+Message-ID: <2978516.e9J7NaK4W3@jernej-laptop>
+In-Reply-To: <20250307002628.10684-10-andre.przywara@arm.com>
+References: <20250307002628.10684-1-andre.przywara@arm.com>
+ <20250307002628.10684-10-andre.przywara@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/6] drm/bridge: synopsys: Add DW DPTX Controller support
- library
-To: Andy Yan <andyshrk@163.com>, heiko@sntech.de
-Cc: neil.armstrong@linaro.org, sebastian.reichel@collabora.com,
- devicetree@vger.kernel.org, hjc@rock-chips.com, mripard@kernel.org,
- linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com, dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>, krzk+dt@kernel.org, robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20250223113036.74252-1-andyshrk@163.com>
- <20250223113036.74252-3-andyshrk@163.com>
-Content-Language: en-US
-From: FUKAUMI Naoki <naoki@radxa.com>
-In-Reply-To: <20250223113036.74252-3-andyshrk@163.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-QQ-SENDSIZE: 520
-Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
-X-QQ-XMAILINFO: N4WhQbLQyIqS188IzcypNGG75bD7D7grAHlZbfB5iQ737s2ShidHPf3W
-	D24PZj6r/6fo1zR2GVFe7nBZap1F332I3LLeXM28iN/kWjEoyUfqulM4bH9FWFsl5S0T6ww
-	qNyPAr6p9XGHZJFvYmDKzwYG/htRkFuieVUWJbHyXGS5WC+EwowByO9PyG0cNPd9LJlyMh2
-	PuxPJWcIq+1FvoeOQsbwGr7tRrp3sMHL/ScmimrdwU0WheNOQ3fLL4pnuOl9I8rQwPhNadZ
-	1hPmlBtpS1L4xzD7k8wg7SQ4gd6IktVan1U5PFxv0pMWdJXwVnWJyOCS5fhPVPs9zR9l5we
-	fCDkk2XQvQTM08CQ6v6RaceEyHnm0sLXfODMJx2VO9U1mToOiEYJCRZXkkSPfYr2kih3M+Z
-	MbzGu2cvQZ6iEe2jmvFpy2gPQBK8vij/LYnb1NrHRtvF6LyUJIsjv0/ibQMRB2uARsDwBZh
-	mX/IYyt/lY/uHnPquQvDyKrWB8FD/d8K5D9Y6SQXrkLmAEw16mTKoivN13ejc+YKVi3hdFQ
-	m2TOSrPI5klyA9RJB6vuR6db4gwtrCL48YhX/KxXMdKlqw2+SENy90n0HWQm0L7wqA9jbVN
-	Nc3/JElAHGMkqWWMLX7NoXshqNEnM9lFs2d/TA6CfoTB9G6hIkKo2h4cnECT/ByTLfUOVIl
-	P6CXFU2iK34H3di42fvDo2RJjUzZ5BI+ZezGZgdZAFn/QBQ7d3RqeuKSzy7RoOvDgcWSCPs
-	uSHWV7LbrW4AzkW9k9Gg4ETOvtI5WVRPGvaX0zvLqS+0zvIzuHK3Ry41RKpO6zDgo+9QFwq
-	GfOIA4JUks/+t+lanrl1b+VH2odcLYnqYzUV6qYTWiS6Uk51kO+NGQAl0LQVUvtGrGn5YVd
-	K4UF1MK7y/H6OOVnAzbdkGtEU8+orOekqPwsNjujZyMP86lPYx0FZg==
-X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
-X-QQ-RECHKSPAM: 0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_225244_870264_DA52F232 
-X-CRM114-Status: UNSURE (   9.62  )
+X-CRM114-CacheID: sfid-20250308_225309_241368_77460A55 
+X-CRM114-Status: UNSURE (   7.30  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,131 +104,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+Dne petek, 7. marec 2025 ob 01:26:23 Srednjeevropski standardni =C4=8Das je=
+ Andre Przywara napisal(a):
+> Add the clocks driving what the user manual summarises under "interface"
+> devices: raw NAND flash, MMC, SPI, EMAC, "IR" infrared, and the "GPADC"
+> general purpose analogue/digital converter.
+>=20
+> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-On 2/23/25 20:30, Andy Yan wrote:
-(snip)
-> +struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
-> +			 const struct dw_dp_plat_data *plat_data)
-> +{
-> +	struct platform_device *pdev = to_platform_device(dev);
-> +	struct dw_dp *dp;
-> +	struct drm_bridge *bridge;
-> +	void __iomem *res;
-> +	int ret;
-> +
-> +	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
-> +	if (!dp)
-> +		return ERR_PTR(-ENOMEM);
-> +
-> +	dp->dev = dev;
-> +	dp->video.pixel_mode = DW_DP_MP_QUAD_PIXEL;
-> +
-> +	dp->plat_data = plat_data;
-> +	bridge = &dp->bridge;
-> +	mutex_init(&dp->irq_lock);
-> +	INIT_WORK(&dp->hpd_work, dw_dp_hpd_work);
-> +	init_completion(&dp->complete);
-> +
-> +	res = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(res))
-> +		return ERR_CAST(res);
-> +
-> +	dp->regmap = devm_regmap_init_mmio(dev, res, &dw_dp_regmap_config);
-> +	if (IS_ERR(dp->regmap)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->regmap), "failed to create regmap\n");
-> +		return ERR_CAST(dp->regmap);
-> +	}
-> +
-> +	dp->phy = devm_of_phy_get(dev, dev->of_node, NULL);
-> +	if (IS_ERR(dp->phy)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->phy), "failed to get phy\n");
-> +		return ERR_CAST(dp->phy);
-> +	}
-> +
-> +	dp->apb_clk = devm_clk_get_enabled(dev, "apb");
-> +	if (IS_ERR(dp->apb_clk)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->apb_clk), "failed to get apb clock\n");
-> +		return ERR_CAST(dp->apb_clk);
-> +	}
-> +
-> +	dp->aux_clk = devm_clk_get_enabled(dev, "aux");
-> +	if (IS_ERR(dp->aux_clk)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->aux_clk), "failed to get aux clock\n");
-> +		return ERR_CAST(dp->aux_clk);
-> +	}
-> +
-> +	dp->i2s_clk = devm_clk_get(dev, "i2s");
-> +	if (IS_ERR(dp->i2s_clk)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->i2s_clk), "failed to get i2s clock\n");
-> +		return ERR_CAST(dp->i2s_clk);
-> +	}
-> +
-> +	dp->spdif_clk = devm_clk_get(dev, "spdif");
-> +	if (IS_ERR(dp->spdif_clk)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->spdif_clk), "failed to get spdif clock\n");
-> +		return ERR_CAST(dp->spdif_clk);
-> +	}
-> +
-> +	dp->hdcp_clk = devm_clk_get(dev, "hdcp");
-> +	if (IS_ERR(dp->hdcp_clk)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->hdcp_clk), "failed to get hdcp clock\n");
-> +		return ERR_CAST(dp->hdcp_clk);
-> +	}
-> +
-> +	dp->rstc = devm_reset_control_get(dev, NULL);
-> +	if (IS_ERR(dp->rstc)) {
-> +		dev_err_probe(dev, PTR_ERR(dp->rstc), "failed to get reset control\n");
-> +		return ERR_CAST(dp->rstc);
-> +	}
-> +
-> +	dp->irq = platform_get_irq(pdev, 0);
-> +	if (dp->irq < 0)
-> +		return ERR_PTR(ret);
-> +
-> +	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
-> +					IRQF_ONESHOT, dev_name(dev), dp);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "failed to request irq\n");
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	bridge->of_node = dev->of_node;
-> +	bridge->funcs = &dw_dp_bridge_funcs;
-> +	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
-> +	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
-> +	bridge->ycbcr_420_allowed = true;
-> +	bridge->vendor = "Synopsys";
-> +	bridge->product = "DW DP TX";
-> +
-> +	platform_set_drvdata(pdev, dp);
-> +
-> +	dp->aux.dev = dev;
-> +	dp->aux.drm_dev = encoder->dev;
-> +	dp->aux.name = dev_name(dev);
-> +	dp->aux.transfer = dw_dp_aux_transfer;
-> +	ret = drm_dp_aux_register(&dp->aux);
-> +	if (ret) {
-> +		dev_err_probe(dev, ret, "Aux register failed\n");
-> +		return ERR_PTR(ret);
-> +	}
-> +
-> +	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> +	if (ret)
-> +		dev_err_probe(dev, ret, "Failed to attach bridge\n");
-> +
-> +	dw_dp_init_hw(dp);
-> +
-> +	return dp;
-> +}
-
-EXPORT_SYMBOL_GPL(dw_dp_bind);
-
-is required to build it as a module.
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
+Jernej
 
---
-FUKAUMI Naoki
-Radxa Computer (Shenzhen) Co., Ltd.
+
 
