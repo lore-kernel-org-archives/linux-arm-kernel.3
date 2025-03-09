@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B92FC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 15:04:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA805C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 15:05:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Za+LA1OFA3Nd33JFQpbK/U5kxK1CIynZXODCjnM+ptQ=; b=iXqLRMHElHYhQJBNgyZnWZD83j
-	xtzfnqAdCaGtOPpxR46z6P0BGkVdAWeS5pr/MgQiDZQTnOA79UFRlj/+6I5fol0I9n+lwqMgriSYW
-	9FZ0zhzC4bgt6v33Wym+e92Mt+0IEELT9vMKdz1MI0utg1pZgOSHRq+f8jJZMny0SbCr7KAwYqPxN
-	hU9qWaMRo4TvjVbUEY6/AhQdMWdzlyf8bGMl0+PNu7wlDyekdrEwA9UDHJ9UYSKuK+tm/oc2wy80X
-	Vdl9afC0uzI58hji7l9tJR7OTjZFxOy/ZMVRpckwGGCuhFT7WcWEprmaX9RAvJOBDkz6nJRW4XFbF
-	hg9Uer2g==;
+	bh=HlbmyzYzLADsI2UNSNeNHJhLaybCyKx8Gh+zDwNi5KA=; b=wEdIoTLV+VG1gqC7rRh/rJgX0C
+	2tOMXhz7ytfT4lJ7GGHNcfU8AhnOyLSKI4CG0pkmJk5S/tYB9eEAV0snYoczOed4iIjba+JDN0SWU
+	8gSkVuEy8T62gA9AhkdFYI5dKTu6JRqyp86YvjgHrX3Mj2bEx/o1+kHwc5q8LQB8r1yAaknLT5nAl
+	7f3D7BDmy7g+ClkJnGvJUoSW1Tnl7qi49B37sii56ZlSquWeTKaug5+G4iNPORuyi3bAhSu8UFHmq
+	fBElgi9bJck/zsBJBbN4a/gq5/tC5tFyldo+nBJjpav00mEJLrSwa3xdV0ipdFzFAC3XixfM0i7E0
+	CtX+5xeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trICD-00000000iEV-21Zx;
-	Sun, 09 Mar 2025 15:04:05 +0000
+	id 1trIDp-00000000iQl-3IWS;
+	Sun, 09 Mar 2025 15:05:45 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trIAa-00000000hxM-0Tcm;
-	Sun, 09 Mar 2025 15:02:25 +0000
+	id 1trIAe-00000000hyI-13VC;
+	Sun, 09 Mar 2025 15:02:29 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=Za+LA1OFA3Nd33JFQpbK/U5kxK1CIynZXODCjnM+ptQ=; b=IKbqAisrMBTG5hQoXmpz9mfmFp
-	czEhn9WQdzUP58TosHw5zT09od4LfzhxT2RzWkMr2C05YdT3LiYby98WjwqZtRUjMrOo7yYHfjnqk
-	aJfmAB2yQPqvMsmGxYtvPfIbr0gn5HYkVtvJ14blA2Iedb/YlwyPT70jrCZHCx1X54YP2CmYfZC1u
-	9uhhFZDsduuYiSdb3/BWpMe/LBwYWnZRlnpxEuVX9uUU0cActgwbcbc9AWHFL7zGJPMQ954049RV5
-	HcUh+5I5oIS3PbsXm1z1bhvehytWpWdCNLdeZoqLoZaksUVC4JP2V4IMUyxqB1U/ao9jkPJ1iWel3
-	6ppa9JrQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42288 helo=rmk-PC.armlinux.org.uk)
+	bh=HlbmyzYzLADsI2UNSNeNHJhLaybCyKx8Gh+zDwNi5KA=; b=fbPVtDCJuOSj4HbX7YXaJV8Pog
+	X2xNcIGlYyD26gON0jyTvQc9GsjKeH4x22O3wKEbYuGS+WPBo5ukNp4s0taagJvEJxEvoRtvTCrok
+	+gcoOPYfsNyOKOi2eL7u0/oWP5dp+hTpEXNn6PO02sLySMxesXfaKo6Lr5xYgJ00gwcWN4PcOxzlz
+	QLTzy7lfvvo3yUrXnXIQgNgq/bPPXkU7iRuL6v048Grg74zsRcy6LXkOZB9IBacFwe0Xa8qPC5sCT
+	y7jZU+fikZRSn9RO+h39MU0IAPnGRnmhh1MZOh/dN8ojDVuS36zzYc4Be65OXFNqml1ckPUFAkKzL
+	fkIKSVAw==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:43072 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1trIAK-0001On-2X;
-	Sun, 09 Mar 2025 15:02:08 +0000
+	id 1trIAQ-0001P5-0l;
+	Sun, 09 Mar 2025 15:02:14 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1trIA0-005ntK-FS; Sun, 09 Mar 2025 15:01:48 +0000
+	id 1trIA5-005ntQ-KM; Sun, 09 Mar 2025 15:01:53 +0000
 In-Reply-To: <Z82tWYZulV12Pjir@shell.armlinux.org.uk>
 References: <Z82tWYZulV12Pjir@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -66,7 +66,6 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Jose Abreu <joabreu@synopsys.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-riscv@lists.infradead.org,
 	linux-stm32@st-md-mailman.stormreply.com,
@@ -76,18 +75,19 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH net-next 1/7] net: stmmac: allow platforms to use PHY tx clock
- stop capability
+	Rob Herring <robh@kernel.org>,
+	Samin Guo <samin.guo@starfivetech.com>
+Subject: [PATCH net-next 2/7] net: stmmac: starfive: use PHY capability for TX
+ clock stop
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1trIA0-005ntK-FS@rmk-PC.armlinux.org.uk>
-Date: Sun, 09 Mar 2025 15:01:48 +0000
+Message-Id: <E1trIA5-005ntQ-KM@rmk-PC.armlinux.org.uk>
+Date: Sun, 09 Mar 2025 15:01:53 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_080224_150222_14F04DE4 
-X-CRM114-Status: GOOD (  13.45  )
+X-CRM114-CacheID: sfid-20250309_080228_287779_49EA2BBA 
+X-CRM114-Status: GOOD (  10.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,90 +102,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow platform glue to instruct stmmac to make use of the PHY transmit
-clock stop capability when deciding whether to allow the transmit clock
-from the DWMAC core to be stopped.
+Whether the MII transmit clock can be stopped is primarily a property
+of the PHY (there is a capability bit that should be checked first.)
+Whether the MAC is capable of stopping the transmit clock is a separate
+issue, but this is already handled by the core DesignWare MAC code.
 
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Add the flag to allow the stmmac core to use the PHY capability.
+
+Cc: Samin Guo <samin.guo@starfivetech.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac.h     |  1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++++----
- include/linux/stmmac.h                           |  3 ++-
- 3 files changed, 15 insertions(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c | 1 +
+ 1 file changed, 1 insertion(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index d87275c1cf23..bddfa0f4aa21 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -306,6 +306,7 @@ struct stmmac_priv {
- 	struct timer_list eee_ctrl_timer;
- 	int lpi_irq;
- 	u32 tx_lpi_timer;
-+	bool tx_lpi_clk_stop;
- 	bool eee_enabled;
- 	bool eee_active;
- 	bool eee_sw_timer_en;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index fa1d7d3a2f43..6f29804148b6 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -457,8 +457,7 @@ static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
- 	/* Check and enter in LPI mode */
- 	if (!priv->tx_path_in_lpi_mode)
- 		stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_FORCED,
--			priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGATING,
--			0);
-+				    priv->tx_lpi_clk_stop, 0);
- }
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+index 5e31cb3bb4b8..2013d7477eb7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-starfive.c
+@@ -124,6 +124,7 @@ static int starfive_dwmac_probe(struct platform_device *pdev)
+ 		plat_dat->set_clk_tx_rate = stmmac_set_clk_tx_rate;
  
- /**
-@@ -1104,13 +1103,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
+ 	dwmac->dev = &pdev->dev;
++	plat_dat->flags |= STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP;
+ 	plat_dat->bsp_priv = dwmac;
+ 	plat_dat->dma_cfg->dche = true;
  
- 	priv->eee_enabled = true;
- 
-+	/* Update the transmit clock stop according to PHY capability if
-+	 * the platform allows
-+	 */
-+	if (priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP)
-+		priv->tx_lpi_clk_stop = tx_clk_stop;
-+
- 	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
- 			     STMMAC_DEFAULT_TWT_LS);
- 
- 	/* Try to cnfigure the hardware timer. */
- 	ret = stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_TIMER,
--				  priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGATING,
--				  priv->tx_lpi_timer);
-+				  priv->tx_lpi_clk_stop, priv->tx_lpi_timer);
- 
- 	if (ret) {
- 		/* Hardware timer mode not supported, or value out of range.
-@@ -1269,6 +1273,10 @@ static int stmmac_phy_setup(struct stmmac_priv *priv)
- 	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
- 		priv->phylink_config.eee_rx_clk_stop_enable = true;
- 
-+	/* Set the default transmit clock stop bit based on the platform glue */
-+	priv->tx_lpi_clk_stop = priv->plat->flags &
-+				STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
-+
- 	mdio_bus_data = priv->plat->mdio_bus_data;
- 	if (mdio_bus_data)
- 		priv->phylink_config.default_an_inband =
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index b6f03ab12595..c4ec8bb8144e 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -183,7 +183,8 @@ struct dwmac4_addrs {
- #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
- #define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
- #define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
--#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(12)
-+#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
-+#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
- 
- struct plat_stmmacenet_data {
- 	int bus_id;
 -- 
 2.30.2
 
