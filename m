@@ -4,89 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D379C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:56:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB97C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:58:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mgADVFm35fjqdsjh2H21jJh+/8meBttbKXxeyoaClCk=; b=xqPxat7cabfhS6n39M+lspgLOC
-	axBxZfmlVeHaH0eU2iIVfYVWlokycpPZdc6ONbGEcR7mbzSzgEjGErymiBWTDpvGRUa0jTXsLT3+X
-	ZyAhw4ULc4A0MRDV2+0aar4oory8AQjaZn4LbOpvzsUIuL0z5Y7zWCZnSucbLh3IAhwcqiYXtX7zQ
-	20rsxUKbDcM2shjGSvDNjnvd4vFQpuG0h9OsYak4OTlSehdevnvLXPwazNBIGi19YoMJF0H4HY2IQ
-	X3SNzRf064QUgWYEp/nT+32u1sJnqpnkTl0/2a9XknYwEn+5vbWPBn/lVr5G8tNJl6BZ76QUri5+8
-	y3LfD0wA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QvnfGlC40UQmnKcl5OF0pRINHPgf7NC49WGBsWl3pAM=; b=GraJrnQkhNB6csyyqbfbdiIogC
+	BtWE0yRnOYBBnOE0Wc6HOB2T/Zj6MB70eCcFYLuBb7IaSO18XOfiwwz9Rq+PAzpW+sBb2+fzMm+/J
+	QMOnuDPmANi555dJixDNn6354i//r3ueoe1hcgZPfLwh9vDT46O3773fIFX9rI4r9kfgjIPiOMGYk
+	jlOP4Efn3e3tLJoHMOP7J487wL6WynjNXX8tYbyiRUIVO/mgAeOW0IVpZz8Da66AVQv5Ogp+kGCzM
+	pyUz5/pVtPvrvXSOngeN11OUsWj8A8ZLz9JBLxSKHe7xoDIu/yjIoBdCHFQCjt0l9PjUzGeuehW8S
+	h+fkyaLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLpP-00000001199-15RT;
-	Sun, 09 Mar 2025 18:56:47 +0000
-Received: from mx1.sberdevices.ru ([37.18.73.165])
+	id 1trLqz-000000011Jq-047h;
+	Sun, 09 Mar 2025 18:58:25 +0000
+Received: from smtp.forwardemail.net ([149.28.215.223])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLHL-00000000xS4-2k5a;
-	Sun, 09 Mar 2025 18:21:39 +0000
-Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 2CD0D100008;
-	Sun,  9 Mar 2025 21:21:34 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 2CD0D100008
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
-	s=mail; t=1741544494;
-	bh=mgADVFm35fjqdsjh2H21jJh+/8meBttbKXxeyoaClCk=;
-	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=Mu/vQFRmlO3dBUzdJ2O4tHEvycuVl61PL+RzFbgH/ZVOjI+M2CbhAU79bjZicb4SE
-	 GIuKrxcsvGBlgQoaTmwBPOEZ6IOR1bzDcDLytNOhti5UYWl2RkeY4iqwKUWcAP334H
-	 LtEd4eY2f0CGqCWKJ4/IcTGLUSY62af7FtJub9Xt0Z42u/F3tHPsqVu+7/NYiVKdnn
-	 0PUyBJXmjoABAniiA0ecclzoK9DBgRvdGQ9sdUQC6LzgIU3bqU7PxfkwZorhQVDw6z
-	 iQv0FB4HoGr/RYQhsw3m+FKsK5JNHeXcA7rVKaCojcWX81XIWeOXoJA4RjtVdY00d4
-	 7GrCdGFGYUm1w==
-Received: from smtp.sberdevices.ru (p-exch-cas-a-m1.sberdevices.ru [172.24.201.216])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Sun,  9 Mar 2025 21:21:34 +0300 (MSK)
-From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
-	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>, Jerome Brunet
-	<jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	<linux-amlogic@lists.infradead.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>, <linux-sound@vger.kernel.org>, Mark Brown
-	<broonie@kernel.org>, Martin Blumenstingl
-	<martin.blumenstingl@googlemail.com>, Neil Armstrong
-	<neil.armstrong@linaro.org>, Philipp Zabel <p.zabel@pengutronix.de>, Rob
- Herring <robh@kernel.org>
-Subject: [PATCH v2 3/6] ASoC: dt-bindings: meson: axg-pdm: claim support of A1 SoC family
-Date: Sun, 9 Mar 2025 21:21:24 +0300
-Message-ID: <20250309182127.1322890-4-jan.dakinevich@salutedevices.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250309182127.1322890-1-jan.dakinevich@salutedevices.com>
-References: <20250309182127.1322890-1-jan.dakinevich@salutedevices.com>
+	id 1trLJL-00000000xuh-2sZR
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 18:23:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741544615;
+ bh=QvnfGlC40UQmnKcl5OF0pRINHPgf7NC49WGBsWl3pAM=;
+ b=TKnYBwCjuulOmZXNRO5VmPQ86v9LZ5sbdUlmS/opNNNz+QIPry+kH9fbl91pbcix1SzzyQvGG
+ bY30t4h+oJ57+fhzfv+Bo17w1idP7qVZ4ga3fkd7JKLBosHw0HMFLqhWqxKvuChcFDKiUxJG/su
+ j9OyExoCOGWVLyENjjF9LgqXlfBvKO/JyJUqy6eH+LskMd1bFjiEA9Spq/wrNljIXAjxeLIS656
+ VFLC7XMBrHgGKkf0ZxMURl+LHpnhdN/uFE5IjkWSZPfqxJECAGNn69UkFh3iyWQA8Beamh6GNOd
+ iS1Ovppzg1rp0k3Tea/C/n1jpGU8KDLbR4dzgjhtDIbQ==
+X-Forward-Email-ID: 67cddc968d04fc44bbac47b6
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 149.28.215.223
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <0b679284-d427-4229-b008-e3e466f66a0f@kwiboo.se>
+Date: Sun, 9 Mar 2025 19:23:12 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.28.64.252]
-X-ClientProxiedBy: p-i-exch-a-m2.sberdevices.ru (172.24.196.120) To
- p-exch-cas-a-m1.sberdevices.ru (172.24.201.216)
-X-KSMG-Rule-ID: 1
-X-KSMG-Message-Action: clean
-X-KSMG-AntiSpam-Lua-Profiles: 191599 [Mar 09 2025]
-X-KSMG-AntiSpam-Version: 6.1.1.11
-X-KSMG-AntiSpam-Envelope-From: YVDakinevich@sberdevices.ru
-X-KSMG-AntiSpam-Rate: 0
-X-KSMG-AntiSpam-Status: not_detected
-X-KSMG-AntiSpam-Method: none
-X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 51 0.3.51 68896fb0083a027476849bf400a331a2d5d94398, {Tracking_smtp_not_equal_from}, sberdevices.ru:5.0.1,7.1.1;salutedevices.com:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;127.0.0.199:7.1.2;smtp.sberdevices.ru:5.0.1,7.1.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
-X-MS-Exchange-Organization-SCL: -1
-X-KSMG-AntiSpam-Interceptor-Info: scan successful
-X-KSMG-AntiPhishing: Clean
-X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/03/09 17:28:00 #27692143
-X-KSMG-AntiVirus-Status: Clean, skipped
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
+To: Yao Zi <ziyao@disroot.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andi Shyti <andi.shyti@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250309070603.35254-1-ziyao@disroot.org>
+ <20250309070603.35254-3-ziyao@disroot.org>
+Content-Language: en-US
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <20250309070603.35254-3-ziyao@disroot.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_112136_091350_59CF572C 
-X-CRM114-Status: GOOD (  10.44  )
+X-CRM114-CacheID: sfid-20250309_112340_097447_EFCC4CF9 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,26 +81,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "amlogic,a1-pdm" compatible string alias to "amlogic,axg-pdm".
+Hi Yao Zi,
 
-Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
----
- Documentation/devicetree/bindings/sound/amlogic,axg-pdm.yaml | 1 +
- 1 file changed, 1 insertion(+)
+On 2025-03-09 08:06, Yao Zi wrote:
+> Describe I2C controllers shipped by RK3528 in devicetree.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
+> ---
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 104 +++++++++++++++++++++++
+>  1 file changed, 104 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> index 04ca2e2b3e9b..860b6057e5c2 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+> @@ -19,6 +19,14 @@ / {
+>  	#size-cells = <2>;
+>  
+>  	aliases {
+> +		i2c0 = &i2c0;
+> +		i2c1 = &i2c1;
+> +		i2c2 = &i2c2;
+> +		i2c3 = &i2c3;
+> +		i2c4 = &i2c4;
+> +		i2c5 = &i2c5;
+> +		i2c6 = &i2c6;
+> +		i2c7 = &i2c7;
 
-diff --git a/Documentation/devicetree/bindings/sound/amlogic,axg-pdm.yaml b/Documentation/devicetree/bindings/sound/amlogic,axg-pdm.yaml
-index df21dd72fc65..9b6cd9f03a0c 100644
---- a/Documentation/devicetree/bindings/sound/amlogic,axg-pdm.yaml
-+++ b/Documentation/devicetree/bindings/sound/amlogic,axg-pdm.yaml
-@@ -16,6 +16,7 @@ properties:
-           - enum:
-               - amlogic,g12a-pdm
-               - amlogic,sm1-pdm
-+              - amlogic,a1-pdm
-           - const: amlogic,axg-pdm
-       - const: amlogic,axg-pdm
- 
--- 
-2.34.1
+nitpick: These should be ordered after the gpioX aliases.
 
+Regards,
+Jonas
+
+>  		gpio0 = &gpio0;
+>  		gpio1 = &gpio1;
+>  		gpio2 = &gpio2;
+
+[snip]
 
