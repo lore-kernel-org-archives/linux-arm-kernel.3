@@ -4,69 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB97C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:58:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EFA9C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:00:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QvnfGlC40UQmnKcl5OF0pRINHPgf7NC49WGBsWl3pAM=; b=GraJrnQkhNB6csyyqbfbdiIogC
-	BtWE0yRnOYBBnOE0Wc6HOB2T/Zj6MB70eCcFYLuBb7IaSO18XOfiwwz9Rq+PAzpW+sBb2+fzMm+/J
-	QMOnuDPmANi555dJixDNn6354i//r3ueoe1hcgZPfLwh9vDT46O3773fIFX9rI4r9kfgjIPiOMGYk
-	jlOP4Efn3e3tLJoHMOP7J487wL6WynjNXX8tYbyiRUIVO/mgAeOW0IVpZz8Da66AVQv5Ogp+kGCzM
-	pyUz5/pVtPvrvXSOngeN11OUsWj8A8ZLz9JBLxSKHe7xoDIu/yjIoBdCHFQCjt0l9PjUzGeuehW8S
-	h+fkyaLg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ltX42GCD3OOcErYd0cDkI1zVWdn7hEPRnLMiDj97XDk=; b=U6pmyc+fEZc3+0FiC0asPbw0EV
+	DScvVIa8wFg2K2BmTUFYY+VMvf4Bq5AGnTUPG4KdijteN/DoTzeI8utUlnJYfDCpr4NnrAj1yhpwr
+	ViQrV58dMGm9vRQz17/4kzDI430uRR2OSnaudIMvKAjUYacfftDYaF/ERJsynGaPth92DDtJQr45C
+	lPWv7+VB56oocQHSBQFdIqeabAcMs1qJ9UwJamjSnkvVDufbr/GsmAxGMCnKEZLCDRtZeKJLe9lzj
+	SDwFod77Xr3ptjpNM8i+4MFj44xupl8MQu/0QngE3A4P1GHLFlwLKeGgajI0RNvjiJbEG5RTyPHmv
+	W/O7jfdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLqz-000000011Jq-047h;
-	Sun, 09 Mar 2025 18:58:25 +0000
-Received: from smtp.forwardemail.net ([149.28.215.223])
+	id 1trLsZ-000000011Vn-3wWW;
+	Sun, 09 Mar 2025 19:00:03 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLJL-00000000xuh-2sZR
+	id 1trLKR-00000000y2g-12iJ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 18:23:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
- Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
- s=fe-e1b5cab7be; t=1741544615;
- bh=QvnfGlC40UQmnKcl5OF0pRINHPgf7NC49WGBsWl3pAM=;
- b=TKnYBwCjuulOmZXNRO5VmPQ86v9LZ5sbdUlmS/opNNNz+QIPry+kH9fbl91pbcix1SzzyQvGG
- bY30t4h+oJ57+fhzfv+Bo17w1idP7qVZ4ga3fkd7JKLBosHw0HMFLqhWqxKvuChcFDKiUxJG/su
- j9OyExoCOGWVLyENjjF9LgqXlfBvKO/JyJUqy6eH+LskMd1bFjiEA9Spq/wrNljIXAjxeLIS656
- VFLC7XMBrHgGKkf0ZxMURl+LHpnhdN/uFE5IjkWSZPfqxJECAGNn69UkFh3iyWQA8Beamh6GNOd
- iS1Ovppzg1rp0k3Tea/C/n1jpGU8KDLbR4dzgjhtDIbQ==
-X-Forward-Email-ID: 67cddc968d04fc44bbac47b6
-X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
-X-Forward-Email-Version: 0.4.40
-X-Forward-Email-Website: https://forwardemail.net
-X-Complaints-To: abuse@forwardemail.net
-X-Report-Abuse: abuse@forwardemail.net
-X-Report-Abuse-To: abuse@forwardemail.net
-Message-ID: <0b679284-d427-4229-b008-e3e466f66a0f@kwiboo.se>
-Date: Sun, 9 Mar 2025 19:23:12 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
-To: Yao Zi <ziyao@disroot.org>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andi Shyti <andi.shyti@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chukun Pan <amadeus@jmu.edu.cn>,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-i2c@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250309070603.35254-1-ziyao@disroot.org>
- <20250309070603.35254-3-ziyao@disroot.org>
-Content-Language: en-US
-From: Jonas Karlman <jonas@kwiboo.se>
-In-Reply-To: <20250309070603.35254-3-ziyao@disroot.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	Sun, 09 Mar 2025 18:24:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7E844A45C37;
+	Sun,  9 Mar 2025 18:19:15 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC2FCC4CEE3;
+	Sun,  9 Mar 2025 18:24:44 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741544685;
+	bh=xqmbU01GvdRaqLnnBBBn3XWRf5tpVBKdGgOv8hcAq4I=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=TuxO7slnvPm42OZE3We1kr9s6YsqJXcntDBJM4sjjHr1gJZU6KOwvqWRKv5mrj1Da
+	 191Zb644if4IMPc5rLlMjMd2+ykoEiY2ok19kR26i4AuWOmnDnDs3n7AnEn8C/N8oH
+	 F0TeLtOqy5mZ8NdP61zJAIie/uGQ+0pjgbeec7yzrTYcH/4LBk7xtPtTa8dOtHqoCG
+	 DGVBl/1g7P2HCe90jeRPsYZfnBaItg+j5GuQwIeViKkQnwcs4zIo2TbAtWDuvZYuv6
+	 eFGt0y+qLjKb2zs+RcY4ovh++NeyMy6aOl04C1WiDbgZ97FUsNX+1RFUOLp6VUv4rC
+	 ALlRemASiI7pg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1trLKM-00Bxrp-9T;
+	Sun, 09 Mar 2025 18:24:42 +0000
+Date: Sun, 09 Mar 2025 18:24:40 +0000
+Message-ID: <868qpeoydz.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Writable TGRAN*_2
+In-Reply-To: <20250306184013.30008-1-sebott@redhat.com>
+References: <20250306184013.30008-1-sebott@redhat.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: sebott@redhat.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_112340_097447_EFCC4CF9 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250309_112447_383532_B15B85FF 
+X-CRM114-Status: GOOD (  12.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,41 +90,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Yao Zi,
-
-On 2025-03-09 08:06, Yao Zi wrote:
-> Describe I2C controllers shipped by RK3528 in devicetree.
+On Thu, 06 Mar 2025 18:40:13 +0000,
+Sebastian Ott <sebott@redhat.com> wrote:
 > 
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> ---
->  arch/arm64/boot/dts/rockchip/rk3528.dtsi | 104 +++++++++++++++++++++++
->  1 file changed, 104 insertions(+)
+> Allow userspace to write the safe (NI) value for ID_AA64MMFR0_EL1.TGRAN*_2.
+> Disallow to change these fields for NV since kvm provides a sanitized view
+> for them based on the PAGE_SIZE.
+> Also add these bits to the set_id_regs selftest.
 > 
-> diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> index 04ca2e2b3e9b..860b6057e5c2 100644
-> --- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> +++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
-> @@ -19,6 +19,14 @@ / {
->  	#size-cells = <2>;
->  
->  	aliases {
-> +		i2c0 = &i2c0;
-> +		i2c1 = &i2c1;
-> +		i2c2 = &i2c2;
-> +		i2c3 = &i2c3;
-> +		i2c4 = &i2c4;
-> +		i2c5 = &i2c5;
-> +		i2c6 = &i2c6;
-> +		i2c7 = &i2c7;
+> Signed-off-by: Sebastian Ott <sebott@redhat.com>
 
-nitpick: These should be ordered after the gpioX aliases.
+Acked-by: Marc Zyngier <maz@kernel.org>
 
-Regards,
-Jonas
+	M.
 
->  		gpio0 = &gpio0;
->  		gpio1 = &gpio1;
->  		gpio2 = &gpio2;
-
-[snip]
+-- 
+Without deviation from the norm, progress is not possible.
 
