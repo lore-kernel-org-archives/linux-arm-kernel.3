@@ -4,91 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3629C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:53:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C5C2C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:54:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XXrGeMKEDMltcTZOnuSwc6OZdvzBmHyoGR0fdEWW+BE=; b=xPnKnjCOLVTNdRzJ0OKTzQSnB8
-	yX3SeIjVy5xEpTEkeCjQjZWMJtd7u8EHPz45D6/wzQm6t3F4PgyxbR9nLgEIIZNQRlZPFKogrC6Rn
-	dyBpEInq1DGAQWFmITYM0H8lco5ur4OwLgA9GJJCulIXz390KEq2LlpbFJAKxWuAqGmS/FAiQMD+C
-	yW36WCGDijbvMX0h1/h3QKkY4kI84ndo9K9OwOI6VU0tw/rtj8cIMfgJq/+WHnhaJ2Af03Pm1FPFp
-	fCHOSPxMIHSuT7R5pr6bY7OZZBUE/Bz5zSzgxLAI9t3Y1I1YdwnD6hznzdWZs0AlC8lGWMvJblCvc
-	eZnejQwQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nHea8PmPDTeNeLkkCyL7fF90d0PRsdlWXm0yd05eBrY=; b=vMLqeA45k7ThGYnAkbRU6QROlK
+	gihBEhcV+upB7Z8Ezvy4qM77emqYhx1sro3HJXfzL7tS/YDEsVK9MQDx8W/MKkgiP7kvqI3iNaXPf
+	GBWJBZcvE3JwSJS6qOJ0nEUvG1Cc7ZPx01aYBauv0u0KH/n8xGuyQV1bKH26/Qtjk8KdjftZXuvN/
+	cJQoU5qvvFw/MIIDfxJ9IaqCQk5F5cK3z6UTqRZm3O/tk3W1W0eVByhPeLBsawcaX+o2f6hLPRunH
+	5MojZefj/0vapEAQUw0yaqng9XWy2xcGe2YadG+N0i7SgTt0WDDSZDRCDELHCgMlPeBeKXUC9OMzf
+	3UdnsilQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAWz-000000004oR-34CP;
-	Sun, 09 Mar 2025 06:53:01 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
+	id 1trAYb-000000004wi-1eDk;
+	Sun, 09 Mar 2025 06:54:41 +0000
+Received: from smtpbg151.qq.com ([18.169.211.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAUw-000000004cm-0351
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 06:50:55 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-ab7430e27b2so563065866b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:50:53 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741503052; x=1742107852; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XXrGeMKEDMltcTZOnuSwc6OZdvzBmHyoGR0fdEWW+BE=;
-        b=mAmMk1Y8kijF6EynkFPV/MwJucYtKCXxZ51zAlc9M5jyB7NT6aKpg9Mgtf0NFf0OfV
-         fHiQt+far9q/C7VnK/mIgeDQ3EqKuuUV0GMnzuaLHrqt3R0iwYY62SubLb0ZPKT3PrgT
-         WTv5cV0XEn29fozHOMgZNmaKK1Gcp/waOg7fT2ZPAdZda+bAlLr9MS9tFYwrAW7FxBgN
-         pSLqf4Q6/svVo93OGV2q9Xr1sxqjgIRh4kAo5LiKIkjdMSgY2trA3Rv35Ckt6flpd7V6
-         v4ORHLtlxBtOY95AwB3pPIGYFJwonTVmG0DJvCoziDoEhVSTdNnqkL6okuhHgceDVt16
-         Uvzw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741503052; x=1742107852;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=XXrGeMKEDMltcTZOnuSwc6OZdvzBmHyoGR0fdEWW+BE=;
-        b=vEZceskXO2vdX5mH/7XoEqLL32XbnEK5rTIZ4tTDqhnNJyFM1seu+4PtjHDXj0Syxp
-         0h6FPBNqsjtPORVLqcH//Ou+AFwsELNs3jhloYdEEjm0ExxxLw+9djxhKfutMVp1c+pL
-         yCQD1AW1/lkOiI19+NvT/c/qVB6yKLBoXEiGcfpHLzmUj86NRjBvrrp3zKeBSIHpeBQJ
-         /7yDJOV9ZggXIFOi3HrY00obBjNaggsRON4214p7CdoG9jygLy3ovuGVOf3uGckillgZ
-         euY5XI+5jsZVwW7cgIn35DUmOyiRBRmy7Y7dEV85euOVn4otja1SdlXkmRf+mdPmkIWF
-         BknQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXnJ5cSmVNbyYEttxFrCrd0t/u6FMJnK5XBd6CYTmtJGaHSF8gyA8WoQV/c6hpibtQ2OXMHe3+9w2a/VYfNCI9r@lists.infradead.org
-X-Gm-Message-State: AOJu0YzEBcmQzeCU2F7SaKKLnjKMS1zYhjg7Ih8RygPJwlUEQmztth/n
-	6OhXS0pSqxKfjI3TbxxH4YvYtl0tPoJ39E2tLudqP3ZQXgu1q77n
-X-Gm-Gg: ASbGncuogjxnbIHQXQ5/UdLLo6ZiuLZSPU00YaDRNlejGt+BwsD2txBDC6KgiDZP+76
-	JbNKSEYwkbc7uiXK37pnzkAWtLaIHEkF9aTXCexX0za3uVvVsryJtrqa29DzxFK2mHzHg16+F9q
-	gYx7UjlndKZS/gYMkk3kiAlt83j3qIn2LWdu4nqJ7kuqxSMIMTRIfNGR6isOvLUDpCllrHbKZc/
-	Xv7lg0z8eFi2ZNrJAxdd5iBtoYs/Z3hXp0Awwe/LMrkcB1utAVLz9Ck7PuUL3AWsCLokS48mGeR
-	mpiZjs09kIt3YwdqF1n2NwFgY0zy4I0Z+2PAqRd8P4r0RvY9yRqW4CkefjfS7pwbhw==
-X-Google-Smtp-Source: AGHT+IFXyBjwKS8n+FEnVkJuV0T3jFruhFE2A6vtlJI4jqzFnqL4g16+EpSl4SMNWytxbOSvgcDIjA==
-X-Received: by 2002:a17:907:9490:b0:ab7:9df1:e562 with SMTP id a640c23a62f3a-ac252fe7196mr919864166b.48.1741503052319;
-        Sat, 08 Mar 2025 22:50:52 -0800 (PST)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac23943c476sm544681966b.3.2025.03.08.22.50.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 22:50:51 -0800 (PST)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Chen-Yu Tsai <wens@csie.org>, Samuel Holland <samuel@sholland.org>,
- Andre Przywara <andre.przywara@arm.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 08/14] clk: sunxi-ng: a523: add system mod clocks
-Date: Sun, 09 Mar 2025 07:50:50 +0100
-Message-ID: <2214425.irdbgypaU6@jernej-laptop>
-In-Reply-To: <20250307002628.10684-9-andre.przywara@arm.com>
-References: <20250307002628.10684-1-andre.przywara@arm.com>
- <20250307002628.10684-9-andre.przywara@arm.com>
+	id 1trAWi-000000004me-1IQa;
+	Sun, 09 Mar 2025 06:52:46 +0000
+X-QQ-mid: bizesmtpip2t1741503090t8sbs1w
+X-QQ-Originating-IP: XwhKMfl3zf720/W1DEA9jiyONxzExdR32tccPWBx8ps=
+Received: from [IPV6:240f:10b:7440:1:893e:bed3 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 09 Mar 2025 14:51:24 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 12559739766669339929
+Message-ID: <4F8F58DC9699ED12+95e301f9-a9f1-4f6b-8b8f-21c6c1df5cc2@radxa.com>
+Date: Sun, 9 Mar 2025 15:51:24 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/6] drm/bridge: synopsys: Add DW DPTX Controller support
+ library
+To: Andy Yan <andyshrk@163.com>, heiko@sntech.de
+Cc: neil.armstrong@linaro.org, sebastian.reichel@collabora.com,
+ devicetree@vger.kernel.org, hjc@rock-chips.com, mripard@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ yubing.zhang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ Andy Yan <andy.yan@rock-chips.com>, krzk+dt@kernel.org, robh@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250223113036.74252-1-andyshrk@163.com>
+ <20250223113036.74252-3-andyshrk@163.com>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250223113036.74252-3-andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: N4WhQbLQyIqS188IzcypNGG75bD7D7grAHlZbfB5iQ737s2ShidHPf3W
+	D24PZj6r/6fo1zR2GVFe7nBZap1F332I3LLeXM28iN/kWjEoyUfqulM4bH9FWFsl5S0T6ww
+	qNyPAr6p9XGHZJFvYmDKzwYG/htRkFuieVUWJbHyXGS5WC+EwowByO9PyG0cNPd9LJlyMh2
+	PuxPJWcIq+1FvoeOQsbwGr7tRrp3sMHL/ScmimrdwU0WheNOQ3fLL4pnuOl9I8rQwPhNadZ
+	1hPmlBtpS1L4xzD7k8wg7SQ4gd6IktVan1U5PFxv0pMWdJXwVnWJyOCS5fhPVPs9zR9l5we
+	fCDkk2XQvQTM08CQ6v6RaceEyHnm0sLXfODMJx2VO9U1mToOiEYJCRZXkkSPfYr2kih3M+Z
+	MbzGu2cvQZ6iEe2jmvFpy2gPQBK8vij/LYnb1NrHRtvF6LyUJIsjv0/ibQMRB2uARsDwBZh
+	mX/IYyt/lY/uHnPquQvDyKrWB8FD/d8K5D9Y6SQXrkLmAEw16mTKoivN13ejc+YKVi3hdFQ
+	m2TOSrPI5klyA9RJB6vuR6db4gwtrCL48YhX/KxXMdKlqw2+SENy90n0HWQm0L7wqA9jbVN
+	Nc3/JElAHGMkqWWMLX7NoXshqNEnM9lFs2d/TA6CfoTB9G6hIkKo2h4cnECT/ByTLfUOVIl
+	P6CXFU2iK34H3di42fvDo2RJjUzZ5BI+ZezGZgdZAFn/QBQ7d3RqeuKSzy7RoOvDgcWSCPs
+	uSHWV7LbrW4AzkW9k9Gg4ETOvtI5WVRPGvaX0zvLqS+0zvIzuHK3Ry41RKpO6zDgo+9QFwq
+	GfOIA4JUks/+t+lanrl1b+VH2odcLYnqYzUV6qYTWiS6Uk51kO+NGQAl0LQVUvtGrGn5YVd
+	K4UF1MK7y/H6OOVnAzbdkGtEU8+orOekqPwsNjujZyMP86lPYx0FZg==
+X-QQ-XMRINFO: OD9hHCdaPRBwq3WW+NvGbIU=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_225054_052276_73BB9AD1 
-X-CRM114-Status: UNSURE (   7.82  )
+X-CRM114-CacheID: sfid-20250308_225244_870264_DA52F232 
+X-CRM114-Status: UNSURE (   9.62  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,18 +90,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 7. marec 2025 ob 01:26:22 Srednjeevropski standardni =C4=8Das je=
- Andre Przywara napisal(a):
-> Add the clocks driving some core system related subsystems of the SoC:
-> the "CE" crypto engine, the high speed timers, the DRAM and the associated
-> MBUS clock, and the PCIe clock.
->=20
-> Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Hi Andy,
 
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+On 2/23/25 20:30, Andy Yan wrote:
+(snip)
+> +struct dw_dp *dw_dp_bind(struct device *dev, struct drm_encoder *encoder,
+> +			 const struct dw_dp_plat_data *plat_data)
+> +{
+> +	struct platform_device *pdev = to_platform_device(dev);
+> +	struct dw_dp *dp;
+> +	struct drm_bridge *bridge;
+> +	void __iomem *res;
+> +	int ret;
+> +
+> +	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
+> +	if (!dp)
+> +		return ERR_PTR(-ENOMEM);
+> +
+> +	dp->dev = dev;
+> +	dp->video.pixel_mode = DW_DP_MP_QUAD_PIXEL;
+> +
+> +	dp->plat_data = plat_data;
+> +	bridge = &dp->bridge;
+> +	mutex_init(&dp->irq_lock);
+> +	INIT_WORK(&dp->hpd_work, dw_dp_hpd_work);
+> +	init_completion(&dp->complete);
+> +
+> +	res = devm_platform_ioremap_resource(pdev, 0);
+> +	if (IS_ERR(res))
+> +		return ERR_CAST(res);
+> +
+> +	dp->regmap = devm_regmap_init_mmio(dev, res, &dw_dp_regmap_config);
+> +	if (IS_ERR(dp->regmap)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->regmap), "failed to create regmap\n");
+> +		return ERR_CAST(dp->regmap);
+> +	}
+> +
+> +	dp->phy = devm_of_phy_get(dev, dev->of_node, NULL);
+> +	if (IS_ERR(dp->phy)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->phy), "failed to get phy\n");
+> +		return ERR_CAST(dp->phy);
+> +	}
+> +
+> +	dp->apb_clk = devm_clk_get_enabled(dev, "apb");
+> +	if (IS_ERR(dp->apb_clk)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->apb_clk), "failed to get apb clock\n");
+> +		return ERR_CAST(dp->apb_clk);
+> +	}
+> +
+> +	dp->aux_clk = devm_clk_get_enabled(dev, "aux");
+> +	if (IS_ERR(dp->aux_clk)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->aux_clk), "failed to get aux clock\n");
+> +		return ERR_CAST(dp->aux_clk);
+> +	}
+> +
+> +	dp->i2s_clk = devm_clk_get(dev, "i2s");
+> +	if (IS_ERR(dp->i2s_clk)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->i2s_clk), "failed to get i2s clock\n");
+> +		return ERR_CAST(dp->i2s_clk);
+> +	}
+> +
+> +	dp->spdif_clk = devm_clk_get(dev, "spdif");
+> +	if (IS_ERR(dp->spdif_clk)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->spdif_clk), "failed to get spdif clock\n");
+> +		return ERR_CAST(dp->spdif_clk);
+> +	}
+> +
+> +	dp->hdcp_clk = devm_clk_get(dev, "hdcp");
+> +	if (IS_ERR(dp->hdcp_clk)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->hdcp_clk), "failed to get hdcp clock\n");
+> +		return ERR_CAST(dp->hdcp_clk);
+> +	}
+> +
+> +	dp->rstc = devm_reset_control_get(dev, NULL);
+> +	if (IS_ERR(dp->rstc)) {
+> +		dev_err_probe(dev, PTR_ERR(dp->rstc), "failed to get reset control\n");
+> +		return ERR_CAST(dp->rstc);
+> +	}
+> +
+> +	dp->irq = platform_get_irq(pdev, 0);
+> +	if (dp->irq < 0)
+> +		return ERR_PTR(ret);
+> +
+> +	ret = devm_request_threaded_irq(dev, dp->irq, NULL, dw_dp_irq,
+> +					IRQF_ONESHOT, dev_name(dev), dp);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "failed to request irq\n");
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	bridge->of_node = dev->of_node;
+> +	bridge->funcs = &dw_dp_bridge_funcs;
+> +	bridge->ops = DRM_BRIDGE_OP_DETECT | DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_HPD;
+> +	bridge->type = DRM_MODE_CONNECTOR_DisplayPort;
+> +	bridge->ycbcr_420_allowed = true;
+> +	bridge->vendor = "Synopsys";
+> +	bridge->product = "DW DP TX";
+> +
+> +	platform_set_drvdata(pdev, dp);
+> +
+> +	dp->aux.dev = dev;
+> +	dp->aux.drm_dev = encoder->dev;
+> +	dp->aux.name = dev_name(dev);
+> +	dp->aux.transfer = dw_dp_aux_transfer;
+> +	ret = drm_dp_aux_register(&dp->aux);
+> +	if (ret) {
+> +		dev_err_probe(dev, ret, "Aux register failed\n");
+> +		return ERR_PTR(ret);
+> +	}
+> +
+> +	ret = drm_bridge_attach(encoder, bridge, NULL, DRM_BRIDGE_ATTACH_NO_CONNECTOR);
+> +	if (ret)
+> +		dev_err_probe(dev, ret, "Failed to attach bridge\n");
+> +
+> +	dw_dp_init_hw(dp);
+> +
+> +	return dp;
+> +}
+
+EXPORT_SYMBOL_GPL(dw_dp_bind);
+
+is required to build it as a module.
 
 Best regards,
-Jernej
 
-
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
 
