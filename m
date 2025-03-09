@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C41C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 10:18:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83155C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 10:20:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ypAH85lunbMFr5sJoDjhg+hTSX65qaGeJy9UvYRWBw=; b=4CcUXcQi1BWM5EdPhgQwhW3EAW
-	KPz0LN/MsaAm/n9Tgz+ldSMxtwL3lYIqC0YanDDCa1ENzfnpErW2S5vxpK3R8nTRQtM6Gu85u4JWa
-	Vpo7kwcRCXyeIhgiIaUKi7gotQBDm7Th7qNx/KEHisXj0+chC3LRrvl/msuvWj/1wOVt8tfTMiUrJ
-	uJMJRIoGLZLzeCKoDKm8wgtRBdGFJ8n39k5UZruQanUTu5c2p3G3p8k9KKYDXgUHojk8qvRE6d1zk
-	IXv+ywdPKm+ze/DlZRnjEfIxMqCUkt3NBvP+b5s0zB6tx6rEa7bEylH9PEMnfJP5VweD2Hfre8GmT
-	L8RO64EQ==;
+	Content-Type:Subject:From:Cc:To:In-Reply-To:MIME-Version:Date:Message-ID:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=3z2H0OLr2MnzWSk4IOPn7DMUI08I1ys01DeWyWK+188=; b=JVjyzpuj5lG2AD5l8/bYkdHf99
+	rbmydz0Zmrxn5RjbRo8E1B6vTHpCPBLhXpfIMY2oLY2Ck5zOeKPfcrhe29C0acfDjW3HZygn8mZ8w
+	Ys5pXGAk4uYbHHqPs9TUikIb+k0kgMaPgwwfox62URev+eneUHdbM/xlygngB8tEjYhFAY/PbpJEo
+	Ee94exnLILa/OxL5VM1FYCQ6JiRpxgKxYdfoN9wNCD/ZhjvHlIk7WtR+Ug6G9/zvTB2WKPytwkuCm
+	2LVZIoKeycKFSPYyrDN7QmkZ6qtJDuXQZ6m7qN/OO6Jzsb1VDkiG2EHw+MlpOhF5YQhWoFhfRprdf
+	AUB992xA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trDjr-00000000LTO-3BAB;
-	Sun, 09 Mar 2025 10:18:31 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1trDlU-00000000Lmf-2Ndb;
+	Sun, 09 Mar 2025 10:20:12 +0000
+Received: from mail.nppct.ru ([195.133.245.4])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trDf6-00000000KuK-3SmV;
-	Sun, 09 Mar 2025 10:13:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741515214;
-	bh=4qaz6XaD49AJMpmMPzIuiS7AdroFjhN6pXZs+GE9Vhc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lNe3Pv8oxWsM6LLhxuFDHI6zO4Orf8PIT//QurDx9/0FlEgjSNBN8kcgOPqDuq8Vl
-	 pp4wlS86+wUkDe51Ln4RTiH7ADY8kDnn38VBQ/9VFDgpDEGa4yuWipSx9/P0lizrcg
-	 /6/G9vzPksu0QjYMPykxEi1y4VAnz0gfJt/K2TXertf+LJ1qAt6g7lcFZIih+tJAjj
-	 O9xyDAozOGqqL2YC30MUNxa5N9Vxkndtc+SdSxtL5NetLZeJ0dItIgJEOeUmfQvkNJ
-	 1vQ27Gsw1Ydqaa76p3zrhEFGlhQqVjVXFjeIUXx+g/VgtRwQYieAzd87bd8kkvdXCI
-	 1R3UGDrgdmVRw==
-Received: from [192.168.1.90] (unknown [84.232.140.93])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B636A17E0B25;
-	Sun,  9 Mar 2025 11:13:33 +0100 (CET)
-Message-ID: <a1a3e86a-1906-4797-932d-8e1aadafedde@collabora.com>
-Date: Sun, 9 Mar 2025 12:13:32 +0200
+	id 1trDgd-00000000L2X-1Lmf
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 10:15:14 +0000
+Received: from mail.nppct.ru (localhost [127.0.0.1])
+	by mail.nppct.ru (Postfix) with ESMTP id B0E8B1C242B
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  9 Mar 2025 13:14:57 +0300 (MSK)
+Authentication-Results: mail.nppct.ru (amavisd-new); dkim=pass (1024-bit key)
+	reason="pass (just generated, assumed good)" header.d=nppct.ru
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nppct.ru; h=
+	content-transfer-encoding:content-type:content-type:subject
+	:subject:from:from:to:in-reply-to:content-language:user-agent
+	:mime-version:date:date:message-id; s=dkim; t=1741515296; x=
+	1742379297; bh=6+sx/uKbcT/XifleL+nJx9XxBtH/gNc4zUHID3ZvHVg=; b=U
+	uUzvmCW53rHbxf1z49zariKpociRs0dp8Q91pMZSrcMnrXcIVZXLiL3J8etiNpwg
+	aRnqrud+ke4No/JUd7aQNcdyGSIORsuGhSx1992mMoc9oiC67s5rBkrm3zXu1tla
+	dO+iL1aBjfs686sIY/uIE0xVK3e4zYC59LJOHMRKMs=
+X-Virus-Scanned: Debian amavisd-new at mail.nppct.ru
+Received: from mail.nppct.ru ([127.0.0.1])
+	by mail.nppct.ru (mail.nppct.ru [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id 94JHrXQiECDC for <linux-arm-kernel@lists.infradead.org>;
+	Sun,  9 Mar 2025 13:14:56 +0300 (MSK)
+Received: from [192.168.1.67] (unknown [46.72.98.152])
+	by mail.nppct.ru (Postfix) with ESMTPSA id DCEC91C0B18;
+	Sun,  9 Mar 2025 13:14:52 +0300 (MSK)
+Message-ID: <c315940b-dbdb-4acb-b319-d3b0fd53eb0d@nppct.ru>
+Date: Sun, 9 Mar 2025 13:14:51 +0300
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/12] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz
- unit conversion overhead
-To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>,
- Maxime Ripard <mripard@kernel.org>, kernel@collabora.com,
- linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
-References: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com>
- <20250308-phy-sam-hdptx-bpc-v5-7-35087287f9d1@collabora.com>
- <CAA8EJpoQbvFbNXQ2RB1qY2gHnwZaU-PT-DMLnZkrxkqs2wkXqQ@mail.gmail.com>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Content-Language: en-US
-In-Reply-To: <CAA8EJpoQbvFbNXQ2RB1qY2gHnwZaU-PT-DMLnZkrxkqs2wkXqQ@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Language: ru
+In-Reply-To: <Y8bTM3cbL3x9nhKa@google.com>
+To: lee@kernel.org
+Cc: ardb@kernel.org, greg@kroah.com, keescook@chromium.org,
+ linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
+ samitolvanen@google.com, stable@vger.kernel.org, will@kernel.org,
+ lvc-project@linuxtesting.org
+From: SDL <sdl@nppct.ru>
+Subject: Re: [PATCH 1/2] arm64: efi: Execute runtime services from a dedicated
+ stack
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_031337_049825_C8051B11 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250309_031512_771959_36CB612A 
+X-CRM114-Status: UNSURE (   8.24  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,122 +82,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/9/25 11:22 AM, Dmitry Baryshkov wrote:
-> On Sat, 8 Mar 2025 at 14:21, Cristian Ciocaltea
-> <cristian.ciocaltea@collabora.com> wrote:
->>
->> The ropll_tmds_cfg table used to identify the configuration params for
->> the supported rates expects the search key, i.e. bit_rate member of
->> struct ropll_config, to be provided in hHz rather than Hz (1 hHz = 100
->> Hz).  This requires multiple conversions between these units being
->> performed at runtime.
->>
->> Improve implementation clarity and efficiency by consistently using the
->> Hz unit throughout driver's internal data structures and functions.
->> Also rename the rather misleading struct member.
->>
->> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->> ---
->>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 79 +++++++++++------------
->>  1 file changed, 39 insertions(+), 40 deletions(-)
->>
->> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> index 2bf525514c1991a1299265d12e1e85f66333c604..e58a01bdb3ce82d66acdcb02c06de2816288b574 100644
->> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->> @@ -330,7 +330,7 @@ enum dp_link_rate {
->>  };
->>
->>  struct ropll_config {
->> -       u32 bit_rate;
->> +       u32 rate;
-> 
-> unsigned long long, please, to match the tmds_char_rate type.
-> 
->>         u8 pms_mdiv;
->>         u8 pms_mdiv_afc;
->>         u8 pms_pdiv;
->> @@ -410,45 +410,45 @@ struct rk_hdptx_phy {
->>  };
->>
->>  static const struct ropll_config ropll_tmds_cfg[] = {
->> -       { 5940000, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 594000000, 124, 124, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
-> 
-> Use ULL suffix
-> 
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 3712500, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 371250000, 155, 155, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 2970000, 124, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 297000000, 124, 124, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1620000, 135, 135, 1, 1, 3, 1, 1, 0, 1, 1, 1, 1, 4, 0, 3, 5, 5, 0x10,
->> +       { 162000000, 135, 135, 1, 1, 3, 1, 1, 0, 1, 1, 1, 1, 4, 0, 3, 5, 5, 0x10,
->>           1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1856250, 155, 155, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 185625000, 155, 155, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1540000, 193, 193, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 193, 1, 32, 2, 1,
->> +       { 154000000, 193, 193, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 193, 1, 32, 2, 1,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1485000, 0x7b, 0x7b, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 4, 0, 3, 5, 5,
->> +       { 148500000, 0x7b, 0x7b, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 4, 0, 3, 5, 5,
->>           0x10, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1462500, 122, 122, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 244, 1, 16, 2, 1, 1,
->> +       { 146250000, 122, 122, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 244, 1, 16, 2, 1, 1,
->>           1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1190000, 149, 149, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 149, 1, 16, 2, 1, 1,
->> +       { 119000000, 149, 149, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 149, 1, 16, 2, 1, 1,
->>           1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1065000, 89, 89, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 89, 1, 16, 1, 0, 1,
->> +       { 106500000, 89, 89, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 89, 1, 16, 1, 0, 1,
->>           1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 1080000, 135, 135, 1, 1, 5, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->> +       { 108000000, 135, 135, 1, 1, 5, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->>           0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 855000, 214, 214, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 214, 1, 16, 2, 1,
->> +       { 85500000, 214, 214, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 214, 1, 16, 2, 1,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 835000, 105, 105, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 42, 1, 16, 1, 0,
->> +       { 83500000, 105, 105, 1, 1, 5, 1, 1, 1, 1, 1, 1, 1, 42, 1, 16, 1, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 928125, 155, 155, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 92812500, 155, 155, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 742500, 124, 124, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->> +       { 74250000, 124, 124, 1, 1, 7, 1, 1, 1, 1, 1, 1, 1, 62, 1, 16, 5, 0,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 650000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
->> +       { 65000000, 162, 162, 1, 1, 11, 1, 1, 1, 1, 1, 1, 1, 54, 0, 16, 4, 1,
->>           1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 337500, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
->> +       { 33750000, 0x70, 0x70, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 0x2, 0, 0x01, 5,
->>           1, 1, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 400000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->> +       { 40000000, 100, 100, 1, 1, 11, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->>           0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 270000, 0x5a, 0x5a, 1, 1, 0xf, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->> +       { 27000000, 0x5a, 0x5a, 1, 1, 0xf, 1, 1, 0, 1, 0, 1, 1, 0x9, 0, 0x05, 0,
->>           0x14, 0x18, 1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->> -       { 251750, 84, 84, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 168, 1, 16, 4, 1, 1,
->> +       { 25175000, 84, 84, 1, 1, 0xf, 1, 1, 1, 1, 1, 1, 1, 168, 1, 16, 4, 1, 1,
->>           1, 0, 0x20, 0x0c, 1, 0x0e, 0, 0, },
->>  };
->>
->> @@ -894,10 +894,10 @@ static void rk_hdptx_phy_disable(struct rk_hdptx_phy *hdptx)
->>         regmap_write(hdptx->grf, GRF_HDPTX_CON0, val);
->>  }
->>
->> -static bool rk_hdptx_phy_clk_pll_calc(unsigned int data_rate,
->> +static bool rk_hdptx_phy_clk_pll_calc(unsigned long rate,
-> 
-> here and further, unsigned long long
-> Also, is it tmds_char_rate?
+Dear Linux Kernel Developers,
+I have reason to believe that the commit 
+4012603cbd469223f225637d265a233f034c567a, which was backported to the 
+linux-5.10 branch, is introducing a bug that leads to a kernel crash.
 
-Yes, will do the suggested changes in v6.
+Environment Details:
 
-Thanks,
-Cristian
+Kernel Version: linux-5.10.234
+Architecture: aarch64
+Kernel Configuration: Available at
+https://syzkaller.appspot.com/bug?extid=75dc11b3aa0369757b7c
+QEMU Version: 8.2.2
+
+QEMU Launch Command:
+
+qemu-system-aarch64 \
+     -m 4G \
+     -smp 4,sockets=1,cores=4,threads=1 \
+     -cpu cortex-a57 \
+     -machine virt,accel=tcg \
+     -kernel /home/user/lvc/linux-stable/arch/arm64/boot/Image \
+     -append "console=ttyS0 root=/dev/vda2 earlyprintk=serial 
+net.ifnames=0 rw debug loglevel=8" \
+     -drive 
+file=/home/user/lvc/image/disk.raw,format=raw,if=virtio,index=1 \
+     -bios /usr/share/AAVMF/AAVMF_CODE.fd \
+     -netdev user,id=net0,hostfwd=tcp::10022-:22 \
+     -device virtio-net-device,netdev=net0 \
+     -nographic
+
+Steps to Reproduce:
+
+mount -t sysfs sysfs /sys
+mount -t proc proc /proc
+mount -t efivarfs efivarfs /sys/firmware/efi/efivars
+tools/testing/selftests/efivarfs/efivarfs.sh
+
+Crash log:
+
+[  101.403235][   T38] Unable to handle kernel paging request at virtual 
+address ffffa00023b20000
+[  101.403905][   T38] Mem abort info:
+[  101.404159][   T38]   ESR = 0x96000047
+[  101.404448][   T38]   EC = 0x25: DABT (current EL), IL = 32 bits
+[  101.404748][   T38]   SET = 0, FnV = 0
+[  101.404988][   T38]   EA = 0, S1PTW = 0
+[  101.405233][   T38] Data abort info:
+[  101.405469][   T38]   ISV = 0, ISS = 0x00000047
+[  101.405721][   T38]   CM = 0, WnR = 1
+[  101.406070][   T38] swapper pgtable: 4k pages, 48-bit VAs, 
+pgdp=0000000103336000
+[  101.406415][   T38] [ffffa00023b20000] pgd=000000013ffff003, 
+p4d=000000013ffff003, pud=000000013fffe003, pmd=000000013fff9003, 
+pte=0000000000000000
+[  101.407997][   T38] Internal error: Oops: 0000000096000047 [#1] 
+PREEMPT SMP
+[  101.408446][   T38] Modules linked in:
+[  101.409010][   T38] CPU: 1 PID: 38 Comm: kworker/u8:2 Not tainted 
+5.10.234 #61
+[  101.409376][   T38] Hardware name: QEMU QEMU Virtual Machine, BIOS 
+2024.02-2ubuntu0.1 10/25/2024
+[  101.410689][   T38] Workqueue: efi_rts_wq efi_call_rts
+[  101.411219][   T38] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO BTYPE=--)
+[  101.411574][   T38] pc : el1_sync+0xc/0x140
+[  101.411930][   T38] lr : 0x0
+[  101.412132][   T38] sp : ffffa00023b1ffd0
+[  101.412363][   T38] x29: 0000000000000000 x28: ffff0000cc741a80
+[  101.412761][   T38] x27: 0000000000000001 x26: 0000000000e800e8
+[  101.413117][   T38] x25: 0000000000800080 x24: ffff940004765298
+[  101.413465][   T38] x23: 00000000100003c5 x22: ffffa00018c95600
+[  101.413809][   T38] x21: ffffa0001923a980 x20: ffffa00018d30380
+[  101.414170][   T38] x19: ffffa0001bab8008 x18: 1fffe000198e8491
+[  101.414515][   T38] x17: 0000000000000000 x16: ffffa000102a26c0
+[  101.414882][   T38] x15: 0000000000000001 x14: ffff0000ccf34400
+[  101.415277][   T38] x13: 000000000000003c x12: ffff0000ccf34000
+[  101.415656][   T38] x11: 0000000000000018 x10: 0000000000000054
+[  101.416072][   T38] x9 : 4fc79849210be57c x8 : 11d293ca8be4df61
+[  101.416446][   T38] x7 : 0000000041b58ab3 x6 : ffff94000476522a
+[  101.416820][   T38] x5 : 0000002200000000 x4 : 0000000200000000
+[  101.417190][   T38] x3 : 1fffe000198e8352 x2 : ffffa0001923a820
+[  101.417560][   T38] x1 : ffff0000cc741a80 x0 : 0000000000000000
+[  101.418109][   T38] Call trace:
+[  101.418601][   T38] Code: d503201f a90007e0 a9010fe2 a90217e4 (a9031fe6)
+[  101.419579][   T38] ---[ end trace 61316cddfdbbcb95 ]---
+[  103.623221][   T38] Kernel panic - not syncing: Oops: Fatal exception
+[  103.623723][   T38] SMP: stopping secondary CPUs
+[  105.221708][   T38] SMP: failed to stop secondary CPUs 0-3
+[  105.222306][   T38] Kernel Offset: disabled
+[  105.222711][   T38] CPU features: 0x28240022,61002082
+[  105.222969][   T38] Memory Limit: none
+
+I identified this commit as the potential cause of the crash using git 
+bisect. The issue is reproducible with the above setup and 
+configuration. If you need more details or logs, I am more than willing 
+to provide them. Thank you for your attention to this matter.
+
+Best regards,
+
+Alexey Nepomnyashih
 
