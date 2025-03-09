@@ -4,65 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A5FDC28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 00:26:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085B7C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 03:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=szqCjg4d8QsrF+kYbNSWgnbNPQ3W+ripzXsLT+GOp7c=; b=cbY3e6LGHd4RIvs02j/uKRLZH0
-	LEGroagmr5K/Y4/oaCxUdrvaq/lanmx5BDneAf7/yrK6V63+MR3se7l4s73gW049gRUkYEBMSTDSJ
-	A12w8WpHoaGKYcEVUfchs7AIjWFYu2+Iily5zwKpGmDjfUzmk6jVkqRu8e/uP/amVBKBo8pG/qVIN
-	4keXZLTwl3FwaKCNfq9rB5QLtXFl7brSq72JSQ7+38eqUMrg6qxKDJLsT0jiA96JaYKPmTbeqI+IG
-	JKcbmYLlu7cZYAaAeN5usgRQNWaz2/35S/mFgENlTrm/NJWKPhWVRdh8GpufJo7aXs/v7uWyIoleI
-	Qz3Wt36A==;
+	bh=2pxvqozo1PzHA92rmrCMj0oKJIeCNmjRVYKCHzIUN60=; b=zap4AApF2auByOzbkx6alXjNlC
+	mTUMitGkuTLvpDQkFKVjGNsoJ3tsejAQv5XGbwShkKHOXzSQl1D02ToiDQuHZYo7DlujJ8l6qmwst
+	tjHDxZkuOgTYXuqUKZYzi4tfOQsatgSP0AmhkFWqQ981IcGpa8V+p27qeOQtFNFSe7ZojNVR50Ok/
+	xDBNjD61vlE4DINAz0HBRX1AsxwBsD2Rxsq08nCjWkvrFf9aqBLoPr+kg4U2ybo7CrX95a35tx1P/
+	g9h831x++rVYa62bgRHpZWcOIH6yk7BPWb+RNXK+vL/ryZD+czX71VAYEV6eL4cWvRJAPKFhA4Jgq
+	KMmVfTEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr4Uz-0000000HMNp-1r3Y;
-	Sun, 09 Mar 2025 00:26:33 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tr6wl-0000000HRaP-0o69;
+	Sun, 09 Mar 2025 03:03:23 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr4TL-0000000HMJD-3AB3;
-	Sun, 09 Mar 2025 00:24:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 514DE5C4336;
-	Sun,  9 Mar 2025 00:22:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B35A5C4CEE0;
-	Sun,  9 Mar 2025 00:24:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741479889;
-	bh=szqCjg4d8QsrF+kYbNSWgnbNPQ3W+ripzXsLT+GOp7c=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Be4m0mGThOYM6JcXqk8+uCCQv6Ltc1Zpke8d5hMkVHlxB0l6HdKQxVCG3IpCuqbky
-	 adQIKvBUBLCy/Pa17Ab8DG8QoudztNygRbTGYjoqpEQh8liSD0ml0x7rV5M6XfSOH4
-	 8XY7TSIOXqi3N8Xn7PzN349nXzXJFf1i+ewclW1N88Bn9cbrRYHdyXZlE2U3FcycIy
-	 r8PyRPZjyicCKZIS9w2ZhsE0jXfr3zmzMHxILXUtLyUsRWgfCff5nilcKeC3qiWO/o
-	 3HRHrZ7vZU5HFDEttyxmSuLbSkEeGamw9/lhLB+Wweam0CWtFKxkXITEeRMOFGwKTI
-	 UQO0pbMTpRjhg==
-Date: Sun, 9 Mar 2025 01:24:46 +0100
-From: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <ukleinek@kernel.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Chukun Pan <amadeus@jmu.edu.cn>, Rob Herring <robh@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Jonas Karlman <jonas@kwiboo.se>, Yao Zi <ziyao@disroot.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-pwm@vger.kernel.org
-Subject: Re: [PATCH 1/2] dt-bindings: pwm: rockchip: Add rockchip,rk3528-pwm
-Message-ID: <dit7oqsrs2g5rxor6aakprqw22yyovvcel5tnd2cteydtpt7zg@ndf4cmiamoit>
-References: <20250307120004.959980-1-amadeus@jmu.edu.cn>
- <20250307120004.959980-2-amadeus@jmu.edu.cn>
- <pnlkcc2rl7fegltovgtvp4xdxhonw72rclvhn7qmvb7xyuullm@xf5x6lcigji3>
- <5942715.DvuYhMxLoT@phil>
+	id 1tr6v6-0000000HRU9-41G5
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 03:01:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741489300; x=1773025300;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=IVS3L5J251tbHNugEZ3AM4WfhMC0Zjdnd3Dl1hMO1o4=;
+  b=TsfScvfLHjTxx10rjlOZ+w1b210AuX01NEjRWOL2Xgw/ev/r436THEiu
+   aAW5Bj50Xav/6BC21IplmThQ5qw1F/2GmJ4P+4E4Zirn6shv24xLqzMLT
+   r1qsN/9r5/S8cXOpT926T3lKllmXP5V5QYG1KbrSDfaHCrWoLjKXPHD9k
+   3YqQDNXe2dl/PM81Jfgh43TM8U0EmrbJwwZDKohLNEi6BMGUjkCHdO6VX
+   aafw8XN4TAje6sKm9k9EYduy39avQI8ULNAjWvBWaOogZaha+/NlGv194
+   9n7X/cG1Qejj2QOC4vxEKcqBS9TA34CWE/SvO0LT8lwzrz8A5nOw3qpKz
+   w==;
+X-CSE-ConnectionGUID: pLG05oVBSqG2n1g8zLHkCA==
+X-CSE-MsgGUID: KKgThGDKTMucT/ykjlPWjg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11367"; a="46422279"
+X-IronPort-AV: E=Sophos;i="6.14,233,1736841600"; 
+   d="scan'208";a="46422279"
+Received: from orviesa009.jf.intel.com ([10.64.159.149])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Mar 2025 19:01:34 -0800
+X-CSE-ConnectionGUID: 7SGGoZ+fS2+Az4L8zuyXfw==
+X-CSE-MsgGUID: fcPirFXBQJGdbTUBxsPpng==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,233,1736841600"; 
+   d="scan'208";a="119408689"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by orviesa009.jf.intel.com with ESMTP; 08 Mar 2025 19:01:28 -0800
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tr6ur-0002b0-1Z;
+	Sun, 09 Mar 2025 03:01:25 +0000
+Date: Sun, 9 Mar 2025 11:01:06 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dmitry Baryshkov <lumag@kernel.org>, Rob Clark <robdclark@gmail.com>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kuogee Hsieh <quic_khsieh@quicinc.com>,
+	Krishna Manikandan <quic_mkrishn@quicinc.com>,
+	Jonathan Marek <jonathan@marek.ca>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Konrad Dybcio <konradybcio@kernel.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	freedreno@lists.freedesktop.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 06/10] drm/msm/mdss: add SAR2130P device configuration
+Message-ID: <202503091011.Kwbj8DQz-lkp@intel.com>
+References: <20250308-sar2130p-display-v1-6-1d4c30f43822@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="z34uotnwfhj7flql"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5942715.DvuYhMxLoT@phil>
+In-Reply-To: <20250308-sar2130p-display-v1-6-1d4c30f43822@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_162451_841146_519CC5AA 
-X-CRM114-Status: GOOD (  19.36  )
+X-CRM114-CacheID: sfid-20250308_190141_016159_9B67D08A 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,67 +108,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Dmitry,
 
---z34uotnwfhj7flql
-Content-Type: text/plain; protected-headers=v1; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH 1/2] dt-bindings: pwm: rockchip: Add rockchip,rk3528-pwm
-MIME-Version: 1.0
+kernel test robot noticed the following build errors:
 
-Hey Heiko,
+[auto build test ERROR on 0a2f889128969dab41861b6e40111aa03dc57014]
 
-On Sat, Mar 08, 2025 at 05:25:09PM +0100, Heiko Stuebner wrote:
-> Am Freitag, 7. M=E4rz 2025, 18:07:47 MEZ schrieb Uwe Kleine-K=F6nig:
-> > On Fri, Mar 07, 2025 at 08:00:03PM +0800, Chukun Pan wrote:
-> > > Document pwm compatible for rk3528 which is fallback compatible
-> > > of rk3328-pwm group.
-> > >=20
-> > > Signed-off-by: Chukun Pan <amadeus@jmu.edu.cn>
-> >=20
-> > to prevent binding warnings it's probably sensible to let both patches
-> > go in via the same tree at the same time. Feel free to take the binding
-> > patch via rockchip/arm-soc.
-> >=20
-> > Acked-by: Uwe Kleine-K=F6nig <ukleinek@kernel.org>
->=20
-> You already have the rk3562 binding in your for-next branch [0], which
-> could create merge-conflicts later on.
+url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Baryshkov/dt-bindings-display-msm-dp-controller-describe-SAR2130P/20250308-094544
+base:   0a2f889128969dab41861b6e40111aa03dc57014
+patch link:    https://lore.kernel.org/r/20250308-sar2130p-display-v1-6-1d4c30f43822%40linaro.org
+patch subject: [PATCH 06/10] drm/msm/mdss: add SAR2130P device configuration
+config: arm64-randconfig-001-20250309 (https://download.01.org/0day-ci/archive/20250309/202503091011.Kwbj8DQz-lkp@intel.com/config)
+compiler: clang version 15.0.7 (https://github.com/llvm/llvm-project 8dfdcc7b7bf66834a761bd8de445840ef68e4d1a)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250309/202503091011.Kwbj8DQz-lkp@intel.com/reproduce)
 
-Oh indeed.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503091011.Kwbj8DQz-lkp@intel.com/
 
-> This patch already contains it, so should fit neatly onto your branch.
->=20
-> And binding warnings only come from linux-next, so won't trigger as the
-> pwm will feed the binding there too :-)
->=20
-> So I guess it might be better to take the binding through the pwm tree
-> and me then picking up the dts patch.
+All errors (new ones prefixed by >>):
 
-Fine for me, so I applied the first patch to
+>> drivers/gpu/drm/msm/msm_mdss.c:599:3: error: field designator 'ubwc_static' does not refer to any field in type 'const struct msm_mdss_data'
+           .ubwc_static = 1,
+            ^
+   1 error generated.
 
-https://git.kernel.org/pub/scm/linux/kernel/git/ukleinek/linux.git pwm/for-=
-next
 
-=2E
+vim +599 drivers/gpu/drm/msm/msm_mdss.c
 
-Best regards
-Uwe
+   594	
+   595	static const struct msm_mdss_data sar2130p_data = {
+   596		.ubwc_enc_version = UBWC_3_0, /* 4.0.2 in hw */
+   597		.ubwc_dec_version = UBWC_4_3,
+   598		.ubwc_swizzle = 6,
+ > 599		.ubwc_static = 1,
+   600		.highest_bank_bit = 0,
+   601		.macrotile_mode = 1,
+   602		.reg_bus_bw = 74000,
+   603	};
+   604	
 
---z34uotnwfhj7flql
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEP4GsaTp6HlmJrf7Tj4D7WH0S/k4FAmfM37oACgkQj4D7WH0S
-/k75Swf7Bf2agH4VhhrJhceAjdIf6UQBP4yoTIlhuCQDNgORf85O2aCq9ThJxGAc
-CY2k7Hkupfg6o2VHtsaIpRv9hBxyvKUIejmE1bS575NuAUAsyTya32Wsjyjyxho0
-0Hee8EhcDdcsZ9cZW6pYnoJkPlFrPTT39WRG3VRW8m3nS4Qb77HKbu/6YRjZoKVQ
-Hw/yk0FI2YP9rvIpT6qf5e1TdWKzB25Mqt9A0n2C9ureAOso8ufB+P1vHX5lb4I4
-bI6Iemr0pvmAwC3qAzDJ/oKldaOKlD5pUFofTyPy3YWXpTKknHL9XnNEPOBQ5P9S
-RLq9fYax8rVmmepGRTC6XluJOCDk+w==
-=iOg2
------END PGP SIGNATURE-----
-
---z34uotnwfhj7flql--
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
