@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83155C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 10:20:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C2C9C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 10:21:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:In-Reply-To:MIME-Version:Date:Message-ID:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=3z2H0OLr2MnzWSk4IOPn7DMUI08I1ys01DeWyWK+188=; b=JVjyzpuj5lG2AD5l8/bYkdHf99
-	rbmydz0Zmrxn5RjbRo8E1B6vTHpCPBLhXpfIMY2oLY2Ck5zOeKPfcrhe29C0acfDjW3HZygn8mZ8w
-	Ys5pXGAk4uYbHHqPs9TUikIb+k0kgMaPgwwfox62URev+eneUHdbM/xlygngB8tEjYhFAY/PbpJEo
-	Ee94exnLILa/OxL5VM1FYCQ6JiRpxgKxYdfoN9wNCD/ZhjvHlIk7WtR+Ug6G9/zvTB2WKPytwkuCm
-	2LVZIoKeycKFSPYyrDN7QmkZ6qtJDuXQZ6m7qN/OO6Jzsb1VDkiG2EHw+MlpOhF5YQhWoFhfRprdf
-	AUB992xA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RTh0CGXf1duodH7Vg1jGFN20jCRGHw3XwR7ImqQDpiA=; b=EMwkua77dy8gaMHFugfoEri4S1
+	6D+BWoOU4kxk4/0hBvwbLZtajJbkNy8krEh/8VDp519X9dzgSAugZ1Fw9APNl6lmpKVM0hja8sRXI
+	e3+oMCfIJ4zxLop4uXwPamDoZ7YNlu0D+/D7coGw0/mTJdrjAYJVlcipiCKHInlFiN9INzaFOq+jg
+	ur9Um+PuF2fBTpzRbHlpCdBvE6OjcT5vd9Zm5PQ8iU0KhjADmUX9YlWoCWLAFS4kTMZ6QGrB/sPOu
+	53jC4Oi3j+VyWkXgJKg7qepqrcAgy0aC4I5Ho51GhL4tWR5Te8sxmQcwJ8si+kbGxLat6YW/xQR/S
+	UuWSqjtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trDlU-00000000Lmf-2Ndb;
-	Sun, 09 Mar 2025 10:20:12 +0000
-Received: from mail.nppct.ru ([195.133.245.4])
+	id 1trDn4-00000000Lst-1JEh;
+	Sun, 09 Mar 2025 10:21:50 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trDgd-00000000L2X-1Lmf
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 10:15:14 +0000
-Received: from mail.nppct.ru (localhost [127.0.0.1])
-	by mail.nppct.ru (Postfix) with ESMTP id B0E8B1C242B
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  9 Mar 2025 13:14:57 +0300 (MSK)
-Authentication-Results: mail.nppct.ru (amavisd-new); dkim=pass (1024-bit key)
-	reason="pass (just generated, assumed good)" header.d=nppct.ru
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=nppct.ru; h=
-	content-transfer-encoding:content-type:content-type:subject
-	:subject:from:from:to:in-reply-to:content-language:user-agent
-	:mime-version:date:date:message-id; s=dkim; t=1741515296; x=
-	1742379297; bh=6+sx/uKbcT/XifleL+nJx9XxBtH/gNc4zUHID3ZvHVg=; b=U
-	uUzvmCW53rHbxf1z49zariKpociRs0dp8Q91pMZSrcMnrXcIVZXLiL3J8etiNpwg
-	aRnqrud+ke4No/JUd7aQNcdyGSIORsuGhSx1992mMoc9oiC67s5rBkrm3zXu1tla
-	dO+iL1aBjfs686sIY/uIE0xVK3e4zYC59LJOHMRKMs=
-X-Virus-Scanned: Debian amavisd-new at mail.nppct.ru
-Received: from mail.nppct.ru ([127.0.0.1])
-	by mail.nppct.ru (mail.nppct.ru [127.0.0.1]) (amavisd-new, port 10026)
-	with ESMTP id 94JHrXQiECDC for <linux-arm-kernel@lists.infradead.org>;
-	Sun,  9 Mar 2025 13:14:56 +0300 (MSK)
-Received: from [192.168.1.67] (unknown [46.72.98.152])
-	by mail.nppct.ru (Postfix) with ESMTPSA id DCEC91C0B18;
-	Sun,  9 Mar 2025 13:14:52 +0300 (MSK)
-Message-ID: <c315940b-dbdb-4acb-b319-d3b0fd53eb0d@nppct.ru>
-Date: Sun, 9 Mar 2025 13:14:51 +0300
+	id 1trDgu-00000000L7J-3BWV;
+	Sun, 09 Mar 2025 10:15:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741515327;
+	bh=oZ8C4AaMiVHmMJORqt5AWEOKtdlWfOlHyHmfVChKc1U=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kt31JYZ9VhyffLJqINjL3ma4HlprQIzm1kXb5xwSrKVixrFY0S4xQ46uHwyyy7zrj
+	 VDS/ABfcbF+SNYC0XnIuKcJwsZw0XeJDxuCS7btaTr7aHwHsGT933/P5x9YbOY83lB
+	 6296esN7JZGKt7Nw2o1lkH8nkokaCX3hgc+NHZmDpOTASAdqXhrKfAIKKtly8Ro/pB
+	 s7MU3+r3qrEexwgh0MUc1g9M8Y3lDtY4VnRhvvCqs45Ya0zOyqzDmbLVYsiSKgVfy1
+	 vt+eY2fQRXJuaJ7CnlGe+RAjhzQKUlymDVizx3or2loibSl6MJtpaLGy26SsIwhXne
+	 dPGcN1kMJAHgw==
+Received: from [192.168.1.90] (unknown [84.232.140.93])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A925017E0B25;
+	Sun,  9 Mar 2025 11:15:26 +0100 (CET)
+Message-ID: <6caefe9f-1b15-41c1-94f2-9a2a92aeec67@collabora.com>
+Date: Sun, 9 Mar 2025 12:15:24 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Content-Language: ru
-In-Reply-To: <Y8bTM3cbL3x9nhKa@google.com>
-To: lee@kernel.org
-Cc: ardb@kernel.org, greg@kroah.com, keescook@chromium.org,
- linux-arm-kernel@lists.infradead.org, linux-efi@vger.kernel.org,
- samitolvanen@google.com, stable@vger.kernel.org, will@kernel.org,
- lvc-project@linuxtesting.org
-From: SDL <sdl@nppct.ru>
-Subject: Re: [PATCH 1/2] arm64: efi: Execute runtime services from a dedicated
- stack
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Subject: Re: [PATCH v5 08/12] phy: rockchip: samsung-hdptx: Setup TMDS char
+ rate via phy_configure_opts_hdmi
+To: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
+ <kishon@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Algea Cao <algea.cao@rock-chips.com>, Sandor Yu <Sandor.yu@nxp.com>,
+ Maxime Ripard <mripard@kernel.org>, kernel@collabora.com,
+ linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+References: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com>
+ <20250308-phy-sam-hdptx-bpc-v5-8-35087287f9d1@collabora.com>
+ <CAA8EJpoGu4Tq-wt09Jj+b+=eJ3dNXhPWVOg4DyCQxrJbFNFfYw@mail.gmail.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <CAA8EJpoGu4Tq-wt09Jj+b+=eJ3dNXhPWVOg4DyCQxrJbFNFfYw@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_031512_771959_36CB612A 
-X-CRM114-Status: UNSURE (   8.24  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250309_031528_954351_6247C96E 
+X-CRM114-Status: GOOD (  17.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +81,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Linux Kernel Developers,
-I have reason to believe that the commit 
-4012603cbd469223f225637d265a233f034c567a, which was backported to the 
-linux-5.10 branch, is introducing a bug that leads to a kernel crash.
+On 3/9/25 11:26 AM, Dmitry Baryshkov wrote:
+> On Sat, 8 Mar 2025 at 14:21, Cristian Ciocaltea
+> <cristian.ciocaltea@collabora.com> wrote:
+>>
+>> The current workaround to setup the TMDS character rate relies on the
+>> unconventional usage of phy_set_bus_width().
+>>
+>> Make use of the recently introduced HDMI PHY configuration API to
+>> properly handle the setup.  The workaround will be dropped as soon as
+>> the switch has been completed on both ends.
+>>
+>> Rename rk_hdptx_phy_verify_config() to rk_hdptx_phy_verify_dp_config()
+>> and introduce the rk_hdptx_phy_verify_hdmi_config() helper to check the
+>> HDMI parameters during phy_configure().
+>>
+>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+>> ---
+>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 64 +++++++++++++++++------
+>>  1 file changed, 47 insertions(+), 17 deletions(-)
+>>
+> 
+>> @@ -1469,8 +1474,27 @@ static int rk_hdptx_phy_power_off(struct phy *phy)
+>>         return rk_hdptx_phy_consumer_put(hdptx, false);
+>>  }
+>>
+>> -static int rk_hdptx_phy_verify_config(struct rk_hdptx_phy *hdptx,
+>> -                                     struct phy_configure_opts_dp *dp)
+>> +static int rk_hdptx_phy_verify_hdmi_config(struct rk_hdptx_phy *hdptx,
+>> +                                          struct phy_configure_opts_hdmi *hdmi)
+>> +{
+>> +       int i;
+>> +
+>> +       if (!hdmi->tmds_char_rate || hdmi->tmds_char_rate > HDMI20_MAX_RATE)
+>> +               return -EINVAL;
+>> +
+>> +       for (i = 0; i < ARRAY_SIZE(ropll_tmds_cfg); i++)
+>> +               if (hdmi->tmds_char_rate == ropll_tmds_cfg[i].rate)
+>> +                       break;
+> 
+> return 0;
+> 
+>> +
+>> +       if (i == ARRAY_SIZE(ropll_tmds_cfg) &&
+> 
+> Then you can drop the first clause in the if
 
-Environment Details:
+Sure, will do!
 
-Kernel Version: linux-5.10.234
-Architecture: aarch64
-Kernel Configuration: Available at
-https://syzkaller.appspot.com/bug?extid=75dc11b3aa0369757b7c
-QEMU Version: 8.2.2
-
-QEMU Launch Command:
-
-qemu-system-aarch64 \
-     -m 4G \
-     -smp 4,sockets=1,cores=4,threads=1 \
-     -cpu cortex-a57 \
-     -machine virt,accel=tcg \
-     -kernel /home/user/lvc/linux-stable/arch/arm64/boot/Image \
-     -append "console=ttyS0 root=/dev/vda2 earlyprintk=serial 
-net.ifnames=0 rw debug loglevel=8" \
-     -drive 
-file=/home/user/lvc/image/disk.raw,format=raw,if=virtio,index=1 \
-     -bios /usr/share/AAVMF/AAVMF_CODE.fd \
-     -netdev user,id=net0,hostfwd=tcp::10022-:22 \
-     -device virtio-net-device,netdev=net0 \
-     -nographic
-
-Steps to Reproduce:
-
-mount -t sysfs sysfs /sys
-mount -t proc proc /proc
-mount -t efivarfs efivarfs /sys/firmware/efi/efivars
-tools/testing/selftests/efivarfs/efivarfs.sh
-
-Crash log:
-
-[  101.403235][   T38] Unable to handle kernel paging request at virtual 
-address ffffa00023b20000
-[  101.403905][   T38] Mem abort info:
-[  101.404159][   T38]   ESR = 0x96000047
-[  101.404448][   T38]   EC = 0x25: DABT (current EL), IL = 32 bits
-[  101.404748][   T38]   SET = 0, FnV = 0
-[  101.404988][   T38]   EA = 0, S1PTW = 0
-[  101.405233][   T38] Data abort info:
-[  101.405469][   T38]   ISV = 0, ISS = 0x00000047
-[  101.405721][   T38]   CM = 0, WnR = 1
-[  101.406070][   T38] swapper pgtable: 4k pages, 48-bit VAs, 
-pgdp=0000000103336000
-[  101.406415][   T38] [ffffa00023b20000] pgd=000000013ffff003, 
-p4d=000000013ffff003, pud=000000013fffe003, pmd=000000013fff9003, 
-pte=0000000000000000
-[  101.407997][   T38] Internal error: Oops: 0000000096000047 [#1] 
-PREEMPT SMP
-[  101.408446][   T38] Modules linked in:
-[  101.409010][   T38] CPU: 1 PID: 38 Comm: kworker/u8:2 Not tainted 
-5.10.234 #61
-[  101.409376][   T38] Hardware name: QEMU QEMU Virtual Machine, BIOS 
-2024.02-2ubuntu0.1 10/25/2024
-[  101.410689][   T38] Workqueue: efi_rts_wq efi_call_rts
-[  101.411219][   T38] pstate: 000003c5 (nzcv DAIF -PAN -UAO -TCO BTYPE=--)
-[  101.411574][   T38] pc : el1_sync+0xc/0x140
-[  101.411930][   T38] lr : 0x0
-[  101.412132][   T38] sp : ffffa00023b1ffd0
-[  101.412363][   T38] x29: 0000000000000000 x28: ffff0000cc741a80
-[  101.412761][   T38] x27: 0000000000000001 x26: 0000000000e800e8
-[  101.413117][   T38] x25: 0000000000800080 x24: ffff940004765298
-[  101.413465][   T38] x23: 00000000100003c5 x22: ffffa00018c95600
-[  101.413809][   T38] x21: ffffa0001923a980 x20: ffffa00018d30380
-[  101.414170][   T38] x19: ffffa0001bab8008 x18: 1fffe000198e8491
-[  101.414515][   T38] x17: 0000000000000000 x16: ffffa000102a26c0
-[  101.414882][   T38] x15: 0000000000000001 x14: ffff0000ccf34400
-[  101.415277][   T38] x13: 000000000000003c x12: ffff0000ccf34000
-[  101.415656][   T38] x11: 0000000000000018 x10: 0000000000000054
-[  101.416072][   T38] x9 : 4fc79849210be57c x8 : 11d293ca8be4df61
-[  101.416446][   T38] x7 : 0000000041b58ab3 x6 : ffff94000476522a
-[  101.416820][   T38] x5 : 0000002200000000 x4 : 0000000200000000
-[  101.417190][   T38] x3 : 1fffe000198e8352 x2 : ffffa0001923a820
-[  101.417560][   T38] x1 : ffff0000cc741a80 x0 : 0000000000000000
-[  101.418109][   T38] Call trace:
-[  101.418601][   T38] Code: d503201f a90007e0 a9010fe2 a90217e4 (a9031fe6)
-[  101.419579][   T38] ---[ end trace 61316cddfdbbcb95 ]---
-[  103.623221][   T38] Kernel panic - not syncing: Oops: Fatal exception
-[  103.623723][   T38] SMP: stopping secondary CPUs
-[  105.221708][   T38] SMP: failed to stop secondary CPUs 0-3
-[  105.222306][   T38] Kernel Offset: disabled
-[  105.222711][   T38] CPU features: 0x28240022,61002082
-[  105.222969][   T38] Memory Limit: none
-
-I identified this commit as the potential cause of the crash using git 
-bisect. The issue is reproducible with the above setup and 
-configuration. If you need more details or logs, I am more than willing 
-to provide them. Thank you for your attention to this matter.
-
-Best regards,
-
-Alexey Nepomnyashih
+Thanks,
+Cristian
 
