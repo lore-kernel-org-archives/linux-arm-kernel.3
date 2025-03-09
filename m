@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BEACC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:56:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8160BC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:58:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=; b=UulPkfqZf1U638qkF1a96a7KoK
-	mOttApRpeth+k2f3s54XEZ/KQ2enTdWox433GY7HoAFv24m6bmgGaVijzvY1F6rBuOS5caYcGjbOP
-	Eznk03KXysKmhseDKW4ws2rP0GZBxFWyITItxHiktu7D1FVrG9qJfJX0nV6P4gJTBfwkgbO4PN1H6
-	E9qrtfoZ69g9Vjecsj/wi8QtWawQBWur0Kd5gOqe7qzqTA9mvucx/kI9m/D0LAvuu5gLXQaSRfVbC
-	E/xjyJ35lg1XqoFbfvHrv7ksoBNW48nhb+GRoEqFQ82RyYnljAkAyeFLlpzSCDux4Q7bgUborz3P5
-	m8pEgcrg==;
+	bh=dR4yAwvTNJJvPEYH7CC9OJCvxPsipjkV0SH/88zcY7c=; b=ICRcGOUE4adscV+Bw5/bxrMrjd
+	4WLiEAG96rx7vlMHnRK9Lg9anAuG54+h++JpvsNH5l/5fn0y0EARTGKq6bBSbsfewopUbOCrmbffZ
+	bO1Qbi/5wKrvlmtKbHYMql6vz0MEeL/mbeJhn4xnyfS/c56h0G2hB1EWHMkHAZmLUIa6Zhmz9ifXM
+	7utpppH2sG4BcQe7pRWXkrhYMxfWaSDUss98LBZ7f26gbCG+mz83OZTF5x0y8YvaM/71B2oENmEm4
+	jMEMsH8jJoQ9H1/HSJOCjiAuJN9i21kUadp29TC62xwrfRneAPyhRzPjn1SL18yVDPksyzx9T9Tcy
+	1GhT5HlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAaC-0000000056v-1Y7b;
-	Sun, 09 Mar 2025 06:56:20 +0000
-Received: from mail-ed1-x534.google.com ([2a00:1450:4864:20::534])
+	id 1trAbn-000000005Ek-0UTE;
+	Sun, 09 Mar 2025 06:57:59 +0000
+Received: from mail-ed1-x533.google.com ([2a00:1450:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAX7-000000004pO-0oZM
+	id 1trAYi-000000004yJ-3A9P
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 06:53:10 +0000
-Received: by mail-ed1-x534.google.com with SMTP id 4fb4d7f45d1cf-5e5c7d6b96fso5249585a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:53:08 -0800 (PST)
+	Sun, 09 Mar 2025 06:54:49 +0000
+Received: by mail-ed1-x533.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so2800772a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:54:48 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741503187; x=1742107987; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741503287; x=1742108087; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=;
-        b=cvaM8HCBBS9BkbdmUFsCelp3N55657b1A840YHtRv5CNmFLXj8qpdtAT2RfHPWqtZA
-         QK+oV1vt/m391EZJCDERUO5jzXjQtUsR1ZBdfmkOS7WwBPsyUHzdByS6ApivLak1Ly4j
-         t4IYWh907+m7GqU1OsN6J1f5WZQLYsGTF0eg360vY8I2af3xvS1VO8ykDeHPWepke7YV
-         pPoBGsVo6OrP0GKJXu7v+0Tp1xbY41THDUeh4ijMXekusCuhTW3604B9vln3hSTE2wPx
-         IareXm2QfrHgexkEqKWYjh2cfraI4vx5BiCaSWkxdY0VH2EjxdU7d+3B+YqbQ6qmafB+
-         JpIQ==
+        bh=dR4yAwvTNJJvPEYH7CC9OJCvxPsipjkV0SH/88zcY7c=;
+        b=HWBfznbZ1CBFF8nj8wFvrarTM9yyN/fBeLdpqxGWmkn9I74Z7di+1SsVVlbnij1PC0
+         wMw6sthbkEQcATLmOK4IGXz5a9Xpv+F73OuueBq2alL7bCxYgDz7GeYNXBK7ogg7SgjR
+         IM5XFngRRd7i25itUUfMR74cmm2qOGRvEM4my3DILRrj2q5FS98B9eOIhWtVCUEoM/Xh
+         nZFdkWiSKWntOtpAKFGUijKCWeJplbHPrScF8hZqkH5Et1OkeGHHzzmp/qLi2eZh7QzX
+         n3fO+i3RlghSD4n3XxMhFYYmWQ3GzPn7C1Q13qeBnKznW6N+yiBXQ8liItGYrGG8LEd9
+         fTkA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741503187; x=1742107987;
+        d=1e100.net; s=20230601; t=1741503287; x=1742108087;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=8FLOytRST1b7cBgnwTPUTHSCubeWY65ELvAASAoo8K8=;
-        b=aR0szLIqOpZ5aQ1j6qB6uyhj6runpQI9fZyGoMO7+pisF6QK3asOAXNcxhx95fbzlQ
-         92FWPjK+FDs7sm2aOlgA9/dGjhdC0GH9uh6fWTG5inNneN3mZbelaoAKykauWTg8fHE/
-         jAe/gZ0qiY6lIuUStK3qHAuukE9tTPX8nb1KXT+BKGdoGvc75QiTyEY7kr0U6gZH6ifX
-         E8HqXTT1A1mLsXHdehxQknD6NAPBEE74EgoBJ2zn4kRXVP2tlb66U29DjpCUQ6FAFbOe
-         ALxekBHJXhm8Fp8V37iTclbJ5C3KFqbFBZb/+9dRha00CnyxK9ckl+Dc6sz+imx/IvA1
-         yYoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCULf1U4Bqw+2KsMddAyz4Ubxrq9iS6X2F2aUHNgspTLesNsuocEh0pkWBH/asVwq8+Q5QADnlpAUGnIORjMKJqZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywq6b0f6kqsMnz9AQXPth/OAG1z/jZBKwFxNUl9gEx5igIimKq9
-	KhAT4filBDLWn6PaA8AYY1KWkS7P0nlsQLqOkgkg4omYT8b1R75q
-X-Gm-Gg: ASbGncsiiSwFwRmGKskQyPiNLKYiqXJgtFddRNBBcmUHnZuGAIj6rRob8McuRoAQOd/
-	oEog2RRzaqI5HBXFwebQlJwLCFscd6ohtYeApTBXbdVC7SKzB1Vt6anBP385AAy5ym78Tbruolk
-	o0HLE6Ob8asp821kFlw/lgaRGwhcJOnrOyKoUE29S2xpP3G3hEvcoQb6xKWwoXIjOU7jfX0Rueq
-	rZs8Sj7620Wr/PLVU+wO9ES4xf2f9WIdMyunPvzFbZxEuQZwXc2LwLGfswY40ujE8DKygsFjuRq
-	tQUVb/EOr3M6OdLIYU0tpC4Gn0v9KkJhAOK0wCMC1+p7thYG0jRz6j9aFKirYi6nyg==
-X-Google-Smtp-Source: AGHT+IEozQjXyjRcOAbnbhkCB/GeONnnBAob1GnncFL/WgIvYzJGUOAd/PvSRjZxlM/Y0ifrf89/uw==
-X-Received: by 2002:a05:6402:5387:b0:5e0:9254:c10e with SMTP id 4fb4d7f45d1cf-5e5e22dbbf6mr10635788a12.11.1741503187497;
-        Sat, 08 Mar 2025 22:53:07 -0800 (PST)
+        bh=dR4yAwvTNJJvPEYH7CC9OJCvxPsipjkV0SH/88zcY7c=;
+        b=Wh/10g8Zg/2djZRxqIooLfLbVJp4ZwtLpGRDPTjz89SWdj8ywS7xilgj2fh3/Mh8Ba
+         BI4+5Y7f+D2CTQ69kpws6Xw37QOGNN/jwQFdqoe4ZcCi4AhRjhdJnJOETRWM8uUtIseP
+         qGbQNq2XrFlUCa1/f/zsX9k9hue+xCD/y6YxtgEyf2VU8yRZBV6i1VqsYEgCJ+5njRHt
+         Ohz277NPAw9sLwru1pqtHJOIUcsNgQqV9nhnZJDyzB6I88Jiy5RDiN6NxatTDoGnmnAz
+         QVhpyAL5H6j0WI/mD+GWYrxl4p19YqD2kzozReIqeCIM6u5OTlmrAahhaIxJAfVmRZvh
+         kuCQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWq0Y9TTgKb4vTBfmP35aQ6EwYMyGj7fEe7EFvXlh0jAxG/E6R5AjXJYkp5Fy5Z8z1ow36M3YMNxVBScg783Z64@lists.infradead.org
+X-Gm-Message-State: AOJu0YxCf2u/RZK1vmL37yesDhMw2nBgatw4G/k1yzbrjvxwq9tKjVao
+	wd2nCKwN+OzCk2eLRhkL17oi7ee85PRhaiDappRGFl/4AeUmrVHt
+X-Gm-Gg: ASbGncvxqrdvHFH3e95C+nEXmUizJVub7s7zja5qYro1nqIabsKkjFhRa4GeO3qhaJ/
+	2IaJjTZU6yVCRIaHDT/C35tXhK3997xtJBpSPmmbY3Dt+/ILg2S0madCgtLa0Yy2XMraw7KxkYv
+	opgpQhbTyFuB8lHD2sYrqiU+4m8rPVYlDzc6tO7NChZP2t7iieRA7W1IKZmoMz+f5s31I3aFIya
+	w6AaXKEcqEa8MJCb5raBJvqR0XBU/N6B3l/jpNKlhjbnbHv3vHQ2X4MlTweMyNFqH6y5Mo4Sde+
+	T0v4VjOZefF+28oJm9zms+P5RzHA6ZZUCIwpOz+f3hixZamWPXlErXow2oBl9glbxQ==
+X-Google-Smtp-Source: AGHT+IHtiDp8gpMAsTaMMeg7HPNhPDz22dxUOSHPXpQ1ifUae7xqi3maop+iP8E/2ePHJtdc9InCnQ==
+X-Received: by 2002:a05:6402:2353:b0:5e5:c0e7:f428 with SMTP id 4fb4d7f45d1cf-5e5e210296emr27185280a12.0.1741503287053;
+        Sat, 08 Mar 2025 22:54:47 -0800 (PST)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a7176sm4845027a12.35.2025.03.08.22.53.05
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c74a9303sm5027358a12.42.2025.03.08.22.54.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 22:53:06 -0800 (PST)
+        Sat, 08 Mar 2025 22:54:46 -0800 (PST)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -77,18 +77,18 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 09/14] clk: sunxi-ng: a523: add interface mod clocks
-Date: Sun, 09 Mar 2025 07:53:05 +0100
-Message-ID: <2978516.e9J7NaK4W3@jernej-laptop>
-In-Reply-To: <20250307002628.10684-10-andre.przywara@arm.com>
+Subject: Re: [PATCH v4 11/14] clk: sunxi-ng: a523: remaining mod clocks
+Date: Sun, 09 Mar 2025 07:54:44 +0100
+Message-ID: <3344204.44csPzL39Z@jernej-laptop>
+In-Reply-To: <20250307002628.10684-12-andre.przywara@arm.com>
 References: <20250307002628.10684-1-andre.przywara@arm.com>
- <20250307002628.10684-10-andre.przywara@arm.com>
+ <20250307002628.10684-12-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_225309_241368_77460A55 
-X-CRM114-Status: UNSURE (   7.30  )
+X-CRM114-CacheID: sfid-20250308_225448_793280_82C56064 
+X-CRM114-Status: UNSURE (   7.61  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,11 +104,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 7. marec 2025 ob 01:26:23 Srednjeevropski standardni =C4=8Das je=
+Dne petek, 7. marec 2025 ob 01:26:25 Srednjeevropski standardni =C4=8Das je=
  Andre Przywara napisal(a):
-> Add the clocks driving what the user manual summarises under "interface"
-> devices: raw NAND flash, MMC, SPI, EMAC, "IR" infrared, and the "GPADC"
-> general purpose analogue/digital converter.
+> Add the remaining mod clocks, driving various parts of the SoC: the "LEDC"
+> LED controller, the "CSI" camera interface, the "ISP" image processor,
+> the DSP clock, and the "fanout" clocks, which allow to put clock signals
+> on external pins.
 >=20
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
