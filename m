@@ -4,91 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC84CC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:02:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0899C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=; b=hFAaAID1FL+v7ziui/xUqvwxNL
-	8Q2vpB4JrUU1fU3f1u0opJmBkaNRaKXQUW4v5aA6CsPzyWZXOkJzGz+WiJO/sZU3eeA7UwLg9bK6S
-	SUYUUvYDujTmuP6Fo/4ug0yada1CfLDuVpP25SwZTt6m12Mc+itTI6OU80aM9QWoyvlWSlKKiwG0d
-	tN53H6+Wunt0R08e80daXn9N5Qi8qnyicH24b8QGsPXA22AoYN19NyDhndG1Z47awBnKTTWf5jVt6
-	gXQQTfy/T3gb3lV2iYukX+e3X/TPVCrelG6s826tDia6KjsUPIYeZ/Y3lZKAvNv+Q9euAw12N5zX3
-	GoeBikjg==;
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:To:
+	From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZAqFx78SArbrBH5Q1+Ilkti3+dZ3JAByQkBS9egtY1g=; b=A4v2GEGgvQMnT8rriU4Vu3XhPF
+	MPjmeweA8NLKO+T4U+pg7aAU1ZSyIK8FeuttVhviM58rRUQMC++W4HVPCrQhrTVkbOxF9X7xPsR/N
+	74wvo6LV83zDfKUuNSaufBcqCL1sTlminxEs63Du8nmojxr63z98w033dG3+NqkbjKy9pz8yaENMo
+	q/siWuPSBKv9yToBO1OIvK+AkaUyJT2viJt19Qxce3TjIeDeH+xRrToiNZTf0kp7pCdbZBy0BSpGC
+	u/2T1Q/sKtL20cz8eyEyGV7fVMErIRcz6SKjMaxYDA4NldoQqRqHLcmatjdnb8Ayyo+kAPUsn+59S
+	Wuvd6vmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKz1-00000000v2O-33GD;
-	Sun, 09 Mar 2025 18:02:39 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1trL0d-00000000vC6-1iWj;
+	Sun, 09 Mar 2025 18:04:19 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKoi-00000000tCj-1ev6
+	id 1trKrJ-00000000tYS-09Ho
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 17:52:01 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43938828d02so4682085e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 10:52:00 -0700 (PDT)
+	Sun, 09 Mar 2025 17:54:42 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-39127effa72so256307f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 10:54:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741542719; x=1742147519; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=;
-        b=NSdhab+2F8w0bZm0t4eGEDSPSMoz1NME+YTg2CZ1RxO0wWI/5UY4umD5hKUs+kY6CF
-         NiamCRiWNxb3snUKYFKW3/Fo5v+rk55DjQJjKSvrtkYj1fauvsVG+i9Ieu1r2jlYCAhA
-         T6DsUCmcjdPenJUikgK3WcH1ZScAKZ3AkOXK0y+XgvsBgW28aZooNxnxn6cethgxVhQA
-         9yqwv9KToDctwPeWvb8rFv+q8BMON7uWL1gDX4iCp3GSlwS23DWMV96qa69BossvZ/8T
-         LIBTfb3niFhVFc2+ba3Y44kUikf903v+X+hD2WfIvWaDVonkLgJMM+qK7M7zLDudQ2Dx
-         FdNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741542719; x=1742147519;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=linaro.org; s=google; t=1741542879; x=1742147679; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=;
-        b=ZmXOsaWpEeth8xktSeg7ElC39k9Khdt6ZYvu5BmzlsgwuHBumYNu9OFeQVRMHGkiA8
-         GhyeZoEXMPwE4VyP8R/BSYdYFaQ8rTWEJhJQbq46+sv8eERvJGFcpgnib3Ch6W1+6Uof
-         bfCkPwuJvb/2Tf21206MzXwZbkpfuNu676cfA4qoyilgqCAHpOKvE/kTc8zGc1JSNlfM
-         GCEzcez/sTNvNs7uzYxNRq+ZMLpmpwRHUMQWOe5AAq2oKav5o7GLN3UsZ01qm/w0vcA/
-         PlKPmQPd1t40PaFYkLdds458NgyxUrOOwMy+qdTpJqKiLW4Jq0PorHnUH1Zz22w8IwVl
-         xDeQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWhqm6OIMFt41UKYkpjKFqIdVPWalrtwWM3Qw0EvQvRTWPgHLQ7n4vDIlcECbloRchliMBWTxc2+fyZKp+wL+1Q@lists.infradead.org
-X-Gm-Message-State: AOJu0YwDfityHgw3eRMmXAMDqi4cWQmDko8JNP7yvLQrDdmvIRBit4z/
-	sUe8aat43oVjPSABmnmxdV8aao1h5JMLdG4ObY8IX4utrPYVMZ5CdkrkzmCDi+g=
-X-Gm-Gg: ASbGnctc/ROjtEWoO7p1kN5T4TqRr8hDlOsRlC4gtAAOWgDehvUQzHjOpytZ/XjrWhf
-	rnksgNY6PcgnAFwnte+muk29RC2PQYAN8xe+mUDzq9pXAuJR0H/WMJghlFWJ4UXGeLhRztgcAjk
-	VLaBnKW0uq/XVoE+YJl9KsM61iBjZ0vJI5FxcxMaHeiP0D19PehFjFj2YjGRP0Ystp5MPSmit3e
-	c558ZDZOpK0zQs8R2oZMDTbCBgXxFDxQY9NzlwDwCW8MMmjHa9wBgzKSWx8uwfliXyMxoHJ1YDT
-	xRGLmAGcGiqQ5aGV/JDZU+SIrx8MD+ZOtNk2aq7ZrQwjKCIFpzZ21wP8Cjs=
-X-Google-Smtp-Source: AGHT+IHFXC5otRZ7F4yGnhvywHvWeRyg1x0RiP0aY2UeNSAgYGd4FzPX32gmebfW67foinZiceGAog==
-X-Received: by 2002:a5d:64ec:0:b0:391:2acc:aadf with SMTP id ffacd0b85a97d-3913bb4709bmr1218934f8f.6.1741542718937;
-        Sun, 09 Mar 2025 10:51:58 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb7934sm12638173f8f.12.2025.03.09.10.51.55
+        bh=ZAqFx78SArbrBH5Q1+Ilkti3+dZ3JAByQkBS9egtY1g=;
+        b=Nzhto4H6K4M3vgg5Ds63S0a7IDYOndh9U1Vc8/ECmQm+hzP//2lyRHHtnc0YVcrGQ5
+         20rhcPAWod3DYDX5jh99HoKRpxYVvenqv/JTmNm2WKNKf/F/bJ+KIh43hlk/Do9Y87va
+         7Wt9f1ZXxPoXpGq5M3ckIpHY5+WLGn9MzLmKp789n1Fv1ZW1175Dp8DqogAA5bwHMmKQ
+         2EsUz/wkr9r/jn4w9ycErVFeA+3a6AHuQRKuE0pV/AlvVg0gpBXrXza80RiRx+poP3ip
+         BtVVZTKgvaPpeAPMAixTyMBCSoFbmAJF9CPc3NVy+dW/pLk4fTNrjrlxFBsK1naJCeaH
+         WM9w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741542879; x=1742147679;
+        h=content-transfer-encoding:mime-version:date:message-id:subject
+         :references:in-reply-to:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZAqFx78SArbrBH5Q1+Ilkti3+dZ3JAByQkBS9egtY1g=;
+        b=g6UGZCKzvlD2M6TBOwJogRmce/QP0xoVjWSn40TOsRM2i7EHuGBowiXvtFHiNNPu+6
+         GEA0t0ZSTgQ6pr46R2lOdxoMPpi/cBTkNVL/tY6T5efKBxjQ6DYG3YXACrqfdmdD3xV5
+         gtTL31vUMu1eYa9U1bgKSn6MGnOfNEadtnuygmf5cz2AhdFBNjLSmi7PNzOGuXGSf/kN
+         OJorCltCaTUo0MRqVQ1u/me2YUw8AjXAXRtWVOE1oOuGohO9326zQH2RE8pXn837ZC1F
+         MR89jbEbZk2srEUXsLptQ/MxuDrSPzTmiv9DPkwS5McUj6BlHY4zIu/wfnkQbZZZ44Tb
+         qWwQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUbTGkDcslf4X2fFeOrpZlsA2ure2PqDuT8/vGPoGyZ2B3zqvKos9FANwt4LS5oatEDv5b18ZvGFptKbRxDqbPz@lists.infradead.org
+X-Gm-Message-State: AOJu0YwfDIeaBU+bJaPDFmhnacJ4OM/d1te9C+tYLivje5FYzD+4MDBH
+	SHf+6v+L3PYVEJ+ZR9qXpUog8wyzHGnkIXKgwG3R5GauJx+YHp4bMVCrXzDd+DgNuOJezB/HH/O
+	c5Ao=
+X-Gm-Gg: ASbGncv7XxX9t15lBWxjxLIE8sgFHE3WMj0IRyMSDfg0wAg/R6pIrspxYtXJ0MmO2jr
+	HBvv8Ze6csK4WvpRJf4DGP5Ru+NT3LAZz2mqiod2sWXuusHlnsK8cUyYdJW7ovQA00ruCkNY0Kt
+	L2KVUmPUnPh+TOCSk/gPAdmSdeR4jEm7V12sPMyJwx+U2bFZphpslM78tJI3PXR/sqvHrLttDjk
+	x9gG3KCSFR6G7Z4GmkHTUF+kt3wePQw+RCmUCMGfK6jjJZm7ifmxJ9w4wYqgeU+A4W8LSdEa3jK
+	3TfQ+KHHmRS7zjRa5HOsrQBm5T9PMZC4FL9c0wkTwpKZOK5sAQypM7tpZAS0
+X-Google-Smtp-Source: AGHT+IFYzKEoA/0BD629Q+oyNq4LgcHKydsos0JaNMt90Qxi5qetmVUanZhNd8Ow0nb+R9OCR/6Ciw==
+X-Received: by 2002:a05:6000:178e:b0:38d:d743:7d36 with SMTP id ffacd0b85a97d-3913bba4880mr1367921f8f.10.1741542879038;
+        Sun, 09 Mar 2025 10:54:39 -0700 (PDT)
+Received: from [127.0.1.1] ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c106a1asm12425578f8f.100.2025.03.09.10.54.36
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 10:51:57 -0700 (PDT)
+        Sun, 09 Mar 2025 10:54:38 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Chanwoo Choi <cw00.choi@samsung.com>,
-	linux-clk@vger.kernel.org,
-	Sylwester Nawrocki <snawrocki@kernel.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] clk: samsung: Fixes for v6.14
-Date: Sun,  9 Mar 2025 18:51:53 +0100
-Message-ID: <20250309175154.6701-1-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250307081341.35197-1-krzysztof.kozlowski@linaro.org>
+References: <20250307081341.35197-1-krzysztof.kozlowski@linaro.org>
+Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-usi: Drop
+ unnecessary status from example
+Message-Id: <174154287672.7465.7756190815598140333.b4-ty@linaro.org>
+Date: Sun, 09 Mar 2025 18:54:36 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_105200_431754_B1FD214A 
-X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-CacheID: sfid-20250309_105441_080511_44974A5E 
+X-CRM114-Status: UNSURE (   8.24  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -104,44 +104,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-Fixes for current RC.
+On Fri, 07 Mar 2025 09:13:41 +0100, Krzysztof Kozlowski wrote:
+> Device nodes in the examples are supposed to be enabled, so the schema
+> will be validated against them.  Keeping them disabled hides potential
+> errors.  Only one child of Samsung Exynos USI device node should be
+> enabled.  The node in the example already selected 'USI_MODE_UART', so
+> enable the serial node while keeping second - I2C - disabled.
+> 
+> 
+> [...]
+
+Applied, thanks!
+
+[1/1] dt-bindings: soc: samsung: exynos-usi: Drop unnecessary status from example
+      https://git.kernel.org/krzk/linux/c/8f299df1b75ad0939f1340182c265de019eab438
 
 Best regards,
-Krzysztof
+-- 
+Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
-
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-fixes-6.14
-
-for you to fetch changes up to 53517a70873c7a91675f7244768aad5006cc45de:
-
-  clk: samsung: update PLL locktime for PLL142XX used on FSD platform (2025-03-05 20:13:25 +0100)
-
-----------------------------------------------------------------
-Samsung clock controller fixes for v6.14
-
-1. Google GS101: Fix synchronous external abort during system suspend.
-   The driver access registers not available for OS, although issue
-   would not be visible in earlier kernels due to missing suspend
-   support.
-
-2. Tesla FSD: Correct PLL142XX lock time.
-
-----------------------------------------------------------------
-Peter Griffin (1):
-      clk: samsung: gs101: fix synchronous external abort in samsung_clk_save()
-
-Varada Pavani (1):
-      clk: samsung: update PLL locktime for PLL142XX used on FSD platform
-
- drivers/clk/samsung/clk-gs101.c | 8 --------
- drivers/clk/samsung/clk-pll.c   | 7 ++++++-
- 2 files changed, 6 insertions(+), 9 deletions(-)
 
