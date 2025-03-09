@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26937C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 17:57:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC08BC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 17:59:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mYVeDPxjhFeZxy0KwWJDY/eKgxnMZAxnPE/IYVsYVHI=; b=xtx4Wr17mBaBq+ANKGQEZNFDq3
-	8GCMlyROw9XWvBKsKeeTLahziTMfePOfxXG52kJmTYPDFxLdR66nWokbqG6cIPE1y4oEskeA07cMq
-	4YEGTlC5vH2oywuFqVavTpMGQK5nyGsfl9XSCamz0M/u29CScdIZ9d+C5EHOcY0Nv1ryRvZHh3BVP
-	+WKhSJ8cDgd4uctmyaRbGxR2Lc8HeNecMR8ETeAiWQbGlJEypQRB7Zwjv9UFiOyR0H+EJPKpSZa19
-	F1alPCa2LD9S+I0bDgr7bbFowwThQHux2ihvmjV86t9x+I2HJrao7ZQLi3OnxOjRPLgeid4JbS4yQ
-	gYO7Zevw==;
+	bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=; b=X+4wbVG0CQad/r80HeI4pczKYZ
+	NPilqu687g+VS2nSWzoG/UWxSOCkMTXqP+zMjpu+k6U9d78LG9xSRgCwVO7D3p4u8Jy6PggWnjL5x
+	KORkftz9ggCQRkv/N3/BjvCuX7Vdb1grW6NhiirG8rWmLZeYV2YKIyfL0bGqYQOiDtgA7M5Dj0BAa
+	Shq73MyqOlxS8hx1kfEKQdlmxu4dRQukd9pulD27PMVxKbHw9AtwPb9WhLfnSL+Q1MTLQrgLdMYP1
+	1KAt+6damlJVY1I7KAZb2ru8ZZawZCDM4Oo0QwZbohGx5JJODFYEbeGA8oZCJBX5E0k1vwAu5WRMB
+	9xSL24oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKuC-00000000tzV-2jfd;
-	Sun, 09 Mar 2025 17:57:40 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1trKvo-00000000uTX-0E1n;
+	Sun, 09 Mar 2025 17:59:20 +0000
+Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKik-00000000sXy-1BpR;
-	Sun, 09 Mar 2025 17:45:51 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-390e3b3d3f4so1590975f8f.2;
-        Sun, 09 Mar 2025 10:45:49 -0700 (PDT)
+	id 1trKlR-00000000ssG-3Qvq;
+	Sun, 09 Mar 2025 17:48:38 +0000
+Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43bd5644de8so36413745e9.3;
+        Sun, 09 Mar 2025 10:48:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741542348; x=1742147148; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741542516; x=1742147316; darn=lists.infradead.org;
         h=in-reply-to:content-disposition:mime-version:references:subject:cc
          :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=mYVeDPxjhFeZxy0KwWJDY/eKgxnMZAxnPE/IYVsYVHI=;
-        b=WdAjR8J55XjYdjQrWiUsbPEOsYzf9LeKCeFQS52iuKPZCNnwoPqUnkPFadwS0jVWHH
-         wURLFudcGLjIDDXzEnky0WLZZ4z6J09/7bj6mZ/cukjycYAhgYlTUCKg9u6Vq8oXpL3r
-         UISbsuFI4HCql7DzU510jk20qvbp7TSd2jeNHYowDSE3ftZm4d0UPygGEZM+9xzVX1i8
-         44ADBc0nParmxRcnuh5qT0y6POb82i8P4QYF2GFQdE9Nq/8g6k3Kl2tFsSabihra1pIJ
-         6erY/ijOZGKrQqH2T/5hkavyFeJa2w+8bIVzakhKngU6Z0PpWpzyiGl85rq4KjFFoOCE
-         WrJQ==
+        bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=;
+        b=fzLUEejCjQVswt8N7BFI6XHFYfnT1sbgnVYwfFGnG+qXUjRE1XUHVVuntX080c8pkt
+         xUNZmcCozheKXO7hhZmmy4Xzu9jyj4JD2/KH5rGps52p21B2Y3mw85zA0W4Wy3rSo1Yb
+         9EeecFselJzAocJOJkw+WLdeKBkf9mlOj+JTjfbbtIVUSkX7kw3hu8go32Xca+ofJGHN
+         WL88s3EzT5MT1wOZkMtkTqExgol+ybqnPy6UIQz+vrorFqCMswp/hAYiXv02SeBVhbNN
+         0aazzlo3uNAUIdRO2AGWunMmqFpMlJpec0gqeDR+tZ/erkII7PoIMd7yKU1/prMfiYPT
+         xo7w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741542348; x=1742147148;
+        d=1e100.net; s=20230601; t=1741542516; x=1742147316;
         h=in-reply-to:content-disposition:mime-version:references:subject:cc
          :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=mYVeDPxjhFeZxy0KwWJDY/eKgxnMZAxnPE/IYVsYVHI=;
-        b=U5uSlPQbeCwVVXa+MHj9kRcN35HhMXJBg2bthT7Qa8nXPfi7qjLHe8NLIGSxFo7u6X
-         IiXrH3m56O6UVHXqSB/sCrQIKA8XU/nGgoK79GCpym1MoSktnluLse9SbvUgoW0Fwt46
-         HC01caUX/dmjqiyt/3VFaUMvZ7DM8Kf8mDBkt+xv0pbRsA+ILVume88bW76I64Xiyry5
-         xLGulWcKChHmnS6jI8f5DfsfU5aarxznxyIVFOLeOVIj62YbmfN651RkxfCOhs9nCxzh
-         gw5UXCPr7qbpf3i2jp6FA8WPJQ56uIBHS59hlQSrPqLwSoEBYLsCoz27sAs7OaQbZyrk
-         FFsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUJq7biU5r8la6zEY1G/VKbrZ96jSckydgmm0nAKTmfDEnCs483/Pknqi+CXJpi9bR/OqV1eMBmbbgARHVGcEk=@lists.infradead.org, AJvYcCXzeJfJsgpecE0i95r6L26xXC/42SpCDPPLxrvUuLqHwy2FJL+SL+JwD0dLY1UkVxbCj17sv4BDRKZnp+qUdVKX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxUqyRzOGI4tvjIaIIU5RbiKdYRqYEE5N0iIP/furBcGIN7C7Hk
-	gJzdYBXUyUU8l/jAE2dxb/rv5CNbz1vEnB+lUjKKtVmBuVusD89i
-X-Gm-Gg: ASbGncvrAYGz5oXyEcyIUmDHv7vYJKtjyWXT22p/jWGtc8e4zfAPNbzd2e3UzYrk6OK
-	oWA736MwzDrfe2yocmzuF4Gdusj4NLq/0jSwEr0QFsOhN+BiGFSHNJx67JFvRGLXJnm1q2u18Gp
-	WEUMR9CG5xL9gLLIK1WwwW6K0yDLJzpWZnpw/pUTX3fE5XHi45iB0Vz1/hekBs5guNPqiaxsr2n
-	9riUYQuFTv31uQ3sQAJXomEgSvzpciJ8984zDQJ9l0y9WRTx3pAX7HwA4I+2Xqj0PekBDPudkBp
-	7pRwqhhgzsoRbt6b6iMg6B4PaLPiRW5ltPznfIj6FkYD0SRcThpFqqyHfHzjJtRdEM6MMfF30Jt
-	p
-X-Google-Smtp-Source: AGHT+IGp7jEKMgtsCA2TGbrvYbtqFa4WUNvO5evZDxVuTRVZ2MCZ3kALyJRYRl99L7jGJPY9VOa7nA==
-X-Received: by 2002:a5d:64ce:0:b0:391:3bba:7f18 with SMTP id ffacd0b85a97d-3913bba8128mr2360645f8f.12.1741542346719;
-        Sun, 09 Mar 2025 10:45:46 -0700 (PDT)
+        bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=;
+        b=FhWPtZfaafSojP2MI/vqi/4neclK9Y9FerCP73OOIl0oE9m7OZ9nenjNZLbC7VvnjQ
+         Om3uRC80EFppeUCdq5brZFIaFCY2SsIKedbnhEPiNyFHIFoimjQh5v9i6Dj8lhZZlT4V
+         N8Nggi9KzRCe45oM0pVhLa3EVqrj84ljDLlD7RSAn0ii57XLk2kwarkjjX/9nSgNZJXG
+         2Y8lmzDdT4eKV1YoqPwhXNQBNcf9A3lCS5zwPrhxHSbdAVlyMSsuLuL4BcUI/yOS9QA1
+         ooMFnWjhFEHanrbOrI9w307x9eMIP5coPHJyMpwFDxvpi9/axt4svXZ+PmAXZxU71uEW
+         PsiA==
+X-Forwarded-Encrypted: i=1; AJvYcCUYOS9av9GPTL2SHIGBtuz24KyvftdUaOhqHSLb3vrkhb4+tAVKFEXDKll+kzfjjyYrTZ6Qw84B4hY3ByTZzNxW@lists.infradead.org, AJvYcCVzlxtxMZ6DkSBMt5kH/lOvZgG+r/6E73BtK+zBKeYKIueoFi+nrMC77KeitNDAGoqoHfeSkYC/w+QVn7xw7js=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwoYckg+tSsrlDFg4PMVDArMMA8wSOgSZfCSM2AHm7OD/wOoPiF
+	fA/ooYgVWildz5ZDTu0WSeq7754TexUop6j9ebM1MKQPpfC9HySj
+X-Gm-Gg: ASbGnctDJ8vR9Hgi47nI7BZqUHoCUdcowEeB+DMvaSidLfLLQJn8vwW1ckc51JvHh2K
+	XBjjNnyikOUIDsw+pMULWe62vQ33/rrs+spYgJdEEEEl8fly9XV9BYoOb3pULLtPf7/H2NqZaMT
+	8aZfFPKzgaxmY2LkGiubwv6avq1v8yN4J2osXdLhlakXT5OH5msXcjpgukz7RoofjyEL7FGYnnM
+	vZx0eRu7OF6CVHmaS7DYPMSIiglzfm6R4n5eHms18ZbTUQvEwTnpUlWP4eJAoOejhI0TQfJ3va7
+	yVcwxXx+i4nw0Rc+3/5mV3E6IX0sr8msOfdhdyMUcal0KnwcKku5pjHIYwlR+s3nkGnLfi3soh6
+	q
+X-Google-Smtp-Source: AGHT+IFqmRVo6FIysacWzJ33TfZtTvUxXtYg7bp/VcB+skW5kxcsz3otvb9dL4N79FYLMYigyzY4bQ==
+X-Received: by 2002:a05:600c:524a:b0:43c:f75a:eb54 with SMTP id 5b1f17b1804b1-43cf75aed5emr10293205e9.13.1741542516005;
+        Sun, 09 Mar 2025 10:48:36 -0700 (PDT)
 Received: from Ansuel-XPS. (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c102e01sm12708957f8f.93.2025.03.09.10.45.44
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ce8a493d0sm59519715e9.1.2025.03.09.10.48.34
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 10:45:45 -0700 (PDT)
-Message-ID: <67cdd3c9.df0a0220.1c827e.b244@mx.google.com>
-X-Google-Original-Message-ID: <Z83TxxTXxVGMYZzu@Ansuel-XPS.>
-Date: Sun, 9 Mar 2025 18:45:43 +0100
+        Sun, 09 Mar 2025 10:48:35 -0700 (PDT)
+Message-ID: <67cdd473.7b0a0220.170541.e2af@mx.google.com>
+X-Google-Original-Message-ID: <Z83UcX4X2gpPogQs@Ansuel-XPS.>
+Date: Sun, 9 Mar 2025 18:48:33 +0100
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: "Russell King (Oracle)" <linux@armlinux.org.uk>
 Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -89,18 +89,17 @@ Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 07/13] net: mdio: regmap: add support for
- multiple valid addr
+Subject: Re: [net-next PATCH v12 08/13] net: mdio: regmap: add OF support
 References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-8-ansuelsmth@gmail.com>
- <Z83RsW1_bzoEWheo@shell.armlinux.org.uk>
+ <20250309172717.9067-9-ansuelsmth@gmail.com>
+ <Z83R9qVfGbSc8bJs@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z83RsW1_bzoEWheo@shell.armlinux.org.uk>
+In-Reply-To: <Z83R9qVfGbSc8bJs@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_104550_326223_890325B6 
-X-CRM114-Status: GOOD (  15.70  )
+X-CRM114-CacheID: sfid-20250309_104837_868660_C2F471EE 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,32 +114,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 05:36:49PM +0000, Russell King (Oracle) wrote:
-> On Sun, Mar 09, 2025 at 06:26:52PM +0100, Christian Marangi wrote:
-> > +/* If a non empty valid_addr_mask is passed, PHY address and
-> > + * read/write register are encoded in the regmap register
-> > + * by placing the register in the first 16 bits and the PHY address
-> > + * right after.
-> > + */
-> > +#define MDIO_REGMAP_PHY_ADDR		GENMASK(20, 16)
-> > +#define MDIO_REGMAP_PHY_REG		GENMASK(15, 0)
+On Sun, Mar 09, 2025 at 05:37:58PM +0000, Russell King (Oracle) wrote:
+> On Sun, Mar 09, 2025 at 06:26:53PM +0100, Christian Marangi wrote:
+> > Permit to pass the device node pointer to mdio regmap config and permit
+> > mdio registration with an OF node to support DT PHY probe.
+> > 
+> > With the device node pointer NULL, the normal mdio registration is used.
 > 
-> Clause 45 PHYs have 5 bits of PHY address, then 5 bits of mmd address,
-> and then 16 bits of register address - significant in that order. Can
-> we adjust the mask for the PHY address later to add the MMD between
-> the PHY address and register number?
+> Should this be using a device node, or a fwnode?
+> 
+> It depends _why_ you're adding this, and you omit to state that in the
+> commit description (hint - it should say why!)
 >
 
-Honestly to future proof this, I think a good idea might be to add
-helper to encode these info and use Clause 45 format even for C22.
-Maybe we can use an extra bit to signal if the format is C22 or C45.
+Ugh totally forgot... It should be a device node. The use of the of_
+variant of mdiobus register permits to autoprobe PHY defined in device
+tree.
 
-BIT(26) 0: C22 1:C45
-GENMASK(25, 21) PHY ADDR
-GENMASK(20, 16) MMD ADDR
-GENMASK(15, 0) REG
+The current regmap driver only permit manual probe using the mask value
+so it's problematic for MFD usage with an abstract regmap and PHY
+autoprobe.
 
-What do you think?
+Will add additional info in the commit.
 
 -- 
 	Ansuel
