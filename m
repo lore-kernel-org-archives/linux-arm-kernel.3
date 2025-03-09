@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B27FC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 11:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 602F8C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 12:52:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Cp91pbB5DN2RZua8Qzi2EZ3MeEoU2r2L7P3lFPNnfBY=; b=Wh6YaqvdCfy2V9ykiMElxyxFs/
-	BcS3CHzhWFHgtlzUXA/XI4OvfwQUjURrJTPvwqJ4CtwYg7geWnOIwXUdlVqFMrX1I2pL0lEPDRbVu
-	yV33/lwvuqFjX3+UdNviRcNrjM5wVFtG6UnC5lbEG3EhArrV8E2z/M5WVCd8M7vnTFfs9gDNqk8sZ
-	q+vvvW0ShlQbPyek9iNFh0XZlSuXOrPrHoCfCC+1Y/SWijSPdU0pKmQqDKZZsE5lqNj4fd5wrzVlF
-	3PRCX5eNbf+Tbn/NH12cN/bK+6dxui0A6UDEeah+VF7BjrAixhK8O/TiooymVofGKKmhivwg6Dv26
-	Rz1oKfyg==;
+	bh=pLb8CZ/yCsK0onb7oAbrJ7xNsSeNVG+Pj2jfFRdvfzU=; b=tNr6I9ppjdIsoN4WoEB0/7yFzI
+	p4o1Ic/GTfKngSC9cEvD6HI/c44AlKOuePOraKDvmacL4M1sB355jWoQ6sZMD38NtpvI8cAm+5GHI
+	iaNjc151c1+yxEVURaRKlliV5B/S93uT1xaFMHyZ1ZUbPZmXuN77/zOBFk6jUTaAH7MOv7uyQUkxu
+	Qzd7yl1r8N4d3QjtOWHqvKWFkYgiEgKxZmS5H/yES8nxc8RhO7qguiu4+eQRbb5cs6qGfnskIt1r4
+	+OhB0KRTEfcvkHs9/VQn6jdgTDaFCF6CqZiHPSHCQBYVK7JuNCLNUVherzt3cSDN6hckVCYL/VJnf
+	kk0aHrjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trEv5-00000000SOB-3IDF;
-	Sun, 09 Mar 2025 11:34:11 +0000
-Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
+	id 1trG8T-00000000WoF-2EJu;
+	Sun, 09 Mar 2025 12:52:05 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trEtR-00000000SHK-3S6r
+	id 1trG6q-00000000Wgh-1wHs
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 11:32:31 +0000
-Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfout.phl.internal (Postfix) with ESMTP id 6E2A9138277C;
-	Sun,  9 Mar 2025 07:32:26 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-13.internal (MEProxy); Sun, 09 Mar 2025 07:32:26 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:message-id:mime-version:reply-to:subject
-	:subject:to:to; s=fm2; t=1741519946; x=1741606346; bh=Cp91pbB5DN
-	2RZua8Qzi2EZ3MeEoU2r2L7P3lFPNnfBY=; b=PQU72ehjmMOLtRay+y0HSuFSMg
-	CJsQjmj6Xxn6dAsD2MFECU4nHG3PRAqH33ktLvgp+dmlQ/GP0K/4jDbL6Z4Lk4y9
-	ZWSD0oWQPitmZjueSe4B6BcuN7qHQwNfqLUxwrcUKv3NGqEtg50EIj2l3hxb+9Qn
-	gDd+3UEyeq2hFr/J2GhWBjwuxpvAF+7KAlKKTBwiPfA8XHy5xxsQ8zOTWPVmAmhv
-	b8qpo4UiCGJGkCs7a6cZ2pgogE7myPTBIa+06uwRqQTO1NknO4DqVK83pUK60nPN
-	a3jIobf1fNhkLjfSSQ0gSMWdXt11eRpEGn9cCtuXzsK94FXzhUk6zba7ti5A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
-	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
-	1741519946; x=1741606346; bh=Cp91pbB5DN2RZua8Qzi2EZ3MeEoU2r2L7P3
-	lFPNnfBY=; b=u9EwQZBU2ecARqRlwjNuXFotaZQIfFKVF7Eve4ypZ9BjdIUJaqA
-	a90V7dnjKUAStnU3atPwt1EvftBMCJqYpHufat0JVN/bZZ0ZwgKCL2MYq+Z+FSXf
-	cfa8bIgtc6KooCCoW30Rt8BrPmuAiN5vM/Lmk//qW7cEjcCKqb+4cqR67EDbn6s8
-	v8dug2SMkcimAmg7Fl9qVkNtBQbjZnl3zgFmNWyyzrB2cWKxcBlOx9FrV8jI/kvh
-	caxMTxA3Xf4XG6tRXJRVVr1nPorjW1DNedzyp88+ySdqtCd+IoXydxG1t+4/A9qT
-	yDh7KpPCxy8XZJi92JWXHFwFgonMHcffoAA==
-X-ME-Sender: <xms:SXzNZ25iLS_exPE_cN1I1JaG2f1JDlX9osjrHo3wonjzmRjksf32kQ>
-    <xme:SXzNZ_7YH0baFb4_jYaWuseCv0oQ1vvaTcnZ7kVRxKpTmQJSsWpIcTJ6579IXp27T
-    FGxL6yyXwOrVDNkZWg>
-X-ME-Received: <xmr:SXzNZ1fwC76ILiwN1yjLQJDR50RsJ-GhwvrWZZPfVK1wq_lMa_T2iYpJ47cFPJvPHK7hAoSV8UHIfYWXlm_md4frNjs28M7RplHrxpQDozOE7BiQNwmKAEWguVJMscw>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudeifeegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvf
-    evufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehs
-    vhgvnhesshhvvghnphgvthgvrhdruggvvheqnecuggftrfgrthhtvghrnhepjeelveffvd
-    efgeeuteefueetgeeghfelveevheeugefftdelleeuudefvefhieelnecuffhomhgrihhn
-    pehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivg
-    eptdenucfrrghrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdgu
-    vghvpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
-    hsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprghsrghhiheslhhi
-    shhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
-    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
-    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:SnzNZzLrGuwSnzZhhua0RIYir2QSycKhL4Nr0VfLVJi0kRiRSciAmQ>
-    <xmx:SnzNZ6LUICEe7rI2mDX8zXiVGzm3kOFOU2awiOoGMZQgYT7OZvScHA>
-    <xmx:SnzNZ0yxQpzmG6s-jypPAZftYb7FnRZjZRVgwKMfQCQV705_fjcRmg>
-    <xmx:SnzNZ-JWXUCxzguKEGVoLSGTM7WlBUrGX1zMSR2-SAWCV5b6VnwCqQ>
-    <xmx:SnzNZ_EfmoYfk3PkPkvj65VP3uGWSz83iIRnyv4w5J502ZWNWMMF9BG4>
-Feedback-ID: i51094778:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
- 9 Mar 2025 07:32:24 -0400 (EDT)
-From: Sven Peter <sven@svenpeter.dev>
-To: soc@lists.linux.dev
-Cc: asahi@lists.linux.dev,
+	Sun, 09 Mar 2025 12:50:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1741524619; x=1742129419; i=wahrenst@gmx.net;
+	bh=pLb8CZ/yCsK0onb7oAbrJ7xNsSeNVG+Pj2jfFRdvfzU=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=lRZrm5Ad2wIVbJ2AsuDrIws9O0ImNKSytWYRRFa4knclT5E/jCqmRL9q9sK58O+g
+	 O6rIeoGUFAmry2McYuo+lNZvqNuxran+O7xEGQm67Nn17bdp8AsC9crHirEYL/5cH
+	 fTZMOh2SM03Yuar1zcAtULSOfIYkBjEKbLJ0YZZzX3zXNskX42l8VDGgUE8Ay+iE/
+	 RKRHw5eyfOVhaoqVMcBSnQb4kFGIDye8a3fOFJLzcXW86uRXqTS9/5pi7XGkO6ObV
+	 +8ZI4fE6DTtqWurj8/MPI8BkhcHKSXTk9vRyx0EpHTBO6yN7jtdOnAjBj2oixtv2p
+	 TaqiCSvFx10SVmPbQw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M2f5Z-1toDhc1UyN-005m9t; Sun, 09
+ Mar 2025 13:50:19 +0100
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Umang Jain <umang.jain@ideasonboard.com>,
+	Ojaswin Mujoo <ojaswin98@gmail.com>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [GIT PULL] Third and final batch of Apple SoC DT updates for v6.15
-Date: Sun,  9 Mar 2025 12:32:12 +0100
-Message-Id: <20250309113212.48137-1-sven@svenpeter.dev>
-X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+	bcm-kernel-feedback-list@broadcom.com,
+	kernel-list@raspberrypi.com,
+	linux-staging@lists.linux.dev,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH 0/5] staging: vchiq_arm: Fix & improve resource handling
+Date: Sun,  9 Mar 2025 13:50:09 +0100
+Message-Id: <20250309125014.37166-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:p8fIGmiRZLax356bRabe21HXoRTe+69EeTlX8M64FZeUd+wEvWl
+ PbgAZgqjeGm/iH9srgb0KpZe0mOT89WCOlhr7whqfUwfY2ND/E5Cz6y8acfN9cefza7/86Z
+ MfLX+LQwHB1wTgyukvfablyRn1AdWwZ5QdMAaykery3EY6RvqAW9IJ1xNzQwQteDEdbOAr2
+ yaq8lG+YNMqKEmYy+sc0A==
+UI-OutboundReport: notjunk:1;M01:P0:Xfq5icII74M=;VQaZ/ysS41AIf8FtPNB9BlP1pCy
+ 9/C88lHgIXDYuPBtONFwacPDZvNlJyEoAEpgUIdbIqsCSLiS4sOaxOdNwccLD+4ptFdk+3jl/
+ uwN5Qvvy8HrWXnL1yhJFUs65gFk7fUkznD4YJ6p92xjX3aAabEXV5NearXIbyAtSzn15PgHKM
+ n2z3XfmUG/texm4aXSsv+jhA/iOfRQA89hnP7kgPVIp8AIFpyG+uIL5EYsuoqVUBXEL9992gJ
+ xCd9NtRAgv4Ppd5Dmyx6CAqqsKD432vfsOxsQxrUWVff5YqXQ0JhkkxZtYxF6lC/CBIcAfwW9
+ qL7LJjBaREkt+CR+XX5Zeql2tq9glNOJ9yzNCzvPIO7z7D/jo+X5HvaZN39cSh4dC93n7k13L
+ jczUYMIGAuEd0TBnHQJdoSPx+DsDdquMuumqvcbola5bRGFzMgHnTbZOv+Wt9BHcycz2FSnzd
+ V5g8CN1nXxmn3cHGn9oUq/SxIxtG7/oUAt5mfuSoY3OpeKWpJFCkqUKUfGnbcnlECbo1Jyv1E
+ I1yIKqtwSZ5ofIhQxqysg143H7tcMwXgK6kRLxobXtIQscbLMN/I5XmoXs/fotzZPA1IQCTs5
+ UU2GzDVfz7h5yGGRk2UkLswIGenmVs2YutURmgMkR3OagzXaYdRBmJr9eAddX2wrKFlELUn78
+ SQ3J12kKgfFkyXeXe6ebgzvQT8OFo/vm88UtwYtmCLvL8VO4MmMOX/do4Dnk0CRVq9z0Ve22w
+ SyOS6L9oRXnqifij4grVm3AJH9cIGKnwT3ClW9DOb83CrjargqP49fsXGdYtA8sH8J+ke/sIQ
+ YQthucr2kTeE0uo8CeLAX4HfXbSgahvIyJbGFP3MBMpF8Dkp85ftvCAQOjIxSaTHD5/7duapB
+ ugqmTrlsP3hLR+YBmCHOGMFm7pp4m05Ox7+BFclasygvys5hgn6943kAb7z3WknItybzO+czG
+ RF65wr6BUPM76uOPo2QLC0JCAdiJTGNSxwA1Dj0vUShcLgUMwdjspFZyKVB5bwmFG0ebaFXcV
+ gfnkrVUS3HUhynAwn/CnYOueW5zLUU5Th7OzhWvz/CFfG1e4BAIMBC3NVarulphiK6g3VPyuE
+ smesFTBz1OLtttMryREv3JTZc+moUhDhD0jGSSfUZqdjxa2VZY8eTk4LTuq7cNPyTjqV63tYI
+ fJUpueI6UTatnOZ58thvgP5tyDE5CkmgpX3hZBKG6jrxzzHtYIETT6MbqNqtso8Qtne2Omlau
+ 4mthf/S/hsllDpeYffsC5p0vbtv6EoLnyD/AK8lhgJ37G9iDRmEroXpq0qfciAYlRj3wj//wW
+ UdivT1ZGdVUgnjboLwoCuSGilNy65W5trO1UD9fIKi8TXeBChd4Nhe9qRzvdCnP0JUyOdxsTD
+ JEmyPO8tKkD+uKyI4zPydJwszWRsX+x599AGPF9rjjn+EEYyk+4aBoFNcT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_043230_263410_CC4EC9D8 
-X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-CacheID: sfid-20250309_055024_889716_5A46257B 
+X-CRM114-Status: UNSURE (   7.31  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,67 +106,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+VCHIQ driver probe und remove have some resource release issues regarding
+kthread and debugfs handling.
 
-This is our final pull request for Apple SoC device tree updates for v6.15
-based on the previous one [1].
-Drivers for the M1/M2 touchbar screen and pre-M1 (iPhone, etc.) backlight
-have been merged since then and this batch includes the required device tree
-nodes. Both drivers and these commits have been part of -next for at least a
-few days. The corresponding drivers are scheduled to be included in the 6.15
-merge window as well.
+Stefan Wahren (5):
+  staging: vchiq_arm: Register debugfs after cdev
+  staging: vchiq_arm: Fix possible NPR of keep-alive thread
+  staging: vchiq_arm: Stop kthreads if vchiq cdev register fails
+  staging: vchiq_arm: Create keep-alive thread during probe
+  staging: vchiq_arm: Improve initial VCHIQ connect
 
+ .../interface/vchiq_arm/vchiq_arm.c           | 121 +++++++++---------
+ .../interface/vchiq_arm/vchiq_core.c          |   1 +
+ .../interface/vchiq_arm/vchiq_core.h          |   2 +
+ 3 files changed, 60 insertions(+), 64 deletions(-)
 
+=2D-
+2.34.1
 
-Best,
-
-Sven
-
-
-[1] https://lore.kernel.org/soc/20250302115808.59172-1-sven@svenpeter.dev/
-
-The following changes since commit 44db68dee1f77260d7037319e911e9883a6ffe0e:
-
-  arm64: dts: apple: Add touchbar digitizer nodes (2025-02-26 15:33:46 +0000)
-
-are available in the Git repository at:
-
-  https://github.com/AsahiLinux/linux.git tags/asahi-soc-dt-6.15-v3
-
-for you to fetch changes up to e1bc21d8f8fde47173073a2d6233f5faa4864cfc:
-
-  arm64: dts: apple: t8015: Add backlight nodes (2025-03-06 20:54:28 +0100)
-
-----------------------------------------------------------------
-Apple SoC DT updates for 6.15, final batch:
-
-- Added touchbar screen nodes for M1/M2 platforms
-- Added backlight nodes for iPhone, iPad and iPod touch
-
-----------------------------------------------------------------
-Nick Chan (5):
-      arm64: dts: apple: s5l8960x: Add backlight nodes
-      arm64: dts: apple: t7000: Add backlight nodes
-      arm64: dts: apple: s800-0-3: Add backlight nodes
-      arm64: dts: apple: t8010: Add backlight nodes
-      arm64: dts: apple: t8015: Add backlight nodes
-
-Sasha Finkelstein (1):
-      arm64: dts: apple: Add touchbar screen nodes
-
- arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi     |  4 ++
- arch/arm64/boot/dts/apple/s5l8960x.dtsi        |  7 +++
- arch/arm64/boot/dts/apple/s800-0-3-common.dtsi |  4 ++
- arch/arm64/boot/dts/apple/s800-0-3.dtsi        |  7 +++
- arch/arm64/boot/dts/apple/t7000-handheld.dtsi  |  4 ++
- arch/arm64/boot/dts/apple/t7000.dtsi           |  7 +++
- arch/arm64/boot/dts/apple/t8010-common.dtsi    |  4 ++
- arch/arm64/boot/dts/apple/t8010.dtsi           |  7 +++
- arch/arm64/boot/dts/apple/t8015-8.dtsi         |  4 ++
- arch/arm64/boot/dts/apple/t8015.dtsi           |  7 +++
- arch/arm64/boot/dts/apple/t8103-j293.dts       | 31 +++++++++++++
- arch/arm64/boot/dts/apple/t8103.dtsi           | 61 ++++++++++++++++++++++++++
- arch/arm64/boot/dts/apple/t8112-j493.dts       | 31 +++++++++++++
- arch/arm64/boot/dts/apple/t8112.dtsi           | 61 ++++++++++++++++++++++++++
- 14 files changed, 239 insertions(+)
 
