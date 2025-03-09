@@ -4,91 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90227C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:28:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2016C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3/E2EMOQVZnwI+K3ur/QtYh2u8G3zbMy02Kb2mykmDM=; b=OGuOCWlhAcRv8RJJDhMtPME3qh
-	i2rwLTVheDLVjV2LIzkbLB5ztekWLKeCtsjrADjGv3+dRp9Jhw2QwZwMjx8S+uIWsOm0QByKF/9Z6
-	ldyvfH4sl0rszcSHQHpv6t5tT1UqtJpcS6Et1rc1rZLy4VKwkPWJD6TsgBZo/Ft5X0fyivJO9Asv2
-	3iziOWRzOrBBFk725Qu8hfMb3k1CLT8Xymz40nOwLJ5aUFK9yiYHYEyfMdqBXWbpfdcMFjnYKnibP
-	kSvPofNfe5bOwLq4nxnCKR2d3bdjQRufegvZqXaxBqF6nYpIe4/AdAK8PU0ivuI1FKRbozapBLk3m
-	2pZCVaVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BD/hVb2SemsVg0IwRyhTyxsbti4JCV6rs55j397BRYc=; b=XUyLs8juRs9IoEoiXhSx0oCU6C
+	FdTPB0WfEDCnYAZ471wWSKIer+GsIjZlgzYYFVW8wVvt+W4j8jMQnYlYBerzrpkhCXZIRQo60fthi
+	i2Zbeih59QIJi6goYJFfPBGqf4bOL4tU78EWt3OrQ8RV0tFPf2wolLlPKcAGUNiTzWA79rVI3DvrQ
+	1QpZymwQY+g/DfZhRpjzstmajZVrXzpBYOdzhfUkTZrdwcnQlXHIs7yZmeyhZyVWfgo8kMBDsJk23
+	bjtPiX7IHZbTFV+EFUs4m/alHTF9uKc5kWDLjIB6qK9EOSsNCUxzX0lfLhe18zQEgt49avRkR/i7G
+	Tv2dixQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMKI-000000013uA-3OEU;
-	Sun, 09 Mar 2025 19:28:42 +0000
-Received: from [192.198.163.17] (helo=mgamail.intel.com)
+	id 1trMce-000000015OF-3ySF;
+	Sun, 09 Mar 2025 19:47:40 +0000
+Received: from fout-a8-smtp.messagingengine.com ([103.168.172.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMIf-000000013kw-0vnf;
-	Sun, 09 Mar 2025 19:27:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741548421; x=1773084421;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=Dk3dyE0dtJPnVxAV4n6omrRWpps5/OsjqC9n7SUzIAY=;
-  b=Y5g5uFA0rtnnLWUDHwmhQK/H4YRh2Nbo4VdPkQBO/3bc4fAqfV3FAsxN
-   8Nmjb4bBApa8iVAyCMNX4TOY+tY8sGt/yWj7aHWKy6Y+lYI57WBYjalDN
-   9qbPZXdoY+bw2BlWewkhvKXP0ZGEPye8PGAOdybRdWdol6JRwXF7lSK5+
-   ncLRBERRPEfywSHQn/UmQaP/MI1d91V+ESPkPswBP4qUQdVUFKL5EjZ5p
-   WgsZs9rZPBc7Tp93wgpJ7waSzG+Kw7PPZHc2n85GUL5u87Qb3+Uu/1Yst
-   8n4zSHnKJC8dJHwDqsUswm0X6fyapC0lvjukOkSBcBqAIzOi8NtqFsmym
-   g==;
-X-CSE-ConnectionGUID: 9x1NlWf1ToyV6kP/YdJClw==
-X-CSE-MsgGUID: Ng3PMeivQZWnygXykchUqQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11368"; a="42414973"
-X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
-   d="scan'208";a="42414973"
-Received: from fmviesa010.fm.intel.com ([10.60.135.150])
-  by fmvoesa111.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 12:26:56 -0700
-X-CSE-ConnectionGUID: UsC/pV4tTLOMuh37iVyUtw==
-X-CSE-MsgGUID: 5kmuBSalTDaAtTsev3gd4A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,234,1736841600"; 
-   d="scan'208";a="120288769"
-Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
-  by fmviesa010.fm.intel.com with ESMTP; 09 Mar 2025 12:26:52 -0700
-Received: from kbuild by a4747d147074 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1trMIT-0003PE-1U;
-	Sun, 09 Mar 2025 19:26:49 +0000
-Date: Mon, 10 Mar 2025 03:26:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Christian Marangi <ansuelsmth@gmail.com>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	id 1trMb1-000000015Gd-3TxC
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 19:46:01 +0000
+Received: from phl-compute-07.internal (phl-compute-07.phl.internal [10.202.2.47])
+	by mailfout.phl.internal (Postfix) with ESMTP id 31D8613809A6;
+	Sun,  9 Mar 2025 15:45:58 -0400 (EDT)
+Received: from phl-mailfrontend-02 ([10.202.2.163])
+  by phl-compute-07.internal (MEProxy); Sun, 09 Mar 2025 15:45:58 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:content-type
+	:date:date:from:from:in-reply-to:in-reply-to:message-id
+	:mime-version:references:reply-to:subject:subject:to:to; s=fm2;
+	 t=1741549558; x=1741635958; bh=BD/hVb2SemsVg0IwRyhTyxsbti4JCV6r
+	s55j397BRYc=; b=R8fx0EhxTGtmyhm6cWzfF1GspBdj1wxiSW5GdBGmdrCiZnu+
+	w4CW+FHGoRzITUUyHGSAnJyouxsD/NOVR0jUStoJinj5CchjlrsvJMimVto8gdV2
+	ONTYV2xpqNis6tLgWwghCUXeSvx85uw9jYq+qY8Qmw5fCYTsdK2dkex2Dfj71pQI
+	KMb5Vv/HV0xPHmOMU6xgCQlheUlwjRV6/l9sUcFq8JwiI4UeEvNg7niGRtGhmnRx
+	47iNBGNxB47H0M5hbZq25MWDktkn835uaYqyqny44B43i7oCHITJwi6oP4Pab4bz
+	tr5HkbtL9xWf/TkbXKAXUsH7js0v1N4TQmU7Cg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741549558; x=
+	1741635958; bh=BD/hVb2SemsVg0IwRyhTyxsbti4JCV6rs55j397BRYc=; b=r
+	ieZVbq5WLZ3V83sy3ehz/nNCYdmEdvEkpaLLgPTLNaTyK8vXJAdG6GsshAEajYwn
+	s9Go8Rcuz4bCh+7sSIfIShcT4m/hYLVxQfxj+PFJNHgOP4681eB5xFIyKJ76feIr
+	2KFLIt/mKqxVg37sh1FbW2f47rBlXhFLLKAoVIWU6RUx9Ml4JOO1MqcvXFpcW4TQ
+	OEcgjHe3/cybSILNx9R+7b3h1ycNOW0RtR6o9x43zluu/Llkhy3sdU8TpJaiAvLg
+	d7Dwij0wqvyOY4wK5rE9Hs8D5oA0zShzquEGIl3Lk80AWSD6ZHqY5MlScrngJVe7
+	SsimBU3TMiJamlnI5fNbA==
+X-ME-Sender: <xms:9e_NZxaqqzP0H4OAYQW8s1JVgkBo3gK882ts2NE8tKKIBoGrt-Y-Tg>
+    <xme:9e_NZ4ZLJWP1Nd68TroZZVHxYp8C14YU88KJsGvPvYFP97xgU3jntL2w-cwXPuRCL
+    YoEzwh4kgETcolSKpo>
+X-ME-Received: <xmr:9e_NZz_ko4M7nnuugkVqtZAitqC6nD_o2FcT-KVQ6KUrjCsb6zqNvHlTL7Skg7B29mEMPAw8qYr6BKXEooJugb88O4XFxfDtsxutTRAxiUDWJtBnU09hiCG4oFPG30Q>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudejfedvucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhggtgfgsehtkeertder
+    tdejnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehsvhgvnhesshhvvghnphgvthgvrh
+    druggvvheqnecuggftrfgrthhtvghrnhepleetudehlefgteduffeijeehfeduudekhffg
+    fedvueekvedvveeuhefgieetgfegnecuffhomhgrihhnpehgihhthhhusgdrtghomhenuc
+    evlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehsvhgvnhes
+    shhvvghnphgvthgvrhdruggvvhdpnhgspghrtghpthhtohepjedpmhhouggvpehsmhhtph
+    houhhtpdhrtghpthhtoheprghsrghhiheslhhishhtshdrlhhinhhugidruggvvhdprhgt
+    phhtthhopehnvggrlhesghhomhhprgdruggvvhdprhgtphhtthhopehsvhgvnhesshhvvg
+    hnphgvthgvrhdruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlhesvhhgvghr
+    rdhkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlh
+    eslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopegrlhihshhsrges
+    rhhoshgvnhiifigvihhgrdhiohdprhgtphhtthhopehjsehjrghnnhgruhdrnhgvth
+X-ME-Proxy: <xmx:9e_NZ_o00JzXlX8jUt6GhiNnwqNLUxb0Q7K1iAEw0L_nBYs7hCHXEg>
+    <xmx:9e_NZ8ru-rLdq4ln2RGvsFsheUqmOkp6FaXy_rine-H4Ttb3lvcEMQ>
+    <xmx:9e_NZ1TEf3anjlevF0X-vhDQ6v8XhC1VG0IYylf9uDLpo-rjm2-S4g>
+    <xmx:9e_NZ0qh14YLQk9TF4oJfbHxhy8aHHzhuRVVNBbK7gP9rkdVm1wdWg>
+    <xmx:9u_NZ0LDMOJkdXaXtsV8PqUtxDkcQLcO0_dAQ5NdONbutNGu9OiKm4lX>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 9 Mar 2025 15:45:55 -0400 (EDT)
+From: Sven Peter <sven@svenpeter.dev>
+To: asahi@lists.linux.dev,
+	Neal Gompa <neal@gompa.dev>
+Cc: Sven Peter <sven@svenpeter.dev>,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, upstream@airoha.com
-Cc: oe-kbuild-all@lists.linux.dev, netdev@vger.kernel.org
-Subject: Re: [net-next PATCH v12 05/13] dt-bindings: mfd: Document support
- for Airoha AN8855 Switch SoC
-Message-ID: <202503100331.nksmBPCd-lkp@intel.com>
-References: <20250309172717.9067-6-ansuelsmth@gmail.com>
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH] MAINTAINERS: Add myself (Neal Gompa) as a reviewer for ARM Apple support
+Date: Sun,  9 Mar 2025 20:45:47 +0100
+Message-Id: <174154951957.51578.1010090388720574063.b4-ty@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
+In-Reply-To: <20250303154012.1417088-1-neal@gompa.dev>
+References: <20250303154012.1417088-1-neal@gompa.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309172717.9067-6-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_122701_304987_BC668B27 
-X-CRM114-Status: GOOD (  11.20  )
+X-CRM114-CacheID: sfid-20250309_124600_225869_ED630C1D 
+X-CRM114-Status: UNSURE (   9.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,37 +118,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Christian,
+On Mon, 03 Mar 2025 10:40:10 -0500, Neal Gompa wrote:
+> As a member of the Asahi Linux project, I (Neal) have been involved in
+> reviewing the patches downstream as part of enabling the Fedora Asahi Remix
+> distribution for years and have recently been reviewing patches for upstream
+> submission as well.
+> 
+> This formalizes my role as a reviewer for ARM Apple system support patches.
+> 
+> [...]
 
-kernel test robot noticed the following build warnings:
+Applied to git@github.com:AsahiLinux/linux.git (asahi-soc/maintainers), thanks!
 
-[auto build test WARNING on net-next/main]
+[1/1] MAINTAINERS: Add myself (Neal Gompa) as a reviewer for ARM Apple support
+      https://github.com/AsahiLinux/linux/commit/3a0d2facfa64
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Marangi/dt-bindings-nvmem-Document-support-for-Airoha-AN8855-Switch-EFUSE/20250310-013306
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/20250309172717.9067-6-ansuelsmth%40gmail.com
-patch subject: [net-next PATCH v12 05/13] dt-bindings: mfd: Document support for Airoha AN8855 Switch SoC
-reproduce: (https://download.01.org/0day-ci/archive/20250310/202503100331.nksmBPCd-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503100331.nksmBPCd-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   Warning: Documentation/translations/ja_JP/SubmittingPatches references a file that doesn't exist: linux-2.6.12-vanilla/Documentation/dontdiff
-   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
-   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
-   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
->> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/mfd/airoha,an8855-mfd.yaml
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
-   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/leds/backlight/ti,lp8864.yaml
-   Warning: lib/Kconfig.debug references a file that doesn't exist: Documentation/dev-tools/fault-injection/fault-injection.rst
-   Using alabaster theme
-
+Best regards,
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Sven Peter <sven@svenpeter.dev>
+
 
