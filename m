@@ -4,72 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5CA0C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 22:02:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85FDC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 23:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=754gpFQn6yF+Cc66o8L1dxwGXZztulIv26PCKcIfWrg=; b=IESFHfGwr0TRDIFU8hoV48XMF1
-	Bp+KgDSYyeJ8XsvOw8okcZK9hrvAzwt4Uyi0ZOZvDXZcr7VyLJG3UKsgUX7qksl4R0PIVr+MCWVOY
-	AV79JXkgi2YQ7GUK97Tdmrz01DNl+ygPe5011DnH3qhi4OC+WcKH423wgEy3YgtxK4Q1yXtacKe9h
-	Lzhqzv9v7kB2XVo+WufXxd6Gbe9KeqrQKkwlLVE8WKj72rEXdNCnjkyRgxwpCdDV2zooinjq+nUUO
-	FgEs4gugFj0ENf4qasO7LUDDtxbWjM8CXduf5q+8NHu4+d/Jhrr364MN9+VMwXiaPSm7PonBi029C
-	WEoX5+dw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uhqn9V7B8sVTHcezMkHZ/uQLEm9iylzgvIMWhThJmFw=; b=t5TPpnoPFuq/+zmqIWIL121jyH
+	jAkk2bjT4qdQS1LkBo/z3JHyt/s/Tl6x1eGqVuuUQ6qoWqDCPAd/JCS3W3AqrmTJQwJ42uLmNfiDt
+	jvz+zXt3LZgEwtpE7/ynCCaKoWr7e6yI0vbuOCZaI+sVZvt58X8tpTcWhvVokwvqFQyKobFJPD7kb
+	ogISMn23ZNyyYq8hpisOT4kqJOLamn0yzq9asvnCpMq8eaODTSh6TGTC6/ViHHNrVK16OyysN6eF7
+	moqzMlwMHk0B2vAHykTRcQ3ESz1oQWTRMRtjSm5289jjS6W8XYsWzSIEBNTyomiArGopjHIQPOKjI
+	PYCFP8Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trOjI-00000001CUg-0wsr;
-	Sun, 09 Mar 2025 22:02:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1trQ4p-00000001GmP-0sd4;
+	Sun, 09 Mar 2025 23:28:59 +0000
+Received: from [2a02:6ea0:d71e::9] (helo=smtp.forwardemail.net)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trOhe-00000001CLk-3GOA;
-	Sun, 09 Mar 2025 22:01:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741557655;
-	bh=2AwOlmOEhu3yB/ZFUZMUxaC69CB5cnd8T/Ge3O14dyY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J++TDpzVlCkjoNZ2ae2abmOJtcdsXHrqE2QTJgUz5l9o4nR/SbvysGdaNiDyN/8TY
-	 EpfBVAmh+9DE9/NiPAYPaeBW4NWTf374ueN7TXjwgCWBP6WTnpB6fCs1KZVs4bDjlZ
-	 WgNvAUg3r63CQ2MGSUl+Y0phl4m2VxXFq1VakrxbB+CJDN5C4aAtI2wsGXdHEcVAkq
-	 CLyHA+Khi0TZMwImsEncDdpzfbF+aZwyholl36Sbh3C5i5wSknyydYtfehk7/mOJaO
-	 DgBUAiOyYRz7vovByktlgODsOvnVB9Sveaal3tgRva21B0sECn6rG4VeKoDsS+xmdI
-	 Gdtj7Ri4/ZLIg==
-Received: from [192.168.1.90] (unknown [84.232.140.93])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id DABAC17E09FB;
-	Sun,  9 Mar 2025 23:00:54 +0100 (CET)
-Message-ID: <0fe4388f-3374-409b-8383-ee5200961583@collabora.com>
-Date: Mon, 10 Mar 2025 00:00:52 +0200
+	id 1trQ3A-00000001GI6-1WGd
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 23:27:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1741562798;
+ bh=uhqn9V7B8sVTHcezMkHZ/uQLEm9iylzgvIMWhThJmFw=;
+ b=Uh/asg1R9vopFiZOW16JughL23mEN0wv2TJDBf6K/ux2lE9VMapZLyjyIKpLQIeFJFjcDNLMe
+ 44tykeMDwGzw5mUvp639NXsm1ZXuVtxr2nmtwmUxjW44c5CCc/6gjyuWXlOasRm/8YpTAo+/uNz
+ l4vxEpyzUQLjqavN9bHQui3Zeg1wDzmHmz4aT4jRaM+WCfBevDTqpryD/hFbsVpRthVCDxtg7W6
+ RSpdCHIpm6HbVx7A2l8MeHsb2qw7pCCEDDvI6G8OlGG8n4/S+fPLbECzl9d+MGRcAJdHttCjOAl
+ 9cxT1h3+nxH5RPyOsO1257DwzFPIzlqo/aewvgTBtgag==
+X-Forward-Email-ID: 67ce23a55209992d7c670e59
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+From: Jonas Karlman <jonas@kwiboo.se>
+To: Heiko Stuebner <heiko@sntech.de>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Wu <david.wu@rock-chips.com>,
+	Yao Zi <ziyao@disroot.org>,
+	netdev@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 0/5] net: stmmac: dwmac-rk: Add GMAC support for RK3528
+Date: Sun,  9 Mar 2025 23:26:10 +0000
+Message-ID: <20250309232622.1498084-1-jonas@kwiboo.se>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 07/12] phy: rockchip: samsung-hdptx: Avoid Hz<->hHz
- unit conversion overhead
-To: David Laight <david.laight.linux@gmail.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>,
- Sandor Yu <Sandor.yu@nxp.com>, Maxime Ripard <mripard@kernel.org>,
- kernel@collabora.com, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-References: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com>
- <20250308-phy-sam-hdptx-bpc-v5-7-35087287f9d1@collabora.com>
- <CAA8EJpoQbvFbNXQ2RB1qY2gHnwZaU-PT-DMLnZkrxkqs2wkXqQ@mail.gmail.com>
- <a1a3e86a-1906-4797-932d-8e1aadafedde@collabora.com>
- <20250309144747.744e5197@pumpkin>
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250309144747.744e5197@pumpkin>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_150058_986965_A385054D 
-X-CRM114-Status: GOOD (  12.83  )
+X-CRM114-CacheID: sfid-20250309_162716_800054_1D829AC1 
+X-CRM114-Status: UNSURE (   9.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,52 +86,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/9/25 4:47 PM, David Laight wrote:
-> On Sun, 9 Mar 2025 12:13:32 +0200
-> Cristian Ciocaltea <cristian.ciocaltea@collabora.com> wrote:
-> 
->> On 3/9/25 11:22 AM, Dmitry Baryshkov wrote:
->>> On Sat, 8 Mar 2025 at 14:21, Cristian Ciocaltea
->>> <cristian.ciocaltea@collabora.com> wrote:  
->>>>
->>>> The ropll_tmds_cfg table used to identify the configuration params for
->>>> the supported rates expects the search key, i.e. bit_rate member of
->>>> struct ropll_config, to be provided in hHz rather than Hz (1 hHz = 100
->>>> Hz).  This requires multiple conversions between these units being
->>>> performed at runtime.
->>>>
->>>> Improve implementation clarity and efficiency by consistently using the
->>>> Hz unit throughout driver's internal data structures and functions.
->>>> Also rename the rather misleading struct member.
->>>>
->>>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>> ---
->>>>  drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c | 79 +++++++++++------------
->>>>  1 file changed, 39 insertions(+), 40 deletions(-)
->>>>
->>>> diff --git a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> index 2bf525514c1991a1299265d12e1e85f66333c604..e58a01bdb3ce82d66acdcb02c06de2816288b574 100644
->>>> --- a/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> +++ b/drivers/phy/rockchip/phy-rockchip-samsung-hdptx.c
->>>> @@ -330,7 +330,7 @@ enum dp_link_rate {
->>>>  };
->>>>
->>>>  struct ropll_config {
->>>> -       u32 bit_rate;
->>>> +       u32 rate;  
->>>
->>> unsigned long long, please, to match the tmds_char_rate type.
-> 
-> Isn't 'bit_rate' more descriptive?
-> But maybe rate_hz to make the units more obvious.
-> 
-> If the max frequency might get near 4Gz then the you need something
+The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
+used with the integrated PHY and a second 1000/100/10 MAC to be used
+with an external Ethernet PHY.
 
-The max freq. intended to be handled by the related config table is 600
-MHz, that is for supporting HDMI 2.0 (TMDS).  Anything above that
-requires HDMI 2.1 (FRL), which is currently not provided and would
-anyway not rely on this data structure.
+This series add initial support for the Ethernet controllers found in
+RK3528 and initial support to power up/down the integrated PHY.
 
-Regards,
-Cristian
+This series depends on v2 of the "net: stmmac: dwmac-rk: Validate GRF
+and peripheral GRF during probe" [1] cleanup series.
+
+
+Changes in v2:
+- Restrict the minItems: 4 change to rockchip,rk3528-gmac
+- Add initial support to power up/down the integrated PHY in RK3528
+- Split device tree changes into a separate series
+
+[1] https://lore.kernel.org/r/20250308213720.2517944-1-jonas@kwiboo.se/
+
+David Wu (1):
+  net: stmmac: dwmac-rk: Add GMAC support for RK3528
+
+Jonas Karlman (4):
+  dt-bindings: net: rockchip-dwmac: Add compatible string for RK3528
+  net: stmmac: dwmac-rk: Move integrated_phy_powerup/down functions
+  net: stmmac: dwmac-rk: Add integrated_phy_powerdown operation
+  net: stmmac: dwmac-rk: Add initial support for RK3528 integrated PHY
+
+ .../bindings/net/rockchip-dwmac.yaml          |  16 +-
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 277 ++++++++++++++----
+ 2 files changed, 242 insertions(+), 51 deletions(-)
+
+-- 
+2.48.1
+
 
