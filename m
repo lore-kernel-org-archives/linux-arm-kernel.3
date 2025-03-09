@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93613C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 13:32:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59060C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 13:34:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=3IZp5z7nS232anPaIUnFqLxoHjUC4RU66ewstLpUgIU=; b=YhaeDbg51g+Z/4+FNm1qxvecpD
-	ruN8jMpVmniwvtJ+ivvQX3Q8KNQFUkadsmL83zH9pRGdlHUrNWgot9Uw78ltXTeB5SlX6DwFcMRHw
-	dt/A6F/nnCktedBQlRxuaVFibFNt3+eie5uzlOfMmTTUtGgYDhltseEq0lkD4Fe1C4+BUyPwqm8Av
-	H0vop9Uu/8pPhMHk23FrAWlf4bgksijCPXdmFEsji7asExQcgZ3gN4poyMMWIo6UNlOYb0IP6kYXq
-	6v2INooY0rqKVfqKBiJUXTsMZwTAfgYY8b5HlxQGSyBut7tr971BvZ0UiRVT9Lpol6JkZfK1c6w7k
-	vrBLhDHA==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
+	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qYnsaKwLQcaTkvM+4ffTJRr6nfs/V7lVq/qqbRtol90=; b=gCzUYD11LAABoTUQWj3O9IoiDW
+	77w09Aoy3kupDs3GGWELNKhSZChOvPWwjUJ7TFQ1PVLeNBvt045ht42bScP+WKdoHeQYFWU509gHb
+	P6WKyxgwWSRP3hFl0GzhT6LWmqcY/UCyLK/ELL4+2NdcPRyTV69vHR1WBAtFSM8xbyvNPprAtk6AU
+	yOyATmoyFdDtkW8FAYx7WKCaJjUFUwvQhUVwBxLD6S1ndVzwLH8QEjJ8X9aiBFIGBU8gI/VauejM5
+	cdnGgE/86C8yq6mPXLUvcoYt9HCKrhcwhTF+qJB3mmullI/pCdcTekqLnL+rP/9bJ3DKVHLSTuiAK
+	ptZF/vzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trGlU-00000000amx-2mfY;
-	Sun, 09 Mar 2025 13:32:24 +0000
-Received: from mail-wr1-x429.google.com ([2a00:1450:4864:20::429])
+	id 1trGn5-00000000b89-40aq;
+	Sun, 09 Mar 2025 13:34:03 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trGjr-00000000aQ8-26AN;
-	Sun, 09 Mar 2025 13:30:44 +0000
-Received: by mail-wr1-x429.google.com with SMTP id ffacd0b85a97d-390fdaf2897so3213628f8f.0;
+	id 1trGjr-00000000aQ9-25Yl;
+	Sun, 09 Mar 2025 13:30:45 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3913b539aabso553847f8f.2;
         Sun, 09 Mar 2025 06:30:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741527038; x=1742131838; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:from:to:cc:subject:date:message-id:reply-to;
-        bh=3IZp5z7nS232anPaIUnFqLxoHjUC4RU66ewstLpUgIU=;
-        b=gdzzBkz3eWkSUHlf+3o8o4Es3FC3s73Doy8Mewi64X0zn4zXtcH5vc1jNQzKXvVOGT
-         2/kyDBX9viONm1CgenmoIM0i+iU9OZc82PO+xc08ze9h9U5x/6s5m0xcDqEtoDJt6Y3l
-         B8PwTEV2N97FMUY3/rGSdPKQqxnYG3Dole9wP2cLoVrlarIuyYGQS/Uhd8oF2BflF9cC
-         bwnpEpllZqaEPcMi1J/e7OUPL8blIini2BgULj/nn+ey5D2SptaXQ526+7Sb9/0vNOq0
-         Yxcj4wg/CwvHWX1IROZJdXRHUISZCvzojtdI7PvNYuaGvSeCTXKa5e10LHkHRzbGt4Zg
-         vtcw==
+        d=gmail.com; s=20230601; t=1741527041; x=1742131841; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qYnsaKwLQcaTkvM+4ffTJRr6nfs/V7lVq/qqbRtol90=;
+        b=IF5/ddYolBKSgff+nunvpMQJy4cyc2hFFCS05ZJMLXLDNxbJG/OFIhOA4IMPK5Z8Qd
+         R5CpL4ZaZuZOW+PxytolOjXCkXImhC5XVC6mKvwj0gFvH5qzj4HArJVpFVTmB03GCsyw
+         AQigcBmkb5LJu/RiidlSZHVvbGGlQyOSCqjYi0UYAlSJtoXyDEunXDBSfUvvtzimN3Y9
+         hOg5DaXbv8xc0q1+kBbDxaACT2/r7vBkwQMtrA/b3y0XbuaoMlRqmpWYuysD7FxgzQCN
+         AFicGW2ZQ25ns28OgFCE6jGrGpBBiJwwsWO9HqxUBXRz5JAdcZRoM1EpDf17wOjtHuS9
+         9IBQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741527038; x=1742131838;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:to
-         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=3IZp5z7nS232anPaIUnFqLxoHjUC4RU66ewstLpUgIU=;
-        b=oZ+kJ1Wv39SeEtBE9epE3SOS9UIcJdXeLWeJ5HwSsCQmuOYNK7b+S3SQgCYsqAZjl+
-         /xmzBONVpvJE1dyuYpHk2gjgKY8903W17fpgFJy33AzhtbnU/8PdLj7/tjOwf7Ui2Uv1
-         +Qbm86qOFzvB1ukRYNwxHz7rfkmLkn9jd2fpV/sHIw1etW9ItYJcgdoPJW68MtnYT6Ty
-         5xtxaesnEvR4Xc7kjIGICzYiRPgg0yZfSbuYvWpbIWCJqYZuAFTzVfv/od8AdAx1+W1o
-         LGy8tuYelxkODXJQSHQLuPgFL0BEAIFnZgS5Ol2Zr1I2zuZU24lf3DXIWEPZye1fazC1
-         Em5w==
-X-Forwarded-Encrypted: i=1; AJvYcCV99W6gErpkYTNZn7mCr0fqYkLK+XJCorXJFiSKaQT0yoYjaDh7HtI0qZGf8LJx9oFjHWVT7RMt+mYY18q4gfU=@lists.infradead.org, AJvYcCVvQ2hc5hq6psCVhkYgoTnd94HlbyArPaulWBZb16hGWDg/oRfi555LjqUQMZ55xsst/RLYzvVERUsa@lists.infradead.org, AJvYcCX9I9Eh5asEuS5oyHZXPEh0DnyhIlS//bYCjNykaMoLU1MCcZ0hE0H1LtHBqDNT/3C00MnnN4LLiW3rbYj80ODo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3IBBBjgfIR43mgXLr8Xgdsori+Nq6KROvVV1oqCk0fB7gfYMP
-	BhMU719ty0cfYwJWrjRiTnfpZMDG6R86r2869ZpoInxN2a+h9H6b
-X-Gm-Gg: ASbGncumVpezYU74CeFwXv5VG/SaNzHpDCXTXk/v56JOyVNS5nIBMCDJgkL2UzmLy7x
-	aXx8k2QyjsOyVb41qapAYmsnw8U+ngE/Raa/kGgFBn82KNFMc8DpmLusi8NAWQDqUbl6l8F/gv4
-	8WhwCKNE7UppcVxyptngmmVzkQMN+8G1cgUYgFRfxatdYtE2zQDM1bzt9wou5g03OApiU1Ck9ZN
-	IJ3Ji3u8GdSXDGc0keXPFTMTAE83JEnpzBx/6s5XC68YbAiA/PVME7S3zv2y+jLmAuUnKmKNgOE
-	KBDiu3oiRFdb5btouYzn7Ae9Fwd95LXCqS7Gzdn04TZg2oHqsMFdKihXRD1OlMvSNBIWhIuMR2N
-	PeJVMEVeCUHfmhw==
-X-Google-Smtp-Source: AGHT+IEg/pmtwT7lVJCZK8BpVYZB76uZfLQXRI3/kWO/yuj5TZlAaT7OiGF/3WHcicI73lmrX/qPnw==
-X-Received: by 2002:adf:cb01:0:b0:38f:3245:21fc with SMTP id ffacd0b85a97d-39132db1fdamr6602070f8f.50.1741527038019;
-        Sun, 09 Mar 2025 06:30:38 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741527041; x=1742131841;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=qYnsaKwLQcaTkvM+4ffTJRr6nfs/V7lVq/qqbRtol90=;
+        b=gYnAXZ2tPZi8Z9/uZ8uOrUrgQeszaA8Br/5xwCbm7pus0LWwNN4MCursplrxMQmKfE
+         TauDaM3dMFBTkUbBlqyhbzC9gknj0s1XmQPU9lHtMtBKV3Nd652J4PxjOCa8fkfcrr5+
+         v3gj57BrQvcTWDohQQtzN2cS4shlcRzTKlzvMxGbbFNTHfPg2T6gPivfZvGRG9ixryGJ
+         MIG0G/36zyyPtDiEW3l4MC+lz4CZ5Ka8Bsa5Ld0BnNAz8mhfH6Gv6i1KjqqdK7w9NPGr
+         Ro8kKT8OaOD+A44WNlWyi0VBy1w7N7I0ghSHqzVeXMSJyCp2i2xQOQlnzGeX9bSuFmkS
+         0mdg==
+X-Forwarded-Encrypted: i=1; AJvYcCUGNtklpjUDtGOqom2zBs26ymfw4JQSSQCT9XeXKzca91zUPuwu9Hzda4wfZqHePKOv2yuTrg6ICljwwCP174fE@lists.infradead.org, AJvYcCUuq9ZihaFopgn/0YWEQ53W81tlgWRKJmbYlLN3j/q188HjtYkbNO1SFn32JFLvqr1odFFXXhlM41iP@lists.infradead.org, AJvYcCXcfz5Wc3O/qDGxBzAxSDiJ97kDM4P5a91WOREz5UlgyyuUpSwGD9Puvgzy4840EX8js5bE/knlrGrNsYwIMIQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWlfS10MUbgBhvPM0JHiIRNWoM0WofdRGun8oK+rmROmA5GPGc
+	Xo1eNgfiPyH6Hu9Nr0D1uioXWXNBf3UPwV0tVWSwagJA1FW1clxa
+X-Gm-Gg: ASbGncvfkrP439VWXs4eTglFn8JP+lHbLvS10jVIVBHDWs+pO619Fz2/fW45NULO5BY
+	GFDvmp6wDO8XlJen8wLkrxe/p7pNT4q4BIZUUvp/Hw7pFhdjjDHKOuqHsNvqZ94JSEUTb1dMKLn
+	Auf10s6NfT9H1dCx8XZmakopUxJ8D7MQPAujYm9h3GMiPGqTOc7gRD7yt+f8RjYZj1BNYIqVgpw
+	qh42mEbCM66w+n22vTyOQ8u1TXpXPb9iCJSkQ3AKLKtn+iF/WbLbZ4d0foO+SVd0w7ToQ6mnYIG
+	7O3+49DBaJJyLSE3RiS0UXxmTNE1wm0oHxzrZWLLbuVCLU/usqogW6oiXLC8at6WojrImJwD8j8
+	npD1fuZU69XfKAQ==
+X-Google-Smtp-Source: AGHT+IE2QvS+0eDHndAT3qcDfoC0/LVSHDMWAcyRXoT3PVXbEboSiYXTv6Ae8nQJLJ1UY4iDMoIU2Q==
+X-Received: by 2002:a05:6000:1fa9:b0:390:fc83:a070 with SMTP id ffacd0b85a97d-39132b64eadmr7308843f8f.0.1741527041191;
+        Sun, 09 Mar 2025 06:30:41 -0700 (PDT)
 Received: from localhost.localdomain (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3912bee262esm11867536f8f.0.2025.03.09.06.30.35
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3912bee262esm11867536f8f.0.2025.03.09.06.30.39
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 06:30:37 -0700 (PDT)
+        Sun, 09 Mar 2025 06:30:40 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -96,15 +98,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-usb@vger.kernel.org,
 	upstream@airoha.com
-Subject: [PATCH 00/13] airoha: en7581: clk cleanup + USB support
-Date: Sun,  9 Mar 2025 14:29:31 +0100
-Message-ID: <20250309132959.19045-1-ansuelsmth@gmail.com>
+Subject: [PATCH 02/13] clk: en7523: generalize register clocks function
+Date: Sun,  9 Mar 2025 14:29:33 +0100
+Message-ID: <20250309132959.19045-3-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250309132959.19045-1-ansuelsmth@gmail.com>
+References: <20250309132959.19045-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_063043_538288_406F383D 
-X-CRM114-Status: GOOD (  19.04  )
+X-CRM114-CacheID: sfid-20250309_063043_536327_634D6B8D 
+X-CRM114-Status: GOOD (  20.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,85 +123,228 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series implement all the changes required to correctly handle
-USB support for the Airoha EN7581 SoC.
+Generalize register clocks function for Airoha EN7523 and EN7581 clocks
+driver. The same logic is applied for both clock hence code can be
+reduced and simplified by putting the base_clocks struct in the soc_data
+and passing that to a generic register clocks function.
 
-The first few patch are cleanup for the clock driver and the
-introduction of the SCU SSR SoC driver.
+There is always the pattern where the last clock is always the PCIe one.
 
-The SoC always support USB 2.0 but for USB 3.0 it needs additional
-configuration for the Serdes port. Such port can be either configured
-for USB usage or for PCIe lines or HSGMII and these are configured
-in the SCU space.
+Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+---
+ drivers/clk/clk-en7523.c | 130 ++++++++++++++++-----------------------
+ 1 file changed, 53 insertions(+), 77 deletions(-)
 
-To correctly handle this, the SCU is changed to a simple-mfd
-implemenetation and the clock controller updated to follow this new
-node structure. Both implementation are supported to handle old
-binding.
-
-The xHCI USB is based on the Mediatek implementation but the PHY
-handling although conceptually similar, is indded different compared
-to Mediatek due to SSR checks and different port power up.
-
-The SSR driver expose an API to poll the current status of the Serdes
-port and the USB PHY driver validates it. Refer to the specific commit
-for additional info.
-
-Consider that there is currently an inconsistency as AN7581 and
-EN7581 refer to the same thing. This is due to the fact that
-the SoC born under EcoNet but then was acquired by Airoha.
-
-Christian Marangi (13):
-  clk: en7523: convert driver to regmap API
-  clk: en7523: generalize register clocks function
-  dt-bindings: soc: airoha: add SCU SSR Serdes port binding
-  dt-bindings: soc: airoha: add Documentation for Airoha AN7581 SCU SSR
-  dt-bindings: mfd: add Documentation for Airoha EN7581 SCU
-  dt-bindings: clock: airoha: make reg optional for Airoha EN7581
-  clk: en7523: support getting regmap from parent node for EN7581
-  soc: airoha: add support for configuring SCU SSR Serdes port
-  dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
-  phy: airoha: Add support for Airoha AN7581 USB PHY
-  usb: host: add ARCH_AIROHA in XHCI MTK dependency
-  arm64: dts: airoha: en7581: convert SCU clock node to MFD
-    implementation
-  arm64: dts: airoha: en7581: add USB and SCU SSR nodes
-
- .../bindings/clock/airoha,en7523-scu.yaml     |  13 +-
- .../mfd/airoha,en7581-scu-sysctl.yaml         |  68 +++
- .../bindings/phy/airoha,an7581-usb-phy.yaml   | 106 ++++
- .../soc/airoha/airoha,an7581-scu-ssr.yaml     | 106 ++++
- MAINTAINERS                                   |  15 +
- arch/arm64/boot/dts/airoha/en7581.dtsi        |  74 ++-
- drivers/clk/clk-en7523.c                      | 258 ++++----
- drivers/phy/Kconfig                           |   1 +
- drivers/phy/Makefile                          |   3 +-
- drivers/phy/airoha/Kconfig                    |  13 +
- drivers/phy/airoha/Makefile                   |   3 +
- drivers/phy/airoha/phy-airoha-usb.c           | 554 ++++++++++++++++++
- drivers/soc/Kconfig                           |   1 +
- drivers/soc/Makefile                          |   1 +
- drivers/soc/airoha/Kconfig                    |  18 +
- drivers/soc/airoha/Makefile                   |   3 +
- drivers/soc/airoha/airoha-scu-ssr.c           | 195 ++++++
- drivers/usb/host/Kconfig                      |   2 +-
- include/dt-bindings/soc/airoha,scu-ssr.h      |  24 +
- include/linux/soc/airoha/airoha-scu-ssr.h     |  17 +
- include/linux/soc/soc/airoha-scu-ssr.h        |  17 +
- 21 files changed, 1355 insertions(+), 137 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml
- create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
- create mode 100644 Documentation/devicetree/bindings/soc/airoha/airoha,an7581-scu-ssr.yaml
- create mode 100644 drivers/phy/airoha/Kconfig
- create mode 100644 drivers/phy/airoha/Makefile
- create mode 100644 drivers/phy/airoha/phy-airoha-usb.c
- create mode 100644 drivers/soc/airoha/Kconfig
- create mode 100644 drivers/soc/airoha/Makefile
- create mode 100644 drivers/soc/airoha/airoha-scu-ssr.c
- create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
- create mode 100644 include/linux/soc/airoha/airoha-scu-ssr.h
- create mode 100644 include/linux/soc/soc/airoha-scu-ssr.h
-
+diff --git a/drivers/clk/clk-en7523.c b/drivers/clk/clk-en7523.c
+index 314e7450313f..2a74bc8fed24 100644
+--- a/drivers/clk/clk-en7523.c
++++ b/drivers/clk/clk-en7523.c
+@@ -78,8 +78,10 @@ struct en_rst_data {
+ 
+ struct en_clk_soc_data {
+ 	u32 num_clocks;
++	const struct en_clk_desc *base_clks;
+ 	const struct clk_ops pcie_ops;
+ 	int (*hw_init)(struct platform_device *pdev,
++		       const struct en_clk_soc_data *soc_data,
+ 		       struct clk_hw_onecell_data *clk_data);
+ };
+ 
+@@ -467,6 +469,50 @@ static struct clk_hw *en7523_register_pcie_clk(struct device *dev,
+ 	return &cg->hw;
+ }
+ 
++static void en75xx_register_clocks(struct device *dev,
++				   const struct en_clk_soc_data *soc_data,
++				   struct clk_hw_onecell_data *clk_data,
++				   struct regmap *map, struct regmap *clk_map)
++{
++	struct clk_hw *hw;
++	u32 rate;
++	int i;
++
++	for (i = 0; i < soc_data->num_clocks - 1; i++) {
++		const struct en_clk_desc *desc = &soc_data->base_clks[i];
++		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
++		int err;
++
++		err = regmap_read(map, desc->base_reg, &val);
++		if (err) {
++			pr_err("Failed reading fixed clk rate %s: %d\n",
++			       desc->name, err);
++			continue;
++		}
++		rate = en7523_get_base_rate(desc, val);
++
++		err = regmap_read(map, reg, &val);
++		if (err) {
++			pr_err("Failed reading fixed clk div %s: %d\n",
++			       desc->name, err);
++			continue;
++		}
++		rate /= en7523_get_div(desc, val);
++
++		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
++		if (IS_ERR(hw)) {
++			pr_err("Failed to register clk %s: %ld\n",
++			       desc->name, PTR_ERR(hw));
++			continue;
++		}
++
++		clk_data->hws[desc->id] = hw;
++	}
++
++	hw = en7523_register_pcie_clk(dev, clk_map);
++	clk_data->hws[soc_data->num_clocks] = hw;
++}
++
+ static int en7581_pci_is_enabled(struct clk_hw *hw)
+ {
+ 	struct en_clk_gate *cg = container_of(hw, struct en_clk_gate, hw);
+@@ -504,38 +550,6 @@ static void en7581_pci_disable(struct clk_hw *hw)
+ 	usleep_range(1000, 2000);
+ }
+ 
+-static void en7523_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
+-				   struct regmap *map, struct regmap *clk_map)
+-{
+-	struct clk_hw *hw;
+-	u32 rate;
+-	int i;
+-
+-	for (i = 0; i < ARRAY_SIZE(en7523_base_clks); i++) {
+-		const struct en_clk_desc *desc = &en7523_base_clks[i];
+-		u32 reg = desc->div_reg ? desc->div_reg : desc->base_reg;
+-		u32 val;
+-
+-		regmap_read(map, desc->base_reg, &val);
+-
+-		rate = en7523_get_base_rate(desc, val);
+-		regmap_read(map, reg, &val);
+-		rate /= en7523_get_div(desc, val);
+-
+-		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
+-		if (IS_ERR(hw)) {
+-			pr_err("Failed to register clk %s: %ld\n",
+-			       desc->name, PTR_ERR(hw));
+-			continue;
+-		}
+-
+-		clk_data->hws[desc->id] = hw;
+-	}
+-
+-	hw = en7523_register_pcie_clk(dev, clk_map);
+-	clk_data->hws[EN7523_CLK_PCIE] = hw;
+-}
+-
+ static const struct regmap_config en7523_clk_regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+@@ -543,6 +557,7 @@ static const struct regmap_config en7523_clk_regmap_config = {
+ };
+ 
+ static int en7523_clk_hw_init(struct platform_device *pdev,
++			      const struct en_clk_soc_data *soc_data,
+ 			      struct clk_hw_onecell_data *clk_data)
+ {
+ 	void __iomem *base, *np_base;
+@@ -566,53 +581,11 @@ static int en7523_clk_hw_init(struct platform_device *pdev,
+ 	if (IS_ERR(clk_map))
+ 		return PTR_ERR(clk_map);
+ 
+-	en7523_register_clocks(&pdev->dev, clk_data, map, clk_map);
++	en75xx_register_clocks(&pdev->dev, soc_data, clk_data, map, clk_map);
+ 
+ 	return 0;
+ }
+ 
+-static void en7581_register_clocks(struct device *dev, struct clk_hw_onecell_data *clk_data,
+-				   struct regmap *map, struct regmap *clk_map)
+-{
+-	struct clk_hw *hw;
+-	u32 rate;
+-	int i;
+-
+-	for (i = 0; i < ARRAY_SIZE(en7581_base_clks); i++) {
+-		const struct en_clk_desc *desc = &en7581_base_clks[i];
+-		u32 val, reg = desc->div_reg ? desc->div_reg : desc->base_reg;
+-		int err;
+-
+-		err = regmap_read(map, desc->base_reg, &val);
+-		if (err) {
+-			pr_err("Failed reading fixed clk rate %s: %d\n",
+-			       desc->name, err);
+-			continue;
+-		}
+-		rate = en7523_get_base_rate(desc, val);
+-
+-		err = regmap_read(map, reg, &val);
+-		if (err) {
+-			pr_err("Failed reading fixed clk div %s: %d\n",
+-			       desc->name, err);
+-			continue;
+-		}
+-		rate /= en7523_get_div(desc, val);
+-
+-		hw = clk_hw_register_fixed_rate(dev, desc->name, NULL, 0, rate);
+-		if (IS_ERR(hw)) {
+-			pr_err("Failed to register clk %s: %ld\n",
+-			       desc->name, PTR_ERR(hw));
+-			continue;
+-		}
+-
+-		clk_data->hws[desc->id] = hw;
+-	}
+-
+-	hw = en7523_register_pcie_clk(dev, clk_map);
+-	clk_data->hws[EN7523_CLK_PCIE] = hw;
+-}
+-
+ static int en7523_reset_update(struct reset_controller_dev *rcdev,
+ 			       unsigned long id, bool assert)
+ {
+@@ -689,6 +662,7 @@ static int en7581_reset_register(struct device *dev, struct regmap *map)
+ }
+ 
+ static int en7581_clk_hw_init(struct platform_device *pdev,
++			      const struct en_clk_soc_data *soc_data,
+ 			      struct clk_hw_onecell_data *clk_data)
+ {
+ 	struct regmap *map, *clk_map;
+@@ -706,7 +680,7 @@ static int en7581_clk_hw_init(struct platform_device *pdev,
+ 	if (IS_ERR(clk_map))
+ 		return PTR_ERR(clk_map);
+ 
+-	en7581_register_clocks(&pdev->dev, clk_data, map, clk_map);
++	en75xx_register_clocks(&pdev->dev, soc_data, clk_data, map, clk_map);
+ 
+ 	regmap_clear_bits(clk_map, REG_NP_SCU_SSTR,
+ 			  REG_PCIE_XSI0_SEL_MASK | REG_PCIE_XSI1_SEL_MASK);
+@@ -732,7 +706,7 @@ static int en7523_clk_probe(struct platform_device *pdev)
+ 		return -ENOMEM;
+ 
+ 	clk_data->num = soc_data->num_clocks;
+-	r = soc_data->hw_init(pdev, clk_data);
++	r = soc_data->hw_init(pdev, soc_data, clk_data);
+ 	if (r)
+ 		return r;
+ 
+@@ -740,6 +714,7 @@ static int en7523_clk_probe(struct platform_device *pdev)
+ }
+ 
+ static const struct en_clk_soc_data en7523_data = {
++	.base_clks = en7523_base_clks,
+ 	.num_clocks = ARRAY_SIZE(en7523_base_clks) + 1,
+ 	.pcie_ops = {
+ 		.is_enabled = en7523_pci_is_enabled,
+@@ -750,6 +725,7 @@ static const struct en_clk_soc_data en7523_data = {
+ };
+ 
+ static const struct en_clk_soc_data en7581_data = {
++	.base_clks = en7581_base_clks,
+ 	/* We increment num_clocks by 1 to account for additional PCIe clock */
+ 	.num_clocks = ARRAY_SIZE(en7581_base_clks) + 1,
+ 	.pcie_ops = {
 -- 
 2.48.1
 
