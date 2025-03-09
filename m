@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26FACC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 23:35:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603E3C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 23:37:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2jP79B1Ed/lOppu7HCdq/Ku7htiNFELnS+0Jz8AUjPk=; b=17OcPlOdHD+iiMDpAK5FUCFXt9
-	SqAtiJ4Ptb9YHD2jm2XhG8aE4MTEsCGVDgWFtGKvvPTpx0qGTFMxPPvRrtdAa3/x0N7E+nopB9hEj
-	aCP21akAkytTz3kUtUcTZSEsHkvvmjtkCzTmy4AVxBs+gb5ciYucOH8sKhPlR5+pprZZMaMhN8NPO
-	uu4xRwhuQJYtQLApVhLdEBxDIeW6klWx6Af4l3SPKrSLO6R1azcmQYWYWY1DISm2hz7bRiorlul+D
-	jgE492h93/wCyDMI6vbMO0KZiRv9Knrm2wpecliwv0bQ8pqN/KRi65XwuH2p/UmWwUQ4KSQiI7ojk
-	SF4NTCyg==;
+	bh=KanAfDw+UyOaqtRYsPqpRbqdHPNczgiApRuHgmm7F4E=; b=ZuaXLWe70H2zzyck9izrCQgoVf
+	Nh6PEY1yVSgK/2V3Fe8zBZ21Qb+nhvOh9MghfMI403F1HwKzEo0gp4K1DWehmJj0JFCDj2fSlU5ll
+	DwKF2tb40pgupzDmK17tYMTpLJENf2vGgG1k7sdhKapgyTC+bqIYaEzxyR1FPNNmyNfi+2PngmmLI
+	2X1fMs1BUTJqSpB77p+FOsmwB4kDHw6XR21xSo6MJuw0oH+MWJqQlrgRIVQ6UnS52VV0Wt9Knv6Dd
+	jT3+cTdmMxLf3F18dqNOvqblSZDt6UmZlaNyQgqfvmRvXeMliZYAuvllUsKh9Irau08rYXy6Fpn1I
+	3rIv/G6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQBG-00000001HSB-0Rm2;
-	Sun, 09 Mar 2025 23:35:38 +0000
-Received: from [2a02:6ea0:d71e::1] (helo=smtp.forwardemail.net)
+	id 1trQCq-00000001HZC-0fYe;
+	Sun, 09 Mar 2025 23:37:16 +0000
+Received: from smtp.forwardemail.net ([2001:19f0:ac01:372:5400:5ff:fe53:764a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQ3A-00000001GIA-1VxT
+	id 1trQ3F-00000001GOC-2Edw
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 23:27:20 +0000
+	Sun, 09 Mar 2025 23:27:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
  h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
  Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1741562801; bh=2jP79B1Ed/lOppu7HCdq/Ku7htiNFELnS+0Jz8AUjPk=;
- b=irGSPVqIOD3cp/eveJe5byzw8IqL+m/C3Fp4mNFaf9R8ZUl5fKXwg6VuOoPaMg7jYXD/uW7Re
- +5HSF92HsVDHn4JcyacpCwKyf/a12SQkcmPMHttv9pdpldDTT4q8tPOOEHxFJ21W1CBZ8IP+ZRB
- /TVChz1SnbYII5ye5rszt/5zFaTiqwRQh6k93FsTJcyeUyiwSeI1CUFszs2RGHzeRkcuk6T1y2H
- B0b+T/TC/BG7UPmAcXCNFrF1FKcUNp/OR+N/qv80K/CbjQyp8/VRk9aiFqAogp1U8C2ZWTUsLk3
- +iey/plPzeth2PX1/aSWKLhrc/mptvPwa/OQcwRn2T2w==
-X-Forward-Email-ID: 67ce23ae5209992d7c670e83
+ t=1741562823; bh=KanAfDw+UyOaqtRYsPqpRbqdHPNczgiApRuHgmm7F4E=;
+ b=vGP5gj9XGJyue6Vyu5pool/9aJO7GoHN9PeS04Q3O/Oib4pZNEAcK8+UZ+POHHmpLrtS2OAeu
+ JG24BtrtThZk9LPdF9/0s49oSmr0NWTcC+qjA5saAq7OHI77z+X36e38kTnuygXCplIMlQaf6k1
+ cMoHNfMVHfIPXMXSftJ8hwo9Zkw6Vyqwj9F7gvROU1EBcifMGcOeeOTPix5p+nKREXjCAgYbWlo
+ KvlPUboRheUpV3KG8i6P1AbG8Ctca+67luByQ/1V50MNY+TC/Eieic0UuQd3+L7493MyJO5/XhX
+ +oFRRKn0sKq+Dps5CaxjqtzCAarlnys/XeLIIrXWsmyQ==
+X-Forward-Email-ID: 67ce23bc5209992d7c670edc
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 121.127.44.59
+ 149.28.215.223
 X-Forward-Email-Version: 0.4.40
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -52,7 +52,8 @@ To: Heiko Stuebner <heiko@sntech.de>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>
 Cc: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
@@ -65,17 +66,17 @@ Cc: Rob Herring <robh@kernel.org>,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>,
 	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v2 2/5] net: stmmac: dwmac-rk: Add GMAC support for RK3528
-Date: Sun,  9 Mar 2025 23:26:12 +0000
-Message-ID: <20250309232622.1498084-3-jonas@kwiboo.se>
+Subject: [PATCH v2 5/5] net: stmmac: dwmac-rk: Add initial support for RK3528 integrated PHY
+Date: Sun,  9 Mar 2025 23:26:15 +0000
+Message-ID: <20250309232622.1498084-6-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250309232622.1498084-1-jonas@kwiboo.se>
 References: <20250309232622.1498084-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_162716_838600_C6A3AA6B 
-X-CRM114-Status: GOOD (  14.51  )
+X-CRM114-CacheID: sfid-20250309_162721_609145_ABF7D854 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,174 +91,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Wu <david.wu@rock-chips.com>
+Rockchip RK3528 (and RV1106) has a different integrated PHY compared to
+the integrated PHY on RK3228/RK3328. Current powerup/down operation is
+not compatible with the integrated PHY found in these newer SoCs.
 
-Rockchip RK3528 has two Ethernet controllers based on Synopsys DWC
-Ethernet QoS IP.
+Add operations to powerup/down the integrated PHY found in RK3528.
+Use helpers that can be used by other GMAC variants in the future.
 
-Add initial support for the RK3528 GMAC variant.
-
-Signed-off-by: David Wu <david.wu@rock-chips.com>
 Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 ---
 Changes in v2:
-- None
+- New patch
 
-Power up/down of the integrated PHY is added in a separate patch.
+This is enough to power up the integrated PHY on RK3528 for MDIO/MII.
+However, a PHY driver is still missing and I do not have any RK3528
+board that make use of this MAC and PHY, so something that can be
+improved upon in the future.
 ---
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 132 ++++++++++++++++++
- 1 file changed, 132 insertions(+)
+ .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
 
 diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 342463587d06..03ea9368ffbb 100644
+index 3f096b3ccee8..ab2c872d33e0 100644
 --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
 +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -828,6 +828,137 @@ static const struct rk_gmac_ops rk3399_ops = {
- 	.set_rmii_speed = rk3399_set_rmii_speed,
- };
+@@ -134,6 +134,35 @@ static void rk_gmac_integrated_ephy_powerdown(struct rk_priv_data *priv)
+ 		reset_control_assert(priv->phy_reset);
+ }
  
-+#define RK3528_VO_GRF_GMAC_CON		0x0018
-+#define RK3528_VO_GRF_MACPHY_CON0	0x001c
-+#define RK3528_VO_GRF_MACPHY_CON1	0x0020
-+#define RK3528_VPU_GRF_GMAC_CON5	0x0018
-+#define RK3528_VPU_GRF_GMAC_CON6	0x001c
++#define RK_FEPHY_SHUTDOWN		GRF_BIT(1)
++#define RK_FEPHY_POWERUP		GRF_CLR_BIT(1)
++#define RK_FEPHY_INTERNAL_RMII_SEL	GRF_BIT(6)
++#define RK_FEPHY_24M_CLK_SEL		(GRF_BIT(8) | GRF_BIT(9))
++#define RK_FEPHY_PHY_ID			GRF_BIT(11)
 +
-+#define RK3528_GMAC_RXCLK_DLY_ENABLE	GRF_BIT(15)
-+#define RK3528_GMAC_RXCLK_DLY_DISABLE	GRF_CLR_BIT(15)
-+#define RK3528_GMAC_TXCLK_DLY_ENABLE	GRF_BIT(14)
-+#define RK3528_GMAC_TXCLK_DLY_DISABLE	GRF_CLR_BIT(14)
-+
-+#define RK3528_GMAC_CLK_RX_DL_CFG(val)	HIWORD_UPDATE(val, 0xFF, 8)
-+#define RK3528_GMAC_CLK_TX_DL_CFG(val)	HIWORD_UPDATE(val, 0xFF, 0)
-+
-+#define RK3528_GMAC0_PHY_INTF_SEL_RMII	GRF_BIT(1)
-+#define RK3528_GMAC1_PHY_INTF_SEL_RGMII	GRF_CLR_BIT(8)
-+#define RK3528_GMAC1_PHY_INTF_SEL_RMII	GRF_BIT(8)
-+
-+#define RK3528_GMAC1_CLK_SELECT_CRU	GRF_CLR_BIT(12)
-+#define RK3528_GMAC1_CLK_SELECT_IO	GRF_BIT(12)
-+
-+#define RK3528_GMAC0_CLK_RMII_DIV2	GRF_BIT(3)
-+#define RK3528_GMAC0_CLK_RMII_DIV20	GRF_CLR_BIT(3)
-+#define RK3528_GMAC1_CLK_RMII_DIV2	GRF_BIT(10)
-+#define RK3528_GMAC1_CLK_RMII_DIV20	GRF_CLR_BIT(10)
-+
-+#define RK3528_GMAC1_CLK_RGMII_DIV1	(GRF_CLR_BIT(11) | GRF_CLR_BIT(10))
-+#define RK3528_GMAC1_CLK_RGMII_DIV5	(GRF_BIT(11) | GRF_BIT(10))
-+#define RK3528_GMAC1_CLK_RGMII_DIV50	(GRF_BIT(11) | GRF_CLR_BIT(10))
-+
-+#define RK3528_GMAC0_CLK_RMII_GATE	GRF_BIT(2)
-+#define RK3528_GMAC0_CLK_RMII_NOGATE	GRF_CLR_BIT(2)
-+#define RK3528_GMAC1_CLK_RMII_GATE	GRF_BIT(9)
-+#define RK3528_GMAC1_CLK_RMII_NOGATE	GRF_CLR_BIT(9)
-+
-+static void rk3528_set_to_rgmii(struct rk_priv_data *bsp_priv,
-+				int tx_delay, int rx_delay)
++static void rk_gmac_integrated_fephy_powerup(struct rk_priv_data *priv,
++					     unsigned int reg)
 +{
-+	regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+		     RK3528_GMAC1_PHY_INTF_SEL_RGMII);
++	reset_control_assert(priv->phy_reset);
++	usleep_range(20, 30);
 +
-+	regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+		     DELAY_ENABLE(RK3528, tx_delay, rx_delay));
++	regmap_write(priv->grf, reg,
++		     RK_FEPHY_POWERUP |
++		     RK_FEPHY_INTERNAL_RMII_SEL |
++		     RK_FEPHY_24M_CLK_SEL |
++		     RK_FEPHY_PHY_ID);
++	usleep_range(10000, 12000);
 +
-+	regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON6,
-+		     RK3528_GMAC_CLK_RX_DL_CFG(rx_delay) |
-+		     RK3528_GMAC_CLK_TX_DL_CFG(tx_delay));
++	reset_control_deassert(priv->phy_reset);
++	usleep_range(50000, 60000);
 +}
 +
-+static void rk3528_set_to_rmii(struct rk_priv_data *bsp_priv)
++static void rk_gmac_integrated_fephy_powerdown(struct rk_priv_data *priv,
++					       unsigned int reg)
 +{
-+	if (bsp_priv->id == 1)
-+		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+			     RK3528_GMAC1_PHY_INTF_SEL_RMII);
-+	else
-+		regmap_write(bsp_priv->grf, RK3528_VO_GRF_GMAC_CON,
-+			     RK3528_GMAC0_PHY_INTF_SEL_RMII |
-+			     RK3528_GMAC0_CLK_RMII_DIV2);
++	regmap_write(priv->grf, reg, RK_FEPHY_SHUTDOWN);
 +}
 +
-+static void rk3528_set_rgmii_speed(struct rk_priv_data *bsp_priv, int speed)
+ #define PX30_GRF_GMAC_CON1		0x0904
+ 
+ /* PX30_GRF_GMAC_CON1 */
+@@ -993,12 +1022,24 @@ static void rk3528_set_clock_selection(struct rk_priv_data *bsp_priv,
+ 	}
+ }
+ 
++static void rk3528_integrated_phy_powerup(struct rk_priv_data *bsp_priv)
 +{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+
-+	if (speed == 10)
-+		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+			     RK3528_GMAC1_CLK_RGMII_DIV50);
-+	else if (speed == 100)
-+		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+			     RK3528_GMAC1_CLK_RGMII_DIV5);
-+	else if (speed == 1000)
-+		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5,
-+			     RK3528_GMAC1_CLK_RGMII_DIV1);
-+	else
-+		dev_err(dev, "unknown speed value for RGMII! speed=%d", speed);
++	rk_gmac_integrated_fephy_powerup(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
 +}
 +
-+static void rk3528_set_rmii_speed(struct rk_priv_data *bsp_priv, int speed)
++static void rk3528_integrated_phy_powerdown(struct rk_priv_data *bsp_priv)
 +{
-+	struct device *dev = &bsp_priv->pdev->dev;
-+	unsigned int reg, val;
-+
-+	if (speed == 10)
-+		val = bsp_priv->id == 1 ? RK3528_GMAC1_CLK_RMII_DIV20 :
-+					  RK3528_GMAC0_CLK_RMII_DIV20;
-+	else if (speed == 100)
-+		val = bsp_priv->id == 1 ? RK3528_GMAC1_CLK_RMII_DIV2 :
-+					  RK3528_GMAC0_CLK_RMII_DIV2;
-+	else {
-+		dev_err(dev, "unknown speed value for RMII! speed=%d", speed);
-+		return;
-+	}
-+
-+	reg = bsp_priv->id == 1 ? RK3528_VPU_GRF_GMAC_CON5 :
-+				  RK3528_VO_GRF_GMAC_CON;
-+
-+	regmap_write(bsp_priv->grf, reg, val);
++	rk_gmac_integrated_fephy_powerdown(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
 +}
 +
-+static void rk3528_set_clock_selection(struct rk_priv_data *bsp_priv,
-+				       bool input, bool enable)
-+{
-+	unsigned int val;
-+
-+	if (bsp_priv->id == 1) {
-+		val = input ? RK3528_GMAC1_CLK_SELECT_IO :
-+			      RK3528_GMAC1_CLK_SELECT_CRU;
-+		val |= enable ? RK3528_GMAC1_CLK_RMII_NOGATE :
-+				RK3528_GMAC1_CLK_RMII_GATE;
-+		regmap_write(bsp_priv->grf, RK3528_VPU_GRF_GMAC_CON5, val);
-+	} else {
-+		val = enable ? RK3528_GMAC0_CLK_RMII_NOGATE :
-+			       RK3528_GMAC0_CLK_RMII_GATE;
-+		regmap_write(bsp_priv->grf, RK3528_VO_GRF_GMAC_CON, val);
-+	}
-+}
-+
-+static const struct rk_gmac_ops rk3528_ops = {
-+	.set_to_rgmii = rk3528_set_to_rgmii,
-+	.set_to_rmii = rk3528_set_to_rmii,
-+	.set_rgmii_speed = rk3528_set_rgmii_speed,
-+	.set_rmii_speed = rk3528_set_rmii_speed,
-+	.set_clock_selection = rk3528_set_clock_selection,
-+	.regs_valid = true,
-+	.regs = {
-+		0xffbd0000, /* gmac0 */
-+		0xffbe0000, /* gmac1 */
-+		0x0, /* sentinel */
-+	},
-+};
-+
- #define RK3568_GRF_GMAC0_CON0		0x0380
- #define RK3568_GRF_GMAC0_CON1		0x0384
- #define RK3568_GRF_GMAC1_CON0		0x0388
-@@ -1816,6 +1947,7 @@ static const struct of_device_id rk_gmac_dwmac_match[] = {
- 	{ .compatible = "rockchip,rk3366-gmac", .data = &rk3366_ops },
- 	{ .compatible = "rockchip,rk3368-gmac", .data = &rk3368_ops },
- 	{ .compatible = "rockchip,rk3399-gmac", .data = &rk3399_ops },
-+	{ .compatible = "rockchip,rk3528-gmac", .data = &rk3528_ops },
- 	{ .compatible = "rockchip,rk3568-gmac", .data = &rk3568_ops },
- 	{ .compatible = "rockchip,rk3576-gmac", .data = &rk3576_ops },
- 	{ .compatible = "rockchip,rk3588-gmac", .data = &rk3588_ops },
+ static const struct rk_gmac_ops rk3528_ops = {
+ 	.set_to_rgmii = rk3528_set_to_rgmii,
+ 	.set_to_rmii = rk3528_set_to_rmii,
+ 	.set_rgmii_speed = rk3528_set_rgmii_speed,
+ 	.set_rmii_speed = rk3528_set_rmii_speed,
+ 	.set_clock_selection = rk3528_set_clock_selection,
++	.integrated_phy_powerup = rk3528_integrated_phy_powerup,
++	.integrated_phy_powerdown = rk3528_integrated_phy_powerdown,
+ 	.regs_valid = true,
+ 	.regs = {
+ 		0xffbd0000, /* gmac0 */
 -- 
 2.48.1
 
