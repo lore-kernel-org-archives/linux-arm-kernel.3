@@ -4,69 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F7AEC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:53:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 896BEC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 20:26:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qmS7nqpKiN5EX5M1pPLcoLmn7dsa/ZTSXRmm6zpZCdQ=; b=LtstqcfKDLNo86H4caBKya2Vsk
-	JKlYI59HPDXkFri7v9xP2BQafoOOMX+yH2u/S4eA/whvXOuYiCeJ659rDrxxNsQUyXE6NHVy0T4Nd
-	a2XGBt1Qnx3WYhwesCu0Aof/j0/nrp0ym7AR4oODvS6o8m1tGkhoI58Yfeu1Dol9CSoODko8/slro
-	+W3rp1o63E8LVlY5TZNnlQQ8PbYSvfx61z8VPauydkYZbH4/Mu7bQJlDU3/7jC3sMKUWw9WGtfq8A
-	VNFTbakckTlsxhXCDxBI2dPY49GUIavXaZDrRlByCvuUfg0NnzLE6cbB5mVWfMgBhnTNB6T8+GFXK
-	Y8/HB+3w==;
+	bh=+EYCbzQJj8mUrzd6tBrghTJXh/tOH4p70gE6XKdQJUQ=; b=rxQDKez94IwCMqFG70TKQc6eS0
+	atFDbIaGf4U9iY+DXz+Ki/dg3iLFmy/NnXRHWPQh/BdXjd3t1LlJ7Wh+4AkiZCOzcZQ9VE21/XO+x
+	rp6VD6YEj2UBXLaXaZ8Nxj4/pEdUgEy7mKqEAPkGI+tmwHvzJ3pPE2FP25sIQTFFJ7DCINQdaV1Up
+	ukcFGDIBTDWxaVs27x+G+FZ9YAVN/VKbz4YdIuDOxTLPqLXgO+o4nnhj31fxJ3QH8YEYyNECAcgW8
+	1BVPtKWSzN+X+zgs19jnnfA5e9WXDJ3rX6ZF7aE+y3MheZ7dTfpzg/a/rO3viErXl/9ZJ21M7bGyU
+	FShMxSxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMiI-0000000167U-1LQB;
-	Sun, 09 Mar 2025 19:53:30 +0000
+	id 1trNEO-000000017hl-2avp;
+	Sun, 09 Mar 2025 20:26:40 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMfj-000000015rG-0chH;
-	Sun, 09 Mar 2025 19:50:52 +0000
+	id 1trNCk-000000017Xb-3iuB;
+	Sun, 09 Mar 2025 20:25:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5677F5C295C;
-	Sun,  9 Mar 2025 19:48:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D01DDC4CEED;
-	Sun,  9 Mar 2025 19:50:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id E294A5C40DE;
+	Sun,  9 Mar 2025 20:22:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F3D36C4CEE3;
+	Sun,  9 Mar 2025 20:24:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741549849;
-	bh=8ySbkKhFRXNuJHrR+dQojieyUf+Le6VlZ6dqAVE1rBA=;
+	s=k20201202; t=1741551895;
+	bh=t/WM0Lw1fBbcWoKPB628krpc9w6BLFBmyPkHP8SlaH8=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=vL4uHPJ9xNFvMEfLN4Ec7wuCyQBk4CvGg96VRLiQVjTdErydTSp7ri+PuMR/AqNvE
-	 Kmgts1dW8zJBzTEUubXkXyzukwbGalmCnd/ojq/0vSQE12plU3rrF54+8cge6/zdoz
-	 Bbnjlswtzje1uBkOeg6DHIWLXh07ojZf0+S86fVRH1SplUiVWdh0Rq58oevPcccqC1
-	 tu0B8TVkzt2MJsS4wJjDkZPYnQfIRa1yNK1V7pmaD2/CCmWCK3bbQAdvYACbUdlPqT
-	 Z80aksp2iPxS9LGFWTaCTU8qI5zHnwm9m6z3Fr2E2A8w72C8vFdVyOpUDGr50KAjPO
-	 TaRGpHsWSquBQ==
-Message-ID: <668ada6a-3e53-474d-be81-d69d75277c26@kernel.org>
-Date: Sun, 9 Mar 2025 20:50:39 +0100
+	b=SKtqt3gxdJDIekCkoOMjUGUNbB9ppRQ+2nvkFBvRYrVsUPPKMyQThES2u5fNzuhFx
+	 hRTFZIUUbOaKcy67WJaiHA45Er4fyAmbbtWhxhFBTuSDxPGC2V1yyE77bMfrheXfpi
+	 AtvDjqPE/gQ6ru6Hf4yEnEJQGOa5TNsgd3ss+NMyX972M4AFUu1Z0YNxg7yt3D1Pti
+	 nBFdArCaaU/DBlZ3ZttJyBCPWU3OFhC05/1qNODYHsTzCSLVxSNWzTGKTZnqEJgc+i
+	 MXQLGtP+5iiLydJis1KKj7C/Qvk0bTxmIPk36vYmhdOussoP2Kflh1tpsKwcfwoQcG
+	 8IjLqHgmZG11A==
+Message-ID: <4d67f643-a8b1-41ff-b3e6-2833c5cfe524@kernel.org>
+Date: Sun, 9 Mar 2025 21:24:48 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 01/19] dt-bindings: mfd: mediatek: mt6397: Add accdet
- subnode
-To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
-Cc: Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Sen Chu <sen.chu@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
- Macpaul Lin <macpaul.lin@mediatek.com>, Lee Jones <lee@kernel.org>,
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- kernel@collabora.com, linux-sound@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-pm@vger.kernel.org
-References: <20250305-mt6359-accdet-dts-v4-0-e5ffa5ee9991@collabora.com>
- <20250305-mt6359-accdet-dts-v4-1-e5ffa5ee9991@collabora.com>
- <20250306-certain-jasmine-mastiff-fd67ba@krzk-bin>
- <2fa6037d-b5e9-45b2-a5d5-dbc92fb3434b@notapiano>
- <0663e03e-e331-4a06-be95-ce8d9059ed6b@kernel.org>
- <cb2820d8-84e8-49ca-b497-1ea815679a3d@notapiano>
+Subject: Re: [PATCH 1/2] dt-bindings: arm: amlogic: Add Ogoos AM3
+To: j.ne@posteo.net, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-amlogic@lists.infradead.org
+References: <20250309-ugoos-am3-v1-0-38cab5a4725b@posteo.net>
+ <20250309-ugoos-am3-v1-1-38cab5a4725b@posteo.net>
 Content-Language: en-US
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -112,12 +100,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <cb2820d8-84e8-49ca-b497-1ea815679a3d@notapiano>
+In-Reply-To: <20250309-ugoos-am3-v1-1-38cab5a4725b@posteo.net>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_125051_277767_1B2B4EC2 
-X-CRM114-Status: GOOD (  17.97  )
+X-CRM114-CacheID: sfid-20250309_132459_008816_A2D89791 
+X-CRM114-Status: UNSURE (   5.45  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,71 +121,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/03/2025 14:22, Nícolas F. R. A. Prado wrote:
-> On Fri, Mar 07, 2025 at 08:11:26AM +0100, Krzysztof Kozlowski wrote:
->> On 06/03/2025 13:19, Nícolas F. R. A. Prado wrote:
->>>>>    It is interfaced to host controller using SPI interface by a proprietary hardware
->>>>>    called PMIC wrapper or pwrap. MT6397/MT6323 PMIC is a child device of pwrap.
->>>>> @@ -224,6 +225,30 @@ properties:
->>>>>      description:
->>>>>        Pin controller
->>>>>  
->>>>> +  accdet:
->>>>> +    type: object
->>>>> +    additionalProperties: false
->>>>> +    description:
->>>>> +      The Accessory Detection module found on the PMIC allows detecting audio
->>>>> +      jack insertion and removal, as well as identifying the type of events
->>>>> +      connected to the jack.
->>>>> +
->>>>> +    properties:
->>>>> +      compatible:
->>>>> +        const: mediatek,mt6359-accdet
->>>>
->>>> You just removed the other file, no folding happened here. Drop the
->>>> accdet node and fold this into parent.
->>>
->>> Sorry, I'm still not sure what you mean by folding here then. Right now the
->>> accdet is a subnode of the PMIC. If you want me to remove the accdet node, where
->>
->> Yes
->>
->>> would its compatible and property go?
->>
->> compatible: nowhere, because it is close to redundancy.
->>
->> property: to the parent pmic node.
->>
->>     pmic {
->>         compatible = "mediatek,mt6359";
->>         interrupt-controller;
->>         #interrupt-cells = <2>;
->>
->>         mediatek,hp-eint-high;
->>     };
+On 09/03/2025 14:16, J. Neuschäfer via B4 Relay wrote:
+> From: "J. Neuschäfer" <j.ne@posteo.net>
 > 
-> I'm not sure that's right. The ACCDET submodule does have some resources, IRQs,
-> that it registers in its mfd cell, see patch 2 of this series [1]. It also has
+> The Ugoos AM3 is a small set-top box based on the Amlogic S912 SoC.
+> 
+>   https://ugoos.com/ugoos-am3-16g
 
-Binding is supposed to be complete, so why suddenly we have here some
-resources which you did not add?
-
-Post complete binding, so you will get proper review.
-
-> its own driver (sound/soc/codecs/mt6359-accdet.c) that probes based on this
-
-Drivers do not define bindings.
-
-> compatible and handles those interrupts. Why would it not get its own node like
-
-Sorry, cannot go. You cannot document binding post factum and claim "I
-have a driver which uses that compatible".
-
-This would be a nice way to bypass review.
-
-> the other MFD cells?
-
-I explained why. I gave you the exact reason.
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
