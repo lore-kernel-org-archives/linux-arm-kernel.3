@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2F80C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 11:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9BCFC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 11:02:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YcmIKZXLQukbVhSf/JNgXSh7TbSilucKt3VmMFcpj+s=; b=ihGYuig2P1H92U2pn8P3ducbEG
-	QW9NmOFIwwRfzD8gk+YckAgbsujWCwaT47EdZxKcWYNRm+LNDUSKOY1Tx0V4DlErNK0SFynaEhNFB
-	4hg9NFjo3LRHFsaB9C+BWaAK6e3wPdsvi4e71ewEz159Zd3Zm/foKAQtLtfezysvRQ7i1RXzpDUPQ
-	9bJf8YnxUtZ4yyPgYGFvU7Hdy9cVUsCW88ArLgnmXAEfPVBn7OFrI+Y4B4CC7pfQS/dp7huqwC6Ls
-	N8KqjNuBtxZNYGqFDdwJK31bMr88KTVIiSvAhEcw2lQfmwiGvQVpMSPqCl/AChw8ppRXnKMyL5W85
-	4b84Kluw==;
+	bh=1CHITon9hbGu+T+ofpzNmC//G2WE9TaF/tP5qmUQqhg=; b=h3o8lL3pwrksb44h6PAyvX3rzo
+	PXFyjRT4E6AwZtdVFIHkncnIq0dhQf9zVRrP+7c2RMSf0L1Qiw9DrUNLSilk5xOmTDERnGF5SCd9F
+	cYzXFlXlxiPcw7rvv/mjAkLEvlXZPA+I3/E0O5zpr0eBNcs6/Ahm9txtep6krYAYAuoTzlX7pUzPu
+	TpBujX7Am/Ib7AmAUTnSsie52SOVs27TqbJYdf6I0G2zv3Gnl+7Yy8/VwQjrI3ILHfTnDDcAoEgE1
+	+BCRLEqu4KrYA+NLKV/6hv1cSMLiW2cby8CgvRw+LibLQ/ViImNdko33mgiCVbdpAATfb1Ec9JSqa
+	cBNM9/kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trEOm-00000000PeU-0R55;
-	Sun, 09 Mar 2025 11:00:48 +0000
+	id 1trEQN-00000000PkW-3wZt;
+	Sun, 09 Mar 2025 11:02:27 +0000
 Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trECj-00000000OA9-1ciE
+	id 1trECr-00000000OB5-0uhz
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 10:48:22 +0000
+	Sun, 09 Mar 2025 10:48:30 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741517302; x=1773053302;
+  t=1741517309; x=1773053309;
   h=from:to:subject:date:message-id:in-reply-to:references:
    mime-version:content-transfer-encoding;
-  bh=Ij2fIraKDwf5/gzdQZNpLgFH8xiF4vMpUeJsnouOpmo=;
-  b=U850VBpe1CVimmQCwE+KJOA8gMZrEQXnZBH+cQsAVYdfIBmsVgQnTZTZ
-   3bQ0fifKy5HSQRAiMt7CPWKU/GZtKzxlNi93G2DYwF5su3GtUqLHv5Cow
-   1PMohzwhyEoa99/KRIkwfIfaK3aOyqbc6cHMjupyiGhaVqTCeCzdKMl9K
-   i9wzD64z+cqmvse7Lt0KXnqpFJghnay/sRk/kKlbU2TmOsNc+qa0wgUoR
-   ml1ey+7Xm7JOKxOXKtwprSmrcvpwOubCa+xoIYy7F52QUZWBn10UG4O0F
-   5Ddt66RPhwu3Orp7u5dSOXl49/2nx2OQL1w6ooYH/HNOsJrbrW11Kk7K4
-   Q==;
-X-CSE-ConnectionGUID: cLNCSZSiQPyUu9VIlA8CmQ==
-X-CSE-MsgGUID: J4P3A/gNQIKzSJZbBr/cmw==
-X-IronPort-AV: E=McAfee;i="6700,10204,11367"; a="42636117"
+  bh=Ocq5e0cvJCj6sSblL8b9kb+v9HOHoUW+NcBfEhCLAg4=;
+  b=F6wIoVKemWEdV4gAmkF6EgNZusAar+mCkWh4vkqN91Paxfxj8b7R74uu
+   43oLpkkYmoAmRTnTraVBC9Z6bsIpr8/ojrzZiTlPUoGqzFddUyKLwRAQ1
+   NRd6A9he1/6JlpZ8a/CiwcEzcMU+tsy5hDbKA0/ekzJV4sojIlImPeZhT
+   lN6oSQi+LglwSuOGszxy+HzjhHK68ombKQkasK4LtlwJHdeGeKKC6/lBV
+   xxL16APetkl+sDm+lTLtu1rD9OrixVchSX4m6rkl120ACQysrhhPtPAbS
+   FnntDrOnUhf8i1w8GLcDXhBGcbX5r36CjJ2SKTh/bus1bpXViSEv/tycW
+   A==;
+X-CSE-ConnectionGUID: u71vKE2HR5WUe+79gGMs9A==
+X-CSE-MsgGUID: jINKMO+OQhamn/cjp58Q7g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11367"; a="42636136"
 X-IronPort-AV: E=Sophos;i="6.14,234,1736841600"; 
-   d="scan'208";a="42636117"
+   d="scan'208";a="42636136"
 Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 03:48:21 -0700
-X-CSE-ConnectionGUID: qUiAYvO5T/msA+rP2OOg+w==
-X-CSE-MsgGUID: p13HVF5gQh6tQD9QU4MA+Q==
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 03:48:29 -0700
+X-CSE-ConnectionGUID: bA9EKfNKRpuXm3mKYtZVlg==
+X-CSE-MsgGUID: IHMZ2A0sRnSSqUpzMYSp8Q==
 X-ExtLoop1: 1
 X-IronPort-AV: E=Sophos;i="6.14,234,1736841600"; 
-   d="scan'208";a="124655099"
+   d="scan'208";a="124655116"
 Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa003.jf.intel.com with ESMTP; 09 Mar 2025 03:48:13 -0700
+  by orviesa003.jf.intel.com with ESMTP; 09 Mar 2025 03:48:21 -0700
 From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
@@ -90,17 +90,17 @@ To: Tony Nguyen <anthony.l.nguyen@intel.com>,
 	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
 	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v9 07/14] igc: optimize TX packet buffer utilization for TSN mode
-Date: Sun,  9 Mar 2025 06:46:41 -0400
-Message-Id: <20250309104648.3895551-8-faizal.abdul.rahim@linux.intel.com>
+Subject: [PATCH iwl-next v9 08/14] igc: use FIELD_PREP and GENMASK for existing RX packet buffer size
+Date: Sun,  9 Mar 2025 06:46:42 -0400
+Message-Id: <20250309104648.3895551-9-faizal.abdul.rahim@linux.intel.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250309104648.3895551-1-faizal.abdul.rahim@linux.intel.com>
 References: <20250309104648.3895551-1-faizal.abdul.rahim@linux.intel.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_034821_475449_DB01C4B4 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20250309_034829_320424_6136D65B 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,39 +115,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In preparation for upcoming frame preemption patches, optimize the TX
-packet buffer size. The total packet buffer size (RX + TX) is 64KB, with
-a maximum of 34KB for either RX or TX. Split the buffer evenly,
-allocating 32KB to each.
+Prepare for an upcoming patch that modifies the RX buffer size in TSN mode.
+Refactor IGC_RXPBSIZE_EXP_BMC_DEFAULT and IGC_RXPBS_CFG_TS_EN using
+FIELD_PREP and GENMASK to improve clarity and maintainability. Refactor
+both macros for consistency, even though the upcoming patch only use
+IGC_RXPBSIZE_EXP_BMC_DEFAULT.
 
-For TX, assign 7KB to each of the four TX packet buffers (total 28KB)
-and reserve 4KB for BMC.
+The newly introduced macros follow the naming from the i226 SW User Manual
+for easy reference.
 
-References:
-I225/I226 SW User Manual Section 4.7.9, Section 8.3.2
+I've tested IGC_RXPBSIZE_EXP_BMC_DEFAULT and IGC_RXPBS_CFG_TS_EN before
+and after the refactoring, and their values remain unchanged.
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
 Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 ---
- drivers/net/ethernet/intel/igc/igc_defines.h | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/intel/igc/igc_defines.h | 17 ++++++++++++++---
+ 1 file changed, 14 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/net/ethernet/intel/igc/igc_defines.h b/drivers/net/ethernet/intel/igc/igc_defines.h
-index b180e1497cc5..db937931c646 100644
+index db937931c646..3564d15df57b 100644
 --- a/drivers/net/ethernet/intel/igc/igc_defines.h
 +++ b/drivers/net/ethernet/intel/igc/igc_defines.h
-@@ -419,8 +419,8 @@
- 	IGC_TXPB0SIZE(20) | IGC_TXPB1SIZE(0) | IGC_TXPB2SIZE(0) | \
- 	IGC_TXPB3SIZE(0) | IGC_OS2BMCPBSIZE(4))
- #define IGC_TXPBSIZE_TSN ( \
--	IGC_TXPB0SIZE(5) | IGC_TXPB1SIZE(5) | IGC_TXPB2SIZE(5) | \
--	IGC_TXPB3SIZE(5) | IGC_OS2BMCPBSIZE(4))
-+	IGC_TXPB0SIZE(7) | IGC_TXPB1SIZE(7) | IGC_TXPB2SIZE(7) | \
-+	IGC_TXPB3SIZE(7) | IGC_OS2BMCPBSIZE(4))
+@@ -396,9 +396,20 @@
+ #define IGC_RCTL_PMCF		0x00800000 /* pass MAC control frames */
+ #define IGC_RCTL_SECRC		0x04000000 /* Strip Ethernet CRC */
  
- #define IGC_DTXMXPKTSZ_TSN	0x19 /* 1600 bytes of max TX DMA packet size */
- #define IGC_DTXMXPKTSZ_DEFAULT	0x98 /* 9728-byte Jumbo frames */
+-/* RXPBSIZE default value for Express and BMC buffer */
+-#define IGC_RXPBSIZE_EXP_BMC_DEFAULT	0x000000A2
+-#define IGC_RXPBS_CFG_TS_EN		0x80000000 /* Timestamp in Rx buffer */
++/* Mask for RX packet buffer size */
++#define IGC_RXPBSIZE_EXP_MASK		GENMASK(5, 0)
++#define IGC_BMC2OSPBSIZE_MASK		GENMASK(11, 6)
++/* Mask for timestamp in RX buffer */
++#define IGC_RXPBS_CFG_TS_EN_MASK	GENMASK(31, 31)
++/* High-priority RX packet buffer size (KB). Used for Express traffic when preemption is enabled */
++#define IGC_RXPBSIZE_EXP(x)		FIELD_PREP(IGC_RXPBSIZE_EXP_MASK, (x))
++/* BMC to OS packet buffer size in KB */
++#define IGC_BMC2OSPBSIZE(x)		FIELD_PREP(IGC_BMC2OSPBSIZE_MASK, (x))
++/* Enable RX packet buffer for timestamp descriptor, saving 16 bytes per packet if set */
++#define IGC_RXPBS_CFG_TS_EN		FIELD_PREP(IGC_RXPBS_CFG_TS_EN_MASK, 1)
++/* Default value following I225/I226 SW User Manual Section 8.3.1 */
++#define IGC_RXPBSIZE_EXP_BMC_DEFAULT ( \
++	IGC_RXPBSIZE_EXP(34) | IGC_BMC2OSPBSIZE(2))
+ 
+ /* Mask for TX packet buffer size */
+ #define IGC_TXPB0SIZE_MASK		GENMASK(5, 0)
 -- 
 2.34.1
 
