@@ -4,92 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F6AC35FF3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B54C35FF4
 	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=; b=Y1IzOtlB7CA5mVO2GYuRBwhR9g
-	0mdsoIlP8Cj7CDxVME+WzeV4WpA882aYCe8yAdVBNwR6jk4OV/69Ezm78E5nEY9+5K3ls2YQF48Br
-	LEHjW8y1o8OZSlAFvCKOXM+z7resi+Ptbbloty16MGGemICy4PlsRs5yI7ZvX8H+ComFCnlSAR2JT
-	4BMx70kONj18HcQfE1BqhIwRd2uaEqvhGqBh3stjJMt1VroWwAX/La/mmfQuMWrjm0Kwn8XMn+aXy
-	LJbf4tjVywU9j/v8DS1GmZUN5XC2H0GZ4gAZ5oW5O9VckeVsBj9R37byvwreYi5bMp7VEmPDug8d5
-	Q2KScLTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0iWluIA59isB5WdEAtLSqyxAebbA513tMuRDW9IDY0E=; b=2PYaAH1t6Qbnl5Hf7pF8c8gWEG
+	j7Vy42+cZ/ftH3m6haNuN5VTJ+5cpKXeKVFkGsFqL/HixM+C1LNLvdXOnc56N6dIOGQxatLD920MV
+	d9gSaUV86QafaIE913eukcrrBN+sU6QxIdHbmPRhYhcfSPYoraB9Q4UnCdkqJePKU6ML1GrJzbbXd
+	RDaxOK7iKiW72qtfPXUbQ0jRkHRMVDeycEl4upjU5BcJ233FH12jWhaAZAGhJapdirgnG0pOyxPDO
+	KN3TSaIHitxXlQhNPL9MFEetNq7vj51d7IeWdB2T+3nogcK9Qf3ey/7MJSoO/bLKuAGFSiYH7A0Eu
+	g2n9WFog==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMA7-000000012kt-0v63;
-	Sun, 09 Mar 2025 19:18:11 +0000
-Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
+	id 1trMA4-000000012j5-2rhP;
+	Sun, 09 Mar 2025 19:18:08 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLop-0000000111H-3HD9
+	id 1trLiz-000000010IP-1eOB
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 18:56:13 +0000
-Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43ce5cd91e5so1455015e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 11:56:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741546570; x=1742151370; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=;
-        b=ISc+e1IgnrXen0rKK39u58FkSws5X6s9CrcWZzKysLGLDCNgwtCD6+GNYQmmNLgMw1
-         mVOq8WZ9KKd5s5tROA5NMy/TGYEerzpz/AMEWUJG+E8oj7ppZBlz0snMhlPMfjqq/rFN
-         TqP7m0rnvvDiEGe4Dmc71tpczF37xt2LQwJXYNtKQ9Uizp87ghz7IIoy12vwFD6n9ImZ
-         2RsxndfjLJmcTiu136RjV5q2xo2ItWIvYUfuvEu9+JHUaG+FbNWNQkp6ceI3oO16FwTG
-         ALFyZ25Fu7XW40VIefP5RRL2d9mbk+3YUL0P7nWgZAPWjI+oGRwfHzn7DFFONayCk4rJ
-         TLuQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741546570; x=1742151370;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=;
-        b=UUxsSmc9WvFiZ/kWxZshhEh/gQMNQm1nfJbVFrSaf9EW3DBerhpYW6lq8oFUbwFGp5
-         AyQHqmboFmce0i7HVOODdTHhv8Gs1Wg0wMVPWrALEAwN/SAZvAhRW1fdeXQXVs3PsLqL
-         f8/Ts69yxEOiERpjOn9+pgRRX7gZT0jp+Avm/aPYhBDg6rnM9Qi+0RWf+g/tF2t3S8gm
-         JFl6uSY/Uj0PYCDgdHgjJ+0Xu9kVG6wQYQAkh+G9ROGxR1nM3gmzS2rvgTSr4NhAnSeA
-         V6cNxMyPtgLkG0B27yTBZS11FvdP0M0P6nG+VT/5gVAGA0zUH+eNr/2Z3vQCZ/eKwAdr
-         lzaA==
-X-Forwarded-Encrypted: i=1; AJvYcCUM64fYMC/7uXZEsVDCI5ky40EEF2rfEPlsPg/Jix05NsKMoqOLfXxQUP68aCPajMRBCrC7sJFv1TqnQuLUsaWa@lists.infradead.org
-X-Gm-Message-State: AOJu0YwnEVpp4RraEnGqzHR9Bkn8HoHAnQqGyWxMCWiwRUzA9hmbl+0F
-	TfbTqj+theEaCrj323IP6TUqQk4G1Uy7TAhqyrM0QR0pawgaB/rPCvvvYVM49SU=
-X-Gm-Gg: ASbGncvebrjDu2MPHUKLZYTdkRM3yCAsFsqStJ7zyCF8kpgUXuBkKxZ2nblNVvnIScM
-	BkV2elm4TAlNTsrP9+AIJsS/PLJAF8x27DoHAWGZSlto49Akd97RaNwEciRslf50JHvOOtC5K4z
-	rteWdcOcpLaZXEd0PRFZAmxFOqBU2MYmJf86bUUE/ZT1qYtEt/OorFDpZal3Muqu6AfqAulvEsr
-	IlccTAJpGcthwM3rOqHDVDEpIeDM+aGeTUCVATdsb+E4StRJdKxQPrevRn+gHt9v7uMZYXxRSHI
-	Vboha2eWIGvDkqD+CTPREInK9TvMSdgkdmiP29KNGYd8hen6kZ4pXr/ezNM=
-X-Google-Smtp-Source: AGHT+IHOjQZl6au5AX9pwx89qj1PiY9uUWPbWjZhcAqE7l92MV4Sd5wk3pnxNKw3T6EVY3vWBvszTg==
-X-Received: by 2002:a05:600c:3588:b0:43b:ca39:a9b8 with SMTP id 5b1f17b1804b1-43ce6b12816mr15245875e9.2.1741546570242;
-        Sun, 09 Mar 2025 11:56:10 -0700 (PDT)
-Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43cee22c13fsm44263945e9.40.2025.03.09.11.56.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 11:56:09 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Arnd Bergmann <arnd@arndb.de>,
-	soc@lists.linux.dev
-Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	Peter Griffin <peter.griffin@linaro.org>,
+	Sun, 09 Mar 2025 18:50:10 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E497A5C0FE6;
+	Sun,  9 Mar 2025 18:47:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57896C4CEE3;
+	Sun,  9 Mar 2025 18:50:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741546205;
+	bh=m0QHM1obKJOTDhSTGRvOLOHGJZreyLnqsXZwaNVPN5Y=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=eKp+SrHPEUa5HlrtyrVt8ASL9i+Tk6zdasrtWolJAoHe/W9dXTsv900KnUtC+B0zy
+	 ISgoRoNcmINzYSePTr6NzzI+eJp+/2VPXmbkmmdckc9T6tX36GceqPXe1iQhsDvUB8
+	 yk7La1zLw6rEEiik2GykOMmgFvMJaXuZ+gMPEY3FeJLGm1oBNgixGoHNQa+J8LT1gc
+	 2xcDvknQ5pbqKaA0XJInllYTayuTC71e6gGH3ZaNYjUryyGW+nvHcreEPHsJU1tNSC
+	 vjm/kYk+bpreQkc6gx/1jJ8tfEXjfDyoP9jAz53XNFDwkQa+l2L6nsP2UGMqujHuD/
+	 o73avuLoeFKUA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1trLit-00By7j-5w;
+	Sun, 09 Mar 2025 18:50:03 +0000
+Date: Sun, 09 Mar 2025 18:50:02 +0000
+Message-ID: <865xkiox7p.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Akihiko Odaki <akihiko.odaki@daynix.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Jones <andrew.jones@linux.dev>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
+	kvmarm@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 3/4] ARM: samsung: soc/drivers for v6.15
-Date: Sun,  9 Mar 2025 19:55:57 +0100
-Message-ID: <20250309185601.10616-3-krzysztof.kozlowski@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
-References: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	devel@daynix.com
+Subject: Re: [PATCH v2 2/3] KVM: arm64: PMU: Reload when user modifies registers
+In-Reply-To: <20250307-pmc-v2-2-6c3375a5f1e4@daynix.com>
+References: <20250307-pmc-v2-0-6c3375a5f1e4@daynix.com>
+	<20250307-pmc-v2-2-6c3375a5f1e4@daynix.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, andrew.jones@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, devel@daynix.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_115611_821769_6F15EEF2 
-X-CRM114-Status: UNSURE (   8.81  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250309_115009_545579_C8A4E73D 
+X-CRM114-Status: GOOD (  22.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +93,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+[dropping Shannon  from the list, as his Linaro email has been
+bouncing for about 10 years, and updating Andrew's email]
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+On Fri, 07 Mar 2025 10:55:29 +0000,
+Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
+> 
+> Commit d0c94c49792c ("KVM: arm64: Restore PMU configuration on first
+> run") added the code to reload the PMU configuration on first run.
+> Trigger the code when a user modifies a PMU register instead so that
+> PMU configuration changes made by users will be applied also after the
+> first run.
+> 
+> Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+> ---
+>  arch/arm64/kvm/pmu-emul.c | 3 ---
+>  arch/arm64/kvm/sys_regs.c | 5 +++++
+>  2 files changed, 5 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
+> index 1402cce5625bffa706aabe5e6121d1f3817a0aaf..04eb3856b96576fad5afc8927c8916ff9738f9d7 100644
+> --- a/arch/arm64/kvm/pmu-emul.c
+> +++ b/arch/arm64/kvm/pmu-emul.c
+> @@ -888,9 +888,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu)
+>  		   return -EINVAL;
+>  	}
+>  
+> -	/* One-off reload of the PMU on first run */
+> -	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+> -
+>  	return 0;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 27418dac791df9a89124f867879e899db175e506..51054b7befc0b4bd822cecf717ee4a4740c4a685 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1162,6 +1162,8 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
+>  	else
+>  		__vcpu_sys_reg(vcpu, r->reg) &= ~val;
+>  
+> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -1322,6 +1324,8 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
+>  		val |= ARMV8_PMU_PMCR_LC;
+>  
+>  	__vcpu_sys_reg(vcpu, r->reg) = val;
+> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+> +
+>  	return 0;
+>  }
+>  
+> @@ -4276,6 +4280,7 @@ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu)
+>  	}
+>  
+>  	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
+> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
 
-are available in the Git repository at:
+This should be restricted to cases where a PMU is actually available.
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-soc-6.15
+But I also wonder what the motivation is to move this from first run
+to reset? Nothing explains it in the commit message.
 
-for you to fetch changes up to c8222ef6cf29dd7cad21643228f96535cc02b327:
+Thanks,
 
-  soc: samsung: exynos-chipid: Add NULL pointer check in exynos_chipid_probe() (2025-02-15 14:37:19 +0100)
+	M.
 
-----------------------------------------------------------------
-Samsung mach/soc changes for v6.15
-
-1. S3C: Drop linux/fb.h header.
-2. Exynos ChipID: Check if memory allocation succeeded.
-
-----------------------------------------------------------------
-Chenyuan Yang (1):
-      soc: samsung: exynos-chipid: Add NULL pointer check in exynos_chipid_probe()
-
-Thomas Zimmermann (1):
-      ARM: s3c: Do not include <linux/fb.h>
-
- arch/arm/mach-s3c/devs.c                   | 1 -
- arch/arm/mach-s3c/setup-fb-24bpp-s3c64xx.c | 1 -
- drivers/soc/samsung/exynos-chipid.c        | 2 ++
- 3 files changed, 2 insertions(+), 2 deletions(-)
+-- 
+Without deviation from the norm, progress is not possible.
 
