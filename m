@@ -4,81 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1B54C35FF4
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8608C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:18:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0iWluIA59isB5WdEAtLSqyxAebbA513tMuRDW9IDY0E=; b=2PYaAH1t6Qbnl5Hf7pF8c8gWEG
-	j7Vy42+cZ/ftH3m6haNuN5VTJ+5cpKXeKVFkGsFqL/HixM+C1LNLvdXOnc56N6dIOGQxatLD920MV
-	d9gSaUV86QafaIE913eukcrrBN+sU6QxIdHbmPRhYhcfSPYoraB9Q4UnCdkqJePKU6ML1GrJzbbXd
-	RDaxOK7iKiW72qtfPXUbQ0jRkHRMVDeycEl4upjU5BcJ233FH12jWhaAZAGhJapdirgnG0pOyxPDO
-	KN3TSaIHitxXlQhNPL9MFEetNq7vj51d7IeWdB2T+3nogcK9Qf3ey/7MJSoO/bLKuAGFSiYH7A0Eu
-	g2n9WFog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MrmBWLsc0A2hxy4AAIuONWnJt2T5epZ91diVlTxUCPM=; b=wO/4m/B9y+xBQQP9oidK2r2efK
+	YmA9k5gk4e/O1XW7S3p2Wp6Q565AoS0DEfYzYZD/Vo7amYPR8PlyOujbyo21/97RPyc6/OgvYaf5U
+	alTN4NDWUHmoM3plKW+ZsB+YUP39OoWPXuhxw4kVRBr92RmnctYY/Or2lODfxODxNlkGj8lSZDeCw
+	aQd5vSLy4ibE04irsBMHSCzhJQSgtzzMqvZBZ4kYz2h6xjtqWeJ/2qhD9Uk7njlC1PBV70lFQ7Guj
+	gmau5Pc7+yHK4Jm1t61ZB/KagPMM9y6H2Ci88tee/o/y51rv4lGKoyxYwujSIYfuyEIh/Ny7iwSy4
+	Uk7vcB8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMA4-000000012j5-2rhP;
-	Sun, 09 Mar 2025 19:18:08 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1trMA7-000000012lS-3LkG;
+	Sun, 09 Mar 2025 19:18:11 +0000
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLiz-000000010IP-1eOB
+	id 1trLor-0000000111v-1XHe
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 18:50:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E497A5C0FE6;
-	Sun,  9 Mar 2025 18:47:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 57896C4CEE3;
-	Sun,  9 Mar 2025 18:50:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741546205;
-	bh=m0QHM1obKJOTDhSTGRvOLOHGJZreyLnqsXZwaNVPN5Y=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=eKp+SrHPEUa5HlrtyrVt8ASL9i+Tk6zdasrtWolJAoHe/W9dXTsv900KnUtC+B0zy
-	 ISgoRoNcmINzYSePTr6NzzI+eJp+/2VPXmbkmmdckc9T6tX36GceqPXe1iQhsDvUB8
-	 yk7La1zLw6rEEiik2GykOMmgFvMJaXuZ+gMPEY3FeJLGm1oBNgixGoHNQa+J8LT1gc
-	 2xcDvknQ5pbqKaA0XJInllYTayuTC71e6gGH3ZaNYjUryyGW+nvHcreEPHsJU1tNSC
-	 vjm/kYk+bpreQkc6gx/1jJ8tfEXjfDyoP9jAz53XNFDwkQa+l2L6nsP2UGMqujHuD/
-	 o73avuLoeFKUA==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1trLit-00By7j-5w;
-	Sun, 09 Mar 2025 18:50:03 +0000
-Date: Sun, 09 Mar 2025 18:50:02 +0000
-Message-ID: <865xkiox7p.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Akihiko Odaki <akihiko.odaki@daynix.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Jones <andrew.jones@linux.dev>,
+	Sun, 09 Mar 2025 18:56:14 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3912622c9c0so179734f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 11:56:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741546572; x=1742151372; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=MrmBWLsc0A2hxy4AAIuONWnJt2T5epZ91diVlTxUCPM=;
+        b=WhzT77gZ1vdffqWPJN50Ln+a0Bjuzu5xu35u/j65V8NL6a1+ArasWW4/xIG47c3T44
+         r6/GpqzGUIQe+CiwMqzAOQoA8iv7Ue5m7GOX5ZD55ekeLd+z4dQqjtlcT5iCgzJcktDt
+         Jk7G8exoMMrnl/EW2pwpxoRQlOfhhsHcHiXLDqF5WrLXThdApuI14YHkqw7J9ZK4bgR/
+         tx4qYaYQEuz+aLeYpVYaX22Gbwx9qgP/EIGheUZ37YAhodJWWCydrl507hdRTmha3ODG
+         xTpvVE/LTJtiQJSyWrksHZmPUXlbxDQFhIUsZT9Kwq+t4PV5JlSGP7Mfj+JtWENONJXj
+         KhFQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741546572; x=1742151372;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=MrmBWLsc0A2hxy4AAIuONWnJt2T5epZ91diVlTxUCPM=;
+        b=i74obSNfUwYCt8nneG3u2/VViOJZoWZjPuAT9jn1Q8SU0uGc2zbZwVhJ49bC5zrhDc
+         fHuouCvq+xMQ4riFrXoaOgsY1a02GYCfttUhi6zcZzzB4qyilt/NNf7g/1WkXBm12OAj
+         7dBp7jTjJ0DnEvdZdMuyt7L/ze8W5gNzpp2Ok7ArJnh/ZnMe9k7OMfwwlVN9OTydhJIs
+         uG0lZAWI3ObVTUw1MzsXvZL7BDEbejTWRBOt77e/bGxaV3AMK/HWep+81Y2KFmn4kVLi
+         HiODfDqe8grjpCJPwa9Vwh5lgEoeuhClmrz4+dkz9PdVUGPA38H1Md9+rx8xGgnadnx5
+         8JFA==
+X-Forwarded-Encrypted: i=1; AJvYcCUFpk09kTakswu+xV+8Lgk/tGMplNIdSfU8e0kU7hpQtMS5bTAhyholYVo3uej5avtFAjv/oE661g4R1MJCRHVI@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTY6msCQjDmo24wu3JKW2hsoNNnVpfMuJNQrbHWhknIbIO1KwX
+	eyi/mWnSFku6dacCu+yO8t5QkSjdKLRP+ws+IvrDpuJlx+HXv1r6f31xKxgzXco=
+X-Gm-Gg: ASbGnct/SxhmSGPuRkd7f+Ums6dRLy7RwlHZGCTG+y/xrWtCZ1nyyY3NRn709uFHbL8
+	64ARJE+P2YRwFpius7w57vu9tZCtFpPvu1gZXYMKwy4CDklGt2IzPh7XWtntzrjtqoVW4vTPmxl
+	YgBBaT0myv2PFBo5xSdqaqr1mZVtiJq83053bl1RYai8RK6uWAsiqsEKi0XD59KGBAtbtM23kgk
+	tvmI5KcK0Wezy1vF/YZ7gHff4hBgOH3xxwDYidfv3/t4YHfN6q90F6ruVPp9B26SQB9Y2BqZNmg
+	4aErOgg/rswchYTCfLPoT5dyK3RTy2nXMPa4fLBLV4buXVLU6c8h9lKRAB0=
+X-Google-Smtp-Source: AGHT+IEKpRHbbGfEM98G+jT1dTf4FeQB+l3gBVL1qFl0csub7dukLp0ucTCxODN6l+bL/aW/iBduNQ==
+X-Received: by 2002:a05:600c:5122:b0:43b:c0fa:f9e5 with SMTP id 5b1f17b1804b1-43ce6eb5ab2mr15192015e9.4.1741546571601;
+        Sun, 09 Mar 2025 11:56:11 -0700 (PDT)
+Received: from krzk-bin.. ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43cee22c13fsm44263945e9.40.2025.03.09.11.56.10
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Mar 2025 11:56:11 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Arnd Bergmann <arnd@arndb.de>,
+	soc@lists.linux.dev
+Cc: Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
+	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
-	devel@daynix.com
-Subject: Re: [PATCH v2 2/3] KVM: arm64: PMU: Reload when user modifies registers
-In-Reply-To: <20250307-pmc-v2-2-6c3375a5f1e4@daynix.com>
-References: <20250307-pmc-v2-0-6c3375a5f1e4@daynix.com>
-	<20250307-pmc-v2-2-6c3375a5f1e4@daynix.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: akihiko.odaki@daynix.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, andrew.jones@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, devel@daynix.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL 4/4 PATCH] arm64: defconfig: enable ACPM protocol and Exynos mailbox
+Date: Sun,  9 Mar 2025 19:55:58 +0100
+Message-ID: <20250309185601.10616-4-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
+References: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_115009_545579_C8A4E73D 
-X-CRM114-Status: GOOD (  22.53  )
+X-CRM114-CacheID: sfid-20250309_115613_403137_A7EA4A53 
+X-CRM114-Status: GOOD (  10.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,75 +104,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[dropping Shannon  from the list, as his Linaro email has been
-bouncing for about 10 years, and updating Andrew's email]
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
 
-On Fri, 07 Mar 2025 10:55:29 +0000,
-Akihiko Odaki <akihiko.odaki@daynix.com> wrote:
-> 
-> Commit d0c94c49792c ("KVM: arm64: Restore PMU configuration on first
-> run") added the code to reload the PMU configuration on first run.
-> Trigger the code when a user modifies a PMU register instead so that
-> PMU configuration changes made by users will be applied also after the
-> first run.
-> 
-> Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
-> ---
->  arch/arm64/kvm/pmu-emul.c | 3 ---
->  arch/arm64/kvm/sys_regs.c | 5 +++++
->  2 files changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/pmu-emul.c b/arch/arm64/kvm/pmu-emul.c
-> index 1402cce5625bffa706aabe5e6121d1f3817a0aaf..04eb3856b96576fad5afc8927c8916ff9738f9d7 100644
-> --- a/arch/arm64/kvm/pmu-emul.c
-> +++ b/arch/arm64/kvm/pmu-emul.c
-> @@ -888,9 +888,6 @@ int kvm_arm_pmu_v3_enable(struct kvm_vcpu *vcpu)
->  		   return -EINVAL;
->  	}
->  
-> -	/* One-off reload of the PMU on first run */
-> -	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> -
->  	return 0;
->  }
->  
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 27418dac791df9a89124f867879e899db175e506..51054b7befc0b4bd822cecf717ee4a4740c4a685 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1162,6 +1162,8 @@ static int set_pmreg(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r, u64 va
->  	else
->  		__vcpu_sys_reg(vcpu, r->reg) &= ~val;
->  
-> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +
->  	return 0;
->  }
->  
-> @@ -1322,6 +1324,8 @@ static int set_pmcr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
->  		val |= ARMV8_PMU_PMCR_LC;
->  
->  	__vcpu_sys_reg(vcpu, r->reg) = val;
-> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
-> +
->  	return 0;
->  }
->  
-> @@ -4276,6 +4280,7 @@ void kvm_reset_sys_regs(struct kvm_vcpu *vcpu)
->  	}
->  
->  	set_bit(KVM_ARCH_FLAG_ID_REGS_INITIALIZED, &kvm->arch.flags);
-> +	kvm_make_request(KVM_REQ_RELOAD_PMU, vcpu);
+Enable the Samsung Exynos ACPM protocol and its transport layer, the
+Exynos mailbox driver. Samsung Exynos platforms implement ACPM to
+provide support for PMIC, clock frequency scaling, clock configuration
+and temperature sensors.
 
-This should be restricted to cases where a PMU is actually available.
+Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
+Link: https://lore.kernel.org/r/20250207-gs101-acpm-dt-v4-4-230ba8663a2d@linaro.org
+Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
+ arch/arm64/configs/defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-But I also wonder what the motivation is to move this from first run
-to reset? Nothing explains it in the commit message.
-
-Thanks,
-
-	M.
-
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index cb7da4415599..18f96796298c 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -264,6 +264,7 @@ CONFIG_IMX_SCU=y
+ CONFIG_QCOM_TZMEM_MODE_SHMBRIDGE=y
+ CONFIG_QCOM_QSEECOM=y
+ CONFIG_QCOM_QSEECOM_UEFISECAPP=y
++CONFIG_EXYNOS_ACPM_PROTOCOL=m
+ CONFIG_GNSS=m
+ CONFIG_GNSS_MTK_SERIAL=m
+ CONFIG_MTD=y
+@@ -1403,6 +1404,7 @@ CONFIG_HWSPINLOCK_QCOM=y
+ CONFIG_TEGRA186_TIMER=y
+ CONFIG_RENESAS_OSTM=y
+ CONFIG_ARM_MHU=y
++CONFIG_EXYNOS_MBOX=m
+ CONFIG_IMX_MBOX=y
+ CONFIG_OMAP2PLUS_MBOX=m
+ CONFIG_PLATFORM_MHU=y
 -- 
-Without deviation from the norm, progress is not possible.
+2.43.0
+
 
