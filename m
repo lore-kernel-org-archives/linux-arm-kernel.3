@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C5AE0C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 17:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E577C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 17:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=trOvshMr7ukZzcXJPcSVt8+zNNX8HGE0PTd1EfamR/U=; b=vitEbH6S4D3JeNDgJoW3cJMZYL
-	0RirG+ZbkFriuNdZx/bjzfpc9Gcx3e6ciO0+4ZUYhOSAPIlH72O7f9g4akQEGVX/bVV7GMLbpU8k2
-	k7mJIHFMQffix7kkwkMSLRQqxk32KNcoUN6kr0idG2qCBd0etzRwqiYUzN/epuFLLHj4XoZt44fy/
-	swH0tLKR/gzzgBqt8M8/q+0VDHkdF/2QI0622m6hiN2fyc3CeAiD88qqmkMgtjrJy/Sfjvy5hldKy
-	U/R69UbyYMEmtyFUAfPeQ72F8sLqeeEucjOuNszpN9U9E7IzCy1QaeiMuh/KG3lVwP52ywU+sguCg
-	ZJiyo0bg==;
+	bh=Xr9jiNYViesUrh4gxT7ubexXKj2qyZPJvBCE9EhQwo0=; b=qA//ugNsjgF9T5UTuKSE3rTqg3
+	Qzrs8fHkLSZ7Jwyt+M4L/3klVFQAsDvetTnJ4/BpsIXZWuXvF2BjIt+VsazG+L4ZD7sTaXO83iNlZ
+	HlYMMP7wiN3iCqEtWn3UWmK9ek6adVKN3YeyTgKr3p+26pylvKT0VOaK/+nxu9zxL4jW0S2WoRCRv
+	4HiPs9wUL4MZJ1YJBNQWLT3Y5bW6Lsi2YD2FB2Pr1kRUXu/CiDM1ZetnVSsFjjrD36eTpjX4tBQ/c
+	8QhrK2rjgPO62ykDM3YZ1Ainv2A7u/Zoc/6FarCa3LMOuRVuS3u1CDXUrKknNCNg4nqdMja5Aijlt
+	q1tvjQKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKpP-00000000tIo-0irb;
-	Sun, 09 Mar 2025 17:52:43 +0000
+	id 1trKr0-00000000tSB-0UmM;
+	Sun, 09 Mar 2025 17:54:22 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKaO-00000000rTv-3ryy;
-	Sun, 09 Mar 2025 17:37:14 +0000
+	id 1trKbL-00000000rdD-19in;
+	Sun, 09 Mar 2025 17:38:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
 	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=trOvshMr7ukZzcXJPcSVt8+zNNX8HGE0PTd1EfamR/U=; b=h56zXtBZa/5wXPcpRpkKYh4PlN
-	FVBXPhxn29lyqhisMCHoD5k3YImfsyxDvgobDx2h1V4Ze+6Lv8MXixMh3rT1z/1cBUTINv+RRk7I9
-	Cauo7SoF8oQDeFRsPKUpMUYj3/gK+F39fXlNRzZAFZ2m+ZmNVo+iJaF3r6XPIQiwpto+Vkoqi+Zsd
-	or9oIBPQpNHD7/23FH0GGnT+AvjO2484tCM3FrT3b5Jr4UV4Yoh2W1kiiSa+qbdRCmUgd3r/HML4s
-	ZADSv3qpFDmivCUKHVLAe5MXk1YGGXP65LRruV6ch9WwGxnx4l0up2Q7oKv96eihBeKkhlZTwYf5G
-	xUAT2z0w==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:60658)
+	bh=Xr9jiNYViesUrh4gxT7ubexXKj2qyZPJvBCE9EhQwo0=; b=ngAuCyQxlsuKc+xtJ9lbNDvm0D
+	MWbn8PePEQzuZLqMjetoty7hX4GbapHjnCHn+7LqR8r0fTRcgvIdUXTtJIsK4pY//Sh2Tfhb43i53
+	/EPCrd79Rrloj6EuZA4PFuYgb7QvKGY9zs8dJt9vIDlrdJUQ6/tEbALOF0MUWosuzqxI5mPDfCw7e
+	Qz1UgrUdG7489UMANDALfjshiSqB8HHTEoS7dCnQ9G1oV5jr/TqlNkdtHDVPF0m98RV+v4VA5tveH
+	EQbV8vlWewMeSQRA+kQTN13OsO4vlWCqWznNrECElbHfXkCt24xELakFKkTALYOsoWI0KPilGEMpz
+	NU6B5KJg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:57424)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <linux@armlinux.org.uk>)
-	id 1trKa6-0001YP-0o;
-	Sun, 09 Mar 2025 17:36:54 +0000
+	id 1trKbA-0001Yq-2t;
+	Sun, 09 Mar 2025 17:38:00 +0000
 Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
 	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1trKa1-0001cZ-16;
-	Sun, 09 Mar 2025 17:36:49 +0000
-Date: Sun, 9 Mar 2025 17:36:49 +0000
+	id 1trKb8-0001ch-0h;
+	Sun, 09 Mar 2025 17:37:58 +0000
+Date: Sun, 9 Mar 2025 17:37:58 +0000
 From: "Russell King (Oracle)" <linux@armlinux.org.uk>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -68,18 +68,18 @@ Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 07/13] net: mdio: regmap: add support for
- multiple valid addr
-Message-ID: <Z83RsW1_bzoEWheo@shell.armlinux.org.uk>
+Subject: Re: [net-next PATCH v12 08/13] net: mdio: regmap: add OF support
+Message-ID: <Z83R9qVfGbSc8bJs@shell.armlinux.org.uk>
 References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-8-ansuelsmth@gmail.com>
+ <20250309172717.9067-9-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250309172717.9067-8-ansuelsmth@gmail.com>
+In-Reply-To: <20250309172717.9067-9-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_103712_964099_AEDB1733 
-X-CRM114-Status: GOOD (  11.01  )
+X-CRM114-CacheID: sfid-20250309_103811_311858_7A3282B5 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,19 +94,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 06:26:52PM +0100, Christian Marangi wrote:
-> +/* If a non empty valid_addr_mask is passed, PHY address and
-> + * read/write register are encoded in the regmap register
-> + * by placing the register in the first 16 bits and the PHY address
-> + * right after.
-> + */
-> +#define MDIO_REGMAP_PHY_ADDR		GENMASK(20, 16)
-> +#define MDIO_REGMAP_PHY_REG		GENMASK(15, 0)
+On Sun, Mar 09, 2025 at 06:26:53PM +0100, Christian Marangi wrote:
+> Permit to pass the device node pointer to mdio regmap config and permit
+> mdio registration with an OF node to support DT PHY probe.
+> 
+> With the device node pointer NULL, the normal mdio registration is used.
 
-Clause 45 PHYs have 5 bits of PHY address, then 5 bits of mmd address,
-and then 16 bits of register address - significant in that order. Can
-we adjust the mask for the PHY address later to add the MMD between
-the PHY address and register number?
+Should this be using a device node, or a fwnode?
+
+It depends _why_ you're adding this, and you omit to state that in the
+commit description (hint - it should say why!)
 
 -- 
 RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
