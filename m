@@ -4,102 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC08BC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 17:59:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C78C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:01:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=; b=X+4wbVG0CQad/r80HeI4pczKYZ
-	NPilqu687g+VS2nSWzoG/UWxSOCkMTXqP+zMjpu+k6U9d78LG9xSRgCwVO7D3p4u8Jy6PggWnjL5x
-	KORkftz9ggCQRkv/N3/BjvCuX7Vdb1grW6NhiirG8rWmLZeYV2YKIyfL0bGqYQOiDtgA7M5Dj0BAa
-	Shq73MyqOlxS8hx1kfEKQdlmxu4dRQukd9pulD27PMVxKbHw9AtwPb9WhLfnSL+Q1MTLQrgLdMYP1
-	1KAt+6damlJVY1I7KAZb2ru8ZZawZCDM4Oo0QwZbohGx5JJODFYEbeGA8oZCJBX5E0k1vwAu5WRMB
-	9xSL24oQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=; b=c6ZN+4ptVEAfV0BhORiDPYnHRq
+	Wixe/sZ5oD6qcDysBtmuPPG39cru87oHzROxQX8w0CiCVszF5Snw72W3LbktPhSXEBYqUgEGZmm70
+	+Ai4kY08nYC1z6QGlsNyX26PnqLRi4/s3tyz7Dq+bgmFJioM2AY2dAUD8n9jrROyy1aGw/HmjTWxc
+	Q9arHCs9kQQa1HMWsOwo1rV3wNouuaC4elC26b/2jslkqv35o3bCdpDiGp9fxkgcx/uAiLAx42JVJ
+	RRm47lheVV9jJaXK8jYUjRazKhTvS0aPOq+iO8XlJVLxmkOgLMA7lS49lp2e98Jh8YTqzuxAz+13A
+	o2OR1BoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKvo-00000000uTX-0E1n;
-	Sun, 09 Mar 2025 17:59:20 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1trKxP-00000000um4-0L63;
+	Sun, 09 Mar 2025 18:00:59 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKlR-00000000ssG-3Qvq;
-	Sun, 09 Mar 2025 17:48:38 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-43bd5644de8so36413745e9.3;
-        Sun, 09 Mar 2025 10:48:37 -0700 (PDT)
+	id 1trKob-00000000tC8-0myU
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 09 Mar 2025 17:51:54 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38da6a1a20bso193081f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 10:51:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741542516; x=1742147316; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=;
-        b=fzLUEejCjQVswt8N7BFI6XHFYfnT1sbgnVYwfFGnG+qXUjRE1XUHVVuntX080c8pkt
-         xUNZmcCozheKXO7hhZmmy4Xzu9jyj4JD2/KH5rGps52p21B2Y3mw85zA0W4Wy3rSo1Yb
-         9EeecFselJzAocJOJkw+WLdeKBkf9mlOj+JTjfbbtIVUSkX7kw3hu8go32Xca+ofJGHN
-         WL88s3EzT5MT1wOZkMtkTqExgol+ybqnPy6UIQz+vrorFqCMswp/hAYiXv02SeBVhbNN
-         0aazzlo3uNAUIdRO2AGWunMmqFpMlJpec0gqeDR+tZ/erkII7PoIMd7yKU1/prMfiYPT
-         xo7w==
+        d=linaro.org; s=google; t=1741542711; x=1742147511; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=;
+        b=pqPokU4KcufEy3wRYFGUaL1WHq1iVk76uYE0zoikNWHE0ZGMuHvP3uF0VHeFKQHgpC
+         GG5oY1XJNR1R1Dq18Aj8FgbT7IBJTAT7JCBqJc/jtxHbcflPdhoBB/U9scye4+5xCK6t
+         YUB1qmgK+8GEMxHGequTj/GFjq/MdhszqZ9ZvJAIWh7uErPQon0KfuFxzGXrR0TULDif
+         7uqyqdySWSBGCg5yoA437rDG8iYczjDxM4Ujfm40r8c9h8cihy+XSmwmjjawVTJflJ+5
+         Zi9adJ5CREbnh2Fe8Dqcs4oHt+ZoGFYUoknW4ZV7UQrIbx5KrUUKtUD09NiqUuTxp5ye
+         vVmg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741542516; x=1742147316;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BrmgUU8m2W+dm6XtC7Lvzp3134bSe6hwOO06zK/FM4M=;
-        b=FhWPtZfaafSojP2MI/vqi/4neclK9Y9FerCP73OOIl0oE9m7OZ9nenjNZLbC7VvnjQ
-         Om3uRC80EFppeUCdq5brZFIaFCY2SsIKedbnhEPiNyFHIFoimjQh5v9i6Dj8lhZZlT4V
-         N8Nggi9KzRCe45oM0pVhLa3EVqrj84ljDLlD7RSAn0ii57XLk2kwarkjjX/9nSgNZJXG
-         2Y8lmzDdT4eKV1YoqPwhXNQBNcf9A3lCS5zwPrhxHSbdAVlyMSsuLuL4BcUI/yOS9QA1
-         ooMFnWjhFEHanrbOrI9w307x9eMIP5coPHJyMpwFDxvpi9/axt4svXZ+PmAXZxU71uEW
-         PsiA==
-X-Forwarded-Encrypted: i=1; AJvYcCUYOS9av9GPTL2SHIGBtuz24KyvftdUaOhqHSLb3vrkhb4+tAVKFEXDKll+kzfjjyYrTZ6Qw84B4hY3ByTZzNxW@lists.infradead.org, AJvYcCVzlxtxMZ6DkSBMt5kH/lOvZgG+r/6E73BtK+zBKeYKIueoFi+nrMC77KeitNDAGoqoHfeSkYC/w+QVn7xw7js=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwoYckg+tSsrlDFg4PMVDArMMA8wSOgSZfCSM2AHm7OD/wOoPiF
-	fA/ooYgVWildz5ZDTu0WSeq7754TexUop6j9ebM1MKQPpfC9HySj
-X-Gm-Gg: ASbGnctDJ8vR9Hgi47nI7BZqUHoCUdcowEeB+DMvaSidLfLLQJn8vwW1ckc51JvHh2K
-	XBjjNnyikOUIDsw+pMULWe62vQ33/rrs+spYgJdEEEEl8fly9XV9BYoOb3pULLtPf7/H2NqZaMT
-	8aZfFPKzgaxmY2LkGiubwv6avq1v8yN4J2osXdLhlakXT5OH5msXcjpgukz7RoofjyEL7FGYnnM
-	vZx0eRu7OF6CVHmaS7DYPMSIiglzfm6R4n5eHms18ZbTUQvEwTnpUlWP4eJAoOejhI0TQfJ3va7
-	yVcwxXx+i4nw0Rc+3/5mV3E6IX0sr8msOfdhdyMUcal0KnwcKku5pjHIYwlR+s3nkGnLfi3soh6
-	q
-X-Google-Smtp-Source: AGHT+IFqmRVo6FIysacWzJ33TfZtTvUxXtYg7bp/VcB+skW5kxcsz3otvb9dL4N79FYLMYigyzY4bQ==
-X-Received: by 2002:a05:600c:524a:b0:43c:f75a:eb54 with SMTP id 5b1f17b1804b1-43cf75aed5emr10293205e9.13.1741542516005;
-        Sun, 09 Mar 2025 10:48:36 -0700 (PDT)
-Received: from Ansuel-XPS. (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ce8a493d0sm59519715e9.1.2025.03.09.10.48.34
+        d=1e100.net; s=20230601; t=1741542711; x=1742147511;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=;
+        b=sUiZWjmyS2V9Qt1D3XOHVqiDqxxHPPXMm5raTaAKKdTaN/WvSS96VHz6tgVmkUBnB5
+         obAFAgYSbMYNiuX/702ud9NvfCnOgK5arMxkHmyKznvFo/qAwHk3MXDbNvW2XRHGrZhx
+         fVrJVwnAdu5v9j/7ZFN2pc/wYQDeh25NHqNHwvGZVxx0HzZUSECbFzR1HtIraDpfUEHJ
+         b+iT5kHN8gDo86kCUQV2yrKKOCvF5cfo5JHCAr9b0ZSLdv22j/dpE4eKz1O1dC113Syu
+         KlUjL1Tmct6OEspapxku1nAr7ycMVWkWNQOXClgWibniG80BowdQ9m8yIhHmKtCB33Kg
+         fTHg==
+X-Forwarded-Encrypted: i=1; AJvYcCVio32mLWfinKOHHbrgSrd7LIoH89XXYOrTQozxTgFgcW1nCvnp4BatSdyAFWxTo2EhEqdwVhBM5UKIClHTZUgD@lists.infradead.org
+X-Gm-Message-State: AOJu0YxS/USI8LsIx/Y33IJljieHjn4DfRLh/c+eecN+4RzQtHjclVJg
+	gRazITlR4gjCo7I60jOG1VaOPkvewZpeVKVFm6KiDLShKOgIGFQVbqTD3lCG7aU=
+X-Gm-Gg: ASbGncsJIp4q2CBfgcmesUaig3rL+7liEJnm0ytMxOUwJeWBVtXsYAd/O6hlh287vem
+	HhTSYYSLeuNOPfNyMzK8moqfE1y1YWz+cA92jJmiXK0ANt2gcxTIq4927C6rXJr55a6HsZsGyZn
+	M/BD1GJr7yvm8lJcPSEC47UlNS7Uwjs71hYZq3IkZUKc2fln4mjdMq5o8zfULRolcf9FmVNclap
+	spgxSKRc/TkryQf2apWixlSVxIaNEVOMsJKYaKiHgyfFBmm6VN+NiRd1nAamDkysILJLg6PmO+p
+	/rg9zt56pToglSETntJxbX2zvSiC35V9Uk04xdaAuZxkKqnCF1Puoxrhly+VAlX7ccxtBQ==
+X-Google-Smtp-Source: AGHT+IFa08ql7h89Y752Zvu7Rau8znLYoWC3F6Ls9EZuW63PkjYBwc7RN80jzLbibjKC9dFckabhWw==
+X-Received: by 2002:a05:6000:4021:b0:390:d8ec:1779 with SMTP id ffacd0b85a97d-3913bbd20d1mr1460637f8f.12.1741542711124;
+        Sun, 09 Mar 2025 10:51:51 -0700 (PDT)
+Received: from krzk-bin.. ([178.197.206.225])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ceeb34904sm39156975e9.30.2025.03.09.10.51.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 10:48:35 -0700 (PDT)
-Message-ID: <67cdd473.7b0a0220.170541.e2af@mx.google.com>
-X-Google-Original-Message-ID: <Z83UcX4X2gpPogQs@Ansuel-XPS.>
-Date: Sun, 9 Mar 2025 18:48:33 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        Sun, 09 Mar 2025 10:51:50 -0700 (PDT)
+From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	Chanwoo Choi <cw00.choi@samsung.com>,
+	linux-clk@vger.kernel.org,
+	Sylwester Nawrocki <snawrocki@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 08/13] net: mdio: regmap: add OF support
-References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-9-ansuelsmth@gmail.com>
- <Z83R9qVfGbSc8bJs@shell.armlinux.org.uk>
+	linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Subject: [GIT PULL] clk: samsung: drivers for v6.15
+Date: Sun,  9 Mar 2025 18:51:47 +0100
+Message-ID: <20250309175147.6672-1-krzysztof.kozlowski@linaro.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z83R9qVfGbSc8bJs@shell.armlinux.org.uk>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_104837_868660_C2F471EE 
-X-CRM114-Status: GOOD (  14.97  )
+X-CRM114-CacheID: sfid-20250309_105153_244791_162F4878 
+X-CRM114-Status: GOOD (  15.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,29 +103,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 05:37:58PM +0000, Russell King (Oracle) wrote:
-> On Sun, Mar 09, 2025 at 06:26:53PM +0100, Christian Marangi wrote:
-> > Permit to pass the device node pointer to mdio regmap config and permit
-> > mdio registration with an OF node to support DT PHY probe.
-> > 
-> > With the device node pointer NULL, the normal mdio registration is used.
-> 
-> Should this be using a device node, or a fwnode?
-> 
-> It depends _why_ you're adding this, and you omit to state that in the
-> commit description (hint - it should say why!)
->
+Hi,
 
-Ugh totally forgot... It should be a device node. The use of the of_
-variant of mdiobus register permits to autoprobe PHY defined in device
-tree.
+New clk drivers for Samsung SoC.  This pull includes drivers which you
+commented later and pointed out few issues.  Pointed issues are in all Samsung
+clk drivers and the ones here just copy existing patterns:
 
-The current regmap driver only permit manual probe using the mask value
-so it's problematic for MFD usage with an abstract regmap and PHY
-autoprobe.
+1. Headers: I fixed it for new and existing drivers and this pull request
+includes the fixes.
+2. device_get_match_data(): I still wait for contributors response. If they do
+not respond, I will fix it for next cycle.
+3. refdata and platform_driver_probe: I tried fixing it, but incomplete and
+need to investigate more.
 
-Will add additional info in the commit.
+Best regards,
+Krzysztof
 
--- 
-	Ansuel
+
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-6.15
+
+for you to fetch changes up to 017bbc922a09630579ff7b5b314fb186b8c0efcf:
+
+  clk: samsung: Drop unused clk.h and of.h headers (2025-03-07 16:01:22 +0100)
+
+----------------------------------------------------------------
+Samsung SoC clock drivers changes for 6.15
+
+1. Exynos990: Add support for the PERIS clock controller in existing
+   driver.
+2. Exynos2200: Add new driver for several clock controllers (Alive,
+   CMGP, HSI, PERIC/PERIS, TOP, UFS and VFS).
+3. Exynos7870: Add new driver for several clock controllers (Alive,
+   MIF, DISP AUD, FSYS, G3D, ISP, MFC and PERI).
+4. Correct undefined behavior / runtime array bounds check of flexible
+   array member (last 'hws' element in 'struct clk_hw_onecell_data').
+   The code was logically correct for normal case, but not for the
+   clang/GCC runtime bounds checking of flexible array member.
+5. Few cleanups: spelling, header inclusions.
+
+----------------------------------------------------------------
+Colin Ian King (1):
+      clk: samsung: Fix spelling mistake "stablization" -> "stabilization"
+
+Igor Belwon (2):
+      dt-bindings: clock: exynos990: Add CMU_PERIS block
+      clk: samsung: exynos990: Add CMU_PERIS block
+
+Ivaylo Ivanov (3):
+      dt-bindings: clock: add Exynos2200 SoC
+      clk: samsung: clk-pll: add support for pll_4311
+      clk: samsung: introduce Exynos2200 clock driver
+
+Kaustabh Chakraborty (2):
+      dt-bindings: clock: add clock definitions and documentation for exynos7870 CMU
+      clk: samsung: add initial exynos7870 clock driver
+
+Krzysztof Kozlowski (3):
+      Merge branch 'for-v6.15/samsung-clk-dt-bindings' into next/clk
+      clk: samsung: Add missing mod_devicetable.h header
+      clk: samsung: Drop unused clk.h and of.h headers
+
+Will McVicker (1):
+      clk: samsung: Fix UBSAN panic in samsung_clk_init()
+
+ .../bindings/clock/samsung,exynos2200-cmu.yaml     |  247 ++
+ .../bindings/clock/samsung,exynos7870-cmu.yaml     |  227 ++
+ .../bindings/clock/samsung,exynos990-clock.yaml    |   19 +
+ drivers/clk/samsung/Makefile                       |    2 +
+ drivers/clk/samsung/clk-cpu.c                      |    2 +-
+ drivers/clk/samsung/clk-exynos-audss.c             |    1 +
+ drivers/clk/samsung/clk-exynos-clkout.c            |    1 +
+ drivers/clk/samsung/clk-exynos2200.c               | 3928 ++++++++++++++++++++
+ drivers/clk/samsung/clk-exynos3250.c               |    4 +-
+ drivers/clk/samsung/clk-exynos4.c                  |    2 +-
+ drivers/clk/samsung/clk-exynos4412-isp.c           |    2 +-
+ drivers/clk/samsung/clk-exynos5-subcmu.c           |    1 +
+ drivers/clk/samsung/clk-exynos5250.c               |    1 +
+ drivers/clk/samsung/clk-exynos5260.c               |    3 -
+ drivers/clk/samsung/clk-exynos5410.c               |    2 -
+ drivers/clk/samsung/clk-exynos5420.c               |    1 +
+ drivers/clk/samsung/clk-exynos5433.c               |    4 +-
+ drivers/clk/samsung/clk-exynos7.c                  |    1 -
+ drivers/clk/samsung/clk-exynos7870.c               | 1829 +++++++++
+ drivers/clk/samsung/clk-exynos7885.c               |    2 +-
+ drivers/clk/samsung/clk-exynos850.c                |    2 +-
+ drivers/clk/samsung/clk-exynos8895.c               |    2 +-
+ drivers/clk/samsung/clk-exynos990.c                |  182 +-
+ drivers/clk/samsung/clk-exynosautov9.c             |    2 +-
+ drivers/clk/samsung/clk-exynosautov920.c           |    2 +-
+ drivers/clk/samsung/clk-fsd.c                      |    2 +-
+ drivers/clk/samsung/clk-gs101.c                    |    2 +-
+ drivers/clk/samsung/clk-pll.c                      |    1 +
+ drivers/clk/samsung/clk-pll.h                      |    1 +
+ drivers/clk/samsung/clk-s3c64xx.c                  |    1 -
+ drivers/clk/samsung/clk-s5pv210-audss.c            |    1 +
+ drivers/clk/samsung/clk-s5pv210.c                  |    1 -
+ drivers/clk/samsung/clk.c                          |    4 +-
+ drivers/clk/samsung/clk.h                          |    1 +
+ include/dt-bindings/clock/samsung,exynos2200-cmu.h |  431 +++
+ include/dt-bindings/clock/samsung,exynos7870-cmu.h |  324 ++
+ include/dt-bindings/clock/samsung,exynos990.h      |   21 +
+ 37 files changed, 7231 insertions(+), 28 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos2200-cmu.yaml
+ create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos7870-cmu.yaml
+ create mode 100644 drivers/clk/samsung/clk-exynos2200.c
+ create mode 100644 drivers/clk/samsung/clk-exynos7870.c
+ create mode 100644 include/dt-bindings/clock/samsung,exynos2200-cmu.h
+ create mode 100644 include/dt-bindings/clock/samsung,exynos7870-cmu.h
 
