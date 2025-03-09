@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BD77C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 09:03:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2512BC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 09:05:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MRFND54pfWCeCgjcI3QhzMAI2iu+uBF4oELfUtwbQW4=; b=h+ApSwzVkbnc0wOgnQ1j1yLYdI
-	LKQhwbFle+2jjj+6oMKO+J6ODUu2afqYWue5vAMoeHpMsSay0q+UlxSQeP0/pvjJuVKePy3F6yt19
-	uRDWn5jvdA18iluAFbpwWQA86atBtlHyyT6804FWiM0oaFysSIqfjIoM+m9TLvSgMNCeUkOMTtPCs
-	4M6kNRuHE1LYGMDypaUgYqL8GDPLV4n3WYaSAZHUWBLWXqSExnT0F4dBsoHosqYJOUb0IhKxDBYwZ
-	L6cBk04GWwn9KRhYRAyYvI3sHHGN6et2HkDmkwUcwrWCFA7ZbWKEUUEFU6PXQ8N3E2/4YQr2b8zG7
-	1qa9a1ZA==;
+	bh=2/XMiQrVzYH+TzZJLylgzzmMHkdleZU+slDLqGTb2MY=; b=lX4Fa8eUe4dMsjSkeWvw7ZWSTV
+	aY5n3tYmpKj1JYuoi07Oj/YvbAfLpEHT75fUgytiLOC3wbd+/NcGgo7EhWDtEC1Zyh1qhAFMSz/FT
+	YfjgmIyM8IuKLO9foHUMg1GqHZyHlSRyQLY7O143PLlPV5FgUW5b5ZZqx5Sr5bLUzrNk5v4DjsRUy
+	1WHkIsrTTdtM6NA0y6vewH1BUOfCf46nHgfBwkJ3oIGFfLoJYPqg3fcrc8YZUvgZc7HsoiXO+KPTN
+	lONdUsYUFQNsYW6cB/3Pe8tTXmRzQqTC83kLTuT/YTfA1OhU/n2DM1Tenol0I08EwfJ/hgzH74KIn
+	Jn4uUBLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trCZ9-00000000ERr-4BHP;
-	Sun, 09 Mar 2025 09:03:23 +0000
-Received: from mail-ed1-x52c.google.com ([2a00:1450:4864:20::52c])
+	id 1trCal-00000000Eck-2pg3;
+	Sun, 09 Mar 2025 09:05:03 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trCL4-00000000CSp-3gGD
+	id 1trCL8-00000000CUL-27IO
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 08:48:52 +0000
-Received: by mail-ed1-x52c.google.com with SMTP id 4fb4d7f45d1cf-5e5e7fd051bso2574007a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 00:48:50 -0800 (PST)
+	Sun, 09 Mar 2025 08:48:55 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-abf3d64849dso380928866b.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 00:48:54 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741510129; x=1742114929; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741510133; x=1742114933; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=MRFND54pfWCeCgjcI3QhzMAI2iu+uBF4oELfUtwbQW4=;
-        b=FxQ/J/a5p+Pfov/Z5wzcS87y7qMtJAPW2iWHKiwBIPiLUXPWWLMa1ARYi75Xjt9dXt
-         kCE8x+U//WUN/H1j6MqtzXw3bFozxedDAmBdQ+gATYd5wkdGf5EgaQ/Em/WrGFJIm2Jk
-         QG3Zvdkf95C5Ro7MwIJVxjtYZ+/IV6iHQ8zaEpAt+ntBCbgPrwoCvw31yDHAzrs4MYyy
-         8OYDCPMxVW0HDwYFI5xkpcGBMCKLtjfZBOtKMEYGjgknHX/lq5h6BIME4JZvZCIWGOfg
-         0UY/GH1rV8NvaDX4DGOPMIKehh6clgEHf1y1UDf+OuH/+8YqUxDKDFMVebhZQtOwyTBV
-         iVnA==
+        bh=2/XMiQrVzYH+TzZJLylgzzmMHkdleZU+slDLqGTb2MY=;
+        b=gk7R6Mum4q/35jO8vAbcKTJbTbfxhcKxuZwURc6wlPBQGa5TFKnbRpvf0S8r6phLE9
+         XQAykVOMtBkGEC7J/2oaINoFgCrBVcUFZo8Pwfa62r8cN1C/ZPxRi7tDiXDnHoGxu7W1
+         0XeI0ShVLzMbQZhZFM/LkuWF8cpL+A0QComjW+KMe3RNIpfWfjsbarqglwqniHwQ0gmm
+         fdMQkMc8h3QStLdlBCFH6hXqFeN7caMUrcTs9D5kEcS62hDLLwIg6f+ZX+CXz3pVZnxm
+         cd3KT8J3FbOxovVgawpOzUJAOhUij2IsQBzNGIYgtygvLs10R+2SzyE1BrKncfWWXsu8
+         l6yg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741510129; x=1742114929;
+        d=1e100.net; s=20230601; t=1741510133; x=1742114933;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MRFND54pfWCeCgjcI3QhzMAI2iu+uBF4oELfUtwbQW4=;
-        b=E+1+9pSotAoI/1PDhdX1HyYpgwYUr5vKlSydI+6GaZTjLB4QtPUUHQr45XOhsf2a6p
-         9FrE9marWFF2zikjf7XDRpeCBlwMWCulPiI7Ksxy1LzX2xNYvyfpNm1y5I+SickBgkzA
-         JXO5uuzUtYvJG9+LwFx9yqNkXL0EKz0nWCz+jooudvK/enQFFbRZG4NB1D36O6eEkm4O
-         7bk4EfjHAjODMyzM+0mQU3SLaBQycrtEjwNTrj/cE7M8r0muAk0xKyhv0Tvqmb+HxHWM
-         oypEZyQF7pDVHZnTZoUe0qIOy1bIk93md/4a48oIb2KbXKo6LgP+cRC9+EIzkGchDsiZ
-         f/aQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUBV4Jht5Ksml/sgSgNsDJzA+aj4kafEQCTd1um1SYYyTwcJYHIDcpHgR1B5Nt/nc2xSvyLZjmxXZaixSqnHiSD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxCJMlgOBD592O5WtAmIMCE6cx9xbg191Rsx419luLGoM3d/BgD
-	6kK9Jt+SVEwuxAS4H3xPgiTY08oKHwCKTWG5wJXk+iUrkl7FwqMI
-X-Gm-Gg: ASbGncujCKi6QdQDdyCltdot9xNoSH+emE9Ehq3Bw7ScDW1M0UiVpGAuiH8zbYDYSiW
-	/jTaw/g4Py6SQvx+4eITDEfm46TDwzIkbxNZ+pG1Kle3oB1oNN1vmY0Be0Q2MJQc4nH2ynkacOQ
-	4mWYLhL+VMDtm/4ZEmxozRUYoiyNzMsxJlCOIuOq6GnRWZKRyNO352QU0EK7/0ucBY/orSl2oU3
-	UfcekGeXv/vrsFpmZSt0K2Jr/x5prFi5hj2Ei4jHc1KvrE+XLwAVh9l0kHBYg813nw/NrLHOQJC
-	91OyRHqOf+ur6k6vjE7AqSefvSqrD8/h0w/hexVf8coFa1kKmc7DNQ0TmQ==
-X-Google-Smtp-Source: AGHT+IEQtmKUVV88EQYf1nXCbrxWnIHZsl/uXnzZPIJH7g+3jAJsdmu+BnkfQ0xHlYuHu8xDJYCjTQ==
-X-Received: by 2002:a17:907:3f1b:b0:ac2:7bd9:b2f with SMTP id a640c23a62f3a-ac27bd90f23mr491776566b.9.1741510129117;
-        Sun, 09 Mar 2025 00:48:49 -0800 (PST)
+        bh=2/XMiQrVzYH+TzZJLylgzzmMHkdleZU+slDLqGTb2MY=;
+        b=QQc71da3pt1h6RO3iVldPf9OzNOOTiMVXV/mupLgv9ZgyrdBf2erfkuXzRX//7/4QB
+         EmAPW08JxLasg0+LZQz++91S9lK8mig8MDfB3ntRjPnIkQOm18g2G6JzgExFayUfYlJA
+         p07LM3mzgV/SIl/sV1pE3ovsNtStkzb8z2XNd+GfXWwpg7yJVD2x1TxoQItD/abMz6IJ
+         n9B2y3eRdYiflc4nJltCpX+HY1gfHJPPpXzB1+ozMD53ff3HVGRN+7gPPrNPUDf6Swiz
+         u9p+n2oqy8zsc6JImakl6+rk7nam55Ma122D/joL/6c4pvre4eDn7V744iw0isdmfHnr
+         nSQA==
+X-Forwarded-Encrypted: i=1; AJvYcCXRELLe073xComUnvrzkodg+LvIB+DhrHuiCwJYGrYRbzypc87OT5teSSu2b1Uc+/XKU6O70M5Mi0ltpnizkJfs@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz43/faHUd3nFBVF/lzdiD8s/f7Yo3IdXMlM8M0DXay4lEeDOVW
+	vJj8d+4Z722nDoRkL0OM/U/qJOOJx/dGh75UIdwskj0NZdSgRJAy
+X-Gm-Gg: ASbGncuVn3QgPPTsJ1EyR0YAIM5Q9AlrgAAfGXNMAXXtna40Foc5oDuOvsPWAP6XFFD
+	smwH0aU6iH6xpM/45gZZbwLYVhFVl3Lhfvvv7AqXS0FqrMeqord4ov5Z/6CcgMGYP3XFsr7zn5+
+	dvgGwKK3TxP3NijqxwTQpBG+/bsOqaP+Kz79HEajbXDcPrZbeVvGNzJ7FkSzxzsNyiObWNf6o8v
+	sg/VFHKEVaPCItInerpnU1UMOC5VBpLamkicHExkY0SfHdiUS09AQBicVim3BlkjGmLcfuxZQ3v
+	UThzKoErVOG/JV6Nr2VnKjJYTvbQC4ueL3Siuq6POBJpQeIUCTfx5XrJtczWsmS5ct20
+X-Google-Smtp-Source: AGHT+IEEWfGQxkuZd8tf5P3vShYuUP5N/11BTkYFYFiWpUuAwDxrOihccUqBS80lDlE4wNLi4HgKYA==
+X-Received: by 2002:a05:6402:280d:b0:5d0:bf5e:eb8 with SMTP id 4fb4d7f45d1cf-5e5e2468800mr24297960a12.23.1741510132648;
+        Sun, 09 Mar 2025 00:48:52 -0800 (PST)
 Received: from demon-pc.localdomain ([188.27.130.21])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac239736153sm566347466b.108.2025.03.09.00.48.46
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac239736153sm566347466b.108.2025.03.09.00.48.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 00:48:48 -0800 (PST)
+        Sun, 09 Mar 2025 00:48:52 -0800 (PST)
 From: Cosmin Tanislav <demonsingur@gmail.com>
 To: 
 Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
@@ -114,17 +114,17 @@ Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
 	linux-staging@lists.linux.dev,
 	linux-gpio@vger.kernel.org,
 	Cosmin Tanislav <demonsingur@gmail.com>
-Subject: [RFC PATCH v2 08/16] dt-bindings: media: i2c: max96712: use pattern properties for ports
-Date: Sun,  9 Mar 2025 10:48:00 +0200
-Message-ID: <20250309084814.3114794-9-demonsingur@gmail.com>
+Subject: [RFC PATCH v2 09/16] dt-bindings: media: i2c: max96712: add support for I2C MUX
+Date: Sun,  9 Mar 2025 10:48:01 +0200
+Message-ID: <20250309084814.3114794-10-demonsingur@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250309084814.3114794-1-demonsingur@gmail.com>
 References: <20250309084814.3114794-1-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_004850_918990_3403D77F 
-X-CRM114-Status: GOOD (  11.75  )
+X-CRM114-CacheID: sfid-20250309_004854_542345_1CFDAB0A 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -139,67 +139,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MAX96712 and MAX96724 support up to 4 separate PHYs, depending on
-the selected PHY configuration. Use patternProperties to document this.
+MAX96712 and MAX96724 have more than one GMSL2 link, and each link is
+capable of connecting to a separate serializer. If these serializers
+have the same CFG pins configuration, they will also have the same I2C
+address, causing conflicts unless the deserializer muxes the I2C
+channels. Moreover, the serializers can have the same hardware attached
+to their respective I2C bus.
 
-The input ports are all the same, use patternProperties for them.
+The MAX96712 and MAX96724 suppot I2C channel muxing via the GMSL2 link
+to facilitate communication to each of the connected serializers.
+
+Document this capability.
 
 Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 ---
- .../bindings/media/i2c/maxim,max96712.yaml    | 29 +++++++------------
- 1 file changed, 10 insertions(+), 19 deletions(-)
+ .../bindings/media/i2c/maxim,max96712.yaml          | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
 
 diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-index efdece2b33b9..bf8c861c836b 100644
+index bf8c861c836b..9e27568e0105 100644
 --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
 +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml
-@@ -40,27 +40,15 @@ properties:
+@@ -37,6 +37,19 @@ properties:
+ 
+   enable-gpios: true
+ 
++  i2c-mux:
++    $ref: /schemas/i2c/i2c-mux.yaml#
++    unevaluatedProperties: false
++    patternProperties:
++      '^i2c@[0-3]$':
++        $ref: /schemas/i2c/i2c-controller.yaml#
++        unevaluatedProperties: false
++        properties:
++          reg:
++            items:
++              minimum: 0
++              maximum: 3
++
    ports:
      $ref: /schemas/graph.yaml#/properties/ports
  
--    properties:
--      port@0:
-+    patternProperties:
-+      '^port@[0-3]$':
-         $ref: /schemas/graph.yaml#/properties/port
--        description: GMSL Input 0
-+        description: GMSL Input port
- 
--      port@1:
--        $ref: /schemas/graph.yaml#/properties/port
--        description: GMSL Input 1
--
--      port@2:
--        $ref: /schemas/graph.yaml#/properties/port
--        description: GMSL Input 2
--
--      port@3:
--        $ref: /schemas/graph.yaml#/properties/port
--        description: GMSL Input 3
--
--      port@4:
-+      '^port@[4-7]$':
-         $ref: /schemas/graph.yaml#/$defs/port-base
-         unevaluatedProperties: false
--        description: CSI-2 Output
-+        description: CSI-2 Output port
- 
-         properties:
-           endpoint:
-@@ -78,8 +66,11 @@ properties:
-               - data-lanes
-               - bus-type
- 
--    required:
--      - port@4
-+    anyOf:
-+      - required: [port@4]
-+      - required: [port@5]
-+      - required: [port@6]
-+      - required: [port@7]
- 
- required:
-   - compatible
 -- 
 2.48.1
 
