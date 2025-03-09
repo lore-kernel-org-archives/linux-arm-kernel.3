@@ -4,47 +4,47 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF17AC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA9D8C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:15:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kPV/BnBSZwkzP1CAXcGTb/b489Qh5Q8Y01cLz+m8DDY=; b=bn3y4x3+zBG7tZvSByfWBFWwZK
-	CqZDn0ugqI0U/qc5vdJdrWgvqmXZ5DvnAWgWxMS6Ef2j/XVGrUeM+aMo+ZJNQNjOLfg1TN6PMaaPw
-	jSmqExXOnam0wzlRBxbHIuI0bKnAnGCCAa8iBqln+nScHIqX1kZ89j1gWVYbTY1WeTnkYU74OPKxR
-	6/5vqNMxZLxaaTVP96iduDY03dOp1bp0mAICyGJ7WM2GujvY0Q1mJNOEOTa33Hp/R3+7JrAWZZBmp
-	zXNAl6AHkde5z3iG6KQIW5ethggHl5721uCk931STXG4wQlL+9xVyfWUmlR11qsSBwvlARAGMi1VL
-	N6iz8ADQ==;
+	bh=BWhB5AtStN8MNZiCkYaz8R6NVOnCdNzeWmy93mQ7HQA=; b=RwDSSSD31FC+1CSDB/HUhOH6Dg
+	QCXisQF6yMpJWTpyOaAFsELyoseJvYJsqzLaZLQEoROk7+a3FMUfpcsPqlr0KhbbCANlG+wS5rxZx
+	Onu19XPICjG7MQCgUoNLeYJVTUFK4rGsZHrysAfwuhuuu7vccdQsA3a5S+0FsF+FBNVVDFbspuwyI
+	7slgV670uj5bWdLaBS01t1ZU6nRiq+ulLOdNW6EwmeaXHWz7hFrwVrp2aXgerhhdqJJS23WeGGz3k
+	JgN1n+3b9ow/4L22YF0rEKupejujIixAx6TZMHrFU419KLdNjboCxNMTFCe+pWyyqtGQboYpbAY/x
+	59rAp0Ug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLAC-00000000wT2-11y0;
-	Sun, 09 Mar 2025 18:14:12 +0000
-Received: from mx1.sberdevices.ru ([37.18.73.165])
+	id 1trLBm-00000000waE-0wCl;
+	Sun, 09 Mar 2025 18:15:50 +0000
+Received: from mx2.sberdevices.ru ([45.89.224.132] helo=mx1.sberdevices.ru)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKvH-00000000uNN-0aat;
+	id 1trKvH-00000000uNW-1KdW;
 	Sun, 09 Mar 2025 17:58:48 +0000
-Received: from p-infra-ksmg-sc-msk01.sberdevices.ru (localhost [127.0.0.1])
-	by mx1.sberdevices.ru (Postfix) with ESMTP id 0EA68100006;
+Received: from p-infra-ksmg-sc-msk02.sberdevices.ru (localhost [127.0.0.1])
+	by mx1.sberdevices.ru (Postfix) with ESMTP id 852CE120006;
 	Sun,  9 Mar 2025 20:58:45 +0300 (MSK)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 0EA68100006
+DKIM-Filter: OpenDKIM Filter v2.11.0 mx1.sberdevices.ru 852CE120006
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=salutedevices.com;
 	s=mail; t=1741543125;
-	bh=kPV/BnBSZwkzP1CAXcGTb/b489Qh5Q8Y01cLz+m8DDY=;
+	bh=BWhB5AtStN8MNZiCkYaz8R6NVOnCdNzeWmy93mQ7HQA=;
 	h=From:To:Subject:Date:Message-ID:MIME-Version:Content-Type:From;
-	b=SV/xjMQPBne/db251hG70CMder/nAcykeam1/SebWkoPALHpNCchFEexp3K6rwUJT
-	 BNXJfzOgReRFa8vm5ECqdRFljQ7OWoMi1mTMG8GlDvNYmWsV6e0p2U3W1r2N1JG5Df
-	 bxYio3dMuO5eG5kJynjA81EJX6eePOfnm595oyvGgjH4Wgnb81ihO5/BamamjjQwyt
-	 Kz7NVTY7RKNVRaUjucQ2wdsqLdkTxeL/0qzKKAsjyMV0f2qJOBnaZJ1YOweyjFd9+L
-	 PkysgKHDzKutMFtCv61ux/2GXADKwTihXdKaR8kXUiV/EosCpm6zVsdj6rfQHwfe6C
-	 nGPpSQInKNlOQ==
+	b=oO76xMpHl9MV2RE8cqbv2IOi8tFDekC1bx7IK5O39bAW4ewkmgE66ngInvt976JBZ
+	 f6s/7heGKd5ajNzlkbZ+oESvTxdSYZM1Mt5PFKqx65aHagfiqON0ChmAoHRk+8S9Ot
+	 hV/VetVJM0O5iZ1iXtVMdYF8ZRfFhbE5yCmHzdtz1Ezn8aQoQO+ra0DFZEeJgLE5x0
+	 g3gIeIdj1lCo0CzHddSgjhS31vuMkFQ5Rg/bG6gaB9Q7RMZ1CNLUbpXfpWvfdy7+Ns
+	 i6O1dtzs5hTzD3JA99qllNWSxg10wPpGS8RcQb5lbFbNig4jokZ2VCsQiM8QtKiTg1
+	 pClBuSyHdvsFA==
 Received: from smtp.sberdevices.ru (p-exch-cas-a-m1.sberdevices.ru [172.24.201.216])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
 	by mx1.sberdevices.ru (Postfix) with ESMTPS;
-	Sun,  9 Mar 2025 20:58:44 +0300 (MSK)
+	Sun,  9 Mar 2025 20:58:45 +0300 (MSK)
 From: Jan Dakinevich <jan.dakinevich@salutedevices.com>
 To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
 	<conor+dt@kernel.org>, <devicetree@vger.kernel.org>, Jerome Brunet
@@ -55,9 +55,9 @@ To: Jan Dakinevich <jan.dakinevich@salutedevices.com>, Conor Dooley
 	<martin.blumenstingl@googlemail.com>, Michael Turquette
 	<mturquette@baylibre.com>, Neil Armstrong <neil.armstrong@linaro.org>, Rob
  Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>
-Subject: [PATCH v6 2/4] dt-bindings: clock: axg-audio: document A1 SoC audio clock controller driver
-Date: Sun, 9 Mar 2025 20:58:36 +0300
-Message-ID: <20250309175838.1322014-2-jan.dakinevich@salutedevices.com>
+Subject: [PATCH v6 4/4] arm64: dts: meson: a1: add the audio clock controller
+Date: Sun, 9 Mar 2025 20:58:38 +0300
+Message-ID: <20250309175838.1322014-4-jan.dakinevich@salutedevices.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250309175838.1322014-1-jan.dakinevich@salutedevices.com>
 References: <20250309175838.1322014-1-jan.dakinevich@salutedevices.com>
@@ -76,16 +76,16 @@ X-KSMG-AntiSpam-Rate: 0
 X-KSMG-AntiSpam-Status: not_detected
 X-KSMG-AntiSpam-Method: none
 X-KSMG-AntiSpam-Auth: dkim=none
-X-KSMG-AntiSpam-Info: LuaCore: 51 0.3.51 68896fb0083a027476849bf400a331a2d5d94398, {Tracking_smtp_not_equal_from}, smtp.sberdevices.ru:7.1.1,5.0.1;sberdevices.ru:7.1.1,5.0.1;127.0.0.199:7.1.2;salutedevices.com:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
+X-KSMG-AntiSpam-Info: LuaCore: 51 0.3.51 68896fb0083a027476849bf400a331a2d5d94398, {Tracking_smtp_not_equal_from}, d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;salutedevices.com:7.1.1;smtp.sberdevices.ru:5.0.1,7.1.1;127.0.0.199:7.1.2;sberdevices.ru:5.0.1,7.1.1, {Tracking_smtp_domain_mismatch}, {Tracking_smtp_domain_2level_mismatch}, {Tracking_sender_alignment_int}, {Tracking_white_helo}, FromAlignment: n
 X-MS-Exchange-Organization-SCL: -1
 X-KSMG-AntiSpam-Interceptor-Info: scan successful
 X-KSMG-AntiPhishing: Clean
 X-KSMG-LinksScanning: Clean
-X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/03/09 17:28:00 #27692143
+X-KSMG-AntiVirus: Kaspersky Secure Mail Gateway, version 2.0.1.6960, bases: 2025/03/09 15:22:00 #27687174
 X-KSMG-AntiVirus-Status: Clean, skipped
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_105847_548218_93E753CF 
-X-CRM114-Status: GOOD (  13.89  )
+X-CRM114-CacheID: sfid-20250309_105847_738431_F88BA57B 
+X-CRM114-Status: GOOD (  11.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,182 +100,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for A1 SoC audio clock and reset controllers.
+Add the bus and audio clock controllers' device tree nodes.
 
 Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
 ---
- .../clock/amlogic,axg-audio-clkc.yaml         |   4 +
- .../dt-bindings/clock/amlogic,a1-audio-clkc.h | 139 ++++++++++++++++++
- 2 files changed, 143 insertions(+)
- create mode 100644 include/dt-bindings/clock/amlogic,a1-audio-clkc.h
+ arch/arm64/boot/dts/amlogic/meson-a1.dtsi | 49 +++++++++++++++++++++++
+ 1 file changed, 49 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-index fd7982dd4cea..10202b749001 100644
---- a/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-+++ b/Documentation/devicetree/bindings/clock/amlogic,axg-audio-clkc.yaml
-@@ -18,6 +18,8 @@ description:
- properties:
-   compatible:
-     enum:
-+      - amlogic,a1-audio-clkc
-+      - amlogic,a1-audio-vad-clkc
-       - amlogic,axg-audio-clkc
-       - amlogic,g12a-audio-clkc
-       - amlogic,sm1-audio-clkc
-@@ -114,6 +116,8 @@ allOf:
-         compatible:
-           contains:
-             enum:
-+              - amlogic,a1-audio-clkc
-+              - amlogic,a1-audio-vad-clkc
-               - amlogic,g12a-audio-clkc
-               - amlogic,sm1-audio-clkc
-     then:
-diff --git a/include/dt-bindings/clock/amlogic,a1-audio-clkc.h b/include/dt-bindings/clock/amlogic,a1-audio-clkc.h
-new file mode 100644
-index 000000000000..78e7a432d439
---- /dev/null
-+++ b/include/dt-bindings/clock/amlogic,a1-audio-clkc.h
-@@ -0,0 +1,139 @@
-+/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-+/*
-+ * Copyright (c) 2024, SaluteDevices. All Rights Reserved.
-+ *
-+ * Author: Jan Dakinevich <jan.dakinevich@salutedevices.com>
-+ */
+diff --git a/arch/arm64/boot/dts/amlogic/meson-a1.dtsi b/arch/arm64/boot/dts/amlogic/meson-a1.dtsi
+index 1eba0afb3fd9..cf0247fce740 100644
+--- a/arch/arm64/boot/dts/amlogic/meson-a1.dtsi
++++ b/arch/arm64/boot/dts/amlogic/meson-a1.dtsi
+@@ -5,6 +5,7 @@
+ 
+ #include <dt-bindings/clock/amlogic,a1-pll-clkc.h>
+ #include <dt-bindings/clock/amlogic,a1-peripherals-clkc.h>
++#include <dt-bindings/clock/amlogic,a1-audio-clkc.h>
+ #include <dt-bindings/gpio/meson-a1-gpio.h>
+ #include <dt-bindings/interrupt-controller/arm-gic.h>
+ #include <dt-bindings/interrupt-controller/irq.h>
+@@ -664,6 +665,54 @@ sd_emmc: mmc@10000 {
+ 				power-domains = <&pwrc PWRC_SD_EMMC_ID>;
+ 				status = "disabled";
+ 			};
 +
-+#ifndef __A1_AUDIO_CLKC_BINDINGS_H
-+#define __A1_AUDIO_CLKC_BINDINGS_H
++			audio: bus@50000 {
++				compatible = "simple-bus";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges = <0x0 0x0 0x0 0x50000 0 0x4980>;
++				power-domains = <&pwrc PWRC_AUDIO_ID>;
 +
-+#define AUD_CLKID_DDR_ARB			1
-+#define AUD_CLKID_TDMIN_A			2
-+#define AUD_CLKID_TDMIN_B			3
-+#define AUD_CLKID_TDMIN_LB			4
-+#define AUD_CLKID_LOOPBACK			5
-+#define AUD_CLKID_TDMOUT_A			6
-+#define AUD_CLKID_TDMOUT_B			7
-+#define AUD_CLKID_FRDDR_A			8
-+#define AUD_CLKID_FRDDR_B			9
-+#define AUD_CLKID_TODDR_A			10
-+#define AUD_CLKID_TODDR_B			11
-+#define AUD_CLKID_SPDIFIN			12
-+#define AUD_CLKID_RESAMPLE			13
-+#define AUD_CLKID_EQDRC				14
-+#define AUD_CLKID_LOCKER			15
-+#define AUD_CLKID_MST_A_MCLK_SEL		16
-+#define AUD_CLKID_MST_A_MCLK_DIV		17
-+#define AUD_CLKID_MST_A_MCLK			18
-+#define AUD_CLKID_MST_B_MCLK_SEL		19
-+#define AUD_CLKID_MST_B_MCLK_DIV		20
-+#define AUD_CLKID_MST_B_MCLK			21
-+#define AUD_CLKID_MST_C_MCLK_SEL		22
-+#define AUD_CLKID_MST_C_MCLK_DIV		23
-+#define AUD_CLKID_MST_C_MCLK			24
-+#define AUD_CLKID_MST_D_MCLK_SEL		25
-+#define AUD_CLKID_MST_D_MCLK_DIV		26
-+#define AUD_CLKID_MST_D_MCLK			27
-+#define AUD_CLKID_MST_A_SCLK_PRE_EN		28
-+#define AUD_CLKID_MST_A_SCLK_DIV		29
-+#define AUD_CLKID_MST_A_SCLK_POST_EN		30
-+#define AUD_CLKID_MST_A_SCLK			31
-+#define AUD_CLKID_MST_B_SCLK_PRE_EN		32
-+#define AUD_CLKID_MST_B_SCLK_DIV		33
-+#define AUD_CLKID_MST_B_SCLK_POST_EN		34
-+#define AUD_CLKID_MST_B_SCLK			35
-+#define AUD_CLKID_MST_C_SCLK_PRE_EN		36
-+#define AUD_CLKID_MST_C_SCLK_DIV		37
-+#define AUD_CLKID_MST_C_SCLK_POST_EN		38
-+#define AUD_CLKID_MST_C_SCLK			39
-+#define AUD_CLKID_MST_D_SCLK_PRE_EN		40
-+#define AUD_CLKID_MST_D_SCLK_DIV		41
-+#define AUD_CLKID_MST_D_SCLK_POST_EN		42
-+#define AUD_CLKID_MST_D_SCLK			43
-+#define AUD_CLKID_MST_A_LRCLK_DIV		44
-+#define AUD_CLKID_MST_A_LRCLK			45
-+#define AUD_CLKID_MST_B_LRCLK_DIV		46
-+#define AUD_CLKID_MST_B_LRCLK			47
-+#define AUD_CLKID_MST_C_LRCLK_DIV		48
-+#define AUD_CLKID_MST_C_LRCLK			49
-+#define AUD_CLKID_MST_D_LRCLK_DIV		50
-+#define AUD_CLKID_MST_D_LRCLK			51
-+#define AUD_CLKID_TDMIN_A_SCLK_SEL		52
-+#define AUD_CLKID_TDMIN_A_SCLK_PRE_EN		53
-+#define AUD_CLKID_TDMIN_A_SCLK_POST_EN		54
-+#define AUD_CLKID_TDMIN_A_SCLK			55
-+#define AUD_CLKID_TDMIN_A_LRCLK			56
-+#define AUD_CLKID_TDMIN_B_SCLK_SEL		57
-+#define AUD_CLKID_TDMIN_B_SCLK_PRE_EN		58
-+#define AUD_CLKID_TDMIN_B_SCLK_POST_EN		59
-+#define AUD_CLKID_TDMIN_B_SCLK			60
-+#define AUD_CLKID_TDMIN_B_LRCLK			61
-+#define AUD_CLKID_TDMIN_LB_SCLK_SEL		62
-+#define AUD_CLKID_TDMIN_LB_SCLK_PRE_EN		63
-+#define AUD_CLKID_TDMIN_LB_SCLK_POST_EN		64
-+#define AUD_CLKID_TDMIN_LB_SCLK			65
-+#define AUD_CLKID_TDMIN_LB_LRCLK		66
-+#define AUD_CLKID_TDMOUT_A_SCLK_SEL		67
-+#define AUD_CLKID_TDMOUT_A_SCLK_PRE_EN		68
-+#define AUD_CLKID_TDMOUT_A_SCLK_POST_EN		69
-+#define AUD_CLKID_TDMOUT_A_SCLK			70
-+#define AUD_CLKID_TDMOUT_A_LRCLK		71
-+#define AUD_CLKID_TDMOUT_B_SCLK_SEL		72
-+#define AUD_CLKID_TDMOUT_B_SCLK_PRE_EN		73
-+#define AUD_CLKID_TDMOUT_B_SCLK_POST_EN		74
-+#define AUD_CLKID_TDMOUT_B_SCLK			75
-+#define AUD_CLKID_TDMOUT_B_LRCLK		76
-+#define AUD_CLKID_SPDIFIN_CLK_SEL		77
-+#define AUD_CLKID_SPDIFIN_CLK_DIV		78
-+#define AUD_CLKID_SPDIFIN_CLK			79
-+#define AUD_CLKID_RESAMPLE_CLK_SEL		80
-+#define AUD_CLKID_RESAMPLE_CLK_DIV		81
-+#define AUD_CLKID_RESAMPLE_CLK			82
-+#define AUD_CLKID_EQDRC_CLK_SEL			83
-+#define AUD_CLKID_EQDRC_CLK_DIV			84
-+#define AUD_CLKID_EQDRC_CLK			85
-+#define AUD_CLKID_LOCKER_IN_CLK_SEL		86
-+#define AUD_CLKID_LOCKER_IN_CLK_DIV		87
-+#define AUD_CLKID_LOCKER_IN_CLK			88
-+#define AUD_CLKID_LOCKER_OUT_CLK_SEL		89
-+#define AUD_CLKID_LOCKER_OUT_CLK_DIV		90
-+#define AUD_CLKID_LOCKER_OUT_CLK		91
++				clkc_audio: clock-controller@0 {
++					compatible = "amlogic,a1-audio-clkc";
++					reg = <0x0 0x0 0x0 0xb0>;
++					#clock-cells = <1>;
++					#reset-cells = <1>;
++					clocks = <&clkc_audio_vad AUD_VAD_CLKID_TOAUDIOTOP>,
++						 <&clkc_periphs CLKID_DDS_IN>,
++						 <&clkc_pll CLKID_FCLK_DIV2>,
++						 <&clkc_pll CLKID_FCLK_DIV3>,
++						 <&clkc_pll CLKID_HIFI_PLL>,
++						 <&xtal>;
++					clock-names = "pclk",
++						      "mst_in0",
++						      "mst_in1",
++						      "mst_in2",
++						      "mst_in3",
++						      "mst_in4";
++					resets = <&reset RESET_AUDIO>;
++				};
 +
-+#define AUD_VAD_CLKID_CLK81			1
-+#define AUD_VAD_CLKID_SYSCLK_A_DIV		2
-+#define AUD_VAD_CLKID_SYSCLK_A			3
-+#define AUD_VAD_CLKID_SYSCLK_B_DIV		4
-+#define AUD_VAD_CLKID_SYSCLK_B			5
-+#define AUD_VAD_CLKID_SYSCLK			6
-+#define AUD_VAD_CLKID_DDR_ARB			7
-+#define AUD_VAD_CLKID_PDM			8
-+#define AUD_VAD_CLKID_TDMIN_VAD			9
-+#define AUD_VAD_CLKID_TODDR_VAD			10
-+#define AUD_VAD_CLKID_TOVAD			11
-+#define AUD_VAD_CLKID_TOAUDIOTOP		12
-+#define AUD_VAD_CLKID_MST_VAD_MCLK_SEL		13
-+#define AUD_VAD_CLKID_MST_VAD_MCLK_DIV		14
-+#define AUD_VAD_CLKID_MST_VAD_MCLK		15
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_PRE_EN	16
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_DIV		17
-+#define AUD_VAD_CLKID_MST_VAD_SCLK_POST_EN	18
-+#define AUD_VAD_CLKID_MST_VAD_SCLK		19
-+#define AUD_VAD_CLKID_MST_VAD_LRCLK_DIV		20
-+#define AUD_VAD_CLKID_MST_VAD_LRCLK		21
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_SEL	22
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_PRE_EN	23
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK_POST_EN	24
-+#define AUD_VAD_CLKID_TDMIN_VAD_SCLK		25
-+#define AUD_VAD_CLKID_TDMIN_VAD_LRCLK		26
-+#define AUD_VAD_CLKID_PDM_DCLK_SEL		27
-+#define AUD_VAD_CLKID_PDM_DCLK_DIV		28
-+#define AUD_VAD_CLKID_PDM_DCLK			29
-+#define AUD_VAD_CLKID_PDM_SYSCLK_SEL		30
-+#define AUD_VAD_CLKID_PDM_SYSCLK_DIV		31
-+#define AUD_VAD_CLKID_PDM_SYSCLK		32
-+#define AUD_VAD_CLKID_VAD_CLK_SEL		33
-+#define AUD_VAD_CLKID_VAD_CLK_DIV		34
-+#define AUD_VAD_CLKID_VAD_CLK			35
-+
-+#endif /* __A1_AUDIO_CLKC_BINDINGS_H */
++				clkc_audio_vad: clock-controller@4800 {
++					compatible = "amlogic,a1-audio-vad-clkc";
++					reg = <0x0 0x4800 0x0 0x20>;
++					#clock-cells = <1>;
++					#reset-cells = <1>;
++					clocks = <&clkc_periphs CLKID_SYS>,
++						 <&clkc_periphs CLKID_DDS_IN>,
++						 <&clkc_pll CLKID_FCLK_DIV2>,
++						 <&clkc_pll CLKID_FCLK_DIV3>,
++						 <&clkc_pll CLKID_HIFI_PLL>,
++						 <&xtal>;
++					clock-names = "pclk",
++						      "mst_in0",
++						      "mst_in1",
++						      "mst_in2",
++						      "mst_in3",
++						      "mst_in4";
++					resets = <&reset RESET_AUDIO_VAD>;
++				};
++			};
+ 		};
+ 
+ 		usb: usb@fe004400 {
 -- 
 2.34.1
 
