@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14519C28B25
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 12:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F30E9C28B25
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 12:57:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=L81Da1fwz3YhZrikm7gOGIYqhJdk4hwp55sdoIZ0BJk=; b=ep6kfdV/Wu5IkCAGpkFCL2pNd2
-	WdMwOnu6fDXqS+t7GqpEkXBq5LXgWqEkWEjjpKTdkiXo73IjeJE3s+Y8hU1tp8N0IAwdQgfFR9DV+
-	Iq6knwmHv5plvylqgUZDvuS0p8AjAHlo6BTGuqLYXVIFysmTzcFEPOP6lks+0jzJDcVm9VLNSYopm
-	9GXQbRTdl/pIvaO/XKoC5r8X6/LariMMHv1yIWGCtBGdQJFCdMClh+N2hDBO41t4x+H8lg+HTLGFx
-	WJl1MwSNfr/cR6qWiqIe5UVz5NwpxH5Z6Gp37+jgV7SfufHNMZ6gD0sc9cY6LhOMpj7TuNKIeuRwq
-	Sazijo+A==;
+	bh=P/WbteE2uE9evzP/bYrygew09XhuNjI4OrWKNDTxp60=; b=uEO+b7dAceElpK1Ig0+Ai3CuxI
+	YIiUAZVTnVWPqvw7cobKGCvZTdt+26SBWlmVxshsdf3PU1iZBFVS067CFy5xkcGcBuwo854b/VeT7
+	lSCLc7W7/lkp/ghjNs4eUctY3xYsEcmVUVnNrkncueL0zc0TA7g38Zk/mGkp85tvtgTc2sUNKyILc
+	9vIpiPjYTSg/fmLlcdRaoBoU+wzcVw25kX7obzzikZYV9QvFSWjpZQyooM28voDfW5lNdE1n1SayD
+	0FB1yfavamj1/NaEKvuoJXRvk05xQDWt+E0fCW4EIOs5W5cDyTA30QMbzyujEJHbTxokBPchIqSiA
+	nMjsa+QQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trGBg-00000000X3c-3XUH;
-	Sun, 09 Mar 2025 12:55:24 +0000
+	id 1trGDH-00000000X9z-24gW;
+	Sun, 09 Mar 2025 12:57:03 +0000
 Received: from mout.gmx.net ([212.227.15.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trG6s-00000000Wgo-0QP5
+	id 1trG6s-00000000Wgi-1OMU
 	for linux-arm-kernel@lists.infradead.org;
 	Sun, 09 Mar 2025 12:50:27 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1741524621; x=1742129421; i=wahrenst@gmx.net;
-	bh=L81Da1fwz3YhZrikm7gOGIYqhJdk4hwp55sdoIZ0BJk=;
+	s=s31663417; t=1741524620; x=1742129420; i=wahrenst@gmx.net;
+	bh=P/WbteE2uE9evzP/bYrygew09XhuNjI4OrWKNDTxp60=;
 	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-Id:In-Reply-To:
 	 References:MIME-Version:Content-Transfer-Encoding:cc:
 	 content-transfer-encoding:content-type:date:from:message-id:
 	 mime-version:reply-to:subject:to;
-	b=e5hsBrOYwtTfJCvhnKKEuwJLWUoUnNqI37yRzfA+2pTYao6pVmmkEKVDP/oX4B59
-	 JeL77DR7KyceKaCnWhKfa7KGlvhUrl+mwJNHaXkHiLZUO+lbWqVMgnybdTTesbuNA
-	 dDcMqAA8R+0ZSFJdFCCRA8KHEtrjO792EhoF0Ixlsr6nAADMpDFj3e3QXy5mLd4jI
-	 mOeu1xAFx3pR8Ji8WvgI7kO5BvdXfqXp6/zQrV32sEq0mftu8mPyvb3L8STOUJPPB
-	 Mb06lxNA1vkbIZNNuprq7/N7ResNETMoLGV2lxkZEEv0F4RidOtb83DHrEeYIZfLD
-	 eCX4i7iQ14oragT5mw==
+	b=fge2YdQSoLjP/g431yvO3mWevQXpMeIeik9KLizjXsh7eEFdDB8RD2CymzDQDju2
+	 93ufimY5fust3LPCdmnUFGFLRAdOhSUXRjPRHiQFv/eWttTJ4ONECcFMXBCGUBZoF
+	 LXvR5WHCF34nKWFBbyvGVhVgE9o+nv5ccdi2ImKTV7XsCkvi7v+mHaI+zBk7rzbjJ
+	 MhMkLwWNdpvGN46Qdo3vToc1N4VE8Fc2U0P1ZTcxTB7SMsrwEZF+5eFKYxWYPC4hN
+	 pd1I9Vsvh3xwwrbiNGsH8wa+dHiD0iqIAOTPRCPXRyWghYwF3XVp4mzhGksJXmHV5
+	 yzjeNA62/y5XvJG/yw==
 X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
 Received: from stefanw-SCHENKER ([37.4.251.153]) by mail.gmx.net (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MZkpR-1tm9Kl3VbT-00U6QH; Sun, 09
- Mar 2025 13:50:20 +0100
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MyKHm-1t1Uu73WMW-00sfgE; Sun, 09
+ Mar 2025 13:50:19 +0100
 From: Stefan Wahren <wahrenst@gmx.net>
 To: Florian Fainelli <florian.fainelli@broadcom.com>,
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>
@@ -57,42 +57,42 @@ Cc: Umang Jain <umang.jain@ideasonboard.com>,
 	kernel-list@raspberrypi.com,
 	linux-staging@lists.linux.dev,
 	Stefan Wahren <wahrenst@gmx.net>
-Subject: [PATCH 3/5] staging: vchiq_arm: Stop kthreads if vchiq cdev register fails
-Date: Sun,  9 Mar 2025 13:50:12 +0100
-Message-Id: <20250309125014.37166-4-wahrenst@gmx.net>
+Subject: [PATCH 1/5] staging: vchiq_arm: Register debugfs after cdev
+Date: Sun,  9 Mar 2025 13:50:10 +0100
+Message-Id: <20250309125014.37166-2-wahrenst@gmx.net>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250309125014.37166-1-wahrenst@gmx.net>
 References: <20250309125014.37166-1-wahrenst@gmx.net>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:kS7DLLj2vdWuPI1nrmfS3oHbOvUv+XHxzXuEpzaDvzVe55MhS7D
- CBtHOtBVrkEYJj8QgrsZhvy5MPNFtk8EU980pmJiojb8SX5XME7j3lMixYCV765e9r7SB49
- xSawcq4CVzLCQFsj3FNSBY68RnGhWb6XShaAbrhFV1pzNQWwiMnsC6B7AGxAJ0oHDCMGi3M
- HHWcWFQxp3THsW9lBgbkw==
-UI-OutboundReport: notjunk:1;M01:P0:KlqeDkoNN7E=;fZbia8Tl4jXYgfeTQK8fcqMwgH4
- KCwrGPphznyY4bJAp+lFO6TbE4MvMidpU2fYFoHiLAujLDG4wiVSkPlvp85KDjb0vbi5Essu3
- 6lLwPzfzPFzGkDcsUaITukxEhDNMVfNBWzpsQC3DLRUX3Fu5AS5H5gbAYnjt/DvNpTyhaxokL
- RU9M5Ba52zSItrxnJlwGVd4A2PSPr0hDOl34S/uWCa2nji9B1iZLhCtif2/1YA+jtsTb3srR9
- xptitbHFFsPNJDi77Y8nrWa4ulmshtsJOXbhZ4Ucojrw1cx9Fg6mMIRlvNisQiIwuaI2rsIhI
- BlOrf8yU06XgLTI4O/5w1E00nsqmgM7GNGMvopkZvRcRP2PeNZ3HtpJn19xSiFPT1NGlGTelD
- o3Ku0pymlkpZrFQlSERjq0Vig056q/qQGZ63gFoyIW5/ife9wnP6ZsRB3jHD7Y609brkzl0rs
- yU3Lq1nNwwvKG7d50igEilMPY9WT9yrZwHXYQvYU2KdRic8KoKv27HZgi7zSi/TIX8XaIPzTx
- 3+FnDJP5M7MPS07CfRmXzeNRIcw7k8gkp2S3uqJh6PSwBL8tJnxzCX7DySNfgBtrk1JKySd4P
- PiNuNMGqKjPc8MafAjkrS/ReZUsODJoO6Z4gID9lm/1dMD6KdadaUO8TZMZBqfYayz9Uzfzdy
- Z1Vqu24TuAezw1PwONvz9uJEzqhUu8fb1GeHJnBfXIj4IZlHLUNfEDAoJbxckoytumkX4bksj
- U/LtGDFJi2+15TT+7PXFWs5Kug24BAk6XIqMV1ja7M4xKffc4EGzXXHbmW2pmmnzkLsnHVrjD
- bnc1hNaqs6L/G0avFt8JKRcYZiJvW3s3aQJi3gx0R3kLKjM9Ldn03YKEoqXYq7ro3p/+GvMOH
- p0nMgaktDTpgLPMU8yT6Xl4cJ7Vljkt4+/Fn5dOwgaYrN9M63SArpG/i99bXeGeE6CAYJPPmV
- GEIKr4pNLOJyrRPOy8rv/e04a8GW1MCW7hNX1UFiaUwLm9vEziQhmCTfVSp9K18ioBcThsLnB
- C/TdnK1jAOt8M/pkYETxWKLVHQ4sABHMqI+hStbko9ZwTwVsE5MCRudFNFP5rdbQVcnk3pAep
- 1YE5x7lxou2Dsf20YJp6OMdCfnRNkWT9zkiI6ZhMClAvhXyA0S+c+RCq1Ut1DZJxYia+dVeQG
- T0C9+vyvg5vL3IC2F6TEiBfpdMeSczhrDzW063hngcW8rdAkh7w+/epoNY/odR3cbxqL4lmsO
- pyh1qbM1pxHtNuY548N9ca8WnvAUoxxgZDGfXX8XE1uh8wXDcfqJLv9JBsgj5eX1d3SLO/dwq
- kp3iqGAtWFUEbFY6hU2fANZY5GyH1sWEtSht3fyZkDH5wd+5Eiziuem9emQzkE3NAxiciBC/w
- LWM21x6P0m1GGGkhfwMdA6EQT6AMBigyrwsPS06VIv/457dqYHQhYZac7l
+X-Provags-ID: V03:K1:kptK/+PtUtRYwf35RfcAu+TpPIIYdWRfjShOuBGBJc5b8NXFm95
+ 7OESYLU4OgTLjAOWWIcl2Q2dP307/5HHgP4np1ydmcehhYAFfBRJrVyMZhi7pdh6rsJD7pE
+ NhFtvQdVnTl3HNM7gDeM3rj+Qg9MHJgbT2zzWAXK1zZEFAJMVNIUcQx5YsNpBccBn6CiPe/
+ LmZ0u21+X8C/CISx1fCCw==
+UI-OutboundReport: notjunk:1;M01:P0:PCguVzfA8w4=;VJ1hG7dTUxCcPbWzp8o42u+Uc69
+ qEZLeEmgQxOUZZ9QdDriH9SIIUBrVXBTiS9Ls3JsOhY+3KynlMCvCRhK33gyKPjLM5DckUCxP
+ 6SqPzrjWgP/h4ygw0/wx0aRrFitiqX3ZauMGyAK+v0eoTU/WET8eK2Jc1vdrqcyHqhjuIT6nZ
+ n8Gdpnhs/zt7XtyRdQhBPgAGoiviGJtZImHEzjEOe2fHt881/9If2wtT/q+LyEnKUacNdMHp7
+ zJjHXAxzIq1hB59kxF/de6IhbL4fnMCHPJYaRLpAxv6C1tlxQ11MvI3pW7Zn5vymyR6RqFD4z
+ FffrZEnZuta5bo6A1eKw4W/Rrk7tboP2EC8YFBw1bNPgIW5NlkSGU77lxvWLD9zDMPfJKEzWO
+ fqvQfmDNp0GJzLeqkfRkPA6xqBtiHDdFfJ8SvnnmJpRBMHDlzTERuIYpz/Q+2zdvp9hNjReYZ
+ gn6QX0L7lpUJViVWvnf2JwKwF49ofgAEpbhhFjjhNYxVwNPwQ6ZRoeCJvW4YBPOxMtgHrmt+d
+ edmxAFWTtCVnEPdQSgqH+WYwYgwKBDnL/9puEAxcEHge5RbAut5fgcGHc22FOUx/WuVg+9mTM
+ 2KVeXtgge/9JTCXFt4waGALh1gJoqucfMKqZnkt3TeeHqgB90qWm99Tt32v0NN7Wrrq2aY44Q
+ Xz3WPzhvlHIbQXD5l7B+7tjvPxhzI1VM7l5UfUX9jctq4DPpvmL5pf+1/lu66iMzDQ9Iu/WB0
+ 7ZPOkqoXqejFP+DoA4Ap28XT3g6HS7Tvsin/OCcXOw752ufOTvSMRX5cJ7m+zvIpd1ljO0On5
+ ni6ZEAr4CLceEQovSRo1sm4zODlvrym1ia4TJCSjx85PkEJbcGLEYKs0D7Jnj5epBotMRgMsB
+ 2lSgYaehIqZb2Ygfn4IxhnWTQ10VWZ+7HQs79iQZjduOagHsJuBfftbC0QWAPQAc8zavrh4SD
+ 8/2pxNGuREzdvBaMBdiPzMewttr6OpS14Nh0d9CLeN+BWobULWKpqWWanz6JxMAFKW/2lzqD9
+ k5JjBGD0CDxQ1yLyLMkkKL1JkTzUHRB69ZCzyTDCyWsBvcK5NaSPh6cHa4P1+tiFVM2uYFHoW
+ KsEshW1z5Uu2BNulk7DmyBWtPd/YWGp/QWXJ5e0x+FP5ta2/+kS1G0CSwGwno+gctslavWpQQ
+ Ikan3QlA13X/2oqGTEEYm8bKToX1rvE6s01jj6sYos8/VmlWog19ZTlDGE/bWW5Ojh6Xg23fy
+ XFYgfj6oiriH2aJaNDvgk3vHtgzRY1r925Iw4S2IIusScCq7vI0yLL0tns56ev+Jo+yBmtfXG
+ sHjkP6aFjJh5Gv9CqMcxR6hq71RzKZWQpsXx7aMHJ9uk3zYHCGjaD2RNoRAy8zVK4IC7gVUsq
+ 7dgzNDHTnDJ/jQy0OF/w458N2B8+O9JvKXiAMX1465wz5a7U36HLGPoi4k
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_055026_441918_372E43C1 
-X-CRM114-Status: GOOD (  11.86  )
+X-CRM114-CacheID: sfid-20250309_055026_667352_9F280058 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,74 +107,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In case the vchiq character device cannot be registered during probe,
-all kthreads needs to be stopped to avoid resource leaks.
+The commit 2a4d15a4ae98 ("staging: vchiq: Refactor vchiq cdev code")
+moved the debugfs directory creation before vchiq character device
+registration. In case the latter fails, the debugfs directory won't
+be cleaned up.
 
-Fixes: 863a756aaf49 ("staging: vc04_services: vchiq_core: Stop kthreads on=
- vchiq module unload")
+Fixes: 2a4d15a4ae98 ("staging: vchiq: Refactor vchiq cdev code")
 Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
 =2D--
- .../interface/vchiq_arm/vchiq_arm.c           | 25 ++++++++++++-------
- 1 file changed, 16 insertions(+), 9 deletions(-)
+ drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c=
  b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-index d3b7d1227d7d..0c7ea2d0ee85 100644
+index a4e83e5d619b..e2e80e90b555 100644
 =2D-- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
 +++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
-@@ -308,6 +308,20 @@ static struct vchiq_arm_state *vchiq_platform_get_arm=
-_state(struct vchiq_state *
- 	return (struct vchiq_arm_state *)state->platform_state;
- }
-
-+static void
-+vchiq_platform_uninit(struct vchiq_drv_mgmt *mgmt)
-+{
-+	struct vchiq_arm_state *arm_state;
-+
-+	kthread_stop(mgmt->state.sync_thread);
-+	kthread_stop(mgmt->state.recycle_thread);
-+	kthread_stop(mgmt->state.slot_handler_thread);
-+
-+	arm_state =3D vchiq_platform_get_arm_state(&mgmt->state);
-+	if (!IS_ERR_OR_NULL(arm_state->ka_thread))
-+		kthread_stop(arm_state->ka_thread);
-+}
-+
- void vchiq_dump_platform_state(struct seq_file *f)
- {
- 	seq_puts(f, "  Platform: 2835 (VC master)\n");
-@@ -1396,6 +1410,7 @@ static int vchiq_probe(struct platform_device *pdev)
- 	ret =3D vchiq_register_chrdev(&pdev->dev);
- 	if (ret) {
- 		dev_err(&pdev->dev, "arm: Failed to initialize vchiq cdev\n");
-+		vchiq_platform_uninit(mgmt);
+@@ -1386,8 +1386,6 @@ static int vchiq_probe(struct platform_device *pdev)
  		return ret;
  	}
 
-@@ -1410,20 +1425,12 @@ static int vchiq_probe(struct platform_device *pde=
-v)
- static void vchiq_remove(struct platform_device *pdev)
- {
- 	struct vchiq_drv_mgmt *mgmt =3D dev_get_drvdata(&pdev->dev);
--	struct vchiq_arm_state *arm_state;
-
- 	vchiq_device_unregister(bcm2835_audio);
- 	vchiq_device_unregister(bcm2835_camera);
- 	vchiq_debugfs_deinit();
- 	vchiq_deregister_chrdev();
+-	vchiq_debugfs_init(&mgmt->state);
 -
--	kthread_stop(mgmt->state.sync_thread);
--	kthread_stop(mgmt->state.recycle_thread);
--	kthread_stop(mgmt->state.slot_handler_thread);
--
--	arm_state =3D vchiq_platform_get_arm_state(&mgmt->state);
--	if (!IS_ERR_OR_NULL(arm_state->ka_thread))
--		kthread_stop(arm_state->ka_thread);
-+	vchiq_platform_uninit(mgmt);
- }
+ 	dev_dbg(&pdev->dev, "arm: platform initialised - version %d (min %d)\n",
+ 		VCHIQ_VERSION, VCHIQ_VERSION_MIN);
 
- static struct platform_driver vchiq_driver =3D {
+@@ -1401,6 +1399,8 @@ static int vchiq_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+
++	vchiq_debugfs_init(&mgmt->state);
++
+ 	bcm2835_audio =3D vchiq_device_register(&pdev->dev, "bcm2835-audio");
+ 	bcm2835_camera =3D vchiq_device_register(&pdev->dev, "bcm2835-camera");
+
 =2D-
 2.34.1
 
