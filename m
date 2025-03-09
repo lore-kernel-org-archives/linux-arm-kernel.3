@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC3D4C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:18:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22F6AC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 19:18:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FKRLg92c6C6VQuMYXP20YZZyOfIPnqquJNnWGRCRNdM=; b=YZH/mXuTQ1OefE/InJZJ8kNxn/
-	xRMxZ//A5yGaWkpnyVcXIjJlJcxsC1m5DeE49HcbgcO3Btfcc+qAtGZP9Kalwd/w1NNIJpPCfUP1L
-	S1nJNI6uPVUT7zm+bwU6VcMF6ZubLCHkqduhUqLsxhZ8rKNMjy4bd4zfncFQ7tBEteFgFLsA3/4mq
-	wxf0tKBKPsT2eDehQ/2RDv7p2R6hCoPysWzq0TI82ZHjmVdZ8YGLCmz3vHHIU8HLESoYqrNwFYqKb
-	gGX6btbU3ollBcfL2xc54LplZi85yy7LldlJ/qH4kIzma68RDsp/XI5LATDsdns1hUxYXnyhNEdzT
-	a8vyYGkw==;
+	bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=; b=Y1IzOtlB7CA5mVO2GYuRBwhR9g
+	0mdsoIlP8Cj7CDxVME+WzeV4WpA882aYCe8yAdVBNwR6jk4OV/69Ezm78E5nEY9+5K3ls2YQF48Br
+	LEHjW8y1o8OZSlAFvCKOXM+z7resi+Ptbbloty16MGGemICy4PlsRs5yI7ZvX8H+ComFCnlSAR2JT
+	4BMx70kONj18HcQfE1BqhIwRd2uaEqvhGqBh3stjJMt1VroWwAX/La/mmfQuMWrjm0Kwn8XMn+aXy
+	LJbf4tjVywU9j/v8DS1GmZUN5XC2H0GZ4gAZ5oW5O9VckeVsBj9R37byvwreYi5bMp7VEmPDug8d5
+	Q2KScLTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trMA6-000000012kK-2bNl;
-	Sun, 09 Mar 2025 19:18:10 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1trMA7-000000012kt-0v63;
+	Sun, 09 Mar 2025 19:18:11 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trLoo-0000000110l-2Aev
+	id 1trLop-0000000111H-3HD9
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 18:56:11 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-39127effa72so260829f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 11:56:10 -0700 (PDT)
+	Sun, 09 Mar 2025 18:56:13 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-43ce5cd91e5so1455015e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 11:56:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741546569; x=1742151369; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741546570; x=1742151370; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=FKRLg92c6C6VQuMYXP20YZZyOfIPnqquJNnWGRCRNdM=;
-        b=trLjswOa9ZA/6/e7jnXDtAWFfUnsvOO396UfSZEZ8NyKncRs4IDe2RVeYAJ9hUsDvr
-         JQAhdTeGGytWa2FSOAnveKqbPvBw2WFJaw3RtpSi7vJ3lIABDzHF12PRPChh1jvYxp9v
-         pTlHUGK5cgbg0qQI9dITfzid+IIPbyUxqpIppVnXKuZuJ/ZozHgRfrR9Dgq7etGprUAD
-         aLJRmZZ5ynpOvkm3hLadUZ14eUoOiwlP6ZdLTR1MaqsUu3HeH8FX93qWV/VIP1lEo+gD
-         JHCOF4rIMWlTRbHRND8523q3lMU1w1jj2iHh+GhM7WhMdzFL3k4RjbMjAO9oIuIcuVEQ
-         oFFQ==
+        bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=;
+        b=ISc+e1IgnrXen0rKK39u58FkSws5X6s9CrcWZzKysLGLDCNgwtCD6+GNYQmmNLgMw1
+         mVOq8WZ9KKd5s5tROA5NMy/TGYEerzpz/AMEWUJG+E8oj7ppZBlz0snMhlPMfjqq/rFN
+         TqP7m0rnvvDiEGe4Dmc71tpczF37xt2LQwJXYNtKQ9Uizp87ghz7IIoy12vwFD6n9ImZ
+         2RsxndfjLJmcTiu136RjV5q2xo2ItWIvYUfuvEu9+JHUaG+FbNWNQkp6ceI3oO16FwTG
+         ALFyZ25Fu7XW40VIefP5RRL2d9mbk+3YUL0P7nWgZAPWjI+oGRwfHzn7DFFONayCk4rJ
+         TLuQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741546569; x=1742151369;
+        d=1e100.net; s=20230601; t=1741546570; x=1742151370;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=FKRLg92c6C6VQuMYXP20YZZyOfIPnqquJNnWGRCRNdM=;
-        b=rWCLeQpQw0FHAjgfMZ+1D0WSD0AOYIyvYHPz7+M5fZ7YaoDFzKgLk8PGSbKisoRzTT
-         LpB9KiDDmUEpaNPuV7OAn31RpkONnz4MnIyltxEV3Yilyknu3ArZAhZOfsjsVLrQFM8A
-         c5WOs7r5EpHXtpuk4rYTCtim5LJ9SR9CweyKx4XdOphRcL818Z4f5LrMb8grhwL2O94V
-         qujQahHedWDA0W/zLguPAlyc0cD35kZz4TwR/5MNclSGvaC3Lc9OYH5iUycN+VyCMP91
-         7AOX3NMRunJ4a+75iAdhIQZTw83Qe2jBKWFELUp6gJHrdbc606Svsgkv0qmnqHrpG70T
-         bJvw==
-X-Forwarded-Encrypted: i=1; AJvYcCUjTLyGae4g+chOjLlZJfZC2fQllsI6X224k3GTAhBDJ6LDtXrnyAV+mfWAdjBp46ommcahrWJPnmzekXGoMknf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzfJlim/taBJiPr5q1NXOLa+nP2lUCeuQj1kOcw3ZdqvwEYVwxo
-	u1ZNbHW69sn65d8H+DdDp9emIXNobkvOSNV8+NrWwLOX/gnqqfOkvdIYxQ+fg14=
-X-Gm-Gg: ASbGncuIWdaDzhsVRG6ZCa9skMsSU+HEkypxXW6+DR7xrTIctWHjK+Z5NrsAlm9rSnM
-	Bdngoqf7aq9Qp+WmZ/fwjb5c3yeB2JQhDxu5uo/5FbQPrmQro83YJiSwZQfTStnxfl/YEErLgIU
-	IBMq2aYF3jF+35lmQ9gWaXIuPfAvMzqX8Z7RNWJZSZhEvn/3Xbad9X/FOBw1BfRj+ramv86uBKq
-	1ZR+cbYPlCfn1wDo5EN3LDK6/xzCeTWNiVK2Dyx06Jaebgra5wM6f2G+irDUoUWNhAxBE8LShKj
-	VvyDPAyAD2azayhMNNluL95tu+TW5LfhUTLuk32hYZjleI0QR4HH28gBX/4=
-X-Google-Smtp-Source: AGHT+IFgAZkZaPTg34kk+B+P+zg3fnOit9vmY6MmBLyv17DTPt6JikKSZWSxHbdBl0XNWFJgN8f7ow==
-X-Received: by 2002:a05:600c:1da2:b0:439:930a:58a6 with SMTP id 5b1f17b1804b1-43ce6ef2478mr13617275e9.8.1741546568817;
-        Sun, 09 Mar 2025 11:56:08 -0700 (PDT)
+        bh=csnV4M7t8mG+4gzOzlbb+RIrtUw1t0+Fx7m4dlnVHBE=;
+        b=UUxsSmc9WvFiZ/kWxZshhEh/gQMNQm1nfJbVFrSaf9EW3DBerhpYW6lq8oFUbwFGp5
+         AyQHqmboFmce0i7HVOODdTHhv8Gs1Wg0wMVPWrALEAwN/SAZvAhRW1fdeXQXVs3PsLqL
+         f8/Ts69yxEOiERpjOn9+pgRRX7gZT0jp+Avm/aPYhBDg6rnM9Qi+0RWf+g/tF2t3S8gm
+         JFl6uSY/Uj0PYCDgdHgjJ+0Xu9kVG6wQYQAkh+G9ROGxR1nM3gmzS2rvgTSr4NhAnSeA
+         V6cNxMyPtgLkG0B27yTBZS11FvdP0M0P6nG+VT/5gVAGA0zUH+eNr/2Z3vQCZ/eKwAdr
+         lzaA==
+X-Forwarded-Encrypted: i=1; AJvYcCUM64fYMC/7uXZEsVDCI5ky40EEF2rfEPlsPg/Jix05NsKMoqOLfXxQUP68aCPajMRBCrC7sJFv1TqnQuLUsaWa@lists.infradead.org
+X-Gm-Message-State: AOJu0YwnEVpp4RraEnGqzHR9Bkn8HoHAnQqGyWxMCWiwRUzA9hmbl+0F
+	TfbTqj+theEaCrj323IP6TUqQk4G1Uy7TAhqyrM0QR0pawgaB/rPCvvvYVM49SU=
+X-Gm-Gg: ASbGncvebrjDu2MPHUKLZYTdkRM3yCAsFsqStJ7zyCF8kpgUXuBkKxZ2nblNVvnIScM
+	BkV2elm4TAlNTsrP9+AIJsS/PLJAF8x27DoHAWGZSlto49Akd97RaNwEciRslf50JHvOOtC5K4z
+	rteWdcOcpLaZXEd0PRFZAmxFOqBU2MYmJf86bUUE/ZT1qYtEt/OorFDpZal3Muqu6AfqAulvEsr
+	IlccTAJpGcthwM3rOqHDVDEpIeDM+aGeTUCVATdsb+E4StRJdKxQPrevRn+gHt9v7uMZYXxRSHI
+	Vboha2eWIGvDkqD+CTPREInK9TvMSdgkdmiP29KNGYd8hen6kZ4pXr/ezNM=
+X-Google-Smtp-Source: AGHT+IHOjQZl6au5AX9pwx89qj1PiY9uUWPbWjZhcAqE7l92MV4Sd5wk3pnxNKw3T6EVY3vWBvszTg==
+X-Received: by 2002:a05:600c:3588:b0:43b:ca39:a9b8 with SMTP id 5b1f17b1804b1-43ce6b12816mr15245875e9.2.1741546570242;
+        Sun, 09 Mar 2025 11:56:10 -0700 (PDT)
 Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43cee22c13fsm44263945e9.40.2025.03.09.11.56.07
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43cee22c13fsm44263945e9.40.2025.03.09.11.56.09
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 11:56:08 -0700 (PDT)
+        Sun, 09 Mar 2025 11:56:09 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Arnd Bergmann <arnd@arndb.de>,
 	soc@lists.linux.dev
@@ -78,18 +78,18 @@ Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL 2/4] arm64: dts: samsung: DTS for v6.15
-Date: Sun,  9 Mar 2025 19:55:56 +0100
-Message-ID: <20250309185601.10616-2-krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL 3/4] ARM: samsung: soc/drivers for v6.15
+Date: Sun,  9 Mar 2025 19:55:57 +0100
+Message-ID: <20250309185601.10616-3-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
 References: <20250309185601.10616-1-krzysztof.kozlowski@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_115610_557218_67A7A08F 
-X-CRM114-Status: GOOD (  14.67  )
+X-CRM114-CacheID: sfid-20250309_115611_821769_6F15EEF2 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,100 +110,27 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-dt64-6.15
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-soc-6.15
 
-for you to fetch changes up to 056106b030b73c7d53749469bd1cdbc89b4d2daf:
+for you to fetch changes up to c8222ef6cf29dd7cad21643228f96535cc02b327:
 
-  arm64: dts: tesla: Change labels to lower-case (2025-03-07 16:05:35 +0100)
-
-----------------------------------------------------------------
-Samsung DTS ARM64 changes for v6.15
-
-1. Google GS101:
- - Disable GSA core pinctrl because its registers are not available for
-   normal world.
- - Add APM (Active Power Management) mailbox and the ACPM firmware nodes.
- - Add new boards: Google Pixel 6 Pro (Raven).
- - Enable framebuffer and reboot-mode.
-
-2. Exynos990:
- - Add PERIS clock controller, MCT timer
-
-3. Exynos8895:
- - Define all remaining serial engine (USI) and syscon nodes, add MMC.
- - Enable microSD and touchsreen on Samsung Galaxy S8 (dreamlte).
-
-4. ExynosAutov920: Add UFS and CPU cache information.
-
-5. Various cleanups.
-
-This includes two topic branches with DT bindings, which might be shared
-with other trees depending on needs:
-1. for-v6.15/samsung-clk-dt-bindings with Exynos990 clock controller
-   header constants.
-2. for-v6.15/samsung-soc-dt-bindings with Exynos USI serial engines
-   header constants rework.
+  soc: samsung: exynos-chipid: Add NULL pointer check in exynos_chipid_probe() (2025-02-15 14:37:19 +0100)
 
 ----------------------------------------------------------------
-André Draszik (7):
-      dt-bindings: arm: google: add gs101-raven
-      arm64: dts: exynos: gs101-oriole: configure simple-framebuffer
-      arm64: dts: exynos: gs101-oriole: move common Pixel6 & 6Pro parts into a .dtsi
-      arm64: dts: exynos: gs101-raven: add new board file
-      arm64: dts: exynos: gs101: drop explicit regmap from reboot nodes
-      arm64: dts: exynos: gs101: align poweroff writes with downstream
-      arm64: dts: exynos: gs101: add reboot-mode support (SYSIP_DAT0)
+Samsung mach/soc changes for v6.15
 
-Devang Tailor (1):
-      arm64: dts: exynosautov920: add CPU cache information
+1. S3C: Drop linux/fb.h header.
+2. Exynos ChipID: Check if memory allocation succeeded.
 
-Igor Belwon (3):
-      dt-bindings: clock: exynos990: Add CMU_PERIS block
-      arm64: dts: exynos990: Add CMU_PERIS and MCT nodes
-      arm64: dts: exynos990: Rename and sort PMU nodes
+----------------------------------------------------------------
+Chenyuan Yang (1):
+      soc: samsung: exynos-chipid: Add NULL pointer check in exynos_chipid_probe()
 
-Ivaylo Ivanov (6):
-      dt-bindings: soc: samsung: usi: add USIv1 and samsung,exynos8895-usi
-      arm64: dts: exynos8895: add syscon nodes for peric0/1 and fsys0/1
-      arm64: dts: exynos8895: define all usi nodes
-      arm64: dts: exynos8895: add a node for mmc
-      arm64: dts: exynos8895-dreamlte: enable support for microSD storage
-      arm64: dts: exynos8895-dreamlte: enable support for the touchscreen
+Thomas Zimmermann (1):
+      ARM: s3c: Do not include <linux/fb.h>
 
-Krzysztof Kozlowski (5):
-      Merge branch 'for-v6.15/samsung-clk-dt-bindings' into next/dt64
-      Merge branch 'for-v6.15/samsung-soc-dt-bindings' into next/dt64
-      arm64: dts: exynos8895: Rename PMU nodes to fixup sorting
-      arm64: dts: exynos: gs101: Change labels to lower-case
-      arm64: dts: tesla: Change labels to lower-case
-
-Peter Griffin (1):
-      arm64: dts: exynos: gs101: disable pinctrl_gsacore node
-
-Sowon Na (1):
-      arm64: dts: exynosautov920: add ufs phy for ExynosAutov920 SoC
-
-Tudor Ambarus (3):
-      arm64: dts: exynos: gs101: add SRAM node
-      arm64: dts: exynos: gs101: add AP to APM mailbox node
-      arm64: dts: exynos: gs101: add ACPM protocol node
-
- Documentation/devicetree/bindings/arm/google.yaml  |   3 +-
- .../bindings/clock/samsung,exynos990-clock.yaml    |  19 +
- .../bindings/soc/samsung/exynos-usi.yaml           |  99 ++-
- arch/arm64/boot/dts/exynos/exynos8895-dreamlte.dts |  72 ++
- arch/arm64/boot/dts/exynos/exynos8895.dtsi         | 956 ++++++++++++++++++++-
- arch/arm64/boot/dts/exynos/exynos990.dtsi          |  92 +-
- arch/arm64/boot/dts/exynos/exynosautov920.dtsi     | 138 +++
- arch/arm64/boot/dts/exynos/google/Makefile         |   1 +
- arch/arm64/boot/dts/exynos/google/gs101-oriole.dts | 267 +-----
- .../boot/dts/exynos/google/gs101-pixel-common.dtsi | 294 +++++++
- arch/arm64/boot/dts/exynos/google/gs101-raven.dts  |  29 +
- arch/arm64/boot/dts/exynos/google/gs101.dtsi       |  66 +-
- arch/arm64/boot/dts/tesla/fsd.dtsi                 |  26 +-
- include/dt-bindings/clock/samsung,exynos990.h      |  21 +
- include/dt-bindings/soc/samsung,exynos-usi.h       |  17 +-
- 15 files changed, 1721 insertions(+), 379 deletions(-)
- create mode 100644 arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
- create mode 100644 arch/arm64/boot/dts/exynos/google/gs101-raven.dts
+ arch/arm/mach-s3c/devs.c                   | 1 -
+ arch/arm/mach-s3c/setup-fb-24bpp-s3c64xx.c | 1 -
+ drivers/soc/samsung/exynos-chipid.c        | 2 ++
+ 3 files changed, 2 insertions(+), 2 deletions(-)
 
