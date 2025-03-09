@@ -4,75 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55CCC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:06:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0620C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:39:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9lS0u9M85Ym5KimOgSAbzYXN9XY4aDpSHE53Ek/Talk=; b=aRGnuNcaRgCRpfT6B9i7Fl/VZI
-	06oS2B9ZgludppZH/eITC+MhwlfarF3jX2B0Gi4ox9Zh/iele3VvcL/V8cP0slT8fEBL+1na2RXLI
-	3X9ibRr2N4VseTTQsnwSrhkZL12f91IpJJ8WmurF34zfnMlaWB/OqdhjYPtg3UQLYvWF0X1zJdqYy
-	6NCK1ihVvXoQ0cVrP/XW0FKSp/fL+cItIZka4d2QtsICPNonELO8+yxIOvOO4f0Q4gv/IfoRJ8qic
-	dFZAjjWGlLwZS8QReX+PZUF4Lx4PsbErYGzW1Pf4m8gKjNtvcLzEO2bWeaVogMHmVLGiPjeLTO9zq
-	rf9dVGtw==;
+	bh=CTBN1gdSIrMQtIsM3UQLZJiPjr+T8c48XAisTd7XDR4=; b=xsDYWi/IwEwak/2YORDoI6aNyl
+	fDumCtsW/KY1ADE+HtIeLLpHhWeY4RKbLA6XHBmnRBqTRj/VTyZ5oWh46Fzvz8J+ZbDS1072Sjecu
+	4hLAHZ4r9GyNIhnaNY9rbesAXiiq+6fa+qH3KdyjPWw3sjTxb6P6lwAAC4O765EGPaCxS98HvLC2k
+	a4VIEog/d9GUqMN9WsFREp1j30u3Tp39DafEF4aWSUEa0/nnXn3h6IruNC8t67Tb+Asss/DDvz3pk
+	Qgo2Y4P8NaXSJDgWw88yjW+2Y53K+pBkxiQpNb4Rg2bOQZVie/qB91vWL8pj7OoEkIiFnb/2tUJeC
+	Uhngznqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr9nR-000000000aY-0C1E;
-	Sun, 09 Mar 2025 06:05:57 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1trAJX-000000003Yb-0iuh;
+	Sun, 09 Mar 2025 06:39:07 +0000
+Received: from smtpbgeu1.qq.com ([52.59.177.22])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tr9di-0000000HaIN-1XIG;
-	Sun, 09 Mar 2025 05:55:55 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2527C25984;
-	Sun,  9 Mar 2025 06:55:53 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id P3wYOcYVPzHa; Sun,  9 Mar 2025 06:55:48 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741499748; bh=3qTQkAzeUoh3oNqUFdtbtTzzFSJJIvUXF74/y5YGolM=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References;
-	b=PfAKY4VHipG6G6gka230q/QsrnX0i7Q4UoW7rjOa8VcWVp3mv0r8IsB3QIQOdBd5r
-	 2AQOeXyqj/C/gsVjfFQZDRN5lXe3tTIijjFMabK/ZVrEYIA7mxFkyzurwoco+d21Yh
-	 cHFexQaURxMNWqDuD/cw4IyIHDj934FBzdaatpnJihmOeKRNKJu+lyOLrQNR75OMQ3
-	 XXg3p+PbnQPkkUJned7eoon4KWExCcF8mwWMExADcSqI5T+7CCuGVVI5wqjYEVgHs9
-	 o3zg/esH3WeWIIbaHdGU//TP/SoTPKLu5k4h0jlgqpEGWqpuAHbDkjWILqHWyFyPHw
-	 UucodzMqZB0PA==
-From: Yao Zi <ziyao@disroot.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Shresth Prasad <shresthprasad7@gmail.com>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Detlev Casanova <detlev.casanova@collabora.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Chukun Pan <amadeus@jmu.edu.cn>
-Cc: linux-mmc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Yao Zi <ziyao@disroot.org>
-Subject: [PATCH v3 6/6] arm64: dts: rockchip: Enable SD-card interface on Radxa E20C
-Date: Sun,  9 Mar 2025 05:53:48 +0000
-Message-ID: <20250309055348.9299-7-ziyao@disroot.org>
-In-Reply-To: <20250309055348.9299-1-ziyao@disroot.org>
-References: <20250309055348.9299-1-ziyao@disroot.org>
+	id 1trAHp-000000003Rv-0x8v;
+	Sun, 09 Mar 2025 06:37:27 +0000
+X-QQ-mid: bizesmtpip4t1741502154t5gjj86
+X-QQ-Originating-IP: PIiBMmc3En4vJW7/I3LQGRV2j1PvNOrAV1RB8S3SouM=
+Received: from [IPV6:240f:10b:7440:1:893e:bed3 ( [localhost])
+	by bizesmtp.qq.com (ESMTP) with 
+	id ; Sun, 09 Mar 2025 14:35:47 +0800 (CST)
+X-QQ-SSF: 0000000000000000000000000000000
+X-QQ-GoodBg: 0
+X-BIZMAIL-ID: 2792177622462223588
+Message-ID: <3605ABCB7EF60115+2de06a28-1b3d-4a0e-b960-9e0a74c6e19d@radxa.com>
+Date: Sun, 9 Mar 2025 15:35:46 +0900
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 6/6] arm64: dts: rockchip: Enable DisplayPort for rk3588s
+ Cool Pi 4B
+To: Andy Yan <andyshrk@163.com>, heiko@sntech.de
+Cc: neil.armstrong@linaro.org, sebastian.reichel@collabora.com,
+ devicetree@vger.kernel.org, hjc@rock-chips.com, mripard@kernel.org,
+ linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ yubing.zhang@rock-chips.com, dri-devel@lists.freedesktop.org,
+ Andy Yan <andy.yan@rock-chips.com>, krzk+dt@kernel.org, robh@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250223113036.74252-1-andyshrk@163.com>
+ <20250223113036.74252-7-andyshrk@163.com>
+Content-Language: en-US
+From: FUKAUMI Naoki <naoki@radxa.com>
+In-Reply-To: <20250223113036.74252-7-andyshrk@163.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-QQ-SENDSIZE: 520
+Feedback-ID: bizesmtpip:radxa.com:qybglogicsvrgz:qybglogicsvrgz8a-1
+X-QQ-XMAILINFO: MZChPk4K8ikNtuyS7LmElWHQBKIqfKMszzDt39qR9elumF/p30V6QFbJ
+	g+bDMddl4L2ApOzqZsf6BbZqpxBhQ8FxlQ8Zf+QdPmMV+fFKC1g0OGLvHKC4B11VRqLmUJd
+	xiJvrpfa5nXJrykU6ICAAYD4loiCATrc9CqFfOjsShImDiiwyk1r1yjkwrhcmqmGkR2cjgC
+	goMlrGbz1T27s0luW/t6sHOhgbzTNMaHoiqeYcBNTU78fIrsJKXGCaV5wZ9fpKob/vS7IlO
+	259OA+3xlSlakEOJno/qIxnfzWa0gWvdQchNhkytETnW4tfOjJvne91omeqp19Wmxwl6/kw
+	lue5yo3oV7uP6utcktSeuot/tjA8lJi3xY3CIiWW7TPI04mn7+27Hlkj2Fc/4q+WTkpCKwO
+	1g0uiwPHAOcaQQT1XyKGgzeNdkkKLajaSq2dxTpVMCsh27QeC4XGEVvHSoW9wJO2lN/bu1n
+	Xj0jgd+UNV4+U6prlBRe+wa8DosFlbEWJ7zaLIguRHnI9+SpDSBOSErYd3JG5GuJAhbvFsX
+	fod++gkfC/Cds41922fNBjUSYxrw/VUxYqHooPfvqgqG7VXcYpno40I9rmfWKNq56S83+I0
+	8ZXosFu+XW8ps4DDD/9ay4Wb2f7/ubYCkJ+sCo5UtTegm4TjSlQzsxqgvcsouuLQYZXggXp
+	YZSVRDzL1MfQg+ltqk5MhKEFl9d4E9yCtkGVE1yfd7Ec2mO4TnuYxjFtbmkA2Y06CJPZor0
+	lGequf4me6fo4y+ZQAWTyG5aGXOK1SK5EuUekyM4j1z91kqezczR4FUKIUu0WXliPLRpwqZ
+	dDMd00y+16hTjAYKXqUhUHRLZEpY+fqPNTaYz0AZd82wVG6n94riOOVn/z64x2Y5D+IBo6r
+	Rw/LghJEQj8ssX89MtUYd6y+FKqMVJxJlwEY/kUV8LOwluUMHEMK+omZ+NaS551jzPEjbkk
+	Zvk0SFrhguJxxzRAxuP/QQaLv
+X-QQ-XMRINFO: NS+P29fieYNw95Bth2bWPxk=
+X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_215554_533772_01028E36 
-X-CRM114-Status: UNSURE (   9.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250308_223721_727644_7C3A5125 
+X-CRM114-Status: GOOD (  13.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,79 +90,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-SD-card is available on Radxa E20C board.
+Hi Andy,
 
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   | 33 +++++++++++++++++++
- 1 file changed, 33 insertions(+)
+On 2/23/25 20:30, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
+> 
+> Enable the Mini DisplayPort on this board.
+> Note that ROCKCHIP_VOP2_EP_DP0 is defined as 10 in dt-binding header,
+> but it will trigger a dtc warning like "graph node unit address error,
+> expected "a"" if we use it directly after endpoint, so we use "a"
+> instead here.
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+> ---
+> 
+>   .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   | 37 +++++++++++++++++++
+>   1 file changed, 37 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> index e892dd7c91aa..0f58eb56557f 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
+> @@ -39,6 +39,18 @@ chosen {
+>   		stdout-path = "serial2:1500000n8";
+>   	};
+>   
+> +	dp-con {
+> +		compatible = "dp-connector";
+> +		label = "DP OUT";
+> +		type = "mini";
+> +
+> +		port {
+> +			dp_con_in: endpoint {
+> +				remote-endpoint = <&dp0_out_con>;
+> +			};
+> +		};
+> +	};
+> +
+>   	hdmi-con {
+>   		compatible = "hdmi-connector";
+>   		type = "d";
+> @@ -220,6 +232,24 @@ &gpu {
+>   	status = "okay";
+>   };
+>   
+> +&dp0 {
+> +	status = "okay";
+> +	pinctrl-0 = <&dp0m0_pins>;
+> +	pinctrl-names = "default";
+> +};
+> +
+> +&dp0_in {
+> +	dp0_in_vp2: endpoint {
+> +		remote-endpoint = <&vp2_out_dp0>;
+> +	};
+> +};
+> +
+> +&dp0_out {
+> +	dp0_out_con: endpoint {
+> +		remote-endpoint = <&dp_con_in>;
+> +	};
+> +};
+> +
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-index 5346ef457c2a..b74e605a5a82 100644
---- a/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts
-@@ -15,6 +15,10 @@ / {
- 	model = "Radxa E20C";
- 	compatible = "radxa,e20c", "rockchip,rk3528";
- 
-+	aliases {
-+		mmc1 = &sdmmc;
-+	};
-+
- 	chosen {
- 		stdout-path = "serial0:1500000n8";
- 	};
-@@ -104,6 +108,18 @@ vcc5v0_sys: regulator-5v0-vcc-sys {
- 		regulator-min-microvolt = <5000000>;
- 		regulator-max-microvolt = <5000000>;
- 	};
-+
-+	vccio_sd: regulator-vccio-sd {
-+		compatible = "regulator-gpio";
-+		gpios = <&gpio4 RK_PB6 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&sdmmc_vol_ctrl_h>;
-+		regulator-name = "vccio_sd";
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <3300000>;
-+		states = <1800000 0x0>, <3300000 0x1>;
-+		vin-supply = <&vcc5v0_sys>;
-+	};
- };
- 
- &pinctrl {
-@@ -126,6 +142,12 @@ wan_led_g: wan-led-g {
- 			rockchip,pins = <4 RK_PC0 RK_FUNC_GPIO &pcfg_pull_none>;
- 		};
- 	};
-+
-+	sdmmc {
-+		sdmmc_vol_ctrl_h: sdmmc-vol-ctrl-h {
-+			rockchip,pins = <4 RK_PB6 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
- };
- 
- &saradc {
-@@ -133,6 +155,17 @@ &saradc {
- 	status = "okay";
- };
- 
-+&sdmmc {
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc_3v3>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "okay";
-+};
-+
- &uart0 {
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&uart0m0_xfer>;
--- 
-2.48.1
+These three nodes should be placed above the &gpu node.
+
+Best regards,
+
+--
+FUKAUMI Naoki
+Radxa Computer (Shenzhen) Co., Ltd.
+
+>   &hdmi0 {
+>   	status = "okay";
+>   };
+> @@ -889,3 +919,10 @@ vp0_out_hdmi0: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
+>   		remote-endpoint = <&hdmi0_in_vp0>;
+>   	};
+>   };
+> +
+> +&vp2 {
+> +	vp2_out_dp0: endpoint@a {
+> +		reg = <ROCKCHIP_VOP2_EP_DP0>;
+> +		remote-endpoint = <&dp0_in_vp2>;
+> +	};
+> +};
 
 
