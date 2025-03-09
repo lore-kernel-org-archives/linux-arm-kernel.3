@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D988DC282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:40:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 338F5C282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 06:45:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fz6Jf36xcTh8dqFosjtzLD6W+gVvPK4QQTcyeflwbf0=; b=u/xQycoaOXld8KZMxkpDgrdlvv
-	c95ZkTe1+NencttYWqAD2rv5HVWgfssJ7w3PNsoGS076QRSoAGb8ywK95x2AC8B8MFyYVjEzp6Z00
-	Uk5meJ72aIYFl7sfo9xXRn9p1LIfTbTUNh81cBCjqw/Gdw4t0WbSD12YCJkxktlIxZcPg5OUa8HHJ
-	ODyvqT7cTYlxyj49BwzA4hsUcYaHdyIetOgQCNJ3fSjs5XdOmIwYoZfuJHH1sICMJTa/gSJoJwjn1
-	MtE3nHnIp3JB/I0SbvBmrH7RciU9LQ1OBvqKxq5p7sHJkoC/RdJkcizBU33ieGLmFGiY9ILtOThxF
-	6x5RlhuA==;
+	bh=pcbrVw4Njs0Kum/2VhRZM7j2L0V2JUwYQMRq+XXSVQ8=; b=oXByefaMlxDdXqcN6oScVNTaDR
+	Fgg9DGl6e7GvL09Uhj7cfId7NzzNgcLd2d7Q5SdcYV8t9i9JkzOXwD7LLeXKTopzJRWnje6WkKoYC
+	eQQLg7+tvZcbphOwfGQKvKjT8YsfquaBn1NchaBLGynYk8Lu9DrAN7+8CT402Dqu9fWFmgYaz0Wly
+	uncgTNvEa3TFMvfDVZTH7QPr1sqmdRpw+4OSDGqLmR2aWZWNIuqCXYY1dhUjoeep8FdcwvgQ1LzQl
+	4isSY5uaIU1arTjVkbGlJKbjpqet5wXGzM+wvbR9gfim+q7Mm+1YEdLNqNhNNaNZSdggsmL41cnQi
+	q0NUZTHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAL8-000000003iY-0a5b;
-	Sun, 09 Mar 2025 06:40:46 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+	id 1trAPb-000000004Mt-0Nu3;
+	Sun, 09 Mar 2025 06:45:23 +0000
+Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trAIa-000000003Tr-2j6R
+	id 1trANx-0000000045T-3SBf
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 06:38:09 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-abbb12bea54so595569966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:38:07 -0800 (PST)
+	Sun, 09 Mar 2025 06:43:42 +0000
+Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-5e66407963fso544255a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 08 Mar 2025 22:43:41 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741502286; x=1742107086; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741502620; x=1742107420; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=Fz6Jf36xcTh8dqFosjtzLD6W+gVvPK4QQTcyeflwbf0=;
-        b=jqIjDv+vP0eNChdR8/DcT/ohcBqMHY0kIkTWtcO+dRUzdYZ0HTIFgVzXE90h4TWg8A
-         GMKfGB2X+80dbVOV9qk0UAoo9eVno2sHsYYfTJXZ80T+j5COQh1TMoNho5WUoLttdmID
-         o8o25vGTnAILTbK+Hq7muxSUbqeYPhfulhy7HrJ4UVWTfSc/2oB0sOOkFDXSE6kOx5iq
-         J+v7ZL//SDfXFUA1dkTYBRpDPWbAS65OerJFJzv5lWUOgsId9esitO+jjMchfvP9e8W0
-         3CgKqm3R11ivQOjOaKb3b9QpzhAVnRUJEaPM7FXzg1u0a5LmIEgUOGOgA3VYcz+GATVY
-         6prw==
+        bh=pcbrVw4Njs0Kum/2VhRZM7j2L0V2JUwYQMRq+XXSVQ8=;
+        b=DqhvVTq4/IYqJkpotxSRHQICZpNdX4xp/TPAZDQXWiV2cWF+M3ZAz0Zb8y0QLlVi1i
+         oGZdL2LKrfTWiunKpZZ8h6sJC6V3S3nl5Nov+OlqP8vhoHNYHEHM9BxPGLneR9p/Hd/5
+         ZbcUCPhfVBshLT2eMHe6WvpuXFYZuGMqvaetf663D21TFVwdS/NpBu49RnvenDr0hb/X
+         qyk/ep2nd+Kl2VcMTVZIvrkdtOG3ssd9cAP3AESPSughTL2O9TAE2TzmQuxhMBVjoIHV
+         qChFVwX5wVlc8i5Hh2C/JHjPVtAkWEvjs/AwFBo8EIZBdnX6lgsL2CHVPKkBbWoaIJDz
+         7Rpw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741502286; x=1742107086;
+        d=1e100.net; s=20230601; t=1741502620; x=1742107420;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=Fz6Jf36xcTh8dqFosjtzLD6W+gVvPK4QQTcyeflwbf0=;
-        b=GvmvYdSWwRwtSFCmeywq70gZq6EW96NAZIzYH6VFojylazlRuIuQcyqVoJyn0PDoTV
-         DWNuCX+7YIBb2MZEVjw+ssdJ7C99JnhHthLm4ps3CP8w4UCfl9faqPuSVCHVchxgds+F
-         fnc26CR7UfonOXye94MyOcB9DGcaqxMu8KwTrhwN9pQbP3yHJVSbegMqB6Pf/0KOHY5F
-         R8tMujRa5He9b+gZjaBdqTzqwJynaeMV8MiCdiwOkciYemk47Bb93uP5gpR+eRBJsh4Z
-         6ya2yR/eh4c7go7g0E35W4TJPuJZBE02Fgexz7Tz5iuhEMQwekZrAFtBrnumRNA2sALR
-         rDbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXmMg8K9KoROwRZPjUAVwhOSFzYUwt2puzLa5iFeONLUT1TUKFZ1iBH3vrccPbGV93dM7scUPy4Gc4V/c3G78ED@lists.infradead.org
-X-Gm-Message-State: AOJu0YwszSC8Wh1etkprsbdzVNUbCCZZyD6BGZDh22mshOkilAv1cWy9
-	Rd+EVTftmxgEZrvzBaeA42C+ZsZMUZTvvKl4H6TFR4sZfVWw2X6r
-X-Gm-Gg: ASbGncsGwVFBRRlYXFb45bPqKsP4OAqGIj8kBawQmUpQdZyEDP4Z6oEKccz9aF7F8s2
-	njWHdGm8sxqztp9mvyh5VURkcmSQ2qVHfimgwrOaHBgL++nr4X9/grXRqmKZPQt7HdjnB06ATx7
-	uZuehjLeCOP8WboQS4yOrxZxdcS8D/htU//3qQaIxuL5gKmtTi7EK2cFH6vd3lyUrwkZmjuP7xP
-	l/eiLeSlqj6ZpGPrQo/AhtGpYD22Irq7EQ+X2ZYVMgeD54fWNjfzk4qhEXlwmxtHlMkEZc/IGaM
-	zA/Ew99SxdWdanU9iRgKkCb/svDiC/KUviw3VNeYhbnUb1HqJ2/BGi6i8HOfepv6Iw==
-X-Google-Smtp-Source: AGHT+IHhG0nyJSWhRdWZlqSDCjjx4E4luGYWfPo00aAv/HBDZfhIYjAS5k26NpukDfuKeycSfkBWmw==
-X-Received: by 2002:a17:907:97c6:b0:abf:4c82:22b1 with SMTP id a640c23a62f3a-ac252738126mr1024070266b.32.1741502285623;
-        Sat, 08 Mar 2025 22:38:05 -0800 (PST)
+        bh=pcbrVw4Njs0Kum/2VhRZM7j2L0V2JUwYQMRq+XXSVQ8=;
+        b=dYOKlDCBgxDBQJV/AZhFpNS5bxbBqn92FYDPoi1oQgKF6GbuShF37YmCrGyOW6z8LZ
+         T5yIkD9b4fb4qUvql0j/rsZhOSt+k2G+YP+1wRFvnqVuY6LAW6PLfcJdFwoDpS5vF5CH
+         eNCmJkPvNFcmMGiACBAEzQlkLSX3/Arnb77xFfkxwakhXNZ3AGwlsonfi6g/XgyYkloU
+         YHjfwMjXn5yc7WB/6RZ35W1eGAsBOBiFP3WlTkTEke//c8o2Zb/nWBYKOvoWvh1dWtwR
+         5CtldJcbvXjB53iQEA6SDFEyvqQi7S5E0h5aV2LMeOo054e+sdNGXmXCVGEKLl/cvtak
+         S7xQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+QQozpZjlQWcqLSSYwFrJolUmSQbRw1sjTRMuSZRopxalo4ZMtkpu84Y5C5pTcr4J6+RhtmbC4W+/fsowHwUm@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuaFMJEGs+d/T4ENMTv8pDjH3fyeH4sXI0D6dxi0vIlXyp70PF
+	Wyf4uBf6Qa5B8qUfY6DpIa1n8BH6lfgrWKWhTWiR+sWsx3Vnjhjm
+X-Gm-Gg: ASbGncsaRfes6gIuG5XG/rfVj9innVjCPr/bhIJkJxSRC/I4lTWWoWqRiPNZnrtIuYa
+	/zjuH8V1agxWdrLKmAMocX+WNTOq2PbZAoWBdnLXrXrKotQOgKsOkFhzAKA6Xr7D5gIGne/9IBX
+	aLNThn2zvKdTHl596KoLvKRe6zBfs/GnsTzBwKEIX5XECPY78EzSeUaty60BOr4QNoZWgMnXjbo
+	pACdd7ka18MPaTYf6P93z80Pl9TZjM93FP1MF9Acpidh5LgCaAPxMdTfzXQtcpPbWlH4x6svehP
+	VmUg7izlmH5pPBXhO1nt7qjLuqFZeWxBbYcB+l9qCUsGxWPXOiTCj4A2EFraQaSWyQ==
+X-Google-Smtp-Source: AGHT+IGoHXU/ZKdJQBXrrTuO1peZxmq65riLT31sE4BFWMi71oPY28XqAsCq2AVsnbOJtj538rdAGw==
+X-Received: by 2002:a17:907:2d92:b0:ac1:fab4:a83 with SMTP id a640c23a62f3a-ac252b5a837mr1044767666b.25.1741502620028;
+        Sat, 08 Mar 2025 22:43:40 -0800 (PST)
 Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac23943945asm538979266b.22.2025.03.08.22.38.04
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac287653e64sm109036266b.136.2025.03.08.22.43.38
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 08 Mar 2025 22:38:05 -0800 (PST)
+        Sat, 08 Mar 2025 22:43:39 -0800 (PST)
 From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
@@ -77,20 +77,18 @@ To: Michael Turquette <mturquette@baylibre.com>,
 Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v4 02/14] clk: sunxi-ng: mp: provide wrappers for setting feature
- flags
-Date: Sun, 09 Mar 2025 07:38:04 +0100
-Message-ID: <5865232.DvuYhMxLoT@jernej-laptop>
-In-Reply-To: <20250307002628.10684-3-andre.przywara@arm.com>
+Subject: Re: [PATCH v4 05/14] clk: sunxi-ng: Add support for the A523/T527 CCU PLLs
+Date: Sun, 09 Mar 2025 07:43:38 +0100
+Message-ID: <4633243.LvFx2qVVIh@jernej-laptop>
+In-Reply-To: <20250307002628.10684-6-andre.przywara@arm.com>
 References: <20250307002628.10684-1-andre.przywara@arm.com>
- <20250307002628.10684-3-andre.przywara@arm.com>
+ <20250307002628.10684-6-andre.przywara@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250308_223808_687400_CDC302FA 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250308_224341_863762_3C68E64E 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,19 +103,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dne petek, 7. marec 2025 ob 01:26:16 Srednjeevropski standardni =C4=8Das je=
+Dne petek, 7. marec 2025 ob 01:26:19 Srednjeevropski standardni =C4=8Das je=
  Andre Przywara napisal(a):
-> So far our sunxi clock instantiation macros set the required clock
-> features depending on the clock type, but the new "dual divider MP
-> clock" requires us to pass that piece of information in by the user.
+> Add the PLL clocks of the main CCU of the Allwinner A523 and T527 SoCs.
+> The clocks were modelled after the A523 and T527 manual, and double
+> checked by writing all 1's into the respective register, to spot all
+> implemented bits.
 >=20
-> Add new wrapper macros that allow to specify a "features" field, to
-> allow marking those dual-divider clocks accordingly. Also add two
-> convenience macros that deal with the most common cases.
+> The PLL and mod clocks for the two CPU clusters and the DSU are part of
+> a separate CCU, also most audio clocks are collected in a DSP CCU, so
+> both of these clock groups are missing from this driver.
 >=20
 > Signed-off-by: Andre Przywara <andre.przywara@arm.com>
 
-Acked-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 
 Best regards,
 Jernej
