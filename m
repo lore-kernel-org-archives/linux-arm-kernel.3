@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E2D0C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 13:50:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65FE6C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 13:52:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MZocKeaP4+m6t9O2v1jxFvpKpeZLmzryJkfebv96Xm0=; b=Qq/Lpfl5+e7GwYBFKMRlGw6PBS
-	RHlAZFuodznTWjninP2AFppxYDUYo3F7gjGhaD9Y2Fdgtnzq8DrzcWDMWt+s5JUCYuSfOt1mFbu6W
-	IAF0snBq4YNg8Q/AVRjhddy/zRM6455ZxekM6iHHkivo94CIGWI/kzw3hnteQknUFuKde4rOsB+60
-	lu1iopuee9H2YBCZKJnIxXzKWmJEZk4sMjPAQUUiRXcHkJaYVMklmKIhwnvsf2Jq1d+ricdey+tnY
-	Xjt+BhoLBXZO+6FAQkgZVgbkq9ENhRaUJNVR9hP4edtn0WDXv7kDE7Ib9Ozt1xxVqFKLOGdA2Yvk2
-	DjJRAjUA==;
+	bh=oHGf9I9jetcKSy3ZjSkoEOOlmvfoewi1ZT4SC8hFxRY=; b=XIzLDfeb8UJfpQTF+OHXQ70tW1
+	ozXP0eaUQ/XmIGvFp3zsMFbM94Wy7M2aiYIDPl/0V3aaKGJOgTJKcGl0oakFMxt+PcQayKXKsw4Gh
+	H523IWPqcqPm3hVMZZYi3DQaE23rYBZnsy48gsdSXs1vAZsqg5Skj0uf4m9l13bJOA3o70LCCDcYp
+	iXVsOYrXjFyfL7mw5n7scv3a10FXuqSeZzakvOSjmxZqOC1358LkU0T1hmMjePDgE/B4QxYIFj/5K
+	wUlJ4oVxAoGgjBe7hsXSFKHIRcuEdn1xarvBOw3BH250j6oBAlDM3I2oUnCw4jbkemjKIHOhczt+H
+	tMXuoQeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trH38-00000000cx1-1jZr;
-	Sun, 09 Mar 2025 13:50:38 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1trH4j-00000000d5g-32WC;
+	Sun, 09 Mar 2025 13:52:17 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trGk5-00000000aWd-1hGt;
-	Sun, 09 Mar 2025 13:30:58 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3912baafc58so2327327f8f.1;
-        Sun, 09 Mar 2025 06:30:57 -0700 (PDT)
+	id 1trGk6-00000000aXM-3xBz;
+	Sun, 09 Mar 2025 13:31:00 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-39149bccb69so9069f8f.2;
+        Sun, 09 Mar 2025 06:30:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741527056; x=1742131856; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741527057; x=1742131857; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=MZocKeaP4+m6t9O2v1jxFvpKpeZLmzryJkfebv96Xm0=;
-        b=HK1Xc/w66j5XZyLfgtVvEeSLSZb1xRUmNXHzV1zyGm7icVltSxlHtM0PylNAmaR1OT
-         /fvHqIb5Xa9HDnEis5Mn7/uuCqKKvzC6tejkj7gAZZsO5tEa8HpBDfcABYe2lshJ+vLK
-         6Rj3kVNfvpPSlZcYyuoAUaPgUgn5h9Q5gnIY3mgoJeK7+0anF4k4URLDysPCrFv8u8Uw
-         tyoQbpylsvNIis+Y6uveJ7xs9gcnpFd7REKZ1QWMvLwgfUIvDlvAKBuDtAh4URWBRdsT
-         mAeObAK9/nmIifClU6Yl5TVYSy8vNGUwYmfzl7uIG93rYNrhvq9Ih0c//vProfndDspq
-         uXRQ==
+        bh=oHGf9I9jetcKSy3ZjSkoEOOlmvfoewi1ZT4SC8hFxRY=;
+        b=dIa278FCxXt6INTi0DNmegQV6IrKW5DUTBCBO6eCloLt/2ZRsA4eIu1aE4EZ9UaHqP
+         emtVM+UwySfmZ4nnlndNeWsrVOS2M1vjA56x1oLK1sm34WbqnjuWrvzM+EigHikPUAZm
+         DtWdZaQJVSR/mBwRb7w93i7vyekBWSn7bhNVOsHZQGfZRXI5wjgzIdCLF2uezrsvKDJk
+         NSDY5JlhG1bXQc7B8okHcwW6ByOHq8TovSjmAQZk+MK0rgNSJgeDwtEh1jE6tBH0crjQ
+         GMFEJarvyINr8cZ9OzCNyHmbTIezf8vwzrE2FBMQ+L0EhwmNvyjRnEPoprIHmhR3ZT3h
+         vCjw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741527056; x=1742131856;
+        d=1e100.net; s=20230601; t=1741527057; x=1742131857;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=MZocKeaP4+m6t9O2v1jxFvpKpeZLmzryJkfebv96Xm0=;
-        b=w7ofAjGTdyoueZAzvFlXMXeRASJn64XN0/+l2LQonh4D/HZmj8pgJ/itmseg1QwOEK
-         x7IA2dLCQX7wlkt8j4Iv3c9far4ZOfyhFQ/ff7Hh0DXv907iFVKq2cpenkeuH8jjMib9
-         /9cILp6g5DSE/lji+5ppXFkcTUftI7TzbbEnLFowNnwxaoaUouB1nBw7Vqvu0lNGSRgy
-         Rdd1VeTjOmRAFXj0C9tc4KUr1ISZx0QiEJsGu0Z8TFJdgiHuFhqQmC35t5BpCn0MIjxK
-         EGPZJ2vZqWm9YKUJy68tcb7YlSxu9nopejaGqcJRokb02vXW6VHOjTPaaEExU9f3XBHm
-         h7ZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWqeSyP8qWWPQzK+ncyYV7jBP3p8qqPRCd0alm0+BVcTtTiZRMOyxe1BQLM4Xktajb3JzSRmYN3Iv9tDUjBya0J@lists.infradead.org, AJvYcCXQPOvX39/8hhXhkIpuUsL7EtTMpTDutUIse87/pkcw70s3+MEwpzt4JI+xWedR28FoosKZq2ojmkRlwE9WFKU=@lists.infradead.org, AJvYcCXb/3CGUKA9iYjCAOZxMHIjNclvfC3PrceQ+4ryozlGzJRCjFsAPU4pno1lvgOTOdVjZwcQsuyvKkMJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyM3G+SOX2uoVJ8CkRQ8eoK7HEsJ2+/ZFJpvG/xV1YCvOF2QJ6i
-	CxaGFGqb04CtTJReuetvx3Or2z1ktz4LFhUvv/E5UeTHeqcGR6Oi
-X-Gm-Gg: ASbGncsbyi8evFeeLbCVzVfdka8D5CW1SM+TNQPGFMH0jjX5OPa81zBTA6zGvAw90Sq
-	JeWpIajdDGBT60CpNYzzKt07QBoyKyMCgTzZzg08Trj4gFxCWEBuNHjGkaKeRoamzUg8n2PAQti
-	OXwmIaVn7vMxbVLvljFbVAcfq79KdmhA0HsI2QO4Pt/D4WK71HYh2pZOJFWzzQ89rY1aNVPv5ii
-	SIWjFeh87aBwJpEQToE1nFNCDJPSxon4ZA4SOiQbsNQz6NzAW1hOtzVi7aKjTgsvkdNNRqS+Exg
-	t09SRZLdUu098eeaHjsOyP6MPLMrsrHn8mr2VxE7uuI24SD0/miwj8SZyk6RqHX6ERDUgHQ0//L
-	YqR6eqYi3EenF7Ssc5BZiWc/A
-X-Google-Smtp-Source: AGHT+IGueJHW1j9BhtVPmDBGX8blLXmKHwrxWVgv1ht1LrkVtNBdxRa6fjj8ZPsr1C+nUsiR9Cs4RQ==
-X-Received: by 2002:a5d:5f93:0:b0:390:ee01:68fa with SMTP id ffacd0b85a97d-39132d6cfb5mr5971194f8f.24.1741527056010;
-        Sun, 09 Mar 2025 06:30:56 -0700 (PDT)
+        bh=oHGf9I9jetcKSy3ZjSkoEOOlmvfoewi1ZT4SC8hFxRY=;
+        b=oDbusejMWsUAY7G01NjH4iBxoXsZ8PVa2qpI9gddaQV8cAxC16+XKrNDCMXIZgkZDB
+         cmEl0c1WEravhL2hNaXq+tGYrjYqU1mMfVvz9iJXt5voz+WtjBEJkPJ3BFWwbOEywc3s
+         eMkTAG89FSrWeg8tMMvOpyaJvpPPpfeW93BNR0LzdoWOQgoqjpfDxdheCDIpvMLguFrj
+         92GnxbFb+YZgsScJHT18P8F+VNXc7ZoNaJsqgBI3a/Jps3KJKc+pMEobWUKNcJgyp8Ep
+         ktvJMKhz8gtKog6fA29trLcKkQGxO23Yr56XjkXCijW3WfmlQJJB3e9YmVQ6EeuArpa7
+         ncNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUoO80Sf9GXTPtiup/+QSdZYhDutCdoZgkihe8YVqjvFQWQ0Bv37VTi/m6iOU0vwg0Qe7pIVANxVbtD@lists.infradead.org, AJvYcCUrCYxM7y6A1opaDIsy3Z7EBXdHW31jGVGPfGDTOcuLxS418FQGbVpQpPXXLNadmOyTtxez/zRkAF2S4fK6nTRq@lists.infradead.org, AJvYcCWk9mhqTyC6/V+mx7YuakKbRoYI9AK+t6oGk5SAVe+Qlm2kR41adPzGqaPJ9U1wK/aSLzL9rQetablbI65dcNQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxp2LT6FIq/tRtVzXlZxwtoMApBu/YlWvdnUNX8X3oXVqDgiDTA
+	+dUXFaYdRVId6OLVC4RMxFnEmxoGWOd4lFm/C7uZIqVu/jT5Dq/G
+X-Gm-Gg: ASbGnctI3xT8gBfcwZ8FJEMPjN7Go5Drmq/AIQZJRTWOEozn+lwQp1UeQkVkqSNnsU+
+	Fd9a3fDwPwnegMboLHrmqaBhU6r2YaTmI92Y3At40BuLNzTMAh2K/yn5sSN9Ieg0bpAjjmFtpTR
+	bC2gDkli8J3fDUgfeKh9uwEG3Kqvp7AR57AgDm85KVfci8VBWiq9n3GpEHW+gZJV8vbe+q9uFzL
+	a120gtwQ1EC1D3x019xIAdSnbYy5eKFq3bll5PSCipE/18t+ivNvHOQmOD3ykv0Lbr/ZGw8oYpF
+	jVJlL2BTSvATqB2VtfawHZVyaMIomimd1ghiTqF6/p7D0BulrC4tAoD5vH0tYcxjjMXWhQKYNHf
+	pYEVwITNZRhtOEw==
+X-Google-Smtp-Source: AGHT+IHh2pIg42W9ZdtyAbGtU1E8eclkophsMoFuh4X5tdSn2AE1TqJ6fGru5g4aiRfyb7QzTWo1Eg==
+X-Received: by 2002:a05:6000:1f8f:b0:391:2ba9:4c59 with SMTP id ffacd0b85a97d-39132d986d7mr8560947f8f.43.1741527057566;
+        Sun, 09 Mar 2025 06:30:57 -0700 (PDT)
 Received: from localhost.localdomain (93-34-90-129.ip49.fastwebnet.it. [93.34.90.129])
-        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3912bee262esm11867536f8f.0.2025.03.09.06.30.54
+        by smtp.googlemail.com with ESMTPSA id ffacd0b85a97d-3912bee262esm11867536f8f.0.2025.03.09.06.30.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 06:30:55 -0700 (PDT)
+        Sun, 09 Mar 2025 06:30:57 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
@@ -98,17 +98,17 @@ To: Michael Turquette <mturquette@baylibre.com>,
 	linux-mediatek@lists.infradead.org,
 	linux-usb@vger.kernel.org,
 	upstream@airoha.com
-Subject: [PATCH 11/13] usb: host: add ARCH_AIROHA in XHCI MTK dependency
-Date: Sun,  9 Mar 2025 14:29:42 +0100
-Message-ID: <20250309132959.19045-12-ansuelsmth@gmail.com>
+Subject: [PATCH 12/13] arm64: dts: airoha: en7581: convert SCU clock node to MFD implementation
+Date: Sun,  9 Mar 2025 14:29:43 +0100
+Message-ID: <20250309132959.19045-13-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.48.1
 In-Reply-To: <20250309132959.19045-1-ansuelsmth@gmail.com>
 References: <20250309132959.19045-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_063057_442354_2E47DD31 
-X-CRM114-Status: GOOD (  14.15  )
+X-CRM114-CacheID: sfid-20250309_063058_997605_28BFFBE5 
+X-CRM114-Status: GOOD (  12.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,28 +123,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Airoha SoC use the same register map a logic of the Mediatek xHCI
-driver, hence add it to the dependency list to permit compilation also
-on this ARCH.
+Convert SCU clock node for Airoha EN7581 to MFD implementation in
+preparation for USB support.
 
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 ---
- drivers/usb/host/Kconfig | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ arch/arm64/boot/dts/airoha/en7581.dtsi | 13 +++++++++----
+ 1 file changed, 9 insertions(+), 4 deletions(-)
 
-diff --git a/drivers/usb/host/Kconfig b/drivers/usb/host/Kconfig
-index d011d6c753ed..9d8626f36ca6 100644
---- a/drivers/usb/host/Kconfig
-+++ b/drivers/usb/host/Kconfig
-@@ -71,7 +71,7 @@ config USB_XHCI_HISTB
- config USB_XHCI_MTK
- 	tristate "xHCI support for MediaTek SoCs"
- 	select MFD_SYSCON
--	depends on (MIPS && SOC_MT7621) || ARCH_MEDIATEK || COMPILE_TEST
-+	depends on (MIPS && SOC_MT7621) || ARCH_MEDIATEK || ARCH_AIROHA || COMPILE_TEST
- 	help
- 	  Say 'Y' to enable the support for the xHCI host controller
- 	  found in MediaTek SoCs.
+diff --git a/arch/arm64/boot/dts/airoha/en7581.dtsi b/arch/arm64/boot/dts/airoha/en7581.dtsi
+index 26b136940917..dfc12fa99748 100644
+--- a/arch/arm64/boot/dts/airoha/en7581.dtsi
++++ b/arch/arm64/boot/dts/airoha/en7581.dtsi
+@@ -173,11 +173,16 @@ spi_nand: nand@0 {
+ 			};
+ 		};
+ 
+-		scuclk: clock-controller@1fb00000 {
+-			compatible = "airoha,en7581-scu";
++		system-controller@1fb00000 {
++			compatible = "airoha,en7581-scu-sysctl", "syscon", "simple-mfd";
+ 			reg = <0x0 0x1fb00000 0x0 0x970>;
+-			#clock-cells = <1>;
+-			#reset-cells = <1>;
++
++			scuclk: clock-controller {
++				compatible = "airoha,en7581-scu";
++
++				#clock-cells = <1>;
++				#reset-cells = <1>;
++			};
+ 		};
+ 
+ 		uart1: serial@1fbf0000 {
 -- 
 2.48.1
 
