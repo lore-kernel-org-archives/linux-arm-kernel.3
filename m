@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9C78C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:01:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC84CC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 18:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=; b=c6ZN+4ptVEAfV0BhORiDPYnHRq
-	Wixe/sZ5oD6qcDysBtmuPPG39cru87oHzROxQX8w0CiCVszF5Snw72W3LbktPhSXEBYqUgEGZmm70
-	+Ai4kY08nYC1z6QGlsNyX26PnqLRi4/s3tyz7Dq+bgmFJioM2AY2dAUD8n9jrROyy1aGw/HmjTWxc
-	Q9arHCs9kQQa1HMWsOwo1rV3wNouuaC4elC26b/2jslkqv35o3bCdpDiGp9fxkgcx/uAiLAx42JVJ
-	RRm47lheVV9jJaXK8jYUjRazKhTvS0aPOq+iO8XlJVLxmkOgLMA7lS49lp2e98Jh8YTqzuxAz+13A
-	o2OR1BoQ==;
+	bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=; b=hFAaAID1FL+v7ziui/xUqvwxNL
+	8Q2vpB4JrUU1fU3f1u0opJmBkaNRaKXQUW4v5aA6CsPzyWZXOkJzGz+WiJO/sZU3eeA7UwLg9bK6S
+	SUYUUvYDujTmuP6Fo/4ug0yada1CfLDuVpP25SwZTt6m12Mc+itTI6OU80aM9QWoyvlWSlKKiwG0d
+	tN53H6+Wunt0R08e80daXn9N5Qi8qnyicH24b8QGsPXA22AoYN19NyDhndG1Z47awBnKTTWf5jVt6
+	gXQQTfy/T3gb3lV2iYukX+e3X/TPVCrelG6s826tDia6KjsUPIYeZ/Y3lZKAvNv+Q9euAw12N5zX3
+	GoeBikjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKxP-00000000um4-0L63;
-	Sun, 09 Mar 2025 18:00:59 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1trKz1-00000000v2O-33GD;
+	Sun, 09 Mar 2025 18:02:39 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trKob-00000000tC8-0myU
+	id 1trKoi-00000000tCj-1ev6
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 17:51:54 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-38da6a1a20bso193081f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 10:51:52 -0700 (PDT)
+	Sun, 09 Mar 2025 17:52:01 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-43938828d02so4682085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 10:52:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741542711; x=1742147511; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741542719; x=1742147519; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=;
-        b=pqPokU4KcufEy3wRYFGUaL1WHq1iVk76uYE0zoikNWHE0ZGMuHvP3uF0VHeFKQHgpC
-         GG5oY1XJNR1R1Dq18Aj8FgbT7IBJTAT7JCBqJc/jtxHbcflPdhoBB/U9scye4+5xCK6t
-         YUB1qmgK+8GEMxHGequTj/GFjq/MdhszqZ9ZvJAIWh7uErPQon0KfuFxzGXrR0TULDif
-         7uqyqdySWSBGCg5yoA437rDG8iYczjDxM4Ujfm40r8c9h8cihy+XSmwmjjawVTJflJ+5
-         Zi9adJ5CREbnh2Fe8Dqcs4oHt+ZoGFYUoknW4ZV7UQrIbx5KrUUKtUD09NiqUuTxp5ye
-         vVmg==
+        bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=;
+        b=NSdhab+2F8w0bZm0t4eGEDSPSMoz1NME+YTg2CZ1RxO0wWI/5UY4umD5hKUs+kY6CF
+         NiamCRiWNxb3snUKYFKW3/Fo5v+rk55DjQJjKSvrtkYj1fauvsVG+i9Ieu1r2jlYCAhA
+         T6DsUCmcjdPenJUikgK3WcH1ZScAKZ3AkOXK0y+XgvsBgW28aZooNxnxn6cethgxVhQA
+         9yqwv9KToDctwPeWvb8rFv+q8BMON7uWL1gDX4iCp3GSlwS23DWMV96qa69BossvZ/8T
+         LIBTfb3niFhVFc2+ba3Y44kUikf903v+X+hD2WfIvWaDVonkLgJMM+qK7M7zLDudQ2Dx
+         FdNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741542711; x=1742147511;
+        d=1e100.net; s=20230601; t=1741542719; x=1742147519;
         h=content-transfer-encoding:mime-version:message-id:date:subject:cc
          :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ag3e+knRyg8hgi6gCn3CC6P74JcStlCkhKaiz35snmc=;
-        b=sUiZWjmyS2V9Qt1D3XOHVqiDqxxHPPXMm5raTaAKKdTaN/WvSS96VHz6tgVmkUBnB5
-         obAFAgYSbMYNiuX/702ud9NvfCnOgK5arMxkHmyKznvFo/qAwHk3MXDbNvW2XRHGrZhx
-         fVrJVwnAdu5v9j/7ZFN2pc/wYQDeh25NHqNHwvGZVxx0HzZUSECbFzR1HtIraDpfUEHJ
-         b+iT5kHN8gDo86kCUQV2yrKKOCvF5cfo5JHCAr9b0ZSLdv22j/dpE4eKz1O1dC113Syu
-         KlUjL1Tmct6OEspapxku1nAr7ycMVWkWNQOXClgWibniG80BowdQ9m8yIhHmKtCB33Kg
-         fTHg==
-X-Forwarded-Encrypted: i=1; AJvYcCVio32mLWfinKOHHbrgSrd7LIoH89XXYOrTQozxTgFgcW1nCvnp4BatSdyAFWxTo2EhEqdwVhBM5UKIClHTZUgD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxS/USI8LsIx/Y33IJljieHjn4DfRLh/c+eecN+4RzQtHjclVJg
-	gRazITlR4gjCo7I60jOG1VaOPkvewZpeVKVFm6KiDLShKOgIGFQVbqTD3lCG7aU=
-X-Gm-Gg: ASbGncsJIp4q2CBfgcmesUaig3rL+7liEJnm0ytMxOUwJeWBVtXsYAd/O6hlh287vem
-	HhTSYYSLeuNOPfNyMzK8moqfE1y1YWz+cA92jJmiXK0ANt2gcxTIq4927C6rXJr55a6HsZsGyZn
-	M/BD1GJr7yvm8lJcPSEC47UlNS7Uwjs71hYZq3IkZUKc2fln4mjdMq5o8zfULRolcf9FmVNclap
-	spgxSKRc/TkryQf2apWixlSVxIaNEVOMsJKYaKiHgyfFBmm6VN+NiRd1nAamDkysILJLg6PmO+p
-	/rg9zt56pToglSETntJxbX2zvSiC35V9Uk04xdaAuZxkKqnCF1Puoxrhly+VAlX7ccxtBQ==
-X-Google-Smtp-Source: AGHT+IFa08ql7h89Y752Zvu7Rau8znLYoWC3F6Ls9EZuW63PkjYBwc7RN80jzLbibjKC9dFckabhWw==
-X-Received: by 2002:a05:6000:4021:b0:390:d8ec:1779 with SMTP id ffacd0b85a97d-3913bbd20d1mr1460637f8f.12.1741542711124;
-        Sun, 09 Mar 2025 10:51:51 -0700 (PDT)
+        bh=jo5cZzus0FAHnZneWz5yvUV4j+MaUQTnWxm1PiFIAZI=;
+        b=ZmXOsaWpEeth8xktSeg7ElC39k9Khdt6ZYvu5BmzlsgwuHBumYNu9OFeQVRMHGkiA8
+         GhyeZoEXMPwE4VyP8R/BSYdYFaQ8rTWEJhJQbq46+sv8eERvJGFcpgnib3Ch6W1+6Uof
+         bfCkPwuJvb/2Tf21206MzXwZbkpfuNu676cfA4qoyilgqCAHpOKvE/kTc8zGc1JSNlfM
+         GCEzcez/sTNvNs7uzYxNRq+ZMLpmpwRHUMQWOe5AAq2oKav5o7GLN3UsZ01qm/w0vcA/
+         PlKPmQPd1t40PaFYkLdds458NgyxUrOOwMy+qdTpJqKiLW4Jq0PorHnUH1Zz22w8IwVl
+         xDeQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWhqm6OIMFt41UKYkpjKFqIdVPWalrtwWM3Qw0EvQvRTWPgHLQ7n4vDIlcECbloRchliMBWTxc2+fyZKp+wL+1Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDfityHgw3eRMmXAMDqi4cWQmDko8JNP7yvLQrDdmvIRBit4z/
+	sUe8aat43oVjPSABmnmxdV8aao1h5JMLdG4ObY8IX4utrPYVMZ5CdkrkzmCDi+g=
+X-Gm-Gg: ASbGnctc/ROjtEWoO7p1kN5T4TqRr8hDlOsRlC4gtAAOWgDehvUQzHjOpytZ/XjrWhf
+	rnksgNY6PcgnAFwnte+muk29RC2PQYAN8xe+mUDzq9pXAuJR0H/WMJghlFWJ4UXGeLhRztgcAjk
+	VLaBnKW0uq/XVoE+YJl9KsM61iBjZ0vJI5FxcxMaHeiP0D19PehFjFj2YjGRP0Ystp5MPSmit3e
+	c558ZDZOpK0zQs8R2oZMDTbCBgXxFDxQY9NzlwDwCW8MMmjHa9wBgzKSWx8uwfliXyMxoHJ1YDT
+	xRGLmAGcGiqQ5aGV/JDZU+SIrx8MD+ZOtNk2aq7ZrQwjKCIFpzZ21wP8Cjs=
+X-Google-Smtp-Source: AGHT+IHFXC5otRZ7F4yGnhvywHvWeRyg1x0RiP0aY2UeNSAgYGd4FzPX32gmebfW67foinZiceGAog==
+X-Received: by 2002:a5d:64ec:0:b0:391:2acc:aadf with SMTP id ffacd0b85a97d-3913bb4709bmr1218934f8f.6.1741542718937;
+        Sun, 09 Mar 2025 10:51:58 -0700 (PDT)
 Received: from krzk-bin.. ([178.197.206.225])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43ceeb34904sm39156975e9.30.2025.03.09.10.51.49
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfb7934sm12638173f8f.12.2025.03.09.10.51.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 09 Mar 2025 10:51:50 -0700 (PDT)
+        Sun, 09 Mar 2025 10:51:57 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>
@@ -80,15 +80,16 @@ Cc: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
 	linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org,
 	Krzysztof Kozlowski <krzk@kernel.org>
-Subject: [GIT PULL] clk: samsung: drivers for v6.15
-Date: Sun,  9 Mar 2025 18:51:47 +0100
-Message-ID: <20250309175147.6672-1-krzysztof.kozlowski@linaro.org>
+Subject: [GIT PULL] clk: samsung: Fixes for v6.14
+Date: Sun,  9 Mar 2025 18:51:53 +0100
+Message-ID: <20250309175154.6701-1-krzysztof.kozlowski@linaro.org>
 X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_105153_244791_162F4878 
-X-CRM114-Status: GOOD (  15.95  )
+X-CRM114-CacheID: sfid-20250309_105200_431754_B1FD214A 
+X-CRM114-Status: UNSURE (   8.41  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,16 +106,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi,
 
-New clk drivers for Samsung SoC.  This pull includes drivers which you
-commented later and pointed out few issues.  Pointed issues are in all Samsung
-clk drivers and the ones here just copy existing patterns:
-
-1. Headers: I fixed it for new and existing drivers and this pull request
-includes the fixes.
-2. device_get_match_data(): I still wait for contributors response. If they do
-not respond, I will fix it for next cycle.
-3. refdata and platform_driver_probe: I tried fixing it, but incomplete and
-need to investigate more.
+Fixes for current RC.
 
 Best regards,
 Krzysztof
@@ -126,94 +118,30 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-6.15
+  https://git.kernel.org/pub/scm/linux/kernel/git/krzk/linux.git tags/samsung-clk-fixes-6.14
 
-for you to fetch changes up to 017bbc922a09630579ff7b5b314fb186b8c0efcf:
+for you to fetch changes up to 53517a70873c7a91675f7244768aad5006cc45de:
 
-  clk: samsung: Drop unused clk.h and of.h headers (2025-03-07 16:01:22 +0100)
-
-----------------------------------------------------------------
-Samsung SoC clock drivers changes for 6.15
-
-1. Exynos990: Add support for the PERIS clock controller in existing
-   driver.
-2. Exynos2200: Add new driver for several clock controllers (Alive,
-   CMGP, HSI, PERIC/PERIS, TOP, UFS and VFS).
-3. Exynos7870: Add new driver for several clock controllers (Alive,
-   MIF, DISP AUD, FSYS, G3D, ISP, MFC and PERI).
-4. Correct undefined behavior / runtime array bounds check of flexible
-   array member (last 'hws' element in 'struct clk_hw_onecell_data').
-   The code was logically correct for normal case, but not for the
-   clang/GCC runtime bounds checking of flexible array member.
-5. Few cleanups: spelling, header inclusions.
+  clk: samsung: update PLL locktime for PLL142XX used on FSD platform (2025-03-05 20:13:25 +0100)
 
 ----------------------------------------------------------------
-Colin Ian King (1):
-      clk: samsung: Fix spelling mistake "stablization" -> "stabilization"
+Samsung clock controller fixes for v6.14
 
-Igor Belwon (2):
-      dt-bindings: clock: exynos990: Add CMU_PERIS block
-      clk: samsung: exynos990: Add CMU_PERIS block
+1. Google GS101: Fix synchronous external abort during system suspend.
+   The driver access registers not available for OS, although issue
+   would not be visible in earlier kernels due to missing suspend
+   support.
 
-Ivaylo Ivanov (3):
-      dt-bindings: clock: add Exynos2200 SoC
-      clk: samsung: clk-pll: add support for pll_4311
-      clk: samsung: introduce Exynos2200 clock driver
+2. Tesla FSD: Correct PLL142XX lock time.
 
-Kaustabh Chakraborty (2):
-      dt-bindings: clock: add clock definitions and documentation for exynos7870 CMU
-      clk: samsung: add initial exynos7870 clock driver
+----------------------------------------------------------------
+Peter Griffin (1):
+      clk: samsung: gs101: fix synchronous external abort in samsung_clk_save()
 
-Krzysztof Kozlowski (3):
-      Merge branch 'for-v6.15/samsung-clk-dt-bindings' into next/clk
-      clk: samsung: Add missing mod_devicetable.h header
-      clk: samsung: Drop unused clk.h and of.h headers
+Varada Pavani (1):
+      clk: samsung: update PLL locktime for PLL142XX used on FSD platform
 
-Will McVicker (1):
-      clk: samsung: Fix UBSAN panic in samsung_clk_init()
-
- .../bindings/clock/samsung,exynos2200-cmu.yaml     |  247 ++
- .../bindings/clock/samsung,exynos7870-cmu.yaml     |  227 ++
- .../bindings/clock/samsung,exynos990-clock.yaml    |   19 +
- drivers/clk/samsung/Makefile                       |    2 +
- drivers/clk/samsung/clk-cpu.c                      |    2 +-
- drivers/clk/samsung/clk-exynos-audss.c             |    1 +
- drivers/clk/samsung/clk-exynos-clkout.c            |    1 +
- drivers/clk/samsung/clk-exynos2200.c               | 3928 ++++++++++++++++++++
- drivers/clk/samsung/clk-exynos3250.c               |    4 +-
- drivers/clk/samsung/clk-exynos4.c                  |    2 +-
- drivers/clk/samsung/clk-exynos4412-isp.c           |    2 +-
- drivers/clk/samsung/clk-exynos5-subcmu.c           |    1 +
- drivers/clk/samsung/clk-exynos5250.c               |    1 +
- drivers/clk/samsung/clk-exynos5260.c               |    3 -
- drivers/clk/samsung/clk-exynos5410.c               |    2 -
- drivers/clk/samsung/clk-exynos5420.c               |    1 +
- drivers/clk/samsung/clk-exynos5433.c               |    4 +-
- drivers/clk/samsung/clk-exynos7.c                  |    1 -
- drivers/clk/samsung/clk-exynos7870.c               | 1829 +++++++++
- drivers/clk/samsung/clk-exynos7885.c               |    2 +-
- drivers/clk/samsung/clk-exynos850.c                |    2 +-
- drivers/clk/samsung/clk-exynos8895.c               |    2 +-
- drivers/clk/samsung/clk-exynos990.c                |  182 +-
- drivers/clk/samsung/clk-exynosautov9.c             |    2 +-
- drivers/clk/samsung/clk-exynosautov920.c           |    2 +-
- drivers/clk/samsung/clk-fsd.c                      |    2 +-
- drivers/clk/samsung/clk-gs101.c                    |    2 +-
- drivers/clk/samsung/clk-pll.c                      |    1 +
- drivers/clk/samsung/clk-pll.h                      |    1 +
- drivers/clk/samsung/clk-s3c64xx.c                  |    1 -
- drivers/clk/samsung/clk-s5pv210-audss.c            |    1 +
- drivers/clk/samsung/clk-s5pv210.c                  |    1 -
- drivers/clk/samsung/clk.c                          |    4 +-
- drivers/clk/samsung/clk.h                          |    1 +
- include/dt-bindings/clock/samsung,exynos2200-cmu.h |  431 +++
- include/dt-bindings/clock/samsung,exynos7870-cmu.h |  324 ++
- include/dt-bindings/clock/samsung,exynos990.h      |   21 +
- 37 files changed, 7231 insertions(+), 28 deletions(-)
- create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos2200-cmu.yaml
- create mode 100644 Documentation/devicetree/bindings/clock/samsung,exynos7870-cmu.yaml
- create mode 100644 drivers/clk/samsung/clk-exynos2200.c
- create mode 100644 drivers/clk/samsung/clk-exynos7870.c
- create mode 100644 include/dt-bindings/clock/samsung,exynos2200-cmu.h
- create mode 100644 include/dt-bindings/clock/samsung,exynos7870-cmu.h
+ drivers/clk/samsung/clk-gs101.c | 8 --------
+ drivers/clk/samsung/clk-pll.c   | 7 ++++++-
+ 2 files changed, 6 insertions(+), 9 deletions(-)
 
