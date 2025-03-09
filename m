@@ -4,103 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDDB5C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 11:12:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B27FC282D1
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 11:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:To:From:Reply-To:
-	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2CEJY1F4XRBdAU2RuRIqR2OHVhcJwUigYBcZKyECxVs=; b=o5a9KRC5o4N5L/La9arRmRMyDH
-	a7ZT2K8EIzEHtFmTx8SM4lBWseJ5r9GNSluzNpaQNGBS8MDMKLfBHhCNcscmFFdMdQ4bLOXVtw4H9
-	CzGNw0nuRB2GH4g1nvm9OW60xeIx1WZlbEjYLatug2YJ0UJ3qDisT9rQ0GR8/KIpM3qc8DXY7sKbP
-	vGCZZGL/8VhTaBGeT7o4jKdqzARD9dgj3hmvnTAgKQ+NowpccDtgELyLwOE8IGE8hJPje9e0TaeXE
-	V5MHLRCe+J5QsIOY0iYNBxs2uREoPeAFBi3iay9rXw1P+sJKq+Q287qfpPfkixuhbI4lgr/sBXTEe
-	96t83T7w==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Cp91pbB5DN2RZua8Qzi2EZ3MeEoU2r2L7P3lFPNnfBY=; b=Wh6YaqvdCfy2V9ykiMElxyxFs/
+	BcS3CHzhWFHgtlzUXA/XI4OvfwQUjURrJTPvwqJ4CtwYg7geWnOIwXUdlVqFMrX1I2pL0lEPDRbVu
+	yV33/lwvuqFjX3+UdNviRcNrjM5wVFtG6UnC5lbEG3EhArrV8E2z/M5WVCd8M7vnTFfs9gDNqk8sZ
+	q+vvvW0ShlQbPyek9iNFh0XZlSuXOrPrHoCfCC+1Y/SWijSPdU0pKmQqDKZZsE5lqNj4fd5wrzVlF
+	3PRCX5eNbf+Tbn/NH12cN/bK+6dxui0A6UDEeah+VF7BjrAixhK8O/TiooymVofGKKmhivwg6Dv26
+	Rz1oKfyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trEZx-00000000QUH-18he;
-	Sun, 09 Mar 2025 11:12:21 +0000
-Received: from mgamail.intel.com ([198.175.65.16])
+	id 1trEv5-00000000SOB-3IDF;
+	Sun, 09 Mar 2025 11:34:11 +0000
+Received: from fout-a3-smtp.messagingengine.com ([103.168.172.146])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trEDc-00000000OM7-1bIz
+	id 1trEtR-00000000SHK-3S6r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 10:49:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741517357; x=1773053357;
-  h=from:to:subject:date:message-id:in-reply-to:references:
-   mime-version:content-transfer-encoding;
-  bh=/Rpt0g7Ks3pkE+tta5B9MFjJotESPE0HD7Oeoam8bfk=;
-  b=e6Rfz9aeCr5E6/bs1gMK0QBuOLx1GTVLvAtAoIf9o0lnnXFcN8HX8Npe
-   sOFje9CbqRkNvzKbpX4Or9EHtqzHjUibo8+1LqhnFs9QubLpuoygbAI9M
-   vNnE+3PVpi4Vl8jtRwNMexkUXhvO7CpyLqCz1tMpDFJus3q3alZ7e8hrQ
-   MCJpikF1iqrpWYTApSHAKkTIuXjFKyXdnSUxV5l8iyT3gItz39UIVWgdz
-   aGJ8cA2s/Htm0IO41k3mrU21VUGpJQ8gWFwrgieDFph2uZZS4jdYJj/r+
-   rlcG+hOwsxo0ug8tn7Czzv233NZXzfUBpZx7gQOAgpMXMzHX1MNICoYIz
-   Q==;
-X-CSE-ConnectionGUID: NsjxXSaaQWej0khFG0M06g==
-X-CSE-MsgGUID: k3j8urr6S5CsqL71JCvaaA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11367"; a="42636281"
-X-IronPort-AV: E=Sophos;i="6.14,234,1736841600"; 
-   d="scan'208";a="42636281"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 03:49:16 -0700
-X-CSE-ConnectionGUID: pfGT78KETYqlpzGtVGbcyg==
-X-CSE-MsgGUID: Vkjkd0PTT1Gr0ZqdnB9BuQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,234,1736841600"; 
-   d="scan'208";a="124655188"
-Received: from mohdfai2-ilbpg12-1.png.intel.com ([10.88.227.73])
-  by orviesa003.jf.intel.com with ESMTP; 09 Mar 2025 03:49:08 -0700
-From: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
-To: Tony Nguyen <anthony.l.nguyen@intel.com>,
-	Przemek Kitszel <przemyslaw.kitszel@intel.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Simon Horman <horms@kernel.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Alexei Starovoitov <ast@kernel.org>,
-	Daniel Borkmann <daniel@iogearbox.net>,
-	Jesper Dangaard Brouer <hawk@kernel.org>,
-	John Fastabend <john.fastabend@gmail.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Russell King <rmk+kernel@armlinux.org.uk>,
-	Vladimir Oltean <vladimir.oltean@nxp.com>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Xiaolei Wang <xiaolei.wang@windriver.com>,
-	Suraj Jaiswal <quic_jsuraj@quicinc.com>,
-	Kory Maincent <kory.maincent@bootlin.com>,
-	Gal Pressman <gal@nvidia.com>,
-	Jesper Nilsson <jesper.nilsson@axis.com>,
-	Choong Yong Liang <yong.liang.choong@linux.intel.com>,
-	Chwee-Lin Choong <chwee.lin.choong@intel.com>,
-	Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	Vinicius Costa Gomes <vinicius.gomes@intel.com>,
-	intel-wired-lan@lists.osuosl.org,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
+	Sun, 09 Mar 2025 11:32:31 +0000
+Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
+	by mailfout.phl.internal (Postfix) with ESMTP id 6E2A9138277C;
+	Sun,  9 Mar 2025 07:32:26 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-13.internal (MEProxy); Sun, 09 Mar 2025 07:32:26 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=svenpeter.dev;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:message-id:mime-version:reply-to:subject
+	:subject:to:to; s=fm2; t=1741519946; x=1741606346; bh=Cp91pbB5DN
+	2RZua8Qzi2EZ3MeEoU2r2L7P3lFPNnfBY=; b=PQU72ehjmMOLtRay+y0HSuFSMg
+	CJsQjmj6Xxn6dAsD2MFECU4nHG3PRAqH33ktLvgp+dmlQ/GP0K/4jDbL6Z4Lk4y9
+	ZWSD0oWQPitmZjueSe4B6BcuN7qHQwNfqLUxwrcUKv3NGqEtg50EIj2l3hxb+9Qn
+	gDd+3UEyeq2hFr/J2GhWBjwuxpvAF+7KAlKKTBwiPfA8XHy5xxsQ8zOTWPVmAmhv
+	b8qpo4UiCGJGkCs7a6cZ2pgogE7myPTBIa+06uwRqQTO1NknO4DqVK83pUK60nPN
+	a3jIobf1fNhkLjfSSQ0gSMWdXt11eRpEGn9cCtuXzsK94FXzhUk6zba7ti5A==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:message-id:mime-version:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=
+	1741519946; x=1741606346; bh=Cp91pbB5DN2RZua8Qzi2EZ3MeEoU2r2L7P3
+	lFPNnfBY=; b=u9EwQZBU2ecARqRlwjNuXFotaZQIfFKVF7Eve4ypZ9BjdIUJaqA
+	a90V7dnjKUAStnU3atPwt1EvftBMCJqYpHufat0JVN/bZZ0ZwgKCL2MYq+Z+FSXf
+	cfa8bIgtc6KooCCoW30Rt8BrPmuAiN5vM/Lmk//qW7cEjcCKqb+4cqR67EDbn6s8
+	v8dug2SMkcimAmg7Fl9qVkNtBQbjZnl3zgFmNWyyzrB2cWKxcBlOx9FrV8jI/kvh
+	caxMTxA3Xf4XG6tRXJRVVr1nPorjW1DNedzyp88+ySdqtCd+IoXydxG1t+4/A9qT
+	yDh7KpPCxy8XZJi92JWXHFwFgonMHcffoAA==
+X-ME-Sender: <xms:SXzNZ25iLS_exPE_cN1I1JaG2f1JDlX9osjrHo3wonjzmRjksf32kQ>
+    <xme:SXzNZ_7YH0baFb4_jYaWuseCv0oQ1vvaTcnZ7kVRxKpTmQJSsWpIcTJ6579IXp27T
+    FGxL6yyXwOrVDNkZWg>
+X-ME-Received: <xmr:SXzNZ1fwC76ILiwN1yjLQJDR50RsJ-GhwvrWZZPfVK1wq_lMa_T2iYpJ47cFPJvPHK7hAoSV8UHIfYWXlm_md4frNjs28M7RplHrxpQDozOE7BiQNwmKAEWguVJMscw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudeifeegucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucenucfjughrpefhvf
+    evufffkffoggfgsedtkeertdertddtnecuhfhrohhmpefuvhgvnhcurfgvthgvrhcuoehs
+    vhgvnhesshhvvghnphgvthgvrhdruggvvheqnecuggftrfgrthhtvghrnhepjeelveffvd
+    efgeeuteefueetgeeghfelveevheeugefftdelleeuudefvefhieelnecuffhomhgrihhn
+    pehkvghrnhgvlhdrohhrghdpghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivg
+    eptdenucfrrghrrghmpehmrghilhhfrhhomhepshhvvghnsehsvhgvnhhpvghtvghrrdgu
+    vghvpdhnsggprhgtphhtthhopeegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhope
+    hsohgtsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheprghsrghhiheslhhi
+    shhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnh
+    gvlheslhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhig
+    qdhkvghrnhgvlhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-ME-Proxy: <xmx:SnzNZzLrGuwSnzZhhua0RIYir2QSycKhL4Nr0VfLVJi0kRiRSciAmQ>
+    <xmx:SnzNZ6LUICEe7rI2mDX8zXiVGzm3kOFOU2awiOoGMZQgYT7OZvScHA>
+    <xmx:SnzNZ0yxQpzmG6s-jypPAZftYb7FnRZjZRVgwKMfQCQV705_fjcRmg>
+    <xmx:SnzNZ-JWXUCxzguKEGVoLSGTM7WlBUrGX1zMSR2-SAWCV5b6VnwCqQ>
+    <xmx:SnzNZ_EfmoYfk3PkPkvj65VP3uGWSz83iIRnyv4w5J502ZWNWMMF9BG4>
+Feedback-ID: i51094778:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 9 Mar 2025 07:32:24 -0400 (EDT)
+From: Sven Peter <sven@svenpeter.dev>
+To: soc@lists.linux.dev
+Cc: asahi@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	bpf@vger.kernel.org
-Subject: [PATCH iwl-next v9 14/14] igc: add support to get frame preemption statistics via ethtool
-Date: Sun,  9 Mar 2025 06:46:48 -0400
-Message-Id: <20250309104648.3895551-15-faizal.abdul.rahim@linux.intel.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250309104648.3895551-1-faizal.abdul.rahim@linux.intel.com>
-References: <20250309104648.3895551-1-faizal.abdul.rahim@linux.intel.com>
+	linux-kernel@vger.kernel.org
+Subject: [GIT PULL] Third and final batch of Apple SoC DT updates for v6.15
+Date: Sun,  9 Mar 2025 12:32:12 +0100
+Message-Id: <20250309113212.48137-1-sven@svenpeter.dev>
+X-Mailer: git-send-email 2.39.3 (Apple Git-146)
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_034916_465553_99553AF1 
-X-CRM114-Status: GOOD (  13.44  )
+X-CRM114-CacheID: sfid-20250309_043230_263410_CC4EC9D8 
+X-CRM114-Status: UNSURE (   7.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,137 +108,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Implemented "ethtool --include-statistics --show-mm" callback for IGC.
+Hi,
 
-Tested preemption scenario to check preemption statistics:
-1) Trigger verification handshake on both boards:
-    $ sudo ethtool --set-mm enp1s0 pmac-enabled on
-    $ sudo ethtool --set-mm enp1s0 tx-enabled on
-    $ sudo ethtool --set-mm enp1s0 verify-enabled on
-2) Set preemptible or express queue in taprio for tx board:
-    $ sudo tc qdisc replace dev enp1s0 parent root handle 100 taprio \
-      num_tc 4 map 3 2 1 0 3 3 3 3 3 3 3 3 3 3 3 3 \
-      queues 1@0 1@1 1@2 1@3 base-time 0 sched-entry S F 100000 \
-      fp E E P P
-3) Send large size packets on preemptible queue
-4) Send small size packets on express queue to preempt packets in
-   preemptible queue
-5) Show preemption statistics on the receiving board:
-   $ ethtool --include-statistics --show-mm enp1s0
-     MAC Merge layer state for enp1s0:
-     pMAC enabled: on
-     TX enabled: on
-     TX active: on
-     TX minimum fragment size: 64
-     RX minimum fragment size: 60
-     Verify enabled: on
-     Verify time: 128
-     Max verify time: 128
-     Verification status: SUCCEEDED
-     Statistics:
-      MACMergeFrameAssErrorCount: 0
-      MACMergeFrameSmdErrorCount: 0
-      MACMergeFrameAssOkCount: 511
-      MACMergeFragCountRx: 764
-      MACMergeFragCountTx: 0
-      MACMergeHoldCount: 0
+This is our final pull request for Apple SoC device tree updates for v6.15
+based on the previous one [1].
+Drivers for the M1/M2 touchbar screen and pre-M1 (iPhone, etc.) backlight
+have been merged since then and this batch includes the required device tree
+nodes. Both drivers and these commits have been part of -next for at least a
+few days. The corresponding drivers are scheduled to be included in the 6.15
+merge window as well.
 
-Co-developed-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Signed-off-by: Vinicius Costa Gomes <vinicius.gomes@intel.com>
-Co-developed-by: Chwee-Lin Choong <chwee.lin.choong@intel.com>
-Signed-off-by: Chwee-Lin Choong <chwee.lin.choong@intel.com>
-Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
----
- drivers/net/ethernet/intel/igc/igc_ethtool.c | 40 ++++++++++++++++++++
- drivers/net/ethernet/intel/igc/igc_regs.h    | 16 ++++++++
- 2 files changed, 56 insertions(+)
 
-diff --git a/drivers/net/ethernet/intel/igc/igc_ethtool.c b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-index fd4b4b332309..324a27a5bef9 100644
---- a/drivers/net/ethernet/intel/igc/igc_ethtool.c
-+++ b/drivers/net/ethernet/intel/igc/igc_ethtool.c
-@@ -1819,6 +1819,45 @@ static int igc_ethtool_set_mm(struct net_device *netdev,
- 	return igc_tsn_offload_apply(adapter);
- }
- 
-+/**
-+ * igc_ethtool_get_frame_ass_error - Get the frame assembly error count.
-+ * @reg_value: Register value for IGC_PRMEXCPRCNT
-+ * Return: The count of frame assembly errors.
-+ */
-+static u64 igc_ethtool_get_frame_ass_error(u32 reg_value)
-+{
-+	/* Out of order statistics */
-+	u32 ooo_frame_cnt, ooo_frag_cnt;
-+	u32 miss_frame_frag_cnt;
-+
-+	ooo_frame_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAME_CNT, reg_value);
-+	ooo_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_OOO_FRAG_CNT, reg_value);
-+	miss_frame_frag_cnt = FIELD_GET(IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT, reg_value);
-+
-+	return ooo_frame_cnt + ooo_frag_cnt + miss_frame_frag_cnt;
-+}
-+
-+static u64 igc_ethtool_get_frame_smd_error(u32 reg_value)
-+{
-+	return FIELD_GET(IGC_PRMEXCPRCNT_OOO_SMDC, reg_value);
-+}
-+
-+static void igc_ethtool_get_mm_stats(struct net_device *dev,
-+				     struct ethtool_mm_stats *stats)
-+{
-+	struct igc_adapter *adapter = netdev_priv(dev);
-+	struct igc_hw *hw = &adapter->hw;
-+	u32 reg_value;
-+
-+	reg_value = rd32(IGC_PRMEXCPRCNT);
-+
-+	stats->MACMergeFrameAssErrorCount = igc_ethtool_get_frame_ass_error(reg_value);
-+	stats->MACMergeFrameSmdErrorCount = igc_ethtool_get_frame_smd_error(reg_value);
-+	stats->MACMergeFrameAssOkCount = rd32(IGC_PRMPTDRCNT);
-+	stats->MACMergeFragCountRx = rd32(IGC_PRMEVNTRCNT);
-+	stats->MACMergeFragCountTx = rd32(IGC_PRMEVNTTCNT);
-+}
-+
- static int igc_ethtool_get_link_ksettings(struct net_device *netdev,
- 					  struct ethtool_link_ksettings *cmd)
- {
-@@ -2115,6 +2154,7 @@ static const struct ethtool_ops igc_ethtool_ops = {
- 	.set_link_ksettings	= igc_ethtool_set_link_ksettings,
- 	.self_test		= igc_ethtool_diag_test,
- 	.get_mm			= igc_ethtool_get_mm,
-+	.get_mm_stats		= igc_ethtool_get_mm_stats,
- 	.set_mm			= igc_ethtool_set_mm,
- };
- 
-diff --git a/drivers/net/ethernet/intel/igc/igc_regs.h b/drivers/net/ethernet/intel/igc/igc_regs.h
-index 12ddc5793651..f343c6bfc6be 100644
---- a/drivers/net/ethernet/intel/igc/igc_regs.h
-+++ b/drivers/net/ethernet/intel/igc/igc_regs.h
-@@ -222,6 +222,22 @@
- 
- #define IGC_FTQF(_n)	(0x059E0 + (4 * (_n)))  /* 5-tuple Queue Fltr */
- 
-+/* Time sync registers - preemption statistics */
-+#define IGC_PRMPTDRCNT		0x04284	/* Good RX Preempted Packets */
-+#define IGC_PRMEVNTTCNT		0x04298	/* TX Preemption event counter */
-+#define IGC_PRMEVNTRCNT		0x0429C	/* RX Preemption event counter */
-+
-+ /* Preemption Exception Counter */
-+ #define IGC_PRMEXCPRCNT				0x42A0
-+/* Received out of order packets with SMD-C */
-+#define IGC_PRMEXCPRCNT_OOO_SMDC			0x000000FF
-+/* Received out of order packets with SMD-C and wrong Frame CNT */
-+#define IGC_PRMEXCPRCNT_OOO_FRAME_CNT			0x0000FF00
-+/* Received out of order packets with SMD-C and wrong Frag CNT */
-+#define IGC_PRMEXCPRCNT_OOO_FRAG_CNT			0x00FF0000
-+/* Received packets with SMD-S and wrong Frag CNT and Frame CNT */
-+#define IGC_PRMEXCPRCNT_MISS_FRAME_FRAG_CNT		0xFF000000
-+
- /* Transmit Scheduling Registers */
- #define IGC_TQAVCTRL		0x3570
- #define IGC_TXQCTL(_n)		(0x3344 + 0x4 * (_n))
--- 
-2.34.1
 
+Best,
+
+Sven
+
+
+[1] https://lore.kernel.org/soc/20250302115808.59172-1-sven@svenpeter.dev/
+
+The following changes since commit 44db68dee1f77260d7037319e911e9883a6ffe0e:
+
+  arm64: dts: apple: Add touchbar digitizer nodes (2025-02-26 15:33:46 +0000)
+
+are available in the Git repository at:
+
+  https://github.com/AsahiLinux/linux.git tags/asahi-soc-dt-6.15-v3
+
+for you to fetch changes up to e1bc21d8f8fde47173073a2d6233f5faa4864cfc:
+
+  arm64: dts: apple: t8015: Add backlight nodes (2025-03-06 20:54:28 +0100)
+
+----------------------------------------------------------------
+Apple SoC DT updates for 6.15, final batch:
+
+- Added touchbar screen nodes for M1/M2 platforms
+- Added backlight nodes for iPhone, iPad and iPod touch
+
+----------------------------------------------------------------
+Nick Chan (5):
+      arm64: dts: apple: s5l8960x: Add backlight nodes
+      arm64: dts: apple: t7000: Add backlight nodes
+      arm64: dts: apple: s800-0-3: Add backlight nodes
+      arm64: dts: apple: t8010: Add backlight nodes
+      arm64: dts: apple: t8015: Add backlight nodes
+
+Sasha Finkelstein (1):
+      arm64: dts: apple: Add touchbar screen nodes
+
+ arch/arm64/boot/dts/apple/s5l8960x-5s.dtsi     |  4 ++
+ arch/arm64/boot/dts/apple/s5l8960x.dtsi        |  7 +++
+ arch/arm64/boot/dts/apple/s800-0-3-common.dtsi |  4 ++
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi        |  7 +++
+ arch/arm64/boot/dts/apple/t7000-handheld.dtsi  |  4 ++
+ arch/arm64/boot/dts/apple/t7000.dtsi           |  7 +++
+ arch/arm64/boot/dts/apple/t8010-common.dtsi    |  4 ++
+ arch/arm64/boot/dts/apple/t8010.dtsi           |  7 +++
+ arch/arm64/boot/dts/apple/t8015-8.dtsi         |  4 ++
+ arch/arm64/boot/dts/apple/t8015.dtsi           |  7 +++
+ arch/arm64/boot/dts/apple/t8103-j293.dts       | 31 +++++++++++++
+ arch/arm64/boot/dts/apple/t8103.dtsi           | 61 ++++++++++++++++++++++++++
+ arch/arm64/boot/dts/apple/t8112-j493.dts       | 31 +++++++++++++
+ arch/arm64/boot/dts/apple/t8112.dtsi           | 61 ++++++++++++++++++++++++++
+ 14 files changed, 239 insertions(+)
 
