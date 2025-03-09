@@ -4,88 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2E08C282D1
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 09:16:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 859C9C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 09:18:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DBV6VXM5ubv0LgzVn3ZOknaqGHsOlBunna9rTOrLohY=; b=2JQ6xOk7nbYc5Uc1uMLWNqmNBS
-	N2VIxE624qj3FcZEK9+4WBGCo5N/Wxawm6ioD1XZ0J9sivEX/Gw+9CPcyBJ6SoA/cUQ4Df+X/3+ZR
-	rkJSZOpc+4o4YfGOGqviK59VV5AlXD75IUdPXt1LrzgW5NhypCXC2EpqVPSqh/+cjqOfq6gfYjYxm
-	VWZ+DNNIIBS6qzkFhA1sLEwP79g9XlgsimrtpiQPdQeJYb2tM6ajs2i5Bg5UzKcGP+esPoD5PCWck
-	yTWOZNeilshUi+NhKT5TNlbD6GydHUoScpijCC78/gtpudhnUXZiJL+9+OyhYUr1wwzankvJ1YcWQ
-	5F9tCmRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y0eUpkni4OJ6N5I2ip/hczJtRuPECve9UUx0lHvZiWc=; b=n5zqHAuFMZvQfuTUFFaHNVymcz
+	dlh3woIooIQW1bfk78MkSas2uq97I932votD+ztkcGPnw34ypxyjM4YkIPF6U1pBbnR+Qx79WAfxp
+	Ibg8D/Db5W3ugb/1KGdESGxF+vfcRs1muXZuSfc9KzEdH7NKwGj+jsI+aUPZ+rSyBsH3d0NbEcyCd
+	cX1p0oB9UgBdctzVHw+pkc17mJSLzVVOPrSMpd/VCINP0x2kMCgF2ZMSMKlfv2u8Or8LacElBOgR+
+	7YhEDPmLoQpGdvamW6iSyHfvIbzcTQTgj0+34DGXtS6FoEgRM8su2X3zWLnwVq2ib4SYGuUcHRDjk
+	5SKxCx7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trClx-00000000Fxh-2Hci;
-	Sun, 09 Mar 2025 09:16:37 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1trCnZ-00000000GJj-0uwm;
+	Sun, 09 Mar 2025 09:18:17 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trCQU-00000000Dcd-3edU
+	id 1trClZ-00000000Ftm-43wY
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 08:54:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DBV6VXM5ubv0LgzVn3ZOknaqGHsOlBunna9rTOrLohY=; b=VPzLERVoA1MYZtkaPmerv2TuJM
-	GjBRGElMyi0r0pt8V7ZXuFDzk4hEcWgMg5Zz0k4UNngOXowKoNFdUipwdVl+QHCNXtj7oqpp4QTmo
-	BAh2Cfu37xVNjEqdvOJR3ylHu/zAII3dOx8NjJS2VrREJ6KVjhtL21+lLNEeJ8RkklkgF6NQ8aKFP
-	lQefn9+bzz/NGQpEIOcZRqawNll2wi/iiDPnQSWcRPh8R0OfaoU2KbbG1Zyw5WiLe6t9lsAvtlghv
-	WeOHEoGguuT/SFCVzId/XZ/DdKNxInLSB6GbaAG84Xxj3KPi+f4iuzJoSDFU+SN7Kjmx2AgbpjdYG
-	QJy015mg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:44512 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1trCQJ-00015Z-1F;
-	Sun, 09 Mar 2025 08:54:15 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1trCPy-005jZf-Ou; Sun, 09 Mar 2025 08:53:54 +0000
-In-Reply-To: <20250308200921.1089980-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-References: <20250308200921.1089980-4-prabhakar.mahadev-lad.rj@bp.renesas.com>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	 "David S. Miller" <davem@davemloft.net>,
-	 Eric Dumazet <edumazet@google.com>,
-	 Jakub Kicinski <kuba@kernel.org>,
-	 Paolo Abeni <pabeni@redhat.com>,
-	 Rob Herring <robh@kernel.org>,
-	 Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	 Conor Dooley <conor+dt@kernel.org>,
-	 Philipp Zabel <p.zabel@pengutronix.de>,
-	 Geert Uytterhoeven <geert+renesas@glider.be>,
-	 Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	 Jose Abreu <joabreu@synopsys.com>,
-	 Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Biju Das <biju.das.jz@bp.renesas.com>,
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>,
-	"Lad, Prabhakar" <prabhakar.csengg@gmail.com>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-renesas-soc@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Prabhakar <prabhakar.csengg@gmail.com>
-Subject: [PATCH net-next] net: stmmac: allow platforms to use PHY tx clock
- stop capability
+	Sun, 09 Mar 2025 09:16:16 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-6fece18b3c8so10839477b3.3
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 01:16:13 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741511772; x=1742116572; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=y0eUpkni4OJ6N5I2ip/hczJtRuPECve9UUx0lHvZiWc=;
+        b=DgXLowt/nBMQ9cRIV+fxyUW5H+MiAQa7CK6q6upI9YfZuYt+yRO4YrrOSZbHq64jY6
+         eRVtLSJxAEYH+VUiq3r3c+h2e0ZTEAsmUD/GiKtq4MNxv7OzDWebm/Lc1H9sKzgp7J4y
+         Rgs+Z/sH8xzsF/Ct27zHxyMhfTy1T9k3z3LXZ7OLsEV87WheP+19o/pUBTfwzHVTbpl0
+         YbDkeHOVVQqFSmeWgiY9AmPhK3M5HtDf96cY9a5G75EwC8ycmA9NBQeFP1/+4lawU1Pl
+         rIInfSTkz8EYptyooesgWcpfEbQz4bu8bVn+UVkSTKWfYPULyGIYmD1DbQIfA2zIj+Hn
+         O9cQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741511772; x=1742116572;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=y0eUpkni4OJ6N5I2ip/hczJtRuPECve9UUx0lHvZiWc=;
+        b=DEaUKT6soskxqW136pfUBr1JFamK2bu3qm108XJrw3J1rrHdaMDD4Csl5/VkRFSnTb
+         xSKz+IsjFstBV3SDB8Tao5yHHicBrzUSwrPmXLWZ3Qx/3VOsUkE2aEZOxiQqhACQi9Ng
+         ERmj47qyv6jWsftIW5am9929VjELaIGnZcj4BshTlsOBAIO67jTJrvdM0uASQzQaJnTP
+         VME+ZMExL76flKZDRFDa89r2mA1AAlGLPn4iilVhuXHBtGuQARnY8NQ/Hg/xS7ihPfS6
+         zsehp7mTaeV+XOjStz0cU0CkjPaBEJo4Ld2LBIggY+Lqiq2zbiV5SmwICa5pMjauxg/X
+         rjKw==
+X-Forwarded-Encrypted: i=1; AJvYcCUR3TtpRoKQZqO5Hw2FYDlCN0NU7hLz2z5dbLb6l8e1H940a4AeLdrKk+93Zc7YNfZ+nqkSwWHvVhoo7l2dWS+w@lists.infradead.org
+X-Gm-Message-State: AOJu0YydTaGpvkX92LlbeHyjcR8Ria2XQV5yV+cR2hbeRZkBrtYNj160
+	qea+k4wQME3xlve0dG0fn4VBzT3B8fS9BxfiEPy+kO9rjwgOCtF4zbCcypUfnnbmWFtzdjnuiGp
+	p+V/y2Xuotx9h3079mHxZjvkkWbgxViaJnPV2PA==
+X-Gm-Gg: ASbGnctqAPbJ22pmeNaebLGfii5pxRb+ejkxsBB+hlAP1zbNBGt8RKBsmTfl4tEHwtA
+	j22TsrHYT6kWiiD56zR66FFz2ZAWPMQsO2nWWabRfKkcdGzo0oVSif+986nbqxN7JOmigvalnAS
+	QFFCR1bte4NRgrguuYIYMkFm+mJ2gj4d+SXzWt4ik4D1ZWK5xhEGM=
+X-Google-Smtp-Source: AGHT+IFPECWoQ2SLQxFVAn6AAfos114PtgmwIoKQ+zMM+yCAQaFRw3Tq8C5wAZ3CID7rhAZlrgL2zlDgjqBdRN6ki9A=
+X-Received: by 2002:a05:690c:6382:b0:6fd:3fd0:6f2c with SMTP id
+ 00721157ae682-6febf38323amr131915417b3.29.1741511771952; Sun, 09 Mar 2025
+ 01:16:11 -0800 (PST)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1trCPy-005jZf-Ou@rmk-PC.armlinux.org.uk>
-Date: Sun, 09 Mar 2025 08:53:54 +0000
+References: <20250308-phy-sam-hdptx-bpc-v5-0-35087287f9d1@collabora.com> <20250308-phy-sam-hdptx-bpc-v5-2-35087287f9d1@collabora.com>
+In-Reply-To: <20250308-phy-sam-hdptx-bpc-v5-2-35087287f9d1@collabora.com>
+From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Date: Sun, 9 Mar 2025 11:16:00 +0200
+X-Gm-Features: AQ5f1Jp3ty9yF8Gy946JtVIhFnSayq957H6H-29ZcG2uPAfgmPlCXdifLdlKe4c
+Message-ID: <CAA8EJpqYE1drM6=C0AwPZ-e5RkWqjMTpWQiwhA64qby1mmVL1Q@mail.gmail.com>
+Subject: Re: [PATCH v5 02/12] phy: hdmi: Add color depth configuration
+To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, Algea Cao <algea.cao@rock-chips.com>, 
+	Sandor Yu <Sandor.yu@nxp.com>, Maxime Ripard <mripard@kernel.org>, kernel@collabora.com, 
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_005426_908173_9ED9B4BD 
-X-CRM114-Status: GOOD (  14.41  )
+X-CRM114-CacheID: sfid-20250309_011614_019794_3F586B89 
+X-CRM114-Status: GOOD (  10.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,91 +95,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow platform glue to instruct stmmac to make use of the PHY transmit
-clock stop capability when deciding whether to allow the transmit clock
-from the DWMAC core to be stopped.
+On Sat, 8 Mar 2025 at 14:21, Cristian Ciocaltea
+<cristian.ciocaltea@collabora.com> wrote:
+>
+> Extend the HDMI configuration options to allow managing bits per color
+> channel.  This is required by some PHY drivers such as
+> rockchip-samsung-hdptx.
+>
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> ---
+>  include/linux/phy/phy-hdmi.h | 2 ++
+>  1 file changed, 2 insertions(+)
+>
 
-Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac.h     |  1 +
- .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++++----
- include/linux/stmmac.h                           |  3 ++-
- 3 files changed, 15 insertions(+), 5 deletions(-)
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-index d87275c1cf23..bddfa0f4aa21 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-@@ -306,6 +306,7 @@ struct stmmac_priv {
- 	struct timer_list eee_ctrl_timer;
- 	int lpi_irq;
- 	u32 tx_lpi_timer;
-+	bool tx_lpi_clk_stop;
- 	bool eee_enabled;
- 	bool eee_active;
- 	bool eee_sw_timer_en;
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index 4e0e72428e29..982b7d82fd53 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -460,8 +460,7 @@ static void stmmac_try_to_start_sw_lpi(struct stmmac_priv *priv)
- 	/* Check and enter in LPI mode */
- 	if (!priv->tx_path_in_lpi_mode)
- 		stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_FORCED,
--			priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGATING,
--			0);
-+				    priv->tx_lpi_clk_stop, 0);
- }
- 
- /**
-@@ -1107,13 +1106,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylink_config *config, u32 timer,
- 
- 	priv->eee_enabled = true;
- 
-+	/* Update the transmit clock stop according to PHY capability if
-+	 * the platform allows
-+	 */
-+	if (priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP)
-+		priv->tx_lpi_clk_stop = tx_clk_stop;
-+
- 	stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
- 			     STMMAC_DEFAULT_TWT_LS);
- 
- 	/* Try to cnfigure the hardware timer. */
- 	ret = stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_TIMER,
--				  priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGATING,
--				  priv->tx_lpi_timer);
-+				  priv->tx_lpi_clk_stop, priv->tx_lpi_timer);
- 
- 	if (ret) {
- 		/* Hardware timer mode not supported, or value out of range.
-@@ -1272,6 +1276,10 @@ static int stmmac_phy_setup(struct stmmac_priv *priv)
- 	if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
- 		priv->phylink_config.eee_rx_clk_stop_enable = true;
- 
-+	/* Set the default transmit clock stop bit based on the platform glue */
-+	priv->tx_lpi_clk_stop = priv->plat->flags &
-+				STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
-+
- 	mdio_bus_data = priv->plat->mdio_bus_data;
- 	if (mdio_bus_data)
- 		priv->phylink_config.default_an_inband =
-diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-index b6f03ab12595..c4ec8bb8144e 100644
---- a/include/linux/stmmac.h
-+++ b/include/linux/stmmac.h
-@@ -183,7 +183,8 @@ struct dwmac4_addrs {
- #define STMMAC_FLAG_INT_SNAPSHOT_EN		BIT(9)
- #define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI		BIT(10)
- #define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING	BIT(11)
--#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(12)
-+#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP	BIT(12)
-+#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY	BIT(13)
- 
- struct plat_stmmacenet_data {
- 	int bus_id;
+Just to confirm, are you passing TMDS char rate or pixel clock for
+DeepColor (bpc > 8) modes?
+
+
 -- 
-2.30.2
-
+With best wishes
+Dmitry
 
