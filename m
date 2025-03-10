@@ -4,98 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D16FC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:45:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F17C35FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y2Vj+3qDYi4WgJqy43AcvAOq7r7YxJhgzfgdzKR3rK8=; b=Aq3UHOtn8I7IsE73HK2a/Ewn2G
-	GL2hth6Qz0NEMIOn2d29ig4+tq9TiJVPVxymhP315v7pLEuSVJHphifbVkUQJn2WvZ6SYHCCKLYrS
-	9sGoudjEFJuEvMPI4ocvk9m8qThdSO0Tazk1FTYiS8X+o0SAE/D+FoVFVpOoU+f9u8WUg0jz1Ko/U
-	Hj9uPyLfr/q3pd7gDefrrRHo+Lj+kcQky8oDBdZ9wsNS+MIYWOYx1RMU5xLIbX/U8OP/f7NnEk/RO
-	MoBayGv2oN4lz6NiTrWyFQgNJbVdTJTtCrkWgl/tLf3pzW6UDaneC0XrFyKiZM8nx+sbCgeHx/wxd
-	BNjuCCmA==;
+	bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=; b=JFGm7SM2VWkNyGIULc8lqavVRT
+	hzER7z4MT0zsPmS6Uh2zYL5tIC4Qv3ck1JzZxC4zXiVwtZg+7CJa/c39Lx1IFNTc+QA+J/VmUo61T
+	ElQQKHpdzMPzLM8VZWSGzzZJbXSideuPxNuQRX/YB1BVR/DuTmecK5nLBYwDTZpN/weYmTnKYy62M
+	jlaxZgx3HaREdFdjwFZhphq3IkeftK8jnqYugu3pnvqU2S1V3dIBd0E8p0vyQQtK+7V8oEaUAITXu
+	JC6nb1O4MxwKFU0w0/NIbR7NC1hqLsUBQNDjQ2HuFQzrq75SU1r/F/8tBs+U25e09Nko9O7L6jJQk
+	XmOksavQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treNy-00000002yGf-1iqw;
-	Mon, 10 Mar 2025 14:45:42 +0000
-Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
+	id 1treNu-00000002yDn-0IHv;
+	Mon, 10 Mar 2025 14:45:38 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcuT-00000002jot-281d
+	id 1trcm0-00000002iim-16hS
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:11:12 +0000
-Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
-	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A7V2r3018074;
-	Mon, 10 Mar 2025 13:10:57 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=Y
-	2Vj+3qDYi4WgJqy43AcvAOq7r7YxJhgzfgdzKR3rK8=; b=Ld4quzSo379Ns5Q/q
-	oeFoVbF3OH1YMzbKo2w+yvcZnx487Z5I9HO1cGnR247eF0lanMDfgap+mzGXJCdj
-	ISgUsFcx5g4aobkqtZo6Pmw5LEJzR7h3IJpor279oI0bRNMEd6ropowdGAJ77k12
-	Zf4cNyrf6LjhlC+qsJk3hJNqdEpkYP8b8bekYqpqiDMaMd7xrR68VgkbnWASG177
-	rdDyQtZ8/556ZJCJ7VD611Lhgg6tZBiIAXfFJ7q9FvyteVCznevFK2Q6jYczeXnw
-	ofdX+i2zupfLpS3l2MYComY3xAz1XkXcZOxwiOhkiJYNUKwGTvxQbQpGI4j+aboA
-	VxcuA==
-Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 458d1wha4t-2
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 10 Mar 2025 13:10:57 +0000 (GMT)
-Received: from Matts-MacBook-Pro.local (172.25.0.133) by
- HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 10 Mar 2025 13:10:56 +0000
-From: Matt Coster <matt.coster@imgtec.com>
-Date: Mon, 10 Mar 2025 13:10:41 +0000
-Subject: [PATCH DO NOT MERGE v3 17/18] arm64: dts: ti: k3-am62: New GPU
- binding details
+	Mon, 10 Mar 2025 13:02:25 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso452454f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:02:23 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741611742; x=1742216542; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=;
+        b=eKcHrwFFpyd/13NGMT5efKgs5QdIpGLAiPusSgWOuBCXOnb/Bkrc3IDzfc3FrInJ6C
+         ezsFgSlGH9eVpk3v0xiwxT0mJc8DeUh3NHib8BFosNJAY+VtaKrC0OKphIh+fxWBX8hD
+         KdRs/Zkc89W4MRYLSRLqHnVsjfZybpu8zFxfFIxFXvk+PcppOYCjXOR5bHS6PE5L789Q
+         j+6JIoRZV4xSUcjrpWBy/f/AckStIMTK77umKy2CCBDW6kt+QO4bUQ3fEjBHjDyEwE3+
+         5S4LRAznYRnhKTl35fQr5aPOlH/GojwLnksAMdnGwipU70J9k1bAtb0tYF02pMmqk9Rx
+         4cgA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741611742; x=1742216542;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=;
+        b=WqMhuukag+xiaOHV8NztE/maJPs8NTvzmdKLu3gPonYp295Wdkqw7k8dVJzTqLENOZ
+         8WitGoGWk2mSWAZd2IazFWJSYH+H07r3CQAh/ozWzX+j0/5ZrCIwjhywgfTthO6fvXjP
+         wi7VEZZKv4FnL9QWXpB/GiA2PXbvUJ+nHWpUZgoFAJfPybz5oZRH5rqJ6Zt1PEKclBZ/
+         EdjBxJRz971BArhva/FR8FzFGbPBBbL3e80J3KD8kh9abw0UvZ2ki4KP961lA5rpLc5J
+         gQj0n1l+PHrK70BSGEF8zB1Dy2TGEVpHY8jn73AMVM0nBLAGgu2XQG5TSX+HH6+wFnU3
+         ytTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUE6pI9NGWoVxkJ4TAHZRdultDIxXVZ4IVR4g0c8p2PbC6vk1SEO7RGvRUWUbqXsYXQRIbGwdc3TFfS1RKHyIO7@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywvckml1K/xCNJtaVSYzE+qXZ5j1JKRP1N0w49xHowWxwX8l0cG
+	XSIPuC1JNC6X4EDsfPaIkzPRlJpCwkVTVvje+q+oIC5od/N6Cx5NfFm1B+zkIMUZNomWcFQfk2s
+	CR+9N4p5d63PqIAuyBXdNLW6WkCk=
+X-Gm-Gg: ASbGnctSDX+78oru62mYXpQi0I/lGNSRs9eKK4a7LYDV1VieoNVDvFwg5Ea90OciyyA
+	zQFszGU5XjW8RHMkSQ0X2gipp2InxmHplLvp+76VW9+qXcPgemryfeoaD65idq4BL0VxReiWbTa
+	w4Gxr7FqtwrLyP3RiPx2w993htgyFHGIl0VcI8tu9xi8xo
+X-Google-Smtp-Source: AGHT+IGaxbWiEzsbhn8u7OT4l7aLcqESH5XxF4YWsiFb1XdbKvnztHuQze3R8m7aqPgVjjpK0+JYaE4xvj1QZAkWR9c=
+X-Received: by 2002:a05:6000:1f8f:b0:391:304f:34e7 with SMTP id
+ ffacd0b85a97d-39132d985f6mr9687116f8f.44.1741611742101; Mon, 10 Mar 2025
+ 06:02:22 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-17-143b3dbef02f@imgtec.com>
-References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
-In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
-To: Frank Binns <frank.binns@imgtec.com>,
-        Matt Coster
-	<matt.coster@imgtec.com>,
-        David Airlie <airlied@gmail.com>, Simona Vetter
-	<simona@ffwll.ch>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
-        "Vignesh
- Raghavendra" <vigneshr@ti.com>,
-        Tero Kristo <kristo@kernel.org>
-CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
-        "Alessio
- Belle" <alessio.belle@imgtec.com>,
-        Alexandru Dadu <alexandru.dadu@imgtec.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1425;
- i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=mIyA38agmAT+a+QSbR6M4VVmvQH8WTLSffNfRxCNydo=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3JJ0kp4ucPj8mrJ3zdPbLc2izi1P+1+zlOfRtFvh
- zs31gkkd5SyMIhxMMiKKbLsWGG5Qu2PmpbEjV/FMHNYmUCGMHBxCsBEQlMY/nD0rNu032Cjg9Dh
- pVa9UV/k53LLz2zds6yrvTNMV2mapRUjw8UbxjttnB9+vXZwqlJD7PGzbl5P/2isODE90Kl89Z1
- nazkA
-X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
- fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
-X-Originating-IP: [172.25.0.133]
-X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Proofpoint-ORIG-GUID: aV0LjX0Cm6oDFgremdaQLDhpZXbqfjpg
-X-Proofpoint-GUID: aV0LjX0Cm6oDFgremdaQLDhpZXbqfjpg
-X-Authority-Analysis: v=2.4 cv=U8+SDfru c=1 sm=1 tr=0 ts=67cee4e1 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=OLj8r6_nq0VfqmG8xPEA:9
- a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
+In-Reply-To: <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
+From: Tianyu Lan <ltykernel@gmail.com>
+Date: Mon, 10 Mar 2025 21:01:45 +0800
+X-Gm-Features: AQ5f1Jq0GptIRLQ74YOF7jUY6vVGVBckkuZztDE6uDxvc_UbKBeBzzaPI8HiFPA
+Message-ID: <CAMvTesAW-9Mo0oY6UUh2anp6DQCSsVCUhBiV2-bKp2VD_N0DYw@mail.gmail.com>
+Subject: Re: [PATCH v5 07/10] Drivers: hv: Introduce per-cpu event ring tail
+To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+Cc: linux-hyperv@vger.kernel.org, x86@kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com, 
+	haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com, 
+	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org, 
+	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
+	dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org, 
+	joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de, 
+	jinankjain@linux.microsoft.com, muminulrussell@gmail.com, 
+	skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com, 
+	ssengar@linux.microsoft.com, apais@linux.microsoft.com, 
+	Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com, 
+	gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com, 
+	muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org, 
+	lenb@kernel.org, corbet@lwn.net
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_061109_855852_01EE7ECC 
-X-CRM114-Status: GOOD (  10.73  )
+X-CRM114-CacheID: sfid-20250310_060224_304145_5D4CFDB5 
+X-CRM114-Status: GOOD (  27.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,44 +108,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the new compatible string introduced earlier (in "dt-bindings: gpu:
-img: More explicit compatible strings") and add a name to the single power
-domain for this GPU (introduced in "dt-bindings: gpu: img: Power domain
-details").
+On Thu, Feb 27, 2025 at 7:09=E2=80=AFAM Nuno Das Neves
+<nunodasneves@linux.microsoft.com> wrote:
+>
+> Add a pointer hv_synic_eventring_tail to track the tail pointer for the
+> SynIC event ring buffer for each SINT.
+>
+> This will be used by the mshv driver, but must be tracked independently
+> since the driver module could be removed and re-inserted.
+>
+> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+> Reviewed-by: Wei Liu <wei.liu@kernel.org>
 
-Signed-off-by: Matt Coster <matt.coster@imgtec.com>
----
-Changes in v3:
-- None
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-7-3fd45d9fb0cf@imgtec.com
-Changes in v2:
-- None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-7-4ed30e865892@imgtec.com
----
- arch/arm64/boot/dts/ti/k3-am62-main.dtsi | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
+It's better to expose a function to check the tail instead of exposing
+hv_synic_eventring_tail directly.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-index 7cd727d10a5f277e4b19189347e832b4b034b1a0..429fc5c957ceff16750786e0de1f9207c8b1b119 100644
---- a/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62-main.dtsi
-@@ -692,12 +692,13 @@ ospi0: spi@fc40000 {
- 	};
- 
- 	gpu: gpu@fd00000 {
--		compatible = "ti,am62-gpu", "img,img-axe";
-+		compatible = "ti,am62-gpu", "img,img-axe-1-16m", "img,img-rogue";
- 		reg = <0x00 0x0fd00000 0x00 0x20000>;
- 		clocks = <&k3_clks 187 0>;
- 		clock-names = "core";
- 		interrupts = <GIC_SPI 86 IRQ_TYPE_LEVEL_HIGH>;
- 		power-domains = <&k3_pds 187 TI_SCI_PD_EXCLUSIVE>;
-+		power-domain-names = "a";
- 	};
- 
- 	cpsw3g: ethernet@8000000 {
+BTW, how does mshv driver use hv_synic_eventring_tail? Which patch
+uses it in this series?
 
--- 
-2.48.1
+Thanks.
 
+
+> ---
+>  drivers/hv/hv_common.c | 34 ++++++++++++++++++++++++++++++++--
+>  1 file changed, 32 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+> index 252fd66ad4db..2763cb6d3678 100644
+> --- a/drivers/hv/hv_common.c
+> +++ b/drivers/hv/hv_common.c
+> @@ -68,6 +68,16 @@ static void hv_kmsg_dump_unregister(void);
+>
+>  static struct ctl_table_header *hv_ctl_table_hdr;
+>
+> +/*
+> + * Per-cpu array holding the tail pointer for the SynIC event ring buffe=
+r
+> + * for each SINT.
+> + *
+> + * We cannot maintain this in mshv driver because the tail pointer shoul=
+d
+> + * persist even if the mshv driver is unloaded.
+> + */
+> +u8 __percpu **hv_synic_eventring_tail;
+> +EXPORT_SYMBOL_GPL(hv_synic_eventring_tail);
+> +
+>  /*
+>   * Hyper-V specific initialization and shutdown code that is
+>   * common across all architectures.  Called from architecture
+> @@ -90,6 +100,9 @@ void __init hv_common_free(void)
+>
+>         free_percpu(hyperv_pcpu_input_arg);
+>         hyperv_pcpu_input_arg =3D NULL;
+> +
+> +       free_percpu(hv_synic_eventring_tail);
+> +       hv_synic_eventring_tail =3D NULL;
+>  }
+>
+>  /*
+> @@ -372,6 +385,11 @@ int __init hv_common_init(void)
+>                 BUG_ON(!hyperv_pcpu_output_arg);
+>         }
+>
+> +       if (hv_root_partition()) {
+> +               hv_synic_eventring_tail =3D alloc_percpu(u8 *);
+> +               BUG_ON(hv_synic_eventring_tail =3D=3D NULL);
+> +       }
+> +
+>         hv_vp_index =3D kmalloc_array(nr_cpu_ids, sizeof(*hv_vp_index),
+>                                     GFP_KERNEL);
+>         if (!hv_vp_index) {
+> @@ -460,6 +478,7 @@ void __init ms_hyperv_late_init(void)
+>  int hv_common_cpu_init(unsigned int cpu)
+>  {
+>         void **inputarg, **outputarg;
+> +       u8 **synic_eventring_tail;
+>         u64 msr_vp_index;
+>         gfp_t flags;
+>         const int pgcount =3D hv_output_page_exists() ? 2 : 1;
+> @@ -472,8 +491,8 @@ int hv_common_cpu_init(unsigned int cpu)
+>         inputarg =3D (void **)this_cpu_ptr(hyperv_pcpu_input_arg);
+>
+>         /*
+> -        * hyperv_pcpu_input_arg and hyperv_pcpu_output_arg memory is alr=
+eady
+> -        * allocated if this CPU was previously online and then taken off=
+line
+> +        * The per-cpu memory is already allocated if this CPU was previo=
+usly
+> +        * online and then taken offline
+>          */
+>         if (!*inputarg) {
+>                 mem =3D kmalloc(pgcount * HV_HYP_PAGE_SIZE, flags);
+> @@ -485,6 +504,17 @@ int hv_common_cpu_init(unsigned int cpu)
+>                         *outputarg =3D (char *)mem + HV_HYP_PAGE_SIZE;
+>                 }
+>
+> +               if (hv_root_partition()) {
+> +                       synic_eventring_tail =3D (u8 **)this_cpu_ptr(hv_s=
+ynic_eventring_tail);
+> +                       *synic_eventring_tail =3D kcalloc(HV_SYNIC_SINT_C=
+OUNT,
+> +                                                       sizeof(u8), flags=
+);
+> +
+> +                       if (unlikely(!*synic_eventring_tail)) {
+> +                               kfree(mem);
+> +                               return -ENOMEM;
+> +                       }
+> +               }
+> +
+>                 if (!ms_hyperv.paravisor_present &&
+>                     (hv_isolation_type_snp() || hv_isolation_type_tdx()))=
+ {
+>                         ret =3D set_memory_decrypted((unsigned long)mem, =
+pgcount);
+> --
+> 2.34.1
+>
+>
+
+
+--=20
+Thanks
+Tianyu Lan
 
