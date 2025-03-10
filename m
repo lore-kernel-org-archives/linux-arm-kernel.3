@@ -4,78 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3564AC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E20AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:46:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7Mo5ZHNYkXR23YBEaYNTofBAo+myCtIHSCyNnU6Cy3o=; b=k15fPDYhZE1xJ4OMLpY8WGLxU8
-	ocwOG4UTkRxveuf+hDHde3NyirGtUnBinOIWihm6PNRl1yz6sBdIrENPVzYBxDywRDefUxyUT8ByK
-	jeNXfgwxmczQQ4BA/W0pOl9cP2TCOenO8CZRp5sF7h1zY+MS2Hfy+JK/cWAV7QSkVuRcoyw0IL7s9
-	Fd1kYZ3x6QUv0kkAyKdZmb2+SGisiIEUa/vDMDMof+V1LQ63RuyBws3Udl5PNcMSg89uKSTLRUP2o
-	jh0dw8xSN4Dpgm+Lz6y04gw2rbOWvgOfRvcmLJyTGLs8+xdI1BquSQNo4q9aIHtFuUmgPIQNTdEae
-	TWoNznog==;
+	bh=ScP3/QN7pJ6oT8ufJYhHtcaoJqNafq5u9wpkG818K9k=; b=xAiW0yZeBEXhg6NCKHBE2bwoZ4
+	TmnC8PL4wU4m77g76BSP8H+rIE6fsP40V1sXoOvJy8T9Az6CognCdy+oXVVKEYK2mCqi+6znjQPCL
+	BA9wc53FqIYLu2IwSMDcD2x7FHoWDq0HFfJ65xHZSoRGUHk1D+5ZvdQT9nK7Uoj3ayZeQyJUNLJjd
+	gv/LSNbUrN5bubXnuFAM6RUsXRvrQeGU4FqUYkIaJ/vC1KIyhE1neiFGvVQxAvz7qZglnjNLOJcD4
+	+00Lqhf64RveRnvw4KLu7EZmZHf9oBrWaePGlz7wL7J3qxX0vZnfeAR4+gHp+eozlJiTDiKid+bPU
+	H3+No/Dw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdRC-00000002peq-3qEE;
-	Mon, 10 Mar 2025 13:44:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trdSn-00000002ppv-3Fij;
+	Mon, 10 Mar 2025 13:46:37 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcSY-00000002f54-0IBx
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 12:42:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E0A66A45BC2;
-	Mon, 10 Mar 2025 12:36:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B3FDC4CEE5;
-	Mon, 10 Mar 2025 12:42:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741610536;
-	bh=ObpVnhp7/WvbJw/e+3sP5lgQP0HfPvs44VTr++TsRXI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TGfESHB/psqrhlcOLS+OwH6t7yooA+1QYsuVQnl8Ss5VqubkcbfYsnkx6p4bCfRmI
-	 cJPbP4Q239ASJOSWlFY3vpa5YHVp1w3mCwD+HrIWQt+yc4aLNiZKLU8UPojZSCTzOc
-	 LRTs1yk2A5OsO6ZykR8Z2WlysIWaXjW/BV7SsPrPnot9b9L+ZhGa37C/fvlXcABUjJ
-	 0P4fTuROXrcaFGR5j2dsAAUWdPIYPGn3Z31Wg18FMqnQLq9pnLzgMDGktSiLGQksCG
-	 mT5oZzh5PUtZYxMJS175ePcgJ5izvqCJCHu+JO1DKKSJfM7hsmUwo69gq///20jjSv
-	 fyh7tVGiyhJ+g==
-Date: Mon, 10 Mar 2025 07:42:14 -0500
-From: Rob Herring <robh@kernel.org>
-To: Ryan Walklin <ryan@testtoast.com>
-Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>,
-	Andre Przywara <andre.przywara@arm.com>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Hironori KIKUCHI <kikuchan98@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v8 07/11] dt-bindings: allwinner: add H616 DE33 mixer
- binding
-Message-ID: <20250310124214.GA3869453-robh@kernel.org>
-References: <20250310092345.31708-1-ryan@testtoast.com>
- <20250310092345.31708-8-ryan@testtoast.com>
+	id 1trcUL-00000002fSX-16vn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Mar 2025 12:44:09 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ScP3/QN7pJ6oT8ufJYhHtcaoJqNafq5u9wpkG818K9k=; b=YegjSBP9TEr78VdbHgWlSAeRaX
+	2gBu+99MlytfKi3louhCon8+cTDF61pRxIgRK6+LhliqHqUs9BdatSy/kKPDvK4aG1VR3aDdqDqgc
+	3/iL19v2sDDZ9WCn/ljHALcRCD+NjNTKKE17n8KNzHzm50eT0NZP7LtwD0YhYmh71TPm4XWu5oe5j
+	q+oDD50mb0gKdjuaxmBtq2pd4Jc3uUfEpgA8k5cwjMNVgtPYP7c6yNVznsPDtKw31m9JUnKd1gFhM
+	6OfjdKpggLqeZlrvHPrNv1bDEFI/Cl8pQtG+x3LtxE5ajjQvwFyBfwteD0nMzTGPR3gX40IMW23OB
+	gYhL6yYA==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1trcUG-00000001rMT-15Xu;
+	Mon, 10 Mar 2025 12:44:04 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 41D40300599; Mon, 10 Mar 2025 13:44:03 +0100 (CET)
+Date: Mon, 10 Mar 2025 13:44:03 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: mark.barnett@arm.com
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
+	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 2/5] perf: Allow periodic events to alternate between
+ two sample periods
+Message-ID: <20250310124403.GQ5880@noisy.programming.kicks-ass.net>
+References: <20250307202247.648633-1-mark.barnett@arm.com>
+ <20250307202247.648633-3-mark.barnett@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250310092345.31708-8-ryan@testtoast.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_054218_234799_B4120D79 
-X-CRM114-Status: GOOD (  18.22  )
+In-Reply-To: <20250307202247.648633-3-mark.barnett@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,75 +76,196 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 10:09:53PM +1300, Ryan Walklin wrote:
-> The Allwinner H616 and variants have a new display engine revision
-> (DE33).
+On Fri, Mar 07, 2025 at 08:22:44PM +0000, mark.barnett@arm.com wrote:
+> From: Ben Gainey <ben.gainey@arm.com>
 > 
-> The mixer configuration registers are significantly different to the DE3
-> and DE2 revisions, being split into separate top and display blocks,
-> therefore a fallback for the mixer compatible is not provided.
+> This change modifies perf_event_attr to add a second, alternative
+> sample period field, and modifies the core perf overflow handling
+> such that when specified an event will alternate between two sample
+> periods.
 > 
-> Add a display engine mixer binding for the DE33.
+> Currently, perf does not provide a  mechanism for decoupling the period
+> over which counters are counted from the period between samples. This is
+> problematic for building a tool to measure per-function metrics derived
+> from a sampled counter group. Ideally such a tool wants a very small
+> sample window in order to correctly attribute the metrics to a given
+> function, but prefers a larger sample period that provides representative
+> coverage without excessive probe effect, triggering throttling, or
+> generating excessive amounts of data.
 > 
-> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
+> By alternating between a long and short sample_period and subsequently
+> discarding the long samples, tools may decouple the period between
+> samples that the tool cares about from the window of time over which
+> interesting counts are collected.
 > 
-> ---
-> Changelog v2..v3:
-> - Separate content into three patches for three separate subsystems
-> 
-> Changelog v5..v6:
-> - increase reg maxItems to 3 and add conditional for h616-de33
-> ---
->  .../allwinner,sun8i-a83t-de2-mixer.yaml       | 21 ++++++++++++++++++-
->  1 file changed, 20 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> index b75c1ec686ad..274f5e632733 100644
-> --- a/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> +++ b/Documentation/devicetree/bindings/display/allwinner,sun8i-a83t-de2-mixer.yaml
-> @@ -24,9 +24,11 @@ properties:
->        - allwinner,sun50i-a64-de2-mixer-0
->        - allwinner,sun50i-a64-de2-mixer-1
->        - allwinner,sun50i-h6-de3-mixer-0
-> +      - allwinner,sun50i-h616-de33-mixer-0
->  
->    reg:
-> -    maxItems: 1
-> +    minItems: 1
-> +    maxItems: 3
+> It is expected that typically tools would use this feature with the
+> cycles or instructions events as an approximation for time, but no
+> restrictions are applied to which events this can be applied to.
 
-What's in each region?
+So you do add the constraint that 'alt_sample_period < sample_period'
+but there is no natural reason for this to be so.
 
+Additionally, this way the total period ends up being 'sample_period +
+alt_sample_period'.
+
+Would not a more natural way to express things be:
+
+	p1 = sample_period - alt_sample_period;
+	p2 = alt_sample_period;
+
+This way you retain the total period to be 'sample_period' and naturally
+get the constraint: 'alt_sample_period < sample_period'.
+
+That is; I'm somewhat confused by the state of things; it doesn't seem
+consistent.
+
+(Also note that this alternative form might actually work in combination
+with attr.freq set -- although that has a number of 'fun' details I'm
+sure).
+
+> Signed-off-by: Ben Gainey <ben.gainey@arm.com>
+> Signed-off-by: Mark Barnett <mark.barnett@arm.com>
+> ---
+>  include/linux/perf_event.h      |  5 +++++
+>  include/uapi/linux/perf_event.h |  3 +++
+>  kernel/events/core.c            | 39 ++++++++++++++++++++++++++++++++-
+>  3 files changed, 46 insertions(+), 1 deletion(-)
+> 
+> diff --git a/include/linux/perf_event.h b/include/linux/perf_event.h
+> index 8333f132f4a9..99ba72c8fb6d 100644
+> --- a/include/linux/perf_event.h
+> +++ b/include/linux/perf_event.h
+> @@ -276,6 +276,11 @@ struct hw_perf_event {
+>  	 */
+>  	u64				freq_time_stamp;
+>  	u64				freq_count_stamp;
+> +
+> +	/*
+> +	 * Indicates that the alternative sample period is used
+> +	 */
+> +	bool				using_alt_sample_period;
+
+There's a 4 byte hole in this structure if you look; also please use a
+flag, sizeof(_Bool) is ABI dependent.
+
+>  #endif
+>  };
 >  
->    clocks:
->      items:
-> @@ -61,6 +63,23 @@ properties:
->      required:
->        - port@1
+> diff --git a/include/uapi/linux/perf_event.h b/include/uapi/linux/perf_event.h
+> index 0524d541d4e3..499a8673df8e 100644
+> --- a/include/uapi/linux/perf_event.h
+> +++ b/include/uapi/linux/perf_event.h
+> @@ -379,6 +379,7 @@ enum perf_event_read_format {
+>  #define PERF_ATTR_SIZE_VER6	120	/* add: aux_sample_size */
+>  #define PERF_ATTR_SIZE_VER7	128	/* add: sig_data */
+>  #define PERF_ATTR_SIZE_VER8	136	/* add: config3 */
+> +#define PERF_ATTR_SIZE_VER9	144	/* add: alt_sample_period */
 >  
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          enum:
-> +            - allwinner,sun50i-h616-de33-mixer-0
+>  /*
+>   * Hardware event_id to monitor via a performance monitoring event:
+> @@ -531,6 +532,8 @@ struct perf_event_attr {
+>  	__u64	sig_data;
+>  
+>  	__u64	config3; /* extension of config2 */
 > +
-> +    then:
-> +      properties:
-> +        reg:
-> +          maxItems: 3
+> +	__u64	alt_sample_period;
+>  };
+>  
+>  /*
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index bcb09e011e9e..7ec8ec6ba7ef 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -4178,6 +4178,8 @@ static void perf_adjust_period(struct perf_event *event, u64 nsec, u64 count, bo
+>  	s64 period, sample_period;
+>  	s64 delta;
+>  
+> +	WARN_ON_ONCE(hwc->using_alt_sample_period);
+
+Groan; so that bit keeps flipping in and off, and statistically we'll
+warn, but urgh.
+
+>  	period = perf_calculate_period(event, nsec, count);
+>  
+>  	delta = (s64)(period - hwc->sample_period);
+> @@ -9894,6 +9896,7 @@ static int __perf_event_overflow(struct perf_event *event,
+>  				 int throttle, struct perf_sample_data *data,
+>  				 struct pt_regs *regs)
+>  {
+> +	struct hw_perf_event *hwc = &event->hw;
+>  	int events = atomic_read(&event->event_limit);
+>  	int ret = 0;
+>  
+> @@ -9913,6 +9916,18 @@ static int __perf_event_overflow(struct perf_event *event,
+>  	    !bpf_overflow_handler(event, data, regs))
+>  		goto out;
+>  
+> +	/*
+> +	 * Swap the sample period to the alternative period
+> +	 */
+> +	if (event->attr.alt_sample_period) {
+> +		bool using_alt = hwc->using_alt_sample_period;
+> +		u64 sample_period = (using_alt ? event->attr.sample_period
+> +					       : event->attr.alt_sample_period);
 > +
-> +    else:
-> +      properties:
-> +        reg:
-> +          maxItems: 1
+> +		hwc->sample_period = sample_period;
+> +		hwc->using_alt_sample_period = !using_alt;
+> +	}
 > +
->  required:
->    - compatible
->    - reg
+>  	/*
+>  	 * XXX event_limit might not quite work as expected on inherited
+>  	 * events
+> @@ -12335,9 +12350,19 @@ perf_event_alloc(struct perf_event_attr *attr, int cpu,
+>  	if (attr->freq && attr->sample_freq)
+>  		hwc->sample_period = 1;
+>  	hwc->last_period = hwc->sample_period;
+> -
+>  	local64_set(&hwc->period_left, hwc->sample_period);
+>  
+> +	/*
+> +	 * alt_sample_period cannot be used with freq
+> +	 */
+> +	if (attr->freq && attr->alt_sample_period)
+> +		goto err_ns;
+
+How can this happen? This case has already been filtered in
+perf_event_open() below, no?
+
+Also, this doesn't apply to tip/perf/core, someone went and changed
+things...
+
+> +
+> +	if (attr->alt_sample_period) {
+> +		hwc->sample_period = attr->alt_sample_period;
+> +		hwc->using_alt_sample_period = true;
+> +	}
+> +
+>  	/*
+>  	 * We do not support PERF_SAMPLE_READ on inherited events unless
+>  	 * PERF_SAMPLE_TID is also selected, which allows inherited events to
+> @@ -12807,9 +12832,21 @@ SYSCALL_DEFINE5(perf_event_open,
+>  	if (attr.freq) {
+>  		if (attr.sample_freq > sysctl_perf_event_sample_rate)
+>  			return -EINVAL;
+> +		if (attr.alt_sample_period)
+> +			return -EINVAL;
+>  	} else {
+>  		if (attr.sample_period & (1ULL << 63))
+>  			return -EINVAL;
+> +		if (attr.alt_sample_period) {
+> +			if (!attr.sample_period)
+> +				return -EINVAL;
+> +			if (attr.alt_sample_period & (1ULL << 63))
+> +				return -EINVAL;
+> +			if (attr.alt_sample_period > attr.sample_period)
+> +				return -EINVAL;
+> +			if (attr.alt_sample_period == attr.sample_period)
+> +				attr.alt_sample_period = 0;
+> +		}
+>  	}
+>  
+>  	/* Only privileged users can get physical addresses */
 > -- 
-> 2.48.1
+> 2.43.0
 > 
 
