@@ -4,126 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0148C28B2E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F151BC35FF1
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=; b=tmeza3WnO6bbKfXOnDUSQ/PPdZ
-	hd+vvYjXao9BoDHyhW7QANinS+c9sxVqVwdqZIUPcREbWnz0It3DSxQUZmw8iqTaqy1QnTBM8DvD1
-	vZYcySGHzt/8w6bUpTEILVuyD3kezVUpxzMPElgEmDRv3lD50BNE7pine8aNAjZzPxfmB33YKVDTj
-	crfJF04lgRs+D/E/Uv8d1xvngQsLXASZuorHoSJs/sUTt2BiwVxIb3EyCXHRrS6+WTqU6q0XrA06A
-	pkOHO0PlCcYEQydLkviyWzSDkClponOV+4dLbtqDoHyANzX+b3ZRtnpI8FPwX8K3uAZTcJUR0/gyA
-	TUTsdsDg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ND7q4oUVCaR2Ziifw3SND0aELgaXBmre7T8DMQp0WUE=; b=o9Dv0xKJvvrPZq54b4r8JiRm2l
+	X0yaPhaImftf2oiVSdC3Hk55mqt8alPnyKOa7Zpd8+m2l6qktwhEgdvxJFa0b2b4O6qsA9fG7AxcN
+	R2pSsjDXKnYWebj2T8rwkqSGNVbFqWkqEYhsOeFEcCyQpl0sPKxP0mXlyMsxrFcvnCL7P5ziMO+Vx
+	Qj0rzZfmPtCmTrcvcwwpEXGerQiW7nsAXy82j8my7t2ipv/yr2/JUviSYE53al786axGlbwFws5mk
+	JZuO3R8u76076yngaxfPygSJQRmtS1TGaOyCod7LYO09U8UVLRgK0Tq3emSNW57MOIMGnSlEcbJD2
+	DmVlG3xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treOI-00000002ymD-1Xvs;
-	Mon, 10 Mar 2025 14:46:02 +0000
-Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
+	id 1treOC-00000002ybd-3P1H;
+	Mon, 10 Mar 2025 14:45:56 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trd0c-00000002lMG-1ft8
+	id 1trcwf-00000002kVn-0JGd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:17:32 +0000
-Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7275bc6638bso762764a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:17:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1741612648; x=1742217448; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=;
-        b=BMo+Fnks0LbgLkTll2J/eeV0RbCgQNart4kmQXQlgThijXH6MdQMqScgisrtDh5Bjo
-         RPA1GocEy1Hpr5G6juwYvcQ7/ziQEISNH1CYvTvR6aEXYccpos3azg5vIiK+ProsThSI
-         2CTu/zR+86GyPpOmZmHA/8oJZfTswA73aE2nc=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741612648; x=1742217448;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=;
-        b=QwxZXzDWrGGQ2iuFpD9dq9KQ0MYaiXnP8/al1uvV5TqRhTkLlYdXxqIuovxMvxxctw
-         wFTX/oThWfIkfIAzNiHuk6mNuvDpeqg3ix0RtCV8u5YyZjeM1H8I+ifGQRuFl/9M871g
-         wPT1iflrBvmTJnJy/2qFCuTwGwnt6fbi8/37YVxTMbJfchQkK9/0bLaj5mVaaJrYySrw
-         cswI2HM/i5oPWY3Mo+MY0ECmfxHoo2qeq+xv0cTb5lSeuvatYMyV6Ui/l8A2KEsgWp2G
-         LDU4Ut+SyDo/xAl7ubcwZAY1Ugu3PjPHv6U5EDIr8KLZeunqIEVWmZv7oDXMb7IUjKdk
-         n4pA==
-X-Forwarded-Encrypted: i=1; AJvYcCWBUGAubcPWza6SViaRhEnclqFVT2MBb/nJs91Sa9U1Qwbsu1AljBnJzb88Lq9UFdtRk5FYi+RkHwgzGXSgbeN0@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxh2d+sXCEc9r5EUCE4kVAJVCIc0VXsWPLTofjoWqvd1mrXPWyP
-	xJiLeA7ZUtt9cAL8UXe8W9Ek+L/DjJ+aJc3q/Gd7yb4vU3iykCoL3nCYv+uqlXZ3o7WByUDKThG
-	jcQ==
-X-Gm-Gg: ASbGncs7MV1WMOyOFrV7b1IA76r1WfP0EklsRqrjoJc5R55WEmizktgYbdAoKEneLBd
-	ihqeS36ByxacMZb1bRvzrCm7Gsj01N7hoU1UzTZOyQ2hdoDT385pQaIg9aQESBL9dEy1x/As0lh
-	0dLBT4QVwWii5RGxxOzqcj5SOCWB7+QoehbC4HevGl+9T5IgKOahcaJjKf+GZXtcYm+fBmq9xME
-	ADevhRTPX/ZBpDaUhfuCmnxewIeklJwQMqSck2bT3ns4u/J2Qlf6YQ1hYonQtJQ4lQqju79CyVs
-	Aw7a2qi0RlfzoKT5kNgpYoP3W9z4RKnPRoC0DFmshjSBXPgP9r9Fq29/gE7qaww+Zx6AF2JcfFr
-	M/co0B7IGwfeZz5p0zV0=
-X-Google-Smtp-Source: AGHT+IHOtYVjKASEmQbKJvWKm4BF6A5oOWYMfkeEhMYVuALyNuSXIsPApVmHGXH1sFnX9s2IVJE9HQ==
-X-Received: by 2002:a05:6830:3498:b0:72b:95e5:edab with SMTP id 46e09a7af769-72b95e5f050mr450321a34.1.1741612648382;
-        Mon, 10 Mar 2025 06:17:28 -0700 (PDT)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2c2d1b00173sm207615fac.19.2025.03.10.06.17.25
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Mar 2025 06:17:26 -0700 (PDT)
-Message-ID: <c55f5485-0a32-4745-98a0-d620e4a2c4f1@broadcom.com>
-Date: Mon, 10 Mar 2025 06:17:24 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH next] pinctrl: bcm281xx: Add missing assignment in
- bcm21664_pinctrl_lock_all()
-To: Dan Carpenter <dan.carpenter@linaro.org>,
- Artur Weber <aweber.kernel@gmail.com>
-Cc: Linus Walleij <linus.walleij@linaro.org>, Ray Jui <rjui@broadcom.com>,
- Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org,
- linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
-References: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
-Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Mon, 10 Mar 2025 13:13:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21E74A45BD1;
+	Mon, 10 Mar 2025 13:07:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E86E9C4CEE5;
+	Mon, 10 Mar 2025 13:13:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741612404;
+	bh=gj+NFBePdsuXWlftWTserZdsRfx1lIS1prLpNJrt8IY=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=NyoS4A8Rcpq2q6yVbC1dPJiHOuwrTgh4XfLMpr7XuM+J+Nuxjj74AAER0deKQ5R+2
+	 3laMdtWBRoeDU4dT0C6Vxd0JFIUx4p534wxw6LBOaRv7XWesNlyiwuSDV5PlRIL838
+	 HJjUj8G9x0n0fplonOaWRXzR34maagXZIBS98HcHXdOqP2qOQmtSgrvfheQ1RYz5vw
+	 Ar6sdxhunSYgv/3Mt6A4zso+Lh4tsbODYaimk5d9nb4rwG1VK9AOI63ciJ/NX9RWl2
+	 sO6QqpP5tirRLYvYLfuBTw5BEm8R0svRdU/x7cT6SPWuzC85Mz1ZHc2Rz4laDNWX/j
+	 TlnQWuyTzhDsg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1trcwb-00CBlH-Rv;
+	Mon, 10 Mar 2025 13:13:21 +0000
+Date: Mon, 10 Mar 2025 13:13:21 +0000
+Message-ID: <86zfhtni4u.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>
+Cc: kvmarm@lists.linux.dev,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v3 00/14] KVM: arm64: FEAT_PMUv3 on Apple hardware
+In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
+References: <20250305202641.428114-1-oliver.upton@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, mizhang@google.com, coltonlewis@google.com, rananta@google.com, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, j@jannau.net
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_061730_481350_63CC8FE6 
-X-CRM114-Status: UNSURE (   9.50  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_061325_247670_F3AC8C1C 
+X-CRM114-Status: GOOD (  17.56  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,18 +94,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/10/2025 3:48 AM, Dan Carpenter wrote:
-> The next line checks if this regmap_write() failed, but it doesn't
-> work because the assignment was accidentally left out.  Add the
-> assignment.
+On Wed, 05 Mar 2025 20:26:27 +0000,
+Oliver Upton <oliver.upton@linux.dev> wrote:
 > 
-> Fixes: 60d69769c851 ("pinctrl: bcm281xx: Add support for BCM21664 pinmux")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> Hopefully close to the last spin, this time addressing Marc's comments
+> on v2.
+> 
+> Full details found in the v1 cover letter.
+> 
+> v1: https://lore.kernel.org/kvmarm/20241217212048.3709204-1-oliver.upton@linux.dev/
+> v2: https://lore.kernel.org/kvmarm/20250203183111.191519-1-oliver.upton@linux.dev/
+> 
+> v2 -> v3:
+>  - Reorder and restructure patches to include map_pmuv3_event()
+>    definition w/ KVM usage.
+>  - Disallow events that lack a valid PMUv3 -> HW mapping
+>  - Various minor fixes/typos
+> 
+> Oliver Upton (14):
+>   drivers/perf: apple_m1: Refactor event select/filter configuration
+>   drivers/perf: apple_m1: Support host/guest event filtering
+>   KVM: arm64: Compute PMCEID from arm_pmu's event bitmaps
+>   KVM: arm64: Always support SW_INCR PMU event
+>   KVM: arm64: Use a cpucap to determine if system supports FEAT_PMUv3
+>   KVM: arm64: Drop kvm_arm_pmu_available static key
+>   KVM: arm64: Use guard() to cleanup usage of arm_pmus_lock
+>   KVM: arm64: Move PMUVer filtering into KVM code
+>   KVM: arm64: Compute synthetic sysreg ESR for Apple PMUv3 traps
+>   KVM: arm64: Advertise PMUv3 if IMPDEF traps are present
+>   KVM: arm64: Remap PMUv3 events onto hardware
+>   drivers/perf: apple_m1: Provide helper for mapping PMUv3 events
+>   KVM: arm64: Provide 1 event counter on IMPDEF hardware
+>   arm64: Enable IMP DEF PMUv3 traps on Apple M*
+> 
+>  arch/arm64/include/asm/apple_m1_pmu.h   |   1 +
+>  arch/arm64/include/asm/cpucaps.h        |   2 +
+>  arch/arm64/include/asm/cpufeature.h     |  28 +----
+>  arch/arm64/kernel/cpu_errata.c          |  44 ++++++++
+>  arch/arm64/kernel/cpufeature.c          |  28 +++++
+>  arch/arm64/kernel/image-vars.h          |   5 -
+>  arch/arm64/kvm/arm.c                    |   4 +-
+>  arch/arm64/kvm/hyp/include/hyp/switch.h |   4 +-
+>  arch/arm64/kvm/hyp/vhe/switch.c         |  22 ++++
+>  arch/arm64/kvm/pmu-emul.c               | 138 +++++++++++++++++-------
+>  arch/arm64/kvm/pmu.c                    |  10 +-
+>  arch/arm64/tools/cpucaps                |   2 +
+>  drivers/perf/apple_m1_cpu_pmu.c         | 101 +++++++++++++----
+>  include/kvm/arm_pmu.h                   |  12 +--
+>  include/linux/perf/arm_pmu.h            |   4 +
+>  15 files changed, 301 insertions(+), 104 deletions(-)
+> 
+> 
+> base-commit: 0ad2507d5d93f39619fc42372c347d6006b64319
 
-Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+I'm quite happy with the way this looks now (well, apart from patch
+#9, but that's not something you can fix...).
+
+Reviewed-by: Marc Zyngier <maz@kernel.org>
+
+	M.
+
 -- 
-Florian
-
+Without deviation from the norm, progress is not possible.
 
