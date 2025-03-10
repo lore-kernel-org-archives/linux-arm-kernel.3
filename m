@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C074C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:17:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFA4C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:19:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3RzlGFhAvuM0cuDF00eJyPgemDXX9EL9Mn84ikQ4pw=; b=jItjtkeBiepF55XaaD4bNgSdJ7
-	BZeHzc++ICMMQOE7TP7jpKH7vzJh3Emri3ehjkeCUaDMBmTiIPCnWJNk+fw6aRKvyWG5Pnm22dHoj
-	mhUr8pDohDNrF6bwQLN5RoT7LEqO3jEXa+kky3bw06/D9n2R06dLUp/KUsAbGSYg8YMLCKJv9TJbJ
-	qQGlgwYyTGtUMlFYClg3pwSp7XbmRA/H57Xis9nvhOmuHSBdU/O+XANYKuFmn7SrKFI5kIgcfLifO
-	MJcDnZQqz6KWUqwtS2Qr5ozE9jHPhIJ2R4YlWZ8ZyC9ctfYoDk2iBpkC9f436/PT+susfTbv1jMjB
-	5YCB2Bkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bwWd8IPHrchZjA5iUek6gwliBN293H/fMAP7+Vv1hPE=; b=a6mriHDzBqfpJMcuutm8MKJUBy
+	LgYIoeOhyUDNGeNpScf7Au+nYt3Uz2CeFZJ1tfGmByxV8+yZGcIsKRT9a54e1XtLc1Zylf4Tu5H0m
+	DwyZCakygvLw52M3WQx2DsmPdUe6Nx5r8bjzkRzq0I69OGOMilMrcz3WlUJsGay+nFBAysQetPsp4
+	CoE3TJZnqYjGxWOhGnM31iwSMOTZc3h029ubVsIHfIbxC5jSDcoGNfd1aM7MVHGP1hOU5XUswNVln
+	pn2hN0SCqC2MZmysiXuqtLL1LewHfsxzGOOHoSNtTcwp9qfGUPNE7rMrOJ7I4y/0+A8vLDHjQkMq8
+	7xvZ5zkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhgv-00000003auA-1xWw;
-	Mon, 10 Mar 2025 18:17:29 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1trhiX-00000003b5z-2H84;
+	Mon, 10 Mar 2025 18:19:09 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trheX-00000003aOJ-3lZ9
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 18:15:03 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-43bc63876f1so39262385e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 11:15:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741630500; x=1742235300; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=l3RzlGFhAvuM0cuDF00eJyPgemDXX9EL9Mn84ikQ4pw=;
-        b=q2E4OhQzvXJX645UbMXUDtAJt4MSAxguQua3cexn1EV/dbRpijAP6S63cuL3BFl3Lj
-         QKIhEJl7Vr6e37Le7pOMqDzirh8Ts9g5rBldD9nZh7Q25hREROhHBmml8KfRxAiZoi3o
-         Pt3ZGnCR2Y0f08ouiYnNIt5CZz59CQVDu9vCRXzYuSYXzWX9tA056XO6fBUBD8ghL7/O
-         Su+5qRQa3xkI3Pv0jOxCXtmvralkmU++fP7pxTeYQocg2MyxgZzS/tWo82mKNNXANssw
-         ebj5GIIo2wP0SQ+cM/ym3+y7lXVDgLuPW8TDkv+0v21v9CQQ1lAgmA4hzflLsWmf2LfL
-         HDFQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741630500; x=1742235300;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l3RzlGFhAvuM0cuDF00eJyPgemDXX9EL9Mn84ikQ4pw=;
-        b=lEQoC8m890wrLeXM7s2W+K7a29KF2vxcfICSi9L5+Ne313Kc1Q0aOYSBR45gAKOulB
-         SvrbAw1bhX4P/DOZC6vi/eQi2KBUyS5n/CPlJVj2n95sa6MlwT2qwiam2iHJcGZ11ZMZ
-         jcZ6VpB3S4vUxjAAAmbmwx3s7obpN9VP29u+YXHENIQsmeb5XyU19g5yaXnBI1oX9iv8
-         +28ZvlFAarOeAsew0AdnvqqeU/Cw5cIcLbY/4C4Q0prSztKqMs0YID4mrSkDlw+OaABH
-         4PlVLOpNEyIIvU+9Kb9BWRje3Yr3jDsYyj5ooWC6pp0N3Xh3ZfWAcclHBgLCVbXR93td
-         4GPg==
-X-Forwarded-Encrypted: i=1; AJvYcCUdY3eZHvfXp4uSJbVFnGms2xU5slZmGcBw55QAZsGV35kkYTKWoucZAOT6dMPJjZGe8qNnuVowmcyWrz64TmHb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxEpsIbciH30KYZqypON4+zQfiZ4zZKSvabCkHoiIFzewyx06dg
-	eSzjG4e8VHgriU0rMva1ANzSmVXM8LZx0xxWWnJpL87ra1ZbWECGcE+nj3K3xLI=
-X-Gm-Gg: ASbGncs3wuoKTJC3tviNxsXaNh2Slv/aq9yZ3/ULVBwhIZFxYKIKZjShnfnRME/ZGVV
-	QQLHNyXulfTSAkJr9L9k/1UAMmT5OgeWldZjpYVPA85RyvlhVrWuViXPObCQ0nRKFm9hqtkZR3m
-	VInbbctd8123DPtMOOwntGkSgz0Dr9SGCugx3KMvvtHTtLGD1ewNkozIdr1qCkb20pU8B9KaxAW
-	Fg5TrfSkkwvsZoDTMC5bGzEUZjErj7oCOJsrWC7oluKBn2vYOJOlZXSvLwkfZFaI5syJAAZ+v+i
-	DNSzA0DnkjS22CmGgNHvnXAxlqPoEC1J/uyjk3sT+BUxsh6CMZ15blB6hmk5
-X-Google-Smtp-Source: AGHT+IFt3w/t0krndV7nu2YZ6CAjcoMbnNHYnSPvnNwZG4aH7mpi4yFNuonaavUpPD2h5koG09zTWw==
-X-Received: by 2002:a05:600c:3b21:b0:43c:fee3:2bce with SMTP id 5b1f17b1804b1-43cfee32d16mr19567085e9.26.1741630500212;
-        Mon, 10 Mar 2025 11:15:00 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43cf7b88494sm45446875e9.0.2025.03.10.11.14.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 11:14:59 -0700 (PDT)
-Date: Mon, 10 Mar 2025 21:14:55 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Thomas =?iso-8859-1?Q?Wei=DFschuh?= <thomas.weissschuh@linutronix.de>
-Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-staging@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] staging: vchiq_arm: Don't use %pK through printk
-Message-ID: <eb4eeb0c-7cdd-44b6-a9bb-11133ff55925@stanley.mountain>
-References: <20250310-restricted-pointers-vchiq_arm-v1-1-dd04f208ee55@linutronix.de>
+	id 1trheo-00000003aRJ-0mZo;
+	Mon, 10 Mar 2025 18:15:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 110AEA46131;
+	Mon, 10 Mar 2025 18:09:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 573F9C4CEE5;
+	Mon, 10 Mar 2025 18:15:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1741630516;
+	bh=vzvrSyqn6DJjUIxws5xS9TDyA2751Ep1ig0ZZJZcS6M=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=awRXIwASt6IM3fvoJMk4Djw8panTo+rxZVnNeA8VV4Y+c6PJE1og6Q9JM96VhqCsu
+	 ZEE2EFu8XUpTS+eol+cVEGRTtL61JjM0oUwy5nW5b37ltPRNsbBLsCbgVmvy4wKfOY
+	 xLhrmMt6x6crzR99T3GvUWT+EhAr84zuywaM/hhY=
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: stable@vger.kernel.org
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	patches@lists.linux.dev,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Chris Zhong <zyw@rock-chips.com>,
+	Guenter Roeck <groeck@chromium.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Sasha Levin <sashal@kernel.org>
+Subject: [PATCH 5.15 441/620] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
+Date: Mon, 10 Mar 2025 18:04:47 +0100
+Message-ID: <20250310170603.006059216@linuxfoundation.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250310170545.553361750@linuxfoundation.org>
+References: <20250310170545.553361750@linuxfoundation.org>
+User-Agent: quilt/0.68
+X-stable: review
+X-Patchwork-Hint: ignore
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250310-restricted-pointers-vchiq_arm-v1-1-dd04f208ee55@linutronix.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_111501_942241_8C25C58C 
-X-CRM114-Status: UNSURE (   9.28  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_111518_376061_340A6C63 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,17 +81,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 04:53:33PM +0100, Thomas Weiﬂschuh wrote:
-> @@ -2003,7 +2003,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
->  
->  	if (((unsigned long)header & VCHIQ_SLOT_MASK) +
->  	    calc_stride(size) > VCHIQ_SLOT_SIZE) {
-> -		dev_err(state->dev, "core: header %pK (msgid %x) - size %x too big for slot\n",
-> +		dev_err(state->dev, "core: header %K (msgid %x) - size %x too big for slot\n",
-                                                   ^^
-You deleted the wrong character here.  :P
+5.15-stable review patch.  If anyone has any objections, please let me know.
 
-regards,
-dan carpenter
+------------------
+
+From: Thomas Zimmermann <tzimmermann@suse.de>
+
+[ Upstream commit 666e1960464140cc4bc9203c203097e70b54c95a ]
+
+The code for detecting and updating the connector status in
+cdn_dp_pd_event_work() has a number of problems.
+
+- It does not aquire the locks to call the detect helper and update
+the connector status. These are struct drm_mode_config.connection_mutex
+and struct drm_mode_config.mutex.
+
+- It does not use drm_helper_probe_detect(), which helps with the
+details of locking and detection.
+
+- It uses the connector's status field to determine a change to
+the connector status. The epoch_counter field is the correct one. The
+field signals a change even if the connector status' value did not
+change.
+
+Replace the code with a call to drm_connector_helper_hpd_irq_event(),
+which fixes all these problems.
+
+Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
+Cc: Chris Zhong <zyw@rock-chips.com>
+Cc: Guenter Roeck <groeck@chromium.org>
+Cc: Sandy Huang <hjc@rock-chips.com>
+Cc: "Heiko St√ºbner" <heiko@sntech.de>
+Cc: Andy Yan <andy.yan@rock-chips.com>
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-rockchip@lists.infradead.org
+Cc: <stable@vger.kernel.org> # v4.11+
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+ drivers/gpu/drm/rockchip/cdn-dp-core.c | 9 +--------
+ 1 file changed, 1 insertion(+), 8 deletions(-)
+
+diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+index b9ef35a35c857..af1e361da8df9 100644
+--- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
++++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
+@@ -916,9 +916,6 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ {
+ 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
+ 						event_work);
+-	struct drm_connector *connector = &dp->connector;
+-	enum drm_connector_status old_status;
+-
+ 	int ret;
+ 
+ 	mutex_lock(&dp->lock);
+@@ -980,11 +977,7 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
+ 
+ out:
+ 	mutex_unlock(&dp->lock);
+-
+-	old_status = connector->status;
+-	connector->status = connector->funcs->detect(connector, false);
+-	if (old_status != connector->status)
+-		drm_kms_helper_hotplug_event(dp->drm_dev);
++	drm_connector_helper_hpd_irq_event(&dp->connector);
+ }
+ 
+ static int cdn_dp_pd_event(struct notifier_block *nb,
+-- 
+2.39.5
+
+
 
 
