@@ -4,93 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE112C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1538CC2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:28:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vU0z+9J+rBNCxPQO8HZEdGSqw5gIcCbIf0D0nliP6Gw=; b=laaYKv5eE0kowoG53RkW7bIW3V
-	fwrnnPsO2kT4DWTd8Z3CBGzzSuGLHzA30sB3EJee4KJRIwgaJ9GVEV/Q5NqYVxXYgO48pgV71NLWP
-	5jQzjB/IOgDcN4ApGgTAKDQQvt4QOjAf+AJBkvsDdapdU7MEWi1knkq+jluW22jmW4+waPzIP9AKB
-	tZtALFWCZsrPlvxss3dz+CyGZwc7td9CFMH70AUE5dkw+WuMjlRxysVq2heJH4i+PLbv0OPpnvllE
-	+L7QZvFeHda5IqsejkPZ2t9MCE3mlBBig4mIav2Huy19sVVSjhrma/IGBAh8w4b0oVNtMiDqAtyzW
-	vU9xy1vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UCqGG6PWLyXfj9f7cyZ2Du+BAYKQ8sthmSCdkxYK4DE=; b=s8HvBgzdA0rbAb/qLJ4JrCHoIY
+	23tlc5S0xyQpPd0iwfuOJhvFU30G1VmIn+rS/DSrWCw7Plm/YvD/W24zIwzgjemz0/OfQbAZtQS4e
+	qrb9KCjXmzrPAei3igYQx7A9VSwzEzOUveE2fIhk8bGoVKnN9unNyoF5DoMB1qaIsgw8o2/q4JYgi
+	Rb8vMJJumQeJZfbsgwW/yrWFK4Ah2PFebh2mXYLYzCBWyYtqAO3JTuqaCpsCZbqQlYXsMcqJO4RdP
+	exXjzH/bHLYLsd/V+xxaYD0GuiQom+zLZWJPYOdYYla4hgu6MTdK4g0DQ2fjS7jc4P0mx3zB3ub+h
+	iE+ylqXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSrC-00000001Rfv-3BRC;
-	Mon, 10 Mar 2025 02:27:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1trSsn-00000001RlG-1k9H;
+	Mon, 10 Mar 2025 02:28:45 +0000
+Received: from mgamail.intel.com ([198.175.65.9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSoR-00000001RNI-1djR
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 02:24:16 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 529MquXU015437;
-	Mon, 10 Mar 2025 02:24:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=vU0z+9J+rBNCxPQO8HZEdG
-	Sqw5gIcCbIf0D0nliP6Gw=; b=i37EexwFyOehAUk+puhOzMGRRVOvsYCXvbAdRs
-	rUBxF3wrK1I9y4oF2eQ9eYcgr2RuBYnuccMqptkklmsEJIKM/6kGL8NhseYTjKbP
-	PwUdVGzygbzjCcpGGyQ3NVpObKP9G9bpAGGCNluiN1kIjB1jNa91JBbss9MY5FhA
-	L1pr65nCnb1hYN+OlVVYlIC5GnWjCsJjY0bamjYl/t+uFpYj948IR/I7j3c2XGrk
-	7vdc+TqfieZMr6cnNULIJYtlGRwvhyq6nAzwkMNfA5lwaZ2idQzGcU0fRW0gzKtj
-	EEAY90AYbJjpueWV9EA0hIVpD0gK/3WHddePvIBkqlz3winw==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458f0pu6js-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Mar 2025 02:24:09 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52A2O8eC007706
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Mar 2025 02:24:08 GMT
-Received: from jiegan-gv.qualcomm.com (10.80.80.8) by
- nalasex01c.na.qualcomm.com (10.47.97.35) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Sun, 9 Mar 2025 19:24:05 -0700
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach
-	<mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        "Alexander
- Shishkin" <alexander.shishkin@linux.intel.com>
-CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
-        Jinlong Mao
-	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-msm@vger.kernel.org>, Jie Gan <quic_jiegan@quicinc.com>
-Subject: [PATCH] coresight: add verification process for coresight_etm_get_trace_id
-Date: Mon, 10 Mar 2025 10:23:48 +0800
-Message-ID: <20250310022348.1654501-1-quic_jiegan@quicinc.com>
-X-Mailer: git-send-email 2.34.1
+	id 1trSoa-00000001ROF-1vx6;
+	Mon, 10 Mar 2025 02:24:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741573464; x=1773109464;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=WKFaRGNbm41ygiDOYwuZyQiHlC64X9yBshoJhOG//8I=;
+  b=hOkspDBQi/8XI70YKg49egj8AndBAUzLV/U2obyuoOdTc8ty9kQiX9XL
+   ZZBoteDZN+x84R1dnq+Tt5uHN/1VBjFvVqGtkqYKbTM2Ob7KzfiXcNwMi
+   sW60bYj9yj6mUS42QKNydaPZ8OmXWK721UxYxpJzTcFSxpY6POCtVObNF
+   l+jjXPdiD77XbuLIshHrAQa9bKfMbJ3xIu4Ppx0Brf9c9pzK68nMuMqVE
+   KZT5Vz61rHBNqg9RRdtgZnl8cXRvBIJFxxp7qTceO8F2vYVTYPNp0KH3c
+   e43rs5tzNGDfP/wL0iKU83JMdUhNVLkY4lzj3C0vb2LvQJXZYY89lzDWG
+   g==;
+X-CSE-ConnectionGUID: Yu/f5faVSdaHo7V6oAwsyA==
+X-CSE-MsgGUID: NTJxOy/wTwq6tRNYNyHC1g==
+X-IronPort-AV: E=McAfee;i="6700,10204,11368"; a="65000966"
+X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
+   d="scan'208";a="65000966"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 19:24:22 -0700
+X-CSE-ConnectionGUID: EBcI4p/gQFCFWXYHUd2zOQ==
+X-CSE-MsgGUID: kuyCE67oS6CBdcD22w3xyA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
+   d="scan'208";a="124459380"
+Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
+  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 19:24:15 -0700
+Message-ID: <2db8d0c9-f6df-48f3-8bbb-4592e86d92fa@linux.intel.com>
+Date: Mon, 10 Mar 2025 10:21:03 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: aL7Arnzvvk8P2yHfW7YG7OJa8mdh5HF3
-X-Authority-Analysis: v=2.4 cv=KK2gDEFo c=1 sm=1 tr=0 ts=67ce4d49 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=sWKEhP36mHoA:10 a=COk6AnOGAAAA:8 a=cSwQvQB4SgJn8oxX0GsA:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: aL7Arnzvvk8P2yHfW7YG7OJa8mdh5HF3
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-10_01,2025-03-07_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 phishscore=0 mlxlogscore=972
- clxscore=1015 malwarescore=0 adultscore=0 impostorscore=0 mlxscore=0
- lowpriorityscore=0 priorityscore=1501 bulkscore=0 spamscore=0
- suspectscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503100017
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 08/23] iommu/vtd: Use virt_to_phys()
+To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
+ asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
+ Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+ Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+ linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
+ <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
+ Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+ Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
+ Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
+ Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
+Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
+ Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+ David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
+References: <8-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Language: en-US
+From: Baolu Lu <baolu.lu@linux.intel.com>
+In-Reply-To: <8-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_192415_609330_72F2908A 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20250309_192424_588705_C27405DA 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,35 +101,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The coresight_etm_get_trace_id function is a global function. The
-verification process for 'csdev' is required prior to its usage.
+On 2/26/25 03:39, Jason Gunthorpe wrote:
+> If all the inlines are unwound virt_to_dma_pfn() is simply:
+>     return page_to_pfn(virt_to_page(p)) << (PAGE_SHIFT - VTD_PAGE_SHIFT);
+> 
+> Which can be re-arranged to:
+>     (page_to_pfn(virt_to_page(p)) << PAGE_SHIFT) >> VTD_PAGE_SHIFT
+> 
+> The only caller is:
+>     ((uint64_t)virt_to_dma_pfn(tmp_page) << VTD_PAGE_SHIFT)
+> 
+> re-arranged to:
+>     ((page_to_pfn(virt_to_page(tmp_page)) << PAGE_SHIFT) >> VTD_PAGE_SHIFT) << VTD_PAGE_SHIFT
+> 
+> Which simplifies to:
+>     page_to_pfn(virt_to_page(tmp_page)) << PAGE_SHIFT
+> 
+> That is the same as virt_to_phys(tmp_page), so just remove all of this.
+> 
+> Reviewed-by: Lu Baolu<baolu.lu@linux.intel.com>
+> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> ---
+>   drivers/iommu/intel/iommu.c |  3 ++-
+>   drivers/iommu/intel/iommu.h | 19 -------------------
+>   2 files changed, 2 insertions(+), 20 deletions(-)
 
-Fixes: c367a89dec26 ("Coresight: Add trace_id function to retrieving the trace ID")
-Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
----
- drivers/hwtracing/coresight/coresight-core.c | 7 +++++--
- 1 file changed, 5 insertions(+), 2 deletions(-)
+Queued this cleanup patch for iommu/vt-d.
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index bd0a7edd38c9..5a7cd2376e2d 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -1616,9 +1616,12 @@ EXPORT_SYMBOL_GPL(coresight_remove_driver);
- int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode,
- 			       struct coresight_device *sink)
- {
--	int trace_id;
--	int cpu = source_ops(csdev)->cpu_id(csdev);
-+	int cpu, trace_id;
-+
-+	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE && !source_ops(csdev)->cpu_id)
-+		return -EINVAL;
- 
-+	cpu = source_ops(csdev)->cpu_id(csdev);
- 	switch (mode) {
- 	case CS_MODE_SYSFS:
- 		trace_id = coresight_trace_id_get_cpu_id(cpu);
--- 
-2.34.1
-
+Thanks,
+baolu
 
