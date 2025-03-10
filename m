@@ -4,96 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ACFC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C741C35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kua1+P7pBuS50I7egTYFseHRI4Y7N92xh/jBVSs2A1g=; b=OVmW6y7ddqZoKUIKhUdOSBn6RJ
-	SHJWeDHzQ3ZaUDXxVmlgRxtYiHy3YgogABbsIiYZ86k8tRSY6GQ7XTdnINs5RvKbMqLgV6ojg/A2u
-	3wCDq+9BxYSA5k6z7Y9UjIzrK1LuL11ralz+Yew1EnfBHX/8vxwcDvQPRO10c0CyzVVa1gMpAzwU5
-	S3kjUTsG+K8yepu4Sm7Rz0ExHXV/ldzI8joWfVcLpO6MIW94awo40cuqOu7BKSQaMC1OXQapZmuDJ
-	715SxMreIDtq9cbCxb/bH3m/s19gNy1Df/eo+rRdXxt7Qa2IpACTN5TmSRBp77a0Z8v4/rKOePjSf
-	eBtcXcHg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jYjWE/cUoiKYrvvmxdCOmb6CBOE5LqyNeKYgleL0ihY=; b=UNYcRI7BrXnJr27vYHbNEKu0XQ
+	KATcjPkbgqQ4J8zfs6nyHgH6AR9j4Kw6sAQo6Bw5vGBZwiTuQcITwzFbDeL+Rq1SCZpm7FXHLLliZ
+	uDuQEHIPfLhifqtDccMU1CXvcRlhwQssSNvxx8iiQAyhaFvVORT96097e05BF+k79v3lKugvkuYss
+	ZcospKQo/Dec+u+WIv+ox++dIQSiwly/r4aFsr40UV+1c4DuAeSj7V9nmMlKBplnAAU4z9+A/QKpq
+	zVcynGcMsAPaXEPL0vC9qJFyShxUcp/lBP8N7/hCsAwplojnwGSgq2S02I1pNVgfP4/RgyY+3wOP9
+	K5STHLLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1triRQ-00000003hJd-2yAb;
-	Mon, 10 Mar 2025 19:05:32 +0000
-Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
+	id 1triRR-00000003hKd-3y5M;
+	Mon, 10 Mar 2025 19:05:33 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trfrk-00000003Kv2-0q8J;
-	Mon, 10 Mar 2025 16:20:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
-  t=1741623632; x=1773159632;
-  h=from:to:cc:subject:in-reply-to:references:date:
-   message-id:mime-version;
-  bh=kua1+P7pBuS50I7egTYFseHRI4Y7N92xh/jBVSs2A1g=;
-  b=B0mQCK9mTRSvF5OZ6ColUCzzCcQbLBbXB0NE/ctvQEzxcCX+IRXjuPYA
-   XuQEbzdr93LiNaQG3tLncayRSYcd466U7+BDFQnqCq/SqZLgPZ7tGSadO
-   Az84E6+lMQG3KgB9Rl0tNh+Ao0zrtSP4quWnNOA6PnTQlqfBKb79Z9UKM
-   E=;
-X-IronPort-AV: E=Sophos;i="6.14,236,1736812800"; 
-   d="scan'208";a="30459260"
-Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
-  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 16:20:19 +0000
-Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:25065]
- by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.127:2525] with esmtp (Farcaster)
- id 4286f8c0-5c5d-4095-b20b-85582cfebec2; Mon, 10 Mar 2025 16:20:18 +0000 (UTC)
-X-Farcaster-Flow-ID: 4286f8c0-5c5d-4095-b20b-85582cfebec2
-Received: from EX19D020UWC001.ant.amazon.com (10.13.138.157) by
- EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Mon, 10 Mar 2025 16:20:02 +0000
-Received: from EX19MTAUWC002.ant.amazon.com (10.250.64.143) by
- EX19D020UWC001.ant.amazon.com (10.13.138.157) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
- Mon, 10 Mar 2025 16:20:02 +0000
-Received: from email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com
- (10.25.36.210) by mail-relay.amazon.com (10.250.64.149) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
- 15.2.1544.14 via Frontend Transport; Mon, 10 Mar 2025 16:20:02 +0000
-Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
-	by email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com (Postfix) with ESMTP id 1694FA04AA;
-	Mon, 10 Mar 2025 16:20:02 +0000 (UTC)
-Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
-	id A154B6221; Mon, 10 Mar 2025 16:20:01 +0000 (UTC)
-From: Pratyush Yadav <ptyadav@amazon.de>
-To: Mike Rapoport <rppt@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, Alexander Graf <graf@amazon.com>, "Andrew
- Morton" <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>,
-	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt
-	<benh@kernel.crashing.org>, Borislav Petkov <bp@alien8.de>, Catalin Marinas
-	<catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, "David
- Woodhouse" <dwmw2@infradead.org>, Eric Biederman <ebiederm@xmission.com>,
-	"Ingo Molnar" <mingo@redhat.com>, James Gowans <jgowans@amazon.com>, Jonathan
- Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland
-	<mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin
-	<pasha.tatashin@soleen.com>, "H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra
-	<peterz@infradead.org>, Rob Herring <robh+dt@kernel.org>, Rob Herring
-	<robh@kernel.org>, Saravana Kannan <saravanak@google.com>, "Stanislav
- Kinsburskii" <skinsburskii@linux.microsoft.com>, Steven Rostedt
-	<rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky
-	<thomas.lendacky@amd.com>, Usama Arif <usama.arif@bytedance.com>, Will Deacon
-	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
-	<linux-mm@kvack.org>, <x86@kernel.org>
-Subject: Re: [PATCH v4 06/14] kexec: Add KHO parsing support
-In-Reply-To: <20250206132754.2596694-7-rppt@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
-	<20250206132754.2596694-7-rppt@kernel.org>
-Date: Mon, 10 Mar 2025 16:20:01 +0000
-Message-ID: <mafs0zfhs97ta.fsf@amazon.de>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1trfu1-00000003LJV-1bmp
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 16:22:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4A749A447D1;
+	Mon, 10 Mar 2025 16:17:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B8EAC4CEE5;
+	Mon, 10 Mar 2025 16:22:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741623772;
+	bh=69TK+x/Th5vRvgBp8VIC+9ZfHyhlCh0Cc+L0ECqpaCA=;
+	h=Date:Subject:From:To:Cc:References:In-Reply-To:From;
+	b=mQmoZiH7xtBZt9EPm2tkEEtUySqZo6Z+tlIYptVCYauU9s9IjUm7g6B8FGwVy+7SW
+	 P086Tb5RdYDoCZpu+LClayKAlgD5cCqdl/QI+qpt6EtzN9/C//5Lpdy4Mw1B6s3Kf3
+	 yTf0GQNjzneBANq8DKNTer4vVeKvcg4EHTECGBQgOyvYUdu5PhWlEJPcqv9gMCvIKc
+	 bb9kDqQG0bM/GyS/Y2vp8k3ZkFVIi8M51CTR8xgsnlI/OTIv+XEeQqmbMi+TBo8vwv
+	 rqorRSzbai0VcUYl4GqFsxv396Amo+EHgeUwTS5KtbYhp3EJzQcapZrk2UZ5ckElsx
+	 moNNzEEcE2KCQ==
+Message-ID: <cd2f3c97-53bb-42f5-a3cd-4385bfda5dc7@kernel.org>
+Date: Mon, 10 Mar 2025 17:22:47 +0100
 MIME-Version: 1.0
-Content-Type: text/plain
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
+ Concerto board
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Antonin Godard <antonin.godard@bootlin.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+References: <20250310-varsom6ul-concerto-dts-v3-0-551e60713523@bootlin.com>
+ <20250310-varsom6ul-concerto-dts-v3-1-551e60713523@bootlin.com>
+ <63f8aa7d-fcd4-450f-b3a1-44886a29fc7e@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <63f8aa7d-fcd4-450f-b3a1-44886a29fc7e@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_092032_296683_2D081AEE 
-X-CRM114-Status: GOOD (  23.99  )
+X-CRM114-CacheID: sfid-20250310_092253_571087_07641D53 
+X-CRM114-Status: GOOD (  19.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,75 +125,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Mike,
+On 10/03/2025 17:22, Krzysztof Kozlowski wrote:
+> On 10/03/2025 16:56, Antonin Godard wrote:
+>> Add support for the Variscite i.MX6UL VAR-SOM-MX6UL and the Variscite
+>> Concerto carrier board.
+>>
+>> Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
+>> ---
+> <form letter>
+> This is a friendly reminder during the review process.
+> 
+> It looks like you received a tag and forgot to add it.
+> 
+> If you do not know the process, here is a short explanation:
+> Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
+> of patchset, under or above your Signed-off-by tag, unless patch changed
+> significantly (e.g. new properties added to the DT bindings). Tag is
+> "received", when provided in a message replied to you on the mailing
+> list. Tools like b4 can help here. However, there's no need to repost
+> patches *only* to add the tags. The upstream maintainer will do that for
+> tags received on the version they apply.
+> 
+> Please read:
+> https://elixir.bootlin.com/linux/v6.12-rc3/source/Documentation/process/submitting-patches.rst#L577
+> 
+> If a tag was not added on purpose, please state why and what changed.
 
-On Thu, Feb 06 2025, Mike Rapoport wrote:
-[...]
-> @@ -444,7 +576,141 @@ static void kho_reserve_scratch(void)
->  	kho_enable = false;
->  }
->  
-> +/*
-> + * Scan the DT for any memory ranges and make sure they are reserved in
-> + * memblock, otherwise they will end up in a weird state on free lists.
-> + */
-> +static void kho_init_reserved_pages(void)
-> +{
-> +	const void *fdt = kho_get_fdt();
-> +	int offset = 0, depth = 0, initial_depth = 0, len;
-> +
-> +	if (!fdt)
-> +		return;
-> +
-> +	/* Go through the mem list and add 1 for each reference */
-> +	for (offset = 0;
-> +	     offset >= 0 && depth >= initial_depth;
-> +	     offset = fdt_next_node(fdt, offset, &depth)) {
-> +		const struct kho_mem *mems;
-> +		u32 i;
-> +
-> +		mems = fdt_getprop(fdt, offset, "mem", &len);
-> +		if (!mems || len & (sizeof(*mems) - 1))
-> +			continue;
-> +
-> +		for (i = 0; i < len; i += sizeof(*mems)) {
-> +			const struct kho_mem *mem = &mems[i];
+And now I noticed you used b4, so I really do not get how the tags can
+be missing here. :/
 
-i goes from 0 to len in steps of 16, but you use it to dereference an
-array of type struct kho_mem. So you end up only looking at only one of
-every 16 mems and do an out of bounds access. I found this when testing
-the memfd patches and any time the file was more than 1 page, it started
-to crash randomly.
-
-Below patch should fix that:
-
----- 8< ----
-diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
-index c26753d613cbc..40d1d8ac68d44 100644
---- a/kernel/kexec_handover.c
-+++ b/kernel/kexec_handover.c
-@@ -685,13 +685,15 @@ static void kho_init_reserved_pages(void)
-             offset >= 0 && depth >= initial_depth;
-             offset = fdt_next_node(fdt, offset, &depth)) {
-                const struct kho_mem *mems;
--               u32 i;
-+               u32 i, nr_mems;
- 
-                mems = fdt_getprop(fdt, offset, "mem", &len);
-                if (!mems || len & (sizeof(*mems) - 1))
-                        continue;
- 
--               for (i = 0; i < len; i += sizeof(*mems)) {
-+               nr_mems = len / sizeof(*mems);
-+
-+               for (i = 0; i < nr_mems; i++) {
-                        const struct kho_mem *mem = &mems[i];
- 
-                        memblock_reserve(mem->addr, mem->size);
----- >8 ----
-[...]
-
--- 
-Regards,
-Pratyush Yadav
+Best regards,
+Krzysztof
 
