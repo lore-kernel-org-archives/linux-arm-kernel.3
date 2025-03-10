@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16806C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 00:15:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 824B8C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 00:16:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HkcBOyMrU08By5wz8cHkuMlZXuzZuC30spWDpSCMgq8=; b=LJczgzoX2q6bzJX8nPISxBGaOZ
-	pxHnFyUH3gUtLyWRQ7642jqGBqWFG8ezFQTXlnpP206/Mt6ZERHWJvWohJ4H2mxx7BF6a1B6Ce1nE
-	7ftxbqFfycVOD2QV7nXXy3xLgV5PuLF1h5HAdkH69nmiZuJ374qIGrraT3TwR1c3A83lG2pd7jv43
-	7kpcbU1hzgyY5wnHerC+8PtitJ6qvZmraJ+6edAj+fm9VE2pfdK92XMGtnuegjHSrNTC+pORL0xFi
-	QUif4w2DLl0/+eT4Hg38GhF5vSmXhZWo/IUp1aK2AryrbVZ1mgrQUfWPPGzgtAneH/pAaom8n+gkY
-	/iowZb8w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2XkeNvTS3SSQVo18wjKfb+aIkG+6ibmdSyCn5Cfxy74=; b=Pnhj3LQ8xGkleNKLt5AzKMt6c1
+	dDDwjxYZ8e4oN1i54O2QqGG7/xDpjBTgJNAM4Xx3P1G3o49HQ2UZ5k6KRrSlVR1d9d0mmAMmSD/Tr
+	Db5GGA3yx8v2jd4qQ8jWoGPmHrRELqTFl5MgZlmpiRLWqHHpcS3y8jtgfmLt3Pqsuqdhb7UxuloaU
+	4+PjHC2nDvmRP8UVTJmCoxg5BmxXAa4jrB9z+Lb1B0ebgyQ2g6fVhUDx4TC2yLRDC307Iq+BOcM0l
+	m8s3HGn1DfhmGEqNnvePRNfYT8JTLJjmCCCSlLEFM6kbg/xol22Df3q3JP5790acsweo1w61uCqnp
+	3Zvefhzg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQnC-00000001JtI-0BZt;
-	Mon, 10 Mar 2025 00:14:50 +0000
+	id 1trQon-00000001K59-312K;
+	Mon, 10 Mar 2025 00:16:29 +0000
 Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQlX-00000001Jgf-3GGl
+	id 1trQlb-00000001JhM-2rJE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 00:13:09 +0000
+	Mon, 10 Mar 2025 00:13:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
- To: From; q=dns/txt; s=fe-e1b5cab7be; t=1741565586;
- bh=HkcBOyMrU08By5wz8cHkuMlZXuzZuC30spWDpSCMgq8=;
- b=B53pD1jch6CAxTz1fMg7CbahBoJSxCIjl43fYcIFY6Bt9u/tjPf2nuhUyGH+8785GBDOICVPr
- gyXPIFf4hPW32QBUwnNbWG1JZeu8vin2n5/fO7OGAefhciZRhXTh1ncf+b1DWkD1DbKS7NiNpZ/
- o6Z5mlcXLviFKsJh57TizDTxfrM2sjMjp39B+1OMy0i95ik1R7nPe9oDXO/dizRY8fFk9su//B8
- 14xp7RfFCPuyW2dpjGPv2n20izuhGnTrvgLcg0m1yf2JgbSDVSQ3sD+Mh+kM6y8QzSCF2P8F5CF
- Cbgb4ceISf4YlCIybvTI78SaKdPZqMXcHV7xIPVfpU1Q==
-X-Forward-Email-ID: 67ce2e8ff812de2512d1f540
+ h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
+ Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
+ t=1741565591; bh=2XkeNvTS3SSQVo18wjKfb+aIkG+6ibmdSyCn5Cfxy74=;
+ b=eHPZ7SgzqJWSSks5y/pZ/30iLzqiK5+5J39s7ZUNFK3UlymJ93cluoqAIPdVT54EwpXB0W+qY
+ 6udTARxazpxiC0wfbSg33Hb1Z9Bmsp6c9bNQKC1nERqH67jRcSqD7Z653dNu0UIBcJUMwJbsgWl
+ Je9yB8LO0bTLUqp4VC4OQr5PtG9JVUDVAPZdmd5GEqz3Ue9T3ADwzR+2x0jkz9rVU1aKJxSA/fL
+ GaPYXS4L8N5rxd//rC8Li7xumrAuAbwkOwH2+JFma54XrGh7zniamPfp73Ji7YvxkV/nbCoijtZ
+ LgZg5rurKj1JOTospufnkBGwTJeLCRpJKt7lRerXbmoA==
+X-Forward-Email-ID: 67ce2e93f812de2512d1f55a
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
  121.127.44.59
 X-Forward-Email-Version: 0.4.40
@@ -56,15 +56,17 @@ Cc: Yao Zi <ziyao@disroot.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Jonas Karlman <jonas@kwiboo.se>
-Subject: [PATCH v2 0/2] rockchip: Enable Ethernet controller on Radxa E20C
-Date: Mon, 10 Mar 2025 00:12:49 +0000
-Message-ID: <20250310001254.1516138-1-jonas@kwiboo.se>
+Subject: [PATCH v2 1/2] arm64: dts: rockchip: Add GMAC nodes for RK3528
+Date: Mon, 10 Mar 2025 00:12:50 +0000
+Message-ID: <20250310001254.1516138-2-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250310001254.1516138-1-jonas@kwiboo.se>
+References: <20250310001254.1516138-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_171307_920002_B58EB9C0 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20250309_171311_890369_11B7CE6E 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,40 +81,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
-used with the integrated PHY and a second 1000/100/10 MAC to be used
-with an external Ethernet PHY.
+Rockchip RK3528 has two Ethernet controllers based on Synopsys DWC
+Ethernet QoS IP.
 
-This series add device tree nodes for the Ethernet controllers found in
-RK3528 and enable the LAN interface on Radxa E20C.
+Add device tree nodes for the two Ethernet controllers in RK3528.
 
-This include a gmac0 node for the 100/10 MAC and its related integrated
-PHY node that only have recived limited testing. I have no board that
-expose an Ethernet port for the gmac0 and the integrated PHY. However,
-the PHY can be identified on addr 0x2 as 0044.1400 and in vendor kernel
-this relate to the Rockchip RK630 PHY. A proper PHY driver will be
-needed to support any real use of gmac0.
-
+Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+---
 Changes in v2:
-- Split from the "Add GMAC support for RK3528" driver series [1]
 - Add ethernet-phy@2 for the integrated PHY
-- Rebase on top of the "Support I2C controllers in RK3528" series [2]
 
-This series depend on the "net: stmmac: dwmac-rk: Add GMAC support for
-RK3528" [1] series and the "Support I2C controllers in RK3528" [2]
-series for a clean apply.
+I have no board that expose an Ethernet port for the gmac0 and the
+integrated PHY. However, the PHY can be identified on addr 0x2 as
+0044.1400 and in vendor kernel this relate to the Rockchip RK630 PHY.
+A proper PHY driver will be needed to support real use of gmac0.
+---
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi | 105 +++++++++++++++++++++++
+ 1 file changed, 105 insertions(+)
 
-[1] https://lore.kernel.org/r/20250309232622.1498084-1-jonas@kwiboo.se
-[2] https://lore.kernel.org/r/20250309070603.35254-1-ziyao@disroot.org
-
-Jonas Karlman (2):
-  arm64: dts: rockchip: Add GMAC nodes for RK3528
-  arm64: dts: rockchip: Enable Ethernet controller on Radxa E20C
-
- .../boot/dts/rockchip/rk3528-radxa-e20c.dts   |  30 +++++
- arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 105 ++++++++++++++++++
- 2 files changed, 135 insertions(+)
-
+diff --git a/arch/arm64/boot/dts/rockchip/rk3528.dtsi b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+index 4c0a25cc089c..56ced7c640f1 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3528.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3528.dtsi
+@@ -678,6 +678,111 @@ saradc: adc@ffae0000 {
+ 			status = "disabled";
+ 		};
+ 
++		gmac0: ethernet@ffbd0000 {
++			compatible = "rockchip,rk3528-gmac", "snps,dwmac-4.20a";
++			reg = <0x0 0xffbd0000 0x0 0x10000>;
++			clocks = <&cru CLK_GMAC0_SRC>, <&cru CLK_GMAC0_RMII_50M>,
++				 <&cru CLK_GMAC0_RX>, <&cru CLK_GMAC0_TX>,
++				 <&cru PCLK_MAC_VO>, <&cru ACLK_MAC_VO>;
++			clock-names = "stmmaceth", "clk_mac_ref",
++				      "mac_clk_rx", "mac_clk_tx",
++				      "pclk_mac", "aclk_mac";
++			interrupts = <GIC_SPI 113 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 116 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			phy-handle = <&rmii0_phy>;
++			phy-mode = "rmii";
++			resets = <&cru SRST_A_MAC_VO>;
++			reset-names = "stmmaceth";
++			rockchip,grf = <&vo_grf>;
++			snps,axi-config = <&gmac0_stmmac_axi_setup>;
++			snps,mixed-burst;
++			snps,mtl-rx-config = <&gmac0_mtl_rx_setup>;
++			snps,mtl-tx-config = <&gmac0_mtl_tx_setup>;
++			snps,tso;
++			status = "disabled";
++
++			mdio0: mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <0x1>;
++				#size-cells = <0x0>;
++
++				rmii0_phy: ethernet-phy@2 {
++					compatible = "ethernet-phy-ieee802.3-c22";
++					reg = <0x2>;
++					clocks = <&cru CLK_MACPHY>;
++					phy-is-integrated;
++					pinctrl-names = "default";
++					pinctrl-0 = <&fephym0_led_link>,
++						    <&fephym0_led_spd>;
++					resets = <&cru SRST_MACPHY>;
++				};
++			};
++
++			gmac0_stmmac_axi_setup: stmmac-axi-config {
++				snps,blen = <0 0 0 0 16 8 4>;
++				snps,rd_osr_lmt = <8>;
++				snps,wr_osr_lmt = <4>;
++			};
++
++			gmac0_mtl_rx_setup: rx-queues-config {
++				snps,rx-queues-to-use = <1>;
++				queue0 {};
++			};
++
++			gmac0_mtl_tx_setup: tx-queues-config {
++				snps,tx-queues-to-use = <1>;
++				queue0 {};
++			};
++		};
++
++		gmac1: ethernet@ffbe0000 {
++			compatible = "rockchip,rk3528-gmac", "snps,dwmac-4.20a";
++			reg = <0x0 0xffbe0000 0x0 0x10000>;
++			clocks = <&cru CLK_GMAC1_SRC_VPU>,
++				 <&cru CLK_GMAC1_RMII_VPU>,
++				 <&cru PCLK_MAC_VPU>,
++				 <&cru ACLK_MAC_VPU>;
++			clock-names = "stmmaceth",
++				      "clk_mac_ref",
++				      "pclk_mac",
++				      "aclk_mac";
++			interrupts = <GIC_SPI 121 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 124 IRQ_TYPE_LEVEL_HIGH>;
++			interrupt-names = "macirq", "eth_wake_irq";
++			resets = <&cru SRST_A_MAC>;
++			reset-names = "stmmaceth";
++			rockchip,grf = <&vpu_grf>;
++			snps,axi-config = <&gmac1_stmmac_axi_setup>;
++			snps,mixed-burst;
++			snps,mtl-rx-config = <&gmac1_mtl_rx_setup>;
++			snps,mtl-tx-config = <&gmac1_mtl_tx_setup>;
++			snps,tso;
++			status = "disabled";
++
++			mdio1: mdio {
++				compatible = "snps,dwmac-mdio";
++				#address-cells = <0x1>;
++				#size-cells = <0x0>;
++			};
++
++			gmac1_stmmac_axi_setup: stmmac-axi-config {
++				snps,blen = <0 0 0 0 16 8 4>;
++				snps,rd_osr_lmt = <8>;
++				snps,wr_osr_lmt = <4>;
++			};
++
++			gmac1_mtl_rx_setup: rx-queues-config {
++				snps,rx-queues-to-use = <1>;
++				queue0 {};
++			};
++
++			gmac1_mtl_tx_setup: tx-queues-config {
++				snps,tx-queues-to-use = <1>;
++				queue0 {};
++			};
++		};
++
+ 		sdhci: mmc@ffbf0000 {
+ 			compatible = "rockchip,rk3528-dwcmshc",
+ 				     "rockchip,rk3588-dwcmshc";
 -- 
 2.48.1
 
