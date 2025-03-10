@@ -4,117 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7666C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:50:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BBC3C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:52:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TlfIZxwEH199yoeoqgqRaK5o2m1xiByl+CXP110BFB0=; b=PiNAX1jlyPqIiVeB4598fOC57E
-	Bs6vVXT0JFKK4dN04YUXr3teLEbp/bHmG7l+f81V2pXgB6hslIR4Q1FbGvBIjhC+2FhfMbhuGhD58
-	UoWGkxFvAvsN3CLFl+Rq5v2m98IygpL/aH58849pRE0gVqeX0u0tzdHsj74MbenSGMsDwojb33wqn
-	wt8SOW0iz0lTcmCFpUhNDllOqT81gzjIpAJks2mGqoTWUfSHc4vINzzpOC8moGxocMMjdB4xfleYd
-	VEt3obJyDoA8HtuxiRYM3Yq5KJmpAEMqAEoHW7JTRX87kLtnkSaajUhE1CJzwB/3QRo9uUBv5kMTp
-	fSVyq64A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PdC6VAzrMyH8O2VveH3lYcAbaxYezDUcJBl9fDQ8Dv4=; b=MZ8U89HSmnUMZQdydkFUGEvYab
+	rJHmxeS/NX+SeEmLRqKfsYPQOJ9sriLwV28AaOEi6NxL8BsOaAanQz+cFO1rxeBd6YkqrUOYWJujw
+	mOoxl8iDsGhiy8RFSCiW1+m0cI/A9P19gPBnMh4MAbTN/VQG4YwS1zVdLda72oLP9ueNIJjOiXBSx
+	KN0Kxn8rYr3CFg1/kY+TDozyinyNWpaJ0X50vp7h99gY18CKZUYxuYMT63fklF9Mv92FXjK8E7i8q
+	mVZF9K8JYC/JiRIYNkXXDB1pkOqOydkblcJQmVoI/gnm4RYO3XDEjZ05VT6+e4xGMWYdu8E+UZWtw
+	yHqZCxeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZmS-000000029Ik-268w;
-	Mon, 10 Mar 2025 09:50:40 +0000
-Received: from fout-a1-smtp.messagingengine.com ([103.168.172.144])
+	id 1trZo3-000000029fM-29fn;
+	Mon, 10 Mar 2025 09:52:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZTO-000000025eE-3vsm
+	id 1trZXY-000000026KR-2SZd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 09:31:00 +0000
-Received: from phl-compute-13.internal (phl-compute-13.phl.internal [10.202.2.53])
-	by mailfout.phl.internal (Postfix) with ESMTP id 1D02C1382D1A;
-	Mon, 10 Mar 2025 05:30:58 -0400 (EDT)
-Received: from phl-imap-07 ([10.202.2.97])
-  by phl-compute-13.internal (MEProxy); Mon, 10 Mar 2025 05:30:58 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:content-type
-	:date:date:from:from:in-reply-to:in-reply-to:message-id
-	:mime-version:references:reply-to:subject:subject:to:to; s=fm1;
-	 t=1741599058; x=1741685458; bh=TlfIZxwEH199yoeoqgqRaK5o2m1xiByl
-	+CXP110BFB0=; b=crOe3gB2m9g9LoW1nZ9xJ4JRKWSvgMKPhyNVaRc6CqiYaLoA
-	3U0pyvo9RVmrTPbjo4c/bdDRKkY5vVhKod+VE4309QlgDDHp59sRVK3mkj2vxiGd
-	Y3huigyNK2yXlM4VG/znms3jSLiah/7SCNG2BNLE3tUu3xmOKg8N0mQOsnFgFmB0
-	ALAP7tti1+xqy8hx4+G/Pc6QblscqXMVsOkboANEqGyS0TTFxChdeluSwazoNLXr
-	HpQ7Wn7D2O7qjpHw8ul/4hh8mhRS793lDgwzUjxPA1siH74LoROmOf64Oihrtw37
-	7EGJAoMm7VtYpBqelniC3TuvpZbUdRDYZDMHnA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm1; t=1741599058; x=
-	1741685458; bh=TlfIZxwEH199yoeoqgqRaK5o2m1xiByl+CXP110BFB0=; b=u
-	0EkRWlI+dB79gh3+6iouR+oWqISL8XTriiMRFPHBOE5yd+eWRSn1rNKC4EkGZ+LE
-	3tH4Jd+tiWbs/jVEauBT8EQmRkfUzzclWhw+2cjDkpyBKv0fXzXxqgcI97Imyiyb
-	FIzutPS72ft7kiH0QqYvsT4Vq+sCPjprAYEhVoW9DUtLlzP8VC3Fqbt46dZbw8Oj
-	zxQ8ZJaBVN1MPx8eCBRS7O3CG1ma0lfqeA7p1kaIkZVCRhhTyLzBaGlt3nB4Nnc0
-	YaWP9m7ZbWbsYX5DRaTK3lq6ksdletNNL/5cZ9YO64JxaCjv9HOnSQErHp8s48eE
-	BUt110looaBeZ0mrc3n3Q==
-X-ME-Sender: <xms:UbHOZ8wHmz67RttlxjK4vuG8ibl4ELp5ZmYqeioxIV-co8ABaWrfXg>
-    <xme:UbHOZwS2CVHk_NYWZDOYQhaZTXgnQUg0mNZFku3oJ3idzN4zc6cgmUgxAP7IIGNhU
-    uFEjMZOOZXCHI7D6Q>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudekleelucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhepofggfffhvfevkfgjfhfutgfgsehtjeertder
-    tddtnecuhfhrohhmpedftfihrghnucghrghlkhhlihhnfdcuoehrhigrnhesthgvshhtth
-    horghsthdrtghomheqnecuggftrfgrthhtvghrnhepjefhueekjeejgfduvdffheevveej
-    hfdtuddthfduuddvveefjeffgfdvleefuefgnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprhihrghnsehtvghsthhtohgrshhtrdgtohhmpdhn
-    sggprhgtphhtthhopedvgedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprghnug
-    hrvgdrphhriiihfigrrhgrsegrrhhmrdgtohhmpdhrtghpthhtohepmhhtuhhrqhhuvght
-    thgvsegsrgihlhhisghrvgdrtghomhdprhgtphhtthhopeifvghnshestghsihgvrdhorh
-    hgpdhrtghpthhtohepuggrnhhivghlsehffhiflhhlrdgthhdprhgtphhtthhopegrihhr
-    lhhivggusehgmhgrihhlrdgtohhmpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvg
-    gtsehgmhgrihhlrdgtohhmpdhrtghpthhtohepkhhikhhutghhrghnleeksehgmhgrihhl
-    rdgtohhmpdhrtghpthhtohepmhgrtghrohgrlhhphhgrkedvsehgmhgrihhlrdgtohhmpd
-    hrtghpthhtohepshhimhhonhhsrdhphhhilhhiphhpvgesghhmrghilhdrtghomh
-X-ME-Proxy: <xmx:UbHOZ-VvunW_sPPqtlJ4BobU9ozGTaPNwI7gISNyjW605kq8rsiutg>
-    <xmx:UbHOZ6jO6KL1OWVSrcVwHKnfQWL_hNjwzCti0stxgZ1la7IGZ1xd-g>
-    <xmx:UbHOZ-Cx7vVhpcqtxcRLmRLEyFb62dzxk45gt33YtUBx2HWjWMk-0w>
-    <xmx:UbHOZ7KY1-XU9dCC_z9ki8E0QLxUx5ETJ4qaVoMyAV2eEid6ajUrDg>
-    <xmx:UrHOZ_z3lUbW02xPGs-PdXpXZY7xJAo2BujQGyYXOK-S67PqbneLl-A2>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 76AABBA006F; Mon, 10 Mar 2025 05:30:57 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 10 Mar 2025 09:35:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id B04E75C53B6;
+	Mon, 10 Mar 2025 09:32:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19B0AC4CEEC;
+	Mon, 10 Mar 2025 09:35:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741599315;
+	bh=PdC6VAzrMyH8O2VveH3lYcAbaxYezDUcJBl9fDQ8Dv4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ISdDCx5vZ2wsLplSu5yq2lU/hgfCUFTCUX9lm8nWppg61P0zsWqtKtduRwM65jj/P
+	 QLS1smHqaPQodqDwLnvoCzmFwB2GmGrzVIpWa2G9yQi8gwSXe2AmicJVT/vnspfNjf
+	 AkFVpj+JLrz09tCyWpnUhDjbGnMl6aojwuQT68vv78iYVcncrehPTMfE7pW4fbKja9
+	 FO8ahUp7bk4A1DJDIeBq/3yK4T4dxW8tWK5n4XLfyVQJoEwtQ9HSG+TdMfQrJSAlK6
+	 7vSNo5Q+sLEIIkrFE0yctMsleC2YnAilktzdg7eNrKOCfNYh+rAa8DdpzAUbfXHqei
+	 v0YBSMYIPBIgg==
+Date: Mon, 10 Mar 2025 18:35:11 +0900
+From: William Breathitt Gray <wbg@kernel.org>
+To: =?iso-8859-1?B?Q3Pza+Fz?= Bence <csokas.bence@prolan.hu>
+Cc: Kamel Bouhara <kamel.bouhara@bootlin.com>, linux-iio@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 2/2] counter: microchip-tcb-capture: Add support for RC
+ Compare
+Message-ID: <Z86yT0WoGbX7JXND@ishi>
+References: <20250306-introduce-compare-component-v1-0-93993b3dca9c@kernel.org>
+ <20250306-introduce-compare-component-v1-2-93993b3dca9c@kernel.org>
+ <790f00da-d66e-42bc-bae2-339144fbec95@prolan.hu>
 MIME-Version: 1.0
-Date: Mon, 10 Mar 2025 22:30:36 +1300
-From: "Ryan Walklin" <ryan@testtoast.com>
-To: "Andre Przywara" <andre.przywara@arm.com>
-Cc: "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "David Airlie" <airlied@gmail.com>, "Daniel Vetter" <daniel@ffwll.ch>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>,
- "Samuel Holland" <samuel@sholland.org>, "Rob Herring" <robh@kernel.org>,
- "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>,
- "Michael Turquette" <mturquette@baylibre.com>,
- "Stephen Boyd" <sboyd@kernel.org>, "Chris Morgan" <macroalpha82@gmail.com>,
- "Hironori KIKUCHI" <kikuchan98@gmail.com>,
- "Philippe Simons" <simons.philippe@gmail.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, "Conor Dooley" <conor.dooley@microchip.com>
-Message-Id: <c8b85753-5c97-4258-a158-06a17929fad6@app.fastmail.com>
-In-Reply-To: <20250224175642.170c124e@donnerap.manchester.arm.com>
-References: <20250216183710.8443-3-ryan@testtoast.com>
- <20250216183710.8443-23-ryan@testtoast.com>
- <20250224175642.170c124e@donnerap.manchester.arm.com>
-Subject: Re: [PATCH v7 22/27] dt-bindings: allwinner: add H616 DE33 mixer binding
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="m0vFrlOyE6rOUs9t"
+Content-Disposition: inline
+In-Reply-To: <790f00da-d66e-42bc-bae2-339144fbec95@prolan.hu>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_023059_047436_75ED268D 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250310_023516_679595_5DAB9DB5 
+X-CRM114-Status: GOOD (  14.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,44 +75,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 25 Feb 2025, at 6:56 AM, Andre Przywara wrote:
 
-Apologies Andre, I came to review your comments on the TCON series and realised I had missed responding to this comment before sending v8. 
+--m0vFrlOyE6rOUs9t
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
->> +      - allwinner,sun50i-h616-de33-mixer-0
->>  
->>    reg:
->> -    maxItems: 1
->> +    minItems: 1
->> +    maxItems: 3
->
-> What are those three regions? I wonder if we should have reg-names here,
-> to fix the order, and to document them on the way?
+On Mon, Mar 10, 2025 at 09:38:13AM +0100, Cs=F3k=E1s Bence wrote:
+> Hi,
+>=20
+> On 2025. 03. 06. 8:05, William Breathitt Gray wrote:
+> > In Capture mode, the RC register serves as a compare register for the
+> > Timer Counter Channel. When a the Counter Value reaches the RC value, a
+> > RC Compare event occurs (COUNTER_EVENT_THRESHOLD). This patch exposes
+> > the RC register to userspace as the 'compare' Count extension, thus
+> > allowing users to configure the threshold condition for these events.
+> >=20
+> > Signed-off-by: William Breathitt Gray <wbg@kernel.org>
+>=20
+> I'm assuming you'll merge it with my capture extensions patch. Will this
+> `compare` extension be carried over to 104-quad-8 as well? Otherwise:
+>=20
+> Acked-by: Bence Cs=F3k=E1s <csokas.bence@prolan.hu>
+>=20
+> Bence
 
-This would be the top, display and mixer groups for the DE333, and mixer for DE3 and earlier. Can certainly add in names for these. Is there any example elsewhere in the bindings to look at?
+Thank you for the Ack, I've merged this series now and pushed it to
+counter-next.
 
->> @@ -61,6 +63,23 @@ properties:
->>      required:
->>        - port@1
->>  
->> +allOf:
->> +  - if:
->> +      properties:
->> +        compatible:
->> +          enum:
->> +            - allwinner,sun50i-h616-de33-mixer-0
->> +
->> +    then:
->> +      properties:
->> +        reg:
->> +          maxItems: 3
->
-> Should we override minItems here as well? I guess any driver would need
-> all three region to work?
+The compare functionality is already exposed through the `preset`
+component in the 104-quad-8 module, so I decided not to add a `compare`
+because it felt redundant. However, I'm certain `compare` will be useful
+in future drivers so that's why I want to get it merged with the rest of
+the microchip-tcb-capture changes. :-)
 
-This seems sensible, as you say it would always be 3 groups for the DE33.
+Best regards,
 
-Regards,
+William Breathitt Gray
 
-Ryan
+--m0vFrlOyE6rOUs9t
+Content-Type: application/pgp-signature; name=signature.asc
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEARYKAB0WIQSNN83d4NIlKPjon7a1SFbKvhIjKwUCZ86yTwAKCRC1SFbKvhIj
+KwWFAQCm5z3VyBDI0W1smBY+8YBSQ+c+bQHoNJ4rM5X3X4wq8gD/bAlld1d1zpIT
+5aOtYyixrV+cI01SKHuAhr8txzb7nwg=
+=q8uA
+-----END PGP SIGNATURE-----
+
+--m0vFrlOyE6rOUs9t--
 
