@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E80BC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:04:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D070FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:06:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GFmJVkvgEr7zPfQ20jjW3wMDTUUTOBdrrvb2AdJk2z4=; b=ND7B7Ct52ZmiQ+HEU73ZhZq/aM
-	Gntjl2B3b8lSPwUrFuXogIPVVMXblmZ9NurrsCPOPI8C5InxmEVciLNX2k7+KHKlvYu+x3mJVSPfy
-	QYkhJHY7kAP9ovyruF/JVq5y88uys2wukbGdNF8iFbFug88A3RdbmmpCIN6/YbNXrjZ2NPGxSmsnQ
-	E7t8C/jllL6lkR/gg2yZ6QHBZ5VEFaQKtIkCjuXnfV2S8xfS4cnGLQlJ0bthcqT8NpqQHWtgWRli+
-	vTbWNOnPf7c0dL7KQknaJvFNhAQ0HwC1wwc3L5TegKxfRMwoY4SBgkuOrPtW/WLs30ekSRvvHYDSQ
-	0nXAtaag==;
+	bh=a+jhmNSWGtF6gwCaOphrzoK/yfH+/FtGdxKL5Im1AWA=; b=OHjrPegmCuvJ1dYqReBweMVoi3
+	XZccFvHTzCZVwfOTFf6ONr1eZgdduaCPhC5KydbjKudaxHtb/lVHWlVB7gRWP4UsqEo+TAI/are1e
+	Buwzk0ReCJnV5FZ2ogXfYA9b+MVbyJQq6gziPytjmeaB+eZEIG/kRzQAoezBko0V9nxaXyS6SpW0N
+	Z/lhFWUL7uCvkZ9h10ecZ92WLoWBHjtU6qxBq/7AdRRIsIigYUtTAVjaQW8rIzOw15htZWxDvPpfi
+	SjSNm37X+UHEipnsjAnvS4OKmXSvzbFm6Fwf0XpQRj1PCjWoi3hJeaIAimx6yKo3cgsE55qB2d6mZ
+	d2EyE6Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgYM-00000003RGR-3OTQ;
-	Mon, 10 Mar 2025 17:04:34 +0000
+	id 1trgZz-00000003ReO-1oFv;
+	Mon, 10 Mar 2025 17:06:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgAn-00000003MwO-1GBl
+	id 1trgAn-00000003MwQ-1vyC
 	for linux-arm-kernel@bombadil.infradead.org;
 	Mon, 10 Mar 2025 16:40:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=GFmJVkvgEr7zPfQ20jjW3wMDTUUTOBdrrvb2AdJk2z4=; b=drHcdpg1eYRjzrfXnj09IhtRCx
-	VIw00/v3SAJAnmkLC5DwcUgfkhYlIOtYJ3FEDp+6ZJT/tecM7ma+o0nka715j/KziZB9kq68QyMm5
-	9eCvQJCbeAxlkQLXgkN+QWiffT6ubaq7hTeBp+XxxlGB3qR3uMuG78X4eDmrHvWKRsFsYpWjIYwr+
-	i6GCjxrE0SWEjUrBCQWi/zVYEXF1OrsH6uPZrxX1XJw0vx25v6i3paLBN5+ffiCJ6TzBNb0M1s+5C
-	z80EAZXNXCmSOV2z32tNgZBVg31/cTItAatMnERt0k9Bu7LSgld8GPuc2a8pwF/5mwpMy8SOhkpEY
-	4xbzNHwA==;
-Received: from relay8-d.mail.gandi.net ([217.70.183.201])
+	bh=a+jhmNSWGtF6gwCaOphrzoK/yfH+/FtGdxKL5Im1AWA=; b=KwoalDUuvmD3Eb+Cpv2EcfpUkO
+	Q+s3ZO0Oqprj9aLAFPPY2aAKcO9+jXttJ796cm33v40Jj5ysCvg9/ZgILiSbF+RHRndMTXmRluUbt
+	63DEza7GH0nnVM9Wks754MYZBXpsglQ2G8Q6JZHHFQdKRMfzzSksyDIrOcbuIZorR77cWFwcxAdF1
+	DhXv2T+lQfMpaePu+qQaoBbNRp8v+xoomf6iGwzhU638XKdLD9Cj/FoFYv8fJDtTHHUmRpD7f3DCw
+	euFQuPobEBMeRBiT/8K3Lg5Xv5g+MOeNghKT/Y3L0iyrCbKkqGM/Jm37joZQT4InTAqTJCmQDfMKs
+	VYZrNV+g==;
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgAj-00000001vpO-1zL8
+	id 1trgAj-00000001vph-1cCG
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Mar 2025 16:40:12 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 520E041DF6;
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D8E2944430;
 	Mon, 10 Mar 2025 16:40:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741624806;
+	t=1741624807;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=GFmJVkvgEr7zPfQ20jjW3wMDTUUTOBdrrvb2AdJk2z4=;
-	b=VlT4BOzSDzwOKvMH3AFVaudzLMasQEOtRQivw/fPBOo3sQGLitdcE5pPg/HakDLuu5fodv
-	RBnilJbL8SejASp4E6onzGzyL5P0ZrZtvqtvUOjEt/LcDLTvzcvjaK5lH/dox0xZPHs44U
-	VRDUtxdVXa+JV9YBIgj7SDBYhk4YewRDkKCwhYrNlBtYwX4wq4AB7hXyGwL41bHGVD4Cyd
-	xjpJeOCJIDyhgPWU/1xQlqql5tWD2vIOkwxEOATAVscV9S5k8LeLoX4hSSy+KYMTJ/ZSrp
-	f7h/BxTgSl33OAFqDbN/ceOSm/6Qc07DjNE2osEQLYxRV+uxPp6cP5xm9U+gVQ==
+	bh=a+jhmNSWGtF6gwCaOphrzoK/yfH+/FtGdxKL5Im1AWA=;
+	b=Ctxr40TztXSUsyl12pTNFDb1xb3FyY//+PeF5GfStZyzF4XtM4a+4FfX6Ud3r24dSgsdQO
+	6C7EEdHxb2T0Jz6zwPpXlZIYpSCpXweYR2iSTz2RmdFFTPrmIm0/a5hcIwcNjgLmvV8aGl
+	aHDh2YbJQcW1O45QCaVUeYKrYuyDsTyrRyhO3RwpV7Tog7eN7+PJr1GG5u/8wuNVLIjOEY
+	jEUWO7PUhblawju9gFRmqfuLSP+eAXl1/qAliHvzC2fEp5DPKvagerGnkuUidRqsXbtAbm
+	A4jXTIMHO+x8Frp3bG1h2ri9pJt3j+8LV5mghDMPK5gFty/wJbvy7Vbp0mrKKA==
 From: Antonin Godard <antonin.godard@bootlin.com>
-Date: Mon, 10 Mar 2025 17:39:48 +0100
-Subject: [PATCH v4 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
- Concerto board
+Date: Mon, 10 Mar 2025 17:39:49 +0100
+Subject: [PATCH v4 2/3] ARM: dts: imx6ul: Add Variscite VAR-SOM-MX6UL SoM
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250310-varsom6ul-concerto-dts-v4-1-6034fda6ec64@bootlin.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250310-varsom6ul-concerto-dts-v4-2-6034fda6ec64@bootlin.com>
 References: <20250310-varsom6ul-concerto-dts-v4-0-6034fda6ec64@bootlin.com>
 In-Reply-To: <20250310-varsom6ul-concerto-dts-v4-0-6034fda6ec64@bootlin.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -74,35 +74,33 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- Antonin Godard <antonin.godard@bootlin.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ Antonin Godard <antonin.godard@bootlin.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1139;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7899;
  i=antonin.godard@bootlin.com; h=from:subject:message-id;
- bh=FJ/g4p5K4DhZe5aNgiyBGgNgUhTwe26PsEdnxAtkehY=;
- b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnzxXlMg/BcfWlXJmfaq+uYf55WPEuRwC7kJQiR
- hH6/2m2X+qJAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ88V5QAKCRDRgEFAKaOo
- Nh3vEACk/cWrSLz7Db6mxHyQBfgW2xa23PjCQYpq28VNPJd6JgrYhReZSWBv+GjtlOexgtdKqI/
- QbQ7/BrKtROsHrWWBCR+VRY6Wv0+pYxdM9UrfGSyT1dPCZelAxr+u2tZS+H4cNTO3LGiPqvrfb6
- 3Vn50hPc7Bh823P9ClbLaJCjFN1c79nnBwijQo9lTqQzRsWDqBDm0g4bMilk/N0QprwR3wdPhX7
- 93C0I6R9+GGvWwDPuER1B/QFfz7wUnN+GdusqpjiPQdViNgw/qEA3Z+f2iFOXE3gYV1Z/7hkTtb
- Fc+dRTNhZ60b/6B5q8raXi9zo5lbBS4FAaTiNlL4kau4V0p4x4MFSQicCdW6jwgEhLrCWGuYfVQ
- V3LpRLx5y40mwMdmliL7ICTCvDKUQ5+07dSgsKEl6nlIqTjbHdkyZp7S2OLDEFHtv0MvlT94PEB
- Tc8PvvB7pqlTLxaW0Npj0rSmnxMWy8nvymkZDbE1wdwKJVM8I2v3OUjXuij5kQGG0SdjBRCz+Ji
- 7MRnPMcCbeCx5V0Ke2WLvI8gUYSNK+vC+I62eH7TxvzvByJLni8Gm8FBFJvgtqy0PHOvlklPIXI
- tY7ncDpAifzo5G5b6a7gZgtqo+5FTLT8RW9IjuTO9l5Dtsgx0/cNcQUUq9eNWXYPD02b4mlv4/p
- VJGvvfXlUPLwOmg==
+ bh=jG2AhQ8rfFnaTwya10N47DF4WYRctsn28OpF3DNfM1U=;
+ b=kA0DAAgB0YBBQCmjqDYByyZiAGfPFeWhE88pX5S2aqICactDuiuZq77zkE/zX8QF1d9WH5Zvb
+ 4kCMwQAAQgAHRYhBIZIclGI3UAbuaDT/9GAQUApo6g2BQJnzxXlAAoJENGAQUApo6g2vFoP/iNM
+ j5qShed0pMKax1FlHwK2gPZ3ZmMovvDLVhFAOIsW38prJSXpe9xrk4EZXfQ200TARIL/3Fnt6Dw
+ oVX/YS3hxa8pTWEWxltAaOJsQyGUFt/mMTILgPk2dUJitj3wmyd9p6cyZLNemBsG0xl/1fHmR2K
+ fpKrtl2y/z0O0/cf3CWMsdf272lUAvjyNTPeCfwcbsRtklNyLZtrO+/ZsABMLWtYf/d1RvaRSso
+ nPwM6f00W4sVPGormnmsqtwPd1xdSBDUGLV6ihmQ5aX6tnbAgL3kq6tBkMGI/FDsIq/ba8t2xzO
+ 7+MqvspaWSXCsyL0ZDFXcRhs9qXKgVkgTgWjB5kwomp8zFiRla0C8IfkufXWTGThh3QZeiYayk+
+ 8Yevr/Yo/lW15fANkdqGjoUR+MaJh4uWoELJWyqL3ng7JVjdKEEcQmdSNq0cs3ipvQviF9qUKTa
+ xmukhkeOI2jQ7Oc3Shjizj9GOAoJIFSNGCmJLEycU5QEQRubM/zHTE7ASIzX9pYXiUhoVc0ivAe
+ +hRaJmJMGPdC1TW3vUj6wCepADC9y782TiIWaW2ryhl6UcFPlduWRNX9wUNLjXPP5+WdCtpGN58
+ FJ3nXYKyqub8ZNi+xlQ6TYCHyr4ai9BQcoGif+dXX53bNncqBNXjnl0dTrId+ND7BWC5feB4isz
+ VJWrc
 X-Developer-Key: i=antonin.godard@bootlin.com; a=openpgp;
  fpr=8648725188DD401BB9A0D3FFD180414029A3A836
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpeehieeguefhfeegheffgfeuieetheeileefheejkeetgfekueehueeluddvlefghfenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudegpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepfhgvshhtvghvrghmsehgm
- hgrihhlrdgtohhmpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhrtghpthhtoheptghonhhorhdrughoohhlvgihsehmihgtrhhotghhihhprdgtohhm
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhfffugggtgffkfhgjvfevofesthekredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhvdetuefghfeugfeutdeuueettdffudefgfeljeehvdetvefhjeffvdetvdehhfenucffohhmrghinhepvhgrrhhishgtihhtvgdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplgduvdejrddtrddurddungdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudefpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshheskhgvrhhnvghlr
+ dhorhhgpdhrtghpthhtohepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtohepihhmgieslhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhrtghpthhtohepthhhohhmrghsrdhpvghtrgiiiihonhhisegsohhothhlihhnrdgtohhm
 X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_164009_704561_C66517D1 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_164009_693541_BF575BEB 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,32 +115,282 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Variscite i.MX6UL VAR-SOM-MX6UL and the Variscite
-Concerto carrier board.
+Add support for the Variscite VAR_SOM-MX6UL SoM with:
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
+- NXP i.MX6 UltraLite SoC
+- 128–1024 MB DDR3L
+- 8–128 GB eMMC
+- 128–512 MB SLC NAND
+- Camera Interface
+- LVDS / Parallel RGB interfaces (not configured)
+- Touch controller (not configured)
+- Ethernet RMII interface (not configured)
+- On-SoM Wi-Fi/Bluetooth with CYW43353 on SDIO Module (not configured)
+- SD/MMC/SDIO interface
+- USB Host + USB OTG interface
+- I2C interfaces
+- SPI interfaces
+- PCI-Express 2.0 interface
+- on-SoM Audio Codec (not configured)
+- S/PDIF interface (not configured)
+
+Product website: https://www.variscite.com/product/system-on-module-som/cortex-a7/var-som-6ul-nxp-imx6ul-6ull-6ulz
+
+Support is handled with a SoM-centric dtsi exporting the default
+interfaces along the default pinmuxing to be enabled by the board dts
+file.
+
+I tested this on a VAR-SOM-6UL_G2_700C_512R_8N_IT_REV1.3A, which is why
+some of the features above are mentioned as "not configured" (I couldn't
+test them).
+
+This file is based on the one provided by Variscite on their own kernel,
+but adapted for mainline.
+
 Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
 ---
- Documentation/devicetree/bindings/arm/fsl.yaml | 6 ++++++
- 1 file changed, 6 insertions(+)
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi | 233 ++++++++++++++++++++++++++
+ 1 file changed, 233 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/arm/fsl.yaml b/Documentation/devicetree/bindings/arm/fsl.yaml
-index 0db2cbd7891ffb361e0ac60fe6be66e381b2a8f4..a8f8cb845a2085eb13594adacf33f372185e8b0b 100644
---- a/Documentation/devicetree/bindings/arm/fsl.yaml
-+++ b/Documentation/devicetree/bindings/arm/fsl.yaml
-@@ -688,6 +688,12 @@ properties:
-           - const: phytec,imx6ul-pcl063   # PHYTEC phyCORE-i.MX 6UL
-           - const: fsl,imx6ul
- 
-+      - description: i.MX6UL Variscite VAR-SOM-MX6 Boards
-+        items:
-+          - const: variscite,mx6ulconcerto
-+          - const: variscite,var-som-imx6ul
-+          - const: fsl,imx6ul
+diff --git a/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
+new file mode 100644
+index 0000000000000000000000000000000000000000..4e536e0252def06a7660c29b7231169e3aa38dba
+--- /dev/null
++++ b/arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi
+@@ -0,0 +1,233 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Support for Variscite VAR-SOM-MX6UL Module
++ *
++ * Copyright 2019 Variscite Ltd.
++ * Copyright 2025 Bootlin
++ */
 +
-       - description: Kontron BL i.MX6UL (N631X S) Board
-         items:
-           - const: kontron,bl-imx6ul       # Kontron BL i.MX6UL Carrier Board
++/dts-v1/;
++
++#include "imx6ul.dtsi"
++#include <dt-bindings/clock/imx6ul-clock.h>
++#include <dt-bindings/gpio/gpio.h>
++
++/ {
++	model = "Variscite VAR-SOM-MX6UL module";
++	compatible = "variscite,var-som-imx6ul", "fsl,imx6ul";
++
++	memory@80000000 {
++		device_type = "memory";
++		reg = <0x80000000 0x20000000>;
++	};
++
++	reg_gpio_dvfs: reg-gpio-dvfs {
++		compatible = "regulator-gpio";
++		regulator-min-microvolt = <1300000>;
++		regulator-max-microvolt = <1400000>;
++		regulator-name = "gpio_dvfs";
++		regulator-type = "voltage";
++		gpios = <&gpio4 13 GPIO_ACTIVE_HIGH>;
++		states = <1300000 0x1
++			  1400000 0x0>;
++	};
++
++	rmii_ref_clk: rmii-ref-clk {
++		compatible = "fixed-clock";
++		#clock-cells = <0>;
++		clock-frequency = <25000000>;
++		clock-output-names = "rmii-ref";
++	};
++};
++
++&clks {
++	assigned-clocks = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
++	assigned-clock-rates = <786432000>;
++};
++
++&cpu0 {
++	dc-supply = <&reg_gpio_dvfs>;
++};
++
++&fec1 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_enet1>, <&pinctrl_enet1_gpio>, <&pinctrl_enet1_mdio>;
++	phy-mode = "rmii";
++	phy-handle = <&ethphy0>;
++	status = "okay";
++
++	mdio {
++		#address-cells = <1>;
++		#size-cells = <0>;
++
++		ethphy0: ethernet-phy@1 {
++			compatible = "ethernet-phy-ieee802.3-c22";
++			reg = <1>;
++			clocks = <&rmii_ref_clk>;
++			clock-names = "rmii-ref";
++			reset-gpios = <&gpio5 0 GPIO_ACTIVE_LOW>;
++			reset-assert-us = <100000>;
++			micrel,led-mode = <1>;
++			micrel,rmii-reference-clock-select-25-mhz = <1>;
++		};
++	};
++};
++
++&iomuxc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_hog>;
++
++	pinctrl_enet1: enet1grp {
++		fsl,pins = <
++			MX6UL_PAD_ENET1_RX_EN__ENET1_RX_EN	0x1b0b0
++			MX6UL_PAD_ENET1_RX_ER__ENET1_RX_ER	0x1b0b0
++			MX6UL_PAD_ENET1_RX_DATA0__ENET1_RDATA00	0x1b0b0
++			MX6UL_PAD_ENET1_RX_DATA1__ENET1_RDATA01	0x1b0b0
++			MX6UL_PAD_ENET1_TX_EN__ENET1_TX_EN	0x1b0b0
++			MX6UL_PAD_ENET1_TX_DATA0__ENET1_TDATA00	0x1b0b0
++			MX6UL_PAD_ENET1_TX_DATA1__ENET1_TDATA01	0x1b0b0
++			MX6UL_PAD_ENET1_TX_CLK__ENET1_REF_CLK1	0x4001b031
++		>;
++	};
++
++	pinctrl_enet1_gpio: enet1-gpiogrp {
++		fsl,pins = <
++			MX6UL_PAD_SNVS_TAMPER0__GPIO5_IO00	0x1b0b0 /* fec1 reset */
++		>;
++	};
++
++	pinctrl_enet1_mdio: enet1-mdiogrp {
++		fsl,pins = <
++			MX6UL_PAD_GPIO1_IO06__ENET1_MDIO	0x1b0b0
++			MX6UL_PAD_GPIO1_IO07__ENET1_MDC		0x1b0b0
++		>;
++	};
++
++	pinctrl_hog: hoggrp {
++		fsl,pins = <
++			MX6UL_PAD_SNVS_TAMPER4__GPIO5_IO04	0x1b0b0	/* BT Enable */
++			MX6UL_PAD_SNVS_TAMPER6__GPIO5_IO06	0x03029	/* WLAN Enable */
++		>;
++	};
++
++	pinctrl_sai2: sai2grp {
++		fsl,pins = <
++			MX6UL_PAD_JTAG_TDI__SAI2_TX_BCLK	0x17088
++			MX6UL_PAD_JTAG_TDO__SAI2_TX_SYNC	0x17088
++			MX6UL_PAD_JTAG_TRST_B__SAI2_TX_DATA	0x11088
++			MX6UL_PAD_JTAG_TCK__SAI2_RX_DATA	0x11088
++			MX6UL_PAD_JTAG_TMS__SAI2_MCLK		0x17088
++		>;
++	};
++
++	pinctrl_tsc: tscgrp {
++		fsl,pins = <
++			MX6UL_PAD_GPIO1_IO01__GPIO1_IO01	0xb0
++			MX6UL_PAD_GPIO1_IO02__GPIO1_IO02	0xb0
++			MX6UL_PAD_GPIO1_IO03__GPIO1_IO03	0xb0
++			MX6UL_PAD_GPIO1_IO04__GPIO1_IO04	0xb0
++		>;
++	};
++
++	pinctrl_uart2: uart2grp {
++		fsl,pins = <
++			MX6UL_PAD_UART2_TX_DATA__UART2_DCE_TX	0x1b0b1
++			MX6UL_PAD_UART2_RX_DATA__UART2_DCE_RX	0x1b0b1
++			MX6UL_PAD_UART2_CTS_B__UART2_DCE_CTS	0x1b0b1
++			MX6UL_PAD_UART2_RTS_B__UART2_DCE_RTS	0x1b0b1
++		>;
++	};
++
++	pinctrl_usdhc2: usdhc2grp {
++		fsl,pins = <
++			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x10069
++			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x17059
++			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x17059
++			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x17059
++			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x17059
++			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x17059
++			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x17059
++			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x17059
++			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x17059
++			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x17059
++		>;
++	};
++
++	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
++		fsl,pins = <
++			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x100b9
++			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x170b9
++			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x170b9
++			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x170b9
++			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x170b9
++			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x170b9
++			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x170b9
++			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x170b9
++			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x170b9
++			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x170b9
++		>;
++	};
++
++	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
++		fsl,pins = <
++			MX6UL_PAD_NAND_RE_B__USDHC2_CLK		0x100f9
++			MX6UL_PAD_NAND_WE_B__USDHC2_CMD		0x170f9
++			MX6UL_PAD_NAND_DATA00__USDHC2_DATA0	0x170f9
++			MX6UL_PAD_NAND_DATA01__USDHC2_DATA1	0x170f9
++			MX6UL_PAD_NAND_DATA02__USDHC2_DATA2	0x170f9
++			MX6UL_PAD_NAND_DATA03__USDHC2_DATA3	0x170f9
++			MX6UL_PAD_NAND_DATA04__USDHC2_DATA4	0x170f9
++			MX6UL_PAD_NAND_DATA05__USDHC2_DATA5	0x170f9
++			MX6UL_PAD_NAND_DATA06__USDHC2_DATA6	0x170f9
++			MX6UL_PAD_NAND_DATA07__USDHC2_DATA7	0x170f9
++		>;
++	};
++};
++
++&pxp {
++	status = "okay";
++};
++
++&sai2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_sai2>;
++	assigned-clocks = <&clks IMX6UL_CLK_SAI2_SEL>,
++			  <&clks IMX6UL_CLK_SAI2>;
++	assigned-clock-parents = <&clks IMX6UL_CLK_PLL4_AUDIO_DIV>;
++	assigned-clock-rates = <0>, <12288000>;
++	fsl,sai-mclk-direction-output;
++	status = "okay";
++};
++
++&snvs_poweroff {
++	status = "okay";
++};
++
++&tsc {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_tsc>;
++	xnur-gpios = <&gpio1 3 GPIO_ACTIVE_LOW>;
++	measure-delay-time = <0xffff>;
++	pre-charge-time = <0xfff>;
++	status = "okay";
++};
++
++&uart2 {
++	pinctrl-names = "default";
++	pinctrl-0 = <&pinctrl_uart2>;
++	uart-has-rtscts;
++	status = "okay";
++};
++
++&usdhc2 {
++	pinctrl-names = "default", "state_100mhz", "state_200mhz";
++	pinctrl-0 = <&pinctrl_usdhc2>;
++	pinctrl-1 = <&pinctrl_usdhc2_100mhz>;
++	pinctrl-2 = <&pinctrl_usdhc2_200mhz>;
++	bus-width = <8>;
++	no-1-8-v;
++	non-removable;
++	keep-power-in-suspend;
++	wakeup-source;
++	status = "okay";
++};
 
 -- 
 2.47.0
