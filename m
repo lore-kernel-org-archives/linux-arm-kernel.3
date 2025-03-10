@@ -4,87 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D68ECC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 22:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 593E7C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 23:09:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VHU8rTWgBupCD0kyXYGUHHuE6QBh+Vnbh8dhf8rC5uU=; b=TeXh44UNi1DbwwPqfi/JfcZvgM
-	WGbXqrLVd9MlKQauUt0gQJQ6CH9A4LgoOm/icKKIwiczpYisaAh0Kaxt1jcxRT8NFoOUEGE0yNOtQ
-	qJGCtZJjE7FB8mYjWg6vzRsWJvgsCQ88H+sAgDvlrFos5T2WnmF2DPeRs9kb90l9YIJByY92Ur1Vj
-	lL0k0KSiAlFg/ggjkifrhYjzVZOzYGyKaCVbD9+jFs3UeYvqlZflKduBj+qOaMyjN0SpFT4djBMXl
-	7avojUPg689YZ9JkCp9Y3PT+2J6sRUQKzQMLeVKb3wencmNXwV4p+m7jjw13f8jKt3pj5g4XNCK/M
-	52dBh7xQ==;
+	bh=pEGoFeJlORz7BWSNlKAGOT0i91fm3KbuA4xg0SIjOkQ=; b=T/odvW64cjC6rr62P8yVhubsuK
+	3VSOY4U4wuZvgHFhnSU223MK9rHia6BkMWCnP7UV4BMZvYjGsIPlj64QP1c+ssuQw/AbVcRRVxygw
+	LqwtYxW24tqSxtDT6EmXGGPFwXSusYQop3Fb0qF2hQLklKH5LAnb7QCdPOw0JOLhCZtKcQtVXXXWR
+	6rJAqevJijhAr/K7EhbN6KO6g4c+VKWq3BIxL+0FgPe3Ol46yWQM+n8tRQ1vtLvceofcxypn7Cu66
+	Dh83J26AkGXusz5LgtxnULNFkrPpeR/iJYFozDHdRUUx9ANmIgi38NotJLFJ+77v3B9sRX5JhFYgS
+	uK4fjGiQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trli5-000000048ab-3RSB;
-	Mon, 10 Mar 2025 22:34:57 +0000
-Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
+	id 1trmF0-00000004Ap0-0bRK;
+	Mon, 10 Mar 2025 23:08:58 +0000
+Received: from mail-bn7nam10olkn2080a.outbound.protection.outlook.com ([2a01:111:f403:2804::80a] helo=NAM10-BN7-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trldE-00000004860-2lxC
+	id 1trmDL-00000004AaL-1q1u
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 22:29:57 +0000
-Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-22403329f9eso79606445ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 15:29:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741645795; x=1742250595; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=VHU8rTWgBupCD0kyXYGUHHuE6QBh+Vnbh8dhf8rC5uU=;
-        b=jYMLEfSIB9tp4+d0NtqcoxwIozCbrv+ROEgITHiSiOsKScLGoS/1wRoeSTmY0S1WuP
-         DoVgdSQsezGrmNhrkCLlRhwOyZJLvmjoB4fRatjhECDNiOeWAzSkytsz9MtRLToV0Y/y
-         /LjImh2lkgOo5axEKhw7X6jmdZapX4k5RviUpwgYkLTmjZB/Fmoik6sOqfHegeL8Lkzy
-         cgnWpPJ9GJFS+0HHt5t40fqCSf8EN9+iAYsdSdSDiolppfT1bxLYW7Kj1gl/n58B3mMO
-         TVPpw8vV78fevpjKX0WiDGGhSfG2UCIPE0A25WyGxUn3Jau1Xnmij7X9EXqlB42+6Kme
-         f85A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741645795; x=1742250595;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=VHU8rTWgBupCD0kyXYGUHHuE6QBh+Vnbh8dhf8rC5uU=;
-        b=LwIGx9K4Dw6CEoASN9OHdTFrOZKb/CchM0Pp2rYjPblxzIWLuHVa0Mph9WOz4Mn8HC
-         hqcczsZeR111wPzOB3PE10uj/i3alW/CDGX0zk3uZAus7Ik3tZaw/vF2L9aBl26ZYhqI
-         h0C7oMZ4gi0qpzUmT9nDvE60gMdqZBVTlcvFlch2Q2QPZWzoE8hgC9xK2dAMhe9kH2K8
-         y1uM2Ym1gcUtFoA5AQjtFBo4/8oqotC93OqEIwBmTIilgQ3zMcgtqT4qjRKU1HfQiBfI
-         l4cxw/FlfeagUfKa5wq40RneDAaOIhSrEGLSNfPnazWfmuKwUKgb/pAGxaDzsMIsPdfo
-         joXw==
-X-Forwarded-Encrypted: i=1; AJvYcCWRJdBrIGo+5dkgoerfnPzrPhzYugOmPZ2Zzvm4qQYyIQB7EztxYKEW853AfCbJWz8mosYch+tBh2P8g2r3IlBL@lists.infradead.org
-X-Gm-Message-State: AOJu0YxP7bmNx6nK+xN/sjtMkLGA/YwAMf8VrJFCFD3I7+ZSKtY/xueA
-	y0hCZHuQKMSoo6LVx2dpgf9EByVwPyJ2au7iHzd9r//jklwQIXZ1dOL7MTEPU0sRWVnoR6xBU6E
-	yeXGKZ1oxGduVMlzmMa2hPEanAg==
-X-Google-Smtp-Source: AGHT+IHFhuWhKuHNz9Fgp9FirrVIYERb4+eQ/sNIhVDmpSExLjut7bH5NkxneyzB/GAZESXqV0qgtpdoJPMyOC/28Jo=
-X-Received: from pfdr25.prod.google.com ([2002:aa7:8b99:0:b0:736:5b75:dde8])
- (user=samitolvanen job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:902:e5d2:b0:224:e33:8896 with SMTP id d9443c01a7336-22428886514mr236067925ad.11.1741645794779;
- Mon, 10 Mar 2025 15:29:54 -0700 (PDT)
-Date: Mon, 10 Mar 2025 22:29:45 +0000
-In-Reply-To: <20250310222942.1988975-4-samitolvanen@google.com>
-Mime-Version: 1.0
-References: <20250310222942.1988975-4-samitolvanen@google.com>
-X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5846; i=samitolvanen@google.com;
- h=from:subject; bh=nnEDzY0cdXNg5DInXr2mCSLGjD0bJaDeFd9RiRfzo4M=;
- b=owGbwMvMwCEWxa662nLh8irG02pJDOnn02+zmk8qvM15+eOR4itv2iUe3WHXdDmQpuh0RL2HJ
- XRC9zWzjlIWBjEOBlkxRZaWr6u37v7ulPrqc5EEzBxWJpAhDFycAjCRlrOMDKcmnAxb6p/PI9cV
- fKYpXWXrHP6PV8RC60/NC0ueoXVa4ybDP/uXoo8XlLM7M3z/3v7y6PUg117paX8rA40TnV1qmSq mMwEA
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Message-ID: <20250310222942.1988975-6-samitolvanen@google.com>
-Subject: [PATCH bpf-next v8 2/2] arm64/cfi,bpf: Support kCFI + BPF on arm64
-From: Sami Tolvanen <samitolvanen@google.com>
-To: bpf@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
-	Andrii Nakryiko <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Puranjay Mohan <puranjay12@gmail.com>, Maxwell Bland <mbland@motorola.com>, 
-	Sami Tolvanen <samitolvanen@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 10 Mar 2025 23:07:16 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Uf2suMQqxffvWUekH/WpStkxnA8KVEx9T1/faIwFwH/sAfOTR5dfOQFT+rI33ZIIBQ5H4VimRvdDseoSFC64g7lOZlgx4GdLcKDy8PppeGSeTllctLvdi2MpNx5pXgb5yObDRCR40F0lyZsO/fL67rbx4DzeW1Fx90QNM8qHir0FzhxfrogaC2GvzneFBIUhsHgRlpv8HVmcXJeRRsfwW+/6wCES1e7WNetiqWHcqoOeG/TgIhuX+PF3P7Ep9ECSUc1mDGaUXZdJ0Qhnuyrytka0Z8ONkKRqqBQ1azji9fSuJV9jY1XdBFGd3yHyAgZjWslqqDHLoua1SS+R1uC91g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=pEGoFeJlORz7BWSNlKAGOT0i91fm3KbuA4xg0SIjOkQ=;
+ b=i9hZmYMzN0GnGU76aS3QomLD8u+Bt1aHReyJgdcOMtG1JKDtc5PvbxoJxhnaWddD5chTD16t1mWA2nGXJcrqlzk2oo1jgtq4wnM0wi1cFtPZ0AA7fwqCu4m3P2rg8PXzcHMg5UI2oCAi4hjSw88jeH2MpPl05VHfKycs9TIMqqGdR6zY3qP9bQNwDkqmc0/bznwwhspWEV3kUumjWJWKkPki5eysfYVj/IXECIwbhbPDQZbrqGnKMA4v/UKo48kfXK7HXG1qayGh5ZQKgM9ZiLLJpv5Tr5o71eKIDTgzLs2yubzLxB8FUUPefPZzV+DjzXJArAdSglAf8G2y+1ivMw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=none; dmarc=none;
+ dkim=none; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=outlook.com;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=pEGoFeJlORz7BWSNlKAGOT0i91fm3KbuA4xg0SIjOkQ=;
+ b=jdRI+SnVKJT0kTrHZIsg7SHOKpI5ajqc7wV9FsxXx25pQFSs5T5wm29aiZ9YdC2fh9/9OKr+9URhY+boNps6ZvZFuaXNrm7zSJm8moqgpe0S2RdND3l98rqTzs2TGP1HU5OtoXaCRlI5qeE6hSgZj+QCl1dXj0a8YA1g+jBakIlcMqeHInHGTmqCQAiOuI2ZmLBJbSiWR0g9k8z900WdbZVnudltIu6xXBZQgE1nmtkmRbCXtEVEpR7R8A/tmgJ6UVlwYEmMFBWDACSMitP4qVZJbWH8h4fnQqht6gpDijJ4RRzNpe/E0soD/+cya5PpkSx0eVUCngiC1nOp9kOh9A==
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com (2603:10b6:805:33::23)
+ by BN0PR02MB7965.namprd02.prod.outlook.com (2603:10b6:408:166::22) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 10 Mar
+ 2025 23:07:10 +0000
+Received: from SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df]) by SN6PR02MB4157.namprd02.prod.outlook.com
+ ([fe80::cedd:1e64:8f61:b9df%3]) with mapi id 15.20.8511.026; Mon, 10 Mar 2025
+ 23:07:10 +0000
+From: Michael Kelley <mhklinux@outlook.com>
+To: Roman Kisel <romank@linux.microsoft.com>, "arnd@arndb.de" <arnd@arndb.de>,
+	"bhelgaas@google.com" <bhelgaas@google.com>, "bp@alien8.de" <bp@alien8.de>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "conor+dt@kernel.org"
+	<conor+dt@kernel.org>, "dave.hansen@linux.intel.com"
+	<dave.hansen@linux.intel.com>, "decui@microsoft.com" <decui@microsoft.com>,
+	"haiyangz@microsoft.com" <haiyangz@microsoft.com>, "hpa@zytor.com"
+	<hpa@zytor.com>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "kw@linux.com" <kw@linux.com>,
+	"kys@microsoft.com" <kys@microsoft.com>, "lenb@kernel.org" <lenb@kernel.org>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+	"mark.rutland@arm.com" <mark.rutland@arm.com>, "maz@kernel.org"
+	<maz@kernel.org>, "mingo@redhat.com" <mingo@redhat.com>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "rafael@kernel.org"
+	<rafael@kernel.org>, "robh@kernel.org" <robh@kernel.org>,
+	"ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "suzuki.poulose@arm.com"
+	<suzuki.poulose@arm.com>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"wei.liu@kernel.org" <wei.liu@kernel.org>, "will@kernel.org"
+	<will@kernel.org>, "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
+	"linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+	"linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-hyperv@vger.kernel.org"
+	<linux-hyperv@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-pci@vger.kernel.org"
+	<linux-pci@vger.kernel.org>, "x86@kernel.org" <x86@kernel.org>
+CC: "apais@microsoft.com" <apais@microsoft.com>, "benhill@microsoft.com"
+	<benhill@microsoft.com>, "bperkins@microsoft.com" <bperkins@microsoft.com>,
+	"sunilmut@microsoft.com" <sunilmut@microsoft.com>
+Subject: RE: [PATCH hyperv-next v5 05/11] arm64: hyperv: Initialize the
+ Virtual Trust Level field
+Thread-Topic: [PATCH hyperv-next v5 05/11] arm64: hyperv: Initialize the
+ Virtual Trust Level field
+Thread-Index: AQHbj60CE5hauCaflkaSB574if5JUbNtAp6Q
+Date: Mon, 10 Mar 2025 23:07:09 +0000
+Message-ID: <SN6PR02MB4157DD69C232F25FDBA7594CD4D62@SN6PR02MB4157.namprd02.prod.outlook.com>
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-6-romank@linux.microsoft.com>
+In-Reply-To: <20250307220304.247725-6-romank@linux.microsoft.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SN6PR02MB4157:EE_|BN0PR02MB7965:EE_
+x-ms-office365-filtering-correlation-id: f932bc66-bbd0-4eca-855f-08dd60284943
+x-microsoft-antispam: BCL:0;ARA:14566002|8062599003|461199028|19110799003|15080799006|8060799006|3412199025|440099028|102099032;
+x-microsoft-antispam-message-info: =?us-ascii?Q?e7tmQryE11nlPEtc1j81nd2/B15ty9gsDDosAzafr1ApoAuVIj+iJxJqxYm1?=
+ =?us-ascii?Q?J+D8oxlLFB2R400Y6ZhUVdZs6W/dKt207KiJaHTS+kBSFF42uJ5sYWj/MMZz?=
+ =?us-ascii?Q?f2LBbLgfhkdFZlFnSf47KA5APNdsHPDdUZhZ63c6kRWB+1I3+oGkXsUfN3Lt?=
+ =?us-ascii?Q?6oc2zweFTwYcDt9gVaF0RHaPfDQpKqnmkkJsaLhWiOx2/wcJc3mD8q7cfddJ?=
+ =?us-ascii?Q?t8tfWtGCW9qoy8BTAkwmKpHn6T0FnMj6iG9eCGLJW3RtupTa9eHlwl7TliCa?=
+ =?us-ascii?Q?hMI9FBIspJoIotAgMeCV+C0PsHqYsfKNwWMQ945ERLxnLdit7EILTx2DJKKV?=
+ =?us-ascii?Q?M9ItejQDL7NQEF59J/Bd+ySZ0+rCHzhFG4BM5TfA9ZlmLyHV1wcZEJMWJSwI?=
+ =?us-ascii?Q?pfT2ks00uI9pBcONnX0M7VGNNX1cO9r0wWpMoZ/p4HM/YgAHsj2sbmZ0I0oD?=
+ =?us-ascii?Q?6j1KaXVw4+uEa4ga2c84+kJz7WyRn49gxHxBX6s9mlvxHCt5XHvXRBXIpTDn?=
+ =?us-ascii?Q?FMIGmlVI/RfABsdSrnZscpd7TQnH/xyjoSWlXthjtQfN67CDLPJRJul+OitH?=
+ =?us-ascii?Q?BjP19INgFFHPjB47cMhITz91PBikXSOc72WvfyH7qK6eEXyWbpiajXz5mQBa?=
+ =?us-ascii?Q?K08Q1DP2Juqjapr4WZVrhG2+or4WYMHlu/sxgT2cyYSLrBrWqgwTWhxgExco?=
+ =?us-ascii?Q?XU+C1j36Ww3AC3J7JuAuq0bNTxC3sYk5u8koAU/DEbDqB6ScvS1eXOzHY/pt?=
+ =?us-ascii?Q?8pcYWrS1xMfbAB6Bp5lTySqsFLgxzpLQ2YUJotaQdm38itpiJnOOKKcmlV4u?=
+ =?us-ascii?Q?6XFxTHCWLOEvRYA3bI3hEu+flsDVYQSujzIglCgiaw4/+Gd3HhpsR4x+dWZe?=
+ =?us-ascii?Q?YetYbG2W/y4eQqnZ74vgMWV6PRIeVfDQYJ6hNa2iC1lzQsTSDLlPYGOtI83M?=
+ =?us-ascii?Q?5Lx0IkUXQLMgnGDcpTt7e3hqSdTbCiRtQFZrWVRvun7Kya41Fz73jPJQQwsq?=
+ =?us-ascii?Q?guIc6NwZ9JE4sOTu1I8QOy+bNhd588SOf6BAttxMfnz1KbA=3D?=
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QcfUvr2MbXkwdpIM+FYRAQOkHCgqQENJi2IkrERxDqImOfkOH4uZ4rIyVjY3?=
+ =?us-ascii?Q?TqnRSJblc2/jhpOGfGpmTaX+t7Nm3zMeD1tKLTA/il/tNi6yOV9M83JzURt7?=
+ =?us-ascii?Q?XPlnHZNrvEW5voGUK1xVgG6oTHT5IdV9/aiws4cHH9zFKS6la/fI6fzgkGKy?=
+ =?us-ascii?Q?V/v0N6htWP55/0kjuWdwCHGoo50BGOD7gj5D8Z4FpdEKt7Y7DO9nK0CByisl?=
+ =?us-ascii?Q?uaYYrGq4wtFNSnKqAIPoFja0RgEOGUOiYM9OQaBDklLI9dtfbpjqk1l+dZdJ?=
+ =?us-ascii?Q?xaSuuiJQOSN/+n4luO2bbq0NWszl5H/3bLSKQN6hwnGnA6ppVulUu2HYF1HH?=
+ =?us-ascii?Q?nbBJEaJYaKBg3Ew4qdgrUfMmk0Lbd81aIqUocA3hlcaU+7i89Fy4nuS0/IBD?=
+ =?us-ascii?Q?XUwNpyHCn1D37l+H/mj0oLimtFiu8a9gMnh7UFUBrQ3Lc/TIYlY+b/vMxrAg?=
+ =?us-ascii?Q?cLbZ50epYnxxk0jtbKK+1kExSzXP8yM1Pzx5bLzkLfsKRkj45pLTNHR/VGC1?=
+ =?us-ascii?Q?p8IRAKJq4CA1Tkzyo8I8jplQ9mMEfzkp7uzQ+0VN2ccJQZWj79bB4JG0MNJa?=
+ =?us-ascii?Q?RozQgKjdkOstyz40s6X43Iq9LQuIK6AMZOPGeHtNRSVKD2sFNxAevOh05QXK?=
+ =?us-ascii?Q?UFmBtrSufbtL6LhW7qykyL/tMl8iDgHwROOYIYGil4m0kWDh7EaW0Q2dHSSX?=
+ =?us-ascii?Q?xdQ/4lQdxNLPI/5lHwm7W+E7z5MHpQFeiBvnBz7vq59spVUJqpBEvFN4vLz0?=
+ =?us-ascii?Q?xaM2eyEaxFybcGWMZTmSCsa8a4JR4YSdcXdEICIy6KMArwnZmIspdaz0Bc2N?=
+ =?us-ascii?Q?3BKhWSoD9HmNrQ/0cRYyO/YRli7JSaIp1FYuoCkeWuwRraPe+3Pco8QXAKrK?=
+ =?us-ascii?Q?hYWdkmckXTbTdPIgCcv2y+65mpv4dah0Xlh98pocurtjl694TxAMrMI7KM73?=
+ =?us-ascii?Q?/JVcqkkjNcYnRpbihK8Ao9u17kUWjXIGbaBlaLjbaF9auptjcTg2AoUngdG8?=
+ =?us-ascii?Q?vgHHStMGvSeVSBomqT6m4WAL8Y4TWYOli6Ujr2tLeT0cHdWc6na8DZdIwR/L?=
+ =?us-ascii?Q?/vLPfpuvD+fg7ELqlEazaeAUYOkfRy+QF+B3HTr7PPfdwttILLNOwh6ysb7e?=
+ =?us-ascii?Q?j3RHHI1q6rC+faDgugEBAPEA3QPIIsoytyJ6meW+Z62O9FhmGBDgXvmby1pl?=
+ =?us-ascii?Q?8a1HWWd6OhSLjJEpK+OZvvMWlWj80xnfid7WT45NHcadsfL5LFnZCWwmSbE?=
+ =?us-ascii?Q?=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SN6PR02MB4157.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-RMS-PersistedConsumerOrg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-CrossTenant-Network-Message-Id: f932bc66-bbd0-4eca-855f-08dd60284943
+X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Mar 2025 23:07:10.0056
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 84df9e7f-e9f6-40af-b435-aaaaaaaaaaaa
+X-MS-Exchange-CrossTenant-rms-persistedconsumerorg: 00000000-0000-0000-0000-000000000000
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR02MB7965
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_152956_702044_C37237E1 
-X-CRM114-Status: GOOD (  21.79  )
+X-CRM114-CacheID: sfid-20250310_160715_484237_CAD9A3DC 
+X-CRM114-Status: GOOD (  14.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,181 +173,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Puranjay Mohan <puranjay12@gmail.com>
+From: Roman Kisel <romank@linux.microsoft.com> Sent: Friday, March 7, 2025 =
+2:03 PM
+>=20
+> Various parts of the hyperv code need to know what VTL
+> the kernel runs at, most notably VMBus needs that to
+> establish communication with the host.
+>=20
+> Initialize the Virtual Trust Level field to enable
+> booting in the Virtual Trust Level.
+>=20
+> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> ---
+>  arch/arm64/hyperv/mshyperv.c | 1 +
+>  1 file changed, 1 insertion(+)
+>=20
+> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+> index c647db56fd6b..a7db03f5413d 100644
+> --- a/arch/arm64/hyperv/mshyperv.c
+> +++ b/arch/arm64/hyperv/mshyperv.c
+> @@ -107,6 +107,7 @@ static int __init hyperv_init(void)
+>=20
+>  	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+>  		hv_get_partition_id();
+> +	ms_hyperv.vtl =3D get_vtl();
+>=20
+>  	ms_hyperv_late_init();
+>=20
+> --
+> 2.43.0
+>=20
 
-Currently, bpf_dispatcher_*_func() is marked with `__nocfi` therefore
-calling BPF programs from this interface doesn't cause CFI warnings.
-
-When BPF programs are called directly from C: from BPF helpers or
-struct_ops, CFI warnings are generated.
-
-Implement proper CFI prologues for the BPF programs and callbacks and
-drop __nocfi for arm64. Fix the trampoline generation code to emit kCFI
-prologue when a struct_ops trampoline is being prepared.
-
-Signed-off-by: Puranjay Mohan <puranjay12@gmail.com>
-Co-Developed-by: Maxwell Bland <mbland@motorola.com>
-Signed-off-by: Maxwell Bland <mbland@motorola.com>
-Co-Developed-by: Sami Tolvanen <samitolvanen@google.com>
-Signed-off-by: Sami Tolvanen <samitolvanen@google.com>
----
- arch/arm64/include/asm/cfi.h    | 23 +++++++++++++++++++++++
- arch/arm64/kernel/alternative.c | 25 +++++++++++++++++++++++++
- arch/arm64/net/bpf_jit_comp.c   | 22 +++++++++++++++++++---
- 3 files changed, 67 insertions(+), 3 deletions(-)
- create mode 100644 arch/arm64/include/asm/cfi.h
-
-diff --git a/arch/arm64/include/asm/cfi.h b/arch/arm64/include/asm/cfi.h
-new file mode 100644
-index 000000000000..670e191f8628
---- /dev/null
-+++ b/arch/arm64/include/asm/cfi.h
-@@ -0,0 +1,23 @@
-+/* SPDX-License-Identifier: GPL-2.0 */
-+#ifndef _ASM_ARM64_CFI_H
-+#define _ASM_ARM64_CFI_H
-+
-+#ifdef CONFIG_CFI_CLANG
-+#define __bpfcall
-+static inline int cfi_get_offset(void)
-+{
-+	return 4;
-+}
-+#define cfi_get_offset cfi_get_offset
-+extern u32 cfi_bpf_hash;
-+extern u32 cfi_bpf_subprog_hash;
-+extern u32 cfi_get_func_hash(void *func);
-+#else
-+#define cfi_bpf_hash 0U
-+#define cfi_bpf_subprog_hash 0U
-+static inline u32 cfi_get_func_hash(void *func)
-+{
-+	return 0;
-+}
-+#endif /* CONFIG_CFI_CLANG */
-+#endif /* _ASM_ARM64_CFI_H */
-diff --git a/arch/arm64/kernel/alternative.c b/arch/arm64/kernel/alternative.c
-index 8ff6610af496..71c153488dad 100644
---- a/arch/arm64/kernel/alternative.c
-+++ b/arch/arm64/kernel/alternative.c
-@@ -8,11 +8,13 @@
- 
- #define pr_fmt(fmt) "alternatives: " fmt
- 
-+#include <linux/cfi_types.h>
- #include <linux/init.h>
- #include <linux/cpu.h>
- #include <linux/elf.h>
- #include <asm/cacheflush.h>
- #include <asm/alternative.h>
-+#include <asm/cfi.h>
- #include <asm/cpufeature.h>
- #include <asm/insn.h>
- #include <asm/module.h>
-@@ -298,3 +300,26 @@ noinstr void alt_cb_patch_nops(struct alt_instr *alt, __le32 *origptr,
- 		updptr[i] = cpu_to_le32(aarch64_insn_gen_nop());
- }
- EXPORT_SYMBOL(alt_cb_patch_nops);
-+
-+#ifdef CONFIG_CFI_CLANG
-+struct bpf_insn;
-+
-+/* Must match bpf_func_t / DEFINE_BPF_PROG_RUN() */
-+extern unsigned int __bpf_prog_runX(const void *ctx,
-+				    const struct bpf_insn *insn);
-+DEFINE_CFI_TYPE(cfi_bpf_hash, __bpf_prog_runX);
-+
-+/* Must match bpf_callback_t */
-+extern u64 __bpf_callback_fn(u64, u64, u64, u64, u64);
-+DEFINE_CFI_TYPE(cfi_bpf_subprog_hash, __bpf_callback_fn);
-+
-+u32 cfi_get_func_hash(void *func)
-+{
-+	u32 hash;
-+
-+	if (get_kernel_nofault(hash, func - cfi_get_offset()))
-+		return 0;
-+
-+	return hash;
-+}
-+#endif /* CONFIG_CFI_CLANG */
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index 70d7c89d3ac9..8870c205f934 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -17,6 +17,7 @@
- #include <asm/asm-extable.h>
- #include <asm/byteorder.h>
- #include <asm/cacheflush.h>
-+#include <asm/cfi.h>
- #include <asm/debug-monitors.h>
- #include <asm/insn.h>
- #include <asm/text-patching.h>
-@@ -164,6 +165,12 @@ static inline void emit_bti(u32 insn, struct jit_ctx *ctx)
- 		emit(insn, ctx);
- }
- 
-+static inline void emit_kcfi(u32 hash, struct jit_ctx *ctx)
-+{
-+	if (IS_ENABLED(CONFIG_CFI_CLANG))
-+		emit(hash, ctx);
-+}
-+
- /*
-  * Kernel addresses in the vmalloc space use at most 48 bits, and the
-  * remaining bits are guaranteed to be 0x1. So we can compose the address
-@@ -474,7 +481,6 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	const bool is_main_prog = !bpf_is_subprog(prog);
- 	const u8 fp = bpf2a64[BPF_REG_FP];
- 	const u8 arena_vm_base = bpf2a64[ARENA_VM_START];
--	const int idx0 = ctx->idx;
- 	int cur_offset;
- 
- 	/*
-@@ -500,6 +506,9 @@ static int build_prologue(struct jit_ctx *ctx, bool ebpf_from_cbpf)
- 	 *
- 	 */
- 
-+	emit_kcfi(is_main_prog ? cfi_bpf_hash : cfi_bpf_subprog_hash, ctx);
-+	const int idx0 = ctx->idx;
-+
- 	/* bpf function may be invoked by 3 instruction types:
- 	 * 1. bl, attached via freplace to bpf prog via short jump
- 	 * 2. br, attached via freplace to bpf prog via long jump
-@@ -2009,9 +2018,9 @@ struct bpf_prog *bpf_int_jit_compile(struct bpf_prog *prog)
- 		jit_data->ro_header = ro_header;
- 	}
- 
--	prog->bpf_func = (void *)ctx.ro_image;
-+	prog->bpf_func = (void *)ctx.ro_image + cfi_get_offset();
- 	prog->jited = 1;
--	prog->jited_len = prog_size;
-+	prog->jited_len = prog_size - cfi_get_offset();
- 
- 	if (!prog->is_func || extra_pass) {
- 		int i;
-@@ -2271,6 +2280,12 @@ static int prepare_trampoline(struct jit_ctx *ctx, struct bpf_tramp_image *im,
- 	/* return address locates above FP */
- 	retaddr_off = stack_size + 8;
- 
-+	if (flags & BPF_TRAMP_F_INDIRECT) {
-+		/*
-+		 * Indirect call for bpf_struct_ops
-+		 */
-+		emit_kcfi(cfi_get_func_hash(func_addr), ctx);
-+	}
- 	/* bpf trampoline may be invoked by 3 instruction types:
- 	 * 1. bl, attached to bpf prog or kernel function via short jump
- 	 * 2. br, attached to bpf prog or kernel function via long jump
-@@ -2790,6 +2805,7 @@ void bpf_jit_free(struct bpf_prog *prog)
- 					   sizeof(jit_data->header->size));
- 			kfree(jit_data);
- 		}
-+		prog->bpf_func -= cfi_get_offset();
- 		hdr = bpf_jit_binary_pack_hdr(prog);
- 		bpf_jit_binary_pack_free(hdr, NULL);
- 		WARN_ON_ONCE(!bpf_prog_kallsyms_verify_off(prog));
--- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
 
