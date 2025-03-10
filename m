@@ -4,122 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E21C2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 812F5C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=ja8gADbYJmopRXEqZw+Becrreh
-	6Z/akoG13EvUHFZA2TqorKX/RzQvqZDjkKtEaK57nTiANr1T5of4uxpW41xrQI79uSgTkk0d5lFuq
-	PkjUW92wTbRmXRuc4EVtky/J0XweTkRnqGEm0YW0crIG9SipQk1lhQaAiJSMdZRKNEcmRHRBWSmn2
-	LLXfoebGN/gbVw7MJnQEghkSAaw3yhMIBqeV8GO32nB8hT4+57wcLXakX7btp9L36EiNteIxdHZGw
-	etuZyeL8fmBcqywc6cBAdUfBMdoXGCFiIDOcnbet6d/dX81KQJG/ICoPOP2JsnjfxS3ImxsxJrk2w
-	TsDz13RQ==;
+	bh=3n/kcww+h6WAKm2K/06MkJC8hDnbaiui4+vRIqMhQwg=; b=x0V8IYYVRo3we8RLyJ/6oaY8dN
+	VLmymhXPuvdy/zdHMSUPj4OOZ7ph1Nlvxd/QDglWGN11GvrEqWdipYNeDHABiGTj/Tv6N0pU8rJlk
+	W48N6YRnMBXaNA1JxYYtr9XyyC5zr5ZqflEKMKfeJYKihTwXRy6WOYo3Z3x8lTfEOQRhVRJEy4jth
+	ZXq0S9c8fEfDzB+7inDHkEE1SPxujI6JEpJUOplRL2VZ7AIcc/RI2RIWXqjDB5SaamIs/QIpfNwHn
+	puFrq/n/kdAZhuI2JugLgw+/7qC008obdKeb8cYB/59Ccm1L7uTN07kPxeADZ54ClF76f9yeIbwzA
+	RMZvhOLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traiJ-00000002JaM-47bg;
-	Mon, 10 Mar 2025 10:50:28 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1traiF-00000002JYL-0MNf;
+	Mon, 10 Mar 2025 10:50:23 +0000
+Received: from mail-m32112.qiye.163.com ([220.197.32.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZO6-000000024uj-3ATS
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 09:25:31 +0000
-Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 27804114011F;
-	Mon, 10 Mar 2025 05:25:30 -0400 (EDT)
-Received: from phl-mailfrontend-01 ([10.202.2.162])
-  by phl-compute-05.internal (MEProxy); Mon, 10 Mar 2025 05:25:30 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
-	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
-	:from:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to; s=fm1; t=1741598730; x=
-	1741685130; bh=pQyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=k
-	xyabCu0FH+tpmKT5FbxWp1SVxkWf5jFtHIRAiLJEeJtks6sRsS8v/GsrzYAk7Ol4
-	+dv0gXeQ/36ZzgaOI9baiGW/jcb3QxEx2b4jyOiHTqkztSNzLUlgHTSAqdhqFRlP
-	uSccfHBFvmwvcRRKQ8e4zhVrMLkOUdRdQAQdzUTgA1BR/VmBWhusqKukKcsQ44TF
-	QwPvJo1LYAH5I0/y0hpGVKUMxaEEuAwrZA/d4bYSo5rXU5vWVbo3N63dbtjydLwN
-	qF9cefmHalT1cQ/fV8y8HY5uRnKkLz3xKA3lxbHJXqmTrXwbiMJGRJgpftPYiCKN
-	9EcoZ6g1CWR5gBMJBzw8g==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm1; t=1741598730; x=1741685130; bh=p
-	QyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=m3l+9H4HDOzcYApdz
-	1U4ALKcqQg3TcahdWFBvxn73eqkZxZ2QF4WhU35NhZUJPuqFHs6RYZpSeefrmcNs
-	01sEA+ILI5uM0Yrpfeh/lK8+QOPqtmSkXMF/2601wYNb6ILDZje+RR8hoeiHQwjF
-	KVmeHB6KPedOsCAKL59akfVclOPQfOoWWMIBc1D0iH3elbf3w14Sy031DTV3e9Yz
-	UgQ57RTV5LxdyUp01DPWcESiOO3KF4Swwn5vs76V4BumG4BcMW0vMiIVyyrznqQO
-	L4X7hjQB0EjRcLyQOJCd/oODVSBldS7xGBfUYlaT+gqS7xQ4T1SZfUa6DxED3rrb
-	PXr+g==
-X-ME-Sender: <xms:CbDOZyHSPnFjnKtAa3B7TlIEuC7DjqIetGT-3IJfK1PJ-nuU5_g9Rg>
-    <xme:CbDOZzU660R9SB4Ctu_Ypm47fuA_2NHxZNr0raQO0RGd7eWnRwEvDYPOa5bAl1FmQ
-    9RdYo9yBtk5mj3cjg>
-X-ME-Received: <xmr:CbDOZ8K-r0RLjGGcK-y5uF42S1eXuSA839Lp29QqERBQephBvM1U4YNV9rP_MANg0zYKRqsmmPdMzDTR5NwjsPpshGaSmySIcJ3k9fUylP_0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudekleekucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
-    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
-    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredt
-    tdenucfhrhhomheptfihrghnucghrghlkhhlihhnuceorhihrghnsehtvghsthhtohgrsh
-    htrdgtohhmqeenucggtffrrghtthgvrhhnpeffheeiffegtdfgffejteevgeefkeelieel
-    keevueetffetteduffevgeeiieehteenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
-    grmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgspghr
-    tghpthhtohepvdegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrhhiphgrrh
-    gusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhr
-    tghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlh
-    drtghomhdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghp
-    thhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopegurghnihgvlh
-    esfhhffihllhdrtghhpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgr
-    ihhlrdgtohhmpdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprh
-    gtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
-X-ME-Proxy: <xmx:CbDOZ8Hw8X-6wMvozKlgNsFJUeZvvHg3uL0HJId7qNmgX05C71kjZQ>
-    <xmx:CbDOZ4WsgGTunXqN7PtPOG1V3pknYOw4KtZxA-c2x2Du770mMgUq2g>
-    <xmx:CbDOZ_OOS0cqihFHMUgAcqK8OIlcSPOKB3zWtwUUj57X5_JY_Zg3qQ>
-    <xmx:CbDOZ_3AOzIe08lYuy7kuASxhGwbVV5f5BWIMV1uwTAOyJhUg5dxWA>
-    <xmx:CrDOZ-kp90zEwP8XxCXCbO1M8XzFgTj4SrIV5SCysGZ2L5ZQxYhYHIr7>
-Feedback-ID: idc0145fc:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
- 10 Mar 2025 05:25:22 -0400 (EDT)
-From: Ryan Walklin <ryan@testtoast.com>
-To: Maxime Ripard <mripard@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>,
-	Daniel Vetter <daniel@ffwll.ch>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Chris Morgan <macroalpha82@gmail.com>,
-	Hironori KIKUCHI <kikuchan98@gmail.com>,
-	Philippe Simons <simons.philippe@gmail.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	id 1traaJ-00000002HhR-0J5b;
+	Mon, 10 Mar 2025 10:42:13 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id dc18824d;
+	Mon, 10 Mar 2025 18:42:05 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: heiko@sntech.de
+Cc: andy.yan@rock-chips.com,
+	hjc@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org,
+	Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	dmitry.baryshkov@linaro.org,
+	dianders@chromium.org,
+	sebastian.reichel@collabora.com,
+	cristian.ciocaltea@collabora.com,
+	boris.brezillon@collabora.com,
+	l.stach@pengutronix.de,
 	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
 	devicetree@vger.kernel.org,
-	linux-clk@vger.kernel.org,
-	Ryan Walklin <ryan@testtoast.com>
-Subject: [PATCH v8 11/11] drm: sun4i: de33: mixer: add mixer configuration for the H616
-Date: Mon, 10 Mar 2025 22:09:57 +1300
-Message-ID: <20250310092345.31708-12-ryan@testtoast.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250310092345.31708-1-ryan@testtoast.com>
-References: <20250310092345.31708-1-ryan@testtoast.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v8 03/13] drm/bridge: analogix_dp: Add support for phy configuration.
+Date: Mon, 10 Mar 2025 18:41:04 +0800
+Message-Id: <20250310104114.2608063-4-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250310104114.2608063-1-damon.ding@rock-chips.com>
+References: <20250310104114.2608063-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkhJT1ZOQxpJGkxMS09ITEpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCS0
+	NVSktLVUpCWQY+
+X-HM-Tid: 0a957fa5c76d03a3kunmdc18824d
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6Nhg6Nzo4ETJOTSMCFTg3PRkL
+	HAgaCStVSlVKTE9KTUtISElMQ0lNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFPQ0lJNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=ivs0dG58vpZiig22THB9poGiIjFmNLYA18AeWERuuN9+XlD87+4F1ClSYUi3iNsjhcXmZN3HHaR9oKuctDzWSzAbXAoM+Qdin9/NWYo66WclEll0uNA+2jc5f4A6qrEmsb6+N7kAP0v8a+h39dZKcp6tfqvWMcvN5fqaTDmW4Cc=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=3n/kcww+h6WAKm2K/06MkJC8hDnbaiui4+vRIqMhQwg=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_022530_862601_16D4DB69 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250310_034211_318443_5F4EDE73 
+X-CRM114-Status: GOOD (  11.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -134,58 +97,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jernej Skrabec <jernej.skrabec@gmail.com>
+Add support to configurate link rate, lane count, voltage swing and
+pre-emphasis with phy_configure(). It is helpful in application scenarios
+where analogix controller is mixed with the phy of other vendors.
 
-The H616 (and related SoC packages sharing the same die) carry the new
-DE33 display engine.
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 
-Add the mixer configuration and a compatible string for the H616 to the
-mixer.
-
-Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Signed-off-by: Ryan Walklin <ryan@testtoast.com>
-
---
-Changelog v7..v8:
-- Separate DE33 support and H616 enablement in the mixer.
 ---
- drivers/gpu/drm/sun4i/sun8i_mixer.c | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
 
-diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-index 0bfd4b28b283..c9211a173a13 100644
---- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-@@ -799,6 +799,17 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_cfg = {
- 	.vi_num		= 1,
- };
+Changes in v2:
+- remove needless assignments for phy_configure()
+- remove unnecessary changes for phy_power_on()/phy_power_off()
+
+Changes in v4:
+- remove unnecessary &phy_configure_opts_dp.lanes assignments in
+  analogix_dp_set_link_bandwidth()
+- remove needless &phy_configure_opts_dp.lanes and
+  &phy_configure_opts_dp.link_rate assignments in
+  analogix_dp_set_lane_link_training()
+
+Changes in v5:
+- include <drm/drm_print.h> for dev_err()
+- use drm_err() instead of dev_err()
+
+Changes in v6:
+- Pass 'dp' in drm_...() rather than 'dp->drm_dev'
+
+Changes in v7:
+- For the new error logs, use dev_err() as with the other error logs
+---
+ .../drm/bridge/analogix/analogix_dp_core.c    |  1 +
+ .../gpu/drm/bridge/analogix/analogix_dp_reg.c | 52 +++++++++++++++++++
+ 2 files changed, 53 insertions(+)
+
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+index 132f8513f93f..d5bbc8843a56 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+@@ -1680,6 +1680,7 @@ int analogix_dp_resume(struct analogix_dp_device *dp)
+ 	if (dp->plat_data->power_on)
+ 		dp->plat_data->power_on(dp->plat_data);
  
-+static const struct sun8i_mixer_cfg sun50i_h616_mixer0_cfg = {
-+	.ccsc		= CCSC_MIXER0_LAYOUT,
-+	.de_type	= sun8i_mixer_de33,
-+	.mod_rate	= 600000000,
-+	.scaler_mask	= 0xf,
-+	.scanline_yuv	= 4096,
-+	.ui_num		= 3,
-+	.vi_num		= 1,
-+	.map		= {0, 6, 7, 8},
-+};
++	phy_set_mode(dp->phy, PHY_MODE_DP);
+ 	phy_power_on(dp->phy);
+ 
+ 	analogix_dp_init_dp(dp);
+diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+index 3afc73c858c4..38fd8d5014d2 100644
+--- a/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
++++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_reg.c
+@@ -11,6 +11,7 @@
+ #include <linux/gpio/consumer.h>
+ #include <linux/io.h>
+ #include <linux/iopoll.h>
++#include <linux/phy/phy.h>
+ 
+ #include <drm/bridge/analogix_dp.h>
+ 
+@@ -513,10 +514,24 @@ void analogix_dp_enable_sw_function(struct analogix_dp_device *dp)
+ void analogix_dp_set_link_bandwidth(struct analogix_dp_device *dp, u32 bwtype)
+ {
+ 	u32 reg;
++	int ret;
+ 
+ 	reg = bwtype;
+ 	if ((bwtype == DP_LINK_BW_2_7) || (bwtype == DP_LINK_BW_1_62))
+ 		writel(reg, dp->reg_base + ANALOGIX_DP_LINK_BW_SET);
 +
- static const struct of_device_id sun8i_mixer_of_table[] = {
- 	{
- 		.compatible = "allwinner,sun8i-a83t-de2-mixer-0",
-@@ -844,6 +855,10 @@ static const struct of_device_id sun8i_mixer_of_table[] = {
- 		.compatible = "allwinner,sun50i-h6-de3-mixer-0",
- 		.data = &sun50i_h6_mixer0_cfg,
- 	},
-+	{
-+		.compatible = "allwinner,sun50i-h616-de33-mixer-0",
-+		.data = &sun50i_h616_mixer0_cfg,
-+	},
- 	{ }
- };
- MODULE_DEVICE_TABLE(of, sun8i_mixer_of_table);
++	if (dp->phy) {
++		union phy_configure_opts phy_cfg = {0};
++
++		phy_cfg.dp.link_rate =
++			drm_dp_bw_code_to_link_rate(dp->link_train.link_rate) / 100;
++		phy_cfg.dp.set_rate = true;
++		ret = phy_configure(dp->phy, &phy_cfg);
++		if (ret && ret != -EOPNOTSUPP) {
++			dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
++			return;
++		}
++	}
+ }
+ 
+ void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
+@@ -530,9 +545,22 @@ void analogix_dp_get_link_bandwidth(struct analogix_dp_device *dp, u32 *bwtype)
+ void analogix_dp_set_lane_count(struct analogix_dp_device *dp, u32 count)
+ {
+ 	u32 reg;
++	int ret;
+ 
+ 	reg = count;
+ 	writel(reg, dp->reg_base + ANALOGIX_DP_LANE_COUNT_SET);
++
++	if (dp->phy) {
++		union phy_configure_opts phy_cfg = {0};
++
++		phy_cfg.dp.lanes = dp->link_train.lane_count;
++		phy_cfg.dp.set_lanes = true;
++		ret = phy_configure(dp->phy, &phy_cfg);
++		if (ret && ret != -EOPNOTSUPP) {
++			dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
++			return;
++		}
++	}
+ }
+ 
+ void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
+@@ -546,10 +574,34 @@ void analogix_dp_get_lane_count(struct analogix_dp_device *dp, u32 *count)
+ void analogix_dp_set_lane_link_training(struct analogix_dp_device *dp)
+ {
+ 	u8 lane;
++	int ret;
+ 
+ 	for (lane = 0; lane < dp->link_train.lane_count; lane++)
+ 		writel(dp->link_train.training_lane[lane],
+ 		       dp->reg_base + ANALOGIX_DP_LN0_LINK_TRAINING_CTL + 4 * lane);
++
++	if (dp->phy) {
++		union phy_configure_opts phy_cfg = {0};
++
++		for (lane = 0; lane < dp->link_train.lane_count; lane++) {
++			u8 training_lane = dp->link_train.training_lane[lane];
++			u8 vs, pe;
++
++			vs = (training_lane & DP_TRAIN_VOLTAGE_SWING_MASK) >>
++			     DP_TRAIN_VOLTAGE_SWING_SHIFT;
++			pe = (training_lane & DP_TRAIN_PRE_EMPHASIS_MASK) >>
++			     DP_TRAIN_PRE_EMPHASIS_SHIFT;
++			phy_cfg.dp.voltage[lane] = vs;
++			phy_cfg.dp.pre[lane] = pe;
++		}
++
++		phy_cfg.dp.set_voltages = true;
++		ret = phy_configure(dp->phy, &phy_cfg);
++		if (ret && ret != -EOPNOTSUPP) {
++			dev_err(dp->dev, "%s: phy_configure() failed: %d\n", __func__, ret);
++			return;
++		}
++	}
+ }
+ 
+ u32 analogix_dp_get_lane_link_training(struct analogix_dp_device *dp, u8 lane)
 -- 
-2.48.1
+2.34.1
 
 
