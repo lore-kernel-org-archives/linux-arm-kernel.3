@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5C6FC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D5D4C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:15:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P1D5auVVCTWKegD+CorUlUchSjKJfd6fJHdTbBIP/EA=; b=VXb1RXQCYT/Lx/NG2vDQcszjbA
-	VSkv1jUdnMsc/6s2DPQx5FeieMutqHbvZq9y+Fnz/O3i8TPhbNC3qoh6xETDQVZvrXGvPjmfQF0z/
-	wOb6fIyjO+hNi9jiGaTeWnGrNfxLEs1HVSdA6t+jod2BFiEHrA4JuNgHRghglaEbr2SbAey0Zy5o6
-	axVUVXVangOrEE9T723GmtkJBEXZiAHO5uT6/PHCkWbr+BMzuAdmsHr7tCEvfRhTYdDSZsoCVc5Ux
-	KQKAtFHv21ZkVEB1gjF3Yp5ydCDkM7VYY3gNlAH3IeIcG81+17Sm1dVl7Pn/6rwBX6EjWv1x9zeHd
-	KfyeuWEQ==;
+	bh=NjM80ZPuk0T2dsj8bpVRxDP3v5Cfy9QMBxmWY0yqH7U=; b=eQuLHRiG/BAKE4ZzoTVAQfxS3b
+	6Ese01jb4kbcdIcvGgeUqMmNK7KTghjz4V3RN5FLPEe0WvmLxji+F56K3d8HMSzn17SNg7NOwyOZx
+	Z7NgFYAs5D1LvkuAq3ZYwV/kDhN48BmEJYqxN2qr6njGt/II+jg16lwPgvVRMNGkwoQL1J2qWMsWt
+	bAXVEg3iUNTkl2eCsWe7v6bCrlzGeviA7iNYTXF3uPiM1TnWgViiwclFTOmkVy+ZCZt4VggNowo18
+	gRQz1eD2rUK3uyw/TcNqGQJ7cptxZiojP5QeT4GU08tcT+QJUPTH3rBr4ymHPV0kvWXliaz8uS8L2
+	FyYeFnzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcwg-00000002kW5-292t;
-	Mon, 10 Mar 2025 13:13:26 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1trcyI-00000002krO-0pnh;
+	Mon, 10 Mar 2025 13:15:06 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcC4-00000002bSr-2z8d
+	id 1trcC4-00000002bVP-45KE
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Mar 2025 12:25:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B2C535C631C;
-	Mon, 10 Mar 2025 12:22:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 531BDC4CEEE;
-	Mon, 10 Mar 2025 12:25:16 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id DED3DA45B74;
+	Mon, 10 Mar 2025 12:19:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77DB0C4AF0B;
+	Mon, 10 Mar 2025 12:25:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741609516;
-	bh=n7xGkSaTu/32WDYmEBTHnzauO9ZcCrn2FDAI3A+1sSY=;
+	s=k20201202; t=1741609515;
+	bh=JMcQT9nqn10bS2fDlKJ5y+ZpRjV+00pMYwnQIDjZGFA=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hMCocTBnnNtZ9tFCC8ODA7zW7ZlSBQWIn5Ybai5fWG1aBAezAMondCwImZkBKjQGu
-	 BeImm7GCqhuJz4UsxPRxWGRKV3DVrYNnJvtFUjwRNgpVdNTDu6paHdlAE/omHqaHnr
-	 wIFOCVcbp3syx6x/OA+Vb4quISaPSE2IAe7RNyIHqK396H4WKBpoKIVaX/bXLXgSIy
-	 DUDZ4FNu0BvbdjMnA3apGH5bI5zKzgA34A51zDqxAjDah36EEJ3DSUvYd3RuOX1ZHR
-	 xEHVwrlpU4uIiKIENokBVXwgMDNsYyT0oOs/+VBqHj9XnlPm7ryT/nqI+oGbccMwvs
-	 3kiv5yI6ogEPw==
+	b=GDhTVIWLnScv8xJQgUrQEJ9/CZCDfThLiu0gAG58HSLHlT2irCbOMJseAQJhZFhKJ
+	 BwRyVNxZ9ffRLmLqTFDWicf2pGBaLoIh09GF8H7an/iYc3AjOjtdbqN/CHlc4YUlmt
+	 Zd1n0QMsWc7QO71Vmoz3bsZcSLBmY45Qk5CTJnCBTkAp3OiVoinXhSffqVBlz5QRrN
+	 ZqHLCQvrtqzktq4Fml9+ikjDuDhKAnpE9ZlDU47okKCD1KkYhmN0+3sdiNE1it8LD/
+	 vXecRxPUQWhWSYPuppX2aWGuLxRb6RJ9pX8f8kDoXTue40hQsQ1oUHqw02Wlc1zIv8
+	 kd6faLkZ07AdA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1trcC2-00CAea-Fx;
-	Mon, 10 Mar 2025 12:25:14 +0000
+	id 1trcC1-00CAea-Kt;
+	Mon, 10 Mar 2025 12:25:13 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 17/23] KVM: arm64: Handle PSB CSYNC traps
-Date: Mon, 10 Mar 2025 12:24:59 +0000
-Message-Id: <20250310122505.2857610-18-maz@kernel.org>
+Subject: [PATCH v2 14/23] KVM: arm64: Use computed FGT masks to setup FGT registers
+Date: Mon, 10 Mar 2025 12:24:56 +0000
+Message-Id: <20250310122505.2857610-15-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250310122505.2857610-1-maz@kernel.org>
 References: <20250310122505.2857610-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052516_834511_22E8BA2D 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20250310_052517_134145_F5E4D4AF 
+X-CRM114-Status: GOOD (  11.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +87,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The architecture introduces a trap for PSB CSYNC that fits in
- the same EC as LS64. Let's deal with it in a similar way as
-LS64.
-
-It's not that we expect this to be useful any time soon anyway.
+Flip the hyervisor FGT configuration over to the computed FGT
+masks.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/include/asm/esr.h    | 3 ++-
- arch/arm64/kvm/emulate-nested.c | 1 +
- arch/arm64/kvm/handle_exit.c    | 5 +++++
- arch/arm64/tools/sysreg         | 2 +-
- 4 files changed, 9 insertions(+), 2 deletions(-)
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 45 +++++++++++++++++++++----
+ 1 file changed, 38 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index 547b4e857a3e2..f340af79679d8 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -175,10 +175,11 @@
- #define ESR_ELx_WFx_ISS_WFE	(UL(1) << 0)
- #define ESR_ELx_xVC_IMM_MASK	((UL(1) << 16) - 1)
+diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
+index c4e12516f6466..b3f02fa5ab79e 100644
+--- a/arch/arm64/kvm/hyp/include/hyp/switch.h
++++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
+@@ -65,12 +65,41 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+ 	}
+ }
  
--/* ISS definitions for LD64B/ST64B instructions */
-+/* ISS definitions for LD64B/ST64B/PSBCSYNC instructions */
- #define ESR_ELx_ISS_OTHER_ST64BV	(0)
- #define ESR_ELx_ISS_OTHER_ST64BV0	(1)
- #define ESR_ELx_ISS_OTHER_LDST64B	(2)
-+#define ESR_ELx_ISS_OTHER_PSBCSYNC	(3)
++#define reg_to_fgt_masks(reg)						\
++	({								\
++		struct fgt_masks *m;					\
++		switch(reg) {						\
++		case HFGRTR_EL2:					\
++			m = &hfgrtr_masks;				\
++			break;						\
++		case HFGWTR_EL2:					\
++			m = &hfgwtr_masks;				\
++			break;						\
++		case HFGITR_EL2:					\
++			m = &hfgitr_masks;				\
++			break;						\
++		case HDFGRTR_EL2:					\
++			m = &hdfgrtr_masks;				\
++			break;						\
++		case HDFGWTR_EL2:					\
++			m = &hdfgwtr_masks;				\
++			break;						\
++		case HAFGRTR_EL2:					\
++			m = &hafgrtr_masks;				\
++			break;						\
++		default:						\
++			BUILD_BUG_ON(1);				\
++		}							\
++									\
++		m;							\
++	})
++
+ #define compute_clr_set(vcpu, reg, clr, set)				\
+ 	do {								\
+-		u64 hfg;						\
+-		hfg = __vcpu_sys_reg(vcpu, reg) & ~__ ## reg ## _RES0;	\
+-		set |= hfg & __ ## reg ## _MASK; 			\
+-		clr |= ~hfg & __ ## reg ## _nMASK; 			\
++		u64 hfg = __vcpu_sys_reg(vcpu, reg);			\
++		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
++		set |= hfg & m->mask;					\
++		clr |= ~hfg & m->nmask;					\
+ 	} while(0)
  
- #define DISR_EL1_IDS		(UL(1) << 24)
- /*
-diff --git a/arch/arm64/kvm/emulate-nested.c b/arch/arm64/kvm/emulate-nested.c
-index f6c7331c21ca4..ebfb2805f716b 100644
---- a/arch/arm64/kvm/emulate-nested.c
-+++ b/arch/arm64/kvm/emulate-nested.c
-@@ -1996,6 +1996,7 @@ static const struct encoding_to_trap_config encoding_to_fgt[] __initconst = {
+ #define reg_to_fgt_group_id(reg)					\
+@@ -101,12 +130,14 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+ #define compute_undef_clr_set(vcpu, kvm, reg, clr, set)			\
+ 	do {								\
+ 		u64 hfg = kvm->arch.fgu[reg_to_fgt_group_id(reg)];	\
+-		set |= hfg & __ ## reg ## _MASK;			\
+-		clr |= hfg & __ ## reg ## _nMASK; 			\
++		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
++		set |= hfg & m->mask;					\
++		clr |= hfg & m->nmask;					\
+ 	} while(0)
  
- /* Additional FGTs that do not fire with ESR_EL2.EC==0x18 */
- static const union trap_config non_0x18_fgt[] __initconst = {
-+	FGT(HFGITR, PSBCSYNC, 1),
- 	FGT(HFGITR, nGCSSTR_EL1, 0),
- 	FGT(HFGITR, SVC_EL1, 1),
- 	FGT(HFGITR, SVC_EL0, 1),
-diff --git a/arch/arm64/kvm/handle_exit.c b/arch/arm64/kvm/handle_exit.c
-index bf08c44491b4a..0491eecd521b0 100644
---- a/arch/arm64/kvm/handle_exit.c
-+++ b/arch/arm64/kvm/handle_exit.c
-@@ -343,6 +343,11 @@ static int handle_other(struct kvm_vcpu *vcpu)
- 		if (is_l2)
- 			fwd = !(hcrx & HCRX_EL2_EnALS);
- 		break;
-+	case ESR_ELx_ISS_OTHER_PSBCSYNC:
-+		allowed = kvm_has_feat(kvm, ID_AA64DFR0_EL1, PMSVer, V1P5);
-+		if (is_l2)
-+			fwd = (__vcpu_sys_reg(vcpu, HFGITR_EL2) & HFGITR_EL2_PSBCSYNC);
-+		break;
- 	default:
- 		/* Clearly, we're missing something. */
- 		WARN_ON_ONCE(1);
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 1cf9a07cce522..f680cd6b3bc75 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -2641,7 +2641,7 @@ Fields	HFGxTR_EL2
- EndSysreg
- 
- Sysreg HFGITR_EL2	3	4	1	1	6
--Res0	63
-+Field   63	PSBCSYNC
- Field	62	ATS1E1A
- Res0	61
- Field	60	COSPRCTX
+ #define update_fgt_traps_cs(hctxt, vcpu, kvm, reg, clr, set)		\
+ 	do {								\
++		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
+ 		u64 c = clr, s = set;					\
+ 		u64 val;						\
+ 									\
+@@ -116,7 +147,7 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
+ 									\
+ 		compute_undef_clr_set(vcpu, kvm, reg, c, s);		\
+ 									\
+-		val = __ ## reg ## _nMASK;				\
++		val = m->nmask;						\
+ 		val |= s;						\
+ 		val &= ~c;						\
+ 		write_sysreg_s(val, SYS_ ## reg);			\
 -- 
 2.39.2
 
