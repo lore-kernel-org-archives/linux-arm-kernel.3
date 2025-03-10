@@ -4,88 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83F0C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:01:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E84BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:03:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=; b=d4X4ftjCq5BeOAATuapW1frvZw
-	p5NbLdKGUO06O749c3Aqn3FL3TXgbzlaCTIeHMBHDPkGyIBeU0+lituZWa5bPkf/zmBgXLg5DGAUY
-	kbu9w+OM7Gv5DX7GxmWw38qw5Dc1JdmIuIKQsm5ACHiizimJR130lqbyMLmpsZ2f5RQwW9vwf+OeJ
-	+7SXRMCEwMtpguas8tK/2QGTjhW4os1nBm32fdXYKhjo7B1X1aIUc9NbNdo2+/4dwbaKYc77C0geb
-	doRhI/JlBVWrYu1bvUKMjdpaiwHLXPn/LPa38olooYSy1cj/zRRlHnj4YhfBZCG3y/JPvlIsU2BDW
-	EQhyp6AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=g0FHvk7naxccnXtThg65SMBGYmS/oNOjelthUAROF7I=; b=itjhpKEjNaG3+M
+	/FGY9L/hWH7LCpqXE/REurJo3f7ys9aR2DNZm0EMmy5oiQNM4UivBJ/MFFvTVCCkGvFyY74NrLI2p
+	W7FgWqGZ7LB3Spv1bFw5HMGgCeqdwZe5shbSwE992XRCdIa8MEqnUwK4D7kLksUn9Z0XubrMTu3BX
+	il9fv27+mLPiU8DQ0oKAaj8H5xyo7WSqrb63imomWLTH2yVUrmBSmii0POl/Rxd66UVLfohxlOzfx
+	Z3fxgM60Wi5IKJ/j8VLp6glqo226l5ydmPFhIMUAsVx0mrLHf5wlh50Wwtpnjf9iX8ZFmCMJWo76Z
+	KKgmpv+PxZ2+MdOoq9Aw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgV9-00000003QmM-1IKV;
-	Mon, 10 Mar 2025 17:01:15 +0000
+	id 1trgWk-00000003R0K-47MG;
+	Mon, 10 Mar 2025 17:02:55 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgCu-00000003NJX-1kWE
+	id 1trgAm-00000003Mw8-3rpL
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Mar 2025 16:42:24 +0000
+	Mon, 10 Mar 2025 16:40:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=; b=DLLoQmV9fF0Uz84tnP75uaQd37
-	oAQDsZE7lMTrCVncnN3UaR0Xtk5JkuK9XN/Sh1szwrRVh+Ec8n6NfXiayqT2O3QM+bW+2fZSITj3B
-	tmcs9E0E8ep3sxrvFD5UNtM8F/OLxDxT/1BnWEx4tCUONqKrQj10AeddzjnK57e69ItzurNm2/NYW
-	aM/06wtXaanJ/2Lo5ughbEazVMbyUJkgfqZQNq3uulHveKnAFdRyV35Y5Norm6cDulsDr2X+xvOYb
-	ENoaJQF38nAslogSNMOzcuDULSwWlewj9/892QFoN4w3CrQqWaxzpksozbXW2uo+u4OYAuO/vWVVG
-	WPTuuN8A==;
-Received: from linux.microsoft.com ([13.77.154.182])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgCr-00000001wIR-0xNc
+	d=infradead.org; s=desiato.20200630; h=Cc:To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:From:Sender:Reply-To:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=g0FHvk7naxccnXtThg65SMBGYmS/oNOjelthUAROF7I=; b=PICi5llpOcR1W55pjBLjLwI0Yo
+	xKthcN5jL2i0XILYLt7Xw1dnDMEXe7+HAL+3KLi3+hri/DhBdHVWgk+FWMiG8RGg9jc3yAV4f2SnT
+	fyfEYW1g4F78Tav1UswrFdP3E5UE4BWp4AvybdK87vt0MFMttHcZhxd8CUe1THPJkhogsZ3673oJ8
+	DcTIEtIxhVdKelxeaK/YTXuRAOR2G+Z6Ntff62LM7aUyuM+AvLKSOxEtDmUZdqdGXt9n4ajfDPxQi
+	VnMnWKzCTMznjueEA1O7a2au1WY97J+HnUtCrrFTaLPoZEdE4MYI4QvUONLtfeFU+iu/c0F7hNO7u
+	y53799CQ==;
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trgAj-00000001vpM-1bQj
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 16:42:23 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 917D62038F31;
-	Mon, 10 Mar 2025 09:42:15 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 917D62038F31
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741624935;
-	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=adolExQzIdiGiIImUNH8PIT6jUYPIx/W+TATHEWLnINgGBwZ6f1UJ6VLPct8eOZG1
-	 QWxNjZnyTJVqsNRH80CF3UdDcU3vx6TIUod2y01uAqFHvYQ2H224pVoGrzHDj5UdK0
-	 NOQoc/qdsXI7/FognyHzoybGrl/nnp4HVU46HlNk=
-Message-ID: <2342dda1-2976-4506-ab68-640739a1bd5b@linux.microsoft.com>
-Date: Mon, 10 Mar 2025 09:42:15 -0700
+	Mon, 10 Mar 2025 16:40:11 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 9462B44420;
+	Mon, 10 Mar 2025 16:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741624806;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=g0FHvk7naxccnXtThg65SMBGYmS/oNOjelthUAROF7I=;
+	b=cZAJdWPeX2l6AmnRUrcI6g36eTjGObKFBUGlz+W2ZGYkamFITqLe5V6R19BKXwlt6JpWJz
+	y2GNpuI4qwbGQiuHZLSRebaj5L0gwBYZcoh2xqYJNbcxpAeKDKpooqsr2hOgQdryx22jr9
+	b6soNUnbxVc2kDUkFz3qAAxNlkul5kSXNiLIMb4i0ojz2vzkQ2CesoX5fE/znTJV6zijFx
+	cVeEj5fRonO4GyD1Ak5gtCYrKKctkDK7s5+74mVn0ceOLlBQmIR+TeIRPcQRHblG8KBhgu
+	pXi1s35+U3ev9P25WDy2geiEW+GpVkdCSbZsPuwnVE1sYPrQSSxOJoTT8OVliw==
+From: Antonin Godard <antonin.godard@bootlin.com>
+Subject: [PATCH v4 0/3] Add Variscite i.MX6UL SoM and Concerto board
+ support
+Date: Mon, 10 Mar 2025 17:39:47 +0100
+Message-Id: <20250310-varsom6ul-concerto-dts-v4-0-6034fda6ec64@bootlin.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v5 06/11] arm64, x86: hyperv: Report the VTL
- the system boots in
-To: Wei Liu <wei.liu@kernel.org>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
- catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
- decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
- joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
- lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
- mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
- oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
- ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
- tglx@linutronix.de, will@kernel.org, yuzenghui@huawei.com,
- devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
- apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-7-romank@linux.microsoft.com>
- <Z84yyAqkqJ2ZyAd-@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <Z84yyAqkqJ2ZyAd-@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANMVz2cC/3XQQQ7CIBAF0KsY1mJgKCiuvIdxQemoJFoUkGhM7
+ y6tGjWmyz/JvMmfO4kYHEaynNxJwOyi820J1XRC7N60O6SuKZkAA8k4MJpNiP6oLgdqfWsxJE+
+ bFKlhixrBKOC6JmX5FHDrrgO83pS8dzH5cBvuZN5P3yQfIzOnjGItKm3slhmrVrX36eDamfVH0
+ qMZvqH5KAQFqhpjQYNUeqH/IfGBBB8tmUWBpOSo2JwLCeIX6p69A54v5Y/pVb7rHp3J0CllAQA
+ A
+X-Change-ID: 20250120-varsom6ul-concerto-dts-a08be2a6219b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Antonin Godard <antonin.godard@bootlin.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2339;
+ i=antonin.godard@bootlin.com; h=from:subject:message-id;
+ bh=XPW/PNHU2C/8e9ggxKB1To3j4bIZAqkuOL8WACIX//o=;
+ b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnzxXlA4CwvIV3hDMNMGAj0KX5KcGsHpcacPtqQ
+ cVQ4ig44iKJAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ88V5QAKCRDRgEFAKaOo
+ Nk05D/wN7QtblCSzXP24wqWsH+praenTTdVTidGDLesjDjGPOC11EKF1hUp6HpdZCgIl8p+QEm0
+ 29EPDiD8b31hRZs+fL9eDN0LdhOtbtD5Oj1OqaHq50unamFep+0VuHenwnUcm9cHyYdB7uAbyZz
+ XuDCeM1itX303K/hmPh6gQ1fJdfTJkYNsuyd9dbPiQwEqL7jiFFwbmgRClIXY5YUAybnsf89V09
+ cGjH5b2UMk2OkGsDG4sSoShJ4i7XHRe2OwSG2Ti6uyGx7iB5RyC64F1Zr96oIf6ZxH7Fh73N6/p
+ M+FQ8+ePUD7sr2sJWFBQuBURjRwn6yyZwduOMiIerbd2R1Uf15ZQ6fPfttHeaMxZodTCbVK1yFo
+ 18XYMZYP1H1nL6uibTVaKbGoYN1zPVbpy9QH1BjGF9g/vWvGmR/PfBXb/AF97kgtJEpuT3lCGHV
+ 55JO+kOqsrMyKx6SeXP/Hypx1bZQjpXwD4zMhkZvk7yNpSbZe10dg7UARm0TslPOIJ5B0yapC8A
+ HOvTEYjKXTRjWI/CrUobOmoGWGUANxKmrD/kT/V963ZTBDxB5rTlB4T/+9Xt3wi8NEaD8mCRGik
+ XP+JmQlU18Xob0mSUvTv7ifOIYYMD++f3rxQ9HyndqGi8yOS3V5tltX9HcQqOx0BSZtVN2Ba9WO
+ B72aPWUTGX5YkNg==
+X-Developer-Key: i=antonin.godard@bootlin.com; a=openpgp;
+ fpr=8648725188DD401BB9A0D3FFD180414029A3A836
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelkeeiucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedtudeuhfelveehueevudefgedvtdfffeevleefuedtjeeuteelgeelvefftdejteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehledphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedugedprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdrohhrghdpr
+ hgtphhtthhopehfvghsthgvvhgrmhesghhmrghilhdrtghomhdprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdprhgtphhtthhopegtohhnohhrrdguohholhgvhiesmhhitghrohgthhhiphdrtghomh
+X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_164221_651127_D423D330 
-X-CRM114-Status: GOOD (  18.39  )
+X-CRM114-CacheID: sfid-20250310_164009_697605_CF6C19C6 
+X-CRM114-Status: GOOD (  10.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,82 +119,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Add support for the i.MX6UL Variscite SoM (VAR-SOM-6UL) and the
+Variscite Concerto Carrier Board.
 
+I tested this with a VAR-SOM-6UL_G2_700C_512R_8N_IT_REV1.3A (one variant
+of this SoM), meaning I couldn't test all of the possible options of the
+SoM - so this device tree includes partial support for it.
 
-On 3/9/2025 5:31 PM, Wei Liu wrote:
-> On Fri, Mar 07, 2025 at 02:02:58PM -0800, Roman Kisel wrote:
->> The hyperv guest code might run in various Virtual Trust Levels.
->>
->> Report the level when the kernel boots in the non-default (0)
->> one.
->>
->> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
->> ---
->>   arch/arm64/hyperv/mshyperv.c | 2 ++
->>   arch/x86/hyperv/hv_vtl.c     | 2 +-
->>   2 files changed, 3 insertions(+), 1 deletion(-)
->>
->> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
->> index a7db03f5413d..3bc16dbee758 100644
->> --- a/arch/arm64/hyperv/mshyperv.c
->> +++ b/arch/arm64/hyperv/mshyperv.c
->> @@ -108,6 +108,8 @@ static int __init hyperv_init(void)
->>   	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
->>   		hv_get_partition_id();
->>   	ms_hyperv.vtl = get_vtl();
->> +	if (ms_hyperv.vtl > 0) /* non default VTL */
-> 
-> "non-default".
-> 
+These are based on the 5.15 Variscite kernel fork but adapted for
+mainline.
 
-Thanks, will fix that!
+Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
+---
+Changes in v4:
+- Add missing trailer on first patch ("Acked-by: Conor Dooley
+  <conor.dooley@microchip.com>").
+- Link to v3: https://lore.kernel.org/r/20250310-varsom6ul-concerto-dts-v3-0-551e60713523@bootlin.com
 
->> +		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
->>   
->>   	ms_hyperv_late_init();
->>   
->> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
->> index 4e1b1e3b5658..c21bee7e8ff3 100644
->> --- a/arch/x86/hyperv/hv_vtl.c
->> +++ b/arch/x86/hyperv/hv_vtl.c
->> @@ -24,7 +24,7 @@ static bool __init hv_vtl_msi_ext_dest_id(void)
->>   
->>   void __init hv_vtl_init_platform(void)
->>   {
->> -	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
->> +	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
-> 
-> Where isn't there a check for ms_hyperv.vtl > 0 here?
-> 
+Changes in v3:
+- Reviews from Shawn:
+  - Fix alphabetical order of nodes and pinctrl entries.
+  - Fix rmii-ref-clk label (remove "-grp" added by mistake).
+  - Fix order of properties for eth nodes.
+  - Convert deprecated fec properties to eth properties.
+- Link to v2: https://lore.kernel.org/r/20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com
 
-On x86, there is
+Changes in v2:
+- Reviews from Krzysztof:
+  - Use imperative mood in commit descriptions.
+  - Remove backlight node as I am unable to test it.
+  - Rename gpled2 node to led-0, and set function, color and label for
+    it.
+  - Remove unnecessary comment "DS1337 RTC module".
+- Rename binding "variscite,mx6concerto" to "variscite,mx6ulconcerto"
+  since this is for the VAR-SOM-6UL mounted on the Concerto.
+- Remove pinctrl_ft5x06_ts_gpio iomuxc node, unused.
+- Link to v1: https://lore.kernel.org/r/20250121-varsom6ul-concerto-dts-v1-0-eb349acf0ac6@bootlin.com
 
-#ifdef CONFIG_HYPERV_VTL_MODE
-void __init hv_vtl_init_platform(void);
-int __init hv_vtl_early_init(void);
-#else
-static inline void __init hv_vtl_init_platform(void) {}
-static inline int __init hv_vtl_early_init(void) { return 0; }
-#endif
+---
+Antonin Godard (3):
+      dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and Concerto board
+      ARM: dts: imx6ul: Add Variscite VAR-SOM-MX6UL SoM support
+      ARM: dts: imx6ul: Add Variscite Concerto board support
 
-> Please be consistent across different architectures.
-> 
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   6 +
+ arch/arm/boot/dts/nxp/imx/Makefile                 |   1 +
+ .../boot/dts/nxp/imx/imx6ul-var-som-concerto.dts   | 320 +++++++++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi      | 233 +++++++++++++++
+ 4 files changed, 560 insertions(+)
+---
+base-commit: 66683f3b2661643f694607283ee8f01b7a934c83
+change-id: 20250120-varsom6ul-concerto-dts-a08be2a6219b
 
-In the earlier versions of the patch series, I had that piece
-from the above mirrored in the arm64, and there was advice on
-removing the function as it contained just one statement.
-I'll revisit the approach, thanks for your help!
-
->>   
->>   	x86_platform.realmode_reserve = x86_init_noop;
->>   	x86_platform.realmode_init = x86_init_noop;
->> -- 
->> 2.43.0
->>
->>
-
+Best regards,
 -- 
-Thank you,
-Roman
+Antonin Godard <antonin.godard@bootlin.com>
 
 
