@@ -4,58 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92F01C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C63C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:38:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q3m/HJ6Vecz1p3Ok2PpVoeyJx4Kr3fYGQdvSJdMfRxk=; b=VakECfoKILSQd2vaScBIjTtxf4
-	f69eDtiw/I/0i/8zyntJM55FtJOn387cH2V8COnTDhKM/XNn0jTGv9K1aAcZPjAoMIfux3wXg/j6J
-	XYWbBeQoahNnDVbtSKtPyIVsBzP67OvKVNwLP7Z6KqLF4sJbcIGEqY2fA+ipeFYSGX9eFaEd0U9o+
-	2aoCMTKY3g/7mcnc1K79CGObTw1vXnfoWqHHNUHS5hxHwG82zV88ctaVeV6hyhDC+Wyyy2VZapxhd
-	8xr4yImtMVqzRUr2pzxmabY+FtLpHVWi/36KvKp/wDfMWI9fE0N4bfBONnZdoHdkCfyGkPH4FXBCC
-	y7F7CjCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iZEKwdOofjp6NDR+2hlCzSLPGInK74STCfZGhKf2O+k=; b=RgmyvUGBd36n6LBRbwta8ZG6ek
+	GVtmDFWaSCc7VuBL/5zCOytrl3isbRNe1C7s++V5BVhiOHwltkaqLY4XsTKwoshnYYea/2r/Ki9PR
+	pg271ETcY7OwSxbxMeC7DbjZWEEOI/0/Q1uNOs+VVqraHLWneHQdVq1sH91RDpBx9BwxyL0zFXIE7
+	/hNyUE/lAkua3q7AwDhAM5ifPjh/PJBHmzMIg2GJpxkhTvMhDiQqPrBoM11lPLCX/VEqY7YntCTH1
+	mfs1r7UQkvn8x4Vw9r64fz5CKMb4lvCNZP0H6U3jNIMOOGPoZkEildte4zLOWukeeZdiPbi99v1D2
+	psKb32Xw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgzU-00000003VRc-19Zx;
-	Mon, 10 Mar 2025 17:32:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1trh5C-00000003W35-0o0T;
+	Mon, 10 Mar 2025 17:38:30 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgxN-00000003VBP-1822
+	id 1trh39-00000003Vsp-3N20
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:30:26 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1AA9D1424;
-	Mon, 10 Mar 2025 10:30:36 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 7651F3F5A1;
-	Mon, 10 Mar 2025 10:30:23 -0700 (PDT)
-Date: Mon, 10 Mar 2025 17:30:21 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>,
-	Anshuman Khandual <anshuman.khandual@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH V2] arm64/mm: Create level specific section mappings in
- map_range()
-Message-ID: <Z88hrbNFM_7hIx_Z@J2N7QTR9R3.cambridge.arm.com>
-References: <20250310062812.216031-1-anshuman.khandual@arm.com>
- <Z87FFqV03Pd0-NXl@J2N7QTR9R3.cambridge.arm.com>
- <b1fb982a-4936-4c18-aaad-3e8e8f61bccc@arm.com>
- <Z876UI5-xGRHl4td@J2N7QTR9R3.cambridge.arm.com>
- <CAMj1kXEZ86C8bouLt+xNkNr+L9AvCSQ2SZeJpLMtyvGo-8h6gw@mail.gmail.com>
+	Mon, 10 Mar 2025 17:36:24 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1DFE72038F33;
+	Mon, 10 Mar 2025 10:36:22 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1DFE72038F33
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741628182;
+	bh=iZEKwdOofjp6NDR+2hlCzSLPGInK74STCfZGhKf2O+k=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=eN2UJ3y3nG1bAmMoF3LcnG5o5qMeihqJMUFoq8f8VQkTQKjrwMphlZxBpakvB6lYA
+	 cSNptejg8D34S3125VES0nI3+8se2yDSJeQJmJrUFy33o/Z7zwGERJrRVw8E/zoDSv
+	 1g3S3ylZGCNVS7jCVQd173bGvBEvgxrxkXMhTQwI=
+Message-ID: <b3d1609e-4f64-4a88-b453-cb79936cb469@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 10:36:21 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMj1kXEZ86C8bouLt+xNkNr+L9AvCSQ2SZeJpLMtyvGo-8h6gw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 08/11] Drivers: hv: vmbus: Get the IRQ
+ number from DeviceTree
+To: Arnd Bergmann <arnd@arndb.de>, bhelgaas@google.com,
+ Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
+ Conor Dooley <conor+dt@kernel.org>, Dave Hansen
+ <dave.hansen@linux.intel.com>, Dexuan Cui <decui@microsoft.com>,
+ Haiyang Zhang <haiyangz@microsoft.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Joey Gouly <joey.gouly@arm.com>, krzk+dt@kernel.org,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ ssengar@linux.microsoft.com, Sudeep Holla <sudeep.holla@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-9-romank@linux.microsoft.com>
+ <29bb5b7a-b31f-4b32-92c6-e2588a0f965a@app.fastmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <29bb5b7a-b31f-4b32-92c6-e2588a0f965a@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_103025_355632_A6509CD8 
-X-CRM114-Status: GOOD (  26.94  )
+X-CRM114-CacheID: sfid-20250310_103623_868565_FA4383E8 
+X-CRM114-Status: GOOD (  12.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,58 +92,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 03:53:33PM +0100, Ard Biesheuvel wrote:
-> On Mon, 10 Mar 2025 at 15:42, Mark Rutland <mark.rutland@arm.com> wrote:
-> >
-> > On Mon, Mar 10, 2025 at 01:48:53PM +0000, Ryan Roberts wrote:
-> > > On 10/03/2025 10:55, Mark Rutland wrote:
-> > IIUC the problem is that for a sufficiently large (and aligned) extent
-> > of physical memory, we might try to create a block mapping larger than
-> > the HW supports?
-> 
-> Yes. However, this code is only called to map the kernel, the DTB and
-> the ID map code and data pages, and so it seems unlikely that we'll
-> hit this bug in practice.
-> 
-> Nonetheless, it is a shortcoming that we should address to avoid
-> future surprises.
-> 
-> > With that in mind, my earlier comment about LPA2 and blocks at level-0
-> > is particularly relevant...
-> 
-> Indeed - at the higher levels, there is quite some variation between
-> page sizes, LPA2 vs !LPA2 etc in which level is the highest at which
-> block mappings are supported.
-> 
-> But given the context where this code is used, I'd prefer to simply
-> map everything down to level 2 or higher (for 64-bit descriptors)
-> rather than add elaborate rules for all these combinations that are
-> never exercised in practice. The net result should be identical.
 
-That sounds much better to me!
 
-> > Though TBH, maybe it makes more sense to split this up into separate
-> > levels (as with the code in arch/arm64/mm/mmu.c) and handle each level
-> > explicitly with a separate function. That way each level's check can be
-> > handled within that level's function, and we can use the right types,
-> > etc. It feels like that might be better for D128 in future?
+On 3/8/2025 1:11 PM, Arnd Bergmann wrote:
+> On Fri, Mar 7, 2025, at 23:03, Roman Kisel wrote:
+>>
+>> +static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
 > 
-> I have a slight inclination towards having a separate routine for
-> D128, but I can easily be persuaded otherwise.
+> Instead of the __maybe_unused annotation here
+> 
+>>
+>> +#ifndef HYPERVISOR_CALLBACK_VECTOR
+>> +	ret = vmbus_set_irq(pdev);
+>> +	if (ret)
+>> +		return ret;
+>> +#endif
+>> +
+> 
+> you can use
+> 
+>         if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
+>                    ret = vmbus_set_irq(pdev);
+> 
+> and make it a little more readable.
+> 
 
-FWIW, I don't have strong feelings either way w.r.t. sharing the code
-with D128. If it's cleaner for that to be separate, sure, but I'd have
-to see the code.
+Thanks you very much, will update! Very neat :)
 
-My concern here was the the current recursive nature of the PI
-map_range() function makes it hard to have level-specific behaviour, and
-means that it's structurally different to most other code in the kernel,
-e.g. the alloc_init_pXX() functions in arch/arm64/mm/mmu.c, where we
-have separate functions for each of the levels that handle the
-level-specific details.
+>      Arnd
 
-I think that structure of separate functions per level is clearer, even
-if it's a bit more code.
+-- 
+Thank you,
+Roman
 
-Mark.
 
