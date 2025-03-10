@@ -4,79 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5119C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9044C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:32:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dFcHAHlg0AjUproA19pwBB99GTkTuaoZxbvNqhe0Z4k=; b=m9Kro4x6ln2PHl9OwbOAqwKhm1
-	QnIrEXEob6TedoSl3n0LigBmTvR6QKuwsXcVH9lL+xGCUNpQrLCzgWqkutfhe3jZV4FveEFC0jUuz
-	AMSuIb0Kyelcv8jDb/vWVLRB/yKiPoAkaWdZx4fDQt+j478bulXnzsJlPY5lElxvMac5Et8xjfh+b
-	efMLbigNlF3XD2H8MiDj9eHpu87VpWJs8pOb4VMgZXoj9YD6SXkxXyDJpb3NEWzxPViKzbI/DzbHB
-	RtQ5HCXHBy0xzKH7lbrt6pozsNnTMVvwGhhRXybfsFRIhUip38+fxKljHBqKTUT5CEvkkVh6OldWD
-	zm+AwYHw==;
+	bh=Zrr8qOY5AroKW6DfKo2xALklKHaHMS61VgN2ae8lGd4=; b=pWs72H/25ivJ+t6tT7JB2Nxf15
+	bew634Ncd3wvJbHUHKgEHWiwwS3q8p3KM/jsZqOd9QnXdB7I/PysmJMMMuZccPCicJg4RyO5ZJ0sE
+	lJ1C07+wXnX6XD3CVZaaPMy+D55L5+3uvSm59kqXLUTauz8v/xIk5RQDpFmWrWDjH4bA9vKnxq0tG
+	5yGuOzwcbDUSqBaUYpuYyEBCHKcf9VlfH4wXA5M4sZrOF4UEV/g/As1UQXuv8hjz5rpWnD3/X+CxN
+	80lqGLsc82P5ll2WpcwVodmyf/wWHnp+m6L8DoHmb/bzXdHkMad0QPxSC2VXNXzGY1seLU0rA8BJw
+	cg7NIQlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trimF-00000003jS2-0rub;
-	Mon, 10 Mar 2025 19:27:03 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1trirn-00000003jvV-3EdQ;
+	Mon, 10 Mar 2025 19:32:47 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trikb-00000003jLL-2rKZ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 19:25:23 +0000
+	id 1triqB-00000003jsZ-1zcL;
+	Mon, 10 Mar 2025 19:31:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Zrr8qOY5AroKW6DfKo2xALklKHaHMS61VgN2ae8lGd4=; b=nnLiHwqCXra8vWkf1q0iD36j+w
+	QvHsbDdQkti3DSY2ixnanNFPEnh4op1ZNJY6+5T3keKngFHZnS3t1eQKJZ0x2+PaQPcxoGS9ZRr+J
+	M8cVM9ZV3lUopUaBgAkm5i9ZDivmodd2L8HYHhbbEBAO9abD+Vn6vTx5mCuNciDeMhb2/cZJWnMF5
+	oC3YY25HhUw4PpdcjKnlQRJRET6XXsmHMEsQj+m/HaB8chIwfhEYQDKBzA89nSLNGyea26CqtHwzq
+	Roz65irHg79fScBKGJ4GZcH6zJRdQlP9VRhIg6FT7qwuR5k+N6kW0SWAtKTJ7UWIk46RV5eRk+xbe
+	BI7PxROQ==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1triq7-0000000220p-2lVc;
+	Mon, 10 Mar 2025 19:31:06 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6862D5C5C6A;
-	Mon, 10 Mar 2025 19:23:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9842BC4CEE5;
-	Mon, 10 Mar 2025 19:25:09 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5127DA43335;
+	Mon, 10 Mar 2025 19:25:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22595C4CEEC;
+	Mon, 10 Mar 2025 19:30:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741634718;
-	bh=HiJOVJUbPj9Y5EXs3EtkfouEzE6hMa/6Du8rJbM/8EI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=TI1r+x0FIda8jW33SCD3Gv5Oz3Fcych+C9ZVqYndpSHwUYvX+I/aAlBs9Owiifmmx
-	 /Iu63dqXpopc8YBmK80269Dcs104vl1hmZnDLqLwFPyAT+Pj8e5ehGrIowBBd1vjN/
-	 SIKvbM/nqcvQSOfWE9ST4IKanpPHDFxX04whzNpCFzYwzEHSsakIbsLURs5bEeOCzC
-	 hqaF0mW6r1COEkHffTA1PKjcWH5qcytkZMeXqh8M5lVAy7JZ/xMXucG87Md231yowD
-	 cyJydDRql0PGCKRZ7wSsNyxGL+sJl+Hyq8apZ3+e7qNkXEZNux636deiwmQhu4caRP
-	 yHp++Me/nGUWg==
-Date: Mon, 10 Mar 2025 19:25:03 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: David Lechner <dlechner@baylibre.com>, Matti Vaittinen
- <matti.vaittinen@fi.rohmeurope.com>, Lars-Peter Clausen <lars@metafoo.de>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Chen-Yu Tsai <wens@csie.org>,
- Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland
- <samuel@sholland.org>, Hugo Villeneuve <hvilleneuve@dimonoff.com>, Nuno Sa
- <nuno.sa@analog.com>, Javier Carrasco <javier.carrasco.cruz@gmail.com>,
- Guillaume Stols <gstols@baylibre.com>, Dumitru Ceclan
- <mitrutzceclan@gmail.com>, Trevor Gamblin <tgamblin@baylibre.com>, Matteo
- Martelli <matteomartelli3@gmail.com>, Alisa-Dariana Roman
- <alisadariana@gmail.com>, Ramona Alexandra Nechita
- <ramona.nechita@analog.com>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, linux-iio@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-acpi@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v5 03/10] iio: adc: add helpers for parsing ADC nodes
-Message-ID: <20250310192503.71671275@jic23-huawei>
-In-Reply-To: <4d5212b3-3801-408c-9a5d-c6111189793c@gmail.com>
-References: <cover.1740993491.git.mazziesaccount@gmail.com>
-	<e71c63c2f61135f9a8c7884525aab2c48f1e84c2.1740993491.git.mazziesaccount@gmail.com>
-	<CAMknhBGQaqFZJsPAoauZL4S5MYtN05EOQ-BO2vw5gH+Z2RLOhw@mail.gmail.com>
-	<54a031d0-df47-4baa-a23a-1a79c0922542@gmail.com>
-	<20250308162928.72bd1d1b@jic23-huawei>
-	<4d5212b3-3801-408c-9a5d-c6111189793c@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1741635059;
+	bh=v4yFecT2Oniyy1NPYOTfbARYRqI9e57Xhic4hOu+GeQ=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=YEsJI4SW1f/4rNuYiyHSu6/QnSExJ4x+d6iQjI9VDYrZoNADxke2mnXUwP9afkihL
+	 hTuuH7V0VvVUg5uJFbcLaV3P7z7RXNhKKuijQf+ljuhhIZy4j+4VTXINMoR1mxU6mu
+	 9oYCm4t8FMpXLRBV22kEbpTDdhoxwjLbeq0rMzzReSuaVBXcAgYjIAZq3BHxisBfVj
+	 GLFn9UmZ/rHmt/8ArwgEiV5JpYwhB5ksIkuxE1S5ZZfX7MMhJRKQW4RKzxHjSn4O1U
+	 ToiRFxu1+MR8QXk+J8FtqIwrbQ6ID67F5bBBCPBS5GARlRPIQNUENI/DTESUA/ZxXY
+	 2OvQqUx3x58Hw==
+Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-ac2ae81dd81so176459066b.0;
+        Mon, 10 Mar 2025 12:30:59 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCUYkuLdK8wR37zH0XHsguwCaJQdiRGkpg6ehE5b3JCCUXVZ3w1+/Ctj5XPI/eI2NKFxe1HQcNKsaau3doJPmfA=@lists.infradead.org, AJvYcCV5wEq4kXq81U06ZgdJc9hOXUH3w5DxOQPAiwO6z6ixhPsGsBFBUBGESq01m88s5b7uP6w88IPwYoEMQy6aWrmB@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFHR6xzsKxQ4qXH1gzGrwAREcxTjeyT4k0jKQkhjzqDuyUP8dG
+	/WSBhKCRG7SMPJWhCKA6l1qvDiBKrcSDt7s+mlqytENDjLD9LDjoj4EiPJGtNe8sy50sUZ+1cLp
+	XNRMvVfZdBLiThRnRezEB6uZ3tg==
+X-Google-Smtp-Source: AGHT+IGxBKdAQOOWVnO3ZEjAzX0VnUi4wg5gUyfxa5EYDnUv2ipBTTlxmPR9u72RbqgdJn4WQkU1sK0SjNez+497cro=
+X-Received: by 2002:a17:906:7308:b0:ac2:6582:1564 with SMTP id
+ a640c23a62f3a-ac2b9e1d1d1mr100096466b.27.1741635057630; Mon, 10 Mar 2025
+ 12:30:57 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+References: <20250307093309.44950-1-krzysztof.kozlowski@linaro.org>
+ <5417098.31r3eYUQgx@workhorse> <20250310124956.GA3875809-robh@kernel.org>
+In-Reply-To: <20250310124956.GA3875809-robh@kernel.org>
+From: Rob Herring <robh@kernel.org>
+Date: Mon, 10 Mar 2025 14:30:45 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqJShHSMzMwiYA79OppJYKKR8qN=1soXPV_hCZiXGyVkSg@mail.gmail.com>
+X-Gm-Features: AQ5f1JosXmbTct3QI9ZnK1eBDcQPU7QRj7_3mqIgKtvsQToiQl1meMSpHXHswhc
+Message-ID: <CAL_JsqJShHSMzMwiYA79OppJYKKR8qN=1soXPV_hCZiXGyVkSg@mail.gmail.com>
+Subject: Re: [PATCH v2] dt-bindings: rng: rockchip,rk3588-rng: Drop
+ unnecessary status from example
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Daniel Golle <daniel@makrotopia.org>, Aurelien Jarno <aurelien@aurel32.net>, 
+	Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_122521_838606_D467A282 
-X-CRM114-Status: GOOD (  52.76  )
+X-CRM114-CacheID: sfid-20250310_193103_966739_A1C0A441 
+X-CRM114-Status: GOOD (  28.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,200 +103,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 09:41:00 +0200
-Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+On Mon, Mar 10, 2025 at 7:49=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
+:
+>
+> On Fri, Mar 07, 2025 at 03:05:50PM +0100, Nicolas Frattaroli wrote:
+> > On Friday, 7 March 2025 10:33:09 Central European Standard Time Krzyszt=
+of
+> > Kozlowski wrote:
+> > > Device nodes are enabled by default, so no need for 'status =3D "okay=
+"' in
+> > > the DTS example.
+> > >
+> > > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
+> > > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> > >
+> > > ---
+> > >
+> > > Changes in v2:
+> > > 1. Drop unnecessary full stop in subject prefix after ':'.
+> > > 2. Add Rb tag.
+> > > ---
+> > >  Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml | 1 -
+> > >  1 file changed, 1 deletion(-)
+> > >
+> > > diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rn=
+g.yaml
+> > > b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml inde=
+x
+> > > 757967212f55..ca71b400bcae 100644
+> > > --- a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> > > +++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
+> > > @@ -53,7 +53,6 @@ examples:
+> > >          interrupts =3D <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
+> > >          clocks =3D <&scmi_clk SCMI_HCLK_SECURE_NS>;
+> > >          resets =3D <&scmi_reset SCMI_SRST_H_TRNG_NS>;
+> > > -        status =3D "okay";
+> > >        };
+> > >      };
+> >
+> > Hi,
+> >
+> > is there the possibility we could make dtschema as invoked by `make
+> > dt_binding_check W=3D1` (or W=3D2) add a warning for examples that have=
+ disabled
+> > or explicitly listed status properties when not needed? Or is this some=
+thing
+> > better handled in, say, checkpatch.pl?
+> >
+> > The question arises because dumb mistakes by me like this should ideall=
+y be
+> > caught before they waste precious maintainer time.
+> >
+> > If it's best handled in dtschema, I can look into working on that so yo=
+u guys
+> > don't have to do even more work due to me.
+>
+> Trust me, I'm always looking for things to check automatically. :)
+>
+> I have something like that which adds a schema for examples only. I
+> think there were some corner cases. I'll take a fresh look at it.
 
-> On 08/03/2025 18:29, Jonathan Cameron wrote:
-> > On Wed, 5 Mar 2025 12:54:33 +0200
-> > Matti Vaittinen <mazziesaccount@gmail.com> wrote:
-> >  =20
-> >> Thanks for the review David.
-> >>
-> >> On 04/03/2025 11:25, David Lechner wrote: =20
-> >>> On Mon, Mar 3, 2025 at 12:32=E2=80=AFPM Matti Vaittinen
-> >>> <mazziesaccount@gmail.com> wrote: =20
-> >>>>
-> >>>> There are ADC ICs which may have some of the AIN pins usable for oth=
-er
-> >>>> functions. These ICs may have some of the AIN pins wired so that they
-> >>>> should not be used for ADC.
-> >>>>
-> >>>> (Preferred?) way for marking pins which can be used as ADC inputs is=
- to
-> >>>> add corresponding channels@N nodes in the device tree as described in
-> >>>> the ADC binding yaml.
-> >>>>
-> >>>> Add couple of helper functions which can be used to retrieve the cha=
-nnel
-> >>>> information from the device node.
-> >>>>
-> >>>> Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
-> >>>>
-> >>>> --- =20
-> >> =20
-> >>>> + *
-> >>>> + * Return:     Number of found channels on succes. Negative value t=
-o indicate =20
-> >>>
-> >>> s/succes/success/ =20
-> >>
-> >> Thanks!
-> >> =20
-> >>>> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
-> >>>> +                                         const struct iio_chan_spec=
- *template,
-> >>>> +                                         int max_chan_id,
-> >>>> +                                         struct iio_chan_spec **cs)
-> >>>> +{
-> >>>> +       struct iio_chan_spec *chan_array, *chan;
-> >>>> +       int num_chan =3D 0, ret;
-> >>>> +
-> >>>> +       num_chan =3D iio_adc_device_num_channels(dev);
-> >>>> +       if (num_chan < 1)
-> >>>> +               return num_chan;
-> >>>> +
-> >>>> +       chan_array =3D devm_kcalloc(dev, num_chan, sizeof(*chan_arra=
-y),
-> >>>> +                                 GFP_KERNEL);
-> >>>> +       if (!chan_array)
-> >>>> +               return -ENOMEM;
-> >>>> +
-> >>>> +       chan =3D &chan_array[0];
-> >>>> +
-> >>>> +       device_for_each_child_node_scoped(dev, child) {
-> >>>> +               u32 ch;
-> >>>> +
-> >>>> +               if (!fwnode_name_eq(child, "channel"))
-> >>>> +                       continue;
-> >>>> +
-> >>>> +               ret =3D fwnode_property_read_u32(child, "reg", &ch);
-> >>>> +               if (ret)
-> >>>> +                       return ret;
-> >>>> +
-> >>>> +               if (max_chan_id !=3D -1 && ch > max_chan_id)
-> >>>> +                       return -ERANGE;
-> >>>> + =20
-> >>>
-> >>> Should we use return dev_err_probe() on these to help with debugging =
-a bad dtb?
-> >>>     =20
-> >>
-> >> I am not fan of using dev_err_probe() in a 'library code'. This is
-> >> because we never know if there'll be some odd use-case where this is n=
-ot
-> >> called from the probe.
-> >>
-> >> All in all, I'd leave adding most of the debugs to the callers -
-> >> especially because we do not expect to have bad device-trees after the
-> >> initial 'development stage' of a board. The board 'development stage'
-> >> should really reveal bugs which prevent the channels from being
-> >> registered - and after the DT is correct, these debug prints become
-> >> unnecessary (albeit minor) binary bloat.
-> >> =20
-> >>>> +               *chan =3D *template;
-> >>>> +               chan->channel =3D ch;
-> >>>> +               chan++;
-> >>>> +       }
-> >>>> +
-> >>>> +       *cs =3D chan_array;
-> >>>> +
-> >>>> +       return num_chan;
-> >>>> +}
-> >>>> +EXPORT_SYMBOL_NS_GPL(devm_iio_adc_device_alloc_chaninfo_se, "IIO_DR=
-IVER"); =20
-> >>>
-> >>> We can make this less verbose by setting #define
-> >>> DEFAULT_SYMBOL_NAMESPACE at the start of the file. Then we can just do
-> >>> EXPORT_SYMBOL_GPL() throughout the rest of the file. =20
-> >>
-> >> I am not sure what to think of this. I use the good old 'ctrl + ]' in =
-my
-> >> editor when I need to check how a function was supposed to be used. Th=
-at
-> >> jumps to the spot of code where the function is. I'd like to see the
-> >> namespace mentioned there in order to not accidentally miss the fact t=
-he
-> >> function belongs to one.
-> >>
-> >> OTOH, I do like simplifications. Yet, the added simplification might n=
-ot
-> >> warrant the namespace not being visible in the function definition.
-> >> =20
-> >>> Also, I would prefer if the namespace matched config name (IIO_ADC_HE=
-LPER). =20
-> >>
-> >> I had some lengthy discussion about this with Andy and Jonathan during
-> >> earlier review versions. In short, I don't like the idea of very
-> >> fragmented namespaces in IIO, which will just complicate the drivers
-> >> without providing any obvious benefit.
-> >>
-> >> https://lore.kernel.org/all/20250222174842.57c091c5@jic23-huawei/
-> >> =20
-> >>>> +
-> >>>> +int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
-> >>>> +                                         const struct iio_chan_spec=
- *template,
-> >>>> +                                         int max_chan_id,
-> >>>> +                                         struct iio_chan_spec **cs);
-> >>>> + =20
-> >>>
-> >>> There are some different opinions on this, but on the last patch I did
-> >>> introducing a new namespace, the consensus seems to be that putting
-> >>> the MODULE_IMPORT_NS() in the header file was convenient so that users
-> >>> of the API don't have to remember to both include the header and add
-> >>> the import macro.
-> >>>     =20
-> >>
-> >> I do like this suggestion, and I believe this would be the balance
-> >> between getting the benefit of hiding part of the symbols - while not
-> >> unnecessarily complicating the callers. I know some people are opposing
-> >> it though. My personal opinion is that having the MODULE_IMPORT_NS() in
-> >> a header would be neatly simplifying the calling code with very little
-> >> harm, especially here where including the header hardly has use-cases
-> >> outside the IIO ADC.
-> >>
-> >> Unfortunately, the "safety" seems to often be a synonym for just "maki=
-ng
-> >> it intentionally hard". As Finnish people say: "K=C3=A4rsi, k=C3=A4rsi,
-> >> kirkkaamman kruunun saat". :)
-> >> (Roughly translated as "Suffer, suffer, you will get a brighter crown"=
-).
-> >>
-> >> Let's hear what Jonathan thinks of your suggestion. =20
-> >=20
-> > For this particular case my intent was that all the IIO exports that
-> > are suitable for use in simple IIO drives will be in this namespace,
-> > we just haven't started that conversion yet.
-> >=20
-> > As such, having it defined from a header for this helper isn't a good
-> > thing to do. =20
->=20
-> Hmm. I agree.
->=20
-> >  Generally I prefer to see in driver code what namespaces
-> > are involved but do understand the other viewpoint. In this case I
-> > definitely don't think it is appropriate unless we go for a specific na=
-mespace
-> > for just this helper. =20
->=20
-> I suppose having the MODULE_IMPORT_NS() in the header would actually=20
-> make the more fine-grained namespaces (like IIO_ADC_HELPERS, IIO_GTS,=20
-> ...) much more usable. That'd relieved the drivers from explicitly=20
-> listing multiple namespaces while nicely limiting the visibility.
->=20
-> If IIO was my territory, I might want to ask people to go with that=20
-> approach - but I am quite happy being a freeloade.. errm, I mean,=20
-> bystander ;)
->=20
-It relieves the burden but I'd still prefer explicit opt in to namespaces
-unless there is general agreement on the approach of doing it in headers
-which there has not been so far.
+I got my check working again. i2c/i2c-demux-pinctrl.yaml is the
+problematic one. Not sure what to do there.
 
-Jonathan
-
-> Thanks!
->=20
-> Yours,
-> 	-- Matti
-
+Rob
 
