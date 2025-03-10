@@ -4,60 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7CEE2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:42:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8505C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0Yp0l85bXQW+hiHn+woGwFfqUS8VQ1BYFIR0j8PTGrc=; b=M89QfbBCbSx6qwQepfqtlQeF9i
-	YbBm0H7qRUFTksm33XTUsdiclqj7KmR+S0dqKAiaGEzq28jQBvCJwbwsNyIsHSyqpa8faSA2DGKq0
-	y1KbkVgTbWg/yvmtFhEZgSSz1SVRkYatRpw3dYR8v+cX4jVXMce2v09p4nWO552VuvDUwSwgdtf//
-	eupxUVX3X6x6U5zRqqoKsaWHFS3IQPm9BFHyN149kndtkeShr+JWHPWGKJh8x//LaGuP7OCElKOEM
-	jfVV1NiXicoMH3GWuNNZzI1Ky2OEmrj5jr3YunQnXi/DOritTk0RxmPqVF75t/1tAvXwNmd3T3veu
-	8crOBSUQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1+ofQwuGVRqhE03VmsYlGEcNUurWgNiie1yoZECtaVQ=; b=WoqBiA1tTwrFZOrg12DCGPTUwZ
+	cXkV+mUvlfU8VUr3im9oPnL/YnDw20TE7pCiWt8atpByGnG7g2V3utK0YKaasCqb/3zYpIFMXRulX
+	LVdXWryLGr0SBhU30QJUU8acAmT5k6+4LN5tMd89S2dxTU0J0HjQLIlWd2cDNHQKdKT/mmqtRrQvI
+	LMj0W4UGLKNScl3UxVCPQHK5xkJxsnxLs/GxUgvJnGz1wWO8W79wk0rH4eIy7KgTTk27IMoawnpKZ
+	EMsJg9dI6HkXer5Igq1mNlQFSc5dPQAbZuSrRk+K6vM376MZknuVBm6d/m4TApOZ7NBj8Z7NVC/48
+	dX3MoRbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tri4d-00000003eh3-29Wd;
-	Mon, 10 Mar 2025 18:41:59 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tri2z-00000003eD7-04ZB
+	id 1triCu-00000003fkj-0pnb;
+	Mon, 10 Mar 2025 18:50:32 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trh1v-00000003VoA-0Of0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 18:40:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 931835C5A56;
-	Mon, 10 Mar 2025 18:37:59 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD3FFC4CEEC;
-	Mon, 10 Mar 2025 18:40:13 +0000 (UTC)
-Date: Mon, 10 Mar 2025 18:40:11 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Mark Rutland <mark.rutland@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Peter Collingbourne <pcc@google.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
- kernel MTE is enabled
-Message-ID: <Z88yC7Oaj9DGaswc@arm.com>
-References: <20250308023314.3981455-1-pcc@google.com>
- <202503071927.1A795821A@keescook>
- <Z88jbhobIz2yWBbJ@arm.com>
- <Z88r5qFLOSo0itaq@J2N7QTR9R3.cambridge.arm.com>
+	Mon, 10 Mar 2025 17:35:08 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 64E3B2038F33;
+	Mon, 10 Mar 2025 10:35:05 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 64E3B2038F33
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741628105;
+	bh=1+ofQwuGVRqhE03VmsYlGEcNUurWgNiie1yoZECtaVQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=TKhga+c9cuJgMknPM13jAgQP1DCYNGUPpcl+c1m94c8yVqD62xkfoXvk7bLjOxBY2
+	 Jd/ln5jDO+gGUjD6Z3n3nQwi1hJPN7SvGVn7aNlAeIKOpA9Lr5y1NMvcg21OqMdsUE
+	 Sb7ps3xymomjl6NcnK+v0qVmLnYE/BpYP3OBs4GY=
+Message-ID: <e0dce529-0777-491d-aced-1e9ead31ac17@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 10:35:05 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z88r5qFLOSo0itaq@J2N7QTR9R3.cambridge.arm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 03/11] Drivers: hv: Enable VTL mode for
+ arm64
+To: Arnd Bergmann <arnd@arndb.de>, Michael Kelley <mhklinux@outlook.com>
+Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com, bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
+ Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
+ <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
+ "H. Peter Anvin" <hpa@zytor.com>, Joey Gouly <joey.gouly@arm.com>,
+ krzk+dt@kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
+ "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+ Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
+ Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
+ "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ ssengar@linux.microsoft.com, Sudeep Holla <sudeep.holla@arm.com>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
+ Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
+ devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-4-romank@linux.microsoft.com>
+ <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_114017_095083_94764515 
-X-CRM114-Status: GOOD (  28.89  )
+X-CRM114-CacheID: sfid-20250310_103507_183923_7557D745 
+X-CRM114-Status: GOOD (  15.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,51 +91,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 06:13:58PM +0000, Mark Rutland wrote:
-> On Mon, Mar 10, 2025 at 05:37:50PM +0000, Catalin Marinas wrote:
-> > On Fri, Mar 07, 2025 at 07:36:31PM -0800, Kees Cook wrote:
-> > > On Fri, Mar 07, 2025 at 06:33:13PM -0800, Peter Collingbourne wrote:
-> > > > The optimized strscpy() and dentry_string_cmp() routines will read 8
-> > > > unaligned bytes at a time via the function read_word_at_a_time(), but
-> > > > this is incompatible with MTE which will fault on a partially invalid
-> > > > read. The attributes on read_word_at_a_time() that disable KASAN are
-> > > > invisible to the CPU so they have no effect on MTE. Let's fix the
-> > > > bug for now by disabling the optimizations if the kernel is built
-> > > > with HW tag-based KASAN and consider improvements for followup changes.
-> > > 
-> > > Why is faulting on a partially invalid read a problem? It's still
-> > > invalid, so ... it should fault, yes? What am I missing?
-> > 
-> > read_word_at_a_time() is used to read 8 bytes, potentially unaligned and
-> > beyond the end of string. The has_zero() function is then used to check
-> > where the string ends. For this uses, I think we can go with
-> > load_unaligned_zeropad() which handles a potential fault and pads the
-> > rest with zeroes.
+
+
+On 3/8/2025 1:05 PM, Arnd Bergmann wrote:
+> On Fri, Mar 7, 2025, at 23:02, Roman Kisel wrote:
+>> @@ -5,18 +5,20 @@ menu "Microsoft Hyper-V guest support"
+>>   config HYPERV
+>>   	tristate "Microsoft Hyper-V client drivers"
+>>   	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
+>> -		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
+>> +		|| (ARM64 && !CPU_BIG_ENDIAN)
+>> +	depends on (ACPI || HYPERV_VTL_MODE)
+>>   	select PARAVIRT
+>>   	select X86_HV_CALLBACK_VECTOR if X86
+>> -	select OF_EARLY_FLATTREE if OF
+>>   	help
+>>   	  Select this option to run Linux as a Hyper-V client operating
+>>   	  system.
+>>
+>>   config HYPERV_VTL_MODE
+>>   	bool "Enable Linux to boot in VTL context"
+>> -	depends on X86_64 && HYPERV
+>> +	depends on (X86_64 || ARM64)
+>>   	depends on SMP
+>> +	select OF_EARLY_FLATTREE
+>> +	select OF
+>>   	default n
+>>   	help
 > 
-> If we only care about synchronous and asymmetric modes, that should be
-> possible, but that won't work in asynchronous mode. In asynchronous mode
-> the fault will accumulate into TFSR and will be detected later
-> asynchronously where it cannot be related to its source and fixed up.
+> Having the dependency below the top-level Kconfig entry feels a little
+> counterintuitive. You could flip that back as it was before by doing
 > 
-> That means that both read_word_at_a_time() and load_unaligned_zeropad()
-> are dodgy in async mode.
+>        select HYPERV_VTL_MODE if !ACPI
+>        depends on ACPI || SMP
+> 
+> in the HYPERV option, leaving the dependency on HYPERV in
+> HYPERV_VTL_MODE.
+> 
 
-load_unaligned_zeropad() has a __mte_enable_tco_async() call to set
-PSTATE.TCO if in async mode, so that's covered. read_word_at_a_time() is
-indeed busted and I've had Vincezo's patches for a couple of years
-already, they just never made it to the list.
+I was implementing Michael's suggestion, and might've gone a bit
+overboard, my bad. I'll fix this, thanks a lot for reviewing!
 
-> Can we somehow hang this off ARCH_HAS_SUBPAGE_FAULTS?
+> Is OF_EARLY_FLATTREE actually needed on x86?
+> 
 
-We could, though that was mostly for user-space faults while in-kernel
-we'd only need something similar if KASAN_HW_TAGS.
+No, it is not needed on x86. It is only needed when VTL mode is used.
 
-> ... and is there anything else that deliberately makes accesses that
-> could straddle objects?
-
-So far we only came across load_unaligned_zeropad() and
-read_word_at_a_time(). I'm not aware of anything else.
+>        Arnd
 
 -- 
-Catalin
+Thank you,
+Roman
+
 
