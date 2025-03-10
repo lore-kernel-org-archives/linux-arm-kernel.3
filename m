@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83190C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:15:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0B41C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:16:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXIFzXMCYAO2eSRlrMCF/Cu3QH6PfsdDTvAV2/f3Rww=; b=jNmMsZDbK3bH8XFydhOOgKFukA
-	NRE/Xbfjtq4KHUmwzZYV6Acf/eYRyVv4oLBOvoP6TBAjEHe26evk4U+oOq6BuMVNRrTkQjA4m+e7t
-	bAEsZqwzKG+JgSbBKQSHV9BaU5wo4S1+WUPs4AsYMzsFRU1Sa1GNZ5uZFy3LnPymuO7NGYm7OL7nJ
-	QCDxMO9VI+e/2srnsaxnXYy30jpPlZJ6ynubTr+tyl43+JynQTag1YornZWV6Hpbc+NWuGQxN32Q8
-	LK2Ym9ab3Gy5wT1bcWUtYVO8ZICABERJM5hXGtOy25a/MoJRsiEvcVTFZJphm617nSesA+KpbEwHv
-	4Bp0wdtQ==;
+	bh=424JN7wyTHLpsLtseF4a4oKJFCqR5lzpEBIjpCd+VVE=; b=4p5j3GAi5krW4Q58z4rhZROhBz
+	Km5+fTMW3cOBV2yv7wibrsvCp9TTr6LJ7BRgK3H2AH8U22zkUm+Hh9ULwIotTW0567yMMOXB6R6/S
+	XQ+GTX+OECZ8O+EuQODZfY3IMTkm7jIcYU4JcT1pfyaRN0/xoHfvh9i4ZChwycj8J10hPT6vb+OBN
+	GWU7J6jEXJe9PwasNlaCcsRydcRsoXIOgpN3qcR96lI5lUWNgMraxRDQjUUwMchgJ/AAM9uWp2MlQ
+	mEeUCtT+L4+o0RVh0gdI/hWF5gPkoNxKV64Pcs0YpWvZaqI97dbaCZo6Kyr/bN7nIbrXc1NGg48Gl
+	ktft7lXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZDt-000000022b4-0i1l;
-	Mon, 10 Mar 2025 09:14:57 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1trZFU-000000023A1-3Xik;
+	Mon, 10 Mar 2025 09:16:36 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZ6i-000000021W6-1qxm
+	id 1trZ7d-000000021bR-3200
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 09:07:33 +0000
+	Mon, 10 Mar 2025 09:08:30 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E650A5C5661;
-	Mon, 10 Mar 2025 09:05:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A548C4CEE5;
-	Mon, 10 Mar 2025 09:07:23 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id B84BBA45164;
+	Mon, 10 Mar 2025 09:02:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A31D7C4CEE5;
+	Mon, 10 Mar 2025 09:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741597651;
-	bh=qqZhkPRwUpaoAjzdi9JHwcv9INAknt/YcI8iZPeoNfo=;
+	s=k20201202; t=1741597708;
+	bh=oikO8h1nTOFZbX/6PBbnHyP3rIFuP32fPuQIBMhkF3U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ROKa6JMyCGoEK1zQZ+eBDyj+9hajyMmPMUo7p+ulN5c9OciTut+lyLieibDtMKm+k
-	 +34mUJ1+bQNND/80CkFxp1gNAq/0l/C3PdHkixjHL10WU3ncQXusTkGHL8HevDyAnP
-	 FwOwrUWavuWxXpyc6bT9o3YCBYxq/uab27I3jsoljb8MbJ73Kku/9GunWxIwtvxMUS
-	 41LXhWzVdBgyEWT2ciP6fbLx1jpsiil+14U9o/NXpmUJBkgfKOFj0tt23ngXDaJxCW
-	 xuiyLHB0GUMYNjYaaMc6uW1AtXs0MDLdPvxHhnxSAW1R8M/KbYdtVslWNivVVqFAuj
-	 SkB+EFV0WQQtg==
-Message-ID: <b724d9c1-cd73-4e4e-aed1-101049204c90@kernel.org>
-Date: Mon, 10 Mar 2025 10:07:20 +0100
+	b=sCFYU3c1HKIbUi+R2euxOeb9kAL88lod4P/ZItKzaa+6sXfG/vvo/he4Y/i22y7mT
+	 G74X50wnERgGiwFjZTUiqv3yBWd0WEuDw1kPud7YFDODRLPxbUyTXz+5s8PageQBzV
+	 gbZDUXFkLtmx5y300d1Wp0TQkeyeJve46/zOgSg4a7zhbrKL4UhVFyvV+zhILde5X5
+	 s8yB+PbUrTI8et2Ls+5L6ZtZVKhPxGEh5jOWO+kQqS3Uot3R9pBCgLBko/G/AHjXlr
+	 NhUofbY3N7docCwH+mT/N3TM7tfivQBwEzJcYkO0hfH2uC2fIGH6e2LyJhmFX65Q6X
+	 3ZQtebDAGiPVQ==
+Message-ID: <24d5b56f-5078-4128-be66-436b1755d4b7@kernel.org>
+Date: Mon, 10 Mar 2025 10:08:18 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] coresight: tmc: Introduce new APIs to get the RWP
- offset of ETR buffer
+Subject: Re: [PATCH v1 4/4] arm64: dts: qcom: sa8775p: Add interrupts to CTCU
+ device
 To: Jie Gan <quic_jiegan@quicinc.com>,
  Suzuki K Poulose <suzuki.poulose@arm.com>, Mike Leach
  <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
@@ -63,7 +63,7 @@ Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
  devicetree@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  linux-stm32@st-md-mailman.stormreply.com
 References: <20250310090407.2069489-1-quic_jiegan@quicinc.com>
- <20250310090407.2069489-2-quic_jiegan@quicinc.com>
+ <20250310090407.2069489-5-quic_jiegan@quicinc.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -109,12 +109,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
  7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
  5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250310090407.2069489-2-quic_jiegan@quicinc.com>
+In-Reply-To: <20250310090407.2069489-5-quic_jiegan@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_020732_599856_772BEA99 
-X-CRM114-Status: UNSURE (   8.92  )
+X-CRM114-CacheID: sfid-20250310_020829_911513_BF4864CC 
+X-CRM114-Status: UNSURE (   6.69  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -131,28 +131,13 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/03/2025 10:04, Jie Gan wrote:
-> +static long tmc_sg_get_rwp_offset(struct tmc_drvdata *drvdata)
-> +{
-> +	struct etr_buf *etr_buf = drvdata->sysfs_buf;
-> +	struct etr_sg_table *etr_table = etr_buf->private;
-> +	struct tmc_sg_table *table = etr_table->sg_table;
-> +	long w_offset;
-> +	u64 rwp;
-> +
-> +	rwp = tmc_read_rwp(drvdata);
-> +	w_offset = tmc_sg_get_data_page_offset(table, rwp);
-> +
-> +	return w_offset;
-> +}
-> +
-> +/*
-> + * Retrieve the offset to the write pointer of the ETR buffer based on whether
-> + * the memory mode is SG, flat or reserved.
-> + */
-> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
-
-You need kerneldoc for exports.
-
+> Add interrupts to enable byte-cntr function for TMC ETR devices.
+> 
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> ---
+> Dependency:
+> prerequisite-message-id: 20250303032931.2500935-11-quic_jiegan@quicinc.com
+Which too generated such changelog? Why this cannot be lore link?
 
 Best regards,
 Krzysztof
