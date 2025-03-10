@@ -4,76 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 370C7C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E26DC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sG0ZptlmWh6usz+6gYzu3av5prS4D953FeG+EZTRlmE=; b=XSagslsgnaQw5rg3s42f/Mr25b
-	AV3tiFvYTUTmOJ4+D9Eq5iAozqYqgI+efNDx7cBPxW8V2o7UUGgWowyQqrROcvXyKSRPBKdYXY2ft
-	YQCxQztCxg8o40N/SpwQZKbU8rvWMOS33THMcF68kHe2ZkFlts3htHFZRzZJ6YzBFGKeORUXlc+5A
-	IeCceMaV8F6Gd12llDaF6uiMx2nws8l5E/jIkA4RxzMPMEKDAI6O7juuOiNjk05yTWGbNxUaDOqFt
-	UVKN9WrXrzF92a8Nxlw1oVLlMa8/9rReYQiNRdSLMGLikIbnUxHRPjJsQ4HF9g/sGyv0H/ktXSLkM
-	0rWA4VWw==;
+	bh=8oDl0bBs3tCfqgA77qPG8Vr+30J/oYlSYqhSGqmt52Q=; b=e9/t8igauh9vBfICB2aFXdWiUP
+	BCFeJY3eT4YoIFK2cmQZ2QUcl98uTrG4kOVSUwQwKvU9VnafAb4tASyJeynbxa7H73+Cn9IE0nDfb
+	FGvKlZpVi15XP8s0UkIahgwrt223HGNQiki6TE2OF95rMiI4UQadLvqSUNC57fpypUXGr8qZ2n3TK
+	3Y6dyP5GZ4edc78Dj+wSK8UDxjPUihXYXYAjAEKnQG0+uNDV8og82N7OXvMMUmj45sJof/maMkCty
+	JbKMUYpb+YQ+0PCl8/TAoiw843yyqr9AN4yVg9eeUdQPXXEJVsIkzO0PwB7oz30vNGnurn+ACrRyv
+	DtwJFHNw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traAc-00000002Dok-47f3;
-	Mon, 10 Mar 2025 10:15:38 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1traDq-00000002EeZ-1QlL;
+	Mon, 10 Mar 2025 10:18:58 +0000
+Received: from mail-m49195.qiye.163.com ([45.254.49.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZwO-00000002BWB-3KOF;
-	Mon, 10 Mar 2025 10:00:58 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741600844; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LUAZ4AB574FF/KkzPzySh74VUqaKk7Up4geZssi+tUWNoVBPmbOXaAB0X2kT4+3Wbwj1fV/MKAEB7dANewJ33AqC8P4Oss8Iipj6Y97OwfM4KJ/c+VSRs1O1gLlaE9xuzeOnE90bxczUP5GDESSsbObyinaN12NBVrqijYEffFQ=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741600844; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=sG0ZptlmWh6usz+6gYzu3av5prS4D953FeG+EZTRlmE=; 
-	b=Fyv59Hi6jM+QmMMz4EVYjOWDyqSx9Tdyog8JkvORFtntRG92twzxE0N61oF1iAv7x8o4qbhLsFLqKux87Hwt7QYYOlnQ4LFMYVFMLuXhhrCucZR8+ZZWZZWFS2WthKQfmqwC4VzPjrC/HclcCnESvi9XePFtgQ1mv5zh+rcgpYQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741600844;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=sG0ZptlmWh6usz+6gYzu3av5prS4D953FeG+EZTRlmE=;
-	b=IQxgjB9lLAHcZuF00S0hPyH4P/moK4+Fc+IszQagDcah2y50VQSL1g435V4GGsjF
-	V2PW5GMQwJNtc/Xrg2fZ9rdxCtoJVRjFBeGPmQu2AdYVtZuO+U6SD0ms2XPVGWgkpwZ
-	6YCFoC8OeRm6qM5vLsMZvOGvmwcK+dGLvtsEqN6E=
-Received: by mx.zohomail.com with SMTPS id 174160084194050.598305390263135;
-	Mon, 10 Mar 2025 03:00:41 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 10 Mar 2025 10:59:57 +0100
-Subject: [PATCH 2/2] arm64: dts: rockchip: fix RK3576 SCMI clock IDs
+	id 1tra4i-00000002D3W-0geJ;
+	Mon, 10 Mar 2025 10:09:33 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id dc09eef1;
+	Mon, 10 Mar 2025 18:09:19 +0800 (GMT+08:00)
+Message-ID: <5dc47134-fabb-4f9c-acc3-8bf37d2cc733@rock-chips.com>
+Date: Mon, 10 Mar 2025 18:09:20 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250310-rk3576-scmi-clocks-v1-2-e165deb034e8@collabora.com>
-References: <20250310-rk3576-scmi-clocks-v1-0-e165deb034e8@collabora.com>
-In-Reply-To: <20250310-rk3576-scmi-clocks-v1-0-e165deb034e8@collabora.com>
-To: Jonas Karlman <jonas@kwiboo.se>, 
- Sebastian Reichel <sebastian.reichel@collabora.com>, 
- Heiko Stuebner <heiko@sntech.de>, 
- Detlev Casanova <detlev.casanova@collabora.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Liang Chen <cl@rock-chips.com>, 
- Elaine Zhang <zhangqing@rock-chips.com>, 
- Finley Xiao <finley.xiao@rock-chips.com>, 
- Yifeng Zhao <yifeng.zhao@rock-chips.com>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-X-Mailer: b4 0.14.2
+User-Agent: Mozilla Thunderbird
+From: Damon Ding <damon.ding@rock-chips.com>
+Subject: Re: [PATCH v7 10/15] drm/rockchip: analogix_dp: Add support to get
+ panel from the DP AUX bus
+To: Doug Anderson <dianders@chromium.org>
+Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, dmitry.baryshkov@linaro.org,
+ sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
+ boris.brezillon@collabora.com, l.stach@pengutronix.de,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250224081325.96724-1-damon.ding@rock-chips.com>
+ <20250224081325.96724-11-damon.ding@rock-chips.com>
+ <CAD=FV=WS_2JAKMyFFmrNtaN7-O4dh2hOXHc25FytDxXAjAr+5A@mail.gmail.com>
+Content-Language: en-US
+In-Reply-To: <CAD=FV=WS_2JAKMyFFmrNtaN7-O4dh2hOXHc25FytDxXAjAr+5A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUNOTFZDTUsfGh1NGkgaH09WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+X-HM-Tid: 0a957f87c7c203a3kunmdc09eef1
+X-HM-MType: 1
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ORQ6Ghw*MDIMNiM5Vjk6LzNK
+	A0IKCg1VSlVKTE9KTUtKSE1KTk5DVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJQ01DNwY+
+DKIM-Signature: a=rsa-sha256;
+	b=D7E3vw1XXB1XCYg4ojtoHQqelLn3tRxuF/YnJiS7eKtAHcAJmK6eZVh8POr/PKSys+Oh0rYtPLotv2Gp8EdLwkFeVgjH1md2nhhGOO5PUuohiFVFMSqdP7tYsL4Cg+HhG6fnpIVHcx0r3/pX2DKi4Tz3OBEz6CkZfH4o1zPqTlU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=8oDl0bBs3tCfqgA77qPG8Vr+30J/oYlSYqhSGqmt52Q=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_030056_907017_9006E6D9 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250310_030932_419759_BA2CD779 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,112 +84,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Downstream Linux, and consequently both downstream and mainline TF-A,
-all use a different set of clock IDs from mainline Linux. If we want to
-fiddle with these clocks through SCMI, we'll need to use the right IDs.
-If we don't do this we'll end up changing unrelated clocks all over the
-place.
+Hi Doug,
 
-Change the clock IDs to the newly added SCMI clock IDs for the CPU and
-GPU nodes, which are currently the only ones using SCMI clocks. This
-fixes the terrible GPU performance, as we weren't reclocking it
-properly.
+On 2025/2/25 9:42, Doug Anderson wrote:
+> Hi,
+> 
+> On Mon, Feb 24, 2025 at 12:14 AM Damon Ding <damon.ding@rock-chips.com> wrote:
+>>
+>> @@ -392,11 +393,27 @@ static const struct component_ops rockchip_dp_component_ops = {
+>>          .unbind = rockchip_dp_unbind,
+>>   };
+>>
+>> +static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
+>> +{
+>> +       struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
+>> +       struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
+>> +       int ret;
+>> +
+>> +       ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
+>> +       if (ret && ret != -ENODEV)
+>> +               return ret;
+> 
+> Can you explain why you treat -ENODEV as a non-error case here? Maybe
+> this is for the non-eDP case (AKA the DP case) where there's no
+> further panels or bridges? Maybe a comment would be helpful to remind
+> us?
+> 
 
-Fixes: 57b1ce903966 ("arm64: dts: rockchip: Add rk3576 SoC base DT")
-Reported-by: Jonas Karlman <jonas@kwiboo.se>
-Closes: https://libera.irclog.whitequark.org/linux-rockchip/2025-03-09#1741542223-1741542875;
-Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
----
- arch/arm64/boot/dts/rockchip/rk3576.dtsi | 18 +++++++++---------
- 1 file changed, 9 insertions(+), 9 deletions(-)
+I think the commit 86caee745e45 ("drm/rockchip: analogix_dp: allow to 
+work without panel") can help the Analogix DP driver work when the 
+bridge is driver-free or when the user uses the eDP IP as a DP.
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3576.dtsi b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-index 8591065b575223a5eb2da70f723f16969aa2ecf7..1fddf298795e5c914a76d9779b6f8563ee15c8e3 100644
---- a/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3576.dtsi
-@@ -111,7 +111,7 @@ cpu_l0: cpu@0 {
- 			reg = <0x0>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <485>;
--			clocks = <&scmi_clk ARMCLK_L>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			#cooling-cells = <2>;
- 			dynamic-power-coefficient = <120>;
-@@ -124,7 +124,7 @@ cpu_l1: cpu@1 {
- 			reg = <0x1>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <485>;
--			clocks = <&scmi_clk ARMCLK_L>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -135,7 +135,7 @@ cpu_l2: cpu@2 {
- 			reg = <0x2>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <485>;
--			clocks = <&scmi_clk ARMCLK_L>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -146,7 +146,7 @@ cpu_l3: cpu@3 {
- 			reg = <0x3>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <485>;
--			clocks = <&scmi_clk ARMCLK_L>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_L>;
- 			operating-points-v2 = <&cluster0_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -157,7 +157,7 @@ cpu_b0: cpu@100 {
- 			reg = <0x100>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <1024>;
--			clocks = <&scmi_clk ARMCLK_B>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			#cooling-cells = <2>;
- 			dynamic-power-coefficient = <320>;
-@@ -170,7 +170,7 @@ cpu_b1: cpu@101 {
- 			reg = <0x101>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <1024>;
--			clocks = <&scmi_clk ARMCLK_B>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -181,7 +181,7 @@ cpu_b2: cpu@102 {
- 			reg = <0x102>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <1024>;
--			clocks = <&scmi_clk ARMCLK_B>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -192,7 +192,7 @@ cpu_b3: cpu@103 {
- 			reg = <0x103>;
- 			enable-method = "psci";
- 			capacity-dmips-mhz = <1024>;
--			clocks = <&scmi_clk ARMCLK_B>;
-+			clocks = <&scmi_clk SCMI_ARMCLK_B>;
- 			operating-points-v2 = <&cluster1_opp_table>;
- 			cpu-idle-states = <&CPU_SLEEP>;
- 		};
-@@ -932,7 +932,7 @@ power-domain@RK3576_PD_VO1 {
- 		gpu: gpu@27800000 {
- 			compatible = "rockchip,rk3576-mali", "arm,mali-bifrost";
- 			reg = <0x0 0x27800000 0x0 0x200000>;
--			assigned-clocks = <&scmi_clk CLK_GPU>;
-+			assigned-clocks = <&scmi_clk SCMI_CLK_GPU>;
- 			assigned-clock-rates = <198000000>;
- 			clocks = <&cru CLK_GPU>;
- 			clock-names = "core";
+And I will add some comments in the next version.
 
--- 
-2.48.1
+> 
+>> +       ret = component_add(dp->dev, &rockchip_dp_component_ops);
+>> +       if (ret)
+>> +               return ret;
+>> +
+>> +       return ret;
+> 
+> nit: the above could just be:
+> 
+> return component_add(dp->dev, &rockchip_dp_component_ops);
+> 
 
+Yeah, it is a good idea.
+
+> 
+>> @@ -448,9 +460,16 @@ static int rockchip_dp_probe(struct platform_device *pdev)
+>>          if (IS_ERR(dp->adp))
+>>                  return PTR_ERR(dp->adp);
+>>
+>> -       ret = component_add(dev, &rockchip_dp_component_ops);
+>> -       if (ret)
+>> -               return ret;
+>> +       ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
+>> +       if (ret) {
+>> +               if (ret != -ENODEV)
+>> +                       return dev_err_probe(dp->dev, ret,
+>> +                                            "failed to populate aux bus : %d\n", ret);
+> 
+> IIRC this -ENODEV case is for old legacy panels that aren't listed
+> under the aux bus in the device tree. Maybe a comment would be helpful
+> to remind us?
+
+I will add a comment here if devm_of_dp_aux_populate_bus() returns -ENODEV.
+
+> 
+> nit: don't need the %d in your error message. dev_err_probe() already
+> prints the error code.
+> 
+
+I will remove it in the next version.
+
+> 
+>> +               ret = rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
+>> +               if (ret)
+>> +                       return ret;
+>> +       }
+>>
+>>          return 0;
+> 
+> You can get rid of a few of your return cases by just returning "ret" here.
+> 
+
+Yeah, it is better.
+
+> 
+> -Doug
+> 
+> 
+
+Best regards
+Damon
 
