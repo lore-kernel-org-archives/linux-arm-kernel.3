@@ -4,62 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8D2FC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:27:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D17DC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:29:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gu523b1wXNt4CE9jHyiDRqe61VWjDoVz4cMOvjxGE8=; b=c4QtfdO71mKr2Tq+HK5eBTxqYY
-	lE28M8tle+CMzNvBwECdhdSv5YPQQPG6hWFQr4bUCq11TKx6fXlU1bvl1fk5avOtVWUx6QvvL1OGu
-	OwSUMeQCAFgQHUn1EoVS26vXceIh1WrKAHyjMkm6KHlJftYGz3yqE1riVS08Nuu36gnV/7msklP7R
-	HXrXDx9TNPqwHtKN0k16ST/InB4Zhx47+HL7J0hqoOYb+xMfGqJOhh6l+WoqQNECPwanrAv3Lp8Z7
-	G8T82+FLjo1UXos6EmlxEwuwpgiYwuRZTQhOg/1e0TSpEDOvldDAfZn+40NISZXV1RH3GH1zJmrhs
-	YS70i8RA==;
+	bh=Y/3zKs4B4lEZHGHC5DeTMH/TpCGt5tUx1v7xkQTlrW8=; b=0Vo9T7ns5qJVXEMy6zgRTw10We
+	pWCJiyFssoVpA8zelpNzZr5B+Hr266RPW+qi7DnGelt44u5sqOuYWB2gYdqRda6AGzxhP5CUG9o2J
+	as2N2Fw5+wXw6ToW38S9Fsk2eWsL7u71XdshFEQ9BKUi2ewWRE/inILA9+cs8kdX5HX9DNM1H59ax
+	igg1qqY9+JzjkfiXpT0uUuXo1udbb8sIMxpew02t8wdE1loXLE3Oj23q8jHl5YqhXcJepsHl/FQ9v
+	o/TrIyeUZXtU+XVTYHAW6FMxvqeaKmucCKqa6GLzaqgR3o1AihdlTk1fdidoo/vYIQ/kicgCqrXeq
+	nOpYcelw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXXl-00000001kWg-1vOW;
-	Mon, 10 Mar 2025 07:27:21 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1trXZO-00000001kij-2E6o;
+	Mon, 10 Mar 2025 07:29:02 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXTa-00000001jnX-2OPL;
-	Mon, 10 Mar 2025 07:23:03 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 2F03425BCC;
-	Mon, 10 Mar 2025 08:22:59 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id ZMGQERGogw6S; Mon, 10 Mar 2025 08:22:58 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741591378; bh=ernuOloDM88O4OqBSQAmgvrlP6Ekdag/9GbGQz9YjjE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=Yj/q1LrQrDqhoAQxcFGJitqVJn0Wd0MC2+TfDG2DkygRosf9vfRzzLbO12hs34tDP
-	 23dnklqB4edGqqxDfIFDuTC01YosBXfFK/Cq8TRJHsxhtVrGZxmtmBCVGK5DZKVtwr
-	 ujhWSayOid/kDRa9mHIG0lZZqaDpVecLmmRnLpVt59Wn9Wm3CMbmp9LSacLPUW445m
-	 0DFwI0SfuCbs8gKtMptl08ovavQZsiJWrjxRBGMwLdhfS9XEJwQ2RPPJGRXnuSOTo+
-	 Vtrt4etL/rqP57sDrUC+CIo2cvW6kAP2F+2rFcCDcqB5f4e0gVILarRn2GNlpOgX8V
-	 o833i3xp+NRcA==
-Date: Mon, 10 Mar 2025 07:22:45 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: andi.shyti@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 2/3] arm64: dts: rockchip: Add I2C controllers for RK3528
-Message-ID: <Z86TRS4iLm66AqW6@pie>
-References: <20250309070603.35254-3-ziyao@disroot.org>
- <20250309080025.15825-1-amadeus@jmu.edu.cn>
+	id 1trXTg-00000001joi-2eEy
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 07:23:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id AC3E8A44B92;
+	Mon, 10 Mar 2025 07:17:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5290C4CEE5;
+	Mon, 10 Mar 2025 07:23:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741591387;
+	bh=RlvKs07iuCvZ/lpYdSqVxJ2vXNGKN73rfYEc3+gIKNw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=N7lcU/JZEenWdzfzzb0tr1SWG3ZkhI0EoTYO2icU/G0L0RaJ7ZHQqtPfGuzJai0HC
+	 csLJE5UnThUxUaxF0bE34TVJL0ewvOMiRUrpS1LpzGlEk3REzTuKwya6g19OoTRiDS
+	 Vz1PJKupNDxoNgTQCzwAKVx8ovdnCg/wWlA7ZN224R6D2I7duzgJkvJvSVrBYG2slZ
+	 p3u6yjBN9ebkdY2O8lhGFXlyjDWThPCcrnH0pS9VPLA+fbrK6jIKHIgOnuOzbgwGMo
+	 0+KIgoJJRn/t2TN1ijKgRSzdVchI1UrORXhbGhg6icw/pthPbr0kJBZ2/ft/GNI5QH
+	 50MUxij1sgAHg==
+Date: Mon, 10 Mar 2025 08:23:03 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dmitry Baryshkov <lumag@kernel.org>
+Cc: Rob Clark <robdclark@gmail.com>, 
+	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kuogee Hsieh <quic_khsieh@quicinc.com>, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, Jonathan Marek <jonathan@marek.ca>, 
+	Bjorn Andersson <andersson@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 03/10] dt-bindings: display/msm: dsi-phy-7nm: describe
+ SAR2130P
+Message-ID: <20250310-prompt-economic-gaur-ef0bbe@krzk-bin>
+References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
+ <20250308-sar2130p-display-v1-3-1d4c30f43822@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250309080025.15825-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20250308-sar2130p-display-v1-3-1d4c30f43822@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_002302_744487_B5F93C46 
-X-CRM114-Status: GOOD (  12.61  )
+X-CRM114-CacheID: sfid-20250310_002308_728883_61C832DB 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,36 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 04:00:25PM +0800, Chukun Pan wrote:
-> Hi,
+On Sat, Mar 08, 2025 at 03:42:21AM +0200, Dmitry Baryshkov wrote:
+> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > 
-> > +		i2c0: i2c@ffa50000 {
-> > +			compatible = "rockchip,rk3528-i2c",
-> > +				     "rockchip,rk3399-i2c";
-> > +			reg = <0x0 0xffa50000 0x0 0x1000>;
-> > +			clocks = <&cru CLK_I2C0>, <&cru PCLK_I2C0>;
-> > +			clock-names = "i2c", "pclk";
-> > +			interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
+> Describe MIPI DSI PHY present on Qualcomm SAR2130P platform.
 > 
-> It would be better to add default pinctrl for all i2c nodes
-> using m0 group. (Only 1 group of pinctrl for i2c4 and i2c7)
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/display/msm/dsi-phy-7nm.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Seems i2c2, i2c4 and i2c7 could be assigned to only one set of pins,
-for them I'll add default pinctrls. For the other controllers, I prefer
-to keep pinctrls in board-level devicetree, which is easier to read.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-Other Rockchip SoCs (like rk3588) seem to provide default pinctrls even
-for those capable of multiple groups of pins, so I'm not sure whether
-it's necessary to keep the style synchronized. Will add if the
-maintainer considers it's better.
+Best regards,
+Krzysztof
 
-> Thanks,
-> Chukun
-> 
-> -- 
-> 2.25.1
-> 
-
-Thanks,
-Yao Zi
 
