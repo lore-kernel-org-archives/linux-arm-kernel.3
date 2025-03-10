@@ -4,155 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4CCC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE26C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:50:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=; b=aS1uDlrstRwdaHtAfUMtrjtyIW
-	icbE6I0kBI88CXHsl17Tb7UEyMTcnPFfFs4htpVPKIK4UcKrtOUcJ/QjDmBkikYb+IWHpN3KyZEaf
-	G3w82VHa18OvPxInsyYaXuNB8bAw3sC5nAgS0xNJGvXyWRRq6KqXYroMX17r5AgaBkxv8BfwQeYdu
-	TDIss++p8FrX/TS4P3Jlv1UQF+UQDa2H9sp1lJUS00Kolvrwc0YnuUM4VK7UrJBKTRcCqSefyKnPh
-	qJdyxYycgNBJPnD1dkye6BUBXzIFUIHkqJ3fDErOK+kz60Sc6edvZubTAVDd1yQOZTiH12V5Zgk8/
-	ibKnwa/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=3UOS4rb9TEoPzQPGBF8Xn/wQ30Soac4t1IPb0qzm228=; b=wHs4FLBMcMEEZC
+	c94W2GdWduT0NN9ZM+xLAXIHs3FaTRjbkkiw8+JqVVjm91tuh7zDkghxWP1GXaW6600igWSGk6fGz
+	5y4Boxm8CgNCKzm9FYEmUVfk/qIhfPTeLnda135YC95lBwWEmypoNDOxoeluLAp71Y/5RlCIkLDkw
+	+wXfm62DHF/BpSCmZsPOoJiaCbmYVsIaNtQYCGSxpZsbN680FYv2IqIxf1s8TJYcbXkHi/e9qXMP+
+	++4Q82ynM0YCI+pyNOZv5jJPM7iobpS6u8Ht17pZKlFV3I5QZtqNBIMdh0PX/0oJ4iLxtEVONDVH2
+	6fL1eI4Kb4yP2to3aohA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhGp-00000003Wtq-1TF2;
-	Mon, 10 Mar 2025 17:50:31 +0000
-Received: from mail-db8eur05on20622.outbound.protection.outlook.com ([2a01:111:f403:2614::622] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1trhGu-00000003Wwo-0dNq;
+	Mon, 10 Mar 2025 17:50:36 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1treVP-000000031rp-1YsI
+	id 1trfV9-00000003IGr-2wHo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 14:53:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=uNt3CYD5HuFR6c4qhcM/RNi/+pRpCWVtTfHm+IE1uwuJiCf2cWew1CJTp+Zhx7VSrnrFCNCWbb3yom29WAHPzTcky2ejWNvsh/r1nIlKRLyKHn8Dvnv+ayD/nyaiaiYUz1utqvcfG3a4l/yBaG5ZRuITbS15vQLmZU95k2vEtFb7wRNzUUQwAmwZaKbwiqboAgObioF1iwY8OsPbRNgrR+Q7sBE9I+DoosytunLzqNA9WnZcR5Y/AIfD6OYyTY5P5EtHszdzGlGQIWlY884DFw3Um2igkHOqDAu+pepQ2WS+A5gPMshtDnpv+L1G9DdKl6C4eubskQx2MYBduZzevw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=;
- b=DPRF1aOVXkwLPqUX9rAy9A3+7wGRxbjj18/j2jIm+pBdzkbzMHrwIlyLRqkY0smqX5MZo+U5Lag00nBxqXfsbONe+JBaJK/q/nOSAOW6kqUO9EvjDoJ4aHbhESJn3IXbAttcmTW3ZLESeGHNg28EFiL+RHeXypHyzIywD81ZmNc4YUyqIwx9JLIffuvPBpNgokMP0r5AsuHAikwmVXBVVwuIQgBgLnAM4kyaWRAC2xLdmc3e0CvCuyuUc32ZEKXJUFX6IOqy4u4OgaQW+hpgFT8YX1FBFt3ia0qUrE/VSthJRyZGoFp/RRGQAADfycCzgBV5z9yn5FsVkp/vGXbEwQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=;
- b=MsLXXhqpZ2fx7WwgNvOP9NCIJIkNuOlaC/EwWgvHfltPgoCa0enCUpAffwFJptljeKkmwb3iU9jU7IRXm9ScFt8A6U8q2gN9GBmk1GPnqGPv2OMg8GVIPmkukP078d0nM+XDb/NexI8mIrb+z26HyTUNbdT1aqlC+qlJjbCte5BE+nJl5CNFbP9B36YJZ3bGCB25PTnwxbMIW4WGgrPM0BW4Qxcmql3CEn48iq34XG16cZZORXVX8ZQGjTatfZlkfFsL/70U99XzueyhMokKcDkNu1mnpTV/xsxwDxtWNlolJAENRMrJSX8HJxU7W2JzzoUrfRvbNk4tUNcyjg/PAQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AM9PR04MB8603.eurprd04.prod.outlook.com (2603:10a6:20b:43a::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.26; Mon, 10 Mar
- 2025 14:53:19 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.025; Mon, 10 Mar 2025
- 14:53:19 +0000
-Date: Mon, 10 Mar 2025 10:53:10 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Fedor Pchelkin <pchelkin@ispras.ru>
-Cc: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Sebastian Reichel <sre@kernel.org>,
-	Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>,
-	linux-usb@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/3] usb: chipidea: ci_hdrc_imx: disable regulator on
- error path in probe
-Message-ID: <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
-References: <20250309175805.661684-1-pchelkin@ispras.ru>
- <20250309175805.661684-3-pchelkin@ispras.ru>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309175805.661684-3-pchelkin@ispras.ru>
-X-ClientProxiedBy: BYAPR08CA0026.namprd08.prod.outlook.com
- (2603:10b6:a03:100::39) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 10 Mar 2025 15:57:14 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 4FCBC44101;
+	Mon, 10 Mar 2025 15:57:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741622227;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=3UOS4rb9TEoPzQPGBF8Xn/wQ30Soac4t1IPb0qzm228=;
+	b=L43ANbmvvQwvhWw3boUduOlW+eefJjjM9kIjhGotW8FL/JGRXCe0W2j0VwagP0Qiy6wEHu
+	lslBC7x/zA6PUBi3P2/TJnDCHayZuXDtf6Zj/qe1+Sa95bMHxwCm3dsw4Zo9axcqJ75KHh
+	7wDkF6ocz5kH15mMOE39AqbKgofyHjhWI3hBj5aLgM2oXph8ZErjlVy52S0sfpR+E6zJJN
+	Vurxcl6bn2rg4zyxotC63wG/+S4VProYJLvf5Mc/yuHfNS6QeMevOmPvTa4M3hP1wSVcrx
+	I2x5bQSqnPXuYQEA40G4VqRzxzrSOEHfzWICyab/2PVTnpqr4sggV7cQE8pNlg==
+From: Antonin Godard <antonin.godard@bootlin.com>
+Subject: [PATCH v3 0/3] Add Variscite i.MX6UL SoM and Concerto board
+ support
+Date: Mon, 10 Mar 2025 16:56:06 +0100
+Message-Id: <20250310-varsom6ul-concerto-dts-v3-0-551e60713523@bootlin.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8603:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9102cb00-0784-47ca-76ae-08dd5fe34bf7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HUe3fDTDuKm5roWvHOfPH8Wc3IrMb39gvLAON/55bUGYScPOkCbbnVVE0w0/?=
- =?us-ascii?Q?lv/v/QVXuC/f+2+yZsUjSNzKJKcG+z3VDpHo1Qh4ii2Y2VBy65JMzl5/kheT?=
- =?us-ascii?Q?byPDEfydPsLJ12YCnYyknAlt6lFDIvVOvdiqdieRNQjDBiSFGXaoYUP+631T?=
- =?us-ascii?Q?0eExmWoOrpzmxGFnon63JMONi8PkI18Y01OflpPoPE1MlMCoj1qAHbGpy61D?=
- =?us-ascii?Q?Bz3ug8pF3Ta4SOWxUUHvgzIsqN5mW/RDYgIVXWJdbW/Y93IMR8uu3KwSlKC9?=
- =?us-ascii?Q?mp1c/MmJHFA62exFW7fj+/3IzS/ZEkX03GQKXDfD9MChQDMfHIVSb3zevJmc?=
- =?us-ascii?Q?FRNLxd/KOaeAIq6WEbtzjulLr5Hvr8EUMwzZMS7gHf0/OZyU+nIi/HSGF4g/?=
- =?us-ascii?Q?ng6209kIHPVZa57VZxPgkv2t0qDlwCaBaSacX4IfHmYTWK6E80DgDE/BlB25?=
- =?us-ascii?Q?T49TH1ucbzRomL4Pd+HF5gBG60uhaPIWOc7sy1tZ12Tlwfqku+5F0Ml0sOID?=
- =?us-ascii?Q?fgTfVSv530V5i2lQRfSqQj7XTuN6vCSmGY8PD54WuXfypQmznunpF0DPdETB?=
- =?us-ascii?Q?0U63Wn5ZJF1TCqGK/uq4r41sUHoKka5UKP4mhGv41YpWTmftDXL2rHX3doDM?=
- =?us-ascii?Q?kpLqdhnbxlep4F7pVtn86S/FqUa/PIMB8yUv//5Xq0JaMsmkuPJ4l6xqumpi?=
- =?us-ascii?Q?R6cQ93gwcLfBblKNrqZi1XmTGB+BiAux7MUHzIHrO3Un0UasNWjygzAAdQ/K?=
- =?us-ascii?Q?fSvvN/y64zs69IRpBwEk94J0Qz1F4370xO0H45nbBBS1+IKENG7rGFnOoKWF?=
- =?us-ascii?Q?WGKs6cWwkuW7doDIL9cbnaoktoQOvFgU1GE/Uhuupa3aFh7zWWlr+wPNiKSb?=
- =?us-ascii?Q?e6sUNwgM8aAfK4ul13TKLijzuEqXR2YZMnyu7VnV6497IW0Ml9Ych4tGaSd6?=
- =?us-ascii?Q?OcYmvAPH/En6v+3LYipUWTDcggC0REWcjLX59fdBDxdYeJ9jeH/643vOqwIj?=
- =?us-ascii?Q?FlfvrKDbTi0V4iKsq1UpiPEigwyZYSkHh+n0KBnz9xsEjwv2loTYjC1wgf/M?=
- =?us-ascii?Q?G4L8yfyVLtRJyid0CUyzyycgiWU9OpN9vbfWoQCdebOLLtOc9KZqNCaJLZ2Z?=
- =?us-ascii?Q?SHqYn5vK1Q4zcGn43eyYtbf3uhQtki/7RObzUkMlh0oX8i+DxvysLFHQ/ByK?=
- =?us-ascii?Q?9w1NLE2sqIyIrlUvxT/HGJsfevqWahqkKdnWlRhZCCKmgn0ncg7b/iRux8wc?=
- =?us-ascii?Q?azXfn9bXLtFL5X7mohPQeggOKwDk08YmYUxd72X83bkIDVl7hBUQI+w7+uvQ?=
- =?us-ascii?Q?RTghaUK2WfI7DhiKfE3CgZwxYhDXeAe/8t6T3lke+OW94cYlscI1truSkii+?=
- =?us-ascii?Q?c85BP5NFkfT45pr7V9fXSGDX/D37YkD3rrZxI0lmt2Z5gG9iH/361yd0MyIs?=
- =?us-ascii?Q?wohx398wRu8cDe5s+omdgXTiUHZ8SUhV?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zkyJC60OPxha2v8DZPuQTGXJOrjz7BfbrljL7zinqvb3JExLnGMZYKL27Cys?=
- =?us-ascii?Q?iyDAkIok+wy+NR3dfjeTm201kgvhsha14BFVynHBU7LuoNu8F6WsMAOLAWQM?=
- =?us-ascii?Q?EzLmXijpUCzt6Nxl3eYHRCbQRyQd35jaV5+moGbKjO1UnKqBBWBUAqBNF26F?=
- =?us-ascii?Q?uOakjBaqpO1cvL1QIt1WmfnS7E0+367IKpGKpPK6uTUNUhhiRPGeKHH7d1zS?=
- =?us-ascii?Q?KDytqa6KJ9VwlTFUocr8N5K1paMbm5xEt4zU+ruNTGZt/r3kMLRTnr3DChXX?=
- =?us-ascii?Q?Ru5oiu0UU90TL/5gJSMwyIcVvdfN6AfijXUOUtF/KQAhNFdaWoJ3D3bbuO8z?=
- =?us-ascii?Q?EzYFCsxwRZwDT+5/7bzSc5pGzLQtP7e3ROAxFfHNaK9fy5wpwF5ErRX9OCsa?=
- =?us-ascii?Q?CzuJeeKKU/2EPx32t1zgCBavTQcceXFjhldOYVsMwWMQjtYW0R5wSZWnoQYT?=
- =?us-ascii?Q?QBmnPNWgG000asaNe3Qil+kC5AA0251zuCrdJHKCuMMY/RMYgbQnZEYPE1mS?=
- =?us-ascii?Q?cJs0anjFc4kSm4+q+3Z9oPQn6alztkf/5h5O0DjeUFbJOnAplIeVK8f7eKUP?=
- =?us-ascii?Q?9reK6XOUCchVNTddlERLm++xOJvau8teXPNUOfdXRby+Ic/SbeEwoz2VJ1dK?=
- =?us-ascii?Q?/JP/7ey2A57aAIKNUTB6zLVvyoBCh7Xy04IO1U6JgO37H5lnEOIog4igXCzN?=
- =?us-ascii?Q?EKUovu9Q0U1r3MbqDVzqtu/GkuDIeQEVpQ2RhjuLLEazhHeJe1TY06loN/IS?=
- =?us-ascii?Q?eIKJF7xiOKQs0hAo/HvRxQQEOBR9uLsyHlMPDBHp66G0udO5jt5rFdscJQ2U?=
- =?us-ascii?Q?ueov/WcCN7d5nG3xwTXmvnKYAFWfGr7XO0iJ3NwyImSp2kDBrjjjm+7FAm6X?=
- =?us-ascii?Q?WTszoIdfaA0tnzhsnHRCWLUPvGVbMFEqVUk8H145JodM9vusAj2apcg9Kvkp?=
- =?us-ascii?Q?nJ2ZJSeBNxYItKd76hiRtheZodZXLGUgCrAPKIHH6zDoPvRqc4GS8RpsAd5S?=
- =?us-ascii?Q?amkFYm8mRg0SOmQdcfhsbTFCIErw8b2pFgs4Zv5wnVvaRxgTGR37CHL2jKdW?=
- =?us-ascii?Q?4Ff5OB5UvfukcCHgMn8SI+ok6j2xdx5BcdiTzf6HghAQZ2me+o4njzI0Pf6C?=
- =?us-ascii?Q?qt/iLvJHKmiM3dCSWsi4oD3FXQRTOmVuN7fx2WyPgYoIrAQTv5/5eKFV9IqO?=
- =?us-ascii?Q?9UrRlZG5GQykDAg13R1lIdJpuWpFBWhNMw+J6lmtVmhyJBxCEL/mIq+VI4X0?=
- =?us-ascii?Q?XkRLZf9pnfyeBI7AurIh63HpxhrgHX9wJoLNVaeN3PVIYrIdOrry+dGqgWFA?=
- =?us-ascii?Q?b8kaL6nsk2n97picfRB+5CZ4OQTJxsRhn68HKLLiEKksoOlJfAY07mft8TqQ?=
- =?us-ascii?Q?msD01Bq+eUIBT16ZZMKkUxCylEp303JY+ksDNnnVcP9jEpASQCq4X+B3awUW?=
- =?us-ascii?Q?S83+nAC+mHr3/stpBj4AcLfqmuxX6gg2yq77ji8DFjBqsy50Fg3IyknPzUBQ?=
- =?us-ascii?Q?ksYMbu5jvqSs/o7j58L6Z0hTVoDQNytlSTFlmb1f7SrUYsAY4n3tJ9zurYPy?=
- =?us-ascii?Q?WvmrRZfQaB6aNwGbNBI=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9102cb00-0784-47ca-76ae-08dd5fe34bf7
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 14:53:19.5260
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Y9Kwqb4QfYYn5B/iVtX67mwKK7ZzODCpe0MIjmoTqwZ3fk3BXx6QWdcCIUoSbxXYx5nU/zjiwiuA5rIf6FaY9Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8603
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJYLz2cC/3XPTQ6CMBAF4KuQrq1phx+pK+9hXJQySBOg2pZGQ
+ 7i7BTXRBcs3yXzzZiIOrUZHjslELAbttBliSHcJUa0crkh1HTMBBjnjwGiQ1pm+GDuqzKDQekN
+ r76hkZYUgC+CiInH5ZrHRjxU+X2JutfPGPtc7gS/TL8m3yMApo1ilmZCqYVIVp8oY3+lhr0xPF
+ jTAL3TYhCBCWS0VCMgLUYp/aH7XtXgf4/v+03meX2fk91YcAQAA
+X-Change-ID: 20250120-varsom6ul-concerto-dts-a08be2a6219b
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Antonin Godard <antonin.godard@bootlin.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2120;
+ i=antonin.godard@bootlin.com; h=from:subject:message-id;
+ bh=eGDElqtBJShl5L20wjZ0yk8EVx68/Le8s+EeXvF9c5o=;
+ b=owEBbQKS/ZANAwAIAdGAQUApo6g2AcsmYgBnzwvRwyVq2f0qoWhvOjc1A99tiXYZEUks2qrwq
+ UIgtZi/TWSJAjMEAAEIAB0WIQSGSHJRiN1AG7mg0//RgEFAKaOoNgUCZ88L0QAKCRDRgEFAKaOo
+ NvO9EAC78pAkCEQGTHt7pAqhWCUoSbyohKS0s/A2q2JtpefbZvcIlbmd13wzgdKUAkiOIq6Xexx
+ zR2OuH0U/Gc1hui+p3nDdqzfQNJcksmmBKZ7Q7BBMB3yhRGN5Ujw/R4NyOGu2WXRx/wgm+1QSKu
+ ML8Rbf/wnow3DDcpGjzw4WWfzMGUUCLfhQvPpWQ0LJ2X8zQjdO7KdhDtSwO6dU3KA6UA790ljLb
+ uYGZXU7uoPBoTke1snkeeuJd5iaI1bzSm5r99kdFLl9QTSfnBF4/6Rxx2SeOm40OOwO556AueVP
+ Owovf5YyNRhM81U+6N4Ink1WYwxbFg/njI5sFVoeCkLYlXu54PYC6O9GlXx72SWYcy8DMMP/XYW
+ QOQqrd+xyBo/B1VQkKZ5FzTjzMrincF/oDDyiwWdqM6aWJKoEM3UUM/EzOYqaI3ph9tfssJEDRf
+ OLYzsnmdJ1Xn4WFh1m0CTAk8G+z0uY9UUzccXI9gIInNHSM4BQmhUc1A/MKtpAfi2welVbwof4n
+ qCA856tQttTDMe6pNgK0uFIwt86z2tqHX9o1nrfB3XKOh0Js+Jq68n9QSR7vKARvq7qgORcnbzy
+ Bdip8jNZRWHtrQNvUn3jOvSaGd4S3AgMz51OxcUVjJqPOchPdGlKYV8Dd22KJ7Q8KYTLmGYxHBK
+ Sxp+IonOaHqpvUA==
+X-Developer-Key: i=antonin.godard@bootlin.com; a=openpgp;
+ fpr=8648725188DD401BB9A0D3FFD180414029A3A836
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudeljeejucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpefhufffkfggtgfgvfevofesthejredtredtjeenucfhrhhomheptehnthhonhhinhcuifhouggrrhguuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpedtudeuhfelveehueevudefgedvtdfffeevleefuedtjeeuteelgeelvefftdejteenucffohhmrghinhepkhgvrhhnvghlrdhorhhgnecukfhppedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehleenucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepihhnvghtpedvrgdtudemtggsudegmeehheeimeejrgdttdemjegthegtmeeirgguvgemjeelgeekmeegtdehledphhgvlhhopegluddvjedrtddruddrudgnpdhmrghilhhfrhhomheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopedufedprhgtphhtthhopehimhigsehlihhsthhsrdhlihhnuhigrdguvghvpdhrtghpthhtoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhto
+ hepfhgvshhtvghvrghmsehgmhgrihhlrdgtohhmpdhrtghpthhtoheplhhinhhugidqkhgvrhhnvghlsehvghgvrhdrkhgvrhhnvghlrdhorhhgpdhrtghpthhtoheprghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkrhiikhdoughtsehkvghrnhgvlhdrohhrgh
+X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_075323_435075_56CFDF01 
-X-CRM114-Status: GOOD (  23.20  )
+X-CRM114-CacheID: sfid-20250310_085712_194724_1A966FC0 
+X-CRM114-Status: GOOD (  10.88  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,95 +102,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 08:57:58PM +0300, Fedor Pchelkin wrote:
-> Upon encountering errors during the HSIC pinctrl handling section the
-> regulator should be disabled.
->
-> After the above-stated changes it is possible to jump onto
-> "disable_hsic_regulator" label without having added the CPU latency QoS
-> request previously. This would result in cpu_latency_qos_remove_request()
-> yielding a WARNING.
->
-> So rearrange the error handling path to follow the reverse order of
-> different probing phases.
+Add support for the i.MX6UL Variscite SoM (VAR-SOM-6UL) and the
+Variscite Concerto Carrier Board.
 
-Suggest use devm_add_action() to simple whole error handle code.
+I tested this with a VAR-SOM-6UL_G2_700C_512R_8N_IT_REV1.3A (one variant
+of this SoM), meaning I couldn't test all of the possible options of the
+SoM - so this device tree includes partial support for it.
 
->
-> Found by Linux Verification Center (linuxtesting.org).
+These are based on the 5.15 Variscite kernel fork but adapted for
+mainline.
 
-I think this sentense have not provide valuable informaiton for reader.
+Signed-off-by: Antonin Godard <antonin.godard@bootlin.com>
+---
+Changes in v3:
+- Reviews from Shawn:
+  - Fix alphabetical order of nodes and pinctrl entries.
+  - Fix rmii-ref-clk label (remove "-grp" added by mistake).
+  - Fix order of properties for eth nodes.
+  - Convert deprecated fec properties to eth properties.
+- Link to v2: https://lore.kernel.org/r/20250127-varsom6ul-concerto-dts-v2-0-4dac29256989@bootlin.com
 
-Frank
+Changes in v2:
+- Reviews from Krzysztof:
+  - Use imperative mood in commit descriptions.
+  - Remove backlight node as I am unable to test it.
+  - Rename gpled2 node to led-0, and set function, color and label for
+    it.
+  - Remove unnecessary comment "DS1337 RTC module".
+- Rename binding "variscite,mx6concerto" to "variscite,mx6ulconcerto"
+  since this is for the VAR-SOM-6UL mounted on the Concerto.
+- Remove pinctrl_ft5x06_ts_gpio iomuxc node, unused.
+- Link to v1: https://lore.kernel.org/r/20250121-varsom6ul-concerto-dts-v1-0-eb349acf0ac6@bootlin.com
 
->
-> Fixes: 4d6141288c33 ("usb: chipidea: imx: pinctrl for HSIC is optional")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.c | 15 ++++++++-------
->  1 file changed, 8 insertions(+), 7 deletions(-)
->
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index 619779eef333..3f11ae071c7f 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -407,13 +407,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  				"pinctrl_hsic_idle lookup failed, err=%ld\n",
->  					PTR_ERR(pinctrl_hsic_idle));
->  			ret = PTR_ERR(pinctrl_hsic_idle);
-> -			goto err_put;
-> +			goto disable_hsic_regulator;
->  		}
->
->  		ret = pinctrl_select_state(data->pinctrl, pinctrl_hsic_idle);
->  		if (ret) {
->  			dev_err(dev, "hsic_idle select failed, err=%d\n", ret);
-> -			goto err_put;
-> +			goto disable_hsic_regulator;
->  		}
->
->  		data->pinctrl_hsic_active = pinctrl_lookup_state(data->pinctrl,
-> @@ -423,7 +423,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  				"pinctrl_hsic_active lookup failed, err=%ld\n",
->  					PTR_ERR(data->pinctrl_hsic_active));
->  			ret = PTR_ERR(data->pinctrl_hsic_active);
-> -			goto err_put;
-> +			goto disable_hsic_regulator;
->  		}
->  	}
->
-> @@ -432,11 +432,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->
->  	ret = imx_get_clks(dev);
->  	if (ret)
-> -		goto disable_hsic_regulator;
-> +		goto qos_remove_request;
->
->  	ret = imx_prepare_enable_clks(dev);
->  	if (ret)
-> -		goto disable_hsic_regulator;
-> +		goto qos_remove_request;
->
->  	ret = clk_prepare_enable(data->clk_wakeup);
->  	if (ret)
-> @@ -526,12 +526,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  	clk_disable_unprepare(data->clk_wakeup);
->  err_wakeup_clk:
->  	imx_disable_unprepare_clks(dev);
-> +qos_remove_request:
-> +	if (pdata.flags & CI_HDRC_PMQOS)
-> +		cpu_latency_qos_remove_request(&data->pm_qos_req);
->  disable_hsic_regulator:
->  	if (data->hsic_pad_regulator)
->  		/* don't overwrite original ret (cf. EPROBE_DEFER) */
->  		regulator_disable(data->hsic_pad_regulator);
-> -	if (pdata.flags & CI_HDRC_PMQOS)
-> -		cpu_latency_qos_remove_request(&data->pm_qos_req);
->  	data->ci_pdev = NULL;
->  err_put:
->  	if (data->usbmisc_data)
-> --
-> 2.48.1
->
+---
+Antonin Godard (3):
+      dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and Concerto board
+      ARM: dts: imx6ul: Add Variscite VAR-SOM-MX6UL SoM support
+      ARM: dts: imx6ul: Add Variscite Concerto board support
+
+ Documentation/devicetree/bindings/arm/fsl.yaml     |   6 +
+ arch/arm/boot/dts/nxp/imx/Makefile                 |   1 +
+ .../boot/dts/nxp/imx/imx6ul-var-som-concerto.dts   | 320 +++++++++++++++++++++
+ arch/arm/boot/dts/nxp/imx/imx6ul-var-som.dtsi      | 233 +++++++++++++++
+ 4 files changed, 560 insertions(+)
+---
+base-commit: 66683f3b2661643f694607283ee8f01b7a934c83
+change-id: 20250120-varsom6ul-concerto-dts-a08be2a6219b
+
+Best regards,
+-- 
+Antonin Godard <antonin.godard@bootlin.com>
+
 
