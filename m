@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5514DC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CEFC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:16:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bovKtbDOoLYl9GF3nO0/GERUm1oYh3QxcgsynzZgglo=; b=sKUaSpQnh9EU/bRdfnrTPdj6iZ
-	w2iypFSeaTDsWAm2VI9VkMXTI4pHPBj5nf6GzqX4bGYR/l0ytFQzGN8A0bK5mKYnsLWjFV27UxP7+
-	sg77NiMVEFgHwvPBr//TQMoOaLyvYA9W0OoM3zFQPA1J+W4IYwNtvDs/1XrqMafjj8MIjuxAGDraL
-	yBH6YH9zpaPkKqrjXg4Sz4bhM+H5x6T1gpyBrfz1+TZ302uu17abmih1hQpQyg32n5Jp+4zBMuZFx
-	wBiDBKM8RfuzDyhU4wzarkvLUHlOQuLPMTRAq+nbYva9LH9BFYwL40wis3mEPISeElj0g5OyLFOTL
-	VmFDkPnA==;
+	bh=+PUH+cR2ve7Y5AMMZrYsc+Lr78WSgGXcqlz7/qhbWYo=; b=u4Fr6S/RZTW2kx9Gt7ybzW3LHj
+	FTA+r5Hgu2WtjrD7Eh19uCcSLcvlpS3G0LPqT5Shg8FHggn5XnRUu9vca4FWwYqoqa9KRaGKisRFg
+	m9/T8DAtZMk2XhznPFirHth2zWDLbda1y9GhKuraGmPI2xxT3KQmVN100osiHH3IHBFvKXD35/JDr
+	2AwnSyqsRvN07u/xXzEwyj0I7AskjZ5CBzv6/Rf1ui4Cmy2dUOXHXzZeZC9NzP9IlRRjKIr7iZ0vL
+	3+S8H+ShtgvuTWWVKhTZ6Th8XU0wgt7FwKEEbPyEQnZOd2LAgvczUfB16zJLyvZ00fB8i+Bru2Hl0
+	DRr5A9zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1triZ5-00000003iYu-3G4L;
-	Mon, 10 Mar 2025 19:13:27 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tribS-00000003imV-25qI;
+	Mon, 10 Mar 2025 19:15:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1triXR-00000003iVW-3u3f
+	id 1triZo-00000003idp-0WfK
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 19:11:47 +0000
+	Mon, 10 Mar 2025 19:14:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id CE7AB5C540C;
-	Mon, 10 Mar 2025 19:09:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBD10C4CEE5;
-	Mon, 10 Mar 2025 19:11:43 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 1E972A460BC;
+	Mon, 10 Mar 2025 19:08:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD97C4CEE5;
+	Mon, 10 Mar 2025 19:14:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741633904;
-	bh=8Sff0TsgnZs3fX2n+0u/8tlu0wY9c+QMZDFeIB+Uf38=;
+	s=k20201202; t=1741634050;
+	bh=xQeemCsrfUF+jP/rsD1veh7JdHq+E8YcGMftlCccdmg=;
 	h=From:To:Cc:Subject:Date:From;
-	b=iK5eOERfs/lSapoXXibjJftUFpOXadzcXPs20ERHR3WtC3K8Q2vHYstozGZjhfEKt
-	 mVlQHV5X1zhpUHhhsWyvBukjEHVJlkw8nxMh0b8hcwGF3BYns4BwL1rJYmhm2Ky1nV
-	 JkCfLzv7SrFdpVXBNO49gDRBPA0lp9Uij3PHEzMf9SkIDbYnUdGaorRpzwOpTByQxa
-	 v/KS0tiMGyX9az053CwQj0yrum0S8V3hN5KpjfMofo2cIjhtsljlyyU2uSffKhufNS
-	 0HfmFANSYEqGBWhCGY7gl5uJh/POUEaNiW93F7orx1ORZmvtSoK8nlB/PeJxoLVKAA
-	 xpf8ACzboC+FQ==
+	b=Yi88lkebQIjrJiDYz7RgeYpBz1fH4NtfixP8nEee3ndJTluyve9Hm/vB3WOFUmmiC
+	 i2DcYZrmIGl1HMv8S/mYOXsFupNTmOixGBXVDp7HnkqJiyN0u9wpp7TK82tc9W3IFJ
+	 2U847Ap6yxYmZweDIwMDajso44Iahgnu50LCeIYp4jzkHGJ0pPfmqd3gW/DjbYRdU8
+	 ULwJXqwCIoZVFkKDoD6DUKIMKAds+zJyEOSePF0hGDzgGxk7jZqi/cdswQBi37I03i
+	 pq/dn1MDUxj6s80k98cyLUVRySlRztRHPlhGJ3G+qmWO2I+p/BHgynVdmq1Ud1+V2w
+	 lWCaJcELT+SGA==
 From: Bjorn Andersson <andersson@kernel.org>
-To: Stephen Boyd <sboyd@kernel.org>,
-	linux-clk@vger.kernel.org
+To: arm@kernel.org,
+	soc@kernel.org
 Cc: linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [GIT PULL] Qualcomm clock fix for v6.14
-Date: Mon, 10 Mar 2025 14:11:41 -0500
-Message-ID: <20250310191142.1208155-1-andersson@kernel.org>
+	Arnd Bergmann <arnd@arndb.de>,
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Subject: [GIT PULL] Qualcomm Arm64 Devicetree fixes for v6.14
+Date: Mon, 10 Mar 2025 14:14:08 -0500
+Message-ID: <20250310191409.1208520-1-andersson@kernel.org>
 X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_121146_024188_B379147A 
-X-CRM114-Status: UNSURE (   5.79  )
+X-CRM114-CacheID: sfid-20250310_121412_230324_72ABF9CF 
+X-CRM114-Status: UNSURE (   6.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -79,22 +80,22 @@ The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
 are available in the Git repository at:
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-clk-fixes-for-6.14
+  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-fixes-for-6.14
 
-for you to fetch changes up to 787289a1d13d50ff4ce0f496947f8817ef3fdea9:
+for you to fetch changes up to f00db31d235946853fb430de8c6aa1295efc8353:
 
-  clk: qcom: dispcc-sm8750: Drop incorrect CLK_SET_RATE_PARENT on byte intf parent (2025-02-26 08:57:46 -0600)
-
-----------------------------------------------------------------
-Qualcomm clock fix for v6.14
-
-Avoid propagating rate changes for the MDSS byte intf clocks on SM8750,
-to avoid changing the already configured clocks.
+  Revert "arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu" (2025-02-25 09:52:52 -0600)
 
 ----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      clk: qcom: dispcc-sm8750: Drop incorrect CLK_SET_RATE_PARENT on byte intf parent
+Qualcomm Arm64 Devicetree fixes for v6.14
 
- drivers/clk/qcom/dispcc-sm8750.c | 2 --
- 1 file changed, 2 deletions(-)
+Revert the change to marking SDM845 SMMU dma-coherent, as this is
+reported not to be true.
+
+----------------------------------------------------------------
+Konrad Dybcio (1):
+      Revert "arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu"
+
+ arch/arm64/boot/dts/qcom/sdm845.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
