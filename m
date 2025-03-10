@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 603E3C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  9 Mar 2025 23:37:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16806C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 00:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KanAfDw+UyOaqtRYsPqpRbqdHPNczgiApRuHgmm7F4E=; b=ZuaXLWe70H2zzyck9izrCQgoVf
-	Nh6PEY1yVSgK/2V3Fe8zBZ21Qb+nhvOh9MghfMI403F1HwKzEo0gp4K1DWehmJj0JFCDj2fSlU5ll
-	DwKF2tb40pgupzDmK17tYMTpLJENf2vGgG1k7sdhKapgyTC+bqIYaEzxyR1FPNNmyNfi+2PngmmLI
-	2X1fMs1BUTJqSpB77p+FOsmwB4kDHw6XR21xSo6MJuw0oH+MWJqQlrgRIVQ6UnS52VV0Wt9Knv6Dd
-	jT3+cTdmMxLf3F18dqNOvqblSZDt6UmZlaNyQgqfvmRvXeMliZYAuvllUsKh9Irau08rYXy6Fpn1I
-	3rIv/G6Q==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HkcBOyMrU08By5wz8cHkuMlZXuzZuC30spWDpSCMgq8=; b=LJczgzoX2q6bzJX8nPISxBGaOZ
+	pxHnFyUH3gUtLyWRQ7642jqGBqWFG8ezFQTXlnpP206/Mt6ZERHWJvWohJ4H2mxx7BF6a1B6Ce1nE
+	7ftxbqFfycVOD2QV7nXXy3xLgV5PuLF1h5HAdkH69nmiZuJ374qIGrraT3TwR1c3A83lG2pd7jv43
+	7kpcbU1hzgyY5wnHerC+8PtitJ6qvZmraJ+6edAj+fm9VE2pfdK92XMGtnuegjHSrNTC+pORL0xFi
+	QUif4w2DLl0/+eT4Hg38GhF5vSmXhZWo/IUp1aK2AryrbVZ1mgrQUfWPPGzgtAneH/pAaom8n+gkY
+	/iowZb8w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQCq-00000001HZC-0fYe;
-	Sun, 09 Mar 2025 23:37:16 +0000
-Received: from smtp.forwardemail.net ([2001:19f0:ac01:372:5400:5ff:fe53:764a])
+	id 1trQnC-00000001JtI-0BZt;
+	Mon, 10 Mar 2025 00:14:50 +0000
+Received: from smtp.forwardemail.net ([121.127.44.59])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trQ3F-00000001GOC-2Edw
+	id 1trQlX-00000001Jgf-3GGl
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 09 Mar 2025 23:27:23 +0000
+	Mon, 10 Mar 2025 00:13:09 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
- h=Content-Transfer-Encoding: MIME-Version: References: In-Reply-To:
- Message-ID: Date: Subject: Cc: To: From; q=dns/txt; s=fe-e1b5cab7be;
- t=1741562823; bh=KanAfDw+UyOaqtRYsPqpRbqdHPNczgiApRuHgmm7F4E=;
- b=vGP5gj9XGJyue6Vyu5pool/9aJO7GoHN9PeS04Q3O/Oib4pZNEAcK8+UZ+POHHmpLrtS2OAeu
- JG24BtrtThZk9LPdF9/0s49oSmr0NWTcC+qjA5saAq7OHI77z+X36e38kTnuygXCplIMlQaf6k1
- cMoHNfMVHfIPXMXSftJ8hwo9Zkw6Vyqwj9F7gvROU1EBcifMGcOeeOTPix5p+nKREXjCAgYbWlo
- KvlPUboRheUpV3KG8i6P1AbG8Ctca+67luByQ/1V50MNY+TC/Eieic0UuQd3+L7493MyJO5/XhX
- +oFRRKn0sKq+Dps5CaxjqtzCAarlnys/XeLIIrXWsmyQ==
-X-Forward-Email-ID: 67ce23bc5209992d7c670edc
+ h=Content-Transfer-Encoding: MIME-Version: Message-ID: Date: Subject: Cc:
+ To: From; q=dns/txt; s=fe-e1b5cab7be; t=1741565586;
+ bh=HkcBOyMrU08By5wz8cHkuMlZXuzZuC30spWDpSCMgq8=;
+ b=B53pD1jch6CAxTz1fMg7CbahBoJSxCIjl43fYcIFY6Bt9u/tjPf2nuhUyGH+8785GBDOICVPr
+ gyXPIFf4hPW32QBUwnNbWG1JZeu8vin2n5/fO7OGAefhciZRhXTh1ncf+b1DWkD1DbKS7NiNpZ/
+ o6Z5mlcXLviFKsJh57TizDTxfrM2sjMjp39B+1OMy0i95ik1R7nPe9oDXO/dizRY8fFk9su//B8
+ 14xp7RfFCPuyW2dpjGPv2n20izuhGnTrvgLcg0m1yf2JgbSDVSQ3sD+Mh+kM6y8QzSCF2P8F5CF
+ Cbgb4ceISf4YlCIybvTI78SaKdPZqMXcHV7xIPVfpU1Q==
+X-Forward-Email-ID: 67ce2e8ff812de2512d1f540
 X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
- 149.28.215.223
+ 121.127.44.59
 X-Forward-Email-Version: 0.4.40
 X-Forward-Email-Website: https://forwardemail.net
 X-Complaints-To: abuse@forwardemail.net
@@ -46,37 +46,25 @@ X-Report-Abuse: abuse@forwardemail.net
 X-Report-Abuse-To: abuse@forwardemail.net
 From: Jonas Karlman <jonas@kwiboo.se>
 To: Heiko Stuebner <heiko@sntech.de>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Wu <david.wu@rock-chips.com>,
-	Yao Zi <ziyao@disroot.org>,
-	netdev@vger.kernel.org,
-	devicetree@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: Yao Zi <ziyao@disroot.org>,
+	Chukun Pan <amadeus@jmu.edu.cn>,
 	linux-rockchip@lists.infradead.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Jonas Karlman <jonas@kwiboo.se>,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v2 5/5] net: stmmac: dwmac-rk: Add initial support for RK3528 integrated PHY
-Date: Sun,  9 Mar 2025 23:26:15 +0000
-Message-ID: <20250309232622.1498084-6-jonas@kwiboo.se>
+	Jonas Karlman <jonas@kwiboo.se>
+Subject: [PATCH v2 0/2] rockchip: Enable Ethernet controller on Radxa E20C
+Date: Mon, 10 Mar 2025 00:12:49 +0000
+Message-ID: <20250310001254.1516138-1-jonas@kwiboo.se>
 X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250309232622.1498084-1-jonas@kwiboo.se>
-References: <20250309232622.1498084-1-jonas@kwiboo.se>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_162721_609145_ABF7D854 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250309_171307_920002_B58EB9C0 
+X-CRM114-Status: GOOD (  12.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,91 +79,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rockchip RK3528 (and RV1106) has a different integrated PHY compared to
-the integrated PHY on RK3228/RK3328. Current powerup/down operation is
-not compatible with the integrated PHY found in these newer SoCs.
+The Rockchip RK3528 has two Ethernet controllers, one 100/10 MAC to be
+used with the integrated PHY and a second 1000/100/10 MAC to be used
+with an external Ethernet PHY.
 
-Add operations to powerup/down the integrated PHY found in RK3528.
-Use helpers that can be used by other GMAC variants in the future.
+This series add device tree nodes for the Ethernet controllers found in
+RK3528 and enable the LAN interface on Radxa E20C.
 
-Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
----
+This include a gmac0 node for the 100/10 MAC and its related integrated
+PHY node that only have recived limited testing. I have no board that
+expose an Ethernet port for the gmac0 and the integrated PHY. However,
+the PHY can be identified on addr 0x2 as 0044.1400 and in vendor kernel
+this relate to the Rockchip RK630 PHY. A proper PHY driver will be
+needed to support any real use of gmac0.
+
 Changes in v2:
-- New patch
+- Split from the "Add GMAC support for RK3528" driver series [1]
+- Add ethernet-phy@2 for the integrated PHY
+- Rebase on top of the "Support I2C controllers in RK3528" series [2]
 
-This is enough to power up the integrated PHY on RK3528 for MDIO/MII.
-However, a PHY driver is still missing and I do not have any RK3528
-board that make use of this MAC and PHY, so something that can be
-improved upon in the future.
----
- .../net/ethernet/stmicro/stmmac/dwmac-rk.c    | 41 +++++++++++++++++++
- 1 file changed, 41 insertions(+)
+This series depend on the "net: stmmac: dwmac-rk: Add GMAC support for
+RK3528" [1] series and the "Support I2C controllers in RK3528" [2]
+series for a clean apply.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 3f096b3ccee8..ab2c872d33e0 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -134,6 +134,35 @@ static void rk_gmac_integrated_ephy_powerdown(struct rk_priv_data *priv)
- 		reset_control_assert(priv->phy_reset);
- }
- 
-+#define RK_FEPHY_SHUTDOWN		GRF_BIT(1)
-+#define RK_FEPHY_POWERUP		GRF_CLR_BIT(1)
-+#define RK_FEPHY_INTERNAL_RMII_SEL	GRF_BIT(6)
-+#define RK_FEPHY_24M_CLK_SEL		(GRF_BIT(8) | GRF_BIT(9))
-+#define RK_FEPHY_PHY_ID			GRF_BIT(11)
-+
-+static void rk_gmac_integrated_fephy_powerup(struct rk_priv_data *priv,
-+					     unsigned int reg)
-+{
-+	reset_control_assert(priv->phy_reset);
-+	usleep_range(20, 30);
-+
-+	regmap_write(priv->grf, reg,
-+		     RK_FEPHY_POWERUP |
-+		     RK_FEPHY_INTERNAL_RMII_SEL |
-+		     RK_FEPHY_24M_CLK_SEL |
-+		     RK_FEPHY_PHY_ID);
-+	usleep_range(10000, 12000);
-+
-+	reset_control_deassert(priv->phy_reset);
-+	usleep_range(50000, 60000);
-+}
-+
-+static void rk_gmac_integrated_fephy_powerdown(struct rk_priv_data *priv,
-+					       unsigned int reg)
-+{
-+	regmap_write(priv->grf, reg, RK_FEPHY_SHUTDOWN);
-+}
-+
- #define PX30_GRF_GMAC_CON1		0x0904
- 
- /* PX30_GRF_GMAC_CON1 */
-@@ -993,12 +1022,24 @@ static void rk3528_set_clock_selection(struct rk_priv_data *bsp_priv,
- 	}
- }
- 
-+static void rk3528_integrated_phy_powerup(struct rk_priv_data *bsp_priv)
-+{
-+	rk_gmac_integrated_fephy_powerup(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
-+}
-+
-+static void rk3528_integrated_phy_powerdown(struct rk_priv_data *bsp_priv)
-+{
-+	rk_gmac_integrated_fephy_powerdown(bsp_priv, RK3528_VO_GRF_MACPHY_CON0);
-+}
-+
- static const struct rk_gmac_ops rk3528_ops = {
- 	.set_to_rgmii = rk3528_set_to_rgmii,
- 	.set_to_rmii = rk3528_set_to_rmii,
- 	.set_rgmii_speed = rk3528_set_rgmii_speed,
- 	.set_rmii_speed = rk3528_set_rmii_speed,
- 	.set_clock_selection = rk3528_set_clock_selection,
-+	.integrated_phy_powerup = rk3528_integrated_phy_powerup,
-+	.integrated_phy_powerdown = rk3528_integrated_phy_powerdown,
- 	.regs_valid = true,
- 	.regs = {
- 		0xffbd0000, /* gmac0 */
+[1] https://lore.kernel.org/r/20250309232622.1498084-1-jonas@kwiboo.se
+[2] https://lore.kernel.org/r/20250309070603.35254-1-ziyao@disroot.org
+
+Jonas Karlman (2):
+  arm64: dts: rockchip: Add GMAC nodes for RK3528
+  arm64: dts: rockchip: Enable Ethernet controller on Radxa E20C
+
+ .../boot/dts/rockchip/rk3528-radxa-e20c.dts   |  30 +++++
+ arch/arm64/boot/dts/rockchip/rk3528.dtsi      | 105 ++++++++++++++++++
+ 2 files changed, 135 insertions(+)
+
 -- 
 2.48.1
 
