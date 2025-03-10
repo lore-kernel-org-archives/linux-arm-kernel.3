@@ -4,66 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 732C7C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 20:18:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5178BC2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 20:20:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=muKFt9z2UY8iQui6ZPO6/ddpa6A+7CeFX/CjkFugBlw=; b=GpWnQUTPFzgBL3EPy/XIAqmha1
-	a9kBzFRA5DLgixh1+DxUuBXCKp7VAvNJHpeY2bg3JTEeVAeAf4lQpWFGMvX4BrEm6UWleEze++7Ho
-	8Id0FwxAoqeRvuW7S6fYlH07AKBxPIAhRLIrCoiO8w4jtgqpyPsUJgIDV6HBys3Sjfol6+iM4iTbU
-	nW/4KXOVXDIU7zH2iTfPABJpTFcgt0YhDI31V9xWZdqQNJA3IFJQszXXbS9k/QuIzhw7YYd7iqJ4S
-	VNMd/T1qtsJRtOMqRvg6ZGfDILbD0W83XrjwIXDIXQ0Xjt3CWJ3STZIt2Z6X4Eop3vO4wZ6iIBIK6
-	DJam5Y5w==;
+	bh=zTq75GcUmqvorQnG6XMOND3nHNp34uxAp+xF68eVmdM=; b=mwYw1u7eVNXSE6eHiWQtUq92VM
+	lMyx1IgavKVtO5bDGHWHT6WVpbMHKGeYw6u947v3yoVDvLCY4u8Szt+FGmKsTlD9fqW12vxCJMjHj
+	mi9ZCIOJqGi5oFq9A+sOnBU5rKv7zMF3L5S4Au6tbBoyE6kiMNu/9hvg/454PuTpezoFvrNw13Tcw
+	OrjC7dPcjBngCS0aRo/GLN6/YZwr+u2nZg9yGSbZGRBfIC8BG1AYTk0AtK7fpQZAN5UE4zHeCyQtE
+	tbCsWzv+rhHsiMYjbq8aGHsOXaJkNplL7HcubkpfiFva1ZFXRtvqBqqBLcluhpmYN28lugFEC/djy
+	sudCZysg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjZx-00000003ql8-40p1;
-	Mon, 10 Mar 2025 20:18:25 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trjba-00000003rEH-1jfN;
+	Mon, 10 Mar 2025 20:20:06 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjUk-00000003pGE-00sQ;
-	Mon, 10 Mar 2025 20:13:03 +0000
+	id 1trjUp-00000003pHx-405V;
+	Mon, 10 Mar 2025 20:13:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 00404A46205;
-	Mon, 10 Mar 2025 20:07:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78140C4CEE5;
-	Mon, 10 Mar 2025 20:12:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 998205C5EAC;
+	Mon, 10 Mar 2025 20:10:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75E97C4CEEA;
+	Mon, 10 Mar 2025 20:13:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741637580;
-	bh=xEM6pFjBPHLs4DsygLv6xgvUvNhyjDWD4dquKB53SKw=;
+	s=k20201202; t=1741637587;
+	bh=pwT39giEdOzrATke/Go754xjWmqpTejDczTvTc4LmLo=;
 	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=PXgsICyE0x+9FM6rPZWMI2kSvKm23bvxf00IUkdgmHflvb5JQuonJ3COzKo3cDsk3
-	 e38kgtuQjaJSakJg/LaUDVNB8ReZmowej64+ramCYG5PC8AP7noqXM+5AGbmEOCoer
-	 zkGjpeNVMOdHAlkTgfVBtFyFBwN8ftHIppfyw7IWCAp5mhGw5L+wvPDLybzQyCrrGj
-	 tN3LaZk8h323+X1M4l+/fM6GtStN4DYzN0vRu9cqobmNaC/ktIXKBOliGvU5wsj3el
-	 y6zkmR5tQmuyHsyjlwWXSTNbNYyU/4R87ownu7+7oea73PMcRcDoHK8kaY6M9JhMFC
-	 /WwhDxsqc4E4A==
+	b=PvFJaMHd1RdC/g5djtx22/46v3J0qj+Yc9d2cSCc5paDGT9IqCAr9+Qtb3VpOwbJP
+	 qU/BwFi1nA67/u6vFnq63ncp06yks3dG7bCewpylTwre3m2YOSNYu5gNYy7rjdNI27
+	 c/QGUicBRGAbxLi10hU+d7deZPr0mc56WF/HJNGE/U9kFPYzShWcPDyrqN6g5y47QV
+	 nm8rftZFmJzaGo0vBPBSiH5JwBjYN5yD1b5uiwUf+X7Vt2oVI3v7IOmzwMVqo9glbL
+	 aD8DtcoVJUQ/Um3KuV8e5DIcFJdcz1HvSr/pOjEjWeylgPZn3B27yxybGOVqZGS0J1
+	 SR13cVMqi3FfQ==
 From: Vinod Koul <vkoul@kernel.org>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
- Heiko Stuebner <heiko@sntech.de>, Andy Yan <andyshrk@163.com>, 
- Kishon Vijay Abraham I <kishon@kernel.org>, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Sebastian Reichel <sebastian.reichel@collabora.com>, 
- kernel@collabora.com, linux-phy@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
- linux-kernel@vger.kernel.org
-In-Reply-To: <20250306-rk3576-hdptx-phy-v1-1-288cc4b0611a@collabora.com>
-References: <20250306-rk3576-hdptx-phy-v1-1-288cc4b0611a@collabora.com>
-Subject: Re: [PATCH] phy: phy-rockchip-samsung-hdptx: Add support for
- RK3576
-Message-Id: <174163757697.467704.14207163796763946102.b4-ty@kernel.org>
-Date: Tue, 11 Mar 2025 01:42:56 +0530
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Ulf Hansson <ulf.hansson@linaro.org>, linux-mmc@vger.kernel.org, 
+ Wim Van Sebroeck <wim@linux-watchdog.org>, 
+ Guenter Roeck <linux@roeck-us.net>, linux-watchdog@vger.kernel.org, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, linux-phy@lists.infradead.org
+In-Reply-To: <20250307005712.16828-1-andre.przywara@arm.com>
+References: <20250307005712.16828-1-andre.przywara@arm.com>
+Subject: Re: (subset) [PATCH v3 00/15] arm64: dts: allwinner: Add basic
+ Allwinner A523 support
+Message-Id: <174163758109.467704.5227333743858525157.b4-ty@kernel.org>
+Date: Tue, 11 Mar 2025 01:43:01 +0530
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_131302_111524_36D2B908 
-X-CRM114-Status: UNSURE (   6.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_131308_037539_87519A53 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,21 +82,25 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 06 Mar 2025 20:29:23 +0100, Nicolas Frattaroli wrote:
-> Despite the compatible already being listed in the bindings, the PHY
-> driver never gained explicit support for it. This is especially a
-> problem because the explicitly listed PHY addresses need to be specified
-> for each SoC.
-> 
-> To solve this, add the compatible, and a PHY config, with the address
-> gleaned from rk3576.dtsi.
+On Fri, 07 Mar 2025 00:56:57 +0000, Andre Przywara wrote:
+> this in an update to the series introducing the basic DT support for the
+> Allwinner A523 SoC. It now comes with DTs for three boards, using
+> slightly different packages of that SoC.[1]
+> Functionality-wise it relies on the pinctrl[2] and clock[3] support
+> series, though there are no direct code dependency series between the
+> series. Two binding patches from there are required to pass dtbs_check,
+> git put their patch IDs in the footer below.
+> Compared to v2 only small fixes in the NMI controller driver: renaming
+> the struct to better reflect its new usage, add adding the DS pin to
+> the eMMC pingroup list. Adding accrued tags on the way, many thanks to
+> the diligent reviewers! More detailed changelog below.
 > 
 > [...]
 
 Applied, thanks!
 
-[1/1] phy: phy-rockchip-samsung-hdptx: Add support for RK3576
-      commit: 4a8463ae8d871ccd491d48a371a6789eb7378243
+[07/15] dt-bindings: phy: document Allwinner A523 USB-2.0 PHY
+        commit: 1f7af7f3c353ae3b384a66a82c5074ac28901160
 
 Best regards,
 -- 
