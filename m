@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9044C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:32:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DB1AC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:35:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zrr8qOY5AroKW6DfKo2xALklKHaHMS61VgN2ae8lGd4=; b=pWs72H/25ivJ+t6tT7JB2Nxf15
-	bew634Ncd3wvJbHUHKgEHWiwwS3q8p3KM/jsZqOd9QnXdB7I/PysmJMMMuZccPCicJg4RyO5ZJ0sE
-	lJ1C07+wXnX6XD3CVZaaPMy+D55L5+3uvSm59kqXLUTauz8v/xIk5RQDpFmWrWDjH4bA9vKnxq0tG
-	5yGuOzwcbDUSqBaUYpuYyEBCHKcf9VlfH4wXA5M4sZrOF4UEV/g/As1UQXuv8hjz5rpWnD3/X+CxN
-	80lqGLsc82P5ll2WpcwVodmyf/wWHnp+m6L8DoHmb/bzXdHkMad0QPxSC2VXNXzGY1seLU0rA8BJw
-	cg7NIQlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GBCTrGJB1mDqX6/Ebl8x0SDFQf9NjGpE5C21GQTHa8M=; b=mZQR2eXhGczCiNq6KVWIHfMXsm
+	31U5caHRGwimXK5fOPuSLIOEOk0X/Z0nuGAwM+aTM5I5cfFuC9GgusF1Of+MrV54vJ1PFRxxC3nbD
+	daWGEuT9etOXefsDP6vBLLaH5NFJo3619r/0Ytt2Log3+X+YNs4I3JHsBueeLJbH5GX42tS7Yp2Qu
+	xiydW09GqVXmtThbtt6SOEqzADFgqQYizbrcFmWOIZYbt9OTbMr45QQBPkRUhQLtjj1UReV2QTg04
+	RJ8ItKz4A4r+S/PLrPVJogYFp1N+qUhSSidIv1ymc+RcyXqcqQkmhJInkC8YZ7yJ+iThMw7/lH7yp
+	Z8aUASDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trirn-00000003jvV-3EdQ;
-	Mon, 10 Mar 2025 19:32:47 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1triuT-00000003k76-20mN;
+	Mon, 10 Mar 2025 19:35:33 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1triqB-00000003jsZ-1zcL;
-	Mon, 10 Mar 2025 19:31:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Zrr8qOY5AroKW6DfKo2xALklKHaHMS61VgN2ae8lGd4=; b=nnLiHwqCXra8vWkf1q0iD36j+w
-	QvHsbDdQkti3DSY2ixnanNFPEnh4op1ZNJY6+5T3keKngFHZnS3t1eQKJZ0x2+PaQPcxoGS9ZRr+J
-	M8cVM9ZV3lUopUaBgAkm5i9ZDivmodd2L8HYHhbbEBAO9abD+Vn6vTx5mCuNciDeMhb2/cZJWnMF5
-	oC3YY25HhUw4PpdcjKnlQRJRET6XXsmHMEsQj+m/HaB8chIwfhEYQDKBzA89nSLNGyea26CqtHwzq
-	Roz65irHg79fScBKGJ4GZcH6zJRdQlP9VRhIg6FT7qwuR5k+N6kW0SWAtKTJ7UWIk46RV5eRk+xbe
-	BI7PxROQ==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1triq7-0000000220p-2lVc;
-	Mon, 10 Mar 2025 19:31:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5127DA43335;
-	Mon, 10 Mar 2025 19:25:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22595C4CEEC;
-	Mon, 10 Mar 2025 19:30:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741635059;
-	bh=v4yFecT2Oniyy1NPYOTfbARYRqI9e57Xhic4hOu+GeQ=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=YEsJI4SW1f/4rNuYiyHSu6/QnSExJ4x+d6iQjI9VDYrZoNADxke2mnXUwP9afkihL
-	 hTuuH7V0VvVUg5uJFbcLaV3P7z7RXNhKKuijQf+ljuhhIZy4j+4VTXINMoR1mxU6mu
-	 9oYCm4t8FMpXLRBV22kEbpTDdhoxwjLbeq0rMzzReSuaVBXcAgYjIAZq3BHxisBfVj
-	 GLFn9UmZ/rHmt/8ArwgEiV5JpYwhB5ksIkuxE1S5ZZfX7MMhJRKQW4RKzxHjSn4O1U
-	 ToiRFxu1+MR8QXk+J8FtqIwrbQ6ID67F5bBBCPBS5GARlRPIQNUENI/DTESUA/ZxXY
-	 2OvQqUx3x58Hw==
-Received: by mail-ej1-f47.google.com with SMTP id a640c23a62f3a-ac2ae81dd81so176459066b.0;
-        Mon, 10 Mar 2025 12:30:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUYkuLdK8wR37zH0XHsguwCaJQdiRGkpg6ehE5b3JCCUXVZ3w1+/Ctj5XPI/eI2NKFxe1HQcNKsaau3doJPmfA=@lists.infradead.org, AJvYcCV5wEq4kXq81U06ZgdJc9hOXUH3w5DxOQPAiwO6z6ixhPsGsBFBUBGESq01m88s5b7uP6w88IPwYoEMQy6aWrmB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwFHR6xzsKxQ4qXH1gzGrwAREcxTjeyT4k0jKQkhjzqDuyUP8dG
-	/WSBhKCRG7SMPJWhCKA6l1qvDiBKrcSDt7s+mlqytENDjLD9LDjoj4EiPJGtNe8sy50sUZ+1cLp
-	XNRMvVfZdBLiThRnRezEB6uZ3tg==
-X-Google-Smtp-Source: AGHT+IGxBKdAQOOWVnO3ZEjAzX0VnUi4wg5gUyfxa5EYDnUv2ipBTTlxmPR9u72RbqgdJn4WQkU1sK0SjNez+497cro=
-X-Received: by 2002:a17:906:7308:b0:ac2:6582:1564 with SMTP id
- a640c23a62f3a-ac2b9e1d1d1mr100096466b.27.1741635057630; Mon, 10 Mar 2025
- 12:30:57 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250307093309.44950-1-krzysztof.kozlowski@linaro.org>
- <5417098.31r3eYUQgx@workhorse> <20250310124956.GA3875809-robh@kernel.org>
-In-Reply-To: <20250310124956.GA3875809-robh@kernel.org>
-From: Rob Herring <robh@kernel.org>
-Date: Mon, 10 Mar 2025 14:30:45 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqJShHSMzMwiYA79OppJYKKR8qN=1soXPV_hCZiXGyVkSg@mail.gmail.com>
-X-Gm-Features: AQ5f1JosXmbTct3QI9ZnK1eBDcQPU7QRj7_3mqIgKtvsQToiQl1meMSpHXHswhc
-Message-ID: <CAL_JsqJShHSMzMwiYA79OppJYKKR8qN=1soXPV_hCZiXGyVkSg@mail.gmail.com>
-Subject: Re: [PATCH v2] dt-bindings: rng: rockchip,rk3588-rng: Drop
- unnecessary status from example
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: Daniel Golle <daniel@makrotopia.org>, Aurelien Jarno <aurelien@aurel32.net>, 
-	Olivia Mackall <olivia@selenic.com>, Herbert Xu <herbert@gondor.apana.org.au>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Heiko Stuebner <heiko@sntech.de>, linux-crypto@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, 
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+	id 1trhtM-00000003bxk-39Cf
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 18:30:21 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43cfda30a3cso5150755e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 11:30:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741631418; x=1742236218; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=GBCTrGJB1mDqX6/Ebl8x0SDFQf9NjGpE5C21GQTHa8M=;
+        b=lILOIdSKUeZOIYXHR0cFNFcsd/3UuQz/aThfI5rFiqWVy2/6dtjdQRtkypXRSJ1/Xj
+         OF2XPAzGZEdw9XX92SFALWrlSQgypDy9OTOvuULaGq2eq2JVcjHjnz6qwe4AVwLe7r8o
+         ruiw/UMjv3JRs5Be0sFO2+Z9aD0LzJpJ4hdlQIX37KbYMIfYvPq8CdWtCqSLAJ2zS8HV
+         NvYOkUBl4dK63ej+Z2gZ/YtTaxK/uAut3VNo0OtFjffgZeuh7OBg/sALPpL5gfi99FNU
+         f+JmA39XEePTLnrED/TxWa/edggVd84Uc0lFTxnPGFTg57YlYgqi6HmB/CE3ANa7ftwx
+         ZV2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741631418; x=1742236218;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=GBCTrGJB1mDqX6/Ebl8x0SDFQf9NjGpE5C21GQTHa8M=;
+        b=nsz0f8ak/5L3KDEbPJW1LmR6u8Hlqil9H824rSVxahcyLxkCBf/zb7A35ZR4EjgHWd
+         Om70G/KTcE5iK69nnMYN2rf8590GevufnHJoPcEuOFeg9VCoW26WM2DmlXQQAJqnomMT
+         N8x9Q3G4bs0ac23RRPIbh5zdnKqcMnyuuND/pf9lAJ/vnfPcbZi8GOz1r+0Nc3v4cHIc
+         kW5OYXuf5rrBZQdVgEN8Z8ZUirAnkjLWAvOyt+VOTS0quh6vcz5H6SucyTJWGN8iM300
+         3b9B0wI96JIANidACIrsXGJKDHfLsvPDBbHlmvPhT3cZt/8rKijQwcXH2eMA2OAnRy1G
+         arsQ==
+X-Gm-Message-State: AOJu0Ywf0XtvuO3L7muZ/FouQ/WjIqJByVRGq745KUDrema7L+lkgWVu
+	3WlJ9uXXSR3QwxekD0pbnb5O+nXRA8ejaexO/ffgC7ujbNqo+EWnOKLkM+m6mk8l00Qk1MiO7Dv
+	xHIODWpWUhwjqRW9Q8HekDvwjAlfLA9o7p1ZfllvAuxpiF23B0Acg0H40dVM78Fjm+hYVYCCHb3
+	bufdeS4HybdVBdMy2hrTGvj4q/UDv8s8p9k7erc2+T
+X-Google-Smtp-Source: AGHT+IFmylnXC765vIkrlcBXJOLhfxj2Dp5htZKrcm7Lo1j1Z7lZy0NDOhY+5yNedTmzX+F1IMEzEWtL
+X-Received: from wmbgx25.prod.google.com ([2002:a05:600c:8599:b0:43d:1d5:26e6])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:358d:b0:43c:f597:d584
+ with SMTP id 5b1f17b1804b1-43cf597d841mr43447725e9.29.1741631418040; Mon, 10
+ Mar 2025 11:30:18 -0700 (PDT)
+Date: Mon, 10 Mar 2025 19:30:12 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2668; i=ardb@kernel.org;
+ h=from:subject; bh=6U1WnWltJjm0+37BqDLoUuBxldhowZYK2AvL9mNi5mE=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf28/pb6zAmPBLm2PNJkbI4LWRq26cOhzHVrDa8sWBav8
+ rZnV8XXjlIWBjEOBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjCRpu0M/x2vHmR6b+cVdcR7
+ 9r+A2oVTzivtjuToeXAmPoEzvu8+pz7Dfxf+QEEmHZ5Z33U4jTUO6YblBjx1ljEOLO1veasc4VX EBwA=
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+Message-ID: <20250310183011.2591600-2-ardb+git@google.com>
+Subject: [PATCH] arm64/kernel: Always use level 2 or higher for early mappings
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com, 
+	Ard Biesheuvel <ardb@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_193103_966739_A1C0A441 
-X-CRM114-Status: GOOD (  28.23  )
+X-CRM114-CacheID: sfid-20250310_113020_810104_64C7AC15 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,68 +94,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 7:49=E2=80=AFAM Rob Herring <robh@kernel.org> wrote=
-:
->
-> On Fri, Mar 07, 2025 at 03:05:50PM +0100, Nicolas Frattaroli wrote:
-> > On Friday, 7 March 2025 10:33:09 Central European Standard Time Krzyszt=
-of
-> > Kozlowski wrote:
-> > > Device nodes are enabled by default, so no need for 'status =3D "okay=
-"' in
-> > > the DTS example.
-> > >
-> > > Reviewed-by: Heiko Stuebner <heiko@sntech.de>
-> > > Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-> > >
-> > > ---
-> > >
-> > > Changes in v2:
-> > > 1. Drop unnecessary full stop in subject prefix after ':'.
-> > > 2. Add Rb tag.
-> > > ---
-> > >  Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml | 1 -
-> > >  1 file changed, 1 deletion(-)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rn=
-g.yaml
-> > > b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml inde=
-x
-> > > 757967212f55..ca71b400bcae 100644
-> > > --- a/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-> > > +++ b/Documentation/devicetree/bindings/rng/rockchip,rk3588-rng.yaml
-> > > @@ -53,7 +53,6 @@ examples:
-> > >          interrupts =3D <GIC_SPI 400 IRQ_TYPE_LEVEL_HIGH 0>;
-> > >          clocks =3D <&scmi_clk SCMI_HCLK_SECURE_NS>;
-> > >          resets =3D <&scmi_reset SCMI_SRST_H_TRNG_NS>;
-> > > -        status =3D "okay";
-> > >        };
-> > >      };
-> >
-> > Hi,
-> >
-> > is there the possibility we could make dtschema as invoked by `make
-> > dt_binding_check W=3D1` (or W=3D2) add a warning for examples that have=
- disabled
-> > or explicitly listed status properties when not needed? Or is this some=
-thing
-> > better handled in, say, checkpatch.pl?
-> >
-> > The question arises because dumb mistakes by me like this should ideall=
-y be
-> > caught before they waste precious maintainer time.
-> >
-> > If it's best handled in dtschema, I can look into working on that so yo=
-u guys
-> > don't have to do even more work due to me.
->
-> Trust me, I'm always looking for things to check automatically. :)
->
-> I have something like that which adds a schema for examples only. I
-> think there were some corner cases. I'll take a fresh look at it.
+From: Ard Biesheuvel <ardb@kernel.org>
 
-I got my check working again. i2c/i2c-demux-pinctrl.yaml is the
-problematic one. Not sure what to do there.
+The page table population code in map_range() uses a recursive algorithm
+to create the early mappings of the kernel, the DTB and the ID mapped
+text and data pages, and this fails to take into account that the way
+these page tables may be constructed is not precisely the same at each
+level. In particular, block mappings are not permitted at each level,
+and the code as it exists today might inadvertently create such a
+forbidden block mapping if it were used to map a region of the
+appropriate size and alignment.
 
-Rob
+This never happens in practice, given the limited size of the assets
+being mapped by the early boot code. Nonetheless, it would be better if
+this code would behave correctly in all circumstances.
+
+So only permit block mappings at level 2, and page mappings at level 3,
+for any page size, and use table mappings exclusively at all other
+levels. This change should have no impact in practice, but it makes the
+code more robust.
+
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Reported-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+ arch/arm64/kernel/pi/map_range.c | 17 +++++++++--------
+ 1 file changed, 9 insertions(+), 8 deletions(-)
+
+diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+index 2b69e3beeef8..025bb9f0aa0b 100644
+--- a/arch/arm64/kernel/pi/map_range.c
++++ b/arch/arm64/kernel/pi/map_range.c
+@@ -40,17 +40,10 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 	/* Advance tbl to the entry that covers start */
+ 	tbl += (start >> (lshift + PAGE_SHIFT)) % PTRS_PER_PTE;
+ 
+-	/*
+-	 * Set the right block/page bits for this level unless we are
+-	 * clearing the mapping
+-	 */
+-	if (protval)
+-		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
+-
+ 	while (start < end) {
+ 		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
+ 
+-		if (level < 3 && (start | next | pa) & lmask) {
++		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
+ 			/*
+ 			 * This chunk needs a finer grained mapping. Create a
+ 			 * table mapping if necessary and recurse.
+@@ -64,6 +57,14 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 				  (pte_t *)(__pte_to_phys(*tbl) + va_offset),
+ 				  may_use_cont, va_offset);
+ 		} else {
++			/*
++			 * Set the right block/page bits for this level unless
++			 * we are clearing the mapping
++			 */
++			if (protval)
++				protval |= (level == 2) ? PMD_TYPE_SECT
++							: PTE_TYPE_PAGE;
++
+ 			/*
+ 			 * Start a contiguous range if start and pa are
+ 			 * suitably aligned
+-- 
+2.49.0.rc0.332.g42c0ae87b1-goog
+
 
