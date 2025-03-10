@@ -4,69 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EA14C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:26:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D5CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=P0gVa+47vgpIskiaBk5o99cR3lWwJb6rgWAQDG1BpiA=; b=plG9eZEoHFwIdrI6xC9WM1/qZe
-	rl6O9fV/RNFiuTI3jsgM5Ard+Yuua4URlFMPzeA8RKClqCBrc9XWqX7fhq772zfI2Zue3t3SBWsoG
-	B08hoTaeezM8W7aGoQDALbfz4g1zXtIx8JX1iU2dVqkKmxwH/YvV9vbUUsmpVPxNfVTbVWi9nv3Ec
-	KNlqQRQURux2q4oOhlhskCwQx4FqPWh9buUdKpPBYTwUsWRK5l3kr74zQseGdZHWMmUFUBOEETvhN
-	4muH5G2JF/bWx5r4WGtitRwdiHuiwzOb5RGOFa6zM4YrErEifhtgkh1+7KxfoT4WZi008VR2+ens3
-	v32ij/Sw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=; b=HRR/KN/DFfDbUk1emytc1P12qo
+	tMoZZbqmQrDhipxI14zWc02vfpop6AdNk8VpkJsXD0A+Dc/tt68NFriw2zyiL2elpcZyYZrA60/5T
+	EKrgZrAB4J9EuLUgF44uXXqYBo8/UDSQW3dQZKSl1ubU1zo5JvnxjNjsYFcUBfv97fhPuuk1WewuD
+	YWLE+nzXzcMVHr+2nODtUJVd04EBMQRRNc/z46ChoPI3uTt6r7dpOkkXFf40emI6k+22LcgKth/Q8
+	NwA5ldwURuUxX9zz924+hB+xlleojb5nwmZkbxdPj6ONsK4rPVSMyezP0XmBIuE+Ako+cQ8ydlHBv
+	j13A5jnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trd9Y-00000002n7g-1i1c;
-	Mon, 10 Mar 2025 13:26:44 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1trdBA-00000002nOZ-1Ih1;
+	Mon, 10 Mar 2025 13:28:24 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcEX-00000002cPG-0qTX;
-	Mon, 10 Mar 2025 12:27:50 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-43cf06eabdaso12840445e9.2;
-        Mon, 10 Mar 2025 05:27:48 -0700 (PDT)
+	id 1trcEd-00000002cQA-0G0n;
+	Mon, 10 Mar 2025 12:27:56 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43bc48ff815so23949455e9.0;
+        Mon, 10 Mar 2025 05:27:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741609667; x=1742214467; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=P0gVa+47vgpIskiaBk5o99cR3lWwJb6rgWAQDG1BpiA=;
-        b=erOWeGrvRCg6dSeLTTJnELlpnWX/i6Rm2kwosA8SjbL9X/W6LNnK/PiL2sjBhwUbEO
-         gjAiOZb/TvCt6m9LGm9z4tC9f8yVIAMbmCufw7ODyTU5vPRaE1Du7ENM4QsMZYC+Nvv7
-         FXGqFOfEESAntDUeWiFR7R8haSWIU+74HzlJuUrkXO+p9sSM8ElASCHY7N0tifbjvpKI
-         KjNgxb2X9ATSgD1OC3kEiBDx327OzXr6DhRU2C5vh9dWcUKnur+Ilqi01Kp0owzzzXgB
-         UwZsUamSC5D3as7f5DnvzdQLLuK11CHIrQJRcGM5cS/jxs7ByPjsDWaliZakPUfAApd5
-         9z7w==
+        d=gmail.com; s=20230601; t=1741609673; x=1742214473; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=;
+        b=jZTbwgeUvpOCa4KlwQMUljg236k8ppWMpEuxxAiVEIdjKBH0Xk0NSp6dOCHFVAbEtS
+         SV4ankkYVrBAFwaA6L4omqOSi/nRuEaJzGwTBR+DE8SQoHEFVsiq6QxYlXREzCAQbDxy
+         cyVHapPm4BSyYtcsNY/ypF0Jkv8FBm9pOKJuBzmzBfyxk+r7xIyO2DdQ973mRZYIQxIk
+         puuMrx/R/1Fo3lrlOIJqqI7sl+19asXexLJaqIkFiSKR+udDjF7v0XVVIRS7WevyQrhb
+         xtIew8RWhms9J405R+7qGrkZwULvf1yi2DCjpnqVi5BfzNaNVXeOmfBbCR664Ocof7wK
+         gPlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741609667; x=1742214467;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=P0gVa+47vgpIskiaBk5o99cR3lWwJb6rgWAQDG1BpiA=;
-        b=s5lLwUV5SS2nUXc6e3xBeu5zLE6ox8vkbOdtCOakJiYbpT8O+umimm6gH9WWUVau/6
-         tgM8ogTqcwcYD+RDplqndssdjRpUKnfQy2mgEXjiIMH4z4CiyEDT2M5+pcoQadv5rFGS
-         vrymsgrR+qlKx8Z+A2QMDVCHyR6sznKjGgzLYX9HheFMPKcUpYiltKUXVHMzuNV+yIf5
-         /TOukbwQ2G8JxhJIZogPapALg+uXb79brnnrcP+EknZOBr4bc1ZxjiEbikGIYZ16a2mB
-         WvK9mG1i9Cih5fbew8sMFe0k5gSOkSkCMPvT07DqX7tM+gCnxAzdoJ38CptfKi7SSZ6I
-         l1PA==
-X-Forwarded-Encrypted: i=1; AJvYcCXu9FouqZNfIYNXWDpD/YU7bS/TSWDscRl75tfcoL8/Nxot7/bmCarJBG1Q+aAmD54cIUBr0XKdek8IbqVXeWqZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRlC7JOmXvVwxAO/2WxH54opBNKmRxAV4kH19ot57y1daubV9I
-	Fu6uxOBtvSOu6DfoLebFj/sb65rALMfOVa2tF35zODGEyKOCGUuE
-X-Gm-Gg: ASbGnctxsebIlDRjRkXjAmCx21lD8upskVMl/QkqUKxe0IiTdmhfpXUG/FwwtTtJnB7
-	Frav2oigCDXv30qHZsa1Y8PUuXcFSSD9wWDPmZXdcVdd9t9RyPtPcizFoXE5BuKYTPaeuTuc5v+
-	/Qa9SNpQ8LtncMLt2tNRfgVBuLPDvXfDTO2jUV8FTVSgL/7NaYro13uJioYr18NWhuJBiTahhzz
-	e4oQ8eLWp3V/0dShg2qOYHScY/ModUvLLktGl2LuO/qEEP/o3AL5iQENmDHgScucI1uDMs7RG1J
-	Ei2Ufu6QfWiIkeIh/jYZlYqYo12FjsYJic80tuwNzaZWvdlv0NtLYdO2Wbmzh5nSLRrQRQWTlsO
-	1t0yyXBo2unvNcJ6G2Wtipx8lxzk=
-X-Google-Smtp-Source: AGHT+IHnfkFyUH7zwhO3UJXB4ON9kY20gf9Xj9a8RVVLTh0OxFR3WRoI6eW5/kVQ7doqUEWryYXkVw==
-X-Received: by 2002:a05:600c:4e91:b0:43b:d116:6483 with SMTP id 5b1f17b1804b1-43c6021f13cmr85331995e9.27.1741609667099;
-        Mon, 10 Mar 2025 05:27:47 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741609673; x=1742214473;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=;
+        b=RH+Iq8KHc4kTR/KQUvZaDLn5KwNTjdrAA5HQwZhRiGQnagvvG1tn0Igm0A0JBYz3Ls
+         zvY1Rf2uKEuaJxWGiz0bz4ln/Pesg0PXxo9+nQreMdPoDWcqbLNe/hu2T79Xqg5Qb2XL
+         VWF5AeBfC9HN98LKhzFXblL2nh3qbX0ap9wxPxu/tOQ/Okja9XKi8XifJujd1xCV4KVO
+         ujNvLAXnEpPPhN14T3IQvOBH2oOJavLZMry0yzuW8MDMgtZ6aLzWhcw2drLDuGj3lu7a
+         zHycJ29L+MGPv0dYOaouxkKfvORXh43v4LuS63mc33P9f6z62NpMyKo/zayWK3rxEfxf
+         oo6w==
+X-Forwarded-Encrypted: i=1; AJvYcCVSCSSE3VzW4lj1t8E6hgIUSP2jZh9dBekJvs7z4QOl13QSW7qlzc8WTd0VzueBnK1x2vw4qXajGn49UwvCYKpw@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8Vd3RzTz2ClFpGwkGMANEBat5KlAndF2AwVkWX4PLm+Qd+xmk
+	wIrNPcowzr6arH4Rzte0lhCTIIBaWQkUZ3VmW71CHofGfhYK3StgS8Lcj85B
+X-Gm-Gg: ASbGncsIHK12hnwYPsVXItv1npxvsy1LcFn4+kagNm1BZlRbNlhEioD6cVaVJLn1XRt
+	YWJ6+9kKd0+vQt1G/n5AoYjE+ONrS5Zsf89YP7wdQFWY3r0OH/PZoBde2lcKCaKUTM8ZiXm+xbj
+	iX174tQqsbWsh8oYzaFtq5Iz+HAgUfKes9UZDSsjSiWM8w14c2RFy7Dkkj3hgDQE0N4mtqCqMrH
+	5KDh9tg43yTxM8nG1ElRM697roN2KEQawdL38EluCpQenmjW3B/t3Lu5KpW3RfmpFLHeZjXdej0
+	CwH6quhli9w/mnw9lphQXysaZZUl7OF0tkqPkI/PpQUv41oyq8BKoaZeYH4Ujeb5gPGBTUIZG5l
+	KVuTx42pcdttm4DNJ
+X-Google-Smtp-Source: AGHT+IHkdFXutwUlHgJUEeibLtGVxZ9e1BYhqaRmZdU3VrmHHopZkCNH9T65QpbRvqLO+DUNS6Gfbw==
+X-Received: by 2002:a05:600c:1e08:b0:43c:f680:5c2e with SMTP id 5b1f17b1804b1-43cf6805d78mr26252335e9.13.1741609673265;
+        Mon, 10 Mar 2025 05:27:53 -0700 (PDT)
 Received: from eichest-laptop.toradex.int (85-195-230-40.fiber7.init7.net. [85.195.230.40])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd6530f26sm171963245e9.4.2025.03.10.05.27.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd6530f26sm171963245e9.4.2025.03.10.05.27.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 05:27:46 -0700 (PDT)
+        Mon, 10 Mar 2025 05:27:52 -0700 (PDT)
 From: Stefan Eichenberger <eichest@gmail.com>
 To: vkoul@kernel.org,
 	kishon@kernel.org,
@@ -82,17 +83,19 @@ To: vkoul@kernel.org,
 Cc: linux-phy@lists.infradead.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3 0/2] phy: freescale: imx8m-pcie: fix and cleanup phy
-Date: Mon, 10 Mar 2025 13:27:02 +0100
-Message-ID: <20250310122745.34947-1-eichest@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Subject: [PATCH v3 1/2] phy: freescale: imx8m-pcie: cleanup reset logic
+Date: Mon, 10 Mar 2025 13:27:03 +0100
+Message-ID: <20250310122745.34947-2-eichest@gmail.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250310122745.34947-1-eichest@gmail.com>
+References: <20250310122745.34947-1-eichest@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052749_235490_33213F92 
-X-CRM114-Status: UNSURE (   7.64  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_052755_104867_0267CC33 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,25 +110,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The imx8m-pcie PHY PLL fails to lock under certain conditions when
-returning from suspend. This is resolved by asserting the PHY reset when
-powering off the PHY during suspend. This ensures that the PHY is
-properly reset when powering on again in resume.
+From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-Changes in v3:
-- Update commit message of cleanup patch (Frank)
-- Add Reviewd-by and Acked-by (Frank and Richard)
+Remove the switch statement for releasing perst and reset since they are
+already correctly set at probe and are no-ops for
+reset_control_deassert(NULL). Call these unconditionally.
 
-Changes in v2:
-- Remove unnecessary check if perst is not null (Philipp)
+This does not change the behavior of the driver but reduces driver
+complexity and allows for easier future modifications.
 
-Stefan Eichenberger (2):
-  phy: freescale: imx8m-pcie: cleanup reset logic
-  phy: freescale: imx8m-pcie: assert phy reset and perst in power off
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
+Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+---
+ drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
- drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 23 +++++++++++++---------
- 1 file changed, 14 insertions(+), 9 deletions(-)
-
+diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+index e98361dcdeadf..5b505e34ca364 100644
+--- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
++++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
+@@ -141,15 +141,9 @@ static int imx8_pcie_phy_power_on(struct phy *phy)
+ 			   IMX8MM_GPR_PCIE_REF_CLK_PLL);
+ 	usleep_range(100, 200);
+ 
+-	switch (imx8_phy->drvdata->variant) {
+-	case IMX8MP:
+-		reset_control_deassert(imx8_phy->perst);
+-		fallthrough;
+-	case IMX8MM:
+-		reset_control_deassert(imx8_phy->reset);
+-		usleep_range(200, 500);
+-		break;
+-	}
++	reset_control_deassert(imx8_phy->perst);
++	reset_control_deassert(imx8_phy->reset);
++	usleep_range(200, 500);
+ 
+ 	/* Do the PHY common block reset */
+ 	regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
 -- 
 2.45.2
 
