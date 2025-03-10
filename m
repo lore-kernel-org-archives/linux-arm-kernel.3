@@ -4,136 +4,155 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61069C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:47:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC4CCC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KEBYcpGn1n6RrVtFHlaz6mqXjlV/ALIYQSMdCZe2f10=; b=M1A031WDVPy59HDmWeMkyOe2dH
-	g1wD/ZEivgkiemhT1rLd6rCfIqeMQtDLJDs5PD6RPfrKuashU9UTAJOGCOSP4XEOpchLORIwVZ/aO
-	MGioBcgQUPG51lAQs2RC7kCw9BR7TTRlot0ej6Wg1bePIL8mzoAyFRKWOiirVp1S9r0pVW7HHRye6
-	h3jnHZTPt+riogih/P1Ay6p15eHfBsjMCIyDlFFBEplAQOmyB3PUlkYm1fkAjlSiJW61yJdPZah8/
-	7z9rHRuExSkoGODK4DhfeprBzLdVZNXZYrvW3/Q8zbnvxxvtYeY1B/a9JzcZWQxT6Kk+po3j2L2ZG
-	XmeSdWFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=; b=aS1uDlrstRwdaHtAfUMtrjtyIW
+	icbE6I0kBI88CXHsl17Tb7UEyMTcnPFfFs4htpVPKIK4UcKrtOUcJ/QjDmBkikYb+IWHpN3KyZEaf
+	G3w82VHa18OvPxInsyYaXuNB8bAw3sC5nAgS0xNJGvXyWRRq6KqXYroMX17r5AgaBkxv8BfwQeYdu
+	TDIss++p8FrX/TS4P3Jlv1UQF+UQDa2H9sp1lJUS00Kolvrwc0YnuUM4VK7UrJBKTRcCqSefyKnPh
+	qJdyxYycgNBJPnD1dkye6BUBXzIFUIHkqJ3fDErOK+kz60Sc6edvZubTAVDd1yQOZTiH12V5Zgk8/
+	ibKnwa/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh9x-00000003WEX-2y7A;
-	Mon, 10 Mar 2025 17:43:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1trhGp-00000003Wtq-1TF2;
+	Mon, 10 Mar 2025 17:50:31 +0000
+Received: from mail-db8eur05on20622.outbound.protection.outlook.com ([2a01:111:f403:2614::622] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh8L-00000003WBB-1gZg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Mar 2025 17:41:45 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=KEBYcpGn1n6RrVtFHlaz6mqXjlV/ALIYQSMdCZe2f10=; b=Re/qWjcpblZ31FbpIhkYZemJok
-	mn/Uu26PJKLVuZ5j/azus1oWYADNHkHvTqeCXpnjpsHdf6iV2zFT8krjQSsavyAaPS34kBHulMQ35
-	iNcaTa1rKsgcxt4SJ/5Bf3tppd0I+FBbLBfJghy6enjLAz6sc3rIciPN8rHFDD9NxGMbbmIK98ku6
-	/j4JQKjo+7xC/TTZd6iyQfyj973TVYp8R8iUvLlj/fIy7G8lpflO4ciEs2fOrezqJKogwD0Q1/P8n
-	xdGZedFsYWbaPUvCHu4gpmN0GZHBudcatt4yyrpjdFoLiwx+Du2QdERyOIKpjs4HnlhxMf58yAdHY
-	VlYXVFSg==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh8I-00000001zik-2cvm
+	id 1treVP-000000031rp-1YsI
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:41:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BC81BA41C25;
-	Mon, 10 Mar 2025 17:35:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD8CCC4CEEC;
-	Mon, 10 Mar 2025 17:40:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741628439;
-	bh=/HSXNv6jjAsvPNyHRljUMfbh7KlOC2ngXOFs6zAfk84=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VvF1LjyN6hol5ApChxSIKL9i1sN5DyrBVGAP1DW7djfZER1h39Fftx9arwwUTH8iv
-	 ebhegtRdiAweL6n/sKFSQM9jnZz6PNuBH08e2okZB7dVzJ6NmwfM7RH0lmgua8/JvS
-	 6apFviR4/5lcXx6xh2OtzlrE2kOeoXL0vSC2bE4hxBfe7dQMtBlMmc7+lW/h7D6vkw
-	 2C+LGsAsfHI9rMwJ+wMpvV0b8gxzFS6k1RXc7qUxHQz1CPbMylZWpD+BFSm6u9Ro9K
-	 w/P5HthKbOvlQOdIsod7A3CTeOsKFfh78jN5LBcCxVOcDbj/s3zxr4DLvCqUFcrVPC
-	 l4pGFCRZPaVNw==
-Message-ID: <09d4966a-5804-40a4-9c5f-356a954a7704@kernel.org>
-Date: Mon, 10 Mar 2025 18:40:22 +0100
+	Mon, 10 Mar 2025 14:53:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=uNt3CYD5HuFR6c4qhcM/RNi/+pRpCWVtTfHm+IE1uwuJiCf2cWew1CJTp+Zhx7VSrnrFCNCWbb3yom29WAHPzTcky2ejWNvsh/r1nIlKRLyKHn8Dvnv+ayD/nyaiaiYUz1utqvcfG3a4l/yBaG5ZRuITbS15vQLmZU95k2vEtFb7wRNzUUQwAmwZaKbwiqboAgObioF1iwY8OsPbRNgrR+Q7sBE9I+DoosytunLzqNA9WnZcR5Y/AIfD6OYyTY5P5EtHszdzGlGQIWlY884DFw3Um2igkHOqDAu+pepQ2WS+A5gPMshtDnpv+L1G9DdKl6C4eubskQx2MYBduZzevw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=;
+ b=DPRF1aOVXkwLPqUX9rAy9A3+7wGRxbjj18/j2jIm+pBdzkbzMHrwIlyLRqkY0smqX5MZo+U5Lag00nBxqXfsbONe+JBaJK/q/nOSAOW6kqUO9EvjDoJ4aHbhESJn3IXbAttcmTW3ZLESeGHNg28EFiL+RHeXypHyzIywD81ZmNc4YUyqIwx9JLIffuvPBpNgokMP0r5AsuHAikwmVXBVVwuIQgBgLnAM4kyaWRAC2xLdmc3e0CvCuyuUc32ZEKXJUFX6IOqy4u4OgaQW+hpgFT8YX1FBFt3ia0qUrE/VSthJRyZGoFp/RRGQAADfycCzgBV5z9yn5FsVkp/vGXbEwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=mONm3OKHGiUo5JhzqC3SU+XpjZ5un4W5cAdbtl40oN8=;
+ b=MsLXXhqpZ2fx7WwgNvOP9NCIJIkNuOlaC/EwWgvHfltPgoCa0enCUpAffwFJptljeKkmwb3iU9jU7IRXm9ScFt8A6U8q2gN9GBmk1GPnqGPv2OMg8GVIPmkukP078d0nM+XDb/NexI8mIrb+z26HyTUNbdT1aqlC+qlJjbCte5BE+nJl5CNFbP9B36YJZ3bGCB25PTnwxbMIW4WGgrPM0BW4Qxcmql3CEn48iq34XG16cZZORXVX8ZQGjTatfZlkfFsL/70U99XzueyhMokKcDkNu1mnpTV/xsxwDxtWNlolJAENRMrJSX8HJxU7W2JzzoUrfRvbNk4tUNcyjg/PAQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by AM9PR04MB8603.eurprd04.prod.outlook.com (2603:10a6:20b:43a::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.26; Mon, 10 Mar
+ 2025 14:53:19 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.025; Mon, 10 Mar 2025
+ 14:53:19 +0000
+Date: Mon, 10 Mar 2025 10:53:10 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Fedor Pchelkin <pchelkin@ispras.ru>
+Cc: Peter Chen <peter.chen@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
+	Sebastian Reichel <sre@kernel.org>,
+	Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>,
+	linux-usb@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	lvc-project@linuxtesting.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/3] usb: chipidea: ci_hdrc_imx: disable regulator on
+ error path in probe
+Message-ID: <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
+References: <20250309175805.661684-1-pchelkin@ispras.ru>
+ <20250309175805.661684-3-pchelkin@ispras.ru>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250309175805.661684-3-pchelkin@ispras.ru>
+X-ClientProxiedBy: BYAPR08CA0026.namprd08.prod.outlook.com
+ (2603:10b6:a03:100::39) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add
- interrupts and DMA coherence
-To: Roman Kisel <romank@linux.microsoft.com>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
- catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
- decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
- joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
- lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
- mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
- oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
- ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
- tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
- yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
- apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-8-romank@linux.microsoft.com>
- <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
- <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AM9PR04MB8603:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9102cb00-0784-47ca-76ae-08dd5fe34bf7
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?HUe3fDTDuKm5roWvHOfPH8Wc3IrMb39gvLAON/55bUGYScPOkCbbnVVE0w0/?=
+ =?us-ascii?Q?lv/v/QVXuC/f+2+yZsUjSNzKJKcG+z3VDpHo1Qh4ii2Y2VBy65JMzl5/kheT?=
+ =?us-ascii?Q?byPDEfydPsLJ12YCnYyknAlt6lFDIvVOvdiqdieRNQjDBiSFGXaoYUP+631T?=
+ =?us-ascii?Q?0eExmWoOrpzmxGFnon63JMONi8PkI18Y01OflpPoPE1MlMCoj1qAHbGpy61D?=
+ =?us-ascii?Q?Bz3ug8pF3Ta4SOWxUUHvgzIsqN5mW/RDYgIVXWJdbW/Y93IMR8uu3KwSlKC9?=
+ =?us-ascii?Q?mp1c/MmJHFA62exFW7fj+/3IzS/ZEkX03GQKXDfD9MChQDMfHIVSb3zevJmc?=
+ =?us-ascii?Q?FRNLxd/KOaeAIq6WEbtzjulLr5Hvr8EUMwzZMS7gHf0/OZyU+nIi/HSGF4g/?=
+ =?us-ascii?Q?ng6209kIHPVZa57VZxPgkv2t0qDlwCaBaSacX4IfHmYTWK6E80DgDE/BlB25?=
+ =?us-ascii?Q?T49TH1ucbzRomL4Pd+HF5gBG60uhaPIWOc7sy1tZ12Tlwfqku+5F0Ml0sOID?=
+ =?us-ascii?Q?fgTfVSv530V5i2lQRfSqQj7XTuN6vCSmGY8PD54WuXfypQmznunpF0DPdETB?=
+ =?us-ascii?Q?0U63Wn5ZJF1TCqGK/uq4r41sUHoKka5UKP4mhGv41YpWTmftDXL2rHX3doDM?=
+ =?us-ascii?Q?kpLqdhnbxlep4F7pVtn86S/FqUa/PIMB8yUv//5Xq0JaMsmkuPJ4l6xqumpi?=
+ =?us-ascii?Q?R6cQ93gwcLfBblKNrqZi1XmTGB+BiAux7MUHzIHrO3Un0UasNWjygzAAdQ/K?=
+ =?us-ascii?Q?fSvvN/y64zs69IRpBwEk94J0Qz1F4370xO0H45nbBBS1+IKENG7rGFnOoKWF?=
+ =?us-ascii?Q?WGKs6cWwkuW7doDIL9cbnaoktoQOvFgU1GE/Uhuupa3aFh7zWWlr+wPNiKSb?=
+ =?us-ascii?Q?e6sUNwgM8aAfK4ul13TKLijzuEqXR2YZMnyu7VnV6497IW0Ml9Ych4tGaSd6?=
+ =?us-ascii?Q?OcYmvAPH/En6v+3LYipUWTDcggC0REWcjLX59fdBDxdYeJ9jeH/643vOqwIj?=
+ =?us-ascii?Q?FlfvrKDbTi0V4iKsq1UpiPEigwyZYSkHh+n0KBnz9xsEjwv2loTYjC1wgf/M?=
+ =?us-ascii?Q?G4L8yfyVLtRJyid0CUyzyycgiWU9OpN9vbfWoQCdebOLLtOc9KZqNCaJLZ2Z?=
+ =?us-ascii?Q?SHqYn5vK1Q4zcGn43eyYtbf3uhQtki/7RObzUkMlh0oX8i+DxvysLFHQ/ByK?=
+ =?us-ascii?Q?9w1NLE2sqIyIrlUvxT/HGJsfevqWahqkKdnWlRhZCCKmgn0ncg7b/iRux8wc?=
+ =?us-ascii?Q?azXfn9bXLtFL5X7mohPQeggOKwDk08YmYUxd72X83bkIDVl7hBUQI+w7+uvQ?=
+ =?us-ascii?Q?RTghaUK2WfI7DhiKfE3CgZwxYhDXeAe/8t6T3lke+OW94cYlscI1truSkii+?=
+ =?us-ascii?Q?c85BP5NFkfT45pr7V9fXSGDX/D37YkD3rrZxI0lmt2Z5gG9iH/361yd0MyIs?=
+ =?us-ascii?Q?wohx398wRu8cDe5s+omdgXTiUHZ8SUhV?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zkyJC60OPxha2v8DZPuQTGXJOrjz7BfbrljL7zinqvb3JExLnGMZYKL27Cys?=
+ =?us-ascii?Q?iyDAkIok+wy+NR3dfjeTm201kgvhsha14BFVynHBU7LuoNu8F6WsMAOLAWQM?=
+ =?us-ascii?Q?EzLmXijpUCzt6Nxl3eYHRCbQRyQd35jaV5+moGbKjO1UnKqBBWBUAqBNF26F?=
+ =?us-ascii?Q?uOakjBaqpO1cvL1QIt1WmfnS7E0+367IKpGKpPK6uTUNUhhiRPGeKHH7d1zS?=
+ =?us-ascii?Q?KDytqa6KJ9VwlTFUocr8N5K1paMbm5xEt4zU+ruNTGZt/r3kMLRTnr3DChXX?=
+ =?us-ascii?Q?Ru5oiu0UU90TL/5gJSMwyIcVvdfN6AfijXUOUtF/KQAhNFdaWoJ3D3bbuO8z?=
+ =?us-ascii?Q?EzYFCsxwRZwDT+5/7bzSc5pGzLQtP7e3ROAxFfHNaK9fy5wpwF5ErRX9OCsa?=
+ =?us-ascii?Q?CzuJeeKKU/2EPx32t1zgCBavTQcceXFjhldOYVsMwWMQjtYW0R5wSZWnoQYT?=
+ =?us-ascii?Q?QBmnPNWgG000asaNe3Qil+kC5AA0251zuCrdJHKCuMMY/RMYgbQnZEYPE1mS?=
+ =?us-ascii?Q?cJs0anjFc4kSm4+q+3Z9oPQn6alztkf/5h5O0DjeUFbJOnAplIeVK8f7eKUP?=
+ =?us-ascii?Q?9reK6XOUCchVNTddlERLm++xOJvau8teXPNUOfdXRby+Ic/SbeEwoz2VJ1dK?=
+ =?us-ascii?Q?/JP/7ey2A57aAIKNUTB6zLVvyoBCh7Xy04IO1U6JgO37H5lnEOIog4igXCzN?=
+ =?us-ascii?Q?EKUovu9Q0U1r3MbqDVzqtu/GkuDIeQEVpQ2RhjuLLEazhHeJe1TY06loN/IS?=
+ =?us-ascii?Q?eIKJF7xiOKQs0hAo/HvRxQQEOBR9uLsyHlMPDBHp66G0udO5jt5rFdscJQ2U?=
+ =?us-ascii?Q?ueov/WcCN7d5nG3xwTXmvnKYAFWfGr7XO0iJ3NwyImSp2kDBrjjjm+7FAm6X?=
+ =?us-ascii?Q?WTszoIdfaA0tnzhsnHRCWLUPvGVbMFEqVUk8H145JodM9vusAj2apcg9Kvkp?=
+ =?us-ascii?Q?nJ2ZJSeBNxYItKd76hiRtheZodZXLGUgCrAPKIHH6zDoPvRqc4GS8RpsAd5S?=
+ =?us-ascii?Q?amkFYm8mRg0SOmQdcfhsbTFCIErw8b2pFgs4Zv5wnVvaRxgTGR37CHL2jKdW?=
+ =?us-ascii?Q?4Ff5OB5UvfukcCHgMn8SI+ok6j2xdx5BcdiTzf6HghAQZ2me+o4njzI0Pf6C?=
+ =?us-ascii?Q?qt/iLvJHKmiM3dCSWsi4oD3FXQRTOmVuN7fx2WyPgYoIrAQTv5/5eKFV9IqO?=
+ =?us-ascii?Q?9UrRlZG5GQykDAg13R1lIdJpuWpFBWhNMw+J6lmtVmhyJBxCEL/mIq+VI4X0?=
+ =?us-ascii?Q?XkRLZf9pnfyeBI7AurIh63HpxhrgHX9wJoLNVaeN3PVIYrIdOrry+dGqgWFA?=
+ =?us-ascii?Q?b8kaL6nsk2n97picfRB+5CZ4OQTJxsRhn68HKLLiEKksoOlJfAY07mft8TqQ?=
+ =?us-ascii?Q?msD01Bq+eUIBT16ZZMKkUxCylEp303JY+ksDNnnVcP9jEpASQCq4X+B3awUW?=
+ =?us-ascii?Q?S83+nAC+mHr3/stpBj4AcLfqmuxX6gg2yq77ji8DFjBqsy50Fg3IyknPzUBQ?=
+ =?us-ascii?Q?ksYMbu5jvqSs/o7j58L6Z0hTVoDQNytlSTFlmb1f7SrUYsAY4n3tJ9zurYPy?=
+ =?us-ascii?Q?WvmrRZfQaB6aNwGbNBI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9102cb00-0784-47ca-76ae-08dd5fe34bf7
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 14:53:19.5260
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y9Kwqb4QfYYn5B/iVtX67mwKK7ZzODCpe0MIjmoTqwZ3fk3BXx6QWdcCIUoSbxXYx5nU/zjiwiuA5rIf6FaY9Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8603
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_174142_903469_86A8C8DF 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20250310_075323_435075_56CFDF01 
+X-CRM114-Status: GOOD (  23.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -148,86 +167,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2025 18:05, Roman Kisel wrote:
-> 
-> 
-> On 3/10/2025 2:28 AM, Krzysztof Kozlowski wrote:
->> On Fri, Mar 07, 2025 at 02:02:59PM -0800, Roman Kisel wrote:
->>> To boot on ARM64, VMBus requires configuring interrupts. Missing
->>> DMA coherence property is sub-optimal as the VMBus transations are
->>> cache-coherent.
->>>
->>> Add interrupts to be able to boot on ARM64. Add DMA coherence to
->>> avoid doing extra work on maintaining caches on ARM64.
->>
->> How do you add it?
->>
-> 
-> I added properties to the node. Should I fix the description, or I am
-> misunderstanding the question?
+On Sun, Mar 09, 2025 at 08:57:58PM +0300, Fedor Pchelkin wrote:
+> Upon encountering errors during the HSIC pinctrl handling section the
+> regulator should be disabled.
+>
+> After the above-stated changes it is possible to jump onto
+> "disable_hsic_regulator" label without having added the CPU latency QoS
+> request previously. This would result in cpu_latency_qos_remove_request()
+> yielding a WARNING.
+>
+> So rearrange the error handling path to follow the reverse order of
+> different probing phases.
 
-I saw interrupts in the schema, but I did not see dma-coherence. I also
-did not see any DTS patches here, so I don't understand what node you
-are referring to.
+Suggest use devm_add_action() to simple whole error handle code.
 
-> 
->>>
->>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
->>> ---
->>>   .../devicetree/bindings/bus/microsoft,vmbus.yaml          | 8 +++++++-
->>>   1 file changed, 7 insertions(+), 1 deletion(-)
->>>
->>> diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->>> index a8d40c766dcd..3ab7d0116626 100644
->>> --- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->>> +++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
->>> @@ -28,13 +28,16 @@ properties:
->>>   required:
->>>     - compatible
->>>     - ranges
->>> +  - interrupts
->>>     - '#address-cells'
->>>     - '#size-cells'
->>>   
->>> -additionalProperties: false
->>> +additionalProperties: true
->>
->> This is neither explained in commit msg nor correct.
->>
-> 
-> Not explained, as there is no good explanation as described below.
-> 
->> Drop the change. You cannot have device bindings ending with 'true'
->> here - see talks, example-bindings, writing-schema and whatever resource
->> is there.
->>
-> 
-> Thanks, I'll put more effort into bringing this into a better form!
-> If you have time, could you comment on the below?
-> 
-> The Documentation says
-> 
->    * additionalProperties: true
->      Rare case, used for schemas implementing common set of properties.
-> Such schemas are supposed to be referenced by other schemas, which then 
-> use 'unevaluatedProperties: false'.  Typically bus or common-part schemas.
-> 
-> This is a bus so I added that line to the YAML, and I saw it in many
+>
+> Found by Linux Verification Center (linuxtesting.org).
 
-If this is a bus, then where is schema using it for
-bus-attached-devices? You cannot have bus without devices.
+I think this sentense have not provide valuable informaiton for reader.
 
-You *must* fulfill that part:
-"Such schemas are supposed to be referenced by other schemas, which then"
+Frank
 
-instead of calling it bus...
-
-Please upstream bindings for the bus devices and extend the example here
-with these devices.
-
-Or this is not bus (calling something vmpony does not make it a pony).
-
-
-Best regards,
-Krzysztof
+>
+> Fixes: 4d6141288c33 ("usb: chipidea: imx: pinctrl for HSIC is optional")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
+> ---
+>  drivers/usb/chipidea/ci_hdrc_imx.c | 15 ++++++++-------
+>  1 file changed, 8 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> index 619779eef333..3f11ae071c7f 100644
+> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> @@ -407,13 +407,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  				"pinctrl_hsic_idle lookup failed, err=%ld\n",
+>  					PTR_ERR(pinctrl_hsic_idle));
+>  			ret = PTR_ERR(pinctrl_hsic_idle);
+> -			goto err_put;
+> +			goto disable_hsic_regulator;
+>  		}
+>
+>  		ret = pinctrl_select_state(data->pinctrl, pinctrl_hsic_idle);
+>  		if (ret) {
+>  			dev_err(dev, "hsic_idle select failed, err=%d\n", ret);
+> -			goto err_put;
+> +			goto disable_hsic_regulator;
+>  		}
+>
+>  		data->pinctrl_hsic_active = pinctrl_lookup_state(data->pinctrl,
+> @@ -423,7 +423,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  				"pinctrl_hsic_active lookup failed, err=%ld\n",
+>  					PTR_ERR(data->pinctrl_hsic_active));
+>  			ret = PTR_ERR(data->pinctrl_hsic_active);
+> -			goto err_put;
+> +			goto disable_hsic_regulator;
+>  		}
+>  	}
+>
+> @@ -432,11 +432,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>
+>  	ret = imx_get_clks(dev);
+>  	if (ret)
+> -		goto disable_hsic_regulator;
+> +		goto qos_remove_request;
+>
+>  	ret = imx_prepare_enable_clks(dev);
+>  	if (ret)
+> -		goto disable_hsic_regulator;
+> +		goto qos_remove_request;
+>
+>  	ret = clk_prepare_enable(data->clk_wakeup);
+>  	if (ret)
+> @@ -526,12 +526,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+>  	clk_disable_unprepare(data->clk_wakeup);
+>  err_wakeup_clk:
+>  	imx_disable_unprepare_clks(dev);
+> +qos_remove_request:
+> +	if (pdata.flags & CI_HDRC_PMQOS)
+> +		cpu_latency_qos_remove_request(&data->pm_qos_req);
+>  disable_hsic_regulator:
+>  	if (data->hsic_pad_regulator)
+>  		/* don't overwrite original ret (cf. EPROBE_DEFER) */
+>  		regulator_disable(data->hsic_pad_regulator);
+> -	if (pdata.flags & CI_HDRC_PMQOS)
+> -		cpu_latency_qos_remove_request(&data->pm_qos_req);
+>  	data->ci_pdev = NULL;
+>  err_put:
+>  	if (data->usbmisc_data)
+> --
+> 2.48.1
+>
 
