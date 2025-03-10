@@ -4,88 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E996DC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 20:45:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7350C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 20:46:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/8OslG9fyPcNfx21E3tjr7ML1CwTdkUB4L89YR2Fno=; b=Pt5SrY0mMuwNVi5fUQJeyyuhF3
-	z7TflZrgqZuUL73Xrm5ByOF1mjlXYyRSrUiEWpzsKGZVFco9Dk9U9ra/hi/3Tx/m13HgFEtyPfXWl
-	E+QKVkdVADzQ/HuNH9cC+nN2vl2FG+WWqK//CbAN3fVp7Ebqo4NyXEB/4QW4DHKrksXQZ+98aCSro
-	sB6kbcbjCd2BwYn8bNiSM79nOazpxSMPveDAslxhGVPS5iZ+SdIn6hyWC5qlwAdQny3zQ4Js0Hoxt
-	IEezTMUaDUeUqOKg4kJNbaky8tUHocUAJrC4HfaIDLTmkPpNmj3ko0Qf5icep9KrDXjeOn1giLfkd
-	3HM7oMrg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6vkr4jw3ct4K0ZgaVR/DgzlCfdTbCOTxHL1o6JQbKKc=; b=xu0RNSW9Sl0cMyEbTFgldbyegJ
+	IUltCuVnIOhs11hd3i2VewrtrpfuJ62QdYlwmLCIeT5TPPVlRE1wNtK/t0j/WX5bqXzVusHOR4Cd8
+	n/RVjBRjSZ5dFipszlgcLAl6P7oxmNsBSYOvAxQeoEUrP1agH3ZmrZzglu+3t8v7QB4Dkpgeks2Ic
+	aDcmBm7Rwyy6ik/m7UasnIolVgxIriApzuIFHpjfyQFb1R2XTe/b6xo8gtrzzGAnZS6B9PBC0fP4s
+	FBvmidOPJMLcd6MWE4KN6ANG3ndrTM7bH/mOr7685gsm5eNR8AOF6hvRQ5xi1AjyQ/E6k3/GoOj7T
+	to1XSyMw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjzg-00000003uYL-2Mz2;
-	Mon, 10 Mar 2025 20:45:00 +0000
+	id 1trk1I-00000003upT-14v3;
+	Mon, 10 Mar 2025 20:46:40 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trjjH-00000003sRM-3NJm
+	id 1trjsV-00000003tXH-3wjZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 20:28:05 +0000
+	Mon, 10 Mar 2025 20:37:37 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4D9FB5C0501;
-	Mon, 10 Mar 2025 20:25:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A2E9CC4CEE5;
-	Mon, 10 Mar 2025 20:27:42 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 36EBB5C41F7;
+	Mon, 10 Mar 2025 20:35:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1B2C1C4CEE5;
+	Mon, 10 Mar 2025 20:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741638481;
-	bh=jrIUTRkOVwF4DrP6Op5FQkTYRiWzZRjfoY/yn1onSOU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=BxTlFGHFoOW0phWUqgQyWBIzCHGcDhnWX71cIrTi/V6o/OiL21j07oJLCGyw+KM9b
-	 3ReRfXP2z6sHkLW/fYS14usJ4jMUA8tFPVNPUAhN+ZxdAfy1XPr0YAmsmYh3s+qBui
-	 l2Wg09MH9ZYmq/RERxrvpEx04dsu66PALYPHHmAaXl1yEKkjMIGzESQeeRoKto5vB9
-	 uudFqXko3mnxN3db9MwQRFSZksb8SB6QtcJFypy/s9kCh1WO+iV5BSZT1OZ5cpY3tx
-	 6Lr2DFTSxmYrDwDKk7SRg7EUIcKe4UbqK4DBQxh9+NErcIzOCq2Ql/DTx8UkrUkQ8x
-	 2uGVdAQ1eUAzg==
-Date: Mon, 10 Mar 2025 20:27:38 +0000
-From: Jonathan Cameron <jic23@kernel.org>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>, Javier Carrasco
- <javier.carrasco.cruz@gmail.com>, linux-arm-kernel@lists.infradead.org,
- Samuel Holland <samuel@sholland.org>, Sakari Ailus
- <sakari.ailus@linux.intel.com>, netdev@vger.kernel.org, Rob Herring
- <robh@kernel.org>, Herve Codina <herve.codina@bootlin.com>, Thomas
- Bonnefille <thomas.bonnefille@bootlin.com>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Nuno Sa <nuno.sa@analog.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, linux-media@vger.kernel.org, Claudiu
- Manoil <claudiu.manoil@nxp.com>, devicetree@vger.kernel.org, Marcelo
- Schmitt <marcelo.schmitt@analog.com>, Lad Prabhakar
- <prabhakar.mahadev-lad.rj@bp.renesas.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- "David S. Miller" <davem@davemloft.net>, Lars-Peter Clausen
- <lars@metafoo.de>, linux-acpi@vger.kernel.org,
- linux-renesas-soc@vger.kernel.org, linux-iio@vger.kernel.org, Krzysztof
- Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org,
- linux-sunxi@lists.linux.dev, Eric Dumazet <edumazet@google.com>, Conor
- Dooley <conor+dt@kernel.org>, Danilo Krummrich <dakr@kernel.org>, Olivier
- Moysan <olivier.moysan@foss.st.com>, Trevor Gamblin
- <tgamblin@baylibre.com>, Ramona Alexandra Nechita
- <ramona.nechita@analog.com>, Paul Elder <paul.elder@ideasonboard.com>, Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>, Matteo Martelli
- <matteomartelli3@gmail.com>, Guillaume Stols <gstols@baylibre.com>,
- Alisa-Dariana Roman <alisadariana@gmail.com>, Jakub Kicinski
- <kuba@kernel.org>, Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Dumitru Ceclan <mitrutzceclan@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, David Lechner <dlechner@baylibre.com>, Chen-Yu
- Tsai <wens@csie.org>, Daniel Scally <djrscally@gmail.com>
-Subject: Re: [PATCH v6 00/10] Support ROHM BD79124 ADC
-Message-ID: <20250310202738.13301548@jic23-huawei>
-In-Reply-To: <cover.1741610847.git.mazziesaccount@gmail.com>
-References: <cover.1741610847.git.mazziesaccount@gmail.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.48; x86_64-pc-linux-gnu)
+	s=k20201202; t=1741639054;
+	bh=OfMVYqqFFkSNq/+Ee2JetRRusWo5/h3tArQ8z2C4Z20=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GVNRCSLr+1275JLWhr2XlHUVENMs5dBX2OgWgPpeJFqkwc1pcU1G6p0OZimqdJhmZ
+	 5pyMCHbW5anEVCwcDBNq4jjA4ZLYQwuBz9PRRIYk43kP/+txjcWyygMFRZTsLY+uZB
+	 uxmP0/hNH5Bwm7Zly0jPEt9A44Uno355EnI/QC3pqcr/D4FzDgBIwMmXA/8l5O70XI
+	 q/29lLZTYlyU1kIBbzXI1dhOv/i21z/S+M4nLK1TNPMJdiyN3O/LpHXBkxmxEPRlJa
+	 WaXKENBZkFEjB3BiwqudQE/U76lpskmWXmibnUyQx8w7KzLS+b6JihSX2wX/Gi3DuP
+	 VU9naJB+PsefA==
+Date: Mon, 10 Mar 2025 21:37:29 +0100
+From: Nathan Chancellor <nathan@kernel.org>
+To: kernel test robot <lkp@intel.com>, Christian Eggers <ceggers@arri.de>
+Cc: Russell King <linux@armlinux.org.uk>,
+	Yuntao Liu <liuyuntao12@huawei.com>,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	linux-arm-kernel@lists.infradead.org, llvm@lists.linux.dev,
+	oe-kbuild-all@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] ARM: substitute OVERLAY description in linker
+ script
+Message-ID: <20250310203729.GA26968@ax162>
+References: <20250224125414.2184-1-ceggers@arri.de>
+ <202503050230.820w99b6-lkp@intel.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202503050230.820w99b6-lkp@intel.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_132803_960675_14602FA0 
-X-CRM114-Status: GOOD (  19.01  )
+X-CRM114-CacheID: sfid-20250310_133736_091914_81CAD004 
+X-CRM114-Status: GOOD (  25.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,30 +80,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 14:53:50 +0200
-Matti Vaittinen <mazziesaccount@gmail.com> wrote:
+On Wed, Mar 05, 2025 at 02:49:38AM +0800, kernel test robot wrote:
+> Hi Christian,
+> 
+> kernel test robot noticed the following build errors:
+> 
+> [auto build test ERROR on soc/for-next]
+> [also build test ERROR on linus/master v6.14-rc5 next-20250304]
+> [If your patch is applied to the wrong git tree, kindly drop us a note.
+> And when submitting patch, we suggest to use '--base' as documented in
+> https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> 
+> url:    https://github.com/intel-lab-lkp/linux/commits/Christian-Eggers/ARM-avoid-that-vectors-are-removed-during-linker-garbage-collection/20250224-210146
+> base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+> patch link:    https://lore.kernel.org/r/20250224125414.2184-1-ceggers%40arri.de
+> patch subject: [PATCH v2 1/2] ARM: substitute OVERLAY description in linker script
+> config: arm-milbeaut_m10v_defconfig (https://download.01.org/0day-ci/archive/20250305/202503050230.820w99b6-lkp@intel.com/config)
+> compiler: clang version 21.0.0git (https://github.com/llvm/llvm-project 14170b16028c087ca154878f5ed93d3089a965c6)
+> reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250305/202503050230.820w99b6-lkp@intel.com/reproduce)
+> 
+> If you fix the issue in a separate patch/commit (i.e. not just a new version of
+> the same patch/commit), kindly add following tags
+> | Reported-by: kernel test robot <lkp@intel.com>
+> | Closes: https://lore.kernel.org/oe-kbuild-all/202503050230.820w99b6-lkp@intel.com/
+> 
+> All errors (new ones prefixed by >>):
+> 
+> >> ld.lld: error: section .vectors.bhb.bpiall virtual address range overlaps with .vectors.bhb.loop8
+>    >>> .vectors.bhb.bpiall range is [0xFFFF0000, 0xFFFF001F]
+>    >>> .vectors.bhb.loop8 range is [0xFFFF0000, 0xFFFF001F]
+> --
+> >> ld.lld: error: section .vectors.bhb.loop8 virtual address range overlaps with .vectors
+>    >>> .vectors.bhb.loop8 range is [0xFFFF0000, 0xFFFF001F]
+>    >>> .vectors range is [0xFFFF0000, 0xFFFF001F]
 
-> Support ROHM BD79124 ADC.
-> 
-> This series adds also couple of IIO ADC helper functions for parsing the
-> channel information from the device tree. There are also new helpers
-> included for iterating and counting firmware child nodes with a specific
-> name.
-> 
-> Series does also convert couple of drivers to use these helpers. The
-> rzg2l_adc and the sun20i-gpadc are converted to use the new ADC helper.
-> 
-> The gianfar driver under net and the thp7312 under media/i2c are added as
-> first users of the newly added "named child node" -helpers.
-> 
-> There has been some discussion about how useful these ADC helpers are,
-> and whether they should support also differential and single ended channel
-> configurations. This version does not include support for those - with the
-> benefit of reduced complexity and easier to use API.
-> 
-> NOTE: Patches 4,5,9 and 10 are untested as I lack of relevant HW.
-> They have been compile tested only.
-This probably wants an update.  Also, 00/10? There are only 8 that I can see.
+Looking at ld.lld's code, this error is intentionally ignored for
+OVERLAY:
 
-Jonathan
+https://github.com/llvm/llvm-project/blob/9f170e6abed4a7b393bb8abbf07ac8d6930aa3b0/lld/ELF/Writer.cpp#L2751-L2761
+
+I have submitted a patch that allows KEEP within OVERLAY to match GNU
+ld:
+
+https://github.com/llvm/llvm-project/pull/130661
+
+Once/if that is accepted, we should go back to your v1 with something
+like the following diff on top to keep things working for all linkers. I
+hope that it won't take long for the ld.lld change to get reviewed and
+landed but if this needs to be fixed urgently, this whole diff minus
+'|| LLD_VERSION >= 210000' on the init/Kconfig change should work (with
+a comment change). I can always send a follow up change to add it back.
+
+Cheers,
+Nathan
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 835b5f100e92..f3f6b7a33b79 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -121,7 +121,7 @@ config ARM
+ 	select HAVE_KERNEL_XZ
+ 	select HAVE_KPROBES if !XIP_KERNEL && !CPU_ENDIAN_BE32 && !CPU_V7M
+ 	select HAVE_KRETPROBES if HAVE_KPROBES
+-	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_IS_LLD)
++	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_CAN_USE_KEEP_IN_OVERLAY)
+ 	select HAVE_MOD_ARCH_SPECIFIC
+ 	select HAVE_NMI
+ 	select HAVE_OPTPROBES if !THUMB2_KERNEL
+diff --git a/arch/arm/include/asm/vmlinux.lds.h b/arch/arm/include/asm/vmlinux.lds.h
+index f2ff79f740ab..14811b4f48ec 100644
+--- a/arch/arm/include/asm/vmlinux.lds.h
++++ b/arch/arm/include/asm/vmlinux.lds.h
+@@ -34,6 +34,12 @@
+ #define NOCROSSREFS
+ #endif
+ 
++#ifdef CONFIG_LD_CAN_USE_KEEP_IN_OVERLAY
++#define OVERLAY_KEEP(x)		KEEP(x)
++#else
++#define OVERLAY_KEEP(x)		x
++#endif
++
+ /* Set start/end symbol names to the LMA for the section */
+ #define ARM_LMA(sym, section)						\
+ 	sym##_start = LOADADDR(section);				\
+@@ -125,13 +131,13 @@
+ 	__vectors_lma = .;						\
+ 	OVERLAY 0xffff0000 : NOCROSSREFS AT(__vectors_lma) {		\
+ 		.vectors {						\
+-			KEEP(*(.vectors))				\
++			OVERLAY_KEEP(*(.vectors))			\
+ 		}							\
+ 		.vectors.bhb.loop8 {					\
+-			KEEP(*(.vectors.bhb.loop8))			\
++			OVERLAY_KEEP(*(.vectors.bhb.loop8))		\
+ 		}							\
+ 		.vectors.bhb.bpiall {					\
+-			KEEP(*(.vectors.bhb.bpiall))			\
++			OVERLAY_KEEP(*(.vectors.bhb.bpiall))		\
+ 		}							\
+ 	}								\
+ 	ARM_LMA(__vectors, .vectors);					\
+diff --git a/init/Kconfig b/init/Kconfig
+index d0d021b3fa3b..fc994f5cd5db 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -129,6 +129,11 @@ config CC_HAS_COUNTED_BY
+ 	# https://github.com/llvm/llvm-project/pull/112636
+ 	depends on !(CC_IS_CLANG && CLANG_VERSION < 190103)
+ 
++config LD_CAN_USE_KEEP_IN_OVERLAY
++	# ld.lld prior to 21.0.0 did not support KEEP within an overlay description
++	# https://github.com/llvm/llvm-project/pull/130661
++	def_bool LD_IS_BFD || LLD_VERSION >= 210000
++
+ config RUSTC_HAS_COERCE_POINTEE
+ 	def_bool RUSTC_VERSION >= 108400
+ 
 
