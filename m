@@ -4,99 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B16C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:30:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3BB9C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:31:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=; b=FgSdK064CZ4+Z0ws6aDeHZa/Gy
-	cm7Zdp8/Z9P3feop6TF89LQnH2sBMtVl6HavNVw0Wh7L0HGNqfFOaKHhqyFvFHtK+/K60ulZuksEw
-	fuVH7Xvq7hZWt/TdJXbo6bdfeQ6cuEOJ1Scb2kvClFP18NqPkdXYNQkbnEA0tyc/edKYbr7e+HNiI
-	IqjPb0PfTIM434fivgeC/mtcPwwDAtvba4XnVG0A4OxdcsmN9AQ6h++GYt2/lxJYtDIfzfqIBeY1O
-	fJvQJhlF1vtPidZRfXd02Mz4wPSP0vZdX4AoKFqMA9bovBuUW8HNT45F9AeTtpiNSuKgsJTv/5Ahy
-	XOMP9kew==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=itOKGgzpHi7KgaNmFHmHfax9kY4jmtqWEweC2RyI/Og=; b=ZvXABbZC2YLjkmd8x2EAcvEwYH
+	FOjF6l1RfYS7pzVeweUcvqmCa3wGYdkDKt4MVV6fZ3vLkTuTihrpm5P2jTUs5inxIsavgYDSpfZR9
+	QfMIzXUnLBD/O6QxSZigXwY3LIVGBzNEG6s+yo/CP0ybtsO9h4diGVkPtPP2jGg1kRIn8SApxvqqm
+	VTzfkPJXYtzHfrLCITnKAEL12EnGlhnlHDkM6RJQ5VmMdLyF8FXvGtPvOhN8Pzw8nI16wt+UhAqlQ
+	xNLbDBnJEBNa7lb/wOdYBPEG1oP9G9/I2Kkflle18PzRciftV6i+gv8eRCro7HifQyYYI2P6FBhtP
+	k/7QdEnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdCm-00000002niW-1J0U;
-	Mon, 10 Mar 2025 13:30:04 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1trdEO-00000002nx1-01tk;
+	Mon, 10 Mar 2025 13:31:44 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcEe-00000002cQU-10VV;
-	Mon, 10 Mar 2025 12:27:57 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43bdf0cbb6bso23333625e9.1;
-        Mon, 10 Mar 2025 05:27:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741609675; x=1742214475; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=;
-        b=CZjbDPaLkGd3W0KA06ElFAvoTYOCT3OO0vOSf+Qx6uA30z5oTRhHtiVYjsa9KmbU7P
-         u9/mpPJMYH1CmrOSyyeR3Qrf7JdAhm0GWgeBmhVcKW1X7zfWEJagFsGuYxc4KeVfseWM
-         iEoQwNH2V1iPcXY5FtcQqnp8SBB8vTsiD4kY6N1VpwuDYYYdFh7D/Ji8xhFQOIpkzp+B
-         oz8L/Oa7PMXH1XtGbU9RvrV0sE3x9t2WJmU7B07jMNdlEK43l6cmCgkXZKLOK2WqqOdl
-         bjrIhPmF4+p70Rg6hdP5tQy6YjUaRxK2/YJK6zZnwm0tOhzp9eya9lWpSwB92XD8kKUC
-         /U9Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741609675; x=1742214475;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=;
-        b=uJuy4av6giaDs1CsDuW4vm6voq+d4Ad9y0eQyd3/Ddr1kIMCfXv5o3nFS+682d22Wo
-         h6sIzNn41XtzjbgI86sL+qKHY2Z7tYtJF6IaepJTlIgLpRjDpKYJat/LdhyVxPxgpCqT
-         2dYkDQ27U6KmcfLnPK4N5m58fOSP+Vb2v7lLjgB3QnSpTKoFO7KfO0/iYfv8QAyKXHsx
-         KeuKIyZa8v7ryHwT4dwFzmg+5wo3OlE8tgr9pQvHbzDN5VaxoXw1FTPUKSf+98veKBUG
-         pv2CTTs5gEVBMbr2Jx/+p5BHLG91CUkP2GvyZj046LNQzzcUFykTfWXYGjKtY0sICZRN
-         TXZg==
-X-Forwarded-Encrypted: i=1; AJvYcCVYuI0F+Nl0fseqwMUhAt8T9yUs5+WGTIyYafiGoVIGmmjE4V6H+28fvTRswyPTdc1P0yxSXL4sZameUa5M2IRK@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvs41DHaqfg6Wjpp9jUnh87rmQyAoZ5w1Zd5vHU9WsnPMqYW4K
-	KXlyxtomo0PA9dH+LhkMO/qC2iy4Rqb+HtJ69OPe731j/ydMDlZ9
-X-Gm-Gg: ASbGncuwqIRkjm+cb8aX1zzuMAGQ6OPuKESBGzp8nk1+GCkz0io0Wh7SGmUCmTMDdub
-	Qg6KRkojLzIpyOl/EuDAoUzzT8BiljRxJ1486v1HqLYBZ5Bb4j0q2D/wTaHt+2CewNZbFuZ8Xzm
-	0Zz+nqKFb7BSdC/KZm/kfwFdL328Knf33Xcr0IoetEvtCBVujG90oDIDcFOzy7C9JQ2mlCpDmig
-	WLxNmgOKnUlt32YQZptbb7pb1rv8tc1WEktGm4LxUS5Cbaic+MG2JqCw69cjkGRc1oUkkAxgTpQ
-	/bjohrT54go4YV5PYTdObEWx5k2+Hk7Af9cBwIYpgZDkjbHFN2gaykGsd83lAzM3Qxdq7mmmmQZ
-	FGzmKhrSgmGcc4XtD
-X-Google-Smtp-Source: AGHT+IHyEEGGzhCMZxMwRjQ82ccOJZrD+gnc4+NfGxz62Tu6AF+ZAKBbTzzBzG5J8FJd1mZ+MeHucw==
-X-Received: by 2002:a05:600c:4f41:b0:43c:ec28:d301 with SMTP id 5b1f17b1804b1-43cec28d3c2mr31513105e9.26.1741609674640;
-        Mon, 10 Mar 2025 05:27:54 -0700 (PDT)
-Received: from eichest-laptop.toradex.int (85-195-230-40.fiber7.init7.net. [85.195.230.40])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd6530f26sm171963245e9.4.2025.03.10.05.27.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 05:27:53 -0700 (PDT)
-From: Stefan Eichenberger <eichest@gmail.com>
-To: vkoul@kernel.org,
-	kishon@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	p.zabel@pengutronix.de,
-	hongxing.zhu@nxp.com,
-	tharvey@gateworks.com,
-	Frank.Li@nxp.com,
-	francesco.dolcini@toradex.com
-Cc: linux-phy@lists.infradead.org,
-	imx@lists.linux.dev,
+	id 1trcIJ-00000002dNX-0pFr
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 12:31:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=itOKGgzpHi7KgaNmFHmHfax9kY4jmtqWEweC2RyI/Og=; b=erPLNA9wWzqDRpmp0jTUNuVy8R
+	jHoaL6nv4fDf/jTi6npkgPDWsRHfZpbV/JUCNy7xFneykv3fIKU8bDnM6pGxIYVpTD2kwzYjJjR4A
+	VQa5K0G93KLS31qrG03TYdVqFV4Z9zOt1lLJFKJqL+tRH4VNi2+Z6gXTLa1kynvf9a+XhqlIT7Zo7
+	ho1BYiMtFsvOVWshin+zBspSykHdSP/bqqBdQs7wq++fc0MPQNBgQxrnXfsBOF+uLtI3Q86BObTUj
+	N/ESrcqixtcf+FSXaP3TKKokW3raS17kxirnnwX423itWxAjrmR4Zv1uI8jmhJ8Z2bFv+frFaKHFq
+	angen7XQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:38120)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1trcIB-0002dh-1b;
+	Mon, 10 Mar 2025 12:31:35 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1trcI8-0002TM-19;
+	Mon, 10 Mar 2025 12:31:32 +0000
+Date: Mon, 10 Mar 2025 12:31:32 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
-	stable@vger.kernel.org
-Subject: [PATCH v3 2/2] phy: freescale: imx8m-pcie: assert phy reset and perst in power off
-Date: Mon, 10 Mar 2025 13:27:04 +0100
-Message-ID: <20250310122745.34947-3-eichest@gmail.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250310122745.34947-1-eichest@gmail.com>
-References: <20250310122745.34947-1-eichest@gmail.com>
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: [PATCH net-next 0/2] net: stmmac: avoid unnecessary work in
+ stmmac_release()/stmmac_dvr_remove()
+Message-ID: <Z87bpDd7QYYVU0ML@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052756_279745_3BD3E91F 
-X-CRM114-Status: GOOD (  11.92  )
+X-CRM114-CacheID: sfid-20250310_053143_235985_8FD5C9B4 
+X-CRM114-Status: UNSURE (   6.90  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,64 +85,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
+Hi,
 
-Ensure the PHY reset and perst is asserted during power-off to
-guarantee it is in a reset state upon repeated power-on calls. This
-resolves an issue where the PHY may not properly initialize during
-subsequent power-on cycles. Power-on will deassert the reset at the
-appropriate time after tuning the PHY parameters.
+This small series is a subset of a RFC I sent earlier. These two
+patches remove code that is unnecessary and/or wrong in these paths.
+Details in each commit.
 
-During suspend/resume cycles, we observed that the PHY PLL failed to
-lock during resume when the CPU temperature increased from 65C to 75C.
-The observed errors were:
-  phy phy-32f00000.pcie-phy.3: phy poweron failed --> -110
-  imx6q-pcie 33800000.pcie: waiting for PHY ready timeout!
-  imx6q-pcie 33800000.pcie: PM: dpm_run_callback(): genpd_resume_noirq+0x0/0x80 returns -110
-  imx6q-pcie 33800000.pcie: PM: failed to resume noirq: error -110
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 -----
+ 1 file changed, 5 deletions(-)
 
-This resulted in a complete CPU freeze, which is resolved by ensuring
-the PHY is in reset during power-on, thus preventing PHY PLL failures.
-
-Cc: stable@vger.kernel.org
-Fixes: 1aa97b002258 ("phy: freescale: pcie: Initialize the imx8 pcie standalone phy driver")
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
-Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
----
- drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 11 +++++++++++
- 1 file changed, 11 insertions(+)
-
-diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-index 5b505e34ca364..7355d9921b646 100644
---- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-+++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-@@ -156,6 +156,16 @@ static int imx8_pcie_phy_power_on(struct phy *phy)
- 	return ret;
- }
- 
-+static int imx8_pcie_phy_power_off(struct phy *phy)
-+{
-+	struct imx8_pcie_phy *imx8_phy = phy_get_drvdata(phy);
-+
-+	reset_control_assert(imx8_phy->reset);
-+	reset_control_assert(imx8_phy->perst);
-+
-+	return 0;
-+}
-+
- static int imx8_pcie_phy_init(struct phy *phy)
- {
- 	struct imx8_pcie_phy *imx8_phy = phy_get_drvdata(phy);
-@@ -176,6 +186,7 @@ static const struct phy_ops imx8_pcie_phy_ops = {
- 	.init		= imx8_pcie_phy_init,
- 	.exit		= imx8_pcie_phy_exit,
- 	.power_on	= imx8_pcie_phy_power_on,
-+	.power_off	= imx8_pcie_phy_power_off,
- 	.owner		= THIS_MODULE,
- };
- 
 -- 
-2.45.2
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
