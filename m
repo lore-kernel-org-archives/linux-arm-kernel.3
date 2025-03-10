@@ -4,89 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36AC1C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:37:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCC9C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:38:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LaDo0TpdLHkL+eYCKGZgjPq3xnTb94tpFgP41Gc/bWA=; b=zVhI97VS3mpK4p4QLAV4eaMgqd
-	GqLdkswy0gZIOuSQgbuHPdow2T/zkx2cVLHwJ/1ZA2MtKfDB9YeY6rHXobArpi11iQS17vJJXRSTl
-	lPpp5fgLnwi/vL3TMxFJoK4b4yZ4PZtaqb3nqJCczIBuzlpagrLlnj8oAmRfM+YmDOURVfMxLZlQ0
-	FaIiHcTJViRdhnVypBRb2EuJ9Qgwz7LBtK6RWhXowcAzIVewnivNR0Es3IfBHefAxy1M2j9zsqgBq
-	P89v6z66ZObR33lBIBLw9YbwQrRZRRAkn5yQ9vYqhtv58X5KevcW1Pnr7MR9LVfKjEs46HaiH0mPd
-	9W2FM7Rg==;
+	bh=CNm9BSsOfq9YjNo6tMCG7wnV+C6YM+88UmyM3ASeUTg=; b=VzHhgbOYp0BLMIfWNitAq3s17U
+	lRMnZHQqhI+cv6czYtWonxMcebJZqA/5bdiLqBgSLu/8FqwmU05TNr6/cEhUSQqPLfD+xbkgZcms2
+	+zMC2awWheBnV1XuCVp9BgMiHZm8KELXYT+wBQLv+YB46tgIs0R0xnjtQ/FFcT8R8W5ePfYS1pxS6
+	HEWni+EImVj94H5Zc9fJ1nV0KyBp0pj84+vA9eI7G7+fZpx+jUDuYHVHoTVa+6/Hvw886teB/Qguu
+	0b13QURBjGDd1q+oEO2fwf/eorI9skhwrA3mcc2Dy1j0nJg1DgyeJy5bwFuBD1vTk8TKDhBQzFQlL
+	K9PIaf8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcNQ-00000002eCl-2Afv;
-	Mon, 10 Mar 2025 12:37:00 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1trcP1-00000002ePI-3XfO;
+	Mon, 10 Mar 2025 12:38:40 +0000
+Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trc06-00000002Y4r-0haQ;
-	Mon, 10 Mar 2025 12:12:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=LaDo0TpdLHkL+eYCKGZgjPq3xnTb94tpFgP41Gc/bWA=; b=diiujp6xRfKzZ6tJ3SGwxe6DEy
-	kZXVkV2ztgvaU04w9VA5ynMGVy38uI4TWb4S3dlg97v/YpoAgMYVJSQoCj/Z14qqQWEAbnYRCicZH
-	1S8x/RACihXvSZBvQWuTF53qFJupA4Su7JbZ4cLRwmxXNcPEml9RWMnIfhjg5CPzdBpFUAsAiI5wE
-	husQNfVSDyri2tM7KzVtDUq1T0cr3xpPIh3vNKNe1eq8Pmz04cdsDoAh/8hW33rMvXWdpIdG20wce
-	ngU/16eAQhSSUGUvSrJ+wrcJmzUA5EYB+3JtWtc5QK0g6z9zkrEwa2J5PmbaTe6AwwfIUwsVwlqUa
-	v8iGJ/ug==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:59050 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1trbxu-0002Y3-3A;
-	Mon, 10 Mar 2025 12:10:39 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1trbxa-005qXy-MQ; Mon, 10 Mar 2025 12:10:18 +0000
-In-Reply-To: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
-References: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next 1/9] net: stmmac: qcom-ethqos: remove
- of_get_phy_mode()
+	id 1trc1U-00000002Yuo-31WO
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 12:14:22 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id 922A1443F5;
+	Mon, 10 Mar 2025 12:14:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741608858;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CNm9BSsOfq9YjNo6tMCG7wnV+C6YM+88UmyM3ASeUTg=;
+	b=fJYw8HnhXuhCIVN13OSw37EfydbxcYN7vD4cPiEwIhg0ewJwR4m5AGcunzenv2lFQXEHXw
+	mnreD61Hvp4HRIX/qRmMigw7T7thB/GbXLTUGueG+M6Td45rLGqbC8HCXJQT1294f/ivHM
+	WkqMX/mMzZt6ehIcOeCh3BXGjMaxXA6qRrZeXPwosH6vicCiWjwQNb8IY8GzlL3ZxhiTXn
+	appYtMEllu/YTF5yRqxF2lRzEpq1nFFVMRn7gtE6nX8RMZLNUgQOve7xZVWAaSIiPd3qNA
+	heRpjAjelZWHnfNKv2h0eBbbM4crWd6ETjsYEws5j1IlfUQjN/O28xY4MzzFhg==
+Date: Mon, 10 Mar 2025 13:14:13 +0100
+From: Kory Maincent <kory.maincent@bootlin.com>
+To: Maxime Chevallier <maxime.chevallier@bootlin.com>
+Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
+ <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, Paolo Abeni
+ <pabeni@redhat.com>, Heiner Kallweit <hkallweit1@gmail.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ thomas.petazzoni@bootlin.com, linux-arm-kernel@lists.infradead.org,
+ Christophe Leroy <christophe.leroy@csgroup.eu>, Herve Codina
+ <herve.codina@bootlin.com>, Florian Fainelli <f.fainelli@gmail.com>,
+ Russell King <linux@armlinux.org.uk>, Vladimir Oltean
+ <vladimir.oltean@nxp.com>, Oleksij Rempel <o.rempel@pengutronix.de>, Simon
+ Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
+ Piergiorgio Beruto <piergiorgio.beruto@gmail.com>, Stanislav Fomichev
+ <sdf@fomichev.me>
+Subject: Re: [PATCH net-next v2 5/7] net: ethtool: phy: Convert the PHY_GET
+ command to generic phy dump
+Message-ID: <20250310131413.505e676f@kmaincent-XPS-13-7390>
+In-Reply-To: <20250308155440.267782-6-maxime.chevallier@bootlin.com>
+References: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
+	<20250308155440.267782-6-maxime.chevallier@bootlin.com>
+Organization: bootlin
+X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1trbxa-005qXy-MQ@rmk-PC.armlinux.org.uk>
-Date: Mon, 10 Mar 2025 12:10:18 +0000
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeegiedrudekkedrvdefledruddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepgeeirddukeekrddvfeelrddutddphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
+ egvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
+X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_051254_217454_498C2C5B 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250310_051421_362913_E2547324 
+X-CRM114-Status: GOOD (  11.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,32 +89,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
-which is stored in plat_dat->phy_interface. Therefore, we don't need to
-get it a second time in qcom_ethqos_probe(). Use
-plat_dat->phy_interface to initialise ethqos->phy_mode.
+On Sat,  8 Mar 2025 16:54:37 +0100
+Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+> Now that we have an infrastructure in ethnl for perphy DUMPs, we can get
+> rid of the custom ->doit and ->dumpit to deal with PHY listing commands.
+>=20
+> As most of the code was custom, this basically means re-writing how we
+> deal with PHY listing.
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-index eafe637540b6..0e4da216f942 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c
-@@ -794,9 +794,7 @@ static int qcom_ethqos_probe(struct platform_device *pdev)
- 	if (!ethqos)
- 		return -ENOMEM;
- 
--	ret = of_get_phy_mode(np, &ethqos->phy_mode);
--	if (ret)
--		return dev_err_probe(dev, ret, "Failed to get phy mode\n");
-+	ethqos->phy_mode = plat_dat->phy_interface;
- 	switch (ethqos->phy_mode) {
- 	case PHY_INTERFACE_MODE_RGMII:
- 	case PHY_INTERFACE_MODE_RGMII_ID:
--- 
-2.30.2
+Only nitpick ;)
 
+> -static int
+> -ethnl_phy_fill_reply(const struct ethnl_req_info *req_base, struct sk_bu=
+ff
+> *skb) +static int phy_prepare_data(const struct ethnl_req_info *req_info,
+> +			    struct ethnl_reply_data *reply_data,
+> +			    const struct genl_info *info)
+>  {
+> -	struct phy_req_info *req_info =3D PHY_REQINFO(req_base);
+> -	struct phy_device_node *pdn =3D req_info->pdn;
+> -	struct phy_device *phydev =3D pdn->phy;
+> -	enum phy_upstream ptype;
+> +	struct phy_reply_data *rep_data =3D PHY_REPDATA(reply_data);
+> +	struct phy_link_topology *topo =3D reply_data->dev->link_topo;
+> +	struct nlattr **tb =3D info->attrs;
+> +	struct phy_device_node *pdn;
+> +	struct phy_device *phydev;
+ =20
+Reverse xmas tree.
+
+> -	ptype =3D pdn->upstream_type;
+> +	/* RTNL is held by th caller */
+
+Small typo here *the*.
+
+The rest is good for me.
+
+Regards,
+--=20
+K=C3=B6ry Maincent, Bootlin
+Embedded Linux and kernel engineering
+https://bootlin.com
 
