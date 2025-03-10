@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5DA11C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 21:59:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D902C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 22:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZqba3gVX41zqsOhdc28XH+vmCDKWwigOXcxvppEBtM=; b=UGwRCEf9TeHXPmKeitw8VIEag8
-	e5WMorAtMr2P+yFnrzSrxhWo3MZm8mgW1JUau3FviXTax6RXMTfGsW4I02gpMMAsZv23p6SJv3+sP
-	QUO0BoAM5sLKVcUJakcI6pcriAwrcWBFsPGtR9Sfbd9KASnSw9DfF1/0G9WGZq6zOieC5dVGP7IQp
-	TuR9Kj0KuWTTfEXg6jeP4IEc0P0My4R62xPJU7NCGw03PQ3Nbw4wiLYUO3w2e+n4FUorexbFjl7n5
-	iudU816/Mw5YPMXHmTtqTXW/WwU4oVu9oRSEFmQrpfnv/RKN49KZKfq1ui2Dkm1MLW4W/JcmWYSbm
-	y3OOoUqw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GmpO8wb4Rh+VBu0vYLqi2gmMJWFUtaNeJ+Tise1RSQ8=; b=PzmH8AFoV+r736eGxtIca7DpUG
+	XD/OZP6t/aYiEsW28iFhVOeasw2fUnRl+qIA4/gq/uf8hkNWGIFAK2/2eoQqaElT/HC9yKzVQeBdU
+	rZV0C7TmV8/IF3C+jxviPb0+/+PYON1UoTxLubCPCTAwbBmc3phgXHC2lZUXKXpOWtAaIOcivXVvO
+	zvffbjKHuP8M/ojDIb68C4ubDIyRSS3wbCwKk1bExSMMZvf5IoGQxu0CQRCZg4n6ohtmyqlALEBqt
+	DU6sAhm28XoWUZqw3XBq78YT2ylZrwBSUHKwaGS12syg80Ga91a18o92QHTOyWlQ15ka6Cl5EuF8T
+	TfBAcKzA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trl9z-000000043z0-2OZz;
-	Mon, 10 Mar 2025 21:59:43 +0000
-Received: from mail-pl1-f170.google.com ([209.85.214.170])
+	id 1trlJg-000000045S1-2HiN;
+	Mon, 10 Mar 2025 22:09:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trl8L-000000043pb-07jO
+	id 1trlI2-000000045Dz-2Wvg
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 21:58:02 +0000
-Received: by mail-pl1-f170.google.com with SMTP id d9443c01a7336-2234e4b079cso85747115ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 14:58:00 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741643880; x=1742248680;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jZqba3gVX41zqsOhdc28XH+vmCDKWwigOXcxvppEBtM=;
-        b=ieUVecTvPWNvPx8+1Ox/lJEeN9notccJJ87xN+aXr88UzLw/OFDApCmxnzIgY19qyo
-         8Xq61yH7TXxYyjtezLzFf8HgZQuLmRHj8ulM3FY1BVGSp8FCsMD2rLV1KfZ2Dauo89/D
-         HHoBJqtBEXadhcWh/1OfWn7XEtVGepniBGgvcYSD2O3aVSYLayPIwKrtv0ED+zmVobhp
-         tBPAjZ/4TFRAFvKLqxY5xZBWznTqKMvbNndBBkhuMr6Hwl/sUxQZTnRca4wowwu2N0WI
-         51YvGggtZNa3SGARLGbcxBtlt9lk5um722RuZiHz/nzIPj3CepP51PJ6MmJlVz9K/bBn
-         rR9w==
-X-Forwarded-Encrypted: i=1; AJvYcCW9Wa/rHIrvPcoGWPsrDYgsubVrktD4nslfjgpWRkCx1eivNIbZ5Cml0LU/ngChmsrK/Q5MzCFa7JTaa6VbsjaW@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsawKzPml28Nh2EB+swT1MPdCsl6hRrBf0fqRr6k1XH/+3R6+7
-	dprBnfkdlt0pNizXxumUDmjOOsDMs3uf8vj2OCm2AdRSqBBKaNTV
-X-Gm-Gg: ASbGncsQMHL4R76RLKAfq5xBCYIwjeAZAddRazRH7iUmJF1pQJYmXfIpHPOOz7e6JuK
-	A81mECjhJIO4ZeikVUqd5zYjCp9G7elC7NBr33AcKI19Ko9ZZJjTeW3yjDvnnJZS4QX7QsaK+ED
-	u0BRf5P9w07hjR0s++t5H07vyo0/+ylD9SHDWt3IFsklPLEOqd64rF1sIKsHCiGG1mSLyplG9G+
-	aCR1I65IrD4vMgeVVj5arJG1P2ArXtgFdIEjgekeFx085/l5QNJHph9fkJ4WHmXRh1LVVqMobZw
-	ppfFwVH5ZoVPDkFpqPylS3hzXdBSf1VuwDXerZT9bbAdKpPxNydylxqbOUzcIAhxoj3jNV4lCsY
-	2oOw=
-X-Google-Smtp-Source: AGHT+IGyxv4vNjjG7KaJ3iyPdfXj74x7uGlGIgwHhUObVU0+SSpA387sqH72IQVZOID5ZMrgBJYuhQ==
-X-Received: by 2002:a17:902:f94d:b0:223:5a6e:b2c with SMTP id d9443c01a7336-2242889a729mr153897815ad.17.1741643880051;
-        Mon, 10 Mar 2025 14:58:00 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-736cf005d87sm3571543b3a.49.2025.03.10.14.57.59
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 14:57:59 -0700 (PDT)
-Date: Tue, 11 Mar 2025 06:57:56 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Richard Zhu <hongxing.zhu@nxp.com>
-Cc: manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	lpieralisi@kernel.org, l.stach@pengutronix.de, shawnguo@kernel.org,
-	bhelgaas@google.com, s.hauer@pengutronix.de, festevam@gmail.com,
-	linux-pci@vger.kernel.org, imx@nxp.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	kernel@pengutronix.de
-Subject: Re: [PATCH v1] PCI: imx6: Use devm_clk_bulk_get_all to fetch clocks
-Message-ID: <20250310215756.GC2377483@rocinante>
-References: <20250226025628.1681206-1-hongxing.zhu@nxp.com>
+	Mon, 10 Mar 2025 22:08:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id A31045C63E2;
+	Mon, 10 Mar 2025 22:05:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id AC7D9C4CEF1;
+	Mon, 10 Mar 2025 22:08:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741644480;
+	bh=EFBQsxI8pshryAs5welcgFtVvdljjCYlYHIliRUCN0g=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=T7AxrnWwl+KG9BRTWXFgPs8c7bNcD6ugwJ7L7zXXPj7CSquyNeqGGQbCX/MNLfRtX
+	 wHoz1eF5I81ki5wNClxExGV2mi4+jKgIdg5OfGbnCt2RXhROucB2l9L0Ki+p9bzibN
+	 /x8/2LEjufteu5eKp3NVuPOHPG9u48DEgIodSCBHRY8jGc92FWq41JIBVLwCtIzXNr
+	 /caFsQAIOJkVhCNYhgB0oH4axWYMx34tw8YJt94lVgLpiXmSWDRLmq/fGg2PnK0d2s
+	 nMhkN7ikvbI3YTfUofOcjAJJ9UtTuIxU1FSvXwCM9ig5m6pzg5bx5Q5AvUyeaQNP4/
+	 gdDteA+i1ijbQ==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9CF95C35FF1;
+	Mon, 10 Mar 2025 22:08:00 +0000 (UTC)
+From: Sasha Finkelstein via B4 Relay <devnull+fnkl.kernel.gmail.com@kernel.org>
+Date: Mon, 10 Mar 2025 23:07:59 +0100
+Subject: [PATCH v3 2/3] spmi: add a spmi driver for Apple SoC
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250226025628.1681206-1-hongxing.zhu@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250310-spmi-v3-2-92a82e7d9f0d@gmail.com>
+References: <20250310-spmi-v3-0-92a82e7d9f0d@gmail.com>
+In-Reply-To: <20250310-spmi-v3-0-92a82e7d9f0d@gmail.com>
+To: Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Stephen Boyd <sboyd@kernel.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ Sasha Finkelstein <fnkl.kernel@gmail.com>, 
+ Jean-Francois Bortolotti <jeff@borto.fr>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741644479; l=6952;
+ i=fnkl.kernel@gmail.com; s=20241124; h=from:subject:message-id;
+ bh=HWm9h1XrGTkFNhxBV+c5Dt9QP4ibWUbEVLcXuEk4LbU=;
+ b=N+ISCvI9qhC6f+C9ojUGAgFxxaKOPvbTTvcggQkVCXYZk51zqzExrkC4aqa+udqMBxTAfogRa
+ 2gmdYbUGcXYD+A60msfHJh2jUH9rksdMuFFA9XuVbHShR1hNQBHS9nS
+X-Developer-Key: i=fnkl.kernel@gmail.com; a=ed25519;
+ pk=aSkp1PdZ+eF4jpMO6oLvz/YfT5XkBUneWwyhQrOgmsU=
+X-Endpoint-Received: by B4 Relay for fnkl.kernel@gmail.com/20241124 with
+ auth_id=283
+X-Original-From: Sasha Finkelstein <fnkl.kernel@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_145801_064746_47D0C02A 
-X-CRM114-Status: UNSURE (   6.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_150802_734588_3ABCA561 
+X-CRM114-Status: GOOD (  21.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,15 +87,247 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: fnkl.kernel@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
+From: Jean-Francois Bortolotti <jeff@borto.fr>
 
-> Use devm_clk_bulk_get_all() to simple clock handle codes. No function
-> changes.
+The connected PMU contains several useful nvmem cells such as RTC offset,
+boot failure counters, reboot/shutdown selector, and a few others.
+In addition M3+ machines have their USB-PD controller connected via SPMI.
 
-Applied to controller/imx6, thank you!
+Signed-off-by: Jean-Francois Bortolotti <jeff@borto.fr>
+Reviewed-by: Sven Peter <sven@svenpeter.dev>
+Co-developed-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+Signed-off-by: Sasha Finkelstein <fnkl.kernel@gmail.com>
+---
+ MAINTAINERS                          |   1 +
+ drivers/spmi/Kconfig                 |   8 ++
+ drivers/spmi/Makefile                |   1 +
+ drivers/spmi/spmi-apple-controller.c | 168 +++++++++++++++++++++++++++++++++++
+ 4 files changed, 178 insertions(+)
 
-	Krzysztof
+diff --git a/MAINTAINERS b/MAINTAINERS
+index 271ff8110df83c2d4fe7fbbfffc0a72259460bc5..9006695261d29fbc1e15659c2b43d7afeee0b656 100644
+--- a/MAINTAINERS
++++ b/MAINTAINERS
+@@ -2254,6 +2254,7 @@ F:	drivers/nvmem/apple-efuses.c
+ F:	drivers/pinctrl/pinctrl-apple-gpio.c
+ F:	drivers/pwm/pwm-apple.c
+ F:	drivers/soc/apple/*
++F:	drivers/spmi/spmi-apple-controller.c
+ F:	drivers/watchdog/apple_wdt.c
+ F:	include/dt-bindings/interrupt-controller/apple-aic.h
+ F:	include/dt-bindings/pinctrl/apple.h
+diff --git a/drivers/spmi/Kconfig b/drivers/spmi/Kconfig
+index 73780204631463631cabcbad5bf83e8dbbee94ce..9005fa91d9f4e541403ccc7bf84e0592402ac41e 100644
+--- a/drivers/spmi/Kconfig
++++ b/drivers/spmi/Kconfig
+@@ -11,6 +11,14 @@ menuconfig SPMI
+ 
+ if SPMI
+ 
++config SPMI_APPLE
++	tristate "Apple SoC SPMI Controller platform driver"
++	depends on ARCH_APPLE || COMPILE_TEST
++	help
++	  If you say yes to this option, support will be included for the
++	  SPMI controller present on many Apple SoCs, including the
++	  t8103 (M1) and t600x (M1 Pro/Max).
++
+ config SPMI_HISI3670
+ 	tristate "Hisilicon 3670 SPMI Controller"
+ 	select IRQ_DOMAIN_HIERARCHY
+diff --git a/drivers/spmi/Makefile b/drivers/spmi/Makefile
+index 7f152167bb05b2c24a0f9669f60278152898eebb..38ac635645ba65aa46cb5e8a50072ed9771e229b 100644
+--- a/drivers/spmi/Makefile
++++ b/drivers/spmi/Makefile
+@@ -4,6 +4,7 @@
+ #
+ obj-$(CONFIG_SPMI)	+= spmi.o spmi-devres.o
+ 
++obj-$(CONFIG_SPMI_APPLE)	+= spmi-apple-controller.o
+ obj-$(CONFIG_SPMI_HISI3670)	+= hisi-spmi-controller.o
+ obj-$(CONFIG_SPMI_MSM_PMIC_ARB)	+= spmi-pmic-arb.o
+ obj-$(CONFIG_SPMI_MTK_PMIF)	+= spmi-mtk-pmif.o
+diff --git a/drivers/spmi/spmi-apple-controller.c b/drivers/spmi/spmi-apple-controller.c
+new file mode 100644
+index 0000000000000000000000000000000000000000..697b3e8bb023566f17911fc222666d84f5e14c91
+--- /dev/null
++++ b/drivers/spmi/spmi-apple-controller.c
+@@ -0,0 +1,168 @@
++// SPDX-License-Identifier: GPL-2.0
++/*
++ * Apple SoC SPMI device driver
++ *
++ * Copyright The Asahi Linux Contributors
++ *
++ * Inspired by:
++ *		OpenBSD support Copyright (c) 2021 Mark Kettenis <kettenis@openbsd.org>
++ *		Correllium support Copyright (C) 2021 Corellium LLC
++ *		hisi-spmi-controller.c
++ *		spmi-pmic-arb.c Copyright (c) 2021, The Linux Foundation.
++ */
++
++#include <linux/io.h>
++#include <linux/iopoll.h>
++#include <linux/module.h>
++#include <linux/mod_devicetable.h>
++#include <linux/platform_device.h>
++#include <linux/spmi.h>
++
++/* SPMI Controller Registers */
++#define SPMI_STATUS_REG 0
++#define SPMI_CMD_REG 0x4
++#define SPMI_RSP_REG 0x8
++
++#define SPMI_RX_FIFO_EMPTY BIT(24)
++
++#define REG_POLL_INTERVAL_US 10000
++#define REG_POLL_TIMEOUT_US (REG_POLL_INTERVAL_US * 5)
++
++struct apple_spmi {
++	void __iomem *regs;
++};
++
++#define poll_reg(spmi, reg, val, cond) \
++	readl_poll_timeout((spmi)->regs + (reg), (val), (cond), \
++			   REG_POLL_INTERVAL_US, REG_POLL_TIMEOUT_US)
++
++static inline u32 apple_spmi_pack_cmd(u8 opc, u8 sid, u16 saddr, size_t len)
++{
++	return opc | sid << 8 | saddr << 16 | (len - 1) | (1 << 15);
++}
++
++/* Wait for Rx FIFO to have something */
++static int apple_spmi_wait_rx_not_empty(struct spmi_controller *ctrl)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	int ret;
++	u32 status;
++
++	ret = poll_reg(spmi, SPMI_STATUS_REG, status, !(status & SPMI_RX_FIFO_EMPTY));
++	if (ret) {
++		dev_err(&ctrl->dev,
++			"failed to wait for RX FIFO not empty\n");
++		return ret;
++	}
++
++	return 0;
++}
++
++static int spmi_read_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			 u16 saddr, u8 *buf, size_t len)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	u32 rsp;
++	size_t len_read = 0;
++	u8 i;
++	int ret;
++
++	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++
++	ret = apple_spmi_wait_rx_not_empty(ctrl);
++	if (ret)
++		return ret;
++
++	/* Discard SPMI reply status */
++	readl(spmi->regs + SPMI_RSP_REG);
++
++	/* Read SPMI data reply */
++	while (len_read < len) {
++		rsp = readl(spmi->regs + SPMI_RSP_REG);
++		i = 0;
++		while ((len_read < len) && (i < 4)) {
++			buf[len_read++] = ((0xff << (8 * i)) & rsp) >> (8 * i);
++			i += 1;
++		}
++	}
++
++	return 0;
++}
++
++static int spmi_write_cmd(struct spmi_controller *ctrl, u8 opc, u8 sid,
++			  u16 saddr, const u8 *buf, size_t len)
++{
++	struct apple_spmi *spmi = spmi_controller_get_drvdata(ctrl);
++	u32 spmi_cmd = apple_spmi_pack_cmd(opc, sid, saddr, len);
++	size_t i = 0, j;
++	int ret;
++
++	writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++
++	while (i < len) {
++		j = 0;
++		spmi_cmd = 0;
++		while ((j < 4) & (i < len))
++			spmi_cmd |= buf[i++] << (j++ * 8);
++
++		writel(spmi_cmd, spmi->regs + SPMI_CMD_REG);
++	}
++
++	ret = apple_spmi_wait_rx_not_empty(ctrl);
++	if (ret)
++		return ret;
++
++	/* Discard */
++	readl(spmi->regs + SPMI_RSP_REG);
++
++	return 0;
++}
++
++static int apple_spmi_probe(struct platform_device *pdev)
++{
++	struct apple_spmi *spmi;
++	struct spmi_controller *ctrl;
++	int ret;
++
++	ctrl = devm_spmi_controller_alloc(&pdev->dev, sizeof(*spmi));
++	if (IS_ERR(ctrl))
++		return -ENOMEM;
++
++	spmi = spmi_controller_get_drvdata(ctrl);
++
++	spmi->regs = devm_platform_ioremap_resource(pdev, 0);
++	if (IS_ERR(spmi->regs))
++		return PTR_ERR(spmi->regs);
++
++	ctrl->dev.of_node = pdev->dev.of_node;
++
++	ctrl->read_cmd = spmi_read_cmd;
++	ctrl->write_cmd = spmi_write_cmd;
++
++	ret = devm_spmi_controller_add(&pdev->dev, ctrl);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "spmi_controller_add failed\n");
++
++	return 0;
++}
++
++static const struct of_device_id apple_spmi_match_table[] = {
++	{ .compatible = "apple,spmi", },
++	{}
++};
++MODULE_DEVICE_TABLE(of, apple_spmi_match_table);
++
++static struct platform_driver apple_spmi_driver = {
++	.probe		= apple_spmi_probe,
++	.driver		= {
++		.name	= "apple-spmi",
++		.of_match_table = apple_spmi_match_table,
++	},
++};
++module_platform_driver(apple_spmi_driver);
++
++MODULE_AUTHOR("Jean-Francois Bortolotti <jeff@borto.fr>");
++MODULE_DESCRIPTION("Apple SoC SPMI driver");
++MODULE_LICENSE("GPL");
+
+-- 
+2.48.1
+
+
 
