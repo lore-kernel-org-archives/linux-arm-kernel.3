@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A54C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:15:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A97C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:17:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=; b=1KDKG8oOJorBfYL65xk9lrqUsW
-	mP/97TGRrqICJhERaYQtunanbx6KPEBm9DbJ65QmlIAkBDBBfqnDjK0ElOoV0ZFYGU14kjnWtaHtr
-	vzdR2QHC5kD7PdFTrKsqeXIFbls7fwNH/MHBLozl1ie3L9ESABMwvkUcCmWnyq/ZZe0sjToH2fOPy
-	9ALWvLIU6KFC48wWXNfBxdjOAoaVRHISGZgRhvQyxLroHKJcKykC7CQ5SoAbLrTwc8OL3fOSUJXKW
-	CCKBi6nUSF9nSTSR04ZUkWF6l5u0XgUy7pZgsztE0DH0jbjHk/so6AgyQBxU86AeBBujQkILCKsD1
-	Yr7bq91g==;
+	bh=P4FBTBE+KNOkM+Qcs2aGG4D+zzTC9l6YOpjrjTql9Ko=; b=NeyV7CKUwhK63khGhuBaqtEZew
+	UN0nypdE/1KwZrzY6ZvIQigtzrDeWYS0VOx614vGmzN7P+2EihOUA8fxKccb0zN1JbGopKNNsElna
+	I4ScBSYbk3SEy+W8JafU/NJXLvJwgT5WbR+jQqVuyRL9Q/cj6JgNcH5un1DRdfDuIZPIHe99jRSCQ
+	JMePCAIdKimbD/RdiF7c21rosyj+Yeishwi3xrUeC5zQwiWQMkKTyKi6eyT82b8oTDsCWGdiCLspu
+	f1oVMyPvecF1YfTSzWTinV9iuLfefELD9lapqqpYqCgMDLfGorLXJNBkfGpc/ql930uJcGfW4AyPx
+	juyuwKYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trb6T-00000002OiS-2VDS;
-	Mon, 10 Mar 2025 11:15:25 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1trb85-00000002Oun-1224;
+	Mon, 10 Mar 2025 11:17:05 +0000
+Received: from mail-wm1-x332.google.com ([2a00:1450:4864:20::332])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tragT-00000002IzT-0w43
+	id 1tragd-00000002J2u-3VOv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:48:35 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43bdf0cbb6bso22595835e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 03:48:32 -0700 (PDT)
+	Mon, 10 Mar 2025 10:48:45 +0000
+Received: by mail-wm1-x332.google.com with SMTP id 5b1f17b1804b1-43cf257158fso5939845e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 03:48:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741603711; x=1742208511; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741603722; x=1742208522; darn=lists.infradead.org;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=;
-        b=IensH9ow62SsG71YlmazmZUBJ0s6P2573urRNA+4EfPnSWvdYB/7/wxSbjdnGwn2gU
-         TaueRys7cKv/Tl5mwdtaEheTawOuNHcyJ1cBHM/s+e5jT+2r7dHJXVB2WpNOegF+oesd
-         jbvjZyr8XNwWN1eyVHkpZHo+lGr1YhV4lcdY/wTLmim21OZBoKn7TcaapB1JASNuA4Vh
-         u9d2OeVg6nC4+vgFDrH1Mk1juDEPtUH/5/vfqKxix+evb+4E8ahbQOWNGuIz2sywVTz4
-         wmxN+205cyBd/PPUMtoPHLB/As355+j8giAQuzvCZD4BpO2Gf6PtLRASv8lfksRr4l25
-         5eHw==
+        bh=P4FBTBE+KNOkM+Qcs2aGG4D+zzTC9l6YOpjrjTql9Ko=;
+        b=mZvN1NI76ZhKr1sLNYQbmaHtkqcVBfnLxxrp6Y2CT8xPMxvdJiEctAxe3sxFxpkEgf
+         cwIw9LtuFZRMINIJ46JZ8lomZQf2cHnK43NhHxH9mwJMGMTX/rYgvKGiZYL1owVxS2IU
+         7mmxwHfcVMPDOz0nq6llujY7/v21e6qDtursiKb0dv5AXG+Jg1JupXMM+fB8vXQQDbi1
+         nFyJT5cGKJ8Mg0I5l4uoWP7bgPn0GKYoof21l4h60Q1rh4rOqPHQJVz53yd4FkF+iinR
+         6ceZfQCHozlGLaGJuDYRsNrHsweNJ1ILAiVijfvzR+W8PKh+guOupIXXeOd0pduNGW0I
+         b2bg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741603711; x=1742208511;
+        d=1e100.net; s=20230601; t=1741603722; x=1742208522;
         h=content-disposition:mime-version:message-id:subject:cc:to:from:date
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=;
-        b=dQa1z8RASd/sew85iDmoHcF2yJFRNwMo7HL7He51o5ufSp9TYsjTWYdFHR5FE1zmUN
-         zq4/SQJS3jNG31wdrfd+B8HMiTPqtyIv/pdcrsC2CJUKD6Y0tt5IXgVnfMgAWyH5csH+
-         3WxHmJk+AagD4AHOkQRYrEZktIwx+eWl8lcW0wbY4yIvmzqwKMS/RCmdQ6xSAw7dOCqi
-         VO98RBv9tdukjwFTQzwEWmobvgWncO7rJTlgb5eOnOBFwwWIgh61SHaUpYRIGn1VqutL
-         CRuhCWlflcb725aN38kiK2WDM6BWR/Ocvoga3i3HUSMk+uHPYvm00p7zq31drv1nvuTS
-         9BJg==
-X-Forwarded-Encrypted: i=1; AJvYcCWqGbCGhO4uOnOqjuGdimrSQEKWtFLFkvBiVOzxQ5AG8u/rwxhMoMQGtLFUM1oDtfZWlTVoiYg1vBN6KVrJ1Imn@lists.infradead.org
-X-Gm-Message-State: AOJu0YxYFFZIwQJWfSvC+fLlNX3PCbFyHEYKbYv05m4N0218uR3mafVy
-	h9ZFCgKEblvfxvXynI9wrP7VfJN3rUUx9FpraQ97Ej/PEVOSpjd0rRh+kVtc7Pk=
-X-Gm-Gg: ASbGnct8idw/R32kV8G/oAgiWNw/424iMYfLA3jYSVJJd1OIXfyMlfxuHKtK1Su2/Zy
-	xgjAVQyc2iIqsQVWbvdjRgePNUBcC4Z8PchI/1ubzAkMPCQXqg4MVrugtM936XNLpPbvJG1ssWI
-	8Qhzk6OLXxLrcTTCnWvUpF2TYl0EsVP4QHDezCYw7QzS2FyPxKVIpS8//Zhw+YdZRInLqMWSDdR
-	w0L9oKS6tI3y2fM7zh6JB4bhl6oiGDFXXYvC6zx8JEd4gfwJrjLosIia1ESPN25TppFg4D/lcHv
-	NhWFaGmCoE5vvLWmUhOTAro4q72rRPoCJLA2eOFYSZktCQkN3A==
-X-Google-Smtp-Source: AGHT+IEvyQMgaUHnCuYCt+OpJiqkHIstn9Ui2odq4PjFQ9lNSszLbzPKWSr7S0YVwsCBZMsm/36JQg==
-X-Received: by 2002:a05:600c:470d:b0:43c:fab3:4fad with SMTP id 5b1f17b1804b1-43cfab351c6mr15054385e9.16.1741603710881;
-        Mon, 10 Mar 2025 03:48:30 -0700 (PDT)
+        bh=P4FBTBE+KNOkM+Qcs2aGG4D+zzTC9l6YOpjrjTql9Ko=;
+        b=pyj/oxNnNzGu6yciSYSFUFyl1B8O2TevR3dvUszIPYx95IlM7i7X1jDd5QOlQh3o/a
+         yFvLPdfBpRZlW1eHz5zjCFxIXaEVgn/vJt4yG365vjWQgBXMFpPiEAqEQktH/gS0Jjz3
+         SfctEvB7u+jy45QuOPAzQkV/Bwp1lnBQN61xeQKf5KCKdxNgBF81rz4FE7BozXBN6xIS
+         r+mVIMmKKoyKB/oZE5caGN1N+jYmWMDtoXj29Fv+Hn7rYKXgK3CkE2QVL1woDJv9YiHb
+         PmFwvNZ9P/VCPaUw538e8jUXGyuOxKzcOfP1i/lLocVwlE9x2oy2WWjpbDe+8G51pISP
+         679w==
+X-Forwarded-Encrypted: i=1; AJvYcCUPuJYE0u2aU0SRpPHCn4F9wyDJ6N39+J8JkMaQ4P1+tNtiY1qDhpUEWKGj3QYidVsFs+uEqPCrysFvYdAFk5/E@lists.infradead.org
+X-Gm-Message-State: AOJu0YxGHey851uK/OSE/RhogsICLEKkvlnzxK6LFaHRmiB1Oa/tVRMC
+	08cOrbhABwuKcQZ4JZT5ZQOXcW1cs7jtIHo2aSWXjHZvvfg18v0szWznDAIifLI=
+X-Gm-Gg: ASbGncsDcHXmI2umdXpE2fqUYBKszqsh1pOZhaw0G0pCEJjugmrZ8UTljQzXRjPJa7F
+	M5zOHWLccux+d7ElkCW31+t2UqT8tp+UO26TrUzJrZhxhGAbLeCLLkdmDtNzefGGBsM9m+8iKF8
+	RotAf0SxTSncr/KvTyIo66XNnsmYsXZfVF6yG+Y5Qo3b6cO5XbtLbviMUNgHcK2AahyN4XL20+f
+	rp3RtdsaZlxTVelDoHhH/P/DzQZyaZttJeIGxbzK0ZFYL4c+6VlxSGeFSWdWjWBSWuBCz5Iuubu
+	FFxsdqWZuFNeY+dKh63fEBKBEoqUJoCn/Hf2TR/qyibpZB1psA==
+X-Google-Smtp-Source: AGHT+IETFwDZNdnH20Q7Y3z4UlrnseZbh1WDkk70tSsdvhJaGXXT+NyRi65tIbPyOgQrBEERRB/G5Q==
+X-Received: by 2002:a05:600c:510d:b0:43b:c0fa:f9bc with SMTP id 5b1f17b1804b1-43c601d93e7mr74449995e9.12.1741603722155;
+        Mon, 10 Mar 2025 03:48:42 -0700 (PDT)
 Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43cf27f8ef3sm45737585e9.11.2025.03.10.03.48.29
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43ce3f573f6sm57354855e9.0.2025.03.10.03.48.41
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 03:48:30 -0700 (PDT)
-Date: Mon, 10 Mar 2025 13:48:27 +0300
+        Mon, 10 Mar 2025 03:48:41 -0700 (PDT)
+Date: Mon, 10 Mar 2025 13:48:34 +0300
 From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Felix Fietkau <nbd@nbd.name>
-Cc: Sean Wang <sean.wang@mediatek.com>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
-Subject: [PATCH net] net: ethernet: mediatek: Fix bit field in
- mtk_set_queue_speed()
-Message-ID: <eaab1b7b-b33b-458b-a89a-81391bd2e6e8@stanley.mountain>
+To: Artur Weber <aweber.kernel@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	linux-gpio@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org
+Subject: [PATCH next] pinctrl: bcm281xx: Add missing assignment in
+ bcm21664_pinctrl_lock_all()
+Message-ID: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034833_278109_8AF7ACCA 
-X-CRM114-Status: GOOD (  12.36  )
+X-CRM114-CacheID: sfid-20250310_034843_885608_622C4248 
+X-CRM114-Status: GOOD (  13.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,31 +101,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This was supposed to set "FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1)"
-but there was typo and the | operation was missing and which turned
-it into a no-op.
+The next line checks if this regmap_write() failed, but it doesn't
+work because the assignment was accidentally left out.  Add the
+assignment.
 
-Fixes: f63959c7eec3 ("net: ethernet: mtk_eth_soc: implement multi-queue support for per-port queues")
+Fixes: 60d69769c851 ("pinctrl: bcm281xx: Add support for BCM21664 pinmux")
 Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 ---
-From static analysis, not tested.
+ drivers/pinctrl/bcm/pinctrl-bcm281xx.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
- drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-index 922330b3f4d7..9efef0e860da 100644
---- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-+++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-@@ -757,7 +757,7 @@ static void mtk_set_queue_speed(struct mtk_eth *eth, unsigned int idx,
- 		case SPEED_100:
- 			val |= MTK_QTX_SCH_MAX_RATE_EN |
- 			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_MAN, 1) |
--			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5);
-+			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5) |
- 			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1);
- 			break;
- 		case SPEED_1000:
+diff --git a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+index 7c8f8bd7da12..9ea20fde3a24 100644
+--- a/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
++++ b/drivers/pinctrl/bcm/pinctrl-bcm281xx.c
+@@ -1498,8 +1498,8 @@ static int bcm21664_pinctrl_lock_all(struct bcm281xx_pinctrl_data *pdata)
+ 				rc);
+ 			return rc;
+ 		}
+-		regmap_write(pdata->regmap, BCM21664_ACCESS_LOCK_OFFSET(i),
+-			     0xffffffff);
++		rc = regmap_write(pdata->regmap, BCM21664_ACCESS_LOCK_OFFSET(i),
++				  0xffffffff);
+ 		if (rc) {
+ 			dev_err(pdata->dev, "Failed to write access lock: %d\n",
+ 				rc);
 -- 
 2.47.2
 
