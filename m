@@ -4,63 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47475C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:25:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ACBAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:34:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J9WgnNk8hsJqucJXyV7OVTWvviSo1PzyLdaWKwbmS6M=; b=cAWK5DmWT2aNUrAE6ppAtuM+fO
-	UpGy6Z9R8Eq0NAnZpKgAs6TUSLRv3x2Yu/1M77tTAJJVUY9wBRQ7hhFzKRSfDLpsCMWpErbG6n8O6
-	za+k6c2La+4ysYas7UMG+CiMEvIqQ+bMeDiNMpDeS3FJuvifphpEUfCQKG7hQLmKnbZDVjW2348K7
-	xfV2AjqHDEux4uavPjb2o64sINVSrg3li4Hi1D2bqFat5Exl/CuvvAKqop/Ci6Z1VgV6JDHzbBMst
-	FmMnvLQbqeiHER8tlIRxvbxdM8REMsSW81gg2XOFg+a+nChPOBlcfItRtjxcb1okjXIU2nu8ZmlrQ
-	1e7kkoHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZoNaBqrH1Rg39yjdlkshp7UkEfEOBUaLHkBS5B1peJQ=; b=Bp4QeEVuvWaQPTpxhS3dT0/4d0
+	m6h0Q4KR02y30NxeRz9Z1AxYwbPwEjLNzglKmwwZO/gXTCIX2oGH4tvmsfLmHJZzS3oqw0lUOCCnE
+	dwkx8MZKSrv/rw764lwlEoQSbH/DaxOWHAwPl5kq0vANSU4cBfx4VerWm0DgFU17I4dA3K31jCwef
+	yBQLlvL6uhl6ow5XOlahw+ltLjO/+qtlD4M7rIs5qeHRsts+oLzQlf2C617FPa4EfuNGQO9FMnktn
+	4Cwg1v56zR/GOjNdCiQVlOxP0M15uT/m/3sSfFopsJ5G+ah6ILBTWuPVxV5M2tqeRVMyysZApzlHB
+	irMUkX7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhoZ-00000003bd3-127l;
-	Mon, 10 Mar 2025 18:25:23 +0000
-Received: from mail.ispras.ru ([83.149.199.84])
+	id 1trhxP-00000003cX6-2BUP;
+	Mon, 10 Mar 2025 18:34:31 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhmu-00000003bVN-2yz9
+	id 1trhvk-00000003c9m-3V5I
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 18:23:42 +0000
-Received: from localhost (unknown [10.10.165.14])
-	by mail.ispras.ru (Postfix) with ESMTPSA id 6D5F140CE18B;
-	Mon, 10 Mar 2025 18:23:32 +0000 (UTC)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 6D5F140CE18B
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
-	s=default; t=1741631012;
-	bh=J9WgnNk8hsJqucJXyV7OVTWvviSo1PzyLdaWKwbmS6M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=aDQAMiwKnUsInpKrImOsgUADu1a87Mys1J5sBBz/s9yCHBo5sX+KP2t2K5NH2zzB2
-	 /etkaY7/rdkKB5LfEDmDk35MoABlNOzSRqfwSokrrq7wCplaB3wMEQV7VnzlZcb2er
-	 WardCxs7Xv7IvNb/G1zhCdGQwviVFEbBGtIltczo=
-Date: Mon, 10 Mar 2025 21:23:32 +0300
-From: Fedor Pchelkin <pchelkin@ispras.ru>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Peter Chen <peter.chen@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
-	Sebastian Reichel <sre@kernel.org>, Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>, 
-	linux-usb@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org, stable@vger.kernel.org
-Subject: Re: [PATCH 2/3] usb: chipidea: ci_hdrc_imx: disable regulator on
- error path in probe
-Message-ID: <lbsj2h2zut3eafu5vy6ysuv4y7xjuqtemovqtg3lzuyhp6fjbl@4xwikb3bxl7k>
-References: <20250309175805.661684-1-pchelkin@ispras.ru>
- <20250309175805.661684-3-pchelkin@ispras.ru>
- <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
+	Mon, 10 Mar 2025 18:32:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 57E725C5676;
+	Mon, 10 Mar 2025 18:30:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7A01C4CEEC;
+	Mon, 10 Mar 2025 18:32:44 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Douglas Anderson <dianders@chromium.org>
+Cc: Trilok Soni <quic_tsoni@quicinc.com>,
+	Jeffrey Hugo <quic_jhugo@quicinc.com>,
+	Roxana Bradescu <roxabee@google.com>,
+	bjorn.andersson@oss.qualcomm.com,
+	Julius Werner <jwerner@chromium.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>,
+	Besar Wicaksono <bwicaksono@nvidia.com>,
+	D Scott Phillips <scott@os.amperecomputing.com>,
+	Easwar Hariharan <eahariha@linux.microsoft.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/2] arm64: cputype: Add info about some Qualcomm Kryo cores
+Date: Mon, 10 Mar 2025 18:32:42 +0000
+Message-Id: <174163155801.3207598.4827401624809854495.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20241219211131.2389091-1-dianders@chromium.org>
+References: <20241219211131.2389091-1-dianders@chromium.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_112341_253412_58BBFC63 
-X-CRM114-Status: GOOD (  26.41  )
+X-CRM114-CacheID: sfid-20250310_113248_927303_C4958487 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,113 +75,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10. Mar 10:53, Frank Li wrote:
-> On Sun, Mar 09, 2025 at 08:57:58PM +0300, Fedor Pchelkin wrote:
-> > Upon encountering errors during the HSIC pinctrl handling section the
-> > regulator should be disabled.
-> >
-> > After the above-stated changes it is possible to jump onto
-> > "disable_hsic_regulator" label without having added the CPU latency QoS
-> > request previously. This would result in cpu_latency_qos_remove_request()
-> > yielding a WARNING.
-> >
-> > So rearrange the error handling path to follow the reverse order of
-> > different probing phases.
+On Thu, 19 Dec 2024 13:11:08 -0800, Douglas Anderson wrote:
+> This series breaks off of my series that reworked Spectre BHB
+> mitigations. Originally I needed Qualcomm Kryo IDs because I was
+> adding "guesses" about their Spectre BHB mitigations. Now that the
+> Spectre BHB series no longer has guesses I don't need them there, but
+> these two patches still seem worth it to land on their own.
 > 
-> Suggest use devm_add_action() to simple whole error handle code.
-
-I'll try with that in v2 then, thanks for suggestion.
-
+> I've still called this series "v3" because the first patch was part of
+> the v1 and v2 of the previous series.
 > 
-> >
-> > Found by Linux Verification Center (linuxtesting.org).
-> 
-> I think this sentense have not provide valuable informaiton for reader.
+> [...]
 
-Well, that's a line which the organization rules specify to put into
-every bugfix patch found on its behalf. I must follow these rules.
+Applied to arm64 (for-next/cputype-kryo), thanks!
 
-Btw, you can find this in the changelogs of many other commits existing
-in the main kernel tree:
+[1/2] arm64: cputype: Add QCOM_CPU_PART_KRYO_3XX_GOLD
+      https://git.kernel.org/arm64/c/401c3333bb23
+[2/2] arm64: cputype: Add comments about Qualcomm Kryo 5XX and 6XX cores
+      https://git.kernel.org/arm64/c/53a52a0ec768
 
-$ git shortlog --grep="linuxtesting.org" --group=format:""
- (859):
-      kernel/range.c: fix clean_sort_range() for the case of full array
-      Staging: pohmelfs/dir.c: Remove unneeded mutex_unlock() from pohmelfs_rename()
-      USB: usb-gadget: unlock data->lock mutex on error path in ep_read()
-      ...
+-- 
+Catalin
 
-> 
-> Frank
-> 
-> >
-> > Fixes: 4d6141288c33 ("usb: chipidea: imx: pinctrl for HSIC is optional")
-> > Cc: stable@vger.kernel.org
-> > Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
-> > ---
-> >  drivers/usb/chipidea/ci_hdrc_imx.c | 15 ++++++++-------
-> >  1 file changed, 8 insertions(+), 7 deletions(-)
-> >
-> > diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> > index 619779eef333..3f11ae071c7f 100644
-> > --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> > +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> > @@ -407,13 +407,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
-> >  				"pinctrl_hsic_idle lookup failed, err=%ld\n",
-> >  					PTR_ERR(pinctrl_hsic_idle));
-> >  			ret = PTR_ERR(pinctrl_hsic_idle);
-> > -			goto err_put;
-> > +			goto disable_hsic_regulator;
-> >  		}
-> >
-> >  		ret = pinctrl_select_state(data->pinctrl, pinctrl_hsic_idle);
-> >  		if (ret) {
-> >  			dev_err(dev, "hsic_idle select failed, err=%d\n", ret);
-> > -			goto err_put;
-> > +			goto disable_hsic_regulator;
-> >  		}
-> >
-> >  		data->pinctrl_hsic_active = pinctrl_lookup_state(data->pinctrl,
-> > @@ -423,7 +423,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
-> >  				"pinctrl_hsic_active lookup failed, err=%ld\n",
-> >  					PTR_ERR(data->pinctrl_hsic_active));
-> >  			ret = PTR_ERR(data->pinctrl_hsic_active);
-> > -			goto err_put;
-> > +			goto disable_hsic_regulator;
-> >  		}
-> >  	}
-> >
-> > @@ -432,11 +432,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
-> >
-> >  	ret = imx_get_clks(dev);
-> >  	if (ret)
-> > -		goto disable_hsic_regulator;
-> > +		goto qos_remove_request;
-> >
-> >  	ret = imx_prepare_enable_clks(dev);
-> >  	if (ret)
-> > -		goto disable_hsic_regulator;
-> > +		goto qos_remove_request;
-> >
-> >  	ret = clk_prepare_enable(data->clk_wakeup);
-> >  	if (ret)
-> > @@ -526,12 +526,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
-> >  	clk_disable_unprepare(data->clk_wakeup);
-> >  err_wakeup_clk:
-> >  	imx_disable_unprepare_clks(dev);
-> > +qos_remove_request:
-> > +	if (pdata.flags & CI_HDRC_PMQOS)
-> > +		cpu_latency_qos_remove_request(&data->pm_qos_req);
-> >  disable_hsic_regulator:
-> >  	if (data->hsic_pad_regulator)
-> >  		/* don't overwrite original ret (cf. EPROBE_DEFER) */
-> >  		regulator_disable(data->hsic_pad_regulator);
-> > -	if (pdata.flags & CI_HDRC_PMQOS)
-> > -		cpu_latency_qos_remove_request(&data->pm_qos_req);
-> >  	data->ci_pdev = NULL;
-> >  err_put:
-> >  	if (data->usbmisc_data)
-> > --
-> > 2.48.1
-> >
 
