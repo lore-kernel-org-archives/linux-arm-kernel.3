@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 176A6C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FE0EC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:45:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=33CK6psrpblH2CgU9WWzzRrMa5nOu4Xr746XCaWV3tk=; b=nHi2J0yF89LoiN27OF/RYIRwAc
-	BoP2p7tx5LrWMlX7/auyo81FyMqzoEJxcnAc66QJigyGxuSl0ART26+ptE77xY1OLTIw66/j7fktX
-	CLKAeTROMMk4YeFPHbPFgdsfDCIk1MRisIYRZd/93x2s297s0/Zj644a7Xoyh7Wfqvj49CiWp/TIY
-	djfZV3af2rj2R9+6TN4hDHpqUqKVCfccwduWYS1sUlqy3x7NuDEuJJ47OgCiUSG9ssItPgCx4WNJ7
-	NrkACl1cSSwWucKuNHTMCCaQ1Oo/M1SBfIIFweB6ri4F6p9YMaW+mNyfcfq49WmREKbomNXl5c1Mw
-	fEprh+ow==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6ND2kqJOrUJ4yzGsa9gnO+yqtj6hclSewbFNs2ty9z4=; b=4lk/GbGiPSeZQYdDLataXyndRM
+	gtPGNUdrw9iaky0XqCq0Un/mOMCVU9ZPTO9Mkh+0L0sIyiwLpSBFzS3lfurlUVkHHEbSTEyJR9Q7h
+	XynV4EwX1nC5MiwvTk3ohLbh8BMCp8EenFKTzmNaMsG76mnxUdGSCgmzO3mXcAOsv6EBA0KzwNBym
+	ZpVOEKu4Q9BrcHsYABQAaS823ElLWONnEOZ+vacQmiHb2j5GlM4Z1s8NpQsu7TU6Ns/0vz/UY1sP0
+	TDFsuzwwsCr19o1xW+tkQ+tjCzBGMeHE2SloW2WwMl+U5Hao6mfj9fHvX7UGtA2azq8Bm4YDdTDUE
+	OvHADKfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcTp-00000002fLd-48iX;
-	Mon, 10 Mar 2025 12:43:38 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1trcVR-00000002fhN-3EJa;
+	Mon, 10 Mar 2025 12:45:17 +0000
+Received: from mail-yb1-xb29.google.com ([2607:f8b0:4864:20::b29])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcBF-00000002bF4-3bPq
+	id 1trcBP-00000002bGd-0PMZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 12:24:27 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-aaec111762bso809872566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 05:24:25 -0700 (PDT)
+	Mon, 10 Mar 2025 12:24:36 +0000
+Received: by mail-yb1-xb29.google.com with SMTP id 3f1490d57ef6-e53a91756e5so3190928276.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 05:24:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=amarulasolutions.com; s=google; t=1741609464; x=1742214264; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=33CK6psrpblH2CgU9WWzzRrMa5nOu4Xr746XCaWV3tk=;
-        b=WbheWRNZJwTy7aLCgdj5KEF1N9EcdLKgSsLmZzS55MKG9thbyMIMbbPBY7kSOPAKRN
-         afuBuC0X9e0vGmogFsVrIuenBOwlo69EeLueIp2gnfiAMrfGM9cTcp9HTy2dNEsmGV4e
-         /oqX1mvnVm9QhZaRgySw7B1pyAIW6d9ugS5YE=
+        d=amarulasolutions.com; s=google; t=1741609473; x=1742214273; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6ND2kqJOrUJ4yzGsa9gnO+yqtj6hclSewbFNs2ty9z4=;
+        b=qtByWyDgHzhooYgBY1IFY7uYFhJ2wXnIi8e1ggN11dLGfj+g9gsqI9YLgyMBym0CAn
+         yCL9EJT75hCiFUmxrp8a9rGRatAp80rV9JZJ0ot3m1eGAfRaufYMrfxUOhYC+ciHC+Tm
+         bXkvF4Mgnw8ONDSyudOHU3ORpH8E1k5sWqJ5Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741609464; x=1742214264;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=33CK6psrpblH2CgU9WWzzRrMa5nOu4Xr746XCaWV3tk=;
-        b=NqkNKYVfECkalvCGOrxD00BwtV7GAlHyWQpsM7djHCtL+zec9R5wX621o1YA6CU2rr
-         JwJCEom03DrgzYfO9HRbS0kp2SgnMIKUazXNvz8Y09+MyKRk0YU3rNpa30iBgWFZNxXm
-         uM2EE27nonfUYFdjH0p6902LOpH+/bn5I1VmvDfE3DILNaIM7mQoZ8CCQbcMk2UzeG3e
-         wqeeYNPJmsgazGLloXsoSHxHWSBLcX0TuZdHDh9odKdLeyTI4UDdNdESNPQ+TQscDIGb
-         mKAwbvb22SxdrBvbSrs+9/6E1DGR5HNSPImsCS2ja0y2o0IGJltUTelNXq8y8RMCUh7y
-         BKuA==
-X-Forwarded-Encrypted: i=1; AJvYcCWyrFOCuej21aXSQx1slpSbxU9FbswX5LuIUbRW0WU5ZKJvblFvjupjwTkmcQX63axoPl8Ayn2ctyxAWLte1QjH@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8BMgSD1Aqj1nBeWAionJNLdLCphGVd+QgfiVewmmd92ZmYcnF
-	+oxe8a3uOd3U3JlJHmgwzEw5gzk712xWP7qQwOppgdAsmEx5/ZNAqvpviSGjcEk=
-X-Gm-Gg: ASbGncte64kL5hKvjztM9islU840Nqbhw/BzhxPwkIXKYjD6OhWrVXtQ1X2bcRZZFaG
-	rj7/PGLwtsRg4oAWDGA5PIkitivQ4Je43XwQmHPpr/IxZSMUntfDNg2K2WaEXd6O2HAdq2JK8H7
-	NuMOrqbd8Ozg0SHtv3VK/6u/m31+RuF/5+y6n4cis3SuPkWLcPfna/qife20FLVFFM4J1i9mz2H
-	PnLNFt54cp+SOYrKxKLa2phdA2zgyI22uRUN+s86flZePPSe0RLHuHYbUu/HQDD1NNAUbACom4z
-	lZ5/IwCi/XOrkin0PTYPjVrE3n0FQivIbojsSfucMg9T91x/TX9QkBCTDpvY2Xg0+c6osiugELm
-	L69rlczF/U9tIgw==
-X-Google-Smtp-Source: AGHT+IFVCn4XgPQmS6e/eeO8AkfoYCUAhXlWOW9B7DhCMb0sWF1pzA0CXrrJ6W16xDN20EJF7h5N2A==
-X-Received: by 2002:a17:907:9490:b0:ab7:c893:fc80 with SMTP id a640c23a62f3a-ac252b573bbmr1608210966b.24.1741609463722;
-        Mon, 10 Mar 2025 05:24:23 -0700 (PDT)
-Received: from dario-ThinkPad-T14s-Gen-2i.. ([213.208.157.109])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2817467f4sm361656366b.172.2025.03.10.05.24.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 05:24:23 -0700 (PDT)
-From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
-	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-	Antonio Borneo <antonio.borneo@foss.st.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: [PATCH v2] ARM: dts: stm32: use IRQ_TYPE_EDGE_FALLING on stm32mp157c-dk2
-Date: Mon, 10 Mar 2025 13:23:56 +0100
-Message-ID: <20250310122402.8795-1-dario.binacchi@amarulasolutions.com>
-X-Mailer: git-send-email 2.43.0
+        d=1e100.net; s=20230601; t=1741609473; x=1742214273;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=6ND2kqJOrUJ4yzGsa9gnO+yqtj6hclSewbFNs2ty9z4=;
+        b=AA4zdG8TQwnCIvwoUzc2RISLoSzhAdgMt2eY9werIWieeFZk4rouxNTUzq533s+cTH
+         i7l7257AMTH574aO4p4n5bDsBsQpHHrJ0qko0ZY07KgEZIdE8cMACVvkfMd+C3N0QT7o
+         ZIX/cFJ/AiQLfBcPa0ENJMS7jd4CzHDVBZ4r13uo/MrOvsWOGQJ5p3qZqsczJ66RolCl
+         Iwf8VcY2Vuz9lBlFftCauKmMk50qSvjBOz0phZbpPMY5LRSLwan+LRNSwtA+3d/YZWW9
+         ix096XNBlPXwccsYzwx1xRaZz/7udPSyPtbyvQ6yI/7UwyZaV6X0Bz8onJtdLx2POgbT
+         V9tw==
+X-Forwarded-Encrypted: i=1; AJvYcCXMLAHvuAPT6mtXN9Yzgr6tei9j+2gbISoVBkWNv259ImlJLG+amNXxwlW9SHf69nr/kldNCna688Xx2L6iwxN/@lists.infradead.org
+X-Gm-Message-State: AOJu0YymybclpLTAUpNZLqQANxZwa54EYJJKLOLMpFw2Tx3SUdOQOXju
+	cI4rrl54/tFYhp1i/t7J9axnqDGFsYZ2zXMTRZTyIArVqnTkyAR/BULy8YDTIYATaEDyUuhINNK
+	374VEhhMKHOQ7982IgsL9FEoMPz6+3udlK3lZAw==
+X-Gm-Gg: ASbGncseYDB4StYtr3uzFc2JY9fIAbQGMkJeQ4boZqgcpjTENuos1P8UHGYKT9QQZ9c
+	QYPTdF33yPeClz3T5hI4zCuSji1gpLW+wlrgn2kLu6GGIM6ZgtfAcdHsfzuxo1Du5ufQPV7AGTB
+	w55gIl5qpW7RHTuK1YsvDULM2meE8M
+X-Google-Smtp-Source: AGHT+IH0tHXGp9UeHGxfrLbUzZnkh/DxT1q5vNyoFPhPKc+dkvw3h1KG8wG9Fqv0xSyH4YITslHYsvlvq709Vj41Cn4=
+X-Received: by 2002:a05:6902:3388:b0:e5d:bcc5:c33a with SMTP id
+ 3f1490d57ef6-e635c1dbebdmr14201756276.43.1741609472105; Mon, 10 Mar 2025
+ 05:24:32 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250301115116.2862353-1-dario.binacchi@amarulasolutions.com> <e5a5dd9b-475b-4c66-a580-08f11a80e5a3@foss.st.com>
+In-Reply-To: <e5a5dd9b-475b-4c66-a580-08f11a80e5a3@foss.st.com>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Mon, 10 Mar 2025 13:24:18 +0100
+X-Gm-Features: AQ5f1Jpjge_vQvtcg2fYtLcCxKDZuRZi6uFbkDzRqCoH-Q0HlGPggWhyZjwoZak
+Message-ID: <CABGWkvpM+MbC=W1Z2yVnQiCXznVKXXv6ijn0dw8AGup8Wuyh0Q@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: stm32: use IRQ_TYPE_EDGE_FALLING on stm32mp157c-dk2
+To: Alexandre TORGUE <alexandre.torgue@foss.st.com>
+Cc: linux-kernel@vger.kernel.org, linux-amarula@amarulasolutions.com, 
+	Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052425_907825_8E59A84B 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20250310_052435_132866_29B472D7 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,35 +94,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace the number 2 with the appropriate numerical constant defined in
-dt-bindings/interrupt-controller/irq.h.
+Hi Alexandre,
 
-Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-Reviewed-by: Antonio Borneo <antonio.borneo@foss.st.com>
+On Mon, Mar 10, 2025 at 11:50=E2=80=AFAM Alexandre TORGUE
+<alexandre.torgue@foss.st.com> wrote:
+>
+> Hi Dario
+>
+> On 3/1/25 12:51, Dario Binacchi wrote:
+> > Replace the number 2 with the appropriate numerical constant defined in
+> > dt-bindings/interrupt-controller/irq.h.
+> >
+> > Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> >
+> > ---
+> >
+> >   arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 3 ++-
+> >   1 file changed, 2 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/d=
+ts/st/stm32mp157c-dk2.dts
+> > index 5f9c0160a9c4..dcf17c493022 100644
+> > --- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
+> > +++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
+> > @@ -11,6 +11,7 @@
+> >   #include "stm32mp15-pinctrl.dtsi"
+> >   #include "stm32mp15xxac-pinctrl.dtsi"
+> >   #include "stm32mp15xx-dkx.dtsi"
+> > +#include <dt-bindings/interrupt-controller/irq.h>
+>
+> really needed ? as it comes also with
+> dt-bindings/interrupt-controller/arm-gic.h
 
----
+yes, you are right:
+         stm32mp157c-dk2.dts
+         --> stm32mp157.dtsi
+               --> stm32mp153.dtsi
+                     --> stm32mp151.dtsi
+                           #include <dt-bindings/interrupt-controller/arm-g=
+ic.h>
 
-Changes in v2:
-- Drop inclusion of dt-bindings/interrupt-controller/irq.h header
-- Add Reviewed-by tag of Antonio Borneo
+I'll submit v2.
 
- arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Thanks and regards
+Dario
+>
+> >   / {
+> >       model =3D "STMicroelectronics STM32MP157C-DK2 Discovery Board";
+> > @@ -67,7 +68,7 @@ &i2c1 {
+> >       touchscreen@38 {
+> >               compatible =3D "focaltech,ft6236";
+> >               reg =3D <0x38>;
+> > -             interrupts =3D <2 2>;
+> > +             interrupts =3D <2 IRQ_TYPE_EDGE_FALLING>;
+> >               interrupt-parent =3D <&gpiof>;
+> >               touchscreen-size-x =3D <480>;
+> >               touchscreen-size-y =3D <800>;
 
-diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-index 5f9c0160a9c4..324f7bb988d1 100644
---- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-+++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-@@ -67,7 +67,7 @@ &i2c1 {
- 	touchscreen@38 {
- 		compatible = "focaltech,ft6236";
- 		reg = <0x38>;
--		interrupts = <2 2>;
-+		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
- 		interrupt-parent = <&gpiof>;
- 		touchscreen-size-x = <480>;
- 		touchscreen-size-y = <800>;
--- 
-2.43.0
 
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
