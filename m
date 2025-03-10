@@ -4,96 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74F17C35FF2
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B7C0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:45:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=; b=JFGm7SM2VWkNyGIULc8lqavVRT
-	hzER7z4MT0zsPmS6Uh2zYL5tIC4Qv3ck1JzZxC4zXiVwtZg+7CJa/c39Lx1IFNTc+QA+J/VmUo61T
-	ElQQKHpdzMPzLM8VZWSGzzZJbXSideuPxNuQRX/YB1BVR/DuTmecK5nLBYwDTZpN/weYmTnKYy62M
-	jlaxZgx3HaREdFdjwFZhphq3IkeftK8jnqYugu3pnvqU2S1V3dIBd0E8p0vyQQtK+7V8oEaUAITXu
-	JC6nb1O4MxwKFU0w0/NIbR7NC1hqLsUBQNDjQ2HuFQzrq75SU1r/F/8tBs+U25e09Nko9O7L6jJQk
-	XmOksavQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=eVEunwoeTDsdAhdaNChHP7SAFdZNASrhuCkvqq03in8=; b=L+Irst3G4vJqs+
+	KJaXlmGLytfXsqypPpneM5KTQkT5ZhandPNT8s4wW+6GnbJ847KLueIFtHEmuVH2+NloUrhvOXnqT
+	RC4QfJLUj4pGXNGmaZQuwpTqC3q814c3+67v4RtAh0dEWyJwHN1XnVCKJaxc5Tlk1wL6K60RnD/MP
+	Uz7XZ7Q8oFZNIDZeyqg/QhioNq4QSVYALbvHxNHdxWN+ujWm40REDROFzgH+ThzxMNASoOLTP0go1
+	u21wY9bWeYB/o7tWP9/X41+wGiRBUUksv6TOXcPCH3dwlU4QBl+3VwyWAE6IQKaWxb0fM9Q4GK9Ak
+	eUH74O/xE9a65K3ohU6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treNu-00000002yDn-0IHv;
-	Mon, 10 Mar 2025 14:45:38 +0000
-Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
+	id 1treNx-00000002yFx-35hB;
+	Mon, 10 Mar 2025 14:45:41 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcm0-00000002iim-16hS
+	id 1trcuT-00000002jny-1Q4j
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:02:25 +0000
-Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3914bc3e01aso452454f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:02:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741611742; x=1742216542; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=;
-        b=eKcHrwFFpyd/13NGMT5efKgs5QdIpGLAiPusSgWOuBCXOnb/Bkrc3IDzfc3FrInJ6C
-         ezsFgSlGH9eVpk3v0xiwxT0mJc8DeUh3NHib8BFosNJAY+VtaKrC0OKphIh+fxWBX8hD
-         KdRs/Zkc89W4MRYLSRLqHnVsjfZybpu8zFxfFIxFXvk+PcppOYCjXOR5bHS6PE5L789Q
-         j+6JIoRZV4xSUcjrpWBy/f/AckStIMTK77umKy2CCBDW6kt+QO4bUQ3fEjBHjDyEwE3+
-         5S4LRAznYRnhKTl35fQr5aPOlH/GojwLnksAMdnGwipU70J9k1bAtb0tYF02pMmqk9Rx
-         4cgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741611742; x=1742216542;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LJsBCZAbkaqGsMqWjDYIUsmWMaDSGMkISy1d3AfV0dM=;
-        b=WqMhuukag+xiaOHV8NztE/maJPs8NTvzmdKLu3gPonYp295Wdkqw7k8dVJzTqLENOZ
-         8WitGoGWk2mSWAZd2IazFWJSYH+H07r3CQAh/ozWzX+j0/5ZrCIwjhywgfTthO6fvXjP
-         wi7VEZZKv4FnL9QWXpB/GiA2PXbvUJ+nHWpUZgoFAJfPybz5oZRH5rqJ6Zt1PEKclBZ/
-         EdjBxJRz971BArhva/FR8FzFGbPBBbL3e80J3KD8kh9abw0UvZ2ki4KP961lA5rpLc5J
-         gQj0n1l+PHrK70BSGEF8zB1Dy2TGEVpHY8jn73AMVM0nBLAGgu2XQG5TSX+HH6+wFnU3
-         ytTQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUE6pI9NGWoVxkJ4TAHZRdultDIxXVZ4IVR4g0c8p2PbC6vk1SEO7RGvRUWUbqXsYXQRIbGwdc3TFfS1RKHyIO7@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywvckml1K/xCNJtaVSYzE+qXZ5j1JKRP1N0w49xHowWxwX8l0cG
-	XSIPuC1JNC6X4EDsfPaIkzPRlJpCwkVTVvje+q+oIC5od/N6Cx5NfFm1B+zkIMUZNomWcFQfk2s
-	CR+9N4p5d63PqIAuyBXdNLW6WkCk=
-X-Gm-Gg: ASbGnctSDX+78oru62mYXpQi0I/lGNSRs9eKK4a7LYDV1VieoNVDvFwg5Ea90OciyyA
-	zQFszGU5XjW8RHMkSQ0X2gipp2InxmHplLvp+76VW9+qXcPgemryfeoaD65idq4BL0VxReiWbTa
-	w4Gxr7FqtwrLyP3RiPx2w993htgyFHGIl0VcI8tu9xi8xo
-X-Google-Smtp-Source: AGHT+IGaxbWiEzsbhn8u7OT4l7aLcqESH5XxF4YWsiFb1XdbKvnztHuQze3R8m7aqPgVjjpK0+JYaE4xvj1QZAkWR9c=
-X-Received: by 2002:a05:6000:1f8f:b0:391:304f:34e7 with SMTP id
- ffacd0b85a97d-39132d985f6mr9687116f8f.44.1741611742101; Mon, 10 Mar 2025
- 06:02:22 -0700 (PDT)
+	Mon, 10 Mar 2025 13:11:12 +0000
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A7nW1g015329;
+	Mon, 10 Mar 2025 13:10:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
+	:content-transfer-encoding:content-type:date:from:message-id
+	:mime-version:subject:to; s=dk201812; bh=eVEunwoeTDsdAhdaNChHP7S
+	AFdZNASrhuCkvqq03in8=; b=Hs6KCTK7egH4HQMh2QoiIoV/Tp9cm4d32sOcSO0
+	dfUO3LfKW0+3FLsaM2lZTtbMYPHCBABFPAzo2/OVWq7STXjgoY8Vu+xpK+2Yc+2s
+	iKFazfIBSnApcaPpDwbnnBSzHz5Raip4TZ1HwXWdCDhyMjOCyeyZP62AXPBAC0/p
+	f+7yi7GaZZlXaeFUUHDhwfawESXqjOne6SSSz020OU7YkWktYOm3KnBttCztCkfZ
+	7RWsRQbGtU8K4gY1I/f0iZ0gejHJLm7EpbmJesKaIftNurqcpS08gMBjdM57nI3z
+	EvR3yOG+eHz2+PU8abgyVtZZJ7hK4Ry/nB5MPnWRuejUj6A==
+Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 458d1wha4n-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
+	Mon, 10 Mar 2025 13:10:44 +0000 (GMT)
+Received: from Matts-MacBook-Pro.local (172.25.0.133) by
+ HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
+ 15.1.2507.44; Mon, 10 Mar 2025 13:10:42 +0000
+From: Matt Coster <matt.coster@imgtec.com>
+Subject: [PATCH v3 00/18] Imagination BXS-4-64 MC1 GPU support
+Date: Mon, 10 Mar 2025 13:10:24 +0000
+Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
 MIME-Version: 1.0
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
-In-Reply-To: <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
-From: Tianyu Lan <ltykernel@gmail.com>
-Date: Mon, 10 Mar 2025 21:01:45 +0800
-X-Gm-Features: AQ5f1Jq0GptIRLQ74YOF7jUY6vVGVBckkuZztDE6uDxvc_UbKBeBzzaPI8HiFPA
-Message-ID: <CAMvTesAW-9Mo0oY6UUh2anp6DQCSsVCUhBiV2-bKp2VD_N0DYw@mail.gmail.com>
-Subject: Re: [PATCH v5 07/10] Drivers: hv: Introduce per-cpu event ring tail
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com, 
-	haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com, 
-	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org, 
-	joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de, 
-	jinankjain@linux.microsoft.com, muminulrussell@gmail.com, 
-	skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com, 
-	ssengar@linux.microsoft.com, apais@linux.microsoft.com, 
-	Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com, 
-	gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com, 
-	muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org, 
-	lenb@kernel.org, corbet@lwn.net
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMDkzmcC/3XNvQ6DIBDA8VdpmHsNIBjt1PdoOuhxKIMfAUJsj
+ O9etEs7mNzyv+R+t7JA3lFg98vKPCUX3DTmKK4Xhn0zdgTO5GaSSyW4FBAoBmiXAApKBXMTsYc
+ kQCk0tkbUWluWj2dP1i0H/Hzl7l2Ik38ff5LYt19ScH1G5uGgyBScqlJXtXy4oYuEN5wGtptJ/
+ jiiOnVkdgprlDa1bTnaP2fbtg/kxSKOBQEAAA==
+X-Change-ID: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
+To: Frank Binns <frank.binns@imgtec.com>,
+        Matt Coster
+	<matt.coster@imgtec.com>,
+        David Airlie <airlied@gmail.com>, Simona Vetter
+	<simona@ffwll.ch>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>,
+        "Vignesh
+ Raghavendra" <vigneshr@ti.com>,
+        Tero Kristo <kristo@kernel.org>
+CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>,
+        "Alessio
+ Belle" <alessio.belle@imgtec.com>,
+        Alexandru Dadu
+	<alexandru.dadu@imgtec.com>,
+        Sarah Walker <sarah.walker@imgtec.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5405;
+ i=matt.coster@imgtec.com; h=from:subject:message-id;
+ bh=SqV1IJTAkSWRFFjRTnZftoakZj1+AKPrc1tTCrwNB9Q=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3J+c/ib4pLjWpM1v5S8+KA46dF1vuPRb9PXzueac
+ HnGVUbFtI5SFgYxDgZZMUWWHSssV6j9UdOSuPGrGGYOKxPIEAYuTgGYCJMfw/+w+88+XNNyeV0W
+ f+WV7dsdt5nOBcocnW1iZ1ss6jcr/uAjRob1H/JSw+5JWrsnPLmcab1Cwr9izflQFRNNF5PiRr7
+ /X5kB
+X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
+ fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
+X-Originating-IP: [172.25.0.133]
+X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
+X-Proofpoint-ORIG-GUID: VrFyge1iEh50KcVMlLEaUiCo0fw9WM9Z
+X-Proofpoint-GUID: VrFyge1iEh50KcVMlLEaUiCo0fw9WM9Z
+X-Authority-Analysis: v=2.4 cv=U8+SDfru c=1 sm=1 tr=0 ts=67cee4d4 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=e5mUnYsNAAAA:8 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8
+ a=RIdblNn2LqOEELPeUbIA:9 a=QEXdDO2ut3YA:10 a=Vxmtnl_E_bksehYqCbjh:22 a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_060224_304145_5D4CFDB5 
-X-CRM114-Status: GOOD (  27.68  )
+X-CRM114-CacheID: sfid-20250310_061109_709785_1106D70C 
+X-CRM114-Status: GOOD (  17.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,128 +113,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Feb 27, 2025 at 7:09=E2=80=AFAM Nuno Das Neves
-<nunodasneves@linux.microsoft.com> wrote:
->
-> Add a pointer hv_synic_eventring_tail to track the tail pointer for the
-> SynIC event ring buffer for each SINT.
->
-> This will be used by the mshv driver, but must be tracked independently
-> since the driver module could be removed and re-inserted.
->
-> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> Reviewed-by: Wei Liu <wei.liu@kernel.org>
+This GPU is found in the TI AM68 family of SoCs, with initial support
+added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
 
-It's better to expose a function to check the tail instead of exposing
-hv_synic_eventring_tail directly.
+A suitable firmware binary can currently be found in the IMG
+linux-firmware repository[1] as powervr/rogue_36.53.104.796_v1.fw.
 
-BTW, how does mshv driver use hv_synic_eventring_tail? Which patch
-uses it in this series?
+No new UAPI will be necessary for this platform as it is sufficiently
+similar to the already supported AXE-1-16M.
 
-Thanks.
+UMD support is close to being complete. We're now able to pass >90% of
+Vulkan conformance on our Mesa development branch. The compiler has been
+undergoing a significant rework needed to accomodate the BXS-4-64, as
+well as to make it more flexible to support additional Rogue GPUs going
+forward. The first part of this rework landed in Mesa in [2], and more
+MRs will follow in the coming weeks.
 
+There are several dt-bindings changes at the beginning of this series.
+We expect the result to be versatile enough to handle all Imagination
+Rogue GPUs while being a strong foundation to build bindings for the
+newer Volcanic architecture (for which we're currently developing
+support).
 
-> ---
->  drivers/hv/hv_common.c | 34 ++++++++++++++++++++++++++++++++--
->  1 file changed, 32 insertions(+), 2 deletions(-)
->
-> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
-> index 252fd66ad4db..2763cb6d3678 100644
-> --- a/drivers/hv/hv_common.c
-> +++ b/drivers/hv/hv_common.c
-> @@ -68,6 +68,16 @@ static void hv_kmsg_dump_unregister(void);
->
->  static struct ctl_table_header *hv_ctl_table_hdr;
->
-> +/*
-> + * Per-cpu array holding the tail pointer for the SynIC event ring buffe=
-r
-> + * for each SINT.
-> + *
-> + * We cannot maintain this in mshv driver because the tail pointer shoul=
-d
-> + * persist even if the mshv driver is unloaded.
-> + */
-> +u8 __percpu **hv_synic_eventring_tail;
-> +EXPORT_SYMBOL_GPL(hv_synic_eventring_tail);
-> +
->  /*
->   * Hyper-V specific initialization and shutdown code that is
->   * common across all architectures.  Called from architecture
-> @@ -90,6 +100,9 @@ void __init hv_common_free(void)
->
->         free_percpu(hyperv_pcpu_input_arg);
->         hyperv_pcpu_input_arg =3D NULL;
-> +
-> +       free_percpu(hv_synic_eventring_tail);
-> +       hv_synic_eventring_tail =3D NULL;
->  }
->
->  /*
-> @@ -372,6 +385,11 @@ int __init hv_common_init(void)
->                 BUG_ON(!hyperv_pcpu_output_arg);
->         }
->
-> +       if (hv_root_partition()) {
-> +               hv_synic_eventring_tail =3D alloc_percpu(u8 *);
-> +               BUG_ON(hv_synic_eventring_tail =3D=3D NULL);
-> +       }
-> +
->         hv_vp_index =3D kmalloc_array(nr_cpu_ids, sizeof(*hv_vp_index),
->                                     GFP_KERNEL);
->         if (!hv_vp_index) {
-> @@ -460,6 +478,7 @@ void __init ms_hyperv_late_init(void)
->  int hv_common_cpu_init(unsigned int cpu)
->  {
->         void **inputarg, **outputarg;
-> +       u8 **synic_eventring_tail;
->         u64 msr_vp_index;
->         gfp_t flags;
->         const int pgcount =3D hv_output_page_exists() ? 2 : 1;
-> @@ -472,8 +491,8 @@ int hv_common_cpu_init(unsigned int cpu)
->         inputarg =3D (void **)this_cpu_ptr(hyperv_pcpu_input_arg);
->
->         /*
-> -        * hyperv_pcpu_input_arg and hyperv_pcpu_output_arg memory is alr=
-eady
-> -        * allocated if this CPU was previously online and then taken off=
-line
-> +        * The per-cpu memory is already allocated if this CPU was previo=
-usly
-> +        * online and then taken offline
->          */
->         if (!*inputarg) {
->                 mem =3D kmalloc(pgcount * HV_HYP_PAGE_SIZE, flags);
-> @@ -485,6 +504,17 @@ int hv_common_cpu_init(unsigned int cpu)
->                         *outputarg =3D (char *)mem + HV_HYP_PAGE_SIZE;
->                 }
->
-> +               if (hv_root_partition()) {
-> +                       synic_eventring_tail =3D (u8 **)this_cpu_ptr(hv_s=
-ynic_eventring_tail);
-> +                       *synic_eventring_tail =3D kcalloc(HV_SYNIC_SINT_C=
-OUNT,
-> +                                                       sizeof(u8), flags=
-);
-> +
-> +                       if (unlikely(!*synic_eventring_tail)) {
-> +                               kfree(mem);
-> +                               return -ENOMEM;
-> +                       }
-> +               }
-> +
->                 if (!ms_hyperv.paravisor_present &&
->                     (hv_isolation_type_snp() || hv_isolation_type_tdx()))=
- {
->                         ret =3D set_memory_decrypted((unsigned long)mem, =
-pgcount);
-> --
-> 2.34.1
->
->
+The DTS changes at the end of the series are marked [DO NOT MERGE]. Once
+the series is reviewed, we will request these be taken through the
+relevant tree.
 
+[1]: https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+[3]: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32258
 
---=20
-Thanks
-Tianyu Lan
+---
+Changes in v3:
+- Reorder some patches to ensure the proper sequencing
+- Update status of UMD support (cover)
+- Don't use more specific compatible strings when not required (P1)
+- Avoid ABI break by limiting new required properties to new compatible
+  strings (P2)
+- Move power domain changes to the patch in which they're used (P2/P5)
+- Update register definitions (P3) [Thanks, Alessio!]
+- Don't use more specific compatible strings when not required (P4)
+- Enhanced commit messages (P4)
+- Remove unnecessary example (P5)
+- Add proper fixes for threaded IRQs (P6) [Thanks, Alessio!]
+- Include fix for a separate IRQ issue (P7) [Thanks, Alessio!]
+- Don't enable firmware debug module (was P13 in v2, also in P14)
+- Change from a workaround to a regular codepath (P15)
+- Drop platform overrides framework (was P18 in v2, also in P16)
+- Mark DTS changes [DO NOT MERGE] (P17/P18)
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com
+
+Changes in v2:
+- Clarified justification for compatible strings (P1)
+- Simplified clocks constraints (P2)
+- Simplified power-domains constraints (P3/P4)
+- Use normal reg syntax for 64-bit values (P8/P21)
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com
+
+---
+Alessio Belle (3):
+      drm/imagination: Update register defs for newer GPUs
+      drm/imagination: Mask GPU IRQs in threaded handler
+      drm/imagination: Handle Rogue safety event IRQs
+
+Matt Coster (14):
+      dt-bindings: gpu: img: Future-proofing enhancements
+      dt-bindings: gpu: img: Add BXS-4-64 devicetree bindings
+      drm/imagination: Use new generic compatible string
+      drm/imagination: Add power domain control
+      drm/imagination: Remove firmware enable_reg
+      drm/imagination: Rename event_mask -> status_mask
+      drm/imagination: Make has_fixed_data_addr a value
+      drm/imagination: Use a lookup table for fw defs
+      drm/imagination: Use callbacks for fw irq handling
+      drm/imagination: Move ELF fw utils to common file
+      drm/imagination: Use cached memory with dma_coherent
+      drm/imagination: Add support for TI AM68 GPU
+      [DO NOT MERGE] arm64: dts: ti: k3-am62: New GPU binding details
+      [DO NOT MERGE] arm64: dts: ti: k3-j721s2: Add GPU node
+
+Sarah Walker (1):
+      drm/imagination: Add RISC-V firmware processor support
+
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml |  77 +++++++++-
+ arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   3 +-
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |  12 ++
+ drivers/gpu/drm/imagination/Makefile               |   2 +
+ drivers/gpu/drm/imagination/pvr_device.c           | 124 ++++++++++++++--
+ drivers/gpu/drm/imagination/pvr_device.h           |  31 +++-
+ drivers/gpu/drm/imagination/pvr_drv.c              |  16 ++
+ drivers/gpu/drm/imagination/pvr_fw.c               |  28 +++-
+ drivers/gpu/drm/imagination/pvr_fw.h               |  85 +++++------
+ drivers/gpu/drm/imagination/pvr_fw_meta.c          |  23 +--
+ drivers/gpu/drm/imagination/pvr_fw_mips.c          |  82 ++---------
+ drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 163 +++++++++++++++++++++
+ drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  17 +++
+ drivers/gpu/drm/imagination/pvr_fw_util.c          |  67 +++++++++
+ drivers/gpu/drm/imagination/pvr_gem.c              |  10 +-
+ drivers/gpu/drm/imagination/pvr_gem.h              |   6 +-
+ drivers/gpu/drm/imagination/pvr_mmu.c              |   8 +-
+ drivers/gpu/drm/imagination/pvr_power.c            | 114 ++++++++++++++
+ drivers/gpu/drm/imagination/pvr_power.h            |   3 +
+ drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h    | 153 ++++++++++++++++---
+ drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  41 ++++++
+ 21 files changed, 886 insertions(+), 179 deletions(-)
+---
+base-commit: 10232dac98d3803ec4fcc0cd8a4d1bd2a09b3e18
+change-id: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
+
 
