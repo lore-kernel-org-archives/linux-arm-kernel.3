@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBCC9C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F39C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:40:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CNm9BSsOfq9YjNo6tMCG7wnV+C6YM+88UmyM3ASeUTg=; b=VzHhgbOYp0BLMIfWNitAq3s17U
-	lRMnZHQqhI+cv6czYtWonxMcebJZqA/5bdiLqBgSLu/8FqwmU05TNr6/cEhUSQqPLfD+xbkgZcms2
-	+zMC2awWheBnV1XuCVp9BgMiHZm8KELXYT+wBQLv+YB46tgIs0R0xnjtQ/FFcT8R8W5ePfYS1pxS6
-	HEWni+EImVj94H5Zc9fJ1nV0KyBp0pj84+vA9eI7G7+fZpx+jUDuYHVHoTVa+6/Hvw886teB/Qguu
-	0b13QURBjGDd1q+oEO2fwf/eorI9skhwrA3mcc2Dy1j0nJg1DgyeJy5bwFuBD1vTk8TKDhBQzFQlL
-	K9PIaf8A==;
+	bh=pre1cSCwMLHczqZ320YehUnrIubHHxclwoUWIKmSuYM=; b=1hZ8sKX+1aJZVDvFMgCsHtvtDV
+	+LFIWOcXwiNar2NPz/eaDZFVfbTIBJy8TzzIp3u4gXTMhAsGPwVrpBanp9mMUsnH/BisFasoSU70G
+	5QdgquTya7TU2gr6ncpJ5rgmfU8nXRCyjDUy6MabxSudOv87kS56ninFvLRQab8lKALs7V/nWz1kR
+	rUqO1dEzx4EuzWoGV0D6xJAV1W/v13FtvYRJIGpQkSM8WyYgI3vkGWHtxdVkTgTU0f3uKeNTnrnCJ
+	vmtMrn1Bu7KZTsMltBqxvOrLqyd7whPsT+g/KXBQCoZ2KVUOcPYIzk9uMBZoboajzIHmakOIbeBus
+	+8vP2R6Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcP1-00000002ePI-3XfO;
-	Mon, 10 Mar 2025 12:38:40 +0000
-Received: from relay8-d.mail.gandi.net ([2001:4b98:dc4:8::228])
+	id 1trcQc-00000002ebp-2o2G;
+	Mon, 10 Mar 2025 12:40:18 +0000
+Received: from relay8-d.mail.gandi.net ([217.70.183.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trc1U-00000002Yuo-31WO
+	id 1trc84-00000002adb-4BIh
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 12:14:22 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id 922A1443F5;
-	Mon, 10 Mar 2025 12:14:15 +0000 (UTC)
+	Mon, 10 Mar 2025 12:21:10 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id F34EB41DF6;
+	Mon, 10 Mar 2025 12:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741608858;
+	t=1741609267;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=CNm9BSsOfq9YjNo6tMCG7wnV+C6YM+88UmyM3ASeUTg=;
-	b=fJYw8HnhXuhCIVN13OSw37EfydbxcYN7vD4cPiEwIhg0ewJwR4m5AGcunzenv2lFQXEHXw
-	mnreD61Hvp4HRIX/qRmMigw7T7thB/GbXLTUGueG+M6Td45rLGqbC8HCXJQT1294f/ivHM
-	WkqMX/mMzZt6ehIcOeCh3BXGjMaxXA6qRrZeXPwosH6vicCiWjwQNb8IY8GzlL3ZxhiTXn
-	appYtMEllu/YTF5yRqxF2lRzEpq1nFFVMRn7gtE6nX8RMZLNUgQOve7xZVWAaSIiPd3qNA
-	heRpjAjelZWHnfNKv2h0eBbbM4crWd6ETjsYEws5j1IlfUQjN/O28xY4MzzFhg==
-Date: Mon, 10 Mar 2025 13:14:13 +0100
+	bh=pre1cSCwMLHczqZ320YehUnrIubHHxclwoUWIKmSuYM=;
+	b=KzKTd0NL0Gh0+LAjVx7C1mOxj0epcbNR7LZUlElc9gq/dUVHVQGK3VtS1ICqHMQYSrITzd
+	FWu2rwS0OJAfbiKaMZAO1OVIpTvX0/C4cuM50Kfg0AgmAxZdqgf6riug27aQVU4AUs8NuP
+	OOPDbHfUO2fGM/6oDuJL+cFU/WdQx+t+BJTD8hv1mSuF9ttVGwxfoYV0SpniSJw4gbb+2i
+	dmiSSTc8LNnGwb3m8vtkLCk77NaNfFTMc2n2ipXzjdH6DxQTIEp0qHcm0MaekdR+OZWsT4
+	Jwa0Qa3an69kdqyhSOiz3ACUcbBFPUHKaE0I/Pbhs5dC7RV4a4ihlgtUiRyxDg==
+Date: Mon, 10 Mar 2025 13:21:03 +0100
 From: Kory Maincent <kory.maincent@bootlin.com>
 To: Maxime Chevallier <maxime.chevallier@bootlin.com>
 Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
@@ -56,12 +56,12 @@ Cc: davem@davemloft.net, Andrew Lunn <andrew@lunn.ch>, Jakub Kicinski
  Horman <horms@kernel.org>, Romain Gantois <romain.gantois@bootlin.com>,
  Piergiorgio Beruto <piergiorgio.beruto@gmail.com>, Stanislav Fomichev
  <sdf@fomichev.me>
-Subject: Re: [PATCH net-next v2 5/7] net: ethtool: phy: Convert the PHY_GET
- command to generic phy dump
-Message-ID: <20250310131413.505e676f@kmaincent-XPS-13-7390>
-In-Reply-To: <20250308155440.267782-6-maxime.chevallier@bootlin.com>
+Subject: Re: [PATCH net-next v2 4/7] net: ethtool: netlink: Introduce
+ per-phy DUMP helpers
+Message-ID: <20250310132103.1312d1b6@kmaincent-XPS-13-7390>
+In-Reply-To: <20250308155440.267782-5-maxime.chevallier@bootlin.com>
 References: <20250308155440.267782-1-maxime.chevallier@bootlin.com>
-	<20250308155440.267782-6-maxime.chevallier@bootlin.com>
+	<20250308155440.267782-5-maxime.chevallier@bootlin.com>
 Organization: bootlin
 X-Mailer: Claws Mail 4.0.0 (GTK+ 3.24.33; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
@@ -69,12 +69,12 @@ Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 X-GND-State: clean
 X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelfedvucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeegiedrudekkedrvdefledruddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepgeeirddukeekrddvfeelrddutddphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudelfeegucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtqhertdertdejnecuhfhrohhmpefmohhrhicuofgrihhntggvnhhtuceokhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnhepgfdutdefvedtudegvefgvedtgfdvhfdtueeltefffefffffhgfetkedvfeduieeinecuffhomhgrihhnpegsohhothhlihhnrdgtohhmnecukfhppeegiedrudekkedrvdefledruddtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepgeeirddukeekrddvfeelrddutddphhgvlhhopehkmhgrihhntggvnhhtqdgirffuqddufedqjeefledtpdhmrghilhhfrhhomhepkhhorhihrdhmrghinhgtvghnthessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepvddvpdhrtghpthhtohepmhgrgihimhgvrdgthhgvvhgrlhhlihgvrhessghoohhtlhhinhdrtghomhdprhgtphhtthhopegurghvvghmsegurghvvghmlhhofhhtrdhnvghtpdhrtghpthhtoheprghnughrvgifsehluhhnnhdrtghhpdhrtghpthhtohepkhhusggrsehkvghrnhgvlhdrohhrghdprhgtphhtthhop
  egvughumhgriigvthesghhoohhglhgvrdgtohhmpdhrtghpthhtohepphgrsggvnhhisehrvgguhhgrthdrtghomhdprhgtphhtthhopehhkhgrlhhlfigvihhtudesghhmrghilhdrtghomhdprhgtphhtthhopehnvghtuggvvhesvhhgvghrrdhkvghrnhgvlhdrohhrgh
 X-GND-Sasl: kory.maincent@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_051421_362913_E2547324 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250310_052109_163210_667FB503 
+X-CRM114-Status: GOOD (  22.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,45 +89,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat,  8 Mar 2025 16:54:37 +0100
+On Sat,  8 Mar 2025 16:54:36 +0100
 Maxime Chevallier <maxime.chevallier@bootlin.com> wrote:
 
-> Now that we have an infrastructure in ethnl for perphy DUMPs, we can get
-> rid of the custom ->doit and ->dumpit to deal with PHY listing commands.
+> As there are multiple ethnl commands that report messages based on
+> phy_device information, let's introduce a set of ethnl generic dump
+> helpers to allow DUMP support for each PHY on a given netdev.
 >=20
-> As most of the code was custom, this basically means re-writing how we
-> deal with PHY listing.
+> This logic iterates over the phy_link_topology of each netdev (or a
+> single netdev for filtered DUMP), and call ethnl_default_dump_one() with
+> the req_info populated with ifindex + phyindex.
+>=20
+> This allows re-using all the existing infra for phy-targetting commands
+> that already use ethnl generic helpers.
+>=20
+> Signed-off-by: Maxime Chevallier <maxime.chevallier@bootlin.com>
+> ---
+> V2: Rebase
+>=20
+>  net/ethtool/netlink.c | 53 +++++++++++++++++++++++++++++++++++++++++++
+>  net/ethtool/netlink.h |  6 +++++
+>  2 files changed, 59 insertions(+)
+>=20
+> diff --git a/net/ethtool/netlink.c b/net/ethtool/netlink.c
+> index ae06b72239a8..a09bcd67b38f 100644
+> --- a/net/ethtool/netlink.c
+> +++ b/net/ethtool/netlink.c
+> @@ -559,6 +559,59 @@ static int ethnl_default_dump_one(struct sk_buff *sk=
+b,
+>  	return ret;
+>  }
+> =20
+> +/* Specific context for phy-targeting command DUMP operatins. We keep in
+> context
+> + * the latest phy_index we dumped, in case of an interrupted DUMP.
+> + */
+> +struct ethnl_dump_ctx_perphy {
+> +	unsigned long phy_index;
+> +};
+> +
+> +int ethnl_dump_start_perphy(struct ethnl_dump_ctx *ctx)
 
-Only nitpick ;)
+Could you add comments or event better, kdoc for non static function to exp=
+lain
+their purpose.
 
-> -static int
-> -ethnl_phy_fill_reply(const struct ethnl_req_info *req_base, struct sk_bu=
-ff
-> *skb) +static int phy_prepare_data(const struct ethnl_req_info *req_info,
-> +			    struct ethnl_reply_data *reply_data,
-> +			    const struct genl_info *info)
->  {
-> -	struct phy_req_info *req_info =3D PHY_REQINFO(req_base);
-> -	struct phy_device_node *pdn =3D req_info->pdn;
-> -	struct phy_device *phydev =3D pdn->phy;
-> -	enum phy_upstream ptype;
-> +	struct phy_reply_data *rep_data =3D PHY_REPDATA(reply_data);
-> +	struct phy_link_topology *topo =3D reply_data->dev->link_topo;
-> +	struct nlattr **tb =3D info->attrs;
+> +{
+> +	struct ethnl_dump_ctx_perphy *dump_ctx;
+> +
+> +	dump_ctx =3D kzalloc(sizeof(*dump_ctx), GFP_KERNEL);
+> +	if (!dump_ctx)
+> +		return -ENOMEM;
+> +
+> +	ctx->cmd_ctx =3D dump_ctx;
+> +
+> +	return 0;
+> +}
+> +
+> +void ethnl_dump_done_perphy(struct ethnl_dump_ctx *ctx)
+
+same.
+
+> +{
+> +	kfree(ctx->cmd_ctx);
+> +}
+> +
+> +int ethnl_dump_one_dev_perphy(struct sk_buff *skb,
+> +			      struct ethnl_dump_ctx *ctx,
+> +			      const struct genl_info *info)
+
+same.
+
+> +{
+> +	struct ethnl_dump_ctx_perphy *dump_ctx =3D ctx->cmd_ctx;
+> +	struct net_device *dev =3D ctx->reply_data->dev;
 > +	struct phy_device_node *pdn;
-> +	struct phy_device *phydev;
- =20
-Reverse xmas tree.
-
-> -	ptype =3D pdn->upstream_type;
-> +	/* RTNL is held by th caller */
-
-Small typo here *the*.
-
-The rest is good for me.
+> +	int ret =3D 0;
+> +
+> +	if (!dev->link_topo)
+> +		return 0;
+> +
+> +	xa_for_each_start(&dev->link_topo->phys, dump_ctx->phy_index,
+> +			  pdn, dump_ctx->phy_index) {
+> +		ctx->req_info->phy_index =3D dump_ctx->phy_index;
+> +
+> +		/* We can re-use the original dump_one as ->prepare_data in
+> +		 * commands use ethnl_req_get_phydev(), which gets the PHY
+> from
+> +		 * what's in req_info
+> +		 */
+> +		ret =3D ethnl_default_dump_one(skb, ctx, info);
+> +		if (ret)
+> +			break;
+> +	}
+> +
+> +	return ret;
+> +}
 
 Regards,
---=20
+---
 K=C3=B6ry Maincent, Bootlin
 Embedded Linux and kernel engineering
 https://bootlin.com
