@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BBCC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 16:59:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D83F0C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:01:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=YaOCcmy58eOwSDVd9nh9pV2RLFcEnxpIKxadSEjVGyk=; b=TlFaPxrSyLLX2X
-	m+UPMABxCXPnqkzdUcoyQA95Dv/ZXJlNO2i7ZBNMtXa6ou+ul0ndBsULCVAN6Xjr0lmEvNPvz2XJC
-	fmzNFv+D1iAKfD5m6vQf/JtsazRyN3er2HNFYkxirvqAD3cw+BTRT0ADnPSmgQA0yNHtuIK4VplWy
-	tQV3STtsWnOeDloNF3dWZxWHQrb39X+f31KcC33UoHM93hEq6NDLwAz3SJ87SjL9ilbQAvFrWt0zE
-	J51Bwi31KOuMLPY9Qg7nodzpcoWrGp+s+FKd9GQk+3iQSdHVQtTAJ41kP1FFGoQtVZMt2tGdfqvg1
-	g5S+HDIbwKbIJnkELHxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=; b=d4X4ftjCq5BeOAATuapW1frvZw
+	p5NbLdKGUO06O749c3Aqn3FL3TXgbzlaCTIeHMBHDPkGyIBeU0+lituZWa5bPkf/zmBgXLg5DGAUY
+	kbu9w+OM7Gv5DX7GxmWw38qw5Dc1JdmIuIKQsm5ACHiizimJR130lqbyMLmpsZ2f5RQwW9vwf+OeJ
+	+7SXRMCEwMtpguas8tK/2QGTjhW4os1nBm32fdXYKhjo7B1X1aIUc9NbNdo2+/4dwbaKYc77C0geb
+	doRhI/JlBVWrYu1bvUKMjdpaiwHLXPn/LPa38olooYSy1cj/zRRlHnj4YhfBZCG3y/JPvlIsU2BDW
+	EQhyp6AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgTW-00000003QQJ-2Rpz;
-	Mon, 10 Mar 2025 16:59:34 +0000
+	id 1trgV9-00000003QmM-1IKV;
+	Mon, 10 Mar 2025 17:01:15 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgC1-00000003NEG-3hXj
+	id 1trgCu-00000003NJX-1kWE
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Mar 2025 16:41:29 +0000
+	Mon, 10 Mar 2025 16:42:24 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:References;
-	bh=YaOCcmy58eOwSDVd9nh9pV2RLFcEnxpIKxadSEjVGyk=; b=QymM4JZY3FtC9lbW+7uXt+QlNn
-	SQnDjM2rSMyamE84GSbBgjBoHuLZHQQ8LHAlbax3GAehswJ81GQkrZpTJlGQohaX60fR+RH1+KbIv
-	zgQl8AbLgBdwK7+dUfXm6Vzah3LujtYRI1y2gaSVHvLii10Iw+V1qYmfkxIaQgqAKC3h2QOqTKTAR
-	zmYMoCZsWV3wv23Z83xw0nzmsHO6FcY75wkGZLV2PUUjuXpW8q5JQY/FD7NIwEtMaynbcbcvH6F5n
-	UPjAJG4yKCBWinJ1UH+OUeBdGaeTlKwDSfb0yWZLm4dM3qdSmJ8J94xc3a1e9pKvmPiJSU4izw8fY
-	t15XDTkw==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgBz-00000001wCL-03pu
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=; b=DLLoQmV9fF0Uz84tnP75uaQd37
+	oAQDsZE7lMTrCVncnN3UaR0Xtk5JkuK9XN/Sh1szwrRVh+Ec8n6NfXiayqT2O3QM+bW+2fZSITj3B
+	tmcs9E0E8ep3sxrvFD5UNtM8F/OLxDxT/1BnWEx4tCUONqKrQj10AeddzjnK57e69ItzurNm2/NYW
+	aM/06wtXaanJ/2Lo5ughbEazVMbyUJkgfqZQNq3uulHveKnAFdRyV35Y5Norm6cDulsDr2X+xvOYb
+	ENoaJQF38nAslogSNMOzcuDULSwWlewj9/892QFoN4w3CrQqWaxzpksozbXW2uo+u4OYAuO/vWVVG
+	WPTuuN8A==;
+Received: from linux.microsoft.com ([13.77.154.182])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trgCr-00000001wIR-0xNc
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 16:41:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 0E0E8A46040;
-	Mon, 10 Mar 2025 16:35:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3255C4CEF0;
-	Mon, 10 Mar 2025 16:41:23 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741624883;
-	bh=5Zuw8hUznANvPIatpdN56MqZ7+mKjrGRf7vCtpf94D0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=CyxqHbUGsjYvKn3FVeZW/HuHfKPBRCxzzMTwqiKjtFiHxte4Vl4VInowvl3wTArrR
-	 KjsnWZEtuvQbglKKZvNcoKFaIHuNgmgJYhS9Ph1M5IqCLQekQz2MvMokEkOMw7yI4x
-	 U3M8RkVwlPfEyTLSdIXuzi2aAGNoryqqYAsha8k6NC8RCKm1qsVPonTRNPoDaqVEwl
-	 cHU+8bafTy3sVee3mmZ8P6TDGY0xHFkich12lMdI5zeUF1LZuwel7kFhCcCOMv0fyy
-	 keIiZ83UKBImR3PyAuTistfB30rkUl1VlgBzBr/GvKYEr1maJBd8mYEFv91an5Bu4Q
-	 ABY+QXm8lP0kA==
-Date: Mon, 10 Mar 2025 11:41:22 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Roman Kisel <romank@linux.microsoft.com>
-Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
-	catalin.marinas@arm.com, conor+dt@kernel.org,
-	dave.hansen@linux.intel.com, decui@microsoft.com,
-	haiyangz@microsoft.com, hpa@zytor.com, joey.gouly@arm.com,
-	krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
-	lenb@kernel.org, lpieralisi@kernel.org,
-	manivannan.sadhasivam@linaro.org, mark.rutland@arm.com,
-	maz@kernel.org, mingo@redhat.com, oliver.upton@linux.dev,
-	rafael@kernel.org, robh@kernel.org, ssengar@linux.microsoft.com,
-	sudeep.holla@arm.com, suzuki.poulose@arm.com, tglx@linutronix.de,
-	wei.liu@kernel.org, will@kernel.org, yuzenghui@huawei.com,
-	devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org,
-	x86@kernel.org, apais@microsoft.com, benhill@microsoft.com,
-	bperkins@microsoft.com, sunilmut@microsoft.com
-Subject: Re: [PATCH hyperv-next v5 11/11] PCI: hv: Get vPCI MSI IRQ domain
- from DeviceTree
-Message-ID: <20250310164122.GA551965@bhelgaas>
+	Mon, 10 Mar 2025 16:42:23 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 917D62038F31;
+	Mon, 10 Mar 2025 09:42:15 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 917D62038F31
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741624935;
+	bh=LN1XhlPdMhhUKdLiwgvqjrH33le8Y4pxVH3hP74M9b0=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=adolExQzIdiGiIImUNH8PIT6jUYPIx/W+TATHEWLnINgGBwZ6f1UJ6VLPct8eOZG1
+	 QWxNjZnyTJVqsNRH80CF3UdDcU3vx6TIUod2y01uAqFHvYQ2H224pVoGrzHDj5UdK0
+	 NOQoc/qdsXI7/FognyHzoybGrl/nnp4HVU46HlNk=
+Message-ID: <2342dda1-2976-4506-ab68-640739a1bd5b@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 09:42:15 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250307220304.247725-12-romank@linux.microsoft.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 06/11] arm64, x86: hyperv: Report the VTL
+ the system boots in
+To: Wei Liu <wei.liu@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, will@kernel.org, yuzenghui@huawei.com,
+ devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-7-romank@linux.microsoft.com>
+ <Z84yyAqkqJ2ZyAd-@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <Z84yyAqkqJ2ZyAd-@liuwe-devbox-ubuntu-v2.lamzopl0uupeniq2etz1fddiyg.xx.internal.cloudapp.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_164127_304685_F794477D 
-X-CRM114-Status: GOOD (  16.51  )
+X-CRM114-CacheID: sfid-20250310_164221_651127_D423D330 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,81 +100,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 02:03:03PM -0800, Roman Kisel wrote:
-> The hyperv-pci driver uses ACPI for MSI IRQ domain configuration on
-> arm64. It won't be able to do that in the VTL mode where only DeviceTree
-> can be used.
+
+
+On 3/9/2025 5:31 PM, Wei Liu wrote:
+> On Fri, Mar 07, 2025 at 02:02:58PM -0800, Roman Kisel wrote:
+>> The hyperv guest code might run in various Virtual Trust Levels.
+>>
+>> Report the level when the kernel boots in the non-default (0)
+>> one.
+>>
+>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+>> ---
+>>   arch/arm64/hyperv/mshyperv.c | 2 ++
+>>   arch/x86/hyperv/hv_vtl.c     | 2 +-
+>>   2 files changed, 3 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/arch/arm64/hyperv/mshyperv.c b/arch/arm64/hyperv/mshyperv.c
+>> index a7db03f5413d..3bc16dbee758 100644
+>> --- a/arch/arm64/hyperv/mshyperv.c
+>> +++ b/arch/arm64/hyperv/mshyperv.c
+>> @@ -108,6 +108,8 @@ static int __init hyperv_init(void)
+>>   	if (ms_hyperv.priv_high & HV_ACCESS_PARTITION_ID)
+>>   		hv_get_partition_id();
+>>   	ms_hyperv.vtl = get_vtl();
+>> +	if (ms_hyperv.vtl > 0) /* non default VTL */
 > 
-> Update the hyperv-pci driver to get vPCI MSI IRQ domain in the DeviceTree
-> case, too.
+> "non-default".
 > 
-> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
 
-A couple minor comments below, but I don't have any objection to this,
-so if it's OK with the pci-hyperv.c folks, it's OK with me.
+Thanks, will fix that!
 
-> +#ifdef CONFIG_OF
-> +
-> +static struct irq_domain *hv_pci_of_irq_domain_parent(void)
-> +{
-> +	struct device_node *parent;
-> +	struct irq_domain *domain;
-> +
-> +	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-> +	domain = NULL;
-> +	if (parent) {
-> +		domain = irq_find_host(parent);
-> +		of_node_put(parent);
-> +	}
-> +
-> +	return domain;
+>> +		pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
+>>   
+>>   	ms_hyperv_late_init();
+>>   
+>> diff --git a/arch/x86/hyperv/hv_vtl.c b/arch/x86/hyperv/hv_vtl.c
+>> index 4e1b1e3b5658..c21bee7e8ff3 100644
+>> --- a/arch/x86/hyperv/hv_vtl.c
+>> +++ b/arch/x86/hyperv/hv_vtl.c
+>> @@ -24,7 +24,7 @@ static bool __init hv_vtl_msi_ext_dest_id(void)
+>>   
+>>   void __init hv_vtl_init_platform(void)
+>>   {
+>> -	pr_info("Linux runs in Hyper-V Virtual Trust Level\n");
+>> +	pr_info("Linux runs in Hyper-V Virtual Trust Level %d\n", ms_hyperv.vtl);
+> 
+> Where isn't there a check for ms_hyperv.vtl > 0 here?
+> 
 
-I think this would be a little simpler as:
+On x86, there is
 
-  parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
-  if (!parent)
-    return NULL;
+#ifdef CONFIG_HYPERV_VTL_MODE
+void __init hv_vtl_init_platform(void);
+int __init hv_vtl_early_init(void);
+#else
+static inline void __init hv_vtl_init_platform(void) {}
+static inline int __init hv_vtl_early_init(void) { return 0; }
+#endif
 
-  domain = irq_find_host(parent);
-  of_node_put(parent);
-  return domain;
+> Please be consistent across different architectures.
+> 
 
-> +}
-> +
-> +#endif
-> +
-> +#ifdef CONFIG_ACPI
-> +
-> +static struct irq_domain *hv_pci_acpi_irq_domain_parent(void)
-> +{
-> +	struct irq_domain *domain;
-> +	acpi_gsi_domain_disp_fn gsi_domain_disp_fn;
-> +
-> +	if (acpi_irq_model != ACPI_IRQ_MODEL_GIC)
-> +		return NULL;
-> +	gsi_domain_disp_fn = acpi_get_gsi_dispatcher();
-> +	if (!gsi_domain_disp_fn)
-> +		return NULL;
-> +	domain = irq_find_matching_fwnode(gsi_domain_disp_fn(0),
-> +				     DOMAIN_BUS_ANY);
-> +
-> +	if (!domain)
-> +		return NULL;
-> +
-> +	return domain;
+In the earlier versions of the patch series, I had that piece
+from the above mirrored in the arm64, and there was advice on
+removing the function as it contained just one statement.
+I'll revisit the approach, thanks for your help!
 
-  if (!domain)
-    return NULL;
+>>   
+>>   	x86_platform.realmode_reserve = x86_init_noop;
+>>   	x86_platform.realmode_init = x86_init_noop;
+>> -- 
+>> 2.43.0
+>>
+>>
 
-  return domain;
+-- 
+Thank you,
+Roman
 
-is the same as:
-
-  return domain;
-
-or even just:
-
-  return irq_find_matching_fwnode(gsi_domain_disp_fn(0), DOMAIN_BUS_ANY);
-
-> +}
 
