@@ -4,150 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7DB0C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:35:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D6A1C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:36:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sGLync5IsiOXIhEqPqacU8GgIi8JKeU5Rg37CDn0uI0=; b=rE4VcODewa5nUzP0SXX2vCvLxK
-	9y0m5HD+UT/z2PS8yLUu6CuMRzKc8Z8VA+yS8I4lN2vpRCrmzgMM7yi7psHkMB5HjVsOOKyE/tvUy
-	O2w7GvM3z0iT6Vxa8bp8BvVckXEt/SU0tFfIFy6fgRfbytwwRnFkmmOnv6m2JL170AhhTyfXCtbCL
-	kYJGoOy+TxNXOxmdEv2VCWXaV6KoGt7+hEjyP+Vy9qg5dJHTJ8rtIRMzxvCAaI32vfpTAQdcRFQZr
-	UPB8leYoWLDvu74sO+Dtypdvmqzvwv/ETyL0H+73TEShyGxqaRskULDr9Yzpc00g2saUu5w+omEOe
-	VRoRQseQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jVhaBlsBjcZ1nsr8+4uaJjjsIlANR5nR3GTYEQlwVdc=; b=HZf+ISIDQD51XXnKKuVUhIpsNF
+	Ys16T2sNZX4Gpr9q7S1NCLFTgzXHAyEqBxcjdTbQqOf5LLEteFKgFPE+4WcIrHF28mlClEZerPOKy
+	1dOiY3pSD84Af8kVw6XX+0UKbDdjvVi0/iLABVMcipy9WLEmTfNPeUtAwIehgty3NzxLKR3T2IajZ
+	Nx73O8qn3yKb4igGP3qkUwv86iZbGgss7rGtd8xSMvwAO77yqFR/Rkle9sUqMsHixNrl2E3kllpUA
+	eOVYf3kuJK5NUAJRgfL1NjboGA3uY0ybgXaPIv6K9toGhKITqahvPkBOoAsFjuH3w67FTWExr0WAv
+	yArEsGIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbPt-00000002RsT-2lAU;
-	Mon, 10 Mar 2025 11:35:29 +0000
-Received: from mail-dm6nam10on20622.outbound.protection.outlook.com ([2a01:111:f403:2413::622] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traOx-00000002GAP-2SNZ
+	id 1trbQJ-00000002RyP-0wps;
+	Mon, 10 Mar 2025 11:35:55 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trap6-00000002LgD-2w1y
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:30:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=M4xwXYtkskwh26NEl+JOQj8+mbwaZT0Y+Ka/ExL+eN/YJb3Za6O29bz53SHpU1BEvCYlNedomC4RdoJRVGApTfStVsVunsfftKLxKqEch0HEhPEvjTAgB5d2+6YqUuwPrV+PixCSeXfMvr15T1lzamIoHCu8xif2q+R9yln24e5zVyCnbzH6zB0378B84pv8MT4wbJOfvDOLhEWpODJKpuKtJkjcyUP18rTO+I/nnCerJcopFzRKK2sUQSwD50v7jVhx2UXLLz3iG/EdpQeIj+Ap0FS5FVQOyCN2Qw5+vwQH7Gf2kL5Jz8swlNTy8trivn5Kw6csP1SQYMw5F7vhTQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sGLync5IsiOXIhEqPqacU8GgIi8JKeU5Rg37CDn0uI0=;
- b=ahGAcSgG2StuTwnCmBCj+wUPW5k0jhLT6h9wc8fDtPiHmmt9RFDze5tLIM+suAE+OViwA+y7G0dbe07QhFvpeCc3QLj/zg9UTvAZFBskapKRyKetXfW7yH/Qu5+IF1fI165mJSK7SSfSsiH5fzoAC+ivHJN0XNkec2h5fvKk6NTk2dXmff8SUmEgPOHJfOO9kbEgfXZ+rYUQM00i9AZKNQRKV26cf5gigdbqMV3Jip0gO4ZFDigQtC2oUqpKafalGPNhFr3v3lWD1SMhFO7RLwS9DccCxh4xK+teHHVE6M6DVft/uIjjV8MJQu+etCXVlgroMlSpRiacczwQvFzPPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.233) smtp.rcpttodomain=redhat.com smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sGLync5IsiOXIhEqPqacU8GgIi8JKeU5Rg37CDn0uI0=;
- b=Xx/exrR+Lwgdq3Nr363lFmK0/071gzTRjeDn4AKUx7ZyjP5uo3muxKkO34SXK9WwC18V+B+2ekwIRcCzwb8cQ+ZXFHdHP3sKZctRzIB4eWJV5MKKGsnZXK1Pm9ykgZ4E+wYQ/O3ArL7gcgsAvFYBRiT5H2noPJzYqFq8jYPdYy9+xWpqnR2XZ9tSfoU2T9WqNThPHHt0HEjktpKDcFZedJtImlSaVEI3HEvkqs2UBdH78u3qF9yAH8FgRETpKw57d1dexmzozbEt0NlWTyCfyQ+ANLde8loPeuWCZB0M5Rk7kj0Gi7urFMr5Y4uG5TgFvgvq2cMuD3N14wUfDx9x2A==
-Received: from SN4PR0501CA0107.namprd05.prod.outlook.com
- (2603:10b6:803:42::24) by SA1PR12MB8144.namprd12.prod.outlook.com
- (2603:10b6:806:337::15) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 10 Mar
- 2025 10:30:20 +0000
-Received: from SN1PEPF00036F41.namprd05.prod.outlook.com
- (2603:10b6:803:42:cafe::1a) by SN4PR0501CA0107.outlook.office365.com
- (2603:10b6:803:42::24) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.15 via Frontend Transport; Mon,
- 10 Mar 2025 10:30:20 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.233) by
- SN1PEPF00036F41.mail.protection.outlook.com (10.167.248.25) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8534.20 via Frontend Transport; Mon, 10 Mar 2025 10:30:20 +0000
-Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
- (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Mon, 10 Mar
- 2025 03:30:09 -0700
-Received: from drhqmail202.nvidia.com (10.126.190.181) by
- drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 10 Mar 2025 03:30:09 -0700
-Received: from localhost.nvidia.com (10.127.8.12) by mail.nvidia.com
- (10.126.190.181) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
- Transport; Mon, 10 Mar 2025 03:30:09 -0700
-From: <ankita@nvidia.com>
-To: <ankita@nvidia.com>, <jgg@nvidia.com>, <maz@kernel.org>,
-	<oliver.upton@linux.dev>, <joey.gouly@arm.com>, <suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<ryan.roberts@arm.com>, <shahuang@redhat.com>, <lpieralisi@kernel.org>,
-	<david@redhat.com>
-CC: <aniketa@nvidia.com>, <cjia@nvidia.com>, <kwankhede@nvidia.com>,
-	<targupta@nvidia.com>, <vsethi@nvidia.com>, <acurrid@nvidia.com>,
-	<apopple@nvidia.com>, <jhubbard@nvidia.com>, <danw@nvidia.com>,
-	<zhiw@nvidia.com>, <mochs@nvidia.com>, <udhoke@nvidia.com>,
-	<dnigam@nvidia.com>, <alex.williamson@redhat.com>, <sebastianene@google.com>,
-	<coltonlewis@google.com>, <kevin.tian@intel.com>, <yi.l.liu@intel.com>,
-	<ardb@kernel.org>, <akpm@linux-foundation.org>, <gshan@redhat.com>,
-	<linux-mm@kvack.org>, <ddutile@redhat.com>, <tabba@google.com>,
-	<qperret@google.com>, <seanjc@google.com>, <kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
-Date: Mon, 10 Mar 2025 10:30:08 +0000
-Message-ID: <20250310103008.3471-2-ankita@nvidia.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250310103008.3471-1-ankita@nvidia.com>
-References: <20250310103008.3471-1-ankita@nvidia.com>
+	Mon, 10 Mar 2025 10:57:30 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C9B7415A1;
+	Mon, 10 Mar 2025 03:57:39 -0700 (PDT)
+Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0759C3F5A1;
+	Mon, 10 Mar 2025 03:57:26 -0700 (PDT)
+Message-ID: <bb390d95-7f2b-4327-a809-9e4cdbd1a1bc@arm.com>
+Date: Mon, 10 Mar 2025 10:57:25 +0000
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: AnonymousSubmission
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SN1PEPF00036F41:EE_|SA1PR12MB8144:EE_
-X-MS-Office365-Filtering-Correlation-Id: 62704551-7e7d-4a5f-ced4-08dd5fbe8f08
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|7416014|376014|36860700013|1800799024|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?f2s50DvKZrNckES72ZFVAcvL5xor6NFrQY+4H1MHeBklhcLZpP0plGjKqsV8?=
- =?us-ascii?Q?9TVqmialL82L88M3tZaLpe3KR5pVshIzUjf+blqMkInWyn/nWIq8DhcFwAzv?=
- =?us-ascii?Q?UOV/zw6COx5tC9CVazf4NjOPNBSHuYmB7Y3GE/GRDUoyEeh029RPn0oFR3eH?=
- =?us-ascii?Q?3JAkd+ku4u5cxAW6/P5fM4LIfR1h0E8cPfEAyviXyVqEFJ7Ak9qXuorWTmHw?=
- =?us-ascii?Q?fcI0Eso8agyWGzpw/cSO9yW/oncnoZfTZ5fdAwUfaqKlodfScIStBFUxlxDB?=
- =?us-ascii?Q?dVYZqTL/8qqB9Znt614qd36SzobsR1TgB2KiewNuB26P+SOlq5EOR8AzT4NC?=
- =?us-ascii?Q?UBdFPBkobIWRI4tbkt9uWTJg983pfxLiYO9I1RoqjrC+2b4HyWmP2FWvzDmz?=
- =?us-ascii?Q?4CvlS7OdJl2zDBiP5lNV54RUu58PR+8i4IS4obj0aUX80Kutjc6raMEljpyk?=
- =?us-ascii?Q?5AobxqXqPYB4LxoSSlyJFvklzJ8Wngx04zoM5muHP3yZn/X+OPuWzkp6Lnz0?=
- =?us-ascii?Q?93E+woQXmzDEWiEn5Bb6bUZZMTw0zqidqdusgalZb0IjCBZwb5NwfxPWp2iO?=
- =?us-ascii?Q?pL8NEbxTw9oVHwzCtz4Fwoy5ud4EKo7hmipg8v70qS19hzBW1fYkrMyGiBc7?=
- =?us-ascii?Q?dQ4stXJwU/A2gJ6yVABLzHjFES1atr8ehn1o/fz5qVsJJz62toIzhNNCI/1x?=
- =?us-ascii?Q?zRufP4rHGdQzDFuwjk08309KhvfsycpB0zYd0rSkOzAcOMreUS0xsLz1cJ8b?=
- =?us-ascii?Q?gpS2v1SrPSZ40Mn6s7zG4OkjQ4QeWkGS6R52mMZBHhCtjxzz8bHYudNeaN72?=
- =?us-ascii?Q?NrdNdHHeGlmnZnETLJa+g+WULo+hN6/6ZTZuq4px+mzikhM+zSfm3MgOcRT4?=
- =?us-ascii?Q?VTGywetQxYOBnKdvC9iyOvLC6dev5F86HAxlf7u+XEznrgA7bsllDsMAVrVb?=
- =?us-ascii?Q?AVWh3Gs5+FGwmiZjdoMN+chwdBxnq5VFWDWwymtMbQIl0er2k39Qk+1AgfBz?=
- =?us-ascii?Q?YTJq5cPnGpK9bxSnM3I75qYP/VyMpK1Ap6eKbWsl4SvOp2v05Fqn641dHS8U?=
- =?us-ascii?Q?lb0CU5vxJvUzT8P3XXdJQGmk9OdzXv6Y9N/bfiiXm24khmopB3mT6TgaFx2N?=
- =?us-ascii?Q?vvECHJAQe4C03Fn0J9p+ciRWarvn7W+2Q5owg6tS9eVKzx/D7GPx7GhR89Ps?=
- =?us-ascii?Q?84HU449MOQ+fLvmvGzQp7FDbCftcyTUEnuEu3fs+H/HuCydTdHmpTpl0y/M0?=
- =?us-ascii?Q?O4SUfTr0md+qNHoTaEsgaQ25TtXbaicWGG2JUylfbmw3RPfdOFvJi5rohJpW?=
- =?us-ascii?Q?nGNwi+b3Xi+ilv1vFS7zgELx/zyRHamMKe2tLBcF146W9YK5RdHP6dntbHjt?=
- =?us-ascii?Q?V4/bNWIVfs1CZeIzIOK5Brv13jRc7EWyGxJpmgBbW+YX3qf20EJGCy0Xk/ch?=
- =?us-ascii?Q?cws24fiYdzfxLVBq6rrDroPEEnwKjxqLoeuamwTg7i073wnSiuGDH7pQ2O5a?=
- =?us-ascii?Q?EC2cw+v6yBg5sIY=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(82310400026)(7416014)(376014)(36860700013)(1800799024)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 10:30:20.3372
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 62704551-7e7d-4a5f-ced4-08dd5fbe8f08
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF00036F41.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR12MB8144
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 1/8] coresight: etm4x: Extract the trace unit
+ controlling
+To: Leo Yan <leo.yan@arm.com>, Mike Leach <mike.leach@linaro.org>,
+ James Clark <james.clark@linaro.org>, Jonathan Corbet <corbet@lwn.net>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Arnaldo Carvalho de Melo <acme@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250310104919.58816-1-leo.yan@arm.com>
+ <20250310104919.58816-2-leo.yan@arm.com>
+Content-Language: en-US
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250310104919.58816-2-leo.yan@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_033027_683976_C63893D4 
-X-CRM114-Status: GOOD (  27.71  )
+X-CRM114-CacheID: sfid-20250310_035728_844326_C110F04B 
+X-CRM114-Status: GOOD (  28.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -162,175 +70,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ankit Agrawal <ankita@nvidia.com>
+Hi Leo
 
-Today KVM forces the memory to either NORMAL or DEVICE_nGnRE
-based on pfn_is_map_memory (which tracks whether the device memory
-is added to the kernel) and ignores the per-VMA flags that indicates the
-memory attributes. The KVM code is thus restrictive and allows only for
-the memory that is added to the kernel to be marked as cacheable.
+On 10/03/2025 10:49, Leo Yan wrote:
+> The trace unit is controlled in the ETM hardware enabling and disabling.
+> The sequential changes for support AUX pause and resume will reuse the
+> same operations.
+> 
+> Extract the operations in the etm4_{enable|disable}_trace_unit()
+> functions.  A minor improvement in etm4_enable_trace_unit() is for
+> returning the timeout error to callers.
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 
-The device memory such as on the Grace Hopper/Blackwell systems
-is interchangeable with DDR memory and retains properties such as
-cacheability, unaligned accesses, atomics and handling of executable
-faults. This requires the device memory to be mapped as NORMAL in
-stage-2.
+fyi, this area of code has changes significantly and will cause
+conflicts, due to the introduction of synchronization after
+each access to the TRCSTATR. Please rebase your next version on
+the coresight next branch to avoid the conflict.
 
-Given that the GPU device memory is not added to the kernel (but is rather
-VMA mapped through remap_pfn_range() in nvgrace-gpu module which sets
-VM_PFNMAP), pfn_is_map_memory() is false and thus KVM prevents such memory
-to be mapped Normal cacheable. The patch aims to solve this use case.
+The changes as such look good to me.
 
-A cachebility check is made if the VM_PFNMAP is set in VMA flags by
-consulting the VMA pgprot value. If the pgprot mapping type is MT_NORMAL,
-it is safe to be mapped cacheable as the KVM S2 will have the same
-Normal memory type as the VMA has in the S1 and KVM has no additional
-responsibility for safety. Checking pgprot as NORMAL is thus a KVM
-sanity check.
+Suzuki
 
-Introduce a new variable cacheable_devmem to indicate a safely
-cacheable mapping. Do not set the device variable when cacheable_devmem
-is true. This essentially have the effect of setting stage-2 mapping
-as NORMAL through kvm_pgtable_stage2_map.
 
-Add check for COW VM_PFNMAP and refuse such mapping.
 
-No additional checks for MTE are needed as kvm_arch_prepare_memory_region()
-already tests it at an early stage during memslot creation. There would
-not even be a fault if the memslot is not created.
-
-Note when FWB is not enabled, the kernel expects to trivially do
-cache management by flushing the memory by linearly converting a
-kvm_pte to phys_addr to a KVA, see kvm_flush_dcache_to_poc(). The
-cache management thus relies on memory being mapped. So do not allow
-!FWB.
-
-Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-Suggested-by: David Hildenbrand <david@redhat.com>
----
- arch/arm64/include/asm/kvm_pgtable.h |  8 ++++++
- arch/arm64/kvm/hyp/pgtable.c         |  2 +-
- arch/arm64/kvm/mmu.c                 | 43 +++++++++++++++++++++++++++-
- 3 files changed, 51 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-index 6b9d274052c7..f21e2fae2bfe 100644
---- a/arch/arm64/include/asm/kvm_pgtable.h
-+++ b/arch/arm64/include/asm/kvm_pgtable.h
-@@ -507,6 +507,14 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
-  */
- u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift);
- 
-+/**
-+ * stage2_has_fwb() - Determine whether FWB is supported
-+ * @pgt:    Page-table structure initialised by kvm_pgtable_stage2_init*()
-+ *
-+ * Return: True if FWB is supported.
-+ */
-+bool stage2_has_fwb(struct kvm_pgtable *pgt);
-+
- /**
-  * kvm_pgtable_stage2_pgd_size() - Helper to compute size of a stage-2 PGD
-  * @vtcr:	Content of the VTCR register.
-diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-index df5cc74a7dd0..ee6b98fefd61 100644
---- a/arch/arm64/kvm/hyp/pgtable.c
-+++ b/arch/arm64/kvm/hyp/pgtable.c
-@@ -637,7 +637,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
- 	return vtcr;
- }
- 
--static bool stage2_has_fwb(struct kvm_pgtable *pgt)
-+bool stage2_has_fwb(struct kvm_pgtable *pgt)
- {
- 	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
- 		return false;
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 1f55b0c7b11d..4b3a03c9d700 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1454,6 +1454,15 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
- 	return vma->vm_flags & VM_MTE_ALLOWED;
- }
- 
-+/*
-+ * Determine the memory region cacheability from VMA's pgprot. This
-+ * is used to set the stage 2 PTEs.
-+ */
-+static unsigned long mapping_type(pgprot_t page_prot)
-+{
-+	return FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(page_prot));
-+}
-+
- static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 			  struct kvm_s2_trans *nested,
- 			  struct kvm_memory_slot *memslot, unsigned long hva,
-@@ -1463,6 +1472,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 	bool write_fault, writable, force_pte = false;
- 	bool exec_fault, mte_allowed;
- 	bool device = false, vfio_allow_any_uc = false;
-+	bool cacheable_devmem = false;
- 	unsigned long mmu_seq;
- 	phys_addr_t ipa = fault_ipa;
- 	struct kvm *kvm = vcpu->kvm;
-@@ -1600,6 +1610,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 
- 	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
- 
-+	if (vma->vm_flags & VM_PFNMAP) {
-+		/* Reject COW VM_PFNMAP */
-+		if (is_cow_mapping(vma->vm_flags))
-+			return -EINVAL;
-+		/*
-+		 * If the VM_PFNMAP is set in VMA flags, do a KVM sanity
-+		 * check to see if pgprot mapping type is MT_NORMAL and a
-+		 * safely cacheable device memory.
-+		 */
-+		if (mapping_type(vma->vm_page_prot) == MT_NORMAL)
-+			cacheable_devmem = true;
-+	}
-+
- 	/* Don't use the VMA after the unlock -- it may have vanished */
- 	vma = NULL;
- 
-@@ -1633,8 +1656,13 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		 *
- 		 * In both cases, we don't let transparent_hugepage_adjust()
- 		 * change things at the last minute.
-+		 *
-+		 * Do not set device as the device memory is cacheable. Note
-+		 * that such mapping is safe as the KVM S2 will have the same
-+		 * Normal memory type as the VMA has in the S1.
- 		 */
--		device = true;
-+		if (!cacheable_devmem)
-+			device = true;
- 	} else if (logging_active && !write_fault) {
- 		/*
- 		 * Only actually map the page as writable if this was a write
-@@ -1716,6 +1744,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		prot |= KVM_PGTABLE_PROT_X;
- 	}
- 
-+	/*
-+	 *  When FWB is unsupported KVM needs to do cache flushes
-+	 *  (via dcache_clean_inval_poc()) of the underlying memory. This is
-+	 *  only possible if the memory is already mapped into the kernel map.
-+	 *
-+	 *  Outright reject as the cacheable device memory is not present in
-+	 *  the kernel map and not suitable for cache management.
-+	 */
-+	if (cacheable_devmem && !stage2_has_fwb(pgt)) {
-+		ret = -EINVAL;
-+		goto out_unlock;
-+	}
-+
- 	/*
- 	 * Under the premise of getting a FSC_PERM fault, we just need to relax
- 	 * permissions only if vma_pagesize equals fault_granule. Otherwise,
--- 
-2.34.1
+> ---
+>   .../coresight/coresight-etm4x-core.c          | 126 ++++++++++--------
+>   1 file changed, 74 insertions(+), 52 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 2c1a60577728..71be566bd117 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -428,6 +428,78 @@ static void etm4_check_arch_features(struct etmv4_drvdata *drvdata,
+>   }
+>   #endif /* CONFIG_ETM4X_IMPDEF_FEATURE */
+>   
+> +static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+> +{
+> +	struct coresight_device *csdev = drvdata->csdev;
+> +	struct device *etm_dev = &csdev->dev;
+> +	struct csdev_access *csa = &csdev->access;
+> +
+> +	/*
+> +	 * ETE mandates that the TRCRSR is written to before
+> +	 * enabling it.
+> +	 */
+> +	if (etm4x_is_ete(drvdata))
+> +		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
+> +
+> +	etm4x_allow_trace(drvdata);
+> +	/* Enable the trace unit */
+> +	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
+> +
+> +	/* Synchronize the register updates for sysreg access */
+> +	if (!csa->io_mem)
+> +		isb();
+> +
+> +	/* wait for TRCSTATR.IDLE to go back down to '0' */
+> +	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_IDLE_BIT, 0)) {
+> +		dev_err(etm_dev,
+> +			"timeout while waiting for Idle Trace Status\n");
+> +		return -ETIME;
+> +	}
+> +
+> +	/*
+> +	 * As recommended by section 4.3.7 ("Synchronization when using the
+> +	 * memory-mapped interface") of ARM IHI 0064D
+> +	 */
+> +	dsb(sy);
+> +	isb();
+> +
+> +	return 0;
+> +}
+> +
+> +static void etm4_disable_trace_unit(struct etmv4_drvdata *drvdata)
+> +{
+> +	u32 control;
+> +	struct coresight_device *csdev = drvdata->csdev;
+> +	struct device *etm_dev = &csdev->dev;
+> +	struct csdev_access *csa = &csdev->access;
+> +
+> +	control = etm4x_relaxed_read32(csa, TRCPRGCTLR);
+> +
+> +	/* EN, bit[0] Trace unit enable bit */
+> +	control &= ~0x1;
+> +
+> +	/*
+> +	 * If the CPU supports v8.4 Trace filter Control,
+> +	 * set the ETM to trace prohibited region.
+> +	 */
+> +	etm4x_prohibit_trace(drvdata);
+> +	/*
+> +	 * Make sure everything completes before disabling, as recommended
+> +	 * by section 7.3.77 ("TRCVICTLR, ViewInst Main Control Register,
+> +	 * SSTATUS") of ARM IHI 0064D
+> +	 */
+> +	dsb(sy);
+> +	isb();
+> +	/* Trace synchronization barrier, is a nop if not supported */
+> +	tsb_csync();
+> +	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
+> +
+> +	/* wait for TRCSTATR.PMSTABLE to go to '1' */
+> +	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
+> +		dev_err(etm_dev,
+> +			"timeout while waiting for PM stable Trace Status\n");
+> +}
+> +
+>   static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   {
+>   	int i, rc;
+> @@ -536,33 +608,7 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>   		etm4x_relaxed_write32(csa, trcpdcr | TRCPDCR_PU, TRCPDCR);
+>   	}
+>   
+> -	/*
+> -	 * ETE mandates that the TRCRSR is written to before
+> -	 * enabling it.
+> -	 */
+> -	if (etm4x_is_ete(drvdata))
+> -		etm4x_relaxed_write32(csa, TRCRSR_TA, TRCRSR);
+> -
+> -	etm4x_allow_trace(drvdata);
+> -	/* Enable the trace unit */
+> -	etm4x_relaxed_write32(csa, 1, TRCPRGCTLR);
+> -
+> -	/* Synchronize the register updates for sysreg access */
+> -	if (!csa->io_mem)
+> -		isb();
+> -
+> -	/* wait for TRCSTATR.IDLE to go back down to '0' */
+> -	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_IDLE_BIT, 0))
+> -		dev_err(etm_dev,
+> -			"timeout while waiting for Idle Trace Status\n");
+> -
+> -	/*
+> -	 * As recommended by section 4.3.7 ("Synchronization when using the
+> -	 * memory-mapped interface") of ARM IHI 0064D
+> -	 */
+> -	dsb(sy);
+> -	isb();
+> -
+> +	rc = etm4_enable_trace_unit(drvdata);
+>   done:
+>   	etm4_cs_lock(drvdata, csa);
+>   
+> @@ -906,7 +952,6 @@ static void etm4_disable_hw(void *info)
+>   	struct etmv4_drvdata *drvdata = info;
+>   	struct etmv4_config *config = &drvdata->config;
+>   	struct coresight_device *csdev = drvdata->csdev;
+> -	struct device *etm_dev = &csdev->dev;
+>   	struct csdev_access *csa = &csdev->access;
+>   	int i;
+>   
+> @@ -920,31 +965,8 @@ static void etm4_disable_hw(void *info)
+>   		etm4x_relaxed_write32(csa, control, TRCPDCR);
+>   	}
+>   
+> -	control = etm4x_relaxed_read32(csa, TRCPRGCTLR);
+> +	etm4_disable_trace_unit(drvdata);
+>   
+> -	/* EN, bit[0] Trace unit enable bit */
+> -	control &= ~0x1;
+> -
+> -	/*
+> -	 * If the CPU supports v8.4 Trace filter Control,
+> -	 * set the ETM to trace prohibited region.
+> -	 */
+> -	etm4x_prohibit_trace(drvdata);
+> -	/*
+> -	 * Make sure everything completes before disabling, as recommended
+> -	 * by section 7.3.77 ("TRCVICTLR, ViewInst Main Control Register,
+> -	 * SSTATUS") of ARM IHI 0064D
+> -	 */
+> -	dsb(sy);
+> -	isb();
+> -	/* Trace synchronization barrier, is a nop if not supported */
+> -	tsb_csync();
+> -	etm4x_relaxed_write32(csa, control, TRCPRGCTLR);
+> -
+> -	/* wait for TRCSTATR.PMSTABLE to go to '1' */
+> -	if (coresight_timeout(csa, TRCSTATR, TRCSTATR_PMSTABLE_BIT, 1))
+> -		dev_err(etm_dev,
+> -			"timeout while waiting for PM stable Trace Status\n");
+>   	/* read the status of the single shot comparators */
+>   	for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+>   		config->ss_status[i] =
 
 
