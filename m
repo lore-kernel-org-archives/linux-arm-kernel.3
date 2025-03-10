@@ -4,75 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C434C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:00:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FF3BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 09:02:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/owprWp67u1/sbRahvguWlU5TGKcZvOGG/+uOM3zQE4=; b=X951FXINg50h6mRsOx+F3NmtS3
-	nGiXjpbvlyxn+vaVsSq0T0MhcaWtDhe8tJ1KeJUNaPTel2TdZLN+Xx4D/YU74R2d2d1V6v4+l/TIO
-	OOWreB7oQZnPAVe2OgNoOuOJsbt5ffP4e0IMF5dSpcsweDTX6LCa+V7cs+I0DwLiOYD4b8V8z6RJm
-	IOOTNCO+gR2l/MWMOlDdzmGqtLDTayXXN0m9dTvwdbYiM46kUoUWTGIsXg9iGsuIIWAxc6B9lO+oV
-	y/6JZHb+L4deRr+p1WV7Eu+iGD6g/h0L4+MuRxPk1Un6gy8OamTo3KBHP7GYmFXwzXjZE2Lbl9YIc
-	/uTpe6Bw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=y5Yuxxu0WAoN1GxBYvN/CmEDsSXx0gVMofLIggB5ihw=; b=1IPp5BXo7EUPd8X7ZdVcTztzXk
+	q4KyK0QXVyKF+c6q8fB0ee5ZFE6IIn59PiJjFve0Edo1Lj4NOS8UbBSPGAkIDoPgw7EsC7ArzPMKG
+	RdKNPF+mFgVKRxXR6K1B2NJde0kvK0jVpGu2uvsu24FkWy+jzNKeKV+zejcGCVwSJr38/Wh71/lr7
+	HpDEG+/wpppQb+J6UdjZudxkdEiGir2KkgfRoCRMGXAugmPs7rfu/5G4fxmEiA897CVyml7NijUvH
+	YlJSsE6EpjfzKirI7vBzPBzEm/7Y+Rf7A5GpAqA4/Ql2jX4v6I7jM5AX2OQqURezrZHFFxMSR3AyN
+	KiPjf7TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYzN-00000001zGS-3etL;
-	Mon, 10 Mar 2025 08:59:57 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1trZ1T-00000001zfb-0tWA;
+	Mon, 10 Mar 2025 09:02:07 +0000
+Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYx4-00000001yzg-45Yf
+	id 1trYzq-00000001zOq-0Pw1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 08:57:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EB391A451B8;
-	Mon, 10 Mar 2025 08:52:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4BA1FC4CEE5;
-	Mon, 10 Mar 2025 08:57:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741597054;
-	bh=z3HdFE82Z/4RXvpeoyqLFCEFSfIoebqZu/6FnbCAKPM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GZJ4VUDAQQIR20H8jXi0mJDIV4ID0WB2CwAbFjl2aHinP/A02XERw7A32F808dODs
-	 Ms6hnBnhEkluGmKGSr8CotjSnHmRNbh6spwMl0xPpc4m1ZbrJ5sMUMpM+G67mVGhNx
-	 X35Ch+E+1og6Qz9xslNfPzGlCEzjGoqxovfOr6rpQ4l+iN4iH6KtKWOsR6iiWCpABE
-	 7iCsRWsmE2MoCl4HDhknfBYhB3nQAsy5aKnVZIr8ZEmis/9NTWXTZiKwL+oDaCW0hn
-	 HJoOTn/s2hUF4+PFutLzlgPuxCrTbs9/Iw3T32MkFrgUqH2fvnHex6a0zaVKKCS62R
-	 EAYuC89BVv8Bg==
-Date: Mon, 10 Mar 2025 14:27:24 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
-	op-tee@lists.trustedfirmware.org,
-	linux-arm-kernel@lists.infradead.org,
-	Olivier Masse <olivier.masse@nxp.com>,
-	Thierry Reding <thierry.reding@gmail.com>,
-	Yong Wu <yong.wu@mediatek.com>,
-	Sumit Semwal <sumit.semwal@linaro.org>,
-	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
-	Brian Starkey <Brian.Starkey@arm.com>,
-	John Stultz <jstultz@google.com>,
-	"T . J . Mercier" <tjmercier@google.com>,
-	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
-	Daniel Stone <daniel@fooishbar.org>
-Subject: Re: [PATCH v6 02/10] optee: pass parent device to tee_device_alloc()
-Message-ID: <Z86pdKQY440edHNx@sumit-X1>
-References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
- <20250305130634.1850178-3-jens.wiklander@linaro.org>
+	Mon, 10 Mar 2025 09:00:27 +0000
+Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-abf48293ad0so635724366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 02:00:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1741597224; x=1742202024; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=y5Yuxxu0WAoN1GxBYvN/CmEDsSXx0gVMofLIggB5ihw=;
+        b=QOEmFAAIJ0KGva8+2gxNYCvM+kPdW0e35mjubIlZ1a8JFY8WHTJVpZgUvGUmq/4vI1
+         aCqTAiNWqPzqGJgvecnHxbOMyZGYM2Ols77SYhulhWzuFiC9kYegvOJwwHXADL2D0LrZ
+         En7LjY2ShkyUJCCD3Hq+NnrGH279M913v3tzQ=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741597224; x=1742202024;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=y5Yuxxu0WAoN1GxBYvN/CmEDsSXx0gVMofLIggB5ihw=;
+        b=CThRon6GVnphTpfpH2XkhQmhbGcwpz45yenrTZLKCfdk0hwPBspWq3dukTStqbxc3y
+         M+eGrzEkmeCPqOcjtTKMyb2Ru82RpNK9kbPb+C2+CCQpkC8P0CfDm/rJuhDU5VXn3gO3
+         Jj2qvo32Yo66rXK8WuM5QL9xqjPYOYbzNFKx+Dx81U/ixFXCqPg/IXQEjOQrjAPNk3lH
+         9L5JUfpk7J9Hc/cyzWzBmudorWQz8GIWPX+bjU4181KpX2qfk7rPLm8/13Oo2zCNacEh
+         WCuSNh6KygOZVcJIatD5xQt/6Rex36FoIkN+7gs4K71ojnvzDyPvCUUJ9vjjiPykPgu2
+         AaAQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWeYgwCIXVHr+W+Ja79Ym3/apTJ5fO70AjV9/S/m4FQ+XUatuMXkzFyx4i4l0ScIKQfmK9FpzvrsMB4uMT6zRnD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwE7aS6Si7//vt+Ofwr5MMm8ztwa4ZK75HKnkRSr5obVxfORFLr
+	JOWq67jI+/MyeiSJylQMDKj/m7golsEelwc156dnSsMZvVJxb3DICMTJiyJ4AFGb09FyBcclUtM
+	=
+X-Gm-Gg: ASbGncuqfuLr9o9rb+1jcOSjcNosxog4F+UlMDx86iBdcbB5QfeaHsmeSR/vFTvAzAx
+	VJYpe7AgDi5PipAOSyVs9og479pzQi8vKfoKsS5PtnIJDYcl58qEWVZTzXgZaFSBXF2BBuRDV6t
+	lJB241S2HBoY/BGkfR477SqmeKI8o1oOQSkfWRQ4f5JamjmW28P/5I/8vye1eRWq/4goNTtLbrq
+	aDNT2W8Pw3JmgwJjhIg6KJrE6AHq+AKow92pQpFY41kY2ynQQQ28BXP1IXv3jWzeZzBS37Bt7UD
+	Zj45D3JqSKauHjjCJ7MZuxwabBLDS3nzvVQ3rYzD/lwst7hrgS3mhMzIPBTpbeCFUAY9XvYdvGu
+	wSryKxO7A6LO25Ho=
+X-Google-Smtp-Source: AGHT+IGjH7YsfX6Ud3Jz5e9jAJViE3vy69vK8J5dLBWYZ97SjiRXgCaWpjg20JMKl3XXDj02LXcrSA==
+X-Received: by 2002:a17:907:2d20:b0:ac2:b086:88e3 with SMTP id a640c23a62f3a-ac2b0868a8cmr62161566b.10.1741597222244;
+        Mon, 10 Mar 2025 02:00:22 -0700 (PDT)
+Received: from mail-ed1-f49.google.com (mail-ed1-f49.google.com. [209.85.208.49])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2394858a3sm735326266b.62.2025.03.10.02.00.21
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 10 Mar 2025 02:00:21 -0700 (PDT)
+Received: by mail-ed1-f49.google.com with SMTP id 4fb4d7f45d1cf-5e50bae0f5bso9242a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 02:00:21 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWvbc7EMGBWensTqpdS3aKIpaIVPONrlDYtGlTiX48Y03xcKUYaxWDUX95fiktN2pAzA9DrB/XIQ3VyTUXdtlr9@lists.infradead.org
+X-Received: by 2002:a05:6402:95a:b0:5e6:887f:6520 with SMTP id
+ 4fb4d7f45d1cf-5e6887f672fmr62677a12.5.1741597220471; Mon, 10 Mar 2025
+ 02:00:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305130634.1850178-3-jens.wiklander@linaro.org>
+References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
+ <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
+ <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca> <87wmcxs1xw.fsf@gmail.com>
+In-Reply-To: <87wmcxs1xw.fsf@gmail.com>
+From: Tomasz Figa <tfiga@chromium.org>
+Date: Mon, 10 Mar 2025 18:00:03 +0900
+X-Gmail-Original-Message-ID: <CAAFQd5A70T2iaN17X2Jfk_6fCKRYZdKpreb+9i76n5WMYNEt1A@mail.gmail.com>
+X-Gm-Features: AQ5f1JowVCHSCv6zRQDIlGrshBtBzEUT-W75FlZzOuUhz9aDBR_F5KxVvuObz24
+Message-ID: <CAAFQd5A70T2iaN17X2Jfk_6fCKRYZdKpreb+9i76n5WMYNEt1A@mail.gmail.com>
+Subject: Re: [PATCH v4 1/2] media: videobuf2: Fix dmabuf cache sync/flush in dma-contig
+To: Mikhail Rudenko <mike.rudenko@gmail.com>
+Cc: Nicolas Dufresne <nicolas@ndufresne.ca>, Dafna Hirschfeld <dafna@fastmail.com>, 
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	Marek Szyprowski <m.szyprowski@samsung.com>, Hans Verkuil <hverkuil@xs4all.nl>, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>, linux-media@vger.kernel.org, 
+	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, 
+	Mauro Carvalho Chehab <mchehab+huawei@kernel.org>, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_015735_158905_B8918621 
-X-CRM114-Status: GOOD (  18.09  )
+X-CRM114-CacheID: sfid-20250310_020026_131160_25442320 
+X-CRM114-Status: GOOD (  29.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,69 +113,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 05, 2025 at 02:04:08PM +0100, Jens Wiklander wrote:
-> During probing of the OP-TEE driver, pass the parent device to
-> tee_device_alloc() so the dma_mask of the new devices can be updated
-> accordingly.
-> 
-> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
-> ---
->  drivers/tee/optee/ffa_abi.c | 8 ++++----
->  drivers/tee/optee/smc_abi.c | 4 ++--
->  2 files changed, 6 insertions(+), 6 deletions(-)
-> 
+On Mon, Mar 10, 2025 at 5:52=E2=80=AFPM Mikhail Rudenko <mike.rudenko@gmail=
+.com> wrote:
+>
+>
+> Hi Nicolas, Tomasz,
+>
+> On 2025-03-03 at 10:24 -05, Nicolas Dufresne <nicolas@ndufresne.ca> wrote=
+:
+>
+> > Hi Mikhail,
+> >
+> > Le lundi 03 mars 2025 =C3=A0 14:40 +0300, Mikhail Rudenko a =C3=A9crit =
+:
+> >> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
+> >> commit 129134e5415d ("media: media/v4l2: remove
+> >> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
+> >> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
+> >> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
+> >> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
+> >> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
+> >> no-ops, making cache maintenance for non-coherent dmabufs allocated
+> >> by
+> >> dma-contig impossible.
+> >>
+> >> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
+> >> {flush,invalidate}_kernel_vmap_range calls to
+> >> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
+> >> buffers.
+> >>
+> >> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
+> >> V4L2_MEMORY_FLAG_NON_COHERENT flag")
+> >> Cc: stable@vger.kernel.org
+> >> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
+> >> ---
+> >>  .../media/common/videobuf2/videobuf2-dma-contig.c  | 22
+> >> ++++++++++++++++++++++
+> >>  1 file changed, 22 insertions(+)
+> >>
+> >> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> >> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> >> index
+> >> a13ec569c82f6da2d977222b94af32e74c6c6c82..d41095fe5bd21faf815d6b035d7
+> >> bc888a84a95d5 100644
+> >> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> >> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
+> >> @@ -427,6 +427,17 @@ static int
+> >>  vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
+> >>                                 enum dma_data_direction
+> >> direction)
+> >>  {
+> >> +    struct vb2_dc_buf *buf =3D dbuf->priv;
+> >> +    struct sg_table *sgt =3D buf->dma_sgt;
+> >> +
+> >> +    if (!buf->non_coherent_mem)
+> >> +            return 0;
+> >> +
+> >> +    if (buf->vaddr)
+> >> +            invalidate_kernel_vmap_range(buf->vaddr, buf->size);
+> >
+> > What would make me a lot more confortable with this change is if you
+> > enable kernel mappings for one test. This will ensure you cover the
+> > call to "invalidate" in your testing. I'd like to know about the
+> > performance impact. With this implementation it should be identical to
+> > the VB2 one.
+> >
+>
+> I have re-run my tests on RK3399, with 1280x720 XRGB capture buffers (1
+> plane, 3686400 bytes). Capture process was pinned to "big" cores running
+> at fixed frequency of 1.8 GHz. Libcamera was modified to request buffers
+> with V4L2_MEMORY_FLAG_NON_COHERENT flag. DMA_BUF_IOCTL_SYNC ioctls were
+> used as appropriate. For kernel mapping effect test, vb2_plane_vaddr
+> call was inserted into rkisp1_vb2_buf_init.
+>
+> The timings are as following:
+>
+> - memcpy coherent buffer: 7570 +/- 63 us
+> - memcpy non-coherent buffer: 1120 +/- 34 us
+>
+> without kernel mapping:
+>
+> - ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_START|DMA_BUF_SYNC_READ}): =
+428 +/- 15 us
+> - ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_END|DMA_BUF_SYNC_READ}): 42=
+2 +/- 28 us
+>
+> with kernel mapping:
+>
+> - ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_START|DMA_BUF_SYNC_READ}): =
+526 +/- 13 us
+> - ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_END|DMA_BUF_SYNC_READ}): 51=
+9 +/- 38 us
+>
+> So, even with kernel mapping enabled, speedup is 7570 / (1120 + 526 + 519=
+) =3D 3.5,
+> and the use of noncoherent buffers is justified -- at least on this platf=
+orm.
 
-Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
+Thanks a lot for the additional testing.
 
--Sumit
+Acked-by: Tomasz Figa <tfiga@chromium.org>
 
-> diff --git a/drivers/tee/optee/ffa_abi.c b/drivers/tee/optee/ffa_abi.c
-> index f3af5666bb11..4ca1d5161b82 100644
-> --- a/drivers/tee/optee/ffa_abi.c
-> +++ b/drivers/tee/optee/ffa_abi.c
-> @@ -914,16 +914,16 @@ static int optee_ffa_probe(struct ffa_device *ffa_dev)
->  	    (sec_caps & OPTEE_FFA_SEC_CAP_RPMB_PROBE))
->  		optee->in_kernel_rpmb_routing = true;
->  
-> -	teedev = tee_device_alloc(&optee_ffa_clnt_desc, NULL, optee->pool,
-> -				  optee);
-> +	teedev = tee_device_alloc(&optee_ffa_clnt_desc, &ffa_dev->dev,
-> +				  optee->pool, optee);
->  	if (IS_ERR(teedev)) {
->  		rc = PTR_ERR(teedev);
->  		goto err_free_pool;
->  	}
->  	optee->teedev = teedev;
->  
-> -	teedev = tee_device_alloc(&optee_ffa_supp_desc, NULL, optee->pool,
-> -				  optee);
-> +	teedev = tee_device_alloc(&optee_ffa_supp_desc, &ffa_dev->dev,
-> +				  optee->pool, optee);
->  	if (IS_ERR(teedev)) {
->  		rc = PTR_ERR(teedev);
->  		goto err_unreg_teedev;
-> diff --git a/drivers/tee/optee/smc_abi.c b/drivers/tee/optee/smc_abi.c
-> index f0c3ac1103bb..165fadd9abc9 100644
-> --- a/drivers/tee/optee/smc_abi.c
-> +++ b/drivers/tee/optee/smc_abi.c
-> @@ -1691,14 +1691,14 @@ static int optee_probe(struct platform_device *pdev)
->  	    (sec_caps & OPTEE_SMC_SEC_CAP_RPMB_PROBE))
->  		optee->in_kernel_rpmb_routing = true;
->  
-> -	teedev = tee_device_alloc(&optee_clnt_desc, NULL, pool, optee);
-> +	teedev = tee_device_alloc(&optee_clnt_desc, &pdev->dev, pool, optee);
->  	if (IS_ERR(teedev)) {
->  		rc = PTR_ERR(teedev);
->  		goto err_free_optee;
->  	}
->  	optee->teedev = teedev;
->  
-> -	teedev = tee_device_alloc(&optee_supp_desc, NULL, pool, optee);
-> +	teedev = tee_device_alloc(&optee_supp_desc, &pdev->dev, pool, optee);
->  	if (IS_ERR(teedev)) {
->  		rc = PTR_ERR(teedev);
->  		goto err_unreg_teedev;
-> -- 
-> 2.43.0
-> 
+Best regards,
+Tomasz
 
