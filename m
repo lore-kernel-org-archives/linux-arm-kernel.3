@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11D5CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:28:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29B16C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:30:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=; b=HRR/KN/DFfDbUk1emytc1P12qo
-	tMoZZbqmQrDhipxI14zWc02vfpop6AdNk8VpkJsXD0A+Dc/tt68NFriw2zyiL2elpcZyYZrA60/5T
-	EKrgZrAB4J9EuLUgF44uXXqYBo8/UDSQW3dQZKSl1ubU1zo5JvnxjNjsYFcUBfv97fhPuuk1WewuD
-	YWLE+nzXzcMVHr+2nODtUJVd04EBMQRRNc/z46ChoPI3uTt6r7dpOkkXFf40emI6k+22LcgKth/Q8
-	NwA5ldwURuUxX9zz924+hB+xlleojb5nwmZkbxdPj6ONsK4rPVSMyezP0XmBIuE+Ako+cQ8ydlHBv
-	j13A5jnQ==;
+	bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=; b=FgSdK064CZ4+Z0ws6aDeHZa/Gy
+	cm7Zdp8/Z9P3feop6TF89LQnH2sBMtVl6HavNVw0Wh7L0HGNqfFOaKHhqyFvFHtK+/K60ulZuksEw
+	fuVH7Xvq7hZWt/TdJXbo6bdfeQ6cuEOJ1Scb2kvClFP18NqPkdXYNQkbnEA0tyc/edKYbr7e+HNiI
+	IqjPb0PfTIM434fivgeC/mtcPwwDAtvba4XnVG0A4OxdcsmN9AQ6h++GYt2/lxJYtDIfzfqIBeY1O
+	fJvQJhlF1vtPidZRfXd02Mz4wPSP0vZdX4AoKFqMA9bovBuUW8HNT45F9AeTtpiNSuKgsJTv/5Ahy
+	XOMP9kew==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdBA-00000002nOZ-1Ih1;
-	Mon, 10 Mar 2025 13:28:24 +0000
-Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
+	id 1trdCm-00000002niW-1J0U;
+	Mon, 10 Mar 2025 13:30:04 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcEd-00000002cQA-0G0n;
-	Mon, 10 Mar 2025 12:27:56 +0000
-Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43bc48ff815so23949455e9.0;
-        Mon, 10 Mar 2025 05:27:54 -0700 (PDT)
+	id 1trcEe-00000002cQU-10VV;
+	Mon, 10 Mar 2025 12:27:57 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-43bdf0cbb6bso23333625e9.1;
+        Mon, 10 Mar 2025 05:27:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741609673; x=1742214473; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1741609675; x=1742214475; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=;
-        b=jZTbwgeUvpOCa4KlwQMUljg236k8ppWMpEuxxAiVEIdjKBH0Xk0NSp6dOCHFVAbEtS
-         SV4ankkYVrBAFwaA6L4omqOSi/nRuEaJzGwTBR+DE8SQoHEFVsiq6QxYlXREzCAQbDxy
-         cyVHapPm4BSyYtcsNY/ypF0Jkv8FBm9pOKJuBzmzBfyxk+r7xIyO2DdQ973mRZYIQxIk
-         puuMrx/R/1Fo3lrlOIJqqI7sl+19asXexLJaqIkFiSKR+udDjF7v0XVVIRS7WevyQrhb
-         xtIew8RWhms9J405R+7qGrkZwULvf1yi2DCjpnqVi5BfzNaNVXeOmfBbCR664Ocof7wK
-         gPlw==
+        bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=;
+        b=CZjbDPaLkGd3W0KA06ElFAvoTYOCT3OO0vOSf+Qx6uA30z5oTRhHtiVYjsa9KmbU7P
+         u9/mpPJMYH1CmrOSyyeR3Qrf7JdAhm0GWgeBmhVcKW1X7zfWEJagFsGuYxc4KeVfseWM
+         iEoQwNH2V1iPcXY5FtcQqnp8SBB8vTsiD4kY6N1VpwuDYYYdFh7D/Ji8xhFQOIpkzp+B
+         oz8L/Oa7PMXH1XtGbU9RvrV0sE3x9t2WJmU7B07jMNdlEK43l6cmCgkXZKLOK2WqqOdl
+         bjrIhPmF4+p70Rg6hdP5tQy6YjUaRxK2/YJK6zZnwm0tOhzp9eya9lWpSwB92XD8kKUC
+         /U9Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741609673; x=1742214473;
+        d=1e100.net; s=20230601; t=1741609675; x=1742214475;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=pP5AGd49889Z3JFGOGRHgkg7HKkdewQ+Zwhw794fEIw=;
-        b=RH+Iq8KHc4kTR/KQUvZaDLn5KwNTjdrAA5HQwZhRiGQnagvvG1tn0Igm0A0JBYz3Ls
-         zvY1Rf2uKEuaJxWGiz0bz4ln/Pesg0PXxo9+nQreMdPoDWcqbLNe/hu2T79Xqg5Qb2XL
-         VWF5AeBfC9HN98LKhzFXblL2nh3qbX0ap9wxPxu/tOQ/Okja9XKi8XifJujd1xCV4KVO
-         ujNvLAXnEpPPhN14T3IQvOBH2oOJavLZMry0yzuW8MDMgtZ6aLzWhcw2drLDuGj3lu7a
-         zHycJ29L+MGPv0dYOaouxkKfvORXh43v4LuS63mc33P9f6z62NpMyKo/zayWK3rxEfxf
-         oo6w==
-X-Forwarded-Encrypted: i=1; AJvYcCVSCSSE3VzW4lj1t8E6hgIUSP2jZh9dBekJvs7z4QOl13QSW7qlzc8WTd0VzueBnK1x2vw4qXajGn49UwvCYKpw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Vd3RzTz2ClFpGwkGMANEBat5KlAndF2AwVkWX4PLm+Qd+xmk
-	wIrNPcowzr6arH4Rzte0lhCTIIBaWQkUZ3VmW71CHofGfhYK3StgS8Lcj85B
-X-Gm-Gg: ASbGncsIHK12hnwYPsVXItv1npxvsy1LcFn4+kagNm1BZlRbNlhEioD6cVaVJLn1XRt
-	YWJ6+9kKd0+vQt1G/n5AoYjE+ONrS5Zsf89YP7wdQFWY3r0OH/PZoBde2lcKCaKUTM8ZiXm+xbj
-	iX174tQqsbWsh8oYzaFtq5Iz+HAgUfKes9UZDSsjSiWM8w14c2RFy7Dkkj3hgDQE0N4mtqCqMrH
-	5KDh9tg43yTxM8nG1ElRM697roN2KEQawdL38EluCpQenmjW3B/t3Lu5KpW3RfmpFLHeZjXdej0
-	CwH6quhli9w/mnw9lphQXysaZZUl7OF0tkqPkI/PpQUv41oyq8BKoaZeYH4Ujeb5gPGBTUIZG5l
-	KVuTx42pcdttm4DNJ
-X-Google-Smtp-Source: AGHT+IHkdFXutwUlHgJUEeibLtGVxZ9e1BYhqaRmZdU3VrmHHopZkCNH9T65QpbRvqLO+DUNS6Gfbw==
-X-Received: by 2002:a05:600c:1e08:b0:43c:f680:5c2e with SMTP id 5b1f17b1804b1-43cf6805d78mr26252335e9.13.1741609673265;
-        Mon, 10 Mar 2025 05:27:53 -0700 (PDT)
+        bh=y07tVQtayKingIMzHvY+mUqyx0BK9tRXRpx87DXqL0Y=;
+        b=uJuy4av6giaDs1CsDuW4vm6voq+d4Ad9y0eQyd3/Ddr1kIMCfXv5o3nFS+682d22Wo
+         h6sIzNn41XtzjbgI86sL+qKHY2Z7tYtJF6IaepJTlIgLpRjDpKYJat/LdhyVxPxgpCqT
+         2dYkDQ27U6KmcfLnPK4N5m58fOSP+Vb2v7lLjgB3QnSpTKoFO7KfO0/iYfv8QAyKXHsx
+         KeuKIyZa8v7ryHwT4dwFzmg+5wo3OlE8tgr9pQvHbzDN5VaxoXw1FTPUKSf+98veKBUG
+         pv2CTTs5gEVBMbr2Jx/+p5BHLG91CUkP2GvyZj046LNQzzcUFykTfWXYGjKtY0sICZRN
+         TXZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVYuI0F+Nl0fseqwMUhAt8T9yUs5+WGTIyYafiGoVIGmmjE4V6H+28fvTRswyPTdc1P0yxSXL4sZameUa5M2IRK@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywvs41DHaqfg6Wjpp9jUnh87rmQyAoZ5w1Zd5vHU9WsnPMqYW4K
+	KXlyxtomo0PA9dH+LhkMO/qC2iy4Rqb+HtJ69OPe731j/ydMDlZ9
+X-Gm-Gg: ASbGncuwqIRkjm+cb8aX1zzuMAGQ6OPuKESBGzp8nk1+GCkz0io0Wh7SGmUCmTMDdub
+	Qg6KRkojLzIpyOl/EuDAoUzzT8BiljRxJ1486v1HqLYBZ5Bb4j0q2D/wTaHt+2CewNZbFuZ8Xzm
+	0Zz+nqKFb7BSdC/KZm/kfwFdL328Knf33Xcr0IoetEvtCBVujG90oDIDcFOzy7C9JQ2mlCpDmig
+	WLxNmgOKnUlt32YQZptbb7pb1rv8tc1WEktGm4LxUS5Cbaic+MG2JqCw69cjkGRc1oUkkAxgTpQ
+	/bjohrT54go4YV5PYTdObEWx5k2+Hk7Af9cBwIYpgZDkjbHFN2gaykGsd83lAzM3Qxdq7mmmmQZ
+	FGzmKhrSgmGcc4XtD
+X-Google-Smtp-Source: AGHT+IHyEEGGzhCMZxMwRjQ82ccOJZrD+gnc4+NfGxz62Tu6AF+ZAKBbTzzBzG5J8FJd1mZ+MeHucw==
+X-Received: by 2002:a05:600c:4f41:b0:43c:ec28:d301 with SMTP id 5b1f17b1804b1-43cec28d3c2mr31513105e9.26.1741609674640;
+        Mon, 10 Mar 2025 05:27:54 -0700 (PDT)
 Received: from eichest-laptop.toradex.int (85-195-230-40.fiber7.init7.net. [85.195.230.40])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd6530f26sm171963245e9.4.2025.03.10.05.27.52
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43bd6530f26sm171963245e9.4.2025.03.10.05.27.53
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 05:27:52 -0700 (PDT)
+        Mon, 10 Mar 2025 05:27:53 -0700 (PDT)
 From: Stefan Eichenberger <eichest@gmail.com>
 To: vkoul@kernel.org,
 	kishon@kernel.org,
@@ -84,18 +84,19 @@ Cc: linux-phy@lists.infradead.org,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Stefan Eichenberger <stefan.eichenberger@toradex.com>
-Subject: [PATCH v3 1/2] phy: freescale: imx8m-pcie: cleanup reset logic
-Date: Mon, 10 Mar 2025 13:27:03 +0100
-Message-ID: <20250310122745.34947-2-eichest@gmail.com>
+	Stefan Eichenberger <stefan.eichenberger@toradex.com>,
+	stable@vger.kernel.org
+Subject: [PATCH v3 2/2] phy: freescale: imx8m-pcie: assert phy reset and perst in power off
+Date: Mon, 10 Mar 2025 13:27:04 +0100
+Message-ID: <20250310122745.34947-3-eichest@gmail.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250310122745.34947-1-eichest@gmail.com>
 References: <20250310122745.34947-1-eichest@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052755_104867_0267CC33 
-X-CRM114-Status: GOOD (  11.13  )
+X-CRM114-CacheID: sfid-20250310_052756_279745_3BD3E91F 
+X-CRM114-Status: GOOD (  11.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,43 +113,61 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 
-Remove the switch statement for releasing perst and reset since they are
-already correctly set at probe and are no-ops for
-reset_control_deassert(NULL). Call these unconditionally.
+Ensure the PHY reset and perst is asserted during power-off to
+guarantee it is in a reset state upon repeated power-on calls. This
+resolves an issue where the PHY may not properly initialize during
+subsequent power-on cycles. Power-on will deassert the reset at the
+appropriate time after tuning the PHY parameters.
 
-This does not change the behavior of the driver but reduces driver
-complexity and allows for easier future modifications.
+During suspend/resume cycles, we observed that the PHY PLL failed to
+lock during resume when the CPU temperature increased from 65C to 75C.
+The observed errors were:
+  phy phy-32f00000.pcie-phy.3: phy poweron failed --> -110
+  imx6q-pcie 33800000.pcie: waiting for PHY ready timeout!
+  imx6q-pcie 33800000.pcie: PM: dpm_run_callback(): genpd_resume_noirq+0x0/0x80 returns -110
+  imx6q-pcie 33800000.pcie: PM: failed to resume noirq: error -110
 
+This resulted in a complete CPU freeze, which is resolved by ensuring
+the PHY is in reset during power-on, thus preventing PHY PLL failures.
+
+Cc: stable@vger.kernel.org
+Fixes: 1aa97b002258 ("phy: freescale: pcie: Initialize the imx8 pcie standalone phy driver")
 Reviewed-by: Frank Li <Frank.Li@nxp.com>
 Acked-by: Richard Zhu <hongxing.zhu@nxp.com>
 Signed-off-by: Stefan Eichenberger <stefan.eichenberger@toradex.com>
 ---
- drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
+ drivers/phy/freescale/phy-fsl-imx8m-pcie.c | 11 +++++++++++
+ 1 file changed, 11 insertions(+)
 
 diff --git a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-index e98361dcdeadf..5b505e34ca364 100644
+index 5b505e34ca364..7355d9921b646 100644
 --- a/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
 +++ b/drivers/phy/freescale/phy-fsl-imx8m-pcie.c
-@@ -141,15 +141,9 @@ static int imx8_pcie_phy_power_on(struct phy *phy)
- 			   IMX8MM_GPR_PCIE_REF_CLK_PLL);
- 	usleep_range(100, 200);
+@@ -156,6 +156,16 @@ static int imx8_pcie_phy_power_on(struct phy *phy)
+ 	return ret;
+ }
  
--	switch (imx8_phy->drvdata->variant) {
--	case IMX8MP:
--		reset_control_deassert(imx8_phy->perst);
--		fallthrough;
--	case IMX8MM:
--		reset_control_deassert(imx8_phy->reset);
--		usleep_range(200, 500);
--		break;
--	}
-+	reset_control_deassert(imx8_phy->perst);
-+	reset_control_deassert(imx8_phy->reset);
-+	usleep_range(200, 500);
++static int imx8_pcie_phy_power_off(struct phy *phy)
++{
++	struct imx8_pcie_phy *imx8_phy = phy_get_drvdata(phy);
++
++	reset_control_assert(imx8_phy->reset);
++	reset_control_assert(imx8_phy->perst);
++
++	return 0;
++}
++
+ static int imx8_pcie_phy_init(struct phy *phy)
+ {
+ 	struct imx8_pcie_phy *imx8_phy = phy_get_drvdata(phy);
+@@ -176,6 +186,7 @@ static const struct phy_ops imx8_pcie_phy_ops = {
+ 	.init		= imx8_pcie_phy_init,
+ 	.exit		= imx8_pcie_phy_exit,
+ 	.power_on	= imx8_pcie_phy_power_on,
++	.power_off	= imx8_pcie_phy_power_off,
+ 	.owner		= THIS_MODULE,
+ };
  
- 	/* Do the PHY common block reset */
- 	regmap_update_bits(imx8_phy->iomuxc_gpr, IOMUXC_GPR14,
 -- 
 2.45.2
 
