@@ -4,86 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 272D5C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:29:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 365DDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:31:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dfbmKwc6v1yeOOE9JCszYxgrUac0n2yNInRPRE4qjhw=; b=c6Yghkbgrmi1uUNHvDOD60kbEp
-	A0Kbx5EbCpAMKDy0x7EaHzd3Mkjpt1t7oUqVjb8wtJf03rYeVS2inDxwxv4kCZBUxv4mTE6dSX9rS
-	M4TGs8jKw/6gDnhGjoAtZqvwky2NR5LRceu4T0njkiLNxCyxq6gGvqM9odmNg2OWS0ZRHuiwL2MUQ
-	gweJXj8PG1lGjjI4jLxtjLEIMhRAV7KHdUgXJbHHzs9d2s/FlGDroB+ezUyvxvLbuvhwDKvK3CdJH
-	Kz+ThzatvCJJub5qQFFr2B5VdYGjabPeipekohXpiFgSqgvKj5bUQuK8HJ2JOH1ZvgCaBeWpK6cLn
-	6AMWwJ5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CcMhI6asz2CGpK/GSkVwGwgk8HgG/YQFHt2KqvvWx5A=; b=wgNjLWB8UVR44XtTFsmy5KTzE6
+	HkWe/Z6ep4i97tAivhBFR6VPLl3HwAdsoiNONqkbbpvOc1SGG3z0/NW+ptnC7BJnScZT6a8LLB+b2
+	pE9OJsB9OyhMuK2axnlY6+EImyeRsgRYuo37pbVcyecd+yVqBGFwrwmw93t5pvEXM9sDaxGAaQYJ/
+	qdpE7WEAhKUYYgvVZlXHxseaoJpjeC4Lolh3vtXdOGCCjPER3ArJJo0vuA7tNNUSZVU1N1OBy1Bx7
+	wdAWApQ5OwV8y45YIVpzDYAR1zNjihDvrfHmC+vx+5CFlJyA1kpCzpo5r8tWjCE/35amHC7f/JZC4
+	KKtDqLGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbJu-00000002Qtp-1rxs;
-	Mon, 10 Mar 2025 11:29:18 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traiU-00000002Jdu-419f
+	id 1trbLV-00000002R4v-1Co3;
+	Mon, 10 Mar 2025 11:30:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tran4-00000002Kzv-15PH
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:50:40 +0000
-Received: from pps.filterd (m0369458.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A9G8gL017253;
-	Mon, 10 Mar 2025 11:50:21 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	dfbmKwc6v1yeOOE9JCszYxgrUac0n2yNInRPRE4qjhw=; b=ko9A3bkKtA24VlrH
-	kBrInCzGMbc4p6W9TWc+ruaxkYw5Q7OnYOa2X466UnvXzzEbUPIMegQiHSRnwBgd
-	8F3W5l9bE3VuWTdsPcZcZOPwOjZ6xaAHaqIZ9MrmyYSMN7tgU6/EjQr6/0O/Pd+K
-	PbDr1N0RlYzTry9IXisVbuJ0gCRUbazozF3tUv3CEijRX4zS7TWdwwNIc627QMBF
-	yn/bwId8jPVcoOiypBuE7hE16cVmRkgC5r7IB/4KsjbRIr5K8YS6VlmDBBWIZhyo
-	gv7IP6y4rZgm/ifysDFv493rnbw6a48ISxAfEruYHXnugrCDBnyoBZvMzploIIHN
-	W574Xg==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 4590b8v7t7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Mar 2025 11:50:21 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 9377640057;
-	Mon, 10 Mar 2025 11:49:17 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 543A54235AC;
-	Mon, 10 Mar 2025 11:48:37 +0100 (CET)
-Received: from [10.48.86.79] (10.48.86.79) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Mar
- 2025 11:48:36 +0100
-Message-ID: <e5a5dd9b-475b-4c66-a580-08f11a80e5a3@foss.st.com>
-Date: Mon, 10 Mar 2025 11:48:36 +0100
+	Mon, 10 Mar 2025 10:55:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 51490153B;
+	Mon, 10 Mar 2025 03:55:33 -0700 (PDT)
+Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 930B93F5A1;
+	Mon, 10 Mar 2025 03:55:20 -0700 (PDT)
+Date: Mon, 10 Mar 2025 10:55:18 +0000
+From: Mark Rutland <mark.rutland@arm.com>
+To: Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2] arm64/mm: Create level specific section mappings in
+ map_range()
+Message-ID: <Z87FFqV03Pd0-NXl@J2N7QTR9R3.cambridge.arm.com>
+References: <20250310062812.216031-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] ARM: dts: stm32: use IRQ_TYPE_EDGE_FALLING on
- stm32mp157c-dk2
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
-        <linux-kernel@vger.kernel.org>
-CC: <linux-amarula@amarulasolutions.com>, Conor Dooley <conor+dt@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Rob Herring <robh@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250301115116.2862353-1-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Alexandre TORGUE <alexandre.torgue@foss.st.com>
-In-Reply-To: <20250301115116.2862353-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.86.79]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-10_04,2025-03-07_03,2024-11-22_01
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250310062812.216031-1-anshuman.khandual@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_035039_306220_8550644B 
-X-CRM114-Status: GOOD (  14.24  )
+X-CRM114-CacheID: sfid-20250310_035522_389640_57F07F7B 
+X-CRM114-Status: GOOD (  30.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,41 +65,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dario
-
-On 3/1/25 12:51, Dario Binacchi wrote:
-> Replace the number 2 with the appropriate numerical constant defined in
-> dt-bindings/interrupt-controller/irq.h.
+On Mon, Mar 10, 2025 at 11:58:12AM +0530, Anshuman Khandual wrote:
+> Currently PMD section mapping mask i.e PMD_TYPE_SECT is used while creating
+> section mapping at all page table levels except the last level. This works
+> fine as the section mapping masks are exactly the same (0x1UL) for all page
+> table levels.
 > 
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+> This will change in the future with D128 page tables that have unique skip
+> level values (SKL) required for creating section mapping at different page
+> table levels. Hence use page table level specific section mapping macros
+> instead of the common PMD_TYPE_SECT. While here also ensure that a section
+> mapping is only created on page table levels which could support that on a
+> given page size configuration otherwise fall back to create table entries.
 > 
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: linux-kernel@vger.kernel.org
+> Cc: linux-arm-kernel@lists.infradead.org
+> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
 > ---
+> This patch applies on v6.14-rc6
 > 
->   arch/arm/boot/dts/st/stm32mp157c-dk2.dts | 3 ++-
->   1 file changed, 2 insertions(+), 1 deletion(-)
+> Changes in V2:
 > 
-> diff --git a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-> index 5f9c0160a9c4..dcf17c493022 100644
-> --- a/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-> +++ b/arch/arm/boot/dts/st/stm32mp157c-dk2.dts
-> @@ -11,6 +11,7 @@
->   #include "stm32mp15-pinctrl.dtsi"
->   #include "stm32mp15xxac-pinctrl.dtsi"
->   #include "stm32mp15xx-dkx.dtsi"
-> +#include <dt-bindings/interrupt-controller/irq.h>
+> - Dropped PGD_TYPE_SECT macro and its instance from map_range()
+> - Create table entries on levels where section mapping is not possible
 
-really needed ? as it comes also with 
-dt-bindings/interrupt-controller/arm-gic.h
+On the last version, there was talk of an extant bug:
 
->   / {
->   	model = "STMicroelectronics STM32MP157C-DK2 Discovery Board";
-> @@ -67,7 +68,7 @@ &i2c1 {
->   	touchscreen@38 {
->   		compatible = "focaltech,ft6236";
->   		reg = <0x38>;
-> -		interrupts = <2 2>;
-> +		interrupts = <2 IRQ_TYPE_EDGE_FALLING>;
->   		interrupt-parent = <&gpiof>;
->   		touchscreen-size-x = <480>;
->   		touchscreen-size-y = <800>;
+  https://lore.kernel.org/all/5f1b36e2-6455-44d9-97b0-253aefd5024f@arm.com/
+
+... did that turn out to not be the case?
+
+> 
+> Changes in V1:
+> 
+> https://lore.kernel.org/all/20250303041834.2796751-1-anshuman.khandual@arm.com/
+> 
+>  arch/arm64/kernel/pi/map_range.c | 38 +++++++++++++++++++++++++++++---
+>  1 file changed, 35 insertions(+), 3 deletions(-)
+> 
+> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+> index 2b69e3beeef8..25a70c675c4d 100644
+> --- a/arch/arm64/kernel/pi/map_range.c
+> +++ b/arch/arm64/kernel/pi/map_range.c
+> @@ -11,6 +11,22 @@
+>  
+>  #include "pi.h"
+>  
+> +static bool sect_supported(int level)
+
+What exactly is this function supposed to indicate?
+
+Due to the 'default' case, it'll return true for level-3 tables where
+sections/blocks aren't possible, but pages are. So maybe this is just
+misnamed, and wants to be something like "leaf_supported()" ?
+
+> +{
+> +	switch (level) {
+> +	case -1:
+> +		return false;
+> +	case 0:
+> +		if (IS_ENABLED(CONFIG_ARM64_16K_PAGES) ||
+> +		    IS_ENABLED(CONFIG_ARM64_64K_PAGES))
+> +			return false;
+> +		else
+> +			return true;
+
+Surely:
+
+	case 0:
+		return IS_ENABLED(CONFIG_ARM64_4K_PAGES);
+
+... though that's only the case when LPA2 is supported and TCR_ELx.DS is
+set.
+
+> +	default:
+> +		return true;
+
+As above, what is this supposed to return for level-3 tables where
+sections/blocks aren't possible?
+
+Can we BUILD_BUG() for bogus levels?
+
+> +	}
+> +}
+> +
+>  /**
+>   * map_range - Map a contiguous range of physical pages into virtual memory
+>   *
+> @@ -44,13 +60,29 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+>  	 * Set the right block/page bits for this level unless we are
+>  	 * clearing the mapping
+>  	 */
+> -	if (protval)
+> -		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
+> +	if (protval && sect_supported(level)) {
+
+The existing code is trying to find the leaf prot for a given level of
+table, so as-is checking sect_supported() is at best misleading.
+
+If we're going to do something different below based on
+sect_supported(), I reckon this should be moved into the path where
+sect_supported() returned true, maybe factored out into a helper for
+clarity.
+
+Mark.
+
+> +		switch (level) {
+> +		case 3:
+> +			protval |= PTE_TYPE_PAGE;
+> +			break;
+> +		case 2:
+> +			protval |= PMD_TYPE_SECT;
+> +			break;
+> +		case 1:
+> +			protval |= PUD_TYPE_SECT;
+> +			break;
+> +		case 0:
+> +			protval |= P4D_TYPE_SECT;
+> +			break;
+> +		default:
+> +			break;
+> +		}
+> +	}
+>  
+>  	while (start < end) {
+>  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
+>  
+> -		if (level < 3 && (start | next | pa) & lmask) {
+> +		if ((level < 3 && (start | next | pa) & lmask) || !sect_supported(level)) {
+>  			/*
+>  			 * This chunk needs a finer grained mapping. Create a
+>  			 * table mapping if necessary and recurse.
+> -- 
+> 2.25.1
+> 
+> 
 
