@@ -4,96 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C90D3C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 21:48:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F547C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 21:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=35SjqWqIW52cDDYKL7wXrX16ndmpcJ/RLK/QVZatMbA=; b=4rItNS7/yE1NnKgIYKm03dc5e1
-	pUsn/t40sUA1c7u9Xsf6aUaGN5IkNBm/VmUqxYxURxFuiPSlYkDZFZwGHTsFHBgifcKctqDIIYwTi
-	lDnoskqqUjQUQSKSMcj5YvDdKvq+3nMdF5NYcGNsGYO8xYH1hz3uqZ5EVDoyVTbkz7Pg2SWMkFk3O
-	g+MR6Hfgbz6B9/j3FV5Eefb4LBooQJoSed9UzYnC5z1e9Rn5hN4BHuPWHvRjQTsEp8eAy5Xq0qSqe
-	epwbTA/vZNTPvh5sgyYB4d29cGh3ggGwPNFf8B/ATezMVpdlfja4VmsD+NddkziZjqW23M1+Pluzp
-	H7cs1SzQ==;
+	bh=CxBan6eozJpDLKwZggyW95t2iKrqkZanUVsz1ehRWhU=; b=aPOAGMtqLlcnF1HhwhTYW0UHCx
+	8bPg+wafLPFHYEhqHfzR7QOF39afmXFw1hxjzGmgYbxYdgy15umHK//X/js+xUSkycWzzUVgGRGYd
+	IbWYdrvJJnsl2lM7pQObREZm8awIOsp/bgNGaIz06NYUbNPxx/Yvcmt4AT4xebvE6sok4qHym5YpX
+	I6f/H4F43Wz986ZBK33mBajlYTQSoA+lEbUyKi91ZVb6VohJMFSQXXWJ5FINSDKsH36i2VeJsmbx0
+	DlGqKt+bBjC8YBMl44ppP4s6a/Of45sC5S2usgvqDRRZtgfXL51Llau1ejWr4PSEz29h7zwvRofZH
+	iT6g058w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trkzN-0000000431R-0fDN;
-	Mon, 10 Mar 2025 21:48:45 +0000
+	id 1trl3Q-000000043MW-42ub;
+	Mon, 10 Mar 2025 21:52:56 +0000
 Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trkxk-000000042ti-0vpT
+	id 1trl1n-000000043EG-3kSR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 21:47:05 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1AE9D205492E;
-	Mon, 10 Mar 2025 14:47:00 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1AE9D205492E
+	Mon, 10 Mar 2025 21:51:17 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 98773205492D;
+	Mon, 10 Mar 2025 14:51:14 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 98773205492D
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741643220;
-	bh=35SjqWqIW52cDDYKL7wXrX16ndmpcJ/RLK/QVZatMbA=;
+	s=default; t=1741643475;
+	bh=CxBan6eozJpDLKwZggyW95t2iKrqkZanUVsz1ehRWhU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PLevEC7AXcMPAd0pY7CAOea160MnPpKdr7WEv6MrZnGBCpYlCuBzpuETS4KkkO8Au
-	 6Zo8yUuLL7tvFiZAF75VRwZafL0dNuQnj85+7jrnaez8s17wb79rOwVkQjeGVgCUP8
-	 uxdylMSk9Px+9pgIVZ/eniOqvEy2BT6hlmgmmr7w=
-Message-ID: <71a95f7d-d38b-4f4f-b384-9ad4095bd272@linux.microsoft.com>
-Date: Mon, 10 Mar 2025 14:46:45 -0700
+	b=TT+lO1Qkb57TcjEIhxY4F+l2wYJmYHzFaj7ayZ9g7xvAQsdDrmYcQK9Ej2gn0RaSs
+	 xhnnqQMavD31GklMUF3oaiAJoINYrEA7cZYEESQf87FouU3UCvSVlls+bERu+2cXrO
+	 2OmBWEwso8ixhFEUfoeG8ZgkHC0vwFQ9cME0HxIs=
+Message-ID: <2eb4e538-d131-4adf-b61a-998d56128183@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 14:51:14 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
- setup function
-To: Michael Kelley <mhklinux@outlook.com>,
- Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
-Cc: "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
- "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
- <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
- "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
- "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
- "muislam@microsoft.com" <muislam@microsoft.com>,
- "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
- "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
- <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
- <Z7-nDUe41XHyZ8RJ@skinsburskii.>
- <7de9b06d-9a32-48b5-beda-2e19b36ae9c9@linux.microsoft.com>
- <SN6PR02MB41573673D5F786E6C47FC08ED4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
+Subject: Re: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add
+ interrupts and DMA coherence
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-8-romank@linux.microsoft.com>
+ <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
+ <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
+ <09d4966a-5804-40a4-9c5f-356a954a7704@kernel.org>
+ <ba6b906d-04a2-423d-a527-9ef7ab1dccf2@linux.microsoft.com>
+ <ff3739bb-a223-401e-9b70-a5201839b72c@kernel.org>
 Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB41573673D5F786E6C47FC08ED4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <ff3739bb-a223-401e-9b70-a5201839b72c@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_144704_317484_879E1B0F 
-X-CRM114-Status: GOOD (  23.72  )
+X-CRM114-CacheID: sfid-20250310_145115_989909_BCC683A3 
+X-CRM114-Status: GOOD (  25.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,124 +89,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/7/2025 9:38 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, February 28, 2025 4:38 PM
+
+
+On 3/10/2025 2:17 PM, Krzysztof Kozlowski wrote:
+> On 10/03/2025 19:07, Roman Kisel wrote:
 >>
->> On 2/26/2025 3:43 PM, Stanislav Kinsburskii wrote:
->>> On Wed, Feb 26, 2025 at 03:08:02PM -0800, Nuno Das Neves wrote:
->>>> This will handle SYNIC interrupts such as intercepts, doorbells, and
->>>> scheduling messages intended for the mshv driver.
->>>>
->>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->>>> Reviewed-by: Wei Liu <wei.liu@kernel.org>
->>>> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
->>>> ---
->>>>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
->>>>  drivers/hv/hv_common.c         | 5 +++++
->>>>  include/asm-generic/mshyperv.h | 1 +
->>>>  3 files changed, 15 insertions(+)
->>>>
->>>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
->>>> index 0116d0e96ef9..616e9a5d77b4 100644
->>>> --- a/arch/x86/kernel/cpu/mshyperv.c
->>>> +++ b/arch/x86/kernel/cpu/mshyperv.c
->>>> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
->>>>  }
->>>>  EXPORT_SYMBOL_GPL(hv_set_msr);
->>>>
->>>> +static void (*mshv_handler)(void);
->>>>  static void (*vmbus_handler)(void);
->>>>  static void (*hv_stimer0_handler)(void);
->>>>  static void (*hv_kexec_handler)(void);
->>>> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->>>>  	struct pt_regs *old_regs = set_irq_regs(regs);
->>>>
->>>>  	inc_irq_stat(irq_hv_callback_count);
->>>> +	if (mshv_handler)
->>>> +		mshv_handler();
->>>
->>> Can mshv_handler be defined as a weak symbol doing nothing instead
->>> of defining it a null pointer?
->>> This should allow to simplify this code and get rid of
->>> hv_setup_mshv_handler, which looks redundant.
->>>
->> Interesting, I tested this and it does seems to work! It seems like
->> a good change, thanks.
-> 
-> Just be a bit careful. When CONFIG_HYPERV=n, mshyperv.c still gets
-> built even through none of the other Hyper-V related files do.  There
-> are #ifdef CONFIG_HYPERV in mshyperv.c to eliminate references to
-> Hyper-V files that wouldn't be built. I'd suggest doing a test build with
-> that configuration to make sure it's all clean.
-> 
-Thanks Michael - I don't think it would be an issue since the __weak version
-would be defined in mshyperv.c itself, replacing the function pointer.
-
-However, I went and tested this __weak version again with CONFIG_MSHV_ROOT=m
-and it does not actually work. Everything seems ok at first (it compiles,
-can insert the module), but upon starting a guest, the interrupts don't get
-delivered to the root (or rather, they don't get handled by mshv_hander()).
-
-This seems to match with what the ld docs say - There's an option
-LD_DYNAMIC_LINK to allow __weak symbols to be overridden by the dynamic
-linker, but this is not enabled in the kernel.
-
-So I will stick with the current implementation.
-
-Nuno
-
-> Michael
-> 
+>> It is modeled as a bus in the kernel:
+>> https://www.kernel.org/doc/html/latest/virt/hyperv/vmbus.html
 >>
->>> Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->>>
->>>> +
->>>>  	if (vmbus_handler)
->>>>  		vmbus_handler();
->>>>
->>>> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
->>>>  	set_irq_regs(old_regs);
->>>>  }
->>>>
->>>> +void hv_setup_mshv_handler(void (*handler)(void))
->>>> +{
->>>> +	mshv_handler = handler;
->>>> +}
->>>> +
->>>>  void hv_setup_vmbus_handler(void (*handler)(void))
->>>>  {
->>>>  	vmbus_handler = handler;
->>>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
->>>> index 2763cb6d3678..f5a07fd9a03b 100644
->>>> --- a/drivers/hv/hv_common.c
->>>> +++ b/drivers/hv/hv_common.c
->>>> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
->>>>  }
->>>>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
->>>>
->>>> +void __weak hv_setup_mshv_handler(void (*handler)(void))
->>>> +{
->>>> +}
->>>> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
->>>> +
->>>>  void __weak hv_setup_kexec_handler(void (*handler)(void))
->>>>  {
->>>>  }
->>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
->>>> index 1f46d19a16aa..a05f12e63ccd 100644
->>>> --- a/include/asm-generic/mshyperv.h
->>>> +++ b/include/asm-generic/mshyperv.h
->>>> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
->>>>  void hv_remove_kexec_handler(void);
->>>>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
->>>>  void hv_remove_crash_handler(void);
->>>> +void hv_setup_mshv_handler(void (*handler)(void));
->>>>
->>>>  extern int vmbus_interrupt;
->>>>  extern int vmbus_irq;
->>>> --
->>>> 2.34.1
->>>>
+>>> Please upstream bindings for the bus devices and extend the example here
+>>> with these devices.
+>>
+>> The set of synthetic devices that reside on the bus isn't fixed, and
+>> they don't require description neither in ACPI nor in DT as
+>> the devices negotiate their MMIO regions through the hyperv driver.
+>>
+>> Perhaps, it is not as much bus as expected by the YAML files.
 > 
+> OK, then this is not really a bus from the bindings point of view. It is
+> a device schema which should end with additionalProperties: false.
+> 
+> If you have report about that pinctrl-0, it means you have undocumented
+> properties in your DTS. Maybe that's the dma-coherence you mentioned in
+> the commit msg.
+> 
+
+Much appreciated! I started reviewing the learning materials you
+mentioned, and I think I already see where my understanding went
+sideways: I perceived the example as the central part of the bindings
+whereas it seems to be just what the name suggests: an example. Yet,
+the example shall conform to the *schema* iiuc, and that is what the
+tooling validates.
+
+Hopefully, I am starting to be getting what this is all about :)
+Thanks for your help again!
+
+I've worked out what makes (more) sense (to me at least):
+
+ From 475fb74b49dc4987ca8b9117186941d848f0aacd Mon Sep 17 00:00:00 2001
+From: Roman Kisel <romank@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 14:39:41 -0700
+Subject: [PATCH] dt-bindings: microsoft,vmbus: Add interrupt and DMA
+   coherence properties
+
+To boot in the VTL mode, VMBus on arm64 needs interrupt description
+which the binding documentation lacks. The transactions on the bus are
+DMA coherent which is not mentioned as well.
+
+Add the interrupt property and the DMA coherence property to the VMBus
+binding. Update the example to match that. Fix typos.
+
+Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+---
+  .../bindings/bus/microsoft,vmbus.yaml           | 17 +++++++++++++++--
+  1 file changed, 15 insertions(+), 2 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml 
+b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+index a8d40c766dcd..b175ad01f219 100644
+--- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
++++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+@@ -10,8 +10,8 @@ maintainers:
+    - Saurabh Sengar <ssengar@linux.microsoft.com>
+
+  description:
+-  VMBus is a software bus that implement the protocols for communication
+-  between the root or host OS and guest OSs (virtual machines).
++  VMBus is a software bus that implements the protocols for communication
++  between the root or host OS and guest OS'es (virtual machines).
+
+  properties:
+    compatible:
+@@ -25,9 +25,17 @@ properties:
+    '#size-cells':
+      const: 1
+
++  dma-coherent: true
++
++  interrupts:
++    maxItems: 1
++    description: |
++      This interrupt signals a message from the host.
++
+  required:
+    - compatible
+    - ranges
++  - interrupts
+    - '#address-cells'
+    - '#size-cells'
+
+@@ -35,6 +43,8 @@ additionalProperties: false
+
+  examples:
+    - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
+      soc {
+          #address-cells = <2>;
+          #size-cells = <1>;
+@@ -49,6 +59,9 @@ examples:
+                  #address-cells = <2>;
+                  #size-cells = <1>;
+                  ranges = <0x0f 0xf0000000 0x0f 0xf0000000 0x10000000>;
++                dma-coherent;
++                interrupt-parent = <&gic>;
++                interrupts = <GIC_PPI 2 IRQ_TYPE_EDGE_RISING>;
+              };
+          };
+      };
+-- 
+2.43.0
+
+
+> 
+> Best regards,
+> Krzysztof
+
+-- 
+Thank you,
+Roman
 
 
