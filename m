@@ -4,88 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39D5EC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:27:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EAF4C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:28:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/tMOKUpE4K7j5aG1WbP5NmysKsZDJ/sNkUlDJpXtB50=; b=DORjMgpw0caQdRnHTqcmX5KB/4
-	bvpbbnhLgi0GKv1tOp4lVkNOOVBqQhUyh7au/UCmXbssuI+kxcJ7Z7NZc5j2bCfV7H69iTOxX5Qz2
-	2VEJtZfQKW9LJ9zHzoj9DSX+IEQ4YDbcf3czJyj1vrlyCj90tm8oniQhucu0872ob0YRZ9AmNrtRE
-	dvWoPMAzWxFE9jSF9jA9vSnEIP/cKUV5K1NIEelZeXrl+ag104FslaAOmzMaWBaUSRX9cpdyYIjBg
-	X1bxTgAEjDrSwBV3o4RMYO3Ux4kCdGQcQIc04STVlqT12+eT91RoQv0QqBlDnwZrcW0EcLFhkzo8f
-	7qk03qxA==;
+	bh=vNHJdkQkdANIyhjCV838w9fBCSsAZpOcLeJV1/DqSc4=; b=CfxokmMnktY27KizvcCndzQ0p1
+	alOxw7nwqHj6/Z3PnsFKBCKkhBAubtuOMRE2NY20fc/ExbOyeQ8latI9kyp9K8WfOwXnp8SBKeMGE
+	uU1G8UXXEMM5ZEuMgimDM9EFZylzAmWZnXoGNrK3FC9WPVvcguU19W9TmjOLJL8DRbVjhd7gA0bQu
+	3JdoEVAiVaiLQkxMUErWyAXMmT05GRIZa78mg0HBWA+0J27B1zw8X9gAgon2bH1YMaUWvctzI/eyB
+	4q3vDxZkSUvfGSiC0ujh5miL9hoHrfolPvyRpLYGa19k7wfsRWnA1t5zdy0GKfnxbgX7cCfluuQZT
+	p0ZZHdiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcDn-00000002cCb-3TzK;
-	Mon, 10 Mar 2025 12:27:03 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbyd-00000002YCD-0zvA;
-	Mon, 10 Mar 2025 12:11:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=/tMOKUpE4K7j5aG1WbP5NmysKsZDJ/sNkUlDJpXtB50=; b=Yc7lENZVcITLYBQexI8NRWwYxp
-	ERJSnpnipQz+6yKHNjsAxA1KRpxoSkXtJGJybt4EEonmCuynrNs06yF8HfazpXbmxaqTkUl3aW/95
-	SUFJvYHioO81IxrOhkoVoFyHEsU+Q2yXIAaW4tsWJ1/RF4C8mbMOk4m+gFa0To8D37jEAIKKLxZsQ
-	x/heoQsI2JM6XCXHmz+Dq2cK8Zgjac95u11VKr4fCstvxS9PlJfjP7PRZG81zPW8u+X9xVpad6msv
-	e7nrApQZsx4++f0Zy6DinOXuX9CHeUptX0g2WledN7aDoHCGUh8S08vCdH5tTZaQ6TXd0Iu8J1mze
-	TE8RTsww==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:46320 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1trbyM-0002ZT-18;
-	Mon, 10 Mar 2025 12:11:06 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1trby0-005qYS-AE; Mon, 10 Mar 2025 12:10:44 +0000
-In-Reply-To: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
-References: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
+	id 1trcFP-00000002cgO-3Mud;
+	Mon, 10 Mar 2025 12:28:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trbN4-00000002RDS-3f5n
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 11:32:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2CB61516;
+	Mon, 10 Mar 2025 04:32:45 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id BB21B3F5A1;
+	Mon, 10 Mar 2025 04:32:32 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: mike.leach@linaro.org,
+	james.clark@linaro.org,
+	alexander.shishkin@linux.intel.com,
+	bigeasy@linutronix.de,
+	clrkwllms@kernel.org,
+	rostedt@goodmis.org,
+	Yeoreum Yun <yeoreum.yun@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	coresight@lists.linaro.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next 6/9] net: stmmac: rk: remove of_get_phy_mode()
+	linux-kernel@vger.kernel.org,
+	linux-rt-devel@lists.linux.dev
+Subject: Re: [PATCH v6 0/9] coresight: change some driver' spinlock type to raw_spinlock_t
+Date: Mon, 10 Mar 2025 11:32:05 +0000
+Message-ID: <174160625284.2197960.9649186230571551042.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <20250306121110.1647948-1-yeoreum.yun@arm.com>
+References: <20250306121110.1647948-1-yeoreum.yun@arm.com>
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1trby0-005qYS-AE@rmk-PC.armlinux.org.uk>
-Date: Mon, 10 Mar 2025 12:10:44 +0000
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_051123_275665_47D98DFF 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20250310_043234_950763_F7DF4429 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,31 +73,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
-which is stored in plat_dat->phy_interface. Therefore, we don't need to
-get it in platform code.
 
-Set bsp_priv->phy_iface from plat->phy_interface.
+On Thu, 06 Mar 2025 12:11:01 +0000, Yeoreum Yun wrote:
+> In some coresight drivers, drvdata->spinlock can be held during __schedule()
+> by perf_event_task_sched_out()/in().
+> 
+> Since drvdata->spinlock type is spinlock_t and
+> perf_event_task_sched_out()/in() is called after acquiring rq_lock,
+> which is raw_spinlock_t (an unsleepable lock),
+> this poses an issue in PREEMPT_RT kernel where spinlock_t is sleepable.
+> 
+> [...]
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Applied, thanks!
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 003fa5cf42c3..40e8197812e2 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1749,7 +1749,7 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
- 	if (!bsp_priv)
- 		return ERR_PTR(-ENOMEM);
- 
--	of_get_phy_mode(dev->of_node, &bsp_priv->phy_iface);
-+	bsp_priv->phy_iface = plat->phy_interface;
- 	bsp_priv->ops = ops;
- 
- 	/* Some SoCs have multiple MAC controllers, which need
+[1/9] coresight: change coresight_device lock type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/26f060c1
+[2/9] coresight-etm4x: change etmv4_drvdata spinlock type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/743c5a97
+[3/9] coresight: change coresight_trace_id_map's lock type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/4cf364ca
+[4/9] coresight-cti: change cti_drvdata spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/e3044065
+[5/9] coresight-etb10: change etb_drvdata spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/6b80c0ab
+[6/9] coresight-funnel: change funnel_drvdata spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/56eb02f0
+[7/9] coresight-replicator: change replicator_drvdata spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/982d0a0e
+[8/9] coresight-tmc: change tmc_drvdata spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/db11f75b
+[9/9] coresight/ultrasoc: change smb_drv_data spinlock's type to raw_spinlock_t
+      https://git.kernel.org/coresight/c/d11eb31d
+
+Best regards,
 -- 
-2.30.2
-
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
