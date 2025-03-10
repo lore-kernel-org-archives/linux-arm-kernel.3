@@ -4,209 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 703E8C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 21:29:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C90D3C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 21:48:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tVEV1lqJEsMpJJKVcKEYLw4sg1QQt9W/EX5nbnK3+cE=; b=p2hJ+8tiPksSs4nwn48ZGid0p2
-	KQ14IlJ7zpr/FrHmnt1c3b2GBSnwV4CLyIFj26tQomGsF5AXaSDLJGRWQcMLtyQyUrz+977gPNQ2t
-	ghG0Q1X1K0yC0Y03oEEAMWDYzO1fPV0y+N7uBnLBUusPPCvGjUB0t1dtuHj3Fsm1KbAaDDPXLYCEJ
-	Vab20wd30w1nqgqwn36i5JbWEGmdFitUgISqq0C4lK63/iJ+dXCohLviR3tGYY4FL/LypRcXUa2aD
-	7wjRZm52O+nXySfmunF03UrEccyMSLxKa2nLh4Q0/pLCyFU22yVJtDLl9x3AD8M9JpW7MThGm83BM
-	mDIcSi6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=35SjqWqIW52cDDYKL7wXrX16ndmpcJ/RLK/QVZatMbA=; b=4rItNS7/yE1NnKgIYKm03dc5e1
+	pUsn/t40sUA1c7u9Xsf6aUaGN5IkNBm/VmUqxYxURxFuiPSlYkDZFZwGHTsFHBgifcKctqDIIYwTi
+	lDnoskqqUjQUQSKSMcj5YvDdKvq+3nMdF5NYcGNsGYO8xYH1hz3uqZ5EVDoyVTbkz7Pg2SWMkFk3O
+	g+MR6Hfgbz6B9/j3FV5Eefb4LBooQJoSed9UzYnC5z1e9Rn5hN4BHuPWHvRjQTsEp8eAy5Xq0qSqe
+	epwbTA/vZNTPvh5sgyYB4d29cGh3ggGwPNFf8B/ATezMVpdlfja4VmsD+NddkziZjqW23M1+Pluzp
+	H7cs1SzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trkh1-000000041bY-16cY;
-	Mon, 10 Mar 2025 21:29:47 +0000
-Received: from mgamail.intel.com ([198.175.65.12])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trkfN-000000041Gm-0AZB
+	id 1trkzN-0000000431R-0fDN;
+	Mon, 10 Mar 2025 21:48:45 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trkxk-000000042ti-0vpT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 21:28:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741642085; x=1773178085;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=IcIxLatFsxzKGMg7EXsspK5t2aqIAgNgI32fYvvVFK0=;
-  b=FNydXw7ZkvWr381HU1xoOyGFdV5nlojBdjNghUssA2pR+15DVmrgoy5o
-   tDDR0SBVvMmqZbF+GVXiXN1/VLKVewdW1OIr8ovd/9uoOqZd3nVX7YOhJ
-   hLnOa6DQIkoFPN7+YX3ZDe1i0CL2DzdMZsgJkuYoEqSPv8qUlZJp/g0NL
-   aUVjsA+2xHAwBa5vTTJHCiuM+OsA7gsrByJQkdidqylKWFHNGiHX9bIkg
-   KKFvyV/Y5dOi3rbpBXqRHbn1QrYNwGYrvse/vAVT+ch+qpFxilcJ30hKC
-   rhb9ilDOu9gO0rSmtxF8jxrdwHxk+j1Ev8O3MGNxg1OuyG32si2AJbzSb
-   w==;
-X-CSE-ConnectionGUID: 9+LIkPfhQMe9V1F3FyxoGw==
-X-CSE-MsgGUID: XaDhC6XAQnqzBsnXAmR9hQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11369"; a="54034054"
-X-IronPort-AV: E=Sophos;i="6.14,237,1736841600"; 
-   d="scan'208";a="54034054"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 14:27:58 -0700
-X-CSE-ConnectionGUID: rcYgEvMZSESFSGjKmfpIaw==
-X-CSE-MsgGUID: AD4yVOp7RJ66EYK8y5r6jg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,237,1736841600"; 
-   d="scan'208";a="150905173"
-Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
-  by orviesa002.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 14:27:58 -0700
-Received: from orsmsx603.amr.corp.intel.com (10.22.229.16) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1544.14; Mon, 10 Mar 2025 14:27:57 -0700
-Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
- orsmsx603.amr.corp.intel.com (10.22.229.16) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44 via Frontend Transport; Mon, 10 Mar 2025 14:27:57 -0700
-Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.45) by
- edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 10 Mar 2025 14:27:57 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=x57M5g/YgAnqrKZZwcONW/pVV6E2vnhNaqynTR6CMwhQpGT3SiuSK2pSnjO/XEMmU1Ew4OLv7pJzstv35Cjc3oKA2m/MfhWstwPW9mc/9f76m8ZAwVMwNOpCWHbaMIu6z4PCtCA/5WrOjT/d7MOysSuzuERjU4y8wHRTLG05Rf1RXnctwfF5C/GhvwyhicO/UuMJwIx+dlMS3SEAu/Jd8+m7i+gYV+QPeys5upMLElzFbpk16GreFEtbaBWfJKZNot3Gk0yeAu4Jxr5EP9NYW93Z9fDZ1CD+TIS3C/KQ8LaG/u4ZRS9XjmHYGbg2D699ENiI/OWRYop6Gv7Aq8ojtA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=tVEV1lqJEsMpJJKVcKEYLw4sg1QQt9W/EX5nbnK3+cE=;
- b=l/W52QwwTfgb8pBhoH/3b2vKpIVYvKCn3sj26FRWyF/GeyYA2O+sn7yfhdpIAc0CTrGLdRNIvsBLQa8aqLifROL90kSApvy2psSfs3NToG3pEb3VlPLVA/DVMuEMzfnF9KoKGVgDbaijGfG0VowMS40Pm5FgKX0KLHG+w26ugMCvInntosBjF9REqC6OTZsnTLOxG5jQr2BHH8C9Bm8Vo8AG5przl13a+/cmJgZD+VXPd+PoRIPAmYeC2HJ9kdNA0N+OzIUSxYaSIWAJps0HqG4qh0cn3IyHVUb7QN5mxNDL1Imo3o+9ibvK+gwSOVz+JgLyvYb2ehf4FWQ7HrFuUQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
- by DS0PR11MB6423.namprd11.prod.outlook.com (2603:10b6:8:c5::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 10 Mar
- 2025 21:27:55 +0000
-Received: from CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8]) by CO1PR11MB5089.namprd11.prod.outlook.com
- ([fe80::7de8:e1b1:a3b:b8a8%4]) with mapi id 15.20.8511.026; Mon, 10 Mar 2025
- 21:27:55 +0000
-Message-ID: <412a7fee-daec-496d-990a-642f2787d5cc@intel.com>
-Date: Mon, 10 Mar 2025 14:27:53 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: Plan to validate supported flags in PTP core (Was: Re: [PATCH net
- v2 0/2] Fixes for perout configuration in IEP driver)
-To: Jakub Kicinski <kuba@kernel.org>
-CC: Meghana Malladi <m-malladi@ti.com>, Richard Cochran
-	<richardcochran@gmail.com>, <lokeshvutla@ti.com>, <vigneshr@ti.com>,
-	<javier.carrasco.cruz@gmail.com>, <diogo.ivo@siemens.com>,
-	<horms@kernel.org>, <pabeni@redhat.com>, <edumazet@google.com>,
-	<davem@davemloft.net>, <andrew+netdev@lunn.ch>,
-	<linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <srk@ti.com>, Roger Quadros
-	<rogerq@kernel.org>, <danishanwar@ti.com>
-References: <20250219062701.995955-1-m-malladi@ti.com>
- <415f755d-18a6-4c81-a1a7-b75d54a5886a@intel.com>
- <20250220172410.025b96d6@kernel.org>
- <a7e434a5-b5f6-4736-98e4-e671f88d1873@intel.com>
- <f7072ca6-47a7-4278-be5d-7cbd240fcd35@intel.com>
- <20250310172541.30896e20@kernel.org>
-Content-Language: en-US
-From: Jacob Keller <jacob.e.keller@intel.com>
-In-Reply-To: <20250310172541.30896e20@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: MW4PR04CA0168.namprd04.prod.outlook.com
- (2603:10b6:303:85::23) To CO1PR11MB5089.namprd11.prod.outlook.com
- (2603:10b6:303:9b::16)
+	Mon, 10 Mar 2025 21:47:05 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1AE9D205492E;
+	Mon, 10 Mar 2025 14:47:00 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1AE9D205492E
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741643220;
+	bh=35SjqWqIW52cDDYKL7wXrX16ndmpcJ/RLK/QVZatMbA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=PLevEC7AXcMPAd0pY7CAOea160MnPpKdr7WEv6MrZnGBCpYlCuBzpuETS4KkkO8Au
+	 6Zo8yUuLL7tvFiZAF75VRwZafL0dNuQnj85+7jrnaez8s17wb79rOwVkQjeGVgCUP8
+	 uxdylMSk9Px+9pgIVZ/eniOqvEy2BT6hlmgmmr7w=
+Message-ID: <71a95f7d-d38b-4f4f-b384-9ad4095bd272@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 14:46:45 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|DS0PR11MB6423:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7f35f645-ad45-4f0e-2f1d-08dd601a6bd3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?bU5HcW1MMjBVRS82dVpwODFXcDU4aWcyRDRwVkpIbncyMk5rZnRheFkwY2Fa?=
- =?utf-8?B?NnBjQVlBc3czRHFENEJ0TG9nSXYyZHgzMXRHREQ4blE4NlR4NllpVVk5L3pJ?=
- =?utf-8?B?anBta1hMUTZyWjJwcFpaVW1RUjFQSWErd3BoaERMdUZZWkNhbEtXQWZwYjcw?=
- =?utf-8?B?NWdSemhlKzVNZHIvMi9OdWdEaFIyR2pTa1JNT2ZneE1tUjBrVHBhTjFZMnhN?=
- =?utf-8?B?TXRqaWJXTVBkOGM3SWFtVTJaVThYVmNxWUQ5b1lQV2ZEa0xJLzFRSlJ2dWNn?=
- =?utf-8?B?dGRwNnVOalRzYk1seVlRSUR3NkN3d0Rhb0hHNnNNYTh5N3pEZytRNmxvZDBS?=
- =?utf-8?B?bno5SjR3NzRuL0hGZDNCMFNzTW5IN2s3cENDanViTmVqa1BGbkJ2Tzl5cDYz?=
- =?utf-8?B?MGh6Y2dKVHVXZTBQUnFHcDU1blkyV215bmV5Q2pYQVk5cldCdU9QWE9Mb2No?=
- =?utf-8?B?VVl1N2hlZEg2V0ZYNmZ3YXVYc2p0cnBRY0tJRHF4QU5yN1BJMi83YXpGSk9L?=
- =?utf-8?B?a1M0Sk5QdkZYSU8yVTVDckdiSVlFcG9PMm12aTNiUExzSkNDTUxtMXFBZnRa?=
- =?utf-8?B?YndaeVEyY3lOODhrVWJHTWk2dm1OUzVPWXRyb0tOY0lHQ05JYXdyVGt2aUVF?=
- =?utf-8?B?Tit3SG1tRmlTbytrNDh1RmU5MTZuNHE0SS9mdHR2UWtkQWtTT0JtcHFhMzNE?=
- =?utf-8?B?UmgxOWNna3lzbmFUampuMjR6cGFKaDlaSS9aeU5aTkFGMythUW9BM2dTYzhS?=
- =?utf-8?B?VjcxbE84cDNXYWJWWnl1MURUMGorNFVTNjZYRmZ0TW00akJ0OGs2cGFGRVlz?=
- =?utf-8?B?b0pmUE5HM1daQnJrZkhFcUk2a0RhQzZ1YmRPcUJvZmpwbWlNL1NYdkc0YmJ6?=
- =?utf-8?B?SmdTUE1pc29nZXpRR0YvdU9xbUVGOTU1RStwQWdQN1VQaEJIZHpEbE1QSVdl?=
- =?utf-8?B?dFd0YkJQcjBmYWtBUXFmK2d6T0I5b2pjRnB1STVYR3R6ejc0anRGMFZvbG5F?=
- =?utf-8?B?MXJGZ1h0MUhmdGJUR3E4eGZxbjVHdHRzWGJRTVo2VnB6RU14cmlIWEtIYUJy?=
- =?utf-8?B?VnNXVWc1aXpGU1oybWg1cExYdStqcVE1U1VmUWlMeGlMbHoxajZyZHZlTW9p?=
- =?utf-8?B?RmlYUkhvVkEvQThseWprZnVuaEZ2cy9uVTl6aUwrUzlYTG5YemFMRk1zT0di?=
- =?utf-8?B?WTVQZzQzeFNGVVZtUVhkc1BXY0FDMzlvcFpWRUVZekw3Umk5bkpGd1BwME9Y?=
- =?utf-8?B?UitZRXlpSjhpSzhOT0c5UHRmNDcvNW1DTTRZTEIwTTNuMXhnS3hDak94MjNU?=
- =?utf-8?B?cEhSMnZIa2Y1RXA3dWlscnVlNFYzMmphbDNtcW0xdWcvM0U1aWlTZ05TeDh6?=
- =?utf-8?B?VDloYm5yNkhNOHliZ3pLS2M0OElwMHpMY0d2bUNCeGd2Vm5TTDNHZVU1YkMz?=
- =?utf-8?B?VzRaOUlHTE9YVDJ2Y1NaT3B6aUdiZVNwS21lRTVoMm5HTWRzOWVLRmRsbmJq?=
- =?utf-8?B?eXNoK2dyL0VNWkpvTCtQMUlERlpIOWdWRUVLWnRvQXZqZGZqSHVUNXl6WGsy?=
- =?utf-8?B?YVZZV01iZ0pNeStyaW5aRnRSY2k0SWN3NllvUFEwbzJ4dGxxMUY1MUYwQmVn?=
- =?utf-8?B?Wm4wSHRlWktwZmZwVVhoS2NDUDRZdE9IdXV5QUU2MEZ5RUFtWERHQkRmMTJ6?=
- =?utf-8?B?RSsyWTNFdWpIams3NFVRNkZYZG5RNTJVem1hbnIrVkRWRFRPU28xRXBxd2lS?=
- =?utf-8?B?MTJnbUQvS1ZEdmsvdDM5Vk1KMjVsdWtZQzlIZkxTS3lpUWwyd0ZGR0VKMllT?=
- =?utf-8?B?MlJ4UyszU21PRC9OUGw5aGRYd3B3S2puWU1STy9xRUgvL1B3Q3lTbmh6Y3Q5?=
- =?utf-8?Q?O6KovxX1sVb3/?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SDhvUEt6N1JiUWl3d2R1N3JnMUZoNGNCRGNuSFdmNUwwS0piNlZTMFpha3lv?=
- =?utf-8?B?Rjk4RnhFN09BKzY3UGJZQVBhRkgxb2J4QURZWEROV00wRlVsZTlaMjhhQW90?=
- =?utf-8?B?cGEwejZyRjNZcmtnZ1pqc2hab25vVy9YK2RRZThrZWtiRER4ZFBjcjRSa0xF?=
- =?utf-8?B?TjF4RGNpZlAwdmVpSVkvcGNCbEJqRmxlaUx6TUFSMnExNldaY1poSGwxS1FT?=
- =?utf-8?B?Vk9BVnBiNzR2Uk9vVG5zcS9rRWhFK3hwUTRKQmFhSE1rbVhsYi8xc1YxdnVr?=
- =?utf-8?B?MmlNMDRuR2NYS295QllKSnZOK2pWWEZodUo0d3FXRHhqL0xoOTZSYWFScFha?=
- =?utf-8?B?Qy9kc1FOcHdjZHdpbHdXR2xWVGNXRTlZNzJxbDZqc3pUOWw4ZzE4bkJ0cFZK?=
- =?utf-8?B?WEtmWnlrRnl0eWhKYVUrZFNvUEMyT2dXWXZHbzlWQUtGZ2orQzJXc1oxQ202?=
- =?utf-8?B?YWc4cjBFYUZwUjZKZmhhaStMdE9xaHhjSXFjYXdhMkJCK2xta29JbHFqa1R0?=
- =?utf-8?B?Uzh3MUJueUx5L0dHaUdvcHJjVWl6M1kzeTBjTS96S05sUDFTMVZWMmNzeXpD?=
- =?utf-8?B?Wk9KK2JXNnBxZkZzV2V5ZnJlV0YvZlVjOUQrSGVtcTZhVnlsRDA0b3BDZUZU?=
- =?utf-8?B?OTFSZEt1SkQ0b1hySUJQYi9tbEw1eXgvMUY3TWsrNmtEVVcrUjBOdW5GN25l?=
- =?utf-8?B?UnhQbi9uYkE4WVhKR21YdW5vcFhJVk9QMUsrNEpRS2w3aG5Kd3hhUStrZDF6?=
- =?utf-8?B?K2tQSkxyQXpMaml2MUVGU2NOSDNYWGJnNDR3NEdkdDF1VURBOGpMVzR3Vit4?=
- =?utf-8?B?R2RwTmtWQVpROVdON1lIRWNMRDcxYldmcUk3a05EdVJWWFFrSXB3M2hVVGxV?=
- =?utf-8?B?QXpQdkdNZngvUmpQNTJ0SzBMdUd6OUFBZmxScS9hbjFKKytDVGNSRm5lclMv?=
- =?utf-8?B?N2Ntdy9rVmdiZDJ3UEI1anFzVlRSVllmeHUyMXdqcmZPVXRNRzM2OTZ1STJM?=
- =?utf-8?B?Q3J6ejUvMTVoYWFsYWMwRXFucjBRRHBBeFYvdDFrSWpudUVtcXF1K3FwQkJs?=
- =?utf-8?B?SGtDaHBYYkV2QXNhUXh1emlFWlYrRzJLZ2VlOTYyV2dYdTkyYWR1RFhwOUhv?=
- =?utf-8?B?QjE5NjJ6MExtbFpEM1JEM2hmNDR4S1NNOUF6b1FqNlU2Ym5NNzJkSE1uajRl?=
- =?utf-8?B?RWVTUVFpaG1kM09KYUdPVTZKMmRzSE9peWltYWVqcVBVK201bDdwaXFJU1BO?=
- =?utf-8?B?d3RtZkhPNUpsUkxaR1FZTGJkdWk3QSsxQ1lkR25RZ0R0TUVFMm03YSsvK042?=
- =?utf-8?B?SlpOejlZNGcxWWhmdVRQV3ZqUStZQnJyV2FEbUt2enV6NnM1b215TjRqdTYy?=
- =?utf-8?B?STF5empEdjBQODZsU2hQMUsySFlOLzR2ekd1Mk1JOGx3N3RNNDhJdVBpeHFC?=
- =?utf-8?B?WGdPSUhnWmlHeEFKWTlQa1hjVzBZZ3hsNEJEdjlFblFCMWFvWGhHN2ZQdmZY?=
- =?utf-8?B?VktSeTJNbGg5Y2dISlNKenppNFMvUmZYU1UyY0tjdXpPMkdacGltOFM1aGR3?=
- =?utf-8?B?REMzTVJ2ZmN0czduUkFxaHIvWURlenpNNlJRblhJSmFxay9rbTQwLzlENHd5?=
- =?utf-8?B?akZyTGhwMlZKZXVveGwyQU5YSkRmSkp2NEtBaThBb0ZwMGVaL2RwVUltK2I3?=
- =?utf-8?B?aGNlbXd2QUc5K0F3U0VNeU5VazVxUXJiWElXMWVoVE1XTWpHNmYvLzNSVmpj?=
- =?utf-8?B?RE1DeDdiN2NPRHUvWTVUeGZWMGFJNlYvUjdLZjFjWHMybjRGTzc1T2dWZ2lC?=
- =?utf-8?B?YnNTZmdBeHB0eHptNVloSThZYURpREFxb0pVU3VoZ0Nzd1NJU2JhYUNYU2Rp?=
- =?utf-8?B?WFJsdHMvMU82T2toYWFudHVsRkcxNHBmS1RpZHlNWnNQcjRZd0cyRHhkckNQ?=
- =?utf-8?B?NWljZ2VhYlBtdy9xaktpbW4wOVM1Z1d0UkNxL044Y280Z3M5Y0dvV3U4aE56?=
- =?utf-8?B?cUpZZ0ZzTTU1ZnNkNW04c0ZiR1B2QUduRFNzWWYzV0dxYUhhRURLZ1VGK3Ry?=
- =?utf-8?B?WGdJWFhFeWo5MEFCN2Jub2x2Nm5pcmdzam9hQlJ2QUQ2NEFWY05kMk1TRC9l?=
- =?utf-8?B?ZUxTQmJJWkt1RTFzcWtpazB5akZuLzZhdmo2eFB1cVBXU1h4cU00cmNVa1l5?=
- =?utf-8?B?OXc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7f35f645-ad45-4f0e-2f1d-08dd601a6bd3
-X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 21:27:55.2641
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 7JKg7nLgLCj4EpEVsx4pexixB0/azU5+0KsqCIokHgirwQ3OAEONHQDeK8M8xepg7I5bsAUw0au+cpSW6FXMblAbfxmY51AXmIb8oSXnnKw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR11MB6423
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 08/10] x86: hyperv: Add mshv_handler irq handler and
+ setup function
+To: Michael Kelley <mhklinux@outlook.com>,
+ Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+Cc: "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
+ "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "muislam@microsoft.com" <muislam@microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-9-git-send-email-nunodasneves@linux.microsoft.com>
+ <Z7-nDUe41XHyZ8RJ@skinsburskii.>
+ <7de9b06d-9a32-48b5-beda-2e19b36ae9c9@linux.microsoft.com>
+ <SN6PR02MB41573673D5F786E6C47FC08ED4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB41573673D5F786E6C47FC08ED4D52@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_142805_156195_4953EDB4 
-X-CRM114-Status: GOOD (  12.68  )
+X-CRM114-CacheID: sfid-20250310_144704_317484_879E1B0F 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -221,25 +108,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 3/10/2025 9:25 AM, Jakub Kicinski wrote:
-> On Fri, 7 Mar 2025 15:48:27 -0800 Jacob Keller wrote:
->> Would a series with individual patches for the 3 special cases + one
->> patch to handle all the drivers that have no explicit flag check be
->> acceptable? Or should I do individual patches for each driver and just
->> break the series up? Or are we ok with just fixing this in next with the
->> .supported_extts_flags change?
+On 3/7/2025 9:38 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Friday, February 28, 2025 4:38 PM
+>>
+>> On 2/26/2025 3:43 PM, Stanislav Kinsburskii wrote:
+>>> On Wed, Feb 26, 2025 at 03:08:02PM -0800, Nuno Das Neves wrote:
+>>>> This will handle SYNIC interrupts such as intercepts, doorbells, and
+>>>> scheduling messages intended for the mshv driver.
+>>>>
+>>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>>> Reviewed-by: Wei Liu <wei.liu@kernel.org>
+>>>> Reviewed-by: Tianyu Lan <tiala@microsoft.com>
+>>>> ---
+>>>>  arch/x86/kernel/cpu/mshyperv.c | 9 +++++++++
+>>>>  drivers/hv/hv_common.c         | 5 +++++
+>>>>  include/asm-generic/mshyperv.h | 1 +
+>>>>  3 files changed, 15 insertions(+)
+>>>>
+>>>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+>>>> index 0116d0e96ef9..616e9a5d77b4 100644
+>>>> --- a/arch/x86/kernel/cpu/mshyperv.c
+>>>> +++ b/arch/x86/kernel/cpu/mshyperv.c
+>>>> @@ -107,6 +107,7 @@ void hv_set_msr(unsigned int reg, u64 value)
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(hv_set_msr);
+>>>>
+>>>> +static void (*mshv_handler)(void);
+>>>>  static void (*vmbus_handler)(void);
+>>>>  static void (*hv_stimer0_handler)(void);
+>>>>  static void (*hv_kexec_handler)(void);
+>>>> @@ -117,6 +118,9 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>>>>  	struct pt_regs *old_regs = set_irq_regs(regs);
+>>>>
+>>>>  	inc_irq_stat(irq_hv_callback_count);
+>>>> +	if (mshv_handler)
+>>>> +		mshv_handler();
+>>>
+>>> Can mshv_handler be defined as a weak symbol doing nothing instead
+>>> of defining it a null pointer?
+>>> This should allow to simplify this code and get rid of
+>>> hv_setup_mshv_handler, which looks redundant.
+>>>
+>> Interesting, I tested this and it does seems to work! It seems like
+>> a good change, thanks.
 > 
-> A mass rejection of unsupported settings feels like a net-next material
-> in general. Handling the more complex cases individually and the rest in
-> a big patch makes sense.
+> Just be a bit careful. When CONFIG_HYPERV=n, mshyperv.c still gets
+> built even through none of the other Hyper-V related files do.  There
+> are #ifdef CONFIG_HYPERV in mshyperv.c to eliminate references to
+> Hyper-V files that wouldn't be built. I'd suggest doing a test build with
+> that configuration to make sure it's all clean.
+> 
+Thanks Michael - I don't think it would be an issue since the __weak version
+would be defined in mshyperv.c itself, replacing the function pointer.
 
-Alright. I think the three cases with drivers that check flags but do so
-incorrectly are worth going to net. I'll send that series shortly, and
-will follow up with the next series that introduces the supported flags
-knobs afterwards.
+However, I went and tested this __weak version again with CONFIG_MSHV_ROOT=m
+and it does not actually work. Everything seems ok at first (it compiles,
+can insert the module), but upon starting a guest, the interrupts don't get
+delivered to the root (or rather, they don't get handled by mshv_hander()).
 
-Thanks,
-Jake
+This seems to match with what the ld docs say - There's an option
+LD_DYNAMIC_LINK to allow __weak symbols to be overridden by the dynamic
+linker, but this is not enabled in the kernel.
+
+So I will stick with the current implementation.
+
+Nuno
+
+> Michael
+> 
+>>
+>>> Reviewed-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>>>
+>>>> +
+>>>>  	if (vmbus_handler)
+>>>>  		vmbus_handler();
+>>>>
+>>>> @@ -126,6 +130,11 @@ DEFINE_IDTENTRY_SYSVEC(sysvec_hyperv_callback)
+>>>>  	set_irq_regs(old_regs);
+>>>>  }
+>>>>
+>>>> +void hv_setup_mshv_handler(void (*handler)(void))
+>>>> +{
+>>>> +	mshv_handler = handler;
+>>>> +}
+>>>> +
+>>>>  void hv_setup_vmbus_handler(void (*handler)(void))
+>>>>  {
+>>>>  	vmbus_handler = handler;
+>>>> diff --git a/drivers/hv/hv_common.c b/drivers/hv/hv_common.c
+>>>> index 2763cb6d3678..f5a07fd9a03b 100644
+>>>> --- a/drivers/hv/hv_common.c
+>>>> +++ b/drivers/hv/hv_common.c
+>>>> @@ -677,6 +677,11 @@ void __weak hv_remove_vmbus_handler(void)
+>>>>  }
+>>>>  EXPORT_SYMBOL_GPL(hv_remove_vmbus_handler);
+>>>>
+>>>> +void __weak hv_setup_mshv_handler(void (*handler)(void))
+>>>> +{
+>>>> +}
+>>>> +EXPORT_SYMBOL_GPL(hv_setup_mshv_handler);
+>>>> +
+>>>>  void __weak hv_setup_kexec_handler(void (*handler)(void))
+>>>>  {
+>>>>  }
+>>>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>>>> index 1f46d19a16aa..a05f12e63ccd 100644
+>>>> --- a/include/asm-generic/mshyperv.h
+>>>> +++ b/include/asm-generic/mshyperv.h
+>>>> @@ -208,6 +208,7 @@ void hv_setup_kexec_handler(void (*handler)(void));
+>>>>  void hv_remove_kexec_handler(void);
+>>>>  void hv_setup_crash_handler(void (*handler)(struct pt_regs *regs));
+>>>>  void hv_remove_crash_handler(void);
+>>>> +void hv_setup_mshv_handler(void (*handler)(void));
+>>>>
+>>>>  extern int vmbus_interrupt;
+>>>>  extern int vmbus_irq;
+>>>> --
+>>>> 2.34.1
+>>>>
+> 
+
 
