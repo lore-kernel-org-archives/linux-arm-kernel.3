@@ -4,68 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4C8CC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:13:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35A54C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:15:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OUq77VZuYMfTn97VoFRP5ysbWEQeLAitEIJ3wotlPbA=; b=qJ9gLUuOuEIbmq0IP3iK2e8HCP
-	lnrZ+R/YN5zviaW01Im2MnqnPc2LVkSLgaOI8UT9Jj1jmQOK96epaTDCE2/J1QyHINhQKGmfJQYPZ
-	S1NirxHZAjYcl6pnN55D0Y8owH9Ob1PlI8OD5LXlK3Tt91CfFo9g1llA7s6lhKrlX3eLzUJr4CJo5
-	pAeRyH6Cfzbo5QI24IJxqPrP/qm/HHRrnwDj/ibQbY1h0AKCi6zCqgdHHDlh+xFLWRC9r9bfG8kPl
-	LIqA6TxNehccJuENYolpdNzYZ/xlwGWfrppanRIbrhVD0w4053bfjka9OE739+6CLnFJ6Hy42P8HW
-	JhdCLzSw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=; b=1KDKG8oOJorBfYL65xk9lrqUsW
+	mP/97TGRrqICJhERaYQtunanbx6KPEBm9DbJ65QmlIAkBDBBfqnDjK0ElOoV0ZFYGU14kjnWtaHtr
+	vzdR2QHC5kD7PdFTrKsqeXIFbls7fwNH/MHBLozl1ie3L9ESABMwvkUcCmWnyq/ZZe0sjToH2fOPy
+	9ALWvLIU6KFC48wWXNfBxdjOAoaVRHISGZgRhvQyxLroHKJcKykC7CQ5SoAbLrTwc8OL3fOSUJXKW
+	CCKBi6nUSF9nSTSR04ZUkWF6l5u0XgUy7pZgsztE0DH0jbjHk/so6AgyQBxU86AeBBujQkILCKsD1
+	Yr7bq91g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trb4s-00000002OJd-2GdB;
-	Mon, 10 Mar 2025 11:13:46 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tragR-00000002IyD-05im
+	id 1trb6T-00000002OiS-2VDS;
+	Mon, 10 Mar 2025 11:15:25 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tragT-00000002IzT-0w43
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:48:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 95160153B;
-	Mon, 10 Mar 2025 03:48:39 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8E4223F673;
-	Mon, 10 Mar 2025 03:48:24 -0700 (PDT)
-Date: Mon, 10 Mar 2025 10:48:21 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: "Ryan Walklin" <ryan@testtoast.com>
-Cc: "Maxime Ripard" <mripard@kernel.org>, "Chen-Yu Tsai" <wens@csie.org>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>, "Thomas
- Zimmermann" <tzimmermann@suse.de>, "David Airlie" <airlied@gmail.com>,
- "Daniel Vetter" <daniel@ffwll.ch>, "Jernej Skrabec"
- <jernej.skrabec@gmail.com>, "Samuel Holland" <samuel@sholland.org>, "Rob
- Herring" <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>,
- "Conor Dooley" <conor+dt@kernel.org>, "Michael Turquette"
- <mturquette@baylibre.com>, "Stephen Boyd" <sboyd@kernel.org>, "Chris
- Morgan" <macroalpha82@gmail.com>, "Hironori KIKUCHI"
- <kikuchan98@gmail.com>, "Philippe Simons" <simons.philippe@gmail.com>,
- "Dmitry Baryshkov" <dmitry.baryshkov@linaro.org>,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-sunxi@lists.linux.dev, devicetree@vger.kernel.org,
- linux-clk@vger.kernel.org, "Conor Dooley" <conor.dooley@microchip.com>
-Subject: Re: [PATCH v7 22/27] dt-bindings: allwinner: add H616 DE33 mixer
- binding
-Message-ID: <20250310104821.3c85977a@donnerap.manchester.arm.com>
-In-Reply-To: <c8b85753-5c97-4258-a158-06a17929fad6@app.fastmail.com>
-References: <20250216183710.8443-3-ryan@testtoast.com>
-	<20250216183710.8443-23-ryan@testtoast.com>
-	<20250224175642.170c124e@donnerap.manchester.arm.com>
-	<c8b85753-5c97-4258-a158-06a17929fad6@app.fastmail.com>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	Mon, 10 Mar 2025 10:48:35 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-43bdf0cbb6bso22595835e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 03:48:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741603711; x=1742208511; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=;
+        b=IensH9ow62SsG71YlmazmZUBJ0s6P2573urRNA+4EfPnSWvdYB/7/wxSbjdnGwn2gU
+         TaueRys7cKv/Tl5mwdtaEheTawOuNHcyJ1cBHM/s+e5jT+2r7dHJXVB2WpNOegF+oesd
+         jbvjZyr8XNwWN1eyVHkpZHo+lGr1YhV4lcdY/wTLmim21OZBoKn7TcaapB1JASNuA4Vh
+         u9d2OeVg6nC4+vgFDrH1Mk1juDEPtUH/5/vfqKxix+evb+4E8ahbQOWNGuIz2sywVTz4
+         wmxN+205cyBd/PPUMtoPHLB/As355+j8giAQuzvCZD4BpO2Gf6PtLRASv8lfksRr4l25
+         5eHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741603711; x=1742208511;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RcnXFhBJsspPY81aHKEpyHgRpt8kbK5A2y07Uh+g33g=;
+        b=dQa1z8RASd/sew85iDmoHcF2yJFRNwMo7HL7He51o5ufSp9TYsjTWYdFHR5FE1zmUN
+         zq4/SQJS3jNG31wdrfd+B8HMiTPqtyIv/pdcrsC2CJUKD6Y0tt5IXgVnfMgAWyH5csH+
+         3WxHmJk+AagD4AHOkQRYrEZktIwx+eWl8lcW0wbY4yIvmzqwKMS/RCmdQ6xSAw7dOCqi
+         VO98RBv9tdukjwFTQzwEWmobvgWncO7rJTlgb5eOnOBFwwWIgh61SHaUpYRIGn1VqutL
+         CRuhCWlflcb725aN38kiK2WDM6BWR/Ocvoga3i3HUSMk+uHPYvm00p7zq31drv1nvuTS
+         9BJg==
+X-Forwarded-Encrypted: i=1; AJvYcCWqGbCGhO4uOnOqjuGdimrSQEKWtFLFkvBiVOzxQ5AG8u/rwxhMoMQGtLFUM1oDtfZWlTVoiYg1vBN6KVrJ1Imn@lists.infradead.org
+X-Gm-Message-State: AOJu0YxYFFZIwQJWfSvC+fLlNX3PCbFyHEYKbYv05m4N0218uR3mafVy
+	h9ZFCgKEblvfxvXynI9wrP7VfJN3rUUx9FpraQ97Ej/PEVOSpjd0rRh+kVtc7Pk=
+X-Gm-Gg: ASbGnct8idw/R32kV8G/oAgiWNw/424iMYfLA3jYSVJJd1OIXfyMlfxuHKtK1Su2/Zy
+	xgjAVQyc2iIqsQVWbvdjRgePNUBcC4Z8PchI/1ubzAkMPCQXqg4MVrugtM936XNLpPbvJG1ssWI
+	8Qhzk6OLXxLrcTTCnWvUpF2TYl0EsVP4QHDezCYw7QzS2FyPxKVIpS8//Zhw+YdZRInLqMWSDdR
+	w0L9oKS6tI3y2fM7zh6JB4bhl6oiGDFXXYvC6zx8JEd4gfwJrjLosIia1ESPN25TppFg4D/lcHv
+	NhWFaGmCoE5vvLWmUhOTAro4q72rRPoCJLA2eOFYSZktCQkN3A==
+X-Google-Smtp-Source: AGHT+IEvyQMgaUHnCuYCt+OpJiqkHIstn9Ui2odq4PjFQ9lNSszLbzPKWSr7S0YVwsCBZMsm/36JQg==
+X-Received: by 2002:a05:600c:470d:b0:43c:fab3:4fad with SMTP id 5b1f17b1804b1-43cfab351c6mr15054385e9.16.1741603710881;
+        Mon, 10 Mar 2025 03:48:30 -0700 (PDT)
+Received: from localhost ([196.207.164.177])
+        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-43cf27f8ef3sm45737585e9.11.2025.03.10.03.48.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Mar 2025 03:48:30 -0700 (PDT)
+Date: Mon, 10 Mar 2025 13:48:27 +0300
+From: Dan Carpenter <dan.carpenter@linaro.org>
+To: Felix Fietkau <nbd@nbd.name>
+Cc: Sean Wang <sean.wang@mediatek.com>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, kernel-janitors@vger.kernel.org
+Subject: [PATCH net] net: ethernet: mediatek: Fix bit field in
+ mtk_set_queue_speed()
+Message-ID: <eaab1b7b-b33b-458b-a89a-81391bd2e6e8@stanley.mountain>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+X-Mailer: git-send-email haha only kidding
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034831_101104_00E0E77B 
-X-CRM114-Status: GOOD (  17.38  )
+X-CRM114-CacheID: sfid-20250310_034833_278109_8AF7ACCA 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,60 +104,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 22:30:36 +1300
-"Ryan Walklin" <ryan@testtoast.com> wrote:
+This was supposed to set "FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1)"
+but there was typo and the | operation was missing and which turned
+it into a no-op.
 
-Hi Ryan,
+Fixes: f63959c7eec3 ("net: ethernet: mtk_eth_soc: implement multi-queue support for per-port queues")
+Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+---
+From static analysis, not tested.
 
-> On Tue, 25 Feb 2025, at 6:56 AM, Andre Przywara wrote:
-> 
-> Apologies Andre, I came to review your comments on the TCON series and realised I had missed responding to this comment before sending v8. 
+ drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-No worries about that!
-
-> >> +      - allwinner,sun50i-h616-de33-mixer-0
-> >>  
-> >>    reg:
-> >> -    maxItems: 1
-> >> +    minItems: 1
-> >> +    maxItems: 3  
-> >
-> > What are those three regions? I wonder if we should have reg-names here,
-> > to fix the order, and to document them on the way?  
-> 
-> This would be the top, display and mixer groups for the DE333, and mixer for DE3 and earlier. Can certainly add in names for these. Is there any example elsewhere in the bindings to look at?
-
-It's basically the same idea as for clock-names, as used in this very file
-here (allwinner,sun8i-a83t-de2-mixer.yaml). You can find an explicit
-example for reg-names in allwinner,sun4i-a10-mbus.yaml, for instance.
-In the code you would use devm_platform_ioremap_resource_byname() then.
-
-Cheers,
-Andre
-
-> >> @@ -61,6 +63,23 @@ properties:
-> >>      required:
-> >>        - port@1
-> >>  
-> >> +allOf:
-> >> +  - if:
-> >> +      properties:
-> >> +        compatible:
-> >> +          enum:
-> >> +            - allwinner,sun50i-h616-de33-mixer-0
-> >> +
-> >> +    then:
-> >> +      properties:
-> >> +        reg:
-> >> +          maxItems: 3  
-> >
-> > Should we override minItems here as well? I guess any driver would need
-> > all three region to work?  
-> 
-> This seems sensible, as you say it would always be 3 groups for the DE33.
-> 
-> Regards,
-> 
-> Ryan
+diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+index 922330b3f4d7..9efef0e860da 100644
+--- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
++++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
+@@ -757,7 +757,7 @@ static void mtk_set_queue_speed(struct mtk_eth *eth, unsigned int idx,
+ 		case SPEED_100:
+ 			val |= MTK_QTX_SCH_MAX_RATE_EN |
+ 			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_MAN, 1) |
+-			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5);
++			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5) |
+ 			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1);
+ 			break;
+ 		case SPEED_1000:
+-- 
+2.47.2
 
 
