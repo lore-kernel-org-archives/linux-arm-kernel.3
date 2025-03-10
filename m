@@ -4,74 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FB25C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F188DC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:32:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P7P8FXLCdEeNVKfaCUMP7QfhFDAw+ltVTkmiIYl3wAQ=; b=kkf7dTvjcHi7ZAjWeTrZEYdsi8
-	ogsBB4mVWlgghosTJYNUs5XrtTu+wJSlHjRie8/baSo5CORPZ9YPWN075j7KMD891+QyGwTeCPFkG
-	c/OJf2Z2RAjw3PbwYpSqdA20V7Lb/W+tclNBLbggVntPE7Qunt5k8IJ7ZTK+XiQGNNJ4V2yhsKcJX
-	zTrslb4F5b2pug02Wwtrtipnkz9gVvsOxcoW2PEqPOtxv+CycWK5oWWp5IG0OM0jV3voSIDyvyrIQ
-	8cmxRo3t+goFrA/L2ut2UQ2cpfT8MlG1W+E/ZbBAlwNpBCCAXvyzwhbnvygcmC0lmwzNs5jVTNxTq
-	cTmdUxBg==;
+	bh=OFURKWJ8c+0j+WDISntGYO02sBoZ1fscCFecE790ZO4=; b=QkhiIxbibQTMBCof/9M1LPNJZT
+	owmqJ7kZG5QzIL7p97BqLLZoXyPThhFHK0rRr8ql0ikhprigquFTMjBC/dD8nkLpZkn1bpBRovLtF
+	TU8CvlVygT8t77SVxsFt6mVfiMw7ajHRTaamtRBjkFtlY29sRUAelC503YAaR3KdRAH3SavvavghZ
+	RzewQqguahyW6/bcTxzVfv7zSlJlS3OjKyAmhppa1xhedKGpwrfqSFHK6U+724CXw8fKq2IGBWYd3
+	2nZrkuJ5+W3tblKyA/nwLU0qRsDDUdOd+Uvy6mKloWDL4VHvkK8DQBPFQHzzNgzVFk/Fo+rwkDBdC
+	uQpj69Og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXb0-00000001kwY-11j8;
-	Mon, 10 Mar 2025 07:30:42 +0000
+	id 1trXcc-00000001lGu-3yk5;
+	Mon, 10 Mar 2025 07:32:22 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXTv-00000001jsI-33NT
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 07:23:24 +0000
+	id 1trXXL-00000001kSS-2ViK;
+	Mon, 10 Mar 2025 07:26:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 49AAD5C577D;
-	Mon, 10 Mar 2025 07:21:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D59CBC4CEE5;
-	Mon, 10 Mar 2025 07:23:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 13F485C574F;
+	Mon, 10 Mar 2025 07:24:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CCFD5C4CEE5;
+	Mon, 10 Mar 2025 07:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741591402;
-	bh=4ETkd0jFHLyp3RPMBWiubYsNSXRDodyaLu0wHY0y2XU=;
+	s=k20201202; t=1741591614;
+	bh=7wBfnmZleX7Y85tYsTskYok1c1ngfWy+JcWmAk0PEZQ=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=YMUUmsbKMTpJIOzlDQphAuc2kpcQCU4fCSZ4fQtG+R+LQNt6YwQciN23OZgf0/itk
-	 ZHbKHvjGM45dX2MbZ32QNS/PwrHxj753MYl4pfeJmj8IG+zd21QH8uk7puO/mVUPw/
-	 d3vK3nq1DDBM6gRdMG2xVvD9ZnXQ2Hak9xP/rHOpyf7ZZPCVq7Hqw+ydmVGdjM56Ul
-	 ikLzRYbPfFZ8Iz2AeAtACS929d5fWzFnJTVmj1FqpnQbLhuoJ2I17qUPM4tIiCuM2Q
-	 ncunR/tRH4scVhXHG1p1hO46Jw3YcZptVCK5qVxeL7nteF7lj966YbXe+ntvpAneqj
-	 UWIIfKEDhKqqw==
-Date: Mon, 10 Mar 2025 08:23:18 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Dmitry Baryshkov <lumag@kernel.org>
-Cc: Rob Clark <robdclark@gmail.com>, 
-	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Kuogee Hsieh <quic_khsieh@quicinc.com>, 
-	Krishna Manikandan <quic_mkrishn@quicinc.com>, Jonathan Marek <jonathan@marek.ca>, 
-	Bjorn Andersson <andersson@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
-	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
-	Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 04/10] dt-bindings: display/msm: qcom,sc7280-dpu:
- describe SAR2130P
-Message-ID: <20250310-eccentric-rare-rook-e4fb60@krzk-bin>
-References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
- <20250308-sar2130p-display-v1-4-1d4c30f43822@linaro.org>
+	b=Zs65k6cPyITwlw4q7+nFyQLTJ+9cSdxFo2+sEvOpPBWysAq7W331LPGSq6AKxj85j
+	 CbHaN6iZOmqT0H/aRFAWEqIvVQo4f91FP3pXcP7WYdCGQZl9N8YSivakG5dY1DXB4C
+	 NEC+XQ/m2cGiHjBv/ZSq/8d18XrWFbYhSp5aWeltzsLb7qFU4KeSd9VSZwWzcG9a4K
+	 9DlUpDQzhoOV+QliJQwjhLQjMbZ1eZol3ztJl6gPd5YDTXhk1Juznlw3vJBcKe9Uvj
+	 eO4a84IOxLQ+/B3fGsukNS/m2G68aM7JjXEi+0jPDwwMqAfukaEL2eaNi4KJU5j9L4
+	 9qftv9+ALTn5w==
+Date: Mon, 10 Mar 2025 12:56:50 +0530
+From: Vinod Koul <vkoul@kernel.org>
+To: Andy Yan <andyshrk@163.com>
+Cc: heiko@sntech.de, kishon@kernel.org, sebastian.reichel@collabora.com,
+	yubing.zhang@rock-chips.com, dmitry.baryshkov@linaro.org,
+	frank.wang@rock-chips.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: Re: [PATCH] phy: rockchip: usbdp: Check these parameters only when
+ the corresponding set flags are set
+Message-ID: <Z86UOmPg/UDSBajZ@vaman>
+References: <20250306065952.485809-1-andyshrk@163.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250308-sar2130p-display-v1-4-1d4c30f43822@linaro.org>
+In-Reply-To: <20250306065952.485809-1-andyshrk@163.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_002323_817780_BC7BBF34 
-X-CRM114-Status: UNSURE (   9.71  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_002655_795388_6FC71FBA 
+X-CRM114-Status: GOOD (  24.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,19 +75,137 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 08, 2025 at 03:42:22AM +0200, Dmitry Baryshkov wrote:
-> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+On 06-03-25, 14:59, Andy Yan wrote:
+> From: Andy Yan <andy.yan@rock-chips.com>
 > 
-> Describe DPU controller present on Qualcomm SAR2130P platform.
+> According documentation of phy_configure_opts_dp, at the configure
+> stage, we should only verify/configure the link_rate when set_rate
+> flag is set, the same applies to lanes and voltage.
 > 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> So we do it as the documentation says, also record the link rate
+> and lanes in phy internal for set_voltate stage.
+
+Whenever you say also, that is a sign that it should be another patch!
+
+> 
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
 > ---
->  Documentation/devicetree/bindings/display/msm/qcom,sc7280-dpu.yaml | 1 +
->  1 file changed, 1 insertion(+)
+> 
+>  drivers/phy/rockchip/phy-rockchip-usbdp.c | 63 +++++++++++------------
+>  1 file changed, 31 insertions(+), 32 deletions(-)
+> 
+> diff --git a/drivers/phy/rockchip/phy-rockchip-usbdp.c b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> index c04cf64f8a35..d1bbdf382aa2 100644
+> --- a/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> +++ b/drivers/phy/rockchip/phy-rockchip-usbdp.c
+> @@ -187,6 +187,8 @@ struct rk_udphy {
+>  	u32 dp_aux_din_sel;
+>  	bool dp_sink_hpd_sel;
+>  	bool dp_sink_hpd_cfg;
+> +	unsigned int link_rate;
+> +	unsigned int lanes;
+>  	u8 bw;
+>  	int id;
+>  
+> @@ -1102,42 +1104,39 @@ static int rk_udphy_dp_phy_power_off(struct phy *phy)
+>  	return 0;
+>  }
+>  
+> -static int rk_udphy_dp_phy_verify_link_rate(unsigned int link_rate)
+> -{
+> -	switch (link_rate) {
+> -	case 1620:
+> -	case 2700:
+> -	case 5400:
+> -	case 8100:
+> -		break;
+> -
+> -	default:
+> -		return -EINVAL;
+> -	}
+> -
+> -	return 0;
+> -}
+> -
+>  static int rk_udphy_dp_phy_verify_config(struct rk_udphy *udphy,
+>  					 struct phy_configure_opts_dp *dp)
+>  {
+> -	int i, ret;
+> +	int i;
+>  
+> -	/* If changing link rate was required, verify it's supported. */
+> -	ret = rk_udphy_dp_phy_verify_link_rate(dp->link_rate);
+> -	if (ret)
+> -		return ret;
+> +	/* Verify link rate. */
+> +	if (dp->set_rate) {
+> +		switch (dp->link_rate) {
+> +		case 1620:
+> +		case 2700:
+> +		case 5400:
+> +		case 8100:
+> +			udphy->link_rate = dp->link_rate;
+> +			break;
+> +
+> +		default:
+> +			return -EINVAL;
+> +		}
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+why drop helper? Why not set the rate on success?
 
-Best regards,
-Krzysztof
+> +	}
+>  
+>  	/* Verify lane count. */
+> -	switch (dp->lanes) {
+> -	case 1:
+> -	case 2:
+> -	case 4:
+> -		/* valid lane count. */
+> -		break;
+> +	if (dp->set_lanes) {
+> +		switch (dp->lanes) {
+> +		case 1:
+> +		case 2:
+> +		case 4:
+> +			/* valid lane count. */
+> +			udphy->lanes = dp->lanes;
+> +			break;
+>  
+> -	default:
+> -		return -EINVAL;
+> +		default:
+> +			return -EINVAL;
+> +		}
 
+another change where helper would have made this look better
+
+>  	}
+>  
+>  	/*
+> @@ -1146,7 +1145,7 @@ static int rk_udphy_dp_phy_verify_config(struct rk_udphy *udphy,
+>  	 */
+>  	if (dp->set_voltages) {
+>  		/* Lane count verified previously. */
+> -		for (i = 0; i < dp->lanes; i++) {
+> +		for (i = 0; i < udphy->lanes; i++) {
+>  			if (dp->voltage[i] > 3 || dp->pre[i] > 3)
+>  				return -EINVAL;
+>  
+> @@ -1243,9 +1242,9 @@ static int rk_udphy_dp_phy_configure(struct phy *phy,
+>  	}
+>  
+>  	if (dp->set_voltages) {
+> -		for (i = 0; i < dp->lanes; i++) {
+> +		for (i = 0; i < udphy->lanes; i++) {
+>  			lane = udphy->dp_lane_sel[i];
+> -			switch (dp->link_rate) {
+> +			switch (udphy->link_rate) {
+>  			case 1620:
+>  			case 2700:
+>  				regmap_update_bits(udphy->pma_regmap,
+> -- 
+> 2.34.1
+
+-- 
+~Vinod
 
