@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D5D4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:15:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 833AAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NjM80ZPuk0T2dsj8bpVRxDP3v5Cfy9QMBxmWY0yqH7U=; b=eQuLHRiG/BAKE4ZzoTVAQfxS3b
-	6Ese01jb4kbcdIcvGgeUqMmNK7KTghjz4V3RN5FLPEe0WvmLxji+F56K3d8HMSzn17SNg7NOwyOZx
-	Z7NgFYAs5D1LvkuAq3ZYwV/kDhN48BmEJYqxN2qr6njGt/II+jg16lwPgvVRMNGkwoQL1J2qWMsWt
-	bAXVEg3iUNTkl2eCsWe7v6bCrlzGeviA7iNYTXF3uPiM1TnWgViiwclFTOmkVy+ZCZt4VggNowo18
-	gRQz1eD2rUK3uyw/TcNqGQJ7cptxZiojP5QeT4GU08tcT+QJUPTH3rBr4ymHPV0kvWXliaz8uS8L2
-	FyYeFnzA==;
+	bh=slhW2rwIj+qGJeGkrjjjkYkQ2pUTlvWcMIJ8rz3jURE=; b=I6UCNMYu3jrAORXbRoDKqh7Hjj
+	mboMUWIO1wQA5LMMEFA5qmD5itnjBtmkL+fhnuOiAAIYeVF7Bxln9NWYLLcA5bhKp2yzbtG0wwdXJ
+	jeW4GItK8na7MnBqlmzYT7pCpsnKX6zojLvLPG87LFmqMvCmZCRifjGAiRYjoQR/PY3ro1jWQj7Gq
+	SryqI9qgOgHELfrJTlS1CFsLZDs30/3/vP5L87IcdSjoTBjoqeqzNVA1CwR8YQEaOkUM2CUYXhor2
+	RQHkjFIGztZFq2AT1f2s93cKAUP75ht+OuNz0IeFck7JfosSUxVIPnuU+e+ze4tuRqU2jCRKcW2yz
+	HDDSb1fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcyI-00000002krO-0pnh;
-	Mon, 10 Mar 2025 13:15:06 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trczt-00000002lEd-3oIU;
+	Mon, 10 Mar 2025 13:16:45 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcC4-00000002bVP-45KE
+	id 1trcC5-00000002bTz-11nB
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Mar 2025 12:25:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id DED3DA45B74;
-	Mon, 10 Mar 2025 12:19:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 77DB0C4AF0B;
-	Mon, 10 Mar 2025 12:25:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 404785C6306;
+	Mon, 10 Mar 2025 12:23:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D5240C4CEEF;
+	Mon, 10 Mar 2025 12:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741609515;
-	bh=JMcQT9nqn10bS2fDlKJ5y+ZpRjV+00pMYwnQIDjZGFA=;
+	s=k20201202; t=1741609516;
+	bh=VqanVys6U0Zgtoq6VTrmGdkaMMXAYFhbvoCeIw8qE9Q=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=GDhTVIWLnScv8xJQgUrQEJ9/CZCDfThLiu0gAG58HSLHlT2irCbOMJseAQJhZFhKJ
-	 BwRyVNxZ9ffRLmLqTFDWicf2pGBaLoIh09GF8H7an/iYc3AjOjtdbqN/CHlc4YUlmt
-	 Zd1n0QMsWc7QO71Vmoz3bsZcSLBmY45Qk5CTJnCBTkAp3OiVoinXhSffqVBlz5QRrN
-	 ZqHLCQvrtqzktq4Fml9+ikjDuDhKAnpE9ZlDU47okKCD1KkYhmN0+3sdiNE1it8LD/
-	 vXecRxPUQWhWSYPuppX2aWGuLxRb6RJ9pX8f8kDoXTue40hQsQ1oUHqw02Wlc1zIv8
-	 kd6faLkZ07AdA==
+	b=U38UHe9LqXiWa99e/lij2DHBiKOWyQ9+X0ZYUnS7TiAO+2AsnXOsU34bcwFYSyQSC
+	 Lf4Lgf8KSuYFs459f5e9DENX3UAfLvnJ1548IjGzBASV8EQSW1d15hPbkxgqnyc4X4
+	 V3shbsBu4lOUj5PhdFFX8kDw8db7AyvuwFZ5Q9Ej28JSGYecsnRB7A6T9BhXfNget2
+	 RffF1noDHR56rbFgUtLrDGNBFctRLkEmejWZuNR3C0efhOAy71igEZxxwZpspcYOIZ
+	 iDjLWfZqJGphTjkqVLdYRoNQE70OmptHKIzZVELtpSDRk0Fr6fngUc3FkXJw1RoyJR
+	 oHwCstJLRtcAw==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1trcC1-00CAea-Kt;
-	Mon, 10 Mar 2025 12:25:13 +0000
+	id 1trcC3-00CAea-2t;
+	Mon, 10 Mar 2025 12:25:15 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,9 +58,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 14/23] KVM: arm64: Use computed FGT masks to setup FGT registers
-Date: Mon, 10 Mar 2025 12:24:56 +0000
-Message-Id: <20250310122505.2857610-15-maz@kernel.org>
+Subject: [PATCH v2 19/23] KVM: arm64: Validate FGT register descriptions against RES0 masks
+Date: Mon, 10 Mar 2025 12:25:01 +0000
+Message-Id: <20250310122505.2857610-20-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
 In-Reply-To: <20250310122505.2857610-1-maz@kernel.org>
 References: <20250310122505.2857610-1-maz@kernel.org>
@@ -71,8 +71,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052517_134145_F5E4D4AF 
-X-CRM114-Status: GOOD (  11.65  )
+X-CRM114-CacheID: sfid-20250310_052517_382461_9232ED0D 
+X-CRM114-Status: GOOD (  14.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,90 +87,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Flip the hyervisor FGT configuration over to the computed FGT
-masks.
+In order to point out to the unsuspecting KVM hacker that they
+are missing something somewhere, validate that the known FGT bits
+do not intersect with the corresponding RES0 mask, as computed at
+boot time.
+
+THis check is also performed at boot time, ensuring that there is
+no runtime overhead.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/hyp/include/hyp/switch.h | 45 +++++++++++++++++++++----
- 1 file changed, 38 insertions(+), 7 deletions(-)
+ arch/arm64/include/asm/kvm_host.h |  1 +
+ arch/arm64/kvm/config.c           | 29 +++++++++++++++++++++++++++++
+ arch/arm64/kvm/sys_regs.c         |  2 ++
+ 3 files changed, 32 insertions(+)
 
-diff --git a/arch/arm64/kvm/hyp/include/hyp/switch.h b/arch/arm64/kvm/hyp/include/hyp/switch.h
-index c4e12516f6466..b3f02fa5ab79e 100644
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -65,12 +65,41 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
- 	}
- }
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index fa046a9ad8264..c98f7eed68142 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -1565,5 +1565,6 @@ void kvm_set_vm_id_reg(struct kvm *kvm, u32 reg, u64 val);
+ 	(kvm_has_feat((k), ID_AA64MMFR3_EL1, S1POE, IMP))
  
-+#define reg_to_fgt_masks(reg)						\
-+	({								\
-+		struct fgt_masks *m;					\
-+		switch(reg) {						\
-+		case HFGRTR_EL2:					\
-+			m = &hfgrtr_masks;				\
-+			break;						\
-+		case HFGWTR_EL2:					\
-+			m = &hfgwtr_masks;				\
-+			break;						\
-+		case HFGITR_EL2:					\
-+			m = &hfgitr_masks;				\
-+			break;						\
-+		case HDFGRTR_EL2:					\
-+			m = &hdfgrtr_masks;				\
-+			break;						\
-+		case HDFGWTR_EL2:					\
-+			m = &hdfgwtr_masks;				\
-+			break;						\
-+		case HAFGRTR_EL2:					\
-+			m = &hafgrtr_masks;				\
-+			break;						\
-+		default:						\
-+			BUILD_BUG_ON(1);				\
-+		}							\
-+									\
-+		m;							\
-+	})
+ void compute_fgu(struct kvm *kvm, enum fgt_group_id fgt);
++void check_feature_map(void);
+ 
+ #endif /* __ARM64_KVM_HOST_H__ */
+diff --git a/arch/arm64/kvm/config.c b/arch/arm64/kvm/config.c
+index e38da17445926..d39f1f14e3dc4 100644
+--- a/arch/arm64/kvm/config.c
++++ b/arch/arm64/kvm/config.c
+@@ -494,6 +494,35 @@ static struct reg_bits_to_feat_map hafgrtr_feat_map[] = {
+ 		   FEAT_AMUv1),
+ };
+ 
++static void __init check_feat_map(struct reg_bits_to_feat_map *map,
++				  int map_size, u64 res0, const char *str)
++{
++	u64 mask = 0;
 +
- #define compute_clr_set(vcpu, reg, clr, set)				\
- 	do {								\
--		u64 hfg;						\
--		hfg = __vcpu_sys_reg(vcpu, reg) & ~__ ## reg ## _RES0;	\
--		set |= hfg & __ ## reg ## _MASK; 			\
--		clr |= ~hfg & __ ## reg ## _nMASK; 			\
-+		u64 hfg = __vcpu_sys_reg(vcpu, reg);			\
-+		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
-+		set |= hfg & m->mask;					\
-+		clr |= ~hfg & m->nmask;					\
- 	} while(0)
++	for (int i = 0; i < map_size; i++)
++		mask |= map[i].bits;
++
++	if (mask != ~res0)
++		kvm_err("Undefined %s behaviour, bits %016llx\n",
++			str, mask ^ ~res0);
++}
++
++void __init check_feature_map(void)
++{
++	check_feat_map(hfgrtr_feat_map, ARRAY_SIZE(hfgrtr_feat_map),
++		       hfgrtr_masks.res0, hfgrtr_masks.str);
++	check_feat_map(hfgwtr_feat_map, ARRAY_SIZE(hfgwtr_feat_map),
++		       hfgwtr_masks.res0, hfgwtr_masks.str);
++	check_feat_map(hfgitr_feat_map, ARRAY_SIZE(hfgitr_feat_map),
++		       hfgitr_masks.res0, hfgitr_masks.str);
++	check_feat_map(hdfgrtr_feat_map, ARRAY_SIZE(hdfgrtr_feat_map),
++		       hdfgrtr_masks.res0, hdfgrtr_masks.str);
++	check_feat_map(hdfgwtr_feat_map, ARRAY_SIZE(hdfgwtr_feat_map),
++		       hdfgwtr_masks.res0, hdfgwtr_masks.str);
++	check_feat_map(hafgrtr_feat_map, ARRAY_SIZE(hafgrtr_feat_map),
++		       hafgrtr_masks.res0, hafgrtr_masks.str);
++}
++
+ static bool idreg_feat_match(struct kvm *kvm, struct reg_bits_to_feat_map *map)
+ {
+ 	u64 regval = kvm->arch.id_regs[map->regidx];
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index d3990ceaa59c2..89fc07c57e438 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5058,6 +5058,8 @@ int __init kvm_sys_reg_table_init(void)
  
- #define reg_to_fgt_group_id(reg)					\
-@@ -101,12 +130,14 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
- #define compute_undef_clr_set(vcpu, kvm, reg, clr, set)			\
- 	do {								\
- 		u64 hfg = kvm->arch.fgu[reg_to_fgt_group_id(reg)];	\
--		set |= hfg & __ ## reg ## _MASK;			\
--		clr |= hfg & __ ## reg ## _nMASK; 			\
-+		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
-+		set |= hfg & m->mask;					\
-+		clr |= hfg & m->nmask;					\
- 	} while(0)
+ 	ret = populate_nv_trap_config();
  
- #define update_fgt_traps_cs(hctxt, vcpu, kvm, reg, clr, set)		\
- 	do {								\
-+		struct fgt_masks *m = reg_to_fgt_masks(reg);		\
- 		u64 c = clr, s = set;					\
- 		u64 val;						\
- 									\
-@@ -116,7 +147,7 @@ static inline void __activate_traps_fpsimd32(struct kvm_vcpu *vcpu)
- 									\
- 		compute_undef_clr_set(vcpu, kvm, reg, c, s);		\
- 									\
--		val = __ ## reg ## _nMASK;				\
-+		val = m->nmask;						\
- 		val |= s;						\
- 		val &= ~c;						\
- 		write_sysreg_s(val, SYS_ ## reg);			\
++	check_feature_map();
++
+ 	for (i = 0; !ret && i < ARRAY_SIZE(sys_reg_descs); i++)
+ 		ret = populate_sysreg_config(sys_reg_descs + i, i);
+ 
 -- 
 2.39.2
 
