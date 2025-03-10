@@ -4,95 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47E88C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:13:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 143B3C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:14:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wj1lLI8KT7D0AmFMm+zq3zyTE36qeVUtRFfr55Zjr3g=; b=Rz3vAv1E0YZCe/Xq6Wj4I7WPRB
-	q3V2Q1qyoHmvMOhqNSjRaRLMEXzU86QuoaVoor9iRIWt9p3mwwYvNz/zpnqz2CTMSYAE3oTeOEue4
-	mFCDA9Xba+OvABGy3PJJDyfBPhgxWrLDfVnCrl6oRItDDgXnvm8LXvXFzGmX8kvH/mHiKlUdaGw4u
-	1V7xNmD1Q+8HBZ+ZGipFTkcvchxVpK5PJObBZEIPfby1RpBx27bGYo7T8Xe+P6iQX82fbJDNJFTlf
-	nISrx5Yu57nF/f159NSBq3L5ji3zBWbuyme2Blk51VbsUgLaRFwJtvhyzscnLzUwb08syNdUC95n2
-	JsbCZ4Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=x6bOGmoklXRtJQxdeWHpYOOfYuKnU0zJof9I6zGwu64=; b=gSPR+na1A/3ZObIlFmKJARy8cf
+	m4DAArWNR1q624+xEwK9A0wIKw5d1n0awCgoKKL48aBWqdyjKJ06DRSLFMJxP7d9d1uKsMxU7hS5H
+	X1gtOaaq8kHMzsd3R6oYpuEOnw6J7HSupbc+5Rrkmhn/ClDHAAww2C3yuP+jnaH3kHiQ0FJt1Jqr1
+	wS8AoiRgxgaxZRMWOLiCAB9GGhi1sFRKex6XRddae/RGWhSIhAKEoVH0kMAi+DCBLaLIAzDLdDLmI
+	bkJzg21dXRjRiVoBZuo5nDpEN4jCqlyS8Yr3XYkGOGvpeevBHLi/hfslAaWfaJdOoIlpn+MmmdWQM
+	jZ0J3hKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treoQ-000000037QO-1zAX;
-	Mon, 10 Mar 2025 15:13:02 +0000
-Received: from mx08-00178001.pphosted.com ([91.207.212.93] helo=mx07-00178001.pphosted.com)
+	id 1treq2-0000000384e-16PH;
+	Mon, 10 Mar 2025 15:14:42 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdb0-00000002rGN-0R7e
+	id 1trdeL-00000002rgd-421N
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:55:07 +0000
-Received: from pps.filterd (m0046660.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52ACwmV7013411;
-	Mon, 10 Mar 2025 14:54:46 +0100
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=selector1; bh=
-	Wj1lLI8KT7D0AmFMm+zq3zyTE36qeVUtRFfr55Zjr3g=; b=4zJVgdoYfxispjxF
-	nm4bnPL9RQ9nva3gGCOTbyVZPnmBSk4/ebCbptlj+/1Pza1iIIoD8OBRCCsajMko
-	9x24lERH2mo2s8WmvJ8331nlQgifEIOXcpI9TMIWFhcW5qkQsiO8XGi3S5czUIP2
-	4nfZLdnaNKD1KCNCRJ6j6TuPlaOQERuUU+SE8yCR1o/SnbSwfdOqiNb1i3WJH/al
-	9VFTyECF8fo1cNm/kcFQD8d2/5tyof4TaMrMBEsFhxW0G8H348Fdo3laKfakjdi4
-	3xCCUlXmM2qGKCCwciiBi0n+xhEg8dLtQTvZdlc1nQ0GxxUzgHhvD3G5hvToXBBJ
-	HAJWdA==
-Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 458ey6unwy-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Mon, 10 Mar 2025 14:54:46 +0100 (CET)
-Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
-	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id CFE3A40048;
-	Mon, 10 Mar 2025 14:53:28 +0100 (CET)
-Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
-	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 38FBB49F0B9;
-	Mon, 10 Mar 2025 14:52:28 +0100 (CET)
-Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 10 Mar
- 2025 14:52:27 +0100
-Message-ID: <6e1757ea-3f5e-4cc0-b142-aee52f016c8f@foss.st.com>
-Date: Mon, 10 Mar 2025 14:52:26 +0100
+	Mon, 10 Mar 2025 13:58:35 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-390cf7458f5so4140441f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:58:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=suse.com; s=google; t=1741615112; x=1742219912; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=x6bOGmoklXRtJQxdeWHpYOOfYuKnU0zJof9I6zGwu64=;
+        b=fSQ8+Ib35/6ouGQlQ4FFKa/PZrVhnWcmj4NJBPsJb+Gq5rVsLhsUVY4VzOs+S5Bdln
+         dfd9brdwZjaUmKbcB4VjamQeqkFEPQg3f+L6Sk1KKtTMscygh1LtAwf/O/+/0bA6QdYb
+         SWuXQ4D7anMFw0urTCp1gpTTS9wk5xz+K62chLooU2Ur1s1fj6Tkn2WflWq4BbbuPn7R
+         uj1qjMCj/37KrCYUqUFK1jLte7rpEvN88uucee8bhBNYt0wWMXv6PNNW8Pe6WDOytEBx
+         B3aOUcjHZkSDqEqa9IL0oWH1N/lhhKYaxLbDyWedOh1YJ4L7SpsoIinzCDTzSsWYx2/D
+         Be5g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741615112; x=1742219912;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:date:from
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=x6bOGmoklXRtJQxdeWHpYOOfYuKnU0zJof9I6zGwu64=;
+        b=Ie7T5FyNv4NWqZJdlh71jJv1VpsWbsBSYP11vBSe5qSok5K6lmPUuq2MhIFSqAFrVv
+         WfIazSgwvbeoextX2yA5Uu8sVY+yPKvjUieaLnexjhmqDZ0j6dTBpYYvIhDYKHRvOuir
+         D0WcPcJDho8MquUHlnKhujq1HX0EmtffD+IPDbgHUXsSs7xQe43J51ZtTt+h4UjS7u8N
+         iU0oQ9TPrjpg4nla+e2rVEaQtKSXFEMxBYcMQoZFArDRPc9zWKojWuXBKG3wEiphst83
+         GBk9OoFNNrCZ2pgmw8yEtbNI4Eq7TnkFhN3ptakh+3VidA9JydcMMmTED/k7ytkioULJ
+         C39Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUKROOTSOhf6/C7Ymf9iIRPJYl6r9vIwt58W/zouuprfQqe8a6qVp7Wlv0A9BXK5/z5kUugfGSHOn2S9oQsufst@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUqwKLKKRYngGh0uHGirwe8CfDIaroaJmPUf1BW6F0CcTfyPSs
+	XTqHlfslMysyH7Yc2WcunAD1jjM+II6NFfonE+VSBWenv3wBts29fetEJ5N9jR8=
+X-Gm-Gg: ASbGncsokD9c/JV11gRgKwBC5LuGMeIj8RJ0ISK5XblPo1cvCg9IUpmRcqEsfqnGNOp
+	cg2jw3haYDRaztgevE60w2cMZRwXN/4+6fKAi2kNkhSggqblNT8qFaLc236HQnrp61YBAA8tP+r
+	Tqx6Nd2QU6zve5fcfs+3Jbh1YDNg1pF4HxAsO6zrrLyfvJ88h3qR9SccxVSXMx+TKqePhC0h2z4
+	sYptKyDtQ1oChzm6Zw1Tei8OuzYHQAS/xuYFx2+UJjg476TcfCh24OE4xHaDLJK9g+v/PF/eT9v
+	L5gjfkXYBRaRJ6lhvrcsEwHJxntxpWHh+mn6ptB0wYFhSUjNH8tBcIaVwcE9RVIcp1nN1GRhh7r
+	dQsLlv7YvQ62ZSYKl8P+mFU4=
+X-Google-Smtp-Source: AGHT+IGyhk5+VAMcITm5rrq0aJ90sKdh4cQmUoqGgN6Meob+XW4ZpicfvmV1X3pFEScV3weEws3UqA==
+X-Received: by 2002:a05:6000:1fa4:b0:38f:577f:2f6d with SMTP id ffacd0b85a97d-39132d093demr10173742f8f.2.1741615111629;
+        Mon, 10 Mar 2025 06:58:31 -0700 (PDT)
+Received: from localhost (host-87-14-236-98.retail.telecomitalia.it. [87.14.236.98])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac299a025c7sm236754666b.51.2025.03.10.06.58.30
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Mar 2025 06:58:31 -0700 (PDT)
+From: Andrea della Porta <andrea.porta@suse.com>
+X-Google-Original-From: Andrea della Porta <aporta@suse.de>
+Date: Mon, 10 Mar 2025 14:59:41 +0100
+To: Phil Elwell <phil@raspberrypi.com>
+Cc: Herve Codina <herve.codina@bootlin.com>,
+	Andrea della Porta <andrea.porta@suse.com>, andrew@lunn.ch,
+	Arnd Bergmann <arnd@arndb.de>,
+	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>,
+	bhelgaas@google.com, brgl@bgdev.pl,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com,
+	devicetree@vger.kernel.org, dragan.cvetic@amd.com,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org,
+	kw@linux.com, Linus Walleij <linus.walleij@linaro.org>,
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>,
+	linux-clk@vger.kernel.org, linux-gpio@vger.kernel.org,
+	LKML <linux-kernel@vger.kernel.org>,
+	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>,
+	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>,
+	lpieralisi@kernel.org, luca.ceresoli@bootlin.com,
+	manivannan.sadhasivam@linaro.org, masahiroy@kernel.org,
+	Michael Turquette <mturquette@baylibre.com>,
+	Rob Herring <robh@kernel.org>, saravanak@google.com,
+	Stephen Boyd <sboyd@kernel.org>, thomas.petazzoni@bootlin.com,
+	Stefan Wahren <wahrenst@gmx.net>, Will Deacon <will@kernel.org>,
+	Dave Stevenson <dave.stevenson@raspberrypi.com>
+Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device
+ using a DT overlay
+Message-ID: <Z87wTfChRC5Ruwc0@apocalypse>
+References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
+ <20250213171435.1c2ce376@bootlin.com>
+ <CAMEGJJ1++aeE7WWLVVesbujME+r2WicEkK+CQgigRRp2grYf=A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof
- Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Alexandre
- Torgue <alexandre.torgue@foss.st.com>,
-        Philipp Zabel
-	<p.zabel@pengutronix.de>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Greg
- Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Arnd Bergmann <arnd@arndb.de>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>
-CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <christophe.kerello@foss.st.com>
-References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
- <20250219080059.367045-5-patrice.chotard@foss.st.com>
-Content-Language: en-US
-From: Patrice CHOTARD <patrice.chotard@foss.st.com>
-In-Reply-To: <20250219080059.367045-5-patrice.chotard@foss.st.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.48.87.62]
-X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
- (10.75.129.69)
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-10_05,2025-03-07_03,2024-11-22_01
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAMEGJJ1++aeE7WWLVVesbujME+r2WicEkK+CQgigRRp2grYf=A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_065506_703859_F4AC4BB6 
-X-CRM114-Status: GOOD (  37.35  )
+X-CRM114-CacheID: sfid-20250310_065833_995611_1FF86B63 
+X-CRM114-Status: GOOD (  47.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,608 +124,193 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi,
 
-
-On 2/19/25 09:00, patrice.chotard@foss.st.com wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
+On 16:27 Thu 13 Feb     , Phil Elwell wrote:
+> Hi Hervé,
 > 
-> Octo Memory Manager driver (OMM) manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
->   - check firewall access.
+> On Thu, 13 Feb 2025 at 16:14, Herve Codina <herve.codina@bootlin.com> wrote:
+> >
+> > Hi Phil,
+> >
+> > On Thu, 13 Feb 2025 15:18:45 +0000
+> > Phil Elwell <phil@raspberrypi.com> wrote:
+> >
+> > > Hi Andrea,
+> > >
+> > > The problem with this approach (loading an overlay from the RP1 PCIe
+> > > driver), and it's one that I have raised with you offline, is that
+> > > (unless anyone can prove otherwise) it becomes impossible to create a
+> > > Pi 5 DTS file which makes use of the RP1's resources. How do you
+> > > declare something as simple as a button wired to an RP1 GPIO, or fan
+> > > connected to a PWM output?
+> >
+> > The driver could be improved in a second step.
+> > For instance, it could load the dtbo from user-space using request_firmare()
+> > instead of loading the embedded dtbo.
+> >
+> > >
+> > > If this is the preferred route to upstream adoption, I would prefer it
+> > > if rp1.dtso could be split in two - an rp1.dtsi similar to what we
+> > > have downstream, and an rp1.dtso that #includes it. In this way we can
+> > > keep the patching and duplication to a minimum.
+> >
+> > Indeed, having a rp1.dtsi avoid duplication but how the rp1.dtso in
+> > the the kernel sources could include user customization (button, fan, ...)
+> > without being modified ?
+> > At least we have to '#include <my_rp1_customizations.dtsi>'.
+> >
+> > Requesting the dtbo from user-space allows to let the user to create
+> > its own dtso without the need to modify the one in kernel sources.
+> >
+> > Does it make sense ?
 > 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
-> ---
->  drivers/memory/Kconfig     |  17 ++
->  drivers/memory/Makefile    |   1 +
->  drivers/memory/stm32_omm.c | 522 +++++++++++++++++++++++++++++++++++++
->  3 files changed, 540 insertions(+)
->  create mode 100644 drivers/memory/stm32_omm.c
+> I think I understand what you are saying, but at this point the RP1
+> overlay would no longer be an RP1 overlay - it would be an
+> RP1-and-everything-connected-to-it overlay, which is inherently
+> board-specific. Which user-space process do you think would be
+> responsible for loading this alternative overlay, choosing carefully
+> based on the platform it is running on? Doesn't that place quite a
+> burden on all the OS maintainers who up to now have just needed a
+> kernel and a bunch of dtb files?
 > 
-> diff --git a/drivers/memory/Kconfig b/drivers/memory/Kconfig
-> index c82d8d8a16ea..3a0703fbfee7 100644
-> --- a/drivers/memory/Kconfig
-> +++ b/drivers/memory/Kconfig
-> @@ -225,6 +225,23 @@ config STM32_FMC2_EBI
->  	  devices (like SRAM, ethernet adapters, FPGAs, LCD displays, ...) on
->  	  SOCs containing the FMC2 External Bus Interface.
->  
-> +config STM32_OMM
-> +	tristate "STM32 Octo Memory Manager"
-> +	depends on SPI_STM32_OSPI || COMPILE_TEST
-> +	help
-> +	  This driver manages the muxing between the 2 OSPI busses and
-> +	  the 2 output ports. There are 4 possible muxing configurations:
-> +	  - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
-> +	       output is on port 2
-> +	  - OSPI1 and OSPI2 are multiplexed over the same output port 1
-> +	  - swapped mode (no multiplexing), OSPI1 output is on port 2,
-> +	       OSPI2 output is on port 1
-> +	  - OSPI1 and OSPI2 are multiplexed over the same output port 2
-> +	  It also manages :
-> +	    - the split of the memory area shared between the 2 OSPI instances.
-> +	    - chip select selection override.
-> +	    - the time between 2 transactions in multiplexed mode.
-> +
->  source "drivers/memory/samsung/Kconfig"
->  source "drivers/memory/tegra/Kconfig"
->  
-> diff --git a/drivers/memory/Makefile b/drivers/memory/Makefile
-> index d2e6ca9abbe0..c1959661bf63 100644
-> --- a/drivers/memory/Makefile
-> +++ b/drivers/memory/Makefile
-> @@ -24,6 +24,7 @@ obj-$(CONFIG_DA8XX_DDRCTL)	+= da8xx-ddrctl.o
->  obj-$(CONFIG_PL353_SMC)		+= pl353-smc.o
->  obj-$(CONFIG_RENESAS_RPCIF)	+= renesas-rpc-if.o
->  obj-$(CONFIG_STM32_FMC2_EBI)	+= stm32-fmc2-ebi.o
-> +obj-$(CONFIG_STM32_OMM)		+= stm32_omm.o
->  
->  obj-$(CONFIG_SAMSUNG_MC)	+= samsung/
->  obj-$(CONFIG_TEGRA_MC)		+= tegra/
-> diff --git a/drivers/memory/stm32_omm.c b/drivers/memory/stm32_omm.c
-> new file mode 100644
-> index 000000000000..8f7f475769e7
-> --- /dev/null
-> +++ b/drivers/memory/stm32_omm.c
-> @@ -0,0 +1,522 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) STMicroelectronics 2025 - All Rights Reserved
-> + * Author(s): Patrice Chotard <patrice.chotard@foss.st.com> for STMicroelectronics.
-> + */
-> +
-> +#include <linux/bitfield.h>
-> +#include <linux/bus/stm32_firewall_device.h>
-> +#include <linux/clk.h>
-> +#include <linux/err.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/mod_devicetable.h>
-> +#include <linux/module.h>
-> +#include <linux/of_address.h>
-> +#include <linux/of_platform.h>
-> +#include <linux/pinctrl/consumer.h>
-> +#include <linux/pm_runtime.h>
-> +#include <linux/regmap.h>
-> +#include <linux/reset.h>
-> +
-> +#define OMM_CR			0
-> +#define CR_MUXEN		BIT(0)
-> +#define CR_MUXENMODE_MASK	GENMASK(1, 0)
-> +#define CR_CSSEL_OVR_EN		BIT(4)
-> +#define CR_CSSEL_OVR_MASK	GENMASK(6, 5)
-> +#define CR_REQ2ACK_MASK		GENMASK(23, 16)
-> +
-> +#define OMM_CHILD_NB		2
-> +
-> +struct ospi_child {
-> +	struct device *dev;
-> +	struct device_node *node;
-> +	struct clk *clk;
-> +};
-> +
-> +struct stm32_omm {
-> +	struct ospi_child child[OMM_CHILD_NB];
-> +	struct resource *mm_res;
-> +	struct clk *clk;
-> +	void __iomem *io_base;
-> +	u32 cr;
-> +	u8 nb_child;
-> +	bool restore_omm;
-> +};
-> +
-> +static int stm32_omm_set_amcr(struct device *dev, bool set)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	struct regmap *syscfg_regmap;
-> +	struct device_node *node;
-> +	struct resource res, res1;
-> +	resource_size_t mm_ospi2_size = 0;
-> +	static const char * const mm_name[] = { "ospi1", "ospi2" };
-> +	u32 amcr_base, amcr_mask;
-> +	int ret, idx;
-> +	unsigned int i, amcr, read_amcr;
-> +
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		idx = of_property_match_string(dev->of_node,
-> +					       "memory-region-names",
-> +					       mm_name[i]);
-> +		if (idx < 0)
-> +			continue;
-> +
-> +		/* res1 only used on second loop iteration */
-> +		res1.start = res.start;
-> +		res1.end = res.end;
-> +
-> +		node = of_parse_phandle(dev->of_node, "memory-region", idx);
-> +		if (!node)
-> +			continue;
-> +
-> +		ret = of_address_to_resource(node, 0, &res);
-> +		if (ret) {
-> +			dev_err(dev, "unable to resolve memory region\n");
-> +			return ret;
-> +		}
-> +
-> +		/* check that memory region fits inside OMM memory map area */
-> +		if (!resource_contains(omm->mm_res, &res)) {
-> +			dev_err(dev, "%s doesn't fit inside OMM memory map area\n",
-> +				mm_name[i]);
-> +			dev_err(dev, "%pR doesn't fit inside %pR\n", &res, omm->mm_res);
-> +
-> +			return -EFAULT;
-> +		}
-> +
-> +		if (i == 1) {
-> +			mm_ospi2_size = resource_size(&res);
-> +
-> +			/* check that OMM memory region 1 doesn't overlap memory region 2 */
-> +			if (resource_overlaps(&res, &res1)) {
-> +				dev_err(dev, "OMM memory-region %s overlaps memory region %s\n",
-> +					mm_name[0], mm_name[1]);
-> +				dev_err(dev, "%pR overlaps %pR\n", &res1, &res);
-> +
-> +				return -EFAULT;
-> +			}
-> +		}
-> +	}
-> +
-> +	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
-> +	if (IS_ERR(syscfg_regmap)) {
-> +		dev_err(dev, "Failed to get st,syscfg-amcr property\n");
-> +		return PTR_ERR(syscfg_regmap);
-> +	}
-> +
-> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
-> +					 &amcr_base);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
-> +					 &amcr_mask);
-> +	if (ret)
-> +		return ret;
-> +
-> +	amcr = mm_ospi2_size / SZ_64M;
-> +
-> +	if (set)
-> +		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
-> +
-> +	/* read AMCR and check coherency with memory-map areas defined in DT */
-> +	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
-> +	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
-> +
-> +	if (amcr != read_amcr) {
-> +		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
-> +		ret = -EINVAL;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int stm32_omm_enable_child_clock(struct device *dev, bool enable)
-> +{
-> +	/* As there is only 2 children, remember first child in case of error */
-> +	struct clk *first_child_clk = NULL;
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	u8 i;
-> +	int ret;
-> +
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		if (enable) {
-> +			ret = clk_prepare_enable(omm->child[i].clk);
-> +			if (ret) {
-> +				if (first_child_clk)
-> +					clk_disable_unprepare(first_child_clk);
-> +
-> +				dev_err(dev, "Can not enable clock\n");
-> +				return ret;
-> +			}
-> +		} else {
-> +			clk_disable_unprepare(omm->child[i].clk);
-> +		}
-> +
-> +		first_child_clk = omm->child[i].clk;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_omm_configure(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	struct reset_control *rstc;
-> +	unsigned long clk_rate, clk_rate_max = 0;
-> +	int ret;
-> +	u8 i;
-> +	u32 mux = 0;
-> +	u32 cssel_ovr = 0;
-> +	u32 req2ack = 0;
-> +
-> +	omm->clk = devm_clk_get(dev, NULL);
-> +	if (IS_ERR(omm->clk)) {
-> +		dev_err(dev, "Failed to get OMM clock (%ld)\n",
-> +			PTR_ERR(omm->clk));
-> +
-> +		return PTR_ERR(omm->clk);
-> +	}
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/* parse children's clock */
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		clk_rate = clk_get_rate(omm->child[i].clk);
-> +		if (!clk_rate) {
-> +			dev_err(dev, "Invalid clock rate\n");
-> +			pm_runtime_disable(dev);
-> +			goto err_clk_disable;
-> +		}
-> +
-> +		if (clk_rate > clk_rate_max)
-> +			clk_rate_max = clk_rate;
-> +	}
-> +
-> +	rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
-> +	if (IS_ERR(rstc)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(rstc), "reset get failed\n");
-> +		pm_runtime_disable(dev);
-> +		goto err_clk_disable;
-> +	}
-> +
-> +	reset_control_assert(rstc);
-> +	udelay(2);
-> +	reset_control_deassert(rstc);
-> +
-> +	omm->cr = readl_relaxed(omm->io_base + OMM_CR);
-> +	/* optional */
-> +	ret = of_property_read_u32(dev->of_node, "st,omm-mux", &mux);
-> +	if (!ret) {
-> +		if (mux & CR_MUXEN) {
-> +			ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
-> +						   &req2ack);
-> +			if (!ret && !req2ack) {
-> +				req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
-> +
-> +				if (req2ack > 256)
-> +					req2ack = 256;
-> +			}
-> +
-> +			req2ack = FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
-> +
-> +			omm->cr &= ~CR_REQ2ACK_MASK;
-> +			omm->cr |= FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
-> +
-> +			/*
-> +			 * If the mux is enabled, the 2 OSPI clocks have to be
-> +			 * always enabled
-> +			 */
-> +			ret = stm32_omm_enable_child_clock(dev, true);
-> +			if (ret) {
-> +				pm_runtime_disable(dev);
-> +				goto err_clk_disable;
-> +			}
-> +		}
-> +
-> +		omm->cr &= ~CR_MUXENMODE_MASK;
-> +		omm->cr |= FIELD_PREP(CR_MUXENMODE_MASK, mux);
-> +	}
-> +
-> +	/* optional */
-> +	ret = of_property_read_u32(dev->of_node, "st,omm-cssel-ovr", &cssel_ovr);
-> +	if (!ret) {
-> +		omm->cr &= ~CR_CSSEL_OVR_MASK;
-> +		omm->cr |= FIELD_PREP(CR_CSSEL_OVR_MASK, cssel_ovr);
-> +		omm->cr |= CR_CSSEL_OVR_EN;
-> +	}
-> +
-> +	omm->restore_omm = true;
-> +	writel_relaxed(omm->cr, omm->io_base + OMM_CR);
-> +
-> +	ret = stm32_omm_set_amcr(dev, true);
-> +
-> +err_clk_disable:
-> +	pm_runtime_put_sync_suspend(dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int stm32_omm_check_access(struct device *dev, struct device_node *np)
-> +{
-> +	struct stm32_firewall firewall;
-> +	int ret;
-> +
-> +	ret = stm32_firewall_get_firewall(np, &firewall, 1);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return stm32_firewall_grant_access(&firewall);
-> +}
-> +
-> +static int stm32_omm_disable_child(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	struct reset_control *reset;
-> +	int ret;
-> +	u8 i;
-> +
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		ret = clk_prepare_enable(omm->child[i].clk);
-> +		if (ret) {
-> +			dev_err(dev, "Can not enable clock\n");
-> +			return ret;
-> +		}
-> +
-> +		reset = of_reset_control_get_exclusive(omm->child[i].node, 0);
-> +		if (IS_ERR(reset)) {
-> +			dev_err(dev, "Can't get child reset\n");
-> +			return PTR_ERR(reset);
-> +		};
-> +
-> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
-> +		reset_control_assert(reset);
-> +		udelay(2);
-> +		reset_control_deassert(reset);
-> +
-> +		reset_control_put(reset);
-> +		clk_disable_unprepare(omm->child[i].clk);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_omm_probe(struct platform_device *pdev)
-> +{
-> +	struct platform_device *vdev;
-> +	struct device *dev = &pdev->dev;
-> +	struct stm32_omm *omm;
-> +	struct clk *clk;
-> +	int ret;
-> +	u8 child_access_granted = 0;
-> +	u8 i, j;
-> +	bool child_access[OMM_CHILD_NB];
-> +
-> +	omm = devm_kzalloc(dev, sizeof(*omm), GFP_KERNEL);
-> +	if (!omm)
-> +		return -ENOMEM;
-> +
-> +	omm->io_base = devm_platform_ioremap_resource_byname(pdev, "regs");
-> +	if (IS_ERR(omm->io_base))
-> +		return PTR_ERR(omm->io_base);
-> +
-> +	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
-> +	if (IS_ERR(omm->mm_res))
-> +		return PTR_ERR(omm->mm_res);
-> +
-> +	/* check child's access */
-> +	for_each_child_of_node_scoped(dev->of_node, child) {
-> +		if (omm->nb_child >= OMM_CHILD_NB) {
-> +			dev_err(dev, "Bad DT, found too much children\n");
-> +			ret = -E2BIG;
-> +			goto err_clk_release;
-> +		}
-> +
-> +		if (!of_device_is_compatible(child, "st,stm32mp25-ospi")) {
-> +			ret = -EINVAL;
-> +			goto err_clk_release;
-> +		}
-> +
-> +		ret = stm32_omm_check_access(dev, child);
-> +		if (ret < 0 && ret != -EACCES)
-> +			goto err_clk_release;
-> +
-> +		child_access[omm->nb_child] = false;
-> +		if (!ret) {
-> +			child_access_granted++;
-> +			child_access[omm->nb_child] = true;
-> +		}
-> +
-> +		omm->child[omm->nb_child].node = child;
-> +
-> +		clk = of_clk_get(child, 0);
-> +		if (IS_ERR(clk)) {
-> +			dev_err(dev, "Can't get child clock\n");
-> +			ret = PTR_ERR(clk);
-> +			goto err_clk_release;
-> +		};
-> +
-> +		omm->child[omm->nb_child].clk = clk;
-> +		omm->nb_child++;
-> +	}
-> +
-> +	if (omm->nb_child != OMM_CHILD_NB) {
-> +		ret = -EINVAL;
-> +		goto err_clk_release;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, omm);
-> +
-> +	pm_runtime_enable(dev);
-> +
-> +	/* check if OMM's resource access is granted */
-> +	ret = stm32_omm_check_access(dev, dev->of_node);
-> +	if (ret < 0 && ret != -EACCES)
-> +		goto err_clk_release;
-> +
-> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
-> +		/* Ensure both OSPI instance are disabled before configuring OMM */
-> +		ret = stm32_omm_disable_child(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +
-> +		ret = stm32_omm_configure(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	} else {
-> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
-> +		/*
-> +		 * AMCR can't be set, so check if current value is coherent
-> +		 * with memory-map areas defined in DT
-> +		 */
-> +		ret = stm32_omm_set_amcr(dev, false);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	}
-> +
-> +	/* for each child, if resource access is granted and status "okay", probe it */
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
-> +			continue;
-> +
-> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
-> +		if (!vdev) {
-> +			dev_err(dev, "Failed to create Octo Memory Manager child\n");
-> +			for (j = i; j > 0; --j) {
-> +				if (omm->child[j].dev)
-> +					of_platform_device_destroy(omm->child[j].dev, NULL);
-> +			}
-> +
-> +			ret = -EINVAL;
-> +			goto err_clk_release;
-> +		}
-> +		omm->child[i].dev = &vdev->dev;
-> +	}
-> +
-> +err_clk_release:
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		clk_put(omm->child[i].clk);
-> +
-> +	return ret;
-> +}
-> +
-> +static void stm32_omm_remove(struct platform_device *pdev)
-> +{
-> +	struct stm32_omm *omm = platform_get_drvdata(pdev);
-> +	int i;
-> +
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		if (omm->child[i].dev)
-> +			of_platform_device_destroy(omm->child[i].dev, NULL);
-> +
-> +	if (omm->cr & CR_MUXEN)
-> +		stm32_omm_enable_child_clock(&pdev->dev, false);
-> +
-> +	pm_runtime_disable(&pdev->dev);
-> +}
-> +
-> +static const struct of_device_id stm32_omm_of_match[] = {
-> +	{ .compatible = "st,stm32mp25-omm", },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, stm32_omm_of_match);
-> +
-> +static int __maybe_unused stm32_omm_runtime_suspend(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(omm->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused stm32_omm_runtime_resume(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	return clk_prepare_enable(omm->clk);
-> +}
-> +
-> +static int __maybe_unused stm32_omm_suspend(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	if (omm->restore_omm && omm->cr & CR_MUXEN)
-> +		stm32_omm_enable_child_clock(dev, false);
-> +
-> +	return pinctrl_pm_select_sleep_state(dev);
-> +}
-> +
-> +static int __maybe_unused stm32_omm_resume(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	int ret;
-> +
-> +	pinctrl_pm_select_default_state(dev);
-> +
-> +	if (!omm->restore_omm)
-> +		return 0;
-> +
-> +	/* Ensure both OSPI instance are disabled before configuring OMM */
-> +	ret = stm32_omm_disable_child(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	writel_relaxed(omm->cr, omm->io_base + OMM_CR);
-> +	ret = stm32_omm_set_amcr(dev, true);
-> +	pm_runtime_put_sync_suspend(dev);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (omm->cr & CR_MUXEN)
-> +		ret = stm32_omm_enable_child_clock(dev, true);
-> +
-> +	return ret;
-> +}
-> +
-> +static const struct dev_pm_ops stm32_omm_pm_ops = {
-> +	SET_RUNTIME_PM_OPS(stm32_omm_runtime_suspend,
-> +			   stm32_omm_runtime_resume, NULL)
-> +	SET_SYSTEM_SLEEP_PM_OPS(stm32_omm_suspend, stm32_omm_resume)
-> +};
-> +
-> +static struct platform_driver stm32_omm_driver = {
-> +	.probe	= stm32_omm_probe,
-> +	.remove = stm32_omm_remove,
-> +	.driver	= {
-> +		.name = "stm32-omm",
-> +		.of_match_table = stm32_omm_of_match,
-> +		.pm = &stm32_omm_pm_ops,
-> +	},
-> +};
-> +module_platform_driver(stm32_omm_driver);
-> +
-> +MODULE_DESCRIPTION("STMicroelectronics Octo Memory Manager driver");
-> +MODULE_LICENSE("GPL");
+> If it is considered essential that the upstream Pi 5 dts file does not
+> include RP1 and its children, then Raspberry Pi are going to have to
+> walk a different path until we've seen how that can work. By splitting
+> rp1.dtso as I suggested, and perhaps providing an alternative helper
+> function that only applies the built-in overlay if the device node
+> doesn't already exist, we get to stay as close to upstream as
+> possible.
+> 
+> Phil
+
+So, the problem is twofold: the first is due to the fact that downstream
+expects the dtb to be fully declared at fw load time (I'll call that
+*monolithic* dtb from now on), the second is about how to represent dependencies
+between board dtb and rp1 overlay which arises only when using overlays instead
+of a monolithic dtb.
+
+The former issue must be solved first in order for the latter to even exists
+(if we don't use overlay, the dependencies are fully exposed in the dtb since
+the beginning), so I'll concentrate on the former for now.
+
+There are 3 possible scenarios to be reconciled:
 
 
-Hi all,
+1 - MONOLITHIC DTB
 
-Anybody alse has additionnal remarks on this driver ?
+This is the downstream case, where it's advisable to have only one dtb blob
+containing everything (rp1 included) loaded by the fw. In this case the
+resulting devicetree would looks like:
 
-Thanks
-Patrice
+  axi {
+    pcie@120000 {
+      rp1_nexus {
+        pci-ep-bus@1 {
+             ...
+        }
+      }
+    }
+  }
+
+
+2 - RP1 LOADED FROM OVERLAY BY THE FW
+
+In this case the rp1 dt node is loaded from overlay directly by the fw and the 
+resulting devicetree is exactly equal to the monolithic dtb scenario.
+In order for that overlay to be loaded by fw, just add 'dtoverlay=rp1' in
+'config.txt'.
+
+
+3 - RP1 LOADED FROM OVERLAY AT RUNTIME
+
+Here it's the rp1 driver that loads the overlay at runtime, which is the case
+that this patchset originally proposed. The devicetree ends up like this:
+
+  axi {
+    pcie@120000 {
+      pci@0,0 {
+        dev@0,0 {
+          pci-ep-bus@1 {
+               ...
+          }
+        }
+      }
+    }
+  }
+
+and this is exepcially useful to cope with the case in which there's no DT
+natively used, e.g. on ACPI systems.
+
+
+In order for all those 3 mentioned scenatios to work, I propose the following
+inclusion scheme for for the dts files (the arrow points to the includer):
+                   
+ 
+ rp1-pci.dtso         rp1.dtso
+     ^                    ^
+     |                    |
+rp1-common.dtsi ----> rp1-nexus.dtsi ----> bcm2712-rpi-5-b-MONOLITHIC.dts
+   
+   
+where those dts are defined as follows (omitting the internal properties for
+clarity sake):
+
+
+- rp1-common.dtsi ------- // definition of core rp1 and its peripherals, common
+			  // for all cases
+
+	pci_ep_bus: pci-ep-bus@1 
+	{
+		rp1_clocks { };
+
+		rp1_gpio { };
+
+		rp1_eth { };
+	};
+
+- rp1-pci.dtso ---------- // ovl linked in the rp1 driver code to be loaded at
+			  // runtime from rp1 driver. Only for case 3
+
+	/plugin/;
+	fragment@0 {
+                target-path="";
+                __overlay__ {
+			#include "rp1-common.dtsi"
+		};
+	}
+
+- rp1-nexus.dtsi ------- // adapter to decouple rp1 ranges for non runtime-loaded
+		         // overlay case (i.e. only for case 1 and 2)
+
+	rp1_nexus {
+		ranges = ...
+		
+		 #include "rp1-common.dtsi"
+	};
+
+- rp1.dtso ------------ // overlay to be loaded by fw (case 2)
+
+	/plugin/;
+	&pcie2 {
+		#include "rp1-nexus.dtsi"
+	};
+
+- bcm2712-rpi-5-b-MONOLITHIC.dts --- // monolithic dtb to avoid any overlay use
+				     // (case 1)
+
+	/ {
+		... all rpi5 board dts ...
+		&pcie2 {
+        		#include "rp1-nexus.dtsi"
+		};
+	};
+
+
+with only minimal changes to the rp1 driver code, I can confirm that all those
+scenarios can coexits and are working fine. Before processding with a new patchset
+I'd like to have some thoughts about that, do you think this is a viable approach?
+
+Many thanks,
+Andrea
 
