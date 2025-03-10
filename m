@@ -4,72 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E26DC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:19:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CFAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:22:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8oDl0bBs3tCfqgA77qPG8Vr+30J/oYlSYqhSGqmt52Q=; b=e9/t8igauh9vBfICB2aFXdWiUP
-	BCFeJY3eT4YoIFK2cmQZ2QUcl98uTrG4kOVSUwQwKvU9VnafAb4tASyJeynbxa7H73+Cn9IE0nDfb
-	FGvKlZpVi15XP8s0UkIahgwrt223HGNQiki6TE2OF95rMiI4UQadLvqSUNC57fpypUXGr8qZ2n3TK
-	3Y6dyP5GZ4edc78Dj+wSK8UDxjPUihXYXYAjAEKnQG0+uNDV8og82N7OXvMMUmj45sJof/maMkCty
-	JbKMUYpb+YQ+0PCl8/TAoiw843yyqr9AN4yVg9eeUdQPXXEJVsIkzO0PwB7oz30vNGnurn+ACrRyv
-	DtwJFHNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YVgrYAqOmzDomPVWovtiT2BUnSO4CsUu2Ru+cq5kIeM=; b=crc3sQYabSI1h6FXmQg4qHMZ5V
+	JQvPryYIloanMvwrGCBWCfU1d2EfzFgOVAKm7/coOz2hb2k+Ed1ga3dI6YmcUuD9VHpHCsmViT501
+	ilff3eb++IPGE0jHW/8A87RIy1ws//tdkwuYlFqD9rvHd28JU2qKadoufr907CmEJ4D0CvtE2a0UF
+	SjJALSEAip9LI9RdCFbo3bwDR81s9tvHOoMyFsVeWaCElSUU6JzN+knAQCjZQELjxlkivoVrnqgzC
+	zXuxlJ3FiY1w/rz6pah8g5XEzu94SlbP8hVjc0h+b76MZyngiIZYO6OIR93igeV13JEeXvSYX50x2
+	jPqk+j9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traDq-00000002EeZ-1QlL;
-	Mon, 10 Mar 2025 10:18:58 +0000
-Received: from mail-m49195.qiye.163.com ([45.254.49.195])
+	id 1traH2-00000002F2U-2iYV;
+	Mon, 10 Mar 2025 10:22:16 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tra4i-00000002D3W-0geJ;
-	Mon, 10 Mar 2025 10:09:33 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id dc09eef1;
-	Mon, 10 Mar 2025 18:09:19 +0800 (GMT+08:00)
-Message-ID: <5dc47134-fabb-4f9c-acc3-8bf37d2cc733@rock-chips.com>
-Date: Mon, 10 Mar 2025 18:09:20 +0800
+	id 1traEq-00000002Eqi-01Kd;
+	Mon, 10 Mar 2025 10:20:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=YVgrYAqOmzDomPVWovtiT2BUnSO4CsUu2Ru+cq5kIeM=; b=kvW9cz9v21ig5GGwO+obljcyIG
+	3Dbf0AjA4WiL3kKTqq1bXf4sT2CG5at2sQ31U5gBJcE1lUesX73jySVhhgAC389jffXK3Yxia6+NS
+	DcOppobmwV/9AobgdWMKG7XkySpnuEjXNd5qg3DsLtkR7ulzZBGhpf71H3XuOcZDeYguuSsPQxHbh
+	dLVf/S4I4twQEB3J4DIgpUrXSr2TlLEYJgXkKl9nMtjZR+cSQO31djoaSIaamXC29hc7LlB0MkOf5
+	812bkGSQlA7MqylHQCz40zc6GK0mrcnR8/t10CX7Oona9TNxg8w4koE2ljKO8809BkAL/FNf2k1XX
+	m7h0bYsA==;
+Received: from foss.arm.com ([217.140.110.172])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1traEm-00000001pfx-34lI;
+	Mon, 10 Mar 2025 10:19:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5103C153B;
+	Mon, 10 Mar 2025 03:20:05 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A2573F673;
+	Mon, 10 Mar 2025 03:19:50 -0700 (PDT)
+Date: Mon, 10 Mar 2025 10:19:48 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Jacky Bai <ping.bai@nxp.com>
+Cc: <rafael@kernel.org>, <viresh.kumar@linaro.org>, <ilia.lin@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>, <tiny.windzz@gmail.com>,
+	<wens@csie.org>, <jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
+	<linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
+	<imx@lists.linux.dev>
+Subject: Re: [PATCH] cpufreq: Init cpufreq only for present CPUs
+Message-ID: <Z868xB3_3NhMsa7R@bogus>
+References: <20250310071640.3140435-1-ping.bai@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Damon Ding <damon.ding@rock-chips.com>
-Subject: Re: [PATCH v7 10/15] drm/rockchip: analogix_dp: Add support to get
- panel from the DP AUX bus
-To: Doug Anderson <dianders@chromium.org>
-Cc: heiko@sntech.de, andy.yan@rock-chips.com, hjc@rock-chips.com,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, dmitry.baryshkov@linaro.org,
- sebastian.reichel@collabora.com, cristian.ciocaltea@collabora.com,
- boris.brezillon@collabora.com, l.stach@pengutronix.de,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250224081325.96724-1-damon.ding@rock-chips.com>
- <20250224081325.96724-11-damon.ding@rock-chips.com>
- <CAD=FV=WS_2JAKMyFFmrNtaN7-O4dh2hOXHc25FytDxXAjAr+5A@mail.gmail.com>
-Content-Language: en-US
-In-Reply-To: <CAD=FV=WS_2JAKMyFFmrNtaN7-O4dh2hOXHc25FytDxXAjAr+5A@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGUNOTFZDTUsfGh1NGkgaH09WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-X-HM-Tid: 0a957f87c7c203a3kunmdc09eef1
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6ORQ6Ghw*MDIMNiM5Vjk6LzNK
-	A0IKCg1VSlVKTE9KTUtKSE1KTk5DVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJQ01DNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=D7E3vw1XXB1XCYg4ojtoHQqelLn3tRxuF/YnJiS7eKtAHcAJmK6eZVh8POr/PKSys+Oh0rYtPLotv2Gp8EdLwkFeVgjH1md2nhhGOO5PUuohiFVFMSqdP7tYsL4Cg+HhG6fnpIVHcx0r3/pX2DKi4Tz3OBEz6CkZfH4o1zPqTlU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=8oDl0bBs3tCfqgA77qPG8Vr+30J/oYlSYqhSGqmt52Q=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250310071640.3140435-1-ping.bai@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_030932_419759_BA2CD779 
-X-CRM114-Status: GOOD (  20.99  )
+X-CRM114-CacheID: sfid-20250310_101956_925721_861671AC 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,98 +82,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Doug,
+On Mon, Mar 10, 2025 at 03:16:40PM +0800, Jacky Bai wrote:
+> for_each_possible_cpu() is currently used to initialize cpufreq
+> in below cpufreq drivers:
+>   drivers/cpufreq/cpufreq-dt.c
+>   drivers/cpufreq/mediatek-cpufreq-hw.c
+>   drivers/cpufreq/mediatek-cpufreq.c
+>   drivers/cpufreq/qcom-cpufreq-nvmem.c
+>   drivers/cpufreq/sun50i-cpufreq-nvmem.c
+>
 
-On 2025/2/25 9:42, Doug Anderson wrote:
-> Hi,
-> 
-> On Mon, Feb 24, 2025 at 12:14 AM Damon Ding <damon.ding@rock-chips.com> wrote:
->>
->> @@ -392,11 +393,27 @@ static const struct component_ops rockchip_dp_component_ops = {
->>          .unbind = rockchip_dp_unbind,
->>   };
->>
->> +static int rockchip_dp_link_panel(struct drm_dp_aux *aux)
->> +{
->> +       struct analogix_dp_plat_data *plat_data = analogix_dp_aux_to_plat_data(aux);
->> +       struct rockchip_dp_device *dp = pdata_encoder_to_dp(plat_data);
->> +       int ret;
->> +
->> +       ret = drm_of_find_panel_or_bridge(dp->dev->of_node, 1, 0, &plat_data->panel, NULL);
->> +       if (ret && ret != -ENODEV)
->> +               return ret;
-> 
-> Can you explain why you treat -ENODEV as a non-error case here? Maybe
-> this is for the non-eDP case (AKA the DP case) where there's no
-> further panels or bridges? Maybe a comment would be helpful to remind
-> us?
-> 
+Again how did you just narrow down to the list above ? Is that just a
+random pick ? As I suggested with corresponding cpuidle changes, please
+look into the details in side the for_each_possible_cpu() loop and then
+decide if it applies or not.
 
-I think the commit 86caee745e45 ("drm/rockchip: analogix_dp: allow to 
-work without panel") can help the Analogix DP driver work when the 
-bridge is driver-free or when the user uses the eDP IP as a DP.
+For me, it applied to the below files as well at the least.
 
-And I will add some comments in the next version.
+drivers/cpufreq/mvebu-cpufreq.c
+drivers/cpufreq/qcom-cpufreq-hw.c
+drivers/cpufreq/scmi-cpufreq.c
+drivers/cpufreq/scpi-cpufreq.c
+drivers/cpufreq/virtual-cpufreq.c
 
-> 
->> +       ret = component_add(dp->dev, &rockchip_dp_component_ops);
->> +       if (ret)
->> +               return ret;
->> +
->> +       return ret;
-> 
-> nit: the above could just be:
-> 
-> return component_add(dp->dev, &rockchip_dp_component_ops);
-> 
+Please check everything thoroughly as I just looked at these briefly.
 
-Yeah, it is a good idea.
-
-> 
->> @@ -448,9 +460,16 @@ static int rockchip_dp_probe(struct platform_device *pdev)
->>          if (IS_ERR(dp->adp))
->>                  return PTR_ERR(dp->adp);
->>
->> -       ret = component_add(dev, &rockchip_dp_component_ops);
->> -       if (ret)
->> -               return ret;
->> +       ret = devm_of_dp_aux_populate_bus(analogix_dp_get_aux(dp->adp), rockchip_dp_link_panel);
->> +       if (ret) {
->> +               if (ret != -ENODEV)
->> +                       return dev_err_probe(dp->dev, ret,
->> +                                            "failed to populate aux bus : %d\n", ret);
-> 
-> IIRC this -ENODEV case is for old legacy panels that aren't listed
-> under the aux bus in the device tree. Maybe a comment would be helpful
-> to remind us?
-
-I will add a comment here if devm_of_dp_aux_populate_bus() returns -ENODEV.
-
-> 
-> nit: don't need the %d in your error message. dev_err_probe() already
-> prints the error code.
-> 
-
-I will remove it in the next version.
-
-> 
->> +               ret = rockchip_dp_link_panel(analogix_dp_get_aux(dp->adp));
->> +               if (ret)
->> +                       return ret;
->> +       }
->>
->>          return 0;
-> 
-> You can get rid of a few of your return cases by just returning "ret" here.
-> 
-
-Yeah, it is better.
-
-> 
-> -Doug
-> 
-> 
-
-Best regards
-Damon
+--
+Regards,
+Sudeep
 
