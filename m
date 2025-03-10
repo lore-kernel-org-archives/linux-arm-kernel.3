@@ -4,86 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA099C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:05:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1FCFC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:09:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pb11/mckuMZgJ7exsFhgBkvmI8sJ83SVYGIFta4LcXg=; b=v0Hdk1jL5ZnFfqwyYsX2cSV0es
-	Db8AAspWZfuFzGkSslGr2L05Rta1USzF/jZjfH/DxNJnK5ex5fk6omd1gp6ZDmz2N9PIWqpKQpJSt
-	n7AIpwMvHZw8sjA2Tdp1hg8stvufeQewOf6Qkzz4Tm7JPmit2BjD+WjQj5V2anQZZ+lSqRxWphhxo
-	Jb54ic5RRQ+In3etEgQV5YIrVRxhn3hydWLOu/hxeR3+ZVxhy1OviZbBm5IgbUGDMIaPuyyASEm+2
-	enr4bcfdvXOojkZtZ31ZJC/7tXC9lqIi0AlvOO0hjm7Zbx7+fn3uDiDvhZeK5tSnejEEO1flKVxTi
-	fskLzbTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ErvMhDaeytDw3IwmawvixvMw91TjhNNARaeILM5HZbA=; b=jErecMQuxVyZvHIII/biWrMUQt
+	duYkRDkUHQKzG831TUMw7BGI3FsuvqZ8H6eos0yCNGCgAJOFlAuMaWCcqlaUnim81+92mxc3MjNP9
+	51rjm1J+6xPhyiaZ2MRrWHYjDBOrCCV3viVT9TwNYxg6FwRJMsNR1XXCebBhrRGvgv12+kuJqNBTX
+	Ve4zjpBGmPcsj9zL1PkAOy9DuC/QyMexqc+L3w/7gxmbSC9txTp94QheVkG3IPO8gOXZrpdEMGxTn
+	JKCATW2KhabX2O4Ro07HdxK3by/Dezl1Zm0yJtH+yOze2G3l/HfFO8Xf09Xwjf8OxhdRgVPe6n0u/
+	Lcrcl0EA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSWM-00000001PrE-2T6p;
-	Mon, 10 Mar 2025 02:05:34 +0000
-Received: from mgamail.intel.com ([192.198.163.11])
+	id 1trSaR-00000001QG5-2GqZ;
+	Mon, 10 Mar 2025 02:09:47 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSUh-00000001Pgb-3p5k;
-	Mon, 10 Mar 2025 02:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741572232; x=1773108232;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=6CykNk9cUToWOqSzi+0FSLKdtYh2ymFzaVs96PibQ6M=;
-  b=bVOnBdhhHR3fLgAUAoxH2rDH8/4BS8UwCRvnhjaX5qMo1hL86QRktfKS
-   FxIcl603aNrBvLmRPcB3xccrcRYkNp0QjHluYkM8KBQcPR3sCSGEPlEA0
-   ZhGIKncuuDPoNIRRviehtnAp6iPqedMz3ZxgDu64raUJ0Of7+il+VG7oG
-   Kwwhd530B/TVPhQ8bYiQvIpfU95+VWdafQfM+ytqHUgbx739FnF/hrL6x
-   LZV1OiEC5kcaOxLtarOwY7RRj0C9Tkpy066L5hVuZTCyvw6fqsrULRgJP
-   wW+iVXRSdLjTtIkaMt1WLG9xD7eK/bAn47VsFYiBtnqllucUyErHYVly0
-   w==;
-X-CSE-ConnectionGUID: SIChJAB0TpOAKda74Ayk/w==
-X-CSE-MsgGUID: WXY5Yb58SBiqKLGWL5VhZQ==
-X-IronPort-AV: E=McAfee;i="6700,10204,11368"; a="53193569"
-X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
-   d="scan'208";a="53193569"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by fmvoesa105.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 19:03:50 -0700
-X-CSE-ConnectionGUID: BjxoIDHuSPq56c0P2KxA4Q==
-X-CSE-MsgGUID: que1fRfzQBqTdfIlhlvZOQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
-   d="scan'208";a="124456649"
-Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
-  by fmviesa005.fm.intel.com with ESMTP; 09 Mar 2025 19:03:17 -0700
-Received: from kbuild by a4747d147074 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1trSU6-0003hE-2M;
-	Mon, 10 Mar 2025 02:03:14 +0000
-Date: Mon, 10 Mar 2025 10:02:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Jan Dakinevich <jan.dakinevich@salutedevices.com>,
-	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
-	Jaroslav Kysela <perex@perex.cz>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-sound@vger.kernel.org, Mark Brown <broonie@kernel.org>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Rob Herring <robh@kernel.org>, Takashi Iwai <tiwai@suse.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev
-Subject: Re: [PATCH v2 2/4] ASoC: meson: g12a-toacodec: drop the definition
- of bits
-Message-ID: <202503100909.xnqNYW9u-lkp@intel.com>
-References: <20250309181600.1322701-3-jan.dakinevich@salutedevices.com>
+	id 1trSYn-00000001Q8R-2zbZ
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 02:08:07 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 529NTD0D029281;
+	Mon, 10 Mar 2025 02:07:58 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	ErvMhDaeytDw3IwmawvixvMw91TjhNNARaeILM5HZbA=; b=U2pmVY9j9p2rAA7n
+	x5Jno9GKAcRBHFWez5hHbnqkJMwV2nDKHl9kKIrWv+mbN/JnssO7k9DWeWYQ/SgH
+	78sl+wA9cxnuvRdv4BREi25S8Ii/sBRw4vRc9bH0D/TPkEFgNugtN7g9F4tgyhaX
+	bP0s85sljkeQqYuw09NvB+KRVXIsRyUqrpcT6nCDglyqlWlUF9eshh25IyyDZ87v
+	4knAI6AczwYpWYCVAPyq0CHvV9247BSNhkkCiDYhMYHv9XnetUGZkqQo7hjH3+/L
+	2gDanDjPFZwJWLbYvFO0Q8oW+yrE8xp9TNU1CX+t2A0ZLo+vJ0SJJFe0GuStt/lT
+	Lzqj0A==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458f6ab61m-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 02:07:58 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52A27vXo006762
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 02:07:57 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Sun, 9 Mar 2025
+ 19:07:54 -0700
+Message-ID: <549b3e5e-5ee1-426f-b256-f3efc1dc4908@quicinc.com>
+Date: Mon, 10 Mar 2025 10:07:32 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309181600.1322701-3-jan.dakinevich@salutedevices.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] Coresight: Improve the method for passing through perf
+ handle
+From: Jie Gan <quic_jiegan@quicinc.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: "Tingwei Zhang (QUIC)" <quic_tingweiz@quicinc.com>,
+        "Jinlong Mao (QUIC)"
+	<quic_jinlmao@quicinc.com>,
+        "coresight@lists.linaro.org"
+	<coresight@lists.linaro.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+        "linux-arm-msm@vger.kernel.org"
+	<linux-arm-msm@vger.kernel.org>
+References: <20250211062021.7013-1-jie.gan@oss.qualcomm.com>
+Content-Language: en-US
+In-Reply-To: <20250211062021.7013-1-jie.gan@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=WsDRMcfv c=1 sm=1 tr=0 ts=67ce497e cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=KKAkSRfTAAAA:8 a=EUspDBNiAAAA:8 a=COk6AnOGAAAA:8
+ a=02J8pJ6TqhWp_VxCNtEA:9 a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: HC_efWkp-fAxPKKfkF0xoehIirzKw_nw
+X-Proofpoint-ORIG-GUID: HC_efWkp-fAxPKKfkF0xoehIirzKw_nw
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-10_01,2025-03-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 malwarescore=0 suspectscore=0
+ lowpriorityscore=0 priorityscore=1501 bulkscore=0 adultscore=0
+ impostorscore=0 phishscore=0 mlxscore=0 mlxlogscore=783 clxscore=1015
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503100015
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_190352_011107_A31A48BF 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250309_190805_780987_69C39681 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,111 +116,310 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jan,
-
-kernel test robot noticed the following build warnings:
-
-[auto build test WARNING on broonie-sound/for-next]
-[also build test WARNING on linus/master v6.14-rc5 next-20250307]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Jan-Dakinevich/ASoC-meson-codec-glue-add-support-for-capture-stream/20250310-022013
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
-patch link:    https://lore.kernel.org/r/20250309181600.1322701-3-jan.dakinevich%40salutedevices.com
-patch subject: [PATCH v2 2/4] ASoC: meson: g12a-toacodec: drop the definition of bits
-config: i386-buildonly-randconfig-005-20250310 (https://download.01.org/0day-ci/archive/20250310/202503100909.xnqNYW9u-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250310/202503100909.xnqNYW9u-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503100909.xnqNYW9u-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> sound/soc/meson/g12a-toacodec.c:83:11: warning: result of comparison of constant 18446744073709551615 with expression of type 'typeof (_Generic((mclk_sel), char: (unsigned char)0, unsigned char: (unsigned char)0, signed char: (unsigned char)0, unsigned short: (unsigned short)0, short: (unsigned short)0, unsigned int: (unsigned int)0, int: (unsigned int)0, unsigned long: (unsigned long)0, long: (unsigned long)0, unsigned long long: (unsigned long long)0, long long: (unsigned long long)0, default: (mclk_sel)))' (aka 'unsigned int') is always false [-Wtautological-constant-out-of-range-compare]
-      83 |                                       FIELD_PREP(mclk_sel, mux));
-         |                                       ^~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:115:3: note: expanded from macro 'FIELD_PREP'
-     115 |                 __BF_FIELD_CHECK(_mask, 0ULL, _val, "FIELD_PREP: ");    \
-         |                 ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/bitfield.h:72:53: note: expanded from macro '__BF_FIELD_CHECK'
-      72 |                 BUILD_BUG_ON_MSG(__bf_cast_unsigned(_mask, _mask) >     \
-         |                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~
-      73 |                                  __bf_cast_unsigned(_reg, ~0ull),       \
-         |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      74 |                                  _pfx "type of reg too small for mask"); \
-         |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/build_bug.h:39:58: note: expanded from macro 'BUILD_BUG_ON_MSG'
-      39 | #define BUILD_BUG_ON_MSG(cond, msg) compiletime_assert(!(cond), msg)
-         |                                     ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~
-   include/linux/compiler_types.h:542:22: note: expanded from macro 'compiletime_assert'
-     542 |         _compiletime_assert(condition, msg, __compiletime_assert_, __COUNTER__)
-         |         ~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/compiler_types.h:530:23: note: expanded from macro '_compiletime_assert'
-     530 |         __compiletime_assert(condition, msg, prefix, suffix)
-         |         ~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/compiler_types.h:522:9: note: expanded from macro '__compiletime_assert'
-     522 |                 if (!(condition))                                       \
-         |                       ^~~~~~~~~
-   1 warning generated.
 
 
-vim +83 sound/soc/meson/g12a-toacodec.c
+On 2/11/2025 2:20 PM, Jie Gan wrote:
+> From: James Clark <james.clark@linaro.org>
+> 
+> Currently, the perf handle is being passed to the sink device as a void
+> parameter with additional type conversion. Improve the method for
+> passing perf handle parameter to make the code more readable.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
+> ---
+> prerequisite-message-id: <20250207064213.2314482-5-quic_jiegan@quicinc.com>
 
-    42	
-    43	static int g12a_toacodec_mux_put_enum(struct snd_kcontrol *kcontrol,
-    44					      struct snd_ctl_elem_value *ucontrol)
-    45	{
-    46		struct snd_soc_component *component =
-    47			snd_soc_dapm_kcontrol_component(kcontrol);
-    48		struct g12a_toacodec *priv = snd_soc_component_get_drvdata(component);
-    49		struct snd_soc_dapm_context *dapm =
-    50			snd_soc_dapm_kcontrol_dapm(kcontrol);
-    51		struct soc_enum *e = (struct soc_enum *)kcontrol->private_value;
-    52		unsigned int mclk_sel = GENMASK(2, 0);
-    53		unsigned int mux, reg;
-    54	
-    55		if (ucontrol->value.enumerated.item[0] >= e->items)
-    56			return -EINVAL;
-    57	
-    58		mux = snd_soc_enum_item_to_val(e, ucontrol->value.enumerated.item[0]);
-    59		regmap_field_read(priv->field_dat_sel, &reg);
-    60	
-    61		if (mux == reg)
-    62			return 0;
-    63	
-    64		/* Force disconnect of the mux while updating */
-    65		snd_soc_dapm_mux_update_power(dapm, kcontrol, 0, NULL, NULL);
-    66	
-    67		regmap_field_write(priv->field_dat_sel, mux);
-    68		regmap_field_write(priv->field_lrclk_sel, mux);
-    69		regmap_field_write(priv->field_bclk_sel, mux);
-    70	
-    71		/*
-    72		 * FIXME:
-    73		 * On this soc, the glue gets the MCLK directly from the clock
-    74		 * controller instead of going the through the TDM interface.
-    75		 *
-    76		 * Here we assume interface A uses clock A, etc ... While it is
-    77		 * true for now, it could be different. Instead the glue should
-    78		 * find out the clock used by the interface and select the same
-    79		 * source. For that, we will need regmap backed clock mux which
-    80		 * is a work in progress
-    81		 */
-    82		snd_soc_component_update_bits(component, e->reg, mclk_sel,
-  > 83					      FIELD_PREP(mclk_sel, mux));
-    84	
-    85		snd_soc_dapm_mux_update_power(dapm, kcontrol, mux, e, NULL);
-    86	
-    87		return 1;
-    88	}
-    89	
+Gentle ping. The dependency has applied.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks,
+Jie
+
+> ---
+>   drivers/hwtracing/coresight/coresight-core.c    |  8 ++++----
+>   drivers/hwtracing/coresight/coresight-dummy.c   |  2 +-
+>   drivers/hwtracing/coresight/coresight-etb10.c   |  7 +++----
+>   drivers/hwtracing/coresight/coresight-priv.h    |  2 +-
+>   drivers/hwtracing/coresight/coresight-tmc-etf.c |  8 ++++----
+>   drivers/hwtracing/coresight/coresight-tmc-etr.c | 11 +++++------
+>   drivers/hwtracing/coresight/coresight-tmc.h     |  2 +-
+>   drivers/hwtracing/coresight/coresight-tpiu.c    |  2 +-
+>   drivers/hwtracing/coresight/coresight-trbe.c    |  3 +--
+>   drivers/hwtracing/coresight/ultrasoc-smb.c      |  7 +++----
+>   include/linux/coresight.h                       |  2 +-
+>   11 files changed, 25 insertions(+), 29 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 3bdd6ebd4b6e..9246b46bdc3b 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -272,9 +272,9 @@ void coresight_add_helper(struct coresight_device *csdev,
+>   EXPORT_SYMBOL_GPL(coresight_add_helper);
+>   
+>   static int coresight_enable_sink(struct coresight_device *csdev,
+> -				 enum cs_mode mode, void *data)
+> +				 enum cs_mode mode, struct perf_output_handle *handle)
+>   {
+> -	return sink_ops(csdev)->enable(csdev, mode, data);
+> +	return sink_ops(csdev)->enable(csdev, mode, handle);
+>   }
+>   
+>   static void coresight_disable_sink(struct coresight_device *csdev)
+> @@ -448,7 +448,7 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
+>   }
+>   
+>   int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> -			  void *sink_data)
+> +			  struct perf_output_handle *handle)
+>   {
+>   	int ret = 0;
+>   	u32 type;
+> @@ -478,7 +478,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>   
+>   		switch (type) {
+>   		case CORESIGHT_DEV_TYPE_SINK:
+> -			ret = coresight_enable_sink(csdev, mode, sink_data);
+> +			ret = coresight_enable_sink(csdev, mode, handle);
+>   			/*
+>   			 * Sink is the first component turned on. If we
+>   			 * failed to enable the sink, there are no components
+> diff --git a/drivers/hwtracing/coresight/coresight-dummy.c b/drivers/hwtracing/coresight/coresight-dummy.c
+> index d9a811d44885..42de46949d73 100644
+> --- a/drivers/hwtracing/coresight/coresight-dummy.c
+> +++ b/drivers/hwtracing/coresight/coresight-dummy.c
+> @@ -51,7 +51,7 @@ static int dummy_source_trace_id(struct coresight_device *csdev, __maybe_unused
+>   }
+>   
+>   static int dummy_sink_enable(struct coresight_device *csdev, enum cs_mode mode,
+> -				void *data)
+> +				struct perf_output_handle *handle)
+>   {
+>   	dev_dbg(csdev->dev.parent, "Dummy sink enabled\n");
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
+> index aea9ac9c4bd0..e373b0f590bf 100644
+> --- a/drivers/hwtracing/coresight/coresight-etb10.c
+> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
+> @@ -167,13 +167,12 @@ static int etb_enable_sysfs(struct coresight_device *csdev)
+>   	return ret;
+>   }
+>   
+> -static int etb_enable_perf(struct coresight_device *csdev, void *data)
+> +static int etb_enable_perf(struct coresight_device *csdev, struct perf_output_handle *handle)
+>   {
+>   	int ret = 0;
+>   	pid_t pid;
+>   	unsigned long flags;
+>   	struct etb_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -	struct perf_output_handle *handle = data;
+>   	struct cs_buffers *buf = etm_perf_sink_config(handle);
+>   
+>   	spin_lock_irqsave(&drvdata->spinlock, flags);
+> @@ -224,7 +223,7 @@ static int etb_enable_perf(struct coresight_device *csdev, void *data)
+>   }
+>   
+>   static int etb_enable(struct coresight_device *csdev, enum cs_mode mode,
+> -		      void *data)
+> +		      struct perf_output_handle *handle)
+>   {
+>   	int ret;
+>   
+> @@ -233,7 +232,7 @@ static int etb_enable(struct coresight_device *csdev, enum cs_mode mode,
+>   		ret = etb_enable_sysfs(csdev);
+>   		break;
+>   	case CS_MODE_PERF:
+> -		ret = etb_enable_perf(csdev, data);
+> +		ret = etb_enable_perf(csdev, handle);
+>   		break;
+>   	default:
+>   		ret = -EINVAL;
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index c10dd3643854..eca06a89843f 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -134,7 +134,7 @@ static inline void CS_UNLOCK(void __iomem *addr)
+>   
+>   void coresight_disable_path(struct coresight_path *path);
+>   int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> -			  void *sink_data);
+> +			  struct perf_output_handle *handle);
+>   struct coresight_device *coresight_get_sink(struct coresight_path *path);
+>   struct coresight_device *coresight_get_sink_by_id(u32 id);
+>   struct coresight_device *
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etf.c b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+> index d4f641cd9de6..fdf1c2511d67 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etf.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etf.c
+> @@ -244,13 +244,13 @@ static int tmc_enable_etf_sink_sysfs(struct coresight_device *csdev)
+>   	return ret;
+>   }
+>   
+> -static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
+> +static int tmc_enable_etf_sink_perf(struct coresight_device *csdev,
+> +				    struct perf_output_handle *handle)
+>   {
+>   	int ret = 0;
+>   	pid_t pid;
+>   	unsigned long flags;
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -	struct perf_output_handle *handle = data;
+>   	struct cs_buffers *buf = etm_perf_sink_config(handle);
+>   
+>   	spin_lock_irqsave(&drvdata->spinlock, flags);
+> @@ -302,7 +302,7 @@ static int tmc_enable_etf_sink_perf(struct coresight_device *csdev, void *data)
+>   }
+>   
+>   static int tmc_enable_etf_sink(struct coresight_device *csdev,
+> -			       enum cs_mode mode, void *data)
+> +			       enum cs_mode mode, struct perf_output_handle *handle)
+>   {
+>   	int ret;
+>   
+> @@ -311,7 +311,7 @@ static int tmc_enable_etf_sink(struct coresight_device *csdev,
+>   		ret = tmc_enable_etf_sink_sysfs(csdev);
+>   		break;
+>   	case CS_MODE_PERF:
+> -		ret = tmc_enable_etf_sink_perf(csdev, data);
+> +		ret = tmc_enable_etf_sink_perf(csdev, handle);
+>   		break;
+>   	/* We shouldn't be here */
+>   	default:
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index a48bb85d0e7f..2d0bd06bab2a 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -1252,9 +1252,8 @@ static int tmc_enable_etr_sink_sysfs(struct coresight_device *csdev)
+>   }
+>   
+>   struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
+> -				   enum cs_mode mode, void *data)
+> +				   enum cs_mode mode, struct perf_output_handle *handle)
+>   {
+> -	struct perf_output_handle *handle = data;
+>   	struct etr_perf_buffer *etr_perf;
+>   
+>   	switch (mode) {
+> @@ -1642,13 +1641,13 @@ tmc_update_etr_buffer(struct coresight_device *csdev,
+>   	return size;
+>   }
+>   
+> -static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+> +static int tmc_enable_etr_sink_perf(struct coresight_device *csdev,
+> +				    struct perf_output_handle *handle)
+>   {
+>   	int rc = 0;
+>   	pid_t pid;
+>   	unsigned long flags;
+>   	struct tmc_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -	struct perf_output_handle *handle = data;
+>   	struct etr_perf_buffer *etr_perf = etm_perf_sink_config(handle);
+>   
+>   	spin_lock_irqsave(&drvdata->spinlock, flags);
+> @@ -1696,13 +1695,13 @@ static int tmc_enable_etr_sink_perf(struct coresight_device *csdev, void *data)
+>   }
+>   
+>   static int tmc_enable_etr_sink(struct coresight_device *csdev,
+> -			       enum cs_mode mode, void *data)
+> +			       enum cs_mode mode, struct perf_output_handle *handle)
+>   {
+>   	switch (mode) {
+>   	case CS_MODE_SYSFS:
+>   		return tmc_enable_etr_sink_sysfs(csdev);
+>   	case CS_MODE_PERF:
+> -		return tmc_enable_etr_sink_perf(csdev, data);
+> +		return tmc_enable_etr_sink_perf(csdev, handle);
+>   	default:
+>   		return -EINVAL;
+>   	}
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index 2671926be62a..e991afd43742 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -336,7 +336,7 @@ struct coresight_device *tmc_etr_get_catu_device(struct tmc_drvdata *drvdata);
+>   void tmc_etr_set_catu_ops(const struct etr_buf_operations *catu);
+>   void tmc_etr_remove_catu_ops(void);
+>   struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
+> -				   enum cs_mode mode, void *data);
+> +				   enum cs_mode mode, struct perf_output_handle *handle);
+>   extern const struct attribute_group coresight_etr_group;
+>   
+>   #endif
+> diff --git a/drivers/hwtracing/coresight/coresight-tpiu.c b/drivers/hwtracing/coresight/coresight-tpiu.c
+> index 97ef36f03ec2..ccf463ac7bf5 100644
+> --- a/drivers/hwtracing/coresight/coresight-tpiu.c
+> +++ b/drivers/hwtracing/coresight/coresight-tpiu.c
+> @@ -75,7 +75,7 @@ static void tpiu_enable_hw(struct csdev_access *csa)
+>   }
+>   
+>   static int tpiu_enable(struct coresight_device *csdev, enum cs_mode mode,
+> -		       void *__unused)
+> +		       struct perf_output_handle *__unused)
+>   {
+>   	struct tpiu_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   
+> diff --git a/drivers/hwtracing/coresight/coresight-trbe.c b/drivers/hwtracing/coresight/coresight-trbe.c
+> index fff67aac8418..a0914d10ed47 100644
+> --- a/drivers/hwtracing/coresight/coresight-trbe.c
+> +++ b/drivers/hwtracing/coresight/coresight-trbe.c
+> @@ -1011,11 +1011,10 @@ static int __arm_trbe_enable(struct trbe_buf *buf,
+>   }
+>   
+>   static int arm_trbe_enable(struct coresight_device *csdev, enum cs_mode mode,
+> -			   void *data)
+> +			   struct perf_output_handle *handle)
+>   {
+>   	struct trbe_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	struct trbe_cpudata *cpudata = dev_get_drvdata(&csdev->dev);
+> -	struct perf_output_handle *handle = data;
+>   	struct trbe_buf *buf = etm_perf_sink_config(handle);
+>   
+>   	WARN_ON(cpudata->cpu != smp_processor_id());
+> diff --git a/drivers/hwtracing/coresight/ultrasoc-smb.c b/drivers/hwtracing/coresight/ultrasoc-smb.c
+> index dc3c9504dd7c..1574b5067206 100644
+> --- a/drivers/hwtracing/coresight/ultrasoc-smb.c
+> +++ b/drivers/hwtracing/coresight/ultrasoc-smb.c
+> @@ -213,10 +213,9 @@ static void smb_enable_sysfs(struct coresight_device *csdev)
+>   	coresight_set_mode(csdev, CS_MODE_SYSFS);
+>   }
+>   
+> -static int smb_enable_perf(struct coresight_device *csdev, void *data)
+> +static int smb_enable_perf(struct coresight_device *csdev, struct perf_output_handle *handle)
+>   {
+>   	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+> -	struct perf_output_handle *handle = data;
+>   	struct cs_buffers *buf = etm_perf_sink_config(handle);
+>   	pid_t pid;
+>   
+> @@ -240,7 +239,7 @@ static int smb_enable_perf(struct coresight_device *csdev, void *data)
+>   }
+>   
+>   static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
+> -		      void *data)
+> +		      struct perf_output_handle *handle)
+>   {
+>   	struct smb_drv_data *drvdata = dev_get_drvdata(csdev->dev.parent);
+>   	int ret = 0;
+> @@ -261,7 +260,7 @@ static int smb_enable(struct coresight_device *csdev, enum cs_mode mode,
+>   		smb_enable_sysfs(csdev);
+>   		break;
+>   	case CS_MODE_PERF:
+> -		ret = smb_enable_perf(csdev, data);
+> +		ret = smb_enable_perf(csdev, handle);
+>   		break;
+>   	default:
+>   		ret = -EINVAL;
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 55bb825d509e..937a8d4f815b 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -363,7 +363,7 @@ enum cs_mode {
+>    */
+>   struct coresight_ops_sink {
+>   	int (*enable)(struct coresight_device *csdev, enum cs_mode mode,
+> -		      void *data);
+> +		      struct perf_output_handle *handle);
+>   	int (*disable)(struct coresight_device *csdev);
+>   	void *(*alloc_buffer)(struct coresight_device *csdev,
+>   			      struct perf_event *event, void **pages,
+
 
