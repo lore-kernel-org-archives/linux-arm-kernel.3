@@ -4,184 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DE5BC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:48:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F32A6C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:50:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C4ffl+cDXAQ/pGDL91hV5iJQS0vrOlcT/yhwfmFyqlU=; b=S4VBgIamLraefTZOquNK6F1izt
-	v+wroP6yGHYaDoK9qZ29k++TzmybcHE8jfgnMGREsthBvgKqvimLCojc6al9zFgBf52egOWrkKn49
-	EPgt+pga/yj43DgXHjpEDr9Arxmk04+eFsUxo2iBMcIaqjsKT/8OZCUdkfeoWjrzUZpU536Bk/VNT
-	IOmFPIyubsid8umUfM53Lq88yvcqoUhhLULf25QduQ4/cCxadw9Dn6z3tUoU6GWUklZY0wnuY4sDp
-	Apl/s9Q69NlIGQCsknPdUw1i1ffe7Dj8OEvzbRV4yB4cybjBBKdtDRCsquDrRG7cAy4D5Pv+Ej5lY
-	1wh/08Lg==;
+	bh=c9xkd6KV/yatAwNNckPZRDG5c5f7LM7Kmzqj5CpIduI=; b=u5HFHHJ1pIn8TzUjnzs9/Ya0f9
+	4Wlah/I38MZ4QdopHQAMvkawO9KNPYeFRbOBf0AajqeTt12+d5S7ZNB+rnXraXdDfvbQD1Ah9Y5Gv
+	kwgGICEW+3E9VbjhbuP9qhQtqMt/Ej8MUwsCwgCJm07ZcB6V7ELf1jZLYwMRLQ1KEDQrNUc0tx9vv
+	kwRQe60m4yBqFHyZBwW0J5c1aOg3lJ2EFFmXF4xFr3qIjCDiBomBjYRTOvtgDarUGMivGY44X4WmJ
+	Y18SR4PbbGXy4l8l7IHW77++R9ttmAszEcSpjSx53D97sN1Ye1kVbjMo0f05bEHr7YDt/PtHwcU9p
+	WTVm38IQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdUP-00000002q73-0zSo;
-	Mon, 10 Mar 2025 13:48:17 +0000
-Received: from mgamail.intel.com ([192.198.163.12])
+	id 1trdW0-00000002qPI-2SLs;
+	Mon, 10 Mar 2025 13:49:56 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcW0-00000002fpY-2aQ6;
-	Mon, 10 Mar 2025 12:45:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741610753; x=1773146753;
-  h=date:from:to:cc:subject:message-id:references:
-   in-reply-to:mime-version;
-  bh=JofUWd/9iujSLZZj4lwqSM4iikIXT/i6ueGrDPCPBec=;
-  b=Eso2GcjdU+rZqKvWjS6M7UamZzBpeftKAmng0bXn2BQEEGhvKqQkf2Dj
-   R7m03nmiOD5wQuDOjDEucti/pfHiRufGkWhiFylvJIgT+thbOVKwsrLPK
-   yYphQioHyKNr4TcZ6wlULQVaxXzx8eEPmbtrRxjNRb7iYLUYERRkPRfEa
-   M7BWvSZNGJ6f9sEOpxVEFOhQZtvqQJiD01feHhrT1NDlcHHZzDHEglXHa
-   Uk7Oz8Z2UWotGXZkQKo8p0VWKThUswlFA1LO8fnF0tm3mmCEjNNtIgcQv
-   ojIPA9OgedfMWi+bD6Zu0yf2umq/4dy0YcyQjdlMTgFjln60LKg5vkxgF
-   g==;
-X-CSE-ConnectionGUID: EA3mGwzrQnenL5HlsFNDzg==
-X-CSE-MsgGUID: ZSdxBbjORvC7KsaACi5Xdg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11369"; a="46514242"
-X-IronPort-AV: E=Sophos;i="6.14,236,1736841600"; 
-   d="scan'208";a="46514242"
-Received: from fmviesa007.fm.intel.com ([10.60.135.147])
-  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 05:45:51 -0700
-X-CSE-ConnectionGUID: soKKpF72RUKwPzb2OxkNhQ==
-X-CSE-MsgGUID: X/HfDdR1SRCNovkcZP80Gw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,236,1736841600"; 
-   d="scan'208";a="119994356"
-Received: from orsmsx903.amr.corp.intel.com ([10.22.229.25])
-  by fmviesa007.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 05:45:50 -0700
-Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
- ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14; Mon, 10 Mar 2025 05:45:49 -0700
-Received: from ORSEDG601.ED.cps.intel.com (10.7.248.6) by
- ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.14 via Frontend Transport; Mon, 10 Mar 2025 05:45:49 -0700
-Received: from NAM02-BN1-obe.outbound.protection.outlook.com (104.47.51.46) by
- edgegateway.intel.com (134.134.137.102) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.1.2507.44; Mon, 10 Mar 2025 05:45:49 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=ZfhRo55tdxUOeenEjlwpcrUNabjqfC8M3LFzwxHu3F3/Eciz3oA3zTBjodolqjsqKqSjiBbEbXlT7mdXqN+yWjhZInqa848Uk+3cAGtWrDKmm4SmZRmGoeopCjxDv4DFOHrATKGO/1m8WHVAjrIfmqpXoCjXrgrrBviOAGD7MZJrwDsxr7pfDEx8InLrqkPB5X1dM3+THjJHBDj6gcPQHTd8l5k+zYxdoZ74/rsIXANI+rexdL9KWUWnrNWbMINobkubJfZlIJbW6tMkGjzddnfUSncamTbLev1+8HcqcZeO9xVO7VKQd3zSoZD5ecB7NyHg7lFqxH8+9goK0kGgqQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=C4ffl+cDXAQ/pGDL91hV5iJQS0vrOlcT/yhwfmFyqlU=;
- b=KyEooMn/02XwxGbTGO6tK6rw0N16N5JMATahfOPsUw8mGqMoobyusKX5tk4t/COeXQtLcoEvHVnjZMLT5zsLhh+Te4bfhnKoKuvXorrLTGqGL4D0Qsreo5WrFKvVmg4aWCthOpWEeBNtH6sQKpVDA2qwBKheDlFjNENm/hNLxWeIuw+doCVQmt28qZUGXcexY/+tnaX0SGbqupMkQMrIHTOzeYQ91Mnewttq8ifCloozorrNDuKASDGFg2y3i8QS+2aa+Kdh6WvXj0L45kqTrQXt0oqkLJYvlwFKcEnZuk8ytcuchCTBv9NBSyfIlX/bMutY0jKme9M/Bq0oIvIrJQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
- SN7PR11MB7465.namprd11.prod.outlook.com (2603:10b6:806:34e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.26; Mon, 10 Mar
- 2025 12:45:47 +0000
-Received: from DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
- ([fe80::8e7e:4f8:f7e4:3955%4]) with mapi id 15.20.8511.026; Mon, 10 Mar 2025
- 12:45:47 +0000
-Date: Mon, 10 Mar 2025 13:45:35 +0100
-From: Michal Kubiak <michal.kubiak@intel.com>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-CC: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, "Lorenzo
- Bianconi" <lorenzo@kernel.org>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
- S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, "Jakub
- Kicinski" <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Matthias
- Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, <netdev@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <kernel-janitors@vger.kernel.org>
-Subject: Re: [PATCH net] net: ethernet: mediatek: Fix bit field in
- mtk_set_queue_speed()
-Message-ID: <Z87e75UV0Qc4oY64@localhost.localdomain>
-References: <eaab1b7b-b33b-458b-a89a-81391bd2e6e8@stanley.mountain>
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <eaab1b7b-b33b-458b-a89a-81391bd2e6e8@stanley.mountain>
-X-ClientProxiedBy: ZR2P278CA0017.CHEP278.PROD.OUTLOOK.COM
- (2603:10a6:910:46::11) To DS0PR11MB8665.namprd11.prod.outlook.com
- (2603:10b6:8:1b8::6)
+	id 1trcYi-00000002gCg-2pVr
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Mar 2025 12:48:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=c9xkd6KV/yatAwNNckPZRDG5c5f7LM7Kmzqj5CpIduI=; b=nWasINNfzooGM/hrmXrNrPZF6C
+	OYAs9EBgKsE253ifuOMhGE2KdBzGLKQi4s8YPzW7TcYndXMonGHvONZ8/01T8QUPkmnSfMefsqEMy
+	EM44TQ4pFOxyMp/JuQi6sAnbu+fpUD0XuxaLXSmTukzVMbyRlH8TTUwzVNxFBRQQnl+IXJBGo5JeN
+	q8waFEtmQ8tdSO4N9wcSrgPPitM2bGIwyL6dGhVMFwZIs2jfDwlaWTkfO3uOloWXC+rn7SEN7JuD2
+	mAjsRyd+gssxXhmCT4qWfFNEcsmZYQmLYKEOeTMeQE1wAO+ZbOoL0ysPAaKCzNjb4ds1sMpYfr+Mk
+	vLgmGhkQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1trcXh-00000004eMw-0KMx;
+	Mon, 10 Mar 2025 12:48:05 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 898B1300599; Mon, 10 Mar 2025 13:47:35 +0100 (CET)
+Date: Mon, 10 Mar 2025 13:47:35 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: mark.barnett@arm.com
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
+	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/5] perf: Allow adding fixed random jitter to the
+ alternate sampling period
+Message-ID: <20250310124735.GR5880@noisy.programming.kicks-ass.net>
+References: <20250307202247.648633-1-mark.barnett@arm.com>
+ <20250307202247.648633-4-mark.barnett@arm.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|SN7PR11MB7465:EE_
-X-MS-Office365-Filtering-Correlation-Id: df2c29aa-4ba5-4838-bd2b-08dd5fd17a99
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?sBt0UWL7ZLHGhVvJ3GwopTWNeX9B2RvVxJhvnRCI1OV9BQubSAj+zCzeIHFV?=
- =?us-ascii?Q?9U8ckC23DZkPya72rN5yr/uM7UX8Is9lEzVWvVAEouVO27K/tS/1IbwVopql?=
- =?us-ascii?Q?jMqX9p9KgSxKz2aOR5O4liXAIFIFYmYVWLt2ncImGjx7/E3UOF4jB7cjVXz4?=
- =?us-ascii?Q?VpL3FQMUEMV74kjabEenMB7j6mITkQX0jQpi5XMswwPLbvTliyZZBKYV8o2u?=
- =?us-ascii?Q?USYDfuuqkNXU8DQAHXLWMY0fVMq3ZA5iYIsSa7AZ+xLj4NkhpL2tjVf/pIuL?=
- =?us-ascii?Q?TNM5TWlzQn5Rv7UrXwehdr/yohQ0s3xH4a/mh4XnqKESJxfD23+68/59rrYw?=
- =?us-ascii?Q?7dhmDt5pUvqj53lhpgxHXXUpxzmUVpl3nl5HIsENYC872rPA2ntFfD1zZq9D?=
- =?us-ascii?Q?0nrLM0HdQkblJ6o9y5GBHEbQEplZNFcpLV1ICGUxi8ljQWMJCuCqKkexwUo3?=
- =?us-ascii?Q?mHB+vcHNOZaMZK/rk/oqT5QsC2Lb6sVGFu1DlCDH7nR6aQqfjVM9QFUOsrN8?=
- =?us-ascii?Q?Y3xDF3/z9E2x5wQeh3BLAtck0vM3eHYl90lMK6j/2W22jEdjjfAgoN8TjdQk?=
- =?us-ascii?Q?XLuo4m6oiRFdx+eNf4EXS30/w+mfe+GGKXl91MwWKokkwcpMr9MZXT1pg2oU?=
- =?us-ascii?Q?rqR7t33jlCTbwNNhc9fjyZjKNWOXWg1vJ2Hk6+zze67oidirZe6dvue0mmxb?=
- =?us-ascii?Q?+EAD3Rdnw1dYtqxTwdVYq/N1BGpr9KGbd6qwp/v6kdcbyBYgAuNbt1PyKbgb?=
- =?us-ascii?Q?zje/f/Id3bhVqBszndN8m0CPOsaqEMHoy4xfajvbwEO9lKXceDnnewMw0vSr?=
- =?us-ascii?Q?OYJ1UBcldl35ZtTf7YwY5XEPuW6HxN7FgP6dQpVnQVFhtUNZSg9B4Ws64SXK?=
- =?us-ascii?Q?AtTPVuveCQ/DXIpFWJU5ERX04vwQXEphHsRMsTXkG7eTLnz9wm5H75lXmMTP?=
- =?us-ascii?Q?HPbcTtZoNvd0GrfKci3T7ZLThk2cYE8qypIVP+wRmATWV1oskX8iuFNu6cjA?=
- =?us-ascii?Q?Cg9ZLLTwf8WXkod+qLSf6TggZb1ITGTMQv8KAI8Ev0KmIB8x2CFGGL/9iitj?=
- =?us-ascii?Q?WdW73kvHKj/zaplafXBJ4R4EjsOi3+rWqFRPzQzFK8m0X4v0Y67nNWzO1Dko?=
- =?us-ascii?Q?fxaQxyb2bWnQli3XajHsqOONvm3NJSD1sZmdEZb6PddJShli3UJ53lElh766?=
- =?us-ascii?Q?AmjLv5Zo8/b2w9omT97xyobjRzJRSji041+Ag69MabC0hOf0L50vOO8/E9Ju?=
- =?us-ascii?Q?EolVFoYdsTwi4S2H6HTJHxOhLpKcqLLTEXaHDefOM1wN1xTq2bVTfw2u5Hgn?=
- =?us-ascii?Q?H+NBqPg5Wpz3exI5QyJIerW0qlg5/rlxxA3m0niztidJswpTLCoAJrEF1nlB?=
- =?us-ascii?Q?1FtgwyFMPEB6m5vWTppx0IP2Zd6T?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NZiBIAWExI01lhNQCNrfoSM2srrw6Qa0oZi+2mZ3NN2VV0w6LpL7bdKUoqKl?=
- =?us-ascii?Q?e6xFk/vCd2b6P0oAPMo0AwfezUiNm3Kx2XqUI03FNYn35upUv9fOJ6UDvZod?=
- =?us-ascii?Q?lCBzV7IRXZHW21jsG0mRS3S+Hd0u/4U7/1RxMmVbr78miuMOd3ZvnO5Fl1sw?=
- =?us-ascii?Q?QrkK+VE3J+VYQaVX/O9OTone8Aca/WLvAcqEC+7xiOkbsqiKuwUXr/Pj2ei8?=
- =?us-ascii?Q?ey5ht4D+CLLJKNdoLs+8jeuHaT1qtNlkO5JlOZd2YzdRGVzBLfwB9oxf/her?=
- =?us-ascii?Q?37IJRbWEJOBUEh23u93EyeWfHmsO6bNzuTagvpkHZ34F5S1MuCdrKr3gJEr+?=
- =?us-ascii?Q?GhJWELLCiv8ENFK2LHHqi6kMJifNnjAGZ/x2K/p46DUceDRRgYm4H+ofd98N?=
- =?us-ascii?Q?4ycc+zzmSkjsa0giGyu1sL9uQ1gezOZ2eRSsc/AcJtXVVPUs8nloXoqBZ3ix?=
- =?us-ascii?Q?KfpCqmc6oZocfpUBEX3/hDP6nsCMSVJ23nFpFE98ZjfaR05uz4+0L3/Xjmck?=
- =?us-ascii?Q?Q9IZC6XIryj0erNqEytOddxPaQgmg1M4HLYzOLvHzQmw+7qZ+FCeH1cBldHl?=
- =?us-ascii?Q?aakuYw200aDJaoFYOGvQT9XWmQzdyBWp7gG45g1GIIrjzsfl6adWBBlkcWLx?=
- =?us-ascii?Q?4hCJf/YMFeNMLm62nCKsCJXxM9BNiQ1JjsnQFuULjpscZAbYunyOSEvmzEm7?=
- =?us-ascii?Q?dWEy/GEPF9dxQxETgW/0ZxYmGDVosLipWjcjyKhs+t2+KhK3ICDAC/zb7gFg?=
- =?us-ascii?Q?5wcyNlp3j6sT2LFI/kQ0BtYqycbUn3pZJ24XaXCGrFmRFZaq7SxhozYh17ML?=
- =?us-ascii?Q?zYIOE2KWVDLx2a7jtNGIh7YHnwoO7Pw8O+7HMnRBhA9dFirq32R/4cCSkcg6?=
- =?us-ascii?Q?WL6WvF1FWk8qgC0ffIvBWX0+bwTb3aMP8K8Afao+B9WPTcDjMeaFj2EsMMMY?=
- =?us-ascii?Q?QJoAG7e5qbtW7Wd07K0qGVxI2tGqN8BZs1rsFGcDgN42PyUqHlE+rwV631Dc?=
- =?us-ascii?Q?xVgQoH6GYYdAUnJEBekXIr1cfQuCqw9vv6iP5mZJeukWElMRomiqf/poatp4?=
- =?us-ascii?Q?alWNzTdHqa7zKELfrTHCQSpIDB4E12QqOa24VvwvatwmvnXSVg5UHNrqkIET?=
- =?us-ascii?Q?arHvpxfnEOUn9CnZP069I7kJOSLqKZ42Ic3mwDobSj91MLcD2BF/F1DmKK/x?=
- =?us-ascii?Q?drFMhrBEOGZKqiVO3pr1D1fi3LBIJE6dgQy536rMiEA6Tiv8dAlWAn+VY42b?=
- =?us-ascii?Q?24/isQRDrVSWv2yCXb8tlpcLLwjhHULF4YoJ5kPt4ttWyVDZjf6ZThIFMw4i?=
- =?us-ascii?Q?zhMZsx8ByygjrQ8k0wVYqhOO3IINTyRG/92a8Urwd/u1dBjdHoMiQhWZ+w1b?=
- =?us-ascii?Q?6dePAjlbTKoLyPr5ZBM2Tfi68LmWlkp0ghfxluAfowSORmwTU3KZW/ymzArw?=
- =?us-ascii?Q?E1DUMflX5V/b+/VQ9X99Jq8938Y5DmGhTMQOGS4Xf8bs3hCKJG6Xb6UJDTxy?=
- =?us-ascii?Q?jx1sUeP42oy8wc4RTHVYLwwDrLzl6SIZrjoLBfopMYzAh4dktoOhrT33kPkN?=
- =?us-ascii?Q?sgJDx0ZcnnomX1TxPuYQBB9t7mvaozYo+PBETdgo4XGaBz+NdLLLyQIurVcr?=
- =?us-ascii?Q?VQ=3D=3D?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: df2c29aa-4ba5-4838-bd2b-08dd5fd17a99
-X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 12:45:46.9234
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: WZ8JvhP73eL+nm1JfqQYsqk49lQ2/SJI+dQtdzs+HJGS3o7kzQKNwYNMv3DtHoCsRhLs2MhWay7cBH0bWQKiow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR11MB7465
-X-OriginatorOrg: intel.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_054552_701421_17991C25 
-X-CRM114-Status: GOOD (  18.25  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250307202247.648633-4-mark.barnett@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -196,50 +76,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 01:48:27PM +0300, Dan Carpenter wrote:
-> This was supposed to set "FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1)"
-> but there was typo and the | operation was missing and which turned
-> it into a no-op.
-> 
-> Fixes: f63959c7eec3 ("net: ethernet: mtk_eth_soc: implement multi-queue support for per-port queues")
-> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
-> ---
-> From static analysis, not tested.
-> 
->  drivers/net/ethernet/mediatek/mtk_eth_soc.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/mediatek/mtk_eth_soc.c b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> index 922330b3f4d7..9efef0e860da 100644
-> --- a/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> +++ b/drivers/net/ethernet/mediatek/mtk_eth_soc.c
-> @@ -757,7 +757,7 @@ static void mtk_set_queue_speed(struct mtk_eth *eth, unsigned int idx,
->  		case SPEED_100:
->  			val |= MTK_QTX_SCH_MAX_RATE_EN |
->  			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_MAN, 1) |
-> -			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5);
-> +			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 5) |
->  			       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1);
->  			break;
->  		case SPEED_1000:
+On Fri, Mar 07, 2025 at 08:22:45PM +0000, mark.barnett@arm.com wrote:
+> @@ -9922,7 +9923,10 @@ static int __perf_event_overflow(struct perf_event *event,
+>  	if (event->attr.alt_sample_period) {
+>  		bool using_alt = hwc->using_alt_sample_period;
+>  		u64 sample_period = (using_alt ? event->attr.sample_period
+> -					       : event->attr.alt_sample_period);
+> +					       : event->attr.alt_sample_period)
+> +				  + (event->attr.jitter_alt_period
+> +					? get_random_u32_below(2 << event->attr.jitter_alt_period)
+> +					: 0);
 
+So, ... this here is NMI context, right? Have you looked at the guts of
+get_random_u32_below() ?
 
-There's a similar bug a few lines above (line #737):
+I would strongly suggest you go do so.
 
-	case SPEED_100:
-		val |= MTK_QTX_SCH_MAX_RATE_EN |
-		       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_MAN, 103) |
-		       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_EXP, 3);
-		       FIELD_PREP(MTK_QTX_SCH_MAX_RATE_WEIGHT, 1);
-		break;
-
-I think it would be reasonable to fix that too in the same patch.
-
-Thanks,
-Michal
-
-> -- 
-> 2.47.2
-> 
-> 
+>  
+>  		hwc->sample_period = sample_period;
+>  		hwc->using_alt_sample_period = !using_alt;
 
