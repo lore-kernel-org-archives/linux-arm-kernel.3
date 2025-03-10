@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61230C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 22:27:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0ECDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 22:31:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o7qdWvM8EyNyyLV1s5I3noHe3+mIP5w/jg5ubON/3+w=; b=smlDJXDTbay8m+GBCToJRVapGf
-	40nYupIdz55/8DhuH06R0bd+kzcQaaKYflzpvI6Dv/HSmWQUYl9nTc8KTWg7rUE3zl1WdqPKz2lbp
-	ehr1xAPiyKfzkQ/FuzpigEsym76UHfnYx6S05ayJY7n6DdyQe9A+KCeRVEPsDks819iAl5czZ4fh1
-	nEtWDENMVug3YZ229ccnfl5si9MzNkCykrhtWfQA++JTI+672mRlNzDgb3klKH5Rs3XaT/bRvxkZa
-	e2UXPQaioZzWUaAC3PIiJYc3NjJMHP6LpV8zO+VzSdeh/eM7sosauvcoX+L5QNVn1Di0y084NhIga
-	fIkToo6w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=DVCKVVXkluT/sD5JcZAkD4DoB+y+dtTT3SJUvxk8QfA=; b=oFPg2en2DBwhY5eDQmwltTB4df
+	eT0pHyQD98wxg6yIEUGUGMHq+s+rQitXygFYy4tSg+XYvG2se1YD6w/K+vM11/A3P7GUNslRzm+8U
+	QrP3LR7G52l6J5XF+SfiWlJ8Dh4KcxB8co2D9Na770a+aEQGmw8O0bfP6ujEt8AFjTL3WeLY4zss+
+	tWHCM1RAunSeyG5rIgBFW8d41vcEVCygD0EST0R9B1VFjFqL6jrc57Z8fMCzNmUsGuqrnvkSxxbUG
+	QQQ+/XvIQZJyKHD99BaXAI2KHWCmumenfRCpAngCZZuxQNywvG66y4uVe472NjbwO+iz9f0NcfwhR
+	lPn9qV8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trlau-000000047pH-0Rbq;
-	Mon, 10 Mar 2025 22:27:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1trleq-000000048Hp-24Zd;
+	Mon, 10 Mar 2025 22:31:36 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trlZG-000000047Qf-1LXZ
+	id 1trldB-0000000485c-3LNA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 22:25:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E6A265C64C5;
-	Mon, 10 Mar 2025 22:23:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9169BC4CEE5;
-	Mon, 10 Mar 2025 22:25:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741645549;
-	bh=PLPtMAdLqw+G8AEgUeRDvdMNU1ywbWvZVWcSJqJVCSU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=raoDUdzNardNOCECYAuYbPHqIqYsoFxpzOUR+lQcuh+xrasC39dnlsloBBSv+rn5v
-	 RNKBG47byV/IlEwc86WXlZ1hNcBSMlRGWoH8FUg8FOaoGuz2YH6CpIkuC5To/yHYyF
-	 pCjjHC7zY0XO2Qb+TF94aUkKJ5dN1MypbL+mcL0w2zp6RTLSfjG5GjDiHFwCgbPXWI
-	 nakaeZwfZrB+1ttJSo5IjBk4PEALH7F4we75JrtB3vU29vYVhywp5EwRAUQhLziiyX
-	 MmZQ6XbBAd1KPp93aYizlZIoWSjIUPOz0SckXnD7BV7j9xFgWol94MFPeYC/P3HVpA
-	 CW8Kkjf4ik6bg==
-Date: Mon, 10 Mar 2025 15:25:47 -0700
-From: Namhyung Kim <namhyung@kernel.org>
-To: Arnaldo Carvalho de Melo <acme@kernel.org>
-Cc: Ingo Molnar <mingo@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	James Clark <james.clark@linaro.org>, Jiri Olsa <jolsa@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	Kan Liang <kan.liang@linux.intel.com>,
-	Clark Williams <williams@redhat.com>, linux-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Andi Kleen <ak@linux.intel.com>,
-	Charlie Jenkins <charlie@rivosinc.com>,
-	Ingo Molnar <mingo@redhat.com>,
-	John Garry <john.g.garry@oracle.com>, Leo Yan <leo.yan@linux.dev>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Michael Petlan <mpetlan@redhat.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Tavian Barnes <tavianator@tavianator.com>,
-	Veronika Molnarova <vmolnaro@redhat.com>,
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/1 next] perf libunwind: Fixup conversion
- perf_sample->user_regs to a pointer
-Message-ID: <Z89m67GyL88ctvO7@google.com>
-References: <20250307153448.250871-1-acme@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250307153448.250871-1-acme@kernel.org>
+	Mon, 10 Mar 2025 22:29:55 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-223f63b450eso74107185ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 15:29:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741645792; x=1742250592; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=DVCKVVXkluT/sD5JcZAkD4DoB+y+dtTT3SJUvxk8QfA=;
+        b=FjkQd5tnniBXU+cA8jBXSUwlT10+SFNTvL4a8XITGM1oFthltvT+QFgal3CUDIqeCq
+         FU21WbufjLWKn/289rTGjY/a2ctmEp3Gw1YkqNQlZkmccDS3Y6lNfNdrJzCUYFZuwBA1
+         1xg0+g1phyy3d3hIZUg2u0NKQ98nK9UP90k2xYidMKCt1M2Z6vVZ+ECzVU79ed/5q/Ri
+         /HONjMviGhlnl6lykS1KmYdNPaYFrk/YsckmMRG5HzU5jmcAEQyphlmtIHaGR7AX+NxU
+         b6Iyc+iPi/Z1uQ+FMJQ0rQhvT4QlGhuuTptcY63vTMjLkCYfoRNLM0/NEgl7GfWOa+kp
+         vztw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741645792; x=1742250592;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=DVCKVVXkluT/sD5JcZAkD4DoB+y+dtTT3SJUvxk8QfA=;
+        b=Z+OS+ICkZABETpPOW14aB1OEHrRTQKI06Ge6sCpd/L11PUFJc7SS3gQqjmb8IlKrvA
+         YJG1WDXKnRJOMongvNBeWRYK5+spp7Eq9k/WrwzE0mNSmEFz6KMu3NXwrEog8UplzPpz
+         BDad3Sxo1jkbkfPtaHoCv9EVs4ThFQgvB6/VI/lML48zDlbTA5EnKjtDP8SUQqLm5jNR
+         20pth+8LHIPSDgyb7d2asdNOmtjoyae6qCqVrBXN3wkajzfifH3HZ/4hVFXDBB2KvrQ6
+         DDGc8DP5q53b93JIQb8z2hgHn4RGcRsdhjhDpTcCJZxUnmqOXmCVnUwatbi/ZL4mLUKX
+         3Hsg==
+X-Forwarded-Encrypted: i=1; AJvYcCWaQCFTi1oe5oHub9MQ17yioJOINUvufYyakXOoTG4MPFZY/jPWzWsr7d4JkGYs08rFakPL7Ad87NRMrZybbGhh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxbtHaSnESKc6SoggIeXky516hIpni0o1govORaa0aZlyT6YLw4
+	Szecsg5qViCEAzalu5dDd13DOan0XBPTIGggiCTRwUWiD2+iV0AxcDQ3+XeCgJYoZHywtgKv82t
+	i6oJi6qZXM1JR71yaJRLiVfkgMw==
+X-Google-Smtp-Source: AGHT+IErwZKMWcXlcDBPbOmTkTxlQqL7Li6tR8rQjLEAzGJVnzPjT3+n2cYiqVnL4XEpSZHvkglTqKeqQnP297PlqXI=
+X-Received: from pgbdo7.prod.google.com ([2002:a05:6a02:e87:b0:af3:27c:5603])
+ (user=samitolvanen job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:6a21:3a93:b0:1f5:7b6f:f8e8 with SMTP id adf61e73a8af0-1f58cad4b2amr2359639637.6.1741645792028;
+ Mon, 10 Mar 2025 15:29:52 -0700 (PDT)
+Date: Mon, 10 Mar 2025 22:29:43 +0000
+Mime-Version: 1.0
+X-Developer-Key: i=samitolvanen@google.com; a=openpgp; fpr=35CCFB63B283D6D3AEB783944CB5F6848BBC56EE
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1444; i=samitolvanen@google.com;
+ h=from:subject; bh=S6dZKRDvk4ycBh4lQTb/260u8CBi/1VAPZFB45kS0CI=;
+ b=owGbwMvMwCEWxa662nLh8irG02pJDOnn06//e3Nm8RKf25ozkpa7lii+uqtbzHjVuTczcGrS8
+ z7+57vXdZSyMIhxMMiKKbK0fF29dfd3p9RXn4skYOawMoEMYeDiFICJHFjE8M9yh9rzT9zHqoP1
+ zYuqE4QVREuXr1m0/TLnzXtdBZPd+J8wMsz6oLa5I6iYTz+rJn7+EVexiREHGx+/3SZ87TGXqJ1 bIRMA
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+Message-ID: <20250310222942.1988975-4-samitolvanen@google.com>
+Subject: [PATCH bpf-next v8 0/2] Support kCFI + BPF on arm64
+From: Sami Tolvanen <samitolvanen@google.com>
+To: bpf@vger.kernel.org
+Cc: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann <daniel@iogearbox.net>, 
+	Andrii Nakryiko <andrii@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Puranjay Mohan <puranjay12@gmail.com>, Maxwell Bland <mbland@motorola.com>, 
+	Sami Tolvanen <samitolvanen@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_152550_444183_E65C288A 
-X-CRM114-Status: GOOD (  26.02  )
+X-CRM114-CacheID: sfid-20250310_152953_837393_3F241B50 
+X-CRM114-Status: GOOD (  11.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,138 +97,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 12:34:48PM -0300, Arnaldo Carvalho de Melo wrote:
-> From: Arnaldo Carvalho de Melo <acme@redhat.com>
-> 
-> The dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs optional") misses
-> the changes to a file, resulting in this problem:
-> 
->   $ make LIBUNWIND=1 -C tools/perf O=/tmp/build/perf-tools-next install-bin
->   <SNIP>
->     CC      /tmp/build/perf-tools-next/util/unwind-libunwind-local.o
->     CC      /tmp/build/perf-tools-next/util/unwind-libunwind.o
->   <SNIP>
->   util/unwind-libunwind-local.c: In function ‘access_mem’:
->   util/unwind-libunwind-local.c:582:56: error: ‘ui->sample->user_regs’ is a pointer; did you mean to use ‘->’?
->     582 |         if (__write || !stack || !ui->sample->user_regs.regs) {
->         |                                                        ^
->         |                                                        ->
->   util/unwind-libunwind-local.c:587:38: error: passing argument 2 of ‘perf_reg_value’ from incompatible pointer type [-Wincompatible-pointer-types]
->     587 |         ret = perf_reg_value(&start, &ui->sample->user_regs,
->         |                                      ^~~~~~~~~~~~~~~~~~~~~~
->         |                                      |
->         |                                      struct regs_dump **
-> <SNIP>
->   ⬢ [acme@toolbox perf-tools-next]$ git bisect bad
->   dc6d2bc2d893a878e7b58578ff01b4738708deb4 is the first bad commit
->   commit dc6d2bc2d893a878e7b58578ff01b4738708deb4 (HEAD)
->   Author: Ian Rogers <irogers@google.com>
->   Date:   Mon Jan 13 11:43:45 2025 -0800
-> 
->       perf sample: Make user_regs and intr_regs optional
-> 
-> Detected using:
-> 
->   make -C tools/perf build-test
-> 
-> Fixes: dc6d2bc2d893a878 ("perf sample: Make user_regs and intr_regs optional")
-> Cc: Adrian Hunter <adrian.hunter@intel.com>
-> Cc: Alexander Shishkin <alexander.shishkin@linux.intel.com>
-> Cc: Andi Kleen <ak@linux.intel.com>
-> Cc: Charlie Jenkins <charlie@rivosinc.com>
-> Cc: Ian Rogers <irogers@google.com>
-> Cc: Ingo Molnar <mingo@redhat.com>
-> Cc: James Clark <james.clark@linaro.org>
-> Cc: John Garry <john.g.garry@oracle.com>
-> Cc: Kan Liang <kan.liang@linux.intel.com>
-> Cc: Leo Yan <leo.yan@linux.dev>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: Michael Petlan <mpetlan@redhat.com>
-> Cc: Namhyung Kim <namhyung@kernel.org>
-> Cc: Peter Zijlstra <peterz@infradead.org>
-> Cc: Tavian Barnes <tavianator@tavianator.com>
-> Cc: Veronika Molnarova <vmolnaro@redhat.com>
-> Cc: coresight@lists.linaro.org
-> Cc: linux-arm-kernel@lists.infradead.org
-> Signed-off-by: Arnaldo Carvalho de Melo <acme@redhat.com>
-> ---
->  tools/perf/util/unwind-libunwind-local.c | 12 ++++++------
->  1 file changed, 6 insertions(+), 6 deletions(-)
-> 
-> diff --git a/tools/perf/util/unwind-libunwind-local.c b/tools/perf/util/unwind-libunwind-local.c
-> index 16c2b03831f39afc..cc0e41f2c2f2ef10 100644
-> --- a/tools/perf/util/unwind-libunwind-local.c
-> +++ b/tools/perf/util/unwind-libunwind-local.c
-> @@ -579,12 +579,12 @@ static int access_mem(unw_addr_space_t __maybe_unused as,
->  	int ret;
->  
->  	/* Don't support write, probably not needed. */
-> -	if (__write || !stack || !ui->sample->user_regs.regs) {
-> +	if (__write || !stack || !ui->sample->user_regs->regs) {
+Hi folks,
 
-The sample->user_regs can be NULL and I guess it's only allocated when
-it has some regs.  Then probably it should be like:
+These patches add KCFI types to arm64 BPF JIT output. Puranjay and
+Maxwell have been working on this for some time now, but I haven't
+seen any progress since June 2024, so I decided to pick up the latest
+version[1] posted by Maxwell and fix the few remaining issues I
+noticed. I confirmed that with these patches applied, I no longer see
+CFI failures when running BPF self-tests on arm64.
 
-	if (__write || !stack || !ui->sample->user_regs) {
+[1] https://lore.kernel.org/linux-arm-kernel/ptrugmna4xb5o5lo4xislf4rlz7avdmd4pfho5fjwtjj7v422u@iqrwfrbwuxrq/
 
+Sami
 
->  		*valp = 0;
->  		return 0;
->  	}
->  
-> -	ret = perf_reg_value(&start, &ui->sample->user_regs,
-> +	ret = perf_reg_value(&start, perf_sample__user_regs(ui->sample),
->  			     perf_arch_reg_sp(arch));
->  	if (ret)
->  		return ret;
-> @@ -628,7 +628,7 @@ static int access_reg(unw_addr_space_t __maybe_unused as,
->  		return 0;
->  	}
->  
-> -	if (!ui->sample->user_regs.regs) {
-> +	if (!ui->sample->user_regs->regs) {
+---
 
-Ditto.
+v8:
+- Changed DEFINE_CFI_TYPE to use .4byte to match __CFI_TYPE.
+- Changed cfi_get_func_hash() to again use get_kernel_nofault().
+- Fixed a panic in bpf_jit_free() by resetting prog->bpf_func before
+  calling bpf_jit_binary_pack_hdr().
 
+---
 
->  		*valp = 0;
->  		return 0;
->  	}
-> @@ -637,7 +637,7 @@ static int access_reg(unw_addr_space_t __maybe_unused as,
->  	if (id < 0)
->  		return -EINVAL;
->  
-> -	ret = perf_reg_value(&val, &ui->sample->user_regs, id);
-> +	ret = perf_reg_value(&val, perf_sample__user_regs(ui->sample), id);
->  	if (ret) {
->  		if (!ui->best_effort)
->  			pr_err("unwind: can't read reg %d\n", regnum);
-> @@ -741,7 +741,7 @@ static int get_entries(struct unwind_info *ui, unwind_entry_cb_t cb,
->  	unw_cursor_t c;
->  	int ret, i = 0;
->  
-> -	ret = perf_reg_value(&val, &ui->sample->user_regs,
-> +	ret = perf_reg_value(&val, perf_sample__user_regs(ui->sample),
->  			     perf_arch_reg_ip(arch));
->  	if (ret)
->  		return ret;
-> @@ -808,7 +808,7 @@ static int _unwind__get_entries(unwind_entry_cb_t cb, void *arg,
->  		.best_effort  = best_effort
->  	};
->  
-> -	if (!data->user_regs.regs)
-> +	if (!data->user_regs->regs)
+Mark Rutland (1):
+  cfi: add C CFI type macro
 
-Ditto.
+Puranjay Mohan (1):
+  arm64/cfi,bpf: Support kCFI + BPF on arm64
 
-Thanks,
-Namhyung
+ arch/arm64/include/asm/cfi.h    | 23 ++++++++++++++++++++++
+ arch/arm64/kernel/alternative.c | 25 +++++++++++++++++++++++
+ arch/arm64/net/bpf_jit_comp.c   | 22 ++++++++++++++++++---
+ arch/riscv/kernel/cfi.c         | 35 +++------------------------------
+ arch/x86/kernel/alternative.c   | 35 +++------------------------------
+ include/linux/cfi_types.h       | 23 ++++++++++++++++++++++
+ 6 files changed, 96 insertions(+), 67 deletions(-)
+ create mode 100644 arch/arm64/include/asm/cfi.h
 
+-- 
+2.49.0.rc0.332.g42c0ae87b1-goog
 
->  		return -EINVAL;
->  
->  	if (max_stack <= 0)
-> -- 
-> 2.47.0
-> 
 
