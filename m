@@ -4,93 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58563C282DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0148C28B2E
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:46:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3bwMEAH7Tb2p80rG5YQFDISiH+2UdxhzZVsTz2rTT24=; b=nKgdgR/d/ntVblp3hzpAPCOU9/
-	8Y/UquwzOzTI2xnqC/EvzpEhfh+ypYlBRjoPJqqpl4nGDLFK0PUhVjnWrHGX0KIMKhj8slzVGymRL
-	KHKBHojPIUOZlGJi2r/iDhGFCIbFnt//WQXeqzRDUgo8UKMZBQRo0cL8JZ8kkF3hLWKBQ514Mv8Qx
-	tcrcGlD0kbFpF0uKwRT4liZzyxYYKCGq+Ft5GpF3nqXJqGCrrJhjM34jPPawj0odb9x3rlQ/SzWJk
-	wwrPItlCi0MK/SaspuxnjDw+g+CM9kEYWGVFcRZY94EyKS1Cd0MolsbOivZdwIfU9atxeQJeshwdu
-	uwM7IgsA==;
+	bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=; b=tmeza3WnO6bbKfXOnDUSQ/PPdZ
+	hd+vvYjXao9BoDHyhW7QANinS+c9sxVqVwdqZIUPcREbWnz0It3DSxQUZmw8iqTaqy1QnTBM8DvD1
+	vZYcySGHzt/8w6bUpTEILVuyD3kezVUpxzMPElgEmDRv3lD50BNE7pine8aNAjZzPxfmB33YKVDTj
+	crfJF04lgRs+D/E/Uv8d1xvngQsLXASZuorHoSJs/sUTt2BiwVxIb3EyCXHRrS6+WTqU6q0XrA06A
+	pkOHO0PlCcYEQydLkviyWzSDkClponOV+4dLbtqDoHyANzX+b3ZRtnpI8FPwX8K3uAZTcJUR0/gyA
+	TUTsdsDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treOH-00000002yjy-1Git;
-	Mon, 10 Mar 2025 14:46:01 +0000
-Received: from mail-vk1-f174.google.com ([209.85.221.174])
+	id 1treOI-00000002ymD-1Xvs;
+	Mon, 10 Mar 2025 14:46:02 +0000
+Received: from mail-ot1-x32b.google.com ([2607:f8b0:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trczQ-00000002l8w-3z9j
+	id 1trd0c-00000002lMG-1ft8
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:16:18 +0000
-Received: by mail-vk1-f174.google.com with SMTP id 71dfb90a1353d-523f670ca99so743971e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:16:16 -0700 (PDT)
+	Mon, 10 Mar 2025 13:17:32 +0000
+Received: by mail-ot1-x32b.google.com with SMTP id 46e09a7af769-7275bc6638bso762764a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:17:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1741612648; x=1742217448; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=;
+        b=BMo+Fnks0LbgLkTll2J/eeV0RbCgQNart4kmQXQlgThijXH6MdQMqScgisrtDh5Bjo
+         RPA1GocEy1Hpr5G6juwYvcQ7/ziQEISNH1CYvTvR6aEXYccpos3azg5vIiK+ProsThSI
+         2CTu/zR+86GyPpOmZmHA/8oJZfTswA73aE2nc=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741612573; x=1742217373;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3bwMEAH7Tb2p80rG5YQFDISiH+2UdxhzZVsTz2rTT24=;
-        b=bMXvZjTMxkpQZ7XH826GP1Z09V71r7NzjQH9u3qNn38pQRj85KpeVRp495MR7za5ks
-         00ipU2ju7In/XguR1lU6fW8HH/Su8H14Q7JAVaz5S14i5Wg5+ZyRovGbN8HBKTVkhIua
-         Q4PVCfxnJAd2qVxxUCAB8D6i5tv4zeGoAVPGe6TdmGJyseW/AMHckb2UtZuLMlkN3kzh
-         e4D2vm4RhgsVYyeC8j7ofHM9wMoPwGspyCe9DlP9fxmNbSuYClyN8oWimHrTYBL78tNN
-         I3h68oXpUFfbWVhdo1QkmVGcWkjvx/wTMQUDYMZomYo1Afl6hzojsv8NqAvrTC/drTqI
-         zNHA==
-X-Forwarded-Encrypted: i=1; AJvYcCUM2li30FK4bu/bfSG4zqXJCJ38YXzAVya/ALVOJbVg+ULfdLhusbcgpyquvnP5RmWkxfKihvKTVE1PnH0JRp+v@lists.infradead.org
-X-Gm-Message-State: AOJu0YzHM6ElAjO37p/rHhpW+eWNm5HdzM7ztoAUG4Wmzvku8SQyjJQU
-	BVD5K//t+1itfZHneJtac7bIp9lRiPrBQr7ePiCO3gT00pU3MGDwrID9/SEmzHQ=
-X-Gm-Gg: ASbGncs4D5pmTD8B96YF7QSLbG83+AEtOSjAmkUOHn1M+CKtK2qHAVyFLGEpiCvTsLI
-	oazqQcjS3QsOzwa3lkrFK3KiKn2boVfsn12EsMRFjt30oDWpRa/H+vg1eBsBPB3fFLXBH8ERtKz
-	LnaB0O6IrBaAgGarUs2G3HI8COVfVvL/WMdqh0HOeSk0II5QxeRFcqgk8IwAHAU8TmQHepfUumU
-	J9C8I3k36/cKZARfi4crqm2eLqAUWGIt5cXk86bWHaxCtSb/2vxUaXQD+EGnBIM5dhXDrGlqkjs
-	djJoXmaHtpims9QPQvVJs9RNeK+sqLKFOqZ8ifyziZKxfxwhlzplB4ga1KpsDrso6EFkJxE2hol
-	z25qAEUg=
-X-Google-Smtp-Source: AGHT+IFb/Kb1R25mSc31siSxOr7QFafm24HXwvRdRn08HCTB/2oGJ9zNBUIiABqnSJDA+661unfPHw==
-X-Received: by 2002:a05:6122:4584:b0:520:43e0:8ea0 with SMTP id 71dfb90a1353d-523e42b0e59mr6796140e0c.11.1741612572954;
-        Mon, 10 Mar 2025 06:16:12 -0700 (PDT)
-Received: from mail-ua1-f50.google.com (mail-ua1-f50.google.com. [209.85.222.50])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5240fcbb071sm206014e0c.4.2025.03.10.06.16.12
-        for <linux-arm-kernel@lists.infradead.org>
+        d=1e100.net; s=20230601; t=1741612648; x=1742217448;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8hVV9pYsXZmqC1J6J4fTFIaqWY5CQDoFFEox0FbshQk=;
+        b=QwxZXzDWrGGQ2iuFpD9dq9KQ0MYaiXnP8/al1uvV5TqRhTkLlYdXxqIuovxMvxxctw
+         wFTX/oThWfIkfIAzNiHuk6mNuvDpeqg3ix0RtCV8u5YyZjeM1H8I+ifGQRuFl/9M871g
+         wPT1iflrBvmTJnJy/2qFCuTwGwnt6fbi8/37YVxTMbJfchQkK9/0bLaj5mVaaJrYySrw
+         cswI2HM/i5oPWY3Mo+MY0ECmfxHoo2qeq+xv0cTb5lSeuvatYMyV6Ui/l8A2KEsgWp2G
+         LDU4Ut+SyDo/xAl7ubcwZAY1Ugu3PjPHv6U5EDIr8KLZeunqIEVWmZv7oDXMb7IUjKdk
+         n4pA==
+X-Forwarded-Encrypted: i=1; AJvYcCWBUGAubcPWza6SViaRhEnclqFVT2MBb/nJs91Sa9U1Qwbsu1AljBnJzb88Lq9UFdtRk5FYi+RkHwgzGXSgbeN0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxh2d+sXCEc9r5EUCE4kVAJVCIc0VXsWPLTofjoWqvd1mrXPWyP
+	xJiLeA7ZUtt9cAL8UXe8W9Ek+L/DjJ+aJc3q/Gd7yb4vU3iykCoL3nCYv+uqlXZ3o7WByUDKThG
+	jcQ==
+X-Gm-Gg: ASbGncs7MV1WMOyOFrV7b1IA76r1WfP0EklsRqrjoJc5R55WEmizktgYbdAoKEneLBd
+	ihqeS36ByxacMZb1bRvzrCm7Gsj01N7hoU1UzTZOyQ2hdoDT385pQaIg9aQESBL9dEy1x/As0lh
+	0dLBT4QVwWii5RGxxOzqcj5SOCWB7+QoehbC4HevGl+9T5IgKOahcaJjKf+GZXtcYm+fBmq9xME
+	ADevhRTPX/ZBpDaUhfuCmnxewIeklJwQMqSck2bT3ns4u/J2Qlf6YQ1hYonQtJQ4lQqju79CyVs
+	Aw7a2qi0RlfzoKT5kNgpYoP3W9z4RKnPRoC0DFmshjSBXPgP9r9Fq29/gE7qaww+Zx6AF2JcfFr
+	M/co0B7IGwfeZz5p0zV0=
+X-Google-Smtp-Source: AGHT+IHOtYVjKASEmQbKJvWKm4BF6A5oOWYMfkeEhMYVuALyNuSXIsPApVmHGXH1sFnX9s2IVJE9HQ==
+X-Received: by 2002:a05:6830:3498:b0:72b:95e5:edab with SMTP id 46e09a7af769-72b95e5f050mr450321a34.1.1741612648382;
+        Mon, 10 Mar 2025 06:17:28 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id 586e51a60fabf-2c2d1b00173sm207615fac.19.2025.03.10.06.17.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 10 Mar 2025 06:16:12 -0700 (PDT)
-Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-86c29c0acdfso1771056241.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 06:16:12 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXAgN5wSfMWD9Jpr1wWakgk7kh18RaN0tReKbVdeBVW3AGDKGXYB4qfoZjv3C0Odnddk/JHKCHK121uVL6EIZ8M@lists.infradead.org
-X-Received: by 2002:a05:6102:3583:b0:4c3:6c4:e174 with SMTP id
- ada2fe7eead31-4c30a65d92emr7228931137.16.1741612572135; Mon, 10 Mar 2025
- 06:16:12 -0700 (PDT)
+        Mon, 10 Mar 2025 06:17:26 -0700 (PDT)
+Message-ID: <c55f5485-0a32-4745-98a0-d620e4a2c4f1@broadcom.com>
+Date: Mon, 10 Mar 2025 06:17:24 -0700
 MIME-Version: 1.0
-References: <20250109-dt-type-warnings-v1-0-0150e32e716c@kernel.org>
- <20250109-dt-type-warnings-v1-2-0150e32e716c@kernel.org> <CAMuHMdU=QR-JLgEHKWpsr6SbaZRc-Hz9r91JfpP8c3n2G-OjqA@mail.gmail.com>
- <CAL_JsqJNgxLgvB502Bk=5aMeP2rY6KVL_FykeSyN1tsDRXi9cA@mail.gmail.com> <CAMuHMdWZsQ9UbwVub=36P_2DCPEN0aORz9FxCbivKkOyeWkuww@mail.gmail.com>
-In-Reply-To: <CAMuHMdWZsQ9UbwVub=36P_2DCPEN0aORz9FxCbivKkOyeWkuww@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 10 Mar 2025 14:15:58 +0100
-X-Gmail-Original-Message-ID: <CAMuHMdUHsTYjamDkyoe_CwJhXbf7LpAPk+Dazd4wChEmfcuYPQ@mail.gmail.com>
-X-Gm-Features: AQ5f1JraxfzSSZiwFZoSk4-gLUnOHP6AW4upV-5J6BIK6IbQAuD0VMWwpRICbuw
-Message-ID: <CAMuHMdUHsTYjamDkyoe_CwJhXbf7LpAPk+Dazd4wChEmfcuYPQ@mail.gmail.com>
-Subject: Re: [PATCH 2/2] of: Warn when of_property_read_bool() is used on
- non-boolean properties
-To: Rob Herring <robh@kernel.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, Daniel Scally <djrscally@gmail.com>, 
-	Heikki Krogerus <heikki.krogerus@linux.intel.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, linux-acpi@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>, 
-	Linux ARM <linux-arm-kernel@lists.infradead.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH next] pinctrl: bcm281xx: Add missing assignment in
+ bcm21664_pinctrl_lock_all()
+To: Dan Carpenter <dan.carpenter@linaro.org>,
+ Artur Weber <aweber.kernel@gmail.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Ray Jui <rjui@broadcom.com>,
+ Scott Branden <sbranden@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, linux-gpio@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org
+References: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <dfc15d59-7fa9-4f96-aacb-37c3df6d420d@stanley.mountain>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_061616_988769_2A18B094 
-X-CRM114-Status: GOOD (  33.96  )
+X-CRM114-CacheID: sfid-20250310_061730_481350_63CC8FE6 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,84 +138,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 15 Jan 2025 at 12:20, Geert Uytterhoeven <geert@linux-m68k.org> wro=
-te:
-> On Tue, Jan 14, 2025 at 8:19=E2=80=AFPM Rob Herring <robh@kernel.org> wro=
-te:
-> > On Tue, Jan 14, 2025 at 12:35=E2=80=AFPM Geert Uytterhoeven
-> > <geert@linux-m68k.org> wrote:
-> > > On Thu, Jan 9, 2025 at 8:42=E2=80=AFPM Rob Herring (Arm) <robh@kernel=
-.org> wrote:
-> > > > The use of of_property_read_bool() for non-boolean properties is
-> > > > deprecated. The primary use of it was to test property presence, bu=
-t
-> > > > that has been replaced in favor of of_property_present(). With thos=
-e
-> > > > uses now fixed, add a warning to discourage new ones.
-> > > >
-> > > > Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
-> > >
-> > > Thanks for your patch, which is now commit c141ecc3cecd7647 ("of:
-> > > Warn when of_property_read_bool() is used on non-boolean properties")
-> > > in dt-rh/for-next.
-> > >
-> > > I have bisected a failure in secondary CPU bring-up on R-Car H1 (quad
-> > > Cortex-A9 MPCore) to this commit:
-> > >
-> > >      Detected Renesas R-Car Gen1 r8a7779 ES1.0
-> > >      smp: Bringing up secondary CPUs ...
-> > >     -CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
-> > >     -CPU1: Spectre v2: using BPIALL workaround
-> > >     -CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
-> > >     -CPU2: Spectre v2: using BPIALL workaround
-> > >     -CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
-> > >     -CPU3: Spectre v2: using BPIALL workaround
-> > >     -smp: Brought up 1 node, 4 CPUs
-> > >     -SMP: Total of 4 processors activated (2000.00 BogoMIPS).
-> > >     +CPU1: failed to come online
-> > >     +CPU2: failed to come online
-> > >     +CPU3: failed to come online
-> > >     +smp: Brought up 1 node, 1 CPU
-> > >     +SMP: Total of 1 processors activated (500.00 BogoMIPS).
-> > >      CPU: All CPU(s) started in SVC mode.
-> > >
-> > > Reverting this commit on top of my work tree fixes the issue, too.
-> > > However, I do not see how this commit could impact CPU bring-up?
-> >
-> > Strange. Perhaps the of_property_read_bool was inlined into some
-> > special section before?
->
-> I re-added the old inline of_property_read_bool(), but with a different
-> name.  CPU bringup starts working again if I replace at least one call
-> to of_property_read_bool() in arch/arm/mm/cache-l2x0.c:aurora_of_parse()
-> by a call to the inline variant, or even if I just add
->
->     pr_info("xf_property_read_bool(np, \"wt-override\") =3D %d\n",
-> xf_property_read_bool(np, "wt-override"));
->
-> to that function. Note that that function is not called at all on my plat=
-form.
->
-> This small change causes quite some reordering in arch/arm/mm/cache-l2x0.=
-s,
-> so it looks like a layout issue. More analysis will follow...
 
-The assembler SMP bring-up code for Renesas SoCs lacked an alignment
-directive.  I have posted a fix:
-https://lore.kernel.org/r/CAMuHMdU=3DQR-JLgEHKWpsr6SbaZRc-Hz9r91JfpP8c3n2G-=
-OjqA@mail.gmail.com
 
-Gr{oetje,eeting}s,
+On 3/10/2025 3:48 AM, Dan Carpenter wrote:
+> The next line checks if this regmap_write() failed, but it doesn't
+> work because the assignment was accidentally left out.  Add the
+> assignment.
+> 
+> Fixes: 60d69769c851 ("pinctrl: bcm281xx: Add support for BCM21664 pinmux")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
 
-                        Geert
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
-
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
 
