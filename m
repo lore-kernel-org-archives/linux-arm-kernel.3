@@ -4,83 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D91D2C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:43:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE68C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:48:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=lLXPPK6HZnhjRu30hi0LrwQfdstf2dQNmG/Lde/uOWM=; b=E5KNI7hAdJCyRTO8XSTyyOhGI/
-	M4MXBhteU1lCXE2euLp+hNIKmEi7Yu7UQLXsfgQ9rhCcnhqaTFAmNrQD3PzLahQIn0VQ60MXFJagQ
-	ufPg/r1XtSblH0fcqTal/Y1DcfcHf2rtNGFHutGxxC+gjJ7NOLWNePVHP0rHbf7Xz8cxNNR43HGZc
-	H82LBI6RYb/6YdwGyzb8a21o+ldx106GxTZzsTEKrWgbFFenw/UXt8RnThRG1eRt5WLATczIWTwea
-	6Eab8OR1h0fGA49v/j1YhUMCak+lZEQUZUo+7xilDgS8DREnV072V3SboLqFHYYNrz+VGwRAXChMx
-	9992nCxA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=AKmw+VYlbnRg7vgRGNsJLfqevduWjYdjPL3zS35h19I=; b=Y4tas8RK3qG9liLrhHaVfWQXDK
+	9hoTMLCT4s9gK/MSOjtlP7CDJiJ5RDJYC0SjWAN+qJDHYuprXgxCbhIwikMByKbw+QjZl3D07YBGT
+	5OV3UBqLzeP/jG3ArPLjaQA57hIQ9pYnN/doLaW+xR/DJu0tVNyJGFINGoN6WVqvDsUsoO1gOI1FE
+	kIrR/KzQqKN1ykGC6eltcCkWL96BrAZOJuqPc2ijt9bl0Qk5MX++SCbEGQhv9Fjy6zNj0W3+mmlo4
+	5HG/aKqdbAGw6oCZbFDVuTuDOro3o1g7akzYcepPvfmz8OGnYFz1V/nzZD/bzgHUdQWxpEsWhC6pL
+	IhjGni8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trabh-00000002I4x-3jtq;
-	Mon, 10 Mar 2025 10:43:37 +0000
-Received: from mail-m49244.qiye.163.com ([45.254.49.244])
+	id 1tragc-00000002J2q-30wv;
+	Mon, 10 Mar 2025 10:48:42 +0000
+Received: from nbd.name ([46.4.11.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traa0-00000002HdW-1BhV;
-	Mon, 10 Mar 2025 10:41:54 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id dc1881fc;
-	Mon, 10 Mar 2025 18:41:46 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de
-Cc: andy.yan@rock-chips.com,
-	hjc@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	dmitry.baryshkov@linaro.org,
-	dianders@chromium.org,
-	sebastian.reichel@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	boris.brezillon@collabora.com,
-	l.stach@pengutronix.de,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v8 00/13] Add eDP support for RK3588
-Date: Mon, 10 Mar 2025 18:41:01 +0800
-Message-Id: <20250310104114.2608063-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
+	id 1traaG-00000002HgH-3Xc9;
+	Mon, 10 Mar 2025 10:42:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=nbd.name;
+	s=20160729; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AKmw+VYlbnRg7vgRGNsJLfqevduWjYdjPL3zS35h19I=; b=QmqaspNYGCuZ0DeizoOna+/oF1
+	icgAPSB/W8HD049qUeSYCHsBYhd4Ln1rGHBHsvy44olFRaBRqZeFHAq0dFrvIFGf+GhnA4JJEjgEw
+	ANUuM63iKJtGRo+L08CSbHnxlOTX7w1cJ6ZNcRI0xrk8awhP6O66iac4guGeS2uiGaVg=;
+Received: from p5b206ef1.dip0.t-ipconnect.de ([91.32.110.241] helo=nf.local)
+	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96)
+	(envelope-from <nbd@nbd.name>)
+	id 1traZH-00FdO6-1p;
+	Mon, 10 Mar 2025 11:41:07 +0100
+Message-ID: <71ed8398-4619-4793-804d-77cad36e7402@nbd.name>
+Date: Mon, 10 Mar 2025 11:41:06 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkhLQlYfQ0hLGUpDH01JSENWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEtLTE
-	5VSktLVUtZBg++
-X-HM-Tid: 0a957fa57bc003a3kunmdc1881fc
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6OU06HRw6GjICCCMfSjoYPT4e
-	NzhPFDJVSlVKTE9KTUtISEtDTEtLVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJSU5JNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=Ne1sjB72m8GlZHHq8D0kOPJ82+bx3HtiAzX0u7DXfYBwIzSyLB/KggtBK3YnavILVsalpf7wTM9KpH5lrVbwsuaJrhExWhUYOstp1YQI84ftUKLh5Resssmpk2cnHJd+enAMs2I5yGT+qXEjBOeSbT0CQ3onhcGjOX3NhhbSUtQ=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=lLXPPK6HZnhjRu30hi0LrwQfdstf2dQNmG/Lde/uOWM=;
-	h=date:mime-version:subject:message-id:from;
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 RESEND] wifi: mt76: mt7915: add wds support when wed is
+ enabled
+To: Shengyu Qu <wiagn233@outlook.com>, Ping-Ke Shih <pkshih@realtek.com>,
+ "lorenzo@kernel.org" <lorenzo@kernel.org>,
+ "ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
+ "shayne.chen@mediatek.com" <shayne.chen@mediatek.com>,
+ "sean.wang@mediatek.com" <sean.wang@mediatek.com>,
+ "johannes@sipsolutions.net" <johannes@sipsolutions.net>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "angelogioacchino.delregno@collabora.com"
+ <angelogioacchino.delregno@collabora.com>,
+ "miriam.rachel.korenblit@intel.com" <miriam.rachel.korenblit@intel.com>,
+ "howard-yh.hsu@mediatek.com" <howard-yh.hsu@mediatek.com>,
+ "greearb@candelatech.com" <greearb@candelatech.com>,
+ "chui-hao.chiu@mediatek.com" <chui-hao.chiu@mediatek.com>,
+ "mingyen.hsieh@mediatek.com" <mingyen.hsieh@mediatek.com>,
+ "quic_adisi@quicinc.com" <quic_adisi@quicinc.com>,
+ "sujuan.chen@mediatek.com" <sujuan.chen@mediatek.com>,
+ "gustavoars@kernel.org" <gustavoars@kernel.org>,
+ "bo.jiao@mediatek.com" <bo.jiao@mediatek.com>,
+ "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+References: <TYCPR01MB84376C7074C566865654F05098D42@TYCPR01MB8437.jpnprd01.prod.outlook.com>
+ <b6b52bfcdb614137ac63fddfdaf9cb97@realtek.com>
+ <OSZPR01MB843481965BA47B030566DF2698D62@OSZPR01MB8434.jpnprd01.prod.outlook.com>
+From: Felix Fietkau <nbd@nbd.name>
+Content-Language: en-US
+Autocrypt: addr=nbd@nbd.name; keydata=
+ xsDiBEah5CcRBADIY7pu4LIv3jBlyQ/2u87iIZGe6f0f8pyB4UjzfJNXhJb8JylYYRzIOSxh
+ ExKsdLCnJqsG1PY1mqTtoG8sONpwsHr2oJ4itjcGHfn5NJSUGTbtbbxLro13tHkGFCoCr4Z5
+ Pv+XRgiANSpYlIigiMbOkide6wbggQK32tC20QxUIwCg4k6dtV/4kwEeiOUfErq00TVqIiEE
+ AKcUi4taOuh/PQWx/Ujjl/P1LfJXqLKRPa8PwD4j2yjoc9l+7LptSxJThL9KSu6gtXQjcoR2
+ vCK0OeYJhgO4kYMI78h1TSaxmtImEAnjFPYJYVsxrhay92jisYc7z5R/76AaELfF6RCjjGeP
+ wdalulG+erWju710Bif7E1yjYVWeA/9Wd1lsOmx6uwwYgNqoFtcAunDaMKi9xVQW18FsUusM
+ TdRvTZLBpoUAy+MajAL+R73TwLq3LnKpIcCwftyQXK5pEDKq57OhxJVv1Q8XkA9Dn1SBOjNB
+ l25vJDFAT9ntp9THeDD2fv15yk4EKpWhu4H00/YX8KkhFsrtUs69+vZQwc0cRmVsaXggRmll
+ dGthdSA8bmJkQG5iZC5uYW1lPsJgBBMRAgAgBQJGoeQnAhsjBgsJCAcDAgQVAggDBBYCAwEC
+ HgECF4AACgkQ130UHQKnbvXsvgCgjsAIIOsY7xZ8VcSm7NABpi91yTMAniMMmH7FRenEAYMa
+ VrwYTIThkTlQzsFNBEah5FQQCACMIep/hTzgPZ9HbCTKm9xN4bZX0JjrqjFem1Nxf3MBM5vN
+ CYGBn8F4sGIzPmLhl4xFeq3k5irVg/YvxSDbQN6NJv8o+tP6zsMeWX2JjtV0P4aDIN1pK2/w
+ VxcicArw0VYdv2ZCarccFBgH2a6GjswqlCqVM3gNIMI8ikzenKcso8YErGGiKYeMEZLwHaxE
+ Y7mTPuOTrWL8uWWRL5mVjhZEVvDez6em/OYvzBwbkhImrryF29e3Po2cfY2n7EKjjr3/141K
+ DHBBdgXlPNfDwROnA5ugjjEBjwkwBQqPpDA7AYPvpHh5vLbZnVGu5CwG7NAsrb2isRmjYoqk
+ wu++3117AAMFB/9S0Sj7qFFQcD4laADVsabTpNNpaV4wAgVTRHKV/kC9luItzwDnUcsZUPdQ
+ f3MueRJ3jIHU0UmRBG3uQftqbZJj3ikhnfvyLmkCNe+/hXhPu9sGvXyi2D4vszICvc1KL4RD
+ aLSrOsROx22eZ26KqcW4ny7+va2FnvjsZgI8h4sDmaLzKczVRIiLITiMpLFEU/VoSv0m1F4B
+ FtRgoiyjFzigWG0MsTdAN6FJzGh4mWWGIlE7o5JraNhnTd+yTUIPtw3ym6l8P+gbvfoZida0
+ TspgwBWLnXQvP5EDvlZnNaKa/3oBes6z0QdaSOwZCRA3QSLHBwtgUsrT6RxRSweLrcabwkkE
+ GBECAAkFAkah5FQCGwwACgkQ130UHQKnbvW2GgCeMncXpbbWNT2AtoAYICrKyX5R3iMAoMhw
+ cL98efvrjdstUfTCP2pfetyN
+In-Reply-To: <OSZPR01MB843481965BA47B030566DF2698D62@OSZPR01MB8434.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034152_825108_DBD66259 
-X-CRM114-Status: UNSURE (   9.47  )
+X-CRM114-CacheID: sfid-20250310_034208_964712_F5C4DB48 
+X-CRM114-Status: UNSURE (   8.16  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -96,53 +119,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Picked from:
-https://patchwork.kernel.org/project/linux-rockchip/list/?series=936932
+On 10.03.25 11:33, Shengyu Qu wrote:
+>> if (IS_ENABLED(CONFIG_NET_MEDIATEK_SOC_WED) ... ?
+> I did a search in code about this, seems current MT76 code is using a
+> mix of IS_ENABLED and ifdef. And this file already have a ifdef
+> implementation. I prefer keep it as is and use another patch to convert
+> the whole mt76 driver.
 
-These patchs have been tested with a 1536x2048p60 eDP panel on
-RK3588S EVB1 board, and HDMI 1080P/4K display also has been verified
-on RK3588 EVB1 board. Furthermore, the eDP display has been rechecked
-on RK3399 sapphire excavator board.
+The driver uses #ifdef where it relies on struct members that are also 
+#ifdef'd out, and using IS_ENABLED would lead do build failures.
 
-Patch 1~3   are preparations for the RK3588 eDP support on both Analogix
-            side.
-Patch 4~8   are to support to get panel from the DP AUX bus.
-Patch 9~11  are the RK3588 Analogix DP driver support.
-Patch 12    is the addition of RK3588 eDP0 node.
-Patch 13    is to enable the eDP0 display on RK3588S EVB1 board.
-
-Damon Ding (13):
-  drm/bridge: analogix_dp: Add irq flag IRQF_NO_AUTOEN instead of
-    calling disable_irq()
-  drm/bridge: analogix_dp: Remove CONFIG_PM related check in
-    analogix_dp_bind()/analogix_dp_unbind()
-  drm/bridge: analogix_dp: Add support for phy configuration.
-  dt-bindings: display: rockchip: analogix-dp: Add support to get panel
-    from the DP AUX bus
-  drm/bridge: analogix_dp: Support to get &analogix_dp_device.plat_data
-    and &analogix_dp_device.aux
-  drm/bridge: analogix_dp: Add support to get panel from the DP AUX bus
-  drm/bridge: analogix_dp: Add support for
-    &drm_dp_aux.wait_hpd_asserted()
-  drm/rockchip: analogix_dp: Add support to get panel from the DP AUX
-    bus
-  dt-bindings: display: rockchip: analogix-dp: Add support for RK3588
-  drm/bridge: analogix_dp: Add support for RK3588
-  drm/rockchip: analogix_dp: Add support for RK3588
-  arm64: dts: rockchip: Add eDP0 node for RK3588
-  arm64: dts: rockchip: Enable eDP0 display on RK3588S EVB1 board
-
- .../rockchip/rockchip,analogix-dp.yaml        |  25 ++++-
- arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |  28 +++++
- .../boot/dts/rockchip/rk3588s-evb1-v10.dts    |  55 ++++++++++
- .../drm/bridge/analogix/analogix_dp_core.c    |  85 +++++++++------
- .../gpu/drm/bridge/analogix/analogix_dp_reg.c |  52 +++++++++
- drivers/gpu/drm/rockchip/Kconfig              |   1 +
- .../gpu/drm/rockchip/analogix_dp-rockchip.c   | 103 ++++++++++++++++--
- include/drm/bridge/analogix_dp.h              |   7 +-
- 8 files changed, 310 insertions(+), 46 deletions(-)
-
--- 
-2.34.1
-
+- Felix
 
