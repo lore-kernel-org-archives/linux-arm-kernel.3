@@ -4,118 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01E74C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:04:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF762C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:05:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7fIk/wLn8siLSomZZskx1hmM4iyC641S3xGJlKKijlM=; b=ghLqsACs1Uwe8YJ3Kl9T5+TbVE
-	7kn7qMv98savC3In8axbZh1YlyE2inTMzB6Ez+qBk1TsOKewLTsYENEPa3jUlmOqnxnUSD6eYNH7Q
-	hsduQVkRGM9q6MuA9dYEIYGH7iyYFekBqQ6u+8QYhesyGqUEDBEXhMSvc+C4a7carUn8KoDVjnd48
-	TIQibjN2tg0J+LWLPLscQ65Rdd17KaP2QTNvGhks2zMqiRSdG9olG/2J8gGz4MwcY3/OUPk4ohxTp
-	3SycvTZhm/7tIKxQRsJEbhDl+2SpX7rNZigskS/DO6CJfRRyrD/TwbDkH2RD0+eZs8Mif/8KXuytO
-	A3RXPdAw==;
+	bh=gqfUyv0msFM4sA7nETrYm7WqAsPW914h6jq1wGoMGJs=; b=WScfZKYbVQQ98yfcfbiSDbbA2W
+	89JEMaI4in7YrCGgQUfr4E3aRlV+4AREkeUq2U6nzrtUq3YORbp3est2aXuOcD/j8X0ozee/pIqKY
+	/cKnL9Li1ubeO+OnQUNX1wS4LuCknd3Nh+nPwRT6OVWoUFueIRwr4L7Dlhni+H3o7oOZSFmW8BF0+
+	tOEFphXfWzNlIpM+iyx6re6ePKlbjdVZ1PP4heUzdN7XTkS2JJqBwcUV+xhX+UNP5nBqxAQJL+jyN
+	vMNqKzvMTS07Neipxg18KwkN9V2evosXYgBK/v4WQOu0VZqOhU727dJQY21jxFCsG3wjEuHAu83r+
+	3W5zZ/Rg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZzH-00000002ByZ-0wLj;
-	Mon, 10 Mar 2025 10:03:55 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1tra0t-00000002CMB-077c;
+	Mon, 10 Mar 2025 10:05:35 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trZnL-000000029Vo-3QEv;
-	Mon, 10 Mar 2025 09:51:37 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-ac2ae81dd81so53665566b.0;
-        Mon, 10 Mar 2025 02:51:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741600294; x=1742205094; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7fIk/wLn8siLSomZZskx1hmM4iyC641S3xGJlKKijlM=;
-        b=EX0stzQdVxuZLvUJ9yz2Fw2H1pCiUIufDdk4D999Kt4bSTJdmYNcZNMhELY8UDvwv6
-         OoxNQYd2nFtlZEdQZWddMZFxq58KDqOUlsEUQ8GwisEmznZbYpFX7CHLW+msm3bopE+L
-         jDZvfRAaKRBnyBgxDX6uJ3IL5fzYA6evyDXujRh6ma+nG7L2UeJWfwOysve/Q5wstGgJ
-         AmSWtsXNUJ1EO/CZWpo/fk7zpjr7tjr7uQUeS6ZMJao4Og5ZVuq8/X5a8/r7s2Vsuz72
-         IfDbUhqrUdwyCrXIalc22rEmtKLYZzIRL+8zY85tnnRY15mWSV+MRthZy9kuElegyEB6
-         GnwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741600294; x=1742205094;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=7fIk/wLn8siLSomZZskx1hmM4iyC641S3xGJlKKijlM=;
-        b=gDsy0Q0s/DzreItM7FhmEqSrSApxA65NPAMB0KU3Rc/Q/YnK0T5N+zoc4wzmSLY2ez
-         C0nCGyf4OGWcFDz5LMudDlDkmNmwFN71Mfqo4IDnSTW7flx3FJflk/9F2dFM5M/GkrSN
-         iXIIMCZ3ztTRg/1w6eHxzjyKsmMFI9urtseO8NVft2kSj+LoFYQLY9a95NY+bIj69Y/1
-         jHAUHEc3kLKIAMsqPA6BbRvO5u2F309UmcNRthKz7FSQevELvNJAxy7fk6MLordkTWkG
-         E/0l89ZPDTCCFDD0vhGg4WHfj/81vNxCfX2rvxW5iyDKNFW2ArZNY6a4GMsZYd+D6x2P
-         UAiA==
-X-Forwarded-Encrypted: i=1; AJvYcCV27x5P1QPQpprWe0+loywbYOR1mgH1G3fy8pQNxSTDY3MRRDOnitz3cwL/W5x0mlVrbRkHUg==@lists.infradead.org, AJvYcCWWqlT080e5GGc0vFZZ1zR16hLV251kyU4gJYHp2d2pSyoEG9D4mALY+1fzGd7JmDHSg7OcTNmvg90LOILcFutT2A==@lists.infradead.org
-X-Gm-Message-State: AOJu0YwC4uwoLKw+bRymnGrHGsR3FDmw0kHCxBvoPXpzQe0b5BxPjliK
-	2UZpsh6MVBcDOwU0Y4dx7f5XW1ed8P7G8H44c4E/hQx2qyVNYZGr
-X-Gm-Gg: ASbGnctNEbe9vMQkqEWBfVbjhbnJlUeeg/6cvi3ixZlsBDmflwINQ4bfLat3OD+rp9D
-	R7XwhtR0dxv8KRBc8d69fXYppxA1nPiqZQcSkrQCqNq3/7duEQbnn4A7jI/grlRjIS2+HltspLp
-	LTKROXSDtBXzbR0hdTjY2r3eTFSNWJL+yO+4lqdEO4+J8HCwSaS1gO+KSrVSViLN/TpZQGaptc9
-	OBtV9YPG0AJmGMQoPbcPJCh23CeNG8sIVEzgnQTgnoagCBcPV82hzGcn2mFx63COt3iaIUBCZ+s
-	/Jc4NGgy0OzN4fEfuQBgqfcdPU6VEWSNWjZo94YzQWsJK5I90otaSpE=
-X-Google-Smtp-Source: AGHT+IEnsaBC89bibOD1BqC+ZZ1kovv3JGu+umNRENY/jx8wzQl9KTymklI/3Rp6DH54iA+FTxPRUw==
-X-Received: by 2002:a17:907:3f2a:b0:abf:5fa3:cf96 with SMTP id a640c23a62f3a-ac252a879d7mr1234111666b.14.1741600293920;
-        Mon, 10 Mar 2025 02:51:33 -0700 (PDT)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac255589a30sm594247266b.107.2025.03.10.02.51.25
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Mon, 10 Mar 2025 02:51:25 -0700 (PDT)
-Date: Mon, 10 Mar 2025 09:51:24 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Wei Yang <richard.weiyang@gmail.com>
-Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <20250310095124.pa7dwgqhxglqrfes@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-3-rppt@kernel.org>
- <20250218155004.n53fcuj2lrl5rxll@master>
- <Z7WHL_Xqgoln9oLg@kernel.org>
- <20250223002229.xuk6xlp23zr72hkc@master>
+	id 1trZss-00000002AcJ-2Ba2;
+	Mon, 10 Mar 2025 09:57:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 30D615C5BE8;
+	Mon, 10 Mar 2025 09:55:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 129E6C4CEE5;
+	Mon, 10 Mar 2025 09:57:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741600637;
+	bh=XM35sEGq9rPsxDvrLDp2hhBJWfUNe2voFFy34EJh/FY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=owiKa/n9XL5IGC0X+K77PmWU9Iy3QL46VKZQNfTyuKKjVkYTh4V67hkN0CGG/ufq3
+	 l+hj4A9QQ1oiivy3+ugmqsoZOsDZJXtSS98fzgW/7z5pbPrSzaBesxfLa6K7AtQLrr
+	 Zi6BqymX4ILWFQt5MQKhT/NDAfWCwlqspOxOAtRNle8SyLRZcyHI0ptjQcJJkJanji
+	 opsHtDAc4APfc5zMnshG46lasStgvLFz61O/jJkBR9UkOHCndcPajaJ4HWMNcNWepH
+	 r44S8UqmpxOVY6cEKaw2FnsiDfE6kzoJJmHvoMdougllrjrpmxKDSMKN0NDPHH36Oj
+	 d+Z33dXyG+9Rg==
+Date: Mon, 10 Mar 2025 10:57:13 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	"David S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	David Wu <david.wu@rock-chips.com>, netdev@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/3] dt-bindings: net: rockchip-dwmac: Require
+ rockchip,grf and rockchip,php-grf
+Message-ID: <20250310-striped-perfect-sambar-bdcb3e@krzk-bin>
+References: <20250308213720.2517944-1-jonas@kwiboo.se>
+ <20250308213720.2517944-2-jonas@kwiboo.se>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250223002229.xuk6xlp23zr72hkc@master>
-User-Agent: NeoMutt/20170113 (1.7.2)
+In-Reply-To: <20250308213720.2517944-2-jonas@kwiboo.se>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_025135_855710_734A6302 
-X-CRM114-Status: GOOD (  24.20  )
+X-CRM114-CacheID: sfid-20250310_025718_602266_7657FF0E 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,94 +74,39 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Feb 23, 2025 at 12:22:29AM +0000, Wei Yang wrote:
->On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
->>Hi,
->>
->>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
->>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
->>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->>> >
->>> >to denote areas that were reserved for kernel use either directly with
->>> >memblock_reserve_kern() or via memblock allocations.
->>> >
->>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->>> >---
->>> > include/linux/memblock.h | 16 +++++++++++++++-
->>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
->>> > 2 files changed, 39 insertions(+), 9 deletions(-)
->>> >
->>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->>> >index e79eb6ac516f..65e274550f5d 100644
->>> >--- a/include/linux/memblock.h
->>> >+++ b/include/linux/memblock.h
->>> >@@ -50,6 +50,7 @@ enum memblock_flags {
->>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
->>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
->>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
->>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
->>> 
->>> Above memblock_flags, there are comments on explaining those flags.
->>> 
->>> Seems we miss it for MEMBLOCK_RSRV_KERN.
->>
->>Right, thanks!
->> 
->>> > 
->>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
->>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
->>> > again:
->>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
->>> > 					    flags);
->>> >-	if (found && !memblock_reserve(found, size))
->>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
->>> 
->>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
->>> correct, the reserved region's nid is not used.
->>
->>We use nid of reserved regions in reserve_bootmem_region() (commit
->>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
->>know the distribution of reserved memory among the nodes before
->>memmap_init_reserved_pages().
->> 
->
->I took another look into this commit. There maybe a very corner case in which
->will leave a reserved region with no nid set.
->
->memmap_init_reserved_pages()
->    for_each_mem_region() {
->        ...
->	memblock_set_node(start, end, &memblock.reserved, nid);
->    }
->
->We leverage the iteration here to set nid to all regions in memblock.reserved.
->But memblock_set_node() may call memblock_double_array() to expand the array,
->which may get a range before current start. So we would miss to set the
->correct nid to the new reserved region.
->
->I have tried to create a case in memblock test. This would happen when there
->are 126 memblock.reserved regions. And the last region is across the last two
->node.
->
->One way to fix this is compare type->max in memblock_set_node(). Then check
->this return value in memmap_init_reserved_pages(). If we found the size
->changes, repeat the iteration.
->
->But this is a very trivial one, not sure it worth fix.
->
+On Sat, Mar 08, 2025 at 09:37:13PM +0000, Jonas Karlman wrote:
+> All Rockchip GMAC variants typically write to GRF regs to control e.g.
+> interface mode, speed and MAC rx/tx delay. Newer SoCs such as RK3562,
+> RK3576 and RK3588 use a mix of GRF and peripheral GRF regs.
+> 
+> Prior to the commit b331b8ef86f0 ("dt-bindings: net: convert
+> rockchip-dwmac to json-schema") the property rockchip,grf was listed
+> under "Required properties". During the conversion this was lost and
+> rockchip,grf has since then incorrectly been treated as optional and
+> not as required.
+> 
+> Similarly, when rockchip,php-grf was added to the schema in the
+> commit a2b77831427c ("dt-bindings: net: rockchip-dwmac: add rk3588 gmac
+> compatible") it also incorrectly has been treated as optional for all
+> GMAC variants, when it should have been required for RK3588, and later
+> also for RK3576.
+> 
+> Update this binding to require rockchip,grf and rockchip,php-grf to
+> properly reflect that GRF (and peripheral GRF for RK3576/RK3588) is
+> required to control part of GMAC.
+> 
+> This should not introduce any breakage as all Rockchip GMAC nodes have
+> been added together with a rockchip,grf phandle (and rockchip,php-grf
+> where required) in their initial commit.
+> 
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
-Hi, Mike
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
-I have done a user space test which shows we may have a chance to leave a
-region with non-nid set.
+Best regards,
+Krzysztof
 
-Not sure you are ok with my approach of fixing.
-
--- 
-Wei Yang
-Help you, Help me
 
