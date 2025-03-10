@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CC32C28B2E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1554C282DE
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:50:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,23 +12,23 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wRX2UV7UIbMXXJUCACRskX22cpHmCmmZGazxoGSyC3I=; b=nxh7kZyGbIikLJ0asETK32kj4E
-	TqwBGyY/6h8gym5uUjGzFrATAIVoQU3j1hVk+UK3VrZEZJVQXhusE26pTjA+PVXoO62OFCO27ABxy
-	JnE+qYrouHe2wqPS/odiF7Hwff9PbX9Nsa5bVf7vKYQRwY95GR3Zolh1JvSUrz8aYCKY3CqRESWZH
-	5T3t9vh8Y69/kULq4EAlkwpODgccqF1svkcjTr0ebCKCx4xYxl7psBOdOqkMSMiYpaiWp5Cds5rlj
-	jgta0zy3vupzHmWGgg6j266EKExqWIU9aX2P+Qg17sBmYjrqHppvYh4KPXAF4AMfP6vsz7YqLziyg
-	iQqHnh1g==;
+	bh=9OCG75VloqK6xG08wglt4g4zZcLDORHRr9mvaU8aN+c=; b=rWmaGMWgKFp6YFKDHcSnoNFpBD
+	MfAK2v1TGbOdLxOlXNwPbl5Z+6P8PSxhZk6PzuK8jGnAUJ77D7QS8lNy92YbvZMv1YK5/yMKLMMy7
+	tkyUflsrVWtW7dOjZYiOT44RsHRKG6j7oNMNPGqyn/xcHTvkXXuSJtuQo+E/pn6kt0ZUWKSPOYl7o
+	hs4VAzxUk77syhffudDuJXo9uegwfzNZfrk9HKQ3VX6Qq7amZTwhW8T/wwFZ3LBdBHz8w+ae5+32l
+	rrLMwmqUewZhPdqCfIOsqjdlDdAL1M4IvXLHw2bBLmS7+oeo1tB28UAA5gzuRKyUS9/x4UvnVMpo6
+	QAZE0Yfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbeO-00000002Tql-11U8;
-	Mon, 10 Mar 2025 11:50:28 +0000
-Received: from mail-m3273.qiye.163.com ([220.197.32.73])
+	id 1trbeP-00000002Tr6-1miQ;
+	Mon, 10 Mar 2025 11:50:29 +0000
+Received: from mail-m3291.qiye.163.com ([220.197.32.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traa8-00000002HeR-3CvR;
-	Mon, 10 Mar 2025 10:42:02 +0000
+	id 1traaF-00000002Hg8-1iT9;
+	Mon, 10 Mar 2025 10:42:08 +0000
 Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id dc18821c;
-	Mon, 10 Mar 2025 18:41:54 +0800 (GMT+08:00)
+	by smtp.qiye.163.com (Hmail) with ESMTP id dc18823a;
+	Mon, 10 Mar 2025 18:42:02 +0800 (GMT+08:00)
 From: Damon Ding <damon.ding@rock-chips.com>
 To: heiko@sntech.de
 Cc: andy.yan@rock-chips.com,
@@ -59,30 +59,31 @@ Cc: andy.yan@rock-chips.com,
 	linux-rockchip@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v8 01/13] drm/bridge: analogix_dp: Add irq flag IRQF_NO_AUTOEN instead of calling disable_irq()
-Date: Mon, 10 Mar 2025 18:41:02 +0800
-Message-Id: <20250310104114.2608063-2-damon.ding@rock-chips.com>
+Subject: [PATCH v8 02/13] drm/bridge: analogix_dp: Remove CONFIG_PM related check in analogix_dp_bind()/analogix_dp_unbind()
+Date: Mon, 10 Mar 2025 18:41:03 +0800
+Message-Id: <20250310104114.2608063-3-damon.ding@rock-chips.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250310104114.2608063-1-damon.ding@rock-chips.com>
 References: <20250310104114.2608063-1-damon.ding@rock-chips.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ0JJH1ZDQx5KH0tPTE1LT0xWFRQJFh
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxCGVZLHk9JSEhLHUIfGB1WFRQJFh
 	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCS0
 	NVSktLVUpCWQY+
-X-HM-Tid: 0a957fa59b2003a3kunmdc18821c
+X-HM-Tid: 0a957fa5b8dd03a3kunmdc18823a
 X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6MhA6PCo6OTJCMiNOSj81PT1C
-	K1YKChdVSlVKTE9KTUtISEpNTkhKVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFKTkNCNwY+
+X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P1E6PDo4MTJCSSMoSjgcPSIM
+	FxUwCQ9VSlVKTE9KTUtISElPSkNNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
+	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTk5LNwY+
 DKIM-Signature: a=rsa-sha256;
-	b=CD0Drn0ZAsnZI1F2EtQ8+1DsVhJ5NdU/2kJ6OWoE0ztftqb828JW0L/7VV9PEJhbo98VDLbowO0FKOJFO+HHJnAmhrNPzxH8CvE5G27qtEjOItCpWjCd/Bc9/u8I6q5c+trV/weHnq2ED9XuMuJXlS6EDQFdBYC3n7K52uu8o/Y=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=wRX2UV7UIbMXXJUCACRskX22cpHmCmmZGazxoGSyC3I=;
+	b=VYOsnT6Ja2VKhSsLUWSlwRHMvNr6gwrBySdASLWoptmXt83W/2Oi24QMcWPbNhKtbRpI0pnxZ78oy1LLjaH1OdMgR7V06hSdZizAkhMxL7oYOWUcNthjbpg6hoCV25L/SarEaAGBCb2Zfz8fnwpj9Yl6VS20pAmf+lIc9TKV/cU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=9OCG75VloqK6xG08wglt4g4zZcLDORHRr9mvaU8aN+c=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034200_967319_75D68F95 
-X-CRM114-Status: GOOD (  10.19  )
+X-CRM114-CacheID: sfid-20250310_034207_612922_D078C5AD 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,44 +98,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The IRQF_NO_AUTOEN can be used for the drivers that don't want
-interrupts to be enabled automatically via devm_request_threaded_irq().
-Using this flag can provide be more robust compared to the way of
-calling disable_irq() after devm_request_threaded_irq() without the
-IRQF_NO_AUTOEN flag.
+Remove the check related to CONFIG_PM in order to make the code more
+concise, as the CONFIG_PM should be a required option for many drivers.
+
+In addition, it is preferable to use devm_pm_runtime_enable() instead of
+manually invoking pm_runtime_enable() followed by pm_runtime_disable().
 
 Suggested-by: Douglas Anderson <dianders@chromium.org>
 Reviewed-by: Douglas Anderson <dianders@chromium.org>
 Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
 ---
- drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 5 ++---
- 1 file changed, 2 insertions(+), 3 deletions(-)
+ .../drm/bridge/analogix/analogix_dp_core.c    | 30 ++++---------------
+ 1 file changed, 6 insertions(+), 24 deletions(-)
 
 diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 817070613b03..5ef6bb6010ca 100644
+index 5ef6bb6010ca..132f8513f93f 100644
 --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
 +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1630,10 +1630,10 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
- 		 * that we can get the current state of the GPIO.
- 		 */
- 		dp->irq = gpiod_to_irq(dp->hpd_gpiod);
--		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING;
-+		irq_flags = IRQF_TRIGGER_RISING | IRQF_TRIGGER_FALLING | IRQF_NO_AUTOEN;
- 	} else {
- 		dp->irq = platform_get_irq(pdev, 0);
--		irq_flags = 0;
-+		irq_flags = IRQF_NO_AUTOEN;
+@@ -1695,15 +1695,11 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
+ 	dp->drm_dev = drm_dev;
+ 	dp->encoder = dp->plat_data->encoder;
+ 
+-	if (IS_ENABLED(CONFIG_PM)) {
+-		pm_runtime_use_autosuspend(dp->dev);
+-		pm_runtime_set_autosuspend_delay(dp->dev, 100);
+-		pm_runtime_enable(dp->dev);
+-	} else {
+-		ret = analogix_dp_resume(dp);
+-		if (ret)
+-			return ret;
+-	}
++	pm_runtime_use_autosuspend(dp->dev);
++	pm_runtime_set_autosuspend_delay(dp->dev, 100);
++	ret = devm_pm_runtime_enable(dp->dev);
++	if (ret)
++		return ret;
+ 
+ 	dp->aux.name = "DP-AUX";
+ 	dp->aux.transfer = analogix_dpaux_transfer;
+@@ -1713,7 +1709,7 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
+ 	ret = drm_dp_aux_register(&dp->aux);
+ 	if (ret) {
+ 		DRM_ERROR("failed to register AUX (%d)\n", ret);
+-		goto err_disable_pm_runtime;
++		return ret;
  	}
  
- 	if (dp->irq == -ENXIO) {
-@@ -1649,7 +1649,6 @@ analogix_dp_probe(struct device *dev, struct analogix_dp_plat_data *plat_data)
- 		dev_err(&pdev->dev, "failed to request irq\n");
- 		return ERR_PTR(ret);
- 	}
--	disable_irq(dp->irq);
+ 	ret = analogix_dp_create_bridge(drm_dev, dp);
+@@ -1726,13 +1722,6 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
  
- 	return dp;
+ err_unregister_aux:
+ 	drm_dp_aux_unregister(&dp->aux);
+-err_disable_pm_runtime:
+-	if (IS_ENABLED(CONFIG_PM)) {
+-		pm_runtime_dont_use_autosuspend(dp->dev);
+-		pm_runtime_disable(dp->dev);
+-	} else {
+-		analogix_dp_suspend(dp);
+-	}
+ 
+ 	return ret;
  }
+@@ -1749,13 +1738,6 @@ void analogix_dp_unbind(struct analogix_dp_device *dp)
+ 	}
+ 
+ 	drm_dp_aux_unregister(&dp->aux);
+-
+-	if (IS_ENABLED(CONFIG_PM)) {
+-		pm_runtime_dont_use_autosuspend(dp->dev);
+-		pm_runtime_disable(dp->dev);
+-	} else {
+-		analogix_dp_suspend(dp);
+-	}
+ }
+ EXPORT_SYMBOL_GPL(analogix_dp_unbind);
+ 
 -- 
 2.34.1
 
