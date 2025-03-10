@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36E43C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:53:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B5DC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:58:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-reply-to:Date:Subject:Cc:To:From:
-	References:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KsfdUyH3zrjTycztjPtzayYh5FQ+lsz4U78oE1AJhhQ=; b=Tg5q1TlEUD5qTrGOkSxT+fNAiG
-	BgdsYG/oAlF1qJoom7lacsj1CoAACwoTFrcgPsHdtcwiSBM629EWTKf41PAuWn1s3FbDLo5NE4Hob
-	B2jXCvVy0X6yn8aR+veP3kdP2VOTklbe3Dh9GF+t1Um7LcOo/XJ1CpZIN0MHhvJCFeisODcdXAHDY
-	hMWMIM2FFD+8MaPYxaHWXIjm41yFUidGY74uyonLO/KCzvCLB2o/ju/otJ75/Ej4sLTW/i+w/4Ro0
-	A9HKvC4TfkRA/W5WTsJyu24Bwra4SpI/FUawC3MfzIfHrrB0Lwi2i322gqqa9OMHft7husWJK4num
-	bVyL11iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+nActGH5X3rYsSJc5n4te1fJegSfTeLgxpgzK7o2cEc=; b=w1HRz6Pqww/N+U+Uod5GJbBmEb
+	QwCyGcSzEX8D1sFGXFokQtur7mxXY2QmjU0v+kgKB2B7CP0HPSrnw0PAm9aXgu42iPAsO2pHNQCfa
+	tUytHKbRVjUhlvq5dy4iITSu9s4zI6UKoOkUjvGNMyviPRnFlVwgiJBL/rsxxZkctT0atoqAqSOMb
+	WXGgcPsvYsdcPB7Bwa5s23j3TfZ30m3ij72MkNtWfGx16qBYp7upA/VT/Wb9cgMHxU69CXV1UN9Ff
+	iXbx7krgMQom84UqPSzVDxOmEurv9PzroQKchvy1xIFZjokKK0fdeBIKLZLsUfStfvqIug/riL3cn
+	hKaw8LWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYtL-00000001yX5-42Qh;
-	Mon, 10 Mar 2025 08:53:43 +0000
-Received: from mail-lf1-x12d.google.com ([2a00:1450:4864:20::12d])
+	id 1trYxn-00000001z7N-0s8M;
+	Mon, 10 Mar 2025 08:58:19 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYrj-00000001yM7-1lsh;
-	Mon, 10 Mar 2025 08:52:04 +0000
-Received: by mail-lf1-x12d.google.com with SMTP id 2adb3069b0e04-5499659e669so2760852e87.3;
-        Mon, 10 Mar 2025 01:52:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741596721; x=1742201521; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KsfdUyH3zrjTycztjPtzayYh5FQ+lsz4U78oE1AJhhQ=;
-        b=hFpWUUFlhUBqzU/xLjMJnZII4nrRH+1Ed2t/KU4cZ0ZfL3wSGZCMhJp0mouy8ygKhF
-         rGamw3wPuEeqcT5bLGXwDk+hvs+EVSbdNLLojmHwsJuzj2eIiKzkYfQPY55aNsqdzIbU
-         4xnesGpZnYfzQHYb1cQf7mJmo1VGpTFElR/F9mvZnyOTZ6wRlKy/Fv2UR5GfByoZpKRB
-         yuqPEo8Ig/aZbwoLfDuJiGq1iiXos7+C9KoNXpaSI+WDiuxjLTZCHYIm8A0lHyJ9Jsdl
-         D3qLD6WFzVf5nA58adlnhGMs1XFsiBtP1qSEpLRzhRCa1zlKZBlG1Y9qi09z0ulknGxm
-         bDnQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741596721; x=1742201521;
-        h=content-transfer-encoding:mime-version:message-id:in-reply-to:date
-         :subject:cc:to:from:user-agent:references:x-gm-message-state:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=KsfdUyH3zrjTycztjPtzayYh5FQ+lsz4U78oE1AJhhQ=;
-        b=bivriglGU8//5SibqpjPX+pRCq/AxrkCswieIhXG38A60wxkox4LoNgfJaSb7zq/gd
-         abC6+wJvcxt2xWo6l+agYjC+48D1fe3VxdkRFyp8ebJkRfNKE6/9oZsRpCjdMXt/L/Et
-         5qm85JYd2BSv2NyRZfMJkj4nEZK6D7eX+Yu0W2Lh9cwwctBX4YM+lUdT6bJHQFuUhM0M
-         sWGZwAHqDo8P+OdULx/QRHbcSxMCBqLteIAgofScGiUuehgrKekGu8KM8X3KvANcO7A0
-         MlpZgpOMYcvY/UFkmMqKjre0vVWm8B8oSLtI2wUGCxm17wOuzpoUKIzQ9v/Yf1DaGBbM
-         gP7w==
-X-Forwarded-Encrypted: i=1; AJvYcCWpK2V0WM6ZHf92etCE6B3mRcnFCt1t9JqgrWaU+zaqKbCCRrGp+unARlXUhboXBiKkuriKpD3wFkrWEflQhlA5@lists.infradead.org, AJvYcCXFkkobfx3BKavcd4lKBuE8K/5KvGYGGtU3AE8AmIFOOyuirJ9QmH0seDyYOaw49FWjX/a6K3+B2ufbcEmaV5I=@lists.infradead.org
-X-Gm-Message-State: AOJu0YwT6Jwe5+dxqEWtKrek+6I/yUeUbU67X+eaf+KoDDfXste3MLs/
-	WmZJImh6Qn+/qHfcq0NRYDk7yXnegCkArE+8gCLKKMFIJLagGE3B
-X-Gm-Gg: ASbGncuHuNQ67UlBfYCyFxv/SZI9MZs4zj1bVwUG9P09+f/aIlI19wCTJAMPuw/lJHl
-	3ys+PEuW1d/kmTjZS3LLod+6XezuPJDVZnqe1WzIH1GyriHPFyL6YP5tOEMGRC+g6Pa4K17ylvh
-	W6VMsj7CP4dYcF/azgKBd5Ma51GIeWCh/1aV7QypUmoOIn7m+WsFEEWvxZIHVkU2ulXosJZjNfj
-	Kr3XHlBTBWEGU9OEVBi+QoncEgXQTj77jJzpCZgyi5WRhiXjBhX2l38inF5Pq0w9ej5VaffziKx
-	+ybh6tMRPd7XNIKkzjrzO1z/2wzM+u7kVDbsw+PJkIbKATkTDOdB6dO4T0pa5HfcatSC6Mmv6Er
-	6y9RHvYWkaIUDjufYA5KNyYYSMUY1nYHR
-X-Google-Smtp-Source: AGHT+IFDQsKgJjn1vFKF2s3Fxd3y5bXHQKgGDaupCdFC2qHxM/nNEqPRZZXYMIGlgyqsvYZzWa3pXA==
-X-Received: by 2002:a05:6512:3da4:b0:545:f4b:ed58 with SMTP id 2adb3069b0e04-54990e5d442mr4212084e87.18.1741596720469;
-        Mon, 10 Mar 2025 01:52:00 -0700 (PDT)
-Received: from razdolb (static.248.157.217.95.clients.your-server.de. [95.217.157.248])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5498b1bc48dsm1369280e87.187.2025.03.10.01.51.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 01:51:59 -0700 (PDT)
-References: <20250303-b4-rkisp-noncoherent-v4-0-e32e843fb6ef@gmail.com>
- <20250303-b4-rkisp-noncoherent-v4-1-e32e843fb6ef@gmail.com>
- <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
-User-agent: mu4e 1.10.9; emacs 30.1
-From: Mikhail Rudenko <mike.rudenko@gmail.com>
-To: Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Laurent Pinchart
- <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Tomasz Figa
- <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, Hans
- Verkuil <hverkuil@xs4all.nl>, Sergey  Senozhatsky
- <senozhatsky@chromium.org>, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Mauro  Carvalho Chehab
- <mchehab+huawei@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v4 1/2] media: videobuf2: Fix dmabuf cache sync/flush in
- dma-contig
-Date: Sun, 09 Mar 2025 23:18:50 +0300
-In-reply-to: <8b3dac7baed1de9542452547454c53188c384391.camel@ndufresne.ca>
-Message-ID: <87wmcxs1xw.fsf@gmail.com>
+	id 1trYw9-00000001yrE-3STj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 08:56:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 52351A45182;
+	Mon, 10 Mar 2025 08:51:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AF69EC4CEEC;
+	Mon, 10 Mar 2025 08:56:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741596996;
+	bh=C12mkxyY7Tuz4k36lFMWBiBskfY3UsSgTUDwu4ymK5A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VS2GD8mC3KF67GsqwrZolL2PJC5nV8QLxQyAj07n3f39prZtkH1iJvEM60yAG3gQD
+	 V6plRwhAVbOW7QKUgyQAJHRX8KqkzSNYtqJVSaCbMIZFHBfrzwotEzdTyBf7nahb1F
+	 ulw5xmNt1ZS0/aH3skbKsPmqAglFS17CXESwCPnsNYfVvt5TieC74ADPeUyUBP34F1
+	 pDsXpTVlIpEGb5v1s3vkFszlbLMYeyG2K7k5dPXep0ShufS8ewpYY5j+8DCkBkiobB
+	 dcRrEG7RKtdyu/gY2i+79yqPKgi/ec7BtqCYNCz/r78UnJa0FdyBemgkAxkJvqs9vk
+	 pVW7xYFBa9f3g==
+Date: Mon, 10 Mar 2025 14:26:26 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org,
+	op-tee@lists.trustedfirmware.org,
+	linux-arm-kernel@lists.infradead.org,
+	Olivier Masse <olivier.masse@nxp.com>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Yong Wu <yong.wu@mediatek.com>,
+	Sumit Semwal <sumit.semwal@linaro.org>,
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>,
+	Brian Starkey <Brian.Starkey@arm.com>,
+	John Stultz <jstultz@google.com>,
+	"T . J . Mercier" <tjmercier@google.com>,
+	Christian =?iso-8859-1?Q?K=F6nig?= <christian.koenig@amd.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	azarrabi@qti.qualcomm.com, Simona Vetter <simona.vetter@ffwll.ch>,
+	Daniel Stone <daniel@fooishbar.org>
+Subject: Re: [PATCH v6 01/10] tee: tee_device_alloc(): copy dma_mask from
+ parent device
+Message-ID: <Z86pOi874jfJJSOv@sumit-X1>
+References: <20250305130634.1850178-1-jens.wiklander@linaro.org>
+ <20250305130634.1850178-2-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250305130634.1850178-2-jens.wiklander@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_015203_461991_A9678CC4 
-X-CRM114-Status: GOOD (  17.51  )
+X-CRM114-CacheID: sfid-20250310_015637_925855_16E6B567 
+X-CRM114-Status: GOOD (  14.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,100 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-Hi Nicolas, Tomasz,
-
-On 2025-03-03 at 10:24 -05, Nicolas Dufresne <nicolas@ndufresne.ca> wrote:
-
-> Hi Mikhail,
->
-> Le lundi 03 mars 2025 =C3=A0 14:40 +0300, Mikhail Rudenko a =C3=A9crit=C2=
-=A0:
->> When support for V4L2_FLAG_MEMORY_NON_CONSISTENT was removed in
->> commit 129134e5415d ("media: media/v4l2: remove
->> V4L2_FLAG_MEMORY_NON_CONSISTENT flag"),
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions were made
->> no-ops. Later, when support for V4L2_MEMORY_FLAG_NON_COHERENT was
->> introduced in commit c0acf9cfeee0 ("media: videobuf2: handle
->> V4L2_MEMORY_FLAG_NON_COHERENT flag"), the above functions remained
->> no-ops, making cache maintenance for non-coherent dmabufs allocated
->> by
->> dma-contig impossible.
->>
->> Fix this by reintroducing dma_sync_sgtable_for_{cpu,device} and
->> {flush,invalidate}_kernel_vmap_range calls to
->> vb2_dc_dmabuf_ops_{begin,end}_cpu_access() functions for non-coherent
->> buffers.
->>
->> Fixes: c0acf9cfeee0 ("media: videobuf2: handle
->> V4L2_MEMORY_FLAG_NON_COHERENT flag")
->> Cc: stable@vger.kernel.org
->> Signed-off-by: Mikhail Rudenko <mike.rudenko@gmail.com>
->> ---
->> =C2=A0.../media/common/videobuf2/videobuf2-dma-contig.c=C2=A0 | 22
->> ++++++++++++++++++++++
->> =C2=A01 file changed, 22 insertions(+)
->>
->> diff --git a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> index
->> a13ec569c82f6da2d977222b94af32e74c6c6c82..d41095fe5bd21faf815d6b035d7
->> bc888a84a95d5 100644
->> --- a/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> +++ b/drivers/media/common/videobuf2/videobuf2-dma-contig.c
->> @@ -427,6 +427,17 @@ static int
->> =C2=A0vb2_dc_dmabuf_ops_begin_cpu_access(struct dma_buf *dbuf,
->> =C2=A0				=C2=A0=C2=A0 enum dma_data_direction
->> direction)
->> =C2=A0{
->> +	struct vb2_dc_buf *buf =3D dbuf->priv;
->> +	struct sg_table *sgt =3D buf->dma_sgt;
->> +
->> +	if (!buf->non_coherent_mem)
->> +		return 0;
->> +
->> +	if (buf->vaddr)
->> +		invalidate_kernel_vmap_range(buf->vaddr, buf->size);
->
-> What would make me a lot more confortable with this change is if you
-> enable kernel mappings for one test. This will ensure you cover the
-> call to "invalidate" in your testing. I'd like to know about the
-> performance impact. With this implementation it should be identical to
-> the VB2 one.
+On Wed, Mar 05, 2025 at 02:04:07PM +0100, Jens Wiklander wrote:
+> If a parent device is supplied to tee_device_alloc(), copy the dma_mask
+> field into the new device. This avoids future warnings when mapping a
+> DMA-buf for the device.
+> 
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/tee/tee_core.c | 2 ++
+>  1 file changed, 2 insertions(+)
 >
 
-I have re-run my tests on RK3399, with 1280x720 XRGB capture buffers (1
-plane, 3686400 bytes). Capture process was pinned to "big" cores running
-at fixed frequency of 1.8 GHz. Libcamera was modified to request buffers
-with V4L2_MEMORY_FLAG_NON_COHERENT flag. DMA_BUF_IOCTL_SYNC ioctls were
-used as appropriate. For kernel mapping effect test, vb2_plane_vaddr
-call was inserted into rkisp1_vb2_buf_init.
+Reviewed-by: Sumit Garg <sumit.garg@kernel.org>
 
-The timings are as following:
+-Sumit
 
-- memcpy coherent buffer: 7570 +/- 63 us
-- memcpy non-coherent buffer: 1120 +/- 34 us
-
-without kernel mapping:
-
-- ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_START|DMA_BUF_SYNC_READ}): 42=
-8 +/- 15 us
-- ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_END|DMA_BUF_SYNC_READ}): 422 =
-+/- 28 us
-
-with kernel mapping:
-
-- ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_START|DMA_BUF_SYNC_READ}): 52=
-6 +/- 13 us
-- ioctl(fd, DMA_BUF_IOCTL_SYNC, {DMA_BUF_SYNC_END|DMA_BUF_SYNC_READ}): 519 =
-+/- 38 us
-
-So, even with kernel mapping enabled, speedup is 7570 / (1120 + 526 + 519) =
-=3D 3.5,
-and the use of noncoherent buffers is justified -- at least on this platfor=
-m.
-
---
-Best regards,
-Mikhail Rudenko
+> diff --git a/drivers/tee/tee_core.c b/drivers/tee/tee_core.c
+> index d113679b1e2d..685afcaa3ea1 100644
+> --- a/drivers/tee/tee_core.c
+> +++ b/drivers/tee/tee_core.c
+> @@ -922,6 +922,8 @@ struct tee_device *tee_device_alloc(const struct tee_desc *teedesc,
+>  	teedev->dev.class = &tee_class;
+>  	teedev->dev.release = tee_release_device;
+>  	teedev->dev.parent = dev;
+> +	if (dev)
+> +		teedev->dev.dma_mask = dev->dma_mask;
+>  
+>  	teedev->dev.devt = MKDEV(MAJOR(tee_devt), teedev->id);
+>  
+> -- 
+> 2.43.0
+> 
 
