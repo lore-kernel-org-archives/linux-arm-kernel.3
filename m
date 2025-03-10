@@ -4,73 +4,136 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC24DC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:46:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61069C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:47:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YpoKqmY26E+EiNPwqoey7nNgntyh00SFpI2Dt2BOSOg=; b=MU0m7xIHZiRB6KM8Nlhs9fvvAX
-	87avWi1PyGu0Vi6FywcspjQ70bzMlXAAJX6bF1rxIvaJR6hYH3O/OC6YSk5m8zPIcNdjHEpUpfJqw
-	ia9j5Wvlsui+m9IVNHU3hvVo7RZu5hFYt0o3IvaBQaLNWdC6M9GawaGYuiXnPxDeHdRBLFSkkvhqE
-	yVg7U23HS1lqXEdeysMSP8IkH72sSMdxRRlmFEexS6zVoVeW3KhA3YV/ypbDaZG3ekyA/ogN3RhFJ
-	GAWM230gwFixIt4zW57jzZ7fTIb/5ngn83DMQJy4Sg4NAEFC37Tl/YobJTiSbYWIPpaIO1JjTNgIH
-	w5B+/zkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KEBYcpGn1n6RrVtFHlaz6mqXjlV/ALIYQSMdCZe2f10=; b=M1A031WDVPy59HDmWeMkyOe2dH
+	g1wD/ZEivgkiemhT1rLd6rCfIqeMQtDLJDs5PD6RPfrKuashU9UTAJOGCOSP4XEOpchLORIwVZ/aO
+	MGioBcgQUPG51lAQs2RC7kCw9BR7TTRlot0ej6Wg1bePIL8mzoAyFRKWOiirVp1S9r0pVW7HHRye6
+	h3jnHZTPt+riogih/P1Ay6p15eHfBsjMCIyDlFFBEplAQOmyB3PUlkYm1fkAjlSiJW61yJdPZah8/
+	7z9rHRuExSkoGODK4DhfeprBzLdVZNXZYrvW3/Q8zbnvxxvtYeY1B/a9JzcZWQxT6Kk+po3j2L2ZG
+	XmeSdWFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh6j-00000003W9i-3TvU;
-	Mon, 10 Mar 2025 17:40:05 +0000
+	id 1trh9x-00000003WEX-2y7A;
+	Mon, 10 Mar 2025 17:43:25 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh4i-00000003W0i-0SYj
+	id 1trh8L-00000003WBB-1gZg
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 10 Mar 2025 17:38:00 +0000
+	Mon, 10 Mar 2025 17:41:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YpoKqmY26E+EiNPwqoey7nNgntyh00SFpI2Dt2BOSOg=; b=SxV8XEaRktSVBOPPEZVj6zEnDI
-	GlgA7dETIgsQUXyhAG3Hvqydxv9qc+fpLc+nNa2qiuefOSvv4Iquq9kjsKWuwldtGMVkqZFaXITON
-	m/AjowRkQ5k+uv2cf0TWCFLyNEfFG8rReLMnrTyC0Bu8lLc7safeGCxMmKmDcr7nQr2L+vYyiiDOv
-	8mkjbK8JqfiRPDncAe9kI0Eo9AHxUqBwg3rTcEv/KKyACvWyMptsRDflq2M2mfm+gYGR+n/1T/9bj
-	mVVR8hwmJrwYlJasuPKhcPoppnnjeCYd+mqk9tEFZryGu/4hG9X2I5QOCwcNH7NpHRbd7nhGr2rB4
-	nLqvM9Xg==;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=KEBYcpGn1n6RrVtFHlaz6mqXjlV/ALIYQSMdCZe2f10=; b=Re/qWjcpblZ31FbpIhkYZemJok
+	mn/Uu26PJKLVuZ5j/azus1oWYADNHkHvTqeCXpnjpsHdf6iV2zFT8krjQSsavyAaPS34kBHulMQ35
+	iNcaTa1rKsgcxt4SJ/5Bf3tppd0I+FBbLBfJghy6enjLAz6sc3rIciPN8rHFDD9NxGMbbmIK98ku6
+	/j4JQKjo+7xC/TTZd6iyQfyj973TVYp8R8iUvLlj/fIy7G8lpflO4ciEs2fOrezqJKogwD0Q1/P8n
+	xdGZedFsYWbaPUvCHu4gpmN0GZHBudcatt4yyrpjdFoLiwx+Du2QdERyOIKpjs4HnlhxMf58yAdHY
+	VlYXVFSg==;
 Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh4e-00000001zV7-3Kl6
+	id 1trh8I-00000001zik-2cvm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:37:59 +0000
+	Mon, 10 Mar 2025 17:41:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 57F82A460FB;
-	Mon, 10 Mar 2025 17:32:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02D57C4CEE5;
-	Mon, 10 Mar 2025 17:37:52 +0000 (UTC)
-Date: Mon, 10 Mar 2025 17:37:50 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Kees Cook <kees@kernel.org>
-Cc: Peter Collingbourne <pcc@google.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
- kernel MTE is enabled
-Message-ID: <Z88jbhobIz2yWBbJ@arm.com>
-References: <20250308023314.3981455-1-pcc@google.com>
- <202503071927.1A795821A@keescook>
+	by nyc.source.kernel.org (Postfix) with ESMTP id BC81BA41C25;
+	Mon, 10 Mar 2025 17:35:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DD8CCC4CEEC;
+	Mon, 10 Mar 2025 17:40:24 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741628439;
+	bh=/HSXNv6jjAsvPNyHRljUMfbh7KlOC2ngXOFs6zAfk84=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=VvF1LjyN6hol5ApChxSIKL9i1sN5DyrBVGAP1DW7djfZER1h39Fftx9arwwUTH8iv
+	 ebhegtRdiAweL6n/sKFSQM9jnZz6PNuBH08e2okZB7dVzJ6NmwfM7RH0lmgua8/JvS
+	 6apFviR4/5lcXx6xh2OtzlrE2kOeoXL0vSC2bE4hxBfe7dQMtBlMmc7+lW/h7D6vkw
+	 2C+LGsAsfHI9rMwJ+wMpvV0b8gxzFS6k1RXc7qUxHQz1CPbMylZWpD+BFSm6u9Ro9K
+	 w/P5HthKbOvlQOdIsod7A3CTeOsKFfh78jN5LBcCxVOcDbj/s3zxr4DLvCqUFcrVPC
+	 l4pGFCRZPaVNw==
+Message-ID: <09d4966a-5804-40a4-9c5f-356a954a7704@kernel.org>
+Date: Mon, 10 Mar 2025 18:40:22 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <202503071927.1A795821A@keescook>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add
+ interrupts and DMA coherence
+To: Roman Kisel <romank@linux.microsoft.com>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-8-romank@linux.microsoft.com>
+ <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
+ <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_173757_190672_79F4CEE7 
-X-CRM114-Status: GOOD (  25.25  )
+X-CRM114-CacheID: sfid-20250310_174142_903469_86A8C8DF 
+X-CRM114-Status: GOOD (  25.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,53 +148,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Mar 07, 2025 at 07:36:31PM -0800, Kees Cook wrote:
-> On Fri, Mar 07, 2025 at 06:33:13PM -0800, Peter Collingbourne wrote:
-> > The optimized strscpy() and dentry_string_cmp() routines will read 8
-> > unaligned bytes at a time via the function read_word_at_a_time(), but
-> > this is incompatible with MTE which will fault on a partially invalid
-> > read. The attributes on read_word_at_a_time() that disable KASAN are
-> > invisible to the CPU so they have no effect on MTE. Let's fix the
-> > bug for now by disabling the optimizations if the kernel is built
-> > with HW tag-based KASAN and consider improvements for followup changes.
+On 10/03/2025 18:05, Roman Kisel wrote:
 > 
-> Why is faulting on a partially invalid read a problem? It's still
-> invalid, so ... it should fault, yes? What am I missing?
-
-read_word_at_a_time() is used to read 8 bytes, potentially unaligned and
-beyond the end of string. The has_zero() function is then used to check
-where the string ends. For this uses, I think we can go with
-load_unaligned_zeropad() which handles a potential fault and pads the
-rest with zeroes.
-
-> > Signed-off-by: Peter Collingbourne <pcc@google.com>
-> > Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf98ada827fdf755548
-> > Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
-> > Cc: stable@vger.kernel.org
-> > ---
-> >  fs/dcache.c  | 2 +-
-> >  lib/string.c | 3 ++-
-> >  2 files changed, 3 insertions(+), 2 deletions(-)
 > 
-> Why are DCACHE_WORD_ACCESS and HAVE_EFFICIENT_UNALIGNED_ACCESS separate
-> things? I can see at least one place where it's directly tied:
+> On 3/10/2025 2:28 AM, Krzysztof Kozlowski wrote:
+>> On Fri, Mar 07, 2025 at 02:02:59PM -0800, Roman Kisel wrote:
+>>> To boot on ARM64, VMBus requires configuring interrupts. Missing
+>>> DMA coherence property is sub-optimal as the VMBus transations are
+>>> cache-coherent.
+>>>
+>>> Add interrupts to be able to boot on ARM64. Add DMA coherence to
+>>> avoid doing extra work on maintaining caches on ARM64.
+>>
+>> How do you add it?
+>>
 > 
-> arch/arm/Kconfig:58:    select DCACHE_WORD_ACCESS if HAVE_EFFICIENT_UNALIGNED_ACCESS
+> I added properties to the node. Should I fix the description, or I am
+> misunderstanding the question?
 
-DCACHE_WORD_ACCESS requires load_unaligned_zeropad() which handles the
-faults. For some reason, read_word_at_a_time() doesn't expect to fault
-and it is only used with HAVE_EFFICIENT_UNALIGNED_ACCESS. I guess arm32
-only enabled load_unaligned_zeropad() on hardware that supports
-efficient unaligned accesses (v6 onwards), hence the dependency.
+I saw interrupts in the schema, but I did not see dma-coherence. I also
+did not see any DTS patches here, so I don't understand what node you
+are referring to.
 
-> Would it make sense to sort this out so that KASAN_HW_TAGS can be taken
-> into account at the Kconfig level instead?
+> 
+>>>
+>>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+>>> ---
+>>>   .../devicetree/bindings/bus/microsoft,vmbus.yaml          | 8 +++++++-
+>>>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>> index a8d40c766dcd..3ab7d0116626 100644
+>>> --- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>> +++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>> @@ -28,13 +28,16 @@ properties:
+>>>   required:
+>>>     - compatible
+>>>     - ranges
+>>> +  - interrupts
+>>>     - '#address-cells'
+>>>     - '#size-cells'
+>>>   
+>>> -additionalProperties: false
+>>> +additionalProperties: true
+>>
+>> This is neither explained in commit msg nor correct.
+>>
+> 
+> Not explained, as there is no good explanation as described below.
+> 
+>> Drop the change. You cannot have device bindings ending with 'true'
+>> here - see talks, example-bindings, writing-schema and whatever resource
+>> is there.
+>>
+> 
+> Thanks, I'll put more effort into bringing this into a better form!
+> If you have time, could you comment on the below?
+> 
+> The Documentation says
+> 
+>    * additionalProperties: true
+>      Rare case, used for schemas implementing common set of properties.
+> Such schemas are supposed to be referenced by other schemas, which then 
+> use 'unevaluatedProperties: false'.  Typically bus or common-part schemas.
+> 
+> This is a bus so I added that line to the YAML, and I saw it in many
 
-I don't think we should play with config options but rather sort out the
-fault path (load_unaligned_zeropad) or disable MTE temporarily. I'd go
-with the former as long as read_word_at_a_time() is only used for
-strings in conjunction with has_zero(). I haven't checked.
+If this is a bus, then where is schema using it for
+bus-attached-devices? You cannot have bus without devices.
 
--- 
-Catalin
+You *must* fulfill that part:
+"Such schemas are supposed to be referenced by other schemas, which then"
+
+instead of calling it bus...
+
+Please upstream bindings for the bus devices and extend the example here
+with these devices.
+
+Or this is not bus (calling something vmpony does not make it a pony).
+
+
+Best regards,
+Krzysztof
 
