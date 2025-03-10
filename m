@@ -4,69 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADFA4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:19:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47475C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:25:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bwWd8IPHrchZjA5iUek6gwliBN293H/fMAP7+Vv1hPE=; b=a6mriHDzBqfpJMcuutm8MKJUBy
-	LgYIoeOhyUDNGeNpScf7Au+nYt3Uz2CeFZJ1tfGmByxV8+yZGcIsKRT9a54e1XtLc1Zylf4Tu5H0m
-	DwyZCakygvLw52M3WQx2DsmPdUe6Nx5r8bjzkRzq0I69OGOMilMrcz3WlUJsGay+nFBAysQetPsp4
-	CoE3TJZnqYjGxWOhGnM31iwSMOTZc3h029ubVsIHfIbxC5jSDcoGNfd1aM7MVHGP1hOU5XUswNVln
-	pn2hN0SCqC2MZmysiXuqtLL1LewHfsxzGOOHoSNtTcwp9qfGUPNE7rMrOJ7I4y/0+A8vLDHjQkMq8
-	7xvZ5zkA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J9WgnNk8hsJqucJXyV7OVTWvviSo1PzyLdaWKwbmS6M=; b=cAWK5DmWT2aNUrAE6ppAtuM+fO
+	UpGy6Z9R8Eq0NAnZpKgAs6TUSLRv3x2Yu/1M77tTAJJVUY9wBRQ7hhFzKRSfDLpsCMWpErbG6n8O6
+	za+k6c2La+4ysYas7UMG+CiMEvIqQ+bMeDiNMpDeS3FJuvifphpEUfCQKG7hQLmKnbZDVjW2348K7
+	xfV2AjqHDEux4uavPjb2o64sINVSrg3li4Hi1D2bqFat5Exl/CuvvAKqop/Ci6Z1VgV6JDHzbBMst
+	FmMnvLQbqeiHER8tlIRxvbxdM8REMsSW81gg2XOFg+a+nChPOBlcfItRtjxcb1okjXIU2nu8ZmlrQ
+	1e7kkoHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhiX-00000003b5z-2H84;
-	Mon, 10 Mar 2025 18:19:09 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1trhoZ-00000003bd3-127l;
+	Mon, 10 Mar 2025 18:25:23 +0000
+Received: from mail.ispras.ru ([83.149.199.84])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trheo-00000003aRJ-0mZo;
-	Mon, 10 Mar 2025 18:15:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 110AEA46131;
-	Mon, 10 Mar 2025 18:09:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 573F9C4CEE5;
-	Mon, 10 Mar 2025 18:15:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1741630516;
-	bh=vzvrSyqn6DJjUIxws5xS9TDyA2751Ep1ig0ZZJZcS6M=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=awRXIwASt6IM3fvoJMk4Djw8panTo+rxZVnNeA8VV4Y+c6PJE1og6Q9JM96VhqCsu
-	 ZEE2EFu8XUpTS+eol+cVEGRTtL61JjM0oUwy5nW5b37ltPRNsbBLsCbgVmvy4wKfOY
-	 xLhrmMt6x6crzR99T3GvUWT+EhAr84zuywaM/hhY=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	Chris Zhong <zyw@rock-chips.com>,
-	Guenter Roeck <groeck@chromium.org>,
-	Sandy Huang <hjc@rock-chips.com>,
-	=?UTF-8?q?Heiko=20St=C3=BCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 441/620] drm/rockchip: cdn-dp: Use drm_connector_helper_hpd_irq_event()
-Date: Mon, 10 Mar 2025 18:04:47 +0100
-Message-ID: <20250310170603.006059216@linuxfoundation.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250310170545.553361750@linuxfoundation.org>
-References: <20250310170545.553361750@linuxfoundation.org>
-User-Agent: quilt/0.68
-X-stable: review
-X-Patchwork-Hint: ignore
+	id 1trhmu-00000003bVN-2yz9
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 18:23:42 +0000
+Received: from localhost (unknown [10.10.165.14])
+	by mail.ispras.ru (Postfix) with ESMTPSA id 6D5F140CE18B;
+	Mon, 10 Mar 2025 18:23:32 +0000 (UTC)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail.ispras.ru 6D5F140CE18B
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ispras.ru;
+	s=default; t=1741631012;
+	bh=J9WgnNk8hsJqucJXyV7OVTWvviSo1PzyLdaWKwbmS6M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aDQAMiwKnUsInpKrImOsgUADu1a87Mys1J5sBBz/s9yCHBo5sX+KP2t2K5NH2zzB2
+	 /etkaY7/rdkKB5LfEDmDk35MoABlNOzSRqfwSokrrq7wCplaB3wMEQV7VnzlZcb2er
+	 WardCxs7Xv7IvNb/G1zhCdGQwviVFEbBGtIltczo=
+Date: Mon, 10 Mar 2025 21:23:32 +0300
+From: Fedor Pchelkin <pchelkin@ispras.ru>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Peter Chen <peter.chen@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Shawn Guo <shawnguo@kernel.org>, 
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
+	Fabio Estevam <festevam@gmail.com>, Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>, 
+	Sebastian Reichel <sre@kernel.org>, Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>, 
+	linux-usb@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, lvc-project@linuxtesting.org, stable@vger.kernel.org
+Subject: Re: [PATCH 2/3] usb: chipidea: ci_hdrc_imx: disable regulator on
+ error path in probe
+Message-ID: <lbsj2h2zut3eafu5vy6ysuv4y7xjuqtemovqtg3lzuyhp6fjbl@4xwikb3bxl7k>
+References: <20250309175805.661684-1-pchelkin@ispras.ru>
+ <20250309175805.661684-3-pchelkin@ispras.ru>
+ <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <Z8781hzSKJ5P0gBe@lizhi-Precision-Tower-5810>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_111518_376061_340A6C63 
-X-CRM114-Status: GOOD (  15.19  )
+X-CRM114-CacheID: sfid-20250310_112341_253412_58BBFC63 
+X-CRM114-Status: GOOD (  26.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,80 +75,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+On Mon, 10. Mar 10:53, Frank Li wrote:
+> On Sun, Mar 09, 2025 at 08:57:58PM +0300, Fedor Pchelkin wrote:
+> > Upon encountering errors during the HSIC pinctrl handling section the
+> > regulator should be disabled.
+> >
+> > After the above-stated changes it is possible to jump onto
+> > "disable_hsic_regulator" label without having added the CPU latency QoS
+> > request previously. This would result in cpu_latency_qos_remove_request()
+> > yielding a WARNING.
+> >
+> > So rearrange the error handling path to follow the reverse order of
+> > different probing phases.
+> 
+> Suggest use devm_add_action() to simple whole error handle code.
 
-------------------
+I'll try with that in v2 then, thanks for suggestion.
 
-From: Thomas Zimmermann <tzimmermann@suse.de>
+> 
+> >
+> > Found by Linux Verification Center (linuxtesting.org).
+> 
+> I think this sentense have not provide valuable informaiton for reader.
 
-[ Upstream commit 666e1960464140cc4bc9203c203097e70b54c95a ]
+Well, that's a line which the organization rules specify to put into
+every bugfix patch found on its behalf. I must follow these rules.
 
-The code for detecting and updating the connector status in
-cdn_dp_pd_event_work() has a number of problems.
+Btw, you can find this in the changelogs of many other commits existing
+in the main kernel tree:
 
-- It does not aquire the locks to call the detect helper and update
-the connector status. These are struct drm_mode_config.connection_mutex
-and struct drm_mode_config.mutex.
+$ git shortlog --grep="linuxtesting.org" --group=format:""
+ (859):
+      kernel/range.c: fix clean_sort_range() for the case of full array
+      Staging: pohmelfs/dir.c: Remove unneeded mutex_unlock() from pohmelfs_rename()
+      USB: usb-gadget: unlock data->lock mutex on error path in ep_read()
+      ...
 
-- It does not use drm_helper_probe_detect(), which helps with the
-details of locking and detection.
-
-- It uses the connector's status field to determine a change to
-the connector status. The epoch_counter field is the correct one. The
-field signals a change even if the connector status' value did not
-change.
-
-Replace the code with a call to drm_connector_helper_hpd_irq_event(),
-which fixes all these problems.
-
-Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
-Fixes: 81632df69772 ("drm/rockchip: cdn-dp: do not use drm_helper_hpd_irq_event")
-Cc: Chris Zhong <zyw@rock-chips.com>
-Cc: Guenter Roeck <groeck@chromium.org>
-Cc: Sandy Huang <hjc@rock-chips.com>
-Cc: "Heiko Stübner" <heiko@sntech.de>
-Cc: Andy Yan <andy.yan@rock-chips.com>
-Cc: dri-devel@lists.freedesktop.org
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-rockchip@lists.infradead.org
-Cc: <stable@vger.kernel.org> # v4.11+
-Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-Link: https://patchwork.freedesktop.org/patch/msgid/20241105133848.480407-1-tzimmermann@suse.de
-Signed-off-by: Sasha Levin <sashal@kernel.org>
----
- drivers/gpu/drm/rockchip/cdn-dp-core.c | 9 +--------
- 1 file changed, 1 insertion(+), 8 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/cdn-dp-core.c b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-index b9ef35a35c857..af1e361da8df9 100644
---- a/drivers/gpu/drm/rockchip/cdn-dp-core.c
-+++ b/drivers/gpu/drm/rockchip/cdn-dp-core.c
-@@ -916,9 +916,6 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
- {
- 	struct cdn_dp_device *dp = container_of(work, struct cdn_dp_device,
- 						event_work);
--	struct drm_connector *connector = &dp->connector;
--	enum drm_connector_status old_status;
--
- 	int ret;
- 
- 	mutex_lock(&dp->lock);
-@@ -980,11 +977,7 @@ static void cdn_dp_pd_event_work(struct work_struct *work)
- 
- out:
- 	mutex_unlock(&dp->lock);
--
--	old_status = connector->status;
--	connector->status = connector->funcs->detect(connector, false);
--	if (old_status != connector->status)
--		drm_kms_helper_hotplug_event(dp->drm_dev);
-+	drm_connector_helper_hpd_irq_event(&dp->connector);
- }
- 
- static int cdn_dp_pd_event(struct notifier_block *nb,
--- 
-2.39.5
-
-
-
+> 
+> Frank
+> 
+> >
+> > Fixes: 4d6141288c33 ("usb: chipidea: imx: pinctrl for HSIC is optional")
+> > Cc: stable@vger.kernel.org
+> > Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
+> > ---
+> >  drivers/usb/chipidea/ci_hdrc_imx.c | 15 ++++++++-------
+> >  1 file changed, 8 insertions(+), 7 deletions(-)
+> >
+> > diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
+> > index 619779eef333..3f11ae071c7f 100644
+> > --- a/drivers/usb/chipidea/ci_hdrc_imx.c
+> > +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
+> > @@ -407,13 +407,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+> >  				"pinctrl_hsic_idle lookup failed, err=%ld\n",
+> >  					PTR_ERR(pinctrl_hsic_idle));
+> >  			ret = PTR_ERR(pinctrl_hsic_idle);
+> > -			goto err_put;
+> > +			goto disable_hsic_regulator;
+> >  		}
+> >
+> >  		ret = pinctrl_select_state(data->pinctrl, pinctrl_hsic_idle);
+> >  		if (ret) {
+> >  			dev_err(dev, "hsic_idle select failed, err=%d\n", ret);
+> > -			goto err_put;
+> > +			goto disable_hsic_regulator;
+> >  		}
+> >
+> >  		data->pinctrl_hsic_active = pinctrl_lookup_state(data->pinctrl,
+> > @@ -423,7 +423,7 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+> >  				"pinctrl_hsic_active lookup failed, err=%ld\n",
+> >  					PTR_ERR(data->pinctrl_hsic_active));
+> >  			ret = PTR_ERR(data->pinctrl_hsic_active);
+> > -			goto err_put;
+> > +			goto disable_hsic_regulator;
+> >  		}
+> >  	}
+> >
+> > @@ -432,11 +432,11 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+> >
+> >  	ret = imx_get_clks(dev);
+> >  	if (ret)
+> > -		goto disable_hsic_regulator;
+> > +		goto qos_remove_request;
+> >
+> >  	ret = imx_prepare_enable_clks(dev);
+> >  	if (ret)
+> > -		goto disable_hsic_regulator;
+> > +		goto qos_remove_request;
+> >
+> >  	ret = clk_prepare_enable(data->clk_wakeup);
+> >  	if (ret)
+> > @@ -526,12 +526,13 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
+> >  	clk_disable_unprepare(data->clk_wakeup);
+> >  err_wakeup_clk:
+> >  	imx_disable_unprepare_clks(dev);
+> > +qos_remove_request:
+> > +	if (pdata.flags & CI_HDRC_PMQOS)
+> > +		cpu_latency_qos_remove_request(&data->pm_qos_req);
+> >  disable_hsic_regulator:
+> >  	if (data->hsic_pad_regulator)
+> >  		/* don't overwrite original ret (cf. EPROBE_DEFER) */
+> >  		regulator_disable(data->hsic_pad_regulator);
+> > -	if (pdata.flags & CI_HDRC_PMQOS)
+> > -		cpu_latency_qos_remove_request(&data->pm_qos_req);
+> >  	data->ci_pdev = NULL;
+> >  err_put:
+> >  	if (data->usbmisc_data)
+> > --
+> > 2.48.1
+> >
 
