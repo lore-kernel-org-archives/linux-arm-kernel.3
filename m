@@ -4,71 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52CE8C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:56:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2E8BC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H2/foQcyGg17zdbQh7oHp2efHSIFYAn/SlsZpuP7wXc=; b=2gvq+hYZ+pKwpKcfRI4toPYnQW
-	u1V7nhbd079BFZPv73oYtLfdWHpV+hkE8a1eFQC7JeMQ6tQeaYKRNuXjlnR58wOXfQFjiBSimfB6o
-	vcWgu1o2WdFAfHsuV/ebWEC0BZny0q6GvsfFJTD3KPsavZamXw0IoeWGhYujzQed0HmcNvXRlX1xm
-	XjxGY2wWeBJCse3TN5xWntbxyRhevy2Vp2noWkaKHup2tL8LdHp24MGWijwBfZ/fbEGAFok7fM1vL
-	BjTgj3xzEzNQExg6G7H/OziqbO17bVKHVzN2DG2kQxI4C5ql3RVn5+ONMXPdyCSHTVwOM5etaidML
-	HWnZfs7A==;
+	bh=FJwceBGDF2wkWgWu1pdO+uwWw+syZobUsImQSfkS6Tw=; b=cbr/obKnrONkJF70aDZyopadJi
+	pZ8rWKGp+iEj5MhvOBq46pwNsYG9w5o53+QEJ2Cn7oNrtYqHk7blbS7DpR3K/jjPCmvV3fVnD8Gyv
+	Xv7s8WvK2OFBEVj3MJwCf9CRSfFmB/V5QUt8Rep4sH8v5RtYs2D5vBX8YU1gKRB6Db9/cwimcF2Oc
+	YkpLx1CiHYZgAtoo81TMdGfXxo5GMFlf0Z5Rh8NdWk5C4tL8gnIAc3lT3Ms7TLsvJdng8Z5SgLPJo
+	d5xt0rAmPcMVpxAxHeKA1rAD4xq17IRd5ko4YD2rM+e2/WYwzwh84n8MgDLWcp5BHFPJtnGXb+X7t
+	RODjO3nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXzV-00000001ozj-0ujD;
-	Mon, 10 Mar 2025 07:56:01 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1trY1c-00000001pMy-499w;
+	Mon, 10 Mar 2025 07:58:13 +0000
+Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXxq-00000001oOh-3IUs;
-	Mon, 10 Mar 2025 07:54:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 477045C5945;
-	Mon, 10 Mar 2025 07:52:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0263C4CEE5;
-	Mon, 10 Mar 2025 07:54:16 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741593257;
-	bh=IxPWphu3F+xLc4GiSypSOK76zaVHnRzhR45Z6VPd2NA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=vQkIKmyFW93JJq+SgIA7Kse9XO9YgQMLKEKIqMmNnJSQgaZQ3nXDievCakMRQjSg4
-	 z3hShvH+sQJGvYnAmuIrM1a3q6k2kop5itpDaYBvhABLaKfd4LXUaGU6UEiZf8uWIn
-	 18W+/DjHirhmrCHl6zXDOZpoRmWfC1Tx4bgobW2s9J+04wO6DR6aztFTpOxOyTMpVf
-	 KP2OQLwmA8Flik0e5pfZZj/QkkZ+v4XkeHamrJJupxPXofgO1Kkt0IRTnXpk4pZUUF
-	 Ti4HK/VcgbT9uKGsxiFGRrwIRmzxZetqXTWEKsDBQatp+DDi4SNgEssK5pJf8FTZ+D
-	 Vx+Zxv1IOq4rw==
-Date: Mon, 10 Mar 2025 08:54:14 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>, 
-	Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Lorenzo Bianconi <lorenzo@kernel.org>, Daniel Danzberger <dd@embedd.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Linus Walleij <linus.walleij@linaro.org>, Nikita Shubin <nikita.shubin@maquefel.me>, 
-	Guo Ren <guoren@kernel.org>, Yangyu Chen <cyy@cyyself.name>, 
-	Ben Hutchings <ben@decadent.org.uk>, Felix Fietkau <nbd@nbd.name>, linux-clk@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org, upstream@airoha.com
-Subject: Re: [PATCH 03/13] dt-bindings: soc: airoha: add SCU SSR Serdes port
- binding
-Message-ID: <20250310-ultraviolet-earthworm-of-honor-df114b@krzk-bin>
-References: <20250309132959.19045-1-ansuelsmth@gmail.com>
- <20250309132959.19045-4-ansuelsmth@gmail.com>
+	id 1trXzy-00000001p5b-1UKB;
+	Mon, 10 Mar 2025 07:56:31 +0000
+Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e5e8274a74so3831638a12.1;
+        Mon, 10 Mar 2025 00:56:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741593389; x=1742198189; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=FJwceBGDF2wkWgWu1pdO+uwWw+syZobUsImQSfkS6Tw=;
+        b=KOREfeZslGPx1kzmopAhrCwmZLDTGzimHm1+tDa45z1ctRPzD5QFefqxKP19RAZogA
+         niZF6P26x19YYc/ua5fY0bTaJueVr7xlwM3kBJ4NRfwjnA/QbAXrb8LQzFtNZ4w2L8n9
+         FYKRlO0jge0kjFfbOQQGrwvSdoltqKhdWsFhizyB01nk9SMu7kPKP8AAAG/Mgmx4s5Iv
+         kN3Jo/x+TzQraTQESzs2xXWsRkm/qj3zYFN05RBmpU1err+RkvDiVsAKfdVG7a9vUTWf
+         9F4jB6LY9eZ9pJgkRuZ03n4MY9rkjd+GWxDJTvlve7ypaHfD20AI+i65oNm/cKkdPt5e
+         iPnA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741593389; x=1742198189;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=FJwceBGDF2wkWgWu1pdO+uwWw+syZobUsImQSfkS6Tw=;
+        b=sXPZM1rB8TrVjvuFADh3ynqJD2eEdYgy7X1LC/T5DboEc0hX2NoTFAfE/PSrSQmisb
+         ytzZ99M6QholmbT7xuc3LbuEVH/7xHcS7NR0dx4ahqYjoOMrrhaj8q6Z5R1wD1HYnznM
+         qFU8Ptvypj3dwza5TDARobwmrgHxxeE4S8aXcSbPAmg+I4upNdDVOBUZcQ8vt6Xkxo/H
+         apJ5SwHFNaxi7fWnsEe9p7Te5ZDrQePQL0l2QQM+rncyHmV+dRKzrsxW3sU3Zu67MHym
+         mHd9IpXzugRLiD6NLXNM0s+9gCdfxi2TpZqSkobdCnRRtbXSZmws1YWRC+QU+9z+jCQu
+         KZrg==
+X-Forwarded-Encrypted: i=1; AJvYcCVEoew0TySmAVr3OUj4S43wBmKSJ+UMC6UWznRddk2l3FiPCTyQI3d0qk57OcKYZ0R+Xj9fK6zzpLbAf05Ls4002w==@lists.infradead.org, AJvYcCWR1Ny9E7pVC5Yl2m7EiTxGBX1Iq2sDmxChVVqb/zAHfW5M+qzWQEcT0BcG/7q7SEYdUsnTQQ==@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywm5CGVUF7r+jgAMUCs/QWcz5ckmN/geIn0a7/rh8XA9rmlI1W3
+	jY7Ua6D2oamvoFY3pjyJ2LZTiu9ha5oFdz8OuQxUY+NLdiFEMwou
+X-Gm-Gg: ASbGncv5Pebv2gQtZgr0zIx0Zxpim+vCEk6Nktu91SVQpSLnmYCM3vBRf/myxU2KHve
+	/nybuUn3yl0JSs6ERhSzx5KOPozEKISnokhteFFvK8XqbrZyBgHdH4VdFKDwDW+VjR4+xbA/ubf
+	MaxSMbR/ohqAzD4KYiLfeCPj+QIdVvxAxeovIcM+fIuOCWbdgJNLpcDfLe3rgGiN2P4VYARposs
+	O/UX8vroVhQtNHtms69jlBJztsaUHbpYw9p3J8fnk0ddLP7+BA2EBgswID5Vb+XN5bGdWdTX0dw
+	0+GNk7hk4qt2oQ6dWsJw+gAIOacL7Bnkyf1fCd2MH2Er
+X-Google-Smtp-Source: AGHT+IEQ2uBHwcOdkgr7aGqLMWG+rbjuDIjMsdHGAG+hCMaeoXtOhIX4RmiolWfrWI8fpuA/uaZyUw==
+X-Received: by 2002:a05:6402:268a:b0:5e0:49e4:2180 with SMTP id 4fb4d7f45d1cf-5e5e24688d1mr34122496a12.25.1741593388499;
+        Mon, 10 Mar 2025 00:56:28 -0700 (PDT)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac279b3e463sm371805666b.72.2025.03.10.00.56.27
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Mon, 10 Mar 2025 00:56:28 -0700 (PDT)
+Date: Mon, 10 Mar 2025 07:56:27 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: Mike Rapoport <rppt@kernel.org>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <20250310075627.5hettrn2j2ien5bj@master>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
+ <20250224013131.fzz552bn7fs64umq@master>
+ <Z711VP45tjBi0kwx@kernel.org>
+ <20250226020915.ytxusrrl7rv4g64l@master>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250309132959.19045-4-ansuelsmth@gmail.com>
+In-Reply-To: <20250226020915.ytxusrrl7rv4g64l@master>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_005418_886102_94C9AC70 
-X-CRM114-Status: GOOD (  11.79  )
+X-CRM114-CacheID: sfid-20250310_005630_514739_867ECE8E 
+X-CRM114-Status: GOOD (  29.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,25 +129,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 02:29:34PM +0100, Christian Marangi wrote:
-> Add Airoha AN7581 SCU SSR Serdes port binding to define what mode is
-> supported by each Serdes port. These special binding are needed to
-> identify and provide the port mode from any user driver.
-> 
-> These modes are mutually exclusive and driver needs to correctly
-> validate the current mode for the Serdes port in use.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  MAINTAINERS                              |  6 ++++++
->  include/dt-bindings/soc/airoha,scu-ssr.h | 24 ++++++++++++++++++++++++
+On Wed, Feb 26, 2025 at 02:09:15AM +0000, Wei Yang wrote:
+>On Tue, Feb 25, 2025 at 09:46:28AM +0200, Mike Rapoport wrote:
+>>On Mon, Feb 24, 2025 at 01:31:31AM +0000, Wei Yang wrote:
+>>> On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+>>> >Hi,
+>>> >
+>>> >On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+>>> >> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+>>> >> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>>> >> >
+>>> >> >to denote areas that were reserved for kernel use either directly with
+>>> >> >memblock_reserve_kern() or via memblock allocations.
+>>> >> >
+>>> >> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>>> >> >---
+>>> >> > include/linux/memblock.h | 16 +++++++++++++++-
+>>> >> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+>>> >> > 2 files changed, 39 insertions(+), 9 deletions(-)
+>>> >> >
+>>> >> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+>>> >> >index e79eb6ac516f..65e274550f5d 100644
+>>> >> >--- a/include/linux/memblock.h
+>>> >> >+++ b/include/linux/memblock.h
+>>> >> >@@ -50,6 +50,7 @@ enum memblock_flags {
+>>> >> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+>>> >> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+>>> >> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+>>> >> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+>>> >> 
+>>> >> Above memblock_flags, there are comments on explaining those flags.
+>>> >> 
+>>> >> Seems we miss it for MEMBLOCK_RSRV_KERN.
+>>> >
+>>> >Right, thanks!
+>>> > 
+>>> >> > 
+>>> >> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>>> >> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+>>> >> > again:
+>>> >> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+>>> >> > 					    flags);
+>>> >> >-	if (found && !memblock_reserve(found, size))
+>>> >> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+>>> >> 
+>>> >> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+>>> >> correct, the reserved region's nid is not used.
+>>> >
+>>> >We use nid of reserved regions in reserve_bootmem_region() (commit
+>>> >61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+>>> >know the distribution of reserved memory among the nodes before
+>>> >memmap_init_reserved_pages().
+>>> > 
+>>> >> BTW, one question here. How we handle concurrent memblock allocation? If two
+>>> >> threads find the same available range and do the reservation, it seems to be a
+>>> >> problem to me. Or I missed something?
+>>> >
+>>> >memblock allocations end before smp_init(), there is no possible concurrency.
+>>> > 
+>>> 
+>>> Thanks, I still have one question here.
+>>> 
+>>> Below is a simplified call flow.
+>>> 
+>>>     mm_core_init()
+>>>         mem_init()
+>>>             memblock_free_all()
+>>>                 free_low_memory_core_early()
+>>>                     memmap_init_reserved_pages()
+>>>                         memblock_set_node(..., memblock.reserved, )   --- (1)
+>>>                     __free_memory_core()
+>>>         kmem_cache_init()
+>>>             slab_state = UP;                                          --- (2)
+>>> 
+>>> And memblock_allloc_range_nid() is not supposed to be called after
+>>> slab_is_available(). Even someone do dose it, it will get memory from slab
+>>> instead of reserve region in memblock.
+>>> 
+>>> From the above call flow and background, there are three cases when
+>>> memblock_alloc_range_nid() would be called:
+>>> 
+>>>   * If it is called before (1), memblock.reserved's nid would be adjusted correctly.
+>>>   * If it is called after (2), we don't touch memblock.reserved.
+>>>   * If it happens between (1) and (2), it looks would break the consistency of
+>>>     nid information in memblock.reserved. Because when we use
+>>>     memblock_reserve_kern(), NUMA_NO_NODE would be stored in region.
+>>> 
+>>> So my question is if the third case happens, would it introduce a bug? If it
+>>> won't happen, seems we don't need to specify the nid here?
+>>
+>>We don't really care about proper assignment of nodes between (1) and (2)
+>>from one side and the third case does not happen on the other side. Nothing
+>>should call membloc_alloc() after memblock_free_all(). 
+>>
+>
+>My point is if no one would call memblock_alloc() after memblock_free_all(),
+>which set nid in memblock.reserved properly, it seems not necessary to do
+>__memblock_reserve() with exact nid during memblock_alloc()? 
+>
+>As you did __memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN) in this
+>patch.
+>
 
-This should be squashed with the binding for the device.
+Hi, Mike
 
-Best regards,
-Krzysztof
+Do you think my understanding is reasonable?
 
+-- 
+Wei Yang
+Help you, Help me
 
