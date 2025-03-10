@@ -4,100 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C73E6C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:36:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C684C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:38:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eq8D7b99yw3Y7viV0W3bDNKPEc6hnF+oLe9WxqDR290=; b=C7KzLI7uGh7GzZJTfL8u7g1mlz
-	0b4xdn88POdkaV6xTh3/Rk6FklH85XugvLoUi2rM/Di7+uyiB5NF0o5QWvVdwn2tLQmNkB/4+h7h3
-	N8TtFcj1KtX4g8Y58KYp9aD2R6CYnR/gMw5KtH/pK89CK5AfABXFJXKAjWZyz4JxloE7XfXE0GqYO
-	We/KBK/x+bpCvBcoJvhab58v/GeeMqs5pmcnapg3xKCGyfqrbo+i/doFr06Ws+LLAlwImadIZ1+MF
-	zW3DGAx0rqLcjPRPVpNLWazrPSgRjpFWcPOUflkbs7ej6DomNWPdPwhiDCKYw5K3FLnKRbfdliCc1
-	ezh88sow==;
+	bh=mOTJJaxuE59TJ7zJEtm/CQ10vPf1/EmC5GMQk7qBpf4=; b=BK+fPEWeSQ7JTxED8xJCejneUb
+	tqobsrRQ5fNdwhm9B9NfkBPERMvvIGOzp2Tv/WQ0kmnYNsL6Up2SX51y8aAuBWQ6Lq406U40Tg0Lr
+	c68USLhOLQBO1uDFjfY3AdkBdcVsUon6QAp29UcopHfclO2VFV4rUQRxK05kjncfFZv3L6LTxSJeH
+	DumY5YQ/WETInCLUr36T+bTvi9pqTBtyrw5s5/A/t6zgAUUYzXdFJ4RWnrljf+LwXUxgk0ertlM7u
+	EAra/5vX9DOQOdVYMzD97YaTJ1Zdons/5eMnbitCSxH2VGiQAJim2ca4sluwDm0GMx98FP4MzY7Ud
+	Y1Qwa/FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdJC-00000002oTP-0Mf7;
-	Mon, 10 Mar 2025 13:36:42 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcIk-00000002dUn-2zQ1
+	id 1trdKn-00000002oi4-3IBp;
+	Mon, 10 Mar 2025 13:38:21 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trcIt-00000002dZO-1e3o
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 12:32:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5A6D65C631F;
-	Mon, 10 Mar 2025 12:29:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8D320C4CEEA;
-	Mon, 10 Mar 2025 12:32:09 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741609929;
-	bh=+yJXW3oB2sKwOAYNjS/cyatF0So7vPbPll756fs5Nps=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XY0FhGNz/+TRaq1rubNK8SAY4CBRiH1RDdjwpGzDXcryn/LGrKkpSiJXxMN05qTto
-	 GktCOuoFSdnUrIfGHOgrQo1OZFKBgcTJnyRqazDKuhi69HD8z3SJjX6rQDCAQ86oI9
-	 H6KWiijonJVFQ+kGlJ3Qwx8/N7RZlUiYRaT3zAB/eLpnodG4uneirLn775Umqp9GvP
-	 FTw5LBehq9qDwlE/arO5Xh9TtJW5betOcs0PF/moAReVhf2hEvMQuStoZ2EhVYtjtC
-	 XbxYxvPMHJNgDlOusvJQWYu1/xgKTNZQCi+z0HAHBB5dn0RwjotXYCFZXjm6SVxsxT
-	 lBwykbgDebHfQ==
-Date: Mon, 10 Mar 2025 07:32:07 -0500
-From: Rob Herring <robh@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Julien Massot <julien.massot@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Javier Carrasco <javier.carrasco@wolfvision.net>,
-	Ross Burton <ross.burton@arm.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Umang Jain <umang.jain@ideasonboard.com>,
-	Zhi Mao <zhi.mao@mediatek.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Ricardo Ribalda <ribalda@chromium.org>,
-	Ihor Matushchak <ihor.matushchak@foobox.net>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [RFC PATCH 09/24] dt-bindings: media: i2c: max96714: make
- i2c-gate conditional on compatible
-Message-ID: <20250310123207.GA3853920-robh@kernel.org>
-References: <20250308183410.3013996-1-demonsingur@gmail.com>
- <20250308183410.3013996-10-demonsingur@gmail.com>
+	Mon, 10 Mar 2025 12:32:20 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E0DA152B;
+	Mon, 10 Mar 2025 05:32:30 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ADEA3F5A1;
+	Mon, 10 Mar 2025 05:32:18 -0700 (PDT)
+Date: Mon, 10 Mar 2025 12:32:13 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Arnaldo Carvalho de Melo <acme@redhat.com>,
+	Namhyung Kim <namhyung@kernel.org>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 2/8] coresight: Introduce pause and resume APIs for
+ source
+Message-ID: <20250310123213.GF9682@e132581.arm.com>
+References: <20250310104919.58816-1-leo.yan@arm.com>
+ <20250310104919.58816-3-leo.yan@arm.com>
+ <65979e92-0047-427c-848d-53f908671905@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250308183410.3013996-10-demonsingur@gmail.com>
+In-Reply-To: <65979e92-0047-427c-848d-53f908671905@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_053210_835132_B46C98CB 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20250310_053219_521723_0755C2D3 
+X-CRM114-Status: GOOD (  23.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,61 +71,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 08, 2025 at 08:33:38PM +0200, Cosmin Tanislav wrote:
-> Devices to be added in following patches don't use I2C gate.
+On Mon, Mar 10, 2025 at 12:01:25PM +0000, Suzuki Kuruppassery Poulose wrote:
+> On 10/03/2025 10:49, Leo Yan wrote:
+> > Introduce APIs for pausing and resuming trace source and export as GPL
+> > symbols.
+> > 
+> > Signed-off-by: Leo Yan <leo.yan@arm.com>
+> > ---
+> >   drivers/hwtracing/coresight/coresight-core.c | 20 ++++++++++++++++++++
+> >   drivers/hwtracing/coresight/coresight-priv.h |  2 ++
+> >   include/linux/coresight.h                    |  4 ++++
+> >   3 files changed, 26 insertions(+)
+> > 
+> > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> > index 0a9380350fb5..eb7b83a7bfa2 100644
+> > --- a/drivers/hwtracing/coresight/coresight-core.c
+> > +++ b/drivers/hwtracing/coresight/coresight-core.c
+> > @@ -365,6 +365,26 @@ void coresight_disable_source(struct coresight_device *csdev, void *data)
+> >   }
+> >   EXPORT_SYMBOL_GPL(coresight_disable_source);
+> > +void coresight_pause_source(struct coresight_device *csdev)
+> > +{
+> > +	if (!csdev || !coresight_is_percpu_source(csdev))
 > 
-> Make this property conditional on the compatible strings.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
->  .../bindings/media/i2c/maxim,max96714.yaml    | 21 ++++++++++++-------
->  1 file changed, 13 insertions(+), 8 deletions(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-> index 2f453189338f..d0a2aaf7df9c 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96714.yaml
-> @@ -84,14 +84,6 @@ properties:
->      required:
->        - port@1
->  
-> -  i2c-gate:
-> -    $ref: /schemas/i2c/i2c-gate.yaml
-> -    unevaluatedProperties: false
-> -    description:
-> -      The MAX96714 will pass through and forward the I2C requests from the
-> -      incoming I2C bus over the GMSL2 link. Therefore it supports an i2c-gate
-> -      subnode to configure a serializer.
-> -
->    port0-poc-supply:
->      description: Regulator providing Power over Coax for the GMSL port
->  
-> @@ -101,6 +93,19 @@ required:
->    - ports
->  
->  additionalProperties: false
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            enum:
-> +              - maxim,max96714
-> +              - maxim,max96714f
-> +    then:
-> +      properties:
-> +        i2c-gate:
+> You may remove the !csdev check, coresight_is_percpu_source() already checks
+> that.
 
-Leave the original definition, invert the 'if', and here you just need:
+Will do.
 
-i2c-gate: false
-
-> +          $ref: /schemas/i2c/i2c-gate.yaml
-> +          unevaluatedProperties: false
->  
->  examples:
->    - |
-> -- 
-> 2.48.1
+> > +		return;
+> > +
+> > +	if (source_ops(csdev)->pause)
+> > +		source_ops(csdev)->pause(csdev);
+> > +}
+> > +EXPORT_SYMBOL_GPL(coresight_pause_source);
+> > +
+> > +void coresight_resume_source(struct coresight_device *csdev)
+> > +{
+> > +	if (!csdev || !coresight_is_percpu_source(csdev))
+> > +		return;
+> > +
 > 
+> Same as above.
+
+Will do.
+
+> > +	if (source_ops(csdev)->resume)
+> > +		source_ops(csdev)->resume(csdev);
+> > +}
+> > +EXPORT_SYMBOL_GPL(coresight_resume_source);
+> > +
+> >   /*
+> >    * coresight_disable_path_from : Disable components in the given path beyond
+> >    * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
+> > diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> > index 76403530f33e..a9f14c075e91 100644
+> > --- a/drivers/hwtracing/coresight/coresight-priv.h
+> > +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> > @@ -247,5 +247,7 @@ void coresight_add_helper(struct coresight_device *csdev,
+> >   void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
+> >   struct coresight_device *coresight_get_percpu_sink(int cpu);
+> >   void coresight_disable_source(struct coresight_device *csdev, void *data);
+> > +void coresight_pause_source(struct coresight_device *csdev);
+> > +void coresight_resume_source(struct coresight_device *csdev);
+> >   #endif
+> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> > index 17276965ff1d..703e1b8dbe22 100644
+> > --- a/include/linux/coresight.h
+> > +++ b/include/linux/coresight.h
+> > @@ -385,6 +385,8 @@ struct coresight_ops_link {
+> >    *		is associated to.
+> >    * @enable:	enables tracing for a source.
+> >    * @disable:	disables tracing for a source.
+> > + * @resume:	resumes tracing for a source.
+> > + * @pause:	pauses tracing for a source.
+> >    */
+> >   struct coresight_ops_source {
+> >   	int (*cpu_id)(struct coresight_device *csdev);
+> > @@ -392,6 +394,8 @@ struct coresight_ops_source {
+> >   		      enum cs_mode mode, struct coresight_trace_id_map *id_map);
+> >   	void (*disable)(struct coresight_device *csdev,
+> >   			struct perf_event *event);
+> > +	int (*resume)(struct coresight_device *csdev);
+> > +	void (*pause)(struct coresight_device *csdev);
+> 
+> Given these callbacks are for perf mode, does it make sense to pass the
+> parameters similar to enable() ?
+
+It is not necessary to pass perf event handle to resume() and pause()
+callbacks.
+
+The main reason is perf related operations have been processed in the
+coresight-etm-perf.c layer, the low level's callbacks (pause/resume)
+should simply take actions on hardware logic.
+
+> Also, should we rename these as :
+> 
+> resume_perf
+> pause_perf
+> 
+> To explicitly mark them perf mode specific ?
+
+This makes sense to me.  The naming "resume" might be confused with
+CPUIdle's terminology (CPU resume).  pause_perf/resume_perf can
+perfectly avoid any confusion.
+
+Thanks,
+Leo
 
