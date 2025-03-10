@@ -4,58 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDAD4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 04:03:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83E7CC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 05:10:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=y/WkbbSgGnY9T7hMavgR3DToVbrZtJqmk4830aygPEE=; b=IqybboI4hR3J/DYWxRid2l3qGf
-	nVBT1JfjWlJyPS05dNPUMaV1esxM4CHxJmt8Tad/3r+n+KnjykZ2POoiDyx7ROyz7Xp/Z7u+UsCpd
-	T/H8Z5+FBKpPfvYuuGTh9YTAeivRi2aU0N0kFZIJWx+jM7BT3NHCdVoPVrbxSXH6xBKow2tmctQAV
-	plgfwVL+jDJfCIVXVdVFMOZyF4eGlAJh5mRLQnt06DmvR5RruGnsEtram/rNjT75E1OqxEMSOic2+
-	Y56vILvCT1xj5dKlHvsR+cwq30/Y7TEKdRxe8EX2uqrI4rsUrenPhKsAeVHgPPixeMRQNhh5JEBfa
-	fSvOLR2Q==;
+	bh=WCWytUFqWpA11l7+HALQ7eU9w9oD6XNnVxxUMUpWGj4=; b=f/YZpmmX+3UM6MbrZ4a/vBF45N
+	NYAEoYZ9tbT0InCj1OUmn3Zc+gntdIS/PbrRdMvs3Zx2f8jv/45XGkwTMbVNjpk4g7T0DbS9mReiG
+	SnaG1v5OR0zu7yGV8mypQT8JWbDIcEDInsl8xSfkYOcI1sidO+lmneekqhi7xQZh3yqNimCeUhE1U
+	yb3VDTU+chz1i8//iiG157DRmZZEPQD0d8vhoAEhXt5DOTEfLsiPXeyR7u4JBiE8NXFyvZHpJ9XkY
+	rjMRLlHgtYYWOO9QXuALdSUGK1DT9vU7gW6BSWYi2ODaRLN5CT2wVUBtTfvydC4AFIp0KGsOaeEnV
+	oIrul2NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trUM7-00000001WJE-400u;
-	Mon, 10 Mar 2025 04:03:07 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trUKU-00000001W9w-22Wj
+	id 1trVPM-00000001ZvN-2n0v;
+	Mon, 10 Mar 2025 05:10:32 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trVNj-00000001ZmC-2qt7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 04:01:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B477D15A1;
-	Sun,  9 Mar 2025 21:01:34 -0700 (PDT)
-Received: from a077893.arm.com (unknown [10.163.42.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 99DCC3F673;
-	Sun,  9 Mar 2025 21:01:18 -0700 (PDT)
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
-	Alexander Potapenko <glider@google.com>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	Dmitry Vyukov <dvyukov@google.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kasan-dev@googlegroups.com
-Subject: [PATCH V2] arm64/mm: Define PTDESC_ORDER
-Date: Mon, 10 Mar 2025 09:31:15 +0530
-Message-Id: <20250310040115.91298-1-anshuman.khandual@arm.com>
-X-Mailer: git-send-email 2.25.1
+	Mon, 10 Mar 2025 05:08:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741583331; x=1773119331;
+  h=from:to:cc:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=vZk5dZKIa4Fkbt7Ox6MVoxXVuECx2sVWiZptJoBL78g=;
+  b=WDBJhFz+zUd5xKAW9taQNHtLJ/98hh/Eu0wcjI+/d/XDhuzQt70nXMyF
+   4HXaPey/Nh7hkyuH2JslKJrkp0zWA9uVL/x4a0JN7cZ0FtrgUNP8CoRtN
+   1DlP/Mu9SG9KYLGZCr+v0D451PRHasYSexQKJIqlpRM92BARShAUxAiuc
+   LWpOvKU6m+Jht1uCJra4/pIVTHAaEqYKMdRox3fs0Wyqasj1ifnDfjdx/
+   0jzQQthj0SbuHio1W4WGx3RreQftuq3tyeorQ35VY29cQNJi2H6nPmgyD
+   PPTvc/JKta6ejlZbX3D3eLQ9Ncs6b2xojkIUSLdnak/4B10YbvL54IHfa
+   w==;
+X-CSE-ConnectionGUID: 2RljeDVmRaO9v0V4rRPPWA==
+X-CSE-MsgGUID: 8Ssj5LkHRG2hZMBLn1bPow==
+X-IronPort-AV: E=McAfee;i="6700,10204,11368"; a="42779847"
+X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
+   d="scan'208";a="42779847"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 22:08:49 -0700
+X-CSE-ConnectionGUID: Gq4sFC+MRZCgyTTGigxMtg==
+X-CSE-MsgGUID: HPWWkEnYTUCNLCdy22OdpQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.12,224,1728975600"; 
+   d="scan'208";a="124050655"
+Received: from yongliang-ubuntu20-ilbpg12.png.intel.com ([10.88.227.39])
+  by fmviesa003.fm.intel.com with ESMTP; 09 Mar 2025 22:08:47 -0700
+From: Choong Yong Liang <yong.liang.choong@linux.intel.com>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S . Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH net-next v1 1/1] stmmac: intel: Fix warning message for return value in intel_tsn_lane_is_available()
+Date: Mon, 10 Mar 2025 13:08:35 +0800
+Message-Id: <20250310050835.808870-1-yong.liang.choong@linux.intel.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_210126_616504_B8AE555F 
-X-CRM114-Status: GOOD (  15.82  )
+X-CRM114-CacheID: sfid-20250309_220851_732856_EF11EAFF 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,215 +90,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Address bytes shifted with a single 64 bit page table entry (any page table
-level) has been always hard coded as 3 (aka 2^3 = 8). Although intuitive it
-is not very readable or easy to reason about. Besides it is going to change
-with D128, where each 128 bit page table entry will shift address bytes by
-4 (aka 2^4 = 16) instead.
+Fix the warning "warn: missing error code? 'ret'" in the
+intel_tsn_lane_is_available() function.
 
-Let's just formalise this address bytes shift value into a new macro called
-PTDESC_ORDER establishing a logical abstraction, thus improving readability
-as well. While here re-organize EARLY_LEVEL macro along with its dependents
-for better clarity. This does not cause any functional change.
+The function now returns 0 to indicate that a TSN lane was found and
+returns -EINVAL when it is not found.
 
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Andrey Ryabinin <ryabinin.a.a@gmail.com>
-Cc: Alexander Potapenko <glider@google.com>
-Cc: Andrey Konovalov <andreyknvl@gmail.com>
-Cc: Dmitry Vyukov <dvyukov@google.com>
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Ryan Roberts <ryan.roberts@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Cc: kasan-dev@googlegroups.com
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Fixes: a42f6b3f1cc1 ("net: stmmac: configure SerDes according to the interface mode")
+Signed-off-by: Choong Yong Liang <yong.liang.choong@linux.intel.com>
 ---
-This patch applies on v6.14-rc6
+ drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Changes in V2:
-
-- Replaced PTE_SHIFT with PTDESC_ORDER per Ard
-- Re-organized EARLY_LEVEL macro per Mark
-
-Changes in V1:
-
-https://lore.kernel.org/all/20250307050851.4034393-1-anshuman.khandual@arm.com/
-
- arch/arm64/Kconfig                      |  2 +-
- arch/arm64/include/asm/kernel-pgtable.h | 11 ++++++----
- arch/arm64/include/asm/pgtable-hwdef.h  | 27 ++++++++++++++-----------
- arch/arm64/kernel/pi/map_range.c        |  2 +-
- arch/arm64/mm/kasan_init.c              |  6 +++---
- 5 files changed, 27 insertions(+), 21 deletions(-)
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..657baf59fdbe 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -323,7 +323,7 @@ config ARCH_MMAP_RND_BITS_MIN
- 	default 18
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+index 9c8de47ee149..5910571a954f 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-intel.c
+@@ -494,10 +494,10 @@ static int intel_tsn_lane_is_available(struct net_device *ndev,
+ 			if ((rbuf.buf[0] >>
+ 				(4 * (intel_priv->tsn_lane_regs[j] % 8)) &
+ 					B_PCH_FIA_PCR_L0O) == 0xB)
+-				return ret;
++				return 0;
+ 	}
  
- # max bits determined by the following formula:
--#  VA_BITS - PAGE_SHIFT - 3
-+#  VA_BITS - PAGE_SHIFT - PTDESC_ORDER
- config ARCH_MMAP_RND_BITS_MAX
- 	default 19 if ARM64_VA_BITS=36
- 	default 24 if ARM64_VA_BITS=39
-diff --git a/arch/arm64/include/asm/kernel-pgtable.h b/arch/arm64/include/asm/kernel-pgtable.h
-index fd5a08450b12..78c7e03a0e35 100644
---- a/arch/arm64/include/asm/kernel-pgtable.h
-+++ b/arch/arm64/include/asm/kernel-pgtable.h
-@@ -45,11 +45,14 @@
- #define SPAN_NR_ENTRIES(vstart, vend, shift) \
- 	((((vend) - 1) >> (shift)) - ((vstart) >> (shift)) + 1)
- 
--#define EARLY_ENTRIES(vstart, vend, shift, add) \
--	(SPAN_NR_ENTRIES(vstart, vend, shift) + (add))
-+/* Number of VA bits resolved by a single translation table level */
-+#define PTDESC_TABLE_SHIFT	(PAGE_SHIFT - PTDESC_ORDER)
- 
--#define EARLY_LEVEL(lvl, lvls, vstart, vend, add)	\
--	(lvls > lvl ? EARLY_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + lvl * (PAGE_SHIFT - 3), add) : 0)
-+#define EARLY_ENTRIES(lvl, vstart, vend) \
-+	SPAN_NR_ENTRIES(vstart, vend, SWAPPER_BLOCK_SHIFT + lvl * PTDESC_TABLE_SHIFT)
-+
-+#define EARLY_LEVEL(lvl, lvls, vstart, vend, add) \
-+	((lvls) > (lvl) ? EARLY_ENTRIES(lvl, vstart, vend) + (add) : 0)
- 
- #define EARLY_PAGES(lvls, vstart, vend, add) (1 	/* PGDIR page */				\
- 	+ EARLY_LEVEL(3, (lvls), (vstart), (vend), add) /* each entry needs a next level page table */	\
-diff --git a/arch/arm64/include/asm/pgtable-hwdef.h b/arch/arm64/include/asm/pgtable-hwdef.h
-index a9136cc551cc..3c544edc3968 100644
---- a/arch/arm64/include/asm/pgtable-hwdef.h
-+++ b/arch/arm64/include/asm/pgtable-hwdef.h
-@@ -7,40 +7,43 @@
- 
- #include <asm/memory.h>
- 
-+#define PTDESC_ORDER 3
-+
- /*
-  * Number of page-table levels required to address 'va_bits' wide
-  * address, without section mapping. We resolve the top (va_bits - PAGE_SHIFT)
-- * bits with (PAGE_SHIFT - 3) bits at each page table level. Hence:
-+ * bits with (PAGE_SHIFT - PTDESC_ORDER) bits at each page table level. Hence:
-  *
-- *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - 3))
-+ *  levels = DIV_ROUND_UP((va_bits - PAGE_SHIFT), (PAGE_SHIFT - PTDESC_ORDER))
-  *
-  * where DIV_ROUND_UP(n, d) => (((n) + (d) - 1) / (d))
-  *
-  * We cannot include linux/kernel.h which defines DIV_ROUND_UP here
-  * due to build issues. So we open code DIV_ROUND_UP here:
-  *
-- *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - 3) - 1) / (PAGE_SHIFT - 3))
-+ *	((((va_bits) - PAGE_SHIFT) + (PAGE_SHIFT - PTDESC_ORDER) - 1) / (PAGE_SHIFT - PTDESC_ORDER))
-  *
-  * which gets simplified as :
-  */
--#define ARM64_HW_PGTABLE_LEVELS(va_bits) (((va_bits) - 4) / (PAGE_SHIFT - 3))
-+#define ARM64_HW_PGTABLE_LEVELS(va_bits) \
-+	(((va_bits) - PTDESC_ORDER - 1) / (PAGE_SHIFT - PTDESC_ORDER))
- 
- /*
-  * Size mapped by an entry at level n ( -1 <= n <= 3)
-- * We map (PAGE_SHIFT - 3) at all translation levels and PAGE_SHIFT bits
-+ * We map (PAGE_SHIFT - PTDESC_ORDER) at all translation levels and PAGE_SHIFT bits
-  * in the final page. The maximum number of translation levels supported by
-  * the architecture is 5. Hence, starting at level n, we have further
-  * ((4 - n) - 1) levels of translation excluding the offset within the page.
-  * So, the total number of bits mapped by an entry at level n is :
-  *
-- *  ((4 - n) - 1) * (PAGE_SHIFT - 3) + PAGE_SHIFT
-+ *  ((4 - n) - 1) * (PAGE_SHIFT - PTDESC_ORDER) + PAGE_SHIFT
-  *
-  * Rearranging it a bit we get :
-- *   (4 - n) * (PAGE_SHIFT - 3) + 3
-+ *   (4 - n) * (PAGE_SHIFT - PTDESC_ORDER) + PTDESC_ORDER
-  */
--#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - 3) * (4 - (n)) + 3)
-+#define ARM64_HW_PGTABLE_LEVEL_SHIFT(n)	((PAGE_SHIFT - PTDESC_ORDER) * (4 - (n)) + PTDESC_ORDER)
- 
--#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PTE		(1 << (PAGE_SHIFT - PTDESC_ORDER))
- 
- /*
-  * PMD_SHIFT determines the size a level 2 page table entry can map.
-@@ -49,7 +52,7 @@
- #define PMD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(2)
- #define PMD_SIZE		(_AC(1, UL) << PMD_SHIFT)
- #define PMD_MASK		(~(PMD_SIZE-1))
--#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PMD		(1 << (PAGE_SHIFT - PTDESC_ORDER))
- #endif
- 
- /*
-@@ -59,14 +62,14 @@
- #define PUD_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(1)
- #define PUD_SIZE		(_AC(1, UL) << PUD_SHIFT)
- #define PUD_MASK		(~(PUD_SIZE-1))
--#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_PUD		(1 << (PAGE_SHIFT - PTDESC_ORDER))
- #endif
- 
- #if CONFIG_PGTABLE_LEVELS > 4
- #define P4D_SHIFT		ARM64_HW_PGTABLE_LEVEL_SHIFT(0)
- #define P4D_SIZE		(_AC(1, UL) << P4D_SHIFT)
- #define P4D_MASK		(~(P4D_SIZE-1))
--#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - 3))
-+#define PTRS_PER_P4D		(1 << (PAGE_SHIFT - PTDESC_ORDER))
- #endif
- 
- /*
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 2b69e3beeef8..f74335e13929 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -31,7 +31,7 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
- {
- 	u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 : U64_MAX;
- 	pteval_t protval = pgprot_val(prot) & ~PTE_TYPE_MASK;
--	int lshift = (3 - level) * (PAGE_SHIFT - 3);
-+	int lshift = (3 - level) * (PAGE_SHIFT - PTDESC_ORDER);
- 	u64 lmask = (PAGE_SIZE << lshift) - 1;
- 
- 	start	&= PAGE_MASK;
-diff --git a/arch/arm64/mm/kasan_init.c b/arch/arm64/mm/kasan_init.c
-index b65a29440a0c..211821f80571 100644
---- a/arch/arm64/mm/kasan_init.c
-+++ b/arch/arm64/mm/kasan_init.c
-@@ -190,7 +190,7 @@ static void __init kasan_pgd_populate(unsigned long addr, unsigned long end,
-  */
- static bool __init root_level_aligned(u64 addr)
- {
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 1) * (PAGE_SHIFT - PTDESC_ORDER);
- 
- 	return (addr % (PAGE_SIZE << shift)) == 0;
+-	return ret;
++	return -EINVAL;
  }
-@@ -245,7 +245,7 @@ static int __init root_level_idx(u64 addr)
- 	 */
- 	u64 vabits = IS_ENABLED(CONFIG_ARM64_64K_PAGES) ? VA_BITS
- 							: vabits_actual;
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits) - 1) * (PAGE_SHIFT - PTDESC_ORDER);
  
- 	return (addr & ~_PAGE_OFFSET(vabits)) >> (shift + PAGE_SHIFT);
- }
-@@ -269,7 +269,7 @@ static void __init clone_next_level(u64 addr, pgd_t *tmp_pg_dir, pud_t *pud)
-  */
- static int __init next_level_idx(u64 addr)
- {
--	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - 3);
-+	int shift = (ARM64_HW_PGTABLE_LEVELS(vabits_actual) - 2) * (PAGE_SHIFT - PTDESC_ORDER);
- 
- 	return (addr >> (shift + PAGE_SHIFT)) % PTRS_PER_PTE;
- }
+ static int intel_set_reg_access(const struct pmc_serdes_regs *regs, int max_regs)
 -- 
-2.25.1
+2.34.1
 
 
