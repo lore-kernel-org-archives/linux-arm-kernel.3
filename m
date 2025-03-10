@@ -4,163 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD054C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:10:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3AADEC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/jp5wrdPeMnR9PV9nf5cRcBMLuFUEDetgwOwsPEwOvU=; b=PCDW41mSg3OUGg52fsP1VJm9ew
-	Udgb2KGiHNCiDR/pq11wUyhXw+cnQcmnWxpdjNuc9J/zTamESlpp22EUcHaMAi9fUTEGM2cdbh/6v
-	vgrfmhHhx86ZKRHWYLZvr29WDX9ToHYaJsB4ut+quTkgCIJG0OvDfE7+DDDpLPqjaO9+JhDUlyL9z
-	GJdPxqLPEkal3QT7cmaVRec+HbwXIOexzAcm7rkM8x0A8tfBZhA9GWcLnlVIh6bzZDwt3eqsFoeJY
-	0oo8KGT8L048RGfGo4DJdbUjA+gEzihHKBeWj3dI5mB9G/JdSHJXN187OgpxX5LvKtZRTD5iZEmXR
-	wO6/K4kg==;
+	bh=l5DEa09wiscb4LqtVRJpNAy3hWViEqi+/FfXF2zENFo=; b=1gLSDwgTcqURg8c8PbRaxOVvuH
+	r5MoZAO+H0/s4RD6UqAFUuLOJWBwBqM5gNYQs+vPdFCGmvFVL1noYh3g2ukLjI3Lr4psticIwWTGH
+	2jhr2iDnzx996jOchEKjfPyKTkjN63bbRLrO+dvwi2VfwmogXEuh+YU8hJmZ8hHUwCngpT2aUBiTQ
+	rY6us85LmuYTEt6lt5ZWRMUdQFF4Kj2+huQATBBGb3hGgZwMnFCb/i3d9dEBJvLJC5EIbNoXsKx/G
+	jKIKtG9EbdjGzZciaPftFTqjFkWPWTQVOsIHCL9isLKbgFWc3nqhxtufNupNUOM/TPPQuH/KEZWUg
+	HU0g9tXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trb1g-00000002Nge-0MDB;
-	Mon, 10 Mar 2025 11:10:28 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1trb3H-00000002O4W-35LO;
+	Mon, 10 Mar 2025 11:12:07 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tradv-00000002IOj-0BpM
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:45:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=rMI6NR/sCrgnRbjyTJ4aMYzxEBEoeR9xGHPKXIlJlZdmslqKcxGyJw8LTynt2ve3HGePSulkMPrOFl2fPZQfG+5HalOSqz2peMN1EVJJxPzwqUuCHEGDWYR5nluNyNjE/fFldn3M8hKoyBnr7zKY6EFX4qsjY1/eV3E8Jd3cePhk0U/dau7BxlBULZG6ZnGm1nkXVrTtV5L5WkrTn/dIhhp2ypZxNkmvgFJuMM/5hq7+kSQGDawlwi0t23C2TnHdyBFQFwdJm0vRrra7qThHD90oqEeqgn1GwfKoX/MAH4UOY1IY7usdzBEIp4d4aaAF5Wr7AfhXAXWEm7Vkky75rw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/jp5wrdPeMnR9PV9nf5cRcBMLuFUEDetgwOwsPEwOvU=;
- b=i3wxNWArJT478uNew6A9+qvBd5kkuVdIeiyjU5Rr5dlMi9X1DD5kJ93ib+rVbIMF93aahfdy70yKaCEdrsA647TmFMf0/kiKwCpEwBeiPiY19DXIAyXHMBasWIfC/2xOAuGBv6mof1maiQzBlmjq29m4/HtnaQp9we1hGU4j206SsYAQ945sgVjAD1lTthQlnnVGPyQmIbj97FawxIar7dPU/tmHz/0KoZuXtVDYNqPMpukf/v/b/UjyaFf2mDT515p5J/ZEnDqTevjxfhMjF0NQPYdwlOeJsCEMrgSWo7ORNwdujkz2W9qylm1Cter90kMfGOr2kTJjobps4oqZ0g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/jp5wrdPeMnR9PV9nf5cRcBMLuFUEDetgwOwsPEwOvU=;
- b=bSagBFHA2WijeTELadagp2gJLZTRi0aXzSkyk23vGvgbXoNL8MtnXuDw1s3HfyT1g1JtQkFols8oEjfL2Fluv9iqQ0Ll1Y9RmAdb2y2jAxdfgiJdX0IeAupKsfr2A4YdwZUpSUuhEsWkFjvxyqfnfOQMegR8UB6s11xyHl28CzqdLemTvMUt2J1/po7IaViDLfkSsWGSdaCcRljRYDSIO2xyqON1Omr+ht4OLGexCv8Vd9ITV8//OEE0ls8Al2hC6kMcFuU7K6n0I2Eytlofieo5MAfW3V1oIAUuNH1QJR3xbllIj9z61Mstx2PJ9xmaOhcD9wN7ROil8m2cHjZe7w==
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com (2603:10a6:10:2cf::20)
- by AS1PR04MB9454.eurprd04.prod.outlook.com (2603:10a6:20b:4d9::9) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 10 Mar
- 2025 10:45:46 +0000
-Received: from DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197]) by DB9PR04MB8461.eurprd04.prod.outlook.com
- ([fe80::b1b9:faa9:901b:c197%4]) with mapi id 15.20.8511.025; Mon, 10 Mar 2025
- 10:45:44 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Sudeep Holla <sudeep.holla@arm.com>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: Cristian Marussi <cristian.marussi@arm.com>, Saravana Kannan
-	<saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>, Aisheng Dong
-	<aisheng.dong@nxp.com>, Fabio Estevam <festevam@gmail.com>, Shawn Guo
-	<shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>, Pengutronix Kernel Team
-	<kernel@pengutronix.de>, Sascha Hauer <s.hauer@pengutronix.de>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
-	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: RE: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- scmi cpufreq
-Thread-Topic: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- scmi cpufreq
-Thread-Index: AQHbVqX7U3UKEfrBUUq6t/L7CeKKLbNCozSAgADnVgCAAD9nAIABZDqAgADO7oCABpk3gIAAmxUAgAA1fYCAAVrcAIAA9kwAgBzYYICAABSfQA==
-Date: Mon, 10 Mar 2025 10:45:44 +0000
-Message-ID: <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
-References: <Z6uFMW94QNpFxQLK@bogus>
- <20250212070120.GD15796@localhost.localdomain> <Z6x8cNyDt8rJ73_B@bogus>
- <CAGETcx87Stfkru9gJrc1sf=PtFGLY7=jrfFaCzK5Z4hq+2TCzg@mail.gmail.com>
- <Z65U2SMwSiOFYC0v@pluto> <20250218010949.GB22580@nxa18884-linux>
- <Z7Rf9GPdO2atP89Z@bogus> <20250218133619.GA22647@nxa18884-linux>
- <Z7Wvyn1QJQMVigf9@bogus> <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
- <Z86w3ZRS6T2MvV3X@bogus>
-In-Reply-To: <Z86w3ZRS6T2MvV3X@bogus>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9PR04MB8461:EE_|AS1PR04MB9454:EE_
-x-ms-office365-filtering-correlation-id: 78fe80ed-2904-4908-5f7f-08dd5fc0b5f1
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?us-ascii?Q?FeySo3S4mDu6yPz9/kPVAW9TpyzC520a05M985iWrcQ/75//M30MQPOELmLU?=
- =?us-ascii?Q?BhUwZNnQa9QScXY+eE8cuO8dhc43cAJ8EZ+OJSi+M8VwAlOkfEEaS9ktgbKa?=
- =?us-ascii?Q?8ewSZPjZpM5MrVrZXtyvEKDsOxxXK2GxEC+1eayQgK9jG6c39ZxbeCy1IApw?=
- =?us-ascii?Q?Upya692owyhCUEl3e56wKdMRdHlbM2Omr1bunBdUgSOMoiHexHbPvQWzrsT4?=
- =?us-ascii?Q?5T0FqIxrkYfu8JANN8XhhglPPdxLmszNzXyaf9nEM7nf22771v7nEhoLegIY?=
- =?us-ascii?Q?LDNq8/+cnQSP7Ujbmi9Ky8kJmcDCKJ/RTmclrJFlXrUmipi463jDSI956+wN?=
- =?us-ascii?Q?xyK/xE889PUBnezrlpTnjEIrJOICDm+4ofVpSuNi7KvMfXIpleerHYf4AYfL?=
- =?us-ascii?Q?vw/NRU2UuAbGhTmgJRzN6R9eOzhZM1mriUu3zP9L/msUJNkZkg634zEgurvV?=
- =?us-ascii?Q?7ieaWovsVTaxh5azHKMGP9EiN5N1PAGTRBJEtpoKsLAhzovf8r3zj8Yhqczn?=
- =?us-ascii?Q?o7p/Fewc/ypPStqd2/ji3j9toVNUSL/SykGgkMIbPllW75B9VKWegHA0Axbz?=
- =?us-ascii?Q?V+klZccGk2Q1tmsv27rWaZar1Pgadr9WbdyNroqAH3QUI++gp06tvia2ydra?=
- =?us-ascii?Q?MPZCZDet4AhTqwRjKicxtV4Wmbu7BXab/ha98KMjCZzXODG8dElc90D86/yc?=
- =?us-ascii?Q?Mh+NUH1FR+BLsi5bTxhYH2/C6X8WpQ4SuBSpabAyrcvtC+eyRin7dAx1qHBx?=
- =?us-ascii?Q?p1Jmp4GLd4rmHceaeA1Ay9dPLhnuiKU67MOg12riLeOIcIH1/kByPYKzPFq4?=
- =?us-ascii?Q?qVAZtw8nwsz25zSnD0wxTWeU6UyelhDV04dmIGMQpjBvUZGXoIf+EyuFqDWZ?=
- =?us-ascii?Q?ph539bKedRS67etYxsWhigyF2oIF1CpcOYxOzfSctv6xOVzsT0HSPVT1tKxe?=
- =?us-ascii?Q?0kDtaQoRyBumhhPJFudVPbKTPJYJvzY4PHj8tE+WUpKD6p/ugYkCcDFI/g4x?=
- =?us-ascii?Q?RNJlBuCo2/sLjee8vxlA91VZd/iVNROOutaw+ILDneG198esiV+cuTXHTVGx?=
- =?us-ascii?Q?uPBjoR7BMKlp6PS+kXW0Jw8LhApXfGqkgljdfSs/AGm/dyrBdRSbwH33vrD4?=
- =?us-ascii?Q?PHSsO0CfYdfsyk8x/TnjRjSRBjGKRLt++jphNzvWLZwFAT3g/SMjAHrxloRT?=
- =?us-ascii?Q?Xeo1PBm8iAA27LxcrE7efY9HWvAH5SGXbqG9pKYHw+iBFEvu+KNH05Hi9ZCb?=
- =?us-ascii?Q?lCzX7KDPZihBgfFHgp0BZb+/dlIrMSWIC7MHhI79bz1vdAZ7Awgu8nE88RhA?=
- =?us-ascii?Q?soko/PLN3CeAoANzUmpytB+tpD7TNfcYqlKMgz9vbkBNlLvcb1B+E+5QsbyZ?=
- =?us-ascii?Q?ksxwdktRS7Xmu+QrpQbjAzwo+I99auvcoYRu95zsMbBb22NTYw=3D=3D?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB8461.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?WOk0N/BsyP/XxnX2Z8Xib7xVNexbMMrVmYc78+ABOvmd40jd7H7LWzSL9094?=
- =?us-ascii?Q?P/ZwqhK0cKznJ9hq6xkBOxrnIfFvysCAw2+GaR5GoGqbg/hKZVvrt8vKu4J3?=
- =?us-ascii?Q?c7+m+rflNHivXCYMM4qwLusF50Gx8BS1P6LURT+cAUcFYKHxGcvJGuoWm/iS?=
- =?us-ascii?Q?E2W7neH+F15x+TzZjNNrfT02/FuafvImopZs1swMjzyhifpv2/UPkZCTcml6?=
- =?us-ascii?Q?imKxj9iVtsd7OrR5PE2/r8QkaOYtwZKGmpt5vNT/KVb6lTgZIth/gQuVjPfd?=
- =?us-ascii?Q?TQKCGyXVstXmYalSnaaSXSvQEe5nUC7VD2ttXVCeq1gFL9FMLTTZHMHe+2Bz?=
- =?us-ascii?Q?L7Ot3N62ZEisefRID598eYhiFT35IUbYtWR5JZCCQHocgYKEmMLUTuTaZNw7?=
- =?us-ascii?Q?JUoYaDYHCBYRNBv5V+bZbi7p4gT2Fll750u/Gw/bvz5S8vjTv1qTb/jADhaQ?=
- =?us-ascii?Q?aFpltJUPDV4XE3sOeM7pnDm4+0yW+gJVjvCDrst+cQKvEWZxKyiS+MP4PkEO?=
- =?us-ascii?Q?rvVgQwPUJL7A/pFjbhCKiGbAfuJSxxlaEDt8gUKP8rVFr0NHFrB/PzZy93CR?=
- =?us-ascii?Q?m/Hsnr77ccI9Xc87eJqBNsQrXhV/UymqgYDP0Ub9iPU/kF4LqnYDwevena7b?=
- =?us-ascii?Q?1yc72pN8mDdaKDnHZGBrEJ/ve4IAoBmwfGaXr0PL3JcgZzN7YTquKPhKCb0P?=
- =?us-ascii?Q?jqcUKKDDAIa+NTeu0eI79ymFnLvqF0Xq66x2+za6up1233U97vt0QAboov3S?=
- =?us-ascii?Q?IT3FBNyGf3D05ewVW42WdJFK129Lonf9XFemePvRIBQVGJvIEnq6Jd8f5G3I?=
- =?us-ascii?Q?pfAbAJdOv6a+vxV+DyG9YHE3XVZY6ewH936rmfArwczpsjDdg0VckTIzifLu?=
- =?us-ascii?Q?aynJkFkv63l4LRMP8yvh8cj6hjab8fyi4PjmA1oqf4NMW1SP7qszXFxPlbPA?=
- =?us-ascii?Q?ueigknMFW/nw1eCg14IUlTMh4DaBxRL+YIJ5HmbrXGptMouOMztb2HUPIs3h?=
- =?us-ascii?Q?4T6Nq6rihel2vF3uYlps80W/dRynG5Vi8IurGIMv16xVEQ9XmhnQc2nUZKDr?=
- =?us-ascii?Q?WeVsdOgWma10Ng3NrfyiIK3gR7ZCMm9Ns1kih+FisTDGyOOgtbp7RIhjjClE?=
- =?us-ascii?Q?xNONXEQpUjv/furTRTYVwLJxYrHH2if06G6gLZxaHV4mUMQlItEdq7ppV3LE?=
- =?us-ascii?Q?LaN8Y+5/XFYNMoTav0muHSkbKDtOn2u66MO7fLVP7en0lIizbM+Uf01C/Ofb?=
- =?us-ascii?Q?Pmmz/dmHIMLulzKFel12IbXHmvessqPRJYohwTI6BOBcG+x3jJXzvC0UGlOl?=
- =?us-ascii?Q?b3RIjscERne9XMLSJuL44IkLAhxc7XPtuwAfPH4/r7Sbv3QMnxfEOsNprVjR?=
- =?us-ascii?Q?N3qLZnIDgX+uTR8Rtgoj/a6AATs9PzmKYqFE2ZF1X8CU57cW0ONFRdVaiAPK?=
- =?us-ascii?Q?GNd4YMYw3UNi/PEgoeBHBM5i8ssYm2HX0tEvwGw9DwWw4S6XXirZwRXJvaXx?=
- =?us-ascii?Q?+IuaL0aVxwYeuvl0TNWFYpXv2Z0D4XB5EnQVDGpqom7ncnAqz5fwBe/YYQ8l?=
- =?us-ascii?Q?bD9T+TN4W5Mn2Clynac=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1traf5-00000002IdW-0jRB;
+	Mon, 10 Mar 2025 10:47:08 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e60cfef9cfso3275666a12.2;
+        Mon, 10 Mar 2025 03:47:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741603625; x=1742208425; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=l5DEa09wiscb4LqtVRJpNAy3hWViEqi+/FfXF2zENFo=;
+        b=Cx5cYPcnCGGMfNcMBtb5XE3jwCyf0u3ODuhUInmhbMWOjUtxgcuXPPs/I9zur0EN/E
+         fGCPZQ2vfJ5BTWwcxgmGCKl1/WMapbGJ+APvHfA7pBHOVHsfvGRIPd5C5B1RZ3+H/Fa+
+         MCC/VU0djcX3wDFc/gYduQppkHpeNL4EeFMNe3rsaRcGRAEVZc/sE8iyQofxU9YdJRGY
+         ykbdTNo5fgsVr99twblkXhw2KOv3I1Ear+Xh0l4wr1+aXOFHrWa/mfoIy32qyD2C785d
+         b5P5RzOvf0Cd1KL9CiO+QdQaw3UUnyj5jjhSlXKZPnms69GoghISHShrfEuCRhLFoCTF
+         Ks+g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741603625; x=1742208425;
+        h=in-reply-to:content-disposition:mime-version:references:subject:cc
+         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=l5DEa09wiscb4LqtVRJpNAy3hWViEqi+/FfXF2zENFo=;
+        b=f9ybJapv8YqNNhKS52fHtSB+60eaehnCcYE30242tn9FBNNms4D24EHC2pjxxp1ATE
+         z/qNvjWha+YMzlJxuOhLJ2UraPrizoTqi25pX0NUrzhNpb/ryeL2fd1FRvWjpFcUq1mf
+         xWsMzweyDWoEOmZk6JVbr5MaL24y7I+ntw4nSoxFSe8vVj0UVSdG6GsEFuIQgjUAmbJS
+         xwvoe7rc93qHbygk40xbz5maN6HFYYzfDtLAM0sKyQh/+MjHkQoigzHUICwE90cKLiNT
+         htiWSSKk+hA1DDTQ8TjFaUzE9D+Wyrrx7XXYP4Yg9wOhx/ospbvKcqxERX6AoVR/6HgU
+         +A0Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV8eE+YVkB7+5AKYaSv4YGBpwiSs5fsuqeXPPsxQpDkLVWgCGTRH0yCH+M7ep4hdpa+ylxGPBBcY020MIMRB0k=@lists.infradead.org, AJvYcCWRRaapixFeNsWsXa8dpD4jujV/wuvvbS531yqL5m0u50CQjIPoqdW+gFXxdUGHAVTnf8KZa3ujJSXf@lists.infradead.org, AJvYcCX+uNrLgeHAi7NzM4XXikBIabLaO/abTeZjjv+jq6AsTaTexqDqewyS8pT7mSIUKd+R0Rmc+kzac+aBhOrXR5gQ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz4sn287jILyat7HG+mE/2zCxutwnHNwJY8hS15MG3Cer2nakE9
+	uNuZcpssRbdolzD5FGJWyAMTbKlpskVFJ0gSTR9p8ulcnTgGZS6K
+X-Gm-Gg: ASbGncu+BvR/DE1EJjnoi2YjtJ04KTwhL+B8opbQyw10z8sM467ucuwbUCTofj8/u9i
+	jYc9v7Oc4pVk0hz1qz7a9uBhQacByZBi+VVbiABYlBiK3INUge8wN9CuKvmXvNAZswDFolmd3rC
+	uFFpZid2yxFNBi72yrSUOWos3+SIIvakCD4Jtog+csjqQ2K+iRgO6Ekf98VEy8EyZQuHzIC8ZAi
+	nBV1BwkQKFbeaNLmsloqFJrVBbHC1rZcg3jlo6OwfZdInPgX181VRqxwyq3UOVQLtdBmE2shLhR
+	HzM/alZSSmNJx11ho0jLltJ77m2v+F6/MgxpA+Ds5g==
+X-Google-Smtp-Source: AGHT+IGY9ZNuN9LrERXjHUYAwL4h4LC1ygOPlOz0b6pfTQ2hSZ2sXX5rhh5cw2fWoVRERYPwHIfVrQ==
+X-Received: by 2002:a17:907:8281:b0:abf:67d7:7816 with SMTP id a640c23a62f3a-ac2525dceb2mr1171265566b.3.1741603625111;
+        Mon, 10 Mar 2025 03:47:05 -0700 (PDT)
+Received: from Ansuel-XPS. ([85.119.46.8])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac23943d8absm742184666b.20.2025.03.10.03.47.02
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Mar 2025 03:47:04 -0700 (PDT)
+Message-ID: <67cec328.170a0220.27ecbc.9c6e@mx.google.com>
+X-Google-Original-Message-ID: <Z87DJANlBejnqJHR@Ansuel-XPS.>
+Date: Mon, 10 Mar 2025 11:47:00 +0100
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
+	Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Lorenzo Bianconi <lorenzo@kernel.org>,
+	Daniel Danzberger <dd@embedd.com>, Arnd Bergmann <arnd@arndb.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Nikita Shubin <nikita.shubin@maquefel.me>,
+	Guo Ren <guoren@kernel.org>, Yangyu Chen <cyy@cyyself.name>,
+	Ben Hutchings <ben@decadent.org.uk>, Felix Fietkau <nbd@nbd.name>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-phy@lists.infradead.org, linux-mediatek@lists.infradead.org,
+	linux-usb@vger.kernel.org, upstream@airoha.com
+Subject: Re: [PATCH 05/13] dt-bindings: mfd: add Documentation for Airoha
+ EN7581 SCU
+References: <20250309132959.19045-1-ansuelsmth@gmail.com>
+ <20250309132959.19045-6-ansuelsmth@gmail.com>
+ <c1227083-a4ea-4dac-a9db-d6a5386c0437@kernel.org>
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB8461.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 78fe80ed-2904-4908-5f7f-08dd5fc0b5f1
-X-MS-Exchange-CrossTenant-originalarrivaltime: 10 Mar 2025 10:45:44.7208
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dL7TBMOJK2U/ReT9ed/djcfbs2X+u6z50CiRRp+nHdpJUwCWbE4m3kpwFSQ1evkjDuicLNBSuDgTwDWm+2ZPqg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9454
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <c1227083-a4ea-4dac-a9db-d6a5386c0437@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034555_088488_AF139BE3 
-X-CRM114-Status: GOOD (  23.02  )
+X-CRM114-CacheID: sfid-20250310_034707_217125_2E241F12 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -175,48 +116,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
-> fwnode for scmi cpufreq
->=20
-> On Thu, Feb 20, 2025 at 08:59:18AM +0800, Peng Fan wrote:
-> >
-> > Sorry, if I misunderstood.
-> >
-> > I will give a look on this and propose a RFC.
-> >
-> > DT maintainers may ask for a patchset including binding change and
-> > driver changes to get a whole view on the compatible stuff.
-> >
-> > BTW, Cristian, Saravana if you have any objections/ideas or would
-> take
-> > on this effort, please let me know.
-> >
->=20
-> Can you point me to the DTS with which you are seeing this issue ?
-> I am trying to reproduce the issue but so far not successful. I did move
-> to power-domains for CPUFreq on Juno. IIUC all we need is both
-> cpufreq and performance genpd drivers in the kernel and then GPU
-> using perf genpd fails with probe deferral right ? I need pointers to
-> reproduce the issue so that I can check if what I have cooked up as a
-> solution really works.
+On Mon, Mar 10, 2025 at 10:21:45AM +0100, Krzysztof Kozlowski wrote:
+> On 09/03/2025 14:29, Christian Marangi wrote:
+> > Add Documentation for Airoha EN7581 SCU.
+> > 
+> > Airoha EN7581 SoC expose registers to control miscellaneous pheriperals
+> > via the SCU (System Controller Unit).
+> > 
+> > Example of these pheriperals are reset-controller, clock-controller,
+> > PCIe line speed controller and bits to configure different Serdes ports
+> > for USB or Ethernet usage.
+> > 
+> > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> > ---
+> >  .../mfd/airoha,en7581-scu-sysctl.yaml         | 68 +++++++++++++++++++
+> >  1 file changed, 68 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml
+> > 
+> > diff --git a/Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml b/Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml
+> > new file mode 100644
+> > index 000000000000..d7dc66f912c1
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml
+> > @@ -0,0 +1,68 @@
+> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/mfd/airoha,en7581-scu-sysctl.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Airoha EN7581 SCU (System Controller Unit)
+> > +
+> > +maintainers:
+> > +  - Christian Marangi <ansuelsmth@gmail.com>
+> > +
+> > +description:
+> > +  Airoha EN7581 SoC expose registers to control miscellaneous
+> > +  pheriperals via the SCU (System Controller Unit).
+> > +
+> One more comment - there is no such thing as "sysctl" in your hardware.
+> Look at the SCU binding which clearly says that it is the hardware you
+> are duplicating here, so the "System Control Unit".
+> 
+> So you have existing "This node defines the System Control Unit of the
+> EN7523 SoC" and you add one more node which defines the "System Control
+> Unit", so you have two "System Control Unit" device nodes?
+> 
+> Look also what Stephen asked for:
+> 
+> https://lore.kernel.org/all/20220106013100.842FCC36AEB@smtp.kernel.org/
+> 
+> so how system-controller can now became clock-controller? Now, it was
+> the system controller since the beginning.
+>
 
-This is in downstream tree:
-https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/free=
-scale/imx95.dtsi#L2971
-https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/free=
-scale/imx95.dtsi#L3043
-https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/free=
-scale/imx95.dtsi#L80
+The main problem here (and we had a similar problem with GPIO and PWM)
+is that the Vendor (Airoha) wasn't so bright in placing the different
+registers for the SoC so we have case where everything is mixed and not
+one after another... 
 
-we are using "power-domains" property for cpu perf and gpu/vpu perf.
+Example we have 
+- CLK register part 1
+- Some bits that configure PCIe
+- CLK register part 2
+- GPIO
+- CLK register part 3
+- ...
 
-If cpufreq.off=3D1 is set in bootargs, the vpu/gpu driver will defer probe.
+The driver solution for this is syscon and the simple-mfd node
+structure.
 
-Regards,
-Peng.
+Now the main problem is how to modle this in DT. There are lots of case
+where the simple-mfd model is used (like the one proposed) but probably
+this is not accepted anymore. But again this should be clearly stated or
+we have a chicken-egg problem when other devs implement similar thing and
+have to implement simple MFD driver to handle this. (and driver
+maintainers say "Use the simple-mfd model like it was already done)
 
->=20
-> --
-> Regards,
-> Sudeep
+For this specific case (and to give an answer to the clock patch after
+this) the problem is that this register space was originally used only
+to control the clock and I wasn't aware that it was also used to control
+USB. Now that I'm implementing support for it, the disaster happened.
+
+So In short SCU is lots of thing, both a system-controller, a
+clock-controller and even a reset-controller.
+
+To make it short, 2 different solution:
+1. We can keep the current node structure of the node-controller and add a
+child node for the SSR part (with a dedicated compatible).
+2. Those property need to be be defined in the clock-controller node?
+
+The ideal solution is 1. Does it work for you?
+
+Sorry for the long post and hope you understand why this mess of
+reworking the binding.
+
+-- 
+	Ansuel
 
