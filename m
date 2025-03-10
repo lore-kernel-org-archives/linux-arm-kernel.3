@@ -4,71 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD935C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:17:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3E74CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:18:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=G90UB1UvzNNgGavSwYmoTepOzDrA/XYawqsQEZns3Ic=; b=lGtXcTq3DzH3pu9cwpUMq0dL2L
-	ynTI5LVPi227DmfKGck13/myz+kZL7ogZUWo9SdOz1qM5huafyIOUXMwlev59AAK7TZVCbgYPkAq5
-	tdCg9NuaE/jGOo6DOkx7Fu0aQ7jBwR9ykne7FtsuaNQhGtmAO54qVaSHBdbJ7ynGvtuQd2WJBU5Sv
-	0IXF55EvKgHa1dBOVPgLtDT1dvdfZj1aafKQhEawJNUjvBcKJZUhk01KVVNsFOeYY7ahr68trEn0+
-	122XEm0DVq7EOlGPpN4IHJIeiyyo5BOWdtYsP3MSZLT65ocs94asIo2qxwJ3G7/SoI1OSo+PMa7uC
-	zj/GCL3g==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sFt6VJ1SZzCh+5Nreax5Fphv26muPLAuhKS3LWiPdjo=; b=43okoxal4VCdzSNMyqPjfeb7gu
+	dPJXZGHwkS86409lzelBcAPvHnCsfgAMWHfwq8AKrbWH7UOe33vKnCEzOICvKiBOGNJTwOIb9cjTw
+	NcbPVunhVgig/lOBWSek0+6+sfF+7+PCjzXlk2K68V5Q1KENLB6v8Q5BTx6y6IXnXcLs4Bi9OU7rG
+	kbHyySoonSciDYAKtpi3ckPpSyBsQjVby+z0sGbAIWTC95Am+gYBgrdC5QOF/eSMWX2BdfPcxYRlQ
+	ENb5cChc3pkq+0clxYVpLisZnLJSlABH1mi6ieMdAb7ZlC5bLiAO0RtT2wj2CBH/Wh3NynAuvU66O
+	xCxjTmrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tres9-000000038pK-2gnk;
-	Mon, 10 Mar 2025 15:16:54 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1tretl-000000039Kg-0owj;
+	Mon, 10 Mar 2025 15:18:33 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdqd-00000002tTR-4ADk;
-	Mon, 10 Mar 2025 14:11:17 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 55FF820E07;
-	Mon, 10 Mar 2025 15:11:11 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id sNrT02Q0KMYU; Mon, 10 Mar 2025 15:11:10 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741615870; bh=h7IG7Iw5c8FBRHktz05awjGUOLRAhFTuYTO3Fk3rjPg=;
-	h=From:To:Cc:Subject:Date;
-	b=LrCLI2fmEFFUjqJfD6ojRGOv5jvEJu08U1Mycn2bhc1P+G0yAf0j+SEqO3LDGQbTQ
-	 T9ejM1B9XkwiWNjm2+h9NHjdzLEFwVM6MyEjkStLJzHX81iTKMfQlerSkboX0A1q+8
-	 aO0oDX1Vo/Q7F9v+SacOUcZWeKLTVqCNq/LmVWVuEbZ9M7EJ5PRVIXjw/gQIykemc3
-	 JgspNxqf8lJVuzWYYN1fPlXHbqsBRwGdGcvHjN0aoPuTl7sbFxx1JgVDLhrNRVl+J9
-	 iuoIqcs21uSNXl1k9aoIMnx62lKmQTaS9f9JJIczdDuGtLgZeN2szmEf8VAT59f4gF
-	 Q6bBtONyrrSFQ==
-From: Yao Zi <ziyao@disroot.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Yao Zi <ziyao@disroot.org>,
-	Dragan Simic <dsimic@manjaro.org>,
-	Johan Jonker <jbx6244@gmail.com>,
-	Diederik de Haas <didi.debian@cknow.org>,
-	Andy Yan <andyshrk@163.com>,
-	Damon Ding <damon.ding@rock-chips.com>,
-	Jing Luo <jing@jing.rocks>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	Robin Murphy <robin.murphy@arm.com>,
-	Tomeu Vizoso <tomeu@tomeuvizoso.net>
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Fix PWM pinctrl names
-Date: Mon, 10 Mar 2025 14:09:17 +0000
-Message-ID: <20250310140916.14384-2-ziyao@disroot.org>
+	id 1trdrj-00000002thP-2QqP;
+	Mon, 10 Mar 2025 14:12:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1741615940;
+	bh=VvTbrukqJECgVTvGE9CueOWKZHry7TuKRTj4dDd5LMQ=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Q7fGuGPDPQQJuuvqwAmmG3YOMdB37C0ASjXgb30wy90gx7lXAsc5rwAnHkoB66KUt
+	 ez18FMdGSvq2oA1gYWklHwyoO4/Egrjat7yUr3NBwkLgh7oPvfzGzSZoGIsdr2IwgD
+	 GeYyjdFXgsk8X9J34l+eXs9DJnFyxCx9JCR0niYPBZZmEDRqIEkSdo99Q3ZxEareA0
+	 8z/bhoA7xanekNn4DVkbLtoyjzYmwGhr3pDw9Oy32aiOCbI5HcMMLzC+qa7AXSB314
+	 rq6/ia07V1BV0upd1PLbPiRk3Jhl0p5elG5jpyxm7KZ+XlnQLrLpyEtkRrNd2vKGM2
+	 BYy25HPKHu/0A==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 16B1F17E0649;
+	Mon, 10 Mar 2025 15:12:20 +0100 (CET)
+Message-ID: <cd8bd504-8d91-4420-8053-10ee814417bf@collabora.com>
+Date: Mon, 10 Mar 2025 15:12:19 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 03/26] clk: mediatek: Support voting for mux
+To: Guangjie Song <guangjie.song@mediatek.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Richard Cochran <richardcochran@gmail.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
+ Project_Global_Chrome_Upstream_Group@mediatek.com
+References: <20250307032942.10447-1-guangjie.song@mediatek.com>
+ <20250307032942.10447-4-guangjie.song@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250307032942.10447-4-guangjie.song@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_071116_439969_F0C18DF0 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20250310_071223_810307_B2F71C67 
+X-CRM114-Status: GOOD (  28.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,93 +82,341 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These Rockchip boards assign "active" as the pinctrl name for PWM
-controllers, which has never been supported in mainline Rockchip PWM
-driver. It seems the name used by downstream kernel is accidentally
-brought into maineline. Let's fix them.
+Il 07/03/25 04:26, Guangjie Song ha scritto:
+> Add data fields, defines and ops to support voting for mux.
+> 
 
-Fixes: 4403e1237be3 ("arm64: dts: rockchip: Add devicetree for board roc-rk3308-cc")
-Fixes: 964ed0807b5f ("arm64: dts: rockchip: add rk3318 A95X Z2 board")
-Fixes: e7a095908227 ("arm64: dts: rockchip: Add devicetree for NanoPC-T4")
-Fixes: 3f5d336d64d6 ("arm64: dts: rockchip: Add support for rk3588s based board Cool Pi 4B")
-Signed-off-by: Yao Zi <ziyao@disroot.org>
----
+The main thing that is missing here is an answer to an obvious question....
 
-It's uncommon to have a commit carrying so many fix tags, but otherwise
-four seperate small commits will be created with the same topic. I'm
-willing to change this if it's inappropriate.
+...what are the advantages of hardware voting, and why do we need to use
+HW voting instead of the refcount that is already kept by the common clock
+framework?
 
-I don't have these boards for a real test, but the change should be the
-right way.
+As far as I can see here, the only difference is that the enable/disable
+is more complex, losing more time for polling after writes and nothing else?
 
-Thanks for your time and review.
+Is this to synchronize the clock voting between SCP and AP or what?!
+If this is the answer, I don't see why we should use this HW voter for all
+clocks, since it's simply more expensive (so the clock drivers are wrong as
+they enable the voter for all clocks).
 
- arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts     | 2 +-
- arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts    | 4 ++--
- arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi   | 2 +-
- arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts | 2 +-
- 4 files changed, 5 insertions(+), 5 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts b/arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts
-index 629121de5a13..5e7181948992 100644
---- a/arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3308-roc-cc.dts
-@@ -147,7 +147,7 @@ rtc: rtc@51 {
- 
- &pwm5 {
- 	status = "okay";
--	pinctrl-names = "active";
-+	pinctrl-names = "default";
- 	pinctrl-0 = <&pwm5_pin_pull_down>;
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts b/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
-index a94114fb7cc1..96c27fc5005d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3318-a95x-z2.dts
-@@ -274,13 +274,13 @@ otg_vbus_drv: otg-vbus-drv {
- 
- &pwm0 {
- 	pinctrl-0 = <&pwm0_pin_pull_up>;
--	pinctrl-names = "active";
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
- &pwm1 {
- 	pinctrl-0 = <&pwm1_pin_pull_up>;
--	pinctrl-names = "active";
-+	pinctrl-names = "default";
- 	status = "okay";
- };
- 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi b/arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi
-index b169be06d4d1..c8eb5481f43d 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-nanopi4.dtsi
-@@ -603,7 +603,7 @@ &pwm1 {
- };
- 
- &pwm2 {
--	pinctrl-names = "active";
-+	pinctrl-names = "default";
- 	pinctrl-0 = <&pwm2_pin_pull_down>;
- 	status = "okay";
- };
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-index 8f00e0444c00..8b717c4017a4 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts
-@@ -433,7 +433,7 @@ &pwm2 {
- };
- 
- &pwm13 {
--	pinctrl-names = "active";
-+	pinctrl-names = "default";
- 	pinctrl-0 = <&pwm13m2_pins>;
- 	status = "okay";
- };
--- 
-2.48.1
+> Signed-off-by: Guangjie Song <guangjie.song@mediatek.com>
+> ---
+>   drivers/clk/mediatek/clk-mux.c | 198 ++++++++++++++++++++++++++++++++-
+>   drivers/clk/mediatek/clk-mux.h |  79 +++++++++++++
+>   2 files changed, 275 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/clk/mediatek/clk-mux.c b/drivers/clk/mediatek/clk-mux.c
+> index 60990296450b..8a2c89cb3cd5 100644
+> --- a/drivers/clk/mediatek/clk-mux.c
+> +++ b/drivers/clk/mediatek/clk-mux.c
+> @@ -15,11 +15,13 @@
+>   #include <linux/spinlock.h>
+>   #include <linux/slab.h>
+>   
+> +#include "clk-mtk.h"
+>   #include "clk-mux.h"
+>   
+>   struct mtk_clk_mux {
+>   	struct clk_hw hw;
+>   	struct regmap *regmap;
+> +	struct regmap *vote_regmap;
+>   	const struct mtk_mux *data;
+>   	spinlock_t *lock;
+>   	bool reparent;
+> @@ -30,6 +32,46 @@ static inline struct mtk_clk_mux *to_mtk_clk_mux(struct clk_hw *hw)
+>   	return container_of(hw, struct mtk_clk_mux, hw);
+>   }
+>   
+> +static int mtk_clk_mux_fenc_enable_setclr(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	unsigned long flags = 0;
+> +	u32 val = 0;
+> +	int i = 0;
+> +	int ret = 0;
+> +
+> +	if (mux->lock)
+> +		spin_lock_irqsave(mux->lock, flags);
+> +	else
+> +		__acquire(mux->lock);
+> +
+> +	regmap_write(mux->regmap, mux->data->clr_ofs, BIT(mux->data->gate_shift));
+> +
+> +	while (1) {
+> +		regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val);
+
+Why are you reinventing the wheel instead of just using regmap_read_poll_timeout()?
+
+> +
+> +		if ((val & BIT(mux->data->fenc_shift)) != 0)
+> +			break;
+> +
+> +		if (i < MTK_WAIT_FENC_DONE_CNT) {
+> +			udelay(MTK_WAIT_FENC_DONE_US);
+> +		} else {
+> +			pr_err("%s wait fenc done timeout\n", clk_hw_get_name(hw));
+> +			ret = -EBUSY;
+> +			break;
+> +		}
+> +
+> +		i++;
+> +	}
+> +
+> +	if (mux->lock)
+> +		spin_unlock_irqrestore(mux->lock, flags);
+> +	else
+> +		__release(mux->lock);
+> +
+> +	return ret;
+> +}
+> +
+>   static int mtk_clk_mux_enable_setclr(struct clk_hw *hw)
+>   {
+>   	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> @@ -70,6 +112,16 @@ static void mtk_clk_mux_disable_setclr(struct clk_hw *hw)
+>   			BIT(mux->data->gate_shift));
+>   }
+>   
+> +static int mtk_clk_mux_fenc_is_enabled(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	u32 val = 0;
+> +
+> +	regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val);
+> +
+> +	return (val & BIT(mux->data->fenc_shift)) != 0;
+
+That's just `return val & BIT(mux->data->fenc_shift);` ...
+
+> +}
+> +
+>   static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
+>   {
+>   	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> @@ -80,6 +132,106 @@ static int mtk_clk_mux_is_enabled(struct clk_hw *hw)
+>   	return (val & BIT(mux->data->gate_shift)) == 0;
+>   }
+>   
+> +static int mtk_clk_vote_mux_is_enabled(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	u32 val = 0;
+> +
+> +	regmap_read(mux->vote_regmap, mux->data->vote_set_ofs, &val);
+> +
+> +	return (val & BIT(mux->data->gate_shift)) != 0;
+
+same
+
+> +}
+> +
+> +static int mtk_clk_vote_mux_is_done(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	u32 val = 0;
+> +
+> +	regmap_read(mux->vote_regmap, mux->data->vote_sta_ofs, &val);
+> +
+> +	return (val & BIT(mux->data->gate_shift)) != 0;
+
+ditto
+
+> +}
+> +
+> +static int mtk_clk_mux_vote_fenc_enable(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	u32 val = 0, val2 = 0;
+> +	bool is_done = false;
+> +	int i = 0;
+> +
+> +	regmap_write(mux->vote_regmap, mux->data->vote_set_ofs, BIT(mux->data->gate_shift));
+> +
+> +	while (!mtk_clk_vote_mux_is_enabled(hw)) {
+> +		if (i < MTK_WAIT_VOTE_PREPARE_CNT) {
+> +			udelay(MTK_WAIT_VOTE_PREPARE_US);
+
+regmap_readl_poll_timeout().....
+
+> +		} else {
+> +			pr_err("%s mux prepare timeout(%x)\n", clk_hw_get_name(hw), val);
+> +			return -EBUSY;
+> +		}
+> +
+> +		i++;
+> +	}
+> +
+> +	i = 0;
+> +
+> +	while (1) {
+> +		if (!is_done)
+> +			regmap_read(mux->vote_regmap, mux->data->vote_sta_ofs, &val);
+> +
+> +		if (((val & BIT(mux->data->gate_shift)) != 0))
+> +			is_done = true;
+> +
+
+and again - twice.
+
+> +		if (is_done) {
+> +			regmap_read(mux->regmap, mux->data->fenc_sta_mon_ofs, &val2);
+> +			if ((val2 & BIT(mux->data->fenc_shift)) != 0)
+> +				break;
+> +		}
+> +
+> +		if (i < MTK_WAIT_VOTE_DONE_CNT) {
+> +			udelay(MTK_WAIT_VOTE_DONE_US);
+> +		} else {
+> +			pr_err("%s mux enable timeout(%x %x)\n", clk_hw_get_name(hw), val, val2);
+> +			return -EBUSY;
+> +		}
+> +
+> +		i++;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +static void mtk_clk_mux_vote_disable(struct clk_hw *hw)
+> +{
+> +	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> +	int i = 0;
+> +
+> +	regmap_write(mux->vote_regmap, mux->data->vote_clr_ofs, BIT(mux->data->gate_shift));
+> +
+> +	while (mtk_clk_vote_mux_is_enabled(hw)) {
+> +		if (i < MTK_WAIT_VOTE_PREPARE_CNT) {
+> +			udelay(MTK_WAIT_VOTE_PREPARE_US);
+> +		} else {
+> +			pr_err("%s mux unprepare timeout\n", clk_hw_get_name(hw));
+> +			return;
+> +		}
+> +
+
+....and again....
+
+> +		i++;
+> +	}
+> +
+> +	i = 0;
+> +
+> +	while (!mtk_clk_vote_mux_is_done(hw)) {
+> +		if (i < MTK_WAIT_VOTE_DONE_CNT) {
+> +			udelay(MTK_WAIT_VOTE_DONE_US);
+> +		} else {
+> +			pr_err("%s mux disable timeout\n", clk_hw_get_name(hw));
+> +			return;
+> +		}
+> +
+> +		i++;
+> +	}
+> +}
+> +
+>   static u8 mtk_clk_mux_get_parent(struct clk_hw *hw)
+>   {
+>   	struct mtk_clk_mux *mux = to_mtk_clk_mux(hw);
+> @@ -151,6 +303,12 @@ static int mtk_clk_mux_determine_rate(struct clk_hw *hw,
+>   	return clk_mux_determine_rate_flags(hw, req, mux->data->flags);
+>   }
+>   
+> +static void mtk_clk_mux_vote_fenc_disable_unused(struct clk_hw *hw)
+> +{
+> +	mtk_clk_mux_vote_fenc_enable(hw);
+> +	mtk_clk_mux_vote_disable(hw);
+
+Why would you need to enable and disable?
+
+If this is not a mistake... this definitely needs a comment in the code.
+
+> +}
+> +
+>   const struct clk_ops mtk_mux_clr_set_upd_ops = {
+>   	.get_parent = mtk_clk_mux_get_parent,
+>   	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
+> @@ -168,9 +326,31 @@ const struct clk_ops mtk_mux_gate_clr_set_upd_ops  = {
+>   };
+>   EXPORT_SYMBOL_GPL(mtk_mux_gate_clr_set_upd_ops);
+>   
+> +const struct clk_ops mtk_mux_gate_fenc_clr_set_upd_ops = {
+> +	.enable = mtk_clk_mux_fenc_enable_setclr,
+> +	.disable = mtk_clk_mux_disable_setclr,
+> +	.is_enabled = mtk_clk_mux_fenc_is_enabled,
+> +	.get_parent = mtk_clk_mux_get_parent,
+> +	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
+> +	.determine_rate = mtk_clk_mux_determine_rate,
+> +};
+> +EXPORT_SYMBOL_GPL(mtk_mux_gate_fenc_clr_set_upd_ops);
+> +
+> +const struct clk_ops mtk_mux_vote_fenc_ops = {
+> +	.enable = mtk_clk_mux_vote_fenc_enable,
+> +	.disable = mtk_clk_mux_vote_disable,
+> +	.is_enabled = mtk_clk_mux_fenc_is_enabled,
+> +	.get_parent = mtk_clk_mux_get_parent,
+> +	.set_parent = mtk_clk_mux_set_parent_setclr_lock,
+> +	.determine_rate = mtk_clk_mux_determine_rate,
+> +	.disable_unused = mtk_clk_mux_vote_fenc_disable_unused,
+> +};
+> +EXPORT_SYMBOL_GPL(mtk_mux_vote_fenc_ops);
+> +
+>   static struct clk_hw *mtk_clk_register_mux(struct device *dev,
+>   					   const struct mtk_mux *mux,
+>   					   struct regmap *regmap,
+> +					   struct regmap *vote_regmap,
+>   					   spinlock_t *lock)
+>   {
+>   	struct mtk_clk_mux *clk_mux;
+> @@ -185,9 +365,17 @@ static struct clk_hw *mtk_clk_register_mux(struct device *dev,
+>   	init.flags = mux->flags;
+>   	init.parent_names = mux->parent_names;
+>   	init.num_parents = mux->num_parents;
+> -	init.ops = mux->ops;
+> +	if (mux->flags & CLK_USE_VOTE) {
+> +		if (vote_regmap)
+> +			init.ops = mux->ops;
+> +		else
+> +			init.ops = mux->dma_ops;
+
+Sorry why is this called dma_ops?!
+That's at least confusing, if not simply wrong.... please explain.
+
+> +	} else {
+> +		init.ops = mux->ops;
+> +	}
+>   
+>   	clk_mux->regmap = regmap;
+> +	clk_mux->vote_regmap = vote_regmap;
+>   	clk_mux->data = mux;
+>   	clk_mux->lock = lock;
+>   	clk_mux->hw.init = &init;
+> @@ -220,6 +408,7 @@ int mtk_clk_register_muxes(struct device *dev,
+>   			   struct clk_hw_onecell_data *clk_data)
+>   {
+>   	struct regmap *regmap;
+> +	struct regmap *vote_regmap = NULL;
+>   	struct clk_hw *hw;
+>   	int i;
+>   
+> @@ -238,8 +427,13 @@ int mtk_clk_register_muxes(struct device *dev,
+>   			continue;
+>   		}
+>   
+> -		hw = mtk_clk_register_mux(dev, mux, regmap, lock);
+> +		if (mux->vote_comp) {
+> +			vote_regmap = syscon_regmap_lookup_by_phandle(node, mux->vote_comp);
+> +			if (IS_ERR(vote_regmap))
+> +				vote_regmap = NULL;
+> +		}
+>   
+> +		hw = mtk_clk_register_mux(dev, mux, regmap, vote_regmap, lock);
+
+...and this change just breaks each and every MediaTek SoC that is currently
+supported upstream.
+
+Please test your changes on older platforms before submitting upstream.
+
+Regards,
+Angelo
 
 
