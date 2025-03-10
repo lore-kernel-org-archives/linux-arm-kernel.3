@@ -4,87 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8A4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:16:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F13EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:18:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t2kgoLFT4qUSZ2F0yqgtgSevpsGwxq4Ha+KacT6rcOc=; b=hx0aR9EiVy+eS+GZF9lwbIyYKt
-	oeQ+2iRH9V8YCu8JBo+yiGV67QSDj90REWu18op4IHj5dy98bxFXpxyaQv3GKBh7MQONcyEWocNbA
-	3j/HA7693+wfvWowOuiBRNj6gxMmo+EUlmHhA45fuPtyWH2G5jcYivKRG6yNeFDdoK7MmIjii5QVi
-	T9o0Z8/Vh+qi518iAFHrtN5UGdcA/ASSYUeigB+2CMWcGOXhfArvCuVq6fGgXjVy4JQAPRZkig+Rv
-	kg0k5GWxM06XlpQmxATCUtuwCxJhk30iptVq+CsD+wcNPJ9YhbXfY9VaxB1ipmyADFMgconW1eaLN
-	qU9qvGsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZPp0js6+jrg5sVe7XA7ERrTixZv7xjbVVvf7fRlGlAE=; b=3sEEdIAJTjtxlFByC2JkM/BZJH
+	mdXESkwWaoC/afkiSeDFwD8ZZe3IshBoLB2Lo4k2fqu/YNtvartEslSxer8UF+R1eCW0fesGtNnPE
+	KymrdEarF+FFvBn+7tEHtMKcd08pvKTm4A7Kz5VeLNESQnqVGWxeHqFqIF22DHm5k5JOdTAqna4hx
+	I7+Xz01+/9MbeKN7caF/wgyS/cNNkuYJBmANT9Dy+2jvjOJNk4LDbAGpeIRONt+xA+BbL3qdJ6tar
+	SHb4CwNJXUSuBkwGWukxub+jAMIQxqv/VjobO29DdiXCB5qZWn52pG//7OTmQQdFBMgW+hqAHQ2LB
+	IKP8JAjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgje-00000003TWF-3ft2;
-	Mon, 10 Mar 2025 17:16:14 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgc4-00000003S4h-0qCV;
-	Mon, 10 Mar 2025 17:08:25 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 4CB5E5C3EFD;
-	Mon, 10 Mar 2025 17:06:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD209C4CEEB;
-	Mon, 10 Mar 2025 17:08:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741626502;
-	bh=BDPwHEQJtDtD2d6bq3wswYDHcfGQePvakq3VHHuiDXk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=dP64LCSwb0qvMdmxNsq4aBgEkKCWTngBOaUBShh/E456amPJ+27bT3yYrEE5Gbe2Y
-	 pF1oiiVL7+YWc6JNBHa7O2WtXGhJjTJsTLGJyLtE+bAmPCfq/3Pc4kAd9bqycwPSz5
-	 Adjk1OWKoidmg9OiT3mJIBc1IgB4uMqcUHbsgzJ+KzsaRTD5TKEwDpPg4x9PsZvD/4
-	 EZ7Q2cZdK8XAVDyjTOEv9MAuloiaC6ai4D/YMIbH2cPTCon/hLkqajOt3wbw54YP15
-	 wU2ay6wa88LQr0FNFLZu5rhY2ee46XOCZ7yoC5WtWWFs0NwciIsHg/fMOPeT7J/JrC
-	 2y2dbOxSiNHfA==
-Date: Mon, 10 Mar 2025 19:08:01 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Pratyush Yadav <ptyadav@amazon.de>
-Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 06/14] kexec: Add KHO parsing support
-Message-ID: <Z88ccZat5wm_iXx1@kernel.org>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-7-rppt@kernel.org>
- <mafs0zfhs97ta.fsf@amazon.de>
+	id 1trglH-00000003Tly-2S4R;
+	Mon, 10 Mar 2025 17:17:55 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trgdP-00000003SQz-3EW5
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 17:09:49 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 0DA692038F32;
+	Mon, 10 Mar 2025 10:09:46 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 0DA692038F32
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741626586;
+	bh=ZPp0js6+jrg5sVe7XA7ERrTixZv7xjbVVvf7fRlGlAE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=l1AipWqanSYF7uSInl5in5VBJSpUKdzXNs6Z6Cc5jMQikOncxE6pClVlB5vRa3No/
+	 iDoZQTAoQd9hGHqs2vaxzFNRGIT6LEpWYSUp2mlFkdRWAt98W4RXVrPRI1lDqFK6Qv
+	 S3kLzNTctjFEFKHQ9Tw6wh1lVjMxr+HbU/Mq8eew=
+Message-ID: <e3414583-0437-4fc4-b464-1426e5fe9628@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 10:09:45 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <mafs0zfhs97ta.fsf@amazon.de>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 09/11] Drivers: hv: vmbus: Introduce
+ hv_get_vmbus_root_device()
+To: Tianyu Lan <ltykernel@gmail.com>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-10-romank@linux.microsoft.com>
+ <CAMvTesCFZ6sxQp7qqSDjD9idRjVHxh96Sp4betomgFH-OFLZ3Q@mail.gmail.com>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <CAMvTesCFZ6sxQp7qqSDjD9idRjVHxh96Sp4betomgFH-OFLZ3Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_100824_323623_37F11801 
-X-CRM114-Status: GOOD (  32.00  )
+X-CRM114-CacheID: sfid-20250310_100947_854493_79AA70E2 
+X-CRM114-Status: GOOD (  22.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,86 +85,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Pratyush,
 
-On Mon, Mar 10, 2025 at 04:20:01PM +0000, Pratyush Yadav wrote:
-> Hi Mike,
-> 
-> On Thu, Feb 06 2025, Mike Rapoport wrote:
-> [...]
-> > @@ -444,7 +576,141 @@ static void kho_reserve_scratch(void)
-> >  	kho_enable = false;
-> >  }
-> >  
-> > +/*
-> > + * Scan the DT for any memory ranges and make sure they are reserved in
-> > + * memblock, otherwise they will end up in a weird state on free lists.
-> > + */
-> > +static void kho_init_reserved_pages(void)
-> > +{
-> > +	const void *fdt = kho_get_fdt();
-> > +	int offset = 0, depth = 0, initial_depth = 0, len;
-> > +
-> > +	if (!fdt)
-> > +		return;
-> > +
-> > +	/* Go through the mem list and add 1 for each reference */
-> > +	for (offset = 0;
-> > +	     offset >= 0 && depth >= initial_depth;
-> > +	     offset = fdt_next_node(fdt, offset, &depth)) {
-> > +		const struct kho_mem *mems;
-> > +		u32 i;
-> > +
-> > +		mems = fdt_getprop(fdt, offset, "mem", &len);
-> > +		if (!mems || len & (sizeof(*mems) - 1))
-> > +			continue;
-> > +
-> > +		for (i = 0; i < len; i += sizeof(*mems)) {
-> > +			const struct kho_mem *mem = &mems[i];
-> 
-> i goes from 0 to len in steps of 16, but you use it to dereference an
-> array of type struct kho_mem. So you end up only looking at only one of
-> every 16 mems and do an out of bounds access. I found this when testing
-> the memfd patches and any time the file was more than 1 page, it started
-> to crash randomly.
 
-Thanks! Changyuan already pointed that out privately.
-But I'm going to adopt the memory reservation scheme Jason proposed so
-this code is going to go away anyway :)
+On 3/10/2025 6:41 AM, Tianyu Lan wrote:
+> On Sat, Mar 8, 2025 at 6:05 AM Roman Kisel <romank@linux.microsoft.com> wrote:
+>>
+>> The ARM64 PCI code for hyperv needs to know the VMBus root
+>> device, and it is private.
+>>
+>> Provide a function that returns it. Rename it from "hv_dev"
+>> as "hv_dev" as a symbol is very overloaded. No functional
+>> changes.
+>>
+>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+> 
+> Why change all device's parent to vmbus_root_device?
+> 
 
-> Below patch should fix that:
+No changes from my account of the code. Please let me know if I am
+misunderstanding the question.
+
+> The ARM64 platform uses the device tree to enumerate vmbus
+> devices..  Can we find the root device via device tree? vmbus
+> code on the x86 use ACPI and it seems to work via ACPI.
 > 
-> ---- 8< ----
-> diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
-> index c26753d613cbc..40d1d8ac68d44 100644
-> --- a/kernel/kexec_handover.c
-> +++ b/kernel/kexec_handover.c
-> @@ -685,13 +685,15 @@ static void kho_init_reserved_pages(void)
->              offset >= 0 && depth >= initial_depth;
->              offset = fdt_next_node(fdt, offset, &depth)) {
->                 const struct kho_mem *mems;
-> -               u32 i;
-> +               u32 i, nr_mems;
->  
->                 mems = fdt_getprop(fdt, offset, "mem", &len);
->                 if (!mems || len & (sizeof(*mems) - 1))
->                         continue;
->  
-> -               for (i = 0; i < len; i += sizeof(*mems)) {
-> +               nr_mems = len / sizeof(*mems);
-> +
-> +               for (i = 0; i < nr_mems; i++) {
->                         const struct kho_mem *mem = &mems[i];
->  
->                         memblock_reserve(mem->addr, mem->size);
-> ---- >8 ----
-> [...]
 > 
-> -- 
-> Regards,
-> Pratyush Yadav
+
+Right, we find it from the DT as shown in the next patch:
+
++static struct irq_domain *hv_pci_of_irq_domain_parent(void)
++{
++	struct device_node *parent;
++	struct irq_domain *domain;
++
++	parent = of_irq_find_parent(hv_get_vmbus_root_device()->of_node);
++	domain = NULL;
++	if (parent) {
++		domain = irq_find_host(parent);
++		of_node_put(parent);
++	}
++
++	return domain;
++}
++
+
+and later use it for `irq_create_hierarchy()`. Please let me know
+if I missed anything in your question.
+
+>> ---
+>>   drivers/hv/vmbus_drv.c | 23 +++++++++++++++--------
+>>   include/linux/hyperv.h |  2 ++
+>>   2 files changed, 17 insertions(+), 8 deletions(-)
+>>
+>> diff --git a/drivers/hv/vmbus_drv.c b/drivers/hv/vmbus_drv.c
+>> index c8474b48dcd2..7bfafe702963 100644
+>> --- a/drivers/hv/vmbus_drv.c
+>> +++ b/drivers/hv/vmbus_drv.c
+>> @@ -45,7 +45,8 @@ struct vmbus_dynid {
+>>          struct hv_vmbus_device_id id;
+>>   };
+>>
+>> -static struct device  *hv_dev;
+>> +/* VMBus Root Device */
+>> +static struct device  *vmbus_root_device;
+>>
+>>   static int hyperv_cpuhp_online;
+>>
+>> @@ -80,9 +81,15 @@ static struct resource *fb_mmio;
+>>   static struct resource *hyperv_mmio;
+>>   static DEFINE_MUTEX(hyperv_mmio_lock);
+>>
+>> +struct device *hv_get_vmbus_root_device(void)
+>> +{
+>> +       return vmbus_root_device;
+>> +}
+>> +EXPORT_SYMBOL_GPL(hv_get_vmbus_root_device);
+>> +
+>>   static int vmbus_exists(void)
+>>   {
+>> -       if (hv_dev == NULL)
+>> +       if (vmbus_root_device == NULL)
+>>                  return -ENODEV;
+>>
+>>          return 0;
+>> @@ -861,7 +868,7 @@ static int vmbus_dma_configure(struct device *child_device)
+>>           * On x86/x64 coherence is assumed and these calls have no effect.
+>>           */
+>>          hv_setup_dma_ops(child_device,
+>> -               device_get_dma_attr(hv_dev) == DEV_DMA_COHERENT);
+>> +               device_get_dma_attr(vmbus_root_device) == DEV_DMA_COHERENT);
+>>          return 0;
+>>   }
+>>
+>> @@ -1930,7 +1937,7 @@ int vmbus_device_register(struct hv_device *child_device_obj)
+>>                       &child_device_obj->channel->offermsg.offer.if_instance);
+>>
+>>          child_device_obj->device.bus = &hv_bus;
+>> -       child_device_obj->device.parent = hv_dev;
+>> +       child_device_obj->device.parent = vmbus_root_device;
+>>          child_device_obj->device.release = vmbus_device_release;
+>>
+>>          child_device_obj->device.dma_parms = &child_device_obj->dma_parms;
+>> @@ -2292,7 +2299,7 @@ static int vmbus_acpi_add(struct platform_device *pdev)
+>>          struct acpi_device *ancestor;
+>>          struct acpi_device *device = ACPI_COMPANION(&pdev->dev);
+>>
+>> -       hv_dev = &device->dev;
+>> +       vmbus_root_device = &device->dev;
+>>
+>>          /*
+>>           * Older versions of Hyper-V for ARM64 fail to include the _CCA
+>> @@ -2383,7 +2390,7 @@ static int vmbus_device_add(struct platform_device *pdev)
+>>          struct device_node *np = pdev->dev.of_node;
+>>          int ret;
+>>
+>> -       hv_dev = &pdev->dev;
+>> +       vmbus_root_device = &pdev->dev;
+>>
+>>          ret = of_range_parser_init(&parser, np);
+>>          if (ret)
+>> @@ -2702,7 +2709,7 @@ static int __init hv_acpi_init(void)
+>>          if (ret)
+>>                  return ret;
+>>
+>> -       if (!hv_dev) {
+>> +       if (!vmbus_root_device) {
+>>                  ret = -ENODEV;
+>>                  goto cleanup;
+>>          }
+>> @@ -2733,7 +2740,7 @@ static int __init hv_acpi_init(void)
+>>
+>>   cleanup:
+>>          platform_driver_unregister(&vmbus_platform_driver);
+>> -       hv_dev = NULL;
+>> +       vmbus_root_device = NULL;
+>>          return ret;
+>>   }
+>>
+>> diff --git a/include/linux/hyperv.h b/include/linux/hyperv.h
+>> index 7f4f8d8bdf43..1f0851fde041 100644
+>> --- a/include/linux/hyperv.h
+>> +++ b/include/linux/hyperv.h
+>> @@ -1333,6 +1333,8 @@ static inline void *hv_get_drvdata(struct hv_device *dev)
+>>          return dev_get_drvdata(&dev->device);
+>>   }
+>>
+>> +struct device *hv_get_vmbus_root_device(void);
+>> +
+>>   struct hv_ring_buffer_debug_info {
+>>          u32 current_interrupt_mask;
+>>          u32 current_read_index;
+>> --
+>> 2.43.0
+>>
+>>
+> 
+> 
 
 -- 
-Sincerely yours,
-Mike.
+Thank you,
+Roman
+
 
