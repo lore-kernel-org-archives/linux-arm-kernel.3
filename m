@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E2D1C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD288C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:24:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kd2fPcVm5IBbyvlRqelD6BKeUqVBV6LqAVTsXt7/gMo=; b=d4pGwf38lYwCnYs5reXFzpHKd+
-	HBMy6GeFvUU+gVN2Br18NsX+OmBPjfJiA20XXroORh6Kb2z3QYi1xNwsNzjGg/GjxZcULMHLj+pHd
-	DfjPRiIUmpnft+Z8FQviOmIWceo0VdtZgiIKCS2CZfeJ9AgbhDefTNmrAtTjA1qrTKjUUeN2vGTQj
-	sifCNClvfExawhGBfSlVYkE/uCJ/PaV91mfWIVQihtcQvS8bkQyqCrz3ksxD4zOHmjYiToHqGRQil
-	4VfOs+dKX/J75Ak6gwKneGLWvW8FbUHt8z18Hg5xAPhmaG3i0tvaEOfs3NC5GTBGItnodl2tTdmf3
-	VGPajK6Q==;
+	bh=/ujJuYIkzvSM/zCENEqyTlicDTrrxDHY2YWYmb4rTX4=; b=mlQhXKdjDIncsSent1tmInDuke
+	rvshdohu0SWy3OWFeMRyJcefJbmHQwm9K1p1fAJNuoJiiLuqbcuilWl0u5VShNhZhXWBxjYWdK0G7
+	aV58wX4sYo9i5a801xNRyI4CfbAHGoTk5GNbag9GK22fc91gJlJossviMO17lkK4AepiFQGtYVFFy
+	teuEurZ3BDpalYPBtzgF1+g2LXqFBO7ZAgLIPxLPxbvtRe6xX3c55rnzCqObXhlVHSbRouK70uBSc
+	1KaL7L0ySMYZyi+42h4+93h6rGvolAZCV1x9RNRXigwILy5Nguoe2yc90pIWdfY0BW9h408X12yOM
+	B5pDlTyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXRA-00000001jHc-0eSU;
-	Mon, 10 Mar 2025 07:20:32 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1trXUX-00000001k0a-0Cp5;
+	Mon, 10 Mar 2025 07:24:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trXN9-00000001ioc-3JJf;
-	Mon, 10 Mar 2025 07:16:25 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id A9FC82591A;
-	Mon, 10 Mar 2025 08:16:18 +0100 (CET)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 0QO2kUGrrvhG; Mon, 10 Mar 2025 08:16:18 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1741590978; bh=ZSuThKs4RRRiIQBWC7D0j8baNXGHTK3a7S1ckfF9qdA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To;
-	b=iCfdHmgtbmqK8KQ3CKJXUznYpU7FQEJMgb78NWQR2d/qNTzzWwFfgdofObg9+B41p
-	 LhZlu+K9VHzifZnDVyKdO/xKBRnl+xAU4s4pA4zaQ43aqHj+5N+4M6glv7M4ISRWVA
-	 pCl9LPavMwU022eFNBiY7EgPRMCRkmPdT2dN2/yw93HLUaIFYF+/81NzB2ykfQrmMg
-	 ABQNBBa4sgKYyoKPyu0cxjPNnNy5cDWLgH7T0czc/YvzGlmoQN6X4a8aO9BbitRkBM
-	 dgaH/z7CjJ8qu7bAcXRtSFCWh2Btc1c23VlM4ZJjGlIbsGcjNgrvopi3JMirl4xfpd
-	 m66kMTlO7QTmQ==
-Date: Mon, 10 Mar 2025 07:15:58 +0000
-From: Yao Zi <ziyao@disroot.org>
-To: Chukun Pan <amadeus@jmu.edu.cn>
-Cc: andi.shyti@kernel.org, conor+dt@kernel.org, devicetree@vger.kernel.org,
-	heiko@sntech.de, jonas@kwiboo.se, krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-i2c@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add onboard EEPROM for Radxa
- E20C
-Message-ID: <Z86RrlBTvt9d40Dk@pie>
-References: <20250309070603.35254-4-ziyao@disroot.org>
- <20250310070023.52290-1-amadeus@jmu.edu.cn>
+	id 1trXSs-00000001jdp-39dh
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 07:22:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 9BF0DA44C92;
+	Mon, 10 Mar 2025 07:16:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 739DEC4CEE5;
+	Mon, 10 Mar 2025 07:22:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741591337;
+	bh=n5EJYANlraVMEy+z1CBmSc7C+ttH7vkN8CorsyFAuIk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=SGWqhLCyHfViKVUDQ0jzJVcUDm1jsoJM5JnDqfJcZojKRbq7vNU+vCgInlkqWwyIO
+	 gRoT7KuGYicBeb9fB7YOiZcrL1ksNwYXxjq4mVly2MhjuFkQYHamsY6eZ1/Tsw+RGI
+	 tz28itcBfaVrsBedxosouyOT5zCcHb1Dsx6hh1Eoprrbz9HknvikhcQo0EKq9lx6dz
+	 HSM969yK4eZT4TZG8Can+YSyIijegAX++6/y+hFi1G/2xY+Yh25LLE4G7bW7b2ajyE
+	 aD9WlibTu1ig4095nGNzz7t2iZB1KU+2FCMlqC8dWOXlY7BX+r9bG/jNJuDDRRzMrT
+	 +4iLxrs2cfxeg==
+Date: Mon, 10 Mar 2025 08:22:13 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Dmitry Baryshkov <lumag@kernel.org>
+Cc: Rob Clark <robdclark@gmail.com>, 
+	Abhinav Kumar <quic_abhinavk@quicinc.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, David Airlie <airlied@gmail.com>, 
+	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Kuogee Hsieh <quic_khsieh@quicinc.com>, 
+	Krishna Manikandan <quic_mkrishn@quicinc.com>, Jonathan Marek <jonathan@marek.ca>, 
+	Bjorn Andersson <andersson@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	linux-arm-msm@vger.kernel.org, dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, iommu@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH 01/10] dt-bindings: display/msm: dp-controller: describe
+ SAR2130P
+Message-ID: <20250310-adamant-wildcat-of-order-8efdda@krzk-bin>
+References: <20250308-sar2130p-display-v1-0-1d4c30f43822@linaro.org>
+ <20250308-sar2130p-display-v1-1-1d4c30f43822@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250310070023.52290-1-amadeus@jmu.edu.cn>
+In-Reply-To: <20250308-sar2130p-display-v1-1-1d4c30f43822@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_001624_243585_C422E29A 
-X-CRM114-Status: GOOD (  10.65  )
+X-CRM114-CacheID: sfid-20250310_002218_919468_5F10F5ED 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,34 +86,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 03:00:23PM +0800, Chukun Pan wrote:
-> Hi,
+On Sat, Mar 08, 2025 at 03:42:19AM +0200, Dmitry Baryshkov wrote:
+> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
 > 
-> > +&i2c1 {
-> > +	pinctrl-names = "default";
-> > +	pinctrl-0 = <&i2c1m0_xfer>;
-> > +	status = "okay";
-> > +
-> > +	eeprom@50 {
-> > +		compatible = "belling,bl24c16a", "atmel,24c16";
-> > +		reg = <0x50>;
-> > +		pagesize = <16>;
-> > +		vcc-supply = <&vcc_3v3>;
-> > +	};
-> > +};
+> Describe DisplayPort controller present on Qualcomm SAR2130P platform.
 > 
-> This eeprom stores the device information written by the manufacturer,
-> such as mac address and sn. So it should be marked as read-only.
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
+> ---
+>  Documentation/devicetree/bindings/display/msm/dp-controller.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 
-Thanks, this makes sense.
-
-> Thanks,
-> Chukun
-> 
-> -- 
-> 2.25.1
-> 
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
-Yao Zi
+Krzysztof
+
 
