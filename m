@@ -4,56 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68102C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 06:40:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4985CC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 07:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YPG/8Wy7qwfW0AAFt5lnK4zEMhsSEXE/tPK/+hYgpok=; b=E0zfQ1r/mT5cKTX5kHybtipNv7
-	c5396Ap0SF87HhKMr/uBd/ODrDVn9MQ/M7s5TfWOn3e01yX95zj/qjisDrDi3bMSuAcfZcziV72Bj
-	sIjpfmGwmeWVIlmUwqSH1Y+WwJHCLSU9JvsjXTsf4JlYW5T95bEn6sGeMsb8Onn5nk3N3oT6QLeL/
-	ddkno8l00LZkJp2LjWTURoFZdrHQn8dPPHjDieAzdLZApfX1s76WovQhV9RaUkThZweFfkXbQ68iJ
-	28Lnb9bgNveaoVbFrT62f8ir/wa8XUp8TmHSVcDz5hzWYEgPyYURqC+UEYVEuBWwCbkQz1M7QqzIG
-	Z7rvzY5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LcSG66+5FVg/6Rs+nS2gobG7eK6s/iY5+O6Rim/4akU=; b=wofPbe+4vXdU6132Ch6M8YvUE2
+	zQio6XT7jNDooRFNLaJNv6fEeso5ujvoFuQlDM7WGDq3UNcaBPbJxJZwVAkZXWLGbLPSOrGgCCPFy
+	GNHeyAVqt9WxejLs7cmpj5NL0flqxqY5qPdP79B2MlAEH8tJs9/llXY07biHQPdraP2NF66+d5rJj
+	LS72iu0NeafkOUMt2nMMmdIjZk/aN+t8mHWC/ERHRVPx0q32cB8xC3znfRVmUwYwjOqsFyRyjMA3n
+	/0r56wKnKywxTMQ/gPgTiWloWzzl30WTfKjlfjpfWpoAcFkuAtFRnHOJq3gpiwS3Q8FhtJhTcLsRx
+	kHeEYFiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trWoJ-00000001fWf-2zZT;
-	Mon, 10 Mar 2025 06:40:23 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trWmf-00000001ezx-264Z
+	id 1trX7T-00000001hHf-415P;
+	Mon, 10 Mar 2025 07:00:11 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trX5p-00000001hC7-36sT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 06:38:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3A3DC15A1;
-	Sun,  9 Mar 2025 23:38:52 -0700 (PDT)
-Received: from [10.163.42.69] (unknown [10.163.42.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A4AF43F673;
-	Sun,  9 Mar 2025 23:38:36 -0700 (PDT)
-Message-ID: <aae26951-3409-476c-b31d-1738cafe730a@arm.com>
-Date: Mon, 10 Mar 2025 12:08:36 +0530
+	Mon, 10 Mar 2025 06:58:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 38A905C03D1;
+	Mon, 10 Mar 2025 06:56:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A406C4CEE5;
+	Mon, 10 Mar 2025 06:58:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1741589908;
+	bh=MI/HwqEL2OPCjvc2aGnpiGs/AcvZ6r10iVYJLYV/Og8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=xUiS5MiUa+D6x0z1UldzohtW1PhLDWG5az/jPLAl7x2xx5HSB4EcvDBqX4oMteBrU
+	 mOSpieFnabDRFCtj5T5ZnYlZzjbfAW4kKQxF/oRUIcX7CTg6xvfa4UmylL7jSKBoPP
+	 y1hJsiP7To4HTVLo2yf51biuTeO/GAIYrO+GTBMs=
+Date: Mon, 10 Mar 2025 07:58:25 +0100
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: "Toshiyuki Sato (Fujitsu)" <fj6611ie@fujitsu.com>
+Cc: Russell King <linux@armlinux.org.uk>, Jiri Slaby <jirislaby@kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-serial@vger.kernel.org" <linux-serial@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3] serial: amba-pl011: Implement nbcon console
+Message-ID: <2025031001-outwit-outsider-b34e@gregkh>
+References: <20250204044428.2191983-1-fj6611ie@aa.jp.fujitsu.com>
+ <TY4PR01MB13777DB55F2231F7399E42609D7D62@TY4PR01MB13777.jpnprd01.prod.outlook.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH V2 0/8] arm64/mm: Drop PXD_TABLE_BIT
-To: arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
- James Morse <james.morse@arm.com>, Catalin Marinas
- <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Mark Rutland <mark.rutland@arm.com>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250221044227.1145393-1-anshuman.khandual@arm.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250221044227.1145393-1-anshuman.khandual@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <TY4PR01MB13777DB55F2231F7399E42609D7D62@TY4PR01MB13777.jpnprd01.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_233841_591384_C6D2C1F9 
-X-CRM114-Status: GOOD (  15.33  )
+X-CRM114-CacheID: sfid-20250309_235829_832130_EE2FE8C9 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,58 +72,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/21/25 10:12, Anshuman Khandual wrote:
-> Remove the PXX_TABLE_BIT definitions and instead rely on PXX_TYPE_MASK,
-> PXX_TYPE_SECT and PXX_TYPE_TABLE. The latter versions are more abstract
-> and also include the PTE_VALID bit.
+On Mon, Mar 10, 2025 at 02:23:35AM +0000, Toshiyuki Sato (Fujitsu) wrote:
+> Dear Reviewers,
 > 
-> This abstraction is valuable for the impending D128 page table support,
-> which doesn't have a single page table bit to determine table vs block.
-> Instead it has the skip level (SKL) field, where it will consider 0 to
-> mean table and any other value to mean a block entry. So PXX_TABLE_BIT
-> therefore doesn't fit into the D128 model well, but the type fields do.
-> 
-> This series applies on v6.14-rc3.
-> 
-> Changes in V2:
-> 
-> - Changed pmd_mkhuge() and pud_mkhuge() implementation
-> - Changed pud_bad() implementation with an additional patch
-> 
-> Changes in V1:
-> 
-> https://lore.kernel.org/all/20241005123824.1366397-1-anshuman.khandual@arm.com/
-> 
-> Cc: Marc Zyngier <maz@kernel.org>
-> Cc: Oliver Upton <oliver.upton@linux.dev>
-> Cc: James Morse <james.morse@arm.com>
-> Cc: Catalin Marinas <catalin.marinas@arm.com>
-> Cc: Will Deacon <will@kernel.org>
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Ryan Roberts <ryan.roberts@arm.com>
-> Cc: Mark Rutland <mark.rutland@arm.com>
-> Cc: kvmarm@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-kernel@vger.kernel.org
-> 
-> Anshuman Khandual (6):
->   KVM: arm64: ptdump: Test PMD_TYPE_MASK for block mapping
->   arm64/ptdump: Test PMD_TYPE_MASK for block mapping
->   arm64/mm: Clear PXX_TYPE_MASK in mk_[pmd|pud]_sect_prot()
->   arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT in [pmd|pud]_mkhuge()
->   arm64/mm: Check PXD_TYPE_TABLE in [p4d|pgd]_bad()
->   arm64/mm: Drop PXD_TABLE_BIT
-> 
-> Ryan Roberts (2):
->   arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
->   arm64/mm: Check pmd_table() in pmd_trans_huge()
-> 
->  arch/arm64/include/asm/pgtable-hwdef.h |  5 --
->  arch/arm64/include/asm/pgtable.h       | 65 ++++++++++++++++++--------
->  arch/arm64/kvm/ptdump.c                |  4 +-
->  arch/arm64/mm/ptdump.c                 |  4 +-
->  4 files changed, 50 insertions(+), 28 deletions(-)
->
+> It has been about a month since this patch was merged into tty-next -> linux-next.
+> I would appreciate any comments or feedback on this patch.
 
-Gentle ping again. Does this series look okay or is there any objection ?
+What needs to be commented on?  It is accepted and will be merged in the
+next -rc merge cycle.
+
+confused,
+
+greg k-h
 
