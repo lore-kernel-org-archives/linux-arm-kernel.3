@@ -4,110 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F4E9C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4D9EC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTuEBFD6HTfddV2Xkxi/2avz0LzG2WocOjUEESzvwQ0=; b=ieMD0O4hIQ2nH4Rrpb3KW594Zf
-	/5iDHqHQZw5fDaj4mzdC5W6dntC8fk+Qnb0LnwNUrJ/DPOZZf2H9G8fLWZmf0lGhn5lcoQjb88CMd
-	kL1uvSIc4fFqjEGaY/qgrLo6BzxSziBhlD4pp6RXmBlSu5IsTQKZVbMBwRQ2mxNPMkVQkterhxYPh
-	UhYHnRywIQ28oeRXYQMVh+PO6as8BhGJvZxhqKQhmrHKnLp/aze4Jg633crFskBjajBITWWQHbDIS
-	AGXSuABZn5cCY2tbowyRS+40/zmnoijCLLOaV0v5r9TM+h3k4VPj0k5S9KDZvV5CRW7rNVM65kxus
-	pmJ7c2Iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7WUB85UntcvKc4rtS3U46DOMfeTCvt9STpMBA8SjPKo=; b=QKj45YHaEIlB1t1MzYgA3fIbhh
+	fcD0JJ2hgaorKLgZiwBsPTTFe9HWKLR0LPJIicqThBOtrld27P7hwxyu7bseILobVf5g89APk0EC7
+	jP2O3MpN5ADslYrBTBpItBbWRpmXWM4uzQqHJR2wJD7qxubd4PNjcZTWMkbkXHz2Z2zJgAK+EW5V8
+	PHZ3herzptsZGTWq3DO/hncrEAkRD96wwls0uPZufD3jYH/xrCZz63YodYtIpSLLkb7SavNW4iwpB
+	48Dvj9PiU1UOg9uES34B/qsTrBNFvq2dr4XU/kgA+FlXKCEfz9ElfKHrC+IOzNHBSxtA2ZfYzcbc8
+	Za2d24ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcH1-00000002dA8-1tSv;
-	Mon, 10 Mar 2025 12:30:23 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trcIc-00000002dQU-2I8g;
+	Mon, 10 Mar 2025 12:32:02 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbij-00000002UX1-0u0z
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 11:54:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4FDA6A45A99;
-	Mon, 10 Mar 2025 11:49:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE7FDC4CEEA;
-	Mon, 10 Mar 2025 11:54:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741607696;
-	bh=L0G+cWQ6MiMUUxg8yXwOMuhWPhIuaRGC4pei6Zxu458=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=nMmE6/EWnK+OXvU+AHMISIPyVX9w6Uxp6tn//YML+2dz0/cFecoOny2UwEjkcJsWJ
-	 8jzq7nHyYXoqohswhwJBgfP0xIkAqyqdnRJWO6RBjJgaBqfMQFKbv65y6JMgCBbrO4
-	 B18vzDJIF4r4JK2ldov7MW1EFvF0yIK7S31vi+HhimByUL9KFH8jtMJgrpnbp8r1Am
-	 ClTGgSl8Fxxg/tSaV00E/1/C2j8Xq+kAjuz37biDTGYZaE1LwAQ+lVftWMj9fqgSf6
-	 DXPeC8pGlsmR54sS5ikRX5Gg0BN9y0NU9fDTTXxvUjtjFN5jBrpbNRQL32Z26gWEUN
-	 UkmQq1FLV0xtw==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1trbif-00C9s2-HP;
-	Mon, 10 Mar 2025 11:54:53 +0000
-Date: Mon, 10 Mar 2025 11:54:52 +0000
-Message-ID: <861pv5p0c3.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: <ankita@nvidia.com>
-Cc: <jgg@nvidia.com>,
-	<oliver.upton@linux.dev>,
-	<joey.gouly@arm.com>,
-	<suzuki.poulose@arm.com>,
-	<yuzenghui@huawei.com>,
-	<catalin.marinas@arm.com>,
-	<will@kernel.org>,
-	<ryan.roberts@arm.com>,
-	<shahuang@redhat.com>,
-	<lpieralisi@kernel.org>,
-	<david@redhat.com>,
-	<aniketa@nvidia.com>,
-	<cjia@nvidia.com>,
-	<kwankhede@nvidia.com>,
-	<targupta@nvidia.com>,
-	<vsethi@nvidia.com>,
-	<acurrid@nvidia.com>,
-	<apopple@nvidia.com>,
-	<jhubbard@nvidia.com>,
-	<danw@nvidia.com>,
-	<zhiw@nvidia.com>,
-	<mochs@nvidia.com>,
-	<udhoke@nvidia.com>,
-	<dnigam@nvidia.com>,
-	<alex.williamson@redhat.com>,
-	<sebastianene@google.com>,
-	<coltonlewis@google.com>,
-	<kevin.tian@intel.com>,
-	<yi.l.liu@intel.com>,
-	<ardb@kernel.org>,
-	<akpm@linux-foundation.org>,
-	<gshan@redhat.com>,
-	<linux-mm@kvack.org>,
-	<ddutile@redhat.com>,
-	<tabba@google.com>,
-	<qperret@google.com>,
-	<seanjc@google.com>,
-	<kvmarm@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
-In-Reply-To: <20250310103008.3471-2-ankita@nvidia.com>
-References: <20250310103008.3471-1-ankita@nvidia.com>
-	<20250310103008.3471-2-ankita@nvidia.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ankita@nvidia.com, jgg@nvidia.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com, alex.williamson@redhat.com, sebastianene@google.com, coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org, ddutile@redhat.com, tabba@google.com, qperret@google.com, seanjc@google.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	id 1trbyn-00000002YJK-3YDY;
+	Mon, 10 Mar 2025 12:11:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=7WUB85UntcvKc4rtS3U46DOMfeTCvt9STpMBA8SjPKo=; b=hL7aGwgRzwa+oGMgpiItpfadBY
+	KcqcqTiCdXW4+KmLgKheS8tMa0vgjmg6OTul6zhfz63amhPcaSglqdDCpv9hgtSbEJmU901fSpGCC
+	xjZRLVmGE+agKtMu8zVhZMgP9TeBd2+h6cyeLdFzr57v5uUfO4IbNKnGBD6cAX5KG2JoQAigfEHaD
+	PXRatEhEZZwHUly7HRgO+EExJS2IL/KOfh5eGz73s8mpfWaJDt1jye7wVotTcpy1dwNVDfnhqh3yx
+	gQO7w4mY6fbE1V9zKzLFgV2qVhXEX3vP0lPeHG76wDLGiW2xqsKNNVrU3jC6OdSmdSzNnhfNAkty9
+	WIYKF9Qg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54294 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1trbyX-0002aA-2J;
+	Mon, 10 Mar 2025 12:11:17 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1trbyA-005qYf-Hb; Mon, 10 Mar 2025 12:10:54 +0000
+In-Reply-To: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
+References: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next 8/9] net: stmmac: sun8i: remove of_get_phy_mode()
+MIME-Version: 1.0
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1trbyA-005qYf-Hb@rmk-PC.armlinux.org.uk>
+Date: Mon, 10 Mar 2025 12:10:54 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_045457_381236_BDCB0413 
-X-CRM114-Status: GOOD (  49.18  )
+X-CRM114-CacheID: sfid-20250310_051133_900090_9344AF9F 
+X-CRM114-Status: GOOD (  11.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,187 +100,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 10:30:08 +0000,
-<ankita@nvidia.com> wrote:
-> 
-> From: Ankit Agrawal <ankita@nvidia.com>
-> 
-> Today KVM forces the memory to either NORMAL or DEVICE_nGnRE
-> based on pfn_is_map_memory (which tracks whether the device memory
-> is added to the kernel) and ignores the per-VMA flags that indicates the
-> memory attributes. The KVM code is thus restrictive and allows only for
-> the memory that is added to the kernel to be marked as cacheable.
-> 
-> The device memory such as on the Grace Hopper/Blackwell systems
-> is interchangeable with DDR memory and retains properties such as
-> cacheability, unaligned accesses, atomics and handling of executable
-> faults. This requires the device memory to be mapped as NORMAL in
-> stage-2.
-> 
-> Given that the GPU device memory is not added to the kernel (but is rather
-> VMA mapped through remap_pfn_range() in nvgrace-gpu module which sets
-> VM_PFNMAP), pfn_is_map_memory() is false and thus KVM prevents such memory
-> to be mapped Normal cacheable. The patch aims to solve this use case.
-> 
-> A cachebility check is made if the VM_PFNMAP is set in VMA flags by
-> consulting the VMA pgprot value. If the pgprot mapping type is MT_NORMAL,
-> it is safe to be mapped cacheable as the KVM S2 will have the same
-> Normal memory type as the VMA has in the S1 and KVM has no additional
-> responsibility for safety. Checking pgprot as NORMAL is thus a KVM
-> sanity check.
-> 
-> Introduce a new variable cacheable_devmem to indicate a safely
-> cacheable mapping. Do not set the device variable when cacheable_devmem
-> is true. This essentially have the effect of setting stage-2 mapping
-> as NORMAL through kvm_pgtable_stage2_map.
-> 
-> Add check for COW VM_PFNMAP and refuse such mapping.
-> 
-> No additional checks for MTE are needed as kvm_arch_prepare_memory_region()
-> already tests it at an early stage during memslot creation. There would
-> not even be a fault if the memslot is not created.
-> 
-> Note when FWB is not enabled, the kernel expects to trivially do
-> cache management by flushing the memory by linearly converting a
-> kvm_pte to phys_addr to a KVA, see kvm_flush_dcache_to_poc(). The
-> cache management thus relies on memory being mapped. So do not allow
-> !FWB.
-> 
-> Signed-off-by: Ankit Agrawal <ankita@nvidia.com>
-> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-> Suggested-by: Jason Gunthorpe <jgg@nvidia.com>
-> Suggested-by: David Hildenbrand <david@redhat.com>
-> ---
->  arch/arm64/include/asm/kvm_pgtable.h |  8 ++++++
->  arch/arm64/kvm/hyp/pgtable.c         |  2 +-
->  arch/arm64/kvm/mmu.c                 | 43 +++++++++++++++++++++++++++-
->  3 files changed, 51 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
-> index 6b9d274052c7..f21e2fae2bfe 100644
-> --- a/arch/arm64/include/asm/kvm_pgtable.h
-> +++ b/arch/arm64/include/asm/kvm_pgtable.h
-> @@ -507,6 +507,14 @@ u64 kvm_pgtable_hyp_unmap(struct kvm_pgtable *pgt, u64 addr, u64 size);
->   */
->  u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift);
->  
-> +/**
-> + * stage2_has_fwb() - Determine whether FWB is supported
-> + * @pgt:    Page-table structure initialised by kvm_pgtable_stage2_init*()
-> + *
-> + * Return: True if FWB is supported.
-> + */
-> +bool stage2_has_fwb(struct kvm_pgtable *pgt);
-> +
->  /**
->   * kvm_pgtable_stage2_pgd_size() - Helper to compute size of a stage-2 PGD
->   * @vtcr:	Content of the VTCR register.
-> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
-> index df5cc74a7dd0..ee6b98fefd61 100644
-> --- a/arch/arm64/kvm/hyp/pgtable.c
-> +++ b/arch/arm64/kvm/hyp/pgtable.c
-> @@ -637,7 +637,7 @@ u64 kvm_get_vtcr(u64 mmfr0, u64 mmfr1, u32 phys_shift)
->  	return vtcr;
->  }
->  
-> -static bool stage2_has_fwb(struct kvm_pgtable *pgt)
-> +bool stage2_has_fwb(struct kvm_pgtable *pgt)
->  {
->  	if (!cpus_have_final_cap(ARM64_HAS_STAGE2_FWB))
->  		return false;
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 1f55b0c7b11d..4b3a03c9d700 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -1454,6 +1454,15 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
->  	return vma->vm_flags & VM_MTE_ALLOWED;
->  }
->  
-> +/*
-> + * Determine the memory region cacheability from VMA's pgprot. This
-> + * is used to set the stage 2 PTEs.
-> + */
-> +static unsigned long mapping_type(pgprot_t page_prot)
-> +{
-> +	return FIELD_GET(PTE_ATTRINDX_MASK, pgprot_val(page_prot));
-> +}
-> +
->  static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  			  struct kvm_s2_trans *nested,
->  			  struct kvm_memory_slot *memslot, unsigned long hva,
-> @@ -1463,6 +1472,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  	bool write_fault, writable, force_pte = false;
->  	bool exec_fault, mte_allowed;
->  	bool device = false, vfio_allow_any_uc = false;
-> +	bool cacheable_devmem = false;
->  	unsigned long mmu_seq;
->  	phys_addr_t ipa = fault_ipa;
->  	struct kvm *kvm = vcpu->kvm;
-> @@ -1600,6 +1610,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  
->  	vfio_allow_any_uc = vma->vm_flags & VM_ALLOW_ANY_UNCACHED;
->  
-> +	if (vma->vm_flags & VM_PFNMAP) {
-> +		/* Reject COW VM_PFNMAP */
-> +		if (is_cow_mapping(vma->vm_flags))
-> +			return -EINVAL;
-> +		/*
-> +		 * If the VM_PFNMAP is set in VMA flags, do a KVM sanity
-> +		 * check to see if pgprot mapping type is MT_NORMAL and a
-> +		 * safely cacheable device memory.
-> +		 */
-> +		if (mapping_type(vma->vm_page_prot) == MT_NORMAL)
-> +			cacheable_devmem = true;
-> +	}
-> +
->  	/* Don't use the VMA after the unlock -- it may have vanished */
->  	vma = NULL;
->  
-> @@ -1633,8 +1656,13 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  		 *
->  		 * In both cases, we don't let transparent_hugepage_adjust()
->  		 * change things at the last minute.
-> +		 *
-> +		 * Do not set device as the device memory is cacheable. Note
-> +		 * that such mapping is safe as the KVM S2 will have the same
-> +		 * Normal memory type as the VMA has in the S1.
->  		 */
-> -		device = true;
-> +		if (!cacheable_devmem)
-> +			device = true;
->  	} else if (logging_active && !write_fault) {
->  		/*
->  		 * Only actually map the page as writable if this was a write
-> @@ -1716,6 +1744,19 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
->  		prot |= KVM_PGTABLE_PROT_X;
->  	}
->  
-> +	/*
-> +	 *  When FWB is unsupported KVM needs to do cache flushes
-> +	 *  (via dcache_clean_inval_poc()) of the underlying memory. This is
-> +	 *  only possible if the memory is already mapped into the kernel map.
-> +	 *
-> +	 *  Outright reject as the cacheable device memory is not present in
-> +	 *  the kernel map and not suitable for cache management.
-> +	 */
-> +	if (cacheable_devmem && !stage2_has_fwb(pgt)) {
-> +		ret = -EINVAL;
-> +		goto out_unlock;
-> +	}
-> +
+devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
+which is stored in plat_dat->phy_interface. Therefore, we don't need to
+get it in platform code.
 
-These new error reasons should at least be complemented by an
-equivalent check at the point where the memslot is registered. It
-maybe OK to blindly return an error at fault time (because userspace
-has messed with the mapping behind our back), but there should at
-least be something telling a well behaved userspace that there is a
-bunch of combination we're unwilling to support.
+sun8i was using of_get_phy_mode() to set plat_dat->mac_interface, which
+defaults to plat_dat->phy_interface when the mac-mode DT property is
+not present. As nothing in arch/*/boot/dts sets the mac-mode property,
+it is highly likely that these two will be identical, and thus there
+is no need for this glue driver to set plat_dat->mac_interface.
 
-Which brings me to the next point: FWB is not discoverable from
-userspace. How do you expect a VMM to know what it can or cannot do?
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 8 +-------
+ 1 file changed, 1 insertion(+), 7 deletions(-)
 
-	M.
-
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+index 4b7b2582a120..85723a78793a 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
+@@ -1155,11 +1155,10 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	struct stmmac_resources stmmac_res;
+ 	struct sunxi_priv_data *gmac;
+ 	struct device *dev = &pdev->dev;
+-	phy_interface_t interface;
+-	int ret;
+ 	struct stmmac_priv *priv;
+ 	struct net_device *ndev;
+ 	struct regmap *regmap;
++	int ret;
+ 
+ 	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
+ 	if (ret)
+@@ -1219,10 +1218,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
+-	ret = of_get_phy_mode(dev->of_node, &interface);
+-	if (ret)
+-		return -EINVAL;
+-
+ 	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
+ 	if (IS_ERR(plat_dat))
+ 		return PTR_ERR(plat_dat);
+@@ -1230,7 +1225,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
+ 	/* platform data specifying hardware features and callbacks.
+ 	 * hardware features were copied from Allwinner drivers.
+ 	 */
+-	plat_dat->mac_interface = interface;
+ 	plat_dat->rx_coe = STMMAC_RX_COE_TYPE2;
+ 	plat_dat->tx_coe = 1;
+ 	plat_dat->flags |= STMMAC_FLAG_HAS_SUN8I;
 -- 
-Without deviation from the norm, progress is not possible.
+2.30.2
+
 
