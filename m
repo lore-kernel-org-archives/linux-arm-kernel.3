@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8133BC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:47:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A23FDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 12:48:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y6PtD9OYATWtR6kPtgXQiYYs9Ux064kLmQTVFtEjrOQ=; b=idM47bkPXT7O38lvqVJ7bbskiy
-	kZKYCs166c0FvQ/PNiRRULfADqD1ffpWkrFOstXTXwC8bP8Cu0sy5uIdj8oDimM0ANutpaIbIaPnr
-	4dC07csQchPHEdQ8Y1mbTg8D0gDKOOtHed4t9JrqlWOFxYSXpoyR6DZ+cowrTJwet4sOeUSFYwFCD
-	wk1JriCIIUy6JEMDuGzFCRHzKwrbz0jiZ0GtUg+cGnmrk55ITNNoUF6LThTL8xyvESmLlXEWimFhw
-	40GKkYN1ZorB6aDLdp7z/cIa0WKsZKilAM1R01U7C/WYSsjjEOoVbrJSVyrAm4C+PMApl3dOIKrcE
-	jAWItWzA==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Y/77LYpZrRQ4bUAevY9mZ4FoLc+/0VaDJ8zCq635RmM=; b=cx2gIlz5P101Iz4BV7wXzbB9vj
+	r/DIw0sNf0LW+xFhBkGuTcP6XMXysD031dScF7MQp2BnJyXQETYgDQydCV6qP7IORbmJDCZ4fKLjX
+	mUM/Fnn/EIo1t9WaRHfd+k64qN+3lZ34qhgiNgHtOCApRgxay+Oo+dTHbVkoqVUtAhVRIPx4cU9lN
+	UHBe3O8031mqDhTk6fAQj5/k+8J+LJ3+AuHPIXtfpX0TpBD/6tyJJgYCIExbWVHMinFkHxAgR2HoD
+	CkvJq76ne12qHRnp2t2p+fQrFlUShTJuwkzwhD0CmD8jBkEnntfzBDI2ckNUhyGWFUkaaIxGfCYCC
+	vTPwlVhw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcX2-00000002g2m-1m7m;
-	Mon, 10 Mar 2025 12:46:56 +0000
+	id 1trcYe-00000002gBr-0Nlk;
+	Mon, 10 Mar 2025 12:48:36 +0000
 Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcC0-00000002bR9-3ms7
+	id 1trcC0-00000002bR8-3QrQ
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Mar 2025 12:25:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 951EA5C627E;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 7BC505C621E;
 	Mon, 10 Mar 2025 12:22:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 066D4C4CEEA;
-	Mon, 10 Mar 2025 12:25:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2FAFC4CEE5;
+	Mon, 10 Mar 2025 12:25:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741609512;
-	bh=mwzvC1hwjzZ73H1jse2BNgJhdi0FIYrJ/BY6AQtHATU=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PYm8l0UQRA6eCOQ/yFWvKZILvuW0HqxFUO/zFKpB5nRU81MMfQVS3GlSQLTQR+/EG
-	 HHy+BWoiitNiG7xkqE1gHOb8BvHbRXh+6efw93kdCHvpi2FNlwXWtH70ONuIxPhMd4
-	 0rvsXmXc84BHSDat9CHziPwu7i6Hn5NGT+AF+EUZgEAgJIS3nClEaFdqyTO6/Xudaz
-	 Ju8TIXRllXhzGdD9sezImduJWBTLb8CInAhZY5Xigx9hk+u7Xr450xSgmORoB+nTzK
-	 lhKwx67YMiow45H2qRAKCingJevdOi843+SMj5YLFog87CFaXbwDe5v+6d/IF3PntM
-	 vtvJWuEntVN5Q==
+	s=k20201202; t=1741609511;
+	bh=pBDyZMeTYijWWERE2PGpvZldblWOM4srKyJV30gv0OY=;
+	h=From:To:Cc:Subject:Date:From;
+	b=ZVvLaxppvCxa/8rfaWcmv/5ayzUsAGWHXuLIqzHvH5mubuheQVaYCOMxPF1e2FfBR
+	 k0X0HRNESynHlt5C6ngTLXeQTeDfkM6A22HhLrx85VWEbast3nhUlSUYGLp6jYSgQT
+	 5bnHTEJ7ACs+0OA+DFn8C+FXknZXFiiK6qoLCdvcbkPLhpZPIR76c2KYmTH4p0t3jM
+	 xnleBOrVGAZcuh+ioSDK8mRfcK7e5moLf48TkTQQpNCuhJZygDVO+MyRCNIdZcRpuo
+	 ngDL2iPNAuLwozFiJ4W8M52qnJ7oZrjC12kupJLOspz3JYuMXlAfcxFk86qLFLjj61
+	 dUkDLe0RL3hcg==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.95)
 	(envelope-from <maz@kernel.org>)
-	id 1trcBy-00CAea-0b;
-	Mon, 10 Mar 2025 12:25:10 +0000
+	id 1trcBw-00CAea-Bu;
+	Mon, 10 Mar 2025 12:25:08 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
 	kvm@vger.kernel.org,
@@ -58,12 +58,10 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Zenghui Yu <yuzenghui@huawei.com>,
 	Mark Rutland <mark.rutland@arm.com>,
 	Fuad Tabba <tabba@google.com>
-Subject: [PATCH v2 01/23] arm64: sysreg: Add ID_AA64ISAR1_EL1.LS64 encoding for FEAT_LS64WB
-Date: Mon, 10 Mar 2025 12:24:43 +0000
-Message-Id: <20250310122505.2857610-2-maz@kernel.org>
+Subject: [PATCH v2 00/23] KVM: arm64: Revamp Fine Grained Trap handling
+Date: Mon, 10 Mar 2025 12:24:42 +0000
+Message-Id: <20250310122505.2857610-1-maz@kernel.org>
 X-Mailer: git-send-email 2.39.2
-In-Reply-To: <20250310122505.2857610-1-maz@kernel.org>
-References: <20250310122505.2857610-1-maz@kernel.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-SA-Exim-Connect-IP: 185.219.108.64
@@ -71,8 +69,8 @@ X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-arm-kernel
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_052512_987409_D98BFBCF 
-X-CRM114-Status: GOOD (  10.07  )
+X-CRM114-CacheID: sfid-20250310_052512_942560_8969662B 
+X-CRM114-Status: GOOD (  21.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +85,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The 2024 extensions are adding yet another variant of LS64
-(aptly named FEAT_LS64WB) supporting LS64 accesses to write-back
-memory, as well as 32 byte single-copy atomic accesses using pairs
-of FP registers.
+Mark recently mentioned that the way we handled FGTs, and particularly
+their RES0 behaviour was not entirely future-proof.
 
-Add the relevant encoding to ID_AA64ISAR1_EL1.LS64.
+The main issue is that RES0 bits are extracted from the sysreg file,
+which is independently updated, and that the KVM-specific enablement
+is not necessarily done at the same time. This means that a bit that
+KVM considered RES0 at some point all of a sudden acquires a meaning,
+and that this can trigger unexpected behaviours.
 
-Signed-off-by: Marc Zyngier <maz@kernel.org>
----
- arch/arm64/tools/sysreg | 1 +
- 1 file changed, 1 insertion(+)
+One way of fixing that would be to mandate that everything gets
+updated synchronously. While this is something I'd really want to see,
+it is unlikely to happen within my lifetime.
 
-diff --git a/arch/arm64/tools/sysreg b/arch/arm64/tools/sysreg
-index 762ee084b37c5..8c4229b34840f 100644
---- a/arch/arm64/tools/sysreg
-+++ b/arch/arm64/tools/sysreg
-@@ -1466,6 +1466,7 @@ UnsignedEnum	63:60	LS64
- 	0b0001	LS64
- 	0b0010	LS64_V
- 	0b0011	LS64_ACCDATA
-+	0b0100	LS64WB
- EndEnum
- UnsignedEnum	59:56	XS
- 	0b0000	NI
+So the next best option is to reintroduce KVM's own view of RES0
+masks, so that it can continue to ignore a given feature in a safe
+manner. But instead of going back to what we have a while back in the
+form of hand-crafted masks that are likely to be wrong, this series
+makes use of the rather exhaustive description of traps that we know
+about, and then some more:
+
+- compile the encoding_to_fgt[] array into individual positive,
+  negative, and res0 masks
+
+- use these masks in place of anything that is hardcoded
+
+- fix a few bugs along the way (thanks Mark!)
+
+- perform some validation and let users know that KVM may be missing
+  some FGT bit definitions
+
+But it would be foolish to stop here. We also use FGTs to implement
+the so called "Fine Grained UNDEF" (FGU) bits, and make sure that
+system registers that are not exposed to a guest do UNDEF. This means
+evaluating the guest configuration and setting up these FGU bits when
+said configuration isn't supported.
+
+This series therefore goes one step further and, for the HFG*TR_EL2,
+HDFG*TR_EL2, and HAFGRTR_EL2 registers, define which bit is controlled
+by which feature. This is done mechanically, with very minimal human
+intervention, by extracting the relevant data from the ARM-released
+JSON files.
+
+Oh, and one more thing: we now do the same for HCRX_EL2 and HCR_EL2.
+Isn't that great?
+
+With that data, we greatly simplify the dependency between FGUs and
+features, as no code needs to be written. We also use the same data to
+set the RES0 bits for any register that requires sanitisation (the
+VNCR-backed registers, for example).
+
+Overall, and while this is a lot of new LoCs, it is IMO a reduction in
+complexity and maintenance burden.
+
+This series is atop of 6.14-rc4, and contains bits and pieces of
+FEAT_LS64 support thanks to the newly added HFGITR_EL2.PSBCSYNC bit
+sharing an EC with LS64.
+
+* From v1 [1]:
+
+  - Renamed the LS64 EC to OTHER (Mark)
+
+  - Simplified the handling of the OTHER EC by folding the relevant
+    checks (Fuad)
+
+  - Added HCRX_EL2 and HCR_EL2 conversion to the config scheme, the
+    latter requiring some extra infrastructure
+
+  - Rebased on v6.14-rc4
+
+[1] https://lore.kernel.org/r/20250210184150.2145093-1-maz@kernel.org
+
+Marc Zyngier (22):
+  arm64: sysreg: Add ID_AA64ISAR1_EL1.LS64 encoding for FEAT_LS64WB
+  arm64: sysreg: Update ID_AA64MMFR4_EL1 description
+  arm64: sysreg: Add layout for HCR_EL2
+  arm64: Add syndrome information for trapped LD64B/ST64B{,V,V0}
+  KVM: arm64: Handle trapping of FEAT_LS64* instructions
+  KVM: arm64: Restrict ACCDATA_EL1 undef to FEAT_ST64_ACCDATA being
+    disabled
+  KVM: arm64: Don't treat HCRX_EL2 as a FGT register
+  KVM: arm64: Plug FEAT_GCS handling
+  KVM: arm64: Compute FGT masks from KVM's own FGT tables
+  KVM: arm64: Add description of FGT bits leading to EC!=0x18
+  KVM: arm64: Use computed masks as sanitisers for FGT registers
+  KVM: arm64: Propagate FGT masks to the nVHE hypervisor
+  KVM: arm64: Use computed FGT masks to setup FGT registers
+  KVM: arm64: Remove most hand-crafted masks for FGT registers
+  KVM: arm64: Use KVM-specific HCRX_EL2 RES0 mask
+  KVM: arm64: Handle PSB CSYNC traps
+  KVM: arm64: Switch to table-driven FGU configuration
+  KVM: arm64: Validate FGT register descriptions against RES0 masks
+  KVM: arm64: Use FGT feature maps to drive RES0 bits
+  KVM: arm64: Allow kvm_has_feat() to take variable arguments
+  KVM: arm64: Use HCRX_EL2 feature map to drive fixed-value bits
+  KVM: arm64: Use HCR_EL2 feature map to drive fixed-value bits
+
+Mark Rutland (1):
+  KVM: arm64: Unconditionally configure fine-grain traps
+
+ arch/arm64/include/asm/esr.h            |   9 +-
+ arch/arm64/include/asm/kvm_arm.h        | 189 +++--
+ arch/arm64/include/asm/kvm_host.h       |  33 +-
+ arch/arm64/kvm/Makefile                 |   2 +-
+ arch/arm64/kvm/arm.c                    |   8 +
+ arch/arm64/kvm/config.c                 | 891 ++++++++++++++++++++++++
+ arch/arm64/kvm/emulate-nested.c         | 140 +++-
+ arch/arm64/kvm/handle_exit.c            |  72 ++
+ arch/arm64/kvm/hyp/include/hyp/switch.h | 110 +--
+ arch/arm64/kvm/hyp/nvhe/switch.c        |   7 +
+ arch/arm64/kvm/nested.c                 | 204 +-----
+ arch/arm64/kvm/sys_regs.c               |  65 +-
+ arch/arm64/tools/sysreg                 |  90 ++-
+ 13 files changed, 1394 insertions(+), 426 deletions(-)
+ create mode 100644 arch/arm64/kvm/config.c
+
 -- 
 2.39.2
 
