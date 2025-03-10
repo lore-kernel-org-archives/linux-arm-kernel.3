@@ -4,67 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 090C9C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61D50C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:04:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KQuR/lW2fD056yaFz+cdGCbU2iac7ABcYUONw7CuAGQ=; b=ckUF0ye2Kkemw6kVHh+AbZoQgF
-	f+OSj6o/yCgF64szu8L0Lg8PbN5g4hF9nmhUdKe/oCJfjIGtAjQXfJl7JlsApKHkeIkuDyTNYNrgO
-	z9eW4ag3dc1Mj76tBq/0PPKN9S65HjJGnxk4EBf6IcqatLTdtoT9mTFXuzpYmR33nNjlUB6mESWka
-	BYUQkoXWAT9eKxMUS02HsMT0EdKXcxT4pq8TIkJycuxlbB1rs2A3NePjw5g59lP8WarVcfrRqjQ/e
-	1pDPi5ORCrscuDhWJI7rI9LqSDTfOeqvYA1vAfKV+tyY4QjE2VvoP+20MZOGD64r9WqJk7HG5H/h1
-	+mKbOp5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oyWOJoYeq9jZSPxgQYVK080iqO70YfKJ6134fzkr864=; b=GPMNMWtQm10UG/A1hCxCH5yLbu
+	03JWFAo2d1IkWOlv0Tp0O43+zqX8j3azq+aSVUd3dBp31PGm4Zse5q9GWGI0Ov/BUPVAEO/piRCaU
+	FqYkkLICAjGUglImzvksOAcLVZqxvoU9PovrIlfICRxc8yjp4IDzDI4tBPXVfYThTTUNpsuyoJD75
+	UPPJ5UqQh2RMOxdidptEB2+o42zCntoF0LaS2BtmbpCnRy5RnS2F5jGOIfNfhHt7AQXN9A/cADc7r
+	uTKvhAfjeZMhiT/j/1U3KeiuqsG9FIHsqYyQMlJ2YJGULy7GWYiRcNpTHSGr1kboiNG0QZK5Y9hH7
+	rZX9rhSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treen-000000035cP-2IxJ;
-	Mon, 10 Mar 2025 15:03:05 +0000
+	id 1tregO-000000035yF-28sW;
+	Mon, 10 Mar 2025 15:04:44 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdKs-00000002ojc-1nrd;
-	Mon, 10 Mar 2025 13:38:28 +0000
+	id 1trdOA-00000002pDa-2dJ2
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 13:41:51 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6784153B;
-	Mon, 10 Mar 2025 06:38:36 -0700 (PDT)
-Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1E9E63F673;
-	Mon, 10 Mar 2025 06:38:22 -0700 (PDT)
-Date: Mon, 10 Mar 2025 13:38:19 +0000
-From: Andre Przywara <andre.przywara@arm.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn
- <andrew+netdev@lunn.ch>, AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Chen-Yu Tsai <wens@csie.org>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Jernej Skrabec
- <jernej.skrabec@gmail.com>, Jerome Brunet <jbrunet@baylibre.com>, Kevin
- Hilman <khilman@baylibre.com>, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-mediatek@lists.infradead.org,
- linux-stm32@st-md-mailman.stormreply.com, linux-sunxi@lists.linux.dev,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Matthias Brugger
- <matthias.bgg@gmail.com>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, Neil
- Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org, Paolo Abeni
- <pabeni@redhat.com>, Samuel Holland <samuel@sholland.org>, Vinod Koul
- <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 8/9] net: stmmac: sun8i: remove
- of_get_phy_mode()
-Message-ID: <20250310133819.7c2204a6@donnerap.manchester.arm.com>
-In-Reply-To: <E1trbyA-005qYf-Hb@rmk-PC.armlinux.org.uk>
-References: <Z87WVk0NzMUyaxDj@shell.armlinux.org.uk>
-	<E1trbyA-005qYf-Hb@rmk-PC.armlinux.org.uk>
-Organization: ARM
-X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A4D4F26BC;
+	Mon, 10 Mar 2025 06:42:01 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 462AC3F673;
+	Mon, 10 Mar 2025 06:41:47 -0700 (PDT)
+Date: Mon, 10 Mar 2025 13:41:44 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <Z87sGF_jHKau_FMe@bogus>
+References: <CAGETcx87Stfkru9gJrc1sf=PtFGLY7=jrfFaCzK5Z4hq+2TCzg@mail.gmail.com>
+ <Z65U2SMwSiOFYC0v@pluto>
+ <20250218010949.GB22580@nxa18884-linux>
+ <Z7Rf9GPdO2atP89Z@bogus>
+ <20250218133619.GA22647@nxa18884-linux>
+ <Z7Wvyn1QJQMVigf9@bogus>
+ <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
+ <Z86w3ZRS6T2MvV3X@bogus>
+ <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
+ <Z87UJdhiTWhssnbl@bogus>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z87UJdhiTWhssnbl@bogus>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_063826_559700_FE2BC816 
-X-CRM114-Status: GOOD (  20.61  )
+X-CRM114-CacheID: sfid-20250310_064150_765857_9B1D362F 
+X-CRM114-Status: GOOD (  34.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,72 +86,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 12:10:54 +0000
-"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk> wrote:
-
-Hi,
-
-> devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
-> which is stored in plat_dat->phy_interface. Therefore, we don't need to
-> get it in platform code.
+On Mon, Mar 10, 2025 at 11:59:33AM +0000, Sudeep Holla wrote:
+> On Mon, Mar 10, 2025 at 10:45:44AM +0000, Peng Fan wrote:
+> > > Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
+> > > fwnode for scmi cpufreq
+> > > 
+> > > On Thu, Feb 20, 2025 at 08:59:18AM +0800, Peng Fan wrote:
+> > > >
+> > > > Sorry, if I misunderstood.
+> > > >
+> > > > I will give a look on this and propose a RFC.
+> > > >
+> > > > DT maintainers may ask for a patchset including binding change and
+> > > > driver changes to get a whole view on the compatible stuff.
+> > > >
+> > > > BTW, Cristian, Saravana if you have any objections/ideas or would
+> > > take
+> > > > on this effort, please let me know.
+> > > >
+> > > 
+> > > Can you point me to the DTS with which you are seeing this issue ?
+> > > I am trying to reproduce the issue but so far not successful. I did move
+> > > to power-domains for CPUFreq on Juno. IIUC all we need is both
+> > > cpufreq and performance genpd drivers in the kernel and then GPU
+> > > using perf genpd fails with probe deferral right ? I need pointers to
+> > > reproduce the issue so that I can check if what I have cooked up as a
+> > > solution really works.
+> >
+> > This is in downstream tree:
+> > https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi#L2971
+> > https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi#L3043
+> > https://github.com/nxp-imx/linux-imx/blob/lf-6.6.y/arch/arm64/boot/dts/freescale/imx95.dtsi#L80
+> >
+> > we are using "power-domains" property for cpu perf and gpu/vpu perf.
+> >
+> > If cpufreq.off=1 is set in bootargs, the vpu/gpu driver will defer probe.
+> >
 > 
-> sun8i was using of_get_phy_mode() to set plat_dat->mac_interface, which
-> defaults to plat_dat->phy_interface when the mac-mode DT property is
-> not present. As nothing in arch/*/boot/dts sets the mac-mode property,
-> it is highly likely that these two will be identical, and thus there
-> is no need for this glue driver to set plat_dat->mac_interface.
-
-Well, the current sun8i code wouldn't help anyway, because the driver
-would set mac_interface to the value of "phy-mode", not "mac-mode", which
-is strictly speaking a bug.
-But in any case this is indeed redundant, so:
-
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-
-Reviewed-by: Andre Przywara <andre.przywara@arm.com>
-
-Cheers,
-Andre
-
-> ---
->  drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c | 8 +-------
->  1 file changed, 1 insertion(+), 7 deletions(-)
+> OK, does the probe of these drivers get called or they don't as the driver
+> core doesn't allow that ? I just have a dummy driver for mali on Juno
+> which just does dev_pm_domain_attach_list() in the probe and it seem to
+> succeed even when cpufreq.off=1 is passed. I see scmi-cpufreq failing
+> with -ENODEV as expected.
 > 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> index 4b7b2582a120..85723a78793a 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c
-> @@ -1155,11 +1155,10 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	struct stmmac_resources stmmac_res;
->  	struct sunxi_priv_data *gmac;
->  	struct device *dev = &pdev->dev;
-> -	phy_interface_t interface;
-> -	int ret;
->  	struct stmmac_priv *priv;
->  	struct net_device *ndev;
->  	struct regmap *regmap;
-> +	int ret;
->  
->  	ret = stmmac_get_platform_resources(pdev, &stmmac_res);
->  	if (ret)
-> @@ -1219,10 +1218,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  		return ret;
->  	}
->  
-> -	ret = of_get_phy_mode(dev->of_node, &interface);
-> -	if (ret)
-> -		return -EINVAL;
-> -
->  	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
->  	if (IS_ERR(plat_dat))
->  		return PTR_ERR(plat_dat);
-> @@ -1230,7 +1225,6 @@ static int sun8i_dwmac_probe(struct platform_device *pdev)
->  	/* platform data specifying hardware features and callbacks.
->  	 * hardware features were copied from Allwinner drivers.
->  	 */
-> -	plat_dat->mac_interface = interface;
->  	plat_dat->rx_coe = STMMAC_RX_COE_TYPE2;
->  	plat_dat->tx_coe = 1;
->  	plat_dat->flags |= STMMAC_FLAG_HAS_SUN8I;
+> I need to follow the code and check if I can somehow reproduce. Also are
+> you sure this is not with anything in the downstream code ? Also have you
+> tried this with v6.14-rc* ? Are you sure all the fw_devlink code is backported
+> in the tree you pointed me which is v6.6-stable ?
+> 
 
+I even tried the above branch, but no luck. The above is neither latest
+stable version nor pure stable. It has few extra patches backported
+though IIUC. Anyways any pointers to enable me to reproduce the issue
+would be much appreciated.
+
+-- 
+Regards,
+Sudeep
 
