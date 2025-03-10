@@ -4,99 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECF84C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:28:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 860BDC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0aa0jZ9AchGlp5yWV6WZT3t8mQdLgGg2qOoZKac8GrA=; b=E9mgxk2znDA1WhmaTd5GLTydzz
-	DtRM6qxnOMr0EqcO8d7gjX5KFLdCqAqAOfo8gVntP9zlxK6+ZeP3Iq/vxs1QmOQTc+vTIIcCSUyko
-	pzN82wn+pdCzp84XQSs/zLIhIFKf63az2XJPHlRFAilUNBRx78k9VCkNG1uOFUu2LdK3v2KoSsyWV
-	YvD2f2WPQRbS76vOU+DPZMFtHLohl7hvHPUu7COurkYSV83KX8r8IYPuqKNbeeIZPjM+YDvRXXPsR
-	qW6MjntJaiMq13OOgqmkOamZlmg0nB5jNmKE78uSXuWtapLYvObxc+8kOEsvQlcz1O9uohZTpT6y6
-	XlTYdQpQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=ma81+6yDVsQ/IjAHSfeuv7Yhl0CtA9j86woJnhcbnGU=; b=TuWjwkaZKzK7ZBPaYabt78ZfoN
+	I5qYnnd46BPS1aKQIX1djTjnYUy6xkzs0PpJrHfSdJQ0lR8zMxr+pv5R/gj2ICMF4lBy67/DvFSQ8
+	NP1ZmLaq3EbkYw1e9PWPi4rm5qpVba6VGNO8OT2tmF33jtWtCV6EoG8a05qtNqEaQBQ2+uDdBcezG
+	HeN0dW/e3w15NzLrfkZz/NaehRc7ZYqPJJWS5+jkT68L3Qr/BU9Py0zcUi2sDzYpT5QVCpCkmCtVJ
+	X058FRcxlS5WSBm2E0QQZ8s2KKE+zjKc4jXRHH+jkrbUh6HTmMoNmcNJcYEeoo290IooNAMX515fJ
+	46nXFRvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trf3Q-00000003B77-1LUi;
-	Mon, 10 Mar 2025 15:28:32 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1trf52-00000003BOE-2BNl;
+	Mon, 10 Mar 2025 15:30:12 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tre0M-00000002v7D-0q9a
+	id 1treDh-00000002wWa-3UJq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 14:21:20 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-2feb867849fso6492237a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 07:21:17 -0700 (PDT)
+	Mon, 10 Mar 2025 14:35:07 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-300f92661fcso643184a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 07:35:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=raspberrypi.com; s=google; t=1741616477; x=1742221277; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=0aa0jZ9AchGlp5yWV6WZT3t8mQdLgGg2qOoZKac8GrA=;
-        b=Re63wcC4ZpqZMjBw8n/YDz1D23H5S9tmOEW6CHIvYn624vvvf34YT7KpGfnBHOld0u
-         Ra1rb3hy7oZ+01ciFAYH2YAuAAZMokvfFvNkMn4TiNNQW3pUOv327XIuEMRDp9VRV04k
-         6cFaw3doCXKFny9YxVvxZ+UDFRP3Ck/9/BXKaoEGPrjc//cqRnGWWKHHI0j6dGlqC1cb
-         Yt3bessurC01KNyFF6ESOyva0yvGpAftOLhBkDjNZhXk4B8ZeAprYBg5Ulp+OSbIHrtQ
-         xPUkIspg2ipRRgrMpFBkNJGhdbbFli+AsrYb61BGMaSmr3KJ3RvZjXDFFV/7CpxvoJ6+
-         Hyug==
+        d=gmail.com; s=20230601; t=1741617305; x=1742222105; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=ma81+6yDVsQ/IjAHSfeuv7Yhl0CtA9j86woJnhcbnGU=;
+        b=VimL9+uVyxxJ82H5sROKmxby2toTcqT2d95u1KKAhNcyzOvUTX211kKzVhWh/qDfAJ
+         eiaaLUIUU7zsG4TWlGp1dlByUTSrDDngJb0mJ8Zff9Wa/AEyt+mUVUf8yafuEUDyTnYc
+         wBbaQ7zapikGIUm5lTh/6ZjzTEqrEEqIK59H+5ClBnBh6VrHJA4P9b9KEW3QxzLSjZ6L
+         BAbOsXyVkmm3OoYUe/m2NbP+Zj4IgOIMUHZx5qv3uHXJHn1xB3lHoBz+p3t1taZI0kJi
+         buvz5kl5K/l+SKn/asFXzcFWZ277qjeu4NYTM8fmovHa1uUtd3FUiC+b0cC3VovjNzcW
+         QZ0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741616477; x=1742221277;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0aa0jZ9AchGlp5yWV6WZT3t8mQdLgGg2qOoZKac8GrA=;
-        b=e16175jwXfe9v3F8csxNGt19pkw0GBLJK+Jl3erap6YPdBA/LQPtW/hVs+T9AqQSgK
-         eml/tUYerUABfb+aLoqMQHtbZ/3sUCZoBrtkKbbaux3ROKPqdUIXeiADisoxXhPx72SO
-         psF0byjYb0ueiU/YNQdMCDuCimrSJ+O3F3fNxrRaNRVPxZdbevjuso3WNBqBLV9rpDGw
-         d7nx7tRZ82nKQsC9w6TunX2FYjmtX4HjANsBf1DPFqP6yCpuqb4gMttSwxY2XQuRkJIa
-         fB/Lhj0+YZAiLBMqF8HNUDlz847aey+lDMo2m8UoQ2Of0X+6SeqSSu/iveTK/m+pDGLs
-         4cRw==
-X-Forwarded-Encrypted: i=1; AJvYcCUws6uww6W+2WQROzkclRUoJ/FVzeBeQyJ+9Fn37tI041NF0M47ZMjJs0DKziX0s6RmOIPoFw67TloGnqXIQ/qq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzn6dMiC3MgCaDQW+oRrG+9Sx+3D3aAMcNmkPhnhSNMJTt+47BD
-	zPuuAjyW/A6Xnc7YSeN2WVsElycpaZ3uy9A12vYW6ligUq3ivkMq+3m9C9mITTy05y+J3B3C8W/
-	InTMG2oBacq7513GA5cx74htbKta/uWq/8Fk8zw==
-X-Gm-Gg: ASbGncuEiT1r+TpeLl0iXa4Va6x4F4A7zsOxDuKe/XywSW4zotGPBwVD9lPA69PY+Yk
-	ocGG7D/gHop8M+AvXTQaijHIBGs5OyJSjgiD1hXM4OiUa9C426Y1Zw41MdTIc/jujXVwINS1BUD
-	bYmVV4xtpwtHiY6EB9r6ghsZDscQO2g1m2xXillDvykRUO4+p22xySPsHS4Q==
-X-Google-Smtp-Source: AGHT+IHzhHPEKiwQV8/xTAzjm8IBmtIaoF+M1g5Rq1eq3z20HMMIT/cwN5htca9XmOSUGb0vkHd2gBWPFVvEM90AB+Y=
-X-Received: by 2002:a17:90b:2e90:b0:2ee:d7d3:3019 with SMTP id
- 98e67ed59e1d1-2ff7ce8e50amr26081042a91.12.1741616476890; Mon, 10 Mar 2025
- 07:21:16 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741617305; x=1742222105;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ma81+6yDVsQ/IjAHSfeuv7Yhl0CtA9j86woJnhcbnGU=;
+        b=vJ6MFyifpq6W5zOCW6BoPcjNb9qBBuwHtAXvNIbFermZ6f0g63yPVqBqewNosfrlXG
+         RyhvwpUsPf15rpJkvL+CiL2itEnr7tZTv6duMoYh+JiEs3BfuUY77MlFXdbSWMA4Aef/
+         4vwbpMsG3PLBuq0cY2SX69cLQMR8RgqZ1jl8LdlJJVNjc5RrGFyIeYsCop/QwIodDI5O
+         2R5cqmoKNWe98yTRFcStYRyskjRn2UeG4T2dTWfIamhsfCrkjS1lx9cm8k/jtpclJNBQ
+         Ny0sw4mjq6k6X2ppWcj6Sgkq6rFTgqrepi/IdjN+0WfdwjdHd1ElD+HvwOun+yz3cpmD
+         Og3g==
+X-Forwarded-Encrypted: i=1; AJvYcCWc00cDuy4+7NSOsxaok1DyxlCYnPZ6T7JG8ApSdJty+SUoLH5XnkIEOgk/XZ785k10b/HSzSJggsCiUDL6qKhf@lists.infradead.org
+X-Gm-Message-State: AOJu0YylXNFocILrRJjuhu/PBaWRuGzVRBxeSfD8z5Wau2PW2llM1QyC
+	7qKeE/6dMSsq9Ipvgpcl21As2BlLG9ZjqSs76ArPPb/FYLMwgvi2
+X-Gm-Gg: ASbGncvjy25n5ssvvBNa72zDkGxFgetD+bnbYrqFXOo4lNm6GQzveZokFyVZqGdrNoC
+	M7B1Q/NVbYRJU9htIDkijOKennXMB31dy51sSknZouLrYaff2dpJkzlJEJ2zUjX2QFqCAXVsrL6
+	1kmK8d6QaePVpaAcEC6GQX6rzwqeoqKNnaNg0/Q9RCeiGlxRKF7pZpC+qNphIIG+RT0KLEJW7/n
+	eP6/rnXg80uuKjlM4fwms54vfm24PV+Svnohc3Dng0JdGx+c4QAbdfIa+1vZ42Du3gozuNc3dA3
+	NhJ98SlSHiV0ZKuM9wNLqHMF2PcfHt/Nt1ib/cvPNLURaugiYBwPEcdejMg=
+X-Google-Smtp-Source: AGHT+IGhTdTIdVP7HB+PvUYMd+2NW/R90CRsL9UGSx6Uhzt1y34i69B3QZbu3IQFoa4tpOU5W+GfhA==
+X-Received: by 2002:a05:6300:197:b0:1f3:3cc9:29f7 with SMTP id adf61e73a8af0-1f544af86e2mr23515419637.12.1741617304667;
+        Mon, 10 Mar 2025 07:35:04 -0700 (PDT)
+Received: from localhost.localdomain ([103.221.69.50])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af281096763sm7785900a12.30.2025.03.10.07.35.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 10 Mar 2025 07:35:04 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Zhang Rui <rui.zhang@intel.com>,
+	Lukasz Luba <lukasz.luba@arm.com>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v4 0/4] Exynos Thermal code improvement
+Date: Mon, 10 Mar 2025 20:04:41 +0530
+Message-ID: <20250310143450.8276-1-linux.amoon@gmail.com>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-References: <CAMEGJJ3=W8_R0xBvm8r+Q7iExZx8xPBHEWWGAT9ngpGWDSKCaQ@mail.gmail.com>
- <20250213171435.1c2ce376@bootlin.com> <CAMEGJJ1++aeE7WWLVVesbujME+r2WicEkK+CQgigRRp2grYf=A@mail.gmail.com>
- <Z87wTfChRC5Ruwc0@apocalypse>
-In-Reply-To: <Z87wTfChRC5Ruwc0@apocalypse>
-From: Phil Elwell <phil@raspberrypi.com>
-Date: Mon, 10 Mar 2025 14:21:05 +0000
-X-Gm-Features: AQ5f1JpdsttO77vWem7lsOAk9ydjGfL3diQWsedrl91N1zA3FWs-hfYV843PSmU
-Message-ID: <CAMEGJJ0f4YUgdWBhxvQ_dquZHztve9KO7pvQjoDWJ3=zd3cgcg@mail.gmail.com>
-Subject: Re: [PATCH v6 00/10] Add support for RaspberryPi RP1 PCI device using
- a DT overlay
-To: Andrea della Porta <andrea.porta@suse.com>
-Cc: Herve Codina <herve.codina@bootlin.com>, andrew@lunn.ch, Arnd Bergmann <arnd@arndb.de>, 
-	"maintainer:BROADCOM BCM7XXX ARM ARCHITECTURE" <bcm-kernel-feedback-list@broadcom.com>, bhelgaas@google.com, brgl@bgdev.pl, 
-	Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley <conor+dt@kernel.org>, derek.kiernan@amd.com, 
-	devicetree@vger.kernel.org, dragan.cvetic@amd.com, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, krzk+dt@kernel.org, kw@linux.com, 
-	Linus Walleij <linus.walleij@linaro.org>, 
-	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, linux-clk@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, LKML <linux-kernel@vger.kernel.org>, 
-	"open list:PCI NATIVE HOST BRIDGE AND ENDPOINT DRIVERS" <linux-pci@vger.kernel.org>, 
-	"moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE" <linux-rpi-kernel@lists.infradead.org>, lpieralisi@kernel.org, 
-	luca.ceresoli@bootlin.com, manivannan.sadhasivam@linaro.org, 
-	masahiroy@kernel.org, Michael Turquette <mturquette@baylibre.com>, 
-	Rob Herring <robh@kernel.org>, saravanak@google.com, Stephen Boyd <sboyd@kernel.org>, 
-	thomas.petazzoni@bootlin.com, Stefan Wahren <wahrenst@gmx.net>, 
-	Will Deacon <will@kernel.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_072118_426220_90342B18 
-X-CRM114-Status: GOOD (  59.72  )
+X-CRM114-CacheID: sfid-20250310_073505_868438_79202926 
+X-CRM114-Status: GOOD (  12.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,244 +103,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andrea,
+Hi All,
 
-On Mon, 10 Mar 2025 at 13:58, Andrea della Porta <andrea.porta@suse.com> wr=
-ote:
->
-> Hi,
->
-> On 16:27 Thu 13 Feb     , Phil Elwell wrote:
-> > Hi Herv=C3=A9,
-> >
-> > On Thu, 13 Feb 2025 at 16:14, Herve Codina <herve.codina@bootlin.com> w=
-rote:
-> > >
-> > > Hi Phil,
-> > >
-> > > On Thu, 13 Feb 2025 15:18:45 +0000
-> > > Phil Elwell <phil@raspberrypi.com> wrote:
-> > >
-> > > > Hi Andrea,
-> > > >
-> > > > The problem with this approach (loading an overlay from the RP1 PCI=
-e
-> > > > driver), and it's one that I have raised with you offline, is that
-> > > > (unless anyone can prove otherwise) it becomes impossible to create=
- a
-> > > > Pi 5 DTS file which makes use of the RP1's resources. How do you
-> > > > declare something as simple as a button wired to an RP1 GPIO, or fa=
-n
-> > > > connected to a PWM output?
-> > >
-> > > The driver could be improved in a second step.
-> > > For instance, it could load the dtbo from user-space using request_fi=
-rmare()
-> > > instead of loading the embedded dtbo.
-> > >
-> > > >
-> > > > If this is the preferred route to upstream adoption, I would prefer=
- it
-> > > > if rp1.dtso could be split in two - an rp1.dtsi similar to what we
-> > > > have downstream, and an rp1.dtso that #includes it. In this way we =
-can
-> > > > keep the patching and duplication to a minimum.
-> > >
-> > > Indeed, having a rp1.dtsi avoid duplication but how the rp1.dtso in
-> > > the the kernel sources could include user customization (button, fan,=
- ...)
-> > > without being modified ?
-> > > At least we have to '#include <my_rp1_customizations.dtsi>'.
-> > >
-> > > Requesting the dtbo from user-space allows to let the user to create
-> > > its own dtso without the need to modify the one in kernel sources.
-> > >
-> > > Does it make sense ?
-> >
-> > I think I understand what you are saying, but at this point the RP1
-> > overlay would no longer be an RP1 overlay - it would be an
-> > RP1-and-everything-connected-to-it overlay, which is inherently
-> > board-specific. Which user-space process do you think would be
-> > responsible for loading this alternative overlay, choosing carefully
-> > based on the platform it is running on? Doesn't that place quite a
-> > burden on all the OS maintainers who up to now have just needed a
-> > kernel and a bunch of dtb files?
-> >
-> > If it is considered essential that the upstream Pi 5 dts file does not
-> > include RP1 and its children, then Raspberry Pi are going to have to
-> > walk a different path until we've seen how that can work. By splitting
-> > rp1.dtso as I suggested, and perhaps providing an alternative helper
-> > function that only applies the built-in overlay if the device node
-> > doesn't already exist, we get to stay as close to upstream as
-> > possible.
-> >
-> > Phil
->
-> So, the problem is twofold: the first is due to the fact that downstream
-> expects the dtb to be fully declared at fw load time (I'll call that
-> *monolithic* dtb from now on), the second is about how to represent depen=
-dencies
-> between board dtb and rp1 overlay which arises only when using overlays i=
-nstead
-> of a monolithic dtb.
->
-> The former issue must be solved first in order for the latter to even exi=
-sts
-> (if we don't use overlay, the dependencies are fully exposed in the dtb s=
-ince
-> the beginning), so I'll concentrate on the former for now.
->
-> There are 3 possible scenarios to be reconciled:
->
->
-> 1 - MONOLITHIC DTB
->
-> This is the downstream case, where it's advisable to have only one dtb bl=
-ob
-> containing everything (rp1 included) loaded by the fw. In this case the
-> resulting devicetree would looks like:
->
->   axi {
->     pcie@120000 {
->       rp1_nexus {
->         pci-ep-bus@1 {
->              ...
->         }
->       }
->     }
->   }
+This patch series is a rework of my previous patch series [1],
+where the code changes were not adequately justified.
 
-This is indeed our current DT usage for the Pi 5 family - a single DTB
-describing each board - although I would like to make it clear that
-overlays can then be applied on top of it describing the attached
-peripherals.
+In this new series, I have improved the commit subject
+and commit message to better explain the changes.
 
-> 2 - RP1 LOADED FROM OVERLAY BY THE FW
->
-> In this case the rp1 dt node is loaded from overlay directly by the fw an=
-d the
-> resulting devicetree is exactly equal to the monolithic dtb scenario.
-> In order for that overlay to be loaded by fw, just add 'dtoverlay=3Drp1' =
-in
-> 'config.txt'.
+v4: Tried to address Lukasz review coments.
 
-This halfway house combines the advantages and disadvantages of
-scenarios 1 and 3. Compared to scenario 3 it gains support for
-applying overlays that make use of interfaces provided by RP1 - I2C,
-SPI, UARTs etc. Compared to scenario 1 it loses the ability for the
-base DTB to refer to elements of RP1, other than by replacing these
-DTB elements with overlays that must be loaded after the RP1 overlay.
-As such, we would see that as a backwards step and not use it.
+Tested on Odroid U3 amd XU4 SoC boards.
 
-> 3 - RP1 LOADED FROM OVERLAY AT RUNTIME
->
-> Here it's the rp1 driver that loads the overlay at runtime, which is the =
-case
-> that this patchset originally proposed. The devicetree ends up like this:
->
->   axi {
->     pcie@120000 {
->       pci@0,0 {
->         dev@0,0 {
->           pci-ep-bus@1 {
->                ...
->           }
->         }
->       }
->     }
->   }
->
-> and this is exepcially useful to cope with the case in which there's no D=
-T
-> natively used, e.g. on ACPI systems.
->
->
-> In order for all those 3 mentioned scenatios to work, I propose the follo=
-wing
-> inclusion scheme for for the dts files (the arrow points to the includer)=
-:
->
->
->  rp1-pci.dtso         rp1.dtso
->      ^                    ^
->      |                    |
-> rp1-common.dtsi ----> rp1-nexus.dtsi ----> bcm2712-rpi-5-b-MONOLITHIC.dts
->
->
-> where those dts are defined as follows (omitting the internal properties =
-for
-> clarity sake):
->
->
-> - rp1-common.dtsi ------- // definition of core rp1 and its peripherals, =
-common
->                           // for all cases
->
->         pci_ep_bus: pci-ep-bus@1
->         {
->                 rp1_clocks { };
->
->                 rp1_gpio { };
->
->                 rp1_eth { };
->         };
->
-> - rp1-pci.dtso ---------- // ovl linked in the rp1 driver code to be load=
-ed at
->                           // runtime from rp1 driver. Only for case 3
->
->         /plugin/;
->         fragment@0 {
->                 target-path=3D"";
->                 __overlay__ {
->                         #include "rp1-common.dtsi"
->                 };
->         }
->
-> - rp1-nexus.dtsi ------- // adapter to decouple rp1 ranges for non runtim=
-e-loaded
->                          // overlay case (i.e. only for case 1 and 2)
->
->         rp1_nexus {
->                 ranges =3D ...
->
->                  #include "rp1-common.dtsi"
->         };
->
-> - rp1.dtso ------------ // overlay to be loaded by fw (case 2)
->
->         /plugin/;
->         &pcie2 {
->                 #include "rp1-nexus.dtsi"
->         };
->
-> - bcm2712-rpi-5-b-MONOLITHIC.dts --- // monolithic dtb to avoid any overl=
-ay use
->                                      // (case 1)
->
->         / {
->                 ... all rpi5 board dts ...
->                 &pcie2 {
->                         #include "rp1-nexus.dtsi"
->                 };
->         };
->
->
-> with only minimal changes to the rp1 driver code, I can confirm that all =
-those
-> scenarios can coexits and are working fine. Before processding with a new=
- patchset
-> I'd like to have some thoughts about that, do you think this is a viable =
-approach?
+[2] https://lore.kernel.org/all/20250216195850.5352-2-linux.amoon@gmail.com/
+[1] https://lore.kernel.org/all/20220515064126.1424-1-linux.amoon@gmail.com/
+[0] https://lore.kernel.org/lkml/CANAwSgS=08fVsqn95WHzSF71WTTyD2-=K2C6-BEz0tY0t6A1-g@mail.gmail.com/T/#m77e57120d230d57f34c29e1422d7fc5f5587ac30
 
-Thank you for this - the creation of a core RP1 declaration that can
-be tailored to multiple applications using different wrappers is
-exactly what I had in mind. I agree that your partitioning scheme can
-cater for the 3 usage scenarios, but for the reasons outlined above I
-think scenario 2 is not useful to us, although it isn't impossible
-that U-boot might see things differently; I see no harm in having it
-supported, but I wouldn't want anyone to go to unnecessary effort to
-make it work.
+Thanks
+-Anand
 
-Phil
+Anand Moon (4):
+  drivers/thermal/exynos: Refactor clk_sec initialization inside
+    SOC-specific case
+  drivers/thermal/exymos: Remove redundant IS_ERR() checks for clk_sec
+    clock
+  drivers/thermal/exymos: Fixed the efuse min max value for exynos5422
+  drivers/thermal/exymos: Use guard notation when acquiring mutex
+
+ drivers/thermal/samsung/exynos_tmu.c | 87 +++++++++++++++-------------
+ 1 file changed, 46 insertions(+), 41 deletions(-)
+
+
+base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
+-- 
+2.48.1
+
 
