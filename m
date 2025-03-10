@@ -4,86 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1554C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:50:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EA15C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:50:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9OCG75VloqK6xG08wglt4g4zZcLDORHRr9mvaU8aN+c=; b=rWmaGMWgKFp6YFKDHcSnoNFpBD
-	MfAK2v1TGbOdLxOlXNwPbl5Z+6P8PSxhZk6PzuK8jGnAUJ77D7QS8lNy92YbvZMv1YK5/yMKLMMy7
-	tkyUflsrVWtW7dOjZYiOT44RsHRKG6j7oNMNPGqyn/xcHTvkXXuSJtuQo+E/pn6kt0ZUWKSPOYl7o
-	hs4VAzxUk77syhffudDuJXo9uegwfzNZfrk9HKQ3VX6Qq7amZTwhW8T/wwFZ3LBdBHz8w+ae5+32l
-	rrLMwmqUewZhPdqCfIOsqjdlDdAL1M4IvXLHw2bBLmS7+oeo1tB28UAA5gzuRKyUS9/x4UvnVMpo6
-	QAZE0Yfw==;
+	bh=tPY11EtbrlKV3A7vtbOV1mGfJ+C0LzjLW4YvJOmb/cg=; b=L4op9jZ5UUd6B9nYn+pw/HkNpu
+	BjJX0iMH5dl+1AuYkfP4Q/UoyLjRDtTdjazmnm29RH7aSS5HtVPzxpAKyrgSJq2CsSfkynvJIVMFt
+	a4FB8uJY995uQ5H/jQn0Pyb7dPWd+bcFYHHSqPrzIZp1gNNtxptSIB8sH6z/nYYg0GgXrPeHwDcFe
+	JRih1ZXSKWdpwN0TzwDhNdJgVcCorFZIX/JjxbQeDAdFPrH76MKNIgyjsO9gh7Prireknz4h+CjPr
+	oZ6k6CA1gksf0zRBokhoCgJ5n+CHPzkGQTF5OT5zCQfbJdOVUfajTMODcg+ZcJqFp5TDCvB0J4vir
+	V+WYMibA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbeP-00000002Tr6-1miQ;
-	Mon, 10 Mar 2025 11:50:29 +0000
-Received: from mail-m3291.qiye.163.com ([220.197.32.91])
+	id 1trbei-00000002Tw3-02Mi;
+	Mon, 10 Mar 2025 11:50:48 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traaF-00000002Hg8-1iT9;
-	Mon, 10 Mar 2025 10:42:08 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id dc18823a;
-	Mon, 10 Mar 2025 18:42:02 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de
-Cc: andy.yan@rock-chips.com,
-	hjc@rock-chips.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org,
-	Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	dmitry.baryshkov@linaro.org,
-	dianders@chromium.org,
-	sebastian.reichel@collabora.com,
-	cristian.ciocaltea@collabora.com,
-	boris.brezillon@collabora.com,
-	l.stach@pengutronix.de,
-	dri-devel@lists.freedesktop.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v8 02/13] drm/bridge: analogix_dp: Remove CONFIG_PM related check in analogix_dp_bind()/analogix_dp_unbind()
-Date: Mon, 10 Mar 2025 18:41:03 +0800
-Message-Id: <20250310104114.2608063-3-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250310104114.2608063-1-damon.ding@rock-chips.com>
-References: <20250310104114.2608063-1-damon.ding@rock-chips.com>
+	id 1trb9v-00000002P3w-3GOI
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 11:19:00 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A9MrkD015771;
+	Mon, 10 Mar 2025 11:18:53 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	tPY11EtbrlKV3A7vtbOV1mGfJ+C0LzjLW4YvJOmb/cg=; b=TE1zfHAgkEk5uDgZ
+	sxeWMRXx/mfDCPkEKtbnrgCvRRD7722WkDRh4CP2X6r2g82JBBrdyA+TFVz831lk
+	Nd73cGigIia8n1QsOgJ7b4bpYTS1dfGlOvsMaLkXPLDd7Tb+Wje6WZSIKH4lS0Ox
+	8u+9tlmsxdYVYTG8macI6Sp464JMgNhLXpRTPee+0HZTT+CDzPrw+xdomWDlz1Lr
+	tPc6kqAmY90fYKzaK025BqQNzofU+58mnvRJM1+BJ3VTLNMMEAqaO8/szPLuqYqX
+	fR80KnJRBdhm9PFA7f7vXdgknCmQLxKnMxNbeAlDT1qBZnoMrG3+lvTjMDZcT93o
+	gaAaLA==
+Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458f1jvk7e-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 11:18:52 +0000 (GMT)
+Received: from nasanex01c.na.qualcomm.com (nasanex01c.na.qualcomm.com [10.45.79.139])
+	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52ABIpK8024703
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 11:18:51 GMT
+Received: from hu-pbrahma-hyd.qualcomm.com (10.80.80.8) by
+ nasanex01c.na.qualcomm.com (10.45.79.139) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.9; Mon, 10 Mar 2025 04:18:47 -0700
+From: Pratyush Brahma <quic_pbrahma@quicinc.com>
+Date: Mon, 10 Mar 2025 16:48:34 +0530
+Subject: [PATCH v6 1/2] dt-bindings: arm-smmu: Document QCS8300 GPU SMMU
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxCGVZLHk9JSEhLHUIfGB1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSUhCS0
-	NVSktLVUpCWQY+
-X-HM-Tid: 0a957fa5b8dd03a3kunmdc18823a
-X-HM-MType: 1
-X-HM-Sender-Digest: e1kMHhlZQR0aFwgeV1kSHx4VD1lBWUc6P1E6PDo4MTJCSSMoSjgcPSIM
-	FxUwCQ9VSlVKTE9KTUtISElPSkNNVTMWGhIXVR8aFhQVVR8SFRw7CRQYEFYYExILCFUYFBZFWVdZ
-	EgtZQVlOQ1VJSVVMVUpKT1lXWQgBWUFJTk5LNwY+
-DKIM-Signature: a=rsa-sha256;
-	b=VYOsnT6Ja2VKhSsLUWSlwRHMvNr6gwrBySdASLWoptmXt83W/2Oi24QMcWPbNhKtbRpI0pnxZ78oy1LLjaH1OdMgR7V06hSdZizAkhMxL7oYOWUcNthjbpg6hoCV25L/SarEaAGBCb2Zfz8fnwpj9Yl6VS20pAmf+lIc9TKV/cU=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=9OCG75VloqK6xG08wglt4g4zZcLDORHRr9mvaU8aN+c=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250310-b4-branch-gfx-smmu-v6-1-15c60b8abd99@quicinc.com>
+References: <20250310-b4-branch-gfx-smmu-v6-0-15c60b8abd99@quicinc.com>
+In-Reply-To: <20250310-b4-branch-gfx-smmu-v6-0-15c60b8abd99@quicinc.com>
+To: Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        "Joerg
+ Roedel" <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski
+	<krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson
+	<andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>
+CC: <linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>,
+        Pratyush Brahma <quic_pbrahma@quicinc.com>,
+        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741605522; l=1613;
+ i=quic_pbrahma@quicinc.com; s=20250113; h=from:subject:message-id;
+ bh=5P8SmXtkaKwfANsKyJLc7RIWz9rZPt3aenTCICKBOik=;
+ b=TEFHZgfAyLv52FsXYkmgXx6R2R9FWyy0J6h1bQQ/HYTt3cWbk0GdzJHb3HaaPFRdJKwyNDQK7
+ XSTG63xBHkBB3SxHd+BXSiPT/yQyyEtHTw2eNhwUQejHZUhdBE55FdY
+X-Developer-Key: i=quic_pbrahma@quicinc.com; a=ed25519;
+ pk=YvfZKC4rRO1Fot+wlXZqsoQWnAtLqrpMyEzslw3Ji+M=
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01c.na.qualcomm.com (10.45.79.139)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=ctthk04i c=1 sm=1 tr=0 ts=67ceca9c cx=c_pps a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=KKAkSRfTAAAA:8 a=COk6AnOGAAAA:8 a=bMHeHVBLoHSL1fJULTUA:9
+ a=QEXdDO2ut3YA:10 a=cvBusfyB2V15izCimMoJ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: VEfHgSuaEQVHSAwS3vnnlkQRHNOTwQKM
+X-Proofpoint-GUID: VEfHgSuaEQVHSAwS3vnnlkQRHNOTwQKM
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-10_04,2025-03-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 suspectscore=0 bulkscore=0
+ clxscore=1015 priorityscore=1501 malwarescore=0 lowpriorityscore=0
+ phishscore=0 adultscore=0 mlxscore=0 impostorscore=0 mlxlogscore=865
+ spamscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503100090
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034207_612922_D078C5AD 
-X-CRM114-Status: UNSURE (   9.89  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_041859_944038_F7F4E8FD 
+X-CRM114-Status: GOOD (  12.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,81 +118,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove the check related to CONFIG_PM in order to make the code more
-concise, as the CONFIG_PM should be a required option for many drivers.
+Add the compatible for Qualcomm QCS8300 GPU SMMU. Add the compatible
+in the list of clocks required by the GPU SMMU and remove it from the
+list of disallowed clocks.
 
-In addition, it is preferable to use devm_pm_runtime_enable() instead of
-manually invoking pm_runtime_enable() followed by pm_runtime_disable().
-
-Suggested-by: Douglas Anderson <dianders@chromium.org>
-Reviewed-by: Douglas Anderson <dianders@chromium.org>
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Pratyush Brahma <quic_pbrahma@quicinc.com>
 ---
- .../drm/bridge/analogix/analogix_dp_core.c    | 30 ++++---------------
- 1 file changed, 6 insertions(+), 24 deletions(-)
+ Documentation/devicetree/bindings/iommu/arm,smmu.yaml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-index 5ef6bb6010ca..132f8513f93f 100644
---- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-+++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-@@ -1695,15 +1695,11 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 	dp->drm_dev = drm_dev;
- 	dp->encoder = dp->plat_data->encoder;
- 
--	if (IS_ENABLED(CONFIG_PM)) {
--		pm_runtime_use_autosuspend(dp->dev);
--		pm_runtime_set_autosuspend_delay(dp->dev, 100);
--		pm_runtime_enable(dp->dev);
--	} else {
--		ret = analogix_dp_resume(dp);
--		if (ret)
--			return ret;
--	}
-+	pm_runtime_use_autosuspend(dp->dev);
-+	pm_runtime_set_autosuspend_delay(dp->dev, 100);
-+	ret = devm_pm_runtime_enable(dp->dev);
-+	if (ret)
-+		return ret;
- 
- 	dp->aux.name = "DP-AUX";
- 	dp->aux.transfer = analogix_dpaux_transfer;
-@@ -1713,7 +1709,7 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 	ret = drm_dp_aux_register(&dp->aux);
- 	if (ret) {
- 		DRM_ERROR("failed to register AUX (%d)\n", ret);
--		goto err_disable_pm_runtime;
-+		return ret;
- 	}
- 
- 	ret = analogix_dp_create_bridge(drm_dev, dp);
-@@ -1726,13 +1722,6 @@ int analogix_dp_bind(struct analogix_dp_device *dp, struct drm_device *drm_dev)
- 
- err_unregister_aux:
- 	drm_dp_aux_unregister(&dp->aux);
--err_disable_pm_runtime:
--	if (IS_ENABLED(CONFIG_PM)) {
--		pm_runtime_dont_use_autosuspend(dp->dev);
--		pm_runtime_disable(dp->dev);
--	} else {
--		analogix_dp_suspend(dp);
--	}
- 
- 	return ret;
- }
-@@ -1749,13 +1738,6 @@ void analogix_dp_unbind(struct analogix_dp_device *dp)
- 	}
- 
- 	drm_dp_aux_unregister(&dp->aux);
--
--	if (IS_ENABLED(CONFIG_PM)) {
--		pm_runtime_dont_use_autosuspend(dp->dev);
--		pm_runtime_disable(dp->dev);
--	} else {
--		analogix_dp_suspend(dp);
--	}
- }
- EXPORT_SYMBOL_GPL(analogix_dp_unbind);
- 
+diff --git a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+index 032fdc27127bffd689ffc23630c9978c4460b336..7b9d5507d6ccd6b845a57eeae59fe80ba75cc652 100644
+--- a/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
++++ b/Documentation/devicetree/bindings/iommu/arm,smmu.yaml
+@@ -90,6 +90,7 @@ properties:
+           - enum:
+               - qcom,qcm2290-smmu-500
+               - qcom,qcs615-smmu-500
++              - qcom,qcs8300-smmu-500
+               - qcom,sa8255p-smmu-500
+               - qcom,sa8775p-smmu-500
+               - qcom,sar2130p-smmu-500
+@@ -397,6 +398,7 @@ allOf:
+         compatible:
+           contains:
+             enum:
++              - qcom,qcs8300-smmu-500
+               - qcom,sa8775p-smmu-500
+               - qcom,sc7280-smmu-500
+               - qcom,sc8280xp-smmu-500
+@@ -581,7 +583,6 @@ allOf:
+               - cavium,smmu-v2
+               - marvell,ap806-smmu-500
+               - nvidia,smmu-500
+-              - qcom,qcs8300-smmu-500
+               - qcom,qdu1000-smmu-500
+               - qcom,sa8255p-smmu-500
+               - qcom,sc7180-smmu-500
+
 -- 
 2.34.1
 
