@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6E8A1C28B2E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D896C282EC
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:45:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,50 +12,49 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uESA4QqfGTGCsO/HkNgYjU2s1+AKtHc4tu+9+ZTUrcM=; b=dtCaSOasUEcFb1vqZ3ltwBrsww
-	ta0badCZx+N1+VAeIWx74bahyZjwrQYKHryUEO2PTE4i4KeH4/WIgz9xD/525ClikJrF6RTV0G9lv
-	w5gou5O9vESNaUnva0OHSP1a4GysEzNy+BUcfAYtMVM5TUFVox9m5ZsHRaRMBskEZQnV4xE3bQviI
-	F0KKBoUeo4s6ygX0helKaDS5WVjjmJDTnZ4ssV2+53s2NvCoguXwdKhEvcmD35NECVPBBxdyAoeE1
-	6jdWaw/REqZngk/yDaSWNQe6JKS8Pabd8IDw9qzq9FLlPI/+G8ijEiW4d2er+oa0XljsccR1oalCc
-	XDbYmWXw==;
+	bh=+Rs/zNxmCHOIg6hmgAq9pv1zTc6S6ivy81oUidFGSNU=; b=am1TaZAOPUra5HRY8zHiKMcgQm
+	OWkBWMAPO9ACVZu57bSY3dMTTnCpKnyMoSqKjqmeP/49tsriZAO2k1vnaGR4bMtpSxB6/nKEp8GN7
+	73QjBFUFF2aGFM0DKS52vzkMGDDj4FnpoCvbfrouQkfqZvcl3kJfyF+IMOtmQP2meSe8eZHW8O5Ts
+	x1uqvFbk2oM2lfOMeVjNbTsSolbcYaFx1eyA1Px2OwBaPbzEGXXrDKDV70e4LofTfYmMoltTmwdYV
+	EjbuJK4txxFNHt5/G3tIQNTLX7AAEW2tc4gEVPIZmR/zaOGh06LL5/DkIO3YxJFjTvwrhhOwSLNgv
+	EDChe/Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treO1-00000002yJ7-2PL4;
-	Mon, 10 Mar 2025 14:45:45 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1treO0-00000002yIh-45VR;
+	Mon, 10 Mar 2025 14:45:44 +0000
+Received: from mx08-00376f01.pphosted.com ([91.207.212.86])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcuT-00000002joQ-2G6O
+	id 1trcuT-00000002jou-2Bzw
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 10 Mar 2025 13:11:13 +0000
-Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A7A2JD004779;
-	Mon, 10 Mar 2025 13:10:56 GMT
+Received: from pps.filterd (m0168888.ppops.net [127.0.0.1])
+	by mx08-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A7nW1h015329;
+	Mon, 10 Mar 2025 13:10:49 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=u
-	ESA4QqfGTGCsO/HkNgYjU2s1+AKtHc4tu+9+ZTUrcM=; b=BQ5f+PsvMDuhwGK8E
-	10RJVx0XT1RjJ1ux178sb6JHVgAHbMRnxxhWT0VZt3zscjtSFKsEobZ3tiQTm3NB
-	T+6L0rXDjFyQfWtbOApNwC0SRSJnP61ETiVfkNtbM8IA1f2tfWOCSVK2gcVSL5ee
-	ZSOdodCFjFPh8KpVxt9/1fBX9ysvtK+nNeO0SKVQvA+ExwtJ8PNjo8QuzLaxpiy1
-	4OB573BBCyt0256l9FE8uSNHwqlznV+Nl4NPj932LQB3uLDBSXW7nGVQc1scx8W7
-	aC6q2b64+f+VYc4PV0djGYxodAZldB/5B22JLNv5D17OFMQKR/lYALCf4wxYSnRu
-	Aqy4g==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=+
+	Rs/zNxmCHOIg6hmgAq9pv1zTc6S6ivy81oUidFGSNU=; b=xCt+LEDwxX2Pw2dXW
+	LUv7R7+KY+gOyZ0eygBJiTVcXYnLLRi+ZxuRWJqEhy5hZX2i45j8+LB5yvsfRGvd
+	mkTthXcmvq46iL2IpOtTVCOtmyIQh1b19qSxDiH9p5NpJ7jQCIVzsQa8033lHO42
+	aziK4rMu+tqcrSdQClr1V+fdHdQgUywJinV5BUotVFBxbqCzlr/VLah3esx4k+95
+	aWwvpiqsFwoY7DWGqvpp3Bvi2cq+A2wzFB3ugE9G5SC+0/vERiYpDaIhbGFzGO26
+	rfQI+PZTaH9rgkuxJB08A8jaHZaM79OzWRdd5JrjKIgFUUUX6YKxBmUrykUY+YcL
+	jh5fA==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 458ev09es0-2
+	by mx08-00376f01.pphosted.com (PPS) with ESMTPS id 458d1wha4q-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 10 Mar 2025 13:10:55 +0000 (GMT)
+	Mon, 10 Mar 2025 13:10:49 +0000 (GMT)
 Received: from Matts-MacBook-Pro.local (172.25.0.133) by
  HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 10 Mar 2025 13:10:54 +0000
+ 15.1.2507.44; Mon, 10 Mar 2025 13:10:48 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Mon, 10 Mar 2025 13:10:39 +0000
-Subject: [PATCH v3 15/18] drm/imagination: Use cached memory with
- dma_coherent
+Date: Mon, 10 Mar 2025 13:10:31 +0000
+Subject: [PATCH v3 07/18] drm/imagination: Handle Rogue safety event IRQs
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-15-143b3dbef02f@imgtec.com>
+Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-7-143b3dbef02f@imgtec.com>
 References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
 In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -78,24 +77,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
  Belle" <alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=4974;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=7470;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=r1x470L4jwmbDuNUlklKPJk6JIqwC47B9etJYyW0vW8=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3KJL830IYfNtUURzUx/8gtzf6/MdVp+ZcaN4PSlr
- PVvfq116ChlYRDjYJAVU2TZscJyhdofNS2JG7+KYeawMoEMYeDiFICJzDRkZNioyOe4o3x2+Jll
- d9e7TZ9mO8u1Y+fuq5e3bjW+EnJvE/MpRoY9DhpqP7LblWeahJn90e/xk1w7+0/I4/sqbsz23S/
- ibBkA
+ bh=4O9fJIp6US/LAhulAXUfV35s7P8om5oBFinS7n7Z1Yo=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3JBKuLskTsXwrh/iSzea5R81cJx9fOZk/RerZu+1
+ Y9Z5eKqyo5SFgYxDgZZMUWWHSssV6j9UdOSuPGrGGYOKxPIEAYuTgGYyCoNRoZj7i+lc6Xaf50Q
+ rviyafqp09p1q68HZ/N/etDz+28WV54nI8OhrhgFlxeXqz7JhVr5p+ZXafQ1rX7xImuP15KQqgC
+ mW5wA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=CeII5Krl c=1 sm=1 tr=0 ts=67cee4df cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8 a=0i1-_hofAh2E2eMZgqcA:9
- a=QEXdDO2ut3YA:10 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: oIhM6dVq5HA_8GTn7csNNV7iln7BsNC-
-X-Proofpoint-ORIG-GUID: oIhM6dVq5HA_8GTn7csNNV7iln7BsNC-
+X-Proofpoint-ORIG-GUID: VYRB2zccZILu1eoCJ9hTiufhPWBWxg50
+X-Proofpoint-GUID: VYRB2zccZILu1eoCJ9hTiufhPWBWxg50
+X-Authority-Analysis: v=2.4 cv=U8+SDfru c=1 sm=1 tr=0 ts=67cee4d9 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=r_1tXGB3AAAA:8 a=EFqOhPBUpbQHUZJt0gEA:9 a=QEXdDO2ut3YA:10
+ a=t8nPyN_e6usw4ciXM-Pk:22
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_061109_989400_84739832 
-X-CRM114-Status: GOOD (  18.63  )
+X-CRM114-CacheID: sfid-20250310_061109_939033_F878A4CC 
+X-CRM114-Status: GOOD (  26.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,122 +109,225 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The TI k3-j721s2 platform does not allow us to use uncached memory
-(which is what the driver currently does) without disabling cache snooping
-on the AXI ACE-Lite interface, which would be too much of a performance
-hit.
+From: Alessio Belle <alessio.belle@imgtec.com>
 
-Given the platform is dma-coherent, we can simply force all
-device-accessible memory allocations through the CPU cache. In fact, this
-can be done whenever the dma_coherent attribute is present.
+Extend interrupt handling logic to check for safety event IRQs, then clear
+and handle them in the IRQ handler thread.
 
+Safety events need to be checked and cleared with a different set of GPU
+registers than those the IRQ handler has been using so far.
+
+Only two safety events need to be handled on the host: FW fault (ECC error
+correction or detection) and device watchdog timeout. Handling right now
+simply consists of clearing any error and logging the event. If either of
+these events results in an unrecoverable GPU or FW, the driver will
+eventually attempt to recover from it e.g. via pvr_power_reset().
+
+Note that Rogue GPUs may send interrupts to the host for all types of
+safety events, not just the two above. For events not handled by the host,
+clearing the associated interrupt is sufficient.
+
+Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v3:
-- Change from a workaround to a regular codepath
-- Add missing <linux/property.h> include
-- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-19-3fd45d9fb0cf@imgtec.com
-Changes in v2:
-- None
-- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-19-4ed30e865892@imgtec.com
+- Added
 ---
- drivers/gpu/drm/imagination/pvr_gem.c | 10 +++++++---
- drivers/gpu/drm/imagination/pvr_gem.h |  6 ++++--
- drivers/gpu/drm/imagination/pvr_mmu.c |  8 +++++++-
- 3 files changed, 18 insertions(+), 6 deletions(-)
+ drivers/gpu/drm/imagination/pvr_device.c | 111 ++++++++++++++++++++++++++++++-
+ drivers/gpu/drm/imagination/pvr_device.h |   3 +
+ drivers/gpu/drm/imagination/pvr_fw.c     |   3 +
+ 3 files changed, 115 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_gem.c b/drivers/gpu/drm/imagination/pvr_gem.c
-index 6a8c81fe8c1e85c2130a4fe90fce35b6a2be35aa..9467cd563339cd5bf62ff92edba115ed5721ee76 100644
---- a/drivers/gpu/drm/imagination/pvr_gem.c
-+++ b/drivers/gpu/drm/imagination/pvr_gem.c
-@@ -19,6 +19,7 @@
- #include <linux/log2.h>
- #include <linux/mutex.h>
- #include <linux/pagemap.h>
-+#include <linux/property.h>
- #include <linux/refcount.h>
- #include <linux/scatterlist.h>
+diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
+index b6ce936f07c8bb26d240e50b72a1d991dbe4b045..b1594dd3ed5997bd9510b1444aef2c6f0d7cfd76 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.c
++++ b/drivers/gpu/drm/imagination/pvr_device.c
+@@ -146,9 +146,61 @@ static void pvr_device_process_active_queues(struct pvr_device *pvr_dev)
+ 	mutex_unlock(&pvr_dev->queues.lock);
+ }
  
-@@ -336,6 +337,7 @@ struct drm_gem_object *pvr_gem_create_object(struct drm_device *drm_dev, size_t
- struct pvr_gem_object *
- pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- {
-+	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
- 	struct drm_gem_shmem_object *shmem_obj;
- 	struct pvr_gem_object *pvr_obj;
- 	struct sg_table *sgt;
-@@ -345,7 +347,10 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- 	if (size == 0 || !pvr_gem_object_flags_validate(flags))
- 		return ERR_PTR(-EINVAL);
- 
--	shmem_obj = drm_gem_shmem_create(from_pvr_device(pvr_dev), size);
-+	if (device_get_dma_attr(drm_dev->dev) == DEV_DMA_COHERENT)
-+		flags |= PVR_BO_CPU_CACHED;
++static bool pvr_device_safety_irq_pending(struct pvr_device *pvr_dev)
++{
++	u32 events;
 +
-+	shmem_obj = drm_gem_shmem_create(drm_dev, size);
- 	if (IS_ERR(shmem_obj))
- 		return ERR_CAST(shmem_obj);
++	WARN_ON_ONCE(!pvr_dev->has_safety_events);
++
++	events = pvr_cr_read32(pvr_dev, ROGUE_CR_EVENT_STATUS);
++
++	return (events & ROGUE_CR_EVENT_STATUS_SAFETY_EN) != 0;
++}
++
++static void pvr_device_safety_irq_clear(struct pvr_device *pvr_dev)
++{
++	WARN_ON_ONCE(!pvr_dev->has_safety_events);
++
++	pvr_cr_write32(pvr_dev, ROGUE_CR_EVENT_CLEAR,
++		       ROGUE_CR_EVENT_CLEAR_SAFETY_EN);
++}
++
++static void pvr_device_handle_safety_events(struct pvr_device *pvr_dev)
++{
++	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
++	u32 events;
++
++	WARN_ON_ONCE(!pvr_dev->has_safety_events);
++
++	events = pvr_cr_read32(pvr_dev, ROGUE_CR_SAFETY_EVENT_STATUS__ROGUEXE);
++
++	/* Handle only these events on the host and leave the rest to the FW. */
++	events &= ROGUE_CR_SAFETY_EVENT_STATUS__ROGUEXE__FAULT_FW_EN |
++		ROGUE_CR_SAFETY_EVENT_STATUS__ROGUEXE__WATCHDOG_TIMEOUT_EN;
++
++	pvr_cr_write32(pvr_dev, ROGUE_CR_SAFETY_EVENT_CLEAR__ROGUEXE, events);
++
++	if (events & ROGUE_CR_SAFETY_EVENT_STATUS__ROGUEXE__FAULT_FW_EN) {
++		u32 fault_fw = pvr_cr_read32(pvr_dev, ROGUE_CR_FAULT_FW_STATUS);
++
++		pvr_cr_write32(pvr_dev, ROGUE_CR_FAULT_FW_CLEAR, fault_fw);
++
++		drm_info(drm_dev, "Safety event: FW fault (mask=0x%08x)\n", fault_fw);
++	}
++
++	if (events & ROGUE_CR_SAFETY_EVENT_STATUS__ROGUEXE__WATCHDOG_TIMEOUT_EN) {
++		/*
++		 * The watchdog timer is disabled by the driver so this event
++		 * should never be fired.
++		 */
++		drm_info(drm_dev, "Safety event: Watchdog timeout\n");
++	}
++}
++
+ static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
+ {
+ 	struct pvr_device *pvr_dev = data;
++	struct drm_device *drm_dev = from_pvr_device(pvr_dev);
+ 	irqreturn_t ret = IRQ_NONE;
  
-@@ -360,8 +365,7 @@ pvr_gem_object_create(struct pvr_device *pvr_dev, size_t size, u64 flags)
- 		goto err_shmem_object_free;
+ 	/* We are in the threaded handler, we can keep dequeuing events until we
+@@ -164,24 +216,76 @@ static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
+ 			pvr_device_process_active_queues(pvr_dev);
+ 		}
+ 
+-		pm_runtime_mark_last_busy(from_pvr_device(pvr_dev)->dev);
++		pm_runtime_mark_last_busy(drm_dev->dev);
+ 
+ 		ret = IRQ_HANDLED;
  	}
  
--	dma_sync_sgtable_for_device(shmem_obj->base.dev->dev, sgt,
--				    DMA_BIDIRECTIONAL);
-+	dma_sync_sgtable_for_device(drm_dev->dev, sgt, DMA_BIDIRECTIONAL);
++	if (pvr_dev->has_safety_events) {
++		int err;
++
++		/*
++		 * Ensure the GPU is powered on since some safety events (such
++		 * as ECC faults) can happen outside of job submissions, which
++		 * are otherwise the only time a power reference is held.
++		 */
++		err = pvr_power_get(pvr_dev);
++		if (err) {
++			drm_err_ratelimited(drm_dev,
++					    "%s: could not take power reference (%d)\n",
++					    __func__, err);
++			return ret;
++		}
++
++		while (pvr_device_safety_irq_pending(pvr_dev)) {
++			pvr_device_safety_irq_clear(pvr_dev);
++			pvr_device_handle_safety_events(pvr_dev);
++
++			ret = IRQ_HANDLED;
++		}
++
++		pvr_power_put(pvr_dev);
++	}
++
+ 	return ret;
+ }
+ 
+ static irqreturn_t pvr_device_irq_handler(int irq, void *data)
+ {
+ 	struct pvr_device *pvr_dev = data;
++	bool safety_irq_pending = false;
++
++	if (pvr_dev->has_safety_events)
++		safety_irq_pending = pvr_device_safety_irq_pending(pvr_dev);
+ 
+-	if (!pvr_fw_irq_pending(pvr_dev))
++	if (!pvr_fw_irq_pending(pvr_dev) && !safety_irq_pending)
+ 		return IRQ_NONE; /* Spurious IRQ - ignore. */
+ 
+ 	return IRQ_WAKE_THREAD;
+ }
+ 
++static void pvr_device_safety_irq_init(struct pvr_device *pvr_dev)
++{
++	u32 num_ecc_rams = 0;
++
++	/*
++	 * Safety events are an optional feature of the RogueXE platform. They
++	 * are only enabled if at least one of ECC memory or the watchdog timer
++	 * are present in HW. While safety events can be generated by other
++	 * systems, that will never happen if the above mentioned hardware is
++	 * not present.
++	 */
++	if (!PVR_HAS_FEATURE(pvr_dev, roguexe)) {
++		pvr_dev->has_safety_events = false;
++		return;
++	}
++
++	PVR_FEATURE_VALUE(pvr_dev, ecc_rams, &num_ecc_rams);
++
++	pvr_dev->has_safety_events =
++		num_ecc_rams > 0 || PVR_HAS_FEATURE(pvr_dev, watchdog_timer);
++}
++
+ /**
+  * pvr_device_irq_init() - Initialise IRQ required by a PowerVR device
+  * @pvr_dev: Target PowerVR device.
+@@ -199,6 +303,8 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ 
+ 	init_waitqueue_head(&pvr_dev->kccb.rtn_q);
+ 
++	pvr_device_safety_irq_init(pvr_dev);
++
+ 	pvr_dev->irq = platform_get_irq(plat_dev, 0);
+ 	if (pvr_dev->irq < 0)
+ 		return pvr_dev->irq;
+@@ -206,6 +312,7 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
+ 	/* Clear any pending events before requesting the IRQ line. */
+ 	pvr_fw_irq_clear(pvr_dev);
+ 	pvr_fw_irq_enable(pvr_dev);
++	pvr_device_safety_irq_clear(pvr_dev);
  
  	/*
- 	 * Do this last because pvr_gem_object_zero() requires a fully
-diff --git a/drivers/gpu/drm/imagination/pvr_gem.h b/drivers/gpu/drm/imagination/pvr_gem.h
-index e0e5ea509a2e88a437b8d241ea13c7bab2220f56..c99f30cc62088c030bd8a806df79b738b62a968f 100644
---- a/drivers/gpu/drm/imagination/pvr_gem.h
-+++ b/drivers/gpu/drm/imagination/pvr_gem.h
-@@ -44,8 +44,10 @@ struct pvr_file;
-  * Bits not defined anywhere are "undefined".
-  *
-  * CPU mapping options
-- *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set this
-- *       flag to override this behaviour and map the object cached.
-+ *    :PVR_BO_CPU_CACHED: By default, all GEM objects are mapped write-combined on the CPU. Set
-+ *       this flag to override this behaviour and map the object cached. If the dma_coherent
-+ *       property is present in devicetree, all allocations will be mapped as if this flag was set.
-+ *       This does not require any additional consideration at allocation time.
-  *
-  * Firmware options
-  *    :PVR_BO_FW_NO_CLEAR_ON_RESET: By default, all FW objects are cleared and reinitialised on hard
-diff --git a/drivers/gpu/drm/imagination/pvr_mmu.c b/drivers/gpu/drm/imagination/pvr_mmu.c
-index 4fe70610ed94cf707e631f8148af081a94f97327..450d476d183f0173d0ef03f0d8897fbeb04831a2 100644
---- a/drivers/gpu/drm/imagination/pvr_mmu.c
-+++ b/drivers/gpu/drm/imagination/pvr_mmu.c
-@@ -17,6 +17,7 @@
- #include <linux/dma-mapping.h>
- #include <linux/kmemleak.h>
- #include <linux/minmax.h>
-+#include <linux/property.h>
- #include <linux/sizes.h>
- 
- #define PVR_SHIFT_FROM_SIZE(size_) (__builtin_ctzll(size_))
-@@ -259,6 +260,7 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
- 	struct device *dev = from_pvr_device(pvr_dev)->dev;
- 
- 	struct page *raw_page;
-+	pgprot_t prot;
- 	int err;
- 
- 	dma_addr_t dma_addr;
-@@ -268,7 +270,11 @@ pvr_mmu_backing_page_init(struct pvr_mmu_backing_page *page,
- 	if (!raw_page)
- 		return -ENOMEM;
- 
--	host_ptr = vmap(&raw_page, 1, VM_MAP, pgprot_writecombine(PAGE_KERNEL));
-+	prot = PAGE_KERNEL;
-+	if (device_get_dma_attr(dev) != DEV_DMA_COHERENT)
-+		prot = pgprot_writecombine(prot);
+ 	 * The ONESHOT flag ensures IRQs are masked while the thread handler is
+diff --git a/drivers/gpu/drm/imagination/pvr_device.h b/drivers/gpu/drm/imagination/pvr_device.h
+index 2dd8a8885fe07078896d669d822525fb2b7bab51..6c01d96657de6dc3904ef5ca28365f06cfe0f40b 100644
+--- a/drivers/gpu/drm/imagination/pvr_device.h
++++ b/drivers/gpu/drm/imagination/pvr_device.h
+@@ -308,6 +308,9 @@ struct pvr_device {
+ 	 *  struct pvr_file.
+ 	 */
+ 	spinlock_t ctx_list_lock;
 +
-+	host_ptr = vmap(&raw_page, 1, VM_MAP, prot);
- 	if (!host_ptr) {
- 		err = -ENOMEM;
- 		goto err_free_page;
++	/** @has_safety_events: Whether this device can raise safety events. */
++	bool has_safety_events;
+ };
+ 
+ /**
+diff --git a/drivers/gpu/drm/imagination/pvr_fw.c b/drivers/gpu/drm/imagination/pvr_fw.c
+index 3debc9870a82ae7de9b2dc173df84c466c137bb3..9147c70edc0ef4e86d0b24c3568a43efbafb6bd8 100644
+--- a/drivers/gpu/drm/imagination/pvr_fw.c
++++ b/drivers/gpu/drm/imagination/pvr_fw.c
+@@ -441,6 +441,9 @@ fw_runtime_cfg_init(void *cpu_ptr, void *priv)
+ 	runtime_cfg->active_pm_latency_persistant = true;
+ 	WARN_ON(PVR_FEATURE_VALUE(pvr_dev, num_clusters,
+ 				  &runtime_cfg->default_dusts_num_init) != 0);
++
++	/* Keep watchdog timer disabled. */
++	runtime_cfg->wdg_period_us = 0;
+ }
+ 
+ static void
 
 -- 
 2.48.1
