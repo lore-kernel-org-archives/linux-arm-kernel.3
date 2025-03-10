@@ -4,61 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50907C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:05:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98FCBC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:09:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeXejWd0sNA8dlRAS4PeSZftgNVIbz4Wk1iG2Hn85C8=; b=BJ8F1D1Xqx4UwPoUX3nGU0hqp3
-	Do7MYoepuNa+6syb37SGYmpVQBf0n9yI7zgIhcHdghVH/HxLpebiUXIz884HL9VkoXxCMY3ev3+8z
-	4hWU/vWYtsbAYBeB/0qpIcEIXQa4ZPT41HUBBlWoYSyQiEdUPVwD79vi9zx+ix0abvv/6eBlvYRkV
-	jc+jJSg/RDm/ZwWK+vGpE8nyWejC4YYU5LkQCUwldF+078Oxvb282Yc25jshKbbcPiyyX413RABvm
-	fR2zjX3SxGSyyg9hfBmcMtu73Yd7WKuMlCl1yy0IIbe52fcP1W8DnnIJs3kb4W/ybh1Oc8FgKoo+T
-	rFZ12WQA==;
+	bh=E13Z4tIU2QebiQ+fHYjb3GAytcpWMD9ZkrlSMteHVzY=; b=WcCVc07hrDP+/9GyuqZ089UXpG
+	kTgY6lGwg7KZ9AG+iE+r1d4E3g7Q82nHny0OQ93NLZA3kE5vMdOcMONY1oJdOgBAVnM+q4fBC8g9J
+	+rAm6yGVbYQlAbgvnWkz+RNAlbFWHvzOEx7oo0Q0Yv/gvHvMzRBbftL5WUltIoD0Pm7m53G9hJOiV
+	ubfgk1/hDAHKs1j6CdbUkAs78FZRJZ30f4BR3clSEqdjbkrx3U+0LXuprYXjFIE0L1k/FZAkIyS9/
+	Xn4aVlqQaxD4xs2/d5ZfaXYeIhIsTvRYhZCR82CF08r/e6sWrpT7JyTD4RwbdOtm0zPz+8uiN/Ywb
+	A7bqamKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhVO-00000003Yun-1Ki0;
-	Mon, 10 Mar 2025 18:05:34 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1trhYa-00000003ZQ4-0hDH;
+	Mon, 10 Mar 2025 18:08:52 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trg8S-00000003Mcw-0TXA
+	id 1trhWw-00000003ZDB-1Imf
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 16:37:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2CCB1692;
-	Mon, 10 Mar 2025 09:37:58 -0700 (PDT)
-Received: from [10.57.39.43] (unknown [10.57.39.43])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 99ADE3F5A1;
-	Mon, 10 Mar 2025 09:37:45 -0700 (PDT)
-Message-ID: <3f4354e7-e74b-4ce9-b0c7-4be103cbc94d@arm.com>
-Date: Mon, 10 Mar 2025 16:37:44 +0000
+	Mon, 10 Mar 2025 18:07:11 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id AEB1B2038F50;
+	Mon, 10 Mar 2025 11:07:08 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com AEB1B2038F50
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741630029;
+	bh=E13Z4tIU2QebiQ+fHYjb3GAytcpWMD9ZkrlSMteHVzY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=lkfc7WqTTy9o/NtCmsNne2YvNu14qrm7uDsjvvXkQk5sfBSt0aW2JUGCLGbi53VQm
+	 x7EtA7dAZvpUOAdKpa+WyJR+DDJq7wyFqIlErDY/ZzM4lWwuea+zOldXaRC8xhF7xm
+	 s2kAl+3x2CXQIATrHNeR52YStsliYwkkKncXNNUo=
+Message-ID: <ba6b906d-04a2-423d-a527-9ef7ab1dccf2@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 11:07:08 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/8] coresight: etm: Add an attribute for updating
- buffer
-Content-Language: en-GB
-To: Leo Yan <leo.yan@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
- Jonathan Corbet <corbet@lwn.net>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Arnaldo Carvalho de Melo <acme@redhat.com>,
- Namhyung Kim <namhyung@kernel.org>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250310104919.58816-1-leo.yan@arm.com>
- <20250310104919.58816-6-leo.yan@arm.com>
- <d8b1cf1f-1996-4d9c-9f1a-fad556f91577@arm.com>
- <20250310155015.GG9682@e132581.arm.com>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250310155015.GG9682@e132581.arm.com>
+Subject: Re: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add
+ interrupts and DMA coherence
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-8-romank@linux.microsoft.com>
+ <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
+ <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
+ <09d4966a-5804-40a4-9c5f-356a954a7704@kernel.org>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <09d4966a-5804-40a4-9c5f-356a954a7704@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_093748_200273_82DAF746 
-X-CRM114-Status: GOOD (  21.70  )
+X-CRM114-CacheID: sfid-20250310_110710_400290_A68A1275 
+X-CRM114-Status: GOOD (  29.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,60 +87,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2025 15:50, Leo Yan wrote:
-> On Mon, Mar 10, 2025 at 01:29:26PM +0000, Suzuki Kuruppassery Poulose wrote:
->> Hi Leo
+
+
+On 3/10/2025 10:40 AM, Krzysztof Kozlowski wrote:
+> On 10/03/2025 18:05, Roman Kisel wrote:
 >>
->> On 10/03/2025 10:49, Leo Yan wrote:
->>> Add an attribute for updating buffer when the AUX trace is paused.  And
->>> populate the value to the 'update_buf_on_pause' flag during the AUX
->>> setting up.
 >>
->> Do we need this attribute in the uAPI ?
+>> On 3/10/2025 2:28 AM, Krzysztof Kozlowski wrote:
+>>> On Fri, Mar 07, 2025 at 02:02:59PM -0800, Roman Kisel wrote:
+>>>> To boot on ARM64, VMBus requires configuring interrupts. Missing
+>>>> DMA coherence property is sub-optimal as the VMBus transations are
+>>>> cache-coherent.
+>>>>
+>>>> Add interrupts to be able to boot on ARM64. Add DMA coherence to
+>>>> avoid doing extra work on maintaining caches on ARM64.
+>>>
+>>> How do you add it?
+>>>
+>>
+>> I added properties to the node. Should I fix the description, or I am
+>> misunderstanding the question?
 > 
-> This uAPI allows users to perform AUX pause and resume without the long
-> latency caused by copying hardware trace data.
+> I saw interrupts in the schema, but I did not see dma-coherence. I also
+> did not see any DTS patches here, so I don't understand what node you
+> are referring to.
 > 
-> E.g., a user can specify a large AUX buffer size using option "-m,128M".
-> If the buffer is considered large enough to accommodate hardware trace
-> data for a small program, the 'update_buf_on_pause' flag can be set to
-> false, the copying will be deferred until the end of the perf session.
+
+I will refer to talks, example-bindings, writing-schema you've suggested
+to waste your time less. It appears there is some fundamental flaw in my
+understanding of how these YAML files work so much so that I cannot even
+write a commit description that can be understood, for the 5th time in
+the row, sorry about that.
+
+>>
+>>>>
+>>>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+>>>> ---
+>>>>    .../devicetree/bindings/bus/microsoft,vmbus.yaml          | 8 +++++++-
+>>>>    1 file changed, 7 insertions(+), 1 deletion(-)
+>>>>
+>>>> diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>>> index a8d40c766dcd..3ab7d0116626 100644
+>>>> --- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>>> +++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>>>> @@ -28,13 +28,16 @@ properties:
+>>>>    required:
+>>>>      - compatible
+>>>>      - ranges
+>>>> +  - interrupts
+>>>>      - '#address-cells'
+>>>>      - '#size-cells'
+>>>>    
+>>>> -additionalProperties: false
+>>>> +additionalProperties: true
+>>>
+>>> This is neither explained in commit msg nor correct.
+>>>
+>>
+>> Not explained, as there is no good explanation as described below.
+>>
+>>> Drop the change. You cannot have device bindings ending with 'true'
+>>> here - see talks, example-bindings, writing-schema and whatever resource
+>>> is there.
+>>>
+>>
+>> Thanks, I'll put more effort into bringing this into a better form!
+>> If you have time, could you comment on the below?
+>>
+>> The Documentation says
+>>
+>>     * additionalProperties: true
+>>       Rare case, used for schemas implementing common set of properties.
+>> Such schemas are supposed to be referenced by other schemas, which then
+>> use 'unevaluatedProperties: false'.  Typically bus or common-part schemas.
+>>
+>> This is a bus so I added that line to the YAML, and I saw it in many
 > 
-> I am bias to keep this uAPI.  If you prefer to remove it, I am also
-> fine with that.
+> If this is a bus, then where is schema using it for
+> bus-attached-devices? You cannot have bus without devices.
 > 
->> Could we do this by default for
->> sinks without interrupt ? This definitely improves the quality of trace
->> collected for such sinks and the driver can transparently do this.
+> You *must* fulfill that part:
+> "Such schemas are supposed to be referenced by other schemas, which then"
 > 
-> How about we dynamically set the default flag in the Perf tool?
+> instead of calling it bus...
 > 
-> - If users set explictly the 'update_buf_on_pause' flag, then the
->    setting will be respected.
-> - If users don't set the flag, perf tool detects it is TRBE sinks,
->    then it can set 'update_buf_on_pause' flag as false.
 
-Not really possible. There could be systems with mixed sinks. e.g.  TRBE
-for some CPU and ETR for others (say due to a non-functioning TRBE).
+It is modeled as a bus in the kernel:
+https://www.kernel.org/doc/html/latest/virt/hyperv/vmbus.html
 
-> - If users don't set the flag, perf tool detects it is ETF/ETB/ETR
->    sinks, it sets the flag as true.
+> Please upstream bindings for the bus devices and extend the example here
+> with these devices.
 
-And in the cases above, perf event cannot run on all the CPUs, because
-some sinks don't support it.
+The set of synthetic devices that reside on the bus isn't fixed, and
+they don't require description neither in ACPI nor in DT as
+the devices negotiate their MMIO regions through the hyperv driver.
 
-Why do we need a flag, when the effect is not user (read, perf decoder)
-  visible and at the same time improves some scenarios (read non-TRBE 
-cases) ?
-
-I would say, let the driver always update on pause, depending on the
-sink.
-
-Suzuki
-
+Perhaps, it is not as much bus as expected by the YAML files.
 
 > 
-> Thanks,
-> Leo
+> Or this is not bus (calling something vmpony does not make it a pony).
+> 
+ > > Best regards,
+> Krzysztof
+
+-- 
+Thank you,
+Roman
 
 
