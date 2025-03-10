@@ -4,154 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F7E2C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:42:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993B9C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:46:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NHmo65FQcou/O/bFc9HNnzMiOIqYMUqzok9XaGbdzw0=; b=D1rfvjblInL7wzPWDuxXK5zft3
-	XLJt3XS1qEt4uFRdIs07Y0wJxJOrsiA07vv/5Rjw18IrdSkhcc2mS/xzm3DvD8sm6VlXDN5zfdBti
-	PYS/kSNna2noFlDkYjxIl8oiXD5dM7+S1TFTYndvhjo75ZOOGIshuLC6ynoKnLm5Y9nKyPMdfCZ+K
-	K1uzfELEOkAQpigLBKDKgR8Adz1uoZUqWOqn39UCQkfWqVVHtvI4SXmxMXu1D9qJc36w+umYuBqDv
-	VRgERPjBVrEhueWdOwtv0TGVQS8CKn6oemepmjNG8QJZALzlfzVJkIVM2fIPiHxc/OCUx2ODq5XRw
-	tq5SBWAg==;
+	bh=J+hEvvIa7c0MRk0KFVnsaaNYZtYmP6VvBxqDs4xM/bU=; b=1feb/dEmETiD4vsi8TnTZmhPyM
+	VBF1mYETkAK54YzpfvYP3ZW566gPiRcdoFIvqTXdnacPxZ07PO7nwpa8qTSesUqIVcTTJm27kltiu
+	9qUPBs79RnsHTO05gWhE+xEHlKZwLIk0/v0nvKB5P72jJy3/7W0TqJGGZTsvIzk/66fLRjqFhae6T
+	1qcFaNf2/JfpcaXeH2GJDmRQ6N5ls0qGXhft+Dmrk7Q7rYdXWhWGYomW1N6IcXDqi2gAz//+718BB
+	J78EW97V3Ek9Elqkz3X3x6akZOewOGNFB4WXHbzasUJQIeddGSrG8cp2F/AeAkAERp10ejusdgdJ2
+	1A2HFYzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trfGp-00000003DCz-3VFU;
-	Mon, 10 Mar 2025 15:42:23 +0000
-Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	id 1trfKC-00000003FbV-2Fy5;
+	Mon, 10 Mar 2025 15:45:52 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1treT0-0000000311w-2gHs
+	id 1treVo-0000000328h-2J3T
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 14:50:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=FPOJMx9CAw/bp69HhJr4T7ua3j8BfnzfnBorG/ye7W3e2QmBiazJm+7+jvLTo2Tx+8yj8wo+QuBZ+JUsNcowcUuZm8A5ZMad6QmVBpRex1OwErwu6Eovd5zgxvVM7GaiVNFmBDXorZwwN57/gg+4cQZN9Yudm5oQHN0RDEd1JsOkM9ZBvh9FlMMRDtmaAkc3fqawK3WgI904Aju2AOEnZ4DDcASgllPQqLnVwImeGWFkE8FXOTH2FxAtACVoPcNaRiIekIZ3n4ttWxXy//SQ1nqfY5HiVxuET9kVyY+tCwMPV3nD6l0kN+XYd/8thsSACEJizHqn4BAVjVpTgaT6Qg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=NHmo65FQcou/O/bFc9HNnzMiOIqYMUqzok9XaGbdzw0=;
- b=SbHeM8gKWXlnY0vhZVm+X8Qvpwcq0/9Lsx33idor3zEAXusLe5ui3GjD82jbd7dBYhY2FuG+apkUhqG3qSia8MF/hplColYyYHGGYFS7HTQrs5VUWScGGgutGGtzXajDWggNoFsFvUe35OWOV4nlDA7V1lRcBdFsk4+L3CRBuMN4Pj8vG4eeDneankmXAU0UnTUpE95fjfbwe9tvaPfWBGPtMBpih7VtaeRaPkSgLeFuoFizrISBwvDxI84yY3+fjGi7cxH10I1FgB9Qos0gfesLt1JbT9GtYNjGDbrGHR5Y5MZadTBT5Gcz7jqemPPepqtgpMyed9GQry+U+uB5eg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=NHmo65FQcou/O/bFc9HNnzMiOIqYMUqzok9XaGbdzw0=;
- b=fi44SCb0HrFqn4rSO3DQ+ZRXoOWKt6IB8xRsv64ACUPYv1+ZotYYZ2Se6lL6QrzhFNjkgbGU+7/xNY2MsujCXfzqgyYQIsuD1/esiynZ/9tu4zRYnRr7piXyLFMUrVh0gEkpLafZHGoP6E/MzZoB6NjErQ17JH0qtWEQrwyp/iGytzGX3ZGbojJkxbLCVptwPSwBLtA+8xy+6yoLOd1ivP0y64aW57m5eLoJfZHZwWoS3ZHUhAly4dVEkAglyDD3mk7Nc8AuA+4WFpSDNC72QWV34KwkijLIxWfTJNpw2Aa9th2Oj8iJ7pms0MyLFRr9eAmXACS+SVRIyXJGMwsDng==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by DU4PR04MB10935.eurprd04.prod.outlook.com (2603:10a6:10:590::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Mon, 10 Mar
- 2025 14:50:48 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.025; Mon, 10 Mar 2025
- 14:50:48 +0000
-Date: Mon, 10 Mar 2025 10:50:38 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Fedor Pchelkin <pchelkin@ispras.ru>
-Cc: Peter Chen <peter.chen@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Joe Hattori <joe@pf.is.s.u-tokyo.ac.jp>,
-	Sebastian Reichel <sre@kernel.org>,
-	Fabien Lahoudere <fabien.lahoudere@collabora.co.uk>,
-	linux-usb@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	lvc-project@linuxtesting.org, stable@vger.kernel.org
-Subject: Re: [PATCH 1/3] usb: chipidea: ci_hdrc_imx: fix usbmisc handling
-Message-ID: <Z878PqYbtep0mOrx@lizhi-Precision-Tower-5810>
-References: <20250309175805.661684-1-pchelkin@ispras.ru>
- <20250309175805.661684-2-pchelkin@ispras.ru>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309175805.661684-2-pchelkin@ispras.ru>
-X-ClientProxiedBy: SJ2PR07CA0023.namprd07.prod.outlook.com
- (2603:10b6:a03:505::9) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Mon, 10 Mar 2025 14:53:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 59CCB5C64C4
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 14:51:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB680C4CEF5
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 14:53:46 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741618426;
+	bh=T1byhSalovt7F0xxmtayn6l/TfDh3IOHsRewKjBKIg4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZKphSPUpGt95pJpeccEaOTEtz9kvATosH3Kr/iI0APAJl4R/FVJt3k84YD75CTrEj
+	 Exyk6jg0wY3lblauy1wzOzohn1qi/jOxU+jDbOxAewZhiYv0adygg68E/0gSLGiaxf
+	 s62Zq1tnTJitd3msn2+YHms85hnUi02DVhQ00MM5tA8VNL4nQ8mqDKfwusqbo9ZyUw
+	 k1Dx82S+DjzJpn8eiTEy2VwdSzALs4hE3q5N9ltFsbxGh6ld5wkACJff3N/HwsHaam
+	 5t7IOCK/xiJdoI9qdzhXVytqO20pfYqjk0Bzw9evwli6++ttrMNbYJ20ADS5GBDL3F
+	 iIieqsBGdQIYg==
+Received: by mail-lj1-f170.google.com with SMTP id 38308e7fff4ca-30b83290b7bso48592451fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 07:53:46 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWF0GVaMfh7Z8dPq7eQDoa5GiFW1H75hPJTn7fvvb9l5XS+G3bIl+4IJPPcIq+iuK0rgXq7uSzoeAwoYxXdfOqw@lists.infradead.org
+X-Gm-Message-State: AOJu0YyHG4kWorxNa8NtJLoR0l7ZVx0VtVHMTi0fOKw5JtwU+OfL6xrZ
+	0lizGFNm9qy67gp4GLFlKa5AdeCkjZSyMZeVSwrwfLlWpm3+oA/0Lkf29dtrWL9n+8+ILEF2sne
+	nrD0G7sYvx8+cSWAMW+imqtje9Uk=
+X-Google-Smtp-Source: AGHT+IF1apSFV9m/ZWzifv+rgyg/saybyP5bff0NLLFQfEO9U3hAtgBsLVs2WNCdeMj08oliaCsK1IuFOe4HwIdg+1Y=
+X-Received: by 2002:a2e:9859:0:b0:30b:c5e7:6e61 with SMTP id
+ 38308e7fff4ca-30bf4535f34mr39347611fa.20.1741618424923; Mon, 10 Mar 2025
+ 07:53:44 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10935:EE_
-X-MS-Office365-Filtering-Correlation-Id: 79b6e215-b494-42c1-4faf-08dd5fe2f134
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?R0LuCIcsfWyC36MUxihs1E0h9E0l65CPuq9YQXcvHtwgQzvnzZ6F0tk/GoeP?=
- =?us-ascii?Q?qhAIF2yR/6xyppdnocHgB+u9ck9t0cGIeg6T3Q5EGttTo6v9qc54xzSuVuVi?=
- =?us-ascii?Q?vXDgkQZ9q9pXXi78/p+8URKL2azSsWSkrDFpeI4IiKOQQMFELVgcA1mrGkMP?=
- =?us-ascii?Q?g2txSJsVidtNFqQg/guqe/zERyfUbq2orwjdGXINnxvk9dZ6AP1zWd91m8cA?=
- =?us-ascii?Q?Y7m8PiMz6OLy1vrMU+4Ux3GX0n89vdqSeXOpdxPlu+2+c7P3TN7QTMUa/ZyR?=
- =?us-ascii?Q?qvkE+jMMQlca6fiLBidFwQ6tXhwVM6/F9Qw61Y8lhxcqUSY4ZbjuMC49Zg14?=
- =?us-ascii?Q?WqsK6HoaZ4ER2K73HiGhmM/I2dAINc2RIYncF36XFJBbtJ1r7kfp10biMgYT?=
- =?us-ascii?Q?8hzbw9OqzhtS8vH0dlLNNlrwOMP4mgBw03yaD8fd1c2LQ2EF659wHkYw6lp6?=
- =?us-ascii?Q?oWPQOYgbt3Chs8t3rx7JvXGhK6UbZ0Ike0rjA8xvNx1R0yZcCe7yRXD7q3Nv?=
- =?us-ascii?Q?8EMHwHHeanfoOU+SOkvVZtg43Rdwch0m1950uuzk4PtJv3PlCJzYEtWaHIhU?=
- =?us-ascii?Q?V5Ds5J6JEwHyrxXDClfn3E7oe/gRQZFP/Y+XrpVe7GPBur2DB8mflvyd3i7V?=
- =?us-ascii?Q?3vzbyJHLRNJDcFwmNsyFXrxm9fy6RvCgVy4x7+1BQvZkspl9OUsiJOQRzq04?=
- =?us-ascii?Q?LRzqkA9xPIyxhWbfNctT7HsMwCHeVNWV/Zhm64vMczgD+gpkKD4qc2hg/33O?=
- =?us-ascii?Q?GsGcP5MuKctzWQR5oKoMWDNP0KGD2B+SBjC9XJILNaoFnM2NzReFWbgQuNlB?=
- =?us-ascii?Q?dYTFuCeQasuzVYSLdc3tUBiny11r5lxLNWrRhJioX3Xn9zSGD08+QmjZvkzI?=
- =?us-ascii?Q?kcMGDx1R3YIZ9YGtHBrfXcjuQNl/qGMJBGTOy49aV7vv2T0QKyG5E9k0Hr/a?=
- =?us-ascii?Q?hth3WmHrp4Sdy+H+aWRDxDOSzku6sKowPZVM+5cykA2FHloe9hcrfN5rJrFy?=
- =?us-ascii?Q?YxCE2mr9W7Rs5V7/f1buXYruR0Dmfe6d+Ar/7Lu+U6YJOG1xGV6hlC6bUARX?=
- =?us-ascii?Q?IJSzxbK7JXXXQHbDAslqj/wo4IeEINBJC5z2peJOXLHkXcIOHTAHkATvKE9b?=
- =?us-ascii?Q?zMLZCcDY2RmTAeKHcM73LajLOds40moXvNsBQ+PL97EjIWvUzgoqcEQlLKpW?=
- =?us-ascii?Q?ptEVl9QryaEs7gD4xgXM5Aak3Yh0YKq1FuZFAY+6hJkXb0CnGpxC+K9e1sfu?=
- =?us-ascii?Q?WMaME4WrCSR8+QU0OyxbsFyym7F37WGtiiYNDho2Uo/2dfBrNs+khZKsbwHl?=
- =?us-ascii?Q?AKyLkW8tEqwOipzekvZJdFPYn/rLvmWKcWv5GPiv2LziV0hi8MOtkMDxuAkn?=
- =?us-ascii?Q?LGnQAnntiPDlWTiIem+hi6zP+BF//pBl1rnQi2oneYQVY/QmcnR51Z0Mgye6?=
- =?us-ascii?Q?Gezf6MKHqnWtWw/2EQYg/jxhRB24uL4A?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?bRrCgpTabFnv4XGBEDnNd4wVd10atnX8z154sbXiJyi6so3anU/DwQnqlyyf?=
- =?us-ascii?Q?MbD7758zgu6bt/I8jPihqcR+1VC1WZyuuvlTTGwrOaI87/w9h2AOCVvlP3LG?=
- =?us-ascii?Q?qiYHExhEKKfyzh2yvvi09Lwc5iupf6Ge5dSddkGNssFXGyYsoa6OkXAWoA/X?=
- =?us-ascii?Q?Os3HpY4RztTCG1KHwcHosOMTl1qQwDt/HR6OXL6DyRLq3Jz8YcBO86sRRS5v?=
- =?us-ascii?Q?0D+7YeAN50qkd0Mtw6aYcp0hgeFJngBBsWbjRj5sGWQUCMimcbRFyTGf8IsH?=
- =?us-ascii?Q?zfXE2eNFEpzByGqKAuiJWNMXIf1DXiPiBZ6pmUthkiRejg52Fw+tR+cbxsgc?=
- =?us-ascii?Q?6h0v5ovXfuuLHTXOVgTkOM5y2KtB4T+2+DABRmGx8aZZDu9SM+i2en38+7uI?=
- =?us-ascii?Q?Kos1LqQK8beQU8wl4ICLRjpJU/4KpIEyC5QafWpXXfYW+GybK3EQFU+pQ4r1?=
- =?us-ascii?Q?9DQ1GnyLk/psEgOGax2BpWKir7/k+W0YASM04ekArhzgjKD5BcwmH5bkevk7?=
- =?us-ascii?Q?KiKhwG3hABXhJ+C1PF4zUjP2QH4ZrWQ5mj0ifye7OXn2ZmIWYla1Afe+w24x?=
- =?us-ascii?Q?bQeyv3Mn+YI1mBZVU9Up0pMblaq/h8c0lk2R6fAmtn2SO5hoFEJ7XNmBjwv5?=
- =?us-ascii?Q?aR3KRL4cFLg1kw9AXPR+QIeVs1Ahpit/AsrIqS5/nxNaURfurgAUO6OEAg+j?=
- =?us-ascii?Q?0BCZ2e6inF5uPtjtOXKjyx4MEdnSUR/0peHBTiQXaLSVv4zBa5oAi+iAkDfm?=
- =?us-ascii?Q?1n93AUJpdcUB/7XppN8PGOzYH0D/CVTQGkaBxN0Y5wgxR5pWYhvxbZB30mFj?=
- =?us-ascii?Q?Br0ezYKyldUjzUpwpxV2tNISRVxrThkf0iTSPemX5qqbr0KEU2RWa0vGX0W7?=
- =?us-ascii?Q?Q+ApUv8oPZNyXq0MqV4Dyijkt1uKGyouXIIdHKUOZNczEd4Pw7GtVBhnit4m?=
- =?us-ascii?Q?RCz+By3P8Gzo+YWZVCLaRRasJBBiP3/BBPlLctHD7AO5XCh3u8OVAPT+UAM5?=
- =?us-ascii?Q?Y6aqOHiQvGUCDS2GcXWsVmnVltnT92T1jjs4zjOAz10gA/BUGKdBNFTQ/5Ii?=
- =?us-ascii?Q?1JhwYpRkfXVU8bXfZqXmTCz0hih7Z6tw5n7vJ5zY3LnSI00HHMJs7T60cpI8?=
- =?us-ascii?Q?G8yC9nE3StlXAuqFCuUWJd4AYPoVvhVviP5Q0nzqt3UkFJLoG8XELEcQgASI?=
- =?us-ascii?Q?y5zia2VDAKp0bg9qQZs5tsiG2GB8vzvC2YgYHGiimbZS/BvKAkLqC23XR6K6?=
- =?us-ascii?Q?uWwRZR+75oebkj6p8Zu+woVDjbJ4MpY/7nks63OwjCQVz+Nze4cWANv63hym?=
- =?us-ascii?Q?uASipeM40GFdm1RVb0jvBvDlvwzumZbHlmxlDiUOHiFYyICkmIIn/0Jlmfcn?=
- =?us-ascii?Q?/t6QM1G+T3RtRUk/4pP9XGvW6/mi1P4z29maE3KOyOQ605Z+S0TqgKYJt3vH?=
- =?us-ascii?Q?ELk0jVJjE+/Ui0FAe0U0DELuGEegopOzr1CmfdFkXA7edBK7wSUZ/rQmeDbg?=
- =?us-ascii?Q?eTsFNCFGN7UWAJEDOCwsiei1D4DQ7lO/lQw+3jz0mdznwEhNQV7euUMC2Y8n?=
- =?us-ascii?Q?S+U8nEp7INikOiynjCQ=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 79b6e215-b494-42c1-4faf-08dd5fe2f134
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Mar 2025 14:50:48.2810
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Jw4QznST9o9x30oYL4OoRTAt++LwmQ22AjIuwhjcUNav9KGN4zQe/799Bd3IlGn52rCepmkx13/TKqwthXaUlw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10935
+References: <20250310062812.216031-1-anshuman.khandual@arm.com>
+ <Z87FFqV03Pd0-NXl@J2N7QTR9R3.cambridge.arm.com> <b1fb982a-4936-4c18-aaad-3e8e8f61bccc@arm.com>
+ <Z876UI5-xGRHl4td@J2N7QTR9R3.cambridge.arm.com>
+In-Reply-To: <Z876UI5-xGRHl4td@J2N7QTR9R3.cambridge.arm.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 10 Mar 2025 15:53:33 +0100
+X-Gmail-Original-Message-ID: <CAMj1kXEZ86C8bouLt+xNkNr+L9AvCSQ2SZeJpLMtyvGo-8h6gw@mail.gmail.com>
+X-Gm-Features: AQ5f1Jr2rr6S3G8y4c5Ng2bpMQK5K8uitjzKua2mpJvGbKtVr89KWYpuQht0eG4
+Message-ID: <CAMj1kXEZ86C8bouLt+xNkNr+L9AvCSQ2SZeJpLMtyvGo-8h6gw@mail.gmail.com>
+Subject: Re: [PATCH V2] arm64/mm: Create level specific section mappings in map_range()
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Ryan Roberts <ryan.roberts@arm.com>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_075054_683287_33A67696 
-X-CRM114-Status: GOOD (  20.64  )
+X-CRM114-CacheID: sfid-20250310_075348_682555_8B25DCBA 
+X-CRM114-Status: GOOD (  35.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,56 +85,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 08:57:57PM +0300, Fedor Pchelkin wrote:
-> usbmisc is an optional device property so it is totally valid for the
-> corresponding data->usbmisc_data to have a NULL value.
+On Mon, 10 Mar 2025 at 15:42, Mark Rutland <mark.rutland@arm.com> wrote:
 >
-> Check that before dereferencing the pointer.
+> On Mon, Mar 10, 2025 at 01:48:53PM +0000, Ryan Roberts wrote:
+> > On 10/03/2025 10:55, Mark Rutland wrote:
+> > > On Mon, Mar 10, 2025 at 11:58:12AM +0530, Anshuman Khandual wrote:
+> > >> Currently PMD section mapping mask i.e PMD_TYPE_SECT is used while creating
+> > >> section mapping at all page table levels except the last level. This works
+> > >> fine as the section mapping masks are exactly the same (0x1UL) for all page
+> > >> table levels.
+> > >>
+> > >> This will change in the future with D128 page tables that have unique skip
+> > >> level values (SKL) required for creating section mapping at different page
+> > >> table levels. Hence use page table level specific section mapping macros
+> > >> instead of the common PMD_TYPE_SECT. While here also ensure that a section
+> > >> mapping is only created on page table levels which could support that on a
+> > >> given page size configuration otherwise fall back to create table entries.
+> > >>
+> > >> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> > >> Cc: Will Deacon <will@kernel.org>
+> > >> Cc: Ryan Roberts <ryan.roberts@arm.com>
+> > >> Cc: Ard Biesheuvel <ardb@kernel.org>
+> > >> Cc: linux-kernel@vger.kernel.org
+> > >> Cc: linux-arm-kernel@lists.infradead.org
+> > >> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+> > >> ---
+> > >> This patch applies on v6.14-rc6
+> > >>
+> > >> Changes in V2:
+> > >>
+> > >> - Dropped PGD_TYPE_SECT macro and its instance from map_range()
+> > >> - Create table entries on levels where section mapping is not possible
+> > >
+> > > On the last version, there was talk of an extant bug:
+> > >
+> > >   https://lore.kernel.org/all/5f1b36e2-6455-44d9-97b0-253aefd5024f@arm.com/
+> > >
+> > > ... did that turn out to not be the case?
+> >
+> > In the absence of Ard (or anyone else) telling me it's not a bug, then I'll
+> > continue to assert that it is a bug, and should have a Fixes tag, and Cc stable.
 >
-> Found by Linux Verification Center (linuxtesting.org) with Svace static
-> analysis tool.
+> Ok -- can we please have a description of the bug, and a fix
+> specifically for that, before we try to reshape this for D128?
+>
+> IIUC the problem is that for a sufficiently large (and aligned) extent
+> of physical memory, we might try to create a block mapping larger than
+> the HW supports?
+>
 
-I have not seen any words "linuxtesting.org" in linux source tree. I am
-not sure if it reproducable for other people. So this sense have not
-provide much useful information.
+Yes. However, this code is only called to map the kernel, the DTB and
+the ID map code and data pages, and so it seems unlikely that we'll
+hit this bug in practice.
 
-Fixes itself is good.
+Nonetheless, it is a shortcoming that we should address to avoid
+future surprises.
 
-Frank
+> With that in mind, my earlier comment about LPA2 and blocks at level-0
+> is particularly relevant...
+>
 
+Indeed - at the higher levels, there is quite some variation between
+page sizes, LPA2 vs !LPA2 etc in which level is the highest at which
+block mappings are supported.
+
+But given the context where this code is used, I'd prefer to simply
+map everything down to level 2 or higher (for 64-bit descriptors)
+rather than add elaborate rules for all these combinations that are
+never exercised in practice. The net result should be identical.
+
+...
 >
-> Fixes: 74adad500346 ("usb: chipidea: ci_hdrc_imx: decrement device's refcount in .remove() and in the error path of .probe()")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Fedor Pchelkin <pchelkin@ispras.ru>
-> ---
->  drivers/usb/chipidea/ci_hdrc_imx.c | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
+> Though TBH, maybe it makes more sense to split this up into separate
+> levels (as with the code in arch/arm64/mm/mmu.c) and handle each level
+> explicitly with a separate function. That way each level's check can be
+> handled within that level's function, and we can use the right types,
+> etc. It feels like that might be better for D128 in future?
 >
-> diff --git a/drivers/usb/chipidea/ci_hdrc_imx.c b/drivers/usb/chipidea/ci_hdrc_imx.c
-> index 1a7fc638213e..619779eef333 100644
-> --- a/drivers/usb/chipidea/ci_hdrc_imx.c
-> +++ b/drivers/usb/chipidea/ci_hdrc_imx.c
-> @@ -534,7 +534,8 @@ static int ci_hdrc_imx_probe(struct platform_device *pdev)
->  		cpu_latency_qos_remove_request(&data->pm_qos_req);
->  	data->ci_pdev = NULL;
->  err_put:
-> -	put_device(data->usbmisc_data->dev);
-> +	if (data->usbmisc_data)
-> +		put_device(data->usbmisc_data->dev);
->  	return ret;
->  }
->
-> @@ -559,7 +560,8 @@ static void ci_hdrc_imx_remove(struct platform_device *pdev)
->  		if (data->hsic_pad_regulator)
->  			regulator_disable(data->hsic_pad_regulator);
->  	}
-> -	put_device(data->usbmisc_data->dev);
-> +	if (data->usbmisc_data)
-> +		put_device(data->usbmisc_data->dev);
->  }
->
->  static void ci_hdrc_imx_shutdown(struct platform_device *pdev)
-> --
-> 2.48.1
->
+
+I have a slight inclination towards having a separate routine for
+D128, but I can easily be persuaded otherwise.
 
