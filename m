@@ -4,107 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AE68C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:48:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E21C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AKmw+VYlbnRg7vgRGNsJLfqevduWjYdjPL3zS35h19I=; b=Y4tas8RK3qG9liLrhHaVfWQXDK
-	9hoTMLCT4s9gK/MSOjtlP7CDJiJ5RDJYC0SjWAN+qJDHYuprXgxCbhIwikMByKbw+QjZl3D07YBGT
-	5OV3UBqLzeP/jG3ArPLjaQA57hIQ9pYnN/doLaW+xR/DJu0tVNyJGFINGoN6WVqvDsUsoO1gOI1FE
-	kIrR/KzQqKN1ykGC6eltcCkWL96BrAZOJuqPc2ijt9bl0Qk5MX++SCbEGQhv9Fjy6zNj0W3+mmlo4
-	5HG/aKqdbAGw6oCZbFDVuTuDOro3o1g7akzYcepPvfmz8OGnYFz1V/nzZD/bzgHUdQWxpEsWhC6pL
-	IhjGni8A==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pQyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=ja8gADbYJmopRXEqZw+Becrreh
+	6Z/akoG13EvUHFZA2TqorKX/RzQvqZDjkKtEaK57nTiANr1T5of4uxpW41xrQI79uSgTkk0d5lFuq
+	PkjUW92wTbRmXRuc4EVtky/J0XweTkRnqGEm0YW0crIG9SipQk1lhQaAiJSMdZRKNEcmRHRBWSmn2
+	LLXfoebGN/gbVw7MJnQEghkSAaw3yhMIBqeV8GO32nB8hT4+57wcLXakX7btp9L36EiNteIxdHZGw
+	etuZyeL8fmBcqywc6cBAdUfBMdoXGCFiIDOcnbet6d/dX81KQJG/ICoPOP2JsnjfxS3ImxsxJrk2w
+	TsDz13RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tragc-00000002J2q-30wv;
-	Mon, 10 Mar 2025 10:48:42 +0000
-Received: from nbd.name ([46.4.11.11])
+	id 1traiJ-00000002JaM-47bg;
+	Mon, 10 Mar 2025 10:50:28 +0000
+Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traaG-00000002HgH-3Xc9;
-	Mon, 10 Mar 2025 10:42:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=nbd.name;
-	s=20160729; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AKmw+VYlbnRg7vgRGNsJLfqevduWjYdjPL3zS35h19I=; b=QmqaspNYGCuZ0DeizoOna+/oF1
-	icgAPSB/W8HD049qUeSYCHsBYhd4Ln1rGHBHsvy44olFRaBRqZeFHAq0dFrvIFGf+GhnA4JJEjgEw
-	ANUuM63iKJtGRo+L08CSbHnxlOTX7w1cJ6ZNcRI0xrk8awhP6O66iac4guGeS2uiGaVg=;
-Received: from p5b206ef1.dip0.t-ipconnect.de ([91.32.110.241] helo=nf.local)
-	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96)
-	(envelope-from <nbd@nbd.name>)
-	id 1traZH-00FdO6-1p;
-	Mon, 10 Mar 2025 11:41:07 +0100
-Message-ID: <71ed8398-4619-4793-804d-77cad36e7402@nbd.name>
-Date: Mon, 10 Mar 2025 11:41:06 +0100
+	id 1trZO6-000000024uj-3ATS
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 09:25:31 +0000
+Received: from phl-compute-05.internal (phl-compute-05.phl.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id 27804114011F;
+	Mon, 10 Mar 2025 05:25:30 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-05.internal (MEProxy); Mon, 10 Mar 2025 05:25:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=testtoast.com;
+	 h=cc:cc:content-transfer-encoding:content-type:date:date:from
+	:from:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=fm1; t=1741598730; x=
+	1741685130; bh=pQyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=k
+	xyabCu0FH+tpmKT5FbxWp1SVxkWf5jFtHIRAiLJEeJtks6sRsS8v/GsrzYAk7Ol4
+	+dv0gXeQ/36ZzgaOI9baiGW/jcb3QxEx2b4jyOiHTqkztSNzLUlgHTSAqdhqFRlP
+	uSccfHBFvmwvcRRKQ8e4zhVrMLkOUdRdQAQdzUTgA1BR/VmBWhusqKukKcsQ44TF
+	QwPvJo1LYAH5I0/y0hpGVKUMxaEEuAwrZA/d4bYSo5rXU5vWVbo3N63dbtjydLwN
+	qF9cefmHalT1cQ/fV8y8HY5uRnKkLz3xKA3lxbHJXqmTrXwbiMJGRJgpftPYiCKN
+	9EcoZ6g1CWR5gBMJBzw8g==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:date:date:feedback-id:feedback-id:from:from
+	:in-reply-to:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
+	:x-me-sender:x-sasl-enc; s=fm1; t=1741598730; x=1741685130; bh=p
+	QyWylFAyJnMLkqiKKSxQk8VM67tzXzIRvPkj3Li65k=; b=m3l+9H4HDOzcYApdz
+	1U4ALKcqQg3TcahdWFBvxn73eqkZxZ2QF4WhU35NhZUJPuqFHs6RYZpSeefrmcNs
+	01sEA+ILI5uM0Yrpfeh/lK8+QOPqtmSkXMF/2601wYNb6ILDZje+RR8hoeiHQwjF
+	KVmeHB6KPedOsCAKL59akfVclOPQfOoWWMIBc1D0iH3elbf3w14Sy031DTV3e9Yz
+	UgQ57RTV5LxdyUp01DPWcESiOO3KF4Swwn5vs76V4BumG4BcMW0vMiIVyyrznqQO
+	L4X7hjQB0EjRcLyQOJCd/oODVSBldS7xGBfUYlaT+gqS7xQ4T1SZfUa6DxED3rrb
+	PXr+g==
+X-ME-Sender: <xms:CbDOZyHSPnFjnKtAa3B7TlIEuC7DjqIetGT-3IJfK1PJ-nuU5_g9Rg>
+    <xme:CbDOZzU660R9SB4Ctu_Ypm47fuA_2NHxZNr0raQO0RGd7eWnRwEvDYPOa5bAl1FmQ
+    9RdYo9yBtk5mj3cjg>
+X-ME-Received: <xmr:CbDOZ8K-r0RLjGGcK-y5uF42S1eXuSA839Lp29QqERBQephBvM1U4YNV9rP_MANg0zYKRqsmmPdMzDTR5NwjsPpshGaSmySIcJ3k9fUylP_0>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduudekleekucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdggtfgfnhhsuhgsshgtrhhisggv
+    pdfurfetoffkrfgpnffqhgenuceurghilhhouhhtmecufedttdenucesvcftvggtihhpih
+    gvnhhtshculddquddttddmnecujfgurhephffvvefufffkofgjfhgggfestdekredtredt
+    tdenucfhrhhomheptfihrghnucghrghlkhhlihhnuceorhihrghnsehtvghsthhtohgrsh
+    htrdgtohhmqeenucggtffrrghtthgvrhhnpeffheeiffegtdfgffejteevgeefkeelieel
+    keevueetffetteduffevgeeiieehteenucevlhhushhtvghrufhiiigvpedtnecurfgrrh
+    grmhepmhgrihhlfhhrohhmpehrhigrnhesthgvshhtthhorghsthdrtghomhdpnhgspghr
+    tghpthhtohepvdegpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehmrhhiphgrrh
+    gusehkvghrnhgvlhdrohhrghdprhgtphhtthhopeifvghnshestghsihgvrdhorhhgpdhr
+    tghpthhtohepmhgrrghrthgvnhdrlhgrnhhkhhhorhhstheslhhinhhugidrihhnthgvlh
+    drtghomhdprhgtphhtthhopehtiihimhhmvghrmhgrnhhnsehsuhhsvgdruggvpdhrtghp
+    thhtoheprghirhhlihgvugesghhmrghilhdrtghomhdprhgtphhtthhopegurghnihgvlh
+    esfhhffihllhdrtghhpdhrtghpthhtohepjhgvrhhnvghjrdhskhhrrggsvggtsehgmhgr
+    ihhlrdgtohhmpdhrtghpthhtohepshgrmhhuvghlsehshhholhhlrghnugdrohhrghdprh
+    gtphhtthhopehrohgshheskhgvrhhnvghlrdhorhhg
+X-ME-Proxy: <xmx:CbDOZ8Hw8X-6wMvozKlgNsFJUeZvvHg3uL0HJId7qNmgX05C71kjZQ>
+    <xmx:CbDOZ4WsgGTunXqN7PtPOG1V3pknYOw4KtZxA-c2x2Du770mMgUq2g>
+    <xmx:CbDOZ_OOS0cqihFHMUgAcqK8OIlcSPOKB3zWtwUUj57X5_JY_Zg3qQ>
+    <xmx:CbDOZ_3AOzIe08lYuy7kuASxhGwbVV5f5BWIMV1uwTAOyJhUg5dxWA>
+    <xmx:CrDOZ-kp90zEwP8XxCXCbO1M8XzFgTj4SrIV5SCysGZ2L5ZQxYhYHIr7>
+Feedback-ID: idc0145fc:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Mon,
+ 10 Mar 2025 05:25:22 -0400 (EDT)
+From: Ryan Walklin <ryan@testtoast.com>
+To: Maxime Ripard <mripard@kernel.org>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>,
+	Daniel Vetter <daniel@ffwll.ch>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>
+Cc: Andre Przywara <andre.przywara@arm.com>,
+	Chris Morgan <macroalpha82@gmail.com>,
+	Hironori KIKUCHI <kikuchan98@gmail.com>,
+	Philippe Simons <simons.philippe@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org,
+	linux-clk@vger.kernel.org,
+	Ryan Walklin <ryan@testtoast.com>
+Subject: [PATCH v8 11/11] drm: sun4i: de33: mixer: add mixer configuration for the H616
+Date: Mon, 10 Mar 2025 22:09:57 +1300
+Message-ID: <20250310092345.31708-12-ryan@testtoast.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250310092345.31708-1-ryan@testtoast.com>
+References: <20250310092345.31708-1-ryan@testtoast.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 RESEND] wifi: mt76: mt7915: add wds support when wed is
- enabled
-To: Shengyu Qu <wiagn233@outlook.com>, Ping-Ke Shih <pkshih@realtek.com>,
- "lorenzo@kernel.org" <lorenzo@kernel.org>,
- "ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
- "shayne.chen@mediatek.com" <shayne.chen@mediatek.com>,
- "sean.wang@mediatek.com" <sean.wang@mediatek.com>,
- "johannes@sipsolutions.net" <johannes@sipsolutions.net>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "angelogioacchino.delregno@collabora.com"
- <angelogioacchino.delregno@collabora.com>,
- "miriam.rachel.korenblit@intel.com" <miriam.rachel.korenblit@intel.com>,
- "howard-yh.hsu@mediatek.com" <howard-yh.hsu@mediatek.com>,
- "greearb@candelatech.com" <greearb@candelatech.com>,
- "chui-hao.chiu@mediatek.com" <chui-hao.chiu@mediatek.com>,
- "mingyen.hsieh@mediatek.com" <mingyen.hsieh@mediatek.com>,
- "quic_adisi@quicinc.com" <quic_adisi@quicinc.com>,
- "sujuan.chen@mediatek.com" <sujuan.chen@mediatek.com>,
- "gustavoars@kernel.org" <gustavoars@kernel.org>,
- "bo.jiao@mediatek.com" <bo.jiao@mediatek.com>,
- "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-References: <TYCPR01MB84376C7074C566865654F05098D42@TYCPR01MB8437.jpnprd01.prod.outlook.com>
- <b6b52bfcdb614137ac63fddfdaf9cb97@realtek.com>
- <OSZPR01MB843481965BA47B030566DF2698D62@OSZPR01MB8434.jpnprd01.prod.outlook.com>
-From: Felix Fietkau <nbd@nbd.name>
-Content-Language: en-US
-Autocrypt: addr=nbd@nbd.name; keydata=
- xsDiBEah5CcRBADIY7pu4LIv3jBlyQ/2u87iIZGe6f0f8pyB4UjzfJNXhJb8JylYYRzIOSxh
- ExKsdLCnJqsG1PY1mqTtoG8sONpwsHr2oJ4itjcGHfn5NJSUGTbtbbxLro13tHkGFCoCr4Z5
- Pv+XRgiANSpYlIigiMbOkide6wbggQK32tC20QxUIwCg4k6dtV/4kwEeiOUfErq00TVqIiEE
- AKcUi4taOuh/PQWx/Ujjl/P1LfJXqLKRPa8PwD4j2yjoc9l+7LptSxJThL9KSu6gtXQjcoR2
- vCK0OeYJhgO4kYMI78h1TSaxmtImEAnjFPYJYVsxrhay92jisYc7z5R/76AaELfF6RCjjGeP
- wdalulG+erWju710Bif7E1yjYVWeA/9Wd1lsOmx6uwwYgNqoFtcAunDaMKi9xVQW18FsUusM
- TdRvTZLBpoUAy+MajAL+R73TwLq3LnKpIcCwftyQXK5pEDKq57OhxJVv1Q8XkA9Dn1SBOjNB
- l25vJDFAT9ntp9THeDD2fv15yk4EKpWhu4H00/YX8KkhFsrtUs69+vZQwc0cRmVsaXggRmll
- dGthdSA8bmJkQG5iZC5uYW1lPsJgBBMRAgAgBQJGoeQnAhsjBgsJCAcDAgQVAggDBBYCAwEC
- HgECF4AACgkQ130UHQKnbvXsvgCgjsAIIOsY7xZ8VcSm7NABpi91yTMAniMMmH7FRenEAYMa
- VrwYTIThkTlQzsFNBEah5FQQCACMIep/hTzgPZ9HbCTKm9xN4bZX0JjrqjFem1Nxf3MBM5vN
- CYGBn8F4sGIzPmLhl4xFeq3k5irVg/YvxSDbQN6NJv8o+tP6zsMeWX2JjtV0P4aDIN1pK2/w
- VxcicArw0VYdv2ZCarccFBgH2a6GjswqlCqVM3gNIMI8ikzenKcso8YErGGiKYeMEZLwHaxE
- Y7mTPuOTrWL8uWWRL5mVjhZEVvDez6em/OYvzBwbkhImrryF29e3Po2cfY2n7EKjjr3/141K
- DHBBdgXlPNfDwROnA5ugjjEBjwkwBQqPpDA7AYPvpHh5vLbZnVGu5CwG7NAsrb2isRmjYoqk
- wu++3117AAMFB/9S0Sj7qFFQcD4laADVsabTpNNpaV4wAgVTRHKV/kC9luItzwDnUcsZUPdQ
- f3MueRJ3jIHU0UmRBG3uQftqbZJj3ikhnfvyLmkCNe+/hXhPu9sGvXyi2D4vszICvc1KL4RD
- aLSrOsROx22eZ26KqcW4ny7+va2FnvjsZgI8h4sDmaLzKczVRIiLITiMpLFEU/VoSv0m1F4B
- FtRgoiyjFzigWG0MsTdAN6FJzGh4mWWGIlE7o5JraNhnTd+yTUIPtw3ym6l8P+gbvfoZida0
- TspgwBWLnXQvP5EDvlZnNaKa/3oBes6z0QdaSOwZCRA3QSLHBwtgUsrT6RxRSweLrcabwkkE
- GBECAAkFAkah5FQCGwwACgkQ130UHQKnbvW2GgCeMncXpbbWNT2AtoAYICrKyX5R3iMAoMhw
- cL98efvrjdstUfTCP2pfetyN
-In-Reply-To: <OSZPR01MB843481965BA47B030566DF2698D62@OSZPR01MB8434.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_034208_964712_F5C4DB48 
-X-CRM114-Status: UNSURE (   8.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_022530_862601_16D4DB69 
+X-CRM114-Status: GOOD (  11.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,15 +134,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10.03.25 11:33, Shengyu Qu wrote:
->> if (IS_ENABLED(CONFIG_NET_MEDIATEK_SOC_WED) ... ?
-> I did a search in code about this, seems current MT76 code is using a
-> mix of IS_ENABLED and ifdef. And this file already have a ifdef
-> implementation. I prefer keep it as is and use another patch to convert
-> the whole mt76 driver.
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
 
-The driver uses #ifdef where it relies on struct members that are also 
-#ifdef'd out, and using IS_ENABLED would lead do build failures.
+The H616 (and related SoC packages sharing the same die) carry the new
+DE33 display engine.
 
-- Felix
+Add the mixer configuration and a compatible string for the H616 to the
+mixer.
+
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
+Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+
+--
+Changelog v7..v8:
+- Separate DE33 support and H616 enablement in the mixer.
+---
+ drivers/gpu/drm/sun4i/sun8i_mixer.c | 15 +++++++++++++++
+ 1 file changed, 15 insertions(+)
+
+diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+index 0bfd4b28b283..c9211a173a13 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+@@ -799,6 +799,17 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_cfg = {
+ 	.vi_num		= 1,
+ };
+ 
++static const struct sun8i_mixer_cfg sun50i_h616_mixer0_cfg = {
++	.ccsc		= CCSC_MIXER0_LAYOUT,
++	.de_type	= sun8i_mixer_de33,
++	.mod_rate	= 600000000,
++	.scaler_mask	= 0xf,
++	.scanline_yuv	= 4096,
++	.ui_num		= 3,
++	.vi_num		= 1,
++	.map		= {0, 6, 7, 8},
++};
++
+ static const struct of_device_id sun8i_mixer_of_table[] = {
+ 	{
+ 		.compatible = "allwinner,sun8i-a83t-de2-mixer-0",
+@@ -844,6 +855,10 @@ static const struct of_device_id sun8i_mixer_of_table[] = {
+ 		.compatible = "allwinner,sun50i-h6-de3-mixer-0",
+ 		.data = &sun50i_h6_mixer0_cfg,
+ 	},
++	{
++		.compatible = "allwinner,sun50i-h616-de33-mixer-0",
++		.data = &sun50i_h616_mixer0_cfg,
++	},
+ 	{ }
+ };
+ MODULE_DEVICE_TABLE(of, sun8i_mixer_of_table);
+-- 
+2.48.1
+
 
