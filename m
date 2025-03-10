@@ -4,71 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F61FC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:05:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50907C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:05:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2m1f1Q0Xp3yYYFi1aHZoS/0l4HxK86VOxEt75O7eedQ=; b=uCY7bvxE5ME5SDCs0zHyPkXXvB
-	566oiLnhZTZKmOWWO7fajI0wU2/DVzx8SCwct7HIod1zGn1eIHbGOJk21bAIhvmCkRdmDSXV4kgqx
-	PVMgibM2lpPajcNPJFLdhXkDPWNXx3hfRKiSqw7sMnJwriet6OJ1U2HaWjbMxopdEOJ4LOgXWLIRJ
-	L2kT72Zo2p/bNDDVfOsFrmvB66ZSyBivOUZUDXxH6TT3beF+1IsqoyzdT8I25G7mx99zr+ZIjaIzV
-	umuN2xABjPA0iYcYT4pb4i1RoZC5bwAXKvDyAMuLpjwMwYTpEl/i1G6iEda+fXhI7BEZWUefCYJkQ
-	xIIXiWEg==;
+	bh=yeXejWd0sNA8dlRAS4PeSZftgNVIbz4Wk1iG2Hn85C8=; b=BJ8F1D1Xqx4UwPoUX3nGU0hqp3
+	Do7MYoepuNa+6syb37SGYmpVQBf0n9yI7zgIhcHdghVH/HxLpebiUXIz884HL9VkoXxCMY3ev3+8z
+	4hWU/vWYtsbAYBeB/0qpIcEIXQa4ZPT41HUBBlWoYSyQiEdUPVwD79vi9zx+ix0abvv/6eBlvYRkV
+	jc+jJSg/RDm/ZwWK+vGpE8nyWejC4YYU5LkQCUwldF+078Oxvb282Yc25jshKbbcPiyyX413RABvm
+	fR2zjX3SxGSyyg9hfBmcMtu73Yd7WKuMlCl1yy0IIbe52fcP1W8DnnIJs3kb4W/ybh1Oc8FgKoo+T
+	rFZ12WQA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trhVM-00000003YsX-1RYz;
-	Mon, 10 Mar 2025 18:05:32 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1treyM-00000003AEz-2uN9;
-	Mon, 10 Mar 2025 15:23:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741620197;
-	bh=FsrNob6nsYTinqMDLQnwxWB5JuebUVtbm6f9dPHEPmw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ezMjG42PQoCUvWJwyE1etSVSl2pOVbYTTFBd+tpINRFgO3taiRrn8PtdywMYwaP4x
-	 aTwgNJu0MysIGfmJ2Y8sHI64TdtqS5u8bua/d9GF5qTejC+S0qNN5kMlpPQ1fTWlp/
-	 NoJJ2+vAM5BdzXw42ug76qMeVZz3GIDlHBhIa5+Si+sSKb+yL1/eypZ/4pm2eYfNaP
-	 0slTx2WoQjntpRwnDmIYjn+6I/ng4efwbcW3w+BOM52iCIzH4UWksnoHdIe87SDUQC
-	 8R4PYUlwjdJQN+7k76aBvSvQD1IDaLwLSVixwpsgO0iNi0OV7SY/tXsGmptVsYu3rf
-	 WCRYwVYeVW+Sg==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 54CA417E0649;
-	Mon, 10 Mar 2025 16:23:16 +0100 (CET)
-Message-ID: <b5fd1376-6abb-40c1-b3f0-238e2b0056fa@collabora.com>
-Date: Mon, 10 Mar 2025 16:23:15 +0100
+	id 1trhVO-00000003Yun-1Ki0;
+	Mon, 10 Mar 2025 18:05:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trg8S-00000003Mcw-0TXA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 16:37:49 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A2CCB1692;
+	Mon, 10 Mar 2025 09:37:58 -0700 (PDT)
+Received: from [10.57.39.43] (unknown [10.57.39.43])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 99ADE3F5A1;
+	Mon, 10 Mar 2025 09:37:45 -0700 (PDT)
+Message-ID: <3f4354e7-e74b-4ce9-b0c7-4be103cbc94d@arm.com>
+Date: Mon, 10 Mar 2025 16:37:44 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 01/14] ASoC: mediatek: common: modify mtk afe common
- driver for mt8196
-To: "Darren.Ye" <darren.ye@mediatek.com>, Liam Girdwood
- <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, Linus Walleij <linus.walleij@linaro.org>,
- Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: linux-sound@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-gpio@vger.kernel.org
-References: <20250307124841.23777-1-darren.ye@mediatek.com>
- <20250307124841.23777-2-darren.ye@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250307124841.23777-2-darren.ye@mediatek.com>
+Subject: Re: [PATCH v2 5/8] coresight: etm: Add an attribute for updating
+ buffer
+Content-Language: en-GB
+To: Leo Yan <leo.yan@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>,
+ Jonathan Corbet <corbet@lwn.net>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Arnaldo Carvalho de Melo <acme@redhat.com>,
+ Namhyung Kim <namhyung@kernel.org>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250310104919.58816-1-leo.yan@arm.com>
+ <20250310104919.58816-6-leo.yan@arm.com>
+ <d8b1cf1f-1996-4d9c-9f1a-fad556f91577@arm.com>
+ <20250310155015.GG9682@e132581.arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250310155015.GG9682@e132581.arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_082318_884352_7DAE6CA8 
-X-CRM114-Status: GOOD (  25.12  )
+X-CRM114-CacheID: sfid-20250310_093748_200273_82DAF746 
+X-CRM114-Status: GOOD (  21.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,131 +73,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 07/03/25 13:47, Darren.Ye ha scritto:
-> From: Darren Ye <darren.ye@mediatek.com>
+On 10/03/2025 15:50, Leo Yan wrote:
+> On Mon, Mar 10, 2025 at 01:29:26PM +0000, Suzuki Kuruppassery Poulose wrote:
+>> Hi Leo
+>>
+>> On 10/03/2025 10:49, Leo Yan wrote:
+>>> Add an attribute for updating buffer when the AUX trace is paused.  And
+>>> populate the value to the 'update_buf_on_pause' flag during the AUX
+>>> setting up.
+>>
+>> Do we need this attribute in the uAPI ?
 > 
-> Export register read and write interface, add sample reate interface, and
-> update the mtk_memif_set_channel interface for the mt8196 platform.
+> This uAPI allows users to perform AUX pause and resume without the long
+> latency caused by copying hardware trace data.
 > 
-> Signed-off-by: Darren Ye <darren.ye@mediatek.com>
-> ---
->   sound/soc/mediatek/common/mtk-afe-fe-dai.c | 30 ++++++++++++++--------
->   sound/soc/mediatek/common/mtk-afe-fe-dai.h |  6 +++++
->   sound/soc/mediatek/common/mtk-base-afe.h   | 13 ++++++++++
->   3 files changed, 38 insertions(+), 11 deletions(-)
+> E.g., a user can specify a large AUX buffer size using option "-m,128M".
+> If the buffer is considered large enough to accommodate hardware trace
+> data for a small program, the 'update_buf_on_pause' flag can be set to
+> false, the copying will be deferred until the end of the perf session.
 > 
-> diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.c b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-> index 3809068f5620..c36dae520f04 100644
-> --- a/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-> +++ b/sound/soc/mediatek/common/mtk-afe-fe-dai.c
-> @@ -18,7 +18,7 @@
->   
->   #define AFE_BASE_END_OFFSET 8
->   
-> -static int mtk_regmap_update_bits(struct regmap *map, int reg,
-> +int mtk_regmap_update_bits(struct regmap *map, int reg,
->   			   unsigned int mask,
->   			   unsigned int val, int shift)
->   {
-> @@ -26,13 +26,16 @@ static int mtk_regmap_update_bits(struct regmap *map, int reg,
->   		return 0;
->   	return regmap_update_bits(map, reg, mask << shift, val << shift);
->   }
-> +EXPORT_SYMBOL(mtk_regmap_update_bits);
+> I am bias to keep this uAPI.  If you prefer to remove it, I am also
+> fine with that.
+> 
+>> Could we do this by default for
+>> sinks without interrupt ? This definitely improves the quality of trace
+>> collected for such sinks and the driver can transparently do this.
+> 
+> How about we dynamically set the default flag in the Perf tool?
+> 
+> - If users set explictly the 'update_buf_on_pause' flag, then the
+>    setting will be respected.
+> - If users don't set the flag, perf tool detects it is TRBE sinks,
+>    then it can set 'update_buf_on_pause' flag as false.
 
-Please don't export this function: it's not the greatest, `reg` should be unsigned
-and so it should the shift - it's kinda wrong in principle, and you can simply use
-regmap_update_bits() directly in your drivers. Please, do so.
+Not really possible. There could be systems with mixed sinks. e.g.  TRBE
+for some CPU and ETR for others (say due to a non-functioning TRBE).
 
-> +
-> +int mtk_regmap_write(struct regmap *map, int reg, unsigned int val)
->   
-> -static int mtk_regmap_write(struct regmap *map, int reg, unsigned int val)
->   {
->   	if (reg < 0)
->   		return 0;
->   	return regmap_write(map, reg, val);
->   }
-> +EXPORT_SYMBOL(mtk_regmap_write);
->   
+> - If users don't set the flag, perf tool detects it is ETF/ETB/ETR
+>    sinks, it sets the flag as true.
 
-Same here
+And in the cases above, perf event cannot run on all the CPUs, because
+some sinks don't support it.
 
->   int mtk_afe_fe_startup(struct snd_pcm_substream *substream,
->   		       struct snd_soc_dai *dai)
-> @@ -459,8 +462,12 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
->   	struct mtk_base_afe_memif *memif = &afe->memif[id];
->   	unsigned int mono;
->   
-> -	if (memif->data->mono_shift < 0)
-> -		return 0;
-> +	dev_info(afe->dev, "%s(), id: %d, channel: %d\n", __func__, id, channel);
+Why do we need a flag, when the effect is not user (read, perf decoder)
+  visible and at the same time improves some scenarios (read non-TRBE 
+cases) ?
 
-If you really really really need this print, it's for debugging, so this should be
-dev_dbg() instead... but otherwise just delete it.
+I would say, let the driver always update on pause, depending on the
+sink.
 
-> +	mono = memif->data->mono_invert ^ (channel == 1);
-> +
-> +	if (memif->data->mono_shift > 0)
-> +		mtk_regmap_update_bits(afe->regmap, memif->data->mono_reg,
-> +				       0x1, mono, memif->data->mono_shift);
->   
->   	if (memif->data->quad_ch_mask) {
->   		unsigned int quad_ch = (channel == 4) ? 1 : 0;
-> @@ -470,11 +477,6 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
->   				       quad_ch, memif->data->quad_ch_shift);
->   	}
->   
-> -	if (memif->data->mono_invert)
-> -		mono = (channel == 1) ? 0 : 1;
-> -	else
-> -		mono = (channel == 1) ? 1 : 0;
-> -
->   	/* for specific configuration of memif mono mode */
->   	if (memif->data->int_odd_flag_reg)
->   		mtk_regmap_update_bits(afe->regmap,
-> @@ -482,8 +484,14 @@ int mtk_memif_set_channel(struct mtk_base_afe *afe,
->   				       1, mono,
->   				       memif->data->int_odd_flag_shift);
->   
-> -	return mtk_regmap_update_bits(afe->regmap, memif->data->mono_reg,
-> -				      1, mono, memif->data->mono_shift);
+Suzuki
 
-Don't break older platforms. You're removing functionality here.
 
-> +	if (memif->data->ch_num_maskbit) {
-> +		dev_info(afe->dev, "%s(), set ch num id: %d, channel: %d\n", __func__, id, channel);
-
-Same comment applies (plus, this is a double print, even worse).
-
-> +		mtk_regmap_update_bits(afe->regmap, memif->data->ch_num_reg,
-> +				       memif->data->ch_num_maskbit,
-> +				       channel, memif->data->ch_num_shift);
-> +	}
-> +
-> +	return 0;
->   }
->   EXPORT_SYMBOL_GPL(mtk_memif_set_channel);
->   
-> diff --git a/sound/soc/mediatek/common/mtk-afe-fe-dai.h b/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-> index b6d0f2b27e86..64b10ccba291 100644
-> --- a/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-> +++ b/sound/soc/mediatek/common/mtk-afe-fe-dai.h
-> @@ -12,7 +12,13 @@
->   struct snd_soc_dai_ops;
->   struct mtk_base_afe;
->   struct mtk_base_afe_memif;
-> +struct mtk_base_irq_data;
->   
-> +int mtk_regmap_update_bits(struct regmap *map, int reg,
-> +			   unsigned int mask, unsigned int val,
-> +			   int shift);
-> +int mtk_regmap_write(struct regmap *map, int reg,
-> +		     unsigned int val);
-
-No, don't export these. Use regmap directly.
-
-Regards,
-Angelo
+> 
+> Thanks,
+> Leo
 
 
