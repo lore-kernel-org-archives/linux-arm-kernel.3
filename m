@@ -4,94 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFC40C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:37:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5980C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 15:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZPurFq/fNhKB6tsK5KqiD0Uogf6Ze1eS/AV3KtY1Z/8=; b=TXkS21nywihd4gLm5b4+6dEngG
-	+ClbZu3XARQzJP55X+c2z4BHDwektCxPWRJMPte70kaRU7ZpxGdmhHJ8fvFxFEi4muxm+aeTez82F
-	ax2bqZIFum3RENAXIyhYLxwn+UY/dqyWwaP7MLClx/mzgZKeHw08EL98OHTdgx5/t7YqEMeHg0b4x
-	iefvW7kGwrtlLuGLqh9YdqGYcJxBQAUz1TWWDtBYK40o4hvvDlE0U+PuhDWklQ7evnuSJYIlbc2wr
-	h6L9nuk+GBFUIng/EVJseLCvWoKYEf9QsUELwLk6Q9rtrvfpkm0tx1mUcISLzA/DWDwQRMkUWdIkc
-	Grxr9l+g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fakP73+t3wZ6cPJO5poZuRakmtAoPG29U0ZRKZK9GnU=; b=JTSCgV+dp0fbFPjsVfofuoIzMe
+	e4ToI1Tai/PxH9WmfMTeL9tIkL/GBVzTyEcxxTa6RmvBsvZlQcVnL8CR9dYz++X3sQupGnqUkdm1b
+	glshTMf8aJWRn9j6khGW6as/RNY5rWXdqnF0Oeos+CcjBPkiC5sK/zRbXhvXr+CjyaUoW1MRpzg3q
+	aZIYiYQjkUwl4sxD14JQKJ8fRpnlVLUlqaElsHkBftVcJ8DmvIdXVPLgfQxTUyDS8hdQdE+rtsxI1
+	58DUQcWGF8YiHqIVGAQGj1A2rqJ7EkFTYPMywGslsgyI+OkLscG5fOr+QPZEhXieQSg5uzYAvWm+L
+	TWaAoMgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trfBT-00000003CHO-0t7D;
-	Mon, 10 Mar 2025 15:36:51 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1trfD4-00000003CVv-3i5i;
+	Mon, 10 Mar 2025 15:38:30 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1treE1-00000002wbB-2uPd
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 14:35:26 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-224341bbc1dso46892235ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 10 Mar 2025 07:35:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741617325; x=1742222125; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ZPurFq/fNhKB6tsK5KqiD0Uogf6Ze1eS/AV3KtY1Z/8=;
-        b=BB3cD+inPntbyIt7oo7M5FF0fFTMmDIe6bXawjeKXeLMlbUaMRSznjqSrD5AMn21JQ
-         vzYQDDnuo4Ikw/1vcC7UWHgtmW3MbI5QI4XYAbMjDanCsa+diuOwViQHgb5aTiGKdTOw
-         MtLD2IkbhFmxOFmBiGG77pmXhk5Vv3eDEAkTLn+3bmxXvKpUutH8+XEU/kZJgIB+lKyn
-         uSEkwactFOm3/PeTFDZgBcwLx9LUOZwhX6D4o9U1XuEpJgbcntxs5PdHUHo08EeKwRCX
-         e2WES5h3wS9paGGr3+x0fg5fIknj/4mNVGgX5ldsOARFH7wXr//h8q2OdwiZIe9BD5bC
-         UNOQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741617325; x=1742222125;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZPurFq/fNhKB6tsK5KqiD0Uogf6Ze1eS/AV3KtY1Z/8=;
-        b=bP2q48dSHMpr7P9fwvhhfXMVv/ziNSEghSDDC137pBUZ5WxtxbUAXNHe8EH6PoK1/c
-         5z88kWQjiNWajprmqMQSBs9nQoTIK6oMIc9J+n/JglREU9rqLjlIAKK66rxhVPHJ9Num
-         5eACXFkjQ5ZMaIGZF3Z8ieHGAz0PQ4J3pwFKm4eZs09SR8MAOqPxiRW9kQELjpflhfrk
-         Xk9rgn8uqZUsyUUxWOY2ly8lPZjP8gcr2L9iybhdqcGHA9KgcAby7sxiQ9saDYyAgr5A
-         xco72vR1H3F1YfvXQz9XFToyFvLT5rQjZPTiBUw7B/4ExJVXWRgoKu7lBwntifNpmNoC
-         MPXg==
-X-Forwarded-Encrypted: i=1; AJvYcCV3p3kQh6DfDruziHfCL4JV53aWSQ8I5swNAH9fUT9OFh9vAspzR7yS0A3wkQ3mdHO7x6ujgkgVxAAYMV82Tfry@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzkp+irb1QUHBfxOlbMrdz5FIzMZu8KRgO9x+KfJr1lcNflKPSF
-	ri+PwR1mqV3j/3SlOAsCbLXKYW+iVw5f8XkPmNbzq2YXTRtE7puu
-X-Gm-Gg: ASbGncuYuSRmgfEK+i5Efl4qaxDIRi0UjyYoeKMKQ2jYYRjLPZPtr8ON/wqvx2mc2a/
-	EDNeY+7RpZgkRvM+DQ0JKMqu+tVm/85lGRhbRVmyMxCk/qjupuYrBZPITUs0PFaHMxybMoRniNV
-	ppjF8E48stIGdwpiC6KD/+ysr6q7rSoQWIs6/7T4TzstmTQtoD+ab/5Kc9t5XOIwtuLdYE1jwwm
-	WprTzOvh66dxVh47x/IkJL1v+P4dHChh8A7fqV1LZdugDE69zUX3/bSaekO13eS1DcSZbG4ea15
-	oAWZOnp0eUuP8qaTv2XDyJXkvOhiWsNO8kT3YZCjY+5NTYOqcmaB6ynmEJL47YhnoZFC8A==
-X-Google-Smtp-Source: AGHT+IFlxn30vbYNMpCGqOkZQC/33f6L8EuwlU4MuG+cJmyHdrmp3tS4C+2fi8L46Nfo+WlDit4hVA==
-X-Received: by 2002:a05:6a21:618f:b0:1f5:6b36:f574 with SMTP id adf61e73a8af0-1f58cbdd3e9mr5565637.38.1741617324889;
-        Mon, 10 Mar 2025 07:35:24 -0700 (PDT)
-Received: from localhost.localdomain ([103.221.69.50])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af281096763sm7785900a12.30.2025.03.10.07.35.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 10 Mar 2025 07:35:24 -0700 (PDT)
-From: Anand Moon <linux.amoon@gmail.com>
-To: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	"Rafael J. Wysocki" <rafael@kernel.org>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Zhang Rui <rui.zhang@intel.com>,
-	Lukasz Luba <lukasz.luba@arm.com>,
-	Alim Akhtar <alim.akhtar@samsung.com>,
-	linux-pm@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-samsung-soc@vger.kernel.org (open list:SAMSUNG THERMAL DRIVER),
-	linux-arm-kernel@lists.infradead.org (moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES),
-	linux-kernel@vger.kernel.org (open list)
-Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v4 4/4] drivers/thermal/exymos: Use guard notation when acquiring mutex
-Date: Mon, 10 Mar 2025 20:04:45 +0530
-Message-ID: <20250310143450.8276-5-linux.amoon@gmail.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250310143450.8276-1-linux.amoon@gmail.com>
-References: <20250310143450.8276-1-linux.amoon@gmail.com>
-MIME-Version: 1.0
+	id 1treEw-00000002wm1-1gD2;
+	Mon, 10 Mar 2025 14:36:23 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D3F695C66D4;
+	Mon, 10 Mar 2025 14:34:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2BD09C4CEED;
+	Mon, 10 Mar 2025 14:36:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741617381;
+	bh=7EEMVaFexgLc6pVJL7mrzAPNCcixahyfiK4unhrdXiw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=AFQ+7R+aRontN6fPv0/HgRdTHM+2jCP8gLb3fFNBIIqBjJgaSNZTzlJCpJtDit3DX
+	 /k7CpIG8MNvyoClOmWfI+0zuclf7yQvycIW8C7dCSVE75gQbDGVXqUYFk6G6pnF3Fv
+	 5ttun5Y6xWEc0030EoS7Cryb86LEPT61w+DREAfr0zc8NtCYArA7opqJPX3zZejakD
+	 y7lymlPh1tiGqaRt2rlgq3lbTbJZNgSCfbFvAoBdqj23xJ8aEtQ2yAWxmfYgybRN/j
+	 aY+SDuFXh1C5SKGHOmd56vXuuGxCtD+0MwvNpdeO3bVdearATPNJLwGPKz0vpjUM1a
+	 ZnNR0JNtov2pw==
+Date: Mon, 10 Mar 2025 09:36:20 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Arnd Bergmann <arnd@arndb.de>, Stephen Boyd <sboyd@kernel.org>, 
+ Ben Hutchings <ben@decadent.org.uk>, Conor Dooley <conor+dt@kernel.org>, 
+ Guo Ren <guoren@kernel.org>, Felix Fietkau <nbd@nbd.name>, 
+ upstream@airoha.com, Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, Lee Jones <lee@kernel.org>, 
+ devicetree@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, 
+ Michael Turquette <mturquette@baylibre.com>, linux-clk@vger.kernel.org, 
+ Nikita Shubin <nikita.shubin@maquefel.me>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ linux-phy@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Daniel Danzberger <dd@embedd.com>, Yangyu Chen <cyy@cyyself.name>, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-usb@vger.kernel.org, Linus Walleij <linus.walleij@linaro.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+In-Reply-To: <20250309132959.19045-1-ansuelsmth@gmail.com>
+References: <20250309132959.19045-1-ansuelsmth@gmail.com>
+Message-Id: <174161712595.4185316.12073621496624773779.robh@kernel.org>
+Subject: Re: [PATCH 00/13] airoha: en7581: clk cleanup + USB support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_073525_732420_787043B0 
-X-CRM114-Status: GOOD (  17.90  )
+X-CRM114-CacheID: sfid-20250310_073622_526565_D33DCF1E 
+X-CRM114-Status: GOOD (  25.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,153 +84,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Using guard notation makes the code more compact and error handling
-more robust by ensuring that mutexes are released in all code paths
-when control leaves critical section.
 
-Signed-off-by: Anand Moon <linux.amoon@gmail.com>
----
-v4: used DEFINE_GUARD macro to guard exynos_tmu_data structure.
-    However, incorporating guard(exynos_tmu_data)(data); results
-    in a recursive deadlock with the mutex during initialization, as this
-    data structure is common to all the code configurations of Exynos TMU
-v3: New patch
----
- drivers/thermal/samsung/exynos_tmu.c | 25 +++++++++++--------------
- 1 file changed, 11 insertions(+), 14 deletions(-)
+On Sun, 09 Mar 2025 14:29:31 +0100, Christian Marangi wrote:
+> This series implement all the changes required to correctly handle
+> USB support for the Airoha EN7581 SoC.
+> 
+> The first few patch are cleanup for the clock driver and the
+> introduction of the SCU SSR SoC driver.
+> 
+> The SoC always support USB 2.0 but for USB 3.0 it needs additional
+> configuration for the Serdes port. Such port can be either configured
+> for USB usage or for PCIe lines or HSGMII and these are configured
+> in the SCU space.
+> 
+> To correctly handle this, the SCU is changed to a simple-mfd
+> implemenetation and the clock controller updated to follow this new
+> node structure. Both implementation are supported to handle old
+> binding.
+> 
+> The xHCI USB is based on the Mediatek implementation but the PHY
+> handling although conceptually similar, is indded different compared
+> to Mediatek due to SSR checks and different port power up.
+> 
+> The SSR driver expose an API to poll the current status of the Serdes
+> port and the USB PHY driver validates it. Refer to the specific commit
+> for additional info.
+> 
+> Consider that there is currently an inconsistency as AN7581 and
+> EN7581 refer to the same thing. This is due to the fact that
+> the SoC born under EcoNet but then was acquired by Airoha.
+> 
+> Christian Marangi (13):
+>   clk: en7523: convert driver to regmap API
+>   clk: en7523: generalize register clocks function
+>   dt-bindings: soc: airoha: add SCU SSR Serdes port binding
+>   dt-bindings: soc: airoha: add Documentation for Airoha AN7581 SCU SSR
+>   dt-bindings: mfd: add Documentation for Airoha EN7581 SCU
+>   dt-bindings: clock: airoha: make reg optional for Airoha EN7581
+>   clk: en7523: support getting regmap from parent node for EN7581
+>   soc: airoha: add support for configuring SCU SSR Serdes port
+>   dt-bindings: phy: Add documentation for Airoha AN7581 USB PHY
+>   phy: airoha: Add support for Airoha AN7581 USB PHY
+>   usb: host: add ARCH_AIROHA in XHCI MTK dependency
+>   arm64: dts: airoha: en7581: convert SCU clock node to MFD
+>     implementation
+>   arm64: dts: airoha: en7581: add USB and SCU SSR nodes
+> 
+>  .../bindings/clock/airoha,en7523-scu.yaml     |  13 +-
+>  .../mfd/airoha,en7581-scu-sysctl.yaml         |  68 +++
+>  .../bindings/phy/airoha,an7581-usb-phy.yaml   | 106 ++++
+>  .../soc/airoha/airoha,an7581-scu-ssr.yaml     | 106 ++++
+>  MAINTAINERS                                   |  15 +
+>  arch/arm64/boot/dts/airoha/en7581.dtsi        |  74 ++-
+>  drivers/clk/clk-en7523.c                      | 258 ++++----
+>  drivers/phy/Kconfig                           |   1 +
+>  drivers/phy/Makefile                          |   3 +-
+>  drivers/phy/airoha/Kconfig                    |  13 +
+>  drivers/phy/airoha/Makefile                   |   3 +
+>  drivers/phy/airoha/phy-airoha-usb.c           | 554 ++++++++++++++++++
+>  drivers/soc/Kconfig                           |   1 +
+>  drivers/soc/Makefile                          |   1 +
+>  drivers/soc/airoha/Kconfig                    |  18 +
+>  drivers/soc/airoha/Makefile                   |   3 +
+>  drivers/soc/airoha/airoha-scu-ssr.c           | 195 ++++++
+>  drivers/usb/host/Kconfig                      |   2 +-
+>  include/dt-bindings/soc/airoha,scu-ssr.h      |  24 +
+>  include/linux/soc/airoha/airoha-scu-ssr.h     |  17 +
+>  include/linux/soc/soc/airoha-scu-ssr.h        |  17 +
+>  21 files changed, 1355 insertions(+), 137 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/mfd/airoha,en7581-scu-sysctl.yaml
+>  create mode 100644 Documentation/devicetree/bindings/phy/airoha,an7581-usb-phy.yaml
+>  create mode 100644 Documentation/devicetree/bindings/soc/airoha/airoha,an7581-scu-ssr.yaml
+>  create mode 100644 drivers/phy/airoha/Kconfig
+>  create mode 100644 drivers/phy/airoha/Makefile
+>  create mode 100644 drivers/phy/airoha/phy-airoha-usb.c
+>  create mode 100644 drivers/soc/airoha/Kconfig
+>  create mode 100644 drivers/soc/airoha/Makefile
+>  create mode 100644 drivers/soc/airoha/airoha-scu-ssr.c
+>  create mode 100644 include/dt-bindings/soc/airoha,scu-ssr.h
+>  create mode 100644 include/linux/soc/airoha/airoha-scu-ssr.h
+>  create mode 100644 include/linux/soc/soc/airoha-scu-ssr.h
+> 
+> --
+> 2.48.1
+> 
+> 
+> 
 
-diff --git a/drivers/thermal/samsung/exynos_tmu.c b/drivers/thermal/samsung/exynos_tmu.c
-index a71cde0a4b17e..85f88c5e0f11c 100644
---- a/drivers/thermal/samsung/exynos_tmu.c
-+++ b/drivers/thermal/samsung/exynos_tmu.c
-@@ -12,6 +12,7 @@
-  */
- 
- #include <linux/clk.h>
-+#include <linux/cleanup.h>
- #include <linux/io.h>
- #include <linux/interrupt.h>
- #include <linux/module.h>
-@@ -199,6 +200,9 @@ struct exynos_tmu_data {
- 	void (*tmu_clear_irqs)(struct exynos_tmu_data *data);
- };
- 
-+DEFINE_GUARD(exynos_tmu_data, struct exynos_tmu_data *,
-+	     mutex_lock(&_T->lock), mutex_unlock(&_T->lock))
-+
- /*
-  * TMU treats temperature as a mapped temperature code.
-  * The temperature is converted differently depending on the calibration type.
-@@ -256,7 +260,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 	unsigned int status;
- 	int ret = 0;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	clk_enable(data->clk_sec);
- 
-@@ -270,7 +274,6 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
- 
- 	clk_disable(data->clk_sec);
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return ret;
- }
-@@ -292,13 +295,12 @@ static int exynos_thermal_zone_configure(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	data->tmu_set_crit_temp(data, temp / MCELSIUS);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return 0;
- }
-@@ -325,12 +327,11 @@ static void exynos_tmu_control(struct platform_device *pdev, bool on)
- {
- 	struct exynos_tmu_data *data = platform_get_drvdata(pdev);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	data->tmu_control(pdev, on);
- 	data->enabled = on;
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- }
- 
- static void exynos_tmu_update_bit(struct exynos_tmu_data *data, int reg_off,
-@@ -645,7 +646,7 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
- 		 */
- 		return -EAGAIN;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	value = data->tmu_read(data);
-@@ -655,7 +656,6 @@ static int exynos_get_temp(struct thermal_zone_device *tz, int *temp)
- 		*temp = code_to_temp(data, value) * MCELSIUS;
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return ret;
- }
-@@ -720,11 +720,10 @@ static int exynos_tmu_set_emulation(struct thermal_zone_device *tz, int temp)
- 	if (temp && temp < MCELSIUS)
- 		goto out;
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 	data->tmu_set_emulation(data, temp);
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 	return 0;
- out:
- 	return ret;
-@@ -760,14 +759,13 @@ static irqreturn_t exynos_tmu_threaded_irq(int irq, void *id)
- 
- 	thermal_zone_device_update(data->tzd, THERMAL_EVENT_UNSPECIFIED);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	/* TODO: take action based on particular interrupt */
- 	data->tmu_clear_irqs(data);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return IRQ_HANDLED;
- }
-@@ -987,7 +985,7 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
- {
- 	struct exynos_tmu_data *data = thermal_zone_device_priv(tz);
- 
--	mutex_lock(&data->lock);
-+	guard(mutex)(&data->lock);
- 	clk_enable(data->clk);
- 
- 	if (low > INT_MIN)
-@@ -1000,7 +998,6 @@ static int exynos_set_trips(struct thermal_zone_device *tz, int low, int high)
- 		data->tmu_disable_high(data);
- 
- 	clk_disable(data->clk);
--	mutex_unlock(&data->lock);
- 
- 	return 0;
- }
--- 
-2.48.1
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/airoha/' for 20250309132959.19045-1-ansuelsmth@gmail.com:
+
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fab0000: compatible:0: 'mediatek,mtk-xhci' is not one of ['mediatek,mt2701-xhci', 'mediatek,mt2712-xhci', 'mediatek,mt7622-xhci', 'mediatek,mt7623-xhci', 'mediatek,mt7629-xhci', 'mediatek,mt7986-xhci', 'mediatek,mt7988-xhci', 'mediatek,mt8173-xhci', 'mediatek,mt8183-xhci', 'mediatek,mt8186-xhci', 'mediatek,mt8188-xhci', 'mediatek,mt8192-xhci', 'mediatek,mt8195-xhci', 'mediatek,mt8365-xhci']
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fab0000: compatible: ['mediatek,mtk-xhci'] is too short
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fad0000: compatible:0: 'mediatek,mtk-xhci' is not one of ['mediatek,mt2701-xhci', 'mediatek,mt2712-xhci', 'mediatek,mt7622-xhci', 'mediatek,mt7623-xhci', 'mediatek,mt7629-xhci', 'mediatek,mt7986-xhci', 'mediatek,mt7988-xhci', 'mediatek,mt8173-xhci', 'mediatek,mt8183-xhci', 'mediatek,mt8186-xhci', 'mediatek,mt8188-xhci', 'mediatek,mt8192-xhci', 'mediatek,mt8195-xhci', 'mediatek,mt8365-xhci']
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+arch/arm64/boot/dts/airoha/en7581-evb.dtb: usb@1fad0000: compatible: ['mediatek,mtk-xhci'] is too short
+	from schema $id: http://devicetree.org/schemas/usb/mediatek,mtk-xhci.yaml#
+
+
+
+
 
 
