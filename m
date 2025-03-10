@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D848C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:04:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69184C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:08:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1hnZVgYfBzvkhChs8w8bKF6Sm0JJLDaprfGCBy0gYcY=; b=XF+4WEZHIbI9+9gxi6ucsI8nw2
-	olFScXZe7tYVzBOEOOOQrAJzjq4OlPoGsRMqOCNh9dJ8+tEMFVJ+y9SkTMp17bNYxji3ai+rZ8CJu
-	LOoWczqHrLawaH+DUgqYHRd2bXJZ6f4aWWQsbJB29XVU3pq1Hd9/Foc2WmdPcUs8OyDESR2YnA8eH
-	qeiHk3mpgIYN4VtNFxd2Xn9s+yhdu5M/Wom8W830ur2HyLxHhYVIVfPEQx1hq/RLqauO8y+Q7tFI3
-	HibAHyLLnYniGmt2wayhVTp/oNx53Kdv+y93othSlHaMcrJh6x00L0vTRma4xMpQBpaS2iWH1G2aP
-	zVwD1onw==;
+	bh=QuFqFYVNctf0qMgd0CODf0c+Uu31ZnwhcPiNAm8rxfE=; b=Z/zTZMWjoNJKTh2wKqK2ZqflDK
+	2q53xLlctDkg7anBtRYC0yIw+Z4SKFiIMV1zWZTLd/OMM/KCQCBXgxVpg9IQNLpd6jBX4EOsAlgXb
+	wa5H6Su5qmP7UAUdRZOPtU/TS6zkf8OHeUERt4vIZRHfjgK5F2iAJalFzv7P3UKMj9BJdWFQBPqrW
+	2vyHxTCjjZ2ylo+T4S+ubbYWVUgga3XvHt4jpgARrIx57eaTlZQJnFJxiDKfh7qFnbOauNShzdoth
+	YPF4qccoEH7/iA6h9vVe03WeNreAVAfJStqo5TUc7GBD779nUBbXTlbtRLks/HeJM+NgKOELfFM/T
+	IANGxjlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trY7M-00000001qKB-0X6c;
-	Mon, 10 Mar 2025 08:04:08 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trYAx-00000001qpf-1siW;
+	Mon, 10 Mar 2025 08:07:51 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trY51-00000001prL-1FzL;
-	Mon, 10 Mar 2025 08:01:44 +0000
+	id 1trY9I-00000001qgn-2ChB;
+	Mon, 10 Mar 2025 08:06:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 315F7A44DBD;
-	Mon, 10 Mar 2025 07:56:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 46415C4CEE5;
-	Mon, 10 Mar 2025 08:01:41 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 05F745C546B;
+	Mon, 10 Mar 2025 08:03:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 93EC3C4CEE5;
+	Mon, 10 Mar 2025 08:06:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741593702;
-	bh=SgbV9vkf5gWdeet1ixM7l/2JY/O0uXS4dGet0e+/f8I=;
+	s=k20201202; t=1741593967;
+	bh=JdNOUETRN7NU7vKZ0Jb69tYZgdK4LacoJaUSmjraB+U=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OtWd4NZPf+ZQCKHgSKtdnYwA9r6lQF/EG0VXxntkjUKRXlqji0VpZ295K8bBUYAc9
-	 HJaHYQE5SI9Xv2mGnM/z6WgOzhMydd7bKUkSBMtXBHc7xji6ZPMDAuLgLd6TQSlsD8
-	 d9Lk6PJCHaSIXC9wKosIeE3v5ejpPqa7gZmm38Dv7+pszKhyus6HIgsIQ3QaB/if8a
-	 c35uXlM60THUXS2738WqQdsnyEr5YYpkvfmQIScGsJRmystjNVnh4bFhX/2p+cbfnO
-	 c4s+vzP4x2Ibc++SrxvoPNZTuDJJsi1ndEFVF6Vw8S3/r4MncBB4yqi9YxhCz3GmmY
-	 CT4AzO2dOi9Jw==
-Date: Mon, 10 Mar 2025 09:01:38 +0100
+	b=NnHMKZDxPk/JEEVnZ14bMVuOE4AMHF+4LK37P9FMw9W5DYYzqRIVR19INgh4GXPz7
+	 pl2DKchAu/sj2rtDAx13rXjZavd3cEB3GXA3LcZ+FeKdjQuPDFvb4QyfKfvEmPe7RT
+	 pETZrXrtodQFN42DZfV84l68R7WFUrusLOwGG9hJ8oPc6qXPUGDEM8PeHYSEZcBo+i
+	 y1QXKKIUXoqlk+E8MxSXmVLARLxeP865GnEm0pc/zd8b1V1GjcZJWn79go4cRzuLr0
+	 k6o9F6DCiBSBV8S1iz/OzfRErEq/wuye+AAGVca4oW9p5A2mF+s+xZwSxOmQOGFbQ6
+	 p/rBkUw7B3Y4w==
+Date: Mon, 10 Mar 2025 09:06:04 +0100
 From: Krzysztof Kozlowski <krzk@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Michael Turquette <mturquette@baylibre.com>, 
@@ -57,18 +57,18 @@ Cc: Michael Turquette <mturquette@baylibre.com>,
 	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, 
 	linux-mediatek@lists.infradead.org, linux-usb@vger.kernel.org, upstream@airoha.com
-Subject: Re: [PATCH 05/13] dt-bindings: mfd: add Documentation for Airoha
- EN7581 SCU
-Message-ID: <20250310-excellent-quokka-of-abracadabra-15ad69@krzk-bin>
+Subject: Re: [PATCH 06/13] dt-bindings: clock: airoha: make reg optional for
+ Airoha EN7581
+Message-ID: <20250310-pompous-elk-of-serendipity-cfebc9@krzk-bin>
 References: <20250309132959.19045-1-ansuelsmth@gmail.com>
- <20250309132959.19045-6-ansuelsmth@gmail.com>
+ <20250309132959.19045-7-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250309132959.19045-6-ansuelsmth@gmail.com>
+In-Reply-To: <20250309132959.19045-7-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_010143_409996_C45CE0E1 
-X-CRM114-Status: UNSURE (   9.35  )
+X-CRM114-CacheID: sfid-20250310_010608_802958_99AE7C4A 
+X-CRM114-Status: UNSURE (   9.93  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -84,31 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 02:29:36PM +0100, Christian Marangi wrote:
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/soc/airoha,scu-ssr.h>
-> +
-> +    system-controller@1fb00000 {
-> +        compatible = "airoha,en7581-scu-sysctl", "syscon", "simple-mfd";
-> +        reg = <0x1fb00000 0x970>;
-> +
-> +        clock-controller {
-> +            compatible = "airoha,en7581-scu";
-> +
+On Sun, Mar 09, 2025 at 02:29:37PM +0100, Christian Marangi wrote:
+> The Airoha EN7581 clock-controller registers are placed in the SCU
 
-No resources here, so this is part of the parent.
+I don't understand. The registers moved?
 
-> +            #clock-cells = <1>;
-> +            #reset-cells = <1>;
-> +        };
-> +
-> +        system-controller {
-> +            compatible = "airoha,an7581-scu-ssr";
+> (System Controller Unit). Now that additional pheriperals are supported
+> for the SCU, a dedicated SCU node is created and the clock-controller is
+> moved as a child of such node hence the register property is taken from
+> the parent node.
+> 
+> To support this, make the reg property optional and provide an
+> additional example for this case.
 
-No, this was told many times - you do not have resources here, so no
-chhild.
+No, post complete binding instead of adding some sort of stubs and then
+later totally reworking them to match different Linux drivers.
 
 Best regards,
 Krzysztof
