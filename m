@@ -4,116 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34AF2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 16:04:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53A14C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 16:06:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b5NefZ3BjD0+Jut0stYSTXPoT7gjroNkyyk1xgwHnLw=; b=cuvcrUIl4IyRdePDUkj0NnR3ey
-	+5uPVZdfaRbuZdrQUPMinx/+Ls7gFAHiQMHVz6m9n2TEN3OmVpo5cv30LvGAD8t5Pr7gJIoXZDfho
-	vD/74MXAynq5ciP7WFZYHYH2JZe75/culmO0XHOajDlIANQbfVcwNMbLSkqRDInMUTYaQpZLSGGLb
-	fXOg4tvszUzyY7BpjtIjzCG5jZABlgMPo6rU7m9IkMZ8ZiU8lGVmWGrck67QlyN+xcmiKDVQCIoqA
-	GrhQsRIYfB1A4yyllqKWGzNFNUDSP6edhuMir0sQZ8HVvLLs/L4akUkEM2QR6t4Wgdvo1osKVqyyz
-	4fTwzPUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tG6bFTHMsgEHmJIPf4wkxUSqE9RPDcZHe5v02YOFGZQ=; b=3uNaZLBB5BbR/yNgOJ/FszJ0wz
+	Ok5a3Zyt9nIehKXwe0rNv3Hc5DocyLbiduqN0RV6H8fD8M8XqaHd/3kpmt0q3Erly585oa2rwh856
+	s4HCuJoT/J3tzUPYMoAq/KitemPnoKKZo71YfbwpYFsMefulNsvXLRJiWrpcZHkRD1Lx2Nq1ma3kA
+	sadLA2UX+6UkISI6kiJlmm0lNiJTwFYcVGiG4RkfgkpP7ZfKiKY/AFpIyzCoV06VfZtagHS7lhs/c
+	+HShjztTcd6Zidr3+nYDgN+Y/mtRkLnUFtCxmObCnmVwj+cDAghaiaiJqf9x03gFU1R/bGYyWM/Ef
+	7gtF2czw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trfbw-00000003J7R-3pBB;
-	Mon, 10 Mar 2025 16:04:12 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trfdY-00000003JOS-0l7L;
+	Mon, 10 Mar 2025 16:05:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdqR-00000002tQz-1cK2
+	id 1treIb-00000002xTj-0vVJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 14:11:04 +0000
+	Mon, 10 Mar 2025 14:40:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 740A8A45D72;
-	Mon, 10 Mar 2025 14:05:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 209EDC4CEEB;
-	Mon, 10 Mar 2025 14:10:55 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id CB8815C4D89;
+	Mon, 10 Mar 2025 14:37:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1DA84C4CEE5;
+	Mon, 10 Mar 2025 14:40:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741615862;
-	bh=yz+QldxCtNgccfZ6ARlzhW3yaYz3Keq073Sg+hhKyCs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=ClPl/EeA+JDtzs/dylVUaL3LMNXCfH9IIGzt0B2A90glh5jVcCyQu7WEqNZ8Kri3Z
-	 ndxfKVNWPZ8PJyfIKbR+SQPKoCp5cSsLK7WYGmOcVwpsGyZ/cKoTwAJbS1P72lUWok
-	 q4tKhELl9uAMVBJXtyrO7bLlDDSFGk5mmjVtSS4QnSr2smEzNcbyD8kdeAoQ3R4oI9
-	 9faifbo8q0JzcvCkTYrxJDUPaHdPfJ2xy4HwJqx3Socb4AnWbpu9EOLqlIh0wp+8Ns
-	 FChOu42LWzSBbPPM7cfZ1yky9oQNkVHztx3Y4hqOMIoY3lcWS5dFpAxwgXlm7z5Mub
-	 SoNEohrLD5urA==
-Message-ID: <ebc23aa2-c850-43c3-baa0-922da31208df@kernel.org>
-Date: Mon, 10 Mar 2025 15:10:53 +0100
+	s=k20201202; t=1741617608;
+	bh=Sm0Mo6AtmCgx4dV4CHSjPIsBg9QJ8dBbfeea4VPSE+s=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=nY82kkBAX19588GNnTU7OT7x5ke3WU5Y58THp6MOE2HWDR98BSfPZyK5MM/ffZHhe
+	 qOtovvBTkAmHIWE5ngOIg3uzcuaHnV3ruojLJA/ygMIw95+6DOEAHQ5Q8FYCybOOif
+	 ZHUTq0s50uoq/kRC9KeZs9RZAx+vozFkqCSMh07GmZSynZnSda5+0ehtcb7Tllt4wW
+	 +5ymbfgjjhj8xMtAV3Feqlr2LvndGegOIE65s/i9h5B8Y12i+8Z6ID1naPyQ/SD0lb
+	 haGqT9BPpf5umg08ykl+kZjCj5FrhFZrYF7gKwe3ZdzgYsVfRnuFP8ay+XcL025aRn
+	 +BZZ+tNf/o2Jg==
+Date: Mon, 10 Mar 2025 09:40:06 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
-To: Patrice CHOTARD <patrice.chotard@foss.st.com>,
- Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- christophe.kerello@foss.st.com
-References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
- <20250219080059.367045-5-patrice.chotard@foss.st.com>
- <6e1757ea-3f5e-4cc0-b142-aee52f016c8f@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 fv0=
-In-Reply-To: <6e1757ea-3f5e-4cc0-b142-aee52f016c8f@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
+ Randolph Sapp <rs@ti.com>, Tero Kristo <kristo@kernel.org>, 
+ Maxime Ripard <mripard@kernel.org>, linux-kernel@vger.kernel.org, 
+ Frank Binns <frank.binns@imgtec.com>, devicetree@vger.kernel.org, 
+ Thomas Zimmermann <tzimmermann@suse.de>, dri-devel@lists.freedesktop.org, 
+ Simona Vetter <simona@ffwll.ch>, Alexandru Dadu <alexandru.dadu@imgtec.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ David Airlie <airlied@gmail.com>, Alessio Belle <alessio.belle@imgtec.com>, 
+ Vignesh Raghavendra <vigneshr@ti.com>, Darren Etheridge <detheridge@ti.com>
+To: Matt Coster <matt.coster@imgtec.com>
+In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com>
+References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
+ <20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com>
+Message-Id: <174161760551.1089.16761714043131512755.robh@kernel.org>
+Subject: Re: [PATCH v3 02/18] dt-bindings: gpu: img: Add BXS-4-64
+ devicetree bindings
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_071103_555550_E39BFDC3 
-X-CRM114-Status: GOOD (  11.76  )
+X-CRM114-CacheID: sfid-20250310_074009_369319_38663378 
+X-CRM114-Status: GOOD (  12.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,41 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2025 14:52, Patrice CHOTARD wrote:
+
+On Mon, 10 Mar 2025 13:10:26 +0000, Matt Coster wrote:
+> Unlike AXE-1-16M, BXS-4-64 uses two power domains.
 > 
+> Like the existing AXE-1-16M integration, BXS-4-64 uses the single clock
+> integration in the TI k3-j721s2.
 > 
-> On 2/19/25 09:00, patrice.chotard@foss.st.com wrote:
->> From: Patrice Chotard <patrice.chotard@foss.st.com>
->>
->> Octo Memory Manager driver (OMM) manages:
->>   - the muxing between 2 OSPI busses and 2 output ports.
->>     There are 4 possible muxing configurations:
->>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->>         output is on port 2
->>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->>         OSPI2 output is on port 1
->>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->>   - the split of the memory area shared between the 2 OSPI instances.
->>   - chip select selection override.
->>   - the time between 2 transactions in multiplexed mode.
->>   - check firewall access.
->>
-
-
-
-Please kindly trim the replies from unnecessary context. It makes it
-much easier to find new content.
-
-...
+> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
+> ---
+> Changes in v3:
+> - Include adding the second power domain so it's in context
+> - Remove unnecessary example
+> - Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-8-3fd45d9fb0cf@imgtec.com
+> Changes in v2:
+> - Use normal reg syntax for 64-bit values
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com
+> ---
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 34 +++++++++++++++++++++-
+>  1 file changed, 33 insertions(+), 1 deletion(-)
 > 
-> 
-> Hi all,
-> 
-> Anybody alse has additionnal remarks on this driver ?
 
-I am waiting too...
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Best regards,
-Krzysztof
+yamllint warnings/errors:
+
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/gpu/img,powervr-rogue.example.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+
+doc reference errors (make refcheckdocs):
+
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com
+
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
+
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
+
+pip3 install dtschema --upgrade
+
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
+
 
