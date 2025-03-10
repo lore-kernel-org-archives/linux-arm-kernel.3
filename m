@@ -4,57 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE5F4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:35:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED4BC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 11:35:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JeeIlJLvSKNx8IGXbadj/rcjcZ406apj7BFAyaBARqM=; b=yFT4gGEU6hK/rI7UY/U5YrxTJv
-	eqVjNMhPWTvfmgG3GbsuXmUxcl5CPyTtzsyJtF+c/i2tlpAp/CGgHEW8JLgOA74nrDNtOUIuqeoKO
-	9izv/1as6lDrKLYWD/Snt3MgBdomtPXR72z1HQt37BAi81RmKhGOxjT9kej5bbyE1zna6qQkFSDnE
-	rNOZg4gpNFmqwgPQs0ZKr5q7X/VZPvDIMa8h6ZCSAxNmtQj1/yKI8gnnm9QnmhpDvzgyndm+NhyL5
-	9ughZUVSEiJdm9fVo0LTy8rRf+JdV1SeXdMTrpp6t6zBpotjZr6D3Lg7ihryDOAO1vJoZ8BG9OlKv
-	fN07YqVQ==;
+	bh=hl+H8c0VN2y3MHqhFSWjgt5uhq3MRlviyoIT8w9wikY=; b=VWe7MgUVSzSv0dL5wir1KUeAIV
+	GtjDiT+d6/M+v08BSaEn1QTB+szFA53IaL6XjwITZcHITkQ1Ug2NAcCcMXO4Zl1UvXk8Yg1FmJZOQ
+	6mhEx3k84bGtQb2bNSbPkhlBvaelk2L99wx6XZ11Ac2ZLkrdquOZxUh4K8OqOMIElq6Ytnk9AlcgF
+	RQiXeY1pbfYpy2NKHNNbaoq+pf36rcfD9qLcibBxRqgP15YhjVAzjakdHDtJl/8ls2DnP0bnyAkpi
+	DGOMbKv6dJt0jFTvNvVNtvnLdDgUaPNElu2xAkUZ1KskJtwdCnUAUbKKt8Ao5XjFsJdGozyjMsduO
+	6BmHIGlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trbPs-00000002Rs2-2kZx;
-	Mon, 10 Mar 2025 11:35:28 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traC3-00000002E4C-1OdX
+	id 1trbPt-00000002RsK-0TZI;
+	Mon, 10 Mar 2025 11:35:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1traEt-00000002EsG-3Efr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 10:17:08 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3737E153B;
-	Mon, 10 Mar 2025 03:17:16 -0700 (PDT)
-Received: from [10.1.197.1] (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 78ECD3F673;
-	Mon, 10 Mar 2025 03:17:03 -0700 (PDT)
-Message-ID: <23943463-94d0-4e37-b5fa-5efb20015063@arm.com>
-Date: Mon, 10 Mar 2025 10:17:02 +0000
+	Mon, 10 Mar 2025 10:20:05 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A9dkt2022356;
+	Mon, 10 Mar 2025 10:19:57 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	hl+H8c0VN2y3MHqhFSWjgt5uhq3MRlviyoIT8w9wikY=; b=LxHS36tTTwZkJeYc
+	odgeJYMl6ajG0uY1C68s2eFXH5HT5EpAMRps51OfPSBk5o7w08orWB8MnkbYck7h
+	HtNQIEJ5gWhk2V7joG4ws+rfL6YA5Z0HIeYejcjVId7X/kncS+Yn8mul7JHQY6wp
+	IRc2tgyZuVLPUXkIiuoEFGIRoYkUgrtXDhfrShWyZxYv/ylBwit3kTZoQI/Qx/DR
+	kLn4kgLBTCwNnrBqKX9/hA2e0MTq4m/I72vdmToIvYZIKLpa2G5FMQ4P+Ue0UjgY
+	fbUFhtGqBEtGhD4MKarpptkXa8uo9LjtcN2ve03HseWW0VnA3FE8NTCX0NSRe78l
+	+kYxYA==
+Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458eyucffy-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 10:19:57 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52AAJuke028140
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Mon, 10 Mar 2025 10:19:56 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Mon, 10 Mar
+ 2025 03:19:53 -0700
+Message-ID: <3fcbf259-aea5-4170-b988-1c23a3472a00@quicinc.com>
+Date: Mon, 10 Mar 2025 18:19:51 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH] coresight: add verification process for
  coresight_etm_get_trace_id
-To: Jie Gan <quic_jiegan@quicinc.com>, Mike Leach <mike.leach@linaro.org>,
- James Clark <james.clark@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>
-Cc: Tingwei Zhang <quic_tingweiz@quicinc.com>,
- Jinlong Mao <quic_jinlmao@quicinc.com>, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-arm-msm@vger.kernel.org
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        Mike Leach
+	<mike.leach@linaro.org>,
+        James Clark <james.clark@linaro.org>,
+        "Alexander
+ Shishkin" <alexander.shishkin@linux.intel.com>
+CC: Tingwei Zhang <quic_tingweiz@quicinc.com>,
+        Jinlong Mao
+	<quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-msm@vger.kernel.org>
 References: <20250310022348.1654501-1-quic_jiegan@quicinc.com>
+ <23943463-94d0-4e37-b5fa-5efb20015063@arm.com>
 Content-Language: en-US
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <20250310022348.1654501-1-quic_jiegan@quicinc.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <23943463-94d0-4e37-b5fa-5efb20015063@arm.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=cbIormDM c=1 sm=1 tr=0 ts=67cebccd cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=sWKEhP36mHoA:10 a=COk6AnOGAAAA:8 a=Z-hf14rMMggIjEe8M9kA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: j3XkgYo3YQJ347maH5L7Z7l8rzPymOpt
+X-Proofpoint-GUID: j3XkgYo3YQJ347maH5L7Z7l8rzPymOpt
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-10_04,2025-03-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0 mlxscore=0
+ impostorscore=0 bulkscore=0 suspectscore=0 priorityscore=1501 phishscore=0
+ malwarescore=0 adultscore=0 clxscore=1015 spamscore=0 mlxlogscore=999
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503100081
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_031707_420299_99071CD5 
-X-CRM114-Status: GOOD (  13.33  )
+X-CRM114-CacheID: sfid-20250310_032003_948298_2F054654 
+X-CRM114-Status: GOOD (  16.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,43 +111,62 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/03/2025 02:23, Jie Gan wrote:
-> The coresight_etm_get_trace_id function is a global function. The
-> verification process for 'csdev' is required prior to its usage.
+
+
+On 3/10/2025 6:17 PM, Suzuki K Poulose wrote:
+> On 10/03/2025 02:23, Jie Gan wrote:
+>> The coresight_etm_get_trace_id function is a global function. The
+>> verification process for 'csdev' is required prior to its usage.
+>>
+>> Fixes: c367a89dec26 ("Coresight: Add trace_id function to retrieving 
+>> the trace ID")
+>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+>> ---
+>>   drivers/hwtracing/coresight/coresight-core.c | 7 +++++--
+>>   1 file changed, 5 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>> hwtracing/coresight/coresight-core.c
+>> index bd0a7edd38c9..5a7cd2376e2d 100644
+>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>> @@ -1616,9 +1616,12 @@ EXPORT_SYMBOL_GPL(coresight_remove_driver);
+>>   int coresight_etm_get_trace_id(struct coresight_device *csdev, enum 
+>> cs_mode mode,
+>>                      struct coresight_device *sink)
+>>   {
+>> -    int trace_id;
+>> -    int cpu = source_ops(csdev)->cpu_id(csdev);
+>> +    int cpu, trace_id;
+>> +
+>> +    if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE && ! 
+>> source_ops(csdev)->cpu_id)
 > 
-> Fixes: c367a89dec26 ("Coresight: Add trace_id function to retrieving the trace ID")
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> ---
->   drivers/hwtracing/coresight/coresight-core.c | 7 +++++--
->   1 file changed, 5 insertions(+), 2 deletions(-)
+> That must be :
 > 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index bd0a7edd38c9..5a7cd2376e2d 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -1616,9 +1616,12 @@ EXPORT_SYMBOL_GPL(coresight_remove_driver);
->   int coresight_etm_get_trace_id(struct coresight_device *csdev, enum cs_mode mode,
->   			       struct coresight_device *sink)
->   {
-> -	int trace_id;
-> -	int cpu = source_ops(csdev)->cpu_id(csdev);
-> +	int cpu, trace_id;
-> +
-> +	if (csdev->type != CORESIGHT_DEV_TYPE_SOURCE && !source_ops(csdev)->cpu_id)
+>      csdev->type != CORESIGHT_DEV_TYPE_SOURCE || !source_ops(csdev)- 
+>  >cpu_id)
+> 
+> 
+> Suzuki
 
-That must be :
+Hi Suzuki,
 
-	csdev->type != CORESIGHT_DEV_TYPE_SOURCE || !source_ops(csdev)->cpu_id)
+Yes, you are right. I made a big mistake. It should return an error 
+number if one of the conditions failed.
 
+Sorry about that, will send another patch to fix it.
 
-Suzuki
+Thanks,
+Jie
 
-
-> +		return -EINVAL;
->   
-> +	cpu = source_ops(csdev)->cpu_id(csdev);
->   	switch (mode) {
->   	case CS_MODE_SYSFS:
->   		trace_id = coresight_trace_id_get_cpu_id(cpu);
+> 
+> 
+>> +        return -EINVAL;
+>> +    cpu = source_ops(csdev)->cpu_id(csdev);
+>>       switch (mode) {
+>>       case CS_MODE_SYSFS:
+>>           trace_id = coresight_trace_id_get_cpu_id(cpu);
+> 
 
 
