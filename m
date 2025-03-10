@@ -4,80 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12C63C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:38:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC24DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iZEKwdOofjp6NDR+2hlCzSLPGInK74STCfZGhKf2O+k=; b=RgmyvUGBd36n6LBRbwta8ZG6ek
-	GVtmDFWaSCc7VuBL/5zCOytrl3isbRNe1C7s++V5BVhiOHwltkaqLY4XsTKwoshnYYea/2r/Ki9PR
-	pg271ETcY7OwSxbxMeC7DbjZWEEOI/0/Q1uNOs+VVqraHLWneHQdVq1sH91RDpBx9BwxyL0zFXIE7
-	/hNyUE/lAkua3q7AwDhAM5ifPjh/PJBHmzMIg2GJpxkhTvMhDiQqPrBoM11lPLCX/VEqY7YntCTH1
-	mfs1r7UQkvn8x4Vw9r64fz5CKMb4lvCNZP0H6U3jNIMOOGPoZkEildte4zLOWukeeZdiPbi99v1D2
-	psKb32Xw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YpoKqmY26E+EiNPwqoey7nNgntyh00SFpI2Dt2BOSOg=; b=MU0m7xIHZiRB6KM8Nlhs9fvvAX
+	87avWi1PyGu0Vi6FywcspjQ70bzMlXAAJX6bF1rxIvaJR6hYH3O/OC6YSk5m8zPIcNdjHEpUpfJqw
+	ia9j5Wvlsui+m9IVNHU3hvVo7RZu5hFYt0o3IvaBQaLNWdC6M9GawaGYuiXnPxDeHdRBLFSkkvhqE
+	yVg7U23HS1lqXEdeysMSP8IkH72sSMdxRRlmFEexS6zVoVeW3KhA3YV/ypbDaZG3ekyA/ogN3RhFJ
+	GAWM230gwFixIt4zW57jzZ7fTIb/5ngn83DMQJy4Sg4NAEFC37Tl/YobJTiSbYWIPpaIO1JjTNgIH
+	w5B+/zkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh5C-00000003W35-0o0T;
-	Mon, 10 Mar 2025 17:38:30 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh39-00000003Vsp-3N20
+	id 1trh6j-00000003W9i-3TvU;
+	Mon, 10 Mar 2025 17:40:05 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trh4i-00000003W0i-0SYj
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Mar 2025 17:38:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=YpoKqmY26E+EiNPwqoey7nNgntyh00SFpI2Dt2BOSOg=; b=SxV8XEaRktSVBOPPEZVj6zEnDI
+	GlgA7dETIgsQUXyhAG3Hvqydxv9qc+fpLc+nNa2qiuefOSvv4Iquq9kjsKWuwldtGMVkqZFaXITON
+	m/AjowRkQ5k+uv2cf0TWCFLyNEfFG8rReLMnrTyC0Bu8lLc7safeGCxMmKmDcr7nQr2L+vYyiiDOv
+	8mkjbK8JqfiRPDncAe9kI0Eo9AHxUqBwg3rTcEv/KKyACvWyMptsRDflq2M2mfm+gYGR+n/1T/9bj
+	mVVR8hwmJrwYlJasuPKhcPoppnnjeCYd+mqk9tEFZryGu/4hG9X2I5QOCwcNH7NpHRbd7nhGr2rB4
+	nLqvM9Xg==;
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trh4e-00000001zV7-3Kl6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:36:24 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1DFE72038F33;
-	Mon, 10 Mar 2025 10:36:22 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1DFE72038F33
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741628182;
-	bh=iZEKwdOofjp6NDR+2hlCzSLPGInK74STCfZGhKf2O+k=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eN2UJ3y3nG1bAmMoF3LcnG5o5qMeihqJMUFoq8f8VQkTQKjrwMphlZxBpakvB6lYA
-	 cSNptejg8D34S3125VES0nI3+8se2yDSJeQJmJrUFy33o/Z7zwGERJrRVw8E/zoDSv
-	 1g3S3ylZGCNVS7jCVQd173bGvBEvgxrxkXMhTQwI=
-Message-ID: <b3d1609e-4f64-4a88-b453-cb79936cb469@linux.microsoft.com>
-Date: Mon, 10 Mar 2025 10:36:21 -0700
+	Mon, 10 Mar 2025 17:37:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 57F82A460FB;
+	Mon, 10 Mar 2025 17:32:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02D57C4CEE5;
+	Mon, 10 Mar 2025 17:37:52 +0000 (UTC)
+Date: Mon, 10 Mar 2025 17:37:50 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Kees Cook <kees@kernel.org>
+Cc: Peter Collingbourne <pcc@google.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
+ kernel MTE is enabled
+Message-ID: <Z88jbhobIz2yWBbJ@arm.com>
+References: <20250308023314.3981455-1-pcc@google.com>
+ <202503071927.1A795821A@keescook>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v5 08/11] Drivers: hv: vmbus: Get the IRQ
- number from DeviceTree
-To: Arnd Bergmann <arnd@arndb.de>, bhelgaas@google.com,
- Borislav Petkov <bp@alien8.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Conor Dooley <conor+dt@kernel.org>, Dave Hansen
- <dave.hansen@linux.intel.com>, Dexuan Cui <decui@microsoft.com>,
- Haiyang Zhang <haiyangz@microsoft.com>, "H. Peter Anvin" <hpa@zytor.com>,
- Joey Gouly <joey.gouly@arm.com>, krzk+dt@kernel.org,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Sudeep Holla <sudeep.holla@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com
-References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-9-romank@linux.microsoft.com>
- <29bb5b7a-b31f-4b32-92c6-e2588a0f965a@app.fastmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <29bb5b7a-b31f-4b32-92c6-e2588a0f965a@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <202503071927.1A795821A@keescook>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_103623_868565_FA4383E8 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250310_173757_190672_79F4CEE7 
+X-CRM114-Status: GOOD (  25.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,37 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Mar 07, 2025 at 07:36:31PM -0800, Kees Cook wrote:
+> On Fri, Mar 07, 2025 at 06:33:13PM -0800, Peter Collingbourne wrote:
+> > The optimized strscpy() and dentry_string_cmp() routines will read 8
+> > unaligned bytes at a time via the function read_word_at_a_time(), but
+> > this is incompatible with MTE which will fault on a partially invalid
+> > read. The attributes on read_word_at_a_time() that disable KASAN are
+> > invisible to the CPU so they have no effect on MTE. Let's fix the
+> > bug for now by disabling the optimizations if the kernel is built
+> > with HW tag-based KASAN and consider improvements for followup changes.
+> 
+> Why is faulting on a partially invalid read a problem? It's still
+> invalid, so ... it should fault, yes? What am I missing?
 
+read_word_at_a_time() is used to read 8 bytes, potentially unaligned and
+beyond the end of string. The has_zero() function is then used to check
+where the string ends. For this uses, I think we can go with
+load_unaligned_zeropad() which handles a potential fault and pads the
+rest with zeroes.
 
-On 3/8/2025 1:11 PM, Arnd Bergmann wrote:
-> On Fri, Mar 7, 2025, at 23:03, Roman Kisel wrote:
->>
->> +static int __maybe_unused vmbus_set_irq(struct platform_device *pdev)
+> > Signed-off-by: Peter Collingbourne <pcc@google.com>
+> > Link: https://linux-review.googlesource.com/id/If4b22e43b5a4ca49726b4bf98ada827fdf755548
+> > Fixes: 94ab5b61ee16 ("kasan, arm64: enable CONFIG_KASAN_HW_TAGS")
+> > Cc: stable@vger.kernel.org
+> > ---
+> >  fs/dcache.c  | 2 +-
+> >  lib/string.c | 3 ++-
+> >  2 files changed, 3 insertions(+), 2 deletions(-)
 > 
-> Instead of the __maybe_unused annotation here
+> Why are DCACHE_WORD_ACCESS and HAVE_EFFICIENT_UNALIGNED_ACCESS separate
+> things? I can see at least one place where it's directly tied:
 > 
->>
->> +#ifndef HYPERVISOR_CALLBACK_VECTOR
->> +	ret = vmbus_set_irq(pdev);
->> +	if (ret)
->> +		return ret;
->> +#endif
->> +
-> 
-> you can use
-> 
->         if (!__is_defined(HYPERVISOR_CALLBACK_VECTOR))
->                    ret = vmbus_set_irq(pdev);
-> 
-> and make it a little more readable.
-> 
+> arch/arm/Kconfig:58:    select DCACHE_WORD_ACCESS if HAVE_EFFICIENT_UNALIGNED_ACCESS
 
-Thanks you very much, will update! Very neat :)
+DCACHE_WORD_ACCESS requires load_unaligned_zeropad() which handles the
+faults. For some reason, read_word_at_a_time() doesn't expect to fault
+and it is only used with HAVE_EFFICIENT_UNALIGNED_ACCESS. I guess arm32
+only enabled load_unaligned_zeropad() on hardware that supports
+efficient unaligned accesses (v6 onwards), hence the dependency.
 
->      Arnd
+> Would it make sense to sort this out so that KASAN_HW_TAGS can be taken
+> into account at the Kconfig level instead?
+
+I don't think we should play with config options but rather sort out the
+fault path (load_unaligned_zeropad) or disable MTE temporarily. I'd go
+with the former as long as read_word_at_a_time() is only used for
+strings in conjunction with has_zero(). I haven't checked.
 
 -- 
-Thank you,
-Roman
-
+Catalin
 
