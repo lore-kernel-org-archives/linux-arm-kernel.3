@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47CB1C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A8A4C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 17:16:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d7S8yd6R0h6QkbjSSTjEPq0BtEAD/xvKVvoWKNDxzjI=; b=JLveFmuPiOu2OLDP4tIv72/n9P
-	vBWzetQJ26tZP1x9FDJMbwbNE8dRkG7wbCapt0wl224OD0FLtqWCgJWM2M1rs/c6ekGM3V/sJUOY2
-	suVcfApVzpifL2QTbRlaCbBxEn2JCmVUqBgky/XiFHAN8v6YjrozAgTwnV16H1jEYbTbfapbCtoEm
-	ZnTgKteW7EUmOhObck8fzdEhme+9f+mhlZFqcPh0OLQ+CVZ0ZBwcnNTa3hR1KIkOqW8mj6ia95I6a
-	vQx5mOYQqxVy35vgXwwVN7pq658lM8UV/OuErntIyXZ6re5gOVEzgbS/mE5DhgdPlFpcEWy/UylgD
-	+qKaNlIQ==;
+	bh=t2kgoLFT4qUSZ2F0yqgtgSevpsGwxq4Ha+KacT6rcOc=; b=hx0aR9EiVy+eS+GZF9lwbIyYKt
+	oeQ+2iRH9V8YCu8JBo+yiGV67QSDj90REWu18op4IHj5dy98bxFXpxyaQv3GKBh7MQONcyEWocNbA
+	3j/HA7693+wfvWowOuiBRNj6gxMmo+EUlmHhA45fuPtyWH2G5jcYivKRG6yNeFDdoK7MmIjii5QVi
+	T9o0Z8/Vh+qi518iAFHrtN5UGdcA/ASSYUeigB+2CMWcGOXhfArvCuVq6fGgXjVy4JQAPRZkig+Rv
+	kg0k5GWxM06XlpQmxATCUtuwCxJhk30iptVq+CsD+wcNPJ9YhbXfY9VaxB1ipmyADFMgconW1eaLN
+	qU9qvGsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trggR-00000003T5l-4AEw;
-	Mon, 10 Mar 2025 17:12:55 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1trgje-00000003TWF-3ft2;
+	Mon, 10 Mar 2025 17:16:14 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trgY1-00000003RCV-0wD2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:04:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741626251;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=d7S8yd6R0h6QkbjSSTjEPq0BtEAD/xvKVvoWKNDxzjI=;
-	b=UI0l+O5ehc38NNBR0puKp4TKnmZ2om4xOQML+H3FVI7EzZBYLEjoZ+thsTynl3BVP7y+91
-	yaKy4KG1zNNWBrG/tGRntFncsYXLz/3PePkPbc/RYvSz73MQrDBYJgzy33gvEsW5a/9Ki/
-	qaLwTRKz3LF9issEZKhTsA5nOYhxSt0=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-550-qcA6nO9WNJ6cidPgFWXLFQ-1; Mon,
- 10 Mar 2025 13:04:08 -0400
-X-MC-Unique: qcA6nO9WNJ6cidPgFWXLFQ-1
-X-Mimecast-MFC-AGG-ID: qcA6nO9WNJ6cidPgFWXLFQ_1741626245
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 3444E1800349;
-	Mon, 10 Mar 2025 17:04:03 +0000 (UTC)
-Received: from dhcp-27-174.brq.redhat.com (unknown [10.45.224.34])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 310AD1956094;
-	Mon, 10 Mar 2025 17:03:53 +0000 (UTC)
-Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
-	oleg@redhat.com; Mon, 10 Mar 2025 18:03:32 +0100 (CET)
-Date: Mon, 10 Mar 2025 18:03:21 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
+	id 1trgc4-00000003S4h-0qCV;
+	Mon, 10 Mar 2025 17:08:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4CB5E5C3EFD;
+	Mon, 10 Mar 2025 17:06:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD209C4CEEB;
+	Mon, 10 Mar 2025 17:08:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741626502;
+	bh=BDPwHEQJtDtD2d6bq3wswYDHcfGQePvakq3VHHuiDXk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dP64LCSwb0qvMdmxNsq4aBgEkKCWTngBOaUBShh/E456amPJ+27bT3yYrEE5Gbe2Y
+	 pF1oiiVL7+YWc6JNBHa7O2WtXGhJjTJsTLGJyLtE+bAmPCfq/3Pc4kAd9bqycwPSz5
+	 Adjk1OWKoidmg9OiT3mJIBc1IgB4uMqcUHbsgzJ+KzsaRTD5TKEwDpPg4x9PsZvD/4
+	 EZ7Q2cZdK8XAVDyjTOEv9MAuloiaC6ai4D/YMIbH2cPTCon/hLkqajOt3wbw54YP15
+	 wU2ay6wa88LQr0FNFLZu5rhY2ee46XOCZ7yoC5WtWWFs0NwciIsHg/fMOPeT7J/JrC
+	 2y2dbOxSiNHfA==
+Date: Mon, 10 Mar 2025 19:08:01 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Pratyush Yadav <ptyadav@amazon.de>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
 	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Tong Tiangen <tongtiangen@huawei.com>
-Subject: Re: [PATCH -next v1 3/3] kernel/events/uprobes:
- uprobe_write_opcode() rewrite
-Message-ID: <20250310170320.GC26382@redhat.com>
-References: <20250304154846.1937958-1-david@redhat.com>
- <20250304154846.1937958-4-david@redhat.com>
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 06/14] kexec: Add KHO parsing support
+Message-ID: <Z88ccZat5wm_iXx1@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-7-rppt@kernel.org>
+ <mafs0zfhs97ta.fsf@amazon.de>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250304154846.1937958-4-david@redhat.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+In-Reply-To: <mafs0zfhs97ta.fsf@amazon.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_100413_341857_266CD7C2 
-X-CRM114-Status: GOOD (  18.33  )
+X-CRM114-CacheID: sfid-20250310_100824_323623_37F11801 
+X-CRM114-Status: GOOD (  32.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,72 +99,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/04, David Hildenbrand wrote:
->
-> uprobe_write_opcode() does some pretty low-level things that really, it
-> shouldn't be doing:
+Hi Pratyush,
 
-Agreed. Thanks again for doing this.
+On Mon, Mar 10, 2025 at 04:20:01PM +0000, Pratyush Yadav wrote:
+> Hi Mike,
+> 
+> On Thu, Feb 06 2025, Mike Rapoport wrote:
+> [...]
+> > @@ -444,7 +576,141 @@ static void kho_reserve_scratch(void)
+> >  	kho_enable = false;
+> >  }
+> >  
+> > +/*
+> > + * Scan the DT for any memory ranges and make sure they are reserved in
+> > + * memblock, otherwise they will end up in a weird state on free lists.
+> > + */
+> > +static void kho_init_reserved_pages(void)
+> > +{
+> > +	const void *fdt = kho_get_fdt();
+> > +	int offset = 0, depth = 0, initial_depth = 0, len;
+> > +
+> > +	if (!fdt)
+> > +		return;
+> > +
+> > +	/* Go through the mem list and add 1 for each reference */
+> > +	for (offset = 0;
+> > +	     offset >= 0 && depth >= initial_depth;
+> > +	     offset = fdt_next_node(fdt, offset, &depth)) {
+> > +		const struct kho_mem *mems;
+> > +		u32 i;
+> > +
+> > +		mems = fdt_getprop(fdt, offset, "mem", &len);
+> > +		if (!mems || len & (sizeof(*mems) - 1))
+> > +			continue;
+> > +
+> > +		for (i = 0; i < len; i += sizeof(*mems)) {
+> > +			const struct kho_mem *mem = &mems[i];
+> 
+> i goes from 0 to len in steps of 16, but you use it to dereference an
+> array of type struct kho_mem. So you end up only looking at only one of
+> every 16 mems and do an out of bounds access. I found this when testing
+> the memfd patches and any time the file was more than 1 page, it started
+> to crash randomly.
 
-David, as I said, I can't review. I don't understand this mm/folio magic
-with or without your changes.
+Thanks! Changyuan already pointed that out privately.
+But I'm going to adopt the memory reservation scheme Jason proposed so
+this code is going to go away anyway :)
 
-However. With your changes the code looks "better" and more understandable
-to me. So I'd vote for your patches even if I can't ack them.
+> Below patch should fix that:
+> 
+> ---- 8< ----
+> diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
+> index c26753d613cbc..40d1d8ac68d44 100644
+> --- a/kernel/kexec_handover.c
+> +++ b/kernel/kexec_handover.c
+> @@ -685,13 +685,15 @@ static void kho_init_reserved_pages(void)
+>              offset >= 0 && depth >= initial_depth;
+>              offset = fdt_next_node(fdt, offset, &depth)) {
+>                 const struct kho_mem *mems;
+> -               u32 i;
+> +               u32 i, nr_mems;
+>  
+>                 mems = fdt_getprop(fdt, offset, "mem", &len);
+>                 if (!mems || len & (sizeof(*mems) - 1))
+>                         continue;
+>  
+> -               for (i = 0; i < len; i += sizeof(*mems)) {
+> +               nr_mems = len / sizeof(*mems);
+> +
+> +               for (i = 0; i < nr_mems; i++) {
+>                         const struct kho_mem *mem = &mems[i];
+>  
+>                         memblock_reserve(mem->addr, mem->size);
+> ---- >8 ----
+> [...]
+> 
+> -- 
+> Regards,
+> Pratyush Yadav
 
-But I'd like to ask some stupid (no, really) questions.
-__uprobe_write_opcode() does:
-
-	/* We're done if we don't find an anonymous folio when unregistering. */
-	if (!folio_test_anon(folio))
-		return is_register ? -EFAULT : 0;
-
-Yes, but we do not expect !folio_test_anon() if register == true, right?
-See also below.
-
-	/* Verify that the page content is still as expected. */
-	if (verify_opcode(fw->page, opcode_vaddr, &opcode) <= 0) {
-		set_pte_at(vma->vm_mm, vaddr, fw->ptep, fw->pte);
-		return -EAGAIN;
-	}
-
-The caller, uprobe_write_opcode(), has already called verify_opcode(),
-why do we need to re-check?
-
-But whatever reason we have. Can we change uprobe_write_opcode() to
-"delay" put_page() and instead of
-
-	/* Walk the page tables again, to perform the actual update. */
-	folio = folio_walk_start(&fw, vma, vaddr, 0);
-	if (folio) {
-		ret = __uprobe_write_opcode(vma, &fw, folio, opcode_vaddr,
-					    opcode);
-		folio_walk_end(&fw, vma);
-	} else {
-		ret = -EAGAIN;
-	}
-
-do something like
-
-	/* Walk the page tables again, to perform the actual update. */
-	ret = -EAGAIN;
-	folio = folio_walk_start(&fw, vma, vaddr, 0);
-	if (folio) {
-		if (fw.page == page) {
-			WARN_ON(is_register && !folio_test_anon(folio));
-			ret = __uprobe_write_opcode(vma, &fw, folio, opcode_vaddr,
-					            opcode);
-		}
-		folio_walk_end(&fw, vma);
-	}
-
-?
-
-Once again, I am not trying to review. I am trying to understand the
-basics of your code.
-
-Thanks,
-
-Oleg.
-
+-- 
+Sincerely yours,
+Mike.
 
