@@ -4,70 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81573C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:30:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36317C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 08:32:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=et2DHX+dzVQ00RBHBmErE4r5cGIVIFNd4uEUTYAhbFg=; b=P12Sg5JejqeuIe/SSOZCfuVKkw
-	rtYQxDATz+l1DDVkk608mf6KmVeRZL5G3RH1nQAQYxEK/Dqd6kXz6mnJm+SpMWhroF5YK7qdtUEB4
-	qA4BTN1VWpY67lyJgkxDMqA0Swu+BP7jm/6XLWiH3bZtc2KbEsIyHVC7Ft+ZBam2K4gJ7oJOoPXxr
-	5QPq45Qff1J3wnEOpOzIodDcnnfcCL9HAa7A6zpqAHKKN/EQyANlRlGKLJwoV1qvc99N8LqzsRoRo
-	10GOzZhPuoZNI5PeYmHoHoeQeb6IxCT0adxUHStzLRvJt43ltd30Q0UAEBJqsGtTvrNZiz8FiDhMo
-	MBD+7Gjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=csWbwEiXnN3k3hOiqezshSsmwqgj7zqeo9XkzzIm5Ds=; b=P8ecBnPAQzYwBxzDLcsWF+MZ5C
+	RxhWKGxYO8DfGewo/Y/lkPuByk/HrfRaqtaXh8mUqJbKWJxvp3OMNPATt45NQk7rNQfpiJZBOuukR
+	MjI2op2j7nHWlQUccUNVFG9woBCg08MzQEQiyvpTm2jEGk420CROHeoIJ+9cAP4/jDcZCwhbJ1Q5V
+	iB0KtPVLVg+/wMTnpSEyZKLcOprNtl/9HRVtlukYoukvke2WFaPFWcRPmAS9CQkObvKASwRZ1eWQ2
+	ysSapl2OvtjRP+WZmKZnuWlM7j3qk5cTg65WIsvB22ofBmg0PPegQ9h4D7j6nM5AjQ98wpcZbZ1yA
+	PsnL7x4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYWY-00000001v5i-0LPj;
-	Mon, 10 Mar 2025 08:30:10 +0000
-Received: from smtp81.cstnet.cn ([159.226.251.81] helo=cstnet.cn)
+	id 1trYYC-00000001vYp-18uV;
+	Mon, 10 Mar 2025 08:31:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trYTO-00000001u4d-0jSQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 08:26:56 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-03 (Coremail) with SMTP id rQCowACXnw9Dos5nDkXkEw--.39080S2;
-	Mon, 10 Mar 2025 16:26:44 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: tudor.ambarus@linaro.org,
-	jassisinghbrar@gmail.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	linux-kernel@vger.kernel.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] mailbox: Remove unneeded semicolon
-Date: Mon, 10 Mar 2025 16:26:28 +0800
-Message-Id: <20250310082628.845544-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1trYUq-00000001ubf-2g7l;
+	Mon, 10 Mar 2025 08:28:25 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 8AAEF5C488E;
+	Mon, 10 Mar 2025 08:26:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20474C4CEED;
+	Mon, 10 Mar 2025 08:28:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741595303;
+	bh=7uCFQcex+j6cpQPJF/6LfRBEaDs9jns/4ey91A2Sm5Q=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Dt+61OBuhSx0XzWa7kuR97NtRZolf+Ni76hFMdBs33YLt/1k+RMsxShKq8ywE5izv
+	 Xq0lyi+y7SJzKRcmF6pLe0/pMIp2CN1NtohvIhp4Lfz70fUXaKP8fdlcvDgL6nFqFz
+	 egPccLakn6UNDZwAc49vCsDGQvAccm2S6VOGcQu87kNkGYRfcWBfvdZMHBeMdQgSn4
+	 J/L+XCc+GdJd0FpcGKyrg/IzPOfmKo79PxsSU2iqjEbBsVqKufsF8EZdPd3pBHuFq6
+	 ipnF9XH2wTyTICRsMyZozegPxkb/EOVYqYIAdiNDHZduHzAW48E8qnjKEoT8Kf1pgw
+	 OUmx0WBZnksfg==
+Date: Mon, 10 Mar 2025 10:28:02 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <Z86ikkLVHQhLmBWj@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
+ <20250224013131.fzz552bn7fs64umq@master>
+ <Z711VP45tjBi0kwx@kernel.org>
+ <20250226020915.ytxusrrl7rv4g64l@master>
+ <20250310075627.5hettrn2j2ien5bj@master>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: rQCowACXnw9Dos5nDkXkEw--.39080S2
-X-Coremail-Antispam: 1UD129KBjvdXoWrZFWDuF4rXw4DXFWDtr1kZrb_yoWfJrc_u3
-	Z3XF17Wrn0vFyYvwnxt3yruw1jva4rZwnaga92qFZxZ348Zr4jqry2vrsYy343ArWkZF1a
-	ka4UJw1Fkw1UZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbV8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Gr0_Xr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr0_
-	Cr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v26F4UJV
-	W0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0
-	I7IYx2IY67AKxVWUXVWUAwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7v_Jr
-	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
-	6r1q6r43MxkIecxEwVAFwVW8ZwCF04k20xvY0x0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJV
-	W8JwC20s026c02F40E14v26r1j6r18MI8I3I0E7480Y4vE14v26r106r1rMI8E67AF67kF
-	1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6x
-	IIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvE
-	x4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvj
-	DU0xZFpf9x0JUyE__UUUUU=
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250310075627.5hettrn2j2ien5bj@master>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_012654_782414_85518576 
-X-CRM114-Status: UNSURE (   9.01  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_012824_796553_C1BE378C 
+X-CRM114-Status: GOOD (  24.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,28 +105,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Remove unnecessary semicolons reported by Coccinelle/coccicheck and the
-semantic patch at scripts/coccinelle/misc/semicolon.cocci.
+Hi Wei,
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- drivers/mailbox/exynos-mailbox.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+On Mon, Mar 10, 2025 at 07:56:27AM +0000, Wei Yang wrote:
+> On Wed, Feb 26, 2025 at 02:09:15AM +0000, Wei Yang wrote:
+> >>> 
+> >>> From the above call flow and background, there are three cases when
+> >>> memblock_alloc_range_nid() would be called:
+> >>> 
+> >>>   * If it is called before (1), memblock.reserved's nid would be adjusted correctly.
+> >>>   * If it is called after (2), we don't touch memblock.reserved.
+> >>>   * If it happens between (1) and (2), it looks would break the consistency of
+> >>>     nid information in memblock.reserved. Because when we use
+> >>>     memblock_reserve_kern(), NUMA_NO_NODE would be stored in region.
+> >>> 
+> >>> So my question is if the third case happens, would it introduce a bug? If it
+> >>> won't happen, seems we don't need to specify the nid here?
+> >>
+> >>We don't really care about proper assignment of nodes between (1) and (2)
+> >>from one side and the third case does not happen on the other side. Nothing
+> >>should call membloc_alloc() after memblock_free_all(). 
+> >>
+> >
+> >My point is if no one would call memblock_alloc() after memblock_free_all(),
+> >which set nid in memblock.reserved properly, it seems not necessary to do
+> >__memblock_reserve() with exact nid during memblock_alloc()? 
+> >
+> >As you did __memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN) in this
+> >patch.
+> >
+> 
+> Hi, Mike
+> 
+> Do you think my understanding is reasonable?
 
-diff --git a/drivers/mailbox/exynos-mailbox.c b/drivers/mailbox/exynos-mailbox.c
-index 20049f0ec5ff..2320649bf60c 100644
---- a/drivers/mailbox/exynos-mailbox.c
-+++ b/drivers/mailbox/exynos-mailbox.c
-@@ -57,7 +57,7 @@ static int exynos_mbox_send_data(struct mbox_chan *chan, void *data)
- 	if (msg->chan_type != EXYNOS_MBOX_CHAN_TYPE_DOORBELL) {
- 		dev_err(dev, "Unsupported channel type [%d]\n", msg->chan_type);
- 		return -EINVAL;
--	};
-+	}
+Without KHO it is indeed not strictly necessary to set nid during memblock_alloc().
+But since we anyway have nid parameter in memblock_alloc_range_nid() and it
+anyway propagates to memblock_add_range(), I think it's easier and cleaner
+to pass nid to __memblock_reserve() there.
+
+And for KHO estimation of scratch size it is important to have nid assigned to
+the reserved areas before memblock_free_all(), at least for the allocations
+that request particular nid explicitly.
  
- 	writel(BIT(msg->chan_id), exynos_mbox->regs + EXYNOS_MBOX_INTGR1);
- 
+> -- 
+> Wei Yang
+> Help you, Help me
+
 -- 
-2.25.1
-
+Sincerely yours,
+Mike.
 
