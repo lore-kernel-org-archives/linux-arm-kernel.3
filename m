@@ -4,89 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1538CC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:28:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4B4CC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 02:30:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UCqGG6PWLyXfj9f7cyZ2Du+BAYKQ8sthmSCdkxYK4DE=; b=s8HvBgzdA0rbAb/qLJ4JrCHoIY
-	23tlc5S0xyQpPd0iwfuOJhvFU30G1VmIn+rS/DSrWCw7Plm/YvD/W24zIwzgjemz0/OfQbAZtQS4e
-	qrb9KCjXmzrPAei3igYQx7A9VSwzEzOUveE2fIhk8bGoVKnN9unNyoF5DoMB1qaIsgw8o2/q4JYgi
-	Rb8vMJJumQeJZfbsgwW/yrWFK4Ah2PFebh2mXYLYzCBWyYtqAO3JTuqaCpsCZbqQlYXsMcqJO4RdP
-	exXjzH/bHLYLsd/V+xxaYD0GuiQom+zLZWJPYOdYYla4hgu6MTdK4g0DQ2fjS7jc4P0mx3zB3ub+h
-	iE+ylqXA==;
+	bh=8UgdkfR5ZJpIqw3CxaKBXneuVyU1q32SHQHrzDgtsJo=; b=x40acpLXX/vTWmr+L1pVb0NAxv
+	3BgflMrXr9utCE8Krtdw7OmpHVd0OI+7Ud8wS+ZqS9FGKE/7bZRfXHQ2E0H75jYBsn6AV2YC0b6Zr
+	LNe+13MyZmTm+rzR3COOXaS/4NzEMfQuUOTUCR6gAZl1D3d+TY6VvsXv2uGONoCeTsQDKeNBbkC0b
+	vpI6KNWh0s4a2Z+yP5hXtM3iVDqr6MOky0PHuC6I+Y7MetqENAWg2OkqrOpQzoeurr58VKrQQA/8S
+	xmRSwNw7Jt1OerN0UmPGeUaLGmHmFIOK7wSeyNvV0MxGkJEXrKdow84w+L+8vcLC0fpC0Y252Ox2g
+	IuBb+LmA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSsn-00000001RlG-1k9H;
-	Mon, 10 Mar 2025 02:28:45 +0000
-Received: from mgamail.intel.com ([198.175.65.9])
+	id 1trSuP-00000001Rz3-4Bjy;
+	Mon, 10 Mar 2025 02:30:26 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trSoa-00000001ROF-1vx6;
-	Mon, 10 Mar 2025 02:24:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741573464; x=1773109464;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=WKFaRGNbm41ygiDOYwuZyQiHlC64X9yBshoJhOG//8I=;
-  b=hOkspDBQi/8XI70YKg49egj8AndBAUzLV/U2obyuoOdTc8ty9kQiX9XL
-   ZZBoteDZN+x84R1dnq+Tt5uHN/1VBjFvVqGtkqYKbTM2Ob7KzfiXcNwMi
-   sW60bYj9yj6mUS42QKNydaPZ8OmXWK721UxYxpJzTcFSxpY6POCtVObNF
-   l+jjXPdiD77XbuLIshHrAQa9bKfMbJ3xIu4Ppx0Brf9c9pzK68nMuMqVE
-   KZT5Vz61rHBNqg9RRdtgZnl8cXRvBIJFxxp7qTceO8F2vYVTYPNp0KH3c
-   e43rs5tzNGDfP/wL0iKU83JMdUhNVLkY4lzj3C0vb2LvQJXZYY89lzDWG
-   g==;
-X-CSE-ConnectionGUID: Yu/f5faVSdaHo7V6oAwsyA==
-X-CSE-MsgGUID: NTJxOy/wTwq6tRNYNyHC1g==
-X-IronPort-AV: E=McAfee;i="6700,10204,11368"; a="65000966"
-X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
-   d="scan'208";a="65000966"
-Received: from fmviesa005.fm.intel.com ([10.60.135.145])
-  by orvoesa101.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 19:24:22 -0700
-X-CSE-ConnectionGUID: EBcI4p/gQFCFWXYHUd2zOQ==
-X-CSE-MsgGUID: kuyCE67oS6CBdcD22w3xyA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,235,1736841600"; 
-   d="scan'208";a="124459380"
-Received: from allen-sbox.sh.intel.com (HELO [10.239.159.30]) ([10.239.159.30])
-  by fmviesa005-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Mar 2025 19:24:15 -0700
-Message-ID: <2db8d0c9-f6df-48f3-8bbb-4592e86d92fa@linux.intel.com>
-Date: Mon, 10 Mar 2025 10:21:03 +0800
+	id 1trSoy-00000001RRk-0UNA
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 02:24:49 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ff6a98c638so6972093a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 09 Mar 2025 19:24:47 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741573487; x=1742178287; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8UgdkfR5ZJpIqw3CxaKBXneuVyU1q32SHQHrzDgtsJo=;
+        b=gtnaq48fT5KJMGM5/VYnazIa+bYPLPBNkFRNqF8nqf3SU33oRBU/RfUijgmuRxm8h+
+         uSOGYr+OL7LrBJ6anf527W0ztBKaVXJSPh7F+b6ncdSg8zT4l6W2ValEqiBUKi/+yW2W
+         wzWymMBjgQsKR8IcHyesIdcPZ3pRCHtYlVnYrm1IEoMQ3HIE+djr9SL6imIetBSWBOtP
+         FmuKY5uOb/SVAEtrB5Up1oscVTXB7eX0InsMc2U9n8aVGP9C2HC8rWltgck6JxIyjVwj
+         0VRSCI6f5gHdtiv+83eNr+2hfdoT5iHY63xCZOYTQYQqwbM2czhqsgGy82I/DK0K1Ul3
+         3rsg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741573487; x=1742178287;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8UgdkfR5ZJpIqw3CxaKBXneuVyU1q32SHQHrzDgtsJo=;
+        b=G+4TKNYBV7V5ElMFjXB5132jVtZqKhj3qpb1GRwammm9RGgMMFGih3V2ZkT4Y7+Dq/
+         NZLrF8P1yQPJYBRkjA8RR/FNhzp1QhkBaN+/kyZi0JAP6JEgt+rANn3gL7P++noxMHoR
+         +jP3lDB6C/8kR98XLolY6n4Ol4kwFc9q/lKyp+lg7wEh8NVgZ9sTzzPSeKsDhnDIzdkZ
+         Fafbfm/2LXYVxUdo7iQ9DBn5yRzZBkO5+YzyHELvTGEi6oZ0CTtLP079Aajw8bL2xN/t
+         ntceQacGcYIA0jJsXXzN8o+Z/cpYbhau+1X/uSHNHaA6kXorTo5gIncu1xcVgMriG1vf
+         d4Ew==
+X-Forwarded-Encrypted: i=1; AJvYcCWKJJ4ZfyOrxhn+L8z8yvaSj5b7fepzw6F20Dqw8uv2VHeJzq8Jg+TcIjRNn6kEVw1itSnfyZt92SOCThQt+Ryz@lists.infradead.org
+X-Gm-Message-State: AOJu0YzZKPN3eB1/fdIUaX8+Se5fA0+wqRNCeuViod7rUaIdXEqAtBa9
+	HNCNsb43Y7l+s9MQmRurLX80uIn/09P/dNly0ZGKPFTdMqsjZZGW
+X-Gm-Gg: ASbGncuXpBHdLf12b8wJ/rH45otx11c1WVT0cMQv2KNSJGyUmngGIgPCtuxzuBR8nLn
+	Ml2+4VNlv4iUoQqtsed5/5Rm4DynWAnHawBgsZCIqzuxivbJ6N7aWHfRKhQ8gFy1B8tCZ4akVw2
+	9JS39kCgons+mMBrOiq/CpokndRKdbjLn2x7g+QR3CuwkLFNV11FJ9tkxASjH++d7OHhdMWICGQ
+	JJ2iHKo/TDzCE8d3RRr8zH5rl8I2rC6JT/6RhHkDK7ebhy31tg9hAOlQCPn5P7kXqSZfu/UIRDx
+	zcq3g7akjVtw7ObhslPFcOwiLngfm5HjFdJu8Q==
+X-Google-Smtp-Source: AGHT+IEu8uuETGfMoaM3EPE2WfaTTndfm3F2AV9+L8B8fVo7WT9YAUCmxKGewCLzkt/NfrR5yWSoUw==
+X-Received: by 2002:a17:90b:4cca:b0:2ff:72f8:3708 with SMTP id 98e67ed59e1d1-2ff7ce837c9mr21980902a91.17.1741573486614;
+        Sun, 09 Mar 2025 19:24:46 -0700 (PDT)
+Received: from localhost ([144.24.43.60])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-2ff4e7ffdd3sm8645058a91.39.2025.03.09.19.24.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 09 Mar 2025 19:24:46 -0700 (PDT)
+Date: Mon, 10 Mar 2025 10:24:32 +0800
+From: Furong Xu <0x1207@gmail.com>
+To: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
+Cc: Tony Nguyen <anthony.l.nguyen@intel.com>, Przemek Kitszel
+ <przemyslaw.kitszel@intel.com>, Andrew Lunn <andrew+netdev@lunn.ch>, "David
+ S . Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Simon Horman <horms@kernel.org>, Russell
+ King <linux@armlinux.org.uk>, Alexei Starovoitov <ast@kernel.org>, Daniel
+ Borkmann <daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>, Russell King
+ <rmk+kernel@armlinux.org.uk>, Vladimir Oltean <vladimir.oltean@nxp.com>,
+ Serge Semin <fancer.lancer@gmail.com>, Xiaolei Wang
+ <xiaolei.wang@windriver.com>, Suraj Jaiswal <quic_jsuraj@quicinc.com>, Kory
+ Maincent <kory.maincent@bootlin.com>, Gal Pressman <gal@nvidia.com>, Jesper
+ Nilsson <jesper.nilsson@axis.com>, Choong Yong Liang
+ <yong.liang.choong@linux.intel.com>, Chwee-Lin Choong
+ <chwee.lin.choong@intel.com>, Kunihiko Hayashi
+ <hayashi.kunihiko@socionext.com>, Vinicius Costa Gomes
+ <vinicius.gomes@intel.com>, intel-wired-lan@lists.osuosl.org,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, bpf@vger.kernel.org
+Subject: Re: [PATCH iwl-next v9 03/14] net: ethtool: mm: reset verification
+ status when link is down
+Message-ID: <20250310102432.000032ad@gmail.com>
+In-Reply-To: <20250309104648.3895551-4-faizal.abdul.rahim@linux.intel.com>
+References: <20250309104648.3895551-1-faizal.abdul.rahim@linux.intel.com>
+	<20250309104648.3895551-4-faizal.abdul.rahim@linux.intel.com>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 08/23] iommu/vtd: Use virt_to_phys()
-To: Jason Gunthorpe <jgg@nvidia.com>, Alim Akhtar <alim.akhtar@samsung.com>,
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Albert Ou <aou@eecs.berkeley.edu>,
- asahi@lists.linux.dev, David Woodhouse <dwmw2@infradead.org>,
- Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
- Jernej Skrabec <jernej.skrabec@gmail.com>,
- Jonathan Hunter <jonathanh@nvidia.com>, Joerg Roedel <joro@8bytes.org>,
- Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
- linux-tegra@vger.kernel.org, Marek Szyprowski <m.szyprowski@samsung.com>,
- Hector Martin <marcan@marcan.st>, Palmer Dabbelt <palmer@dabbelt.com>,
- Paul Walmsley <paul.walmsley@sifive.com>, Robin Murphy
- <robin.murphy@arm.com>, Samuel Holland <samuel@sholland.org>,
- Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
- Sven Peter <sven@svenpeter.dev>, Thierry Reding <thierry.reding@gmail.com>,
- Tomasz Jeznach <tjeznach@rivosinc.com>, Krishna Reddy <vdumpa@nvidia.com>,
- Chen-Yu Tsai <wens@csie.org>, Will Deacon <will@kernel.org>
-Cc: Bagas Sanjaya <bagasdotme@gmail.com>, Joerg Roedel <jroedel@suse.de>,
- Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
- David Rientjes <rientjes@google.com>, Matthew Wilcox <willy@infradead.org>
-References: <8-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Language: en-US
-From: Baolu Lu <baolu.lu@linux.intel.com>
-In-Reply-To: <8-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250309_192424_588705_C27405DA 
-X-CRM114-Status: GOOD (  12.26  )
+X-CRM114-CacheID: sfid-20250309_192448_201582_4E89B415 
+X-CRM114-Status: GOOD (  19.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,33 +119,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/25 03:39, Jason Gunthorpe wrote:
-> If all the inlines are unwound virt_to_dma_pfn() is simply:
->     return page_to_pfn(virt_to_page(p)) << (PAGE_SHIFT - VTD_PAGE_SHIFT);
+On Sun,  9 Mar 2025 06:46:37 -0400
+Faizal Rahim <faizal.abdul.rahim@linux.intel.com> wrote:
+
+> When the link partner goes down, "ethtool --show-mm" still displays
+> "Verification status: SUCCEEDED," reflecting a previous state that is
+> no longer valid.
 > 
-> Which can be re-arranged to:
->     (page_to_pfn(virt_to_page(p)) << PAGE_SHIFT) >> VTD_PAGE_SHIFT
+> Reset the verification status to ensure it reflects the current state.
 > 
-> The only caller is:
->     ((uint64_t)virt_to_dma_pfn(tmp_page) << VTD_PAGE_SHIFT)
-> 
-> re-arranged to:
->     ((page_to_pfn(virt_to_page(tmp_page)) << PAGE_SHIFT) >> VTD_PAGE_SHIFT) << VTD_PAGE_SHIFT
-> 
-> Which simplifies to:
->     page_to_pfn(virt_to_page(tmp_page)) << PAGE_SHIFT
-> 
-> That is the same as virt_to_phys(tmp_page), so just remove all of this.
-> 
-> Reviewed-by: Lu Baolu<baolu.lu@linux.intel.com>
-> Signed-off-by: Jason Gunthorpe<jgg@nvidia.com>
+> Signed-off-by: Faizal Rahim <faizal.abdul.rahim@linux.intel.com>
 > ---
->   drivers/iommu/intel/iommu.c |  3 ++-
->   drivers/iommu/intel/iommu.h | 19 -------------------
->   2 files changed, 2 insertions(+), 20 deletions(-)
+>  net/ethtool/mm.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
+> diff --git a/net/ethtool/mm.c b/net/ethtool/mm.c
+> index bfd988464d7d..ad9b40034003 100644
+> --- a/net/ethtool/mm.c
+> +++ b/net/ethtool/mm.c
+> @@ -415,6 +415,10 @@ void ethtool_mmsv_link_state_handle(struct ethtool_mmsv *mmsv, bool up)
+>  		/* New link => maybe new partner => new verification process */
+>  		ethtool_mmsv_apply(mmsv);
+>  	} else {
+> +		/* Reset the reported verification state while the link is down */
+> +		if (mmsv->verify_enabled)
+> +			mmsv->status = ETHTOOL_MM_VERIFY_STATUS_INITIAL;
+> +
+>  		/* No link or pMAC not enabled */
+>  		ethtool_mmsv_configure_pmac(mmsv, false);
+>  		ethtool_mmsv_configure_tx(mmsv, false);
 
-Queued this cleanup patch for iommu/vt-d.
+Reviewed-by: Furong Xu <0x1207@gmail.com>
 
-Thanks,
-baolu
 
