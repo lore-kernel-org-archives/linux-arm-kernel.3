@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C684C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:38:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B68FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 13:40:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOTJJaxuE59TJ7zJEtm/CQ10vPf1/EmC5GMQk7qBpf4=; b=BK+fPEWeSQ7JTxED8xJCejneUb
-	tqobsrRQ5fNdwhm9B9NfkBPERMvvIGOzp2Tv/WQ0kmnYNsL6Up2SX51y8aAuBWQ6Lq406U40Tg0Lr
-	c68USLhOLQBO1uDFjfY3AdkBdcVsUon6QAp29UcopHfclO2VFV4rUQRxK05kjncfFZv3L6LTxSJeH
-	DumY5YQ/WETInCLUr36T+bTvi9pqTBtyrw5s5/A/t6zgAUUYzXdFJ4RWnrljf+LwXUxgk0ertlM7u
-	EAra/5vX9DOQOdVYMzD97YaTJ1Zdons/5eMnbitCSxH2VGiQAJim2ca4sluwDm0GMx98FP4MzY7Ud
-	Y1Qwa/FA==;
+	bh=LWLxqy2XxHNDJ45y2GRnMApq01ZR05zbJQqImjZgPHQ=; b=UQf9mmRZk1NXHhMV3okSTrli6g
+	OyeGpeNzguj0rvqfeD/nSCevkktR04YrB2tCfmo+LCvxPWinopN9qSFTis/3kOl4k4rD2/956GeYK
+	3tRp2gjUzpeikT33xwTAC8wbdT7RVtdroH+OUqiO/gJOW2Kn10oGopyc4g6DCm7EGhsok2F9pH9oZ
+	Y4a+J1QhoLUCar/bOeL5UbeOpMrZnOHQUr9ACd1eLZv48Phn70axe1yhJSD6q7oXwCkt/gSKvY1i+
+	b6d7JSOYEBBeJHygxfo/mFcBTCQrKxgb1rZQUTScP7RG3O14PKGdPWYILkpGRptV3ilGau3Fgx9Jr
+	F/l82uxg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trdKn-00000002oi4-3IBp;
-	Mon, 10 Mar 2025 13:38:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcIt-00000002dZO-1e3o
+	id 1trdMP-00000002p0p-05iJ;
+	Mon, 10 Mar 2025 13:40:01 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trcQb-00000002ebD-1E1V
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 12:32:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1E0DA152B;
-	Mon, 10 Mar 2025 05:32:30 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3ADEA3F5A1;
-	Mon, 10 Mar 2025 05:32:18 -0700 (PDT)
-Date: Mon, 10 Mar 2025 12:32:13 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Arnaldo Carvalho de Melo <acme@redhat.com>,
-	Namhyung Kim <namhyung@kernel.org>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-doc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/8] coresight: Introduce pause and resume APIs for
- source
-Message-ID: <20250310123213.GF9682@e132581.arm.com>
-References: <20250310104919.58816-1-leo.yan@arm.com>
- <20250310104919.58816-3-leo.yan@arm.com>
- <65979e92-0047-427c-848d-53f908671905@arm.com>
+	Mon, 10 Mar 2025 12:40:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4D2FBA45B73;
+	Mon, 10 Mar 2025 12:34:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE40BC4CEF0;
+	Mon, 10 Mar 2025 12:40:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741610416;
+	bh=H8MkukXKrs1gXyaQdWlj/mYQZibbo5Fhpikh/80QqZk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OU7eweTUodKoVT9kzSHOX2+bCR2sRfjGewUj0AL42sokgzxf+zbLLoCvkUBRMkYHr
+	 YqnVHTLHzG8wBV9cQFVqvTFOfjOWP5vIlPsnRotGJQD5OIbBlvPQDqO7Xsuf/L0heg
+	 Frq89NR/lx7PZ39bM3gmfQgOjzXS3ZrX95CjIZn3m+32cf8DBqseFi667hvz6QONN3
+	 hVb2aCfOLeMOHgO6/Jb+ffvfv0m/foHouvTQ44LvzUaBYY1TN0f8Fls4iOUWjThlqE
+	 BgK6bUDdsTF8X3lA7uovbQc3BT/2WTsUg33dxKagtAxdQOjCUFzc1bjTfJhfdQz230
+	 mxjaGxJJgTEkw==
+Date: Mon, 10 Mar 2025 07:40:14 -0500
+From: Rob Herring <robh@kernel.org>
+To: Ryan Walklin <ryan@testtoast.com>
+Cc: Maxime Ripard <mripard@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Daniel Vetter <daniel@ffwll.ch>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Andre Przywara <andre.przywara@arm.com>,
+	Chris Morgan <macroalpha82@gmail.com>,
+	Hironori KIKUCHI <kikuchan98@gmail.com>,
+	Philippe Simons <simons.philippe@gmail.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-clk@vger.kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>
+Subject: Re: [PATCH v8 05/11] dt-bindings: allwinner: add H616 DE33 bus
+ binding
+Message-ID: <20250310124014.GA3866055-robh@kernel.org>
+References: <20250310092345.31708-1-ryan@testtoast.com>
+ <20250310092345.31708-6-ryan@testtoast.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <65979e92-0047-427c-848d-53f908671905@arm.com>
+In-Reply-To: <20250310092345.31708-6-ryan@testtoast.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_053219_521723_0755C2D3 
-X-CRM114-Status: GOOD (  23.34  )
+X-CRM114-CacheID: sfid-20250310_054017_402027_52864F6A 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,111 +90,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 12:01:25PM +0000, Suzuki Kuruppassery Poulose wrote:
-> On 10/03/2025 10:49, Leo Yan wrote:
-> > Introduce APIs for pausing and resuming trace source and export as GPL
-> > symbols.
-> > 
-> > Signed-off-by: Leo Yan <leo.yan@arm.com>
-> > ---
-> >   drivers/hwtracing/coresight/coresight-core.c | 20 ++++++++++++++++++++
-> >   drivers/hwtracing/coresight/coresight-priv.h |  2 ++
-> >   include/linux/coresight.h                    |  4 ++++
-> >   3 files changed, 26 insertions(+)
-> > 
-> > diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> > index 0a9380350fb5..eb7b83a7bfa2 100644
-> > --- a/drivers/hwtracing/coresight/coresight-core.c
-> > +++ b/drivers/hwtracing/coresight/coresight-core.c
-> > @@ -365,6 +365,26 @@ void coresight_disable_source(struct coresight_device *csdev, void *data)
-> >   }
-> >   EXPORT_SYMBOL_GPL(coresight_disable_source);
-> > +void coresight_pause_source(struct coresight_device *csdev)
-> > +{
-> > +	if (!csdev || !coresight_is_percpu_source(csdev))
+On Mon, Mar 10, 2025 at 10:09:51PM +1300, Ryan Walklin wrote:
+> The Allwinner H616 and variants have a new display engine revision
+> (DE33).
 > 
-> You may remove the !csdev check, coresight_is_percpu_source() already checks
-> that.
-
-Will do.
-
-> > +		return;
-> > +
-> > +	if (source_ops(csdev)->pause)
-> > +		source_ops(csdev)->pause(csdev);
-> > +}
-> > +EXPORT_SYMBOL_GPL(coresight_pause_source);
-> > +
-> > +void coresight_resume_source(struct coresight_device *csdev)
-> > +{
-> > +	if (!csdev || !coresight_is_percpu_source(csdev))
-> > +		return;
-> > +
+> Add a display engine bus binding for the DE33 and increase reg maxItems
+> to 3 to accommodate additional register blocks.
 > 
-> Same as above.
-
-Will do.
-
-> > +	if (source_ops(csdev)->resume)
-> > +		source_ops(csdev)->resume(csdev);
-> > +}
-> > +EXPORT_SYMBOL_GPL(coresight_resume_source);
-> > +
-> >   /*
-> >    * coresight_disable_path_from : Disable components in the given path beyond
-> >    * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-> > diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> > index 76403530f33e..a9f14c075e91 100644
-> > --- a/drivers/hwtracing/coresight/coresight-priv.h
-> > +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> > @@ -247,5 +247,7 @@ void coresight_add_helper(struct coresight_device *csdev,
-> >   void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
-> >   struct coresight_device *coresight_get_percpu_sink(int cpu);
-> >   void coresight_disable_source(struct coresight_device *csdev, void *data);
-> > +void coresight_pause_source(struct coresight_device *csdev);
-> > +void coresight_resume_source(struct coresight_device *csdev);
-> >   #endif
-> > diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> > index 17276965ff1d..703e1b8dbe22 100644
-> > --- a/include/linux/coresight.h
-> > +++ b/include/linux/coresight.h
-> > @@ -385,6 +385,8 @@ struct coresight_ops_link {
-> >    *		is associated to.
-> >    * @enable:	enables tracing for a source.
-> >    * @disable:	disables tracing for a source.
-> > + * @resume:	resumes tracing for a source.
-> > + * @pause:	pauses tracing for a source.
-> >    */
-> >   struct coresight_ops_source {
-> >   	int (*cpu_id)(struct coresight_device *csdev);
-> > @@ -392,6 +394,8 @@ struct coresight_ops_source {
-> >   		      enum cs_mode mode, struct coresight_trace_id_map *id_map);
-> >   	void (*disable)(struct coresight_device *csdev,
-> >   			struct perf_event *event);
-> > +	int (*resume)(struct coresight_device *csdev);
-> > +	void (*pause)(struct coresight_device *csdev);
+> Signed-off-by: Ryan Walklin <ryan@testtoast.com>
+> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> Reviewed-by: Chen-Yu Tsai <wens@csie.org>
 > 
-> Given these callbacks are for perf mode, does it make sense to pass the
-> parameters similar to enable() ?
-
-It is not necessary to pass perf event handle to resume() and pause()
-callbacks.
-
-The main reason is perf related operations have been processed in the
-coresight-etm-perf.c layer, the low level's callbacks (pause/resume)
-should simply take actions on hardware logic.
-
-> Also, should we rename these as :
+> ---
+> Changelog v1..v2:
+> - Correct DE2 bus enum to reflect fallback devices accurately.
 > 
-> resume_perf
-> pause_perf
+> Changelog v2..v3:
+> - Separate content into three patches for three separate subsystems
 > 
-> To explicitly mark them perf mode specific ?
+> Changelog v5..v6:
+> - Increase reg maxItems to 3.
+> ---
+>  .../devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml  | 7 +++++--
+>  1 file changed, 5 insertions(+), 2 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
+> index 9845a187bdf6..317a27cf590b 100644
+> --- a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
+> +++ b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
+> @@ -24,11 +24,14 @@ properties:
+>      oneOf:
+>        - const: allwinner,sun50i-a64-de2
+>        - items:
+> -          - const: allwinner,sun50i-h6-de3
+> +          - enum:
+> +              - allwinner,sun50i-h6-de3
+> +              - allwinner,sun50i-h616-de33
+>            - const: allwinner,sun50i-a64-de2
+>  
+>    reg:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 3
 
-This makes sense to me.  The naming "resume" might be confused with
-CPUIdle's terminology (CPU resume).  pause_perf/resume_perf can
-perfectly avoid any confusion.
+You have to define what each region is and the order.
 
-Thanks,
-Leo
+And there should be constraints such that the existing cases don't 
+now allow 2-3 entries.
+
+>  
+>    allwinner,sram:
+>      description:
+> -- 
+> 2.48.1
+> 
 
