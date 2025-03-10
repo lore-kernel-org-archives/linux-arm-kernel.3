@@ -4,61 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93CEFC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:16:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C916C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:20:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+PUH+cR2ve7Y5AMMZrYsc+Lr78WSgGXcqlz7/qhbWYo=; b=u4Fr6S/RZTW2kx9Gt7ybzW3LHj
-	FTA+r5Hgu2WtjrD7Eh19uCcSLcvlpS3G0LPqT5Shg8FHggn5XnRUu9vca4FWwYqoqa9KRaGKisRFg
-	m9/T8DAtZMk2XhznPFirHth2zWDLbda1y9GhKuraGmPI2xxT3KQmVN100osiHH3IHBFvKXD35/JDr
-	2AwnSyqsRvN07u/xXzEwyj0I7AskjZ5CBzv6/Rf1ui4Cmy2dUOXHXzZeZC9NzP9IlRRjKIr7iZ0vL
-	3+S8H+ShtgvuTWWVKhTZ6Th8XU0wgt7FwKEEbPyEQnZOd2LAgvczUfB16zJLyvZ00fB8i+Bru2Hl0
-	DRr5A9zw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9k2ujwCkxT/pnQt2SpcTPLQF5W45ehk16LpQKOSM9kE=; b=NxJTdtMaoS+7E9H2ymeE48hb2u
+	R4w+MkLpvUYfTs02aGRHQ2QuJZ3Gl93wMRJadm/miZHQVLmZ/HJG26QAwVPVZkGNm3YKna1E9i3jr
+	1HpldVmX7YDSxu834JhfUDEiq3KTZbXf8XsPccYtu9W+evRhVboITvtAjshV/FuR0TTq1kYZQ22Yb
+	vVT1eU3jdVTQsrGTV61IwJ+HmTZZmnwRWNzPf+DboxCVfttObJW/av9hJM3T5HBJlAx4v/EjcDDFA
+	T03QZdiixqlPkycmE13kB+ts6/fO+fh2dYNo0X30ZSCNNpqrhbsoiIa2ytONk2OGQLpNtvv2L3Itv
+	2drHhECw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tribS-00000003imV-25qI;
-	Mon, 10 Mar 2025 19:15:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1trifw-00000003iyg-1gKJ;
+	Mon, 10 Mar 2025 19:20:32 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1triZo-00000003idp-0WfK
+	id 1trgZl-00000003Rbx-492X
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Mar 2025 17:06:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=9k2ujwCkxT/pnQt2SpcTPLQF5W45ehk16LpQKOSM9kE=; b=IkksBEmtkATdcZX385li91w4ST
+	n0HxT55DrmzuUhFW2MF+rnfVEpvCji+OtWCFF1P+3OMyTVLQYzUT7Gqcq1Vb0jWjXsoxH/6hC+A8n
+	FES6d9D6aSK/98Ktr8lCEfweETdN0Bd+qpfXRsxcLmnbFD0764VZgJAPhJ724rLtEq/VcBP47rpd1
+	u9BQMfYF+erXH3lx3PIr+pTHLRvflU4gZB/tLHdsdEqvzyW0LlOw6VqC5k9AEpJw2VJvpi+C3O4Tj
+	k5kUbrM2Tb2NOqGcuEfBpxiEUTkIf9WES3E9a2j7HxEMpmqV4M3btfQuBOlnrB8Az8srGzlvWlQQa
+	3UwEqkdg==;
+Received: from linux.microsoft.com ([13.77.154.182])
+	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trgZi-00000001xhJ-3eek
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 19:14:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 1E972A460BC;
-	Mon, 10 Mar 2025 19:08:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BD97C4CEE5;
-	Mon, 10 Mar 2025 19:14:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741634050;
-	bh=xQeemCsrfUF+jP/rsD1veh7JdHq+E8YcGMftlCccdmg=;
-	h=From:To:Cc:Subject:Date:From;
-	b=Yi88lkebQIjrJiDYz7RgeYpBz1fH4NtfixP8nEee3ndJTluyve9Hm/vB3WOFUmmiC
-	 i2DcYZrmIGl1HMv8S/mYOXsFupNTmOixGBXVDp7HnkqJiyN0u9wpp7TK82tc9W3IFJ
-	 2U847Ap6yxYmZweDIwMDajso44Iahgnu50LCeIYp4jzkHGJ0pPfmqd3gW/DjbYRdU8
-	 ULwJXqwCIoZVFkKDoD6DUKIMKAds+zJyEOSePF0hGDzgGxk7jZqi/cdswQBi37I03i
-	 pq/dn1MDUxj6s80k98cyLUVRySlRztRHPlhGJ3G+qmWO2I+p/BHgynVdmq1Ud1+V2w
-	 lWCaJcELT+SGA==
-From: Bjorn Andersson <andersson@kernel.org>
-To: arm@kernel.org,
-	soc@kernel.org
-Cc: linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Arnd Bergmann <arnd@arndb.de>,
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Subject: [GIT PULL] Qualcomm Arm64 Devicetree fixes for v6.14
-Date: Mon, 10 Mar 2025 14:14:08 -0500
-Message-ID: <20250310191409.1208520-1-andersson@kernel.org>
-X-Mailer: git-send-email 2.48.1
+	Mon, 10 Mar 2025 17:06:00 +0000
+Received: from [10.137.184.60] (unknown [131.107.160.188])
+	by linux.microsoft.com (Postfix) with ESMTPSA id CA8B82038F32;
+	Mon, 10 Mar 2025 10:05:56 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com CA8B82038F32
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741626357;
+	bh=9k2ujwCkxT/pnQt2SpcTPLQF5W45ehk16LpQKOSM9kE=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ASdtXEizJBNBlir7Guq6DH/+cVwx7N/FgUmEK+XbPU0pYIqCSwEx1mx/GflRf57tm
+	 MnevelamszmPc2/kut2m5GTFfDoExBbWYXR6coPOMciOGK6Yb1hRgiEuFq0zuoi++a
+	 4wrrUAgnXET7zmFf32p4ObaaELCgZyEhfx4WpkTk=
+Message-ID: <c7f9d861-f617-4064-8c98-2ace06e9c25e@linux.microsoft.com>
+Date: Mon, 10 Mar 2025 10:05:56 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH hyperv-next v5 07/11] dt-bindings: microsoft,vmbus: Add
+ interrupts and DMA coherence
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: arnd@arndb.de, bhelgaas@google.com, bp@alien8.de,
+ catalin.marinas@arm.com, conor+dt@kernel.org, dave.hansen@linux.intel.com,
+ decui@microsoft.com, haiyangz@microsoft.com, hpa@zytor.com,
+ joey.gouly@arm.com, krzk+dt@kernel.org, kw@linux.com, kys@microsoft.com,
+ lenb@kernel.org, lpieralisi@kernel.org, manivannan.sadhasivam@linaro.org,
+ mark.rutland@arm.com, maz@kernel.org, mingo@redhat.com,
+ oliver.upton@linux.dev, rafael@kernel.org, robh@kernel.org,
+ ssengar@linux.microsoft.com, sudeep.holla@arm.com, suzuki.poulose@arm.com,
+ tglx@linutronix.de, wei.liu@kernel.org, will@kernel.org,
+ yuzenghui@huawei.com, devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
+ linux-acpi@vger.kernel.org, linux-arch@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org,
+ apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
+ sunilmut@microsoft.com
+References: <20250307220304.247725-1-romank@linux.microsoft.com>
+ <20250307220304.247725-8-romank@linux.microsoft.com>
+ <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
+Content-Language: en-US
+From: Roman Kisel <romank@linux.microsoft.com>
+In-Reply-To: <20250310-demonic-ferret-of-judgment-5dbdbf@krzk-bin>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_121412_230324_72ABF9CF 
-X-CRM114-Status: UNSURE (   6.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_170559_313071_862A54F6 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,28 +101,80 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+On 3/10/2025 2:28 AM, Krzysztof Kozlowski wrote:
+> On Fri, Mar 07, 2025 at 02:02:59PM -0800, Roman Kisel wrote:
+>> To boot on ARM64, VMBus requires configuring interrupts. Missing
+>> DMA coherence property is sub-optimal as the VMBus transations are
+>> cache-coherent.
+>>
+>> Add interrupts to be able to boot on ARM64. Add DMA coherence to
+>> avoid doing extra work on maintaining caches on ARM64.
+> 
+> How do you add it?
+> 
 
-are available in the Git repository at:
+I added properties to the node. Should I fix the description, or I am
+misunderstanding the question?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qcom-arm64-fixes-for-6.14
+>>
+>> Signed-off-by: Roman Kisel <romank@linux.microsoft.com>
+>> ---
+>>   .../devicetree/bindings/bus/microsoft,vmbus.yaml          | 8 +++++++-
+>>   1 file changed, 7 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>> index a8d40c766dcd..3ab7d0116626 100644
+>> --- a/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>> +++ b/Documentation/devicetree/bindings/bus/microsoft,vmbus.yaml
+>> @@ -28,13 +28,16 @@ properties:
+>>   required:
+>>     - compatible
+>>     - ranges
+>> +  - interrupts
+>>     - '#address-cells'
+>>     - '#size-cells'
+>>   
+>> -additionalProperties: false
+>> +additionalProperties: true
+> 
+> This is neither explained in commit msg nor correct.
+> 
 
-for you to fetch changes up to f00db31d235946853fb430de8c6aa1295efc8353:
+Not explained, as there is no good explanation as described below.
 
-  Revert "arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu" (2025-02-25 09:52:52 -0600)
+> Drop the change. You cannot have device bindings ending with 'true'
+> here - see talks, example-bindings, writing-schema and whatever resource
+> is there.
+> 
 
-----------------------------------------------------------------
-Qualcomm Arm64 Devicetree fixes for v6.14
+Thanks, I'll put more effort into bringing this into a better form!
+If you have time, could you comment on the below?
 
-Revert the change to marking SDM845 SMMU dma-coherent, as this is
-reported not to be true.
+The Documentation says
 
-----------------------------------------------------------------
-Konrad Dybcio (1):
-      Revert "arm64: dts: qcom: sdm845: Affirm IDR0.CCTW on apps_smmu"
+   * additionalProperties: true
+     Rare case, used for schemas implementing common set of properties.
+Such schemas are supposed to be referenced by other schemas, which then 
+use 'unevaluatedProperties: false'.  Typically bus or common-part schemas.
 
- arch/arm64/boot/dts/qcom/sdm845.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+This is a bus so I added that line to the YAML, and I saw it in many
+other YAML files. Without that line, there was a warning from the local
+DT validation described in the Documentation about not having pin
+controls which was weird, and adding
+
+"additionalProperties: true"
+
+fixed the warnings (didn't debug much though). As a side note, there was
+a similar warning coming from another YAML during running DT schema
+validation as described in the Documentation so maybe warnings are fine.
+
+> Best regards,
+> Krzysztof
+> 
+
+-- 
+Thank you,
+Roman
+
 
