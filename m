@@ -4,79 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8505C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 18:50:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18ACFC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 19:05:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1+ofQwuGVRqhE03VmsYlGEcNUurWgNiie1yoZECtaVQ=; b=WoqBiA1tTwrFZOrg12DCGPTUwZ
-	cXkV+mUvlfU8VUr3im9oPnL/YnDw20TE7pCiWt8atpByGnG7g2V3utK0YKaasCqb/3zYpIFMXRulX
-	LVdXWryLGr0SBhU30QJUU8acAmT5k6+4LN5tMd89S2dxTU0J0HjQLIlWd2cDNHQKdKT/mmqtRrQvI
-	LMj0W4UGLKNScl3UxVCPQHK5xkJxsnxLs/GxUgvJnGz1wWO8W79wk0rH4eIy7KgTTk27IMoawnpKZ
-	EMsJg9dI6HkXer5Igq1mNlQFSc5dPQAbZuSrRk+K6vM376MZknuVBm6d/m4TApOZ7NBj8Z7NVC/48
-	dX3MoRbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kua1+P7pBuS50I7egTYFseHRI4Y7N92xh/jBVSs2A1g=; b=OVmW6y7ddqZoKUIKhUdOSBn6RJ
+	SHJWeDHzQ3ZaUDXxVmlgRxtYiHy3YgogABbsIiYZ86k8tRSY6GQ7XTdnINs5RvKbMqLgV6ojg/A2u
+	3wCDq+9BxYSA5k6z7Y9UjIzrK1LuL11ralz+Yew1EnfBHX/8vxwcDvQPRO10c0CyzVVa1gMpAzwU5
+	S3kjUTsG+K8yepu4Sm7Rz0ExHXV/ldzI8joWfVcLpO6MIW94awo40cuqOu7BKSQaMC1OXQapZmuDJ
+	715SxMreIDtq9cbCxb/bH3m/s19gNy1Df/eo+rRdXxt7Qa2IpACTN5TmSRBp77a0Z8v4/rKOePjSf
+	eBtcXcHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1triCu-00000003fkj-0pnb;
-	Mon, 10 Mar 2025 18:50:32 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trh1v-00000003VoA-0Of0
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 17:35:08 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 64E3B2038F33;
-	Mon, 10 Mar 2025 10:35:05 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 64E3B2038F33
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741628105;
-	bh=1+ofQwuGVRqhE03VmsYlGEcNUurWgNiie1yoZECtaVQ=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=TKhga+c9cuJgMknPM13jAgQP1DCYNGUPpcl+c1m94c8yVqD62xkfoXvk7bLjOxBY2
-	 Jd/ln5jDO+gGUjD6Z3n3nQwi1hJPN7SvGVn7aNlAeIKOpA9Lr5y1NMvcg21OqMdsUE
-	 Sb7ps3xymomjl6NcnK+v0qVmLnYE/BpYP3OBs4GY=
-Message-ID: <e0dce529-0777-491d-aced-1e9ead31ac17@linux.microsoft.com>
-Date: Mon, 10 Mar 2025 10:35:05 -0700
+	id 1triRQ-00000003hJd-2yAb;
+	Mon, 10 Mar 2025 19:05:32 +0000
+Received: from smtp-fw-80006.amazon.com ([99.78.197.217])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trfrk-00000003Kv2-0q8J;
+	Mon, 10 Mar 2025 16:20:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.de; i=@amazon.de; q=dns/txt; s=amazon201209;
+  t=1741623632; x=1773159632;
+  h=from:to:cc:subject:in-reply-to:references:date:
+   message-id:mime-version;
+  bh=kua1+P7pBuS50I7egTYFseHRI4Y7N92xh/jBVSs2A1g=;
+  b=B0mQCK9mTRSvF5OZ6ColUCzzCcQbLBbXB0NE/ctvQEzxcCX+IRXjuPYA
+   XuQEbzdr93LiNaQG3tLncayRSYcd466U7+BDFQnqCq/SqZLgPZ7tGSadO
+   Az84E6+lMQG3KgB9Rl0tNh+Ao0zrtSP4quWnNOA6PnTQlqfBKb79Z9UKM
+   E=;
+X-IronPort-AV: E=Sophos;i="6.14,236,1736812800"; 
+   d="scan'208";a="30459260"
+Received: from pdx4-co-svc-p1-lb2-vlan3.amazon.com (HELO smtpout.prod.us-west-2.prod.farcaster.email.amazon.dev) ([10.25.36.214])
+  by smtp-border-fw-80006.pdx80.corp.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Mar 2025 16:20:19 +0000
+Received: from EX19MTAUWB002.ant.amazon.com [10.0.38.20:25065]
+ by smtpin.naws.us-west-2.prod.farcaster.email.amazon.dev [10.0.22.127:2525] with esmtp (Farcaster)
+ id 4286f8c0-5c5d-4095-b20b-85582cfebec2; Mon, 10 Mar 2025 16:20:18 +0000 (UTC)
+X-Farcaster-Flow-ID: 4286f8c0-5c5d-4095-b20b-85582cfebec2
+Received: from EX19D020UWC001.ant.amazon.com (10.13.138.157) by
+ EX19MTAUWB002.ant.amazon.com (10.250.64.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Mon, 10 Mar 2025 16:20:02 +0000
+Received: from EX19MTAUWC002.ant.amazon.com (10.250.64.143) by
+ EX19D020UWC001.ant.amazon.com (10.13.138.157) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.1544.14;
+ Mon, 10 Mar 2025 16:20:02 +0000
+Received: from email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com
+ (10.25.36.210) by mail-relay.amazon.com (10.250.64.149) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id
+ 15.2.1544.14 via Frontend Transport; Mon, 10 Mar 2025 16:20:02 +0000
+Received: from dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com [172.19.91.144])
+	by email-imr-corp-prod-pdx-all-2c-475d797d.us-west-2.amazon.com (Postfix) with ESMTP id 1694FA04AA;
+	Mon, 10 Mar 2025 16:20:02 +0000 (UTC)
+Received: by dev-dsk-ptyadav-1c-43206220.eu-west-1.amazon.com (Postfix, from userid 23027615)
+	id A154B6221; Mon, 10 Mar 2025 16:20:01 +0000 (UTC)
+From: Pratyush Yadav <ptyadav@amazon.de>
+To: Mike Rapoport <rppt@kernel.org>
+CC: <linux-kernel@vger.kernel.org>, Alexander Graf <graf@amazon.com>, "Andrew
+ Morton" <akpm@linux-foundation.org>, Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>, Arnd Bergmann <arnd@arndb.de>,
+	Ashish Kalra <ashish.kalra@amd.com>, Benjamin Herrenschmidt
+	<benh@kernel.crashing.org>, Borislav Petkov <bp@alien8.de>, Catalin Marinas
+	<catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>, "David
+ Woodhouse" <dwmw2@infradead.org>, Eric Biederman <ebiederm@xmission.com>,
+	"Ingo Molnar" <mingo@redhat.com>, James Gowans <jgowans@amazon.com>, Jonathan
+ Corbet <corbet@lwn.net>, Krzysztof Kozlowski <krzk@kernel.org>, Mark Rutland
+	<mark.rutland@arm.com>, Paolo Bonzini <pbonzini@redhat.com>, Pasha Tatashin
+	<pasha.tatashin@soleen.com>, "H. Peter Anvin" <hpa@zytor.com>, Peter Zijlstra
+	<peterz@infradead.org>, Rob Herring <robh+dt@kernel.org>, Rob Herring
+	<robh@kernel.org>, Saravana Kannan <saravanak@google.com>, "Stanislav
+ Kinsburskii" <skinsburskii@linux.microsoft.com>, Steven Rostedt
+	<rostedt@goodmis.org>, Thomas Gleixner <tglx@linutronix.de>, Tom Lendacky
+	<thomas.lendacky@amd.com>, Usama Arif <usama.arif@bytedance.com>, Will Deacon
+	<will@kernel.org>, <devicetree@vger.kernel.org>, <kexec@lists.infradead.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-doc@vger.kernel.org>,
+	<linux-mm@kvack.org>, <x86@kernel.org>
+Subject: Re: [PATCH v4 06/14] kexec: Add KHO parsing support
+In-Reply-To: <20250206132754.2596694-7-rppt@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+	<20250206132754.2596694-7-rppt@kernel.org>
+Date: Mon, 10 Mar 2025 16:20:01 +0000
+Message-ID: <mafs0zfhs97ta.fsf@amazon.de>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v5 03/11] Drivers: hv: Enable VTL mode for
- arm64
-To: Arnd Bergmann <arnd@arndb.de>, Michael Kelley <mhklinux@outlook.com>
-Cc: apais@microsoft.com, benhill@microsoft.com, bperkins@microsoft.com,
- sunilmut@microsoft.com, bhelgaas@google.com, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
- Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Joey Gouly <joey.gouly@arm.com>,
- krzk+dt@kernel.org, =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- ssengar@linux.microsoft.com, Sudeep Holla <sudeep.holla@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- devicetree@vger.kernel.org, kvmarm@lists.linux.dev,
- linux-acpi@vger.kernel.org, Linux-Arch <linux-arch@vger.kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-hyperv@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, x86@kernel.org
-References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-4-romank@linux.microsoft.com>
- <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_103507_183923_7557D745 
-X-CRM114-Status: GOOD (  15.01  )
+X-CRM114-CacheID: sfid-20250310_092032_296683_2D081AEE 
+X-CRM114-Status: GOOD (  23.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,56 +108,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Mike,
 
+On Thu, Feb 06 2025, Mike Rapoport wrote:
+[...]
+> @@ -444,7 +576,141 @@ static void kho_reserve_scratch(void)
+>  	kho_enable = false;
+>  }
+>  
+> +/*
+> + * Scan the DT for any memory ranges and make sure they are reserved in
+> + * memblock, otherwise they will end up in a weird state on free lists.
+> + */
+> +static void kho_init_reserved_pages(void)
+> +{
+> +	const void *fdt = kho_get_fdt();
+> +	int offset = 0, depth = 0, initial_depth = 0, len;
+> +
+> +	if (!fdt)
+> +		return;
+> +
+> +	/* Go through the mem list and add 1 for each reference */
+> +	for (offset = 0;
+> +	     offset >= 0 && depth >= initial_depth;
+> +	     offset = fdt_next_node(fdt, offset, &depth)) {
+> +		const struct kho_mem *mems;
+> +		u32 i;
+> +
+> +		mems = fdt_getprop(fdt, offset, "mem", &len);
+> +		if (!mems || len & (sizeof(*mems) - 1))
+> +			continue;
+> +
+> +		for (i = 0; i < len; i += sizeof(*mems)) {
+> +			const struct kho_mem *mem = &mems[i];
 
-On 3/8/2025 1:05 PM, Arnd Bergmann wrote:
-> On Fri, Mar 7, 2025, at 23:02, Roman Kisel wrote:
->> @@ -5,18 +5,20 @@ menu "Microsoft Hyper-V guest support"
->>   config HYPERV
->>   	tristate "Microsoft Hyper-V client drivers"
->>   	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
->> -		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
->> +		|| (ARM64 && !CPU_BIG_ENDIAN)
->> +	depends on (ACPI || HYPERV_VTL_MODE)
->>   	select PARAVIRT
->>   	select X86_HV_CALLBACK_VECTOR if X86
->> -	select OF_EARLY_FLATTREE if OF
->>   	help
->>   	  Select this option to run Linux as a Hyper-V client operating
->>   	  system.
->>
->>   config HYPERV_VTL_MODE
->>   	bool "Enable Linux to boot in VTL context"
->> -	depends on X86_64 && HYPERV
->> +	depends on (X86_64 || ARM64)
->>   	depends on SMP
->> +	select OF_EARLY_FLATTREE
->> +	select OF
->>   	default n
->>   	help
-> 
-> Having the dependency below the top-level Kconfig entry feels a little
-> counterintuitive. You could flip that back as it was before by doing
-> 
->        select HYPERV_VTL_MODE if !ACPI
->        depends on ACPI || SMP
-> 
-> in the HYPERV option, leaving the dependency on HYPERV in
-> HYPERV_VTL_MODE.
-> 
+i goes from 0 to len in steps of 16, but you use it to dereference an
+array of type struct kho_mem. So you end up only looking at only one of
+every 16 mems and do an out of bounds access. I found this when testing
+the memfd patches and any time the file was more than 1 page, it started
+to crash randomly.
 
-I was implementing Michael's suggestion, and might've gone a bit
-overboard, my bad. I'll fix this, thanks a lot for reviewing!
+Below patch should fix that:
 
-> Is OF_EARLY_FLATTREE actually needed on x86?
-> 
-
-No, it is not needed on x86. It is only needed when VTL mode is used.
-
->        Arnd
+---- 8< ----
+diff --git a/kernel/kexec_handover.c b/kernel/kexec_handover.c
+index c26753d613cbc..40d1d8ac68d44 100644
+--- a/kernel/kexec_handover.c
++++ b/kernel/kexec_handover.c
+@@ -685,13 +685,15 @@ static void kho_init_reserved_pages(void)
+             offset >= 0 && depth >= initial_depth;
+             offset = fdt_next_node(fdt, offset, &depth)) {
+                const struct kho_mem *mems;
+-               u32 i;
++               u32 i, nr_mems;
+ 
+                mems = fdt_getprop(fdt, offset, "mem", &len);
+                if (!mems || len & (sizeof(*mems) - 1))
+                        continue;
+ 
+-               for (i = 0; i < len; i += sizeof(*mems)) {
++               nr_mems = len / sizeof(*mems);
++
++               for (i = 0; i < nr_mems; i++) {
+                        const struct kho_mem *mem = &mems[i];
+ 
+                        memblock_reserve(mem->addr, mem->size);
+---- >8 ----
+[...]
 
 -- 
-Thank you,
-Roman
-
+Regards,
+Pratyush Yadav
 
