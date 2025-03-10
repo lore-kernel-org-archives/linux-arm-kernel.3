@@ -4,70 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77CFAC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:22:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 744F8C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 10:27:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YVgrYAqOmzDomPVWovtiT2BUnSO4CsUu2Ru+cq5kIeM=; b=crc3sQYabSI1h6FXmQg4qHMZ5V
-	JQvPryYIloanMvwrGCBWCfU1d2EfzFgOVAKm7/coOz2hb2k+Ed1ga3dI6YmcUuD9VHpHCsmViT501
-	ilff3eb++IPGE0jHW/8A87RIy1ws//tdkwuYlFqD9rvHd28JU2qKadoufr907CmEJ4D0CvtE2a0UF
-	SjJALSEAip9LI9RdCFbo3bwDR81s9tvHOoMyFsVeWaCElSUU6JzN+knAQCjZQELjxlkivoVrnqgzC
-	zXuxlJ3FiY1w/rz6pah8g5XEzu94SlbP8hVjc0h+b76MZyngiIZYO6OIR93igeV13JEeXvSYX50x2
-	jPqk+j9w==;
+	bh=Rqphmd21bOkdXsuSWrt33WicDw56krWCddUo2Bhz1zE=; b=xrun4agd5lhd0/mluI6Mt1iLNB
+	7jvLo9W0YG9ctDR5CvJmpXaPkXByoH1LJHduW+vHrAoBjZlFy2UPgJKxcZNkv/bcyI4XfWOOYeGCh
+	nY1NEAwwij3O9lA2wO2Rh4qeAgCvU0KYAHH6HnYWIBUANdD/QkkHRwRZeLG6eTtWZSvlOmmTf5IyL
+	1K1gUdmSWA0MRPrryo+La21Fl3XQ5lg1nbRwxpUs136iL7cWTjiVp0Yea5H2lt4GekdczBgYyW2dL
+	H3K8UMxPduhSLkjHHuVsGId7Vw5ajTj6bMshBzj3egjspuKEk2k2sP+ri81FENoX8Gw/gaGOVNdeB
+	6G5wp5cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traH2-00000002F2U-2iYV;
-	Mon, 10 Mar 2025 10:22:16 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1traLe-00000002FkV-21O7;
+	Mon, 10 Mar 2025 10:27:02 +0000
+Received: from meesny.iki.fi ([195.140.195.201])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1traEq-00000002Eqi-01Kd;
-	Mon, 10 Mar 2025 10:20:00 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=YVgrYAqOmzDomPVWovtiT2BUnSO4CsUu2Ru+cq5kIeM=; b=kvW9cz9v21ig5GGwO+obljcyIG
-	3Dbf0AjA4WiL3kKTqq1bXf4sT2CG5at2sQ31U5gBJcE1lUesX73jySVhhgAC389jffXK3Yxia6+NS
-	DcOppobmwV/9AobgdWMKG7XkySpnuEjXNd5qg3DsLtkR7ulzZBGhpf71H3XuOcZDeYguuSsPQxHbh
-	dLVf/S4I4twQEB3J4DIgpUrXSr2TlLEYJgXkKl9nMtjZR+cSQO31djoaSIaamXC29hc7LlB0MkOf5
-	812bkGSQlA7MqylHQCz40zc6GK0mrcnR8/t10CX7Oona9TNxg8w4koE2ljKO8809BkAL/FNf2k1XX
-	m7h0bYsA==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1traEm-00000001pfx-34lI;
-	Mon, 10 Mar 2025 10:19:58 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5103C153B;
-	Mon, 10 Mar 2025 03:20:05 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0A2573F673;
-	Mon, 10 Mar 2025 03:19:50 -0700 (PDT)
-Date: Mon, 10 Mar 2025 10:19:48 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Jacky Bai <ping.bai@nxp.com>
-Cc: <rafael@kernel.org>, <viresh.kumar@linaro.org>, <ilia.lin@kernel.org>,
-	Sudeep Holla <sudeep.holla@arm.com>, <tiny.windzz@gmail.com>,
-	<wens@csie.org>, <jernej.skrabec@gmail.com>, <samuel@sholland.org>,
-	<matthias.bgg@gmail.com>, <angelogioacchino.delregno@collabora.com>,
-	<linux-pm@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-mediatek@lists.infradead.org>,
-	<imx@lists.linux.dev>
-Subject: Re: [PATCH] cpufreq: Init cpufreq only for present CPUs
-Message-ID: <Z868xB3_3NhMsa7R@bogus>
-References: <20250310071640.3140435-1-ping.bai@nxp.com>
+	id 1traK0-00000002FY4-2uwj
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 10 Mar 2025 10:25:22 +0000
+Received: from hillosipuli.retiisi.eu (2a00-1190-d1dd-0-c641-1eff-feae-163c.v6.cust.suomicom.net [IPv6:2a00:1190:d1dd:0:c641:1eff:feae:163c])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: sailus)
+	by meesny.iki.fi (Postfix) with ESMTPSA id 4ZBCh125fyzyT0;
+	Mon, 10 Mar 2025 12:25:05 +0200 (EET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi; s=meesny;
+	t=1741602308;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rqphmd21bOkdXsuSWrt33WicDw56krWCddUo2Bhz1zE=;
+	b=sZ7xHOF7Oan5NNSDXvxp1e0VKFUe4VYxlrtSJEDrnoq9d81lIHeModlB6azC8Hr2rtyxnz
+	nOlMLlBDiL7ZSAOwYESC1KRHx7nwvrAClLR5z1Bo3BUeZ229b2zedzgUo4fal2HPwY29gE
+	ZNv6z1uQXUDDsO49u/4yZckTm535Lxw=
+ARC-Seal: i=1; s=meesny; d=iki.fi; t=1741602308; a=rsa-sha256; cv=none;
+	b=ysSrW01wgE/Uwql8eegaOY1vWm5yuAyMz9ZLw/vbaO2/LlKplPRUhLfwZ9QYHhHd09XuUT
+	8R6JetviriF8NqnA2NtJLKvbdoLBqIioSjRU5XPc9vKdQaZBrEhXFDEq2T3g7AKSk78SZG
+	DfrlnjrLXJvHlnI+OgeQREZGZoT32KA=
+ARC-Authentication-Results: i=1;
+	ORIGINATING;
+	auth=pass smtp.auth=sailus smtp.mailfrom=sakari.ailus@iki.fi
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=iki.fi;
+	s=meesny; t=1741602308;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rqphmd21bOkdXsuSWrt33WicDw56krWCddUo2Bhz1zE=;
+	b=eWSILLlusI23VAAXDpL3Zq70o/OfyX74lU3Y9ikUD4m4iK4gJvdGH79yMXLYKYiw1l9KFq
+	mefPQuHMrXFREKljV2q28I3vVW79G60GPJHYSit2hGpR/G5QMki0e+oIKsHig/2O+HzmmW
+	e7rtGlwQd5O0a5qevF4uP5tSYfF4Nkk=
+Received: from valkosipuli.retiisi.eu (valkosipuli.localdomain [192.168.4.2])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by hillosipuli.retiisi.eu (Postfix) with ESMTPS id 942A6634C93;
+	Mon, 10 Mar 2025 12:25:04 +0200 (EET)
+Date: Mon, 10 Mar 2025 10:25:04 +0000
+From: Sakari Ailus <sakari.ailus@iki.fi>
+To: Mathis Foerst <mathis.foerst@mt.com>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, linux-kernel@vger.kernel.org,
+	Steve Longerbeam <slongerbeam@gmail.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org,
+	linux-staging@lists.linux.dev, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, manuel.traut@mt.com,
+	mathis.foerst@zuehlke.com
+Subject: Re: [PATCH v1 1/1] media: imx: csi: Parse link configuration from
+ fw_node
+Message-ID: <Z86-AFnPQ2wXKidi@valkosipuli.retiisi.eu>
+References: <20250305113802.897087-1-mathis.foerst@mt.com>
+ <20250305113802.897087-2-mathis.foerst@mt.com>
+ <Z8nOTrjEW_OYBGlq@valkosipuli.retiisi.eu>
+ <84aa2d87-d7f1-46c9-b28d-6f0e9a78788d@stanley.mountain>
+ <Z8oQCuqKVH225lPw@valkosipuli.retiisi.eu>
+ <Z8r21Z2HthBwGDSq@mt.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250310071640.3140435-1-ping.bai@nxp.com>
+In-Reply-To: <Z8r21Z2HthBwGDSq@mt.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_101956_925721_861671AC 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_032520_910822_14DCF3BB 
+X-CRM114-Status: GOOD (  53.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,32 +110,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 03:16:40PM +0800, Jacky Bai wrote:
-> for_each_possible_cpu() is currently used to initialize cpufreq
-> in below cpufreq drivers:
->   drivers/cpufreq/cpufreq-dt.c
->   drivers/cpufreq/mediatek-cpufreq-hw.c
->   drivers/cpufreq/mediatek-cpufreq.c
->   drivers/cpufreq/qcom-cpufreq-nvmem.c
->   drivers/cpufreq/sun50i-cpufreq-nvmem.c
->
+Hi Mathis,
 
-Again how did you just narrow down to the list above ? Is that just a
-random pick ? As I suggested with corresponding cpuidle changes, please
-look into the details in side the for_each_possible_cpu() loop and then
-decide if it applies or not.
+On Fri, Mar 07, 2025 at 02:38:29PM +0100, Mathis Foerst wrote:
+> Hi Sakari, Hi Dan,
+> 
+> thanks a lot for your feedback.
+> 
+> On Thu, Mar 06, 2025 at 09:13:46PM +0000, Sakari Ailus wrote:
+> > Hi Dan,
+> > 
+> > On Thu, Mar 06, 2025 at 10:07:20PM +0300, Dan Carpenter wrote:
+> > > On Thu, Mar 06, 2025 at 04:33:18PM +0000, Sakari Ailus wrote:
+> > > > Hi Mathis,
+> > > > 
+> > > > Thanks for the patch.
+> > > > 
+> > > > On Wed, Mar 05, 2025 at 12:38:02PM +0100, Mathis Foerst wrote:
+> > > > > The imx-media-csi driver requires upstream camera drivers to implement
+> > > > > the subdev-pad-op "get_mbus_config" [0]. Camera drivers that don't
+> > > > > implement this function are not usable on the i.MX6.
+> > > > > 
+> > > > > The docs for get_mbus_config [1] say:
+> > > > > @get_mbus_config: get the media bus configuration of a remote sub-device.
+> > > > >             The media bus configuration is usually retrieved from the
+> > > > >             firmware interface at sub-device probe time, immediately
+> > > > >             applied to the hardware and eventually adjusted by the
+> > > > >             driver.
+> > > > > 
+> > > > > Currently, the imx-media-csi driver is not incorporating the information
+> > > > > from the firmware interface and therefore relies on the implementation of
+> > > > > get_mbus_config by the camera driver.
+> > > > > 
+> > > > > To be compatible with camera drivers not implementing get_mbus_config
+> > > > > (which is the usual case), use the bus information from the fw interface:
+> > > > > 
+> > > > > The camera does not necessarily has a direct media bus link to the CSI as
+> > > > > the video-mux and/or the MIPI CSI-2 receiver of the i.MX6 might be in
+> > > > > between them on the media pipeline.
+> > > > > The CSI driver already implements the functionality to find the connected
+> > > > > camera sub-device to call get_mbus_config on it.
+> > > > > 
+> > > > > At this point the driver is modified as follows:
+> > > > > In the case that get_mbus_config is not implemented by the upstream
+> > > > > camera, try to get its endpoint configuration from the firmware interface
+> > > > > usign v4l2_fwnode_endpoint_parse.
+> > > > > For the supported mbus_types (V4L2_MBUS_PARALLEL, V4L2_MBUS_BT656 and
+> > > > > V4L2_MBUS_CSI2_DPHY), extract the mbus_config from the endpoint
+> > > > > configuration.
+> > > > > For all other mbus_types, return an error.
+> > > > > 
+> > > > > Note that parsing the mbus_config from the fw interface is not done during
+> > > > > probing because the camera that's connected to the CSI can change based on
+> > > > > the selected input of the video-mux at runtime.
+> > > > > 
+> > > > > [0] drivers/staging/media/imx/imx-media-csi.c - line 211..216
+> > > > > [1] include/media/v4l2-subdev.h - line 814
+> > > > > 
+> > > > > Signed-off-by: Mathis Foerst <mathis.foerst@mt.com>
+> > > > > ---
+> > > > >  drivers/staging/media/imx/imx-media-csi.c | 36 ++++++++++++++++++++---
+> > > > >  1 file changed, 32 insertions(+), 4 deletions(-)
+> > > > > 
+> > > > > diff --git a/drivers/staging/media/imx/imx-media-csi.c b/drivers/staging/media/imx/imx-media-csi.c
+> > > > > index 3edbc57be2ca..394a9321a10b 100644
+> > > > > --- a/drivers/staging/media/imx/imx-media-csi.c
+> > > > > +++ b/drivers/staging/media/imx/imx-media-csi.c
+> > > > > @@ -169,6 +169,8 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > > > >  {
+> > > > >  	struct v4l2_subdev *sd, *remote_sd;
+> > > > >  	struct media_pad *remote_pad;
+> > > > > +	struct fwnode_handle *ep_node;
+> > > > > +	struct v4l2_fwnode_endpoint ep = { .bus_type = 0 };
+> > > > 
+> > > > Are there any defaults in DT bindings (other than 0's)? Also initialising a
+> > > > field to zero this way is redundant, just use {}.
+> > > > 
+> > > 
+> > > I was going to respond in much the same way.  This is equivalen to:
+> > > 
+> > > struct v4l2_fwnode_endpoint ep = { .bus_type = V4L2_MBUS_UNKNOWN };
+> > 
+> > Thinking about this in a context of parsing the endpoint, in fact the
+> > bus_type should be specified. Presumably the hardware is D-PHY, so the
+> > correct value would be V4L2_MBUS_CSI2_DPHY. This way
+> > v4l2_fwnode_endpoint_parse() doesn't need to guess.
+> 
+> I think we must use "bus_type = V4L2_MBUS_UNKNOWN" here:
+> 
+> The i.MX6 has two types of camera interfaces: Parallel and MIPI CSI-2.
+> They are connected either directly or via a video-mux to the CSIs
+> (See IMX6DQRM.pdf - Figure 9-3 for the connection diagram)
+> 
+> Pre-defining V4L2_MBUS_CSI2_DPHY here would let
+> v4l2_fwnode_endpoint_parse() fail if the camera uses the parallel bus.
+> 
+> We could distinguish between MIPI CSI-2 and Parallel input by checking
+> the grp_id of the upstream device like it's already done in
+> csi_get_upstream_mbus_config().
+> But for the Parallel case we still can't know if we should set bus_type
+> to V4L2_MBUS_PARALLEL or to V4L2_MBUS_BT656 - the i.MX6 supports both
+> formats on the parallel interface.
+> 
+> That's why I would argue that v4l2_fwnode_endpoint_parse() must figure
+> out the bus_type from the fw node.
 
-For me, it applied to the below files as well at the least.
+Right, nowadays you can indeed do this -- it wasn't a long ago when you
+couldn't. I presume the bindings do specify the bus-type property is
+mandatory? Where are the bindings btw.?
 
-drivers/cpufreq/mvebu-cpufreq.c
-drivers/cpufreq/qcom-cpufreq-hw.c
-drivers/cpufreq/scmi-cpufreq.c
-drivers/cpufreq/scpi-cpufreq.c
-drivers/cpufreq/virtual-cpufreq.c
+> 
+> > 
+> > > 
+> > > > >  	int ret;
+> > > > >  
+> > > > >  	if (!priv->src_sd)
+> > > > > @@ -210,11 +212,37 @@ static int csi_get_upstream_mbus_config(struct csi_priv *priv,
+> > > > >  
+> > > > >  	ret = v4l2_subdev_call(remote_sd, pad, get_mbus_config,
+> > > > >  			       remote_pad->index, mbus_cfg);
+> > > > > -	if (ret == -ENOIOCTLCMD)
+> > > > > -		v4l2_err(&priv->sd,
+> > > > > -			 "entity %s does not implement get_mbus_config()\n",
+> > > > > -			 remote_pad->entity->name);
+> > > > > +	if (ret == -ENOIOCTLCMD) {
+> > > > 
+> > > > 	if (!ret)
+> > > > 		return 0;
+> > > > 
+> > > > And you can unindent the rest.
+> > > 
+> > > I was going to say this too but then I thought actually this needs to
+> > > be:
+> > > 
+> > > 	if (ret != -ENOIOCTLCMD)
+> > > 		return ret;
+> > > 
+> > > Which is weird.  Better to break all the new code into a separate
+> > > helper function.
+> > > 
+> > > 	if (ret == -ENOIOCTLCMD)
+> > > 		ret = parse_fw_link_config_stuff();
+> > > 
+> > > 	return ret;
+> 
+> Good point. I factored out a helper function as suggested.
+> 
+> > 
+> > Indeed. get_mbus_config() presumably wouldn't return an error but
+> > correctness is usually a good idea.
+> > 
 
-Please check everything thoroughly as I just looked at these briefly.
-
---
+-- 
 Regards,
-Sudeep
+
+Sakari Ailus
 
