@@ -4,58 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E16CC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F31EC35FF2
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 10 Mar 2025 14:46:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
 	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yKJYJ1oT0EntJDKsEyJhIPLgpn+LHAvYW3vyfigr+x8=; b=EM16lko9SOuc7sePe4UxW4/TqZ
-	93c6CBJuTSGE57sGQJFbMzMTobjMT7AyZTGf5Bb6yNwyFtczkaKAniSIK5SvhnYZXNDLz3Tf711yR
-	afD+P/ZU7S81uw/yWu/wSbutoyBXQYSL8wx+OfFrTRl5T9a5n1+Q2Et9Vv/KizIK+Q/Yd8bzoBtni
-	DZy02JQbsohtRjQzh/SD05Ajg31qGZFCoZGamo+euOcHuV2cSWnzV9pSQSYcVrWbjDu3QO8qxpwTH
-	eu7VyDjcKw4rs0ktpis9q21JPPv2/ZbMOPQEVVKkGKpNQCaUfnbmaAfdhEOJxnopr1SBqnn2eRV3r
-	X3AgvnoA==;
+	bh=cC2ajFFW3/YI8HRtjIWTgL7LFrZuLtOfxpJrLZoBtts=; b=NfW8O91+98Kemw1wIqojo2rlsk
+	I4EB5Rv3ZnObHrks+uxgyqTfd9ZxIBELeUuHHfFYsTODYOY9BL98KAel48xORc0Flkt6w1VKRecZC
+	0WOLBN+ZI83CE+4v2BDof+lZSOnPAp2d/DwoZkF8Cl67xiuZuEkwz/u6ile9fTvbAi/Tu1lQntztK
+	emb7zO0QwRisnm8djX5h3gGps/sDIg5nhVte/DBTIfskyRzD61AXQ7amv/1UA48DxNVi4D+B2Bksv
+	f5EeIdyLIiTe1MEPsgjhOa8kilcdq0+y/iSlLJNA8RLAUG46qAFerZNhphrmHwBpeQjLrJ3dajuFd
+	14ThWe9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1treO2-00000002yKv-3mcO;
-	Mon, 10 Mar 2025 14:45:46 +0000
-Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	id 1treO6-00000002yQG-2ach;
+	Mon, 10 Mar 2025 14:45:50 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trcuT-00000002joG-2LHs
+	id 1trcut-00000002k4r-45QC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 10 Mar 2025 13:11:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=CC:To:In-Reply-To:References:
+	Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Sender:Reply-To:Content-ID:Content-Description;
+	bh=cC2ajFFW3/YI8HRtjIWTgL7LFrZuLtOfxpJrLZoBtts=; b=eR3tx8IzH9Fny5Dva0IKCpH41m
+	V1i9PNHY2y6ZvJ+Q6rKQycO0xVwEZPl49NWUo4NkTf2H1BCfJmAT+LfpIwYif5gmXmIxYjlerDjxl
+	rouT+CXSaa6m3D9vrbV1J/OiVpetkXKD7DeKlgvhnXQN941zDlFIS38LRLJUzUIuRh05Zfzc7vkmE
+	lRaA9tXyDqDrjyl4q6rooW/OcyuqUuQVNEsQUauT66yyUt6OWBl8xYib5vNiP8IfsbD0bAGuh/Sl9
+	ueRdW6vZCJ4sB6ewDJSI9TcxSG+Ap9NhKX9h2WPK49D2gEm7QV3UERpKVGxLien7QngWO0eBJxj79
+	Fez+lXIA==;
+Received: from mx07-00376f01.pphosted.com ([185.132.180.163])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trcue-00000001ra8-3ddi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 10 Mar 2025 13:11:14 +0000
+	Mon, 10 Mar 2025 13:11:27 +0000
 Received: from pps.filterd (m0168889.ppops.net [127.0.0.1])
-	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A55uUE006364;
-	Mon, 10 Mar 2025 13:10:48 GMT
+	by mx07-00376f01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52A55uUI006364;
+	Mon, 10 Mar 2025 13:10:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=imgtec.com; h=cc
 	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=dk201812; bh=y
-	KJYJ1oT0EntJDKsEyJhIPLgpn+LHAvYW3vyfigr+x8=; b=XpLfmm9m9am9EPXzi
-	0KWqbFir1uXvZ4bykHpjooqy5rnV4AXN543ChXj/6BEy6FaZc7tZ7VeSReVar2eu
-	UqyM860N8D4ROTiHcdFIwVGhP5HK89H/RFh3SWME4RofwUYZXLQ5NKZRpDkz/6mC
-	qznaj33Htkx0gQCt+aGAM38rC9eXAe6pKhg9bV9qzbFuqAhFqix1yl8QW+lZ5Frs
-	HIgFzCLk82ThXQidQYc8Xw7TBcOIQBLMFYQtuIU3gcEHxU5vbqA9xBE/nJYFal6c
-	drglGYPbDA13TqSOdfshO4dn9h73OFIAk1szif1vMGwSPylvR8DNQULS/qi36rRq
-	Gj8BA==
+	:message-id:mime-version:references:subject:to; s=dk201812; bh=c
+	C2ajFFW3/YI8HRtjIWTgL7LFrZuLtOfxpJrLZoBtts=; b=M+EdyFu9NLmbmmoyX
+	IIOdM8FMODesaou3UuCzlsOKK9MvPaf53EAk0hWIYQYNQtapsYNnwmYiVOF0uyp5
+	DECkevZpk6GUfSGgCbgljrZ3qUc8KjFfP9ZyX0s2DyXKKpr6bmtBlgi0Yj663TO8
+	2KzEf/+5cQ/bAzd/SndaykGaap+R1fgTktukuUaKSxAK7RGee/dljhI9qeeJhye4
+	9iKvCfw7B938jd7YAwmNoRgIFiMzkx6mVQC4lwIwZUGTk1ZbNZ82b4aVnKFhZkdz
+	Lm1rSLmg6Ug6m53a9ocrAOTAGDOUS7YLws+FAHjLMq3jmfF20626LGJ7MaQgiVNP
+	29k7Q==
 Received: from hhmail05.hh.imgtec.org (83-244-153-141.cust-83.exponential-e.net [83.244.153.141])
-	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 458ev09erv-2
+	by mx07-00376f01.pphosted.com (PPS) with ESMTPS id 458ev09es1-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT);
-	Mon, 10 Mar 2025 13:10:48 +0000 (GMT)
+	Mon, 10 Mar 2025 13:10:58 +0000 (GMT)
 Received: from Matts-MacBook-Pro.local (172.25.0.133) by
  HHMAIL05.hh.imgtec.org (10.100.10.120) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.44; Mon, 10 Mar 2025 13:10:47 +0000
+ 15.1.2507.44; Mon, 10 Mar 2025 13:10:56 +0000
 From: Matt Coster <matt.coster@imgtec.com>
-Date: Mon, 10 Mar 2025 13:10:30 +0000
-Subject: [PATCH v3 06/18] drm/imagination: Mask GPU IRQs in threaded
- handler
+Date: Mon, 10 Mar 2025 13:10:42 +0000
+Subject: [PATCH DO NOT MERGE v3 18/18] arm64: dts: ti: k3-j721s2: Add GPU
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-6-143b3dbef02f@imgtec.com>
+Message-ID: <20250310-sets-bxs-4-64-patch-v1-v3-18-143b3dbef02f@imgtec.com>
 References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
 In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
 To: Frank Binns <frank.binns@imgtec.com>,
@@ -78,24 +93,24 @@ CC: <dri-devel@lists.freedesktop.org>, <devicetree@vger.kernel.org>,
  Belle" <alessio.belle@imgtec.com>,
         Alexandru Dadu <alexandru.dadu@imgtec.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2173;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1805;
  i=matt.coster@imgtec.com; h=from:subject:message-id;
- bh=a87pJJ6QRI3G27rMA0r0KqtsR1jW6dnBZW56AiN3m6g=;
- b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3KhPzDTqD96caTjQ4u78T8ijm6P/nN5h+ytM4oCR
- 5JvbLys1VHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQATMXnHyPA46HuPRW8A18NK
- SwOVixZ6wneiOo4ICLSl6R0LZU7/3MbI8FRRzr39ruvvmZuKlMKeFT+cEzBl5yc9SwaPKP30aRl
- fWQA=
+ bh=OIZt4+jjToOipp31+L0+GUZ9xT4I19g9KFCIywONxSE=;
+ b=owGbwMvMwCFWuUfy8817WRsYT6slMaSfe3LpDL+Ie9uNFZdYbvCpfy/q4s3k3+zWuKjnd/j3N
+ yXfZ/y41lHKwiDGwSArpsiyY4XlCrU/aloSN34Vw8xhZQIZwsDFKQAT2WzCyHBgP1eL956Wre8e
+ OJ4oYTv64A6b4wR5Z7PISFaJKTWtjxkYGaZGXdq9P0nvTNPetFt25T9tUhPk/JuuFseIZs6zZpq
+ 3nQEA
 X-Developer-Key: i=matt.coster@imgtec.com; a=openpgp;
  fpr=05A40CFCE7269D61D97100A1747F0A9036F90DFA
 X-Originating-IP: [172.25.0.133]
 X-EXCLAIMER-MD-CONFIG: 15a78312-3e47-46eb-9010-2e54d84a9631
-X-Authority-Analysis: v=2.4 cv=CeII5Krl c=1 sm=1 tr=0 ts=67cee4d8 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=r_1tXGB3AAAA:8 a=MXbv0OSQah28ATDbmwsA:9 a=QEXdDO2ut3YA:10
- a=ha9_M8TO0rgdwmpzGQMU:22 a=t8nPyN_e6usw4ciXM-Pk:22
-X-Proofpoint-GUID: mxZIE0gXF2qf_xQozX3THaIJtT_SBUdo
-X-Proofpoint-ORIG-GUID: mxZIE0gXF2qf_xQozX3THaIJtT_SBUdo
+X-Authority-Analysis: v=2.4 cv=CeII5Krl c=1 sm=1 tr=0 ts=67cee4e2 cx=c_pps a=AKOq//PuzOIrVTIF9yBwbA==:117 a=AKOq//PuzOIrVTIF9yBwbA==:17 a=ETbM1kImDFEA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=sozttTNsAAAA:8 a=VwQbUJbxAAAA:8 a=r_1tXGB3AAAA:8
+ a=rLJv8WYccUdZFC7c5UsA:9 a=QEXdDO2ut3YA:10 a=S-JV1fTmrHgA:10 a=j2-svP0xy3wA:10 a=t8nPyN_e6usw4ciXM-Pk:22
+X-Proofpoint-GUID: ge343qt0aTLIAE1RI1G7DJoeTBiyJ9M6
+X-Proofpoint-ORIG-GUID: ge343qt0aTLIAE1RI1G7DJoeTBiyJ9M6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_061109_981941_242AF232 
-X-CRM114-Status: GOOD (  15.43  )
+X-CRM114-CacheID: sfid-20250310_131121_001783_C66BBC81 
+X-CRM114-Status: GOOD (  10.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,67 +125,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alessio Belle <alessio.belle@imgtec.com>
+The J721S2 binding is based on the TI downstream binding in 54b0f2a00d92
+("arm64: dts: ti: k3-j721s2-main: add gpu node") from [1] but with updated
+compatible strings.
 
-Pass IRQF_ONESHOT flag to request_threaded_irq(), so that interrupts will
-be masked by the kernel until the end of the threaded IRQ handler. Since
-the calls to pvr_fw_irq_enable() and pvr_fw_irq_disable() are now
-redundant, remove them.
+The clock[2] and power[3] indices were verified from docs, but the
+source of the interrupt index remains elusive.
 
-Interrupts to the host from the soon-to-be-added RISC-V firmware
-processors cannot be masked in hardware. This change allows us to continue
-using the threaded handler in GPUs with a RISC-V firmware.
+[1]: https://git.ti.com/cgit/ti-linux-kernel/ti-linux-kernel
+[2]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/clocks.html
+[3]: https://downloads.ti.com/tisci/esd/latest/5_soc_doc/j721s2/devices.html
 
-For simplicity, the same approach is taken for all firmware processors.
-
-Signed-off-by: Alessio Belle <alessio.belle@imgtec.com>
 Signed-off-by: Matt Coster <matt.coster@imgtec.com>
 ---
 Changes in v3:
-- Added
+- None
+- Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-21-3fd45d9fb0cf@imgtec.com
+Changes in v2:
+- Use normal reg syntax for 64-bit values
+- Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-21-4ed30e865892@imgtec.com
 ---
- drivers/gpu/drm/imagination/pvr_device.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-diff --git a/drivers/gpu/drm/imagination/pvr_device.c b/drivers/gpu/drm/imagination/pvr_device.c
-index 1704c0268589bdeb65fa6535f9ec63182b0a3e94..b6ce936f07c8bb26d240e50b72a1d991dbe4b045 100644
---- a/drivers/gpu/drm/imagination/pvr_device.c
-+++ b/drivers/gpu/drm/imagination/pvr_device.c
-@@ -169,8 +169,6 @@ static irqreturn_t pvr_device_irq_thread_handler(int irq, void *data)
- 		ret = IRQ_HANDLED;
- 	}
- 
--	/* Unmask FW irqs before returning, so new interrupts can be received. */
--	pvr_fw_irq_enable(pvr_dev);
- 	return ret;
- }
- 
-@@ -181,10 +179,6 @@ static irqreturn_t pvr_device_irq_handler(int irq, void *data)
- 	if (!pvr_fw_irq_pending(pvr_dev))
- 		return IRQ_NONE; /* Spurious IRQ - ignore. */
- 
--	/* Mask the FW interrupts before waking up the thread. Will be unmasked
--	 * when the thread handler is done processing events.
--	 */
--	pvr_fw_irq_disable(pvr_dev);
- 	return IRQ_WAKE_THREAD;
- }
- 
-@@ -213,9 +207,13 @@ pvr_device_irq_init(struct pvr_device *pvr_dev)
- 	pvr_fw_irq_clear(pvr_dev);
- 	pvr_fw_irq_enable(pvr_dev);
- 
-+	/*
-+	 * The ONESHOT flag ensures IRQs are masked while the thread handler is
-+	 * running.
-+	 */
- 	return request_threaded_irq(pvr_dev->irq, pvr_device_irq_handler,
- 				    pvr_device_irq_thread_handler,
--				    IRQF_SHARED, "gpu", pvr_dev);
-+				    IRQF_SHARED | IRQF_ONESHOT, "gpu", pvr_dev);
- }
- 
- /**
+diff --git a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+index 92bf48fdbeba45ecca8c854db5f72fd3666239c5..a79ac41b2c1f51b7193e6133864428bd35a5e835 100644
+--- a/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi
+@@ -2048,4 +2048,16 @@ watchdog8: watchdog@23f0000 {
+ 		/* reserved for MAIN_R5F1_1 */
+ 		status = "reserved";
+ 	};
++
++	gpu: gpu@4e20000000 {
++		compatible = "ti,j721s2-gpu", "img,img-bxs-4-64", "img,img-rogue";
++		reg = <0x4e 0x20000000 0x00 0x80000>;
++		clocks = <&k3_clks 130 1>;
++		clock-names = "core";
++		interrupts = <GIC_SPI 24 IRQ_TYPE_LEVEL_HIGH>;
++		power-domains = <&k3_pds 130 TI_SCI_PD_EXCLUSIVE>,
++				<&k3_pds 373 TI_SCI_PD_EXCLUSIVE>;
++		power-domain-names = "a", "b";
++		dma-coherent;
++	};
+ };
 
 -- 
 2.48.1
