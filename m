@@ -4,104 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DE50C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64ABAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Subject:Cc:To:From:Date:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w7YliLuH4qlV/MO/+JH2L4UcYmketDeTxX5I8TCDYu0=; b=If9SigU2HDgXCco6sPIS2AMG/Q
-	m/4EzrHPzizeR2sjN/wvK7OistuFr/BZ/lhWT7OFuZwVOV2rOTspgMBfm46B4CxPZJvNMGwUif/7l
-	lqP6X2VealwIm81dKQKW9/7NoE6qbI/Un698OV0eXkeLQu31qJJxPUnGvEoOzVU/LWK/O7todBzN/
-	1RwudSjMqar3vAbzF+2tJ/0oK40MTtQwtUrFlSLfJNouJexAa7kQiFJgkxZ9AXSNQTMB/LaKtGEzv
-	JzlYmSA5ubl1NbXan6J0X/LX4+QFrxaLjF6IH5g3kFIFXQzP5y9uT/6xI/zQjSUf9n3nO+lEvD+F8
-	Tp8JFeXA==;
+	bh=7tecvAy+u2nTgNfC9RdDCsqyar8u41Y2yinoQJZWxPw=; b=wAduadW1J8PklMFavTzslSTOhx
+	uWeJhzChEfJfVWth42N2y1w43rXTHTKp/OR/4/7kxuk8QucDcC443/FokG0BwZGna8vlp8wJ+kvok
+	Id7CPrvaZpT0th5Q53MrEEmunn0n9qWdd7scVduzUW2IzcDYuU0eadouejvZkJqlnvkkp68pSlWf9
+	hGISZWVeka32LWv1fR7WrcyJobd6m42J+JzOLX2i6hdijP4/tGiVj14Y82F2zz/bufF5HEpV/hFKV
+	vN4EsGYq/31WiylsrqrlBjCbMotKLGy72WJl+10fYXFB5ybxaO6PiVl4sR3LAJ4xVuI6nxYW/x+vC
+	WIIu73LQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4LN-00000006cnw-1kB6;
-	Tue, 11 Mar 2025 18:28:45 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1ts4N0-00000006d3k-0kXG;
+	Tue, 11 Mar 2025 18:30:26 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts432-00000006ZNm-1DB5;
-	Tue, 11 Mar 2025 18:09:49 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-ac2a81e41e3so446622366b.1;
-        Tue, 11 Mar 2025 11:09:47 -0700 (PDT)
+	id 1ts43W-00000006ZRz-3wmQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 18:10:20 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-390cf7458f5so5598451f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:10:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741716586; x=1742321386; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=w7YliLuH4qlV/MO/+JH2L4UcYmketDeTxX5I8TCDYu0=;
-        b=bbb8VFxTSv9TnzHe4YN4H4iIIglQEkSkx9sgXJeD2p96qAQxwuIv2UASJu4LnG+iwP
-         BbqimsPhRVKvqSiBa5mvWWc8qEaw9cLtp27RKvyNxHQ/MhosZsOGhWQMSfUJMbRjuIbe
-         P+JHnw6rB9wmSmtWQrQGS5tPQXzszE5v9R6DKN9KIat8j/9w/o/Ild4e5vce75K1jz+0
-         2xzhWvp3zNirVEVfLsY9T6Qe0ioUGSkaWcZYkSO9HIjEg5yZz7LnAClO9oegLTZLF5PA
-         1v78Kf5ry12kuGe+FmDcesF3fdGSHXDh+yhnByUUY7Aw9yC575t6wQEUI1Dd4FVkA4CL
-         OF9g==
+        d=linaro.org; s=google; t=1741716617; x=1742321417; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=7tecvAy+u2nTgNfC9RdDCsqyar8u41Y2yinoQJZWxPw=;
+        b=o7atib6HZutYCb5tFw2o1uNp0ia/NVepKxcZebDQf2X9Vep3zkSM4LIBDXKe53eeOx
+         AgkXDwPdJjwI0WNls1ZdW8Y1xwQPeLMAWvnwb2mRkmux8+18uWmGfRfEgnYNoPElq2Gm
+         geQ3CFl1Sop1VQz1u77TkYjrZ/9vQF0f+6b2eTINVR4xw1YGcPEnK2TU0cYOUlNvtFkJ
+         kg0IgBfCwdGGSo+5NnwEWwKcN20Ya4GLnU7Y2JeHOhNK4n+5xxYaK0TdQa/UbbOhqcMN
+         FyKqLunUmGCc9xtZhKqTY8y1FuVwpWb5sPCQLiis/5ihVcPnOJ+yYh1gdz3tXeiOSNWl
+         BZeQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741716586; x=1742321386;
-        h=in-reply-to:content-disposition:mime-version:references:subject:cc
-         :to:from:date:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=w7YliLuH4qlV/MO/+JH2L4UcYmketDeTxX5I8TCDYu0=;
-        b=cm3bqb/FluaPZFHZh9cY9lqSDAI0OhiV+p2CyBlHSYoqor3o6/RMGiw5Rbg3leuzNV
-         id355/OwIhOW/LmMSpqP/fF9JSTzM/wj35hkM1l2gHpN7lcYBLqHDQ7/xtrRjhWnx9/W
-         hd4cfLUxxKAWkQ+v7chy4Z2jOhMpBe2LEU+9rmy/emDDzTDyLlxIH+7wlz+jYP0hUzYV
-         7NmNqtTVbtPo1lJCmQZG/ZmYm4nH8Oq+iJDI1P8TBoJ0FKLNoxhZkdTMYSg9XMBsWX8L
-         YAmYSZrVnHFs2XFvoXEV0A08xNXoGfTpk1+fHdQVeNqZC+QPGrZVOPMsuIcIzRlLel7s
-         aOag==
-X-Forwarded-Encrypted: i=1; AJvYcCUvhko5IgpLwuFwuMJ+bFzdygU0MEDHB4BvV7FNBw2yCNQT0jE9FFcsilyBeu8niMjMw3nZsGtefzbeIYzvKfhs@lists.infradead.org, AJvYcCVJ3oFQ9XADRv0E0PTFC4ofLd18Lv1Dvfkq4ixg+4qHpP35oiXPINzN40+X6xeXUC9fNCMKc5PhT15D@lists.infradead.org, AJvYcCWY6w7WTlsBMKYyjKHwKNZsFqTSehM4dM6yhvQ0qdS+PSGHqI+VdNS2phA4XGsu4sncXXKzoRELumsAnsv4RbI=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzmDTJLf0WIOaEKIy+No8pY1fLXxz9wzR5PmGqFXzJHCf0mIl37
-	Ko2XtfPy8IyFGdQyjMcPasEEOujvZqObfUhvb8MKLXMH/wnaLcpV
-X-Gm-Gg: ASbGncuTS7IFBpEcDSq9bEE2TFg5K1G8ewbupKmNSPjHAmvE+vX3CHCzpo/k63KTG4P
-	Sq3OGbPH4Z1yxXI16XSVznvMQfDqKT8Xb7LNHbfUCDgRQ3UOtujPGv6140kP6JfgXj5gn/5FcRL
-	ZorOwPy+nnGB2TEHgc8F1j2LsyO4bOXpc1As8sBMoLJAJpsdqOex7ocnUJL+gjy28UQuhOU6wnI
-	j1VLVqxWLUYXR0TYst/QzAerxXdqUBXksitlO9ln1ZyKgjc92X9FwZ3GNzev6QPODiVTxipR9AM
-	5pF4afslKVBCA4ZwLMXCP31X3/obwUqTihUALe/yyxeOiWRSnPTwo6y1qGuC68EG3mxgb5+n/d3
-	eQfopWFNqgNBh+vvoSCN9xvc=
-X-Google-Smtp-Source: AGHT+IFGoeMKh+SV9Aw9aLOSeklw6RYQlLlVxQgOHzKR34XV8RHNJXBdNm+Xa03GkQRMHVbvPeRAPw==
-X-Received: by 2002:a17:906:180d:b0:ac2:5d24:1fcf with SMTP id a640c23a62f3a-ac25d2423fdmr1538965666b.26.1741716585443;
-        Tue, 11 Mar 2025 11:09:45 -0700 (PDT)
-Received: from Ansuel-XPS. (58.43.196.178.dynamic.cust.swisscom.net. [178.196.43.58])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2895e7e6asm511088166b.54.2025.03.11.11.09.43
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 11:09:44 -0700 (PDT)
-Message-ID: <67d07c68.170a0220.3fa05.2c8e@mx.google.com>
-X-Google-Original-Message-ID: <Z9B8Z2aA3MfCBBLG@Ansuel-XPS.>
-Date: Tue, 11 Mar 2025 19:09:43 +0100
-From: Christian Marangi <ansuelsmth@gmail.com>
-To: Vinod Koul <vkoul@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Lee Jones <lee@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Lorenzo Bianconi <lorenzo@kernel.org>,
-	Daniel Danzberger <dd@embedd.com>, Arnd Bergmann <arnd@arndb.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Nikita Shubin <nikita.shubin@maquefel.me>,
-	Guo Ren <guoren@kernel.org>, Yangyu Chen <cyy@cyyself.name>,
-	Ben Hutchings <ben@decadent.org.uk>, Felix Fietkau <nbd@nbd.name>,
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-phy@lists.infradead.org, linux-mediatek@lists.infradead.org,
-	linux-usb@vger.kernel.org, upstream@airoha.com
-Subject: Re: [PATCH 10/13] phy: airoha: Add support for Airoha AN7581 USB PHY
-References: <20250309132959.19045-1-ansuelsmth@gmail.com>
- <20250309132959.19045-11-ansuelsmth@gmail.com>
- <Z9AhN9T8s1oogCUn@vaman>
- <Z9AhkByegWQgC9YE@vaman>
+        d=1e100.net; s=20230601; t=1741716617; x=1742321417;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=7tecvAy+u2nTgNfC9RdDCsqyar8u41Y2yinoQJZWxPw=;
+        b=MSuCtENtYnRMXGxWBmGhmPq2d2rXrhmiYvFN965rBVM1zrkX7GeRHQEdJOSXQ3tve4
+         bwAMyhcDibWFT3roAGBTKdZC+TBqcUX5bGiw3EM/nxnUReCUHOsbyDsfk9l8Xciixu6/
+         EqZPCcP6TsII+q3o7fKXEPWN98nrRPdA0MIret+Gz4/jqcZnHpGBR04a3w9oqWfsstr6
+         4YdB28kcBSP+hlBIBpVvJmtVFJmRRXilcbHt0uJd/LUTeCzbGukmyfPG9wwGViJOrl6C
+         gv7c1/EZ+304YrFqIFaPgY5xyPYv7IdYxBn25OwrC519lJJmsUNWDHk5Abi8mFI9DvAS
+         RMdA==
+X-Gm-Message-State: AOJu0YzL6F/4hLo7ITC2KdTJVcvD1bA8ZBNcfDCHvbUPsWrFpH1GEgGJ
+	4DU5ad3SXNns0vScZhex2T3ZotB7TwKVEdnS2FqiNfv7O4Hq5CoNvZ/Swj9ag0rvg2k24V0qo08
+	4dmlTCZoWgji6dQQlH+6qx288pgK2EqytcCIoNQ==
+X-Gm-Gg: ASbGncumvoQ4I0IJAS1LATRRJ3CoTSvjdsFcNLV2rWuNhyfWXNCg2UL1S5zjZn4jJK+
+	laNGkvMa3R8awqlSdsLfF/EzFVA2nVy9VLgidxZAKYWJQivHiY5lgqSraWQUajMdfNMjlICgSq1
+	551EfpmPYvSKmS906aex86nObCwPc=
+X-Google-Smtp-Source: AGHT+IEoMIu2qa0ouzgu4WMGPB2l4x9tF1jT5ThBiiWJB8oICkXYch22N7BWvOSIBrMFeOfJO4XpxafHp8QkcQy5AgE=
+X-Received: by 2002:a05:6000:402a:b0:391:888:f534 with SMTP id
+ ffacd0b85a97d-39132d39209mr19655289f8f.20.1741716617093; Tue, 11 Mar 2025
+ 11:10:17 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9AhkByegWQgC9YE@vaman>
+References: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+In-Reply-To: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+From: Christopher Obbard <christopher.obbard@linaro.org>
+Date: Tue, 11 Mar 2025 19:10:06 +0100
+X-Gm-Features: AQ5f1Jog8mLk3h4VXg6PLgDM_85qkXGsgrKxdx2EG0uqVayo6r93gzulMiKOPb8
+Message-ID: <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as built-in
+To: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_110948_325525_A231ABBA 
-X-CRM114-Status: GOOD (  19.38  )
+X-CRM114-CacheID: sfid-20250311_111018_995179_A77B5C8A 
+X-CRM114-Status: GOOD (  20.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,32 +92,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 12:42:08PM +0100, Vinod Koul wrote:
-> On 11-03-25, 12:40, Vinod Koul wrote:
-> > On 09-03-25, 14:29, Christian Marangi wrote:
-> > > Add support for Airoha AN7581 USB PHY driver. AN7581 supports up to 2
-> > > USB port with USB 2.0 mode always supported and USB 3.0 mode available
-> > > only if the Serdes port is correctly configured for USB 3.0.
-> > > 
-> > > On xLate probe, the Serdes mode is validated and the driver return error
-> > > if the Serdes mode doesn't reflect the expected mode. This is required
-> > > as Serdes mode are controlled by the SCU SSR bits and can be either USB
-> > > 3.0 mode or HSGMII or PCIe 2. In such case USB 3.0 won't work.
-> > > 
-> > > If the USB 3.0 mode is not supported, the modes needs to be also
-> > > disabled in the xHCI node or the driver will report unsable clock and
-> > > fail probe.
-> 
-> Also I dont see phy depends on rest. Please split this and post phy bits
-> separately at least..
+I sent this patch to start the discussion, some things I found:
 
-Well USB doesn't work without this driver so they are indirectly
-dependent. Will split and address all the other comments.
+1) Some interconnects are missing from arm defconfig. Should they be =y too ?
+$ grep CONFIG_INTERCONNECT_QCOM arch/arm/configs/qcom_defconfig
+CONFIG_INTERCONNECT_QCOM=y
+CONFIG_INTERCONNECT_QCOM_MSM8974=m
+CONFIG_INTERCONNECT_QCOM_SDX55=m
 
-> 
-> -- 
-> ~Vinod
+2) Some interconnects are missing from arm64 defconfig (which should
+probably be in there) (I have included just two examples):
+$ grep CONFIG_INTERCONNECT drivers/interconnect/qcom/Makefile
+obj-$(CONFIG_INTERCONNECT_QCOM_QCS615) += qnoc-qcs615.o
+obj-$(CONFIG_INTERCONNECT_QCOM_SM7150) += qnoc-sm7150.o
 
--- 
-	Ansuel
+I can handle these in follow-up or v2 of the patchset as follow-up
+commits, please let me know what you'd prefer.
+
+On Tue, 11 Mar 2025 at 19:03, Christopher Obbard
+<christopher.obbard@linaro.org> wrote:
+>
+> Currently some Qualcomm interconnect drivers are enabled
+> as modules which isn't overly useful since the interconnects
+> are required to be loaded during early boot.
+>
+> Loading the interconnects late (e.g. in initrd or as module)
+> can cause boot issues, such as slowdown or even not booting
+> at all (since the interconnect would be required for storage
+> devices).
+>
+> Be consistent and enable all of the Qualcomm interconnect
+> drivers as built-in to the kernel image.
+>
+> Signed-off-by: Christopher Obbard <christopher.obbard@linaro.org>
+> ---
+>  arch/arm64/configs/defconfig | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>
+> diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> index 219ef05ee5a757c43a37ec9f8571ce9976354830..6582baee2ab02ecb2ff442c6e73aa6a23fee8d7f 100644
+> --- a/arch/arm64/configs/defconfig
+> +++ b/arch/arm64/configs/defconfig
+> @@ -1656,11 +1656,11 @@ CONFIG_INTERCONNECT_IMX8MN=m
+>  CONFIG_INTERCONNECT_IMX8MQ=m
+>  CONFIG_INTERCONNECT_IMX8MP=y
+>  CONFIG_INTERCONNECT_QCOM=y
+> -CONFIG_INTERCONNECT_QCOM_MSM8916=m
+> +CONFIG_INTERCONNECT_QCOM_MSM8916=y
+>  CONFIG_INTERCONNECT_QCOM_MSM8996=y
+> -CONFIG_INTERCONNECT_QCOM_OSM_L3=m
+> +CONFIG_INTERCONNECT_QCOM_OSM_L3=y
+>  CONFIG_INTERCONNECT_QCOM_QCM2290=y
+> -CONFIG_INTERCONNECT_QCOM_QCS404=m
+> +CONFIG_INTERCONNECT_QCOM_QCS404=y
+>  CONFIG_INTERCONNECT_QCOM_QCS615=y
+>  CONFIG_INTERCONNECT_QCOM_QCS8300=y
+>  CONFIG_INTERCONNECT_QCOM_QDU1000=y
+>
+> ---
+> base-commit: b098bcd8278b89cb3eb73fdb6e06dc49af75ad37
+> change-id: 20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-258fcc961b11
+>
+> Best regards,
+> --
+> Christopher Obbard <christopher.obbard@linaro.org>
+>
 
