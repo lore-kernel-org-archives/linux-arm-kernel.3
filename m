@@ -4,115 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D248C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:06:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBB8C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NEHWkIsqNia+U8ti+0nFhR6P/Oj+RSqXRxPms9dMki0=; b=xmfIB7jhwhgtMnE2Z1dHGSMXBU
-	4o1MuZCNRekuE1QUmZwM9sSu7ZqoD+RW4Ums/fR+SgR84OfnmcuqB+WcCkA4z9F8IXjvKNtdHshfe
-	6gbG/rNSeHBs0wL1oCFFDiFcYrWhk+6vWtw61+unskuBH8Skb2aNqLy3ft9nlaHmf2gZ5np2hpyRm
-	x8h9gN/r0I/JTorzlx8ougvGBV+44fKlzSmPHFwGEX9gLDsuj6zRKWFYTlFB/BWGlaWftSChiZy4a
-	GYxvG2B1lV+Ikpatwh4s7xcyPhN1H2Iwc6T0qMAsCmmV2Dpe/6pHOjh8t/fIS9LcmndGwnPm9Xm0F
-	h0LF6YmA==;
+	bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=; b=enhVAz2x2QVG+dbT4kE/3KsT5f
+	B6BCo90RAIZfBLawmvVi2aWIhWvaLHod6qCEHcA6Y0ymEMdvdC3aM+2a8EUCYb7epkcwwdvZoLK+y
+	CmEt+VmYvpt5ZJglsMtRBf95zjnvE0kYlfo5+UwaXyv1K8VAvLEjt+QSiM4x1LteWsERrX7oX2vJL
+	MWiafs6OLW820CGTF1UI+vg1NgDWVFdswpquPAUud7cAoDsUapIb1g1BtHhNO0ycpUbCRPuAy5yZu
+	nPB0Yt3iWr/6O7xQpbO8fIibJ14p9gavB683rWv+w6xWvqTnHRIqfraEnLbZDVCjJx96SngLkdOXp
+	Oh0MlzCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts27k-00000006Hqm-3zvs;
-	Tue, 11 Mar 2025 16:06:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ts29R-00000006ISq-2i1e;
+	Tue, 11 Mar 2025 16:08:17 +0000
+Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts266-00000006HWz-2HFJ
+	id 1ts27n-00000006Hrs-0idT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 16:04:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 0C2FA5C6715;
-	Tue, 11 Mar 2025 16:02:33 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6216EC4CEE9;
-	Tue, 11 Mar 2025 16:04:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741709089;
-	bh=ol541gNVPkNybWxr4NC+BgFFiX7TZtmw9LNu/oPSP6o=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=lIOy2yi/Gq8i+wdHBjBeBuiUwcRgl/AwBHbG96sQtzO/0phZoAfrjeSQIMv4LrRXr
-	 DW7LfyiF9CgF+jhzGx0jwBS+PNsPqJD1GvvRW0iuQM4NW4+XSafchSS8l01fCGle5d
-	 cdXRqta51y2Q+Mfze13VBtQBMEpiyls87/0VShwyLKZ4xNfQFdvra8MojkHLKKH35X
-	 oQztRib6rDj24vZtYqrnoBtBhQDTkdZWAuPe887eDO9WHqj1oxKcTSzJhD3s/i75+6
-	 L9A75ldpanNff2fngz89nxlCkmdguexnvz+AxwVNkHnUFo5/oaFevgUDvFvabLsQJ3
-	 iu/LeoNDLfaqA==
-Message-ID: <eaf1ecca-4fde-4128-8590-6013c3a13a04@kernel.org>
-Date: Tue, 11 Mar 2025 17:04:39 +0100
+	Tue, 11 Mar 2025 16:06:36 +0000
+Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3912fdddf8fso2938323f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:06:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741709193; x=1742313993; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=;
+        b=o+CLaoEQTXhNycB3KNw3Twn/+EW9szUXaeEL7+o/FAQy1c+FiTApjynp+szaLv3XgB
+         yTmUSjPsrLr//yQnKxUXUpoVysxlOeaAhLTpl31lKKDAKypyfO0fsYkED/KwrkYgpXbL
+         9K37vEgziKcEw8FFKUBDnp1AbIbabb8Dt+8AVyUk8+FUB9sEe8/EG5Ls5TtYYqavsvGB
+         AfyWK307I/PHXXIjza6SmHeNsz8W+5ZPwDXgxvNWGrP2PT3keDAHX/BR7xYU/L2t/jYz
+         NO4r8JXhEUznk77ZiJkmaCUz5vSeATowkTkx4MGVa2lsghW+5QNMRxBYD6HfFEQMEpZm
+         NDHw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741709193; x=1742313993;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=;
+        b=DPJsA2lIrSt19dvvsinOlB1xME3iQ2ntvQY7zzppsNVu/SbOlFid8w4gSykK177SSr
+         O9pFvoz7zKqQBbPS8knHBCIDKGIsk8vuhaH97l5F5ZT3/o4tiaDSwIWRm1hHAkoE9pYd
+         hpkC+BZo1k2HJ49DyvrA3+UEWYbCPnLQd+iISpvNd+XEu9HYk9AQpbUQiW+BJ1KXUtMk
+         BAJBK5Gr26FQDTdTDtX6NECnYGzJk2h79uAag9PKMAIaDKJKiW84AVf77HE16XDoQgdQ
+         BYa/DxGj/VYmYngv63Y03KAqhSmX5sRTxwKMVrdqgpMCaSfg72n3AnqivAs/jf1BbX+9
+         amVw==
+X-Forwarded-Encrypted: i=1; AJvYcCXKitmb0zaHy+UsifVfLruGXstAbF9LzCf52EpDzIjUfn5kawmreKZ0gInZP+iSGiOmZosSDwrM4g5nLBqRbVwO@lists.infradead.org
+X-Gm-Message-State: AOJu0YyPWzRj7C0uIG9YuJu3GjFkCnx1D9R/sgWCPdxE4oBSPK80/TeH
+	MPB5D91/ekrf8Zb+BS43qtTLE3SMIZ/z69Mv5UDCb/7kGbNXZd7RzhqqYlfsUMU=
+X-Gm-Gg: ASbGncs6Vvel1lr/sElDEJSj8wR1hbPAnc01G3yff0H20otv9MK1hV/8v01UQQz0h2V
+	3HQLj14++siztFajcZKNUA6DxjBYhgj1fDTlou02T2p7sk3NUJLPl+WQMpvnAhlzw8xdQlR/TAE
+	CUTf/9IinsY2ToxzyoSxB69XB0EoM668+9RNUmpJ/E7Dh1YLho02pIPISDqXjwJArMaW9r/ANSt
+	RVcQVt1E+nkX92hPJuLycRvTqpFbgpcnvU5hiwglGK6Vbe/FharDa9Bq9pZ49+nPoYQ5hQDCNiM
+	BqoAazq3qS3OQHheFQYc8l92VjX+RICmxGw+gXXD64/QqOSvkpjHQnE3nhehLPU=
+X-Google-Smtp-Source: AGHT+IHSsCm8PJOCNTBLbU5hS9VK9UHGVgainULGpG4I1aqQfmscGAZFmbLVme10Qk7EkXAo6AGeDQ==
+X-Received: by 2002:a05:6000:1a8f:b0:391:3207:2e68 with SMTP id ffacd0b85a97d-3926c3b8b38mr4616837f8f.9.1741709193494;
+        Tue, 11 Mar 2025 09:06:33 -0700 (PDT)
+Received: from [192.168.1.247] ([145.224.65.43])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c01de21sm18711241f8f.59.2025.03.11.09.06.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 09:06:32 -0700 (PDT)
+Message-ID: <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
+Date: Tue, 11 Mar 2025 16:06:31 +0000
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
-To: patrice.chotard@foss.st.com, Mark Brown <broonie@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Arnd Bergmann <arnd@arndb.de>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- christophe.kerello@foss.st.com
-References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
- <20250219080059.367045-5-patrice.chotard@foss.st.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+Subject: Re: [PATCH v2] coresight: Add a KUnit test for
+ coresight_find_default_sink()
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Leo Yan <leo.yan@arm.com>
+References: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
+ <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
- cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
- JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
- gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
- J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
- NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
- BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
- vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
- Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
- TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
- S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
- FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
- QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
- gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
- /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
- iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
- VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
- 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
- xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
- eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
- AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
- MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
- Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
- MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
- OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
- GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
- 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
- YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
- 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
- BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
- JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
- 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
- YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
- Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
- ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
- vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
- oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
- lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
- t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
- uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
- 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
- 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
-In-Reply-To: <20250219080059.367045-5-patrice.chotard@foss.st.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_090450_677869_287C72B5 
-X-CRM114-Status: GOOD (  34.64  )
+X-CRM114-CacheID: sfid-20250311_090635_225907_754328CB 
+X-CRM114-Status: GOOD (  25.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,477 +103,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 19/02/2025 09:00, patrice.chotard@foss.st.com wrote:
-> From: Patrice Chotard <patrice.chotard@foss.st.com>
+
+
+On 11/03/2025 3:00 pm, Suzuki K Poulose wrote:
+> On 05/03/2025 15:07, James Clark wrote:
+>> Add a test to confirm that default sink selection skips over an ETF
+>> and returns an ETR even if it's further away.
+>>
+>> This also makes it easier to add new unit tests in the future.
+>>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>> Changes in v2:
+>> - Let devm free everything rather than doing individual kfrees:
+>>    "Like with managed drivers, KUnit-managed fake devices are
+>>    automatically cleaned up when the test finishes, but can be manually
+>>    cleaned up early with kunit_device_unregister()."
+>> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1- 
+>> james.clark@linaro.org
+>> ---
+>>   drivers/hwtracing/coresight/Kconfig                |  9 +++
+>>   drivers/hwtracing/coresight/Makefile               |  3 +-
+>>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
+>>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 ++++++++++++ 
+>> ++++++++++
+>>   4 files changed, 88 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
+>> coresight/Kconfig
+>> index ecd7086a5b83..f064e3d172b3 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
+>>         To compile this driver as a module, choose M here: the module 
+>> will be
+>>         called coresight-dummy.
+>> +
+>> +config CORESIGHT_KUNIT_TESTS
+>> +      tristate "Enable Coresight unit tests"
+>> +      depends on KUNIT
+>> +      default KUNIT_ALL_TESTS
+>> +      help
+>> +        Enable Coresight unit tests. Only useful for development and not
+>> +        intended for production.
+>> +
+>>   endif
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/ 
+>> coresight/Makefile
+>> index 8e62c3150aeb..96f0dfedb1bf 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o    
+>> coresight-cti-platform.o \
+>>              coresight-cti-sysfs.o
+>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+>> -coresight-ctcu-y := coresight-ctcu-core.o
+>> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>> hwtracing/coresight/coresight-core.c
+>> index bd0a7edd38c9..b101aa133ceb 100644
+>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct 
+>> coresight_device *csdev)
+>>       }
+>>       return csdev->def_sink;
+>>   }
+>> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
+>>   static int coresight_remove_sink_ref(struct device *dev, void *data)
+>>   {
+>> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/ 
+>> drivers/hwtracing/coresight/coresight-kunit-tests.c
+>> new file mode 100644
+>> index 000000000000..a136af05eaf4
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+>> @@ -0,0 +1,77 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +
+>> +#include <kunit/test.h>
+>> +#include <kunit/device.h>
+>> +#include <linux/coresight.h>
+>> +
+>> +#include "coresight-priv.h"
+>> +
+>> +static struct coresight_device *coresight_test_device(struct device 
+>> *dev)
+>> +{
+>> +    struct coresight_device *csdev = devm_kcalloc(dev, 1,
+>> +                             sizeof(struct coresight_device),
+>> +                             GFP_KERNEL);
+>> +    csdev->pdata = devm_kcalloc(dev, 1,
+>> +                   sizeof(struct coresight_platform_data),
+>> +                   GFP_KERNEL);
+>> +    return csdev;
+>> +}
+>> +
+>> +static int coresight_test_cpuid(struct coresight_device *csdev)
+>> +{
+>> +    return 0;
+>> +}
+>> +
+>> +static void test_default_sink(struct kunit *test)
+>> +{
+>> +    /*
+>> +     * ETM -> ETF -> ETR -> CATU
+>> +     *                ^
+>> +     *                | default
+>> +     */
+>> +    struct device *dev = kunit_device_register(test, "coresight_kunit");
+>> +    struct coresight_device *etm = coresight_test_device(dev),
+>> +                *etf = coresight_test_device(dev),
+>> +                *etr = coresight_test_device(dev),
+>> +                *catu = coresight_test_device(dev);
+>> +    struct coresight_connection conn = {};
+>> +    struct coresight_ops_source src_ops = {.cpu_id = 
+>> coresight_test_cpuid };
 > 
-> Octo Memory Manager driver (OMM) manages:
->   - the muxing between 2 OSPI busses and 2 output ports.
->     There are 4 possible muxing configurations:
->       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
->         output is on port 2
->       - OSPI1 and OSPI2 are multiplexed over the same output port 1
->       - swapped mode (no multiplexing), OSPI1 output is on port 2,
->         OSPI2 output is on port 1
->       - OSPI1 and OSPI2 are multiplexed over the same output port 2
->   - the split of the memory area shared between the 2 OSPI instances.
->   - chip select selection override.
->   - the time between 2 transactions in multiplexed mode.
->   - check firewall access.
+> Do we need the trace_id() ? Why is this required ?
 > 
-> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
-> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+> Suzuki
+> 
 
-Incorrect chain. You sent it, so you must be the last person signing it.
+Because it tests with per-cpu sources so it checks if any of the TRBE 
+sinks have been assigned first:
 
-I was waiting for any ST review... did not happen, so if you wonder how
-to speed things up, you got a hint. Anyway, many questions futher.
+  /* look for a default sink if we have not found for this device */
+    if (!csdev->def_sink) {
+       if (coresight_is_percpu_source(csdev))
+	 csdev->def_sink = per_cpu(csdev_sink,
+                                    source_ops(csdev)->cpu_id(csdev));
 
+I think this test would probably fail if run somewhere TRBE was already 
+probed. I can make the source subtype to be 
+CORESIGHT_DEV_SUBTYPE_SOURCE_BUS for the test to work around it. Any 
+value other than CORESIGHT_DEV_SUBTYPE_SOURCE_PROC will work. And then I 
+can drop the fake cpu_id() callback.
 
-> +
-> +		if (i == 1) {
-> +			mm_ospi2_size = resource_size(&res);
-> +
-> +			/* check that OMM memory region 1 doesn't overlap memory region 2 */
-> +			if (resource_overlaps(&res, &res1)) {
-> +				dev_err(dev, "OMM memory-region %s overlaps memory region %s\n",
-> +					mm_name[0], mm_name[1]);
-> +				dev_err(dev, "%pR overlaps %pR\n", &res1, &res);
-> +
-> +				return -EFAULT;
-> +			}
-> +		}
-> +	}
-> +
-> +	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
-> +	if (IS_ERR(syscfg_regmap)) {
-> +		dev_err(dev, "Failed to get st,syscfg-amcr property\n");
-> +		return PTR_ERR(syscfg_regmap);
-
-Same comments as usual, see further.
-
-> +	}
-> +
-> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
-> +					 &amcr_base);
-> +	if (ret)
-> +		return ret;
-> +
-> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
-> +					 &amcr_mask);
-> +	if (ret)
-> +		return ret;
-> +
-> +	amcr = mm_ospi2_size / SZ_64M;
-> +
-> +	if (set)
-> +		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
-> +
-> +	/* read AMCR and check coherency with memory-map areas defined in DT */
-> +	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
-> +	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
-> +
-> +	if (amcr != read_amcr) {
-> +		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
-> +		ret = -EINVAL;
-> +	}
-> +
-> +	return ret;
-> +}
-> +
-> +static int stm32_omm_enable_child_clock(struct device *dev, bool enable)
-> +{
-> +	/* As there is only 2 children, remember first child in case of error */
-> +	struct clk *first_child_clk = NULL;
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	u8 i;
-> +	int ret;
-> +
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		if (enable) {
-> +			ret = clk_prepare_enable(omm->child[i].clk);
-> +			if (ret) {
-> +				if (first_child_clk)
-> +					clk_disable_unprepare(first_child_clk);
-
-Function is called stm32_omm_enable_child_clock() but you disable.
-Confusing. Probably should be called toggle.
-
-> +
-> +				dev_err(dev, "Can not enable clock\n");
-> +				return ret;
-> +			}
-> +		} else {
-> +			clk_disable_unprepare(omm->child[i].clk);
-> +		}
-> +
-> +		first_child_clk = omm->child[i].clk;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_omm_configure(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	struct reset_control *rstc;
-> +	unsigned long clk_rate, clk_rate_max = 0;
-> +	int ret;
-> +	u8 i;
-> +	u32 mux = 0;
-
-That's one big mess. Do not mix initialized declarations with
-non-initialized in the same line. Then group initialized ones together
-and use some reverse christmas tree.
-
-Then the rest also should be organized.
-
-> +	u32 cssel_ovr = 0;
-> +	u32 req2ack = 0;
-> +
-> +	omm->clk = devm_clk_get(dev, NULL);
-
-So here devm_clk_get, but later of_clk_get...
-
-> +	if (IS_ERR(omm->clk)) {
-> +		dev_err(dev, "Failed to get OMM clock (%ld)\n",
-> +			PTR_ERR(omm->clk));
-> +
-
-No. There is no such code anywhere. Please don't upstream downstream,
-but take upstream as template.
-
-It is *always* return dev_err_probe. You are flooding dmesg in deferral
-for no reason.
-
-> +		return PTR_ERR(omm->clk);
-> +	}
-> +
-> +	ret = pm_runtime_resume_and_get(dev);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	/* parse children's clock */
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		clk_rate = clk_get_rate(omm->child[i].clk);
-> +		if (!clk_rate) {
-> +			dev_err(dev, "Invalid clock rate\n");
-> +			pm_runtime_disable(dev);
-> +			goto err_clk_disable;
-> +		}
-> +
-> +		if (clk_rate > clk_rate_max)
-> +			clk_rate_max = clk_rate;
-> +	}
-> +
-> +	rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
-> +	if (IS_ERR(rstc)) {
-> +		ret = dev_err_probe(dev, PTR_ERR(rstc), "reset get failed\n");
-> +		pm_runtime_disable(dev);
-
-Why? It was not enabled in this function. I cannot follow the logic,
-feels like random set of calls. Each of your function is supposed to
-reverse ONLY what it done so far.
-
-> +		goto err_clk_disable;
-> +	}
-> +
-> +	reset_control_assert(rstc);
-> +	udelay(2);
-> +	reset_control_deassert(rstc);
-> +
-> +	omm->cr = readl_relaxed(omm->io_base + OMM_CR);
-> +	/* optional */
-> +	ret = of_property_read_u32(dev->of_node, "st,omm-mux", &mux);
-> +	if (!ret) {
-> +		if (mux & CR_MUXEN) {
-> +			ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
-> +						   &req2ack);
-> +			if (!ret && !req2ack) {
-> +				req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
-> +
-> +				if (req2ack > 256)
-> +					req2ack = 256;
-> +			}
-> +
-> +			req2ack = FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
-> +
-> +			omm->cr &= ~CR_REQ2ACK_MASK;
-> +			omm->cr |= FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
-> +
-> +			/*
-> +			 * If the mux is enabled, the 2 OSPI clocks have to be
-> +			 * always enabled
-> +			 */
-> +			ret = stm32_omm_enable_child_clock(dev, true);
-> +			if (ret) {
-> +				pm_runtime_disable(dev);
-> +				goto err_clk_disable;
-> +			}
-> +		}
-> +
-> +		omm->cr &= ~CR_MUXENMODE_MASK;
-> +		omm->cr |= FIELD_PREP(CR_MUXENMODE_MASK, mux);
-> +	}
-> +
-> +	/* optional */
-> +	ret = of_property_read_u32(dev->of_node, "st,omm-cssel-ovr", &cssel_ovr);
-> +	if (!ret) {
-> +		omm->cr &= ~CR_CSSEL_OVR_MASK;
-> +		omm->cr |= FIELD_PREP(CR_CSSEL_OVR_MASK, cssel_ovr);
-> +		omm->cr |= CR_CSSEL_OVR_EN;
-> +	}
-> +
-> +	omm->restore_omm = true;
-> +	writel_relaxed(omm->cr, omm->io_base + OMM_CR);
-> +
-> +	ret = stm32_omm_set_amcr(dev, true);
-> +
-> +err_clk_disable:
-> +	pm_runtime_put_sync_suspend(dev);
-> +
-> +	return ret;
-> +}
-> +
-> +static int stm32_omm_check_access(struct device *dev, struct device_node *np)
-> +{
-> +	struct stm32_firewall firewall;
-> +	int ret;
-> +
-> +	ret = stm32_firewall_get_firewall(np, &firewall, 1);
-> +	if (ret)
-> +		return ret;
-> +
-> +	return stm32_firewall_grant_access(&firewall);
-> +}
-> +
-> +static int stm32_omm_disable_child(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +	struct reset_control *reset;
-> +	int ret;
-> +	u8 i;
-> +
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		ret = clk_prepare_enable(omm->child[i].clk);
-> +		if (ret) {
-> +			dev_err(dev, "Can not enable clock\n");
-> +			return ret;
-> +		}
-> +
-> +		reset = of_reset_control_get_exclusive(omm->child[i].node, 0);
-> +		if (IS_ERR(reset)) {
-> +			dev_err(dev, "Can't get child reset\n");
-
-Why do you get reset of child? Parent is not suppposed to poke there.
-You might not have the reset there in the first place and it would not
-be an error.
-
-
-> +			return PTR_ERR(reset);
-> +		};
-> +
-> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
-> +		reset_control_assert(reset);
-> +		udelay(2);
-> +		reset_control_deassert(reset);
-
-No, the child should handle this, not parent.
-
-> +
-> +		reset_control_put(reset);
-> +		clk_disable_unprepare(omm->child[i].clk);
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static int stm32_omm_probe(struct platform_device *pdev)
-> +{
-> +	struct platform_device *vdev;
-> +	struct device *dev = &pdev->dev;
-> +	struct stm32_omm *omm;
-> +	struct clk *clk;
-> +	int ret;
-> +	u8 child_access_granted = 0;
-
-Keep inits/assignments together
-
-> +	u8 i, j;
-> +	bool child_access[OMM_CHILD_NB];
-> +
-> +	omm = devm_kzalloc(dev, sizeof(*omm), GFP_KERNEL);
-> +	if (!omm)
-> +		return -ENOMEM;
-> +
-> +	omm->io_base = devm_platform_ioremap_resource_byname(pdev, "regs");
-> +	if (IS_ERR(omm->io_base))
-> +		return PTR_ERR(omm->io_base);
-> +
-> +	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
-> +	if (IS_ERR(omm->mm_res))
-> +		return PTR_ERR(omm->mm_res);
-> +
-> +	/* check child's access */
-> +	for_each_child_of_node_scoped(dev->of_node, child) {
-> +		if (omm->nb_child >= OMM_CHILD_NB) {
-> +			dev_err(dev, "Bad DT, found too much children\n");
-> +			ret = -E2BIG;
-> +			goto err_clk_release;
-> +		}
-> +
-> +		if (!of_device_is_compatible(child, "st,stm32mp25-ospi")) {
-> +			ret = -EINVAL;
-> +			goto err_clk_release;
-> +		}
-> +
-> +		ret = stm32_omm_check_access(dev, child);
-> +		if (ret < 0 && ret != -EACCES)
-> +			goto err_clk_release;
-> +
-> +		child_access[omm->nb_child] = false;
-> +		if (!ret) {
-> +			child_access_granted++;
-> +			child_access[omm->nb_child] = true;
-> +		}
-> +
-> +		omm->child[omm->nb_child].node = child;
-> +
-> +		clk = of_clk_get(child, 0);
-
-Why are you taking children clock? And why with this API, not clk_get?
-This looks like mixing clock provider in the clock consumer.
-
-> +		if (IS_ERR(clk)) {
-> +			dev_err(dev, "Can't get child clock\n");
-
-Syntax is always return dev_err_probe (or ret = dev_err_probe).
-
-> +			ret = PTR_ERR(clk);
-> +			goto err_clk_release;
-> +		};
-> +
-> +		omm->child[omm->nb_child].clk = clk;
-> +		omm->nb_child++;
-> +	}
-> +
-> +	if (omm->nb_child != OMM_CHILD_NB) {
-> +		ret = -EINVAL;
-> +		goto err_clk_release;
-> +	}
-> +
-> +	platform_set_drvdata(pdev, omm);
-> +
-> +	pm_runtime_enable(dev);
-> +
-> +	/* check if OMM's resource access is granted */
-> +	ret = stm32_omm_check_access(dev, dev->of_node);
-> +	if (ret < 0 && ret != -EACCES)
-> +		goto err_clk_release;
-> +
-> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
-> +		/* Ensure both OSPI instance are disabled before configuring OMM */
-> +		ret = stm32_omm_disable_child(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +
-> +		ret = stm32_omm_configure(dev);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	} else {
-> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
-> +		/*
-> +		 * AMCR can't be set, so check if current value is coherent
-> +		 * with memory-map areas defined in DT
-> +		 */
-> +		ret = stm32_omm_set_amcr(dev, false);
-> +		if (ret)
-> +			goto err_clk_release;
-> +	}
-> +
-> +	/* for each child, if resource access is granted and status "okay", probe it */
-> +	for (i = 0; i < omm->nb_child; i++) {
-> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
-
-If you have a device available, why do you create one more platform device?
-
-> +			continue;
-> +
-> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
-
-Why you cannot just populate the children?
-
-> +		if (!vdev) {
-> +			dev_err(dev, "Failed to create Octo Memory Manager child\n");
-> +			for (j = i; j > 0; --j) {
-> +				if (omm->child[j].dev)
-> +					of_platform_device_destroy(omm->child[j].dev, NULL);
-> +			}
-> +
-> +			ret = -EINVAL;
-> +			goto err_clk_release;
-> +		}
-> +		omm->child[i].dev = &vdev->dev;
-> +	}
-> +
-> +err_clk_release:
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		clk_put(omm->child[i].clk);
-> +
-> +	return ret;
-> +}
-> +
-> +static void stm32_omm_remove(struct platform_device *pdev)
-> +{
-> +	struct stm32_omm *omm = platform_get_drvdata(pdev);
-> +	int i;
-> +
-> +	for (i = 0; i < omm->nb_child; i++)
-> +		if (omm->child[i].dev)
-> +			of_platform_device_destroy(omm->child[i].dev, NULL);
-> +
-> +	if (omm->cr & CR_MUXEN)
-> +		stm32_omm_enable_child_clock(&pdev->dev, false);
-> +
-> +	pm_runtime_disable(&pdev->dev);
-> +}
-> +
-> +static const struct of_device_id stm32_omm_of_match[] = {
-> +	{ .compatible = "st,stm32mp25-omm", },
-> +	{}
-> +};
-> +MODULE_DEVICE_TABLE(of, stm32_omm_of_match);
-> +
-> +static int __maybe_unused stm32_omm_runtime_suspend(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	clk_disable_unprepare(omm->clk);
-> +
-> +	return 0;
-> +}
-> +
-> +static int __maybe_unused stm32_omm_runtime_resume(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	return clk_prepare_enable(omm->clk);
-> +}
-> +
-> +static int __maybe_unused stm32_omm_suspend(struct device *dev)
-> +{
-> +	struct stm32_omm *omm = dev_get_drvdata(dev);
-> +
-> +	if (omm->restore_omm && omm->cr & CR_MUXEN)
-> +		stm32_omm_enable_child_clock(dev, false);
-
-Why do you enable child clock for suspend?
-
-> +
-> +	return pinctrl_pm_select_sleep_state(dev);
-> +}
-> +
-
-
-Best regards,
-Krzysztof
 
