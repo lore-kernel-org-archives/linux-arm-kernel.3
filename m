@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9334CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 17:17:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94AD7C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 17:19:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=48XgOqstwE6tqV9JyDAQ8ktVf3xDn8MDV5rAlX2/vnw=; b=cp5UNJmDkAHqfLLkSCV0TE5K+U
-	dbapesdq0sydO/4z+kfRwWpXRGYO+b1XbbFM6BWMN7BYIE30f2XnlPpPobO4R0Bcrj1uDgygJ3KX3
-	TJ9QlO6TCYAV3mVULfDAYj1AP8wdX5IRTKsP8Y9lVwol76+nFItJ8EYG3/MrgacuVc/SIKNMhV1Ny
-	V3Hfoeir4O6rT1ugwgpclUo/1pCidaWlV9vFUemz637kj/3+Aa5QEfFsxQWxGg7gEwwfrkHwkSJX6
-	3Iwqlw0Ae2RWoqsRQz7sgE1465lZ03I5zQN0DdBaLQMZKwzHCJQA4cNe++19eh7q5auaRr4bvp/pf
-	gEbZQ7KA==;
+	bh=KUqhWr88czuIomo+GnyM2TEBp4gjrAwHerLFzwkPfTk=; b=fTaiejrAyjqTTvykq91hf8MarZ
+	rT49do4C4r0Hm6l3NVqdjolyhhgU5gY6aFZEH12kNvSijnsd9ASIMkRv/8Hz/hfCkGKmhIjuntoT0
+	o55DG3fSSOAo43yTNFsa80X7d8x0wqNXEZJkeW1mftY2V80LUppbpoNciIhIQ42tt7tvqgb7VnalL
+	wGtJjcQN/s8Dfc5FL4EvnweyOVuTzgekjq2SU3aZG0pwCSyMl0zSOvzMX9FndMad9AvicOrT7IToy
+	31tjuTKV1vEtorTlU2wzkc3nhGZ6RFL5QP2HqZHSvL9xJQyW+ro5mfAGcTH7x90vdYRyP7CvOMeHi
+	3C3e8G2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3EB-00000006Qua-0koU;
-	Tue, 11 Mar 2025 17:17:15 +0000
+	id 1ts3Fn-00000006RAY-3MGD;
+	Tue, 11 Mar 2025 17:18:55 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts32t-00000006OZR-0txV
+	id 1ts32w-00000006OaO-2vTJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 17:05:36 +0000
+	Tue, 11 Mar 2025 17:05:39 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D02A01762;
-	Tue, 11 Mar 2025 10:05:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A9981688;
+	Tue, 11 Mar 2025 10:05:49 -0700 (PDT)
 Received: from e132581.cambridge.arm.com (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 4C2663F673;
-	Tue, 11 Mar 2025 10:05:33 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id CB20C3F673;
+	Tue, 11 Mar 2025 10:05:36 -0700 (PDT)
 From: Leo Yan <leo.yan@arm.com>
 To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Mike Leach <mike.leach@linaro.org>,
@@ -44,17 +44,17 @@ To: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
 Cc: Leo Yan <leo.yan@arm.com>
-Subject: [PATCH v3 2/6] coresight: Introduce pause and resume APIs for source
-Date: Tue, 11 Mar 2025 17:04:47 +0000
-Message-Id: <20250311170451.611389-3-leo.yan@arm.com>
+Subject: [PATCH v3 4/6] coresight: perf: Support AUX trace pause and resume
+Date: Tue, 11 Mar 2025 17:04:49 +0000
+Message-Id: <20250311170451.611389-5-leo.yan@arm.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250311170451.611389-1-leo.yan@arm.com>
 References: <20250311170451.611389-1-leo.yan@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_100535_383610_69310E9D 
-X-CRM114-Status: GOOD (  10.97  )
+X-CRM114-CacheID: sfid-20250311_100538_861784_4CFA2C21 
+X-CRM114-Status: GOOD (  19.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,83 +69,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce APIs for pausing and resuming trace source and export as GPL
-symbols.
+This commit supports AUX trace pause and resume in a perf session for
+Arm CoreSight.
+
+First, we need to decide which flag can indicate the CoreSight PMU event
+has started.  The 'event->hw.state' cannot be used for this purpose
+because its initial value and the value after hardware trace enabling
+are both 0.
+
+On the other hand, the context value 'ctxt->event_data' stores the ETM
+private info.  This pointer is valid only when the PMU event has been
+enabled. It is safe to permit AUX trace pause and resume operations only
+when it is not a NULL pointer.
+
+To achieve fine-grained control of the pause and resume, only the tracer
+is disabled and enabled.  This avoids the unnecessary complexity and
+latency caused by manipulating the entire link path.
 
 Signed-off-by: Leo Yan <leo.yan@arm.com>
 ---
- drivers/hwtracing/coresight/coresight-core.c | 22 ++++++++++++++++++++
- drivers/hwtracing/coresight/coresight-priv.h |  2 ++
- include/linux/coresight.h                    |  4 ++++
- 3 files changed, 28 insertions(+)
+ .../hwtracing/coresight/coresight-etm-perf.c  | 45 ++++++++++++++++++-
+ 1 file changed, 44 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fb43ef6a3b1f..d4c3000608f2 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -367,6 +367,28 @@ void coresight_disable_source(struct coresight_device *csdev, void *data)
- }
- EXPORT_SYMBOL_GPL(coresight_disable_source);
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.c b/drivers/hwtracing/coresight/coresight-etm-perf.c
+index f4cccd68e625..2dcf1809cb7f 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.c
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+@@ -365,6 +365,18 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 			continue;
+ 		}
  
-+void coresight_pause_source(struct coresight_device *csdev)
++		/*
++		 * If AUX pause feature is enabled but the ETM driver does not
++		 * support the operations, clear this CPU from the mask and
++		 * continue to next one.
++		 */
++		if (event->attr.aux_start_paused &&
++		    (!source_ops(csdev)->pause_perf || !source_ops(csdev)->resume_perf)) {
++			dev_err_once(&csdev->dev, "AUX pause is not supported.\n");
++			cpumask_clear_cpu(cpu, mask);
++			continue;
++		}
++
+ 		/*
+ 		 * No sink provided - look for a default sink for all the ETMs,
+ 		 * where this event can be scheduled.
+@@ -450,6 +462,15 @@ static void *etm_setup_aux(struct perf_event *event, void **pages,
+ 	goto out;
+ }
+ 
++static int etm_event_resume(struct coresight_device *csdev,
++			     struct etm_ctxt *ctxt)
 +{
-+	if (!coresight_is_percpu_source(csdev))
++	if (!ctxt->event_data)
++		return 0;
++
++	return coresight_resume_source(csdev);
++}
++
+ static void etm_event_start(struct perf_event *event, int flags)
+ {
+ 	int cpu = smp_processor_id();
+@@ -463,6 +484,14 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	if (!csdev)
+ 		goto fail;
+ 
++	if (flags & PERF_EF_RESUME) {
++		if (etm_event_resume(csdev, ctxt) < 0) {
++			dev_err(&csdev->dev, "Failed to resume ETM event.\n");
++			goto fail;
++		}
++		return;
++	}
++
+ 	/* Have we messed up our tracking ? */
+ 	if (WARN_ON(ctxt->event_data))
+ 		goto fail;
+@@ -545,6 +574,16 @@ static void etm_event_start(struct perf_event *event, int flags)
+ 	return;
+ }
+ 
++static void etm_event_pause(struct coresight_device *csdev,
++			    struct etm_ctxt *ctxt)
++{
++	if (!ctxt->event_data)
 +		return;
 +
-+	if (source_ops(csdev)->pause_perf)
-+		source_ops(csdev)->pause_perf(csdev);
++	/* Stop tracer */
++	coresight_pause_source(csdev);
 +}
-+EXPORT_SYMBOL_GPL(coresight_pause_source);
 +
-+int coresight_resume_source(struct coresight_device *csdev)
-+{
-+	if (!coresight_is_percpu_source(csdev))
-+		return -EOPNOTSUPP;
-+
-+	if (!source_ops(csdev)->resume_perf)
-+		return -EOPNOTSUPP;
-+
-+	return source_ops(csdev)->resume_perf(csdev);
-+}
-+EXPORT_SYMBOL_GPL(coresight_resume_source);
-+
- /*
-  * coresight_disable_path_from : Disable components in the given path beyond
-  * @nd in the list. If @nd is NULL, all the components, except the SOURCE are
-diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-index 82644aff8d2b..2d9baa9d8228 100644
---- a/drivers/hwtracing/coresight/coresight-priv.h
-+++ b/drivers/hwtracing/coresight/coresight-priv.h
-@@ -249,5 +249,7 @@ void coresight_add_helper(struct coresight_device *csdev,
- void coresight_set_percpu_sink(int cpu, struct coresight_device *csdev);
- struct coresight_device *coresight_get_percpu_sink(int cpu);
- void coresight_disable_source(struct coresight_device *csdev, void *data);
-+void coresight_pause_source(struct coresight_device *csdev);
-+int coresight_resume_source(struct coresight_device *csdev);
+ static void etm_event_stop(struct perf_event *event, int mode)
+ {
+ 	int cpu = smp_processor_id();
+@@ -555,6 +594,9 @@ static void etm_event_stop(struct perf_event *event, int mode)
+ 	struct etm_event_data *event_data;
+ 	struct coresight_path *path;
  
- #endif
-diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-index d79a242b271d..c95c72e07e02 100644
---- a/include/linux/coresight.h
-+++ b/include/linux/coresight.h
-@@ -398,6 +398,8 @@ struct coresight_ops_link {
-  *		is associated to.
-  * @enable:	enables tracing for a source.
-  * @disable:	disables tracing for a source.
-+ * @resume_perf: resumes tracing for a source in perf session.
-+ * @pause_perf:	pauses tracing for a source in perf session.
-  */
- struct coresight_ops_source {
- 	int (*cpu_id)(struct coresight_device *csdev);
-@@ -405,6 +407,8 @@ struct coresight_ops_source {
- 		      enum cs_mode mode, struct coresight_path *path);
- 	void (*disable)(struct coresight_device *csdev,
- 			struct perf_event *event);
-+	int (*resume_perf)(struct coresight_device *csdev);
-+	void (*pause_perf)(struct coresight_device *csdev);
- };
++	if (mode & PERF_EF_PAUSE)
++		return etm_event_pause(csdev, ctxt);
++
+ 	/*
+ 	 * If we still have access to the event_data via handle,
+ 	 * confirm that we haven't messed up the tracking.
+@@ -899,7 +941,8 @@ int __init etm_perf_init(void)
+ 	int ret;
  
- /**
+ 	etm_pmu.capabilities		= (PERF_PMU_CAP_EXCLUSIVE |
+-					   PERF_PMU_CAP_ITRACE);
++					   PERF_PMU_CAP_ITRACE |
++					   PERF_PMU_CAP_AUX_PAUSE);
+ 
+ 	etm_pmu.attr_groups		= etm_pmu_attr_groups;
+ 	etm_pmu.task_ctx_nr		= perf_sw_context;
 -- 
 2.34.1
 
