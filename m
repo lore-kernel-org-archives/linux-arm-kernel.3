@@ -4,89 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A8AC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C21BEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:17:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=; b=KuvPyQiuAn63p9cFln/XODy98V
-	uZi/7bwGpmFVNWyLORWTlUPxHXI0szIHcZ+4eaQwggReXzzNNf59Wungr6eZqlP+15Y6+SZpXfozE
-	KQHhx5EsH4R/9BozM9XeOFcq5a0M2yagbcxBjfv0SA8lHvmocalrZRaJfcCaRlqc9v1lepzyygMdg
-	PLwsHO37BY39WSyT0H6D/dfvpHRJMLkNidI2DNGOzEK7J4JOnehh5nQDOZW+JCjyah5zNm8vkzPDe
-	3UXu1xxVWnHSvO0XmYIMB63EUCDlcxBg/10GMgtHT0BttFFlJmG4WsxuruaScKUFkSGo8+EBoPiVn
-	tfnGS6bg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0cgf7pDS3ZEN7lDdy8FO07onfj2Tasy5sT842LonhZc=; b=j4CKwzglyg8DyltDHiSIlOmDwp
+	LnW6G1Aueo7OtvriV8sug07IveesKZYrcBNN/13NS+lHH35n4EZdjffsXFML9aVAS4tSRHvoVWywn
+	7YBl9HLEn8W/JUHO4sacLjUn0/U93mwBqtiqKRsdwP1HPwmJx5NAD8vtuOsNTPGk75c7YhQUQxzK9
+	ZH6YYtRYkdbc6omUoWxWWLAVHhXLzn/sA8k9D+4raqs6NzH7fpF5+LccSrW9KqXhpkZVzPyUmidDm
+	A/burYYruaoWibaXIUgHKvifWWtEzAv76eqaFwc13h0v7TAOPT6Pht5BEp5QLJ7sVDLk8/+c492Yb
+	qPwS4IvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trvhr-0000000572s-29z3;
-	Tue, 11 Mar 2025 09:15:23 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1trvjT-000000057KK-31qa;
+	Tue, 11 Mar 2025 09:17:03 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trvRE-0000000542p-2TU1
+	id 1trvTZ-000000054jp-3EV2
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 08:58:13 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2239aa5da08so82977285ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 01:58:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741683490; x=1742288290; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=;
-        b=Evav9nkjKnNtCvoWzyn+BaINeoC3iIGtH7Agr/Ngms7t+8Eens/uklQ8eRXrowkEK8
-         Qd9wxSINfChcsyglxJgwkXqWIQTrnXwVdwUl8oMBmtZGFYu1B9n1S6yJR06hAU0iUHNP
-         nal0tyJMC7v0R2HuTes//KC0tjJch6SAes2n8TzI2pe3j+1c2bHCt0poYDCiwrj5BNOi
-         CDsA3S+RAPkHeVBBsTf45S1y2UBJdClfoR9tMSQ8jfToLHSrVDwxULJQYDmG29SvIFlK
-         sai2u04Bcd44uPwCG1ENAO192OSNjK8ferNaX5WuqnzRZAW49LzWKpXDFDsmJbBFnIEK
-         yDbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741683490; x=1742288290;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=;
-        b=eWuonBj6Nq4kj2hPMOxcOdxTt9abeQdJuBW28IDTLGLAZmSa94VP8sjXEBIdPXQS5F
-         n423LD4eH0TllX+Z6ue+8jvnhVcrh4I5UIjSTgVijwLGq5rk9PVRtXqiQM7t5vx8yFtZ
-         N/EDY1Yx+o63OCE3E+s/iruYzUwy498AbmrFtEiYWOyhVDLk16pXnQgjfrQpeg1SAHrE
-         krfOEQdM+T9UvQ0QOlgv4teFbGAOtjwhnKnJ9xYhTNN1G0Sb8Q8ExNhDRWPWlXU2iTCG
-         EINnfcIboCEBEyxp+19GRdsJxfMXb5BT/oxe4nm0Ndh+NFLeitkUrTQN8dCUYiM26ZBM
-         7sYA==
-X-Forwarded-Encrypted: i=1; AJvYcCWQQee56fLK3UC+PtN6MPF3XJbtKCfKT26yHjmGoqFnz7vN2dGPjsGTc1lVl3DpnBkLtIx5kSjjkWZnQyHbvyfe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzYbclALbmV095V9DL3GteLHjoiopSa0aWzeuYF6OegzYVfdOcl
-	fEs4umqIe7eukE/oAi1yOjNqxJbEUV+l000FSLI72DYsZ7kZP4b+RWhY3eTKl9Rqp2iI90aVmuq
-	dY2CCTmSpKH67oX265CQasImbJsGBU1E7
-X-Gm-Gg: ASbGncuNP6xK4VVMlRtNRlTz/OzJefleKraCZE2fpvX8FhzoY/xpIjWyiJQFvkXjqjw
-	MmlgKrk+W+GXxkdX6RCxwaynEsdeTn3+WwVGG/oYFxBreNBGUR8uJOOX3Sswucj26SZJ3qNTpDT
-	07/q/0TdUbJ1NLroS5+I/g/RA=
-X-Google-Smtp-Source: AGHT+IHRbLEfFkSRN7svD/SU2NARgmIEUPnyFQQfIvjDTjaMuTGcz4qJxDZa2+cv/4IHsddy318d5FT1qriGzMT0Ex0=
-X-Received: by 2002:a17:902:ec84:b0:220:ca08:8986 with SMTP id
- d9443c01a7336-22428a98135mr255205425ad.22.1741683490491; Tue, 11 Mar 2025
- 01:58:10 -0700 (PDT)
+	Tue, 11 Mar 2025 09:00:38 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B90Rgt1142731
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 04:00:27 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741683627;
+	bh=0cgf7pDS3ZEN7lDdy8FO07onfj2Tasy5sT842LonhZc=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=VK/8XLPhPLd6nIpV64hf9SX17OEGTVvGFN0aZ5lLYJGTHC653FMfU9koPJpa7zjY5
+	 GiIDGOo8DayilpacV58I5eKRmOCgkhqY+vmsgsvZPILx15TqQMEUBMmL5hKEASoYqb
+	 gtxQtbdyyBlihw3llcTpZyPNSSKORAVdmFF1YkyQ=
+Received: from DFLE110.ent.ti.com (dfle110.ent.ti.com [10.64.6.31])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B90RDv030844
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 04:00:27 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE110.ent.ti.com
+ (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 04:00:27 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 04:00:26 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B90Pi9111975;
+	Tue, 11 Mar 2025 04:00:26 -0500
+Date: Tue, 11 Mar 2025 14:30:25 +0530
+From: "s-vadapalli@ti.com" <s-vadapalli@ti.com>
+To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
+CC: "s-vadapalli@ti.com" <s-vadapalli@ti.com>,
+        "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>,
+        "dan.carpenter@linaro.org"
+	<dan.carpenter@linaro.org>,
+        "davem@davemloft.net" <davem@davemloft.net>,
+        "jpanis@baylibre.com" <jpanis@baylibre.com>, "srk@ti.com" <srk@ti.com>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "pabeni@redhat.com"
+	<pabeni@redhat.com>,
+        "horms@kernel.org" <horms@kernel.org>,
+        "edumazet@google.com" <edumazet@google.com>,
+        "rogerq@kernel.org"
+	<rogerq@kernel.org>,
+        "vigneshr@ti.com" <vigneshr@ti.com>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "kuba@kernel.org"
+	<kuba@kernel.org>
+Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw: Fix NAPI registration
+ sequence
+Message-ID: <20250311090025.kyc657febhgxrhoa@uda0492258>
+References: <20250311061214.4111634-1-s-vadapalli@ti.com>
+ <421a4c67865215927897e16866814bd6eb68a89d.camel@siemens.com>
+ <20250311085109.q3g32v3ycoskhsko@uda0492258>
+ <dbeb0d830c41eefe127d13af55fbaf6243164b0a.camel@siemens.com>
 MIME-Version: 1.0
-References: <20250305100037.373782-1-daniel.baluta@nxp.com>
- <20250305100037.373782-9-daniel.baluta@nxp.com> <Z88Ib7HkbRQoiyZp@p14s>
-In-Reply-To: <Z88Ib7HkbRQoiyZp@p14s>
-From: Daniel Baluta <daniel.baluta@gmail.com>
-Date: Tue, 11 Mar 2025 10:59:46 +0200
-X-Gm-Features: AQ5f1Jqksp8_Ow3W7CPPxQeuga9K9-0CI_LlAxXmLAD4nYxorLD8ECBrBf3t_78
-Message-ID: <CAEnQRZDeBkNYBNQwJL5LZgLK49siqomzyM_RDccdusJa22yiJA@mail.gmail.com>
-Subject: Re: [PATCH v4 8/8] imx_dsp_rproc: Use reset controller API to control
- the DSP
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Daniel Baluta <daniel.baluta@nxp.com>, p.zabel@pengutronix.de, robh@kernel.org, 
-	krzk+dt@kernel.org, shawnguo@kernel.org, devicetree@vger.kernel.org, 
-	linux-remoteproc@vger.kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, 
-	kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org, 
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	andersson@kernel.org, Frank.Li@nxp.com, peng.fan@nxp.com, 
-	laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com, shengjiu.wang@nxp.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <dbeb0d830c41eefe127d13af55fbaf6243164b0a.camel@siemens.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_015812_629326_9B10CE24 
-X-CRM114-Status: GOOD (  18.98  )
+X-CRM114-CacheID: sfid-20250311_020037_898543_67E9CCAA 
+X-CRM114-Status: GOOD (  22.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,41 +106,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 5:43=E2=80=AFPM Mathieu Poirier
-<mathieu.poirier@linaro.org> wrote:
->
-> Good day,
->
-> On Wed, Mar 05, 2025 at 12:00:36PM +0200, Daniel Baluta wrote:
-> > DSP on i.MX8MP doesn't have a direct reset line so according to hardwar=
-e
-> > design team in order to handle assert/deassert/reset functionality we
-> > need to use a combination of control bits from two modules. Audio block
-> > control module for Run/Stall control of the DSP and DAP module in order
-> > to do software reset.
-> >
-> > Initial design accessed RunStall bits from audio block control using th=
-e
-> > syscon interface but this got NACKed by community because of abusing th=
-e
-> > syscon interface [1].
-> >
-> > So instead we use the reset controller API.
->
-> I am good with this patchset.  The only thing I'd like so see modified is=
- the
-> above changelog.  The second paragraph doesn't belong there, i.e it is no=
-t
-> useful to remark on a design that was not accepted.  Instead please conce=
-ntrate
-> on _why_ we are moving from the current design to using the reset control=
-ler
-> API.
->
-> This can go in the 6.15 merge window if you send me a V5 fast enough.
+On Tue, Mar 11, 2025 at 08:56:49AM +0000, Sverdlin, Alexander wrote:
+> Hi Siddharth!
+> 
+> On Tue, 2025-03-11 at 14:21 +0530, s-vadapalli@ti.com wrote:
+> > > > Registering the interrupts for TX or RX DMA Channels prior to registering
+> > > > their respective NAPI callbacks can result in a NULL pointer dereference.
+> > > > This is seen in practice as a random occurrence since it depends on the
+> > > > randomness associated with the generation of traffic by Linux and the
+> > > > reception of traffic from the wire.
+> > > > 
+> > > > Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
+> > > 
+> > > The patch Vignesh mentions here...
+> > > 
+> > > > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+> > > > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > > > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> 
+> ...
+> 
+> > > > --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > > > +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > > > @@ -2314,6 +2314,9 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
+> > > >  		hrtimer_init(&tx_chn->tx_hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
+> > > >  		tx_chn->tx_hrtimer.function = &am65_cpsw_nuss_tx_timer_callback;
+> > > >  
+> > > > +		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
+> > > > +				  am65_cpsw_nuss_tx_poll);
+> > > > +
+> > > >  		ret = devm_request_irq(dev, tx_chn->irq,
+> > > >  				       am65_cpsw_nuss_tx_irq,
+> > > >  				       IRQF_TRIGGER_HIGH,
+> > > > @@ -2323,9 +2326,6 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
+> > > >  				tx_chn->id, tx_chn->irq, ret);
+> > > >  			goto err;
+> > > >  		}
+> > > > -
+> > > > -		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
+> > > > -				  am65_cpsw_nuss_tx_poll);
+> > > 
+> > > ... has accounted for the fact ..._napi_add_... happens after [possibly unsuccessful] request_irq,
+> > > please grep for "for (--i ;". Is it necessary to adjust both loops, in the below case too?
+> > 
+> > Yes! The order within the cleanup path has to be reversed too i.e.
+> 
+> Not only reverting the order...
+> What I'm referring is: when requesting i-th IRQ fails there has been 
+> i-th NAPI already added, but the cleanup loops start from [i-1]-th instance.
+> It looks like a potential leak to me...
 
-Thanks for review. Reworded the commit message and send V5.
+Thank you for clarifying. I will address this and the previous feedback in
+the v2 patch.
 
-Thanks,
-Daniel.
+Regards,
+Siddharth.
 
