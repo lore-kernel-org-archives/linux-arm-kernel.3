@@ -4,69 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F59C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEC0C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=arqFWN4nQQjCPwl8RAe4w0zwDHOl79ODnxqKCgfBmwE=; b=imxwk9J3SsifZSjz3BizyG5Wba
-	RX7P4xNC+Cinfh0IIZBsyFrtsWYKt8PhmtSq4sp6jkN/sgd7WPiLdkrrV9fkpLb9ok/mTpYF6qP+Q
-	dZOhKoTixf8uUusH18EQJU8+eGxjw9UgrMumighZf29ytwYr7aQrLRPjTNDniiYLc09+v57P1LjEv
-	crMt0ic/FpGnHecowqaPw3/4Juj/V05jd2stSn2ZdE7/KGos6fJzWQLOshvbDXYqhQdIi2CwmZLRJ
-	9TllhdVfgl+V4asfpbcX814WAL/orKUVe9R83gDawD19H/C0dn1TYtUEr3mNfh+vt9NqQ9u2HAZon
-	sl99IFkA==;
+	bh=IdqWCcW8lsMQPS2xU1zQ9OVFwnuDtYA4dTZ5HLldHmE=; b=OhijXhRwam2f+VrA1lrCDGwrfI
+	ndeWSYCadVk2LFnq2T6SXK/WmVxNaaBS/gD0Z9qkWKIwUZY2otOwdjLUoiQCoNahKA8FVkWIocYt6
+	QOiwskGwCzTRk1a0NATbaSgbDhRZYbaectBjxKug7J3Z6ZMJvqo7YTkLYC9IdGCeGH5WVWKfAV+6x
+	oaeDJSXsh2TwlntjjVhVmQEIlBMIiKtP7pzCH3ReddqEPx0Gb7FiFMtNdhwxtRIyt3BTokaMCt/Ow
+	kJ/ycN6N2eGHRgmaG3WXm/FIIku2VaDIed5FQRVhUgxMJaMT60Rjt8+9G3yAx/gP/RVkVKGvEXFZ6
+	p+K077+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4Eu-00000006brG-0XrO;
-	Tue, 11 Mar 2025 18:22:04 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ts4GW-00000006c3l-3S4i;
+	Tue, 11 Mar 2025 18:23:44 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3zM-00000006YiF-3KAB
+	id 1ts40G-00000006Yqo-0M6J
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:06:01 +0000
+	Tue, 11 Mar 2025 18:06:57 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 455EB5C1031;
-	Tue, 11 Mar 2025 18:03:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7045AC4CEE9;
-	Tue, 11 Mar 2025 18:05:57 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 5CC025C1191;
+	Tue, 11 Mar 2025 18:04:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 85EE0C4CEEA;
+	Tue, 11 Mar 2025 18:06:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741716359;
-	bh=2l2XhsUVNSUFOt0o115rgFxjPYd6cJC3mPPoy2QKMPM=;
+	s=k20201202; t=1741716414;
+	bh=XuObIYw3RDsk53zQsCVI6/Eb60dSnbERWjSJp+4yvEA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tBp//bpjCPjkHJ3ILoEGKodCweFXovgnjhV4rgtptw6/m7Zzj+p53kp6VirBwPjci
-	 ViqhpM3WG8v8ETukGo+d+tkJ5+UZrx/2WI4/3npcj7S5hHyFjIpzNk5so1NwKI2SDA
-	 56aimhHxBxSfY5fPuF9w8Snvo0ygOn1CHugTZN37xPdvF0uWcL8uBhIu1U1FxIvheX
-	 KicV+Z5wY8TTNwCVT+LjSsl22yyuAooJZdrvCII5MOtMqC/SoUF0Fo/Y6YNvIWar96
-	 eTO5pXYPd84De8yIqwxuvOB7ohjcXX0sIUdmmxRgQEVGRobJGFII6Cc232+TCNhfyn
-	 aMc2Gsa+5e/KQ==
-Date: Tue, 11 Mar 2025 18:05:54 +0000
-From: Will Deacon <will@kernel.org>
-To: Connor Abbott <cwabbott0@gmail.com>
-Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
-	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	b=IssCg3cSilF7/wjdOftUOaTpCwST0CEsEV8ami2djc4HT6zPBbMCiV/cHwuS2qMND
+	 BkfRj2zSV9ascPDRQScmPra88Z/6OcwtlZIL7RGSerTgdXK4JbyQXZXkwysZ84tUzd
+	 gZ4N7XKY03vtOf/cOvrtsofH3ARPwTzhgLplkpSlhm0dIPwjn5mAlA8Q/vUIIbFzwj
+	 m4/QuKDoZcuIu69BBnRgW0ygpuhOPul9039z1kpkUtdnd+ZONfpPLcMbjkREjK8hY+
+	 cYmP28DjU0MSVrPw+EdEscCB7XKfcgomXkUj5k7doC8sXSppC2e8aGi+cTIHea0aNn
+	 wfgk00fV7KDxw==
+Date: Tue, 11 Mar 2025 13:06:52 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Cosmin Tanislav <demonsingur@gmail.com>
+Cc: Ross Burton <ross.burton@arm.com>,
+	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+	Kieran Bingham <kieran.bingham@ideasonboard.com>,
+	Mauro Carvalho Chehab <mchehab@kernel.org>,
 	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	Eric Biggers <ebiggers@google.com>,
+	Sakari Ailus <sakari.ailus@linux.intel.com>,
+	Javier Carrasco <javier.carrasco@wolfvision.net>,
+	linux-kernel@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
 	linux-arm-kernel@lists.infradead.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
- context fault
-Message-ID: <20250311180553.GB5216@willie-the-truck>
-References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
- <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+	Zhi Mao <zhi.mao@mediatek.com>, Hans Verkuil <hverkuil@xs4all.nl>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Dongcheng Yan <dongcheng.yan@intel.com>,
+	Will Deacon <will@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-media@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
+	Bjorn Andersson <quic_bjorande@quicinc.com>,
+	Arnd Bergmann <arnd@arndb.de>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
+	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
+	Taniya Das <quic_tdas@quicinc.com>,
+	Ihor Matushchak <ihor.matushchak@foobox.net>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	linux-staging@lists.linux.dev, Bartosz Golaszewski <brgl@bgdev.pl>,
+	devicetree@vger.kernel.org,
+	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
+	Julien Massot <julien.massot@collabora.com>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Tommaso Merciai <tomm.merciai@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Biju Das <biju.das.jz@bp.renesas.com>, linux-gpio@vger.kernel.org,
+	Cosmin Tanislav <cosmin.tanislav@analog.com>
+Subject: Re: [RFC PATCH v2 01/16] dt-bindings: media: i2c: max96717: add
+ myself as maintainer
+Message-ID: <174171641225.3915054.13208024290734160025.robh@kernel.org>
+References: <20250309084814.3114794-1-demonsingur@gmail.com>
+ <20250309084814.3114794-2-demonsingur@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250309084814.3114794-2-demonsingur@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_110600_944878_4607DDF2 
-X-CRM114-Status: GOOD (  17.00  )
+X-CRM114-CacheID: sfid-20250311_110656_161443_AF3D16B2 
+X-CRM114-Status: GOOD (  12.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +109,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
-> This will be used by drm/msm for GPU page faults, replacing the manual
-> register reading it does.
+
+On Sun, 09 Mar 2025 10:47:53 +0200, Cosmin Tanislav wrote:
+> Analog Devices is taking responsability for the maintenance of the Maxim
+> GMSL2/3 devices.
+> Add myself to the maintainers list and to the device tree bindings.
 > 
-> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
 > ---
->  drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  4 ++--
->  drivers/iommu/arm/arm-smmu/arm-smmu.c            | 27 +++++++++++++-----------
->  drivers/iommu/arm/arm-smmu/arm-smmu.h            |  5 ++++-
->  3 files changed, 21 insertions(+), 15 deletions(-)
+>  Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml | 1 +
+>  MAINTAINERS                                                     | 1 +
+>  2 files changed, 2 insertions(+)
 > 
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> index 548783f3f8e89fd978367afa65c473002f66e2e7..ae4fdbbce6ba80440f539557a39866a932360d4e 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
-> @@ -400,7 +400,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
->  
->  	if (list_empty(&tbu_list)) {
->  		ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> -					 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
-> +					 cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->  
->  		if (ret == -ENOSYS)
->  			arm_smmu_print_context_fault_info(smmu, idx, &cfi);
-> @@ -412,7 +412,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
->  	phys_soft = ops->iova_to_phys(ops, cfi.iova);
->  
->  	tmp = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
-> -				 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
-> +				 cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
->  	if (!tmp || tmp == -EBUSY) {
->  		ret = IRQ_HANDLED;
->  		resume = ARM_SMMU_RESUME_TERMINATE;
-> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
-> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
-> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
->  				      struct arm_smmu_context_fault_info *cfi)
->  {
->  	cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
-> +	cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
->  	cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
-> -	cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> +	cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
-> +	cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
 
-We already have an implementation hook (->get_fault_info()) which the
-qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
-That thing dumps these registers already so if we're moving that into
-the core SMMU driver, let's get rid of the hook and move everybody over
-rather than having it done in both places.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
->  	cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
-> +	cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
-
-I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
-it for stage-2 domains.
-
-Will
 
