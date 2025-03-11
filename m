@@ -4,78 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DB11C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:37:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 147DEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:49:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/wVsNKg9YkEQ7KSJyQziX/Pf5MNW/2LBII724NcKRvc=; b=u/6QYIEqKmvKz6Tc3OpAUcANGk
-	PBvRRPCOCEKDyh9nuZHK67T0QrXhlXfBah/Su1WQD6pIYvqdD9KKL1REIjQcf40y27XDk3jKT16Fa
-	2VzgaXIx0blaoXcIbF8VyFBaI0XP/ulUv+VaHbqKVgn9aneV2wzHECT/I12fNu+nexa/bzfT030Nj
-	Vmh4SbB/l7OBWBaTzI5ivw8wGCakc7EjvAEnVAH32nkIav9tgQF8cAu1Q+2oDpeLI8IIHCZmbzH3R
-	gLW9NXrvOqtHM7PENuIfQWoB3ZkRoTruvcFtqhDKczRVjCM3vImNxRA2g3sWg4/qz0Pc/NQZATxPm
-	57kUxEow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6GLU/gk9IjIylVE8FRAHLP5Zb+KbayiEJftHEGgXyEA=; b=bJnWMS9u/gStqhdLuoxFO09Gia
+	4xRtlue/98TRq7YRyAsXP0Z1NsAK05GXwzrcxjTDIN/ecpdB6yTqrYc8tF1MDdHR6EeAfuel5WHXW
+	MgYBv9nm7d9nyb1ms4JS0pxJANtpJqemv8OhAvk7OEQRbluYIyzG5kF0zotQBSBORAM3uxCUfRO0i
+	xvXDvOMh5e72FqAoVsirViWjwvj7att/px07AW7tyajEiGTZiqvdwdBZMxRniF0WxgKfYIQ2dZaJt
+	gJK758T16clbKvBaWIPw9dkUmNcp100JVHwvN9XHxP50ARYuZ8LDP2e5HCyCI90n5dnRlgUsXNwRf
+	8IUx43eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trw2l-00000005Amq-30B5;
-	Tue, 11 Mar 2025 09:36:59 +0000
-Received: from out-189.mta1.migadu.com ([95.215.58.189])
+	id 1trwEL-00000005CH2-45uO;
+	Tue, 11 Mar 2025 09:48:57 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trw16-00000005AbO-2om4
+	id 1trwCh-00000005C2K-3Uj4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 09:35:18 +0000
-Message-ID: <aa840586-cd70-417f-82c2-bb887f337720@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741685711;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/wVsNKg9YkEQ7KSJyQziX/Pf5MNW/2LBII724NcKRvc=;
-	b=aTWqcXAzSWTgWXO+B8RX7iWZngEyO3a1jHoDvm0k0X7XvWTj3V6GECXGR3ooUXgbororde
-	6H+mxi8YqAjgzhuqWwr4p6ti7biIiW1JvnEB5yepdDfKJZLRgaXawAOIkgWvFgZr6j//J0
-	9a1fDrz5yhnkLIvSmHodJk0bhubB2uE=
-Date: Tue, 11 Mar 2025 17:34:58 +0800
-MIME-Version: 1.0
-Subject: Re: [PATCH v2 2/2] vsprintf: remove redundant and unused %pCn format
- specifier
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- "Rafael J. Wysocki" <rafael@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
- Lukasz Luba <lukasz.luba@arm.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, Petr Mladek <pmladek@suse.com>,
- Steven Rostedt <rostedt@goodmis.org>,
- Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
- Rasmus Villemoes <linux@rasmusvillemoes.dk>,
- Sergey Senozhatsky <senozhatsky@chromium.org>,
- Jonathan Corbet <corbet@lwn.net>, Andrew Morton <akpm@linux-foundation.org>,
- Alex Shi <alexs@kernel.org>
-Cc: Binbin Zhou <zhoubinbin@loongson.cn>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Geert Uytterhoeven <geert+renesas@glider.be>,
- Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org,
- linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-doc@vger.kernel.org
-References: <20250311-vsprintf-pcn-v2-0-0af40fc7dee4@bootlin.com>
- <20250311-vsprintf-pcn-v2-2-0af40fc7dee4@bootlin.com>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Yanteng Si <si.yanteng@linux.dev>
-In-Reply-To: <20250311-vsprintf-pcn-v2-2-0af40fc7dee4@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Migadu-Flow: FLOW_OUT
+	Tue, 11 Mar 2025 09:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id F0109A46A0D;
+	Tue, 11 Mar 2025 09:41:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B3D57C4CEE9;
+	Tue, 11 Mar 2025 09:47:14 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741686434;
+	bh=m8GtSASoTKItJBBxR++EYkWDcnQaVyq2qcdQfxdQw0Q=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=YqpnwX9B2JRyJ6ffnkz3XHwibH3H3cz+fKM7rFClRH42y0w7kEVeC6u6lz8wUqISl
+	 vTC1Q9lEiea8HUF3BMsUXFRnMB6g//gY9uy6QvxySDgdN239b7u2sA/EnQ3ICQLCW5
+	 S+vyETyiQh89sUgQ1LcKHa0g0J5vnY7YthLDoTTTRnyvKt0ZF4SNX3C9b+TxDj8UMA
+	 HWFye28XUeXvz8s/V6KAQm+wzS+ZbzcdDZaPMcpSHNU98jePa1d55AvLIzMrDyo69a
+	 j31njN3HxtBFCUtx2LUliEwEp0MokEQo7zSkZAyXeJQTPaMhfuoxoUfIT8AGWg5JCh
+	 f272CICu68NHQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1trwCe-00CTdL-GR;
+	Tue, 11 Mar 2025 09:47:12 +0000
+Date: Tue, 11 Mar 2025 09:47:12 +0000
+Message-ID: <86wmcvoq5b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Zhenyu Ye <yezhenyu2@huawei.com>
+Cc: <yuzenghui@huawei.com>,
+	<will@kernel.org>,
+	<oliver.upton@linux.dev>,
+	<catalin.marinas@arm.com>,
+	<joey.gouly@arm.com>,
+	<linux-kernel@vger.kernel.org>,
+	<xiexiangyou@huawei.com>,
+	<zhengchuan@huawei.com>,
+	<wangzhou1@hisilicon.com>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<kvm@vger.kernel.org>,
+	<kvmarm@lists.linux.dev>
+Subject: Re: [PATCH v1 2/5] arm64/kvm: support set the DBM attr during memory abort
+In-Reply-To: <20250311040321.1460-3-yezhenyu2@huawei.com>
+References: <20250311040321.1460-1-yezhenyu2@huawei.com>
+	<20250311040321.1460-3-yezhenyu2@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: yezhenyu2@huawei.com, yuzenghui@huawei.com, will@kernel.org, oliver.upton@linux.dev, catalin.marinas@arm.com, joey.gouly@arm.com, linux-kernel@vger.kernel.org, xiexiangyou@huawei.com, zhengchuan@huawei.com, wangzhou1@hisilicon.com, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_023517_063032_FC973E49 
-X-CRM114-Status: GOOD (  22.28  )
+X-CRM114-CacheID: sfid-20250311_024716_006519_2813B504 
+X-CRM114-Status: GOOD (  20.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,101 +94,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Please follow the current convention for the subject of your patch (if
+you do a git log --oneline on arch/arm64/kvm, all commit should have
+the same style).
 
-在 3/11/25 5:21 PM, Luca Ceresoli 写道:
-> %pC and %pCn print the same string, and commit 900cca294425 ("lib/vsprintf:
-> add %pC{,n,r} format specifiers for clocks") introducing them does not
-> clarify any intended difference. It can be assumed %pC is a default for
-> %pCn as some other specifiers do, but not all are consistent with this
-> policy. Moreover there is now no other suffix other than 'n', which makes a
-> default not really useful.
->
-> All users in the kernel were using %pC except for one which has been
-> converted. So now remove %pCn and all the unnecessary extra code and
-> documentation.
->
-> Acked-by: Stephen Boyd <sboyd@kernel.org>
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+On Tue, 11 Mar 2025 04:03:18 +0000,
+Zhenyu Ye <yezhenyu2@huawei.com> wrote:
+> 
+> From: eillon <yezhenyu2@huawei.com>
+> 
+> Since the ARMv8, the page entry has supported the DBM attribute.
+> Support set the attr during user_mem_abort().
 
-Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
+Not quite. ARMv8.1 added DBM, and that is still, to this day, an
+optional functionality, including in ARMv9.5.
 
+> 
+> Signed-off-by: eillon <yezhenyu2@huawei.com>
+> ---
+>  arch/arm64/include/asm/kvm_pgtable.h | 3 +++
+>  arch/arm64/kvm/hyp/pgtable.c         | 6 ++++++
+>  2 files changed, 9 insertions(+)
+> 
+> diff --git a/arch/arm64/include/asm/kvm_pgtable.h b/arch/arm64/include/asm/kvm_pgtable.h
+> index 6b9d274052c7..35648d7f08f5 100644
+> --- a/arch/arm64/include/asm/kvm_pgtable.h
+> +++ b/arch/arm64/include/asm/kvm_pgtable.h
+> @@ -86,6 +86,8 @@ typedef u64 kvm_pte_t;
+>  
+>  #define KVM_PTE_LEAF_ATTR_HI_S2_XN	BIT(54)
+>  
+> +#define KVM_PTE_LEAF_ATTR_HI_S2_DBM	BIT(51)
+> +
+>  #define KVM_PTE_LEAF_ATTR_HI_S1_GP	BIT(50)
+>  
+>  #define KVM_PTE_LEAF_ATTR_S2_PERMS	(KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R | \
+> @@ -252,6 +254,7 @@ enum kvm_pgtable_prot {
+>  
+>  	KVM_PGTABLE_PROT_DEVICE			= BIT(3),
+>  	KVM_PGTABLE_PROT_NORMAL_NC		= BIT(4),
+> +	KVM_PGTABLE_PROT_DBM			= BIT(5),
+>  
+>  	KVM_PGTABLE_PROT_SW0			= BIT(55),
+>  	KVM_PGTABLE_PROT_SW1			= BIT(56),
+> diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> index df5cc74a7dd0..3ea6bdbc02a0 100644
+> --- a/arch/arm64/kvm/hyp/pgtable.c
+> +++ b/arch/arm64/kvm/hyp/pgtable.c
+> @@ -700,6 +700,9 @@ static int stage2_set_prot_attr(struct kvm_pgtable *pgt, enum kvm_pgtable_prot p
+>  	if (prot & KVM_PGTABLE_PROT_W)
+>  		attr |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+>  
+> +	if (prot & KVM_PGTABLE_PROT_DBM)
+> +		attr |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> +
+>  	if (!kvm_lpa2_is_enabled())
+>  		attr |= FIELD_PREP(KVM_PTE_LEAF_ATTR_LO_S2_SH, sh);
+>  
+> @@ -1309,6 +1312,9 @@ int kvm_pgtable_stage2_relax_perms(struct kvm_pgtable *pgt, u64 addr,
+>  	if (prot & KVM_PGTABLE_PROT_W)
+>  		set |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
+>  
+> +	if (prot & KVM_PGTABLE_PROT_DBM)
+> +		set |= KVM_PTE_LEAF_ATTR_HI_S2_DBM;
+> +
+
+Why isn't that exclusive of PROT_W?
+
+>  	if (prot & KVM_PGTABLE_PROT_X)
+>  		clr |= KVM_PTE_LEAF_ATTR_HI_S2_XN;
+>  
+
+What is driving this KVM_PGTABLE_PROT_DBM bit?
 
 Thanks,
 
-Yanteng
+	M.
 
->
-> ---
->
-> Changes in v2:
-> - update Chinese documentation (change acked by Yanteng Si <si.yanteng@linux.dev>)
-> ---
->   Documentation/core-api/printk-formats.rst                    |  3 +--
->   Documentation/translations/zh_CN/core-api/printk-formats.rst |  3 +--
->   lib/vsprintf.c                                               | 10 ++--------
->   3 files changed, 4 insertions(+), 12 deletions(-)
->
-> diff --git a/Documentation/core-api/printk-formats.rst b/Documentation/core-api/printk-formats.rst
-> index ecccc0473da9c10f45f2464566f690472c61401e..f3009e6ec80a864c330c8812efcd82c12f4066b3 100644
-> --- a/Documentation/core-api/printk-formats.rst
-> +++ b/Documentation/core-api/printk-formats.rst
-> @@ -571,9 +571,8 @@ struct clk
->   ::
->   
->   	%pC	pll1
-> -	%pCn	pll1
->   
-> -For printing struct clk structures. %pC and %pCn print the name of the clock
-> +For printing struct clk structures. %pC prints the name of the clock
->   (Common Clock Framework) or a unique 32-bit ID (legacy clock framework).
->   
->   Passed by reference.
-> diff --git a/Documentation/translations/zh_CN/core-api/printk-formats.rst b/Documentation/translations/zh_CN/core-api/printk-formats.rst
-> index bd36d35eba4eb124be43a66227059a30429e4135..96a917ecc93f2a4872784b6d8e3f98bcb9f5f737 100644
-> --- a/Documentation/translations/zh_CN/core-api/printk-formats.rst
-> +++ b/Documentation/translations/zh_CN/core-api/printk-formats.rst
-> @@ -523,9 +523,8 @@ clk结构体
->   ::
->   
->   	%pC	pll1
-> -	%pCn	pll1
->   
-> -用于打印clk结构。%pC 和 %pCn 打印时钟的名称（通用时钟框架）或唯一的32位
-> +用于打印clk结构。%pC 打印时钟的名称（通用时钟框架）或唯一的32位
->   ID（传统时钟框架）。
->   
->   通过引用传递。
-> diff --git a/lib/vsprintf.c b/lib/vsprintf.c
-> index 56fe96319292674c9f79559cf78dd0d99d1a1f06..143d55cb1c12acac21a6c6bafd255437e878f280 100644
-> --- a/lib/vsprintf.c
-> +++ b/lib/vsprintf.c
-> @@ -1969,15 +1969,11 @@ char *clock(char *buf, char *end, struct clk *clk, struct printf_spec spec,
->   	if (check_pointer(&buf, end, clk, spec))
->   		return buf;
->   
-> -	switch (fmt[1]) {
-> -	case 'n':
-> -	default:
->   #ifdef CONFIG_COMMON_CLK
-> -		return string(buf, end, __clk_get_name(clk), spec);
-> +	return string(buf, end, __clk_get_name(clk), spec);
->   #else
-> -		return ptr_to_id(buf, end, clk, spec);
-> +	return ptr_to_id(buf, end, clk, spec);
->   #endif
-> -	}
->   }
->   
->   static
-> @@ -2382,8 +2378,6 @@ char *rust_fmt_argument(char *buf, char *end, void *ptr);
->    *      T    time64_t
->    * - 'C' For a clock, it prints the name (Common Clock Framework) or address
->    *       (legacy clock framework) of the clock
-> - * - 'Cn' For a clock, it prints the name (Common Clock Framework) or address
-> - *        (legacy clock framework) of the clock
->    * - 'G' For flags to be printed as a collection of symbolic strings that would
->    *       construct the specific value. Supported flags given by option:
->    *       p page flags (see struct page) given as pointer to unsigned long
->
+-- 
+Without deviation from the norm, progress is not possible.
 
