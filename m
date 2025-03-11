@@ -4,64 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA64C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68FFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:59:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eCzU88gZbdraoeQ76IhkfFWGC2iSrwRLE1E9hkFtdVk=; b=IHBQbmXk4cVzpG/kFxaC+rEacu
-	HtJ04ZpNosvadYE4Rcs6zduyQwhLx4mMPzSEQYBg5g+SqDexVfRCU1W7VS5CLQfdtDwmLeYGrbimt
-	7GjXUqv1KEb8BwcZWoibF40Jb8Q9QOevGRljUoxbKIEYRXB5jf5dmSgPrcKMNFI2Nrnr5hgQmUa32
-	JPUoM5ZAaVQufcBUPG9PdlHev2EU0JfrsCR6POtNkA399JGo3JMqxtEIkjWwlAwKZWXViG0w6icT/
-	LNHe4XLOvtS5f22fZn7955Ox1qo85Old4SN62rP+5Xyk4yww1KTvaLNHdtLr7l1jzS1u2L2aT+AIo
-	I/mLGqXQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=; b=yaZWBlPfTJINqx70MtzOIFPgxz
+	L4ACxUE6feUwd6rNYbuprnw4Xg08se6yRoU9x8eDs0Tq+ESG7mFeP2hIIHW3+2KpfUeNMLsKPUstN
+	PR8r6/vMsQl9+/FEuR8w/RFcplFUBLfH7lRsbH6z75ss7AqA6Tk7lTz9c6Rqp7jRBhcCZAwAeZVzK
+	OV+X7IxMWxHZXS9qHj3mN/Pzuk4B9pizsd2h73q9C0T9pkIjLtF9wxzAxkX9EeaqPFGhMZkZOZ5LI
+	ixAxUKJbTMaQw6kk4l18UckrLkz+aSMULvKD+pRO3C7yuD1vC2jACCl96VK/WvwayURNsthiXjkkd
+	7pa0NXOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryEy-00000005XmZ-1u6I;
-	Tue, 11 Mar 2025 11:57:44 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryDK-00000005XZY-0uPC
+	id 1tryGa-00000005XvH-1cao;
+	Tue, 11 Mar 2025 11:59:24 +0000
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tryEl-00000005Xjw-0570
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 11:56:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2722A152B;
-	Tue, 11 Mar 2025 04:56:07 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F00443F673;
-	Tue, 11 Mar 2025 04:55:53 -0700 (PDT)
-Date: Tue, 11 Mar 2025 11:55:43 +0000
-From: Mark Rutland <mark.rutland@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Kees Cook <kees@kernel.org>, Peter Collingbourne <pcc@google.com>,
-	Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Andrey Konovalov <andreyknvl@gmail.com>,
-	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-hardening@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
-Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
- kernel MTE is enabled
-Message-ID: <Z9Akv6qQFfmYFReD@J2N7QTR9R3>
-References: <20250308023314.3981455-1-pcc@google.com>
- <202503071927.1A795821A@keescook>
- <Z88jbhobIz2yWBbJ@arm.com>
- <Z88r5qFLOSo0itaq@J2N7QTR9R3.cambridge.arm.com>
- <Z88yC7Oaj9DGaswc@arm.com>
- <Z88_fFgr23_EtHMf@J2N7QTR9R3>
- <Z9AiUQdC4o0g8sxu@arm.com>
+	Tue, 11 Mar 2025 11:57:32 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39127512371so2998281f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 04:57:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741694248; x=1742299048; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=;
+        b=PfymkIIaXaCWLBpqvpLs/yFYn+gcpjjD5RcFuZ77tpogGv0FnUusiXYLW6wHqrDFW+
+         U27sU610oGuC49H9jahj1XKPkZsu6eilCwSFSdVzQo8MTheNF7kzr/gz0Qs9bWwqxpTc
+         tZabiTxI4Sqt8Y61LapITrfsdBwb4wYTvxPJiOcOUNDwCH+oO5H7p05iijOJeX3226Vs
+         U28h2eCQ4dOs60eWmQwQN21L7MFUunnPiUxmMqq3CJMF39C2jQZsE9o0MKw8LC8e3QXV
+         B7cEwotR9Lal82AMOfE7zrCUXTa3L8O8OSfMhwAnI2yAqu4HbKXKcY7HD2gtkcgXHvgG
+         R95Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741694248; x=1742299048;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=;
+        b=ZzMb6vrMSZtajHMwZoKIbrUMCnvwrOc6KNLWeTRfOeJH/UAgeOPWAoca7EwbgpfC5o
+         nKaVS/xGA7Gh17EoZalQzfZayU8lV72zQEeW3pqoxuHLExV2KLWhZRi+upoH8aMkmokl
+         hB2DgBV/YxEqlNb4HrKNbNrwBXRE43pYUtukcYlTwisW9KWD6tqWsqMlRCDCwScyRNau
+         eLeZl5rjnCRQsNbHVh2bNnn0Cd3KE0AvyPvvC1W2IsTioyN4Ya9CwOU1SG0FXVgL5UXl
+         bvR1iS4tp4c6YVdgj2eszTa/ZHjX4uaNM73LxUVHBnsixak5Cq99wWQiNOxVHkuXUK7Y
+         cGxw==
+X-Forwarded-Encrypted: i=1; AJvYcCXJAFgphWa9/dwVZZPLfwkp0MRQtP/0L1q4YGE9gPFIlH6ZNVpBRmIKuuGw8wGPSSLUdct8mhvWsg8p/5lg5CsJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxn+YNOg5iRcEPienx/+ift7a9LdBsYhGkoLV2h8IOF4vmIA6sw
+	+22HRO3FrPs9ac6cePgmLkQkDOFXtsDfdYXcnRc5MMkdy1VVoVUwv389NakHp6ed/+7As84fL6b
+	b
+X-Gm-Gg: ASbGnct1UyR3jaCEEzH+MnnmNCDlsGtVwRsTkiSCi4SySG/1IZQXVWd3bVQJ9V+fqnj
+	gdNIrUXbNUzzD7Cx8PXDWw/5yF4hapF4BNzfaL0iemv82TmHmlTZ1ZId8lq9OXF/gvDHyv53vMS
+	iTjK7bAUia0NZCJSdsBhAlCvodOeGfUx3sOgBLlq2TiD3xMDGwNZMXkq2ueNeyjtTb/A/CYXNxM
+	ht8XnNUl6ybCQ2GAKmpIqxAg+Wav0Eaj9ncY47d4ftkK9olAU8gODc7wQ+kHH+iat+V9wvqtmpK
+	X8rF3MI7rYh2U4318uvujfHxPa/gUogefBc33AYCmUhewn3nuyNY8Q==
+X-Google-Smtp-Source: AGHT+IH+VpDB44gnrhW+DLqQbZXEtOu1LVpBt7zvglX12x25lWmYvK0tB5Yg2Jsuzi/rc8ZMAGUcBw==
+X-Received: by 2002:a5d:5989:0:b0:38d:cf33:31d6 with SMTP id ffacd0b85a97d-39263b006c5mr3918261f8f.3.1741694248428;
+        Tue, 11 Mar 2025 04:57:28 -0700 (PDT)
+Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:5946:3143:114d:3f3])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c104acesm18161461f8f.98.2025.03.11.04.57.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 04:57:28 -0700 (PDT)
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+To: arm@kernel.org,
+	soc@kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Cc: Arnd Bergmann <arnd@kernel.org>,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: [GIT PULL] davinci updates for v6.15-rc1
+Date: Tue, 11 Mar 2025 12:57:20 +0100
+Message-ID: <20250311115720.40053-1-brgl@bgdev.pl>
+X-Mailer: git-send-email 2.45.2
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9AiUQdC4o0g8sxu@arm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_045602_296965_2A6FAEBE 
-X-CRM114-Status: GOOD (  23.11  )
+X-CRM114-CacheID: sfid-20250311_045731_059071_62297C86 
+X-CRM114-Status: UNSURE (   9.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,48 +98,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 11:45:21AM +0000, Catalin Marinas wrote:
-> On Mon, Mar 10, 2025 at 07:37:32PM +0000, Mark Rutland wrote:
-> > I was worried that ex_handler_load_unaligned_zeropad() might not do the
-> > right thing in response to a tag check fault (e.g. access the wrong 8
-> > bytes), but it looks as though that's ok due to the way it generates the
-> > offset and the aligned pointer.
-> > 
-> > If load_unaligned_zeropad() is handed a string that starts with an
-> > unexpected tag (and even if that starts off aligned),
-> > ex_handler_load_unaligned_zeropad() will access that and cause another
-> > tag check fault, which will be reported.
-> 
-> Yes, it will report an async tag check fault on the
-> exit_to_kernel_mode() path _if_ load_unaligned_zeropad() triggered the
-> fault for other reasons (end of page).
+From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 
-Sorry, yes. The aligned case I mentioned shouldn't apply here.
+Hi!
 
-> It's slightly inconsistent, we could set TCO for the async case in
-> ex_handler_load_unaligned_zeropad() as well.
+Please pull the following set of DT updates for the TI DaVinci
+architecture.
 
-Yep, I think that'd be necessary for async mode.
+Thanks,
+Bartosz
 
-> For sync checks, we'd get the first fault ending up in
-> ex_handler_load_unaligned_zeropad() and a second tag check fault while
-> processing the first. This ends up in do_tag_recovery and we disable
-> tag checking after the report. Not ideal but not that bad.
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-Yep; that's what I was describing in the second paragraph above, though
-I forgot to say that was assuming sync or asymm mode.
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
 
-> We could adjust ex_handler_load_unaligned_zeropad() to return false if
-> the pointer is already aligned but we need to check the semantics of
-> load_unaligned_zeropad(), is it allowed to fault on the first byte?
+are available in the Git repository at:
 
-IIUC today it's only expected to fault due to misalignment, and the
-gneral expectation is that for a sequence of load_unaligned_zeropad()
-calls, we should get at least one byte without faulting (for the NUL
-terminator).
+  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/davinci-updates-for-v6.15-rc1
 
-I reckon it'd be better to figure this out based on the ESR if possible.
-Kristina's patches for MOPS would give us that.
+for you to fetch changes up to 58abc69e479cf5b36c4fc4287a11c9d92d2ce4b8:
 
-Mark.
+  ARM: dts: ti: davinci: Align GPIO hog name with bindings (2025-02-03 09:11:33 +0100)
+
+----------------------------------------------------------------
+TI DaVinci updates for v6.15-rc1
+
+- make GPIO hog names conform to bindings
+
+----------------------------------------------------------------
+Krzysztof Kozlowski (1):
+      ARM: dts: ti: davinci: Align GPIO hog name with bindings
+
+ arch/arm/boot/dts/ti/davinci/da850-lego-ev3.dts | 10 +++++-----
+ 1 file changed, 5 insertions(+), 5 deletions(-)
 
