@@ -4,73 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D121EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:03:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4121C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:12:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yVflShp+Qrm9WBJxQRs9hAkbpogZWdsryN8xD+f/PYk=; b=PZSGnAJW3/2ALzIslMDAbQm66S
-	EHr5deBFI1z0XwNirXNYcArZOeaUHkwXDBiT6CrkBvCJJbFG5P5hHeeH4T073SUAmBho/bA+5GNJl
-	zfVROpKoTpJCpYMxEeqHXVQxfOD62tMgpciWkFhis5quSiTkCklFy6J4GjeXsFbv6B5eLcrDZbnwj
-	mcq6dAg6jfgfOvPMmnveK/GWlVLcD0wbQE6uAfezRJp3/ACandEAa0CVdCQ6fbFyxvARF6kujHMTv
-	qjPG7DDsZRThv1FeruvEUbib9AzL9jZOxPRbGnel1js1bq/PhMg5107eUJvMqqwculX+/NCxTBVWG
-	V7iI7wcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pSr0TDQLJaYD83EU6zHlB1nKsxywhTiBP95UqC0cvIM=; b=XJcwvqSbQZReQ3Pt4ntuUPH8SR
+	S2GyHsA/KZszFl7P5nMdzqT1my0Bob0ftS7fL+OPtUz7FKc7pNWyUE/Ef1GImBcwZ9TtXrYU3V5OW
+	sPXgMWtHZibSxAej2fJqAdsds9BIrOfosY9A7s7CnVIMTAwY3+YY6iPmUl3Kz1/QgUPXw4aq7yMjM
+	uW+QFGamjPMh6oNSCZNmf0bAjoA516uG/B/XGj2GnnlAYDfwDbMNw9btlAfV1ilVPuT4NsbjNwlBL
+	bH0GAsT+IiSOc9dMljIVHWfm2Jh0nHpBduuPBKriGMZ6nXpXeqJnFRocsXJHiOeOquAVysO+bGPM+
+	GXm1+T1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzGB-00000005lFb-2A9F;
-	Tue, 11 Mar 2025 13:03:03 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1trzOt-00000005mWp-34Jp;
+	Tue, 11 Mar 2025 13:12:03 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzEW-00000005l3k-1Ehj
+	id 1trzNF-00000005m8D-3PHt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 13:01:21 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BD19rl709386
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Tue, 11 Mar 2025 08:01:09 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741698069;
-	bh=yVflShp+Qrm9WBJxQRs9hAkbpogZWdsryN8xD+f/PYk=;
-	h=From:To:CC:Subject:Date;
-	b=lAEBg8pp3bqap/14acOXVb09mEcxpERgUo+4wNaxI2qH/WgKqq0Tvif2ZXeLo+RrG
-	 PWHfLWlBKg8oHL7/Tojk8/zOKyexISRRbCZkwVuAIjeRenocxMOYL7x3+tlGAYYb5/
-	 65il3PeSfVRm2DFj90etxJUwwDqomGr9VXeVmA4o=
-Received: from DFLE115.ent.ti.com (dfle115.ent.ti.com [10.64.6.36])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BD19Sp044036;
-	Tue, 11 Mar 2025 08:01:09 -0500
-Received: from DFLE104.ent.ti.com (10.64.6.25) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 08:01:08 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE104.ent.ti.com
- (10.64.6.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 08:01:08 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BD14sa041825;
-	Tue, 11 Mar 2025 08:01:04 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-        <kuba@kernel.org>, <pabeni@redhat.com>, <rogerq@kernel.org>,
-        <horms@kernel.org>, <alexander.sverdlin@siemens.com>,
-        <dan.carpenter@linaro.org>, <c-vankar@ti.com>, <jpanis@baylibre.com>
-CC: <vigneshr@ti.com>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH net v2] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
-Date: Tue, 11 Mar 2025 18:31:03 +0530
-Message-ID: <20250311130103.68971-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 11 Mar 2025 13:10:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741698618;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=pSr0TDQLJaYD83EU6zHlB1nKsxywhTiBP95UqC0cvIM=;
+	b=OeDOHSJQj0m2dO3IbwwY8pgGHp389b8KFiM8sYRERxzxO5St+nB55ICv/hWp51r7+i/Bh+
+	XGXBj4qgLZoT63HSIVj6YJ5yv+ioqRDAngspgG1HNdScEalIueWTNNdaDb413w31IQAGwt
+	kOQO/MhQjyJjddnOgpRf9DL3Mnw/ze0=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-108-IiBxId8QPQGq5j7Mo9EwwQ-1; Tue, 11 Mar 2025 09:08:50 -0400
+X-MC-Unique: IiBxId8QPQGq5j7Mo9EwwQ-1
+X-Mimecast-MFC-AGG-ID: IiBxId8QPQGq5j7Mo9EwwQ_1741698529
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43cf5196c25so12822685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 06:08:50 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741698529; x=1742303329;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=pSr0TDQLJaYD83EU6zHlB1nKsxywhTiBP95UqC0cvIM=;
+        b=XcpbBgFv39hwW56jG4bxLmY3yvZzahVYtmoWZdJ0kcyFrcqQpdo3Gdzp/D8YWoXEMs
+         F5BbOwuK3Dfg8Kl4gFLxaILfAnpajNIvvG1w3T3QlyT8IDNI+NYOTAtVgXbVNWd5YLST
+         gPW1kFGTc1mYCNfV/FTb51G/XsN4ilUBGgx2MMXng4oaoxp+sWViiB+Jj6W5V6jKVnuC
+         dNkuwHoadFprVxIoiQ3b7q4uNN8IxC7TUrhCVw9P6I4AlgDRqW7JDa00U8kgL8xLArwL
+         nTyz4kZtrp/DGKnY4gWqK3C6GWnfaTuoP0UwL3DIJyZCmCtLJEEKzN4b3RsrMr3tJLnh
+         Z64g==
+X-Forwarded-Encrypted: i=1; AJvYcCXIVZHmw9io8RVWBhHn3iPJNpuFKqjeu7zWfA/2tKFDIS/tm4D/qNxbyfbXl6R3wGnGK4yUx7YsL3KsrP8ISaBq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAohRaC5KMytOekFu4KgkJvG/cRWkrbE+niyMCtzx72fmMHZXW
+	yLis8bYxP41kxE8OBIHMKjW8JkgMkJ3x+M3dIcYKDwhdBVx+xvFs3h/vHk24YSW/ekngeRfeirB
+	ZTTS0RWbOti19ZSu1Nj0AfBk1zBixel8a80TMCcOUFxyPD5SgevnLTgX38Zl01Zg06QXmt/mQ
+X-Gm-Gg: ASbGncsEVFJx7CtzVA/RGFE7vtY/WuowO/K1glFyl4uoxrVPKK3/jyYNbUYWjHphbzp
+	J0cc6htoxn5a2ZjRIOFEhL4t7+snH5jHMM0vMk9BYApgRqM1VxcKW8r8gOUKf+zjlOJSpvUehrU
+	WgIATja+T613sgxbzHn1IWmYa5ykQE1GkpztmcGxDIzH9eI07qNPHFhQcwXo/g+5RMEam/fkd/F
+	WliSzLQB8Em19TND9VY9EgGLT4o7PgZQMN5yVAltJnyy8+0+/WB0Rhsdlh+T4iUmm9hRmxljd8M
+	R4lo43I7vxgocp+4e6Xuof4cyw+zd3DfSwmexApIzFJf/g==
+X-Received: by 2002:a05:600c:3b04:b0:43c:f44c:72b7 with SMTP id 5b1f17b1804b1-43cf44c7703mr98398855e9.14.1741698528846;
+        Tue, 11 Mar 2025 06:08:48 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGHg2xJEtdcFy90P2VzdKFh3p/fCZJcgu7H/volTSsPrNEA8I4PMuG+4jYjYdTWL3xOUsvL7A==
+X-Received: by 2002:a05:600c:3b04:b0:43c:f44c:72b7 with SMTP id 5b1f17b1804b1-43cf44c7703mr98398315e9.14.1741698528418;
+        Tue, 11 Mar 2025 06:08:48 -0700 (PDT)
+Received: from [192.168.88.253] (146-241-12-146.dyn.eolo.it. [146.241.12.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43cf3ca4f5asm82801875e9.12.2025.03.11.06.08.46
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 06:08:47 -0700 (PDT)
+Message-ID: <72cd7f5a-ab92-494c-b7f8-4696d23ed4b1@redhat.com>
+Date: Tue, 11 Mar 2025 14:08:45 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Intel-wired-lan] [PATCH net-next v11 0/4] fix the DMA API misuse
+ problem for page_pool
+To: =?UTF-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+ Yunsheng Lin <yunshenglin0825@gmail.com>,
+ Yunsheng Lin <linyunsheng@huawei.com>, davem@davemloft.net, kuba@kernel.org
+Cc: zhangkun09@huawei.com, liuyonglong@huawei.com, fanghaiqing@huawei.com,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Robin Murphy <robin.murphy@arm.com>,
+ Alexander Duyck <alexander.duyck@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Gaurav Batra <gbatra@linux.ibm.com>, Matthew Rosato
+ <mjrosato@linux.ibm.com>, IOMMU <iommu@lists.linux.dev>,
+ MM <linux-mm@kvack.org>, Alexei Starovoitov <ast@kernel.org>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Jesper Dangaard Brouer <hawk@kernel.org>,
+ John Fastabend <john.fastabend@gmail.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ netdev@vger.kernel.org, intel-wired-lan@lists.osuosl.org,
+ bpf@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Eric Dumazet <edumazet@google.com>
+References: <20250307092356.638242-1-linyunsheng@huawei.com>
+ <87v7slvsed.fsf@toke.dk> <40b33879-509a-4c4a-873b-b5d3573b6e14@gmail.com>
+ <875xkj1t70.fsf@toke.dk>
+From: Paolo Abeni <pabeni@redhat.com>
+In-Reply-To: <875xkj1t70.fsf@toke.dk>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: zs69rvxC8m3HmQetI0L_MbAbNub8dnOLkt-h25GLHi0_1741698529
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_060120_429352_4A029A8B 
-X-CRM114-Status: GOOD (  16.11  )
+X-CRM114-CacheID: sfid-20250311_061021_919270_18733DBD 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,126 +129,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
+On 3/8/25 3:40 PM, Toke Høiland-Jørgensen wrote:
+> Yunsheng Lin <yunshenglin0825@gmail.com> writes:
+>> I only took a glance at git code above, it seems reusing the
+>> _pp_mapping_pad for pp_dma_index seems like a wrong direction
+>> as mentioned in discussion with Ilias above as the field might
+>> be used when a page is mmap'ed to user space, and reusing that
+>> field in 'struct page' seems to disable the tcp_zerocopy feature,
+>> see the below commit from Eric:
+>> https://github.com/torvalds/linux/commit/577e4432f3ac810049cb7e6b71f4d96ec7c6e894
+>>
+>> Also, I am not sure if a page_pool owned page can be spliced into the fs
+>> subsystem yet, but if it does, I am not sure how is reusing the
+>> page->mapping possible if that page is called in __filemap_add_folio()?
+>>
+>> https://elixir.bootlin.com/linux/v6.14-rc5/source/mm/filemap.c#L882
+> 
+> Hmm, so I did look at the mapping field, but concluded using it wouldn't
+> interfere with anything relevant as long as it's reset back to zero
+> before the page is returned to the page allocator. However, I definitely
+> missed the TCP zero-copy thing, and other things as well, it would seem
+> (cf the discussion you referred to above).
+> 
+> However, I did consider alternatives: AFAICT there should be space in
+> the pp_magic field (used for the PP_SIGNATURE), so that with a bit of
+> care we can stick an ID into the upper bits and still avoid ending up
+> with a value that could look like a valid pointer.
+> 
+> I didn't implement that initially because I wasn't sure it was
+> necessary, but seeing as it is, I will take another look at it. I have
+> one or two other ideas if this turns out not to pan out.
 
-Registering the interrupts for TX or RX DMA Channels prior to registering
-their respective NAPI callbacks can result in a NULL pointer dereference.
-This is seen in practice as a random occurrence since it depends on the
-randomness associated with the generation of traffic by Linux and the
-reception of traffic from the wire.
+Another dumb option would be storing directly the page address in the
+xarray, and avoid entirely going through an ID. I guess it will use more
+memory (the array will be more sparse) and will have more overhead, but
+could be possibly simpler?
 
-Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
-
-Hello,
-
-This patch is based on commit
-4d872d51bc9d Merge tag 'x86-urgent-2025-03-10' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-of Mainline Linux.
-
-v1 of this patch is at:
-https://lore.kernel.org/all/20250311061214.4111634-1-s-vadapalli@ti.com/
-Changes since v1:
-- Based on the feedback provided by Alexander Sverdlin <alexander.sverdlin@siemens.com>
-  the patch has been updated to account for the cleanup path in terms of an imbalance
-  between the number of successful netif_napi_add_tx/netif_napi_add calls and the
-  number of successful devm_request_irq() calls. In the event of an error, we will
-  always have one extra successful netif_napi_add_tx/netif_napi_add that needs to be
-  cleaned up before we clean an equal number of netif_napi_add_tx/netif_napi_add and
-  devm_request_irq.
-
-Regards,
-Siddharth.
-
- drivers/net/ethernet/ti/am65-cpsw-nuss.c | 28 +++++++++++++-----------
- 1 file changed, 15 insertions(+), 13 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-index 2806238629f8..b88edf2dd8f4 100644
---- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-+++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-@@ -2306,14 +2306,18 @@ static void am65_cpsw_nuss_remove_tx_chns(struct am65_cpsw_common *common)
- static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- {
- 	struct device *dev = common->dev;
-+	struct am65_cpsw_tx_chn *tx_chn;
- 	int i, ret = 0;
- 
- 	for (i = 0; i < common->tx_ch_num; i++) {
--		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
-+		tx_chn = &common->tx_chns[i];
- 
- 		hrtimer_init(&tx_chn->tx_hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
- 		tx_chn->tx_hrtimer.function = &am65_cpsw_nuss_tx_timer_callback;
- 
-+		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
-+				  am65_cpsw_nuss_tx_poll);
-+
- 		ret = devm_request_irq(dev, tx_chn->irq,
- 				       am65_cpsw_nuss_tx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2323,19 +2327,16 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- 				tx_chn->id, tx_chn->irq, ret);
- 			goto err;
- 		}
--
--		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
--				  am65_cpsw_nuss_tx_poll);
- 	}
- 
- 	return 0;
- 
- err:
--	for (--i ; i >= 0 ; i--) {
--		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
--
--		netif_napi_del(&tx_chn->napi_tx);
-+	netif_napi_del(&tx_chn->napi_tx);
-+	for (--i; i >= 0; i--) {
-+		tx_chn = &common->tx_chns[i];
- 		devm_free_irq(dev, tx_chn->irq, tx_chn);
-+		netif_napi_del(&tx_chn->napi_tx);
- 	}
- 
- 	return ret;
-@@ -2569,6 +2570,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			     HRTIMER_MODE_REL_PINNED);
- 		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
- 
-+		netif_napi_add(common->dma_ndev, &flow->napi_rx,
-+			       am65_cpsw_nuss_rx_poll);
-+
- 		ret = devm_request_irq(dev, flow->irq,
- 				       am65_cpsw_nuss_rx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2579,9 +2583,6 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			flow->irq = -EINVAL;
- 			goto err_flow;
- 		}
--
--		netif_napi_add(common->dma_ndev, &flow->napi_rx,
--			       am65_cpsw_nuss_rx_poll);
- 	}
- 
- 	/* setup classifier to route priorities to flows */
-@@ -2590,10 +2591,11 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 	return 0;
- 
- err_flow:
--	for (--i; i >= 0 ; i--) {
-+	netif_napi_del(&flow->napi_rx);
-+	for (--i; i >= 0; i--) {
- 		flow = &rx_chn->flows[i];
--		netif_napi_del(&flow->napi_rx);
- 		devm_free_irq(dev, flow->irq, flow);
-+		netif_napi_del(&flow->napi_rx);
- 	}
- 
- err:
--- 
-2.34.1
+/P
 
 
