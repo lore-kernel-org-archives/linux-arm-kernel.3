@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D914C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC90CC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hqTtKMuVE4OJZRf4mvwOGw0qL3Umj2fOzDAE8AxwP/0=; b=Lg07i0jLYiaVgp4xmJpCspHC2S
-	FYKx6MnCPWn0CTz4Z0EfL3Bf42X/8CeO7d422jj3xLKgiO7lw6j1lspTEMRkV8t4MEYJxk3sCOYp8
-	I/mOdLz6EGFITT9ai2m0+ZxHroBIv1JI4yZuS9axWiESbq1ezt/RBwuKlF4s388USzEFwnaB08dRy
-	xCEDhA+0XH3ToT4RkeE1Ai2jf3HGgUmLqf9lD1CyygEUAmM2o+W5AT4m+cfwUJ1PKSy2IyLGvKvK5
-	JWyNHkey/7QOUwCMFAp2CtpEO4zgPUfWLOnsZjaM3WkJcbxupzpjWskv8iVt2e69Rj26BbOqKq4Yl
-	l2Nwm+ag==;
+	bh=5tiK169UI8Q3BU/nIZ7X/cJTDUXYnG8GlIHlBWjzsVM=; b=ZgWCt5LkqX1Tm1lkNJrqI2pPTr
+	cHSdsKxPE/QjeI3pqCDPAjBQawC5oE/crBTGoiuRA92wdQhmYMGeQBDLKl3UHblABfYLUAytLyg3H
+	R0YGbuViqHmxZBQUeZ/y8D9QbTqf4o7ZUH1sGdjT9i+IDyBtKapBBzZN1Sghj5OrnwK/QmPJrKPzj
+	RKEpypkQj/7H7OfBwEM1GBmPpctBCvGkzzmD6NsDQ3LddAdd/om3JlYXav2I023pLAbrPmeFVpfb8
+	vPqzteWeCt2ziwdF15OcOUF1TovP4JGVfHL1XRoC9RZYAz2f1YqYpe04UFgrN55ApTC0p/46VMPLQ
+	auVoalxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1truR4-00000004uy6-0mpF;
-	Tue, 11 Mar 2025 07:53:58 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1truSg-00000004vCV-3vl2;
+	Tue, 11 Mar 2025 07:55:38 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1truP2-00000004uRU-3TLs
+	id 1truP6-00000004uRE-42j9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 07:51:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BA36AA45E07;
-	Tue, 11 Mar 2025 07:46:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B819EC4CEE9;
-	Tue, 11 Mar 2025 07:51:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741679511;
-	bh=sgPc3Qvg0vgmi1gbRN19F9lZOqeVer1XVd9n2oDi5Nk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hBlgToLCWNhHLQM49b0jfSigvXzWgDtpL4wroyDom0phMXBTPN/44Iqyvdw1dr4He
-	 48/fKjrsIbLP82a0DaqlamJ6Nc/ZXp9W8dUS2g3AV2dD4ufXMyyed9zWq4jsaQ5R30
-	 wP+MyCVPxyX0eqD9FGpOiROcux4u3HxxeHRiw3KVuquuzbphqV62qdPjBs7AA/aCvX
-	 1uyVADxfKpDtjqwCXCqmYAr0F98W0y+XQbWI/ASI+Tyf+r0caRUDXQnCddp36vyFiy
-	 4C/huKSzMg593dmW4vrZJZRhvSIBf3utvIDxILeOHV0x68VWaTgjb6JEGjG7u40wJK
-	 Fix209mp90HcQ==
-Date: Tue, 11 Mar 2025 08:51:48 +0100
-From: Krzysztof Kozlowski <krzk@kernel.org>
-To: Matt Coster <matt.coster@imgtec.com>
-Cc: Frank Binns <frank.binns@imgtec.com>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Nishanth Menon <nm@ti.com>, 
-	Vignesh Raghavendra <vigneshr@ti.com>, Tero Kristo <kristo@kernel.org>, dri-devel@lists.freedesktop.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Randolph Sapp <rs@ti.com>, Darren Etheridge <detheridge@ti.com>, 
-	Alessio Belle <alessio.belle@imgtec.com>, Alexandru Dadu <alexandru.dadu@imgtec.com>
-Subject: Re: [PATCH v3 02/18] dt-bindings: gpu: img: Add BXS-4-64 devicetree
- bindings
-Message-ID: <20250311-bizarre-debonair-macaque-451c4f@krzk-bin>
-References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
- <20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com>
+	Tue, 11 Mar 2025 07:51:59 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.214])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZBm925Zzzz2CcCX;
+	Tue, 11 Mar 2025 15:48:38 +0800 (CST)
+Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
+	by mail.maildlp.com (Postfix) with ESMTPS id 17A571A016C;
+	Tue, 11 Mar 2025 15:51:49 +0800 (CST)
+Received: from localhost.localdomain (10.50.165.33) by
+ kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.34; Tue, 11 Mar 2025 15:51:47 +0800
+From: Yicong Yang <yangyicong@huawei.com>
+To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
+	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
+	<linux-arm-kernel@lists.infradead.org>, <mingo@redhat.com>, <bp@alien8.de>,
+	<dave.hansen@linux.intel.com>, <pierre.gondois@arm.com>,
+	<dietmar.eggemann@arm.com>
+CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>, <rafael@kernel.org>,
+	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
+	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>, <sshegde@linux.ibm.com>
+Subject: [PATCH v12 3/4] arm64: topology: Support SMT control on ACPI based system
+Date: Tue, 11 Mar 2025 15:51:42 +0800
+Message-ID: <20250311075143.61078-4-yangyicong@huawei.com>
+X-Mailer: git-send-email 2.31.0
+In-Reply-To: <20250311075143.61078-1-yangyicong@huawei.com>
+References: <20250311075143.61078-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-2-143b3dbef02f@imgtec.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [10.50.165.33]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_005152_998121_F7FC8BC9 
-X-CRM114-Status: GOOD (  17.56  )
+X-CRM114-CacheID: sfid-20250311_005157_329109_F11A4D3A 
+X-CRM114-Status: GOOD (  20.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,94 +78,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 01:10:26PM +0000, Matt Coster wrote:
-> Unlike AXE-1-16M, BXS-4-64 uses two power domains.
-> 
-> Like the existing AXE-1-16M integration, BXS-4-64 uses the single clock
-> integration in the TI k3-j721s2.
-> 
-> Signed-off-by: Matt Coster <matt.coster@imgtec.com>
-> ---
-> Changes in v3:
-> - Include adding the second power domain so it's in context
-> - Remove unnecessary example
-> - Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-8-3fd45d9fb0cf@imgtec.com
-> Changes in v2:
-> - Use normal reg syntax for 64-bit values
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-8-4ed30e865892@imgtec.com
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml | 34 +++++++++++++++++++++-
->  1 file changed, 33 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> index 5c16b2881447c9cda78e5bb46569e2f675d740c4..d9409d33154d429019776ddbf9d123b33f8c9740 100644
-> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
-> @@ -18,6 +18,11 @@ properties:
->                - ti,am62-gpu
->            - const: img,img-axe-1-16m
->            - const: img,img-rogue
-> +      - items:
-> +          - enum:
-> +              - ti,j721s2-gpu
-> +          - const: img,img-bxs-4-64
-> +          - const: img,img-rogue
->  
->        # This legacy combination of compatible strings was introduced early on
->        # before the more specific GPU identifiers were used.
-> @@ -49,6 +54,7 @@ properties:
->    power-domain-names:
->      items:
->        - const: a
-> +      - const: b
+From: Yicong Yang <yangyicong@hisilicon.com>
 
-No, you just affected old device claiming it has two items. What's more,
-it's not synced with power-domains. Both properties must have the same
-constraints, but above power domains have "anything".
+For ACPI we'll build the topology from PPTT and we cannot directly
+get the SMT number of each core. Instead using a temporary xarray
+to record the heterogeneous information (from ACPI_PPTT_ACPI_IDENTICAL)
+and SMT information of the first core in its heterogeneous CPU cluster
+when building the topology. Then we can know the largest SMT number
+in the system. If a homogeneous system's using ACPI 6.2 or later,
+all the CPUs should be under the root node of PPTT. There'll be
+only one entry in the xarray and all the CPUs in the system will
+be assumed identical.
 
->  
->    dma-coherent: true
->  
-> @@ -74,12 +80,38 @@ allOf:
->          - power-domains
->          - power-domain-names
->  
-> +  # Cores with one power domain
+The framework's SMT control provides two interface to the users [1]
+through /sys/devices/system/cpu/smt/control:
+1) enable SMT by writing "on" and disable by "off"
+2) enable SMT by writing max_thread_number or disable by writing 1
 
-Drop
+Both method support to completely disable/enable the SMT cores so both
+work correctly for symmetric SMT platform and asymmetric platform with
+non-SMT and one type SMT cores like:
+core A: 1 thread
+core B: X (X!=1) threads
 
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: img,img-axe-1-16m
-> +    then:
-> +      properties:
-> +        power-domain-names:
-> +          minItems: 1
+Note that for a theoretically possible multiple SMT-X (X>1) core
+platform the SMT control is also supported as expected but only
+by writing the "on/off" method.
 
-Drop
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
+Reviewed-by: Hanjun Guo <guohanjun@huawei.com>
+Reviewed-by: Pierre Gondois <pierre.gondois@arm.com>
+Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
+Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
+---
+ arch/arm64/kernel/topology.c | 54 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
 
-> +          maxItems: 1
-> +
-> +  # Cores with two power domains
-
-Drop
-
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: img,img-bxs-4-64
-> +    then:
-> +      properties:
-> +        power-domain-names:
-> +          minItems: 2
-> +          maxItems: 2
-
-Missing constraints for power-domains.
-
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/kernel/topology.c b/arch/arm64/kernel/topology.c
+index cb180684d10d..0bcea4f89ea8 100644
+--- a/arch/arm64/kernel/topology.c
++++ b/arch/arm64/kernel/topology.c
+@@ -15,8 +15,10 @@
+ #include <linux/arch_topology.h>
+ #include <linux/cacheinfo.h>
+ #include <linux/cpufreq.h>
++#include <linux/cpu_smt.h>
+ #include <linux/init.h>
+ #include <linux/percpu.h>
++#include <linux/xarray.h>
+ 
+ #include <asm/cpu.h>
+ #include <asm/cputype.h>
+@@ -37,17 +39,28 @@ static bool __init acpi_cpu_is_threaded(int cpu)
+ 	return !!is_threaded;
+ }
+ 
++struct cpu_smt_info {
++	unsigned int thread_num;
++	int core_id;
++};
++
+ /*
+  * Propagate the topology information of the processor_topology_node tree to the
+  * cpu_topology array.
+  */
+ int __init parse_acpi_topology(void)
+ {
++	unsigned int max_smt_thread_num = 1;
++	struct cpu_smt_info *entry;
++	struct xarray hetero_cpu;
++	unsigned long hetero_id;
+ 	int cpu, topology_id;
+ 
+ 	if (acpi_disabled)
+ 		return 0;
+ 
++	xa_init(&hetero_cpu);
++
+ 	for_each_possible_cpu(cpu) {
+ 		topology_id = find_acpi_cpu_topology(cpu, 0);
+ 		if (topology_id < 0)
+@@ -57,6 +70,34 @@ int __init parse_acpi_topology(void)
+ 			cpu_topology[cpu].thread_id = topology_id;
+ 			topology_id = find_acpi_cpu_topology(cpu, 1);
+ 			cpu_topology[cpu].core_id   = topology_id;
++
++			/*
++			 * In the PPTT, CPUs below a node with the 'identical
++			 * implementation' flag have the same number of threads.
++			 * Count the number of threads for only one CPU (i.e.
++			 * one core_id) among those with the same hetero_id.
++			 * See the comment of find_acpi_cpu_topology_hetero_id()
++			 * for more details.
++			 *
++			 * One entry is created for each node having:
++			 * - the 'identical implementation' flag
++			 * - its parent not having the flag
++			 */
++			hetero_id = find_acpi_cpu_topology_hetero_id(cpu);
++			entry = xa_load(&hetero_cpu, hetero_id);
++			if (!entry) {
++				entry = kzalloc(sizeof(*entry), GFP_KERNEL);
++				WARN_ON_ONCE(!entry);
++
++				if (entry) {
++					entry->core_id = topology_id;
++					entry->thread_num = 1;
++					xa_store(&hetero_cpu, hetero_id,
++						 entry, GFP_KERNEL);
++				}
++			} else if (entry->core_id == topology_id) {
++				entry->thread_num++;
++			}
+ 		} else {
+ 			cpu_topology[cpu].thread_id  = -1;
+ 			cpu_topology[cpu].core_id    = topology_id;
+@@ -67,6 +108,19 @@ int __init parse_acpi_topology(void)
+ 		cpu_topology[cpu].package_id = topology_id;
+ 	}
+ 
++	/*
++	 * This is a short loop since the number of XArray elements is the
++	 * number of heterogeneous CPU clusters. On a homogeneous system
++	 * there's only one entry in the XArray.
++	 */
++	xa_for_each(&hetero_cpu, hetero_id, entry) {
++		max_smt_thread_num = max(max_smt_thread_num, entry->thread_num);
++		xa_erase(&hetero_cpu, hetero_id);
++		kfree(entry);
++	}
++
++	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++	xa_destroy(&hetero_cpu);
+ 	return 0;
+ }
+ #endif
+-- 
+2.24.0
 
 
