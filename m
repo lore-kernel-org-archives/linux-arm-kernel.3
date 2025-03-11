@@ -4,70 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2D87C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:02:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F65CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:03:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j8tBDjy543x7O/2+coA7DuMO9h9IfvbGc6S9Gogs05c=; b=s+zj/+zan01DvIG9YzXOx9IpWy
-	puiV6WeCWtc2u3chTBUiadWWBmB2/D4vjy277Sqh09cppvCkVsddcj4GptECidJSvTDLQfgPFCHRe
-	ECD8qvg+MpLwqIcPMoRxmLk5tpp4+Pia8JBr0JOIUQHWbrVkZ4d9cnhCtqy4c806B2ByRCfao2alz
-	pU+gl1qRuadMVtbwa6F192zyfQ9YIOz5LOqQUwp5iYPT34GX3cW9TL1IDZNhGXx71vp6G9JLofIsk
-	R15fokPsnLR+iwS78cMc+56j9R/DXV2B4Guh2Uo1rwNEtY+YdB+vwyozjMIEKhd7y1VHh4xC2Pn9r
-	D+vkDAIQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BYV2O2ADUmnC4EjpgIkzJxqCjUachXXpNhXgHQTp1GQ=; b=cNNXkMXC0dWdFO8i4r9N24rRG6
+	Gzk1ASa6AmsOcZ6Cr7McYERslsH/jW6FQ101kyzewalVSlFFyjQ+/Iw6EnZkYVKTAl8Xz97j9ny1s
+	t9z7TRag5Hqn5RPy4nzRUS0ME7sJA2Fj3RKArkwxqXxRzTtGNh8QpyLvtT4CMgXld6ctb1E+qaEBH
+	Xg3fuiFeWvtu8jkDdIR3qWlH9yK/KfHmDALOrBgPlzzFi6+V/psEhe4TipGQ695M/fVPQlB/iGlWk
+	WT2sMeXwdPWT54rCs+Vd9cNe+3qvWSeLeVn+DIFJP66LH81tzQVf9VlmdVB/Fi1Wn5rvZhjnRZr3r
+	bDWn6RJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts23J-00000006Gpu-2GTG;
-	Tue, 11 Mar 2025 16:01:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ts24w-00000006HIC-0yN8;
+	Tue, 11 Mar 2025 16:03:38 +0000
+Received: from mail-vk1-xa2b.google.com ([2607:f8b0:4864:20::a2b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1yu-00000006FnM-1YXw
+	id 1ts21x-00000006GU4-1CN4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:57:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 821C6A45E8E;
-	Tue, 11 Mar 2025 15:51:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D941C4CEEC;
-	Tue, 11 Mar 2025 15:57:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741708643;
-	bh=BZTxXXA67zvcYZUPAms2o1IQhwkgm/4LnFmDVxI2ONs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=NYrFmUvfLJTnTAUuNsvf7jl110FlX1XQjHYJv6UtMkxM487T1UwPjrJnb/KFOOXDY
-	 4c/FTYEtU3qswKyPGejNRtq9L4QnNxy+rDETa8i1IAL2MhiMEW+6PJnE6ajqGYLfL8
-	 JHDnS7kP7oW2bNHPkridid0tOs53GJHG9msqCSX/ReUA415polcodWwWksAHJXoQwk
-	 Q7zbpaLmB369VDgojkiXPq1kNn+gICyoTQ0g91wrOQkty74sa2qKd3by0RjZGS6WNw
-	 fqrMTu3Rb7/NHMMay2gFyahQ3CSkmM+sNuZejCnSqzmPMrrEf+Q4+Prhg3OjPWvlZH
-	 XOobXYZ3D+D9g==
-Date: Tue, 11 Mar 2025 15:57:16 +0000
-From: Will Deacon <will@kernel.org>
-To: Nicolin Chen <nicolinc@nvidia.com>
-Cc: jgg@nvidia.com, kevin.tian@intel.com, corbet@lwn.net, joro@8bytes.org,
-	suravee.suthikulpanit@amd.com, robin.murphy@arm.com,
-	dwmw2@infradead.org, baolu.lu@linux.intel.com,
-	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linux-doc@vger.kernel.org,
-	eric.auger@redhat.com, jean-philippe@linaro.org, mdf@kernel.org,
-	mshavit@google.com, shameerali.kolothum.thodi@huawei.com,
-	smostafa@google.com, ddutile@redhat.com, yi.l.liu@intel.com,
-	praan@google.com, patches@lists.linux.dev
-Subject: Re: [PATCH v8 12/14] iommu/arm-smmu-v3: Introduce struct
- arm_smmu_vmaster
-Message-ID: <20250311155714.GC5138@willie-the-truck>
-References: <cover.1740504232.git.nicolinc@nvidia.com>
- <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
+	Tue, 11 Mar 2025 16:00:34 +0000
+Received: by mail-vk1-xa2b.google.com with SMTP id 71dfb90a1353d-52403e39a23so2368449e0c.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:00:32 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741708832; x=1742313632; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BYV2O2ADUmnC4EjpgIkzJxqCjUachXXpNhXgHQTp1GQ=;
+        b=laBxBylsJXWiVJFULVk4TwR3jKdiazCrcbp/a+8K13XomRym57HDnf/nupI4mAyjhS
+         dYr/P5yC7RavbgM+FSjIygnXRVX1qk450b3gAwtsqsQ/d/mBIvp+86dZ+RFFYuyvFptp
+         jI4AM3jFyf+dHRLQYLWMZJemYikZCojkR2P6ZecoYJK31HiYYs3CSMWejoCAtBKuWkT+
+         gW8rfO7hy4ifhuIctZWDYoxTU9gxcZA/0nt/WdHxZ4sMywE1TYPIQvXoV5w1Wll+uR4s
+         34247p/SvP5fLY9RSnPVsNGHJGTD52MYVeP4BIvhUp7Q2VMmIiZ7E1HbHWT7W2oHxG2Z
+         pFjg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741708832; x=1742313632;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=BYV2O2ADUmnC4EjpgIkzJxqCjUachXXpNhXgHQTp1GQ=;
+        b=p/FhccyCn5sjbub1ONMpi7RW2Rc4U6bGouYS8eWo2q+kZdBOq5ZTzaaCEVqa9RcSfr
+         n5ZBTKXdeK0/QYL8l5kPIIc6wd4AzkpC75VupI+yhF3tdZK3PZIAt6/i8LyQUfLOAknY
+         QC44deM8rJzAfIpAk4yKI+9h/cOpunmlX1Q4KmByiKKlY9/rbtcnMtqhupUB2XQlnHnc
+         bz9p8DNvmX0c6GuGQWKiosow0fBukQFztXmh6SDGsTvW3/am6JxUJLf7YRuVTRDxap3Q
+         ZDiiUrxRoAhk/TorxpxGjbud+wWVb161grPwvX9sHZyvCSMrokVhL3nzwnRDyKXcyC3O
+         bRrA==
+X-Forwarded-Encrypted: i=1; AJvYcCVNHRAp+iiNZDgh/gWoPtbJ+oP9A/k+gCIXKGBH+x/ExSr0rMeoPiSqFyFJ5gVPzcHzYtWdHDXDR/vYSVM0OC+B@lists.infradead.org
+X-Gm-Message-State: AOJu0YzhbPAQqHeSXeelMu0Oumj7C4gLAUlGpG4R0FHzyr2mZ1wfNdR1
+	+OkbBE9LzqudKA9L3B2RuBpv52GvnWUuiRrcUum8dJTbsez9lCamJZXt8MCcYlbSn53sURwiXw5
+	Q296Fc3haeYmvopg1IpPfe4hEc2Y=
+X-Gm-Gg: ASbGncuF3C8lOvDVKHeXigdojuMwPL7Hbze7IO1adz+vpyH0JRPNl3CpvWTDGeQPTAN
+	Quq9ubcN0jACrJleAqEAFYjTb/NqirFaezQEBThswt6WkZeoQ0OIsAAbIdtY6iKtQ7IWK96oodF
+	RGdhfpyomItsPew5DFLdtAM+0XYg==
+X-Google-Smtp-Source: AGHT+IHivWeI31nWIIPrZrFlhM+7fp8bfXv0CzOpkZZUK77vgQDJv14Iuy7s4ylU5vfDky6AfN2vn2hLt14/RUDK+1w=
+X-Received: by 2002:a05:6122:468e:b0:520:5a87:66ff with SMTP id
+ 71dfb90a1353d-524195bb061mr2798719e0c.0.1741708831905; Tue, 11 Mar 2025
+ 09:00:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <f205a4e2f5971cd4b1033d7cac41683e10ebabfb.1740504232.git.nicolinc@nvidia.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+References: <c499234d559a0d95ad9472883e46077311051cd8.1741612208.git.geert+renesas@glider.be>
+ <CA+V-a8tGuxgan7Zx0YedSByfFSgrg5gmR6Fy3dMDXwU+TscZzg@mail.gmail.com> <CAMuHMdWXcRoqKz6S0sAtBpSM+_ghTs82wsN1dHvbHD5vO8W+7A@mail.gmail.com>
+In-Reply-To: <CAMuHMdWXcRoqKz6S0sAtBpSM+_ghTs82wsN1dHvbHD5vO8W+7A@mail.gmail.com>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Tue, 11 Mar 2025 16:00:06 +0000
+X-Gm-Features: AQ5f1JpExm6w0oXJAdyuPwgaj8C68PW5etZpDKlnT5kc8GMf1Hy-JJ74ectxF7A
+Message-ID: <CA+V-a8v_FPt0XG-a8GXNaHbk9z02Phq8KWUO5E+LUKDEvgqHUg@mail.gmail.com>
+Subject: Re: [PATCH] ARM: shmobile: smp: Enforce shmobile_smp_* alignment
+To: Geert Uytterhoeven <geert@linux-m68k.org>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Nicolas Pitre <nico@fluxnic.net>, Simon Horman <horms+renesas@verge.net.au>, 
+	Kees Cook <kees@kernel.org>, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_085724_561770_B851DB19 
-X-CRM114-Status: GOOD (  20.85  )
+X-CRM114-CacheID: sfid-20250311_090033_321239_79659744 
+X-CRM114-Status: GOOD (  17.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,88 +97,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 25, 2025 at 09:25:40AM -0800, Nicolin Chen wrote:
-> Use it to store all vSMMU-related data. The vsid (Virtual Stream ID) will
-> be the first use case. Since the vsid reader will be the eventq handler
-> that already holds a streams_mutex, reuse that to fenche the vmaster too.
+Hi Geert,
 
-"fenche"?
+On Tue, Mar 11, 2025 at 3:20=E2=80=AFPM Geert Uytterhoeven <geert@linux-m68=
+k.org> wrote:
+>
+> Hi Prabhakar,
+>
+> On Tue, 11 Mar 2025 at 16:11, Lad, Prabhakar <prabhakar.csengg@gmail.com>=
+ wrote:
+> > On Mon, Mar 10, 2025 at 1:14=E2=80=AFPM Geert Uytterhoeven
+> > > When the addresses of the shmobile_smp_mpidr, shmobile_smp_fn, and
+> > > shmobile_smp_arg variables are not multiples of 4 bytes, secondary CP=
+U
+> > > bring-up fails:
+> > >
+> > >     smp: Bringing up secondary CPUs ...
+> > >     CPU1: failed to come online
+> > >     CPU2: failed to come online
+> > >     CPU3: failed to come online
+> > >     smp: Brought up 1 node, 1 CPU
+> > >
+> > > Fix this by adding the missing alignment directive.
+> > >
+> > > Fixes: 4e960f52fce16a3b ("ARM: shmobile: Move shmobile_smp_{mpidr, fn=
+, arg}[] from .text to .bss")
+> >
+> > I wonder if this fixes tag should go back a bit far as I was able to
+> > reproduce this on 5.10-cip BSP kernel on RZ/G1E this was only seen
+> > when CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE was enabled,
+>
+> 4e960f52fce16a3b is in v4.5, so it covers 5.10-cip.
+>
+Thanks for pointing.
 
-> Also add a pair of arm_smmu_attach_prepare/commit_vmaster helpers to set
-> or unset the master->vmaster point. Put these helpers inside the existing
-
-s/point/pointer/
-
-> arm_smmu_attach_prepare/commit().
-> 
-> For identity/blocked ops that don't call arm_smmu_attach_prepare/commit(),
-> add a simpler arm_smmu_master_clear_vmaster helper to unset the vmaster.
-> 
-> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
-> Reviewed-by: Pranjal Shrivastavat <praan@google.com>
-
-(per Pranjal: please fix his mis-spelling of his own name here and in
-the other patches too!)
-
-> Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
-> ---
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   | 28 ++++++++++++
->  .../arm/arm-smmu-v3/arm-smmu-v3-iommufd.c     | 45 +++++++++++++++++++
->  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   | 18 +++++++-
->  3 files changed, 90 insertions(+), 1 deletion(-)
-
-[...]
-
-> @@ -1055,9 +1062,30 @@ struct iommufd_viommu *arm_vsmmu_alloc(struct device *dev,
->  				       struct iommu_domain *parent,
->  				       struct iommufd_ctx *ictx,
->  				       unsigned int viommu_type);
-> +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> +				    struct arm_smmu_nested_domain *nested_domain);
-> +void arm_smmu_attach_commit_vmaster(struct arm_smmu_attach_state *state);
-> +void arm_smmu_master_clear_vmaster(struct arm_smmu_master *master);
->  #else
->  #define arm_smmu_hw_info NULL
->  #define arm_vsmmu_alloc NULL
-> +
-> +static inline int
-> +arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> +				struct arm_smmu_nested_domain *nested_domain)
-> +{
-> +	return 0; /* NOP */
-> +}
-
-Please drop this comment.
-
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> index 5aa2e7af58b4..6b712b1ab429 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-iommufd.c
-> @@ -85,6 +85,51 @@ static void arm_smmu_make_nested_domain_ste(
->  	}
->  }
->  
-> +int arm_smmu_attach_prepare_vmaster(struct arm_smmu_attach_state *state,
-> +				    struct arm_smmu_nested_domain *nested_domain)
-> +{
-> +	struct arm_smmu_vmaster *vmaster;
-> +	unsigned long vsid;
-> +	int ret;
-> +
-> +	iommu_group_mutex_assert(state->master->dev);
-> +
-> +	/* Skip invalid vSTE */
-> +	if (!(nested_domain->ste[0] & cpu_to_le64(STRTAB_STE_0_V)))
-> +		return 0;
-
-Ok, and we don't need to set 'state->vmaster' in this case because we
-only report stage-1 faults back to the vSMMU?
-
-With the nits fixed:
-
-Acked-by: Will Deacon <will@kernel.org>
-
-Thanks,
-
-Will
+Cheers,
+Prabhakar
 
