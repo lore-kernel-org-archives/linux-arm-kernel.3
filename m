@@ -4,118 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4ADDAC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6D7DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hlcozNRCUn2cDnJKUvdb8kPLVFjOiAX9tvU5DyWpFbs=; b=pMLRKYe2GnE2LiJ6YCSRgMedEB
-	wb9pV8QFoJbnsK35KBbLTV7HK7LAhUn+h1A9xM2C0dmghegDInDZiDMnS4kzsPcnoVfXRy9PAA4c2
-	2u4oQuMMe6YkVlVsk9lB1DIfRQc5gzA7OYtioKA2bXrqrT0zbmjYFVpyK9uBXr+uD59Fn0hbsTcKo
-	IfyeahKg6KBgDasHVG4DJQ99odUDIForAyAUDDv4sLZgIHZzyRfscwrwgDVDAccbQZnCOOYzltozG
-	IPvTc1YCMdGNMPcoe6X5RVDHx0taVfGXDRnywmGAipfb5KBqcmn9WSc61Yyx/egu+MWC1DU+kuyp5
-	JMS90K3Q==;
+	bh=QVGY1YdKpatvu9ORUu7u/Y2xJ4feOuJRGzkvoJubghM=; b=unILyr94MeaDzq2IofKxb4Pw/P
+	vnsc2WHZkNdAxCIxkVyW/tI/3YPfcHrtC16pI06IQIbbrr/tcB3uk682vEM5TtYf333IkflArMZx6
+	rgQvaYxR9cX+cT8IDFFXJ2gsBYcGhe3zB8biTiAb9Z73CK02rGR72Yq8s9YfLh5o8tROzVw+5X6ZF
+	E86cFSj6ntgsxpmBmuTBeOckmJkLpbdVoPRZDiOmsWHTW5RZlW9fLYAVlnwIM0hI5ESXcQcANbwU3
+	FR1a/9nFO1f6wPhg4/Opm8Xhz0JdDDsJPoa+HmGzRQHhaMj7A6vQpckubqJPl06guVwMXtTgO8e9G
+	Mw0Oj59A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0jY-000000060Cl-44jX;
-	Tue, 11 Mar 2025 14:37:28 +0000
-Received: from mail-ej1-x641.google.com ([2a00:1450:4864:20::641])
+	id 1ts0lE-000000060Xs-2kc1;
+	Tue, 11 Mar 2025 14:39:12 +0000
+Received: from mail-wr1-x431.google.com ([2a00:1450:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0hu-00000005zni-1YTG
+	id 1ts0iN-00000005zus-20cq
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 14:35:47 +0000
-Received: by mail-ej1-x641.google.com with SMTP id a640c23a62f3a-ab7430e27b2so917586166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 07:35:45 -0700 (PDT)
+	Tue, 11 Mar 2025 14:36:17 +0000
+Received: by mail-wr1-x431.google.com with SMTP id ffacd0b85a97d-38dcac27bcbso4325157f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 07:36:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=suse.com; s=google; t=1741703744; x=1742308544; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=hlcozNRCUn2cDnJKUvdb8kPLVFjOiAX9tvU5DyWpFbs=;
-        b=D69VVkJ1IuLwZfiKFeJD/eMz8xfXuQL3q7yunwhQgqBOPNV/LN7EMZ0TIYh7+NVvAT
-         oz8jvC/dJE/I1b0V+a4AzA41Bz0yC3XwPhJNdotHHT1hZHzUGUss+6NgbnIuJPmSXbUF
-         iBO6/8hb2OWy1W976vZAue2zdOPXKWYM93O641ahwAXdQEHziK/f8e1zIbWX1HmlZB3N
-         isk4hR1YPAOVdc6TPiAf4nHmbAAyHaZy1qIfre7HScqxHeLhVpOqO9K+bDZrLqVdxLDf
-         Ha3qikRJlH//BMeKyD84OIgLbhruD6lg0cQooTHymWquASERja5OeukgotUwTcMVp7Iz
-         hiaQ==
+        d=suse.com; s=google; t=1741703774; x=1742308574; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=QVGY1YdKpatvu9ORUu7u/Y2xJ4feOuJRGzkvoJubghM=;
+        b=GmL+93j1wNxnK3FNt28QCddGUC0SxZ+7jLZHHFqt9Jm6uMnhN5mTyaKaiOMCoEfB+e
+         qPGG9FaP3rUXXVGhJFric4LgY2cz/qIFvieiUMO1NjVn+Z+uZWztOfqJIupuzMqFG4Ok
+         JwOqiERQkW+DXPysmVrMITl3BprZYjJrvU+U4HQKjTY9jp7yHq0LyNNajMGI2m4AxFA6
+         ESXBLHtlinysQ0LoywQDXgiG6+bdS7xewv9FQRMJiagfO2WdC9T1/q4UIvtS90Mq4u9l
+         t94z3Uq4ECNsB0EjO9plaTFrfrLpzRDtVdPsZaYpnZXkG0HTL9M7hTvN6AfdHqOVbKkE
+         OXXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741703744; x=1742308544;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:date:from
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hlcozNRCUn2cDnJKUvdb8kPLVFjOiAX9tvU5DyWpFbs=;
-        b=PVP5Mn41c910DINLjIv4Lq2sEyjXxzb2CC4IdhndSUwHz64qwVOg3DQKa+FevzRQRN
-         kmKQV7vMRpdzpIfLBGs1/3Gswa/Q+3e5Tqbae1gxafpiaq6hefAA6ZnpVSbMmmvZ7P89
-         wFx3uJ/E/n+04oEfi1lhgXnF2TSQ9/cxG0ukdCUE1JtfhYUI0fpGatr4Q5cGVKMEpqnM
-         VPU5W9FstskW456xpPFSW6GGMS7q7ZrhmFgAAwjUVJt4txufTDj/GsWewNJjBWo2RF/K
-         WZM96+4dLmG+tZ79sZOH4f7R7/ZfT1oiUQojlQKK9+ChuscvNpI4KMpNg7kUbsFcKpUl
-         OjNw==
-X-Forwarded-Encrypted: i=1; AJvYcCWGOV5A9DPDu6httBlgnk+ON52jFlyDyw1CNql3kcVwSxoTIgYCFRshKaThKkmTXYVK2dJxvgK4LG7QPu4VsP7V@lists.infradead.org
-X-Gm-Message-State: AOJu0YwEslcY2y01WJNMEVDgFSP0T+v0C4C2Xl8omo99YRlzqoWhVI1V
-	YGEPQtkg6SrwDWwm8KIlq6yGSbDDim2fXNYihvSXObOXS29QcbbQ6mkxWIegzno=
-X-Gm-Gg: ASbGncsY7Au99I/tN4AtvZTogl09w8PWLZ8aN2IIRWHhAhA9DZlwiKArofAw/lYVMQG
-	bvhpFuXCseZs635fh6Ju8msju2aHnJCpvGd1SUpN9hBk9w5yMonr74h0UGbGbMGaRRuCX8fz+1t
-	ZnjtwbY5SCWcl0ugoxz1Olb2mWuouPR6K1gyLSW/Mm3qGbHvab4QV6ixJD3fGlGzv2CXO0OBlW2
-	mozGJVB57x+1W3NCopALm3TBjnXYKrCoN6xBqcdJ0DcSl5HJekHufcOIBtsB0Rjk8kZV8MpdvQo
-	4s97rtCXWKZr/9WGL6RqROgs+0o/UWyHg/lSgk5I+UrBtUgb6UKMmYHqK+hCJO2sgXlAyjX96dr
-	AS5GgDsPWE+CZ
-X-Google-Smtp-Source: AGHT+IFLdM9vCnSAq2tyDNO5yPeJsNiGhv4R/i7mo9dqAzSuL9h81HaDVtVXHdqZ5ge8YgeZcopV0g==
-X-Received: by 2002:a17:907:d27:b0:ac2:9e1a:bf95 with SMTP id a640c23a62f3a-ac29e1ac5camr1178043966b.18.1741703743784;
-        Tue, 11 Mar 2025 07:35:43 -0700 (PDT)
-Received: from localhost (host-87-14-236-98.retail.telecomitalia.it. [87.14.236.98])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2a96a22d8sm278255366b.158.2025.03.11.07.35.43
+        d=1e100.net; s=20230601; t=1741703774; x=1742308574;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=QVGY1YdKpatvu9ORUu7u/Y2xJ4feOuJRGzkvoJubghM=;
+        b=s9PjY5dAFKM6ZVYKRaObuo4t9Zj0gsbMxwhdfGJY828DuiQoEenX/agMBCmK0RWPU2
+         4V0uOgkswiU4yyAO8z3t/T+eWffSzW07f5ydMbSG+ehCOIny/JFCF8/GYCvrn5cmX9n5
+         MMFmdl9AIFu705oflHwbeNMEhYoUS72XFtGHDHf73iGpcTfasg9RCnkVXrOqLZHJgfc1
+         i97Xi0s3vVUe3VAdU5nqYyKABgOLAORcoYOSkYZbf51xWHDcqDjvM0Tzz7i6LEKxqbwx
+         RNlBbSCZ3VpJ0Zd7zI0+9yQVR3CtqscZZxy4gHS0+CGYrsoTxRr4bRu0w9RuHRUYZw60
+         zSfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVDlr0UXIhNl2dkD5lHSubaa8/7FT+Thy6uewMI+bIuJnl1iyg2ah7qhH0lLyNdk2RUk3KNdLw4ud7BMymbAo57@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu5iuRVHNljtV/BnXwJYY4iiWsSbK3Yl97N673bUp0/FeC2T/J
+	HEUZzfESNQ7UbCX+E3w1zomxZWLX7Lid/x3ffch2GXYKk8cozHcara0qRhE/7gc=
+X-Gm-Gg: ASbGncvQFYP+M7CruWVqpKSC4nzwsN+Eusc676fo1v9qCIuG+vJDInq9sgLFCyQdiPv
+	HNjyakfbifqfjCHXYi8O38baPmWAfSLwwneqoubKVCWd8rIlJxhJ65DpsP72ndKqknd7JCung2c
+	9gYcBKHxMoQe9wWka2vLDInLxUH4KlyO1Crp+UjcEedazJu2U6GDFo1DxzT67mK2l8BA+/nOLIP
+	HAqtRXk/U9jdXUeNqhFlZzx9vaVWDd19fG0KyCDCeGtApLzCT6WNp+98tTVsVfQPqVWYlmJtDEx
+	AX9bKdnqyoQj7hUtC4p2OBm8VbrUdTnt0bU41aUXmEsW/AJTkjTCVxd9KA==
+X-Google-Smtp-Source: AGHT+IErzBNORRKa85qMLnrTIo9THTPP0FLW0fdPXNcjP60zrb0rXKoRA/K5g0/ZRtEM4ho9Q+BqZA==
+X-Received: by 2002:a05:6000:1fa6:b0:38d:fede:54f8 with SMTP id ffacd0b85a97d-3926cb664eamr5073516f8f.16.1741703773763;
+        Tue, 11 Mar 2025 07:36:13 -0700 (PDT)
+Received: from pathway.suse.cz ([176.114.240.130])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfba888sm18559270f8f.16.2025.03.11.07.36.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 07:35:43 -0700 (PDT)
-From: Andrea della Porta <andrea.porta@suse.com>
-X-Google-Original-From: Andrea della Porta <aporta@suse.de>
-Date: Tue, 11 Mar 2025 15:36:53 +0100
-To: Rob Herring <robh@kernel.org>
-Cc: Krzysztof Wilczynski <kw@linux.com>,
-	Andrea della Porta <andrea.porta@suse.com>,
+        Tue, 11 Mar 2025 07:36:13 -0700 (PDT)
+Date: Tue, 11 Mar 2025 15:36:11 +0100
+From: Petr Mladek <pmladek@suse.com>
+To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>
+Cc: "Rafael J. Wysocki" <rafael@kernel.org>,
+	Zhang Rui <rui.zhang@intel.com>, Lukasz Luba <lukasz.luba@arm.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Ray Jui <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Rasmus Villemoes <linux@rasmusvillemoes.dk>,
+	Sergey Senozhatsky <senozhatsky@chromium.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Alex Shi <alexs@kernel.org>, Yanteng Si <si.yanteng@linux.dev>,
+	Binbin Zhou <zhoubinbin@loongson.cn>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
 	Michael Turquette <mturquette@baylibre.com>,
 	Stephen Boyd <sboyd@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Derek Kiernan <derek.kiernan@amd.com>,
-	Dragan Cvetic <dragan.cvetic@amd.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Saravana Kannan <saravanak@google.com>, linux-clk@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
+	Liu Ying <victor.liu@nxp.com>, linux-clk@vger.kernel.org,
+	linux-pm@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-gpio@vger.kernel.org,
-	Masahiro Yamada <masahiroy@kernel.org>,
-	Stefan Wahren <wahrenst@gmx.net>,
-	Herve Codina <herve.codina@bootlin.com>,
-	Luca Ceresoli <luca.ceresoli@bootlin.com>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	Andrew Lunn <andrew@lunn.ch>
-Subject: Re: [PATCH v7 03/11] dt-bindings: pci: Add common schema for devices
- accessible through PCI BARs
-Message-ID: <Z9BKhR5exw13yN36@apocalypse>
-References: <cover.1738963156.git.andrea.porta@suse.com>
- <c0acc51a7210fb30cae7b26f4ad1f0449beed95e.1738963156.git.andrea.porta@suse.com>
- <20250310212125.GB2377483@rocinante>
- <CAL_JsqKPGOdS_8KDggO5tBHAnC-NTLAC5iS9GANm9BuxBfQUsw@mail.gmail.com>
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 2/2] vsprintf: remove redundant and unused %pCn format
+ specifier
+Message-ID: <Z9BKW_06nLAOzYfY@pathway.suse.cz>
+References: <20250311-vsprintf-pcn-v2-0-0af40fc7dee4@bootlin.com>
+ <20250311-vsprintf-pcn-v2-2-0af40fc7dee4@bootlin.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAL_JsqKPGOdS_8KDggO5tBHAnC-NTLAC5iS9GANm9BuxBfQUsw@mail.gmail.com>
+In-Reply-To: <20250311-vsprintf-pcn-v2-2-0af40fc7dee4@bootlin.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_073546_409205_423D3F7E 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20250311_073615_516116_A2CA5FF0 
+X-CRM114-Status: GOOD (  16.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,61 +118,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Rob,
-
-On 08:32 Tue 11 Mar     , Rob Herring wrote:
-> On Mon, Mar 10, 2025 at 4:21 PM Krzysztof Wilczynski <kw@linux.com> wrote:
-> >
-> > Hello,
-> >
-> > [...]
-> > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > index d45c88955072..af2e4652bf3b 100644
-> > > --- a/MAINTAINERS
-> > > +++ b/MAINTAINERS
-> > > @@ -19752,6 +19752,7 @@ RASPBERRY PI RP1 PCI DRIVER
-> > >  M:   Andrea della Porta <andrea.porta@suse.com>
-> > >  S:   Maintained
-> > >  F:   Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.yaml
-> > > +F:   Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
-> > >  F:   Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.yaml
-> > >  F:   include/dt-bindings/clock/rp1.h
-> > >  F:   include/dt-bindings/misc/rp1.h
-> >
-> > I would be happy to pick this via the PCI tree as per the standard
-> > operating procedure.  However, the MAINTAINERS changes do not exist
-> > for us yet, and are added in the first patch of the series, which is
-> > not ideal.
-> >
-> > I can add the missing dependency manually, but that would cause issues
-> > for linux-next tree, which is also not ideal.
-> >
-> > I saw some review feedback, as such, when you are going to be sending
-> > another version, can you make MAINTAINERS changes to be the last patch,
-> > perhaps.  Basically, something standalone that perhaps whoever will pick
-> > the misc patch could also pick and apply at the same time.
-> >
-> > Alternatively, someone else picking up the PCI dt-bindings would work, too.
-> >
-> > Your thoughts?
+On Tue 2025-03-11 10:21:23, Luca Ceresoli wrote:
+> %pC and %pCn print the same string, and commit 900cca294425 ("lib/vsprintf:
+> add %pC{,n,r} format specifiers for clocks") introducing them does not
+> clarify any intended difference. It can be assumed %pC is a default for
+> %pCn as some other specifiers do, but not all are consistent with this
+> policy. Moreover there is now no other suffix other than 'n', which makes a
+> default not really useful.
 > 
-> I guess I missed this in review, but why is a common schema buried in
-> a device maintainer entry? Also, an entry in MAINTAINERS is redundant
-> anyway because get_maintainers.pl can fetch maintainers from the
-> schema file.
-
-Oh nice, I've added all that .yaml entries in MAINTAINERS because I saw many
-reference already existing there, so I was thinking that was a good behaviour.
-Now I guess I can get rid of all .yaml references in MAINTAINERS file from all my
-patches, since they will be solved automatically by get_mainatainer.pl... 
-There's only one minor caveat though: I have a middle name, and it turns out
-that get_maintainer.pl is skipping my first name. Unluckily I'm not a Perl guy
-so I guess I have to dive a little bit in Perl regex and send a separate patch
-for that.
-
-Many thanks,
-Andrea
-
+> All users in the kernel were using %pC except for one which has been
+> converted. So now remove %pCn and all the unnecessary extra code and
+> documentation.
 > 
-> Rob
+> Acked-by: Stephen Boyd <sboyd@kernel.org>
+> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+
+Makes sense. Looks and works well, so:
+
+Reviewed-by: Petr Mladek <pmladek@suse.com>
+Tested-by: Petr Mladek <pmladek@suse.com>
+
+Daniel, if I get it correctly, you have already taken the 1st patch.
+Would you mind to take also this patch using the same tree, please?
+Otherwise, we would need to coordinate pull requests in the upcoming
+merge window ;-)
+
+Best Regards,
+Petr
 
