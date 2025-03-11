@@ -4,75 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A636C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:48:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3685EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:50:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=obq+QWe8rUigMze8Twl67dYedPpjaQBkGi2c3V47lps=; b=dU/SNHOGm9s9r5B79NEa1ryGGd
-	YUaXd3UwNMf9w4/b12LXEHTodyGS/uGn0zJ0w/ZDCXaEoXRvhBb1RySyG0+QzqcTy/xsDP6INaLPB
-	dyUF42fC/tizPbWUmeIMMVA74JWsG5P4IrB8uIqdjyRWBpMpYjHHXjQ0g4D8sVWfiP5T6ulSKTd6O
-	sZNqTP+f2Pg6Hxkd098HU2HhjcbGPvaA26XYzrcyqvgnUMqeVzIFwwDqgXwdYfcrKzloo/GivMQld
-	QYQWlyP2Oj0E9Zz64isYHdFZuG4fAbZaAsmCemPtTnup/fc43iN+iKPkyKUxeka+z5gkZY0RTO0Nq
-	IQCimMpw==;
+	bh=palKyBcsgnYyLT7TccByqHvOUnQeIY6hqkQdRDklSI4=; b=U49nDOltW11Z+qzoRuuzeIjxrG
+	kTiql2uEwvN9PWrX+qcVxe7TlU7Rj/k2kqpfGbVIZwN+f4V6N7y+V1jccUaemLWLkQIikbcK0eHHd
+	6pWdhCO99ej5tKgSQqFFYNgsmEppcznuf3aZZBnbUH55RIWXe1D0nOXZ0xOYzJVtzkdSKBMs3ejmQ
+	9JE/IdMTMURxXsdfOCrHXh2c0XZz0Y+pSdOEZbehbYbeD9rUPlcigcbeGx61RBJ0+bzIiOlnDyzQT
+	I5L01eIRD9RPzIAdsAdJhck25t8oWgSGozLgZCLsISRflb+Gs74uhIkNefhtwgYR4OAcBjtDI0kGr
+	LHj2kY2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trz20-00000005jOQ-1y1D;
-	Tue, 11 Mar 2025 12:48:24 +0000
-Received: from esa.microchip.iphmx.com ([68.232.153.233])
+	id 1trz3c-00000005jmJ-44rH;
+	Tue, 11 Mar 2025 12:50:04 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryk6-00000005eEA-2h5F;
-	Tue, 11 Mar 2025 12:29:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1741696195; x=1773232195;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=PxGOLsn8hwCsBFB1rmI0untPlJerevuZCULEITNSle8=;
-  b=tO36uLQzrO03H3KFnfDHwL088Q3/U6oWTi/daWLKEYx/H8yohMGgZAh3
-   kOCBl4qoijzb13cBP+apA7N4iTJU/lf7Bj9EB+AUJI84asXLoMp97lV7o
-   mOk9ROysX7kK+fEDbcKouttD9TKuYC3Iy75zXmm5AdzK+CqG8npPsrXty
-   7Jnvqs9CGkMKUrhqmX+57pKO/Fb/DqbkJAzpcPrz880anxvO6roEtBa4d
-   tLnn1+NV17XTVzWP5cvVHaYGQBYcDBjCSEvvV9ej8wJ14UnT1/8A0clv3
-   eKKMmHSI+t0ngJIZ7/i2FBWSEaZsCXGo8sDrXwephvJCuBF5e8vKGbKhf
-   A==;
-X-CSE-ConnectionGUID: Go3mR8CHQWamanNzn54y3Q==
-X-CSE-MsgGUID: ITc2+fPqSxaFiSc1wXdYiw==
-X-IronPort-AV: E=Sophos;i="6.14,239,1736838000"; 
-   d="scan'208";a="38788672"
-X-Amp-Result: SKIPPED(no attachment in message)
-Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa3.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Mar 2025 05:29:53 -0700
-Received: from chn-vm-ex04.mchp-main.com (10.10.85.152) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.35; Tue, 11 Mar 2025 05:29:22 -0700
-Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
- chn-vm-ex04.mchp-main.com (10.10.85.152) with Microsoft SMTP Server id
- 15.1.2507.44 via Frontend Transport; Tue, 11 Mar 2025 05:29:15 -0700
-From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-To: <miquel.raynal@bootlin.com>, <richard@nod.at>, <vigneshr@ti.com>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<nicolas.ferre@microchip.com>, <alexandre.belloni@bootlin.com>,
-	<claudiu.beznea@tuxon.dev>, <krzysztof.kozlowski+dt@linaro.org>
-CC: <balamanikandan.gunasundar@microchip.com>,
-	<linux-mtd@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v2 3/3] dt-bindings: mtd: atmel-nand: add legacy nand controllers
-Date: Tue, 11 Mar 2025 17:58:47 +0530
-Message-ID: <20250311122847.90081-4-balamanikandan.gunasundar@microchip.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250311122847.90081-1-balamanikandan.gunasundar@microchip.com>
-References: <20250311122847.90081-1-balamanikandan.gunasundar@microchip.com>
+	id 1tryna-00000005fAY-2ouB
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 12:33:33 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741696409;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=palKyBcsgnYyLT7TccByqHvOUnQeIY6hqkQdRDklSI4=;
+	b=P2W6bMNv/LRqxn4GYSJk0Lt+DWLBKxRHr+YrokdpSqN6lrslp9V4aiZdMLb/PTDcP5Cqyi
+	ClioTEM3TBmMaGLwjEMoVC6NkTCTu5d030h2Kps3O8aJTln9UzmJLVKl62fq8te8yHzoDf
+	AtBq7XYjt12tl7ue+0nY8ihmgGc36LM=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-571-hD9d9DKnN-OKC5JK0gX1hQ-1; Tue,
+ 11 Mar 2025 08:33:26 -0400
+X-MC-Unique: hD9d9DKnN-OKC5JK0gX1hQ-1
+X-Mimecast-MFC-AGG-ID: hD9d9DKnN-OKC5JK0gX1hQ_1741696404
+Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D7D2C180AF5E;
+	Tue, 11 Mar 2025 12:33:22 +0000 (UTC)
+Received: from dhcp-27-174.brq.redhat.com (unknown [10.22.90.58])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 5616F180094A;
+	Tue, 11 Mar 2025 12:33:14 +0000 (UTC)
+Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
+	oleg@redhat.com; Tue, 11 Mar 2025 13:32:51 +0100 (CET)
+Date: Tue, 11 Mar 2025 13:32:42 +0100
+From: Oleg Nesterov <oleg@redhat.com>
+To: David Hildenbrand <david@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-trace-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Matthew Wilcox <willy@infradead.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Masami Hiramatsu <mhiramat@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Namhyung Kim <namhyung@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	"Liang, Kan" <kan.liang@linux.intel.com>,
+	Tong Tiangen <tongtiangen@huawei.com>
+Subject: Re: [PATCH -next v1 3/3] kernel/events/uprobes:
+ uprobe_write_opcode() rewrite
+Message-ID: <20250311123241.GB3493@redhat.com>
+References: <20250304154846.1937958-1-david@redhat.com>
+ <20250304154846.1937958-4-david@redhat.com>
+ <20250310170320.GC26382@redhat.com>
+ <79ec5aa9-1937-436e-8cf4-436746142f7b@redhat.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <79ec5aa9-1937-436e-8cf4-436746142f7b@redhat.com>
+User-Agent: Mutt/1.5.24 (2015-08-30)
+X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_052954_687518_C4BAFA6F 
-X-CRM114-Status: GOOD (  26.88  )
+X-CRM114-CacheID: sfid-20250311_053330_787415_9EB86453 
+X-CRM114-Status: GOOD (  16.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,320 +105,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for atmel legacy nand controllers. These bindings should not be
-used with the new device trees.
+On 03/11, David Hildenbrand wrote:
+>
+> Regarding both questions, the code is fairly racy. Nothing would stop user
+> space from (a) modifying that memory
 
-Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
----
+Yes, but we don't really care. uprobes.c assumes that user-space won't play
+with the probed memory.
 
-Changes in v2:
+Note that if is_register is false, then vma can be even writable. Hmm, why?
+Perhaps valid_vma() should ignore is_register and nack VM_MAYWRITE ? But
+this doesn't really matter, say, gdb can change this memory anyway. Again,
+we don't really care.
 
-- Filename matching the compatibles
-- Remove "bindings" from the subject
-- Remove "deprecated" as these are the only bindings available for the devices
-- Add missing constraints.
-- Add default for nand-ecc-mode
-- Add 32 in pmecc-cap for sama5d2
-- Add default for sector-size, pmecc-lookup-table-offset, nand-bus-width
+> >do something like
+> >
+> >	/* Walk the page tables again, to perform the actual update. */
+> >	ret = -EAGAIN;
+> >	folio = folio_walk_start(&fw, vma, vaddr, 0);
+> >	if (folio) {
+> >		if (fw.page == page) {
+> >			WARN_ON(is_register && !folio_test_anon(folio));
+>
+> Yes, that would work (we could leave the WARN_ON in __uprobe_write_opcode),
+> but I am not sure if the end result is better better. No strong opinion on
+> the details though.
 
- .../devicetree/bindings/mtd/atmel-nand.txt    | 116 -------------
- .../devicetree/bindings/mtd/atmel-nand.yaml   | 163 ++++++++++++++++++
- 2 files changed, 163 insertions(+), 116 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.txt
- create mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.yaml
+Will, this way __uprobe_write_opcode() will look a little bit simpler...
 
-diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.txt b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-deleted file mode 100644
-index 1934614a9298..000000000000
---- a/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-+++ /dev/null
-@@ -1,116 +0,0 @@
--Deprecated bindings (should not be used in new device trees):
--
--Required properties:
--- compatible: The possible values are:
--	"atmel,at91rm9200-nand"
--	"atmel,sama5d2-nand"
--	"atmel,sama5d4-nand"
--- reg : should specify localbus address and size used for the chip,
--	and hardware ECC controller if available.
--	If the hardware ECC is PMECC, it should contain address and size for
--	PMECC and PMECC Error Location controller.
--	The PMECC lookup table address and size in ROM is optional. If not
--	specified, driver will build it in runtime.
--- atmel,nand-addr-offset : offset for the address latch.
--- atmel,nand-cmd-offset : offset for the command latch.
--- #address-cells, #size-cells : Must be present if the device has sub-nodes
--  representing partitions.
--
--- gpios : specifies the gpio pins to control the NAND device. detect is an
--  optional gpio and may be set to 0 if not present.
--
--Optional properties:
--- atmel,nand-has-dma : boolean to support dma transfer for nand read/write.
--- nand-ecc-mode : String, operation mode of the NAND ecc mode, soft by default.
--  Supported values are: "none", "soft", "hw", "hw_syndrome", "hw_oob_first",
--  "soft_bch".
--- atmel,has-pmecc : boolean to enable Programmable Multibit ECC hardware,
--  capable of BCH encoding and decoding, on devices where it is present.
--- atmel,pmecc-cap : error correct capability for Programmable Multibit ECC
--  Controller. Supported values are: 2, 4, 8, 12, 24. If the compatible string
--  is "atmel,sama5d2-nand", 32 is also valid.
--- atmel,pmecc-sector-size : sector size for ECC computation. Supported values
--  are: 512, 1024.
--- atmel,pmecc-lookup-table-offset : includes two offsets of lookup table in ROM
--  for different sector size. First one is for sector size 512, the next is for
--  sector size 1024. If not specified, driver will build the table in runtime.
--- nand-bus-width : 8 or 16 bus width if not present 8
--- nand-on-flash-bbt: boolean to enable on flash bbt option if not present false
--
--Nand Flash Controller(NFC) is an optional sub-node
--Required properties:
--- compatible : "atmel,sama5d3-nfc".
--- reg : should specify the address and size used for NFC command registers,
--        NFC registers and NFC SRAM. NFC SRAM address and size can be absent
--        if don't want to use it.
--- clocks: phandle to the peripheral clock
--Optional properties:
--- atmel,write-by-sram: boolean to enable NFC write by SRAM.
--
--Examples:
--nand0: nand@40000000,0 {
--	compatible = "atmel,at91rm9200-nand";
--	#address-cells = <1>;
--	#size-cells = <1>;
--	reg = <0x40000000 0x10000000
--	       0xffffe800 0x200
--	      >;
--	atmel,nand-addr-offset = <21>;	/* ale */
--	atmel,nand-cmd-offset = <22>;	/* cle */
--	nand-on-flash-bbt;
--	nand-ecc-mode = "soft";
--	gpios = <&pioC 13 0	/* rdy */
--		 &pioC 14 0 	/* nce */
--		 0		/* cd */
--		>;
--	partition@0 {
--		...
--	};
--};
--
--/* for PMECC supported chips */
--nand0: nand@40000000 {
--	compatible = "atmel,at91rm9200-nand";
--	#address-cells = <1>;
--	#size-cells = <1>;
--	reg = < 0x40000000 0x10000000	/* bus addr & size */
--		0xffffe000 0x00000600	/* PMECC addr & size */
--		0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
--		0x00100000 0x00100000	/* ROM addr & size */
--		>;
--	atmel,nand-addr-offset = <21>;	/* ale */
--	atmel,nand-cmd-offset = <22>;	/* cle */
--	nand-on-flash-bbt;
--	nand-ecc-mode = "hw";
--	atmel,has-pmecc;	/* enable PMECC */
--	atmel,pmecc-cap = <2>;
--	atmel,pmecc-sector-size = <512>;
--	atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
--	gpios = <&pioD 5 0	/* rdy */
--		 &pioD 4 0	/* nce */
--		 0		/* cd */
--		>;
--	partition@0 {
--		...
--	};
--};
--
--/* for NFC supported chips */
--nand0: nand@40000000 {
--	compatible = "atmel,at91rm9200-nand";
--	#address-cells = <1>;
--	#size-cells = <1>;
--	ranges;
--        ...
--        nfc@70000000 {
--		compatible = "atmel,sama5d3-nfc";
--		#address-cells = <1>;
--		#size-cells = <1>;
--		clocks = <&hsmc_clk>
--		reg = <
--			0x70000000 0x10000000	/* NFC Command Registers */
--			0xffffc000 0x00000070	/* NFC HSMC regs */
--			0x00200000 0x00100000	/* NFC SRAM banks */
--		>;
--	};
--};
-diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.yaml b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-new file mode 100644
-index 000000000000..8afc4a144caf
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-@@ -0,0 +1,163 @@
-+# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mtd/atmel-nand.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Atmel NAND flash controller
-+
-+maintainers:
-+  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-+
-+description: |
-+  Atmel nand flash controller. This should not be used for new device
-+  trees. For the latest controllers refer microchip,nand-controller.yaml
-+
-+properties:
-+  compatible:
-+    enum:
-+      - atmel,at91rm9200-nand
-+      - atmel,sama5d2-nand
-+      - atmel,sama5d4-nand
-+
-+  reg:
-+    description:
-+      The localbus address and size used for the chip, and hardware ECC
-+      controller if available. If the hardware ECC is PMECC, it should
-+      contain address and size for PMECC and PMECC Error Location
-+      controller. The PMECC lookup table address and size in ROM is
-+      optional. If not specified, driver will build it in runtime.
-+
-+  atmel,nand-addr-offset:
-+    description:
-+      offset for the address latch.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 0
-+    maximum: 31
-+
-+  atmel,nand-cmd-offset:
-+    description:
-+      offset for the command latch.
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    minimum: 0
-+    maximum: 31
-+
-+  '#address-cells': true
-+
-+  '#size-cells': true
-+
-+  gpios:
-+    description:
-+      specifies the gpio pins to control the NAND device. detect is an
-+      optional gpio and may be set to 0 if not present.
-+    minItems: 1
-+    maxItems: 3
-+
-+  atmel,nand-has-dma:
-+    description:
-+      support dma transfer for nand read/write.
-+    $ref: /schemas/types.yaml#/definitions/flag
-+
-+  atmel,has-pmecc:
-+    description:
-+      enable Programmable Multibit ECC hardware, capable of BCH encoding
-+      and decoding, on devices where it is present.
-+    $ref: /schemas/types.yaml#/definitions/flag
-+
-+  nand-on-flash-bbt:
-+    description:
-+      enable on flash bbt option if not present false
-+    $ref: /schemas/types.yaml#/definitions/flag
-+
-+  nand-ecc-mode:
-+    description:
-+      operation mode of the NAND ecc
-+    enum:
-+      [none, soft, hw, hw_syndrome, hw_oob_first, soft_bch]
-+    default: soft
-+    $ref: /schemas/types.yaml#/definitions/string
-+
-+
-+  atmel,pmecc-cap:
-+    description:
-+      error correct capability for Programmable Multibit ECC Controller.
-+    enum:
-+      [2, 4, 8, 12, 24, 32]
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+  atmel,pmecc-sector-size:
-+    description:
-+      sector size for ECC computation.
-+    enum:
-+      [512, 1024]
-+    default: 512
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+
-+  atmel,pmecc-lookup-table-offset:
-+    description:
-+      Two offsets of lookup table in ROM for different sector size. First
-+      one is for sector size 512, the next is for sector size 1024. If not
-+      specified, driver will build the table in runtime.
-+    $ref: /schemas/types.yaml#/definitions/uint32-array
-+    default: 512
-+
-+  nand-bus-width:
-+    description:
-+      nand bus width
-+    enum:
-+      [8, 16]
-+    default: 8
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+
-+required:
-+  - compatible
-+  - reg
-+  - atmel,nand-addr-offset
-+  - atmel,nand-cmd-offset
-+  - "#address-cells"
-+  - "#size-cells"
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    nand@40000000,0 {
-+        compatible = "atmel,at91rm9200-nand";
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        reg = <0x40000000 0x10000000
-+               0xffffe800 0x200>;
-+        atmel,nand-addr-offset = <21>;	/* ale */
-+        atmel,nand-cmd-offset = <22>;	/* cle */
-+        nand-on-flash-bbt;
-+        nand-ecc-mode = "soft";
-+        gpios = <&pioC 13 0	/* rdy */
-+                 &pioC 14 0 /* nce */
-+                 0		/* cd */
-+                >;
-+    };
-+  - |
-+    /* for PMECC supported chips */
-+    nand1@40000000 {
-+        compatible = "atmel,at91rm9200-nand";
-+        #address-cells = <1>;
-+        #size-cells = <1>;
-+        reg = <0x40000000 0x10000000	/* bus addr & size */
-+               0xffffe000 0x00000600	/* PMECC addr & size */
-+               0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
-+               0x00100000 0x00100000>;	/* ROM addr & size */
-+
-+        atmel,nand-addr-offset = <21>;	/* ale */
-+        atmel,nand-cmd-offset = <22>;	/* cle */
-+        nand-on-flash-bbt;
-+        nand-ecc-mode = "hw";
-+        atmel,has-pmecc;	/* enable PMECC */
-+        atmel,pmecc-cap = <2>;
-+        atmel,pmecc-sector-size = <512>;
-+        atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
-+        gpios = <&pioD 5 0	/* rdy */
-+                 &pioD 4 0	/* nce */
-+                 0		/* cd */
-+                >;
-+    };
--- 
-2.34.1
+But I won't insist, please do what you think is better.
+
+Oleg.
 
 
