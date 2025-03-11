@@ -4,180 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44284C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:09:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CB6EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:18:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=; b=KG7K38P6HWinds9eAEFlniD+OC
-	a4tc0DSFm87Lh9YoUR+MJ+VbQ2vwj2F9ZE2BH8tBG94IeiQwCMFrqDCPKdZUpt5umuGI0mvzXyR4x
-	9GJzHw9cdQFlaQfMxjntYRnE3kyJjMrNBBX2ERUQZXqpsJrxs6zXP11rED6P1Od8t1HSEK46legK9
-	o/rL8sHkRd5jAXxldfVaTaiQa225T24Jb5pGAs1z+0Tdp7Z11NNMH+Ijsfr4Mphbz75le/OwYrdiO
-	RifQ4SHh3kTNgboqE6aFcS2VEQhlm78aV0qMrrNf+heE/w+WrBgbjOqUmBcq6TNb1hHYiwM1SMMWB
-	Gzg8W1JA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=pWd6FzPTx3s4UEl3jKdkJMEDmEj3PCCy1zcS6EF7oOw=; b=VKxT4JkvztePFE/Vr4f/0oBIEW
+	A4pAwC65yr1n8/1KFDFkTAeAKV4Sl/VdvM3kqZyY3rLUAXGJrIKDOX2YKINMDWGZ96MErNwxmY+Nc
+	gVtp1Y8lWDuffTDcqDb682f8VZFLPdDizegrQCYa3A/WsNAyRmbFbu44o+ElOn7G0l81MD8nhFaNq
+	xv27MU/vZrZz3CJ18Q5bMVP1hm38NINSOZ+5sA6/phkTUH2I0jvhRoJlX6w9r/VIV9wYmS2ztTr2K
+	PDYUJfmWwxd5bAI/eLauukbFDWc8qThLOOu5Pymo6Z3hD6uBI05OaVoqJQlGHTjdyrdCZhGkA4/zY
+	j4XqIJUg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryQ0-00000005Zwr-2V6C;
-	Tue, 11 Mar 2025 12:09:08 +0000
-Received: from mail-bn8nam12on2062a.outbound.protection.outlook.com ([2a01:111:f403:2418::62a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryOL-00000005ZZO-3ohe
+	id 1tryYb-00000005bND-3cM6;
+	Tue, 11 Mar 2025 12:18:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tryWx-00000005b7g-3N3X
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 12:07:27 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=jzEiTedFgskjgKUpsRawcx3P2V1CtnhxV9Wg/SDmKodn5Sseb1PGpa41VbXf/5AxZqkkOwOsQyarZab4TpMb9Q2xOO4CpCLQe3rjfkn1qrhKhM1opzBZ5fizW90h5vgozMnOUacgLDgZi3F7LvY7CCrjIifCPBCbpPwtiMIVCYD2gSEUzbmvnG+tU8YqWuHyZkJBX8XgANZAgx0KfCXAQ1jfZEuFgmdFQy+w9vnydtBdUOmB4vfUAXhQ19CHtNFjkvxHD9oOLtkOhKHVka+h9z4wARdZoeoKLJWiG0nOrIaaA0gUyEsKp4JfwWMGvzGVqfvOGpgRT7MZJg84v76vrw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=;
- b=doJIh8bB/lb+buvNY8KYkS2csVQhkoybcHAzQXBtx2XyUKjKoDyL7Vsa3r/cxQS1tD/iUnKER4Nq1eHV9PTMjB+QsVXCDcqFlHqMLinVlRtJcGWIsR85YUole6d0sfy44RK9iQonqlhTmIGLlRw+rk1b3c/UiBsFAfIluaCRyWGhFlatvhvO0qXICI3h1e15KqJi8MfdK2U8kqaYQt5uCONBBgNAYu0BPguJqvXzClDAg3EZg9PHS5K8gZx01wW5/kiKvBLSBDaQGJkOuM9e5oNBWc5S+U5sq6xsOJMcowGRAPlBPi9YqRPt3duxdmw6ewe93GA4kL7S+l8X/9wQfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=;
- b=ug1N1o6ssYA8ZRnSk/78A0c7M52CUdKcTWUa1fRKYDZ6ozOhXHr1ZHjYw6V4tnBv1YLtIZ2y45OuDE7q0UiQv30kNPXiR/MEt6gcG3YCLy9YRUZp9S264J3Nb0MzKAoZgyCcVFTiJOrEz81wKnQnl4cvQvQPIQC8SAI6zDSL4PrqpGuY5C41CY+iGmWziJHKbZCwSrOT2nveCdbs4vrvGIR1vSRekHswgf9S3XRvaMFGcyRZy9r3Rbl0Rj1ijZXb23bsz6l7CZ9L4uD7hszx7NmBfhbrY2fTMsYhsWOWKpIVbgvZqKULfzWInkX4fqaPba45pSrvRJQgfRXqSV7d1w==
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
- by MN2PR12MB4223.namprd12.prod.outlook.com (2603:10b6:208:1d3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
- 2025 12:07:20 +0000
-Received: from SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
- ([fe80::ae1b:d89a:dfb6:37c2%5]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
- 12:07:20 +0000
-From: Ankit Agrawal <ankita@nvidia.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: Jason Gunthorpe <jgg@nvidia.com>, "oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com"
-	<david@redhat.com>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
-	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta
- (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
- Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
- Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
-	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
-	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju
-	<kjaju@nvidia.com>, "alex.williamson@redhat.com"
-	<alex.williamson@redhat.com>, "sebastianene@google.com"
-	<sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com"
-	<yi.l.liu@intel.com>, "ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, "gshan@redhat.com"
-	<gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com"
-	<tabba@google.com>, "qperret@google.com" <qperret@google.com>,
-	"seanjc@google.com" <seanjc@google.com>, "kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Thread-Topic: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
- VMA flags
-Thread-Index: AQHbkaduhEbbxySPq0WwO4LU4q6wXLNsQygAgAD/GeCAAIkeAIAAC14g
-Date: Tue, 11 Mar 2025 12:07:20 +0000
-Message-ID: <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250310103008.3471-1-ankita@nvidia.com>
-	<20250310103008.3471-2-ankita@nvidia.com>	<861pv5p0c3.wl-maz@kernel.org>
-	<SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
- <86r033olwv.wl-maz@kernel.org>
-In-Reply-To: <86r033olwv.wl-maz@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|MN2PR12MB4223:EE_
-x-ms-office365-filtering-correlation-id: 29d2fab7-aefd-403c-8066-08dd60954694
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
-x-microsoft-antispam-message-info: =?iso-8859-1?Q?mFQCAfEDa7z6XFZXVja7Ogf7k/FPbwqBfjEO3X8QWNaJ6rkcGzL2vtEXtq?=
- =?iso-8859-1?Q?xVck/hQ97X3PaNUJQjF/AkGPvEZWEGrqe7js3Yw66Exrwx8Rd4K/J1s/0X?=
- =?iso-8859-1?Q?HCUAx145dnfJWMfOhFF0mPr5GcL8FitiP0+dpY/248mzx2Rr1iKugv/sqG?=
- =?iso-8859-1?Q?W07yltFgYpTDs4YIZb+AwSGesUy1+bwOUZxeTmZzT6S9a9zdBTdd/FG8Oc?=
- =?iso-8859-1?Q?zkpI9iuGzRaLCQ05YWU6Y9nk2i1MY5aVU3kFJoIYfdinJSzTKOVNMqM68Y?=
- =?iso-8859-1?Q?98vZ/2MJS2MVHdirS/L/y61GURr0BFIBdhkPjXcKlyIZTrHZfId6ZAeqjr?=
- =?iso-8859-1?Q?AN7bjfhbZXj3C7hCcCntUGSwrksxQUdSIqLWtK0wMQDUB6hfRq9A4oM8kF?=
- =?iso-8859-1?Q?zwDVf2q96FkPZytm3DsbVv+PxpCw5R2W1zwE3iL8I5Eabu+Z37vXblPHFv?=
- =?iso-8859-1?Q?BYhUVEIRYUXwVAggwscZ9Sp7QpIOjy5wHnLQalUUV6zZAxLknaaEKrqdvv?=
- =?iso-8859-1?Q?Q7ZBtMoXA5P53gur4iXrIBru9T+xQnxKbhjZvIs+A+XypNJ/YW7ZSV+c0g?=
- =?iso-8859-1?Q?3etRnJRO/QQiCzx1X+aItRic5i7e6S/PvS64GOKpdfnhGgg4otmfpsOHEs?=
- =?iso-8859-1?Q?CVp6DT8XOedRXm2cn3eV8nQgXWKFqKEPv1YYvcWsL1VA4HuHlzxUyp3R8m?=
- =?iso-8859-1?Q?RMXRbtLNYZig0OZgXX1S+Rd+TU5niJ3ZoP/0p2ydmxvMHILYYftqow+CZo?=
- =?iso-8859-1?Q?ECuXzd3OZ02rdzTD+WfWrx+ydG3OMcqQpvZ6SWCTx9mWrt0mHr2hrbAkOC?=
- =?iso-8859-1?Q?CNWU9SfWM7wgTKmGyrl6v0O6k4tyrosu8nFyCBMJaIYxIsxtuxp0K+cSvj?=
- =?iso-8859-1?Q?MjocEswRsf16MKoQJxKexHMO0O2naG7maNPGrfmVCrEF/+hMYw9U2Tym8A?=
- =?iso-8859-1?Q?LA6bIW1FQTv2mG8k25XyWT3agKyLcKZoXqEMagoFqYWZegnRlp+dp6sLe7?=
- =?iso-8859-1?Q?V7qyfc/kRYd2Nk5Pp9SrJhAvgN1PXdUymIvFp9gb8hVKV+s+l0AOxerzWq?=
- =?iso-8859-1?Q?QKynEA3FPIqXk6KlKJNNKecaS4SGSSTNLVnwueYbBNK5elSis2PncwzzHR?=
- =?iso-8859-1?Q?cEQd7jIyVyQcv4jjQBW79utJkEDYXX9kMlQQCF41BjuD0wzravaMkL+7zz?=
- =?iso-8859-1?Q?n5wIhVxKX8NDhrIRmODf+9HM9dCSBQ/SESrlawpUPfi4IMEwYEI4StgMHp?=
- =?iso-8859-1?Q?/r46gVGmJhoxFmHQ8sF9g+G/hMcLLFhf88zxH/A3ZM/DaCLNH3MZRaTStU?=
- =?iso-8859-1?Q?vk/qnKaRnn5McOhE5qA6HD+fndtit5Lk57x2KzFRoi1OBE9/Q+QO/WVoWn?=
- =?iso-8859-1?Q?rNANvnvaP4v90t2R6u2p71CdirVOAFYlWtgxqLSKE3XdA+VRqj2kOHrH3+?=
- =?iso-8859-1?Q?9jlDVVO+xoQitIVY0jeOTZ9FarewyCakyk/GHoyx+B//RKNg0D3urQJjh5?=
- =?iso-8859-1?Q?rWLVGRea6nzpBFce3Yojk8?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?vdw18QFYyavyKczGxQWEWp9UAAG3nik8/cBjDNBEpR/MV+DbCEh8D+6PPt?=
- =?iso-8859-1?Q?cczb/5YjVIqeR+r8qcOaYccKka0Vr8MGSASRas6TDXmFB/6t0mIMNOzF4h?=
- =?iso-8859-1?Q?NnQ/vbA6NiUu1d9DHnR68rGGPTehc/F6m/TU3TdtFvH+hfgz8lfkfv5i2o?=
- =?iso-8859-1?Q?C897dAHjUj70Fod84BeurDK4f6P3pDbV55dfWpt6we9pqh8yL8w+7e+g4G?=
- =?iso-8859-1?Q?547RHhfydwpzVzzuUf0pdBnNSxXPjKJ+X9+CJRZLlZMypXr2tPAGHDQx9U?=
- =?iso-8859-1?Q?TxAYoKUkAhTMAcjbr25326rJkPR/NY7BJw5v4TACao2lLmODCye7VbSfYv?=
- =?iso-8859-1?Q?x4WaywpWdKUKhmA76DKfXJ8qHLUbXRRqavYawHwq93NEK6Bp8ZjzA6AbWq?=
- =?iso-8859-1?Q?qowEpF583Ab9g67lODWtW+wmbbCiwCSuPZItfKIWlSWqKjQElp2zRS7wfR?=
- =?iso-8859-1?Q?Tsl6NXHOMSghFDugiktly4PqUhedGruTR8hxFgGaxVyAJd1+bgR6fSMWT/?=
- =?iso-8859-1?Q?PMxTJ43pdtIoKaKhhzzFFnTAaKBgyNnBz8omyyD027lOKw7KOa2fucIjQz?=
- =?iso-8859-1?Q?xz8scqJIGSN+/V2AUVZEyRgNk+nifirGJfODzfnK+C0yvEE2S+qHyAfRmY?=
- =?iso-8859-1?Q?1jBj9klAim+SRVuYYt3i7IiXHPd4CWgN5UVaAvtctCzjyWLDFFI6Kj8u61?=
- =?iso-8859-1?Q?CEH0xotK5iBnThBK4uB9Utf4Tk2R3XuQhx8uByEtDKohyzyl+757sA0Fvp?=
- =?iso-8859-1?Q?pS66aoP33beYy0r8AYirGQwJ0vZBvXPzgmNzOnZtzqeGceAHRcDYT2JzCb?=
- =?iso-8859-1?Q?I2EfVVFEL0ud0qFco+fNN1lE20c5tXmN1itMV0bXMrg7uPDRDfkqNYp05E?=
- =?iso-8859-1?Q?IswO00bcsCNTG14xr80u9Hag81F6Q/KoAOYNZEOdxsChOJ29aPTp1QI+Ic?=
- =?iso-8859-1?Q?bbC6ojWqTByqlopqSwacyF9xpGNb8uicQRz7+skzpJ5HmQTEjvZ/R8FEMP?=
- =?iso-8859-1?Q?PMpj2j8A9H9p/IDAjfaP64M2Piwv20TnR764VvXm9IwzHj3sGuDp8Hh0kc?=
- =?iso-8859-1?Q?jY3E7EGfb1pheAJ/xmsrIlLbL+kPUqid7FdLyWnbajd4zy06KhXj+vVKe9?=
- =?iso-8859-1?Q?UfyTv80Su21MVqOoQT40KkW6GJAXea02y+ZMhp3tfTOaqBL7P+P4aANFjc?=
- =?iso-8859-1?Q?RyoNWvWXRE43LphowI0ooeModozgBgpwHDe44GdHnwR8pvBgFrfJzytZC4?=
- =?iso-8859-1?Q?o9WKSi6E1raWOQCGzOlPlURS3l5RMN+Qwj6HhsWytChAr9m4VcMOWwdefF?=
- =?iso-8859-1?Q?TMCtwgzmea6DZG4wO1YpHSgoh2yrvEdSuK7/gSoXVqx2RhOMvVXnvpAIKd?=
- =?iso-8859-1?Q?CJJ3Av9xQ1LQo0ZC0KQ5nbzPUAeRfXmuaAV/202MMJjU6ScjkKioedrP/0?=
- =?iso-8859-1?Q?15HEir3tKJLVO6H01EZ01lfuDwOrydxnX8naNFOxNTyPvy5CmZ2UfROHP5?=
- =?iso-8859-1?Q?YbSV3j0Ofd2Xm/iBPkzG4dHsmYhrLXUzSHpU6wqsUhemKnKcIiR7z0HZOM?=
- =?iso-8859-1?Q?gyBVW+htlET9J94fi0Ie5SK97mR4JS7du60dPKMo62nm9E9J+lk0XKXsko?=
- =?iso-8859-1?Q?EUGMxASv5iw7U=3D?=
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
+	Tue, 11 Mar 2025 12:16:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 06A4F152B;
+	Tue, 11 Mar 2025 05:16:30 -0700 (PDT)
+Received: from [10.57.40.127] (unknown [10.57.40.127])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 0D6B13F7BD;
+	Tue, 11 Mar 2025 05:16:14 -0700 (PDT)
+Message-ID: <0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com>
+Date: Tue, 11 Mar 2025 12:16:14 +0000
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 29d2fab7-aefd-403c-8066-08dd60954694
-X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2025 12:07:20.6890
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: kZvqco0S7Xi5Scq29lSIQdJVTX1ORgMMZnSjqx3AUZUCkCXAgIuN35ioZl42dfi30Z1sbm2KJMXoz6BWbpG66A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4223
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
+Content-Language: en-GB
+To: Ryan Roberts <ryan.roberts@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ catalin.marinas@arm.com, will@kernel.org, joro@8bytes.org,
+ jean-philippe@linaro.org, mark.rutland@arm.com, joey.gouly@arm.com,
+ oliver.upton@linux.dev, james.morse@arm.com, broonie@kernel.org,
+ maz@kernel.org, david@redhat.com, akpm@linux-foundation.org, jgg@ziepe.ca,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-6-miko.lenczewski@arm.com>
+ <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
+ <43732270-8fd0-4a18-abec-096e383a6a4d@arm.com>
+ <5ff34bd0-7823-4f31-9f13-bf60d3345b99@arm.com>
+ <7cca1edf-fd1b-4622-999e-8e0ca098dfe2@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <7cca1edf-fd1b-4622-999e-8e0ca098dfe2@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_050725_947976_4F4EDADF 
-X-CRM114-Status: GOOD (  16.37  )
+X-CRM114-CacheID: sfid-20250311_051619_934088_81D65CAD 
+X-CRM114-Status: GOOD (  42.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,43 +76,208 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks Marc for the feedback.=0A=
-=0A=
-> No, I'm concerned that a well established API (populating a memslot)=0A=
-> works in some case and doesn't work in another without a clear=0A=
-> indication of *why* we have this behaviour.=0A=
->=0A=
-> To me, this indicates that userspace needs to buy in this new=0A=
-> behaviour, and that behaviour needs to be advertised by a capability,=0A=
-> which is in turn conditional on FWB.=0A=
-=0A=
-Yes, that makes sense.=0A=
-=0A=
->>> Perhaps we can gracefully fall back to the default device mapping=0A=
->>> in such case? But that would cause VM to crash as soon as it makes some=
-=0A=
->>> access violating DEVICE_nGnRE.=0A=
->=0A=
-> Which would now be a regression...=0A=
-> =0A=
-> My take is that this cacheable PNFMAP contraption must only be exposed=0A=
-> to a guest if FWB is available. We can't prevent someone to do an=0A=
-> mmap() behind our back, but we can at least:=0A=
->=0A=
-> - tell userspace whether this is supported=0A=
-=0A=
-For my education, what is an accepted way to communicate this? Please let=
-=0A=
-me know if there are any relevant examples that you may be aware of.=0A=
-=0A=
-I suppose just checking for FWB (for PFNMAP) and returning some sort of=0A=
-an error on userspace mmap will not be enough of a hint here?=0A=
-=0A=
-> - only handle the fault if userspace has bought in this mode=0A=
-> - report the fault to userspace for it to fix things otherwise=0A=
->=0A=
->=A0=A0=A0=A0=A0=A0=A0 M.=0A=
->=0A=
-> --=0A=
-> Without deviation from the norm, progress is not possible.=
+On 11/03/2025 10:58, Ryan Roberts wrote:
+> On 11/03/2025 10:17, Suzuki K Poulose wrote:
+>> On 03/03/2025 10:17, Ryan Roberts wrote:
+>>> On 01/03/2025 01:32, Yang Shi wrote:
+>>>>
+>>>>
+>>>>
+>>>> On 2/28/25 10:24 AM, Mikołaj Lenczewski wrote:
+>>>>> For supporting BBM Level 2 for userspace mappings, we want to ensure
+>>>>> that the smmu also supports its own version of BBM Level 2. Luckily, the
+>>>>> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+>>>>> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
+>>>>> BBM level 2 is claimed.
+>>>>>
+>>>>> Add the feature and testing for it under arm_smmu_sva_supported().
+>>>>>
+>>>>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+>>>>> ---
+>>>>>     arch/arm64/kernel/cpufeature.c                  | 7 +++----
+>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
+>>>>>     4 files changed, 13 insertions(+), 4 deletions(-)
+>>>>>
+>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>>> index 63f6d356dc77..1022c63f81b2 100644
+>>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>>> @@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct
+>>>>> arm64_cpu_capabilities *caps, int sco
+>>>>>                 if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
+>>>>>                     return false;
+>>>>>             }
+>>>>> -
+>>>>> -        return true;
+>>>>>         } else if (scope & SCOPE_LOCAL_CPU) {
+>>>>>             /* We are a hot-plugged CPU, so only need to check our MIDR.
+>>>>>              * If we have the correct MIDR, but the kernel booted on an
+>>>>> @@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct
+>>>>> arm64_cpu_capabilities *caps, int sco
+>>>>>              * we have an incorrect MIDR, but the kernel booted on a
+>>>>>              * sufficient CPU, we will not bring up this CPU.
+>>>>>              */
+>>>>> -        return cpu_has_bbml2_noabort(read_cpuid_id());
+>>>>> +        if (!cpu_has_bbml2_noabort(read_cpuid_id()))
+>>>>> +            return false;
+>>>>>         }
+>>>>>     -    return false;
+>>>>> +    return has_cpuid_feature(caps, scope);
+>>>>
+>>>> Do we really need this? IIRC, it means the MIDR has to be in the allow list
+>>>> *AND* MMFR2 register has to be set too. AmpereOne doesn't have MMFR2 register
+>>>> set.
+>>>
+>>> Miko, I think this should have been squashed into patch #1? It doesn't belong in
+>>> this patch.
+>>>
+>>> Yang, we discussed this internally and decided that we thought it was best to
+>>> still require BBML2 being advertised in the feature register. That way if trying
+>>> to use KVM to emulate a CPU that is in the allow list but doesn't really support
+>>> BBML2, we won't try to use it.
+>>>
+>>> But we still end up with the same problem if running on a physical CPU that
+>>> supports BBML2 with conflict aborts, but emulating a CPU in the allow list. So
+>>
+>> I don't understand the problem here ? In the worst case, if we want to disable
+>> the BBML2 feature on a given CPU, we could provide an id-
+>> override to reset the value of BBML2. Or provide a kernel parameter to
+>> disable this in case we want to absolutely disable the feature on a
+>> "distro" kernel.
+> 
+> Hi Suzuki,
+> 
+> Sorry perhaps I'm confusing everyone; As I recall, we had a conversation before
+> Miko posted this series where you were suggesting we should check BOTH that all
+> the CPUs' MIDRs are in the allow list AND that BBML2 is advertised in MMFR2 in
+> order to decide to enable the CPU feature. My understanding was that without the
+> MMFR2 check, you were concerned that in a virtualization scenario, a CPU's MIDR
+> could be overridden to emulate a CPU that is in the allow list, but in reality
+> the CPU does not support BBML2. We would then enable BBML2 and BadThings (TM)
+> will happen. So additionally checking the MMFR2 would solve this.
+> 
+> But Yang is saying that he plans to add the AmpereOne to the allow list because
+> it does support BBML2+NOCONFLICT semantics and we want to benefit from that. But
+> AmpereOne does not advertise BBML2 in it's MMFR2. So with the current approach,
+> adding AmpereOne to the allow list is not sufficient to enable the feature.
+> 
+> But back to your original justification for checking the MMFR2; I don't think
+> that really solves the problem in general, because we don't just require BBML2,
+> we require BBML2+NOCONFLICT. And we can only determine that from the MIDR. So
+> why bother checking MMFR2?
+
+My concerns are not around enabling a CPU, but having a damage control 
+with a "kernel" that a user has no control over (Read, standard 
+distribution kernel).
+
+1. If the combination of the above causes problem (in Virtualization)
+2. If the combination of the above is detected to have problems in 
+baremetal.
+
+In (1), VMM could control the ID register and disable the feature.
+
+For (2) we could provide an id-override on command line to disable it in
+the worst case.
+
+So, having the id register case is a good way to get the system running
+with a given kernel (in either world). Without that, we don't have a 
+tunable to control the behavior at runtime.
+
+May be I am being over paranoid about this.
+
+> 
+> I guess we could provide an id-override on the kernel command line to *enable*
+> BBML2 for AmpereOne, but that's not going to be suitable for mass deployment, I
+
+Unfortunately, we can't override to provide the "feature" that is 
+missing (at least today).
+
+One option is, run with a whitelist, but provide a kernel parameter to 
+disable bbml2 feature.
+
+Something like, arm64.bbml2=0
+
+So the decision is based on the parameter && MIDR list.
+
+
+Cheers
+Suzuki
+
+> don't think?
+> 
+> Thanks,
+> Ryan
+> 
+>>
+>> Suzuki
+>>
+>>
+>>> given AmpereOne doesn't advertise BBML2 but does support it, I'd be happy to
+>>> remove this check.
+>>>
+>>> Thanks,
+>>> Ryan
+>>>
+>>>
+>>>>
+>>>> Thanks,
+>>>> Yang
+>>>>
+>>>>>     }
+>>>>>       #ifdef CONFIG_ARM64_PAN
+>>>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/
+>>>>> arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>> index 9ba596430e7c..6ba182572788 100644
+>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+>>>>>             feat_mask |= ARM_SMMU_FEAT_VAX;
+>>>>>         }
+>>>>>     +    if (system_supports_bbml2_noabort())
+>>>>> +        feat_mask |= ARM_SMMU_FEAT_BBML2;
+>>>>> +
+>>>>>         if ((smmu->features & feat_mask) != feat_mask)
+>>>>>             return false;
+>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/
+>>>>> arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>> index 358072b4e293..dcee0bdec924 100644
+>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct
+>>>>> arm_smmu_device *smmu)
+>>>>>         if (FIELD_GET(IDR3_RIL, reg))
+>>>>>             smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
+>>>>>     +    if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
+>>>>> +        smmu->features |= ARM_SMMU_FEAT_BBML2;
+>>>>> +
+>>>>>         /* IDR5 */
+>>>>>         reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/
+>>>>> arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>> index bd9d7c85576a..85eaf3ab88c2 100644
+>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>> @@ -60,6 +60,9 @@ struct arm_smmu_device;
+>>>>>     #define ARM_SMMU_IDR3            0xc
+>>>>>     #define IDR3_FWB            (1 << 8)
+>>>>>     #define IDR3_RIL            (1 << 10)
+>>>>> +#define IDR3_BBML            GENMASK(12, 11)
+>>>>> +#define IDR3_BBML1            (1 << 11)
+>>>>> +#define IDR3_BBML2            (2 << 11)
+>>>>>       #define ARM_SMMU_IDR5            0x14
+>>>>>     #define IDR5_STALL_MAX            GENMASK(31, 16)
+>>>>> @@ -754,6 +757,7 @@ struct arm_smmu_device {
+>>>>>     #define ARM_SMMU_FEAT_HA        (1 << 21)
+>>>>>     #define ARM_SMMU_FEAT_HD        (1 << 22)
+>>>>>     #define ARM_SMMU_FEAT_S2FWB        (1 << 23)
+>>>>> +#define ARM_SMMU_FEAT_BBML2        (1 << 24)
+>>>>>         u32                features;
+>>>>>       #define ARM_SMMU_OPT_SKIP_PREFETCH    (1 << 0)
+>>>>
+>>>
+>>
+> 
+
 
