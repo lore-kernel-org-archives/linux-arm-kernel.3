@@ -4,65 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 673ADC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:08:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E64EEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:10:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:To:Cc:From:Subject:
+	References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:Content-Type:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PclUyHsK2/65if5U9sGLJ+XjH10GG+5GDmvnIOfCUPE=; b=OwAwjQDGAJutmMDp3G4uX9OoTh
-	UxzWrT/geuG5GiqHq8uJVOepP/ws3yjyLpyxhsM4eAyC4LDvbHILBV4qkhcLbtoacj4zE2ZLIU3md
-	DSbZWSRTP2k8ZsCnXzNjdR7Jv333OauBm8xBqO87MWSv0UmgkB6N46NX7M+8YNQo0KmZkBG3LLCUq
-	vVPXdL0P1M91sWXiMH0/eKsBRiyFI0CKplklOGtoWw/2MFVPk5mzhZuKLd6HUnY04zfXbPDgh/VMq
-	8fWfkCdEMR5tZt7XwmpcRJkZ/sN7HyM81i+JoaLT//fnkw9cVW+yJOJ21Z9FZxpyIvJZpLi9xTbBQ
-	xjlD12EA==;
+	bh=2Dtrzdo+87cZ5JLmTTpg9Kdtv1Ks1mHz5cQa16uMWPM=; b=4eg0YQ8hSp8YZZR2f0bYy0qcyY
+	QzgjrimFQHzxViEMDsgdGcEqShXDLE32Mlb4DYV/VdmdclidCvJK0gyyLTgu6qsO3lherQKFjGKEr
+	PRx+zVFVgItcfmoDmrC6kCc0IKiF6Xt25AQBUKpefH2ZSoanwQJOTcc/Bvxm9gm5MCHwIQ+1wwHvQ
+	w/IiKbUrTH8WnzCfHfdQxp6DM4fgxIh5p+ZaBcD26Z49Vz1MraLluOkrbP8HvqCAioL5j7BaV/inU
+	hK8p0YRRW5CVIjshzVQtl+cWuF/8bnzp4H/Sk9M1iJRIugw/ZM92NI/XqHrK5GloyKCbmVkzHfGVO
+	BrkwkNCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts41x-00000006ZDd-2vSP;
-	Tue, 11 Mar 2025 18:08:41 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1ts43Z-00000006ZSL-2sD0;
+	Tue, 11 Mar 2025 18:10:21 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3fr-00000006VK2-1jyc;
-	Tue, 11 Mar 2025 17:45:52 +0000
+	id 1ts3kc-00000006W9E-0Zzr
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 17:50:47 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2626F5C6554;
-	Tue, 11 Mar 2025 17:43:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 43210C4CEEA;
-	Tue, 11 Mar 2025 17:45:50 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3FE115C5910;
+	Tue, 11 Mar 2025 17:48:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B995C4CEE9;
+	Tue, 11 Mar 2025 17:50:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741715150;
-	bh=JIhU6JAVFL/APQj30jcuDhgBR6k5qvCBmItYlZMcFKk=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=HYcGBZpQ8Wjl+SydLan7w9Kx9t/CN5dObhPKM4VAT69WmSPv8Q4Zhl7Pgu70SHEmZ
-	 RuIiIQNLHpEFiJmyBjvi7DJ9/lo2PHdKqd22cW9KHn+wNjpIWMk7STjhrRKzzuvNqX
-	 7sXobGglfDYN9uoEX/VXXhiqAV3o/PIrj3cc5Xw6qjv2VQ9J6ZP3c1LQ3PZTeJ9/A8
-	 RlAKWIIEp/enJdRSGr+d+KK21ft1LJWXPUeVlbU8vbk5Px/5hFbr2lavrYn6qXDas+
-	 yztZGR2IBYcaYQU/bwYuQJ47pVSMQ7DRpb57jN2IgObsVJV5A46+iMD2nsjSk716EI
-	 Qcj4p59QLnu6Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Tue, 11 Mar 2025 18:45:12 +0100
-Subject: [PATCH v2 13/13] wifi: mt76: mt7996: Rely on mt7996_vif_link and
- mt7996_sta_link in mt7996_mac_twt_teardown_flow signature
-MIME-Version: 1.0
+	s=k20201202; t=1741715444;
+	bh=kLDi5hF86QZHs0p/61H7Td0DURnQ7im8mU8C1Zlw5zc=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=kx3NZIpjCvLI2hwgQQoYXNSbKXDaKKrlYc/uCkvVV7Au3BREVHUEsJCedXDxXcDQy
+	 qqBuUAmxNnlFWtF1UJCjNKqXSpCdqSbe1mJKLlMP9KNABs3NeJc1MUDm25QdgGLl4r
+	 dogi2SccbC44QbWPOC8V7MJVAaHDX+JP8AKIz/9nfGTzWMM43Go+7m20GhHEYrYjpZ
+	 0qoKTDlBOBKSuYTjK5262Dz20+vzBxL+HVq5fX5z6pjxmjMunPAO0L6NE+XLtCR2I/
+	 /px7Zu+XMgfpSrXVw4wHkMbR09nGaWFK/PgmqtMwRqb4uyWX1k9+nX9P8cvOv7LBT4
+	 n2Embdqv9zxKw==
+Message-ID: <899b71724428aaa16d424f54d5b1558b.sboyd@kernel.org>
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250311-mt7996-mlo-v2-13-31df6972519b@kernel.org>
-References: <20250311-mt7996-mlo-v2-0-31df6972519b@kernel.org>
-In-Reply-To: <20250311-mt7996-mlo-v2-0-31df6972519b@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Kalle Valo <kvalo@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>, 
- Johannes Berg <johannes@sipsolutions.net>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org
-X-Mailer: b4 0.14.2
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250310191142.1208155-1-andersson@kernel.org>
+References: <20250310191142.1208155-1-andersson@kernel.org>
+Subject: Re: [GIT PULL] Qualcomm clock fix for v6.14
+From: Stephen Boyd <sboyd@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+To: Bjorn Andersson <andersson@kernel.org>, linux-clk@vger.kernel.org
+Date: Tue, 11 Mar 2025 10:50:42 -0700
+User-Agent: alot/0.12.dev8+g17a99a841c4b
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_104551_549166_E04EABBE 
-X-CRM114-Status: GOOD (  10.93  )
+X-CRM114-CacheID: sfid-20250311_105046_230344_AE3B96C1 
+X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +72,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is a preliminary patch to enable MLO for MT7996 driver
+Quoting Bjorn Andersson (2025-03-10 12:11:41)
+>=20
+> The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f0=
+5b:
+>=20
+>   Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+>=20
+> are available in the Git repository at:
+>=20
+>   https://git.kernel.org/pub/scm/linux/kernel/git/qcom/linux.git tags/qco=
+m-clk-fixes-for-6.14
+>=20
+> for you to fetch changes up to 787289a1d13d50ff4ce0f496947f8817ef3fdea9:
+>=20
+>   clk: qcom: dispcc-sm8750: Drop incorrect CLK_SET_RATE_PARENT on byte in=
+tf parent (2025-02-26 08:57:46 -0600)
+>=20
+> ----------------------------------------------------------------
+> Qualcomm clock fix for v6.14
+>=20
+> Avoid propagating rate changes for the MDSS byte intf clocks on SM8750,
+> to avoid changing the already configured clocks.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c    | 7 +++----
- drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 7 +++++--
- drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h | 3 ++-
- 3 files changed, 10 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 4a7f6fd9025297f0ffa8ea7e91efd34164a26196..7ddd4b0cadf5d1983379a93ba56da461748ca60e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -2691,10 +2691,10 @@ void mt7996_mac_add_twt_setup(struct ieee80211_hw *hw,
- }
- 
- void mt7996_mac_twt_teardown_flow(struct mt7996_dev *dev,
--				  struct mt7996_sta *msta,
-+				  struct mt7996_vif_link *link,
-+				  struct mt7996_sta_link *msta_link,
- 				  u8 flowid)
- {
--	struct mt7996_sta_link *msta_link = &msta->deflink;
- 	struct mt7996_twt_flow *flow;
- 
- 	lockdep_assert_held(&dev->mt76.mutex);
-@@ -2706,8 +2706,7 @@ void mt7996_mac_twt_teardown_flow(struct mt7996_dev *dev,
- 		return;
- 
- 	flow = &msta_link->twt.flow[flowid];
--	if (mt7996_mcu_twt_agrt_update(dev, &msta->vif->deflink, flow,
--				       MCU_TWT_AGRT_DELETE))
-+	if (mt7996_mcu_twt_agrt_update(dev, link, flow, MCU_TWT_AGRT_DELETE))
- 		return;
- 
- 	list_del_init(&flow->list);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index 5ab4f08dba06fdf95ee4e6bc0261749016f07e6a..11ad95e05b94857c95375cdf877518e7ee89f08e 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1062,7 +1062,8 @@ mt7996_mac_sta_event(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- 			break;
- 		case MT76_STA_EVENT_DISASSOC:
- 			for (i = 0; i < ARRAY_SIZE(msta_link->twt.flow); i++)
--				mt7996_mac_twt_teardown_flow(dev, msta, i);
-+				mt7996_mac_twt_teardown_flow(dev, link,
-+							     msta_link, i);
- 
- 			mt7996_mcu_add_sta(dev, link_conf, link_sta, link,
- 					   msta_link, CONN_STATE_DISCONNECT,
-@@ -1804,10 +1805,12 @@ mt7996_twt_teardown_request(struct ieee80211_hw *hw,
- 			    u8 flowid)
- {
- 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
-+	struct mt7996_sta_link *msta_link = &msta->deflink;
-+	struct mt7996_vif_link *link = &msta->vif->deflink;
- 	struct mt7996_dev *dev = mt7996_hw_dev(hw);
- 
- 	mutex_lock(&dev->mt76.mutex);
--	mt7996_mac_twt_teardown_flow(dev, msta, flowid);
-+	mt7996_mac_twt_teardown_flow(dev, link, msta_link, flowid);
- 	mutex_unlock(&dev->mt76.mutex);
- }
- 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-index 962022c7eec9fd82ebba8e0d5aa6b6eae769ee32..84b9ff707d56501d212932a9fa6a3037259a1077 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
-@@ -709,7 +709,8 @@ void mt7996_mac_dump_work(struct work_struct *work);
- void mt7996_mac_sta_rc_work(struct work_struct *work);
- void mt7996_mac_update_stats(struct mt7996_phy *phy);
- void mt7996_mac_twt_teardown_flow(struct mt7996_dev *dev,
--				  struct mt7996_sta *msta,
-+				  struct mt7996_vif_link *link,
-+				  struct mt7996_sta_link *msta_link,
- 				  u8 flowid);
- void mt7996_mac_add_twt_setup(struct ieee80211_hw *hw,
- 			      struct ieee80211_sta *sta,
-
--- 
-2.48.1
-
+I already picked this up to clk-fixes a couple weeks ago.
 
