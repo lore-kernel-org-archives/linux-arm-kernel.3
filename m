@@ -4,102 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30663C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:07:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDE4AC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:12:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q31kVzsoBkQBSCd3vqptmMsYbS7RNSe4aJBdM93V6lM=; b=pktG/RexqcBRTk4yCfjaZf4ONf
-	c6cUD2x22Aoaz5uwIwAXS/cmUxsp5xjUBukbgwzGDrU1bxuEM7UWHMvA8Ezz2o0ONa2uT7JpLttzB
-	4QycVNuF1Vy0SXbhRfPV7aRcSdeDYkY9CDWgq2mG73p67pV/MuMtvMHTEI7GrZnyhO2lvp6JLDgfD
-	qvJxhW5t5lMENwxsjsVpHQHthzBVCveKbWGVhPWV/SC5Dt4UH6WZgJtAImwaOTJ8/3f+m5silDLwN
-	hMDkHSiyDxqML1easifb0/i/DajhEYjZwm1fvto1I5mmAoX6DIcpxt3sbAT8/UK7D7rxEpDPtM67i
-	CNoW9WsA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RmdwT9nV/eRZ48tXEyNy2Y6/7X2EcunNdyDljXc01uo=; b=MV8/gQHFmXnv75oim8YSBr6S0B
+	yvymn+iMXa2YnSm42YJ1h4IWp0JO1TfxjX+nd8PgmKfjTeLdntXYY9kZ9vo+Y9XEJDFVoM/4lad4z
+	lZCHMkzxz/AOKr8eQgaXBsfYCd38dVQZY/Z6qEME8+kKWnQZBMuRrBxjOL5C/+kS4kEcMxKwI0Yrq
+	8CZzdGUmQxIZd+mn0wZ3acGNDsF17wKNo0paUVgnG2sOR55VLaYpmfhyfMhe48sqttuMcLYP46xmu
+	7J0SDEV4HIbAexC70tRVcFKd6f8YAuKo7+2SHyGgREBC9MTURrbjoBv1SnM1rR8k+LxDhWYX8lexS
+	xLhDn6Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trtiC-00000004o59-3ojL;
-	Tue, 11 Mar 2025 07:07:36 +0000
-Received: from mail-ua1-x933.google.com ([2607:f8b0:4864:20::933])
+	id 1trtmG-00000004oJT-3aFJ;
+	Tue, 11 Mar 2025 07:11:48 +0000
+Received: from mail-dbaeur03on20603.outbound.protection.outlook.com ([2a01:111:f403:260d::603] helo=EUR03-DBA-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trtgX-00000004nu9-1NUq;
-	Tue, 11 Mar 2025 07:05:55 +0000
-Received: by mail-ua1-x933.google.com with SMTP id a1e0cc1a2514c-86d5e3ddb66so911158241.2;
-        Tue, 11 Mar 2025 00:05:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741676751; x=1742281551; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Q31kVzsoBkQBSCd3vqptmMsYbS7RNSe4aJBdM93V6lM=;
-        b=SYiZq0DlF4wM4AVlI4pp0Wk239ceFt8EYw+RSsCCqKosrx1aBw7uDwwqHWH9GBCWeU
-         4oYfA8PTg0nKk7rAAtsmVGHZOqcBcPiLGJ6/kuprl7S5tqWjCAIQvgPeop/YkSsjsl6V
-         LKneTllfDonHaVUju2WhnS5FACMV+G7+oSc61zOdtMDLK4zRL/Y2QCyIOkYSnZwP2hdz
-         tKanlmF5C4kKjKXCngTZz6akhnIp8wd0EWLFkdcM1V9gBj6zQmk5zsy/KW5a87hTdqpx
-         4EQIl2RcCZlou029r9rIuyGjWmfSI4HKeuQuxg5abztqpGqPd50r9CC+oD0zLD1KNqtm
-         jhdg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741676751; x=1742281551;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Q31kVzsoBkQBSCd3vqptmMsYbS7RNSe4aJBdM93V6lM=;
-        b=tNnIxzVffCjCYhZX5L/0rFxC2Ho8lEaLSADs6lMTBVhY/W+m6xIP/MuzWXTlYFOgGm
-         GsyZHMjVq9+haJTEoFfMQHiRqPokJ6TM1xAwAQwaxHisyUMtRw2+UW0E9adOARWCjBg1
-         Z2IGUsvFuE0QfpwMJhcSdNugjU3vFIVN3cMYlA+0ket5IqPWi9bcNlZ+ShZVuingfz7D
-         XWhkAUJvPUcePjSOPBWsQPpq8ZFNSHcAwiCaLAhEG6j1FNqMFIfHga3eFndld8dp+toJ
-         48UdnfihdaHdEdRfqe+tmM4gKJt47maSdg/ZuUPl2gT1Kw9tm8ZNG15MdWSPRNkcU7vf
-         n1pw==
-X-Forwarded-Encrypted: i=1; AJvYcCVNfX8agHkk2fkG+tjMG+kwhArgjeXZsFbQBvKXn4BSTEg7oliRQq+ZuzsPy9iF0MotSNJyYURk7qa9yjzmLIg=@lists.infradead.org, AJvYcCWPIvBj/3P6K/jYANalEQ25AISJJWeqzJERZ2DpBxckRHspaIfW6JAFhMKGikQkexbb0OcNjl1Nn5g0JygxeGYT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8/fAiHnYjizDkGIjbUC+WDF/BnHzn1Zk779AmGatAhf7Od7iv
-	Na58YE1eYqqy5R/I3ORC6IjfYxs6EONZr6X8EUkjuDFTILPBO9nyG7eyowDk0edKOmDUYObmEpr
-	eqymY7+gHNx2OATCdT5lh4rHCY3k=
-X-Gm-Gg: ASbGnctwbpEyoMrtLw38GRRuBa8AQ8k/EAQNvfUPrYMzQqlM4g3hdLNh9QD4s+XDF+3
-	tsDiqayHm1YxRuKoNfJPpqyzIQSG0GF8OsNFOLJ8uwfeAJo0PbIadBCTeFBzAxA1Pp55grNJvfG
-	7BtmPTKlClta4H4wMeQGmmm14Kfg==
-X-Google-Smtp-Source: AGHT+IHAzH8jT0g+s0jDcfWjjdx0MoItO4/EnfD08W69uptTJjESTeNMzIUQijW2my5HNSH+Or9ehxFp9/SLkGNQOZs=
-X-Received: by 2002:a05:6102:6cf:b0:4bb:cf34:374d with SMTP id
- ada2fe7eead31-4c30a6ad473mr10393207137.20.1741676750766; Tue, 11 Mar 2025
- 00:05:50 -0700 (PDT)
+	id 1trtkb-00000004oD3-3ybq
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 07:10:07 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=cfThUaXdun2lD6FmmRzd3FINA7Is/PiD5kBtxiWoVLpQAWcZmN6eHl3ipiJH0x3rZJnmyXKJqS5riU7dc3sdhPeI74rz8MqPcVXTHQBMEgWZV9CeBSqLpH6ZnmgGmTGyUclO2lYOkHq+Q+BrC1tI8EtiwM0m6/TEgFw4hXEmrNrkQMO6TqRiVC8elFbPJ6RDJWmoi7iHQoh/lXOrORFpPYwUMbN2RE+6c5WHGlDBpcyAehw+gnWqq3ktdl4SLmbfYPAebBHCoWPuuIz6Ede9RucEEn9pMJkxtehUJ+wHyd2f7LPBoyUMhhNULKxeo0kvJDxYWHUONcjUoWvn3dyJ2Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=RmdwT9nV/eRZ48tXEyNy2Y6/7X2EcunNdyDljXc01uo=;
+ b=WI9lBJVjUKhNKpqti9X41b3+57QMvZCiccpnsvCmo9J1dCAm/t2YrE8znHxSb02QT2/OitjILyrbeKfAqsccOsjo03o724kdRYoZuY4VzKgbKiOxVJ7IWmvrLJjjE4T0B/NJcFkt4+rtDHlxd/+GndD3Mk8x0q7MhKYtsOzFBleCq6RK/eEy4SMgp+mcroPebbu7kgsE+GGAhCsiBBypz2+dnVmtAPc2M4Ts2MiuTW1lZE+Q5We/5GF0I7lYqTq1fes6wY3k0FaBVnWxRpnuMm5w6bLmytbR5SXATZyAbfXMxclTpjuWIPCj1e6uhj7+bjKLipdoNTxjigQwufWDGQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=siemens.com; dmarc=pass action=none header.from=siemens.com;
+ dkim=pass header.d=siemens.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=siemens.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=RmdwT9nV/eRZ48tXEyNy2Y6/7X2EcunNdyDljXc01uo=;
+ b=BU1HP4PlR8MDkbaqiywDNpeRgDpw++dQ4SVNIWMj0EPggJ0jMKTj8930PspNGutpjcQxVeCSFqD9X1EO7WSqMHHousEH7/TyGyDDQyWUshPJtKzbrt6TnyZvLZ+IyAepmGuPzat79iKlJFrQxhYPRwW7K7BqmzuG7pfTVEe2YdRVd4V4O9SFZDbKtcGvgCjBDtF7vqdlJjXwpLqvOsSfO6qaxGpb+3+kIL6gey5atEGyGcstBEIB6/72MsQh5Fb4eYbqk2RG4cLEVsdx8mdvpf/buwTCKTVQyeemdOZ0Qe0leEkFgfjPNY4LQyYBoQMk1aXyPk5CN6+6KWlkeUwWLQ==
+Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:5b6::22)
+ by GV1PR10MB6612.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:150:84::13) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
+ 2025 07:09:56 +0000
+Received: from AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::baa6:3ada:fbe6:98f4]) by AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::baa6:3ada:fbe6:98f4%7]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
+ 07:09:56 +0000
+From: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
+To: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>, "s-vadapalli@ti.com"
+	<s-vadapalli@ti.com>, "davem@davemloft.net" <davem@davemloft.net>,
+	"dan.carpenter@linaro.org" <dan.carpenter@linaro.org>, "jpanis@baylibre.com"
+	<jpanis@baylibre.com>, "pabeni@redhat.com" <pabeni@redhat.com>,
+	"horms@kernel.org" <horms@kernel.org>, "edumazet@google.com"
+	<edumazet@google.com>, "rogerq@kernel.org" <rogerq@kernel.org>,
+	"kuba@kernel.org" <kuba@kernel.org>
+CC: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "vigneshr@ti.com" <vigneshr@ti.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, "srk@ti.com"
+	<srk@ti.com>
+Subject: Re: [PATCH net] net: ethernet: ti: am65-cpsw: Fix NAPI registration
+ sequence
+Thread-Topic: [PATCH net] net: ethernet: ti: am65-cpsw: Fix NAPI registration
+ sequence
+Thread-Index: AQHbkkyd/vgmW1tIRk2UfG0M1eu7tLNthJWA
+Date: Tue, 11 Mar 2025 07:09:56 +0000
+Message-ID: <421a4c67865215927897e16866814bd6eb68a89d.camel@siemens.com>
+References: <20250311061214.4111634-1-s-vadapalli@ti.com>
+In-Reply-To: <20250311061214.4111634-1-s-vadapalli@ti.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+user-agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=siemens.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: AS8PR10MB6867:EE_|GV1PR10MB6612:EE_
+x-ms-office365-filtering-correlation-id: ede6a435-5716-45a4-6e3d-08dd606bbaac
+x-ms-exchange-atpmessageproperties: SA
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018|921020;
+x-microsoft-antispam-message-info: =?utf-8?B?ZXVPYjQ5OFV5azRTc3VsOFdlcGZ2MTA0dzIrbUVBZVE0b2RDOXRyaDlTTWhL?=
+ =?utf-8?B?b0hPc3pMc3g0aVo4czFXWlVKSXM4dXRVWUVlY1BHN3RsWjBpSTJMa2trZGVm?=
+ =?utf-8?B?WkM2bEYrcnRJbld6bldEYVF5V2VLWnRXUEhwdWlHWVBWUHp1NnVNNlZPUWtC?=
+ =?utf-8?B?SERCVFFKdXNjcGpYbllDOEdHRnF6dzdIWjJIcmNQQ0kzdTdQVjUyc21TbEtz?=
+ =?utf-8?B?bm9pbDhqK3c5MzdqVmhTck10azBNakJWbGtYaTlBditLWXJQVFFadUZpRTAy?=
+ =?utf-8?B?N2ZrQ0ltcVhuL3BhVjl1RzlqMnF3V1kzVUFXUVpoUmpsaDUxblFmTG9XbnpS?=
+ =?utf-8?B?T0k2QWxidGRFYkVXRFNvc2g0UW15L1hKVGdBK0R4czJuTDBudlMrV2tFQTRE?=
+ =?utf-8?B?Yi83TERUV1ZWL29VZ01KZE41bkYzYnAvZWh5YnY4am14VGdCS2dCd21oV3pF?=
+ =?utf-8?B?T1dNcjQ2M1AvWnFyWlE2d011LzF5WThNZzdtclZNV2VDcEQ5SndnaW9pN1BV?=
+ =?utf-8?B?elNjK243RU5YUHYrYitCS2cvSUVZTzliRFpvS2J1YThBS2JRQ2hsRW9mRHk1?=
+ =?utf-8?B?YTZidnN4Q1gxZmYrTkpiY2dPZkFCNDdGb3RVazFhZE5zK1VEVkhBTHlhT2JR?=
+ =?utf-8?B?VmlKUUdjMTlMZFc2OURPR2RONmdSTytEYkMvUkt5S3doUE5WVEtuMVBzVGFu?=
+ =?utf-8?B?ZHhUL0gvNVlaS05yMVZHdUpmcjJ1TEFLS3FIeWpyU21LcDdHa0U4VENLN2ZU?=
+ =?utf-8?B?Snc3NU9iZk5JTytnY1FZbHd3ejZ4MkdHZHlEWmgzWEJqcFQyeGQzUFhwMzBJ?=
+ =?utf-8?B?T0VhakZYd2pkMFJsdDRtTGlVczJtVXA1QkJKTXpDNDZKeXVBeFUzNW9pRzNR?=
+ =?utf-8?B?UTBZK3FsNVJWb1FHUkQyZGhpRkEvNHFZMVIyaS96RUtqTVVudlV1ODcwdmpv?=
+ =?utf-8?B?eHBKYmlXRm00SlhOaUt6WXRFT05lTjFsTENVNmQxdHk1dSt6Q0k2T3FTa2tU?=
+ =?utf-8?B?eUNoL1BlUE9XSFlJOGFZQTVEWi8xRGRKU3UzSEcyS2lpaFA3QUY3L0JpbWtS?=
+ =?utf-8?B?bFZ2QXhYTUc1bnF4WU1heFNyUmdNSGxoWUo3Vm9pUVA1WG5UV2VCelB4UTVZ?=
+ =?utf-8?B?SmNPYU55NURlazBzYUdpeUdSb0hpbTNTaks1WTd5aVRvdGs5ek5tTHFEcWV6?=
+ =?utf-8?B?dTIxTmp6NTIyejRvNWoxR2ZVWnEzeDcxOHhYTHhSc1lyVnR1Nm9zOWFnWFMw?=
+ =?utf-8?B?L1pqMkVPUnZrTDBpZzlBcjlXSXZHaDA0THpLMzZ1NmNMazVxSUx5a0E0dmtY?=
+ =?utf-8?B?SG4yeitVSDI2dU1PbWFack0vWEV5Z2Jkblg4RENPUjZCcGlMUEtzT2ZEeU44?=
+ =?utf-8?B?VEUrZkdkSW5Wb0RBWUZGZmlySFhvQzJ5bUJnLzJ4elBZTDFnK3RrU2VvSXZY?=
+ =?utf-8?B?THB3YmNhVkNZM1pQMytZZy8wTXJiQ25UUU56NkdSWTFBVU5sS3pqNkRCN1dJ?=
+ =?utf-8?B?TWY4NVUvTmFyQVhqTVZyL0czTHlCTnFxSm9pNXUxTklvT2trUlc2VVZIbnhz?=
+ =?utf-8?B?dzlxK1pZWWpqM045OEhZKzFsTlo5b1V4YzZYb0tia0l0RnUzV2huMGMxNWFQ?=
+ =?utf-8?B?dGMrSnkxK2ZIcDk1b0NabUhlUE93NG9QQ0dXQXFua3Nha3JBNzFQeE1XcHdR?=
+ =?utf-8?B?dSt4WFZOUlRqT05sQU9FbTQrOFgrTUN3QkpJMnFnaEszN2xyMEwrTDZPWUph?=
+ =?utf-8?B?cjMwNmRTN1BmMTdKV2lna0VTRHkrUFpJQmJ4aGlvZXdSK3NtV0o5aVBKSVpi?=
+ =?utf-8?B?S3lRVVhtdGhKUHByK0VsT0NzUEdGNHY1eFJYSEhXWlNoTDlheENsMUdSMm5P?=
+ =?utf-8?B?VkhBYlZvK1ZLQjkvZk45QnFYU1l6SUNsUFZJK1FGYU5OZUE9PQ==?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018)(921020);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?bE83aFowN2pWVHZYdEVHQ2RlUFJ5WC85dm9SNFlnSnJWeldzY09tWm9CQjht?=
+ =?utf-8?B?ZnpuU3NDSTVzbU9pejkrdVJ3SjNDNzdxbS9KeGswV2t5dHlDdjNmZXVtUTRo?=
+ =?utf-8?B?VmZYRUw3WDFFblhDZERSSXM2ZUtudkNucUZIejhkY1VyenQwRFFLNE54U1Nt?=
+ =?utf-8?B?LzFIbWxRQk52d0QwZWF6SmFyVjNjZUhLL2lrYkhaanJFbWlKSURkc1l4a1pz?=
+ =?utf-8?B?QkFaaSthU0dvNGF0UHQ1TDdZcXozS05EN2poelp3M1dVYW8zTERET043ZGw5?=
+ =?utf-8?B?ckg4ZkhsTGNLUUhrRW9vOEdzZk55dzdoYzVsc21qNkFTYjgrVW5IK0xYbmVk?=
+ =?utf-8?B?cDZNT1VLcHdvZXJ1T2NEaXpvaDcyMk45ZmdaMDZFOVpFNXhKUUNVK3Q5clI0?=
+ =?utf-8?B?a21EaGwwd2RMR1BDOHVuNDM1M090dWgreHRvY0s2M1hnOC95R3ozVEdZWlEw?=
+ =?utf-8?B?UU5mNDVYUE55S3FVUkxxV3paRUphWlVQTElmajlJVVVMa1h4WGI1ZUEyYnBa?=
+ =?utf-8?B?U0hSanZJOHFOWGY5NEVGSzVhNXp0eWVXUW9NcDZ3V2FGbWVubDRzRzFtNlp2?=
+ =?utf-8?B?K0dXTlJyMlltY0MxRzk3RitNKysyWmsvYU9QRTVmbis5UWdULzk5L0VwYTZV?=
+ =?utf-8?B?MWJ4NHplWUNuajd1SGQxV0o0YUl2czRWdDhLcVBnZXphaEpCOHpRa0xQYXY1?=
+ =?utf-8?B?R1U3U3MxanNWVnphRmVWU2pzNXNIc1JqVnJ4aUYwNEFjT3k1YXJSbTFVTFU5?=
+ =?utf-8?B?Z3NjL2VFVVoveE5TTW80NXZkTDRubDdvYlpRaGxLZDVVUXMvOVB1NktKaTNR?=
+ =?utf-8?B?V3pyR2VDZnV4RkNrWllLMWJHS01pdldFNXVEdk9vM3FaYXdad0hQSERTUk8x?=
+ =?utf-8?B?ZXBnR0pDSW1WSzJkZXRhQVZsNis3UEN3TUk1ZnlDUWRUQWpzeTgvU3grakNw?=
+ =?utf-8?B?NllBVkhIMWNFRkxlc3BoTjYzekNFRGh0ZUVqbW1KT0w1aXpSU1hicFFxUjhp?=
+ =?utf-8?B?Y1dLdDhqL2NKYUVIUFBpN1BVS29oSEFLZWMvZFNyNjk0L3hHcEZKWC9wNjU3?=
+ =?utf-8?B?eWdGZzh4TGNxTEZySVM1SDNWbTJRMHU4b215SVJRb0taQnBPckM0Yng1L3cw?=
+ =?utf-8?B?Y2tNMmFpenN1Y0Jqd1NBZUxRVVBhR2pTcXIwZ3g5b3JJZ0kyV1p4amdHKytB?=
+ =?utf-8?B?aVdHT3QvSVZES0RiTm42Q1JpYlF4RjZFbmxlZGdxWm5ldFJNQW5hbkV1RWtE?=
+ =?utf-8?B?WmdMSktRaUxESjBzSjZCSDJSQ3dHek5vZ1FsMVZyKzlKVzN1Tk1lZVJSbmNv?=
+ =?utf-8?B?SFRrUjRqQ2JsMGxhdWg4WDE0VG02c096QW9MdGt1MHljWXR0NU5TSFI1U3FT?=
+ =?utf-8?B?VVFWL3RkSVNrd3IzVFVZY3ZIZmNHdnNobFI2OHpSeExJZWp6aVFLbnROelBJ?=
+ =?utf-8?B?Lzg5d1hVcjMrVC80SStzMUNpQ2JwUXdTTytzSjE2b1dQZmVBQzBSVmdsbTY4?=
+ =?utf-8?B?Zm1COE9sYzZSQVBoRmJrU01oZURGd042YkZ2QkR2RTdsdVA5WllXRTRXUTRt?=
+ =?utf-8?B?SjVkU0Z4a2RmOE0ybmFNQ1c0YUw4Y0ZxL2JLaW5qVXJ0aXFKYWxXRk9OUzM1?=
+ =?utf-8?B?QkloODhLN1Bmbi8xSVRFbmVhdzlTaERvTFBGU0p1NUlpSEhVZnRkUVNjeVZ3?=
+ =?utf-8?B?d0UxVHluNmZUay9lQU9xREs4T1pyVUljSFVUU3RNQlB5WVB5RHkxM3ArYVU0?=
+ =?utf-8?B?QTBmOXhTZmxtd2p0bG9Db3FmNGZObERVOEM4dTRIUnkzaXVMTUl3MzVBdjM0?=
+ =?utf-8?B?anNBQUlKOW9tSEhMN0Z6c1U4V0FJbDgya3ZNQnpINUlPNkkzK09YTTg0c0lL?=
+ =?utf-8?B?RzRpS3hRQ0x3Skx2UkY1MC9kaksrR3JhK0ZXd3FGODJ1UFJGSEpNcFFYV1Y3?=
+ =?utf-8?B?WjRTYkgrQ0thZ2NHWWd3UktjWHFhbHRFTTUxQ1JLbWdIRVBJdytybG4vRTZ2?=
+ =?utf-8?B?alExOTkzcFN1SlpmY015ay9KeDlPd0VBTVJGVGVZN1NkSWw5bWxzdExBN2JS?=
+ =?utf-8?B?aUFaQ05JVEZkYldMTU1BSm5ranJ6dEdMMzFIVDY2RnVpa3VkSmx6U1BuYU03?=
+ =?utf-8?B?cEFlakFYdnR3dk1udWdRcFNNRkFwTXdUL2M2RVhDWW9sRlhqTE1yWm5iam14?=
+ =?utf-8?Q?z4sB4es1qOSynH1JjGdmblA=3D?=
+Content-Type: text/plain; charset="utf-8"
+Content-ID: <00C78EB220587346A816F563F359D286@EURPRD10.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
- <20250307120141.1566673-3-qun-wei.lin@mediatek.com> <CAGsJ_4xtp9iGPQinu5DOi3R2B47X9o=wS94GdhdY-0JUATf5hw@mail.gmail.com>
- <7938f840136165be1c50050feb39fb14ee37721b.camel@mediatek.com>
-In-Reply-To: <7938f840136165be1c50050feb39fb14ee37721b.camel@mediatek.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 11 Mar 2025 20:05:35 +1300
-X-Gm-Features: AQ5f1JogAWL2F7qntgpMfCfk0eGiFWnmzClUe5D5QlYNBRZgUBUA-ZCMZhJ8AdU
-Message-ID: <CAGsJ_4zzZdjbr2DbRybHYDmL2EuUBohOP1=ho7fjx1XWoKDDGw@mail.gmail.com>
-Subject: Re: [PATCH 2/2] kcompressd: Add Kcompressd for accelerated zram compression
-To: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>
-Cc: =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>, 
-	=?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>, 
-	"chrisl@kernel.org" <chrisl@kernel.org>, =?UTF-8?B?SmFtZXMgSHN1ICjlvpDmhbbolrAp?= <James.Hsu@mediatek.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"ira.weiny@intel.com" <ira.weiny@intel.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
-	"dave.jiang@intel.com" <dave.jiang@intel.com>, 
-	"schatzberg.dan@gmail.com" <schatzberg.dan@gmail.com>, 
-	=?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?= <chinwen.chang@mediatek.com>, 
-	"viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, 
-	"minchan@kernel.org" <minchan@kernel.org>, "axboe@kernel.dk" <axboe@kernel.dk>, 
-	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>, "kasong@tencent.com" <kasong@tencent.com>, 
-	"nvdimm@lists.linux.dev" <nvdimm@lists.linux.dev>, 
-	"vishal.l.verma@intel.com" <vishal.l.verma@intel.com>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"ying.huang@intel.com" <ying.huang@intel.com>, 
-	"senozhatsky@chromium.org" <senozhatsky@chromium.org>, 
-	"dan.j.williams@intel.com" <dan.j.williams@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-OriginatorOrg: siemens.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: AS8PR10MB6867.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: ede6a435-5716-45a4-6e3d-08dd606bbaac
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2025 07:09:56.5472
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 38ae3bcd-9579-4fd4-adda-b42e1495d55a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 2p/QzJOW6d8cCuMRT/P2ztU2MnIzIOklUoWNGMZYwV3KwiGd+LOo3n2m4JCvOA2OzrLWPBM2DiHXFT95x2vntulpUZkwBDrj2t5I5f19Vbw=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR10MB6612
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_000553_378692_03D46F13 
-X-CRM114-Status: GOOD (  48.41  )
+X-CRM114-CacheID: sfid-20250311_001006_358183_D3EB6763 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,621 +190,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 2:26=E2=80=AFAM Qun-wei Lin (=E6=9E=97=E7=BE=A4=E5=
-=B4=B4)
-<Qun-wei.Lin@mediatek.com> wrote:
->
-> On Sat, 2025-03-08 at 08:41 +1300, Barry Song wrote:
-> >
-> > External email : Please do not click links or open attachments until
-> > you have verified the sender or the content.
-> >
-> >
-> > On Sat, Mar 8, 2025 at 1:02=E2=80=AFAM Qun-Wei Lin <qun-wei.lin@mediate=
-k.com>
-> > wrote:
-> > >
-> > > Introduced Kcompressd to offload zram page compression, improving
-> > > system efficiency by handling compression separately from memory
-> > > reclaiming. Added necessary configurations and dependencies.
-> > >
-> > > Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
-> > > ---
-> > >  drivers/block/zram/Kconfig      |  11 ++
-> > >  drivers/block/zram/Makefile     |   3 +-
-> > >  drivers/block/zram/kcompressd.c | 340
-> > > ++++++++++++++++++++++++++++++++
-> > >  drivers/block/zram/kcompressd.h |  25 +++
-> > >  drivers/block/zram/zram_drv.c   |  22 ++-
-> > >  5 files changed, 397 insertions(+), 4 deletions(-)
-> > >  create mode 100644 drivers/block/zram/kcompressd.c
-> > >  create mode 100644 drivers/block/zram/kcompressd.h
-> > >
-> > > diff --git a/drivers/block/zram/Kconfig
-> > > b/drivers/block/zram/Kconfig
-> > > index 402b7b175863..f0a1b574f770 100644
-> > > --- a/drivers/block/zram/Kconfig
-> > > +++ b/drivers/block/zram/Kconfig
-> > > @@ -145,3 +145,14 @@ config ZRAM_MULTI_COMP
-> > >           re-compress pages using a potentially slower but more
-> > > effective
-> > >           compression algorithm. Note, that IDLE page recompression
-> > >           requires ZRAM_TRACK_ENTRY_ACTIME.
-> > > +
-> > > +config KCOMPRESSD
-> > > +       tristate "Kcompressd: Accelerated zram compression"
-> > > +       depends on ZRAM
-> > > +       help
-> > > +         Kcompressd creates multiple daemons to accelerate the
-> > > compression of pages
-> > > +         in zram, offloading this time-consuming task from the
-> > > zram driver.
-> > > +
-> > > +         This approach improves system efficiency by handling page
-> > > compression separately,
-> > > +         which was originally done by kswapd or direct reclaim.
-> >
-> > For direct reclaim, we were previously able to compress using
-> > multiple CPUs
-> > with multi-threading.
-> > After your patch, it seems that only a single thread/CPU is used for
-> > compression
-> > so it won't necessarily improve direct reclaim performance?
-> >
->
-> Our patch only splits the context of kswapd. When direct reclaim is
-> occurred, it is bypassed, so direct reclaim remains unchanged, with
-> each thread that needs memory directly reclaiming it.
-
-Qun-wei, I=E2=80=99m getting a bit confused. Looking at the code in page_io=
-.c,
-you always call swap_writepage_bdev_async() no matter if it is kswapd
-or direct reclaim:
-
-- else if (data_race(sis->flags & SWP_SYNCHRONOUS_IO))
-+ else if (data_race(sis->flags & SWP_WRITE_SYNCHRONOUS_IO))
-           swap_writepage_bdev_sync(folio, wbc, sis);
-  else
-            swap_writepage_bdev_async(folio, wbc, sis);
-
-In zram, I notice you are bypassing kcompressd by:
-
-+ if (!nr_kcompressd || !current_is_kswapd())
-+        return -EBUSY;
-
-How will this work if no one is calling __end_swap_bio_write(&bio),
-which is present in swap_writepage_bdev_sync()?
-Am I missing something? Or is it done by zram_bio_write() ?
-
-On the other hand, zram is a generic block device, and coupling its
-code with kswapd/direct reclaim somehow violates layering
-principles :-)
-
->
-> > Even for kswapd, we used to have multiple threads like [kswapd0],
-> > [kswapd1],
-> > and [kswapd2] for different nodes. Now, are we also limited to just
-> > one thread?
->
-> We only considered a single kswapd here and didn't account for multiple
-> instances. Since I use kfifo to collect the bios, if there are multiple
-> kswapds, we need to add a lock to protect the bio queue. I can revise
-> this in the 2nd version, or do you have any other suggested approaches?
-
-I'm wondering if we can move the code to vmscan/page_io instead
-of zram. If we're using a sync I/O swap device or have enabled zswap,
-we could run reclamation in this separate thread, which should also be
-NUMA-aware.
-
-I would definitely be interested in prototyping it when I have the time.
-
->
-> > I also wonder if this could be handled at the vmscan level instead of
-> > the zram
-> > level. then it might potentially help other sync devices or even
-> > zswap later.
-> >
-> > But I agree that for phones, modifying zram seems like an easier
-> > starting
-> > point. However, relying on a single thread isn't always the best
-> > approach.
-> >
-> >
-> > > +
-> > > diff --git a/drivers/block/zram/Makefile
-> > > b/drivers/block/zram/Makefile
-> > > index 0fdefd576691..23baa5dfceb9 100644
-> > > --- a/drivers/block/zram/Makefile
-> > > +++ b/drivers/block/zram/Makefile
-> > > @@ -9,4 +9,5 @@ zram-$(CONFIG_ZRAM_BACKEND_ZSTD)        +=3D
-> > > backend_zstd.o
-> > >  zram-$(CONFIG_ZRAM_BACKEND_DEFLATE)    +=3D backend_deflate.o
-> > >  zram-$(CONFIG_ZRAM_BACKEND_842)                +=3D backend_842.o
-> > >
-> > > -obj-$(CONFIG_ZRAM)     +=3D      zram.o
-> > > +obj-$(CONFIG_ZRAM)             +=3D zram.o
-> > > +obj-$(CONFIG_KCOMPRESSD)       +=3D kcompressd.o
-> > > diff --git a/drivers/block/zram/kcompressd.c
-> > > b/drivers/block/zram/kcompressd.c
-> > > new file mode 100644
-> > > index 000000000000..195b7e386869
-> > > --- /dev/null
-> > > +++ b/drivers/block/zram/kcompressd.c
-> > > @@ -0,0 +1,340 @@
-> > > +// SPDX-License-Identifier: GPL-2.0
-> > > +/*
-> > > + * Copyright (C) 2024 MediaTek Inc.
-> > > + */
-> > > +
-> > > +#include <linux/module.h>
-> > > +#include <linux/kernel.h>
-> > > +#include <linux/bio.h>
-> > > +#include <linux/bitops.h>
-> > > +#include <linux/freezer.h>
-> > > +#include <linux/kernel.h>
-> > > +#include <linux/psi.h>
-> > > +#include <linux/kfifo.h>
-> > > +#include <linux/swap.h>
-> > > +#include <linux/delay.h>
-> > > +
-> > > +#include "kcompressd.h"
-> > > +
-> > > +#define INIT_QUEUE_SIZE                4096
-> > > +#define DEFAULT_NR_KCOMPRESSD  4
-> > > +
-> > > +static atomic_t enable_kcompressd;
-> > > +static unsigned int nr_kcompressd;
-> > > +static unsigned int queue_size_per_kcompressd;
-> > > +static struct kcompress *kcompress;
-> > > +
-> > > +enum run_state {
-> > > +       KCOMPRESSD_NOT_STARTED =3D 0,
-> > > +       KCOMPRESSD_RUNNING,
-> > > +       KCOMPRESSD_SLEEPING,
-> > > +};
-> > > +
-> > > +struct kcompressd_para {
-> > > +       wait_queue_head_t *kcompressd_wait;
-> > > +       struct kfifo *write_fifo;
-> > > +       atomic_t *running;
-> > > +};
-> > > +
-> > > +static struct kcompressd_para *kcompressd_para;
-> > > +static BLOCKING_NOTIFIER_HEAD(kcompressd_notifier_list);
-> > > +
-> > > +struct write_work {
-> > > +       void *mem;
-> > > +       struct bio *bio;
-> > > +       compress_callback cb;
-> > > +};
-> > > +
-> > > +int kcompressd_enabled(void)
-> > > +{
-> > > +       return likely(atomic_read(&enable_kcompressd));
-> > > +}
-> > > +EXPORT_SYMBOL(kcompressd_enabled);
-> > > +
-> > > +static void kcompressd_try_to_sleep(struct kcompressd_para *p)
-> > > +{
-> > > +       DEFINE_WAIT(wait);
-> > > +
-> > > +       if (!kfifo_is_empty(p->write_fifo))
-> > > +               return;
-> > > +
-> > > +       if (freezing(current) || kthread_should_stop())
-> > > +               return;
-> > > +
-> > > +       atomic_set(p->running, KCOMPRESSD_SLEEPING);
-> > > +       prepare_to_wait(p->kcompressd_wait, &wait,
-> > > TASK_INTERRUPTIBLE);
-> > > +
-> > > +       /*
-> > > +        * After a short sleep, check if it was a premature sleep.
-> > > If not, then
-> > > +        * go fully to sleep until explicitly woken up.
-> > > +        */
-> > > +       if (!kthread_should_stop() && kfifo_is_empty(p-
-> > > >write_fifo))
-> > > +               schedule();
-> > > +
-> > > +       finish_wait(p->kcompressd_wait, &wait);
-> > > +       atomic_set(p->running, KCOMPRESSD_RUNNING);
-> > > +}
-> > > +
-> > > +static int kcompressd(void *para)
-> > > +{
-> > > +       struct task_struct *tsk =3D current;
-> > > +       struct kcompressd_para *p =3D (struct kcompressd_para *)para;
-> > > +
-> > > +       tsk->flags |=3D PF_MEMALLOC | PF_KSWAPD;
-> > > +       set_freezable();
-> > > +
-> > > +       while (!kthread_should_stop()) {
-> > > +               bool ret;
-> > > +
-> > > +               kcompressd_try_to_sleep(p);
-> > > +               ret =3D try_to_freeze();
-> > > +               if (kthread_should_stop())
-> > > +                       break;
-> > > +
-> > > +               if (ret)
-> > > +                       continue;
-> > > +
-> > > +               while (!kfifo_is_empty(p->write_fifo)) {
-> > > +                       struct write_work entry;
-> > > +
-> > > +                       if (sizeof(struct write_work) =3D=3D
-> > > kfifo_out(p->write_fifo,
-> > > +                                               &entry,
-> > > sizeof(struct write_work))) {
-> > > +                               entry.cb(entry.mem, entry.bio);
-> > > +                               bio_put(entry.bio);
-> > > +                       }
-> > > +               }
-> > > +
-> > > +       }
-> > > +
-> > > +       tsk->flags &=3D ~(PF_MEMALLOC | PF_KSWAPD);
-> > > +       atomic_set(p->running, KCOMPRESSD_NOT_STARTED);
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static int init_write_queue(void)
-> > > +{
-> > > +       int i;
-> > > +       unsigned int queue_len =3D queue_size_per_kcompressd *
-> > > sizeof(struct write_work);
-> > > +
-> > > +       for (i =3D 0; i < nr_kcompressd; i++) {
-> > > +               if (kfifo_alloc(&kcompress[i].write_fifo,
-> > > +                                       queue_len, GFP_KERNEL)) {
-> > > +                       pr_err("Failed to alloc kfifo %d\n", i);
-> > > +                       return -ENOMEM;
-> > > +               }
-> > > +       }
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static void clean_bio_queue(int idx)
-> > > +{
-> > > +       struct write_work entry;
-> > > +
-> > > +       while (sizeof(struct write_work) =3D=3D
-> > > kfifo_out(&kcompress[idx].write_fifo,
-> > > +                               &entry, sizeof(struct write_work)))
-> > > {
-> > > +               bio_put(entry.bio);
-> > > +               entry.cb(entry.mem, entry.bio);
-> > > +       }
-> > > +       kfifo_free(&kcompress[idx].write_fifo);
-> > > +}
-> > > +
-> > > +static int kcompress_update(void)
-> > > +{
-> > > +       int i;
-> > > +       int ret;
-> > > +
-> > > +       kcompress =3D kvmalloc_array(nr_kcompressd, sizeof(struct
-> > > kcompress), GFP_KERNEL);
-> > > +       if (!kcompress)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       kcompressd_para =3D kvmalloc_array(nr_kcompressd,
-> > > sizeof(struct kcompressd_para), GFP_KERNEL);
-> > > +       if (!kcompressd_para)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       ret =3D init_write_queue();
-> > > +       if (ret) {
-> > > +               pr_err("Initialization of writing to FIFOs
-> > > failed!!\n");
-> > > +               return ret;
-> > > +       }
-> > > +
-> > > +       for (i =3D 0; i < nr_kcompressd; i++) {
-> > > +               init_waitqueue_head(&kcompress[i].kcompressd_wait);
-> > > +               kcompressd_para[i].kcompressd_wait =3D
-> > > &kcompress[i].kcompressd_wait;
-> > > +               kcompressd_para[i].write_fifo =3D
-> > > &kcompress[i].write_fifo;
-> > > +               kcompressd_para[i].running =3D &kcompress[i].running;
-> > > +       }
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static void stop_all_kcompressd_thread(void)
-> > > +{
-> > > +       int i;
-> > > +
-> > > +       for (i =3D 0; i < nr_kcompressd; i++) {
-> > > +               kthread_stop(kcompress[i].kcompressd);
-> > > +               kcompress[i].kcompressd =3D NULL;
-> > > +               clean_bio_queue(i);
-> > > +       }
-> > > +}
-> > > +
-> > > +static int do_nr_kcompressd_handler(const char *val,
-> > > +               const struct kernel_param *kp)
-> > > +{
-> > > +       int ret;
-> > > +
-> > > +       atomic_set(&enable_kcompressd, false);
-> > > +
-> > > +       stop_all_kcompressd_thread();
-> > > +
-> > > +       ret =3D param_set_int(val, kp);
-> > > +       if (!ret) {
-> > > +               pr_err("Invalid number of kcompressd.\n");
-> > > +               return -EINVAL;
-> > > +       }
-> > > +
-> > > +       ret =3D init_write_queue();
-> > > +       if (ret) {
-> > > +               pr_err("Initialization of writing to FIFOs
-> > > failed!!\n");
-> > > +               return ret;
-> > > +       }
-> > > +
-> > > +       atomic_set(&enable_kcompressd, true);
-> > > +
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static const struct kernel_param_ops
-> > > param_ops_change_nr_kcompressd =3D {
-> > > +       .set =3D &do_nr_kcompressd_handler,
-> > > +       .get =3D &param_get_uint,
-> > > +       .free =3D NULL,
-> > > +};
-> > > +
-> > > +module_param_cb(nr_kcompressd, &param_ops_change_nr_kcompressd,
-> > > +               &nr_kcompressd, 0644);
-> > > +MODULE_PARM_DESC(nr_kcompressd, "Number of pre-created daemon for
-> > > page compression");
-> > > +
-> > > +static int do_queue_size_per_kcompressd_handler(const char *val,
-> > > +               const struct kernel_param *kp)
-> > > +{
-> > > +       int ret;
-> > > +
-> > > +       atomic_set(&enable_kcompressd, false);
-> > > +
-> > > +       stop_all_kcompressd_thread();
-> > > +
-> > > +       ret =3D param_set_int(val, kp);
-> > > +       if (!ret) {
-> > > +               pr_err("Invalid queue size for kcompressd.\n");
-> > > +               return -EINVAL;
-> > > +       }
-> > > +
-> > > +       ret =3D init_write_queue();
-> > > +       if (ret) {
-> > > +               pr_err("Initialization of writing to FIFOs
-> > > failed!!\n");
-> > > +               return ret;
-> > > +       }
-> > > +
-> > > +       pr_info("Queue size for kcompressd was changed: %d\n",
-> > > queue_size_per_kcompressd);
-> > > +
-> > > +       atomic_set(&enable_kcompressd, true);
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static const struct kernel_param_ops
-> > > param_ops_change_queue_size_per_kcompressd =3D {
-> > > +       .set =3D &do_queue_size_per_kcompressd_handler,
-> > > +       .get =3D &param_get_uint,
-> > > +       .free =3D NULL,
-> > > +};
-> > > +
-> > > +module_param_cb(queue_size_per_kcompressd,
-> > > &param_ops_change_queue_size_per_kcompressd,
-> > > +               &queue_size_per_kcompressd, 0644);
-> > > +MODULE_PARM_DESC(queue_size_per_kcompressd,
-> > > +               "Size of queue for kcompressd");
-> > > +
-> > > +int schedule_bio_write(void *mem, struct bio *bio,
-> > > compress_callback cb)
-> > > +{
-> > > +       int i;
-> > > +       bool submit_success =3D false;
-> > > +       size_t sz_work =3D sizeof(struct write_work);
-> > > +
-> > > +       struct write_work entry =3D {
-> > > +               .mem =3D mem,
-> > > +               .bio =3D bio,
-> > > +               .cb =3D cb
-> > > +       };
-> > > +
-> > > +       if (unlikely(!atomic_read(&enable_kcompressd)))
-> > > +               return -EBUSY;
-> > > +
-> > > +       if (!nr_kcompressd || !current_is_kswapd())
-> > > +               return -EBUSY;
-> > > +
-> > > +       bio_get(bio);
-> > > +
-> > > +       for (i =3D 0; i < nr_kcompressd; i++) {
-> > > +               submit_success =3D
-> > > +                       (kfifo_avail(&kcompress[i].write_fifo) >=3D
-> > > sz_work) &&
-> > > +                       (sz_work =3D=3D
-> > > kfifo_in(&kcompress[i].write_fifo, &entry, sz_work));
-> > > +
-> > > +               if (submit_success) {
-> > > +                       switch (atomic_read(&kcompress[i].running))
-> > > {
-> > > +                       case KCOMPRESSD_NOT_STARTED:
-> > > +                               atomic_set(&kcompress[i].running,
-> > > KCOMPRESSD_RUNNING);
-> > > +                               kcompress[i].kcompressd =3D
-> > > kthread_run(kcompressd,
-> > > +
-> > > &kcompressd_para[i], "kcompressd:%d", i);
-> > > +                               if
-> > > (IS_ERR(kcompress[i].kcompressd)) {
-> > > +
-> > > atomic_set(&kcompress[i].running, KCOMPRESSD_NOT_STARTED);
-> > > +                                       pr_warn("Failed to start
-> > > kcompressd:%d\n", i);
-> > > +                                       clean_bio_queue(i);
-> > > +                               }
-> > > +                               break;
-> > > +                       case KCOMPRESSD_RUNNING:
-> > > +                               break;
-> > > +                       case KCOMPRESSD_SLEEPING:
-> > > +
-> > > wake_up_interruptible(&kcompress[i].kcompressd_wait);
-> > > +                               break;
-> > > +                       }
-> > > +                       return 0;
-> > > +               }
-> > > +       }
-> > > +
-> > > +       bio_put(bio);
-> > > +       return -EBUSY;
-> > > +}
-> > > +EXPORT_SYMBOL(schedule_bio_write);
-> > > +
-> > > +static int __init kcompressd_init(void)
-> > > +{
-> > > +       int ret;
-> > > +
-> > > +       nr_kcompressd =3D DEFAULT_NR_KCOMPRESSD;
-> > > +       queue_size_per_kcompressd =3D INIT_QUEUE_SIZE;
-> > > +
-> > > +       ret =3D kcompress_update();
-> > > +       if (ret) {
-> > > +               pr_err("Init kcompressd failed!\n");
-> > > +               return ret;
-> > > +       }
-> > > +
-> > > +       atomic_set(&enable_kcompressd, true);
-> > > +       blocking_notifier_call_chain(&kcompressd_notifier_list, 0,
-> > > NULL);
-> > > +       return 0;
-> > > +}
-> > > +
-> > > +static void __exit kcompressd_exit(void)
-> > > +{
-> > > +       atomic_set(&enable_kcompressd, false);
-> > > +       stop_all_kcompressd_thread();
-> > > +
-> > > +       kvfree(kcompress);
-> > > +       kvfree(kcompressd_para);
-> > > +}
-> > > +
-> > > +module_init(kcompressd_init);
-> > > +module_exit(kcompressd_exit);
-> > > +
-> > > +MODULE_LICENSE("Dual BSD/GPL");
-> > > +MODULE_AUTHOR("Qun-Wei Lin <qun-wei.lin@mediatek.com>");
-> > > +MODULE_DESCRIPTION("Separate the page compression from the memory
-> > > reclaiming");
-> > > +
-> > > diff --git a/drivers/block/zram/kcompressd.h
-> > > b/drivers/block/zram/kcompressd.h
-> > > new file mode 100644
-> > > index 000000000000..2fe0b424a7af
-> > > --- /dev/null
-> > > +++ b/drivers/block/zram/kcompressd.h
-> > > @@ -0,0 +1,25 @@
-> > > +/* SPDX-License-Identifier: GPL-2.0 */
-> > > +/*
-> > > + * Copyright (C) 2024 MediaTek Inc.
-> > > + */
-> > > +
-> > > +#ifndef _KCOMPRESSD_H_
-> > > +#define _KCOMPRESSD_H_
-> > > +
-> > > +#include <linux/rwsem.h>
-> > > +#include <linux/kfifo.h>
-> > > +#include <linux/atomic.h>
-> > > +
-> > > +typedef void (*compress_callback)(void *mem, struct bio *bio);
-> > > +
-> > > +struct kcompress {
-> > > +       struct task_struct *kcompressd;
-> > > +       wait_queue_head_t kcompressd_wait;
-> > > +       struct kfifo write_fifo;
-> > > +       atomic_t running;
-> > > +};
-> > > +
-> > > +int kcompressd_enabled(void);
-> > > +int schedule_bio_write(void *mem, struct bio *bio,
-> > > compress_callback cb);
-> > > +#endif
-> > > +
-> > > diff --git a/drivers/block/zram/zram_drv.c
-> > > b/drivers/block/zram/zram_drv.c
-> > > index 2e1a70f2f4bd..bcd63ecb6ff2 100644
-> > > --- a/drivers/block/zram/zram_drv.c
-> > > +++ b/drivers/block/zram/zram_drv.c
-> > > @@ -35,6 +35,7 @@
-> > >  #include <linux/part_stat.h>
-> > >  #include <linux/kernel_read_file.h>
-> > >
-> > > +#include "kcompressd.h"
-> > >  #include "zram_drv.h"
-> > >
-> > >  static DEFINE_IDR(zram_index_idr);
-> > > @@ -2240,6 +2241,15 @@ static void zram_bio_write(struct zram
-> > > *zram, struct bio *bio)
-> > >         bio_endio(bio);
-> > >  }
-> > >
-> > > +#if IS_ENABLED(CONFIG_KCOMPRESSD)
-> > > +static void zram_bio_write_callback(void *mem, struct bio *bio)
-> > > +{
-> > > +       struct zram *zram =3D (struct zram *)mem;
-> > > +
-> > > +       zram_bio_write(zram, bio);
-> > > +}
-> > > +#endif
-> > > +
-> > >  /*
-> > >   * Handler function for all zram I/O requests.
-> > >   */
-> > > @@ -2252,6 +2262,10 @@ static void zram_submit_bio(struct bio *bio)
-> > >                 zram_bio_read(zram, bio);
-> > >                 break;
-> > >         case REQ_OP_WRITE:
-> > > +#if IS_ENABLED(CONFIG_KCOMPRESSD)
-> > > +               if (kcompressd_enabled() &&
-> > > !schedule_bio_write(zram, bio, zram_bio_write_callback))
-> > > +                       break;
-> > > +#endif
-> > >                 zram_bio_write(zram, bio);
-> > >                 break;
-> > >         case REQ_OP_DISCARD:
-> > > @@ -2535,9 +2549,11 @@ static int zram_add(void)
-> > >  #if ZRAM_LOGICAL_BLOCK_SIZE =3D=3D PAGE_SIZE
-> > >                 .max_write_zeroes_sectors       =3D UINT_MAX,
-> > >  #endif
-> > > -               .features                       =3D
-> > > BLK_FEAT_STABLE_WRITES        |
-> > > -
-> > > BLK_FEAT_READ_SYNCHRONOUS     |
-> > > -
-> > > BLK_FEAT_WRITE_SYNCHRONOUS,
-> > > +               .features                       =3D
-> > > BLK_FEAT_STABLE_WRITES
-> > > +                                                 |
-> > > BLK_FEAT_READ_SYNCHRONOUS
-> > > +#if !IS_ENABLED(CONFIG_KCOMPRESSD)
-> > > +                                                 |
-> > > BLK_FEAT_WRITE_SYNCHRONOUS,
-> > > +#endif
-> > >         };
-> > >         struct zram *zram;
-> > >         int ret, device_id;
-> > > --
-> > > 2.45.2
-> > >
-> >
-
-Thanks
-Barry
+SGkgU2lkZGhhcnRoIQ0KDQpPbiBUdWUsIDIwMjUtMDMtMTEgYXQgMTE6NDIgKzA1MzAsIFNpZGRo
+YXJ0aCBWYWRhcGFsbGkgd3JvdGU6DQo+IEZyb206IFZpZ25lc2ggUmFnaGF2ZW5kcmEgPHZpZ25l
+c2hyQHRpLmNvbT4NCj4gDQo+IFJlZ2lzdGVyaW5nIHRoZSBpbnRlcnJ1cHRzIGZvciBUWCBvciBS
+WCBETUEgQ2hhbm5lbHMgcHJpb3IgdG8gcmVnaXN0ZXJpbmcNCj4gdGhlaXIgcmVzcGVjdGl2ZSBO
+QVBJIGNhbGxiYWNrcyBjYW4gcmVzdWx0IGluIGEgTlVMTCBwb2ludGVyIGRlcmVmZXJlbmNlLg0K
+PiBUaGlzIGlzIHNlZW4gaW4gcHJhY3RpY2UgYXMgYSByYW5kb20gb2NjdXJyZW5jZSBzaW5jZSBp
+dCBkZXBlbmRzIG9uIHRoZQ0KPiByYW5kb21uZXNzIGFzc29jaWF0ZWQgd2l0aCB0aGUgZ2VuZXJh
+dGlvbiBvZiB0cmFmZmljIGJ5IExpbnV4IGFuZCB0aGUNCj4gcmVjZXB0aW9uIG9mIHRyYWZmaWMg
+ZnJvbSB0aGUgd2lyZS4NCj4gDQo+IEZpeGVzOiA2ODFlYjJiZWIzZWYgKCJuZXQ6IGV0aGVybmV0
+OiB0aTogYW02NS1jcHN3OiBlbnN1cmUgcHJvcGVyIGNoYW5uZWwgY2xlYW51cCBpbiBlcnJvciBw
+YXRoIikNCg0KVGhlIHBhdGNoIFZpZ25lc2ggbWVudGlvbnMgaGVyZS4uLg0KDQo+IFNpZ25lZC1v
+ZmYtYnk6IFZpZ25lc2ggUmFnaGF2ZW5kcmEgPHZpZ25lc2hyQHRpLmNvbT4NCj4gQ28tZGV2ZWxv
+cGVkLWJ5OiBTaWRkaGFydGggVmFkYXBhbGxpIDxzLXZhZGFwYWxsaUB0aS5jb20+DQo+IFNpZ25l
+ZC1vZmYtYnk6IFNpZGRoYXJ0aCBWYWRhcGFsbGkgPHMtdmFkYXBhbGxpQHRpLmNvbT4NCj4gLS0t
+DQo+IA0KPiBIZWxsbywNCj4gDQo+IFRoaXMgcGF0Y2ggaXMgYmFzZWQgb24gY29tbWl0DQo+IDRk
+ODcyZDUxYmM5ZCBNZXJnZSB0YWcgJ3g4Ni11cmdlbnQtMjAyNS0wMy0xMCcgb2YgZ2l0Oi8vZ2l0
+Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9rZXJuZWwvZ2l0L3RpcC90aXANCj4gb2YgTWFpbmxp
+bmUgTGludXguDQo+IA0KPiBSZWdhcmRzLA0KPiBTaWRkaGFydGguDQo+IA0KPiDCoGRyaXZlcnMv
+bmV0L2V0aGVybmV0L3RpL2FtNjUtY3Bzdy1udXNzLmMgfCAxMiArKysrKystLS0tLS0NCj4gwqAx
+IGZpbGUgY2hhbmdlZCwgNiBpbnNlcnRpb25zKCspLCA2IGRlbGV0aW9ucygtKQ0KPiANCj4gZGlm
+ZiAtLWdpdCBhL2RyaXZlcnMvbmV0L2V0aGVybmV0L3RpL2FtNjUtY3Bzdy1udXNzLmMgYi9kcml2
+ZXJzL25ldC9ldGhlcm5ldC90aS9hbTY1LWNwc3ctbnVzcy5jDQo+IGluZGV4IDI4MDYyMzg2Mjlm
+OC4uZDUyOTEyODFjNzgxIDEwMDY0NA0KPiAtLS0gYS9kcml2ZXJzL25ldC9ldGhlcm5ldC90aS9h
+bTY1LWNwc3ctbnVzcy5jDQo+ICsrKyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L3RpL2FtNjUtY3Bz
+dy1udXNzLmMNCj4gQEAgLTIzMTQsNiArMjMxNCw5IEBAIHN0YXRpYyBpbnQgYW02NV9jcHN3X251
+c3NfbmRldl9hZGRfdHhfbmFwaShzdHJ1Y3QgYW02NV9jcHN3X2NvbW1vbiAqY29tbW9uKQ0KPiDC
+oAkJaHJ0aW1lcl9pbml0KCZ0eF9jaG4tPnR4X2hydGltZXIsIENMT0NLX01PTk9UT05JQywgSFJU
+SU1FUl9NT0RFX1JFTF9QSU5ORUQpOw0KPiDCoAkJdHhfY2huLT50eF9ocnRpbWVyLmZ1bmN0aW9u
+ID0gJmFtNjVfY3Bzd19udXNzX3R4X3RpbWVyX2NhbGxiYWNrOw0KPiDCoA0KPiArCQluZXRpZl9u
+YXBpX2FkZF90eChjb21tb24tPmRtYV9uZGV2LCAmdHhfY2huLT5uYXBpX3R4LA0KPiArCQkJCcKg
+IGFtNjVfY3Bzd19udXNzX3R4X3BvbGwpOw0KPiArDQo+IMKgCQlyZXQgPSBkZXZtX3JlcXVlc3Rf
+aXJxKGRldiwgdHhfY2huLT5pcnEsDQo+IMKgCQkJCcKgwqDCoMKgwqDCoCBhbTY1X2Nwc3dfbnVz
+c190eF9pcnEsDQo+IMKgCQkJCcKgwqDCoMKgwqDCoCBJUlFGX1RSSUdHRVJfSElHSCwNCj4gQEAg
+LTIzMjMsOSArMjMyNiw2IEBAIHN0YXRpYyBpbnQgYW02NV9jcHN3X251c3NfbmRldl9hZGRfdHhf
+bmFwaShzdHJ1Y3QgYW02NV9jcHN3X2NvbW1vbiAqY29tbW9uKQ0KPiDCoAkJCQl0eF9jaG4tPmlk
+LCB0eF9jaG4tPmlycSwgcmV0KTsNCj4gwqAJCQlnb3RvIGVycjsNCj4gwqAJCX0NCj4gLQ0KPiAt
+CQluZXRpZl9uYXBpX2FkZF90eChjb21tb24tPmRtYV9uZGV2LCAmdHhfY2huLT5uYXBpX3R4LA0K
+PiAtCQkJCcKgIGFtNjVfY3Bzd19udXNzX3R4X3BvbGwpOw0KDQouLi4gaGFzIGFjY291bnRlZCBm
+b3IgdGhlIGZhY3QgLi4uX25hcGlfYWRkXy4uLiBoYXBwZW5zIGFmdGVyIFtwb3NzaWJseSB1bnN1
+Y2Nlc3NmdWxdIHJlcXVlc3RfaXJxLA0KcGxlYXNlIGdyZXAgZm9yICJmb3IgKC0taSA7Ii4gSXMg
+aXQgbmVjZXNzYXJ5IHRvIGFkanVzdCBib3RoIGxvb3BzLCBpbiB0aGUgYmVsb3cgY2FzZSB0b28/
+DQoNCj4gwqAJfQ0KPiDCoA0KPiDCoAlyZXR1cm4gMDsNCj4gQEAgLTI1NjksNiArMjU2OSw5IEBA
+IHN0YXRpYyBpbnQgYW02NV9jcHN3X251c3NfaW5pdF9yeF9jaG5zKHN0cnVjdCBhbTY1X2Nwc3df
+Y29tbW9uICpjb21tb24pDQo+IMKgCQkJwqDCoMKgwqAgSFJUSU1FUl9NT0RFX1JFTF9QSU5ORUQp
+Ow0KPiDCoAkJZmxvdy0+cnhfaHJ0aW1lci5mdW5jdGlvbiA9ICZhbTY1X2Nwc3dfbnVzc19yeF90
+aW1lcl9jYWxsYmFjazsNCj4gwqANCj4gKwkJbmV0aWZfbmFwaV9hZGQoY29tbW9uLT5kbWFfbmRl
+diwgJmZsb3ctPm5hcGlfcngsDQo+ICsJCQnCoMKgwqDCoMKgwqAgYW02NV9jcHN3X251c3Nfcnhf
+cG9sbCk7DQo+ICsNCj4gwqAJCXJldCA9IGRldm1fcmVxdWVzdF9pcnEoZGV2LCBmbG93LT5pcnEs
+DQo+IMKgCQkJCcKgwqDCoMKgwqDCoCBhbTY1X2Nwc3dfbnVzc19yeF9pcnEsDQo+IMKgCQkJCcKg
+wqDCoMKgwqDCoCBJUlFGX1RSSUdHRVJfSElHSCwNCj4gQEAgLTI1NzksOSArMjU4Miw2IEBAIHN0
+YXRpYyBpbnQgYW02NV9jcHN3X251c3NfaW5pdF9yeF9jaG5zKHN0cnVjdCBhbTY1X2Nwc3dfY29t
+bW9uICpjb21tb24pDQo+IMKgCQkJZmxvdy0+aXJxID0gLUVJTlZBTDsNCj4gwqAJCQlnb3RvIGVy
+cl9mbG93Ow0KPiDCoAkJfQ0KPiAtDQo+IC0JCW5ldGlmX25hcGlfYWRkKGNvbW1vbi0+ZG1hX25k
+ZXYsICZmbG93LT5uYXBpX3J4LA0KPiAtCQkJwqDCoMKgwqDCoMKgIGFtNjVfY3Bzd19udXNzX3J4
+X3BvbGwpOw0KPiDCoAl9DQo+IMKgDQo+IMKgCS8qIHNldHVwIGNsYXNzaWZpZXIgdG8gcm91dGUg
+cHJpb3JpdGllcyB0byBmbG93cyAqLw0KDQotLSANCkFsZXhhbmRlciBTdmVyZGxpbg0KU2llbWVu
+cyBBRw0Kd3d3LnNpZW1lbnMuY29tDQo=
 
