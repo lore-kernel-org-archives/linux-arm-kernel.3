@@ -4,120 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D51C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:43:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30D6BC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:51:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=; b=16hHOPZmCEw+Uo2HqU+0WT45yh
-	008DM3K1uVrRzixj0oJUdIm6r7hvybmF4ZN3kLQCJYL1Ae1TM/spY2KDQFkvjZPRuRsOgALrBFoia
-	05I+S21uzUHU9rRZwIgG1sMqnjDDPh1jRQg4Ek/NFnyPoeUAQAB3bep0xcHRQBGa9i3hMOVCzAP/t
-	wXnU7oNoG7G9K3JTKzGjTu9TlqHDYRoKnF6d3cviXtKFUKZTQymFHIkXJlgg6/bKiXI6ng/GyzVPU
-	fad+IRFC7rddf5DtTLXNRTgNuqo2JyvKcOrzgKij1D/znKgqIywPvuEmOFM/YlW9igXPD8bXQNnsX
-	piTWg/NA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=15FhpTy16DxiOxuCUjxYZ7HE8WR5eqNgpOkZavgiv/I=; b=AlTrU29KoJXGaX5srtojqYNHl9
+	eYuyZvvi2S8DNr1kAo7z0pXg1wtRFKypBzvoPppvLWSA1/uN0crAGo4A67L2QfuABaal2RgWZ/j1g
+	lbvrqopGAaVJiV39mBx625ApctR1rm81CJxZqZVDvydiDjgH6zLJOSXy53zgI4MHEA6KXKTeAIxgp
+	hXMp5YtWGgV0EWDB3M7g/uv/Ja7AcAy/mxbKdwb40sIxN+ro1uE2ldXMC9stEZkIO2oSk2aLuN8f/
+	UCmGpeLoVMKlfq3VxZYC7HIqdTJuwj+WNdZIAFQfcnXFwuXl2JTEHbhLLlVOPRdHj1f3ZxZuJI0Uo
+	67jB5Nsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzt4-00000005rxA-0sWL;
-	Tue, 11 Mar 2025 13:43:14 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1ts00k-00000005sn1-3aai;
+	Tue, 11 Mar 2025 13:51:10 +0000
+Received: from mail-il1-x133.google.com ([2607:f8b0:4864:20::133])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzrP-00000005rhE-2u3f;
-	Tue, 11 Mar 2025 13:41:32 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ac2b10bea16so255272366b.0;
-        Tue, 11 Mar 2025 06:41:30 -0700 (PDT)
+	id 1trzz6-00000005sbC-1gxy
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 13:49:29 +0000
+Received: by mail-il1-x133.google.com with SMTP id e9e14a558f8ab-3cf880d90bdso16900975ab.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 06:49:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741700489; x=1742305289; darn=lists.infradead.org;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=;
-        b=FutUqZlvQG36z607dw3hW9Pka4y+AxmTKzvi15aRhWEy/ggcjUw1KsdrFvc8gqsVcH
-         MQ++ApfDldaQThgzy0KPJ11UOwJdMb5+6ecw5acCeVS2tJ28SER5LfWSKe88gU+YKQ6N
-         H9y93gV2RpJn6EkdsnYcIEO/xGQR122wkRGFu8curIZZOAJJBSOeas1GWPamLFu0Ym7P
-         tCFw+tsfJY0IrKkkQM4Z6N+aqqYhhyjlKP4k/3vIWXwYPOHu0cPVcXzMdZ2SjHJS7J7y
-         AmAlVrENoao2O7ONGjx7tYhYaw9ajN22gvCQD2su/BUPHFWTDNHLjO4OyxUw7IbjSuDs
-         stRw==
+        d=kernel-dk.20230601.gappssmtp.com; s=20230601; t=1741700967; x=1742305767; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=15FhpTy16DxiOxuCUjxYZ7HE8WR5eqNgpOkZavgiv/I=;
+        b=IC4Akn1USGGMIKUHjFqt20PBHjmYHG4CbBsWE8OzuxCl4sIX/9BJfNy5HIfbedhJDY
+         eRCxpac85kHI9OHdLD2K45nqTz3bSRc98gAsPaMOjfg2JsFFY/+tYEaxwbfvCE/xbAmF
+         m+AQz+zsZbVjSGI74mzQN0OdgNJeuqDjAQmEgE9O9mQ6Pk1cwHL0rPV5uJh3ORc035pD
+         7UjYhKSdmMcZCr84dwotzbXa+lzATcale7JTc+m+qKRNe8WpGMCK/PaAIY2pHRE0eB7I
+         HT8T5pCDaNDS38+acdGWZ+35dVNA5dRxe0+Q2YDK6+EMwc0AEbHv7Dr7Rcz6hjcRwEoS
+         Ex9g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741700489; x=1742305289;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=;
-        b=rtBwLjnfSJOj8lpyqPzfn0z2YVgjgy9rCWbtXC4MmqLk4/XRell3Uq6gDMdrhQMv1h
-         lqwmtasXpp0LPLHEcpZh3mx0bz0S5U21l1zXhD/s9dBeRMfzwYn2BxQKxPVDqtEYsIcD
-         7uUYypCu/sahd7Or+7vnWiiFZ9vJfBrvMwX52bGx5knGkfyVBPvPz4C40w1M0LyoCMjk
-         wm83iiWJQuyIEtBtqgNFNI1JWVqzDprQT1GsMr2FTTO4wqwh4Zc5qc6mgteZwgKCjdtw
-         l/5+IrNwPzFoXfwkSsU3mSbvauZO0SEXHe9Qx+AheVi7lRbjHkHbzkfxmaksv01f4Unh
-         Gevw==
-X-Forwarded-Encrypted: i=1; AJvYcCUcmoD4t9v+v619z8wqEF3TSvuGpnoaUkWHsQFojTNAmv1P0Hu1Y+gRpWbYuBF4O2jktCHFIQ==@lists.infradead.org, AJvYcCWBpHa0jkvrI7fB417mAKsV2Be3mkeEZfscJDY5y3zwsGFWWkgj59/NMb82y+4RY1n9flUhRSX0kwbh9INDnUQhaA==@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuvuQJbgfHKCWIm6LRtw3IYP+94Ydwh5CHWlxaDbHTPsyjqyiZ
-	QqVGZKKYZGJA8vRhkXEQYTr/4d26861Rf3dgyDp4TnwRMLFycogO
-X-Gm-Gg: ASbGncsrp6mE7jxTtd3tnauO00KB4fNAErXyPZKFgbsscBOQaCPyR51ZIgqyQixuipY
-	HMJwGKDEoYfWBjJRFChMdbYRXLrfL2k6mJj8Uy7AGnco5zZT+0jERoMAcNQXHA6jjv4n8goDLVQ
-	WF4mQmyBZ3T3QlfFCOMOt456OB3q1dzfeZlbYxXlW3apSmOVXbj9EMYzdbK2wKNxxqXFGH/j17C
-	DCvpUpnVHx04ohGLqaMSLBEAr8Oo1AFBASNteTKmD5ltDPSuE1hjWr/iA634qBrnqmZmmNQvTiR
-	sQ8gCoX/5ubkQSLxFpizVxvlfBzbZEUNp4qjyYepOq7u9bc2bUSiM6c=
-X-Google-Smtp-Source: AGHT+IEqvcT3nUuyCclAJyMA5I1jSzcLHsXRqFYyLbC3aVoohYneT0bwBO9KyAHB0hhKMZdf6pm4uw==
-X-Received: by 2002:a17:906:6a07:b0:ac2:c75d:f30a with SMTP id a640c23a62f3a-ac2c75dfff9mr258917866b.37.1741700488456;
-        Tue, 11 Mar 2025 06:41:28 -0700 (PDT)
-Received: from localhost ([185.92.221.13])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac287653d1esm481132766b.125.2025.03.11.06.41.27
-        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
-        Tue, 11 Mar 2025 06:41:27 -0700 (PDT)
-Date: Tue, 11 Mar 2025 13:41:26 +0000
-From: Wei Yang <richard.weiyang@gmail.com>
-To: Mike Rapoport <rppt@kernel.org>
-Cc: Wei Yang <richard.weiyang@gmail.com>, linux-kernel@vger.kernel.org,
-	Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <20250311134126.xfjdq6sq7jtcotck@master>
-References: <20250206132754.2596694-1-rppt@kernel.org>
- <20250206132754.2596694-3-rppt@kernel.org>
- <20250218155004.n53fcuj2lrl5rxll@master>
- <Z7WHL_Xqgoln9oLg@kernel.org>
- <20250223002229.xuk6xlp23zr72hkc@master>
- <20250310095124.pa7dwgqhxglqrfes@master>
- <Z8_Ju0p63GBCdSG9@kernel.org>
+        d=1e100.net; s=20230601; t=1741700967; x=1742305767;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=15FhpTy16DxiOxuCUjxYZ7HE8WR5eqNgpOkZavgiv/I=;
+        b=gxEnEibg+YFJXjZPzBNeT3e9XwokqAU6d5iYo8xVf+0crSUGASv42x/UBh/hbZ9K52
+         Ieq9PPzGrMq/nVZk+IHhfl71yKSuRmjhTZKKg6VvapN5NADolLBBmwqwRsBlttxAuN2s
+         E9rRPyx++stuZ+Mc8j/7Qc1bRD/YB7qnfPX79fslTq8htKWdNZH3a5Yd6mwFCLUkdjEb
+         i+TlkT1EIbH/LWg08LhrLFgEtT1znrrplu1HX5L0rEq4nYaQdF7/PYM5yiH4Mcrvuw3q
+         CgiMkze5yeQalMizcJgE9WsZE3v2MTlDofXR72kAjs69Cnto4q3DGuowAl3ZlPlY01Ff
+         1SZg==
+X-Forwarded-Encrypted: i=1; AJvYcCXSGSrsMACTUGaqTzHUPN4IFFP2mFHwUcFJq0HQMBne9jd57mR/tkr3WbsffySExBRTcEzHI6HHSqkMF1+oqlyG@lists.infradead.org
+X-Gm-Message-State: AOJu0YxcNYrisDDI9oVAWZU7jJCVMhAoztuQiexCDZXjDqau6A+Q64ip
+	WYgf3GT0D7gu4rP4eXaGIzKT1LG53+2SM4pdH5H5O1GxpBH8rSK+AgOv0s93cl4=
+X-Gm-Gg: ASbGnctc0GC2lG+u3n71fozokb8SKJi1d0GZNtIkGoHzjwC40cGc30YBw2qnixkj+wS
+	nvikIeSEJTAhgNXBeeeaRPK8+J+dwrF+Mxclfxfd/G/Uh5K0XxWsNUxGS6r5lIDXVKydB0nSiLG
+	ivihs8mCyvJVH+xxukeU0soEwDianFtqGjol5XpcziAegpcuMZrA/m2I4O75pnwjV1PameeLi+3
+	1AWV3UBg/DTkhYPLwuX49MC0r2ieqG90jPNidBd4SMtMckpQukErWQjIjcy/7XDyXoiUj1vCw1V
+	BaySXF0wtvhTh4pwmDGoeWCUNLbqDIDFcox4i62I
+X-Google-Smtp-Source: AGHT+IF9VOkMgxNVu1F60lVcFqCfcpKy9OE2LoUEIM37eUdSf+tjRuA17mWqs6+fEo7uJIQmp36ZSA==
+X-Received: by 2002:a05:6e02:174b:b0:3d4:2a4e:1272 with SMTP id e9e14a558f8ab-3d441a46c62mr203305475ab.19.1741700967289;
+        Tue, 11 Mar 2025 06:49:27 -0700 (PDT)
+Received: from [192.168.1.116] ([96.43.243.2])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-4f2221c1d6dsm1925186173.95.2025.03.11.06.49.25
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 06:49:26 -0700 (PDT)
+Message-ID: <3369329c-13ac-4b18-9923-1a24e1243035@kernel.dk>
+Date: Tue, 11 Mar 2025 07:49:25 -0600
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z8_Ju0p63GBCdSG9@kernel.org>
-User-Agent: NeoMutt/20170113 (1.7.2)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 0/2] block: nvme: fix blktests nvme/039 failure
+To: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>,
+ linux-block@vger.kernel.org, linux-nvme@lists.infradead.org,
+ Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@infradead.org>,
+ Sagi Grimberg <sagi@grimberg.me>, Alan Adamson <alan.adamson@oracle.com>
+Cc: virtualization@lists.linux.dev, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, Hannes Reinecke <hare@suse.de>,
+ "Michael S . Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Stefan Hajnoczi <stefanha@redhat.com>, Sven Peter <sven@svenpeter.dev>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>
+References: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
+Content-Language: en-US
+From: Jens Axboe <axboe@kernel.dk>
+In-Reply-To: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_064131_730753_43962FEE 
-X-CRM114-Status: GOOD (  29.71  )
+X-CRM114-CacheID: sfid-20250311_064928_448490_3EAFE0B0 
+X-CRM114-Status: GOOD (  12.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,117 +104,27 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 07:27:23AM +0200, Mike Rapoport wrote:
->Hi Wei,
->
->On Mon, Mar 10, 2025 at 09:51:24AM +0000, Wei Yang wrote:
->> On Sun, Feb 23, 2025 at 12:22:29AM +0000, Wei Yang wrote:
->> >On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
->> >>Hi,
->> >>
->> >>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
->> >>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
->> >>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
->> >>> >
->> >>> >to denote areas that were reserved for kernel use either directly with
->> >>> >memblock_reserve_kern() or via memblock allocations.
->> >>> >
->> >>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
->> >>> >---
->> >>> > include/linux/memblock.h | 16 +++++++++++++++-
->> >>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
->> >>> > 2 files changed, 39 insertions(+), 9 deletions(-)
->> >>> >
->> >>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
->> >>> >index e79eb6ac516f..65e274550f5d 100644
->> >>> >--- a/include/linux/memblock.h
->> >>> >+++ b/include/linux/memblock.h
->> >>> >@@ -50,6 +50,7 @@ enum memblock_flags {
->> >>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
->> >>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
->> >>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
->> >>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
->> >>> 
->> >>> Above memblock_flags, there are comments on explaining those flags.
->> >>> 
->> >>> Seems we miss it for MEMBLOCK_RSRV_KERN.
->> >>
->> >>Right, thanks!
->> >> 
->> >>> > 
->> >>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
->> >>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
->> >>> > again:
->> >>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
->> >>> > 					    flags);
->> >>> >-	if (found && !memblock_reserve(found, size))
->> >>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
->> >>> 
->> >>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
->> >>> correct, the reserved region's nid is not used.
->> >>
->> >>We use nid of reserved regions in reserve_bootmem_region() (commit
->> >>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
->> >>know the distribution of reserved memory among the nodes before
->> >>memmap_init_reserved_pages().
->> >> 
->> >
->> >I took another look into this commit. There maybe a very corner case in which
->> >will leave a reserved region with no nid set.
->> >
->> >memmap_init_reserved_pages()
->> >    for_each_mem_region() {
->> >        ...
->> >	memblock_set_node(start, end, &memblock.reserved, nid);
->> >    }
->> >
->> >We leverage the iteration here to set nid to all regions in memblock.reserved.
->> >But memblock_set_node() may call memblock_double_array() to expand the array,
->> >which may get a range before current start. So we would miss to set the
->> >correct nid to the new reserved region.
->> >
->> >I have tried to create a case in memblock test. This would happen when there
->> >are 126 memblock.reserved regions. And the last region is across the last two
->> >node.
->> >
->> >One way to fix this is compare type->max in memblock_set_node(). Then check
->> >this return value in memmap_init_reserved_pages(). If we found the size
->> >changes, repeat the iteration.
->> >
->> >But this is a very trivial one, not sure it worth fix.
->> >
->> 
->> Hi, Mike
->> 
->> I have done a user space test which shows we may have a chance to leave a
->> region with non-nid set.
->> 
->> Not sure you are ok with my approach of fixing.
->
->Wouldn't it be better to check for a change in reserved.max in
->memmap_init_reserved_pages()?
+On 3/11/25 4:43 AM, Shin'ichiro Kawasaki wrote:
+> Commit 1f47ed294a2b ("block: cleanup and fix batch completion adding
+> conditions") in the kernel tag v6.14-rc3 triggered blktests nvme/039
+> failure [1].
 > 
+> The test case injects errors to the NVMe driver and confirms the errors
+> are logged. The first half of the test checks it for non-passthrough
+> requests, and the second half checks for passthrough requests. The
+> commit made both halves fail.
+> 
+> This series addresses the test case failure. The first patch covers the
+> passthrough requests, and the second patch covers the non-passthrough
+> requests.
 
-Sounds better.
-
-Previously I thought we need to hide detail from user, but actually it is
-already in memblock.c :-)
-
-If you agree, I would like to prepare a fix.
-
->> -- 
->> Wei Yang
->> Help you, Help me
->
->-- 
->Sincerely yours,
->Mike.
+Looks good to me, and better than the quick fix-up for the problem.
+Thanks for taking the time to do it right!
 
 -- 
-Wei Yang
-Help you, Help me
+Jens Axboe
+
 
