@@ -4,102 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A96A7C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:27:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A737C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:28:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=14J+e5VuAf8KWTYGvfdl7Up5l3cKOJfv7HHosoMS/QI=; b=WFewY3VAijK1fS5IPh6vJzlAVo
-	zW432KiM5lD1uWZGyLpby+oSzjAb0P3H9TVQ9C797eGbrskol+U3l7KPjmEoGScH1mXjFvRieJNDa
-	+u9uCnCYycU422VPhc2V6yDGGIEDcwqIsbJYe49oDnZdm3/e2PHUkKPFRIIWdpB3zQsFe2kaL8pyN
-	a7m74/Siv9istzwArlcJvvCxlVWNEux+mnnQkJizPbdYo+3svwRw9G50keGnLg300pq+bFiczss/M
-	a0lfBnwQY69pc09WPxCRaCNRLs7j/kKefjc+B0uhdfCz3n2M1UxKKKis34+N2bQXP67fpVJce5/vE
-	JYPnxVxw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=amwnjhquihQlw3rFST7jVWbfUF1Yah8j1kpH8njxrZY=; b=EOrhOdlaOnMNuC+1Lti0Vw1LDK
+	l/mT3Ezc3uaYvBlwxoV+gkPk+JlOmu+d21JSlvWpmAJfHiBHY4UO+j0vb6DwkReKksaqO1g8egVuo
+	ubLDRxS/NAQP0YDhbpSQidM1o1hvpSk+6WVux2TaHrAXN94ZfBitLKU/Ogg9NJViZgs4Xf7AX0raU
+	t5H6VVWa3GIW8O5uZ515tgyZoUP1ln8XbHgfE1p1TSJGGckFyOkXAzMH48zeC0fvY6V1g9ZuPEOP7
+	xPplxobmJm6uigqNsI0gU8r8Rg/algsc3P5tmG/5HjWWJvaMU415itTtiyPvIMwCa2UXMlE1nxwxQ
+	gbTxI2Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru12-00000004pSP-2s2p;
-	Tue, 11 Mar 2025 07:27:04 +0000
-Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
+	id 1tru2e-00000004piM-1Ggl;
+	Tue, 11 Mar 2025 07:28:44 +0000
+Received: from mail-pj1-f50.google.com ([209.85.216.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trtzN-00000004pDp-3Pao;
-	Tue, 11 Mar 2025 07:25:22 +0000
-Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-51eb181331bso2361447e0c.0;
-        Tue, 11 Mar 2025 00:25:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741677920; x=1742282720; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=14J+e5VuAf8KWTYGvfdl7Up5l3cKOJfv7HHosoMS/QI=;
-        b=AZ8s1rLE/W9sQ1xKxfyJDH40LNuqY46nU0xyAhBOYDmZtKvoliD2FSNxEC/NKiR0uT
-         CR6e1U5g1tuWOWn8CEInhyrlhiHyydbjx5V4nmZhHnbRn3Yf8FxKAoQuQ0B60omhkeod
-         OgFWdq9/nB5YE95s61w7yMSxWvS020v3S6P8sRx4Nk+XO7F2ZYvgF9WJ/enZ6zfAlWGp
-         EfKo9jqbXOjxH3e3j4y0q8eO9A+EZ7mNHTfTCoWXs0CZb2i5tst0oEsnllw7HCSbPWrD
-         K00K3u0nXYeYANd/b6PFQzm2EG34SYyBVEE1zes6OC2OeHHqU9G2xTKF7mb/TU7UnyK6
-         G6tg==
+	id 1trtzp-00000004pIw-1HVT
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 07:25:50 +0000
+Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-2ff694d2d4dso7330447a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741677920; x=1742282720;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=14J+e5VuAf8KWTYGvfdl7Up5l3cKOJfv7HHosoMS/QI=;
-        b=KNa8fcrP1MLx+P7eZ54vzQj7RJFL/H+Ad/bdlQHgi2uuQ8k8jIpmnpwzIqObOE7yEM
-         UdmfGK7iTvDe7dh8xfHUQ34jrd1LJGlNug2TB7xGLBHKiz/AgACbjv0MiYd810b1H+BP
-         +wuRmlwi3aGi/WVuDxMVcoglW2BIxACByxxKwhOIkvyIYuyINWDn40/6pmEPk8cr6ueu
-         rk/2j+ZBpQdbhemq6cgstKlgmJjiRsBaJrwZ5Sc9W1qjGfVFvA6EwcvlGn0DqBT7zoot
-         BzAD61+8U/YxI5Fz7uLhtSUTuMEc+sg9f70cOjOay6Kk4MWNhgoTMlCkkxTtAtlRqwzJ
-         Ko5w==
-X-Forwarded-Encrypted: i=1; AJvYcCUCVxz8xrP2rfmG4qXjqcxiRZldfJ82opiY0bOiarxHUbBJDi7m02Mi2ULK5AcPf8aw31ub18g731ZFUdpJ6S0=@lists.infradead.org, AJvYcCW+j4csb9ELgLggMgIFmoW0XaSQCy9bUOweds7/IOiOy5uk5AF82wZ8wAyvn5xCjYKakCY8pt0mpCWsiqJXT2bF@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywe/warlQQAMiYGlNexGJLGB4uj1d+158X8sRZ5qbtEFdQkGVBy
-	K8COM8U4O0lKuN3Cupg2pn6ZaoYdthB6eSWVsazXeYB0CWY45d2qQeK3FJcOfncnMJQDMh1ZAHN
-	LsMic7qbjyDSrXv9l/SFMlmXG/t4=
-X-Gm-Gg: ASbGnct2aZNSZpNVoASudSTFrtUsT2OmRCZ9BqKfVa+CZYYiJy/0ddpJhTQ9ibIAcpj
-	Imhsg3cHK/JqFQFCGbGpAIrqEgGjleYFejrYg/N+hkViPlcFQHR/hWE/bo5DgoZTDSPzdkX7DJ6
-	EBabDb8G/wJ1NS9xK6oL5d7In0RQf+XWeFW25B
-X-Google-Smtp-Source: AGHT+IFsyBlzqjw152fKM+F/V/k1af7P7Im6Vh9k8Vu1jHuGXnkPe4wU95quHjQWRTZpr4F4NdrxAPjlRVLxhAwp+VQ=
-X-Received: by 2002:a05:6122:2189:b0:520:5a87:6708 with SMTP id
- 71dfb90a1353d-523e3d9bfbfmr8599088e0c.0.1741677920409; Tue, 11 Mar 2025
- 00:25:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741677948; x=1742282748;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=amwnjhquihQlw3rFST7jVWbfUF1Yah8j1kpH8njxrZY=;
+        b=ZtcWjzgGNQk0OSFCkUE+9LcL7v0Njf6Ju9x+bxgDwIukOrdRuEew4VFe6O4B+mAFda
+         /wNJQXwvK5R29OUl1ZxSNdYNTqSxqpX3jxz+LvEHvE8rfJB+U/gOip6uGx5lxTs96P2L
+         zsg+/O3nNvSSuz6jFt5qgjYkEL/nSF1m/gqobG8pnydLT7oRQbpI7tzEQlYJxSAqGJEi
+         NlG5DjWtemNwcPFApUVNjFYQi+fib+GYFK6tOd+EG5ceNxLtRuB0htsxvaY3sqR5UcJ0
+         v0KVzYaNUtAAMgISrcSox+ZRaj5WLcWp45O57GEiOf+E2ILiGMuv95CLkbeKBtz6lDEk
+         StUQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoBl1viFiPJuykgsk6jQV83upv45gJUbYD6uUdPpCdGG9GslWEs7ZgRC6z0MBs2wg+rUKfWf9h/kUQmN+4/LpN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz72IaYoq31NzHaKDrroFPcX2Mu+PgMtN3TlQqY/SZk6saZfQm+
+	Y5rj5oHvbgzRQ14XYGXR5nG7Ym4RMDCLJrPkwATUFGS8/1f5GymHeoAoyzf2xDw=
+X-Gm-Gg: ASbGnctO/kw/1DJFkZmSr3prb/vm6vOzyu/NwveZEQ8FlCtXz7qQdVrUq5E6ezF1SRU
+	oiTfUjVCyzRR0solqx0R+zSjyu/o93cDA2dRRO3uTcNU+be67tA/pW3uFyZIQ39Z9L1d9S0VQHl
+	fmRzjPI1QZ4J6fzMpZWAotcpgmRJDK27BJdtn/7t/dWQmb6XdtHd2ww7Wsuz/clK7GirDG7o4ix
+	kpaR28ZwPPInnVvuuhGWRIctU9TfsO6bOpGI9cDwdexhw8rkotiYyVFt5tRFwEe2EBmUxrNg80x
+	58eu0rzEE+/UOSQ8gZW20IfpEhbyjr5bqCL3aYQcqqXHulXRpn+e/spY+eYpo0jWnZECqcLd8jf
+	eJk0=
+X-Google-Smtp-Source: AGHT+IFHY5f+4sJatR6BI17Adi4AuhVFX9pxsgEfHSvv5C3l/7gBr81/pwoEGMGBCuJ7SqKtWyZgYw==
+X-Received: by 2002:a17:90a:d450:b0:2ff:5ed8:83d0 with SMTP id 98e67ed59e1d1-2ff7ce91ff0mr28909573a91.16.1741677948459;
+        Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
+Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
+        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-301034433e9sm909027a91.1.2025.03.11.00.25.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
+Date: Tue, 11 Mar 2025 16:25:46 +0900
+From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, vigneshr@ti.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, rogerq@kernel.org, linux-omap@vger.kernel.org,
+	linux-pci@vger.kernel.org, stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
+ J784S4
+Message-ID: <20250311072546.GA277060@rocinante>
+References: <20250305132018.2260771-1-s-vadapalli@ti.com>
+ <20250310210746.GA2377483@rocinante>
+ <20250311051806.smcu4o4dxpngimth@uda0492258>
 MIME-Version: 1.0
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
- <20250307120141.1566673-3-qun-wei.lin@mediatek.com> <CAGsJ_4xtp9iGPQinu5DOi3R2B47X9o=wS94GdhdY-0JUATf5hw@mail.gmail.com>
- <7938f840136165be1c50050feb39fb14ee37721b.camel@mediatek.com> <CAGsJ_4zzZdjbr2DbRybHYDmL2EuUBohOP1=ho7fjx1XWoKDDGw@mail.gmail.com>
-In-Reply-To: <CAGsJ_4zzZdjbr2DbRybHYDmL2EuUBohOP1=ho7fjx1XWoKDDGw@mail.gmail.com>
-From: Barry Song <21cnbao@gmail.com>
-Date: Tue, 11 Mar 2025 20:25:09 +1300
-X-Gm-Features: AQ5f1JpKxaLImM0wsAF8CYe72YVs87H6q9d9biQ7imNBdrvywmaFTR6ikJ3uks4
-Message-ID: <CAGsJ_4yuyJc_-Ods-um_jtAgFFJ_qJi1=b8Kf-_ngU0UHjMQYA@mail.gmail.com>
-Subject: Re: [PATCH 2/2] kcompressd: Add Kcompressd for accelerated zram compression
-To: =?UTF-8?B?UXVuLXdlaSBMaW4gKOael+e+pOW0tCk=?= <Qun-wei.Lin@mediatek.com>
-Cc: =?UTF-8?B?QW5kcmV3IFlhbmcgKOaliuaZuuW8tyk=?= <Andrew.Yang@mediatek.com>, 
-	=?UTF-8?B?Q2FzcGVyIExpICjmnY7kuK3mpq4p?= <casper.li@mediatek.com>, 
-	"chrisl@kernel.org" <chrisl@kernel.org>, =?UTF-8?B?SmFtZXMgSHN1ICjlvpDmhbbolrAp?= <James.Hsu@mediatek.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>, 
-	"ira.weiny@intel.com" <ira.weiny@intel.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>, 
-	"dave.jiang@intel.com" <dave.jiang@intel.com>, 
-	"schatzberg.dan@gmail.com" <schatzberg.dan@gmail.com>, 
-	=?UTF-8?B?Q2hpbndlbiBDaGFuZyAo5by16Yym5paHKQ==?= <chinwen.chang@mediatek.com>, 
-	"viro@zeniv.linux.org.uk" <viro@zeniv.linux.org.uk>, "ryan.roberts@arm.com" <ryan.roberts@arm.com>, 
-	"minchan@kernel.org" <minchan@kernel.org>, "axboe@kernel.dk" <axboe@kernel.dk>, 
-	"linux-block@vger.kernel.org" <linux-block@vger.kernel.org>, "kasong@tencent.com" <kasong@tencent.com>, 
-	"nvdimm@lists.linux.dev" <nvdimm@lists.linux.dev>, 
-	"vishal.l.verma@intel.com" <vishal.l.verma@intel.com>, 
-	"matthias.bgg@gmail.com" <matthias.bgg@gmail.com>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"ying.huang@intel.com" <ying.huang@intel.com>, 
-	"senozhatsky@chromium.org" <senozhatsky@chromium.org>, 
-	"dan.j.williams@intel.com" <dan.j.williams@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250311051806.smcu4o4dxpngimth@uda0492258>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_002521_856653_484BBA85 
-X-CRM114-Status: GOOD (  41.16  )
+X-CRM114-CacheID: sfid-20250311_002549_342330_37A6AD52 
+X-CRM114-Status: GOOD (  21.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,122 +93,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 8:05=E2=80=AFPM Barry Song <21cnbao@gmail.com> wrot=
-e:
->
-> On Tue, Mar 11, 2025 at 2:26=E2=80=AFAM Qun-wei Lin (=E6=9E=97=E7=BE=A4=
-=E5=B4=B4)
-> <Qun-wei.Lin@mediatek.com> wrote:
-> >
-> > On Sat, 2025-03-08 at 08:41 +1300, Barry Song wrote:
-> > >
-> > > External email : Please do not click links or open attachments until
-> > > you have verified the sender or the content.
-> > >
-> > >
-> > > On Sat, Mar 8, 2025 at 1:02=E2=80=AFAM Qun-Wei Lin <qun-wei.lin@media=
-tek.com>
-> > > wrote:
-> > > >
-> > > > Introduced Kcompressd to offload zram page compression, improving
-> > > > system efficiency by handling compression separately from memory
-> > > > reclaiming. Added necessary configurations and dependencies.
-> > > >
-> > > > Signed-off-by: Qun-Wei Lin <qun-wei.lin@mediatek.com>
-> > > > ---
-> > > >  drivers/block/zram/Kconfig      |  11 ++
-> > > >  drivers/block/zram/Makefile     |   3 +-
-> > > >  drivers/block/zram/kcompressd.c | 340
-> > > > ++++++++++++++++++++++++++++++++
-> > > >  drivers/block/zram/kcompressd.h |  25 +++
-> > > >  drivers/block/zram/zram_drv.c   |  22 ++-
-> > > >  5 files changed, 397 insertions(+), 4 deletions(-)
-> > > >  create mode 100644 drivers/block/zram/kcompressd.c
-> > > >  create mode 100644 drivers/block/zram/kcompressd.h
-> > > >
-> > > > diff --git a/drivers/block/zram/Kconfig
-> > > > b/drivers/block/zram/Kconfig
-> > > > index 402b7b175863..f0a1b574f770 100644
-> > > > --- a/drivers/block/zram/Kconfig
-> > > > +++ b/drivers/block/zram/Kconfig
-> > > > @@ -145,3 +145,14 @@ config ZRAM_MULTI_COMP
-> > > >           re-compress pages using a potentially slower but more
-> > > > effective
-> > > >           compression algorithm. Note, that IDLE page recompression
-> > > >           requires ZRAM_TRACK_ENTRY_ACTIME.
-> > > > +
-> > > > +config KCOMPRESSD
-> > > > +       tristate "Kcompressd: Accelerated zram compression"
-> > > > +       depends on ZRAM
-> > > > +       help
-> > > > +         Kcompressd creates multiple daemons to accelerate the
-> > > > compression of pages
-> > > > +         in zram, offloading this time-consuming task from the
-> > > > zram driver.
-> > > > +
-> > > > +         This approach improves system efficiency by handling page
-> > > > compression separately,
-> > > > +         which was originally done by kswapd or direct reclaim.
-> > >
-> > > For direct reclaim, we were previously able to compress using
-> > > multiple CPUs
-> > > with multi-threading.
-> > > After your patch, it seems that only a single thread/CPU is used for
-> > > compression
-> > > so it won't necessarily improve direct reclaim performance?
-> > >
-> >
-> > Our patch only splits the context of kswapd. When direct reclaim is
-> > occurred, it is bypassed, so direct reclaim remains unchanged, with
-> > each thread that needs memory directly reclaiming it.
->
-> Qun-wei, I=E2=80=99m getting a bit confused. Looking at the code in page_=
-io.c,
-> you always call swap_writepage_bdev_async() no matter if it is kswapd
-> or direct reclaim:
->
-> - else if (data_race(sis->flags & SWP_SYNCHRONOUS_IO))
-> + else if (data_race(sis->flags & SWP_WRITE_SYNCHRONOUS_IO))
->            swap_writepage_bdev_sync(folio, wbc, sis);
->   else
->             swap_writepage_bdev_async(folio, wbc, sis);
->
-> In zram, I notice you are bypassing kcompressd by:
->
-> + if (!nr_kcompressd || !current_is_kswapd())
-> +        return -EBUSY;
->
-> How will this work if no one is calling __end_swap_bio_write(&bio),
-> which is present in swap_writepage_bdev_sync()?
-> Am I missing something? Or is it done by zram_bio_write() ?
->
-> On the other hand, zram is a generic block device, and coupling its
-> code with kswapd/direct reclaim somehow violates layering
-> principles :-)
->
-> >
-> > > Even for kswapd, we used to have multiple threads like [kswapd0],
-> > > [kswapd1],
-> > > and [kswapd2] for different nodes. Now, are we also limited to just
-> > > one thread?
-> >
-> > We only considered a single kswapd here and didn't account for multiple
-> > instances. Since I use kfifo to collect the bios, if there are multiple
-> > kswapds, we need to add a lock to protect the bio queue. I can revise
-> > this in the 2nd version, or do you have any other suggested approaches?
->
-> I'm wondering if we can move the code to vmscan/page_io instead
-> of zram. If we're using a sync I/O swap device or have enabled zswap,
-> we could run reclamation in this separate thread, which should also be
+Hello,
 
-Sorry for the typo:
-s/reclamation/__swap_writepage/g
+> > > Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
+> > > expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
+> > > already reuse this macro since it accurately represents the link-state
+> > > field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
+> > 
+> > Can you confirm for me that the following use the correct macro?
+> > 
+> >   333-static const struct j721e_pcie_data j721e_pcie_rc_data = {
+> >   337:	.linkdown_irq_regfield = LINK_DOWN,
+> >   
+> >   341-static const struct j721e_pcie_data j721e_pcie_ep_data = {
+> >   343:	.linkdown_irq_regfield = LINK_DOWN,
+> >   
+> >   347-static const struct j721e_pcie_data j7200_pcie_rc_data = {
+> >   350:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> >   
+> >   362-static const struct j721e_pcie_data am64_pcie_rc_data = {
+> >   364:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> >   
+> >   369-static const struct j721e_pcie_data am64_pcie_ep_data = {
+> >   371:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> >   
+> >   375-static const struct j721e_pcie_data j784s4_pcie_rc_data = {
+> >   379:	.linkdown_irq_regfield = LINK_DOWN,
+> >   
+> >   383-static const struct j721e_pcie_data j784s4_pcie_ep_data = {
+> >   385:	.linkdown_irq_regfield = LINK_DOWN,
+> >   
+> >   389-static const struct j721e_pcie_data j722s_pcie_rc_data = {
+> >   391:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> > 
+> > I am asking as some use LINK_DOWN, so I wanted to make sure.
+> 
+> Yes, the above are accurate except for J784S4 which is fixed by this
+> patch. LINK_DOWN i.e. BIT(1) is applicable only to J721E which was the
+> first SoC after which the driver has been named. For all other SoCs, the
+> integration of the PCIe Controller into the SoC led to BIT(10) of the
+> register being used to indicate the link status.
 
-> NUMA-aware.
->
-> I would definitely be interested in prototyping it when I have the time.
->
+Sounds good!  Thank you for letting me know.
 
-Thanks
-Barry
+> > Tht said, the following has no .linkdown_irq_regfield property set:
+> > 
+> >   355-static const struct j721e_pcie_data j7200_pcie_ep_data = {
+> >   356-	.mode = PCI_MODE_EP,
+> >   357-	.quirk_detect_quiet_flag = true,
+> >   358-	.quirk_disable_flr = true,
+> >   359-	.max_lanes = 2,
+> >   360-};
+> > 
+> > Would this be a problem?  Or is this as expected?
+> 
+> Thank you for pointing this out. This has to be fixed and the
+> "linkdown_irq_regfield" member has to be added to match
+> j7200_pcie_rc_data. I will post the fix for this.
+
+No need to send a new version.
+
+I will update the branch directly when I pull the patch.  Not to worry.
+
+Thank you!
+
+	Krzysztof
 
