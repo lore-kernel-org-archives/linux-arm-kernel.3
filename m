@@ -4,54 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC79C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:18:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A13C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JKkAW0UIzqm6r4vB92ZekbOgf936keSki2pNmwT0r9k=; b=kkf2TZzaSLBRR5lZJgwjoLfVeC
-	YqP0F/YmiIKxEBlBNl/LrJWbdWBBOoAaFBRs8mJPeUui2q9W21g6RgO6zfGgEkL3hp8RQn8OGoyAV
-	9O4zW0TzZgot+0hUmmvBLbzar2i+pdrEuPJT1+BYpNunvS49b/RwyZBzGpblYlovEank+197V+8D8
-	qTDI22KTBkw/YwPa0JvNN+Ugm//+ddbnhCfUv6UtEFRLXCtxZAXT24bd424ngiaR8heZ4w1axWKO0
-	oeH2iKf7ivlLRaZng+eR0EerUK3BHeGLXAMPAUbh7Jht8U2zvkKfCPu8lQagJqi5ngS2i93Dzxlgx
-	4aAljqcQ==;
+	bh=qFnSX2KTr0k/JpY3eMOlcXYP3G68WqDAGo3AvBQ3g7E=; b=AmKCxnB4/t9eOshBuLo3y4y2/v
+	1fDpI04ZskKI6sAyq9vMrP1ief92u6bdpuwsi8ikpZP3RteXBG73nOA1aRvlRfEHPnMypHPdq4kQ7
+	L4pkbiJs6OtbvKEZRl5XZHzepGs3ScnTuwNfyuenad0NJs/kk/mxpnBPyYa/6iDpcKtQbqW6pAlIn
+	waDkyMciSl/ZA9JfA7wF9eH1FarauTtEDjIgSLGMfFcQ7rnijXq+Jy9SxVOjvd49A0VkYUYWe6mMS
+	xwM/FqapQfRZO4edWM0E82AKQQ0LUO+NtEYFgeV8/hY601SXmdodQzoN5G7Uyi5lo2WwI4Fx6OP4o
+	wd4iU8TA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1NE-000000066l5-2L1B;
-	Tue, 11 Mar 2025 15:18:28 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ts1PB-0000000676n-0Me3;
+	Tue, 11 Mar 2025 15:20:29 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1KI-000000066IP-0qT7
+	id 1ts1NV-000000066qK-1vzo
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:15:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 47F845C64BB;
-	Tue, 11 Mar 2025 15:13:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE924C4CEE9;
-	Tue, 11 Mar 2025 15:15:22 +0000 (UTC)
-Date: Tue, 11 Mar 2025 15:15:20 +0000
-From: Catalin Marinas <catalin.marinas@arm.com>
-To: Madhavan Srinivasan <maddy@linux.ibm.com>
-Cc: shuah@kernel.org, mpe@ellerman.id.au, npiggin@gmail.com,
-	christophe.leroy@csgroup.eu, naveen@kernel.org,
-	yury.khrustalev@arm.com, linux-arm-kernel@lists.infradead.org,
-	linux-kselftest@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
-	Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-Subject: Re: [PATCH] selftest/powerpc/mm/pkey: fix build-break introduced by
- commit 00894c3fc917
-Message-ID: <Z9BTiOh6DkstKZ53@arm.com>
-References: <20250311084129.39308-1-maddy@linux.ibm.com>
+	Tue, 11 Mar 2025 15:18:47 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFIZVO1325000
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 10:18:35 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741706315;
+	bh=qFnSX2KTr0k/JpY3eMOlcXYP3G68WqDAGo3AvBQ3g7E=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=KpjTR1Il84Ht/Nz19XHRYNAX0ZPVuAQe/qi7rRJN7Qt0lF3EmKQzT434dTg5XzHsZ
+	 vLpe2ZZ9vx74v+wSoEUMEMonRAoVYcyiorUYjgENBpfuU8irJ8lZAYa5N0/Ly5e9UP
+	 1wB81AnIfHlM5D+N0n/9WCDk5DTTm5VypVIDklw0=
+Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFIZgZ073265
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 10:18:35 -0500
+Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 10:18:34 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
+ (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 10:18:34 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BFIXYx002158;
+	Tue, 11 Mar 2025 10:18:34 -0500
+Date: Tue, 11 Mar 2025 20:48:33 +0530
+From: "s-vadapalli@ti.com" <s-vadapalli@ti.com>
+To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
+CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+        "s-vadapalli@ti.com"
+	<s-vadapalli@ti.com>,
+        "davem@davemloft.net" <davem@davemloft.net>,
+        "dan.carpenter@linaro.org" <dan.carpenter@linaro.org>,
+        "jpanis@baylibre.com"
+	<jpanis@baylibre.com>,
+        "c-vankar@ti.com" <c-vankar@ti.com>,
+        "pabeni@redhat.com" <pabeni@redhat.com>,
+        "horms@kernel.org"
+	<horms@kernel.org>,
+        "edumazet@google.com" <edumazet@google.com>,
+        "rogerq@kernel.org" <rogerq@kernel.org>,
+        "kuba@kernel.org" <kuba@kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "vigneshr@ti.com" <vigneshr@ti.com>,
+        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "srk@ti.com"
+	<srk@ti.com>
+Subject: Re: [PATCH net v2] net: ethernet: ti: am65-cpsw: Fix NAPI
+ registration sequence
+Message-ID: <20250311151833.v3gymfqao4y2zls7@uda0492258>
+References: <20250311130103.68971-1-s-vadapalli@ti.com>
+ <02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250311084129.39308-1-maddy@linux.ibm.com>
+In-Reply-To: <02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_081526_295267_1713B450 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250311_081845_632536_CE6EFD20 
+X-CRM114-Status: GOOD (  28.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,39 +105,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Madhavan,
+On Tue, Mar 11, 2025 at 01:53:10PM +0000, Sverdlin, Alexander wrote:
+> Hi Siddharth!
+> 
+> On Tue, 2025-03-11 at 18:31 +0530, Siddharth Vadapalli wrote:
+> > From: Vignesh Raghavendra <vigneshr@ti.com>
+> > 
+> > Registering the interrupts for TX or RX DMA Channels prior to registering
+> > their respective NAPI callbacks can result in a NULL pointer dereference.
+> > This is seen in practice as a random occurrence since it depends on the
+> > randomness associated with the generation of traffic by Linux and the
+> > reception of traffic from the wire.
+> > 
+> > Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
+> > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+> > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+> 
+> ...
+> 
+> > v1 of this patch is at:
+> > https://lore.kernel.org/all/20250311061214.4111634-1-s-vadapalli@ti.com/
+> > Changes since v1:
+> > - Based on the feedback provided by Alexander Sverdlin <alexander.sverdlin@siemens.com>
+> >   the patch has been updated to account for the cleanup path in terms of an imbalance
+> >   between the number of successful netif_napi_add_tx/netif_napi_add calls and the
+> >   number of successful devm_request_irq() calls. In the event of an error, we will
+> >   always have one extra successful netif_napi_add_tx/netif_napi_add that needs to be
+> >   cleaned up before we clean an equal number of netif_napi_add_tx/netif_napi_add and
+> >   devm_request_irq.
+> 
+> ...
+> 
+> > --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+> > @@ -2569,6 +2570,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+> >  			     HRTIMER_MODE_REL_PINNED);
+> >  		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
+> >  
+> > +		netif_napi_add(common->dma_ndev, &flow->napi_rx,
+> > +			       am65_cpsw_nuss_rx_poll);
+> > +
+> >  		ret = devm_request_irq(dev, flow->irq,
+> >  				       am65_cpsw_nuss_rx_irq,
+> >  				       IRQF_TRIGGER_HIGH,
+> > @@ -2579,9 +2583,6 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+> >  			flow->irq = -EINVAL;
+> >  			goto err_flow;
+> >  		}
+> > -
+> > -		netif_napi_add(common->dma_ndev, &flow->napi_rx,
+> > -			       am65_cpsw_nuss_rx_poll);
+> >  	}
+> >  
+> >  	/* setup classifier to route priorities to flows */
+> > @@ -2590,10 +2591,11 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+> >  	return 0;
+> >  
+> >  err_flow:
+> > -	for (--i; i >= 0 ; i--) {
+> > +	netif_napi_del(&flow->napi_rx);
+> 
+> There are totally 3 "goto err_flow;" instances, so if k3_udma_glue_rx_flow_init() or
+> k3_udma_glue_rx_get_irq() would fail on the first iteration, we would come here without
+> a single call to netif_napi_add().
 
-On Tue, Mar 11, 2025 at 02:11:29PM +0530, Madhavan Srinivasan wrote:
-> Build break was reported in the powerpc mailing list for next-20250218 with below errors
-> 
-> make[1]: Nothing to be done for 'all'.
-> BUILD_TARGET=/root/venkat/linux-next/tools/testing/selftests/powerpc/mm; mkdir -p $BUILD_TARGET; make OUTPUT=$BUILD_TARGET -k -C mm all
->   CC       pkey_exec_prot
-> In file included from pkey_exec_prot.c:18:
-> /root/venkat/linux-next/tools/testing/selftests/powerpc/include/pkeys.h: In function ‘pkeys_unsupported’:
-> /root/venkat/linux-next/tools/testing/selftests/powerpc/include/pkeys.h:96:34: error: ‘PKEY_UNRESTRICTED’ undeclared (first use in this function)
->    96 |         pkey = sys_pkey_alloc(0, PKEY_UNRESTRICTED);
->       |                                  ^~~~~~~~~~~~~~~~~
-> 
-> https://lore.kernel.org/all/20250113170619.484698-2-yury.khrustalev@arm.com/ patchset
-> has been queued to arm64/for-next/pkey_unrestricted which is causing a build break
-> in the selftest/powerpc builds.
-> 
-> Commit 6d61527d931ba ("mm/pkey: Add PKEY_UNRESTRICTED macro") added a macro
-> PKEY_UNRESTRICTED to handle implicit literal value of 0x0 (which is "unrestricted").
-> Add the same to selftest/powerpc/pkeys.h to fix the reported build break.
-> 
-> Reported-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-> Closes: https://lore.kernel.org/lkml/3267ea6e-5a1a-4752-96ef-8351c912d386@linux.ibm.com/T/
-> Tested-by: Venkat Rao Bagalkote <venkat88@linux.ibm.com>
-> Signed-off-by: Madhavan Srinivasan <maddy@linux.ibm.com>
-> ---
-> Catalin, can you take this fix via arm64/for-next/pkey_unrestricted?
-> Patch applies clean on top of arm64/for-next/pkey_unrestricted
+The following should address this right?
+------------------------------------------------------------------------------------------------
+diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+index b88edf2dd8f4..bef734c6e5c2 100644
+--- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
++++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+@@ -2581,7 +2581,7 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+                        dev_err(dev, "failure requesting rx %d irq %u, %d\n",
+                                i, flow->irq, ret);
+                        flow->irq = -EINVAL;
+-                       goto err_flow;
++                       goto err_request_irq;
+                }
+        }
 
-I'll take it, sorry for the break. I did not realise powerpc duplicates
-those definitions.
+@@ -2590,8 +2590,10 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
 
--- 
-Catalin
+        return 0;
+
+-err_flow:
++err_request_irq:
+        netif_napi_del(&flow->napi_rx);
++
++err_flow:
+        for (--i; i >= 0; i--) {
+                flow = &rx_chn->flows[i];
+                devm_free_irq(dev, flow->irq, flow);
+------------------------------------------------------------------------------------------------
+
+err_request_irq => We have an extra netif_napi_add() which needs to be
+cleaned up.
+err_flow => Equal count of netif_napi_add() and devm_request_irq() that
+should be cleaned up.
+
+Regards,
+Siddharth.
 
