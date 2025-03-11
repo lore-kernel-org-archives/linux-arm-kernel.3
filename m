@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F9FC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:27:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 507BCC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:28:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cZeEjkRBUIchrC12RwZ+rU3pBKpusXB6nWtGSbGqMAI=; b=VZhVw2iyciNWCQsLbfmBYPWLdR
-	Z+kr0igQ98AUKy88MvnCuGhp5kxdwPixcpZgf3TudBbdkAh9fyIiUufctkEZcMnz3SWt+aNfjUoS7
-	e5yyB8kQRWFKMRxAgH4afx2q/OrcbeSfPSItkuPfD6NVM4ZGJadry2ObCdd7acG4fMHtlMBtnjsel
-	Dpt6SzOewpAk/wwrJHm56mq02wgxCYjXLqfTWvA9zUm7K4sU6qKDocLspmNkTl6Gq+VQFzzb00Mgh
-	+9FsJPC9hNhXplBJRC8Uf1SMNEwDk2poKREMo9LSllao1LjDsRnASldtHGbwhKXDxjsEo2JEXYHkP
-	VIkt59lQ==;
+	bh=gVWRhm1fbSLumeBvIluuHMHLgdkFbm2wHpuPWY9uk/8=; b=a9qkVgqtp0QS+b2k5XBzXkCB0Y
+	xBW8YCblkragCEHI9MAzvVdUEUuKtej9dWpjb2KH4cwG4ciWUqiiMQ4vY12V3bOIZDepQjXUcBbo6
+	UuKqLftggAm5+WwIB3IUu3iDwIH5dwYwcVhzuUCWy0Ei+Uq1rXftf4NJhybYcNSD7u0fM5VrTpRgZ
+	dW7fWq5jFkynA+Sa0KhQmMBV5ZwtyDDjHtd266Dim8FLkSGaREqxKhg1F059Yl1QI35HRPbB6BjJ5
+	T5MXb4m4uLq5vFBzkBkoU4htiqBAD5VnGdAkPQ5oKRqWIQoAPRDTaeeYOylb335uUCExxHF/2KIv+
+	rzMQ6HbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5Fk-00000006lmD-2Bl4;
-	Tue, 11 Mar 2025 19:27:00 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ts5HM-00000006lzN-3X0O;
+	Tue, 11 Mar 2025 19:28:40 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5E6-00000006laX-2kZQ;
-	Tue, 11 Mar 2025 19:25:20 +0000
+	id 1ts5FH-00000006lfx-1pwq;
+	Tue, 11 Mar 2025 19:26:32 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3FB855C5606;
-	Tue, 11 Mar 2025 19:23:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9D2C4CEEA;
-	Tue, 11 Mar 2025 19:25:17 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 6D824A464C4;
+	Tue, 11 Mar 2025 19:21:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD70DC4CEE9;
+	Tue, 11 Mar 2025 19:26:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741721117;
-	bh=vD3EacD3StgEcdCEuMUQ5gzplQWLkIqq1FTPEZvPzfg=;
+	s=k20201202; t=1741721190;
+	bh=LXvcff6ovrE+lWjEH283+ozibg6lrSmGszx8SWB2Els=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mBM4xUAkTUSoMvHUEAgRz6yN/W5RI7I4V2p83akIVmnAM7QsIcAQaLXlHr1vNn+QI
-	 5ETwOeuCX4I/89nK2A3vphN/bUIz+tf2148c+5xZ3vXPv6lgLe5v+vHHHDmsBwj3si
-	 WoVutHIgmQxZJY4o1F7Csp/tbW73xacT4HqG/1aCzmKtHyOp+KUJ/ZVwun/V1yNyIw
-	 QtJygu4ryRR69VbveplcuNR3T4RwYAuI8Eu/J5EIRDoBt1I03+2WF5O2z88ny9J4iB
-	 7vKswfiVOdbxC0slpftaFCpGE7eYEI9pqM7AUQtJ86jQsD0xpcSZQ8cvUZiTvbTNGf
-	 mGuBLNFZmp07g==
-Date: Tue, 11 Mar 2025 14:25:16 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Srinivas Kandagatla <srinivas.kandagatla@linaro.org>,
-	Heiner Kallweit <hkallweit1@gmail.com>,
-	Russell King <linux@armlinux.org.uk>,
-	Maxime Chevallier <maxime.chevallier@bootlin.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
-	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 04/13] dt-bindings: net: Document support
- for AN8855 Switch Internal PHY
-Message-ID: <20250311192516.GA4115176-robh@kernel.org>
-References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-5-ansuelsmth@gmail.com>
+	b=gd8ps7tULO8XXkXmP6AJtLdw+gDpnZW1O7goGVI+cGeI/JW4cOn6A6JcyERONifij
+	 9gBP8rzLd+fParVkgKJ94dsTCp+tvIWhI86mTGjq9wbs2D2wGQRWf24o7MYCzBxyFc
+	 De8dxrxBsCVzhjG+aTDtSvTtUM1XPOMFoqW4f2qLAF/wFPdSx5yavcD8t+7CsmKoVA
+	 FsHsVOHQ/XeNAotS4vJEelArSnl8OPrPDvNE7k86Wd0Bq3C8V4oz67X1FUSvpSWGw8
+	 0tMR5lTtsVic6R/dQLOAldO0FPK33H86W6OHkrmP8T5kazlUs5yShRi4fl4zWj/X+1
+	 Wo0ie+Nrl/gAQ==
+Date: Tue, 11 Mar 2025 14:26:28 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	linux-amlogic@lists.infradead.org,
+	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
+	linux-sound@vger.kernel.org, Mark Brown <broonie@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Takashi Iwai <tiwai@suse.com>, linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH v2 3/4] ASoC: dt-bindings: meson: g12a-toacodec: add
+ support for A1 SoC family
+Message-ID: <174172118794.4169317.149338949275613581.robh@kernel.org>
+References: <20250309181600.1322701-1-jan.dakinevich@salutedevices.com>
+ <20250309181600.1322701-4-jan.dakinevich@salutedevices.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250309172717.9067-5-ansuelsmth@gmail.com>
+In-Reply-To: <20250309181600.1322701-4-jan.dakinevich@salutedevices.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_122518_806159_4A547018 
-X-CRM114-Status: GOOD (  20.65  )
+X-CRM114-CacheID: sfid-20250311_122631_541073_EC700336 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,142 +82,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 06:26:49PM +0100, Christian Marangi wrote:
-> Document support for AN8855 Switch Internal PHY.
+
+On Sun, 09 Mar 2025 21:15:59 +0300, Jan Dakinevich wrote:
+> Add support for "toacodec" audio component found A1 SoC family. On this
+> SoC the component supports capture streams, additional DAI ids are added
+> to configure this feature.
 > 
-> Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
-> PHYs on the MDIO bus.
-> 
-> Each PHY might need to be calibrated to correctly work with the
-> use of the eFUSE provided by the Switch SoC. This can be enabled by
-> defining in the PHY node the "airoha,ext-surge" property.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Signed-off-by: Jan Dakinevich <jan.dakinevich@salutedevices.com>
 > ---
->  .../bindings/net/airoha,an8855-phy.yaml       | 93 +++++++++++++++++++
->  MAINTAINERS                                   |  1 +
->  2 files changed, 94 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+>  .../devicetree/bindings/sound/amlogic,g12a-toacodec.yaml     | 1 +
+>  include/dt-bindings/sound/meson-g12a-toacodec.h              | 5 +++++
+>  2 files changed, 6 insertions(+)
 > 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
-> new file mode 100644
-> index 000000000000..301c46f84904
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
-> @@ -0,0 +1,93 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Airoha AN8855 Switch Internal PHY
-> +
-> +maintainers:
-> +  - Christian Marangi <ansuelsmth@gmail.com>
-> +
-> +description: >
-> +  Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
-> +  PHYs on the MDIO bus.
-> +
-> +  Each PHY might need to be calibrated to correctly work with the
-> +  use of the eFUSE provided by the Switch SoC.
-> +
-> +allOf:
-> +  - $ref: ethernet-phy.yaml#
-> +
-> +select:
-> +  properties:
-> +    compatible:
-> +      contains:
-> +        enum:
-> +          - ethernet-phy-idc0ff.0410
-> +  required:
-> +    - compatible
-> +
-> +properties:
-> +  reg:
-> +    maxItems: 1
-> +
-> +  airoha,ext-surge:
-> +    description: enable PHY calibration with the use of SoC eFUSE.
 
-Wouldn't nvmem-cells presence enable this?
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +
-> +  nvmem-cells:
-> +    items:
-> +      - description: phandle to SoC eFUSE tx_a
-> +      - description: phandle to SoC eFUSE tx_b
-> +      - description: phandle to SoC eFUSE tx_c
-> +      - description: phandle to SoC eFUSE tx_d
-> +
-> +  nvmem-cell-names:
-> +    items:
-> +      - const: tx_a
-> +      - const: tx_b
-> +      - const: tx_c
-> +      - const: tx_d
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +if:
-> +  required:
-> +    - airoha,ext-surge
-> +then:
-> +  required:
-> +    - nvmem-cells
-> +    - nvmem-cell-names
-
-dependentRequired:
-  airoha,ext-surge: [ nvmem-cells, nvmem-cell-names ]
-
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    mdio {
-> +        #address-cells = <1>;
-> +        #size-cells = <0>;
-> +
-> +        ethernet-phy@1 {
-> +            compatible = "ethernet-phy-idc0ff.0410",
-> +                         "ethernet-phy-ieee802.3-c45";
-> +
-> +            reg = <1>;
-> +        };
-> +
-> +        ethernet-phy@2 {
-> +            compatible = "ethernet-phy-idc0ff.0410",
-> +                         "ethernet-phy-ieee802.3-c45";
-> +
-> +            reg = <2>;
-> +
-> +            airoha,ext-surge;
-> +
-> +            nvmem-cells = <&shift_sel_port0_tx_a>,
-> +                <&shift_sel_port0_tx_b>,
-> +                <&shift_sel_port0_tx_c>,
-> +                <&shift_sel_port0_tx_d>;
-> +            nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
-> +        };
-> +    };
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 696ad8465ea8..45f4bb8deb0d 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -726,6 +726,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
->  L:	netdev@vger.kernel.org
->  S:	Maintained
->  F:	Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
-> +F:	Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
->  F:	Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
->  F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
->  
-> -- 
-> 2.48.1
-> 
 
