@@ -4,62 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5490DC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 17:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3003C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 17:29:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KVoxeLQkfzwKnTHV3TyhWKqb/0b4HCsW0fAznoR2qHE=; b=HcSjGm7YRrDHh4kIaCP+42dvJs
-	f5HNSjVZun4OhvXyiQn8oUn4Hch1fQjMzzGyX+gQvjphPQIhe8JEq//1cd94O4yc9nJEGh3neRuWI
-	UdLZ3dmZ7hmxAGti4RD8AIWVU/2JItBzDuaKtfEc+dXVtqxwsLQl4fptaYJuhXT01S1BobiFxYRbW
-	N/t9hokhdjD1I7QEZ4IYrnBR9kBpAkhmxaq29DBTW5yX18ngV1izOh/QpWx4bgHSgya/1hTrecg0n
-	m4K2HTYHt8tW7hn9ahbNDz7Aq54Hu5gjsWPpud7qiM2wFWhCRvWSnXgf6K8ErXyY9G6gC3O57/OWX
-	Id7bfKzg==;
+	bh=O5X8mE/KoQZYB9Ga7UMKtniR60FOQlB4lNDY8z/m1SY=; b=uznZVaAx7o/H2G/o44X3p7OyIl
+	j9TQNnEL2+n3U4s6M++Zc6hebX9oQerVH5rxE4Eafc0iErckJx6LTbKfGlic1H1HtAQ4vHORJ0/fS
+	LygMayc3MXt0JqUj3zVB9xyc3iOVdXR7Feumv9jLSp780nP2WKLdJMgm5zm83RgdTcohas4mX+a4V
+	MYkNQd8s14MWGgfUDByAwzAPHLAklwzvQe1ysV2SJ37hdVhYBGWkGjKgINpGi1D3kRlpNMxWippUS
+	ODaSXsKhMr6GK9aRRkVqNbRI2SEA09qePSyXTAMgO52LxBOOL9DABqkcSnzINfvMiaYeuXuZ1LhUv
+	wSNWT6pg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3Nt-00000006SLe-0rfZ;
-	Tue, 11 Mar 2025 17:27:17 +0000
+	id 1ts3PV-00000006SYH-0cwi;
+	Tue, 11 Mar 2025 17:28:57 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3EP-00000006QwO-45XK;
-	Tue, 11 Mar 2025 17:17:31 +0000
+	id 1ts3Ea-00000006Qy7-0Xab
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 17:17:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 778BCA46076;
-	Tue, 11 Mar 2025 17:11:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91835C4CEEA;
-	Tue, 11 Mar 2025 17:17:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741713448;
-	bh=qymAbbIdLchqAtQBBL+pqPrr3X7OBh13PkUPlVUStBs=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=Y+KELLa+knvBq8Y6mOU+ZaIu7WLEGPkUTLOIifEoLx07A7YpymGP0EZ6RUaaNcqCo
-	 3k856Xxx9mvWBtD/kW1hpH8z5UicEuGryGX30wmmSHiELQpagjfqaS1agU6u+Ormzd
-	 H13ylecD0RyKi1f6lDHHyTw5SNprB9ReQRFALFQOf50T5hCqx8I/BLFZvKoOPgiFWb
-	 P9ZsWCFH5nLDGwZAdVzP6/CgAlYeJxf09jwL55/v2cRksfU8G5OAxxeW+m/CsF2CxO
-	 rtF6kcxMyfgI0v5VfXCYgJEublnndzXB34xpUffIw0lnOZfkJyTfhcCp14pIApgvAE
-	 Pp7+Yg2hJJ1MA==
-From: Mark Brown <broonie@kernel.org>
-To: Leilk Liu <leilk.liu@mediatek.com>
-Cc: Mark Rutland <mark.rutland@arm.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-spi@vger.kernel.org, linux-mediatek@lists.infradead.org, 
- fparent@baylibre.com
-In-Reply-To: <20250304024045.7788-1-leilk.liu@mediatek.com>
-References: <20250304024045.7788-1-leilk.liu@mediatek.com>
-Subject: Re: [PATCH v2] spi: mt65xx: add PM QoS support
-Message-Id: <174171344631.214660.9058567324727633834.b4-ty@kernel.org>
-Date: Tue, 11 Mar 2025 17:17:26 +0000
+	by nyc.source.kernel.org (Postfix) with ESMTP id 4B885A45FFF;
+	Tue, 11 Mar 2025 17:12:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B55EBC4CEE9;
+	Tue, 11 Mar 2025 17:17:36 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: linux-arm-kernel@lists.infradead.org,
+	mark.rutland@arm.com,
+	robh@kernel.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	stable@vger.kernel.org
+Subject: Re: [PATCH V3] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+Date: Tue, 11 Mar 2025 17:17:34 +0000
+Message-Id: <174171335999.3659520.16613654046629962007.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250227035119.2025171-1-anshuman.khandual@arm.com>
+References: <20250227035119.2025171-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-1b0d6
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_101730_088556_C43D01DB 
-X-CRM114-Status: GOOD (  13.58  )
+X-CRM114-CacheID: sfid-20250311_101740_252037_8D6D7332 
+X-CRM114-Status: UNSURE (   8.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,42 +72,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 04 Mar 2025 10:37:15 +0800, Leilk Liu wrote:
-> Enable Quality of Service(QoS) support to speed up interrupt service
-> routine handle. Sometimes, a gic interrupt will be generated after
-> SPI transmission, but at this time the CPU is in an idle state and the
-> processing handler will be very slow. It takes time to exit the idle state
-> and then become active. This will cause the SPI handler to execute slowly
-> and cause SPI transfer timeouts.
+On Thu, 27 Feb 2025 09:21:19 +0530, Anshuman Khandual wrote:
+> FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
+> access from EL1 requires appropriate EL2 fine grained trap configuration
+> via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
+> Otherwise such register accesses will result in traps into EL2.
+> 
+> Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
+> grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
+> bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
+> PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
 > 
 > [...]
 
-Applied to
+Applied to arm64 (for-next/el2-enable-feat-pmuv3p9), thanks!
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/spi.git for-next
+[1/1] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+      https://git.kernel.org/arm64/c/858c7bfcb35e
 
-Thanks!
+I removed Cc: stable since, if it gets backported automatically, it will
+miss the sysreg updates and break the build. Please send it to stable
+directly once it lands upstream, together with the dependencies.
 
-[1/1] spi: mt65xx: add PM QoS support
-      commit: 632556d5799a2b3e87dd5594a59245523b39cf31
-
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
-
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
-
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
-
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
-
-Thanks,
-Mark
+-- 
+Catalin
 
 
