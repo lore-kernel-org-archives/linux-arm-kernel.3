@@ -4,86 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B68FFC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:59:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41751C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:07:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=; b=yaZWBlPfTJINqx70MtzOIFPgxz
-	L4ACxUE6feUwd6rNYbuprnw4Xg08se6yRoU9x8eDs0Tq+ESG7mFeP2hIIHW3+2KpfUeNMLsKPUstN
-	PR8r6/vMsQl9+/FEuR8w/RFcplFUBLfH7lRsbH6z75ss7AqA6Tk7lTz9c6Rqp7jRBhcCZAwAeZVzK
-	OV+X7IxMWxHZXS9qHj3mN/Pzuk4B9pizsd2h73q9C0T9pkIjLtF9wxzAxkX9EeaqPFGhMZkZOZ5LI
-	ixAxUKJbTMaQw6kk4l18UckrLkz+aSMULvKD+pRO3C7yuD1vC2jACCl96VK/WvwayURNsthiXjkkd
-	7pa0NXOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wOYbfZscHmavhA7intg3mKC5a2etFfDpLHORKbOBOnM=; b=yT/9MFP/4tHEOuvR2VGx7w1ODx
+	F8d8T8Dli8NdqGLnEWLob32utK/L/PjHW2PiRIwlz03050+vhxUEwS+ERJEi0oXCMdAOHfHHkRluk
+	5oc/9c1mH1B+RsE5nylQIfOJVu+pY0YfaJ2HPxoVtCoERaUsWyoEVL/vcleoQ/zD3yxDGe5sWVIt8
+	tnKzQ4QV0mc/3iyoqAx3WcN04ZRvWQQiqbHD+DB/avb5AKcnvhFhMUp7zcfQKHBtIctw7w37ZYCVL
+	6mK+WCjfD4s+POWfPqDDLTNKKH3jZL0Mk3uyWL75x3tF4M9BVaTvqemkd/Z+TrJFI9jiitGkKhaaT
+	UbSpy/pw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryGa-00000005XvH-1cao;
-	Tue, 11 Mar 2025 11:59:24 +0000
-Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
+	id 1tryO2-00000005ZUn-3omL;
+	Tue, 11 Mar 2025 12:07:06 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryEl-00000005Xjw-0570
+	id 1tryMO-00000005Z7j-10Py
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 11:57:32 +0000
-Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-39127512371so2998281f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 04:57:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1741694248; x=1742299048; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=;
-        b=PfymkIIaXaCWLBpqvpLs/yFYn+gcpjjD5RcFuZ77tpogGv0FnUusiXYLW6wHqrDFW+
-         U27sU610oGuC49H9jahj1XKPkZsu6eilCwSFSdVzQo8MTheNF7kzr/gz0Qs9bWwqxpTc
-         tZabiTxI4Sqt8Y61LapITrfsdBwb4wYTvxPJiOcOUNDwCH+oO5H7p05iijOJeX3226Vs
-         U28h2eCQ4dOs60eWmQwQN21L7MFUunnPiUxmMqq3CJMF39C2jQZsE9o0MKw8LC8e3QXV
-         B7cEwotR9Lal82AMOfE7zrCUXTa3L8O8OSfMhwAnI2yAqu4HbKXKcY7HD2gtkcgXHvgG
-         R95Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741694248; x=1742299048;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YwysEm8CgcGz0FLembVWmSDCiCxUvMJeL9Cn5q2MMGA=;
-        b=ZzMb6vrMSZtajHMwZoKIbrUMCnvwrOc6KNLWeTRfOeJH/UAgeOPWAoca7EwbgpfC5o
-         nKaVS/xGA7Gh17EoZalQzfZayU8lV72zQEeW3pqoxuHLExV2KLWhZRi+upoH8aMkmokl
-         hB2DgBV/YxEqlNb4HrKNbNrwBXRE43pYUtukcYlTwisW9KWD6tqWsqMlRCDCwScyRNau
-         eLeZl5rjnCRQsNbHVh2bNnn0Cd3KE0AvyPvvC1W2IsTioyN4Ya9CwOU1SG0FXVgL5UXl
-         bvR1iS4tp4c6YVdgj2eszTa/ZHjX4uaNM73LxUVHBnsixak5Cq99wWQiNOxVHkuXUK7Y
-         cGxw==
-X-Forwarded-Encrypted: i=1; AJvYcCXJAFgphWa9/dwVZZPLfwkp0MRQtP/0L1q4YGE9gPFIlH6ZNVpBRmIKuuGw8wGPSSLUdct8mhvWsg8p/5lg5CsJ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxn+YNOg5iRcEPienx/+ift7a9LdBsYhGkoLV2h8IOF4vmIA6sw
-	+22HRO3FrPs9ac6cePgmLkQkDOFXtsDfdYXcnRc5MMkdy1VVoVUwv389NakHp6ed/+7As84fL6b
-	b
-X-Gm-Gg: ASbGnct1UyR3jaCEEzH+MnnmNCDlsGtVwRsTkiSCi4SySG/1IZQXVWd3bVQJ9V+fqnj
-	gdNIrUXbNUzzD7Cx8PXDWw/5yF4hapF4BNzfaL0iemv82TmHmlTZ1ZId8lq9OXF/gvDHyv53vMS
-	iTjK7bAUia0NZCJSdsBhAlCvodOeGfUx3sOgBLlq2TiD3xMDGwNZMXkq2ueNeyjtTb/A/CYXNxM
-	ht8XnNUl6ybCQ2GAKmpIqxAg+Wav0Eaj9ncY47d4ftkK9olAU8gODc7wQ+kHH+iat+V9wvqtmpK
-	X8rF3MI7rYh2U4318uvujfHxPa/gUogefBc33AYCmUhewn3nuyNY8Q==
-X-Google-Smtp-Source: AGHT+IH+VpDB44gnrhW+DLqQbZXEtOu1LVpBt7zvglX12x25lWmYvK0tB5Yg2Jsuzi/rc8ZMAGUcBw==
-X-Received: by 2002:a5d:5989:0:b0:38d:cf33:31d6 with SMTP id ffacd0b85a97d-39263b006c5mr3918261f8f.3.1741694248428;
-        Tue, 11 Mar 2025 04:57:28 -0700 (PDT)
-Received: from brgl-uxlite.home ([2a01:cb1d:dc:7e00:5946:3143:114d:3f3])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c104acesm18161461f8f.98.2025.03.11.04.57.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 04:57:28 -0700 (PDT)
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-To: arm@kernel.org,
-	soc@kernel.org,
+	Tue, 11 Mar 2025 12:05:25 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tryM5-0008Nt-Gb; Tue, 11 Mar 2025 13:05:05 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tryM3-005B4L-13;
+	Tue, 11 Mar 2025 13:05:03 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1tryM3-007j7z-0d;
+	Tue, 11 Mar 2025 13:05:03 +0100
+Date: Tue, 11 Mar 2025 13:05:03 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Frank Li <Frank.li@nxp.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org, Daniel Baluta <daniel.baluta@nxp.com>,
+	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>,
 	linux-arm-kernel@lists.infradead.org
-Cc: Arnd Bergmann <arnd@kernel.org>,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: [GIT PULL] davinci updates for v6.15-rc1
-Date: Tue, 11 Mar 2025 12:57:20 +0100
-Message-ID: <20250311115720.40053-1-brgl@bgdev.pl>
-X-Mailer: git-send-email 2.45.2
+Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
+Message-ID: <20250311120503.ryqg2thnj4mkgsjz@pengutronix.de>
+References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
+ <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
+ <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
+ <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
+ <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
+ <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
+ <20250228101952.g6tae3ni5xrhjk3y@pengutronix.de>
+ <bfe3c719-f1c5-4ae5-9a40-45ad75cd5855@gmail.com>
+ <20250307152236.3ayulbjqnu3vn7mf@pengutronix.de>
+ <ec38d41d-f2ce-4a98-bb02-d1ae9beb0b3b@gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <ec38d41d-f2ce-4a98-bb02-d1ae9beb0b3b@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_045731_059071_62297C86 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_050524_434478_D9819C05 
+X-CRM114-Status: GOOD (  62.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +94,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+On 25-03-10, Laurentiu Mihalcea wrote:
+> On 3/7/2025 5:22 PM, Marco Felsch wrote:
+> > On 25-03-04, Laurentiu Mihalcea wrote:
+> >> On 2/28/2025 12:19 PM, Marco Felsch wrote:
+> >>> Hi,
+> >>>
+> >>> On 25-02-27, Frank Li wrote:
+> >>>> On Thu, Feb 27, 2025 at 11:57:54AM +0100, Marc Kleine-Budde wrote:
+> >>>>> On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
+> >>>>>> On 21.02.2025 21:56, Frank Li wrote:
+> >>>>>>> On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
+> >>>>>>>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >>>>>>>>
+> >>>>>>>> AIPS5 is actually AIPSTZ5 as it offers some security-related
+> >>>>>>>> configurations. Since these configurations need to be applied before
+> >>>>>>>> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
+> >>>>>>>> be their parent instead of keeping AIPS5 and adding a child node for
+> >>>>>>>> AIPSTZ5. Also, because of the security configurations, the address space
+> >>>>>>>> of the bus has to be changed to that of the configuration registers.
+> >>>>>>> The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
+> >>>>>>> config address part in your drivers.
+> >>>>>>>
+> >>>>>>> Frank
+> >>>>>> Any concerns/anything wrong with current approach?
+> >>>>>>
+> >>>>>>
+> >>>>>> I find it a bit awkward to have the whole bus address space
+> >>>>>> in the DT given that we're only interested in using the access
+> >>>>>> controller register space.
+> >>>>>>
+> >>>>>>
+> >>>>>> I'm fine with the approach you suggested but I don't see a
+> >>>>>> reason for using it?
+> >>>>> Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
+> >>>>> Applications Processor Reference Manual, Rev. 3, 08/2024), the
+> >>>>> AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
+> >>>>> different than the bus configuration. Why not model it as part of the
+> >>>>> bus?
+> >>>>>
+> >>>>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> >>>>>>>> index e0d3b8cba221..a1d9b834d2da 100644
+> >>>>>>>> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> >>>>>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
+> >>>>>>>> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
+> >>>>>>>>  			};
+> >>>>>>>>  		};
+> >>>>>>>>
+> >>>>>>>> -		aips5: bus@30c00000 {
+> >>>>>>>> -			compatible = "fsl,aips-bus", "simple-bus";
+> >>>>>>>> -			reg = <0x30c00000 0x400000>;
+> >>>>>>>> +		aips5: bus@30df0000 {
+> >>>>>                        ^^^^^^^^^^^^
+> >>>>>>>> +			compatible = "fsl,imx8mp-aipstz", "simple-bus";
+> >>>>>>>> +			reg = <0x30df0000 0x10000>;
+> >>>>>>>> +			power-domains = <&pgc_audio>;
+> >>>>>>>>  			#address-cells = <1>;
+> >>>>>>>>  			#size-cells = <1>;
+> >>>>>>>> +			#access-controller-cells = <0>;
+> >>>>>>>>  			ranges;
+> >>>>>>>>
+> >>>>>>>>  			spba-bus@30c00000 {
+> >>>>>                         ^^^^^^^^^^^^^^^^^
+> >>>>>
+> >>>>> This looks very strange: The aips5 bus starts at 0x30df0000 and has a
+> >>>>> child bus starting at 0x30c00000?
+> >>>> @30df0000 should match controller reg's address.
+> >>>>
+> >>>> subnode address 0x30c00000,  should be descript in "ranges", which 1:1 map.
+> >>>>
+> >>>> So it should be reasonable. another example:
+> >>>> i2c@1000 {
+> >>>>
+> >>>> 	device@1c <- which use difference address space.
+> >>>> }
+> >>>>
+> >>>> The similar case also happen at pcie.
+> >>> I'm not really convinced that pcie and i2c are good examples here. I2C
+> >>> does have an other addressing scheme by nature and the hotplug-able pcie
+> >>> is dependeds on the pcie device memory map of course.
+> >>>
+> >>> Here we're talking about an access control IP core on a bus which is
+> >>> static.
+> >>>
+> >>> But.. it looks like from DT abstraction it's fine because STM did
+> >>> something similiar with their st,stm32mp25-rifsc or st,stm32-etzpc
+> >>> albeit it does look strange and I don't know why we have to limit the
+> >>> address space since it was already mapped but used by the fsl,aips-bus
+> >>> driver.
+> >>>
+> >>> Regards,
+> >>>   Marco
+> >> The address space of the bridge was changed to that of the bridge's
+> >> configuration space because I think it's very awkward from the
+> >> software's point of view to have to hardcode the offset and size of
+> >> the configuration space inside the driver. 
+> > You mean the access-controller IP core. I could also arguee that it's
+> > akward to put the bridge access-controller IP core into the middle of
+> > the bridge address-space instead of placing it at the very beginning of
+> > the bridge. But this doesn't help here :)
+> >
+> > I see what you mean but from DT abstraction POV it seems more reasonable
+> > to keep it as it is and just adapt the compatible. The current driver
+> > maps the whole address space too, so I don't see why we need to change
+> > it if we change it to the aipstz driver. If you see the
+> > access-controller IP core as part of the bus I don't see any problem and
+> > would argue that the offset detail needs to be handled within the
+> > driver.
+> >
+> >> I also looked at what STM did with "st,stm32-etzpc" so I thought this
+> >> would be acceptable from the DT's POV.
+> >>
+> >> Regarding why I chose not to model the access controller part as a subnode of the
+> >> bus:
+> >>
+> >>     1) The access controller is part of the bridge itself (not a separate module accessible
+> >>     via the bridge like it's the case for its children) so I think the current approach
+> >>     should also make sense if we take the hardware into consideration.
+> > I don't like this approach if you see the controller as part of the
+> > bridge because the offset could be handled within the bridge driver.
+> > I also that the register offset needs to be supplied else we can't reuse
+> > the driver and we don't want to adapt the driver for each SoC.
+> >
+> > What came into my mind is the following:
+> >
+> > 	spba-bus@30c00000 {
+> > 		compatible = "nxp,imx8mp-aiptz-bus", "nxp,aiptz-bus";
+> > 		reg = <0x30c00000 0x400000>, <0x30df0000 0x10000>;
+> > 		reg-names = "bus", "aipstz";
+> >
+> > 		child-nodes {};
+> > 		child-nodes {};
+> > 		child-nodes {};
+> > 	}
+> >
+> > This way we can abstract the access-controller register space and the
+> > whole bus register space and a generic driver could be written just by
+> > making use two reg fields.
+> 
+> by changing the compatible, we've also effectively changed the
+> programming model.
 
-Hi!
+You need to keep the backward compatible which means, a new kernel have
+to boot an old dts (firmware), which is stil the case since the
+"simple-bus" driver sill matches on the old dts files.
 
-Please pull the following set of DT updates for the TI DaVinci
-architecture.
+But this doesn't mean that a new dts (firmware) have to be compatible
+with an old kernel.
 
-Thanks,
-Bartosz
+> I don't really see why we need to stick to the old way of configuring
+> the bus node (i.e: specify the whole address space of the bus as well)
+> when all we really care about is the AC configuration region?
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+I see and as I said it's just my oppinion that we should abstract it
+this way since upstream already accepted the approach you implemented
+for the STM32 case.
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+If NXP would have placed the AC at the beginning of each AIPS bus you
+wouldn't need to deal with this problem too since you would have the
+base register already.
 
-are available in the Git repository at:
+> anyhow, I'm not going to insist on this. I think the proposed approach
+> will work just fine. If there's no other comments on this then I'll
+> just switch to it in V3.
 
-  git://git.kernel.org/pub/scm/linux/kernel/git/brgl/linux.git tags/davinci-updates-for-v6.15-rc1
+That would be nice but please wait for maintainers feedback e.g Shawn.
 
-for you to fetch changes up to 58abc69e479cf5b36c4fc4287a11c9d92d2ce4b8:
-
-  ARM: dts: ti: davinci: Align GPIO hog name with bindings (2025-02-03 09:11:33 +0100)
-
-----------------------------------------------------------------
-TI DaVinci updates for v6.15-rc1
-
-- make GPIO hog names conform to bindings
-
-----------------------------------------------------------------
-Krzysztof Kozlowski (1):
-      ARM: dts: ti: davinci: Align GPIO hog name with bindings
-
- arch/arm/boot/dts/ti/davinci/da850-lego-ev3.dts | 10 +++++-----
- 1 file changed, 5 insertions(+), 5 deletions(-)
+Regards,
+  Marco
 
