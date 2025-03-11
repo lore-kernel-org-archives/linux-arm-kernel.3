@@ -4,75 +4,122 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D678C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:47:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 755B0C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:49:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AUhtus2LRR/f9mDsXKrJtEtC9OIA8rEjoQCsfNgcDkc=; b=t3jTmGTHywKKOFU4x8hMzTRJYg
-	ESNEeK8Vtp1t/bkLtjOtGoMZT2krWei4yD10D8LHISN2TnPaZzmK2gx0SzXj83XB66bnYxVR2hznj
-	ZSG7PoCrJ9cTV7KkV7cuFvF0OIbVxWeVMtEtbN+jlhvIHfwSzqwQsadaBDuAbAQoA7NNAM+pe4zGx
-	XQcgdsN06bPMfl3R53UlT5yHwsgrJW60wag3jxUTNmcFFIgrGou5bPUu9ssbW8Bdx+s2xLcVLniWn
-	82ALWrVAtGgMrtdC7+fdukzEp8KRXZWvgd4ls1/kczyNzLVcsMPXcS+eyEKL725QwSXjfklitmxLE
-	0V42YNKQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TvX1YUIUz+ljyteedbXCuuqtjAef6ss4iRRjFDfHrXQ=; b=PiCmr2a13/xifpNg4+W1I4gn86
+	gtvsb0E0Svnub64jIHUK7YQ+bohCvCeFcqTOA3dp2MegEV6Dm5DxGXJbynjyIc9pUohugLYJa5pNb
+	aTWtUeoqDeJzUuqn6Ny1zgscX5WM2iJOfke4wK4I/bFQR69eWIDcgwXdliHFFEUHOuisuAVkRIR25
+	hSLAb02yWLbj715xsO3K+sv6hgiBRUdks2JMKFZJ0CBbINrLGX0Ph/hsxOgUpuWg+mPsZ9mXFxqcn
+	RcT2YbduQDpQBovpuENCKWsCF00F+PjV5WW0MJY8fDjB10hT0cMi31LersmpFdeq+asWss+IfUQll
+	S4FwteFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1p5-00000006CM8-2COY;
-	Tue, 11 Mar 2025 15:47:15 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1ts1qh-00000006Cfu-1Pqu;
+	Tue, 11 Mar 2025 15:48:55 +0000
+Received: from mail-ot1-x32f.google.com ([2607:f8b0:4864:20::32f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1lA-00000006Bgc-1ygH
+	id 1ts1nw-00000006C7P-3udI
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:43:14 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFh5v61332568
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 10:43:06 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741707786;
-	bh=AUhtus2LRR/f9mDsXKrJtEtC9OIA8rEjoQCsfNgcDkc=;
-	h=From:To:CC:Subject:Date;
-	b=of+hZPg8Y3UmkYXah2uvyRnBIAybBcmKTt7fvWSj1HHXWwe7eeazuxuqYucboC0lQ
-	 2N57JNGL75Utvc0hB7/JckO/X8OpLpj/ALR8xs6MPpHd46xy/8pALi0LZ319QwR+7W
-	 /y5iNKgd+f/2zMmpiIFz9+uPm+B0p5/5oZKhqZdk=
-Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFh54v002591
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 11 Mar 2025 10:43:05 -0500
-Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE112.ent.ti.com
- (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 10:43:05 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 10:43:05 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BFh0FA096785;
-	Tue, 11 Mar 2025 10:43:00 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-        <kuba@kernel.org>, <pabeni@redhat.com>, <rogerq@kernel.org>,
-        <horms@kernel.org>, <alexander.sverdlin@siemens.com>,
-        <dan.carpenter@linaro.org>, <c-vankar@ti.com>, <jpanis@baylibre.com>,
-        <npitre@baylibre.com>
-CC: <vigneshr@ti.com>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH net v3] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
-Date: Tue, 11 Mar 2025 21:12:59 +0530
-Message-ID: <20250311154259.102865-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 11 Mar 2025 15:46:07 +0000
+Received: by mail-ot1-x32f.google.com with SMTP id 46e09a7af769-7273b0d4409so1217702a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 08:46:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1741707963; x=1742312763; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=TvX1YUIUz+ljyteedbXCuuqtjAef6ss4iRRjFDfHrXQ=;
+        b=D13kNICVziJle+f092omo+OGsSKoosZJQCyHbq+DJAnwZadG3c05ZCWxuoB+tEeL8E
+         1qQ3JUsaUG7zYmbR/qj2Jz0xeoGvLQKZ1vttMsOFsg/w+I2zOctTzBO+CQbek0/YKWio
+         UUyy3JjoC+KQmUiO41OxMGaNl6gIAm1OlfF5E=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741707963; x=1742312763;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TvX1YUIUz+ljyteedbXCuuqtjAef6ss4iRRjFDfHrXQ=;
+        b=fjqYlRc5o5jbIlMQWj9G6eucR64GQmh8Fy5JbZ+EHR6iyn/C+zEyw9VEgGa6nIDsYI
+         8PzQ2Sy9027v+joNu1/cC5o3Uxhf4FMxnyGAv7sRoE3q06mJT+wOdnYs9yNJH8TsnKgs
+         N1IMgUCGDSZtdGbukmoNEjUfOlK/4MoypEwwbPvlTOH6JBStQpTZJp+UDOCoJJUHD0xz
+         o/+qftV4j2oeS/K3IbnMnpW2y2oeFXPLmD28H33cPW/85YXdZmnx1tePPSGUFkDLZDrb
+         DHoKgkc7IVgG8zqW0PXTYIiHOT2s5lv9ZEwXxlMTXb0FrwktC81wwyPx/vtkZEjrHxNx
+         9A6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUi0DKZ5WlByPBkixtLQr/TtMUioh+NO1RxAkP6ECdsNC/k+ILuLgnPSFeHzrbOsrmqI6HozsSzljHQKqHUhb0o@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0GQw9b5cy4kbTX3crrH6T6G89wybJgKlWDEcV8mHhg2tHia00
+	CQDnxaNiTe1RU1blFl+nqdGl6/7Fom02SqpnHqGBS/qN9ftEbEXQ6hMuNAifJg==
+X-Gm-Gg: ASbGncsdEyjSwBzdfSJutRumAHRrXdZhECU2AftG5vsbKAXeRtxjWLK03qcz/Bmw3q0
+	6CMW1sku8lOZLhz35SJOhoqnV29lqoBwtxPefuWnCRH/4m1w7WWIhOTVvAgMPQD+rxs84qToAQg
+	vVxtGNLYM0KrJxiLq9oRvS9pDflPTCwbwBhHlByCW7WQ3bfdm3I3fFmZ6eoFfvLlO46fdVheEXR
+	cwRxiP+dYHcVkXOGF6FYCxHDeJi+tJ+j+Z1MfClrhe+MJ6X6nE08dhTZzoOxLlIQYPqEqAXLHpT
+	rDgHOxi4KLK4HSmihCQ4NUPxcDH+6Z4MeQTuP21zQAistN9IBbMcFFkDX/Tv5joRqoCEXY1Zniq
+	HQQ4944sZ
+X-Google-Smtp-Source: AGHT+IELjvN+XdLjKqh9jaffslYR98GQizJDSBHy2qffYsdvRDcijxUrqGkTRxSvndo2VK5SLo0wlg==
+X-Received: by 2002:a05:6830:3897:b0:72b:9387:84b2 with SMTP id 46e09a7af769-72b938794c3mr3908943a34.27.1741707963471;
+        Tue, 11 Mar 2025 08:46:03 -0700 (PDT)
+Received: from [10.67.48.245] ([192.19.223.252])
+        by smtp.gmail.com with ESMTPSA id 46e09a7af769-72a4634099esm1681482a34.61.2025.03.11.08.46.01
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 08:46:02 -0700 (PDT)
+Message-ID: <aa4284fa-1f68-4c7e-8d58-1c5129adda27@broadcom.com>
+Date: Tue, 11 Mar 2025 08:46:00 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] mmc: sdhci-brcmstb: add cqhci suspend/resume to PM ops
+To: Kamal Dasu <kamal.dasu@broadcom.com>,
+ Adrian Hunter <adrian.hunter@intel.com>, Al Cooper <alcooperx@gmail.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Ulf Hansson
+ <ulf.hansson@linaro.org>, linux-mmc@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+References: <20250311150136.46938-1-kamal.dasu@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250311150136.46938-1-kamal.dasu@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_084312_605770_DB493D77 
-X-CRM114-Status: GOOD (  16.72  )
+X-CRM114-CacheID: sfid-20250311_084605_009253_E430A804 
+X-CRM114-Status: GOOD (  17.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,144 +134,55 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
+On 3/11/25 08:01, Kamal Dasu wrote:
+> cqhci timeouts observed on brcmstb platforms during suspend:
+>    ...
+>    [  164.832853] mmc0: cqhci: timeout for tag 18
+>    ...
+> 
+> Adding cqhci_suspend()/resume() calls to disable cqe
+> in sdhci_brcmstb_suspend()/resume() respectively to fix
+> CQE timeouts seen on PM suspend.
+> 
+> Fixes: d46ba2d17f90 ("mmc: sdhci-brcmstb: Add support for Command Queuing (CQE)")
+> Cc: stable@vger.kernel.org
+> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+> ---
+>   drivers/mmc/host/sdhci-brcmstb.c | 9 +++++++++
+>   1 file changed, 9 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
+> index 0ef4d578ade8..bf55a9185eb6 100644
+> --- a/drivers/mmc/host/sdhci-brcmstb.c
+> +++ b/drivers/mmc/host/sdhci-brcmstb.c
+> @@ -505,6 +505,12 @@ static int sdhci_brcmstb_suspend(struct device *dev)
+>   	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
 
-Registering the interrupts for TX or RX DMA Channels prior to registering
-their respective NAPI callbacks can result in a NULL pointer dereference.
-This is seen in practice as a random occurrence since it depends on the
-randomness associated with the generation of traffic by Linux and the
-reception of traffic from the wire.
+Missing an int ret declaration here, otherwise that won't build.
 
-Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
+>   
+>   	clk_disable_unprepare(priv->base_clk);
+> +	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+> +		ret = cqhci_suspend(host->mmc);
+> +		if (ret)
+> +			return ret;
+> +	}
+> +
+>   	return sdhci_pltfm_suspend(dev);
+>   }
+>   
+> @@ -529,6 +535,9 @@ static int sdhci_brcmstb_resume(struct device *dev)
+>   			ret = clk_set_rate(priv->base_clk, priv->base_freq_hz);
+>   	}
+>   
+> +	if (host->mmc->caps2 & MMC_CAP2_CQE)
+> +		ret = cqhci_resume(host->mmc);
+> +
+>   	return ret;
+>   }
+>   #endif
 
-Hello,
 
-This patch is based on commit
-4d872d51bc9d Merge tag 'x86-urgent-2025-03-10' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-of Mainline Linux.
-
-v2 of this patch is at:
-https://lore.kernel.org/r/20250311130103.68971-1-s-vadapalli@ti.com/
-Changes since v2:
-- Updated error handling in am65_cpsw_nuss_init_rx_chns() by introducing
-  a new "goto label" namely "err_request_irq", since there are 3 different
-  error paths leading to the existing "goto label" named "err_flow", of
-  which, only one of them requires an extra netif_napi_del() invocation.
-  This change is based on the feedback from 
-  Alexander Sverdlin <alexander.sverdlin@siemens.com>
-  at:
-  https://lore.kernel.org/r/02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com/
-
-v1 of this patch is at:
-https://lore.kernel.org/r/20250311061214.4111634-1-s-vadapalli@ti.com/
-Changes since v1:
-- Based on the feedback provided by Alexander Sverdlin <alexander.sverdlin@siemens.com>
-  the patch has been updated to account for the cleanup path in terms of an imbalance
-  between the number of successful netif_napi_add_tx/netif_napi_add calls and the
-  number of successful devm_request_irq() calls. In the event of an error, we will
-  always have one extra successful netif_napi_add_tx/netif_napi_add that needs to be
-  cleaned up before we clean an equal number of netif_napi_add_tx/netif_napi_add and
-  devm_request_irq.
-
-Regards,
-Siddharth.
-
- drivers/net/ethernet/ti/am65-cpsw-nuss.c | 32 +++++++++++++-----------
- 1 file changed, 18 insertions(+), 14 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-index 2806238629f8..bef734c6e5c2 100644
---- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-+++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-@@ -2306,14 +2306,18 @@ static void am65_cpsw_nuss_remove_tx_chns(struct am65_cpsw_common *common)
- static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- {
- 	struct device *dev = common->dev;
-+	struct am65_cpsw_tx_chn *tx_chn;
- 	int i, ret = 0;
- 
- 	for (i = 0; i < common->tx_ch_num; i++) {
--		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
-+		tx_chn = &common->tx_chns[i];
- 
- 		hrtimer_init(&tx_chn->tx_hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
- 		tx_chn->tx_hrtimer.function = &am65_cpsw_nuss_tx_timer_callback;
- 
-+		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
-+				  am65_cpsw_nuss_tx_poll);
-+
- 		ret = devm_request_irq(dev, tx_chn->irq,
- 				       am65_cpsw_nuss_tx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2323,19 +2327,16 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- 				tx_chn->id, tx_chn->irq, ret);
- 			goto err;
- 		}
--
--		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
--				  am65_cpsw_nuss_tx_poll);
- 	}
- 
- 	return 0;
- 
- err:
--	for (--i ; i >= 0 ; i--) {
--		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
--
--		netif_napi_del(&tx_chn->napi_tx);
-+	netif_napi_del(&tx_chn->napi_tx);
-+	for (--i; i >= 0; i--) {
-+		tx_chn = &common->tx_chns[i];
- 		devm_free_irq(dev, tx_chn->irq, tx_chn);
-+		netif_napi_del(&tx_chn->napi_tx);
- 	}
- 
- 	return ret;
-@@ -2569,6 +2570,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			     HRTIMER_MODE_REL_PINNED);
- 		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
- 
-+		netif_napi_add(common->dma_ndev, &flow->napi_rx,
-+			       am65_cpsw_nuss_rx_poll);
-+
- 		ret = devm_request_irq(dev, flow->irq,
- 				       am65_cpsw_nuss_rx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2577,11 +2581,8 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			dev_err(dev, "failure requesting rx %d irq %u, %d\n",
- 				i, flow->irq, ret);
- 			flow->irq = -EINVAL;
--			goto err_flow;
-+			goto err_request_irq;
- 		}
--
--		netif_napi_add(common->dma_ndev, &flow->napi_rx,
--			       am65_cpsw_nuss_rx_poll);
- 	}
- 
- 	/* setup classifier to route priorities to flows */
-@@ -2589,11 +2590,14 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 
- 	return 0;
- 
-+err_request_irq:
-+	netif_napi_del(&flow->napi_rx);
-+
- err_flow:
--	for (--i; i >= 0 ; i--) {
-+	for (--i; i >= 0; i--) {
- 		flow = &rx_chn->flows[i];
--		netif_napi_del(&flow->napi_rx);
- 		devm_free_irq(dev, flow->irq, flow);
-+		netif_napi_del(&flow->napi_rx);
- 	}
- 
- err:
 -- 
-2.34.1
-
+Florian
 
