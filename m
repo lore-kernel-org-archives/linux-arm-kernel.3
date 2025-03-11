@@ -4,91 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C421C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 23:46:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A05CBC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 23:47:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=; b=QZoUXXw50ayN4vOHelW2aA+RIL
-	ErpMKVvLShKp/oARGiLwuMQd8MjzpY65t1CA5MfBuq/hDfc3FYyl865TwjHRiVWvFIH5jcKdHKpap
-	syUDwiMTSQstB2x8UlotkphUFG06KYdk2dEVY4t8ajVWs6FnS3L1G8+tqnJ1cTT1zJjSLzarS6Wxy
-	+8AOW73Z6cKjiYCsaE9VHMCPRPU3k8z7OtUbHwgUdSr0VHxXc4tE+4xtbkMZ05cLOtVuji2g/wQCZ
-	yWiZJHyOxP3LvtFGNwHwTGAQE0t6y12DdgvTrqmmxGW/fpRK9Kp/VgRe8jecZJZXxQt1508J7wAKG
-	DFkv4ViA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Oi1BLbE7r5Jv82rbxY9jzsh/6odGMKYOpVA/m+ctSAs=; b=dSf+XvHAFi0s86wPHQmCYoJlCO
+	CNSwy8CCpj82BlyHKjgnLtCcjbdSOemagGugtbhvgBet/fPE/YJu3ekO+VqJ4KzQS605wwe8X7SvT
+	5+zMZzMNVmBx0uBRbgfZpykzxQPL+wd9Dv0znIYl0SXqWKxdhseJYxKYwd71M94hvQrQb8UeeTkhx
+	9VP+nldp2+sF8eTBBv0ttVeNxmJ55EPyueKDI41WnCH0SAnjC5m5EUON/EByqAN9aByRKDXGg+3X1
+	N4krVq7SOTeXEHdJFHDFV4nEeicTCY38kxbdoKw7OfjUmhyvQ3Be+tfxD4YDVPSIAfo3crXuWHLw4
+	ih3m5k6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts9IQ-00000007D1A-3hJK;
-	Tue, 11 Mar 2025 23:46:02 +0000
-Received: from mail.netfilter.org ([217.70.190.124])
+	id 1ts9K2-00000007D9j-3UVK;
+	Tue, 11 Mar 2025 23:47:42 +0000
+Received: from out-178.mta1.migadu.com ([95.215.58.178])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts9Gl-00000007Cmc-0Wyg;
-	Tue, 11 Mar 2025 23:44:20 +0000
-Received: by mail.netfilter.org (Postfix, from userid 109)
-	id 9867D60290; Wed, 12 Mar 2025 00:44:11 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1741736651;
-	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a8t80WlrGYFY9oyQX3S86Ogn9ifXUjpMtYaXir/VnMuMWejrcyWrdT2MZ2UFI6Eo2
-	 7qsNBbeB+KiWFpXrYGzzrRPMPsPm3M/LE12BTGeObmLfV4xGfxMKOeVnfXLuHs+f6I
-	 oco67Tvuc79DAy4t/JCmw6SPfqMP3FXgCoQq7/pPe7BYJioQ8AdiXx+unSbnybDzHx
-	 TlZi4UML/13y3h+GZLEerM6BAPXU/DTqIQuGm8Mqm5U0dLr+7C4n8OXD6BORAgjHeq
-	 NKgQoBT0DPvWcs+M0oaprv6llWWPVxh4HtE3mjNtRrcPSzk1R77u3S9f2rILyP8arN
-	 I70Z8bqQRkyaw==
-Received: from netfilter.org (mail-agni [217.70.190.124])
-	by mail.netfilter.org (Postfix) with ESMTPSA id F13DD60281;
-	Wed, 12 Mar 2025 00:44:07 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
-	s=2025; t=1741736648;
-	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=kLBL1Hzar1cmkrQuKybLF66CTNES1VcZwNNIMmceAZVUWG5+PeM/BvDuffpu85yec
-	 wSCdNGmitWR2/y3qO93O7m5UoYNKtgV+UMNE3RSCZLEtC3QrrCx5Ui7dzYI58OpWlx
-	 NwubfakCqFL6Je9par6JdWhDjcNJFmritUaP6eC06ocENmPzpiec0y8GuyB+7RNRpX
-	 yhqSCf2339YL33+0nTwjf5i1QZ20gGgH7fTS6Lw5NjdHN+qVQ+1exZ2T3tciJq/8kh
-	 KqPz2aZ2hTBXT2boxpytoDg2qPdtF3KzUcG9KrRXHFunP2n1vk46/9Q2OKi2SN/ESu
-	 yNF8SeDIdPDXQ==
-Date: Wed, 12 Mar 2025 00:44:04 +0100
-From: Pablo Neira Ayuso <pablo@netfilter.org>
-To: Eric Woudstra <ericwouds@gmail.com>
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
-	Kuniyuki Iwashima <kuniyu@amazon.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Nikolay Aleksandrov <razor@blackwall.org>,
-	Roopa Prabhu <roopa@nvidia.com>, Ivan Vecera <ivecera@redhat.com>,
-	Jiri Pirko <jiri@resnulli.us>,
-	Jozsef Kadlecsik <kadlec@netfilter.org>,
-	Simon Horman <horms@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Eric Dumazet <edumazet@google.com>,
-	"David S. Miller" <davem@davemloft.net>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
-	coreteam@netfilter.org, bridge@lists.linux.dev,
+	id 1ts9H8-00000007Cnr-3zBl
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 23:44:45 +0000
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741736680;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Oi1BLbE7r5Jv82rbxY9jzsh/6odGMKYOpVA/m+ctSAs=;
+	b=oSMS2P3iID7v+wiMAoAinih2NDgr8K39BTILgxvDMNQ4bTMlDqOjbO4ZVovP48XrnBdkxd
+	qMhQiTAjEyPSTOPvpeWC04oEh1iQ30UvNMzRSjX2lcYdOHVBoAYM0aW32Rh6EdNNdo26ZW
+	Zq23OYzylV5zqv+GXg9OYrajB7Bxy4U=
+From: Oliver Upton <oliver.upton@linux.dev>
+To: kvmarm@lists.linux.dev,
+	Oliver Upton <oliver.upton@linux.dev>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Mingwei Zhang <mizhang@google.com>,
+	Colton Lewis <coltonlewis@google.com>,
+	Raghavendra Rao Ananta <rananta@google.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
-	Kees Cook <kees@kernel.org>,
-	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
-	Alexander Lobakin <aleksander.lobakin@intel.com>,
-	Ahmed Zaki <ahmed.zaki@intel.com>,
-	Vladimir Oltean <olteanv@gmail.com>,
-	Frank Wunderlich <frank-w@public-files.de>,
-	Daniel Golle <daniel@makrotopia.org>
-Subject: Re: [PATCH v9 nf 00/15] bridge-fastpath and related improvements
-Message-ID: <Z9DKxOnxr1fSv0On@calendula>
-References: <20250305102949.16370-1-ericwouds@gmail.com>
- <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com>
+	linux-kernel@vger.kernel.org,
+	Janne Grunau <j@jannau.net>
+Subject: Re: [PATCH v3 00/14] KVM: arm64: FEAT_PMUv3 on Apple hardware
+Date: Tue, 11 Mar 2025 16:44:26 -0700
+Message-Id: <174173663466.1065484.5411031116504311230.b4-ty@linux.dev>
+In-Reply-To: <20250305202641.428114-1-oliver.upton@linux.dev>
+References: <20250305202641.428114-1-oliver.upton@linux.dev>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_164419_604519_568B1A14 
-X-CRM114-Status: GOOD (  23.45  )
+X-CRM114-CacheID: sfid-20250311_164443_774160_9CFFEF90 
+X-CRM114-Status: UNSURE (   6.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,52 +81,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Tue, Mar 11, 2025 at 09:22:35AM +0100, Eric Woudstra wrote:
+On Wed, 05 Mar 2025 12:26:27 -0800, Oliver Upton wrote:
+> Hopefully close to the last spin, this time addressing Marc's comments
+> on v2.
 > 
+> Full details found in the v1 cover letter.
 > 
-> On 3/5/25 11:29 AM, Eric Woudstra wrote:
-> > This patchset makes it possible to set up a software fastpath between
-> > bridged interfaces. One patch adds the flow rule for the hardware
-> > fastpath. This creates the possibility to have a hardware offloaded
-> > fastpath between bridged interfaces. More patches are added to solve
-> > issues found with the existing code.
+> v1: https://lore.kernel.org/kvmarm/20241217212048.3709204-1-oliver.upton@linux.dev/
+> v2: https://lore.kernel.org/kvmarm/20250203183111.191519-1-oliver.upton@linux.dev/
 > 
-> 
-> > Changes in v9:
-> > - No changes, resend to netfilter
-> 
-> Hi Pablo,
-> 
-> I've changed tag [net-next] to [nf], hopefully you can have a look at
-> this patch-set. But, after some days, I was in doubt if this way I have
-> brought it to your attention. Perhaps I need to do something different
-> to ask the netfilter maintainer have a look at it?
+> [...]
 
-Apologies, this maintainance service is best effort.
+Applied to next, thanks!
 
-I am also going to be very busy until April to complete a few more
-deliverables, I cannot afford more cancelled projects. I will try to
-collect what is left for net-next and wait for the next merge window.
+[01/14] drivers/perf: apple_m1: Refactor event select/filter configuration
+        https://git.kernel.org/kvmarm/kvmarm/c/75ecffc361bb
+[02/14] drivers/perf: apple_m1: Support host/guest event filtering
+        https://git.kernel.org/kvmarm/kvmarm/c/46573d944f00
+[03/14] KVM: arm64: Compute PMCEID from arm_pmu's event bitmaps
+        https://git.kernel.org/kvmarm/kvmarm/c/93b01528586b
+[04/14] KVM: arm64: Always support SW_INCR PMU event
+        https://git.kernel.org/kvmarm/kvmarm/c/ed335722b457
+[05/14] KVM: arm64: Use a cpucap to determine if system supports FEAT_PMUv3
+        https://git.kernel.org/kvmarm/kvmarm/c/6f34024d185e
+[06/14] KVM: arm64: Drop kvm_arm_pmu_available static key
+        https://git.kernel.org/kvmarm/kvmarm/c/a38b67d15183
+[07/14] KVM: arm64: Use guard() to cleanup usage of arm_pmus_lock
+        https://git.kernel.org/kvmarm/kvmarm/c/3d6d9172128e
+[08/14] KVM: arm64: Move PMUVer filtering into KVM code
+        https://git.kernel.org/kvmarm/kvmarm/c/56290316a443
+[09/14] KVM: arm64: Compute synthetic sysreg ESR for Apple PMUv3 traps
+        https://git.kernel.org/kvmarm/kvmarm/c/2c433f70dccc
+[10/14] KVM: arm64: Advertise PMUv3 if IMPDEF traps are present
+        https://git.kernel.org/kvmarm/kvmarm/c/bed9b8ec8c71
+[11/14] KVM: arm64: Remap PMUv3 events onto hardware
+        https://git.kernel.org/kvmarm/kvmarm/c/1e7dcbfa4b7c
+[12/14] drivers/perf: apple_m1: Provide helper for mapping PMUv3 events
+        https://git.kernel.org/kvmarm/kvmarm/c/2d00cab849be
+[13/14] KVM: arm64: Provide 1 event counter on IMPDEF hardware
+        https://git.kernel.org/kvmarm/kvmarm/c/1b92e65f5006
+[14/14] arm64: Enable IMP DEF PMUv3 traps on Apple M*
+        https://git.kernel.org/kvmarm/kvmarm/c/e1231aacb065
 
-Therefore, I suggest you start with a much smaller series with a
-carefully selected subset including preparatory patches. I suggest you
-start with the software enhancements only. Please, add datapath tests.
-
-As for the hardware offload part, I have a board that I received 4.5
-ago years as a engineering sample that maybe I can use to test this,
-but no idea, really.
-
-You are a passer-by (ahem, "contributor"), this will get merged
-upstream at some point and we will have to maintain all this new code
-without your help maybe ... (people change bussiness units...), I have
-to understand what is going on here. The throughput available is
-limited, I am afraid we can only go _slow and careful_.
-
-Thanks.
-
-P.S: You work is important, very important, but maybe there is no need
-to Cc so many mailing lists and people, maybe netdev@,
-netfilter-devel@ and bridge@ is sufficient.
+--
+Best,
+Oliver
 
