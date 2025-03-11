@@ -4,77 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEC8C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EF2C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:32:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PbzRBzD4zy1+woI1kw2/XmxJI77CaWyhRb9Se95W7PI=; b=EkxxjvYm3OFtDcIWuJMGSaT+ot
-	gGYWeYODk74085mLeJVuy2mGyKMPDivvHxVd5cZt3EDIdynsC3Pav+QXL7yLdUJQN4j72iEk6ma/p
-	6wmgRRqtCLT2hgWILISsvF/AmvChDcgQ81MW7Pvz7aBnrIAWLjd+Wx/7xU3pkDViN9gujPeR13sdJ
-	WOo88aTyqKKIfzpfjGzJSWLw5hrgSEFySHmLENeON3rQaKr6cSOVuE5feTXcCka0E4Ydp4vE7jQ3+
-	OGHfCxaMJpB54K7o25LfEzC2FGexeD8dp0hu8AWIXS6It2QgRir3uHCCL9q4PH8/j1FPWeh4GpVxY
-	xKaz2ZeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=; b=FemHY5CjgkKFvrtLxOhENyCilm
+	vNHnmLuVTdv3AFTUWZXcIsjDqbgUzD3bdvIzvhr8691o9Rxlgl4qixfAvZLjNJtJAo/0z63JC37AR
+	umOJ72yDvz8Kb3yajzipbraPylz6E9LhGAyExkBmNUfMLMqN/rLbi+XbkKz5OsNpryhpoM6T2p77W
+	5fmDQ9vc+b0PPQp1IFbyaRkPYfFqf+WI0WkU7HeeJerFanYZiGUhNVKogMwIkz2s+AKGTs0td1RRG
+	LvB9JMEXfs0Uv5jWR4N8xc4NWedR0+8ZBKMhJwRoJgzL47x5J25cSBDxW6oAIi5jp8Q2QoK2Jiqme
+	i0t5Y7ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru4I-00000004pyM-0Esj;
-	Tue, 11 Mar 2025 07:30:26 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1tru6K-00000004qJy-33Jg;
+	Tue, 11 Mar 2025 07:32:32 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru2b-00000004pe7-0qRY
+	id 1tru4g-00000004q2S-1vVX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 07:28:42 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7S0Ds644784
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 02:28:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741678080;
-	bh=PbzRBzD4zy1+woI1kw2/XmxJI77CaWyhRb9Se95W7PI=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=clqEGs7DEHEsKaeENmPF1f7pqFSp3QgVfxlDlCYu/oVNDolvtnCKDqdbHlSjPzb95
-	 2m1ZsLm7e+NylWm0dsInjHa0bGykRmvn14PvWYpEgJ3mVs6VfL2j/g63VPdbSrpOJh
-	 6LMluOUQDRQVTnJ8DlqkCR5Ah1rH4kg0/PugVLvM=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7S0kc061754
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 11 Mar 2025 02:28:00 -0500
-Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 02:27:59 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
- (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 02:28:00 -0500
-Received: from [10.24.68.192] (dhcp-10-24-68-192.dhcp.ti.com [10.24.68.192])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B7RuHV002607;
-	Tue, 11 Mar 2025 02:27:56 -0500
-Message-ID: <8f03c097-e2c1-452a-85e2-90accbac7443@ti.com>
-Date: Tue, 11 Mar 2025 12:57:55 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/5] Add J722S CSI support
-To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>,
-        Vaishnav Achath <vaishnav.a@ti.com>
-CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>,
-        <y-abhilashchandra@ti.com>
-References: <20250218185452.600797-1-vaishnav.a@ti.com>
- <174133309362.1072814.5440404016847301624.b4-ty@ti.com>
-From: Vignesh Raghavendra <vigneshr@ti.com>
-Content-Language: en-US
-In-Reply-To: <174133309362.1072814.5440404016847301624.b4-ty@ti.com>
+	Tue, 11 Mar 2025 07:30:51 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d007b2c79so8551335e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 00:30:48 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741678247; x=1742283047; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=;
+        b=yrwYYKsOxup9/U1SijwlyWYgP3YsVjLVJfAbEi+17Zv5ZHQIHqfxNY2/NJM2o9W/oP
+         YT7TGCfqmYLV3PoLnOp1bd28BiPQSoEHB1pJnB1g7/Sdf9ZmFVj7Rk64ESrdQRkEQ7uR
+         DHPJojFu/0a7mMmR0hjUWkqQoQwxJf4DrMPmtOA9qX/Lvms29gIFkda3ciwNiXB3CaJy
+         /gv10NVbcEV5KiiOWJ94LiiCbj0Htaizx6cgLvI4mrH+by1A0IF0biuCpo3vAxQM/cP0
+         5Iug6Tz6ZY+ujDY/8RYLfN4EG9CNvBJKs6c2CF04z4PUXMvPb9LHvN1RkalCZeJFKzzh
+         1inQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741678247; x=1742283047;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=;
+        b=dLyyu+mrwG1sO9BAIptyXtgE3un6/HVKkJNEsgGPxA+3s2k5EqEgIqpfnHax0l+Mkv
+         L2vcJAIj0gRgwrI9mjeHZwVY58wkvJN9707VHCi9LhR1xwW+MHVyFp9npOh4vLTHQJjP
+         2VdO9lP4YOs558QKCD1QrW4t6S+gHA4I/azifPlmDthRjHNPhQVlzdYadBzGru/zo9nN
+         /lYh+rlu+3D8NY8yc2utkWOZaNXCBtpaof1Nf2VZ/XAuMCUp49BcOfVaKe/PN35hiD1D
+         Pxu9v2r3DgEzXXZH3CANTPcXGGZT86fQBtFRTUDDvyr24MtRR2VzL5baOhvm8O+J0ojr
+         rTxQ==
+X-Gm-Message-State: AOJu0Ywffs3BoSTAlYj+9volw2PBu8IZMm03KNhtLaihPNa/KTiCG6Bt
+	JbJShkpPf/V86H6chVh6Ap7e75Q2eUKDIGEOjbLM/5V5nQJptcfzSU1/pYQyFiqZwahEoJJbWx+
+	tgbImy8vEFN9Q/EF4BzQPr6Tn+8kG9Js6/RlSqHBzCVQ4VgyWmOODtzAyt/1ZjtQdet/JCvwwAZ
+	8h4hWQIST3ggRRZJOEpema0z03OnPW+tG2k261TnYz
+X-Google-Smtp-Source: AGHT+IGdZDK1UMSJSho6/vTKgr+ZVUwGAK4BG/Lmd5N3BdsDSzLy1BG+KfP/kqDOcvwrCH22tHV+yNYH
+X-Received: from wmrn42.prod.google.com ([2002:a05:600c:502a:b0:43d:1b8:4e53])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f90:b0:43d:fa:1f9a
+ with SMTP id 5b1f17b1804b1-43d01c22acfmr37124095e9.30.1741678247711; Tue, 11
+ Mar 2025 00:30:47 -0700 (PDT)
+Date: Tue, 11 Mar 2025 08:30:44 +0100
+Mime-Version: 1.0
+X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=ardb@kernel.org;
+ h=from:subject; bh=q4fw2h5PkJrIGNXLFU2qUSwn/QGGmIKa9U1Zbj+tl8w=;
+ b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf38syX/dverrT6wr5vNbqOL1eT0T1seVgqcev/x1Y0ZF
+ 69LzYrJ6ShlYRDjYJAVU2QRmP333c7TE6VqnWfJwsxhZQIZwsDFKQATKV7EyNAud8/49uZ1DMY6
+ Vx9UxQc277ffyevcvP3Kjqmuz5syb79i+J9kGbq8YqeJTLr0hqOXu2zFEuysLymJCLwJ3CoqsrN NgBcA
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+Message-ID: <20250311073043.96795-2-ardb+git@google.com>
+Subject: [PATCH v2] arm64/kernel: Always use level 2 or higher for early mappings
+From: Ard Biesheuvel <ardb+git@google.com>
+To: linux-arm-kernel@lists.infradead.org
+Cc: mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com, 
+	Ard Biesheuvel <ardb@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
+	Ryan Roberts <ryan.roberts@arm.com>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_002841_414532_074B2847 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250311_003050_498801_EDBF13FB 
+X-CRM114-Status: GOOD (  15.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,42 +94,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Ard Biesheuvel <ardb@kernel.org>
 
+The page table population code in map_range() uses a recursive algorithm
+to create the early mappings of the kernel, the DTB and the ID mapped
+text and data pages, and this fails to take into account that the way
+these page tables may be constructed is not precisely the same at each
+level. In particular, block mappings are not permitted at each level,
+and the code as it exists today might inadvertently create such a
+forbidden block mapping if it were used to map a region of the
+appropriate size and alignment.
 
-On 07/03/25 16:06, Vignesh Raghavendra wrote:
-> Hi Vaishnav Achath,
-> 
-> On Wed, 19 Feb 2025 00:24:47 +0530, Vaishnav Achath wrote:
->> This series adds support for CSI2RX capture on J722S EVM
->> and enables IMX219 and OV5640 overlays to enables
->> 4 sensors on EVM, this provides a reference for a user to
->> enable a different sensor on any of the ports.
->>
->> Test logs:
->> IMX219: https://gist.github.com/vaishnavachath/60cc2ef257601f27f28a315f8cf669c4
->> OV5640: https://gist.github.com/vaishnavachath/648202286d4d34d4d25f7c8c9db8b8bd
->>
->> [...]
-> I have applied the following to branch ti-k3-dts-next on [1].
-> Thank you!
-> 
-> [1/5] arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
->       commit: fb1b230bf9c45f5d6579dc329c2aafcd1263b70a
-> [2/5] arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
->       commit: 8fea4519f625e6c1b05078f2ecea252b7b28b06e
-> [3/5] arm64: dts: ti: k3-j722s-evm: Add camera peripherals
->       commit: ce553288ad2368f0d27e47b39a23121a825a2b33
+This never happens in practice, given the limited size of the assets
+being mapped by the early boot code. Nonetheless, it would be better if
+this code would behave correctly in all circumstances.
 
-> [4/5] arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
->       commit: c24ccb1cd77fb44087b2f7008d99626796b33ca4
-> [5/5] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
->       commit: 938806652b0a3c90d67e7137c91708d06940b03d
+So only permit block mappings at level 2, and page mappings at level 3,
+for any page size, and use table mappings exclusively at all other
+levels. This change should have no impact in practice, but it makes the
+code more robust.
 
-I have dropped 4 and 5 due to issues Rob pointed out in the other thread.
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>
+Reported-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+---
+v2: take the assignment of protval out of the loop again, so that
+    clearing a mapping works as expected wrt the PTE_CONT bit
 
+ arch/arm64/kernel/pi/map_range.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
+index 2b69e3beeef8..5778697f3062 100644
+--- a/arch/arm64/kernel/pi/map_range.c
++++ b/arch/arm64/kernel/pi/map_range.c
+@@ -45,12 +45,12 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
+ 	 * clearing the mapping
+ 	 */
+ 	if (protval)
+-		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
++		protval |= (level == 2) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
+ 
+ 	while (start < end) {
+ 		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
+ 
+-		if (level < 3 && (start | next | pa) & lmask) {
++		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
+ 			/*
+ 			 * This chunk needs a finer grained mapping. Create a
+ 			 * table mapping if necessary and recurse.
 -- 
-Regards
-Vignesh
-https://ti.com/opensource
+2.49.0.rc0.332.g42c0ae87b1-goog
 
 
