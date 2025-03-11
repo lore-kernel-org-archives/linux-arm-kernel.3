@@ -4,97 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CAC9C2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:50:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5071DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:52:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d+GPbXocn+GZt51EEEnfn5JN7h4RZgrIn1M7Ie3K7Kw=; b=TlAA7rh7ygdGrN1Zd8p0BSeuOO
-	4rdGdvWwp8Sy6Bg2gn8+Jh6HehzKsE6rKTwJsUFRs3zFujGWRCPIY8n7Bk7ZclU0ddJ4/YRhamtw/
-	iB6ZoUN0ib4l5YlNUCn5+1ZJRjwiDPdOTvXNJc5eWMOh/nJr47kmZKOB6ewwrLw3woG+Bm+b9LHNX
-	AbF5MvPXUj0cY/J7IYcI9BlaENWNr08vV14PvXi4koYT06sV+4YZfy7kEIeUDTpt8wuA3uq+QoX1W
-	tCv96fplbZc/vxiZYSD4emjpFanB7rmHrFPcR/9CR/UYr1uKUyGjmF/cZPnPEc4W1lHaJKjcXI4sn
-	A11FS0vw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+SpyETi/gYd8HkOBMRL09DevPQ5DM0VPD+wKvb5kCo0=; b=I/tsQwPhxChltlrodkXkcoz6NO
+	Wd8HVIeQ1Lmgjz2Bm4xun8mxR5QdEwDkmCkaE8o9cWpxFkk5tVhEv2uDytBQt8azH5j1EWApx24pK
+	pB2o2eq9XtDbzHki34A3s40LaeawPvBsVr5OLf92+XJCq9kdcSqvyqyR5GS0fyzzbyuuJvbN6xhpj
+	LaIz3xayscqw6aaQkjiBOxBkDow+Ce5l9TUyW8fHhKGpAe9GueAUCtqxPeiZhjyA08qAfLq5JM8ed
+	HjRiz0qOZ3JoPP26MQ9urPPbZ94UVtIkF2FfhxKYuVSq8/LsJRoXf9yPBqL5an5xPGSJGVI55VYnp
+	TlpvaYHg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5ce-00000006psy-382d;
-	Tue, 11 Mar 2025 19:50:40 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ts5eB-00000006q9e-2Ngk;
+	Tue, 11 Mar 2025 19:52:15 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4N6-00000006d4l-1T7Y
+	id 1ts5WA-00000006o2C-3xhR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:30:33 +0000
+	Tue, 11 Mar 2025 19:44:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4A5B2A460F6;
-	Tue, 11 Mar 2025 18:25:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 86D87C4CEEB;
-	Tue, 11 Mar 2025 18:30:30 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 6B4535C6882;
+	Tue, 11 Mar 2025 19:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 29AAAC4CEEF;
+	Tue, 11 Mar 2025 19:43:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741717831;
-	bh=LfsP1qD1UixHyLWZ+BVqcc7KJb/AoO47XMtQU9zN91U=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=P5w30VCq3PkMpKSWE5/3EWYD1W9vpCIoatlFxl35rE5UabEOZHWhQ//an4RBbs72V
-	 tOiAdDKyID0cT0PqoSo+FBxKHjNjH9+zcUjtE8+pCCuOxCwiKNRmU588sNAJSfUX7u
-	 CmSrBZUENaNraghVqc4b4ROIRXnfI2ARvCDLVaKR3peh2O01RYTm1C3QAFgkzQvZOi
-	 j45PaaT32l5jMyIxeohinGAQ9Sqm/1iSEuh5btVnz5LFKGU3+l/Mp5TgWA1i57hSe2
-	 zvBuAu0q1jCBR5o0+5AvNQhKeTNjbPE92gBmHklCugPBSjzvSwssXnPv4eB0UtoDa9
-	 W4aJl288c7wug==
-Date: Tue, 11 Mar 2025 13:28:13 -0500
-From: Rob Herring <robh@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Javier Carrasco <javier.carrasco@wolfvision.net>,
-	Ross Burton <ross.burton@arm.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Zhi Mao <zhi.mao@mediatek.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Ihor Matushchak <ihor.matushchak@foobox.net>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [RFC PATCH v2 05/16] dt-bindings: media: i2c: max96717: add
- support for MAX9295A
-Message-ID: <20250311182813.GA3934398-robh@kernel.org>
-References: <20250309084814.3114794-1-demonsingur@gmail.com>
- <20250309084814.3114794-6-demonsingur@gmail.com>
+	s=k20201202; t=1741722238;
+	bh=s488wFx5aTMKVQsqgNol6mUlN0cq/CNqyWNbSJffAq8=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=mQhCeqyph82Cg2ZwpYdd1k7nkOUcXAegm3Ck1mJcGRLEmBJoxZ49UGDYQzkmtmlsG
+	 7LUyW1tCtYTR7P6MKuZGulF+m8zAyHNjGUpDZZ9lOC579dX3TuAjU1mTPqe205kY8t
+	 2E+bDZKZ1rwB+fmP0yv3Q6h7v2y/DhDA5g2+88vUYS3y7HGqi00w7aI7xxfBFFZWFl
+	 zTFk5D4Wm7EV3xo4vomEbRC3d2s/vi7IiidUjKzXY2kxs5AkMbI6sXBz3kkky4CAo8
+	 78ubUEW5qPeKmEODKZxzdktonaFfsztlHgsf9Qeko+5b/NhuCjxNw1n53rDZyahQ+o
+	 pFzCZQ4CFhsMg==
+From: Nathan Chancellor <nathan@kernel.org>
+Date: Tue, 11 Mar 2025 20:43:42 +0100
+Subject: [PATCH 1/2] ARM: Require linker to support KEEP within OVERLAY for
+ DCE
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309084814.3114794-6-demonsingur@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250311-arm-fix-vectors-with-linker-dce-v1-1-ec4c382e3bfd@kernel.org>
+References: <20250311-arm-fix-vectors-with-linker-dce-v1-0-ec4c382e3bfd@kernel.org>
+In-Reply-To: <20250311-arm-fix-vectors-with-linker-dce-v1-0-ec4c382e3bfd@kernel.org>
+To: Russell King <linux@armlinux.org.uk>
+Cc: Christian Eggers <ceggers@arri.de>, Arnd Bergmann <arnd@arndb.de>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Yuntao Liu <liuyuntao12@huawei.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
+ Nathan Chancellor <nathan@kernel.org>
+X-Mailer: b4 0.15-dev
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2601; i=nathan@kernel.org;
+ h=from:subject:message-id; bh=s488wFx5aTMKVQsqgNol6mUlN0cq/CNqyWNbSJffAq8=;
+ b=owGbwMvMwCUmm602sfCA1DTG02pJDOkXJlV2GovpTBT86pTRJnX/AlvNY7+QFxmeUgf39bjuU
+ U99Ib+uo5SFQYyLQVZMkaX6sepxQ8M5ZxlvnJoEM4eVCWQIAxenAEyE5THD/5jN38IN3Q41PXob
+ WTvl9EcNozk9WYqH/jUurNrRHCs6eyvDP4WwnBQeodO7Dwg3PD9jvPG3zWb2heZtnjazLPbF7bB
+ u4QEA
+X-Developer-Key: i=nathan@kernel.org; a=openpgp;
+ fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_113032_506618_C595A1EC 
-X-CRM114-Status: GOOD (  17.93  )
+X-CRM114-CacheID: sfid-20250311_124359_107538_C324F7E1 
+X-CRM114-Status: GOOD (  12.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,40 +84,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 10:47:57AM +0200, Cosmin Tanislav wrote:
-> MAX9295A is an older variant of the MAX96717 which does not support
-> tunnel mode.
-> 
-> Document the compatibility.
-> 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
->  .../devicetree/bindings/media/i2c/maxim,max96717.yaml          | 3 +++
->  1 file changed, 3 insertions(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> index 0a43582168a8..31fb62debdc7 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> @@ -24,11 +24,14 @@ description:
->  
->    The GMSL2 serial link operates at a fixed rate of 3Gbps or 6Gbps in the
->    forward direction and 187.5Mbps in the reverse direction.
-> +
->    MAX96717F only supports a fixed rate of 3Gbps in the forward direction.
-> +  MAX9295A only supports pixel mode.
->  
->  properties:
->    compatible:
->      oneOf:
-> +      - const: maxim,max9295a
->        - const: maxim,max96717f
+ld.lld prior to 21.0.0 does not support using the KEEP keyword within an
+overlay description, which may be needed to avoid discarding necessary
+sections within an overlay with '--gc-sections', which can be enabled
+for the kernel via CONFIG_LD_DEAD_CODE_DATA_ELIMINATION.
 
-Make these 2 a single 'enum'.
+Disallow CONFIG_LD_DEAD_CODE_DATA_ELIMINATION without support for KEEP
+within OVERLAY and introduce a macro, OVERLAY_KEEP, that can be used to
+conditionally add KEEP when it is properly supported to avoid breaking
+old versions of ld.lld.
 
->        - items:
->            - enum:
-> -- 
-> 2.48.1
-> 
+Cc: stable@vger.kernel.org
+Link: https://github.com/llvm/llvm-project/commit/381599f1fe973afad3094e55ec99b1620dba7d8c
+Signed-off-by: Nathan Chancellor <nathan@kernel.org>
+---
+ arch/arm/Kconfig                   | 2 +-
+ arch/arm/include/asm/vmlinux.lds.h | 6 ++++++
+ init/Kconfig                       | 5 +++++
+ 3 files changed, 12 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm/Kconfig b/arch/arm/Kconfig
+index 835b5f100e92..f3f6b7a33b79 100644
+--- a/arch/arm/Kconfig
++++ b/arch/arm/Kconfig
+@@ -121,7 +121,7 @@ config ARM
+ 	select HAVE_KERNEL_XZ
+ 	select HAVE_KPROBES if !XIP_KERNEL && !CPU_ENDIAN_BE32 && !CPU_V7M
+ 	select HAVE_KRETPROBES if HAVE_KPROBES
+-	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_IS_LLD)
++	select HAVE_LD_DEAD_CODE_DATA_ELIMINATION if (LD_VERSION >= 23600 || LD_CAN_USE_KEEP_IN_OVERLAY)
+ 	select HAVE_MOD_ARCH_SPECIFIC
+ 	select HAVE_NMI
+ 	select HAVE_OPTPROBES if !THUMB2_KERNEL
+diff --git a/arch/arm/include/asm/vmlinux.lds.h b/arch/arm/include/asm/vmlinux.lds.h
+index d60f6e83a9f7..0f8ef1ed725e 100644
+--- a/arch/arm/include/asm/vmlinux.lds.h
++++ b/arch/arm/include/asm/vmlinux.lds.h
+@@ -34,6 +34,12 @@
+ #define NOCROSSREFS
+ #endif
+ 
++#ifdef CONFIG_LD_CAN_USE_KEEP_IN_OVERLAY
++#define OVERLAY_KEEP(x)		KEEP(x)
++#else
++#define OVERLAY_KEEP(x)		x
++#endif
++
+ /* Set start/end symbol names to the LMA for the section */
+ #define ARM_LMA(sym, section)						\
+ 	sym##_start = LOADADDR(section);				\
+diff --git a/init/Kconfig b/init/Kconfig
+index d0d021b3fa3b..fc994f5cd5db 100644
+--- a/init/Kconfig
++++ b/init/Kconfig
+@@ -129,6 +129,11 @@ config CC_HAS_COUNTED_BY
+ 	# https://github.com/llvm/llvm-project/pull/112636
+ 	depends on !(CC_IS_CLANG && CLANG_VERSION < 190103)
+ 
++config LD_CAN_USE_KEEP_IN_OVERLAY
++	# ld.lld prior to 21.0.0 did not support KEEP within an overlay description
++	# https://github.com/llvm/llvm-project/pull/130661
++	def_bool LD_IS_BFD || LLD_VERSION >= 210000
++
+ config RUSTC_HAS_COERCE_POINTEE
+ 	def_bool RUSTC_VERSION >= 108400
+ 
+
+-- 
+2.48.1
+
 
