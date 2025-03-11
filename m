@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0997C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:50:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B99FFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:50:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=aydqIscEVKUeWIOVWUYKOFd//aT5Ovli2QGBmscbD9M=; b=HBAI3BeHg0lWQy
-	Aww9S6DDFJIU9ENRyWRG16MGPImG76piBMkNH+YH9vpZDU9p2o613RC4SMs9Fqfbdxt+f8142VVyz
-	DmQLKqorBUovkd/F6/9HStWfAswCrzD84NlAlPSiupd2aWATfayCj1CCvxu+xRIXxir9wV3cFpuEk
-	GN55LsJosJUUr4Ha+j1OM4vRlu2RqO7FUYEZBE2WNrgFlyc6prTlB5h9oulFL8LhfHxWspCyOG/Q2
-	/xe3pT+iHbvPBxrn2SBG0KISfIMCveHuhIBPFNgNVTs4syVUBsZW4gxFVxcslZCoMHD79r+kBFVtr
-	xDkcuOddRWLBnfma3z/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J5wFO0srlv/idNi43/AiuJlFR1zWvELvDDs0nOZj/3w=; b=DzcsZYYikSo8BX1tnqn2blLush
+	nEH2MsMz9Fq57MFUxGQ0itzbWy8cI0t/4sifji+jvQwqGSjCB/Enm/M6mg3yTvVJduAzPENem49dJ
+	NWQHcReeGJgHzQ2eXATEzk5JHD0vfo+FerW3ZaE6LVaWJQ6nGOtiQ4WKjrE7MaOyjfVMef8pFB8HX
+	my+8/kECCGGq4Tizr7zFekEaePqS9ei3TiApH1R9mrhm2mWWb9IEV9eHWh4rGTWgtw/iN6YoOyCsW
+	9Tflzeecj6YmtYjRCi/OPbrppaUPO3m/hqAJUEOrcOnWAoRyxuLhSt+Rwegp0/L722FyWshiZtq1r
+	HnolIlMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5cY-00000006ppw-2YUU;
-	Tue, 11 Mar 2025 19:50:34 +0000
+	id 1ts5ce-00000006psV-0pjs;
+	Tue, 11 Mar 2025 19:50:40 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5W9-00000006o1i-0NSA
+	id 1ts4F4-00000006btC-19JY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 19:43:58 +0000
+	Tue, 11 Mar 2025 18:22:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 096A3A4605B;
-	Tue, 11 Mar 2025 19:38:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C7B5BC4CEE9;
-	Tue, 11 Mar 2025 19:43:53 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 7BA7EA46149;
+	Tue, 11 Mar 2025 18:16:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A4AC4CEE9;
+	Tue, 11 Mar 2025 18:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741722235;
-	bh=6CumdRSXH7JR76ASCBI2D6itGYdbqs/RRrbSSuL1/1E=;
-	h=From:Subject:Date:To:Cc:From;
-	b=dtJ8QrRGG1PP7j6FoFhKm+bfdhMkba2frzhFSbOX8g2w1NZGS2XyJa5+XaXumZZpV
-	 WSmIv+iZaVNENj/I/wTv8FOFabN3LpjFE5YQ2fRXPe5cKE85G/UrNCsfZqegWy5JoF
-	 uU/oXQ64QfuHAfip+wSLAC9vqcnKHbZXk5RDScrQCSZLiHNB8uCBp9JtX3jo+tTzcv
-	 OV5BUYTUbFcmWQvN7xy0/DwrDBdN4NuSaCLI6XknNU3ghU1wengnkrfopfpQy8Oryp
-	 aRjrgU3kH8u8bg/lHh4GToTCpv22PZI6cXgWO99FAlvw/nUwFpwgC2c3gdmreGTc/i
-	 i8iH+nlNB9d+A==
-From: Nathan Chancellor <nathan@kernel.org>
-Subject: [PATCH 0/2] ARM: Fix ARM_VECTORS with
- CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
-Date: Tue, 11 Mar 2025 20:43:41 +0100
-Message-Id: <20250311-arm-fix-vectors-with-linker-dce-v1-0-ec4c382e3bfd@kernel.org>
+	s=k20201202; t=1741717333;
+	bh=twBnHx5MxmQiJsuf5M4X8oH5jsM0d98je1kAJCezQRc=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=aiSdc+/unKajtealI06ykugefgVZcMCiFo47wIxDcaoT17jRxCFqaSQxZpmcVtR7U
+	 9hXlu6BKOnmmFAqgNaD0dzPhdyNZa3pZk3XMHk8Rw6iyjN7Ru0XKoa2Ic2MV8I2aOK
+	 q31II4o92W4aBpvDg4xVZ3w7M+cm/F8q2tSAbJnAFbA3q5H2TFbYeDP1LbNbkvqNsc
+	 TwQQbEfpemoj2ec04SeAvuKvNlAOPZjTsUqqgzjBLruVHMdchJMvcx/4/JPmSxbWgu
+	 21uWULjuZJ2LgEM6qlL4xQzkYb7mnjt2Qvh0kZx7c2433MH0hjhLDX+c/vF17VA/mH
+	 78wY9P7AXwDEA==
+Received: from disco-boy.misterjones.org ([217.182.43.188] helo=www.loen.fr)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1ts4F0-00CeC6-Ni;
+	Tue, 11 Mar 2025 18:22:10 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Date: Tue, 11 Mar 2025 18:22:10 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Oliver Upton <oliver.upton@linux.dev>, Anshuman Khandual
+ <anshuman.khandual@arm.com>, arm-kernel@lists.infradead.org, James Morse
+ <james.morse@arm.com>, Will Deacon <will@kernel.org>, Ard Biesheuvel
+ <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>, Mark Rutland
+ <mark.rutland@arm.com>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 1/8] KVM: arm64: ptdump: Test PMD_TYPE_MASK for block
+ mapping
+In-Reply-To: <Z9B8lyYEtL62ZzVb@arm.com>
+References: <20250221044227.1145393-1-anshuman.khandual@arm.com>
+ <20250221044227.1145393-2-anshuman.khandual@arm.com>
+ <Z9B8lyYEtL62ZzVb@arm.com>
+User-Agent: Roundcube Webmail/1.4.15
+Message-ID: <43e4dd905ebc6424511bd230ceb47ac1@kernel.org>
+X-Sender: maz@kernel.org
+Content-Type: text/plain; charset=US-ASCII;
+ format=flowed
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAG2S0GcC/x2N0QpAQBAAf0X7bOsOF/kVeXBnseFoTyj5d5fHq
- WnmgUDCFKBOHhA6OfDmI+g0ATd1fiTkPjJkKjMq1xo7WXHgG09yxyYBLz4mXNjPJNg7wiovSmO
- VrQZjIVZ2oaj/h6Z93w+tnhrGcQAAAA==
-X-Change-ID: 20250311-arm-fix-vectors-with-linker-dce-83475b0b8f5b
-To: Russell King <linux@armlinux.org.uk>
-Cc: Christian Eggers <ceggers@arri.de>, Arnd Bergmann <arnd@arndb.de>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Yuntao Liu <liuyuntao12@huawei.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, llvm@lists.linux.dev, stable@vger.kernel.org, 
- Nathan Chancellor <nathan@kernel.org>
-X-Mailer: b4 0.15-dev
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1114; i=nathan@kernel.org;
- h=from:subject:message-id; bh=6CumdRSXH7JR76ASCBI2D6itGYdbqs/RRrbSSuL1/1E=;
- b=owGbwMvMwCUmm602sfCA1DTG02pJDOkXJlUyCyWuT3ta8MFbRfqN5bXL3AG9EpufZe80mL/p8
- ZprUknGHaUsDGJcDLJiiizVj1WPGxrOOct449QkmDmsTCBDGLg4BWAiTpGMDKfPHKsTUHnVV2C7
- 5Hh1HPvUkpl/TOcu51l69v5t5srZP2IZ/meu10lad/WXl9Tc4J81TXMffVBfqBG+L+b7pf51Llv
- dalkA
-X-Developer-Key: i=nathan@kernel.org; a=openpgp;
- fpr=2437CB76E544CB6AB3D9DFD399739260CB6CB716
+X-SA-Exim-Connect-IP: 217.182.43.188
+X-SA-Exim-Rcpt-To: catalin.marinas@arm.com, oliver.upton@linux.dev, anshuman.khandual@arm.com, arm-kernel@lists.infradead.org, james.morse@arm.com, will@kernel.org, ardb@kernel.org, ryan.roberts@arm.com, mark.rutland@arm.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_124357_221979_7AC41BF4 
-X-CRM114-Status: UNSURE (   9.31  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_112214_451020_51E54394 
+X-CRM114-Status: GOOD (  14.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,35 +91,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+On 2025-03-11 18:10, Catalin Marinas wrote:
+> On Fri, Feb 21, 2025 at 10:12:20AM +0530, Anshuman Khandual wrote:
+>> Test given page table entries against PMD_TYPE_SECT on PMD_TYPE_MASK 
+>> mask
+>> bits for identifying block mappings in stage 2 page tables.
+>> 
+>> Cc: Marc Zyngier <maz@kernel.org>
+>> Cc: Oliver Upton <oliver.upton@linux.dev>
+>> Cc: James Morse <james.morse@arm.com>
+>> Cc: Catalin Marinas <catalin.marinas@arm.com>
+>> Cc: Will Deacon <will@kernel.org>
+>> Cc: linux-arm-kernel@lists.infradead.org
+>> Cc: kvmarm@lists.linux.dev
+>> Cc: linux-kernel@vger.kernel.org
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>>  arch/arm64/kvm/ptdump.c | 4 ++--
+>>  1 file changed, 2 insertions(+), 2 deletions(-)
+>> 
+>> diff --git a/arch/arm64/kvm/ptdump.c b/arch/arm64/kvm/ptdump.c
+>> index e4a342e903e2..098416d7e5c2 100644
+>> --- a/arch/arm64/kvm/ptdump.c
+>> +++ b/arch/arm64/kvm/ptdump.c
+>> @@ -52,8 +52,8 @@ static const struct ptdump_prot_bits 
+>> stage2_pte_bits[] = {
+>>  		.set	= "AF",
+>>  		.clear	= "  ",
+>>  	}, {
+>> -		.mask	= PTE_TABLE_BIT | PTE_VALID,
+>> -		.val	= PTE_VALID,
+>> +		.mask	= PMD_TYPE_MASK,
+>> +		.val	= PMD_TYPE_SECT,
+>>  		.set	= "BLK",
+>>  		.clear	= "   ",
+>>  	},
+> 
+> Marc, Oliver - are you ok with this patch going in through the arm64
+> tree?
 
-Christian sent a fix [1] for ARM_VECTORS with
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION that exposed a deficiency in ld.lld
-with regards to KEEP() within an OVERLAY description. I have fixed that
-in ld.lld [2] and added a patch before Christian's to disallow
-CONFIG_LD_DEAD_CODE_DATA_ELIMINATION when KEEP() cannot be used within
-OVERLAY to keep everything working for all linkers.
+Yup, looks OK to me.
 
-[1]: https://lore.kernel.org/20250221125520.14035-1-ceggers@arri.de/
-[2]: https://github.com/llvm/llvm-project/commit/381599f1fe973afad3094e55ec99b1620dba7d8c
+Acked-by: Marc Zyngier <maz@kernel.org>
 
----
-Christian Eggers (1):
-      ARM: add KEEP() keyword to ARM_VECTORS
-
-Nathan Chancellor (1):
-      ARM: Require linker to support KEEP within OVERLAY for DCE
-
- arch/arm/Kconfig                   |  2 +-
- arch/arm/include/asm/vmlinux.lds.h | 12 +++++++++---
- init/Kconfig                       |  5 +++++
- 3 files changed, 15 insertions(+), 4 deletions(-)
----
-base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
-change-id: 20250311-arm-fix-vectors-with-linker-dce-83475b0b8f5b
-
-Best regards,
+         M.
 -- 
-Nathan Chancellor <nathan@kernel.org>
-
+Jazz is not dead. It just smells funny...
 
