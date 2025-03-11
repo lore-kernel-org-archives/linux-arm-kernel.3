@@ -4,133 +4,123 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62789C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D5CAC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:22:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
-	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTInLBZAi6dngAdI5tqAttPHHYifpveKWKtHyNBTHCw=; b=nM/X5lu5izS8g+kl9OVFGEauqJ
-	CnXQcayUxBWeNaFOxNXyV+eOOXkrdtb3sOzbiUMw+9ytNK6Gu/FvQcddxhkYrk0e5rE08SeR7vp1/
-	Dh5muiMmcoC6UZ6CZrdUaYscA6fQMGfqMFJ/5GNZdzf84mR6t0KzPqVbVS1T5KFe+z1R6Zo3Umfpn
-	KmJeEU21wteqOfXre9voEGHvBwEPVtBb3rBPUJAQj7PDHDrnG9UpGIymEBDxQZOvDEgcVjDrEQfh4
-	559Q7u/72x/7e09WnO4qilPe9iLmGkmzqLTIrw88oPzN7CbESM05N+g/s7aA8XJGpmgOeVAgmaJhF
-	0qsus05A==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v/zsrPomSGC1iO5LSmQ+QJBzaniKLt0k5UGEjWJYgjM=; b=E0YJ5gM7xQ8UoQI3iza3B9IKUU
+	9DLp9tNt0buSXGiXRhCnRwAVqwYIs+QCeJYhIizqusjGO7CwxG8Az2g5SK9ZPyopsWoJL39RMOv1a
+	gNbCxLlcbVTbgnlJbTEV/OZS7TXoWCccpsLZNmssZRbQJ6H/DQL8dtyByjtEZGRY6h5I+g/VdYTMs
+	UUF/s8hrgY6xBnFJYSf3I5O1qbCAoAOEpRR0ozp/+7QeBaDT5y5zz6oL39PTxl2FK2mFKD1+nBus4
+	ZLYDgCPrf4zsQdUPmWdDQaVlcNRNMS6st6qFhtdcXlMJP883ngcTmcZQMaTNRrWrQPB2l27g49w6Y
+	dB/bDYKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxet-00000005Rx5-3mcy;
-	Tue, 11 Mar 2025 11:20:27 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1trxgW-00000005SD5-3u6D;
+	Tue, 11 Mar 2025 11:22:08 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxdG-00000005Reo-0a7N
+	id 1trxdb-00000005RjP-33gB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 11:18:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id B1A9A5C5D1D;
-	Tue, 11 Mar 2025 11:16:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC84C4CEE9;
-	Tue, 11 Mar 2025 11:18:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741691925;
-	bh=eV1Ot+6YRrZcBA7zWzuNDm7nIRQcDW2LUambjbhiAhs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=aR5Xv+JXW/OGpjkpBu6OK786z2RKa6Uftin8rPAQP29jmSSBS7ZZSdyHN0j1A5RIO
-	 KopJBmyosJTsEE8bck5mz6EKpGpxitwM6TLjkSfHGP2IjlPunbngwds6yIFPkNo9yq
-	 b2+QqXvJ9g7mV+9ZnlLbH9O2pejE0Cj8b9Dt0n5lW9PthEqBPXTDQw1qNxha32mm4K
-	 wexs1y1c72xFIlrENyFXdBemKuVmVPsM3pwtNn2+o/w5DK3zY11vswz+QFWG1yBRlb
-	 NUfpjSoD8h+3WmMwAKrHJQoqLsaYfPlXMShejU/4CewkdungRFrJcRgIQbeRobBZVh
-	 m+MFd1Dd7nYYQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.95)
-	(envelope-from <maz@kernel.org>)
-	id 1trxdB-00CVMK-Ga;
-	Tue, 11 Mar 2025 11:18:42 +0000
-Date: Tue, 11 Mar 2025 11:18:40 +0000
-Message-ID: <86r033olwv.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ankit Agrawal <ankita@nvidia.com>
-Cc: Jason Gunthorpe <jgg@nvidia.com>,
-	"oliver.upton@linux.dev"
-	<oliver.upton@linux.dev>,
-	"joey.gouly@arm.com" <joey.gouly@arm.com>,
-	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
-	"yuzenghui@huawei.com"
-	<yuzenghui@huawei.com>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"ryan.roberts@arm.com"
-	<ryan.roberts@arm.com>,
-	"shahuang@redhat.com" <shahuang@redhat.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"david@redhat.com"
-	<david@redhat.com>,
-	Aniket Agashe <aniketa@nvidia.com>,
-	Neo Jia
-	<cjia@nvidia.com>,
-	Kirti Wankhede <kwankhede@nvidia.com>,
-	"Tarun Gupta\
- (SW-GPU)" <targupta@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>,
-	Andy
- Currid <acurrid@nvidia.com>,
-	Alistair Popple <apopple@nvidia.com>,
-	John
- Hubbard <jhubbard@nvidia.com>,
-	Dan Williams <danw@nvidia.com>,
-	Zhi Wang
-	<zhiw@nvidia.com>,
-	Matt Ochs <mochs@nvidia.com>,
-	Uday Dhoke
-	<udhoke@nvidia.com>,
-	Dheeraj Nigam <dnigam@nvidia.com>,
-	Krishnakant Jaju
-	<kjaju@nvidia.com>,
-	"alex.williamson@redhat.com"
-	<alex.williamson@redhat.com>,
-	"sebastianene@google.com"
-	<sebastianene@google.com>,
-	"coltonlewis@google.com" <coltonlewis@google.com>,
-	"kevin.tian@intel.com" <kevin.tian@intel.com>,
-	"yi.l.liu@intel.com"
-	<yi.l.liu@intel.com>,
-	"ardb@kernel.org" <ardb@kernel.org>,
-	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
-	"gshan@redhat.com"
-	<gshan@redhat.com>,
-	"linux-mm@kvack.org" <linux-mm@kvack.org>,
-	"ddutile@redhat.com" <ddutile@redhat.com>,
-	"tabba@google.com"
-	<tabba@google.com>,
-	"qperret@google.com" <qperret@google.com>,
-	"seanjc@google.com" <seanjc@google.com>,
-	"kvmarm@lists.linux.dev"
-	<kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>
-Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
-In-Reply-To: <SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
-References: <20250310103008.3471-1-ankita@nvidia.com>
-	<20250310103008.3471-2-ankita@nvidia.com>
-	<861pv5p0c3.wl-maz@kernel.org>
-	<SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+	Tue, 11 Mar 2025 11:19:09 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52B7mGfn001165
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:19:07 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	v/zsrPomSGC1iO5LSmQ+QJBzaniKLt0k5UGEjWJYgjM=; b=ZnMDEV2blLkM1v6j
+	yz+sUf2hDI0q+GO8vzhQ4koX6CWHGWxt+USTTF7vdAR8pG5Pun5GL0xLGPYlFpHm
+	VCercVTpc2OZNFgq1Sll8rcPHuSEMSkeUXkTWwDIC4JETfBANvLUmqAYvzEXbNb9
+	9PXbp6u4k0bNY1+uhh6mTp377KkHSGDJ7g7unANHauZe+W5vIQGOoy9wXbYSKLRB
+	fo8rNQvZvA1oRQ97U1Hbp4+soJs1FaqcTKjZIGA5CB1at82gqINh9OYZ9yy/44cZ
+	BHksC5VzdSSS0lnRNBQ951k31rSH+lz+RdeKhnGtQakSzCUmmd0fdXHhUehU1Q32
+	ygPmEQ==
+Received: from mail-qv1-f72.google.com (mail-qv1-f72.google.com [209.85.219.72])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45ah3krp4g-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:19:07 +0000 (GMT)
+Received: by mail-qv1-f72.google.com with SMTP id 6a1803df08f44-6e906c422a9so11235846d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 04:19:07 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741691946; x=1742296746;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=v/zsrPomSGC1iO5LSmQ+QJBzaniKLt0k5UGEjWJYgjM=;
+        b=VV2NKQ8Q1oHja9Vlh+szXbvs7HBcCFaPXQhZTDYXHWNRDOeIH2JjoU0p9F59TN0olN
+         lD0oP+MjRFxt1dIPiLBkAtg5Q+l3KjWDn9QXcJB38fsG3o39zCWOl/VTovjCAVObrAlK
+         L3CGSr0R+5N2dc1n/qFGoaXkaixiOVIIfC3I07X4+2RYcdtH6zu6Pe0gkFmq/iauw3oa
+         juQwb1Je3hT9BC8NxB2R4jDooHnftWjlXfL5R6scJMm2BI67SJkFdqJn9xBVqWFPhf2R
+         ItoyUEi+AcVDoIS6CJZGiZxeMOBoqbP4DZ/y2+iki9VMcTtGbGWqVT7u9dsKifWPccyp
+         B9vQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJllnzVcJp8gwwW3WQWUK9t3gImvgH3Ipt2EZpS3QhqSAnImcq2PbbahmnEebIMZufXptx6kYKT2sY33Y3soeO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwIQDr7JLekaEzcJzutl1GN1md4tavTwdOGJmP4G2ZMsQ/JHTIL
+	im68AQOF0abg0aQQETFg37evIDtTCfrFBJd/m9cKEPOnuVxBqKy8ZzSDGfL8G+c8qDK25nlDwlf
+	s58UyEnDRK+arzKkv+POQVxWZiHKEXoQbqRhPFUmL8JDJOjtwiR+OrIc/kIKYOhnrc6wYKbCRzw
+	==
+X-Gm-Gg: ASbGncuZjQFT56tCtjLd7J7q+ifZttHL5Tj34kG+oRL4RQFUhEBXPuWOx1CPrcKfdWo
+	xM56wMy9C+qZNxslzWQHzMYNTDrNxkbDR3O4xaYtMgYxtduvdFjCl8jC7DVRDgLFJdAYz8XaCFb
+	5qZSkxi6FazozdI9cyPLQnA47PAeJ2aWgjidyBtKU0ZDS14rXaeBb9qf42ZKcC3Ylel6H8xlozp
+	gErVAEWKPC1AAISFAqRQk2Amz9cDdck9aFGNucCpXLzL8bXxgiR+waeT8bdjdxjyhyax/RC7liT
+	WTFPMRqBuF7odHjy3MJQ9wC6wTCtiSTGRAT8YjQIFsKi64lo89nuVjTSAGZzzzIUSgwJ+A==
+X-Received: by 2002:a05:620a:1d03:b0:7c5:18b7:506d with SMTP id af79cd13be357-7c53e05f9c9mr737227185a.9.1741691945869;
+        Tue, 11 Mar 2025 04:19:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFMbOo9/SytOGUrUMo2XFyejsZDSP+j5JNs4kPwfKJu5yFVYu9xbBZSRIJg5VV2VeLv97QvVA==
+X-Received: by 2002:a05:620a:1d03:b0:7c5:18b7:506d with SMTP id af79cd13be357-7c53e05f9c9mr737225285a.9.1741691945534;
+        Tue, 11 Mar 2025 04:19:05 -0700 (PDT)
+Received: from [192.168.65.90] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2394fda1asm904961866b.78.2025.03.11.04.19.02
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 04:19:05 -0700 (PDT)
+Message-ID: <69fa7f33-e957-4dac-93dc-6fd40167873c@oss.qualcomm.com>
+Date: Tue, 11 Mar 2025 12:19:01 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 6/9] phy: qcom: Add M31 based eUSB2 PHY driver
+To: Melody Olvera <quic_molvera@quicinc.com>, Vinod Koul <vkoul@kernel.org>,
+        Kishon Vijay Abraham I <kishon@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Wesley Cheng <quic_wcheng@quicinc.com>,
+        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-phy@lists.infradead.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+References: <20250304-sm8750_usb_master-v2-0-a698a2e68e06@quicinc.com>
+ <20250304-sm8750_usb_master-v2-6-a698a2e68e06@quicinc.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250304-sm8750_usb_master-v2-6-a698a2e68e06@quicinc.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ankita@nvidia.com, jgg@nvidia.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com, kjaju@nvidia.com, alex.williamson@redhat.com, sebastianene@google.com, coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org, ddutile@redhat.com, tabba@google.com, qperret@google.com, seanjc@google.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-ORIG-GUID: MabhlbqZjyaTTl3kKXUSCEZ70UeA6FFb
+X-Authority-Analysis: v=2.4 cv=MJiamNZl c=1 sm=1 tr=0 ts=67d01c2b cx=c_pps a=7E5Bxpl4vBhpaufnMqZlrw==:117 a=FpWmc02/iXfjRdCD7H54yg==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=obrcSLqBe2MPJ_po3l0A:9 a=QEXdDO2ut3YA:10
+ a=T1PIRxOFuHhLvSGs3xkl:22 a=pJ04lnu7RYOZP9TFuWaZ:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-GUID: MabhlbqZjyaTTl3kKXUSCEZ70UeA6FFb
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-11_01,2025-03-11_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1015 impostorscore=0
+ mlxscore=0 phishscore=0 malwarescore=0 lowpriorityscore=0 mlxlogscore=908
+ priorityscore=1501 adultscore=0 suspectscore=0 spamscore=0 bulkscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502100000
+ definitions=main-2503110074
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_041846_258829_BA5FBF38 
-X-CRM114-Status: GOOD (  32.49  )
+X-CRM114-CacheID: sfid-20250311_041907_782181_2F37DB65 
+X-CRM114-Status: GOOD (  17.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -145,87 +135,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Mar 2025 03:42:23 +0000,
-Ankit Agrawal <ankita@nvidia.com> wrote:
->=20
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0 /*
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *=C2=A0 When FWB is unsupported KVM ne=
-eds to do cache flushes
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *=C2=A0 (via dcache_clean_inval_poc())=
- of the underlying memory. This is
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *=C2=A0 only possible if the memory is=
- already mapped into the kernel map.
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *=C2=A0 Outright reject as the cacheab=
-le device memory is not present in
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 *=C2=A0 the kernel map and not suitabl=
-e for cache management.
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0 if (cacheable_devmem && !stage2_has_fwb(pgt)=
-) {
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 ret =3D -EINVAL;
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 goto out_unlock;
-> >> +=C2=A0=C2=A0=C2=A0=C2=A0 }
-> >> +
-> >
-> > These new error reasons should at least be complemented by an
-> > equivalent check at the point where the memslot is registered. It
->=20
-> Understood. I can add such check in kvm_arch_prepare_memory_region().
->=20
->=20
-> > maybe OK to blindly return an error at fault time (because userspace
-> > has messed with the mapping behind our back), but there should at
-> > least be something telling a well behaved userspace that there is a
-> > bunch of combination we're unwilling to support.
->=20
-> How about WARN_ON() or BUG() for the faulty situation?
+On 3/4/25 10:56 PM, Melody Olvera wrote:
+> From: Wesley Cheng <quic_wcheng@quicinc.com>
+> 
+> SM8750 utilizes an eUSB2 PHY from M31.  Add the initialization
+> sequences to bring it out of reset and into an operational state.  This
+> differs to the M31 USB driver, in that the M31 eUSB2 driver will
+> require a connection to an eUSB2 repeater.  This PHY driver will handle
+> the initialization of the associated eUSB2 repeater when required.
+> 
+> Signed-off-by: Wesley Cheng <quic_wcheng@quicinc.com>
+> Signed-off-by: Melody Olvera <quic_molvera@quicinc.com>
+> ---
 
-Absolutely not. Do you really want any user to randomly crash the
-kernel because they flip a mapping, which they can do anytime they
-want?
+[...]
 
-The way KVM works is that we return to userspace for the VMM to fix
-things. Either by emulating something we can't do in the kernel, or by
-fixing things so that the kernel can replay the fault and sort it out.
+> +static int msm_m31_eusb2_write_readback(void __iomem *base, u32 offset,
+> +					const u32 mask, u32 val)
+> +{
+> +	u32 write_val;
+> +	u32 tmp;
+> +
+> +	tmp = readl_relaxed(base + offset);
+> +	tmp &= ~mask;
+> +	write_val = tmp | val;
+> +
+> +	writel_relaxed(write_val, base + offset);
+> +
+> +	tmp = readl_relaxed(base + offset);
+> +	tmp &= mask;
+> +
+> +	if (tmp != val) {
+> +		pr_err("write: %x to offset: %x FAILED\n", val, offset);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
 
-Either way, this requires some form of fault syndrome so that usespace
-has a chance of understanding WTF is going on.
+Is there a reason we need to read back every write?
 
-> > Which brings me to the next point: FWB is not discoverable from
-> > userspace. How do you expect a VMM to know what it can or cannot do?
->=20
-> Good point. I am not sure if it can. I suppose you are concerned about er=
-ror
-> during fault handling when !FWB without VMM having any clear indications
-> of the cause?
+Does this have to do with some funny write buffering?
 
-No, I'm concerned that a well established API (populating a memslot)
-works in some case and doesn't work in another without a clear
-indication of *why* we have this behaviour.
-
-To me, this indicates that userspace needs to buy in this new
-behaviour, and that behaviour needs to be advertised by a capability,
-which is in turn conditional on FWB.
-
-> Perhaps we can gracefully fall back to the default device mapping
-> in such case? But that would cause VM to crash as soon as it makes some
-> access violating DEVICE_nGnRE.
-
-Which would now be a regression...
-
-My take is that this cacheable PNFMAP contraption must only be exposed
-to a guest if FWB is available. We can't prevent someone to do an
-mmap() behind our back, but we can at least:
-
-- tell userspace whether this is supported
-- only handle the fault if userspace has bought in this mode
-- report the fault to userspace for it to fix things otherwise
-
-	M.
-
---=20
-Without deviation from the norm, progress is not possible.
+Konrad
 
