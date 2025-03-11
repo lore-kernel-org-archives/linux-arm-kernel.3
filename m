@@ -4,68 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2F9C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 02:34:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E529C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 02:39:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hOHv8pX5jbxxuCYHGHw737xsClV8Yj1+G5jAUW7Z8nc=; b=CthvCBVxOlM7n5C5PH+mU3edtt
-	i83prtDWAJmMmdvk3vU8FDKKc6DHErvzHHFLBjfWyKR+9iX3d4O13XzZ7gfmbkl+kU3/Fj43XfuT+
-	yv1Van5hIcDhsEoE1cKq3PU5UU1otiSNjykYXzCTukwM+TZZ3PGvBhJsOuTchx29YlhMhtJi6P1bN
-	spy9DVP0za2yFGqyM1+3N67/dmoglb6ubkFzl1K3j8oLtt8ll1VotqxJq36KXqUO4GVHl/5eMU31X
-	0wDWEuROv2weGmBLsuJge+riZ4DTVwnl+JMhCUaWyP1lBPVIgSGAcBp1Pah/h1fpdeoukYIkgdtyv
-	DAd5PuWQ==;
+	bh=ynTyUmTRCgFTrUshSeCg3vb32qg0W3S4+Fy0XJ4c8bs=; b=MByXHNG3kOSPpvmByV1bHuNrNc
+	kfqlnAzkZPn3okACzl+KhdJG6cNTE2VE+O10Qx/SVKQr2iQIlvY4qhSm95ENstGX/MNVi15sVtiGD
+	aNViSBMXi7GdItIdbJx/IASEwaCg1sVcUXnbrpnshpHyG3mgkv5ia4D+S19B5UnRddDb03mR8o/31
+	pmsqx0l0hbklgTmWDURjSx75j7y5JG+KPCU5BgomcbTNJ3Q01ygwTyXH2zFsH5TmIgyxX43Rln2kJ
+	CBYipiIF+uKqrj7tRiGixsk70o1qpKoP8nbtg+uxMP6wshWdSF1DoMvBzwzA8zgm1yAg+CUs5F9/a
+	DZloj5SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trpRb-00000004QvJ-3wbW;
-	Tue, 11 Mar 2025 02:34:11 +0000
-Received: from mail-m16.yeah.net ([1.95.21.15])
+	id 1trpW9-00000004ROu-1MVx;
+	Tue, 11 Mar 2025 02:38:53 +0000
+Received: from mail-m16.yeah.net ([1.95.21.14])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trpPx-00000004QoD-3NnC
+	id 1trpUO-00000004RF7-2MIS
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 02:32:31 +0000
+	Tue, 11 Mar 2025 02:37:06 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=hOHv8pX5jbxxuCYHGHw737xsClV8Yj1+G5jAUW7Z8nc=;
-	b=mISa2eJM9214+1xaX0k7LKZ1UnOPAOPCJL24x69Xjmma+nn14mcBDv8xaIOgIb
-	VQkjpd529Q/ddmclfK6A9DXRBVLR0tM+Gus4MTiea9agnHiY/25YtIvGqYig1v5+
-	8qD2P/DBVwZisvSTpQBSQCNk+Dmm9B489zH2DcO+lQxKE=
+	Content-Type; bh=ynTyUmTRCgFTrUshSeCg3vb32qg0W3S4+Fy0XJ4c8bs=;
+	b=lPnlQljQAhc8CzTGxTeVOX4ueEc/kN7y2BvyDQp4u5LvrdQPaN8hStqne9EMN2
+	FUNpegP2C6hbrt+Xx5h/RZYg7fhsXJlYeumba48vBAHlwKtyylT4vRtopgPar/p4
+	dNUQ4HkoEYQ0opeCu4j57BMGcDwLF7vIADn8JTjYMF1Cc=
 Received: from dragon (unknown [])
-	by gzsmtp3 (Coremail) with SMTP id M88vCgD3AoqloM9nvESvAA--.42680S3;
-	Tue, 11 Mar 2025 10:32:07 +0800 (CST)
-Date: Tue, 11 Mar 2025 10:32:05 +0800
+	by gzsmtp2 (Coremail) with SMTP id Ms8vCgAXFkPEoc9n2Xe0AA--.48983S3;
+	Tue, 11 Mar 2025 10:36:54 +0800 (CST)
+Date: Tue, 11 Mar 2025 10:36:52 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Frank Li <Frank.Li@nxp.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
 	Fabio Estevam <festevam@gmail.com>,
-	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
-	linux@ew.tq-group.com, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/2] arm64: dts: imx8mp-tqma8mpql-mba8mpxl: change
- sound card model name
-Message-ID: <Z8+gpX+REkX4SEUz@dragon>
-References: <20250224150016.499055-1-alexander.stein@ew.tq-group.com>
+	"open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS" <devicetree@vger.kernel.org>,
+	"open list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <imx@lists.linux.dev>,
+	"moderated list:ARM/FREESCALE IMX / MXC ARM ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>,
+	open list <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH 1/1] arm64: dts: im8mq: move dwc3 usb port under ports
+Message-ID: <Z8+hxCxum9uTLGGC@dragon>
+References: <20250224193308.407606-1-Frank.Li@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224150016.499055-1-alexander.stein@ew.tq-group.com>
-X-CM-TRANSID: M88vCgD3AoqloM9nvESvAA--.42680S3
-X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr43uF43XrWfWw48Zr1xuFg_yoWxuFg_AF
-	4fGr1DGa1DZan3uw1Fkr4agrZa9ws7X3ZrGr13G3sxX3WFkan5Wrs0q34Syw1j9ayvg345
-	Cr9aqa1093yjkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+In-Reply-To: <20250224193308.407606-1-Frank.Li@nxp.com>
+X-CM-TRANSID: Ms8vCgAXFkPEoc9n2Xe0AA--.48983S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrZr4fGFy3XF1kAw15ZrykGrg_yoW3uFX_Aa
+	17Wr1rur4DZFs7KF1jyFn7Aa4UK347J3srXryfXw1kXryIv3Z2kF45tr95ur1UGF40qF93
+	Ar15JF10y39akjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
 	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0rsqJUUUUU==
 X-Originating-IP: [117.81.240.4]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNAcfhGfPoKfalgAA3L
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEgANZWfPVKnuuQAAs4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_193230_207908_6020FD1D 
-X-CRM114-Status: GOOD (  11.36  )
+X-CRM114-CacheID: sfid-20250310_193704_910685_BA1B43E7 
+X-CRM114-Status: UNSURE (   6.62  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,21 +80,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 04:00:14PM +0100, Alexander Stein wrote:
-> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+On Mon, Feb 24, 2025 at 02:33:07PM -0500, Frank Li wrote:
+> Move port@0 and port@1 under ports to fix below DTB_CHECK warnings.
 > 
-> The card name for ALSA is generated from the model name string and
-> is limited to 16 characters. Use a shorter name to prevent cutting the
-> name.
+> arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dtb: usb@38100000: port@0:reg:0:0: 0 is less than the minimum of 1
+> 	from schema $id: http://devicetree.org/schemas/usb/snps,dwc3.yaml#
+> arch/arm64/boot/dts/freescale/imx8mq-librem5-devkit.dtb: usb@38100000: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'dr_mode', 'phy-names', 'phys', 'port@0', 'port@1', 'snps,parkmode-disable-ss-quirk' were unexpected)
+> 	from schema $id: http://devicetree.org/schemas/usb/snps,dwc3.yaml#
 > 
-> Since nearly all starter kit mainboards for i.MX based SoM by TQ-Systems
-> use the same codec with the same routing on board it is a good idea to
-> use the same model name for the sound card. This allows sharing a default
-> asound.conf in BSP over all the kits.
-> 
-> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+> Signed-off-by: Frank Li <Frank.Li@nxp.com>
 
-Applied both, thanks!
+Applied with a change on subject prefix, s/im8mq/im8mq-librem5, thanks!
 
 
