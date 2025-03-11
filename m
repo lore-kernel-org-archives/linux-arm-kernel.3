@@ -4,53 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F021FC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 04:15:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 495B6C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 04:39:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RExaR/LsnulB+htniR6mF68pVFsct95vxebqlNxNLAU=; b=fCihHJauDRWRUa1X6SnQnTWI1T
-	bkM6oxQMDjgsiHf70GiHOUYrUP1fDs0p7njEXTPLj80xPCK7DWP3kxbmW1Ac3NNroXfu67IR+dUb/
-	uL/we9sC4Ap4nbw5AhjOsFS6Vj353r2DVexV45kL66BOtqvF908I7aABCXEhedDx3OMgJmzQSq+Ff
-	LWYWnQsoZ0YJA79Pe2ENuv8Df1o1xYa3/EmFrw4w4rdW5r9ewpOZ/b1u8+Po/voBFzPUnTcbcqYn+
-	vbjX534uNeKMPEMbG+zBA8q6yTGsqqDBb2P9LzAGRKZ6MvZz/LA/1bnWIasRiO+v3q1ptyTh4R2F8
-	CgKAb9Kw==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Jp+CLm+182YvIt4B09+/Rre5LjSBYKWjXMYkkY1eENo=; b=AKphHiSSahn/bCYyn4WKGvUfuk
+	+EIJuGey+slWeJTDfdbpESqOdXJGg4+BTf8cljyqzvnf/fNfJaUUUiUIvaCwrR9gIV6CyRKDEiMwt
+	EZnm8+86VhqFxRZtktVQ84r+y1hmClj6DP5Gb8oa57jjPMP7QJcXW/g9w+DkGM7Y9DVYM3KFILn5T
+	0OhZ0UOao8I92l+vBpoCcPl0WE0uRcPamiZaVJhWkboravM/1iKpx1XD3wPKxkvkQVjFv8VJXbY9o
+	SLN3pDN3d/aqtcaZDulXQM2pR3/Z51nQyY2NOMi90njRdbdKLMKkXQvxbUjUWrx7lVoUepWVs76ZE
+	0uOBshgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trr1b-00000004aQZ-2KCZ;
-	Tue, 11 Mar 2025 04:15:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trqyR-00000004a0T-37sn
+	id 1trrOo-00000004bEK-0dri;
+	Tue, 11 Mar 2025 04:39:26 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trrN9-00000004bA0-1kq6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 04:12:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 426A81516;
-	Mon, 10 Mar 2025 21:12:19 -0700 (PDT)
-Received: from [10.162.40.19] (a077893.blr.arm.com [10.162.40.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B0A933F694;
-	Mon, 10 Mar 2025 21:12:05 -0700 (PDT)
-Message-ID: <2931b574-35ff-4a3e-b073-47ca94c45787@arm.com>
-Date: Tue, 11 Mar 2025 09:42:02 +0530
+	Tue, 11 Mar 2025 04:37:44 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741667860;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=Jp+CLm+182YvIt4B09+/Rre5LjSBYKWjXMYkkY1eENo=;
+	b=PDjUHzEqNXwg7wbSvPj3uSVQ24muV0dD4PNRPITlUUATSGTgP1tdl0TS+vrOzQkXiStywn
+	55bwQty5Spq3xPbXjaM9Ble3/lLq0y2u3pKVLXYUYiVOXnhuy6H2rAfLZ3osxiNedshpgC
+	dDckZ+fLij6yvz7sgvh345RXEx7pxUg=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-453-rppQY3LgOnyGAPoEZaPR1A-1; Tue,
+ 11 Mar 2025 00:37:36 -0400
+X-MC-Unique: rppQY3LgOnyGAPoEZaPR1A-1
+X-Mimecast-MFC-AGG-ID: rppQY3LgOnyGAPoEZaPR1A_1741667855
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id A74C5180035C;
+	Tue, 11 Mar 2025 04:37:33 +0000 (UTC)
+Received: from gshan-thinkpadx1nanogen2.remote.csb (unknown [10.64.136.79])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4628C1956094;
+	Tue, 11 Mar 2025 04:37:25 +0000 (UTC)
+From: Gavin Shan <gshan@redhat.com>
+To: kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	qperret@google.com,
+	maz@kernel.org,
+	oliver.upton@linux.dev,
+	joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	shan.gavin@gmail.com
+Subject: [PATCH] KVM: arm64: Drop sort_memblock_regions()
+Date: Tue, 11 Mar 2025 14:37:18 +1000
+Message-ID: <20250311043718.91004-1-gshan@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64/kernel: Always use level 2 or higher for early
- mappings
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com,
- Ard Biesheuvel <ardb@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>
-References: <20250310183011.2591600-2-ardb+git@google.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250310183011.2591600-2-ardb+git@google.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_211211_837677_BEB09D11 
-X-CRM114-Status: GOOD (  25.91  )
+X-CRM114-CacheID: sfid-20250310_213743_529853_1711DDFD 
+X-CRM114-Status: GOOD (  11.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,76 +89,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Drop sort_memblock_regions() and avoid sorting the copied memory
+regions to be ascending order on their base addresses, because the
+source memory regions should have been sorted correctly when they
+are added by memblock_add() or its variants.
 
+This is generally reverting commit a14307f5310c ("KVM: arm64: Sort
+the hypervisor memblocks"). No functional changes intended.
 
-On 3/11/25 00:00, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The page table population code in map_range() uses a recursive algorithm
-> to create the early mappings of the kernel, the DTB and the ID mapped
-> text and data pages, and this fails to take into account that the way
-> these page tables may be constructed is not precisely the same at each
-> level. In particular, block mappings are not permitted at each level,
-> and the code as it exists today might inadvertently create such a
-> forbidden block mapping if it were used to map a region of the
-> appropriate size and alignment.
-> 
-> This never happens in practice, given the limited size of the assets
-> being mapped by the early boot code. Nonetheless, it would be better if
-> this code would behave correctly in all circumstances.
-> 
-> So only permit block mappings at level 2, and page mappings at level 3,
-> for any page size, and use table mappings exclusively at all other
-> levels. This change should have no impact in practice, but it makes the
-> code more robust.
-> 
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  arch/arm64/kernel/pi/map_range.c | 17 +++++++++--------
->  1 file changed, 9 insertions(+), 8 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-> index 2b69e3beeef8..025bb9f0aa0b 100644
-> --- a/arch/arm64/kernel/pi/map_range.c
-> +++ b/arch/arm64/kernel/pi/map_range.c
-> @@ -40,17 +40,10 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
->  	/* Advance tbl to the entry that covers start */
->  	tbl += (start >> (lshift + PAGE_SHIFT)) % PTRS_PER_PTE;
->  
-> -	/*
-> -	 * Set the right block/page bits for this level unless we are
-> -	 * clearing the mapping
-> -	 */
-> -	if (protval)
-> -		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
-> -
->  	while (start < end) {
->  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
->  
-> -		if (level < 3 && (start | next | pa) & lmask) {
-> +		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
->  			/*
->  			 * This chunk needs a finer grained mapping. Create a
->  			 * table mapping if necessary and recurse.
-> @@ -64,6 +57,14 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
->  				  (pte_t *)(__pte_to_phys(*tbl) + va_offset),
->  				  may_use_cont, va_offset);
->  		} else {
-> +			/*
-> +			 * Set the right block/page bits for this level unless
-> +			 * we are clearing the mapping
-> +			 */
-> +			if (protval)
-> +				protval |= (level == 2) ? PMD_TYPE_SECT
-> +							: PTE_TYPE_PAGE;
-> +
->  			/*
->  			 * Start a contiguous range if start and pa are
->  			 * suitably aligned
+Signed-off-by: Gavin Shan <gshan@redhat.com>
+---
+ arch/arm64/kvm/pkvm.c | 19 -------------------
+ 1 file changed, 19 deletions(-)
 
-LGTM and as Ryan mentioned, D128 ready as well !
+diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+index 930b677eb9b0..d9c9174f89a1 100644
+--- a/arch/arm64/kvm/pkvm.c
++++ b/arch/arm64/kvm/pkvm.c
+@@ -10,7 +10,6 @@
+ #include <asm/kvm_mmu.h>
+ #include <linux/memblock.h>
+ #include <linux/mutex.h>
+-#include <linux/sort.h>
+ 
+ #include <asm/kvm_pkvm.h>
+ 
+@@ -24,23 +23,6 @@ static unsigned int *hyp_memblock_nr_ptr = &kvm_nvhe_sym(hyp_memblock_nr);
+ phys_addr_t hyp_mem_base;
+ phys_addr_t hyp_mem_size;
+ 
+-static int cmp_hyp_memblock(const void *p1, const void *p2)
+-{
+-	const struct memblock_region *r1 = p1;
+-	const struct memblock_region *r2 = p2;
+-
+-	return r1->base < r2->base ? -1 : (r1->base > r2->base);
+-}
+-
+-static void __init sort_memblock_regions(void)
+-{
+-	sort(hyp_memory,
+-	     *hyp_memblock_nr_ptr,
+-	     sizeof(struct memblock_region),
+-	     cmp_hyp_memblock,
+-	     NULL);
+-}
+-
+ static int __init register_memblock_regions(void)
+ {
+ 	struct memblock_region *reg;
+@@ -52,7 +34,6 @@ static int __init register_memblock_regions(void)
+ 		hyp_memory[*hyp_memblock_nr_ptr] = *reg;
+ 		(*hyp_memblock_nr_ptr)++;
+ 	}
+-	sort_memblock_regions();
+ 
+ 	return 0;
+ }
+-- 
+2.48.1
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
 
