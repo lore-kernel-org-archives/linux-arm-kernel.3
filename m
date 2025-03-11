@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5153BC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACF03C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:00:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rIHv27FelkoCdY23L+zoRCxdo2m98WIDi578UXcHqno=; b=eSoq541+Nx/bdLXzTiwpLAmcAl
-	GiR/p/zEx0jPxqB61qufHVF3m8N/EY/KdIZD/a06fZsvlmBg6Kxkf9Lrkd3Gg35UnPlAVVFW0lAUc
-	dGWaVKtEMlgmyV7o2Ia3+GVPJbr+bA+LazlCLDtttfuOqyTuPz8oBvNB0gc1t/d1TG3ky8KLhSv+j
-	lKDmAkrwUc4dVrfTJLRyFqaHxp7CWh7KgWYgpIK9Z7FPW1uDcZP0Cl7cLo4IXicq0lkJ5p6Y9pPbV
-	p4pJErKUegtTyCjpq6ZwhaUE6Cd6YRBDxjhV0or4U4sEx1dTH0TFfZQNu5awJk3uTOSdNc1Jc4Krd
-	W8AxCU7g==;
+	bh=GjxhfhqsFz7grVdAD0TLZuBtGlVrLWAn1BqUhwoCzQY=; b=3I9mmSjZibhFK4PTvbLeMtxleC
+	gx8ZM6OVYv65IYD8e42K/yv776eVGnN7C7gWLmNQi9aP2KJRrVlbCSmIqEOhRLRAn+AT1BnJQp5iQ
+	Vi3GzKRbiw0xDEsbcIeIYA+cmZgDE+A61Xz44drg2OkBKt+HCv2AqWox5OVJWlkU+ia7fBaUGDSUZ
+	noT7iLUBUbQ9mPVPTv2bhvX/Lxx3RN55+7atb+Pgo+gmDpqfD41n7T4f2Kz3Mo/OKfmVgPPC+BwYZ
+	N9VJGGuLnvteSz0z78T65PDSYCBndh72p8xuApAJB3yEgOTw/jWmgQ2pMDNtkv/c3hXSHzpgTOe1i
+	5kbYz+fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1truVv-00000004vTB-11NJ;
-	Tue, 11 Mar 2025 07:58:59 +0000
+	id 1truXX-00000004viF-04no;
+	Tue, 11 Mar 2025 08:00:39 +0000
 Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1truP8-00000004uR5-3U3Z
+	id 1truP9-00000004uR4-3uQK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 07:52:00 +0000
-Received: from mail.maildlp.com (unknown [172.19.163.44])
-	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZBm7h0CXBz2RTR0;
-	Tue, 11 Mar 2025 15:47:28 +0800 (CST)
+	Tue, 11 Mar 2025 07:52:01 +0000
+Received: from mail.maildlp.com (unknown [172.19.163.17])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4ZBm7g0hW8z2RTQn;
+	Tue, 11 Mar 2025 15:47:27 +0800 (CST)
 Received: from kwepemd200014.china.huawei.com (unknown [7.221.188.8])
-	by mail.maildlp.com (Postfix) with ESMTPS id 27B0F1402CD;
-	Tue, 11 Mar 2025 15:51:48 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id 392321A0188;
+	Tue, 11 Mar 2025 15:51:47 +0800 (CST)
 Received: from localhost.localdomain (10.50.165.33) by
  kwepemd200014.china.huawei.com (7.221.188.8) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1258.34; Tue, 11 Mar 2025 15:51:47 +0800
+ 15.2.1258.34; Tue, 11 Mar 2025 15:51:46 +0800
 From: Yicong Yang <yangyicong@huawei.com>
 To: <catalin.marinas@arm.com>, <will@kernel.org>, <sudeep.holla@arm.com>,
 	<tglx@linutronix.de>, <peterz@infradead.org>, <mpe@ellerman.id.au>,
@@ -49,9 +49,9 @@ CC: <linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
 	<jonathan.cameron@huawei.com>, <prime.zeng@hisilicon.com>,
 	<linuxarm@huawei.com>, <yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
 	<guohanjun@huawei.com>, <sshegde@linux.ibm.com>
-Subject: [PATCH v12 2/4] arch_topology: Support SMT control for OF based system
-Date: Tue, 11 Mar 2025 15:51:41 +0800
-Message-ID: <20250311075143.61078-3-yangyicong@huawei.com>
+Subject: [PATCH v12 1/4] cpu/SMT: Provide a default topology_is_primary_thread()
+Date: Tue, 11 Mar 2025 15:51:40 +0800
+Message-ID: <20250311075143.61078-2-yangyicong@huawei.com>
 X-Mailer: git-send-email 2.31.0
 In-Reply-To: <20250311075143.61078-1-yangyicong@huawei.com>
 References: <20250311075143.61078-1-yangyicong@huawei.com>
@@ -62,8 +62,8 @@ X-Originating-IP: [10.50.165.33]
 X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
  kwepemd200014.china.huawei.com (7.221.188.8)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_005159_181128_0DC68E77 
-X-CRM114-Status: GOOD (  15.58  )
+X-CRM114-CacheID: sfid-20250311_005200_260571_4BB60DC3 
+X-CRM114-Status: GOOD (  18.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,83 +80,99 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Yicong Yang <yangyicong@hisilicon.com>
 
-On building the topology from the devicetree, we've already gotten the
-SMT thread number of each core. Update the largest SMT thread number
-and enable the SMT control by the end of topology parsing.
+Currently if architectures want to support HOTPLUG_SMT they need to
+provide a topology_is_primary_thread() telling the framework which
+thread in the SMT cannot offline. However arm64 doesn't have a
+restriction on which thread in the SMT cannot offline, a simplest
+choice is that just make 1st thread as the "primary" thread. So
+just make this as the default implementation in the framework and
+let architectures like x86 that have special primary thread to
+override this function (which they've already done).
 
-The framework's SMT control provides two interface to the users [1]
-through /sys/devices/system/cpu/smt/control:
-1) enable SMT by writing "on" and disable by "off"
-2) enable SMT by writing max_thread_number or disable by writing 1
+There's no need to provide a stub function if !CONFIG_SMP or
+!CONFIG_HOTPLUG_SMT. In such case the testing CPU is already
+the 1st CPU in the SMT so it's always the primary thread.
 
-Both method support to completely disable/enable the SMT cores so both
-work correctly for symmetric SMT platform and asymmetric platform with
-non-SMT and one type SMT cores like:
-core A: 1 thread
-core B: X (X!=1) threads
-
-Note that for a theoretically possible multiple SMT-X (X>1) core
-platform the SMT control is also supported as expected but only
-by writing the "on/off" method.
-
-[1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+Reviewed-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>
 Reviewed-by: Pierre Gondois <pierre.gondois@arm.com>
 Reviewed-by: Dietmar Eggemann <dietmar.eggemann@arm.com>
 Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
 ---
- drivers/base/arch_topology.c | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+Pre questioned in v9 [1] whether this works on architectures not using
+CONFIG_GENERIC_ARCH_TOPOLOGY, See [2] for demonstration hacking on LoongArch
+VM and this also works. Architectures should use this on their own situation.
+[1] https://lore.kernel.org/linux-arm-kernel/427bd639-33c3-47e4-9e83-68c428eb1a7d@arm.com/
+[2] https://lore.kernel.org/linux-arm-kernel/a5690fee-3019-f26c-8bad-1d95e388e877@huawei.com/
 
-diff --git a/drivers/base/arch_topology.c b/drivers/base/arch_topology.c
-index 3ebe77566788..d409d323ee64 100644
---- a/drivers/base/arch_topology.c
-+++ b/drivers/base/arch_topology.c
-@@ -11,6 +11,7 @@
- #include <linux/cleanup.h>
- #include <linux/cpu.h>
- #include <linux/cpufreq.h>
-+#include <linux/cpu_smt.h>
- #include <linux/device.h>
- #include <linux/of.h>
- #include <linux/slab.h>
-@@ -506,6 +507,10 @@ core_initcall(free_raw_capacity);
+ arch/powerpc/include/asm/topology.h |  1 +
+ arch/x86/include/asm/topology.h     |  2 +-
+ include/linux/topology.h            | 24 ++++++++++++++++++++++++
+ 3 files changed, 26 insertions(+), 1 deletion(-)
+
+diff --git a/arch/powerpc/include/asm/topology.h b/arch/powerpc/include/asm/topology.h
+index 16bacfe8c7a2..da15b5efe807 100644
+--- a/arch/powerpc/include/asm/topology.h
++++ b/arch/powerpc/include/asm/topology.h
+@@ -152,6 +152,7 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+ {
+ 	return cpu == cpu_first_thread_sibling(cpu);
+ }
++#define topology_is_primary_thread topology_is_primary_thread
+ 
+ static inline bool topology_smt_thread_allowed(unsigned int cpu)
+ {
+diff --git a/arch/x86/include/asm/topology.h b/arch/x86/include/asm/topology.h
+index ec134b719144..6c79ee7c0957 100644
+--- a/arch/x86/include/asm/topology.h
++++ b/arch/x86/include/asm/topology.h
+@@ -229,11 +229,11 @@ static inline bool topology_is_primary_thread(unsigned int cpu)
+ {
+ 	return cpumask_test_cpu(cpu, cpu_primary_thread_mask);
+ }
++#define topology_is_primary_thread topology_is_primary_thread
+ 
+ #else /* CONFIG_SMP */
+ static inline int topology_phys_to_logical_pkg(unsigned int pkg) { return 0; }
+ static inline int topology_max_smt_threads(void) { return 1; }
+-static inline bool topology_is_primary_thread(unsigned int cpu) { return true; }
+ static inline unsigned int topology_amd_nodes_per_pkg(void) { return 1; }
+ #endif /* !CONFIG_SMP */
+ 
+diff --git a/include/linux/topology.h b/include/linux/topology.h
+index 52f5850730b3..6ae995e18ff5 100644
+--- a/include/linux/topology.h
++++ b/include/linux/topology.h
+@@ -240,6 +240,30 @@ static inline const struct cpumask *cpu_smt_mask(int cpu)
+ }
  #endif
  
- #if defined(CONFIG_ARM64) || defined(CONFIG_RISCV)
++#ifndef topology_is_primary_thread
 +
-+/* Used to enable the SMT control */
-+static unsigned int max_smt_thread_num = 1;
++#define topology_is_primary_thread topology_is_primary_thread
 +
- /*
-  * This function returns the logic cpu number of the node.
-  * There are basically three kinds of return values:
-@@ -565,6 +570,8 @@ static int __init parse_core(struct device_node *core, int package_id,
- 		i++;
- 	} while (1);
- 
-+	max_smt_thread_num = max_t(unsigned int, max_smt_thread_num, i);
-+
- 	cpu = get_cpu_for_node(core);
- 	if (cpu >= 0) {
- 		if (!leaf) {
-@@ -677,6 +684,17 @@ static int __init parse_socket(struct device_node *socket)
- 	if (!has_socket)
- 		ret = parse_cluster(socket, 0, -1, 0);
- 
++static inline bool topology_is_primary_thread(unsigned int cpu)
++{
 +	/*
-+	 * Reset the max_smt_thread_num to 1 on failure. Since on failure
-+	 * we need to notify the framework the SMT is not supported, but
-+	 * max_smt_thread_num can be initialized to the SMT thread number
-+	 * of the cores which are successfully parsed.
++	 * When disabling SMT the primary thread of the SMT will remain
++	 * enabled/active. Architectures do have a special primary thread
++	 * (e.g. x86) needs to override this function. Otherwise can make
++	 * the first thread in the SMT as the primary thread.
++	 *
++	 * The sibling cpumask of an offline CPU contains always the CPU
++	 * itself for architectures using the implementation of
++	 * CONFIG_GENERIC_ARCH_TOPOLOGY for building their topology.
++	 * Other architectures not using CONFIG_GENERIC_ARCH_TOPOLOGY for
++	 * building their topology have to check whether to use this default
++	 * implementation or to override it.
 +	 */
-+	if (ret)
-+		max_smt_thread_num = 1;
++	return cpu == cpumask_first(topology_sibling_cpumask(cpu));
++}
 +
-+	cpu_smt_set_num_threads(max_smt_thread_num, max_smt_thread_num);
++#endif
 +
- 	return ret;
- }
- 
+ static inline const struct cpumask *cpu_cpu_mask(int cpu)
+ {
+ 	return cpumask_of_node(cpu_to_node(cpu));
 -- 
 2.24.0
 
