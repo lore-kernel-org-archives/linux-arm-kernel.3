@@ -4,87 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 103EBC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 10:49:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB11C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 10:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KMMFank+BVa5yM0jNr8Lz7M2ib4O7ZxzsnpYwkdR2XA=; b=NYlOqEQ6TuxUKNSXHoO8xqBzg7
-	YsvG1ow0psK0aiaovsEd7bWTBnntsnJTBtdPbFRn53lMVogSKrGt5BTCvwNfBFY+R/0SbeNwBHxpb
-	+XFEP4KP4pMG0hQ1Qv6QXNb90Zke+YEGVU+YaZ96ZDpyJYrCFjbeFxLG/DW0idCDw9Y8yoA1TUAm3
-	duD7af/vaj4zyS4w06BsFJzMG6DC+5wHaLfhwaexQ7RlB5Alj/Tefli1wvGCI/MvRUYbtIc6R+iZN
-	KZvlTnkeW7KZ2nRWgOpgUanxU0CCnWrX5hbkdlVGE9vOPKYUIc0tX2q+i0HByk8AcxAg+F8oXJNmp
-	qjPMidBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=cxUaUXph+qalu1x0mGPUAK6C8ivUi3ekwPtjHAKlLHs=; b=BvpbCcvCBKhnGZWCg5rfoZhxGw
+	MCnLLVAc5y0DnGU5PrUduKqiLiJB1NIja0/JrGud1OovMyeLKVTTWHSGzE59RHFszNRe/c4OjjbiB
+	5T48YPLowixytgDFYBjFhgc3ZJHs4ap6/kDzqzIMoPcfyrR/pKUBBSeEKitHIU0aNNq38+d7Edndt
+	xapsqj3tdYJfpsiSKM0FNJxiedIlwSNl0ELsJc8gnIN2vhNt4NxcG3gW2qSlVpddme4FvRutf/qV5
+	pAqGYox6HW2CYopxj1QZNNH93JZR5TxCBROz4t9pv2884GoiSvl95PmErNfe1PykxezUibQTM0S3E
+	VDFfnkhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxAr-00000005Nea-2Vbf;
-	Tue, 11 Mar 2025 10:49:25 +0000
-Received: from esa5.hgst.iphmx.com ([216.71.153.144])
+	id 1trxC1-00000005Nni-2be7;
+	Tue, 11 Mar 2025 10:50:37 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trx5k-00000005Mh9-2NZQ;
-	Tue, 11 Mar 2025 10:44:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
-  d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1741689848; x=1773225848;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=V/8yzlzSQwzG4hlLjx8C1beV8wQX1kn+h5Nq6Xl7qMs=;
-  b=ZhYxbg1THQwRGzMljw+hntkc+F3kYU2slaQKE2EePoNFjAp1lviMA/Yg
-   dkkDIsxpePQEsrAIBOWTmV58ic7F6D6XaNGrlhyUy8bF6DZSYw5XIQY/c
-   VROD2uQNURIS7s7wTEuDEPXfm1o0KOiYl4j62bugVg1Kz7k8pkbnqAl2G
-   oEqesXj3GJd+yPprw3Xvlf+ynxNxnirRSA0lRhck+4Kt34kfKdIedqnK1
-   KzeTPraLPdO+jQMBNYe8FP0LbHb/11BRz3wF6tbDhFqOYRC/I8paLvUJO
-   7ZdOtQ6AzwDh7tIzY+2Br1ZaRmd2KTEdDWrmuN3fMnAHGkUPwoDJTDYfz
-   Q==;
-X-CSE-ConnectionGUID: vxJUkhgeQ7GuKFJZoYYdNw==
-X-CSE-MsgGUID: aYkxSbmFTTGVEwKn6HkGfw==
-X-IronPort-AV: E=Sophos;i="6.14,238,1736784000"; 
-   d="scan'208";a="46946110"
-Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
-  by ob1.hgst.iphmx.com with ESMTP; 11 Mar 2025 18:44:08 +0800
-IronPort-SDR: 67d00622_3ySvhWOAGKOFvYKNrE2sggdcuj5T8rtsDGG3MBlGHKsXjZL
- GTbZVMFNe9ZakcF/LYqsKgDvNy3UIj9ax4umZkg==
-Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
-  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Mar 2025 02:45:06 -0700
-WDCIronportException: Internal
-Received: from unknown (HELO shindev.ssa.fujisawa.hgst.com) ([10.149.66.30])
-  by uls-op-cesaip01.wdc.com with ESMTP; 11 Mar 2025 03:44:05 -0700
-From: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-To: linux-block@vger.kernel.org,
-	linux-nvme@lists.infradead.org,
-	Jens Axboe <axboe@kernel.dk>,
-	Keith Busch <kbusch@kernel.org>,
-	Christoph Hellwig <hch@infradead.org>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Alan Adamson <alan.adamson@oracle.com>
-Cc: virtualization@lists.linux.dev,
-	asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	Hannes Reinecke <hare@suse.de>,
-	"Michael S . Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Sven Peter <sven@svenpeter.dev>,
-	Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Subject: [PATCH v2 2/2] block: change blk_mq_add_to_batch() third argument type to bool
-Date: Tue, 11 Mar 2025 19:43:59 +0900
-Message-ID: <20250311104359.1767728-3-shinichiro.kawasaki@wdc.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
-References: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
+	id 1trw6Y-00000005B02-2hcO;
+	Tue, 11 Mar 2025 09:40:56 +0000
+From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1741686051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cxUaUXph+qalu1x0mGPUAK6C8ivUi3ekwPtjHAKlLHs=;
+	b=KWDtLVfKCALfzKKF3mKH8+WYAyz5UzQfGj2FJmWRO22Fd7sALAKiNytR3YpZ/ZaWRg7Ga6
+	ohPoQZEfq8TZp4QRM3HXl4q8aS3qa87UPzih/N7xFNeyKJQesGt6LV1iWYzeXssLGQ6Zpp
+	PmyTScJY2SNTiW6UIvigkxwNGVJ0BiBxif3NM70yDnyIrVDz9lNomtF+lxxnxABQogVW67
+	keW0+4KpqAnZZwy8e0IojVEo6wIKFNr6yG/HnYGavlTzwnEAjx6JGrHfGB+WP9SNcrKrPX
+	LbaAhvkZ4qdxEFwHk8zRGJ4H2NWwcISyjZb9pLFmoI4f9I8/tGixkSBGzUl3OQ==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1741686051;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=cxUaUXph+qalu1x0mGPUAK6C8ivUi3ekwPtjHAKlLHs=;
+	b=eT3avxLd6EWCMfCOfGNWgJYxQRVaZkVXONUXtJHKetWLESgJ6L/IY3tl1eRDV+q45FubLC
+	scrpeQpwlSCNCaDw==
+Date: Tue, 11 Mar 2025 10:40:49 +0100
+Subject: [PATCH v2] staging: vchiq_arm: Don't use %pK through printk
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
+Message-Id: <20250311-restricted-pointers-vchiq_arm-v2-1-a14e1c0681fc@linutronix.de>
+X-B4-Tracking: v=1; b=H4sIACAF0GcC/43NQQ6CMBCF4auQWTumLWCIK+9hiAE6yCTa4rQ2G
+ MLdrZzA5fcW/1shkDAFOBcrCCUO7F2GORQwTJ27E7LNBqNMrUqtUChE4SGSxdmziyQB0zDx69b
+ JE3WjdD829lRWPeTGLDTysvevbfbEIXr57HdJ/9Z/y0mjRmtVNRrVENX15cHuHcU7Xo6WoN227
+ QtR2ESPzgAAAA==
+X-Change-ID: 20250310-restricted-pointers-vchiq_arm-1801bf8d634b
+To: Florian Fainelli <florian.fainelli@broadcom.com>, 
+ Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: Dan Carpenter <dan.carpenter@linaro.org>, 
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-staging@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741686051; l=18993;
+ i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
+ bh=T2RL5FvlpDx3pcSNkchBEZ9+japix25e6QOHe8IfPqk=;
+ b=/hbXVzrW/Qj0iSLPmHukUu8SngJNJ2Xt3Ury0UFgAMWR5FaNO1AUfmtGEjKVqev29FS+BiTxn
+ GrJRb1rFs3NDt7lZWvYqO/Du2xs9SU/fsU9DjwG6NSgztRzCARDO+b6
+X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
+ pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_034408_607834_377A1536 
-X-CRM114-Status: GOOD (  19.78  )
+X-CRM114-CacheID: sfid-20250311_024054_975535_2DFE4C84 
+X-CRM114-Status: GOOD (  13.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,146 +88,415 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 1f47ed294a2b ("block: cleanup and fix batch completion adding
-conditions") modified the evaluation criteria for the third argument,
-'ioerror', in the blk_mq_add_to_batch() function. Initially, the
-function had checked if 'ioerror' equals zero. Following the commit, it
-started checking for negative error values, with the presumption that
-such values, for instance -EIO, would be passed in.
+In the past %pK was preferable to %p as it would not leak raw pointer
+values into the kernel log.
+Since commit ad67b74d2469 ("printk: hash addresses printed with %p")
+the regular %p has been improved to avoid this issue.
+Furthermore, restricted pointers ("%pK") were never meant to be used
+through printk(). They can still unintentionally leak raw pointers or
+acquire sleeping looks in atomic contexts.
 
-However, blk_mq_add_to_batch() callers do not pass negative error
-values. Instead, they pass status codes defined in various ways:
+Switch to the regular pointer formatting which is safer and
+easier to reason about.
+There are still a few users of %pK left, but these use it through seq_file,
+for which its usage is safe.
 
-- NVMe PCI and Apple drivers pass NVMe status code
-- virtio_blk driver passes the virtblk request header status byte
-- null_blk driver passes blk_status_t
-
-These codes are either zero or positive, therefore the revised check
-fails to function as intended. Specifically, with the NVMe PCI driver,
-this modification led to the failure of the blktests test case nvme/039.
-In this test scenario, errors are artificially injected to the NVMe
-driver, resulting in positive NVMe status codes passed to
-blk_mq_add_to_batch(), which unexpectedly processes the failed I/O in a
-batch. Hence the failure.
-
-To correct the ioerror check within blk_mq_add_to_batch(), make all
-callers to uniformly pass the argument as boolean. Modify the callers to
-check their specific status codes and pass the boolean value 'is_error'.
-Also describe the arguments of blK_mq_add_to_batch as kerneldoc.
-
-Fixes: 1f47ed294a2b ("block: cleanup and fix batch completion adding conditions")
-Signed-off-by: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+Link: https://lore.kernel.org/lkml/20250113171731-dc10e3c1-da64-4af0-b767-7c7070468023@linutronix.de/
+Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 ---
- drivers/block/null_blk/main.c |  4 ++--
- drivers/block/virtio_blk.c    |  5 +++--
- drivers/nvme/host/apple.c     |  3 ++-
- drivers/nvme/host/pci.c       |  5 +++--
- include/linux/blk-mq.h        | 11 ++++++++---
- 5 files changed, 18 insertions(+), 10 deletions(-)
+Changes in v2:
+- Fix wrong replacement with invalid %K (Dan Carpenter)
+- Link to v1: https://lore.kernel.org/r/20250310-restricted-pointers-vchiq_arm-v1-1-dd04f208ee55@linutronix.de
+---
+ .../vc04_services/interface/vchiq_arm/vchiq_arm.c  |  6 +-
+ .../vc04_services/interface/vchiq_arm/vchiq_core.c | 64 +++++++++++-----------
+ .../vc04_services/interface/vchiq_arm/vchiq_dev.c  | 14 ++---
+ 3 files changed, 42 insertions(+), 42 deletions(-)
 
-diff --git a/drivers/block/null_blk/main.c b/drivers/block/null_blk/main.c
-index d94ef37480bd..fdc7a0b2af10 100644
---- a/drivers/block/null_blk/main.c
-+++ b/drivers/block/null_blk/main.c
-@@ -1549,8 +1549,8 @@ static int null_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
- 		cmd = blk_mq_rq_to_pdu(req);
- 		cmd->error = null_process_cmd(cmd, req_op(req), blk_rq_pos(req),
- 						blk_rq_sectors(req));
--		if (!blk_mq_add_to_batch(req, iob, (__force int) cmd->error,
--					blk_mq_end_request_batch))
-+		if (!blk_mq_add_to_batch(req, iob, cmd->error != BLK_STS_OK,
-+					 blk_mq_end_request_batch))
- 			blk_mq_end_request(req, cmd->error);
- 		nr++;
- 	}
-diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
-index 6a61ec35f426..91cde76a4b3e 100644
---- a/drivers/block/virtio_blk.c
-+++ b/drivers/block/virtio_blk.c
-@@ -1207,11 +1207,12 @@ static int virtblk_poll(struct blk_mq_hw_ctx *hctx, struct io_comp_batch *iob)
- 
- 	while ((vbr = virtqueue_get_buf(vq->vq, &len)) != NULL) {
- 		struct request *req = blk_mq_rq_from_pdu(vbr);
-+		u8 status = virtblk_vbr_status(vbr);
- 
- 		found++;
- 		if (!blk_mq_complete_request_remote(req) &&
--		    !blk_mq_add_to_batch(req, iob, virtblk_vbr_status(vbr),
--						virtblk_complete_batch))
-+		    !blk_mq_add_to_batch(req, iob, status != VIRTIO_BLK_S_OK,
-+					 virtblk_complete_batch))
- 			virtblk_request_done(req);
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+index a4e83e5d619bc95f1d4ba311a201bba8c05cd030..2db219e4786f236ce4c37afa86a12615a091c637 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_arm.c
+@@ -271,7 +271,7 @@ static int vchiq_platform_init(struct platform_device *pdev, struct vchiq_state
+ 		return -ENXIO;
  	}
  
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index a060f69558e7..8971aca41e63 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -599,7 +599,8 @@ static inline void apple_nvme_handle_cqe(struct apple_nvme_queue *q,
+-	dev_dbg(&pdev->dev, "arm: vchiq_init - done (slots %pK, phys %pad)\n",
++	dev_dbg(&pdev->dev, "arm: vchiq_init - done (slots %p, phys %pad)\n",
+ 		vchiq_slot_zero, &slot_phys);
+ 
+ 	mutex_init(&drv_mgmt->connected_mutex);
+@@ -368,7 +368,7 @@ void free_bulk_waiter(struct vchiq_instance *instance)
+ 				 &instance->bulk_waiter_list, list) {
+ 		list_del(&waiter->list);
+ 		dev_dbg(instance->state->dev,
+-			"arm: bulk_waiter - cleaned up %pK for pid %d\n",
++			"arm: bulk_waiter - cleaned up %p for pid %d\n",
+ 			waiter, waiter->pid);
+ 		kfree(waiter);
+ 	}
+@@ -622,7 +622,7 @@ vchiq_blocking_bulk_transfer(struct vchiq_instance *instance, unsigned int handl
+ 		mutex_lock(&instance->bulk_waiter_list_mutex);
+ 		list_add(&waiter->list, &instance->bulk_waiter_list);
+ 		mutex_unlock(&instance->bulk_waiter_list_mutex);
+-		dev_dbg(instance->state->dev, "arm: saved bulk_waiter %pK for pid %d\n",
++		dev_dbg(instance->state->dev, "arm: saved bulk_waiter %p for pid %d\n",
+ 			waiter, current->pid);
  	}
  
- 	if (!nvme_try_complete_req(req, cqe->status, cqe->result) &&
--	    !blk_mq_add_to_batch(req, iob, nvme_req(req)->status,
-+	    !blk_mq_add_to_batch(req, iob,
-+				 nvme_req(req)->status != NVME_SC_SUCCESS,
- 				 apple_nvme_complete_batch))
- 		apple_nvme_complete_rq(req);
- }
-diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index 640590b21728..75de86e235ad 100644
---- a/drivers/nvme/host/pci.c
-+++ b/drivers/nvme/host/pci.c
-@@ -1130,8 +1130,9 @@ static inline void nvme_handle_cqe(struct nvme_queue *nvmeq,
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+index 8d5795db4f39f8003310a54ba369367c95e6c079..e2cac0898b8faa3c255de6b8562c7096a9683c49 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_core.c
+@@ -470,7 +470,7 @@ make_service_callback(struct vchiq_service *service, enum vchiq_reason reason,
+ 		cb_userdata = bulk->cb_userdata;
+ 	}
  
- 	trace_nvme_sq(req, cqe->sq_head, nvmeq->sq_tail);
- 	if (!nvme_try_complete_req(req, cqe->status, cqe->result) &&
--	    !blk_mq_add_to_batch(req, iob, nvme_req(req)->status,
--					nvme_pci_complete_batch))
-+	    !blk_mq_add_to_batch(req, iob,
-+				 nvme_req(req)->status != NVME_SC_SUCCESS,
-+				 nvme_pci_complete_batch))
- 		nvme_pci_complete_rq(req);
- }
+-	dev_dbg(service->state->dev, "core: %d: callback:%d (%s, %pK, %pK %pK)\n",
++	dev_dbg(service->state->dev, "core: %d: callback:%d (%s, %p, %p %p)\n",
+ 		service->state->id, service->localport, reason_names[reason],
+ 		header, cb_data, cb_userdata);
+ 	status = service->base.callback(service->instance, reason, header, service->handle,
+@@ -778,7 +778,7 @@ process_free_data_message(struct vchiq_state *state, u32 *service_found,
+ 		complete(&quota->quota_event);
+ 	} else if (count == 0) {
+ 		dev_err(state->dev,
+-			"core: service %d message_use_count=%d (header %pK, msgid %x, header->msgid %x, header->size %x)\n",
++			"core: service %d message_use_count=%d (header %p, msgid %x, header->msgid %x, header->size %x)\n",
+ 			port, quota->message_use_count, header, msgid,
+ 			header->msgid, header->size);
+ 		WARN(1, "invalid message use count\n");
+@@ -799,11 +799,11 @@ process_free_data_message(struct vchiq_state *state, u32 *service_found,
+ 			 * it has dropped below its quota
+ 			 */
+ 			complete(&quota->quota_event);
+-			dev_dbg(state->dev, "core: %d: pfq:%d %x@%pK - slot_use->%d\n",
++			dev_dbg(state->dev, "core: %d: pfq:%d %x@%p - slot_use->%d\n",
+ 				state->id, port, header->size, header, count - 1);
+ 		} else {
+ 			dev_err(state->dev,
+-				"core: service %d slot_use_count=%d (header %pK, msgid %x, header->msgid %x, header->size %x)\n",
++				"core: service %d slot_use_count=%d (header %p, msgid %x, header->msgid %x, header->size %x)\n",
+ 				port, count, header, msgid, header->msgid, header->size);
+ 			WARN(1, "bad slot use count\n");
+ 		}
+@@ -845,7 +845,7 @@ process_free_queue(struct vchiq_state *state, u32 *service_found,
+ 		 */
+ 		rmb();
  
-diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-index 71f4f0cc3dac..d904e870e72d 100644
---- a/include/linux/blk-mq.h
-+++ b/include/linux/blk-mq.h
-@@ -855,9 +855,14 @@ static inline bool blk_mq_is_reserved_rq(struct request *rq)
- /*
-  * Batched completions only work when there is no I/O error and no special
-  * ->end_io handler.
-+ *
-+ * @req: The request to add to batch
-+ * @iob: The batch to add the request
-+ * @is_error: Specify true if the request failed with an error
-+ * @io_comp_batch: The completaion handler for the request
-  */
- static inline bool blk_mq_add_to_batch(struct request *req,
--				       struct io_comp_batch *iob, int ioerror,
-+				       struct io_comp_batch *iob, bool is_error,
- 				       void (*complete)(struct io_comp_batch *))
- {
- 	/*
-@@ -865,7 +870,7 @@ static inline bool blk_mq_add_to_batch(struct request *req,
- 	 * 1) No batch container
- 	 * 2) Has scheduler data attached
- 	 * 3) Not a passthrough request and end_io set
--	 * 4) Not a passthrough request and an ioerror
-+	 * 4) Not a passthrough request and failed with an error
+-		dev_dbg(state->dev, "core: %d: pfq %d=%pK %x %x\n",
++		dev_dbg(state->dev, "core: %d: pfq %d=%p %x %x\n",
+ 			state->id, slot_index, data, local->slot_queue_recycle,
+ 			slot_queue_available);
+ 
+@@ -868,7 +868,7 @@ process_free_queue(struct vchiq_state *state, u32 *service_found,
+ 			pos += calc_stride(header->size);
+ 			if (pos > VCHIQ_SLOT_SIZE) {
+ 				dev_err(state->dev,
+-					"core: pfq - pos %x: header %pK, msgid %x, header->msgid %x, header->size %x\n",
++					"core: pfq - pos %x: header %p, msgid %x, header->msgid %x, header->size %x\n",
+ 					pos, header, msgid, header->msgid, header->size);
+ 				WARN(1, "invalid slot position\n");
+ 			}
+@@ -1060,7 +1060,7 @@ queue_message(struct vchiq_state *state, struct vchiq_service *service,
+ 		int tx_end_index;
+ 		int slot_use_count;
+ 
+-		dev_dbg(state->dev, "core: %d: qm %s@%pK,%zx (%d->%d)\n",
++		dev_dbg(state->dev, "core: %d: qm %s@%p,%zx (%d->%d)\n",
+ 			state->id, msg_type_str(VCHIQ_MSG_TYPE(msgid)), header, size,
+ 			VCHIQ_MSG_SRCPORT(msgid), VCHIQ_MSG_DSTPORT(msgid));
+ 
+@@ -1117,7 +1117,7 @@ queue_message(struct vchiq_state *state, struct vchiq_service *service,
+ 		VCHIQ_SERVICE_STATS_INC(service, ctrl_tx_count);
+ 		VCHIQ_SERVICE_STATS_ADD(service, ctrl_tx_bytes, size);
+ 	} else {
+-		dev_dbg(state->dev, "core: %d: qm %s@%pK,%zx (%d->%d)\n",
++		dev_dbg(state->dev, "core: %d: qm %s@%p,%zx (%d->%d)\n",
+ 			state->id, msg_type_str(VCHIQ_MSG_TYPE(msgid)), header, size,
+ 			VCHIQ_MSG_SRCPORT(msgid), VCHIQ_MSG_DSTPORT(msgid));
+ 		if (size != 0) {
+@@ -1204,7 +1204,7 @@ queue_message_sync(struct vchiq_state *state, struct vchiq_service *service,
+ 				state->id, oldmsgid);
+ 	}
+ 
+-	dev_dbg(state->dev, "sync: %d: qms %s@%pK,%x (%d->%d)\n",
++	dev_dbg(state->dev, "sync: %d: qms %s@%p,%x (%d->%d)\n",
+ 		state->id, msg_type_str(VCHIQ_MSG_TYPE(msgid)), header, size,
+ 		VCHIQ_MSG_SRCPORT(msgid), VCHIQ_MSG_DSTPORT(msgid));
+ 
+@@ -1539,7 +1539,7 @@ create_pagelist(struct vchiq_instance *instance, struct vchiq_bulk *bulk)
+ 	pagelist = dma_alloc_coherent(instance->state->dev, pagelist_size, &dma_addr,
+ 				      GFP_KERNEL);
+ 
+-	dev_dbg(instance->state->dev, "arm: %pK\n", pagelist);
++	dev_dbg(instance->state->dev, "arm: %p\n", pagelist);
+ 
+ 	if (!pagelist)
+ 		return NULL;
+@@ -1692,7 +1692,7 @@ free_pagelist(struct vchiq_instance *instance, struct vchiq_pagelist_info *pagel
+ 	unsigned int num_pages = pagelistinfo->num_pages;
+ 	unsigned int cache_line_size;
+ 
+-	dev_dbg(instance->state->dev, "arm: %pK, %d\n", pagelistinfo->pagelist, actual);
++	dev_dbg(instance->state->dev, "arm: %p, %d\n", pagelistinfo->pagelist, actual);
+ 
+ 	drv_mgmt = dev_get_drvdata(instance->state->dev);
+ 
+@@ -1849,7 +1849,7 @@ parse_open(struct vchiq_state *state, struct vchiq_header *header)
+ 
+ 	payload = (struct vchiq_open_payload *)header->data;
+ 	fourcc = payload->fourcc;
+-	dev_dbg(state->dev, "core: %d: prs OPEN@%pK (%d->'%p4cc')\n",
++	dev_dbg(state->dev, "core: %d: prs OPEN@%p (%d->'%p4cc')\n",
+ 		state->id, header, localport, &fourcc);
+ 
+ 	service = get_listening_service(state, fourcc);
+@@ -1976,14 +1976,14 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 			service = get_connected_service(state, remoteport);
+ 			if (service)
+ 				dev_warn(state->dev,
+-					 "core: %d: prs %s@%pK (%d->%d) - found connected service %d\n",
++					 "core: %d: prs %s@%p (%d->%d) - found connected service %d\n",
+ 					 state->id, msg_type_str(type), header,
+ 					 remoteport, localport, service->localport);
+ 		}
+ 
+ 		if (!service) {
+ 			dev_err(state->dev,
+-				"core: %d: prs %s@%pK (%d->%d) - invalid/closed service %d\n",
++				"core: %d: prs %s@%p (%d->%d) - invalid/closed service %d\n",
+ 				state->id, msg_type_str(type), header, remoteport,
+ 				localport, localport);
+ 			goto skip_message;
+@@ -2003,7 +2003,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 
+ 	if (((unsigned long)header & VCHIQ_SLOT_MASK) +
+ 	    calc_stride(size) > VCHIQ_SLOT_SIZE) {
+-		dev_err(state->dev, "core: header %pK (msgid %x) - size %x too big for slot\n",
++		dev_err(state->dev, "core: header %p (msgid %x) - size %x too big for slot\n",
+ 			header, (unsigned int)msgid, (unsigned int)size);
+ 		WARN(1, "oversized for slot\n");
+ 	}
+@@ -2022,7 +2022,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 			service->peer_version = payload->version;
+ 		}
+ 		dev_dbg(state->dev,
+-			"core: %d: prs OPENACK@%pK,%x (%d->%d) v:%d\n",
++			"core: %d: prs OPENACK@%p,%x (%d->%d) v:%d\n",
+ 			state->id, header, size, remoteport, localport,
+ 			service->peer_version);
+ 		if (service->srvstate == VCHIQ_SRVSTATE_OPENING) {
+@@ -2037,7 +2037,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 	case VCHIQ_MSG_CLOSE:
+ 		WARN_ON(size); /* There should be no data */
+ 
+-		dev_dbg(state->dev, "core: %d: prs CLOSE@%pK (%d->%d)\n",
++		dev_dbg(state->dev, "core: %d: prs CLOSE@%p (%d->%d)\n",
+ 			state->id, header, remoteport, localport);
+ 
+ 		mark_service_closing_internal(service, 1);
+@@ -2049,7 +2049,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 			&service->base.fourcc, service->localport, service->remoteport);
+ 		break;
+ 	case VCHIQ_MSG_DATA:
+-		dev_dbg(state->dev, "core: %d: prs DATA@%pK,%x (%d->%d)\n",
++		dev_dbg(state->dev, "core: %d: prs DATA@%p,%x (%d->%d)\n",
+ 			state->id, header, size, remoteport, localport);
+ 
+ 		if ((service->remoteport == remoteport) &&
+@@ -2069,7 +2069,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 		}
+ 		break;
+ 	case VCHIQ_MSG_CONNECT:
+-		dev_dbg(state->dev, "core: %d: prs CONNECT@%pK\n",
++		dev_dbg(state->dev, "core: %d: prs CONNECT@%p\n",
+ 			state->id, header);
+ 		state->version_common =	((struct vchiq_slot_zero *)
+ 					 state->slot_data)->version;
+@@ -2102,7 +2102,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 			if ((int)(queue->remote_insert -
+ 				queue->local_insert) >= 0) {
+ 				dev_err(state->dev,
+-					"core: %d: prs %s@%pK (%d->%d) unexpected (ri=%d,li=%d)\n",
++					"core: %d: prs %s@%p (%d->%d) unexpected (ri=%d,li=%d)\n",
+ 					state->id, msg_type_str(type), header, remoteport,
+ 					localport, queue->remote_insert, queue->local_insert);
+ 				mutex_unlock(&service->bulk_mutex);
+@@ -2120,7 +2120,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 			bulk->actual = *(int *)header->data;
+ 			queue->remote_insert++;
+ 
+-			dev_dbg(state->dev, "core: %d: prs %s@%pK (%d->%d) %x@%pad\n",
++			dev_dbg(state->dev, "core: %d: prs %s@%p (%d->%d) %x@%pad\n",
+ 				state->id, msg_type_str(type), header, remoteport,
+ 				localport, bulk->actual, &bulk->dma_addr);
+ 
+@@ -2140,12 +2140,12 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 		}
+ 		break;
+ 	case VCHIQ_MSG_PADDING:
+-		dev_dbg(state->dev, "core: %d: prs PADDING@%pK,%x\n",
++		dev_dbg(state->dev, "core: %d: prs PADDING@%p,%x\n",
+ 			state->id, header, size);
+ 		break;
+ 	case VCHIQ_MSG_PAUSE:
+ 		/* If initiated, signal the application thread */
+-		dev_dbg(state->dev, "core: %d: prs PAUSE@%pK,%x\n",
++		dev_dbg(state->dev, "core: %d: prs PAUSE@%p,%x\n",
+ 			state->id, header, size);
+ 		if (state->conn_state == VCHIQ_CONNSTATE_PAUSED) {
+ 			dev_err(state->dev, "core: %d: PAUSE received in state PAUSED\n",
+@@ -2162,7 +2162,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 		vchiq_set_conn_state(state, VCHIQ_CONNSTATE_PAUSED);
+ 		break;
+ 	case VCHIQ_MSG_RESUME:
+-		dev_dbg(state->dev, "core: %d: prs RESUME@%pK,%x\n",
++		dev_dbg(state->dev, "core: %d: prs RESUME@%p,%x\n",
+ 			state->id, header, size);
+ 		/* Release the slot mutex */
+ 		mutex_unlock(&state->slot_mutex);
+@@ -2179,7 +2179,7 @@ parse_message(struct vchiq_state *state, struct vchiq_header *header)
+ 		break;
+ 
+ 	default:
+-		dev_err(state->dev, "core: %d: prs invalid msgid %x@%pK,%x\n",
++		dev_err(state->dev, "core: %d: prs invalid msgid %x@%p,%x\n",
+ 			state->id, msgid, header, size);
+ 		WARN(1, "invalid message\n");
+ 		break;
+@@ -2400,7 +2400,7 @@ sync_func(void *v)
+ 
+ 		if (!service) {
+ 			dev_err(state->dev,
+-				"sync: %d: sf %s@%pK (%d->%d) - invalid/closed service %d\n",
++				"sync: %d: sf %s@%p (%d->%d) - invalid/closed service %d\n",
+ 				state->id, msg_type_str(type), header, remoteport,
+ 				localport, localport);
+ 			release_message_sync(state, header);
+@@ -2422,7 +2422,7 @@ sync_func(void *v)
+ 					header->data;
+ 				service->peer_version = payload->version;
+ 			}
+-			dev_err(state->dev, "sync: %d: sf OPENACK@%pK,%x (%d->%d) v:%d\n",
++			dev_err(state->dev, "sync: %d: sf OPENACK@%p,%x (%d->%d) v:%d\n",
+ 				state->id, header, size, remoteport, localport,
+ 				service->peer_version);
+ 			if (service->srvstate == VCHIQ_SRVSTATE_OPENING) {
+@@ -2435,7 +2435,7 @@ sync_func(void *v)
+ 			break;
+ 
+ 		case VCHIQ_MSG_DATA:
+-			dev_dbg(state->dev, "sync: %d: sf DATA@%pK,%x (%d->%d)\n",
++			dev_dbg(state->dev, "sync: %d: sf DATA@%p,%x (%d->%d)\n",
+ 				state->id, header, size, remoteport, localport);
+ 
+ 			if ((service->remoteport == remoteport) &&
+@@ -2449,7 +2449,7 @@ sync_func(void *v)
+ 			break;
+ 
+ 		default:
+-			dev_err(state->dev, "sync: error: %d: sf unexpected msgid %x@%pK,%x\n",
++			dev_err(state->dev, "sync: error: %d: sf unexpected msgid %x@%p,%x\n",
+ 				state->id, msgid, header, size);
+ 			release_message_sync(state, header);
+ 			break;
+@@ -2926,13 +2926,13 @@ release_service_messages(struct vchiq_service *service)
+ 			int port = VCHIQ_MSG_DSTPORT(msgid);
+ 
+ 			if ((port == service->localport) && (msgid & VCHIQ_MSGID_CLAIMED)) {
+-				dev_dbg(state->dev, "core:  fsi - hdr %pK\n", header);
++				dev_dbg(state->dev, "core:  fsi - hdr %p\n", header);
+ 				release_slot(state, slot_info, header, NULL);
+ 			}
+ 			pos += calc_stride(header->size);
+ 			if (pos > VCHIQ_SLOT_SIZE) {
+ 				dev_err(state->dev,
+-					"core: fsi - pos %x: header %pK, msgid %x, header->msgid %x, header->size %x\n",
++					"core: fsi - pos %x: header %p, msgid %x, header->msgid %x, header->size %x\n",
+ 					pos, header, msgid, header->msgid, header->size);
+ 				WARN(1, "invalid slot position\n");
+ 			}
+@@ -3091,7 +3091,7 @@ vchiq_bulk_xfer_queue_msg_killable(struct vchiq_service *service,
  	 */
- 	if (!iob)
- 		return false;
-@@ -874,7 +879,7 @@ static inline bool blk_mq_add_to_batch(struct request *req,
- 	if (!blk_rq_is_passthrough(req)) {
- 		if (req->end_io)
- 			return false;
--		if (ioerror < 0)
-+		if (is_error)
- 			return false;
- 	}
+ 	wmb();
  
+-	dev_dbg(state->dev, "core: %d: bt (%d->%d) %cx %x@%pad %pK\n",
++	dev_dbg(state->dev, "core: %d: bt (%d->%d) %cx %x@%pad %p\n",
+ 		state->id, service->localport, service->remoteport,
+ 		dir_char, bulk->size, &bulk->dma_addr, bulk->cb_data);
+ 
+diff --git a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
+index 454f4341650306654d1365653ab3b570795f3331..3b20ba5c736221ce1cacfc9ce86eca623382a30b 100644
+--- a/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
++++ b/drivers/staging/vc04_services/interface/vchiq_arm/vchiq_dev.c
+@@ -270,7 +270,7 @@ static int vchiq_ioc_dequeue_message(struct vchiq_instance *instance,
+ 		}
+ 	} else {
+ 		dev_err(service->state->dev,
+-			"arm: header %pK: bufsize %x < size %x\n",
++			"arm: header %p: bufsize %x < size %x\n",
+ 			header, args->bufsize, header->size);
+ 		WARN(1, "invalid size\n");
+ 		ret = -EMSGSIZE;
+@@ -328,7 +328,7 @@ static int vchiq_irq_queue_bulk_tx_rx(struct vchiq_instance *instance,
+ 			ret = -ESRCH;
+ 			goto out;
+ 		}
+-		dev_dbg(service->state->dev, "arm: found bulk_waiter %pK for pid %d\n",
++		dev_dbg(service->state->dev, "arm: found bulk_waiter %p for pid %d\n",
+ 			waiter, current->pid);
+ 
+ 		status = vchiq_bulk_xfer_waiting(instance, args->handle,
+@@ -366,7 +366,7 @@ static int vchiq_irq_queue_bulk_tx_rx(struct vchiq_instance *instance,
+ 		mutex_lock(&instance->bulk_waiter_list_mutex);
+ 		list_add(&waiter->list, &instance->bulk_waiter_list);
+ 		mutex_unlock(&instance->bulk_waiter_list_mutex);
+-		dev_dbg(service->state->dev, "arm: saved bulk_waiter %pK for pid %d\n",
++		dev_dbg(service->state->dev, "arm: saved bulk_waiter %p for pid %d\n",
+ 			waiter, current->pid);
+ 
+ 		ret = put_user(mode_waiting, mode);
+@@ -512,7 +512,7 @@ static int vchiq_ioc_await_completion(struct vchiq_instance *instance,
+ 			/* This must be a VCHIQ-style service */
+ 			if (args->msgbufsize < msglen) {
+ 				dev_err(service->state->dev,
+-					"arm: header %pK: msgbufsize %x < msglen %x\n",
++					"arm: header %p: msgbufsize %x < msglen %x\n",
+ 					header, args->msgbufsize, msglen);
+ 				WARN(1, "invalid message size\n");
+ 				if (ret == 0)
+@@ -588,7 +588,7 @@ vchiq_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 	long ret = 0;
+ 	int i, rc;
+ 
+-	dev_dbg(instance->state->dev, "arm: instance %pK, cmd %s, arg %lx\n", instance,
++	dev_dbg(instance->state->dev, "arm: instance %p, cmd %s, arg %lx\n", instance,
+ 		((_IOC_TYPE(cmd) == VCHIQ_IOC_MAGIC) && (_IOC_NR(cmd) <= VCHIQ_IOC_MAX)) ?
+ 		ioctl_names[_IOC_NR(cmd)] : "<invalid>", arg);
+ 
+@@ -874,12 +874,12 @@ vchiq_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
+ 
+ 	if (!status && (ret < 0) && (ret != -EINTR) && (ret != -EWOULDBLOCK)) {
+ 		dev_dbg(instance->state->dev,
+-			"arm: ioctl instance %pK, cmd %s -> status %d, %ld\n",
++			"arm: ioctl instance %p, cmd %s -> status %d, %ld\n",
+ 			instance, (_IOC_NR(cmd) <= VCHIQ_IOC_MAX) ?
+ 			ioctl_names[_IOC_NR(cmd)] : "<invalid>", status, ret);
+ 	} else {
+ 		dev_dbg(instance->state->dev,
+-			"arm: ioctl instance %pK, cmd %s -> status %d\n, %ld\n",
++			"arm: ioctl instance %p, cmd %s -> status %d\n, %ld\n",
+ 			instance, (_IOC_NR(cmd) <= VCHIQ_IOC_MAX) ?
+ 			ioctl_names[_IOC_NR(cmd)] : "<invalid>", status, ret);
+ 	}
+
+---
+base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
+change-id: 20250310-restricted-pointers-vchiq_arm-1801bf8d634b
+
+Best regards,
 -- 
-2.47.0
+Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 
 
