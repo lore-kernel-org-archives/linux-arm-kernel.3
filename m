@@ -4,81 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A737C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:28:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CEC8C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=amwnjhquihQlw3rFST7jVWbfUF1Yah8j1kpH8njxrZY=; b=EOrhOdlaOnMNuC+1Lti0Vw1LDK
-	l/mT3Ezc3uaYvBlwxoV+gkPk+JlOmu+d21JSlvWpmAJfHiBHY4UO+j0vb6DwkReKksaqO1g8egVuo
-	ubLDRxS/NAQP0YDhbpSQidM1o1hvpSk+6WVux2TaHrAXN94ZfBitLKU/Ogg9NJViZgs4Xf7AX0raU
-	t5H6VVWa3GIW8O5uZ515tgyZoUP1ln8XbHgfE1p1TSJGGckFyOkXAzMH48zeC0fvY6V1g9ZuPEOP7
-	xPplxobmJm6uigqNsI0gU8r8Rg/algsc3P5tmG/5HjWWJvaMU415itTtiyPvIMwCa2UXMlE1nxwxQ
-	gbTxI2Hw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PbzRBzD4zy1+woI1kw2/XmxJI77CaWyhRb9Se95W7PI=; b=EkxxjvYm3OFtDcIWuJMGSaT+ot
+	gGYWeYODk74085mLeJVuy2mGyKMPDivvHxVd5cZt3EDIdynsC3Pav+QXL7yLdUJQN4j72iEk6ma/p
+	6wmgRRqtCLT2hgWILISsvF/AmvChDcgQ81MW7Pvz7aBnrIAWLjd+Wx/7xU3pkDViN9gujPeR13sdJ
+	WOo88aTyqKKIfzpfjGzJSWLw5hrgSEFySHmLENeON3rQaKr6cSOVuE5feTXcCka0E4Ydp4vE7jQ3+
+	OGHfCxaMJpB54K7o25LfEzC2FGexeD8dp0hu8AWIXS6It2QgRir3uHCCL9q4PH8/j1FPWeh4GpVxY
+	xKaz2ZeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru2e-00000004piM-1Ggl;
-	Tue, 11 Mar 2025 07:28:44 +0000
-Received: from mail-pj1-f50.google.com ([209.85.216.50])
+	id 1tru4I-00000004pyM-0Esj;
+	Tue, 11 Mar 2025 07:30:26 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trtzp-00000004pIw-1HVT
+	id 1tru2b-00000004pe7-0qRY
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 07:25:50 +0000
-Received: by mail-pj1-f50.google.com with SMTP id 98e67ed59e1d1-2ff694d2d4dso7330447a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741677948; x=1742282748;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=amwnjhquihQlw3rFST7jVWbfUF1Yah8j1kpH8njxrZY=;
-        b=ZtcWjzgGNQk0OSFCkUE+9LcL7v0Njf6Ju9x+bxgDwIukOrdRuEew4VFe6O4B+mAFda
-         /wNJQXwvK5R29OUl1ZxSNdYNTqSxqpX3jxz+LvEHvE8rfJB+U/gOip6uGx5lxTs96P2L
-         zsg+/O3nNvSSuz6jFt5qgjYkEL/nSF1m/gqobG8pnydLT7oRQbpI7tzEQlYJxSAqGJEi
-         NlG5DjWtemNwcPFApUVNjFYQi+fib+GYFK6tOd+EG5ceNxLtRuB0htsxvaY3sqR5UcJ0
-         v0KVzYaNUtAAMgISrcSox+ZRaj5WLcWp45O57GEiOf+E2ILiGMuv95CLkbeKBtz6lDEk
-         StUQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVoBl1viFiPJuykgsk6jQV83upv45gJUbYD6uUdPpCdGG9GslWEs7ZgRC6z0MBs2wg+rUKfWf9h/kUQmN+4/LpN@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz72IaYoq31NzHaKDrroFPcX2Mu+PgMtN3TlQqY/SZk6saZfQm+
-	Y5rj5oHvbgzRQ14XYGXR5nG7Ym4RMDCLJrPkwATUFGS8/1f5GymHeoAoyzf2xDw=
-X-Gm-Gg: ASbGnctO/kw/1DJFkZmSr3prb/vm6vOzyu/NwveZEQ8FlCtXz7qQdVrUq5E6ezF1SRU
-	oiTfUjVCyzRR0solqx0R+zSjyu/o93cDA2dRRO3uTcNU+be67tA/pW3uFyZIQ39Z9L1d9S0VQHl
-	fmRzjPI1QZ4J6fzMpZWAotcpgmRJDK27BJdtn/7t/dWQmb6XdtHd2ww7Wsuz/clK7GirDG7o4ix
-	kpaR28ZwPPInnVvuuhGWRIctU9TfsO6bOpGI9cDwdexhw8rkotiYyVFt5tRFwEe2EBmUxrNg80x
-	58eu0rzEE+/UOSQ8gZW20IfpEhbyjr5bqCL3aYQcqqXHulXRpn+e/spY+eYpo0jWnZECqcLd8jf
-	eJk0=
-X-Google-Smtp-Source: AGHT+IFHY5f+4sJatR6BI17Adi4AuhVFX9pxsgEfHSvv5C3l/7gBr81/pwoEGMGBCuJ7SqKtWyZgYw==
-X-Received: by 2002:a17:90a:d450:b0:2ff:5ed8:83d0 with SMTP id 98e67ed59e1d1-2ff7ce91ff0mr28909573a91.16.1741677948459;
-        Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id 98e67ed59e1d1-301034433e9sm909027a91.1.2025.03.11.00.25.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 00:25:48 -0700 (PDT)
-Date: Tue, 11 Mar 2025 16:25:46 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, vigneshr@ti.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, rogerq@kernel.org, linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org, stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com
-Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
- J784S4
-Message-ID: <20250311072546.GA277060@rocinante>
-References: <20250305132018.2260771-1-s-vadapalli@ti.com>
- <20250310210746.GA2377483@rocinante>
- <20250311051806.smcu4o4dxpngimth@uda0492258>
+	Tue, 11 Mar 2025 07:28:42 +0000
+Received: from fllv0035.itg.ti.com ([10.64.41.0])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7S0Ds644784
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 02:28:00 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741678080;
+	bh=PbzRBzD4zy1+woI1kw2/XmxJI77CaWyhRb9Se95W7PI=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=clqEGs7DEHEsKaeENmPF1f7pqFSp3QgVfxlDlCYu/oVNDolvtnCKDqdbHlSjPzb95
+	 2m1ZsLm7e+NylWm0dsInjHa0bGykRmvn14PvWYpEgJ3mVs6VfL2j/g63VPdbSrpOJh
+	 6LMluOUQDRQVTnJ8DlqkCR5Ah1rH4kg0/PugVLvM=
+Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
+	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7S0kc061754
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 02:28:00 -0500
+Received: from DFLE112.ent.ti.com (10.64.6.33) by DFLE114.ent.ti.com
+ (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 02:27:59 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 02:28:00 -0500
+Received: from [10.24.68.192] (dhcp-10-24-68-192.dhcp.ti.com [10.24.68.192])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B7RuHV002607;
+	Tue, 11 Mar 2025 02:27:56 -0500
+Message-ID: <8f03c097-e2c1-452a-85e2-90accbac7443@ti.com>
+Date: Tue, 11 Mar 2025 12:57:55 +0530
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250311051806.smcu4o4dxpngimth@uda0492258>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/5] Add J722S CSI support
+To: <nm@ti.com>, <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>,
+        Vaishnav Achath <vaishnav.a@ti.com>
+CC: <linux-kernel@vger.kernel.org>, <jai.luthra@linux.dev>,
+        <y-abhilashchandra@ti.com>
+References: <20250218185452.600797-1-vaishnav.a@ti.com>
+ <174133309362.1072814.5440404016847301624.b4-ty@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
+Content-Language: en-US
+In-Reply-To: <174133309362.1072814.5440404016847301624.b4-ty@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_002549_342330_37A6AD52 
-X-CRM114-Status: GOOD (  21.67  )
+X-CRM114-CacheID: sfid-20250311_002841_414532_074B2847 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,69 +89,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
 
-> > > Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
-> > > expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
-> > > already reuse this macro since it accurately represents the link-state
-> > > field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
-> > 
-> > Can you confirm for me that the following use the correct macro?
-> > 
-> >   333-static const struct j721e_pcie_data j721e_pcie_rc_data = {
-> >   337:	.linkdown_irq_regfield = LINK_DOWN,
-> >   
-> >   341-static const struct j721e_pcie_data j721e_pcie_ep_data = {
-> >   343:	.linkdown_irq_regfield = LINK_DOWN,
-> >   
-> >   347-static const struct j721e_pcie_data j7200_pcie_rc_data = {
-> >   350:	.linkdown_irq_regfield = J7200_LINK_DOWN,
-> >   
-> >   362-static const struct j721e_pcie_data am64_pcie_rc_data = {
-> >   364:	.linkdown_irq_regfield = J7200_LINK_DOWN,
-> >   
-> >   369-static const struct j721e_pcie_data am64_pcie_ep_data = {
-> >   371:	.linkdown_irq_regfield = J7200_LINK_DOWN,
-> >   
-> >   375-static const struct j721e_pcie_data j784s4_pcie_rc_data = {
-> >   379:	.linkdown_irq_regfield = LINK_DOWN,
-> >   
-> >   383-static const struct j721e_pcie_data j784s4_pcie_ep_data = {
-> >   385:	.linkdown_irq_regfield = LINK_DOWN,
-> >   
-> >   389-static const struct j721e_pcie_data j722s_pcie_rc_data = {
-> >   391:	.linkdown_irq_regfield = J7200_LINK_DOWN,
-> > 
-> > I am asking as some use LINK_DOWN, so I wanted to make sure.
+
+On 07/03/25 16:06, Vignesh Raghavendra wrote:
+> Hi Vaishnav Achath,
 > 
-> Yes, the above are accurate except for J784S4 which is fixed by this
-> patch. LINK_DOWN i.e. BIT(1) is applicable only to J721E which was the
-> first SoC after which the driver has been named. For all other SoCs, the
-> integration of the PCIe Controller into the SoC led to BIT(10) of the
-> register being used to indicate the link status.
-
-Sounds good!  Thank you for letting me know.
-
-> > Tht said, the following has no .linkdown_irq_regfield property set:
-> > 
-> >   355-static const struct j721e_pcie_data j7200_pcie_ep_data = {
-> >   356-	.mode = PCI_MODE_EP,
-> >   357-	.quirk_detect_quiet_flag = true,
-> >   358-	.quirk_disable_flr = true,
-> >   359-	.max_lanes = 2,
-> >   360-};
-> > 
-> > Would this be a problem?  Or is this as expected?
+> On Wed, 19 Feb 2025 00:24:47 +0530, Vaishnav Achath wrote:
+>> This series adds support for CSI2RX capture on J722S EVM
+>> and enables IMX219 and OV5640 overlays to enables
+>> 4 sensors on EVM, this provides a reference for a user to
+>> enable a different sensor on any of the ports.
+>>
+>> Test logs:
+>> IMX219: https://gist.github.com/vaishnavachath/60cc2ef257601f27f28a315f8cf669c4
+>> OV5640: https://gist.github.com/vaishnavachath/648202286d4d34d4d25f7c8c9db8b8bd
+>>
+>> [...]
+> I have applied the following to branch ti-k3-dts-next on [1].
+> Thank you!
 > 
-> Thank you for pointing this out. This has to be fixed and the
-> "linkdown_irq_regfield" member has to be added to match
-> j7200_pcie_rc_data. I will post the fix for this.
+> [1/5] arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
+>       commit: fb1b230bf9c45f5d6579dc329c2aafcd1263b70a
+> [2/5] arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
+>       commit: 8fea4519f625e6c1b05078f2ecea252b7b28b06e
+> [3/5] arm64: dts: ti: k3-j722s-evm: Add camera peripherals
+>       commit: ce553288ad2368f0d27e47b39a23121a825a2b33
 
-No need to send a new version.
+> [4/5] arm64: dts: ti: k3-j722s-evm: Add overlay for quad IMX219
+>       commit: c24ccb1cd77fb44087b2f7008d99626796b33ca4
+> [5/5] arm64: dts: ti: k3-j722s-evm: Add overlay for TEVI OV5640
+>       commit: 938806652b0a3c90d67e7137c91708d06940b03d
 
-I will update the branch directly when I pull the patch.  Not to worry.
+I have dropped 4 and 5 due to issues Rob pointed out in the other thread.
 
-Thank you!
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
-	Krzysztof
 
