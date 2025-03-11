@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E663CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:42:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F97C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:43:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l7XOVAe7Thg2IYjPG4f/hG6HMBZoufgdVEu+gwRh4TA=; b=yT8ABLKeFtByFisud59gp4HjrV
-	90FpKGNYRg+l5JS2ch2VdIW0RQ1FiCNxjsJOg/RXmr4HHEQTRi3geLUtIWcfxLXY4KvJd8cJXWJkJ
-	Ews7AdLfli5j2U79aVbHtjgPUC1bhdI67YmO+vvqr6IL9Vq6ZoUix7qCKo3qxspZkBbcZlEWDYzeb
-	9qoOnhdPGIsLfFff0Wsk0DH5IBhXIT8nm8kPSQ8YyEzROzKE+2T7pwRie8ay8oyixhM5pzJCawAkz
-	ydybqzcRO+OKXbyxqT4I/tifX+j84W0oTbvk2mMSsm6LNM7dFDv0y0xXl0+BjMBLP6E0KWuxRoQKT
-	qLQGS5zA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=IY5J62XlxijCckyZ/pkjNOZZ3YBU4KFWYGvD0yPE7dA=; b=tKdQbYP3X+bVHyj07DKSv8YeAL
+	RunmSujhfxUp9GMDt1OeOlMW4ncvTpJQel09OALYwnQHhTAWFREPTuYZcw4KPVHuUOqu76ZzKMbmF
+	l8LLp8QUVIUsuObQX0Kfdr3sJ2uCJvuZfnNvEt5I1WNRdDD2OHiGUP4Q791Kfc+ZJi/pEOPoZ6JzY
+	ILWPb5dCGRUPvtw9000S3/bKgTOu/ohqdHf4gmpGG7MoFXs+DemmmtwWwLcs/K3bWeJHEkF5dKIro
+	G80Aw9AajoZA6Izb2K7H0N6X9oHQeER+uvIZ2JCiSxaqwAVkUEAlJ8tv9lzfeREQLSW/qYqzfd2uk
+	SNneXn6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4YL-00000006f4e-0U21;
-	Tue, 11 Mar 2025 18:42:09 +0000
+	id 1ts4Zw-00000006fNW-3HMA;
+	Tue, 11 Mar 2025 18:43:48 +0000
 Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4Fv-00000006bzl-3xcx
+	id 1ts4HY-00000006cGH-1tuA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:23:09 +0000
+	Tue, 11 Mar 2025 18:24:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E3A60A460F6;
-	Tue, 11 Mar 2025 18:17:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6097AC4CEE9;
-	Tue, 11 Mar 2025 18:23:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741717386;
-	bh=OKgUmyfCm5KWfufOmtbwO7y0D8vMs8o5fmUjqAFAc2Y=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fexKVTeF0ZI1hyXWGq0/Oex33Rpv/AAqnN33eDYnZ7GB34N/YakJ2uNyTI8L7QEDP
-	 tzWgBIdvmOTes9rM9d4MH91vK1kHM7v3qJEVIL4z2/9o/Ot1vLgKFAxLMNu7j+1yLe
-	 KJEx+KpPnKkJzev3lAtR/OZpOd1nog29HDuHqCe13qLdxonElVUIGmHPNAozGheWFT
-	 e8w6kueMdUBY4AmfGrd6V5I4rFYmvNU9SFGLV9qr62Y2FeMA8iaCoUn4IM6o570MPc
-	 DU995SibTurpmIHWQ4YTt9sFJ7nk+fK4eDJfL6raIRYicB3T8UkMknqI/fbmJQXuBv
-	 xAVlSmqw6Lifw==
-Date: Tue, 11 Mar 2025 13:23:04 -0500
-From: Rob Herring <robh@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Julien Massot <julien.massot@collabora.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Liam Girdwood <lgirdwood@gmail.com>,
-	Mark Brown <broonie@kernel.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Arnd Bergmann <arnd@arndb.de>, Taniya Das <quic_tdas@quicinc.com>,
-	Biju Das <biju.das.jz@bp.renesas.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Eric Biggers <ebiggers@google.com>,
-	Javier Carrasco <javier.carrasco@wolfvision.net>,
-	Ross Burton <ross.burton@arm.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Zhi Mao <zhi.mao@mediatek.com>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	Ihor Matushchak <ihor.matushchak@foobox.net>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	linux-media@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-staging@lists.linux.dev, linux-gpio@vger.kernel.org
-Subject: Re: [RFC PATCH v2 04/16] dt-bindings: media: i2c: max96717: add
- support for pinctrl/pinconf
-Message-ID: <20250311182304.GA3925099-robh@kernel.org>
-References: <20250309084814.3114794-1-demonsingur@gmail.com>
- <20250309084814.3114794-5-demonsingur@gmail.com>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21EC7A4614D;
+	Tue, 11 Mar 2025 18:19:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AA252C4CEEC;
+	Tue, 11 Mar 2025 18:24:46 +0000 (UTC)
+Received: from wens.tw (localhost [127.0.0.1])
+	by wens.tw (Postfix) with ESMTP id 6624F5FA01;
+	Wed, 12 Mar 2025 02:24:43 +0800 (CST)
+From: Chen-Yu Tsai <wens@csie.org>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Andre Przywara <andre.przywara@arm.com>
+Cc: Philipp Zabel <p.zabel@pengutronix.de>, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+In-Reply-To: <20250307002628.10684-1-andre.przywara@arm.com>
+References: <20250307002628.10684-1-andre.przywara@arm.com>
+Subject: Re: [PATCH v4 00/14] clk: sunxi-ng: add A523 clock support
+Message-Id: <174171748337.1740144.15952522850275241981.b4-ty@csie.org>
+Date: Wed, 12 Mar 2025 02:24:43 +0800
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309084814.3114794-5-demonsingur@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_112308_121657_45880B09 
-X-CRM114-Status: GOOD (  21.22  )
+X-CRM114-CacheID: sfid-20250311_112448_563980_EFFBA1A0 
+X-CRM114-Status: GOOD (  14.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,135 +72,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 10:47:56AM +0200, Cosmin Tanislav wrote:
-> MAX96717 is capable of configuring various pin properties.
+On Fri, 07 Mar 2025 00:26:14 +0000, Andre Przywara wrote:
+> this is the fourth drop of the series introducing basic clock support for
+> the Allwinner A523 family of SoCs, comprising A523, A527, T527, H728. [1]
+> This times just a small rename of a macro name, and fixing the DT
+> binding, where the separate patches for the two CCUs got merged into
+> one. For a more detailed changelog, see below.
 > 
-> Add pinctrl/pinconf properties to support this usecase.
+> *************
+> Please note that the clock numbers changed compared to v1 and v2, (but
+> not against v3) so DTs from that older era cannot be used anymore with
+> this driver: you have to update the DTB. Just copying the binding header
+> and recompiling the DTB should do the trick, since the symbols stayed
+> mostly the same, at least as far they are used in the basic DTs we use
+> today.
+> *************
 > 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
->  .../media/i2c/maxim,max96717-pinctrl.yaml     | 71 +++++++++++++++++++
->  .../bindings/media/i2c/maxim,max96717.yaml    | 16 ++++-
->  MAINTAINERS                                   |  1 +
->  3 files changed, 87 insertions(+), 1 deletion(-)
->  create mode 100644 Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml
-> new file mode 100644
-> index 000000000000..347e66a5320c
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717-pinctrl.yaml
-> @@ -0,0 +1,71 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2025 Analog Devices Inc.
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/media/i2c/maxim,max96717-pinctrl.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Maxim GMSL2 Serializer Pinctrl
-> +
-> +maintainers:
-> +  - Cosmin Tanislav <cosmin.tanislav@analog.com>
-> +
-> +allOf:
-> +  - $ref: /schemas/pinctrl/pincfg-node.yaml#
-> +  - $ref: /schemas/pinctrl/pinmux-node.yaml#
-> +
-> +unevaluatedProperties: false
-> +
-> +properties:
-> +  function: true
-> +  pins: true
-> +  drive-open-drain: true
-> +  drive-push-pull: true
-> +  bias-disable: true
-> +  bias-pull-up: true
-> +  bias-pull-down: true
-> +  output-disable: true
-> +  output-enable: true
-> +  output-low: true
-> +  output-high: true
-> +  slew-rate: true
-> +  input-enable: true
-> +
-> +  maxim,jitter-compensation:
-> +    type: boolean
-> +    description: Enables jitter compensation.
-> +
-> +  maxim,gmsl-tx:
-> +    type: boolean
-> +    description: Enable transmitting pin value to GMSL link.
-> +
-> +  maxim,gmsl-rx:
-> +    type: boolean
-> +    description: Enable receiving pin value from GMSL link.
-> +
-> +  maxim,gmsl-tx-id:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Identifier used while transmitting value to GMSL link.
-> +      Default value matches the pin number.
+> [...]
 
-Use normally wrapping or blank line between paragraphs.
+Applied to clk-for-6.15 in git@github.com:linux-sunxi/linux-sunxi.git, thanks!
 
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  maxim,gmsl-rx-id:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Identifier used while receiving value from GMSL link.
-> +      Default value matches the pin number.
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  maxim,rclkout-clock:
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    description: |
-> +      Clock value.
-> +      0 - XTAL / 1 = 25MHz
-> +      1 - XTAL / 2 = 12.5MHz
-> +      2 - XTAL / 4 = 6.25MHz
-> +      3 - Reference PLL output
-> +    minimum: 0
-> +    maximum: 3
-> diff --git a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> index dd28cc397674..0a43582168a8 100644
-> --- a/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> +++ b/Documentation/devicetree/bindings/media/i2c/maxim,max96717.yaml
-> @@ -120,7 +120,21 @@ required:
->    - reg
->    - ports
->  
-> -additionalProperties: false
-> +additionalProperties:
-> +  anyOf:
-> +    - type: object
-> +      allOf:
-> +        - $ref: /schemas/media/i2c/maxim,max96717-pinctrl.yaml#
+[01/14] clk: sunxi-ng: mp: introduce dual-divider clock
+        commit: af7a221c12137271e8c31bc0c205ef4c57e89b4c
+[02/14] clk: sunxi-ng: mp: provide wrappers for setting feature flags
+        commit: 24ad1a7e8a3eca04dfe225b3e7935ab4ec326bb8
+[03/14] clk: sunxi-ng: Add support for update bit
+        commit: 38ea575784d3121b9c2e4c0bf425bc669e1c5e1b
+[04/14] dt-bindings: clk: sunxi-ng: document two Allwinner A523 CCUs
+        commit: 17bed1817f11b7d3c4ea0b38254f1bab78531a3d
+[05/14] clk: sunxi-ng: Add support for the A523/T527 CCU PLLs
+        commit: 04f6ff49525a8ba8ef3297de3e1a0e15ea3f5102
+[06/14] clk: sunxi-ng: a523: Add support for bus clocks
+        commit: 2d47dae9398135a48b58da9b059c23027b0e345e
+[07/14] clk: sunxi-ng: a523: add video mod clocks
+        commit: 4b759de121c46c693b61d6a22bf77d62333838e9
+[08/14] clk: sunxi-ng: a523: add system mod clocks
+        commit: 9bc061e57b4d97e187a767e45bff06b63f2a3126
+[09/14] clk: sunxi-ng: a523: add interface mod clocks
+        commit: dd19c52e686eb9f66816cd55fddfae8c7be2e6ea
+[10/14] clk: sunxi-ng: a523: add USB mod clocks
+        commit: 5fd7421770fb31a1ec35dd2400a849598466ac3b
+[11/14] clk: sunxi-ng: a523: remaining mod clocks
+        commit: 680f52d723e2ee9d97d167040eacc6a3af0b9cda
+[12/14] clk: sunxi-ng: a523: add bus clock gates
+        commit: 4548c0414839989be821e106b5128d5e7e13f2a4
+[13/14] clk: sunxi-ng: a523: add reset lines
+        commit: 9c8d960c13ab41c7e678eab5396b9258eaf8a159
+[14/14] clk: sunxi-ng: add support for the A523/T527 PRCM CCU
+        commit: 575464821eb0f72c86d93794a79900a853b256b5
 
-You can drop the allOf here.
+Best regards,
+-- 
+Chen-Yu Tsai <wens@csie.org>
 
-> +
-> +      unevaluatedProperties: false
-> +
-> +    - type: object
-> +      additionalProperties:
-> +        type: object
-> +        allOf:
-> +          - $ref: /schemas/media/i2c/maxim,max96717-pinctrl.yaml#
-
-And here.
-
-> +
-> +        unevaluatedProperties: false
-
-Do you really need to support 2 forms?
-
-This also allows the node names to be anything. We do that for existing 
-cases, but for new ones you should define some prefix or suffix. 
-Typically, '-pins$' is used.
-
-Rob
 
