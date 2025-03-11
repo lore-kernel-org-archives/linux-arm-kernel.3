@@ -4,93 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3685EC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:50:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F33FBC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:51:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=palKyBcsgnYyLT7TccByqHvOUnQeIY6hqkQdRDklSI4=; b=U49nDOltW11Z+qzoRuuzeIjxrG
-	kTiql2uEwvN9PWrX+qcVxe7TlU7Rj/k2kqpfGbVIZwN+f4V6N7y+V1jccUaemLWLkQIikbcK0eHHd
-	6pWdhCO99ej5tKgSQqFFYNgsmEppcznuf3aZZBnbUH55RIWXe1D0nOXZ0xOYzJVtzkdSKBMs3ejmQ
-	9JE/IdMTMURxXsdfOCrHXh2c0XZz0Y+pSdOEZbehbYbeD9rUPlcigcbeGx61RBJ0+bzIiOlnDyzQT
-	I5L01eIRD9RPzIAdsAdJhck25t8oWgSGozLgZCLsISRflb+Gs74uhIkNefhtwgYR4OAcBjtDI0kGr
-	LHj2kY2g==;
+	bh=mOG0CEw3FP2FlG0epn5X7Xw21NWLyIUELyR5vBonHPk=; b=rfYEiQ0MmdnYzMXVmWpxqEiIVU
+	8SX42WJ2sCoUecufRM7V7srRGK2VuQFYt3CVBELXbCw4cfduPBeGNML/tGAarYbt2ZtzVPgvB1uAy
+	GaZTonETIzvEWqSwro+jdaTLK9ZvpVOulCWld0M8hjge2L8Ss61JbffDNVu08uZ+C7+s7waaULD+o
+	6MmFKrKcj4TNjyHnCi+L/6fYsZoMWd1GuQUPQ5sRMKH/VWMz3RN78ZFvOFKm4TL88E0PDcACaodpb
+	w+aW03wNHhvG5UgXFiqFgwCC2Nja52uu5EavKWwiMJSyF6ghyskxQEOaJaLSvVeuboO18a4DtK8cf
+	5hQs6WMg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trz3c-00000005jmJ-44rH;
-	Tue, 11 Mar 2025 12:50:04 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1trz5F-00000005k8C-0OSk;
+	Tue, 11 Mar 2025 12:51:45 +0000
+Received: from out-183.mta1.migadu.com ([2001:41d0:203:375::b7])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryna-00000005fAY-2ouB
+	id 1trz0P-00000005j4Y-1L9t
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 12:33:33 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741696409;
+	Tue, 11 Mar 2025 12:46:47 +0000
+Date: Tue, 11 Mar 2025 08:46:30 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=rosenzweig.io;
+	s=key1; t=1741697201;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=palKyBcsgnYyLT7TccByqHvOUnQeIY6hqkQdRDklSI4=;
-	b=P2W6bMNv/LRqxn4GYSJk0Lt+DWLBKxRHr+YrokdpSqN6lrslp9V4aiZdMLb/PTDcP5Cqyi
-	ClioTEM3TBmMaGLwjEMoVC6NkTCTu5d030h2Kps3O8aJTln9UzmJLVKl62fq8te8yHzoDf
-	AtBq7XYjt12tl7ue+0nY8ihmgGc36LM=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-571-hD9d9DKnN-OKC5JK0gX1hQ-1; Tue,
- 11 Mar 2025 08:33:26 -0400
-X-MC-Unique: hD9d9DKnN-OKC5JK0gX1hQ-1
-X-Mimecast-MFC-AGG-ID: hD9d9DKnN-OKC5JK0gX1hQ_1741696404
-Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D7D2C180AF5E;
-	Tue, 11 Mar 2025 12:33:22 +0000 (UTC)
-Received: from dhcp-27-174.brq.redhat.com (unknown [10.22.90.58])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with SMTP id 5616F180094A;
-	Tue, 11 Mar 2025 12:33:14 +0000 (UTC)
-Received: by dhcp-27-174.brq.redhat.com (nbSMTP-1.00) for uid 1000
-	oleg@redhat.com; Tue, 11 Mar 2025 13:32:51 +0100 (CET)
-Date: Tue, 11 Mar 2025 13:32:42 +0100
-From: Oleg Nesterov <oleg@redhat.com>
-To: David Hildenbrand <david@redhat.com>
-Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-trace-kernel@vger.kernel.org,
-	linux-perf-users@vger.kernel.org,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthew Wilcox <willy@infradead.org>,
-	Russell King <linux@armlinux.org.uk>,
-	Masami Hiramatsu <mhiramat@kernel.org>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Namhyung Kim <namhyung@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Tong Tiangen <tongtiangen@huawei.com>
-Subject: Re: [PATCH -next v1 3/3] kernel/events/uprobes:
- uprobe_write_opcode() rewrite
-Message-ID: <20250311123241.GB3493@redhat.com>
-References: <20250304154846.1937958-1-david@redhat.com>
- <20250304154846.1937958-4-david@redhat.com>
- <20250310170320.GC26382@redhat.com>
- <79ec5aa9-1937-436e-8cf4-436746142f7b@redhat.com>
+	bh=mOG0CEw3FP2FlG0epn5X7Xw21NWLyIUELyR5vBonHPk=;
+	b=iOqEUJgvADrMU0rIWuG0Ruc7Rtt8IZl+4o95HtRzhUdZyQGFZ1JqrK6ZYGRItGhaB/i6vx
+	SUKlcXNM56cjtmk6uLgcFTxRSu13CBv7gM8RK/UHtKCdvpIuuoCKgOg2ZyE5WaPzY26G76
+	uyHRVJJ+1DwdlUYaed7Wflte4dOcoRNxcMzYlo6FIlE42eXoaGrJVauc3xcB5jmYo5XCcD
+	BUXc+bXEclIcJh9ZSiUkawPEsyTzJaoUtop39EGchJ3EqbnbnlWjQvuj3E3YGsIrgGFuaL
+	uZv6bDGFaxw6XdeG2kdrdBdFkuQ7+IJDK/zThbDQLqxqGNj8xUbEJQw7INmUrA==
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Alyssa Rosenzweig <alyssa@rosenzweig.io>
+To: Rob Clark <robdclark@gmail.com>
+Cc: David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Miguel Ojeda <ojeda@kernel.org>,
+	Alex Gaynor <alex.gaynor@gmail.com>,
+	Boqun Feng <boqun.feng@gmail.com>, Gary Guo <gary@garyguo.net>,
+	=?iso-8859-1?Q?Bj=F6rn?= Roy Baron <bjorn3_gh@protonmail.com>,
+	Benno Lossin <benno.lossin@proton.me>,
+	Andreas Hindborg <a.hindborg@kernel.org>,
+	Alice Ryhl <aliceryhl@google.com>, Trevor Gross <tmgross@umich.edu>,
+	Faith Ekstrand <faith.ekstrand@collabora.com>,
+	Janne Grunau <j@jannau.net>, Sven Peter <sven@svenpeter.dev>,
+	Jonathan Corbet <corbet@lwn.net>, linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org, rust-for-linux@vger.kernel.org,
+	asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, Asahi Lina <lina@asahilina.net>
+Subject: Re: [PATCH] drm: Add UAPI for the Asahi driver
+Message-ID: <Z9Awpj5Avh0rx_fq@blossom>
+References: <20250310-agx-uapi-v1-1-86c80905004e@rosenzweig.io>
+ <CAF6AEGukrBzwwdDWX5jUXDKqj7+kn7LBRy6NocE4=bw1D9WjcQ@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <79ec5aa9-1937-436e-8cf4-436746142f7b@redhat.com>
-User-Agent: Mutt/1.5.24 (2015-08-30)
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
+In-Reply-To: <CAF6AEGukrBzwwdDWX5jUXDKqj7+kn7LBRy6NocE4=bw1D9WjcQ@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_053330_787415_9EB86453 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250311_054645_878889_D2A61CE8 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,36 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 03/11, David Hildenbrand wrote:
->
-> Regarding both questions, the code is fairly racy. Nothing would stop user
-> space from (a) modifying that memory
+> > +/**
+> > + * struct drm_asahi_gem_bind - Arguments passed to
+> > + * DRM_IOCTL_ASAHI_GEM_BIND
+> > + */
+> > +struct drm_asahi_gem_bind {
+> > +       /** @op: Bind operation (enum drm_asahi_bind_op) */
+> > +       __u32 op;
+> > +
+> > +       /** @flags: One or more of ASAHI_BIND_* (BIND only) */
+> > +       __u32 flags;
+> > +
+> > +       /** @handle: GEM object to bind/unbind (BIND or UNBIND_ALL) */
+> > +       __u32 handle;
+> > +
+> > +       /** @vm_id: The ID of the VM to operate on */
+> > +       __u32 vm_id;
+> > +
+> > +       /** @offset: Offset into the object (BIND only) */
+> > +       __u64 offset;
+> > +
+> > +       /**
+> > +        * @range: Number of bytes to bind/unbind to addr (BIND or UNBIND only)
+> > +        */
+> > +       __u64 range;
+> > +
+> > +       /** @addr: Address to bind to (BIND or UNBIND only) */
+> > +       __u64 addr;
+> > +};
+> 
+> No in/out syncobj/fences?  This seems to diverge from xe/nouveau/panthor..
 
-Yes, but we don't really care. uprobes.c assumes that user-space won't play
-with the probed memory.
+Async vm_bind is useful mainly as an optimization, it's not (as far as I
+know) required for correctness - you can always wait/signal from a
+userspace submit thread with sync vm_bind. It's my understanding (from
+when I chatted with Faith about this when bringing up sparse) that this
+is how sparse was implemented historically and maybe still is on
+Windows?
 
-Note that if is_register is false, then vma can be even writable. Hmm, why?
-Perhaps valid_vma() should ignore is_register and nack VM_MAYWRITE ? But
-this doesn't really matter, say, gdb can change this memory anyway. Again,
-we don't really care.
+> > +/**
+> > + * enum drm_asahi_sync_type - Sync item type
+> > + */
+> > +enum drm_asahi_sync_type {
+> > +       /** @DRM_ASAHI_SYNC_SYNCOBJ: Binary sync object */
+> > +       DRM_ASAHI_SYNC_SYNCOBJ = 0,
+> > +
+> > +       /** @DRM_ASAHI_SYNC_TIMELINE_SYNCOBJ: Timeline sync object */
+> > +       DRM_ASAHI_SYNC_TIMELINE_SYNCOBJ = 1,
+> > +};
+> 
+> IMHO it would still be worthwhile to also support fence fd's, since it
+> would avoid a couple extra ioctls to convert btwn fence fds and
+> syncobj for virtgpu native context..
 
-> >do something like
-> >
-> >	/* Walk the page tables again, to perform the actual update. */
-> >	ret = -EAGAIN;
-> >	folio = folio_walk_start(&fw, vma, vaddr, 0);
-> >	if (folio) {
-> >		if (fw.page == page) {
-> >			WARN_ON(is_register && !folio_test_anon(folio));
->
-> Yes, that would work (we could leave the WARN_ON in __uprobe_write_opcode),
-> but I am not sure if the end result is better better. No strong opinion on
-> the details though.
+Ditto for this as an optimization. Both of these can be added in a
+straightforward backwards-compat way later, so I'm inclined to not add
+any extra functionality beyond what we already have (and know works),
+rather than commit prematurely to new features and risk getting
+something wrong.
 
-Will, this way __uprobe_write_opcode() will look a little bit simpler...
-
-But I won't insist, please do what you think is better.
-
-Oleg.
-
+(and then it means more rust bindings...)
 
