@@ -4,63 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6864CC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:28:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30DCAC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:31:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hPdSB/ChVAsu9uUACVRW2xl/ImaeEp4kNs2Z22e++zQ=; b=OFZ6Fe9SanSRptWDpFjFdRGO3w
-	xDtxRN2CRty7cSoLOtTj2oBzm845FWmWbG1xlk0io3q8acet2cmZRrXWPF5pNdxh9RMNzX82mKFy3
-	rdP5Efc6zvQZ62Ol5JktMl6aHeol9xNFQ5IVn5EQ1YzWBlF2VusqiPY3TnC0iBmEnJyQYCvNnifRy
-	TmeOapZE1WfeiWYE6hRaaGhqhbMxwA2DvXOiSkRMQ9Flf01fezTP3Kp3c4ncZOxX79LPlLRpDhRqM
-	YuFPRTIexoDMoOdpMgmGSrh9+6YfZ+W1BBaq5TWGnRJmVzl67mJLO0B3hH5enNMTX4f9KQPYTztH5
-	QjolxxGQ==;
+	bh=WaIUReCTcoh94jk11jEfjg06go62dK/AeBJ/ZKOUjCc=; b=wGyijXNpibcivygIVBdmHRJWQi
+	ZrkX+nmlRHQ9lqQ3QKYQneAcPrV03BQsMASTbiIJ41KyLwzHCX/pL4mKVy1PJWLCvos7dsvuExKN6
+	GHpGmK7tQSS0f1E2ZlEa9dTycZpZ3jn65Q+mma7IQHgyrqe2sCU0O/zyLib0OuNyxxdOKFNwLUy8z
+	J0D8IBmUjB13TzROFDmUIRAHBFk246zhLwLxjhf09kwwCs1ltkioKbWRlPlAI+Cf5vPTObY7zHIAE
+	oiEBa+aQhvnNMwbHFICPESM/DunG7vWcePD9GY+RUf44OxJrTqtCIegCHCjZ381i+ncGLJ3CaZQ99
+	Pjs6vsIQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1XC-000000069Q4-1TSU;
-	Tue, 11 Mar 2025 15:28:46 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ts1Zb-000000069v9-10ad;
+	Tue, 11 Mar 2025 15:31:15 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1VX-0000000699S-2nGi;
-	Tue, 11 Mar 2025 15:27:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id ABF1DA4385A;
-	Tue, 11 Mar 2025 15:21:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 33633C4CEF0;
-	Tue, 11 Mar 2025 15:27:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741706822;
-	bh=N5pBHs40qF4tSGmpD9K2uV1M+O09K7VOkhy8h8RS8Cs=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GWk1KiOh3m6e+EycK2ezspHCiAKChk9bAQpHOkzhS+et6nLFjCIGFUTniCV2PhePq
-	 2UV2jTRAGNhmVy7lVbO0o0CVx/Rk+xRcuYSyLYI8lUZYDtiCnRt2lQyg+PNNRkU/rE
-	 YXZcXw7MiCZF1kXQroKTsBm9YIr02t4KLz18Pk6zMimjPLD447Gix4kv1o1d3HHtHj
-	 UXKmfDmec0HR2/xkk1x9feLXyPzUJSqoQnTur7F3SuQZaobAq3xxeWr+8ZqWQxfPyp
-	 I7wRUWw+pTdq8pKvykzlO5KEkOOVzSi5I27oTo/7F00LQnSFC3NC9Jb7TzFRXz1XNU
-	 bzUpsOPq8Vk1Q==
-Date: Tue, 11 Mar 2025 10:27:00 -0500
-From: Rob Herring <robh@kernel.org>
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-Cc: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, krzysztof.kozlowski+dt@linaro.org,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 2/3] dt-bindings: mtd: microchip-nand: add atmel pmecc
-Message-ID: <20250311152700.GA3573545-robh@kernel.org>
-References: <20250311122847.90081-1-balamanikandan.gunasundar@microchip.com>
- <20250311122847.90081-3-balamanikandan.gunasundar@microchip.com>
+	id 1ts1Xw-000000069cU-0MFg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 15:29:33 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFTNKP1221695
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 10:29:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741706963;
+	bh=WaIUReCTcoh94jk11jEfjg06go62dK/AeBJ/ZKOUjCc=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=x3k55r90Ny5iSVvvY6DGis99lOaOFRjbcemB+DWEmOnmPme+Y4b0T6Je8gMsSvmK8
+	 ZqAIkpn5zd47QXlKoJCDXXpya8b7T+Fzm9kAechpBUK8B2OTDTaoXNkwDMab2Q/KKl
+	 KvL8p9j3QGyrHI7zkd4eqztaPIIqHfd4Oz/QYCqY=
+Received: from DLEE105.ent.ti.com (dlee105.ent.ti.com [157.170.170.35])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFTNgY124191
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 10:29:23 -0500
+Received: from DLEE103.ent.ti.com (157.170.170.33) by DLEE105.ent.ti.com
+ (157.170.170.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 10:29:22 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE103.ent.ti.com
+ (157.170.170.33) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 10:29:22 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BFTLT3014640;
+	Tue, 11 Mar 2025 10:29:22 -0500
+Date: Tue, 11 Mar 2025 20:59:21 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <vigneshr@ti.com>, <manivannan.sadhasivam@linaro.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <rogerq@kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
+ J784S4
+Message-ID: <20250311152921.cwb7obw5bmlrhvsi@uda0492258>
+References: <20250305132018.2260771-1-s-vadapalli@ti.com>
+ <20250310210746.GA2377483@rocinante>
+ <20250311051806.smcu4o4dxpngimth@uda0492258>
+ <20250311072546.GA277060@rocinante>
+ <20250311073216.ynw7rzmu36dwywij@uda0492258>
+ <20250311152133.GC1381004@rocinante>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset="utf-8"
 Content-Disposition: inline
-In-Reply-To: <20250311122847.90081-3-balamanikandan.gunasundar@microchip.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250311152133.GC1381004@rocinante>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_082703_831254_207D64D5 
-X-CRM114-Status: GOOD (  25.89  )
+X-CRM114-CacheID: sfid-20250311_082932_172296_A18BBFCF 
+X-CRM114-Status: GOOD (  15.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,187 +94,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 05:58:46PM +0530, Balamanikandan Gunasundar wrote:
-> Add bindings for programmable multibit error correction code controller
-> (PMECC).
+On Wed, Mar 12, 2025 at 12:21:33AM +0900, Krzysztof Wilczyński wrote:
+> Hello,
 > 
-> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> ---
+> [...]
+> > > No need to send a new version.
+> > > 
+> > > I will update the branch directly when I pull the patch.  Not to worry.
+> > 
+> > Thank you Krzysztof :)
 > 
-> Changes in v2:
-> - Rename filename to match compatible string
-> - Add constraints for sam9x7
-> - Droped unused dt labels 
+> Done.  Have a look at:
 > 
-> .../devicetree/bindings/mtd/atmel-nand.txt    | 61 -----------------
->  .../bindings/mtd/microchip,pmecc.yaml         | 67 +++++++++++++++++++
->  2 files changed, 67 insertions(+), 61 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/mtd/microchip,pmecc.yaml
+>   https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/j721e&id=01d04dcd6e80f63ca5e97324ec17c20553947e35
 > 
-> diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.txt b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> index dbbc17a866f2..1934614a9298 100644
-> --- a/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> +++ b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> @@ -1,64 +1,3 @@
-> -* ECC engine (PMECC) bindings:
-> -
-> -Required properties:
-> -- compatible: should be one of the following
-> -	"atmel,at91sam9g45-pmecc"
-> -	"atmel,sama5d4-pmecc"
-> -	"atmel,sama5d2-pmecc"
-> -	"microchip,sam9x60-pmecc"
-> -	"microchip,sam9x7-pmecc", "atmel,at91sam9g45-pmecc"
-> -- reg: should contain 2 register ranges. The first one is pointing to the PMECC
-> -       block, and the second one to the PMECC_ERRLOC block.
-> -
-> -Example:
-> -
-> -	nfc_io: nfc-io@70000000 {
-> -		compatible = "atmel,sama5d3-nfc-io", "syscon";
-> -		reg = <0x70000000 0x8000000>;
-> -	};
-> -
-> -	pmecc: ecc-engine@ffffc070 {
-> -		compatible = "atmel,at91sam9g45-pmecc";
-> -                reg = <0xffffc070 0x490>,
-> -                      <0xffffc500 0x100>;
-> -	};
-> -
-> -	ebi: ebi@10000000 {
-> -		compatible = "atmel,sama5d3-ebi";
-> -		#address-cells = <2>;
-> -		#size-cells = <1>;
-> -		atmel,smc = <&hsmc>;
-> -		reg = <0x10000000 0x10000000
-> -		       0x40000000 0x30000000>;
-> -		ranges = <0x0 0x0 0x10000000 0x10000000
-> -			  0x1 0x0 0x40000000 0x10000000
-> -			  0x2 0x0 0x50000000 0x10000000
-> -			  0x3 0x0 0x60000000 0x10000000>;
-> -		clocks = <&mck>;
-> -
-> -                nand_controller: nand-controller {
-> -			compatible = "atmel,sama5d3-nand-controller";
-> -			atmel,nfc-sram = <&nfc_sram>;
-> -			atmel,nfc-io = <&nfc_io>;
-> -			ecc-engine = <&pmecc>;
-> -			#address-cells = <2>;
-> -			#size-cells = <1>;
-> -			ranges;
-> -
-> -			nand@3 {
-> -				reg = <0x3 0x0 0x800000>;
-> -				atmel,rb = <0>;
-> -
-> -				/*
-> -				 * Put generic NAND/MTD properties and
-> -				 * subnodes here.
-> -				 */
-> -			};
-> -		};
-> -	};
-> -
-> ------------------------------------------------------------------------
-> -
->  Deprecated bindings (should not be used in new device trees):
->  
->  Required properties:
-> diff --git a/Documentation/devicetree/bindings/mtd/microchip,pmecc.yaml b/Documentation/devicetree/bindings/mtd/microchip,pmecc.yaml
-> new file mode 100644
-> index 000000000000..98260a691a2e
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mtd/microchip,pmecc.yaml
-> @@ -0,0 +1,67 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mtd/microchip,pmecc.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Microchip pmecc controller
-> +
-> +maintainers:
-> +  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> +
-> +description: |
+> Let me know if there is anything else to update.
 
-Don't need '|' if no formatting to preserve.
+The changes look good to me. There seems to be a minor typo in the
+commit message:
+[kwilczynski: add a issing .linkdown_irq_regfield member set to
 
-> +  Bindings for microchip Programmable Multibit Error Correction Code
-> +  Controller (PMECC). pmecc is a programmable BCH encoder/decoder. This
-> +  block is passed as the value to the "ecc-engine" property of microchip
-> +  nand flash controller node.
-> +
-> +properties:
-> +  compatible:
-> +    oneOf:
-> +      - enum:
-> +          - atmel,at91sam9g45-pmecc
-> +          - atmel,sama5d2-pmecc
-> +          - atmel,sama5d4-pmecc
-> +          - microchip,sam9x60-pmecc
-> +          - microchip,sam9x7-pmecc
+You probably meant "missing".
 
-Both alone and with a fallback should not be allowed. Pick one. A 
-fallback is only useful if there's a driver/client that only understands 
-the fallback and would work with the new implementation. IOW, if 'they 
-are the same'.
+Thank you once again for fixing it without the need for a new patch.
 
-> +      - items:
-> +          - const: microchip,sam9x7-pmecc
-> +          - const: atmel,at91sam9g45-pmecc
-> +      - items:
-> +          - const: microchip,sam9x60-pmecc
-> +          - const: atmel,at91sam9g45-pmecc
-
-Combine the last 2 'items' to 1 as the fallback is the same for both.
-
-> +
-> +  reg:
-> +    items:
-> +      - description: Base address and size of PMECC controller registers
-> +      - description: Base address and size of PMECC_ERRLOC controller
-
-Drop 'Base address and size of '.
-
-> +
-> +  clocks:
-> +    description: The clock source for pmecc controller
-
-For a single clock, what else would it be? Drop.
-
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +
-> +allOf:
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: microchip,sam9x7-pmecc
-> +    then:
-> +      properties:
-> +        clocks:
-> +          description: The clock source for pmecc controller
-
-What's the purpose of this if/then? It doesn't do anything.
-
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    ecc-engine@ffffc070 {
-> +        compatible = "microchip,sam9x7-pmecc";
-> +        reg = <0xffffe000 0x300>,
-> +              <0xffffe600 0x100>;
-> +        clocks = <&pmc 2 48>;
-> +    };
-> -- 
-> 2.34.1
-> 
+Regards,
+Siddharth.
 
