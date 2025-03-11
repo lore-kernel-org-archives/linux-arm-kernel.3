@@ -4,67 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ACC56C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:13:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9F3DC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:15:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YeR+5yPWoDZv9WYz81lmt8gaue+PBW2AKJ9m86Aqryc=; b=1bRQinPQai57cB7Bs65TMJccVl
-	CSHG4AQZ8O/naAxZzaxxx9ftzTxoaB34+MKrBRNhNlcJnfBpySVDYkXyHPnYGmuktMhscFj3+L2bw
-	FUzbP2ZApts34+GXI9+t0NCQ034asZ/s1MOUR06IEf2Ztv7onP7ZmhaAeKr2ZXscLV1zNANDswqak
-	SEj3sXemRWMZa4JZ2e6xupTHLxNPkVsvQZ8W9Cou2q8yuOdajZ7fhux1nUqh3pESp1ULZuCdAzcpz
-	VJHzeoTdB6JRO4wFjBZgpp0dy/WUAjblsCW7GFSCVQQEGOZkQRoY5FCQzA8t+UKRvN9ChpWqZL2Qp
-	Vyb3JB9g==;
+	bh=CZ1+8rKJVNBJLNn4WW6hgTofKUADmOpTxiWQXRVpyTY=; b=PQ9zsewgQTh7IoxwF/PBKC4bcs
+	SNXabYp7fPDRde772eXtcMxq9xjPCUWlcwdjhyNzBdgVSy9utPRzAS/eEXT/E8v1k0lmEgGYK+q52
+	y+Qm/+RULQ051EtveV2Rp6bHjR4QErr1pc7Xu4UabYATF+9nDkowV8Oczni2dv5f6shp0xAYQEH57
+	33N10eoVypwqi8yCrXDk2/bXVAXzTKrKIB3RmelystMVfqGoDbCQ79Gd72WO8+7t89Jo1r7fMag64
+	2yHzYT5OGSisqkGVMt410dl4D7bneMAJvpoyPhf/JXCQiUF58eubtpf6fy0qAZ6Og9/quGGSr2XLU
+	na/UuzPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts46o-00000006aPS-47jf;
-	Tue, 11 Mar 2025 18:13:42 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ts48R-00000006auq-2mDL;
+	Tue, 11 Mar 2025 18:15:23 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3pJ-00000006WzW-1vcq
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 17:55:38 +0000
+	id 1ts3u0-00000006XdX-0W0G;
+	Tue, 11 Mar 2025 18:00:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id A861AA460D0;
-	Tue, 11 Mar 2025 17:50:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94A55C4CEE9;
-	Tue, 11 Mar 2025 17:55:33 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9B8A55C6864;
+	Tue, 11 Mar 2025 17:58:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09A57C4CEE9;
+	Tue, 11 Mar 2025 18:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741715736;
-	bh=8u4pLdHTIPFDK61uW8Pwmuh4P/pSUrHF80u1BGQPw1w=;
+	s=k20201202; t=1741716027;
+	bh=L1Cb7EESZgqFczyBEHcCr+eebvdU5d0Tk4r2MQmfBX0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hPM+UPYp+Dl9QmdvLVZP8/GlmuodV3AIhgCje1OSt7+3NoWS+fJHPJy17889lPa3a
-	 CG84EdQhEZW3BwePkfymcv95wgGXaD1vtQUdwOXMmhEqCV5hgxiikHjRjYJ2Y/v0E9
-	 WM5i/vw30jFFELw59CjhpP80sFQIfNiklgei14DqpgQQCn2/tpFtaGukHDvxOiTBLe
-	 DMewDLdlM8KBeWnfPKcatcsXN489qLe4brSdeMrSfrB2G9Yp2l6TmfciXHC8RSWi4H
-	 t5sU0vqoglfhHOiANV51YkT5bvJLYhIMPKAShrzcy9iUeCxVwEHSgFY+wVO8jfoSNg
-	 O4YnIeQ0R3Eyw==
-Date: Tue, 11 Mar 2025 17:55:30 +0000
-From: Will Deacon <will@kernel.org>
-To: robdclark@gmail.com, robin.murphy@arm.com, joro@8bytes.org,
-	jgg@ziepe.ca, jsnitsel@redhat.com, robh@kernel.org,
-	krzysztof.kozlowski@linaro.org, quic_c_gdjako@quicinc.com,
-	dmitry.baryshkov@linaro.org,
-	Bibek Kumar Patro <quic_bibekkum@quicinc.com>
-Cc: catalin.marinas@arm.com, kernel-team@android.com, iommu@lists.linux.dev,
-	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v18 0/5] iommu/arm-smmu: introduction of ACTLR
- implementation for Qualcomm SoCs
-Message-ID: <20250311175528.GA5216@willie-the-truck>
-References: <20241212151402.159102-1-quic_bibekkum@quicinc.com>
- <173625436399.258197.10961901698600591079.b4-ty@kernel.org>
+	b=Rzo9hpQVVuTQrj2ul6guqj4v7EgzwsUuP+2HHaQphifFX5nbJ15MWW3uZAGzOHxL6
+	 oP8Ulrp+ueyCnMb4IJK+2xWIh1ea3fnFBG/zpkMzlZZN8egGOC7MA5wuJgoI3UDSKL
+	 R/1670wr6YDhsM4DkjSvo1mzBEQNmyZKsmY0X7twN9QqSMwa3S4FTvZWSR7dyCAF1c
+	 AGnXrZVUpGpy1s8e8xeOe5yG3b+1qLCYeaLZfNM1j3m0CD35+JhtJBIn+s3zBARQu1
+	 v8L1kOyNYDpOwXGdWcuKnp8EO1UMTIun1VXfuq9Snpi/TsgmUhns4EQ1NIlHAbMTSh
+	 rW1ZpgL4rkSsQ==
+Date: Tue, 11 Mar 2025 13:00:25 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	Linus Walleij <linus.walleij@linaro.org>,
+	linux-arm-kernel@lists.infradead.org, linux-gpio@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	linux-mediatek@lists.infradead.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH 1/2] dt-bindings: pinctrl: airoha: Add missing
+ gpio-ranges property
+Message-ID: <174171602460.3890634.5672219037612779159.robh@kernel.org>
+References: <20250307-en7581-gpio-range-v1-0-de1262105428@kernel.org>
+ <20250307-en7581-gpio-range-v1-1-de1262105428@kernel.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <173625436399.258197.10961901698600591079.b4-ty@kernel.org>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <20250307-en7581-gpio-range-v1-1-de1262105428@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_105537_563086_CFA749F2 
-X-CRM114-Status: GOOD (  13.54  )
+X-CRM114-CacheID: sfid-20250311_110028_219096_020C0A79 
+X-CRM114-Status: UNSURE (   8.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,35 +79,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Jan 07, 2025 at 04:42:39PM +0000, Will Deacon wrote:
-> On Thu, 12 Dec 2024 20:43:57 +0530, Bibek Kumar Patro wrote:
-> > This patch series consist of six parts and covers the following:
-> > 
-> > 1. Provide option to re-enable context caching to retain prefetcher
-> >    settings during reset and runtime suspend.
-> > 
-> > 2. Remove cfg inside qcom_smmu structure and replace it with single
-> >    pointer to qcom_smmu_match_data avoiding replication of multiple
-> >    members from same.
-> > 
-> > [...]
-> 
-> Applied to iommu (arm/smmu/updates), thanks!
-> 
-> [1/5] iommu/arm-smmu: Re-enable context caching in smmu reset operation
->       https://git.kernel.org/iommu/c/ef4144b1b47d
-> [2/5] iommu/arm-smmu: Refactor qcom_smmu structure to include single pointer
->       https://git.kernel.org/iommu/c/445d7a8ed90e
-> [3/5] iommu/arm-smmu: Add support for PRR bit setup
->       https://git.kernel.org/iommu/c/7f2ef1bfc758
-> [4/5] iommu/arm-smmu: Introduce ACTLR custom prefetcher settings
->       https://git.kernel.org/iommu/c/9fe18d825a58
-> [5/5] iommu/arm-smmu: Add ACTLR data and support for qcom_smmu_500
->       https://git.kernel.org/iommu/c/3e35c3e725de
 
-Hrm. I'm not seeing any user of the new ->set_prr*_() functions in
-linux-next yet. Is there something under review, or should I revert this
-for now?
+On Fri, 07 Mar 2025 18:08:19 +0100, Lorenzo Bianconi wrote:
+> Introduce leftover gpio-ranges property for Airoha EN7581 pinctrl binding
+> 
+> Fixes: d0c15cb96b74 ("dt-bindings: pinctrl: airoha: Add EN7581 pinctrl")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+>  Documentation/devicetree/bindings/pinctrl/airoha,en7581-pinctrl.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
 
-Will
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+
 
