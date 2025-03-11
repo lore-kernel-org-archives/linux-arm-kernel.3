@@ -4,63 +4,163 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83755C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8AE9C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:14:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AylrnPDA2We+tTMgME4b9m8T52vVXdybE/ODW3LPi9k=; b=mMUC0Q7bKChFQ9rV8OpI2Qhto5
-	PNJA7Ov+W09ew/LN7p/JVYZ7kpv2r/1XLg0RcYn6Rc0dHPstR+0KPEpCRTpu1jKUnnUjannB4RZnO
-	0eWzicrsvibaHyWdAS5aPlytaZfBwjTvuwuMCHSM63WGXgGvZ+ATC1Hp3/vutj8tsWzpni0eY6dMF
-	L7f7wkb27uMqAW7rQHOrWgXPQpd2AZp0JGlwjS7gg51gp2El6zMm8wA+GA0VhMppNG/ZgfLk3lNHu
-	yYmUvb2sLimpBsaU3SNTJMt32IpLlf8C7MwiMnXid9IXiitAqC2L8AHilRiIlwhXyo1wM+od7iA2/
-	38anGp3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HZy5EnWUrVwf9b1uFWyS1vTb/FbG0dPCtpPBXX2bjLI=; b=WjODwL3HEbeBgba1R4sDD+kPEi
+	cNwTM++FGfZFpUGBNesPWx1ulO7S1ThauFteF9dMq/DPCWdNVsg4gV9rp2qgkOqFlyHKM3hXe2zD8
+	NKdpLwO+KiL4cZeKm3dARBGpOIKklbR+PVdaH6qdbsorSntKkwJOHr/X7UnOv2M55djooX5ecqaBE
+	DiQ8gHk4Enok0CzeBFOfHNbvp5Z6911EAE8lgcuaAXOl9ojM+aexnBsC4zlRLS8kpxoT3efQ7RC0n
+	BygFsKPikaa4Tva06cqPkrgupx/SZwUymdiF6tELtz5YQbOdGmewGoVeT8dBeCV3529WzBRiaLF8T
+	ArnF41xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxLm-00000005PDv-3Ux5;
-	Tue, 11 Mar 2025 11:00:42 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxK8-00000005P0o-1Cz1
+	id 1trxZD-00000005QuK-1txF;
+	Tue, 11 Mar 2025 11:14:35 +0000
+Received: from mail-am7eur03on2061a.outbound.protection.outlook.com ([2a01:111:f403:260e::61a] helo=EUR03-AM7-obe.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trxXY-00000005Qbp-0cNF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 10:59:01 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 37B411762;
-	Tue, 11 Mar 2025 03:59:10 -0700 (PDT)
-Received: from [10.1.30.125] (XHFQ2J9959.cambridge.arm.com [10.1.30.125])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EEE1B3F673;
-	Tue, 11 Mar 2025 03:58:55 -0700 (PDT)
-Message-ID: <7cca1edf-fd1b-4622-999e-8e0ca098dfe2@arm.com>
-Date: Tue, 11 Mar 2025 10:58:54 +0000
+	Tue, 11 Mar 2025 11:12:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Nl/E8/DjEdEYmBBhnjZhpVi3/AGwm8laVSq7ZMEU+snpkMfySPlWVBnlAbnyoPmOcX0E1VYYsrSnr+98EmDo+dwxqtWnNpQllAg+vh+6avwiANbMJxLt+u473//be2THEcNfA+T1BVcrtMKd7vafYXalhxsRvorFeRFv6wKJA9Tf5WBjB6Zds+MNanU22r8lYnsGiwhEgMkJjUkyK4M3L2kjtbBkoq01V2GYVVGzD1RB8tdwwWxgoWikDH84RelawkU3ViOTeOClkAQvONWQD9Yuw+MJhG6/QKWnO+2sOr+BvUjQWPI2AQq09jbj8aQOMHEDyTJmzBZn0dPP8dzEtA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HZy5EnWUrVwf9b1uFWyS1vTb/FbG0dPCtpPBXX2bjLI=;
+ b=oKB+dKaq97eCxzQWzc4iVH/8cCaci5HoYbQkq8Z2KQELozryUuV7f0yRm2tR2KtZFxlrrbY6BLICszZucSKKPgI7BTlRvM0D50nDNk4Xl66YPCF578jA2lMVBcfT+bpCwqCOX+be6kOBoqg+n4pA2D7alIwKrUjlpCt7m+VGXHArFJdhv0jmHduIFmFD5f3Wo6q1xAio1+PigdRZZgMekGSQ3o2COHfY5ds+Lmj52S70BKfLM7K53SbvHwWNvfpXcYhCLFrvdd2ZtGFbZ4q+cAk+YxXUb2RjDql50x0eWW7vN3HdJ+3eetLMPuJfTd9dWOZojPuT0KtDUJX6fOipMA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HZy5EnWUrVwf9b1uFWyS1vTb/FbG0dPCtpPBXX2bjLI=;
+ b=hQ9w/IknvN0PmPKh6IByplFxqvOo3qh7Y6ajViCxmFQ3buaxdUtdiYfpaz0I45Gyus/t0jacV6+8rIXCEbh7KyhxvY0Y/TFdFUZhOCOVJrkOX/Q8Uk4OQUNJnPDpF2RfkJUDDk/wLx9GUdgI38deJy0cMehi7ID2qc9Zj5EgS+Az1zijBqRRltffO5oZpDAT+14YQ7KNBdW+Mur4iI62gb2Ct4NRYPlVJ4D2CdxvFGs3kYbSq6wU6A3HmcxLuyztvFGG0zGcOIj6N9X8La6tjuf3ECqvCOMq+A1k3M5i/rB/f7qclGcsven3ZgSzvNMM3dMoolvIbrnonk55qDHbZg==
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM0PR04MB6915.eurprd04.prod.outlook.com (2603:10a6:208:187::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
+ 2025 11:12:45 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
+ 11:12:45 +0000
+From: Peng Fan <peng.fan@nxp.com>
+To: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>
+CC: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>, Cristian Marussi
+	<cristian.marussi@arm.com>, Saravana Kannan <saravanak@google.com>, Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>, Linus Walleij
+	<linus.walleij@linaro.org>, Aisheng Dong <aisheng.dong@nxp.com>, Fabio
+ Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>, Jacky Bai
+	<ping.bai@nxp.com>, Pengutronix Kernel Team <kernel@pengutronix.de>, Sascha
+ Hauer <s.hauer@pengutronix.de>, "arm-scmi@vger.kernel.org"
+	<arm-scmi@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-gpio@vger.kernel.org"
+	<linux-gpio@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: RE: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Thread-Topic: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Thread-Index: AQHbVqX7U3UKEfrBUUq6t/L7CeKKLbNCozSAgADnVgCAAD9nAIABZDqAgADO7oCABpk3gIAAmxUAgAA1fYCAAVrcAIAA9kwAgBzYYICAABSfQIAAFXCAgAAcjQCAATyK0IAAKikw
+Date: Tue, 11 Mar 2025 11:12:45 +0000
+Message-ID: <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+References: <CAGETcx87Stfkru9gJrc1sf=PtFGLY7=jrfFaCzK5Z4hq+2TCzg@mail.gmail.com>
+ <Z65U2SMwSiOFYC0v@pluto> <20250218010949.GB22580@nxa18884-linux>
+ <Z7Rf9GPdO2atP89Z@bogus> <20250218133619.GA22647@nxa18884-linux>
+ <Z7Wvyn1QJQMVigf9@bogus> <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
+ <Z86w3ZRS6T2MvV3X@bogus>
+ <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
+ <Z87UJdhiTWhssnbl@bogus> <Z87sGF_jHKau_FMe@bogus>
+ <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+In-Reply-To: <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|AM0PR04MB6915:EE_
+x-ms-office365-filtering-correlation-id: 4461fb6e-0422-416c-f4c7-08dd608da677
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|13003099007|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?bZ48pPuJZPv8XFK3Ioqv5eOyAdN9QGRMKNDIsJPN63vjOkym8r4x2TFZS7vS?=
+ =?us-ascii?Q?x4Gfu5eIRlNPx+PBJP3k5dU+JJl6j8ThOwyXlssz0DDC0euQC0aDWnDZRK3Z?=
+ =?us-ascii?Q?i84OAIlcjBCYSnU7mvrodMfROODZ6a0kofI8jDW39SV1GeVMSO82BVWW1U7S?=
+ =?us-ascii?Q?Cdmj4HhFc7guEcFK8EJS/v8SVhuozAiFngAm95/ublNHBubfecpMiIV+pulI?=
+ =?us-ascii?Q?sA+nlsrYbqJaLVWvgdKS8I6YGDcvXOqRnmuzmmukUqkPcmtgWCRdPoPSUj9f?=
+ =?us-ascii?Q?AEimW0byqQD4lCMu8oRflipqDGnDTm8le9xqW+K2HMyL1x1uWyLa20CthDch?=
+ =?us-ascii?Q?XJEh1H2TabpBkhCFmtHt2on13tjiw3/mpFj4lF2Pw26Zb+6SaZ80hefWLmJU?=
+ =?us-ascii?Q?jfTIpk+S/UGwttsNJ9FyhMx8pUB2p+I6DuiOlkr96YxN6uc6IH5wPoa5YE/F?=
+ =?us-ascii?Q?SuS7CKbR5r/u4ikrKuJd1Kn3iUX8rlajAvZ1Akd3OsB+HIoOmpoathREbHOU?=
+ =?us-ascii?Q?VQee4EDEuKlYDDGAYv+e63euF9kt6VIgO97ovLZDcvNOQGPdBO8DzPsj85Zw?=
+ =?us-ascii?Q?juadvk8WymjV8UXv+OKWH7QgZPZu3nNbTFeYVBhF5d5vPsoyxQgLSCiGzaGW?=
+ =?us-ascii?Q?hYIgndpXet6z87GW2O2BreWOOjve1BjzozeQClD0nj3zzCSAPLbOpYb/k+Mi?=
+ =?us-ascii?Q?1aE9JreFbkgXd3mNgw2bAzSV1hc06eIH/14Qddry2C/FW419V1zFJHnHp8x6?=
+ =?us-ascii?Q?ItgqfAnp0e88tG95MZ/tZ0lgfWQ8p6wI6G7XAhViQnc4iGx/+oKXkJQJOqu0?=
+ =?us-ascii?Q?uXC0hdCYFJTXkxHNjXamLaEm867mN9RRq8Qlw8aye2P3XFoaTZ+TqXKbOYkB?=
+ =?us-ascii?Q?QPaFRY7ZnrFo7ASTcnXstmu5DUTqJxaaIxI0FfHTspua/s8NSs8NMfJIuh5L?=
+ =?us-ascii?Q?s87Fqy076aoFg7jP0nVkFc6Mo9DrUsJ2Nq7L52AbOhFMpBwG3iV5zXJl/hTQ?=
+ =?us-ascii?Q?cJII2iw7ZNinqFA+5RNw1H1LZWQiuS5KE9myi/8dw471iVQ5eZxGkJI+mJXf?=
+ =?us-ascii?Q?IvoP5/L/54o5HujzTDQWPXkeG0yQygT36nKBv38ieshCbWptRoE+XQ8Snt6v?=
+ =?us-ascii?Q?qsINXcjMwwwOpYddBMxVDnVsxSKnA1BFIIr93EugnVWAydfxwbntrQgmz16U?=
+ =?us-ascii?Q?K8MwiMRluCAzIA6p6rTWLsbKRZwuqnGoFq/+73rszt9quJZRXRbLAAfSFPiI?=
+ =?us-ascii?Q?EQM88zBTFUvUmt3ON/yKdh27cnAXHXz0txlwprrPo3caPkZ+45xqIbCqGo5q?=
+ =?us-ascii?Q?4mqHawmUM606RGnE7dDB3ORh3+6Tbv/+GjZy08CMsn4c3rfG42NOb3cLoCaa?=
+ =?us-ascii?Q?x05ywkY7mqEpUS1AfSNmV676gBje?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(13003099007)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?FCpyUbp7MI34IfgO6m/55izgPqSfJH9MyUQXWsx+75kbGyBHljt9ArgworuH?=
+ =?us-ascii?Q?BIFQzG15VGKIczSmAc+NF38BBqMNILbeNaWKrx8ObiatScirUpjmW/F5qLcF?=
+ =?us-ascii?Q?lwQMiOfMelUOiTDWX/qhnmyWqi6rAEAHOlLS4nrLj7rYZ0Pt4aVOD6fAzlvz?=
+ =?us-ascii?Q?u72G7NYT5vd/UbBrlwCNXlTz6ne3ekd7N3n2zoZD3rgO4DBQqfVbxwST0AG+?=
+ =?us-ascii?Q?h9u/o6DtNIeSdUVfGH+SkhSlg0lNwfqt1ezk8NFwwHM/CumNZ4X7ajfwfCAp?=
+ =?us-ascii?Q?HdeCH1YxUCeCYfbXQWsBG+I0tVGku8qra5qoegNytFsEKoEps7tt69fspm95?=
+ =?us-ascii?Q?9FkwVHNgPucnhRlEd8qFIN008pjygYPOZCw645q9W55bM97jOtnil6WY1r8d?=
+ =?us-ascii?Q?ri/V5/b3KVbKE5tNGTBC9qTaKFa3cxncnCT3mrLBExZPKc1MS4sqi65WxsyM?=
+ =?us-ascii?Q?3PUsvpvyeuZz5/WX1iH+0sXe1JAi649oajJB2kZlWu7ZDMYalU7huQcrLTkj?=
+ =?us-ascii?Q?cmI1uONGmQOv9+RdMCrUcz6Rksas9WUzqXmezLH2enTgyrm8TovrCVZlZtDi?=
+ =?us-ascii?Q?wv1toQ1pIRuQjzvQA4VQHecI5aj0YwUd8fFkqsTxOS9DjLema6jTbKqjeK9P?=
+ =?us-ascii?Q?dx9OlEjvARaSOxNTdcFgVc8ovS7Yg2nlp0yRmrBnuRoSjQvSwaImoTXmubpI?=
+ =?us-ascii?Q?C3x0Hhi+dJvXJ8LheqDTLnNfsy9ndS+BB+/zEfVygtnKA5DuL91iB6yUEikP?=
+ =?us-ascii?Q?W9E7hvZ90ygO06+iW3VAt9BxgX9EAQ84ZjehAGMzpUxD/OM0YxKqzuBfTfAV?=
+ =?us-ascii?Q?f2pt86bCgifocBbUExl8/bvSvlhyZhA8EVqMp3avUoVqk+oTGldsh5p5xy0L?=
+ =?us-ascii?Q?JoJy/cNtQ9Ezxa5kY7brxTtixjmACxRzspMggSnFsy4BFZ06q+3tDDg/pzCZ?=
+ =?us-ascii?Q?EyziOpVeyTnAqK2UKauoJJ91+9fmOP4Fr7RxQEVa5mh2p1r2fweH8Kwj6iYK?=
+ =?us-ascii?Q?cDAhSx7rLKyQk8bl8xtbLsUmq5CemOLMuJ0S+cyXmYWhtIZJvEYewHe7euCt?=
+ =?us-ascii?Q?7U/DoXfRtfSl1uJocnEVB6ONIdrR2stH4Tr63dOv12kOh849OTVdfnbGNBXm?=
+ =?us-ascii?Q?0eFZwq1D7ijwMNe1fT45BmLX+hhO7uqF2RJW0JZBcw9kK2NELOhq0W8jlDPt?=
+ =?us-ascii?Q?I2oJMN6aBbEEl1O6Lbu2dU3Y7sChEOIJin/wa72PqNuRzUELvgurbEjvtq0j?=
+ =?us-ascii?Q?mEZiGUZzOkLCusz0InzvaZhMaW43QWzsXhGZVOsCfsDsUG7J4t8o3fWTZqZv?=
+ =?us-ascii?Q?gPkA3Bo9bZ9Sljab04lhYK/Z4XS61h4yrHLWe6r3Iq214tHkIk/GTVh0mMbf?=
+ =?us-ascii?Q?LqmNbIeuiFfq6IXdBBqGibdhPivlc5OFj+0qYgL3kN1L7AIX1otaBTFzmAbT?=
+ =?us-ascii?Q?bJ2gnrS2Gad+ipMo9ZZYCGywxb0tsrbVVNIeKq/J3ZW+NvXuQcPTk5sTiA13?=
+ =?us-ascii?Q?A+9dqVMgrMGuSIqTfhiNmg2lXj9EblzDt5LyO6Ewi4vhUJJQpxfxwrut8GIF?=
+ =?us-ascii?Q?tqVfTabegttjypasGLI=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Content-Language: en-GB
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- catalin.marinas@arm.com, will@kernel.org, joro@8bytes.org,
- jean-philippe@linaro.org, mark.rutland@arm.com, joey.gouly@arm.com,
- oliver.upton@linux.dev, james.morse@arm.com, broonie@kernel.org,
- maz@kernel.org, david@redhat.com, akpm@linux-foundation.org, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
- <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
- <43732270-8fd0-4a18-abec-096e383a6a4d@arm.com>
- <5ff34bd0-7823-4f31-9f13-bf60d3345b99@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <5ff34bd0-7823-4f31-9f13-bf60d3345b99@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 4461fb6e-0422-416c-f4c7-08dd608da677
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2025 11:12:45.5817
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: MiI9VgH3r5ZiJEA4UmNg+3Hvgnb7cnDC5nUB86AiMk0/Jt7XbsqUaVdX1cz0G3b1f+di+Q2ErVt9zw0oMXfazw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM0PR04MB6915
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_035900_416437_2C875381 
-X-CRM114-Status: GOOD (  33.38  )
+X-CRM114-CacheID: sfid-20250311_041252_341249_93817F01 
+X-CRM114-Status: GOOD (  42.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,171 +175,215 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 10:17, Suzuki K Poulose wrote:
-> On 03/03/2025 10:17, Ryan Roberts wrote:
->> On 01/03/2025 01:32, Yang Shi wrote:
->>>
->>>
->>>
->>> On 2/28/25 10:24 AM, Mikołaj Lenczewski wrote:
->>>> For supporting BBM Level 2 for userspace mappings, we want to ensure
->>>> that the smmu also supports its own version of BBM Level 2. Luckily, the
->>>> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
->>>> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
->>>> BBM level 2 is claimed.
->>>>
->>>> Add the feature and testing for it under arm_smmu_sva_supported().
->>>>
->>>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->>>> ---
->>>>    arch/arm64/kernel/cpufeature.c                  | 7 +++----
->>>>    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
->>>>    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
->>>>    drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
->>>>    4 files changed, 13 insertions(+), 4 deletions(-)
->>>>
->>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>> index 63f6d356dc77..1022c63f81b2 100644
->>>> --- a/arch/arm64/kernel/cpufeature.c
->>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>> @@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct
->>>> arm64_cpu_capabilities *caps, int sco
->>>>                if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
->>>>                    return false;
->>>>            }
->>>> -
->>>> -        return true;
->>>>        } else if (scope & SCOPE_LOCAL_CPU) {
->>>>            /* We are a hot-plugged CPU, so only need to check our MIDR.
->>>>             * If we have the correct MIDR, but the kernel booted on an
->>>> @@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct
->>>> arm64_cpu_capabilities *caps, int sco
->>>>             * we have an incorrect MIDR, but the kernel booted on a
->>>>             * sufficient CPU, we will not bring up this CPU.
->>>>             */
->>>> -        return cpu_has_bbml2_noabort(read_cpuid_id());
->>>> +        if (!cpu_has_bbml2_noabort(read_cpuid_id()))
->>>> +            return false;
->>>>        }
->>>>    -    return false;
->>>> +    return has_cpuid_feature(caps, scope);
->>>
->>> Do we really need this? IIRC, it means the MIDR has to be in the allow list
->>> *AND* MMFR2 register has to be set too. AmpereOne doesn't have MMFR2 register
->>> set.
->>
->> Miko, I think this should have been squashed into patch #1? It doesn't belong in
->> this patch.
->>
->> Yang, we discussed this internally and decided that we thought it was best to
->> still require BBML2 being advertised in the feature register. That way if trying
->> to use KVM to emulate a CPU that is in the allow list but doesn't really support
->> BBML2, we won't try to use it.
->>
->> But we still end up with the same problem if running on a physical CPU that
->> supports BBML2 with conflict aborts, but emulating a CPU in the allow list. So
-> 
-> I don't understand the problem here ? In the worst case, if we want to disable
-> the BBML2 feature on a given CPU, we could provide an id-
-> override to reset the value of BBML2. Or provide a kernel parameter to
-> disable this in case we want to absolutely disable the feature on a
-> "distro" kernel.
+> Subject: RE: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
+> fwnode for scmi cpufreq
+>=20
+> > Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting
+> > fwnode for scmi cpufreq
+> >
+> > On Mon, Mar 10, 2025 at 11:59:33AM +0000, Sudeep Holla wrote:
+> > > On Mon, Mar 10, 2025 at 10:45:44AM +0000, Peng Fan wrote:
+> > > > > Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass
+> setting
+> > > > > fwnode for scmi cpufreq
+> > > > >
+> > > > > On Thu, Feb 20, 2025 at 08:59:18AM +0800, Peng Fan wrote:
+> > > > > >
+> > > > > > Sorry, if I misunderstood.
+> > > > > >
+> > > > > > I will give a look on this and propose a RFC.
+> > > > > >
+> > > > > > DT maintainers may ask for a patchset including binding
+> change
+> > > > > > and driver changes to get a whole view on the compatible
+> stuff.
+> > > > > >
+> > > > > > BTW, Cristian, Saravana if you have any objections/ideas or
+> > > > > > would
+> > > > > take
+> > > > > > on this effort, please let me know.
+> > > > > >
+> > > > >
+> > > > > Can you point me to the DTS with which you are seeing this
+> issue ?
+> > > > > I am trying to reproduce the issue but so far not successful. I
+> > > > > did move to power-domains for CPUFreq on Juno. IIUC all we
+> > need is
+> > > > > both cpufreq and performance genpd drivers in the kernel and
+> > then
+> > > > > GPU using perf genpd fails with probe deferral right ? I need
+> > > > > pointers to reproduce the issue so that I can check if what I
+> > > > > have cooked up as a solution really works.
+> > > >
+> > > > This is in downstream tree:
+> > > >
+> >
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F
+> > gi
+> > > > thub.com%2Fnxp-imx%2Flinux-imx%2Fblob%2Flf-
+> > 6.6.y%2Farch%2Farm64%2Fbo
+> > > >
+> >
+> ot%2Fdts%2Ffreescale%2Fimx95.dtsi%23L2971&data=3D05%7C02%7Cpe
+> > ng.fan%40
+> > > >
+> >
+> nxp.com%7C72778d531e944c7214ca08dd5fd95012%7C686ea1d3bc2
+> > b4c6fa92cd99
+> > > >
+> > c5c301635%7C0%7C0%7C638772109152491267%7CUnknown%7CT
+> > WFpbGZsb3d8eyJFb
+> > > >
+> >
+> XB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOI
+> > joiTWFpb
+> > > >
+> >
+> CIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DnHFiE5qD7NpmdGmj
+> > SUL0mIdOq8P4W
+> > > > ErqVq8xE%2Fb3WM0%3D&reserved=3D0
+> > > >
+> >
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F
+> > gi
+> > > > thub.com%2Fnxp-imx%2Flinux-imx%2Fblob%2Flf-
+> > 6.6.y%2Farch%2Farm64%2Fbo
+> > > >
+> >
+> ot%2Fdts%2Ffreescale%2Fimx95.dtsi%23L3043&data=3D05%7C02%7Cpe
+> > ng.fan%40
+> > > >
+> >
+> nxp.com%7C72778d531e944c7214ca08dd5fd95012%7C686ea1d3bc2
+> > b4c6fa92cd99
+> > > >
+> > c5c301635%7C0%7C0%7C638772109152521215%7CUnknown%7CT
+> > WFpbGZsb3d8eyJFb
+> > > >
+> >
+> XB0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOI
+> > joiTWFpb
+> > > >
+> >
+> CIsIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DM4LJumL6y9bQ%2FL
+> > ocPvlNiMnCFtO
+> > > > vODYNrC0DGbbydxY%3D&reserved=3D0
+> > > >
+> >
+> https://eur01.safelinks.protection.outlook.com/?url=3Dhttps%3A%2F%2F
+> > gi
+> > > > thub.com%2Fnxp-imx%2Flinux-imx%2Fblob%2Flf-
+> > 6.6.y%2Farch%2Farm64%2Fbo
+> > > >
+> >
+> ot%2Fdts%2Ffreescale%2Fimx95.dtsi%23L80&data=3D05%7C02%7Cpeng
+> > .fan%40nx
+> > > >
+> >
+> p.com%7C72778d531e944c7214ca08dd5fd95012%7C686ea1d3bc2b4
+> > c6fa92cd99c5
+> > > >
+> >
+> c301635%7C0%7C0%7C638772109152541725%7CUnknown%7CTWF
+> > pbGZsb3d8eyJFbXB
+> > > >
+> >
+> 0eU1hcGkiOnRydWUsIlYiOiIwLjAuMDAwMCIsIlAiOiJXaW4zMiIsIkFOIjoi
+> > TWFpbCI
+> > > >
+> >
+> sIldUIjoyfQ%3D%3D%7C0%7C%7C%7C&sdata=3DVpxcGrB6Dnr9yCO%2F
+> > wl8sEw1LYSlX5
+> > > > nPHqnlJ5mKm%2B7A%3D&reserved=3D0
+> > > >
+> > > > we are using "power-domains" property for cpu perf and gpu/vpu
+> > perf.
+> > > >
+> > > > If cpufreq.off=3D1 is set in bootargs, the vpu/gpu driver will defe=
+r
+> > probe.
+> > > >
+> > >
+> > > OK, does the probe of these drivers get called or they don't as the
+> > > driver core doesn't allow that ? I just have a dummy driver for mali
+> > > on Juno which just does dev_pm_domain_attach_list() in the probe
+> > and
+> > > it seem to succeed even when cpufreq.off=3D1 is passed. I see
+> > > scmi-cpufreq failing with -ENODEV as expected.
+> > >
+> > > I need to follow the code and check if I can somehow reproduce.
+> Also
+> > > are you sure this is not with anything in the downstream code ?
+> Also
+> > > have you tried this with v6.14-rc* ? Are you sure all the fw_devlink
+> > > code is backported in the tree you pointed me which is v6.6-stable ?
+> > >
+> >
+> > I even tried the above branch, but no luck. The above is neither
+> > latest stable version nor pure stable. It has few extra patches
+> > backported though IIUC. Anyways any pointers to enable me to
+> reproduce
+> > the issue would be much appreciated.
+>=20
+> I will setup test based latest linux-next and share results. Please wait.
 
-Hi Suzuki,
 
-Sorry perhaps I'm confusing everyone; As I recall, we had a conversation before
-Miko posted this series where you were suggesting we should check BOTH that all
-the CPUs' MIDRs are in the allow list AND that BBML2 is advertised in MMFR2 in
-order to decide to enable the CPU feature. My understanding was that without the
-MMFR2 check, you were concerned that in a virtualization scenario, a CPU's MIDR
-could be overridden to emulate a CPU that is in the allow list, but in reality
-the CPU does not support BBML2. We would then enable BBML2 and BadThings (TM)
-will happen. So additionally checking the MMFR2 would solve this.
+Based on linux-next, I added below node:
 
-But Yang is saying that he plans to add the AmpereOne to the allow list because
-it does support BBML2+NOCONFLICT semantics and we want to benefit from that. But
-AmpereOne does not advertise BBML2 in it's MMFR2. So with the current approach,
-adding AmpereOne to the allow list is not sufficient to enable the feature.
++
++               test@4f000000 {
++                       compatible =3D "fsl,imx-test";
++                       power-domains =3D <&scmi_devpd IMX95_PD_VPU>, <&scm=
+i_perf IMX95_PERF_VPU>;
++                       power-domain-names =3D "vpumix", "vpuperf";
++               };
 
-But back to your original justification for checking the MMFR2; I don't think
-that really solves the problem in general, because we don't just require BBML2,
-we require BBML2+NOCONFLICT. And we can only determine that from the MIDR. So
-why bother checking MMFR2?
+I not write a driver for it, so just check devlink information from sysfs i=
+nterface.
 
-I guess we could provide an id-override on the kernel command line to *enable*
-BBML2 for AmpereOne, but that's not going to be suitable for mass deployment, I
-don't think?
+From below sys directory, this test device takes scmi_dev.4 and scmi_dev.3 =
+as supplier.
+root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# ls
+driver_override  of_node  subsystem                          supplier:scmi_=
+protocol:scmi_dev.4  waiting_for_supplier
+modalias         power    supplier:scmi_protocol:scmi_dev.3  uevent
 
-Thanks,
-Ryan
+Checking scmi_dev.4 below, it is scmi cpufreq, not the scmi perf device.
+scmi_dev.3 is correct, it is genpd.
 
-> 
-> Suzuki
-> 
-> 
->> given AmpereOne doesn't advertise BBML2 but does support it, I'd be happy to
->> remove this check.
->>
->> Thanks,
->> Ryan
->>
->>
->>>
->>> Thanks,
->>> Yang
->>>
->>>>    }
->>>>      #ifdef CONFIG_ARM64_PAN
->>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/
->>>> arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>> index 9ba596430e7c..6ba182572788 100644
->>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
->>>>            feat_mask |= ARM_SMMU_FEAT_VAX;
->>>>        }
->>>>    +    if (system_supports_bbml2_noabort())
->>>> +        feat_mask |= ARM_SMMU_FEAT_BBML2;
->>>> +
->>>>        if ((smmu->features & feat_mask) != feat_mask)
->>>>            return false;
->>>>    diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/
->>>> arm/arm-smmu-v3/arm-smmu-v3.c
->>>> index 358072b4e293..dcee0bdec924 100644
->>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>>> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct
->>>> arm_smmu_device *smmu)
->>>>        if (FIELD_GET(IDR3_RIL, reg))
->>>>            smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
->>>>    +    if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
->>>> +        smmu->features |= ARM_SMMU_FEAT_BBML2;
->>>> +
->>>>        /* IDR5 */
->>>>        reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
->>>>    diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/
->>>> arm/arm-smmu-v3/arm-smmu-v3.h
->>>> index bd9d7c85576a..85eaf3ab88c2 100644
->>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->>>> @@ -60,6 +60,9 @@ struct arm_smmu_device;
->>>>    #define ARM_SMMU_IDR3            0xc
->>>>    #define IDR3_FWB            (1 << 8)
->>>>    #define IDR3_RIL            (1 << 10)
->>>> +#define IDR3_BBML            GENMASK(12, 11)
->>>> +#define IDR3_BBML1            (1 << 11)
->>>> +#define IDR3_BBML2            (2 << 11)
->>>>      #define ARM_SMMU_IDR5            0x14
->>>>    #define IDR5_STALL_MAX            GENMASK(31, 16)
->>>> @@ -754,6 +757,7 @@ struct arm_smmu_device {
->>>>    #define ARM_SMMU_FEAT_HA        (1 << 21)
->>>>    #define ARM_SMMU_FEAT_HD        (1 << 22)
->>>>    #define ARM_SMMU_FEAT_S2FWB        (1 << 23)
->>>> +#define ARM_SMMU_FEAT_BBML2        (1 << 24)
->>>>        u32                features;
->>>>      #define ARM_SMMU_OPT_SKIP_PREFETCH    (1 << 0)
->>>
->>
-> 
+root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# cat /sys/bus/scm=
+i_protocol/devices/scmi_dev.4/modalias
+scmi_dev.4:13:cpufreq
+root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# cat /sys/bus/scm=
+i_protocol/devices/scmi_dev.3/modalias
+scmi_dev.3:11:genpd
+root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000#
+
+
+So it is clear that wrong fw_devlink is created, it is because scmi cpufreq=
+ device is
+created earlier and when device_add, the below logic makes the fwnode point=
+er points
+to scmi cpufreq device.
+        if (dev->fwnode && !dev->fwnode->dev) {                            =
+                        =20
+                dev->fwnode->dev =3D dev;                                  =
+                          =20
+                fw_devlink_link_device(dev);                               =
+                        =20
+        }
+
+Hope this is clear.
+
+Regards,
+Peng.
+
+>=20
+> Thanks,
+> Peng.
+> >
+> > --
+> > Regards,
+> > Sudeep
 
 
