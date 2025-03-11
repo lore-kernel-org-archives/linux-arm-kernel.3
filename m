@@ -4,75 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CFE9C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:01:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CFB8AC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:03:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uqbSv16TWmOZ1tCKRdG9fVrHT8YvAibNNtV2008YnIE=; b=1P2Qo/KmyAu1aGCRJtwhQ/gv8j
-	LVWlohD+9E+vziKVoH/amL3yvDk0CTn2LJp1RZTR02K6Uw4n3Y174qr9gCHDH1MpYTFW+fvYKRaAU
-	gxHN9OoH72NlaRPnrDrqi2YCCf+HNiEwxJLeR5LyEbk0Z4iut/IEpoFmocHc09v63PO/FDv/+aRbc
-	JiZGVK2oRfj8muNp369rWbADrI7Wa9PuKRME0yjCkFKvaMSMM9hvUhJIxgf/AwEIX/z90LfktQm8W
-	G8YNMaTWLPH1OoAO5HFJbD+oRMlcXAvuoeiOtDe1qrQNZBAPrNkVtul0h+/jnr+vh0CCkPZTGCCip
-	3gKoytbw==;
+	bh=p/FV0/zh+OoQmigCWtqm7Zbwi18rhtF2bPaCmJEw3UE=; b=Hsfo8ulD/UaZTRRbhhHqAWoLiJ
+	HOJurDYdn+b/GX45fQJg9NQVuYuHckASjmHLeDapRRXe6+7tkSQlRxVpYZ2dlo8HPYh0+W/ow87OY
+	4apS/d/jjs8/caOByqj5MLyKaEvkAUo9pJzmuWg/7/PdGYjHGDJeT0o2/glB91RIgzn1Jmtg11zFQ
+	3AUucQYr0x+bbAEAf3kSnAYiL7rauoea1RD7Y7pMucybTIoyFaHA+TmxRk7GdNFqU1XOJTxXbLDTf
+	/1o6Qd7p07HIRv0haoQEAV3HtSF/5pJzqkElCD/RkJ/8d11thJNmBAJVJ2nPQAWqfDWzpbYAKgPPy
+	TdjlQzQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts16n-000000063mq-3Zia;
-	Tue, 11 Mar 2025 15:01:29 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts13g-000000063MQ-2Tch;
-	Tue, 11 Mar 2025 14:58:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C3AC75C6485;
-	Tue, 11 Mar 2025 14:55:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ED553C4CEF2;
-	Tue, 11 Mar 2025 14:58:14 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741705095;
-	bh=y4ryVf0YNOjwtuAvfEB/68jmLIXNfkpji8SHUgQfHwo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=NR0tVOSg1upZbE2fEnyq9W9Y3RVKJ+tzky3/D+NrptcRvtdtGIWka/OYqly8MeSpp
-	 lo076w/j5pWmgipzkujd5xbRgbtBnKD17m9kM2OOZLTqto0fy8xOrPzXDq5DKv+s2l
-	 8Gnuyx71HplMB2FE9EZ3yBpwlxvZg9Ck8WL5ZE8KswsxlZ2CQjzvaOOFlwg1F5IpN6
-	 fIR7Ht2Iph5kvMCIHhYCLUsas1FS7E3k8G1L9j03WTAdlqfL/yEwBslCuWgmURWkjD
-	 oHhikPGChRCkC7VT5m/rET4dXsDx0+mTsLKnuSrGjKF+qC6t0/zyA1TRHC2nXV4zsX
-	 6kDLqw8p1twvw==
-Received: by mail-oa1-f47.google.com with SMTP id 586e51a60fabf-2bc66e26179so2361853fac.2;
-        Tue, 11 Mar 2025 07:58:14 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUHnXrafMSPAoYtM/Mp/ulDMokx70qrWcn4lxdYbim6L9gJZpsJ6anVUZyBqDaABqbMA0mMmXHHriSDYWtdwlTA@lists.infradead.org, AJvYcCUeT+b1eTrJq24R8qZAx4/ZD/vOKtFGKPui7/Ybmx95kyieD+kxc+h7yoE+IBhUj4oI+iGXhQMk4x8R1No=@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHnWK+AvN15T8TO83JwJRAoGbhsED7GmPYb05QFow33761SdWA
-	sFed0BLHu4+wKMSVYVPo5F0S8QOjDWgzo7yZmcT00WHIt/mgwaOVrE4fzap+wEx0XyEGkJEvFmg
-	wBPxIadxJvge8UYVvVDN2q3Q4ieY=
-X-Google-Smtp-Source: AGHT+IFQOxYvpetHFZ5qF/modjQEJMQgK5sXcQo1XO+E1NqNBmeXGZ0DgBu5WKIIpycj+LOLM2pmlvVhXDd30xgHFNo=
-X-Received: by 2002:a05:6870:b906:b0:2c2:5270:f182 with SMTP id
- 586e51a60fabf-2c26136df6bmr9904732fac.39.1741705094125; Tue, 11 Mar 2025
- 07:58:14 -0700 (PDT)
+	id 1ts18c-000000064HZ-1Z0G;
+	Tue, 11 Mar 2025 15:03:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ts15U-000000063aq-18RQ
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 15:00:10 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8E45E152B;
+	Tue, 11 Mar 2025 08:00:18 -0700 (PDT)
+Received: from [10.57.40.127] (unknown [10.57.40.127])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 39B693F694;
+	Tue, 11 Mar 2025 08:00:06 -0700 (PDT)
+Message-ID: <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
+Date: Tue, 11 Mar 2025 15:00:05 +0000
 MIME-Version: 1.0
-References: <20250307145547.2784821-1-ping.bai@nxp.com> <CAPDyKFqsE4nArB+Qn5gH5P7vVePpZ6Z7ruas2-EGYsctGV-=4w@mail.gmail.com>
-In-Reply-To: <CAPDyKFqsE4nArB+Qn5gH5P7vVePpZ6Z7ruas2-EGYsctGV-=4w@mail.gmail.com>
-From: "Rafael J. Wysocki" <rafael@kernel.org>
-Date: Tue, 11 Mar 2025 15:58:02 +0100
-X-Gmail-Original-Message-ID: <CAJZ5v0jjezx5sUEZwsbsw-iZiwbirmB+690-syOCur26DvOSNQ@mail.gmail.com>
-X-Gm-Features: AQ5f1Jpg9YGKxiXZ8IeOPwdPNsqgPkaGl3fl_2Y1dOoOEeGA0VymC_oHOAASzwc
-Message-ID: <CAJZ5v0jjezx5sUEZwsbsw-iZiwbirmB+690-syOCur26DvOSNQ@mail.gmail.com>
-Subject: Re: [PATCH v5] cpuidle: Init cpuidle only for present CPUs
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: rafael@kernel.org, Jacky Bai <ping.bai@nxp.com>, daniel.lezcano@linaro.org, 
-	lpieralisi@kernel.org, sudeep.holla@arm.com, james.morse@arm.com, 
-	d-gole@ti.com, anup@brainfault.org, paul.walmsley@sifive.com, 
-	palmer@dabbelt.com, aou@eecs.berkeley.edu, linux-pm@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-riscv@lists.infradead.org, imx@lists.linux.dev, khilman@baylibre.com, 
-	quic_tingweiz@quicinc.com, quic_yuanjiey@quicinc.com
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight: Add a KUnit test for
+ coresight_find_default_sink()
+Content-Language: en-GB
+To: James Clark <james.clark@linaro.org>, Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Leo Yan <leo.yan@arm.com>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_075816_741001_7F871000 
-X-CRM114-Status: GOOD (  15.51  )
+X-CRM114-CacheID: sfid-20250311_080008_449710_A578C22D 
+X-CRM114-Status: GOOD (  27.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,45 +67,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 3:43=E2=80=AFPM Ulf Hansson <ulf.hansson@linaro.org=
-> wrote:
->
-> On Fri, 7 Mar 2025 at 15:54, Jacky Bai <ping.bai@nxp.com> wrote:
-> >
-> > for_each_possible_cpu() is currently used to initialize cpuidle
-> > in below cpuidle drivers:
-> >   drivers/cpuidle/cpuidle-arm.c
-> >   drivers/cpuidle/cpuidle-big_little.c
-> >   drivers/cpuidle/cpuidle-psci.c
-> >   drivers/cpuidle/cpuidle-qcom-spm.c
-> >   drivers/cpuidle/cpuidle-riscv-sbi.c
-> >
-> > However, in cpu_dev_register_generic(), for_each_present_cpu()
-> > is used to register CPU devices which means the CPU devices are
-> > only registered for present CPUs and not all possible CPUs.
-> >
-> > With nosmp or maxcpus=3D0, only the boot CPU is present, lead
-> > to the failure:
-> >
-> >   |  Failed to register cpuidle device for cpu1
-> >
-> > Then rollback to cancel all CPUs' cpuidle registration.
-> >
-> > Change for_each_possible_cpu() to for_each_present_cpu() in the
-> > above cpuidle drivers to ensure it only registers cpuidle devices
-> > for CPUs that are actually present.
-> >
-> > Fixes: b0c69e1214bc ("drivers: base: Use present CPUs in GENERIC_CPU_DE=
-VICES")
-> > Reviewed-by: Dhruva Gole <d-gole@ti.com>
-> > Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
-> > Tested-by: Yuanjie Yang <quic_yuanjiey@quicinc.com>
-> > Signed-off-by: Jacky Bai <ping.bai@nxp.com>
->
-> Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
->
-> Rafael, I assume you will pick these up? Or let me know if you want me
-> to take them via my pmdomain tree.
+On 05/03/2025 15:07, James Clark wrote:
+> Add a test to confirm that default sink selection skips over an ETF
+> and returns an ETR even if it's further away.
+> 
+> This also makes it easier to add new unit tests in the future.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+> Changes in v2:
+> - Let devm free everything rather than doing individual kfrees:
+>    "Like with managed drivers, KUnit-managed fake devices are
+>    automatically cleaned up when the test finishes, but can be manually
+>    cleaned up early with kunit_device_unregister()."
+> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1-james.clark@linaro.org
+> ---
+>   drivers/hwtracing/coresight/Kconfig                |  9 +++
+>   drivers/hwtracing/coresight/Makefile               |  3 +-
+>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
+>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 ++++++++++++++++++++++
+>   4 files changed, 88 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+> index ecd7086a5b83..f064e3d172b3 100644
+> --- a/drivers/hwtracing/coresight/Kconfig
+> +++ b/drivers/hwtracing/coresight/Kconfig
+> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
+>   
+>   	  To compile this driver as a module, choose M here: the module will be
+>   	  called coresight-dummy.
+> +
+> +config CORESIGHT_KUNIT_TESTS
+> +	  tristate "Enable Coresight unit tests"
+> +	  depends on KUNIT
+> +	  default KUNIT_ALL_TESTS
+> +	  help
+> +	    Enable Coresight unit tests. Only useful for development and not
+> +	    intended for production.
+> +
+>   endif
+> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+> index 8e62c3150aeb..96f0dfedb1bf 100644
+> --- a/drivers/hwtracing/coresight/Makefile
+> +++ b/drivers/hwtracing/coresight/Makefile
+> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
+>   		   coresight-cti-sysfs.o
+>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+> -coresight-ctcu-y := coresight-ctcu-core.o
+> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index bd0a7edd38c9..b101aa133ceb 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
+>   	}
+>   	return csdev->def_sink;
+>   }
+> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
+>   
+>   static int coresight_remove_sink_ref(struct device *dev, void *data)
+>   {
+> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+> new file mode 100644
+> index 000000000000..a136af05eaf4
+> --- /dev/null
+> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+> @@ -0,0 +1,77 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +
+> +#include <kunit/test.h>
+> +#include <kunit/device.h>
+> +#include <linux/coresight.h>
+> +
+> +#include "coresight-priv.h"
+> +
+> +static struct coresight_device *coresight_test_device(struct device *dev)
+> +{
+> +	struct coresight_device *csdev = devm_kcalloc(dev, 1,
+> +						     sizeof(struct coresight_device),
+> +						     GFP_KERNEL);
+> +	csdev->pdata = devm_kcalloc(dev, 1,
+> +				   sizeof(struct coresight_platform_data),
+> +				   GFP_KERNEL);
+> +	return csdev;
+> +}
+> +
+> +static int coresight_test_cpuid(struct coresight_device *csdev)
+> +{
+> +	return 0;
+> +}
+> +
+> +static void test_default_sink(struct kunit *test)
+> +{
+> +	/*
+> +	 * ETM -> ETF -> ETR -> CATU
+> +	 *                ^
+> +	 *                | default
+> +	 */
+> +	struct device *dev = kunit_device_register(test, "coresight_kunit");
+> +	struct coresight_device *etm = coresight_test_device(dev),
+> +				*etf = coresight_test_device(dev),
+> +				*etr = coresight_test_device(dev),
+> +				*catu = coresight_test_device(dev);
+> +	struct coresight_connection conn = {};
+> +	struct coresight_ops_source src_ops = {.cpu_id = coresight_test_cpuid };
 
-I can pick it up.
+Do we need the trace_id() ? Why is this required ?
+
+Suzuki
+
+> +	struct coresight_ops etm_cs_ops = { .source_ops	= &src_ops };
+> +
+> +	etm->type = CORESIGHT_DEV_TYPE_SOURCE;
+> +	etm->ops = &etm_cs_ops;
+> +	etf->type = CORESIGHT_DEV_TYPE_LINKSINK;
+> +	etf->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
+> +	etr->type = CORESIGHT_DEV_TYPE_SINK;
+> +	etr->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_SYSMEM;
+> +	catu->type = CORESIGHT_DEV_TYPE_HELPER;
+> +
+> +	conn.src_dev = etm;
+> +	conn.dest_dev = etf;
+> +	coresight_add_out_conn(dev, etm->pdata, &conn);
+> +
+> +	conn.src_dev = etf;
+> +	conn.dest_dev = etr;
+> +	coresight_add_out_conn(dev, etf->pdata, &conn);
+> +
+> +	conn.src_dev = etr;
+> +	conn.dest_dev = catu;
+> +	coresight_add_out_conn(dev, etr->pdata, &conn);
+> +
+> +	KUNIT_ASSERT_PTR_EQ(test, coresight_find_default_sink(etm), etr);
+> +}
+> +
+> +static struct kunit_case coresight_testcases[] = {
+> +	KUNIT_CASE(test_default_sink),
+> +	{}
+> +};
+> +
+> +static struct kunit_suite coresight_test_suite = {
+> +	.name = "coresight_test_suite",
+> +	.test_cases = coresight_testcases,
+> +};
+> +
+> +kunit_test_suites(&coresight_test_suite);
+> +MODULE_LICENSE("GPL");
+> +MODULE_AUTHOR("James Clark <james.clark@linaro.org>");
+> +MODULE_DESCRIPTION("Arm CoreSight KUnit tests");
+> 
+> ---
+> base-commit: eeafe6a8790ea125252ca2e23c1a2469eaff1d9a
+> change-id: 20250305-james-cs-kunit-test-3af1df2401e6
+> 
+> Best regards,
+
 
