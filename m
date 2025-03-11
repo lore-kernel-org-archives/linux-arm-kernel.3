@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E68C2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:20:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98F59C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:22:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=TsRvBIxlcl5Qad54ud98hdRrluFIPgrqpgvv7s3c5UM=; b=ZW9RSsbXi3KwbZWpZzx/CdbTxS
-	YwY80jHF+2brPofkNyv3oZ8FCvfkJGjaTysoCLbCBOPPfHPQN74Y477PP9cg5woTbaAeoiK70A4rt
-	ntit2zmMZp5v/ZWxKC6Z8hWjOVi9HTmx6zcSzO9ylLH0Pd/orOcGRhzVchce6NSPeEylpCt8ocCpm
-	so4m+HZWISl2i3PPJOLPlsFl4qCirds2olsRquCGso0NrtW1i8CQbgfrqg7NrDYcYDAj+7cFebTiU
-	/JiiH7DShVtmXc/gtKwW7948RoAWP3Nz/HYPT0PUstt6/HNGPwO6rr9x9SkaH7XRBHr9ZLREnY1Xh
-	bQMmMaXg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=arqFWN4nQQjCPwl8RAe4w0zwDHOl79ODnxqKCgfBmwE=; b=imxwk9J3SsifZSjz3BizyG5Wba
+	RX7P4xNC+Cinfh0IIZBsyFrtsWYKt8PhmtSq4sp6jkN/sgd7WPiLdkrrV9fkpLb9ok/mTpYF6qP+Q
+	dZOhKoTixf8uUusH18EQJU8+eGxjw9UgrMumighZf29ytwYr7aQrLRPjTNDniiYLc09+v57P1LjEv
+	crMt0ic/FpGnHecowqaPw3/4Juj/V05jd2stSn2ZdE7/KGos6fJzWQLOshvbDXYqhQdIi2CwmZLRJ
+	9TllhdVfgl+V4asfpbcX814WAL/orKUVe9R83gDawD19H/C0dn1TYtUEr3mNfh+vt9NqQ9u2HAZon
+	sl99IFkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4DI-00000006bgW-0HaP;
-	Tue, 11 Mar 2025 18:20:24 +0000
-Received: from fw2.prolan.hu ([193.68.50.107])
+	id 1ts4Eu-00000006brG-0XrO;
+	Tue, 11 Mar 2025 18:22:04 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3we-00000006YFt-3D0N
+	id 1ts3zM-00000006YiF-3KAB
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:03:15 +0000
-Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
-	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 47B52A00F5;
-	Tue, 11 Mar 2025 19:03:00 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:from:from:message-id:mime-version:reply-to:subject:subject:to
-	:to; s=mail; bh=TsRvBIxlcl5Qad54ud98hdRrluFIPgrqpgvv7s3c5UM=; b=
-	EMF4JM/i0QYoLPNY/wWPaSYJzhNCWCYDCE1tzq8d9ZU7ip4kvs/yjOxTwSj5RfzS
-	viyB2ipwm0cB/PB9O6dGDOj283+xKT0CTJ986cPwoZiLOpmL70kNho/89hjaDJOd
-	KcSf44scLawxu2n9iiFJywa+pQ+vOjdLBFf2r7wyYERz7x4Zgw/9lpnOKqXsrPYJ
-	Z7UfZysilc0qIj8D5speea2hNQw5TPUEAouf6YUwPpPsdZiQHWxWZQdoKUO8R8Ln
-	awxGW53/p938iDMmNv8n4erS3nqa7WNCE92OnsNTkPXtGiELs1lwrWxOpG9UhKO2
-	QSEkLm5bQSAolIMoLcfnBn9hvDAHvDhvRjDANhY0Bb5nFy0IT2RQwiLE5T61jFrk
-	zV3kmPmHorKdIEYhqYVFgnHaCOJ4TlEw8ye2LzXTihdRQgaSIaM1NTXfKFqIxVaO
-	9kqSDSPQwgGEfBfiJVXt6aUYP30lFGYohEluJkHANVnQBChhlcZiKgSfR1MtNL3V
-	2lPZAGfc9Nc8I18ZtytPkGMYuJAxjbpXVfrueKuPDOY6fhlaSu2P0ZnN+Bl+iS/9
-	rA3bchqkzLezR9MlQNZgiSp+kER56r+8jqzF+qyf9gzBf6mFOeLjYYfmGMUKOuPO
-	HtEfd0koaaY7sn2b1+unGGbVl9GfiCK+A2y+jlPc1UY=
-From: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>
-To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <linux-kernel@vger.kernel.org>
-CC: =?UTF-8?q?Bence=20Cs=C3=B3k=C3=A1s?= <csokas.bence@prolan.hu>, "Chen-Yu
- Tsai" <wens@kernel.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, "Chen-Yu
- Tsai" <wens@csie.org>, Vinod Koul <vkoul@kernel.org>, Samuel Holland
-	<samuel@sholland.org>
-Subject: [PATCH v4] dma-engine: sun4i: Use devm functions in probe()
-Date: Tue, 11 Mar 2025 19:02:53 +0100
-Message-ID: <20250311180254.149484-1-csokas.bence@prolan.hu>
-X-Mailer: git-send-email 2.48.1
+	Tue, 11 Mar 2025 18:06:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 455EB5C1031;
+	Tue, 11 Mar 2025 18:03:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7045AC4CEE9;
+	Tue, 11 Mar 2025 18:05:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741716359;
+	bh=2l2XhsUVNSUFOt0o115rgFxjPYd6cJC3mPPoy2QKMPM=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=tBp//bpjCPjkHJ3ILoEGKodCweFXovgnjhV4rgtptw6/m7Zzj+p53kp6VirBwPjci
+	 ViqhpM3WG8v8ETukGo+d+tkJ5+UZrx/2WI4/3npcj7S5hHyFjIpzNk5so1NwKI2SDA
+	 56aimhHxBxSfY5fPuF9w8Snvo0ygOn1CHugTZN37xPdvF0uWcL8uBhIu1U1FxIvheX
+	 KicV+Z5wY8TTNwCVT+LjSsl22yyuAooJZdrvCII5MOtMqC/SoUF0Fo/Y6YNvIWar96
+	 eTO5pXYPd84De8yIqwxuvOB7ohjcXX0sIUdmmxRgQEVGRobJGFII6Cc232+TCNhfyn
+	 aMc2Gsa+5e/KQ==
+Date: Tue, 11 Mar 2025 18:05:54 +0000
+From: Will Deacon <will@kernel.org>
+To: Connor Abbott <cwabbott0@gmail.com>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>,
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>,
+	Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+Message-ID: <20250311180553.GB5216@willie-the-truck>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 8bit
-X-ESET-AS: R=OK;S=0;OP=CALC;TIME=1741716179;VERSION=7985;MC=3687417233;ID=1831017;TRN=0;CRV=0;IPC=;SP=0;SIPS=0;PI=3;F=0
-X-ESET-Antispam: OK
-X-EsetResult: clean, is OK
-X-EsetId: 37303A29ACD94852627066
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_110313_264905_FFAA2FAA 
-X-CRM114-Status: GOOD (  13.35  )
+X-CRM114-CacheID: sfid-20250311_110600_944878_4607DDF2 
+X-CRM114-Status: GOOD (  17.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,109 +81,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Clean up error handling by using devm functions
-and dev_err_probe(). This should make it easier
-to add new code, as we can eliminate the "goto
-ladder" in probe().
+On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
+> This will be used by drm/msm for GPU page faults, replacing the manual
+> register reading it does.
+> 
+> Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> ---
+>  drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c |  4 ++--
+>  drivers/iommu/arm/arm-smmu/arm-smmu.c            | 27 +++++++++++++-----------
+>  drivers/iommu/arm/arm-smmu/arm-smmu.h            |  5 ++++-
+>  3 files changed, 21 insertions(+), 15 deletions(-)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> index 548783f3f8e89fd978367afa65c473002f66e2e7..ae4fdbbce6ba80440f539557a39866a932360d4e 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu-qcom-debug.c
+> @@ -400,7 +400,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+>  
+>  	if (list_empty(&tbu_list)) {
+>  		ret = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+> -					 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+> +					 cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+>  
+>  		if (ret == -ENOSYS)
+>  			arm_smmu_print_context_fault_info(smmu, idx, &cfi);
+> @@ -412,7 +412,7 @@ irqreturn_t qcom_smmu_context_fault(int irq, void *dev)
+>  	phys_soft = ops->iova_to_phys(ops, cfi.iova);
+>  
+>  	tmp = report_iommu_fault(&smmu_domain->domain, NULL, cfi.iova,
+> -				 cfi.fsynr & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+> +				 cfi.fsynr0 & ARM_SMMU_CB_FSYNR0_WNR ? IOMMU_FAULT_WRITE : IOMMU_FAULT_READ);
+>  	if (!tmp || tmp == -EBUSY) {
+>  		ret = IRQ_HANDLED;
+>  		resume = ARM_SMMU_RESUME_TERMINATE;
+> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
+> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
+>  				      struct arm_smmu_context_fault_info *cfi)
+>  {
+>  	cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
+> +	cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
+>  	cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
+> -	cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +	cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> +	cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
 
-Suggested-by: Chen-Yu Tsai <wens@kernel.org>
-Reviewed-by: Jernej Skrabec <jernej.skrabec@gmail.com>
-Acked-by: Chen-Yu Tsai <wens@csie.org>
-Signed-off-by: Bence Csókás <csokas.bence@prolan.hu>
----
+We already have an implementation hook (->get_fault_info()) which the
+qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
+That thing dumps these registers already so if we're moving that into
+the core SMMU driver, let's get rid of the hook and move everybody over
+rather than having it done in both places.
 
-Notes:
-    Changes in v2:
-    * rebase on current next
-    Changes in v3:
-    * rebase on current next
-    * collect Jernej's tag
-    Changes in v4:
-    * rebase on current next
-    * collect Chen-Yu's tag
+>  	cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
+> +	cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
 
- drivers/dma/sun4i-dma.c | 31 ++++++-------------------------
- 1 file changed, 6 insertions(+), 25 deletions(-)
+I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
+it for stage-2 domains.
 
-diff --git a/drivers/dma/sun4i-dma.c b/drivers/dma/sun4i-dma.c
-index 24796aaaddfa..b10639720efd 100644
---- a/drivers/dma/sun4i-dma.c
-+++ b/drivers/dma/sun4i-dma.c
-@@ -1249,10 +1249,9 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 	if (priv->irq < 0)
- 		return priv->irq;
- 
--	priv->clk = devm_clk_get(&pdev->dev, NULL);
-+	priv->clk = devm_clk_get_enabled(&pdev->dev, NULL);
- 	if (IS_ERR(priv->clk)) {
--		dev_err(&pdev->dev, "No clock specified\n");
--		return PTR_ERR(priv->clk);
-+		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk), "Couldn't start the clock");
- 	}
- 
- 	if (priv->cfg->has_reset) {
-@@ -1328,12 +1327,6 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 		vchan_init(&vchan->vc, &priv->slave);
- 	}
- 
--	ret = clk_prepare_enable(priv->clk);
--	if (ret) {
--		dev_err(&pdev->dev, "Couldn't enable the clock\n");
--		return ret;
--	}
--
- 	/*
- 	 * Make sure the IRQs are all disabled and accounted for. The bootloader
- 	 * likes to leave these dirty
-@@ -1344,32 +1337,23 @@ static int sun4i_dma_probe(struct platform_device *pdev)
- 	ret = devm_request_irq(&pdev->dev, priv->irq, sun4i_dma_interrupt,
- 			       0, dev_name(&pdev->dev), priv);
- 	if (ret) {
--		dev_err(&pdev->dev, "Cannot request IRQ\n");
--		goto err_clk_disable;
-+		return dev_err_probe(&pdev->dev, ret, "Cannot request IRQ");
- 	}
- 
--	ret = dma_async_device_register(&priv->slave);
-+	ret = dmaenginem_async_device_register(&priv->slave);
- 	if (ret) {
--		dev_warn(&pdev->dev, "Failed to register DMA engine device\n");
--		goto err_clk_disable;
-+		return dev_err_probe(&pdev->dev, ret, "Failed to register DMA engine device");
- 	}
- 
- 	ret = of_dma_controller_register(pdev->dev.of_node, sun4i_dma_of_xlate,
- 					 priv);
- 	if (ret) {
--		dev_err(&pdev->dev, "of_dma_controller_register failed\n");
--		goto err_dma_unregister;
-+		return dev_err_probe(&pdev->dev, ret, "Failed to register translation function");
- 	}
- 
- 	dev_dbg(&pdev->dev, "Successfully probed SUN4I_DMA\n");
- 
- 	return 0;
--
--err_dma_unregister:
--	dma_async_device_unregister(&priv->slave);
--err_clk_disable:
--	clk_disable_unprepare(priv->clk);
--	return ret;
- }
- 
- static void sun4i_dma_remove(struct platform_device *pdev)
-@@ -1380,9 +1364,6 @@ static void sun4i_dma_remove(struct platform_device *pdev)
- 	disable_irq(priv->irq);
- 
- 	of_dma_controller_free(pdev->dev.of_node);
--	dma_async_device_unregister(&priv->slave);
--
--	clk_disable_unprepare(priv->clk);
- }
- 
- static struct sun4i_dma_config sun4i_a10_dma_cfg = {
--- 
-2.48.1
-
-
+Will
 
