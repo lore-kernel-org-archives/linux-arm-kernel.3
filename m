@@ -4,96 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58905C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:59:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E6BEC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:00:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PmtecQnIMS1fJRzr1dQP71EddgymiTHZnMB1cAhWMdY=; b=CqoG1YM2zIUxwlYaQpmS23Tgl1
-	B6+YDRQM00uL7/0n5OKSl0kQqMn5TDAV9aKD8aulep762TrtGop5FQl7kNdIxoGYh4LDO4Sed4DCD
-	4SyrkJnk9ytffjDi3mA8j+94Pp6YSSaaM15ugTukI42UhE0s3B4u4/BFRJ2LqynQYIRFdwbnB4uGI
-	/zYT0lsz3jb8bcY2jHgeR7tb5Hla2kWVKJlpMgCjpDxzHH4hy1Agw4xYg2tIoe55M5HMSAYRzWiqU
-	9+UMCZ1po+MVPd6d1nKMp+uY+RHCixX9xQm0x1o5IRcTYurr0gh8eTaESFqpiWIIQ/L2dTc4QXvE7
-	gGTlOPIg==;
+	bh=7g+xe8Fc3+vfeUJVNKqRxi0ScAvXg4py07p3iJiGIRY=; b=rYYuIYGUd4HUi0pvnB2vyfIdWu
+	yFgiiJmCSzZQh5CMu1C0NAKkflxvEyPGSNeL9kFXMpac68kR0ZJvC9MCrxctKojZC+E0NHkjLquQ2
+	SIzsvrcJnwnpQ5Bhq5ojmaj+fQIdR7eOEn30o0RWzUqarw/rmez70uN7/djgD3tszbKVHKG4PkBeK
+	abh/8G/sxnpZzrzwlhXmcF1qmBA4UP14UhXeOoMQpJiUT1LpIFprFAdWJLONYR1gVJ0PvOqKRqmhT
+	DUceD1nshkBJjQT2IZgZuloWmQBrRcAjY1qmoTbmdpKz9okTvjtuDwov++jVd7EHakZC2T+oPRpuP
+	Uwr1niTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4oV-00000006hOn-3gHs;
-	Tue, 11 Mar 2025 18:58:51 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ts4q8-00000006hfh-0p1V;
+	Tue, 11 Mar 2025 19:00:32 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4kE-00000006gsc-0gYt
+	id 1ts4nk-00000006hH6-1KKH
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:54:27 +0000
+	Tue, 11 Mar 2025 18:58:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 2FD3DA460CD;
-	Tue, 11 Mar 2025 18:48:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E5CABC4CEE9;
-	Tue, 11 Mar 2025 18:54:22 +0000 (UTC)
+	by nyc.source.kernel.org (Postfix) with ESMTP id 588F3A4618D;
+	Tue, 11 Mar 2025 18:52:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 28BB7C4CEE9;
+	Tue, 11 Mar 2025 18:58:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741719264;
-	bh=DkxbPGCo5A/e7lDRlK6FKH/uxZlqGSzRqfvmnVsyDRY=;
+	s=k20201202; t=1741719483;
+	bh=H0YUnZgn3kS4q5aJPaCCPyYjqRuXp8gJMQR2aHdY/es=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=rTDlUznVD4Cj7FZ/kaNJUVwzonfwXS0c1KgC58c+1coh7IMQFvCkz3vbJ/U8udX+M
-	 9oSXhuPOzssLUsV9aiIG4Q3dywrNW9JkLNscaearhpYFtQgboZBChhYoS4VzwrnD77
-	 ARbSi3erLuagq9m13Joh9cXbMc2GB+B7ZIELq1PlsZX+zfX94eDTtoJ5BSduYFjcgW
-	 5ko5NRDgQdlL1e1LUnJBWovGDwI+NLhi08i7aXN/dT/szi0MnDc1CQuIEy33vmDpqT
-	 Pu9YwP62K8bBjNeXbnsKNF0cw2lKUe+gDfWfJteCVcNbNU88PPY528WARi06hRQoSV
-	 9EPO71I7F9yow==
-Date: Tue, 11 Mar 2025 13:54:21 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Cosmin Tanislav <demonsingur@gmail.com>
-Cc: Benjamin Mugnier <benjamin.mugnier@foss.st.com>,
-	Dan Carpenter <dan.carpenter@linaro.org>,
-	linux-staging@lists.linux.dev,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Javier Carrasco <javier.carrasco@wolfvision.net>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Biju Das <biju.das.jz@bp.renesas.com>, devicetree@vger.kernel.org,
-	Liam Girdwood <lgirdwood@gmail.com>, Zhi Mao <zhi.mao@mediatek.com>,
-	Julien Massot <julien.massot@collabora.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Ross Burton <ross.burton@arm.com>,
-	Dongcheng Yan <dongcheng.yan@intel.com>,
-	=?iso-8859-1?Q?N=EDcolas_F_=2E_R_=2E_A_=2E?= Prado <nfraprado@collabora.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-	Tommaso Merciai <tomm.merciai@gmail.com>,
-	Arnd Bergmann <arnd@arndb.de>,
-	Ihor Matushchak <ihor.matushchak@foobox.net>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Hans Verkuil <hverkuil@xs4all.nl>,
-	Taniya Das <quic_tdas@quicinc.com>,
-	linux-arm-kernel@lists.infradead.org,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Laurentiu Palcu <laurentiu.palcu@oss.nxp.com>,
-	Mark Brown <broonie@kernel.org>, linux-gpio@vger.kernel.org,
-	linux-kernel@vger.kernel.org, Eric Biggers <ebiggers@google.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	linux-media@vger.kernel.org, Bartosz Golaszewski <brgl@bgdev.pl>,
-	Kieran Bingham <kieran.bingham@ideasonboard.com>,
-	Niklas =?iso-8859-1?Q?S=F6derlund?= <niklas.soderlund@ragnatech.se>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Bjorn Andersson <quic_bjorande@quicinc.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Will Deacon <will@kernel.org>,
-	Cosmin Tanislav <cosmin.tanislav@analog.com>
-Subject: Re: [RFC PATCH v2 07/16] dt-bindings: media: i2c: max96712: add
- myself as maintainer
-Message-ID: <174171926101.3971802.12167410956543937006.robh@kernel.org>
-References: <20250309084814.3114794-1-demonsingur@gmail.com>
- <20250309084814.3114794-8-demonsingur@gmail.com>
+	b=jSIpiGJkXaaT1eLewPodBpgE2myV2gEwryf8sM0z2NCOPmK4ybjEWcSaDurh8eXCq
+	 BVlp7eJ2pU7YvrR981J/CW/c47J3RaqWLGL6gnKRpmpf4l1/sfPoVk8perJZMRKeOB
+	 6wken0eVXJkeAShl07IPP1/WFlr1bwURwRC5GaDG62LvdgMlxicExbouMvQ4xc6rTW
+	 4nA5iDzt3MFYyR8ysNuNlSLVj8KwkItxudg5jw+8P5WKRa285/q2hiAFbBzkYMWih4
+	 TUHKibEfBKwIqbH3vBPkSk2COFw21jsMhBPVPbTk3FhEivtGw9VW1qmJKWwyLcGCmn
+	 JX+aHhgXnXiZA==
+Date: Tue, 11 Mar 2025 20:57:58 +0200
+From: Dmitry Baryshkov <lumag@kernel.org>
+To: Christopher Obbard <christopher.obbard@linaro.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as
+ built-in
+Message-ID: <uljqxwfgl26txrfqvkvzzpj6qurgmwcbuot7gu2u6rwjaqgncb@jeuyi4mexjff>
+References: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+ <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250309084814.3114794-8-demonsingur@gmail.com>
+In-Reply-To: <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_115426_267159_5F3283AA 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250311_115804_488823_AEB6C56C 
+X-CRM114-Status: GOOD (  25.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,19 +75,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 09 Mar 2025 10:47:59 +0200, Cosmin Tanislav wrote:
-> Analog Devices is taking responsability for the maintenance of the Maxim
-> GMSL2/3 devices.
-> Add myself to the maintainers list and to the device tree bindings.
+On Tue, Mar 11, 2025 at 07:10:06PM +0100, Christopher Obbard wrote:
+> I sent this patch to start the discussion, some things I found:
 > 
-> Signed-off-by: Cosmin Tanislav <demonsingur@gmail.com>
-> ---
->  Documentation/devicetree/bindings/media/i2c/maxim,max96712.yaml | 1 +
->  MAINTAINERS                                                     | 1 +
->  2 files changed, 2 insertions(+)
+> 1) Some interconnects are missing from arm defconfig. Should they be =y too ?
+
+No, unless those are required for the UART console.
+
+> $ grep CONFIG_INTERCONNECT_QCOM arch/arm/configs/qcom_defconfig
+> CONFIG_INTERCONNECT_QCOM=y
+> CONFIG_INTERCONNECT_QCOM_MSM8974=m
+> CONFIG_INTERCONNECT_QCOM_SDX55=m
 > 
+> 2) Some interconnects are missing from arm64 defconfig (which should
+> probably be in there) (I have included just two examples):
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
+I think `git log -S CONFIG_INTERCONNECT_QCOM
+arch/arm64/configs/defconfig` will answer this question. The drivers are
+enabled on the premises of being required for a particular device, not
+because they exist in the Linux kernel.
 
+> $ grep CONFIG_INTERCONNECT drivers/interconnect/qcom/Makefile
+> obj-$(CONFIG_INTERCONNECT_QCOM_QCS615) += qnoc-qcs615.o
+> obj-$(CONFIG_INTERCONNECT_QCOM_SM7150) += qnoc-sm7150.o
+> 
+> I can handle these in follow-up or v2 of the patchset as follow-up
+> commits, please let me know what you'd prefer.
+> 
+> On Tue, 11 Mar 2025 at 19:03, Christopher Obbard
+> <christopher.obbard@linaro.org> wrote:
+> >
+> > Currently some Qualcomm interconnect drivers are enabled
+> > as modules which isn't overly useful since the interconnects
+> > are required to be loaded during early boot.
+> >
+> > Loading the interconnects late (e.g. in initrd or as module)
+> > can cause boot issues, such as slowdown or even not booting
+> > at all (since the interconnect would be required for storage
+> > devices).
+> >
+> > Be consistent and enable all of the Qualcomm interconnect
+> > drivers as built-in to the kernel image.
+> >
+> > Signed-off-by: Christopher Obbard <christopher.obbard@linaro.org>
+> > ---
+> >  arch/arm64/configs/defconfig | 6 +++---
+> >  1 file changed, 3 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+> > index 219ef05ee5a757c43a37ec9f8571ce9976354830..6582baee2ab02ecb2ff442c6e73aa6a23fee8d7f 100644
+> > --- a/arch/arm64/configs/defconfig
+> > +++ b/arch/arm64/configs/defconfig
+> > @@ -1656,11 +1656,11 @@ CONFIG_INTERCONNECT_IMX8MN=m
+> >  CONFIG_INTERCONNECT_IMX8MQ=m
+> >  CONFIG_INTERCONNECT_IMX8MP=y
+> >  CONFIG_INTERCONNECT_QCOM=y
+> > -CONFIG_INTERCONNECT_QCOM_MSM8916=m
+> > +CONFIG_INTERCONNECT_QCOM_MSM8916=y
+> >  CONFIG_INTERCONNECT_QCOM_MSM8996=y
+> > -CONFIG_INTERCONNECT_QCOM_OSM_L3=m
+> > +CONFIG_INTERCONNECT_QCOM_OSM_L3=y
+> >  CONFIG_INTERCONNECT_QCOM_QCM2290=y
+> > -CONFIG_INTERCONNECT_QCOM_QCS404=m
+> > +CONFIG_INTERCONNECT_QCOM_QCS404=y
+> >  CONFIG_INTERCONNECT_QCOM_QCS615=y
+> >  CONFIG_INTERCONNECT_QCOM_QCS8300=y
+> >  CONFIG_INTERCONNECT_QCOM_QDU1000=y
+> >
+> > ---
+> > base-commit: b098bcd8278b89cb3eb73fdb6e06dc49af75ad37
+> > change-id: 20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-258fcc961b11
+> >
+> > Best regards,
+> > --
+> > Christopher Obbard <christopher.obbard@linaro.org>
+> >
+
+-- 
+With best wishes
+Dmitry
 
