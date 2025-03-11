@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C397CC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 10:46:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EDB3C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 10:47:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zChzazY5Qs69YLs+3oCkq+znIcewTAfGgKLRQW/XwDA=; b=BJU6Deddr2ATy//bTRJWEkMtIL
-	rXxntcoIDvmXa8Hi2hwGKQKts94eGvEVCTR1F/HPg6ZDx1P6ppvuKx6H59adnibUI9+qW3EC6Z2bu
-	P7Vfma+u1PNmF4ZGadpZX3oAeI2msqB/HlMekSDDUvR2drrA7MgH3Bg9KOK5miAhLRfqcNORkozwA
-	bKGViO4kl8ypgkHGg8YjtF2lOsPlylA5DhsD/nyWAqJwpo4vRILAiupfcVNd+6KbI9uPVOImWipMy
-	evyaVprra2H8nL8R1cJj8TKGWBMdZhjNpH+jWB2k9si9adAYRGAK0KRUBatbd8oqdk0aJaMab+iR9
-	Cu1zNSCg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NZCnAOL0SeWf65quH9Oi51y08nslFhOegWHo8dPKp4M=; b=gNTnkQc0wJMWr7l5ZwGVhuPkOO
+	zWgiK2GRL8gTc7fC+zpPjsdQZZCBOyEknUf/j8ZpS5+6SvqZadZxyiJYglJ1OAy2vs+RJKKdDSH+P
+	/4nhEjFQjFIu2K2f0lNk5O9cbp5HHTllEdUjQnzO/BqxX590NTZ7cziAVvQzDb03pQLzWUDrn4u9o
+	XJt+uHRImk3r15yVcz+i7vMBE+2mic2keQ7/VrqihLj1bObTYxU0D8P/s6Xwq7OkyyfOiVCgZT2l0
+	kLzxtK75KxqBDwHFvGR6HxvolNhUPOeheS1gKQ8SS7+bJzDvF8VVTeroeTzP9gTvauIIYUTUoeNX/
+	xqKP4r2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trx7d-00000005NDp-003h;
-	Tue, 11 Mar 2025 10:46:05 +0000
+	id 1trx9F-00000005NRR-1Jtr;
+	Tue, 11 Mar 2025 10:47:45 +0000
 Received: from esa5.hgst.iphmx.com ([216.71.153.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trx5h-00000005MfT-07oy;
-	Tue, 11 Mar 2025 10:44:06 +0000
+	id 1trx5h-00000005MgJ-3kbP;
+	Tue, 11 Mar 2025 10:44:07 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple;
   d=wdc.com; i=@wdc.com; q=dns/txt; s=dkim.wdc.com;
-  t=1741689844; x=1773225844;
-  h=from:to:cc:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=tOzGi1+oE4i2IJoUxhsL9xdE2CFvuKnrU3TH/IWp1Uw=;
-  b=BjpZsULbilcSnAjMkrPcJw1GqGExL/hdHjTD6zCZIHCqiFgEQ3iv/1Pv
-   k4/+iLklVyyQ6fo4KTNGblxFJrCBbu65y2Hco/arOUKSARKVh6CxKeeNI
-   SNpcNBegtIJM8+aVlddfSySbFDTJ2Gu+DJykvYVnusr6CP4VraZaQvUv8
-   r5e3PxkQqa+OCvjgsliyIxSckB584RxR9DP97H2djnm1bXrxfUMkFKpnZ
-   U24k8aQYM509DPCnPGgZ1iRkL4cW0Np94kDl3BNJGnJt9PYm/VYCmcmxd
-   Clwd5BN0QaVWyD8iCu3y9ZNfcsCEKYLirpD5UOHTLe0VVyA/mYKSH69Vo
-   Q==;
-X-CSE-ConnectionGUID: o4nn1c09ROaedkSHt0hvnQ==
-X-CSE-MsgGUID: kza1Qjr0Ql2WdaapsclNQQ==
+  t=1741689845; x=1773225845;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=qZkpL8+UK4Jf7ALWWjcCeKVGPKdF94sM7MXUzKsePGs=;
+  b=PZADjgv4G3FITTrW9KLBdx+x+VK3yg2cg7+N56EAdPt6KvWbgdWI1KDl
+   OHokqyHLFcRl1GhbJ4kiqA6cPuVNU2IAM9RHiUOoNxIlzmqovHGrZxLWS
+   oYzVxYesv1a2dD7vKrUMYxUq/PbZoSFy4F0sy8cXu6XVZQzEquKz8FhH6
+   6PoG8Lx5gIdu9leiIQWrhxwbHEr7JvEI+Co31SgicE14zvKK6DONvf+0B
+   s8TlN+1Wk7ppBJ+2/uTnrLl3FRM0pftaN+J5muFSBHmHiq38DH3zT5SOX
+   rofeT+1ksCvl+2hTRbRAD8YPMg9tqESwumCnP9WfssaBTeQs8eMaqIdP/
+   w==;
+X-CSE-ConnectionGUID: dqtqRfg+QA+3atCzb6PFAA==
+X-CSE-MsgGUID: 03vgJBvWSX2RVvR+A6o7PQ==
 X-IronPort-AV: E=Sophos;i="6.14,238,1736784000"; 
-   d="scan'208";a="46946034"
+   d="scan'208";a="46946079"
 Received: from uls-op-cesaip01.wdc.com (HELO uls-op-cesaep01.wdc.com) ([199.255.45.14])
-  by ob1.hgst.iphmx.com with ESMTP; 11 Mar 2025 18:44:02 +0800
-IronPort-SDR: 67d0061d_J5oZsACSYuZGqn5Cm7inlAb/ZJdqj5C/XRY9omFgeYp88g8
- Bnp6EeycVOlsHwtJdLXC0IDrUBFPYY9IWp+dquQ==
+  by ob1.hgst.iphmx.com with ESMTP; 11 Mar 2025 18:44:05 +0800
+IronPort-SDR: 67d00620_r68Ck4ph0IbsWdoeEs6OgV6OcvQHLPeJ/84bMbqQ23oxfjB
+ LEdy6yVRRpp44T8dXcxIO5KcM9HUyLW/oo4vv2g==
 Received: from uls-op-cesaip01.wdc.com ([10.248.3.36])
-  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Mar 2025 02:45:01 -0700
+  by uls-op-cesaep01.wdc.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 11 Mar 2025 02:45:04 -0700
 WDCIronportException: Internal
 Received: from unknown (HELO shindev.ssa.fujisawa.hgst.com) ([10.149.66.30])
-  by uls-op-cesaip01.wdc.com with ESMTP; 11 Mar 2025 03:43:59 -0700
+  by uls-op-cesaip01.wdc.com with ESMTP; 11 Mar 2025 03:44:02 -0700
 From: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
 To: linux-block@vger.kernel.org,
 	linux-nvme@lists.infradead.org,
@@ -74,15 +74,17 @@ Cc: virtualization@lists.linux.dev,
 	Janne Grunau <j@jannau.net>,
 	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
 	Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Subject: [PATCH v2 0/2] block: nvme: fix blktests nvme/039 failure
-Date: Tue, 11 Mar 2025 19:43:57 +0900
-Message-ID: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
+Subject: [PATCH v2 1/2] nvme: move error logging from nvme_end_req() to __nvme_end_req()
+Date: Tue, 11 Mar 2025 19:43:58 +0900
+Message-ID: <20250311104359.1767728-2-shinichiro.kawasaki@wdc.com>
 X-Mailer: git-send-email 2.47.0
+In-Reply-To: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
+References: <20250311104359.1767728-1-shinichiro.kawasaki@wdc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_034405_064298_B31968B1 
-X-CRM114-Status: GOOD (  10.15  )
+X-CRM114-CacheID: sfid-20250311_034405_931932_B7A44E4A 
+X-CRM114-Status: GOOD (  15.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,38 +99,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 1f47ed294a2b ("block: cleanup and fix batch completion adding
-conditions") in the kernel tag v6.14-rc3 triggered blktests nvme/039
-failure [1].
+Before the Commit 1f47ed294a2b ("block: cleanup and fix batch completion
+adding conditions"), blk_mq_add_to_batch() did not add failed
+passthrough requests to batch, and returned false. After the commit,
+blk_mq_add_to_batch() always adds passthrough requests to batch
+regardless of whether the request failed or not, and returns true. This
+affected error logging feature in the NVME driver.
 
-The test case injects errors to the NVMe driver and confirms the errors
-are logged. The first half of the test checks it for non-passthrough
-requests, and the second half checks for passthrough requests. The
-commit made both halves fail.
+Before the commit, the call chain of failed passthrough request was as
+follows:
 
-This series addresses the test case failure. The first patch covers the
-passthrough requests, and the second patch covers the non-passthrough
-requests.
+nvme_handle_cqe()
+ blk_mq_add_to_batch() .. false is returned, then call nvme_pci_complete_rq()
+ nvme_pci_complete_rq()
+  nvme_complete_rq()
+   nvme_end_req()
+    nvme_log_err_passthru() .. error logging
+    __nvme_end_req()        .. end of the rqeuest
 
-[1] https://lkml.kernel.org/linux-block/y7m5kyk5r2eboyfsfprdvhmoo27ur46pz3r2kwb4puhxjhbvt6@zgh4dg3ewya3/
+After the commit, the call chain is as follows:
 
-Changes from v1:
-* 1st patch: Added Reviewed-by tags
-* 2nd patch: Replaced argument blk_status_t with boolean 'is_error'
-             Added kerneldoc of blk_mq_add_to_batch() arguments
+nvme_handle_cqe()
+ blk_mq_add_to_batch() .. true is returned, then set nvme_pci_complete_batch()
+ ..
+ nvme_pci_complete_batch()
+  nvme_complete_batch()
+   nvme_complete_batch_req()
+    __nvme_end_req() .. end of the request, without error logging
 
-Shin'ichiro Kawasaki (2):
-  nvme: move error logging from nvme_end_req() to __nvme_end_req()
-  block: change blk_mq_add_to_batch() third argument type to bool
+To make the error logging feature work again for passthrough requests, move the
+nvme_log_err_passthru() call from nvme_end_req() to __nvme_end_req().
 
- drivers/block/null_blk/main.c |  4 ++--
- drivers/block/virtio_blk.c    |  5 +++--
- drivers/nvme/host/apple.c     |  3 ++-
- drivers/nvme/host/core.c      | 12 ++++++------
- drivers/nvme/host/pci.c       |  5 +++--
- include/linux/blk-mq.h        | 11 ++++++++---
- 6 files changed, 24 insertions(+), 16 deletions(-)
+While at it, move nvme_log_error() call for non-passthrough requests together
+with nvme_log_err_passthru(). Even though the trigger commit does not affect
+non-passthrough requests, move it together for code simplicity.
 
+Fixes: 1f47ed294a2b ("block: cleanup and fix batch completion adding conditions")
+Signed-off-by: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+Reviewed-by: Hannes Reinecke <hare@suse.de>
+Reviewed-by: Christoph Hellwig <hch@lst.de>
+---
+ drivers/nvme/host/core.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/drivers/nvme/host/core.c b/drivers/nvme/host/core.c
+index f028913e2e62..8359d0aa0e44 100644
+--- a/drivers/nvme/host/core.c
++++ b/drivers/nvme/host/core.c
+@@ -431,6 +431,12 @@ static inline void nvme_end_req_zoned(struct request *req)
+ 
+ static inline void __nvme_end_req(struct request *req)
+ {
++	if (unlikely(nvme_req(req)->status && !(req->rq_flags & RQF_QUIET))) {
++		if (blk_rq_is_passthrough(req))
++			nvme_log_err_passthru(req);
++		else
++			nvme_log_error(req);
++	}
+ 	nvme_end_req_zoned(req);
+ 	nvme_trace_bio_complete(req);
+ 	if (req->cmd_flags & REQ_NVME_MPATH)
+@@ -441,12 +447,6 @@ void nvme_end_req(struct request *req)
+ {
+ 	blk_status_t status = nvme_error_status(nvme_req(req)->status);
+ 
+-	if (unlikely(nvme_req(req)->status && !(req->rq_flags & RQF_QUIET))) {
+-		if (blk_rq_is_passthrough(req))
+-			nvme_log_err_passthru(req);
+-		else
+-			nvme_log_error(req);
+-	}
+ 	__nvme_end_req(req);
+ 	blk_mq_end_request(req, status);
+ }
 -- 
 2.47.0
 
