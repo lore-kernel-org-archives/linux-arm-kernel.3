@@ -4,105 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BAAAC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:24:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 474A6C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:To:From:References:Cc:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UFNNBRGR/6gDpDCHdvz/G/BUoK1siPWwMWJCgE09xoA=; b=3wmcBFZNz8Q9fCei3a9BEYKzXN
-	cQsv54/JvqAyoZFfENkUqgFufbblEohqVZ0zd1eg1k1brPf5IKnSmsGqsfhg2mzIg5h0MelTzSfH9
-	MRKSIRsBfsmBwfHO+Q4JXo/LOk31dIaJFUiovfmoA1FOi4oVnQATFotGYSCjq7aa2pJ3XO7gvFHxp
-	llHn6MtR+eewmc95jX1tn3kttRHxOn3UkXcijkqjBzvqvGhVxKg+1wl2XQe2zeXimR5UJ2JkVDbLh
-	sLDmSXLnQXW2oe+ZHTH36Kq0Lp27S8AFny2ElH5TQno0o/U9+WmMTtDbbsBR6OVzqDZhfAk5eyQQF
-	MlzJ5zkg==;
+	bh=/wBUIzbfRjL8cYbjpKbIUr1nM3k/ZT4ERi+YMbxa2AA=; b=lmcb8AhEQGvuIg0TBvD7ZvLEMB
+	XAU6olLn9D2cpb0JM+7sL4OVNstGoWbQWiZOOM5p5HT4Su4jwdjOcn8K0Pw4W2rTsjYThIvFaZiOD
+	rwzG76h5KpmbjQCKo9m5Ighndgx4IQpTWVcjfvssL13BB6IQKGyV4uwK39yPt7T8p/5qeisdpXuin
+	Vs4ZdNBT5Ij9krUQ9Z7dVir2vk2u5qs9F5D37UysaXfof/wRhiI/+agSbMXhFDMG1weZLWzJNGQsS
+	jhywm/oGfrJz5WNKHrEUHdJAtpsY9l7CpOusmwpp/bWTJh+2BfEfyujeuEAQym+YknxcGKViDemJC
+	z/huFyyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1truuU-00000004zkr-3juy;
-	Tue, 11 Mar 2025 08:24:22 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1trv1z-000000050Ub-0vZT;
+	Tue, 11 Mar 2025 08:32:07 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trusq-00000004zen-3wUq;
-	Tue, 11 Mar 2025 08:22:42 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-5e5dce099f4so6691294a12.1;
-        Tue, 11 Mar 2025 01:22:39 -0700 (PDT)
+	id 1trv0L-000000050G9-2gnM
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 08:30:26 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso705615866b.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 01:30:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741681358; x=1742286158; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:to:content-language:from
-         :references:cc:subject:user-agent:mime-version:date:message-id:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=UFNNBRGR/6gDpDCHdvz/G/BUoK1siPWwMWJCgE09xoA=;
-        b=DWbqChunzPt84OYgesLdOxhsvlmbkKONmouy/FHf4R2mS3HuVcMy/2OC6EkZ5aOy93
-         nUn55mjhy9BHwWPA7BgmxijGRc6s34qr2AhRZa7KTwHKOHFrEej5B2p4k+Vm5ebDgmHf
-         5SfpqtO9AdwVoSYgScGtcG2HRbskqGCCgWHv1qdGmMyBR/fUsW2X3gAb2yAUKN8llzfG
-         +EYyTpnV6vtoAArxImaoZIL8+IWIVNawUzuw54nDJosXj5pEHWq/PxYeDDAls4f/CSYE
-         NGFcEGnihnRY+zkgFcTm8Ni1oRc7fYMwcZDoVXdPb+vWKh+TRKLG69hZ+4YqWaTNfQb8
-         4BWA==
+        d=gmail.com; s=20230601; t=1741681823; x=1742286623; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/wBUIzbfRjL8cYbjpKbIUr1nM3k/ZT4ERi+YMbxa2AA=;
+        b=DzvDKqWO87bUJPLgxpcTMv/Hi6HMCrnyRR6ffqnPk0qvPjKQYBo8jZPVonVd7kyhbV
+         CfCj9XfyVA2GI8Yq8xonHT3LunUFH+mlNOX1TD/VF7OnifeSpObtEV/HSMuV/k4kXGxc
+         HkNKWDNc/Oy9sdNC8ImDgogVh86419HXkRoqk6lnpyoK0jAPXa0PfOzn2F+PRf8E8sW5
+         kKcJcTv5qKoo0Y/2GZCrcbl0O21OMLMvdyhx8QcT9LzS80bd/cWWLPWTTmshy08e0VCd
+         qoCj+ewnRN+P0RO/eY7DFbqYXaOnV9UrksNI5N482DDQ5iiRH7pEgnE2JuYeDmzF9eLl
+         R1gQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741681358; x=1742286158;
-        h=content-transfer-encoding:in-reply-to:to:content-language:from
-         :references:cc:subject:user-agent:mime-version:date:message-id
+        d=1e100.net; s=20230601; t=1741681823; x=1742286623;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UFNNBRGR/6gDpDCHdvz/G/BUoK1siPWwMWJCgE09xoA=;
-        b=fCHNdl6kidJYAH+D3w5r+kNFKDkXP+gOPPyDgXlZbjp+dP6WMRdhc4wLVUsOyM8wJ0
-         2pO4AqPtBFLqU/6DqDXZwRuuR9b/QxMfHo9a9hnfLZ8D7MPUe8ONsFUJoR74pQRvI5Ut
-         2EjFNfoOkmh5pVAp9HSY9Bl+EN//HGoApm6eDepozkzpkc3wdMo08YiPSsYWn63HZjT6
-         FhEJ5lfghvBOyydSiud4BREKYjFY9IN/8m8kya/is6YS9sZEye4Kho5P5+PCueWe8Q4f
-         bZeyoXgzm0v5Wk9gaXVkEmqXo3QdtCtKz17N8lF53cqDgs89nK7NzDvzYAPYnfv43iiQ
-         7dBg==
-X-Forwarded-Encrypted: i=1; AJvYcCUluGG/b79DH2jeuYuI5dAaaKkl9wCvkqh5I9bjpS16qaKw0hPwuvvDYcoO5pG8wvYmR6SdUAuutPAP1Oj/zhYo@lists.infradead.org, AJvYcCX1t/9YMX892C903YbtC/SpQ45jdg/LlmrQQKBHNOS2z+5AUlozks1mUGWARctRe3J93AsAWlw/v5UFUTy+vvg=@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzVe9elgzMXWVK7stZ+Iv+ZEmcpbWj2J3lEawYg6KjnPl5ivd8
-	D1xHuHotU/LHTsVuW7BchOoQ33SulN3eSOWWS5sswOzLxgvv8CzP
-X-Gm-Gg: ASbGncthlyrFjwaU8UihAYS87HuDPcuAz1mBRgiyA72I/srlCy7E5m+xPUUmKzlxz2A
-	nd4BLQeTRAAhQdxGNlTuSCbGugALD7nPjicYzRLkm1hfP19pUjpUBI6Ek5NJvnkPFEWgMeo0UTq
-	pVFkQWdjZrAZj6ZvbLJc7hG/e9b4Ri2wqAIF3wmLz4ddrIMAhLaM70tTZLFq7lCeaf4UD5DY/1y
-	dDE0Iy7E7jdXcgTeDwdMcRkf5BIw1VhzXQ+Hw1P+Ne84x8yvkhQDbi0JrwNUqLF6z+TWtlOPgOE
-	lZsmJg5/lkLCRTIJoscdmkwCjOpL3/jt+7rbeVYN2Cyi/uIyeWk4Co6wz2JSCEVWF1ThscyXacd
-	x5tQziDkOfhBi/vLWy/JxOomf2KB9KfHny+4MPAPb9d2NEWEZ2CNawVSBiG7A3pWUfrgcjVTurx
-	FJeNouePZxpiiNFZJ5dVQ=
-X-Google-Smtp-Source: AGHT+IHVZMV/MbyEPPexb7J3WeNZYZ5CxjZ+VTFaUFe+rZPsUq+igvni96NJQxPQP+jJ8ClbAvXlfA==
-X-Received: by 2002:a05:6402:4302:b0:5e7:7262:3bb6 with SMTP id 4fb4d7f45d1cf-5e772625471mr1960367a12.29.1741681357815;
-        Tue, 11 Mar 2025 01:22:37 -0700 (PDT)
-Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e5c76913bbsm7880931a12.78.2025.03.11.01.22.36
+        bh=/wBUIzbfRjL8cYbjpKbIUr1nM3k/ZT4ERi+YMbxa2AA=;
+        b=d4kZBwxGzVXYwwkqL0oPsSLfuRmtGMUvIro54Gb4vPMdm2B6Zbw4Y+EpI+g4mS3liF
+         +6pye1kosd0t1P6sSFrBPQudCUBR5MZWof+LF9lZpHbZDXHsQ5A+ryqILaSiGI6kjMoo
+         vhR4uRbXfxSiAjcZlvXVNctCYpvkgb8I/P4cVYLdLKS17dsggmTkL83t7CTU6ZFOXsdQ
+         7oXNzoauXOz+gDERHlS8lqfIkfsXxnHac9P/WpkXL/uMiZT3YQEeiKWOxsVoTwlpi0qo
+         g6X1L5K1Je746p1aZeq/mvPQEJaQoIUHm7iS8+CnPbcvziA1LV5D3M6YMh1yq0QVHvwJ
+         i6Tg==
+X-Forwarded-Encrypted: i=1; AJvYcCWPmTZ05fgUEj4+KXowRz+fmTWXNU12CCbNx04E5PEefqcMmzkA8FsRBrjn7/JcTUfkYlxRMil4KpeIeCDV/9+q@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuFbUobQv5dLLvdpK8W095z81Sxe1db48gew3zx1haOcKmjogS
+	boxDCmt+i7aalRsLD2LMwZk+WHazDnnKS4OTajace1QA42s2EO+8
+X-Gm-Gg: ASbGncvMUaipj+mq3E8KDLkz0GtkTvqCwZId2Cf+13SY7zPU4SeGy/HseHuUyJrn9tA
+	tT5vGPNHIF7siZUhQt7ls3I6inIAMzIJxNrcD4yznk88igc3ZsKb9aLgFKsxEml5DxQZ4m9KmPW
+	Ju9WJPBuU5W648H4/e6ZUAgVaALaaccWJjeat1WyC3HWNTBD6cAEO3+7LIbN8zgPDOWJWc7aLMY
+	+IIJ9C3QLba+WN9/8vUnEoz+Vqb2gyIfEFAnNVKrpuiXaKSOV/CRe5xjKvZPyGQ8frbyKH46gV5
+	8ac0BrxgckRHNXcgvDD+YubF5nYQfnM9U/BkKIpOO1AGxMOcZggKYw==
+X-Google-Smtp-Source: AGHT+IED4/BdBzDJtL90V4GvyA5vlzRx5/AdyTSCLrwu2fkiBvJHxCgGCstqtAFDn9HSo6VY65AMJw==
+X-Received: by 2002:a17:907:6d08:b0:abf:742e:1fd7 with SMTP id a640c23a62f3a-ac253096a6amr2126965266b.57.1741681822638;
+        Tue, 11 Mar 2025 01:30:22 -0700 (PDT)
+Received: from [192.168.1.130] ([188.193.103.108])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2394825efsm877216566b.45.2025.03.11.01.30.21
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Mar 2025 01:22:37 -0700 (PDT)
-Message-ID: <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com>
-Date: Tue, 11 Mar 2025 09:22:35 +0100
+        Tue, 11 Mar 2025 01:30:22 -0700 (PDT)
+Message-ID: <23c708ef-c52d-40c1-a9e8-b05555b21667@gmail.com>
+Date: Tue, 11 Mar 2025 09:30:20 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 nf 00/15] bridge-fastpath and related improvements
-Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
- Kuniyuki Iwashima <kuniyu@amazon.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Nikolay Aleksandrov <razor@blackwall.org>, Roopa Prabhu <roopa@nvidia.com>,
- Ivan Vecera <ivecera@redhat.com>, Jiri Pirko <jiri@resnulli.us>,
- Jozsef Kadlecsik <kadlec@netfilter.org>, Simon Horman <horms@kernel.org>,
- Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
- Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
- linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
- coreteam@netfilter.org, bridge@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Alexander Lobakin <aleksander.lobakin@intel.com>,
- Ahmed Zaki <ahmed.zaki@intel.com>, Vladimir Oltean <olteanv@gmail.com>,
- Frank Wunderlich <frank-w@public-files.de>,
- Daniel Golle <daniel@makrotopia.org>
-References: <20250305102949.16370-1-ericwouds@gmail.com>
-From: Eric Woudstra <ericwouds@gmail.com>
+Subject: Re: [PATCH 4/4] ARM: dts: stm32: add initial support for
+ stm32mp157-ultra-fly-sbc board
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, =?UTF-8?B?R29yYW4gUmHEkWVub3ZpxIc=?=
+ <gradenovic@ultratronik.de>, =?UTF-8?B?QsO2cmdlIFN0csO8bXBmZWw=?=
+ <bstruempfel@ultratronik.de>, Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org
+References: <20250310154804.326943-1-goran.radni@gmail.com>
+ <20250310154804.326943-5-goran.radni@gmail.com>
+ <6af3a9fe-0c0b-497d-b143-77edc12f0c1e@kernel.org>
 Content-Language: en-US
-To: Pablo Neira Ayuso <pablo@netfilter.org>
-In-Reply-To: <20250305102949.16370-1-ericwouds@gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+From: Goran Radenovic <goran.radni@gmail.com>
+In-Reply-To: <6af3a9fe-0c0b-497d-b143-77edc12f0c1e@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_012240_983719_A6C62393 
-X-CRM114-Status: GOOD (  12.32  )
+X-CRM114-CacheID: sfid-20250311_013025_679472_B9A891FE 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,28 +108,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Thank You for the feedback. I will fix this. I have to solve the problem 
+with my e-mails in MAINTAINERS first, because I cannot use them to send 
+e-mails "inline".
+
+Best regards
+Goran
 
 
-On 3/5/25 11:29 AM, Eric Woudstra wrote:
-> This patchset makes it possible to set up a software fastpath between
-> bridged interfaces. One patch adds the flow rule for the hardware
-> fastpath. This creates the possibility to have a hardware offloaded
-> fastpath between bridged interfaces. More patches are added to solve
-> issues found with the existing code.
-
-
-> Changes in v9:
-> - No changes, resend to netfilter
-
-Hi Pablo,
-
-I've changed tag [net-next] to [nf], hopefully you can have a look at
-this patch-set. But, after some days, I was in doubt if this way I have
-brought it to your attention. Perhaps I need to do something different
-to ask the netfilter maintainer have a look at it?
-
-Best regards,
-
-Eric
-
+On 10.03.25 17:08, Krzysztof Kozlowski wrote:
+> On 10/03/2025 16:48, Goran Rađenović wrote:
+>> +&gpioj {
+>> +	gpio-line-names =
+>> +	"", "", "", "", "", "", "", "",
+>> +	"", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&gpiok {
+>> +	gpio-line-names =
+>> +	"", "", "", "", "", "", "", "",
+>> +	"", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&gpioz {
+>> +	gpio-line-names =
+>> +	"", "", "", "#SPI_CS2", "", "", "", "",
+>> +	"", "", "", "", "", "", "", "";
+>> +};
+>> +
+>> +&gpu {
+>> +	status = "okay";
+>> +};
+>> +
+>> +&i2c1 {
+>> +	pinctrl-names = "default", "sleep";
+>> +	pinctrl-0 = <&i2c1_ux_pins_a>;
+>> +	pinctrl-1 = <&i2c1_ux_pins_sleep_a>;
+>> +	i2c-scl-rising-time-ns = <100>;
+>> +	i2c-scl-falling-time-ns = <7>;
+>> +	status = "okay";
+>> +	/delete-property/dmas;
+>> +	/delete-property/dma-names;
+>> +
+>> +	rtc@32 {
+>> +		compatible = "epson,rx8900";
+>> +		reg = <0x32>;
+>> +		epson,vdet-disable;
+>> +		trickle-diode-disable;
+>> +	};
+>> +};
+>> +
+>> +&i2c4 {
+>> +	pinctrl-names = "default", "sleep";
+>> +	pinctrl-0 = <&i2c4_ux_pins_a>;
+>> +	pinctrl-1 = <&i2c4_ux_pins_sleep_a>;
+>> +	i2c-scl-rising-time-ns = <185>;
+>> +	i2c-scl-falling-time-ns = <20>;
+>> +	status = "okay";
+>> +	/delete-property/dmas;
+>> +	/delete-property/dma-names;
+>> +
+>> +	pmic: stpmic@33 {
+> Node names should be generic. See also an explanation and list of
+> examples (not exhaustive) in DT specification:
+> https://devicetree-specification.readthedocs.io/en/latest/chapter2-devicetree-basics.html#generic-names-recommendation
+>
+> pmic?
+>
+>> +		compatible = "st,stpmic1";
+>> +		reg = <0x33>;
+>> +		interrupts-extended = <&exti 0 IRQ_TYPE_EDGE_FALLING>;
+>> +		interrupt-controller;
+>> +		#interrupt-cells = <2>;
+>> +		status = "okay";
+> Does not look disabled
+>
+>
+> ...
+>
+>
+>> +	dac_ux_ch2_pins_a: dac_ux-ch2-0 {
+> No underscores in node names.
+>
+>> +		pins {
+>> +			pinmux = <STM32_PINMUX('A', 5, ANALOG)>;
+>> +		};
+>> +	};
+>> +
+>
+>
+>
+> Best regards,
+> Krzysztof
 
