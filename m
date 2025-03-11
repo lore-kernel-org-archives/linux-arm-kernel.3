@@ -4,70 +4,183 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D330CC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:35:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B382EC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:36:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jir35b0HgpV0FY6FTSTtKnirvFZaxaNLyjhlogfMqV4=; b=gf7Fm7f809tH9bXrcS/F1qQYIv
-	/Mmy4kNjqsApnMDI6Z+fLnNmelJZqOqSAfp61POaJBN92Dwejw6dKz34VTESZKZCipiRhJ5NtUlWw
-	OEKM7Wl2xFhrpuysMI1RsW3T4Pu33+0bximhjJMc67159dEgeuQgok8CTpyA5dZ5fE/ZrlaLF/2bZ
-	Iv0tS8xB7SXvjwGqK5yunMePHt7mJnGeJkH1OjahioA6D2v0H//PIO2//WjONVx8yRoDoKiDqt7Ai
-	Cat9Nms4vD4eRAxbTn3dBTQbz8ONIFHSOkijG+ixbsZgd4wDbLx5ZVsyMI8zL19G4wZE3mPEu23kB
-	lugZ0pqg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n8R/cLR5C+0ZtzqUowBCav2UQQKEL20hJm6J/5GNxzo=; b=PM8Hl2I4dum3DiZDUcQXJET8JR
+	HCQITDlgSy8vr7A2U5peJbSygjtyzJhoP9MWu+yzSmsdQx0QLA7AFijZXUYpa+vt0z1pIg/yKGMxN
+	gT4vRj1LXGpX2A8HHMCqG8DfrLPHEm9kLZp9SzTaj+MqjEwo7B68wSvXINqtZAa4CzADKwig0ovZ2
+	TghdahCIRx9VigD0eKZHTXv4+QB69IuTJ+X9mwXtu4VVtqN+dTSyhgKDyNIqi4CQcfNPfClpWEGFd
+	KBww/I/u/7dv71rPSlS09KdwVOiQ3X5gfVrkgVxlF/WN6q+LX8Epyv3MQN9QLPcvdviIETNscgogI
+	4Hdi7wgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryoy-00000005fU8-3K6s;
-	Tue, 11 Mar 2025 12:34:56 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryd4-00000005cPo-1UGB;
-	Tue, 11 Mar 2025 12:22:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=Jir35b0HgpV0FY6FTSTtKnirvFZaxaNLyjhlogfMqV4=; b=b
-	72iuzjLPM9Hpdt1LvzCk0VUtgFtaH+PnzDNS29xW4zkZSribKzLwWSRMqWch/9PG
-	AA36bzTdLuMmC7/JYiCJ+VlGE8L73KlPhOjuZ+QLxwgM1Jg3b7Wl7Bie4YBoEWl5
-	D/F8zS8MeQ66Rt+EmWMEXDMITg2CUfBylMVTCWI6ZM=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-123 (Coremail) ; Tue, 11 Mar 2025 20:22:10 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Tue, 11 Mar 2025 20:22:10 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Vinod Koul" <vkoul@kernel.org>
-Cc: heiko@sntech.de, kishon@kernel.org, sebastian.reichel@collabora.com,
-	yubing.zhang@rock-chips.com, dmitry.baryshkov@linaro.org,
-	frank.wang@rock-chips.com, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-phy@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	"Andy Yan" <andy.yan@rock-chips.com>
-Subject: Re:Re: Re: [PATCH] phy: rockchip: usbdp: Check these parameters
- only when the corresponding set flags are set
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <Z9Aa6v1/1KRdZDKE@vaman>
-References: <20250306065952.485809-1-andyshrk@163.com>
- <Z86UOmPg/UDSBajZ@vaman>
- <1379400c.90c.19582b05f74.Coremail.andyshrk@163.com>
- <Z9Aa6v1/1KRdZDKE@vaman>
-X-NTES-SC: AL_Qu2fA/qSuk8o5imYYOlSyjNW+7xfHKv6+qRChMQvQtsqqTHr9T0KcVtuP1XR3/++sAgV6BesM+3kGdDrWG6d
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tryqb-00000005fpS-1YMp;
+	Tue, 11 Mar 2025 12:36:37 +0000
+Received: from mgamail.intel.com ([198.175.65.12])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trydI-00000005cSj-1vT3
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 12:22:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741695772; x=1773231772;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=29pRQwrzHhphz6RH9MDhKOmEElczOh/0/KqdM3ve9eE=;
+  b=IVZBULsG+jvsrF14wiFnxIlw0MF9/SemtxH+STAo2n7Mjf3ivqPFnE1B
+   leDp2x3CuFqlwWCws0muDnI8JDbGL4Ks7Xe3vkNENa2q1M5EERGcuA74R
+   WDkV07Wu6Ki+AGtOPiUpgsUzsBhbOYICsVO0v1vAx5D/0hMxzCtn4xHtG
+   SwqjrRY1RiwwXqcDUs96ZrmE9gCLc1VCKNrh429HJc497YzcrgJTAeRQI
+   Tq0/J2+2Rmhfh90HcochiZDO61964cfWT79BRiVFFCIrQi4K4ZNfpAl8+
+   dYOOhZQnGBPmj1A3cKereVeXvN8fGu+H6bACYIolIg/LX7hCNXYHLWxq9
+   g==;
+X-CSE-ConnectionGUID: w23R1UHdQLuJGYh6sPC8Sg==
+X-CSE-MsgGUID: +vB7VCd7QbiGhhjlqZHuQw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11369"; a="54112455"
+X-IronPort-AV: E=Sophos;i="6.14,239,1736841600"; 
+   d="scan'208";a="54112455"
+Received: from orviesa001.jf.intel.com ([10.64.159.141])
+  by orvoesa104.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2025 05:22:52 -0700
+X-CSE-ConnectionGUID: shKI84kkRzeYeLQIZVOPKA==
+X-CSE-MsgGUID: G7JEQYBhSMC7UElWFZtptw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,239,1736841600"; 
+   d="scan'208";a="157515780"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by orviesa001.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2025 05:22:51 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 11 Mar 2025 05:22:51 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 11 Mar 2025 05:22:51 -0700
+Received: from NAM11-DM6-obe.outbound.protection.outlook.com (104.47.57.168)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 11 Mar 2025 05:22:50 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FjGzVHlpxoMy5FV5wvX6mVZ1p0gSMqlfl0dHZYkkmKw++hVfVT4OtqDle6iaKTJmfOwmcjHoWs2j1SyIQYkq0wj9G+9DY75YujD4z5eFIf2ZQqeL/ayjn9BHiGLobKf6fnujQ+Iu7KAzd4loZJRo47Z7BRYboLEz5pdfYEV2hN7JkdJp000lRRXQaix1OAmmDO3AjMeKW0iWorWloLbHfXl4S8wmnrLID3tA9djcHdUEkYgmxJeG6Q0DRZfVPtBuK0alEQq4mP5IUIWTYU7dKnOxK3Kk4B91zcf9YuF4aFC/4is8qzYqOsh3C8n5Oqev73Z5LW0oKi6pQHyrZSc7Kw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n8R/cLR5C+0ZtzqUowBCav2UQQKEL20hJm6J/5GNxzo=;
+ b=QUjvWT9XzAW1mnaMtK1jzBBk3s7Rcz+1VuksRH13SHV2/et4gsunClzM6E5jsb+e0PSPvoghkv4iHUR30XTlWyv7C9dYG2JrCDQqoD38XEqEQBK+kfkTp08Wb+P85TRZxahs8MUa2c9l6yob7VVizs10BxjwO2L0wg2r8abEI0aAbiW6gfIBPWHEU0wyDryPz3xWQ4u+fzU8rsAh2EZNbVS6opag41RnEmUJjQ8CD+M5HJ3f5HnbW7tHi0U4NpIFt7S0IUcoXuL9Pu530CsSkfKF6t+e56n4/yrJbsEvgrc5Sbg8ESGhDlDO2S2QrKtFqNBWplKystlSjRlPtwjAnw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
+ SA1PR11MB7111.namprd11.prod.outlook.com (2603:10b6:806:2b5::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8511.27; Tue, 11 Mar 2025 12:22:28 +0000
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955%4]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
+ 12:22:28 +0000
+Date: Tue, 11 Mar 2025 13:22:21 +0100
+From: Michal Kubiak <michal.kubiak@intel.com>
+To: Wei Fang <wei.fang@nxp.com>
+CC: <claudiu.manoil@nxp.com>, <vladimir.oltean@nxp.com>,
+	<xiaoning.wang@nxp.com>, <andrew+netdev@lunn.ch>, <davem@davemloft.net>,
+	<edumazet@google.com>, <kuba@kernel.org>, <pabeni@redhat.com>,
+	<christophe.leroy@csgroup.eu>, <netdev@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linuxppc-dev@lists.ozlabs.org>, <linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v4 net-next 02/14] net: enetc: add command BD ring
+ support for i.MX95 ENETC
+Message-ID: <Z9Aq/XNEBQoh8X2R@localhost.localdomain>
+References: <20250311053830.1516523-1-wei.fang@nxp.com>
+ <20250311053830.1516523-3-wei.fang@nxp.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250311053830.1516523-3-wei.fang@nxp.com>
+X-ClientProxiedBy: ZR0P278CA0197.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:44::8) To DS0PR11MB8665.namprd11.prod.outlook.com
+ (2603:10b6:8:1b8::6)
 MIME-Version: 1.0
-Message-ID: <5382b861.a48b.1958527c4dd.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eygvCgCXPn_yKtBnExV8AA--.18497W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0hwNXmfQINjbaQACsi
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|SA1PR11MB7111:EE_
+X-MS-Office365-Filtering-Correlation-Id: 564385a0-05cf-49fc-9e00-08dd60976339
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?I2qQ54Gckdmwhk6ff1yZ27FDAYs7AZhrS+49KVovKQulI8ewQyE0/zic1EcZ?=
+ =?us-ascii?Q?+ldMBDs3jK8270077UYMayog4yh8z/0kosvPPo7QQze5qR8BoTL8BSbiazyx?=
+ =?us-ascii?Q?q9rSE5Nb2s1jdueuqAauCiEB++3YuD0s2JwkEdNIvlzuZEOvv5O017Hu/iNd?=
+ =?us-ascii?Q?NBwuoSYpXbBzb+juXNqC7UMOqFJBorHR7+ljwGf5YcnTb8kE2uoIoHk01tki?=
+ =?us-ascii?Q?KYJ4A2RVt3Cmlxcgw8S9apk4Bdncx4fS2SeDbQ3mvGa8TXBYiRX11A73aVjz?=
+ =?us-ascii?Q?0akWpuSICPtLGuW+JVI8ca8DqmY+Y+9MT9576DhUDy1TGG0B4RnVtOToh1o1?=
+ =?us-ascii?Q?6KNTF+OuAM8wT76yCs+LK655L18KtHY1p/PzJtVg18WXyKxh+xTer/li8fTs?=
+ =?us-ascii?Q?IFUx9tT3ccruKHtJFIyfhIQ0gZI+gRYsHVgrrPSeGk9EEbOV+ozw3rc/pCYj?=
+ =?us-ascii?Q?fwFfNXor4B9vdtHjuVr33BFb0rkqTd1St09Q1eKlljAX1Y2uPD48AZXuG2ZA?=
+ =?us-ascii?Q?pvKZK2LvhhXHJq2x3IqtS2Ka0/hqeNyS8JUW0uOOGx5/ISScxfjTleoTOQsQ?=
+ =?us-ascii?Q?N8toFnH3UfjZIoF2zf9mHz7PoeIPyVoukGv4gt+ev02Q1aFtnfLEh03w7Tsu?=
+ =?us-ascii?Q?hS1GLu+A5p59yAwPHHgCD6NnhHcrbUD2yosrZItMDvP6PQ7n4+CRiBN1DfeF?=
+ =?us-ascii?Q?rjOsYcgCwyxAh2fj+2QXep6Vjow9IfFKrdSDJln1g7wg7ygkhZCrA164Cujf?=
+ =?us-ascii?Q?nDWqTdVURmbt/otGuS1hADLf3iANmOsXSHFMeiBKy2jR5BR76H4iJ+GxcoZ7?=
+ =?us-ascii?Q?t3wqEksCH36r+C6XFdSP01vLjaHZULJxlQpkl4yEJFay538Q2qQf5VFnueUk?=
+ =?us-ascii?Q?6Q7QrTNdUA/QPzC+ZrW4Bx1nbK9zDr2Ll+8U66tCmvQDl5ot/fAxchvHPyZC?=
+ =?us-ascii?Q?7fWHHxTVOmgd/VwUJbJDoPjryMji/zr/CKwy59obgKI7Ymh/fznr/Wq5x6zx?=
+ =?us-ascii?Q?nahratA/2OOif+vyq1xNvmbPewOsTS0mGVZX5/Cdwl3f3JCal+QfaS9m+rWM?=
+ =?us-ascii?Q?F0SlnODjCvrH7jZ7T8VwCSir5tH1NM5lEXtUk7v8Gv+G+pwEq9ONExAE/1PK?=
+ =?us-ascii?Q?aC7ngp9DvAjqF9yLPjEC71u5RPZdM7gdniAMk+cfnKyd64f802ZJuC+lMUYS?=
+ =?us-ascii?Q?SC4TjKg6rtnXWIItRRugekDuX01briaE89MrhmKyOsenj6VYqT/1ZF7WTAig?=
+ =?us-ascii?Q?YbI5SztTslzBVdiZuXBTVl8bi0jcqze9vgewArmDKZilcFI5b8//elbXNj+y?=
+ =?us-ascii?Q?6OJvmq6wpMKWeWIbtnV/6Jn71RBa4qkOV1GDLxk5QNjGjkDbHfBk9FEbEsOZ?=
+ =?us-ascii?Q?z8dTtZsRhWjI0FDsYhPW3oUiet06?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?wjYn+7OkT6J+BroWUOUHlijcXvdvLnPMPjRwi7ZuYxzaSBMSpQc/rZbuxXN5?=
+ =?us-ascii?Q?PgYhKcrFcyhu6gQYbtu1iCxdcZzww1PPlwq9sV5xTP9O3hXX2FBQQrJW8VdJ?=
+ =?us-ascii?Q?KLGQoPzt7FqBvLn2wy3MSnaaaSALEeO81woSqC4eC61FYR0UcDtZVehnMbaW?=
+ =?us-ascii?Q?FMjAgnWIdjP0NRYCLsYIy/0I7tMir3Ckit6SbBrsgXW8giaMN96yhbJZnJbJ?=
+ =?us-ascii?Q?fv7EW7UwCvVxA3Dox9VxuhX5ZuR7ds8yyjy70Muw7oGiWppEQC6GRuJF9eyz?=
+ =?us-ascii?Q?7Pew8FsMy+oCRYvVfGIsZruNm1srY2lOOS6xer+1PGyZgRyxJnb+KSyO8p+M?=
+ =?us-ascii?Q?ErWQM9mZC938TRq8qkP/7u67HJaIvz/EiqHLLrDWOTXjSQ9BnqMc7XJCzeK4?=
+ =?us-ascii?Q?jr7+PlloEa+lIXRMy3PmGg4zC8VULErWh6TifJfZtGyd+LD0KvH2yDlly4eH?=
+ =?us-ascii?Q?0b3/hKAwe+q5gIesFQPFuo/2idWguEAcQmjC508m58mMv+rxeBFywmKA5qxq?=
+ =?us-ascii?Q?cHi96PdJU/xvkHhoquWR1DilHq48jnclWisb97ykusk6NFb6uYX38KWXmRAf?=
+ =?us-ascii?Q?HtX1vOKk2p2H3tzyTLjFm7FScFuG759ogOvFJZoe0riSRkoMHB4R41uzx+oy?=
+ =?us-ascii?Q?5O4Z+KfOZb92QQSaosy5F8iH+BZ1XhrHbbxbKZk8drbhJvhmpiepgedLpqDg?=
+ =?us-ascii?Q?zytq83lJ+eHX27cBnRS0ibGWaiFy9WiKyaWUQB15yhM+/HS8E1omvnCDdFf2?=
+ =?us-ascii?Q?a0yizij6+YiCK9vX1nXvubStBCWAnJKAC9X5oRua0f0b6Csvt+XhOdAywNyW?=
+ =?us-ascii?Q?xyF1OFxtHketeaxfauILoIdLhT6jN/5KrZ8WPF8Q6PedLh/W9TsJojJZAjzC?=
+ =?us-ascii?Q?uNZG6N8NnWUZbnIdqs8K6LPY17R2sa2Gih0ud/wv1azPOGz1gqm2ZmPECmvl?=
+ =?us-ascii?Q?iSooK/36Rkp9e8PFJybbc/FJ72F12nifTokgHBHZkd8tlG1eVHgLvXlsDOwO?=
+ =?us-ascii?Q?nCOIcUAWD5btngL3N2biJH8Dr9KB376RZ/a6ClX4Aru4NaoUXeW9BS0DLEVl?=
+ =?us-ascii?Q?fFJaiTGOsGscmNp+KdFaYovnmb9rPK6tCSEjjUB2XQFztsRyiq1c5jKR+P1U?=
+ =?us-ascii?Q?jDAsNrIWR3TNLoIAf4q6AGu1ek2yOjalZyhXzcuad9Uy8CsalwI2aC3LMhV2?=
+ =?us-ascii?Q?3+YGnt2WXRnIZVQ5r0OGoJkpUjo+4Xf9+E9FYCXyp/g4ZpjOtVynzZwknlyk?=
+ =?us-ascii?Q?NSGXHr6oL1uI/ZQqU+K1BmECAfG/+yEDEZqcElV0tWfMtngGZU1cNQdTKw0N?=
+ =?us-ascii?Q?qa317LAED5SB6Bf6q/e0oWUvyNyoLW7DGGx1N3vbFnu17oxXho3+xgXkzws+?=
+ =?us-ascii?Q?g2c7Z7aMjacmbcE7Z5wnbbp1Yf/zOX07JQoqqtbVVqbeyi6/5F5PdxU26iBP?=
+ =?us-ascii?Q?cxC7DQozoExIo09OufqjXdjIKzQud7q61z7h6sgQ/pH5HpJikWLflo/Nhmlz?=
+ =?us-ascii?Q?luyWowcX++Igw18/g5k8H9sHlt6N2VzX5xM3Hqa8Bp64rcXvYjgB/M4Pa3YC?=
+ =?us-ascii?Q?9I/rxj4nFZ4cEzaETznkC5XT1IYvBUthlnEmHomuulDc4JIX3M3FlnktHKdk?=
+ =?us-ascii?Q?PQ=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 564385a0-05cf-49fc-9e00-08dd60976339
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2025 12:22:27.9218
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 815tiIBJygD4hiDVVPvhH5f7v8GxiUaL7IGl4KW0GZWPSSuawT6JiNgLAM+/dWgoMoa7T3Cjw/mLa6hbIbnJ3w==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR11MB7111
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_052238_752345_AE6597B7 
-X-CRM114-Status: UNSURE (   5.57  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_052252_551352_49CD454F 
+X-CRM114-Status: GOOD (  11.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,21 +195,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CgpIaSBWaW5vZCwKQXQgMjAyNS0wMy0xMSAxOToxMzo0NiwgIlZpbm9kIEtvdWwiIDx2a291bEBr
-ZXJuZWwub3JnPiB3cm90ZToKPk9uIDExLTAzLTI1LCAwODo1MiwgQW5keSBZYW4gd3JvdGU6Cj4K
-Pj4gRG8geW91IG1lYW4gd2Ugc2hvdWxkIGRvIGl0IGxpa2UgdGhpczoKPj4gCj4+IHN0YXRpYyBp
-bnQgcmtfdWRwaHlfZHBfcGh5X2NvbmZpZ3VyZShzdHJ1Y3QgcGh5ICpwaHksCj4+ICAgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICB1bmlvbiBwaHlfY29uZmlndXJlX29wdHMgKm9w
-dHMpCj4+IHsKPj4gICAgICAgICBzdHJ1Y3QgcmtfdWRwaHkgKnVkcGh5ID0gcGh5X2dldF9kcnZk
-YXRhKHBoeSk7Cj4+ICAgICAgICAgc3RydWN0IHBoeV9jb25maWd1cmVfb3B0c19kcCAqZHAgPSAm
-b3B0cy0+ZHA7Cj4+ICAgICAgICAgdTMyIGksIHZhbCwgbGFuZTsKPj4gICAgICAgICBpbnQgcmV0
-Owo+PiAKPj4gICAgICAgIC4uLi4uLi4uLi4uLi4KPj4gICAgICAgaWYgKGRwLT5zZXRfcmF0ZSkK
-Pj4gICAgICAgICAgICAJcmV0ID0gcmtfdWRwaHlfZHBfcGh5X3ZlcmlmeV9saW5rX3JhdGUoZHAt
-PmxpbmtfcmF0ZSk7Cj4+ICAgICAgaWYgKGRwLT5zZXRfbGFuZXMpCj4+ICAgICAgICAgICAgICAg
-ICByZXQgPSBya191ZHBoeV9kcF9waHlfdmVyaWZ5X2xpbmtfbGFuZXMoZHAtPmxhbmVzKTsKPj4g
-ICAgICBpZiAoZHAtPnNldF92b2x0YXRlcykKPj4gICAgICAgICAgICAgICAgcmV0ID0gcmtfdWRw
-aHlfZHBfcGh5X3ZlcmlmeV9saW5rX3ZvbHRhdGUoZHAtPnZvbHRhdGUpOwo+PiAKPj4gCj4+IEFk
-ZCBoZWxwZXIgZm9yIGVhY2ggb2YgdGhlbSA/Cj4KPlRoYXQgd291bGQgbG9vayBiZXR0ZXIgZm9y
-IHN1cmUKCkkgd2lsbCBkbyBhcyB0aGF0IGluIFYyLgoKVGhhbmtzCgo+Cj4tLSAKPn5WaW5vZAo=
+On Tue, Mar 11, 2025 at 01:38:18PM +0800, Wei Fang wrote:
+> The command BD ring is used to configure functionality where the
+> underlying resources may be shared between different entities or being
+> too large to configure using direct registers (such as lookup tables).
+> 
+> Because the command BD and table formats of i.MX95 and LS1028A are very
+> different, the software processing logic is also different. In order to
+> ensure driver compatibility, struct enetc_si_ops is introduced. This
+> structure defines some hooks shared by VSI and PSI. Different hardware
+> driver will register different hooks, For example, setup_cbdr() is used
+> to initialize the command BD ring, and teardown_cbdr() is used to free
+> the command BD ring.
+> 
+> Signed-off-by: Wei Fang <wei.fang@nxp.com>
 
+Thanks,
+Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
 
