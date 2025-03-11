@@ -4,94 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E559C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:22:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19397C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jG32Oauz2hDV9q2BpFy552F2Ma60RDkGby0ei11tRlQ=; b=tK+4Adb399pTsZ951W7kxL2h5I
-	4cO0/rR4Tm8fPS1W9ngTR7DaCceCX4MnrlKrBSN/b3N1atAjaxoGPhv0wYxZFmBncmc087bVAXmBz
-	bYpKAIHlIUC54HotFoeu3TtyTvVMVyfpS0mwU7ZYEdZghPbyPa9U43lRVBupd8w/JN9IxmEJLYFkj
-	13gAM8UjIbHaGpyTws3911yqRF8bEe7GLWet1h99tTwPe+6A0KtuWhXAJNa6rHVVuh1PyO+9MVtVT
-	P7XAKJgLg0riFdzP7un62ciUdtRqV5SQpsao/kKNpwzks4CayCm7lLtWkw1R84pTKVSVn0LUNg8pf
-	0nlaNj8w==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nwjwTWvlXlVWp/1Vtkve4RwpibYDDWWKWT6E77UCc3g=; b=cBigNQJJfTweIILL/vLFY/0FX5
+	zENzmtpWcnYTW7IS91ysAJF1HDRfYp2BCW6ahVoaehGh2Wa0je+rMO5GM5T70XYpaVXMbcE+1PBnU
+	uswnTJuOEaMsbOqycvuFQL05guM4aQESnE/hhX4xyypEr5eDceWJG/n5goXiju48cfYCOAWQ0XEVA
+	FAHdyTqhTd/hOG8IOEAGZIOSSjHYM1sUfKfi7QWg4Ax/YhAXN+4e4ssBHc6MnvoR3GXYE2/ARbmhr
+	1U9SnMKdpYcpHElDuEOpahe86NuZ9vwf3LF+A8UHhsOxjOEMWHzI/I0LOpp5c/+R3pSdxVvhnNGwy
+	83LpHikw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzYj-00000005omN-2Ypa;
-	Tue, 11 Mar 2025 13:22:13 +0000
-Received: from mail-vk1-xa2e.google.com ([2607:f8b0:4864:20::a2e])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzX5-00000005oOg-0IyH;
-	Tue, 11 Mar 2025 13:20:32 +0000
-Received: by mail-vk1-xa2e.google.com with SMTP id 71dfb90a1353d-523fa0df55dso2493008e0c.1;
-        Tue, 11 Mar 2025 06:20:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741699229; x=1742304029; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jG32Oauz2hDV9q2BpFy552F2Ma60RDkGby0ei11tRlQ=;
-        b=M1O+kmD45LjpV5IZqCeP38ExO8w8HrhapuFakMsWJw9XUDpJRpI7jRoztdvjWX3hMt
-         OHP66llp8YH4mm9ldFDlR77nfegNazoIjHydhSxwY4kpIiN8MTnfV3MOtlAaUG3rQCh/
-         EjF0yYYSx4gM0lkBiqj07UjoAJBI23yXmQIUAJTZtQ/CWNYP5drlu0h4RZV9YY5894YN
-         buRuULiIk79mUDlUk6edqF6/x4L87dMkScT2XzngYOSBHwgtSn2F8DSygw4rQv4tTV4i
-         YDVr3FSQvzD0ut0Jb+rNPbRVRF6cXmy06hciLD7GvKlgzjI4ClYrUAP8decXHsG2Q7Y5
-         Op/w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741699229; x=1742304029;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=jG32Oauz2hDV9q2BpFy552F2Ma60RDkGby0ei11tRlQ=;
-        b=DfdHDCYacsRrjf4NO4TDVBr/1IuKiOPvvqhUSaHYNHK5MXgPdG+4MOJILAW8Cy2rjo
-         9ss51ftfd3RiOvkKLFNEmh+fqMVAqG6Hqre68PoSrpPeN/pnkkihtsKp+Jmpuiwzbcb8
-         VbmBBUsrcZsVBpzWK//0ngsgqQh49NGVnzUdmDk88Ksv4QBoueFD5aCVqUnf4za3AEA3
-         +AeqOfYzbLEK/dK3yJKf71keXgd7udaVh7e6X+Bmb8XbHjMoF6HlqSQU+9MUMNgUc1fW
-         p40WVBLeo90hKOiE6BX5LL76qhvQdT6sF8jJY74xNN9fFMZxqAqbWzr28eK1yQada+Hi
-         GLjA==
-X-Forwarded-Encrypted: i=1; AJvYcCVNal3p5DcqKCIsCnMrRCkq95ScvObMW4wX3mR4R+aYLs3emsAqC/7o8KPwUOcZsvf79c7QAopHT9XFKIk=@lists.infradead.org, AJvYcCXsdBJE4FnjvA+p+I9ubavX513c2nr6ktDc7zgBHlvZE/orW8Ow4x/TM5iQUFIjN1qqEHCgda5vffMRjZp2msrb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzZZvwsU0pmr8Nb9guZp5UXvE1z50ouoF5COcuWR2XIk1wNF56+
-	PdjPXKVqeu/2lOMsjp9aKAwvVi0EMdIthFRuQ72q951hoHS7kC1LVveOf3zjrJSTQm5v2Ok0EiL
-	MqI0d10TJIxNNWsUFW1bYN649ejA=
-X-Gm-Gg: ASbGncvffplKSXAVVKF2/hWvQogh0t7yODK6IyzjvloDM+tZ99xwVVzQBv0c3dXe+6D
-	j+Esy6NdzTY4a9DwljzgytZ+OrXKxXWPAfZxsglgqtKr+7dI7vD2M1JXDDsdZooZdamBv8XvOhI
-	ERsWcHX0HdUsy/1IwOqeU3fx4G+A==
-X-Google-Smtp-Source: AGHT+IH5Ot4qDEn+dcG95GX7rHERBDIZE9g/5SbpzTjYL9a5kZXtGTj07DwxdqUsxTS40Unad1vxI6B/ZQaIH1FxayY=
-X-Received: by 2002:a05:6122:3d47:b0:523:dbd5:4e7f with SMTP id
- 71dfb90a1353d-52419754983mr2351687e0c.3.1741699228735; Tue, 11 Mar 2025
- 06:20:28 -0700 (PDT)
+	id 1trzaL-00000005pNr-3wb9;
+	Tue, 11 Mar 2025 13:23:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trzXZ-00000005oWr-2pTv
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 13:21:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECB1C1424;
+	Tue, 11 Mar 2025 06:21:11 -0700 (PDT)
+Received: from [10.1.30.125] (XHFQ2J9959.cambridge.arm.com [10.1.30.125])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94F7D3F694;
+	Tue, 11 Mar 2025 06:20:57 -0700 (PDT)
+Message-ID: <818529f7-f720-4ae9-ab72-c8cd6dc43c0b@arm.com>
+Date: Tue, 11 Mar 2025 13:20:56 +0000
 MIME-Version: 1.0
-References: <Z82tWYZulV12Pjir@shell.armlinux.org.uk> <E1trIA0-005ntK-FS@rmk-PC.armlinux.org.uk>
-In-Reply-To: <E1trIA0-005ntK-FS@rmk-PC.armlinux.org.uk>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 11 Mar 2025 13:20:02 +0000
-X-Gm-Features: AQ5f1JrO_7vudADXigeeN9yXWooM4iHlgYUlKMy4_xyai_AoXvej3y5kzsc7Vh0
-Message-ID: <CA+V-a8sCxs4MFZgo0q=0HmpyWXk7hYSGq0awm2YuAFZk+x6BEA@mail.gmail.com>
-Subject: Re: [PATCH net-next 1/7] net: stmmac: allow platforms to use PHY tx
- clock stop capability
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
-	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
-	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
-	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, 
-	Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, 
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jakub Kicinski <kuba@kernel.org>, 
-	Jose Abreu <joabreu@synopsys.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, 
-	netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
-	Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
-	Rob Herring <robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
+Content-Language: en-GB
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Yang Shi <yang@os.amperecomputing.com>,
+ =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ catalin.marinas@arm.com, will@kernel.org, joro@8bytes.org,
+ jean-philippe@linaro.org, mark.rutland@arm.com, joey.gouly@arm.com,
+ oliver.upton@linux.dev, james.morse@arm.com, broonie@kernel.org,
+ maz@kernel.org, david@redhat.com, akpm@linux-foundation.org, jgg@ziepe.ca,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev
+References: <20250228182403.6269-2-miko.lenczewski@arm.com>
+ <20250228182403.6269-6-miko.lenczewski@arm.com>
+ <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
+ <43732270-8fd0-4a18-abec-096e383a6a4d@arm.com>
+ <5ff34bd0-7823-4f31-9f13-bf60d3345b99@arm.com>
+ <7cca1edf-fd1b-4622-999e-8e0ca098dfe2@arm.com>
+ <0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_062031_111127_EA75380B 
-X-CRM114-Status: GOOD (  19.56  )
+X-CRM114-CacheID: sfid-20250311_062101_803389_4003BE74 
+X-CRM114-Status: GOOD (  42.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,109 +77,220 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 9, 2025 at 3:02=E2=80=AFPM Russell King (Oracle)
-<rmk+kernel@armlinux.org.uk> wrote:
->
-> Allow platform glue to instruct stmmac to make use of the PHY transmit
-> clock stop capability when deciding whether to allow the transmit clock
-> from the DWMAC core to be stopped.
->
-> Cc: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
-> ---
->  drivers/net/ethernet/stmicro/stmmac/stmmac.h     |  1 +
->  .../net/ethernet/stmicro/stmmac/stmmac_main.c    | 16 ++++++++++++----
->  include/linux/stmmac.h                           |  3 ++-
->  3 files changed, 15 insertions(+), 5 deletions(-)
->
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+On 11/03/2025 12:16, Suzuki K Poulose wrote:
+> On 11/03/2025 10:58, Ryan Roberts wrote:
+>> On 11/03/2025 10:17, Suzuki K Poulose wrote:
+>>> On 03/03/2025 10:17, Ryan Roberts wrote:
+>>>> On 01/03/2025 01:32, Yang Shi wrote:
+>>>>>
+>>>>>
+>>>>>
+>>>>> On 2/28/25 10:24 AM, Mikołaj Lenczewski wrote:
+>>>>>> For supporting BBM Level 2 for userspace mappings, we want to ensure
+>>>>>> that the smmu also supports its own version of BBM Level 2. Luckily, the
+>>>>>> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+>>>>>> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
+>>>>>> BBM level 2 is claimed.
+>>>>>>
+>>>>>> Add the feature and testing for it under arm_smmu_sva_supported().
+>>>>>>
+>>>>>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
+>>>>>> ---
+>>>>>>     arch/arm64/kernel/cpufeature.c                  | 7 +++----
+>>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+>>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+>>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
+>>>>>>     4 files changed, 13 insertions(+), 4 deletions(-)
+>>>>>>
+>>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+>>>>>> index 63f6d356dc77..1022c63f81b2 100644
+>>>>>> --- a/arch/arm64/kernel/cpufeature.c
+>>>>>> +++ b/arch/arm64/kernel/cpufeature.c
+>>>>>> @@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct
+>>>>>> arm64_cpu_capabilities *caps, int sco
+>>>>>>                 if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
+>>>>>>                     return false;
+>>>>>>             }
+>>>>>> -
+>>>>>> -        return true;
+>>>>>>         } else if (scope & SCOPE_LOCAL_CPU) {
+>>>>>>             /* We are a hot-plugged CPU, so only need to check our MIDR.
+>>>>>>              * If we have the correct MIDR, but the kernel booted on an
+>>>>>> @@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct
+>>>>>> arm64_cpu_capabilities *caps, int sco
+>>>>>>              * we have an incorrect MIDR, but the kernel booted on a
+>>>>>>              * sufficient CPU, we will not bring up this CPU.
+>>>>>>              */
+>>>>>> -        return cpu_has_bbml2_noabort(read_cpuid_id());
+>>>>>> +        if (!cpu_has_bbml2_noabort(read_cpuid_id()))
+>>>>>> +            return false;
+>>>>>>         }
+>>>>>>     -    return false;
+>>>>>> +    return has_cpuid_feature(caps, scope);
+>>>>>
+>>>>> Do we really need this? IIRC, it means the MIDR has to be in the allow list
+>>>>> *AND* MMFR2 register has to be set too. AmpereOne doesn't have MMFR2 register
+>>>>> set.
+>>>>
+>>>> Miko, I think this should have been squashed into patch #1? It doesn't
+>>>> belong in
+>>>> this patch.
+>>>>
+>>>> Yang, we discussed this internally and decided that we thought it was best to
+>>>> still require BBML2 being advertised in the feature register. That way if
+>>>> trying
+>>>> to use KVM to emulate a CPU that is in the allow list but doesn't really
+>>>> support
+>>>> BBML2, we won't try to use it.
+>>>>
+>>>> But we still end up with the same problem if running on a physical CPU that
+>>>> supports BBML2 with conflict aborts, but emulating a CPU in the allow list. So
+>>>
+>>> I don't understand the problem here ? In the worst case, if we want to disable
+>>> the BBML2 feature on a given CPU, we could provide an id-
+>>> override to reset the value of BBML2. Or provide a kernel parameter to
+>>> disable this in case we want to absolutely disable the feature on a
+>>> "distro" kernel.
+>>
+>> Hi Suzuki,
+>>
+>> Sorry perhaps I'm confusing everyone; As I recall, we had a conversation before
+>> Miko posted this series where you were suggesting we should check BOTH that all
+>> the CPUs' MIDRs are in the allow list AND that BBML2 is advertised in MMFR2 in
+>> order to decide to enable the CPU feature. My understanding was that without the
+>> MMFR2 check, you were concerned that in a virtualization scenario, a CPU's MIDR
+>> could be overridden to emulate a CPU that is in the allow list, but in reality
+>> the CPU does not support BBML2. We would then enable BBML2 and BadThings (TM)
+>> will happen. So additionally checking the MMFR2 would solve this.
+>>
+>> But Yang is saying that he plans to add the AmpereOne to the allow list because
+>> it does support BBML2+NOCONFLICT semantics and we want to benefit from that. But
+>> AmpereOne does not advertise BBML2 in it's MMFR2. So with the current approach,
+>> adding AmpereOne to the allow list is not sufficient to enable the feature.
+>>
+>> But back to your original justification for checking the MMFR2; I don't think
+>> that really solves the problem in general, because we don't just require BBML2,
+>> we require BBML2+NOCONFLICT. And we can only determine that from the MIDR. So
+>> why bother checking MMFR2?
+> 
+> My concerns are not around enabling a CPU, but having a damage control with a
+> "kernel" that a user has no control over (Read, standard distribution kernel).
 
-Cheers,
-Prabhakar
+Ahh I misunderstood then.
 
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac.h b/drivers/net/e=
-thernet/stmicro/stmmac/stmmac.h
-> index d87275c1cf23..bddfa0f4aa21 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac.h
-> @@ -306,6 +306,7 @@ struct stmmac_priv {
->         struct timer_list eee_ctrl_timer;
->         int lpi_irq;
->         u32 tx_lpi_timer;
-> +       bool tx_lpi_clk_stop;
->         bool eee_enabled;
->         bool eee_active;
->         bool eee_sw_timer_en;
-> diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/=
-net/ethernet/stmicro/stmmac/stmmac_main.c
-> index fa1d7d3a2f43..6f29804148b6 100644
-> --- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> +++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-> @@ -457,8 +457,7 @@ static void stmmac_try_to_start_sw_lpi(struct stmmac_=
-priv *priv)
->         /* Check and enter in LPI mode */
->         if (!priv->tx_path_in_lpi_mode)
->                 stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_FORCED,
-> -                       priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLOCKGA=
-TING,
-> -                       0);
-> +                                   priv->tx_lpi_clk_stop, 0);
->  }
->
->  /**
-> @@ -1104,13 +1103,18 @@ static int stmmac_mac_enable_tx_lpi(struct phylin=
-k_config *config, u32 timer,
->
->         priv->eee_enabled =3D true;
->
-> +       /* Update the transmit clock stop according to PHY capability if
-> +        * the platform allows
-> +        */
-> +       if (priv->plat->flags & STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP)
-> +               priv->tx_lpi_clk_stop =3D tx_clk_stop;
-> +
->         stmmac_set_eee_timer(priv, priv->hw, STMMAC_DEFAULT_LIT_LS,
->                              STMMAC_DEFAULT_TWT_LS);
->
->         /* Try to cnfigure the hardware timer. */
->         ret =3D stmmac_set_lpi_mode(priv, priv->hw, STMMAC_LPI_TIMER,
-> -                                 priv->plat->flags & STMMAC_FLAG_EN_TX_L=
-PI_CLOCKGATING,
-> -                                 priv->tx_lpi_timer);
-> +                                 priv->tx_lpi_clk_stop, priv->tx_lpi_tim=
-er);
->
->         if (ret) {
->                 /* Hardware timer mode not supported, or value out of ran=
-ge.
-> @@ -1269,6 +1273,10 @@ static int stmmac_phy_setup(struct stmmac_priv *pr=
-iv)
->         if (!(priv->plat->flags & STMMAC_FLAG_RX_CLK_RUNS_IN_LPI))
->                 priv->phylink_config.eee_rx_clk_stop_enable =3D true;
->
-> +       /* Set the default transmit clock stop bit based on the platform =
-glue */
-> +       priv->tx_lpi_clk_stop =3D priv->plat->flags &
-> +                               STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
-> +
->         mdio_bus_data =3D priv->plat->mdio_bus_data;
->         if (mdio_bus_data)
->                 priv->phylink_config.default_an_inband =3D
-> diff --git a/include/linux/stmmac.h b/include/linux/stmmac.h
-> index b6f03ab12595..c4ec8bb8144e 100644
-> --- a/include/linux/stmmac.h
-> +++ b/include/linux/stmmac.h
-> @@ -183,7 +183,8 @@ struct dwmac4_addrs {
->  #define STMMAC_FLAG_INT_SNAPSHOT_EN            BIT(9)
->  #define STMMAC_FLAG_RX_CLK_RUNS_IN_LPI         BIT(10)
->  #define STMMAC_FLAG_EN_TX_LPI_CLOCKGATING      BIT(11)
-> -#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY   BIT(12)
-> +#define STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP      BIT(12)
-> +#define STMMAC_FLAG_HWTSTAMP_CORRECT_LATENCY   BIT(13)
->
->  struct plat_stmmacenet_data {
->         int bus_id;
-> --
-> 2.30.2
->
+> 
+> 1. If the combination of the above causes problem (in Virtualization)
+> 2. If the combination of the above is detected to have problems in baremetal.
+> 
+> In (1), VMM could control the ID register and disable the feature.
+> 
+> For (2) we could provide an id-override on command line to disable it in
+> the worst case.
+> 
+> So, having the id register case is a good way to get the system running
+> with a given kernel (in either world). Without that, we don't have a tunable to
+> control the behavior at runtime.
+> 
+> May be I am being over paranoid about this.
+> 
+>>
+>> I guess we could provide an id-override on the kernel command line to *enable*
+>> BBML2 for AmpereOne, but that's not going to be suitable for mass deployment, I
+> 
+> Unfortunately, we can't override to provide the "feature" that is missing (at
+> least today).
+> 
+> One option is, run with a whitelist, but provide a kernel parameter to disable
+> bbml2 feature.
+> 
+> Something like, arm64.bbml2=0
+> > So the decision is based on the parameter && MIDR list.
+
+This sounds like a good solution to me. I guess we would wire this up to the SW
+features "register".
+
+Thanks,
+Ryan
+
+> 
+> 
+> Cheers
+> Suzuki
+> 
+>> don't think?
+>>
+>> Thanks,
+>> Ryan
+>>
+>>>
+>>> Suzuki
+>>>
+>>>
+>>>> given AmpereOne doesn't advertise BBML2 but does support it, I'd be happy to
+>>>> remove this check.
+>>>>
+>>>> Thanks,
+>>>> Ryan
+>>>>
+>>>>
+>>>>>
+>>>>> Thanks,
+>>>>> Yang
+>>>>>
+>>>>>>     }
+>>>>>>       #ifdef CONFIG_ARM64_PAN
+>>>>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/
+>>>>>> arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>>> index 9ba596430e7c..6ba182572788 100644
+>>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+>>>>>> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+>>>>>>             feat_mask |= ARM_SMMU_FEAT_VAX;
+>>>>>>         }
+>>>>>>     +    if (system_supports_bbml2_noabort())
+>>>>>> +        feat_mask |= ARM_SMMU_FEAT_BBML2;
+>>>>>> +
+>>>>>>         if ((smmu->features & feat_mask) != feat_mask)
+>>>>>>             return false;
+>>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/
+>>>>>> arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>>> index 358072b4e293..dcee0bdec924 100644
+>>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+>>>>>> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct
+>>>>>> arm_smmu_device *smmu)
+>>>>>>         if (FIELD_GET(IDR3_RIL, reg))
+>>>>>>             smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
+>>>>>>     +    if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
+>>>>>> +        smmu->features |= ARM_SMMU_FEAT_BBML2;
+>>>>>> +
+>>>>>>         /* IDR5 */
+>>>>>>         reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+>>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/
+>>>>>> arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>>> index bd9d7c85576a..85eaf3ab88c2 100644
+>>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+>>>>>> @@ -60,6 +60,9 @@ struct arm_smmu_device;
+>>>>>>     #define ARM_SMMU_IDR3            0xc
+>>>>>>     #define IDR3_FWB            (1 << 8)
+>>>>>>     #define IDR3_RIL            (1 << 10)
+>>>>>> +#define IDR3_BBML            GENMASK(12, 11)
+>>>>>> +#define IDR3_BBML1            (1 << 11)
+>>>>>> +#define IDR3_BBML2            (2 << 11)
+>>>>>>       #define ARM_SMMU_IDR5            0x14
+>>>>>>     #define IDR5_STALL_MAX            GENMASK(31, 16)
+>>>>>> @@ -754,6 +757,7 @@ struct arm_smmu_device {
+>>>>>>     #define ARM_SMMU_FEAT_HA        (1 << 21)
+>>>>>>     #define ARM_SMMU_FEAT_HD        (1 << 22)
+>>>>>>     #define ARM_SMMU_FEAT_S2FWB        (1 << 23)
+>>>>>> +#define ARM_SMMU_FEAT_BBML2        (1 << 24)
+>>>>>>         u32                features;
+>>>>>>       #define ARM_SMMU_OPT_SKIP_PREFETCH    (1 << 0)
+>>>>>
+>>>>
+>>>
+>>
+> 
+
 
