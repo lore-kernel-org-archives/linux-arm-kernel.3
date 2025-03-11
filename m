@@ -4,67 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF77C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 01:14:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 686E2C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 01:21:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tS41tY7DDIqjTu6j3CI1ICxMhGNZUdG3tCRDi/SzyVE=; b=YvCSmsQcBQrdZk0Jt42kn5T2ti
-	tzR9zC6L03zDfAkhvwqapCDT56XBjAHzxjy3OqeN9Mp9gcgaKxm4KbilN60uMtbOAajJY2grMiGnA
-	P5SDxi5EufvypHn9oXCeDADM1711qZg8PGO0pwBWQTo8v64xDkMi2vZEvij1OsIHDm4wI1JsutdrV
-	h7v6FI7cyg3fpjQ1OHvAvDBd0M756twU80H/I7v2lOOpmZloplNOQluZJtmV3B5nxa8OUZS0wl/UM
-	PED3pfHWY4hlzYnBVK7FetqeFOdkLqQ5toNCO2/XecaGEYLFB7FdWvKRHx0dbjoNoUUUiTUuTujuf
-	jpVm+mwg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8/RuX3GwU88Td658DflKrFkdi94VCyG7/q6o+rS03Vo=; b=WnA+Rq4G1/6fYCyZOgmLs8Mb/O
+	fdVOKDBC8cmI8v45MseisGLCRPL7ywS1pcWCX2VlMELItD+PELIKlNLXxAg0lhSvPjizqr68uNve+
+	gtoyKeryGYNJcYnkGCqaxp5lh58KTjBJWs3Vv8jqrfQ2etEW1oTUhLTgj+oTktQg/4vXMuXijGHJE
+	B/rXSDsJJfcrc+M+zzxwyoN/fIblujBnRkyiOiI+IcT9w2JPBhjeXLz8cU7O5NVX3YOOlemYddeXs
+	zJ7KmjWLzEdIgFmsT7Q/tuWniXhlCDNJSH0bZdAzqeH4wG0iwSzMQTkcDTkMcd1DQ62V1qiLExBNt
+	clv3UT2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1troCb-00000004K3s-1UvZ;
-	Tue, 11 Mar 2025 01:14:37 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1troJF-00000004Kga-0dMC;
+	Tue, 11 Mar 2025 01:21:29 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1troAD-00000004Jqi-11xi;
-	Tue, 11 Mar 2025 01:12:10 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 5A0E35C5CD6;
-	Tue, 11 Mar 2025 01:09:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EBC75C4CEEB;
-	Tue, 11 Mar 2025 01:12:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741655527;
-	bh=sA3uuPl/teMtJ6q0xGdImhvwtK/2w9QzGAf/f3PMDiY=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=f5MrgNZV2LPXCnE6+ZN5NRLph4KTVqWX85H0TzapP/p03/z4O/Pw3XwFa7E10pLOb
-	 M42fJfco2LUzTMsaGvgiNUi3LLdXkoKFRVN+62iVlMJalY5Cw4M9ACDSbIKU317QnL
-	 YBDi2v3EW4+/rSbWS9an41aonnqKC9mlog2wU+VWBwX5T+72KLCYJA+Vpnu8SgR15w
-	 AGm4BrTPiCXS2L4NFsriCVIiEC7+Qtb6FnOzBKDCbI6oH4Qtl4UWdjgJq62jMnLrxx
-	 yafYTngLtgH6SEudFho423mNzWuw/IQbA103CKnBA+tMZJH4p49FCmXlF3Ptu/v1FN
-	 hzelfFRSgDRzw==
-Date: Tue, 11 Mar 2025 02:12:03 +0100
-From: Andi Shyti <andi.shyti@kernel.org>
-To: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>, 
-	linux-i2c@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
-	linux-renesas-soc@vger.kernel.org, Krzysztof Adamski <krzysztof.adamski@nokia.com>, 
-	Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Kamal Dasu <kamal.dasu@broadcom.com>, Stefan Roese <sr@denx.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Gregory CLEMENT <gregory.clement@bootlin.com>, 
-	Fabrizio Castro <fabrizio.castro.jz@renesas.com>
-Subject: Re: [PATCH v2 00/10] i2c: busses: Introduce and use
- i2c_10bit_addr_*_from_msg()
-Message-ID: <c6xszdhx5ztexlqlmhvdn4dyz5ilzxsm7c62cvkmnwy2y3gaqc@owk2ani2emys>
-References: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
+	id 1troHb-00000004KJ4-0EyB;
+	Tue, 11 Mar 2025 01:19:48 +0000
+Received: from pps.filterd (m0246630.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52ALfsYx014719;
+	Tue, 11 Mar 2025 01:19:44 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=
+	corp-2023-11-20; bh=8/RuX3GwU88Td658DflKrFkdi94VCyG7/q6o+rS03Vo=; b=
+	nmSpbTLxnRxd+EafKN6/L/AxiRQ2yWRRwEFrCSsP2Yr03G4O1qdq0AbJMRhU0+80
+	/19D628J3mAAoVGJ5TxfZ7UgLqjlQV0WPmDZEAza35x0zSXpmQwyncLc9EBvrWDU
+	ubZcK+GQZASi33aIlsElbHpCfn68gAyTOnuwH3YIsBVFZgnzfZ6GW5bgRf1QF0UO
+	eWPt5trusLZdVTqZ6j3YMP9bk/kjtSIOOPedWzfaWOxagOpdxUo/l9dw+nDUZEfX
+	Gjx2b4yjrAtW3ErqMwTBOMP3+HJfbSJ7jCQ7pwvBRbdLLBiG6TM9th/TwjqtFjAb
+	KR1DrJ0plAUZU/QKgXvThw==
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 458cacbvd7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 01:19:43 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 52B0UFCK014999;
+	Tue, 11 Mar 2025 01:19:42 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 458cbencmj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 01:19:42 +0000
+Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 52B1Jfr8014960;
+	Tue, 11 Mar 2025 01:19:42 GMT
+Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
+	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 458cbencm8-2;
+	Tue, 11 Mar 2025 01:19:42 +0000
+From: "Martin K. Petersen" <martin.petersen@oracle.com>
+To: "James E . J . Bottomley" <James.Bottomley@HansenPartnership.com>,
+        Heiko Stuebner <heiko@sntech.de>, linux-scsi@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org,
+        Colin Ian King <colin.i.king@gmail.com>
+Cc: "Martin K . Petersen" <martin.petersen@oracle.com>,
+        kernel-janitors@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH][next] scsi: ufs: rockchip: Fix spelling mistake "susped" -> "suspend"
+Date: Mon, 10 Mar 2025 21:19:01 -0400
+Message-ID: <174165504936.528513.7895453741464348013.b4-ty@oracle.com>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250225101142.161474-1-colin.i.king@gmail.com>
+References: <20250225101142.161474-1-colin.i.king@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250213141045.2716943-1-andriy.shevchenko@linux.intel.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-11_01,2025-03-07_03,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 adultscore=0 spamscore=0
+ mlxlogscore=892 malwarescore=0 suspectscore=0 mlxscore=0 bulkscore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502100000
+ definitions=main-2503110007
+X-Proofpoint-ORIG-GUID: ZUjgEaKxxcf7JcaIfoORJdytE4gc3wBU
+X-Proofpoint-GUID: ZUjgEaKxxcf7JcaIfoORJdytE4gc3wBU
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_181209_342973_90E1456C 
-X-CRM114-Status: UNSURE (   5.84  )
+X-CRM114-CacheID: sfid-20250310_181947_211443_49F0CE17 
+X-CRM114-Status: UNSURE (   7.89  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,22 +100,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Andy,
+On Tue, 25 Feb 2025 10:11:42 +0000, Colin Ian King wrote:
 
-> Andy Shevchenko (10):
->   i2c: Introduce i2c_10bit_addr_*_from_msg() helpers
->   i2c: axxia: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: bcm-kona: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: brcmstb: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: eg20t: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: kempld: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: mt7621: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: rzv2m: Use i2c_10bit_addr_*_from_msg() helpers
->   i2c: ibm_iic: Use i2c_*bit_addr*_from_msg() helpers
->   i2c: mv64xxx: Use i2c_*bit_addr*_from_msg() helpers
+> There is a spelling mistake in a dev_err message. Fix it.
+> 
+> 
 
-merged to i2c/i2c-host.
+Applied to 6.15/scsi-queue, thanks!
 
-Thanks,
-Andi
+[1/1] scsi: ufs: rockchip: Fix spelling mistake "susped" -> "suspend"
+      https://git.kernel.org/mkp/scsi/c/24e81b821724
+
+-- 
+Martin K. Petersen	Oracle Linux Engineering
 
