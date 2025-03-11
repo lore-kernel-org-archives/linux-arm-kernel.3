@@ -4,85 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71FB6C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 22:03:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90B7CC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 22:11:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hO14LWvT6RF71LJw1vwVk3fu7V5c53lrYh2ZZrrSiK0=; b=B3ChzVKGG934V8xp8B4gUw9LxQ
-	U50plVOYzwb3XbqUk1ctWGSUaOdMOUVFC1WG+GkopVbmKizVeMu1339SPgHhYBkaZKpcrmzTKuFts
-	ZmEMxuxTTARhLSIP6jnRGK4+1dVS9vfXfhZIdIczlfSW2Z99mkPkLw6nvcB1MoFILv4vjTWuhQbiy
-	AHIRgwTn8itBkq/I5d8RGRwh7EbqbwxntEtn13IEtz2Eurt9hVNiGVbi0IQpAxxUV1giF2KyMCVnH
-	OqRrE6MFL8M2L1OL8H2SXRS6WnZpRWvBTY/0oNsV8QpeW7JapEFRGx/nuMoY3Oh3m0MOd/7ZdHvOK
-	AmolZxBQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=emP1I1C6B70nS2LydbM2tgFBuG2ApYIQiL+sHsaaGPg=; b=PCl5Lwc+NCy6Yn4cCc1LahU/vR
+	WyaEyAOQ2duAKJ+TdZpLkwANTHgUDJznfdCCMzkGR/3VPqCf4oM9rwuC+qdxIXzXyusy/J9nIe1UW
+	bHOkXKt3cTPDi3qqlwqttZMSgH60sGMkD0XLTV2lKqU05vmZ2RfQIKc9O7094XjIHFdQhIIRT3Et5
+	lqNQjWTlA5VI3IlYoqHHHVD5D7kI38lwoGWd1m01nK05OdkT6VlLVhpFfD1g0JGUMQnAVZBmD6J0E
+	8CBqNee3rPeW/xSP3i+ioVgs0IR/RXxqorbXFaGL3kGwzbKhTKYVRS4Dgvr7mRAlHnrl2RuahTkCF
+	UC98O1CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts7ge-000000074FG-06FJ;
-	Tue, 11 Mar 2025 22:02:56 +0000
-Received: from mail-oi1-x22b.google.com ([2607:f8b0:4864:20::22b])
+	id 1ts7oM-0000000754W-2GSy;
+	Tue, 11 Mar 2025 22:10:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts7ey-0000000741Q-2jeh
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 22:01:13 +0000
-Received: by mail-oi1-x22b.google.com with SMTP id 5614622812f47-3fa6c54cdb2so881778b6e.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 15:01:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741730470; x=1742335270; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=hO14LWvT6RF71LJw1vwVk3fu7V5c53lrYh2ZZrrSiK0=;
-        b=cNQAXc1F0NomZYxtJjIUeLhGshmYAEhs+46iftcmzVBU3iF89/Od9IXSY7xrrDYKG/
-         VqVw/OefY0EDtWfcCLcrkrLnP4V3PfwbQW+LchN+JSHxV8re0Hhv/2EFNSyjl5D9uN3c
-         Ncswkp58z0g+BZ98hmj1xUcgk3FZO1lJFbZkrYTLhdEkvKjymjwbaUa0QyiaaAhOyRPA
-         /N2JnAGlH4DPV4ERugzhyVXv6nF/Y3Fby7zl0UWIB6vwrXM13trgU+hXyrfQgS7Y2MCL
-         eWh6z/r9qPrmpgdFqkKBC/tJehFf+3FslhQPWKndWJ8JuF9jrev7lnsN8n4Z+R0mXvYo
-         b/AA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741730470; x=1742335270;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=hO14LWvT6RF71LJw1vwVk3fu7V5c53lrYh2ZZrrSiK0=;
-        b=biFJzWjSEHC1VeSVLawPI91JRXmz/7nfsj82HsyYSUEMWhic190yULx22DVfJvjnJg
-         5yrMLGyd/VZSZ/OJT4lygLMLgHQ5k3JbE54RtmWK4v9LGdRdzydAEUjmfDmAEpQc2F27
-         702vOLUrzuGT9Oh2sHWUxmA8sG3rd6L+pbZaVRQyLNgtNi/yLS5h5MU0Qh1CPttua7dO
-         1/hiE1+lNMRIGsGGix4DPafgU5fXDfS15X1QIMRgEetrY6bk3MQD3CdOdo4t4mZAcL6u
-         4z1AJtSKFjVS1HfEZMVoDmLeX2Yg1gCuksHsLx3WR3hI6+mzNhaXQ54GnPcTKbPGj+pb
-         e/1A==
-X-Forwarded-Encrypted: i=1; AJvYcCWTrBK6Q9eKDVqXb50U1LF5rv0ZRQOHbvlIOaRKD7YXIMoAHhvZOt3g6znlTHPyshiBSFCmLbpYgZbgwbHuhHbK@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8Vl61M66W9cukoypj7dcGA1SUuT3uF5fc/qddizpLRNmsmGFa
-	vHwTq1gEI0kpn+lykJHJVswojem13DEjz82Z2TlUmlBfrL/ESbg5Qwf8Bmrq6hL3W3uGF1ba0Ap
-	uWOjqR9uSGTbwHRwGWNsD31eGWJ8=
-X-Gm-Gg: ASbGncuLufDNwIEydfNHD97u+XCrbOVTTBLWdzkNwxNxQw3aqtLwGF4T7Yf6qJNj3oG
-	cB7pdpHKTtfEoD7mDFUHequJlw/ckFG13zRFy5BN0ZnEyGo2Ben22x+yn2GVLVLbN9vmfcdP1W+
-	bPMczV5O5TcDQauflFBqi7PmeLCeBBoJs7aHAIUbHJS+5j1wqd78dioqHw9Us=
-X-Google-Smtp-Source: AGHT+IEtQtK1Iedlr6fWywHHm6YLJ5pw3KzGPuOa1tPA+iCb0feQo7gMOWkm93j2OOJceBrScIcjgWGvXoXqmEz7oyA=
-X-Received: by 2002:a05:6808:148f:b0:3f8:b73b:684a with SMTP id
- 5614622812f47-3f8b74ac847mr5214463b6e.33.1741730470244; Tue, 11 Mar 2025
- 15:01:10 -0700 (PDT)
+	id 1ts7mi-000000074tm-0Rg2;
+	Tue, 11 Mar 2025 22:09:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id BC6CF5C5C9B;
+	Tue, 11 Mar 2025 22:06:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E387C4CEE9;
+	Tue, 11 Mar 2025 22:09:08 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741730951;
+	bh=AK01nVO4lPumiw36k9O3nSQDc+YQE/eCZNaia276vBU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ZIGvEONWjCH+L8GrjBLqHcnr2JgBA3aJ0kTP724h4DFHw0G9nDV0cF7OZ4/DIr+8a
+	 RR83Du3OSU7DFe53Hcf1C4oO3SB2cBS41uj9mP3m73b1/OSrm++QwQmqNm89b/KymC
+	 863R4LFDjHu+a1jlr4obhb1/kMhaVaomu8x59bjDf04vkY+4nuAU07Y1fxnltcfJWr
+	 gNt6RSlB+P+WCI5RT9Wv3DkS56GMq/TrXo3DPorImnXEwHEMvhbpkLopyJ7cxL8vwZ
+	 AcPCkKLjRhJ77sEDdrxUFkziKiE3r+W3AD3hO1pwuYPfPYOTY0ueLNDB5GzZhd2vVI
+	 0PriNDnlvnDwA==
+Date: Tue, 11 Mar 2025 23:08:59 +0100
+From: Andi Shyti <andi.shyti@kernel.org>
+To: Yao Zi <ziyao@disroot.org>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jonas Karlman <jonas@kwiboo.se>, Chukun Pan <amadeus@jmu.edu.cn>, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-i2c@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/3] dt-bindings: i2c: i2c-rk3x: Add compatible string
+ for RK3528
+Message-ID: <hzbhauetike6nf6ox3qdpud6hr4cg5kty3a7hlrfizdcwlodyh@rklxe3uhhitg>
+References: <20250309070603.35254-1-ziyao@disroot.org>
+ <20250309070603.35254-2-ziyao@disroot.org>
 MIME-Version: 1.0
-References: <20241220120038.3137248-1-pbrobinson@gmail.com>
-In-Reply-To: <20241220120038.3137248-1-pbrobinson@gmail.com>
-From: Vasily Khoruzhick <anarsoul@gmail.com>
-Date: Tue, 11 Mar 2025 15:00:44 -0700
-X-Gm-Features: AQ5f1JoZh-NGU3L8eIpxDuwcRiYOWZhV0d89f1f2dzKHdizOfdf7E-JnqzsgH1M
-Message-ID: <CA+E=qVdbbRbR+57WRPTJ-WPJ2jZz0V=mD56Ts2oQmo-rjxvO_w@mail.gmail.com>
-Subject: Re: [PATCH v2 0/2] Add support for WiFi/BT header on Pine64 A64
-To: Peter Robinson <pbrobinson@gmail.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sunxi@lists.linux.dev
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250309070603.35254-2-ziyao@disroot.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_150112_686929_3710A69A 
-X-CRM114-Status: GOOD (  14.66  )
+X-CRM114-CacheID: sfid-20250311_150912_185147_BA83D61F 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,28 +76,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Dec 20, 2024 at 4:00=E2=80=AFAM Peter Robinson <pbrobinson@gmail.co=
-m> wrote:
->
-> Add the BT and WiFi pins on the WiFi/BT header on the Pine64/Sopine
-> boards.
->
-> Changes in v2:
-> - drop patch that enables the WiFi module, it'll move to a overlay later
+Hi,
 
-Any plans to send v3 with comments from Chen-Yu addressed?
+On Sun, Mar 09, 2025 at 07:06:01AM +0000, Yao Zi wrote:
+> Document I2C controllers integrated in RK3528, which are compatible with
+> the RK3399 variant.
+> 
+> Signed-off-by: Yao Zi <ziyao@disroot.org>
 
+for self reference:
 
-> Peter Robinson (2):
->   arm64: dts: allwinner: a64: Add WiFi/BT header on Pine64
->   arm64: dts: allwinner: a64: Add WiFi/BT header on SoPine
->
->  .../boot/dts/allwinner/sun50i-a64-pine64.dts  | 17 +++++++++++++
->  .../allwinner/sun50i-a64-sopine-baseboard.dts | 24 +++++++++++++++++++
->  2 files changed, 41 insertions(+)
->
-> --
-> 2.47.1
->
->
+Reviewed-by: Andi Shyti <andi.shyti@kernel.org>
+
+I will wait for v2 to apply it.
+
+Thanks,
+Andi
 
