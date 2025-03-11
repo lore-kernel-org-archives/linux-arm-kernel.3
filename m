@@ -4,74 +4,129 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E2DC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 06:24:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7225CC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 06:53:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GZ7cz/UX3l7TXfpyRAthti0yRRZUSdIt8pbZp1M5Mqk=; b=g8UqZYGms6nsTv+K6F9ieKJ9FK
-	Fcmzn/dMslwnRvnD55naQL66V+voirmfnfL+dh2D//UMoPXgeHcFEQID3CZMQHhCoIClp3yE6DuJP
-	ELmGM9qBeqhH9s1lDzQbL+apPNmm8EIUTdfaVwj/nqnyqzoJfGI6kQDX9fE4hodckXIgor7jGkA7y
-	rYprV6vOK8LyXWmQKvyw8RqWfviM+RT4jmM3VP7EqT88ScDs8pQD0nFQAr52vG5fbycBd9ZcQIP3C
-	mLN3+p8v6DCTMgBMd/NjbBLf9XszIJkZW8kRJiyy0qmh5hTzPf7IzAlOmQDUAqMhIO96qj9uTm9ei
-	3XerBUVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XuWsXNiH7JOurfSIKnuP0VhNPAo74ZyN71/Csl8aHDo=; b=1eEK9w90lzrQ/Z0QnNf8jinHzm
+	E+W1/DlKG9T3How0k9t+xF7GvIQHiasEhUjSsI2DQnE1t/EVO2XCAEzcnclUjKg6GNLefNfQBf1of
+	O6rPYkjidhGOvNq6Ljy+h2iNItJuVYCtbX7kZblzj4L7Qzv4ThMLYzV4+hHdIpcE/oNuRJ0MTbLIk
+	d+MUScHL7Shdi+vc8ApkqNSux3FnePBfT1EI0g4Nds1MPZstBBdr0MoVHn7iygG6/PRzEZel2syd0
+	9Rk2ixktdH4ZtS72s53cBeNQEn6RDfdJ4z2TFpWDMrledsFqLSdyVzfIg+EyM0gWikr0ZhOhTtjZY
+	Is19Dspg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trt2S-00000004kbK-0mo2;
-	Tue, 11 Mar 2025 06:24:28 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1trtUJ-00000004mfu-2NKt;
+	Tue, 11 Mar 2025 06:53:15 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trsqz-00000004j6T-0O5e
+	id 1trtSe-00000004mYg-3ZA7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 06:12:38 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B6CKX81109371
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 01:12:20 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741673540;
-	bh=GZ7cz/UX3l7TXfpyRAthti0yRRZUSdIt8pbZp1M5Mqk=;
-	h=From:To:CC:Subject:Date;
-	b=NYJ+Bmq3tpkEV3S65WZUNaUYRse1gfb3BmxL35hNSf7fQO5SIkW+yVCdPCe1ZvQz4
-	 Lyy2j2cDYkPPfhwI8IlIOWFLr90avwp1TA0i/H8mgnyNqey4tdug1oC9LeCpba6vQj
-	 d4EKqV4LjFpNQuDZlOpbYufsjEXzdQVFdKwL4NKk=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B6CKeI014362
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 11 Mar 2025 01:12:20 -0500
-Received: from DFLE105.ent.ti.com (10.64.6.26) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 01:12:20 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 01:12:20 -0500
-Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B6CF2t042003;
-	Tue, 11 Mar 2025 01:12:16 -0500
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
-        <kuba@kernel.org>, <pabeni@redhat.com>, <rogerq@kernel.org>,
-        <horms@kernel.org>, <alexander.sverdlin@siemens.com>,
-        <dan.carpenter@linaro.org>, <jpanis@baylibre.com>
-CC: <vigneshr@ti.com>, <netdev@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <srk@ti.com>, <s-vadapalli@ti.com>
-Subject: [PATCH net] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
-Date: Tue, 11 Mar 2025 11:42:14 +0530
-Message-ID: <20250311061214.4111634-1-s-vadapalli@ti.com>
-X-Mailer: git-send-email 2.34.1
+	Tue, 11 Mar 2025 06:51:34 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id DEBE221160;
+	Tue, 11 Mar 2025 06:51:30 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1741675891; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XuWsXNiH7JOurfSIKnuP0VhNPAo74ZyN71/Csl8aHDo=;
+	b=1zwEPOj21ZO8j2BGYHGmXWt9kmNeqais+S+IP7VjVapc73Dc7rQszBvv6jZk63z/u86CSR
+	MYcRam8tOM8e46Hj62mDUZSFokytyNtJrq8EBjJSdwg3191GJrNzm+sxf3wr/EqWmUdiaN
+	tnIgt19MGPNlACRXZvXkroeLuy6cEFQ=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1741675891;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XuWsXNiH7JOurfSIKnuP0VhNPAo74ZyN71/Csl8aHDo=;
+	b=rA4GAXXYBbYimGKPZHax2rLTo+yCK5b6VOugEcob8LiXLKdet6B6YGiKnHeSHq3GEdz4oh
+	hdYfoniFnzov9aCg==
+Authentication-Results: smtp-out1.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1741675890; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XuWsXNiH7JOurfSIKnuP0VhNPAo74ZyN71/Csl8aHDo=;
+	b=DVNXpfym6ieWN9Z8ZU4yqXpg0UcvxJ8R79UdnHOkJYfwAsaRv6sWMMgib0FCQu0xT7W+st
+	mFBt5n9yJo2aUtjzBPFO4EYCcpqDmaw5hbZ2lkNYITzG2LrZSfOFELiFbP7H8GOq1f7WJd
+	BQQFAH9s1IA6JgZy39C/T9B91Jsx4xY=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1741675890;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=XuWsXNiH7JOurfSIKnuP0VhNPAo74ZyN71/Csl8aHDo=;
+	b=wFcxj13Emyv4q2gCEcgtFDqwnE5vZ4EPScxCS8wAZ6gEiaJAJI+Q8cn2RL+K7QaVj9ggXj
+	ZAKjSJDpJkut4yAw==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 16D9D132CB;
+	Tue, 11 Mar 2025 06:51:30 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id zQq+A3Ldz2c7QQAAD6G6ig
+	(envelope-from <hare@suse.de>); Tue, 11 Mar 2025 06:51:30 +0000
+Message-ID: <78673d08-cd0d-4daf-b471-98fabe824f3a@suse.de>
+Date: Tue, 11 Mar 2025 07:51:29 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/2] nvme: move error logging from nvme_end_req() to
+ __nvme_end_req()
+To: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>,
+ linux-block@vger.kernel.org, linux-nvme@lists.infradead.org,
+ Jens Axboe <axboe@kernel.dk>, Keith Busch <kbusch@kernel.org>,
+ Christoph Hellwig <hch@infradead.org>, Sagi Grimberg <sagi@grimberg.me>,
+ Alan Adamson <alan.adamson@oracle.com>
+Cc: virtualization@lists.linux.dev, asahi@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, "Michael S . Tsirkin"
+ <mst@redhat.com>, Jason Wang <jasowang@redhat.com>,
+ Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?=
+ <eperezma@redhat.com>, Paolo Bonzini <pbonzini@redhat.com>,
+ Stefan Hajnoczi <stefanha@redhat.com>, Sven Peter <sven@svenpeter.dev>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>
+References: <20250311024144.1762333-1-shinichiro.kawasaki@wdc.com>
+ <20250311024144.1762333-2-shinichiro.kawasaki@wdc.com>
+Content-Language: en-US
+From: Hannes Reinecke <hare@suse.de>
+In-Reply-To: <20250311024144.1762333-2-shinichiro.kawasaki@wdc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+X-Spamd-Result: default: False [-4.30 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	MID_RHS_MATCH_FROM(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	FUZZY_BLOCKED(0.00)[rspamd.com];
+	FROM_HAS_DN(0.00)[];
+	RCPT_COUNT_TWELVE(0.00)[20];
+	FROM_EQ_ENVFROM(0.00)[];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	TO_DN_SOME(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_231237_297502_E5D39DCC 
-X-CRM114-Status: GOOD (  10.54  )
+X-CRM114-CacheID: sfid-20250310_235133_026790_2A9CC561 
+X-CRM114-Status: GOOD (  15.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,77 +141,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vignesh Raghavendra <vigneshr@ti.com>
+On 3/11/25 03:41, Shin'ichiro Kawasaki wrote:
+> Before the Commit 1f47ed294a2b ("block: cleanup and fix batch completion
+> adding conditions"), blk_mq_add_to_batch() did not add failed
+> passthrough requests to batch, and returned false. After the commit,
+> blk_mq_add_to_batch() always adds passthrough requests to batch
+> regardless of whether the request failed or not, and returns true. This
+> affected error logging feature in the NVME driver.
+> 
+> Before the commit, the call chain of failed passthrough request was as
+> follows:
+> 
+> nvme_handle_cqe()
+>   blk_mq_add_to_batch() .. false is returned, then call nvme_pci_complete_rq()
+>   nvme_pci_complete_rq()
+>    nvme_complete_rq()
+>     nvme_end_req()
+>      nvme_log_err_passthru() .. error logging
+>      __nvme_end_req()        .. end of the rqeuest
+> 
+> After the commit, the call chain is as follows:
+> 
+> nvme_handle_cqe()
+>   blk_mq_add_to_batch() .. true is returned, then set nvme_pci_complete_batch()
+>   ..
+>   nvme_pci_complete_batch()
+>    nvme_complete_batch()
+>     nvme_complete_batch_req()
+>      __nvme_end_req() .. end of the request, without error logging
+> 
+> To make the error logging feature work again for passthrough requests, move the
+> nvme_log_err_passthru() call from nvme_end_req() to __nvme_end_req().
+> 
+> While at it, move nvme_log_error() call for non-passthrough requests together
+> with nvme_log_err_passthru(). Even though the trigger commit does not affect
+> non-passthrough requests, move it together for code simplicity.
+> 
+> Fixes: 1f47ed294a2b ("block: cleanup and fix batch completion adding conditions")
+> Signed-off-by: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
+> ---
+>   drivers/nvme/host/core.c | 12 ++++++------
+>   1 file changed, 6 insertions(+), 6 deletions(-)
+> 
+Reviewed-by: Hannes Reinecke <hare@suse.de>
 
-Registering the interrupts for TX or RX DMA Channels prior to registering
-their respective NAPI callbacks can result in a NULL pointer dereference.
-This is seen in practice as a random occurrence since it depends on the
-randomness associated with the generation of traffic by Linux and the
-reception of traffic from the wire.
+Cheers,
 
-Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
-Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
----
-
-Hello,
-
-This patch is based on commit
-4d872d51bc9d Merge tag 'x86-urgent-2025-03-10' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
-of Mainline Linux.
-
-Regards,
-Siddharth.
-
- drivers/net/ethernet/ti/am65-cpsw-nuss.c | 12 ++++++------
- 1 file changed, 6 insertions(+), 6 deletions(-)
-
-diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-index 2806238629f8..d5291281c781 100644
---- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-+++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-@@ -2314,6 +2314,9 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- 		hrtimer_init(&tx_chn->tx_hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
- 		tx_chn->tx_hrtimer.function = &am65_cpsw_nuss_tx_timer_callback;
- 
-+		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
-+				  am65_cpsw_nuss_tx_poll);
-+
- 		ret = devm_request_irq(dev, tx_chn->irq,
- 				       am65_cpsw_nuss_tx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2323,9 +2326,6 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
- 				tx_chn->id, tx_chn->irq, ret);
- 			goto err;
- 		}
--
--		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
--				  am65_cpsw_nuss_tx_poll);
- 	}
- 
- 	return 0;
-@@ -2569,6 +2569,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			     HRTIMER_MODE_REL_PINNED);
- 		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
- 
-+		netif_napi_add(common->dma_ndev, &flow->napi_rx,
-+			       am65_cpsw_nuss_rx_poll);
-+
- 		ret = devm_request_irq(dev, flow->irq,
- 				       am65_cpsw_nuss_rx_irq,
- 				       IRQF_TRIGGER_HIGH,
-@@ -2579,9 +2582,6 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
- 			flow->irq = -EINVAL;
- 			goto err_flow;
- 		}
--
--		netif_napi_add(common->dma_ndev, &flow->napi_rx,
--			       am65_cpsw_nuss_rx_poll);
- 	}
- 
- 	/* setup classifier to route priorities to flows */
+Hannes
 -- 
-2.34.1
-
+Dr. Hannes Reinecke                  Kernel Storage Architect
+hare@suse.de                                +49 911 74053 688
+SUSE Software Solutions GmbH, Frankenstr. 146, 90461 Nürnberg
+HRB 36809 (AG Nürnberg), GF: I. Totev, A. McDonald, W. Knoblich
 
