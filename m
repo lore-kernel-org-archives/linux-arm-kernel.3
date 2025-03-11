@@ -4,79 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B75B4C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:42:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC41CC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FF/+ThLVlH8fTF402usj8KxjS4jueGgdyZDKQL2Jvak=; b=OZY1X3rd2dK6dokvDCloY1qSj9
-	jrJ2TJbxpMKMQ4QA+TIu4DGge5dsqWLtgqA1sHQO+jFzAze3dFLxSo8ZlKbw1AL/uu0CkOsC9wtuz
-	eXwBwpscRucvy6trpdSQYWGIF+iyY8WRWBrdOnJd3/vX8IstV7Z2Y9LMXBspGKyt4ahNtmbT5kqxA
-	gTv026+dBiH4oXInbKoXdpJCCAwCotrvaTXF0gqkVYXko94pRAmR+STgnA6b4J0bcwTg4I1L2d2BU
-	NPnn4LiyEd47Tpp5gelpx+sBCHbeq5DohbmDcstpe+YmSgVxSBJ5DU8u9JRt1nuRTXVAvEzOP4WVz
-	+Atc1uzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YQh8GUR3BeJxb5Disg+M3ANy8pAn0cbKyg9qtGciff4=; b=Smv2TvlsFPOzafRYjUZero9sMR
+	sj1UeHhJpCUs9lfUIQaf5e6lJT7uuYKcWIyLAGX9GZMQzDaNXqlTRz2BVMlE3Mbq4ki7oq3s06auv
+	j9lV7MoDdUuynSkgDjz/7b0I1uN7e4uBWhZ57EiJRCn01QPJusELp2S4MKHbKVnq+QHJz24bUeedO
+	XdfiPdBu9C+vXJNv40kYBHDBrs9SwXRf95JYTYIF/BjlXcN6G1S9wqQNlEdpIH6x0N5n4MDZnWYF2
+	Djb06e+L9I6YLPmdkr8WxKKpqtjFFQL8bH/EyL0yVUpE2CRSyEPUGsz6U50QZNTFZC+EyWb34kBVD
+	H7rwL5YQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0oS-000000061Bx-26MY;
-	Tue, 11 Mar 2025 14:42:32 +0000
+	id 1ts0q5-000000061bw-3KeT;
+	Tue, 11 Mar 2025 14:44:13 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0jy-000000060Js-3WhP
+	id 1ts0nU-000000060wB-1O0k
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 14:37:56 +0000
+	Tue, 11 Mar 2025 14:41:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id BA4FF152B;
-	Tue, 11 Mar 2025 07:38:04 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id DD4E23F694;
-	Tue, 11 Mar 2025 07:37:50 -0700 (PDT)
-Message-ID: <58c5e76a-e320-4296-8292-1ddf3f7ba56d@arm.com>
-Date: Tue, 11 Mar 2025 14:37:48 +0000
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7BA5152B;
+	Tue, 11 Mar 2025 07:41:42 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 673CE3F694;
+	Tue, 11 Mar 2025 07:41:27 -0700 (PDT)
+Date: Tue, 11 Mar 2025 14:41:24 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Yicong Yang <yangyicong@huawei.com>
+Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <tglx@linutronix.de>,
+	Sudeep Holla <sudeep.holla@arm.com>, <peterz@infradead.org>,
+	<mpe@ellerman.id.au>, <linux-arm-kernel@lists.infradead.org>,
+	<mingo@redhat.com>, <bp@alien8.de>, <dave.hansen@linux.intel.com>,
+	<pierre.gondois@arm.com>, <dietmar.eggemann@arm.com>,
+	<linuxppc-dev@lists.ozlabs.org>, <x86@kernel.org>,
+	<linux-kernel@vger.kernel.org>, <morten.rasmussen@arm.com>,
+	<msuchanek@suse.de>, <gregkh@linuxfoundation.org>,
+	<rafael@kernel.org>, <jonathan.cameron@huawei.com>,
+	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
+	<yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
+	<guohanjun@huawei.com>, <sshegde@linux.ibm.com>
+Subject: Re: [PATCH v12 0/4] Support SMT control on arm64
+Message-ID: <Z9BLlOgL3RFLCFnz@bogus>
+References: <20250311075143.61078-1-yangyicong@huawei.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-To: Jason Gunthorpe <jgg@ziepe.ca>, Ryan Roberts <ryan.roberts@arm.com>
-Cc: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- Shameerali Kolothum Thodi <shameerali.kolothum.thodi@huawei.com>,
- "suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
- "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "joro@8bytes.org" <joro@8bytes.org>,
- "jean-philippe@linaro.org" <jean-philippe@linaro.org>,
- "mark.rutland@arm.com" <mark.rutland@arm.com>,
- "joey.gouly@arm.com" <joey.gouly@arm.com>,
- "oliver.upton@linux.dev" <oliver.upton@linux.dev>,
- "james.morse@arm.com" <james.morse@arm.com>,
- "broonie@kernel.org" <broonie@kernel.org>, "maz@kernel.org"
- <maz@kernel.org>, "david@redhat.com" <david@redhat.com>,
- "akpm@linux-foundation.org" <akpm@linux-foundation.org>,
- "nicolinc@nvidia.com" <nicolinc@nvidia.com>,
- "mshavit@google.com" <mshavit@google.com>,
- "jsnitsel@redhat.com" <jsnitsel@redhat.com>,
- "smostafa@google.com" <smostafa@google.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "iommu@lists.linux.dev" <iommu@lists.linux.dev>
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
- <20250228193221.GM5011@ziepe.ca>
- <b23aa37f8e864dea82a6143bece912d6@huawei.com>
- <20250303103102.GC13345@e133081.arm.com> <20250303165255.GS5011@ziepe.ca>
- <20250303190330.GA426248@e133081.arm.com> <20250304142634.GC5011@ziepe.ca>
- <67fbe3f4-4fb6-4753-b34c-320b7897fd16@arm.com>
- <20250304161943.GD5011@ziepe.ca>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250304161943.GD5011@ziepe.ca>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250311075143.61078-1-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_073754_918329_927B2C58 
-X-CRM114-Status: GOOD (  14.88  )
+X-CRM114-CacheID: sfid-20250311_074132_411353_F999789A 
+X-CRM114-Status: GOOD (  12.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,39 +72,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 04/03/2025 4:19 pm, Jason Gunthorpe wrote:
-> On Tue, Mar 04, 2025 at 04:02:20PM +0000, Ryan Roberts wrote:
->> On 04/03/2025 14:26, Jason Gunthorpe wrote:
->>> On Mon, Mar 03, 2025 at 07:03:42PM +0000, Mikołaj Lenczewski wrote:
->>>
->>>> For example, if we use BBML2 for kernel mappings, does that require us
->>>> to repaint all kernel mappings when disabling BBML2 on smmu attach? I
->>>> am not sure, but definitely something to be worked out.
->>>
->>> No, it would be a per-mm_struct basis only if we did something like
->>> that
->>>
->>> When the SMMU driver puts a SVA on top of the mm_struct it would
->>> disable BBML2 usage only for that mm_struct and it's contained VMAs.
->>
->> I guess we would need to figure out some synchonization mechanism if disabling
->> BBML2 dynaically per-mm. If there was already a BBML2 operation in flight would
->> want to wait for it to end. But that's a problem to solve if/when it's shown to
->> be needed, I think.
+On Tue, Mar 11, 2025 at 03:51:39PM +0800, Yicong Yang wrote:
+> From: Yicong Yang <yangyicong@hisilicon.com>
 > 
-> I have a feeling we can piggyback on the mmu notifiers to achieve this
-> as all the changes to the PTEs should be bracketed by notifier
-> callbacks..
+> The core CPU control framework supports runtime SMT control which
+> is not yet supported on arm64. Besides the general vulnerabilities
+> concerns we want this runtime control on our arm64 server for:
 > 
-> Let's hope it isn't needed.
+> - better single CPU performance in some cases
+> - saving overall power consumption
+> 
+> This patchset implements it in the following aspects:
+> 
+> - Provides a default topology_is_primary_thread()
+> - support retrieve SMT thread number on OF based system
+> - support retrieve SMT thread number on ACPI based system
+> - select HOTPLUG_SMT for arm64
+> 
+> Tests has been done on our ACPI based arm64 server and on ACPI/OF
+> based QEMU VMs.
+> 
+> Change since v11:
+> - Remove the check and warning for heterogeneous platform as suggested and discussed
 
-Yup, as mentioned previously, this is largely theoretical and at worst 
-only a risk of affecting 3rd-party SMMU implementations. Arm's 
-implementations from MMU-700 onwards do support BBML2; MMU-600 *might* 
-actually be OK as well, but it predates the definition of the feature, 
-and there are more practical reasons not to integrate a decade-old SMMU 
-design with brand new CPUs anyway.
+IIUC, the ask was not to remove it completely but to allow single
+threaded and same number of threads in all the multi-threaded CPUs.
+Anyways that is not a must, we can just stash max_smt_thread_num value
+before updating with max and see if it changes from one value to another
+with value != 1. It can be done later when we want to warn such systems
+if they appear in the future and we can't support them. For now, it looks
+fine.
 
-Thanks,
-Robin.
+-- 
+Regards,
+Sudeep
 
