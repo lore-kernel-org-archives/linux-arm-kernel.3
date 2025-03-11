@@ -4,91 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FBB8C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:08:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE203C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:29:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=; b=enhVAz2x2QVG+dbT4kE/3KsT5f
-	B6BCo90RAIZfBLawmvVi2aWIhWvaLHod6qCEHcA6Y0ymEMdvdC3aM+2a8EUCYb7epkcwwdvZoLK+y
-	CmEt+VmYvpt5ZJglsMtRBf95zjnvE0kYlfo5+UwaXyv1K8VAvLEjt+QSiM4x1LteWsERrX7oX2vJL
-	MWiafs6OLW820CGTF1UI+vg1NgDWVFdswpquPAUud7cAoDsUapIb1g1BtHhNO0ycpUbCRPuAy5yZu
-	nPB0Yt3iWr/6O7xQpbO8fIibJ14p9gavB683rWv+w6xWvqTnHRIqfraEnLbZDVCjJx96SngLkdOXp
-	Oh0MlzCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r8BeUv4Pov969PJQN0kZUlpld4OjQ0/3bHLnGNMoO8M=; b=kBwR3xwp3jtzsnEoY3yqGAfzK8
+	+XmyAqgfTarrNZ/09Wlfcr5weh8XOPwu3nOtJLDSNG+32fZw2ibPdwOsSiuv3tcWAtApQLsSVtOJv
+	cjyGupH7xhlnR2inWP6Re8qw177PrR98ep7+5ZSZePTnsrJQhIBnHV5as2wB2/EvUiHIfjNdtJXd2
+	H/CYZdUJCGAyiIjV/oxl2TJM6WIpVFRyCRrJ6rbZJu2tFuBia9KZDA7dlllTn48Yn9iY+R1bU50d0
+	Yu0APqF/T2NDuljJlnVg72ilK4FzdFYyHdy9BgN/k0zkgP0DQu4sXtr7tkFrZLrt4o+ETkRXZFTo/
+	nUOSU9CA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts29R-00000006ISq-2i1e;
-	Tue, 11 Mar 2025 16:08:17 +0000
-Received: from mail-wr1-x436.google.com ([2a00:1450:4864:20::436])
+	id 1ts2Tb-00000006KwD-1Khi;
+	Tue, 11 Mar 2025 16:29:07 +0000
+Received: from mail-bn8nam12on20619.outbound.protection.outlook.com ([2a01:111:f403:2418::619] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts27n-00000006Hrs-0idT
+	id 1ts2Rx-00000006Kiq-0oUw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 16:06:36 +0000
-Received: by mail-wr1-x436.google.com with SMTP id ffacd0b85a97d-3912fdddf8fso2938323f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:06:34 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741709193; x=1742313993; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=;
-        b=o+CLaoEQTXhNycB3KNw3Twn/+EW9szUXaeEL7+o/FAQy1c+FiTApjynp+szaLv3XgB
-         yTmUSjPsrLr//yQnKxUXUpoVysxlOeaAhLTpl31lKKDAKypyfO0fsYkED/KwrkYgpXbL
-         9K37vEgziKcEw8FFKUBDnp1AbIbabb8Dt+8AVyUk8+FUB9sEe8/EG5Ls5TtYYqavsvGB
-         AfyWK307I/PHXXIjza6SmHeNsz8W+5ZPwDXgxvNWGrP2PT3keDAHX/BR7xYU/L2t/jYz
-         NO4r8JXhEUznk77ZiJkmaCUz5vSeATowkTkx4MGVa2lsghW+5QNMRxBYD6HfFEQMEpZm
-         NDHw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741709193; x=1742313993;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FXsmviR97V/C+Y6DN95zESwUd4Ub5ygS+7V9sfykhO8=;
-        b=DPJsA2lIrSt19dvvsinOlB1xME3iQ2ntvQY7zzppsNVu/SbOlFid8w4gSykK177SSr
-         O9pFvoz7zKqQBbPS8knHBCIDKGIsk8vuhaH97l5F5ZT3/o4tiaDSwIWRm1hHAkoE9pYd
-         hpkC+BZo1k2HJ49DyvrA3+UEWYbCPnLQd+iISpvNd+XEu9HYk9AQpbUQiW+BJ1KXUtMk
-         BAJBK5Gr26FQDTdTDtX6NECnYGzJk2h79uAag9PKMAIaDKJKiW84AVf77HE16XDoQgdQ
-         BYa/DxGj/VYmYngv63Y03KAqhSmX5sRTxwKMVrdqgpMCaSfg72n3AnqivAs/jf1BbX+9
-         amVw==
-X-Forwarded-Encrypted: i=1; AJvYcCXKitmb0zaHy+UsifVfLruGXstAbF9LzCf52EpDzIjUfn5kawmreKZ0gInZP+iSGiOmZosSDwrM4g5nLBqRbVwO@lists.infradead.org
-X-Gm-Message-State: AOJu0YyPWzRj7C0uIG9YuJu3GjFkCnx1D9R/sgWCPdxE4oBSPK80/TeH
-	MPB5D91/ekrf8Zb+BS43qtTLE3SMIZ/z69Mv5UDCb/7kGbNXZd7RzhqqYlfsUMU=
-X-Gm-Gg: ASbGncs6Vvel1lr/sElDEJSj8wR1hbPAnc01G3yff0H20otv9MK1hV/8v01UQQz0h2V
-	3HQLj14++siztFajcZKNUA6DxjBYhgj1fDTlou02T2p7sk3NUJLPl+WQMpvnAhlzw8xdQlR/TAE
-	CUTf/9IinsY2ToxzyoSxB69XB0EoM668+9RNUmpJ/E7Dh1YLho02pIPISDqXjwJArMaW9r/ANSt
-	RVcQVt1E+nkX92hPJuLycRvTqpFbgpcnvU5hiwglGK6Vbe/FharDa9Bq9pZ49+nPoYQ5hQDCNiM
-	BqoAazq3qS3OQHheFQYc8l92VjX+RICmxGw+gXXD64/QqOSvkpjHQnE3nhehLPU=
-X-Google-Smtp-Source: AGHT+IHSsCm8PJOCNTBLbU5hS9VK9UHGVgainULGpG4I1aqQfmscGAZFmbLVme10Qk7EkXAo6AGeDQ==
-X-Received: by 2002:a05:6000:1a8f:b0:391:3207:2e68 with SMTP id ffacd0b85a97d-3926c3b8b38mr4616837f8f.9.1741709193494;
-        Tue, 11 Mar 2025 09:06:33 -0700 (PDT)
-Received: from [192.168.1.247] ([145.224.65.43])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c01de21sm18711241f8f.59.2025.03.11.09.06.32
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Mar 2025 09:06:32 -0700 (PDT)
-Message-ID: <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
-Date: Tue, 11 Mar 2025 16:06:31 +0000
+	Tue, 11 Mar 2025 16:27:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=SwxPuZEvjsEI7qJpEKyTiBojCCXRtEJ1FlcycEnnxaEQYDy+Y39hqfbBJmYWCIT/A0dKLxQTHxViED4ijV/1hKOKQmckIt70K7UZan4vAAduUfA0qn3b8DxzV5tCwQ6rJap0v3MpxFIvHl+Eos9kbOqO6AbBTqfwxY4blTAl1EUqhlzAywaE4XdxqZC0kZkMP6CKf7tExfCpe2pULwrFXIOnUQUyjsgoDI2P7Ir2lCfEWIIL1jjyt+0WJ/0lKt4X8fsLWbJM1+Cwr/cBykVENH9KPkHc6xpIHeemRj5eHU6AtonE8uIyEVDYg6cqncBTpne/0mGMvrhkoyEZat8VKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=r8BeUv4Pov969PJQN0kZUlpld4OjQ0/3bHLnGNMoO8M=;
+ b=FJx5+SHN7BFZqjdcQuW0CvX/6k0yCfjkAvTaI3U5qeQtEk2Eg/FKJmvv/cw2QoPRtqPRX1bbUciWIhJciA44Ou/KzeiuHSgH79pT1PsV4oOc2EGiTIHho9bdktIVkD7lgvjNR4RFnWANSAkS+zzVs4RHGZRPRkK6KesdOfx3Hn8nfMsAOzaod4+Nx+hfHIWYOqY8N+i7oeDdFqAmkQOloHC41os7oR0XF9JoeRbTz7x+evBDeqK0FCbgmuQUqDdHLJ95LN+jVK3DwMTQYeztH3wRllfAH+Ta/4PM7aA51fvqXTHwS2rNCSaS3xDtloS24/qHqAsiLsXpO2H1A2o5Sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=r8BeUv4Pov969PJQN0kZUlpld4OjQ0/3bHLnGNMoO8M=;
+ b=qpajQCdlp8HPzM8n4GW0RQWNAsmfcwTsM/J8FQeyxoAe5WS1d7IS+pGyLZBXRm6fLVBK5ViXGwM2f3rAuQ9kfZX7fyxQRn+aWCZMlZd4kGZe7p4Vil8+iC6s6+KowhRrjrhryyKIv1eJlyLk8UptaQBhT+PDzdqxHVktr7akpWER8F9W4qutn+65tODjmZ9F0Qy7T3NvWO7bJed5wHvMuoBOs35tgrr/Dk6pTybtAf5zzqOdjuBNcV+0O8LmfuxUYPg5C+48o5p+P8YTKmrB0rT347vsZy4wZmxcykh4liKqwvOmhPejbxJWBB838379i0vleJZvsitMR9oErysNpw==
+Received: from MN2PR07CA0017.namprd07.prod.outlook.com (2603:10b6:208:1a0::27)
+ by BY5PR12MB4305.namprd12.prod.outlook.com (2603:10b6:a03:213::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
+ 2025 16:27:15 +0000
+Received: from BL6PEPF00020E5F.namprd04.prod.outlook.com
+ (2603:10b6:208:1a0:cafe::77) by MN2PR07CA0017.outlook.office365.com
+ (2603:10b6:208:1a0::27) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.8511.26 via Frontend Transport; Tue,
+ 11 Mar 2025 16:27:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL6PEPF00020E5F.mail.protection.outlook.com (10.167.249.20) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8534.20 via Frontend Transport; Tue, 11 Mar 2025 16:27:14 +0000
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.4; Tue, 11 Mar
+ 2025 09:26:54 -0700
+Received: from rnnvmail201.nvidia.com (10.129.68.8) by rnnvmail201.nvidia.com
+ (10.129.68.8) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 11 Mar
+ 2025 09:26:54 -0700
+Received: from Asurada-Nvidia (10.127.8.13) by mail.nvidia.com (10.129.68.8)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14 via Frontend
+ Transport; Tue, 11 Mar 2025 09:26:52 -0700
+Date: Tue, 11 Mar 2025 09:26:50 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Will Deacon <will@kernel.org>
+CC: <jgg@nvidia.com>, <kevin.tian@intel.com>, <corbet@lwn.net>,
+	<joro@8bytes.org>, <suravee.suthikulpanit@amd.com>, <robin.murphy@arm.com>,
+	<dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
+	<linux-kernel@vger.kernel.org>, <iommu@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kselftest@vger.kernel.org>,
+	<linux-doc@vger.kernel.org>, <eric.auger@redhat.com>,
+	<jean-philippe@linaro.org>, <mdf@kernel.org>, <mshavit@google.com>,
+	<shameerali.kolothum.thodi@huawei.com>, <smostafa@google.com>,
+	<ddutile@redhat.com>, <yi.l.liu@intel.com>, <praan@google.com>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH v8 13/14] iommu/arm-smmu-v3: Report events that belong to
+ devices attached to vIOMMU
+Message-ID: <Z9BkSq6nLhzsMguU@Asurada-Nvidia>
+References: <cover.1740504232.git.nicolinc@nvidia.com>
+ <7f6813dc2b62f5f396ac3172dc2a7d9bf3b47536.1740504232.git.nicolinc@nvidia.com>
+ <20250311155637.GB5138@willie-the-truck>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: Add a KUnit test for
- coresight_find_default_sink()
-To: Suzuki K Poulose <suzuki.poulose@arm.com>
-Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
- <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
-Content-Language: en-US
-From: James Clark <james.clark@linaro.org>
-In-Reply-To: <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250311155637.GB5138@willie-the-truck>
+X-NV-OnPremToCloud: AnonymousSubmission
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL6PEPF00020E5F:EE_|BY5PR12MB4305:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2c55c2a3-f7de-4c38-382f-08dd60b9951f
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|82310400026|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?yt4p0/ZF/4sPyezB+rXAWu6fZg5zDk/H3ekyIny+YddgShQHi4iRA29AH4rS?=
+ =?us-ascii?Q?gObpE/4yBvpUZrB3evkEHbubs7UX2eVNvUBnNnCc2dP+/uFfUzSZZOBgYogs?=
+ =?us-ascii?Q?LWn/1O32s5QXynmefayCKVIQYSJIlY7QXzuEG8bWe5zJFYLRn5MKqoVWKHJp?=
+ =?us-ascii?Q?0a/fDog/vMWMrrmVK4aeRXd/Elpc2XRmXU3+RbOtMHlngRB2+ig+PA/SbMzn?=
+ =?us-ascii?Q?muVgu+v6Zp7J/3aEQQ3xw5j9WYcUErvgsANZTKDZQCmFczg9PcrS0aJIcVl8?=
+ =?us-ascii?Q?6TysYLaxwY2b7e7V8Y38qiMpFyqnT4N3RuidoCMokxzZcor2EmCRN64KCrCE?=
+ =?us-ascii?Q?a18cGcRuw7QO8ExsEM2f6WNENqNtv52kb61MfpM5IS+ke/GB5INHUDx91pMl?=
+ =?us-ascii?Q?fwK9vNoN2mIO2+a+cn56COXc5hvyZlclgWvEabmNy2/1mjo4oj/Lam5p8Wcq?=
+ =?us-ascii?Q?AAMGrXND2P1GeqGp9MF0kE7sdyoPVmLpZHPkl5a6gtCpQ5RiTgl6V2+ArjFj?=
+ =?us-ascii?Q?YS1aamsv9ZRBzZXpP5PJM+Nv+aCFdKPlx3/lmBxIt2clwzVFcRM4g2Wq0EIy?=
+ =?us-ascii?Q?S0/c7tuPQqelSmonFOoYjxOEBTSxV5ufEkRNHV5FBBBTYToIERlaYkUp6uR6?=
+ =?us-ascii?Q?ulZLRBDWgY6TmN0bZHrTCSGNIcULN+hMw692NMoL9TC7Wsj3DIpe23Y5mZ4x?=
+ =?us-ascii?Q?t/84Q7CQCDecfNF9frQoOpcVq+W4iRXmiLABGvoRzBDqL7feBMYao+KPLklm?=
+ =?us-ascii?Q?IFAn0TsRJ6zfD/YpE2nE5zCb7XtbEptYhNTLxRFYKPhqN2JMqsG5MmaKwjI7?=
+ =?us-ascii?Q?1ojds/Mhtk4ZbaSnhXO7OxXHpKL+pFCswrYP451yoK/xpQCjuRBa+tYv5t/W?=
+ =?us-ascii?Q?CF0GZtuFVrK0IGGo2f6RiodU8B1FwOkGwRAF/Nib6tVzpdir5ng7YlqgnP5P?=
+ =?us-ascii?Q?yS8G+dQ7BJ/m7ULPnwEDS3cQzbLGemqpgQTFhwnEpYORPhtRuQvWp3ErWAV3?=
+ =?us-ascii?Q?K4Hvh6icwdcYFq6vEe0XUkmafPAxhNCjVJjyIaO3Xtpf5IdpEGnVdScP1gR6?=
+ =?us-ascii?Q?XzfFGVbDr1e1lQgozm9DtPF0bd/b+lcqfW92rIN3uPeS0z64hlaoDV14ghz2?=
+ =?us-ascii?Q?RXk/S1fwrLXepB1WftejyP1DJz6GHZ+qFSYlL27SHWCx5S3YQUsdlC3KtUZL?=
+ =?us-ascii?Q?xig8XfOftrbgypxIPluyWbwpB3nFeLwH4/aPmMM1X43Kt6UPjTde63ke75Xs?=
+ =?us-ascii?Q?AbGtErX63o/BMfCFddSIqrP0p9f8WEjfgJ4zm4Ryt53Rr8N/+fVaJ0ZFXPxn?=
+ =?us-ascii?Q?oQcpzjf7nGKojb5oyiy5NFI2nECqImL1uUjSswQYRjjBkBiWm6vHmtB7YXOo?=
+ =?us-ascii?Q?h+ul92Z8ua0A/FdlaRRHywogIR3sU/TOxYP7viG1R17YjmYquGUiJjUYapW0?=
+ =?us-ascii?Q?3/brw/v7k1+ILvLiNM8hQvZAcNgQ2YUega/iMnbYOlvULSnbm94wRIE8U2dK?=
+ =?us-ascii?Q?oIEnvUOJznUfX/g=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(82310400026)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2025 16:27:14.1514
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2c55c2a3-f7de-4c38-382f-08dd60b9951f
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL6PEPF00020E5F.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4305
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_090635_225907_754328CB 
-X-CRM114-Status: GOOD (  25.98  )
+X-CRM114-CacheID: sfid-20250311_092725_236345_8AB8578C 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,143 +160,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 11/03/2025 3:00 pm, Suzuki K Poulose wrote:
-> On 05/03/2025 15:07, James Clark wrote:
->> Add a test to confirm that default sink selection skips over an ETF
->> and returns an ETR even if it's further away.
->>
->> This also makes it easier to add new unit tests in the future.
->>
->> Signed-off-by: James Clark <james.clark@linaro.org>
->> ---
->> Changes in v2:
->> - Let devm free everything rather than doing individual kfrees:
->>    "Like with managed drivers, KUnit-managed fake devices are
->>    automatically cleaned up when the test finishes, but can be manually
->>    cleaned up early with kunit_device_unregister()."
->> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1- 
->> james.clark@linaro.org
->> ---
->>   drivers/hwtracing/coresight/Kconfig                |  9 +++
->>   drivers/hwtracing/coresight/Makefile               |  3 +-
->>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
->>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 ++++++++++++ 
->> ++++++++++
->>   4 files changed, 88 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
->> coresight/Kconfig
->> index ecd7086a5b83..f064e3d172b3 100644
->> --- a/drivers/hwtracing/coresight/Kconfig
->> +++ b/drivers/hwtracing/coresight/Kconfig
->> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
->>         To compile this driver as a module, choose M here: the module 
->> will be
->>         called coresight-dummy.
->> +
->> +config CORESIGHT_KUNIT_TESTS
->> +      tristate "Enable Coresight unit tests"
->> +      depends on KUNIT
->> +      default KUNIT_ALL_TESTS
->> +      help
->> +        Enable Coresight unit tests. Only useful for development and not
->> +        intended for production.
->> +
->>   endif
->> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/ 
->> coresight/Makefile
->> index 8e62c3150aeb..96f0dfedb1bf 100644
->> --- a/drivers/hwtracing/coresight/Makefile
->> +++ b/drivers/hwtracing/coresight/Makefile
->> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o    
->> coresight-cti-platform.o \
->>              coresight-cti-sysfs.o
->>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
->> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
->> -coresight-ctcu-y := coresight-ctcu-core.o
->> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
->> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->> hwtracing/coresight/coresight-core.c
->> index bd0a7edd38c9..b101aa133ceb 100644
->> --- a/drivers/hwtracing/coresight/coresight-core.c
->> +++ b/drivers/hwtracing/coresight/coresight-core.c
->> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct 
->> coresight_device *csdev)
->>       }
->>       return csdev->def_sink;
->>   }
->> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
->>   static int coresight_remove_sink_ref(struct device *dev, void *data)
->>   {
->> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/ 
->> drivers/hwtracing/coresight/coresight-kunit-tests.c
->> new file mode 100644
->> index 000000000000..a136af05eaf4
->> --- /dev/null
->> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
->> @@ -0,0 +1,77 @@
->> +// SPDX-License-Identifier: GPL-2.0
->> +
->> +#include <kunit/test.h>
->> +#include <kunit/device.h>
->> +#include <linux/coresight.h>
->> +
->> +#include "coresight-priv.h"
->> +
->> +static struct coresight_device *coresight_test_device(struct device 
->> *dev)
->> +{
->> +    struct coresight_device *csdev = devm_kcalloc(dev, 1,
->> +                             sizeof(struct coresight_device),
->> +                             GFP_KERNEL);
->> +    csdev->pdata = devm_kcalloc(dev, 1,
->> +                   sizeof(struct coresight_platform_data),
->> +                   GFP_KERNEL);
->> +    return csdev;
->> +}
->> +
->> +static int coresight_test_cpuid(struct coresight_device *csdev)
->> +{
->> +    return 0;
->> +}
->> +
->> +static void test_default_sink(struct kunit *test)
->> +{
->> +    /*
->> +     * ETM -> ETF -> ETR -> CATU
->> +     *                ^
->> +     *                | default
->> +     */
->> +    struct device *dev = kunit_device_register(test, "coresight_kunit");
->> +    struct coresight_device *etm = coresight_test_device(dev),
->> +                *etf = coresight_test_device(dev),
->> +                *etr = coresight_test_device(dev),
->> +                *catu = coresight_test_device(dev);
->> +    struct coresight_connection conn = {};
->> +    struct coresight_ops_source src_ops = {.cpu_id = 
->> coresight_test_cpuid };
+On Tue, Mar 11, 2025 at 03:56:38PM +0000, Will Deacon wrote:
+> On Tue, Feb 25, 2025 at 09:25:41AM -0800, Nicolin Chen wrote:
+> > @@ -1866,7 +1869,14 @@ static int arm_smmu_handle_event(struct arm_smmu_device *smmu,
+> >  		goto out_unlock;
+> >  	}
+> >  
+> > -	ret = iommu_report_device_fault(master->dev, &fault_evt);
+> > +	if (event->stall) {
+> > +		ret = iommu_report_device_fault(master->dev, &fault_evt);
+> > +	} else {
+> > +		if (master->vmaster && !event->s2)
+> > +			ret = arm_vmaster_report_event(master->vmaster, evt);
+> > +		else
+> > +			ret = -EOPNOTSUPP; /* Unhandled events should be pinned */
+> > +	}
 > 
-> Do we need the trace_id() ? Why is this required ?
+> nit: You don't need this extra indentation.
+
+Yea, there was an extra lock in the previous version.
+
+Fixed with:
+-       if (event->stall) {
++       if (event->stall)
+                ret = iommu_report_device_fault(master->dev, &fault_evt);
+-       } else {
+-               if (master->vmaster && !event->s2)
+-                       ret = arm_vmaster_report_event(master->vmaster, evt);
+-               else
+-                       ret = -EOPNOTSUPP; /* Unhandled events should be pinned */
+-       }
++       else    if (master->vmaster && !event->s2)
++               ret = arm_vmaster_report_event(master->vmaster, evt);
++       else
++               ret = -EOPNOTSUPP; /* Unhandled events should be pinned */
+
+> Patch looks fine:
 > 
-> Suzuki
-> 
+> Acked-by: Will Deacon <will@kernel.org>
 
-Because it tests with per-cpu sources so it checks if any of the TRBE 
-sinks have been assigned first:
+Thanks!
 
-  /* look for a default sink if we have not found for this device */
-    if (!csdev->def_sink) {
-       if (coresight_is_percpu_source(csdev))
-	 csdev->def_sink = per_cpu(csdev_sink,
-                                    source_ops(csdev)->cpu_id(csdev));
-
-I think this test would probably fail if run somewhere TRBE was already 
-probed. I can make the source subtype to be 
-CORESIGHT_DEV_SUBTYPE_SOURCE_BUS for the test to work around it. Any 
-value other than CORESIGHT_DEV_SUBTYPE_SOURCE_PROC will work. And then I 
-can drop the fake cpu_id() callback.
-
+Nicolin
 
