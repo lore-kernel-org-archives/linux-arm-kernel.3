@@ -4,155 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 969C8C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 06:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A38E5C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 06:22:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RVom9LDIhX23btcpGNSVRM13wz0Urd0TO/BlD5e6M1c=; b=GJjEmzHRvBex4i87rmD5syHUMQ
-	l7iKE6iFzYWj0ZKY8HWvO/bzBfegf661pmB5SP2+GJo2SWvMZYwAW+rmTYXF5CH2LRNzeId9sSasY
-	xSrJam7IAdDmMAJiLWginNu2Y/oulHcNVtNqzsdL5Y+bnTKoY9Tz6F7SGsenc+s+E0yjxzDWqHzUM
-	oU9E6m6E8MFozRNy4YupqtUxa4LDGk6JKsUK6tvUZuGBra0napvVokdrmU0TPgrJPz072kVjeSpid
-	+9gbr3zyP/3fBkasP+1oW2UQ2oPPu1MSn2VX+7zDfDjF3wAIK8A/Sdn+Ds5FjPHVomScY6zMjSoQT
-	SDTR2Xtg==;
+	bh=p9shcfDvTr9UlFhHBAoHtHNx942ybqQoCR5L0yH+Rkc=; b=jlbQz/O1i6m7t+baqZmaw2Myra
+	1Qr01Y/DgXzJeL38oxVKDLFozh7elXaieSU6YrZ/ExmRUdxG9uCRohy4z/ZB0K8HDg/s2gMgouHKp
+	rgMH1wE/dPY44qlliRGPbbJPNl/csj+SOTonCiS9A8FjeyJq2bZLe0BBQbcm8rmyJzsuiofp/ZT5j
+	ROYdmpZ6NReM1oXFyIDc2RxXmgwo1WOuFPL57editMFYew5y+SGxMFRwBiWEM/RmoAh1HCZ7ENKm4
+	6xRsMmQhDJKYxEo280LJeDYUnwldNlAf+NhCgewDPJ7xRXs6gICZWlbJQ6bZ1vXmnmxYltR6e6Erm
+	TQOY0B8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trszC-00000004k8s-2tiD;
-	Tue, 11 Mar 2025 06:21:06 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trsc1-00000004gpL-29pv
+	id 1trt0p-00000004kPq-2DAa;
+	Tue, 11 Mar 2025 06:22:47 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trsnv-00000004inK-06q5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 05:57:10 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=sX4/opGMD35u9h9TwoOVxsoiqEYGcTsmnvXCgCHhSvewlf6zqKEVzyc/hdm8eLECCmVcZQUJGW1zt3Ohm0yXGHsHXr2UI4eZ+LDO4iORc7iUGsLNb0GWgcFXlBRWXTv8VuEe9LTS1mxg1bOGf/aIMtssWobTU2UvUAUSpNeiFPNJNa5Elj8VLiGZDJdQjNGieMHvR7MHiMxjTOgfdf67WuNUrb/SHOmRC3mnW/nWOZLiW/ALRf4Q9GXkgQtFIAIeGMK7odE/6MaijA7DgxDFiqtWtQMVPDNcgK7qMtXMugdB1kCSdoNs/c+eU7KSFo0UO3uGJL1SUliImHr/aROCBw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RVom9LDIhX23btcpGNSVRM13wz0Urd0TO/BlD5e6M1c=;
- b=SdHuje4ZT0LNfYhfYBaI9y7tjULoDytgkekxN+MegE4sJVnRSozmbjEX1yZjYqTgPuNpiiTEb/hH76q4gL+XpQOjIv43v4WrU5xkPJocoUbpCC0DK8VlOX/+ytXcnmtke9k2J/2O5+byyLPT9uyLy+MrHOkFAsnu484AmKtCFICkgcg2h7hGVlOhUIig5EBe8zajDl8tFObNsS4BCFSuj0538G3EVbOI3EOoWhsMr2rKVZPrPtC5gIkKBVD1PzRXogere01y2H9xedQV0Ne9OtIfGqYtOPAowddArVLVf15k74SXjvkBfFrg0N4xwXQ7GIHAoGS/aiXp9qQQCMNRgA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RVom9LDIhX23btcpGNSVRM13wz0Urd0TO/BlD5e6M1c=;
- b=DkczwocaVZVy+3okRZ1L32lKqGsqYWMs66FUSTpcr3+lsuhPQvD+21F5psAWTLLzkDTlLu5H3X2FyrwViE/SaWgdJq+0WaU0G9euykDycrwszX3wjuVfi0MiEpayILkx7PQ1Ly+QBKJxJWjbUdw99Tjg+NFDiW1E+yDj3ZcJG9yXE2dr+wqG57q0i0lZ+CAzPiPakGO5JfTERuGS0pyXyAwUACPBIyd1XMYtJ10kWK7PWARv/eHwU3s0np0+GNaLmyo54dwkDCzNXLScqs+ny5R+mwsK6Pfwbw2SxTgOa5vfKw8X3ezakFZAiwMt8jLgD7tky9rk071cP/Uk39utKg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
- by GVXPR04MB10945.eurprd04.prod.outlook.com (2603:10a6:150:21e::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
- 2025 05:57:06 +0000
-Received: from PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db]) by PAXPR04MB8510.eurprd04.prod.outlook.com
- ([fe80::a7c2:e2fa:8e04:40db%5]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
- 05:57:06 +0000
-From: Wei Fang <wei.fang@nxp.com>
-To: claudiu.manoil@nxp.com,
-	vladimir.oltean@nxp.com,
-	xiaoning.wang@nxp.com,
-	andrew+netdev@lunn.ch,
-	davem@davemloft.net,
-	edumazet@google.com,
-	kuba@kernel.org,
-	pabeni@redhat.com
-Cc: christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 net-next 14/14] MAINTAINERS: add new file ntmp.h to ENETC driver
-Date: Tue, 11 Mar 2025 13:38:30 +0800
-Message-Id: <20250311053830.1516523-15-wei.fang@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250311053830.1516523-1-wei.fang@nxp.com>
-References: <20250311053830.1516523-1-wei.fang@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SGBP274CA0011.SGPP274.PROD.OUTLOOK.COM (2603:1096:4:b0::23)
- To PAXPR04MB8510.eurprd04.prod.outlook.com (2603:10a6:102:211::7)
+	Tue, 11 Mar 2025 06:09:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 833CF1516;
+	Mon, 10 Mar 2025 23:09:37 -0700 (PDT)
+Received: from [10.162.40.19] (a077893.blr.arm.com [10.162.40.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 11B563F5A1;
+	Mon, 10 Mar 2025 23:09:24 -0700 (PDT)
+Message-ID: <4a87b3b7-6bd3-4c86-9a30-43f15759948a@arm.com>
+Date: Tue, 11 Mar 2025 11:39:21 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8510:EE_|GVXPR04MB10945:EE_
-X-MS-Office365-Filtering-Correlation-Id: 8f50082b-bd1e-4fc7-d134-08dd60618db3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?wIXdpyz+LM24KQGFX9kks6/0ehdpN0OJ6deDSgQZUaqnsqjVjzqf4ce/DWRF?=
- =?us-ascii?Q?/cZOfCm9k0sK8VMm9O23i0SrjQxxUN6lHXhVjxfOrEunn6FUI1nasGw/7a/8?=
- =?us-ascii?Q?wkP9n4ufyUUZUxpUwf/nyE+v7QLpMdI/GI4gVV4ZWeCBJf0GOLyqvBs3aO51?=
- =?us-ascii?Q?LXinHiFZfwj2baMAgsKopLfP7rm9gGiDkUjL54eQ6EHphyCUcGi2XPqJUWZQ?=
- =?us-ascii?Q?MvpIktTO8lK0IRQyFBXq6SpFvLYznthBK3Zh7Ghr75ra71PKivwQtUJrlR4E?=
- =?us-ascii?Q?nUzkz/DtmtZ7qAZPoviFaC8mvE3vuUhNHN3wPt5JPGyCGm7BX8pkSy5dPeay?=
- =?us-ascii?Q?6hFq+HMjDlFhx7P2Ha8SyCinyqrjNO2IZ9XN4XmlEgisjSDSQqo8Y0BCtuRk?=
- =?us-ascii?Q?8YlQFEFqbI3HbQPrCwjuZRn9BeNN+9JZSAXwYPj99jAvdgPjgoB+kH+kZBRm?=
- =?us-ascii?Q?A9ZjUHFEbnQmj0379erI+qSjSHGvFFiEAsmwoPRXAt7Wq6XBA6XUoF7JFhLJ?=
- =?us-ascii?Q?8OOkBNwbtpQPTIFElnnszTHfDBXIqImUMizcBGLFCIX15dpZWk29FVmpWe+4?=
- =?us-ascii?Q?50VMgns3JqOQywJPTYIY2NX5/oK8x3aKLMgOvbUyBih73+8cFXxfBHbGyTC9?=
- =?us-ascii?Q?ZMT0wmPuecZ70advr0n9/BkWShM4NMoy5lTxZ9cIMBy5p3s0EiLemdv1OVgq?=
- =?us-ascii?Q?OEMp1hRXcKw+lSkWr4RpuzB+8Q/wrIWkRNjUIPHZTyMqvZb6GadsUbHmEEEm?=
- =?us-ascii?Q?1SVov7VwBmti9+/DIDep2V6wuzS3THF8U6iP6Op9jD5xG6ZuVHgqI4H+eWij?=
- =?us-ascii?Q?3z2C7wfkV8/svUSI5zMmKczmPVYgsRWxMHxVao17KbOOZvB0qLzH6BU4+EcK?=
- =?us-ascii?Q?uK+CDVwKWPq23oxGcIn+gV2Eb7BRe4uPdXknUrSUNrS8yO5m7JO7Fij8YrZR?=
- =?us-ascii?Q?4MaIyHYYChIznJQYbMZ9/MxEXgF381zXiY7LUTmIdbosJNxHEt45+Fcka4Ov?=
- =?us-ascii?Q?JrS82iJVwF/tQK5ef/xhBaBUZNVpzPIqTCsF9eraGtxHAbI6B0QdntAeQ44M?=
- =?us-ascii?Q?vXDJk0mttMD0MHqPygT1lhuWJ6rYuysyGG/vF161hMzdhfaxAySkPykloIll?=
- =?us-ascii?Q?cx4KL22SxWrlsvnqMA0WkTlyx4+LccIIEJn0oNFdpDS1KIEuMYD6bY7KfBpw?=
- =?us-ascii?Q?t2beWpbgTn8+Ql0TVWfFzY3Z5oVIjGcAYfeHOtztUZ5M7G+v7Ex4hrIVnIKI?=
- =?us-ascii?Q?L60xmSXhdqd1tXYRr/5xE7LVyY/ulmOK14iNsAbhRJakCPzgzVx9dqilF91P?=
- =?us-ascii?Q?MLi1TFI0ZQw6Lgyvpp4ER7EY4dfAs3ZIvlnByiCJYgj08oFUJyx3gX1PcOPy?=
- =?us-ascii?Q?VbPYcVQARrb1Q5YWZNt+UQKgXp0kbW2kr3bqmsgj33E10T+tmD+sQ95yxPd2?=
- =?us-ascii?Q?R1cGjuvbTX3pc3lwnh/9gf5jtq6ZQET5?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8510.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?uVjfK9YudxEGsSw4Aw09mBU6jr+P0wEaCtNxnKU/Cqn9eFbKhuv0MJdCB6Ra?=
- =?us-ascii?Q?RpRNZPJlPAU+GsuUyR4idmmOfui1GtALJMSt48X3PCiP3B1iU3ZzwvEWlIKH?=
- =?us-ascii?Q?/NA4SuP5ytZxf4Nt8GwARKqbfmjaN9fvd8TW8M8zjiAyLy+alkpsHzv34RpQ?=
- =?us-ascii?Q?1JQ1ChpRyec+9Ae2mJCxG+Qa4HCCUU5SCc95xjlK6Z/2pZZsZ1uqKl1C1xGy?=
- =?us-ascii?Q?oFkeuzCaBoooHGVkpnve0n96+kuyuPE3A4F2MaKb2Jng61ydzCU8GOapKBqA?=
- =?us-ascii?Q?IdUwfNiFMa+OgU9N5tAaFlU8TQOwxwwCYT6ca4zBl8qewUUcMSSeQpM3r1pg?=
- =?us-ascii?Q?dnAruKJdRijAGoU46IMsyfAzH1Dv30CyOqmMGyJTpf2bIXcAyqptrmUQpUVy?=
- =?us-ascii?Q?S6g2DS8tJBfk9fKeVn+VWHYwTS5exgJCCPt/mEwEMARlrJ8agOb8Pt1IHLRj?=
- =?us-ascii?Q?cLi+EeBlTmfQL91prXwpjEQejcgG3KJmFU8fsPG6s4LQAylti5FoiD/jhppT?=
- =?us-ascii?Q?SXVPszeZBGfCs8W0F30iwN31e46ZDpbR1I92oI/594GJYeA//TRMVFIpWFWa?=
- =?us-ascii?Q?zISmRorYXTCYAPCVVNBqoq6eZvXLuNk6+ifmuhMhi/aVMV3vTEOUjVsottXx?=
- =?us-ascii?Q?7yA+aqB8HEjQZ3uu1pkDuy4/HSd99lXxCsGdq6rKe2X2CcRHa9tVPJF47UuY?=
- =?us-ascii?Q?58dgXyuWPxLgMBjXVRWDOORM3YnaKbCTOT5+zKl8Q5pl2NsKPBGFVopGckgj?=
- =?us-ascii?Q?w6gvAPkk5lFCnGvIt7uAe4FxXIIV94A2m/2vGfPi9LxIYUqNtQPnlXAwlzOQ?=
- =?us-ascii?Q?5fHjln6l1UvoZsfPYBAzK7ccWEHmv8oQ3KIG28pUjcYBzVEFNd8rU+578/zV?=
- =?us-ascii?Q?oPAYqa/ugBCYtTfzgxFM9EG83XS8Dt3lROKNayN6xVsWLD0gk9LHYOTss7lN?=
- =?us-ascii?Q?SADvpHIdHA4Oo47+MCXhFON0Yinv8h4rghEmBpDcWr0dwByljnZLWU1u5O8u?=
- =?us-ascii?Q?rLY1GNNflDoX29Xv20ZT4QlJccVtD5Om3kwlbOTD3syXVER5GdW1FI9mst3H?=
- =?us-ascii?Q?mb1G2eEb6CUOujCQbzGf3UmG40kqKhUtnhmW2BF1hU/ewJoEsdIls/vS1OD0?=
- =?us-ascii?Q?8UHz5YR2cpt+CcD8Klo2WZtpvcjzaB0TkfSfANK8mllm55GbOWR8kaJl4sa7?=
- =?us-ascii?Q?y1UqAsInip8eEaluITTL08+siOtsERwU0COooqS6gdn2FhhKqC712E7AizT3?=
- =?us-ascii?Q?TVKY3r2MyB+N6aOZFUKZCIz+4hrIHNAzU8opElS2NbSYW7cfkDOYbe+LIXmY?=
- =?us-ascii?Q?Ia3IUQ7D6TG6Mv0uahRN6Rg5A4QJk0ZY8JFu2nE04WI8nK6PRbV7e7CZXidk?=
- =?us-ascii?Q?iAUuFL+avSV9qisgFNoMtwGLBvTbiNSuRkuu2pWF2qU8Ifo4S/5yKaySkMaf?=
- =?us-ascii?Q?SQIPg0whKUKJBm1ZFMrCK0DHusy7Ay8U3CsiKtgs0RpXEkZPMvK46IkznWF7?=
- =?us-ascii?Q?MHKtXUkJSCkW8zaetKS+lEwc1zz0tQbdsuAb/eko+BI7FGDx+UBjCmTO1/79?=
- =?us-ascii?Q?k0biJNv7VIrc/9mpV8jPgwsjCXAeNRJbc2Dt+XjY?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 8f50082b-bd1e-4fc7-d134-08dd60618db3
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8510.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2025 05:57:06.6852
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: gSXRkKmOH6F4Op8cnHyiUQoDOUGPYd1YmBFXJqDYCul7Ar5H/4+tPA6WVWKib9pYgeu38rFPkl9lApuv/Sz7Eg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10945
+User-Agent: Mozilla Thunderbird
+Subject: Re: [boot-wrapper] aarch64: Enable access into FEAT_FGT2 registers
+ from EL2 and below
+To: Mark Rutland <mark.rutland@arm.com>, Rob Herring <robh@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org
+References: <20240730054643.157295-1-anshuman.khandual@arm.com>
+ <Z7xmenE0scM9omcU@J2N7QTR9R3.cambridge.arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <Z7xmenE0scM9omcU@J2N7QTR9R3.cambridge.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_225709_551894_D95FC26C 
-X-CRM114-Status: UNSURE (   9.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_230927_159095_8A51CF79 
+X-CRM114-Status: GOOD (  21.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,26 +65,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add new file ntmp.h. to ENETC driver.
 
-Signed-off-by: Wei Fang <wei.fang@nxp.com>
----
- MAINTAINERS | 1 +
- 1 file changed, 1 insertion(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 7078199fcebf..e259b659eadb 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -9174,6 +9174,7 @@ F:	Documentation/devicetree/bindings/net/nxp,netc-blk-ctrl.yaml
- F:	drivers/net/ethernet/freescale/enetc/
- F:	include/linux/fsl/enetc_mdio.h
- F:	include/linux/fsl/netc_global.h
-+F:	include/linux/fsl/ntmp.h
- 
- FREESCALE eTSEC ETHERNET DRIVER (GIANFAR)
- M:	Claudiu Manoil <claudiu.manoil@nxp.com>
--- 
-2.34.1
+On 2/24/25 18:00, Mark Rutland wrote:
+> On Tue, Jul 30, 2024 at 11:16:43AM +0530, Anshuman Khandual wrote:
+>> FEAT_FGT2 adds system registers HDFGRTR2_EL2, HDFGWTR2_EL2, HFGITR2_EL2,
+>> HFGRTR2_EL2 and HFGWTR2_EL2. But access into these system registers from
+>> EL2 and below exception levels, will trap into EL3 unless SCR_EL3.FGTEN2
+>> is set.
+>>
+>> Enable access to FEAT_FGT2 registers when they are implemented. Given that
+>> these new FEAT_FGT2 trap registers have fields that reset to UNKNOWN values
+>> when resets are taken to EL3, this initialises all registers as cleared.
+>>
+>> Signed-off-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> ---
+>> This picks up from an earlier discussion regarding [PATCH 2/2].
+>>
+>> https://lore.kernel.org/all/20240404073726.947215-1-anshuman.khandual@arm.com/
+>>
+>>  arch/aarch64/include/asm/cpu.h | 7 +++++++
+>>  arch/aarch64/init.c            | 9 +++++++++
+>>  2 files changed, 16 insertions(+)
+>>
+>> diff --git a/arch/aarch64/include/asm/cpu.h b/arch/aarch64/include/asm/cpu.h
+>> index a5744e1..878d03d 100644
+>> --- a/arch/aarch64/include/asm/cpu.h
+>> +++ b/arch/aarch64/include/asm/cpu.h
+>> @@ -23,6 +23,12 @@
+>>  #define SCTLR2_EL1		s3_0_c1_c0_3
+>>  #define SCTLR2_EL2		s3_4_c1_c0_3
+>>  
+>> +#define HDFGRTR2_EL2		s3_4_c3_c1_0
+>> +#define HDFGWTR2_EL2		s3_4_c3_c1_1
+>> +#define HFGRTR2_EL2		s3_4_c3_c1_2
+>> +#define HFGWTR2_EL2		s3_4_c3_c1_3
+>> +#define HFGITR2_EL2		s3_4_c3_c1_7
+> 
+> These all look correct per ARM DDI 0487 L.a, table D23-2.
+> 
+>> +
+>>  /*
+>>   * RES1 bit definitions definitions as of ARM DDI 0487G.b
+>>   *
+>> @@ -63,6 +69,7 @@
+>>  #define SCR_EL3_SCTLR2En		BIT(44)
+>>  #define SCR_EL3_PIEN			BIT(45)
+>>  #define SCR_EL3_D128En			BIT(47)
+>> +#define SCR_EL3_FGTEN2			BIT(59)
+> 
+> This looks correct per ARM DDI 0487 L.a, section D24.2.163.
+> 
+>>  
+>>  #define HCR_EL2_RES1			BIT(1)
+>>  
+>> diff --git a/arch/aarch64/init.c b/arch/aarch64/init.c
+>> index c9fc7f1..b4d64a0 100644
+>> --- a/arch/aarch64/init.c
+>> +++ b/arch/aarch64/init.c
+>> @@ -68,6 +68,15 @@ void cpu_init_el3(void)
+>>  	if (mrs_field(ID_AA64MMFR0_EL1, FGT))
+>>  		scr |= SCR_EL3_FGTEN;
+>>  
+>> +	if (mrs_field(ID_AA64MMFR0_EL1, FGT) >= 2) {
+>> +		scr |= SCR_EL3_FGTEN2;
+>> +		msr(HDFGRTR2_EL2, 0);
+>> +		msr(HDFGWTR2_EL2, 0);
+>> +		msr(HFGITR2_EL2, 0);
+>> +		msr(HFGRTR2_EL2, 0);
+>> +		msr(HFGWTR2_EL2, 0);
+>> +	}
+> 
+> Superficially, this looks sane to me. I haven't audited all the bits, but I
+> assume that you have gone through all of the bits and checked that zero is a
+> sensible reset value for all of these.
+> 
+> I intend to apply this shortly.
+> 
+> As an aside, I think some necssary support is missing on the kernel side -- I'll reply
+> on that front shortly.
 
+Hello Mark,
+
+Seems like neither this boot wrapper patch nor the more recent one which sets
+MDCR_EL3.EnPM2 for FEAT_PMUv3p9 registers [1] (as you had pointed out earlier
+on the kernel thread) has been applied.
+
+[1] https://lore.kernel.org/all/20250227041603.2029058-1-anshuman.khandual@arm.com/
+
+IIUC both these boot-wrapper patches are necessary for the kernel patch and
+also for existing FEAT_PMUv3p9 feature.
+
+https://lore.kernel.org/all/20250227035119.2025171-1-anshuman.khandual@arm.com/
+
+FEAT_PMUv3p9 is the only current user with dependency on FEAT_FGT2 based traps,
+beside upcoming FEAT_Debugv8p9 feature which is still under development.
+
+Just wondering if there is something else that still needs to be addressed ?
+Please do let me know, will accommodate the changes as required. Thank you.
+
+- Anshuman
+
+> 
+> Mark.
+> 
+>> +
+>>  	if (mrs_field(ID_AA64MMFR0_EL1, ECV) >= 2)
+>>  		scr |= SCR_EL3_ECVEN;
+>>  
+>> -- 
+>> 2.25.1
+>>
+>>
 
