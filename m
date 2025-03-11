@@ -4,65 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19397C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:24:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05967C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nwjwTWvlXlVWp/1Vtkve4RwpibYDDWWKWT6E77UCc3g=; b=cBigNQJJfTweIILL/vLFY/0FX5
-	zENzmtpWcnYTW7IS91ysAJF1HDRfYp2BCW6ahVoaehGh2Wa0je+rMO5GM5T70XYpaVXMbcE+1PBnU
-	uswnTJuOEaMsbOqycvuFQL05guM4aQESnE/hhX4xyypEr5eDceWJG/n5goXiju48cfYCOAWQ0XEVA
-	FAHdyTqhTd/hOG8IOEAGZIOSSjHYM1sUfKfi7QWg4Ax/YhAXN+4e4ssBHc6MnvoR3GXYE2/ARbmhr
-	1U9SnMKdpYcpHElDuEOpahe86NuZ9vwf3LF+A8UHhsOxjOEMWHzI/I0LOpp5c/+R3pSdxVvhnNGwy
-	83LpHikw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nLCwXswZYSBkxPn1XmrO4lSU/EWMfOdaRIt9MMThb2c=; b=mpDIB44Yn9VmQCMu1iXIBL4TF3
+	rgWCTKyT7V8s2Oi8lZ9VtH+uqLvxicawMkQZqLOcDqG94M5DdV0WgjXugIcHJDjaRjffphLSI1VRB
+	ZvLN7MQNC2DA1eHhiKni2GWPi4FN/fJjqdYrRmp9K/oqG84ejdD0RHQGKVSCff97UCh9Rb2bCuINw
+	68Hv6jyAP17AIre3tH0dIBuI1wKpWXGhRkixII35bhJ1YCeCWlFsUigaLhRdoC5S9LFgtGd6fpaLz
+	pmjgK7EtXxAZOSSWcZjtj3/kLvjOYFaWImUucw3hbdIdsoATSUvs12cA2gbeVRII5o4tebNGMUyDb
+	kFPBftrQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzaL-00000005pNr-3wb9;
-	Tue, 11 Mar 2025 13:23:53 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzXZ-00000005oWr-2pTv
+	id 1trzby-00000005pmu-3bVo;
+	Tue, 11 Mar 2025 13:25:34 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trzZX-00000005p7T-1Icy
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 13:21:02 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id ECB1C1424;
-	Tue, 11 Mar 2025 06:21:11 -0700 (PDT)
-Received: from [10.1.30.125] (XHFQ2J9959.cambridge.arm.com [10.1.30.125])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 94F7D3F694;
-	Tue, 11 Mar 2025 06:20:57 -0700 (PDT)
-Message-ID: <818529f7-f720-4ae9-ab72-c8cd6dc43c0b@arm.com>
-Date: Tue, 11 Mar 2025 13:20:56 +0000
+	Tue, 11 Mar 2025 13:23:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E0D015C03CD;
+	Tue, 11 Mar 2025 13:20:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B581DC4CEE9;
+	Tue, 11 Mar 2025 13:22:57 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741699382;
+	bh=i+BKXnNSu0U4NhBbJQA6jSH5xRp79OrcRQjZJgO6OG8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=U0cOEBxVXPj9IXB917QVtzUpCxA15Cn8oMgtrQq7H9jUUCyjZXOcpyMZ4h98Uh5Z/
+	 dr7Jdd0Jc4ai5w5Kjit5U9F+Mw/4MFwvbPlptsZC3ZWVNC+5aQisIkDtDCKZ3VqXkt
+	 oW8AiSLqWIaqrYR1Aa33rUKvEKzglTuqew3WNwqmJu/d9iOuVBiztCv1wTj1cgeYkP
+	 HZ8YBIB0Fnk0je+h7PlEOsQ5R5LqkpGv1e9bvytRLWQDRxb0ct1h6hh1baUdnonhEL
+	 M6K/NDkfgsgug66YjSbU3olmCdOZMNMLxXSxe0nT3qI3MHZHCUaTu2uN/Jnc9KVne9
+	 dPsGlhOtsQrRg==
+Message-ID: <af6ebce2-7256-48bd-94d4-dc81e2944966@kernel.org>
+Date: Tue, 11 Mar 2025 14:22:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/4] iommu/arm: Add BBM Level 2 smmu feature
-Content-Language: en-GB
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
- Yang Shi <yang@os.amperecomputing.com>,
- =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- catalin.marinas@arm.com, will@kernel.org, joro@8bytes.org,
- jean-philippe@linaro.org, mark.rutland@arm.com, joey.gouly@arm.com,
- oliver.upton@linux.dev, james.morse@arm.com, broonie@kernel.org,
- maz@kernel.org, david@redhat.com, akpm@linux-foundation.org, jgg@ziepe.ca,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, iommu@lists.linux.dev
-References: <20250228182403.6269-2-miko.lenczewski@arm.com>
- <20250228182403.6269-6-miko.lenczewski@arm.com>
- <b46dc626-edc9-4d20-99d2-6cd08a01346c@os.amperecomputing.com>
- <43732270-8fd0-4a18-abec-096e383a6a4d@arm.com>
- <5ff34bd0-7823-4f31-9f13-bf60d3345b99@arm.com>
- <7cca1edf-fd1b-4622-999e-8e0ca098dfe2@arm.com>
- <0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <0ac0f1f5-e4a0-46ae-8ea0-2eba7e21a7e1@arm.com>
+Subject: Re: [PATCH] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML schema
+To: Purva Yeshi <purvayeshi550@gmail.com>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250311125756.24064-1-purvayeshi550@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250311125756.24064-1-purvayeshi550@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_062101_803389_4003BE74 
-X-CRM114-Status: GOOD (  42.77  )
+X-CRM114-CacheID: sfid-20250311_062303_462444_8ED2100A 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,220 +118,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 12:16, Suzuki K Poulose wrote:
-> On 11/03/2025 10:58, Ryan Roberts wrote:
->> On 11/03/2025 10:17, Suzuki K Poulose wrote:
->>> On 03/03/2025 10:17, Ryan Roberts wrote:
->>>> On 01/03/2025 01:32, Yang Shi wrote:
->>>>>
->>>>>
->>>>>
->>>>> On 2/28/25 10:24 AM, Mikołaj Lenczewski wrote:
->>>>>> For supporting BBM Level 2 for userspace mappings, we want to ensure
->>>>>> that the smmu also supports its own version of BBM Level 2. Luckily, the
->>>>>> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
->>>>>> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
->>>>>> BBM level 2 is claimed.
->>>>>>
->>>>>> Add the feature and testing for it under arm_smmu_sva_supported().
->>>>>>
->>>>>> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
->>>>>> ---
->>>>>>     arch/arm64/kernel/cpufeature.c                  | 7 +++----
->>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
->>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
->>>>>>     drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
->>>>>>     4 files changed, 13 insertions(+), 4 deletions(-)
->>>>>>
->>>>>> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
->>>>>> index 63f6d356dc77..1022c63f81b2 100644
->>>>>> --- a/arch/arm64/kernel/cpufeature.c
->>>>>> +++ b/arch/arm64/kernel/cpufeature.c
->>>>>> @@ -2223,8 +2223,6 @@ static bool has_bbml2_noabort(const struct
->>>>>> arm64_cpu_capabilities *caps, int sco
->>>>>>                 if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
->>>>>>                     return false;
->>>>>>             }
->>>>>> -
->>>>>> -        return true;
->>>>>>         } else if (scope & SCOPE_LOCAL_CPU) {
->>>>>>             /* We are a hot-plugged CPU, so only need to check our MIDR.
->>>>>>              * If we have the correct MIDR, but the kernel booted on an
->>>>>> @@ -2232,10 +2230,11 @@ static bool has_bbml2_noabort(const struct
->>>>>> arm64_cpu_capabilities *caps, int sco
->>>>>>              * we have an incorrect MIDR, but the kernel booted on a
->>>>>>              * sufficient CPU, we will not bring up this CPU.
->>>>>>              */
->>>>>> -        return cpu_has_bbml2_noabort(read_cpuid_id());
->>>>>> +        if (!cpu_has_bbml2_noabort(read_cpuid_id()))
->>>>>> +            return false;
->>>>>>         }
->>>>>>     -    return false;
->>>>>> +    return has_cpuid_feature(caps, scope);
->>>>>
->>>>> Do we really need this? IIRC, it means the MIDR has to be in the allow list
->>>>> *AND* MMFR2 register has to be set too. AmpereOne doesn't have MMFR2 register
->>>>> set.
->>>>
->>>> Miko, I think this should have been squashed into patch #1? It doesn't
->>>> belong in
->>>> this patch.
->>>>
->>>> Yang, we discussed this internally and decided that we thought it was best to
->>>> still require BBML2 being advertised in the feature register. That way if
->>>> trying
->>>> to use KVM to emulate a CPU that is in the allow list but doesn't really
->>>> support
->>>> BBML2, we won't try to use it.
->>>>
->>>> But we still end up with the same problem if running on a physical CPU that
->>>> supports BBML2 with conflict aborts, but emulating a CPU in the allow list. So
->>>
->>> I don't understand the problem here ? In the worst case, if we want to disable
->>> the BBML2 feature on a given CPU, we could provide an id-
->>> override to reset the value of BBML2. Or provide a kernel parameter to
->>> disable this in case we want to absolutely disable the feature on a
->>> "distro" kernel.
->>
->> Hi Suzuki,
->>
->> Sorry perhaps I'm confusing everyone; As I recall, we had a conversation before
->> Miko posted this series where you were suggesting we should check BOTH that all
->> the CPUs' MIDRs are in the allow list AND that BBML2 is advertised in MMFR2 in
->> order to decide to enable the CPU feature. My understanding was that without the
->> MMFR2 check, you were concerned that in a virtualization scenario, a CPU's MIDR
->> could be overridden to emulate a CPU that is in the allow list, but in reality
->> the CPU does not support BBML2. We would then enable BBML2 and BadThings (TM)
->> will happen. So additionally checking the MMFR2 would solve this.
->>
->> But Yang is saying that he plans to add the AmpereOne to the allow list because
->> it does support BBML2+NOCONFLICT semantics and we want to benefit from that. But
->> AmpereOne does not advertise BBML2 in it's MMFR2. So with the current approach,
->> adding AmpereOne to the allow list is not sufficient to enable the feature.
->>
->> But back to your original justification for checking the MMFR2; I don't think
->> that really solves the problem in general, because we don't just require BBML2,
->> we require BBML2+NOCONFLICT. And we can only determine that from the MIDR. So
->> why bother checking MMFR2?
+On 11/03/2025 13:57, Purva Yeshi wrote:
+> Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+> YAML schema (`lpc32xx-pwm.yaml`).
 > 
-> My concerns are not around enabling a CPU, but having a damage control with a
-> "kernel" that a user has no control over (Read, standard distribution kernel).
+> Changes:
+> 
+> Add SPDX license identifier `(GPL-2.0-only OR BSD-2-Clause)`.
 
-Ahh I misunderstood then.
+That's not a change in the binding.
+
+> Define `$id` and `$schema` fields for proper schema validation.
+> Set `title` to describe the LPC32XX PWM controller.
+
+Neither these.
+
+> Add maintainers as per `scripts/get_maintainer.pl` output.
+
+These should not be subsystem maintainers.
+
+> Reference `pwm.yaml#` in `allOf` to inherit common PWM properties.
+
+Not a change to the binding.
 
 > 
-> 1. If the combination of the above causes problem (in Virtualization)
-> 2. If the combination of the above is detected to have problems in baremetal.
+> Define properties:
+> Restrict `compatible` to `"nxp,lpc3220-pwm"` using `const`.
+> Limit `reg` to `maxItems: 1` to ensure a single register range.
+> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
 > 
-> In (1), VMM could control the ID register and disable the feature.
-> 
-> For (2) we could provide an id-override on command line to disable it in
-> the worst case.
-> 
-> So, having the id register case is a good way to get the system running
-> with a given kernel (in either world). Without that, we don't have a tunable to
-> control the behavior at runtime.
-> 
-> May be I am being over paranoid about this.
-> 
->>
->> I guess we could provide an id-override on the kernel command line to *enable*
->> BBML2 for AmpereOne, but that's not going to be suitable for mass deployment, I
-> 
-> Unfortunately, we can't override to provide the "feature" that is missing (at
-> least today).
-> 
-> One option is, run with a whitelist, but provide a kernel parameter to disable
-> bbml2 feature.
-> 
-> Something like, arm64.bbml2=0
-> > So the decision is based on the parameter && MIDR list.
+> Mark `compatible` and `reg` as required properties.
 
-This sounds like a good solution to me. I guess we would wire this up to the SW
-features "register".
+So it wasn't before? What are you implying here?
 
-Thanks,
-Ryan
+> Set `unevaluatedProperties: false` to enforce strict validation.
+> 
+> Validate the YAML schema using dt-validate and yamllint.
+
+None of above is suitable for commit msg.
 
 > 
-> 
-> Cheers
-> Suzuki
-> 
->> don't think?
->>
->> Thanks,
->> Ryan
->>
->>>
->>> Suzuki
->>>
->>>
->>>> given AmpereOne doesn't advertise BBML2 but does support it, I'd be happy to
->>>> remove this check.
->>>>
->>>> Thanks,
->>>> Ryan
->>>>
->>>>
->>>>>
->>>>> Thanks,
->>>>> Yang
->>>>>
->>>>>>     }
->>>>>>       #ifdef CONFIG_ARM64_PAN
->>>>>> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/
->>>>>> arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>>>> index 9ba596430e7c..6ba182572788 100644
->>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
->>>>>> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
->>>>>>             feat_mask |= ARM_SMMU_FEAT_VAX;
->>>>>>         }
->>>>>>     +    if (system_supports_bbml2_noabort())
->>>>>> +        feat_mask |= ARM_SMMU_FEAT_BBML2;
->>>>>> +
->>>>>>         if ((smmu->features & feat_mask) != feat_mask)
->>>>>>             return false;
->>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/
->>>>>> arm/arm-smmu-v3/arm-smmu-v3.c
->>>>>> index 358072b4e293..dcee0bdec924 100644
->>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
->>>>>> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct
->>>>>> arm_smmu_device *smmu)
->>>>>>         if (FIELD_GET(IDR3_RIL, reg))
->>>>>>             smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
->>>>>>     +    if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
->>>>>> +        smmu->features |= ARM_SMMU_FEAT_BBML2;
->>>>>> +
->>>>>>         /* IDR5 */
->>>>>>         reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
->>>>>>     diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/
->>>>>> arm/arm-smmu-v3/arm-smmu-v3.h
->>>>>> index bd9d7c85576a..85eaf3ab88c2 100644
->>>>>> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->>>>>> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
->>>>>> @@ -60,6 +60,9 @@ struct arm_smmu_device;
->>>>>>     #define ARM_SMMU_IDR3            0xc
->>>>>>     #define IDR3_FWB            (1 << 8)
->>>>>>     #define IDR3_RIL            (1 << 10)
->>>>>> +#define IDR3_BBML            GENMASK(12, 11)
->>>>>> +#define IDR3_BBML1            (1 << 11)
->>>>>> +#define IDR3_BBML2            (2 << 11)
->>>>>>       #define ARM_SMMU_IDR5            0x14
->>>>>>     #define IDR5_STALL_MAX            GENMASK(31, 16)
->>>>>> @@ -754,6 +757,7 @@ struct arm_smmu_device {
->>>>>>     #define ARM_SMMU_FEAT_HA        (1 << 21)
->>>>>>     #define ARM_SMMU_FEAT_HD        (1 << 22)
->>>>>>     #define ARM_SMMU_FEAT_S2FWB        (1 << 23)
->>>>>> +#define ARM_SMMU_FEAT_BBML2        (1 << 24)
->>>>>>         u32                features;
->>>>>>       #define ARM_SMMU_OPT_SKIP_PREFETCH    (1 << 0)
->>>>>
->>>>
->>>
->>
-> 
+> Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+> ---
+>  .../devicetree/bindings/pwm/lpc32xx-pwm.yaml  | 45 +++++++++++++++++++
+>  1 file changed, 45 insertions(+)
 
+Where is the conversion?
+
+>  create mode 100644 Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+> new file mode 100644
+> index 000000000..3e41cd291
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+> @@ -0,0 +1,45 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pwm/nxp,lpc32xx-pwm.yaml#
+
+Filename matching compatible.
+
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: LPC32XX PWM controller
+> +
+> +maintainers:
+> +  - "Uwe Kleine-König <ukleinek@kernel.org>"
+> +  - "Vladimir Zapolskiy <vz@mleia.com>"
+> +  - "Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>"
+
+Look at other bindings - none of them use quotes.
+
+> +
+> +allOf:
+> +  - $ref: pwm.yaml#
+> +
+> +properties:
+> +  compatible:
+> +    const: nxp,lpc3220-pwm
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  "#pwm-cells":
+> +    const: 3
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    pwm@4005c000 {
+> +        compatible = "nxp,lpc3220-pwm";
+> +        reg = <0x4005c000 0x4>;
+> +        #pwm-cells = <3>;
+> +    };
+> +  - |
+> +    pwm@4005c004 {
+> +        compatible = "nxp,lpc3220-pwm";
+
+One example is enough.
+
+
+
+Best regards,
+Krzysztof
 
