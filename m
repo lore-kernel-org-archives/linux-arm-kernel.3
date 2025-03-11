@@ -4,62 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B5A5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:56:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 383BCC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:00:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cXhIBCz0Y7BUSuD6wAdj64gVJ7AgkZm4+p8k7ywkNAA=; b=EUU26hmvLP0W+WEqn7CywAfeyp
-	yLjL1v5uUrjc+bf6vVV9jqP9IlQjwFwA7kGKEeQpvses3P69lPh19lNs7aQpe4afKit1CgayXeLjo
-	VdjjkaJvzsh2Fy87YzgFcCd6QlV7llBsRuoeEeSFxm3U7pTYfj0LXf8AdONM2xXvzES1u+m1eYYFP
-	sXDaP4id1RS9dJM989rMKYz6lhJ5IvEdA9WMFrDT/b62/fUxQ6bF8x9QuesCadh/j5ZVvqfQTJagg
-	LJ5on+EPE4uUgdGSKJ9pM4eGusDkCWFfT1jox47yLMOck80oDvr4d0EWeMMb/FMSeVlan/ZIxmV6l
-	eHKGOpfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=HybHSX/cYkHQKvO6mzXLR82O5IN46nB/6HHTSuvxJ9w=; b=TrVwplt9mV/UlYrJHnCdkSlqGl
+	gQ/sCiS0IDjCKMFPoJWBTRic4Ag6XfNdobQCKnsIlr04g+ZFFkQN+7hR2IYfAEMQNQMLQ8Nj1uI6f
+	dlRf2WLVUh3NBKYo1vHSe2I36eVXujhVQwGI62ULlQ7WKZAxBKLvmAceo9+rWmySLe0bq9OJ99REk
+	64h8UVIVv+0DUCf4b4GvoUvelAqAhvrLIvnwRMr9WvdkpDBU/XInLhfMrKN0TKPX+G7vTB/D4LxnI
+	5OA2bmWgpgbF0gWdGgdEPDDoLCBW1yHxIzvSaa/PfyxwrE7iOvWoXWb40IAydKNBUe2W0XfrqTOF1
+	d2bzD6yA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzA5-00000005kZE-0gRP;
-	Tue, 11 Mar 2025 12:56:45 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1trzDO-00000005kpj-33fd;
+	Tue, 11 Mar 2025 13:00:10 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trz7l-00000005kKJ-1BGD
+	id 1trzBk-00000005kgF-1INN
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 12:54:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 245A5A44BC4;
-	Tue, 11 Mar 2025 12:48:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 994EAC4CEEC;
-	Tue, 11 Mar 2025 12:54:18 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741697659;
-	bh=ZnG2jyfgDIu+D9iUJU49SovzML6QYHdmJt29Dxynk2I=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KZs+INohVu9w82nQeOAxO2hkfOeWFrm+kIUpcXs0AIBaoYbsMs24n5Fn5N9mbFclr
-	 3GE216KL6Q1OW6f+BX3aiID0YlvlHk3NnHN33OgF5Dxr2lnDGoXcTIymt6t8jFmZq+
-	 5q8PqXgYvFvhb0Gj7GZbQ7f3P6VK32GTRVXNxlyZ1n5d1Qb/aBYiQwWEbZHo1NZ7GS
-	 bpZ8dg2lmHxnbmOYw54uIaCJZn6epuPJLG8Wo/NvISewBvgJjSAP9iAOlf4xzeL1eF
-	 skSxfclDUFJd2IU5TKq+klllNJlrUJqvF7HjBOo287JFh2hOY8REbE/S/4iN4q9LPr
-	 6qSLpvWhRxF+Q==
-Date: Tue, 11 Mar 2025 12:54:15 +0000
-From: Will Deacon <will@kernel.org>
-To: Omar Sandoval <osandov@osandov.com>
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
+	Tue, 11 Mar 2025 12:58:29 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-22423adf751so77597895ad.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 05:58:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741697906; x=1742302706; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=HybHSX/cYkHQKvO6mzXLR82O5IN46nB/6HHTSuvxJ9w=;
+        b=jBTMhZH288vjXgTHVzr3Elq6/JzlCOehROJ9RZXKVMR35Xxdl59Jmf8o1+4sbukSw1
+         dmZswdpuzo2f/oVg7W0F1tTNEuwKJTJKHrHXElNHPzOUVbWq6CofUSmZDyJOyvE9hQQh
+         S2zMTH+XMUSWaolfA+6KOov8AzfcCgczenFoFdKY3AB3UftiE8O0K8vtnXYnEKAWaaTp
+         KJIgXtTVLFvuEBWBs6amSEI1WjTPwb+h54pzp8cp4/clf/88UW5dfrYaAJV2ezYNFum+
+         8HyKYhCmO2mxRURVKHrHl3ackP6IEhaNiH5KrFqYW91XMnuArTU2hkRYHfftTJ39mLD8
+         ck6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741697906; x=1742302706;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=HybHSX/cYkHQKvO6mzXLR82O5IN46nB/6HHTSuvxJ9w=;
+        b=QI/ZaFSPpTfXhSQpRV0IhdYIXosLJgpuBgNVADyQs7Xu0EsE7lcek53H94AbGo7w+s
+         YpifCQPHSO2JvVHRhICq8LO73ElD0qBFp3rZF3wgUiY6qPxnfb+3xDJfPP8aWRf3YpNp
+         jDtWutw0Uka5xAFRy1GHxkxM45WcrNXggRN3NxDF0OmgQTRUK1AVUd+HP51nhlXbm7Ix
+         2VQyxQsuPPwQQ4Bd29qFMX8WiAf3nw6AaFkXi9eSYkx4gxY9V2eUGK75s5Ey62LKPDOu
+         4MUWCDVhM6Tf4CpyVPXwAkh8d9L7kw1qn/kU+FDodohf4R9IgnpXbhGrfUmiQbjznnK2
+         TB9w==
+X-Forwarded-Encrypted: i=1; AJvYcCXRBA/285xKYLnvZL6VBgIdvroX5Pphayayk3mD33xXoN5gXDnaPAh6jsByPXNwAEbldyDce4zAwOXuGI7Wt8b0@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7gR4iYTgKe2YsfrRGIzGQVTJDGqrh6P3oypR/PIU4P6jFk52z
+	uQAsrHD6nZF/f9A9bznQFOAb6geeLZ+A7wCpAoHb37JFvRaeWvAE
+X-Gm-Gg: ASbGnctDwlXK1cJe+TFIOQkJanxEU1z2Zzaugo36oXjxmHkmKCAL8piiywFhoN25G9t
+	Hc5ME52opojv6EZM/Qxq0svRbwUylS4y+hmCqMoQ52p/mEJ4dqUmVdkAaEyDAQER8YmrGr/DFHh
+	0PWvTGgpCGmd1Xhzb0RZNYfDKhZwbFTPZ+ruyvF2SqbMWW7KqYqwHWXMhEJe2mHrBeOG9yeoAcZ
+	huGk2kXnsw9WHMbN6Jo0fGLUAF5ZtYuujaloRNp5gHNI7li+iJOHpNOoib30jfWevD0CeA+CbS9
+	qJgf3JdDT45APu1nPRgmnVvnwbzWpZBsMCvn06m5exwU+i6G6kYDmBzsYajdwYTBwDAaqBTtu3j
+	6WDmI
+X-Google-Smtp-Source: AGHT+IEOf4e2cGRATnJTbW2bOROibHi2zYAh0ElgqYv/rjSNcReiFylmnMGtump4zwxMszEZz/Y4bQ==
+X-Received: by 2002:a17:903:440f:b0:223:7006:4db2 with SMTP id d9443c01a7336-22592e47c93mr62081545ad.31.1741697906379;
+        Tue, 11 Mar 2025 05:58:26 -0700 (PDT)
+Received: from purva-IdeaPad-Gaming-3-15IHU6.. ([2409:4080:1188:3708:7bc7:f5b5:1c3d:ad0f])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22410ab45bfsm96871375ad.250.2025.03.11.05.58.21
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 05:58:25 -0700 (PDT)
+From: Purva Yeshi <purvayeshi550@gmail.com>
+To: ukleinek@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	vz@mleia.com,
+	piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-debuggers@vger.kernel.org, kernel-team@fb.com,
-	ardb@kernel.org
-Subject: Re: [PATCH] arm64: reserve [_text, _stext) virtual address range
-Message-ID: <20250311125414.GA4601@willie-the-truck>
-References: <ec2d02358eee53f095ad9a7d9c96af8f4d0d4eeb.1741636880.git.osandov@osandov.com>
+	linux-kernel@vger.kernel.org,
+	Purva Yeshi <purvayeshi550@gmail.com>
+Subject: [PATCH] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML schema
+Date: Tue, 11 Mar 2025 18:27:56 +0530
+Message-Id: <20250311125756.24064-1-purvayeshi550@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <ec2d02358eee53f095ad9a7d9c96af8f4d0d4eeb.1741636880.git.osandov@osandov.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+Content-Type: text/plain; charset=y
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_055421_463027_BA57C4B7 
-X-CRM114-Status: GOOD (  25.71  )
+X-CRM114-CacheID: sfid-20250311_055828_348964_95076376 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,97 +104,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+Ard]
+Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
+YAML schema (`lpc32xx-pwm.yaml`).
 
-On Mon, Mar 10, 2025 at 01:05:04PM -0700, Omar Sandoval wrote:
-> From: Omar Sandoval <osandov@fb.com>
-> 
-> Since the referenced fixes commit, the kernel's .text section is only
-> mapped starting from _stext; the region [_text, _stext) is omitted. As a
-> result, other vmalloc/vmap allocations may use the virtual addresses
-> nominally in the range [_text, _stext). This address reuse confuses
-> multiple things:
-> 
-> 1. crash_prepare_elf64_headers() sets up a segment in /proc/vmcore
->    mapping the entire range [_text, _end) to
->    [__pa_symbol(_text), __pa_symbol(_end)). Reading an address in
->    [_text, _stext) from /proc/vmcore therefore gives the incorrect
->    result.
-> 2. Tools doing symbolization (either by reading /proc/kallsyms or based
->    on the vmlinux ELF file) will incorrectly identify vmalloc/vmap
->    allocations in [_text, _stext) as kernel symbols.
-> 
-> In practice, both of these issues affect the drgn debugger.
-> Specifically, there were cases where the vmap IRQ stacks for some CPUs
-> were allocated in [_text, _stext). As a result, drgn could not get the
-> stack trace for a crash in an IRQ handler because the core dump
-> contained invalid data for the IRQ stack address. The stack addresses
-> were also symbolized as being in the _text symbol.
-> 
-> Fix this by creating an unmapped vm_area to cover [_text, _stext). This
-> prevents other allocations from using it while still achieving the
-> original goal of not mapping unpredictable data.
-> 
-> Fixes: e2a073dde921 ("arm64: omit [_text, _stext) from permanent kernel mapping")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Omar Sandoval <osandov@fb.com>
-> ---
-> Based on v6.14-rc6.
-> 
-> Thanks!
-> 
->  arch/arm64/mm/mmu.c | 26 +++++++++++++++++---------
->  1 file changed, 17 insertions(+), 9 deletions(-)
-> 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b4df5bc5b1b8..88595ea12f39 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -703,10 +703,14 @@ static void __init declare_vma(struct vm_struct *vma,
->  			       void *va_start, void *va_end,
->  			       unsigned long vm_flags)
->  {
-> -	phys_addr_t pa_start = __pa_symbol(va_start);
-> +	phys_addr_t pa_start = 0;
->  	unsigned long size = va_end - va_start;
->  
-> -	BUG_ON(!PAGE_ALIGNED(pa_start));
-> +	if (vm_flags & VM_MAP) {
-> +		pa_start = __pa_symbol(va_start);
-> +		BUG_ON(!PAGE_ALIGNED(pa_start));
-> +	}
-> +
->  	BUG_ON(!PAGE_ALIGNED(size));
->  
->  	if (!(vm_flags & VM_NO_GUARD))
-> @@ -715,7 +719,7 @@ static void __init declare_vma(struct vm_struct *vma,
->  	vma->addr	= va_start;
->  	vma->phys_addr	= pa_start;
->  	vma->size	= size;
-> -	vma->flags	= VM_MAP | vm_flags;
-> +	vma->flags	= vm_flags;
->  	vma->caller	= __builtin_return_address(0);
->  
->  	vm_area_add_early(vma);
-> @@ -765,13 +769,17 @@ core_initcall(map_entry_trampoline);
->   */
->  static void __init declare_kernel_vmas(void)
->  {
-> -	static struct vm_struct vmlinux_seg[KERNEL_SEGMENT_COUNT];
-> +	static struct vm_struct vmlinux_seg[KERNEL_SEGMENT_COUNT + 1];
->  
-> -	declare_vma(&vmlinux_seg[0], _stext, _etext, VM_NO_GUARD);
-> -	declare_vma(&vmlinux_seg[1], __start_rodata, __inittext_begin, VM_NO_GUARD);
-> -	declare_vma(&vmlinux_seg[2], __inittext_begin, __inittext_end, VM_NO_GUARD);
-> -	declare_vma(&vmlinux_seg[3], __initdata_begin, __initdata_end, VM_NO_GUARD);
-> -	declare_vma(&vmlinux_seg[4], _data, _end, 0);
-> +	declare_vma(&vmlinux_seg[0], _text, _stext, VM_NO_GUARD);
+Changes:
 
-Should we also put the memblock reservation back as it was, so that this
-region can't be allocated there?
+Add SPDX license identifier `(GPL-2.0-only OR BSD-2-Clause)`.
+Define `$id` and `$schema` fields for proper schema validation.
+Set `title` to describe the LPC32XX PWM controller.
+Add maintainers as per `scripts/get_maintainer.pl` output.
+Reference `pwm.yaml#` in `allOf` to inherit common PWM properties.
 
-In fact, if we're not allocating from here, why don't we just map it
-anyway but without execute permissions?
+Define properties:
+Restrict `compatible` to `"nxp,lpc3220-pwm"` using `const`.
+Limit `reg` to `maxItems: 1` to ensure a single register range.
+Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
 
-Will
+Mark `compatible` and `reg` as required properties.
+Set `unevaluatedProperties: false` to enforce strict validation.
+
+Validate the YAML schema using dt-validate and yamllint.
+
+Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
+---
+ .../devicetree/bindings/pwm/lpc32xx-pwm.yaml  | 45 +++++++++++++++++++
+ 1 file changed, 45 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+
+diff --git a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+new file mode 100644
+index 000000000..3e41cd291
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+@@ -0,0 +1,45 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pwm/nxp,lpc32xx-pwm.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: LPC32XX PWM controller
++
++maintainers:
++  - "Uwe Kleine-König <ukleinek@kernel.org>"
++  - "Vladimir Zapolskiy <vz@mleia.com>"
++  - "Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>"
++
++allOf:
++  - $ref: pwm.yaml#
++
++properties:
++  compatible:
++    const: nxp,lpc3220-pwm
++
++  reg:
++    maxItems: 1
++
++  "#pwm-cells":
++    const: 3
++
++required:
++  - compatible
++  - reg
++
++unevaluatedProperties: false
++
++examples:
++  - |
++    pwm@4005c000 {
++        compatible = "nxp,lpc3220-pwm";
++        reg = <0x4005c000 0x4>;
++        #pwm-cells = <3>;
++    };
++  - |
++    pwm@4005c004 {
++        compatible = "nxp,lpc3220-pwm";
++        reg = <0x4005c004 0x4>;
++        #pwm-cells = <3>;
++    };
+-- 
+2.34.1
+
 
