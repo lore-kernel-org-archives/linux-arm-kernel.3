@@ -4,93 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21A13C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:20:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E50BC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:22:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qFnSX2KTr0k/JpY3eMOlcXYP3G68WqDAGo3AvBQ3g7E=; b=AmKCxnB4/t9eOshBuLo3y4y2/v
-	1fDpI04ZskKI6sAyq9vMrP1ief92u6bdpuwsi8ikpZP3RteXBG73nOA1aRvlRfEHPnMypHPdq4kQ7
-	L4pkbiJs6OtbvKEZRl5XZHzepGs3ScnTuwNfyuenad0NJs/kk/mxpnBPyYa/6iDpcKtQbqW6pAlIn
-	waDkyMciSl/ZA9JfA7wF9eH1FarauTtEDjIgSLGMfFcQ7rnijXq+Jy9SxVOjvd49A0VkYUYWe6mMS
-	xwM/FqapQfRZO4edWM0E82AKQQ0LUO+NtEYFgeV8/hY601SXmdodQzoN5G7Uyi5lo2WwI4Fx6OP4o
-	wd4iU8TA==;
+	bh=QTEfFUG9TC2l0LTeh0eSGozglj5eBUV7cTFGwbsrmow=; b=u1NT7UmtSrJbFt/cVGwyVlG2vM
+	Rw66Yz7C/bC1mMcaOrhzWVbNsOB6288fm/HkhvEIp4rW3t/sDIqIp5PuCTnsyJ9BPeE/wdhTh1QET
+	F9Q0KHYSFR3m7UWO+9iLK4x5WVaANlZm1BZqzdmFfiRRS4b6jyMuk+6V9Ka+LDKV674rHPsnrEldc
+	DT0CLCOgWPYV3EkWZQebXI1WHV+fLaDJ+4KWfPdm63tbKnb0Rtpg0E965EUL1Elcel2wLZctzQUIL
+	/lITpv9KZaQDIQa0qwVizoSnfcYD/JiEgFcpVreTdm0GXbcdUvOCLAjOlUSlRfYeHyaPD2Hx3vKke
+	86lvvO5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1PB-0000000676n-0Me3;
-	Tue, 11 Mar 2025 15:20:29 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1ts1Qn-000000067Qi-0DhX;
+	Tue, 11 Mar 2025 15:22:09 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1NV-000000066qK-1vzo
+	id 1ts1OD-0000000670g-2NpJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:18:47 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFIZVO1325000
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 10:18:35 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741706315;
-	bh=qFnSX2KTr0k/JpY3eMOlcXYP3G68WqDAGo3AvBQ3g7E=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=KpjTR1Il84Ht/Nz19XHRYNAX0ZPVuAQe/qi7rRJN7Qt0lF3EmKQzT434dTg5XzHsZ
-	 vLpe2ZZ9vx74v+wSoEUMEMonRAoVYcyiorUYjgENBpfuU8irJ8lZAYa5N0/Ly5e9UP
-	 1wB81AnIfHlM5D+N0n/9WCDk5DTTm5VypVIDklw0=
-Received: from DFLE113.ent.ti.com (dfle113.ent.ti.com [10.64.6.34])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFIZgZ073265
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 11 Mar 2025 10:18:35 -0500
-Received: from DFLE115.ent.ti.com (10.64.6.36) by DFLE113.ent.ti.com
- (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 10:18:34 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE115.ent.ti.com
- (10.64.6.36) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 10:18:34 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BFIXYx002158;
-	Tue, 11 Mar 2025 10:18:34 -0500
-Date: Tue, 11 Mar 2025 20:48:33 +0530
-From: "s-vadapalli@ti.com" <s-vadapalli@ti.com>
-To: "Sverdlin, Alexander" <alexander.sverdlin@siemens.com>
-CC: "andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
-        "s-vadapalli@ti.com"
-	<s-vadapalli@ti.com>,
-        "davem@davemloft.net" <davem@davemloft.net>,
-        "dan.carpenter@linaro.org" <dan.carpenter@linaro.org>,
-        "jpanis@baylibre.com"
-	<jpanis@baylibre.com>,
-        "c-vankar@ti.com" <c-vankar@ti.com>,
-        "pabeni@redhat.com" <pabeni@redhat.com>,
-        "horms@kernel.org"
-	<horms@kernel.org>,
-        "edumazet@google.com" <edumazet@google.com>,
-        "rogerq@kernel.org" <rogerq@kernel.org>,
-        "kuba@kernel.org" <kuba@kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "vigneshr@ti.com" <vigneshr@ti.com>,
-        "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "srk@ti.com"
-	<srk@ti.com>
-Subject: Re: [PATCH net v2] net: ethernet: ti: am65-cpsw: Fix NAPI
- registration sequence
-Message-ID: <20250311151833.v3gymfqao4y2zls7@uda0492258>
-References: <20250311130103.68971-1-s-vadapalli@ti.com>
- <02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com>
-MIME-Version: 1.0
+	Tue, 11 Mar 2025 15:19:30 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id BB29FA44286;
+	Tue, 11 Mar 2025 15:13:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4908AC4CEEA;
+	Tue, 11 Mar 2025 15:19:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741706368;
+	bh=m5y+8WWCkr2bdf4DjUDmOPPTjTgljzQzDitsJbpFa30=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=XG/jtD/q5EJBxWC3SLv4srOZdrXtQUzrMuV7xCsfWahJCZc5a34y8F3EFE426msYP
+	 S3rLD9c988gUVZaxVOLmmT3Kzxxkjiq1hWgy+YkAlwxN7G7zpImfnUMIbt+CPxuFjB
+	 nYhFYCWfN1LSH5sxrugoEauAzwyOTbcgNBC7GunQ65s0vA49ZrJxISs4jifXCJxnlj
+	 0y46EbZnZ3DVLcUVSiOLrp8S8+NZ83Uq6SjR/CvgR0VgFJTuIzMAoUDXD4/yD6DhKk
+	 3+GTd8vDovZ+h/b/Cq745WjYqok8zised262Ai5kHswq4q8g9g4tzGDwh8KgBGMrOL
+	 dhiEECYN/3gJg==
+Date: Tue, 11 Mar 2025 10:19:26 -0500
 Content-Type: text/plain; charset="utf-8"
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Maxime Ripard <mripard@kernel.org>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ devicetree@vger.kernel.org, Darren Etheridge <detheridge@ti.com>, 
+ David Airlie <airlied@gmail.com>, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ dri-devel@lists.freedesktop.org, Vignesh Raghavendra <vigneshr@ti.com>, 
+ Frank Binns <frank.binns@imgtec.com>, Tero Kristo <kristo@kernel.org>, 
+ Randolph Sapp <rs@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
+ Thomas Zimmermann <tzimmermann@suse.de>, Simona Vetter <simona@ffwll.ch>, 
+ Alessio Belle <alessio.belle@imgtec.com>, 
+ Sarah Walker <sarah.walker@imgtec.com>, 
+ Alexandru Dadu <alexandru.dadu@imgtec.com>, Nishanth Menon <nm@ti.com>
+To: Matt Coster <matt.coster@imgtec.com>
+In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
+References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
+Message-Id: <174170613791.3566312.1327920809474076624.robh@kernel.org>
+Subject: Re: [PATCH v3 00/18] Imagination BXS-4-64 MC1 GPU support
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_081845_632536_CE6EFD20 
-X-CRM114-Status: GOOD (  28.50  )
+X-CRM114-CacheID: sfid-20250311_081929_737663_F2F2E1B9 
+X-CRM114-Status: GOOD (  27.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,105 +81,166 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 01:53:10PM +0000, Sverdlin, Alexander wrote:
-> Hi Siddharth!
-> 
-> On Tue, 2025-03-11 at 18:31 +0530, Siddharth Vadapalli wrote:
-> > From: Vignesh Raghavendra <vigneshr@ti.com>
-> > 
-> > Registering the interrupts for TX or RX DMA Channels prior to registering
-> > their respective NAPI callbacks can result in a NULL pointer dereference.
-> > This is seen in practice as a random occurrence since it depends on the
-> > randomness associated with the generation of traffic by Linux and the
-> > reception of traffic from the wire.
-> > 
-> > Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
-> > Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> > Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> 
-> ...
-> 
-> > v1 of this patch is at:
-> > https://lore.kernel.org/all/20250311061214.4111634-1-s-vadapalli@ti.com/
-> > Changes since v1:
-> > - Based on the feedback provided by Alexander Sverdlin <alexander.sverdlin@siemens.com>
-> >   the patch has been updated to account for the cleanup path in terms of an imbalance
-> >   between the number of successful netif_napi_add_tx/netif_napi_add calls and the
-> >   number of successful devm_request_irq() calls. In the event of an error, we will
-> >   always have one extra successful netif_napi_add_tx/netif_napi_add that needs to be
-> >   cleaned up before we clean an equal number of netif_napi_add_tx/netif_napi_add and
-> >   devm_request_irq.
-> 
-> ...
-> 
-> > --- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> > +++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-> > @@ -2569,6 +2570,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
-> >  			     HRTIMER_MODE_REL_PINNED);
-> >  		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
-> >  
-> > +		netif_napi_add(common->dma_ndev, &flow->napi_rx,
-> > +			       am65_cpsw_nuss_rx_poll);
-> > +
-> >  		ret = devm_request_irq(dev, flow->irq,
-> >  				       am65_cpsw_nuss_rx_irq,
-> >  				       IRQF_TRIGGER_HIGH,
-> > @@ -2579,9 +2583,6 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
-> >  			flow->irq = -EINVAL;
-> >  			goto err_flow;
-> >  		}
-> > -
-> > -		netif_napi_add(common->dma_ndev, &flow->napi_rx,
-> > -			       am65_cpsw_nuss_rx_poll);
-> >  	}
-> >  
-> >  	/* setup classifier to route priorities to flows */
-> > @@ -2590,10 +2591,11 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
-> >  	return 0;
-> >  
-> >  err_flow:
-> > -	for (--i; i >= 0 ; i--) {
-> > +	netif_napi_del(&flow->napi_rx);
-> 
-> There are totally 3 "goto err_flow;" instances, so if k3_udma_glue_rx_flow_init() or
-> k3_udma_glue_rx_get_irq() would fail on the first iteration, we would come here without
-> a single call to netif_napi_add().
 
-The following should address this right?
-------------------------------------------------------------------------------------------------
-diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-index b88edf2dd8f4..bef734c6e5c2 100644
---- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-+++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
-@@ -2581,7 +2581,7 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
-                        dev_err(dev, "failure requesting rx %d irq %u, %d\n",
-                                i, flow->irq, ret);
-                        flow->irq = -EINVAL;
--                       goto err_flow;
-+                       goto err_request_irq;
-                }
-        }
+On Mon, 10 Mar 2025 13:10:24 +0000, Matt Coster wrote:
+> This GPU is found in the TI AM68 family of SoCs, with initial support
+> added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
+> 
+> A suitable firmware binary can currently be found in the IMG
+> linux-firmware repository[1] as powervr/rogue_36.53.104.796_v1.fw.
+> 
+> No new UAPI will be necessary for this platform as it is sufficiently
+> similar to the already supported AXE-1-16M.
+> 
+> UMD support is close to being complete. We're now able to pass >90% of
+> Vulkan conformance on our Mesa development branch. The compiler has been
+> undergoing a significant rework needed to accomodate the BXS-4-64, as
+> well as to make it more flexible to support additional Rogue GPUs going
+> forward. The first part of this rework landed in Mesa in [2], and more
+> MRs will follow in the coming weeks.
+> 
+> There are several dt-bindings changes at the beginning of this series.
+> We expect the result to be versatile enough to handle all Imagination
+> Rogue GPUs while being a strong foundation to build bindings for the
+> newer Volcanic architecture (for which we're currently developing
+> support).
+> 
+> The DTS changes at the end of the series are marked [DO NOT MERGE]. Once
+> the series is reviewed, we will request these be taken through the
+> relevant tree.
+> 
+> [1]: https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
+> [3]: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32258
+> 
+> ---
+> Changes in v3:
+> - Reorder some patches to ensure the proper sequencing
+> - Update status of UMD support (cover)
+> - Don't use more specific compatible strings when not required (P1)
+> - Avoid ABI break by limiting new required properties to new compatible
+>   strings (P2)
+> - Move power domain changes to the patch in which they're used (P2/P5)
+> - Update register definitions (P3) [Thanks, Alessio!]
+> - Don't use more specific compatible strings when not required (P4)
+> - Enhanced commit messages (P4)
+> - Remove unnecessary example (P5)
+> - Add proper fixes for threaded IRQs (P6) [Thanks, Alessio!]
+> - Include fix for a separate IRQ issue (P7) [Thanks, Alessio!]
+> - Don't enable firmware debug module (was P13 in v2, also in P14)
+> - Change from a workaround to a regular codepath (P15)
+> - Drop platform overrides framework (was P18 in v2, also in P16)
+> - Mark DTS changes [DO NOT MERGE] (P17/P18)
+> - Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com
+> 
+> Changes in v2:
+> - Clarified justification for compatible strings (P1)
+> - Simplified clocks constraints (P2)
+> - Simplified power-domains constraints (P3/P4)
+> - Use normal reg syntax for 64-bit values (P8/P21)
+> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com
+> 
+> ---
+> Alessio Belle (3):
+>       drm/imagination: Update register defs for newer GPUs
+>       drm/imagination: Mask GPU IRQs in threaded handler
+>       drm/imagination: Handle Rogue safety event IRQs
+> 
+> Matt Coster (14):
+>       dt-bindings: gpu: img: Future-proofing enhancements
+>       dt-bindings: gpu: img: Add BXS-4-64 devicetree bindings
+>       drm/imagination: Use new generic compatible string
+>       drm/imagination: Add power domain control
+>       drm/imagination: Remove firmware enable_reg
+>       drm/imagination: Rename event_mask -> status_mask
+>       drm/imagination: Make has_fixed_data_addr a value
+>       drm/imagination: Use a lookup table for fw defs
+>       drm/imagination: Use callbacks for fw irq handling
+>       drm/imagination: Move ELF fw utils to common file
+>       drm/imagination: Use cached memory with dma_coherent
+>       drm/imagination: Add support for TI AM68 GPU
+>       [DO NOT MERGE] arm64: dts: ti: k3-am62: New GPU binding details
+>       [DO NOT MERGE] arm64: dts: ti: k3-j721s2: Add GPU node
+> 
+> Sarah Walker (1):
+>       drm/imagination: Add RISC-V firmware processor support
+> 
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml |  77 +++++++++-
+>  arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   3 +-
+>  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |  12 ++
+>  drivers/gpu/drm/imagination/Makefile               |   2 +
+>  drivers/gpu/drm/imagination/pvr_device.c           | 124 ++++++++++++++--
+>  drivers/gpu/drm/imagination/pvr_device.h           |  31 +++-
+>  drivers/gpu/drm/imagination/pvr_drv.c              |  16 ++
+>  drivers/gpu/drm/imagination/pvr_fw.c               |  28 +++-
+>  drivers/gpu/drm/imagination/pvr_fw.h               |  85 +++++------
+>  drivers/gpu/drm/imagination/pvr_fw_meta.c          |  23 +--
+>  drivers/gpu/drm/imagination/pvr_fw_mips.c          |  82 ++---------
+>  drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 163 +++++++++++++++++++++
+>  drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  17 +++
+>  drivers/gpu/drm/imagination/pvr_fw_util.c          |  67 +++++++++
+>  drivers/gpu/drm/imagination/pvr_gem.c              |  10 +-
+>  drivers/gpu/drm/imagination/pvr_gem.h              |   6 +-
+>  drivers/gpu/drm/imagination/pvr_mmu.c              |   8 +-
+>  drivers/gpu/drm/imagination/pvr_power.c            | 114 ++++++++++++++
+>  drivers/gpu/drm/imagination/pvr_power.h            |   3 +
+>  drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h    | 153 ++++++++++++++++---
+>  drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  41 ++++++
+>  21 files changed, 886 insertions(+), 179 deletions(-)
+> ---
+> base-commit: 10232dac98d3803ec4fcc0cd8a4d1bd2a09b3e18
+> change-id: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
+> 
+> 
+> 
 
-@@ -2590,8 +2590,10 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
 
-        return 0;
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
--err_flow:
-+err_request_irq:
-        netif_napi_del(&flow->napi_rx);
-+
-+err_flow:
-        for (--i; i >= 0; i--) {
-                flow = &rx_chn->flows[i];
-                devm_free_irq(dev, flow->irq, flow);
-------------------------------------------------------------------------------------------------
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-err_request_irq => We have an extra netif_napi_add() which needs to be
-cleaned up.
-err_flow => Equal count of netif_napi_add() and devm_request_irq() that
-should be cleaned up.
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-Regards,
-Siddharth.
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com:
+
+arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-dahlia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-dev.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-mallow.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-ivy.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-dahlia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-yavia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-dev.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-yavia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-mallow.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-sk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-ivy.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
+	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+
+
+
+
+
 
