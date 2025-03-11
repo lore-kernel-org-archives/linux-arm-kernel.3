@@ -4,64 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F1418C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:45:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D678C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:47:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ShK0L/PVeQhqg4DuPXiLk5fuYtVua/8B28gbi7dLw4s=; b=WlkYe6cOmR37Ixtsk6MkAzdFjh
-	EzS4+8rwaQtwaE0FNdd1TAqSk+om1U07lo8/0PL6EWLveJhxj9VIR5QQmCYt4lXqTgucX9/A95D/V
-	O7F3kvt/3DQ647+YLNJ3sjgmnS0Dg2KczlXWPg4BIb5hnBI4CqA3M+Qh/uOpoC4bBPUJ4bskLUl0v
-	n4Zitc8bIe5zMEqhxu7k5u3SbmIpVLfVS9sjwUA09JOrSfazlnTs07JGDirti3b3z1UGSWnBA215W
-	a++osfJRad1sYID92fKhgC4dIH+shv7nJSDOfL5bzFHgdTI0sizuEoUOxI7q5w2z9IQekiwp/iHEL
-	yp1330TA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AUhtus2LRR/f9mDsXKrJtEtC9OIA8rEjoQCsfNgcDkc=; b=t3jTmGTHywKKOFU4x8hMzTRJYg
+	ESNEeK8Vtp1t/bkLtjOtGoMZT2krWei4yD10D8LHISN2TnPaZzmK2gx0SzXj83XB66bnYxVR2hznj
+	ZSG7PoCrJ9cTV7KkV7cuFvF0OIbVxWeVMtEtbN+jlhvIHfwSzqwQsadaBDuAbAQoA7NNAM+pe4zGx
+	XQcgdsN06bPMfl3R53UlT5yHwsgrJW60wag3jxUTNmcFFIgrGou5bPUu9ssbW8Bdx+s2xLcVLniWn
+	82ALWrVAtGgMrtdC7+fdukzEp8KRXZWvgd4ls1/kczyNzLVcsMPXcS+eyEKL725QwSXjfklitmxLE
+	0V42YNKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1nS-00000006C0X-1VW4;
-	Tue, 11 Mar 2025 15:45:34 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1ts1p5-00000006CM8-2COY;
+	Tue, 11 Mar 2025 15:47:15 +0000
+Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1kf-00000006Bbv-3car;
-	Tue, 11 Mar 2025 15:42:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 66ED15C65BA;
-	Tue, 11 Mar 2025 15:40:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9CA09C4CEE9;
-	Tue, 11 Mar 2025 15:42:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741707760;
-	bh=89x/1qxFEYxTYOSIdKWCTAJ1qovLRzV2USmp6ofGHfM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mL82uFWAHCdJRJBYb8f9ZwLNXMqPJpCpj6b7iIzW8FGvpC9GTgrOAVvdt6lsimhXq
-	 Pm7SHQxPJglKWFH2SWxlNakL6yg8TmAJRtKywXfGNvrd/Ur8LSaWk6E7wJf1qQH+Cn
-	 9XQuAg3+ggBfO45YbCP1ncGJwCh/d/NRSGa5zi0swfZs2pOmTiGNATf5bamuA5VBye
-	 0fB2rvEgNUisq8vBIqUrw6vjKg6noLgKMT5/JUmRepWirYThFoiFIctnTZ8iGWtedS
-	 fwhEXvJ9GLKC+Di7MnyrIsUg7/8TAQn3XxvK4AF1/XYwxq9jF8H4Jbf8RFHnn5lQph
-	 wHMNgF9iblMmA==
-Date: Tue, 11 Mar 2025 10:42:39 -0500
-From: Rob Herring <robh@kernel.org>
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-Cc: miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
-	krzk+dt@kernel.org, conor+dt@kernel.org,
-	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
-	claudiu.beznea@tuxon.dev, krzysztof.kozlowski+dt@linaro.org,
-	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 3/3] dt-bindings: mtd: atmel-nand: add legacy nand
- controllers
-Message-ID: <20250311154239.GB3573545-robh@kernel.org>
-References: <20250311122847.90081-1-balamanikandan.gunasundar@microchip.com>
- <20250311122847.90081-4-balamanikandan.gunasundar@microchip.com>
+	id 1ts1lA-00000006Bgc-1ygH
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 15:43:14 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFh5v61332568
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 10:43:06 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741707786;
+	bh=AUhtus2LRR/f9mDsXKrJtEtC9OIA8rEjoQCsfNgcDkc=;
+	h=From:To:CC:Subject:Date;
+	b=of+hZPg8Y3UmkYXah2uvyRnBIAybBcmKTt7fvWSj1HHXWwe7eeazuxuqYucboC0lQ
+	 2N57JNGL75Utvc0hB7/JckO/X8OpLpj/ALR8xs6MPpHd46xy/8pALi0LZ319QwR+7W
+	 /y5iNKgd+f/2zMmpiIFz9+uPm+B0p5/5oZKhqZdk=
+Received: from DLEE112.ent.ti.com (dlee112.ent.ti.com [157.170.170.23])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52BFh54v002591
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 10:43:05 -0500
+Received: from DLEE108.ent.ti.com (157.170.170.38) by DLEE112.ent.ti.com
+ (157.170.170.23) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 10:43:05 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE108.ent.ti.com
+ (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 10:43:05 -0500
+Received: from uda0492258.dhcp.ti.com (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52BFh0FA096785;
+	Tue, 11 Mar 2025 10:43:00 -0500
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: <andrew+netdev@lunn.ch>, <davem@davemloft.net>, <edumazet@google.com>,
+        <kuba@kernel.org>, <pabeni@redhat.com>, <rogerq@kernel.org>,
+        <horms@kernel.org>, <alexander.sverdlin@siemens.com>,
+        <dan.carpenter@linaro.org>, <c-vankar@ti.com>, <jpanis@baylibre.com>,
+        <npitre@baylibre.com>
+CC: <vigneshr@ti.com>, <netdev@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <srk@ti.com>, <s-vadapalli@ti.com>
+Subject: [PATCH net v3] net: ethernet: ti: am65-cpsw: Fix NAPI registration sequence
+Date: Tue, 11 Mar 2025 21:12:59 +0530
+Message-ID: <20250311154259.102865-1-s-vadapalli@ti.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250311122847.90081-4-balamanikandan.gunasundar@microchip.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_084242_020702_625684DD 
-X-CRM114-Status: GOOD (  39.33  )
+X-CRM114-CacheID: sfid-20250311_084312_605770_DB493D77 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,357 +87,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 05:58:47PM +0530, Balamanikandan Gunasundar wrote:
-> Add support for atmel legacy nand controllers. These bindings should not be
-> used with the new device trees.
-> 
-> Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> ---
-> 
-> Changes in v2:
-> 
-> - Filename matching the compatibles
-> - Remove "bindings" from the subject
-> - Remove "deprecated" as these are the only bindings available for the devices
-> - Add missing constraints.
-> - Add default for nand-ecc-mode
-> - Add 32 in pmecc-cap for sama5d2
-> - Add default for sector-size, pmecc-lookup-table-offset, nand-bus-width
-> 
->  .../devicetree/bindings/mtd/atmel-nand.txt    | 116 -------------
->  .../devicetree/bindings/mtd/atmel-nand.yaml   | 163 ++++++++++++++++++
->  2 files changed, 163 insertions(+), 116 deletions(-)
->  delete mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.txt
->  create mode 100644 Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.txt b/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> deleted file mode 100644
-> index 1934614a9298..000000000000
-> --- a/Documentation/devicetree/bindings/mtd/atmel-nand.txt
-> +++ /dev/null
-> @@ -1,116 +0,0 @@
-> -Deprecated bindings (should not be used in new device trees):
-> -
-> -Required properties:
-> -- compatible: The possible values are:
-> -	"atmel,at91rm9200-nand"
-> -	"atmel,sama5d2-nand"
-> -	"atmel,sama5d4-nand"
-> -- reg : should specify localbus address and size used for the chip,
-> -	and hardware ECC controller if available.
-> -	If the hardware ECC is PMECC, it should contain address and size for
-> -	PMECC and PMECC Error Location controller.
-> -	The PMECC lookup table address and size in ROM is optional. If not
-> -	specified, driver will build it in runtime.
-> -- atmel,nand-addr-offset : offset for the address latch.
-> -- atmel,nand-cmd-offset : offset for the command latch.
-> -- #address-cells, #size-cells : Must be present if the device has sub-nodes
-> -  representing partitions.
-> -
-> -- gpios : specifies the gpio pins to control the NAND device. detect is an
-> -  optional gpio and may be set to 0 if not present.
-> -
-> -Optional properties:
-> -- atmel,nand-has-dma : boolean to support dma transfer for nand read/write.
-> -- nand-ecc-mode : String, operation mode of the NAND ecc mode, soft by default.
-> -  Supported values are: "none", "soft", "hw", "hw_syndrome", "hw_oob_first",
-> -  "soft_bch".
-> -- atmel,has-pmecc : boolean to enable Programmable Multibit ECC hardware,
-> -  capable of BCH encoding and decoding, on devices where it is present.
-> -- atmel,pmecc-cap : error correct capability for Programmable Multibit ECC
-> -  Controller. Supported values are: 2, 4, 8, 12, 24. If the compatible string
-> -  is "atmel,sama5d2-nand", 32 is also valid.
-> -- atmel,pmecc-sector-size : sector size for ECC computation. Supported values
-> -  are: 512, 1024.
-> -- atmel,pmecc-lookup-table-offset : includes two offsets of lookup table in ROM
-> -  for different sector size. First one is for sector size 512, the next is for
-> -  sector size 1024. If not specified, driver will build the table in runtime.
-> -- nand-bus-width : 8 or 16 bus width if not present 8
-> -- nand-on-flash-bbt: boolean to enable on flash bbt option if not present false
-> -
-> -Nand Flash Controller(NFC) is an optional sub-node
-> -Required properties:
-> -- compatible : "atmel,sama5d3-nfc".
-> -- reg : should specify the address and size used for NFC command registers,
-> -        NFC registers and NFC SRAM. NFC SRAM address and size can be absent
-> -        if don't want to use it.
-> -- clocks: phandle to the peripheral clock
-> -Optional properties:
-> -- atmel,write-by-sram: boolean to enable NFC write by SRAM.
-> -
-> -Examples:
-> -nand0: nand@40000000,0 {
-> -	compatible = "atmel,at91rm9200-nand";
-> -	#address-cells = <1>;
-> -	#size-cells = <1>;
-> -	reg = <0x40000000 0x10000000
-> -	       0xffffe800 0x200
-> -	      >;
-> -	atmel,nand-addr-offset = <21>;	/* ale */
-> -	atmel,nand-cmd-offset = <22>;	/* cle */
-> -	nand-on-flash-bbt;
-> -	nand-ecc-mode = "soft";
-> -	gpios = <&pioC 13 0	/* rdy */
-> -		 &pioC 14 0 	/* nce */
-> -		 0		/* cd */
-> -		>;
-> -	partition@0 {
-> -		...
-> -	};
-> -};
-> -
-> -/* for PMECC supported chips */
-> -nand0: nand@40000000 {
-> -	compatible = "atmel,at91rm9200-nand";
-> -	#address-cells = <1>;
-> -	#size-cells = <1>;
-> -	reg = < 0x40000000 0x10000000	/* bus addr & size */
-> -		0xffffe000 0x00000600	/* PMECC addr & size */
-> -		0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
-> -		0x00100000 0x00100000	/* ROM addr & size */
-> -		>;
-> -	atmel,nand-addr-offset = <21>;	/* ale */
-> -	atmel,nand-cmd-offset = <22>;	/* cle */
-> -	nand-on-flash-bbt;
-> -	nand-ecc-mode = "hw";
-> -	atmel,has-pmecc;	/* enable PMECC */
-> -	atmel,pmecc-cap = <2>;
-> -	atmel,pmecc-sector-size = <512>;
-> -	atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
-> -	gpios = <&pioD 5 0	/* rdy */
-> -		 &pioD 4 0	/* nce */
-> -		 0		/* cd */
-> -		>;
-> -	partition@0 {
-> -		...
-> -	};
-> -};
-> -
-> -/* for NFC supported chips */
-> -nand0: nand@40000000 {
-> -	compatible = "atmel,at91rm9200-nand";
-> -	#address-cells = <1>;
-> -	#size-cells = <1>;
-> -	ranges;
-> -        ...
-> -        nfc@70000000 {
-> -		compatible = "atmel,sama5d3-nfc";
-> -		#address-cells = <1>;
-> -		#size-cells = <1>;
-> -		clocks = <&hsmc_clk>
-> -		reg = <
-> -			0x70000000 0x10000000	/* NFC Command Registers */
-> -			0xffffc000 0x00000070	/* NFC HSMC regs */
-> -			0x00200000 0x00100000	/* NFC SRAM banks */
-> -		>;
-> -	};
-> -};
-> diff --git a/Documentation/devicetree/bindings/mtd/atmel-nand.yaml b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-> new file mode 100644
-> index 000000000000..8afc4a144caf
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mtd/atmel-nand.yaml
-> @@ -0,0 +1,163 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mtd/atmel-nand.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Atmel NAND flash controller
-> +
-> +maintainers:
-> +  - Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-> +
-> +description: |
+From: Vignesh Raghavendra <vigneshr@ti.com>
 
-Don't need '|'.
+Registering the interrupts for TX or RX DMA Channels prior to registering
+their respective NAPI callbacks can result in a NULL pointer dereference.
+This is seen in practice as a random occurrence since it depends on the
+randomness associated with the generation of traffic by Linux and the
+reception of traffic from the wire.
 
-> +  Atmel nand flash controller. This should not be used for new device
-> +  trees. For the latest controllers refer microchip,nand-controller.yaml
+Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
+Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
+Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+---
 
-This reads more like the h/w changed in newer controllers. Make it clear 
-this is deprecated. You can also put at the top-level:
+Hello,
 
-deprecated: true
+This patch is based on commit
+4d872d51bc9d Merge tag 'x86-urgent-2025-03-10' of git://git.kernel.org/pub/scm/linux/kernel/git/tip/tip
+of Mainline Linux.
 
-But you should only put that if you plan to update all in tree .dts 
-files to the non-deprecated binding.
+v2 of this patch is at:
+https://lore.kernel.org/r/20250311130103.68971-1-s-vadapalli@ti.com/
+Changes since v2:
+- Updated error handling in am65_cpsw_nuss_init_rx_chns() by introducing
+  a new "goto label" namely "err_request_irq", since there are 3 different
+  error paths leading to the existing "goto label" named "err_flow", of
+  which, only one of them requires an extra netif_napi_del() invocation.
+  This change is based on the feedback from 
+  Alexander Sverdlin <alexander.sverdlin@siemens.com>
+  at:
+  https://lore.kernel.org/r/02d685e2aa8721a119f528bde2f4ec9533101663.camel@siemens.com/
 
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - atmel,at91rm9200-nand
-> +      - atmel,sama5d2-nand
-> +      - atmel,sama5d4-nand
-> +
-> +  reg:
-> +    description:
-> +      The localbus address and size used for the chip, and hardware ECC
-> +      controller if available. If the hardware ECC is PMECC, it should
-> +      contain address and size for PMECC and PMECC Error Location
-> +      controller. The PMECC lookup table address and size in ROM is
-> +      optional. If not specified, driver will build it in runtime.
-> +
-> +  atmel,nand-addr-offset:
-> +    description:
-> +      offset for the address latch.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  atmel,nand-cmd-offset:
-> +    description:
-> +      offset for the command latch.
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +    minimum: 0
-> +    maximum: 31
-> +
-> +  '#address-cells': true
+v1 of this patch is at:
+https://lore.kernel.org/r/20250311061214.4111634-1-s-vadapalli@ti.com/
+Changes since v1:
+- Based on the feedback provided by Alexander Sverdlin <alexander.sverdlin@siemens.com>
+  the patch has been updated to account for the cleanup path in terms of an imbalance
+  between the number of successful netif_napi_add_tx/netif_napi_add calls and the
+  number of successful devm_request_irq() calls. In the event of an error, we will
+  always have one extra successful netif_napi_add_tx/netif_napi_add that needs to be
+  cleaned up before we clean an equal number of netif_napi_add_tx/netif_napi_add and
+  devm_request_irq.
 
-0-3 is okay?
+Regards,
+Siddharth.
 
-> +
-> +  '#size-cells': true
+ drivers/net/ethernet/ti/am65-cpsw-nuss.c | 32 +++++++++++++-----------
+ 1 file changed, 18 insertions(+), 14 deletions(-)
 
-0-2 is okay?
+diff --git a/drivers/net/ethernet/ti/am65-cpsw-nuss.c b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+index 2806238629f8..bef734c6e5c2 100644
+--- a/drivers/net/ethernet/ti/am65-cpsw-nuss.c
++++ b/drivers/net/ethernet/ti/am65-cpsw-nuss.c
+@@ -2306,14 +2306,18 @@ static void am65_cpsw_nuss_remove_tx_chns(struct am65_cpsw_common *common)
+ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
+ {
+ 	struct device *dev = common->dev;
++	struct am65_cpsw_tx_chn *tx_chn;
+ 	int i, ret = 0;
+ 
+ 	for (i = 0; i < common->tx_ch_num; i++) {
+-		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
++		tx_chn = &common->tx_chns[i];
+ 
+ 		hrtimer_init(&tx_chn->tx_hrtimer, CLOCK_MONOTONIC, HRTIMER_MODE_REL_PINNED);
+ 		tx_chn->tx_hrtimer.function = &am65_cpsw_nuss_tx_timer_callback;
+ 
++		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
++				  am65_cpsw_nuss_tx_poll);
++
+ 		ret = devm_request_irq(dev, tx_chn->irq,
+ 				       am65_cpsw_nuss_tx_irq,
+ 				       IRQF_TRIGGER_HIGH,
+@@ -2323,19 +2327,16 @@ static int am65_cpsw_nuss_ndev_add_tx_napi(struct am65_cpsw_common *common)
+ 				tx_chn->id, tx_chn->irq, ret);
+ 			goto err;
+ 		}
+-
+-		netif_napi_add_tx(common->dma_ndev, &tx_chn->napi_tx,
+-				  am65_cpsw_nuss_tx_poll);
+ 	}
+ 
+ 	return 0;
+ 
+ err:
+-	for (--i ; i >= 0 ; i--) {
+-		struct am65_cpsw_tx_chn *tx_chn = &common->tx_chns[i];
+-
+-		netif_napi_del(&tx_chn->napi_tx);
++	netif_napi_del(&tx_chn->napi_tx);
++	for (--i; i >= 0; i--) {
++		tx_chn = &common->tx_chns[i];
+ 		devm_free_irq(dev, tx_chn->irq, tx_chn);
++		netif_napi_del(&tx_chn->napi_tx);
+ 	}
+ 
+ 	return ret;
+@@ -2569,6 +2570,9 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+ 			     HRTIMER_MODE_REL_PINNED);
+ 		flow->rx_hrtimer.function = &am65_cpsw_nuss_rx_timer_callback;
+ 
++		netif_napi_add(common->dma_ndev, &flow->napi_rx,
++			       am65_cpsw_nuss_rx_poll);
++
+ 		ret = devm_request_irq(dev, flow->irq,
+ 				       am65_cpsw_nuss_rx_irq,
+ 				       IRQF_TRIGGER_HIGH,
+@@ -2577,11 +2581,8 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+ 			dev_err(dev, "failure requesting rx %d irq %u, %d\n",
+ 				i, flow->irq, ret);
+ 			flow->irq = -EINVAL;
+-			goto err_flow;
++			goto err_request_irq;
+ 		}
+-
+-		netif_napi_add(common->dma_ndev, &flow->napi_rx,
+-			       am65_cpsw_nuss_rx_poll);
+ 	}
+ 
+ 	/* setup classifier to route priorities to flows */
+@@ -2589,11 +2590,14 @@ static int am65_cpsw_nuss_init_rx_chns(struct am65_cpsw_common *common)
+ 
+ 	return 0;
+ 
++err_request_irq:
++	netif_napi_del(&flow->napi_rx);
++
+ err_flow:
+-	for (--i; i >= 0 ; i--) {
++	for (--i; i >= 0; i--) {
+ 		flow = &rx_chn->flows[i];
+-		netif_napi_del(&flow->napi_rx);
+ 		devm_free_irq(dev, flow->irq, flow);
++		netif_napi_del(&flow->napi_rx);
+ 	}
+ 
+ err:
+-- 
+2.34.1
 
-> +
-> +  gpios:
-> +    description:
-> +      specifies the gpio pins to control the NAND device. detect is an
-> +      optional gpio and may be set to 0 if not present.
-
-Which entry is detect? Need to define what each entry is.
-
-> +    minItems: 1
-> +    maxItems: 3
-> +
-> +  atmel,nand-has-dma:
-> +    description:
-> +      support dma transfer for nand read/write.
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  atmel,has-pmecc:
-> +    description:
-> +      enable Programmable Multibit ECC hardware, capable of BCH encoding
-> +      and decoding, on devices where it is present.
-> +    $ref: /schemas/types.yaml#/definitions/flag
-
-All vendor specific properties go last.
-
-> +
-> +  nand-on-flash-bbt:
-> +    description:
-> +      enable on flash bbt option if not present false
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +
-> +  nand-ecc-mode:
-> +    description:
-> +      operation mode of the NAND ecc
-> +    enum:
-> +      [none, soft, hw, hw_syndrome, hw_oob_first, soft_bch]
-> +    default: soft
-> +    $ref: /schemas/types.yaml#/definitions/string
-
-You should be referencing mtd/raw-nand-chip.yaml either directly or 
-indirectly. And then drop the type. Same on the others.
-
-> +
-> +
-> +  atmel,pmecc-cap:
-> +    description:
-> +      error correct capability for Programmable Multibit ECC Controller.
-> +    enum:
-> +      [2, 4, 8, 12, 24, 32]
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +  atmel,pmecc-sector-size:
-> +    description:
-> +      sector size for ECC computation.
-> +    enum:
-> +      [512, 1024]
-> +    default: 512
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +
-> +  atmel,pmecc-lookup-table-offset:
-> +    description:
-> +      Two offsets of lookup table in ROM for different sector size. First
-> +      one is for sector size 512, the next is for sector size 1024. If not
-> +      specified, driver will build the table in runtime.
-> +    $ref: /schemas/types.yaml#/definitions/uint32-array
-> +    default: 512
-> +
-> +  nand-bus-width:
-
-Before vendor specific properties.
-
-> +    description:
-> +      nand bus width
-> +    enum:
-> +      [8, 16]
-> +    default: 8
-> +    $ref: /schemas/types.yaml#/definitions/uint32
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - atmel,nand-addr-offset
-> +  - atmel,nand-cmd-offset
-> +  - "#address-cells"
-> +  - "#size-cells"
-> +
-> +unevaluatedProperties: false
-> +
-> +examples:
-> +  - |
-> +    nand@40000000,0 {
-
-Not a correct unit-address.
-
-nand-controller is preferred node name.
-
-> +        compatible = "atmel,at91rm9200-nand";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        reg = <0x40000000 0x10000000
-> +               0xffffe800 0x200>;
-> +        atmel,nand-addr-offset = <21>;	/* ale */
-> +        atmel,nand-cmd-offset = <22>;	/* cle */
-> +        nand-on-flash-bbt;
-> +        nand-ecc-mode = "soft";
-> +        gpios = <&pioC 13 0	/* rdy */
-> +                 &pioC 14 0 /* nce */
-> +                 0		/* cd */
-> +                >;
-> +    };
-> +  - |
-> +    /* for PMECC supported chips */
-> +    nand1@40000000 {
-> +        compatible = "atmel,at91rm9200-nand";
-> +        #address-cells = <1>;
-> +        #size-cells = <1>;
-> +        reg = <0x40000000 0x10000000	/* bus addr & size */
-> +               0xffffe000 0x00000600	/* PMECC addr & size */
-> +               0xffffe600 0x00000200	/* PMECC ERRLOC addr & size */
-> +               0x00100000 0x00100000>;	/* ROM addr & size */
-> +
-> +        atmel,nand-addr-offset = <21>;	/* ale */
-> +        atmel,nand-cmd-offset = <22>;	/* cle */
-> +        nand-on-flash-bbt;
-> +        nand-ecc-mode = "hw";
-> +        atmel,has-pmecc;	/* enable PMECC */
-> +        atmel,pmecc-cap = <2>;
-> +        atmel,pmecc-sector-size = <512>;
-> +        atmel,pmecc-lookup-table-offset = <0x8000 0x10000>;
-> +        gpios = <&pioD 5 0	/* rdy */
-> +                 &pioD 4 0	/* nce */
-> +                 0		/* cd */
-> +                >;
-> +    };
-> -- 
-> 2.34.1
-> 
 
