@@ -4,54 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53ACAC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1B5AC35FF1
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:37:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5J4+mP7IhovXymLL8fBOaLnNlEGVzd1qN+RYsBXjsvo=; b=l43coboCkoXUKMrpzY8RMsCZn/
-	KK1QI1Fr/tJMHuQLZSrCPjbaj6ZruKcEZrVx0MV4MnN3pci5Ix/hF73IhiDiLNIHpq8YYb5uL3OCh
-	xERT8T/g/zztH26u0gqga0vQKdCjW1jMh2HAw4qrVgtmWy7Dcn1Aard4sA2CrS0UGCRADnQ9SZxF/
-	FgbcDw42yn6wljCLHVAy8bshJXPt37sLShDNgHCKTSNEiamuiJ5ePn+0K1NO2eWA2rFxV34dYzfg7
-	xhe0gEB2FPbCqJuj+0Jkmfj6V3VBvy0ZXkLshOlFDJyuGki729HN4trGGKPwcNttfHaBb5UhNjWnf
-	X9CuCa8Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fRHIjCyQ/PiBBvxdoAc2u4R5/Wp/k6YbQ2LIfCHzQ6U=; b=TkK8Lt5CNYXunnTQHvQv08EYGJ
+	GWWYAP46ln60n/rTP2NG5z6EBW1ZbqblfUgoeWDz2FESSDcljzmqK53LLxg5ktbXZmVwFPsfShtxW
+	7Or2SsOOQ5GogawVPEzq9VlFYLDBaHjbE3H7MBewY3ZuOP/4rHcMaw7spXFpPvATBWr00mFRLJ6Hp
+	WnBWoJHrAT7osybZYiknp5Q00dy/QAm7nGgkvg4Fls+kq2qVeSfgP2ORArvzvRcspF4fb1DeYOHcF
+	SosK314MreXzAf2LMEAExdoCDKnLuC3Z0d6RrrvktxfI2p+taZQsC7L7NNcJnHjcSv4Zu/cXNHKu8
+	LmZxeVfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxsu-00000005ULr-1HnA;
-	Tue, 11 Mar 2025 11:34:56 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxpn-00000005TYF-2at3
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 11:31:44 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0127B152B;
-	Tue, 11 Mar 2025 04:31:54 -0700 (PDT)
-Received: from [10.1.30.125] (XHFQ2J9959.cambridge.arm.com [10.1.30.125])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CE8543F673;
-	Tue, 11 Mar 2025 04:31:41 -0700 (PDT)
-Message-ID: <f6d48d04-fd3c-493e-b7a0-020b912f6f10@arm.com>
-Date: Tue, 11 Mar 2025 11:31:40 +0000
+	id 1trxv7-00000005UkR-38sv;
+	Tue, 11 Mar 2025 11:37:13 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trxtU-00000005UUA-2vFn
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 11 Mar 2025 11:35:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=fRHIjCyQ/PiBBvxdoAc2u4R5/Wp/k6YbQ2LIfCHzQ6U=; b=Xbb8eFP8WKMU6pPMHzrwRD3zcz
+	1YInEF1jdvWWpQpk7wfSujd4RLlLu4i26vK5cCW61YjrlYPc0YgFHSUczx1Yy741YZ7ELzUpp9MnZ
+	+2RPzVN7s9wDQMYEypiHXSGmbyGzH7/ZBCDtPNGEktjX4LlrCT/9mo6Kh8NbXJ3shpY+m+Pb2U7J7
+	DopRK4fBm2JZCEqy00xvCEOthBO/fowl3DHQzYAQCdCZnwAaVFon6nL0ofqjDH35XNmNTrrf7Q9pv
+	qTk5bqjjp0B5/yRihUltc424AuwQoQd3BCznH/a5s7bdrs68BpujxOFMX7E8Cm3xDaPfU82bCU7SN
+	gK99Q09Q==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1trxtS-000000028WB-2LuY;
+	Tue, 11 Mar 2025 11:35:30 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 252CE3002C7; Tue, 11 Mar 2025 12:35:30 +0100 (CET)
+Date: Tue, 11 Mar 2025 12:35:30 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: mark.barnett@arm.com
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
+	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/5] perf: Allow adding fixed random jitter to the
+ alternate sampling period
+Message-ID: <20250311113530.GA9968@noisy.programming.kicks-ass.net>
+References: <20250307202247.648633-1-mark.barnett@arm.com>
+ <20250307202247.648633-4-mark.barnett@arm.com>
+ <20250311113128.GD19424@noisy.programming.kicks-ass.net>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] arm64/kernel: Always use level 2 or higher for early
- mappings
-Content-Language: en-GB
-To: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com,
- Ard Biesheuvel <ardb@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>
-References: <20250311073043.96795-2-ardb+git@google.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20250311073043.96795-2-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_043143_709533_5DA23476 
-X-CRM114-Status: GOOD (  24.68  )
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250311113128.GD19424@noisy.programming.kicks-ass.net>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,67 +78,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 07:30, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The page table population code in map_range() uses a recursive algorithm
-> to create the early mappings of the kernel, the DTB and the ID mapped
-> text and data pages, and this fails to take into account that the way
-> these page tables may be constructed is not precisely the same at each
-> level. In particular, block mappings are not permitted at each level,
-> and the code as it exists today might inadvertently create such a
-> forbidden block mapping if it were used to map a region of the
-> appropriate size and alignment.
-> 
-> This never happens in practice, given the limited size of the assets
-> being mapped by the early boot code. Nonetheless, it would be better if
-> this code would behave correctly in all circumstances.
-> 
-> So only permit block mappings at level 2, and page mappings at level 3,
-> for any page size, and use table mappings exclusively at all other
-> levels. This change should have no impact in practice, but it makes the
-> code more robust.
-> 
-> Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> Reported-by: Ryan Roberts <ryan.roberts@arm.com>
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
-> v2: take the assignment of protval out of the loop again, so that
->     clearing a mapping works as expected wrt the PTE_CONT bit
-
-Ouch, totally missed that. Now that I've looked at the code properly, I wonder
-if it is worth supporting CONT_PMD mappings at level 2? That would be 32M for 4K
-pages, so is likely to actaually get used. I think it would just be something like:
-
-u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 :
-	   ((level == 2) ? CONT_PMD_SIZE - 1 : U64_MAX) : U64_MAX;
-
-Anyway, probably not worth the complexity for these boot-time tables, so regardless:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> 
->  arch/arm64/kernel/pi/map_range.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-> index 2b69e3beeef8..5778697f3062 100644
-> --- a/arch/arm64/kernel/pi/map_range.c
-> +++ b/arch/arm64/kernel/pi/map_range.c
-> @@ -45,12 +45,12 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
->  	 * clearing the mapping
->  	 */
->  	if (protval)
-> -		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
-> +		protval |= (level == 2) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
+On Tue, Mar 11, 2025 at 12:31:29PM +0100, Peter Zijlstra wrote:
+> diff --git a/kernel/events/core.c b/kernel/events/core.c
+> index b87a5ac42ce2..e5a93edf3b5f 100644
+> --- a/kernel/events/core.c
+> +++ b/kernel/events/core.c
+> @@ -8,6 +8,7 @@
+>   *  Copyright  ©  2009 Paul Mackerras, IBM Corp. <paulus@au1.ibm.com>
+>   */
 >  
->  	while (start < end) {
->  		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
->  
-> -		if (level < 3 && (start | next | pa) & lmask) {
-> +		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
->  			/*
->  			 * This chunk needs a finer grained mapping. Create a
->  			 * table mapping if necessary and recurse.
+> +#include "linux/random.h"
+>  #include <linux/fs.h>
+>  #include <linux/mm.h>
+>  #include <linux/cpu.h>
 
+Argh, this is neovim trying to be 'helpful'. If anybody reading this
+knows how to make it stop adding headers, please let me know, its
+driving me nuts.
 
