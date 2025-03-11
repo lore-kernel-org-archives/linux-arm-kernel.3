@@ -4,63 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6D5DC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97118C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EO2Ul9WFaRtHqDRaPWSrOd11sIQ95vq4iQCWtIJS7xs=; b=Ge+wcGlKAat2HunoFEDBfUj82b
-	ajHKTWnRg74bfbJyopxdIgy7ey5wWlKk+y9gqTFCySSsKOcEhwTSZqK4mKMSym0NH90kW2GiXK3qs
-	hhnCw/ZG1b4VbxARs4yE1Zd8dMi7yIxCpACrLiX70olxIi3qWBNb7eAdrLmWQfHpTA0NGYK/18gLU
-	qX1Bqcg5nJN0o3KanYn8C5zADtxoO9xoCR6Ww/zgkkWR1jXdun47JB6NeLVsuzphUsNXNQqgEeCwP
-	qhV+YQ/+JfkbC+gqrvhtdTeRa9Y9LUnfnoYwltE6LuBZD8YDpTWO7FKnMQ9ZIsrK/mh+zNy3XCO8P
-	2lnBtWpw==;
+	bh=4yAr2MMcQmJia94d0o/9946JSg1UMoz80UDiSt9zzs8=; b=gvHFq0Wje7khR6TriqFHmzKXqQ
+	sTF+tcsl9kqaq6dhoJAmhnkZoKuDT16RjnA+TIg/PgxrjRTGoWZ/w+j078mRbwfXWQKSMVjThv1Ky
+	sWu1QSlHGAiWdgKVC3JJWYgR5nUtP88CE5Ml6zpWPa2M5xknbu/0+EFZN+QUpR0XsHLGoRquFLCJG
+	aXMQHT2M+8XxRJZhALURNSOv3KjExaF0yprW/1bJ5OZrmjTyPHHHe+5JqInN1ZwOrvSgfChr5coP0
+	UNai+iyLWcjw6+CafbzMjHfef+gBVqF/eW1Z+QhBype6+Wpy3HAWz89nXLBO+E2L0/lzYxXFYRAZy
+	GFBmGy2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxiT-00000005SWC-0QxI;
-	Tue, 11 Mar 2025 11:24:09 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxgp-00000005SGS-1tQa;
-	Tue, 11 Mar 2025 11:22:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E97745C5BD3;
-	Tue, 11 Mar 2025 11:20:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B6944C4CEE9;
-	Tue, 11 Mar 2025 11:22:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741692146;
-	bh=lMU6ponq0xF7hfMuNjfylz3m1p39UzPIIE6c6X297+M=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gmOlMRpAXXcA7HM4xu9omX8AqdedevKRIxId0WOqOTno+zeda+2h8sy95HaIMCk+G
-	 bUBrnjhfGBQGo06Bw9JqGY18N+soUJB+Q+oWBECAJcFlPJv8OiS7A0Ny6NXt0/wBzq
-	 0YNWW3Ij51kn6LRNut5b9Ju5pcdI6doRnu+n1s/fHiL9NYqiXaYNhE0aLQH1r21Cg3
-	 j8J4qHgQKVfEJVVARzlszEMPUZp2uQ7fxy8GCcW+LD5EUO+Pn14Yu/eEREWfZybWgI
-	 lz4aNnFusUI5DLXQ29K1rVKM63ZON90uW6pR5HTjAMFFGPILh9fYyIrbB1hwGcpnvX
-	 EeDnn5iHRQHWg==
-Date: Tue, 11 Mar 2025 12:22:22 +0100
-From: Vinod Koul <vkoul@kernel.org>
-To: Kever Yang <kever.yang@rock-chips.com>
-Cc: heiko@sntech.de, linux-rockchip@lists.infradead.org,
-	devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-phy@lists.infradead.org,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 1/2] dt-bindings: phy: rockchip,inno-usb2phy: add rk3562
-Message-ID: <Z9Ac7hhQj9J7sFwJ@vaman>
-References: <20241224094240.3817261-1-kever.yang@rock-chips.com>
+	id 1trxk5-00000005Sk9-1XTT;
+	Tue, 11 Mar 2025 11:25:49 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1trxhh-00000005SOF-1mD1
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 11:23:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E6DFB152B;
+	Tue, 11 Mar 2025 04:23:28 -0700 (PDT)
+Received: from bogus (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D9EC73F673;
+	Tue, 11 Mar 2025 04:23:14 -0700 (PDT)
+Date: Tue, 11 Mar 2025 11:23:12 +0000
+From: Sudeep Holla <sudeep.holla@arm.com>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	"Greg Kroah-Hartman" <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	"Fabio Estevam" <festevam@gmail.com>,
+	Shawn Guo <shawnguo@kernel.org>, Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	"Sascha Hauer" <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <Z9AdICiyaCmzKh-N@bogus>
+References: <Z7Rf9GPdO2atP89Z@bogus>
+ <20250218133619.GA22647@nxa18884-linux>
+ <Z7Wvyn1QJQMVigf9@bogus>
+ <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
+ <Z86w3ZRS6T2MvV3X@bogus>
+ <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
+ <Z87UJdhiTWhssnbl@bogus>
+ <Z87sGF_jHKau_FMe@bogus>
+ <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20241224094240.3817261-1-kever.yang@rock-chips.com>
+In-Reply-To: <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_042227_543872_195D060A 
-X-CRM114-Status: GOOD (  12.81  )
+X-CRM114-CacheID: sfid-20250311_042321_507257_3D873CAC 
+X-CRM114-Status: GOOD (  12.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +86,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 24-12-24, 17:42, Kever Yang wrote:
-> Add compatible for the USB2 phy in the Rockchip RK3562 SoC.
-> 
-> Signed-off-by: Kever Yang <kever.yang@rock-chips.com>
-> ---
-> 
->  .../devicetree/bindings/phy/rockchip,inno-usb2phy.yaml         | 3 ++-
->  1 file changed, 2 insertions(+), 1 deletion(-)
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-> index 6a7ef556414c..367297f6f8b5 100644
-> --- a/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-> +++ b/Documentation/devicetree/bindings/phy/rockchip,inno-usb2phy.yaml
-> @@ -19,6 +19,7 @@ properties:
->        - rockchip,rk3328-usb2phy
->        - rockchip,rk3366-usb2phy
->        - rockchip,rk3399-usb2phy
-> +      - rockchip,rk3562-usb2phy
->        - rockchip,rk3568-usb2phy
->        - rockchip,rk3576-usb2phy
->        - rockchip,rk3588-usb2phy
-> @@ -150,7 +151,6 @@ allOf:
->              enum:
->                - rockchip,rk3568-usb2phy
->                - rockchip,rk3588-usb2phy
-> -
+On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
+> Based on linux-next, I added below node:
+>
+> +
+> +               test@4f000000 {
+> +                       compatible = "fsl,imx-test";
+> +                       power-domains = <&scmi_devpd IMX95_PD_VPU>, <&scmi_perf IMX95_PERF_VPU>;
+> +                       power-domain-names = "vpumix", "vpuperf";
+> +               };
+>
+> I not write a driver for it, so just check devlink information from sysfs interface.
+>
+> From below sys directory, this test device takes scmi_dev.4 and scmi_dev.3 as supplier.
+> root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# ls
+> driver_override  of_node  subsystem                          supplier:scmi_protocol:scmi_dev.4  waiting_for_supplier
+> modalias         power    supplier:scmi_protocol:scmi_dev.3  uevent
+>
+> Checking scmi_dev.4 below, it is scmi cpufreq, not the scmi perf device.
+> scmi_dev.3 is correct, it is genpd.
+>
+> root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# cat /sys/bus/scmi_protocol/devices/scmi_dev.4/modalias
+> scmi_dev.4:13:cpufreq
+> root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000# cat /sys/bus/scmi_protocol/devices/scmi_dev.3/modalias
+> scmi_dev.3:11:genpd
+> root@imx95evk:/sys/bus/platform/devices/soc:test@4f000000#
+>
+>
+> So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
+> created earlier and when device_add, the below logic makes the fwnode pointer points
+> to scmi cpufreq device.
+>         if (dev->fwnode && !dev->fwnode->dev) {
+>                 dev->fwnode->dev = dev;
+>                 fw_devlink_link_device(dev);
+>         }
+>
 
-Unrelated change?
+Thanks, looks like simple way to reproduce the issue. I will give it a try.
 
->      then:
->        properties:
->          host-port:
-> @@ -190,6 +190,7 @@ allOf:
->                - rockchip,rk3328-usb2phy
->                - rockchip,rk3366-usb2phy
->                - rockchip,rk3399-usb2phy
-> +              - rockchip,rk3562-usb2phy
->                - rockchip,rk3568-usb2phy
->                - rockchip,rk3588-usb2phy
->                - rockchip,rv1108-usb2phy
-> -- 
-> 2.25.1
-> 
-> 
-> -- 
-> linux-phy mailing list
-> linux-phy@lists.infradead.org
-> https://lists.infradead.org/mailman/listinfo/linux-phy
-
--- 
-~Vinod
+--
+Regards,
+Sudeep
 
