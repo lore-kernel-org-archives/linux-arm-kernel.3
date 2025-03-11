@@ -4,87 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B15C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 01:23:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA3BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 01:27:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qorkEDO0a/0TLfA/PYRb+YsFk93PMDMeWwVa7QsTUYw=; b=q5JS888iqj/IwSej6ACr8ptyIT
-	TBeUb30xU0dF99xb/QEVUs8vKj0SaJxE9qkWOpZWNMhyWWLQgrFeo0AnFZga8NDWyJrZXVu8KTp6d
-	/T5PMXjkkZaHB1wrT/ydTLq4y7CexAKIDnvhNNs/6pV4hiotIJ/XS8cCMNQ763p7YAyOaijZV5sxo
-	fnPKJUBMgxzhUe/+kTbx+j2X+DDKLZtrsfZujOSw7eqptmrfDn0GekuVObYaFeVl7XIUrwEKKPuDT
-	uO047CdtxVcIuY6rL2PO4jI9/IhPpi0PNkuGip4cNzBPfMv8JCPXr5R+iNHfbpclwrEM80OsAoclW
-	LajpPdfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=X8zFqJWahQRYa7ooRRKZAoytsqOvdRBD6lYtjCz5PvU=; b=qN9t6tZKa4ahFaweaNtsAJatab
+	M4huXRQS0ndiH1V5xQbC5jFWmH6LxGRfN06F+S0tLHK/erRWNmahGdQlyQuGV4uzY0oPl0itfZPtz
+	NUE51gxjte8HDOy1H4cVoDxrW/psQPg1s1NVMNSKDa0Njlh7laGBmxm2SUhcWn5UrkhWgXmzJTmsP
+	Pj5uNSWfr91h3XNdj3pzIQW+4WzqDjL6onfqqpM9FppkVV1UcmcV2ZcGn5ukpREr/MQ3OiRYCiTp7
+	g2ixXK4Ui1ZzHC5yhKjNKqGq83FqP+bPu+UbQ4w+I7hTyfF7gBKc3o46abf5hLkn5wUwW8IkEiquZ
+	YXmcPDFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1troKr-00000004L6l-2Zvx;
-	Tue, 11 Mar 2025 01:23:09 +0000
-Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1troHf-00000004KKh-3Qb7;
-	Tue, 11 Mar 2025 01:19:53 +0000
-Received: from pps.filterd (m0246631.ppops.net [127.0.0.1])
-	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52ALflrt016930;
-	Tue, 11 Mar 2025 01:19:46 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
-	:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=
-	corp-2023-11-20; bh=qorkEDO0a/0TLfA/PYRb+YsFk93PMDMeWwVa7QsTUYw=; b=
-	oMi4pMx1gTc6yyX3riKUulW1d6zZS5wsX8FBsHOG6uk+L3HpvKKQj4KVpa5rO/v5
-	jVhYFJvDAY8jHyJxSUglkWWW0fqymzDuVJmklXiZSvgjpKn+tWYuJXT9e91dinou
-	OHuh96HmBo9LqX1teaCwyU7WeWGPIcijKipBMEbC32e8m3Ivh6kwbfD/KjQJKnVT
-	6erADN5ZkusRDqew+H6y1R/IT0vXN5zw3IqIryOhVjeeQVcyUle7I9g0T8C7+Ycn
-	hLSkcy6k7N6/pRPt6/uiQKhAxg5uqR2+fcbNJrqikDHbM1ypivrlbpH0kWSahVqq
-	/OnpHMfa5RMNG5nFK7BJYQ==
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.appoci.oracle.com [130.35.103.27])
-	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 458cp33vve-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 01:19:45 +0000 (GMT)
-Received: from pps.filterd (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 52B0knIW014923;
-	Tue, 11 Mar 2025 01:19:45 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 458cbencn6-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 01:19:45 +0000
-Received: from iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 52B1JfrF014960;
-	Tue, 11 Mar 2025 01:19:44 GMT
-Received: from ca-mkp2.ca.oracle.com.com (mpeterse-ol9.allregionaliads.osdevelopmeniad.oraclevcn.com [100.100.251.135])
-	by iadpaimrmta03.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 458cbencm8-5;
-	Tue, 11 Mar 2025 01:19:44 +0000
-From: "Martin K. Petersen" <martin.petersen@oracle.com>
-To: James.Bottomley@HansenPartnership.com,
-        Jiapeng Chong <jiapeng.chong@linux.alibaba.com>
-Cc: "Martin K . Petersen" <martin.petersen@oracle.com>, heiko@sntech.de,
-        linux-scsi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
-        Abaci Robot <abaci@linux.alibaba.com>
-Subject: Re: [PATCH -next] scsi: ufs: rockchip: Simplify bool conversion
-Date: Mon, 10 Mar 2025 21:19:04 -0400
-Message-ID: <174165505002.528513.7169734727155329049.b4-ty@oracle.com>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250226021157.77934-1-jiapeng.chong@linux.alibaba.com>
-References: <20250226021157.77934-1-jiapeng.chong@linux.alibaba.com>
+	id 1troP8-00000004LLO-2KnT;
+	Tue, 11 Mar 2025 01:27:34 +0000
+Received: from mail-m16.yeah.net ([1.95.21.16])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1troNU-00000004LGk-2Bh4
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 01:25:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
+	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
+	Content-Type; bh=X8zFqJWahQRYa7ooRRKZAoytsqOvdRBD6lYtjCz5PvU=;
+	b=gHaW1dD8mxc/0Dcexj//CceELvKJ24O37TYm84942lK1bZIQ8oTx70PXyiM7kd
+	5qjmaWtu9QHa88ycjdMIBgKJ63s4PJ7epivfDnaFWTk74ZAo3rtuZ7zAoaj/276P
+	A3AJD1B8K5H9t06554mEUVwxfYTSLtMJ1XG2NPk4XzTdk=
+Received: from dragon (unknown [])
+	by gzsmtp3 (Coremail) with SMTP id M88vCgAHtkkKkc9nyXCuAA--.818S3;
+	Tue, 11 Mar 2025 09:25:32 +0800 (CST)
+Date: Tue, 11 Mar 2025 09:25:30 +0800
+From: Shawn Guo <shawnguo2@yeah.net>
+To: Mathew McBride <matt@traverse.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, Shawn Guo <shawnguo@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v2] arm64: dts: freescale: ten64: add usb hub definition
+Message-ID: <Z8+RCo8mGOLIck5a@dragon>
+References: <20250129045352.10728-1-matt@traverse.com.au>
+ <20250305001901.31594-1-matt@traverse.com.au>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-11_01,2025-03-07_03,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 phishscore=0 adultscore=0 spamscore=0
- mlxlogscore=815 malwarescore=0 suspectscore=0 mlxscore=0 bulkscore=0
- classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2502100000
- definitions=main-2503110007
-X-Proofpoint-GUID: 4rXadeu01eDMV_ByNcnfULWBEwCNg1L0
-X-Proofpoint-ORIG-GUID: 4rXadeu01eDMV_ByNcnfULWBEwCNg1L0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250305001901.31594-1-matt@traverse.com.au>
+X-CM-TRANSID: M88vCgAHtkkKkc9nyXCuAA--.818S3
+X-Coremail-Antispam: 1Uf129KBjvdXoWrur1UWw1xAry8ArWDXF47Jwb_yoWxtrXEka
+	4UAFs2kws8Cr1DKr1fZryDAF4fKw1UArn0gryDKFyaya4UXa1DGwn3WryFv34fXFWDGr1D
+	Ca4SgFWkta4fGjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IUUppB3UUUUU==
+X-Originating-IP: [117.81.240.4]
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiEhYNZWfPVKmmBwAAsY
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_181951_978239_C1C8C5F8 
-X-CRM114-Status: UNSURE (   7.41  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_182553_071063_BEDC193E 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,17 +75,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 26 Feb 2025 10:11:57 +0800, Jiapeng Chong wrote:
-
-> ./drivers/ufs/host/ufs-rockchip.c:268:70-75: WARNING: conversion to bool not needed here.
+On Wed, Mar 05, 2025 at 11:19:01AM +1100, Mathew McBride wrote:
+> A device tree binding for the Microchip USB5744 hub controller
+> was added in commit 02be19e914b8 ("dt-bindings: usb: Add support
+> for Microchip usb5744 hub controller").
 > 
+> U-Boot will consume this binding in order to perform the
+> necessary actions to enable the USB hub ports over I2C.
+> (We previously used our own out-of-tree driver for
+> this task)
 > 
+> The Ten64 board does not have any switchable supplies
+> for the voltage rails utilized by the USB5744, so a
+> pair of dummy supplies have been added to facilitate
+> operation with U-Boot's hub driver.
+> 
+> Signed-off-by: Mathew McBride <matt@traverse.com.au>
 
-Applied to 6.15/scsi-queue, thanks!
+Applied, thanks!
 
-[1/1] scsi: ufs: rockchip: Simplify bool conversion
-      https://git.kernel.org/mkp/scsi/c/3d8256903934
-
--- 
-Martin K. Petersen	Oracle Linux Engineering
 
