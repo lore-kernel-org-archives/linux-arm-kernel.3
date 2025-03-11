@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8D3C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 02:29:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF2F9C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 02:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ICnWS1cvR/lqvpW3gZSBK0qzpmW+rKkDV9mICgOyRUw=; b=M9UMOLsHdpAfne9s6own97ziNB
-	T4sX9eqLXAZPPcUqZLA5tC4TdXFAXdEJov7hrCziYheqKEtPlOCw6QqV5GYoH16ZKjqUaf7OXwJa6
-	G1k4MDt+GM2RuFoqp4kgetuhMEJpJVRyhRsIgsj/vYZzvbIKEqE2cqo6bXRBXafU0jgCkkn57qsPq
-	A6KCS2XdGG/eVVe0LxUOsqVOpUrU2Sg4BYmty27wTdNqGhKubCmKDAs5LqZlDDPJMv6Zk+uyR4PZr
-	+TM4GDBavQaRz8nUV5NVx0y+nV1bzAjjrT5+VJHYMvl5wkfu6Zl9tjan2vC7f3A3CjHG/KHGsaYin
-	I5Ewairw==;
+	bh=hOHv8pX5jbxxuCYHGHw737xsClV8Yj1+G5jAUW7Z8nc=; b=CthvCBVxOlM7n5C5PH+mU3edtt
+	i83prtDWAJmMmdvk3vU8FDKKc6DHErvzHHFLBjfWyKR+9iX3d4O13XzZ7gfmbkl+kU3/Fj43XfuT+
+	yv1Van5hIcDhsEoE1cKq3PU5UU1otiSNjykYXzCTukwM+TZZ3PGvBhJsOuTchx29YlhMhtJi6P1bN
+	spy9DVP0za2yFGqyM1+3N67/dmoglb6ubkFzl1K3j8oLtt8ll1VotqxJq36KXqUO4GVHl/5eMU31X
+	0wDWEuROv2weGmBLsuJge+riZ4DTVwnl+JMhCUaWyP1lBPVIgSGAcBp1Pah/h1fpdeoukYIkgdtyv
+	DAd5PuWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trpMk-00000004QPV-0ms8;
-	Tue, 11 Mar 2025 02:29:10 +0000
-Received: from mail-m16.yeah.net ([220.197.32.17])
+	id 1trpRb-00000004QvJ-3wbW;
+	Tue, 11 Mar 2025 02:34:11 +0000
+Received: from mail-m16.yeah.net ([1.95.21.15])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trpL6-00000004QBU-11iP
+	id 1trpPx-00000004QoD-3NnC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 02:27:29 +0000
+	Tue, 11 Mar 2025 02:32:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yeah.net;
 	s=s110527; h=Date:From:Subject:Message-ID:MIME-Version:
-	Content-Type; bh=ICnWS1cvR/lqvpW3gZSBK0qzpmW+rKkDV9mICgOyRUw=;
-	b=QJz17dUOuRqwYZ4lw1SFnNr1/JueywpcOnyinBhnk7Mj3pbNGLgnEkb878/6qI
-	USJVuEPEyLp93fUX2fC+aEJf5yxBTLRDVJqpT084uww3n1eT98OIxAj0FMS1yej0
-	/4G5NII8rkRnaPKQvX7si2hZeDxGPh5fsYDJx4ZN6HzGw=
+	Content-Type; bh=hOHv8pX5jbxxuCYHGHw737xsClV8Yj1+G5jAUW7Z8nc=;
+	b=mISa2eJM9214+1xaX0k7LKZ1UnOPAOPCJL24x69Xjmma+nn14mcBDv8xaIOgIb
+	VQkjpd529Q/ddmclfK6A9DXRBVLR0tM+Gus4MTiea9agnHiY/25YtIvGqYig1v5+
+	8qD2P/DBVwZisvSTpQBSQCNk+Dmm9B489zH2DcO+lQxKE=
 Received: from dragon (unknown [])
-	by gzsmtp1 (Coremail) with SMTP id Mc8vCgAnDnqBn89nqoywAA--.815S3;
-	Tue, 11 Mar 2025 10:27:15 +0800 (CST)
-Date: Tue, 11 Mar 2025 10:27:13 +0800
+	by gzsmtp3 (Coremail) with SMTP id M88vCgD3AoqloM9nvESvAA--.42680S3;
+	Tue, 11 Mar 2025 10:32:07 +0800 (CST)
+Date: Tue, 11 Mar 2025 10:32:05 +0800
 From: Shawn Guo <shawnguo2@yeah.net>
-To: Ciprian Costea <ciprianmarian.costea@oss.nxp.com>
-Cc: Chester Lin <chester62515@gmail.com>,
-	Matthias Brugger <mbrugger@suse.com>,
-	Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
 	Sascha Hauer <s.hauer@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, NXP S32 Linux <s32@nxp.com>,
-	imx@lists.linux.dev, Christophe Lizzi <clizzi@redhat.com>,
-	Alberto Ruiz <aruizrui@redhat.com>,
-	Enric Balletbo <eballetb@redhat.com>
-Subject: Re: [PATCH] arm64: dts: s32g: add FlexCAN[0..3] support for s32g2
- and s32g3
-Message-ID: <Z8+fgXENvCrqXvTP@dragon>
-References: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
+	Fabio Estevam <festevam@gmail.com>,
+	Markus Niebel <Markus.Niebel@ew.tq-group.com>,
+	linux@ew.tq-group.com, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 1/2] arm64: dts: imx8mp-tqma8mpql-mba8mpxl: change
+ sound card model name
+Message-ID: <Z8+gpX+REkX4SEUz@dragon>
+References: <20250224150016.499055-1-alexander.stein@ew.tq-group.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250224134016.3921196-1-ciprianmarian.costea@oss.nxp.com>
-X-CM-TRANSID: Mc8vCgAnDnqBn89nqoywAA--.815S3
-X-Coremail-Antispam: 1Uf129KBjDUn29KB7ZKAUJUUUUU529EdanIXcx71UUUUU7v73
-	VFW2AGmfu7bjvjm3AaLaJ3UbIYCTnIWIevJa73UjIFyTuYvjxU3l1vUUUUU
+In-Reply-To: <20250224150016.499055-1-alexander.stein@ew.tq-group.com>
+X-CM-TRANSID: M88vCgD3AoqloM9nvESvAA--.42680S3
+X-Coremail-Antispam: 1Uf129KBjvdXoW7Wr43uF43XrWfWw48Zr1xuFg_yoWxuFg_AF
+	4fGr1DGa1DZan3uw1Fkr4agrZa9ws7X3ZrGr13G3sxX3WFkan5Wrs0q34Syw1j9ayvg345
+	Cr9aqa1093yjkjkaLaAFLSUrUUUUjb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUvcSsGvfC2KfnxnUUI43ZEXa7IU0rsqJUUUUU==
 X-Originating-IP: [117.81.240.4]
-X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiCQcNZWfPUELrJgAAsR
+X-CM-SenderInfo: pvkd40hjxrjqh1hdxhhqhw/1tbiNAcfhGfPoKfalgAA3L
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_192728_597249_C91798F7 
-X-CRM114-Status: UNSURE (   7.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250310_193230_207908_6020FD1D 
+X-CRM114-Status: GOOD (  11.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,13 +80,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Feb 24, 2025 at 03:40:16PM +0200, Ciprian Costea wrote:
-> From: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+On Mon, Feb 24, 2025 at 04:00:14PM +0100, Alexander Stein wrote:
+> From: Markus Niebel <Markus.Niebel@ew.tq-group.com>
 > 
-> Add FlexCAN[0..3] for S32G2 and S32G3 SoCs.
+> The card name for ALSA is generated from the model name string and
+> is limited to 16 characters. Use a shorter name to prevent cutting the
+> name.
 > 
-> Signed-off-by: Ciprian Marian Costea <ciprianmarian.costea@oss.nxp.com>
+> Since nearly all starter kit mainboards for i.MX based SoM by TQ-Systems
+> use the same codec with the same routing on board it is a good idea to
+> use the same model name for the sound card. This allows sharing a default
+> asound.conf in BSP over all the kits.
+> 
+> Signed-off-by: Markus Niebel <Markus.Niebel@ew.tq-group.com>
+> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
 
-Applied, thanks!
+Applied both, thanks!
 
 
