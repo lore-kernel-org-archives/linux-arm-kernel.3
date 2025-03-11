@@ -4,67 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AEDC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:04:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25BCDC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:07:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T2OUtjUvOZ9zxMihiTmpFy6kD5qxMhWOXI3qeEENs1k=; b=0bIa99G6j3Hd3vXsbeGDjMkVWb
-	JCEJBUGxpb4bamWUCcaIW7YQZKOYQGguiLl8uUfb3nXl8h9gPSsDzy0Txcm35ArY1o+lIqdp/AmnP
-	UqY8bWnIV6ftyo1Ud1WBzWL5eUVC7nV1qMLFRyYsgBNZBHQpxLolrWznVgi/FgkHpFNFpmuoXBjvk
-	7JzIvUoq/cv8s61iuKFB0wqQExu0JrFEl68kxMNc2is5rweUVETZ0kd/XwFO2grFXc2e+CQX261e0
-	VLjEn+BWvPdgZdc589zGEF+WA/SmGfMUS7u7qHehJ63MO9E/p4MjZ7Mq3ulaxIlj5pP4mUhMRGUle
-	M/5DE03g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RAYFqIJlHKyWKw1zT75h7lHBHX+DTmxUr/wIvnOdyrw=; b=Q9Rplo6Q93uy0bidXVP0cNRjXt
+	HSniWKNxBdKYYSbxuZq42p+1QFe/AXDxJn8tQJF3zV67uVWgci51aa3VAx8omsKn5eb8013LYYnGm
+	QDWaC/s3aWhzN4slH/8hxI9lcR3fY4db+VaKsppi/UMBQ0VSEVwmep/X7agCs7pbv60LoPVeuU4D/
+	HkCq2MJlF2wcw04eW2/txtm0dnCgAaLtMUUCWCwREuL4msqL0fHKRgsp2NoMoloYZpUBEuXjtB/fl
+	7Hf6J79pqYGQnv54AAUE0tE52uCTQxiDneK/cZ0FF2Ei0/S2bN36UNxXxyspEHVfX+slb7i/NzoYd
+	R9KFBixA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1truak-00000004w6V-1m8U;
-	Tue, 11 Mar 2025 08:03:58 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1trudj-00000004wvW-3SFp;
+	Tue, 11 Mar 2025 08:07:03 +0000
+Received: from out-186.mta1.migadu.com ([95.215.58.186])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1truPj-00000004uhv-2QZu;
-	Tue, 11 Mar 2025 07:52:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741679553;
-	bh=EimAiqOb8wjiUPBJICf8ehV1iDRon72lxCFcAtQyG1A=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RC5XNDhswZec48hvGwJO3Ne0/FLgT7vITlZQ0t2ppxFhr8b6Yinjer64D49aJuXVm
-	 fb9xWd3Gx9HrmuCr1BCZpoc4Ys4/wHamUXeX56j75E+9niet0Ku/ZEjbQwrIME+QYy
-	 WbzAXLVyPRvs4dFaPXa+azYplQUMs8IMaY/r9XlLbb2iLnIlMo21YzuQH4cV4kGg+j
-	 RnMiqz2lA5/i5lJfPYa7YhSyD/+RDtCEmSHM9r+ekNcwNvkNux4Dt9hBoEsUuEL9qP
-	 aq17fyGgqimLjGUfkXGm3OjulnGBOaImG4LYUH4Gm3JXD+EjbgQXQ/ThqNupvPZlHR
-	 qd+uYu7o8NyiA==
-Received: from localhost (unknown [IPv6:2a01:e0a:2c:6930:5cf4:84a1:2763:fe0d])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: bbrezillon)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A8B5817E0237;
-	Tue, 11 Mar 2025 08:52:32 +0100 (CET)
-Date: Tue, 11 Mar 2025 08:51:58 +0100
-From: Boris Brezillon <boris.brezillon@collabora.com>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
-Subject: Re: [PATCH v1 3/6] drm/panfrost: Unify panfrost_mmu_enable/disable
- common code
-Message-ID: <20250311085158.37329b0c@collabora.com>
-In-Reply-To: <20250310195921.157511-4-ariel.dalessandro@collabora.com>
-References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
-	<20250310195921.157511-4-ariel.dalessandro@collabora.com>
-Organization: Collabora
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	id 1truc4-00000004wai-1F0J
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 08:05:21 +0000
+Date: Tue, 11 Mar 2025 01:05:06 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741680316;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RAYFqIJlHKyWKw1zT75h7lHBHX+DTmxUr/wIvnOdyrw=;
+	b=jLxCzslcec0OsCOjhfULLAcEuIzEXocTLubSRZU/3vUw9+V04MLn0CDiJpn8y/UDUQTjcM
+	F0x5lUrgtOVBgvhQdSd5XwGyt41o2YYaT69wqIUhUi8I2Uf778+xbFbeOBwM0r2VB6O08H
+	tLdmKd+OjG4x7OEMdOrRxpHNCf6drp8=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Zhenyu Ye <yezhenyu2@huawei.com>
+Cc: maz@kernel.org, yuzenghui@huawei.com, will@kernel.org,
+	catalin.marinas@arm.com, joey.gouly@arm.com,
+	linux-kernel@vger.kernel.org, xiexiangyou@huawei.com,
+	zhengchuan@huawei.com, wangzhou1@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: Re: [PATCH v1 3/5] arm64/kvm: using ioctl to enable/disable the
+ HDBSS feature
+Message-ID: <Z8_usklidqnerurc@linux.dev>
+References: <20250311040321.1460-1-yezhenyu2@huawei.com>
+ <20250311040321.1460-4-yezhenyu2@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250311040321.1460-4-yezhenyu2@huawei.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_005235_767991_9669CB6F 
-X-CRM114-Status: GOOD (  17.01  )
+X-CRM114-CacheID: sfid-20250311_010520_638208_F07FCFD8 
+X-CRM114-Status: GOOD (  29.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,80 +73,229 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 10 Mar 2025 16:59:18 -0300
-Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
+On Tue, Mar 11, 2025 at 12:03:19PM +0800, Zhenyu Ye wrote:
+> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+> index d919557af5e5..bd73ee92b12c 100644
+> --- a/arch/arm64/include/asm/kvm_host.h
+> +++ b/arch/arm64/include/asm/kvm_host.h
+> @@ -787,6 +787,12 @@ struct kvm_vcpu_arch {
+>  
+>  	/* Per-vcpu CCSIDR override or NULL */
+>  	u32 *ccsidr;
+> +
+> +	/* HDBSS registers info */
+> +	struct {
+> +		u64 br_el2;
+> +		u64 prod_el2;
+> +	} hdbss;
 
-> Both these functions write to MMU_AS_CONTROL register in the same way.
-> Define a common _panfrost_mmu_as_control_write function with the shared
-> code.
-> 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> ---
->  drivers/gpu/drm/panfrost/panfrost_mmu.c | 33 ++++++++++++-------------
->  1 file changed, 16 insertions(+), 17 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-> index 294f86b3c25e7..31df3a96f89bd 100644
-> --- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
-> +++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
-> @@ -121,38 +121,37 @@ static int mmu_hw_do_operation(struct panfrost_device *pfdev,
->  	return ret;
+I'm not a fan of storing the raw system register values in the vCPU
+struct. I'd rather we kept track of the buffer base address, size, and
+index as three separate fields.
+
+>  };
+>  
+>  /*
+> diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
+> index b98ac6aa631f..ed5b68c2085e 100644
+> --- a/arch/arm64/include/asm/kvm_mmu.h
+> +++ b/arch/arm64/include/asm/kvm_mmu.h
+> @@ -330,6 +330,18 @@ static __always_inline void __load_stage2(struct kvm_s2_mmu *mmu,
+>  	asm(ALTERNATIVE("nop", "isb", ARM64_WORKAROUND_SPECULATIVE_AT));
 >  }
 >  
-> -static void panfrost_mmu_enable(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
-> +static void
-> +_panfrost_mmu_as_control_write(struct panfrost_device *pfdev, u32 as_nr,
-> +			       u64 transtab, u64 memattr)
-
-I'm honestly not convinced this is needed. Let's just stick to
-panfrost_mmu_enable/disable().
-
->  {
-> -	int as_nr = mmu->as;
-> -	struct io_pgtable_cfg *cfg = &mmu->pgtbl_cfg;
-> -	u64 transtab = cfg->arm_mali_lpae_cfg.transtab;
-> -	u64 memattr = cfg->arm_mali_lpae_cfg.memattr;
-> -
->  	mmu_hw_do_operation_locked(pfdev, as_nr, 0, ~0ULL, AS_COMMAND_FLUSH_MEM);
->  
->  	mmu_write(pfdev, AS_TRANSTAB_LO(as_nr), lower_32_bits(transtab));
->  	mmu_write(pfdev, AS_TRANSTAB_HI(as_nr), upper_32_bits(transtab));
->  
-> -	/* Need to revisit mem attrs.
-> -	 * NC is the default, Mali driver is inner WT.
-> -	 */
->  	mmu_write(pfdev, AS_MEMATTR_LO(as_nr), lower_32_bits(memattr));
->  	mmu_write(pfdev, AS_MEMATTR_HI(as_nr), upper_32_bits(memattr));
->  
->  	write_cmd(pfdev, as_nr, AS_COMMAND_UPDATE);
->  }
->  
-> -static void panfrost_mmu_disable(struct panfrost_device *pfdev, u32 as_nr)
-> +static void panfrost_mmu_enable(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
->  {
-> -	mmu_hw_do_operation_locked(pfdev, as_nr, 0, ~0ULL, AS_COMMAND_FLUSH_MEM);
-> -
-> -	mmu_write(pfdev, AS_TRANSTAB_LO(as_nr), 0);
-> -	mmu_write(pfdev, AS_TRANSTAB_HI(as_nr), 0);
-> +	int as_nr = mmu->as;
-> +	struct io_pgtable_cfg *cfg = &mmu->pgtbl_cfg;
-> +	u64 transtab = cfg->arm_mali_lpae_cfg.transtab;
-> +	u64 memattr = cfg->arm_mali_lpae_cfg.memattr;
->  
-> -	mmu_write(pfdev, AS_MEMATTR_LO(as_nr), 0);
-> -	mmu_write(pfdev, AS_MEMATTR_HI(as_nr), 0);
-> +	/* Need to revisit mem attrs.
-> +	 * NC is the default, Mali driver is inner WT.
-> +	 */
-> +	_panfrost_mmu_as_control_write(pfdev, as_nr, transtab, memattr);
-> +}
->  
-> -	write_cmd(pfdev, as_nr, AS_COMMAND_UPDATE);
-> +static void panfrost_mmu_disable(struct panfrost_device *pfdev, u32 as_nr)
+> +static __always_inline void __load_hdbss(struct kvm_vcpu *vcpu)
 > +{
-> +	_panfrost_mmu_as_control_write(pfdev, as_nr, 0, 0);
+> +	if (!vcpu->kvm->enable_hdbss)
+> +		return;
+> +
+> +	write_sysreg_s(vcpu->arch.hdbss.br_el2, SYS_HDBSSBR_EL2);
+> +	write_sysreg_s(vcpu->arch.hdbss.prod_el2, SYS_HDBSSPROD_EL2);
+> +
+> +	dsb(sy);
+> +	isb();
+
+What are you synchronizing against here? dsb(sy) is a *huge* hammer. A
+dsb() in this context would only make sense if there were pending stores
+to the dirty tracking structure, which ought not be the case at load.
+
+Also keep in mind the EL1&0 regime is out of context...
+
+> +}
+> +
+>  static inline struct kvm *kvm_s2_mmu_to_kvm(struct kvm_s2_mmu *mmu)
+>  {
+>  	return container_of(mmu->arch, struct kvm, arch);
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index b727772c06fb..3040eac74f8c 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1105,6 +1105,18 @@
+>  #define GCS_CAP(x)	((((unsigned long)x) & GCS_CAP_ADDR_MASK) | \
+>  					       GCS_CAP_VALID_TOKEN)
+>  
+> +/*
+> + * Definitions for the HDBSS feature
+> + */
+> +#define HDBSS_MAX_SIZE		HDBSSBR_EL2_SZ_2MB
+> +
+> +#define HDBSSBR_EL2(baddr, sz)	(((baddr) & GENMASK(55, 12 + sz)) | \
+> +				 ((sz) << HDBSSBR_EL2_SZ_SHIFT))
+> +#define HDBSSBR_BADDR(br)	((br) & GENMASK(55, (12 + HDBSSBR_SZ(br))))
+> +#define HDBSSBR_SZ(br)		(((br) & HDBSSBR_EL2_SZ_MASK) >> HDBSSBR_EL2_SZ_SHIFT)
+> +
+> +#define HDBSSPROD_IDX(prod)	(((prod) & HDBSSPROD_EL2_INDEX_MASK) >> HDBSSPROD_EL2_INDEX_SHIFT)
+> +
+>  #define ARM64_FEATURE_FIELD_BITS	4
+>  
+>  /* Defined for compatibility only, do not add new users. */
+> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+> index 0160b4924351..825cfef3b1c2 100644
+> --- a/arch/arm64/kvm/arm.c
+> +++ b/arch/arm64/kvm/arm.c
+> @@ -80,6 +80,70 @@ int kvm_arch_vcpu_should_kick(struct kvm_vcpu *vcpu)
+>  	return kvm_vcpu_exiting_guest_mode(vcpu) == IN_GUEST_MODE;
 >  }
 >  
->  u32 panfrost_mmu_as_get(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
+> +static int kvm_cap_arm_enable_hdbss(struct kvm *kvm,
+> +				    struct kvm_enable_cap *cap)
+> +{
+> +	unsigned long i;
+> +	struct kvm_vcpu *vcpu;
+> +	struct page *hdbss_pg;
+> +	int size = cap->args[0];
+> +
+> +	if (!system_supports_hdbss()) {
+> +		kvm_err("This system does not support HDBSS!\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	if (size < 0 || size > HDBSS_MAX_SIZE) {
+> +		kvm_err("Invalid HDBSS buffer size: %d!\n", size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Enable the HDBSS feature if size > 0, otherwise disable it. */
+> +	if (size) {
+> +		kvm->enable_hdbss = true;
+> +		kvm->arch.mmu.vtcr |= VTCR_EL2_HD | VTCR_EL2_HDBSS;
 
+Nothing prevents a vCPU from using a VTCR value with HDBSS enabled
+before a tracking structure has been allocated.
+
+> +		kvm_for_each_vcpu(i, vcpu, kvm) {
+> +			hdbss_pg = alloc_pages(GFP_KERNEL, size);
+
+GFP_KERNEL_ACCOUNT
+
+> +			if (!hdbss_pg) {
+> +				kvm_err("Alloc HDBSS buffer failed!\n");
+> +				return -EINVAL;
+> +			}
+
+enable_hdbss and vtcr aren't cleaned up in this case, and EINVAL is an
+inappopriate return for a failed memory allocation.
+
+> +			vcpu->arch.hdbss.br_el2 = HDBSSBR_EL2(page_to_phys(hdbss_pg), size);
+> +			vcpu->arch.hdbss.prod_el2 = 0;
+> +
+> +			/*
+> +			 * We should kick vcpus out of guest mode here to
+> +			 * load new vtcr value to vtcr_el2 register when
+> +			 * re-enter guest mode.
+> +			 */
+> +			kvm_vcpu_kick(vcpu);
+
+VTCR_EL2 is configured on vcpu_load() for VHE. How is this expected to
+work?
+
+> +		}
+> +
+> +		kvm_info("Enable HDBSS success, HDBSS buffer size: %d\n", size);
+
+Drop the debugging printks.
+
+> +	} else if (kvm->enable_hdbss) {
+> +		kvm->arch.mmu.vtcr &= ~(VTCR_EL2_HD | VTCR_EL2_HDBSS);
+> +
+> +		kvm_for_each_vcpu(i, vcpu, kvm) {
+> +			/* Kick vcpus to flush hdbss buffer. */
+> +			kvm_vcpu_kick(vcpu);
+> +
+> +			hdbss_pg = phys_to_page(HDBSSBR_BADDR(vcpu->arch.hdbss.br_el2));
+> +			if (hdbss_pg)
+> +				__free_pages(hdbss_pg, HDBSSBR_SZ(vcpu->arch.hdbss.br_el2));
+> +
+> +			vcpu->arch.hdbss.br_el2 = 0;
+> +			vcpu->arch.hdbss.prod_el2 = 0;
+> +		}
+> +
+> +		kvm->enable_hdbss = false;
+> +		kvm_info("Disable HDBSS success\n");
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>  			    struct kvm_enable_cap *cap)
+>  {
+> @@ -125,6 +189,9 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
+>  		}
+>  		mutex_unlock(&kvm->slots_lock);
+>  		break;
+> +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
+> +		r = kvm_cap_arm_enable_hdbss(kvm, cap);
+> +		break;
+>  	default:
+>  		break;
+>  	}
+> @@ -393,6 +460,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
+>  	case KVM_CAP_ARM_SUPPORTED_REG_MASK_RANGES:
+>  		r = BIT(0);
+>  		break;
+> +	case KVM_CAP_ARM_HW_DIRTY_STATE_TRACK:
+> +		r = system_supports_hdbss();
+> +		break;
+
+I'm not sure this is creating the right abstraction for userspace. At
+least for the dirty bitmap, this is exposing an implementation detail to
+the VMM.
+
+You could, perhaps, associate the dirty tracking structure with a
+similar concept (e.g. vCPU dirty rings) available to userspace.
+
+>  	default:
+>  		r = 0;
+>  	}
+> diff --git a/arch/arm64/kvm/hyp/vhe/switch.c b/arch/arm64/kvm/hyp/vhe/switch.c
+> index 647737d6e8d0..6b633a219e4d 100644
+> --- a/arch/arm64/kvm/hyp/vhe/switch.c
+> +++ b/arch/arm64/kvm/hyp/vhe/switch.c
+> @@ -256,6 +256,7 @@ void kvm_vcpu_load_vhe(struct kvm_vcpu *vcpu)
+>  	__vcpu_load_switch_sysregs(vcpu);
+>  	__vcpu_load_activate_traps(vcpu);
+>  	__load_stage2(vcpu->arch.hw_mmu, vcpu->arch.hw_mmu->arch);
+> +	__load_hdbss(vcpu);
+>  }
+>  
+>  void kvm_vcpu_put_vhe(struct kvm_vcpu *vcpu)
+> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+> index 1f55b0c7b11d..9c11e2292b1e 100644
+> --- a/arch/arm64/kvm/mmu.c
+> +++ b/arch/arm64/kvm/mmu.c
+> @@ -1703,6 +1703,9 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+>  	if (writable)
+>  		prot |= KVM_PGTABLE_PROT_W;
+>  
+> +	if (kvm->enable_hdbss && logging_active)
+> +		prot |= KVM_PGTABLE_PROT_DBM;
+> +
+
+We should set DBM if the mapping is PTE sized. That way you can
+potentially avoid faults for pages that precede the dirty tracking
+enable.
+
+Thanks,
+Oliver
 
