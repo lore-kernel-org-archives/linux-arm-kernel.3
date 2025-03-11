@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECE4AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:47:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70A1DC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 14:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+DTvzNieviq6Zp2Xvtg+AxJ9ON3jIGFsmH8X6J9S20Q=; b=ONWQOyK887zh+4kwxGR+WzFyFP
-	QxHy5LVPxM4tb5MQ/+zSKfteeX1TeSWoHgNQWX0iyyoMU8YubAA3RTnnJY4jemGXRKKTSy/5rKgxw
-	CLAGBQ1fIj6J1eLpFbkAiTr+NmmdevDVMCsaAK7pGXbXAKB8vXm3VrFcXhwKaCojezZUMISRQwscd
-	wc7KUph+AiTu/uSYKhqJZCRnOD1JI023rpoqfMDgjkVQdjROXXh9rDFYQ7cJcAK0nE1Gi2m6Q4OQN
-	9TgLJCTjEolaVZ7OaLLPoZf6dzQnCMqDmpQfOL3jXB5+SUDFyD+AR3Bsfy8J0M6brEuB9RJ8pSste
-	cXOEUp+A==;
+	bh=fJDitTbMt8bSQYfsy1WuADDhZk9jW/Xx794Vs5HU0Ew=; b=tskf4M0mNB7CVZPDvoa+4XZdUD
+	0ngqEkAxesdkp3sdOv5gwV8enf93Fe8iNBgQTEZjfx6msRPOhgFvlv2bLfA20+6BXvpO0AzN7Cj8w
+	TvjrdoVYTGyxkAb3ZUVU9Mfi5D5Lve/Cxn1Rs7NMUGHjVWt3Br4Xz6ZfI00cWdWVUwZrsoaKliV0e
+	qDXRdleMeSYFMShvhQcZRt/VS7VYwQt4GUdfgI5GRw8qxENIZNlVR2o45JCwAQheU2KCHvUJ9m1r9
+	3z0Al6nZznyh2KkYXb9o+8baKiV83HCwkaAt8YjANYozX4/ekfRbMVzKyhfJTJSZjKi+WyhZGeBzY
+	eb72t6oQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0tI-0000000620E-11za;
-	Tue, 11 Mar 2025 14:47:32 +0000
+	id 1ts0uu-0000000629j-3lG7;
+	Tue, 11 Mar 2025 14:49:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts0nz-0000000614U-3afO
+	id 1ts0oI-0000000618g-0JCC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 14:42:04 +0000
+	Tue, 11 Mar 2025 14:42:23 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 71E6B271B;
-	Tue, 11 Mar 2025 07:42:14 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 189092720;
+	Tue, 11 Mar 2025 07:42:31 -0700 (PDT)
 Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 479853F694;
-	Tue, 11 Mar 2025 07:41:59 -0700 (PDT)
-Date: Tue, 11 Mar 2025 14:41:56 +0000
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E34F53F694;
+	Tue, 11 Mar 2025 07:42:15 -0700 (PDT)
+Date: Tue, 11 Mar 2025 14:42:13 +0000
 From: Sudeep Holla <sudeep.holla@arm.com>
 To: Yicong Yang <yangyicong@huawei.com>
 Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <tglx@linutronix.de>,
@@ -48,18 +48,18 @@ Cc: <catalin.marinas@arm.com>, <will@kernel.org>, <tglx@linutronix.de>,
 	<prime.zeng@hisilicon.com>, <linuxarm@huawei.com>,
 	<yangyicong@hisilicon.com>, <xuwei5@huawei.com>,
 	<guohanjun@huawei.com>, <sshegde@linux.ibm.com>
-Subject: Re: [PATCH v12 4/4] arm64: Kconfig: Enable HOTPLUG_SMT
-Message-ID: <Z9BLtGYyQ3CqkX5Z@bogus>
+Subject: Re: [PATCH v12 2/4] arch_topology: Support SMT control for OF based
+ system
+Message-ID: <Z9BLxeHrLZ1MJVhy@bogus>
 References: <20250311075143.61078-1-yangyicong@huawei.com>
- <20250311075143.61078-5-yangyicong@huawei.com>
+ <20250311075143.61078-3-yangyicong@huawei.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250311075143.61078-5-yangyicong@huawei.com>
+In-Reply-To: <20250311075143.61078-3-yangyicong@huawei.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_074203_931766_06C63D55 
-X-CRM114-Status: UNSURE (   5.25  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_074222_152831_A208DABF 
+X-CRM114-Status: GOOD (  11.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,11 +74,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 03:51:43PM +0800, Yicong Yang wrote:
+On Tue, Mar 11, 2025 at 03:51:41PM +0800, Yicong Yang wrote:
 > From: Yicong Yang <yangyicong@hisilicon.com>
 > 
-> Enable HOTPLUG_SMT for SMT control.
+> On building the topology from the devicetree, we've already gotten the
+> SMT thread number of each core. Update the largest SMT thread number
+> and enable the SMT control by the end of topology parsing.
 > 
+> The framework's SMT control provides two interface to the users [1]
+> through /sys/devices/system/cpu/smt/control:
+> 1) enable SMT by writing "on" and disable by "off"
+> 2) enable SMT by writing max_thread_number or disable by writing 1
+> 
+> Both method support to completely disable/enable the SMT cores so both
+> work correctly for symmetric SMT platform and asymmetric platform with
+> non-SMT and one type SMT cores like:
+> core A: 1 thread
+> core B: X (X!=1) threads
+> 
+> Note that for a theoretically possible multiple SMT-X (X>1) core
+> platform the SMT control is also supported as expected but only
+> by writing the "on/off" method.
+> 
+> [1] https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/ABI/testing/sysfs-devices-system-cpu#n542
+
+Just the path must suffice here, no need for URL.
+
+LGTM otherwise, much simple now:
 
 Reviewed-by: Sudeep Holla <sudeep.holla@arm.com>
 
