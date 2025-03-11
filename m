@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24932C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:47:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08151C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:49:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=epApqSBe/WGzVFneGS99CcGWuYjaH8P1owo3Y5YauhI=; b=IIipQwuZ6wG15XoFUlGCi8Ou9T
-	DFUlM4zBygklab8knNY8Lw6073UmOfnYNFIjqXw7814ZzQlPVbcPKefC+rGFe+ZIDUJ9y2DEf3D/n
-	53ArkLR6Z4eAqPBb6WMg1MMa10H1nqOdOahh0B9EhNibq+C9A8SP+HUBf0WkyWgo8YqIGl3mEG5mG
-	6b+eINLJl+pOCQBJmiulbvvrwqXjM9WeYfA0YokY6z9tgYU9GU4pPeI2U5kzqvehfZ60bJtZlF8RI
-	wMVZ4+kpGW+4A6aTdMI5aZi3k2I8KY7v380S88vdoaSYjLLCdR0/j/9uazLvdYDYyjBwM352YN2GX
-	sGFj3t2g==;
+	bh=tnAndo5wCVDJ4xgafF4Z0rkN0Qm/iKPdWHdP+xDviJQ=; b=LlV0QnpMlUz6bmBfM7ohDVZHlC
+	C/V/MvvrI9o+H3SSKaOEBvE5aDQo2rWggqnKRzYG+Lz8kKmOd7/euGK+So3TjjPDcH4idENi19Fjp
+	LqMYUwCOSnf1d/VzbWZ3WrDBxWubM7MWivUedJ/8EvyK+8I/6Lh2OEOWu639IwwVnsSmpWWjFIJCw
+	/pazmJU/svvxyHMXrD0OEDTLetNzZlsm/1PAmkSc4zZbvlXw8OEtLqS1iUCbN8GA09OL+oXuzYH+s
+	zy9GEvNj/m/gbZV10mQDf2muk1lmJbHg0bTjYjfiNq8jidRhJgvhE8BrvdAdhV3PwPhQJCNhxpt8F
+	bduD5zZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1try5A-00000005WhL-31u9;
-	Tue, 11 Mar 2025 11:47:36 +0000
+	id 1try6n-00000005Wy6-1ysw;
+	Tue, 11 Mar 2025 11:49:17 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1try36-00000005WBP-0WBH
+	id 1try35-00000005WBO-2I51
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 11:45:29 +0000
+	Tue, 11 Mar 2025 11:45:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D9CD5C5FEA;
+	by dfw.source.kernel.org (Postfix) with ESMTP id 21F335C5DE7;
 	Tue, 11 Mar 2025 11:43:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 417C6C4CEED;
-	Tue, 11 Mar 2025 11:45:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741693526;
-	bh=sWXHX5t+Kv3NfKtUWpDt2obvOSg0nfLxfHwkoaJD4eQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HcvlaCQoOWK3y/xnozjIw1SR5DfQnX10Z2/5uZ5PG+a65Ol9rjkQNEKBsXLZU9biO
-	 PYszIP0v12V9LBP8N1Iu43VTUlL+ywVZ0VIgiFQUXyNvGgvfFzsUUYYNRXhUmouUPG
-	 v0j5iT50gZYswdu0yeQv7z0Cnr+xFWboY83eHJ04ukLwDgaUa3G/I/xMWK0QFDNCVW
-	 2ysVy3w8ogTiHuZKeP9brmgpxXfyZOlsA+T7WKGY8Tr50OIbqWs6wV1A3LesUO/Uzs
-	 F8ARf4lNqdHgbnWwNu1Ljxj8tffudbC9PNId5Lbs/lCBZBUfpnMWOj/DleGAY9Nd2W
-	 s6yezugEFkzCQ==
-Date: Tue, 11 Mar 2025 11:45:20 +0000
-From: Will Deacon <will@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Marek Szyprowski <m.szyprowski@samsung.com>,
-	linux-kernel@vger.kernel.org, maz@kernel.org, steven.price@arm.com,
-	aneesh.kumar@kernel.org, gshan@redhat.com, robin.murphy@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Jean-Philippe Brucker <jean-philippe@linaro.org>,
-	Christoph Hellwig <hch@lst.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>
-Subject: Re: [PATCH v3 0/3] arm64: realm: Fix DMA address for devices
-Message-ID: <20250311114519.GA4202@willie-the-truck>
-References: <20250227144150.1667735-1-suzuki.poulose@arm.com>
- <CGME20250303113525eucas1p1099e087e2c11b9021603a6f13f8135c4@eucas1p1.samsung.com>
- <2b6d5287-bdea-4ec3-a07f-986bd3c3b285@arm.com>
- <7b5c90cf-00e4-4684-8719-f380badab064@samsung.com>
- <7ad365f0-d335-4da1-845a-8fe3bc5eb055@arm.com>
- <Z8nkNNR6vuoQ9bQD@arm.com>
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 249CBC4CEE9;
+	Tue, 11 Mar 2025 11:45:23 +0000 (UTC)
+Date: Tue, 11 Mar 2025 11:45:21 +0000
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Rutland <mark.rutland@arm.com>
+Cc: Kees Cook <kees@kernel.org>, Peter Collingbourne <pcc@google.com>,
+	Alexander Viro <viro@zeniv.linux.org.uk>,
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	linux-fsdevel@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, stable@vger.kernel.org
+Subject: Re: [PATCH] string: Disable read_word_at_a_time() optimizations if
+ kernel MTE is enabled
+Message-ID: <Z9AiUQdC4o0g8sxu@arm.com>
+References: <20250308023314.3981455-1-pcc@google.com>
+ <202503071927.1A795821A@keescook>
+ <Z88jbhobIz2yWBbJ@arm.com>
+ <Z88r5qFLOSo0itaq@J2N7QTR9R3.cambridge.arm.com>
+ <Z88yC7Oaj9DGaswc@arm.com>
+ <Z88_fFgr23_EtHMf@J2N7QTR9R3>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z8nkNNR6vuoQ9bQD@arm.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+In-Reply-To: <Z88_fFgr23_EtHMf@J2N7QTR9R3>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_044528_216926_018BA33A 
-X-CRM114-Status: GOOD (  23.78  )
+X-CRM114-CacheID: sfid-20250311_044527_701828_1421C7A5 
+X-CRM114-Status: GOOD (  40.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,49 +74,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 06, 2025 at 06:06:44PM +0000, Catalin Marinas wrote:
-> On Thu, Mar 06, 2025 at 11:39:14AM +0000, Suzuki K Poulose wrote:
-> > On 04/03/2025 13:40, Marek Szyprowski wrote:
-> > > > On 27/02/2025 14:41, Suzuki K Poulose wrote:
-> > > > > Linux can be run as a Confidential Guest in Arm CCA from Linux v6.13. The address
-> > > > > space (GPA or IPA) of a Realm VM is split into two halves, with private bottom
-> > > > > half and shared top half. In Linux we treat the "top" bit of the IPA space as
-> > > > > an attribute, to indicate whether it is shared or not (MSB == 1 implies shared).
-> > > > > Stage2 (GPA to PA) translations used by the CPU accesses, cover the full IPA space,
-> > > > > and are managed by RMM. The "top" bit as attribute is only a software construct.
-> [...]
-> > > The changes look fine. However I won't be able to setup new dma-mapping
-> > > git tree this week because I got really sick has to stay in bed. :/ If
-> > > You don't want such delay, please merge it via ARM64 tree. Here is my:
+On Mon, Mar 10, 2025 at 07:37:32PM +0000, Mark Rutland wrote:
+> On Mon, Mar 10, 2025 at 06:40:11PM +0000, Catalin Marinas wrote:
+> > On Mon, Mar 10, 2025 at 06:13:58PM +0000, Mark Rutland wrote:
+> > > On Mon, Mar 10, 2025 at 05:37:50PM +0000, Catalin Marinas wrote:
+> > > > On Fri, Mar 07, 2025 at 07:36:31PM -0800, Kees Cook wrote:
+> > > > > On Fri, Mar 07, 2025 at 06:33:13PM -0800, Peter Collingbourne wrote:
+> > > > > > The optimized strscpy() and dentry_string_cmp() routines will read 8
+> > > > > > unaligned bytes at a time via the function read_word_at_a_time(), but
+> > > > > > this is incompatible with MTE which will fault on a partially invalid
+> > > > > > read. The attributes on read_word_at_a_time() that disable KASAN are
+> > > > > > invisible to the CPU so they have no effect on MTE. Let's fix the
+> > > > > > bug for now by disabling the optimizations if the kernel is built
+> > > > > > with HW tag-based KASAN and consider improvements for followup changes.
+> > > > > 
+> > > > > Why is faulting on a partially invalid read a problem? It's still
+> > > > > invalid, so ... it should fault, yes? What am I missing?
+> > > > 
+> > > > read_word_at_a_time() is used to read 8 bytes, potentially unaligned and
+> > > > beyond the end of string. The has_zero() function is then used to check
+> > > > where the string ends. For this uses, I think we can go with
+> > > > load_unaligned_zeropad() which handles a potential fault and pads the
+> > > > rest with zeroes.
+> > > 
+> > > If we only care about synchronous and asymmetric modes, that should be
+> > > possible, but that won't work in asynchronous mode. In asynchronous mode
+> > > the fault will accumulate into TFSR and will be detected later
+> > > asynchronously where it cannot be related to its source and fixed up.
+> > > 
+> > > That means that both read_word_at_a_time() and load_unaligned_zeropad()
+> > > are dodgy in async mode.
 > > 
-> > Sorry to hear that. Hope you feel better soon.
-> > 
-> > > Acked-by: Marek Szyprowski <m.szyprowski@samsung.com>
-> > 
-> > Thanks Marek.
-> > 
-> > Btw, this series fixes the "Realm Guest" support for Linux, which was merged
-> > in v6.13. To be precise, this should have :
-> > 
-> > Fixes: 42be24a4178f ("arm64: Enable memory encrypt for Realms")
-> > 
-> > Will/Catalin,
-> > 
-> > Please let me know if you would like me to send the series with
-> > all the Acks, Reviews and mainly the Fixes tag added ?
+> > load_unaligned_zeropad() has a __mte_enable_tco_async() call to set
+> > PSTATE.TCO if in async mode, so that's covered. read_word_at_a_time() is
+> > indeed busted and I've had Vincezo's patches for a couple of years
+> > already, they just never made it to the list.
 > 
-> We can add the acks and fixes tag, no worries. I can queue them for 6.15
-> unless Will takes them as fixes for 6.14 (I'll wait for a bit).
+> Sorry, I missed the __mte_{enable,disable}_tco_async() calls. So long as
+> we're happy to omit the check in that case, that's fine.
 
-For the series:
+That was the easiest. Alternatively we can try to sync the TFSR before
+and after the load but with the ISBs, that's too expensive. We could
+also do a dummy one byte load before setting TCO. read_word_at_a_time()
+does have an explicit kasan_check_read() but last time I checked it has
+no effect on MTE.
 
-Acked-by: Will Deacon <will@kernel.org>
+> I was worried that ex_handler_load_unaligned_zeropad() might not do the
+> right thing in response to a tag check fault (e.g. access the wrong 8
+> bytes), but it looks as though that's ok due to the way it generates the
+> offset and the aligned pointer.
+> 
+> If load_unaligned_zeropad() is handed a string that starts with an
+> unexpected tag (and even if that starts off aligned),
+> ex_handler_load_unaligned_zeropad() will access that and cause another
+> tag check fault, which will be reported.
 
-but I'd prefer this to land in 6.15 at this stage given that (a) it's
-always been broken and (b) we're not exactly tripping over CCA-capable
-hardware.
+Yes, it will report an async tag check fault on the
+exit_to_kernel_mode() path _if_ load_unaligned_zeropad() triggered the
+fault for other reasons (end of page). It's slightly inconsistent, we
+could set TCO for the async case in ex_handler_load_unaligned_zeropad()
+as well.
 
-Cheers,
+For sync checks, we'd get the first fault ending up in
+ex_handler_load_unaligned_zeropad() and a second tag check fault while
+processing the first. This ends up in do_tag_recovery and we disable tag
+checking after the report. Not ideal but not that bad. We could adjust
+ex_handler_load_unaligned_zeropad() to return false if the pointer is
+already aligned but we need to check the semantics of
+load_unaligned_zeropad(), is it allowed to fault on the first byte?
 
-Will
+-- 
+Catalin
 
