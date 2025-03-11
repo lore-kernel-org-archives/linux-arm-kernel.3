@@ -4,87 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73182C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:34:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D51C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 13:43:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WjiGq/k98KOjOiv018k9gMD0SxaYi2QrssUBdSDWcoY=; b=c2P8UFM4yvWg4xFXVW5ubZgJvh
-	mzDzgbDYKvPRBD3jNAT+Bn8Ly7ztj2DQgnEsh/VaDCV7fINCKuhkTwVHiDCpyHgWGIW2bIrE4oT7d
-	N1yF3l9t1A5xhVROD8PcA4swtCBCgxeFj96eDFwdVyjrTww02JmpGHAoVr4qummag2SEOAnX9oQMT
-	eAcjtzXtmZD57Ftf9hwJamaHOcRGEVbNE4k8AznzB1dsYdx+SXdIXov37qZ5bZj5L3O+7ASILiStC
-	gF9xl3ZXINp9X0ecdSFA/lOscBTAxuG9B8wmb5C6BmEegDEKP2SmRUnR37BlY8t0E97SBRtrgJ19J
-	f/4Mf4hg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=; b=16hHOPZmCEw+Uo2HqU+0WT45yh
+	008DM3K1uVrRzixj0oJUdIm6r7hvybmF4ZN3kLQCJYL1Ae1TM/spY2KDQFkvjZPRuRsOgALrBFoia
+	05I+S21uzUHU9rRZwIgG1sMqnjDDPh1jRQg4Ek/NFnyPoeUAQAB3bep0xcHRQBGa9i3hMOVCzAP/t
+	wXnU7oNoG7G9K3JTKzGjTu9TlqHDYRoKnF6d3cviXtKFUKZTQymFHIkXJlgg6/bKiXI6ng/GyzVPU
+	fad+IRFC7rddf5DtTLXNRTgNuqo2JyvKcOrzgKij1D/znKgqIywPvuEmOFM/YlW9igXPD8bXQNnsX
+	piTWg/NA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trzka-00000005rDf-1X3D;
-	Tue, 11 Mar 2025 13:34:28 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1trzt4-00000005rxA-0sWL;
+	Tue, 11 Mar 2025 13:43:14 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trziv-00000005qwL-30vZ;
-	Tue, 11 Mar 2025 13:32:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id E2251A450BE;
-	Tue, 11 Mar 2025 13:27:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48D46C4CEF7;
-	Tue, 11 Mar 2025 13:32:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741699964;
-	bh=foFBmGFbc+QCSONoZVpR+givHeN3h/c5aJuICUYGiE0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=IjUGOna96P6PIijXA/JopSCd1d/VyKBBN+ce/Ed0nBiLhKysYuXMOO8ntjKoNJFoo
-	 KvvRKcBWnITLYLhGRnSUQitn+rIdSSRK2Cpm5n6Mn/118FAtbrimE5jYp/UXlZTfql
-	 gprF+LsaUajaD4mfZOL8d+MWXSTnEbYoMmCi0oUOd2lKGUmCmlD38v+i4Wiq5Pmpjr
-	 ayzyPa2JHPukyRerL2/P8O+UDUAqMM7QygXATRowtyikvNNz/2O+EBnThkGFsw2KTR
-	 mnRaXP7EryYvf+2VABTSHwEZzyziKQIuYIaobgi/ftZzS8lPgE5Ag3aYBUTqbdFhEr
-	 HnFlBeThaEv+w==
-Received: by mail-ed1-f50.google.com with SMTP id 4fb4d7f45d1cf-5e5c9662131so8324316a12.3;
-        Tue, 11 Mar 2025 06:32:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUGgf5BgsyiX8uXzrpfwefat8eteJFwdoHCZSD8mLgjaRS+Yn8CL7XYefhoDaEi46FDA87EDYCfp5+CteUxBtZwJQ==@lists.infradead.org, AJvYcCWN4Dwd+fkkP2CbqM5zoA0Zs5CkSKLoq65T4QpvdFJTkVmR3Pnxo15xCzHoSnGCU44+4jbOjQYZf54k/GMAchWP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz8Fdye8aXPl5pd9d/sQdUnygTD3fwdneDbolncnClOMILQUJE3
-	NnKR+g7wzm/QpuPajUW28NE62maM3GE6nkeqkT2FqwDRtnjOXy0gaJDfTOe+w7tjsNwogqwz1nJ
-	LdPGmY7ut+be4mSEP+oZGjtM63Q==
-X-Google-Smtp-Source: AGHT+IEifrCmqJfikkidIDTYr2jS6o8iDBri/VlKwu/FWmzn0+fbwXWdCCMBLNQSNY6IZ7RZHzcbstx5Fj81dc05srU=
-X-Received: by 2002:a05:6402:2353:b0:5e5:c5f5:f82 with SMTP id
- 4fb4d7f45d1cf-5e5e211e1f1mr21034407a12.0.1741699962525; Tue, 11 Mar 2025
- 06:32:42 -0700 (PDT)
+	id 1trzrP-00000005rhE-2u3f;
+	Tue, 11 Mar 2025 13:41:32 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-ac2b10bea16so255272366b.0;
+        Tue, 11 Mar 2025 06:41:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741700489; x=1742305289; darn=lists.infradead.org;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=;
+        b=FutUqZlvQG36z607dw3hW9Pka4y+AxmTKzvi15aRhWEy/ggcjUw1KsdrFvc8gqsVcH
+         MQ++ApfDldaQThgzy0KPJ11UOwJdMb5+6ecw5acCeVS2tJ28SER5LfWSKe88gU+YKQ6N
+         H9y93gV2RpJn6EkdsnYcIEO/xGQR122wkRGFu8curIZZOAJJBSOeas1GWPamLFu0Ym7P
+         tCFw+tsfJY0IrKkkQM4Z6N+aqqYhhyjlKP4k/3vIWXwYPOHu0cPVcXzMdZ2SjHJS7J7y
+         AmAlVrENoao2O7ONGjx7tYhYaw9ajN22gvCQD2su/BUPHFWTDNHLjO4OyxUw7IbjSuDs
+         stRw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741700489; x=1742305289;
+        h=user-agent:in-reply-to:content-disposition:mime-version:references
+         :reply-to:message-id:subject:cc:to:from:date:x-gm-message-state:from
+         :to:cc:subject:date:message-id:reply-to;
+        bh=TueZFVSlfkUTp0jdNfdYcZQNu83RAWuxPbzRk33Y34A=;
+        b=rtBwLjnfSJOj8lpyqPzfn0z2YVgjgy9rCWbtXC4MmqLk4/XRell3Uq6gDMdrhQMv1h
+         lqwmtasXpp0LPLHEcpZh3mx0bz0S5U21l1zXhD/s9dBeRMfzwYn2BxQKxPVDqtEYsIcD
+         7uUYypCu/sahd7Or+7vnWiiFZ9vJfBrvMwX52bGx5knGkfyVBPvPz4C40w1M0LyoCMjk
+         wm83iiWJQuyIEtBtqgNFNI1JWVqzDprQT1GsMr2FTTO4wqwh4Zc5qc6mgteZwgKCjdtw
+         l/5+IrNwPzFoXfwkSsU3mSbvauZO0SEXHe9Qx+AheVi7lRbjHkHbzkfxmaksv01f4Unh
+         Gevw==
+X-Forwarded-Encrypted: i=1; AJvYcCUcmoD4t9v+v619z8wqEF3TSvuGpnoaUkWHsQFojTNAmv1P0Hu1Y+gRpWbYuBF4O2jktCHFIQ==@lists.infradead.org, AJvYcCWBpHa0jkvrI7fB417mAKsV2Be3mkeEZfscJDY5y3zwsGFWWkgj59/NMb82y+4RY1n9flUhRSX0kwbh9INDnUQhaA==@lists.infradead.org
+X-Gm-Message-State: AOJu0YyuvuQJbgfHKCWIm6LRtw3IYP+94Ydwh5CHWlxaDbHTPsyjqyiZ
+	QqVGZKKYZGJA8vRhkXEQYTr/4d26861Rf3dgyDp4TnwRMLFycogO
+X-Gm-Gg: ASbGncsrp6mE7jxTtd3tnauO00KB4fNAErXyPZKFgbsscBOQaCPyR51ZIgqyQixuipY
+	HMJwGKDEoYfWBjJRFChMdbYRXLrfL2k6mJj8Uy7AGnco5zZT+0jERoMAcNQXHA6jjv4n8goDLVQ
+	WF4mQmyBZ3T3QlfFCOMOt456OB3q1dzfeZlbYxXlW3apSmOVXbj9EMYzdbK2wKNxxqXFGH/j17C
+	DCvpUpnVHx04ohGLqaMSLBEAr8Oo1AFBASNteTKmD5ltDPSuE1hjWr/iA634qBrnqmZmmNQvTiR
+	sQ8gCoX/5ubkQSLxFpizVxvlfBzbZEUNp4qjyYepOq7u9bc2bUSiM6c=
+X-Google-Smtp-Source: AGHT+IEqvcT3nUuyCclAJyMA5I1jSzcLHsXRqFYyLbC3aVoohYneT0bwBO9KyAHB0hhKMZdf6pm4uw==
+X-Received: by 2002:a17:906:6a07:b0:ac2:c75d:f30a with SMTP id a640c23a62f3a-ac2c75dfff9mr258917866b.37.1741700488456;
+        Tue, 11 Mar 2025 06:41:28 -0700 (PDT)
+Received: from localhost ([185.92.221.13])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac287653d1esm481132766b.125.2025.03.11.06.41.27
+        (version=TLS1_2 cipher=ECDHE-ECDSA-CHACHA20-POLY1305 bits=256/256);
+        Tue, 11 Mar 2025 06:41:27 -0700 (PDT)
+Date: Tue, 11 Mar 2025 13:41:26 +0000
+From: Wei Yang <richard.weiyang@gmail.com>
+To: Mike Rapoport <rppt@kernel.org>
+Cc: Wei Yang <richard.weiyang@gmail.com>, linux-kernel@vger.kernel.org,
+	Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <20250311134126.xfjdq6sq7jtcotck@master>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
+ <20250223002229.xuk6xlp23zr72hkc@master>
+ <20250310095124.pa7dwgqhxglqrfes@master>
+ <Z8_Ju0p63GBCdSG9@kernel.org>
 MIME-Version: 1.0
-References: <cover.1738963156.git.andrea.porta@suse.com> <c0acc51a7210fb30cae7b26f4ad1f0449beed95e.1738963156.git.andrea.porta@suse.com>
- <20250310212125.GB2377483@rocinante>
-In-Reply-To: <20250310212125.GB2377483@rocinante>
-From: Rob Herring <robh@kernel.org>
-Date: Tue, 11 Mar 2025 08:32:28 -0500
-X-Gmail-Original-Message-ID: <CAL_JsqKPGOdS_8KDggO5tBHAnC-NTLAC5iS9GANm9BuxBfQUsw@mail.gmail.com>
-X-Gm-Features: AQ5f1JpFqtVYiSlkH0QD-dTfJ4bf9VAjFuYNndnQ1jy7PeA-IWSalDclsIDbfBA
-Message-ID: <CAL_JsqKPGOdS_8KDggO5tBHAnC-NTLAC5iS9GANm9BuxBfQUsw@mail.gmail.com>
-Subject: Re: [PATCH v7 03/11] dt-bindings: pci: Add common schema for devices
- accessible through PCI BARs
-To: Krzysztof Wilczynski <kw@linux.com>
-Cc: Andrea della Porta <andrea.porta@suse.com>, Michael Turquette <mturquette@baylibre.com>, 
-	Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Derek Kiernan <derek.kiernan@amd.com>, 
-	Dragan Cvetic <dragan.cvetic@amd.com>, Arnd Bergmann <arnd@arndb.de>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Saravana Kannan <saravanak@google.com>, 
-	linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-pci@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, Masahiro Yamada <masahiroy@kernel.org>, 
-	Stefan Wahren <wahrenst@gmx.net>, Herve Codina <herve.codina@bootlin.com>, 
-	Luca Ceresoli <luca.ceresoli@bootlin.com>, Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
-	Andrew Lunn <andrew@lunn.ch>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8_Ju0p63GBCdSG9@kernel.org>
+User-Agent: NeoMutt/20170113 (1.7.2)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_063245_880815_E16744CB 
-X-CRM114-Status: GOOD (  19.76  )
+X-CRM114-CacheID: sfid-20250311_064131_730753_43962FEE 
+X-CRM114-Status: GOOD (  29.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,52 +129,117 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: Wei Yang <richard.weiyang@gmail.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Mar 10, 2025 at 4:21=E2=80=AFPM Krzysztof Wilczynski <kw@linux.com>=
- wrote:
+On Tue, Mar 11, 2025 at 07:27:23AM +0200, Mike Rapoport wrote:
+>Hi Wei,
 >
-> Hello,
+>On Mon, Mar 10, 2025 at 09:51:24AM +0000, Wei Yang wrote:
+>> On Sun, Feb 23, 2025 at 12:22:29AM +0000, Wei Yang wrote:
+>> >On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+>> >>Hi,
+>> >>
+>> >>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+>> >>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+>> >>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+>> >>> >
+>> >>> >to denote areas that were reserved for kernel use either directly with
+>> >>> >memblock_reserve_kern() or via memblock allocations.
+>> >>> >
+>> >>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+>> >>> >---
+>> >>> > include/linux/memblock.h | 16 +++++++++++++++-
+>> >>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+>> >>> > 2 files changed, 39 insertions(+), 9 deletions(-)
+>> >>> >
+>> >>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+>> >>> >index e79eb6ac516f..65e274550f5d 100644
+>> >>> >--- a/include/linux/memblock.h
+>> >>> >+++ b/include/linux/memblock.h
+>> >>> >@@ -50,6 +50,7 @@ enum memblock_flags {
+>> >>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+>> >>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+>> >>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+>> >>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+>> >>> 
+>> >>> Above memblock_flags, there are comments on explaining those flags.
+>> >>> 
+>> >>> Seems we miss it for MEMBLOCK_RSRV_KERN.
+>> >>
+>> >>Right, thanks!
+>> >> 
+>> >>> > 
+>> >>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+>> >>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+>> >>> > again:
+>> >>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+>> >>> > 					    flags);
+>> >>> >-	if (found && !memblock_reserve(found, size))
+>> >>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+>> >>> 
+>> >>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+>> >>> correct, the reserved region's nid is not used.
+>> >>
+>> >>We use nid of reserved regions in reserve_bootmem_region() (commit
+>> >>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+>> >>know the distribution of reserved memory among the nodes before
+>> >>memmap_init_reserved_pages().
+>> >> 
+>> >
+>> >I took another look into this commit. There maybe a very corner case in which
+>> >will leave a reserved region with no nid set.
+>> >
+>> >memmap_init_reserved_pages()
+>> >    for_each_mem_region() {
+>> >        ...
+>> >	memblock_set_node(start, end, &memblock.reserved, nid);
+>> >    }
+>> >
+>> >We leverage the iteration here to set nid to all regions in memblock.reserved.
+>> >But memblock_set_node() may call memblock_double_array() to expand the array,
+>> >which may get a range before current start. So we would miss to set the
+>> >correct nid to the new reserved region.
+>> >
+>> >I have tried to create a case in memblock test. This would happen when there
+>> >are 126 memblock.reserved regions. And the last region is across the last two
+>> >node.
+>> >
+>> >One way to fix this is compare type->max in memblock_set_node(). Then check
+>> >this return value in memmap_init_reserved_pages(). If we found the size
+>> >changes, repeat the iteration.
+>> >
+>> >But this is a very trivial one, not sure it worth fix.
+>> >
+>> 
+>> Hi, Mike
+>> 
+>> I have done a user space test which shows we may have a chance to leave a
+>> region with non-nid set.
+>> 
+>> Not sure you are ok with my approach of fixing.
 >
-> [...]
-> > diff --git a/MAINTAINERS b/MAINTAINERS
-> > index d45c88955072..af2e4652bf3b 100644
-> > --- a/MAINTAINERS
-> > +++ b/MAINTAINERS
-> > @@ -19752,6 +19752,7 @@ RASPBERRY PI RP1 PCI DRIVER
-> >  M:   Andrea della Porta <andrea.porta@suse.com>
-> >  S:   Maintained
-> >  F:   Documentation/devicetree/bindings/clock/raspberrypi,rp1-clocks.ya=
-ml
-> > +F:   Documentation/devicetree/bindings/pci/pci-ep-bus.yaml
-> >  F:   Documentation/devicetree/bindings/pinctrl/raspberrypi,rp1-gpio.ya=
-ml
-> >  F:   include/dt-bindings/clock/rp1.h
-> >  F:   include/dt-bindings/misc/rp1.h
->
-> I would be happy to pick this via the PCI tree as per the standard
-> operating procedure.  However, the MAINTAINERS changes do not exist
-> for us yet, and are added in the first patch of the series, which is
-> not ideal.
->
-> I can add the missing dependency manually, but that would cause issues
-> for linux-next tree, which is also not ideal.
->
-> I saw some review feedback, as such, when you are going to be sending
-> another version, can you make MAINTAINERS changes to be the last patch,
-> perhaps.  Basically, something standalone that perhaps whoever will pick
-> the misc patch could also pick and apply at the same time.
->
-> Alternatively, someone else picking up the PCI dt-bindings would work, to=
-o.
->
-> Your thoughts?
+>Wouldn't it be better to check for a change in reserved.max in
+>memmap_init_reserved_pages()?
+> 
 
-I guess I missed this in review, but why is a common schema buried in
-a device maintainer entry? Also, an entry in MAINTAINERS is redundant
-anyway because get_maintainers.pl can fetch maintainers from the
-schema file.
+Sounds better.
 
-Rob
+Previously I thought we need to hide detail from user, but actually it is
+already in memblock.c :-)
+
+If you agree, I would like to prepare a fix.
+
+>> -- 
+>> Wei Yang
+>> Help you, Help me
+>
+>-- 
+>Sincerely yours,
+>Mike.
+
+-- 
+Wei Yang
+Help you, Help me
 
