@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0626C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:23:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7F9FC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:27:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zKUES4VcsmJdL3FqTEgJifFWx2SilAMHf+bjiSb8+Bs=; b=gOjXDOs0K5Ri8w/3HuPmOErsHP
-	XlCT+xBR8xRp379q3Ie1mvofxM0iMTBsyORwN1fkbFivBAN+8ekyoXTwqYyhWqDITyWp8tvoZQCUN
-	27zKojlQTUksEETEriQZp4z+CJIZKIjJJujklCVfVJyg1hEchAQ0DMT/k53N+b0/BI6+Pv0C6MAm3
-	uxltspl1oYeMZjdI2dx03SwSXslexQCvnvbZPcvcSXc4d7kJ/kRv/uyu2HiU3QoYYxslEhUuigJJL
-	2cz4eUC4UKanqnbGbXyYi4vGa45nqR3KeolsKxV36bNnsRtKjqSEdm9odf6k/mIFK8ziVhR+cfjIY
-	EJHuNVgg==;
+	bh=cZeEjkRBUIchrC12RwZ+rU3pBKpusXB6nWtGSbGqMAI=; b=VZhVw2iyciNWCQsLbfmBYPWLdR
+	Z+kr0igQ98AUKy88MvnCuGhp5kxdwPixcpZgf3TudBbdkAh9fyIiUufctkEZcMnz3SWt+aNfjUoS7
+	e5yyB8kQRWFKMRxAgH4afx2q/OrcbeSfPSItkuPfD6NVM4ZGJadry2ObCdd7acG4fMHtlMBtnjsel
+	Dpt6SzOewpAk/wwrJHm56mq02wgxCYjXLqfTWvA9zUm7K4sU6qKDocLspmNkTl6Gq+VQFzzb00Mgh
+	+9FsJPC9hNhXplBJRC8Uf1SMNEwDk2poKREMo9LSllao1LjDsRnASldtHGbwhKXDxjsEo2JEXYHkP
+	VIkt59lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5C9-00000006lIo-1gCp;
-	Tue, 11 Mar 2025 19:23:17 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1ts5Fk-00000006lmD-2Bl4;
+	Tue, 11 Mar 2025 19:27:00 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts59K-00000006kto-4ALz;
-	Tue, 11 Mar 2025 19:20:24 +0000
+	id 1ts5E6-00000006laX-2kZQ;
+	Tue, 11 Mar 2025 19:25:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB323A460D0;
-	Tue, 11 Mar 2025 19:14:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2667BC4CEE9;
-	Tue, 11 Mar 2025 19:20:21 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 3FB855C5606;
+	Tue, 11 Mar 2025 19:23:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E9D2C4CEEA;
+	Tue, 11 Mar 2025 19:25:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741720821;
-	bh=kcpuPf65uj8+Xtj1e9eOmZyXND0tqkIgzzMQ+yLTfRM=;
+	s=k20201202; t=1741721117;
+	bh=vD3EacD3StgEcdCEuMUQ5gzplQWLkIqq1FTPEZvPzfg=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KnzpMvk0sZD2ybFPnFuUmHST+AHXtX+XKsjOttTZFgArB5KLfUeESvN6y3+9+rnvV
-	 zvBj0jTFY0ExBrdPpeJKq76DplD1a30rUmSPJFLcPBG3mS/lYfSKymTCjNF7SrQY2/
-	 zfE7Z3vjDtaCDNORb4zfB/ZhF8mBtDq2Wa8R2kC8NXHwXd6druJpSOsDpOI85Z3k3a
-	 Jd7VGh5yRZmaTG5uABfqNuOwqiaD9WrGSpRlxkGqXqs7yOJjoFX794Bfj+8N5dk85d
-	 1CsQpuPwHE2QYmpwVFE4iOCRfCvzB2jrBT+bCeiE1cltEk5loeXcgCKrrtNdP/QIrZ
-	 3A7illovJkQUw==
-Date: Tue, 11 Mar 2025 14:20:19 -0500
+	b=mBM4xUAkTUSoMvHUEAgRz6yN/W5RI7I4V2p83akIVmnAM7QsIcAQaLXlHr1vNn+QI
+	 5ETwOeuCX4I/89nK2A3vphN/bUIz+tf2148c+5xZ3vXPv6lgLe5v+vHHHDmsBwj3si
+	 WoVutHIgmQxZJY4o1F7Csp/tbW73xacT4HqG/1aCzmKtHyOp+KUJ/ZVwun/V1yNyIw
+	 QtJygu4ryRR69VbveplcuNR3T4RwYAuI8Eu/J5EIRDoBt1I03+2WF5O2z88ny9J4iB
+	 7vKswfiVOdbxC0slpftaFCpGE7eYEI9pqM7AUQtJ86jQsD0xpcSZQ8cvUZiTvbTNGf
+	 mGuBLNFZmp07g==
+Date: Tue, 11 Mar 2025 14:25:16 -0500
 From: Rob Herring <robh@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
 Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -61,18 +61,18 @@ Cc: Lee Jones <lee@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org,
 	upstream@airoha.com
-Subject: Re: [net-next PATCH v12 03/13] dt-bindings: net: dsa: Document
- support for Airoha AN8855 DSA Switch
-Message-ID: <20250311192019.GA4067643-robh@kernel.org>
+Subject: Re: [net-next PATCH v12 04/13] dt-bindings: net: Document support
+ for AN8855 Switch Internal PHY
+Message-ID: <20250311192516.GA4115176-robh@kernel.org>
 References: <20250309172717.9067-1-ansuelsmth@gmail.com>
- <20250309172717.9067-4-ansuelsmth@gmail.com>
+ <20250309172717.9067-5-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250309172717.9067-4-ansuelsmth@gmail.com>
+In-Reply-To: <20250309172717.9067-5-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_122023_174672_2E277D6D 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20250311_122518_806159_4A547018 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,78 +87,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Mar 09, 2025 at 06:26:48PM +0100, Christian Marangi wrote:
-> Document support for Airoha AN8855 5-port Gigabit Switch.
+On Sun, Mar 09, 2025 at 06:26:49PM +0100, Christian Marangi wrote:
+> Document support for AN8855 Switch Internal PHY.
 > 
-> It does expose the 5 Internal PHYs on the MDIO bus and each port
-> can access the Switch register space by configurting the PHY page.
+> Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
+> PHYs on the MDIO bus.
 > 
-> Each internal PHY might require calibration with the fused EFUSE on
-> the switch exposed by the Airoha AN8855 SoC NVMEM.
+> Each PHY might need to be calibrated to correctly work with the
+> use of the eFUSE provided by the Switch SoC. This can be enabled by
+> defining in the PHY node the "airoha,ext-surge" property.
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 > ---
->  .../net/dsa/airoha,an8855-switch.yaml         | 105 ++++++++++++++++++
->  MAINTAINERS                                   |   1 +
->  2 files changed, 106 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+>  .../bindings/net/airoha,an8855-phy.yaml       | 93 +++++++++++++++++++
+>  MAINTAINERS                                   |  1 +
+>  2 files changed, 94 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
 > 
-> diff --git a/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+> diff --git a/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
 > new file mode 100644
-> index 000000000000..63bcbebd6a29
+> index 000000000000..301c46f84904
 > --- /dev/null
-> +++ b/Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
-> @@ -0,0 +1,105 @@
+> +++ b/Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+> @@ -0,0 +1,93 @@
 > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
 > +%YAML 1.2
 > +---
-> +$id: http://devicetree.org/schemas/net/dsa/airoha,an8855-switch.yaml#
+> +$id: http://devicetree.org/schemas/net/airoha,an8855-phy.yaml#
 > +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +title: Airoha AN8855 Gigabit Switch
+> +title: Airoha AN8855 Switch Internal PHY
 > +
 > +maintainers:
 > +  - Christian Marangi <ansuelsmth@gmail.com>
 > +
 > +description: >
-> +  Airoha AN8855 is a 5-port Gigabit Switch.
+> +  Airoha AN8855 is a 5-port Gigabit Switch that expose the Internal
+> +  PHYs on the MDIO bus.
 > +
-> +  It does expose the 5 Internal PHYs on the MDIO bus and each port
-> +  can access the Switch register space by configurting the PHY page.
+> +  Each PHY might need to be calibrated to correctly work with the
+> +  use of the eFUSE provided by the Switch SoC.
 > +
-> +  Each internal PHY might require calibration with the fused EFUSE on
-> +  the switch exposed by the Airoha AN8855 SoC NVMEM.
+> +allOf:
+> +  - $ref: ethernet-phy.yaml#
 > +
-> +$ref: dsa.yaml#
-
-This needs to be:
-
-dsa.yaml#/$defs/ethernet-ports
-
-As that restricts custom properties.
-
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        enum:
+> +          - ethernet-phy-idc0ff.0410
+> +  required:
+> +    - compatible
 > +
 > +properties:
-> +  compatible:
-> +    const: airoha,an8855-switch
-> +
-> +  reset-gpios:
-> +    description:
-> +      GPIO to be used to reset the whole device
+> +  reg:
 > +    maxItems: 1
 > +
 > +  airoha,ext-surge:
-> +    $ref: /schemas/types.yaml#/definitions/flag
-> +    description:
-> +      Calibrate the internal PHY with the calibration values stored in EFUSE
-> +      for the r50Ohm values.
+> +    description: enable PHY calibration with the use of SoC eFUSE.
 
-Should you be using nvmem binding to the efuse block? Or the efuses are 
-within this block?
+Wouldn't nvmem-cells presence enable this?
 
+> +
+> +  nvmem-cells:
+> +    items:
+> +      - description: phandle to SoC eFUSE tx_a
+> +      - description: phandle to SoC eFUSE tx_b
+> +      - description: phandle to SoC eFUSE tx_c
+> +      - description: phandle to SoC eFUSE tx_d
+> +
+> +  nvmem-cell-names:
+> +    items:
+> +      - const: tx_a
+> +      - const: tx_b
+> +      - const: tx_c
+> +      - const: tx_d
 > +
 > +required:
 > +  - compatible
+> +  - reg
+> +
+> +if:
+> +  required:
+> +    - airoha,ext-surge
+> +then:
+> +  required:
+> +    - nvmem-cells
+> +    - nvmem-cell-names
+
+dependentRequired:
+  airoha,ext-surge: [ nvmem-cells, nvmem-cell-names ]
+
 > +
 > +unevaluatedProperties: false
+> +
+> +examples:
+> +  - |
+> +    mdio {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        ethernet-phy@1 {
+> +            compatible = "ethernet-phy-idc0ff.0410",
+> +                         "ethernet-phy-ieee802.3-c45";
+> +
+> +            reg = <1>;
+> +        };
+> +
+> +        ethernet-phy@2 {
+> +            compatible = "ethernet-phy-idc0ff.0410",
+> +                         "ethernet-phy-ieee802.3-c45";
+> +
+> +            reg = <2>;
+> +
+> +            airoha,ext-surge;
+> +
+> +            nvmem-cells = <&shift_sel_port0_tx_a>,
+> +                <&shift_sel_port0_tx_b>,
+> +                <&shift_sel_port0_tx_c>,
+> +                <&shift_sel_port0_tx_d>;
+> +            nvmem-cell-names = "tx_a", "tx_b", "tx_c", "tx_d";
+> +        };
+> +    };
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 696ad8465ea8..45f4bb8deb0d 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -726,6 +726,7 @@ L:	linux-mediatek@lists.infradead.org (moderated for non-subscribers)
+>  L:	netdev@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/devicetree/bindings/net/airoha,an8855-mdio.yaml
+> +F:	Documentation/devicetree/bindings/net/airoha,an8855-phy.yaml
+>  F:	Documentation/devicetree/bindings/net/dsa/airoha,an8855-switch.yaml
+>  F:	Documentation/devicetree/bindings/nvmem/airoha,an8855-efuse.yaml
+>  
+> -- 
+> 2.48.1
+> 
 
