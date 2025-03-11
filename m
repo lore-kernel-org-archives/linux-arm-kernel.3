@@ -4,65 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9E51C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0356FC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 11:42:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+TSkJ/CLUn0erEj6Eb5oYVx4T0mqKWD6ulalhCQevTY=; b=NzXBsqirL+G3smEkGBaUetcG/X
-	b2r82trj+v8I/VL7jEeaG3yq/XkzDyNE2PE2OzNryaRE+jy+/R+4UG0SueklQ6xxRnhqYcncxbH9E
-	hxO+rfWZ3U8DM7CmLAYyW+MpBxARiRByFNUbdsNcFEGus7QITDQDMSgl2bmG2F0C8g/bjL3RhfOI4
-	tMXuHHxsDcmsflPiQzxll7iZXKJupV470UIQ5/FDPJcly7kbPFFoNfpp1T8FhUiFuXrTODi0I8hfa
-	19z64x+2PkBGAk1xkylZMJFJRlmW7zBSeCURIL1pMI099mLUxZBOjDJMY1BoPE0DpLbpIFlTspRFt
-	lXoHBxhQ==;
+	bh=rncbrJ0OEffTLdKR51Y3zRdDIcNKRJJsAocrVTC+MJ0=; b=evVl3dSge5Hk+Clx3t8cqMMmKl
+	yjewWP5/1Qr2TBNu9P4aqhgQ32KO99TTnEOGurpqtDO7QMozu0sbMh0cfIrJmXGtpt6dR29Z6T4ix
+	vIPpBj3DdakpZJ8cGB1H1pB1P1d+GCu27TbBGRVEy/9BiXI5UAB9D2LNJ7IQkRqEhau47cjU2l6rr
+	ejEuxXYZZifLUlFs7B8unB2c1rf3CaIJfYdDU9VsdoitTjJATFQ2P4IrKNmrC7YD0GWfi9y3Avibd
+	sbi9LyGHriNKmzttr4t/HAvkHUwBigyhbgJuZlwYNHRzVMjikxrZ93Pjuk0Gsk1QuzM64ekz42SLf
+	Fp824hug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxyR-00000005VDq-2uzB;
-	Tue, 11 Mar 2025 11:40:39 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1try04-00000005VXk-1VWd;
+	Tue, 11 Mar 2025 11:42:20 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxvQ-00000005Uot-1ZcL
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Mar 2025 11:37:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=+TSkJ/CLUn0erEj6Eb5oYVx4T0mqKWD6ulalhCQevTY=; b=nRv1eHpMSjU2DB1tU3WcGykNUH
-	qYT2t7fDcKx0//VfL5kGnFrjZMT/MsKEjx47ARAFxh2BxtjdskAYMYKvLtY+e1v2krIz4KvvChJ2I
-	/1+xypbWdJLLUOAdTq3wxihbKXXIDsiKfsZlz+rWu9M1pvPK3NGpXvyyN4+F4K3anWgWzaVUDVMxb
-	HQObBuMFRGOlW1mmgDpbSu64OS0Jngc8CqqS6OJo45GrTZJ2xLpAKTjyUN2wgbwXldvg7xwjvEit3
-	A2ZlghIFCyYig4PsXG9KD3GLwAVIZwZ0THYZ7S4uD4x5ZqZevhUpvhiZmeytYKIZp9TRtRmGGh7pj
-	Fp0wLxpQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1trxvM-0000000Gzhj-3xou;
-	Tue, 11 Mar 2025 11:37:29 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id A5DA13002C7; Tue, 11 Mar 2025 12:37:27 +0100 (CET)
-Date: Tue, 11 Mar 2025 12:37:27 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: mark.barnett@arm.com
-Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
-	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/5] perf: Allow adding fixed random jitter to the
- alternate sampling period
-Message-ID: <20250311113727.GB9968@noisy.programming.kicks-ass.net>
-References: <20250307202247.648633-1-mark.barnett@arm.com>
- <20250307202247.648633-4-mark.barnett@arm.com>
- <20250311113128.GD19424@noisy.programming.kicks-ass.net>
+	id 1trxvw-00000005Uss-2bEe
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 11:38:05 +0000
+Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1trxva-0004bI-OE; Tue, 11 Mar 2025 12:37:42 +0100
+Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
+	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1trxva-005Ajv-12;
+	Tue, 11 Mar 2025 12:37:42 +0100
+Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
+	(envelope-from <mfe@pengutronix.de>)
+	id 1trxva-007iuK-0e;
+	Tue, 11 Mar 2025 12:37:42 +0100
+Date: Tue, 11 Mar 2025 12:37:42 +0100
+From: Marco Felsch <m.felsch@pengutronix.de>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Shengjiu Wang <shengjiu.wang@nxp.com>, Frank Li <Frank.li@nxp.com>,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 0/5] imx8mp: add support for the IMX AIPSTZ bridge
+Message-ID: <20250311113742.uwedagolaxjy6unb@pengutronix.de>
+References: <20250226165314.34205-1-laurentiumihalcea111@gmail.com>
+ <20250226212219.lthoofw7nrs3gtg6@pengutronix.de>
+ <20250227112856.aylsurbt3uqm4ivw@pengutronix.de>
+ <541539db-0015-41de-837f-aabbea68486a@gmail.com>
+ <20250307143956.aft3xolakts3nlja@pengutronix.de>
+ <4aef911d-d766-4ae7-951b-76843cf33c56@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250311113128.GD19424@noisy.programming.kicks-ass.net>
+In-Reply-To: <4aef911d-d766-4ae7-951b-76843cf33c56@gmail.com>
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
+X-SA-Exim-Mail-From: mfe@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250311_043804_659496_9A598D6A 
+X-CRM114-Status: GOOD (  40.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,33 +87,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 12:31:29PM +0100, Peter Zijlstra wrote:
-> +	sample_period = hwc->sample_period_base;
-> +	if (hwc->state & PERF_HES_HF_RAND) {
-> +		u64 rand = 1 << event->attr.hf_sample_rand;
-> +		sample_period -= rand / 2;
-> +		sample_period += prandom_u32_state(&perf_rand) & (rand - 1);
-> +	}
-> +	if (hwc->state & PERF_HES_HF_ON) {
-> +		u64 hf_sample_period = event->attr.hf_sample_period;
-> +
-> +		if (sample_period < hf_sample_period) {
-> +			hwc->state &= ~PERF_HES_HF_ON;
-> +			goto set_period;
-> +		}
-> +
-> +		if (!(hwc->state & PERF_HES_HF_SAMPLE)) {
-> +			hwc->sample_period -= hf_sample_period;
-> +			hwc->state |= PERF_HES_HF_SAMPLE;
-> +		} else {
-> +			hwc->sample_period = hf_sample_period;
-> +			hwc->state &= ~PERF_HES_HF_SAMPLE;
+On 25-03-10, Laurentiu Mihalcea wrote:
+> 
+> 
+> On 3/7/2025 4:39 PM, Marco Felsch wrote:
+> > On 25-03-05, Laurentiu Mihalcea wrote:
+> >> On 2/27/2025 1:28 PM, Marco Felsch wrote:
+> >>> Hi Laurentiu,
+> >>>
+> >>> On 25-02-26, Marco Felsch wrote:
+> >>>> Hi,
+> >>>>
+> >>>> On 25-02-26, Laurentiu Mihalcea wrote:
+> >>>>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> >>>>>
+> >>>>> The AIPSTZ bridge offers some security-related configurations which can
+> >>>>> be used to restrict master access to certain peripherals on the bridge.
+> >>>>>
+> >>>>> Normally, this could be done from a secure environment such as ATF before
+> >>>>> Linux boots but the configuration of AIPSTZ5 is lost each time the power
+> >>>>> domain is powered off and then powered on. Because of this, it has to be
+> >>>>> configured each time the power domain is turned on and before any master
+> >>>>> tries to access the peripherals (e.g: AP, CM7, DSP, on i.MX8MP).
+> >>>> My question still stands:
+> >>>>
+> >>>> Setting these bits requires very often that the core is running at EL3
+> >>>> (e.g. secure-monitor) which is not the case for Linux. Can you please
+> >>>> provide more information how Linux can set these bits?
+> >>> Sorry I didn't noticed your response:
+> >>>
+> >>> https://lore.kernel.org/all/a62ab860-5e0e-4ebc-af1f-6fb7ac621e2b@gmail.com/
+> >>>
+> >>> If EL1 is allowed to set the security access configuration of the IP
+> >>> cores doesn't this mean that a backdoor can be opened? E.g. your
+> >>> secure-boot system configures one I2C IP core to be accessible only from
+> >>> secure-world S-EL1 (OP-TEE) and after the power-domain was power-cycled
+> >>> it's accessible from EL1 again. This doesn't seem right. Why should a
+> >>> user be able to limit the access permissions to an IP core to only be
+> >>> accessible from secure-world if the IP core is accessible from
+> >>> normal-world after the power-domain was power-cycled.
+> >>>
+> >>> Regards,
+> >>>   Marco
+> >> I'm no security expert so please feel free to correct me if I get
+> >> something wrong.
+> >>
+> >> This isn't about S/NS world. The bridge AC doesn't offer any
+> >> configurations for denying access to peripherals based on S/NS world.
+> > It does, please see the AIPSTZ_OPACR register definition. The imx-atf of
+> > sets OPACR registers to 0 (of course), which means that the S/NS is not
+> > checked _but_ it can be configured.
+> 
+> which bits are you referring to more precisely? because, from the OPACR
+> register definition we have:
+> 
+> 1) TP (Trusted protect) - bit 0 => controls whether the peripheral allows
+> transactions from an untrusted master. A master is considered trusted if
+> MTR/MTW (from MPR registers) is set to 1 (MTR means trusted for read,
+> MTW means trusted for write)
+> 
+> 2) WP (Write protect) - bit 1 => controls whether the peripherals allows
+> write transactions (i.e: is write protected or not)
+> 
+> 3) SP (Supervisor protect) - bit 2 => controls whether the master needs
+> supervisor privilege or not to issue transactions to the peripheral. For
+> Cortex-A53 this refers to the execution level (EL0 - EL3). There's no S/NS
+> checks here. EL1-EL3 are supervisor accesses, EL0 is not.
 
-and obviously this should be the local sample_period modified above, not
-the hwc one.
+Argh.. my head mixed the supervisor phrase :/
 
-> +		}
-> +	}
-> +set_period:
-> +	hwc->sample_period = sample_period;
+> 4) BW (Buffer Writes) - bit 3 => some flow control configuration bit I'd assume
+> 
+> 
+> >
+> > Also please see chapter 4.7.6.1 Security Block:
+> >
+> > The AIPSTZ contains a security block that is connected to each
+> > off-platform peripheral. This block filters accesses based on
+> > write/read, non-secure, and supervisor signals.
+> 
+> yep, but this block is not configured by the AIPSTZ. AFAIK it's configured
+> by the CSU. So, as far as I understand it, the interaction is as follows:
+> 
+> basically you have the CSU which offers some security-related configurations
+> (see "Table 4-16 Security Levels" from the section you've mentioned). These
+> configurations are used by the AIPS bridges to filter transactions.
+> 
+> For example: assume you have peripheral X on AIPS5. The user configures
+> the CSU such that peripheral X should only accept R/W transactions from
+> privileged S world. Now, assume Cortex-A53 issues a transaction from
+> NS EL1 (Linux, for example). The bridge will receive the transaction and
+> check to see if it's privileged and S world. Since it's not then the transaction
+> will be aborted.
+> 
+> The AIPS bridge offers no S/NS world-related configuration options. All you can
+> do with it is:
+> 
+> 1) Mark certain masters as "trusted" and block read/writes based on that (via MPR's
+> MTR/MTW and OPACR's TP)
+> 2) Force transactions to user privilege (via MPR's MPL)
+> 3) Make certain peripherals deny unprivileged transactions (via OPACR's SP)
+
+Okay, thanks for the explanation with your input and the the TRM 4.7.6.1
+saying:
+
+8<--------------------------------------------------------------
+A 3-bit input, 8-bit output translation block can be used such that only
+three register bits are required to set the security profile and the
+translation block will drive the correct 8-bit configuration vector.
+Each peripheral connected to the AIPSTZ would require this translation
+block. The top level AIPSTZ has this three bit input line
+`csu_sec_level[2:0]' corresponding to each peripheral X.
+8<--------------------------------------------------------------
+
+I think that I understood the AIPSTZ user/supervisor now. The master
+user/supervisor privileges are provided by the CSU HPx settings and can
+be forced to user-mode via the AIPSTZ MPRTOx MPL0 bit.
+
+The remaining bits from the config vector between the CSU and the AIPSTZ
+are not taken into account.
+
+Thanks for the clarification!
+
+Regards,
+  Marco
 
