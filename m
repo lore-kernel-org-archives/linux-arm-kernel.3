@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9203AC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 05:20:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45AAFC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 05:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NspGx0nqDbjExHcl+uSnaAoQr3YyjgF3MKCUI7kJdT8=; b=2ZjcIRXpD2aHHa0zF/xP61vmvY
-	iIRdqU3nghnU0cdWDrFitohCpO3b0yFPSR7QbDyik56jRHskpN9uqcMdP8EQzzGFMLQRdiFaBe/xq
-	5CzHXtkE3hp0UfRc6gdQYOPmgMBv2TE0sZk06Oqh6sVxBWLcYV3FCDtXxi4QFcQpBt2Z5Q1mFEFZ8
-	GWIZrEUL1W+dtjCkfhZfEn1uD5nitv8+8E8UtEShiK7aUFHGHEr+5Qepp1AL51TgDgLDmGj/ckykW
-	9ucMP4pN8nKVEv3yZluaTCn7BzfgeonrKWcWTMGjnUhFPTpCosPHK8Gk4g28A+pUK3QLR4wGfYxkT
-	ALW/Ajdg==;
+	bh=1LtqkvatmL8zEprV8JDrvPTk9OulcQe853ibSUZCYUc=; b=lNYBbivXjBqleJrteW3jgPpn9A
+	nqZdWhOg23yvZmlT1V+cxgELWghl1gMsYEzqSqvLKSJeRTHNXFXnwkgEwDuxm1jFt96opL0OlB9oR
+	uLuNOXnCCKCStj7Js3V2JksQMmFFSG5KVN/bRCxiTHeTljtj5B0oA0kg1CeYg5kXZaLdmF9TbSfgA
+	y72E2RFNZR3kJXlhbwVL4dLzwqugTcwtwAauIl9MVwr6d5k+ExCTXW1j5Ri/8LXOGyC8Pi9+xf8Wc
+	IqltZv0Y0C+4vUC5gOeuDY4uSXIJeRZ1m4ZyWDxk3y3Msxd7gk+ScaS5BjPSxRdc0h6Y7cU3xWhnO
+	pcjR0gig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trs2F-00000004e1N-0H9E;
-	Tue, 11 Mar 2025 05:20:11 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1trsBE-00000004ema-1K3E;
+	Tue, 11 Mar 2025 05:29:28 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trs0c-00000004dun-0bzA
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 05:18:31 +0000
-Received: from fllv0034.itg.ti.com ([10.64.40.246])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B5I8ni675075
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Tue, 11 Mar 2025 00:18:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741670288;
-	bh=NspGx0nqDbjExHcl+uSnaAoQr3YyjgF3MKCUI7kJdT8=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=cYwuJy+TZKOyrfecU6ZY2c8glXSCWO9OfycFIJ3QbZLTnpLwAqDJuLH9zmk1doOzq
-	 gmGEtZIuhHBgL0kTCbDTiKw9XN3R0FKgtn1UCIcb8T37lq9yrNs9kCLgu9BQimLrMg
-	 3LPcgwWeuGTCZtbNUV6ZTrsDgqGTVmhlVHLOnJng=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B5I81c034069
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 11 Mar 2025 00:18:08 -0500
-Received: from DLEE107.ent.ti.com (157.170.170.37) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
- Mar 2025 00:18:08 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Tue, 11 Mar 2025 00:18:08 -0500
-Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B5I6G9051545;
-	Tue, 11 Mar 2025 00:18:07 -0500
-Date: Tue, 11 Mar 2025 10:48:06 +0530
-From: Siddharth Vadapalli <s-vadapalli@ti.com>
-To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
-        <vigneshr@ti.com>, <manivannan.sadhasivam@linaro.org>,
-        <robh@kernel.org>, <bhelgaas@google.com>, <rogerq@kernel.org>,
-        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
-        <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
-Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
- J784S4
-Message-ID: <20250311051806.smcu4o4dxpngimth@uda0492258>
-References: <20250305132018.2260771-1-s-vadapalli@ti.com>
- <20250310210746.GA2377483@rocinante>
+	id 1trs9a-00000004eZZ-05cd;
+	Tue, 11 Mar 2025 05:27:47 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C2F1CA46861;
+	Tue, 11 Mar 2025 05:22:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACB76C4CEEC;
+	Tue, 11 Mar 2025 05:27:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741670864;
+	bh=6FrJToULI5AieC/xcPkMqRkdPc73MU/g7qUb/+Gf2LU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GAHpdUKSmv1QM82YGoNX6ldSWprWPtoQeq7oZVYRSenmRL5V3mQA0Z/8J1J7rkbXY
+	 DCZ1PolWSm96XtMjC6zHeV/4BIYLkdQBd+2LSkhUUHx/NvSeQhtKi3xVRFBvvahBI6
+	 Fgecu8QW9SZnOgCJFzyGzUd8oW5EhoPWaTHjItebVqj/yACpIkHUi3606UEwiKBAbx
+	 3YfDwolecrwr/CHlFMVtqpXQ8QtwdePj5lo049ABQgMlHqkjpQCaCVHGRbh/9KJaaJ
+	 GKa8u7BRKr01NRTAB8Jp1oImuXWXsRmL8WzrwbdwZpVY+aPZzBz/SBsDbDXNSbRoaJ
+	 K0Cd6UgpZbrJA==
+Date: Tue, 11 Mar 2025 07:27:23 +0200
+From: Mike Rapoport <rppt@kernel.org>
+To: Wei Yang <richard.weiyang@gmail.com>
+Cc: linux-kernel@vger.kernel.org, Alexander Graf <graf@amazon.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Andy Lutomirski <luto@kernel.org>,
+	Anthony Yznaga <anthony.yznaga@oracle.com>,
+	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
+	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
+	Borislav Petkov <bp@alien8.de>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Eric Biederman <ebiederm@xmission.com>,
+	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
+	Jonathan Corbet <corbet@lwn.net>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Paolo Bonzini <pbonzini@redhat.com>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Pratyush Yadav <ptyadav@amazon.de>,
+	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Tom Lendacky <thomas.lendacky@amd.com>,
+	Usama Arif <usama.arif@bytedance.com>,
+	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
+	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
+Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
+Message-ID: <Z8_Ju0p63GBCdSG9@kernel.org>
+References: <20250206132754.2596694-1-rppt@kernel.org>
+ <20250206132754.2596694-3-rppt@kernel.org>
+ <20250218155004.n53fcuj2lrl5rxll@master>
+ <Z7WHL_Xqgoln9oLg@kernel.org>
+ <20250223002229.xuk6xlp23zr72hkc@master>
+ <20250310095124.pa7dwgqhxglqrfes@master>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250310210746.GA2377483@rocinante>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20250310095124.pa7dwgqhxglqrfes@master>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_221830_276456_658ED886 
-X-CRM114-Status: GOOD (  17.43  )
+X-CRM114-CacheID: sfid-20250310_222746_186219_4CAF8541 
+X-CRM114-Status: GOOD (  32.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,64 +103,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 06:07:46AM +0900, Krzysztof Wilczyński wrote:
-> Hello,
-> 
-> > Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
-> > expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
-> > already reuse this macro since it accurately represents the link-state
-> > field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
-> 
-> Can you confirm for me that the following use the correct macro?
-> 
->   333-static const struct j721e_pcie_data j721e_pcie_rc_data = {
->   337:	.linkdown_irq_regfield = LINK_DOWN,
->   
->   341-static const struct j721e_pcie_data j721e_pcie_ep_data = {
->   343:	.linkdown_irq_regfield = LINK_DOWN,
->   
->   347-static const struct j721e_pcie_data j7200_pcie_rc_data = {
->   350:	.linkdown_irq_regfield = J7200_LINK_DOWN,
->   
->   362-static const struct j721e_pcie_data am64_pcie_rc_data = {
->   364:	.linkdown_irq_regfield = J7200_LINK_DOWN,
->   
->   369-static const struct j721e_pcie_data am64_pcie_ep_data = {
->   371:	.linkdown_irq_regfield = J7200_LINK_DOWN,
->   
->   375-static const struct j721e_pcie_data j784s4_pcie_rc_data = {
->   379:	.linkdown_irq_regfield = LINK_DOWN,
->   
->   383-static const struct j721e_pcie_data j784s4_pcie_ep_data = {
->   385:	.linkdown_irq_regfield = LINK_DOWN,
->   
->   389-static const struct j721e_pcie_data j722s_pcie_rc_data = {
->   391:	.linkdown_irq_regfield = J7200_LINK_DOWN,
-> 
-> I am asking as some use LINK_DOWN, so I wanted to make sure.
+Hi Wei,
 
-Yes, the above are accurate except for J784S4 which is fixed by this
-patch. LINK_DOWN i.e. BIT(1) is applicable only to J721E which was the
-first SoC after which the driver has been named. For all other SoCs, the
-integration of the PCIe Controller into the SoC led to BIT(10) of the
-register being used to indicate the link status.
-
+On Mon, Mar 10, 2025 at 09:51:24AM +0000, Wei Yang wrote:
+> On Sun, Feb 23, 2025 at 12:22:29AM +0000, Wei Yang wrote:
+> >On Wed, Feb 19, 2025 at 09:24:31AM +0200, Mike Rapoport wrote:
+> >>Hi,
+> >>
+> >>On Tue, Feb 18, 2025 at 03:50:04PM +0000, Wei Yang wrote:
+> >>> On Thu, Feb 06, 2025 at 03:27:42PM +0200, Mike Rapoport wrote:
+> >>> >From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
+> >>> >
+> >>> >to denote areas that were reserved for kernel use either directly with
+> >>> >memblock_reserve_kern() or via memblock allocations.
+> >>> >
+> >>> >Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
+> >>> >---
+> >>> > include/linux/memblock.h | 16 +++++++++++++++-
+> >>> > mm/memblock.c            | 32 ++++++++++++++++++++++++--------
+> >>> > 2 files changed, 39 insertions(+), 9 deletions(-)
+> >>> >
+> >>> >diff --git a/include/linux/memblock.h b/include/linux/memblock.h
+> >>> >index e79eb6ac516f..65e274550f5d 100644
+> >>> >--- a/include/linux/memblock.h
+> >>> >+++ b/include/linux/memblock.h
+> >>> >@@ -50,6 +50,7 @@ enum memblock_flags {
+> >>> > 	MEMBLOCK_NOMAP		= 0x4,	/* don't add to kernel direct mapping */
+> >>> > 	MEMBLOCK_DRIVER_MANAGED = 0x8,	/* always detected via a driver */
+> >>> > 	MEMBLOCK_RSRV_NOINIT	= 0x10,	/* don't initialize struct pages */
+> >>> >+	MEMBLOCK_RSRV_KERN	= 0x20,	/* memory reserved for kernel use */
+> >>> 
+> >>> Above memblock_flags, there are comments on explaining those flags.
+> >>> 
+> >>> Seems we miss it for MEMBLOCK_RSRV_KERN.
+> >>
+> >>Right, thanks!
+> >> 
+> >>> > 
+> >>> > #ifdef CONFIG_HAVE_MEMBLOCK_PHYS_MAP
+> >>> >@@ -1459,14 +1460,14 @@ phys_addr_t __init memblock_alloc_range_nid(phys_addr_t size,
+> >>> > again:
+> >>> > 	found = memblock_find_in_range_node(size, align, start, end, nid,
+> >>> > 					    flags);
+> >>> >-	if (found && !memblock_reserve(found, size))
+> >>> >+	if (found && !__memblock_reserve(found, size, nid, MEMBLOCK_RSRV_KERN))
+> >>> 
+> >>> Maybe we could use memblock_reserve_kern() directly. If my understanding is
+> >>> correct, the reserved region's nid is not used.
+> >>
+> >>We use nid of reserved regions in reserve_bootmem_region() (commit
+> >>61167ad5fecd ("mm: pass nid to reserve_bootmem_region()")) but KHO needs to
+> >>know the distribution of reserved memory among the nodes before
+> >>memmap_init_reserved_pages().
+> >> 
+> >
+> >I took another look into this commit. There maybe a very corner case in which
+> >will leave a reserved region with no nid set.
+> >
+> >memmap_init_reserved_pages()
+> >    for_each_mem_region() {
+> >        ...
+> >	memblock_set_node(start, end, &memblock.reserved, nid);
+> >    }
+> >
+> >We leverage the iteration here to set nid to all regions in memblock.reserved.
+> >But memblock_set_node() may call memblock_double_array() to expand the array,
+> >which may get a range before current start. So we would miss to set the
+> >correct nid to the new reserved region.
+> >
+> >I have tried to create a case in memblock test. This would happen when there
+> >are 126 memblock.reserved regions. And the last region is across the last two
+> >node.
+> >
+> >One way to fix this is compare type->max in memblock_set_node(). Then check
+> >this return value in memmap_init_reserved_pages(). If we found the size
+> >changes, repeat the iteration.
+> >
+> >But this is a very trivial one, not sure it worth fix.
+> >
 > 
-> Tht said, the following has no .linkdown_irq_regfield property set:
+> Hi, Mike
 > 
->   355-static const struct j721e_pcie_data j7200_pcie_ep_data = {
->   356-	.mode = PCI_MODE_EP,
->   357-	.quirk_detect_quiet_flag = true,
->   358-	.quirk_disable_flr = true,
->   359-	.max_lanes = 2,
->   360-};
+> I have done a user space test which shows we may have a chance to leave a
+> region with non-nid set.
 > 
-> Would this be a problem?  Or is this as expected?
+> Not sure you are ok with my approach of fixing.
 
-Thank you for pointing this out. This has to be fixed and the
-"linkdown_irq_regfield" member has to be added to match
-j7200_pcie_rc_data. I will post the fix for this.
+Wouldn't it be better to check for a change in reserved.max in
+memmap_init_reserved_pages()?
+ 
+> -- 
+> Wei Yang
+> Help you, Help me
 
-Regards,
-Siddharth.
+-- 
+Sincerely yours,
+Mike.
 
