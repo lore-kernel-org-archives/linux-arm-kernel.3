@@ -4,39 +4,39 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DADC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 04:07:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8992C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 04:08:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:CC:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qGKNgeYxoD2dek/orp968zSo9tzYcJ5pcHCxblN0VBg=; b=Eg5uA+FC+C2P/Y7Himp/ZUQBWi
-	uxYAUOk9fwmx1gxTYg6QBqhE61zgRG+TakysDOLAJRUGxDxUEYltkwR9JXq23vDgOC7xe97X4yXfP
-	lOXw9Cy0M3dvaxwZlz2UVSVWXUeaaIponHFy4USjVV6ezlshxd5htwYrdgKltNrAPX/zBjf9ufcc/
-	BRCGjpjKae20ZLxXAML7Gor+eHS5UmbnGCWKqQ+7sTGc1RcNAoNpAzrI4LgsLJwbyvy86/5GwmWxr
-	OtY3O/Q/4pIM52tfp+PVAmyYDonUwVjhvVQdS/D6wLHPhTPe1OA4ea8OD4EtuG0dU8ZXwdE7Be2Uu
-	/EB1TK/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LoiV5W5f8BCM/x9HzwLXWH+Or83Y9YLM+keuGxJmE0w=; b=itEn5fswcAwFuRox/mmDqhLvTH
+	eTeGk0IXXnHjCu6UuSVs8NoFGcunT3+DKdKlm7CRT22uV6YapGL3F1x+wDjlPknlqSWmBWAimx4YX
+	7t+janHW/HdNxh6urF+Zx/IkONcKYkqCW6H77du0PBK2PkPG15dCCJCjWuAMo4jXDW8ftNDwMIXHK
+	0+RUpul0Ho4D0ePJbaq21Aei2xfWMUEcwgKGt3fdiAVnRxproP5t1QTas2w+naxYdFc+W3yDtfWKi
+	Xp8gIiHHp5suC61XABjxycxkCDSz7/EojEbOMkRaQAZheHXtUJpinJ3OW6GEIywF1NIkWFBtwpxWK
+	YiFz8INw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trqtW-00000004Z42-3iwl;
-	Tue, 11 Mar 2025 04:07:06 +0000
-Received: from szxga07-in.huawei.com ([45.249.212.35])
+	id 1trqv8-00000004ZD7-2f1k;
+	Tue, 11 Mar 2025 04:08:46 +0000
+Received: from szxga01-in.huawei.com ([45.249.212.187])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trqqF-00000004YVN-4Bjp
+	id 1trqqE-00000004YV4-1hKL
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 11 Mar 2025 04:03:45 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga07-in.huawei.com (SkyGuard) with ESMTP id 4ZBg4S5m9fz1f0Pm;
-	Tue, 11 Mar 2025 11:59:20 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.19.88.194])
+	by szxga01-in.huawei.com (SkyGuard) with ESMTP id 4ZBg4q6F8rzvWq2;
+	Tue, 11 Mar 2025 11:59:39 +0800 (CST)
 Received: from kwepemj500003.china.huawei.com (unknown [7.202.194.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 50EDE1A016C;
-	Tue, 11 Mar 2025 12:03:41 +0800 (CST)
+	by mail.maildlp.com (Postfix) with ESMTPS id DF0EF140360;
+	Tue, 11 Mar 2025 12:03:29 +0800 (CST)
 Received: from DESKTOP-KKJBAGG.huawei.com (10.174.178.32) by
  kwepemj500003.china.huawei.com (7.202.194.33) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 11 Mar 2025 12:03:40 +0800
+ 15.2.1544.11; Tue, 11 Mar 2025 12:03:28 +0800
 From: Zhenyu Ye <yezhenyu2@huawei.com>
 To: <maz@kernel.org>, <yuzenghui@huawei.com>, <will@kernel.org>,
 	<oliver.upton@linux.dev>, <catalin.marinas@arm.com>, <joey.gouly@arm.com>
@@ -44,21 +44,19 @@ CC: <linux-kernel@vger.kernel.org>, <yezhenyu2@huawei.com>,
 	<xiexiangyou@huawei.com>, <zhengchuan@huawei.com>, <wangzhou1@hisilicon.com>,
 	<linux-arm-kernel@lists.infradead.org>, <kvm@vger.kernel.org>,
 	<kvmarm@lists.linux.dev>
-Subject: [PATCH v1 5/5] arm64/config: add config to control whether enable HDBSS feature
-Date: Tue, 11 Mar 2025 12:03:21 +0800
-Message-ID: <20250311040321.1460-6-yezhenyu2@huawei.com>
+Subject: [PATCH v1 0/5] Support the FEAT_HDBSS introduced in Armv9.5
+Date: Tue, 11 Mar 2025 12:03:16 +0800
+Message-ID: <20250311040321.1460-1-yezhenyu2@huawei.com>
 X-Mailer: git-send-email 2.22.0.windows.1
-In-Reply-To: <20250311040321.1460-1-yezhenyu2@huawei.com>
-References: <20250311040321.1460-1-yezhenyu2@huawei.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [10.174.178.32]
 X-ClientProxiedBy: dggems706-chm.china.huawei.com (10.3.19.183) To
  kwepemj500003.china.huawei.com (7.202.194.33)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250310_210344_360522_B8A99B57 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20250310_210342_615428_5FC117A4 
+X-CRM114-Status: GOOD (  13.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,77 +73,55 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: eillon <yezhenyu2@huawei.com>
 
-The HDBSS feature introduces new assembly registers
-(HDBSSBR_EL2 and HDBSSPROD_EL2), which depends on the armv9.5-a
-compilation support. So add ARM64_HDBSS config to control whether
-enable the HDBSS feature.
+This series of patches add support to the Hardware Dirty state tracking
+Structure(HDBSS) feature, which is introduced by the ARM architecture
+in the DDI0601(ID121123) version.
 
-Signed-off-by: eillon <yezhenyu2@huawei.com>
----
- arch/arm64/Kconfig                  | 19 +++++++++++++++++++
- arch/arm64/Makefile                 |  4 +++-
- arch/arm64/include/asm/cpufeature.h |  3 +++
- 3 files changed, 25 insertions(+), 1 deletion(-)
+The HDBSS feature is an extension to the architecture that enhances
+tracking translation table descriptors' dirty state, identified as
+FEAT_HDBSS.  The goal of this feature is to reduce the cost of surveying
+for dirtied granules, with minimal effect on recording when a granule
+has been dirtied.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 940343beb3d4..3458261eb14b 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -2237,6 +2237,25 @@ config ARM64_GCS
- 
- endmenu # "v9.4 architectural features"
- 
-+menu "ARMv9.5 architectural features"
-+
-+config ARM64_HDBSS
-+	bool "Enable support for Hardware Dirty state tracking Structure (HDBSS)"
-+	default y
-+	depends on AS_HAS_ARMV9_5
-+	help
-+	  Hardware Dirty state tracking Structure(HDBSS) enhances tracking
-+	  translation table descriptors’ dirty state to reduce the cost of
-+	  surveying for dirtied granules.
-+
-+	  The feature introduces new assembly registers (HDBSSBR_EL2 and
-+	  HDBSSPROD_EL2), which depends on AS_HAS_ARMV9_5.
-+
-+config AS_HAS_ARMV9_5
-+	def_bool $(cc-option,-Wa$(comma)-march=armv9.5-a)
-+
-+endmenu # "ARMv9.5 architectural features"
-+
- config ARM64_SVE
- 	bool "ARM Scalable Vector Extension support"
- 	default y
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 2b25d671365f..f22507fb09b9 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -103,7 +103,9 @@ endif
- # freely generate instructions which are not supported by earlier architecture
- # versions, which would prevent a single kernel image from working on earlier
- # hardware.
--ifeq ($(CONFIG_AS_HAS_ARMV8_5), y)
-+ifeq ($(CONFIG_AS_HAS_ARMV9_5), y)
-+  asm-arch := armv9.5-a
-+else ifeq ($(CONFIG_AS_HAS_ARMV8_5), y)
-   asm-arch := armv8.5-a
- else ifeq ($(CONFIG_AS_HAS_ARMV8_4), y)
-   asm-arch := armv8.4-a
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index c76d51506562..32e432827934 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -748,6 +748,9 @@ static inline bool system_supports_hdbss(void)
- 	u64 mmfr1;
- 	u32 val;
- 
-+	if (!IS_ENABLED(CONFIG_ARM64_HDBSS))
-+		return false;
-+
- 	mmfr1 =	read_sanitised_ftr_reg(SYS_ID_AA64MMFR1_EL1);
- 	val = cpuid_feature_extract_unsigned_field(mmfr1,
- 						ID_AA64MMFR1_EL1_HAFDBS_SHIFT);
+The purpose of this feature is to make the execution overhead of live
+migration lower to both the guest and the host, compared to existing
+approaches (write-protect or search stage 2 tables).
+
+After these patches, users(such as qemu) can use the 
+KVM_CAP_ARM_HW_DIRTY_STATE_TRACK ioctl to enable or disable the HDBSS
+feature before and after the live migration.
+
+See patches for details, Thanks.
+
+eillon (5):
+  arm64/sysreg: add HDBSS related register information
+  arm64/kvm: support set the DBM attr during memory abort
+  arm64/kvm: using ioctl to enable/disable the HDBSS feature
+  arm64/kvm: support to handle the HDBSSF event
+  arm64/config: add config to control whether enable HDBSS feature
+
+ arch/arm64/Kconfig                    | 19 +++++++
+ arch/arm64/Makefile                   |  4 +-
+ arch/arm64/include/asm/cpufeature.h   | 15 +++++
+ arch/arm64/include/asm/esr.h          |  2 +
+ arch/arm64/include/asm/kvm_arm.h      |  1 +
+ arch/arm64/include/asm/kvm_host.h     |  6 ++
+ arch/arm64/include/asm/kvm_mmu.h      | 12 ++++
+ arch/arm64/include/asm/kvm_pgtable.h  |  3 +
+ arch/arm64/include/asm/sysreg.h       | 16 ++++++
+ arch/arm64/kvm/arm.c                  | 80 +++++++++++++++++++++++++++
+ arch/arm64/kvm/handle_exit.c          | 47 ++++++++++++++++
+ arch/arm64/kvm/hyp/pgtable.c          |  6 ++
+ arch/arm64/kvm/hyp/vhe/switch.c       |  1 +
+ arch/arm64/kvm/mmu.c                  | 10 ++++
+ arch/arm64/kvm/reset.c                |  7 +++
+ arch/arm64/tools/sysreg               | 28 ++++++++++
+ include/linux/kvm_host.h              |  1 +
+ include/uapi/linux/kvm.h              |  1 +
+ tools/arch/arm64/include/asm/sysreg.h |  4 ++
+ tools/include/uapi/linux/kvm.h        |  1 +
+ 20 files changed, 263 insertions(+), 1 deletion(-)
+
 -- 
 2.39.3
 
