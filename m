@@ -4,57 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C8AC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:50:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4BFC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3HXQgHLwU90Mcoipt4jSN1UJy2X6xutbxje51+Jhrws=; b=qXfDc0eaP9reyTOs5T5ydm0lyl
-	X0KyDB65f8MimsgJKImDsXxwL+txQpj03tQ+kBJu1UVHL9jtCXCWH5ASi+Jg3Vb/yznH4XuVAPtOj
-	8hwkN4TJ1zDO2+R24uGRTseoIIWZe/4HX0oFhXknmSylU0am17rja/cRUpvxKD3VhEx/xdlDknAMg
-	k5ZHr72Ml5DtHO0fQHjY9aKP7Lm5tJqekRV592aY2z8iEXokuCFdItKC26kE1R0rOmEE1ewPAI+3R
-	Xf/M8YdUns9YzF/Xu90c4E0Z5xyp6KayFNjTjRz5IXLhewLZX+7UWj5SOziZjV32JOOvuyaqRxyuD
-	6oxJqvzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=; b=FLBP1kKC8mW9CrrB2TvuezwQyS
+	chwxON3eDO1aUGClxEN3EWyIVvhyukfyT5DHFEZ374fG68arzhv0rgg78nWdlHs2QLY8uxRJyTUtl
+	2yahlLU9nMxKKKVAmMgkOR0MdPFitAL5xJaL7Gw4ml040yMEPKF+EJ5dmRVWbvtYYkZ5ZIOxoTD21
+	1YmaWIVWxCjJiyR6I7AnuUI6bcKTQQY+TIOZ8c/IJ0/wLBLFmwQEugfKmsMiJEgx94oEcN3V+SPBB
+	afR7NCf9t68K1qiBFC8R69joGZ7WCBcoXNm4n9DpMfds+ZZJzn/ENI7xP0REWg+4keHfQNl5590/O
+	6rfRIRug==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2oC-00000006MvY-1kOM;
-	Tue, 11 Mar 2025 16:50:24 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2mX-00000006MiM-2rbt
+	id 1ts2pp-00000006N6g-0Uy8;
+	Tue, 11 Mar 2025 16:52:05 +0000
+Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1ts2nw-00000006Msn-2OVu
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 16:48:43 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 564BB152B;
-	Tue, 11 Mar 2025 09:48:51 -0700 (PDT)
-Received: from [10.57.40.127] (unknown [10.57.40.127])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 02C043F673;
-	Tue, 11 Mar 2025 09:48:38 -0700 (PDT)
-Message-ID: <3f6dcb62-f9ba-4bed-9863-2d4569bafcf1@arm.com>
-Date: Tue, 11 Mar 2025 16:48:37 +0000
+	Tue, 11 Mar 2025 16:50:09 +0000
+Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-223a7065ff8so14354725ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:50:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741711806; x=1742316606; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=;
+        b=xlPoCSFOHXv37U2ne3KDwa00rx3tn4gs6hm5El8hJ9HqOLDJbdaT8ja3Z78AebFr7H
+         qmQYoo6ZMRupVjiDPcKXrtdyLqeeecJQ/oP1hyadeVFgvwTPQOmoQTXtMBA+Yacv7ApW
+         VYuvH6I18s7zJJSTQcJ3uU1u2DuTao3k+vhAfP8bx/Pg6B93nyzNCqApjQgjBNZEgg4P
+         5O8V6nX6d3aQpJgNrnWtp8o3oXkD9VmNlyKW1eRsP+gQScrzLil4qxB81jepyXaHlJu5
+         3zkEJLffjBUPWmU8petd5EPMGoPZRuhNfbnUGlFju0vTVUMLaP0M27aXmvTc5QEQiJUy
+         kfRQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741711806; x=1742316606;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=;
+        b=oqMgBKRR3qDRBYCb1NXVGXP+Z/j7ANqaEmbjMl/7UtXunq15h3jv90Epp94PpHDbMT
+         CP2aQvmHNkKVq/DkZJyQsP40abdHzxzrRRAs+Xwx2MPF885z6KwVkc9unW0QHhd3CehF
+         j1AUyEqXDZ5ZdvpIvolSy9MvOF5ZusLskpIZ4beG0xMSnpXZEO8G4bFeFialrYHB+sR1
+         8DmJXITJSFD+u3uHlvPm1nZMgSChcquTwR8LvmPYLyviuHVHefNRv9RV2IeZWZGkWuSJ
+         zs3+3Yun1HUATEsOaj2stoeabbBaB4iUo21j8V9QKWa0IgazD5mNPz0LkjVjMmgpL2eJ
+         Y/eQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVydqhfIlKQS9cdzhQ31SDUkGqNA9w79cpcsO4TJ0CdwizGJkYM00TKSIQAISHW2g5Z6f51AJs728b7EGTEtHWf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPMn6CrEdR6j/DbRA2PjPM4RwheGPkzewgz4kRW02p7hI57LhD
+	fCKb8gegOGaJqLmNBpxU6+bo9B7S8avkx/AukWWSEfO26D42+axYrfTSfUVsRoAac++ryzPyWza
+	29PMTBGPCMompZdWKK09gWeBQa54d3sOU2MEklw==
+X-Gm-Gg: ASbGnctkXvkq3hIEtnbxSq8lPcp6vG8khl3kQ4uugJv1pamW23Dn1WlBZH9DVdm0eGL
+	dguwirIm4u2koE6tKRDzbraEuhau158l5U+NEPDDF9JuJGE3sooOY4Csku+6Kass3bdOaG7rOOg
+	UENCenQB5ilT8BJPBnXc80wBG2sCxKPbrRs6ZjDP0qW5n/e9APeMM9Go7qjZw=
+X-Google-Smtp-Source: AGHT+IGRlRimNoESSBKd69bPemttjguo2zF0mTvg+Kb5/5Fg9niMy5gNnw80TuZnQbl3lCDWzV9DtaMCXkkJcAmG5fQ=
+X-Received: by 2002:a05:6a21:2d08:b0:1f3:47d6:aa05 with SMTP id
+ adf61e73a8af0-1f5449336e0mr29284989637.0.1741711806206; Tue, 11 Mar 2025
+ 09:50:06 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] coresight: Add a KUnit test for
- coresight_find_default_sink()
-Content-Language: en-GB
-To: James Clark <james.clark@linaro.org>
-Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
- linux-arm-kernel@lists.infradead.org, Mike Leach <mike.leach@linaro.org>,
- Alexander Shishkin <alexander.shishkin@linux.intel.com>,
- Leo Yan <leo.yan@arm.com>
-References: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
- <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
- <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-In-Reply-To: <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250310090407.2069489-1-quic_jiegan@quicinc.com> <20250310090407.2069489-2-quic_jiegan@quicinc.com>
+In-Reply-To: <20250310090407.2069489-2-quic_jiegan@quicinc.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 11 Mar 2025 16:49:54 +0000
+X-Gm-Features: AQ5f1Jq4RzUPjRD0-Pf4PVjALFGSYlNPIsAlLKRkK0wLgCzuiv55sOjf36seIGA
+Message-ID: <CAJ9a7Vh7PmBBbvwnUETfCYrTSiXNzeiWpsz+XAGaUWt1Rq1aZw@mail.gmail.com>
+Subject: Re: [PATCH v1 1/4] coresight: tmc: Introduce new APIs to get the RWP
+ offset of ETR buffer
+To: Jie Gan <quic_jiegan@quicinc.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	Tingwei Zhang <quic_tingweiz@quicinc.com>, Jinlong Mao <quic_jinlmao@quicinc.com>, 
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_094841_811465_C5657914 
-X-CRM114-Status: GOOD (  27.02  )
+X-CRM114-CacheID: sfid-20250311_095008_617948_427582F5 
+X-CRM114-Status: GOOD (  26.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,156 +100,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/03/2025 16:06, James Clark wrote:
-> 
-> 
-> On 11/03/2025 3:00 pm, Suzuki K Poulose wrote:
->> On 05/03/2025 15:07, James Clark wrote:
->>> Add a test to confirm that default sink selection skips over an ETF
->>> and returns an ETR even if it's further away.
->>>
->>> This also makes it easier to add new unit tests in the future.
->>>
->>> Signed-off-by: James Clark <james.clark@linaro.org>
->>> ---
->>> Changes in v2:
->>> - Let devm free everything rather than doing individual kfrees:
->>>    "Like with managed drivers, KUnit-managed fake devices are
->>>    automatically cleaned up when the test finishes, but can be manually
->>>    cleaned up early with kunit_device_unregister()."
->>> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1- 
->>> james.clark@linaro.org
->>> ---
->>>   drivers/hwtracing/coresight/Kconfig                |  9 +++
->>>   drivers/hwtracing/coresight/Makefile               |  3 +-
->>>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
->>>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 +++++++++++ 
->>> + ++++++++++
->>>   4 files changed, 88 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
->>> coresight/Kconfig
->>> index ecd7086a5b83..f064e3d172b3 100644
->>> --- a/drivers/hwtracing/coresight/Kconfig
->>> +++ b/drivers/hwtracing/coresight/Kconfig
->>> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
->>>         To compile this driver as a module, choose M here: the module 
->>> will be
->>>         called coresight-dummy.
->>> +
->>> +config CORESIGHT_KUNIT_TESTS
->>> +      tristate "Enable Coresight unit tests"
->>> +      depends on KUNIT
->>> +      default KUNIT_ALL_TESTS
->>> +      help
->>> +        Enable Coresight unit tests. Only useful for development and 
->>> not
->>> +        intended for production.
->>> +
->>>   endif
->>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/ 
->>> hwtracing/ coresight/Makefile
->>> index 8e62c3150aeb..96f0dfedb1bf 100644
->>> --- a/drivers/hwtracing/coresight/Makefile
->>> +++ b/drivers/hwtracing/coresight/Makefile
->>> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o coresight- 
->>> cti-platform.o \
->>>              coresight-cti-sysfs.o
->>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
->>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
->>> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
->>> -coresight-ctcu-y := coresight-ctcu-core.o
->>> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
->>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
->>> hwtracing/coresight/coresight-core.c
->>> index bd0a7edd38c9..b101aa133ceb 100644
->>> --- a/drivers/hwtracing/coresight/coresight-core.c
->>> +++ b/drivers/hwtracing/coresight/coresight-core.c
->>> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct 
->>> coresight_device *csdev)
->>>       }
->>>       return csdev->def_sink;
->>>   }
->>> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
->>>   static int coresight_remove_sink_ref(struct device *dev, void *data)
->>>   {
->>> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/ 
->>> drivers/hwtracing/coresight/coresight-kunit-tests.c
->>> new file mode 100644
->>> index 000000000000..a136af05eaf4
->>> --- /dev/null
->>> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
->>> @@ -0,0 +1,77 @@
->>> +// SPDX-License-Identifier: GPL-2.0
->>> +
->>> +#include <kunit/test.h>
->>> +#include <kunit/device.h>
->>> +#include <linux/coresight.h>
->>> +
->>> +#include "coresight-priv.h"
->>> +
->>> +static struct coresight_device *coresight_test_device(struct device 
->>> *dev)
->>> +{
->>> +    struct coresight_device *csdev = devm_kcalloc(dev, 1,
->>> +                             sizeof(struct coresight_device),
->>> +                             GFP_KERNEL);
->>> +    csdev->pdata = devm_kcalloc(dev, 1,
->>> +                   sizeof(struct coresight_platform_data),
->>> +                   GFP_KERNEL);
->>> +    return csdev;
->>> +}
->>> +
->>> +static int coresight_test_cpuid(struct coresight_device *csdev)
->>> +{
->>> +    return 0;
->>> +}
->>> +
->>> +static void test_default_sink(struct kunit *test)
->>> +{
->>> +    /*
->>> +     * ETM -> ETF -> ETR -> CATU
->>> +     *                ^
->>> +     *                | default
->>> +     */
->>> +    struct device *dev = kunit_device_register(test, 
->>> "coresight_kunit");
->>> +    struct coresight_device *etm = coresight_test_device(dev),
->>> +                *etf = coresight_test_device(dev),
->>> +                *etr = coresight_test_device(dev),
->>> +                *catu = coresight_test_device(dev);
->>> +    struct coresight_connection conn = {};
->>> +    struct coresight_ops_source src_ops = {.cpu_id = 
->>> coresight_test_cpuid };
->>
->> Do we need the trace_id() ? Why is this required ?
->>
->> Suzuki
->>
-> 
-> Because it tests with per-cpu sources so it checks if any of the TRBE 
-> sinks have been assigned first:
-> 
->   /* look for a default sink if we have not found for this device */
->     if (!csdev->def_sink) {
->        if (coresight_is_percpu_source(csdev))
->       csdev->def_sink = per_cpu(csdev_sink,
->                                     source_ops(csdev)->cpu_id(csdev));
-> 
-> I think this test would probably fail if run somewhere TRBE was already 
-> probed. I can make the source subtype to be 
-> CORESIGHT_DEV_SUBTYPE_SOURCE_BUS for the test to work around it. Any 
-> value other than CORESIGHT_DEV_SUBTYPE_SOURCE_PROC will work. And then I 
-> can drop the fake cpu_id() callback.
+Hi,
 
-If the purpose is to detect the ETR, then I guess we could make this a 
-non-ETM source
+On Mon, 10 Mar 2025 at 09:04, Jie Gan <quic_jiegan@quicinc.com> wrote:
+>
+> The new functions calculate and return the offset to the write pointer of
+> the ETR buffer based on whether the memory mode is SG, flat or reserved.
+> The functions have the RWP offset can directly read data from ETR buffer,
+> enabling the transfer of data to any required location.
+>
+> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
+> ---
+>  .../hwtracing/coresight/coresight-tmc-etr.c   | 40 +++++++++++++++++++
+>  drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
+>  2 files changed, 41 insertions(+)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> index eda7cdad0e2b..ec636ab1fd75 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
+> @@ -267,6 +267,46 @@ void tmc_free_sg_table(struct tmc_sg_table *sg_table)
+>  }
+>  EXPORT_SYMBOL_GPL(tmc_free_sg_table);
+>
+> +static long tmc_flat_resrv_get_rwp_offset(struct tmc_drvdata *drvdata)
+> +{
+> +       dma_addr_t paddr = drvdata->sysfs_buf->hwaddr;
+> +       u64 rwp;
+> +
 
-TBH, I don't see any value in the test as such. But it is a good 
-starting point for adding further cases. So, lets keep this in.
+It is not valid to read RWP if the TMC is running. It must be in the
+stopped or disabled state - see the specifications for TMC /ETR
 
-Suzuki
+It is likely that CSUNLOCK / CSLOCK are needed here too,  along with
+the spinlock that protects drvdata
 
-> 
+See the code in coresight_tmc_etr.c :-
 
+e.g. in
+
+tmc_update_etr_buffer()
+
+...
+<take spinlock>
+...
+CS_UNLOCK(drvdata->base);
+tmc_flush_and_stop(drvdata); // this ensures tmc is stopped and
+flushed to memory - essential to ensure full formatted frame is in
+memory.
+tmc_sync_etr_buf(drvdata); // this function reads rwp.
+CS_LOCK(drvdata->base);
+<release spinlokc>
+
+This type of program flow is common to both sysfs and perf handling of
+TMC buffers.
+
+> +       rwp = tmc_read_rwp(drvdata);
+> +       return rwp - paddr;
+> +}
+> +
+> +static long tmc_sg_get_rwp_offset(struct tmc_drvdata *drvdata)
+> +{
+> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
+> +       struct etr_sg_table *etr_table = etr_buf->private;
+> +       struct tmc_sg_table *table = etr_table->sg_table;
+> +       long w_offset;
+> +       u64 rwp;
+> +
+
+Same comments as above
+
+> +       rwp = tmc_read_rwp(drvdata);
+> +       w_offset = tmc_sg_get_data_page_offset(table, rwp);
+> +
+> +       return w_offset;
+> +}
+> +
+> +/*
+> + * Retrieve the offset to the write pointer of the ETR buffer based on whether
+> + * the memory mode is SG, flat or reserved.
+> + */
+> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
+> +{
+> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
+> +
+
+As this is an exported function, please ensure that the inputs are
+valid - check the pointers
+
+Code to ensure TMC is flushed and stopped could be inserted here.
+
+Regards
+
+Mike
+
+> +       if (etr_buf->mode == ETR_MODE_ETR_SG)
+> +               return tmc_sg_get_rwp_offset(drvdata);
+> +       else if (etr_buf->mode == ETR_MODE_FLAT || etr_buf->mode == ETR_MODE_RESRV)
+> +               return tmc_flat_resrv_get_rwp_offset(drvdata);
+> +       else
+> +               return -EINVAL;
+> +}
+> +EXPORT_SYMBOL_GPL(tmc_get_rwp_offset);
+> +
+>  /*
+>   * Alloc pages for the table. Since this will be used by the device,
+>   * allocate the pages closer to the device (i.e, dev_to_node(dev)
+> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
+> index b48bc9a01cc0..baedb4dcfc3f 100644
+> --- a/drivers/hwtracing/coresight/coresight-tmc.h
+> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
+> @@ -442,5 +442,6 @@ void tmc_etr_remove_catu_ops(void);
+>  struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
+>                                    enum cs_mode mode, void *data);
+>  extern const struct attribute_group coresight_etr_group;
+> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata);
+>
+>  #endif
+> --
+> 2.34.1
+>
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
