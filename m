@@ -4,93 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6B06C28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 23:37:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C421C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 23:46:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0QRLuU7NzTfT/A++S3ACEOlmn7+4t8uGiXJTJMMings=; b=KFK/Yqj+4Xe1BYiKxIsVaS0zj8
-	azWS9nl1OAikd+5IIydCYhOfZdYk6aBuOXd/ewX3i4qyEDoWVI5n4eXw6E9cVeZTaRDi9Mo3G81/U
-	i0cUFEGL1IEhsVq4HonI03Y3QmwTcIZ4zrdD4+/gC2o3zV4hX9A+LIyPRVp7C65bOtvVBAR7n9C7W
-	PmTAvLzf4yWZiu0mmXHHKIA8qnnVvHwoNX63xc6mdzTT0dOlg5HI2TJXUk+VZLO/9HvRodPyGTQkI
-	mCpd3dp7yS5UMM+i25h3pPzrs+R8DSr5xTFB68smzYy5jAXG12cDLAT4S/ru+ti8LA0vS5EBGyduP
-	RQDKtBNg==;
+	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=; b=QZoUXXw50ayN4vOHelW2aA+RIL
+	ErpMKVvLShKp/oARGiLwuMQd8MjzpY65t1CA5MfBuq/hDfc3FYyl865TwjHRiVWvFIH5jcKdHKpap
+	syUDwiMTSQstB2x8UlotkphUFG06KYdk2dEVY4t8ajVWs6FnS3L1G8+tqnJ1cTT1zJjSLzarS6Wxy
+	+8AOW73Z6cKjiYCsaE9VHMCPRPU3k8z7OtUbHwgUdSr0VHxXc4tE+4xtbkMZ05cLOtVuji2g/wQCZ
+	yWiZJHyOxP3LvtFGNwHwTGAQE0t6y12DdgvTrqmmxGW/fpRK9Kp/VgRe8jecZJZXxQt1508J7wAKG
+	DFkv4ViA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts99g-00000007CAt-2wCn;
-	Tue, 11 Mar 2025 23:37:00 +0000
-Received: from mgamail.intel.com ([192.198.163.10])
+	id 1ts9IQ-00000007D1A-3hJK;
+	Tue, 11 Mar 2025 23:46:02 +0000
+Received: from mail.netfilter.org ([217.70.190.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts981-00000007C43-3u09;
-	Tue, 11 Mar 2025 23:35:19 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741736118; x=1773272118;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=elqNsF85TWhSgJAwnZme8MoszZ89P0pZ9HDqIv+k/+4=;
-  b=fAb0zmf+TVzjMH7erkPU7QQ0y3xnBZoJj1VNgWi6wPGQmQDE9IIXLAZh
-   cwK7WBHvmfkv/GdYTAefgcL6Kk7qqrBU3NcrXQnhBWR3LHT6CSTrZj8eY
-   aRkYX8TWFfekBXQBYFO3oXlkVdv1VHOQSIXE0k502P80XTuQfZtGWOGZk
-   /tDkZlZHnRAJNLvhz57/4IYyaeJdQWI0mmIB9HKxlpety04jVXERuSr5O
-   kon2ayGvEMeE5J3iQhwrcxwsITIoe9LXT1gMLXI5bVfvWHIkfOShLw7jk
-   P2kup++rw4JqiqWvgU1OCMpa8KGILrSbo8oTa8LT4S/3AugPn/JrSEui5
-   g==;
-X-CSE-ConnectionGUID: qhrrUtoQTRq3mzTW/HRSMA==
-X-CSE-MsgGUID: nM0A7Rr/Q/aqpHvzNpCRfA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11370"; a="54169626"
-X-IronPort-AV: E=Sophos;i="6.14,240,1736841600"; 
-   d="scan'208";a="54169626"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa104.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2025 16:35:15 -0700
-X-CSE-ConnectionGUID: CF1404RcSfuQSV8CuiITiw==
-X-CSE-MsgGUID: Jur65i+1S0GENA6ydQlL3A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,240,1736841600"; 
-   d="scan'208";a="125361340"
-Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
-  by orviesa003.jf.intel.com with ESMTP; 11 Mar 2025 16:35:10 -0700
-Received: from kbuild by a4747d147074 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1ts97r-0007wm-1B;
-	Tue, 11 Mar 2025 23:35:07 +0000
-Date: Wed, 12 Mar 2025 07:35:01 +0800
-From: kernel test robot <lkp@intel.com>
-To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	id 1ts9Gl-00000007Cmc-0Wyg;
+	Tue, 11 Mar 2025 23:44:20 +0000
+Received: by mail.netfilter.org (Postfix, from userid 109)
+	id 9867D60290; Wed, 12 Mar 2025 00:44:11 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1741736651;
+	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=a8t80WlrGYFY9oyQX3S86Ogn9ifXUjpMtYaXir/VnMuMWejrcyWrdT2MZ2UFI6Eo2
+	 7qsNBbeB+KiWFpXrYGzzrRPMPsPm3M/LE12BTGeObmLfV4xGfxMKOeVnfXLuHs+f6I
+	 oco67Tvuc79DAy4t/JCmw6SPfqMP3FXgCoQq7/pPe7BYJioQ8AdiXx+unSbnybDzHx
+	 TlZi4UML/13y3h+GZLEerM6BAPXU/DTqIQuGm8Mqm5U0dLr+7C4n8OXD6BORAgjHeq
+	 NKgQoBT0DPvWcs+M0oaprv6llWWPVxh4HtE3mjNtRrcPSzk1R77u3S9f2rILyP8arN
+	 I70Z8bqQRkyaw==
+Received: from netfilter.org (mail-agni [217.70.190.124])
+	by mail.netfilter.org (Postfix) with ESMTPSA id F13DD60281;
+	Wed, 12 Mar 2025 00:44:07 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=netfilter.org;
+	s=2025; t=1741736648;
+	bh=Zy4H9Jv5YfvsQEUnC9uG0DhMz5JfwXq9yCcEHqiTgoA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=kLBL1Hzar1cmkrQuKybLF66CTNES1VcZwNNIMmceAZVUWG5+PeM/BvDuffpu85yec
+	 wSCdNGmitWR2/y3qO93O7m5UoYNKtgV+UMNE3RSCZLEtC3QrrCx5Ui7dzYI58OpWlx
+	 NwubfakCqFL6Je9par6JdWhDjcNJFmritUaP6eC06ocENmPzpiec0y8GuyB+7RNRpX
+	 yhqSCf2339YL33+0nTwjf5i1QZ20gGgH7fTS6Lw5NjdHN+qVQ+1exZ2T3tciJq/8kh
+	 KqPz2aZ2hTBXT2boxpytoDg2qPdtF3KzUcG9KrRXHFunP2n1vk46/9Q2OKi2SN/ESu
+	 yNF8SeDIdPDXQ==
+Date: Wed, 12 Mar 2025 00:44:04 +0100
+From: Pablo Neira Ayuso <pablo@netfilter.org>
+To: Eric Woudstra <ericwouds@gmail.com>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+	Kuniyuki Iwashima <kuniyu@amazon.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>, Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
-Subject: Re: [PATCH net-next 3/9] net: stmmac: remove of_get_phy_mode()
-Message-ID: <202503120741.lpX5066n-lkp@intel.com>
-References: <E1trbxk-005qYA-Up@rmk-PC.armlinux.org.uk>
+	Nikolay Aleksandrov <razor@blackwall.org>,
+	Roopa Prabhu <roopa@nvidia.com>, Ivan Vecera <ivecera@redhat.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	Jozsef Kadlecsik <kadlec@netfilter.org>,
+	Simon Horman <horms@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Eric Dumazet <edumazet@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
+	linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+	coreteam@netfilter.org, bridge@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
+	Kees Cook <kees@kernel.org>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Alexander Lobakin <aleksander.lobakin@intel.com>,
+	Ahmed Zaki <ahmed.zaki@intel.com>,
+	Vladimir Oltean <olteanv@gmail.com>,
+	Frank Wunderlich <frank-w@public-files.de>,
+	Daniel Golle <daniel@makrotopia.org>
+Subject: Re: [PATCH v9 nf 00/15] bridge-fastpath and related improvements
+Message-ID: <Z9DKxOnxr1fSv0On@calendula>
+References: <20250305102949.16370-1-ericwouds@gmail.com>
+ <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <E1trbxk-005qYA-Up@rmk-PC.armlinux.org.uk>
+In-Reply-To: <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_163518_023560_1E1165A5 
-X-CRM114-Status: GOOD (  11.30  )
+X-CRM114-CacheID: sfid-20250311_164419_604519_568B1A14 
+X-CRM114-Status: GOOD (  23.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,110 +103,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+Hi,
 
-kernel test robot noticed the following build warnings:
+On Tue, Mar 11, 2025 at 09:22:35AM +0100, Eric Woudstra wrote:
+> 
+> 
+> On 3/5/25 11:29 AM, Eric Woudstra wrote:
+> > This patchset makes it possible to set up a software fastpath between
+> > bridged interfaces. One patch adds the flow rule for the hardware
+> > fastpath. This creates the possibility to have a hardware offloaded
+> > fastpath between bridged interfaces. More patches are added to solve
+> > issues found with the existing code.
+> 
+> 
+> > Changes in v9:
+> > - No changes, resend to netfilter
+> 
+> Hi Pablo,
+> 
+> I've changed tag [net-next] to [nf], hopefully you can have a look at
+> this patch-set. But, after some days, I was in doubt if this way I have
+> brought it to your attention. Perhaps I need to do something different
+> to ask the netfilter maintainer have a look at it?
 
-[auto build test WARNING on net-next/main]
+Apologies, this maintainance service is best effort.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Russell-King-Oracle/net-stmmac-qcom-ethqos-remove-of_get_phy_mode/20250311-001446
-base:   net-next/main
-patch link:    https://lore.kernel.org/r/E1trbxk-005qYA-Up%40rmk-PC.armlinux.org.uk
-patch subject: [PATCH net-next 3/9] net: stmmac: remove of_get_phy_mode()
-config: s390-allmodconfig (https://download.01.org/0day-ci/archive/20250312/202503120741.lpX5066n-lkp@intel.com/config)
-compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250312/202503120741.lpX5066n-lkp@intel.com/reproduce)
+I am also going to be very busy until April to complete a few more
+deliverables, I cannot afford more cancelled projects. I will try to
+collect what is left for net-next and wait for the next merge window.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202503120741.lpX5066n-lkp@intel.com/
+Therefore, I suggest you start with a much smaller series with a
+carefully selected subset including preparatory patches. I suggest you
+start with the software enhancements only. Please, add datapath tests.
 
-All warnings (new ones prefixed by >>):
+As for the hardware offload part, I have a board that I received 4.5
+ago years as a engineering sample that maybe I can use to test this,
+but no idea, really.
 
-   In file included from drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c:11:
-   In file included from include/linux/of_net.h:9:
-   In file included from include/linux/phy.h:16:
-   In file included from include/linux/ethtool.h:18:
-   In file included from include/linux/if_ether.h:19:
-   In file included from include/linux/skbuff.h:17:
-   In file included from include/linux/bvec.h:10:
-   In file included from include/linux/highmem.h:10:
-   In file included from include/linux/mm.h:2224:
-   include/linux/vmstat.h:504:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     504 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     505 |                            item];
-         |                            ~~~~
-   include/linux/vmstat.h:511:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     511 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     512 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
-   include/linux/vmstat.h:524:43: warning: arithmetic between different enumeration types ('enum zone_stat_item' and 'enum numa_stat_item') [-Wenum-enum-conversion]
-     524 |         return vmstat_text[NR_VM_ZONE_STAT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~ ^
-     525 |                            NR_VM_NUMA_EVENT_ITEMS +
-         |                            ~~~~~~~~~~~~~~~~~~~~~~
->> drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c:94:4: warning: variable 'phy_mode' is uninitialized when used here [-Wuninitialized]
-      94 |                         phy_mode);
-         |                         ^~~~~~~~
-   include/linux/dev_printk.h:154:65: note: expanded from macro 'dev_err'
-     154 |         dev_printk_index_wrap(_dev_err, KERN_ERR, dev, dev_fmt(fmt), ##__VA_ARGS__)
-         |                                                                        ^~~~~~~~~~~
-   include/linux/dev_printk.h:110:23: note: expanded from macro 'dev_printk_index_wrap'
-     110 |                 _p_func(dev, fmt, ##__VA_ARGS__);                       \
-         |                                     ^~~~~~~~~~~
-   drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c:67:2: note: variable 'phy_mode' is declared here
-      67 |         phy_interface_t phy_mode;
-         |         ^
-   4 warnings generated.
+You are a passer-by (ahem, "contributor"), this will get merged
+upstream at some point and we will have to maintain all this new code
+without your help maybe ... (people change bussiness units...), I have
+to understand what is going on here. The throughput available is
+limited, I am afraid we can only go _slow and careful_.
 
+Thanks.
 
-vim +/phy_mode +94 drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
-
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   61  
-41b984be408c088 Russell King (Oracle  2025-03-10   62) static struct anarion_gmac *
-41b984be408c088 Russell King (Oracle  2025-03-10   63) anarion_config_dt(struct platform_device *pdev,
-41b984be408c088 Russell King (Oracle  2025-03-10   64) 		  struct plat_stmmacenet_data *plat_dat)
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   65  {
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   66  	struct anarion_gmac *gmac;
-0c65b2b90d13c1d Andrew Lunn           2019-11-04   67  	phy_interface_t phy_mode;
-0c65b2b90d13c1d Andrew Lunn           2019-11-04   68  	void __iomem *ctl_block;
-0c65b2b90d13c1d Andrew Lunn           2019-11-04   69  	int err;
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   70  
-ad124aa34e51439 YueHaibing            2019-08-21   71  	ctl_block = devm_platform_ioremap_resource(pdev, 1);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   72  	if (IS_ERR(ctl_block)) {
-51fe084b17e795f Simon Horman          2023-04-06   73  		err = PTR_ERR(ctl_block);
-51fe084b17e795f Simon Horman          2023-04-06   74  		dev_err(&pdev->dev, "Cannot get reset region (%d)!\n", err);
-51fe084b17e795f Simon Horman          2023-04-06   75  		return ERR_PTR(err);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   76  	}
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   77  
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   78  	gmac = devm_kzalloc(&pdev->dev, sizeof(*gmac), GFP_KERNEL);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   79  	if (!gmac)
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   80  		return ERR_PTR(-ENOMEM);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   81  
-9f12541d684b925 Simon Horman          2023-04-06   82  	gmac->ctl_block = ctl_block;
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   83  
-41b984be408c088 Russell King (Oracle  2025-03-10   84) 	switch (plat_dat->phy_interface) {
-df561f6688fef77 Gustavo A. R. Silva   2020-08-23   85  	case PHY_INTERFACE_MODE_RGMII:
-df561f6688fef77 Gustavo A. R. Silva   2020-08-23   86  		fallthrough;
-df561f6688fef77 Gustavo A. R. Silva   2020-08-23   87  	case PHY_INTERFACE_MODE_RGMII_ID:
-df561f6688fef77 Gustavo A. R. Silva   2020-08-23   88  	case PHY_INTERFACE_MODE_RGMII_RXID:
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   89  	case PHY_INTERFACE_MODE_RGMII_TXID:
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   90  		gmac->phy_intf_sel = GMAC_CONFIG_INTF_RGMII;
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   91  		break;
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   92  	default:
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   93  		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n",
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04  @94  			phy_mode);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   95  		return ERR_PTR(-ENOTSUPP);
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   96  	}
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   97  
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   98  	return gmac;
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04   99  }
-2d1611aff3f22a5 Alexandru Gagniuc     2017-08-04  100  
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+P.S: You work is important, very important, but maybe there is no need
+to Cc so many mailing lists and people, maybe netdev@,
+netfilter-devel@ and bridge@ is sufficient.
 
