@@ -4,54 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E148C2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:17:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50BD5C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 08:18:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1kZVljBVvsXxXbMsud/oOo6ecmq2RS1CrhGptHL+sfk=; b=D4natk9/QmVE8UetxAH9bKmgXM
-	ZLui2R0mQE3AQCZjjUlzwDc0rswyDH0ijY09JvSfxc0xh2P9ucOP8KfY7wwz3MzfN1tSePJYIFKiT
-	3OGjOZRhUH0i9Fk/FtmDkW8y39wpI2JClhrBedRRp1RsNVY7t7ezQCeaxtcjuPjROtGZXgb4DNBSP
-	tDnFW4or3bFHFrXqQEdG1AqNmypblz7HFf1tnMKW8PqXdQAhBGJSGIGQTQFPU7mQIGSd5k+LevKpf
-	pZuIbMo/o83N37NGjs/GsHlEkw7dlzid27vlZTUO5153hEBvEGrhT2wSr+D4Y8krkIIsrE1au3UAI
-	iQ8dMW0A==;
+	bh=qzksFsHwUZAZdl059Q9dYveJ5pvso9jFFjPVpDgEbd8=; b=zbA0VRFI1fm9uyGpoXcs0llw0E
+	cVW/6uYRHQpIpuurtl5bGGEK5KBQqFqAbBsemN9NSXXppvtluAb1mqjIHdHHJs1i7AMHEslHBJ8XU
+	aGfA6Er9venCikkvWKIc64oyBCg8UpszBAJyduvRoASTBliUvokUqoayVCUH6WgzHwQ2sIrKYtepq
+	NG1KHnGWH1bkIceJr1Ga7KxLGqW1kyDcLqJrEo8SYQBUO/XLPA0OOttpxel0Z7Hqg/j5PBO6mb6WL
+	0sn4CNt9BDRf0BTcYEctyDKuagxn2OOoe7iAbgmEZ989o7qH0kzqKAGpjJonSk+CCYOG5UPKXbJM6
+	b352xMeQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trunR-00000004yxH-2lmG;
-	Tue, 11 Mar 2025 08:17:05 +0000
-Received: from hch by bombadil.infradead.org with local (Exim 4.98 #2 (Red Hat Linux))
-	id 1trujV-00000004y8R-2zab;
-	Tue, 11 Mar 2025 08:13:01 +0000
-Date: Tue, 11 Mar 2025 01:13:01 -0700
-From: Christoph Hellwig <hch@infradead.org>
-To: Shin'ichiro Kawasaki <shinichiro.kawasaki@wdc.com>
-Cc: linux-block@vger.kernel.org, linux-nvme@lists.infradead.org,
-	Jens Axboe <axboe@kernel.dk>, Keith Busch <kbusch@kernel.org>,
-	Christoph Hellwig <hch@infradead.org>,
-	Sagi Grimberg <sagi@grimberg.me>,
-	Alan Adamson <alan.adamson@oracle.com>,
-	virtualization@lists.linux.dev, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	"Michael S . Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>,
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	Eugenio =?iso-8859-1?Q?P=E9rez?= <eperezma@redhat.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Stefan Hajnoczi <stefanha@redhat.com>,
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>
-Subject: Re: [PATCH 2/2] block: change blk_mq_add_to_batch() third argument
- type to blk_status_t
-Message-ID: <Z8_wjZUNvM7JAWAQ@infradead.org>
-References: <20250311024144.1762333-1-shinichiro.kawasaki@wdc.com>
- <20250311024144.1762333-3-shinichiro.kawasaki@wdc.com>
+	id 1trup4-00000004zAh-0kbe;
+	Tue, 11 Mar 2025 08:18:46 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1trunO-00000004yvX-13C1;
+	Tue, 11 Mar 2025 08:17:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D01B55C54EC;
+	Tue, 11 Mar 2025 08:14:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70269C4CEE9;
+	Tue, 11 Mar 2025 08:17:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741681021;
+	bh=qzksFsHwUZAZdl059Q9dYveJ5pvso9jFFjPVpDgEbd8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=NZmENIUFu7jOuBLc8tK9jQIJs7hzrt5xOV43/NGKih9hZnUxXyagM4pLvsos+raNM
+	 fKt6PigNDT53PJSxWG0ljsBzAzp+Bx61h9G1ihZXaI6xeDnS/nHqNOvTTVY718b187
+	 I4sDfB/hJgaDg1apyDlhBld5DrWiAQYC1jU2x9jlKnvLmhKM6k8YCjbz+miSsZzUbj
+	 9tqNOteSSj3eUmLr2Uzjlyt8qOy+f2RBzbnrpGLt/AjcUnUJBgaoKKunCW78YXC9/C
+	 mT7Hk6mSpCHwSA+yNyeSlEnOsdnkBExitrlhXsGvWabUcivkHF2fX8n0gc11a5FPG0
+	 Pqbshzo1yKTcw==
+Date: Tue, 11 Mar 2025 09:16:57 +0100
+From: Krzysztof Kozlowski <krzk@kernel.org>
+To: Jan Dakinevich <jan.dakinevich@salutedevices.com>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
+	Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Neil Armstrong <neil.armstrong@linaro.org>, Rob Herring <robh@kernel.org>, Stephen Boyd <sboyd@kernel.org>
+Subject: Re: [PATCH v6 2/4] dt-bindings: clock: axg-audio: document A1 SoC
+ audio clock controller driver
+Message-ID: <20250311-famous-adamant-teal-20b1cb@krzk-bin>
+References: <20250309180940.1322531-1-jan.dakinevich@salutedevices.com>
+ <20250309180940.1322531-3-jan.dakinevich@salutedevices.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250311024144.1762333-3-shinichiro.kawasaki@wdc.com>
+In-Reply-To: <20250309180940.1322531-3-jan.dakinevich@salutedevices.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250311_011702_345999_3F2A6C42 
+X-CRM114-Status: UNSURE (   6.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,29 +77,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 11:41:44AM +0900, Shin'ichiro Kawasaki wrote:
-> However, blk_mq_add_to_batch() callers do not pass negative error
-> values. Instead, they pass status codes defined in various ways:
-> 
-> - NVMe PCI and Apple drivers pass NVMe status code
-> - virtio_blk driver passes the virtblk request header status byte
-> - null_blk driver passes blk_status_t
+On Sun, Mar 09, 2025 at 09:09:38PM +0300, Jan Dakinevich wrote:
+> Add device tree bindings for A1 SoC audio clock and reset controllers.
 
-The __force cast in null_blk should have been a big fat warning..
+You sent multiple copies of similar series to which you got responses. I
+don't know anymore which should be ignored, which got my response, so
+just in case I will skip this one. Please implement received feedback
+(here or in some other series).
 
-> To correct the ioerror check within blk_mq_add_to_batch(), make all
-> callers to uniformly pass the argument as blk_status_t. Modify the
-> callers to translate their specific status codes into blk_status_t. For
-> this translation, export the helper function nvme_error_status(). Adjust
-> blk_mq_add_to_batch() to translate blk_status_t back into the error
-> number for the appropriate check.
-
-This still looks a bit ugly because of all the conversions to a
-blk_status_t just to convert it back to a errno just to check for
-a non-zero value (blk_status_to_errno can't return a positive value).
-
-I suspect simply passing a "bool is_error" might actually be cleaner
-than that, combined with a proper kerneldoc comment for
-blk_mq_add_to_batch explaining how to set it?
+Best regards,
+Krzysztof
 
 
