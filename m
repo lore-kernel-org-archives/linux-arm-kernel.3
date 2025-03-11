@@ -4,162 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 317ACC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:13:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A8AC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 09:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pED2pmiJ8U12yaI3263QM8W7PTE15Z/WKgBiLUyw7XA=; b=iViBoh4blFloGBwFknehHNo3hU
-	orfzUxNS/Dd6PzFJZHGX41y38Ou0v1TNBezQ5AuJjddCA4R8aM0MGYWANiOcWj8v0HzXizdRt4Ds6
-	suVW+beLH8eySBR3AExwV2Rds3aeJBY/qEuPLXMoPLxsJVhnjMpmU46HOk9OEpojC4ILAqiFCsfTL
-	ViM1xTjlj3ylt7iKxo7Zr++ZAxZJthEcgMgqmGIMxxi4Xn4pEay54gkrXn09fTWU5Rc1r1FnDlYar
-	KiabKTyfhOW8yl3UE5wKQLoPsrr7ntZF1911v5uCtDeLuAMv5zQyL6iGoTI9m32YC7cxO/iE7goPO
-	hkjHZ3pA==;
+	bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=; b=KuvPyQiuAn63p9cFln/XODy98V
+	uZi/7bwGpmFVNWyLORWTlUPxHXI0szIHcZ+4eaQwggReXzzNNf59Wungr6eZqlP+15Y6+SZpXfozE
+	KQHhx5EsH4R/9BozM9XeOFcq5a0M2yagbcxBjfv0SA8lHvmocalrZRaJfcCaRlqc9v1lepzyygMdg
+	PLwsHO37BY39WSyT0H6D/dfvpHRJMLkNidI2DNGOzEK7J4JOnehh5nQDOZW+JCjyah5zNm8vkzPDe
+	3UXu1xxVWnHSvO0XmYIMB63EUCDlcxBg/10GMgtHT0BttFFlJmG4WsxuruaScKUFkSGo8+EBoPiVn
+	tfnGS6bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1trvgE-000000056pc-1mQn;
-	Tue, 11 Mar 2025 09:13:42 +0000
-Received: from mail-db8eur05on20603.outbound.protection.outlook.com ([2a01:111:f403:2614::603] helo=EUR05-DB8-obe.outbound.protection.outlook.com)
+	id 1trvhr-0000000572s-29z3;
+	Tue, 11 Mar 2025 09:15:23 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1trvQK-000000053f3-0Dy5
+	id 1trvRE-0000000542p-2TU1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 08:57:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=AI582a9IY8k1JiS8CBDvdYt+rfRWmprba95MnSuYlgSNm//skau8AMXYxugqwtSrsqBmb+tMvWwevZj2TZQp3BRcpBHFofe90cMBkhJDp246SY6AMrjHlc7Q4HR224booBm7ALTZkegXOTQEq8dc0gBsdwXC7WOftEVNHOaQJqgEos7rFRj9hnhn+dLHWykAjruonY/1pmAsn7BXLYryA0gv8blEIWvUOVKmR6Cyj8cyoSQv9fgLohkjgcsuV39UUeS4dlqDStdoVFp/GklOIKbntJ6W/h76yXTK3CZuF1zFnOvUFBSdeJUSA4RaZUGOdpt1s8TPH7lLtFWwAq8Gwg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=pED2pmiJ8U12yaI3263QM8W7PTE15Z/WKgBiLUyw7XA=;
- b=V1HvLZVqJxxoV8NTABDoWIRpI6Bx3byMCxwxRzLulVwO3FPCE8gayv29DDCGbo/HFIYIaM6pdZXTnPSZILpw9YuTXxzrcPD1HxF3BL03j42zr4/3eOa1pdDUjMHdBsiZGxvxp4rjq+Bb7B8eXfArtoUSyjFEvIxEn+tloqT8YQYF0e+O4bfki6zsTGIF91OlmGvA4/MXOmJBta24oNsfVM4nqfu+TtnUK/jTp2UGZmTNhG4LMGPiLN61OmDIHs239M6nDKQS5ibEf//NMyBTZEoFJ3/DviOMNGVtaKUJOhvhXpGGcywXG9nGxUs0Tva/LIC+5tm7RZx04biL/fVtOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=pED2pmiJ8U12yaI3263QM8W7PTE15Z/WKgBiLUyw7XA=;
- b=esgQ6aklpLkrJNZsi5va4cZrse8X2pMOVi71oH0YCR2cRvSpklKMz+WmK8G/RVZ8dyRkV1wVQL09IUyXCpfeRSfguB04PRYwu1Vy520+Zld4Lw9Xys1mLjKEQI6riuFJfTELimpXsv7bCMuo56Th26b/w7pHceiTbq+2bCx9v23NheX50h6ATrAUM2EYZatM/DIGa6SqA6zhPeEeHFGQ3loGo80nTlQW/m0m24wkbMYbrQo2gBayu6iCka/dPXN9Eh8Db41AeQrqt0Syf6PO/3Ng64ZScEreWOgh+R32+HIoRwQ1xr15lDIoH3klW12FPdIJQ1avkv5Q3ZqopVw5kw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com (2603:10a6:20b:3f2::13)
- by DBAPR04MB7431.eurprd04.prod.outlook.com (2603:10a6:10:1a1::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
- 2025 08:57:09 +0000
-Received: from AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6]) by AS8PR04MB8247.eurprd04.prod.outlook.com
- ([fe80::84f7:e2c3:ceed:c0a6%5]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
- 08:57:09 +0000
-From: Daniel Baluta <daniel.baluta@nxp.com>
-To: p.zabel@pengutronix.de,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	shawnguo@kernel.org,
-	mathieu.poirier@linaro.org,
-	devicetree@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org
-Cc: conor+dt@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	andersson@kernel.org,
-	Frank.Li@nxp.com,
-	peng.fan@nxp.com,
-	laurentiu.mihalcea@nxp.com,
-	iuliana.prodan@nxp.com,
-	shengjiu.wang@nxp.com,
-	Daniel Baluta <daniel.baluta@nxp.com>
-Subject: [PATCH v5 8/8] imx_dsp_rproc: Use reset controller API to control the DSP
-Date: Tue, 11 Mar 2025 10:58:11 +0200
-Message-ID: <20250311085812.1296243-9-daniel.baluta@nxp.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250311085812.1296243-1-daniel.baluta@nxp.com>
-References: <20250311085812.1296243-1-daniel.baluta@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: AM9P195CA0009.EURP195.PROD.OUTLOOK.COM
- (2603:10a6:20b:21f::14) To AS8PR04MB8247.eurprd04.prod.outlook.com
- (2603:10a6:20b:3f2::13)
+	Tue, 11 Mar 2025 08:58:13 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2239aa5da08so82977285ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 01:58:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741683490; x=1742288290; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=;
+        b=Evav9nkjKnNtCvoWzyn+BaINeoC3iIGtH7Agr/Ngms7t+8Eens/uklQ8eRXrowkEK8
+         Qd9wxSINfChcsyglxJgwkXqWIQTrnXwVdwUl8oMBmtZGFYu1B9n1S6yJR06hAU0iUHNP
+         nal0tyJMC7v0R2HuTes//KC0tjJch6SAes2n8TzI2pe3j+1c2bHCt0poYDCiwrj5BNOi
+         CDsA3S+RAPkHeVBBsTf45S1y2UBJdClfoR9tMSQ8jfToLHSrVDwxULJQYDmG29SvIFlK
+         sai2u04Bcd44uPwCG1ENAO192OSNjK8ferNaX5WuqnzRZAW49LzWKpXDFDsmJbBFnIEK
+         yDbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741683490; x=1742288290;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lA2bydqpRt+OlncV1V8Whn8hMq0Jg5Zcz7zDV610P04=;
+        b=eWuonBj6Nq4kj2hPMOxcOdxTt9abeQdJuBW28IDTLGLAZmSa94VP8sjXEBIdPXQS5F
+         n423LD4eH0TllX+Z6ue+8jvnhVcrh4I5UIjSTgVijwLGq5rk9PVRtXqiQM7t5vx8yFtZ
+         N/EDY1Yx+o63OCE3E+s/iruYzUwy498AbmrFtEiYWOyhVDLk16pXnQgjfrQpeg1SAHrE
+         krfOEQdM+T9UvQ0QOlgv4teFbGAOtjwhnKnJ9xYhTNN1G0Sb8Q8ExNhDRWPWlXU2iTCG
+         EINnfcIboCEBEyxp+19GRdsJxfMXb5BT/oxe4nm0Ndh+NFLeitkUrTQN8dCUYiM26ZBM
+         7sYA==
+X-Forwarded-Encrypted: i=1; AJvYcCWQQee56fLK3UC+PtN6MPF3XJbtKCfKT26yHjmGoqFnz7vN2dGPjsGTc1lVl3DpnBkLtIx5kSjjkWZnQyHbvyfe@lists.infradead.org
+X-Gm-Message-State: AOJu0YzYbclALbmV095V9DL3GteLHjoiopSa0aWzeuYF6OegzYVfdOcl
+	fEs4umqIe7eukE/oAi1yOjNqxJbEUV+l000FSLI72DYsZ7kZP4b+RWhY3eTKl9Rqp2iI90aVmuq
+	dY2CCTmSpKH67oX265CQasImbJsGBU1E7
+X-Gm-Gg: ASbGncuNP6xK4VVMlRtNRlTz/OzJefleKraCZE2fpvX8FhzoY/xpIjWyiJQFvkXjqjw
+	MmlgKrk+W+GXxkdX6RCxwaynEsdeTn3+WwVGG/oYFxBreNBGUR8uJOOX3Sswucj26SZJ3qNTpDT
+	07/q/0TdUbJ1NLroS5+I/g/RA=
+X-Google-Smtp-Source: AGHT+IHRbLEfFkSRN7svD/SU2NARgmIEUPnyFQQfIvjDTjaMuTGcz4qJxDZa2+cv/4IHsddy318d5FT1qriGzMT0Ex0=
+X-Received: by 2002:a17:902:ec84:b0:220:ca08:8986 with SMTP id
+ d9443c01a7336-22428a98135mr255205425ad.22.1741683490491; Tue, 11 Mar 2025
+ 01:58:10 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8247:EE_|DBAPR04MB7431:EE_
-X-MS-Office365-Filtering-Correlation-Id: 344db6aa-81fc-4115-a768-08dd607ab48d
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?1BEwh4VUsutGG8STP9G9+qqy206JkeQ18ErbwvGDBkNhfEkSkT0WPuFe58Lu?=
- =?us-ascii?Q?YHwPtztJk0l3V1KDqzmnayjyfrm9Lh1vexGBUebFI6OIPj6pqlQhRMKs7Ctb?=
- =?us-ascii?Q?Nbwu0BP3imtuj5CEY3Hu+d6DppCAEPKazwVOQUYggIO3p9+0yFz4aM40Jx3j?=
- =?us-ascii?Q?AGcG/uPPbBV8oJMX0yw3P1GgZetGCxx/qoXGbWurAY5Eh6bep9OdfQMmCSJQ?=
- =?us-ascii?Q?yy9QLY6sWlue0i1MnICucGvEU8YjA8kjMXAH2w/PUxNKkeaDuVNM0ZgMLbUA?=
- =?us-ascii?Q?xkkPHke29BgElwRVOUe9ZleRnEuRHlOWz6mfsfM+aDnoblFvgLZhSBvHZl8b?=
- =?us-ascii?Q?OjFi/REApSUoLK6HNGDK6jjUU/YLvxC04E+lIQPj1wGP3PWx/OmCX+1pt0K1?=
- =?us-ascii?Q?SoAQvvAUeyf3WhcZhrc7DOgs5sP/s83Wdqf8p6k0r2zVxnJrE0ixLmy+4WvU?=
- =?us-ascii?Q?CQvhvyZKOJQzfW1Wk5hkuYoeGeNzCRP9BL1Jr0W+sQ+BhKDW8adOZ/C/mO0q?=
- =?us-ascii?Q?iyet7r9iF0I/RZpNckAJ7Qhd7NsPIFybYc643dK0fZANz+njXgXvppG7bai0?=
- =?us-ascii?Q?gqNaQF1zM7D5HWz/XiSoQmcO0cHrtalx6IAd/FgRUpCgdrRfJLmNw1erEMLn?=
- =?us-ascii?Q?YocMLD+TT68XaI4M8+/djPLa7gfvE+fAlCLK33MDf9F99NZLATuOLgZsYbr5?=
- =?us-ascii?Q?n47nEbKkYGjGu+YtIKRpHj6KssJMg1wd0r5rMEiuDjoOqVBEkCG7nEKaF5L0?=
- =?us-ascii?Q?skUF4uZSEbI2+N9rDo1nlkWyWHdOS9s0A0UVNIFlN5HVFbe0ut5M+LW2K0wJ?=
- =?us-ascii?Q?gDZVwdJE4t4N7kU5fGrinhHJM5v58dtHFKZ1U9xPaAlyWtQAMu9CGxwhqAT0?=
- =?us-ascii?Q?BHUDkjZSNzpkMyBYWY2DlAi9nZacSORJxmUqZrxlTtwoSIx+rAJw1aGIrkxL?=
- =?us-ascii?Q?YrVvB7oDmoe/zm4FH6bGmS+Pmg8JOTnM4b5qPMyS6tnwHg4eON1z9ThiLJRc?=
- =?us-ascii?Q?cZhqRgGRhGaj40JUv2bVYxAJIa19tqAgmpbK/501eme1PyXoFH9KXG7UcvTz?=
- =?us-ascii?Q?5r4+dG77burWwrIB8Dub96epjSTp4sjaVTjeCEUUVBoRWkOMOOqAvpwndFkx?=
- =?us-ascii?Q?DuC05P6O9BzrpfUwH/BuE5HnwhVpymefqE/q0hdhqGQHcG5dco8UANpO2OdC?=
- =?us-ascii?Q?e1N1WwqQ+5dpOkMpqpCa64PwhkuyFvHZbExNzbUxJd1MTlwG+/N7XnFTg51Q?=
- =?us-ascii?Q?/tEPrcjhUJUXu14RBFBwXjVhfpH3Y9LGEGVBnayXbYID+CdxnDdzQKfhJX5T?=
- =?us-ascii?Q?RBinB88xmfiSMyqYeuw44UMnrG2k2mhZJ53CNUkk0JHINcS3NnJ3xKDF5Glb?=
- =?us-ascii?Q?TU4fN7OabRzr0NeIN12aUIL5snNRfBqN/APfEOgAWaWcvu+jsXKeUOcFvZDT?=
- =?us-ascii?Q?ZvfynkEyD7/MT9c+TZ0z6UpBYN+gfhf+?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8247.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NDB4E4dzkSjpjWb02N+Ku1qaawGzZJ+IMGgv0p3QoutVRnT3VoowWjjKolcA?=
- =?us-ascii?Q?hho7DF/3Ry/WDDXmgxlkty8CIwoAUmKYbc7DLCav7pOCcq9uS/2PYDN6tYFe?=
- =?us-ascii?Q?urcZymC6ycIRBcq3MHtCiZPwE0lAjvJnyaM9EOSgSKuyoSQ/jsWeVjpqMjU6?=
- =?us-ascii?Q?i2OG/DasxGX5NIGhZEgrqp61Xw87uTclUWkyoxRsCp6grlTeNGeW9693jE8Y?=
- =?us-ascii?Q?reX6JZ9IrseIMHSjiXCM645A2Zke4XyOQfv1tiMl72qDEW6hiFsfQP2C3Elp?=
- =?us-ascii?Q?vf0E2h/FdrVxjqbXU793C8dlbWxJMwDa4tSXR7EBmmUdnZIgWdMLE4tdMJjZ?=
- =?us-ascii?Q?8tgc4JElNUmEfo3ZZHsKzRznEzPQlSi9Ghi+el/u/8mfVpLsnzI0XNRzIU03?=
- =?us-ascii?Q?vpQO2uvW0LwIqs3X+j9Pdlyj5/qQVQOf308gqIOPNA+H82eTVNCnDjflro50?=
- =?us-ascii?Q?ubNem33fiLD9BLDl1bOGYCfnGTG7zrsvS0YyvxUg9SqS/gBDCpzlryWvP5GA?=
- =?us-ascii?Q?n1luRCro1+BnrdG31FZ2XCnJEFSLdmzO8IGLOu8pgi+qVmmSdYD+HsAoE/3/?=
- =?us-ascii?Q?UoukPyIP1OJ5aIeP+7anPxiCSgkPNiY3y40N2OmJl9UWt6HN1jgSvw3Net8Q?=
- =?us-ascii?Q?ohEJzEBHxMxQuu68eGL/V4taIRF1HuyDjy3L72FkTLcftaFxt0XoGfIlylFa?=
- =?us-ascii?Q?EwN3A8hnpS0mRa5Rp1wMAGQJ8Eo4a2KazZW0I4ooyLh7GzpWZJDWylc2L1fM?=
- =?us-ascii?Q?OCMWRz6UFKS6yEHBUPXAIJFA9D23LBpNnjoQ6G5Pv3jETdTjYzHRufvBCSwk?=
- =?us-ascii?Q?v1U6tl62VaXKqFAKs4WFGQzb2BawaFo6JpqCSEySv3RlbY+9RqklsB7YylQM?=
- =?us-ascii?Q?fyTTftTAJmprp5+HbWiUG7DTgEdagbWUxvL3eDRyup+BYHjAmRGixTMWJjuv?=
- =?us-ascii?Q?JxO3Dn7skyZU39abWZDpobMe7L2isFYSwNrso+9fKVISvXAHcOSJ2uUm5gx+?=
- =?us-ascii?Q?tvFeLpFe1eBO19tSVOp8hFxlnCP290o6r6q6QbMmi3elDRHTd9hwJGlJDFev?=
- =?us-ascii?Q?9dWkgL7+SOS/2k3PZa0asiRlDAZSGAN36kACiGr+o6w/xHFQRb8aACOeeu0j?=
- =?us-ascii?Q?NR9G3t9suBahQRAlmNg6flWkyuzIslTOvnN9l6+Jindbe9qx+nx3FBaLGjVl?=
- =?us-ascii?Q?EFFzQH0z19meVeeIHIopNiF38vbTMYvNl+8/iFYF4ZfC4H/8Zr2VCedNMStw?=
- =?us-ascii?Q?Ca4Bn1Ur0VB/4JFQRfcE0W/dpfqNK9ipG4ywImb/URXwEKdQS+FQRDehA37H?=
- =?us-ascii?Q?q1jSm7B5ehq9CrtMpHmnnPRdQkjVosdcBzlDgAzoJYqfxGjfz1d2R+r97qSB?=
- =?us-ascii?Q?I1Us7VFjPzqK24onuW5aHpzwj4I1JTn3Pvm1+DQfsqbVhAMuV7bwf9T4NyQc?=
- =?us-ascii?Q?L3L5rGUKbhHP7B137XUUG2yNYnajTKit7O8W2q8Gi8Wu+aq8jNtsjbuXkWRs?=
- =?us-ascii?Q?CQSjEfdAconc8CUfcsMRazu8Mq8E1fl9XMzzSwp4rrvevk2SSoiSKibykTri?=
- =?us-ascii?Q?75iornw+pAsFJEkzbcZiO8g/GgOKgP5xtt7NI4wU?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 344db6aa-81fc-4115-a768-08dd607ab48d
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8247.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2025 08:57:09.1870
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: uauNgyQM99HxxuOF+Cn3y5iQYyFJoGKw3sngzjyoIFKO2IyvqFvGVUY5YF3MlGLOMcPjYIgPMVyRwLEsWJVQxQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DBAPR04MB7431
+References: <20250305100037.373782-1-daniel.baluta@nxp.com>
+ <20250305100037.373782-9-daniel.baluta@nxp.com> <Z88Ib7HkbRQoiyZp@p14s>
+In-Reply-To: <Z88Ib7HkbRQoiyZp@p14s>
+From: Daniel Baluta <daniel.baluta@gmail.com>
+Date: Tue, 11 Mar 2025 10:59:46 +0200
+X-Gm-Features: AQ5f1Jqksp8_Ow3W7CPPxQeuga9K9-0CI_LlAxXmLAD4nYxorLD8ECBrBf3t_78
+Message-ID: <CAEnQRZDeBkNYBNQwJL5LZgLK49siqomzyM_RDccdusJa22yiJA@mail.gmail.com>
+Subject: Re: [PATCH v4 8/8] imx_dsp_rproc: Use reset controller API to control
+ the DSP
+To: Mathieu Poirier <mathieu.poirier@linaro.org>
+Cc: Daniel Baluta <daniel.baluta@nxp.com>, p.zabel@pengutronix.de, robh@kernel.org, 
+	krzk+dt@kernel.org, shawnguo@kernel.org, devicetree@vger.kernel.org, 
+	linux-remoteproc@vger.kernel.org, conor+dt@kernel.org, s.hauer@pengutronix.de, 
+	kernel@pengutronix.de, festevam@gmail.com, linux-kernel@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	andersson@kernel.org, Frank.Li@nxp.com, peng.fan@nxp.com, 
+	laurentiu.mihalcea@nxp.com, iuliana.prodan@nxp.com, shengjiu.wang@nxp.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_015716_099388_234DCFB2 
-X-CRM114-Status: GOOD (  17.48  )
+X-CRM114-CacheID: sfid-20250311_015812_629326_9B10CE24 
+X-CRM114-Status: GOOD (  18.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,121 +101,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DSP on i.MX8MP doesn't have a direct reset line so according to hardware
-design team in order to handle assert/deassert/reset functionality we
-need to use a combination of control bits from two modules. Audio block
-control module for Run/Stall control of the DSP and DAP module in order
-to do software reset.
+On Mon, Mar 10, 2025 at 5:43=E2=80=AFPM Mathieu Poirier
+<mathieu.poirier@linaro.org> wrote:
+>
+> Good day,
+>
+> On Wed, Mar 05, 2025 at 12:00:36PM +0200, Daniel Baluta wrote:
+> > DSP on i.MX8MP doesn't have a direct reset line so according to hardwar=
+e
+> > design team in order to handle assert/deassert/reset functionality we
+> > need to use a combination of control bits from two modules. Audio block
+> > control module for Run/Stall control of the DSP and DAP module in order
+> > to do software reset.
+> >
+> > Initial design accessed RunStall bits from audio block control using th=
+e
+> > syscon interface but this got NACKed by community because of abusing th=
+e
+> > syscon interface [1].
+> >
+> > So instead we use the reset controller API.
+>
+> I am good with this patchset.  The only thing I'd like so see modified is=
+ the
+> above changelog.  The second paragraph doesn't belong there, i.e it is no=
+t
+> useful to remark on a design that was not accepted.  Instead please conce=
+ntrate
+> on _why_ we are moving from the current design to using the reset control=
+ler
+> API.
+>
+> This can go in the 6.15 merge window if you send me a V5 fast enough.
 
-In a first step, for i.MX8MP we are switching on using the reset
-controller API to handle the DSP Run/Stall bits i.MX8MP. This comes with
-the advantage of offering a better probe ordering and a more natural way
-of abstracting the Audio block control bits.
+Thanks for review. Reworded the commit message and send V5.
 
-[1] https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
-
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Daniel Baluta <daniel.baluta@nxp.com>
----
- drivers/remoteproc/imx_dsp_rproc.c | 25 +++++++++++++++++--------
- drivers/remoteproc/imx_rproc.h     |  2 ++
- 2 files changed, 19 insertions(+), 8 deletions(-)
-
-diff --git a/drivers/remoteproc/imx_dsp_rproc.c b/drivers/remoteproc/imx_dsp_rproc.c
-index ea5024919c2f..bc60edcdd661 100644
---- a/drivers/remoteproc/imx_dsp_rproc.c
-+++ b/drivers/remoteproc/imx_dsp_rproc.c
-@@ -19,6 +19,7 @@
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
- #include <linux/remoteproc.h>
-+#include <linux/reset.h>
- #include <linux/slab.h>
- 
- #include "imx_rproc.h"
-@@ -111,6 +112,7 @@ enum imx_dsp_rp_mbox_messages {
-  */
- struct imx_dsp_rproc {
- 	struct regmap				*regmap;
-+	struct reset_control			*run_stall;
- 	struct rproc				*rproc;
- 	const struct imx_dsp_rproc_dcfg		*dsp_dcfg;
- 	struct clk_bulk_data			clks[DSP_RPROC_CLK_MAX];
-@@ -192,9 +194,7 @@ static int imx8mp_dsp_reset(struct imx_dsp_rproc *priv)
- 	/* Keep reset asserted for 10 cycles */
- 	usleep_range(1, 2);
- 
--	regmap_update_bits(priv->regmap, IMX8M_AudioDSP_REG2,
--			   IMX8M_AudioDSP_REG2_RUNSTALL,
--			   IMX8M_AudioDSP_REG2_RUNSTALL);
-+	reset_control_assert(priv->run_stall);
- 
- 	/* Take the DSP out of reset and keep stalled for FW loading */
- 	pwrctl = readl(dap + IMX8M_DAP_PWRCTL);
-@@ -231,13 +231,9 @@ static int imx8ulp_dsp_reset(struct imx_dsp_rproc *priv)
- 
- /* Specific configuration for i.MX8MP */
- static const struct imx_rproc_dcfg dsp_rproc_cfg_imx8mp = {
--	.src_reg	= IMX8M_AudioDSP_REG2,
--	.src_mask	= IMX8M_AudioDSP_REG2_RUNSTALL,
--	.src_start	= 0,
--	.src_stop	= IMX8M_AudioDSP_REG2_RUNSTALL,
- 	.att		= imx_dsp_rproc_att_imx8mp,
- 	.att_size	= ARRAY_SIZE(imx_dsp_rproc_att_imx8mp),
--	.method		= IMX_RPROC_MMIO,
-+	.method		= IMX_RPROC_RESET_CONTROLLER,
- };
- 
- static const struct imx_dsp_rproc_dcfg imx_dsp_rproc_cfg_imx8mp = {
-@@ -329,6 +325,9 @@ static int imx_dsp_rproc_start(struct rproc *rproc)
- 					  true,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_deassert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -369,6 +368,9 @@ static int imx_dsp_rproc_stop(struct rproc *rproc)
- 					  false,
- 					  rproc->bootaddr);
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		ret = reset_control_assert(priv->run_stall);
-+		break;
- 	default:
- 		return -EOPNOTSUPP;
- 	}
-@@ -995,6 +997,13 @@ static int imx_dsp_rproc_detect_mode(struct imx_dsp_rproc *priv)
- 
- 		priv->regmap = regmap;
- 		break;
-+	case IMX_RPROC_RESET_CONTROLLER:
-+		priv->run_stall = devm_reset_control_get_exclusive(dev, "runstall");
-+		if (IS_ERR(priv->run_stall)) {
-+			dev_err(dev, "Failed to get DSP runstall reset control\n");
-+			return PTR_ERR(priv->run_stall);
-+		}
-+		break;
- 	default:
- 		ret = -EOPNOTSUPP;
- 		break;
-diff --git a/drivers/remoteproc/imx_rproc.h b/drivers/remoteproc/imx_rproc.h
-index 17a7d051c531..cfd38d37e146 100644
---- a/drivers/remoteproc/imx_rproc.h
-+++ b/drivers/remoteproc/imx_rproc.h
-@@ -24,6 +24,8 @@ enum imx_rproc_method {
- 	IMX_RPROC_SMC,
- 	/* Through System Control Unit API */
- 	IMX_RPROC_SCU_API,
-+	/* Through Reset Controller API */
-+	IMX_RPROC_RESET_CONTROLLER,
- };
- 
- /* dcfg flags */
--- 
-2.43.0
-
+Thanks,
+Daniel.
 
