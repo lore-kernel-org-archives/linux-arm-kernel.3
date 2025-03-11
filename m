@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C848C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:50:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AF1BC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:52:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=onbqZ1oySKoxpyE/GjiNMDDbJqNwsQHqEyeVz6HRqTI=; b=dv/3994Nnb+AonLzKky6lDLW41
-	gVFEt8LopxYYkIfFI+8lflGGXAQQ3IcGm7ajRfMxDs9qgdP3ZQw8jw1R79qtSVoQ3sS8youEv2FpN
-	kyLK6gytCs99Yq7SaNo4xnyPdXBaL6cCFZ0yDPGbZIPnS2yxluovZewcWh3Zy7VXcG9kHNY0Hbvu8
-	NAf5J8QAPHn5k0F1LaHtbr9BVWYtRO/KeH+VardQoYasSPn271YnKH2oghEF8yXIBHARnBLLp03DQ
-	WuLoi2cZdcvp36KiCQbEpmc3noSfjDpVyObCZbOMlLwkB9LhNBTJDKYuYlVxE8ioEHFNFzWULiIKJ
-	vD0sn2rg==;
+	bh=MHRtWGlTTP8mo1m0T8aTWdEt/TW1SRKYkG0YQMufbyg=; b=omZlhRojktigVHPGLy8UOnS+dZ
+	sjj59zcmUN/YEiWJGqGJQ4N8elgAt2+MI3ICGfS/aMvABIqmVGKlIRJmK6gG/aJMRjooR2isp0Qmo
+	eLvM6ZT5kmathJRjhyoVcy4M/W2w/bWF5LAfFaUh+GNgGuVCwwdshHpMB/x5/iZ/4jQqpXT44Ci9H
+	7ocVFrS/Y7XInkz6bAePnl6EPNDfhPPZ1/ru0+7y/G/LViXvA+Bd+y+HwXHDOk1L/4lBi7NUB+Lj6
+	hIWNZ6jkU8DYuSGQVJWUxEY7DVneA2kpEZJagFIU6gwDgH+6J7KEYKF2PAKzqEmChXArGKq0ZN5+X
+	vMyuZQeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4gP-00000006gEL-01KC;
-	Tue, 11 Mar 2025 18:50:29 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4SR-00000006e7Q-3cSp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 11 Mar 2025 18:36:03 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=onbqZ1oySKoxpyE/GjiNMDDbJqNwsQHqEyeVz6HRqTI=; b=k5Axs3/WjPiJJ7YS3V4n0A/XSp
-	OCb3bDPIQnu2HqEz9wZkK5uDS5MRr7lRni4zDjnZbhDiaugdGcA69JuqveDKZX9N4wNUoIT2QHtHb
-	AxFIB/ucBWOhKkChfTxtLqZ3noK3zZlTXYP0oRMdYUtLHepNC9x/kwbnMvzMQ6zGWqNxrSF5e2ARC
-	ZgeKz/VI/nXLg+m18OPzuwPflYeok4ijfl42L6WNn5Z2Y5/b9sVjxBAxZHTsYWUn2dUH8AtzfA0g1
-	0UK1OoDF3AwylNbtyVxuM5IGsGOe9AdCyhctUzhy4fm2ujVHSfO9I+qJt7MV9peV/D52bgyMdavBE
-	THreS0Ew==;
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4SO-00000002DJ6-3ZQb
+	id 1ts4i2-00000006gae-3Ie4;
+	Tue, 11 Mar 2025 18:52:10 +0000
+Received: from mail.8bytes.org ([85.214.250.239])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ts4Yv-00000006fBf-3r1v
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:36:02 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id B2D21A4614D
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 18:30:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 64B85C4CEEB
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 18:35:56 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741718156;
-	bh=C3Fu9VZ//tLVqjh/lpC24EbbrWvhMWEhn1OeRH5ZIQo=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=FzVvI9Q1Mgr/kZwqBT2sbv5S6JnVBKCWZ9oNGGqnjnmKX1U2uHtj3yRvflQYw4Trc
-	 FvxMFKvfDxjoZ3i7n+YloK+pfBXaZA49wKFSHC77su+vL+b0i5kEtDdkfB3fmGw0hf
-	 epnoiy/U4dlm+jBK0oiMnZKD6Agme/nSXNjEtE6N3XhoJBvq/NpaYheDMi6vWK0XCU
-	 Zf6nMeQYbvhVyYCiHin6cpI4b5zOgbqY26Qf9fL8WnGBEFdD4wK9c2/W2URGhwwt17
-	 Nam8ampBkCrrgawpxJB54KWYwxtAIBxclfgwXv8ii4vM9xuONjf8W0pSSToieNq026
-	 jyWSOQVg3aYsg==
-Received: by mail-lf1-f41.google.com with SMTP id 2adb3069b0e04-549967c72bcso4422090e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:35:56 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV1Qwzt+7NsgARl62x9cN/yawMd+1S/1hxjQTJygZjt1/U5LU5uK7XK5TM7+47hDyzKOVPt3NfHpfnTV0pTGmdi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzyJtkpo6HnyToofAWSZHs33zyYsYhtcKKKkemBXNMqmNhmUx6f
-	nxkaYNOCczyQ4mE3pYvKbpN69Ks/a4Wl6aGiiUMXQ3KdUMdrfS1xBHlFY6BiHi2j+mDQCdy+EZ6
-	lrIxLK0pw7cU3PRuCApHZnwDgi3k=
-X-Google-Smtp-Source: AGHT+IGKO3LEt2dY9lnYM/6J5lWrrZqj20/ln1u5D/q/+YR9i2v6huzoaHEx6Y0RMc4wCok8fnUA/Z/QlrVkEBAMMGo=
-X-Received: by 2002:a05:6512:3ba5:b0:549:4e78:9ed7 with SMTP id
- 2adb3069b0e04-549910d0e7bmr6900175e87.49.1741718154697; Tue, 11 Mar 2025
- 11:35:54 -0700 (PDT)
+	Tue, 11 Mar 2025 18:42:47 +0000
+Received: from 8bytes.org (p4ffe03ae.dip0.t-ipconnect.de [79.254.3.174])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (P-256) server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.8bytes.org (Postfix) with ESMTPSA id 7A6E7452C6;
+	Tue, 11 Mar 2025 19:42:43 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=8bytes.org;
+	s=default; t=1741718563;
+	bh=1Zs79vm+geXh89jVLr/XC7Yto+fPTI4LB2QaXVXsMKw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=STin7XQnP1wfImMEcOkXBWU8ecjeODeKXaJgQbbmF0egx08lUWEmz7r+lRj1w+vrk
+	 2Rj06xgqRevizoDu4GLz0/8X1GXDSdtaMhRa/8Zc6mfRX/xun46ACjz7PDHovVZ3JQ
+	 6k1oYklYtdI+GrPSexRK2wFWaEP46J7h0ib0QDdvB/Pfvw1dTs447nfAXDT7aZpUq7
+	 LKUX93SoAWonXLgHGC0IRHS6NyVlztsfn2zT+JoL/59/ncavhQOZYtqbLCwU9Ylzx+
+	 cQaP31se7toe864C96DE1TIeXm0Ns0282dESfJj5wuaG7p/4X+balgPfLtxDrZpE18
+	 EWKIjBUhanBVw==
+Date: Tue, 11 Mar 2025 19:42:42 +0100
+From: Joerg Roedel <joro@8bytes.org>
+To: Robin Murphy <robin.murphy@arm.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Hanjun Guo <guohanjun@huawei.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Len Brown <lenb@kernel.org>, Russell King <linux@armlinux.org.uk>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Stuart Yoder <stuyoder@gmail.com>,
+	Laurentiu Tudor <laurentiu.tudor@nxp.com>,
+	Nipun Gupta <nipun.gupta@amd.com>,
+	Nikhil Agarwal <nikhil.agarwal@amd.com>,
+	Will Deacon <will@kernel.org>, Rob Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Bjorn Helgaas <bhelgaas@google.com>, linux-acpi@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	iommu@lists.linux.dev, devicetree@vger.kernel.org,
+	linux-pci@vger.kernel.org,
+	Charan Teja Kalla <quic_charante@quicinc.com>
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+Message-ID: <Z9CEIlXoQJ-A0t-d@8bytes.org>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
 MIME-Version: 1.0
-References: <20250311073043.96795-2-ardb+git@google.com> <f6d48d04-fd3c-493e-b7a0-020b912f6f10@arm.com>
-In-Reply-To: <f6d48d04-fd3c-493e-b7a0-020b912f6f10@arm.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 11 Mar 2025 19:35:42 +0100
-X-Gmail-Original-Message-ID: <CAMj1kXG1jqi9vfTS4wz_a3QPERCUYbHcV6Fq+jf4ZkPtgM5oAg@mail.gmail.com>
-X-Gm-Features: AQ5f1Jo13aqKNs0iOZu9UW4iJMWSx5DpHNo8bX1-78BGMmsmqGacCrC-JnW94S8
-Message-ID: <CAMj1kXG1jqi9vfTS4wz_a3QPERCUYbHcV6Fq+jf4ZkPtgM5oAg@mail.gmail.com>
-Subject: Re: [PATCH v2] arm64/kernel: Always use level 2 or higher for early mappings
-To: Ryan Roberts <ryan.roberts@arm.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com, 
-	Anshuman Khandual <anshuman.khandual@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_183601_214678_97D2093A 
-X-CRM114-Status: GOOD (  28.10  )
+X-CRM114-CacheID: sfid-20250311_114246_184744_30F30840 
+X-CRM114-Status: GOOD (  12.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +90,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Mar 2025 at 12:31, Ryan Roberts <ryan.roberts@arm.com> wrote:
->
-> On 11/03/2025 07:30, Ard Biesheuvel wrote:
-> > From: Ard Biesheuvel <ardb@kernel.org>
-> >
-> > The page table population code in map_range() uses a recursive algorithm
-> > to create the early mappings of the kernel, the DTB and the ID mapped
-> > text and data pages, and this fails to take into account that the way
-> > these page tables may be constructed is not precisely the same at each
-> > level. In particular, block mappings are not permitted at each level,
-> > and the code as it exists today might inadvertently create such a
-> > forbidden block mapping if it were used to map a region of the
-> > appropriate size and alignment.
-> >
-> > This never happens in practice, given the limited size of the assets
-> > being mapped by the early boot code. Nonetheless, it would be better if
-> > this code would behave correctly in all circumstances.
-> >
-> > So only permit block mappings at level 2, and page mappings at level 3,
-> > for any page size, and use table mappings exclusively at all other
-> > levels. This change should have no impact in practice, but it makes the
-> > code more robust.
-> >
-> > Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-> > Reported-by: Ryan Roberts <ryan.roberts@arm.com>
-> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> > ---
-> > v2: take the assignment of protval out of the loop again, so that
-> >     clearing a mapping works as expected wrt the PTE_CONT bit
->
-> Ouch, totally missed that. Now that I've looked at the code properly, I wonder
-> if it is worth supporting CONT_PMD mappings at level 2? That would be 32M for 4K
-> pages, so is likely to actaually get used. I think it would just be something like:
->
-> u64 cmask = (level == 3) ? CONT_PTE_SIZE - 1 :
->            ((level == 2) ? CONT_PMD_SIZE - 1 : U64_MAX) : U64_MAX;
->
+Hi Robin,
 
-With this patch applied, it is guaranteed that cmask is only
-referenced if level >= 2, so we can simplify this as
+On Fri, Feb 28, 2025 at 03:46:33PM +0000, Robin Murphy wrote:
+> +	/*
+> +	 * And if we do now see any replay calls, they would indicate someone
+> +	 * misusing the dma_configure path outside bus code.
+> +	 */
+> +	if (dev->driver)
+> +		dev_WARN(dev, "late IOMMU probe at driver bind, something fishy here!\n");
 
-  u64 cmask = (level < 3) ? CONT_PMD_SIZE - 1 : CONT_PTE_SIZE - 1;
+This warning triggers on my workstation (with an AMD IOMMU), any ideas?
 
-(using the level < 3 for consistency with the protval assignment)
+ ------------[ cut here ]------------
+ reg-dummy reg-dummy: late IOMMU probe at driver bind, something fishy here!
+ WARNING: CPU: 0 PID: 1 at drivers/iommu/iommu.c:449 __iommu_probe_device+0x10b/0x510
+ Modules linked in:
 
-> Anyway, probably not worth the complexity for these boot-time tables, so regardless:
->
+ CPU: 0 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc6-iommu-next+ #1 1d691d7aebf343bde741cf4c8610d78a2ea2d2d9
+ Hardware name: System manufacturer System Product Name/PRIME X470-PRO, BIOS 5406 11/13/2019
+ RIP: 0010:__iommu_probe_device+0x10b/0x510
+ Code: 68 00 74 28 48 8b 6b 50 48 85 ed 75 03 48 8b 2b 48 89 df e8 87 71 06 00 48 89 ea 48 c7 c7 90 dd 2c 8b 48 89 c6 e8 35 83 77 ff <0f> 0b 49 8b bd a8 00 00 00 e8 77 ab 85 ff 84 c0 0f 84 ad 01 00 00
+ RSP: 0018:ffffafba00047c58 EFLAGS: 00010282
+ RAX: 0000000000000000 RBX: ffffa00481301c10 RCX: 0000000000000003
+ RDX: 0000000000000000 RSI: 0000000000000003 RDI: 0000000000000001
+ RBP: ffffa00480ffaee0 R08: 0000000000000000 R09: ffffafba00047ae8
+ R10: ffffa0135e93ffa8 R11: 0000000000000003 R12: ffffafba00047d18
+ R13: ffffffff8adac1a0 R14: 0000000000000000 R15: ffffa004802c5800
+ FS:  0000000000000000(0000) GS:ffffa0135ea00000(0000) knlGS:0000000000000000
+ CS:  0010 DS: 0000 ES: 0000 CR0: 0000000080050033
+ CR2: ffffa00baca01000 CR3: 000000082b838000 CR4: 00000000003506f0
+ Call Trace:
+  <TASK>
+  ? __iommu_probe_device+0x10b/0x510
+  ? __warn.cold+0x93/0xf7
+  ? __iommu_probe_device+0x10b/0x510
+  ? report_bug+0xff/0x140
+  ? prb_read_valid+0x1b/0x30
+  ? handle_bug+0x58/0x90
+  ? exc_invalid_op+0x17/0x70
+  ? asm_exc_invalid_op+0x1a/0x20
+  ? __iommu_probe_device+0x10b/0x510
+  ? __iommu_probe_device+0x10b/0x510
+  ? __pfx_probe_iommu_group+0x10/0x10
+  probe_iommu_group+0x28/0x50
+  bus_for_each_dev+0x7e/0xd0
+  iommu_device_register+0xee/0x260
+  iommu_go_to_state+0xa2a/0x1970
+  ? srso_return_thunk+0x5/0x5f
+  ? blake2s_update+0x68/0x160
+  ? __pfx_pci_iommu_init+0x10/0x10
+  amd_iommu_init+0x14/0x50
+  ? __pfx_pci_iommu_init+0x10/0x10
+  pci_iommu_init+0x12/0x40
+  do_one_initcall+0x46/0x300
+  kernel_init_freeable+0x23d/0x2a0
+  ? __pfx_kernel_init+0x10/0x10
+  kernel_init+0x1a/0x140
+  ret_from_fork+0x34/0x50
+  ? __pfx_kernel_init+0x10/0x10
+  ret_from_fork_asm+0x1a/0x30
+  </TASK>
+ ---[ end trace 0000000000000000 ]---
 
-They are created at boot time but these are not 'boot-time tables' -
-they are the ones that are used by the kernel at runtime. So I think
-it makes sense to add this.
-
-> Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
->
-
-Thanks.
 
