@@ -4,88 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED4BFC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:52:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A399C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 17:01:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=; b=FLBP1kKC8mW9CrrB2TvuezwQyS
-	chwxON3eDO1aUGClxEN3EWyIVvhyukfyT5DHFEZ374fG68arzhv0rgg78nWdlHs2QLY8uxRJyTUtl
-	2yahlLU9nMxKKKVAmMgkOR0MdPFitAL5xJaL7Gw4ml040yMEPKF+EJ5dmRVWbvtYYkZ5ZIOxoTD21
-	1YmaWIVWxCjJiyR6I7AnuUI6bcKTQQY+TIOZ8c/IJ0/wLBLFmwQEugfKmsMiJEgx94oEcN3V+SPBB
-	afR7NCf9t68K1qiBFC8R69joGZ7WCBcoXNm4n9DpMfds+ZZJzn/ENI7xP0REWg+4keHfQNl5590/O
-	6rfRIRug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3mXZ5saot0RNfXEwNRIKD6v3oYeaF3NNGEULkoMtNjs=; b=MgVHM7W5upA+UKPRxwwp9qH8Ki
+	Dd0rI4EVHbtrZz3wOw/M14osCl9dYFWUXgqf58yxmNdIgWBJm52D2RZGP0YWJZsgjvcG9z2BVBFbL
+	3uK6a+caLkHOYwlIQ3JJALPGL4MboKKvG+b/YXvWwMEeDVw2EEj+tYQuvmv0xmZGyk5QPs7XddOim
+	ShgYgzelHAh6ejiTBvUQO8j+S67yTtXnu3mD9HsK5ZN7dMNEekfcXriS5g6CmKu0GhclxPSk2acWa
+	BK3zyRiakSl3Bacxr+f6GyEYBo1lWN/le5G2UpXgqTZ7mdwb2Xm4t6AG/hDBgeyqb9no+FY417CPU
+	5tOb1krw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2pp-00000006N6g-0Uy8;
-	Tue, 11 Mar 2025 16:52:05 +0000
-Received: from mail-pl1-x633.google.com ([2607:f8b0:4864:20::633])
+	id 1ts2z4-00000006O97-2mwq;
+	Tue, 11 Mar 2025 17:01:38 +0000
+Received: from mail-ot1-x32d.google.com ([2607:f8b0:4864:20::32d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2nw-00000006Msn-2OVu
+	id 1ts2xQ-00000006NzV-35DA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 16:50:09 +0000
-Received: by mail-pl1-x633.google.com with SMTP id d9443c01a7336-223a7065ff8so14354725ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:50:06 -0700 (PDT)
+	Tue, 11 Mar 2025 16:59:58 +0000
+Received: by mail-ot1-x32d.google.com with SMTP id 46e09a7af769-72b8986de41so622614a34.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:59:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741711806; x=1742316606; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=;
-        b=xlPoCSFOHXv37U2ne3KDwa00rx3tn4gs6hm5El8hJ9HqOLDJbdaT8ja3Z78AebFr7H
-         qmQYoo6ZMRupVjiDPcKXrtdyLqeeecJQ/oP1hyadeVFgvwTPQOmoQTXtMBA+Yacv7ApW
-         VYuvH6I18s7zJJSTQcJ3uU1u2DuTao3k+vhAfP8bx/Pg6B93nyzNCqApjQgjBNZEgg4P
-         5O8V6nX6d3aQpJgNrnWtp8o3oXkD9VmNlyKW1eRsP+gQScrzLil4qxB81jepyXaHlJu5
-         3zkEJLffjBUPWmU8petd5EPMGoPZRuhNfbnUGlFju0vTVUMLaP0M27aXmvTc5QEQiJUy
-         kfRQ==
+        d=broadcom.com; s=google; t=1741712395; x=1742317195; darn=lists.infradead.org;
+        h=message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=3mXZ5saot0RNfXEwNRIKD6v3oYeaF3NNGEULkoMtNjs=;
+        b=LTJrMVAE52qxtsoTZXR24fyf9EAKKRchigBHqKCqyQ3zZ9KZXhSVU7q1+2mW10oYPq
+         Zqm2uo1hMOKHOGVoyJ3/YCItxy4qxcW7Qvs4vX9fXDGA6uj0aUIBCgGv5JuSEllIj89u
+         BPs6C0dmuh6ratb6z/mCPuh4drKZrpXtjA/mo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741711806; x=1742316606;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=23iOwZdcqMnXiNfXwcY1/saA5o6I48TGQZAkJr6gmPk=;
-        b=oqMgBKRR3qDRBYCb1NXVGXP+Z/j7ANqaEmbjMl/7UtXunq15h3jv90Epp94PpHDbMT
-         CP2aQvmHNkKVq/DkZJyQsP40abdHzxzrRRAs+Xwx2MPF885z6KwVkc9unW0QHhd3CehF
-         j1AUyEqXDZ5ZdvpIvolSy9MvOF5ZusLskpIZ4beG0xMSnpXZEO8G4bFeFialrYHB+sR1
-         8DmJXITJSFD+u3uHlvPm1nZMgSChcquTwR8LvmPYLyviuHVHefNRv9RV2IeZWZGkWuSJ
-         zs3+3Yun1HUATEsOaj2stoeabbBaB4iUo21j8V9QKWa0IgazD5mNPz0LkjVjMmgpL2eJ
-         Y/eQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVydqhfIlKQS9cdzhQ31SDUkGqNA9w79cpcsO4TJ0CdwizGJkYM00TKSIQAISHW2g5Z6f51AJs728b7EGTEtHWf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPMn6CrEdR6j/DbRA2PjPM4RwheGPkzewgz4kRW02p7hI57LhD
-	fCKb8gegOGaJqLmNBpxU6+bo9B7S8avkx/AukWWSEfO26D42+axYrfTSfUVsRoAac++ryzPyWza
-	29PMTBGPCMompZdWKK09gWeBQa54d3sOU2MEklw==
-X-Gm-Gg: ASbGnctkXvkq3hIEtnbxSq8lPcp6vG8khl3kQ4uugJv1pamW23Dn1WlBZH9DVdm0eGL
-	dguwirIm4u2koE6tKRDzbraEuhau158l5U+NEPDDF9JuJGE3sooOY4Csku+6Kass3bdOaG7rOOg
-	UENCenQB5ilT8BJPBnXc80wBG2sCxKPbrRs6ZjDP0qW5n/e9APeMM9Go7qjZw=
-X-Google-Smtp-Source: AGHT+IGRlRimNoESSBKd69bPemttjguo2zF0mTvg+Kb5/5Fg9niMy5gNnw80TuZnQbl3lCDWzV9DtaMCXkkJcAmG5fQ=
-X-Received: by 2002:a05:6a21:2d08:b0:1f3:47d6:aa05 with SMTP id
- adf61e73a8af0-1f5449336e0mr29284989637.0.1741711806206; Tue, 11 Mar 2025
- 09:50:06 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250310090407.2069489-1-quic_jiegan@quicinc.com> <20250310090407.2069489-2-quic_jiegan@quicinc.com>
-In-Reply-To: <20250310090407.2069489-2-quic_jiegan@quicinc.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 11 Mar 2025 16:49:54 +0000
-X-Gm-Features: AQ5f1Jq4RzUPjRD0-Pf4PVjALFGSYlNPIsAlLKRkK0wLgCzuiv55sOjf36seIGA
-Message-ID: <CAJ9a7Vh7PmBBbvwnUETfCYrTSiXNzeiWpsz+XAGaUWt1Rq1aZw@mail.gmail.com>
-Subject: Re: [PATCH v1 1/4] coresight: tmc: Introduce new APIs to get the RWP
- offset of ETR buffer
-To: Jie Gan <quic_jiegan@quicinc.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	Tingwei Zhang <quic_tingweiz@quicinc.com>, Jinlong Mao <quic_jinlmao@quicinc.com>, 
-	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1741712395; x=1742317195;
+        h=message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=3mXZ5saot0RNfXEwNRIKD6v3oYeaF3NNGEULkoMtNjs=;
+        b=C4g0aewEBITATvGbMJjJFD/HO5brfP+A8k7vyu56b0UHKoKb3i+GRGlvec4iLxOlj8
+         8rpwG9vlgqNXw2ERXeTvqC/Kp4UiW+CJ2YorieV1+HYzDFpmZ04KRaPnMDLkZmaWDTIw
+         0CV4pPxXPmFvVpp8DmnFGrDzimsNMsuKkyu/PCv1tT8PZXxANCC2qTV9JJaLmf/DBmVY
+         QAF6kU5SMAWaZrO3zA09Q6gx+Z2zbCtVa4UZoUOpgEjZTKOefG5H3IPnmYyUXBZJiWLQ
+         t0h6Me12c517rUl6hVE+AsKNasRz+VpDONdjYtIB62IMRU1NpGeraiX/7a5t7qYBl81Z
+         bMFA==
+X-Forwarded-Encrypted: i=1; AJvYcCXSGtPD54oyqX5GzRxt0Toyl+efUj7MJiePSS6mqe2xPNy1YMGWAJcVWQFyGPq7/IzSTtAWuuPDmpK41D7N9Y0w@lists.infradead.org
+X-Gm-Message-State: AOJu0YxqDITK7wT0lhwRch+ZzLqNkx2tXCP6+5nkwvu+koazMrXa+lYo
+	XeeNxqHrGnQCHSdAe7hbx24qRKH0dtRtC5WRt291PJVLNY6iwJM9NhlWf2Rr3g==
+X-Gm-Gg: ASbGncvFG3gFlPHaS/0EaEncEG4f1Gwk5P+WY3Ac637xBuWueYHVvdZ3WWF5C+ewHUu
+	hQUr6T0Zd6bf2Q1s3sSkzV69tFK7LqZSJRt3X49egHQlwrBiQVlTcIlMeBww12JhRUgqeiKGIz1
+	YfEiDAYP1UP3JDFyCA6wgUItGqyDXnEa2Bn+p0+rwSeAsBAw6lik0hJvc5QYJqoLFN8u1LNASJW
+	o9PXVhg9ZZM2r+4i2BkaHVYx2++vzyeGXCYPlcXnU8XfQqMApOxzkddkPgbxJTWrI5UtkgP1RnV
+	f3Wa5F3dYHS2sbGwslBDXYO+tOozyMGdr7tENG2WFwt08rfRnmVbCqMeuolzBZ+fzwBRSP7IIOm
+	pkJCx9XhMP9Q3aIQ=
+X-Google-Smtp-Source: AGHT+IEo2y1B2P4YlspZf6ieZjf8/Wmas/53NMabqNUKfjrw4XnZraf15n9gzLSdbh8zE4W/K5VXSw==
+X-Received: by 2002:a05:6808:1b13:b0:3f7:28ac:8068 with SMTP id 5614622812f47-3f728ac86fcmr6097289b6e.13.1741712395590;
+        Tue, 11 Mar 2025 09:59:55 -0700 (PDT)
+Received: from mail.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id 5614622812f47-3f9513f1f88sm682492b6e.0.2025.03.11.09.59.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 09:59:54 -0700 (PDT)
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+To: Kamal Dasu <kamal.dasu@broadcom.com>,
+	Al Cooper <alcooperx@gmail.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	linux-mmc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: stable@vger.kernel.org
+Subject: [PATCH v2] mmc: sdhci-brcmstb: add cqhci suspend/resume to PM ops
+Date: Tue, 11 Mar 2025 12:59:35 -0400
+Message-Id: <20250311165946.28190-1-kamal.dasu@broadcom.com>
+X-Mailer: git-send-email 2.17.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_095008_617948_427582F5 
-X-CRM114-Status: GOOD (  26.20  )
+X-CRM114-CacheID: sfid-20250311_095956_958029_E836030D 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,130 +96,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+cqhci timeouts observed on brcmstb platforms during suspend:
+  ...
+  [  164.832853] mmc0: cqhci: timeout for tag 18
+  ...
 
-On Mon, 10 Mar 2025 at 09:04, Jie Gan <quic_jiegan@quicinc.com> wrote:
->
-> The new functions calculate and return the offset to the write pointer of
-> the ETR buffer based on whether the memory mode is SG, flat or reserved.
-> The functions have the RWP offset can directly read data from ETR buffer,
-> enabling the transfer of data to any required location.
->
-> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
-> ---
->  .../hwtracing/coresight/coresight-tmc-etr.c   | 40 +++++++++++++++++++
->  drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
->  2 files changed, 41 insertions(+)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> index eda7cdad0e2b..ec636ab1fd75 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
-> @@ -267,6 +267,46 @@ void tmc_free_sg_table(struct tmc_sg_table *sg_table)
->  }
->  EXPORT_SYMBOL_GPL(tmc_free_sg_table);
->
-> +static long tmc_flat_resrv_get_rwp_offset(struct tmc_drvdata *drvdata)
-> +{
-> +       dma_addr_t paddr = drvdata->sysfs_buf->hwaddr;
-> +       u64 rwp;
-> +
+Adding cqhci_suspend()/resume() calls to disable cqe
+in sdhci_brcmstb_suspend()/resume() respectively to fix
+CQE timeouts seen on PM suspend.
 
-It is not valid to read RWP if the TMC is running. It must be in the
-stopped or disabled state - see the specifications for TMC /ETR
+Fixes: d46ba2d17f90 ("mmc: sdhci-brcmstb: Add support for Command Queuing (CQE)")
+Cc: stable@vger.kernel.org
+Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+---
+ drivers/mmc/host/sdhci-brcmstb.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
-It is likely that CSUNLOCK / CSLOCK are needed here too,  along with
-the spinlock that protects drvdata
-
-See the code in coresight_tmc_etr.c :-
-
-e.g. in
-
-tmc_update_etr_buffer()
-
-...
-<take spinlock>
-...
-CS_UNLOCK(drvdata->base);
-tmc_flush_and_stop(drvdata); // this ensures tmc is stopped and
-flushed to memory - essential to ensure full formatted frame is in
-memory.
-tmc_sync_etr_buf(drvdata); // this function reads rwp.
-CS_LOCK(drvdata->base);
-<release spinlokc>
-
-This type of program flow is common to both sysfs and perf handling of
-TMC buffers.
-
-> +       rwp = tmc_read_rwp(drvdata);
-> +       return rwp - paddr;
-> +}
-> +
-> +static long tmc_sg_get_rwp_offset(struct tmc_drvdata *drvdata)
-> +{
-> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
-> +       struct etr_sg_table *etr_table = etr_buf->private;
-> +       struct tmc_sg_table *table = etr_table->sg_table;
-> +       long w_offset;
-> +       u64 rwp;
-> +
-
-Same comments as above
-
-> +       rwp = tmc_read_rwp(drvdata);
-> +       w_offset = tmc_sg_get_data_page_offset(table, rwp);
-> +
-> +       return w_offset;
-> +}
-> +
-> +/*
-> + * Retrieve the offset to the write pointer of the ETR buffer based on whether
-> + * the memory mode is SG, flat or reserved.
-> + */
-> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
-> +{
-> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
-> +
-
-As this is an exported function, please ensure that the inputs are
-valid - check the pointers
-
-Code to ensure TMC is flushed and stopped could be inserted here.
-
-Regards
-
-Mike
-
-> +       if (etr_buf->mode == ETR_MODE_ETR_SG)
-> +               return tmc_sg_get_rwp_offset(drvdata);
-> +       else if (etr_buf->mode == ETR_MODE_FLAT || etr_buf->mode == ETR_MODE_RESRV)
-> +               return tmc_flat_resrv_get_rwp_offset(drvdata);
-> +       else
-> +               return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(tmc_get_rwp_offset);
-> +
->  /*
->   * Alloc pages for the table. Since this will be used by the device,
->   * allocate the pages closer to the device (i.e, dev_to_node(dev)
-> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
-> index b48bc9a01cc0..baedb4dcfc3f 100644
-> --- a/drivers/hwtracing/coresight/coresight-tmc.h
-> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
-> @@ -442,5 +442,6 @@ void tmc_etr_remove_catu_ops(void);
->  struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->                                    enum cs_mode mode, void *data);
->  extern const struct attribute_group coresight_etr_group;
-> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata);
->
->  #endif
-> --
-> 2.34.1
->
-
-
+diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
+index 0ef4d578ade8..48cdcba0f39c 100644
+--- a/drivers/mmc/host/sdhci-brcmstb.c
++++ b/drivers/mmc/host/sdhci-brcmstb.c
+@@ -503,8 +503,15 @@ static int sdhci_brcmstb_suspend(struct device *dev)
+ 	struct sdhci_host *host = dev_get_drvdata(dev);
+ 	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+ 	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
++	int ret;
+ 
+ 	clk_disable_unprepare(priv->base_clk);
++	if (host->mmc->caps2 & MMC_CAP2_CQE) {
++		ret = cqhci_suspend(host->mmc);
++		if (ret)
++			return ret;
++	}
++
+ 	return sdhci_pltfm_suspend(dev);
+ }
+ 
+@@ -529,6 +536,9 @@ static int sdhci_brcmstb_resume(struct device *dev)
+ 			ret = clk_set_rate(priv->base_clk, priv->base_freq_hz);
+ 	}
+ 
++	if (host->mmc->caps2 & MMC_CAP2_CQE)
++		ret = cqhci_resume(host->mmc);
++
+ 	return ret;
+ }
+ #endif
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.17.1
+
 
