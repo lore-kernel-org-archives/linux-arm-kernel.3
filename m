@@ -4,126 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8979DC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:17:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9ED57C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 18:18:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGUtbaoC0vpuFL55AG2VRarJ9dc5j39vjlLJQCOeDKA=; b=wAbt1S7m46HLbT71DQyq/9Vk4N
-	JfO8RwT24Mo28Dr6QguRbxUMcnGUucD4jb4PCQHLi3j6CL85iZ7CEZneVOUDwXgVYrXGLEA53Kk6t
-	fVLJiLSBCLsn1HQ3I2p8oTwnwNgKSWuj+sB9MOgr5lIodXk9cd66+iYghSTk1Nbds7wV/VKco5N4m
-	SPih1euSgtWVBJQHCHN2bQO+ebS8MQG1WK6hfTxGdE+12naMF5g64xX6tiMMJNB5ydteKlmJzt42b
-	G/STN7+cheEtOgI20q+F1/jqEuKh2wGIm8wodlZvROq/KwX3yqj5xsxgGwN+tXtjgOZIOhFD18VfO
-	0PmwrQ1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=0ccls6QlRwKxRURW2wbvi5fD6dk24Crfv3eaY7igy5w=; b=WJraQH3nlgUJjOlCnEllmms2yW
+	0D8NK9geYtSrZ0X+sIMnyq9eVqZfiXCq9xbLJbMnKAOjIa7XTNevCyQOI6ST5tH+yPn5/b9WIyeX+
+	tJWRVoDPLCPR8Ti/P94UYoOx6MhHpMpmv6NADcTgo9thwV4A4R1/MXYJVPJbpwvjxZVK3FmaqWrg+
+	gOS6URFYk7TE2FUVHGR77L1YOY/SBZoSSmoG1HPz74Bj86aTlxryXU6Afu79aJOdKYaDM8Z7IZD8e
+	dDKW0+B9KCO+s/1J7OnhmJlzOvjMcupVF7tueW9iPwI0/RcQkjTbyLR+v5ikueT0lq9BI2xFF9Gwc
+	89C4KilQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts4A3-00000006bB8-34Br;
-	Tue, 11 Mar 2025 18:17:03 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1ts4Bf-00000006bO3-1cSe;
+	Tue, 11 Mar 2025 18:18:43 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts3um-00000006Xpf-077l
+	id 1ts3wW-00000006YG4-0oal
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 18:01:17 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52BF66Q0028290
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 18:01:15 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	YGUtbaoC0vpuFL55AG2VRarJ9dc5j39vjlLJQCOeDKA=; b=f7mlYYFt7jkvBncL
-	ycrW6gqllkYuuuP3eTk0nPUOru3/oztfu4M12Rsz0adLFr5RPvGIcBuN8ygDnBmu
-	/pZof8XL1WNBqVfjFWFebjQsJwKSYA/mhNQBJ53Fno+SvN9PH5R7kxj7/1naiuDM
-	oKRz8gEx/HBvBDWeoO00EaDM8YgLJm2OmidoWAvqsCRy5ZMbzzwnjY1jsrIVwGPp
-	o/9GxJe7/wVT3DfWhZNrMExav2YbW4Ft2kB/xLtC44/ARLdQL0wqQ692IQ8iwMnk
-	GI3X+9EPx+rPEusBSj6czHHjjZmdw+FFSiQwBbo8X6mI+9vXEmCFPZjukOmu5YoZ
-	DNS4pA==
-Received: from mail-pl1-f200.google.com (mail-pl1-f200.google.com [209.85.214.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 458f0w9fn4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 18:01:15 +0000 (GMT)
-Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-2240a7aceeaso102919195ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:01:15 -0700 (PDT)
+	Tue, 11 Mar 2025 18:03:05 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-ac2bdea5a38so176610966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 11:03:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741716181; x=1742320981; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=0ccls6QlRwKxRURW2wbvi5fD6dk24Crfv3eaY7igy5w=;
+        b=Pr1U+Yc3ctQ9IdxeA4RopVQsphcmoyV+BgR6VEv/bLC4wv+DUTm2pLrJj6TibZ6wix
+         mfMUYbFnytxsTBHBGB/xRexJGiC+1rMxLAugGAJK/LNr/R/EoYULNbl1tGuybnkvPUgA
+         UrclMmSU1SWgTdMGryJg5FG88beNUhwOvE5gp/fUC5t2BI4Swk6Se4QV3cg4aNPxAINf
+         /YGHLuNrmvHxkfBFxFyKXU+B/xr+wl6+nXrJrWfzqmZhIflinymlx/EgYBi1DEP8IQy4
+         X+PT6NcZkwoy3uc1iOCEg0kXnGlWG+6sSXst/glc5nuEpz8vJ/8+txbbIqpyRc4Bfv43
+         E5zA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741716074; x=1742320874;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=YGUtbaoC0vpuFL55AG2VRarJ9dc5j39vjlLJQCOeDKA=;
-        b=ioCWuVoMgMi8mpp0d5B+FADXEJgVqA4SoeRczaTvotk9DEKev+5Lkj5ENfEdmz7RHZ
-         DllZAvprMJ9ZjZlQO+JSgakzjKlj5mKNgfboEGrem0XrBRPFaZYwdx6ROpyByGYe2rD2
-         qcT49bVDZ2RMuqrHj8s1KrssKGPwhzcfhaLdFcFa8O6irBWE30vpBLt6QI+gqyD/0+Sk
-         D72IUmCagTnTi1CDs3PfEjVm+TQi35oTUR3J2v8StZ1oo86mWIQsZa9rpiWh6hIc9Ka1
-         fp0yze81jGaxZcRKkqRHwxPJ7nhb/s5pNwrsiYLFZwKZ+9l9ZzK/BbkqlmYkMH083FMb
-         J6ZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWpt/ts0FY2TDtDN2hZIxfMjHCiOS8EI8ESRyNJMWzFbhgD9LojdQ9/H/qiHII72GToMQG9E4oxeNYUGgMRDic7@lists.infradead.org
-X-Gm-Message-State: AOJu0YxySOPPepMr4/ZGatARAnNtozHA1yelFeVDovS30rs+zEBhyuyR
-	QOYxnPgP9ZYGBCvb73cA6LfmndQ4HmFnV2M8qAYWag/3n+gB/UO9d2L9NhAhva32hWcahGDiAOR
-	VpWThlXOrIhuA/Ac74RJJertVMOpAlC6gW6iPV1U5r+7VAv8EPowxQ32sT4Aadh3w/1jA4gyG/g
-	==
-X-Gm-Gg: ASbGncsDkxvGO+OSAcaQT5aewp4eckAaMg4MWydsrJQccsJbtCkAZPajohKlXLl4IOQ
-	ai42vB3S1/7D7cdiqBE5uRwzyV/THThplr6iCjvBs6CGbjQm+4lds3Z1q9v7s4EIFEw/VoJIHmX
-	BrNyW3NYjbzZYbI/yc+OarXmcK7p3gghfcAMlN2Rd2m39nBB2oYx7vxjybHG/5zlvouInYIVsgz
-	STZjJLK10JIatINLA2olInjDn90vALIzAe1gvIY+2cZUNZQBlt8VTMATn17A0AN7EQozTeejbEN
-	wcc//JgIv7WQaht69mpGU1EEoLfDflYv5LK0EvMRFMJoChFTiA6r
-X-Received: by 2002:a17:902:ceca:b0:224:2175:b0cd with SMTP id d9443c01a7336-22428aa1c02mr211881715ad.26.1741716074125;
-        Tue, 11 Mar 2025 11:01:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFV1XMOUAaf3mrw2N9csl6TPk+/0MVQ+tofdzFboBXtSDMFtl99aFN84M5tc6CNvpuZXGk9IQ==
-X-Received: by 2002:a17:902:ceca:b0:224:2175:b0cd with SMTP id d9443c01a7336-22428aa1c02mr211881145ad.26.1741716073692;
-        Tue, 11 Mar 2025 11:01:13 -0700 (PDT)
-Received: from [10.81.24.74] (Global_NAT1.qualcomm.com. [129.46.96.20])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-22410a92016sm100936345ad.190.2025.03.11.11.01.11
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 11 Mar 2025 11:01:13 -0700 (PDT)
-Message-ID: <fcd132af-03e4-496d-ba70-0097e90a83cf@oss.qualcomm.com>
-Date: Tue, 11 Mar 2025 11:01:09 -0700
+        d=1e100.net; s=20230601; t=1741716181; x=1742320981;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=0ccls6QlRwKxRURW2wbvi5fD6dk24Crfv3eaY7igy5w=;
+        b=HVoR5hc824QbqVQggqZhYwwIn9qHjio1xn8LdmNgEwKOn3T1HWTGxmGFytRVOB17LU
+         Nc63BW3V1WhLgjObQPXtm5kMfJmiyj0LR6J9tG5rU/SVLtWpSalz8azxDnWBdn4fKvyD
+         qLToePmqvNsvCtYfJ2vCl3Up8NqFhLiSdVjINCpLSEr31fx3BU5EN2348UOzvatlPrBb
+         HtCJlRB9EPE/FO8cqmZq+5nxafc7S+NDa0lNMtbR+URDcyzuAuhTR9CK49ux70rbMExF
+         Oj4b6/yJ5lbHliVwnpWjYpPeChCSzFV9o6/nFJtgwT5VzqzoqZemsxDCtZPWukO0Axny
+         CbQw==
+X-Gm-Message-State: AOJu0Yz/P+ksDauM3jJSf68Y5MvN6bSp15dNrHXSmc6dDJKu0uFg+6a/
+	qK+DCQmOmcnBABeNA1KL2HLcMBjujhbY9qX2hWhHvfMfWwYb8rqy2ApMdq9Pru4=
+X-Gm-Gg: ASbGnctmg8gV9Z4DjLsGdH5bHG3j0/0v0eaz00GOtsL7T9C/UOy1EelueF1AK1cWT37
+	I5SXZj3l5s0GjUHXN9YgkcIXh4ZgSgmdjEvSJbFjTwu5972BCLXepjeMpTyd61V1lU1YvkREn9R
+	YiCgcoafIzsP+UU/GL2fL9ErsKVUczJU6R3LAxvfZIda5H872/MceraBsp9dNu2IqAvJm3xFFRn
+	zPmCl9YDF6LReYiQfeqAzfrmn55hERLxMmbT19jNLjl2sYdAFCLYCnYraaxQUL4xb4C/u+OHCu8
+	jYSqW+xHN9YeuxNQjNuegTo0l6MpRqdL546IAepxIEkyjrdu/cuSgcs=
+X-Google-Smtp-Source: AGHT+IGnY0H7YzlXD8CZSfCox70QPKmTLZoV4lqMqMMxiyALS3HVvR/aMstzphLmsjj59KVicmXt3g==
+X-Received: by 2002:a17:907:1c24:b0:ac1:e1e1:1f30 with SMTP id a640c23a62f3a-ac252fa0c31mr2141888066b.38.1741716181234;
+        Tue, 11 Mar 2025 11:03:01 -0700 (PDT)
+Received: from localhost ([185.194.66.242])
+        by smtp.gmail.com with UTF8SMTPSA id a640c23a62f3a-ac2394894cbsm957805166b.70.2025.03.11.11.03.00
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 11 Mar 2025 11:03:00 -0700 (PDT)
+From: Christopher Obbard <christopher.obbard@linaro.org>
+Date: Tue, 11 Mar 2025 19:02:56 +0100
+Subject: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as
+ built-in
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 10/10] Drivers: hv: Introduce mshv_root module to
- expose /dev/mshv to VMMs
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>,
-        linux-hyperv@vger.kernel.org, x86@kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-        linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org
-Cc: kys@microsoft.com, haiyangz@microsoft.com, wei.liu@kernel.org,
-        mhklinux@outlook.com, decui@microsoft.com, catalin.marinas@arm.com,
-        will@kernel.org, tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
-        dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
-        joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
-        jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
-        skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
-        ssengar@linux.microsoft.com, apais@linux.microsoft.com,
-        Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
-        gregkh@linuxfoundation.org, vkuznets@redhat.com,
-        prapal@linux.microsoft.com, muislam@microsoft.com,
-        anrayabh@linux.microsoft.com, rafael@kernel.org, lenb@kernel.org,
-        corbet@lwn.net
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-11-git-send-email-nunodasneves@linux.microsoft.com>
-From: Jeff Johnson <jeff.johnson@oss.qualcomm.com>
-Content-Language: en-US
-In-Reply-To: <1740611284-27506-11-git-send-email-nunodasneves@linux.microsoft.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: aP2JIfAyNLLDUF28j-mPrD2a6sWcLUfo
-X-Proofpoint-GUID: aP2JIfAyNLLDUF28j-mPrD2a6sWcLUfo
-X-Authority-Analysis: v=2.4 cv=MICamNZl c=1 sm=1 tr=0 ts=67d07a6b cx=c_pps a=IZJwPbhc+fLeJZngyXXI0A==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=aMAvcm_y2WmIjkiga5kA:9 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=uG9DUKGECoFWVXl0Dc02:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-11_05,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 impostorscore=0
- mlxlogscore=693 lowpriorityscore=0 phishscore=0 spamscore=0 suspectscore=0
- priorityscore=1501 malwarescore=0 mlxscore=0 adultscore=0 bulkscore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502100000
- definitions=main-2503110115
+Message-Id: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAM960GcC/x2NQQrCMBAAv1L27EI3UlG/Ih6azaYu6KYmUQulf
+ 2/wNnOZWaFIVilw7VbI8tWiyZrQoQN+jDYJamgOrndDfyTCn86YvB9zYHxzemGQyMmiTqhWJTc
+ 24VrQf/RZ1dAN58h8OZEngpads0Rd/svbfdt2VwwgJIIAAAA=
+X-Change-ID: 20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-258fcc961b11
+To: Catalin Marinas <catalin.marinas@arm.com>, 
+ Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-arm-msm@vger.kernel.org, 
+ Christopher Obbard <christopher.obbard@linaro.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1644;
+ i=christopher.obbard@linaro.org; h=from:subject:message-id;
+ bh=TSHmhqZwyLnRao31ZE/kuynrWIfbFM/u9czNvOIv9MM=;
+ b=owEBbQKS/ZANAwAKAWNNxPBocEb4AcsmYgBn0HrQzl89Jaz1kNZJdzDGOQWcFYbCljywikz7i
+ iJbfuU8tICJAjMEAAEKAB0WIQTxi9yLbCX5CqI9UXRjTcTwaHBG+AUCZ9B60AAKCRBjTcTwaHBG
+ +DL6D/9IB7zq4cq3vY1Uw0waKJ/M8zCahI2LFsClUcFcgNnupikDLQ+SmcrOS6iYWqy/YcZQoD6
+ VT3RQcN9OCgdeYSkAuhR6fXeN8GGJgiZXkSHWC/pn6M4exxHBGjRgn2i0cQqaMin+hW9G60fI5K
+ L9aL0T/EP/MTgglpTKzhy+95WWh2JGR9hTXLfcSgen6fX/qiMIMsEKwtW24moUHMD9D4wb73+mY
+ 4scWoq5pWJ+TuVdpaurhAxFfRwgOObeiDEsRR+pqqU6iom1pTmV5cA9CpNaRjhmUNGnTYB0uqV1
+ iBhsy/R2yd8AsX+Jrz52OHGpqmxa/+jJPFc20S7Tpx/aVmvvzXo3JkF4Zhfc7a19JEW8smZjJ5n
+ 3Scp8cnscwYBiVIYopZZ6HMjFsA0V5KXoOacBiqnXnw1CDHs48i2ZUoaF5R6OAkR2ueArZm8R8r
+ kgGKM3zKTVdqsFWN7FAmx9x4aWY0omSWN+IY2TWvUOtA8NMJnFuKmFwu79SdpdKj84yxxZOKGKs
+ 49HqauXRI+g6UCm0G60qdDwWUqHqX65zjMMOS3vMwVUjVd3dbDS2uEnQ60Zuw6UJyQr0gZ2wTCK
+ Cl/4MRMdb0P3wqr0E6eL7aZGJJixWG+nDMMk9R0t89eRki5HOd73rNgzb56w97aUAhQoU0HljoI
+ CT5uZJChxYybamg==
+X-Developer-Key: i=christopher.obbard@linaro.org; a=openpgp;
+ fpr=F18BDC8B6C25F90AA23D5174634DC4F0687046F8
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_110116_088269_5F2F0EA1 
-X-CRM114-Status: UNSURE (   8.91  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250311_110304_240801_A9057E73 
+X-CRM114-Status: GOOD (  10.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,20 +119,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2/26/25 15:08, Nuno Das Neves wrote:
-...
-> +
-> +MODULE_AUTHOR("Microsoft");
-> +MODULE_LICENSE("GPL");
-> +
+Currently some Qualcomm interconnect drivers are enabled
+as modules which isn't overly useful since the interconnects
+are required to be loaded during early boot.
 
-Since commit 1fffe7a34c89 ("script: modpost: emit a warning when the
-description is missing"), a module without a MODULE_DESCRIPTION() will
-result in a warning with make W=1. Please add a MODULE_DESCRIPTION()
-to avoid this warning.
+Loading the interconnects late (e.g. in initrd or as module)
+can cause boot issues, such as slowdown or even not booting
+at all (since the interconnect would be required for storage
+devices).
 
-This is a canned review based upon finding a MODULE_LICENSE without a
-MODULE_DESCRIPTION.
+Be consistent and enable all of the Qualcomm interconnect
+drivers as built-in to the kernel image.
 
-/jeff
+Signed-off-by: Christopher Obbard <christopher.obbard@linaro.org>
+---
+ arch/arm64/configs/defconfig | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
+index 219ef05ee5a757c43a37ec9f8571ce9976354830..6582baee2ab02ecb2ff442c6e73aa6a23fee8d7f 100644
+--- a/arch/arm64/configs/defconfig
++++ b/arch/arm64/configs/defconfig
+@@ -1656,11 +1656,11 @@ CONFIG_INTERCONNECT_IMX8MN=m
+ CONFIG_INTERCONNECT_IMX8MQ=m
+ CONFIG_INTERCONNECT_IMX8MP=y
+ CONFIG_INTERCONNECT_QCOM=y
+-CONFIG_INTERCONNECT_QCOM_MSM8916=m
++CONFIG_INTERCONNECT_QCOM_MSM8916=y
+ CONFIG_INTERCONNECT_QCOM_MSM8996=y
+-CONFIG_INTERCONNECT_QCOM_OSM_L3=m
++CONFIG_INTERCONNECT_QCOM_OSM_L3=y
+ CONFIG_INTERCONNECT_QCOM_QCM2290=y
+-CONFIG_INTERCONNECT_QCOM_QCS404=m
++CONFIG_INTERCONNECT_QCOM_QCS404=y
+ CONFIG_INTERCONNECT_QCOM_QCS615=y
+ CONFIG_INTERCONNECT_QCOM_QCS8300=y
+ CONFIG_INTERCONNECT_QCOM_QDU1000=y
+
+---
+base-commit: b098bcd8278b89cb3eb73fdb6e06dc49af75ad37
+change-id: 20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-258fcc961b11
+
+Best regards,
+-- 
+Christopher Obbard <christopher.obbard@linaro.org>
+
 
