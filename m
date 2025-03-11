@@ -4,69 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E50BC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:22:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34870C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QTEfFUG9TC2l0LTeh0eSGozglj5eBUV7cTFGwbsrmow=; b=u1NT7UmtSrJbFt/cVGwyVlG2vM
-	Rw66Yz7C/bC1mMcaOrhzWVbNsOB6288fm/HkhvEIp4rW3t/sDIqIp5PuCTnsyJ9BPeE/wdhTh1QET
-	F9Q0KHYSFR3m7UWO+9iLK4x5WVaANlZm1BZqzdmFfiRRS4b6jyMuk+6V9Ka+LDKV674rHPsnrEldc
-	DT0CLCOgWPYV3EkWZQebXI1WHV+fLaDJ+4KWfPdm63tbKnb0Rtpg0E965EUL1Elcel2wLZctzQUIL
-	/lITpv9KZaQDIQa0qwVizoSnfcYD/JiEgFcpVreTdm0GXbcdUvOCLAjOlUSlRfYeHyaPD2Hx3vKke
-	86lvvO5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rAZ5WY/+AZg82voxgpoZA7Yb7kIn6Uh4GFZ7o1KdBUg=; b=EyhkRFE33VbwPlgKbim2sJOWY1
+	7a9ipr4e68GOcIteCeZ2mcVIZSktuwyDyc+2TXhzfM7K/MWzgEHTnRISJLFYi71RNpOWiDqkkeX3P
+	uys/pUAWtQ3vSgSjDwaxkL0lRk2/+ijaUr0bb90lEahicRoPQA1/WCvj17PAZF4whH1VOO0BsDf3h
+	vjBYCGnerk/uPjlYQyZZ3UCvSeqWjF6sEPMo73rjkzv5qfc1ojwzYBBZLqpSpy0d2tqaqgD5VL+86
+	Bk0wqdLt0Yr6wpxPVLjZpJwCAuBsrB8uNCOU2qRV3MULCRjQdsA5vWTiuC/KOOVaHZ7WvS1jKT1hL
+	uZU5SqFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1Qn-000000067Qi-0DhX;
-	Tue, 11 Mar 2025 15:22:09 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1ts1SQ-000000068I9-0yCc;
+	Tue, 11 Mar 2025 15:23:50 +0000
+Received: from mail-qk1-f169.google.com ([209.85.222.169])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1OD-0000000670g-2NpJ
+	id 1ts1Ph-000000067Fs-1VJ8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:19:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id BB29FA44286;
-	Tue, 11 Mar 2025 15:13:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4908AC4CEEA;
-	Tue, 11 Mar 2025 15:19:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741706368;
-	bh=m5y+8WWCkr2bdf4DjUDmOPPTjTgljzQzDitsJbpFa30=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=XG/jtD/q5EJBxWC3SLv4srOZdrXtQUzrMuV7xCsfWahJCZc5a34y8F3EFE426msYP
-	 S3rLD9c988gUVZaxVOLmmT3Kzxxkjiq1hWgy+YkAlwxN7G7zpImfnUMIbt+CPxuFjB
-	 nYhFYCWfN1LSH5sxrugoEauAzwyOTbcgNBC7GunQ65s0vA49ZrJxISs4jifXCJxnlj
-	 0y46EbZnZ3DVLcUVSiOLrp8S8+NZ83Uq6SjR/CvgR0VgFJTuIzMAoUDXD4/yD6DhKk
-	 3+GTd8vDovZ+h/b/Cq745WjYqok8zised262Ai5kHswq4q8g9g4tzGDwh8KgBGMrOL
-	 dhiEECYN/3gJg==
-Date: Tue, 11 Mar 2025 10:19:26 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 11 Mar 2025 15:21:02 +0000
+Received: by mail-qk1-f169.google.com with SMTP id af79cd13be357-7c0155af484so768409985a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 08:20:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741706458; x=1742311258;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=rAZ5WY/+AZg82voxgpoZA7Yb7kIn6Uh4GFZ7o1KdBUg=;
+        b=ipFO4DXTimHEyJJVjlcrkY+mxxdZIXFYWNynQV7IDB5JNLExaIb1G7Y6bX6HUca7/E
+         er7vBEncOPJXUiuHH1zJDMKjJqyEqwJWgQIqbDDfO7iNorbK37e1qHQoEKvJhwICt9qk
+         nWNJnPB1pDDh1I/VEvtluXHEClMSWyAk12p6jbXsS0NDaPTW4T6Z8Fjudyuo4E+HV3e/
+         T2kT3bEvLVN6hApfnGpRbgT3S7S2ZhNS2KpnlSN53urr3OV+J4D6jzt3RVY9FmH+ocBz
+         tYfX5h0zVgkBh/5nE6Va/B80xrrmry3S7WRqiyp4wOChnOmU3V6FudjsJIQ2GlymNoAQ
+         VsUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXESwyHiNGmKeC5v3inhFSP2jpqs39QOVCidVmyPRgsm2Wd01fMp/vTCZABZAaRETsQmtNwKjtlGkL8MTIPLZPv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyqwq3llKMWoSSBYlAd5TQfC/yhV1O5nRkyJdRc1OTs0xcvgEWy
+	KoCQ50EVqFD5qWBUAEseUvPLfC1FpM9wPYUyEHjRniCzyKpIGw3b5W9YbU76
+X-Gm-Gg: ASbGnctWIuHKyTgvrPKCPf9g1tYmcPtOftPeaEGWwb0hqhaj8D7ZxFBczl0E4qgNG9Y
+	os7pdOdSjMmftndzS0uc05oltBrIXnaakG5YqNebGIib6l1ASeutF4AtUGisD7yYeOmcHtxkC7z
+	2xMeQ7dE8zgQKz5hTioOAqc74fLRiWyoQo2tv04RUA8miXyn6xCns+V0ZTz1T5tejYNpz7T6fHF
+	HKLReXllQAJLErvZY01NSkVsPFX2qrooEq+ikpOiE0MOrlL9o/4GMFTm3m4x22BNuvpiwY3XwO9
+	bc9uZU1eHK/ZG3CEUTbe+93lKxSzj6glDirB+PQ2crjYvBqN6gy4ADhwuQ5HJ9Nx8CvelmQ3UGl
+	74otiMFJ0xQ0=
+X-Google-Smtp-Source: AGHT+IHsQu38iH82r+HMHyrkzx4qIhzveP8EacYIWqIqt+MwFn3P+NQ8UWZirVBIv/85lWHEuZsLXw==
+X-Received: by 2002:a05:620a:2625:b0:7c5:6291:904d with SMTP id af79cd13be357-7c562919180mr306986585a.38.1741706457596;
+        Tue, 11 Mar 2025 08:20:57 -0700 (PDT)
+Received: from mail-qk1-f182.google.com (mail-qk1-f182.google.com. [209.85.222.182])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-7c551510132sm376486285a.0.2025.03.11.08.20.56
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 11 Mar 2025 08:20:56 -0700 (PDT)
+Received: by mail-qk1-f182.google.com with SMTP id af79cd13be357-7c081915cf3so744962185a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 08:20:56 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXZmdqf0x674eAsJ0C23RQ2f5O7UqR5Xfv3HY8SgsKN2mJvnin3/OtAIQYaEyGjMnEH0E0cNcnWPnWe3MWMXbGM@lists.infradead.org
+X-Received: by 2002:a05:620a:2581:b0:7c0:c046:7c6b with SMTP id
+ af79cd13be357-7c4e61ed9cfmr2913292885a.53.1741706456479; Tue, 11 Mar 2025
+ 08:20:56 -0700 (PDT)
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Maxime Ripard <mripard@kernel.org>, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- devicetree@vger.kernel.org, Darren Etheridge <detheridge@ti.com>, 
- David Airlie <airlied@gmail.com>, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- dri-devel@lists.freedesktop.org, Vignesh Raghavendra <vigneshr@ti.com>, 
- Frank Binns <frank.binns@imgtec.com>, Tero Kristo <kristo@kernel.org>, 
- Randolph Sapp <rs@ti.com>, Conor Dooley <conor+dt@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, Simona Vetter <simona@ffwll.ch>, 
- Alessio Belle <alessio.belle@imgtec.com>, 
- Sarah Walker <sarah.walker@imgtec.com>, 
- Alexandru Dadu <alexandru.dadu@imgtec.com>, Nishanth Menon <nm@ti.com>
-To: Matt Coster <matt.coster@imgtec.com>
-In-Reply-To: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
-References: <20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com>
-Message-Id: <174170613791.3566312.1327920809474076624.robh@kernel.org>
-Subject: Re: [PATCH v3 00/18] Imagination BXS-4-64 MC1 GPU support
+References: <c499234d559a0d95ad9472883e46077311051cd8.1741612208.git.geert+renesas@glider.be>
+ <CA+V-a8tGuxgan7Zx0YedSByfFSgrg5gmR6Fy3dMDXwU+TscZzg@mail.gmail.com>
+In-Reply-To: <CA+V-a8tGuxgan7Zx0YedSByfFSgrg5gmR6Fy3dMDXwU+TscZzg@mail.gmail.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Tue, 11 Mar 2025 16:20:44 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdWXcRoqKz6S0sAtBpSM+_ghTs82wsN1dHvbHD5vO8W+7A@mail.gmail.com>
+X-Gm-Features: AQ5f1JpeSxFRSkFxS6bR3-g2Fuibv6APqy0-HXmtfiaxTjbbrF2D0dsaDVIBB70
+Message-ID: <CAMuHMdWXcRoqKz6S0sAtBpSM+_ghTs82wsN1dHvbHD5vO8W+7A@mail.gmail.com>
+Subject: Re: [PATCH] ARM: shmobile: smp: Enforce shmobile_smp_* alignment
+To: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>, Russell King <linux@armlinux.org.uk>, 
+	Nicolas Pitre <nico@fluxnic.net>, Simon Horman <horms+renesas@verge.net.au>, 
+	Kees Cook <kees@kernel.org>, linux-renesas-soc@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_081929_737663_F2F2E1B9 
-X-CRM114-Status: GOOD (  27.60  )
+X-CRM114-CacheID: sfid-20250311_082101_396327_930AA601 
+X-CRM114-Status: GOOD (  25.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,166 +98,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Prabhakar,
 
-On Mon, 10 Mar 2025 13:10:24 +0000, Matt Coster wrote:
-> This GPU is found in the TI AM68 family of SoCs, with initial support
-> added to the k3-j721s2 devicetree and tested on a TI SK-AM68 board.
-> 
-> A suitable firmware binary can currently be found in the IMG
-> linux-firmware repository[1] as powervr/rogue_36.53.104.796_v1.fw.
-> 
-> No new UAPI will be necessary for this platform as it is sufficiently
-> similar to the already supported AXE-1-16M.
-> 
-> UMD support is close to being complete. We're now able to pass >90% of
-> Vulkan conformance on our Mesa development branch. The compiler has been
-> undergoing a significant rework needed to accomodate the BXS-4-64, as
-> well as to make it more flexible to support additional Rogue GPUs going
-> forward. The first part of this rework landed in Mesa in [2], and more
-> MRs will follow in the coming weeks.
-> 
-> There are several dt-bindings changes at the beginning of this series.
-> We expect the result to be versatile enough to handle all Imagination
-> Rogue GPUs while being a strong foundation to build bindings for the
-> newer Volcanic architecture (for which we're currently developing
-> support).
-> 
-> The DTS changes at the end of the series are marked [DO NOT MERGE]. Once
-> the series is reviewed, we will request these be taken through the
-> relevant tree.
-> 
-> [1]: https://gitlab.freedesktop.org/imagination/linux-firmware/-/tree/powervr
-> [3]: https://gitlab.freedesktop.org/mesa/mesa/-/merge_requests/32258
-> 
-> ---
-> Changes in v3:
-> - Reorder some patches to ensure the proper sequencing
-> - Update status of UMD support (cover)
-> - Don't use more specific compatible strings when not required (P1)
-> - Avoid ABI break by limiting new required properties to new compatible
->   strings (P2)
-> - Move power domain changes to the patch in which they're used (P2/P5)
-> - Update register definitions (P3) [Thanks, Alessio!]
-> - Don't use more specific compatible strings when not required (P4)
-> - Enhanced commit messages (P4)
-> - Remove unnecessary example (P5)
-> - Add proper fixes for threaded IRQs (P6) [Thanks, Alessio!]
-> - Include fix for a separate IRQ issue (P7) [Thanks, Alessio!]
-> - Don't enable firmware debug module (was P13 in v2, also in P14)
-> - Change from a workaround to a regular codepath (P15)
-> - Drop platform overrides framework (was P18 in v2, also in P16)
-> - Mark DTS changes [DO NOT MERGE] (P17/P18)
-> - Link to v2: https://lore.kernel.org/r/20241118-sets-bxs-4-64-patch-v1-v2-0-3fd45d9fb0cf@imgtec.com
-> 
-> Changes in v2:
-> - Clarified justification for compatible strings (P1)
-> - Simplified clocks constraints (P2)
-> - Simplified power-domains constraints (P3/P4)
-> - Use normal reg syntax for 64-bit values (P8/P21)
-> - Link to v1: https://lore.kernel.org/r/20241105-sets-bxs-4-64-patch-v1-v1-0-4ed30e865892@imgtec.com
-> 
-> ---
-> Alessio Belle (3):
->       drm/imagination: Update register defs for newer GPUs
->       drm/imagination: Mask GPU IRQs in threaded handler
->       drm/imagination: Handle Rogue safety event IRQs
-> 
-> Matt Coster (14):
->       dt-bindings: gpu: img: Future-proofing enhancements
->       dt-bindings: gpu: img: Add BXS-4-64 devicetree bindings
->       drm/imagination: Use new generic compatible string
->       drm/imagination: Add power domain control
->       drm/imagination: Remove firmware enable_reg
->       drm/imagination: Rename event_mask -> status_mask
->       drm/imagination: Make has_fixed_data_addr a value
->       drm/imagination: Use a lookup table for fw defs
->       drm/imagination: Use callbacks for fw irq handling
->       drm/imagination: Move ELF fw utils to common file
->       drm/imagination: Use cached memory with dma_coherent
->       drm/imagination: Add support for TI AM68 GPU
->       [DO NOT MERGE] arm64: dts: ti: k3-am62: New GPU binding details
->       [DO NOT MERGE] arm64: dts: ti: k3-j721s2: Add GPU node
-> 
-> Sarah Walker (1):
->       drm/imagination: Add RISC-V firmware processor support
-> 
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml |  77 +++++++++-
->  arch/arm64/boot/dts/ti/k3-am62-main.dtsi           |   3 +-
->  arch/arm64/boot/dts/ti/k3-j721s2-main.dtsi         |  12 ++
->  drivers/gpu/drm/imagination/Makefile               |   2 +
->  drivers/gpu/drm/imagination/pvr_device.c           | 124 ++++++++++++++--
->  drivers/gpu/drm/imagination/pvr_device.h           |  31 +++-
->  drivers/gpu/drm/imagination/pvr_drv.c              |  16 ++
->  drivers/gpu/drm/imagination/pvr_fw.c               |  28 +++-
->  drivers/gpu/drm/imagination/pvr_fw.h               |  85 +++++------
->  drivers/gpu/drm/imagination/pvr_fw_meta.c          |  23 +--
->  drivers/gpu/drm/imagination/pvr_fw_mips.c          |  82 ++---------
->  drivers/gpu/drm/imagination/pvr_fw_riscv.c         | 163 +++++++++++++++++++++
->  drivers/gpu/drm/imagination/pvr_fw_startstop.c     |  17 +++
->  drivers/gpu/drm/imagination/pvr_fw_util.c          |  67 +++++++++
->  drivers/gpu/drm/imagination/pvr_gem.c              |  10 +-
->  drivers/gpu/drm/imagination/pvr_gem.h              |   6 +-
->  drivers/gpu/drm/imagination/pvr_mmu.c              |   8 +-
->  drivers/gpu/drm/imagination/pvr_power.c            | 114 ++++++++++++++
->  drivers/gpu/drm/imagination/pvr_power.h            |   3 +
->  drivers/gpu/drm/imagination/pvr_rogue_cr_defs.h    | 153 ++++++++++++++++---
->  drivers/gpu/drm/imagination/pvr_rogue_riscv.h      |  41 ++++++
->  21 files changed, 886 insertions(+), 179 deletions(-)
-> ---
-> base-commit: 10232dac98d3803ec4fcc0cd8a4d1bd2a09b3e18
-> change-id: 20241021-sets-bxs-4-64-patch-v1-44cdf9cc555f
-> 
-> 
-> 
+On Tue, 11 Mar 2025 at 16:11, Lad, Prabhakar <prabhakar.csengg@gmail.com> w=
+rote:
+> On Mon, Mar 10, 2025 at 1:14=E2=80=AFPM Geert Uytterhoeven
+> > When the addresses of the shmobile_smp_mpidr, shmobile_smp_fn, and
+> > shmobile_smp_arg variables are not multiples of 4 bytes, secondary CPU
+> > bring-up fails:
+> >
+> >     smp: Bringing up secondary CPUs ...
+> >     CPU1: failed to come online
+> >     CPU2: failed to come online
+> >     CPU3: failed to come online
+> >     smp: Brought up 1 node, 1 CPU
+> >
+> > Fix this by adding the missing alignment directive.
+> >
+> > Fixes: 4e960f52fce16a3b ("ARM: shmobile: Move shmobile_smp_{mpidr, fn, =
+arg}[] from .text to .bss")
+>
+> I wonder if this fixes tag should go back a bit far as I was able to
+> reproduce this on 5.10-cip BSP kernel on RZ/G1E this was only seen
+> when CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE was enabled,
 
+4e960f52fce16a3b is in v4.5, so it covers 5.10-cip.
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> RZ/G1E failure logs:
+> --------------------------
+> [    0.006719] smp: Bringing up secondary CPUs ...
+> [    1.040749] CPU1: failed to come online
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+> c154d5fd B shmobile_smp_mpidr
+> c154d61d B shmobile_smp_fn
+> c154d63d B shmobile_smp_arg
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Bang!
 
-  pip3 install dtschema --upgrade
+> > Closes: https://lore.kernel.org/r/CAMuHMdU=3DQR-JLgEHKWpsr6SbaZRc-Hz9r9=
+1JfpP8c3n2G-OjqA@mail.gmail.com
+> > Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+> > ---
+> > To be queued in renesas-fixes-for-v6.14.
+> > ---
+> >  arch/arm/mach-shmobile/headsmp.S | 1 +
+> >  1 file changed, 1 insertion(+)
+> >
+> Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
+Thanks!
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/ti/' for 20250310-sets-bxs-4-64-patch-v1-v3-0-143b3dbef02f@imgtec.com:
+Gr{oetje,eeting}s,
 
-arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-dahlia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-dev.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-beagleplay.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-mallow.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-ivy.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-dahlia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-yavia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-dev.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am62-lp-sk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-wifi-yavia.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-mallow.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-rdk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-sk.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
-arch/arm64/boot/dts/ti/k3-am625-verdin-nonwifi-ivy.dtb: gpu@fd00000: power-domain-names: ['a'] is too short
-	from schema $id: http://devicetree.org/schemas/gpu/img,powervr-rogue.yaml#
+                        Geert
 
+--=20
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
+.org
 
-
-
-
+In personal conversations with technical people, I call myself a hacker. Bu=
+t
+when I'm talking to journalists I just say "programmer" or something like t=
+hat.
+                                -- Linus Torvalds
 
