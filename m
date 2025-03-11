@@ -4,84 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE1C5C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:13:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A4F6C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:17:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DTuA7YSQf6BTENhRE44x2ahXNAujiJZaMhILjLcujAA=; b=Im3W0lNsgz3+SJEnNX/8I3VSr9
-	Rv9ymWbF8pYDwUYrdBMiMJIItlkG1vjiH/k/qN3VqFPYD3phRf1pJfLhaZJET4KU1U0wFAl5KoWsa
-	pjgf83dNXoQGwOmLmf78h+PLKRac68ykgjxZQ7VnEpKNJ6SNk8juCJZ5wH2tzFtLXtbwXuA6snrgd
-	YPXBGZY4kZN+YHib0cTfHVSbWqGNcji6x6Q82GJ4e3d42imPrerJ+MeUrEABtYi0CT5OTXpJNQ8cl
-	CvT7Fru2RHWtQwJVsOLT//oDCsPgxNBTGDFnmXSQlsaOIQsbdDPkLnjilyctvjNmtOapvsnQPaiLf
-	/IOYZAdw==;
+	bh=/c09zyztcUw4TZirNaXHA2RMgqGi3qHaLnZvfe/KLQc=; b=Vf2oZtQPKVSv6zPaepzI/3XUDW
+	nGqh+YwB9b7aNxx6ws7476w0+RWx+rcq6cKVV0vf3gC4onpmMVH0eGPD6lG73lVhTGMAKsF8iPafd
+	ICMf6yyB0hG+uG0trYPiywWTcB91Nkuo5vGEPbb7VAEMLh280kL+xIEA2cnzDJd+c17WPxoPNITFD
+	GRwGxvn6p+beSQsnBNaS8OthRA3UPuq/Ul5TdRJ3kcnW/H8Rsq1SX4yXvdhC7Jpe8L0cOk7OhAvcz
+	fqWvQCmbP004LzCNBkfOnV1fBXKHOAGcOtoZ43iEHexIL93SS0Pkrr+zTEUYCww/0ON7s6isE/Fbr
+	S0+sZqMA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1IN-000000065vG-09Ty;
-	Tue, 11 Mar 2025 15:13:27 +0000
-Received: from mail-ua1-x92c.google.com ([2607:f8b0:4864:20::92c])
+	id 1ts1Lb-000000066Sf-3Ubw;
+	Tue, 11 Mar 2025 15:16:47 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1Gi-000000065hv-12iB
+	id 1ts1Jx-000000066Ef-3mwm
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:11:45 +0000
-Received: by mail-ua1-x92c.google.com with SMTP id a1e0cc1a2514c-867129fdb0aso5038604241.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 08:11:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741705903; x=1742310703; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DTuA7YSQf6BTENhRE44x2ahXNAujiJZaMhILjLcujAA=;
-        b=Q5SZXcfHhrCMlHXERbeyJvbfcHi5Yo1d/ZxTN+uK4Yr3xt5B2phZZxOjzJSu34g5GY
-         xXD4ewnGYnUY5J0ZQji+n4a2ZtLMhLCppxPapHMx5d6lAtzwPq9HviYlybC3ogqpWmD6
-         5svhkwL+bMbggfOatSdWFd2JuaggdwFESZuR1JDMuOc351+L36LhwmXZdsX0Put2I99t
-         UnK9q44Gp+CT0SRSgnE5UwDUF1Dhh6q+8UnXrWi4QUXF5UFNRPXdkmWqztsaCkBq3wWK
-         WwD5KUr1e1Ang2A8jzpuWSRDv1YvlcsYbjkVhIZIAj4yY1DmKEtMSZ5vl95am/eAZCtP
-         gsWw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741705903; x=1742310703;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=DTuA7YSQf6BTENhRE44x2ahXNAujiJZaMhILjLcujAA=;
-        b=nTdp+FCLzz79b6pyzk8mPFg6IPsMVA+0zwhfeUPXZpBGdV7xzZHXg00/gq/GgBwTuN
-         BbKKB1O17qyaRTUAMim5bw1CsYUHUxWROliq8UxDEvaYhcTFiO0sukyx13ZBzBGG+6cY
-         J9uoZEhfTdotG4BtCEhZiFJ59/NEghdjWt8iu28jQSSi3uvVPBlagNZsrO/eTvpeqYE5
-         ScuxiNrDpjf4O4UamZ4b1SY1FaxuhDNLW90nRoAJgu5u2ixka8leIiwkZP5OeYOkG5bK
-         v8nuHJc720hZw2Na3TF/JYq6C59p36JMUSDLB+RVW6pMiiJBWJTSf32nNJlrV14nT2Md
-         KpKA==
-X-Forwarded-Encrypted: i=1; AJvYcCUmDXT/BEK6+FK9dI2/WPTBkzcWZJprjhjckY/zKMBY8gwEhj9WguC3kXWDItY/8+NIbd1q3GLot7q+MAQpXiVr@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz234LIJr2c78u25FKgtUwHTZTlZzSg5DNlLEIrouCNzuo3jINs
-	Qdl8ZIW/nKG0fZKULk84uprzptXbpHgenYjoKZDb6XGhwVhroU6CMl/1zDXgHPLnz0L9q5uKkHe
-	Tf0okezPJ0Vh7ZQu6zwoKYjxXxfg=
-X-Gm-Gg: ASbGncvDeCJBbF+cjPw9b3qO6968aEDkn57nMhQOAAo8/lxe8EQuC7QJfLTeUXbW/j6
-	26TdE5oTkCL1OVBegsC6YlynnPvPEGxKWEKi5nwZ7hmu8nvyCxQ3rHBhnt3EsC0Srg0ld6bKeNW
-	/UdmPw4uItW9i1cD8hYRu8Ilw83Q==
-X-Google-Smtp-Source: AGHT+IGrRBAfEL4AxUiuseuyI92pGLRtD/JII/C+DL6HvPbEkqygZtUt+JWnvwrEiMJgIWvk5rmcyl+90xCH5yInaRw=
-X-Received: by 2002:a05:6102:5793:b0:4bb:e14a:9451 with SMTP id
- ada2fe7eead31-4c34d31add4mr3130230137.20.1741705902795; Tue, 11 Mar 2025
- 08:11:42 -0700 (PDT)
+	Tue, 11 Mar 2025 15:15:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id E85CC5C64CC;
+	Tue, 11 Mar 2025 15:12:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08690C4CEEA;
+	Tue, 11 Mar 2025 15:14:58 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741706103;
+	bh=1/1jP4bOvzaF/7PxxywwaioO02SmscSfTomG7fkckZo=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LLe8AIPLwFoitbv3b3VnX1Bd2TFoxKz76EHmRxYOPe1so01FfDN5g3DGx8yyJu4BV
+	 59eDWhvcTw27Aq9aePM2mPG5935tSXOHxSkKPmlUIl2wsQCQmM5saDdmd1CehFXWtP
+	 eEoy2rLq3GDI+nf68ODsZVL8QacV5U7YsW9EN+UEhzPX4stmaZVjE9HPDb4n8N3Tjq
+	 QZsHXlTKf9hp91InbT5B/XAEsEl9TeqW0UNrywIPnUWykyWUmxdNnh06EVvDhObM0V
+	 lTkpngFh3Ig2Gq3LFeScp3QGBmItt5QRnOk/VYZBh44evB6/0r+YHXxuLBRelv2Bu9
+	 yhPhZysIv5/tw==
+Message-ID: <23a5d017-06e5-4f4d-a522-1f4beb7a1f32@kernel.org>
+Date: Tue, 11 Mar 2025 16:14:55 +0100
 MIME-Version: 1.0
-References: <c499234d559a0d95ad9472883e46077311051cd8.1741612208.git.geert+renesas@glider.be>
-In-Reply-To: <c499234d559a0d95ad9472883e46077311051cd8.1741612208.git.geert+renesas@glider.be>
-From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
-Date: Tue, 11 Mar 2025 15:11:16 +0000
-X-Gm-Features: AQ5f1Jpx2fGdbJPdj5FDcS5GoLqqOGLJlYzfmSg2SJ8trxO8w9qoL6dJAOW-mek
-Message-ID: <CA+V-a8tGuxgan7Zx0YedSByfFSgrg5gmR6Fy3dMDXwU+TscZzg@mail.gmail.com>
-Subject: Re: [PATCH] ARM: shmobile: smp: Enforce shmobile_smp_* alignment
-To: Geert Uytterhoeven <geert+renesas@glider.be>
-Cc: Magnus Damm <magnus.damm@gmail.com>, Russell King <linux@armlinux.org.uk>, 
-	Nicolas Pitre <nico@fluxnic.net>, Simon Horman <horms+renesas@verge.net.au>, 
-	Kees Cook <kees@kernel.org>, linux-renesas-soc@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML schema
+To: Purva Yeshi <purvayeshi550@gmail.com>, ukleinek@kernel.org,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, vz@mleia.com,
+ piotr.wojtaszczyk@timesys.com
+Cc: linux-pwm@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250311125756.24064-1-purvayeshi550@gmail.com>
+ <af6ebce2-7256-48bd-94d4-dc81e2944966@kernel.org>
+ <47f6713b-b751-4791-9059-a128dd1fc71d@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <47f6713b-b751-4791-9059-a128dd1fc71d@gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_081144_286303_AE53200B 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20250311_081506_032702_2A2FCF8B 
+X-CRM114-Status: GOOD (  12.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,104 +120,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Geert,
+On 11/03/2025 15:55, Purva Yeshi wrote:
+>>>
+>>> Define properties:
+>>> Restrict `compatible` to `"nxp,lpc3220-pwm"` using `const`.
+>>> Limit `reg` to `maxItems: 1` to ensure a single register range.
+>>> Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+>>>
+>>> Mark `compatible` and `reg` as required properties.
+>>
+>> So it wasn't before? What are you implying here?
+> 
+> The compatible and reg properties were already present in the .txt file, 
+> but in a different format. I initially kept the commit message for them 
+> but have now removed it.
 
-Thank you for the patch.
+What does it mean "different format"?
 
-On Mon, Mar 10, 2025 at 1:14=E2=80=AFPM Geert Uytterhoeven
-<geert+renesas@glider.be> wrote:
->
-> When the addresses of the shmobile_smp_mpidr, shmobile_smp_fn, and
-> shmobile_smp_arg variables are not multiples of 4 bytes, secondary CPU
-> bring-up fails:
->
->     smp: Bringing up secondary CPUs ...
->     CPU1: failed to come online
->     CPU2: failed to come online
->     CPU3: failed to come online
->     smp: Brought up 1 node, 1 CPU
->
-> Fix this by adding the missing alignment directive.
->
-> Fixes: 4e960f52fce16a3b ("ARM: shmobile: Move shmobile_smp_{mpidr, fn, ar=
-g}[] from .text to .bss")
-I wonder if this fixes tag should go back a bit far as I was able to
-reproduce this on 5.10-cip BSP kernel on RZ/G1E this was only seen
-when CONFIG_CC_OPTIMIZE_FOR_PERFORMANCE was enabled,
+...
 
-RZ/G1E failure logs:
---------------------------
-[    0.006719] smp: Bringing up secondary CPUs ...
-[    1.040749] CPU1: failed to come online
-[    1.041014] smp: Brought up 1 node, 1 CPU
-[    1.041038] SMP: Total of 1 processors activated (65.00 BogoMIPS).
-[    1.041063] CPU: All CPU(s) started in SVC mode.
-[    1.041904] devtmpfs: initialized
-[    1.050811] VFP support v0.3: implementor 41 architecture 2 part 30
-variant 7 rev 5
-[    1.051143] clocksource: jiffies: mask: 0xffffffff max_cycles:
-0xffffffff, max_idle_ns: 19112604462750000 ns
-[    1.051197] futex hash table entries: 512 (order: 3, 32768 bytes, linear=
-)
-[    1.060510] pinctrl core: initialized pinctrl subsystem
-[    1.063139] NET: Registered protocol family 16
+>>>
+>>>   create mode 100644 Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+>>> new file mode 100644
+>>> index 000000000..3e41cd291
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.yaml
+>>> @@ -0,0 +1,45 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/pwm/nxp,lpc32xx-pwm.yaml#
+>>
+>> Filename matching compatible.
+> 
+> In the lpc32xx-pwm.txt file, the compatible property was defined as 
+> "nxp,lpc3220-pwm", so I have kept it the same. To ensure consistency 
+> between the filename and compatible, should I rename the file to 
+> nxp,lpc3220-pwm.yaml?
 
-$ grep shmobile_smp_ System.map-notworking
-c021caa0 t shmobile_smp_apmu_cpu_kill
-c021cb20 t shmobile_smp_apmu_enter_suspend
-c021cb54 t shmobile_smp_apmu_boot_secondary
-c021cbc0 t shmobile_smp_apmu_cpu_shutdown
-c021cc18 t shmobile_smp_apmu_do_suspend
-c021cc60 t shmobile_smp_apmu_cpu_die
-c021cc84 T shmobile_smp_hook
-c021ccd8 T shmobile_smp_cpu_can_disable
-c021d050 t shmobile_smp_continue_gen2
-c021d0c4 T shmobile_smp_boot
-c021d0e4 t shmobile_smp_boot_find_mpidr
-c021d0fc t shmobile_smp_boot_next
-c021d10c t shmobile_smp_boot_found
-c021d114 T shmobile_smp_sleep
-c021d380 T shmobile_smp_scu_cpu_die
-c021d3b4 T shmobile_smp_scu_cpu_kill
-c120a87c t shmobile_smp_apmu_prepare_cpus_dt
-c120aab8 T shmobile_smp_apmu_suspend_init
-c120aad0 T shmobile_smp_init_fallback_ops
-c120b0f0 T shmobile_smp_scu_prepare_cpus
-c1262778 t __cpu_method_of_table_shmobile_smp_apmu
-c154d5fd B shmobile_smp_mpidr
-c154d61d B shmobile_smp_fn
-c154d63d B shmobile_smp_arg
+Use whatever is there in the compatible property as the filename.
 
 
-> Closes: https://lore.kernel.org/r/CAMuHMdU=3DQR-JLgEHKWpsr6SbaZRc-Hz9r91J=
-fpP8c3n2G-OjqA@mail.gmail.com
-> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> ---
-> To be queued in renesas-fixes-for-v6.14.
-> ---
->  arch/arm/mach-shmobile/headsmp.S | 1 +
->  1 file changed, 1 insertion(+)
->
-Tested-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-
-Cheers,
-Prabhakar
-
-> diff --git a/arch/arm/mach-shmobile/headsmp.S b/arch/arm/mach-shmobile/he=
-adsmp.S
-> index a956b489b6ea12ca..2bc7e73a8582d2b3 100644
-> --- a/arch/arm/mach-shmobile/headsmp.S
-> +++ b/arch/arm/mach-shmobile/headsmp.S
-> @@ -136,6 +136,7 @@ ENDPROC(shmobile_smp_sleep)
->         .long   shmobile_smp_arg - 1b
->
->         .bss
-> +       .align  2
->         .globl  shmobile_smp_mpidr
->  shmobile_smp_mpidr:
->         .space  NR_CPUS * 4
-> --
-> 2.43.0
->
->
+Best regards,
+Krzysztof
 
