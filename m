@@ -4,85 +4,196 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4BC0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:37:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B52C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 15:39:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WnmgUREpEZzHIqf+ZGbEOfCKGLjHhsT93+h47gc6MEc=; b=rMEe58Qgeix0038zzh0qXcbRlH
-	EZgtRrA9x+zOkyav4Xr8fFIhZX7F0z+lXAIgCcQ/IUiyXLBR74e0HLaovF1ipvVYr5UfGlzHEpYls
-	cyImnkdUPS5tdZ2QGlCHIcmdmwXz5hh1zEbQcxva64j/1eC/rprUsqpVt80V9+ROWr5Nug0HqrO8a
-	6WA7WAGic6s06l/fKPoqEkzs2/mWsu+RjrSKijFhDUfuiTvz5lubYgCLFsuSdgodtR2NqPhnRDf1h
-	1jjBNM9Ehn/gTfGcLYRW9IIiUMlIVrYg5BZ2SZje3rXC1uI59vxr/KDBQ1Edz5dXTdCuM8P0339Gp
-	Kfw6w/3w==;
+	bh=2CbuRr5uOqznDRhEOJutfqvfHUJ3x+ysoDYfgWJUqWo=; b=szbJKrUMifrkdk3JIpWErFCh3z
+	RLjeQ5FKnp4J62rJ9//i8BEPmtV8ov6rb/epiSO62IsE2IZX1t3esbkSUt89Ixgc+KqXMnu7e/uKw
+	TMDNYNkOek2O7EHjxOE5jqSxmRV7212BLFAO91vG8n3kJ7kBZLinoR7QC+3X3X/1nPYMGdAyCHplW
+	LPmB8enxKTfjCLEYEv/Sdc6o/ULpn/1YAkHBhm98nKFfGOeGrfE7l7iQWJShhz4uRYbu2hil4SI67
+	SjqTOYMcCpePtsNp6dtQUAQhzlHlzlLycGQ/rS1SNbk2PrlvMOTTCfqd391E4qmUZD/APMl0O+s46
+	UhlVJstw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1fV-00000006AsR-0Ro1;
-	Tue, 11 Mar 2025 15:37:21 +0000
-Received: from mail-pl1-f175.google.com ([209.85.214.175])
+	id 1ts1h6-00000006B8V-3J1N;
+	Tue, 11 Mar 2025 15:39:00 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts1cg-00000006ATi-0qYt
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 15:34:27 +0000
-Received: by mail-pl1-f175.google.com with SMTP id d9443c01a7336-22409077c06so16524825ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 08:34:25 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741707265; x=1742312065;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WnmgUREpEZzHIqf+ZGbEOfCKGLjHhsT93+h47gc6MEc=;
-        b=wW/PH/BtKlgnpMRJkDaw7NvM3QsVq0kuaEPaGvTjEba4FXqWZCGHLzBCdzx+fMyOpd
-         y5vt0m8WWBzHsbMtUaqq7k2Ls3UcFpBQ4Kpktq0bHgszavH+8JPQPfRDqST4dCqqDgZm
-         kwxNS52doIe9bhIOusU05kkitIXUWZ4eKEG6f9VDnrNHHu6fH3iNkSeon17fJxOkhZNE
-         cqFOp+z4Gm4qwWDmPJu/xRYJRr02WMUNc7OObBYE+4txi7oZwTm0e12l1g3YsltqEc4w
-         O8s2nUNBLxKE7Lid4ZTbiBkkGI8jNONS58XRnVFeqdGQfFbZAzXeQTWSxyuuWc3G360k
-         WwBA==
-X-Forwarded-Encrypted: i=1; AJvYcCXOca8IMkJ8JnvS3AlQ7dkVGlGgp1r4tVH+4VZLcur9mSyG8o8IBC2AZBoR/+awCHg3RG8CmY4jhWivxb+Apz5I@lists.infradead.org
-X-Gm-Message-State: AOJu0YwLsvWXUEzfX+G7oJDgmCSeF2SRKZy++O7Tw3aXDMsPwpUVw/7X
-	APZYJRC6UYdJu00APYKFpiapcGGJ+t7E2/5GPUQ7jTUE9sv3Yy6JJiSIpv8FrTs=
-X-Gm-Gg: ASbGncvvm4njjd1cd0WQ71vUDR+E4h+3uHup0BeqgnpkQVkp0mTHEt5HlN8S5o2pSWo
-	AoMV9IEZpUvz3TzaVKYFq/CWcDEva7WhFYvN/Gv0VRfAwXq11B09hLsk57EjX0qdSH7uIM0Wh4Q
-	v1A4O9FUiHsONAI6pjn+hMEg9+Hi9C5I+akeMtwE9L/tqEknfQ1TfBmbyFW0Jts0MPN4iSvLhXr
-	quEAFYjXr3bf8qG1k7C1EUKXI10tvsEOdIDOHvjRDMrHehv+onGQJcYjxPzBaSd4DMJQ2n6Ougo
-	k9t59Gx2U1YQaR6GhqsAFQ00i/+oEaB5ZYdLPXIRDMjQlYFQtCz1fUybRFTyh5OEK5KP90954pP
-	du60=
-X-Google-Smtp-Source: AGHT+IEp15FNyX/Zw521mFQHT8du6CWvUWJLD3C+Me9OYF9D/bY261KLnGwCsIfgZX7kcU0kGdCDpw==
-X-Received: by 2002:a17:902:cf07:b0:223:58ea:6fdf with SMTP id d9443c01a7336-22428a8d325mr352593315ad.28.1741707265450;
-        Tue, 11 Mar 2025 08:34:25 -0700 (PDT)
-Received: from localhost (fpd11144dd.ap.nuro.jp. [209.17.68.221])
-        by smtp.gmail.com with UTF8SMTPSA id d9443c01a7336-224109e944csm99547085ad.74.2025.03.11.08.34.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 08:34:25 -0700 (PDT)
-Date: Wed, 12 Mar 2025 00:34:23 +0900
-From: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, vigneshr@ti.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, rogerq@kernel.org, linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org, stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com
-Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
- J784S4
-Message-ID: <20250311153423.GD1381004@rocinante>
-References: <20250305132018.2260771-1-s-vadapalli@ti.com>
- <20250310210746.GA2377483@rocinante>
- <20250311051806.smcu4o4dxpngimth@uda0492258>
- <20250311072546.GA277060@rocinante>
- <20250311073216.ynw7rzmu36dwywij@uda0492258>
- <20250311152133.GC1381004@rocinante>
- <20250311152921.cwb7obw5bmlrhvsi@uda0492258>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+	id 1ts1du-00000006Acc-17vF;
+	Tue, 11 Mar 2025 15:35:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741707342; x=1773243342;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=t3NcgmB8P5s8TL36glcMfuDDEIINp1d6znIgfHNAf4c=;
+  b=b0SWP0S2OcryKXfudoes2jCvQ+MnfFWa2ctYSOiJ4dXP3kELncx6Jk4r
+   yfnHAjFTVjMFyZfw18LuIrwdvLJqSxNrAsZuFpgvYP55lHgnLkolz0wq1
+   pD4BLlTKhNsmYXkdZaXnJDMA6C3qq1yUJgCuNW/HsFeUM3Gh4tHRA0AKT
+   YcGhb2kxY9hcqF8idaceEU1zf0AxyrkJmr/AtcAdrcnplr9IERA19kHUt
+   SwzhzxUiU0f0RHxaZssCfqUXQa+Ty3CP2xg0Z6W+mSC+PHHjSgU4wxaRv
+   OapXHxZsomr67Awx7ukkob4JOTOEzeVZJE4WrHeGLdvFr/CncPgB3TPp/
+   g==;
+X-CSE-ConnectionGUID: 0Pze97yqRF+O0jjfyoQCyA==
+X-CSE-MsgGUID: 38RDmxZbSkKkk3y9GXhoeQ==
+X-IronPort-AV: E=McAfee;i="6700,10204,11370"; a="46665088"
+X-IronPort-AV: E=Sophos;i="6.14,239,1736841600"; 
+   d="scan'208";a="46665088"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2025 08:35:39 -0700
+X-CSE-ConnectionGUID: HnF7985UQCyFbhVmnyaybw==
+X-CSE-MsgGUID: Hdl+SZIRS5KFAY6SKDo3Dw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,239,1736841600"; 
+   d="scan'208";a="120301643"
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Mar 2025 08:35:39 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Tue, 11 Mar 2025 08:35:37 -0700
+Received: from ORSEDG602.ED.cps.intel.com (10.7.248.7) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Tue, 11 Mar 2025 08:35:37 -0700
+Received: from NAM12-MW2-obe.outbound.protection.outlook.com (104.47.66.47) by
+ edgegateway.intel.com (134.134.137.103) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Tue, 11 Mar 2025 08:35:36 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=kG7l4ea5rPV4MOisu1JAgR2WK7X1dFSq+CNk2itgW6V+rCMgBXz6bmDWHKSCLP+0fVvZpSQBA1kmSlucKzhw74acYvjlo01M2TsGUpnZ9ElwxibS6PBw+L1ORtgDlRE1mZva5QpbPsiOYm+z9E8gLkvF58lIprvS014Ks//z0HYreEyfsM86b8J5HNIeR8O+iA3YCISS6hU26Cr7cd70yWGv83Sk+luDNuVJJrT3hieHtNy74stQs4fIkxu767WzmgDBC319nKwFZXjeVJ37gF224NHKk/OdM+hT6jz3vh38080umltWwWZk5GioHzUf/7mClGCkd256SRUrasab8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=2CbuRr5uOqznDRhEOJutfqvfHUJ3x+ysoDYfgWJUqWo=;
+ b=VbYD3bQOdypnazL59qLbyi7RqjP12T29p/pjI8NpUWODYZENyVdQB5FP92QlkvIuKxnHMZyiF68SmOGtoeuKqKysHQuEFSZgGHSMhSLNxVe2wtmTRQ8ZLQCjg5xKYVPB1Qku+7yEVIRzyhEOjqIks7DvVhXjm8Ys8ju5ycDZqXFTEaFhK7MT+gl1bcvV1WWIUuvPxDe6AsBegVl3fGtO3P27O5jOKodRuIcqnw8Dg+X2YkN45fKke4uEsZHZj4+xteCuPHGMHcumJ39UGimJWTNiAVMaBwm3UZLtDatZ8WGM/tr26pzqtcANm9in8v+HrOX2+bovTzORs7TP9FM0RQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
+ BL1PR11MB5978.namprd11.prod.outlook.com (2603:10b6:208:385::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.26; Tue, 11 Mar
+ 2025 15:35:31 +0000
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955%4]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
+ 15:35:31 +0000
+Date: Tue, 11 Mar 2025 16:35:16 +0100
+From: Michal Kubiak <michal.kubiak@intel.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+CC: Marcin Wojtas <marcin.s.wojtas@gmail.com>, Andrew Lunn
+	<andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, "Eric
+ Dumazet" <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>, Paolo Abeni
+	<pabeni@redhat.com>, Alexei Starovoitov <ast@kernel.org>, Daniel Borkmann
+	<daniel@iogearbox.net>, Jesper Dangaard Brouer <hawk@kernel.org>, "John
+ Fastabend" <john.fastabend@gmail.com>, Russell King <linux@armlinux.org.uk>,
+	Ilias Apalodimas <ilias.apalodimas@linaro.org>, Masahisa Kojima
+	<kojima.masahisa@socionext.com>, Sunil Goutham <sgoutham@marvell.com>,
+	"Geetha sowjanya" <gakula@marvell.com>, Subbaraya Sundeep
+	<sbhatta@marvell.com>, hariprasad <hkelam@marvell.com>, Bharat Bhushan
+	<bbhushan2@marvell.com>, Felix Fietkau <nbd@nbd.name>, Sean Wang
+	<sean.wang@mediatek.com>, "Matthias Brugger" <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, "K. Y.
+ Srinivasan" <kys@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>, Wei
+ Liu <wei.liu@kernel.org>, Dexuan Cui <decui@microsoft.com>, Siddharth
+ Vadapalli <s-vadapalli@ti.com>, Roger Quadros <rogerq@kernel.org>,
+	<netdev@vger.kernel.org>, <bpf@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-hyperv@vger.kernel.org>, <linux-omap@vger.kernel.org>
+Subject: Re: [PATCH net-next 0/7] net: xdp: Add missing metadata support for
+ some xdp drvs
+Message-ID: <Z9BYNBaAGZbtbfa4@localhost.localdomain>
+References: <20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20250311152921.cwb7obw5bmlrhvsi@uda0492258>
+In-Reply-To: <20250311-mvneta-xdp-meta-v1-0-36cf1c99790e@kernel.org>
+X-ClientProxiedBy: MI2P293CA0014.ITAP293.PROD.OUTLOOK.COM
+ (2603:10a6:290:45::13) To DS0PR11MB8665.namprd11.prod.outlook.com
+ (2603:10b6:8:1b8::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|BL1PR11MB5978:EE_
+X-MS-Office365-Filtering-Correlation-Id: 50fc82ca-0905-4a42-6cef-08dd60b25ba9
+X-LD-Processed: 46c98d88-e344-4ed4-8496-4ed7712e255d,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|366016|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?CLjj6Dc6Ga1wF166lr+Ybdr3XbWq+F+An5HZgBHqa2Awfu5nPnome8zNFDQT?=
+ =?us-ascii?Q?mzGviN9LJ6VdynCcEzclNFbX7Hce0ZQz4hNq1RA7KFr6Ak1JZbaf1dUGmQ/L?=
+ =?us-ascii?Q?lzRRpMwjnvB5rvIIP79ioobXtBYpWcornETqkaBLH3YLtT6k5usKUfKRalrd?=
+ =?us-ascii?Q?mhrlRPfHbEABCSfVdD1lhr48eGFKWorpSZA5ZjCyypsaF7gTbQphNy+w0/i4?=
+ =?us-ascii?Q?6mFHWY1Aa2pdZxldOBbJ2L+33dyfc7qil+X2icEj7ZYkqo4QA/6qBqx8o3Z7?=
+ =?us-ascii?Q?r86qSN+1wfPaIzb9tky4guf2GI2huL/dD4pJoy+Es922dq/TBiLm4KgMqAVe?=
+ =?us-ascii?Q?jSeFq2qV3gRNS9LUO4V0pGGWpB87EazZwVJ4umV3y+nTs6T3cs0S1pRi6xiW?=
+ =?us-ascii?Q?xRI3K913a7oFRcByGRdsGTUFl+wFsk+8UbHYl7mAmuTwIhDgv5txbfxunM0T?=
+ =?us-ascii?Q?6D5aMQpa3RorVEJMRte87Po11wurbE3lh82YkmFClnCZPmy/3rH9f82EvOLK?=
+ =?us-ascii?Q?pUrls4+YQsKCwaEn5OHkZNmuUVBDxLXN8aMRVveldtPP3/mJyDh8Nh+uqevL?=
+ =?us-ascii?Q?cVrh538CDoQhz8NrHXS8t4VYsejicy+uc3ZUQqEYFXJVIti8nq17PrAHiYUA?=
+ =?us-ascii?Q?w91YpkfM+7k9TMLCdNtimnysW3HbnLNIcoQFlg78YvEnhz4Wnc5n1jMgc+Ry?=
+ =?us-ascii?Q?XPbL2LRIQx7KWZcrapBFStB3X2/7rcPFRBcEwSb2dF9mMESXilI5wDvbHOb/?=
+ =?us-ascii?Q?BBoXoofnTeAOU/+zV0FxUNakOHbPfUO/P6ONUATMeXgHX3miqyLyqsgK54mt?=
+ =?us-ascii?Q?xjzjnj+vgXxBjp5/ngqbhdVxHB5s34hlJcAtE0CJGOLVBNcNPLoSNn4LfDaS?=
+ =?us-ascii?Q?1clBUo48e8BK+uVHWSBTeSpK9R7XPxsf6wJGl29cCxfEO1kAKdbkWf7E6ta5?=
+ =?us-ascii?Q?9dAFDn8fODMy93W5Q4kwi3mCzefGq1uWcFCSlDRSO4kwZKqxKL1gzDBl5+BF?=
+ =?us-ascii?Q?M5IDv4MowIW8T+Ympq+V73u0BwRLr5ak/9HQyDyv00sTZ1/2HYTHsHfX+zpC?=
+ =?us-ascii?Q?BfdZy8qP8Rc8IyCF+cdbUtCdAptK638tD2LAAABBWVDobTxotMEPYX2cWNN+?=
+ =?us-ascii?Q?HlFydg9kGBAa8DhFg/WDrsdrgMbJALeQ5vg76ZubGj/Y11GHr26edf14hZTp?=
+ =?us-ascii?Q?LYwW4DQD4egjnYAQVv27rGq8Zp4Q45J4mlye33+LBF9QmX32qH2IaqhXx1Rc?=
+ =?us-ascii?Q?6F935UVb8yKAa/lrs+DSFuz2euijAW787M9bJZxn2I3FddlTMBmtFcufrstE?=
+ =?us-ascii?Q?GFU2X32UrBD516JrIpy/q+ksG2YZrCy8PU0eilmP3z7f2qb4p0cXBkgKc595?=
+ =?us-ascii?Q?PBX8rxpOtqTtPOiZqT9uj4LxrSCE?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(366016)(1800799024)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?vBpvgWOrtZPOVNVdGUQ+xVVxVVwDjgfJpJF0qV0jq/kGB4V/jhJFNxlCVmdS?=
+ =?us-ascii?Q?s00yWBO41gziaZClknqNmc0FCT2bmG7f8+Z7AgpoBrVzpiu1l+Pxus6WBRAY?=
+ =?us-ascii?Q?+w0bWdvUzNNOAqB0vJWXEbBPFNqteQIf6aMpNxZF1ObSLV8jQwm6RpKO6yvh?=
+ =?us-ascii?Q?BxBQXFYlupKoNutHmCU+KQ4cZt3I3VUpHFfMhgZ8AF358s6tLP1RMS5wJ0m0?=
+ =?us-ascii?Q?cxqlR9ZXmYPQ4bud1V1eDo3Nxl9+Qa9UKbTjXSvnP/bHD2kDlVZP/PqVsuNb?=
+ =?us-ascii?Q?SbBsAkYGzjW9i03qNGedRDPEP6h9yJF5OlOnn9785XEZYltIDXCsGAtFlmqn?=
+ =?us-ascii?Q?FUyLtmcqB6PY0wChHv9bMkCodI+Oh6mQ5j18dNE3cqiSaYtqQB9YP/jgZ+6g?=
+ =?us-ascii?Q?yJH6c3XB4ta+uFSv/2ihqoRWCTJJiMr/s0YYWLPo6LQuSnE3NUnV7tGW+LfJ?=
+ =?us-ascii?Q?s618a0SnxDTFAQFccpx1mH9+AoELcembZp3GxJcfQICXWn7w9OJvwEI5obLs?=
+ =?us-ascii?Q?Qt9b6w8x2KYMJuzeYI4m1Vsz5OwTzk5RleF3IrI4X1jrW0VZhFkkRgX3O0Mv?=
+ =?us-ascii?Q?hoPINEZAqnRiwsQ2y3w+bKp69i6JawaNHcBUuY1iRYH2PJeUCgNiuQ4gCvtL?=
+ =?us-ascii?Q?ISoedNxu6CkPLQ8XnHqhN5ZR7AK8s5dG8d0gfxvWfGnBGD2AOjYlBuYsKNzp?=
+ =?us-ascii?Q?VRE+ycsv3kpfGh9KZZNoM3hms/eXVpeIidS/G+CWS091lUxB7N45D1bDmGM2?=
+ =?us-ascii?Q?LNNSJ4nfe7zL8hjK4vQGEfadcTJak9rZZlCc3nT6r+W6+Q5vDxNL7aZpnY7e?=
+ =?us-ascii?Q?LzeC963czubwD1GuLAO7JvNxLRc511YV0V21kj/WEBkxYYsOGR+o+33FQGKs?=
+ =?us-ascii?Q?jmSmgyLuq7AIryrxxXXd4gni7tyWTaeT53RMnz0pi2/Sc8JJoTpygzOoQ/CN?=
+ =?us-ascii?Q?XqiRUKMRo4OW5FxeBB3QsntrQvoecPm32EJwSS/RGYmQgSKRW54pFf/50yjL?=
+ =?us-ascii?Q?uXYfVyEFxUePg6hnJMT5PYgGE/Gzt4w/dwiX08meWiMrHOWfqDVtb4Jin1zc?=
+ =?us-ascii?Q?8h8vTCqiGw0IruR2VL936oygCm8FsPm5U+SkbGmQNV7eKo8tcTo0EGAAj1Jf?=
+ =?us-ascii?Q?9xgwh06QlPMmsVD3kboDYsiONr/FUBoRRHZb348JFPZZ3CvORt/Z7TK1OOni?=
+ =?us-ascii?Q?Cg52FmCFdXLncTlNAxQ73GbMhjfHLK9RdSe3fMDAKrAGA5TkIZuaaDTOA39T?=
+ =?us-ascii?Q?jPgM16PMLap2qAYHLMET+KOeo7Zamw3LNSZjhLmVppyanI77ijmJNtp5Rxy/?=
+ =?us-ascii?Q?f08gpIfuJZUTVC9BqjcX8i4Qj4tLvDe2LoyUglC7cSQNfdhTPsHnJWF1s8zi?=
+ =?us-ascii?Q?xYyHCCnI+SESbOEkahFYCBLyTk/bzaKRaG9vH6c8dx563nW/gOmcGoJHXw/R?=
+ =?us-ascii?Q?DLzg+4PLZTlE0Z2KGJYoFlKvFuFrvKGkJsRyLYbZberuBF58BxW7Au5EKF4y?=
+ =?us-ascii?Q?hl7ytWdJZxOobwwDpn9P2vn6oPEZ0wCRk56vkOZ9rwq/b3BUbiDFkYonpSfv?=
+ =?us-ascii?Q?5rs/REI289piV0kqaadrrtQ83ianz0A91sjlV2Wu7sL4Smcz7iAWtF/rS77l?=
+ =?us-ascii?Q?WA=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 50fc82ca-0905-4a42-6cef-08dd60b25ba9
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Mar 2025 15:35:31.6183
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: wwj5tEVl74AeBerd+4hB7Pg9UDDSwEsb1JBDPdW8JnpX3SKqTRz8RxtBbY8uvCQaXARzyav2CkSSoakp0Hj28A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BL1PR11MB5978
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_083426_235891_BC7A1702 
-X-CRM114-Status: GOOD (  16.09  )
+X-CRM114-CacheID: sfid-20250311_083542_337074_B90E7C66 
+X-CRM114-Status: GOOD (  14.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,32 +208,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello,
-
-[...]
-> > > > No need to send a new version.
-> > > > 
-> > > > I will update the branch directly when I pull the patch.  Not to worry.
-> > > 
-> > > Thank you Krzysztof :)
-> > 
-> > Done.  Have a look at:
-> > 
-> >   https://web.git.kernel.org/pub/scm/linux/kernel/git/pci/pci.git/commit/?h=controller/j721e&id=01d04dcd6e80f63ca5e97324ec17c20553947e35
-> > 
-> > Let me know if there is anything else to update.
+On Tue, Mar 11, 2025 at 01:18:32PM +0100, Lorenzo Bianconi wrote:
+> Introduce missing metadata support for some xdp drivers setting metadata
+> size building the skb from xdp_buff.
+> Please note most of the drivers are just compile tested.
 > 
-> The changes look good to me. There seems to be a minor typo in the
-> commit message:
-> [kwilczynski: add a issing .linkdown_irq_regfield member set to
+> ---
+> Lorenzo Bianconi (7):
+>       net: mvneta: Add metadata support for xdp mode
+>       net: mvpp2: Add metadata support for xdp mode
+>       net: netsec: Add metadata support for xdp mode
+>       net: octeontx2: Add metadata support for xdp mode
+>       net: ethernet: mediatek: Add metadata support for xdp mode
+>       net: mana: Add metadata support for xdp mode
+>       net: ti: cpsw: Add metadata support for xdp mode
 > 
-> You probably meant "missing".
+>  drivers/net/ethernet/marvell/mvneta.c                  |  5 ++++-
+>  drivers/net/ethernet/marvell/mvpp2/mvpp2_main.c        |  8 ++++++--
+>  drivers/net/ethernet/marvell/octeontx2/nic/otx2_txrx.c | 13 +++++++++----
+>  drivers/net/ethernet/mediatek/mtk_eth_soc.c            |  7 +++++--
+>  drivers/net/ethernet/microsoft/mana/mana_bpf.c         |  2 +-
+>  drivers/net/ethernet/microsoft/mana/mana_en.c          |  4 ++++
+>  drivers/net/ethernet/socionext/netsec.c                |  7 +++++--
+>  drivers/net/ethernet/ti/cpsw.c                         |  6 +++++-
+>  drivers/net/ethernet/ti/cpsw_new.c                     |  6 +++++-
+>  9 files changed, 44 insertions(+), 14 deletions(-)
+> ---
+> base-commit: 8ef890df4031121a94407c84659125cbccd3fdbe
+> change-id: 20250310-mvneta-xdp-meta-3e0da8ef4498
+> 
+> Best regards,
+> -- 
+> Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> 
 
-Oops... Fixed. :)  Thank you!
+As far as I checked, all modified drivers use the Page Pool and set the XDP
+headroom. So, a necessary space for metadata seems to be assured for all
+of the drivers.
+In summary, the series looks OK.
 
-> Thank you once again for fixing it without the need for a new patch.
+Thanks,
+Michal
 
-No worries.
-
-	Krzysztof
+For the series:
+Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
 
