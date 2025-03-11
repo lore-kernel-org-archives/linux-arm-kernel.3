@@ -4,98 +4,57 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF1A0C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:41:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C8AC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 16:50:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WmIEpE/8tfCzc9/UJAcbQGjEHM9lYmWTxU+CF4VeXxA=; b=enJSuzMZI0Uzqqo76Vag5FSdsx
-	BCIoFopzsL+SDH028LOU32Wvfy+4i7JnlMSFaysmJVJwJ6jDgCYknT+3ew+3fwqz1XcgRx3f9/QlI
-	qyAbnV2QceVxhTTXDpBiz79uvT6uEpokgWkOYLF3Ye15Pp8UjkLWRkBO37Ei6R4McUFSSBWAdc+vK
-	esAc+CSVHG5U4NULGp4+R+oucpx08wAx7ElXUNDtWzlCqTey3d18dPRM4FAFjJy6j5NcmBxTzuR8Z
-	M5S5blva2BMwU6fx9CmmlrhbULFmUbwUpYOjrewU9/1ll+YbX3YlT5KGYn1AdQlDUGWb0MginYVQZ
-	/X+v0qDg==;
+	bh=3HXQgHLwU90Mcoipt4jSN1UJy2X6xutbxje51+Jhrws=; b=qXfDc0eaP9reyTOs5T5ydm0lyl
+	X0KyDB65f8MimsgJKImDsXxwL+txQpj03tQ+kBJu1UVHL9jtCXCWH5ASi+Jg3Vb/yznH4XuVAPtOj
+	8hwkN4TJ1zDO2+R24uGRTseoIIWZe/4HX0oFhXknmSylU0am17rja/cRUpvxKD3VhEx/xdlDknAMg
+	k5ZHr72Ml5DtHO0fQHjY9aKP7Lm5tJqekRV592aY2z8iEXokuCFdItKC26kE1R0rOmEE1ewPAI+3R
+	Xf/M8YdUns9YzF/Xu90c4E0Z5xyp6KayFNjTjRz5IXLhewLZX+7UWj5SOziZjV32JOOvuyaqRxyuD
+	6oxJqvzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2f8-00000006M3e-0Lyj;
-	Tue, 11 Mar 2025 16:41:02 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts2Yj-00000006LRL-3prI
+	id 1ts2oC-00000006MvY-1kOM;
+	Tue, 11 Mar 2025 16:50:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1ts2mX-00000006MiM-2rbt
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 16:34:26 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43bb6b0b898so48937715e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 09:34:25 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741710864; x=1742315664; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WmIEpE/8tfCzc9/UJAcbQGjEHM9lYmWTxU+CF4VeXxA=;
-        b=LobU3f8icABCGpcX3owroWQYAT5pfsgatikd5ErKW0aN/CcXPS9WRcH6h8504iwmXZ
-         ebqqZDUSnO9Lv/1PJ1XKgBI1tL3ciBh1wBftma917ILTjpRFpkWScs6FlNPiuwhg48SY
-         W3cpyeUWXZtucRkeblV35bR7aQD2G/66mFGHdtb2dzyp51krvyykg4tmHZt/fy/7NoJs
-         Na/yWXmXcpW+GbMcWG0+0VACUf6svqJj79Y/7jMpoKy7YRYHPpcCnBIcgp6f80gnYFbC
-         xtSoG1mEtbNa1gGSnclPgBMPXYD9XlTp80e8yWyRGYJHWvZZ+z+160H1sd84FYgAF6tB
-         AKPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741710864; x=1742315664;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WmIEpE/8tfCzc9/UJAcbQGjEHM9lYmWTxU+CF4VeXxA=;
-        b=AtIIiX550X+rCpSqboVp2I49Ak/WBAHwKDEe6o28eTuqK/fncSf7gtwiXqpdOAWOos
-         7Apj9jZ/86ETt9lab6zVKjFse+Um+s7mr6JbUx/e8XeozhkqL6NU19KTwgQLayY2fvaU
-         Dfl5a1uqgAQdErkrO5t6RiKa6rpK43WcVaZu2TRqfhEY3KBH4vFGJ/Tl7M5wC32JX0ub
-         IdouhLgS7of+xNjUW2WbvxaxF0Q0avTMYjkJfLFqxfpecK7xPvLjfU9jThGrVigjQ1G/
-         jIsLVBaMiTAya23pjO7tEHg/HlbHTusz26sU+jBIaGNxCcKqj1AO9/NWafce5FzvrFqq
-         Ymzw==
-X-Forwarded-Encrypted: i=1; AJvYcCUWDZW+uMu8yEGsHWf1EMd95TzuzrLJ7XmTrywKNjU/XbM45AGmzdguGGafElCQDP17JhbHKvuxsYE8BkrkRxBh@lists.infradead.org
-X-Gm-Message-State: AOJu0YzxcdfHa4boGatDy+7RgOYbCN7v1PtAuwQF1/XN2ep0z+pnOIeR
-	DjOGZGHSlf6EUKwR4ZHg8IbbFOeuYVT3knPzWaPFy3u3uPgWxu1c
-X-Gm-Gg: ASbGncuqLWwhk7j9LoJDR7P0wK1LOo1nU4eqNfXEGm6b+aeU0ESQaXRYEFmQVITRI0f
-	P3NZdrXlbGtVLyB0r4WipMDFEARWEJJ05uKH6s6DSLtl52/K18Ouz8qs0OEYmdrHxsgn5LKhzo5
-	Rc2GMQwg/ePHLryl2ofeAnZmhsVHyBVIRE8dR1V/gGz17x24Eafi6LSrWgQMd9UcaJMVmu+BF8h
-	Z9CrZ0UwQkbF1H+lH5viK5Dayw1tKI8isnHZNDWUM8AX8El8QmGb6u97v+aNDgGfsw+gCwG+bg0
-	+S7MTEQAQc8iSnYEwGJsCQIGlbgvq2qgWqdaCn+LJjyZbxvcr8SJ4IDaPmVlZQlQE2zSlXSVDM2
-	Ia929Atg=
-X-Google-Smtp-Source: AGHT+IFEWyfiuJdnyqtyoZYKg9bklwY80ObfuMi86YATpJPQGXZVWeSfXdJIo6hDrYC4S2OTrqZGsg==
-X-Received: by 2002:a05:600c:198e:b0:43b:ce08:c382 with SMTP id 5b1f17b1804b1-43d01be6dfbmr66002135e9.16.1741710864569;
-        Tue, 11 Mar 2025 09:34:24 -0700 (PDT)
-Received: from playground.localdomain ([82.79.237.110])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d07fd046esm13398935e9.19.2025.03.11.09.34.23
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 11 Mar 2025 09:34:24 -0700 (PDT)
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-To: Mark Brown <broonie@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Frank Li <Frank.li@nxp.com>,
-	Marco Felsch <m.felsch@pengutronix.de>,
-	Iuliana Prodan <iuliana.prodan@nxp.com>,
-	Daniel Baluta <daniel.baluta@nxp.com>,
-	linux-sound@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 3/3] arm64: dts: imx: add imx95 dts for sof
-Date: Tue, 11 Mar 2025 12:32:55 -0400
-Message-Id: <20250311163255.2664-4-laurentiumihalcea111@gmail.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
-References: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
+	Tue, 11 Mar 2025 16:48:43 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 564BB152B;
+	Tue, 11 Mar 2025 09:48:51 -0700 (PDT)
+Received: from [10.57.40.127] (unknown [10.57.40.127])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 02C043F673;
+	Tue, 11 Mar 2025 09:48:38 -0700 (PDT)
+Message-ID: <3f6dcb62-f9ba-4bed-9863-2d4569bafcf1@arm.com>
+Date: Tue, 11 Mar 2025 16:48:37 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] coresight: Add a KUnit test for
+ coresight_find_default_sink()
+Content-Language: en-GB
+To: James Clark <james.clark@linaro.org>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Leo Yan <leo.yan@arm.com>
+References: <20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org>
+ <c31de6cb-f8f5-432c-b99e-68b10a24bc5e@arm.com>
+ <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <16fd2023-1ffa-4e87-ad89-a7ccdd8ba458@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_093425_956356_2E56F826 
-X-CRM114-Status: GOOD (  14.71  )
+X-CRM114-CacheID: sfid-20250311_094841_811465_C5657914 
+X-CRM114-Status: GOOD (  27.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,121 +69,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+On 11/03/2025 16:06, James Clark wrote:
+> 
+> 
+> On 11/03/2025 3:00 pm, Suzuki K Poulose wrote:
+>> On 05/03/2025 15:07, James Clark wrote:
+>>> Add a test to confirm that default sink selection skips over an ETF
+>>> and returns an ETR even if it's further away.
+>>>
+>>> This also makes it easier to add new unit tests in the future.
+>>>
+>>> Signed-off-by: James Clark <james.clark@linaro.org>
+>>> ---
+>>> Changes in v2:
+>>> - Let devm free everything rather than doing individual kfrees:
+>>>    "Like with managed drivers, KUnit-managed fake devices are
+>>>    automatically cleaned up when the test finishes, but can be manually
+>>>    cleaned up early with kunit_device_unregister()."
+>>> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1- 
+>>> james.clark@linaro.org
+>>> ---
+>>>   drivers/hwtracing/coresight/Kconfig                |  9 +++
+>>>   drivers/hwtracing/coresight/Makefile               |  3 +-
+>>>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
+>>>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 +++++++++++ 
+>>> + ++++++++++
+>>>   4 files changed, 88 insertions(+), 2 deletions(-)
+>>>
+>>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
+>>> coresight/Kconfig
+>>> index ecd7086a5b83..f064e3d172b3 100644
+>>> --- a/drivers/hwtracing/coresight/Kconfig
+>>> +++ b/drivers/hwtracing/coresight/Kconfig
+>>> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
+>>>         To compile this driver as a module, choose M here: the module 
+>>> will be
+>>>         called coresight-dummy.
+>>> +
+>>> +config CORESIGHT_KUNIT_TESTS
+>>> +      tristate "Enable Coresight unit tests"
+>>> +      depends on KUNIT
+>>> +      default KUNIT_ALL_TESTS
+>>> +      help
+>>> +        Enable Coresight unit tests. Only useful for development and 
+>>> not
+>>> +        intended for production.
+>>> +
+>>>   endif
+>>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/ 
+>>> hwtracing/ coresight/Makefile
+>>> index 8e62c3150aeb..96f0dfedb1bf 100644
+>>> --- a/drivers/hwtracing/coresight/Makefile
+>>> +++ b/drivers/hwtracing/coresight/Makefile
+>>> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o coresight- 
+>>> cti-platform.o \
+>>>              coresight-cti-sysfs.o
+>>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>>> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+>>> -coresight-ctcu-y := coresight-ctcu-core.o
+>>> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+>>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>>> hwtracing/coresight/coresight-core.c
+>>> index bd0a7edd38c9..b101aa133ceb 100644
+>>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>>> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct 
+>>> coresight_device *csdev)
+>>>       }
+>>>       return csdev->def_sink;
+>>>   }
+>>> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
+>>>   static int coresight_remove_sink_ref(struct device *dev, void *data)
+>>>   {
+>>> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/ 
+>>> drivers/hwtracing/coresight/coresight-kunit-tests.c
+>>> new file mode 100644
+>>> index 000000000000..a136af05eaf4
+>>> --- /dev/null
+>>> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+>>> @@ -0,0 +1,77 @@
+>>> +// SPDX-License-Identifier: GPL-2.0
+>>> +
+>>> +#include <kunit/test.h>
+>>> +#include <kunit/device.h>
+>>> +#include <linux/coresight.h>
+>>> +
+>>> +#include "coresight-priv.h"
+>>> +
+>>> +static struct coresight_device *coresight_test_device(struct device 
+>>> *dev)
+>>> +{
+>>> +    struct coresight_device *csdev = devm_kcalloc(dev, 1,
+>>> +                             sizeof(struct coresight_device),
+>>> +                             GFP_KERNEL);
+>>> +    csdev->pdata = devm_kcalloc(dev, 1,
+>>> +                   sizeof(struct coresight_platform_data),
+>>> +                   GFP_KERNEL);
+>>> +    return csdev;
+>>> +}
+>>> +
+>>> +static int coresight_test_cpuid(struct coresight_device *csdev)
+>>> +{
+>>> +    return 0;
+>>> +}
+>>> +
+>>> +static void test_default_sink(struct kunit *test)
+>>> +{
+>>> +    /*
+>>> +     * ETM -> ETF -> ETR -> CATU
+>>> +     *                ^
+>>> +     *                | default
+>>> +     */
+>>> +    struct device *dev = kunit_device_register(test, 
+>>> "coresight_kunit");
+>>> +    struct coresight_device *etm = coresight_test_device(dev),
+>>> +                *etf = coresight_test_device(dev),
+>>> +                *etr = coresight_test_device(dev),
+>>> +                *catu = coresight_test_device(dev);
+>>> +    struct coresight_connection conn = {};
+>>> +    struct coresight_ops_source src_ops = {.cpu_id = 
+>>> coresight_test_cpuid };
+>>
+>> Do we need the trace_id() ? Why is this required ?
+>>
+>> Suzuki
+>>
+> 
+> Because it tests with per-cpu sources so it checks if any of the TRBE 
+> sinks have been assigned first:
+> 
+>   /* look for a default sink if we have not found for this device */
+>     if (!csdev->def_sink) {
+>        if (coresight_is_percpu_source(csdev))
+>       csdev->def_sink = per_cpu(csdev_sink,
+>                                     source_ops(csdev)->cpu_id(csdev));
+> 
+> I think this test would probably fail if run somewhere TRBE was already 
+> probed. I can make the source subtype to be 
+> CORESIGHT_DEV_SUBTYPE_SOURCE_BUS for the test to work around it. Any 
+> value other than CORESIGHT_DEV_SUBTYPE_SOURCE_PROC will work. And then I 
+> can drop the fake cpu_id() callback.
 
-Add imx95 DTS for SOF usage.
+If the purpose is to detect the ETR, then I guess we could make this a 
+non-ETM source
 
-Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-Reviewed-by: Iuliana Prodan <iuliana.prodan@nxp.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  1 +
- .../dts/freescale/imx95-19x19-evk-sof.dts     | 84 +++++++++++++++++++
- 2 files changed, 85 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+TBH, I don't see any value in the test as such. But it is a good 
+starting point for adding further cases. So, lets keep this in.
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index be6ef4c56fbf..fa19250b6676 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -299,6 +299,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk-sof.dtb
- 
- imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
-new file mode 100644
-index 000000000000..808a9fe3ebb2
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
-@@ -0,0 +1,84 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright 2025 NXP
-+ */
-+
-+/dts-v1/;
-+
-+#include "imx95-19x19-evk.dts"
-+
-+/ {
-+	sof_cpu: cm7-cpu@80000000 {
-+		compatible = "fsl,imx95-cm7-sof";
-+		reg = <0x0 0x80000000 0x0 0x6100000>;
-+		reg-names = "sram";
-+		memory-region = <&adma_res>;
-+		memory-region-names = "dma";
-+		mboxes = <&mu7 2 0>, <&mu7 2 1>, <&mu7 3 0>, <&mu7 3 1>;
-+		mbox-names = "txdb0", "txdb1", "rxdb0", "rxdb1";
-+
-+		sai3_cpu: port {
-+			sai3_cpu_ep: endpoint {
-+				remote-endpoint = <&wm8962_ep>;
-+			};
-+		};
-+	};
-+
-+	reserved-memory {
-+		adma_res: memory@86100000 {
-+			compatible = "shared-dma-pool";
-+			reg = <0x0 0x86100000 0x0 0x100000>;
-+			no-map;
-+		};
-+	};
-+
-+	sof-sound {
-+		compatible = "audio-graph-card2";
-+		links = <&sai3_cpu>;
-+		label = "audio";
-+		hp-det-gpios = <&gpio2 11 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_hp>;
-+		widgets = "Headphone", "Headphones",
-+			  "Microphone", "Headset Mic";
-+		routing = "Headphones", "HPOUTL",
-+			  "Headphones", "HPOUTR",
-+			  "Headset Mic", "MICBIAS",
-+			  "IN3R", "Headset Mic",
-+			  "IN1R", "Headset Mic";
-+	};
-+
-+	sound-wm8962 {
-+		status = "disabled";
-+	};
-+
-+};
-+
-+&edma2 {
-+	/* channels 30 and 31 reserved for FW usage */
-+	dma-channel-mask = <0xc0000000>, <0x0>;
-+};
-+
-+&sai3 {
-+	status = "disabled";
-+};
-+
-+&wm8962 {
-+	assigned-clocks = <&scmi_clk IMX95_CLK_AUDIOPLL1_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2_VCO>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL1>,
-+			  <&scmi_clk IMX95_CLK_AUDIOPLL2>,
-+			  <&scmi_clk IMX95_CLK_SAI3>;
-+	assigned-clock-parents = <0>, <0>, <0>, <0>, <&scmi_clk IMX95_CLK_AUDIOPLL1>;
-+	assigned-clock-rates = <3932160000>, <3612672000>,
-+			       <393216000>, <361267200>,
-+			       <12288000>;
-+
-+	port {
-+		wm8962_ep: endpoint {
-+			bitclock-master;
-+			frame-master;
-+			remote-endpoint = <&sai3_cpu_ep>;
-+		};
-+	};
-+};
--- 
-2.34.1
+Suzuki
+
+> 
 
 
