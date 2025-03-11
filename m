@@ -4,73 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6E2AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:47:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E29C5C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:49:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=K5qoy4Wwqc/+tp7bILhH7TfD6GuM6X8n/2ysfE71QBM=; b=qTAZBbd50k53m16K8yTxnfCT6D
-	2QFWuIl5AJwKxrLLiI4Ch/uxUUyghNBURei8AalM6sJx5T8SVBuzZwsy2wGGW9mnGhKDMT9Ly0BYw
-	fvipk/9bs1ds2zxv/ITChPl6XS0taNH5OK73/e3FGHPkS+G2AjiMNAKSiUV4hQuniBie0JTj14xv0
-	xuZnnjkjAAYmBxOTr9oIKjWJ0Y/frRAuOE2rH2BKpLzMD2FLjl+qCxnFD254C2vLGLWDE/6MNtmqd
-	uDImE/vESQPtXQJr5hkschSEeuc+ESv88wqnH1dJcWJ4T708cunmB1+2/Cxh2k79PUwOjemQpRNqR
-	3Tv7mc0g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8N/4+Bu0y09vjMihB3VFFSKzM9LtDAemE75jVPYGVnw=; b=m64jZoB4ZIAM4dNa504S+yXfcm
+	8DlB6/pMypc0OZZrFdORD/rUR7tEWhNdAIDw6zBtFKR2yZ7GfVd4f9iKOzpu1uMNu+PVLWvkrQrwr
+	r/fyeFi41TUbbvArYasvZl/TmpF2bNhZ+1keaFeVgBPK+vJol8S005BkL+G6tMMhobnWbvg3rtff/
+	GuYQdaFzojpS51K35fd0jDIoFwLk6U4BC+wF9Nfn1JLWMUoXcP/Nk8/vPC9tutDS0Rqw7hMVJHdqr
+	mSUemyOf4KjwzS7u/DHckUe0psM0Am25NVTdmDxbrWf/OoLCHg+wpBAPsq+1yHL75kvcYlKk01Ncx
+	KhvEPScQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5ZI-00000006oyc-0zKa;
-	Tue, 11 Mar 2025 19:47:12 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1ts5av-00000006pPm-3vwb;
+	Tue, 11 Mar 2025 19:48:53 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5Tm-00000006nlm-05q7
+	id 1ts5V7-00000006nxA-1nxn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 19:41:31 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1ts5Tg-0007gL-85; Tue, 11 Mar 2025 20:41:24 +0100
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1ts5Tf-005ESk-1n;
-	Tue, 11 Mar 2025 20:41:23 +0100
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1ts5Tf-001qa6-1Z;
-	Tue, 11 Mar 2025 20:41:23 +0100
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Tue, 11 Mar 2025 20:41:12 +0100
-Subject: [PATCH] arm64: dts: imx8mp: configure GPU and NPU clocks in
- nominal DTSI
+	Tue, 11 Mar 2025 19:42:54 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-2ff73032ac0so1435840a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 12:42:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741722171; x=1742326971; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8N/4+Bu0y09vjMihB3VFFSKzM9LtDAemE75jVPYGVnw=;
+        b=N9qgNhmfps+OgW1/AW/rmzuJ1HRIA6tpkuxo4mqBUrnWPjqASiTqHnynya3b+1oTxg
+         xMJyEhhjFaXAOphqm7EnhvJw/OP/GzxJmjqLxOgG/RiatBqmuNFwABKV8nyKiakzqmit
+         Oemd47qVTVNfXGsUjR2yqXBGtYPMfza2zxlJr5Tbeg0kjDpzg+o8WKFcXeGVaOkeHFrA
+         X7CoegycS6Z7JcOdITMKhydnTfCvaRN9L/s11wRsZ15ZuTrA15KAJnC3s3Y9uCh7g5Mf
+         EioyLGh5La7g7FfparBDJfW/hc7gPxbSAOuc2IaQyCwj/qi/009YXGeG7ZH8b2mkxd2O
+         yDVw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741722171; x=1742326971;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=8N/4+Bu0y09vjMihB3VFFSKzM9LtDAemE75jVPYGVnw=;
+        b=a/IQVJ2tz+/vAzkl7d56vWouSEdsn+39xthRzd+B4g7SJ9smw9Oycfv2XcP88K4rG9
+         PHybFLnoKD3h/zPrLAEWVWfeaPrzfr0Xir5rAchoG/t21QN6ZsjeEU1UMo2jbLfl9aH2
+         Ndj1jjTSizipZRbdhmPB4Ys2vwfBkjzuX1VzvwFgLiRI+m7tlIJc0OvDPQFHiLbyaz6u
+         5VdIZbNt2+qoBfL0L9Yy/hOeOnw9LWm5t+TYdET+PcGehBKbkR9K2QBcb4cULVm03LZZ
+         9Ogo/M5mb+v5SNooOeTH+cmm+5PPXyFK3Ic7CTqWplHKFnu6XvfmFjHF0oKd2mSsN9hZ
+         fvDw==
+X-Forwarded-Encrypted: i=1; AJvYcCW9LYaAwZvtWdOryBkLPUBhEQP0+40xL9G83SoNoZm1astkkc9lBmp9D195chC6/x3HJW+VTNssyvrQb90f7XQn@lists.infradead.org
+X-Gm-Message-State: AOJu0YzSA/MSOSAk0K7fAn7S1hXndr5ho1/Py3uUDGpSdKWRgHlRsz9h
+	6DU2Bn2R/Fa/kdWNKC3mVfB0bdhiFUwkXWpVcoPLrmvszY+BHN1B8ACWcGzO0UG3eaWvtMCuj3k
+	bmrzm1/SACIkBbf3dPL3fK9Xq4aA=
+X-Gm-Gg: ASbGncuS06U3DzH+2VK8hk0iDgHAkB90yXSRArVX49dEPZr1KJdU6X3RVO1+BLipRNN
+	25Gu36lf4diS2b92B52EOHE7p9pAexBTQpwdXsWcubaQddZGNLbr1rnH1JuLJ/DFU5KtjRo3NA9
+	oFs0BDMiMsPHL7l+FuheCURlduy5Ol777zjGcq
+X-Google-Smtp-Source: AGHT+IFUV+t76koSVwvfP0DiZwzaDgX4TU97m1RDJMgX9rF6Maeao/NZF5n1twVNajoiVfnFuWNdcIiFIJEURljqxUQ=
+X-Received: by 2002:a05:6a00:3e04:b0:730:9989:d2d4 with SMTP id
+ d2e1a72fcca58-736eba65be7mr2466708b3a.3.1741722171206; Tue, 11 Mar 2025
+ 12:42:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250311-imx8m-clk-nominal-gpu-v1-1-78de5ea24c5d@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIANeR0GcC/x3MQQqAIBBA0avErBvQQqyuEi1SpxpKC6UIorsnL
- d/i/wcSRaYEXfFApIsT7yFDlgXYZQwzIbtsqESlRC0lsr8bj3ZbMeyew7jhfJzoTG2cNtq2QkF
- uj0gT3/+3H973A8Jlk9NnAAAA
-X-Change-ID: 20250311-imx8m-clk-nominal-gpu-db3bd7b7c905
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Lucas Stach <l.stach@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, 
- Peng Fan <peng.fan@nxp.com>, devicetree@vger.kernel.org, 
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-2-be14be37f4c3@gmail.com> <20250311180807.GC5216@willie-the-truck>
+In-Reply-To: <20250311180807.GC5216@willie-the-truck>
+From: Connor Abbott <cwabbott0@gmail.com>
+Date: Tue, 11 Mar 2025 15:42:38 -0400
+X-Gm-Features: AQ5f1Jpiv6Ky6TiyCXBXNy8BjxnsE1wP6MKIErri1CZPIQdm5BNmyqGHT0u49Nw
+Message-ID: <CACu1E7Hw6vGbTQ7t-Hj3ziycZhPxtOGSDkt7o4fNUx91KDcXfg@mail.gmail.com>
+Subject: Re: [PATCH v4 2/5] iommu/arm-smmu-qcom: Don't read fault registers directly
+To: Will Deacon <will@kernel.org>
+Cc: Rob Clark <robdclark@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_124130_067557_09791879 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20250311_124253_473648_F3839900 
+X-CRM114-Status: GOOD (  23.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,81 +100,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Commit 255fbd9eabe7 ("arm64: dts: imx8mp: Add optional nominal drive
-mode DTSI") added imx8mp-nominal.dtsi, which overrides all overdrive
-clock rates in imx8mp.dtsi to the nominal rates.
+On Tue, Mar 11, 2025 at 2:08=E2=80=AFPM Will Deacon <will@kernel.org> wrote=
+:
+>
+> On Tue, Mar 04, 2025 at 11:56:48AM -0500, Connor Abbott wrote:
+> > In some cases drm/msm has to resume a stalled transaction directly in
+> > its fault handler. Experimentally this doesn't work on SMMU500 if the
+> > fault hasn't already been acknowledged by clearing FSR. Rather than
+> > trying to clear FSR in msm's fault handler and implementing a
+> > tricky handshake to avoid accidentally clearing FSR twice, we want to
+> > clear FSR before calling the fault handlers, but this means that the
+> > contents of registers can change underneath us in the fault handler and
+> > msm currently uses a private function to read the register contents for
+> > its own purposes in its fault handler, such as using the
+> > implementation-defined FSYNR1 to determine which block caused the fault=
+.
+> > Fix this by making msm use the register values already read by arm-smmu
+> > itself before clearing FSR rather than messing around with reading
+> > registers directly.
+> >
+> > Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
+> > ---
+> >  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 19 +++++++++----------
+> >  drivers/iommu/arm/arm-smmu/arm-smmu.c      | 14 +++++++-------
+> >  drivers/iommu/arm/arm-smmu/arm-smmu.h      | 21 +++++++++++----------
+> >  3 files changed, 27 insertions(+), 27 deletions(-)
+>
+> [...]
+>
+> > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/=
+arm-smmu/arm-smmu.h
+> > index d3bc77dcd4d40f25bc70f3289616fb866649b022..411d807e0a7033833716635=
+efb3968a0bd3ff237 100644
+> > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
+> > @@ -373,6 +373,16 @@ enum arm_smmu_domain_stage {
+> >       ARM_SMMU_DOMAIN_NESTED,
+> >  };
+> >
+> > +struct arm_smmu_context_fault_info {
+> > +     unsigned long iova;
+> > +     u64 ttbr0;
+> > +     u32 fsr;
+> > +     u32 fsynr0;
+> > +     u32 fsynr1;
+> > +     u32 cbfrsynra;
+> > +     u32 contextidr;
+> > +};
+> > +
+> >  struct arm_smmu_domain {
+> >       struct arm_smmu_device          *smmu;
+> >       struct io_pgtable_ops           *pgtbl_ops;
+> > @@ -380,6 +390,7 @@ struct arm_smmu_domain {
+> >       const struct iommu_flush_ops    *flush_ops;
+> >       struct arm_smmu_cfg             cfg;
+> >       enum arm_smmu_domain_stage      stage;
+> > +     struct arm_smmu_context_fault_info cfi;
+>
+> Does this mean we have to serialise all faults for a given domain? That
+> can't be right...
+>
+> Will
 
-At the same time, commit 9f7595b3e5ae ("arm64: dts: imx8mp: configure
-GPU and NPU clocks to overdrive rate") went in, which changed some
-clock rates away from the nominal values.
+They are already serialized? There's only one of each register per
+context bank, so you can only have one context fault at a time per
+context bank, and AFAIK a context bank is 1:1 with a domain. Also this
+struct is only written and then read inside the context bank's
+interrupt handler, and you can only have one interrupt at a time, no?
 
-Resolve the discrepancy by effectively reverting the changes in the
-latter commit inside imx8mp-nominal.dtsi. This is required for proper
-operation of the imx8mp-skov boards, which are currently
-imx8mp-nominal.dtsi's only users and lets all other boards that don't
-include it benefit from the new higher frequencies.
-
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
-If the commit hashes are not stable, please feel free to squash this
-change directly into what's currently commit 255fbd9eabe7 ("arm64: dts:
-
-imx8mp: Add optional nominal drive mode DTSI").
----
- arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi | 26 +++++++++++++++++++++++
- 1 file changed, 26 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-index a1b75c9068b288a2fba73bbd96b1519a50df85a3..dc0ccd723c6d92e7946ebd52bac535e4175498d0 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-nominal.dtsi
-@@ -24,6 +24,20 @@ &clk {
- 	fsl,operating-mode = "nominal";
- };
- 
-+&gpu2d {
-+	assigned-clocks = <&clk IMX8MP_CLK_GPU2D_CORE>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <800000000>;
-+};
-+
-+&gpu3d {
-+	assigned-clocks = <&clk IMX8MP_CLK_GPU3D_CORE>,
-+			  <&clk IMX8MP_CLK_GPU3D_SHADER_CORE>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <800000000>, <800000000>;
-+};
-+
- &pgc_hdmimix {
- 	assigned-clocks = <&clk IMX8MP_CLK_HDMI_AXI>,
- 			  <&clk IMX8MP_CLK_HDMI_APB>;
-@@ -46,6 +60,18 @@ &pgc_gpumix {
- 	assigned-clock-rates = <600000000>, <300000000>;
- };
- 
-+&pgc_mlmix {
-+	assigned-clocks = <&clk IMX8MP_CLK_ML_CORE>,
-+			  <&clk IMX8MP_CLK_ML_AXI>,
-+			  <&clk IMX8MP_CLK_ML_AHB>;
-+	assigned-clock-parents = <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>,
-+				 <&clk IMX8MP_SYS_PLL1_800M>;
-+	assigned-clock-rates = <800000000>,
-+			       <800000000>,
-+			       <300000000>;
-+};
-+
- &media_blk_ctrl {
- 	assigned-clocks = <&clk IMX8MP_CLK_MEDIA_AXI>,
- 			  <&clk IMX8MP_CLK_MEDIA_APB>,
-
----
-base-commit: 5a690619426fc4b09c7fd3f40d3a69264ef3db0f
-change-id: 20250311-imx8m-clk-nominal-gpu-db3bd7b7c905
-
-Best regards,
--- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
-
+Connor
 
