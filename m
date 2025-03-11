@@ -4,82 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41751C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:07:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44284C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 12:09:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wOYbfZscHmavhA7intg3mKC5a2etFfDpLHORKbOBOnM=; b=yT/9MFP/4tHEOuvR2VGx7w1ODx
-	F8d8T8Dli8NdqGLnEWLob32utK/L/PjHW2PiRIwlz03050+vhxUEwS+ERJEi0oXCMdAOHfHHkRluk
-	5oc/9c1mH1B+RsE5nylQIfOJVu+pY0YfaJ2HPxoVtCoERaUsWyoEVL/vcleoQ/zD3yxDGe5sWVIt8
-	tnKzQ4QV0mc/3iyoqAx3WcN04ZRvWQQiqbHD+DB/avb5AKcnvhFhMUp7zcfQKHBtIctw7w37ZYCVL
-	6mK+WCjfD4s+POWfPqDDLTNKKH3jZL0Mk3uyWL75x3tF4M9BVaTvqemkd/Z+TrJFI9jiitGkKhaaT
-	UbSpy/pw==;
+	bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=; b=KG7K38P6HWinds9eAEFlniD+OC
+	a4tc0DSFm87Lh9YoUR+MJ+VbQ2vwj2F9ZE2BH8tBG94IeiQwCMFrqDCPKdZUpt5umuGI0mvzXyR4x
+	9GJzHw9cdQFlaQfMxjntYRnE3kyJjMrNBBX2ERUQZXqpsJrxs6zXP11rED6P1Od8t1HSEK46legK9
+	o/rL8sHkRd5jAXxldfVaTaiQa225T24Jb5pGAs1z+0Tdp7Z11NNMH+Ijsfr4Mphbz75le/OwYrdiO
+	RifQ4SHh3kTNgboqE6aFcS2VEQhlm78aV0qMrrNf+heE/w+WrBgbjOqUmBcq6TNb1hHYiwM1SMMWB
+	Gzg8W1JA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryO2-00000005ZUn-3omL;
-	Tue, 11 Mar 2025 12:07:06 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tryQ0-00000005Zwr-2V6C;
+	Tue, 11 Mar 2025 12:09:08 +0000
+Received: from mail-bn8nam12on2062a.outbound.protection.outlook.com ([2a01:111:f403:2418::62a] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tryMO-00000005Z7j-10Py
+	id 1tryOL-00000005ZZO-3ohe
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 12:05:25 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tryM5-0008Nt-Gb; Tue, 11 Mar 2025 13:05:05 +0100
-Received: from pty.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::c5])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tryM3-005B4L-13;
-	Tue, 11 Mar 2025 13:05:03 +0100
-Received: from mfe by pty.whiteo.stw.pengutronix.de with local (Exim 4.96)
-	(envelope-from <mfe@pengutronix.de>)
-	id 1tryM3-007j7z-0d;
-	Tue, 11 Mar 2025 13:05:03 +0100
-Date: Tue, 11 Mar 2025 13:05:03 +0100
-From: Marco Felsch <m.felsch@pengutronix.de>
-To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-Cc: Frank Li <Frank.li@nxp.com>, Marc Kleine-Budde <mkl@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org, Daniel Baluta <daniel.baluta@nxp.com>,
-	Sascha Hauer <s.hauer@pengutronix.de>, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Shengjiu Wang <shengjiu.wang@nxp.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 4/5] arm64: dts: imx8mp: convert 'aips5' to 'aipstz5'
-Message-ID: <20250311120503.ryqg2thnj4mkgsjz@pengutronix.de>
-References: <20250221191909.31874-1-laurentiumihalcea111@gmail.com>
- <20250221191909.31874-5-laurentiumihalcea111@gmail.com>
- <Z7jahtO3bxjkMfnc@lizhi-Precision-Tower-5810>
- <cd6a84cd-ff17-45df-becc-9bfc74522f73@gmail.com>
- <20250227-monumental-whale-of-security-b1c84e-mkl@pengutronix.de>
- <Z8CWsI/DKZtDBkzE@lizhi-Precision-Tower-5810>
- <20250228101952.g6tae3ni5xrhjk3y@pengutronix.de>
- <bfe3c719-f1c5-4ae5-9a40-45ad75cd5855@gmail.com>
- <20250307152236.3ayulbjqnu3vn7mf@pengutronix.de>
- <ec38d41d-f2ce-4a98-bb02-d1ae9beb0b3b@gmail.com>
+	Tue, 11 Mar 2025 12:07:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jzEiTedFgskjgKUpsRawcx3P2V1CtnhxV9Wg/SDmKodn5Sseb1PGpa41VbXf/5AxZqkkOwOsQyarZab4TpMb9Q2xOO4CpCLQe3rjfkn1qrhKhM1opzBZ5fizW90h5vgozMnOUacgLDgZi3F7LvY7CCrjIifCPBCbpPwtiMIVCYD2gSEUzbmvnG+tU8YqWuHyZkJBX8XgANZAgx0KfCXAQ1jfZEuFgmdFQy+w9vnydtBdUOmB4vfUAXhQ19CHtNFjkvxHD9oOLtkOhKHVka+h9z4wARdZoeoKLJWiG0nOrIaaA0gUyEsKp4JfwWMGvzGVqfvOGpgRT7MZJg84v76vrw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=;
+ b=doJIh8bB/lb+buvNY8KYkS2csVQhkoybcHAzQXBtx2XyUKjKoDyL7Vsa3r/cxQS1tD/iUnKER4Nq1eHV9PTMjB+QsVXCDcqFlHqMLinVlRtJcGWIsR85YUole6d0sfy44RK9iQonqlhTmIGLlRw+rk1b3c/UiBsFAfIluaCRyWGhFlatvhvO0qXICI3h1e15KqJi8MfdK2U8kqaYQt5uCONBBgNAYu0BPguJqvXzClDAg3EZg9PHS5K8gZx01wW5/kiKvBLSBDaQGJkOuM9e5oNBWc5S+U5sq6xsOJMcowGRAPlBPi9YqRPt3duxdmw6ewe93GA4kL7S+l8X/9wQfQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yWHAnmaZLe3h54gv8vLdraj2L5V9SwEnoCMyG4oCeNQ=;
+ b=ug1N1o6ssYA8ZRnSk/78A0c7M52CUdKcTWUa1fRKYDZ6ozOhXHr1ZHjYw6V4tnBv1YLtIZ2y45OuDE7q0UiQv30kNPXiR/MEt6gcG3YCLy9YRUZp9S264J3Nb0MzKAoZgyCcVFTiJOrEz81wKnQnl4cvQvQPIQC8SAI6zDSL4PrqpGuY5C41CY+iGmWziJHKbZCwSrOT2nveCdbs4vrvGIR1vSRekHswgf9S3XRvaMFGcyRZy9r3Rbl0Rj1ijZXb23bsz6l7CZ9L4uD7hszx7NmBfhbrY2fTMsYhsWOWKpIVbgvZqKULfzWInkX4fqaPba45pSrvRJQgfRXqSV7d1w==
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com (2603:10b6:806:2bc::21)
+ by MN2PR12MB4223.namprd12.prod.outlook.com (2603:10b6:208:1d3::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Tue, 11 Mar
+ 2025 12:07:20 +0000
+Received: from SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2]) by SA1PR12MB7199.namprd12.prod.outlook.com
+ ([fe80::ae1b:d89a:dfb6:37c2%5]) with mapi id 15.20.8511.026; Tue, 11 Mar 2025
+ 12:07:20 +0000
+From: Ankit Agrawal <ankita@nvidia.com>
+To: Marc Zyngier <maz@kernel.org>
+CC: Jason Gunthorpe <jgg@nvidia.com>, "oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>, "joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>, "yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>, "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>, "ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>, "shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>, "david@redhat.com"
+	<david@redhat.com>, Aniket Agashe <aniketa@nvidia.com>, Neo Jia
+	<cjia@nvidia.com>, Kirti Wankhede <kwankhede@nvidia.com>, "Tarun Gupta
+ (SW-GPU)" <targupta@nvidia.com>, Vikram Sethi <vsethi@nvidia.com>, Andy
+ Currid <acurrid@nvidia.com>, Alistair Popple <apopple@nvidia.com>, John
+ Hubbard <jhubbard@nvidia.com>, Dan Williams <danw@nvidia.com>, Zhi Wang
+	<zhiw@nvidia.com>, Matt Ochs <mochs@nvidia.com>, Uday Dhoke
+	<udhoke@nvidia.com>, Dheeraj Nigam <dnigam@nvidia.com>, Krishnakant Jaju
+	<kjaju@nvidia.com>, "alex.williamson@redhat.com"
+	<alex.williamson@redhat.com>, "sebastianene@google.com"
+	<sebastianene@google.com>, "coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>, "yi.l.liu@intel.com"
+	<yi.l.liu@intel.com>, "ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>, "gshan@redhat.com"
+	<gshan@redhat.com>, "linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>, "tabba@google.com"
+	<tabba@google.com>, "qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Topic: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using
+ VMA flags
+Thread-Index: AQHbkaduhEbbxySPq0WwO4LU4q6wXLNsQygAgAD/GeCAAIkeAIAAC14g
+Date: Tue, 11 Mar 2025 12:07:20 +0000
+Message-ID: <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250310103008.3471-1-ankita@nvidia.com>
+	<20250310103008.3471-2-ankita@nvidia.com>	<861pv5p0c3.wl-maz@kernel.org>
+	<SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+ <86r033olwv.wl-maz@kernel.org>
+In-Reply-To: <86r033olwv.wl-maz@kernel.org>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: SA1PR12MB7199:EE_|MN2PR12MB4223:EE_
+x-ms-office365-filtering-correlation-id: 29d2fab7-aefd-403c-8066-08dd60954694
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|38070700018;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?mFQCAfEDa7z6XFZXVja7Ogf7k/FPbwqBfjEO3X8QWNaJ6rkcGzL2vtEXtq?=
+ =?iso-8859-1?Q?xVck/hQ97X3PaNUJQjF/AkGPvEZWEGrqe7js3Yw66Exrwx8Rd4K/J1s/0X?=
+ =?iso-8859-1?Q?HCUAx145dnfJWMfOhFF0mPr5GcL8FitiP0+dpY/248mzx2Rr1iKugv/sqG?=
+ =?iso-8859-1?Q?W07yltFgYpTDs4YIZb+AwSGesUy1+bwOUZxeTmZzT6S9a9zdBTdd/FG8Oc?=
+ =?iso-8859-1?Q?zkpI9iuGzRaLCQ05YWU6Y9nk2i1MY5aVU3kFJoIYfdinJSzTKOVNMqM68Y?=
+ =?iso-8859-1?Q?98vZ/2MJS2MVHdirS/L/y61GURr0BFIBdhkPjXcKlyIZTrHZfId6ZAeqjr?=
+ =?iso-8859-1?Q?AN7bjfhbZXj3C7hCcCntUGSwrksxQUdSIqLWtK0wMQDUB6hfRq9A4oM8kF?=
+ =?iso-8859-1?Q?zwDVf2q96FkPZytm3DsbVv+PxpCw5R2W1zwE3iL8I5Eabu+Z37vXblPHFv?=
+ =?iso-8859-1?Q?BYhUVEIRYUXwVAggwscZ9Sp7QpIOjy5wHnLQalUUV6zZAxLknaaEKrqdvv?=
+ =?iso-8859-1?Q?Q7ZBtMoXA5P53gur4iXrIBru9T+xQnxKbhjZvIs+A+XypNJ/YW7ZSV+c0g?=
+ =?iso-8859-1?Q?3etRnJRO/QQiCzx1X+aItRic5i7e6S/PvS64GOKpdfnhGgg4otmfpsOHEs?=
+ =?iso-8859-1?Q?CVp6DT8XOedRXm2cn3eV8nQgXWKFqKEPv1YYvcWsL1VA4HuHlzxUyp3R8m?=
+ =?iso-8859-1?Q?RMXRbtLNYZig0OZgXX1S+Rd+TU5niJ3ZoP/0p2ydmxvMHILYYftqow+CZo?=
+ =?iso-8859-1?Q?ECuXzd3OZ02rdzTD+WfWrx+ydG3OMcqQpvZ6SWCTx9mWrt0mHr2hrbAkOC?=
+ =?iso-8859-1?Q?CNWU9SfWM7wgTKmGyrl6v0O6k4tyrosu8nFyCBMJaIYxIsxtuxp0K+cSvj?=
+ =?iso-8859-1?Q?MjocEswRsf16MKoQJxKexHMO0O2naG7maNPGrfmVCrEF/+hMYw9U2Tym8A?=
+ =?iso-8859-1?Q?LA6bIW1FQTv2mG8k25XyWT3agKyLcKZoXqEMagoFqYWZegnRlp+dp6sLe7?=
+ =?iso-8859-1?Q?V7qyfc/kRYd2Nk5Pp9SrJhAvgN1PXdUymIvFp9gb8hVKV+s+l0AOxerzWq?=
+ =?iso-8859-1?Q?QKynEA3FPIqXk6KlKJNNKecaS4SGSSTNLVnwueYbBNK5elSis2PncwzzHR?=
+ =?iso-8859-1?Q?cEQd7jIyVyQcv4jjQBW79utJkEDYXX9kMlQQCF41BjuD0wzravaMkL+7zz?=
+ =?iso-8859-1?Q?n5wIhVxKX8NDhrIRmODf+9HM9dCSBQ/SESrlawpUPfi4IMEwYEI4StgMHp?=
+ =?iso-8859-1?Q?/r46gVGmJhoxFmHQ8sF9g+G/hMcLLFhf88zxH/A3ZM/DaCLNH3MZRaTStU?=
+ =?iso-8859-1?Q?vk/qnKaRnn5McOhE5qA6HD+fndtit5Lk57x2KzFRoi1OBE9/Q+QO/WVoWn?=
+ =?iso-8859-1?Q?rNANvnvaP4v90t2R6u2p71CdirVOAFYlWtgxqLSKE3XdA+VRqj2kOHrH3+?=
+ =?iso-8859-1?Q?9jlDVVO+xoQitIVY0jeOTZ9FarewyCakyk/GHoyx+B//RKNg0D3urQJjh5?=
+ =?iso-8859-1?Q?rWLVGRea6nzpBFce3Yojk8?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SA1PR12MB7199.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?vdw18QFYyavyKczGxQWEWp9UAAG3nik8/cBjDNBEpR/MV+DbCEh8D+6PPt?=
+ =?iso-8859-1?Q?cczb/5YjVIqeR+r8qcOaYccKka0Vr8MGSASRas6TDXmFB/6t0mIMNOzF4h?=
+ =?iso-8859-1?Q?NnQ/vbA6NiUu1d9DHnR68rGGPTehc/F6m/TU3TdtFvH+hfgz8lfkfv5i2o?=
+ =?iso-8859-1?Q?C897dAHjUj70Fod84BeurDK4f6P3pDbV55dfWpt6we9pqh8yL8w+7e+g4G?=
+ =?iso-8859-1?Q?547RHhfydwpzVzzuUf0pdBnNSxXPjKJ+X9+CJRZLlZMypXr2tPAGHDQx9U?=
+ =?iso-8859-1?Q?TxAYoKUkAhTMAcjbr25326rJkPR/NY7BJw5v4TACao2lLmODCye7VbSfYv?=
+ =?iso-8859-1?Q?x4WaywpWdKUKhmA76DKfXJ8qHLUbXRRqavYawHwq93NEK6Bp8ZjzA6AbWq?=
+ =?iso-8859-1?Q?qowEpF583Ab9g67lODWtW+wmbbCiwCSuPZItfKIWlSWqKjQElp2zRS7wfR?=
+ =?iso-8859-1?Q?Tsl6NXHOMSghFDugiktly4PqUhedGruTR8hxFgGaxVyAJd1+bgR6fSMWT/?=
+ =?iso-8859-1?Q?PMxTJ43pdtIoKaKhhzzFFnTAaKBgyNnBz8omyyD027lOKw7KOa2fucIjQz?=
+ =?iso-8859-1?Q?xz8scqJIGSN+/V2AUVZEyRgNk+nifirGJfODzfnK+C0yvEE2S+qHyAfRmY?=
+ =?iso-8859-1?Q?1jBj9klAim+SRVuYYt3i7IiXHPd4CWgN5UVaAvtctCzjyWLDFFI6Kj8u61?=
+ =?iso-8859-1?Q?CEH0xotK5iBnThBK4uB9Utf4Tk2R3XuQhx8uByEtDKohyzyl+757sA0Fvp?=
+ =?iso-8859-1?Q?pS66aoP33beYy0r8AYirGQwJ0vZBvXPzgmNzOnZtzqeGceAHRcDYT2JzCb?=
+ =?iso-8859-1?Q?I2EfVVFEL0ud0qFco+fNN1lE20c5tXmN1itMV0bXMrg7uPDRDfkqNYp05E?=
+ =?iso-8859-1?Q?IswO00bcsCNTG14xr80u9Hag81F6Q/KoAOYNZEOdxsChOJ29aPTp1QI+Ic?=
+ =?iso-8859-1?Q?bbC6ojWqTByqlopqSwacyF9xpGNb8uicQRz7+skzpJ5HmQTEjvZ/R8FEMP?=
+ =?iso-8859-1?Q?PMpj2j8A9H9p/IDAjfaP64M2Piwv20TnR764VvXm9IwzHj3sGuDp8Hh0kc?=
+ =?iso-8859-1?Q?jY3E7EGfb1pheAJ/xmsrIlLbL+kPUqid7FdLyWnbajd4zy06KhXj+vVKe9?=
+ =?iso-8859-1?Q?UfyTv80Su21MVqOoQT40KkW6GJAXea02y+ZMhp3tfTOaqBL7P+P4aANFjc?=
+ =?iso-8859-1?Q?RyoNWvWXRE43LphowI0ooeModozgBgpwHDe44GdHnwR8pvBgFrfJzytZC4?=
+ =?iso-8859-1?Q?o9WKSi6E1raWOQCGzOlPlURS3l5RMN+Qwj6HhsWytChAr9m4VcMOWwdefF?=
+ =?iso-8859-1?Q?TMCtwgzmea6DZG4wO1YpHSgoh2yrvEdSuK7/gSoXVqx2RhOMvVXnvpAIKd?=
+ =?iso-8859-1?Q?CJJ3Av9xQ1LQo0ZC0KQ5nbzPUAeRfXmuaAV/202MMJjU6ScjkKioedrP/0?=
+ =?iso-8859-1?Q?15HEir3tKJLVO6H01EZ01lfuDwOrydxnX8naNFOxNTyPvy5CmZ2UfROHP5?=
+ =?iso-8859-1?Q?YbSV3j0Ofd2Xm/iBPkzG4dHsmYhrLXUzSHpU6wqsUhemKnKcIiR7z0HZOM?=
+ =?iso-8859-1?Q?gyBVW+htlET9J94fi0Ie5SK97mR4JS7du60dPKMo62nm9E9J+lk0XKXsko?=
+ =?iso-8859-1?Q?EUGMxASv5iw7U=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <ec38d41d-f2ce-4a98-bb02-d1ae9beb0b3b@gmail.com>
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: mfe@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: SA1PR12MB7199.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 29d2fab7-aefd-403c-8066-08dd60954694
+X-MS-Exchange-CrossTenant-originalarrivaltime: 11 Mar 2025 12:07:20.6890
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kZvqco0S7Xi5Scq29lSIQdJVTX1ORgMMZnSjqx3AUZUCkCXAgIuN35ioZl42dfi30Z1sbm2KJMXoz6BWbpG66A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4223
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_050524_434478_D9819C05 
-X-CRM114-Status: GOOD (  62.71  )
+X-CRM114-CacheID: sfid-20250311_050725_947976_4F4EDADF 
+X-CRM114-Status: GOOD (  16.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,172 +192,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25-03-10, Laurentiu Mihalcea wrote:
-> On 3/7/2025 5:22 PM, Marco Felsch wrote:
-> > On 25-03-04, Laurentiu Mihalcea wrote:
-> >> On 2/28/2025 12:19 PM, Marco Felsch wrote:
-> >>> Hi,
-> >>>
-> >>> On 25-02-27, Frank Li wrote:
-> >>>> On Thu, Feb 27, 2025 at 11:57:54AM +0100, Marc Kleine-Budde wrote:
-> >>>>> On 25.02.2025 16:14:34, Mihalcea Laurentiu wrote:
-> >>>>>> On 21.02.2025 21:56, Frank Li wrote:
-> >>>>>>> On Fri, Feb 21, 2025 at 02:19:08PM -0500, Laurentiu Mihalcea wrote:
-> >>>>>>>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
-> >>>>>>>>
-> >>>>>>>> AIPS5 is actually AIPSTZ5 as it offers some security-related
-> >>>>>>>> configurations. Since these configurations need to be applied before
-> >>>>>>>> accessing any of the peripherals on the bus, it's better to make AIPSTZ5
-> >>>>>>>> be their parent instead of keeping AIPS5 and adding a child node for
-> >>>>>>>> AIPSTZ5. Also, because of the security configurations, the address space
-> >>>>>>>> of the bus has to be changed to that of the configuration registers.
-> >>>>>>> The orginal 0x30c0_0000..0x31200000 include 0x30df0000, why not map only
-> >>>>>>> config address part in your drivers.
-> >>>>>>>
-> >>>>>>> Frank
-> >>>>>> Any concerns/anything wrong with current approach?
-> >>>>>>
-> >>>>>>
-> >>>>>> I find it a bit awkward to have the whole bus address space
-> >>>>>> in the DT given that we're only interested in using the access
-> >>>>>> controller register space.
-> >>>>>>
-> >>>>>>
-> >>>>>> I'm fine with the approach you suggested but I don't see a
-> >>>>>> reason for using it?
-> >>>>> Looking at the "AIPS5 Memory Map" (page 34/35 in i.MX 8M Plus
-> >>>>> Applications Processor Reference Manual, Rev. 3, 08/2024), the
-> >>>>> AIPS5_Configuration is part of the AIPS5 bus. IMHO the bus is something
-> >>>>> different than the bus configuration. Why not model it as part of the
-> >>>>> bus?
-> >>>>>
-> >>>>>>>> diff --git a/arch/arm64/boot/dts/freescale/imx8mp.dtsi b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >>>>>>>> index e0d3b8cba221..a1d9b834d2da 100644
-> >>>>>>>> --- a/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >>>>>>>> +++ b/arch/arm64/boot/dts/freescale/imx8mp.dtsi
-> >>>>>>>> @@ -1399,11 +1399,13 @@ eqos: ethernet@30bf0000 {
-> >>>>>>>>  			};
-> >>>>>>>>  		};
-> >>>>>>>>
-> >>>>>>>> -		aips5: bus@30c00000 {
-> >>>>>>>> -			compatible = "fsl,aips-bus", "simple-bus";
-> >>>>>>>> -			reg = <0x30c00000 0x400000>;
-> >>>>>>>> +		aips5: bus@30df0000 {
-> >>>>>                        ^^^^^^^^^^^^
-> >>>>>>>> +			compatible = "fsl,imx8mp-aipstz", "simple-bus";
-> >>>>>>>> +			reg = <0x30df0000 0x10000>;
-> >>>>>>>> +			power-domains = <&pgc_audio>;
-> >>>>>>>>  			#address-cells = <1>;
-> >>>>>>>>  			#size-cells = <1>;
-> >>>>>>>> +			#access-controller-cells = <0>;
-> >>>>>>>>  			ranges;
-> >>>>>>>>
-> >>>>>>>>  			spba-bus@30c00000 {
-> >>>>>                         ^^^^^^^^^^^^^^^^^
-> >>>>>
-> >>>>> This looks very strange: The aips5 bus starts at 0x30df0000 and has a
-> >>>>> child bus starting at 0x30c00000?
-> >>>> @30df0000 should match controller reg's address.
-> >>>>
-> >>>> subnode address 0x30c00000,  should be descript in "ranges", which 1:1 map.
-> >>>>
-> >>>> So it should be reasonable. another example:
-> >>>> i2c@1000 {
-> >>>>
-> >>>> 	device@1c <- which use difference address space.
-> >>>> }
-> >>>>
-> >>>> The similar case also happen at pcie.
-> >>> I'm not really convinced that pcie and i2c are good examples here. I2C
-> >>> does have an other addressing scheme by nature and the hotplug-able pcie
-> >>> is dependeds on the pcie device memory map of course.
-> >>>
-> >>> Here we're talking about an access control IP core on a bus which is
-> >>> static.
-> >>>
-> >>> But.. it looks like from DT abstraction it's fine because STM did
-> >>> something similiar with their st,stm32mp25-rifsc or st,stm32-etzpc
-> >>> albeit it does look strange and I don't know why we have to limit the
-> >>> address space since it was already mapped but used by the fsl,aips-bus
-> >>> driver.
-> >>>
-> >>> Regards,
-> >>>   Marco
-> >> The address space of the bridge was changed to that of the bridge's
-> >> configuration space because I think it's very awkward from the
-> >> software's point of view to have to hardcode the offset and size of
-> >> the configuration space inside the driver. 
-> > You mean the access-controller IP core. I could also arguee that it's
-> > akward to put the bridge access-controller IP core into the middle of
-> > the bridge address-space instead of placing it at the very beginning of
-> > the bridge. But this doesn't help here :)
-> >
-> > I see what you mean but from DT abstraction POV it seems more reasonable
-> > to keep it as it is and just adapt the compatible. The current driver
-> > maps the whole address space too, so I don't see why we need to change
-> > it if we change it to the aipstz driver. If you see the
-> > access-controller IP core as part of the bus I don't see any problem and
-> > would argue that the offset detail needs to be handled within the
-> > driver.
-> >
-> >> I also looked at what STM did with "st,stm32-etzpc" so I thought this
-> >> would be acceptable from the DT's POV.
-> >>
-> >> Regarding why I chose not to model the access controller part as a subnode of the
-> >> bus:
-> >>
-> >>     1) The access controller is part of the bridge itself (not a separate module accessible
-> >>     via the bridge like it's the case for its children) so I think the current approach
-> >>     should also make sense if we take the hardware into consideration.
-> > I don't like this approach if you see the controller as part of the
-> > bridge because the offset could be handled within the bridge driver.
-> > I also that the register offset needs to be supplied else we can't reuse
-> > the driver and we don't want to adapt the driver for each SoC.
-> >
-> > What came into my mind is the following:
-> >
-> > 	spba-bus@30c00000 {
-> > 		compatible = "nxp,imx8mp-aiptz-bus", "nxp,aiptz-bus";
-> > 		reg = <0x30c00000 0x400000>, <0x30df0000 0x10000>;
-> > 		reg-names = "bus", "aipstz";
-> >
-> > 		child-nodes {};
-> > 		child-nodes {};
-> > 		child-nodes {};
-> > 	}
-> >
-> > This way we can abstract the access-controller register space and the
-> > whole bus register space and a generic driver could be written just by
-> > making use two reg fields.
-> 
-> by changing the compatible, we've also effectively changed the
-> programming model.
-
-You need to keep the backward compatible which means, a new kernel have
-to boot an old dts (firmware), which is stil the case since the
-"simple-bus" driver sill matches on the old dts files.
-
-But this doesn't mean that a new dts (firmware) have to be compatible
-with an old kernel.
-
-> I don't really see why we need to stick to the old way of configuring
-> the bus node (i.e: specify the whole address space of the bus as well)
-> when all we really care about is the AC configuration region?
-
-I see and as I said it's just my oppinion that we should abstract it
-this way since upstream already accepted the approach you implemented
-for the STM32 case.
-
-If NXP would have placed the AC at the beginning of each AIPS bus you
-wouldn't need to deal with this problem too since you would have the
-base register already.
-
-> anyhow, I'm not going to insist on this. I think the proposed approach
-> will work just fine. If there's no other comments on this then I'll
-> just switch to it in V3.
-
-That would be nice but please wait for maintainers feedback e.g Shawn.
-
-Regards,
-  Marco
+Thanks Marc for the feedback.=0A=
+=0A=
+> No, I'm concerned that a well established API (populating a memslot)=0A=
+> works in some case and doesn't work in another without a clear=0A=
+> indication of *why* we have this behaviour.=0A=
+>=0A=
+> To me, this indicates that userspace needs to buy in this new=0A=
+> behaviour, and that behaviour needs to be advertised by a capability,=0A=
+> which is in turn conditional on FWB.=0A=
+=0A=
+Yes, that makes sense.=0A=
+=0A=
+>>> Perhaps we can gracefully fall back to the default device mapping=0A=
+>>> in such case? But that would cause VM to crash as soon as it makes some=
+=0A=
+>>> access violating DEVICE_nGnRE.=0A=
+>=0A=
+> Which would now be a regression...=0A=
+> =0A=
+> My take is that this cacheable PNFMAP contraption must only be exposed=0A=
+> to a guest if FWB is available. We can't prevent someone to do an=0A=
+> mmap() behind our back, but we can at least:=0A=
+>=0A=
+> - tell userspace whether this is supported=0A=
+=0A=
+For my education, what is an accepted way to communicate this? Please let=
+=0A=
+me know if there are any relevant examples that you may be aware of.=0A=
+=0A=
+I suppose just checking for FWB (for PFNMAP) and returning some sort of=0A=
+an error on userspace mmap will not be enough of a hint here?=0A=
+=0A=
+> - only handle the fault if userspace has bought in this mode=0A=
+> - report the fault to userspace for it to fix things otherwise=0A=
+>=0A=
+>=A0=A0=A0=A0=A0=A0=A0 M.=0A=
+>=0A=
+> --=0A=
+> Without deviation from the norm, progress is not possible.=
 
