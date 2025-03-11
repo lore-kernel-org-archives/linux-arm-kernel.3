@@ -4,82 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7EF2C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:32:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A603C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 07:34:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=; b=FemHY5CjgkKFvrtLxOhENyCilm
-	vNHnmLuVTdv3AFTUWZXcIsjDqbgUzD3bdvIzvhr8691o9Rxlgl4qixfAvZLjNJtJAo/0z63JC37AR
-	umOJ72yDvz8Kb3yajzipbraPylz6E9LhGAyExkBmNUfMLMqN/rLbi+XbkKz5OsNpryhpoM6T2p77W
-	5fmDQ9vc+b0PPQp1IFbyaRkPYfFqf+WI0WkU7HeeJerFanYZiGUhNVKogMwIkz2s+AKGTs0td1RRG
-	LvB9JMEXfs0Uv5jWR4N8xc4NWedR0+8ZBKMhJwRoJgzL47x5J25cSBDxW6oAIi5jp8Q2QoK2Jiqme
-	i0t5Y7ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:CC:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SV7h4ls8IB7WbhH4rLYzHQP8pvDUXO29NP9uDd/G99g=; b=O+yC1o4K0sn4abL0DDLngTjBLd
+	h7b+fUbPG3sXoL1gLieFc6wWP6Iq94BpIKruHvKyJ3vZ0rXCGAxBkZfSMWUnTpFsmrgBqRaJj3fdV
+	3EN8HLUYew8b4LEj9iEDHjjgpwnXgIznSG1fozdCugrOU7kbCQ2dwLaIHpC6VGhVf0BSVdfwoePH3
+	N+YWcpv+KS/VivXpgBoglUXYly0ZYl1nLVrlyNMr5/Ie+UYYA1w6K+2L1B3Srb4rCNeHObljY8rB9
+	gv1dLx9xx7qoA/Holoe8AA4DLajh35n/jDn9//RsT5wzsFH/r64ITvK0IHptw01IPQHQUdWFN4ihx
+	AVhXBgYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru6K-00000004qJy-33Jg;
-	Tue, 11 Mar 2025 07:32:32 +0000
-Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
+	id 1tru7x-00000004qZp-1cmy;
+	Tue, 11 Mar 2025 07:34:13 +0000
+Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tru4g-00000004q2S-1vVX
+	id 1tru6F-00000004qJR-3hmn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 11 Mar 2025 07:30:51 +0000
-Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-43d007b2c79so8551335e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 11 Mar 2025 00:30:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741678247; x=1742283047; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=;
-        b=yrwYYKsOxup9/U1SijwlyWYgP3YsVjLVJfAbEi+17Zv5ZHQIHqfxNY2/NJM2o9W/oP
-         YT7TGCfqmYLV3PoLnOp1bd28BiPQSoEHB1pJnB1g7/Sdf9ZmFVj7Rk64ESrdQRkEQ7uR
-         DHPJojFu/0a7mMmR0hjUWkqQoQwxJf4DrMPmtOA9qX/Lvms29gIFkda3ciwNiXB3CaJy
-         /gv10NVbcEV5KiiOWJ94LiiCbj0Htaizx6cgLvI4mrH+by1A0IF0biuCpo3vAxQM/cP0
-         5Iug6Tz6ZY+ujDY/8RYLfN4EG9CNvBJKs6c2CF04z4PUXMvPb9LHvN1RkalCZeJFKzzh
-         1inQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741678247; x=1742283047;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=zhuiaZIhdYKodTSRHfJow4PUMD6UoZb9x3/nLZ72Wmk=;
-        b=dLyyu+mrwG1sO9BAIptyXtgE3un6/HVKkJNEsgGPxA+3s2k5EqEgIqpfnHax0l+Mkv
-         L2vcJAIj0gRgwrI9mjeHZwVY58wkvJN9707VHCi9LhR1xwW+MHVyFp9npOh4vLTHQJjP
-         2VdO9lP4YOs558QKCD1QrW4t6S+gHA4I/azifPlmDthRjHNPhQVlzdYadBzGru/zo9nN
-         /lYh+rlu+3D8NY8yc2utkWOZaNXCBtpaof1Nf2VZ/XAuMCUp49BcOfVaKe/PN35hiD1D
-         Pxu9v2r3DgEzXXZH3CANTPcXGGZT86fQBtFRTUDDvyr24MtRR2VzL5baOhvm8O+J0ojr
-         rTxQ==
-X-Gm-Message-State: AOJu0Ywffs3BoSTAlYj+9volw2PBu8IZMm03KNhtLaihPNa/KTiCG6Bt
-	JbJShkpPf/V86H6chVh6Ap7e75Q2eUKDIGEOjbLM/5V5nQJptcfzSU1/pYQyFiqZwahEoJJbWx+
-	tgbImy8vEFN9Q/EF4BzQPr6Tn+8kG9Js6/RlSqHBzCVQ4VgyWmOODtzAyt/1ZjtQdet/JCvwwAZ
-	8h4hWQIST3ggRRZJOEpema0z03OnPW+tG2k261TnYz
-X-Google-Smtp-Source: AGHT+IGdZDK1UMSJSho6/vTKgr+ZVUwGAK4BG/Lmd5N3BdsDSzLy1BG+KfP/kqDOcvwrCH22tHV+yNYH
-X-Received: from wmrn42.prod.google.com ([2002:a05:600c:502a:b0:43d:1b8:4e53])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:4f90:b0:43d:fa:1f9a
- with SMTP id 5b1f17b1804b1-43d01c22acfmr37124095e9.30.1741678247711; Tue, 11
- Mar 2025 00:30:47 -0700 (PDT)
-Date: Tue, 11 Mar 2025 08:30:44 +0100
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2176; i=ardb@kernel.org;
- h=from:subject; bh=q4fw2h5PkJrIGNXLFU2qUSwn/QGGmIKa9U1Zbj+tl8w=;
- b=owGbwMvMwCFmkMcZplerG8N4Wi2JIf38syX/dverrT6wr5vNbqOL1eT0T1seVgqcev/x1Y0ZF
- 69LzYrJ6ShlYRDjYJAVU2QRmP333c7TE6VqnWfJwsxhZQIZwsDFKQATKV7EyNAud8/49uZ1DMY6
- Vx9UxQc277ffyevcvP3Kjqmuz5syb79i+J9kGbq8YqeJTLr0hqOXu2zFEuysLymJCLwJ3CoqsrN NgBcA
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Message-ID: <20250311073043.96795-2-ardb+git@google.com>
-Subject: [PATCH v2] arm64/kernel: Always use level 2 or higher for early mappings
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: mark.rutland@arm.com, will@kernel.org, catalin.marinas@arm.com, 
-	Ard Biesheuvel <ardb@kernel.org>, Anshuman Khandual <anshuman.khandual@arm.com>, 
-	Ryan Roberts <ryan.roberts@arm.com>
-Content-Type: text/plain; charset="UTF-8"
+	Tue, 11 Mar 2025 07:32:29 +0000
+Received: from lelv0265.itg.ti.com ([10.180.67.224])
+	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7WING699670
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Tue, 11 Mar 2025 02:32:19 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741678339;
+	bh=SV7h4ls8IB7WbhH4rLYzHQP8pvDUXO29NP9uDd/G99g=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=Gl+Q5VdCOk2Jt5F2GpIdEvc9OC9FNT8oJEQlDLVGsHP4gFb+C8D47CsoODSuJbidw
+	 i2g7qZ1NB8jXzS7Fl7TWLDK3gmdm9Q1BAAwM5PxIJ/AC4wSk+9ZgPxzbDTiL+4nFRl
+	 yRAIIPoBSysf0Ov+Oe9EnWbv57invSfO5yjO14QI=
+Received: from DLEE115.ent.ti.com (dlee115.ent.ti.com [157.170.170.26])
+	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52B7WI1Z003237
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 11 Mar 2025 02:32:18 -0500
+Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE115.ent.ti.com
+ (157.170.170.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Tue, 11
+ Mar 2025 02:32:18 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DLEE101.ent.ti.com
+ (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Tue, 11 Mar 2025 02:32:18 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52B7WHV9008584;
+	Tue, 11 Mar 2025 02:32:18 -0500
+Date: Tue, 11 Mar 2025 13:02:16 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <vigneshr@ti.com>, <manivannan.sadhasivam@linaro.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <rogerq@kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
+ J784S4
+Message-ID: <20250311073216.ynw7rzmu36dwywij@uda0492258>
+References: <20250305132018.2260771-1-s-vadapalli@ti.com>
+ <20250310210746.GA2377483@rocinante>
+ <20250311051806.smcu4o4dxpngimth@uda0492258>
+ <20250311072546.GA277060@rocinante>
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250311072546.GA277060@rocinante>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_003050_498801_EDBF13FB 
-X-CRM114-Status: GOOD (  15.78  )
+X-CRM114-CacheID: sfid-20250311_003228_012178_AD868A99 
+X-CRM114-Status: GOOD (  24.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,56 +92,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+On Tue, Mar 11, 2025 at 04:25:46PM +0900, Krzysztof Wilczyński wrote:
+> Hello,
+> 
+> > > > Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
+> > > > expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
+> > > > already reuse this macro since it accurately represents the link-state
+> > > > field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
+> > > 
+> > > Can you confirm for me that the following use the correct macro?
+> > > 
+> > >   333-static const struct j721e_pcie_data j721e_pcie_rc_data = {
+> > >   337:	.linkdown_irq_regfield = LINK_DOWN,
+> > >   
+> > >   341-static const struct j721e_pcie_data j721e_pcie_ep_data = {
+> > >   343:	.linkdown_irq_regfield = LINK_DOWN,
+> > >   
+> > >   347-static const struct j721e_pcie_data j7200_pcie_rc_data = {
+> > >   350:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> > >   
+> > >   362-static const struct j721e_pcie_data am64_pcie_rc_data = {
+> > >   364:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> > >   
+> > >   369-static const struct j721e_pcie_data am64_pcie_ep_data = {
+> > >   371:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> > >   
+> > >   375-static const struct j721e_pcie_data j784s4_pcie_rc_data = {
+> > >   379:	.linkdown_irq_regfield = LINK_DOWN,
+> > >   
+> > >   383-static const struct j721e_pcie_data j784s4_pcie_ep_data = {
+> > >   385:	.linkdown_irq_regfield = LINK_DOWN,
+> > >   
+> > >   389-static const struct j721e_pcie_data j722s_pcie_rc_data = {
+> > >   391:	.linkdown_irq_regfield = J7200_LINK_DOWN,
+> > > 
+> > > I am asking as some use LINK_DOWN, so I wanted to make sure.
+> > 
+> > Yes, the above are accurate except for J784S4 which is fixed by this
+> > patch. LINK_DOWN i.e. BIT(1) is applicable only to J721E which was the
+> > first SoC after which the driver has been named. For all other SoCs, the
+> > integration of the PCIe Controller into the SoC led to BIT(10) of the
+> > register being used to indicate the link status.
+> 
+> Sounds good!  Thank you for letting me know.
+> 
+> > > Tht said, the following has no .linkdown_irq_regfield property set:
+> > > 
+> > >   355-static const struct j721e_pcie_data j7200_pcie_ep_data = {
+> > >   356-	.mode = PCI_MODE_EP,
+> > >   357-	.quirk_detect_quiet_flag = true,
+> > >   358-	.quirk_disable_flr = true,
+> > >   359-	.max_lanes = 2,
+> > >   360-};
+> > > 
+> > > Would this be a problem?  Or is this as expected?
+> > 
+> > Thank you for pointing this out. This has to be fixed and the
+> > "linkdown_irq_regfield" member has to be added to match
+> > j7200_pcie_rc_data. I will post the fix for this.
+> 
+> No need to send a new version.
+> 
+> I will update the branch directly when I pull the patch.  Not to worry.
 
-The page table population code in map_range() uses a recursive algorithm
-to create the early mappings of the kernel, the DTB and the ID mapped
-text and data pages, and this fails to take into account that the way
-these page tables may be constructed is not precisely the same at each
-level. In particular, block mappings are not permitted at each level,
-and the code as it exists today might inadvertently create such a
-forbidden block mapping if it were used to map a region of the
-appropriate size and alignment.
+Thank you Krzysztof :)
 
-This never happens in practice, given the limited size of the assets
-being mapped by the early boot code. Nonetheless, it would be better if
-this code would behave correctly in all circumstances.
-
-So only permit block mappings at level 2, and page mappings at level 3,
-for any page size, and use table mappings exclusively at all other
-levels. This change should have no impact in practice, but it makes the
-code more robust.
-
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>
-Reported-by: Ryan Roberts <ryan.roberts@arm.com>
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
-v2: take the assignment of protval out of the loop again, so that
-    clearing a mapping works as expected wrt the PTE_CONT bit
-
- arch/arm64/kernel/pi/map_range.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/pi/map_range.c b/arch/arm64/kernel/pi/map_range.c
-index 2b69e3beeef8..5778697f3062 100644
---- a/arch/arm64/kernel/pi/map_range.c
-+++ b/arch/arm64/kernel/pi/map_range.c
-@@ -45,12 +45,12 @@ void __init map_range(u64 *pte, u64 start, u64 end, u64 pa, pgprot_t prot,
- 	 * clearing the mapping
- 	 */
- 	if (protval)
--		protval |= (level < 3) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
-+		protval |= (level == 2) ? PMD_TYPE_SECT : PTE_TYPE_PAGE;
- 
- 	while (start < end) {
- 		u64 next = min((start | lmask) + 1, PAGE_ALIGN(end));
- 
--		if (level < 3 && (start | next | pa) & lmask) {
-+		if (level < 2 || (level == 2 && (start | next | pa) & lmask)) {
- 			/*
- 			 * This chunk needs a finer grained mapping. Create a
- 			 * table mapping if necessary and recurse.
--- 
-2.49.0.rc0.332.g42c0ae87b1-goog
-
+Regards,
+Siddharth.
 
