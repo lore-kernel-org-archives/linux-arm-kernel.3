@@ -4,68 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE70AC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:37:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A5A3C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 11 Mar 2025 19:38:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oTEShFimapGmR74OfvWo1hBw+CheFn/y7KIigUoMWf8=; b=db5udIQGuii4rwlhBBNQiC8og3
-	9F5D07g7hNqArIc3nTAlgeBQCywZfsHWSytpZ7jD0XodTXCCMRiLDI8Ts8h1oBKPWXNeyXd3LAVLq
-	MWjZdqKrYYpcZm3ZTc5PpfFKTw5pDY+CEilsKCqEMPCNfZACHorNj0efncfXCZskdlg0/T5BWCBBD
-	5gM/b4AGb2jc3amrM7G1UXO4h6DnSp0vLTIek5g8HdW3IIqYBPWZzUSPLPirrOVM2z/d110SPrUz7
-	NVbyFC5D0PRcw813QhGZMWayk/Lj7dMOzeVitupXrY/RVwC/vhvCLR/3AAOK/Zfrxj8BmhsUz2N74
-	hKgPZYcA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=r2iALqmJ9W5PvdgRlZlQN8w8c/TCcNrKBPSuiGPG2Hk=; b=EmTQ6byhjwQU9rI+GmDuSPjVB3
+	RhLVFYiIKLgp63lJuNR9MANxv9eMV0V+1u+Foh4ofF8cSrwgeKgEm2TylkhnNxIu/nOb1gqJuQ1F0
+	s8mN04m5dc7e275GYMpGg9CucDt4jy68uFlhSbuehWjYD7uENvEW8lFbCHo4WnCXw+vOm6aAuMRCB
+	KTUx1MRiHEa9Mz2yUOsnIUs8RmMiPerYQEc9F4FlOsVxCPDUGBkLQi3PVirIFUvbuHUXHNS6K7Au5
+	7MiweL7/4oM/1e8x3d6t3aTvsPbfZ0Ofgz9EQa3G8aDxHs47MwXwJ+npKE9bzvr0FNgIRaJnOh8Ii
+	YgclbjnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5PY-00000006nJU-2ocV;
-	Tue, 11 Mar 2025 19:37:08 +0000
+	id 1ts5RB-00000006nU3-2x9V;
+	Tue, 11 Mar 2025 19:38:49 +0000
 Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1ts5KF-00000006mVg-0FhP;
-	Tue, 11 Mar 2025 19:31:40 +0000
+	id 1ts5LX-00000006mgB-0Ibu
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 11 Mar 2025 19:33:00 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1420B5C4B84;
-	Tue, 11 Mar 2025 19:29:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6029BC4CEE9;
-	Tue, 11 Mar 2025 19:31:37 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 96C0D5C683F;
+	Tue, 11 Mar 2025 19:30:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 40690C4CEE9;
+	Tue, 11 Mar 2025 19:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741721497;
-	bh=9vKWwaB9nvbKVoEN30+SqReCmCUlZ1KxsGwp8d3wTDg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bQVfBiRm+tK9ub7XWhRYH1fSA49LyxojZHcoZIEpA2/y4jhfdzeYaHh3wH8Fx9fCS
-	 FJO7D9rGCl5jwWWYHY8bJV7Eh+Bck5edTeD4AS6JQh+9tvcGzP8CzNhgM1odt8/Wc9
-	 VZTfjWf+Momec4SVf3GjKfFZ+KHuiXUiCFq8SIoAHw0YxoDmleV3dpAmZJw9eMyadV
-	 BzRcwnE4de5gCMjGdGVRdjrJ77katc+Lf9ggRuIWdYcjqrNBYioZL9/840QlBDdSe9
-	 u6LXsizYPXEVlmxNDWCPJB03oJAXuTY1tNLWRli9pq4rFlo52DRjd9tPOCE1RWdQWn
-	 ckSJ29Nhs5sww==
-Date: Tue, 11 Mar 2025 14:31:36 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Yao Zi <ziyao@disroot.org>, "David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	David Wu <david.wu@rock-chips.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>, devicetree@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Conor Dooley <conor+dt@kernel.org>, linux-kernel@vger.kernel.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, netdev@vger.kernel.org,
-	Heiko Stuebner <heiko@sntech.de>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v2 1/5] dt-bindings: net: rockchip-dwmac: Add compatible
- string for RK3528
-Message-ID: <174172149414.4181803.16963634632371171945.robh@kernel.org>
-References: <20250309232622.1498084-1-jonas@kwiboo.se>
- <20250309232622.1498084-2-jonas@kwiboo.se>
+	s=k20201202; t=1741721578;
+	bh=Wxt9plsY76hBns2l6MjcqJuJ40OKk7QprTRvYCqzogs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=SLbLn+j1kXoKbh1UW+AgREKRKt2XTzF3SpnlVXJDCJog0MZUtwXU+P/GjLLFT/jMd
+	 uFeHq7WdvKhWfIN3XwhtV/fxtqFxCSSYTy3ZYHxUyexg9svxLKWj92muJ5cbyccchd
+	 LEQPMBr1eAzdxS7oA3exHBJbaO7I1pizhNfWih3ht7CcEAhWncGb+gs2IX45bA3Wyu
+	 62B8SqydwDl/kmsHvy30oyQBKwIwoHyL2inYJcR7gX+xhB3J7/6Jn+J8+u9RGqVZdH
+	 k/vXIAsxCp05zz07xxe+BK1K7JkdnCY/spbfpAep6UytmBHCs6tbs1MMrMw4iStLIG
+	 R/HQ5xRTyrQVw==
+Message-ID: <c2e2c78c-e85e-406a-90a7-07d5b4fa82a6@kernel.org>
+Date: Tue, 11 Mar 2025 20:32:50 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250309232622.1498084-2-jonas@kwiboo.se>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 2/4] pinctrl: samsung: add dedicated SoC eint
+ suspend/resume callbacks
+To: Peter Griffin <peter.griffin@linaro.org>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Linus Walleij <linus.walleij@linaro.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
+ andre.draszik@linaro.org, tudor.ambarus@linaro.org, willmcvicker@google.com,
+ semen.protsenko@linaro.org, kernel-team@android.com, jaewon02.kim@samsung.com
+References: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
+ <20250307-pinctrl-fltcon-suspend-v4-2-2d775e486036@linaro.org>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <20250307-pinctrl-fltcon-suspend-v4-2-2d775e486036@linaro.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_123139_155628_E20BC23D 
-X-CRM114-Status: GOOD (  13.21  )
+X-CRM114-CacheID: sfid-20250311_123259_230867_47927E7A 
+X-CRM114-Status: GOOD (  11.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,28 +123,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 09 Mar 2025 23:26:11 +0000, Jonas Karlman wrote:
-> Rockchip RK3528 has two Ethernet controllers based on Synopsys DWC
-> Ethernet QoS IP.
+On 07/03/2025 11:29, Peter Griffin wrote:
+> gs101 needs it's own suspend/resume callbacks to use the newly
+> added eint_fltcon_offset for saving & restoring fltcon0 & fltcon1
+> registers. It also differs to previous SoCs in that fltcon1
+> register doesn't always exist for each bank.
 > 
-> Add compatible string for the RK3528 variant.
+> exynosautov920 also has dedicated logic for using eint_con_offset
+> and eint_mask_offset for saving & restoring it's registers.
 > 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
-> ---
-> Changes in v2:
-> - Restrict the minItems: 4 change to rockchip,rk3528-gmac
-> 
-> The enum will be extended in a future patch, Pending RK3562 and a future
-> RK3506 variant also only have 4 clocks.
-> 
-> Because snps,dwmac-4.20a is already listed in snps,dwmac.yaml adding the
-> rockchip,rk3528-gmac compatible did not seem necessary.
-> ---
->  .../devicetree/bindings/net/rockchip-dwmac.yaml  | 16 +++++++++++++++-
->  1 file changed, 15 insertions(+), 1 deletion(-)
+> Refactor the existing platform specific suspend/resume callback
+> so that each SoC variant has their own callback containing the
+> SoC specific logic.
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
+> Additionally we now call drvdata->suspend() & drvdata->resume()
+> from within the loop that iterates the banks in
+> samsung_pinctrl_suspend() and samsung_pinctrl_resume().
+>
+> This simplifies the logic, and allows us to remove the
+> clk_enable() and clk_disable() from the callbacks.
+
+Can you make this a separate commit? This would be nicely self-contained
+and without any functional impact.
+
+Getting own suspend/resume would be the next commit.
+
+
+Best regards,
+Krzysztof
 
