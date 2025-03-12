@@ -4,58 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B76C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:18:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA486C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:20:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l3UTwYNTvM6JFmZc1v1+SJmO6PLUGJ4ZiGsTHyzVMLo=; b=2eDXmHa25JKCmSQihDrfj37lhZ
-	fxr3dyQTiVSxCY2H1x3K7m3PXg+0B361ZxlL/8F5bz5sb7i/aoxMQOGKxhC/LO494RmZuhlfhi7x6
-	VuFF+t5vgKRzYOIiudOTcLnFavF/qn+AORdZUspJJRwp0ajC+lNUZh94IqJFJI6HijWYp5UK4YecQ
-	rPzCLUQLKwWjsiYg5HoJK0Q0r1Gz0Bw4kagdzq2Mh+A3AmBDiZo/Lm1vHUfBBnWI8jklAq4aBrWjy
-	AuwpdRrXtp5DlkWVoVnFA1ubxEZFU6tqNoTpInG6u5YU6w7xAJ1FkAUn3q45XHMOKp0Rgl5XpWktx
-	LURwczzQ==;
+	bh=gBCq+hwhK1axsi5G47bpx4/uZwOLA/maDvmVfbKOI44=; b=fBRTU1ZhRyQ/AYSGk8jwk2lAh1
+	YDCaVXZC1d/vnzYblgmWmEmFEv6olGqjU/41cx191aWvfolQulY0puFE4485ShDeHz89ElgaI/33E
+	OBUOhue0N08ebG0s8YUsN33u3+6FFiR48mXOB8Rgy1/QcsGvemcfSqTj7JvggTSMTpfNJAzIohs5y
+	68stC3HnqS+lOCMjMkCB2n+qh3fH+ehtdaOJThQGv/qVYa+0cgMIPqJGWKg3IrHNHMGuT49qaX3M2
+	ccTCEyxEPKAbSRLTLj+7cNsKCIG1a+aO6GQmJKZ8sgJp47wCP9B2Tkj70MK5eOnpbeHhY/nJrqFEb
+	dQU5FPww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK6D-00000008EU9-307U;
-	Wed, 12 Mar 2025 11:18:09 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJtV-00000008CmJ-42qr
+	id 1tsK7p-00000008EdI-2fUI;
+	Wed, 12 Mar 2025 11:19:49 +0000
+Received: from mgamail.intel.com ([198.175.65.13])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsJuv-00000008D0h-2TKi
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:05:03 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E3E9D1516;
-	Wed, 12 Mar 2025 04:05:09 -0700 (PDT)
-Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ED5533F694;
-	Wed, 12 Mar 2025 04:04:57 -0700 (PDT)
-From: Suzuki K Poulose <suzuki.poulose@arm.com>
-To: Mike Leach <mike.leach@linaro.org>,
-	James Clark <james.clark@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	linux-kernel@vger.kernel.org,
-	kernel-janitors@vger.kernel.org,
-	coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] coresight: configfs: Constify struct config_item_type
-Date: Wed, 12 Mar 2025 11:04:49 +0000
-Message-ID: <174177747268.10135.1485424994901107067.b4-ty@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <1011717e5ed35ec12113a0d8c233823e820fb524.1723368522.git.christophe.jaillet@wanadoo.fr>
-References: <1011717e5ed35ec12113a0d8c233823e820fb524.1723368522.git.christophe.jaillet@wanadoo.fr>
+	Wed, 12 Mar 2025 11:06:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741777590; x=1773313590;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=zpVEj/Z0/zd3i/AJFV7MDl6B+Q7yGagVxm2zpHnOD3w=;
+  b=PE717Sw2t3m6sfp7XuLCRAGyFO08d+dnGSsTjQqsxDgbtxVGQt3T9RyD
+   /l8Xv5igMVCnL/O3aYtIgHWyMq/0PzBCeYa7SdnEu37QR4qDR+QTtVyRE
+   BWBWbE45gSpDWGmMEHWh8syNBLe2sxTIlLxhkKk1JGDKZfVUBpz6Ysp+3
+   2mFcUEecjydGw7RnTktALUNFx7HlTFUYgaFflxxavow+RQ8EJKbhH+FQr
+   upaa2EMd8C5rxt2M9cXFGAUsJY1v59Cf+eAuxekiV7fHgi0eDcCiBQ43M
+   GjT8eh/UfuvSVG9QppWZWE8YK6saXhpqG/MLJWV+Vmt9Rzu6PJ9vJ7YY+
+   Q==;
+X-CSE-ConnectionGUID: og0SOlj9RNWsn3AJeWKKUw==
+X-CSE-MsgGUID: 2ltK2lH2ToWhKFiNUwi0Jg==
+X-IronPort-AV: E=McAfee;i="6700,10204,11370"; a="53841910"
+X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
+   d="scan'208";a="53841910"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 04:06:28 -0700
+X-CSE-ConnectionGUID: FTcHnpSoR1On2p12HpUfcQ==
+X-CSE-MsgGUID: 1vDNffJDSfyoLH+Tbkug3Q==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
+   d="scan'208";a="125669067"
+Received: from soc-5cg4396xfb.clients.intel.com (HELO [172.28.180.56]) ([172.28.180.56])
+  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 04:06:25 -0700
+Message-ID: <93f1c6d0-a1fe-4154-a31d-20cc878476d9@linux.intel.com>
+Date: Wed, 12 Mar 2025 12:06:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+To: Suraj Gupta <suraj.gupta2@amd.com>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ git@amd.com, harini.katakam@amd.com
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
+Content-Language: pl, en-US
+From: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
+In-Reply-To: <20250312095411.1392379-3-suraj.gupta2@amd.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_040502_051865_72A5544F 
-X-CRM114-Status: UNSURE (   7.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_040629_680031_CB439C6B 
+X-CRM114-Status: GOOD (  12.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,23 +88,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2025-03-12 10:54 AM, Suraj Gupta wrote:
+> AXI 1G/2.5G ethernet IP has following synthesis options:
+> 1) SGMII/1000base-X only.
+> 2) 2500base-X only.
+> 3) dynamically switching between (1) and (2).
+> Add support for 2500base-X only configuration.
 
-On Sun, 11 Aug 2024 11:30:20 +0200, Christophe JAILLET wrote:
-> 'struct config_item_type' is not modified in this driver.
-> 
-> These structures are only used with config_group_init_type_name() which
-> takes a "const struct config_item_type *" as a 3rd argument or with
-> struct config_group.cg_item.ci_type which is also a "const struct
-> config_item_type	*".
-> 
-> [...]
+Hi, thanks for the patch.
 
-Applied, thanks!
+nit: a discrepancy between the commit description for and the comments 
+in the code for 3)
 
-[1/1] coresight: configfs: Constify struct config_item_type
-      https://git.kernel.org/coresight/c/b5060c17
+Maybe adding that information here in the commit description would make 
+sense as well? Or giving a bit of a background that SGMII/1000base-X is 
+already implemented in the driver and you are adding 2500base-X only 
+support.
+
+> +	/* AXI 1G/2.5G ethernet IP has following synthesis options:
+> +	 * 1) SGMII/1000base-X only.
+> +	 * 2) 2500base-X only.
+> +	 * 3) Dynamically switching between (1) and (2), and is not
+> +	 * implemented in driver.
+> +	 */
+
+For the rest of the patch, it looks good to me but I'd rather have 
+someone more experienced provide the Reviewed-By tag if they find the 
+patch appropriate.
 
 Best regards,
--- 
-Suzuki K Poulose <suzuki.poulose@arm.com>
+Dawid
 
