@@ -4,59 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76524C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9994DC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOs7eQJLJCUGEFSay4U24A8ybWT+TL/OSie+j9EubR4=; b=nyLOuMiXxxwALUipzhkuUfY0p2
-	L4GromBFnrjwddoPtk26mnpaRIOeSBFc+zTKVXtj4IaAAU4ZVNFwSp1Ie1CrHy7BEASryxi4OaDlb
-	QC3LMAwDjcag5ziJ0VXn64mYKy5ehyBHuMW5+gI2KlEa8TfEgI4yfeF8CgeorA3dW+GtgSNkw8qZk
-	kUjaDen+rxCNplT6t4tZIvbxDJER7Fg9/VH+qT94s4+TUUjWisykLiSNWXoIEM6lTWyJfiCVWRXsm
-	i2hFn6CE1+jrbYhft1DLlCQIQzZjT2WzuKbphdn9nlTHEtUdIyAeXD0d6rOvxSbrj8EpuRGj3LENJ
-	m4aiMqpQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGBwm8qMS+2GJaCafUPU+5noYTI4wXrs3yJkKVtCLXM=; b=jEDQnh5M7GDvXhaiUR6EXCldaa
+	E7vumYekkNPnf0I0wYyGgBqjXF9YkE07LkFxDl3tDOIBC7dITJYkoMNwnDmRz8FxGqhu3phNZzzvs
+	lwcboX0JazfyfUPlmkygqdfdkFJjd4XK0pB1B7tiS3wLXSGqzcis4ro8luCKldNAziBdlMB4LT2M1
+	hX4l6aOphthq4BwhHJTJCrB9BUa/AZpXrE7c6SnMPTm786iRDSZOy7JbFX30kEFghYzf7UaVdV8my
+	b2uzWZuHLF9Ut5mvtWVItq9Lb6w2cJp/lyaBkqWJ13a1NBLIMyStTd2pP4AInWnBkWYFVZY0M/8IE
+	kfbjG5tw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPmM-000000097Jv-1Zbv;
-	Wed, 12 Mar 2025 17:22:02 +0000
-Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
+	id 1tsPpn-0000000981T-0rvr;
+	Wed, 12 Mar 2025 17:25:35 +0000
+Received: from mail-il1-x12b.google.com ([2607:f8b0:4864:20::12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPkf-000000096mr-1IE2
+	id 1tsPo8-000000097gZ-1Za7
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 17:20:19 +0000
-Date: Wed, 12 Mar 2025 10:20:03 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741800012;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=mOs7eQJLJCUGEFSay4U24A8ybWT+TL/OSie+j9EubR4=;
-	b=K9VX7JmHz2x3px/JqTTXS6bOObpnE8iYmASgHZpf3YaLhlObaD2TuQ6CegwZRFbF1bPcsu
-	zsfhYfG64gFgM94Jjm6QbVRfeDERlVdDlrZwDlfU8QJWPWAxySkVUdGzcVY7Vqq77Ibu56
-	DwzXcJmp8MdTB6NrovutjeQmdpHOAEM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Writable TGRAN*_2
-Message-ID: <Z9HCQ40LxShzL4nj@linux.dev>
-References: <20250306184013.30008-1-sebott@redhat.com>
+	Wed, 12 Mar 2025 17:23:53 +0000
+Received: by mail-il1-x12b.google.com with SMTP id e9e14a558f8ab-3d4496a34cdso170335ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 10:23:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741800231; x=1742405031; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=dGBwm8qMS+2GJaCafUPU+5noYTI4wXrs3yJkKVtCLXM=;
+        b=DW6tGob0n80sSiZfqmFBMkyjs0mN84fKqi75UJUDhMEI+gQPYVHsXW9fGLwgWXSKFt
+         WULC8knJqrJU2J0uO1U9R6xBD2nz3Ig8DTz076cf2tGNKMH0dhenJJiqnOOom6V5WhXM
+         UiRf67WIj88HnwUfVi5pn4hjJJUcwTkb7iZT5tJw2TMw3IP541x8MCQvC6znjceI2nYb
+         I9j3Jv/AGoAhVSjaUdBfUIY2w3wtpbll4f0oKRoRleJizPaPTJTw4ibAq3ihw5jjizzz
+         z4c0VxuAHQTCdrwz97h15a41s3Wj0uIV02jV/4nMLzQs0wJRgLVcazzBMfFrqlERiAV/
+         cPqg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741800231; x=1742405031;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=dGBwm8qMS+2GJaCafUPU+5noYTI4wXrs3yJkKVtCLXM=;
+        b=Sc9GzB5rr1LqhuiJu8RGEiEr2kS0MaFvD6EAikVj5+dGv33PORCkN1tqTd0L96soDu
+         Hnom9dDR61Xnk2BimGT3exyqvq/R9yCfxEqjUWwad073INwTjM9E6JsHV5+++70NpEYM
+         +xdiH6PxXX6K0vIdiA+oqzv6hhneIvHdIg7ZHKZTLlcH3f2VkL6sHsGEEPofNi0fDQ48
+         xjEcoMVQYJ87Tas8YE/tzmnFTY4WM1TUL2jbfJFD+SE1bKCOyS9YgZ027OKyb20bHzCU
+         mo9VwlswXCmKv6MdvhqaxxSb5V2cHRU5+WoLNUgZiIH+YOAlOoYBmzmmuJSnYEaZNaRM
+         bWYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWB+wWVnVUk9HFrMbajZdJpS6w2yFbq6O8dcWGvBQgtniHPklsYj2unuzp8YK6eshEcHhTeGcwkc0I3dYUP4fpZ@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxijnv4KgkouEeu4WfOTFH93M/cv9TVsghWjj9MwX4orNT39BrG
+	Y1s80GuJZfsiGgtMUmOPNXA4h+OD5s9DOZkmzPihR/qXElrc5lOj4gM77pdRoTxffVat9pUfvD9
+	rlrMat+0yjKvDGDWHOBdWTwWFBrQ=
+X-Gm-Gg: ASbGncvQna2WR0hJIGqx8vxI6WIuE3p6AcHcofPV/hApCOelV0/E9WPDrhAPjYxxs6n
+	KKwzimcOAl2Vj/R38ShP+g66kScEHDQAPEwuYLSuwuNu/UCYoEKI6SNaD4ZEY3fjI/FMwafhXFV
+	a3PfN/bmsh546uNptbNDXDcJZKqn+vwIZ2O5x1Xt281Ou/DCEGODRxQw1zVLI9n8MIjrM=
+X-Google-Smtp-Source: AGHT+IGcOjBT5pnQnFzsB43flH0b/lHGboYrzDRZ8j3X26uAhwiB1vx8sBVrCRaRim73zA8BO7Uy4425SARrON6xCxo=
+X-Received: by 2002:a05:6e02:1a84:b0:3d4:2362:98d8 with SMTP id
+ e9e14a558f8ab-3d4419576dbmr239903965ab.2.1741800231340; Wed, 12 Mar 2025
+ 10:23:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250306184013.30008-1-sebott@redhat.com>
-X-Migadu-Flow: FLOW_OUT
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+ <20250311180553.GB5216@willie-the-truck> <CACu1E7GzCiO2b7AFJSDC+pN2VD9VaD2aYz_GGymM3-xAUqd__A@mail.gmail.com>
+ <20250312130525.GC6181@willie-the-truck> <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
+ <20250312164735.GA6561@willie-the-truck>
+In-Reply-To: <20250312164735.GA6561@willie-the-truck>
+From: Rob Clark <robdclark@gmail.com>
+Date: Wed, 12 Mar 2025 10:23:36 -0700
+X-Gm-Features: AQ5f1JpoGELyygSS0E-6GUOCTc5ufPPqVKk2sRxHePqLfAbRabP5NvXjW3XjOTE
+Message-ID: <CAF6AEGskyoemQDrTXh=ewf61e-hVzWMjmqe=nX2J-65W5-M6Zw@mail.gmail.com>
+Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+To: Will Deacon <will@kernel.org>
+Cc: Connor Abbott <cwabbott0@gmail.com>, Robin Murphy <robin.murphy@arm.com>, 
+	Joerg Roedel <joro@8bytes.org>, Sean Paul <sean@poorly.run>, 
+	Konrad Dybcio <konradybcio@kernel.org>, Abhinav Kumar <quic_abhinavk@quicinc.com>, 
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	freedreno@lists.freedesktop.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_102017_803981_86AFD6A2 
-X-CRM114-Status: GOOD (  20.98  )
+X-CRM114-CacheID: sfid-20250312_102352_429790_3839021E 
+X-CRM114-Status: GOOD (  32.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,83 +104,93 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Sebastian,
+On Wed, Mar 12, 2025 at 9:47=E2=80=AFAM Will Deacon <will@kernel.org> wrote=
+:
+>
+> On Wed, Mar 12, 2025 at 07:59:52AM -0700, Rob Clark wrote:
+> > On Wed, Mar 12, 2025 at 6:05=E2=80=AFAM Will Deacon <will@kernel.org> w=
+rote:
+> > > On Tue, Mar 11, 2025 at 06:36:38PM -0400, Connor Abbott wrote:
+> > > > On Tue, Mar 11, 2025 at 2:06=E2=80=AFPM Will Deacon <will@kernel.or=
+g> wrote:
+> > > > > On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
+> > > > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/io=
+mmu/arm/arm-smmu/arm-smmu.c
+> > > > > > index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e=
+3be0bfba75eea1d5de23117de 100644
+> > > > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > > > @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(stru=
+ct arm_smmu_device *smmu, int idx,
+> > > > > >                                     struct arm_smmu_context_fau=
+lt_info *cfi)
+> > > > > >  {
+> > > > > >       cfi->iova =3D arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FA=
+R);
+> > > > > > +     cfi->ttbr0 =3D arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_T=
+TBR0);
+> > > > > >       cfi->fsr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR)=
+;
+> > > > > > -     cfi->fsynr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FS=
+YNR0);
+> > > > > > +     cfi->fsynr0 =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_F=
+SYNR0);
+> > > > > > +     cfi->fsynr1 =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_F=
+SYNR1);
+> > > > >
+> > > > > We already have an implementation hook (->get_fault_info()) which=
+ the
+> > > > > qcom SMMU driver can override with qcom_adreno_smmu_get_fault_inf=
+o().
+> > > > > That thing dumps these registers already so if we're moving that =
+into
+> > > > > the core SMMU driver, let's get rid of the hook and move everybod=
+y over
+> > > > > rather than having it done in both places.
+> > > >
+> > > > As you probably saw, the next commit moves over
+> > > > qcom_adreno_smmu_get_fault_info() to use this. The current back doo=
+r
+> > > > used by drm/msm to access these functions is specific to adreno_smm=
+u
+> > > > and there isn't an equivalent interface to allow it to call a gener=
+ic
+> > > > SMMU function so it isn't possible to move it entirely to the core.=
+ At
+> > > > least not without a bigger refactoring that isn't justified for thi=
+s
+> > > > series that is just trying to fix things.
+> > >
+> > > Ok :(
+> > >
+> > > > > >       cfi->cbfrsynra =3D arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_C=
+BFRSYNRA(idx));
+> > > > > > +     cfi->contextidr =3D arm_smmu_cb_read(smmu, idx, ARM_SMMU_=
+CB_CONTEXTIDR);
+> > > > >
+> > > > > I think the CONTEXTIDR register is stage-1 only, so we shouldn't =
+dump
+> > > > > it for stage-2 domains.
+> > > > >
+> > > > Does it matter if we read the register though, as long as users are
+> > > > aware of this and don't use its value for anything?
+> > >
+> > > I think the contents are "UNKNOWN", so it could be hugely confusing e=
+ven
+> > > if they just got logged someplace. Why is it difficult to avoid touch=
+ing
+> > > it for stage-2?
+> > >
+> > Fwiw, we are only ever using stage-1
+>
+> Sure, but this is in arm-smmu.c which is used by other people and support=
+s
+> both stages.
 
-On Thu, Mar 06, 2025 at 07:40:13PM +0100, Sebastian Ott wrote:
-> Allow userspace to write the safe (NI) value for ID_AA64MMFR0_EL1.TGRAN*_2.
-> Disallow to change these fields for NV since kvm provides a sanitized view
-> for them based on the PAGE_SIZE.
-> Also add these bits to the set_id_regs selftest.
-> 
-> Signed-off-by: Sebastian Ott <sebott@redhat.com>
+Sure, but no one else is using this field in the fault-info.  So maybe
+the addition of a comment in the struct would be enough if it isn't
+going to cause an SError/etc to read it for S2 cb?
 
-I can't tell what you've based this patch on, it certainly doesn't apply
-on a 6.14 rc. Consider telling git to include the base commit next time
-you generate a patch.
-
-> ---
->  arch/arm64/kvm/sys_regs.c                     | 21 +++++++++++++++----
->  .../testing/selftests/kvm/arm64/set_id_regs.c |  3 +++
->  2 files changed, 20 insertions(+), 4 deletions(-)
-> 
-> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> index 14faf213d483..0730ed8314d0 100644
-> --- a/arch/arm64/kvm/sys_regs.c
-> +++ b/arch/arm64/kvm/sys_regs.c
-> @@ -1948,6 +1948,21 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
->  	return set_id_reg(vcpu, rd, user_val);
->  }
->  
-> +static int set_id_aa64mmfr0_el1(struct kvm_vcpu *vcpu,
-> +				const struct sys_reg_desc *rd, u64 user_val)
-> +{
-> +	u64 sanitized_val = kvm_read_sanitised_id_reg(vcpu, rd);
-> +	u64 tgran2_mask = ID_AA64MMFR0_EL1_TGRAN4_2_MASK |
-> +			  ID_AA64MMFR0_EL1_TGRAN16_2_MASK |
-> +			  ID_AA64MMFR0_EL1_TGRAN64_2_MASK;
-> +
-> +	if (vcpu_has_nv(vcpu) &&
-> +	    ((sanitized_val & tgran2_mask) != (user_val & tgran2_mask)))
-> +		return -EINVAL;
-> +
-> +	return set_id_reg(vcpu, rd, user_val);
-> +}
-> +
->  static int set_id_aa64mmfr2_el1(struct kvm_vcpu *vcpu,
->  				const struct sys_reg_desc *rd, u64 user_val)
->  {
-> @@ -2787,10 +2802,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
->  	ID_UNALLOCATED(6,7),
->  
->  	/* CRm=7 */
-> -	ID_WRITABLE(ID_AA64MMFR0_EL1, ~(ID_AA64MMFR0_EL1_RES0 |
-> -					ID_AA64MMFR0_EL1_TGRAN4_2 |
-> -					ID_AA64MMFR0_EL1_TGRAN64_2 |
-> -					ID_AA64MMFR0_EL1_TGRAN16_2 |
-> +	ID_FILTERED(ID_AA64MMFR0_EL1, id_aa64mmfr0_el1,
-> +				      ~(ID_AA64MMFR0_EL1_RES0 |
->  					ID_AA64MMFR0_EL1_ASIDBITS)),
->  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
->  					ID_AA64MMFR1_EL1_HCX |
-> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> index 1d65f4a09e6f..322b9d3b0125 100644
-> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> @@ -146,6 +146,9 @@ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
->  static const struct reg_ftr_bits ftr_id_aa64mmfr0_el1[] = {
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, ECV, 0),
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, EXS, 0),
-> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN4_2, 1),
-> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN64_2, 1),
-> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN16_2, 1),
->  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN4, 0),
->  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN64, 0),
->  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN16, 0),
-
-Please do selftests changes in a separate patch.
-
-Don't worry about respinning, I'll fix this up and queue it in a moment.
-
-Thanks,
-Oliver
+BR,
+-R
 
