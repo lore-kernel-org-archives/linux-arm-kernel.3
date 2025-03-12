@@ -4,65 +4,162 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D80C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF1CBC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:58:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qI45bPgcQRIVWr3oNUy4XqwozNUbxXoBBzyiVN72/9Y=; b=SZ9iX2+IIz0uu0CsylqBV6Em6c
-	hmSabPbO91X8KC2OpgKWPG/I3Qum72RYOSiXbVcELHfDTRR81oNIDQf1xTzOzT3xa0RYt5Hm/czKd
-	G2CsWGLE4ErPvp1pJpvJPamIgYdyEH750KVn3VBoy4dnP2Rl9NwQPgCzEnxbJv0pIsWLfCgTeSzS9
-	3pV8B1qIAHbBlJdI1nAXDzlzY2ydhJNmGhGgGd5YlY/Orbf+x8akdg2LPCclAwClbZHKa17taGMQw
-	JiFmQOhxdz4qp1vQj+6y1716//U5bDxQumlvIkUFVnmQfpgeY89bPYuhmjuCGNjCrML53aQtFblWr
-	6XC1QGkw==;
+	bh=L3u10ez0PBDJl3I2341zM8S1nxZdGcY/LDkftrk4+Uc=; b=Qxcm9QrFbZMqV00bkaMlXoLyGw
+	gVLEbfUVU5zSePYSGkwSXNkJh05GNlteeXzjiOJNG5EY3CfzctX1R8raD2r0L8MxpIfXfsYuhiy3Q
+	qRQrmvHlWyW0ft64GzCXePXSoUAR9U/9WCgr81dW5INvMr45AEXo4RaAOFzRtpsRRSJ0IsB4vpkO6
+	xvo2Kk5tVCT4GQZNwMnqdMJP7KzzGj0fy7CkO6k6+H/Ldx1l1Yvef2SRgfGxQTYgwbgOsG5Ea1QON
+	60ADmXa5Brv20qE6jK1XCOdrIvYARgtmvQIEG6ZZa1nmuXLu4HRFUdMZ8ztd5XJD/GSB6rUs3oeac
+	cSSP4loQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsNVF-00000008lSn-2yNH;
-	Wed, 12 Mar 2025 14:56:13 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsNWy-00000008lfN-3E8I;
+	Wed, 12 Mar 2025 14:58:00 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsNTW-00000008lEV-1Ccx;
-	Wed, 12 Mar 2025 14:54:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 6629C5C5853;
-	Wed, 12 Mar 2025 14:52:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5C95EC4CEEC;
-	Wed, 12 Mar 2025 14:54:24 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741791264;
-	bh=FnNAo0qYDoeLmf9I4rQ5n9VHCjiqfwSn8QRjaoWq7P4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=tM7cSkRiEJY2mAIeTnt81xDO3Cdykkj61Wnwx/6vb69SZF6DID5uyQGwLTWI7u69N
-	 78Ug1u8fXFiPqb2+OLGRf2rQhc7sur5j3UpIdTUaOtdTdqI2eP1WKWbVsK3HRxQFc7
-	 Ul9f7SMM4AhqCJhjrETs4MaycW1Gcyt2ndSs9GSH+oODTekq28CUGKGJZzZrdI3khg
-	 QNrr8VAxVEsRsiR4aR2Iv1lR7djtq9MHccIeSw14ChwQg49ZVw4oOHHh8wTCJT5QV4
-	 gPWRCFERKCZamRGeMQnIfObmlTPpl9/aq73YY08FC5f9pMuUl50fCsw23Kb1S+Xc+w
-	 WcFnFszxoOurQ==
-Date: Wed, 12 Mar 2025 15:54:21 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Michal Kubiak <michal.kubiak@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
-Message-ID: <Z9GgHZxkSqFCkwMg@lore-desk>
-References: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
- <Z9Ga7gx1u3JsOemE@localhost.localdomain>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="bCzl7VTOuudjwAEi"
+	id 1tsNTm-00000008lIb-1hCJ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 14:54:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=jKza/58/hPpphVbYFWS/FCN3kwZqQpBqHcfLLUFRftajb0H9eL5aIx9bA9RsqMDHtHaLLcuywr2I0b3iQOUrIYoUanMmsLq8Ly/C6ehxdQXoLYTwQuMsH8XTUjpX1ssyFIGbhBKCWLAk24NKrHK1O7foi3eTM2IzhllZg/tOSnh5LPvBWExP3+12mUZdRimEySY+Ggh6UNnfWwt341GXZUwX+LwyP4yBIbU6W2V+C2oTQiNzaYapROAqDV/2HBGZy2xaG+yOq/WHMKeQx0lbtF2sfjCvbG47k2myC0ZzghoRCKr8bGLLZ8QHdIJc2t5IrQ3q/TUvwZ/GkFTC9vooAw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=L3u10ez0PBDJl3I2341zM8S1nxZdGcY/LDkftrk4+Uc=;
+ b=xLDOuqnAUzlYt+fKrCj2hh8kX9hxz9UvtC9ptBTXfpoE3kVjo3461XT4U37TP+OjzI0L20vYrieQHsYejzfjYEtK2Gbtm5bcmGKxuvd+12bsOLRM8ozwADemvIPZ5NsJDbjJeojxkYCL3C6bohVrEJFMPaXKA0xosfgaV+ymn/1SJ8cTUo+yHKUCTsick5aGZ7N23yujjxJl1FdklLAoyfj4ZhMOdiW7BRzkLdoPzC+hDbAeuEz2CgCQR7cZrY0DtAnFW+ThxCbrb8jg6xgaZGvrt20jkNo6FFzd6uh6qEveZnh8WgXTt8FXTvItAnGxol/cMt2Jz204x74WuNZpUw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=L3u10ez0PBDJl3I2341zM8S1nxZdGcY/LDkftrk4+Uc=;
+ b=FWGyBk7+3kxPUj7U92Qx7dhiXHgUUComPoFaVRN2puZjq2IYh3NTyBUhvSSlRndkhBI2xTDAiq8fxQHLRonc3G0LcxqCrjGodn1zHlv9dmkNfeQSSeVKNn5F3lHPAiejdBZsPW0onC3A11BUeDneoN7PFt7H2K/W9Uf+3i0w8zJq9P2C7lEiz+YIdFuFLdTPKILtVcAHSG8PsHvzgt7lkb3DlLxrL9PvbLU39Xdp5ibzLEc3N21irqfNhoe/YAqTMub5zRa/sn6v2/VaKFcH6g1Ao6rcRMwPo7BF+prVaetfMcMJpo8Cv0yMswjMmzADRrdVwIb45KWuplAA5qrjfw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GVXPR04MB10408.eurprd04.prod.outlook.com (2603:10a6:150:1db::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
+ 2025 14:54:30 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
+ 14:54:30 +0000
+Date: Thu, 13 Mar 2025 00:02:07 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Russell King <linux@armlinux.org.uk>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Abel Vesa <abelvesa@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>
+Cc: "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	Dario Binacchi <dario.binacchi@amarulasolutions.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH v2 0/4] clk: Support spread spectrum and use it in
+ clk-pll144x and clk-scmi
+Message-ID: <20250312160207.GA21518@nxa18884-linux>
+References: <20250205-clk-ssc-v2-0-fa73083caa92@nxp.com>
+ <PAXPR04MB84596732B538D24F95E9FAC488C02@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <Z9Ga7gx1u3JsOemE@localhost.localdomain>
+In-Reply-To: <PAXPR04MB84596732B538D24F95E9FAC488C02@PAXPR04MB8459.eurprd04.prod.outlook.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI1PR02CA0050.apcprd02.prod.outlook.com
+ (2603:1096:4:1f5::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10408:EE_
+X-MS-Office365-Filtering-Correlation-Id: 471bb8fe-548d-4129-0a2e-08dd6175cb39
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|52116014|7416014|13003099007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?QbIT+TXALeTgSX6GVIevx4LWRcQkxzigLo0GE4iESUeAYHMhW066gcRRPqIZ?=
+ =?us-ascii?Q?o+OJxgLcydvZ9UbxZL6xISSj9T3VgLvbMiRVAF+ipRIO1QKI1cIZDLNytxyZ?=
+ =?us-ascii?Q?+Yzu4i6rublr0QIr4h1gi41TYky2wnsSDMZZBEYpXag9kDBJqpDGdtvl7THJ?=
+ =?us-ascii?Q?5UZc/7ct3BxlKqGdTEf8J1U4Mbk2N1jQS7fWTVBAZa+1D50rTMtwVUQO1SOn?=
+ =?us-ascii?Q?gIyuJ3YUWxJIZcPeliJq65oHYXNc3oiIKojJ1PuA9spognZ4i6HCIUwvevdy?=
+ =?us-ascii?Q?bRwv8qixhViXSa14ENEEML/XDixJxON/bxnwEwINg+yY9E9m0WBXWm2FFgl0?=
+ =?us-ascii?Q?qtj7a7ZOpVxsB37yQPuSYAgQQSghX9zO/unjxdgZo62ch0SUoH4LwTqSmAxr?=
+ =?us-ascii?Q?Y6oGlT/t1vHovx370F4ntIjLKxrmGI1P4PIP2oIA20dmKbB3yfwICGg1XNp8?=
+ =?us-ascii?Q?QVTTGvglxsMUyTP/tDI1dmD8nQWegCNuuOYrkTXnnQqCw94/ZmJEggTIwgr4?=
+ =?us-ascii?Q?E5fbcMuYOtn5olu4eO99sHA7OUSDs0Lm9kJ7nTBDToDN3PTl71l2zGzsv1bi?=
+ =?us-ascii?Q?cb7ILZoH5Bj5cal6UtZgOjivqJ1dYUhRDhmdFWARv/N57vmfSINC/g6hSRhy?=
+ =?us-ascii?Q?S7/wLxEMnsVz0xeGNmju1iQBwKE4RrRNVcdDFJllOMLI/NMysffPCH+MxaBj?=
+ =?us-ascii?Q?QPdmTXxZhLZ4/AEL6dpQWjCp793kVCkW7+2SpM9OnA1YyMv+xpPeDxr1dq8E?=
+ =?us-ascii?Q?6wGHbVt3supRIxnCerRWDQab5N7R5SuIxxWe2Er5kdV0EPcFK95r19iCUACw?=
+ =?us-ascii?Q?q8Egthj/yxcOD4+ldbjVeKxEhAGQ6iL+tkf/827tjrlJ4dyn0bOrcRhbJv2h?=
+ =?us-ascii?Q?uuaGN9eM/9YVoxCjlIgW/pHC5VB98MfRlKeayeZsOphgojlVFWQNaApQuRyZ?=
+ =?us-ascii?Q?JKYQ2W12MKcgSBPaGxSlkT/v1xCP8pSsDpgwTlb7BDen9KU2eMrWPh0vlhiM?=
+ =?us-ascii?Q?ELmD1ynchH5xfMQv+ykuF2xybCn6+rZcw82tkGDrqdX9zEEhN4M2tsg3nyZW?=
+ =?us-ascii?Q?iaymoqP6WXeyxlqMG9nKZhoaX65v/fmssZUyZbiyW/fXoED8ERQTMSfl2tSn?=
+ =?us-ascii?Q?BYKoe5HQDGP1kH/yLxsQIdlHfu9CCuflhr01MeC+MULu5hKJLOkMMNCaXq2T?=
+ =?us-ascii?Q?V0YevbJwShTRyBfevW2ry32EiUunUr6tvZ1r93W/Im2fg2Ez0W+tIIyLkUTt?=
+ =?us-ascii?Q?bFmdqRyFzxXEIh8pxl4rQUnlUvEhq6iN4AYshLMfXD7urKTGyCimj9PClt1p?=
+ =?us-ascii?Q?ryQda1DLhmAL9aleyoKs0i+w4hRcd7r9u86Ix12jzkFSDBl5QZPb5/zae4q6?=
+ =?us-ascii?Q?pgx44UjWh1NBCX+43/d72NNNm8FiL281yeERDeDMB2iks854gg=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(52116014)(7416014)(13003099007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?st5iZFi81VHjbBcVkm2AncRtU8bCg4WualtCQgefe7oSG+IO30325cCaNfdX?=
+ =?us-ascii?Q?vmOgKaqdQpjzunb7ie4xAOLafFNBBRm/rpgmM7XDgBr1A9jc2msyol+q4y9V?=
+ =?us-ascii?Q?wysF4R1IswrQYjGdtF58k7NP073/mzPTbnJvRlskrCjr2qu2hIQ/+cL5EEZc?=
+ =?us-ascii?Q?1qSuISIhND011VuevRauVuGLJxjEA0574wCN6kgJVLiax5cJFcpxHUoNWKkN?=
+ =?us-ascii?Q?8p5GLP/6yhsPI/Jzo+4HikCeb6PjkXB9Q/YOQXgIaNbgsOVWSpvLsnXCVRIT?=
+ =?us-ascii?Q?5DEANH9t1jMt3m45YuVbX1Xy1EIQR9ji5N8QSnP5jdvdkv2kE30OAwiJEcBL?=
+ =?us-ascii?Q?96pt1XvxiOqnzndz0JdmiMaaL5VlxWp7qtsdrCmehxGK2Isl7ATkcouPM8Du?=
+ =?us-ascii?Q?yKbGFyDPE8u+IbtU32NUwrxdPMs2eK1nouH0WgD9YJ2odmNg+sM2sZIV7h6n?=
+ =?us-ascii?Q?8rsfMdIut7wLIH92lBgftUQVYU9w6hn57+AJP+f67QnBYSFwpgIgPgQMUeOy?=
+ =?us-ascii?Q?OwoTzURta8mkDQvA5xZ0rjyb693qGnsG+ksuvUQuH4BfDQ9CuFGfCWZHjBG8?=
+ =?us-ascii?Q?2Hlu1smAq+jy1reRhAY2L/JBn2VCEPn/Xytx9GqER/h1RzLY9qRu8aKDEHya?=
+ =?us-ascii?Q?3kUKyUlgejx2YQjAIJCAOnggGurcPipM4LsdX1okQFlrpiduL49pBQ+e7Wmm?=
+ =?us-ascii?Q?DqI3AXhrzuca9b/L2LMy46GvR/hXm+1ahvNc21rYxVVk7BCllKUk/YSgLJyT?=
+ =?us-ascii?Q?gnSKA41Z9za8yr4jBXbWnXrihGNZDijs1OcQtphOrpg9Jfe8y8l8oYDq3haH?=
+ =?us-ascii?Q?CcLavrpdwf6kpTd6ES+gcWONcE2dQNXsXNUowNnc34Fy54ztzlPs4Dw+wDMA?=
+ =?us-ascii?Q?ZlKIOUWCbaQKgIB56c5H61ICwKm4XhRqK4UShfIJo8UDR0d+9YOS542A5wJc?=
+ =?us-ascii?Q?U88IwkNcLkKWuprJRjtOCB/NuBf3f7/yAin7Sj2ZjSMZcTDLHAhMnBQDzkfx?=
+ =?us-ascii?Q?0VQFS5Cay3MSCvjgDFDlmxZEkedHGyvY/wu5ukYU3YpHbYUCdL2nUJh3KFWk?=
+ =?us-ascii?Q?147AK8ABmjKcdHEQ5r3plYky4cbD8p72V4ikfQ0jI/kU0Hv3nsWRmuzdbSHW?=
+ =?us-ascii?Q?Yll0vnQkGNv/1F9FwoAUHac8RhXBWFNwrn4UHWMHTkO/hHCEYHqlDohfZ2oP?=
+ =?us-ascii?Q?H3upTbcwzsQS2NkmDT1E0gQs1ece4iuPgVVwBDnUF2WoRADGDlG52aN4FANg?=
+ =?us-ascii?Q?ReLGySUza2dnfVhetqkhPPBUIpQd/aR0mDB8RXPOhoW4CxccCSkjuIDpjMfh?=
+ =?us-ascii?Q?Olu5Vuh5Rt5GLIT8QME7yD4NHPO8b0vZTaJ4jIt0OblemZibxb6FCLkoa3F/?=
+ =?us-ascii?Q?re8QP83XBXuImu0FV27r+wN5B7o/lkt3rSDyRd6gIfSexVE9CmF1VYYUZijZ?=
+ =?us-ascii?Q?R3NgaUqkKzParPYcqyEHopuzMvHLIqtJ7Fpjzg/9ONKb7U2NEtAMUeYisEpd?=
+ =?us-ascii?Q?d/usT+yTA+Q7XFfQ+syfBvm6dStvbaiE1qifwPEJt7mz7U2XBPYokAKZqSwo?=
+ =?us-ascii?Q?l3gK7TVd53bpfCvuVYW7t7+UDdG38rrTm7Rw7YyF?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 471bb8fe-548d-4129-0a2e-08dd6175cb39
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 14:54:30.8167
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: dlEG26S06kuiR+LiYKSeZYgeAsTZ4KbFKXIC/9r+v00y4XCnI0MLPh1ToVZS0qRPpIysZHR2qPaZ6Fl5s2rQAQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10408
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_075426_418231_EBF6926C 
-X-CRM114-Status: GOOD (  32.20  )
+X-CRM114-CacheID: sfid-20250312_075442_450728_943E0322 
+X-CRM114-Status: GOOD (  20.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,228 +174,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+I am still waiting for a yes or no, or any suggestions.
 
---bCzl7VTOuudjwAEi
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks,
+Peng
 
-> On Wed, Mar 12, 2025 at 12:31:46PM +0100, Lorenzo Bianconi wrote:
-> > The system occasionally crashes dereferencing a NULL pointer when it is
-> > forwarding constant, high load bidirectional traffic.
-> >=20
-> > [ 2149.913414] Unable to handle kernel read from unreadable memory at v=
-irtual address 0000000000000000
-> > [ 2149.925812] Mem abort info:
-> > [ 2149.928713]   ESR =3D 0x0000000096000005
-> > [ 2149.932762]   EC =3D 0x25: DABT (current EL), IL =3D 32 bits
-> > [ 2149.938429]   SET =3D 0, FnV =3D 0
-> > [ 2149.941814]   EA =3D 0, S1PTW =3D 0
-> > [ 2149.945187]   FSC =3D 0x05: level 1 translation fault
-> > [ 2149.950348] Data abort info:
-> > [ 2149.953472]   ISV =3D 0, ISS =3D 0x00000005, ISS2 =3D 0x00000000
-> > [ 2149.959243]   CM =3D 0, WnR =3D 0, TnD =3D 0, TagAccess =3D 0
-> > [ 2149.964593]   GCS =3D 0, Overlay =3D 0, DirtyBit =3D 0, Xs =3D 0
-> > [ 2149.970243] user pgtable: 4k pages, 39-bit VAs, pgdp=3D000000008b507=
-000
-> > [ 2149.977068] [0000000000000000] pgd=3D0000000000000000, p4d=3D0000000=
-000000000, pud=3D0000000000000000
-> > [ 2149.986062] Internal error: Oops: 0000000096000005 [#1] SMP
-> > [ 2150.082282]  arht_wrapper(O) i2c_core arht_hook(O) crc32_generic
-> > [ 2150.177623] CPU: 0 PID: 38 Comm: kworker/u9:1 Tainted: G           O=
-       6.6.73 #0
-> > [ 2150.185362] Hardware name: Airoha AN7581 Evaluation Board (DT)
-> > [ 2150.191189] Workqueue: nf_ft_offload_add nf_flow_rule_route_ipv6 [nf=
-_flow_table]
-> > [ 2150.198653] pstate: 00400005 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BT=
-YPE=3D--)
-> > [ 2150.205615] pc : airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-> > [ 2150.211882] lr : airoha_ppe_flow_offload_replace.isra.0+0x6cc/0xc54
-> > [ 2150.218149] sp : ffffffc080e8ba10
-> > [ 2150.221456] x29: ffffffc080e8bae0 x28: ffffff80080b0000 x27: 0000000=
-000000000
-> > [ 2150.228591] x26: ffffff8001c70020 x25: 0000000000000002 x24: 0000000=
-000000000
-> > [ 2150.235727] x23: 0000000061000000 x22: 00000000ffffffed x21: ffffffc=
-080e8bbb0
-> > [ 2150.242862] x20: ffffff8001c70000 x19: 0000000000000008 x18: 0000000=
-000000000
-> > [ 2150.249998] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000=
-000000000
-> > [ 2150.257133] x14: 0000000000000001 x13: 0000000000000008 x12: 0101010=
-101010101
-> > [ 2150.264268] x11: 7f7f7f7f7f7f7f7f x10: 0000000000000041 x9 : 0000000=
-000000000
-> > [ 2150.271404] x8 : ffffffc080e8bad8 x7 : 0000000000000000 x6 : 0000000=
-000000015
-> > [ 2150.278540] x5 : ffffffc080e8ba4e x4 : 0000000000000004 x3 : 0000000=
-000000000
-> > [ 2150.285675] x2 : 0000000000000008 x1 : 00000000080b0000 x0 : 0000000=
-000000000
-> > [ 2150.292811] Call trace:
-> > [ 2150.295250]  airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-> > [ 2150.301171]  airoha_ppe_setup_tc_block_cb+0x7c/0x8b4
-> > [ 2150.306135]  nf_flow_offload_ip_hook+0x710/0x874 [nf_flow_table]
-> > [ 2150.312168]  nf_flow_rule_route_ipv6+0x53c/0x580 [nf_flow_table]
-> > [ 2150.318200]  process_one_work+0x178/0x2f0
-> > [ 2150.322211]  worker_thread+0x2e4/0x4cc
-> > [ 2150.325953]  kthread+0xd8/0xdc
-> > [ 2150.329008]  ret_from_fork+0x10/0x20
-> > [ 2150.332589] Code: b9007bf7 b4001e9c f9448380 b9491381 (f9400000)
-> > [ 2150.338681] ---[ end trace 0000000000000000 ]---
-> > [ 2150.343298] Kernel panic - not syncing: Oops: Fatal exception
-> > [ 2150.349035] SMP: stopping secondary CPUs
-> > [ 2150.352954] Kernel Offset: disabled
-> > [ 2150.356438] CPU features: 0x0,00000000,00000000,1000400b
-> > [ 2150.361743] Memory Limit: none
-> >=20
-> > Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-> > routine.
-> >=20
-> > Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
->=20
-> The patch has "Fixes" tag, but it is sent to "net-next" tree.
-> I think it's rather a candidate for "net".
+On Mon, Feb 24, 2025 at 01:09:20PM +0000, Peng Fan (OSS) wrote:
+>Hi Rob, Stephen,
+>
+>> Subject: [PATCH v2 0/4] clk: Support spread spectrum and use it in clk-
+>> pll144x and clk-scmi
+>
+>Do you have time to give a look on patch 1,2 and the bindings
+>part in https://github.com/devicetree-org/dt-schema/pull/154
+>
+>I would like to see if you agree on this approach or not, then
+>I could work on next step to explore new method or else
 
-The offending commit is just in net-next at the moment. Do you prefer to dr=
-op
-the Fixes tag?
-
->=20
-> > Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> > ---
-> >  drivers/net/ethernet/airoha/airoha_eth.c | 16 ++++++++++++++++
-> >  drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
-> >  drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
-> >  3 files changed, 27 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/eth=
-ernet/airoha/airoha_eth.c
-> > index c0a642568ac115ea9df6fbaf7133627a4405a36c..776222595b84e4fba6ae594=
-3420e0edf0d0ecf8f 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> > @@ -2454,6 +2454,22 @@ static void airoha_metadata_dst_free(struct airo=
-ha_gdm_port *port)
-> >  	}
-> >  }
-> > =20
-> > +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-> > +			     struct airoha_gdm_port *port)
-> > +{
-> > +	int i;
-> > +
-> > +	for (i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
->=20
-> You could reduce the number of lines by moving the declaration inside the
-> loop:
-> 	for (int i =3D 0; i < ARRAY_SIZE(eth->ports); i++) {
-
-to be consistent with the driver I prefer to keep the current approach.
-
->=20
-> > +		if (!eth->ports[i])
-> > +			continue;
->=20
-> Isn't this NULL check redundant?
-> In the second check you compare the table element to a real pointer.
-
-Can netdev_priv() be NULL? If not, I guess we can remove this check.
-
-Regards,
-Lorenzo
-
->=20
-> > +
-> > +		if (eth->ports[i] =3D=3D port)
-> > +			return 0;
-> > +	}
-> > +
-> > +	return -EINVAL;
-> > +}
-> > +
-> >  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
-> >  				 struct device_node *np, int index)
-> >  {
-> > diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/eth=
-ernet/airoha/airoha_eth.h
-> > index f66b9b736b9447b31afc036eb906d0a1c617e132..c7d4f124d11481cd31c1566=
-936cd47e3446877c0 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_eth.h
-> > +++ b/drivers/net/ethernet/airoha/airoha_eth.h
-> > @@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 =
-mask, u32 val);
-> >  #define airoha_qdma_clear(qdma, offset, val)			\
-> >  	airoha_rmw((qdma)->regs, (offset), (val), 0)
-> > =20
-> > +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-> > +			     struct airoha_gdm_port *port);
-> > +
-> >  void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
-> >  int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_d=
-ata,
-> >  				 void *cb_priv);
-> > diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/eth=
-ernet/airoha/airoha_ppe.c
-> > index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafe=
-c08b80df8190bba6c 100644
-> > --- a/drivers/net/ethernet/airoha/airoha_ppe.c
-> > +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-> > @@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **=
-dev)
-> >  #endif
-> >  }
-> > =20
-> > -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-> > +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-> > +					struct airoha_foe_entry *hwe,
-> >  					struct net_device *dev, int type,
-> >  					struct airoha_flow_data *data,
-> >  					int l4proto)
-> > @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct air=
-oha_foe_entry *hwe,
-> >  	if (dev) {
-> >  		struct airoha_gdm_port *port =3D netdev_priv(dev);
-> >  		u8 pse_port;
-> > +		int err;
-> > +
-> > +		err =3D airoha_is_valid_gdm_port(eth, port);
-> > +		if (err)
-> > +			return err;
-> > =20
-> >  		if (dsa_port >=3D 0)
-> >  			pse_port =3D port->id =3D=3D 4 ? FE_PSE_PORT_GDM4 : port->id;
-> > @@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct a=
-iroha_gdm_port *port,
-> >  	    !is_valid_ether_addr(data.eth.h_dest))
-> >  		return -EINVAL;
-> > =20
-> > -	err =3D airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
-> > +	err =3D airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
-> >  					   &data, l4proto);
-> >  	if (err)
-> >  		return err;
-> >=20
-> > ---
-> > base-commit: 0ea09cbf8350b70ad44d67a1dcb379008a356034
-> > change-id: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
-> >=20
-> > Best regards,
-> > --=20
-> > Lorenzo Bianconi <lorenzo@kernel.org>
-> >=20
-> >=20
-
---bCzl7VTOuudjwAEi
-Content-Type: application/pgp-signature; name=signature.asc
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9GgHQAKCRA6cBh0uS2t
-rGg7AQCJ2eIaG/kRVYUGWwgx9qIfEmkRkZf+2BLBCNTb3GMFbQD+ND/q5+MlI4DP
-apP79PmHbncDd/FXLYli+cLqiY2rHw4=
-=jBKv
------END PGP SIGNATURE-----
-
---bCzl7VTOuudjwAEi--
+>
+>Thanks,
+>Peng.
+>
+>> 
+>> - Introduce clk_set_spread_spectrum to set the parameters for enabling
+>>   spread spectrum of a clock.
+>> - Parse 'assigned-clock-sscs' and configure it by default before using the
+>>   clock. The pull request for this property is at [1]
+>>   This property is parsed before parsing clock rate.
+>> 
+>> - Enable this feature for clk-scmi on i.MX95.
+>>   This may not the best, since checking machine compatibles.
+>>   I am thinking to provide an API scmi_get_vendor_info, then driver
+>>   could use it for OEM stuff, such as
+>>   if (scmi_get_vendor_info returns NXP_IMX)
+>>       ops->set_spread_spectrum = scmi_clk_set_spread_spectrum;
+>> 
+>> [1] https://github.com/devicetree-org/dt-schema/pull/154
+>> 
+>> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+>> ---
+>> Changes in v2:
+>> - Rename to clk_hw_set_spread_spectrum and not export it as
+>> consumer API.
+>> - Fix error handling
+>> - The enable parameter is still kept, because 0% is valid per
+>>   https://www.ti.com/lit/an/scaa103/scaa103.pdf?ts=1738667308903
+>>   https://www.synopsys.com/blogs/chip-design/understanding-pcie-
+>> spread-spectrum-clocking.html
+>> - Include the i.MX clk pll14xx which was an effort to enable SSC on
+>> i.MX8MN from https://lore.kernel.org/all/20250118124044.157308-1-
+>> dario.binacchi@amarulasolutions.com/
+>>   With this patchset, things could be simplied a lot.
+>> - Update the clk-scmi extconfig, marked as not apply, because spec not
+>> settle down.
+>> - Link to v1: https://lore.kernel.org/linux-clk/20250124-clk-ssc-v1-0-
+>> 2d39f6baf2af@nxp.com/T/#mce926ef10d3d9c1c960c21867c2f1509f1
+>> f87cb9
+>> 
+>> ---
+>> Peng Fan (4):
+>>       clk: Introduce clk_hw_set_spread_spectrum
+>>       clk: conf: Support assigned-clock-sscs
+>>       clk: imx: pll14xx: support spread spectrum clock generation
+>>       [NOT APPLY] clk: scmi: Support spread spectrum
+>> 
+>>  drivers/clk/clk-conf.c        | 70
+>> +++++++++++++++++++++++++++++++++++++++++++
+>>  drivers/clk/clk-scmi.c        | 47 +++++++++++++++++++++++++++--
+>>  drivers/clk/clk.c             | 34 +++++++++++++++++++++
+>>  drivers/clk/imx/clk-pll14xx.c | 66
+>> ++++++++++++++++++++++++++++++++++++++++
+>>  include/linux/clk-provider.h  | 32 ++++++++++++++++++++
+>>  include/linux/clk.h           | 22 ++++++++++++++
+>>  include/linux/scmi_protocol.h |  6 ++++
+>>  7 files changed, 275 insertions(+), 2 deletions(-)
+>> ---
+>> base-commit: 40b8e93e17bff4a4e0cc129e04f9fdf5daa5397e
+>> change-id: 20250124-clk-ssc-f3d70fb6cd1c
+>> 
+>> Best regards,
+>> --
+>> Peng Fan <peng.fan@nxp.com>
+>
 
