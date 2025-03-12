@@ -4,88 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCC8C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4E21C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=; b=yNwqDLvpuG1mMjcfYK6qQqyLv4
-	BRDxS9XC97i/hy+JrMXmsD8m8MReReSsZWZjzUkysY8Jivx1nU+MjsbZKD+Z3ISZiKZk5PR/8EyZf
-	PCfIir6BJJzMiLGFHp6KuDd+WLzHoj8sdtP8xJHS0ZKQQpt6JT/c2mfHf6kpTDa7jyFQajO9bls3d
-	xjMKgYwaPNZCsKNjkMakE4UvLHGUgU0zsRPzI5zh13sjKYUegyfu+NK3G8h+7Pp8WNY61nl9uf9mO
-	EsPCizg/PzHdLHova2MFDXsIJD4XJ6EcBl8LDs6BzI1v+1ZKVS5m5WiXW4xd5NM9CgTx7wLNyu1+W
-	tsCN9Zjw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/13/lxe5SGNLMkQZkS0tixVogOSoXmx7ReH6gtzwzgc=; b=NO+yY/M8B9ZhSI5taOL1kOnFZ2
+	Aoa1nPIjoyESd4cVxf/y2r1/oR/1mmI62hi7m38pgTntvjmo8ctl/VzYnie1IQvKh9yrY4gVb0o29
+	PMCDmrsqDNWW7u68OM3d6Y8Af/S2IG/3/1Jymc385rmD3j4qcAYK4Cz6HH4Lk9hY0oBmO160Qcdk4
+	Ipgm7M8f6d0lXhdliIADw5EbalbNRfMtBCtjEnwWGiFGpAm/JIkG7RA8gF6s3UARoeCdDo4rejwTq
+	M3vl+z7UhwK0TB2eTO+DK56qLPgShJZHzGr7tUjALW2mZCuDnyJSyTes/AIpsL6aLA8Nn4Gx/IKyR
+	IEgYKD5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPBc-000000093ZN-22qD;
-	Wed, 12 Mar 2025 16:44:04 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tsPGo-000000094BX-3ZWc;
+	Wed, 12 Mar 2025 16:49:26 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsP9x-000000093P7-0tXN;
-	Wed, 12 Mar 2025 16:42:22 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2240d930f13so108145ad.3;
-        Wed, 12 Mar 2025 09:42:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741797740; x=1742402540; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=;
-        b=ZJgUCrBDxeq7+mbOiwSqmtJGmJKXFUEORC5Qeh0/eL7SIY7FcJlxN83yOSWYhyoETe
-         qzXLiBIigMdAbxeo0imkYJS1FaXLwoW9Hqga0/wjTHRwm87PhSBXsUPyK30i5GvI2II4
-         at2ZZxcpNRvEYqnqSI72O/cV8Z7TzI6vpMOzHVe/9Uhej4iGOr3CXTb9W+WfD5lzb+Fx
-         FZ7Ywnlx05R+yEAh9zD5Rg/vuKmfluD7ohXdQg5ciRaWBWCC0hxg8hG44gmFQf4qYa38
-         FT+3OCeU+25q4W7m5ifnYHMOli76vXfgzwGKaDSogXUHcHqDDdNV+sDVJUy9QKxRXFdK
-         XRJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741797740; x=1742402540;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=;
-        b=CaEMR8TpXWhcnK7Qfo5G0czLKyfKGLA7irA3ik1YMWo92umTHjx6CfNmUj8F72qteg
-         F58bbXdkP92ch4N+8qSsIc8ZkvwlJ31amxr3JSHOFithxTrWuNoyTjwse1CIGbcwSF9m
-         6oRGlGVWzCeup9YE7Qkfz2QZ1emUMZlzm1qGimBbdBSdjPNsZ5ILJ37fkdS/KUwS1vjD
-         09fbzIKGrWZv9rEnhCmt66VmwcDV44YffBUKgKuKSaBAV8I0mD/J6mL+k67FiGkO3Syp
-         kQ1ry6jDE6Bbk0UYhn6fJpgzJ4u9fCBlM3px1sXdmbDGmlGcZKVtXj3WAXwRKcpNx0eH
-         6ifg==
-X-Forwarded-Encrypted: i=1; AJvYcCWmheNKtQuDSqypUlxI5+TZJluQCABORecq8MlI0BI6Fj3zeuEsKJg1VJKJc2eMblWD/vvzg53qzXFxw/NLh0Jl@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6LJRqSZxEPYsEYHmouawfnrN2ZQq1yacusaOtv3m/MsjxHgoQ
-	MSTHI0QgQoD4bar2jlgxXiUPLl2Ik2sPKvIdjy1NDtdVlffuFjDxU8bio7DS
-X-Gm-Gg: ASbGnct6q9jqd4HH43/re2LTWvetKsNs9Ig7QReL1aqAgz1AWq0AIq2x8tE+QU5ztat
-	7bN7p0x7K3cMHCK9wpKQ0hY1NtCKI7hg6EMJjWi7fTengq9zXjaiH7OCV0EqMjyROAG/cFODANu
-	7IM/5y1CfiWRWjsFBWOoTkjvSloTwDA6sjpzIsoCY0wgnVy7zcWnLYzYSuhH+uZ8Uf8klk5QjfU
-	V4xT4AfXmGV4GuomNlh05A4d1Fb46KOnQjwEF4cO5F9qsM/RifrrzmlCsFk7xoJF8S9TKVRgUiP
-	aZIzIe6AhnNdIn8+LHtrfroOlHWj+NATS9VML4WfjiYUsw==
-X-Google-Smtp-Source: AGHT+IFm0JEzBi7UsabiIcrQjLIM22yD0b/DK/hkrICcjfxMd5Mxwm9emaajvbKq2S2Z2DtdbFKo3g==
-X-Received: by 2002:a17:902:eccc:b0:215:a96d:ec36 with SMTP id d9443c01a7336-2259326cb9bmr44059855ad.5.1741797739771;
-        Wed, 12 Mar 2025 09:42:19 -0700 (PDT)
-Received: from rock-5b.. ([45.32.55.39])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af28126e281sm11574509a12.47.2025.03.12.09.41.39
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 09:42:19 -0700 (PDT)
-From: Jianfeng Liu <liujianfeng1994@gmail.com>
-To: linux-rockchip@lists.infradead.org
-Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	devicetree@vger.kernel.org,
+	id 1tsPFA-000000093vX-0sDu
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 16:47:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 72A39A45DD5;
+	Wed, 12 Mar 2025 16:42:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B94A1C4CEDD;
+	Wed, 12 Mar 2025 16:47:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741798063;
+	bh=ELSEo0D7KcKhySYOIqk4yKTpqKUpc0DRoOc04z68Nyc=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=mJ3wvFgRU+05Re8+zMFHdJQyGysGsqfW9WFRtbywXLUgpmxuH26PtWMJIOQ3AagEX
+	 jHaMqDtG8Phx4NJ1N2ujNKN3rxoAEJZ8oiaP2MdnGKQhFHgdO3908ga5pUtftOqiKh
+	 mY+KgrgaNokT9UYHN6EWHpcfZQVYqhdc7ue+fbwaMehUSPkiFvgXozJcdiPOXWpdxN
+	 yiix2EyQfDaA2j9Jt2KP2bObjrrzX4O14ZCk1paF7R4qAHOSULtXEbQ/O5NqeXjTQM
+	 VzJxD/annxVwCotkTPXFThqgYDNqNI7crJlrK9Kh95zzZ8UWSVFa9rvjLcWU4PbVZY
+	 y4/cCZmfNf0Lg==
+Date: Wed, 12 Mar 2025 16:47:36 +0000
+From: Will Deacon <will@kernel.org>
+To: Rob Clark <robdclark@gmail.com>
+Cc: Connor Abbott <cwabbott0@gmail.com>,
+	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
+	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
+	Abhinav Kumar <quic_abhinavk@quicinc.com>,
+	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm64: dts: rockchip: Enable HDMI audio output for ArmSoM Sige7
-Date: Thu, 13 Mar 2025 00:40:49 +0800
-Message-ID: <20250312164056.3998224-1-liujianfeng1994@gmail.com>
-X-Mailer: git-send-email 2.43.0
+	freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
+ context fault
+Message-ID: <20250312164735.GA6561@willie-the-truck>
+References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
+ <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
+ <20250311180553.GB5216@willie-the-truck>
+ <CACu1E7GzCiO2b7AFJSDC+pN2VD9VaD2aYz_GGymM3-xAUqd__A@mail.gmail.com>
+ <20250312130525.GC6181@willie-the-truck>
+ <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_094221_252884_8DD8F7FA 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250312_094744_372994_D3AA6E4B 
+X-CRM114-Status: GOOD (  31.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,42 +86,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HDMI audio is available on the ArmSoM Sige7 HDMI TX port.
-Enable it for HDMI0 port.
+On Wed, Mar 12, 2025 at 07:59:52AM -0700, Rob Clark wrote:
+> On Wed, Mar 12, 2025 at 6:05 AM Will Deacon <will@kernel.org> wrote:
+> > On Tue, Mar 11, 2025 at 06:36:38PM -0400, Connor Abbott wrote:
+> > > On Tue, Mar 11, 2025 at 2:06 PM Will Deacon <will@kernel.org> wrote:
+> > > > On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
+> > > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > > index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
+> > > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
+> > > > > @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
+> > > > >                                     struct arm_smmu_context_fault_info *cfi)
+> > > > >  {
+> > > > >       cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
+> > > > > +     cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
+> > > > >       cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
+> > > > > -     cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> > > > > +     cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
+> > > > > +     cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
+> > > >
+> > > > We already have an implementation hook (->get_fault_info()) which the
+> > > > qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
+> > > > That thing dumps these registers already so if we're moving that into
+> > > > the core SMMU driver, let's get rid of the hook and move everybody over
+> > > > rather than having it done in both places.
+> > >
+> > > As you probably saw, the next commit moves over
+> > > qcom_adreno_smmu_get_fault_info() to use this. The current back door
+> > > used by drm/msm to access these functions is specific to adreno_smmu
+> > > and there isn't an equivalent interface to allow it to call a generic
+> > > SMMU function so it isn't possible to move it entirely to the core. At
+> > > least not without a bigger refactoring that isn't justified for this
+> > > series that is just trying to fix things.
+> >
+> > Ok :(
+> >
+> > > > >       cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
+> > > > > +     cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
+> > > >
+> > > > I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
+> > > > it for stage-2 domains.
+> > > >
+> > > Does it matter if we read the register though, as long as users are
+> > > aware of this and don't use its value for anything?
+> >
+> > I think the contents are "UNKNOWN", so it could be hugely confusing even
+> > if they just got logged someplace. Why is it difficult to avoid touching
+> > it for stage-2?
+> >
+> Fwiw, we are only ever using stage-1
 
-Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
----
+Sure, but this is in arm-smmu.c which is used by other people and supports
+both stages.
 
- arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-index 6a0fffaa26ee..0ef8ea76b0a8 100644
---- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
-@@ -192,6 +192,10 @@ hdmi0_out_con: endpoint {
- 	};
- };
- 
-+&hdmi0_sound {
-+	status = "okay";
-+};
-+
- &hdptxphy0 {
- 	status = "okay";
- };
-@@ -290,6 +294,10 @@ i2s0_8ch_p0_0: endpoint {
- 	};
- };
- 
-+&i2s5_8ch {
-+	status = "okay";
-+};
-+
- /* phy1 - right ethernet port */
- &pcie2x1l0 {
- 	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
--- 
-2.43.0
-
+Will
 
