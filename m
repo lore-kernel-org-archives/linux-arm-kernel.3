@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45B2CC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:28:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5C1EDC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:30:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=INCiY9x+Bh3ERQ0/ipdoAtOitbm2xwwhGXBDe6MCpA4=; b=qBDRVZxChrvN6vdykLpzUTxy3e
-	6hTNytjm2gn85iXFWP7EXxPctDd6SwxkwhNTxFZ09tf9L+jAIwpZirAeIHZsjpM48bcz7gF8Jc6Fu
-	bQ3OM5cRDN7H3WOmg3Jr4QVaSMEkmmNtbH7DQnkgv0iJkpqAnXh6L7CI3HQKWoMXyHOhN0ZpDrT5N
-	V+7O/PO7YVJ6rL1rVR2szxwcSwtJczCmBqM/DOASrD5PYyb30tGzdX+SuLxgHBV3FMTyZYU0KHvY7
-	MgPZc+xOH4VZZS4VAX4BViTrvKe1+2crvH5Jz3cdxJ8hxfqVs1T2qKDF26lhTDfnvLghLrZaVtdBZ
-	92TB7psw==;
+	bh=FBNll6s68KkZtPgX6IfVMIHlXL4kYpjgdtEjWzZ2zTc=; b=3X12888ldb5ce9vJLiG2BDD1et
+	/5nI19yLKBo3p1HGmWnyAz6y/2DL8Nh88vxf/D+ZS7C55sQYuJq8Rko1DuAfzjDSoa6jjsv5gARwo
+	r45rBiEQzCk8s8B7Fw29TiKclCmyaQzTJJPuW3yeEX2J6npgM7Hsbk4dAXbOEVNM1PUU0r370K+Rj
+	yVzAHZA6Yscz0/pRsR0bOGWS8CpMv8ZAvCCq8wcRqIIvHHlOP/SLp9b8jdjpfcD63aoqz0Iyp3KCm
+	D060gGDDHZLaXq9NP6siAdUqxHA5EyGDqYJjKy49of6FQTmSwE6xTpTbayUubGOsUTu/rCZ1LQiWU
+	g6uk7JPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKFx-00000008G7Q-2TYv;
-	Wed, 12 Mar 2025 11:28:13 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsKHa-00000008GYM-2a4D;
+	Wed, 12 Mar 2025 11:29:54 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK2I-00000008Dum-3H5l;
-	Wed, 12 Mar 2025 11:14:08 +0000
+	id 1tsK2K-00000008DvD-3w6j;
+	Wed, 12 Mar 2025 11:14:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id EEF4CA44D86;
-	Wed, 12 Mar 2025 11:08:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3DB78C4CEE3;
-	Wed, 12 Mar 2025 11:14:05 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 9C29F5C4C4C;
+	Wed, 12 Mar 2025 11:11:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C1FF4C4CEE3;
+	Wed, 12 Mar 2025 11:14:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741778045;
-	bh=396UolmAlJjmtiMEGbuRYd+dsfKtturf84IWVxp1530=;
+	s=k20201202; t=1741778048;
+	bh=EG3lLoWPuZSGQkinDAJwVshdVSbc3K3nCOlOSKDN8c4=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=elMndYpcqUKvty7Sl5y3/UeZhNTLYf1Rf/f6sp8HhKjVlveRVaXbbcVGS7frZyEBT
-	 BPhR6B/ioRQeR4GktcVvo2L3YFOa+y2Cl9LrGYCkGJ8lAC0bsZ0M6e3hjvRPWMyErI
-	 eqDm3xulWxj14RL8PaLbOuEV1Of7eu05kmF0qrHJYYB+dzPyeNqyV/eYIrogTMO3PG
-	 Utpf4oszuxXPNNkcn655Jb8ZzgJSKgr+CiUx5ShZ+v/YKLaS8tIGMUAZROGP1HHKEb
-	 lF57v5zbCQtv+JA1fa1nDsiWEes2UM8fYtWB2nOQIWs1ZdLs/m7lEpWcEp7JYpGT9l
-	 B+RaKv7GEeWIQ==
+	b=c7lZNmSqLnR4R79tyF1sYpO+Jiq0dDUAYekJGW+Kzvupt/8lJMwV/feOrNCV8zL/M
+	 jweUMGyAFTXugzaht3j4yh/uy95KOlRzl7NppweM/FpRGfOvlK9dorNVL2OfsD6BKx
+	 t7p+H2G7JNhZNk0NQaew2j4Fo5tYXuORPWVwuJFwhNfhk1u/Gr16oXi/Bfp+x+vO/q
+	 3cefZhUAdXs+FehzMZgAc1Cs7Zbm/BdauUecQehfzSZYp6ANwsLaiFSd3Kb/VyXoC8
+	 PobPgiBOgCHFpvNl7t/uHzZq/GbWQ4mRraB/nVM25VrrIxfSV89i2pwqepWXm9tEuK
+	 wS6pMAJ7YBgQA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 12 Mar 2025 12:13:46 +0100
-Subject: [PATCH 02/21] wifi: mt76: mt7996: Add
- mt7996_mcu_sta_mld_setup_tlv() and mt7996_mcu_sta_eht_mld_tlv()
+Date: Wed, 12 Mar 2025 12:13:47 +0100
+Subject: [PATCH 03/21] wifi: mt76: mt7996: Add mt7996_mcu_teardown_mld_sta
+ rouine
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250312-b4-mt7996-mlo-p2-v1-2-015b3d6fd928@kernel.org>
+Message-Id: <20250312-b4-mt7996-mlo-p2-v1-3-015b3d6fd928@kernel.org>
 References: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
 In-Reply-To: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -62,8 +62,8 @@ Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_041406_962746_C8D4A21B 
-X-CRM114-Status: GOOD (  12.65  )
+X-CRM114-CacheID: sfid-20250312_041409_069814_B79A79D2 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,7 +80,7 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Shayne Chen <shayne.chen@mediatek.com>
 
-mt7996_mcu_sta_mld_setup_tlv is needed to push MLO configuration to the
+mt7996_mcu_teardown_mld_sta is used to remove MLO configuration from the
 MCU. This is a preliminary patch to enable MLO for MT7996 driver
 
 Co-developed-by: Bo Jiao <Bo.Jiao@mediatek.com>
@@ -91,157 +91,86 @@ Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
 Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.c | 79 +++++++++++++++++++++++++
- drivers/net/wireless/mediatek/mt76/mt7996/mcu.h | 32 ++++++++++
- 2 files changed, 111 insertions(+)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 12 +++++++++---
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 18 ++++++++++++++++++
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  3 +++
+ 3 files changed, 30 insertions(+), 3 deletions(-)
 
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 25dbf086c8ef02307ef2510b21853b1eee28f922..642d633b5126ce81f3d32a9bd912603e2c328c8a 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1017,6 +1017,7 @@ mt7996_mac_sta_event(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 		     struct ieee80211_sta *sta, enum mt76_sta_event ev)
+ {
+ 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
++	unsigned long links = sta->valid_links;
+ 	struct ieee80211_link_sta *link_sta;
+ 	unsigned int link_id;
+ 
+@@ -1067,11 +1068,16 @@ mt7996_mac_sta_event(struct mt7996_dev *dev, struct ieee80211_vif *vif,
+ 				mt7996_mac_twt_teardown_flow(dev, link,
+ 							     msta_link, i);
+ 
+-			mt7996_mcu_add_sta(dev, link_conf, link_sta, link,
+-					   msta_link, CONN_STATE_DISCONNECT,
+-					   false);
++			if (sta->mlo && links == BIT(link_id)) /* last link */
++				mt7996_mcu_teardown_mld_sta(dev, link,
++							    msta_link);
++			else
++				mt7996_mcu_add_sta(dev, link_conf, link_sta,
++						   link, msta_link,
++						   CONN_STATE_DISCONNECT, false);
+ 			msta_link->wcid.sta_disabled = 1;
+ 			msta_link->wcid.sta = 0;
++			links = links & ~BIT(link_id);
+ 			break;
+ 		}
+ 	}
 diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-index 0cc822a8a6799a4552fa537cab2f13d6537bb1a8..ac01eb880e2a6f6ef3a81591bcacd2b90c48986a 100644
+index ac01eb880e2a6f6ef3a81591bcacd2b90c48986a..46c5e639b9630199ffa601e545fa76690f0101e3 100644
 --- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
 +++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
-@@ -2197,6 +2197,80 @@ mt7996_mcu_add_group(struct mt7996_dev *dev, struct ieee80211_vif *vif,
- 				 sizeof(req), true);
+@@ -2346,6 +2346,24 @@ int mt7996_mcu_add_sta(struct mt7996_dev *dev,
+ 				     MCU_WMWA_UNI_CMD(STA_REC_UPDATE), true);
  }
  
-+static void
-+mt7996_mcu_sta_mld_setup_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
-+			     struct ieee80211_sta *sta)
++int mt7996_mcu_teardown_mld_sta(struct mt7996_dev *dev,
++				struct mt7996_vif_link *link,
++				struct mt7996_sta_link *msta_link)
 +{
-+	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
-+	unsigned long links = sta->valid_links;
-+	unsigned int nlinks = hweight16(links);
-+	struct mld_setup_link *mld_setup_link;
-+	struct sta_rec_mld_setup *mld_setup;
-+	struct mt7996_sta_link *msta_link;
-+	struct ieee80211_vif *vif;
-+	unsigned int link_id;
-+	struct tlv *tlv;
++	struct sk_buff *skb;
 +
-+	msta_link = mt76_dereference(msta->link[msta->deflink_id], &dev->mt76);
-+	if (!msta_link)
-+		return;
++	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &link->mt76,
++					      &msta_link->wcid,
++					      MT7996_STA_UPDATE_MAX_SIZE);
++	if (IS_ERR(skb))
++		return PTR_ERR(skb);
 +
-+	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_MLD,
-+				      sizeof(struct sta_rec_mld_setup) +
-+				      sizeof(struct mld_setup_link) * nlinks);
++	mt76_connac_mcu_add_tlv(skb, STA_REC_MLD_OFF, sizeof(struct tlv));
 +
-+	mld_setup = (struct sta_rec_mld_setup *)tlv;
-+	memcpy(mld_setup->mld_addr, sta->addr, ETH_ALEN);
-+	mld_setup->setup_wcid = cpu_to_le16(msta_link->wcid.idx);
-+	mld_setup->primary_id = cpu_to_le16(msta_link->wcid.idx);
-+
-+	if (nlinks > 1) {
-+		link_id = __ffs(links & ~BIT(msta->deflink_id));
-+		msta_link = mt76_dereference(msta->link[msta->deflink_id],
-+					     &dev->mt76);
-+		if (!msta_link)
-+			return;
-+	}
-+	mld_setup->seconed_id = cpu_to_le16(msta_link->wcid.idx);
-+	mld_setup->link_num = nlinks;
-+
-+	vif = container_of((void *)msta->vif, struct ieee80211_vif, drv_priv);
-+	mld_setup_link = (struct mld_setup_link *)mld_setup->link_info;
-+	for_each_set_bit(link_id, &links, IEEE80211_MLD_MAX_NUM_LINKS) {
-+		struct mt7996_vif_link *link;
-+
-+		msta_link = mt76_dereference(msta->link[link_id], &dev->mt76);
-+		if (!msta_link)
-+			continue;
-+
-+		link = mt7996_vif_link(dev, vif, link_id);
-+		if (!link)
-+			continue;
-+
-+		if (!msta_link)
-+			continue;
-+
-+		mld_setup_link->wcid = cpu_to_le16(msta_link->wcid.idx);
-+		mld_setup_link->bss_idx = link->mt76.idx;
-+		mld_setup_link++;
-+	}
++	return mt76_mcu_skb_send_msg(&dev->mt76, skb,
++				     MCU_WMWA_UNI_CMD(STA_REC_UPDATE), true);
 +}
 +
-+static void
-+mt7996_mcu_sta_eht_mld_tlv(struct mt7996_dev *dev, struct sk_buff *skb,
-+			   struct ieee80211_sta *sta)
-+{
-+	struct sta_rec_eht_mld *eht_mld;
-+	struct tlv *tlv;
-+	int i;
-+
-+	tlv = mt76_connac_mcu_add_tlv(skb, STA_REC_EHT_MLD, sizeof(*eht_mld));
-+	eht_mld = (struct sta_rec_eht_mld *)tlv;
-+
-+	for (i = 0; i < ARRAY_SIZE(eht_mld->str_cap); i++)
-+		eht_mld->str_cap[i] = 0x7;
-+}
-+
- int mt7996_mcu_add_sta(struct mt7996_dev *dev,
- 		       struct ieee80211_bss_conf *link_conf,
- 		       struct ieee80211_link_sta *link_sta,
-@@ -2255,6 +2329,11 @@ int mt7996_mcu_add_sta(struct mt7996_dev *dev,
- 		mt7996_mcu_sta_eht_tlv(skb, link_sta);
- 		/* starec muru */
- 		mt7996_mcu_sta_muru_tlv(dev, skb, link_conf, link_sta);
-+
-+		if (sta->mlo && conn_state != CONN_STATE_DISCONNECT) {
-+			mt7996_mcu_sta_mld_setup_tlv(dev, skb, sta);
-+			mt7996_mcu_sta_eht_mld_tlv(dev, skb, sta);
-+		}
- 	}
- 
- 	ret = mt7996_mcu_add_group(dev, link_conf->vif, sta);
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
-index 5fdc47dad28c66a46c12a1fcede9ef10c7e6d44e..2ab6a53bee869a69d2ee7c0f342e379450c3d6dc 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.h
-@@ -625,6 +625,35 @@ struct sta_rec_hdr_trans {
- 	u8 mesh;
- } __packed;
- 
-+struct sta_rec_mld_setup {
-+	__le16 tag;
-+	__le16 len;
-+	u8 mld_addr[ETH_ALEN];
-+	__le16 primary_id;
-+	__le16 seconed_id;
-+	__le16 setup_wcid;
-+	u8 link_num;
-+	u8 info;
-+	u8 __rsv[2];
-+	u8 link_info[];
-+} __packed;
-+
-+struct sta_rec_eht_mld {
-+	__le16 tag;
-+	__le16 len;
-+	u8 nsep;
-+	u8 __rsv1[2];
-+	u8 str_cap[__MT_MAX_BAND];
-+	__le16 eml_cap;
-+	u8 __rsv2[4];
-+} __packed;
-+
-+struct mld_setup_link {
-+	__le16 wcid;
-+	u8 bss_idx;
-+	u8 __rsv;
-+} __packed;
-+
- struct hdr_trans_en {
- 	__le16 tag;
- 	__le16 len;
-@@ -798,6 +827,9 @@ enum {
- 					 sizeof(struct sta_rec_eht) +		\
- 					 sizeof(struct sta_rec_hdrt) +		\
- 					 sizeof(struct sta_rec_hdr_trans) +	\
-+					 sizeof(struct sta_rec_mld_setup) +	\
-+					 sizeof(struct mld_setup_link) * 3 +	\
-+					 sizeof(struct sta_rec_eht_mld) +	\
- 					 sizeof(struct tlv))
- 
- #define MT7996_MAX_BEACON_SIZE		1338
+ static int
+ mt7996_mcu_sta_key_tlv(struct mt76_wcid *wcid,
+ 		       struct sk_buff *skb,
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index a91a50b72218c6a2d0dd32968681325ea7e6a042..c2a2916e0647cfdcbee9912e3915241465e32cac 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -578,6 +578,9 @@ int mt7996_mcu_add_sta(struct mt7996_dev *dev,
+ 		       struct mt7996_vif_link *link,
+ 		       struct mt7996_sta_link *msta_link,
+ 		       int conn_state, bool newly);
++int mt7996_mcu_teardown_mld_sta(struct mt7996_dev *dev,
++				struct mt7996_vif_link *link,
++				struct mt7996_sta_link *msta_link);
+ int mt7996_mcu_add_tx_ba(struct mt7996_dev *dev,
+ 			 struct ieee80211_ampdu_params *params,
+ 			 bool add);
 
 -- 
 2.48.1
