@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1455C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:54:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3735C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:57:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DHaJAgb84V8aMUutZwPQWCAxCUaidjZX4yslhRdqYrw=; b=crMTMsktpmX46mPV9ZG4YxZrk0
-	LCgRxeVzaLC8RtKrwJVWPZt6nePLcsw2CeJnndeXeXaA+wF04rUnwQYY3AkYtEfWP7s8J+wMXQlw9
-	rRuRcN1u5rGqo3W/zSyD0ofuwTgcbYlRLWiiPFIAg8XD71xzwLAmTc+bnAC4GRmulJDXd6fq9iLnD
-	ywL7QINUzl+rmJEvgdzKev6rSOSXm8ePZHVDYYCBUforM7O1No5G4hwpdbpbV2AWGLnHKnsIhO9Ag
-	rFvOQ4wxkdYk6xN4KzFRMNzW8pl0rYWuZOTvACTpaQICwU1znL39afZ0w4/P8OE+EliNtgEMaXtzM
-	EGosT1Zw==;
+	bh=coDruLhzUwUWr9PQ9J/pkDgkm+WduLU7r2hwaAyS0V4=; b=RmCnv237QiX5xYQrmaZpRe8g2z
+	OQyU0tFtAvA5mfqMgvuNsc9Ahc1sF5PLQ5FqP6qVpNBB9kKXEBp2BZkjM0Nk8G/8A9lJARUkJTlaB
+	bOUTB5ANOdCgd4DD6LhvoJJC8Ez3OaQqfF4f3+1ftem0cP5J1kX7XA0gXRYNLls0f1rmfdm0NVrwq
+	/1V366F1zbUH9icVJAOz8bbAMPpZsKpz70cOScgP3aI9ina/KB92nksQgdOSQ+Uebd1dNEECYzTM8
+	9sbADXCNP7FeffTG5Kt52QuAw0QTxgsKhH0y5r10t2YrRlvUtC7/VrLYDhu70x2OBvf3GVgVM8BCo
+	xwz6hiZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIme-000000082Zm-1bEv;
-	Wed, 12 Mar 2025 09:53:52 +0000
+	id 1tsIps-000000083Cf-3jof;
+	Wed, 12 Mar 2025 09:57:12 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIUt-00000007zZa-34xS;
-	Wed, 12 Mar 2025 09:35:33 +0000
+	id 1tsIV1-00000007zdc-3ucj;
+	Wed, 12 Mar 2025 09:35:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=DHaJAgb84V8aMUutZwPQWCAxCUaidjZX4yslhRdqYrw=; b=GlEk33Gr20vSQ1U/WmZQrUvuv4
-	0wDgnVjVs5p2U4+9QqvOdo29ivNfG8tpPmwqAJ3TlwxDkf6CKj8ozDOszGu/VW+v5KJ1UFEqPRzhf
-	nvxvTMqC1x046wdSql8UQ9fO6HdNLVb6zvBujE6N+gqYIUcitejlCclEmnzk1oFn+EdRIJP2em33O
-	NmeEKc+J8NovkCCW7t+BL6hFGG926PWwkmr3GQNiAe/8MShwmEMDK554o5bebfA+HCLSj2Jy/crSU
-	6jZq/Kw8oEAR6icqV41hrhcy7vuzVLYQq5BlQR1CgqxxONYlmr0ZiwRwXBFk4q+HGfK6qnEaTyNX6
-	a0pobD+Q==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:38172 helo=rmk-PC.armlinux.org.uk)
+	bh=coDruLhzUwUWr9PQ9J/pkDgkm+WduLU7r2hwaAyS0V4=; b=l38TbMDTtPijQLznVdXj9eUSID
+	TXt78Gu7RakE9elMNI1mHpUmrCgm5/3bcl5H24UbxTmu1TLZ6m3qY5r2KpyIKdkNfpkB0whgy3InQ
+	OVOGqdKoQQpfFJNy6wXOtGshaQgfPEJgIUBxCii7pdLlQ9v/IoICsNead6z3Co52C+rNPx7ix8/cU
+	efEWjXjWPyiBVn9LCkCjZ9Zqr4rjEjNHAr96iAomHz8qTf1Ar1w0KHwCEA/BnRCEAEMFOCP+kRmiH
+	7H7NQmceeb1piiH4O4S5WTs53KwPr9P2azvAfEzgoXOVx8zHtlcRbDeCh1BRd9zNX9yuJdfytPWVq
+	52ML+odA==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42846 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIUY-0005I1-0p;
-	Wed, 12 Mar 2025 09:35:10 +0000
+	id 1tsIUi-0005Ie-08;
+	Wed, 12 Mar 2025 09:35:20 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIUA-005vGX-8A; Wed, 12 Mar 2025 09:34:46 +0000
+	id 1tsIUK-005vGk-H7; Wed, 12 Mar 2025 09:34:56 +0000
 In-Reply-To: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
 References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -76,19 +76,18 @@ Cc: Albert Ou <aou@eecs.berkeley.edu>,
 	Palmer Dabbelt <palmer@dabbelt.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>,
-	Samin Guo <samin.guo@starfivetech.com>
-Subject: [PATCH net-next v2 5/7] ARM: dts: stm32: remove
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH net-next v2 7/7] net: stmmac: deprecate
  "snps,en-tx-lpi-clockgating" property
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tsIUA-005vGX-8A@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:34:46 +0000
+Message-Id: <E1tsIUK-005vGk-H7@rmk-PC.armlinux.org.uk>
+Date: Wed, 12 Mar 2025 09:34:56 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_023531_770229_4A341E46 
-X-CRM114-Status: GOOD (  10.14  )
+X-CRM114-CacheID: sfid-20250312_023539_971283_5B9E9580 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,28 +107,34 @@ of the PHY (there is a capability bit that should be checked first.)
 Whether the MAC is capable of stopping the transmit clock is a separate
 issue, but this is already handled by the core DesignWare MAC code.
 
-As commit "net: stmmac: stm32: use PHY capability for TX clock stop"
-adds the flag to use the PHY capability, remove the DT property that is
-now unecessary.
+Therefore, snps,en-tx-lpi-clockgating is technically incorrect, and
+this commit adds a warning should a DT be encountered with the property
+present.
 
-Cc: Samin Guo <samin.guo@starfivetech.com>
+However, we keep backwards compatibility.
+
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- arch/arm/boot/dts/st/stm32mp151.dtsi | 1 -
- 1 file changed, 1 deletion(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/st/stm32mp151.dtsi b/arch/arm/boot/dts/st/stm32mp151.dtsi
-index b9a87fbe971d..0daa8ffe2ff5 100644
---- a/arch/arm/boot/dts/st/stm32mp151.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp151.dtsi
-@@ -1781,7 +1781,6 @@ ethernet0: ethernet@5800a000 {
- 				st,syscon = <&syscfg 0x4>;
- 				snps,mixed-burst;
- 				snps,pbl = <2>;
--				snps,en-tx-lpi-clockgating;
- 				snps,axi-config = <&stmmac_axi_config_0>;
- 				snps,tso;
- 				access-controllers = <&etzpc 94>;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+index 8dc3bd6946c6..c73eff6a56b8 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
+@@ -497,8 +497,11 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
+ 	plat->force_sf_dma_mode =
+ 		of_property_read_bool(np, "snps,force_sf_dma_mode");
+ 
+-	if (of_property_read_bool(np, "snps,en-tx-lpi-clockgating"))
++	if (of_property_read_bool(np, "snps,en-tx-lpi-clockgating")) {
++		dev_warn(&pdev->dev,
++			 "OF property snps,en-tx-lpi-clockgating is deprecated, please convert driver to use STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP\n");
+ 		plat->flags |= STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
++	}
+ 
+ 	/* Set the maxmtu to a default of JUMBO_LEN in case the
+ 	 * parameter is not present in the device tree.
 -- 
 2.30.2
 
