@@ -4,102 +4,194 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62B0C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:35:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08C03C28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:35:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=; b=31IexRSQ1HVZW3L2UMr7bgZ6ZQ
-	jIUv7SkZ83TOmvaJYdbepLik3HbUzxmG5cb54xE37ZyMy91rLSk+ADaLeU6JWTVLAqDaqYEL0H/RW
-	Yji/h7fgJR0RpnkRN92t6J65l7Ykt1zvHoVxaXUtyYCcuYD+IfqsKzFfhn8OiMdUmLN/Q2y5buY25
-	p5e4fx08ViZvMDCbv2bdNfm+2dpksgMEK/8Pgii2Z6HKAKcRJQYpcrLfRV9IrfahxOJlPrNDmRQ+z
-	EyHtip0V78y8qMXEYUD7h46aSw3V4BhlNOBVPE9omKI6rU+3/ZV9cxy0eiFJwgRRLYIfZMpOc5Egu
-	NlF1EUhA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M418CGFGpqSza0kwBrX7tks9q7tjisV+as3lVA3/ljM=; b=zi3WQyrYvkzSMUJPRgH5zTTY02
+	jZoV4vGkC4u53p92q4H4OiS/HuJxtE7c4j/Fbb8w6hiNTsr7AdimMgdlo7K9o634v/upfH9WfHTg1
+	tnZWGdkEu8ZeubOkyusU8ICz8ZRFWkoCoPugSt6UdCpIHdk7JD8jZbXm2ay/XnGoi8paUsSio3+EW
+	l+mY02nvHMiQaEg1j4ft5AgeVeq6XJ+pcQIGqzPxRpCQs+KTDT01sfhC/Tzrqu6mPQckIcbYbMY/G
+	aSndpadWrnJJfKhiYn9aer2G883GYJWw9BJaOnvplz04X6l6Ov+zrpwogTIVKxQvs9zmepk3TVPqU
+	p0iOHpsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsO7X-00000008swk-0qpn;
-	Wed, 12 Mar 2025 15:35:47 +0000
-Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
+	id 1tsO7Y-00000008sx9-1Lqz;
+	Wed, 12 Mar 2025 15:35:48 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMza-00000008gQp-3FhJ;
-	Wed, 12 Mar 2025 14:23:31 +0000
-Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so6445600a12.2;
-        Wed, 12 Mar 2025 07:23:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741789409; x=1742394209; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=;
-        b=FUdHO/gARKtrSSJCWFIn5RH8B//Gvkmme6NxRnQmTglEwtIB4FUFGbEyPYS9FA3wrD
-         aZLDheJRSwOt/uBWOEMG+VLSeC0quXd2375hNvUJsfmGAYXUATJdytQClSwEnVRHGRRf
-         Aox4sS5BESm52rCgR3soqQ5xp+WAdSB3i5GblqklGhfmrXb8ElrgUm3Mdz3TjsSbrX16
-         DYhwt7Z+IREyc9WtQNozeP1XL1DbrbcLyJeK/HrOTubsBhEq6OWD6I6N80QK/maCSeCo
-         UOsPz2x1fEcfpAnSCwMn8RqwITD7NPwCrOBqD5lk5w+Hhdx6LxqPFn1hLAQJFujvQNV3
-         aLgA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741789409; x=1742394209;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=;
-        b=hvcyqLBATH3kTS+Jf9pzb5r3JlCxAfAymjUaw9WlX06XWmIJxe3ShiWHpWNPtWBbnR
-         qWx0SHaIjzjnJXrB6WFHutOB7VImouahTGIp94EsDy927lPuEETbn55Gfu6WDeurNerT
-         XiDLtBjuARBdcvG46SgfqoUQVc4LfmQyBpGR1NJGUM4X6V5gtneIU2WCVr+y0c0aNIQO
-         6d1VysdCnY/0+2VM1R2ZddwwHjU/BWyjj5gf5G9uiCT5FSc3kRkoTxK39HYWieV0Aca9
-         b1YAhdFveJrgvVOg2e5nIEraqVs3hVSr+sydsPes7s6JQbbwWYFxhE0hd+PkWd6v20N6
-         mNjA==
-X-Forwarded-Encrypted: i=1; AJvYcCWPFmM+yBKmoIrRzBvaxNqLkW81omwqiLqN67fcwObibSRbTPdDel5UwZ6ryDkV7mYZ+gZKejzZeo5uEyD0bxPr@lists.infradead.org, AJvYcCXgBmp/24K5JKFj8RsNn8/vL1Mb9IZLYqpsKHbnGVuECbnNe0MnhZd/onX+0YI3vGBMz3jhtwpC23KmoHkkZQQ=@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAzDMjTzR+PIjGJpjp2ww6Xh6ruduTfJV1AreX1mRvPVL8TUne
-	WCORZ67W54wswKqZMxtvzZE1CmgMro3vXjwa6/+ctcD6cXnTzDS/
-X-Gm-Gg: ASbGncvx80ngUlMHAnMInD+HqMX5USevNoMAmx4ei1BkQVi71xnH1vSyz7m5GUfW3YS
-	N/cYJQJzwWdw23b3CL4cwMJ7ddjH0R+lLScJKLBP0rA808XNopfcmie8BbO0RnGUavJEP0WtsKg
-	EckgMoAZctWJUqzruOLbb0OQqAW//u7wjXe+DBWI9N/kcttbWLUK9QNr0tX8H+Sxu0mCu3jHFdC
-	N9hG0jWxXUMHD3YOtiSqfK4chUfguvf9FMM3NOqHIvBFFQ50nr+2NEC6CA+eojGwSXZVAu9BSnx
-	70I57Xa2OfDDLpN62fTQ06l9Uvl/bY3+vWm5RQmsF1ZRMPgsi7lKXqRhhNvJWRc/bC9IPrzYzba
-	9XmWmrNNmoYQZy81meGyEj9BJHA==
-X-Google-Smtp-Source: AGHT+IFdFvbIc6D4mXkiIL9CFWFvWjoXqM1m/Hjn3uEOvZC5n66LBMKABPlNlB63rI+HegTYSS5ruQ==
-X-Received: by 2002:a17:907:d9e:b0:abf:6cc9:7ef5 with SMTP id a640c23a62f3a-ac25300a440mr2449963266b.47.1741789408746;
-        Wed, 12 Mar 2025 07:23:28 -0700 (PDT)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2394825efsm1073903966b.45.2025.03.12.07.23.26
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 12 Mar 2025 07:23:28 -0700 (PDT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH v2 2/7] drm/bridge: synopsys: Add DW DPTX Controller
- support library
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-In-Reply-To: <20250312104214.525242-3-andyshrk@163.com>
-Date: Wed, 12 Mar 2025 15:23:15 +0100
-Cc: heiko@sntech.de,
- neil.armstrong@linaro.org,
- sebastian.reichel@collabora.com,
- lumag@kernel.org,
- devicetree@vger.kernel.org,
- hjc@rock-chips.com,
- mripard@kernel.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com,
- dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>,
- krzk+dt@kernel.org,
- robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <61E9B36C-8568-4C0E-A9A7-07FF612912AA@gmail.com>
-References: <20250312104214.525242-1-andyshrk@163.com>
- <20250312104214.525242-3-andyshrk@163.com>
-To: Andy Yan <andyshrk@163.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tsN8R-00000008hcS-25Fm;
+	Wed, 12 Mar 2025 14:32:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
+	References:Message-ID:Subject:CC:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=M418CGFGpqSza0kwBrX7tks9q7tjisV+as3lVA3/ljM=; b=Ex3YCkdZ/JeUHOb5sLBT1MnpVG
+	TpeshoEeB/H2qABa7bNCD8OCMQHd5/em+13IG2ArUI8NUsbzoVumBVY4jI9uqTdVXAGCVaHGiKMSR
+	z6IvrwOVJh4ILUw+ikobHv/WAc0fajU/safRv56uz4t7CUJsT9AcJxPPMj2iVi8klk9c0t1gBqVNS
+	pvVI9PKp/OQ62xUgBsv0BHmalF70DtaBe9kdMMgtZ4QvyrEsRPYlrwiUiLyZ5ZCkMlNRvQ8fB0/Tj
+	DuVOm64bXgnsoapwXTMNTLY0QnDxQvI7NHq7R4GhbMxvjgO63e+LhKGHbAxMHOerch+w/BcuIg9mn
+	/HEwUj4g==;
+Received: from mgamail.intel.com ([192.198.163.8])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsN8N-00000002Po6-3p4s;
+	Wed, 12 Mar 2025 14:32:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741789956; x=1773325956;
+  h=date:from:to:cc:subject:message-id:references:
+   in-reply-to:mime-version;
+  bh=/YpKGLjzXcwhoPvvv5xfZflFXa++P28CzlJsbyDVg5M=;
+  b=TR+ZPSaTTN/fKP5g4En8Cv55qzhHpg5J4v6qlJPSm47rmwd0lT82+j82
+   /wi6ysDRerSYM7nnWarUpSKO0tRQYDGP98atxl0Ell5RInWfQ0kg01pjq
+   WITXb1DlTd+v+6byPHas1sXsfDfRb+XGG6qbq9GN6aAy/w6NuV/VPzPg7
+   JNFuBVus1pOAqEPp/CmKBpwsszGtnwNzYqOn3SkQmL33mKhtCWZaf5QgX
+   VjoLEDiJx3u6CAbC5OaXM3S332I0fYu8Hjz/YIu1dlO9X3/LMeyDvN1ey
+   Yy9An8iztVGhumaRTcVLPzylLIIaZiJQvyLulNiqgAOUZgFM/7BLRLJqZ
+   Q==;
+X-CSE-ConnectionGUID: 6xHPVv5BQ/q5EVWcE8+wpQ==
+X-CSE-MsgGUID: HKBgJChVRquHp4Pji5dkXw==
+X-IronPort-AV: E=McAfee;i="6700,10204,11371"; a="60415424"
+X-IronPort-AV: E=Sophos;i="6.14,242,1736841600"; 
+   d="scan'208";a="60415424"
+Received: from fmviesa005.fm.intel.com ([10.60.135.145])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 07:32:29 -0700
+X-CSE-ConnectionGUID: tL+Xvn/FSP69qY0W2hzVfw==
+X-CSE-MsgGUID: 9bEU3eVUTvWN+O+4yzyHuw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,242,1736841600"; 
+   d="scan'208";a="125297879"
+Received: from orsmsx902.amr.corp.intel.com ([10.22.229.24])
+  by fmviesa005.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 07:32:28 -0700
+Received: from ORSMSX901.amr.corp.intel.com (10.22.229.23) by
+ ORSMSX902.amr.corp.intel.com (10.22.229.24) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14; Wed, 12 Mar 2025 07:32:28 -0700
+Received: from orsedg603.ED.cps.intel.com (10.7.248.4) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.14 via Frontend Transport; Wed, 12 Mar 2025 07:32:28 -0700
+Received: from NAM12-DM6-obe.outbound.protection.outlook.com (104.47.59.171)
+ by edgegateway.intel.com (134.134.137.100) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.1.2507.44; Wed, 12 Mar 2025 07:32:26 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dg4SeazWo2ZQiuxlsgdabE5JHf9Hm2erBhQ9KErnZxScgpz9fRO6HdZJpyHQ5UfnQOzmTbDqUcOJcR69NhFBQLxH7WlwAdlnWremy+Jefy7eubkmyjtdA46VbJaV36jkuuTtaX+r0fD/Vx7WaffBHDIzUxzyN5hgQLILpANOHG0fehkK3SIWVmxtsj+hi+p/id5mDppFc9qJ0qj2R7eZBc3w/b39aBGDTvT16/amfzg56ooGphAkzalizuoAAvM8GaR1FuVSYXV6vOrDdntbQ37RHDVDKO7JZihzhLiV7kBzNuRATKKiKh0EfpCsJvCDt9UdxEDp9rin1vKBmBhiyg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=M418CGFGpqSza0kwBrX7tks9q7tjisV+as3lVA3/ljM=;
+ b=ZhW26rtWA2uzf/ermB88kmgWls0K/2azSy0HutQHw88MYkhjel9r86gyeV/yPVNuSp99/omMpJh1YBm6nPm707PG3Zo7FXeHeiDURnZcZlZKdnkyU2jr7ieUzFIFLU9mL62AzfajmGXAma3WxqpGgv1jTV+vlqtHBrHd04CQFcECAfVSzPieZaZmZcrwoDZXDoyO2IpkwOUVXKH58tYUarzkMvoyBJBuJZ7YJtoJAucjf2ci9E/6Fr+dpiyp915DxeB7PbV6JiVhoYYxJlTq19IoGkfXseQhQe45UEcaWrAbIXWEPLOd3jHeYQFEknc8NlL75Pfet5hPhaOPQ8YkZg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com (2603:10b6:8:1b8::6) by
+ CY8PR11MB6818.namprd11.prod.outlook.com (2603:10b6:930:62::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.8511.27; Wed, 12 Mar 2025 14:32:24 +0000
+Received: from DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955]) by DS0PR11MB8665.namprd11.prod.outlook.com
+ ([fe80::8e7e:4f8:f7e4:3955%4]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
+ 14:32:24 +0000
+Date: Wed, 12 Mar 2025 15:32:14 +0100
+From: Michal Kubiak <michal.kubiak@intel.com>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+CC: Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+	<davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, Jakub Kicinski
+	<kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<netdev@vger.kernel.org>
+Subject: Re: [PATCH net-next] net: airoha: Validate egress gdm port in
+ airoha_ppe_foe_entry_prepare()
+Message-ID: <Z9Ga7gx1u3JsOemE@localhost.localdomain>
+References: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
+X-ClientProxiedBy: ZR0P278CA0031.CHEP278.PROD.OUTLOOK.COM
+ (2603:10a6:910:1c::18) To DS0PR11MB8665.namprd11.prod.outlook.com
+ (2603:10b6:8:1b8::6)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR11MB8665:EE_|CY8PR11MB6818:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2ddf2304-7a1b-4da2-1da9-08dd6172b4d0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|366016;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?B5p4J4hO/1bTICtCMlD5L9XXsPzH/dLThh91FQNTzTS8u/68BxUElHczzxE2?=
+ =?us-ascii?Q?Abfw9584BjAgAKlt31Urk+jJvAgnz0VhM9j+KfxPoVGJu+wEfudMzx0EBGs8?=
+ =?us-ascii?Q?0TA5ta1zROzn3kaO8INtz2b2xEih5lUNq7S1LXEJA0YMUsistbpApUWkc3Jc?=
+ =?us-ascii?Q?TcqjsqdGzvbfUs3o71JG8jV8PoabGZszJWmxFO9iePmrBzO/4+m6goEKR17W?=
+ =?us-ascii?Q?85rMhcZeCJ4ay09CD47sSaUdGJc0eerlOwyMter4ITAv+FPZBJV3b+8COoB3?=
+ =?us-ascii?Q?LXBByGkXewlbv7PHNzfQsJgaHCdoN784kNzPyy2nJfRf2QDgveNvNJTvleLA?=
+ =?us-ascii?Q?y9EFZ0k1euiVbYlAH9af4ncImokoNPFd3ws/PX/Jb7EJ+4ghZ58O2cq23CSj?=
+ =?us-ascii?Q?Z1mcex0nv98YWFB9ORiAHhzi8Hz9YophmoCfFlscXTg9TGrWg2NO8NoM+OQY?=
+ =?us-ascii?Q?r3iOO2KnBEU5S+bU/AQYik1/W73Oq/aIa9TvsQfELF6hCb4t2xUUeMnuN/dT?=
+ =?us-ascii?Q?OqXeToiQHMI+02STBwrEDe9Vbml8lwXkZJR+wHDqaNIa+vKwztYZi4HkIqVw?=
+ =?us-ascii?Q?wdL6xc3RZ9apKpx0md3cweaM5cTFFX+Xs+9PvzRQMmeg7Pe1vL9veaydj88C?=
+ =?us-ascii?Q?eRbHyaWcY0U382xcsbP1XJApwFCtfO5o4xl6bPQbJkXC0Xqy3bUUTUbtqU6B?=
+ =?us-ascii?Q?50j6u+YdYr2ofPm2SiXq3Ew3sjxunPOmTYuz/S4FaJPBDJHOIKee+6r8LmY9?=
+ =?us-ascii?Q?uQR+j+gjr1mGUpplyI4RJgDURIpwsQGDUX/rwSmr3k0Mzl7x5oh6aBaQnDu0?=
+ =?us-ascii?Q?HLhkVg1T29Vzq+dLGKRfYh+dxlBnpCRNYNC1qR9DUQjaFxc7vfPR/ttdlz+0?=
+ =?us-ascii?Q?ts0m/C6ooRsq9x2nkvEwOQfcNhxbWtm935pim190O1WY63wxz1mdQAZ4KWhS?=
+ =?us-ascii?Q?FXehV1b3Arx6vygNhlwGOp4Ebc6JESyR4TZ8dS/oh2EwtKpZPgJNqz643j7e?=
+ =?us-ascii?Q?nGd2AMhQZbkrYKRaVv4qGhelqLj9SIkthbV44qlD4zrIWZB57GQzflRpf3ql?=
+ =?us-ascii?Q?8zBt52H4HVCnHMS5pWDZtzz0u9JUG7YwRpYaJdHNE7hhLQ/HoEm6xVWUSJuc?=
+ =?us-ascii?Q?QSiiT33nfQ7IjNMEqSKsX9KB2riD7KsqZqbjhu44nqabjrwNZLeTjIAGXpl9?=
+ =?us-ascii?Q?gJHjmhOMiqtZ+yFj63H2ZsDBS4kDvHl81EGo0aEj8rul8C/z8zttcjBxX66C?=
+ =?us-ascii?Q?BSBLORDfssPmsxJv5WLCULprGW94OYwdPE/fNWGykcDJLqVTx2TuRQGuuC9W?=
+ =?us-ascii?Q?QYBNdtkIImCUcV8TnoDJfSJMkSHkSdcN4YilksUmQh9L3blL5VoLlM7bsqHA?=
+ =?us-ascii?Q?3r90yZszWfOxD2auinaeXeSkPxsy?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB8665.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?NWMX8zy5xE9HfuQfSFp7MtLAaZ5gYQminnPdvoo98S4XqtahgOs2JDtQ3LgS?=
+ =?us-ascii?Q?wnZ4O2qq2RA1hmqewGe/xesbuM1kXLOJLVo8iNJ1thBsZLzKgZ3hvvJEtwr1?=
+ =?us-ascii?Q?Eb2u1R4nda0uZx1d4cRRKM4MvZf6mQ3uOHEFHcz54ArXEQ9cVVBdYUbsbSE0?=
+ =?us-ascii?Q?uHFjfax9JmK6vRoLnGdySLDoy57pIVVjk9fIjcRFsg364+uGOrWLtLvFeDGp?=
+ =?us-ascii?Q?LZy4CrhRUy1WQWd2JzxUx+ulQm7htTOl2qnCbVAQjRMRIokQHy26vNzqBQ0j?=
+ =?us-ascii?Q?RKH4i8kIFFHsrzgPBidrbTmmXckny/jXelN7FYpwpHkTb+QGE+ICJDqJbZl2?=
+ =?us-ascii?Q?otn3n9sCkSIsD64Yj2fc4iXwSJarK1Qf9A2Gorac4btGDeXWq79xgARRjclh?=
+ =?us-ascii?Q?uxWdeV94FU43EVatAii1/QkrYn5nV2fWUafOlrVgPSwhAgyQydSgVr2RTPLC?=
+ =?us-ascii?Q?oQDklK5QHtZVw24c2ae6aY57k37wGotoQ3YJK45tMQi0x92POeKG2OnC1qYa?=
+ =?us-ascii?Q?cGbd3YnefnK5yqtNi2s37I9Ff87Gcq8MpElPAlOW+hQ8g2Q2df+2m1MYMpSI?=
+ =?us-ascii?Q?YEf470weG7d0CoVxiAdt/D1oWFacA0aRnp5j65iziQFpSDqbcItocEHq8eu+?=
+ =?us-ascii?Q?rutDp/5JUnqXxJH6Jc21bHx9vn8RKaffAhjSEE5SFKiife8W8h9XKumjqbb5?=
+ =?us-ascii?Q?7C5vpwHkMt9wu3+uFgZwbOJndHMFryY+cf7Rg+H4OV3X85OS1jfJlMGzmP+P?=
+ =?us-ascii?Q?H3VnXHAtAAabyHI5oqNlqw/pQFdiOQsvz9TqJ1SoM2Ypqs8nGCkusWtxFcfz?=
+ =?us-ascii?Q?XgJ1i01U1+7+f888LHMzohNfSULnOtlsXF5CzkgiY+8hnyxKah+povjcB03k?=
+ =?us-ascii?Q?9CwQqPeU3QOJdBFfm4evq10h610wUqt8zc5kmuH56jN7Quc1n92Kjksskkw1?=
+ =?us-ascii?Q?h+ICYXf/V9JyDdG1Oulc2oQlaaobVaHrCondS9t3a7X61iRb5Lid/WSkzQXK?=
+ =?us-ascii?Q?Uj5fWTOVtH29Xdgo86SKchVxmyF0/Seq8Pj+K1E8HNCOMeUXaORlfN2JSuKu?=
+ =?us-ascii?Q?UCnVhKLhOXs8UwW9/6jBvTtizUg9zTZmfyKLgfCqhA2v53oTntgZ0uw+EEhG?=
+ =?us-ascii?Q?Jcs1pIozIMigrWDlnV6lrRJevq73XS1R1u2NcQDMNK6pMC2Y4SdY+f/oPAm8?=
+ =?us-ascii?Q?0QtgIcxRR+adlNFSNYgsC+mhCCaj/C+2wYh0isfL1YCq+6BPgxBRZ48Ece4N?=
+ =?us-ascii?Q?SVNdN0h64sptkMoL2ZqdYhbwfYDGBsjKyoXbzPfVyLxXDR7w/rnnIyWJeQ2D?=
+ =?us-ascii?Q?6yByGuHZ6/9kdsTsY6XQbxU0RfBmuTcttUmffopP23YdIHADK/xd05/lVbGY?=
+ =?us-ascii?Q?sZIChBiMY2PL0hrKNxP9kimiD93qnONDBSdqffbNLWfa4iXLG1BfcfBVvX1y?=
+ =?us-ascii?Q?RJUOV4nNBiUgdAR+s7cFOaRsd5HRjLuFpYtw+9PDK+Bz+0A3EmEORfoQFWBs?=
+ =?us-ascii?Q?5aMkemxwmxWFFFIcABSc1XeS7lDGVLJB/ngYf63xHcvuqu1huVU5TUYyyMyP?=
+ =?us-ascii?Q?Fht+xC8otSrgLPZ93+R1f24XJm16WPHoxqFUcyBvlD9Cdm7tNGOIDnOQS1Oe?=
+ =?us-ascii?Q?5Q=3D=3D?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2ddf2304-7a1b-4da2-1da9-08dd6172b4d0
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR11MB8665.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 14:32:24.5464
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: cmJ5WGPMV/hHXYaB+s6VC8gApFUeZ8C/olRH6ojdT+s1D9z8sTFJo6jnYAvAVymGD9C92X2OEyjsSnLb2eSC3A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR11MB6818
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_072330_818128_EE162812 
-X-CRM114-Status: GOOD (  15.20  )
+X-CRM114-CacheID: sfid-20250312_143236_565690_51FBAD38 
+X-CRM114-Status: GOOD (  24.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,89 +206,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Mar 12, 2025 at 12:31:46PM +0100, Lorenzo Bianconi wrote:
+> The system occasionally crashes dereferencing a NULL pointer when it is
+> forwarding constant, high load bidirectional traffic.
+> 
+> [ 2149.913414] Unable to handle kernel read from unreadable memory at virtual address 0000000000000000
+> [ 2149.925812] Mem abort info:
+> [ 2149.928713]   ESR = 0x0000000096000005
+> [ 2149.932762]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [ 2149.938429]   SET = 0, FnV = 0
+> [ 2149.941814]   EA = 0, S1PTW = 0
+> [ 2149.945187]   FSC = 0x05: level 1 translation fault
+> [ 2149.950348] Data abort info:
+> [ 2149.953472]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+> [ 2149.959243]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> [ 2149.964593]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [ 2149.970243] user pgtable: 4k pages, 39-bit VAs, pgdp=000000008b507000
+> [ 2149.977068] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+> [ 2149.986062] Internal error: Oops: 0000000096000005 [#1] SMP
+> [ 2150.082282]  arht_wrapper(O) i2c_core arht_hook(O) crc32_generic
+> [ 2150.177623] CPU: 0 PID: 38 Comm: kworker/u9:1 Tainted: G           O       6.6.73 #0
+> [ 2150.185362] Hardware name: Airoha AN7581 Evaluation Board (DT)
+> [ 2150.191189] Workqueue: nf_ft_offload_add nf_flow_rule_route_ipv6 [nf_flow_table]
+> [ 2150.198653] pstate: 00400005 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [ 2150.205615] pc : airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
+> [ 2150.211882] lr : airoha_ppe_flow_offload_replace.isra.0+0x6cc/0xc54
+> [ 2150.218149] sp : ffffffc080e8ba10
+> [ 2150.221456] x29: ffffffc080e8bae0 x28: ffffff80080b0000 x27: 0000000000000000
+> [ 2150.228591] x26: ffffff8001c70020 x25: 0000000000000002 x24: 0000000000000000
+> [ 2150.235727] x23: 0000000061000000 x22: 00000000ffffffed x21: ffffffc080e8bbb0
+> [ 2150.242862] x20: ffffff8001c70000 x19: 0000000000000008 x18: 0000000000000000
+> [ 2150.249998] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> [ 2150.257133] x14: 0000000000000001 x13: 0000000000000008 x12: 0101010101010101
+> [ 2150.264268] x11: 7f7f7f7f7f7f7f7f x10: 0000000000000041 x9 : 0000000000000000
+> [ 2150.271404] x8 : ffffffc080e8bad8 x7 : 0000000000000000 x6 : 0000000000000015
+> [ 2150.278540] x5 : ffffffc080e8ba4e x4 : 0000000000000004 x3 : 0000000000000000
+> [ 2150.285675] x2 : 0000000000000008 x1 : 00000000080b0000 x0 : 0000000000000000
+> [ 2150.292811] Call trace:
+> [ 2150.295250]  airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
+> [ 2150.301171]  airoha_ppe_setup_tc_block_cb+0x7c/0x8b4
+> [ 2150.306135]  nf_flow_offload_ip_hook+0x710/0x874 [nf_flow_table]
+> [ 2150.312168]  nf_flow_rule_route_ipv6+0x53c/0x580 [nf_flow_table]
+> [ 2150.318200]  process_one_work+0x178/0x2f0
+> [ 2150.322211]  worker_thread+0x2e4/0x4cc
+> [ 2150.325953]  kthread+0xd8/0xdc
+> [ 2150.329008]  ret_from_fork+0x10/0x20
+> [ 2150.332589] Code: b9007bf7 b4001e9c f9448380 b9491381 (f9400000)
+> [ 2150.338681] ---[ end trace 0000000000000000 ]---
+> [ 2150.343298] Kernel panic - not syncing: Oops: Fatal exception
+> [ 2150.349035] SMP: stopping secondary CPUs
+> [ 2150.352954] Kernel Offset: disabled
+> [ 2150.356438] CPU features: 0x0,00000000,00000000,1000400b
+> [ 2150.361743] Memory Limit: none
+> 
+> Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
+> routine.
+> 
+> Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
 
+The patch has "Fixes" tag, but it is sent to "net-next" tree.
+I think it's rather a candidate for "net".
 
-> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
-12 mar 2025, o godz. 11:42:
->=20
-> From: Andy Yan <andy.yan@rock-chips.com>
->=20
-> The DW DP TX Controller is compliant with the DisplayPort =
-Specification
-> Version 1.4 with the following features:
->=20
-> * DisplayPort 1.4a
-> * Main Link: 1/2/4 lanes
-> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
-> * AUX channel 1Mbps
-> * Single Stream Transport(SST)
-> * Multistream Transport (MST)
-> * Type-C support (alternate mode)
-> * HDCP 2.2, HDCP 1.3
-> * Supports up to 8/10 bits per color component
-> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
-> * Pixel clock up to 594MHz
-> * I2S, SPDIF audio interface
->=20
-> Add library with common helpers to make it can be shared with
-> other SoC.
->=20
-> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
->=20
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->=20
-> Changes in v2:
-> - Fix compile error when build as module
-> - Add phy init
-> - Only use one dw_dp_link_train_set
-> - inline dw_dp_phy_update_vs_emph
-> - Use dp_sdp
-> - Check return value of drm_modeset_lock
-> - Merge code in atomic_pre_enable/mode_fixup to atomic_check
-> - Return NULL if can't find a supported output format
-> - Fix max_link_rate from plat_data
->=20
+>  drivers/net/ethernet/airoha/airoha_eth.c | 16 ++++++++++++++++
+>  drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
+>  drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
+>  3 files changed, 27 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index c0a642568ac115ea9df6fbaf7133627a4405a36c..776222595b84e4fba6ae5943420e0edf0d0ecf8f 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -2454,6 +2454,22 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
+>  	}
+>  }
+>  
+> +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
+> +			     struct airoha_gdm_port *port)
+> +{
+> +	int i;
+> +
+> +	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
 
-Andy,
+You could reduce the number of lines by moving the declaration inside the
+loop:
+	for (int i = 0; i < ARRAY_SIZE(eth->ports); i++) {
 
-Just small Q: do v2 needs something extra to get it working (particular =
-kernel ver or extra dependency patches)?
-I just replaced v1 to v2 and dp stopped to work for me.
+> +		if (!eth->ports[i])
+> +			continue;
 
-e.g. on rock5a i=E2=80=99m getting:
+Isn't this NULL check redundant?
+In the second check you compare the table element to a real pointer.
 
-root@myth-frontend-fafc53b591a6:~ # dmesg | grep drm
-[    9.245284] panthor fb000000.gpu: [drm] clock rate =3D 198000000
-[    9.249464] panthor fb000000.gpu: [drm] mali-g610 id 0xa867 major 0x0 =
-minor 0x0 status 0x5
-[    9.249472] panthor fb000000.gpu: [drm] Features: L2:0x7120306 =
-Tiler:0x809 Mem:0x301 MMU:0x2830 AS:0xff
-[    9.249474] panthor fb000000.gpu: [drm] shader_present=3D0x50005 =
-l2_present=3D0x1 tiler_present=3D0x1
-[    9.257979] panthor fb000000.gpu: [drm] Firmware protected mode entry =
-not be supported, ignoring
-[    9.258030] panthor fb000000.gpu: [drm] Firmware git sha: =
-814b47b551159067b67a37c4e9adda458ad9d852
-[    9.258604] panthor fb000000.gpu: [drm] CSF FW using interface =
-v1.1.0, Features 0x0 Instrumentation features 0x71
-[    9.259671] [drm] Initialized panthor 1.3.0 for fb000000.gpu on minor =
-0
-[    9.324353] rockchip-drm display-subsystem: bound fdd90000.vop (ops =
-vop2_component_ops)
-[    9.324617] rockchip-drm display-subsystem: bound fde50000.dp (ops =
-dw_dp_rockchip_component_ops)
-[    9.325202] rockchip-drm display-subsystem: bound fde80000.hdmi (ops =
-dw_hdmi_qp_rockchip_ops)
-[    9.325506] [drm] Initialized rockchip 1.0.0 for display-subsystem on =
-minor 1
-[    9.325531] rockchip-drm display-subsystem: [drm] Cannot find any =
-crtc or sizes
-[    9.325594] rockchip-drm display-subsystem: [drm] Cannot find any =
-crtc or sizes =20
-
-dp status is "not connected"
-
-replacing only this patch back to v1 brings dp back to work.
-
-
+> +
+> +		if (eth->ports[i] == port)
+> +			return 0;
+> +	}
+> +
+> +	return -EINVAL;
+> +}
+> +
+>  static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+>  				 struct device_node *np, int index)
+>  {
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+> index f66b9b736b9447b31afc036eb906d0a1c617e132..c7d4f124d11481cd31c1566936cd47e3446877c0 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.h
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.h
+> @@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
+>  #define airoha_qdma_clear(qdma, offset, val)			\
+>  	airoha_rmw((qdma)->regs, (offset), (val), 0)
+>  
+> +int airoha_is_valid_gdm_port(struct airoha_eth *eth,
+> +			     struct airoha_gdm_port *port);
+> +
+>  void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
+>  int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+>  				 void *cb_priv);
+> diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+> index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafec08b80df8190bba6c 100644
+> --- a/drivers/net/ethernet/airoha/airoha_ppe.c
+> +++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+> @@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
+>  #endif
+>  }
+>  
+> -static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+> +static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
+> +					struct airoha_foe_entry *hwe,
+>  					struct net_device *dev, int type,
+>  					struct airoha_flow_data *data,
+>  					int l4proto)
+> @@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+>  	if (dev) {
+>  		struct airoha_gdm_port *port = netdev_priv(dev);
+>  		u8 pse_port;
+> +		int err;
+> +
+> +		err = airoha_is_valid_gdm_port(eth, port);
+> +		if (err)
+> +			return err;
+>  
+>  		if (dsa_port >= 0)
+>  			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
+> @@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
+>  	    !is_valid_ether_addr(data.eth.h_dest))
+>  		return -EINVAL;
+>  
+> -	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
+> +	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
+>  					   &data, l4proto);
+>  	if (err)
+>  		return err;
+> 
+> ---
+> base-commit: 0ea09cbf8350b70ad44d67a1dcb379008a356034
+> change-id: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
+> 
+> Best regards,
+> -- 
+> Lorenzo Bianconi <lorenzo@kernel.org>
+> 
+> 
 
