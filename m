@@ -4,89 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFECC28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BC8BC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:42:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4S96UeyUjDKZ2gcPjL0631o3GuvsA+cY/IBcIb/qND4=; b=T9IvmAewfG93RsOFBaM4yNuNLo
-	KUsCzi1/v0jvKh/FJ+qjPObrbmYdyvxOjbjZaGj6tk+iV7JMoSnyamAsqm8HKaTwK2YtYkuAGajzq
-	kmN3PvxEeocCySm+SAcB8IXllcz3QenV5TNOXbOBaUpJvlKp1S7OeDeVP54twaJ7l3vCyqby9xPsl
-	WyETWnkTepJ3ums3HBqvhW4tHppMTz+YI2DH/Z4/PuvKkVyCQy3A0h8QmHNPnzQSh3YYRaMwwi9Ce
-	oSi8vLoct4rjIYFrzjtLeKwyis2JA2rQqsJJpVICIWyaF0qY0qJXEIxmDQJ9snvOcO6PCZtrxhvS1
-	v4j9Ia3Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-ID:CC:To:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=rNJNm/sXbTRzkUJ8kN4EcHCqnFmPI684Yqg2otE7lKU=; b=0NuDNQ4tfuSeozJI4KGuKvyzkd
+	9wg1xsPZz7e2jnM0ARw2Jr3V6WJs+OyspGWISwJPrq1nN93mdGPJIAi+BKId8a+JSXHA1NTdCDWYm
+	wXRr789ysdTdonkvzflC8Ihx2dKuOonACXbWQPHHMb7HZMcOj1ldixi23BdM2o426eTozRSt1bgwO
+	fv1ZSM8/XIRhGy0zVhctqVWtpkZiucjjQpd/FqWl4Vsdi4mgwd3YzI9hdF/Gy/BButLQixnWQyzFm
+	i/fptHrG/Tado2A64QLirsozyZY1ID3WJfRelHIRxdDttDEcGEs9wrJxlpSIyRvajSpCnciBzo5ha
+	TFUPnZ+Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIZX-000000080Mp-28YI;
-	Wed, 12 Mar 2025 09:40:19 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tsIbG-000000080dH-3SMg;
+	Wed, 12 Mar 2025 09:42:06 +0000
+Received: from szxga02-in.huawei.com ([45.249.212.188])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIIz-00000007wF2-0qs4;
-	Wed, 12 Mar 2025 09:23:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=4S96UeyUjDKZ2gcPjL0631o3GuvsA+cY/IBcIb/qND4=; b=q+sOhdSqLe/dpNAUW0J4VXJK0a
-	3eXL/CVXt+wVgP9INLP7RhJUCzKtpJYrBdsVhV4BhPPYHsXnvJrwFW/hu9hc2Yoe379yvPDBof1vu
-	WZ1hYJwu8W8bhj+UXSG9qrS+E91+6HPa1B7oJHYtQ5dTm88H5hKEVuhTxBlNCotKZVASouBhBi6R4
-	uQR7au1BAQchwdhFVPcHFLy6Bhp9SjJzfvYvyOPiO1muPb1E0tUjKYRuEEMyLogR91IAyYwarRtIj
-	/4nHWx5AOHHgttnor5cMNVg2r1iY+x51BZIqgIA9FE4beWUglHxxWgNpmxMpLM81TvNWrwM02UYP2
-	y+R4LExA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39538 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIGn-0005Bo-2S;
-	Wed, 12 Mar 2025 09:20:57 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIGS-005uzf-QE; Wed, 12 Mar 2025 09:20:36 +0000
-In-Reply-To: <Z9FQjQZb0IMaQJ9H@shell.armlinux.org.uk>
-References: <Z9FQjQZb0IMaQJ9H@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chen-Yu Tsai <wens@csie.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Kevin Hilman <khilman@baylibre.com>,
-	linux-amlogic@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-arm-msm@vger.kernel.org,
-	linux-mediatek@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-sunxi@lists.linux.dev,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next v2 3/9] net: stmmac: anarion: remove
- of_get_phy_mode()
+	id 1tsINh-00000007xs0-2GWH
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 09:28:07 +0000
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by szxga02-in.huawei.com (SkyGuard) with ESMTP id 4ZCQHR3jggzqVVr;
+	Wed, 12 Mar 2025 17:26:27 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id C2D6F1401F0;
+	Wed, 12 Mar 2025 17:27:56 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 12 Mar 2025 17:27:56 +0800
+From: Zenghui Yu <yuzenghui@huawei.com>
+Subject: [report] WARN_ON_ONCE() was triggered with pseudo NMI enabled
+To: <linux-arm-kernel@lists.infradead.org>
+CC: Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Message-ID: <ce10f231-4ecd-cb12-4b5c-1c503d9177da@huawei.com>
+Date: Wed, 12 Mar 2025 17:27:50 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tsIGS-005uzf-QE@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:20:36 +0000
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: dggems701-chm.china.huawei.com (10.3.19.178) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_022313_232936_B9822849 
-X-CRM114-Status: GOOD (  13.00  )
+X-CRM114-CacheID: sfid-20250312_022805_729860_7E5B3FDF 
+X-CRM114-Status: UNSURE (   5.06  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,79 +71,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
-which is stored in plat_dat->phy_interface. Therefore, we don't need to
-get it in platform code.
+Hi,
 
-Rearrange the initialisation order so we can pass plat_dat into
-anarion_config_dt(), thereby providing plat_dat->phy_interface as
-necessary there.
+With pseudo NMI enabled, I can trigger the following splat when running
+selftests (e.g., arm64/signal/fake_sigreturn_bad_magic, which will issue
+a BRK instruction).
 
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- .../ethernet/stmicro/stmmac/dwmac-anarion.c   | 21 ++++++++-----------
- 1 file changed, 9 insertions(+), 12 deletions(-)
+ ------------[ cut here ]------------
+ WARNING: CPU: 5 PID: 386876 at ./arch/arm64/include/asm/irqflags.h:34
+send_user_sigtrap+0xc8/0xd0
+ CPU: 5 UID: 0 PID: 386876 Comm: fake_sigreturn_ Kdump: loaded Not
+tainted 6.14.0-rc6-00017-g5e35b5d3ce97-dirty
+ pstate: 204003c9 (nzCv DAIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+ pc : send_user_sigtrap+0xc8/0xd0
+ lr : brk_handler+0x3c/0xbc
+ sp : ffff8000ade3be00
+ pmr: 000000f0
+ x29: ffff8000ade3be00 x28: ffff00209777c600 x27: 0000000000000000
+ x26: 0000000000000000 x25: 0000000000000000 x24: 0000000000400e30
+ x23: ffff800082cb8458 x22: ffff800082cb83c8 x21: 00000000f200029a
+ x20: ffff8000ade3beb0 x19: ffff8000ade3beb0 x18: 0000000000000000
+ x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+ x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+ x11: 0000000000000000 x10: 0000000000000000 x9 : 0000000000000000
+ x8 : 0000000000000000 x7 : 0000000000000000 x6 : ffff8000827e6638
+ x5 : 0000000000000000 x4 : ffff8000827e6638 x3 : 0000000060000000
+ x2 : ffff8000ade3c000 x1 : 0000000000000001 x0 : 00000000000000d0
+ Call trace:
+  send_user_sigtrap+0xc8/0xd0 (P)
+  brk_handler+0x3c/0xbc
+  do_debug_exception+0x68/0x110
+  el0_dbg+0x28/0xb8
+  el0t_64_sync_handler+0x50/0xcc
+  el0t_64_sync+0x1ac/0x1b0
+ ---[ end trace 0000000000000000 ]---
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
-index ef99ef3f1ab4..37fe7c288878 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c
-@@ -59,10 +59,11 @@ static void anarion_gmac_exit(struct platform_device *pdev, void *priv)
- 	gmac_write_reg(gmac, GMAC_RESET_CONTROL_REG, 1);
- }
- 
--static struct anarion_gmac *anarion_config_dt(struct platform_device *pdev)
-+static struct anarion_gmac *
-+anarion_config_dt(struct platform_device *pdev,
-+		  struct plat_stmmacenet_data *plat_dat)
- {
- 	struct anarion_gmac *gmac;
--	phy_interface_t phy_mode;
- 	void __iomem *ctl_block;
- 	int err;
- 
-@@ -79,11 +80,7 @@ static struct anarion_gmac *anarion_config_dt(struct platform_device *pdev)
- 
- 	gmac->ctl_block = ctl_block;
- 
--	err = of_get_phy_mode(pdev->dev.of_node, &phy_mode);
--	if (err)
--		return ERR_PTR(err);
--
--	switch (phy_mode) {
-+	switch (plat_dat->phy_interface) {
- 	case PHY_INTERFACE_MODE_RGMII:
- 		fallthrough;
- 	case PHY_INTERFACE_MODE_RGMII_ID:
-@@ -93,7 +90,7 @@ static struct anarion_gmac *anarion_config_dt(struct platform_device *pdev)
- 		break;
- 	default:
- 		dev_err(&pdev->dev, "Unsupported phy-mode (%d)\n",
--			phy_mode);
-+			plat_dat->phy_interface);
- 		return ERR_PTR(-ENOTSUPP);
- 	}
- 
-@@ -111,14 +108,14 @@ static int anarion_dwmac_probe(struct platform_device *pdev)
- 	if (ret)
- 		return ret;
- 
--	gmac = anarion_config_dt(pdev);
--	if (IS_ERR(gmac))
--		return PTR_ERR(gmac);
--
- 	plat_dat = devm_stmmac_probe_config_dt(pdev, stmmac_res.mac);
- 	if (IS_ERR(plat_dat))
- 		return PTR_ERR(plat_dat);
- 
-+	gmac = anarion_config_dt(pdev, plat_dat);
-+	if (IS_ERR(gmac))
-+		return PTR_ERR(gmac);
-+
- 	plat_dat->init = anarion_gmac_init;
- 	plat_dat->exit = anarion_gmac_exit;
- 	anarion_gmac_init(pdev, gmac);
--- 
-2.30.2
+I use mainline and the kernel is built with defconfig + ARM64_PSEUDO_NMI
++ ARM64_DEBUG_PRIORITY_MASKING.
 
+Thanks,
+Zenghui
 
