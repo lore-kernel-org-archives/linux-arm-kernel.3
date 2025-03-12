@@ -4,64 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8931BC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:17:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F5D0C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:23:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=1nk6tEL7b3ID90qu4AJEBZLI2EOg0vH33vT9aySeSSU=; b=2B1uDBPTmaXsSX
-	lTioRw3TBj20zHkDzbtIbGF/kRNlxsldGR8jvpDW2zMhcIlNbT1P1sUpH3+WzxT9LD9snTOmdxbpm
-	WSNTtwbW7yRzwCIquNcBL47d7AzpUzi1kXvDspYmuh8tAJMycjcV8dI8wlIhIqjfnN5K48DJ2C1N8
-	SdEz6qx6R+teSnarHYAqEHkJEyhlk861rgHam1rGnTFbxvGlloy8l5ByAmW0pDhtucfmmvkMK+41k
-	oUQ6p8grwxyoLhqMa5C4h5sUb0q88rLUErP9nx5dgAzF8+WC85zOB6WMT2+HEg7d3/XV+9ChNOUhX
-	499CS4mD4RBq3kk/DA2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g+vFr6C40IK/QoHRZZXYgKsZ4IfXSOBUm8PFsyPbVxQ=; b=YTPHkKZlRt8zBig+OEQDrxlp2j
+	6tda2ipLMbBNDPTQ+n1WolpBSythbM9ByI93/gpGgf2d59xtabbbN43ws9WeIC5zcULDJkWeoJTmw
+	bds9GxsdEMrX7T9mUXlmlWW3dLWgn3j0CohKqVDYY1PeJ3O+1sh6V0aFCXxCPhTuiu5zZpw2tYW8q
+	1Jib2izmNJo5UTq2chNlZQcLqNGo5vuOz4ziehxbtrWbnUcXMHdh6S+w4hG2cnUc4XBa6oIXvhlw9
+	8aAqvBbqV+BJLfwdJ2TFUic8GZdQ6jNPxDdXFjDcINc+zqOLfMhQyUkn52x5tkF9f9+b3ZvUcqHKX
+	NMQY09fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsOmB-000000090aD-0VpT;
-	Wed, 12 Mar 2025 16:17:47 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsOrU-000000091CO-3cTl;
+	Wed, 12 Mar 2025 16:23:16 +0000
+Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsOkU-000000090Ql-3Xk3
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 16:16:04 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 2D8D35C5C33;
-	Wed, 12 Mar 2025 16:13:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67DDDC4CEEA;
-	Wed, 12 Mar 2025 16:16:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741796161;
-	bh=VsNryCp6Jdy8Cj9W96kO7ltsyTKRP2vUyvO8MTRIRCA=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ltpF4bv2tpgig/rLF/SWUcRuVcjvjoqZTAwgDD/ab0SRZVZNFMNz/pO2uKoKFdUZ3
-	 Efa7P5+PybmQOFHqmjcy+GO9MJyiAtGOYfr+mrGhlQpC7/AuJ9lGqOhXLihiXLnT/6
-	 Tr/U34cIicPdZye4F1wPbcYYZNmQi9jSuLORnyM8fsy/2kkE/iVqElEgCVK/Ffm8F7
-	 01PQdXAtnn/gCdy0zkV60RsSHtz2V4JgT6B5WM00VL29bZHnuFvCp8zH4ma+HBw7h6
-	 J8Vcp02yuuuib4zPHSES5zqgX+d2N3xlacNeY4YPx6wiOVy8l/3OSk4Xj1JX7VN1mf
-	 D+5gS6kD2oJ2Q==
-Date: Wed, 12 Mar 2025 11:16:00 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Matt Ranostay <mranostay@ti.com>
-Cc: lpieralisi@kernel.org, kw@linux.com, vigneshr@ti.com,
-	manivannan.sadhasivam@linaro.org, robh@kernel.org,
-	bhelgaas@google.com, rogerq@kernel.org, linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org, stable@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	srk@ti.com
-Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
- J784S4
-Message-ID: <20250312161600.GA680640@bhelgaas>
+	id 1tsOpq-000000090zE-0Z67;
+	Wed, 12 Mar 2025 16:21:35 +0000
+Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-abec8b750ebso8980366b.0;
+        Wed, 12 Mar 2025 09:21:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741796492; x=1742401292; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=g+vFr6C40IK/QoHRZZXYgKsZ4IfXSOBUm8PFsyPbVxQ=;
+        b=bT1TgcTZ6EGi3u9S0euRhLJeZVzyfTXssu87LtzUvCFtp/dLJsCdSdoo+7iW4GKKe8
+         aa6MvQnOtcQAEpCnSmB6Ie4b9FUdUF8zP1yhmUb2RxCoZyFMA2/b8ltZwE/1qo6yLjHD
+         YID8YievmJAHhf6aUK1zp6aN+yqcY51AcgGaUPlDIfXBu0Ax38XbTgUsH6aZvEJs7VVK
+         +2XDuKsIAEf1ARbWut7VFvnsnVbIiicQShwq7kocETgZD5wf76gibViTwFYf1M11MHwy
+         UcASV0vF4g7bxMAQdO7tEX3udBQ2HmIewY4qKuMDN1APdjYhgfCH69iq67wWQW5Rxhns
+         GSww==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741796492; x=1742401292;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=g+vFr6C40IK/QoHRZZXYgKsZ4IfXSOBUm8PFsyPbVxQ=;
+        b=nXfAAEyWoAn6XbnTPspN+Qfx+Af6n82rbSbBtswmGkZklgC3Zp7PIYimXoWv9YUIdr
+         OlMy0foN3PqhENuj/bDe0yafHKcDiuQr0YTr/x8RROyNhrrU0TuzI0wDJf7P3WRFW9Sq
+         UjDEKBGRIWI+bsBDIIpCyBC6DGvZII2iFYyMZdaxVn910h0g4SaUAnmP6O3LTw4xovZ/
+         WfiP4e3vP/vr5ybQGAsC/g9nh3oJ8h3QSUTPEVZZeA9QYhvDgbgYS3Q6S9/J1ty3JZaQ
+         tU4MvtrXSGlo5pd4zYBMYccrqP2zHHqF7cGjBnP79SPpCfqTmQt86W6txo/Q+8JzUfy/
+         mMgA==
+X-Forwarded-Encrypted: i=1; AJvYcCV6aCOIN+EV3ux9DPol3dq0dR0VdwfoGJ00qYaCBKT162EcRKclkhjts91/fDRg/iTTSwEQsXGItAMYfFg0Iylj@lists.infradead.org, AJvYcCVUtAYBKfoYqhFUoxCEAwv+iOUb1ubp0ZPs2gsdjzRjJnM+TGP80aD4/1SL2C1EnWmOtK8vzFTpsfsStPk7c5A=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzF0XWwaSqIKV5KZoMbsK8VIY3CCgeIj+Z4UJzY3UNtvg052n3l
+	6QDZHpg84LTGYLvhuDH+1C4gT2jQDQx33xPFVpAImgjk4/BY9UR1
+X-Gm-Gg: ASbGncsriHQNi9FEJ0yAL5WvjN8ud3FR3WnOGeRPUkvb0BCMMB2JBwVojls/L86FDxW
+	CyCe80rdvS+Ii/jr0oLzVA0FFNQ3VulB5nvs4gYM6CZh3YcWVGyZObAgWEyfTrjzmSMii3TaqWm
+	vQ2WWr+6DKQAfk7k7FAeamMRq5XsgUIxrggIwvytiTxej3ogo5LU7UJAqc/btWVyWJ+98f8c6Ac
+	WhrQrzaxTuWMN2zBsiQ8Cm+dReyt0n4ZPZFI1tyocNLMXn8tZHgNJSk5KT8kWN16Sf6iM949eeT
+	2DMpttolkO8f8Oa4IVm5GWU/0QSlzCJccP9oUiOEilq65W7qAC4JQ5PbxFE4O40I0TjaLZ82goB
+	std6BmqEAP7Ge5QItP9i1PGEiD6g0USZZua7+cTrROiQuWD0g5XHd5c4eVBsQi/oL1UQ5JOUib3
+	35zxQyBuX6L3H0N9JqZlzW+MYp85B//Q==
+X-Google-Smtp-Source: AGHT+IEaEC38X6pFHkhcOdl/BcwH+TXUrXY3YHVZyCJc94P4HbdEGDzPYfpH7BevKXGOFc1f9RUFvg==
+X-Received: by 2002:a17:907:1b16:b0:abf:607b:d0d with SMTP id a640c23a62f3a-ac252a884cfmr2996838866b.16.1741796492007;
+        Wed, 12 Mar 2025 09:21:32 -0700 (PDT)
+Received: from ?IPV6:2001:1c00:20d:1300:1b1c:4449:176a:89ea? (2001-1c00-020d-1300-1b1c-4449-176a-89ea.cable.dynamic.v6.ziggo.nl. [2001:1c00:20d:1300:1b1c:4449:176a:89ea])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac23943945asm1081554266b.22.2025.03.12.09.21.30
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Mar 2025 09:21:31 -0700 (PDT)
+Message-ID: <58cbe875-80e7-4a44-950b-b836b97f3259@gmail.com>
+Date: Wed, 12 Mar 2025 17:21:29 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250305132018.2260771-1-s-vadapalli@ti.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 nf 00/15] bridge-fastpath and related improvements
+To: Pablo Neira Ayuso <pablo@netfilter.org>
+Cc: Sebastian Andrzej Siewior <bigeasy@linutronix.de>,
+ Kuniyuki Iwashima <kuniyu@amazon.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Nikolay Aleksandrov <razor@blackwall.org>, Roopa Prabhu <roopa@nvidia.com>,
+ Ivan Vecera <ivecera@redhat.com>, Jiri Pirko <jiri@resnulli.us>,
+ Jozsef Kadlecsik <kadlec@netfilter.org>, Simon Horman <horms@kernel.org>,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, netdev@vger.kernel.org,
+ linux-kernel@vger.kernel.org, netfilter-devel@vger.kernel.org,
+ coreteam@netfilter.org, bridge@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ linux-hardening@vger.kernel.org, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Alexander Lobakin <aleksander.lobakin@intel.com>,
+ Ahmed Zaki <ahmed.zaki@intel.com>, Vladimir Oltean <olteanv@gmail.com>,
+ Frank Wunderlich <frank-w@public-files.de>,
+ Daniel Golle <daniel@makrotopia.org>
+References: <20250305102949.16370-1-ericwouds@gmail.com>
+ <897ade0e-a4d0-47d0-8bf7-e5888ef45a61@gmail.com> <Z9DKxOnxr1fSv0On@calendula>
+From: Eric Woudstra <ericwouds@gmail.com>
+Content-Language: en-US
+In-Reply-To: <Z9DKxOnxr1fSv0On@calendula>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_091602_969626_7F8ECBA2 
-X-CRM114-Status: GOOD (  25.04  )
+X-CRM114-CacheID: sfid-20250312_092134_177291_70737240 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,82 +118,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[+to Matt, author of e49ad667815d]
 
-On Wed, Mar 05, 2025 at 06:50:18PM +0530, Siddharth Vadapalli wrote:
-> Commit under Fixes assigned the value of 'linkdown_irq_regfield' for the
-> J784S4 SoC as 'LINK_DOWN' which corresponds to BIT(1). However, according
-> to the Technical Reference Manual and Register Documentation for the J784S4
-> SoC [0], BIT(1) corresponds to "ENABLE_SYS_EN_PCIE_DPA_1" which is __NOT__
-> the field for the link-state interrupt. Instead, it is BIT(10) of the
-> "PCIE_INTD_ENABLE_REG_SYS_2" register that corresponds to the link-state
-> field named as "ENABLE_SYS_EN_PCIE_LINK_STATE".
 
-I guess the reason we want this is that on J784S4, we ignore actual
-link-down interrupts (and we don't write STATUS_CLR_REG_SYS_2 to clear
-the interrupt indication, so maybe there's an interrupt storm), and we
-think some other interrupt (DPA_1, whatever that is) is actually a
-link-down interrupt?
+On 3/12/25 12:44 AM, Pablo Neira Ayuso wrote:
+> Therefore, I suggest you start with a much smaller series with a
+> carefully selected subset including preparatory patches. I suggest you
+> start with the software enhancements only. Please, add datapath tests.
 
-> Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
-> expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
-> already reuse this macro since it accurately represents the link-state
-> field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
-> 
-> [0]: https://www.ti.com/lit/zip/spruj52
+Then I will split it in:
+1. Separate preparatory patches and small patch-sets that apply
+     to the forward-fastpath already.
+2. One patch-set that brings the bridge-fastpath with datapath tests.
 
-Thanks for the spec URL.  Can you include a relevant section number?
-I searched for some of this stuff but couldn't find it.
+> P.S: You work is important, very important, but maybe there is no need
+> to Cc so many mailing lists and people, maybe netdev@,
+> netfilter-devel@ and bridge@ is sufficient.
 
-Since I have low confidence that the URL will be valid after a few
-years, I wish the spec also had a human-readable name and revision
-number.  But maybe the alphabet soup or "SPRUJ52D", "revised July
-2024" is all we can hope for.
+Ok, but my main question then is which tree should I work in, and
+therefore which tag should I give my patches, [nf] or [net-next].
+I think it will get more complicated if I split my patch-set and half of
+the patches go to [nf] and another half to [net-next].
 
-> Fixes: e49ad667815d ("PCI: j721e: Add TI J784S4 PCIe configuration")
-> Cc: stable@vger.kernel.org
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> ---
-> 
-> Hello,
-> 
-> This patch is based on commit
-> 48a5eed9ad58 Merge tag 'devicetree-fixes-for-6.14-2' of git://git.kernel.org/pub/scm/linux/kernel/git/robh/linux
-> of the master branch of Linux.
-> 
-> Patch has been tested on J784S4-EVM, validating that disconnecting an
-> Endpoint Device connected to J784S4-EVM results in the following message
-> on the J784S4-EVM:
-> 	j721e-pcie 2900000.pcie: LINK DOWN!
-> which wasn't seen earlier.
-> 
-> Regards,
-> Siddharth.
-> 
->  drivers/pci/controller/cadence/pci-j721e.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> index 0341d51d6aed..1da9d9918d0d 100644
-> --- a/drivers/pci/controller/cadence/pci-j721e.c
-> +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> @@ -376,13 +376,13 @@ static const struct j721e_pcie_data j784s4_pcie_rc_data = {
->  	.mode = PCI_MODE_RC,
->  	.quirk_retrain_flag = true,
->  	.byte_access_allowed = false,
-> -	.linkdown_irq_regfield = LINK_DOWN,
-> +	.linkdown_irq_regfield = J7200_LINK_DOWN,
->  	.max_lanes = 4,
->  };
->  
->  static const struct j721e_pcie_data j784s4_pcie_ep_data = {
->  	.mode = PCI_MODE_EP,
-> -	.linkdown_irq_regfield = LINK_DOWN,
-> +	.linkdown_irq_regfield = J7200_LINK_DOWN,
->  	.max_lanes = 4,
->  };
->  
-> -- 
-> 2.34.1
-> 
+What do you suggest?
+
 
