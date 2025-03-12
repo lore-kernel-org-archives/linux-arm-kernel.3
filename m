@@ -4,76 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA486C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:20:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AFEC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:21:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gBCq+hwhK1axsi5G47bpx4/uZwOLA/maDvmVfbKOI44=; b=fBRTU1ZhRyQ/AYSGk8jwk2lAh1
-	YDCaVXZC1d/vnzYblgmWmEmFEv6olGqjU/41cx191aWvfolQulY0puFE4485ShDeHz89ElgaI/33E
-	OBUOhue0N08ebG0s8YUsN33u3+6FFiR48mXOB8Rgy1/QcsGvemcfSqTj7JvggTSMTpfNJAzIohs5y
-	68stC3HnqS+lOCMjMkCB2n+qh3fH+ehtdaOJThQGv/qVYa+0cgMIPqJGWKg3IrHNHMGuT49qaX3M2
-	ccTCEyxEPKAbSRLTLj+7cNsKCIG1a+aO6GQmJKZ8sgJp47wCP9B2Tkj70MK5eOnpbeHhY/nJrqFEb
-	dQU5FPww==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=; b=NFh1h+IwJHPoeVsOWvwA/RRn+C
+	vMjhEy2Z76ZXyBlHO4p683qb2t8r72Lmt46BVCKoRcsSLquPZ6wemspLPKvJI2CnL9WhU2Us49q29
+	+SZrByWwVtHQzIgg6XgvqlsJApsT/aKAN4OqIqq32IuH8AQmrwxAKACCW8kxCgCWyPwwcwIF9py/N
+	8Y6NRPTp0bvGx3yJEFHARVu/Gz1uW5t0UfnXAPLLG68CDMHeGPx02FVYAErylGC7LQIEJiWArC0sT
+	inDP58VC0B9VY7Kua3/K9STkx4/cfrvuuLHdcrrHaKt47Fb21sscmKdnR9oU1ANwXsfCPGPApclnr
+	3oFHBlXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK7p-00000008EdI-2fUI;
-	Wed, 12 Mar 2025 11:19:49 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1tsK9S-00000008EtM-3Xb5;
+	Wed, 12 Mar 2025 11:21:30 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJuv-00000008D0h-2TKi
+	id 1tsJzW-00000008DXY-2lle
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Mar 2025 11:11:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
+	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=; b=qdAA8Sc+1P14AwbAIOEIlI2ljB
+	Y1OPGr9rolaM2RYVEnuCbk6QJjHNbAV4dDhdxoazyzdF1EdD2d8j98hndeYyIG1xBZ4RKbcTSsVoE
+	SA2W012v4tPikqKApxIZC/oGHSv8WdIILHE2UUPmI+24gvlTf7rfK0/LmcvjEgjhN1YTUAgolSEOE
+	T3oiufhyjDdG3Q2+gQHtxzE9wlwXiPzG03R8QoL9677JfgenJVtYd+t8TMgmmAPASoHMFrgIEl+VJ
+	iYPbSm7P433u+slwTAT4ue2IJ7LpZSZeVB03Rw+53RjM5G32HTKrMUntrYNhCeHrI/P8f13GYqerr
+	b/PlB3cQ==;
+Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsJzT-00000002MOJ-0W1z
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:06:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741777590; x=1773313590;
-  h=message-id:date:mime-version:subject:to:cc:references:
-   from:in-reply-to:content-transfer-encoding;
-  bh=zpVEj/Z0/zd3i/AJFV7MDl6B+Q7yGagVxm2zpHnOD3w=;
-  b=PE717Sw2t3m6sfp7XuLCRAGyFO08d+dnGSsTjQqsxDgbtxVGQt3T9RyD
-   /l8Xv5igMVCnL/O3aYtIgHWyMq/0PzBCeYa7SdnEu37QR4qDR+QTtVyRE
-   BWBWbE45gSpDWGmMEHWh8syNBLe2sxTIlLxhkKk1JGDKZfVUBpz6Ysp+3
-   2mFcUEecjydGw7RnTktALUNFx7HlTFUYgaFflxxavow+RQ8EJKbhH+FQr
-   upaa2EMd8C5rxt2M9cXFGAUsJY1v59Cf+eAuxekiV7fHgi0eDcCiBQ43M
-   GjT8eh/UfuvSVG9QppWZWE8YK6saXhpqG/MLJWV+Vmt9Rzu6PJ9vJ7YY+
-   Q==;
-X-CSE-ConnectionGUID: og0SOlj9RNWsn3AJeWKKUw==
-X-CSE-MsgGUID: 2ltK2lH2ToWhKFiNUwi0Jg==
-X-IronPort-AV: E=McAfee;i="6700,10204,11370"; a="53841910"
-X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
-   d="scan'208";a="53841910"
-Received: from fmviesa004.fm.intel.com ([10.60.135.144])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 04:06:28 -0700
-X-CSE-ConnectionGUID: FTcHnpSoR1On2p12HpUfcQ==
-X-CSE-MsgGUID: 1vDNffJDSfyoLH+Tbkug3Q==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
-   d="scan'208";a="125669067"
-Received: from soc-5cg4396xfb.clients.intel.com (HELO [172.28.180.56]) ([172.28.180.56])
-  by fmviesa004-auth.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 04:06:25 -0700
-Message-ID: <93f1c6d0-a1fe-4154-a31d-20cc878476d9@linux.intel.com>
-Date: Wed, 12 Mar 2025 12:06:21 +0100
+	Wed, 12 Mar 2025 11:11:13 +0000
+Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3912c09be7dso3588780f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:11:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741777868; x=1742382668; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=;
+        b=ZKofDtOWMvPf+tM3Fr7eIk/ik0ro6IxuLjlzTjq1wTpbTRTmvSLQs3ULLAXxESzezF
+         fRLib5/wMr6vP6rl9ohQKboBjSY3Iz5CcS+DDTTD9DWkSTx9UzYD5/2zNoIxVFbybtVX
+         L2do6sEgxKAM8GW7OYN13jtev/94RN68BoTPf6MtVP+IqV+a6aQvDnwZ7opZE8Iuj1oL
+         d3WkkaFHAbFyUkzNzXzIwAyKfRDbCTxFaLFEgsx0ay1T+VyO020xJ6LJq/MVKpOu55kV
+         NES0u7saVKR6fJ/LEdX5/xDoaDISMR/Mhl9kGT0oqZ4APOr69ZBTD3juMzjbsBYWFN+v
+         u0Fw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741777868; x=1742382668;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=;
+        b=T5q2rWvumABjt+8IcGAqRXMCqy/yCMl1IjsSy5RNYuWV4/IgQ1lXi9tHI7oIVoiy7Y
+         H7pkUFHsaBqhWgHnPjB9Lv/gOHjme9EQyQraQI9mTjYLRi4cnl0Y5lpHk4ly5LTI04ZY
+         DSmF2zSXfYlMvBJLsUnFO/eTpE/conv5z6enpe82rFjqm/kbXZgmPXLwxCE8mHxALw7V
+         5Eo7W+jzr3GQZJVGOHLaTGYovoOI+gPvCz3IHwyc0VoU7ixwfaIec9wAr50lhWUvL4GV
+         iERFutNJkisIH5LW+P9yD1FTchzC0EKXT3ncfP2+1m3+9sagdxhrrLBP54la+J9z2bOJ
+         nPgg==
+X-Forwarded-Encrypted: i=1; AJvYcCUtXur2VavTq+5bFEVCxWKjafPN5sr+DQwZqpmun1AWroRVw3yHR4LZV3x6Ni+jnyj+goxLwr6IBKUQpZreGE9X@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUWeBq5zV9Y6yA4ZphpY1JsRZ4qbxGB2cJa78QuQPRWhcTM51t
+	CMZ8peSOkWRALSNvXplbPL5H+XzxYUbIyYkZiFQIHQ4npVF0MO7tTSa5xdLoKEE3nrRmwsupfrT
+	6TPQm3DW5nMTTu3Bfo3D3mfwb4dmW+Qk1X1iqag==
+X-Gm-Gg: ASbGncvOIL3kV8akwFa6/A9fGmBxy8RhL4wOeFBlxKBAMLTmY4pyLvNLQfAdbmViHes
+	N6FquuOYWnYt0b40+Pe3O6vbMIUpYWrTesbnBCzenAt9CR32ygTK9L4kAfxCoSVz1JIU6HSkpQd
+	N1F/GEc5eX8WanjuNMzL5gZ+0IdRQ=
+X-Google-Smtp-Source: AGHT+IGQqsMzLL1SkIH3EVJhaanHHGJ9uStzi43oBMlQa1DqbbQl8c3C+QW090TXdgpNQcCnk5YClrhuASylQsAX/Pk=
+X-Received: by 2002:a05:6000:1867:b0:391:253b:405d with SMTP id
+ ffacd0b85a97d-39132d98a1emr17304676f8f.41.1741777868403; Wed, 12 Mar 2025
+ 04:11:08 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
- only configuration.
-To: Suraj Gupta <suraj.gupta2@amd.com>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- git@amd.com, harini.katakam@amd.com
-References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
- <20250312095411.1392379-3-suraj.gupta2@amd.com>
-Content-Language: pl, en-US
-From: Dawid Osuchowski <dawid.osuchowski@linux.intel.com>
-In-Reply-To: <20250312095411.1392379-3-suraj.gupta2@amd.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+ <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
+ <uljqxwfgl26txrfqvkvzzpj6qurgmwcbuot7gu2u6rwjaqgncb@jeuyi4mexjff>
+ <CACr-zFDSFizYmrVN-dV334n1kq17UB9k4FxrV20NNQCQMhzrwg@mail.gmail.com> <92dd35a2-d1cc-4f2b-b3a8-5752ec33b0d3@kernel.org>
+In-Reply-To: <92dd35a2-d1cc-4f2b-b3a8-5752ec33b0d3@kernel.org>
+From: Christopher Obbard <christopher.obbard@linaro.org>
+Date: Wed, 12 Mar 2025 12:10:56 +0100
+X-Gm-Features: AQ5f1Jr_LcQ_zc_s53yVw1h2DAzbGYxZX7Ayfg2dMTJBpBQw3CievHU4tKHPOpw
+Message-ID: <CACr-zFCYWEFPO8yExp_8hOQdVtC9Zwu1ZOZNksSeyyS6Ht0e9A@mail.gmail.com>
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as built-in
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dmitry Baryshkov <lumag@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
+	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_040629_680031_CB439C6B 
-X-CRM114-Status: GOOD (  12.21  )
+X-CRM114-CacheID: sfid-20250312_111111_267764_EEE9EB9A 
+X-CRM114-Status: GOOD (  24.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,34 +112,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-12 10:54 AM, Suraj Gupta wrote:
-> AXI 1G/2.5G ethernet IP has following synthesis options:
-> 1) SGMII/1000base-X only.
-> 2) 2500base-X only.
-> 3) dynamically switching between (1) and (2).
-> Add support for 2500base-X only configuration.
+Hi Krzysztof,
 
-Hi, thanks for the patch.
+On Wed, 12 Mar 2025 at 09:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>
+> On 11/03/2025 20:15, Christopher Obbard wrote:
+> > Hi Dmitry,
+> >
+> > On Tue, 11 Mar 2025 at 19:58, Dmitry Baryshkov <lumag@kernel.org> wrote:
+> >>
+> >> On Tue, Mar 11, 2025 at 07:10:06PM +0100, Christopher Obbard wrote:
+> >>> I sent this patch to start the discussion, some things I found:
+> >>>
+> >>> 1) Some interconnects are missing from arm defconfig. Should they be =y too ?
+> >>
+> >> No, unless those are required for the UART console.
+> >
+> > OK, that makes sense. FWIW the cryptic (to me, at least) commit log on
+> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6eee808134ecf1c1093ff1ddfc056dc5e469d0c3
+> > made me think that the interconnects should be built-in on all devices.
+> >
+> > Of course, the real problem here is RB3gen2 not actually finding the
+> > UFS/eMMC device due to no interconnect driver.
+> > Until now, I have been building that into the kernel. I will
+> > investigate instead shoving into the initrd (in both debian and
+> > fedora) which should solve my issue and render this patchset useless.
+>
+> For Qualcomm platforms you are expected to always have initramfs, thus
+> you will have the modules for UFS/eMMC mounts. I don't understand the
+> problem which you were trying to solve.
+>
+> The interconnects were built in *only* because of need for serial
+> console. Only.
 
-nit: a discrepancy between the commit description for and the comments 
-in the code for 3)
+Thanks for confirming. It is all clear now.
 
-Maybe adding that information here in the commit description would make 
-sense as well? Or giving a bit of a background that SGMII/1000base-X is 
-already implemented in the driver and you are adding 2500base-X only 
-support.
+Consider this patch dropped from my side.
 
-> +	/* AXI 1G/2.5G ethernet IP has following synthesis options:
-> +	 * 1) SGMII/1000base-X only.
-> +	 * 2) 2500base-X only.
-> +	 * 3) Dynamically switching between (1) and (2), and is not
-> +	 * implemented in driver.
-> +	 */
+For reference, I am working on updating initramfs generation tools in
+Debian/Fedora to include the required interconnect modules. Currently
+the interconnect drivers are built as modules in these distros, but
+are not included in the initrd. That is where my confusion initially
+stemmed from.
 
-For the rest of the patch, it looks good to me but I'd rather have 
-someone more experienced provide the Reviewed-By tag if they find the 
-patch appropriate.
+Thanks,
 
-Best regards,
-Dawid
+Chris
 
