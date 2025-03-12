@@ -4,91 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2A1C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:05:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13FD2C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=66r/Df/WRe1wVFnyIOw0GOt/Z4fFGvLuV3Qb0yAd/5Y=; b=TgcP+F3nX6/g0ecbeI/l2S4zli
-	RcAmd3xXsHSXVJALaYxtBzcjHQkETGp1S2crj2sHv7CfJ/GLRNIkgCcTGyjspPlxM9XFp97t6NF54
-	IrOKinC6UkgKB+ACbU3JZawvSuEtB/HcKWN4FvkNanb813gV6m9AUSZGs4eBMCh/RxJC9xg96IhO9
-	fgiz/iYOxptjhOHfxmOF9YVQBNLyY1I2UlGNbyeBTn1tDfHW3AhUbBN+YM0o+AYN57ahZrlw+CWQt
-	JKQM6bDpiW/IU0idvgXn8ii6sxTT8riG/CgOdfj2FGWHILk7/tkXCSWnJGBt6tbX4gN+0FLffgsTb
-	8j2jExGg==;
+	bh=g9Hi6z01W79t89Yzzjz+Av4u/k4zBkYFE5hgZtEL7TA=; b=nGeBKfQXKAqXjwK/zXGe0lxQ3m
+	hgbUF2KcWk5d7eopWSXT1/BHqRjoo0x90mC4kdj4BfobAYYxLcadYlqJT5WV0wKBE6wiC/IBrfAvS
+	Pzx3B2VQTRbvoFEycj1dJ+//2MmaUv/nvwyI3bLjDjzBDylWW4hnwjIIrcjC/XL9Jq5BZNgmBM0Yl
+	eItXuATjXYOCKKmy4wFR2oa6/mMQMcTGy62cv51YgxH2/leALVjLAAXy78+f6yZCdbgHvvP5n/mrS
+	6h/TyEYzuURq7Z3kyVnxMsB3NuvxpK+UpYODXu+pcScuqG043/fpy6oS7kv0i9WgAW1DRGWN8IgtU
+	D5I/x6Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJuD-00000008CrM-27AC;
-	Wed, 12 Mar 2025 11:05:45 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tsJuq-00000008Cym-35PQ;
+	Wed, 12 Mar 2025 11:06:24 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIUy-00000007zbZ-0ZDD;
-	Wed, 12 Mar 2025 09:35:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=66r/Df/WRe1wVFnyIOw0GOt/Z4fFGvLuV3Qb0yAd/5Y=; b=tG6i5Av6LflwHt6a2VdGms32kA
-	Tq7GZ5d//QSr++0OPfvaJS5d14Y9OmDTYUUoluxyruiNXCudNteoiJ57l/BdT71/uufNJrzZREk1T
-	ISrh1iSSfukOCYhBmA1EnAAcrtobqpYApUEDEGRptmLvtmeCoWKfn5NHa9XSdInSM6z6f/o7dJVvA
-	GXT2TgOPhEduvQaqyXUl4mU3gykx7v2cYcGbKBhoYBzcUegwaqfTmOuys2sZ+Vmfft5Hado7ic9Jk
-	z9sivj9nhlis33jmHlZK+18xqriYfm+De+m5fjnGv1/ux6pdhPt7tlXGnT1d9xWWXOX35au87pAjW
-	EIHpU59A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42840 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIUb-0005IH-02;
-	Wed, 12 Mar 2025 09:35:13 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIUF-005vGd-C5; Wed, 12 Mar 2025 09:34:51 +0000
-In-Reply-To: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	devicetree@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
+	id 1tsJZF-000000088j6-1osZ
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 10:44:07 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-300fefb8e06so3697163a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:44:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1741776244; x=1742381044; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=g9Hi6z01W79t89Yzzjz+Av4u/k4zBkYFE5hgZtEL7TA=;
+        b=TXJlHBkwmYmRamwHK8ZV9PzjFMIiN4jbO00lS9hz7NKEZqS6NuScTSE0bbihjNg7f0
+         uz678ArxdIdQrJejqPqSJIEtQqvaGO9Gt8DWlcvAezhHwerTlY9g6pk62f+zLBI1W++E
+         Wq5eq4rvQyFP0kdJwlNnliZVQ8ZgOrlLoBZ7M=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741776244; x=1742381044;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g9Hi6z01W79t89Yzzjz+Av4u/k4zBkYFE5hgZtEL7TA=;
+        b=eN7Jtlh3VFIU88AI5mqmC/tu/n838vmzsOWc8bpfdk81JpuEUtab/Ao5mKsiiTXpqC
+         fUmKc1cQxtsXQSUUpAaLT9OqleWBx5EQyX0XuY1A2MzsuwGWM9v6SSTGVss8s9DljfP0
+         y1TlD+ExDbBAVh0b2Rt9mjX1GX+5Xxt30b+3hLmYm4Kt9vPUqHM3auWiFoM6AGPu7XqV
+         iKGX/9B4BeF9s/QLMCZWch82evB3Iqcvj4Dr7ndRPN95ctq2kt5D4UqoTGcbwO4KpUBb
+         LfakuCjfVIAbko2IxKBgvA+ltM9sbr3VBlKjmMUK6eEz3p+w27TuLgb100RC4BbsMylY
+         pcQw==
+X-Forwarded-Encrypted: i=1; AJvYcCWI48HQGBSOEhFa9gcxfUNV3UBYclPw4ZkmOP5MurQDxQYRWw41IQkyj9w3llX5dBPwyqJzog2NVuY8ZIcD572g@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6xgASTIlDdBza9K2o+y9V7Hdf9Ua6HU3L3iqnoAN8gzpNkoGU
+	v6NAlgnuuV/8EWdYI2P5SFjyGMzyd+vnOmr5HZOC0t/YqV/VTINu26ZDXDPAYA==
+X-Gm-Gg: ASbGncsDeti0K/S9BmJllKZS8AZOgmwGG1krUuht1loz9oeq31pd9Lpg0pUUVwiLovL
+	Ygj9madp9qYYARzv1qsBHopeBTJTEdi1K7PCWYnfOsoGbLlgJlD1Y5+orpITLrGSVcN4ovcgWT2
+	m6aObp6j4mGKe+TGZyo0j9TuufkDOO+QiNgCNTtjMC3L4JCi6+r6EXtVE1uJf7nZ9PDUt/4NYyP
+	MxUJHUHtDnfaZGvaXUOtom83G5T/1LHLHhweUnOI1GVabMpn4X/2Bir8m/FEVuNscNtohulwsxR
+	fyGQYPSdz1T0+OzUNUWGOfJehtymDswP1RZgyWplaLkeSxBUL8Fzzd74D5aeOJQ=
+X-Google-Smtp-Source: AGHT+IHJj3ClCl0G4w7uRfbh34yNw6y58jNADTnvGcCG6MJZbH+QLxVptAl9mfKjSGMGz6TiuUUEtA==
+X-Received: by 2002:a17:90a:d88d:b0:2ff:6788:cc67 with SMTP id 98e67ed59e1d1-300ff368043mr8303305a91.34.1741776244552;
+        Wed, 12 Mar 2025 03:44:04 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:b5ed:b71c:fb14:a696])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm1405675a91.35.2025.03.12.03.44.01
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 03:44:04 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	netdev@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH net-next v2 6/7] dt-bindings: deprecate
- "snps,en-tx-lpi-clockgating" property
+	linux-mediatek@lists.infradead.org,
+	chrome-platform@lists.linux.dev,
+	linux-input@vger.kernel.org,
+	Douglas Anderson <dianders@chromium.org>,
+	stable+noautosel@kernel.org
+Subject: [PATCH 4/8] arm64: dts: mediatek: mt8186-steelix: Mark second source components for probing
+Date: Wed, 12 Mar 2025 18:43:38 +0800
+Message-ID: <20250312104344.3084425-5-wenst@chromium.org>
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+In-Reply-To: <20250312104344.3084425-1-wenst@chromium.org>
+References: <20250312104344.3084425-1-wenst@chromium.org>
 MIME-Version: 1.0
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tsIUF-005vGd-C5@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:34:51 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_023536_172305_5874CCCA 
-X-CRM114-Status: UNSURE (   8.85  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_034405_469259_A97866F9 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,34 +108,104 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Whether the MII transmit clock can be stopped is primarily a property
-of the PHY (there is a capability bit that should be checked first.)
-Whether the MAC is capable of stopping the transmit clock is a separate
-issue, but this is already handled by the core DesignWare MAC code.
+Steelix design has two possible trackpad component sources. Currently
+they are all marked as available, along with having workarounds for
+shared pinctrl muxing and GPIOs.
 
-Therefore, snps,en-tx-lpi-clockgating is technically incorrect, so this
-commit deprecates the property in the binding.
+Instead, mark them all as "fail-needs-probe" and have the implementation
+try to probe which one is present.
 
-Acked-by: Rob Herring (Arm) <robh@kernel.org>
-Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Also remove the shared resource workaround by moving the pinctrl entry
+for the trackpad interrupt line back into the individual trackpad nodes.
+
+Cc: <stable+noautosel@kernel.org> # Needs accompanying new driver to work
+Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ .../boot/dts/mediatek/mt8186-corsola-steelix.dtsi      |  7 +++++++
+ .../mediatek/mt8186-corsola-tentacool-sku327683.dts    |  2 ++
+ .../mediatek/mt8186-corsola-tentacruel-sku262148.dts   |  2 ++
+ arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi       | 10 ++++------
+ 4 files changed, 15 insertions(+), 6 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-index 3f0aa46d798e..78b3030dc56d 100644
---- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-+++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
-@@ -494,6 +494,7 @@ title: Synopsys DesignWare MAC
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
+index e74e886a00cb..822a177e7c19 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-steelix.dtsi
+@@ -123,8 +123,11 @@ trackpad@2c {
+ 		reg = <0x2c>;
+ 		hid-descr-addr = <0x20>;
+ 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&trackpad_pin>;
+ 		vdd-supply = <&pp3300_s3>;
+ 		wakeup-source;
++		status = "fail-needs-probe";
+ 	};
+ };
  
-   snps,en-tx-lpi-clockgating:
-     $ref: /schemas/types.yaml#/definitions/flag
-+    deprecated: true
-     description:
-       Enable gating of the MAC TX clock during TX low-power mode
+@@ -197,3 +200,7 @@ pins-vreg-en {
+ 		};
+ 	};
+ };
++
++&trackpad {
++	status = "fail-needs-probe";
++};
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
+index c3ae6f9616c8..4dbf2cb73a81 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacool-sku327683.dts
+@@ -17,6 +17,8 @@ trackpad@15 {
+ 		compatible = "hid-over-i2c";
+ 		reg = <0x15>;
+ 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&trackpad_pin>;
+ 		hid-descr-addr = <0x0001>;
+ 		vdd-supply = <&pp3300_s3>;
+ 		wakeup-source;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
+index 447b57b12b41..ee5bc2cd9e9f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
++++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola-tentacruel-sku262148.dts
+@@ -19,6 +19,8 @@ trackpad@15 {
+ 		compatible = "hid-over-i2c";
+ 		reg = <0x15>;
+ 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&trackpad_pin>;
+ 		hid-descr-addr = <0x0001>;
+ 		vdd-supply = <&pp3300_s3>;
+ 		wakeup-source;
+diff --git a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
+index cebb134331fb..918f17385ba5 100644
+--- a/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
++++ b/arch/arm64/boot/dts/mediatek/mt8186-corsola.dtsi
+@@ -390,19 +390,17 @@ &i2c1 {
  
+ &i2c2 {
+ 	pinctrl-names = "default";
+-	/*
+-	 * Trackpad pin put here to work around second source components
+-	 * sharing the pinmux in steelix designs.
+-	 */
+-	pinctrl-0 = <&i2c2_pins>, <&trackpad_pin>;
++	pinctrl-0 = <&i2c2_pins>;
+ 	clock-frequency = <400000>;
+ 	i2c-scl-internal-delay-ns = <10000>;
+ 	status = "okay";
+ 
+-	trackpad@15 {
++	trackpad: trackpad@15 {
+ 		compatible = "elan,ekth3000";
+ 		reg = <0x15>;
+ 		interrupts-extended = <&pio 11 IRQ_TYPE_LEVEL_LOW>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&trackpad_pin>;
+ 		vcc-supply = <&pp3300_s3>;
+ 		wakeup-source;
+ 	};
 -- 
-2.30.2
+2.49.0.rc0.332.g42c0ae87b1-goog
 
 
