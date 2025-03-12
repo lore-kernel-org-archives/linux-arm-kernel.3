@@ -4,155 +4,134 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD235C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 08:19:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA230C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 08:23:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GSOHoa1ZQ0qdVTrSgPUGYM6S96Eo1g2ZFjEamRQ2nOU=; b=q2ex/xhSM5ybAh7ChbVTPBFBIN
-	uNb9TJ5h/+UFdRByNBbVSixkbFThLc+Ctc1humyV2y+V2EKubwecaBOqHHnmW3HlN/Os+J0s99Oz7
-	aKsKEtkp8uq3fOnKXhpwF+wh+IwchBNl2PSymMI8vfPSyAvP7Y5Q3nn9l/VM2lbjIP7FbXeNIpERo
-	hZLkoHvVtDqvs2qHvxTvpQfuVpSIGnfrfxNYgksd275RnNrOcutfJcEYZJuC/Mm0qDVuGGHJMRzR1
-	SCY01l7U4I4cGFvDx7YoGbmAInNVBhIc80RfTIOys3kHkVBe918Jpzf0QxuH2eifBEUfDT5iDNvVS
-	LR89vWCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hXQlKGRV5x14td6bizuN4mAcEurKeuWToLZ0EGaMiPk=; b=0sg6DAvBqGUS8qSi/9XqjbXHkR
+	8nkOzFLWVf0iXxlkbzZR5reDcGN5kzUN202dx+OrDnvkuh7pMvlsHJCKZKTl9q18IYta3LhmituQP
+	kkjK/mtopdlvkc0id4UupVi4ZShF5qYRNAtcOPz+folGv7tlMFuhx3lZJCOG9eQMR7IF43bqeZ5Tb
+	liKACkToySZpdNAp37R9EXJEiagRjx3Hqlxd3+q8NPUE5SJmxI+KvvvfQ9NTzCOM/oO8yq7hTSYqi
+	mDWcB9t8GHA03ZapMFvCCVSCcsWXFN4sV/cFB7rkP4P2Z+5rvTDa1lxA1N30Mi8w8/HWlagX258ei
+	7EpFaSlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsHJN-00000007obX-1zCA;
-	Wed, 12 Mar 2025 08:19:33 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tsHNL-00000007p8w-1dpT;
+	Wed, 12 Mar 2025 08:23:39 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsHHi-00000007oSr-3NBo
+	id 1tsHLf-00000007orn-3sId
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 08:17:52 +0000
-Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 11A7921182;
-	Wed, 12 Mar 2025 08:17:47 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1741767468; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GSOHoa1ZQ0qdVTrSgPUGYM6S96Eo1g2ZFjEamRQ2nOU=;
-	b=mSdm0CDIdvB6uLxx6zRnsG4Ecp9B8GLTTcqSpLg/hToiNhovmIQtyPjBp1PdTn48VkauY7
-	N2OX2kmuZiHIU/RyZm809t89hNCuSwcbXtoZj8lUOkKvjwMJjz339ENAAZRD/swLJ5jo1m
-	sthuFFuNF3WuHBtcPwH/dRjdrkVuifw=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1741767468;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GSOHoa1ZQ0qdVTrSgPUGYM6S96Eo1g2ZFjEamRQ2nOU=;
-	b=2lHpqyUMEMjBLTUq58WAtMt1kwGtVY2JDs8Oj1RToqFsbxqeLxc7c7dtIucbtAN5SmXOCB
-	qci1fxqin8+7vXCA==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1741767467; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GSOHoa1ZQ0qdVTrSgPUGYM6S96Eo1g2ZFjEamRQ2nOU=;
-	b=2NOtoWk3iQVCM2YdgmbdbohAj8C+BBSmrgVP6+qfsnNORQ7mFXkF5HOMZOxn/OcQJVBjv1
-	56w5JL9wxTcT6S7MlMvtA7Xf7ghb9UEgCJTeQtRSsWopAqpjkeLJmPekAItvUtk55qwMOH
-	TF3lRfqVgiQUDIi2VfADxBk08VDLlY8=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1741767467;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=GSOHoa1ZQ0qdVTrSgPUGYM6S96Eo1g2ZFjEamRQ2nOU=;
-	b=L1KBGOUIGPKFfIZN+PbNNV++j9M+DIBK6Q3B+y5QqUe9xvfVXrg5kEcC+xzl+LkBMyzHTG
-	sa1N118DhaKJr8CA==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 98BAF1377F;
-	Wed, 12 Mar 2025 08:17:46 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id vULzIypD0WcQegAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Wed, 12 Mar 2025 08:17:46 +0000
-Message-ID: <41c4b56d-0932-465c-9dc7-c3a20cb49bdb@suse.de>
-Date: Wed, 12 Mar 2025 09:17:46 +0100
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RESEND PATCH v3] drm/mxsfb: Remove generic DRM drivers in probe
- function
-To: Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- linux-kernel@vger.kernel.org
-Cc: linux-amarula@amarulasolutions.com,
- Michael Trimarchi <michael@amarulasolutions.com>,
- David Airlie <airlied@gmail.com>, Fabio Estevam <festevam@gmail.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Marek Vasut <marex@denx.de>, Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>,
- Simona Vetter <simona@ffwll.ch>, Stefan Agner <stefan@agner.ch>,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-References: <20250305140929.174398-1-dario.binacchi@amarulasolutions.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20250305140929.174398-1-dario.binacchi@amarulasolutions.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	ARC_NA(0.00)[];
-	MIME_TRACE(0.00)[0:+];
-	RCVD_TLS_ALL(0.00)[];
-	RCPT_COUNT_TWELVE(0.00)[17];
-	MID_RHS_MATCH_FROM(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	FROM_HAS_DN(0.00)[];
-	FREEMAIL_CC(0.00)[amarulasolutions.com,gmail.com,linux.intel.com,denx.de,kernel.org,pengutronix.de,ffwll.ch,agner.ch,lists.freedesktop.org,lists.linux.dev,lists.infradead.org];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:mid,imap1.dmz-prg2.suse.org:helo]
+	Wed, 12 Mar 2025 08:21:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 606F85C555D;
+	Wed, 12 Mar 2025 08:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEAD8C4CEE3;
+	Wed, 12 Mar 2025 08:21:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741767714;
+	bh=K3w+uvK/T33Sb7r/wuWcRSqZZjDSkSf+R1EUffld+B4=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ps3W89ZBWzBgV5aqiLiYoLipNPLdjHTQNCngZ8dk+H/MBGCaW2rZSbp6BKT6OW2o7
+	 Z8dCp3BNbPLdQ7/ZXy4REwYgQA71kW5kw5DvEtt1QJtQJMyLFbj4Z8GZseurUKLlfZ
+	 yjMwPfQXOHYsFT4pjbsyaJM1DmWQTMQPEBQJwctkvgHWj852OLYPLF9hH9PV0gWh5A
+	 zgUQ2E7zCB4CGaVmeWGU7nOsETk3rZWFoOobGZDB6t1ogJSa1z53/w0fLDFHh/vyI9
+	 uL5Vga2L0c/sDJr8jQcHacaKxwxi3htynM60odIZEHqfch4NlpSgRSgorJQoSPCoAN
+	 Yn8alerznEKMw==
+Received: from 82-132-232-216.dab.02.net ([82.132.232.216] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tsHLb-00Cn8v-Jn;
+	Wed, 12 Mar 2025 08:21:51 +0000
+Date: Wed, 12 Mar 2025 08:21:48 +0000
+Message-ID: <87tt7y7j6r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ankit Agrawal <ankita@nvidia.com>
+Cc: Jason Gunthorpe <jgg@nvidia.com>,
+	"oliver.upton@linux.dev"
+	<oliver.upton@linux.dev>,
+	"joey.gouly@arm.com" <joey.gouly@arm.com>,
+	"suzuki.poulose@arm.com" <suzuki.poulose@arm.com>,
+	"yuzenghui@huawei.com"
+	<yuzenghui@huawei.com>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"ryan.roberts@arm.com"
+	<ryan.roberts@arm.com>,
+	"shahuang@redhat.com" <shahuang@redhat.com>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"david@redhat.com"
+	<david@redhat.com>,
+	Aniket Agashe <aniketa@nvidia.com>,
+	Neo Jia
+	<cjia@nvidia.com>,
+	Kirti Wankhede <kwankhede@nvidia.com>,
+	"Tarun Gupta\
+ (SW-GPU)" <targupta@nvidia.com>,
+	Vikram Sethi <vsethi@nvidia.com>,
+	Andy
+ Currid <acurrid@nvidia.com>,
+	Alistair Popple <apopple@nvidia.com>,
+	John
+ Hubbard <jhubbard@nvidia.com>,
+	Dan Williams <danw@nvidia.com>,
+	Zhi Wang
+	<zhiw@nvidia.com>,
+	Matt Ochs <mochs@nvidia.com>,
+	Uday Dhoke
+	<udhoke@nvidia.com>,
+	Dheeraj Nigam <dnigam@nvidia.com>,
+	Krishnakant Jaju
+	<kjaju@nvidia.com>,
+	"alex.williamson@redhat.com"
+	<alex.williamson@redhat.com>,
+	"sebastianene@google.com"
+	<sebastianene@google.com>,
+	"coltonlewis@google.com" <coltonlewis@google.com>,
+	"kevin.tian@intel.com" <kevin.tian@intel.com>,
+	"yi.l.liu@intel.com"
+	<yi.l.liu@intel.com>,
+	"ardb@kernel.org" <ardb@kernel.org>,
+	"akpm@linux-foundation.org" <akpm@linux-foundation.org>,
+	"gshan@redhat.com"
+	<gshan@redhat.com>,
+	"linux-mm@kvack.org" <linux-mm@kvack.org>,
+	"ddutile@redhat.com" <ddutile@redhat.com>,
+	"tabba@google.com"
+	<tabba@google.com>,
+	"qperret@google.com" <qperret@google.com>,
+	"seanjc@google.com" <seanjc@google.com>,
+	"kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>
+Subject: Re: [PATCH v3 1/1] KVM: arm64: Allow cacheable stage 2 mapping using VMA flags
+In-Reply-To: <SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+References: <20250310103008.3471-1-ankita@nvidia.com>
+	<20250310103008.3471-2-ankita@nvidia.com>
+	<861pv5p0c3.wl-maz@kernel.org>
+	<SA1PR12MB7199DD985C45943A663E7003B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+	<86r033olwv.wl-maz@kernel.org>
+	<SA1PR12MB7199500A3683B15A64B663D6B0D12@SA1PR12MB7199.namprd12.prod.outlook.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 82.132.232.216
+X-SA-Exim-Rcpt-To: ankita@nvidia.com, jgg@nvidia.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, ryan.roberts@arm.com, shahuang@redhat.com, lpieralisi@kernel.org, david@redhat.com, aniketa@nvidia.com, cjia@nvidia.com, kwankhede@nvidia.com, targupta@nvidia.com, vsethi@nvidia.com, acurrid@nvidia.com, apopple@nvidia.com, jhubbard@nvidia.com, danw@nvidia.com, zhiw@nvidia.com, mochs@nvidia.com, udhoke@nvidia.com, dnigam@nvidia.com, kjaju@nvidia.com, alex.williamson@redhat.com, sebastianene@google.com, coltonlewis@google.com, kevin.tian@intel.com, yi.l.liu@intel.com, ardb@kernel.org, akpm@linux-foundation.org, gshan@redhat.com, linux-mm@kvack.org, ddutile@redhat.com, tabba@google.com, qperret@google.com, seanjc@google.com, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_011751_136182_F6C1588D 
-X-CRM114-Status: GOOD (  18.15  )
+X-CRM114-CacheID: sfid-20250312_012156_076258_9D8F3B77 
+X-CRM114-Status: GOOD (  28.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -167,65 +146,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Merged into drm-misc-next. Thanks for the patch.
+On Tue, 11 Mar 2025 12:07:20 +0000,
+Ankit Agrawal <ankita@nvidia.com> wrote:
+> 
+> Thanks Marc for the feedback.
+> 
+> > No, I'm concerned that a well established API (populating a memslot)
+> > works in some case and doesn't work in another without a clear
+> > indication of *why* we have this behaviour.
+> >
+> > To me, this indicates that userspace needs to buy in this new
+> > behaviour, and that behaviour needs to be advertised by a capability,
+> > which is in turn conditional on FWB.
+> 
+> Yes, that makes sense.
+> 
+> >>> Perhaps we can gracefully fall back to the default device mapping
+> >>> in such case? But that would cause VM to crash as soon as it makes some
+> >>> access violating DEVICE_nGnRE.
+> >
+> > Which would now be a regression...
+> > 
+> > My take is that this cacheable PNFMAP contraption must only be exposed
+> > to a guest if FWB is available. We can't prevent someone to do an
+> > mmap() behind our back, but we can at least:
+> >
+> > - tell userspace whether this is supported
+> 
+> For my education, what is an accepted way to communicate this? Please let
+> me know if there are any relevant examples that you may be aware of.
 
-Am 05.03.25 um 15:09 schrieb Dario Binacchi:
-> Use aperture helpers to remove all generic graphics drivers before
-> loading mxsfb. Makes mxsfb compatible with simpledrm.
->
-> Co-developed-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Michael Trimarchi <michael@amarulasolutions.com>
-> Signed-off-by: Dario Binacchi <dario.binacchi@amarulasolutions.com>
-> Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
->
-> ---
->
-> Changes in v3:
-> - Add 'Reviewed-by' of  Thomas Zimmermann
->
-> Changes in v2:
-> - Use aperture_remove_all_conflicting_devices() instead of
->    drm_aperture_remove_framebuffers().
->
->   drivers/gpu/drm/mxsfb/mxsfb_drv.c | 10 ++++++++++
->   1 file changed, 10 insertions(+)
->
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> index 59020862cf65..e5eb644b54ae 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -8,6 +8,7 @@
->    * Copyright (C) 2008 Embedded Alley Solutions, Inc All Rights Reserved.
->    */
->   
-> +#include <linux/aperture.h>
->   #include <linux/clk.h>
->   #include <linux/dma-mapping.h>
->   #include <linux/io.h>
-> @@ -361,6 +362,15 @@ static int mxsfb_probe(struct platform_device *pdev)
->   	if (ret)
->   		goto err_free;
->   
-> +	/*
-> +	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
-> +	 * located anywhere in RAM
-> +	 */
-> +	ret = aperture_remove_all_conflicting_devices(mxsfb_driver.name);
-> +	if (ret)
-> +		return dev_err_probe(&pdev->dev, ret,
-> +				     "can't kick out existing framebuffers\n");
-> +
->   	ret = drm_dev_register(drm, 0);
->   	if (ret)
->   		goto err_unload;
+A KVM capability is what is usually needed.
+
+> 
+> I suppose just checking for FWB (for PFNMAP) and returning some sort of
+> an error on userspace mmap will not be enough of a hint here?
+
+I don't think checking for FWB at mmap() time is correct. mmap()
+shouldn't care about FWB at all, because stage-2 is irrelevant to
+mmap(). You also want to be able t perform the same mmap() inside an
+EL1 guest, which by definition cannot consider FWB.
+
+This must be checked at the point of memslot creation, and return an
+error at that point. Memslots are all about stage-2, so it makes sense
+to check it there.
+
+	M.
 
 -- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstrasse 146, 90461 Nuernberg, Germany
-GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
-HRB 36809 (AG Nuernberg)
-
+Without deviation from the norm, progress is not possible.
 
