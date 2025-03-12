@@ -4,100 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2AFEC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:21:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1430C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:23:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=; b=NFh1h+IwJHPoeVsOWvwA/RRn+C
-	vMjhEy2Z76ZXyBlHO4p683qb2t8r72Lmt46BVCKoRcsSLquPZ6wemspLPKvJI2CnL9WhU2Us49q29
-	+SZrByWwVtHQzIgg6XgvqlsJApsT/aKAN4OqIqq32IuH8AQmrwxAKACCW8kxCgCWyPwwcwIF9py/N
-	8Y6NRPTp0bvGx3yJEFHARVu/Gz1uW5t0UfnXAPLLG68CDMHeGPx02FVYAErylGC7LQIEJiWArC0sT
-	inDP58VC0B9VY7Kua3/K9STkx4/cfrvuuLHdcrrHaKt47Fb21sscmKdnR9oU1ANwXsfCPGPApclnr
-	3oFHBlXA==;
+	bh=UYwUjaR6v1q5/fQ/hypQGLb8gy+5OfN5YPZ0I1ZBiRY=; b=R/DkZ3aMErijsGbUHnwg4Q1Zji
+	+zKLq0abgo+0ohvy4R1hxjCsSFUvtH86JRyWL/nlmRp6FuwVOiYiLWBK6kdx/xBU1nekw+Khx2KBx
+	4RtCY+ipqQPeXkw1wIIuM/q52o9uAiYWSgBDe/puUCmnxI8FquSGVDT/1IIxapbLzYGfp0mLEMSmZ
+	QYOTXOthM65iyNEIbK0y9DdQlF6vUOx4Lms7KESrMQVuyz9RmQkEJigHB9t2CGW4xXVtRoPNSDJ4L
+	8DaJDi3lvYh5MtPoroQK0jcJg9cLeZ1JuSepzII18a1TSKHvdspseKfTe3fVPk3+cavOX7BjiQWuQ
+	njN6pcpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK9S-00000008EtM-3Xb5;
-	Wed, 12 Mar 2025 11:21:30 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsKB4-00000008F39-28Xo;
+	Wed, 12 Mar 2025 11:23:10 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJzW-00000008DXY-2lle
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Mar 2025 11:11:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=; b=qdAA8Sc+1P14AwbAIOEIlI2ljB
-	Y1OPGr9rolaM2RYVEnuCbk6QJjHNbAV4dDhdxoazyzdF1EdD2d8j98hndeYyIG1xBZ4RKbcTSsVoE
-	SA2W012v4tPikqKApxIZC/oGHSv8WdIILHE2UUPmI+24gvlTf7rfK0/LmcvjEgjhN1YTUAgolSEOE
-	T3oiufhyjDdG3Q2+gQHtxzE9wlwXiPzG03R8QoL9677JfgenJVtYd+t8TMgmmAPASoHMFrgIEl+VJ
-	iYPbSm7P433u+slwTAT4ue2IJ7LpZSZeVB03Rw+53RjM5G32HTKrMUntrYNhCeHrI/P8f13GYqerr
-	b/PlB3cQ==;
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJzT-00000002MOJ-0W1z
+	id 1tsK1n-00000008Dpo-3O0F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:11:13 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3912c09be7dso3588780f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:11:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741777868; x=1742382668; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=;
-        b=ZKofDtOWMvPf+tM3Fr7eIk/ik0ro6IxuLjlzTjq1wTpbTRTmvSLQs3ULLAXxESzezF
-         fRLib5/wMr6vP6rl9ohQKboBjSY3Iz5CcS+DDTTD9DWkSTx9UzYD5/2zNoIxVFbybtVX
-         L2do6sEgxKAM8GW7OYN13jtev/94RN68BoTPf6MtVP+IqV+a6aQvDnwZ7opZE8Iuj1oL
-         d3WkkaFHAbFyUkzNzXzIwAyKfRDbCTxFaLFEgsx0ay1T+VyO020xJ6LJq/MVKpOu55kV
-         NES0u7saVKR6fJ/LEdX5/xDoaDISMR/Mhl9kGT0oqZ4APOr69ZBTD3juMzjbsBYWFN+v
-         u0Fw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741777868; x=1742382668;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wlyhz4BQvRz1GDHVrSLjQoPo3ZuW0aG7DOk50KPSscQ=;
-        b=T5q2rWvumABjt+8IcGAqRXMCqy/yCMl1IjsSy5RNYuWV4/IgQ1lXi9tHI7oIVoiy7Y
-         H7pkUFHsaBqhWgHnPjB9Lv/gOHjme9EQyQraQI9mTjYLRi4cnl0Y5lpHk4ly5LTI04ZY
-         DSmF2zSXfYlMvBJLsUnFO/eTpE/conv5z6enpe82rFjqm/kbXZgmPXLwxCE8mHxALw7V
-         5Eo7W+jzr3GQZJVGOHLaTGYovoOI+gPvCz3IHwyc0VoU7ixwfaIec9wAr50lhWUvL4GV
-         iERFutNJkisIH5LW+P9yD1FTchzC0EKXT3ncfP2+1m3+9sagdxhrrLBP54la+J9z2bOJ
-         nPgg==
-X-Forwarded-Encrypted: i=1; AJvYcCUtXur2VavTq+5bFEVCxWKjafPN5sr+DQwZqpmun1AWroRVw3yHR4LZV3x6Ni+jnyj+goxLwr6IBKUQpZreGE9X@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUWeBq5zV9Y6yA4ZphpY1JsRZ4qbxGB2cJa78QuQPRWhcTM51t
-	CMZ8peSOkWRALSNvXplbPL5H+XzxYUbIyYkZiFQIHQ4npVF0MO7tTSa5xdLoKEE3nrRmwsupfrT
-	6TPQm3DW5nMTTu3Bfo3D3mfwb4dmW+Qk1X1iqag==
-X-Gm-Gg: ASbGncvOIL3kV8akwFa6/A9fGmBxy8RhL4wOeFBlxKBAMLTmY4pyLvNLQfAdbmViHes
-	N6FquuOYWnYt0b40+Pe3O6vbMIUpYWrTesbnBCzenAt9CR32ygTK9L4kAfxCoSVz1JIU6HSkpQd
-	N1F/GEc5eX8WanjuNMzL5gZ+0IdRQ=
-X-Google-Smtp-Source: AGHT+IGQqsMzLL1SkIH3EVJhaanHHGJ9uStzi43oBMlQa1DqbbQl8c3C+QW090TXdgpNQcCnk5YClrhuASylQsAX/Pk=
-X-Received: by 2002:a05:6000:1867:b0:391:253b:405d with SMTP id
- ffacd0b85a97d-39132d98a1emr17304676f8f.41.1741777868403; Wed, 12 Mar 2025
- 04:11:08 -0700 (PDT)
+	Wed, 12 Mar 2025 11:13:37 +0000
+From: Thomas Gleixner <tglx@linutronix.de>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020; t=1741778012;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYwUjaR6v1q5/fQ/hypQGLb8gy+5OfN5YPZ0I1ZBiRY=;
+	b=gxmrM4/m2Wt5JxPlKmgnKRLZRmBCBhcnTiN1uFdwuaQH030fM0iTodcR3mwiSwUwYlbHsm
+	iR9Nn7JjkUBCR0K9Hta/OkoXomkdkS36havPDroloZuuLAb7LcLcNXXUKYebOydppcz6Kp
+	sDSjVJdC2kAm58jGCmk/uNNLr3+UhcOAR3SNqdi2UFFYW/YNzB8L2Tt2zlrkbXmF45fFTw
+	oXrEtszEXSR91P9pwJMxTiNgtBIwHe0BYUTW/6GSkgT0jhXzeEuH1sPd0HSEKIVLyWS/Dr
+	gqaO2KgnusML2AAcdrrcx3iyuAvGZo7ZHf582gSfpLBqgBpR13Yxg3iWAfGolg==
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
+	s=2020e; t=1741778012;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UYwUjaR6v1q5/fQ/hypQGLb8gy+5OfN5YPZ0I1ZBiRY=;
+	b=Qcr4dsqJiy327DE7wJ6oI0CAzPdppIEwqEJmnCx/6TzoobWgsGgXmWZgQ1h/nzjVvRdxCd
+	6zE2N6gjr8DmTOCg==
+To: Linus Walleij <linus.walleij@linaro.org>, Russell King
+ <rmk+kernel@armlinux.org.uk>
+Cc: Linux ARM <linux-arm-kernel@lists.infradead.org>, Arnd Bergmann
+ <arnd@arndb.de>, linux-kernel <linux-kernel@vger.kernel.org>, "Paul E.
+ McKenney" <paulmck@kernel.org>
+Subject: Re: [GIT PULL] Generic entry for ARM
+In-Reply-To: <CACRpkdZCiiMTwf7eGJJ9aCKFOC3_xTGv1JKQUijjyp+_++cZ_A@mail.gmail.com>
+References: <CACRpkdZCiiMTwf7eGJJ9aCKFOC3_xTGv1JKQUijjyp+_++cZ_A@mail.gmail.com>
+Date: Wed, 12 Mar 2025 12:13:32 +0100
+Message-ID: <87ecz2zelf.ffs@tglx>
 MIME-Version: 1.0
-References: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
- <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
- <uljqxwfgl26txrfqvkvzzpj6qurgmwcbuot7gu2u6rwjaqgncb@jeuyi4mexjff>
- <CACr-zFDSFizYmrVN-dV334n1kq17UB9k4FxrV20NNQCQMhzrwg@mail.gmail.com> <92dd35a2-d1cc-4f2b-b3a8-5752ec33b0d3@kernel.org>
-In-Reply-To: <92dd35a2-d1cc-4f2b-b3a8-5752ec33b0d3@kernel.org>
-From: Christopher Obbard <christopher.obbard@linaro.org>
-Date: Wed, 12 Mar 2025 12:10:56 +0100
-X-Gm-Features: AQ5f1Jr_LcQ_zc_s53yVw1h2DAzbGYxZX7Ayfg2dMTJBpBQw3CievHU4tKHPOpw
-Message-ID: <CACr-zFCYWEFPO8yExp_8hOQdVtC9Zwu1ZOZNksSeyyS6Ht0e9A@mail.gmail.com>
-Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as built-in
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Dmitry Baryshkov <lumag@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Bjorn Andersson <andersson@kernel.org>, 
-	Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_111111_267764_EEE9EB9A 
-X-CRM114-Status: GOOD (  24.10  )
+X-CRM114-CacheID: sfid-20250312_041335_992294_5B7A961B 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,50 +76,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
-
-On Wed, 12 Mar 2025 at 09:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On Fri, Feb 28 2025 at 13:49, Linus Walleij wrote:
+> please consider pulling the following git branch for generic entry,
+> see below.
 >
-> On 11/03/2025 20:15, Christopher Obbard wrote:
-> > Hi Dmitry,
-> >
-> > On Tue, 11 Mar 2025 at 19:58, Dmitry Baryshkov <lumag@kernel.org> wrote:
-> >>
-> >> On Tue, Mar 11, 2025 at 07:10:06PM +0100, Christopher Obbard wrote:
-> >>> I sent this patch to start the discussion, some things I found:
-> >>>
-> >>> 1) Some interconnects are missing from arm defconfig. Should they be =y too ?
-> >>
-> >> No, unless those are required for the UART console.
-> >
-> > OK, that makes sense. FWIW the cryptic (to me, at least) commit log on
-> > https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6eee808134ecf1c1093ff1ddfc056dc5e469d0c3
-> > made me think that the interconnects should be built-in on all devices.
-> >
-> > Of course, the real problem here is RB3gen2 not actually finding the
-> > UFS/eMMC device due to no interconnect driver.
-> > Until now, I have been building that into the kernel. I will
-> > investigate instead shoving into the initrd (in both debian and
-> > fedora) which should solve my issue and render this patchset useless.
+> This branch was just harvested from my own v5 patch series on
+> lore with b4 am -t 20250225-arm-generic-entry-v5-0-2f02313653e5@linaro.org
+> then git am on top of v6.14-rc1, so you can do the same if you
+> prefer.
 >
-> For Qualcomm platforms you are expected to always have initramfs, thus
-> you will have the modules for UFS/eMMC mounts. I don't understand the
-> problem which you were trying to solve.
+> It's possible to squash patches, even all of them into one
+> big all-or-nothing patch, given the not very gradual nature generic
+> entry conversion seems to have.
 >
-> The interconnects were built in *only* because of need for serial
-> console. Only.
+> Main upsides and downsides are in the signed tag.
+>
+> I don't know who the most important stakeholders are, but I guess
+> the context tracker maintainer (Paul McKenney) and the people working
+> on generic entry (tglx) could have a say on how important this is, or isn't.
+>
+> I think it's pretty neat.
 
-Thanks for confirming. It is all clear now.
+It's valuable to consolidate these common functionalities across
+architectures as it reduces maintainence costs.
 
-Consider this patch dropped from my side.
+I read through the patches and did not find anything offending there.
 
-For reference, I am working on updating initramfs generation tools in
-Debian/Fedora to include the required interconnect modules. Currently
-the interconnect drivers are built as modules in these distros, but
-are not included in the initrd. That is where my confusion initially
-stemmed from.
+Thanks for doing that!
 
-Thanks,
-
-Chris
+Acked-by: Thomas Gleixner <tglx@linutronix.de>
 
