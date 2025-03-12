@@ -4,74 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08E8AC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:07:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EFC4C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=f5ISdO9CDxMQEFEYi8BQeD9P8yr+qseW8cdrsDI0T8k=; b=Eorga0JwgQ+mZUiIB/CTwGOZOf
-	qxkZqvBGb2QQg8P9MoAKzpMglapDeW8R1Gql3uSXyoaGPifR+YoO6ZESu+pk/9fdwzh6AdFwKWHAF
-	lNDGRbk3/6uT/nUfMwtNIVDcuZ1QyNDuQYtzHKknOjoVBoZMR96hCFpI071oBpLUY/J/gBRImdLS4
-	n76Zn4O3RFb7PxXlDnwFpSFGr1DFoiQpimQOAEvEn00UGoQmqKbEpyGBowBWplDrBjBKVip8koVyi
-	fRl/bBVVnGH6xkc4idJT4IjF3WEa8S1AbTwu5/W6G/dXodwwpgSVWq2sNi+/IfFwVZI0JSRCwDP2q
-	Ewa+rGRw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1/AIVmWJAI+MmCLqZ+zkMCRBnvRD/M5OO3/wcKcn13I=; b=dhdySigSvlA9sd3wSOmsu1+vZg
+	sTM4PL7Qi44r4VeaDM+9TWxKxuDv/rt9DqvCNrKgYTbKZ7nPlAe03/jJMrbyEe7ENsOwklINqU2Ec
+	QF/vdPls/CVen3/2pl1nCRk08liiZysbDmBQezZb8Rq1aB1cWQ3WhW6f3JE8NGXfIrDlowAoaxsjQ
+	T0phkvwP2AI+w3rRF1vTNQtr4FeTJcNNo+9OqcDJRQfv0prHS1/WwCwRBGUGNDOK74X4z8VMUda1n
+	dKvbE+izKahoHqXLdFIRlUNCARzm6rk4iT7MuZPx8XQIAa2CrI0eUXdILPWaU9pc1bNee2GQOxH4g
+	9P63jxsA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsNgC-00000008n3S-1tKm;
-	Wed, 12 Mar 2025 15:07:32 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsNhq-00000008nKU-0oqX;
+	Wed, 12 Mar 2025 15:09:14 +0000
+Received: from mail-co1nam11on20627.outbound.protection.outlook.com ([2a01:111:f403:2416::627] helo=NAM11-CO1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsNdF-00000008mYP-2wFN
+	id 1tsNfU-00000008mtI-1SNo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 15:04:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 337625C38FC;
-	Wed, 12 Mar 2025 15:02:12 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6940BC4CEDD;
-	Wed, 12 Mar 2025 15:04:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741791868;
-	bh=0LPk8+MvfGynbwPGt0NyOytayCc66T5wfAVNQKAjUrY=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=I216Xd/eU3neOxcuswv7lF+WIHdCJHXoZollljYS9f5Sg3tH1cpxwS6+GmLSaHZn5
-	 OckHLmef0JjB9F/50Ks/GVtqOQsh1YxNfGc2tBFgovF9H/lNV3QgC8bLD6o+3pZQpI
-	 hTV/xrbPwP1m0p5ysSBZ+nzGcPuvNx1KAvA0LAszJqGHrwCivPCwcDiTdDXQpqTJPw
-	 I7x79FU3hWDQfscuGsp17s5E067AhXp++KBfhbfZ4uUIgQHG3skB8zkiWGm4y5/p5O
-	 Fyeo0kuJkdL7ZD0mYuuwFZ/vr6W3zRW0Un9ilz+8pt2G5BlYMSZepkODtztnP9VRs2
-	 S0STqRqv1Ah9Q==
-Date: Wed, 12 Mar 2025 10:04:26 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Lucas Stach <l.stach@pengutronix.de>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
+	Wed, 12 Mar 2025 15:06:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=XXJEoZvKSQbwr7/sFczxwZmFpzdemsZkIP1426R0+wACAJmtztFf9aA4iAWC5YXALVQZu3oJvqQXjIyjPImqKvqmpczsaHbzDCDvFxWD2gtepLHiwDwy2cjQmSBWGuQSYOC3Fl+YYub6pqZtlcrIQlOH/4uq3UvFz1awJB/o2gfZLCzWr0L6AsDsIiQxrNUOG1wmWfmQiwuX6+/DxoOAq3rkxTD3STyeG82zYi7XvcBM5Yp8upV+e1+sIUp7PwBabkI7DCGuYTdItSummDzwLbjLBFLctIk1m9+xm9PJLxoTC65Kc+5NlAQMPBa0iVh+0+9rw0Pm08m/1nX5PfnlmQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1/AIVmWJAI+MmCLqZ+zkMCRBnvRD/M5OO3/wcKcn13I=;
+ b=OQvpdjyohME3GSkG5VAbA5HN+KFpm10UoPPwyG7RjjReNSjrHsz7fjyN8nD5pbiJjNd5x7Jcb9swH6USbfCe1znaVXvOUTavvNAISioLGla4U7512IY8CsSD5KSHMMQzIqz5ZWJgUBWcBV0rDDtMfZoITMJrXM020dQKAzkC7Vh8ZP174aSUqKJbOPg8iile6AlzcpCMrl3Iydfsw9r0tXP08bu/QIRn9Tp3u1Ctb1L6+yI5okYewdxxN2If/XuMqhkW7vyoyMgd385Dmc0NDAMwxd3Gijr0hC8Jdk1xEUEmWNv9Dh17oh5lFGvb0iq00FU9y1vi82Xiy/THflTzHw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1/AIVmWJAI+MmCLqZ+zkMCRBnvRD/M5OO3/wcKcn13I=;
+ b=JytmCbef/QOj7FjYiOrsbo7h4lA/9Qq82DnGYOPT3ujHdS7fnRfbhL9DbczSZ5uxjsSQNahu8FcvVvsxRiMJN5KLirjCWsGCnlMx7pRVSJUwwJasQW8SkqwIZk4CqR8Nbpm/pSH42wTsBtGw/7GMRtCqRKiuvAZSo5J6XoAFfEQ=
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com (2603:10b6:208:38e::18)
+ by MN0PR12MB5836.namprd12.prod.outlook.com (2603:10b6:208:37b::14) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
+ 2025 15:06:34 +0000
+Received: from BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6]) by BL3PR12MB6571.namprd12.prod.outlook.com
+ ([fe80::4cf2:5ba9:4228:82a6%5]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
+ 15:06:32 +0000
+From: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Russell King <linux@armlinux.org.uk>, "Pandey, Radhey Shyam"
+	<radhey.shyam.pandey@amd.com>, "andrew+netdev@lunn.ch"
+	<andrew+netdev@lunn.ch>, "davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>, "kuba@kernel.org"
+	<kuba@kernel.org>, "pabeni@redhat.com" <pabeni@redhat.com>, "robh@kernel.org"
+	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>, "Simek, Michal"
+	<michal.simek@amd.com>, "netdev@vger.kernel.org" <netdev@vger.kernel.org>,
 	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the hardcodes
-Message-ID: <20250312150426.GA674002@bhelgaas>
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: RE: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Thread-Topic: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Thread-Index: AQHbkzTKsOmRASZLiU2r8QNuR6Yh/7NvfgWAgAANigCAAAd4EIAABRmAgAABiVA=
+Date: Wed, 12 Mar 2025 15:06:32 +0000
+Message-ID: <BL3PR12MB6571540090EE54AC9743E17EC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
+ <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
+ <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+ <BL3PR12MB6571795DA783FD05189AD74BC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+In-Reply-To: <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=808471f3-b35f-4735-b785-4062f9ef37e9;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-03-12T15:04:22Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
+ 3, 0, 1;
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: BL3PR12MB6571:EE_|MN0PR12MB5836:EE_
+x-ms-office365-filtering-correlation-id: a591f81f-ccbe-44fc-c170-08dd6177799c
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700018;
+x-microsoft-antispam-message-info: =?us-ascii?Q?u8Sw99ItO5jEYs+BgSCqY5YzqNe0u9luoL/ZabjVf6pod48kQ3Z/raExpf4/?=
+ =?us-ascii?Q?z/yVNhmmMhZlJhBlnZX4ro04EAEMoJnMvUUa+7flU1ots7AZ2go7b9qWJTDo?=
+ =?us-ascii?Q?VV7FdPd+Ke2n3FYUMCoQkKXhCKKqskk5uA03TigkEImCvP5Ckg3h11KuP8/i?=
+ =?us-ascii?Q?Y9q8iT0s1f5JPAj4Pvuw868ws5zCLWqLLbRmwDlutZjwVp0/wxP0ZL4LOzrG?=
+ =?us-ascii?Q?Io5by1GpMs/aU/zRAtYd24rq7rQOuvDFLSf8ObPTtNAG5Lj8rlsUF/PiJNOm?=
+ =?us-ascii?Q?4zBk+CJTUun16jPU9alHMAWU5fcX72qBFDe80iyBZMXJtDSXr+6PTOotlABJ?=
+ =?us-ascii?Q?4dzFXiN8RAwNrsmuaosLEcXiRqxBsu3qw8Nkfd400b3VqiRi7CrKaPx3lWCy?=
+ =?us-ascii?Q?oltxBh+3bkNRl45Hpl9q1pmwvonmUk5SZ23suGbKS/5tZGVKyZv6t8t8ArPJ?=
+ =?us-ascii?Q?EsaVdY8TsfKlXuJrC+PmvISYFXXC813RF5uohxsOBvVrxgrF4aua/hRPN8BE?=
+ =?us-ascii?Q?I57kBUlI3hv5seT19CeA9AuukiSWI4zbDvjArDhaBf/l8+hlGFlzwMvDTb6h?=
+ =?us-ascii?Q?59MxuoEV5lzUQwKOSV8zLZi76LZzqMHMU3lv2DrqBiHGaDUk2QwiK92q7nBB?=
+ =?us-ascii?Q?dmC5fGfDEepRZFJ6y1eIEmiEJhzrfHYMuMwjRIVA/HegM63zo+MoSWyh66k1?=
+ =?us-ascii?Q?0u4yiVq0NypP3SHEjpj1NlS5IiGYUVkuqqGpT9Ox/qY8ZnjSvGQ+TCY46Ajt?=
+ =?us-ascii?Q?R13ystiNgpuBHeC3TY0y05MwLWlz5oYk24JO+FTURNSYQ+QothKRwKbq7E7K?=
+ =?us-ascii?Q?COQftrXcxup8dkj76I65kRafUehxKRN8HD5/rcdQ1UHeYkCWJj+1PeLltsUA?=
+ =?us-ascii?Q?3ZT03bJt2OpZkk2cKAA2uJJuUhgXn68ZAZoCVsasvSABcCcjehQ75UDkvfJ2?=
+ =?us-ascii?Q?3KZ/a+xeqUk++DDOgb6/kq/SVI8jA4gtMBLg8fOxZicrL9/b8Vm3Elrm3v4C?=
+ =?us-ascii?Q?qF1SOcrqvsfuqkUJYQGFeXqIn+aN9hGKOXBrvQHe0Kf+4GtdibZg1eD/Srul?=
+ =?us-ascii?Q?eXvETSGt3uhPXFcKmze3EnxMMAs2MWF4Q8qR8lGBnctXh04XgpYkTEsANMGU?=
+ =?us-ascii?Q?mh+WCWlLscd5NUfKQLP3tQuMfb0bqcLraUZbyGr9zGIJbCw0/7S/v2JJJYw6?=
+ =?us-ascii?Q?eLliY55i7oIFBJ2vWRWvkiRW5/RylNKB6nz07HsLe/Eig6bhPMMmKSdJPSf2?=
+ =?us-ascii?Q?27sZIWks9CYxuznWLw/KsQtQYAR1TirL/UASpq5DEfVCi9S1a1bG0Tw4DmEQ?=
+ =?us-ascii?Q?eMl1MrdzuBjuye25UHbHcr6kVd4/eoQj0yBh3ZGExc/17YgbmkYYti6/7YsB?=
+ =?us-ascii?Q?ZSIqa1IzY+upB0ZHfU16QI3SZGUNnLC8K7EbYwN9MYCEk3y8r/OUhj2NJILu?=
+ =?us-ascii?Q?gUHYeZt0mXMOAR5TsDJ7JrN1LMeIWos2?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BL3PR12MB6571.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700018);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?RHQ/MmKAVzpSYGRCTOdghJDuSm04rhP/OcIMaabsd6jXXU3fevH5EyPCEUiX?=
+ =?us-ascii?Q?96t2BQKke2hgoWyZkISy6usPh/qBWVEmjI9tkxW1/rcPtzHbk4eiqlbaG8UE?=
+ =?us-ascii?Q?rVcM3DJeU3u0Hp+s9X6OCKUHgD+4dLhGP+sVypIOO+khJBDloMVMm1fq1FnN?=
+ =?us-ascii?Q?BixfRHK+EZvNpGnBmMpF7ajGv4lSGQOu8votlu1+EGS5e/U8HVG8g3q/JN8v?=
+ =?us-ascii?Q?U3lsZfQI9rSilIU2PQkQiBsKa5SrvdrcHqUhWuEbQfW9xgDthPAcdgFjcTmj?=
+ =?us-ascii?Q?KCYWK8PbYGX3eUmthuB1kgA+qDHgexOOOhi9gl5etWz7fYF6l92V/GI1/ZEy?=
+ =?us-ascii?Q?j6NlbMGNCp+SwBzkjser14/z+IdvMxJfH9RaMwJsAAaKjCNmsXtElEIVBnTi?=
+ =?us-ascii?Q?ues2qLym8t0QbJk6IMKBrfV1decuZjU30e/lO+/ELO/pdmlo/0o6GRNKLqx8?=
+ =?us-ascii?Q?vpcpISo2VSUQr/k8bTDXz0BnRpkQ5/ghZXTsYhbsxe2s/zPQGkYg75BdsR9q?=
+ =?us-ascii?Q?/M0kz5cZcnAMM9jxSwjdy4pReA2ANhMhu58c33eN5vTeVHjWWPp84UM31ERf?=
+ =?us-ascii?Q?G1AxGvC6N/dkN4KBO+YSQoSA3oN6nM32DqqEpprZDlzaSmg3dpkDK52OWAWn?=
+ =?us-ascii?Q?nlVmD1Nf6RyI81mf3fZLUgbr3FYNDM9xNzx+9ImLk/6F4LTMGP38DgHEubMp?=
+ =?us-ascii?Q?RKwrz9qbwUds4gnWsiEc+jjnqj3V9CcIkwrlWpwI7QVJhdkZXrDGMpX7Imyp?=
+ =?us-ascii?Q?ueBMyAAY1rNyhZl8tSAA0Vsh8UpkGv2tjy/dQ9KW5jNKbZ1JfuW4AMBPVWGu?=
+ =?us-ascii?Q?YWHYU7i2VxHKnUgouSOA0RVaTFhzZA88k2bjLSD+fS2anuBgzheruZpTQxzD?=
+ =?us-ascii?Q?/lSp9x1QZIDLmjUyu4eU6Nm1CKr13cbjyIu1aYMqj466I801hmC8k5r86eYa?=
+ =?us-ascii?Q?dxhM1NlGbJEVdvBaUI8nAJewOK62rD3Y4+KOkZjfgeuY1S1hXtx8WgJbQAm8?=
+ =?us-ascii?Q?VL6XT/qyzmGOjljf6uLxHgm4EUE25NPEs0nS7HLny3DcPJ6wzpUWHQNZ6eDz?=
+ =?us-ascii?Q?tuMeIoJk7/TksS3GUezAm90udfh7Rz1zxwml/UH6sAp2cMdXHXfJEzok5gOP?=
+ =?us-ascii?Q?3Zs1JJ0mNoTMyvMtoBPASHXxSEfBMZ089+bX+dk0P0z97udtCmH2QYmfbT5T?=
+ =?us-ascii?Q?A6RT732Dw+hoClbUCP7s1kutfVVA15P1oiNchHEl53Es4o30ThH5DOIxFkAl?=
+ =?us-ascii?Q?eIlucrL0j1cagpjlSn9ozbCqHLDN4z0maYqcyXRADZ2xUpHbMLW1G+tqcYzi?=
+ =?us-ascii?Q?e1gNkloXI8o8QQWjbgi+U0/T9QiTcWItxWIFrcx+5ufrUhElLV9Ozv87Cds6?=
+ =?us-ascii?Q?xVrAACakEIT662bqReGihMTMdv8iUvLvPOHt87pUHnuf+7jxUydMGUcqNJMJ?=
+ =?us-ascii?Q?EDPOghpi3Q06W78b0mgbaDpfWdhT9v9k23O4DW+++bHMsztvBc1J/ZWhOCrf?=
+ =?us-ascii?Q?SVkuuIlo5HviGfdXKpKFrd2dwuibRt/3AStAl0SYAaDKqzEhSWAVGzfuPYzw?=
+ =?us-ascii?Q?0KJJYKjKZ/tiIykYEc4=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fcb5f09f8e4311c7a6ef60aaf3cb4e3f05a8f05e.camel@pengutronix.de>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: BL3PR12MB6571.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a591f81f-ccbe-44fc-c170-08dd6177799c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 12 Mar 2025 15:06:32.5244
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: iyI+ZFFjrkM0zl1rJgNd8KVWatS9I9DAQV4MixPr1pEUxF7Lslirl0rrQPqw1RcbUj3Nvxdkoh2xVPsi0ud9wg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5836
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_080429_825238_754F524B 
-X-CRM114-Status: GOOD (  33.76  )
+X-CRM114-CacheID: sfid-20250312_080648_531863_3A2ECA2F 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,97 +181,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 09:28:02AM +0100, Lucas Stach wrote:
-> Am Mittwoch, dem 12.03.2025 um 04:05 +0000 schrieb Hongxing Zhu:
-> > > -----Original Message-----
-> > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > Sent: 2025年3月11日 23:55
-> > > On Tue, Mar 11, 2025 at 01:11:04AM +0000, Hongxing Zhu wrote:
-> > > > > -----Original Message-----
-> > > > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > > > Sent: 2025年3月10日 23:11
-> > > > > On Wed, Feb 26, 2025 at 10:42:56AM +0800, Richard Zhu wrote:
-> > > > > > Use the domain number replace the hardcodes to uniquely identify
-> > > > > > different controller on i.MX8MQ platforms. No function changes.
-> > > > > > 
-> > > > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > > > ---
-> > > > > >  drivers/pci/controller/dwc/pci-imx6.c | 14 ++++++--------
-> > > > > >  1 file changed, 6 insertions(+), 8 deletions(-)
-> > > > > > 
-> > > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > index 90ace941090f..ab9ebb783593 100644
-> > > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > @@ -41,7 +41,6 @@
-> > > > > >  #define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
-> > > > > >  #define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
-> > > > > >  #define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11,
-> > > 8)
-> > > > > > -#define IMX8MQ_PCIE2_BASE_ADDR			0x33c00000
-> > > > > > 
-> > > > > >  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
-> > > > > >  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
-> > > > > > @@ -1474,7 +1473,6 @@ static int imx_pcie_probe(struct
-> > > > > > platform_device
-> > > > > *pdev)
-> > > > > >  	struct dw_pcie *pci;
-> > > > > >  	struct imx_pcie *imx_pcie;
-> > > > > >  	struct device_node *np;
-> > > > > > -	struct resource *dbi_base;
-> > > > > >  	struct device_node *node = dev->of_node;
-> > > > > >  	int i, ret, req_cnt;
-> > > > > >  	u16 val;
-> > > > > > @@ -1515,10 +1513,6 @@ static int imx_pcie_probe(struct
-> > > > > platform_device *pdev)
-> > > > > >  			return PTR_ERR(imx_pcie->phy_base);
-> > > > > >  	}
-> > > > > > 
-> > > > > > -	pci->dbi_base = devm_platform_get_and_ioremap_resource(pdev,
-> > > 0,
-> > > > > &dbi_base);
-> > > > > > -	if (IS_ERR(pci->dbi_base))
-> > > > > > -		return PTR_ERR(pci->dbi_base);
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-> > Use the domain number replace the hardcodes to uniquely identify
-> > different controller on i.MX8MQ platforms. No function changes.
-> > Please make sure the " linux,pci-domain" is set for i.MX8MQ correctly, since
-> >  the controller id is relied on it totally.
-> > 
-> This breaks running a new kernel on an old DT without the
-> linux,pci-domain property, which I'm absolutely no fan of. We tried
-> really hard to keep this way around working in the i.MX world.
-> 
-> I'm fine with using the property if present and even mandating it for
-> new platforms, but getting rid of the existing code for the i.MX8MQ
-> platform is only a marginal cleanup of the driver code with the obvious
-> downside of the above breakage.
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: Wednesday, March 12, 2025 8:29 PM
+> To: Gupta, Suraj <Suraj.Gupta2@amd.com>
+> Cc: Russell King <linux@armlinux.org.uk>; Pandey, Radhey Shyam
+> <radhey.shyam.pandey@amd.com>; andrew+netdev@lunn.ch;
+> davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.o=
+rg;
+> Simek, Michal <michal.simek@amd.com>; netdev@vger.kernel.org;
+> devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> kernel@lists.infradead.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Hari=
+ni
+> <harini.katakam@amd.com>
+> Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500ba=
+se-X only
+> configuration.
+>
+> Caution: This message originated from an External Source. Use proper caut=
+ion
+> when opening attachments, clicking links, or responding.
+>
+>
+> > > On Wed, Mar 12, 2025 at 02:25:27PM +0100, Andrew Lunn wrote:
+> > > > > +   /* AXI 1G/2.5G ethernet IP has following synthesis options:
+> > > > > +    * 1) SGMII/1000base-X only.
+> > > > > +    * 2) 2500base-X only.
+> > > > > +    * 3) Dynamically switching between (1) and (2), and is not
+> > > > > +    * implemented in driver.
+> > > > > +    */
+>
+> > - Keeping previous discussion short, identification of (3) depends on
+> > how user implements switching logic in FPGA (external GT or RTL
+> > logic). AXI 1G/2.5G IP provides only static speed selections and there
+> > is no standard register to communicate that to software.
+>
+> So if anybody has synthesised it as 3) this change will break their syste=
+m?
+>
+>         Andrew
 
-I don't know the history of these DTs, but if there are any old DTs
-for platforms that use controller 1 but lack 'linux,pci-domain', I
-agree that we should not break them.
-
-If we need to retain the dbi_base check so that old DTs continue to
-work, I think it should look something like this:
-
-  domain = of_get_pci_domain_nr(node);
-  if (domain >= 0) {
-      if (domain > 1)
-          return dev_err_probe(..., "invalid domain %d\n", domain);
-      imx_pcie->controller_id = domain;
-  } else {
-      dev_warn(..., "DT lacks linux,pci-domain, falling back to DBI addr\n");
-      dbi_res = platform_get_resource(pdev, IORESOURCE_MEM, index);
-      if (dbi_res->start == IMX8MQ_PCIE2_BASE_ADDR)
-          imx_pcie->controller_id = 1;
-  }
-
-The previous code used devm_platform_get_and_ioremap_resource() and
-set pci->dbi_base, but (1) there's no need to set pci->dbi_base since
-the DWC core does that anyway, and (2) I think using ioremap() means
-we depend on CPU virt == CPU phys, and I don't think we need to depend
-on that.
-
-Bjorn
+It will just restrict their system to (2)
 
