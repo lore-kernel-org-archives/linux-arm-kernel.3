@@ -4,179 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76697C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:24:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86EBC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:29:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vxHlN1XJI8959Xp6ydD23m4aeZuA2PlTvU+0reCVpeI=; b=s9I2kdayL/tTy7wxImlOdrtPcB
-	C/IjwQQzTSn2vea9XjZGWpvUooiw3tpxh96l48F2NLTOLrVJKKHD/hBGmHYFXgk9pw7BjA49taBBi
-	fwAtG6+txtkNE/hRvKNae1Eq62oQCprSgBjdkGfcSWQYj4EsDuu4/XVK+/HH/mzDPSNfcU6nV8q3X
-	Uw9P4i9KKa+Cjo5jQDPQqsQ+WyPAdrkIRl8B5KoYNpt5tGd4IRrOG1r0NbdnROV0sFjtmE/3M8Dlf
-	9NeD9bgsYWF5f5LG0lF58GhXM9kQid7shBgT9ZBIiuRcT+0hCdYL3Q6PLBpV2cWfxqm52ezeMahEp
-	mX2FSxOw==;
+	bh=dtPAvR/3Y7aFKJ4mRVD7vcQ0a3v2nIeiOVDxnLYyFmA=; b=rCjbO3WueczWiMNp5vYJV59ekG
+	MNsjqV1NxekblWgCg7H/9s6qJ/XiB679rBOtky7jIi9r68uQonEbfHoOULGnsaW5Dvk1cWL0Y/yPV
+	U0hZcZJPZvvYgy3VVgv3xiguuVmEkT4TPblrn1o8wYe4UBn8zjp+rIDJRq5XIQ7Js1sLQBSC/tFV9
+	4f00oxWQQinpAyiAUV+R0Rxtc2ZzRQqV5Lsy6V4cNuP54TnoMoF2upLKxUgEXoBGp9cSCDLUGRHsA
+	TheYWMmDuhBEO+RFNealBsdYCPyA8GGt9f2pELd6XmLgI9RrMQEjk7XfAqiuEVflVhgBjIf3q4VQf
+	zy/eZ8cA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsN0T-00000008gar-3AxX;
-	Wed, 12 Mar 2025 14:24:25 +0000
-Received: from mail-northeuropeazlp170110001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1tsN4i-00000008hHV-3EpL;
+	Wed, 12 Mar 2025 14:28:48 +0000
+Received: from mx07-00178001.pphosted.com ([185.132.182.106])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMye-00000008gF1-0vPF
+	id 1tsN32-00000008h5l-1Pl1
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 14:22:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=P/7nDfSgLw8cktLXu6kcwlgjnazKyFLG90ra0/4QyUfgb6WUWJs4w/pcKaum03Bp0+cQer1IExxifixdC/mQ7zDVUwmsiPjwqsGD85Imji1kY/suXfTMybnOwNe3vzM1MZaaWIcnZfNshk7J1XhU3rkNdlLhfBUdYnZO0JrwlTjHvkorCXrOg4LfzvKx8XDnFVsJBJ7hye1M9nB3I4uzkXl0VtQKfaNOmWzmRkH4FzFoLFWebJF/zTiYOXwfW96jrrZUkoDx0i0IYAoDdajzHYPWh64Ce02v1/jRaArklZSwFjdql7hHjQovw1VV+HruB0JbdqV5b+QYw4e25xheAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vxHlN1XJI8959Xp6ydD23m4aeZuA2PlTvU+0reCVpeI=;
- b=ZNcF5Oyldegf3/o7ta6MAbqf3/uJSDIzguRkoOKL/SFo4MRtwVaP5h5dRKbtqG9KJoDMw0LjIMfmRxpADi4ibj0whWqBRwJcWfYvsCK2V4viZF2/1Ka7dF78Ane1BUVmzB64ubmwF2TSApuUSPj42vXyft+Hh9JyM2UF0mpY/D7nnhKLNO/ywh8L8rohOm8SrS5S72V6ltnz27KsiQ86kY+T+1PonoCtdW3h6LabOIPoBXltMZPDDjzKWgYpKq0xwbjqCaxspMgf2A1qpPwpawM3t/KC97OjQUaBAF8hMSez7ouUuuoer4xCXWeJDbeiTN1QNU+UcM2z8qYAxlVBWg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vxHlN1XJI8959Xp6ydD23m4aeZuA2PlTvU+0reCVpeI=;
- b=j/UeCwYJaV0Uyv7UHs/U+oYIPGQFMbIsxOvNxH/hknHAcaZXfWdFufOGkFWe7+ZycTgtXVP97wN8/iK8XMema0eJ7TIRq3/r8tKAQN8+9px415Sge7xMYWOGzpfR2UBIkeUDuuOGfwDwKc7wM291gqIb6jM1VvH4xaa/jcRVBYtRRcC98KfsOEYMTVBNp5iXsOiEYikex/VNYh/9OAMaNLZdiRs5I0GgtvjHNrfmSeH3D1BqrSFbHRRXJ6vCScGCuUUIIxRdWn9n/Vw16eGpoHd6goQeogNmruIaTDZznNJKoUK6cvVBcWUQomlN0ax20A6Rhi+19R6sWbtC4Z8JJg==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
- by AS8PR04MB8404.eurprd04.prod.outlook.com (2603:10a6:20b:3f8::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
- 2025 14:22:29 +0000
-Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
- ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
- 14:22:28 +0000
-Date: Wed, 12 Mar 2025 10:22:19 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Lucas Stach <l.stach@pengutronix.de>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, Bjorn Helgaas <helgaas@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kw@linux.com" <kw@linux.com>,
-	"manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the hardcodes
-Message-ID: <Z9GYm/jp9VIhCEeY@lizhi-Precision-Tower-5810>
-References: <AS8PR04MB8676E66BD40C37B2A7E390178CD12@AS8PR04MB8676.eurprd04.prod.outlook.com>
- <20250311155452.GA629749@bhelgaas>
- <DU2PR04MB8677AC699DF11D847AB768708CD02@DU2PR04MB8677.eurprd04.prod.outlook.com>
- <fcb5f09f8e4311c7a6ef60aaf3cb4e3f05a8f05e.camel@pengutronix.de>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <fcb5f09f8e4311c7a6ef60aaf3cb4e3f05a8f05e.camel@pengutronix.de>
-X-ClientProxiedBy: SJ0PR03CA0008.namprd03.prod.outlook.com
- (2603:10b6:a03:33a::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
- (2603:10a6:102:240::14)
+	Wed, 12 Mar 2025 14:27:06 +0000
+Received: from pps.filterd (m0241204.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CAtfkd001246;
+	Wed, 12 Mar 2025 15:26:39 +0100
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=selector1; bh=
+	dtPAvR/3Y7aFKJ4mRVD7vcQ0a3v2nIeiOVDxnLYyFmA=; b=JWTfsbL2wJVoTwtI
+	Q/cDZZMauQIv2hl8/KhXSr0sSjjxTGZ6GVtWs+83z69mTIQs7UJRm/kM+LReTS7x
+	+lyxJcHy+r7aJOstZ9iZt/oSIAAWGdIyNc+TZlptyCXYXH2gZN7a+zT9T7H73jph
+	yW1Yaep6CZwEQor35HCDAnerAwB8nNPifPGpuUzXyJxIAI8xSdnGPpjpdNBhKZPP
+	2/8NT60tm2Y2Pxi1NLCvjkcaI69lyurPmbVvZIlhx5z4fFwy5Q8ea66TiaJcatVI
+	krpTo1c27ShbKliG/LATrM2Cbgsa4f46C8A21CFCzdGQjdmMCorwZlCmBz4DQiz1
+	+PhDBg==
+Received: from beta.dmz-ap.st.com (beta.dmz-ap.st.com [138.198.100.35])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 45au3q46gj-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Wed, 12 Mar 2025 15:26:38 +0100 (CET)
+Received: from euls16034.sgp.st.com (euls16034.sgp.st.com [10.75.44.20])
+	by beta.dmz-ap.st.com (STMicroelectronics) with ESMTP id 11B5B4002D;
+	Wed, 12 Mar 2025 15:24:33 +0100 (CET)
+Received: from Webmail-eu.st.com (shfdag1node1.st.com [10.75.129.69])
+	by euls16034.sgp.st.com (STMicroelectronics) with ESMTP id 8D429539096;
+	Wed, 12 Mar 2025 15:23:26 +0100 (CET)
+Received: from [10.48.87.62] (10.48.87.62) by SHFDAG1NODE1.st.com
+ (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 12 Mar
+ 2025 15:23:25 +0100
+Message-ID: <8b1b7df5-07f4-4f95-88e7-4e95ee909ffd@foss.st.com>
+Date: Wed, 12 Mar 2025 15:23:24 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|AS8PR04MB8404:EE_
-X-MS-Office365-Filtering-Correlation-Id: 95519e5e-6c81-4f1b-c994-08dd617151bc
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?cjhqeWhoamg4VDFwa2xpYlU2VnluVFdkM1FTa3FodHpDRjA5eDdzWnYzL0pV?=
- =?utf-8?B?a0JPMHkzQ0EyL2poRDNNWXZ3dmVtVEVZRk9uZUVBTTVJQjVTTXpOcGZHRUxp?=
- =?utf-8?B?MU1sU05QOG5rVXdjOS9ZV0FnMmJQK2NYc3k3aEdIbHBjTDVjRVhzMGg2TlpU?=
- =?utf-8?B?WUdiQ09reFJQYUpHeDVqWU55M3NRVndmUWhxdjBYRENDUi9URjBUZm9zT25z?=
- =?utf-8?B?NjdxeHAvZCtwekg5VzA3UnlVc0FwNGg3WFpQS0VYMTFHWGVydnNLSUMyeFJ2?=
- =?utf-8?B?TGwwQmV2Y3VESkcydmVBSHlFemV3QWw1dEN2RkNHVUhHeXhvYVFYMjVwTnRV?=
- =?utf-8?B?Zm1qQmxHSU0rdXpTY0g1OHBxTzl4bnk4ZkRicy91bUhiMWU3Vm1UVVNYVGJq?=
- =?utf-8?B?KzFDRmg1R0xoZEFmaXhkYXByRVVCSWlSdG1qTW1iNjQvL2JXN2tGUHhzMWVD?=
- =?utf-8?B?Sk1jQ1J6NkMxU2dtc080VVJSTngyZU16SmRaVzV0SnFMQUNQMUdmWncxYm5v?=
- =?utf-8?B?SnRlV2dCWFJkbVJ4NzlYMzlEZGVPQnVCN3RtaUQxMldLQkZBbk02V0lpNjhN?=
- =?utf-8?B?c1ROUWpHMk94R0Vkamg5TGtJZ25wWlVEaWdTd0Z5cUNMQXJDNjZuOWtzWDRZ?=
- =?utf-8?B?MXdPWS9wMU1pOHJnSlNsWnBiQTU0NEFDamh5eHZ2TkJjanAvNHA5Sm5SeHQx?=
- =?utf-8?B?d2hROGFicXg5ZmZCVnFQM043WEJKUVpMMnN2THlLSXVDVy9NR000MDFWRXdu?=
- =?utf-8?B?Tk0rQUxwa25HeWNJY2NQbzI2OU5wK3FkT0Ztb2xOelFmamdCaDY0REw5WUtS?=
- =?utf-8?B?UDBoQ1AxN3FtbWhkYVhhSVZmT2dpNWtmZ1pXS2htd3ptancyZGp2eWlwZU9X?=
- =?utf-8?B?eUY5YUt6MGcramtuNmk1Nm1jRnUvckRvRDZOZ2xOTHBIME1lVlk2N0g5WFZ0?=
- =?utf-8?B?OEt5NDBiRVBSc0FuZXpHN2VJbEpsNDVkLy9UanRNTDd0TDgybndjVE90cFJV?=
- =?utf-8?B?cHRDY1gwNnhSRjJrL203eDNhZEpTWDdiME12OVg4dFZpZ2VJWHErSURJclpP?=
- =?utf-8?B?K3NKckMzZmZiRXorT1E2R1AraTlJbGNPTFB2Q1kyYUtoVUJFb2VSd0RzbS8r?=
- =?utf-8?B?MmZ3bUpUNEQ2YUZIT1FINUN4WUJKZTFjbDdscDFscjhlUE56SVdablFyMzVj?=
- =?utf-8?B?cy83VFA2NVlMbmo2MkxDZUNBMy9RNWY5UVhzVDNPMnlOWHVSaUVjZ21xVm1u?=
- =?utf-8?B?aTQyZzJRNTZwUElTY3RSN09hTGxVMVpRUkVFVjV5RWhBQkVpSnAzZlo2T1Uv?=
- =?utf-8?B?NHQ5dXlyc0x1aTFBL01NR3N1WVJNN1YrU1dGd0J0YVJwbHc5dTJ2eC8yaDN5?=
- =?utf-8?B?WU5GcGsvSno1dGw5Y0gvNEYxVEVDY2duQ2szbXM2MDhGdmxOY1ZDbnk0VlZa?=
- =?utf-8?B?YUx0MFpjdkgzZ05nNU9HUWgrL2Jqc2xVaWFBMnRIdEc1QkN1bVpGYnNSZ1p0?=
- =?utf-8?B?VUlzMTd5TmNpdnBoZjZPU2Y5ZDA0RFZkZFA4eWdRTU5US3hYWjNxN1FLK1BX?=
- =?utf-8?B?dllvQTcyMFFQVGRmbSsrd0IxNnd5aWdVVDJ3SzRUYzI3RDlDUEs1ajM3VTF4?=
- =?utf-8?B?SGRyZThGaGpSZkRJUzBtOVF6YThIaXJ2Q29lMTM2RDVETHppMVBFQ1lGTWox?=
- =?utf-8?B?cXdCOU95VGN6bTN2TFEwWjBSOFQ5WTZ0UXMzcWZONXFUcnRPSTFGUUprVWFC?=
- =?utf-8?B?RzRqLzM2UmtDV3ZhM1I4YWtSYmZlelRSRWZ3L1J2cnJLNWtQMHdPc1hRSEdn?=
- =?utf-8?B?M2MyR0IyWG5xRGtIU1YrTTRsbnR2cm10NnhraEM2a3BqMUplcTBHdWUzTDFY?=
- =?utf-8?B?WExyNitHN1VrQ0hxeHBMeDhISTR4QjlXeTg3OFBOUjBwYmd6eFVic2dPNnl2?=
- =?utf-8?Q?9mQ2gl8hWa9oI4nBwQWcKKpT2ItNRDB2?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dUg1YW5MaU1PS3ZHMVZyUnJIRnZUU3Z5ZE8vREdaZzVuWXVmN0JKRmNPME1m?=
- =?utf-8?B?cTVFbUlnV2VjRTZuRGZmTDdieHZJOVNPUUNqbXZsZHNrazZlRnp5L0laWk5E?=
- =?utf-8?B?Y3VWdlc1RHVtSUtoR240cHBTMzljZVFjMjNGcUZBcjhxdmRSY2lIWVBKMzhi?=
- =?utf-8?B?bmNldGdYS1lFZitKcG1IVTFtdTMyT0s3aHNRaXRjTzVzYk91YnFpeDA0UTQz?=
- =?utf-8?B?c3pMZGg1SlBxMVp1L1lGUlR1WXovTE83K3ovVjNzVDlnWGFCTVFCUVpNMzlS?=
- =?utf-8?B?NjRUUllyM3FPR21Ea3FyWmlWUUkxR3M2KzYwYlJaS3R4TVNRaEZidVNaSEJv?=
- =?utf-8?B?SW03WXZ6WEwvS3Z5SlNFUmZsSzBRTnR3VU05SmNnTWdtL0lJZFdpT1RKcmpP?=
- =?utf-8?B?RnNuWmZoeEhlVUxLWnAvZHJBc0tGa280NC92K1ZxQnVqSm81YVhLU1NyQ0JT?=
- =?utf-8?B?ci9KbEdiWU1EY3V3ajBvVXpITEJ3cGx1YWZxelBrVTJEeHA3eFBtdk1mNFpL?=
- =?utf-8?B?M0VPQmYyU1JHWjRoaGg5MWRRdnc4WEpza0JTSHQ1YndocElJQVNIa2tSdGJN?=
- =?utf-8?B?c2tKZkdZWXZKeDFQZDVrS28yM0Rjb05XVGxRRHF0T2h0b09PRlN6ZnRYOHpo?=
- =?utf-8?B?WDdLZUx4alRPMHk2YUFKb25seGRDbkVIUTFiaTlLbE1RV3FhTWxuc0xuVGYz?=
- =?utf-8?B?V0xBSTR5dXM5TjRPb0hseUFPMWI3dUdia2c0bGJHRWs0YitPNEh3Nm1ZWEF3?=
- =?utf-8?B?a0lQMzZVYjlXTEh1Zm5RcXdWR21RaE93c0F5L3hmZ1VRK1E1eElwSkxES0g2?=
- =?utf-8?B?VzFRdHE0ZGc1Z3VEQU9mR3dwUHdZcTNhcUZhWUFuanZUNk9lK2RkSnJzWHlZ?=
- =?utf-8?B?NlRLa295bUg3STFwckpzNzc1czBZVG53cTBCVU1IZDE2dlNjenJHbS9HTkFo?=
- =?utf-8?B?ejByR2pNQUhUWEVaeGIvdzRYaVd1aVgvZWFSNXg0SVM5ZDhzNzZSKzRqazdU?=
- =?utf-8?B?dGlUVEN4VHpsME1kVTJ4SmVQODYvSjJvZGMvRnJ4QUZ1T1Y4QXR5U3Y2MTlt?=
- =?utf-8?B?Q3p1MFV2ck44YVRGYmI5cEd3SVNsYWtQN1pjQzhYOEp4QlpRMEZGV0JJYmpt?=
- =?utf-8?B?OU92d0ROTG5jVXdTVEdYZ3hmUW55V2tjY0dvaXhiVXZKR0RTZ2VTVnNqWWdp?=
- =?utf-8?B?cmtPWTJlV2VNbkFvNXV1TGMzS2p2RWtncDQ4T2paZ0VtT3JoaWdEdS93dXFa?=
- =?utf-8?B?WVRzTlVWL0xiSXdXS2tVNXlzMEd3RG9ta254VDdpUmsxY2NDZGJUZS9XYjZm?=
- =?utf-8?B?eUVBM1Rzc2cwNW0va3VLbTl0dlM2Ky9ZeDFSYzhSdDlOWnFjL2FwTzdINHJs?=
- =?utf-8?B?cUVJL0dRS25GWjZWNmNnQlIyVG9YeVVleGdmK2tCL3pTWEdJZHZlU1hNZVFG?=
- =?utf-8?B?NVhiWWJNRDhTdUR4dWllN3JaN2ZMMTBzaHVpem53ZnpRc0xxNHBaZTFZS3lh?=
- =?utf-8?B?NmVFVjNmM1kvd1p0dGNjL0ZjUDBpaDJkYlFkQW9zMjFKQWVKOWx0aVMydVlR?=
- =?utf-8?B?ZlVoTks3cmJqZlBnbDdHTHZ6Tmw4MHhlY01Qb1M1eHBRSE1KWVRVT0Q1ODM0?=
- =?utf-8?B?SUFDSGFRK1ViWjV3Sms3V2RDbDFoTTEwVHJQMVFwSDdsaTJNaElPdktqTFRZ?=
- =?utf-8?B?cnRTdjh3SkprZTMwZEU3dHcwdWxaeVAvSklZZm03c0VDK01xaEZHNFNGL2RX?=
- =?utf-8?B?a2dxdi9NZU03SnBiN1ZWY1dWODVnR0ZlQnFCcCt4RWIxL0JlYnMvVTl6VlBY?=
- =?utf-8?B?Nk0xRUtYWVdYODFaNmhsSEM2Rkl0MkwwbTZaN0FTWGJNSzhjamlobWxFdFB0?=
- =?utf-8?B?MVF1ZkpiaG9sZGk5aGtxazVxY2owYkFMQlF4STZxOGhldjBKUGdCdStKUW9N?=
- =?utf-8?B?ZlozZXJxYzBjY1VadlJZNk85MW5vN2xjQjhFTmFmTmZrc1VBTFdVdHdRMS83?=
- =?utf-8?B?UmZWREg3ZEtQTy8wUnlWbkFBcE9xZEZsNk9UNDIrK0lqWVgyNnV5WW1vSVR3?=
- =?utf-8?B?diswZ1lTb2htSG44clZpbHl2S3JuY1dHaGxLTUpPa2hsbUpSaE1halN1UXY3?=
- =?utf-8?Q?rLNc=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 95519e5e-6c81-4f1b-c994-08dd617151bc
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 14:22:28.8842
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yeIBt6XM8EHk07tC3FauDOhspmot2k+/zremT7uJDNtvkoJDGQNk7ANJgVHguIfyymh6V/1pG0k60q650b4Ylg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8404
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/8] memory: Add STM32 Octo Memory Manager driver
+To: Krzysztof Kozlowski <krzk@kernel.org>, Mark Brown <broonie@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Alexandre Torgue
+	<alexandre.torgue@foss.st.com>,
+        Philipp Zabel <p.zabel@pengutronix.de>,
+        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+        Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>,
+        Arnd Bergmann <arnd@arndb.de>,
+        Catalin Marinas
+	<catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>
+CC: <linux-spi@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <christophe.kerello@foss.st.com>
+References: <20250219080059.367045-1-patrice.chotard@foss.st.com>
+ <20250219080059.367045-5-patrice.chotard@foss.st.com>
+ <eaf1ecca-4fde-4128-8590-6013c3a13a04@kernel.org>
+Content-Language: en-US
+From: Patrice CHOTARD <patrice.chotard@foss.st.com>
+In-Reply-To: <eaf1ecca-4fde-4128-8590-6013c3a13a04@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.62]
+X-ClientProxiedBy: SHFCAS1NODE2.st.com (10.75.129.73) To SHFDAG1NODE1.st.com
+ (10.75.129.69)
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-12_05,2025-03-11_02,2024-11-22_01
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_072232_425292_66899F00 
-X-CRM114-Status: GOOD (  38.53  )
+X-CRM114-CacheID: sfid-20250312_072705_055072_039D323B 
+X-CRM114-Status: GOOD (  41.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -191,134 +108,528 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 09:28:02AM +0100, Lucas Stach wrote:
-> Am Mittwoch, dem 12.03.2025 um 04:05 +0000 schrieb Hongxing Zhu:
-> > > -----Original Message-----
-> > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > Sent: 2025年3月11日 23:55
-> > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > > kw@linux.com; manivannan.sadhasivam@linaro.org; bhelgaas@google.com;
-> > > s.hauer@pengutronix.de; festevam@gmail.com; devicetree@vger.kernel.org;
-> > > linux-pci@vger.kernel.org; imx@lists.linux.dev; kernel@pengutronix.de;
-> > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
-> > > hardcodes
-> > >
-> > > On Tue, Mar 11, 2025 at 01:11:04AM +0000, Hongxing Zhu wrote:
-> > > > > -----Original Message-----
-> > > > > From: Bjorn Helgaas <helgaas@kernel.org>
-> > > > > Sent: 2025年3月10日 23:11
-> > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
-> > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
-> > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
-> > > > > kw@linux.com; manivannan.sadhasivam@linaro.org;
-> > > bhelgaas@google.com;
-> > > > > s.hauer@pengutronix.de; festevam@gmail.com;
-> > > > > devicetree@vger.kernel.org; linux-pci@vger.kernel.org;
-> > > > > imx@lists.linux.dev; kernel@pengutronix.de;
-> > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
-> > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
-> > > > > hardcodes
-> > > > >
-> > > > > On Wed, Feb 26, 2025 at 10:42:56AM +0800, Richard Zhu wrote:
-> > > > > > Use the domain number replace the hardcodes to uniquely identify
-> > > > > > different controller on i.MX8MQ platforms. No function changes.
-> > > > > >
-> > > > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
-> > > > > > ---
-> > > > > >  drivers/pci/controller/dwc/pci-imx6.c | 14 ++++++--------
-> > > > > >  1 file changed, 6 insertions(+), 8 deletions(-)
-> > > > > >
-> > > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > index 90ace941090f..ab9ebb783593 100644
-> > > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
-> > > > > > @@ -41,7 +41,6 @@
-> > > > > >  #define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
-> > > > > >  #define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
-> > > > > >  #define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11,
-> > > 8)
-> > > > > > -#define IMX8MQ_PCIE2_BASE_ADDR			0x33c00000
-> > > > > >
-> > > > > >  #define IMX95_PCIE_PHY_GEN_CTRL			0x0
-> > > > > >  #define IMX95_PCIE_REF_USE_PAD			BIT(17)
-> > > > > > @@ -1474,7 +1473,6 @@ static int imx_pcie_probe(struct
-> > > > > > platform_device
-> > > > > *pdev)
-> > > > > >  	struct dw_pcie *pci;
-> > > > > >  	struct imx_pcie *imx_pcie;
-> > > > > >  	struct device_node *np;
-> > > > > > -	struct resource *dbi_base;
-> > > > > >  	struct device_node *node = dev->of_node;
-> > > > > >  	int i, ret, req_cnt;
-> > > > > >  	u16 val;
-> > > > > > @@ -1515,10 +1513,6 @@ static int imx_pcie_probe(struct
-> > > > > platform_device *pdev)
-> > > > > >  			return PTR_ERR(imx_pcie->phy_base);
-> > > > > >  	}
-> > > > > >
-> > > > > > -	pci->dbi_base = devm_platform_get_and_ioremap_resource(pdev,
-> > > 0,
-> > > > > &dbi_base);
-> > > > > > -	if (IS_ERR(pci->dbi_base))
-> > > > > > -		return PTR_ERR(pci->dbi_base);
-> > > > >
-> > > > > This makes me wonder.
-> > > > >
-> > > > > IIUC this means that previously we set controller_id to 1 if the
-> > > > > first item in devicetree "reg" was 0x33c00000, and now we will set
-> > > > > controller_id to 1 if the devicetree "linux,pci-domain" property is 1.
-> > > > > This is good, but I think this new dependency on the correct
-> > > > > "linux,pci-domain" in devicetree should be mentioned in the commit log.
-> > > > >
-> > > > > My bigger worry is that we no longer set pci->dbi_base at all.  I
-> > > > > see that the only use of pci->dbi_base in pci-imx6.c was to
-> > > > > determine the controller_id, but this is a DWC-based driver, and the
-> > > > > DWC core certainly uses
-> > > > > pci->dbi_base.  Are we sure that none of those DWC core paths are
-> > > > > important to pci-imx6.c?
-> > > > Hi Bjorn:
-> > > > Thanks for your concerns.
-> > > > Don't worry about the assignment of pci->dbi_base.
-> > > > If pci-imx6.c driver doesn't set it. DWC core driver would set it when
-> > > >  dw_pcie_get_resources() is invoked.
-> > >
-> > > Great, thanks!  Maybe we can amend the commit log to mention that and
-> > > the new "linux,pci-domain" dependency.
-> > How about the following updates of the commit log?
-> >
-> > Use the domain number replace the hardcodes to uniquely identify
-> > different controller on i.MX8MQ platforms. No function changes.
-> > Please make sure the " linux,pci-domain" is set for i.MX8MQ correctly, since
-> >  the controller id is relied on it totally.
-> >
-> This breaks running a new kernel on an old DT without the
-> linux,pci-domain property, which I'm absolutely no fan of. We tried
-> really hard to keep this way around working in the i.MX world.
-
-8MQ already add linux,pci-domain since Jan, 2021
-
-commit c0b70f05c87f3b09b391027c6f056d0facf331ef
-Author: Peng Fan <peng.fan@nxp.com>
-Date:   Fri Jan 15 11:26:57 2021 +0800
-
-Only missed is pcie-ep side, which have not been used at all boards dts
-file in upstream.
-
-Frank
-
->
-> I'm fine with using the property if present and even mandating it for
-> new platforms, but getting rid of the existing code for the i.MX8MQ
-> platform is only a marginal cleanup of the driver code with the obvious
-> downside of the above breakage.
 
 
+On 3/11/25 17:04, Krzysztof Kozlowski wrote:
+> On 19/02/2025 09:00, patrice.chotard@foss.st.com wrote:
+>> From: Patrice Chotard <patrice.chotard@foss.st.com>
+>>
+>> Octo Memory Manager driver (OMM) manages:
+>>   - the muxing between 2 OSPI busses and 2 output ports.
+>>     There are 4 possible muxing configurations:
+>>       - direct mode (no multiplexing): OSPI1 output is on port 1 and OSPI2
+>>         output is on port 2
+>>       - OSPI1 and OSPI2 are multiplexed over the same output port 1
+>>       - swapped mode (no multiplexing), OSPI1 output is on port 2,
+>>         OSPI2 output is on port 1
+>>       - OSPI1 and OSPI2 are multiplexed over the same output port 2
+>>   - the split of the memory area shared between the 2 OSPI instances.
+>>   - chip select selection override.
+>>   - the time between 2 transactions in multiplexed mode.
+>>   - check firewall access.
+>>
+>> Signed-off-by: Patrice Chotard <patrice.chotard@foss.st.com>
+>> Signed-off-by: Christophe Kerello <christophe.kerello@foss.st.com>
+> 
+> Incorrect chain. You sent it, so you must be the last person signing it.
 
->
-> Regards,
-> Lucas
+ok
+
+> 
+> I was waiting for any ST review... did not happen, so if you wonder how
+> to speed things up, you got a hint. Anyway, many questions futher.
+> 
+> 
+>> +
+>> +		if (i == 1) {
+>> +			mm_ospi2_size = resource_size(&res);
+>> +
+>> +			/* check that OMM memory region 1 doesn't overlap memory region 2 */
+>> +			if (resource_overlaps(&res, &res1)) {
+>> +				dev_err(dev, "OMM memory-region %s overlaps memory region %s\n",
+>> +					mm_name[0], mm_name[1]);
+>> +				dev_err(dev, "%pR overlaps %pR\n", &res1, &res);
+>> +
+>> +				return -EFAULT;
+>> +			}
+>> +		}
+>> +	}
+>> +
+>> +	syscfg_regmap = syscon_regmap_lookup_by_phandle(dev->of_node, "st,syscfg-amcr");
+>> +	if (IS_ERR(syscfg_regmap)) {
+>> +		dev_err(dev, "Failed to get st,syscfg-amcr property\n");
+>> +		return PTR_ERR(syscfg_regmap);
+> 
+> Same comments as usual, see further.
+
+ok, will use dev_err_probe()
+
+> 
+>> +	}
+>> +
+>> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 1,
+>> +					 &amcr_base);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	ret = of_property_read_u32_index(dev->of_node, "st,syscfg-amcr", 2,
+>> +					 &amcr_mask);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	amcr = mm_ospi2_size / SZ_64M;
+>> +
+>> +	if (set)
+>> +		regmap_update_bits(syscfg_regmap, amcr_base, amcr_mask, amcr);
+>> +
+>> +	/* read AMCR and check coherency with memory-map areas defined in DT */
+>> +	regmap_read(syscfg_regmap, amcr_base, &read_amcr);
+>> +	read_amcr = read_amcr >> (ffs(amcr_mask) - 1);
+>> +
+>> +	if (amcr != read_amcr) {
+>> +		dev_err(dev, "AMCR value not coherent with DT memory-map areas\n");
+>> +		ret = -EINVAL;
+>> +	}
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int stm32_omm_enable_child_clock(struct device *dev, bool enable)
+>> +{
+>> +	/* As there is only 2 children, remember first child in case of error */
+>> +	struct clk *first_child_clk = NULL;
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +	u8 i;
+>> +	int ret;
+>> +
+>> +	for (i = 0; i < omm->nb_child; i++) {
+>> +		if (enable) {
+>> +			ret = clk_prepare_enable(omm->child[i].clk);
+>> +			if (ret) {
+>> +				if (first_child_clk)
+>> +					clk_disable_unprepare(first_child_clk);
+> 
+> Function is called stm32_omm_enable_child_clock() but you disable.
+> Confusing. Probably should be called toggle.
+
+Agree, i will rename it to stm32_omm_toggle_child_clock
+
+> 
+>> +
+>> +				dev_err(dev, "Can not enable clock\n");
+>> +				return ret;
+>> +			}
+>> +		} else {
+>> +			clk_disable_unprepare(omm->child[i].clk);
+>> +		}
+>> +
+>> +		first_child_clk = omm->child[i].clk;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int stm32_omm_configure(struct device *dev)
+>> +{
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +	struct reset_control *rstc;
+>> +	unsigned long clk_rate, clk_rate_max = 0;
+>> +	int ret;
+>> +	u8 i;
+>> +	u32 mux = 0;
+> 
+> That's one big mess. Do not mix initialized declarations with
+> non-initialized in the same line. Then group initialized ones together
+> and use some reverse christmas tree.
+> 
+> Then the rest also should be organized.
+
+ok
+
+> 
+>> +	u32 cssel_ovr = 0;
+>> +	u32 req2ack = 0;
+>> +
+>> +	omm->clk = devm_clk_get(dev, NULL);
+> 
+> So here devm_clk_get, but later of_clk_get...
+> 
+>> +	if (IS_ERR(omm->clk)) {
+>> +		dev_err(dev, "Failed to get OMM clock (%ld)\n",
+>> +			PTR_ERR(omm->clk));
+>> +
+> 
+> No. There is no such code anywhere. Please don't upstream downstream,
+> but take upstream as template.
+> 
+> It is *always* return dev_err_probe. You are flooding dmesg in deferral
+> for no reason.
+
+ok, will use dev_err_probe()
+
+> 
+>> +		return PTR_ERR(omm->clk);
+>> +	}
+>> +
+>> +	ret = pm_runtime_resume_and_get(dev);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	/* parse children's clock */
+>> +	for (i = 0; i < omm->nb_child; i++) {
+>> +		clk_rate = clk_get_rate(omm->child[i].clk);
+>> +		if (!clk_rate) {
+>> +			dev_err(dev, "Invalid clock rate\n");
+>> +			pm_runtime_disable(dev);
+>> +			goto err_clk_disable;
+>> +		}
+>> +
+>> +		if (clk_rate > clk_rate_max)
+>> +			clk_rate_max = clk_rate;
+>> +	}
+>> +
+>> +	rstc = devm_reset_control_get_optional_exclusive(dev, NULL);
+>> +	if (IS_ERR(rstc)) {
+>> +		ret = dev_err_probe(dev, PTR_ERR(rstc), "reset get failed\n");
+>> +		pm_runtime_disable(dev);
+> 
+> Why? It was not enabled in this function. I cannot follow the logic,
+> feels like random set of calls. Each of your function is supposed to
+> reverse ONLY what it done so far.
+
+right, i will move pm_runtime_disable() outside stm32_omm_enable_child_clock()
+
+> 
+>> +		goto err_clk_disable;
+>> +	}
+>> +
+>> +	reset_control_assert(rstc);
+>> +	udelay(2);
+>> +	reset_control_deassert(rstc);
+>> +
+>> +	omm->cr = readl_relaxed(omm->io_base + OMM_CR);
+>> +	/* optional */
+>> +	ret = of_property_read_u32(dev->of_node, "st,omm-mux", &mux);
+>> +	if (!ret) {
+>> +		if (mux & CR_MUXEN) {
+>> +			ret = of_property_read_u32(dev->of_node, "st,omm-req2ack-ns",
+>> +						   &req2ack);
+>> +			if (!ret && !req2ack) {
+>> +				req2ack = DIV_ROUND_UP(req2ack, NSEC_PER_SEC / clk_rate_max) - 1;
+>> +
+>> +				if (req2ack > 256)
+>> +					req2ack = 256;
+>> +			}
+>> +
+>> +			req2ack = FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
+>> +
+>> +			omm->cr &= ~CR_REQ2ACK_MASK;
+>> +			omm->cr |= FIELD_PREP(CR_REQ2ACK_MASK, req2ack);
+>> +
+>> +			/*
+>> +			 * If the mux is enabled, the 2 OSPI clocks have to be
+>> +			 * always enabled
+>> +			 */
+>> +			ret = stm32_omm_enable_child_clock(dev, true);
+>> +			if (ret) {
+>> +				pm_runtime_disable(dev);
+>> +				goto err_clk_disable;
+>> +			}
+>> +		}
+>> +
+>> +		omm->cr &= ~CR_MUXENMODE_MASK;
+>> +		omm->cr |= FIELD_PREP(CR_MUXENMODE_MASK, mux);
+>> +	}
+>> +
+>> +	/* optional */
+>> +	ret = of_property_read_u32(dev->of_node, "st,omm-cssel-ovr", &cssel_ovr);
+>> +	if (!ret) {
+>> +		omm->cr &= ~CR_CSSEL_OVR_MASK;
+>> +		omm->cr |= FIELD_PREP(CR_CSSEL_OVR_MASK, cssel_ovr);
+>> +		omm->cr |= CR_CSSEL_OVR_EN;
+>> +	}
+>> +
+>> +	omm->restore_omm = true;
+>> +	writel_relaxed(omm->cr, omm->io_base + OMM_CR);
+>> +
+>> +	ret = stm32_omm_set_amcr(dev, true);
+>> +
+>> +err_clk_disable:
+>> +	pm_runtime_put_sync_suspend(dev);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static int stm32_omm_check_access(struct device *dev, struct device_node *np)
+>> +{
+>> +	struct stm32_firewall firewall;
+>> +	int ret;
+>> +
+>> +	ret = stm32_firewall_get_firewall(np, &firewall, 1);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	return stm32_firewall_grant_access(&firewall);
+>> +}
+>> +
+>> +static int stm32_omm_disable_child(struct device *dev)
+>> +{
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +	struct reset_control *reset;
+>> +	int ret;
+>> +	u8 i;
+>> +
+>> +	for (i = 0; i < omm->nb_child; i++) {
+>> +		ret = clk_prepare_enable(omm->child[i].clk);
+>> +		if (ret) {
+>> +			dev_err(dev, "Can not enable clock\n");
+>> +			return ret;
+>> +		}
+>> +
+>> +		reset = of_reset_control_get_exclusive(omm->child[i].node, 0);
+>> +		if (IS_ERR(reset)) {
+>> +			dev_err(dev, "Can't get child reset\n");
+> 
+> Why do you get reset of child? Parent is not suppposed to poke there.
+> You might not have the reset there in the first place and it would not
+> be an error.
+
+By ressetting child (OSPI), we ensure they are disabled and in a known state.
+See the comment below.
+
+> 
+> 
+>> +			return PTR_ERR(reset);
+>> +		};
+>> +
+>> +		/* reset OSPI to ensure CR_EN bit is set to 0 */
+>> +		reset_control_assert(reset);
+>> +		udelay(2);
+>> +		reset_control_deassert(reset);
+> 
+> No, the child should handle this, not parent.
+
+Octo Memory Manager can only be configured if both child are disabled.
+That's why here, parent handles this.
+
+> 
+>> +
+>> +		reset_control_put(reset);
+>> +		clk_disable_unprepare(omm->child[i].clk);
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int stm32_omm_probe(struct platform_device *pdev)
+>> +{
+>> +	struct platform_device *vdev;
+>> +	struct device *dev = &pdev->dev;
+>> +	struct stm32_omm *omm;
+>> +	struct clk *clk;
+>> +	int ret;
+>> +	u8 child_access_granted = 0;
+> 
+> Keep inits/assignments together
+
+ok
+
+> 
+>> +	u8 i, j;
+>> +	bool child_access[OMM_CHILD_NB];
+>> +
+>> +	omm = devm_kzalloc(dev, sizeof(*omm), GFP_KERNEL);
+>> +	if (!omm)
+>> +		return -ENOMEM;
+>> +
+>> +	omm->io_base = devm_platform_ioremap_resource_byname(pdev, "regs");
+>> +	if (IS_ERR(omm->io_base))
+>> +		return PTR_ERR(omm->io_base);
+>> +
+>> +	omm->mm_res = platform_get_resource_byname(pdev, IORESOURCE_MEM, "memory_map");
+>> +	if (IS_ERR(omm->mm_res))
+>> +		return PTR_ERR(omm->mm_res);
+>> +
+>> +	/* check child's access */
+>> +	for_each_child_of_node_scoped(dev->of_node, child) {
+>> +		if (omm->nb_child >= OMM_CHILD_NB) {
+>> +			dev_err(dev, "Bad DT, found too much children\n");
+>> +			ret = -E2BIG;
+>> +			goto err_clk_release;
+>> +		}
+>> +
+>> +		if (!of_device_is_compatible(child, "st,stm32mp25-ospi")) {
+>> +			ret = -EINVAL;
+>> +			goto err_clk_release;
+>> +		}
+>> +
+>> +		ret = stm32_omm_check_access(dev, child);
+>> +		if (ret < 0 && ret != -EACCES)
+>> +			goto err_clk_release;
+>> +
+>> +		child_access[omm->nb_child] = false;
+>> +		if (!ret) {
+>> +			child_access_granted++;
+>> +			child_access[omm->nb_child] = true;
+>> +		}
+>> +
+>> +		omm->child[omm->nb_child].node = child;
+>> +
+>> +		clk = of_clk_get(child, 0);
+> 
+> Why are you taking children clock? And why with this API, not clk_get?
+
+I need children's clock to reset them.
+Why of_clk_get() usage is a problem here ? i can't get your point ?
+
+> This looks like mixing clock provider in the clock consumer.
+> 
+>> +		if (IS_ERR(clk)) {
+>> +			dev_err(dev, "Can't get child clock\n");
+> 
+> Syntax is always return dev_err_probe (or ret = dev_err_probe).
+
+ok
+
+> 
+>> +			ret = PTR_ERR(clk);
+>> +			goto err_clk_release;
+>> +		};
+>> +
+>> +		omm->child[omm->nb_child].clk = clk;
+>> +		omm->nb_child++;
+>> +	}
+>> +
+>> +	if (omm->nb_child != OMM_CHILD_NB) {
+>> +		ret = -EINVAL;
+>> +		goto err_clk_release;
+>> +	}
+>> +
+>> +	platform_set_drvdata(pdev, omm);
+>> +
+>> +	pm_runtime_enable(dev);
+>> +
+>> +	/* check if OMM's resource access is granted */
+>> +	ret = stm32_omm_check_access(dev, dev->of_node);
+>> +	if (ret < 0 && ret != -EACCES)
+>> +		goto err_clk_release;
+>> +
+>> +	if (!ret && child_access_granted == OMM_CHILD_NB) {
+>> +		/* Ensure both OSPI instance are disabled before configuring OMM */
+>> +		ret = stm32_omm_disable_child(dev);
+>> +		if (ret)
+>> +			goto err_clk_release;
+>> +
+>> +		ret = stm32_omm_configure(dev);
+>> +		if (ret)
+>> +			goto err_clk_release;
+>> +	} else {
+>> +		dev_dbg(dev, "Octo Memory Manager resource's access not granted\n");
+>> +		/*
+>> +		 * AMCR can't be set, so check if current value is coherent
+>> +		 * with memory-map areas defined in DT
+>> +		 */
+>> +		ret = stm32_omm_set_amcr(dev, false);
+>> +		if (ret)
+>> +			goto err_clk_release;
+>> +	}
+>> +
+>> +	/* for each child, if resource access is granted and status "okay", probe it */
+>> +	for (i = 0; i < omm->nb_child; i++) {
+>> +		if (!child_access[i] || !of_device_is_available(omm->child[i].node))
+> 
+> If you have a device available, why do you create one more platform device?
+> 
+>> +			continue;
+>> +
+>> +		vdev = of_platform_device_create(omm->child[i].node, NULL, NULL);
+> 
+> Why you cannot just populate the children?
+
+I can't use of_platform_populate(), by default it will populate all OMM's child.
+Whereas here, we want to probe only the OMM's child which match our criteria.  
+
+> 
+>> +		if (!vdev) {
+>> +			dev_err(dev, "Failed to create Octo Memory Manager child\n");
+>> +			for (j = i; j > 0; --j) {
+>> +				if (omm->child[j].dev)
+>> +					of_platform_device_destroy(omm->child[j].dev, NULL);
+>> +			}
+>> +
+>> +			ret = -EINVAL;
+>> +			goto err_clk_release;
+>> +		}
+>> +		omm->child[i].dev = &vdev->dev;
+>> +	}
+>> +
+>> +err_clk_release:
+>> +	for (i = 0; i < omm->nb_child; i++)
+>> +		clk_put(omm->child[i].clk);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>> +static void stm32_omm_remove(struct platform_device *pdev)
+>> +{
+>> +	struct stm32_omm *omm = platform_get_drvdata(pdev);
+>> +	int i;
+>> +
+>> +	for (i = 0; i < omm->nb_child; i++)
+>> +		if (omm->child[i].dev)
+>> +			of_platform_device_destroy(omm->child[i].dev, NULL);
+>> +
+>> +	if (omm->cr & CR_MUXEN)
+>> +		stm32_omm_enable_child_clock(&pdev->dev, false);
+>> +
+>> +	pm_runtime_disable(&pdev->dev);
+>> +}
+>> +
+>> +static const struct of_device_id stm32_omm_of_match[] = {
+>> +	{ .compatible = "st,stm32mp25-omm", },
+>> +	{}
+>> +};
+>> +MODULE_DEVICE_TABLE(of, stm32_omm_of_match);
+>> +
+>> +static int __maybe_unused stm32_omm_runtime_suspend(struct device *dev)
+>> +{
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +
+>> +	clk_disable_unprepare(omm->clk);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +static int __maybe_unused stm32_omm_runtime_resume(struct device *dev)
+>> +{
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +
+>> +	return clk_prepare_enable(omm->clk);
+>> +}
+>> +
+>> +static int __maybe_unused stm32_omm_suspend(struct device *dev)
+>> +{
+>> +	struct stm32_omm *omm = dev_get_drvdata(dev);
+>> +
+>> +	if (omm->restore_omm && omm->cr & CR_MUXEN)
+>> +		stm32_omm_enable_child_clock(dev, false);
+> 
+> Why do you enable child clock for suspend?
+
+The child clock is disbaled here, but as you indicated earlier in this patch,
+stm32_omm_enable_child_clock() will be renamed stm32_omm_toggle_child_clock() 
+to avoid confussion.
+
+Thanks
+Patrice
+
+> 
+>> +
+>> +	return pinctrl_pm_select_sleep_state(dev);
+>> +}
+>> +
+> 
+> 
+> Best regards,
+> Krzysztof
 
