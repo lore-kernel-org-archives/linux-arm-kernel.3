@@ -4,91 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B170FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:22:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2231C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=IxUbYz05EixkTPFqKStUgtk6UPZfDa5JQwQa/HwWCZ0=; b=iLasXbDghf8huz1s3vYeaowDTz
-	pIyYBcM30sbGpbCzSNvCOFDOGOK5novoX/VWmqRqknOZh3ucsA/H5OWNFSAEYm6XekPPVvZa3oUk8
-	fIhSiFydjfTLa8LK49UYuw9KUuBByOe/9MsgbffGSvIS8t0vHPdhLQfmuSGNKODt52MuX+2G26heT
-	HDF26IW6fyMOaCvjYrxFS9UlkUjHpY0+WE8p7XjWhKZppa+yjBcvCcRR35CuFCMLZzkiR9zS1Fr3N
-	UP2AVxM8iKRk87+d6UR6wXkyYRJrwUJQcaKDjLciSf4+jMsO0BfzUp/Q14zU3i+4cqQdz+LGU9amY
-	XcrJ5i+Q==;
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cmklfvLlFZxYw5WHt0NSMePxUydM1gh/qon5awTqfRY=; b=eRawBWy4EeoSubi2z1aEKb1T1H
+	nP+fvoTJBATXB/kfTEyE08aPlgVrK8cGz64BcG9TNfP3YvkTAdT8zB835Dl4XUpjas3SKcIpWl0mz
+	tAjHQEaiDSAE90LEJMj03FM4PIf6lbb7x3dQN+xiSO7kwdJxYbbXDZXfgWW71KQdzYPkX0UYi0ek2
+	rF8OebOYHnY87jATpZNH6niEBI66GME0tGGHstffK0OINMbDog0YzS3wOMZT9I2eILXEFwBng3Ebv
+	109GGLGOUVzaWHLScBDUQgUPS69rSfr8X24dyH5YcPZBQsx8+7C+56nOmS93RXbtA7MJJ+xZivY5c
+	IJ3DVMSw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsM2b-00000008YWv-2w9F;
-	Wed, 12 Mar 2025 13:22:33 +0000
-Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
+	id 1tsM4E-00000008YkK-1VsF;
+	Wed, 12 Mar 2025 13:24:14 +0000
+Received: from fw2.prolan.hu ([193.68.50.107])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLBu-00000008Ow3-3uLD
+	id 1tsLEZ-00000008PLn-2kLj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 12:28:08 +0000
-Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2235189adaeso16030325ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 05:28:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741782486; x=1742387286; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=IxUbYz05EixkTPFqKStUgtk6UPZfDa5JQwQa/HwWCZ0=;
-        b=avWc+fS+0WSdJwnqlNI+OWYKjMC1te0L2UwsqSj7xmTZjHYNFGdNDixcaT7G8Aaeol
-         HJRBL/UyzlpoTrfjOkz0qMVaAv4q4wR3iMH3qQ1Feo4PrwJrv8hYoX4icfqS/JJDA9Jj
-         +KaKemHKGracd+LoVOGy2U3KxqMzoKk9RuxtyyRUmtf2X+eh/SQxRQcTy2wORoCqYkZO
-         uDQqMO2rwr8vKU58b5VlX6cg01pTj+I8s4LA4H9OqWd+osc0yry9dc4FzURLlAPv/WXU
-         Zl5dBKzP6v3x0vzpmanzimvH4MzWkFXpTPkTfEGro+sLYJmyK+g9cKoaMYEOHy1labWt
-         5t2g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741782486; x=1742387286;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=IxUbYz05EixkTPFqKStUgtk6UPZfDa5JQwQa/HwWCZ0=;
-        b=kzud7XVEPjfcPKr7Hyp1oz9GmUiWpW05WKEPwyDmAvtMYfFtootQF8+DV4i/F+v9Nf
-         7Y4loBDOA57hKSOPLD7v1I6L4xnnXGjNQWmmVQu51DHkcZrqsusolgU/+CHQQsOOf0eI
-         qNfL/c76m5bsCaBwE2LnXh7BExUD/4w02p9g3+cEHCMEz7uQh4ZQdQbKcntQML6d95jy
-         uxchHn3VyVith1XMKndWhLryiFWr4YPgRIrxTB3GRaVIbIVY4DIDgvb79/aBIwf4PuWe
-         uxX5+/rlY4+ONoTyMIQ8EzSvTEOf0SCEx40NtMqA6YTnw+FLMrvfLp1b8RMGfWc2I92w
-         iPaQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX4qZb0PcGvNaDmtMdvG/xzvlNi6NYn2rZxh/Z+z0yv0C62Kpd/VjINcYo3WIdouMfW+rAbG2DYGqWEVcpEEHFR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyECi5Aqo+CcPoOU6vsaPnT4EEOI5CEemsLX0xrOM1aGpI6q8Tj
-	to8Eu5s2VtzUCzW5zCNYED8VNym1BHGbO8JPxPhGHYbbVvWtsyBG
-X-Gm-Gg: ASbGncvMmGLLobhhprwEIqSEpWRuhl17KzBnaTejMaumf/1yM4ML4BccJbOdteJORx1
-	icwpHp5LX8FlgerOmf5C3UlfU2U/3HzgLmD7o+1OY5r8C0godiwBK7JVoFn+qz5/1wyVmhUemJb
-	nONLnSs+Cl5jI3ghTwmOWFGMkFB0vNZ492XulZ6ELyqCQYECWhwjiwDjSR/p0HQ7UXtJAsS1134
-	t8tzNlOZEhPb+LXxq5hwIE5rwsfv5sy5qoFjhhewBeeujMJ8061u1KehyUYzlWrkTJsVm/1RnLO
-	2ymOuVcJrPGOESFQzj8eYf6rOemZXRPoPoJPLyWpPE5EILtLMbQH/jc5ULDxE5AArgMVzLxYj1U
-	=
-X-Google-Smtp-Source: AGHT+IGMRstxw7VlBWo5AclJnc80nudS0j2DV/XKis75x33MKdrmONuUAwxabjmT8wMAvLHS9LgnmA==
-X-Received: by 2002:a17:902:cf0d:b0:215:6c5f:d142 with SMTP id d9443c01a7336-22593d9e8dcmr90162505ad.20.1741782485826;
-        Wed, 12 Mar 2025 05:28:05 -0700 (PDT)
-Received: from purva-IdeaPad-Gaming-3-15IHU6.. ([14.139.108.62])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-224109e8532sm114691035ad.56.2025.03.12.05.28.00
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 05:28:05 -0700 (PDT)
-From: Purva Yeshi <purvayeshi550@gmail.com>
-To: ukleinek@kernel.org,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	vz@mleia.com,
-	piotr.wojtaszczyk@timesys.com
-Cc: linux-pwm@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Purva Yeshi <purvayeshi550@gmail.com>
-Subject: [PATCH v2] dt-bindings: pwm: Convert lpc32xx-pwm.txt to YAML
-Date: Wed, 12 Mar 2025 17:57:50 +0530
-Message-Id: <20250312122750.6391-1-purvayeshi550@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Wed, 12 Mar 2025 12:30:53 +0000
+Received: from proxmox-mailgw.intranet.prolan.hu (localhost.localdomain [127.0.0.1])
+	by proxmox-mailgw.intranet.prolan.hu (Proxmox) with ESMTP id 4F763A0433;
+	Wed, 12 Mar 2025 13:30:46 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prolan.hu; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:from:from:in-reply-to:message-id:mime-version:references
+	:reply-to:subject:subject:to:to; s=mail; bh=cmklfvLlFZxYw5WHt0NS
+	MePxUydM1gh/qon5awTqfRY=; b=qQ49a4EU6xjyrrZrVO8B+hvj25GZPeSjA0jb
+	7nWqtx/yE+/PuOh6axYscnpPtJZnCUmT1XiXz34qdphteXIo2TKJ5KsVsaQbrXlk
+	tUylJKdzUJ6EfDz4qFK6yVM1aVGbxPGaUdWI/bQOuiBI7c3nXLNeTFPrfx5bv68J
+	vSJsJYx3lZujSrSva+A6xE/tym5fl0MQR/34G1oev+OcThulayAyqB90QYnXB8rS
+	EsMyweSxMqzxmwvlG/62+oJXrrRx/23oPcywfMzqCIHPrTizUL5I1hKt9qJxNQ7G
+	0hp4aELeQ8tdiUjwGqvTbbbqJykqBqzZzxeWmyZZ3TReORAfhJ7HnlLmirxrBbDa
+	bzfwMJAPkNNpRba8Z2ahlXTtuP/nQbOtBnaJj4Lm561VyLg1pj6n4nQyecsminBK
+	9JZ1iaOdx6ikfJeW+2aC9/eykxPtKm0CahpIScO09ixdrP6D2WUUHpAFdQ8AnqJT
+	FIxcYKKDwenm5asoKkx7K75nJxFX8DHeGnIoMFn3kV01Le7YYX2H3POwTWR8TbRo
+	Izrs5IjAB8SonwI2Nwdi3x4a1yt6XQNPRgXRZE6UQljKWhLFhfwTskZe+LdKCar4
+	bBitkR5bthaRvlro6f2XsFW/g08V6CvdOTl7UVQOg4knyzU6/miZUM2x/aMmdqTZ
+	nOE9+MU=
+Message-ID: <505c2e3b-f1bb-4e3a-96f2-eef0d0d682e6@prolan.hu>
+Date: Wed, 12 Mar 2025 13:30:45 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v4] dma-engine: sun4i: Use devm functions in probe()
+To: Markus Elfring <Markus.Elfring@web.de>, <dmaengine@vger.kernel.org>,
+	<linux-sunxi@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>
+CC: LKML <linux-kernel@vger.kernel.org>, Chen-Yu Tsai <wens@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
+References: <20250311180254.149484-1-csokas.bence@prolan.hu>
+ <885ceb3e-d6c6-4e7b-a3b6-585d2d110ccf@web.de>
+ <81f87d39-d3f8-4b6a-91cb-b0177d34171b@prolan.hu>
+ <9ef781b0-8a63-42b7-91a2-fa8a8ea3c0b4@web.de>
+Content-Language: en-US, hu-HU
+From: =?UTF-8?B?Q3PDs2vDoXMgQmVuY2U=?= <csokas.bence@prolan.hu>
+In-Reply-To: <9ef781b0-8a63-42b7-91a2-fa8a8ea3c0b4@web.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.254.7.14]
+X-ClientProxiedBy: ATLAS.intranet.prolan.hu (10.254.0.229) To
+ ATLAS.intranet.prolan.hu (10.254.0.229)
+X-EsetResult: clean, is OK
+X-EsetId: 37303A2980D94852627360
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_052806_973488_0768C3A0 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250312_053052_161728_6316C795 
+X-CRM114-Status: UNSURE (   9.51  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,91 +88,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the existing `lpc32xx-pwm.txt` bindings documentation into a
-YAML schema (`nxp,lpc3220-pwm.yaml`).
+Hi,
 
-Set `"#pwm-cells"` to `const: 3` for expected PWM cell properties.
+On 2025. 03. 12. 12:44, Markus Elfring wrote:
+>>> How good does such a change combination fit to the patch requirement
+>>> according to separation of concerns?
+>>> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.14-rc6#n81
+>>
+>> It is a general refactor patch, it shouldn't change any functionality. I could split it to one part introducing `devm_clk_get_enabled()` and the other `dmaenginem_async_device_register()`, but I don't feel that to be necessary, nor does it bring any advantages I believe.
+> Can it matter a bit more to separate changes for the application of devm functions
+> and the adjustment of corresponding exception handling with dev_err_probe() calls?
 
-Signed-off-by: Purva Yeshi <purvayeshi550@gmail.com>
----
-V1 - https://lore.kernel.org/all/20250311125756.24064-1-purvayeshi550@gmail.com/
-V2 - Correct filename to match the compatible string, remove unnecessary
-quotes in maintainers, and refine commit message.
+The change in error handling is just the result of switching to devm 
+functions, because it is no longer needed to separately dev_err(), store 
+the error code to `ret` and goto a cleanup phase (as the whole point of 
+using devm functions is to have auto-cleanup), you can just return with 
+the error code (which dev_err_probe() returns for us) right away. The 
+devm functions are used precisely _because_ they allow us to simplify 
+this error handling.
 
- .../devicetree/bindings/pwm/lpc32xx-pwm.txt   | 17 ---------
- .../bindings/pwm/nxp,lpc3220-pwm.yaml         | 38 +++++++++++++++++++
- 2 files changed, 38 insertions(+), 17 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
- create mode 100644 Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
+> Regards,
+> Markus
 
-diff --git a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt b/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
-deleted file mode 100644
-index 74b5bc5dd..000000000
---- a/Documentation/devicetree/bindings/pwm/lpc32xx-pwm.txt
-+++ /dev/null
-@@ -1,17 +0,0 @@
--LPC32XX PWM controller
--
--Required properties:
--- compatible: should be "nxp,lpc3220-pwm"
--- reg: physical base address and length of the controller's registers
--
--Examples:
--
--pwm@4005c000 {
--	compatible = "nxp,lpc3220-pwm";
--	reg = <0x4005c000 0x4>;
--};
--
--pwm@4005c004 {
--	compatible = "nxp,lpc3220-pwm";
--	reg = <0x4005c004 0x4>;
--};
-diff --git a/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
-new file mode 100644
-index 000000000..432a5e9d4
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pwm/nxp,lpc3220-pwm.yaml
-@@ -0,0 +1,38 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pwm/nxp,lpc3220-pwm.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: LPC32XX PWM controller
-+
-+maintainers:
-+  - Vladimir Zapolskiy <vz@mleia.com>
-+  - Piotr Wojtaszczyk <piotr.wojtaszczyk@timesys.com>
-+
-+allOf:
-+  - $ref: pwm.yaml#
-+
-+properties:
-+  compatible:
-+    const: nxp,lpc3220-pwm
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#pwm-cells":
-+    const: 3
-+
-+required:
-+  - compatible
-+  - reg
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+    pwm@4005c000 {
-+        compatible = "nxp,lpc3220-pwm";
-+        reg = <0x4005c000 0x4>;
-+        #pwm-cells = <3>;
-+    };
--- 
-2.34.1
+Bence
 
 
