@@ -4,76 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23733C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:58:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0F6C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=St1OHBKFenhOMKyOuAwGEmP4LdUW/yuDHIRSEsAWFS8=; b=LhjvZX2jSe6vlaD/Q+jnrGtZ01
-	FSBfshRBnpcOrV2yuV9Kme4JjP47vB1wtOcB7fTbtkQEtCBKM1aGACdHzhRmxqs2EJ9whhYtqVoqn
-	j77mRM6bDCWnUAbx8BDWhLqFPw4pxEpmn+wDc9kELcb8ctH56NATSDQrU/5/vYkD2W8Ys3aCNwEIS
-	8NC4QG4SyX2jGxdewaTyoLqRA503MZ+chSgLHvyGx45QEypApFWjSnPvAqNNfU7FUtaW+O4epTTCz
-	EXHSlcNTdKQJK/5vADxjPIRoZJvSmKSICpHx7xcwNfnKBmwG2rJFfrpX9AXQA8de/vVaDQ/4eHdxk
-	lUCzzNvw==;
+	bh=FK77bkIxkuIQ2RaZVUX+w+kEVUOJvqyQlYfCNDo4oio=; b=wtL5yeRPqC5BQURKadmiNs4jp4
+	O97NjmLeK+Fr3qR+E0Imnx34E269geUxc8/DSwIteb3YLbIHRBtguscRTpLfM/CPspymSIfzy0OLc
+	i+7uM/KUG+1+HYFZ0OPjrNykGq4/GFvMoTiedwzDVSfW1GdYLw2UTzk53qvOzVFvXg3Cu3YPx13b8
+	XS2xUueoRHtzQTLi0s5ksewNjykiGACXs+ANQEh+vpIBMcIEYokMVc/Dt7UQ0tTx0BXDsEvYPQ2hF
+	QQH4KMMozebczczaf6r0m9UQMxDmAzT/HNJqUmlk882/e8jgBUdgJpURLl7QOEGMXqD0zmqO9lBP1
+	xLlpj51Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMao-00000008dSO-0mCX;
-	Wed, 12 Mar 2025 13:57:54 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
+	id 1tsMff-00000008e6o-118k;
+	Wed, 12 Mar 2025 14:02:55 +0000
+Received: from smtp.forwardemail.net ([2a02:6ea0:d71e::9])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMPm-00000008c6E-0z3G
+	id 1tsMdy-00000008dv1-0enk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 13:46:32 +0000
-Received: from lelv0266.itg.ti.com ([10.180.67.225])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52CDkP6x1509037
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
-	Wed, 12 Mar 2025 08:46:25 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741787185;
-	bh=St1OHBKFenhOMKyOuAwGEmP4LdUW/yuDHIRSEsAWFS8=;
-	h=Date:Subject:From:To:CC:References:In-Reply-To;
-	b=mSuNL+tlziSpgsYRGMRiAZ337EviHVssQ6jBwn+up9evY1iXCQFcMhUBoTZVkvW+q
-	 KjSb3If1wJbfvaX3vSwXiHQG21r39sy8yEggoUrw+XQhtvHjOFhnXGjaxshtjEyBEO
-	 928tO6XhikbpMfXqlvssgvjsThwEWX5NwCM0u3To=
-Received: from DLEE107.ent.ti.com (dlee107.ent.ti.com [157.170.170.37])
-	by lelv0266.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52CDkPri117711;
-	Wed, 12 Mar 2025 08:46:25 -0500
-Received: from DLEE101.ent.ti.com (157.170.170.31) by DLEE107.ent.ti.com
- (157.170.170.37) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 12
- Mar 2025 08:46:24 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE101.ent.ti.com
- (157.170.170.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 12 Mar 2025 08:46:24 -0500
-Received: from [10.24.68.192] (dhcp-10-24-68-192.dhcp.ti.com [10.24.68.192])
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52CDkLqP125702;
-	Wed, 12 Mar 2025 08:46:22 -0500
-Message-ID: <dec6ccc4-76df-47c3-8622-2c08035eff3e@ti.com>
-Date: Wed, 12 Mar 2025 19:16:21 +0530
+	Wed, 12 Mar 2025 14:01:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=kwiboo.se;
+ h=Content-Transfer-Encoding: Content-Type: In-Reply-To: From: References:
+ Cc: To: Subject: MIME-Version: Date: Message-ID; q=dns/txt;
+ s=fe-e1b5cab7be; t=1741788066;
+ bh=FK77bkIxkuIQ2RaZVUX+w+kEVUOJvqyQlYfCNDo4oio=;
+ b=apy/J+F53lEE6ZXXi5L1hKUb/Udt8pKv5i8UuLcH/PMdmUhnOM6LARCufHgSXLgkzbm7X3pFi
+ wIvu7uKIwB3fi8Q+Zae2QMFP+f+mxxm1g/LdjI/fGf+P11lT/7ASIoBLJoTbH1uDyXugegVDhmG
+ S3nT+lzQnRhS0zetkuh5bEgTjj3NjPggK+XlGihDpCqcOmKkzVr69+mqYtwn/77Hwq31o/ftsfX
+ W8oFh+K58PeuwIxL3bJT2dIAiFBCZ7qCZNwDxVmsc596rGzPKKmOnjOSO+gvS3fznoZApRdd64r
+ t7UIxO/wQzBCUJ4MnzY6efxI8ZVl/yRSN2R8a/AFIPFg==
+X-Forward-Email-ID: 67d1939ea3842b4a6f18c3e1
+X-Forward-Email-Sender: rfc822; jonas@kwiboo.se, smtp.forwardemail.net,
+ 121.127.44.73
+X-Forward-Email-Version: 0.4.40
+X-Forward-Email-Website: https://forwardemail.net
+X-Complaints-To: abuse@forwardemail.net
+X-Report-Abuse: abuse@forwardemail.net
+X-Report-Abuse-To: abuse@forwardemail.net
+Message-ID: <a5ec9062-ca57-4748-8c0f-fb5b9c75fa28@kwiboo.se>
+Date: Wed, 12 Mar 2025 15:00:57 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: [GIT PULL 2/2] arm64: defconfig: Updates for v6.15 for TI K3
- platforms
-From: Vignesh Raghavendra <vigneshr@ti.com>
-To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
-        arm-soc
-	<arm@kernel.org>, SoC <soc@kernel.org>
-CC: Tero Kristo <kristo@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, Nishanth Menon <nm@ti.com>
-References: <5d612c0e-4cd4-469a-9856-dd4552d74412@ti.com>
+Subject: Re: (subset) [PATCH 0/2] arm64: dts: rockchip: Add pwm nodes for
+ RK3528
+To: Heiko Stuebner <heiko@sntech.de>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <ukleinek@kernel.org>,
+ Yao Zi <ziyao@disroot.org>, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-pwm@vger.kernel.org
+References: <20250307120004.959980-1-amadeus@jmu.edu.cn>
+ <174176555637.249409.2785731072183565436.b4-ty@sntech.de>
 Content-Language: en-US
-In-Reply-To: <5d612c0e-4cd4-469a-9856-dd4552d74412@ti.com>
-Content-Type: text/plain; charset="UTF-8"
+From: Jonas Karlman <jonas@kwiboo.se>
+In-Reply-To: <174176555637.249409.2785731072183565436.b4-ty@sntech.de>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_064630_338206_61C8E828 
-X-CRM114-Status: UNSURE (   7.34  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_070110_551155_25636AA3 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +82,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The following changes since commit c7691aec5e991cec9c5c5fdab08c24856a1fc56f:
+Hi Heiko,
 
-  arm64: defconfig: Enable TISCI Interrupt Router and Aggregator (2025-02-06 09:10:24 +0530)
+On 2025-03-12 08:45, Heiko Stuebner wrote:
+> 
+> On Fri, 07 Mar 2025 20:00:02 +0800, Chukun Pan wrote:
+>> Add pwm nodes for RK3528. Most rk3528 boards use pwm-regulator to
+>> supply to CPU, add node to enable them. The PWM core on RK3528 is
+>> the same as RK3328, but the driver doesn't support interrupts yet.
+>>
+>> Unlike other SoCs, pinctrl-names need to be in "active" state,
+>> I'm not sure about this, but otherwise the pwm-regulator will
+>> not work properly.
+>>
+>> [...]
+> 
+> Applied, thanks!
 
-are available in the Git repository at:
+The pinctrl-names should be changed to "default" and not "active",
+something you can fixup or do you want a patch?
 
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-config-for-v6.15
+In commit 96d8d3253246 ("arm64: dts: rockchip: Fix PWM pinctrl names")
+similar issue was corrected for current rockchip boards.
 
-for you to fetch changes up to 75a41c26351a77cd5dd01e14d059eaf11358689c:
+Regards,
+Jonas
 
-  arm64: defconfig: Enable SPI NAND flashes (2025-03-07 16:33:25 +0530)
+> 
+> [2/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+>       commit: 2973d077aedfc114affab96c3b2c7286163cc8c9
+> 
+> Best regards,
 
-----------------------------------------------------------------
-TI K3 defconfig updates for v6.15
-
-- Enable Support for SPI NAND flashes on AM62Ax/J721s2 and other boards
-- HSR protocol support for AM65/AM64 ICSSG based multi-port ethernet
-- Greybus modules to support CC1352P7 chips on BeaglePlay
-
-----------------------------------------------------------------
-Ayush Singh (1):
-      arm64: defconfig: Enable gb_beagleplay
-
-Ravi Gunasekaran (1):
-      arm64: defconfig: Enable HSR protocol driver
-
-Santhosh Kumar K (1):
-      arm64: defconfig: Enable SPI NAND flashes
-
- arch/arm64/configs/defconfig | 4 ++++
- 1 file changed, 4 insertions(+)
 
