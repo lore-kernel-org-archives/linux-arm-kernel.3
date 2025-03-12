@@ -4,67 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EA47C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:04:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B2A1C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:05:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qR4Hm7WDZNeUufbu+QjLgwRPhKliBqhVccVeF6ofnsQ=; b=3ArLnrVGVAY1OfyfVaOnSEdcIo
-	bjiU3muve2yIy5yqzppNTAYS83UnXHb2Cf86xEcSGpNr4frDGIgEN5f3JY3lxMy2fiwb/8pKaBIrO
-	i1dkP4PkvNtrl4VnZkgd+j5qx46y/hoGeTu4vjR8n792HmeXgPEk1HtRnqZzI64YIXR2y3CquU9K1
-	OY5yKN83ws37iCxX2kvoqurwUgpmvOHf/s/mnCN9GU75THQBKDmNs9tUmGbgDJ/WYYEvvEonngNg2
-	lzSzINgqmmOJqqgrboiT3v8KmeEBZpZxKSoROSefGO4Bqg36fUVPF+XMGiOxRpbEH3NgG/2ZfKzhI
-	sjE7Barw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=66r/Df/WRe1wVFnyIOw0GOt/Z4fFGvLuV3Qb0yAd/5Y=; b=TgcP+F3nX6/g0ecbeI/l2S4zli
+	RcAmd3xXsHSXVJALaYxtBzcjHQkETGp1S2crj2sHv7CfJ/GLRNIkgCcTGyjspPlxM9XFp97t6NF54
+	IrOKinC6UkgKB+ACbU3JZawvSuEtB/HcKWN4FvkNanb813gV6m9AUSZGs4eBMCh/RxJC9xg96IhO9
+	fgiz/iYOxptjhOHfxmOF9YVQBNLyY1I2UlGNbyeBTn1tDfHW3AhUbBN+YM0o+AYN57ahZrlw+CWQt
+	JKQM6bDpiW/IU0idvgXn8ii6sxTT8riG/CgOdfj2FGWHILk7/tkXCSWnJGBt6tbX4gN+0FLffgsTb
+	8j2jExGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJtE-00000008Ch1-00lo;
-	Wed, 12 Mar 2025 11:04:44 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1tsJuD-00000008CrM-27AC;
+	Wed, 12 Mar 2025 11:05:45 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJZD-000000088ii-3hAx
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 12 Mar 2025 10:44:03 +0000
+	id 1tsIUy-00000007zbZ-0ZDD;
+	Wed, 12 Mar 2025 09:35:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=In-Reply-To:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qR4Hm7WDZNeUufbu+QjLgwRPhKliBqhVccVeF6ofnsQ=; b=scQeckOrG+UkeHEF+ATM6U0yUY
-	WsuAVF3H1/pUTbvc/551syNu4FQS6LX9cV0YQYuydwQP/gCC4Asx4n+fRhfAJCIV/RGfGij3hLW78
-	fAzdZAaEDL7VKrpYjpJ+egVx65rkYNJNmXcgAe30eiPlzIxWSGI6H/wET1TxWi5PVnpIzjwLgjm+i
-	tYc+enZvjvTS4COA1CcMkENs3jvaIVqFGPiijEcE0GHaEhDOlLffrHla4cuMsvsoGlu1SuwaT4loK
-	PqHGj/zYqsJVVgEL+QLKLIQZuz0dJsSn8ayQ6CIdhjLcZfdv/YisKw3HgW4HeKY4wpvtTpr+ZSY1Y
-	I/dHv+lg==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by casper.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJZB-0000000Cj9G-2buh;
-	Wed, 12 Mar 2025 10:44:01 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 38866300599; Wed, 12 Mar 2025 11:44:01 +0100 (CET)
-Date: Wed, 12 Mar 2025 11:44:01 +0100
-From: Peter Zijlstra <peterz@infradead.org>
-To: mark.barnett@arm.com
-Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
-	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
-	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
-	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
-	jolsa@kernel.org, adrian.hunter@intel.com,
-	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v3 3/5] perf: Allow adding fixed random jitter to the
- alternate sampling period
-Message-ID: <20250312104401.GC9968@noisy.programming.kicks-ass.net>
-References: <20250307202247.648633-1-mark.barnett@arm.com>
- <20250307202247.648633-4-mark.barnett@arm.com>
- <20250311113128.GD19424@noisy.programming.kicks-ass.net>
- <20250311113530.GA9968@noisy.programming.kicks-ass.net>
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=66r/Df/WRe1wVFnyIOw0GOt/Z4fFGvLuV3Qb0yAd/5Y=; b=tG6i5Av6LflwHt6a2VdGms32kA
+	Tq7GZ5d//QSr++0OPfvaJS5d14Y9OmDTYUUoluxyruiNXCudNteoiJ57l/BdT71/uufNJrzZREk1T
+	ISrh1iSSfukOCYhBmA1EnAAcrtobqpYApUEDEGRptmLvtmeCoWKfn5NHa9XSdInSM6z6f/o7dJVvA
+	GXT2TgOPhEduvQaqyXUl4mU3gykx7v2cYcGbKBhoYBzcUegwaqfTmOuys2sZ+Vmfft5Hado7ic9Jk
+	z9sivj9nhlis33jmHlZK+18xqriYfm+De+m5fjnGv1/ux6pdhPt7tlXGnT1d9xWWXOX35au87pAjW
+	EIHpU59A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42840 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1tsIUb-0005IH-02;
+	Wed, 12 Mar 2025 09:35:13 +0000
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1tsIUF-005vGd-C5; Wed, 12 Mar 2025 09:34:51 +0000
+In-Reply-To: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
+References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Conor Dooley <conor@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	devicetree@vger.kernel.org,
+	Emil Renner Berthing <kernel@esmil.dk>,
+	Eric Dumazet <edumazet@google.com>,
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jose Abreu <joabreu@synopsys.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Minda Chen <minda.chen@starfivetech.com>,
+	netdev@vger.kernel.org,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Rob Herring <robh@kernel.org>
+Subject: [PATCH net-next v2 6/7] dt-bindings: deprecate
+ "snps,en-tx-lpi-clockgating" property
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250311113530.GA9968@noisy.programming.kicks-ass.net>
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1tsIUF-005vGd-C5@rmk-PC.armlinux.org.uk>
+Date: Wed, 12 Mar 2025 09:34:51 +0000
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250312_023536_172305_5874CCCA 
+X-CRM114-Status: UNSURE (   8.85  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,33 +103,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 12:35:30PM +0100, Peter Zijlstra wrote:
-> On Tue, Mar 11, 2025 at 12:31:29PM +0100, Peter Zijlstra wrote:
-> > diff --git a/kernel/events/core.c b/kernel/events/core.c
-> > index b87a5ac42ce2..e5a93edf3b5f 100644
-> > --- a/kernel/events/core.c
-> > +++ b/kernel/events/core.c
-> > @@ -8,6 +8,7 @@
-> >   *  Copyright  ©  2009 Paul Mackerras, IBM Corp. <paulus@au1.ibm.com>
-> >   */
-> >  
-> > +#include "linux/random.h"
-> >  #include <linux/fs.h>
-> >  #include <linux/mm.h>
-> >  #include <linux/cpu.h>
-> 
-> Argh, this is neovim trying to be 'helpful'. If anybody reading this
-> knows how to make it stop adding headers, please let me know, its
-> driving me nuts.
+Whether the MII transmit clock can be stopped is primarily a property
+of the PHY (there is a capability bit that should be checked first.)
+Whether the MAC is capable of stopping the transmit clock is a separate
+issue, but this is already handled by the core DesignWare MAC code.
 
-Adding this cmd thing to the lspconfig like so:
+Therefore, snps,en-tx-lpi-clockgating is technically incorrect, so this
+commit deprecates the property in the binding.
 
-require 'lspconfig'.clangd.setup() {
-	cmd = {
-		"clangd",
-		"--header-insertion=never",
-	},
-}
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ Documentation/devicetree/bindings/net/snps,dwmac.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-seems to do the trick.
+diff --git a/Documentation/devicetree/bindings/net/snps,dwmac.yaml b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+index 3f0aa46d798e..78b3030dc56d 100644
+--- a/Documentation/devicetree/bindings/net/snps,dwmac.yaml
++++ b/Documentation/devicetree/bindings/net/snps,dwmac.yaml
+@@ -494,6 +494,7 @@ title: Synopsys DesignWare MAC
+ 
+   snps,en-tx-lpi-clockgating:
+     $ref: /schemas/types.yaml#/definitions/flag
++    deprecated: true
+     description:
+       Enable gating of the MAC TX clock during TX low-power mode
+ 
+-- 
+2.30.2
+
 
