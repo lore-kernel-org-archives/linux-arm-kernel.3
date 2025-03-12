@@ -4,65 +4,114 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF543C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:30:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46234C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:31:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=/9uocZIZisIjThKD+9nTSHQVi9teok8ybwPCt46AxsY=; b=1muE8IwTF2sUtAZrjqG9uoW4Ff
-	f1MvKuxfqrfRlrmN+pgrPVHY6TXaKNvB0TJPDb0iebzQMBG/s1IWEaA15RV2MUofu7DiDHd77WdXx
-	3J6j7fvUTKl33B2WO/lFAVqZWF8jlVPq+lD6S7tsGn8FWLVB5d4vduw3s0BVrSdHu9DDIG01g0Nc2
-	yo9sd8YZUky5UJ907ebktVQoRm2INUn2CB1H7vriVOrBdp+dCRkQ389q4LlP6BY17fBI4J7ggjkkW
-	wAdjTw3Cnl5AP8S4fj6sNeWcbqWqyAeGEZ8YD7H3FDn6fZ3GUU+iTtgbL4e46Iz51klywWXbswwEY
-	ty86jx1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Y47pWkgiW4vdrLoWTONlIC94VXuaHtO4AGXkfs1whwE=; b=sLfB8Md4dnj9mwgkvbUcMyOLv7
+	gVNjTN1u6DZSZBx24bo8q73xbwCQ3YWl7rZ6ERAYQ91gHS3QwlkEoQnz7ZUiSIl+W8UyXA1fJHWzf
+	Is6/aN+RMUxfOQyECoxussqO77ZtEozvE+ADAsAxWRrIv67dSyZ4uT5UUryMPgw2utkFZGWHvnCdc
+	2xDR1maVy8uzBUWVuRl69+Cy/ZQePNKfpOgjvwoZq5CrYNHd7VmUarTdaHjCiD0tsSy23t/7Qdpzw
+	R61gQGGNPwEtg8z4sZzi6UqdwWf4YcgqjrHqmIzG5pq2NvlIQhcOOyhNkPwh+KsIpfP1H1u54k9Ih
+	UwFRsCJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLDm-00000008PCY-1e85;
-	Wed, 12 Mar 2025 12:30:02 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsLFP-00000008PTm-1aFn;
+	Wed, 12 Mar 2025 12:31:43 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKJf-00000008Gza-0WQv;
-	Wed, 12 Mar 2025 11:32:04 +0000
+	id 1tsKMO-00000008HIs-3e0J
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 11:34:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 47641A470A0;
-	Wed, 12 Mar 2025 11:26:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89F34C4CEE3;
-	Wed, 12 Mar 2025 11:32:01 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 578DC5C5808;
+	Wed, 12 Mar 2025 11:32:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CEC6FC4CEEC;
+	Wed, 12 Mar 2025 11:34:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741779121;
-	bh=D3v3yytTbbs+yU51Jxf4nyG7ShAl3dX1uUoabj+U+LA=;
-	h=From:Date:Subject:To:Cc:From;
-	b=pWUzYEGUh06oatgmiAHIbECuuVV8fofSwQuEE5jcXGXrJpLJHSEBJpaHIVDxy388N
-	 jKLyXp6Lw0GEa8Bt1mHslL8URNFZaKgRN3jOJHhICti1E5fJIwbudHwz0ObRG1168R
-	 MhAd1CjRBHysqKuIH1WTuy6qW6tbhjZp8yBV6luJo6pFN5wdhBdW+Pvllgt5hUoGXc
-	 givGYgwjMXNaoSAr5Jel3BNiRiHE6TKeJaQTyB+bSrt8OvEcE4ZiwFMAWIpqpMYvw8
-	 PCNihgu0K4ZLuX8H/NAPjHc0cF2RPOtH9Vp4gCzFtQsCHfgL6gkAJMY2EfGPJERQhW
-	 9Um8UFrXMlEFw==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 12 Mar 2025 12:31:46 +0100
-Subject: [PATCH net-next] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
+	s=k20201202; t=1741779291;
+	bh=XKZ84eMAWu1q6TS26A2iznKDdiE3rEMzgusYYtMYnIc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UY2pjaftQciujxcwek5uk5gM7/L4/SIwS8rWsrcV/qvGlLuhwvaQWfQcBcdqgc89B
+	 8hvg1wOpbc5xkncQzM2Lnc7tnBcSWyKuR1T3Wx6jf/HTBntrAJGJLNnsA0r7qFhJrF
+	 vSCdNn9Q2WpCTufhXY9L3x4PQGS0msMjvDG9X8vDE/ppv68MMz6tPYqbJ+HK1wOXUn
+	 egSEiciDBAT7/Hd8VKrSZyhSiLZksJSOdw3h3OxNEYmIlsEErFLonDUNsX0mcMluAW
+	 rzLkAmdzYK0YNWrvH0XETITsSndcxyF02t7imMxLun+8BbNY7hsD6Apb/UeXtJSmb0
+	 nyBcJbHcchTPQ==
+Message-ID: <5ecb69c9-c877-4c91-a1ae-0ef59d0ee3d6@kernel.org>
+Date: Wed, 12 Mar 2025 12:34:44 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: defconfig: Enable Qualcomm interconnects as
+ built-in
+To: Christopher Obbard <christopher.obbard@linaro.org>
+Cc: Dmitry Baryshkov <lumag@kernel.org>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org
+References: <20250311-wip-obbardc-qcom-defconfig-interconnects-builtin-v1-1-675b6bc57176@linaro.org>
+ <CACr-zFC=mPNeeHMp9XnSby+cMQaPWt_3s8iUiCN+EnVPeGad8Q@mail.gmail.com>
+ <uljqxwfgl26txrfqvkvzzpj6qurgmwcbuot7gu2u6rwjaqgncb@jeuyi4mexjff>
+ <CACr-zFDSFizYmrVN-dV334n1kq17UB9k4FxrV20NNQCQMhzrwg@mail.gmail.com>
+ <92dd35a2-d1cc-4f2b-b3a8-5752ec33b0d3@kernel.org>
+ <CACr-zFCYWEFPO8yExp_8hOQdVtC9Zwu1ZOZNksSeyyS6Ht0e9A@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 fv0=
+In-Reply-To: <CACr-zFCYWEFPO8yExp_8hOQdVtC9Zwu1ZOZNksSeyyS6Ht0e9A@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAKFw0WcC/x3MQQqDMBBA0avIrDuQpCYLryIupnWiAyGRidWCe
- PeGLt9f/Asqq3CFobtA+ZAqJTfYRwfvlfLCKHMzOOO8eVqHJFpWwpjKudMrMeZPSrjtilG+SH3
- wYbbO94GgPTbllv//cbrvH5foQ61vAAAA
-X-Change-ID: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_043203_306172_DC4557AE 
-X-CRM114-Status: GOOD (  16.00  )
+X-CRM114-CacheID: sfid-20250312_043453_035018_386A06B4 
+X-CRM114-Status: GOOD (  19.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,152 +126,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The system occasionally crashes dereferencing a NULL pointer when it is
-forwarding constant, high load bidirectional traffic.
+On 12/03/2025 12:10, Christopher Obbard wrote:
+> Hi Krzysztof,
+> 
+> On Wed, 12 Mar 2025 at 09:56, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+>>
+>> On 11/03/2025 20:15, Christopher Obbard wrote:
+>>> Hi Dmitry,
+>>>
+>>> On Tue, 11 Mar 2025 at 19:58, Dmitry Baryshkov <lumag@kernel.org> wrote:
+>>>>
+>>>> On Tue, Mar 11, 2025 at 07:10:06PM +0100, Christopher Obbard wrote:
+>>>>> I sent this patch to start the discussion, some things I found:
+>>>>>
+>>>>> 1) Some interconnects are missing from arm defconfig. Should they be =y too ?
+>>>>
+>>>> No, unless those are required for the UART console.
+>>>
+>>> OK, that makes sense. FWIW the cryptic (to me, at least) commit log on
+>>> https://web.git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/commit/?id=6eee808134ecf1c1093ff1ddfc056dc5e469d0c3
+>>> made me think that the interconnects should be built-in on all devices.
+>>>
+>>> Of course, the real problem here is RB3gen2 not actually finding the
+>>> UFS/eMMC device due to no interconnect driver.
+>>> Until now, I have been building that into the kernel. I will
+>>> investigate instead shoving into the initrd (in both debian and
+>>> fedora) which should solve my issue and render this patchset useless.
+>>
+>> For Qualcomm platforms you are expected to always have initramfs, thus
+>> you will have the modules for UFS/eMMC mounts. I don't understand the
+>> problem which you were trying to solve.
+>>
+>> The interconnects were built in *only* because of need for serial
+>> console. Only.
+> 
+> Thanks for confirming. It is all clear now.
+> 
+> Consider this patch dropped from my side.
+> 
+> For reference, I am working on updating initramfs generation tools in
+> Debian/Fedora to include the required interconnect modules. Currently
+> the interconnect drivers are built as modules in these distros, but
+> are not included in the initrd. That is where my confusion initially
+> stemmed from.
 
-[ 2149.913414] Unable to handle kernel read from unreadable memory at virtual address 0000000000000000
-[ 2149.925812] Mem abort info:
-[ 2149.928713]   ESR = 0x0000000096000005
-[ 2149.932762]   EC = 0x25: DABT (current EL), IL = 32 bits
-[ 2149.938429]   SET = 0, FnV = 0
-[ 2149.941814]   EA = 0, S1PTW = 0
-[ 2149.945187]   FSC = 0x05: level 1 translation fault
-[ 2149.950348] Data abort info:
-[ 2149.953472]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
-[ 2149.959243]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
-[ 2149.964593]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
-[ 2149.970243] user pgtable: 4k pages, 39-bit VAs, pgdp=000000008b507000
-[ 2149.977068] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
-[ 2149.986062] Internal error: Oops: 0000000096000005 [#1] SMP
-[ 2150.082282]  arht_wrapper(O) i2c_core arht_hook(O) crc32_generic
-[ 2150.177623] CPU: 0 PID: 38 Comm: kworker/u9:1 Tainted: G           O       6.6.73 #0
-[ 2150.185362] Hardware name: Airoha AN7581 Evaluation Board (DT)
-[ 2150.191189] Workqueue: nf_ft_offload_add nf_flow_rule_route_ipv6 [nf_flow_table]
-[ 2150.198653] pstate: 00400005 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-[ 2150.205615] pc : airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-[ 2150.211882] lr : airoha_ppe_flow_offload_replace.isra.0+0x6cc/0xc54
-[ 2150.218149] sp : ffffffc080e8ba10
-[ 2150.221456] x29: ffffffc080e8bae0 x28: ffffff80080b0000 x27: 0000000000000000
-[ 2150.228591] x26: ffffff8001c70020 x25: 0000000000000002 x24: 0000000000000000
-[ 2150.235727] x23: 0000000061000000 x22: 00000000ffffffed x21: ffffffc080e8bbb0
-[ 2150.242862] x20: ffffff8001c70000 x19: 0000000000000008 x18: 0000000000000000
-[ 2150.249998] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-[ 2150.257133] x14: 0000000000000001 x13: 0000000000000008 x12: 0101010101010101
-[ 2150.264268] x11: 7f7f7f7f7f7f7f7f x10: 0000000000000041 x9 : 0000000000000000
-[ 2150.271404] x8 : ffffffc080e8bad8 x7 : 0000000000000000 x6 : 0000000000000015
-[ 2150.278540] x5 : ffffffc080e8ba4e x4 : 0000000000000004 x3 : 0000000000000000
-[ 2150.285675] x2 : 0000000000000008 x1 : 00000000080b0000 x0 : 0000000000000000
-[ 2150.292811] Call trace:
-[ 2150.295250]  airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
-[ 2150.301171]  airoha_ppe_setup_tc_block_cb+0x7c/0x8b4
-[ 2150.306135]  nf_flow_offload_ip_hook+0x710/0x874 [nf_flow_table]
-[ 2150.312168]  nf_flow_rule_route_ipv6+0x53c/0x580 [nf_flow_table]
-[ 2150.318200]  process_one_work+0x178/0x2f0
-[ 2150.322211]  worker_thread+0x2e4/0x4cc
-[ 2150.325953]  kthread+0xd8/0xdc
-[ 2150.329008]  ret_from_fork+0x10/0x20
-[ 2150.332589] Code: b9007bf7 b4001e9c f9448380 b9491381 (f9400000)
-[ 2150.338681] ---[ end trace 0000000000000000 ]---
-[ 2150.343298] Kernel panic - not syncing: Oops: Fatal exception
-[ 2150.349035] SMP: stopping secondary CPUs
-[ 2150.352954] Kernel Offset: disabled
-[ 2150.356438] CPU features: 0x0,00000000,00000000,1000400b
-[ 2150.361743] Memory Limit: none
-
-Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
-routine.
-
-Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/ethernet/airoha/airoha_eth.c | 16 ++++++++++++++++
- drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
- drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
- 3 files changed, 27 insertions(+), 2 deletions(-)
-
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index c0a642568ac115ea9df6fbaf7133627a4405a36c..776222595b84e4fba6ae5943420e0edf0d0ecf8f 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -2454,6 +2454,22 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
- 	}
- }
- 
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
-+		if (!eth->ports[i])
-+			continue;
-+
-+		if (eth->ports[i] == port)
-+			return 0;
-+	}
-+
-+	return -EINVAL;
-+}
-+
- static int airoha_alloc_gdm_port(struct airoha_eth *eth,
- 				 struct device_node *np, int index)
- {
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
-index f66b9b736b9447b31afc036eb906d0a1c617e132..c7d4f124d11481cd31c1566936cd47e3446877c0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.h
-+++ b/drivers/net/ethernet/airoha/airoha_eth.h
-@@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
- #define airoha_qdma_clear(qdma, offset, val)			\
- 	airoha_rmw((qdma)->regs, (offset), (val), 0)
- 
-+int airoha_is_valid_gdm_port(struct airoha_eth *eth,
-+			     struct airoha_gdm_port *port);
-+
- void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
- int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
- 				 void *cb_priv);
-diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
-index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafec08b80df8190bba6c 100644
---- a/drivers/net/ethernet/airoha/airoha_ppe.c
-+++ b/drivers/net/ethernet/airoha/airoha_ppe.c
-@@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
- #endif
- }
- 
--static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
-+static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
-+					struct airoha_foe_entry *hwe,
- 					struct net_device *dev, int type,
- 					struct airoha_flow_data *data,
- 					int l4proto)
-@@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
- 	if (dev) {
- 		struct airoha_gdm_port *port = netdev_priv(dev);
- 		u8 pse_port;
-+		int err;
-+
-+		err = airoha_is_valid_gdm_port(eth, port);
-+		if (err)
-+			return err;
- 
- 		if (dsa_port >= 0)
- 			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
-@@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
- 	    !is_valid_ether_addr(data.eth.h_dest))
- 		return -EINVAL;
- 
--	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
-+	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
- 					   &data, l4proto);
- 	if (err)
- 		return err;
-
----
-base-commit: 0ea09cbf8350b70ad44d67a1dcb379008a356034
-change-id: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
+Sure. This defconfig is anyway for us - developers, not for the distros
+to use directly. Distros have much bigger configs and use almost
+everything as module.
 
 Best regards,
--- 
-Lorenzo Bianconi <lorenzo@kernel.org>
-
+Krzysztof
 
