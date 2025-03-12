@@ -4,73 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B616DC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:36:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 30243C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:37:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zktz/GYgVWun1Ewzx/sXuROR8SmMOdhaUKAkjae5bAI=; b=n4Z3Iy2pl47WM9PTHvXlAD76dQ
-	lM2B+kPTb/pW0Er0JZDlzBONe9VeIeBWj/xkzch3UUD2CQf6elp2yFKaKAZVGZqG4Vd3niYhhOmUg
-	fkSDQtiRYxVkGgHG7vq4GrpdtAW2LyNVMPSUm5lfRR5XNX+sW7Up8UI9kNQqvAVdf1ElopNFThJAP
-	bjmPfc/ITI42fQDMSEHOv5No9cFfVafV4KRYsTRMsaUOpUbBNiyflk2knx9i4hpBBpHpIZEmdOo0A
-	BctJhjYgEpzBk6MrMQ2KYU81lSh5qEffcTpTUe76eo+1wUuO1R6mQAQG1gCZH5jZupjhi60VH0CCM
-	x/hX9JXA==;
+	bh=sz1HPqmh8+81KG4hgqP239pesHi/fS3CSP8vgzErhkM=; b=CKEFoIN3cv2IEU4N+KNAY+XRai
+	6X8NQEmzqxLX80eW4SQAy1RdpHk5FyAO4arJtlEdvN1JwfDZvs6/ZxaV7yqAhH7qSlJhyUeO7WG95
+	BSvYorHxkjjs/3qf37ypGqdRsEny5hL/c10shxMb2L6ZFdY7G3x9EKGqaRTie957x+a5I/kbvrJtn
+	d/8FzfkICWLnN/04wDLNJAOlH1qtBNBhHZ6XyYodFGNNHA9YJb1sw7Zyt05yEYxmtv7q9245fXsPD
+	BtuML+Yc/CettZBxhDg2BbIxC3UKrUvbwO/yEAKHzo3OpghRP98F4i85B9y9wMQkSgnQ8W3tiyBK8
+	5H7SsCng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMFc-00000008aK4-1Iak;
-	Wed, 12 Mar 2025 13:36:00 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsMHF-00000008aX5-0B1s;
+	Wed, 12 Mar 2025 13:37:41 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLnT-00000008Vei-494u
+	id 1tsLo5-00000008W3s-3lB5
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 13:06:57 +0000
+	Wed, 12 Mar 2025 13:07:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id A969B5C5942;
-	Wed, 12 Mar 2025 13:04:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D19DFC4CEED;
-	Wed, 12 Mar 2025 13:06:52 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 42AF05C54A4;
+	Wed, 12 Mar 2025 13:05:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 810FBC4CEE3;
+	Wed, 12 Mar 2025 13:07:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741784815;
-	bh=O2MbGUz1AiD8KCTQch6ceIF+lKjOkrpw4sDNGkA2Mb0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hM0qdPu3eaLS2K7B4XV8fay0UQdyPaaGyRjP+oWJlTLQfHtiBn14aq5of2bC/9kMt
-	 ospDD7xqIHWdpRwMf3Txu72OGonBFTUtmrfCTypPf968pqTuKNDhidN4TEnbuYMzfm
-	 lKW2z/g118BHuwC5sd/bnLKQR7+9RTNM39s2OEjdybhGeEhhImXOrBea9kS0nnQqJa
-	 0fA/cwgrXi+dz0IN0qeJ8BaUFiqKv0jMYlAuJsKBbLLxK4AA+8aNa3W7qz67Lo0b/w
-	 y6afGtTuYC+PgSN0BlV4ctcv5Jr5yQ553mjrKVr05NyYPKfMlIyLCo0oA9qxrul0g/
-	 Zmo/iISH73Hvw==
-Date: Wed, 12 Mar 2025 13:06:49 +0000
-From: Will Deacon <will@kernel.org>
-To: Rob Clark <robdclark@gmail.com>
-Cc: Connor Abbott <cwabbott0@gmail.com>,
-	Robin Murphy <robin.murphy@arm.com>, Joerg Roedel <joro@8bytes.org>,
-	Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
-	Abhinav Kumar <quic_abhinavk@quicinc.com>,
-	Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	iommu@lists.linux.dev, linux-arm-msm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	freedreno@lists.freedesktop.org
-Subject: Re: [PATCH v4 2/5] iommu/arm-smmu-qcom: Don't read fault registers
- directly
-Message-ID: <20250312130648.GD6181@willie-the-truck>
-References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
- <20250304-msm-gpu-fault-fixes-next-v4-2-be14be37f4c3@gmail.com>
- <20250311180807.GC5216@willie-the-truck>
- <CACu1E7Hw6vGbTQ7t-Hj3ziycZhPxtOGSDkt7o4fNUx91KDcXfg@mail.gmail.com>
- <CAF6AEGs8PoZBpFesQ_DGcngn4X24wzFy=zn2mAUJepdibxoKog@mail.gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+	s=k20201202; t=1741784852;
+	bh=1tA8n+gCE4ZGz3zNvVDzdRcEiNUsbs1QO5YiN+sGogw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=k95Vvr6QOxfgFzIqhMYfg0FIHaUKokv62IlHN/BLGcLnBJ/U/0Jg6s+Y8M0GyTwk8
+	 DOsNTYi5GZNOPM6brcVe+TSWSLJlZaKwTc9FgRdNOhSoeaD0TBzIYDZzRqQesvA4OB
+	 oKfM2j9nNHiRCmMUkVUYkJPuW2+CXadoIsMeziIaA5/i3+deoVGEOSNgHfy5nyL19H
+	 RR7kUZ6f3CVOS/7HSFmryK3k+V7dV+d7Zh7XNQHrobSq4frE1qyRnaRdcfkFp1ZCaX
+	 4wqbeDeAAvucc/AKbT041IfXsl3oxNnHAO4yrkQq7LVIKsSYssVyJyQO0v+t7+9vjR
+	 7+5UxK4KJDqgQ==
+Date: Wed, 12 Mar 2025 08:07:31 -0500
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAF6AEGs8PoZBpFesQ_DGcngn4X24wzFy=zn2mAUJepdibxoKog@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: krzk+dt@kernel.org, pmenzel@molgen.mpg.de, 
+ linux-aspeed@lists.ozlabs.org, maryang@nvidia.com, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org, 
+ tony.luck@intel.com, Krzysztof Kozlowski <krzk@kernel.org>, 
+ leohu@nvidia.com, kees@kernel.org, gpiccoli@igalia.com, 
+ linux-arm-kernel@lists.infradead.org, tingkaic@nvidia.com, 
+ linux-hardening@vger.kernel.org, Andrew Lunn <andrew@lunn.ch>, 
+ joel@jms.id.au, andrew@codeconstruct.com.au, dkodihalli@nvidia.com, 
+ conor+dt@kernel.org, openbmc@lists.ozlabs.org
+To: Willie Thai <wthai@nvidia.com>
+In-Reply-To: <20250312045802.4115029-1-wthai@nvidia.com>
+References: <20250312045802.4115029-1-wthai@nvidia.com>
+Message-Id: <174178473498.434308.6316925758588470688.robh@kernel.org>
+Subject: Re: [PATCH v2] ARM: dts: aspeed: Add device tree for Nvidia's
+ GB200NVL BMC
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_060656_115205_9B19FA6A 
-X-CRM114-Status: GOOD (  31.45  )
+X-CRM114-CacheID: sfid-20250312_060734_085126_03F8316F 
+X-CRM114-Status: GOOD (  15.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,83 +79,184 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 01:00:34PM -0700, Rob Clark wrote:
-> On Tue, Mar 11, 2025 at 12:42 PM Connor Abbott <cwabbott0@gmail.com> wrote:
-> >
-> > On Tue, Mar 11, 2025 at 2:08 PM Will Deacon <will@kernel.org> wrote:
-> > >
-> > > On Tue, Mar 04, 2025 at 11:56:48AM -0500, Connor Abbott wrote:
-> > > > In some cases drm/msm has to resume a stalled transaction directly in
-> > > > its fault handler. Experimentally this doesn't work on SMMU500 if the
-> > > > fault hasn't already been acknowledged by clearing FSR. Rather than
-> > > > trying to clear FSR in msm's fault handler and implementing a
-> > > > tricky handshake to avoid accidentally clearing FSR twice, we want to
-> > > > clear FSR before calling the fault handlers, but this means that the
-> > > > contents of registers can change underneath us in the fault handler and
-> > > > msm currently uses a private function to read the register contents for
-> > > > its own purposes in its fault handler, such as using the
-> > > > implementation-defined FSYNR1 to determine which block caused the fault.
-> > > > Fix this by making msm use the register values already read by arm-smmu
-> > > > itself before clearing FSR rather than messing around with reading
-> > > > registers directly.
-> > > >
-> > > > Signed-off-by: Connor Abbott <cwabbott0@gmail.com>
-> > > > ---
-> > > >  drivers/iommu/arm/arm-smmu/arm-smmu-qcom.c | 19 +++++++++----------
-> > > >  drivers/iommu/arm/arm-smmu/arm-smmu.c      | 14 +++++++-------
-> > > >  drivers/iommu/arm/arm-smmu/arm-smmu.h      | 21 +++++++++++----------
-> > > >  3 files changed, 27 insertions(+), 27 deletions(-)
-> > >
-> > > [...]
-> > >
-> > > > diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.h b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > > > index d3bc77dcd4d40f25bc70f3289616fb866649b022..411d807e0a7033833716635efb3968a0bd3ff237 100644
-> > > > --- a/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > > > +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.h
-> > > > @@ -373,6 +373,16 @@ enum arm_smmu_domain_stage {
-> > > >       ARM_SMMU_DOMAIN_NESTED,
-> > > >  };
-> > > >
-> > > > +struct arm_smmu_context_fault_info {
-> > > > +     unsigned long iova;
-> > > > +     u64 ttbr0;
-> > > > +     u32 fsr;
-> > > > +     u32 fsynr0;
-> > > > +     u32 fsynr1;
-> > > > +     u32 cbfrsynra;
-> > > > +     u32 contextidr;
-> > > > +};
-> > > > +
-> > > >  struct arm_smmu_domain {
-> > > >       struct arm_smmu_device          *smmu;
-> > > >       struct io_pgtable_ops           *pgtbl_ops;
-> > > > @@ -380,6 +390,7 @@ struct arm_smmu_domain {
-> > > >       const struct iommu_flush_ops    *flush_ops;
-> > > >       struct arm_smmu_cfg             cfg;
-> > > >       enum arm_smmu_domain_stage      stage;
-> > > > +     struct arm_smmu_context_fault_info cfi;
-> > >
-> > > Does this mean we have to serialise all faults for a given domain? That
-> > > can't be right...
-> > >
-> >
-> > They are already serialized? There's only one of each register per
-> > context bank, so you can only have one context fault at a time per
-> > context bank, and AFAIK a context bank is 1:1 with a domain. Also this
-> > struct is only written and then read inside the context bank's
-> > interrupt handler, and you can only have one interrupt at a time, no?
-> >
-> > Connor
-> 
-> And if it was a race condition with cfi getting overridden, it would
-> have already been an equivalent race condition currently when reading
-> the values from registers (ie. the register values could have changed
-> in the elapsed time)
-> 
-> So no additional serialization needed here.
 
-Oops, yes, sorry. I've been spending too long on SMMUv3 and forgot how
-the context banks worked.
+On Wed, 12 Mar 2025 04:58:02 +0000, Willie Thai wrote:
+> The GB200NVL BMC is an Aspeed Ast2600 based BMC
+> for Nvidia Blackwell GB200NVL platform.
+> Reference to Ast2600 SOC [1].
+> Reference to Blackwell GB200NVL Platform [2].
+> Co-developed-by: Mars Yang <maryang@nvidia.com>
+> Signed-off-by: Mars Yang <maryang@nvidia.com>
+> Cc: Krzysztof Kozlowski <krzk@kernel.org>
+> Cc: Andrew Lunn <andrew@lunn.ch>
+> Cc: Paul Menzel <pmenzel@molgen.mpg.de>
+> Link: Reference to Ast2600 SOC: https://www.aspeedtech.com/server_ast2600/ [1]
+> Link: Reference to Blackwell GB200NVL Platform: https://nvdam.widen.net/s/wwnsxrhm2w/blackwell-datasheet-3384703 [2]
+> Signed-off-by: Willie Thai <wthai@nvidia.com>
+> ---
+> Changes in v2:
+>   - Fix the SOB name [Krzysztof]
+>   - Fix warnings from scripts/checkpatch.pl run [Krzysztof]
+>   - Fix DTS coding style [Krzysztof]
+>   - Move pinctrl override to the bottom [Krzysztof]
+>   - Drop bootargs [Krzysztof]
+>   - Follow DTS coding style and change naming for leds node [Krzysztof]
+>   - Change flash 0 status property [Krzysztof]
+>   - Change the phy-mode to rgmii [Andrew]
+>   - Remove the max-speed in mac0 [Andrew]
+> ---
+> ---
+>  arch/arm/boot/dts/aspeed/Makefile             |    1 +
+>  .../aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts | 1229 +++++++++++++++++
+>  2 files changed, 1230 insertions(+)
+>  create mode 100644 arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dts
+> 
 
-Will
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+New warnings running 'make CHECK_DTBS=y for arch/arm/boot/dts/aspeed/' for 20250312045802.4115029-1-wthai@nvidia.com:
+
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /: compatible: 'oneOf' conditional failed, one must be fixed:
+	'nvidia,gb200nvl-bmc' is not one of ['delta,ahe50dc-bmc', 'facebook,galaxy100-bmc', 'facebook,wedge100-bmc', 'facebook,wedge40-bmc', 'microsoft,olympus-bmc', 'quanta,q71l-bmc', 'tyan,palmetto-bmc', 'yadro,vesnin-bmc']
+	'nvidia,gb200nvl-bmc' is not one of ['amd,daytonax-bmc', 'amd,ethanolx-bmc', 'ampere,mtjade-bmc', 'aspeed,ast2500-evb', 'asrock,e3c246d4i-bmc', 'asrock,e3c256d4i-bmc', 'asrock,romed8hm3-bmc', 'asrock,spc621d8hm3-bmc', 'asrock,x570d4u-bmc', 'bytedance,g220a-bmc', 'facebook,cmm-bmc', 'facebook,minipack-bmc', 'facebook,tiogapass-bmc', 'facebook,yamp-bmc', 'facebook,yosemitev2-bmc', 'facebook,wedge400-bmc', 'hxt,stardragon4800-rep2-bmc', 'ibm,mihawk-bmc', 'ibm,mowgli-bmc', 'ibm,romulus-bmc', 'ibm,swift-bmc', 'ibm,witherspoon-bmc', 'ingrasys,zaius-bmc', 'inspur,fp5280g2-bmc', 'inspur,nf5280m6-bmc', 'inspur,on5263m5-bmc', 'intel,s2600wf-bmc', 'inventec,lanyang-bmc', 'lenovo,hr630-bmc', 'lenovo,hr855xg2-bmc', 'portwell,neptune-bmc', 'qcom,centriq2400-rep-bmc', 'supermicro,x11spi-bmc', 'tyan,s7106-bmc', 'tyan,s8036-bmc', 'yadro,nicole-bmc', 'yadro,vegman-n110-bmc', 'yadro,vegman-rx20-bmc', 'yadro,vegman-sx20-bmc']
+	'nvidia,gb200nvl-bmc' is not one of ['ampere,mtjefferson-bmc', 'ampere,mtmitchell-bmc', 'aspeed,ast2600-evb', 'aspeed,ast2600-evb-a1', 'asus,x4tf-bmc', 'facebook,bletchley-bmc', 'facebook,catalina-bmc', 'facebook,cloudripper-bmc', 'facebook,elbert-bmc', 'facebook,fuji-bmc', 'facebook,greatlakes-bmc', 'facebook,harma-bmc', 'facebook,minerva-cmc', 'facebook,yosemite4-bmc', 'ibm,blueridge-bmc', 'ibm,everest-bmc', 'ibm,fuji-bmc', 'ibm,rainier-bmc', 'ibm,sbp1-bmc', 'ibm,system1-bmc', 'ibm,tacoma-bmc', 'inventec,starscream-bmc', 'inventec,transformer-bmc', 'jabil,rbp-bmc', 'qcom,dc-scm-v1-bmc', 'quanta,s6q-bmc', 'ufispace,ncplite-bmc']
+	'aspeed,ast2400' was expected
+	'aspeed,ast2500' was expected
+	from schema $id: http://devicetree.org/schemas/arm/aspeed/aspeed.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /: failed to match any schema with compatible: ['nvidia,gb200nvl-bmc', 'aspeed,ast2600']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: timer: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/timer/arm,arch_timer.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /sdram@1e6e0000: failed to match any schema with compatible: ['aspeed,ast2600-sdram-edac', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: bus@1e600000: compatible: ['aspeed,ast2600-ahbc', 'syscon'] is too long
+	from schema $id: http://devicetree.org/schemas/bus/aspeed,ast2600-ahbc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: syscon@1e6e2000: 'smp-memram@180' does not match any of the regexes: '^interrupt-controller@[0-9a-f]+$', '^p2a-control@[0-9a-f]+$', '^pinctrl(@[0-9a-f]+)?$', '^silicon-id@[0-9a-f]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed,ast2x00-scu.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pinctrl: emmcg5_default:groups:0: 'EMMCG5' is not one of ['ADC0', 'ADC1', 'ADC10', 'ADC11', 'ADC12', 'ADC13', 'ADC14', 'ADC15', 'ADC2', 'ADC3', 'ADC4', 'ADC5', 'ADC6', 'ADC7', 'ADC8', 'ADC9', 'BMCINT', 'EMMCG1', 'EMMCG4', 'EMMCG8', 'ESPI', 'ESPIALT', 'FSI1', 'FSI2', 'FWQSPI', 'FWSPIABR', 'FWSPID', 'FWSPIWP', 'GPIT0', 'GPIT1', 'GPIT2', 'GPIT3', 'GPIT4', 'GPIT5', 'GPIT6', 'GPIT7', 'GPIU0', 'GPIU1', 'GPIU2', 'GPIU3', 'GPIU4', 'GPIU5', 'GPIU6', 'GPIU7', 'HVI3C3', 'HVI3C4', 'I2C1', 'I2C10', 'I2C11', 'I2C12', 'I2C13', 'I2C14', 'I2C15', 'I2C16', 'I2C2', 'I2C3', 'I2C4', 'I2C5', 'I2C6', 'I2C7', 'I2C8', 'I2C9', 'I3C1', 'I3C2', 'I3C3', 'I3C4', 'I3C5', 'I3C6', 'JTAGM', 'LHPD', 'LHSIRQ', 'LPC', 'LPCHC', 'LPCPD', 'LPCPME', 'LPCSMI', 'LSIRQ', 'MACLINK1', 'MACLINK2', 'MACLINK3', 'MACLINK4', 'MDIO1', 'MDIO2', 'MDIO3', 'MDIO4', 'NCSI3', 'NCSI4', 'NCTS1', 'NCTS2', 'NCTS3', 'NCTS4', 'NDCD1', 'NDCD2', 'NDCD3', 'NDCD4', 'NDSR1', 'NDSR2', 'NDSR3'
+ , 'NDSR4', 'NDTR1', 'NDTR2', 'NDTR3', 'NDTR4', 'NRI1', 'NRI2', 'NRI3', 'NRI4', 'NRTS1', 'NRTS2', 'NRTS3', 'NRTS4', 'OSCCLK', 'PEWAKE', 'PWM0', 'PWM1', 'PWM10G0', 'PWM10G1', 'PWM11G0', 'PWM11G1', 'PWM12G0', 'PWM12G1', 'PWM13G0', 'PWM13G1', 'PWM14G0', 'PWM14G1', 'PWM15G0', 'PWM15G1', 'PWM2', 'PWM3', 'PWM4', 'PWM5', 'PWM6', 'PWM7', 'PWM8G0', 'PWM8G1', 'PWM9G0', 'PWM9G1', 'QSPI1', 'QSPI2', 'RGMII1', 'RGMII2', 'RGMII3', 'RGMII4', 'RMII1', 'RMII2', 'RMII3', 'RMII4', 'RXD1', 'RXD2', 'RXD3', 'RXD4', 'SALT1', 'SALT10G0', 'SALT10G1', 'SALT11G0', 'SALT11G1', 'SALT12G0', 'SALT12G1', 'SALT13G0', 'SALT13G1', 'SALT14G0', 'SALT14G1', 'SALT15G0', 'SALT15G1', 'SALT16G0', 'SALT16G1', 'SALT2', 'SALT3', 'SALT4', 'SALT5', 'SALT6', 'SALT7', 'SALT8', 'SALT9G0', 'SALT9G1', 'SD1', 'SD2', 'SD3', 'SGPM1', 'SGPM2', 'SGPS1', 'SGPS2', 'SIOONCTRL', 'SIOPBI', 'SIOPBO', 'SIOPWREQ', 'SIOPWRGD', 'SIOS3', 'SIOS5', 'SIOSCI', 'SPI1', 'SPI1ABR', 'SPI1CS1', 'SPI1WP', 'SPI2', 'SPI2CS1', 'SPI2CS2', 'TACH0', 'TACH1', 'TACH10'
+ , 'TACH11', 'TACH12', 'TACH13', 'TACH14', 'TACH15', 'TACH2', 'TACH3', 'TACH4', 'TACH5', 'TACH6', 'TACH7', 'TACH8', 'TACH9', 'THRU0', 'THRU1', 'THRU2', 'THRU3', 'TXD1', 'TXD2', 'TXD3', 'TXD4', 'UART10', 'UART11', 'UART12G0', 'UART12G1', 'UART13G0', 'UART13G1', 'UART6', 'UART7', 'UART8', 'UART9', 'USBA', 'USBB', 'VB', 'VGAHS', 'VGAVS', 'WDTRST1', 'WDTRST2', 'WDTRST3', 'WDTRST4']
+	from schema $id: http://devicetree.org/schemas/pinctrl/aspeed,ast2600-pinctrl.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/syscon@1e6e2000/smp-memram@180: failed to match any schema with compatible: ['aspeed,ast2600-smpmem']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/syscon@1e6e2000/interrupt-controller@560: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic0']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/syscon@1e6e2000/interrupt-controller@570: failed to match any schema with compatible: ['aspeed,ast2600-scu-ic1']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/display@1e6e6000: failed to match any schema with compatible: ['aspeed,ast2600-gfx', 'syscon']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: adc@1e6e9000: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: adc@1e6e9100: 'interrupts' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/iio/adc/aspeed,ast2600-adc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: crypto@1e6fa000: 'aspeed,ahbc' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/crypto/aspeed,ast2600-acry.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/timer@1e782000: failed to match any schema with compatible: ['aspeed,ast2600-timer']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: lpc@1e789000: lpc-snoop@80: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: lpc@1e789000: reg-io-width: 4 is not of type 'object'
+	from schema $id: http://devicetree.org/schemas/mfd/aspeed-lpc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@24: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@28: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@2c: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: kcs@114: 'clocks' does not match any of the regexes: 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/ipmi/aspeed,ast2400-kcs-bmc.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/lpc@1e789000/lhc@a0: failed to match any schema with compatible: ['aspeed,ast2600-lhc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/lpc@1e789000/ibt@140: failed to match any schema with compatible: ['aspeed,ast2600-ibt-bmc']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: sdc@1e740000: sdhci@1e740100:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: sdc@1e740000: sdhci@1e740200:compatible: ['aspeed,ast2600-sdhci', 'sdhci'] is too long
+	from schema $id: http://devicetree.org/schemas/mmc/aspeed,sdhci.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740100: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/sdc@1e740000/sdhci@1e740200: failed to match any schema with compatible: ['aspeed,ast2600-sdhci', 'sdhci']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c@80: Unevaluated properties are not allowed ('disable-master' was unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/aspeed,i2c.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@21: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@71: $nodename:0: 'i2c-switch@71' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@71: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@74: $nodename:0: 'i2c-switch@74' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@74: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@72: $nodename:0: 'i2c-switch@72' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@72: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@21: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@73: $nodename:0: 'i2c-switch@73' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@73: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@70: $nodename:0: 'i2c-switch@70' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@70: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@75: $nodename:0: 'i2c-switch@75' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@75: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@74: $nodename:0: 'i2c-switch@74' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@74: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@76: $nodename:0: 'i2c-switch@76' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@76: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@21: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: $nodename:0: 'i2c-switch@77' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: max31790@20: '#address-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/hwmon/maxim,max31790.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: max31790@23: '#address-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/hwmon/maxim,max31790.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: max31790@2c: '#address-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/hwmon/maxim,max31790.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: max31790@2f: '#address-cells', '#size-cells' do not match any of the regexes: '^fan-[0-9]+$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/hwmon/maxim,max31790.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@20: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@21: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@27: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: pca9555@74: '#address-cells', '#size-cells' do not match any of the regexes: '^(hog-[0-9]+|.+-hog(-[0-9]+)?)$', 'pinctrl-[0-9]+'
+	from schema $id: http://devicetree.org/schemas/gpio/gpio-pca95xx.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: $nodename:0: 'i2c-switch@77' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: $nodename:0: 'i2c-switch@77' does not match '^(i2c-?)?mux'
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: i2c-switch@77: Unevaluated properties are not allowed ('#address-cells', '#size-cells', 'i2c@0', 'i2c@1', 'i2c@2', 'i2c@3' were unexpected)
+	from schema $id: http://devicetree.org/schemas/i2c/i2c-mux-pca954x.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: fsi@1e79b000: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/fsi@1e79b000: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: fsi@1e79b100: compatible: ['aspeed,ast2600-fsi-master', 'fsi-master'] is too long
+	from schema $id: http://devicetree.org/schemas/fsi/aspeed,ast2600-fsi-master.yaml#
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/fsi@1e79b100: failed to match any schema with compatible: ['aspeed,ast2600-fsi-master', 'fsi-master']
+arch/arm/boot/dts/aspeed/aspeed-bmc-nvidia-gb200nvl-bmc.dtb: /ahb/apb/dma-controller@1e79e000: failed to match any schema with compatible: ['aspeed,ast2600-udma']
+
+
+
+
+
 
