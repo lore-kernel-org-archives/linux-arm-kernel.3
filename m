@@ -4,72 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E3FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:49:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7417C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:51:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=; b=OhNy75TSR0+r4oqEsEEU0ah6Tf
-	ZhGUxklqD1AQIZuaRUtMXOBcXEqi7qWga6jWbMsA95u5Xj45mgsP1fNhUcqwghbYmHUfeo5GO1vq3
-	aRVFIGK+cev+C3fhgQZlF81XD+yBnnJ89u8sQ9ltszJq7mXyfWiu+9v6T6yWAQFKnX/gN1H363tW4
-	ftYHozT5KrP9sldymHmt/UsexKs9VfyREZVx0+QHbh+s9PVNyegJp8OMT1uvmoC70UEEMEGSdFaKW
-	pz1ooPYYquND/NxMrWgU/vOL4Uqp769zBpk+QvPV3v1X0vGIoPk0kKfol2Eav1J1aGHVbUNG8H2Yb
-	3pXjq5GA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4gO+URnsQQ7ytYQbborbvXI40PBwXJiX1pwI38d3wI8=; b=krQ3Kf/8X0RRjXy00IPGbQxwkc
+	lmbNtAEVx4k+v67Z18lp3Hpo2kw6PyL7g5vIKJG77r04t8BtOPzdQnjbCQMtORDVT8KqCybt6/6XT
+	gnYdzTJqjxAa4IYf3litcTr07IbKbjsw4TKBaKlQHtKjeyaGp18NtspqlFuAwN8LkT1THYYyFkO9g
+	qQEyqFaDwkoecoD82ZRRlRaaGeCPv/NfbVugmWl7NSNHVvhwFrVKGYFZi2eKdLXKH4m3pa0PBe5E1
+	jXIZn+cNBuU6bMdHzC7X5NUDjkF/xHa4Rj13iNde1xceONvJnen9YVmV+3Ar4JAvmHXryZ2X6QHfF
+	2TCS3b4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMSe-00000008cJq-0NsH;
-	Wed, 12 Mar 2025 13:49:28 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tsMUG-00000008cVS-3A0U;
+	Wed, 12 Mar 2025 13:51:08 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsM4s-00000008YtD-0uY0;
-	Wed, 12 Mar 2025 13:24:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741785874; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=KQ2P/C6BtkYsueq4akRJPsp2naRHaM7GZ9RL9q/HknxMqsZ/t5EvSXen297LmjxH4CUXZHk7qFgYS0Q2NIGXE2V5uMsCi7o5G3kZuOQ43ORA71hSJJLHp4vgfH3mDCh2oIVbkOSE/JPvQ/P3NThah7EoXKW4HKltNqtwVClsc5E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741785874; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=; 
-	b=BXsSNOEqCeOufLJNWTjNcx3/6+LmMi2c3f59FFUK7kSGQQyDsVqVKD8CU04rMN2uSt2kgvrui/1WgqHpOF/jnVGpMkwy/GE0vCbkRETpaeFgpuQcrgFiV9LvpHRaRcD6QxhcGneqmXcb+G9tY2lP1e80YuEdXjjV5KAsgJ+rvNo=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741785874;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=;
-	b=D/UFUKhGVuHLpq0HvEd/liwgMeVn13FHRlBLaLu7IOARHB62GAz0tEKwquyBZfNx
-	rJ2Vw+kG2SEajG9072z1u05X2ZmvLxXX/A+92OmcHrofUcR9mGZjrAMwUUpYXYKHSHz
-	nb7bowQoGRkqA24ygY9kQEUESaft6X0CN82kJ1A8=
-Received: by mx.zohomail.com with SMTPS id 1741785871899734.2310655484773;
-	Wed, 12 Mar 2025 06:24:31 -0700 (PDT)
-Message-ID: <3aca6477-6014-4c24-8aa6-6c601fc54a32@collabora.com>
-Date: Wed, 12 Mar 2025 10:24:24 -0300
+	id 1tsM5W-00000008Z2Y-1NZb
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 13:25:35 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=4gO+URnsQQ7ytYQbborbvXI40PBwXJiX1pwI38d3wI8=; b=bYtfIQCpfh6upACEiKQBnm2fs5
+	Fqq1bTrOCNhzTh/e00oyD1XeftmKbWLXGXC3O3X/LASJT6TMYK3D8/UUnt8oX7oji+I5AR29MmdhV
+	/1XJhJI/0A+dSe9RWwCdqGweaTjOLU613LbaSpbXiKXebqk1oySBf7EKCvbvalKu9/pI=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tsM5P-004fuS-BF; Wed, 12 Mar 2025 14:25:27 +0100
+Date: Wed, 12 Mar 2025 14:25:27 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: Suraj Gupta <suraj.gupta2@amd.com>
+Cc: radhey.shyam.pandey@amd.com, andrew+netdev@lunn.ch, davem@davemloft.net,
+	edumazet@google.com, kuba@kernel.org, pabeni@redhat.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	michal.simek@amd.com, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, git@amd.com,
+	harini.katakam@amd.com
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Message-ID: <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/6] drm/panfrost: Unify panfrost_mmu_enable/disable
- common code
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
-References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
- <20250310195921.157511-4-ariel.dalessandro@collabora.com>
- <20250311085158.37329b0c@collabora.com>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250311085158.37329b0c@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250312095411.1392379-3-suraj.gupta2@amd.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_062454_347353_2B0159DA 
-X-CRM114-Status: GOOD (  11.24  )
+X-CRM114-CacheID: sfid-20250312_062534_365244_9658B4A3 
+X-CRM114-Status: UNSURE (   9.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,47 +75,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Boris,
+> +	/* AXI 1G/2.5G ethernet IP has following synthesis options:
+> +	 * 1) SGMII/1000base-X only.
+> +	 * 2) 2500base-X only.
+> +	 * 3) Dynamically switching between (1) and (2), and is not
+> +	 * implemented in driver.
+> +	 */
+> +
+> +	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_2_5G)
 
-On 3/11/25 4:51 AM, Boris Brezillon wrote:
-> On Mon, 10 Mar 2025 16:59:18 -0300
-> Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
-> 
->> Both these functions write to MMU_AS_CONTROL register in the same way.
->> Define a common _panfrost_mmu_as_control_write function with the shared
->> code.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   drivers/gpu/drm/panfrost/panfrost_mmu.c | 33 ++++++++++++-------------
->>   1 file changed, 16 insertions(+), 17 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
->> index 294f86b3c25e7..31df3a96f89bd 100644
->> --- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
->> +++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
->> @@ -121,38 +121,37 @@ static int mmu_hw_do_operation(struct panfrost_device *pfdev,
->>   	return ret;
->>   }
->>   
->> -static void panfrost_mmu_enable(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
->> +static void
->> +_panfrost_mmu_as_control_write(struct panfrost_device *pfdev, u32 as_nr,
->> +			       u64 transtab, u64 memattr)
-> 
-> I'm honestly not convinced this is needed. Let's just stick to
-> panfrost_mmu_enable/disable().
+How can we tell if the synthesis allows 3)?
 
-Ok, will drop in v2.
+Don't we have a backwards compatibility issue here? Maybe there are
+systems which have been synthesised with 3), but are currently limited
+to 1) due to the driver. If you don't differentiate between 2 and 3,
+such systems are going to swap to 2) and regress.
 
-Thanks!
-
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
+	Andrew
 
