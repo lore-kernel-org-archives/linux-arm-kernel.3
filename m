@@ -4,141 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EA87C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:14:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80498C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:16:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mjlfXpuVTk699j/mSf1lWyI+T5lVEqAAlzV3tMAFGpM=; b=xHRjbXQTgScdX+B3lYSdQhENSY
-	BXn7oDmnLwoKzw4tevP6FJgWskpRn5p3T4Uo6J4YOm6pewvEXLf1QDjl9MkjXcGtm0EYPs8QNGTkH
-	Ijq/Jeq2/gTZOwLyQJqXuSutNt4i7JcdoJd9u+KD2lVTq+KhFLJQUqaVDVVTkPjXQtAPY8siYEEDa
-	AHs4enkijICLMo6LeYI6oHOcOpRuZcVRwzE65Le1lfZyxOnFqXHpdb+CKvQFG4uonp23lXJZEuY73
-	2iHtYkWfc6WtboIeLjkCM8GT/dpwpz4Vf1qYwey6frwvCy695yZ+RDxushs7dUEstChQD7EYJ3Bez
-	c0z1bbRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sZlYkby+d99WJO4NkP3kGBlnCGizroPklc0vRuBvEQU=; b=s4lwkAY8g3YvQndkYxHhPnhEBR
+	Ou9B5MYu7TAtakx3Bglx/Cqq51cVnE1upgKhCoKw7vw2oPL5+ECeMEvAk45O4ZoApNN2Yi72PB+7H
+	qQTgEK+5SgtiK4ezUeMBYzkglentH/WETttceTT58l9jti3goUzJ8SaJ7LMQE1VgNcUoWgcjLxKiQ
+	YBtG+bGJ3Hrb/+/RimpdV0tm8y8qcI565tG2+w+JWO7AUviWKRCe4mZsbRR08/JSrsQprEsrN+cBL
+	RRpbVF7L3qCC3/zLTbeTGE5cj8U2XAWSYTBpBxG3PkwcRrAYrr/tfSYXusBB2kdhjN/l9xBSRWQC0
+	TcIkbEfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJ6I-000000085Bg-1WGi;
-	Wed, 12 Mar 2025 10:14:10 +0000
-Received: from mail-dm6nam04on20625.outbound.protection.outlook.com ([2a01:111:f403:2409::625] helo=NAM04-DM6-obe.outbound.protection.outlook.com)
+	id 1tsJ7v-000000085Md-0RQZ;
+	Wed, 12 Mar 2025 10:15:51 +0000
+Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJ2U-000000084jR-17ha
+	id 1tsJ45-000000084wk-38Az
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 10:10:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=J35rd2FTXOxtaTMsa7U7d+VzxjFE0JZkljKfq6kXfUJG93IDl4hdakxOjzCGBNDCi1lkW+SjzLSv03fohWyOI951zklIC1FgjhSSORakZdea24QMA9mUL3tDlpLMAvgTCs4KThqDVY7iIHwYAZ0+Yzdh9OjoQcu0YumZ+LlA5KaH2nIEnDimYmKyc3wONJWRsd5p9HQ3XE9UeEdgzN7Ky6MWDa8i1FcBFvuJxx/7toAQh/pJGtiZdNJZVLJyuKRGK0SdOxa3GhuPqRMujezzLzkGTXIhJhIFX7tEJ5oxmrX1y5FcFMUJLvvL8J1tsPa/VK98Rs9kXeRhyx5PVkwtFA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=mjlfXpuVTk699j/mSf1lWyI+T5lVEqAAlzV3tMAFGpM=;
- b=fhNAoR7EOAs7Nn8Pq23YiJMDbL5Mxuonkupnpo3gh/Qm3j8hfqEdepTm/TRmPQ8UsBuBjdQAEdCiGDikDSpPB0uDsLc2dp3YOU0EVl8imuO05ywjqz+KF7hqgzAB0eFfVXxF+LQeNNXgatOB6JwvDmFGbUuBb4cDFhM5q7Qmn5e3PtXyNbpcGgz4pumfQQ/oRVfTRw2aepXwHYISXia5NK1scxeAJmef87IwdmbsvPhEN4AqCzs3hdbTO4E6dNQoRXfPlcfCR2wVampy2VzYiNWzylMOOLj+rzQUHS7s/k5gsYcLKidfwayPyDv+tMJ+ItjdGCKbFpDKsyrUm/S5Ug==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=lunn.ch smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=mjlfXpuVTk699j/mSf1lWyI+T5lVEqAAlzV3tMAFGpM=;
- b=aklJtmhKMnzCYNCgIVzKKrp1A2nQaxbaHJLeoJXI5JAG4fA0qzaxS4CDG0zIs41fhN4r2aS2gH4POYYeTvG0EMtaa1DdBicCkovr1FyuATxPS8stVA5eKtHUjfdhpua9i3RGbjWhBE+a5M38JlC3Noy8siatv3lPg+M0x5YM0NQ=
-Received: from CH0PR03CA0381.namprd03.prod.outlook.com (2603:10b6:610:119::16)
- by SA3PR12MB8440.namprd12.prod.outlook.com (2603:10b6:806:2f8::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
- 2025 09:54:26 +0000
-Received: from CH3PEPF00000016.namprd21.prod.outlook.com
- (2603:10b6:610:119:cafe::85) by CH0PR03CA0381.outlook.office365.com
- (2603:10b6:610:119::16) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.21 via Frontend Transport; Wed,
- 12 Mar 2025 09:54:26 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=SATLEXMB04.amd.com; pr=C
-Received: from SATLEXMB04.amd.com (165.204.84.17) by
- CH3PEPF00000016.mail.protection.outlook.com (10.167.244.121) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.8558.0 via Frontend Transport; Wed, 12 Mar 2025 09:54:26 +0000
-Received: from SATLEXMB05.amd.com (10.181.40.146) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 12 Mar
- 2025 04:54:26 -0500
-Received: from SATLEXMB04.amd.com (10.181.40.145) by SATLEXMB05.amd.com
- (10.181.40.146) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Wed, 12 Mar
- 2025 04:54:24 -0500
-Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server id 15.1.2507.39 via Frontend
- Transport; Wed, 12 Mar 2025 04:54:21 -0500
-From: Suraj Gupta <suraj.gupta2@amd.com>
-To: <radhey.shyam.pandey@amd.com>, <andrew+netdev@lunn.ch>,
-	<davem@davemloft.net>, <edumazet@google.com>, <kuba@kernel.org>,
-	<pabeni@redhat.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <michal.simek@amd.com>
-CC: <netdev@vger.kernel.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<git@amd.com>, <harini.katakam@amd.com>
-Subject: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X only configuration.
-Date: Wed, 12 Mar 2025 15:24:11 +0530
-Message-ID: <20250312095411.1392379-3-suraj.gupta2@amd.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250312095411.1392379-1-suraj.gupta2@amd.com>
-References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+	Wed, 12 Mar 2025 10:11:55 +0000
+Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-43cf3192f3bso31461085e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:11:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741774312; x=1742379112; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=sZlYkby+d99WJO4NkP3kGBlnCGizroPklc0vRuBvEQU=;
+        b=oMeXh84DGzsfdXwuNB2pJB1pXw7k4dXwzBC9b5qPId7D59IgBi8HgkhbV36v6nOor3
+         spFVDKZ9HlW4ZXUDqFB/JPxxzskHfjDxN6gGlkgO7z114JWzCKxF9rhJGArs1c/OCiZM
+         j17c7IDKmciTXix4nL5ZieMn+cXOsHDiSzx8TBQKB0By+kQTO3LTmpZvtHUsYea2Ulo8
+         eygc9Nv9GFnDu70g4b4DiacWnYQ8WeEGEwS7jyaERbwMSoWxaE8jfTDevzvzxsNHZvTS
+         i2L5v+RoUCos7sFIQbjmLbnDdrBUB4MlPWWqYsZXmV2HsemH94YiLr5QZbrj5limw/cj
+         gTKg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741774312; x=1742379112;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=sZlYkby+d99WJO4NkP3kGBlnCGizroPklc0vRuBvEQU=;
+        b=B+NLvmvefgDGwYcq4tN66+lUk7uEtB1Kk3sX2AXPwWbeMOeiElZksONf5sKTo/yPtN
+         RWbDZcxPiJi21sGcSZOPvaGydJOUsxcl0AukLq+6/86huTBzdwY0cs3QEMTI01xS1p8w
+         8trtsRY8LGa3fG6KkuTy8qqHkKajVY7ulsIaZxbAV01naqO7kYcmzVgotIz5EYLwUzHB
+         ECatXUnOlFMLuFhCgJrUs4fFyMWZbcPn9RK8fXymSaeIRb9CGz0g+R83e31GRv/TSrRx
+         z6UdA/xeipznnfqPek68zshk0LX2TeY9pcgytDbYOS6q6utW0CV5gjiIO78qOXFD6306
+         OVpw==
+X-Forwarded-Encrypted: i=1; AJvYcCXdqdi64pRAy3iU3s0o74wJ2ek1f1sN88D81NrHTMi1SIQCXSuqWL9D8PBcfk5Lzzawy2uPtdgRQJnl3/3S27E6@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzlgk0SP4qdZVzl7NcgzKdKSnwZj1EFhEHNYw4x7EGYkCWIhp/3
+	SbmNEKXSXM40VtQ5yohMnEylZaHdWJTcDlgOvI+GoYDkxSEMV+8FJsxgzBPTrJI=
+X-Gm-Gg: ASbGnctOesUtOd3KShygraumDw8gPH5gmn3legZ8dinNhCPYvzUsudGsbtBjKpB0I7G
+	fihp/AGW6twIsMmTgYFyQbmrM4i59E6CXMbM1PgbZGcOR3vnPcrX7wap38KSDEl5lmTBgbQTDLr
+	jo4nAIyMm51yme+z1TqAlhvGnT507HZj3h5z9U18vewMJEPYB/6tiS0T2YzWKLU5JFnT4GI6GyV
+	smZ49v09DvHBTrXTqWDiwd7lcQ9vgvhOGInQfhyd0WkMAsMMLnSr3eiZDfxIKAMtX/OvxVmAzzk
+	0KC8dPiKRJbPAEsnmeRbTOFV2JoccpGnrECJXP0Ut1NUddc=
+X-Google-Smtp-Source: AGHT+IEyqbXNIu5wRSJYhj/1fQ2mgsIresA2gnO6jS+UIi0uHFNrXyMS7z2i3K6uTFq/1oJ7VnktOg==
+X-Received: by 2002:a05:600c:524c:b0:43d:b32:40aa with SMTP id 5b1f17b1804b1-43d0b32419amr11170515e9.3.1741774312077;
+        Wed, 12 Mar 2025 03:11:52 -0700 (PDT)
+Received: from pop-os.lan ([209.198.129.86])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d0a74c2efsm16243635e9.9.2025.03.12.03.11.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 03:11:51 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Wed, 12 Mar 2025 10:11:29 +0000
+Subject: [PATCH v3] coresight: Add a KUnit test for
+ coresight_find_default_sink()
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB05.amd.com: suraj.gupta2@amd.com does not
- designate permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CH3PEPF00000016:EE_|SA3PR12MB8440:EE_
-X-MS-Office365-Filtering-Correlation-Id: a1bb9890-0202-45f9-8983-08dd614be012
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026|7416014|921020;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PxFAfzCSvrmwLJOAcse0GU1a/YTmP/X7iE8ub/oWNouMMxOvmkFsNXsyCxxT?=
- =?us-ascii?Q?pYpyLVh1riJ7AhMfKqXbbz7grw9dXKJNizPwi9MSV/5xc3mUVYeTKD6DPuoJ?=
- =?us-ascii?Q?tIN0sBGijwMC3XZitWXgZg1TdyKwggzUf/dgYaEcfxEyIBCyqLIrzqsqYzJn?=
- =?us-ascii?Q?fsTlAxVx4/W2jX+NbJA/nJWMnPc1xQ9t67NnNyJNsnGJu7VNVEAKeBY43ngd?=
- =?us-ascii?Q?vc93KWawYcpRXjCM3AtpfQFfHsh/n82SJPFarWb7SB0ENrNWcKS4w0wjhU22?=
- =?us-ascii?Q?4G/qFZ0t3LDGrk9IvPBtkoKF/tiZ0DuEcRS9UTsF0F0VpHiyKDxYt7DNtunO?=
- =?us-ascii?Q?5XMoc9YjauwG/STkaObMRpltEPRKOcJLtgcPr8lkK/cBn8g2F/3SntJgGEHb?=
- =?us-ascii?Q?TXo0cmr5W4nyyb+hNBWZ1F7CXoSIfVPIO2hEf8NDHxOHUStyjnMYAdPYx7ez?=
- =?us-ascii?Q?4MMNDR7Z9jiw10b0llfRtyOOZ0H7J/lvg9n0e2T590RxT1IRkpNOimFVyEsG?=
- =?us-ascii?Q?HaHTzYpjCwE4u+gr+MA+idH9d6l/uNlW/+Zw8RnYS2xR3jldaqM3+PetP+EP?=
- =?us-ascii?Q?EZdwKB0mb5ilFxY3nFJ2G+9uhqOgeqRlRAED46JGAiTzOb/mEWtso+dIAUUM?=
- =?us-ascii?Q?GyxfczKsYWMIZ4FXgb9+GhyDl6nt0I5FfekHcVFr0rS0NP4ynbT3fwutqIcD?=
- =?us-ascii?Q?BbYLIYcpA5/W3PG44/SV2JYfQT2p62UiQiZ81EJHmDdjVL7nyiE/u1CLQ5LO?=
- =?us-ascii?Q?v2zOYOzVdQsp3dB7fS+r+yHU1RZM+9eGi7/65phgSRRoXnlGi+aZnFQhLr9z?=
- =?us-ascii?Q?+1BSh6gBDxqbthjUYDwWWpwEmM1GF9PbHvhMoZXYuZPseFvTiYAGlZmPSvXZ?=
- =?us-ascii?Q?iTXh8qJWsjFjW03SFonQSOZQ2cDmqCkIIu9n3p/6EJuAVY3vuti6jvfiL9O1?=
- =?us-ascii?Q?zSuIjb2mlzIPpx3UxN6ehYOWgROu257kuOeQjOe4OphoCd4fYfuVPouAgF3i?=
- =?us-ascii?Q?SwtLD0WwLa4vaBzYn55lT34ytKIVqQ6On9UE9yu43vBgiircMmEfkf7rZjWF?=
- =?us-ascii?Q?nTQMyMSvCex90BaKE8QBjtg3mSF3EfQ/Saq7Bo+heLPBZg9mvkuIoNKW7j0R?=
- =?us-ascii?Q?fOU0ru6a5UrLKpYRzXU2BalrgeFUQpaUXWroAAGYTc8rBrlajDsQrfPIJ52y?=
- =?us-ascii?Q?kncqjRSAKk9JHRgpuBCOf/z2bHbNb8RhiGAX/PZlG6bo83sSe6hqg/Z2i5Yf?=
- =?us-ascii?Q?1qQJKcUWSekrI3myT7J+37Lb7kfStH8cKZQv5NsGpHVg0eyvOF1V5q9DK0pA?=
- =?us-ascii?Q?KPe0pHM/pDYhDd038R7PsmUBhbSoC0wFDN087xYkvro5eNx8U5HirIQ+MV6N?=
- =?us-ascii?Q?8vVgkFNh1k6ZfKI3eBdk3e7eISq57YMyptOjzpYpwzo7kTHksmnd8sujy6uG?=
- =?us-ascii?Q?ty99ODDGzCSWh70BuCs0NPBFt9v7dDwM/9pMLtfV1jrbnE1Log2gW6+a1siK?=
- =?us-ascii?Q?M+WVkkh4AqYjzF0=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:SATLEXMB04.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026)(7416014)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 09:54:26.5449
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a1bb9890-0202-45f9-8983-08dd614be012
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[SATLEXMB04.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: CH3PEPF00000016.namprd21.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB8440
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250312-james-cs-kunit-test-v3-1-dcfb69730161@linaro.org>
+X-B4-Tracking: v=1; b=H4sIANBd0WcC/3XOQQ6DIBAF0Ks0rIuBQVC76j2aLlBRqRYaoKSN8
+ e5FXTRddPkn+e/PjLxyWnl0OszIqai9tiYFdjygZpCmV1i3KSMgwAkjHN/kXXnceDw+jQ44KB8
+ wkx1tO8gJVQKl5sOpTr829XJNedA+WPfeRiJdr7sHwKnIBasyDlDkFNOdz5pJuvE8aSOdzazr0
+ apE+Db/fRIhGSWrpSihrgrR/CDLsnwAusQmm/EAAAA=
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Leo Yan <leo.yan@arm.com>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
+ linux-arm-kernel@lists.infradead.org
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_031014_303386_6EBA1A2C 
-X-CRM114-Status: GOOD (  18.02  )
+X-CRM114-CacheID: sfid-20250312_031153_804955_6C01E346 
+X-CRM114-Status: GOOD (  22.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,98 +103,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-AXI 1G/2.5G ethernet IP has following synthesis options:
-1) SGMII/1000base-X only.
-2) 2500base-X only.
-3) dynamically switching between (1) and (2).
-Add support for 2500base-X only configuration.
+Add a test to confirm that default sink selection skips over an ETF
+and returns an ETR even if it's further away.
 
-Co-developed-by: Harini Katakam <harini.katakam@amd.com>
-Signed-off-by: Harini Katakam <harini.katakam@amd.com>
-Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+This also makes it easier to add new unit tests in the future.
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- drivers/net/ethernet/xilinx/xilinx_axienet.h  |  2 +-
- .../net/ethernet/xilinx/xilinx_axienet_main.c | 24 +++++++++++++++----
- 2 files changed, 20 insertions(+), 6 deletions(-)
+Changes in v3:
+- Use CORESIGHT_DEV_SUBTYPE_SOURCE_BUS type instead of the default
+  (CORESIGHT_DEV_SUBTYPE_SOURCE_PROC) so that the test still works even
+  when TRBE sinks are registered. This also removes the need for the
+  fake CPU ID callback.
+- Link to v2: https://lore.kernel.org/r/20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org
 
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet.h b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-index 5ff742103beb..ded3e32999d5 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet.h
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet.h
-@@ -274,7 +274,7 @@
- #define XAE_EMMC_RX16BIT	0x01000000 /* 16 bit Rx client enable */
- #define XAE_EMMC_LINKSPD_10	0x00000000 /* Link Speed mask for 10 Mbit */
- #define XAE_EMMC_LINKSPD_100	0x40000000 /* Link Speed mask for 100 Mbit */
--#define XAE_EMMC_LINKSPD_1000	0x80000000 /* Link Speed mask for 1000 Mbit */
-+#define XAE_EMMC_LINKSPD_1000_2500	0x80000000 /* Link Speed mask for 1000 or 2500 Mbit */
+Changes in v2:
+- Let devm free everything rather than doing individual kfrees:
+  "Like with managed drivers, KUnit-managed fake devices are
+  automatically cleaned up when the test finishes, but can be manually
+  cleaned up early with kunit_device_unregister()."
+- Link to v1: https://lore.kernel.org/r/20250225164639.522741-1-james.clark@linaro.org
+---
+ drivers/hwtracing/coresight/Kconfig                |  9 +++
+ drivers/hwtracing/coresight/Makefile               |  3 +-
+ drivers/hwtracing/coresight/coresight-core.c       |  1 +
+ .../hwtracing/coresight/coresight-kunit-tests.c    | 77 ++++++++++++++++++++++
+ 4 files changed, 88 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
+index ecd7086a5b83..f064e3d172b3 100644
+--- a/drivers/hwtracing/coresight/Kconfig
++++ b/drivers/hwtracing/coresight/Kconfig
+@@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
  
- /* Bit masks for Axi Ethernet PHYC register */
- #define XAE_PHYC_SGMIILINKSPEED_MASK	0xC0000000 /* SGMII link speed mask*/
-diff --git a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-index 054abf283ab3..0885ce201b0a 100644
---- a/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-+++ b/drivers/net/ethernet/xilinx/xilinx_axienet_main.c
-@@ -2583,6 +2583,7 @@ static struct phylink_pcs *axienet_mac_select_pcs(struct phylink_config *config,
- 	struct axienet_local *lp = netdev_priv(ndev);
- 
- 	if (interface == PHY_INTERFACE_MODE_1000BASEX ||
-+	    interface == PHY_INTERFACE_MODE_2500BASEX ||
- 	    interface ==  PHY_INTERFACE_MODE_SGMII)
- 		return &lp->pcs;
- 
-@@ -2616,8 +2617,9 @@ static void axienet_mac_link_up(struct phylink_config *config,
- 	emmc_reg &= ~XAE_EMMC_LINKSPEED_MASK;
- 
- 	switch (speed) {
-+	case SPEED_2500:
- 	case SPEED_1000:
--		emmc_reg |= XAE_EMMC_LINKSPD_1000;
-+		emmc_reg |= XAE_EMMC_LINKSPD_1000_2500;
- 		break;
- 	case SPEED_100:
- 		emmc_reg |= XAE_EMMC_LINKSPD_100;
-@@ -2627,7 +2629,7 @@ static void axienet_mac_link_up(struct phylink_config *config,
- 		break;
- 	default:
- 		dev_err(&ndev->dev,
--			"Speed other than 10, 100 or 1Gbps is not supported\n");
-+			"Speed other than 10, 100, 1Gbps or 2.5Gbps is not supported\n");
- 		break;
+ 	  To compile this driver as a module, choose M here: the module will be
+ 	  called coresight-dummy.
++
++config CORESIGHT_KUNIT_TESTS
++	  tristate "Enable Coresight unit tests"
++	  depends on KUNIT
++	  default KUNIT_ALL_TESTS
++	  help
++	    Enable Coresight unit tests. Only useful for development and not
++	    intended for production.
++
+ endif
+diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
+index 8e62c3150aeb..96f0dfedb1bf 100644
+--- a/drivers/hwtracing/coresight/Makefile
++++ b/drivers/hwtracing/coresight/Makefile
+@@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o	coresight-cti-platform.o \
+ 		   coresight-cti-sysfs.o
+ obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+ obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+-obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+-coresight-ctcu-y := coresight-ctcu-core.o
++obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+index bd0a7edd38c9..b101aa133ceb 100644
+--- a/drivers/hwtracing/coresight/coresight-core.c
++++ b/drivers/hwtracing/coresight/coresight-core.c
+@@ -959,6 +959,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
  	}
+ 	return csdev->def_sink;
+ }
++EXPORT_SYMBOL_GPL(coresight_find_default_sink);
  
-@@ -3055,7 +3057,8 @@ static int axienet_probe(struct platform_device *pdev)
- 			 "error registering MDIO bus: %d\n", ret);
- 
- 	if (lp->phy_mode == PHY_INTERFACE_MODE_SGMII ||
--	    lp->phy_mode == PHY_INTERFACE_MODE_1000BASEX) {
-+	    lp->phy_mode == PHY_INTERFACE_MODE_1000BASEX ||
-+	    lp->phy_mode == PHY_INTERFACE_MODE_2500BASEX) {
- 		np = of_parse_phandle(pdev->dev.of_node, "pcs-handle", 0);
- 		if (!np) {
- 			/* Deprecated: Always use "pcs-handle" for pcs_phy.
-@@ -3083,8 +3086,19 @@ static int axienet_probe(struct platform_device *pdev)
- 	lp->phylink_config.dev = &ndev->dev;
- 	lp->phylink_config.type = PHYLINK_NETDEV;
- 	lp->phylink_config.mac_managed_pm = true;
--	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE |
--		MAC_10FD | MAC_100FD | MAC_1000FD;
-+	lp->phylink_config.mac_capabilities = MAC_SYM_PAUSE | MAC_ASYM_PAUSE;
+ static int coresight_remove_sink_ref(struct device *dev, void *data)
+ {
+diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+new file mode 100644
+index 000000000000..87439769207c
+--- /dev/null
++++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+@@ -0,0 +1,77 @@
++// SPDX-License-Identifier: GPL-2.0
 +
-+	/* AXI 1G/2.5G ethernet IP has following synthesis options:
-+	 * 1) SGMII/1000base-X only.
-+	 * 2) 2500base-X only.
-+	 * 3) Dynamically switching between (1) and (2), and is not
-+	 * implemented in driver.
++#include <kunit/test.h>
++#include <kunit/device.h>
++#include <linux/coresight.h>
++
++#include "coresight-priv.h"
++
++static struct coresight_device *coresight_test_device(struct device *dev)
++{
++	struct coresight_device *csdev = devm_kcalloc(dev, 1,
++						     sizeof(struct coresight_device),
++						     GFP_KERNEL);
++	csdev->pdata = devm_kcalloc(dev, 1,
++				   sizeof(struct coresight_platform_data),
++				   GFP_KERNEL);
++	return csdev;
++}
++
++static void test_default_sink(struct kunit *test)
++{
++	/*
++	 * ETM -> ETF -> ETR -> CATU
++	 *                ^
++	 *                | default
 +	 */
++	struct device *dev = kunit_device_register(test, "coresight_kunit");
++	struct coresight_device *etm = coresight_test_device(dev),
++				*etf = coresight_test_device(dev),
++				*etr = coresight_test_device(dev),
++				*catu = coresight_test_device(dev);
++	struct coresight_connection conn = {};
++	struct coresight_ops_source src_ops = {};
++	struct coresight_ops etm_cs_ops = { .source_ops	= &src_ops };
 +
-+	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_2_5G)
-+		lp->phylink_config.mac_capabilities |= MAC_2500FD;
-+	else
-+		lp->phylink_config.mac_capabilities |= MAC_10FD | MAC_100FD | MAC_1000FD;
- 
- 	__set_bit(lp->phy_mode, lp->phylink_config.supported_interfaces);
- 	if (lp->switch_x_sgmii) {
++	etm->type = CORESIGHT_DEV_TYPE_SOURCE;
++	/*
++	 * Don't use CORESIGHT_DEV_SUBTYPE_SOURCE_PROC, that would always return
++	 * a TRBE sink if one is registered.
++	 */
++	etm->subtype.source_subtype = CORESIGHT_DEV_SUBTYPE_SOURCE_BUS;
++	etm->ops = &etm_cs_ops;
++	etf->type = CORESIGHT_DEV_TYPE_LINKSINK;
++	etf->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
++	etr->type = CORESIGHT_DEV_TYPE_SINK;
++	etr->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_SYSMEM;
++	catu->type = CORESIGHT_DEV_TYPE_HELPER;
++
++	conn.src_dev = etm;
++	conn.dest_dev = etf;
++	coresight_add_out_conn(dev, etm->pdata, &conn);
++
++	conn.src_dev = etf;
++	conn.dest_dev = etr;
++	coresight_add_out_conn(dev, etf->pdata, &conn);
++
++	conn.src_dev = etr;
++	conn.dest_dev = catu;
++	coresight_add_out_conn(dev, etr->pdata, &conn);
++
++	KUNIT_ASSERT_PTR_EQ(test, coresight_find_default_sink(etm), etr);
++}
++
++static struct kunit_case coresight_testcases[] = {
++	KUNIT_CASE(test_default_sink),
++	{}
++};
++
++static struct kunit_suite coresight_test_suite = {
++	.name = "coresight_test_suite",
++	.test_cases = coresight_testcases,
++};
++
++kunit_test_suites(&coresight_test_suite);
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("James Clark <james.clark@linaro.org>");
++MODULE_DESCRIPTION("Arm CoreSight KUnit tests");
+
+---
+base-commit: eeafe6a8790ea125252ca2e23c1a2469eaff1d9a
+change-id: 20250305-james-cs-kunit-test-3af1df2401e6
+
+Best regards,
 -- 
-2.25.1
+James Clark <james.clark@linaro.org>
 
 
