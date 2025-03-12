@@ -4,49 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4E75C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADD52C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:30:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tCIQrcidtiVCweAkfFXT55reJoGIAv89y6H+L+TRf7U=; b=Av25ApYgpvfDVvON+ernXh4/1W
-	/+4hpzM4ivOsuq5ySg9e0xU1/10UvWJZpJuZOs0Qoa6nVGqfqrui+mNgUz/OEtc+c6qTfP/gcBBMJ
-	xplIr/NmJJv/tlr9UiPGFGbEhFdmVkXH66/EKl0Yrj6sQWza71Xty6IZZadCTrucwfCHcs1zTxhYz
-	agckWZ/CAom49aozFUYv/Yt9op1VdMKiG/pU+9chTLUypKIjOASUy398SMxR3IiSOiZ4IlqKMhjiE
-	EbqHNSnz95WR18PRGN0DWu1WTIuw1qgkCMEo0Iu4N40z/B9cO3eUAkh8ang1uTl+cFwQ9pbnG76Zb
-	FW3pzYtw==;
+	bh=W0NbgiSVxZElbT/GJasxYhblixLWxPwWj25QtFWdosQ=; b=KU5dUgb6WAoKmQlnFs4vkr79x4
+	75TWsEHFGfcPlXl1BCs/3V8G2+f8wv0eXNjoo2+jfCUZA6vYIytM8q1nRakvKGCSYMsyY1dIN0XQU
+	U5moYbzJfVJ5Do0NrjbHhh8fQn0lUKtoew335j0p0aSqjcYacK3m6Tu732RDftNIxGRDOUMQUXLoe
+	7h9RXQPdkQN9ikh/ZftFa+pU9eoCr68k1CVD4vLT0gf10SBwIzstECuKlWSz/hV8DDO5/ko/AMQl0
+	fZy21lZSX8ft62DfS6Ux2paJklggFlVyPT9jaieT/q5Bclkr3E+kO8m1So36Oso9GsiKSx0KBv4Xm
+	SNyq/m3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIO9-00000007yBJ-0ydM;
-	Wed, 12 Mar 2025 09:28:33 +0000
+	id 1tsIPm-00000007yhD-2SnG;
+	Wed, 12 Mar 2025 09:30:14 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIHN-00000007wJs-2QII;
-	Wed, 12 Mar 2025 09:21:34 +0000
+	id 1tsIHO-00000007wL3-3LdM;
+	Wed, 12 Mar 2025 09:21:35 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=tCIQrcidtiVCweAkfFXT55reJoGIAv89y6H+L+TRf7U=; b=y15Rnjd3t9qXzaI/jqnpsqXwYv
-	ZSttmPl8EJbW9XdTALzAWZs9Vuv+YbWbxVJ8hGShfRoAkJLOTh4eyyjPwbVLdgzph9G7L3SzEeV1R
-	6UYlXpy1siEYdr8FbB/dIDeDDbsrTzQmNNG0PEYoCOt/DKyh7MRJw+xOuclNzMjdTnoO/7ldhXYoH
-	t/FdBrGekOc4iC5K2de1PItsIaszUteQXSjoumADxjlM3OldDzPmBO47y4RC7iAtuHWmCDCzlnroj
-	JYBNYmon0Of4VpV/sxFD+eCOVZ2yJqQqorFuSWhz2zMR1im8nscFH8F+m4cr4xQezPF+2e8wM4EYw
-	ppyHzLLw==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39780 helo=rmk-PC.armlinux.org.uk)
+	bh=W0NbgiSVxZElbT/GJasxYhblixLWxPwWj25QtFWdosQ=; b=kuJac0fqff2B52fdjv7KGalsnw
+	89oXdP9CjUkgUc2mcQdThOQf2Z9BB+f+eOZKdP1rAE6Dy30plm7U0q+QlqVq3lFDvnJ9yLSHqaLTm
+	kll+5JUgnWRTr7mw65CAg4cyHni0FBUepse5OQccIel0bJlyfw5YO0Q+dnCKLSEOgoOJnETPNGWkB
+	X9+HACLxpp+KWgfLg3X9un5jMoi1gnwg3wSdu/yw5b2fbY8Hi1TerMD/KFGaKaJy+2ccplyRZE50E
+	0mvHw0H2ceWh8JCsFhu7una8FvFvn9rshmjET/jMcB6MjJsQORyFOe8g72kFdYY6dQqXnw5sSth8m
+	UGRnT4Vg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53868 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.96)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIH0-0005CU-0M;
-	Wed, 12 Mar 2025 09:21:10 +0000
+	id 1tsIH6-0005Cl-1w;
+	Wed, 12 Mar 2025 09:21:16 +0000
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIGd-005uzr-0C; Wed, 12 Mar 2025 09:20:47 +0000
+	id 1tsIGi-005uzx-3p; Wed, 12 Mar 2025 09:20:52 +0000
 In-Reply-To: <Z9FQjQZb0IMaQJ9H@shell.armlinux.org.uk>
 References: <Z9FQjQZb0IMaQJ9H@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -76,17 +76,16 @@ Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
 	Paolo Abeni <pabeni@redhat.com>,
 	Samuel Holland <samuel@sholland.org>,
 	Vinod Koul <vkoul@kernel.org>
-Subject: [PATCH net-next v2 5/9] net: stmmac: meson8b: remove
- of_get_phy_mode()
+Subject: [PATCH net-next v2 6/9] net: stmmac: rk: remove of_get_phy_mode()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tsIGd-005uzr-0C@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:20:47 +0000
+Message-Id: <E1tsIGi-005uzx-3p@rmk-PC.armlinux.org.uk>
+Date: Wed, 12 Mar 2025 09:20:52 +0000
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_022133_613944_8EAF710C 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250312_022134_834365_0AC355F4 
+X-CRM114-Status: GOOD (  11.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,31 +104,27 @@ devm_stmmac_probe_config_dt() already gets the PHY mode from firmware,
 which is stored in plat_dat->phy_interface. Therefore, we don't need to
 get it in platform code.
 
-Set dwmac->phy_mode from plat_dat->phy_interface.
+Set bsp_priv->phy_iface from plat->phy_interface.
 
 Reviewed-by: Michal Kubiak <michal.kubiak@intel.com>
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c | 6 +-----
- 1 file changed, 1 insertion(+), 5 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-index 9c2d62d133ad..a50782994b97 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c
-@@ -417,11 +417,7 @@ static int meson8b_dwmac_probe(struct platform_device *pdev)
- 		return PTR_ERR(dwmac->regs);
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+index 003fa5cf42c3..40e8197812e2 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
+@@ -1749,7 +1749,7 @@ static struct rk_priv_data *rk_gmac_setup(struct platform_device *pdev,
+ 	if (!bsp_priv)
+ 		return ERR_PTR(-ENOMEM);
  
- 	dwmac->dev = &pdev->dev;
--	ret = of_get_phy_mode(pdev->dev.of_node, &dwmac->phy_mode);
--	if (ret) {
--		dev_err(&pdev->dev, "missing phy-mode property\n");
--		return ret;
--	}
-+	dwmac->phy_mode = plat_dat->phy_interface;
+-	of_get_phy_mode(dev->of_node, &bsp_priv->phy_iface);
++	bsp_priv->phy_iface = plat->phy_interface;
+ 	bsp_priv->ops = ops;
  
- 	/* use 2ns as fallback since this value was previously hardcoded */
- 	if (of_property_read_u32(pdev->dev.of_node, "amlogic,tx-delay-ns",
+ 	/* Some SoCs have multiple MAC controllers, which need
 -- 
 2.30.2
 
