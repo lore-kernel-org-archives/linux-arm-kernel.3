@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DECAC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 03:31:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F96FC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 03:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=QiHxxwrCXq2b5j2dH38FNkm5925po8OjgAA4/miThgY=; b=XbO7CWxU2PJu1CXt5qNsOsxBYI
-	zmLkcvup0tErG69wBepZ5DEr58GpNNh6U233iiyP0dQR7xIS+18EEd1sC55RcUxDjgbGxGokxU2Id
-	iW28GIEiPbeWWjX9KdET+3RiHBKSZQZ4zCAGrFD1AhbmRxdPi4b8v/GKSHdZ8CTbtwqSR59QJnln6
-	Y54+NUTVyNQHtMppkCXCs3a8Kk1uePIh2Fq3yt8A6vuRn8jrLMDT/kvKkrB7O90qwdG7n0jXNEObR
-	EL2qxHlxomdoWzaK9F+0cV9gH1erYVMhcv+plGCztba+wiLriE1/SN6cky9uw+33ptI3xEf1ERc4P
-	Lfq10mFA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mwOaswZgGOsgqXKWcGBLJ3uk8ya9oX6rPmP/Wc5KgHU=; b=HrqImLf0JuSUXyfFyGz5UiVTda
+	+YwSZBtjpfH6/08K3JrW9NE9/r/2cB2LPzk0/T9nH3irswRier8s5bxJ99A2j0jq0tKsfqXf1u02W
+	ZZH/DGFiWMfBCmU4twwRkX0zmS3fwCcEe5zQouy6udElBD/iSrmEsG6mBbp6AGGxMhljyFdpoJzaz
+	mPTfW7Uhpq46eUU2xzaNpx8j8k/v2xwsEARXljaCLAhUtXSUNw3KobinmTv8qDHyVGDgbCLE7HSh8
+	qUdLAjhhxhQPNS8sl4jDpEuf1HaZtyNdRTZAznGnjBSAOXDBfDrtKP8DVz6bC5OJhIDRgmuTFp6Nf
+	DBheIdFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsCoC-00000007Psh-2BdX;
-	Wed, 12 Mar 2025 03:31:04 +0000
-Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsCmV-00000007Pli-3tKw;
-	Wed, 12 Mar 2025 03:29:22 +0000
-Received: from localhost (unknown [124.16.138.129])
-	by APP-01 (Coremail) with SMTP id qwCowAAHDm6C_9BnRipvFA--.20421S2;
-	Wed, 12 Mar 2025 11:29:06 +0800 (CST)
-From: Chen Ni <nichen@iscas.ac.cn>
-To: lgirdwood@gmail.com,
-	broonie@kernel.org,
-	perex@perex.cz,
-	tiwai@suse.com,
-	matthias.bgg@gmail.com,
-	angelogioacchino.delregno@collabora.com,
-	amergnat@baylibre.com,
-	linux-sound@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org
-Cc: Chen Ni <nichen@iscas.ac.cn>
-Subject: [PATCH] ASoC: mt8365: remove unnecessary NULL check before clk_disable_unprepare()
-Date: Wed, 12 Mar 2025 11:26:00 +0800
-Message-Id: <20250312032600.1235158-1-nichen@iscas.ac.cn>
-X-Mailer: git-send-email 2.25.1
+	id 1tsD55-00000007Qjo-0Ubh;
+	Wed, 12 Mar 2025 03:48:31 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsD3N-00000007QcH-3Dhc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 03:46:47 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C775C152B;
+	Tue, 11 Mar 2025 20:46:50 -0700 (PDT)
+Received: from [10.163.43.50] (unknown [10.163.43.50])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 570513F673;
+	Tue, 11 Mar 2025 20:46:36 -0700 (PDT)
+Message-ID: <ddeb3df1-995b-44f4-ad20-50edfb906a28@arm.com>
+Date: Wed, 12 Mar 2025 09:16:32 +0530
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qwCowAAHDm6C_9BnRipvFA--.20421S2
-X-Coremail-Antispam: 1UD129KBjvdXoW7XFyrKrWkZry7tFykJw4kCrg_yoWfXrg_Xw
-	4kKFnrWa4kGrnakw15Ga1qvFs3ZayUZFyrX34FyF1DJry5Gr45CrnFvw13uws5Jr4vkF1U
-	Xrn8ZF4xCr4fAjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
-	9fnUUIcSsGvfJTRUUUbfAFF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
-	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
-	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Cr0_
-	Gr1UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
-	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
-	6xIIjxv20xvE14v26r1Y6r17McIj6I8E87Iv67AKxVW8Jr0_Cr1UMcvjeVCFs4IE7xkEbV
-	WUJVW8JwACjcxG0xvY0x0EwIxGrwACjI8F5VA0II8E6IAqYI8I648v4I1lFIxGxcIEc7Cj
-	xVA2Y2ka0xkIwI1lc7CjxVAaw2AFwI0_Jw0_GFylc2xSY4AK67AK6r48MxAIw28IcxkI7V
-	AKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAFwI0_Jr0_Jr4lx2IqxVCj
-	r7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc40Y0x0EwIxGrwCI42IY6x
-	IIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AKxVW8JVWxJwCI42IY6xAI
-	w20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr1lIxAIcVC2z280aVCY1x
-	0267AKxVW8JVW8JrUvcSsGvfC2KfnxnUUI43ZEXa7VUjRpBDUUUUU==
-X-Originating-IP: [124.16.138.129]
-X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V3] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ linux-arm-kernel@lists.infradead.org, mark.rutland@arm.com, robh@kernel.org
+Cc: Will Deacon <will@kernel.org>, Jonathan Corbet <corbet@lwn.net>,
+ Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kvmarm@lists.linux.dev, stable@vger.kernel.org
+References: <20250227035119.2025171-1-anshuman.khandual@arm.com>
+ <174171335999.3659520.16613654046629962007.b4-ty@arm.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <174171335999.3659520.16613654046629962007.b4-ty@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_202920_347013_BCF494C3 
-X-CRM114-Status: UNSURE (   7.74  )
+X-CRM114-CacheID: sfid-20250311_204645_856100_57C81F0B 
+X-CRM114-Status: UNSURE (   8.85  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,29 +69,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-clk_disable_unprepare() already checks NULL by using IS_ERR_OR_NULL.
-Remove unneeded NULL check for clk here.
 
-Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
----
- sound/soc/mediatek/mt8365/mt8365-afe-clk.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
 
-diff --git a/sound/soc/mediatek/mt8365/mt8365-afe-clk.c b/sound/soc/mediatek/mt8365/mt8365-afe-clk.c
-index 8a0af2ea8546..7078c01ba19b 100644
---- a/sound/soc/mediatek/mt8365/mt8365-afe-clk.c
-+++ b/sound/soc/mediatek/mt8365/mt8365-afe-clk.c
-@@ -49,8 +49,7 @@ int mt8365_afe_init_audio_clk(struct mtk_base_afe *afe)
- 
- void mt8365_afe_disable_clk(struct mtk_base_afe *afe, struct clk *clk)
- {
--	if (clk)
--		clk_disable_unprepare(clk);
-+	clk_disable_unprepare(clk);
- }
- 
- int mt8365_afe_set_clk_rate(struct mtk_base_afe *afe, struct clk *clk,
--- 
-2.25.1
+On 3/11/25 22:47, Catalin Marinas wrote:
+> On Thu, 27 Feb 2025 09:21:19 +0530, Anshuman Khandual wrote:
+>> FEAT_PMUv3p9 registers such as PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1
+>> access from EL1 requires appropriate EL2 fine grained trap configuration
+>> via FEAT_FGT2 based trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2.
+>> Otherwise such register accesses will result in traps into EL2.
+>>
+>> Add a new helper __init_el2_fgt2() which initializes FEAT_FGT2 based fine
+>> grained trap control registers HDFGRTR2_EL2 and HDFGWTR2_EL2 (setting the
+>> bits nPMICNTR_EL0, nPMICFILTR_EL0 and nPMUACR_EL1) to enable access into
+>> PMICNTR_EL0, PMICFILTR_EL0, and PMUACR_EL1 registers.
+>>
+>> [...]
+> 
+> Applied to arm64 (for-next/el2-enable-feat-pmuv3p9), thanks!
+> 
+> [1/1] arm64/boot: Enable EL2 requirements for FEAT_PMUv3p9
+>       https://git.kernel.org/arm64/c/858c7bfcb35e
+> 
+> I removed Cc: stable since, if it gets backported automatically, it will
+> miss the sysreg updates and break the build. Please send it to stable
+> directly once it lands upstream, together with the dependencies.
 
+Sure, will do that.
 
