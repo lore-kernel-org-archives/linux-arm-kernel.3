@@ -4,63 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9B3EC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:49:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40CDC28B30
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:51:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FBq7UjLX/xpCl4D474QvTrJ3GQfaPRtyUYEBlnHL3XE=; b=cnvshKZsvMIBMhAd/1k/4VDNnx
-	RqVdJKpJcQlyJWrlC4sD8h4kLbBrSChK+P7eLki6JnZRHOzzZSR6qaUhZWvbq5oS/4m24pDEpEmn8
-	79oYzSbkuJVISCYYMNtLv4+D37wzCnuyH5jiAF+yfREWSU/k8J6IqK/26JDmz1QYxrkzGtXv5ptnV
-	0IGY3CFjiMNjeLdUqxfdWKlN4lgMlSqhatncH5NXA3kRnNTyJAX8CSal3bfU5q6VRr/jaQYWvHvOK
-	5SsydqjWa+oQ/hC0M/4Z8uPExRJyTx2LHp7PDk/+1l1u82B6kaxZueGYVgstOD1/hMncmQfEO95dF
-	SfAh8IXQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=tgIv5uDPfYYFM3FHtkhTsZGkNT2/xL77irb2ZwO/EGI=; b=rrIsADxn2IEI1I
+	HUjKpdQw9QGX30JxUuY/sXwm1fViB6KjA+zVchm1ShmzhIDGciChmucMFSjYgxuGP/DGZn33uPRLt
+	FgdK26dXBLs2cR2O/lQAVvd//GHdWh2O1SvICr3B1ubTcg+668OSWCMgVrjGuCh5cmpFls9FBy7qt
+	VHW9L30guCZDBFUd46wWHiBnzYY9FcadcaJ+nY6mvsDrjNqYWNj00tKo9DpAMkwVOhF3zXTsCQoSx
+	yF1coW0nRqDF5Te19MhTf3FZMhcNcIROgxKvX0/jv72nyyZWvVsrTJ5n87lAZNFUL2yII4YfeO4Wi
+	/43JfVECWjJZcjm4D6gA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKao-00000008JXM-3uUa;
-	Wed, 12 Mar 2025 11:49:46 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK35-00000008E4r-3wqR;
-	Wed, 12 Mar 2025 11:14:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 8AB0E5C4D3B;
-	Wed, 12 Mar 2025 11:12:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B01F2C4CEE3;
-	Wed, 12 Mar 2025 11:14:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741778095;
-	bh=pV0wMRVJdZx0GGHAFXpYdrUB+nz6p/5vFjYGRVyVErE=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=hpmJEhP1hMpGXNoHcPfRkMXqjDkP5S+jvIEBCwxwau4AN0S/l+8HrDTAjiY5Twem4
-	 xqOnJIUSN0Pa2H79swjZIg26CA/4RXQVH8ELKJ3mIxAq1G2xWcK5CjUQSNZKvW8yKO
-	 rRleEl1gLxRD8BmSnZpDRifNIZ7tDmjIEAAUPWP5QWNY4H+4B65QXbFOWYx3gQfGpT
-	 hxbPtiG01hV8Uhm8Hgfbpzprfr56An7/POl9M+4tunh/16TrGjeWKyArFzO4Ax78QB
-	 dEkJulOLbxaPazj1balVbbVKfGbJsdOVt4npWzZyYN/G/rGmM74F7VVXCFhQfajyC0
-	 zhBVwgtokmq4g==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 12 Mar 2025 12:14:05 +0100
-Subject: [PATCH 21/21] wifi: mt76: mt7996: Update mt7996_tx to MLO support
+	id 1tsKcR-00000008Jsm-3kQ5;
+	Wed, 12 Mar 2025 11:51:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsK37-00000008E5M-2Hwh
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 11:14:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A424F1516;
+	Wed, 12 Mar 2025 04:15:07 -0700 (PDT)
+Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5029C3F694;
+	Wed, 12 Mar 2025 04:14:56 -0700 (PDT)
+From: Sudeep Holla <sudeep.holla@arm.com>
+Subject: [PATCH 0/3] firmware: arm_scmi: Minor cleanups in the scmi bus
+ layer
+Date: Wed, 12 Mar 2025 11:14:31 +0000
+Message-Id: <20250312-b4-scmi_minor_cleanup-v1-0-51a514282794@arm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250312-b4-mt7996-mlo-p2-v1-21-015b3d6fd928@kernel.org>
-References: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
-In-Reply-To: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Johannes Berg <johannes@sipsolutions.net>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAJhs0WcC/x3MQQqAIBBA0avErBNySpCuEhGmUw2khlIE0d2Tl
+ m/x/wOZElOGvnog0cWZYyiQdQV2M2Elwa4YsEHVtBLF3IlsPU+eQ0yT3cmE8xB60QpRu65VFkp
+ 7JFr4/r/D+L4fuE+v1WcAAAA=
+X-Change-ID: 20250312-b4-scmi_minor_cleanup-8f85228d435c
+To: linux-arm-kernel@lists.infradead.org
+Cc: Sudeep Holla <sudeep.holla@arm.com>, 
+ Cristian Marussi <cristian.marussi@arm.com>
 X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1011; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=VUNxvcijs9An1927oTqaVDUsqXThCsE8zDBbKNgPFgM=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBn0Wyv+r4TxXoykq7/MqdrURg1YjQ7n8aXimBFz
+ ptftFiObS+JAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ9FsrwAKCRAAQbq8MX7i
+ mBP1D/4572Ajb6FerMAMnnM3+eHT0g5YxZEa4FILIZVOq08RjCnl2SRahboEDrPyc9hjmKd3GIg
+ Ou0+2xer7dM2L1o9cTFrIDr5MT5MyK1/Kn1AvPT345lHcVFf/U1doDEJLdlA03dpEl9uE7PXPBE
+ EVSQ+0qIR4Mtgd6Li+mZC/KKjsTZd4RqZL7OFs3quZXGeqixWog5MFAA4DkP5XQhfK4qZR6HpNQ
+ 5/le0qRDSwouE92rIZkjs/D3tz5Oi48P0DHsxqS+TxXS6Pynin194U/8CBGYRoRpjNHG+4VA8E3
+ twVtgolf4uTrmPQiblXz9BOKNj34WgiRRFo5qXWXojFmdZmSRIxgGU3clL7mjnP8ThvYD0hVIoX
+ 5QfK8HQ82tTIwwb0073koIySpHI8KrI2bwOcUwJ/geL5tZbfS2UNIKylRGOzJkvpzCstLP4n8Jy
+ EtdpBA1uwH4VU+JKETUrbDRZkWcm3RaPoPceDya5DtUlfEtcl396EjB30ZFUrKfsl3oN6NGArQ3
+ B7PYKb7zx55ZA2Wz3dXSMuM7HtAyX8p2yJGfLDa8FLNscYzem6G5nhragRsMrl8ktRXROUvQE1z
+ 4RUEEVZQjDZE2WJPfk4fEy8SQE6h+1IFSVBljkblobRIfTLPFVvJ5FzPdlR28vhK3jsMHnD1h6X
+ E/tpEEXPndoe0Zw==
+X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
+ fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_041456_040730_6B8B05CF 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20250312_041457_632586_A2EA45F4 
+X-CRM114-Status: UNSURE (   5.21  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,73 +83,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rework mt7996_tx routine in order to support multi-link
-setup.
+These cleanup centralizes error logging for SCMI device creation into a
+single helper function, _scmi_device_create(), consolidates the device
+matching logic into a single function, and ensures that devices must
+have a name for registration, removing support for unnamed devices while
+matching the devices and drivers for probing.
 
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/main.c | 31 +++++++++++++++---------
- 1 file changed, 20 insertions(+), 11 deletions(-)
+Sudeep Holla (3):
+      firmware: arm_scmi: Ensure scmi_devices are always matched by name as well
+      firmware: arm_scmi: Refactor device matching logic to eliminate duplication
+      firmware: arm_scmi: Refactor error logging from SCMI device creation to single helper
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-index adeb267b2801894590f90d02e902ebec602de98a..91c64e3a0860ff0dc5405627b23f79f4ebd1dafd 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
-@@ -1200,12 +1200,18 @@ static void mt7996_tx(struct ieee80211_hw *hw,
- 	struct ieee80211_tx_info *info = IEEE80211_SKB_CB(skb);
- 	struct ieee80211_vif *vif = info->control.vif;
- 	struct mt76_wcid *wcid = &dev->mt76.global_wcid;
-+	u8 link_id = u32_get_bits(info->control.flags,
-+				  IEEE80211_TX_CTRL_MLO_LINK);
-+
-+	rcu_read_lock();
- 
- 	if (vif) {
--		struct mt7996_vif *mvif;
-+		struct mt7996_vif *mvif = (void *)vif->drv_priv;
-+		struct mt76_vif_link *mlink;
- 
--		mvif = (struct mt7996_vif *)vif->drv_priv;
--		wcid = &mvif->deflink.msta_link.wcid;
-+		mlink = rcu_dereference(mvif->mt76.link[link_id]);
-+		if (mlink && mlink->wcid)
-+			wcid = mlink->wcid;
- 
- 		if (mvif->mt76.roc_phy &&
- 		    (info->flags & IEEE80211_TX_CTL_TX_OFFCHAN)) {
-@@ -1217,19 +1223,22 @@ static void mt7996_tx(struct ieee80211_hw *hw,
- 		}
- 	}
- 
--	if (control->sta) {
--		struct mt7996_sta_link *msta_link;
--
--		msta_link = (struct mt7996_sta_link *)control->sta->drv_priv;
--		wcid = &msta_link->wcid;
--	}
--
- 	if (!mphy) {
- 		ieee80211_free_txskb(hw, skb);
--		return;
-+		goto unlock;
- 	}
- 
-+	if (control->sta) {
-+		struct mt7996_sta *msta = (void *)control->sta->drv_priv;
-+		struct mt7996_sta_link *msta_link;
-+
-+		msta_link = rcu_dereference(msta->link[link_id]);
-+		if (msta_link)
-+			wcid = &msta_link->wcid;
-+	}
- 	mt76_tx(mphy, control->sta, wcid, skb);
-+unlock:
-+	rcu_read_unlock();
- }
- 
- static int mt7996_set_rts_threshold(struct ieee80211_hw *hw, u32 val)
+ drivers/firmware/arm_scmi/bus.c    | 75 ++++++++++++++++++++------------------
+ drivers/firmware/arm_scmi/driver.c |  8 +---
+ 2 files changed, 40 insertions(+), 43 deletions(-)
+---
+base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
+change-id: 20250312-b4-scmi_minor_cleanup-8f85228d435c
 
+Best regards,
 -- 
-2.48.1
+Regards,
+Sudeep
 
 
