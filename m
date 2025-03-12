@@ -4,67 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B54FDC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:36:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFCC8C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 16:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=SiPjyRQZijtI7gC35JHAyT5pmGOHlqQxl+VAgazHNJQ=; b=J1F9jO1A9pqbyeA4a8yLuH/Pj1
-	YPPMCMmnLsB8eWB2MmjNz7KImGB8zWFP5QOu0BOlUc4Aa5hYmvWULqgYOGtfgUqEqZaBnMVJPGkgh
-	F63HFKjli1CgKxhjTJpy6377K/T2pj5Ekk36JdEg/kQs/JY33Kg3gJ6Dhb8jY73+6D2Zg/So+AktZ
-	YXZjsNUXGnFnIw3iJFGy7Ltp/AU9YdQLlFcqMZgFWiLA/jbc376+CJLBzzPKxviHkOjeOM8oAwcmc
-	PkIIOCpAMGKbKW3OqyFLoygYuVrDao9CWs4CJINt8ma5r3UNQNnKGMjMj7PBwiw69NarU+Yaa4242
-	bBILfeNg==;
+	bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=; b=yNwqDLvpuG1mMjcfYK6qQqyLv4
+	BRDxS9XC97i/hy+JrMXmsD8m8MReReSsZWZjzUkysY8Jivx1nU+MjsbZKD+Z3ISZiKZk5PR/8EyZf
+	PCfIir6BJJzMiLGFHp6KuDd+WLzHoj8sdtP8xJHS0ZKQQpt6JT/c2mfHf6kpTDa7jyFQajO9bls3d
+	xjMKgYwaPNZCsKNjkMakE4UvLHGUgU0zsRPzI5zh13sjKYUegyfu+NK3G8h+7Pp8WNY61nl9uf9mO
+	EsPCizg/PzHdLHova2MFDXsIJD4XJ6EcBl8LDs6BzI1v+1ZKVS5m5WiXW4xd5NM9CgTx7wLNyu1+W
+	tsCN9Zjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsP45-000000092yy-2ePz;
-	Wed, 12 Mar 2025 16:36:17 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsPBc-000000093ZN-22qD;
+	Wed, 12 Mar 2025 16:44:04 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsP2Q-000000092gp-0wxv;
-	Wed, 12 Mar 2025 16:34:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id E604B5C5965;
-	Wed, 12 Mar 2025 16:32:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2FB91C4CEDD;
-	Wed, 12 Mar 2025 16:34:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741797273;
-	bh=TrqwpzyHwOhx55DeV4/s86mTsh9lYCPM7W7wIRkTwn4=;
-	h=From:To:Cc:Subject:Date:From;
-	b=d7XI3XO7Io7+7Mm0zhchHjlSOqTm3nhhUoH04TKNMo8T1HCNfrJUZ5cCJYN4HzEYE
-	 HWx5NnqhLcrwYnm2sDQGH+EiipCf32aZxyvKjDaG24V1uq5dULMG8+O+5j5UCvtobT
-	 0D5vxcFKvZQ2JpQGcDsWliX7YjpSftCqY7uTw/EA4ofYPj8hggDsJjtleuYb7UTQA6
-	 ZAWkshyeLFWBvpt7HbTlhikUDcIH/rhWD6U9jKQfi41OURjTx9xcCZwEFc6pXkApW0
-	 V/Wdpv5gngnM4MIot8Eyk+89MqTNkPs8MsloLQ0qiSQUMNq5MHiKlq07AfbrWrx/Nx
-	 sVoXYLx/7135g==
-Received: by wens.tw (Postfix, from userid 1000)
-	id 2512F5FC08; Thu, 13 Mar 2025 00:34:30 +0800 (CST)
-From: Chen-Yu Tsai <wens@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Heiko Stuebner <heiko@sntech.de>
-Cc: Chen-Yu Tsai <wens@csie.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	netdev@vger.kernel.org,
+	id 1tsP9x-000000093P7-0tXN;
+	Wed, 12 Mar 2025 16:42:22 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2240d930f13so108145ad.3;
+        Wed, 12 Mar 2025 09:42:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741797740; x=1742402540; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=;
+        b=ZJgUCrBDxeq7+mbOiwSqmtJGmJKXFUEORC5Qeh0/eL7SIY7FcJlxN83yOSWYhyoETe
+         qzXLiBIigMdAbxeo0imkYJS1FaXLwoW9Hqga0/wjTHRwm87PhSBXsUPyK30i5GvI2II4
+         at2ZZxcpNRvEYqnqSI72O/cV8Z7TzI6vpMOzHVe/9Uhej4iGOr3CXTb9W+WfD5lzb+Fx
+         FZ7Ywnlx05R+yEAh9zD5Rg/vuKmfluD7ohXdQg5ciRaWBWCC0hxg8hG44gmFQf4qYa38
+         FT+3OCeU+25q4W7m5ifnYHMOli76vXfgzwGKaDSogXUHcHqDDdNV+sDVJUy9QKxRXFdK
+         XRJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741797740; x=1742402540;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fDo1mOrvYsr1Wor/NfjNciCcvytoLzSX/OlLcDkL+Vk=;
+        b=CaEMR8TpXWhcnK7Qfo5G0czLKyfKGLA7irA3ik1YMWo92umTHjx6CfNmUj8F72qteg
+         F58bbXdkP92ch4N+8qSsIc8ZkvwlJ31amxr3JSHOFithxTrWuNoyTjwse1CIGbcwSF9m
+         6oRGlGVWzCeup9YE7Qkfz2QZ1emUMZlzm1qGimBbdBSdjPNsZ5ILJ37fkdS/KUwS1vjD
+         09fbzIKGrWZv9rEnhCmt66VmwcDV44YffBUKgKuKSaBAV8I0mD/J6mL+k67FiGkO3Syp
+         kQ1ry6jDE6Bbk0UYhn6fJpgzJ4u9fCBlM3px1sXdmbDGmlGcZKVtXj3WAXwRKcpNx0eH
+         6ifg==
+X-Forwarded-Encrypted: i=1; AJvYcCWmheNKtQuDSqypUlxI5+TZJluQCABORecq8MlI0BI6Fj3zeuEsKJg1VJKJc2eMblWD/vvzg53qzXFxw/NLh0Jl@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw6LJRqSZxEPYsEYHmouawfnrN2ZQq1yacusaOtv3m/MsjxHgoQ
+	MSTHI0QgQoD4bar2jlgxXiUPLl2Ik2sPKvIdjy1NDtdVlffuFjDxU8bio7DS
+X-Gm-Gg: ASbGnct6q9jqd4HH43/re2LTWvetKsNs9Ig7QReL1aqAgz1AWq0AIq2x8tE+QU5ztat
+	7bN7p0x7K3cMHCK9wpKQ0hY1NtCKI7hg6EMJjWi7fTengq9zXjaiH7OCV0EqMjyROAG/cFODANu
+	7IM/5y1CfiWRWjsFBWOoTkjvSloTwDA6sjpzIsoCY0wgnVy7zcWnLYzYSuhH+uZ8Uf8klk5QjfU
+	V4xT4AfXmGV4GuomNlh05A4d1Fb46KOnQjwEF4cO5F9qsM/RifrrzmlCsFk7xoJF8S9TKVRgUiP
+	aZIzIe6AhnNdIn8+LHtrfroOlHWj+NATS9VML4WfjiYUsw==
+X-Google-Smtp-Source: AGHT+IFm0JEzBi7UsabiIcrQjLIM22yD0b/DK/hkrICcjfxMd5Mxwm9emaajvbKq2S2Z2DtdbFKo3g==
+X-Received: by 2002:a17:902:eccc:b0:215:a96d:ec36 with SMTP id d9443c01a7336-2259326cb9bmr44059855ad.5.1741797739771;
+        Wed, 12 Mar 2025 09:42:19 -0700 (PDT)
+Received: from rock-5b.. ([45.32.55.39])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-af28126e281sm11574509a12.47.2025.03.12.09.41.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 09:42:19 -0700 (PDT)
+From: Jianfeng Liu <liujianfeng1994@gmail.com>
+To: linux-rockchip@lists.infradead.org
+Cc: Jianfeng Liu <liujianfeng1994@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Stephen Rothwell <sfr@canb.auug.org.au>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: [PATCH RESEND net-next v2] net: stmmac: dwmac-rk: Provide FIFO sizes for DWMAC 1000
-Date: Thu, 13 Mar 2025 00:34:26 +0800
-Message-Id: <20250312163426.2178314-1-wens@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] arm64: dts: rockchip: Enable HDMI audio output for ArmSoM Sige7
+Date: Thu, 13 Mar 2025 00:40:49 +0800
+Message-ID: <20250312164056.3998224-1-liujianfeng1994@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_093434_310657_FF3F8331 
-X-CRM114-Status: GOOD (  15.99  )
+X-CRM114-CacheID: sfid-20250312_094221_252884_8DD8F7FA 
+X-CRM114-Status: GOOD (  10.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,49 +100,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chen-Yu Tsai <wens@csie.org>
+HDMI audio is available on the ArmSoM Sige7 HDMI TX port.
+Enable it for HDMI0 port.
 
-The DWMAC 1000 DMA capabilities register does not provide actual
-FIFO sizes, nor does the driver really care. If they are not
-provided via some other means, the driver will work fine, only
-disallowing changing the MTU setting.
-
-Provide the FIFO sizes through the driver's platform data to enable
-MTU changes. The FIFO sizes are confirmed to be the same across RK3288,
-RK3328, RK3399 and PX30, based on their respective manuals. It is
-likely that Rockchip synthesized their DWMAC 1000 with the same
-parameters on all their chips that have it.
-
-Signed-off-by: Chen-Yu Tsai <wens@csie.org>
+Signed-off-by: Jianfeng Liu <liujianfeng1994@gmail.com>
 ---
-Resent with correct subject tag.
 
-Changes since v1:
-- Removed references to breakage from commit message as it is already fixed
-- Removed Cc stable and Fixes tags
-- Rebased onto latest -next
----
- drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-index 003fa5cf42c3..e57181ce5f84 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c
-@@ -1969,8 +1969,11 @@ static int rk_gmac_probe(struct platform_device *pdev)
- 	/* If the stmmac is not already selected as gmac4,
- 	 * then make sure we fallback to gmac.
- 	 */
--	if (!plat_dat->has_gmac4)
-+	if (!plat_dat->has_gmac4) {
- 		plat_dat->has_gmac = true;
-+		plat_dat->rx_fifo_size = 4096;
-+		plat_dat->tx_fifo_size = 2048;
-+	}
+diff --git a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
+index 6a0fffaa26ee..0ef8ea76b0a8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dts
+@@ -192,6 +192,10 @@ hdmi0_out_con: endpoint {
+ 	};
+ };
  
- 	plat_dat->set_clk_tx_rate = rk_set_clk_tx_rate;
++&hdmi0_sound {
++	status = "okay";
++};
++
+ &hdptxphy0 {
+ 	status = "okay";
+ };
+@@ -290,6 +294,10 @@ i2s0_8ch_p0_0: endpoint {
+ 	};
+ };
  
++&i2s5_8ch {
++	status = "okay";
++};
++
+ /* phy1 - right ethernet port */
+ &pcie2x1l0 {
+ 	reset-gpios = <&gpio4 RK_PA5 GPIO_ACTIVE_HIGH>;
 -- 
-2.39.5
+2.43.0
 
 
