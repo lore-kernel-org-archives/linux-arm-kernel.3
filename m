@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655CBC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:39:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BCCCC28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:44:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WOQcoLa0TeXfQqDpPcuJqNfnBVUBPwCoam5guNlX7xU=; b=fghwuRz5SRhKzx+FQTI28f8bLD
-	WHIJJ2Wqzlr+eSaL7av9is02ygIQ0XRuqKcXnXt0CtV9YhQY4VNI6kd2gt63MU4mcm0vSVNg+mGno
-	jhl5pv99RSJBLwXbDkhdm0t5hBgQyKQHMY9jX2FAv9rdWMflSIEL35b2Qscjct6yQxIi+k9jYOqqD
-	T5wrgJTUzgynW6BtVDqkGUTElKkpSltnVIn0M4l5mYNQHe/A2sN4Vserp5QdaBtBs1DoTxTyhudz1
-	I7AT8UtFOQcSxG8by9RQdh3p+3pIqaXoYwVVbbYoWpUeDSvTLmXzcl07LO3kC8MxdvZL6/b69AUQq
-	RKKiPgqQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GQ4IVqd5vthdWR02fI9OyUNtDn4aPkc2JVI2vLesiR0=; b=TGxVCYn353ZSSoAxLZtgTFTzg6
+	Y+NyzfGe2YeVEu+RlfuoaJcWAfiqgRFTloTpSR/npCTUDdzS5SCHT7pOTjDnIyHAF2gw8CBS1V6BP
+	abNGllNQeS1DKkt9fhcP6Fl0wg1e40+XjDySXJ0A3xjQZUVntNnCQKnNDl4VfalRrfNf6PLHeBa9G
+	9aZHHIVWi4CbdMg2yIWsgSdiEhCqRweXFVCpUlti6/duPUAAjhXLpTjZKRKivZXbdyqlM2cM+iRF3
+	uePGwvwCi+YZepstiDmM4o8OlkmDt86TDtFlNpQ/m5wAGMq7d8UzI8Xu7HB6xCm58sbB04otKQ2cE
+	S1Bas5mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJUs-0000000886H-0mNH;
-	Wed, 12 Mar 2025 10:39:34 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJQZ-000000087Vl-0cTG;
-	Wed, 12 Mar 2025 10:35:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741775704;
-	bh=DaNSPhjsIutc4H0j8tAHVR2G8WRt9pYokVOYxoyiDd4=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=I3s6/PP1ZINlZ2BzZTd6ikvg+HjxK/0CB+7Tkq4fcW8Nxi2shCqyNEfCLnqoXadQu
-	 GoymC5Ab9D6iB55hp3nnJr5CcIgg7/E9ka0CujN8hGtginUuphL6DUYZ4dza7WAOGb
-	 YUlTMMnAGGUkfoe/z3gMqf+ltnxSdvTKQfybiFEleeg2UgS4biTttuGi5i8iR0X4ar
-	 6tpgJ33Wev7vQ8Ol/unn9yTiCR4y7sC2AS+Ik4AkaAsqguRZO+WSeKClhLQTOfydZm
-	 lh+txk4jN1GMEpumdnN9TiRItQoED1A/VBwQnF2O6Hd/aoMCOuf7reWK/mEZR00/9M
-	 weOaSzZC8WAtQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 13D7B17E0B12;
-	Wed, 12 Mar 2025 11:35:04 +0100 (CET)
-Message-ID: <16a54f79-2c0c-49b5-82af-9538ef43abd5@collabora.com>
-Date: Wed, 12 Mar 2025 11:35:03 +0100
+	id 1tsJZf-000000088rw-0bBS;
+	Wed, 12 Mar 2025 10:44:31 +0000
+Received: from m16.mail.163.com ([117.135.210.4])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsJXz-000000088P8-3RjK;
+	Wed, 12 Mar 2025 10:42:50 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
+	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=GQ4IV
+	qd5vthdWR02fI9OyUNtDn4aPkc2JVI2vLesiR0=; b=ANNYtaSf1E+HNkgWNmblD
+	sN/JzKkrCvR/x+aj6ww/i3Es/DN7RQ33c/W02J+Feh1WVcAPveoFwZUAm9yrTL/3
+	ai9/3afvJwHLTKTVckkyRQetOicmV61u3k3/CBsfMw6xaBaF4sXEhvuVf/dO/tGP
+	ewJ/up5SIgy+cZyWz2jwto=
+Received: from ProDesk.. (unknown [])
+	by gzsmtp2 (Coremail) with SMTP id PSgvCgAHUvcHZdFnEN_+Kg--.14177S2;
+	Wed, 12 Mar 2025 18:42:19 +0800 (CST)
+From: Andy Yan <andyshrk@163.com>
+To: heiko@sntech.de
+Cc: hjc@rock-chips.com,
+	mripard@kernel.org,
+	cristian.ciocaltea@collabora.com,
+	neil.armstrong@linaro.org,
+	yubing.zhang@rock-chips.com,
+	krzk+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	lumag@kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	robh@kernel.org,
+	sebastian.reichel@collabora.com,
+	Andy Yan <andy.yan@rock-chips.com>
+Subject: [PATCH v2 0/7] Add support for RK3588 DisplayPort Controller
+Date: Wed, 12 Mar 2025 18:42:01 +0800
+Message-ID: <20250312104214.525242-1-andyshrk@163.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 1/2] dt-bindings: memory: mediatek: Add SMI reset and
- clamp for MT8188
-To: Friday Yang <friday.yang@mediatek.com>, Yong Wu <yong.wu@mediatek.com>,
- Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
- <matthias.bgg@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250311122327.20685-1-friday.yang@mediatek.com>
- <20250311122327.20685-2-friday.yang@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250311122327.20685-2-friday.yang@mediatek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: PSgvCgAHUvcHZdFnEN_+Kg--.14177S2
+X-Coremail-Antispam: 1Uf129KBjvJXoWxZrWUZrWfWry5CFW7Gr1rJFb_yoWrGryDpa
+	1jyry5try8uFW2qFs2k3WDCrZ3Z3ZFyrWrGwn7Ja42vFy2kFyUArna9FsxXr9rJFnrAFy2
+	krsxXryxGrW2qF7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07UWrWwUUUUU=
+X-Originating-IP: [58.22.7.114]
+X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbB0gsOXmfRXiailwABsz
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_033507_353103_A23F3C47 
-X-CRM114-Status: GOOD (  16.83  )
+X-CRM114-CacheID: sfid-20250312_034248_274125_57ADB60C 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,54 +82,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 11/03/25 13:23, Friday Yang ha scritto:
-> From: "Friday Yang" <friday.yang@mediatek.com>
-> 
-> On the MediaTek platform, some SMI LARBs are directly connected to
-> the SMI Common, while others are connected to the SMI Sub-Common,
-> which in turn is connected to the SMI Common. The hardware block
-> diagram can be described as follows.
-> 
->               SMI-Common(Smart Multimedia Interface Common)
->                   |
->           +----------------+------------------+
->           |                |                  |
->           |                |                  |
->           |                |                  |
->           |                |                  |
->           |                |                  |
->         larb0       SMI-Sub-Common0     SMI-Sub-Common1
->                     |      |     |      |             |
->                    larb1  larb2 larb3  larb7       larb9
-> 
-> For previous discussion on the direction of the code modifications,
-> please refer to:
-> https://lore.kernel.org/all/CAFGrd9qZhObQXvm2_abqaX83xMLqxjQETB2=wXpobDWU1CnvkA@mail.gmail.com/
-> https://lore.kernel.org/all/CAPDyKFpokXV2gJDgowbixTvOH_5VL3B5H8eyhP+KJ5Fasm2rFg@mail.gmail.com/
-> 
-> On the MediaTek MT8188 SoC platform, we encountered power-off failures
-> and SMI bus hang issues during camera stress tests. The issue arises
-> because bus glitches are sometimes produced when MTCMOS powers on or
-> off. While this is fairly normal, the software must handle these
-> glitches to avoid mistaking them for transaction signals. What's
-> more, this issue emerged only after the initial upstreaming of this
-> binding. Without these patches, the SMI becomes unstable during camera
-> stress tests.
-> 
-> The software solutions can be summarized as follows:
-> 
-> 1. Use CLAMP to disable the SMI sub-common port after turning off the
->     LARB CG and before turning off the LARB MTCMOS.
-> 2. Use CLAMP to disable/enable the SMI sub-common port.
-> 3. Implement an AXI reset for SMI LARBs.
-> 
-> This patch primarily add two changes:
-> 1. Add compatible for SMI sub-common on MT8188 SoC.
-> 2. Add 'resets' and 'reset-names' properties for SMI LARBs to
->     support SMI reset operations.
-> 
-> Signed-off-by: Friday Yang <friday.yang@mediatek.com>
+From: Andy Yan <andy.yan@rock-chips.com>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+
+There are two DW DPTX based DisplayPort Controller on rk3588 which
+are compliant with the DisplayPort Specification Version 1.4 with
+the following features:
+
+* DisplayPort 1.4a
+* Main Link: 1/2/4 lanes
+* Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+* AUX channel 1Mbps
+* Single Stream Transport(SST)
+* Multistream Transport (MST)
+* Type-C support (alternate mode)
+* HDCP 2.2, HDCP 1.3
+* Supports up to 8/10 bits per color component
+* Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+* Pixel clock up to 594MHz
+* I2S, SPDIF audio interface
+
+The current version of this patch series only supports basic display outputs.
+I conducted tests with DP0 in 1080p and 4K@60 YCbCr4:2:0 modes; the ALT/Type-C
+mode was tested on Rock 5B, DP1 was tested on Rock 5 ITX by Stephen and Piotr.
+HDCP and audio features remain unimplemented.
+For RK3588, it's only support SST, while in the upcoming RK3576, it can support
+MST output.
+
+This version still has unresolved issues highlighted by Dmitry during
+the last code review(I add TODO for them), specifically those depending
+on PHY/drm bridge framework changes. My plan is to tackle them sequentially.
+Let's make the driver itself to a usable and good shape first.
+
+Currently, there are three dependencies PATCH pending review, take care
+if there are someone want to here a try with this series[0][1][2]:
+
+[0]https://lore.kernel.org/linux-rockchip/20250302115257.188774-1-andyshrk@163.com/
+[1]https://lore.kernel.org/linux-rockchip/20250312064218.524143-1-andyshrk@163.com/T/#u
+[2]https://lore.kernel.org/linux-rockchip/20250312080041.524546-1-andyshrk@163.com/T/#u
+
+
+Changes in v2:
+- Link to V1: https://lore.kernel.org/linux-rockchip/20250223113036.74252-1-andyshrk@163.com/
+- Fix a character encoding issue
+- Fix compile error when build as module
+- Add phy init
+- Only use one dw_dp_link_train_set
+- inline dw_dp_phy_update_vs_emph
+- Use dp_sdp
+- Check return value of drm_modeset_lock
+- Merge code in atomic_pre_enable/mode_fixup to atomic_check
+- Return NULL if can't find a supported output format
+- Fix max_link_rate from plat_data
+- no include uapi path
+- switch to drmm_encoder_init
+- Sort in alphabetical order
+
+Andy Yan (7):
+  dt-bindings: display: rockchip: Add schema for RK3588 DPTX Controller
+  drm/bridge: synopsys: Add DW DPTX Controller support library
+  drm/rockchip: Add RK3588 DPTX output support
+  arm64: dts: rockchip: Add DP0 for rk3588
+  arm64: dts: rockchip: Add DP1 for rk3588
+  arm64: dts: rockchip: Enable DisplayPort for rk3588s Cool Pi 4B
+  arm64: dts: rockchip: Enable DP2HDMI for ROCK 5 ITX
+
+ .../display/rockchip/rockchip,dw-dp.yaml      |  150 ++
+ arch/arm64/boot/dts/rockchip/rk3588-base.dtsi |   30 +
+ .../arm64/boot/dts/rockchip/rk3588-extra.dtsi |   30 +
+ .../boot/dts/rockchip/rk3588-rock-5-itx.dts   |   37 +
+ .../boot/dts/rockchip/rk3588s-coolpi-4b.dts   |   37 +
+ drivers/gpu/drm/bridge/synopsys/Kconfig       |    7 +
+ drivers/gpu/drm/bridge/synopsys/Makefile      |    1 +
+ drivers/gpu/drm/bridge/synopsys/dw-dp.c       | 2106 +++++++++++++++++
+ drivers/gpu/drm/rockchip/Kconfig              |    7 +
+ drivers/gpu/drm/rockchip/Makefile             |    1 +
+ drivers/gpu/drm/rockchip/dw_dp-rockchip.c     |  154 ++
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.c   |    1 +
+ drivers/gpu/drm/rockchip/rockchip_drm_drv.h   |    1 +
+ include/drm/bridge/dw_dp.h                    |   19 +
+ 14 files changed, 2581 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/rockchip/rockchip,dw-dp.yaml
+ create mode 100644 drivers/gpu/drm/bridge/synopsys/dw-dp.c
+ create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+ create mode 100644 include/drm/bridge/dw_dp.h
+
+-- 
+2.34.1
 
 
