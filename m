@@ -4,88 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDA24C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:28:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DF543C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:30:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9UdPvnPkDYszULhre/XOAdt2THz5zT2TlDbP/t1A4yE=; b=LnZzK9C1ggsmzYvlhV+sI8K4uN
-	Vk4PBhALmXJZLiL2hAlaXSnzEB4ZZ/ps6Nzpf4PKlywYoaLpbuPlrFzx6Dr5an8msFpEeaK1UJKgj
-	ixKZLzhE6/LJcNCcvhKkesJ9VxYePhITFFiQPpUwM2XWiRmuUSTLqkboOdEJjuFg/Q5IA3jnZVTBC
-	c+rJmMHqAP+i4SpUS7VzhTFBxy+YuXxnz8j037XuUwYaN4+oUmVOO3MLvdjGxbActpoGNhczKuCqL
-	my8oeEcmLdJopAElOIi7xU+9s4DBz05ADe2t7Cnb1q8Tbs+4hF3KwGzIRINe4yFj/7doTS5jb93JE
-	ZS9bP4sw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/9uocZIZisIjThKD+9nTSHQVi9teok8ybwPCt46AxsY=; b=1muE8IwTF2sUtAZrjqG9uoW4Ff
+	f1MvKuxfqrfRlrmN+pgrPVHY6TXaKNvB0TJPDb0iebzQMBG/s1IWEaA15RV2MUofu7DiDHd77WdXx
+	3J6j7fvUTKl33B2WO/lFAVqZWF8jlVPq+lD6S7tsGn8FWLVB5d4vduw3s0BVrSdHu9DDIG01g0Nc2
+	yo9sd8YZUky5UJ907ebktVQoRm2INUn2CB1H7vriVOrBdp+dCRkQ389q4LlP6BY17fBI4J7ggjkkW
+	wAdjTw3Cnl5AP8S4fj6sNeWcbqWqyAeGEZ8YD7H3FDn6fZ3GUU+iTtgbL4e46Iz51klywWXbswwEY
+	ty86jx1g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLCA-00000008Oyx-3546;
-	Wed, 12 Mar 2025 12:28:22 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1tsLDm-00000008PCY-1e85;
+	Wed, 12 Mar 2025 12:30:02 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKIy-00000008GpM-2pEC
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:31:21 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-72a1253a3c1so1938079a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:31:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741779078; x=1742383878; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9UdPvnPkDYszULhre/XOAdt2THz5zT2TlDbP/t1A4yE=;
-        b=F0UmHF3nXQOufU/ZalbT4zlV+mv2ggDPmK8PtHtlr5+XgUEh9hJajGWQZXjCMy9ftg
-         kgq3q5b40aSpE7p424ZKpMvwt5ofdfCUvrolHiM7p+Ftc9pVVTXkRj8wCyVzPJzGMOKG
-         YU77dlt4/KPu4A+rFGD96h2QTBrWR7CwyIhWnBltU/ywyA2jgkxOpujjMJrpKb+YllEy
-         MbSJUypC/N7hLw+nDnaMZs1WnWweUt9N9joQUS7/SStAvMUxTpqAEFVQ6zJembBSqjkP
-         5m2+9WOB3bpHrWAvJGYvacLHbPivYe/coN/vF0waiQoANQ6V9/7+4SnkyW5Ln6lC3V7z
-         1A+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741779078; x=1742383878;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=9UdPvnPkDYszULhre/XOAdt2THz5zT2TlDbP/t1A4yE=;
-        b=rXLryznMz2UJACytnYKCs7Mu6PYViZoSs5zaAlAMWTTwm5NKXqt5QLhvu0sDRs0HZ7
-         KkaqDAnHKc0Yxox/OYr28CRslTaQUQYjAi3Q3JXHLM1atoM6FeVXYA2OWMJvll/ihgXv
-         PWNh8Rjk+nxR6NIjuz+MbeBcJkYiqx6gfoH3OfhXpL4rQb/BtZGvMMKls1jrY+NQ8oKe
-         WA2rvv1QP5iF0+dU7qursCGEk0TFKxojUadpxuxejwt4j9cuL0kv+enpPg9M2DRjoufI
-         TvZlBjzdQg0bupcLTS8+OOXuyB+pXVcPT8r9J80+RIk+IZzivoLRLYJNthlY5SjzbWMa
-         mXOg==
-X-Forwarded-Encrypted: i=1; AJvYcCXSoYnMG0h9r26QIFnwtbZIfMqd+lcE4hkF5/arkKtPmcSBERyIeOza9j+Sp4lFJyb8oh7yReJILMVuhUSr6iqY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzo4jMQsoDnAW4hBneoKRnzGOu0GiSfbwdvMu6V7mDOSmJXYDBp
-	3kloMyzYPX8nm3UP1ivZOG9ni/uNMXkl5Y4z2NkjrbksScpp46sh2PwxLUk5Yeu8il2cDPzQR7w
-	Wq75Lpn9GKgRIFe2VfHNq8DQgCfrfOeEocXAxbg==
-X-Gm-Gg: ASbGncubq15AVCgyXDHzuA+vk2wLSulqx8a11KKUUECwlZCg8SKF5CLeUDl1fvwhzOR
-	hCwUuOFOjHE7AzPRHyrSWl7SpaZy6ONia/qS9mp2iILxRcdqsQpeG6ar4pYdWhaCD/cyer2WkVc
-	a2y4U3a9LSRrrICqPyAIF5f3shDWtF
-X-Google-Smtp-Source: AGHT+IHpN3V115z284qmxaOdgGA4PwV3v/6Lpfa9pDfmxTKlcBbQ43+xR982OzrJIgzm+w3NL49THbQiezCdr3Q3kYQ=
-X-Received: by 2002:a05:6830:91f:b0:727:2f79:ce33 with SMTP id
- 46e09a7af769-72a37c6a7damr12652067a34.28.1741779078312; Wed, 12 Mar 2025
- 04:31:18 -0700 (PDT)
+	id 1tsKJf-00000008Gza-0WQv;
+	Wed, 12 Mar 2025 11:32:04 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 47641A470A0;
+	Wed, 12 Mar 2025 11:26:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 89F34C4CEE3;
+	Wed, 12 Mar 2025 11:32:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741779121;
+	bh=D3v3yytTbbs+yU51Jxf4nyG7ShAl3dX1uUoabj+U+LA=;
+	h=From:Date:Subject:To:Cc:From;
+	b=pWUzYEGUh06oatgmiAHIbECuuVV8fofSwQuEE5jcXGXrJpLJHSEBJpaHIVDxy388N
+	 jKLyXp6Lw0GEa8Bt1mHslL8URNFZaKgRN3jOJHhICti1E5fJIwbudHwz0ObRG1168R
+	 MhAd1CjRBHysqKuIH1WTuy6qW6tbhjZp8yBV6luJo6pFN5wdhBdW+Pvllgt5hUoGXc
+	 givGYgwjMXNaoSAr5Jel3BNiRiHE6TKeJaQTyB+bSrt8OvEcE4ZiwFMAWIpqpMYvw8
+	 PCNihgu0K4ZLuX8H/NAPjHc0cF2RPOtH9Vp4gCzFtQsCHfgL6gkAJMY2EfGPJERQhW
+	 9Um8UFrXMlEFw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 12 Mar 2025 12:31:46 +0100
+Subject: [PATCH net-next] net: airoha: Validate egress gdm port in
+ airoha_ppe_foe_entry_prepare()
 MIME-Version: 1.0
-References: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
- <20250307-pinctrl-fltcon-suspend-v4-3-2d775e486036@linaro.org> <59a1a6eb-d719-49bd-a4b5-bfb9c2817f08@kernel.org>
-In-Reply-To: <59a1a6eb-d719-49bd-a4b5-bfb9c2817f08@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 12 Mar 2025 11:31:07 +0000
-X-Gm-Features: AQ5f1Jq8qDRuo8RWVbqyC-4s6dvJ3zqh5v94onY3xAq0EKJNYhbmQXeDH_scC5U
-Message-ID: <CADrjBPqYoHckqr43y1z8UtthZ9DOG15TJWSv_707Jbyf1yforw@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] pinctrl: samsung: add gs101 specific eint
- suspend/resume callbacks
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, andre.draszik@linaro.org, 
-	tudor.ambarus@linaro.org, willmcvicker@google.com, semen.protsenko@linaro.org, 
-	kernel-team@android.com, jaewon02.kim@samsung.com, stable@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAKFw0WcC/x3MQQqDMBBA0avIrDuQpCYLryIupnWiAyGRidWCe
+ PeGLt9f/Asqq3CFobtA+ZAqJTfYRwfvlfLCKHMzOOO8eVqHJFpWwpjKudMrMeZPSrjtilG+SH3
+ wYbbO94GgPTbllv//cbrvH5foQ61vAAAA
+X-Change-ID: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_043120_722772_988A0868 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20250312_043203_306172_DC4557AE 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,96 +77,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+The system occasionally crashes dereferencing a NULL pointer when it is
+forwarding constant, high load bidirectional traffic.
 
-Thanks for the review feedback.
+[ 2149.913414] Unable to handle kernel read from unreadable memory at virtual address 0000000000000000
+[ 2149.925812] Mem abort info:
+[ 2149.928713]   ESR = 0x0000000096000005
+[ 2149.932762]   EC = 0x25: DABT (current EL), IL = 32 bits
+[ 2149.938429]   SET = 0, FnV = 0
+[ 2149.941814]   EA = 0, S1PTW = 0
+[ 2149.945187]   FSC = 0x05: level 1 translation fault
+[ 2149.950348] Data abort info:
+[ 2149.953472]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+[ 2149.959243]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[ 2149.964593]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[ 2149.970243] user pgtable: 4k pages, 39-bit VAs, pgdp=000000008b507000
+[ 2149.977068] [0000000000000000] pgd=0000000000000000, p4d=0000000000000000, pud=0000000000000000
+[ 2149.986062] Internal error: Oops: 0000000096000005 [#1] SMP
+[ 2150.082282]  arht_wrapper(O) i2c_core arht_hook(O) crc32_generic
+[ 2150.177623] CPU: 0 PID: 38 Comm: kworker/u9:1 Tainted: G           O       6.6.73 #0
+[ 2150.185362] Hardware name: Airoha AN7581 Evaluation Board (DT)
+[ 2150.191189] Workqueue: nf_ft_offload_add nf_flow_rule_route_ipv6 [nf_flow_table]
+[ 2150.198653] pstate: 00400005 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[ 2150.205615] pc : airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
+[ 2150.211882] lr : airoha_ppe_flow_offload_replace.isra.0+0x6cc/0xc54
+[ 2150.218149] sp : ffffffc080e8ba10
+[ 2150.221456] x29: ffffffc080e8bae0 x28: ffffff80080b0000 x27: 0000000000000000
+[ 2150.228591] x26: ffffff8001c70020 x25: 0000000000000002 x24: 0000000000000000
+[ 2150.235727] x23: 0000000061000000 x22: 00000000ffffffed x21: ffffffc080e8bbb0
+[ 2150.242862] x20: ffffff8001c70000 x19: 0000000000000008 x18: 0000000000000000
+[ 2150.249998] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[ 2150.257133] x14: 0000000000000001 x13: 0000000000000008 x12: 0101010101010101
+[ 2150.264268] x11: 7f7f7f7f7f7f7f7f x10: 0000000000000041 x9 : 0000000000000000
+[ 2150.271404] x8 : ffffffc080e8bad8 x7 : 0000000000000000 x6 : 0000000000000015
+[ 2150.278540] x5 : ffffffc080e8ba4e x4 : 0000000000000004 x3 : 0000000000000000
+[ 2150.285675] x2 : 0000000000000008 x1 : 00000000080b0000 x0 : 0000000000000000
+[ 2150.292811] Call trace:
+[ 2150.295250]  airoha_ppe_flow_offload_replace.isra.0+0x6dc/0xc54
+[ 2150.301171]  airoha_ppe_setup_tc_block_cb+0x7c/0x8b4
+[ 2150.306135]  nf_flow_offload_ip_hook+0x710/0x874 [nf_flow_table]
+[ 2150.312168]  nf_flow_rule_route_ipv6+0x53c/0x580 [nf_flow_table]
+[ 2150.318200]  process_one_work+0x178/0x2f0
+[ 2150.322211]  worker_thread+0x2e4/0x4cc
+[ 2150.325953]  kthread+0xd8/0xdc
+[ 2150.329008]  ret_from_fork+0x10/0x20
+[ 2150.332589] Code: b9007bf7 b4001e9c f9448380 b9491381 (f9400000)
+[ 2150.338681] ---[ end trace 0000000000000000 ]---
+[ 2150.343298] Kernel panic - not syncing: Oops: Fatal exception
+[ 2150.349035] SMP: stopping secondary CPUs
+[ 2150.352954] Kernel Offset: disabled
+[ 2150.356438] CPU features: 0x0,00000000,00000000,1000400b
+[ 2150.361743] Memory Limit: none
 
-On Tue, 11 Mar 2025 at 19:36, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 07/03/2025 11:29, Peter Griffin wrote:
-> > gs101 differs to other SoCs in that fltcon1 register doesn't
-> > always exist. Additionally the offset of fltcon0 is not fixed
-> > and needs to use the newly added eint_fltcon_offset variable.
-> >
-> > Fixes: 4a8be01a1a7a ("pinctrl: samsung: Add gs101 SoC pinctrl configura=
-tion")
-> > Cc: stable@vger.kernel.org
->
-> It looks this depends on previous commit, right?
+Fix the issue validating egress gdm port in airoha_ppe_foe_entry_prepare
+routine.
 
-Yes that's right, it depends on the refactoring in the previous patch.
-To fix the bug (which is an Serror on suspend for gs101), we need the
-dedicated gs101 callback so it can have the knowledge that fltcon1
-doesn't always exist and it's varying offset.
+Fixes: 00a7678310fe ("net: airoha: Introduce flowtable offload support")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/airoha/airoha_eth.c | 16 ++++++++++++++++
+ drivers/net/ethernet/airoha/airoha_eth.h |  3 +++
+ drivers/net/ethernet/airoha/airoha_ppe.c | 10 ++++++++--
+ 3 files changed, 27 insertions(+), 2 deletions(-)
 
-> That's really not
-> optimal, although I understand that if you re-order patches this code
-> would be soon changed, just like you changed other suspend/resume
-> callbacks in patch #2?
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+index c0a642568ac115ea9df6fbaf7133627a4405a36c..776222595b84e4fba6ae5943420e0edf0d0ecf8f 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.c
++++ b/drivers/net/ethernet/airoha/airoha_eth.c
+@@ -2454,6 +2454,22 @@ static void airoha_metadata_dst_free(struct airoha_gdm_port *port)
+ 	}
+ }
+ 
++int airoha_is_valid_gdm_port(struct airoha_eth *eth,
++			     struct airoha_gdm_port *port)
++{
++	int i;
++
++	for (i = 0; i < ARRAY_SIZE(eth->ports); i++) {
++		if (!eth->ports[i])
++			continue;
++
++		if (eth->ports[i] == port)
++			return 0;
++	}
++
++	return -EINVAL;
++}
++
+ static int airoha_alloc_gdm_port(struct airoha_eth *eth,
+ 				 struct device_node *np, int index)
+ {
+diff --git a/drivers/net/ethernet/airoha/airoha_eth.h b/drivers/net/ethernet/airoha/airoha_eth.h
+index f66b9b736b9447b31afc036eb906d0a1c617e132..c7d4f124d11481cd31c1566936cd47e3446877c0 100644
+--- a/drivers/net/ethernet/airoha/airoha_eth.h
++++ b/drivers/net/ethernet/airoha/airoha_eth.h
+@@ -532,6 +532,9 @@ u32 airoha_rmw(void __iomem *base, u32 offset, u32 mask, u32 val);
+ #define airoha_qdma_clear(qdma, offset, val)			\
+ 	airoha_rmw((qdma)->regs, (offset), (val), 0)
+ 
++int airoha_is_valid_gdm_port(struct airoha_eth *eth,
++			     struct airoha_gdm_port *port);
++
+ void airoha_ppe_check_skb(struct airoha_ppe *ppe, u16 hash);
+ int airoha_ppe_setup_tc_block_cb(enum tc_setup_type type, void *type_data,
+ 				 void *cb_priv);
+diff --git a/drivers/net/ethernet/airoha/airoha_ppe.c b/drivers/net/ethernet/airoha/airoha_ppe.c
+index 8b55e871352d359fa692c253d3f3315c619472b3..65833e2058194a64569eafec08b80df8190bba6c 100644
+--- a/drivers/net/ethernet/airoha/airoha_ppe.c
++++ b/drivers/net/ethernet/airoha/airoha_ppe.c
+@@ -197,7 +197,8 @@ static int airoha_get_dsa_port(struct net_device **dev)
+ #endif
+ }
+ 
+-static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
++static int airoha_ppe_foe_entry_prepare(struct airoha_eth *eth,
++					struct airoha_foe_entry *hwe,
+ 					struct net_device *dev, int type,
+ 					struct airoha_flow_data *data,
+ 					int l4proto)
+@@ -224,6 +225,11 @@ static int airoha_ppe_foe_entry_prepare(struct airoha_foe_entry *hwe,
+ 	if (dev) {
+ 		struct airoha_gdm_port *port = netdev_priv(dev);
+ 		u8 pse_port;
++		int err;
++
++		err = airoha_is_valid_gdm_port(eth, port);
++		if (err)
++			return err;
+ 
+ 		if (dsa_port >= 0)
+ 			pse_port = port->id == 4 ? FE_PSE_PORT_GDM4 : port->id;
+@@ -633,7 +639,7 @@ static int airoha_ppe_flow_offload_replace(struct airoha_gdm_port *port,
+ 	    !is_valid_ether_addr(data.eth.h_dest))
+ 		return -EINVAL;
+ 
+-	err = airoha_ppe_foe_entry_prepare(&hwe, odev, offload_type,
++	err = airoha_ppe_foe_entry_prepare(eth, &hwe, odev, offload_type,
+ 					   &data, l4proto);
+ 	if (err)
+ 		return err;
 
-Originally it was just one patch, but the previous review feedback was
-to split the refactor into a dedicated patch, and then add gs101
-specific parts separately. The refactoring was done primarily so we
-can fix this bug without affecting the other platforms, so I don't
-re-ordering the patches will help.
+---
+base-commit: 0ea09cbf8350b70ad44d67a1dcb379008a356034
+change-id: 20250312-airoha-flowtable-null-ptr-fix-a4656d12546a
 
-Thanks,
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
 
-Peter
->
->
-> > Reviewed-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
-> > ---
-> > Changes since v2:
-> > * make it clear exynos_set_wakeup(bank) is conditional on bank type (An=
-dre)
-> > * align style where the '+' is placed (Andre)
-> > * remove unnecessary braces (Andre)
-> > ---
->
-> ...
->
-> > +void gs101_pinctrl_suspend(struct samsung_pin_bank *bank)
-> > +{
-> > +     struct exynos_eint_gpio_save *save =3D bank->soc_priv;
-> > +     const void __iomem *regs =3D bank->eint_base;
-> > +
-> > +     if (bank->eint_type =3D=3D EINT_TYPE_GPIO) {
-> > +             save->eint_con =3D readl(regs + EXYNOS_GPIO_ECON_OFFSET
-> > +                                    + bank->eint_offset);
-> > +
-> > +             save->eint_fltcon0 =3D readl(regs + EXYNOS_GPIO_EFLTCON_O=
-FFSET
-> > +                                        + bank->eint_fltcon_offset);
-> > +
-> > +             /* fltcon1 register only exists for pins 4-7 */
-> > +             if (bank->nr_pins > 4)
-> > +                     save->eint_fltcon1 =3D readl(regs +
-> > +                                             EXYNOS_GPIO_EFLTCON_OFFSE=
-T
-> > +                                             + bank->eint_fltcon_offse=
-t + 4);
-> > +
-> > +             save->eint_mask =3D readl(regs + bank->irq_chip->eint_mas=
-k
-> > +                                     + bank->eint_offset);
-> > +
-> > +             pr_debug("%s: save     con %#010x\n",
-> > +                      bank->name, save->eint_con);
-> > +             pr_debug("%s: save fltcon0 %#010x\n",
-> > +                      bank->name, save->eint_fltcon0);
-> > +             if (bank->nr_pins > 4)
-> > +                     pr_debug("%s: save fltcon1 %#010x\n",
-> > +                              bank->name, save->eint_fltcon1);
-> > +             pr_debug("%s: save    mask %#010x\n",
-> > +                      bank->name, save->eint_mask);
-> > +     } else if (bank->eint_type =3D=3D EINT_TYPE_WKUP)
-> > +             exynos_set_wakeup(bank);
->
-> Missing {}. Run checkpatch --strict.
->
->
-> Best regards,
-> Krzysztof
 
