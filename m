@@ -4,99 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8F46C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 19:39:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F40F8C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 19:40:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-Id:Date
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lxcMHEKMN0k1o6vOkcWOO4z96etmbwK9XpxIauqtEzg=; b=fIDaNeol/SpNcWAZ74YIx2Yvx8
-	NQLm+7sm+UXXKnJ5oPf3GB4f0Kxq4wko6LJwIHx3AuLxIdVUwM4tnVZhXgJgdEv7R2YpeGQ03Axyv
-	fLvrCOUUYYXfmY9sRkjeZaU7Cvq89WoObixvIYej9j6LFP1Y8Q/KFVw9r/WnGaBjQUadcJQuMa+3S
-	7nIe+aMtJcVDzgDuhtnuzSRjbhk4geMPnkTG3BWapuRDq0hGUKdzKZR/bjsEpMLffD6YUtCmFMW3/
-	ZUJ2EJaAGXkJWHWEwH/gWUtFe4tWME0eZsgzf8pq08zKEHXdavA1QqyRLUTfgEwUJFARfurVH3+AF
-	+oCaHF/Q==;
+	bh=9G2KX65Ab+9QthP7hU+dGSKLgGHDZbANHAkXoqK6ZJ8=; b=NIGf/IuulzAP2zh4gjfGh0qlTx
+	qTaxv3LKI6oNAArCRN9TLkl+ajPNZF+evjxY2Tfe6GujwpTjZDTwYfjQ7BDkIuxcdSLP2EiU3d5xX
+	MQlKF+FLYHe3Rn9P28yJuBNI0qYwAG5nai/iTJCAi5KTyAZ/U60gVBMoPquFQLK9AXPndoFFlEWtp
+	75V8imt9ZCO38fJX6GoAvsXeIj0ajx5xr/Jhn9JR1zrsgxkdlC1E3wqykGvuWbbKUOT/jb8VF3qPs
+	1IvRoxhGrUrCloqJAha9an5XH65D1KxRrwpDiRwx/rH7PS5rAZo8indzzhM98+pLPzGYnK1QKdr3C
+	mjR4y38w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsRui-00000009LbV-0xqj;
-	Wed, 12 Mar 2025 19:38:48 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([85.215.255.50])
+	id 1tsRwK-00000009LuA-3kFx;
+	Wed, 12 Mar 2025 19:40:28 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsRt2-00000009LPz-1xNf
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 19:37:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741808199; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=bZTM+TpNLvX2TTB1x5D6nVm6z3UwFgMWiNrpQs3N9yxuoKqt+C2OsafUxoMUxcNvv+
-    6S7vy+rlJ4cLs9mgc9X2cKmG4MFPLfnemMypjdrmy1zzV0dtVo1KS0ggGdswLcV4dZjm
-    Pm/34Xw5+//hUhdMINtRAkHLoRcN6YS2mWbIxUo7IP3wnTYVYhAG1//WC5jFDGej76Ea
-    rE0Ti/CQDgYtgMDE5YOq/C9DPvBHfVrZEBG5nW65zRiNE7Qd5W7ioQQYBWFHU7ryqaPl
-    WhtGczY05021riCyXNXTJrlzEGb9x3bVGUl4XrwBQnb3yAh4zQF3LdG1CMMcUDtCVZga
-    h28A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1741808199;
-    s=strato-dkim-0002; d=strato.com;
-    h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=lxcMHEKMN0k1o6vOkcWOO4z96etmbwK9XpxIauqtEzg=;
-    b=P1GfOOwvi1B3JVUQyFFdHAYDNy9n41E4PEttx23NEaO9+OU3aA0HO+GrIxi9IF9cDP
-    OVkvp8Y59XpGnDMvgVEgdNtWeDIsO5rhQ+XuhG77rM5PQOcmJJS8OLFKVCbAU8eHdOkO
-    RaSASdQAyj2YcqwKb402KS3agLPFlgrO405H4Q59pZI6kwwUo4h42AsoewzIeKnXonLv
-    Cj8xCAXiCPsjJP12JdrHbyy3eRjBZRo2m/2dfnlDIxtr9eSyQWGWezGPMCvm1DcQF8wt
-    wskJYhnn2psGKiDRye0oCg/MqdmsGhaW+BU0NnTeWwMuJkK17EoXNlN84IPduhdOi/I0
-    1C4g==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1741808199;
-    s=strato-dkim-0002; d=fossekall.de;
-    h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=lxcMHEKMN0k1o6vOkcWOO4z96etmbwK9XpxIauqtEzg=;
-    b=gt7FamQ25ZzxZ9sFrcg90bxaAuhAk3yFKTmHvQpXB7PGw0AWpXTRaG+VsrWAqE4N8T
-    IiXeuHlnfLQ0pIakXdNHDK/Wlv3NNFhUlL07lSENxJFHEa16TTTIy7g4RYF55gAwOXyL
-    Wmkt0I0aWVFw7TuQP9wkE9w6oNSswAwRrufUefDM3RRA2c1oDP3nOotH0j+nYHNMhHGq
-    qFoXTJ/+gCMvpu5xoWqc76bEaNVryl0G8XX+X6y3zAzPmbTaUPCFj3TEEt/hlj2dUYqR
-    x3UXFdl2AhKHz96xTvLqhDPHrx8xQwUTBC0zy+hHkF9Ol4NFCKKgQi4tsWf3SXxq9HtN
-    Pmgw==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1741808199;
-    s=strato-dkim-0003; d=fossekall.de;
-    h=References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:Cc:Date:
-    From:Subject:Sender;
-    bh=lxcMHEKMN0k1o6vOkcWOO4z96etmbwK9XpxIauqtEzg=;
-    b=QXCgkYUdfs/CwX/mn9IEzU6DJkDIHTl1S+jLKvYoa9PAtq9eHaOt99/9NnnAVjfTVR
-    P1TuhcYisDn2Thgo0WAQ==
-X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
-Received: from aerfugl
-    by smtp.strato.de (RZmta 51.3.0 AUTH)
-    with ESMTPSA id f28b3512CJackg5
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Wed, 12 Mar 2025 20:36:38 +0100 (CET)
-Received: from koltrast.home ([192.168.1.27] helo=a98shuttle.de)
-	by aerfugl with smtp (Exim 4.96)
-	(envelope-from <michael@a98shuttle.de>)
-	id 1tsRsb-00058E-1Q;
-	Wed, 12 Mar 2025 20:36:37 +0100
-Received: (nullmailer pid 85457 invoked by uid 502);
-	Wed, 12 Mar 2025 19:36:37 -0000
-From: Michael Klein <michael@fossekall.de>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>
-Cc: Michael Klein <michael@fossekall.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: [PATCH 2/2] ARM: dts: bananapi: add support for PHY LEDs
-Date: Wed, 12 Mar 2025 20:36:28 +0100
-Message-Id: <20250312193629.85417-2-michael@fossekall.de>
-X-Mailer: git-send-email 2.39.5
-In-Reply-To: <20250312193629.85417-1-michael@fossekall.de>
-References: <20250312193629.85417-1-michael@fossekall.de>
+	id 1tsRua-00000009Lal-45DS;
+	Wed, 12 Mar 2025 19:38:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=9G2KX65Ab+9QthP7hU+dGSKLgGHDZbANHAkXoqK6ZJ8=; b=0w6DVHcP8Ff1NsM8gB7G2O7rSU
+	nQacEOXrojn9wRema8yOaO0egRFn0zuygBNIDCIswibMncUt/Ng/CbZMssdRIr0SUNRuaCzpzM29q
+	XeddB38hzG7sGIPAS8eRvmEe2nFPKCSKh+CZkRnxyCfEeyUnQGDdWBevdPv5EEQiJhvEIWMxqpWRN
+	E4mna9N2wg8wb9UFCaFND4cWatp12Cb8WBQYbPile+C6rOoG+m3IbpoQ7FZBxXIe97x0zpGZhUNnk
+	UrxT6va3aKF91llsyjHRTr6XNcOtEqmJH4spBOnz37Z2PfTSzzp38OZPb5XHW+9pUfJf7BRcCdlZj
+	eXLPSZVg==;
+Received: from p3ee2c254.dip0.t-ipconnect.de ([62.226.194.84] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tsRuS-0001ql-MV; Wed, 12 Mar 2025 20:38:32 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: Chukun Pan <amadeus@jmu.edu.cn>, Jonas Karlman <jonas@kwiboo.se>
+Cc: conor+dt@kernel.org, devicetree@vger.kernel.org, krzk+dt@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-pwm@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 0/2] arm64: dts: rockchip: Add pwm nodes for RK3528
+Date: Wed, 12 Mar 2025 20:38:31 +0100
+Message-ID: <7779050.EvYhyI6sBW@phil>
+In-Reply-To: <b7d8d385-81ee-4947-ab8f-1da43843464b@kwiboo.se>
+References: <a5ec9062-ca57-4748-8c0f-fb5b9c75fa28@kwiboo.se>
+ <20250312143515.1225171-1-amadeus@jmu.edu.cn>
+ <b7d8d385-81ee-4947-ab8f-1da43843464b@kwiboo.se>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_123704_642720_0B71D90D 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20250312_123841_031799_15EB0827 
+X-CRM114-Status: GOOD (  27.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,60 +74,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Bananapi M1 has three LEDs connected to the RTL8211E ethernet PHY.
-Add the corresponding nodes to the device tree.
+Am Mittwoch, 12. M=C3=A4rz 2025, 16:00:00 MEZ schrieb Jonas Karlman:
+> Hi Chukun,
+>=20
+> On 2025-03-12 15:35, Chukun Pan wrote:
+> > Hi,
+> >=20
+> >> The pinctrl-names should be changed to "default" and not "active",
+> >> something you can fixup or do you want a patch?
 
-Signed-off-by: Michael Klein <michael@fossekall.de>
----
- .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
- 1 file changed, 27 insertions(+)
+so yes of course the pinctrl needs to be default - simply because
+that's the only pinctrl state mainline supports.
 
-diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
-index 46ecf9db2324..4976453ed192 100644
---- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
-+++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
-@@ -48,6 +48,7 @@
- 
- #include <dt-bindings/gpio/gpio.h>
- #include <dt-bindings/interrupt-controller/irq.h>
-+#include <dt-bindings/leds/common.h>
- 
- / {
- 	model = "LeMaker Banana Pi";
-@@ -169,6 +170,32 @@ &ir0 {
- &gmac_mdio {
- 	phy1: ethernet-phy@1 {
- 		reg = <1>;
-+
-+		leds {
-+			#address-cells = <1>;
-+			#size-cells = <0>;
-+
-+			led@0 {
-+				reg = <0>;
-+				color = <LED_COLOR_ID_GREEN>;
-+				default-state = "keep";
-+				linux,default-trigger = "netdev";
-+			};
-+
-+			led@1 {
-+				reg = <1>;
-+				color = <LED_COLOR_ID_AMBER>;
-+				default-state = "keep";
-+				linux,default-trigger = "netdev";
-+			};
-+
-+			led@2 {
-+				reg = <2>;
-+				color = <LED_COLOR_ID_BLUE>;
-+				default-state = "keep";
-+				linux,default-trigger = "netdev";
-+			};
-+		};
- 	};
- };
- 
--- 
-2.39.5
+But judging by the fact that you're discussing working vs. non-working
+below, can you please check if we should drop the patch for 6.15 till
+that is solved?
+
+Thanks a lot
+Heiko
+
+> > Sorry I've been a bit busy this week and forgot to send the v2 patch.
+> > In rk3528.dtsi, the uart and upcoming i2c nodes do not have pinctrl,
+> > so I prefer to remove them.
+> >=20
+> >>> Unlike other SoCs, pinctrl-names need to be in "active" state,
+> >>> I'm not sure about this, but otherwise the pwm-regulator will
+> >>> not work properly.
+> >=20
+> > BTW, setting the pinctrl of pwm corresponding to pwm-regulator
+> > to "default" will cause kernel boot suspended.
+> > Sorry but do you know why?
+>=20
+> Not an issue I have seen, do you have any more logs or details? E.g.
+> what board you use, full regulator node, do you have operating points
+> defined etc.
+>=20
+> I have runtime tested a branch at [1], that use pinctrl-names =3D default,
+> have vdd_arm and vdd_logic defined, also an opp table for cpu and gpu.
+>=20
+> For E20C there is a commit to enable the vdd_logic, however without gpu
+> enabled and a mali-supply the pwm-regulator is initialized to
+> max-microvolt by Linux. Have instead updated U-Boot to initialize the
+> pwm-regulator's:
+>=20
+> ```
+> &vdd_arm {
+> 	regulator-init-microvolt =3D <953000>;
+> };
+>=20
+> &vdd_logic {
+> 	regulator-init-microvolt =3D <900000>;
+> };
+> ```
+>=20
+> [1] https://github.com/Kwiboo/linux-rockchip/commits/next-20250311-rk3528/
+>=20
+> Regards,
+> Jonas
+>=20
+> >=20
+> > e.g.
+> > ```
+> > vdd_arm: regulator-vdd-arm {
+> > 	compatible =3D "pwm-regulator";
+> > 	pwms =3D <&pwm1 0 5000 1>;
+> > 	...
+> > };
+> >=20
+> > &pwm1 {
+> > 	pinctrl-0 =3D <&pwm1m0_pins>;
+> > 	pinctrl-names =3D "default";
+> > 	status =3D "okay";
+> > };
+> > ```
+> >=20
+> > Thanks,
+> > Chukun
+> >=20
+> > --
+> > 2.25.1
+> >=20
+>=20
+>=20
+
+
+
 
 
