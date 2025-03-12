@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F75C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:07:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3D67C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 14:16:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ttdCheo2ggrWYc5AfXbMLW3x5iUmEU3SoinUwhJvb+4=; b=dZyXbsGQQEKJ2ezSbu6ptchC6R
-	U54EketQEl3IcRosMKiilZ/I/2MVJswU3TE6vP2bcvceP6pcBeJhTI2TYRxuFn7XQyNlrg5P7PKtu
-	IlfaB9o8O98dWgM8tZPxDbmRrljCuwiJiCMey7Zl/IBjHpEiqqwAo3PU5bAh//qqU9G7snDTsCnwo
-	hrVet1sb15Pp4gV9UaQfo427f0SFRZsEWhaLMqa9bktXaXCxzsQQ6bUuKpdluSAIF2xwqDXk2ixbh
-	KL0cymzR4/NPohlT1OfSqkjsQLG6wsPHJW01sOTPVQLaeZTN/CEIwgfTKHhebs0KRseB6PZvrpZuW
-	TBfDO6rQ==;
+	bh=ImBTaS60ReQfPO3xJ1M0jsrctwI6Qkx+rm26vovRU+c=; b=3R7Hnu/vr8ecNnDFd0Mq2QX+LO
+	Gv47O47EGwQ0ACBdGxopXi2aa8WG5Z1M0goxrwa0+4nVjrkfRC3gdFJ3SN6RNeooIkelE72dJ4+Ri
+	VJTz4O+DkU3P6XRB9FLCecgc1vp24rngnlvefHg+sX52umUbv+ZLDhwGnq7yaJJI763yyW7Bbsncf
+	7XWtTuecF+tGwqzroFh3s/QJFxt5jzjjd/CBldtpkiAD4rwqotwm5JtDEJkpxlSPH08k2+8dr6u6M
+	/6zdcoowXA58j1ClMFLP9KEcJ1Huw2N6FrCzXINmHmm17HHpEFIna/EwQh3H0VfJKDaZVo8CxXulG
+	IHKIJ3GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMjg-00000008ecI-2LsC;
-	Wed, 12 Mar 2025 14:07:04 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
+	id 1tsMsL-00000008fPt-3QO5;
+	Wed, 12 Mar 2025 14:16:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMi0-00000008eKo-05ah
+	id 1tsMqh-00000008fKb-1IsM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Mar 2025 14:14:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=ImBTaS60ReQfPO3xJ1M0jsrctwI6Qkx+rm26vovRU+c=; b=oXkszHwKj+xK0zqCwNFR8KaR35
+	3xZiGK0irrgGOvZC3A5jPqvgxRThU5Mbla0c1+uD5jG4KO8ib0duQayIwAit3jJ+//br/s42NvQUd
+	y2a+rHoRCjfOndfgELxSj4CzJ1ncXFOPGpveUK2WhqRlWxiVn95al4GpIrIZxv0y3ZcSuF0TALCzQ
+	TyMXhVHk0F9bnNZq+H2cF6UeZVPZFMp63knlGXe7DZAL8ShWNLbGBZ+XaTWDNW7oMcU59Ag4ZuIPj
+	RageH8g1REpFqWmzcnkD03esOiueZkVROE9SIsTVlh+j4Rwn4VfO1IQ9SHbC9tT7q8alp3oCwg0we
+	ZxCRlQZw==;
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsMqd-00000002PH0-46Rp
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 14:05:21 +0000
-Received: from pobox.suse.cz (unknown [10.100.2.14])
-	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id EAD6C2118E;
-	Wed, 12 Mar 2025 14:05:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1741788312; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ttdCheo2ggrWYc5AfXbMLW3x5iUmEU3SoinUwhJvb+4=;
-	b=zBCuePuxTdL15mtda27hxhA44U5PtfaieYwLwbODqm5KLJjEwAVScmfhtq2JVBOftJnocU
-	MSSM0I2AcrsGcrqUHua+ss9OdmT3+E8jW2deuazu+Bqm65uMhxXg8RgtK/JmRFSMx5hNCJ
-	nGJy4aN8hPYPOpxxFED8A6JYb5LoZG4=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1741788312;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ttdCheo2ggrWYc5AfXbMLW3x5iUmEU3SoinUwhJvb+4=;
-	b=vLPwFMwJwDhkQsUjgJlUKcs+MY+fb2GER5VC48PCCGFbiGeZl1fzkAwQhVuvLGkggeGpQC
-	ZBINYQH50ls20XBw==
-Authentication-Results: smtp-out1.suse.de;
-	none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.cz; s=susede2_rsa;
-	t=1741788306; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ttdCheo2ggrWYc5AfXbMLW3x5iUmEU3SoinUwhJvb+4=;
-	b=knxQnRBsUB0eEuotZGQwivI4oVYfb1WhrWBcZ9mbITiIUpQhVA8nRAYNRVxCSqg01Wx3LB
-	kwUfe6xwVcBsxntre6sMb3eCWF3doyrKDvmZWrBWaMyTFzsjTUggoBXDAYRl9goNqwd3MC
-	9m0FsBvoJPGanOey4HH1raatlPnRkWA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.cz;
-	s=susede2_ed25519; t=1741788306;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=ttdCheo2ggrWYc5AfXbMLW3x5iUmEU3SoinUwhJvb+4=;
-	b=G+RdLoCAe+HmkHrEpPsk7rA7GoPimKWfHbiC+29hoSniJwhP34hdGI8Yb8X8GhBkenF9fH
-	/a8Wofq2UY2qERBA==
-Date: Wed, 12 Mar 2025 15:05:07 +0100 (CET)
-From: Miroslav Benes <mbenes@suse.cz>
-To: Song Liu <song@kernel.org>
-cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-    linux-toolchains@vger.kernel.org, live-patching@vger.kernel.org, 
-    indu.bhagat@oracle.com, puranjay@kernel.org, wnliu@google.com, 
-    irogers@google.com, joe.lawrence@redhat.com, jpoimboe@kernel.org, 
-    mark.rutland@arm.com, peterz@infradead.org, roman.gushchin@linux.dev, 
-    rostedt@goodmis.org, will@kernel.org, kernel-team@meta.com, 
-    Suraj Jitindar Singh <surajjs@amazon.com>, Torsten Duwe <duwe@suse.de>
-Subject: Re: [PATCH 2/2] arm64: Implement HAVE_LIVEPATCH
-In-Reply-To: <20250308012742.3208215-3-song@kernel.org>
-Message-ID: <alpine.LSU.2.21.2503121503340.12980@pobox.suse.cz>
-References: <20250308012742.3208215-1-song@kernel.org> <20250308012742.3208215-3-song@kernel.org>
-User-Agent: Alpine 2.21 (LSU 202 2017-01-01)
+	Wed, 12 Mar 2025 14:14:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=ImBTaS60ReQfPO3xJ1M0jsrctwI6Qkx+rm26vovRU+c=; b=0KECc+VKF/xF+po574Br51EcqU
+	rKsuJR05I2Rib4V8sTHdibditYvhflqHuKJw4tEouph7q7HAJKy9fILY9hxuGU7PA+D0rivkI/XP+
+	NdokiTNjJmycXeI4eL0RRDT7SwwJnI0COOEWFlkNDVGrNY0jQfFemzimP6jHo6+3F3KrgVzBwGoum
+	z+nAzj/tKzLsfB/hSIdpgVtL0F9UcV3J8qBJoowxHqMAPJw7VyM0C91qrmcdU9Win9uHRagazBECG
+	Gc/e+AizK9xGM2cmFZMbdUJ5KpSYjYtUJNhgdQ9WYN1PExnUwuBixARrKAQff+sW3IpHfY0vS6Dhc
+	Ho0hgDRg==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:32982)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tsMqL-0005i4-2X;
+	Wed, 12 Mar 2025 14:13:57 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tsMqJ-0004bc-09;
+	Wed, 12 Mar 2025 14:13:55 +0000
+Date: Wed, 12 Mar 2025 14:13:54 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Suraj Gupta <suraj.gupta2@amd.com>, radhey.shyam.pandey@amd.com,
+	andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+	kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+	krzk+dt@kernel.org, conor+dt@kernel.org, michal.simek@amd.com,
+	netdev@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	git@amd.com, harini.katakam@amd.com
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Message-ID: <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
+ <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-X-Spamd-Result: default: False [-4.30 / 50.00];
-	BAYES_HAM(-3.00)[99.99%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	NEURAL_HAM_SHORT(-0.20)[-0.991];
-	MIME_GOOD(-0.10)[text/plain];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	ARC_NA(0.00)[];
-	DKIM_SIGNED(0.00)[suse.cz:s=susede2_rsa,suse.cz:s=susede2_ed25519];
-	RCPT_COUNT_TWELVE(0.00)[19];
-	MIME_TRACE(0.00)[0:+];
-	SEM_URIBL_UNKNOWN_FAIL(0.00)[suse.cz:server fail,test-kprobe.sh:server fail,suse.de:query timed out];
-	RCVD_COUNT_ZERO(0.00)[0];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	FROM_EQ_ENVFROM(0.00)[];
-	MID_RHS_MATCH_FROMTLD(0.00)[];
-	SEM_URIBL_FRESH15_UNKNOWN_FAIL(0.00)[test-kprobe.sh:server fail,suse.cz:query timed out];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.cz:email,suse.de:email]
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_070520_203892_7EE32EE2 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250312_141416_166410_BA014A46 
+X-CRM114-Status: GOOD (  18.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +101,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-On Fri, 7 Mar 2025, Song Liu wrote:
-
-> This is largely based on [1] by Suraj Jitindar Singh.
+On Wed, Mar 12, 2025 at 02:25:27PM +0100, Andrew Lunn wrote:
+> > +	/* AXI 1G/2.5G ethernet IP has following synthesis options:
+> > +	 * 1) SGMII/1000base-X only.
+> > +	 * 2) 2500base-X only.
+> > +	 * 3) Dynamically switching between (1) and (2), and is not
+> > +	 * implemented in driver.
+> > +	 */
+> > +
+> > +	if (axienet_ior(lp, XAE_ABILITY_OFFSET) & XAE_ABILITY_2_5G)
 > 
-> Test coverage:
+> How can we tell if the synthesis allows 3)?
 > 
-> - Passed manual tests with samples/livepatch.
-> - Passed all but test-kprobe.sh in selftests/livepatch.
->   test-kprobe.sh is expected to fail, because arm64 doesn't have
->   KPROBES_ON_FTRACE.
+> Don't we have a backwards compatibility issue here? Maybe there are
+> systems which have been synthesised with 3), but are currently limited
+> to 1) due to the driver. If you don't differentiate between 2 and 3,
+> such systems are going to swap to 2) and regress.
 
-Correct. The test should take into account and bail out.
+We've discussed this before... but because the author doesn't post
+regularly enough, it's not suprising that context keeps getting lost.
 
-> - Passed tests with kpatch-build [2]. (This version includes commits that
->   are not merged to upstream kpatch yet).
-> 
-> [1] https://lore.kernel.org/all/20210604235930.603-1-surajjs@amazon.com/
-> [2] https://github.com/liu-song-6/kpatch/tree/fb-6.13
-> Cc: Suraj Jitindar Singh <surajjs@amazon.com>
-> Cc: Torsten Duwe <duwe@suse.de>
-> Signed-off-by: Song Liu <song@kernel.org>
+Here's the discussion from 20th February 2025 on a patch series that I
+commented on on 19th November 2024.
 
-Acked-by: Miroslav Benes <mbenes@suse.cz>
+https://lore.kernel.org/r/BL3PR12MB6571FE73FA8D5AAB9FB4BB3CC9C42@BL3PR12MB6571.namprd12.prod.outlook.com
 
-Also as mentioned in the other thread, parts of this patch will go once 
-arm64 is converted to generic entry infrastructure.
+Suraj Gupta - you _must_ be more responsive so that reviewers can keep
+the context of previous discussions in their heads to avoid going over
+the same points time and time again. If you can't do that (and it's a
+good idea anyway) then you need to supplement the commit descriptions
+with the salient points from the previous patch series discussion to
+remind reviewers of the appropriate context.
 
-Thank you,
-Miroslav
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
