@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D40CDC28B30
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2E6C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:53:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=tgIv5uDPfYYFM3FHtkhTsZGkNT2/xL77irb2ZwO/EGI=; b=rrIsADxn2IEI1I
-	HUjKpdQw9QGX30JxUuY/sXwm1fViB6KjA+zVchm1ShmzhIDGciChmucMFSjYgxuGP/DGZn33uPRLt
-	FgdK26dXBLs2cR2O/lQAVvd//GHdWh2O1SvICr3B1ubTcg+668OSWCMgVrjGuCh5cmpFls9FBy7qt
-	VHW9L30guCZDBFUd46wWHiBnzYY9FcadcaJ+nY6mvsDrjNqYWNj00tKo9DpAMkwVOhF3zXTsCQoSx
-	yF1coW0nRqDF5Te19MhTf3FZMhcNcIROgxKvX0/jv72nyyZWvVsrTJ5n87lAZNFUL2yII4YfeO4Wi
-	/43JfVECWjJZcjm4D6gA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XVdb8TcZcGiLA11zLQgwOEi2kMI+zynrBhvgvBD5Jyg=; b=Wbn8VAPehrDatzTPGSX2t3HLbM
+	kD8oqwD/7mzp2sEgR6ajg95XZkEbFIFh8REd4WND+yR2QNSTaXDr8/jy5iOk2b/OMKhSwSJbopxAA
+	8s9wCKqJcO5Ll1A7OMHaPpqkCPrz3IVMBA4lPJP1E8mrMw04CDfqHwHiRkz5TnxuH3QBghdEYO1Hd
+	i1Nd/WBsVvPA0FFu5PZm24PH5MT8tkXBr0esHUwzrKo/Y7RGUTS1kAqiiukSH+m8G67IsqJFjvL1h
+	bH+94I4CCLUpxE3hVQY5++/jR48ixWXlhL0EziuGhZdAqBN0EJSvLLW3WPvGUULTWEzuQ7FQ9OOga
+	D23WHTlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKcR-00000008Jsm-3kQ5;
-	Wed, 12 Mar 2025 11:51:27 +0000
+	id 1tsKe4-00000008K7Z-2nCR;
+	Wed, 12 Mar 2025 11:53:08 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK37-00000008E5M-2Hwh
+	id 1tsK38-00000008E5a-0Akb
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:14:58 +0000
+	Wed, 12 Mar 2025 11:14:59 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A424F1516;
-	Wed, 12 Mar 2025 04:15:07 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 85F971595;
+	Wed, 12 Mar 2025 04:15:08 -0700 (PDT)
 Received: from e133711.arm.com (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5029C3F694;
-	Wed, 12 Mar 2025 04:14:56 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 340B03F694;
+	Wed, 12 Mar 2025 04:14:57 -0700 (PDT)
 From: Sudeep Holla <sudeep.holla@arm.com>
-Subject: [PATCH 0/3] firmware: arm_scmi: Minor cleanups in the scmi bus
- layer
-Date: Wed, 12 Mar 2025 11:14:31 +0000
-Message-Id: <20250312-b4-scmi_minor_cleanup-v1-0-51a514282794@arm.com>
+Date: Wed, 12 Mar 2025 11:14:32 +0000
+Subject: [PATCH 1/3] firmware: arm_scmi: Ensure scmi_devices are always
+ matched by name as well
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAJhs0WcC/x3MQQqAIBBA0avErBNySpCuEhGmUw2khlIE0d2Tl
- m/x/wOZElOGvnog0cWZYyiQdQV2M2Elwa4YsEHVtBLF3IlsPU+eQ0yT3cmE8xB60QpRu65VFkp
- 7JFr4/r/D+L4fuE+v1WcAAAA=
-X-Change-ID: 20250312-b4-scmi_minor_cleanup-8f85228d435c
+Message-Id: <20250312-b4-scmi_minor_cleanup-v1-1-51a514282794@arm.com>
+References: <20250312-b4-scmi_minor_cleanup-v1-0-51a514282794@arm.com>
+In-Reply-To: <20250312-b4-scmi_minor_cleanup-v1-0-51a514282794@arm.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: Sudeep Holla <sudeep.holla@arm.com>, 
  Cristian Marussi <cristian.marussi@arm.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1011; i=sudeep.holla@arm.com;
- h=from:subject:message-id; bh=VUNxvcijs9An1927oTqaVDUsqXThCsE8zDBbKNgPFgM=;
- b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBn0Wyv+r4TxXoykq7/MqdrURg1YjQ7n8aXimBFz
- ptftFiObS+JAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ9FsrwAKCRAAQbq8MX7i
- mBP1D/4572Ajb6FerMAMnnM3+eHT0g5YxZEa4FILIZVOq08RjCnl2SRahboEDrPyc9hjmKd3GIg
- Ou0+2xer7dM2L1o9cTFrIDr5MT5MyK1/Kn1AvPT345lHcVFf/U1doDEJLdlA03dpEl9uE7PXPBE
- EVSQ+0qIR4Mtgd6Li+mZC/KKjsTZd4RqZL7OFs3quZXGeqixWog5MFAA4DkP5XQhfK4qZR6HpNQ
- 5/le0qRDSwouE92rIZkjs/D3tz5Oi48P0DHsxqS+TxXS6Pynin194U/8CBGYRoRpjNHG+4VA8E3
- twVtgolf4uTrmPQiblXz9BOKNj34WgiRRFo5qXWXojFmdZmSRIxgGU3clL7mjnP8ThvYD0hVIoX
- 5QfK8HQ82tTIwwb0073koIySpHI8KrI2bwOcUwJ/geL5tZbfS2UNIKylRGOzJkvpzCstLP4n8Jy
- EtdpBA1uwH4VU+JKETUrbDRZkWcm3RaPoPceDya5DtUlfEtcl396EjB30ZFUrKfsl3oN6NGArQ3
- B7PYKb7zx55ZA2Wz3dXSMuM7HtAyX8p2yJGfLDa8FLNscYzem6G5nhragRsMrl8ktRXROUvQE1z
- 4RUEEVZQjDZE2WJPfk4fEy8SQE6h+1IFSVBljkblobRIfTLPFVvJ5FzPdlR28vhK3jsMHnD1h6X
- E/tpEEXPndoe0Zw==
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1346; i=sudeep.holla@arm.com;
+ h=from:subject:message-id; bh=WbYcwPFa1V2cCGxOBvupgDD2HrO3B51Gf6RHdYRG7bU=;
+ b=owEBbQKS/ZANAwAIAQBBurwxfuKYAcsmYgBn0Wyv9wb0h9iXqhIZTv5tNhA93oc9d4C+Qyual
+ VrPBlMHEcGJAjMEAAEIAB0WIQS6ceUSBvMeskPdk+EAQbq8MX7imAUCZ9FsrwAKCRAAQbq8MX7i
+ mJhGEADJ5Ql6CA2xG6ytPemPtMmfbYU7br1oH2T8bNMWSViSN0phE24IC8THl5GRuEINKhqV8TR
+ pHWqn63ir8oEC0+abPZpmHprTeobvAQXc+EcSBSgbzdAv3Xr74kyM+mxo1icEjBGLO5ou4N6Qhe
+ kki2mXbNI5fz4xpMNIGg59MbHST+8a4usqMaOUs7OD7MiGcVx/lq7v/PpfT8TCkm26D8rXM/XX2
+ Uo5zwx6Cf1cMN/Athniadl1/lnjUE4GSg8lCTF2meFCIzQh6Dbev2YH6F4DuiOfVYwN9OllPsX9
+ UW9M+ShhqbtDsjCkxSNRjvhk9jgiAAkx/ZFk+3xpjqEooH6vea58Txu8538MLOno242lnYtWVQD
+ ZEc5gH3s0mOoaSOieRoMZ2XlaDjRnm33UFwRHu/kC+EDjQLjL+HnFr6AHKTlQb89G7Y86nZkzLQ
+ meGBiZ1DodtyEcd0V1iPxzM9WEJdON1i8iy5xW9waai/q6PAB3XktvW2mwbCyN2hMnhh7++ggJU
+ 2KPbeKQNLKCNCWTQdUyo75GQEx5IK44GTKvqeK3UpnS5znRFDOdy1URc6jlPS3UH87ugfrU45mL
+ LGE4IW4WUKwfrUiBwrsdZnVFmuZmxPCNjjdrhLUQkvQSv3i6AZF8531t6XwvgOldH0q78oDKakC
+ CUjcr1w3mlZ3Frg==
 X-Developer-Key: i=sudeep.holla@arm.com; a=openpgp;
  fpr=7360A21742ADF5A11767C1C139CFD4755FE2D5B4
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_041457_632586_A2EA45F4 
-X-CRM114-Status: UNSURE (   5.21  )
+X-CRM114-CacheID: sfid-20250312_041458_123931_B04EAE72 
+X-CRM114-Status: UNSURE (   8.74  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,29 +81,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-These cleanup centralizes error logging for SCMI device creation into a
-single helper function, _scmi_device_create(), consolidates the device
-matching logic into a single function, and ensures that devices must
-have a name for registration, removing support for unnamed devices while
-matching the devices and drivers for probing.
+Currently, devices without a name in the id_table cannot register drivers,
+and no scmi_device is created without a name via scmi_device_create().
+However, the function __scmi_device_create() allows devices with no name,
+which are then labeled as "unknown."
+
+Removes support for matching scmi_device instances without a name,
+ensuring consistency across the driver registration and probing process.
 
 Signed-off-by: Sudeep Holla <sudeep.holla@arm.com>
 ---
-Sudeep Holla (3):
-      firmware: arm_scmi: Ensure scmi_devices are always matched by name as well
-      firmware: arm_scmi: Refactor device matching logic to eliminate duplication
-      firmware: arm_scmi: Refactor error logging from SCMI device creation to single helper
+ drivers/firmware/arm_scmi/bus.c | 11 ++++-------
+ 1 file changed, 4 insertions(+), 7 deletions(-)
 
- drivers/firmware/arm_scmi/bus.c    | 75 ++++++++++++++++++++------------------
- drivers/firmware/arm_scmi/driver.c |  8 +---
- 2 files changed, 40 insertions(+), 43 deletions(-)
----
-base-commit: 80e54e84911a923c40d7bee33a34c1b4be148d7a
-change-id: 20250312-b4-scmi_minor_cleanup-8f85228d435c
+diff --git a/drivers/firmware/arm_scmi/bus.c b/drivers/firmware/arm_scmi/bus.c
+index a3386bf36de508d312e2c4fa2e27ba62ba3776a0..050a5ff5dc96a7df58edff5faeb8c1ec6228b97d 100644
+--- a/drivers/firmware/arm_scmi/bus.c
++++ b/drivers/firmware/arm_scmi/bus.c
+@@ -214,13 +214,10 @@ scmi_dev_match_id(struct scmi_device *scmi_dev, const struct scmi_driver *scmi_d
+ 	if (!id)
+ 		return NULL;
+ 
+-	for (; id->protocol_id; id++)
+-		if (id->protocol_id == scmi_dev->protocol_id) {
+-			if (!id->name)
+-				return id;
+-			else if (!strcmp(id->name, scmi_dev->name))
+-				return id;
+-		}
++	for (; id->protocol_id && id->name; id++)
++		if (id->protocol_id == scmi_dev->protocol_id &&
++		    !strcmp(id->name, scmi_dev->name))
++			return id;
+ 
+ 	return NULL;
+ }
 
-Best regards,
 -- 
-Regards,
-Sudeep
+2.34.1
 
 
