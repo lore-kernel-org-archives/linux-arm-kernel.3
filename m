@@ -4,69 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22AB8C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:39:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27316C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 19:04:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:From:To:Cc:
-	Message-Id:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jK9L1dvLd5m9lPWVnJzTvy05KzJHfRiYwXisKwJCxs4=; b=Yn56zuD8FG/NnsOpusvizPpQN3
-	ZE0Uzg9O7NeDkDvjlNOJQhcCsjXoN1Mdz4UzEwLKgmCC9FBpSBNk38cZDxSwX4IOqHeHpPrjAYKXr
-	fqFH9fBZpiLhQ1CyjgPR/Ui68WAWEvg9iqJP4IzOx0eykcDa+7oim+BB8RqXsbvQjoGo6Lb4/bBIb
-	EQW0nNmLtyNd5X2IYWpaxcXbGaL71cMLyObSLREnIygEz+H1WL5cRt1YvXkFtQmYAZJtK7lZnK3Ol
-	KRR7cPKPX9HFQC6mfBQZMmIspmwcTCH8cG+FUwtQdPGJePAcAzDEqoFKqI3bXbXJIv3zJSsMrpeyj
-	nFyGbMGQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6yolepTUWycUYSP0NNLMuaVmz6Sw1ofQLTuAXR+lN7k=; b=ijp3HijzP4dovsDVlyhc9KAUDA
+	x3/+B9NM5fbolxt8qD7MkOfF+hFzJG+ZU/kgpjJNrBR0Vpv95FBv7GhBzaxQTBD3GVlodNE1oDgMg
+	EeUi4WoakEmLMDlHwJTvrlzjRSZ3bOQad9r5yhNvDsgScOF22XpnbTbhptdNYfOvR/LsAI5YGSJ0g
+	dzD6kEv8GhVC5UpgZMmRpKYEm05jNWHgwu5HAkqlg3YdcrTv6eOsQWZzylMJglb3J9676Pt0RTxSB
+	ZZvJhdnrZixvhdjL2pbcO5rqJiIF2Zcc8/4bbgnZDyUfcT64A7MV7jA6Vo6ydFx1U8ZKFnQXLBLEK
+	xu8/4L7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQza-00000009Gfv-3aKw;
-	Wed, 12 Mar 2025 18:39:46 +0000
-Received: from www522.your-server.de ([195.201.215.122])
+	id 1tsRND-00000009IWs-20hF;
+	Wed, 12 Mar 2025 19:04:11 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQwG-00000009GIY-2R76
+	id 1tsRLZ-00000009IN2-1i9W
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 18:36:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=folker-schwesinger.de; s=default2212; h=Subject:Date:From:To:Cc:Message-Id:
-	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References;
-	bh=jK9L1dvLd5m9lPWVnJzTvy05KzJHfRiYwXisKwJCxs4=; b=md0LVs6BQzj1X1zReYSbbEAf3F
-	694zkVxIQz469+06JS7no5VO9Xie9h5/g3wgUi4gYLzt0KypJIZQittYRkkEq+jVYHM2aVhUHNiu3
-	OkuY+7p+5XznH1qopCzq+h1N+1dbk4T0En1TYn90QGdVKxfOVOUl/h6HePMwJfQazJQqszB/Supj4
-	8dT3Y7sJ0iBeyooSjMT1f89XAsLNj1ymYmzRgDUUdapPUS4wPPNG2b8g1ibpcVgMCbhNVUH7XRfAU
-	M3rzoCFoTbYX67wwQkwb71cJUvknsIKAzjQDUE1BL2+dauRySCSdQeMG/7EVgY/BoU6uZM8TuaNZX
-	k9w1llZA==;
-Received: from sslproxy03.your-server.de ([88.198.220.132])
-	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96.2)
-	(envelope-from <dev@folker-schwesinger.de>)
-	id 1tsQw8-000IGP-0w;
-	Wed, 12 Mar 2025 19:36:12 +0100
-Received: from [185.209.196.170] (helo=localhost)
-	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <dev@folker-schwesinger.de>)
-	id 1tsQw8-000JzK-14;
-	Wed, 12 Mar 2025 19:36:11 +0100
-Message-Id: <D8EI6SI5E4PE.3GOBCNHV38K03@folker-schwesinger.de>
-Cc: "Kedareswara rao Appana" <appanad@xilinx.com>,
- <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-To: "Vinod Koul" <vkoul@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
- "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Manivannan Sadhasivam"
- <manivannan.sadhasivam@linaro.org>, "Krzysztof Kozlowski"
- <krzysztof.kozlowski@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
- <u.kleine-koenig@baylibre.com>, "Marek Vasut" <marex@denx.de>
-From: "Folker Schwesinger" <dev@folker-schwesinger.de>
-Date: Wed, 12 Mar 2025 19:36:09 +0100
-Subject: [PATCH 0/1] dmaengine: xilinx_dma: Set dma_device.directions
-X-Authenticated-Sender: dev@folker-schwesinger.de
-X-Virus-Scanned: Clear (ClamAV 1.0.7/27575/Wed Mar 12 09:37:42 2025)
+	Wed, 12 Mar 2025 19:02:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=6yolepTUWycUYSP0NNLMuaVmz6Sw1ofQLTuAXR+lN7k=; b=nOolVWXOwrwm+h38j0+1o0NTme
+	Vm2e2oT75glTXLaSsbcjFtGNrDxqQd/zSwatCVx1BTRKCZEehp2GexcuwjMiFozWB2Phvev30ThWa
+	qeIXkDD0+XN90q+HCVz3qKY2rarAsVjPHaMz1eNHCu1EJlCqatHjd+S3nJFn4BYrUbz4=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tsRLL-004kgf-JU; Wed, 12 Mar 2025 20:02:15 +0100
+Date: Wed, 12 Mar 2025 20:02:15 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: Russell King <linux@armlinux.org.uk>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Message-ID: <ce0796f4-cf2e-4a3d-ae79-1f9b9966773e@lunn.ch>
+References: <20250312095411.1392379-1-suraj.gupta2@amd.com>
+ <20250312095411.1392379-3-suraj.gupta2@amd.com>
+ <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
+ <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+ <BL3PR12MB6571795DA783FD05189AD74BC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+ <BL3PR12MB6571540090EE54AC9743E17EC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <fd686050-e794-4b2f-bfb8-3a0769abb506@lunn.ch>
+ <BL3PR12MB6571959081FC8DDC5D509560C9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BL3PR12MB6571959081FC8DDC5D509560C9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_113620_909434_75803630 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20250312_120229_445314_8F7723B0 
+X-CRM114-Status: GOOD (  25.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,30 +91,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Currently it is not possible to use the Xilinx DMA driver as a backend
-for IIO drivers. Setting up IIO DMA buffers with
-devm_iio_dmaengine_buffer_setup() fails because dma_get_slave_caps()
-always returns -ENXIO. The reason is that the Xilinx DMA driver does not
-set the directions field in struct dma_device, which is checked in
-dma_get_slave_caps().
+On Wed, Mar 12, 2025 at 04:08:02PM +0000, Gupta, Suraj wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
+> 
+> > -----Original Message-----
+> > From: Andrew Lunn <andrew@lunn.ch>
+> > Sent: Wednesday, March 12, 2025 9:03 PM
+> > To: Gupta, Suraj <Suraj.Gupta2@amd.com>
+> > Cc: Russell King <linux@armlinux.org.uk>; Pandey, Radhey Shyam
+> > <radhey.shyam.pandey@amd.com>; andrew+netdev@lunn.ch;
+> > davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> > pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > Simek, Michal <michal.simek@amd.com>; netdev@vger.kernel.org;
+> > devicetree@vger.kernel.org; linux-kernel@vger.kernel.org; linux-arm-
+> > kernel@lists.infradead.org; git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> > <harini.katakam@amd.com>
+> > Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X only
+> > configuration.
+> >
+> > Caution: This message originated from an External Source. Use proper caution
+> > when opening attachments, clicking links, or responding.
+> >
+> >
+> > On Wed, Mar 12, 2025 at 03:06:32PM +0000, Gupta, Suraj wrote:
+> > > [AMD Official Use Only - AMD Internal Distribution Only]
+> > >
+> > > > -----Original Message-----
+> > > > From: Andrew Lunn <andrew@lunn.ch>
+> > > > Sent: Wednesday, March 12, 2025 8:29 PM
+> > > > To: Gupta, Suraj <Suraj.Gupta2@amd.com>
+> > > > Cc: Russell King <linux@armlinux.org.uk>; Pandey, Radhey Shyam
+> > > > <radhey.shyam.pandey@amd.com>; andrew+netdev@lunn.ch;
+> > > > davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> > > > pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org;
+> > > > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> > > > netdev@vger.kernel.org; devicetree@vger.kernel.org;
+> > > > linux-kernel@vger.kernel.org; linux-arm- kernel@lists.infradead.org;
+> > > > git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> > > > <harini.katakam@amd.com>
+> > > > Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for
+> > > > 2500base-X only configuration.
+> > > >
+> > > > Caution: This message originated from an External Source. Use proper
+> > > > caution when opening attachments, clicking links, or responding.
+> > > >
+> > > >
+> > > > > > On Wed, Mar 12, 2025 at 02:25:27PM +0100, Andrew Lunn wrote:
+> > > > > > > > +   /* AXI 1G/2.5G ethernet IP has following synthesis options:
+> > > > > > > > +    * 1) SGMII/1000base-X only.
+> > > > > > > > +    * 2) 2500base-X only.
+> > > > > > > > +    * 3) Dynamically switching between (1) and (2), and is not
+> > > > > > > > +    * implemented in driver.
+> > > > > > > > +    */
+> > > >
+> > > > > - Keeping previous discussion short, identification of (3) depends
+> > > > > on how user implements switching logic in FPGA (external GT or RTL
+> > > > > logic). AXI 1G/2.5G IP provides only static speed selections and
+> > > > > there is no standard register to communicate that to software.
+> > > >
+> > > > So if anybody has synthesised it as 3) this change will break their system?
+> > > >
+> > > >         Andrew
+> > >
+> > > It will just restrict their system to (2)
+> >
+> > Where as before, it was doing SGMII/1000base-X only. So such systems break?
+> >
+> >         Andrew
+> 
 
-This patch fixes this issue. It basically is a partial resend of this
-patch [1], modified to apply on dmaengine->next. It was discussed back
-in 2018 in this thread [2].
-As I'm quite new to the kernel dev process, I'm not sure if I should
-have included any tags to give credit to the original patch author.
+> If the user wants (3), they need to add their custom FPGA logic
+> which anyway will require additional driver changes. (3) was not
+> completely supported by existing driver.
 
-[1]: https://patchwork.kernel.org/project/linux-dmaengine/patch/1514961731-1916-2-git-send-email-appanad@xilinx.com/
-[2]: https://lore.kernel.org/lkml/20180111062111.GH18649@localhost/T/
+You say 3) is a synthesis option. Say somebody synthesised it that
+way, and found it works for what they need with SGMII/1000base-X.
+Because the driver took no notice of the capability bit, that is what
+it would do. Since it worked for them, they might not of gone back and
+optimised the options. "If it is not broken, don't fix it". So we
+could have systems out in the wild, synthesised as 3) happily doing 
+SGMII/1000base-X ?
 
-Folker Schwesinger (1):
-  dmaengine: xilinx_dma: Set dma_device.directions
+With this change, won't you break those systems?
 
- drivers/dma/xilinx/xilinx_dma.c | 2 ++
- 1 file changed, 2 insertions(+)
+I'm just trying to get to a definitive answer, is this change actually
+safe to all todays possible systems?
 
+	Andrew
 
-base-commit: 6565439894570a07b00dba0b739729fe6b56fba4
--- 
-2.48.1
 
