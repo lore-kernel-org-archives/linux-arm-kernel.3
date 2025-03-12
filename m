@@ -4,68 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 898FAC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:59:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE6A1C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:01:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p1sMzDBP5vuN2BAfvXEAvEWElSEvZrTJL7A1Fg+i1ek=; b=k+QZqXabPCNt/kBEM67Jgpjk/E
-	+YKhbX7PrUSn8Re8ojvyXjz/85mX6hrzKRqozdb4oTb1ZP2AoGkeSlPi9zRKSls7cdnwZ0EMgxkjd
-	KAQPAUsivulcRjIxHbwHjLCK9lPcldIHEQhD+sq/DdY+01lVgHIMbqCV0hVBS3XRGIw61bgTiH9cx
-	6oTu/rpSiSXqA3j3vDFXukvsf2CHb+6OgHxQNBCDZLrxlZyQq5GIwlFRM3dzGkOjEsDXERV16dSsl
-	Xhc9iCqk61ouZmfve5Cfk9AEJK7Dof8rGUB3HlWc09CG+hOYXkYOuwiMCYsO46aWwMff2mQN22CFM
-	MeU5qhmw==;
+	bh=jq9hWTh28AULQZLwRWR4IEZNtznQ77t9F1aproSHTVY=; b=v8UcAuqQVCp62rG3Us1n+y3xGj
+	WWbjMorBck4RAVrCGEjGwkS6MjVaAwtevnCM9pZ8x7sSMEd08WuNaAXXhorXkuJ/Nn0eXoaAs/HMU
+	5f9WH/4lv+2tVtq+oicwLIX9prcG6A+UI2RzrzhVRnjF1qozzPiypmolFUlbNv1w9bGpiPVB9EzFy
+	y9q3G1FFnbzTuQRQPfsxDA/87vg1eqVXjzvfU7nXi8KYybowQNVlCwHiwGDrOtCucHChwr9CATAlf
+	6I6UI1PQ6+3Nac2oCBxL1QidHP9tZs982rsErbNanBu0NjA8A5vlCaQrpQ5kmd2CiOePTYeRAmNOu
+	31m6JSLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJoL-00000008C5J-2Qkh;
-	Wed, 12 Mar 2025 10:59:41 +0000
-Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
+	id 1tsJpy-00000008CKA-2hqV;
+	Wed, 12 Mar 2025 11:01:22 +0000
+Received: from mail-pl1-x634.google.com ([2607:f8b0:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJZ6-000000088ft-0qCU
+	id 1tsJZ9-000000088gi-0b2Q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 10:43:57 +0000
-Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-2239c066347so115901585ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:43:55 -0700 (PDT)
+	Wed, 12 Mar 2025 10:44:00 +0000
+Received: by mail-pl1-x634.google.com with SMTP id d9443c01a7336-2243803b776so121726315ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:43:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1741776235; x=1742381035; darn=lists.infradead.org;
+        d=chromium.org; s=google; t=1741776238; x=1742381038; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=p1sMzDBP5vuN2BAfvXEAvEWElSEvZrTJL7A1Fg+i1ek=;
-        b=bmaHnE0tBBXdBvSDMRlX/SlbHkBL6/Kg4AdOvEAA163c9v90AQsyqq/CNcvXhk17mx
-         +OYRppPE5l/jTVcz8IrMeFMByHePYjBP4lM/KjWmo24g5nINDyxRqNL5Gt3YXjCFP8DJ
-         leUwbFh0iwZTVtbyqhP1oe1sLu2p9ANsdlQJA=
+        bh=jq9hWTh28AULQZLwRWR4IEZNtznQ77t9F1aproSHTVY=;
+        b=d0NfefxDy5x4FIGOzFp0S2vQWleNSAEFgGTa4hG2+9SMxhS8USNySCekEMm8fSWK5B
+         CXlV0elRCpu2t60Fm1Sp68erZT2bTLTq6cNhV77LS9fl2AUkPB+bR1SGlOMPwUdDMHkP
+         UyrdJxXM0OcabV4oenwC6hD8uWeSqXor/yr8c=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741776235; x=1742381035;
+        d=1e100.net; s=20230601; t=1741776238; x=1742381038;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=p1sMzDBP5vuN2BAfvXEAvEWElSEvZrTJL7A1Fg+i1ek=;
-        b=e8dSKKXKbbzxCUu6hC3iNsTscPznJPxhpT28V5/GHHhD7ReLbu4ggQ3W9Y3BOTLgv7
-         GX4jSchHDkPTwcG4HG4ROaNbf7CCrJhbEgNFFWPU7icaiLJOXehMjhKg1JFz+8uOHiGK
-         R1bdYwtMny1vmy2/HkGIVF0XgnY+dvEUoBZJceaAwnCcGNSYUxu4/II+pysXzeYqvxMO
-         rNCxysCYiyNBxhT+WdcsC7+RtOzutKk14fTAdK4vousEs419HR/t6KoOWR4WgjYVTxsy
-         YTIF7sc3mUZo2N6mI2pTlUU8TC0LjpxWUJKez+qx3y2JavIoE0NS9hXGIP6BymvqNlj1
-         bjkA==
-X-Forwarded-Encrypted: i=1; AJvYcCUnd8U297uFqvX8d9FhXJtL6ur2u2L73RDsUFqxjaPZTUEi3x6FIrQidUEnWjbq2KRvBOAijnII1XbzN5GBK0YM@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywdx3MZgFMjmsgDt5EsAwIO40SOiZpOVNyXxTU2fhm7QjGy2bTS
-	2t3RmHxjQj+gwq0qoLSzskALKsvUa3kaCz5CTk0kmvLK0wyCYke0q4WP7CCXEQ==
-X-Gm-Gg: ASbGncvB/v4vnie9AHEHVyqRZ8rTL3eGbdUTTL6z2ig3HtKIfkWntb5HMXFaGpUiuMu
-	1M1h6eyGQOl8QxWPa0tz0dfwFeV/PA7q88Mo1zhut915a8707MU2nTt4xg1QffNm/GtrE9zr7IW
-	Yzj3/qBH9omsbOh5WrNAcgdpc6v5eMOdYtCvX81Mu73X1dGP8xjDLsWmf/M2mjr5xzhuQrHxAJ4
-	cUA2IVpFf6+R4U9eZ3b3SjiMSugI0Qxv2ifXOcEm+m7Pn7mpJJhWrbTg2Y4JAAtqUG9w++g4Wrj
-	pZ6wlicNdirR16qf84ouIZ5V91xOv/pEsnIfvqhch9ZSjQJJMtzY7h7bi1ct1P/RkD/DXznTnw=
-	=
-X-Google-Smtp-Source: AGHT+IHVXoxHlRkSlosQqT/eYj9vz6fvVJZ92k/ncUOz6qh5Nk9iYgHkhQ9d0PdxTZIJWqbKDgo8qA==
-X-Received: by 2002:a17:90b:2d83:b0:2ee:e518:c1d8 with SMTP id 98e67ed59e1d1-2ff7cf22df2mr28755341a91.30.1741776235345;
-        Wed, 12 Mar 2025 03:43:55 -0700 (PDT)
+        bh=jq9hWTh28AULQZLwRWR4IEZNtznQ77t9F1aproSHTVY=;
+        b=T9LDTUUdrgdr7m7TVbS0DunHb04edx52T41i3kxwxUwBpTJhui4VajijdNf58nrwoh
+         1SbeBhXabcSgiBFY4yP8SjrEiepULnKrYPjqhdBsEiOjXl+ldtCap8NRqFB1Qs6mcoWW
+         sAlBmjXAAygwYRKlKwItGGwuNW1rLGE0EPIJOHjviZnjNT+7kRpkRLLdZ8Ceix0kPPlF
+         bqGyBQVFigANCmJafLW8EL4aQRzrAB9aWscwH+kfFIIe/a1qQFj9esCZbAHPTQr6UA9/
+         EtKb9ArxryuPvmLqyIVyOZHmcAivWQ6aLCD6zz5yR8tOW8riOf01cmR+zW/racrrEuJ5
+         w/BQ==
+X-Forwarded-Encrypted: i=1; AJvYcCULl8m4vECGLXh7SeCHvIWCYRhv8wLcTA9HIjsMJpmXG6K4HNQBdnVFEtpRjLDxEQGhe90o5LQlEYYKDnC7z0yd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxon05rxCac+/fWuSn/OAoCk0PrlKCaBLlqwqgTuH6EDGtN8PFH
+	BNtPVKknIqN003LTZbKgDndJoy+7aEk0K2RiSKNOUdp1HBWQ5o3/T2YwqzHk+Q==
+X-Gm-Gg: ASbGncvvhbVPLo6d+kImEW9zxktK0ulJ7x8XrI9TpRjiqviye6teXlGiQNWk/IIanjL
+	VOYwHPiBiPwe826lfZ939hoEvYQ0E90lrH4+qb9XWscDgqVwJzwvl1jFM9gkt3al9fp4YNQhqia
+	cGSg9k6yVUBHBfJl4yC10sNZaY1gE4vrcZmk7pfEPIdNeXKPSwHs/SObPws6wLJYiUMTOAaw6FW
+	PJayvHEZ0kix2u1L3nAW/m0leAhHasQDPdZE0CVClejXgQjycURtnz6Nu2N3uFS6ySjkt95RCnn
+	VsQpvcIg8GhaZDONHdAetBvPWQ0LPTIFZNyVD1YtrYoi2OWBvIy8t4K5T6kLY1o=
+X-Google-Smtp-Source: AGHT+IEi3t/oRgH4tgJIjV7dZt0tXAW1XWislifFGuRCmj9fEunpdxZYOlzBA/knNfUOTDyGKEKM4w==
+X-Received: by 2002:a17:903:2445:b0:21f:52e:939e with SMTP id d9443c01a7336-2242899465emr387459965ad.28.1741776238354;
+        Wed, 12 Mar 2025 03:43:58 -0700 (PDT)
 Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:b5ed:b71c:fb14:a696])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm1405675a91.35.2025.03.12.03.43.52
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm1405675a91.35.2025.03.12.03.43.55
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 03:43:54 -0700 (PDT)
+        Wed, 12 Mar 2025 03:43:58 -0700 (PDT)
 From: Chen-Yu Tsai <wenst@chromium.org>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -83,17 +82,17 @@ Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	chrome-platform@lists.linux.dev,
 	linux-input@vger.kernel.org,
 	Douglas Anderson <dianders@chromium.org>
-Subject: [PATCH 1/8] dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
-Date: Wed, 12 Mar 2025 18:43:35 +0800
-Message-ID: <20250312104344.3084425-2-wenst@chromium.org>
+Subject: [PATCH 2/8] dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
+Date: Wed, 12 Mar 2025 18:43:36 +0800
+Message-ID: <20250312104344.3084425-3-wenst@chromium.org>
 X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
 In-Reply-To: <20250312104344.3084425-1-wenst@chromium.org>
 References: <20250312104344.3084425-1-wenst@chromium.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_034356_234248_3301AFA2 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250312_034359_184037_9D81A86C 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,84 +107,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Elan eKTH8D18 touchscreen controller is an I2C HID device with a
-longer boot-up time. Power sequence timing wise it is compatible with
-the eKTH6A12NAY, with a power-on delay of at least 5ms, 20ms
-out-of-reset for I2C ack response, and 150ms out-of-reset for I2C HID
-enumeration. Enumeration and subsequent operation follows the I2C HID
-standard. The eKTH6A12NAY requires longer times for both parts.
+There are only two different SKUs of Voltorb, and the only difference
+between them is whether a touchscreen is present or not. This can be
+detected by a simple I2C transfer to the address, instead of having
+separate compatible strings and device trees.
 
-Add a compatible string for it with the ekth6a12nay one as a fallback.
+Drop the SKU-specific compatible strings and just keep the generic
+"google,voltorb" one.
 
 Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
 ---
- .../bindings/input/elan,ekth6915.yaml         | 29 ++++++++++++++++---
- 1 file changed, 25 insertions(+), 4 deletions(-)
+ Documentation/devicetree/bindings/arm/mediatek.yaml | 3 ---
+ 1 file changed, 3 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/input/elan,ekth6915.yaml b/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
-index cb3e1801b0d3..81c391952ccc 100644
---- a/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
-+++ b/Documentation/devicetree/bindings/input/elan,ekth6915.yaml
-@@ -4,14 +4,14 @@
- $id: http://devicetree.org/schemas/input/elan,ekth6915.yaml#
- $schema: http://devicetree.org/meta-schemas/core.yaml#
- 
--title: Elan eKTH6915 touchscreen controller
-+title: Elan I2C-HID touchscreen controllers
- 
- maintainers:
-   - Douglas Anderson <dianders@chromium.org>
- 
- description:
--  Supports the Elan eKTH6915 touchscreen controller.
--  This touchscreen controller uses the i2c-hid protocol with a reset GPIO.
-+  Supports the Elan eKTH6915 and other I2C-HID touchscreen controllers.
-+  These touchscreen controller use the i2c-hid protocol with a reset GPIO.
- 
- allOf:
-   - $ref: /schemas/input/touchscreen/touchscreen.yaml#
-@@ -23,12 +23,18 @@ properties:
-           - enum:
-               - elan,ekth5015m
-           - const: elan,ekth6915
-+      - items:
-+          - enum:
-+              - elan,ekth8d18
-+          - const: elan,ekth6a12nay
-       - enum:
-           - elan,ekth6915
-           - elan,ekth6a12nay
- 
-   reg:
--    const: 0x10
-+    enum:
-+      - 0x10
-+      - 0x16
- 
-   interrupts:
-     maxItems: 1
-@@ -58,6 +64,21 @@ required:
-   - interrupts
-   - vcc33-supply
- 
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - elan,ekth8d18
-+then:
-+  properties:
-+    reg:
-+      const: 0x16
-+else:
-+  properties:
-+    reg:
-+      const: 0x10
-+
- additionalProperties: false
- 
- examples:
+diff --git a/Documentation/devicetree/bindings/arm/mediatek.yaml b/Documentation/devicetree/bindings/arm/mediatek.yaml
+index 108ae5e0185d..49ddc504c160 100644
+--- a/Documentation/devicetree/bindings/arm/mediatek.yaml
++++ b/Documentation/devicetree/bindings/arm/mediatek.yaml
+@@ -339,9 +339,6 @@ properties:
+           - const: mediatek,mt8186
+       - description: Google Voltorb (Acer Chromebook 311 C723/C732T)
+         items:
+-          - enum:
+-              - google,voltorb-sku589824
+-              - google,voltorb-sku589825
+           - const: google,voltorb
+           - const: mediatek,mt8186
+       - items:
 -- 
 2.49.0.rc0.332.g42c0ae87b1-goog
 
