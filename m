@@ -4,88 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE28C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:20:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FFF0C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:21:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dadpUZC9V5c7MYnunblVKwFOdnOlHudqlcLRPnjOYeA=; b=maPec2xzN/AKXc8HcOfZek3sq/
-	qX7EWM6s5pTUe2/Xt5FAnAwslv9zVEeGaAlKUPMzs0mNiKOp7jhefrs7FRddBTAGXC2zbAn5uLUiz
-	kJMGkxDvuG68yXxp566oUEj6jFSIHmB/PqObzICSLg0TIeOx7Oc3pIFwZM/LFiGh+sxFnI4ZPfaph
-	afgoD4qQ9FT95O7qGtQJmPWf+W7byMqJnLgtt6PePaxejnKG6WHaaq9c/Vgot/8lROD7f5LXpXciH
-	2+j6Fr1HAesNz8kdEfi+oNc/PigYbLGEqMucY/wtKxealA5yAVL8G4M/1zP+sR0LV00+97ak9+usC
-	iKDzPXNw==;
+	bh=6/mrslkYIqtp2+mq8p2Qz5J6MxbjiXwBJqUTb8Ezm9o=; b=1nwT9BIGJMp1+mfu08PAC4icLi
+	n7XxVxI94d2UZ8pdbVVBouIhejKMYwomH1FBCPBtXYeVbhYOtEC2mGgwG9X/KXXE8bfr2hfA1cDZv
+	6p4LG8IeNfKvDXLs8/OnUNdmxJSEOspA2fwWA3S2LorhjlyUwelAAD1ohK3HsHzsIH9GPjC2UkXaj
+	m0+CBkcUYXlEKpguLvO/BAIjDe0QWkYo7ZYBNNO7U5SaCFU2K6M9lmRZmLQsZu1mlitP6Ij4h5z34
+	454WhC+so2x0BunyqzJiSCi0y/zofEholzCCimpMMWrVR/Do5YdB5V8qmjFRsLj+WeL5yYfA6UD1N
+	qT6p0doQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsL43-00000008NxE-3X2f;
-	Wed, 12 Mar 2025 12:19:59 +0000
-Received: from mail-yw1-x112f.google.com ([2607:f8b0:4864:20::112f])
+	id 1tsL5f-00000008OAV-2Fve;
+	Wed, 12 Mar 2025 12:21:39 +0000
+Received: from mail-yw1-x1134.google.com ([2607:f8b0:4864:20::1134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKDJ-00000008FQD-0ywQ
+	id 1tsKDM-00000008FRS-3TKP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:25:30 +0000
-Received: by mail-yw1-x112f.google.com with SMTP id 00721157ae682-6ef9b8b4f13so60003127b3.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:25:28 -0700 (PDT)
+	Wed, 12 Mar 2025 11:25:33 +0000
+Received: by mail-yw1-x1134.google.com with SMTP id 00721157ae682-6f6ae4846c7so61937817b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:25:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741778728; x=1742383528; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1741778732; x=1742383532; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=dadpUZC9V5c7MYnunblVKwFOdnOlHudqlcLRPnjOYeA=;
-        b=H2pnEBYe7DVOcLG7dZpvI97VwjWWuJrlPfaQenP6tJTw5UnSWcbO2YeHmcQT5Ww0KN
-         tWO43kYXXG0ZaykcTpKTD9G0kuyOOVQcC8zcplgE1KVOEQJzO08x4f20GUYbv0xtz4LF
-         Yeay4MYBxooxh+b1+vxF34qKl51W9qCglL2WtKPd103dHCXkjzdfOFUrv1J3gu/c6RjG
-         A7aZc21btInXwB6xLsZ06KOHfNcaPYlsXTErIttRqPOEPp9Qf0I3ltch6XGTU/Gyuu4l
-         VyleefEqTbYOxYttQmm56ciiGWcSPWRD5EWEpbZwROiqplSe5CDqu6yP7MOHC/8Ta7+y
-         TTWQ==
+        bh=6/mrslkYIqtp2+mq8p2Qz5J6MxbjiXwBJqUTb8Ezm9o=;
+        b=YZk7l0ULx8AuNIsI5VjPywmH8lymcbVdxUDOgkPhQoIXy8D/JxfigHQQvZ8K/lN7Eq
+         KvXip9t0l6rN04QLMxLTjTJD2hhTxVYwgO1ildGFvQhvxYegDKs0OyI3pdCBAqf3J7CY
+         PIl7ZsfRsPmmNt14bzgVl2JxHVPCX5O1K3LSvW2z7J3fTjgVTNz/KtJ8OnZfooZEZqB5
+         gO+PKhDhF8EM2/29Lt22zeKDy4EggIiMK022mtZWoZBBHjibrul6o2u7SWZ0ArgS/v69
+         Do5z4mJBEvW5ww4dK/svoa9aVZnQlbaG5+GDCPBV94mX1yybktdxJzgJl4tR3SAvnyKF
+         hmrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741778728; x=1742383528;
+        d=1e100.net; s=20230601; t=1741778732; x=1742383532;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=dadpUZC9V5c7MYnunblVKwFOdnOlHudqlcLRPnjOYeA=;
-        b=gUWf7kuHZPHTzjOeBYkFUBfPRx+jElOjkhI5Bc3pl/CulcvB8SFHwr48DTymS5P87U
-         yXTJnt201fdoExuYlKBcI5QKZiIiCZSjen4kP6A7B9HP05mgybhi+f1NR1wwy0aq5QLr
-         yI9BbTuksR9zsDr3nspSaX1mkgVn2rt2tw5FuBWAfjByDfKW8WpeK6uhEUzp6UJIXnKn
-         Tp5IvM6kWdU2UqtDsJ7a9S6/hMyiv/d+bfkXkStvDAH1HoiXgYeqEjPcMw+543/pdUJa
-         pcjz5jVBD2MOutpT3Bc4UTi/e/gE8bnUZocnbVYY6lLNrMtkQeZ4UoWzUkyQKiOp5tp3
-         3yDg==
-X-Forwarded-Encrypted: i=1; AJvYcCVBpgH80UQWtC0lMkrX70SfeVbQAgpdKbesBJsfvsZyIm4fpwGxzi/hOIlU3Y2K7joXCyTC2YIHRjwLsYDtLHuI@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/Rne6rWWmH91tDzrwGDIrBujY8cVFbyy3l9BFGkeFfhB7vGqn
-	yOhow8lql/fjyQzSv5j5gO6F/NMn2WAk5XUr1vSBOvZNrl4To50DqPTUo5iM8VXwsrNBzVMZU/k
-	ckX/1Bp5gZzKe5LtcU9bQfmyS+J3wiUNT+4wKMQ==
-X-Gm-Gg: ASbGnctFXN7+T982YoHTgW7lu6unDcnG8Uxcd/1LCRdykgvyp1rtnPBe+Clz4IcXVd3
-	KJz5/8CFryulfg7X0KYzzYIAgN+o3AzhrfWj/H/nRrHfSh5LlVz50Oe30is9/ZwwDEPkQkEZLu2
-	w6wS+e+VdTfr0oRfcuSga9jXpOhh0=
-X-Google-Smtp-Source: AGHT+IEkegzJ/XAYlghTUeG+wVwA3ds93Wxe6yvoeV0jHqydpXmTqXQvt4bDvlouPz1OikUEEzcCwOPsAA9n/cL6aTA=
-X-Received: by 2002:a05:690c:3802:b0:6fb:4c11:61cf with SMTP id
- 00721157ae682-6febf2e67e6mr312924957b3.19.1741778728184; Wed, 12 Mar 2025
- 04:25:28 -0700 (PDT)
+        bh=6/mrslkYIqtp2+mq8p2Qz5J6MxbjiXwBJqUTb8Ezm9o=;
+        b=jaG+M9FFdnzXYS3pAT9Bk2YqmGvfl9Kxu2LUS5J+t6TynW8OuhkFKcfVTEhmEreswP
+         Ae++BmkoDhz1wrLAx6QuRVj0hOjVixgYpY3vStMjcbwkNwNW5h/EOqV+Xne4jbgeNSjh
+         g+w+9+u6UicrraYUpOUr4gliit1EMWzwYhG0dJMWcGh8ntBzMQvQAeTFLjs27DX6i5fm
+         h6dlyCRGDIScvdlfXNsfNaP0xBIPby9Iiasc+NNxm2qROc+9UARWdOKM4cfk6mnwXkYY
+         x2pjxMOe5+UBnHyOK+gVWuf1DnDgAHweCVoyiFXD3tBnOsqhUy9kak6unfd2s9sJ8eFc
+         q2Pw==
+X-Forwarded-Encrypted: i=1; AJvYcCWHv+fxsEOwUlwcJeH2RTpFLZNYVmN9AGF9SbuZYosfmPFzjuCcaUgThJBw9azETC9HM+9RulU1Ov579f7reHrF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwPp+g1AcnjcyOPW8psygrwVWdboplMAtKATBD0HYCJT2vqVFOB
+	d5w86xluuDXtda0z8Ba/7E7FqARuDjIpR0L1dhu7SWjMyTdg6u8glk7Eh/M1IiWWvoTxtqFEl7K
+	eKtMkDddytOz5UtgzmxUZRGNa6l9EUeQFL/jwLw==
+X-Gm-Gg: ASbGncs98koEzVLOAUeAlEz/OqVYkak4EdtPNchc5Oa6bKh8OcEILdIvkHPJj2oDOZr
+	9VPNdjQLJouwLiQsY7TchUPwvO/Rwgwo7hyvnVkA5g3TjHOL52bHBe2y2zF5XXh0OYhZ6TPnluM
+	xoCgOxtp7q3sR7F5s4z8RVl4egs521gp6no8r34Q==
+X-Google-Smtp-Source: AGHT+IFk3gFp/cUReNnM9kzAsWOkTCM5MEQl/tCtb/z5liDbrUseKz74jkUx34wnEgejhu/lLK5rCnP3CIxzHqyLHXc=
+X-Received: by 2002:a05:690c:4c02:b0:6ef:652b:91cf with SMTP id
+ 00721157ae682-6ff0927951fmr104983367b3.27.1741778731810; Wed, 12 Mar 2025
+ 04:25:31 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250309055348.9299-1-ziyao@disroot.org> <20250309055348.9299-2-ziyao@disroot.org>
-In-Reply-To: <20250309055348.9299-2-ziyao@disroot.org>
+References: <20250305214108.1327208-1-jonas@kwiboo.se> <20250305214108.1327208-2-jonas@kwiboo.se>
+In-Reply-To: <20250305214108.1327208-2-jonas@kwiboo.se>
 From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 12 Mar 2025 12:24:52 +0100
-X-Gm-Features: AQ5f1JoG4yNR3eqoseTNZhzIg7tVbmXvgNO4DfacKMnpZftoLIoMXOX2r6zD6_U
-Message-ID: <CAPDyKFp2UzcxfFz=8sREkj3x4DvfkfxU3utc0+e+uPS78Tn-+g@mail.gmail.com>
-Subject: Re: [PATCH v3 1/6] dt-bindings: mmc: rockchip-dw-mshc: Add compatible
+Date: Wed, 12 Mar 2025 12:24:56 +0100
+X-Gm-Features: AQ5f1JqH2hRXUwfz_vQkPX8i5gK9j7RB0dP4G_O77fuesZmjypeV_Lu2vr_DSTs
+Message-ID: <CAPDyKFqY+0MGsdZDBJ1AoDaDGrnXN=Gu3JNjuK0LoHfjT9JxiA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] dt-bindings: mmc: sdhci-of-dwcmhsc: Add compatible
  string for RK3528
-To: Yao Zi <ziyao@disroot.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Shresth Prasad <shresthprasad7@gmail.com>, 
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
-	Detlev Casanova <detlev.casanova@collabora.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Chukun Pan <amadeus@jmu.edu.cn>, linux-mmc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org
+To: Jonas Karlman <jonas@kwiboo.se>
+Cc: Heiko Stuebner <heiko@sntech.de>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Jisheng Zhang <jszhang@kernel.org>, Yao Zi <ziyao@disroot.org>, 
+	linux-rockchip@lists.infradead.org, linux-mmc@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_042529_273396_B947EFF4 
-X-CRM114-Status: GOOD (  13.52  )
+X-CRM114-CacheID: sfid-20250312_042532_871019_AFBDDCE4 
+X-CRM114-Status: GOOD (  16.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,12 +97,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 9 Mar 2025 at 06:54, Yao Zi <ziyao@disroot.org> wrote:
+On Wed, 5 Mar 2025 at 22:41, Jonas Karlman <jonas@kwiboo.se> wrote:
 >
-> Add RK3528 compatible string for SD/SDIO interface.
+> The SDHCI controller in Rockchip RK3528 is similar to the one included
+> in RK3588.
 >
-> Signed-off-by: Yao Zi <ziyao@disroot.org>
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
+> Add compatible string for the SDHCI controller in RK3528.
+>
+> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
 
 Applied for next, thanks!
 
@@ -114,21 +113,24 @@ Uffe
 
 
 > ---
->  Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml | 1 +
->  1 file changed, 1 insertion(+)
+>  Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml | 4 +++-
+>  1 file changed, 3 insertions(+), 1 deletion(-)
 >
-> diff --git a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> index 06df1269f247..ea0feb733e32 100644
-> --- a/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> +++ b/Documentation/devicetree/bindings/mmc/rockchip-dw-mshc.yaml
-> @@ -38,6 +38,7 @@ properties:
->                - rockchip,rk3328-dw-mshc
->                - rockchip,rk3368-dw-mshc
->                - rockchip,rk3399-dw-mshc
-> +              - rockchip,rk3528-dw-mshc
->                - rockchip,rk3568-dw-mshc
->                - rockchip,rk3588-dw-mshc
->                - rockchip,rv1108-dw-mshc
+> diff --git a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> index c3d5e0230af1..fb2115e805f5 100644
+> --- a/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> +++ b/Documentation/devicetree/bindings/mmc/snps,dwcmshc-sdhci.yaml
+> @@ -14,7 +14,9 @@ properties:
+>    compatible:
+>      oneOf:
+>        - items:
+> -          - const: rockchip,rk3576-dwcmshc
+> +          - enum:
+> +              - rockchip,rk3528-dwcmshc
+> +              - rockchip,rk3576-dwcmshc
+>            - const: rockchip,rk3588-dwcmshc
+>        - enum:
+>            - rockchip,rk3568-dwcmshc
 > --
 > 2.48.1
 >
