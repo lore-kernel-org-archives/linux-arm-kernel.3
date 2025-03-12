@@ -4,74 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9501C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:16:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B76C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:18:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cuAasqTMQLYrklWzxB6QGGvrz2d5yKcM251AyFgputE=; b=OPqD67cP0VTlIC8B61v5BLwgEB
-	8Jmev5ajZ21ju6l+0EiIaPkRJeRX+HYUNRfMRei26+qbISrVtYsE5uc3ErcxvQbDcuOlIa3Rfg21/
-	UMJk9ZLbJeImRekjIMXMAaomBwNBjXa5SyxQP3cIwiOrh/C3vtdMF5af5t6F+6ej8Z/yh1VzNE024
-	B368o3G+w8eZnSZlDR1G7l7la4HN77SxO9bv33LBgw3Uyo4kh/w6ehGT2m0c6h+lGElX+SZLVYM83
-	amKmLrGlQK7nONlJv2i2wOQrf1SKbHX6T2Kcaa6t6FoRNZPd74WjRz9k2kPwgmGRQ8zLgb4nZVfxW
-	q4gv8lUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l3UTwYNTvM6JFmZc1v1+SJmO6PLUGJ4ZiGsTHyzVMLo=; b=2eDXmHa25JKCmSQihDrfj37lhZ
+	fxr3dyQTiVSxCY2H1x3K7m3PXg+0B361ZxlL/8F5bz5sb7i/aoxMQOGKxhC/LO494RmZuhlfhi7x6
+	VuFF+t5vgKRzYOIiudOTcLnFavF/qn+AORdZUspJJRwp0ajC+lNUZh94IqJFJI6HijWYp5UK4YecQ
+	rPzCLUQLKwWjsiYg5HoJK0Q0r1Gz0Bw4kagdzq2Mh+A3AmBDiZo/Lm1vHUfBBnWI8jklAq4aBrWjy
+	AuwpdRrXtp5DlkWVoVnFA1ubxEZFU6tqNoTpInG6u5YU6w7xAJ1FkAUn3q45XHMOKp0Rgl5XpWktx
+	LURwczzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK4a-00000008EES-1fAF;
-	Wed, 12 Mar 2025 11:16:28 +0000
+	id 1tsK6D-00000008EU9-307U;
+	Wed, 12 Mar 2025 11:18:09 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJhO-00000008Apl-0U4s
+	id 1tsJtV-00000008CmJ-42qr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 10:52:31 +0000
+	Wed, 12 Mar 2025 11:05:03 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 22DF71515;
-	Wed, 12 Mar 2025 03:52:40 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CF123F694;
-	Wed, 12 Mar 2025 03:52:26 -0700 (PDT)
-Date: Wed, 12 Mar 2025 10:52:23 +0000
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Peng Fan <peng.fan@nxp.com>
-Cc: "Peng Fan (OSS)" <peng.fan@oss.nxp.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Aisheng Dong <aisheng.dong@nxp.com>,
-	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
-	Jacky Bai <ping.bai@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>
-Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
- scmi cpufreq
-Message-ID: <Z9FnZzBQuZ1j5k3I@bogus>
-References: <20250218133619.GA22647@nxa18884-linux>
- <Z7Wvyn1QJQMVigf9@bogus>
- <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
- <Z86w3ZRS6T2MvV3X@bogus>
- <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
- <Z87UJdhiTWhssnbl@bogus>
- <Z87sGF_jHKau_FMe@bogus>
- <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
- <Z9AdICiyaCmzKh-N@bogus>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E3E9D1516;
+	Wed, 12 Mar 2025 04:05:09 -0700 (PDT)
+Received: from ewhatever.cambridge.arm.com (ewhatever.cambridge.arm.com [10.1.197.1])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id ED5533F694;
+	Wed, 12 Mar 2025 04:04:57 -0700 (PDT)
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+To: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	linux-kernel@vger.kernel.org,
+	kernel-janitors@vger.kernel.org,
+	coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] coresight: configfs: Constify struct config_item_type
+Date: Wed, 12 Mar 2025 11:04:49 +0000
+Message-ID: <174177747268.10135.1485424994901107067.b4-ty@arm.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <1011717e5ed35ec12113a0d8c233823e820fb524.1723368522.git.christophe.jaillet@wanadoo.fr>
+References: <1011717e5ed35ec12113a0d8c233823e820fb524.1723368522.git.christophe.jaillet@wanadoo.fr>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <Z9AdICiyaCmzKh-N@bogus>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_035230_196794_91709B13 
-X-CRM114-Status: GOOD (  12.13  )
+X-CRM114-CacheID: sfid-20250312_040502_051865_72A5544F 
+X-CRM114-Status: UNSURE (   7.56  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,27 +70,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 11:23:12AM +0000, Sudeep Holla wrote:
-> On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
-> >
-> > So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
-> > created earlier and when device_add, the below logic makes the fwnode pointer points
-> > to scmi cpufreq device.
-> >         if (dev->fwnode && !dev->fwnode->dev) {
-> >                 dev->fwnode->dev = dev;
-> >                 fw_devlink_link_device(dev);
-> >         }
-> >
->
-> Thanks, looks like simple way to reproduce the issue. I will give it a try.
->
 
-I could reproduce but none of my solution solved the problem completely
-or properly. And I don't like the DT proposal you came up with. I am
-not inclined to just drop this fwnode setting in the scmi devices and
-just use of_node.
+On Sun, 11 Aug 2024 11:30:20 +0200, Christophe JAILLET wrote:
+> 'struct config_item_type' is not modified in this driver.
+> 
+> These structures are only used with config_group_init_type_name() which
+> takes a "const struct config_item_type *" as a 3rd argument or with
+> struct config_group.cg_item.ci_type which is also a "const struct
+> config_item_type	*".
+> 
+> [...]
 
+Applied, thanks!
+
+[1/1] coresight: configfs: Constify struct config_item_type
+      https://git.kernel.org/coresight/c/b5060c17
+
+Best regards,
 -- 
-Regards,
-Sudeep
+Suzuki K Poulose <suzuki.poulose@arm.com>
 
