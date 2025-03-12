@@ -4,218 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 06:47:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D33FBC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 06:57:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZlRxJMTKewKd7Q7QQyvTscaTbHEinhKEX03/TAm3iKU=; b=NhkZnEBXnPa/rd+jYYYmrC13tX
-	MB/ev2bt3Mx4nKlzY13xuJ2jjFUo558O3Jtacj8JqZvYa4fiy7aTSqUUB8wL6t5KSBaoFsMwVV0vR
-	ePOwJUKY+s/9SFbNs8rW5b87TLqPBBgdfta+NglUJgmM3et8nOIbBEuwYVMLEPqPjppVR/grHNDW4
-	pFbrTtjSRPwzF2ZPnAP0O/fhnNk6eALoF7pmBBpsNQjKFg+QR65A8SQHrgR+4JH16nKvpekGtGhuz
-	/0kbuWWbi/HwcSxOGx0ZYmIk5vyRtax8+xrxchpjb8/1HNgNQZB/E70QlRNjQgqae0oC/qdEV8AlW
-	QR0OwvFw==;
+	bh=IrZA2lvwXnim9dm71xs60MOqB4apIeEVzkWR+ebY1SQ=; b=W0Yqdvw7HrmtPe6OhCW7nUyfm9
+	smOys9LEddhyjHtqyJxr1uD6k3W89GsSf1ZuGB6VuEayOzZHZXTTnMTtkrVllxLMXI/YticnrJHca
+	225EngeY3kOudkA0VXUulsn3BG4HpSYgVFe1XrUf19yKnA/Ldx0qyq9TSY/jCq9499clQ3t1qKW85
+	/R8+j0e7Wwdg8xZ/qDXQsBr7W1rfaklhoRGhyCJwXRwRWbBCDADID12DX6ZYm/B4I9s6Im0UsHioA
+	+CuP4VL8XLTPLQm4ElO3Rkx0LV/Czehtlm9aHqqjYyCCODD1oOjzMpyFiELgwOHAWnAEso9VDyvWi
+	mCLHjaZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsFsZ-00000007d4Q-1vg6;
-	Wed, 12 Mar 2025 06:47:47 +0000
-Received: from mail-am0eur02on20612.outbound.protection.outlook.com ([2a01:111:f403:2606::612] helo=EUR02-AM0-obe.outbound.protection.outlook.com)
+	id 1tsG1g-00000007e7n-1tsR;
+	Wed, 12 Mar 2025 06:57:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsFqv-00000007coI-0oSq
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 06:46:06 +0000
-ARC-Seal: i=2; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=pass;
- b=jt4J90BGOmxmyCeedRqmpQVEKVPibVaz9HXJXAknOVqs7rFRQk2sx0epFHLfNBBYvBg/grSgzM73OJKFLlE12l/VlgNuIJsxGhq/Usc3ZFZRq7+2YvPgHv1JMxFyxDXhj/rJb7pyLARIlK55KnmVKOG/GX+WGpd8M8Bz64JY8+ZB0pcdfpcmOsiQSeo4vUA/r5JH2eoypXWK6PpjGFN8qSFJwLIgPf+ww72Wg/UuZnAhN+xrizTFo7l3O/Dm0/kQiE0koeFig8Lo0K7KwyBLiVqws9QqfOmhgLGxwQ2kFBYUPDElVfUrHX96nSKqQsfyqu427+hKIZQ6ygUfloN25g==
-ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZlRxJMTKewKd7Q7QQyvTscaTbHEinhKEX03/TAm3iKU=;
- b=ZwFx03Jhz/bwjL9gwrIo1ccMfsxw7RlBCmF8vjUIMxzeOXP+ExW9rN2AaoK2lzBysoX57Onj6ihoKx+lWKTXUOdbWC3CQyylw1l8jX4qenk1g9rsRMvr7Zu1cvzwki23UxKmOhHG6jhYLWbhVCej/qsHTm0JQX5+Vh2BwLpocZEwKKQ9Lm6zbhLHSlSyRoBTA7oPyN/R3bqwUKPW8YNo4jicLZScNLeD92s3UNAUr40WP45GAQMOTqYlAlmOuGcKT+stJyILxcTCq6vwWmrfMm2f3tTDSCac8Grl1b6hKYFQu/8ZrhDNme3n90tJ0Jilf6tP/fx4/JtlmZ41wVMe6w==
-ARC-Authentication-Results: i=2; mx.microsoft.com 1; spf=pass (sender ip is
- 63.35.35.123) smtp.rcpttodomain=lists.infradead.org smtp.mailfrom=arm.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=arm.com;
- dkim=pass (signature was verified) header.d=arm.com; arc=pass (0 oda=1 ltdi=1
- spf=[1,1,smtp.mailfrom=arm.com] dkim=[1,1,header.d=arm.com]
- dmarc=[1,1,header.from=arm.com])
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZlRxJMTKewKd7Q7QQyvTscaTbHEinhKEX03/TAm3iKU=;
- b=J9MCKL/Ow1IAPW/WNS6pu+zYyukbFd0wNEMEH8ZCrW4pNzsKRtp3ZXcht9J8hMPagM23dmtSRdt/SxMpUhcvvkGWiswcrrRHaYtQ2KEwMyv9SD6sJulFrhqoYEY/Gpw5cnAiEXx11L3AByjEJnX6ESDplKctSZnLESZg29OWPCk=
-Received: from AS8PR07CA0039.eurprd07.prod.outlook.com (2603:10a6:20b:459::8)
- by VI1PR08MB5487.eurprd08.prod.outlook.com (2603:10a6:803:13c::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
- 2025 06:45:58 +0000
-Received: from AM4PEPF00027A68.eurprd04.prod.outlook.com
- (2603:10a6:20b:459:cafe::fe) by AS8PR07CA0039.outlook.office365.com
- (2603:10a6:20b:459::8) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.24 via Frontend Transport; Wed,
- 12 Mar 2025 06:45:56 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 63.35.35.123)
- smtp.mailfrom=arm.com; dkim=pass (signature was verified)
- header.d=arm.com;dmarc=pass action=none header.from=arm.com;
-Received-SPF: Pass (protection.outlook.com: domain of arm.com designates
- 63.35.35.123 as permitted sender) receiver=protection.outlook.com;
- client-ip=63.35.35.123; helo=64aa7808-outbound-1.mta.getcheckrecipient.com;
- pr=C
-Received: from 64aa7808-outbound-1.mta.getcheckrecipient.com (63.35.35.123) by
- AM4PEPF00027A68.mail.protection.outlook.com (10.167.16.85) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.8534.20
- via Frontend Transport; Wed, 12 Mar 2025 06:45:56 +0000
-Received: ("Tessian outbound a5818d08f071:v585"); Wed, 12 Mar 2025 06:45:56 +0000
-X-CheckRecipientChecked: true
-X-CR-MTA-CID: d046dbcee661a8fc
-X-TessianGatewayMetadata: jhxmrTtoxLNLBJ8gPaS276qo14FEALr6rji4uAyBPnjMokWsw14YiHzql5f7BlrLRxTB56cseWLvdIr90r5HbxolYqFxgHf4bE8OZXWoYaz1U4PKghWAwZsbIBHs/ydoQvzeNnhWqk8zfApZJ0xU5aI1zGqiaPAVfck04Cx6OW8ZIVYh1YoI92vMy4THZLTcIMEpU7M+yWaGjq9MjM3wSw==
-X-CR-MTA-TID: 64aa7808
-Received: from Lcc4f958e5b3e.1
-	by 64aa7808-outbound-1.mta.getcheckrecipient.com id 6A10D1C6-3861-49A6-80C1-5F3B64122CF3.1;
-	Wed, 12 Mar 2025 06:45:45 +0000
-Received: from EUR02-AM0-obe.outbound.protection.outlook.com
-    by 64aa7808-outbound-1.mta.getcheckrecipient.com with ESMTPS id Lcc4f958e5b3e.1
-    (version=TLSv1.3 cipher=TLS_AES_256_GCM_SHA384);
-    Wed, 12 Mar 2025 06:45:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=d10AsIZBKr0rJi+UbO8Oym/x06xo4gfwR72OmtfGo+q6sgMf4rIGEg8N6ZMDLb4+hYIuUszdP2reVAOMBcE8rBkr8KZAiYDlNEw2+F3oFDXa+NXOqAQ90X5HARtfTR2/56VK2Qonng+0dfEvQUHmXoID0Qr+NQChu3LySfMzzOwsQN1HPIZW4SXP5csEq+2dKlJPwGV5/nq22GroaU3J++6QImB3WI9D6d/081ucaxZ2QrsLM4KylF3Z3UueNu5LZvu/nNbLxC2aWbrBRMFznxOOaiIjvbCsqkRFRqpR76ZQR+fXuxnFQtpJvLTcuqwh91wdOF5PSR7CFLEZKyUt8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ZlRxJMTKewKd7Q7QQyvTscaTbHEinhKEX03/TAm3iKU=;
- b=FBcdOKntLSkZLX1OjpvA0ZYAfPTTIgWfEF3aSRzapjdHulmdogsq72JKOijSfVH/cwg2GBXDqkOjY4tI+8wKqfRK85H9aA4BpeY1SF2GVB2+khDMRr4XHGNcyOGXRtXnoXGEZuFef+Ox7EPyvK4QmbmiaC2V/hb1ZM0aQ3CdLhMX/mQKiZAYxgcVIOdtmBfTOapgPKa9oCWJPlfPwcFQdoPRczuFoC7VfEkysveTqaW99UhFKvfowSdQaIuP2hVOZBdTi3ZsKdE6ENwszn8fhir8ACNTQW4NNs+xyu0SIDGR7oW8UmJZEGbiwgs6//7GzBg1lusIKZduubJ5F2A9Vg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=arm.com; dmarc=pass action=none header.from=arm.com; dkim=pass
- header.d=arm.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arm.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ZlRxJMTKewKd7Q7QQyvTscaTbHEinhKEX03/TAm3iKU=;
- b=J9MCKL/Ow1IAPW/WNS6pu+zYyukbFd0wNEMEH8ZCrW4pNzsKRtp3ZXcht9J8hMPagM23dmtSRdt/SxMpUhcvvkGWiswcrrRHaYtQ2KEwMyv9SD6sJulFrhqoYEY/Gpw5cnAiEXx11L3AByjEJnX6ESDplKctSZnLESZg29OWPCk=
-Received: from PA6PR08MB10526.eurprd08.prod.outlook.com
- (2603:10a6:102:3d5::16) by AS2PR08MB8381.eurprd08.prod.outlook.com
- (2603:10a6:20b:558::7) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Wed, 12 Mar
- 2025 06:45:41 +0000
-Received: from PA6PR08MB10526.eurprd08.prod.outlook.com
- ([fe80::b3fc:bdd1:c52c:6d95]) by PA6PR08MB10526.eurprd08.prod.outlook.com
- ([fe80::b3fc:bdd1:c52c:6d95%2]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
- 06:45:41 +0000
-From: Yeo Reum Yun <YeoReum.Yun@arm.com>
-To: Suzuki Poulose <Suzuki.Poulose@arm.com>
-CC: "mike.leach@linaro.org" <mike.leach@linaro.org>, "james.clark@linaro.org"
-	<james.clark@linaro.org>, "alexander.shishkin@linux.intel.com"
-	<alexander.shishkin@linux.intel.com>, "coresight@lists.linaro.org"
-	<coresight@lists.linaro.org>, "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH 1/4] coresight/etm4x: disallow altering config via sysfs
- while enabled
-Thread-Topic: [PATCH 1/4] coresight/etm4x: disallow altering config via sysfs
- while enabled
-Thread-Index: AQHbU8m8TEnYl8CikUKII/YDjzuo1bMOcL2AgAAEFQCAAAWKgIAAWPOAgAABdI2AYLhYpg==
-Date: Wed, 12 Mar 2025 06:45:41 +0000
-Message-ID: <PA6PR08MB105264F47A8399568DA2D3344FBD02@PA6PR08MB10526.eurprd08.prod.outlook.com>
-References: <20241221165934.1161856-1-yeoreum.yun@arm.com>
- <20241221165934.1161856-2-yeoreum.yun@arm.com>
- <6bbc9b64-3ecb-46c3-8c4e-55dba6301ef3@arm.com>
- <Z3+6kL7OGDX/pNul@e129823.arm.com>
- <4f9d2bed-7ce0-429e-83cc-ad6cbcc6085e@arm.com>
- <Z4AJ0kc0DxVwhLlu@e129823.arm.com>
- <GV1PR08MB105212E5552EB50968383C6D6FB132@GV1PR08MB10521.eurprd08.prod.outlook.com>
-In-Reply-To: <GV1PR08MB105212E5552EB50968383C6D6FB132@GV1PR08MB10521.eurprd08.prod.outlook.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: 
-Authentication-Results-Original: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-x-ms-traffictypediagnostic: PA6PR08MB10526:EE_|AS2PR08MB8381:EE_|AM4PEPF00027A68:EE_|VI1PR08MB5487:EE_
-X-MS-Office365-Filtering-Correlation-Id: f41719dd-c88d-4664-f872-08dd61318ad8
-x-ld-processed: f34e5979-57d9-4aaa-ad4d-b122a662184d,ExtAddr
-x-checkrecipientrouted: true
-nodisclaimer: true
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam-Untrusted: BCL:0;ARA:13230040|366016|376014|10070799003|1800799024|38070700018|7053199007;
-X-Microsoft-Antispam-Message-Info-Original: =?us-ascii?Q?KdDRPu7iiVhjHj7yKUvgu1qlIkNhFoRsbAAh01KjwPjq0ovr+l9St2kU2rS2?=
- =?us-ascii?Q?X31LDfCJLpmV6wnkKPbnh/C5cifvR85UumnTZGsyUw4QB+oWLatE0zyfEKqd?=
- =?us-ascii?Q?5iUi4z/yrXYS7HpMx2EJbEowc7OWJ+CmW6N0xFK/4VMePrvxSXsD52IJikpq?=
- =?us-ascii?Q?hKcpm8nirSW4mj5IOtVDU3+v77jN7ICb6rzd/YDLjrPOn8O9lrrahKp3Rjqu?=
- =?us-ascii?Q?V7IReB703ldLBiPvRkVPIfg5RcKSALPundP2AH01UoH2RfSqqcF4Gz31a3md?=
- =?us-ascii?Q?S5NQ9B7/Xoi8jJQnrl4fNwlOCJhFdjYz02/uUOF/iSwXwOQJzzovX4hSjonc?=
- =?us-ascii?Q?BfXbEzxmbj+MVnXu+aUu0KxsVKj9U3vCsG8L+TXFTGJ09qxgXN2BjyomOSbq?=
- =?us-ascii?Q?dS2Iyv+F6akWVfpA5zO1MZGtA0Zdiqa6s1ehNgGJf6w6ZHUUaJUgKy64UtsE?=
- =?us-ascii?Q?v60wDTJXTCd+xWd7KZZkt+1WXXdlPzjPbRHrJbnWsDKcv9hk93t7AW0EgtE7?=
- =?us-ascii?Q?B1DPT3jDfgoU3IHJR/U624vXTrtQe4/jF28S/lnsfNBDTpIRVZi3ALDlCbqv?=
- =?us-ascii?Q?rxVs1rOACu9RMv0Zk++XtDrMe5YalLec8bQy7JYzCUxJnOUPsCBjUw3qWjNi?=
- =?us-ascii?Q?3ZNxI/EOxoAvpYLwzN9ihwuBuJOy+oCoK9vCIBSPyud0Thqdf5R/nDDJ9ztr?=
- =?us-ascii?Q?cxayp86hZQYNhuwKQLPCAuWYbyeINVWyZgmXi0WEfMJdWy5lW9qqI6ofPXkn?=
- =?us-ascii?Q?BDJG+nU3ZBd5LyXYlTwLvFfOnO7YXzod10HKFFgaJP1B7fSCAYPW+e1o0qrU?=
- =?us-ascii?Q?v1MJn296Rk4XIo4YaMSNZ8jtYE8QHxyCEwGGj16Pur3QZlvRyPF6cRuizweM?=
- =?us-ascii?Q?ZAuHC0uAEMCHgTzFXkgRboRUZNJfW3vR9ovcrgYDoiot7wtz5rZkzoNi8YNS?=
- =?us-ascii?Q?1NKIertUM8ZokSTsP1APJrbYiRlpqd4eRvXNG3LxJ6baQ4IwUAuOmBTcfhYX?=
- =?us-ascii?Q?qo77F+nWKb+AmW/KfeMX2FLrFry+WMU8BqSQMNyAIiGQ4Vjn1Sr7g5uHTwx/?=
- =?us-ascii?Q?50NDpWVnt4kPdFXlOtWtJE/ttkRZ90Rw01NnGqBVsq+N4z3De/T28vt8u34+?=
- =?us-ascii?Q?ySzrhAiKUNKjf0NOSyWZKuZz+DvfQeGHIi4MqwMCj24RIqT2oIHzLrkDawI+?=
- =?us-ascii?Q?MDbkmysW3TvAm/0xSkJKU/g4A18RXmQR97Hikl9NAaZc5MciYTEgCZA0+Bx4?=
- =?us-ascii?Q?X1Q2wKo7GbFbKZSJ5Dxt0qhjt0gfxxCZBDM6k2UiVXf1hX0sDVgdLgQGeLWy?=
- =?us-ascii?Q?tac1W3ZF4hPjERd8sbZZll6cENJufFHVKtFhoxPzOrP5nEjryDPGX2gkRoqW?=
- =?us-ascii?Q?BS6W8HcyyEOTp3tBevEcQr3+WedCrWoXS2WLnpFc6Iqaf55n2BI7Nw4iOlTE?=
- =?us-ascii?Q?7ljWmM5HA5HVamn7Q9wz+eUcBLBe0CSq?=
-X-Forefront-Antispam-Report-Untrusted: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PA6PR08MB10526.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(10070799003)(1800799024)(38070700018)(7053199007);DIR:OUT;SFP:1101;
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1tsG01-00000007daw-1tfk;
+	Wed, 12 Mar 2025 06:55:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=IrZA2lvwXnim9dm71xs60MOqB4apIeEVzkWR+ebY1SQ=; b=Exas6HGwVvktv7Ywakyjvfpfau
+	Jp0JjJg7YKW3ykl6i9ItbLyHTmF6V0AgQh9cGkuWFS1gWOS+15otP1EiS+v6X2F/f9q/Cj3pyumr9
+	R7Mk1x4PfnQoWi54vQGbsW6fSdz9sorjmNOGNoi7NCsdqAAhhiEQTc45F/NznzVygOuG9194D7lkO
+	Pm5KewlHK2S97MiWWseERGdXANs9OHjbgbH4b6ih4Be6wsdIatwc9Rw7b/S8N5HTbk57fmAtY9xO+
+	IVnyITgLpDZ2STUbm42FuqUbmuYAtJj2RRb5zjM3Ia0vjYNrWyuJIDmvAloyiBrE1DNqMDdSemhzc
+	wz64nwXQ==;
+Received: from ip-185-104-138-79.ptr.icomera.net ([185.104.138.79] helo=phil.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1tsFzz-0005cE-Uk; Wed, 12 Mar 2025 07:55:28 +0100
+From: Heiko Stuebner <heiko@sntech.de>
+To: arm@kernel.org
+Cc: soc@kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+Subject: Re: [GIT PULL] Rockchip dts64 changes for 6.15 #1
+Date: Wed, 12 Mar 2025 07:55:25 +0100
+Message-ID: <3339830.aeNJFYEL58@phil>
+In-Reply-To: <13791512.uLZWGnKmhe@phil>
+References: <13791512.uLZWGnKmhe@phil>
 MIME-Version: 1.0
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB8381
-Original-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=arm.com;
-X-EOPAttributedMessage: 0
-X-MS-Exchange-SkipListedInternetSender: ip=[2603:10a6:102:3d5::16];domain=PA6PR08MB10526.eurprd08.prod.outlook.com
-X-MS-Exchange-Transport-CrossTenantHeadersStripped: AM4PEPF00027A68.eurprd04.prod.outlook.com
-X-MS-PublicTrafficType: Email
-X-MS-Office365-Filtering-Correlation-Id-Prvs: c1db43c4-484a-4a5f-d9d3-08dd613181f4
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|35042699022|36860700013|14060799003|82310400026|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BmvW9MTpvy0DAzfScfS+FWwNZ3nToVBtKwPaLZOknlbDRNRPGQNX+zb2LngE?=
- =?us-ascii?Q?lx6/jRtk3+ksju242PCTXhBrdJuwjd8+dG2fDltI13fYEQuh5cAUs008QRB/?=
- =?us-ascii?Q?FB/9c4g2NnizrDnrXbG0BV0RIKo3BKbfPfxkoOXmtiMfMgXD1/9p9sdsTZ5i?=
- =?us-ascii?Q?VY/q3OHShcjhx6jbZ9X85SivnNpJh7GJhSGhABRApmX0+L4PkEjEcZulY0MP?=
- =?us-ascii?Q?hIOFoPFPO3YIcwmtIsNUnPJOzk3VV4BjxNzFYrKskl4tUYuTcki2cbpYRlZz?=
- =?us-ascii?Q?Qvj1+lCgmmfy69OP5QOo8tUTrvL1tdueGZrisx7OSAcRaL1ZBj7IyRRH278k?=
- =?us-ascii?Q?WOAvShvnXa3s8IUgoLsBH8E1YEz6i1mWgo2bmtTrITFEU2je0FqyH/laCDKv?=
- =?us-ascii?Q?ETPGTMDEKnruOJvruT9RxeHpt1IOp3vER826KqAju4ahdC3qgCZjd3mgI8sX?=
- =?us-ascii?Q?TgzDZGvMfAuk5QDqBsoIdoDQM7pymtgxhsPVxuxLGWJjhgmk/C5/4uY9GOX1?=
- =?us-ascii?Q?li+tN39tqDX5lTU27D1PLy5eX+5pfZeP8YV5TP8CbH3aFQLI6iPoprXq0u7N?=
- =?us-ascii?Q?durqG4uJnsQzeNt3akKLxdqgiyF8x1YU8E3MlljwvQX4N5B+302rjO1YnPg9?=
- =?us-ascii?Q?K2zrKoHdyys23qZuw6bxMYE/bQ0wiwenrI2oVFzj3x5E5tSNPiwSCWDgXwm7?=
- =?us-ascii?Q?DaIRSH5lz6GNApumh8SxgVX5uw1uymMybWWq6hxDBFDRNThls2EJw11+jDwA?=
- =?us-ascii?Q?ihIdg4v7TL5GHZJhwHx332XbIZUiX1BzpVyDim2MDRuYjfoYWsVJITz20flZ?=
- =?us-ascii?Q?bR5QCO4THm+F8PjNxqjr6PGeCDlsk+u3cAOeklnIEerYivUqTwd206R8DGhZ?=
- =?us-ascii?Q?z6Ig294JzW3w+9YgDwFTJ8AHTnxaGQrK0ie4iqEJUdEAQUCmyvZVmgcqfi7P?=
- =?us-ascii?Q?Epc6EMnBowdQ/gVqglNQouRK6S/2WUlbWPATOQtcyqGjS2dmdnIzxPmcC7Iu?=
- =?us-ascii?Q?qR7EUYe1Xy9/k12hkfp6k6qVZ+7hUjS6FhXv8nSp/YzTowoAKrR6qK6I7A0n?=
- =?us-ascii?Q?8+etG/QMvwZFFSuQCnVBkFbWCaBaZIs+pVY1fo/gYj/VLvRNkvixHT7XcB9d?=
- =?us-ascii?Q?yR+CqR1vSneA+TD0prRtSrwIrpJvP467LvCA0xI9tBl9GG9IYDoFJ5x5RtSN?=
- =?us-ascii?Q?7EYICocRotFIcrJ+yrgz4vcA+dQ9Uc7+Os3cZ5h1RCRJim8GcvFFo/tJycj5?=
- =?us-ascii?Q?j6bH3ni5oBjLFOA6EMarUn4VG94PtG9FuQr8RfOh6n1uEiglwzGJ65zp76WJ?=
- =?us-ascii?Q?voMmWy0UD2slBioATXJHiVtNe69r5eGWId2jaa1TR9h3hmoOE8wWyf23fJEt?=
- =?us-ascii?Q?X4QWGtR4Qb60xCg5c6UrSC723LFqzgYiq/lrQp0YJ+xELmr7jffaaIUjzmp3?=
- =?us-ascii?Q?TN+GnGcn/geTyKGNMhnToy5uPSG73l72ptDQmJ68+vE+t1e1IUFd5m56fGn9?=
- =?us-ascii?Q?DxVauahR3i9xYHU=3D?=
-X-Forefront-Antispam-Report: CIP:63.35.35.123;CTRY:IE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:64aa7808-outbound-1.mta.getcheckrecipient.com;PTR:64aa7808-outbound-1.mta.getcheckrecipient.com;CAT:NONE;SFS:(13230040)(1800799024)(35042699022)(36860700013)(14060799003)(82310400026)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: arm.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 06:45:56.6776
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: f41719dd-c88d-4664-f872-08dd61318ad8
-X-MS-Exchange-CrossTenant-Id: f34e5979-57d9-4aaa-ad4d-b122a662184d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=f34e5979-57d9-4aaa-ad4d-b122a662184d;Ip=[63.35.35.123];Helo=[64aa7808-outbound-1.mta.getcheckrecipient.com]
-X-MS-Exchange-CrossTenant-AuthSource: AM4PEPF00027A68.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR08MB5487
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_234605_385021_773C2C61 
-X-CRM114-Status: GOOD (  19.87  )
+X-CRM114-CacheID: sfid-20250311_235529_770251_45CCF790 
+X-CRM114-Status: GOOD (  31.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -230,78 +71,335 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Gentle ping in case of forgotten.
+Hi,
 
-________________________________________
-From: Yeo Reum Yun <YeoReum.Yun@arm.com>
-Sent: 09 January 2025 17:48
-To: Suzuki Poulose
-Cc: mike.leach@linaro.org; james.clark@linaro.org; alexander.shishkin@linux=
-.intel.com; coresight@lists.linaro.org; linux-arm-kernel@lists.infradead.or=
-g; linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/4] coresight/etm4x: disallow altering config via sysf=
-s while enabled
+Am Samstag, 8. M=C3=A4rz 2025, 19:21:59 MEZ schrieb Heiko Stuebner:
+> Hi soc maintainers,
+>=20
+> please find below and in a subsequent pull-requests
+> Rockchip changes for for 6.15 .
+>=20
+> It looks like the new year caused a flurry of activity, because
+> I don't remember having this much changes :-) .
 
-> > On 09/01/2025 12:01, Yeoreum Yun wrote:
-> > > Hi Suzuki,
-> > >
-> > > > Is it not better to have separate "configs" for perf and sysfs ?
-> > > > And etmX driver can populate the "running" config, based on the
-> > > > mode specific config. That way, the configs can be updated
-> > > > independently without affecting the running config or the perf one.
-> > > >
-> > >
-> > > That was i've tried but I've accepted Mike's opinion that
-> > > it's enough to check whether CS_MODE_DISABLED via coresight_get_mode(=
-)
-> > > in *_store().
-> > >
-> > > "the .._store functions in sysfs should use coresight_get_mode() to e=
-nsure
-> > > this is set to CS_MODE_DISABLED before altering the config,
-> > > which ensures that the trace system is inactive.
-> > > We don't' really care about reading the config if trace is running."
-> >
-> > There are two issues with that :
-> >
-> > 1. Sprinkling the get_mode call in each sysfs stor function doesn't loo=
-k
-> > good to me.
-> >
-> > 2. Someone preparing for a sysfs session must not be prevented from doi=
-ng so
-> > just because there is a perf session running.
-> >
-> >
-> > Suzuki
-> >
->
-> But, when separate the config, it doesn't show anymore the current
-> configuration set by perf.
-> I'm not sure this is okay.
-> IMHO, If perf is enabled, since the configuration show the "perf",
-> I think prohabit to modify config via sysfs while PERF_ENABLE seems valid=
-.
->
-> and about lossing session, I think this is up to user.
-> That means to use sysfs, user shouldn't use perf to prevent loss
-> its configuration.
->
-> Am I missing something?
->
+as a note, one Rockchip dts patch has slipped into the scsi tree,
+and is causing an (easy to resolve) merge conflict.
+
+So this should not cause an issue, but should probably be mentioned
+in the 6.15 merge window soc PR.
+
+See
+https://lore.kernel.org/lkml/20250312085101.58cdd1e5@canb.auug.org.au/
+
+
+Heiko
+
+>=20
+> Again, there haven't been arm32 changes this time around (so far)
+>=20
+>=20
+> Please pull.
 > Thanks
+> Heiko
+>=20
+>=20
+>=20
+> The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f0=
+5b:
+>=20
+>   Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+>=20
+> are available in the Git repository at:
+>=20
+>   git://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git =
+tags/v6.15-rockchip-dts64-1
+>=20
+> for you to fetch changes up to ba82f56bbf20e4166c988621cd0507509872848e:
+>=20
+>   arm64: dts: rockchip: Add SPI NOR device on the ROCK 4D (2025-03-08 18:=
+19:59 +0100)
+>=20
+> ----------------------------------------------------------------
+> New boards: MNT-Reform2 laptop (rk3588), OrangePi5-Ultra (rk3588),
+> Radxa Rock 4D (rk3576), Firefly ROC-RK3576-PC, Photonicat (rk3568)
+>=20
+> New overlays: Video-adapters for Theobroma boards and one adapter used
+> in hw test scenarios.
+>=20
+> Interesting bigger changes contain clock support for rk3528; support for
+> the hdmi1 controller as well as hdmi-audio support on both controllers on
+> rk3588; the hdmi-receiver of the rk3588 landed, and rk3576 got basic
+> graphics support and can now do hdmi output.
+>=20
+> Another big block is that we're now doing overlays way better and are
+> including build-testing for applied overlays to the base dtb - similar
+> to how other arches already do this.
+>=20
+> Of cours a big list of more controllers for rk3576 (nvmem, sfc), rk3588
+> (rng, spdif, regulator for gpu power-domain) and rk3528 (saradc, pinctrl)
+>=20
+> And a huge number of board-level improvements and additions.
+>=20
+> ----------------------------------------------------------------
+> Alexey Charkov (5):
+>       arm64: dts: rockchip: Add finer-grained PWM states for the fan on R=
+ock 5C
+>       arm64: dts: rockchip: Enable automatic fan control on Radxa Rock 5C
+>       arm64: dts: rockchip: switch Rock 5C to PMIC-based TSHUT reset
+>       arm64: dts: rockchip: Add SPDIF nodes to RK3588(s) device trees
+>       arm64: dts: rockchip: Enable SPDIF output on H96 Max V58
+>=20
+> Andy Yan (5):
+>       arm64: dts: rockchip: Enable USB3 OTG on rk3588s Cool Pi 4B
+>       arm64: dts: rockchip: Add vop for rk3576
+>       arm64: dts: rockchip: Add hdmi for rk3576
+>       arm64: dts: rockchip: Enable hdmi display on sige5
+>       arm64: dts: rockchip: Enable hdmi out display for rk3576-evb-v10
+>=20
+> Chris Morgan (1):
+>       arm64: dts: rockchip: remove rk3588 optee node
+>=20
+> Chukun Pan (3):
+>       dt-bindings: mfd: syscon: Add rk3528 QoS register compatible
+>       arm64: dts: rockchip: Add rk3528 QoS register node
+>       arm64: dts: rockchip: enable SCMI clk for RK3528 SoC
+>=20
+> Cristian Ciocaltea (8):
+>       arm64: dts: rockchip: Enable HDMI0 PHY clk provider on RK3588
+>       arm64: dts: rockchip: Add HDMI0 PHY PLL clock source to VOP2 on RK3=
+588
+>       arm64: dts: rockchip: Add PHY node for HDMI1 TX port on RK3588
+>       arm64: dts: rockchip: Add HDMI1 node on RK3588
+>       arm64: dts: rockchip: Enable HDMI1 on rock-5b
+>       arm64: dts: rockchip: Enable HDMI1 PHY clk provider on RK3588
+>       arm64: dts: rockchip: Add HDMI1 PHY PLL clock source to VOP2 on RK3=
+588
+>       arm64: dts: rockchip: Enable HDMI1 on rk3588-evb1
+>=20
+> Damon Ding (1):
+>       arm64: dts: rockchip: Fix label name of hdptxphy for RK3588
+>=20
+> Detlev Casanova (6):
+>       dt-bindings: arm: rockchip: Add Radxa ROCK 4D board
+>       arm64: dts: rockchip: Add HDMI audio outputs for rk3588
+>       arm64: dts: rockchip: Enable HDMI audio outputs for Rock 5B
+>       arm64: dts: rockchip: Add HDMI support for rock-4d
+>       arm64: dts: rockchip: Add SFC nodes for rk3576
+>       arm64: dts: rockchip: Add SPI NOR device on the ROCK 4D
+>=20
+> Diederik de Haas (1):
+>       arm64: dts: rockchip: add 'chassis-type' property on PineNote
+>=20
+> Dragan Simic (3):
+>       arm64: dts: rockchip: Describe why is HWRNG disabled in RK356x base=
+ dtsi
+>       arm64: dts: rockchip: Use "dma-noncoherent" in base RK3588 SoC dtsi
+>       arm64: dts: rockchip: linewrap gmac assigned-clocks on Quartz64 Mod=
+el A/B files a bit
+>=20
+> FUKAUMI Naoki (1):
+>       arm64: dts: rockchip: Enable USB OTG for Radxa ROCK Pi E
+>=20
+> Heiko Stuebner (5):
+>       dt-bindings: arm: rockchip: Add Firefly ROC-RK3576-PC binding
+>       arm64: dts: rockchip: Add devicetree for the ROC-RK3576-PC
+>       arm64: dts: rockchip: add rk3576 otp node
+>       Merge branch 'v6.15-shared/clkids' into v6.15-armsoc/dts64
+>       arm64: dts: rockchip: add usb typec host support to rk3588-jaguar
+>=20
+> Jagan Teki (1):
+>       arm64: dts: rockchip: Enable HDMI1 out for Edgeble-6TOPS Modules
+>=20
+> Jianfeng Liu (2):
+>       arm64: dts: rockchip: Enable HDMI on armsom-sige7
+>       arm64: dts: rockchip: add hdmi1 support to ROCK 5 ITX
+>=20
+> Jimmy Hon (6):
+>       arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Max
+>       arm64: dts: rockchip: Adapt to differences between Orange Pi 5 Max =
+and Ultra
+>       dt-bindings: arm: rockchip: Add Xunlong Orange Pi 5 Ultra
+>       arm64: dts: rockchip: Add Orange Pi 5 Ultra board
+>       arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Ultra
+>       arm64: dts: rockchip: Enable HDMI1 audio output for Orange Pi 5 Ult=
+ra
+>=20
+> Jonas Karlman (7):
+>       dt-bindings: soc: rockchip: Add RK3528 ioc grf syscon
+>       arm64: dts: rockchip: Add pinctrl and gpio nodes for RK3528
+>       arm64: dts: rockchip: Add uart0 pinctrl to Radxa E20C
+>       arm64: dts: rockchip: Add leds node to Radxa E20C
+>       arm64: dts: rockchip: Add user button to Radxa E20C
+>       arm64: dts: rockchip: Add SARADC node for RK3528
+>       arm64: dts: rockchip: Add maskrom button to Radxa E20C
+>=20
+> Junhao Xie (3):
+>       dt-bindings: vendor-prefixes: Add prefix for Ariaboard
+>       dt-bindings: arm: rockchip: Add Ariaboard Photonicat RK3568
+>       arm64: dts: rockchip: add dts for Ariaboard Photonicat RK3568
+>=20
+> Kever Yang (1):
+>       dt-bindings: vendor-prefixes: Update rockchip company name
+>=20
+> Krzysztof Kozlowski (2):
+>       arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3399 ROC=
+ PC PLUS
+>       arm64: dts: rockchip: Add ES8388 audio codec fallback on RK3588 boa=
+rds
+>=20
+> Nicolas Frattaroli (1):
+>       arm64: dts: rockchip: Add rng node to RK3588
+>=20
+> Patrick Wildt (2):
+>       dt-bindings: arm: rockchip: Add MNT Reform 2 (RCORE)
+>       arm64: dts: rockchip: add MNT Reform 2 laptop
+>=20
+> Quentin Schulz (17):
+>       arm64: dts: rockchip: add support for sound output over HDMI on RK3=
+399 Puma Haikou
+>       arm64: dts: rockchip: add overlay test for WolfVision PF5
+>       arm64: dts: rockchip: add overlay test for Edgeble NCM6A/NCM6B
+>       arm64: dts: rockchip: add overlay tests for Rock 5B PCIe overlays
+>       arm64: dts: rockchip: minimal support for Pre-ICT tester adapter fo=
+r RK3588 Jaguar
+>       arm64: dts: rockchip: add support for HAIKOU-LVDS-9904379 adapter f=
+or PX30 Ringneck
+>       arm64: dts: rockchip: add overlay for PX30 Ringneck Haikou Video De=
+mo adapter
+>       arm64: dts: rockchip: add overlay for RK3399 Puma Haikou Video Demo=
+ adapter
+>       arm64: dts: rockchip: enable UART5 on RK3588 Tiger Haikou
+>       arm64: dts: rockchip: move DDC bus from Haikou carrierboard to RK33=
+99 Puma DTSI
+>       arm64: dts: rockchip: move I2C6 from Haikou carrierboard to Puma DT=
+SI
+>       arm64: dts: rockchip: disable I2C6 on Puma DTSI
+>       arm64: dts: rockchip: enable I2S0 in Haikou carrierboard, not Puma =
+DTSI
+>       arm64: dts: rockchip: add EEPROM found on RK3399 Puma Haikou
+>       arm64: dts: rockchip: enable Ethernet in Haikou carrierboard, not P=
+uma DTSI
+>       arm64: dts: rockchip: enable I2C3 in Haikou carrierboard, not Ringn=
+eck DTSI
+>       arm64: dts: rockchip: disable I2C2 bus by default on RK3588 Tiger
+>=20
+> Sebastian Reichel (2):
+>       arm64: dts: rockchip: Add GPU power domain regulator dependency for=
+ RK3588
+>       arm64: dts: rockchip: Enable HDMI receiver on rock-5b
+>=20
+> Shreeya Patel (1):
+>       arm64: dts: rockchip: Add device tree support for HDMI RX Controller
+>=20
+> Stephen Chen (1):
+>       arm64: dts: rockchip: Add Radxa ROCK 4D device tree
+>=20
+> Yao Zi (5):
+>       dt-bindings: clock: Document clock and reset unit of RK3528
+>       arm64: dts: rockchip: Add clock generators for RK3528 SoC
+>       arm64: dts: rockchip: Add UART clocks for RK3528 SoC
+>       dt-bindings: soc: rockchip: Add RK3528 VO GRF syscon
+>       dt-bindings: soc: rockchip: Add RK3528 VPU GRF syscon
+>=20
+>  .../devicetree/bindings/arm/rockchip.yaml          |   25 +-
+>  .../bindings/clock/rockchip,rk3528-cru.yaml        |   64 +
+>  Documentation/devicetree/bindings/mfd/syscon.yaml  |    2 +
+>  .../devicetree/bindings/soc/rockchip/grf.yaml      |    3 +
+>  .../devicetree/bindings/vendor-prefixes.yaml       |    4 +-
+>  arch/arm64/boot/dts/rockchip/Makefile              |   63 +
+>  .../px30-ringneck-haikou-lvds-9904379.dtso         |  130 ++
+>  .../rockchip/px30-ringneck-haikou-video-demo.dtso  |  190 +++
+>  .../boot/dts/rockchip/px30-ringneck-haikou.dts     |    2 +
+>  arch/arm64/boot/dts/rockchip/px30-ringneck.dtsi    |    4 -
+>  arch/arm64/boot/dts/rockchip/rk3328-rock-pi-e.dts  |    8 +
+>  .../rockchip/rk3399-puma-haikou-video-demo.dtso    |  166 +++
+>  .../arm64/boot/dts/rockchip/rk3399-puma-haikou.dts |   26 +-
+>  arch/arm64/boot/dts/rockchip/rk3399-puma.dtsi      |   10 +-
+>  .../arm64/boot/dts/rockchip/rk3399-roc-pc-plus.dts |    2 +-
+>  arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi   | 1397 ++++++++++++++=
+++++++
+>  arch/arm64/boot/dts/rockchip/rk3528-radxa-e20c.dts |  118 ++
+>  arch/arm64/boot/dts/rockchip/rk3528.dtsi           |  354 ++++-
+>  arch/arm64/boot/dts/rockchip/rk3566-pinenote.dtsi  |    2 +
+>  arch/arm64/boot/dts/rockchip/rk3566-quartz64-a.dts |    8 +-
+>  arch/arm64/boot/dts/rockchip/rk3566-quartz64-b.dts |    8 +-
+>  arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts |  588 ++++++++
+>  arch/arm64/boot/dts/rockchip/rk356x-base.dtsi      |    5 +
+>  .../boot/dts/rockchip/rk3576-armsom-sige5.dts      |   47 +
+>  arch/arm64/boot/dts/rockchip/rk3576-evb1-v10.dts   |   47 +
+>  arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts     |  736 +++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts    |  751 +++++++++++
+>  arch/arm64/boot/dts/rockchip/rk3576.dtsi           |  187 +++
+>  .../arm64/boot/dts/rockchip/rk3588-armsom-lm7.dtsi |    4 +
+>  .../boot/dts/rockchip/rk3588-armsom-sige7.dts      |   51 +
+>  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  110 +-
+>  .../boot/dts/rockchip/rk3588-coolpi-cm5-evb.dts    |    2 +-
+>  .../dts/rockchip/rk3588-coolpi-cm5-genbook.dts     |    2 +-
+>  .../arm64/boot/dts/rockchip/rk3588-coolpi-cm5.dtsi |    4 +
+>  .../dts/rockchip/rk3588-edgeble-neu6a-common.dtsi  |    4 +
+>  .../boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtsi |   47 +
+>  arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dts   |   50 +-
+>  arch/arm64/boot/dts/rockchip/rk3588-extra.dtsi     |  186 +++
+>  arch/arm64/boot/dts/rockchip/rk3588-fet3588-c.dtsi |    4 +
+>  .../dts/rockchip/rk3588-firefly-core-3588j.dtsi    |    4 +
+>  .../dts/rockchip/rk3588-firefly-icore-3588q.dtsi   |  443 +++++++
+>  .../boot/dts/rockchip/rk3588-firefly-itx-3588j.dts |    2 +-
+>  .../rockchip/rk3588-friendlyelec-cm3588-nas.dts    |    2 +-
+>  .../dts/rockchip/rk3588-friendlyelec-cm3588.dtsi   |    4 +
+>  .../arm64/boot/dts/rockchip/rk3588-h96-max-v58.dts |   30 +-
+>  .../dts/rockchip/rk3588-jaguar-pre-ict-tester.dtso |  171 +++
+>  arch/arm64/boot/dts/rockchip/rk3588-jaguar.dts     |  224 +++-
+>  .../arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts |  336 +++++
+>  arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtsi |    6 +-
+>  arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dts   |    4 +
+>  .../dts/rockchip/rk3588-orangepi-5-compact.dtsi    |    9 -
+>  .../boot/dts/rockchip/rk3588-orangepi-5-max.dts    |   51 +-
+>  .../boot/dts/rockchip/rk3588-orangepi-5-plus.dts   |    2 +-
+>  .../boot/dts/rockchip/rk3588-orangepi-5-ultra.dts  |   83 ++
+>  .../arm64/boot/dts/rockchip/rk3588-orangepi-5.dtsi |    6 +-
+>  .../arm64/boot/dts/rockchip/rk3588-quartzpro64.dts |    6 +-
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts |   53 +
+>  arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dts    |   83 +-
+>  .../boot/dts/rockchip/rk3588-tiger-haikou.dts      |    4 +-
+>  arch/arm64/boot/dts/rockchip/rk3588-tiger.dtsi     |    5 +-
+>  .../arm64/boot/dts/rockchip/rk3588-toybrick-x0.dts |    4 +
+>  .../arm64/boot/dts/rockchip/rk3588-turing-rk1.dtsi |    4 +
+>  arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dts |   29 +-
+>  arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dts  |    6 +-
+>  .../boot/dts/rockchip/rk3588s-gameforce-ace.dts    |    6 +-
+>  .../boot/dts/rockchip/rk3588s-indiedroid-nova.dts  |    8 +-
+>  .../boot/dts/rockchip/rk3588s-khadas-edge2.dts     |    4 +
+>  .../arm64/boot/dts/rockchip/rk3588s-nanopi-r6.dtsi |    6 +-
+>  arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dts |    6 +-
+>  .../boot/dts/rockchip/rk3588s-orangepi-5.dtsi      |    8 +-
+>  arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dts   |    6 +-
+>  arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dts   |   42 +-
+>  include/dt-bindings/clock/rockchip,rk3528-cru.h    |  453 +++++++
+>  include/dt-bindings/reset/rockchip,rk3528-cru.h    |  241 ++++
+>  74 files changed, 7693 insertions(+), 69 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/clock/rockchip,rk35=
+28-cru.yaml
+>  create mode 100644 arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-lvd=
+s-9904379.dtso
+>  create mode 100644 arch/arm64/boot/dts/rockchip/px30-ringneck-haikou-vid=
+eo-demo.dtso
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3399-puma-haikou-video=
+=2Ddemo.dtso
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3528-pinctrl.dtsi
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-photonicat.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-roc-pc.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3576-rock-4d.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-firefly-icore-358=
+8q.dtsi
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-jaguar-pre-ict-te=
+ster.dtso
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dts
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.=
+dts
+>  create mode 100644 include/dt-bindings/clock/rockchip,rk3528-cru.h
+>  create mode 100644 include/dt-bindings/reset/rockchip,rk3528-cru.h
+>=20
 
-And one more question.
-When CS_SYSFS_ENABLE,  Is it valid to allow modification of "config"?
-I think It seems valid to show the "current working configration".
-If It allows to modificaiton the config value showed via sysfs and current =
-applied be different.
-
-So, IMHO, It seems to valid to modify "config" only in CS_DISABLED.
-
-Am I missing something?
-
-Thanks.
 
 
 
