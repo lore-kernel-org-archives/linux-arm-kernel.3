@@ -4,109 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DC2C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 01:23:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E03F6C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 01:49:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOAaVlaEm/vfp/T65ZkmYZIul8TnOLOP/BkOedl/Co4=; b=Fd/gmaVVyn+MdrvIMyYLhEvgfk
-	vD5qYYKp0eqWBkPuMfZWVWdEg7TI0WHm1fHqV/1jWyi3RYO/ygBMaujLsXZvyHdgr51GHVWyk4B5Y
-	ALdaGxlfnR0VrgqMw1Jvg/OPFOfeIvGXoc3GadZwqCJnsIjLKCxqo5/gF/LIbH/Vyljf6ZO/qsxAl
-	G+Y4CmBuHRmMgyH8n7FhDxoyUKNvGOBp/4VI71KHczMUHJsa/tx8Bdlq8WccTIWsxi3f5177Zbiqa
-	h1/lGV88DlNDHLu3bJ/iQMBD7dBzWzG07AY/p6wQV+F0x+c1iVgfgDLOcMFXj3lkJ7ZTKM2rfr5xu
-	QzArnSFw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z03ZTe80QxcSZpdq4slszoiS/+Er/iRhTf01LzOX8j8=; b=rmTVu2GOHfoIVQTCDmMAgTIMhP
+	iC8GM1oEB4y0MG9h5hPkDL6BitN//lc6eor+YLIy+wlTIhf/0k/PQ9xaKlnslVzoRcS2EhcQuer8b
+	Y+04v9GEaMn/MWMXn3cEuH4MPKS8lwtwVGGgf5CiPkF9MKPlWV+hpUm1p0D/5QoX2/bR3qvh5IYXH
+	XUVMIJ670Y8eIPaLp1yW6XNUNo07/epFu5L6awiKCdPLQpRQD9dD8SLXAEjKBO5sctH/UHAFEKqZP
+	pRNMVNqokP9EzxWjc5p9gDZxtWB3uF+dTce2+2AslQHoKoPGsOLiCEqw76FsqETCeVvvigluRsWsg
+	sZhX7jhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsAo5-00000007JE2-2r3Z;
-	Wed, 12 Mar 2025 01:22:49 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tsBDK-00000007KrB-3mEj;
+	Wed, 12 Mar 2025 01:48:54 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsAmQ-00000007J09-20vO
+	id 1tsBBg-00000007KjA-3Zlr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 01:21:07 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52BMH9hj015193;
-	Wed, 12 Mar 2025 01:20:51 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	gOAaVlaEm/vfp/T65ZkmYZIul8TnOLOP/BkOedl/Co4=; b=MJYsyrSxqwa72554
-	es28Bq8SS2qbWCTxhERCuD/t9iqOL4teB3v+9eHi4LjYMk+Z0zHRy4MGwZjgzbbO
-	6zcBadwrW+/DMscFdDPpOZbdwutZLi5mGTcB7rfEJd+/FwdfWTvLqmE+NpVlCv7t
-	G8DdDa/Xp2pwfe0k58/1AYOUW85BwnpTJDSB6GscLm82dwUvQMRbUCPkQWsa3V+E
-	pwTM0Hu2PIgud+4K0SdoTg2ZMR4xXf/pukGC/k0RclWxkfuBe7d0rnraxG4cq02Q
-	srXVWioUM8I1QVgKErfKQ08BvDERjBRDmGQFE5g/KmPkP4zt9sJH8T/l1cxzWIVA
-	Cu0qIw==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2nrq65-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Mar 2025 01:20:51 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52C1Ko4M030795
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Wed, 12 Mar 2025 01:20:50 GMT
-Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Tue, 11 Mar
- 2025 18:20:46 -0700
-Message-ID: <cef984d5-f369-4892-b970-a71285c2ebc5@quicinc.com>
-Date: Wed, 12 Mar 2025 09:20:44 +0800
+	Wed, 12 Mar 2025 01:47:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 60FB3A46518;
+	Wed, 12 Mar 2025 01:41:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 25B1DC4CEE9;
+	Wed, 12 Mar 2025 01:47:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741744031;
+	bh=2PiPcKwe8hU1SLSkxJ19ZbCFbcTwG0fVISzDHAZRDhg=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=WqAwRXDDKFC4K1SfTyLzadROtE69ikIcMNLT2cAKhZWQgbUNN6yGpJMu2AN2w+8Sw
+	 jP7vOfLmRC56paRFDBDLCK8TwNM5jkcWKDhHMacVFNL4MbetNqoAji2UCwcrwq6wYE
+	 fzdPL0/v76YP2aiaChIKzMxxSGsnjwZIT7Oci/mkz9PY5UOBEfHfQNHFWve+OzjccJ
+	 3t6jOtLRfQKdcrxMpvr/RxNsEVE16ThXNv2cZKEs53/OYkcj5PuRRUqUHV6jEgpjcm
+	 K7n+La3KxorCl4sc+97J0+g6iG+g8rp8g0Kh8a37eUEm32TG/LhVDwor6CdI883hOb
+	 uxhPDM38CEH5A==
+Date: Tue, 11 Mar 2025 20:47:07 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] coresight: tmc: Introduce new APIs to get the RWP
- offset of ETR buffer
-To: Mike Leach <mike.leach@linaro.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark
-	<james.clark@linaro.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Tingwei Zhang
-	<quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250310090407.2069489-1-quic_jiegan@quicinc.com>
- <20250310090407.2069489-2-quic_jiegan@quicinc.com>
- <CAJ9a7Vh7PmBBbvwnUETfCYrTSiXNzeiWpsz+XAGaUWt1Rq1aZw@mail.gmail.com>
-Content-Language: en-US
-From: Jie Gan <quic_jiegan@quicinc.com>
-In-Reply-To: <CAJ9a7Vh7PmBBbvwnUETfCYrTSiXNzeiWpsz+XAGaUWt1Rq1aZw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: WX4PUy9R_3aW-j0jtHmsAp8SKORZRZA2
-X-Authority-Analysis: v=2.4 cv=ZObXmW7b c=1 sm=1 tr=0 ts=67d0e173 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=V1Y4aJ5uuwzZXcr4G30A:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: WX4PUy9R_3aW-j0jtHmsAp8SKORZRZA2
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-12_01,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 mlxscore=0
- suspectscore=0 adultscore=0 impostorscore=0 spamscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503120007
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ linux-sound@vger.kernel.org, imx@lists.linux.dev, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Iuliana Prodan <iuliana.prodan@nxp.com>, Mark Brown <broonie@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Frank Li <Frank.li@nxp.com>, 
+ Marco Felsch <m.felsch@pengutronix.de>, 
+ Daniel Baluta <daniel.baluta@nxp.com>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
+References: <20250311163255.2664-1-laurentiumihalcea111@gmail.com>
+Message-Id: <174174398131.182748.13049437230815741677.robh@kernel.org>
+Subject: Re: [PATCH v5 0/3] add sof support on imx95
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250311_182106_536769_40A4EA62 
-X-CRM114-Status: GOOD (  34.73  )
+X-CRM114-CacheID: sfid-20250311_184713_023314_CCCBC3D6 
+X-CRM114-Status: GOOD (  31.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,157 +80,113 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
+On Tue, 11 Mar 2025 12:32:52 -0400, Laurentiu Mihalcea wrote:
+> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+> 
+> Add sof support on imx95. This series also includes some changes to
+> the audio-graph-card2 binding required for the support.
+> 
+> ---
+> Changes in v5:
+> - added comment in the DTS regarding the reserved DMA channels.
+> - addressed Frank's comment regarding the widgets/routing properties.
+> - changed codec and CPU EP names to include SAI3/WM8962 in their naming.
+> Previous naming was too generic.
+> - picked up some more R-b's
+> - change soundcard DT node name to the more generic "sof-sound" as the
+> soundcard might support additional DAI-CODEC links in the future.
+> - change the soundcard label to "audio". Same rationale as above. The
+> SOF core will append to it the "sof-" prefix, thus the resulting name will
+> be "sof-audio".
+> - Link to v4: https://lore.kernel.org/lkml/20250211225808.3050-1-laurentiumihalcea111@gmail.com/
+> 
+> Changes in v4:
+> - addressed Frank's comments regarding the DTS.
+> - squashed commits for common and imx95 bindings.
+> - dropped patch introducing driver. This was already handled via
+> https://lore.kernel.org/all/20250207162246.3104-1-laurentiumihalcea111@gmail.com/
+> - introduced two new properties: 'reg-names' and 'memory-region-names',
+> which are now needed by the driver to work properly. Because of this, 'reg'
+> and 'memory-region' properties had to be moved from the common binding as
+> 'reg-names' and 'memory-region-names' depend on them (you'd get a failure
+> when running the binding check otherwise).
+> - added missing 'bitclock-master' and 'frame-master' properties to codec EP.
+> - addressed Krzysztof's comments regarding the imx95 binding
+> - added Krzysztof's Acked-by
+> - Link to v3: https://lore.kernel.org/lkml/20241216145039.3074-1-laurentiumihalcea111@gmail.com/
+> 
+> Changes in v3:
+> - Ordered DT nodes alphabetically
+> - Removed 'cpu' and 'cpu_ep' labels from binding example
+> - Some small changes to the binding commit messages/titles.
+> - Link to v2: https://lore.kernel.org/lkml/20241113195240.3699-1-laurentiumihalcea111@gmail.com/
+> 
+> Changes in v2:
+> - Added new binding for 95's CM7 core with SOF. fsl,dsp.yaml is no longer used.
+> - "hp-det-gpios" and "widgets" properties now reference the definitions from audio-graph.yaml
+> - Removed extra empty spaces from DTS as suggested by Frank
+> - Ordered 'edma2', 'sai3', 'wm8962' DT nodes alphabetically. The order of the nodes
+> placed inside / is kept the same for readability
+> - Ordered driver header files includes alphabetically as suggested by Frank
+> - Removed "reg-names" and changed the maximum size of the "reg" property to 1 to align
+> with the other NXP CPUs sharing the same programming model (i.e: audio processing with SOF).
+> The region described in the DTS is the SRAM and the mailbox region is now hardcoded in the
+> driver as an offset to the start of the SRAM region.
+> - Added new binding with properties required by all NXP CPUs sharing the same programming
+> model (i.e: audio processing with SOF).
+> - Various driver adjustments made to accomodate the DT changes + some bug fixing related
+> to the mboxes not being requested/free'd on resume/suspend.
+> - Fixed value passed to "dma-channel-mask". A set bit means the channel is masked, not the
+> other way around.
+> - Link to v1: https://lore.kernel.org/lkml/20241023162114.3354-1-laurentiumihalcea111@gmail.com/
+> ---
+> 
+> Laurentiu Mihalcea (3):
+>   ASoC: dt-bindings: support imx95's CM7 core
+>   ASoC: dt-bindings: audio-graph-card2: add widgets and hp-det-gpios
+>     support
+>   arm64: dts: imx: add imx95 dts for sof
+> 
+>  .../bindings/sound/audio-graph-card2.yaml     |  4 +
+>  .../bindings/sound/fsl,imx95-cm7-sof.yaml     | 64 ++++++++++++++
+>  .../bindings/sound/fsl,sof-cpu.yaml           | 27 ++++++
+>  arch/arm64/boot/dts/freescale/Makefile        |  1 +
+>  .../dts/freescale/imx95-19x19-evk-sof.dts     | 84 +++++++++++++++++++
+>  5 files changed, 180 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/sound/fsl,imx95-cm7-sof.yaml
+>  create mode 100644 Documentation/devicetree/bindings/sound/fsl,sof-cpu.yaml
+>  create mode 100644 arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dts
+> 
+> --
+> 2.34.1
+> 
+> 
+> 
 
-On 3/12/2025 12:49 AM, Mike Leach wrote:
-> Hi,
-> 
-> On Mon, 10 Mar 2025 at 09:04, Jie Gan <quic_jiegan@quicinc.com> wrote:
->>
->> The new functions calculate and return the offset to the write pointer of
->> the ETR buffer based on whether the memory mode is SG, flat or reserved.
->> The functions have the RWP offset can directly read data from ETR buffer,
->> enabling the transfer of data to any required location.
->>
->> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
->> ---
->>   .../hwtracing/coresight/coresight-tmc-etr.c   | 40 +++++++++++++++++++
->>   drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
->>   2 files changed, 41 insertions(+)
->>
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> index eda7cdad0e2b..ec636ab1fd75 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->> @@ -267,6 +267,46 @@ void tmc_free_sg_table(struct tmc_sg_table *sg_table)
->>   }
->>   EXPORT_SYMBOL_GPL(tmc_free_sg_table);
->>
->> +static long tmc_flat_resrv_get_rwp_offset(struct tmc_drvdata *drvdata)
->> +{
->> +       dma_addr_t paddr = drvdata->sysfs_buf->hwaddr;
->> +       u64 rwp;
->> +
-> 
-> It is not valid to read RWP if the TMC is running. It must be in the
-> stopped or disabled state - see the specifications for TMC /ETR
-> 
-> It is likely that CSUNLOCK / CSLOCK are needed here too,  along with
-> the spinlock that protects drvdata
-> 
-> See the code in coresight_tmc_etr.c :-
-> 
-> e.g. in
-> 
-> tmc_update_etr_buffer()
-> 
-> ...
-> <take spinlock>
-> ...
-> CS_UNLOCK(drvdata->base);
-> tmc_flush_and_stop(drvdata); // this ensures tmc is stopped and
-> flushed to memory - essential to ensure full formatted frame is in
-> memory.
-> tmc_sync_etr_buf(drvdata); // this function reads rwp.
-> CS_LOCK(drvdata->base);
-> <release spinlokc>
-> 
-> This type of program flow is common to both sysfs and perf handling of
-> TMC buffers.
 
-Hi Mike,
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
 
-I am fully understood your point here.
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
 
-The function is designed this way to read the w_offset (which may not be 
-entirely accurate because the etr buffer is not synced) when the 
-byte-cntr devnode is opened, aiming to reduce the length of redundant 
-trace data. In this case, we cannot ensure the TMC is stopped or 
-disabled. The byte-cntr only requires an offset to know where it can 
-start before the expected trace data gets into ETR buffer.
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
 
-The w_offset is also read when the byte-cntr function stops, which 
-occurs after the TMC is disabled.
-
-Maybe this is not a good idea and I should read r_offset upon open?
-The primary goal for byte-cntr is trying to transfer useful trace data 
-from the ETR buffer to the userspace, if we start from r_offset, a large 
-number of redundant trace data which the user does not expect will be 
-transferred simultaneously.
+  pip3 install dtschema --upgrade
 
 
-> 
->> +       rwp = tmc_read_rwp(drvdata);
->> +       return rwp - paddr;
->> +}
->> +
->> +static long tmc_sg_get_rwp_offset(struct tmc_drvdata *drvdata)
->> +{
->> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
->> +       struct etr_sg_table *etr_table = etr_buf->private;
->> +       struct tmc_sg_table *table = etr_table->sg_table;
->> +       long w_offset;
->> +       u64 rwp;
->> +
-> 
-> Same comments as above
-> 
->> +       rwp = tmc_read_rwp(drvdata);
->> +       w_offset = tmc_sg_get_data_page_offset(table, rwp);
->> +
->> +       return w_offset;
->> +}
->> +
->> +/*
->> + * Retrieve the offset to the write pointer of the ETR buffer based on whether
->> + * the memory mode is SG, flat or reserved.
->> + */
->> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
->> +{
->> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
->> +
-> 
-> As this is an exported function, please ensure that the inputs are
-> valid - check the pointers
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/freescale/' for 20250311163255.2664-1-laurentiumihalcea111@gmail.com:
 
-Sure, will do.
+arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dtb: pcie@4c300000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
+arch/arm64/boot/dts/freescale/imx95-19x19-evk-sof.dtb: pcie@4c380000: clock-names: ['pcie', 'pcie_bus', 'pcie_phy', 'pcie_aux'] is too short
+	from schema $id: http://devicetree.org/schemas/pci/fsl,imx6q-pcie.yaml#
 
-Thanks,
-Jie
 
-> 
-> Code to ensure TMC is flushed and stopped could be inserted here.
-> 
-> Regards
-> 
-> Mike
-> 
->> +       if (etr_buf->mode == ETR_MODE_ETR_SG)
->> +               return tmc_sg_get_rwp_offset(drvdata);
->> +       else if (etr_buf->mode == ETR_MODE_FLAT || etr_buf->mode == ETR_MODE_RESRV)
->> +               return tmc_flat_resrv_get_rwp_offset(drvdata);
->> +       else
->> +               return -EINVAL;
->> +}
->> +EXPORT_SYMBOL_GPL(tmc_get_rwp_offset);
->> +
->>   /*
->>    * Alloc pages for the table. Since this will be used by the device,
->>    * allocate the pages closer to the device (i.e, dev_to_node(dev)
->> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/hwtracing/coresight/coresight-tmc.h
->> index b48bc9a01cc0..baedb4dcfc3f 100644
->> --- a/drivers/hwtracing/coresight/coresight-tmc.h
->> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
->> @@ -442,5 +442,6 @@ void tmc_etr_remove_catu_ops(void);
->>   struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->>                                     enum cs_mode mode, void *data);
->>   extern const struct attribute_group coresight_etr_group;
->> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata);
->>
->>   #endif
->> --
->> 2.34.1
->>
-> 
-> 
+
+
 
 
