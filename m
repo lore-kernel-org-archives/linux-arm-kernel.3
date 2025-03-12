@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A37BC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:13:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08FAEC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:14:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e67a6xJ2fya7iTHBTm4CMpwBESFmr8ztnJRq0kN0BTU=; b=Qf5xbKM1qTqiCKvMbWGC1TtoFv
-	oCeWcedo38ot5QJNlQroBwle6uoLgpmyOmBZ2r4k2uj7rpnhkJDoc9Inl46lHIDeKD1C/VRE7H2yX
-	Org3BpNScWP+nYOuIq2soisRWQe8NY7unbLCpwyuQtVeeriPBAHxW/JMmpnzvWFogeHKf7x3NEi7C
-	QRiFNPlGnYf6ClJRzZuhxb8DmCrMSVwNJWhmPAe/W7UK6HIUQoRcolXqlBnEOufdjtVbxBvv+V9P0
-	ZokTTfJ64PAPueSA4Z+KYqv01wntYVzs5VCLlKNqYj3NMb5eZKZltBPGsbgE3m+NDQ8JWCYGk3LMc
-	t+ewH/TA==;
+	bh=PlCdoqnuy1rzQZsJE5kNcyighHEqrB9PSElkNCee3L8=; b=IfQyZSwRzD++c/aTxikwamL0aj
+	/qCHRM07v5q9esE/jxgDEsg6V0BtVvxAcgiqy5AwAE0TXjHil3PF4kwXGt6gp+x3+WcUxEuJk2moH
+	STsLt72RPevu1d/u5u0LkljhjngpCirbKT/QNrN8fkHnm1FnAhLii79gthrO0LFG3kpbOuxIZcETm
+	iTqiSsfHlxLj2UA9lCPkj37vfxPuHL69m0bT5iK8RUtMaTdq4mPM7UHqhMA2XFxnYDds5lHU49uoy
+	Xy73Py9iAZ/1o0qxTsGL3MvhI60wWGonmONQ9jTIKykE2QBiO2+RFDxFhvuxrOR+3OPaytB3TNFdt
+	W8E4gjKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK1L-00000008DmQ-2zq3;
-	Wed, 12 Mar 2025 11:13:07 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1tsK2x-00000008E2q-2p78;
+	Wed, 12 Mar 2025 11:14:47 +0000
+Received: from mail-wm1-x32a.google.com ([2a00:1450:4864:20::32a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJZR-000000088nx-183O
+	id 1tsJbx-000000089VS-2bfM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 10:44:18 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-2ff799d99dcso11214868a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:44:17 -0700 (PDT)
+	Wed, 12 Mar 2025 10:46:54 +0000
+Received: by mail-wm1-x32a.google.com with SMTP id 5b1f17b1804b1-43cfb6e9031so33508955e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:46:53 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1741776257; x=1742381057; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=e67a6xJ2fya7iTHBTm4CMpwBESFmr8ztnJRq0kN0BTU=;
-        b=UJQodZo7jNfDZQyt0Mi0+vCZlxAFsrnr3FZlx1aiT2fI8o5dhYcEi+gcu+aTgq9SJU
-         1bpXZ5WKfA1PQPHWnZGRrepfOrCrJF2h5oey9J39pPQ1PVBuhH+bj3NrawwoQ0SX48eH
-         P/7jO68w1UEQGO14oYbJrWlu7AoGeDpbtZKhc=
+        d=linaro.org; s=google; t=1741776412; x=1742381212; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=PlCdoqnuy1rzQZsJE5kNcyighHEqrB9PSElkNCee3L8=;
+        b=CJrfLDOrGHrIbdsbYahc+fp/109oyWGIfvJCZb7LUwtpsE27XNf2n2n1uQrXkG6tKc
+         YQLms2Zy4kN+yd20dyygIBpSmmE5efktvYBFe4tI/49v37S+KU+WG3360uv0FhJIVmXd
+         5u4UBLfj7ZUuZSJDPBY/ElEYTeVPEKqAIujpUSNddpHRkgf4DMzWCh9oIPCqWR+SZciL
+         g4qftIc/Aq5x3RO/q+m+rN6jahTDpb6RpHP1GXcRDIl64WZlPZJDKKmcmvyjjAXMOx25
+         MFBObuVE1KotdtsQ2IwmfT+Wt1X45O2lcN34h653/0P4cIVxvSn92H3ZIRlZPdJn0xQ5
+         RgAA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741776257; x=1742381057;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=e67a6xJ2fya7iTHBTm4CMpwBESFmr8ztnJRq0kN0BTU=;
-        b=MccpH0tPGeTlR9axeZ19RjiIIcyRD72QM7S8RH9np1Hn8FVQe6uKcc5scYmsN3GZH4
-         C9FOtf255vJEEbR/8U311k9dbycHKfliJ7IO9Rmjo1uk2FzulTkJxJ3yyLSxOIOTgdgW
-         asLYWxQuf5cIKKuFMk39FUmeBCLjRx8HHYHFC9XV7xxRnnvUtLBmMNoBh2rG/Hj7g4Z7
-         XwlgITI+g3mJPXEEI2HUZvPFOAiOLeiSh/EHGDz4MdKxjJXLivDw8H0n1C3SqyGbGrm2
-         wIfdhmUD4jbC4+lDptRvHvuCcfOOzD6LrrPOoNzuTiGWvDH4NTKHqHpDDSlmGHqe1gfF
-         j01g==
-X-Forwarded-Encrypted: i=1; AJvYcCWfX4qkTyD+xcwQcxHkUY8ymu4q3hUjzKN7I69B5mntIDCJDqVQevi775wNx4kInY0IEHPK6rR5GS4/jfRmGlzZ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyqgNxM6xR0R6Kalx4VjoGEWNnJ3iTSHtNkifRXqOtv5czZBZ1T
-	WR+W+89yd0BBp096YyVbSrVb0yNfzXz0rA6gjgDhcPp3FVuQ0cImQoMD0yWrzw==
-X-Gm-Gg: ASbGncuI8Rbsx67TrJ8WDCcKe0a6h8IkLbex+bQwauwqwbS2AxDafBI/75ljYucE31S
-	AzqbGqbDISyFZ+Q2kFck81wh82/QUkS8MjCNqbi1z/N6uCq0jYavP7CgFBjfmd9G6Dle2B3noi1
-	j5kDY9z0cpS+9IWCSQdrNvGZ+0y26MoICUddg9vNqCYcRS1gJa3wibFUvN5+GsMJ18Ld3AUGXOd
-	YEo+flxGoHNhUORTVBb3LZmr6iFdmrtgNMn6Qiamax/9w+FHZaPm6MwKf4e3MUUr4rDK842sA6s
-	zDGXQUs1uX543Nt8ueIjcwfSxR+7wV/hm08MzjQ/p0e1Fo4ntXXBeeS3pfBem3s=
-X-Google-Smtp-Source: AGHT+IHnJ9RN+rcEBHk26VixrUf4szFNagmQDG8odQqs+oPATVUlo/6Tywg9lfAQyAwSqd1m1Il2tg==
-X-Received: by 2002:a17:90b:1a86:b0:2ee:53b3:3f1c with SMTP id 98e67ed59e1d1-2ff7ce59755mr29857671a91.5.1741776256738;
-        Wed, 12 Mar 2025 03:44:16 -0700 (PDT)
-Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:b5ed:b71c:fb14:a696])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm1405675a91.35.2025.03.12.03.44.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 03:44:16 -0700 (PDT)
-From: Chen-Yu Tsai <wenst@chromium.org>
-To: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Benson Leung <bleung@chromium.org>,
-	Tzung-Bi Shih <tzungbi@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Chen-Yu Tsai <wenst@chromium.org>,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	chrome-platform@lists.linux.dev,
-	linux-input@vger.kernel.org,
-	Douglas Anderson <dianders@chromium.org>
-Subject: [PATCH 8/8] platform/chrome: of_hw_prober: Support touchscreen probing on Squirtle
-Date: Wed, 12 Mar 2025 18:43:42 +0800
-Message-ID: <20250312104344.3084425-9-wenst@chromium.org>
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-In-Reply-To: <20250312104344.3084425-1-wenst@chromium.org>
-References: <20250312104344.3084425-1-wenst@chromium.org>
+        d=1e100.net; s=20230601; t=1741776412; x=1742381212;
+        h=content-transfer-encoding:in-reply-to:content-language:references
+         :cc:to:from:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PlCdoqnuy1rzQZsJE5kNcyighHEqrB9PSElkNCee3L8=;
+        b=su3TctTctNnp7p6bZMZPVaqVpBbGmwNrURTQmKXfMSlLyoIItyrZ/AorB/qD8gVuOj
+         aicnwS/mFaJ4IZca2vYFm5oKyyABK/TtRFfYyoQ2kZt64mCqvWfSOVijknHdcRCZQbRD
+         49kV/MtkJiwy/Vb/EPbLYnEmdqN/SETXyRCqy5UG5l+2ZDCZ2myWNyzm4Ai4AJ79fzni
+         NoAUSjGJ8x6z7iHJFbci9wUZPjdTcXD1YC80HXnm/I9+2nDNUcWr5R9gm3oHiXy9KHgt
+         8FuXr54Y3nG9b4XE/6lwH7wv+kyXaW3SmAuuvrH2n+7cItgdVxoMKU71lY/hM7EotQ+5
+         Ly6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUmiT3okEM4/lyXW0Vkd1BVQACQSoXteJGYTFJhojWVxEDOK5iWwZnh8aYendodDhIG9P6ZwjxQ0E1bgLEUBdJV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7r6RuNbfoaUJOKImHdmGuRRnEKM29TTLz1piEDfZ9WkRLn4Uh
+	ZzzOL6nXrPXH9aS37n3Rc9T43qPmpScpybptWsTIe71ihF2pZ/XxgHkapQKO4XY=
+X-Gm-Gg: ASbGncunQTwofLu+IPRveZx7ealArAYA+23hLm1wSKqwui1Qv1/Y+7aeO/hqLfh3ZmE
+	MocW6fbPsBgagIWnHgFsELlb8tp/1IzMdBwjf2AyNFTi63ujSux69SE0Ocdr57ap5+4UzIy/QcI
+	uEREvzrje7NMlCFJnyFqy4uuVFvj7GPy8YJElfbNvY2ttgVwN4q5vXlgGgNcCDdxDJlLrCxMNI4
+	RD38yd/KoayKlyfoVerMwL6B7XbSqckrSF5QBuWYVik2Z5xVUm/jqVDPMHINpakeMowWOPdIrXJ
+	l38+foMymPgUKi0L/pklb5bGFGMx11uWZr/X+1yrpvYhr9zUzO865Q==
+X-Google-Smtp-Source: AGHT+IHEYJN4xPkzICEY1jso6wVewx65u7jQrXPP1xJLeTxQL55K5z0VSuFkgMOyPntNnn+Hd4A7Gw==
+X-Received: by 2002:a05:600c:5618:b0:439:9a40:aa0b with SMTP id 5b1f17b1804b1-43cdfb7e4b1mr156156805e9.25.1741776411989;
+        Wed, 12 Mar 2025 03:46:51 -0700 (PDT)
+Received: from [192.168.1.247] ([209.198.129.86])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912c0e2f44sm20474280f8f.76.2025.03.12.03.46.50
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Mar 2025 03:46:51 -0700 (PDT)
+Message-ID: <bed04866-a477-498a-b33a-a631759733e2@linaro.org>
+Date: Wed, 12 Mar 2025 10:46:50 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] coresight: configfs: Constify struct config_item_type
+From: James Clark <james.clark@linaro.org>
+To: Christophe JAILLET <christophe.jaillet@wanadoo.fr>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>,
+ "coresight@lists.linaro.org" <coresight@lists.linaro.org>
+Cc: linux-kernel@vger.kernel.org, kernel-janitors@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>
+References: <1011717e5ed35ec12113a0d8c233823e820fb524.1723368522.git.christophe.jaillet@wanadoo.fr>
+ <d8164311-83e7-4fb0-ab82-90e1a2762b01@linaro.org>
+Content-Language: en-US
+In-Reply-To: <d8164311-83e7-4fb0-ab82-90e1a2762b01@linaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_034417_317504_DA4F7F2C 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250312_034653_666382_2454DCB6 
+X-CRM114-Status: GOOD (  13.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,56 +103,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MT8186 Squirtle Chromebook is built with one of two possible
-touchscreens. Let the prober probe for them.
 
-Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
----
- drivers/platform/chrome/chromeos_of_hw_prober.c | 16 ++++++++++++++++
- 1 file changed, 16 insertions(+)
 
-diff --git a/drivers/platform/chrome/chromeos_of_hw_prober.c b/drivers/platform/chrome/chromeos_of_hw_prober.c
-index eb01851e1cf5..a3ec583f316c 100644
---- a/drivers/platform/chrome/chromeos_of_hw_prober.c
-+++ b/drivers/platform/chrome/chromeos_of_hw_prober.c
-@@ -59,6 +59,7 @@ static int chromeos_i2c_component_prober(struct device *dev, const void *_data)
- DEFINE_CHROMEOS_I2C_PROBE_DATA_DUMB_BY_TYPE(touchscreen);
- DEFINE_CHROMEOS_I2C_PROBE_DATA_DUMB_BY_TYPE(trackpad);
- 
-+DEFINE_CHROMEOS_I2C_PROBE_CFG_SIMPLE_BY_TYPE(touchscreen);
- DEFINE_CHROMEOS_I2C_PROBE_CFG_SIMPLE_BY_TYPE(trackpad);
- 
- static const struct chromeos_i2c_probe_data chromeos_i2c_probe_hana_trackpad = {
-@@ -76,6 +77,17 @@ static const struct chromeos_i2c_probe_data chromeos_i2c_probe_hana_trackpad = {
- 	},
- };
- 
-+static const struct chromeos_i2c_probe_data chromeos_i2c_probe_squirtle_touchscreen = {
-+	.cfg = &chromeos_i2c_probe_simple_touchscreen_cfg,
-+	.opts = &(const struct i2c_of_probe_simple_opts) {
-+		.res_node_compatible = "elan,ekth6a12nay",
-+		.supply_name = "vcc33",
-+		.gpio_name = "reset",
-+		.post_power_on_delay_ms = 10,
-+		.post_gpio_config_delay_ms = 300,
-+	},
-+};
-+
- static const struct hw_prober_entry hw_prober_platforms[] = {
- 	{
- 		.compatible = "google,hana",
-@@ -89,6 +101,10 @@ static const struct hw_prober_entry hw_prober_platforms[] = {
- 		.compatible = "google,squirtle",
- 		.prober = chromeos_i2c_component_prober,
- 		.data = &chromeos_i2c_probe_dumb_trackpad,
-+	}, {
-+		.compatible = "google,squirtle",
-+		.prober = chromeos_i2c_component_prober,
-+		.data = &chromeos_i2c_probe_squirtle_touchscreen,
- 	}, {
- 		.compatible = "google,steelix",
- 		.prober = chromeos_i2c_component_prober,
--- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+On 12/08/2024 10:12 am, James Clark wrote:
+> 
+> 
+> On 11/08/2024 10:30 am, Christophe JAILLET wrote:
+>> 'struct config_item_type' is not modified in this driver.
+>>
+>> These structures are only used with config_group_init_type_name() which
+>> takes a "const struct config_item_type *" as a 3rd argument or with
+>> struct config_group.cg_item.ci_type which is also a "const struct
+>> config_item_type    *".
+>>
+>> Constifying this structure moves some data to a read-only section, so
+>> increase overall security, especially when the structure holds some
+>> function pointers.
+>>
+>> On a x86_64, with allmodconfig:
+>> Before:
+>> ======
+>>     text       data        bss        dec        hex    filename
+>>     4904       1376        136       6416       1910    drivers/ 
+>> hwtracing/coresight/coresight-syscfg-configfs.o
+>>
+>> After:
+>> =====
+>>     text       data        bss        dec        hex    filename
+>>     5264       1120         16       6400       1900    drivers/ 
+>> hwtracing/coresight/coresight-syscfg-configfs.o
+>>
+>> Signed-off-by: Christophe JAILLET <christophe.jaillet@wanadoo.fr>
+>> ---
+>> Compile tested-only.
+>> ---
+>>   .../hwtracing/coresight/coresight-syscfg-configfs.c  | 12 ++++++------
+>>   1 file changed, 6 insertions(+), 6 deletions(-)
+>>
+>> diff --git a/drivers/hwtracing/coresight/coresight-syscfg-configfs.c 
+>> b/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+>> index 433ede94dd63..213b4159b062 100644
+>> --- a/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+>> +++ b/drivers/hwtracing/coresight/coresight-syscfg-configfs.c
+>> @@ -160,7 +160,7 @@ static struct configfs_attribute 
+>> *cscfg_config_view_attrs[] = {
+>>       NULL,
+>>   };
+>> -static struct config_item_type cscfg_config_view_type = {
+>> +static const struct config_item_type cscfg_config_view_type = {
+>>       .ct_owner = THIS_MODULE,
+>>       .ct_attrs = cscfg_config_view_attrs,
+>>   };
+>> @@ -170,7 +170,7 @@ static struct configfs_attribute 
+>> *cscfg_config_preset_attrs[] = {
+>>       NULL,
+>>   };
+>> -static struct config_item_type cscfg_config_preset_type = {
+>> +static const struct config_item_type cscfg_config_preset_type = {
+>>       .ct_owner = THIS_MODULE,
+>>       .ct_attrs = cscfg_config_preset_attrs,
+>>   };
+>> @@ -272,7 +272,7 @@ static struct configfs_attribute 
+>> *cscfg_feature_view_attrs[] = {
+>>       NULL,
+>>   };
+>> -static struct config_item_type cscfg_feature_view_type = {
+>> +static const struct config_item_type cscfg_feature_view_type = {
+>>       .ct_owner = THIS_MODULE,
+>>       .ct_attrs = cscfg_feature_view_attrs,
+>>   };
+>> @@ -309,7 +309,7 @@ static struct configfs_attribute 
+>> *cscfg_param_view_attrs[] = {
+>>       NULL,
+>>   };
+>> -static struct config_item_type cscfg_param_view_type = {
+>> +static const struct config_item_type cscfg_param_view_type = {
+>>       .ct_owner = THIS_MODULE,
+>>       .ct_attrs = cscfg_param_view_attrs,
+>>   };
+>> @@ -380,7 +380,7 @@ static struct config_group 
+>> *cscfg_create_feature_group(struct cscfg_feature_desc
+>>       return &feat_view->group;
+>>   }
+>> -static struct config_item_type cscfg_configs_type = {
+>> +static const struct config_item_type cscfg_configs_type = {
+>>       .ct_owner = THIS_MODULE,
+>>   };
+>> @@ -414,7 +414,7 @@ void cscfg_configfs_del_config(struct 
+>> cscfg_config_desc *config_desc)
+>>       }
+>>   }
+>> -static struct config_item_type cscfg_features_type = {
+>> +static const struct config_item_type cscfg_features_type = {
+>>       .ct_owner = THIS_MODULE,
+>>   };
+> 
+> Reviewed-by: James Clark <james.clark@linaro.org>
+
+Ping. Just found this one hanging in my coresight branch. Still applies 
+cleanly.
+
+Thanks
 
 
