@@ -4,90 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3735C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:57:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0645DC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:59:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=coDruLhzUwUWr9PQ9J/pkDgkm+WduLU7r2hwaAyS0V4=; b=RmCnv237QiX5xYQrmaZpRe8g2z
-	OQyU0tFtAvA5mfqMgvuNsc9Ahc1sF5PLQ5FqP6qVpNBB9kKXEBp2BZkjM0Nk8G/8A9lJARUkJTlaB
-	bOUTB5ANOdCgd4DD6LhvoJJC8Ez3OaQqfF4f3+1ftem0cP5J1kX7XA0gXRYNLls0f1rmfdm0NVrwq
-	/1V366F1zbUH9icVJAOz8bbAMPpZsKpz70cOScgP3aI9ina/KB92nksQgdOSQ+Uebd1dNEECYzTM8
-	9sbADXCNP7FeffTG5Kt52QuAw0QTxgsKhH0y5r10t2YrRlvUtC7/VrLYDhu70x2OBvf3GVgVM8BCo
-	xwz6hiZg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+guXa85l4m8374ZSaIhSq5yBVp6GHqv8PZJqOh4Sv24=; b=b3/WGYdM8kNomQhElyMSiCV11M
+	eO/nP+TPr+wPjE0MDXujOCWKEfhYVR285P9UI21Z3lN92wXJ67wQIqiH4mHtqokPYhwjtRjsStxZY
+	S6d2wIAp1hrLy/hN4mXSaUQAHnbXiHnlWGRPhkHjXSe8Du7yXa00bj2xKDH7iXRHqWx+do0kreaJr
+	bEweCPLYgeQyTq7f4Hl4gN4BI5vWFSqFwC3V20pFkrPR7cmJrZB6DAtov67JgEC4qXm4qyP8E6yqi
+	iK7A1eK4tJmW5elcW9NK2WouPPwAO4rYbrMIj6eNhmvk+chpww/nz4z77UW7zKoJd61V5ClbBQpH2
+	3BQxCpkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIps-000000083Cf-3jof;
-	Wed, 12 Mar 2025 09:57:12 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1tsIrW-000000083Ur-10r5;
+	Wed, 12 Mar 2025 09:58:54 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIV1-00000007zdc-3ucj;
-	Wed, 12 Mar 2025 09:35:40 +0000
+	id 1tsIZ6-000000080Fw-2JmD
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Mar 2025 09:39:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
-	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=coDruLhzUwUWr9PQ9J/pkDgkm+WduLU7r2hwaAyS0V4=; b=l38TbMDTtPijQLznVdXj9eUSID
-	TXt78Gu7RakE9elMNI1mHpUmrCgm5/3bcl5H24UbxTmu1TLZ6m3qY5r2KpyIKdkNfpkB0whgy3InQ
-	OVOGqdKoQQpfFJNy6wXOtGshaQgfPEJgIUBxCii7pdLlQ9v/IoICsNead6z3Co52C+rNPx7ix8/cU
-	efEWjXjWPyiBVn9LCkCjZ9Zqr4rjEjNHAr96iAomHz8qTf1Ar1w0KHwCEA/BnRCEAEMFOCP+kRmiH
-	7H7NQmceeb1piiH4O4S5WTs53KwPr9P2azvAfEzgoXOVx8zHtlcRbDeCh1BRd9zNX9yuJdfytPWVq
-	52ML+odA==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:42846 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1tsIUi-0005Ie-08;
-	Wed, 12 Mar 2025 09:35:20 +0000
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.94.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1tsIUK-005vGk-H7; Wed, 12 Mar 2025 09:34:56 +0000
-In-Reply-To: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk>
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Albert Ou <aou@eecs.berkeley.edu>,
-	Alexandre Ghiti <alex@ghiti.fr>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Conor Dooley <conor@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>,
-	devicetree@vger.kernel.org,
-	Emil Renner Berthing <kernel@esmil.dk>,
-	Eric Dumazet <edumazet@google.com>,
-	Giuseppe Cavallaro <peppe.cavallaro@st.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Jose Abreu <joabreu@synopsys.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Minda Chen <minda.chen@starfivetech.com>,
-	netdev@vger.kernel.org,
-	Palmer Dabbelt <palmer@dabbelt.com>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Paul Walmsley <paul.walmsley@sifive.com>,
-	Rob Herring <robh@kernel.org>
-Subject: [PATCH net-next v2 7/7] net: stmmac: deprecate
- "snps,en-tx-lpi-clockgating" property
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=+guXa85l4m8374ZSaIhSq5yBVp6GHqv8PZJqOh4Sv24=; b=BvNigwEpbh0bCumOLG+Vr9+/dk
+	qERJ6KukgwmSyjlHyfkaf82Cu43ZP2iuXg6fWsMR8W0ezR7O5Zbs5zFk3CYTMvgppOfEEmAHfb69c
+	C0n7Pqh9tWHAAnpl3bZwGnZu201gAg2KlarWBKJJYeo9loxXOh8gIxVBIcpqXjtEmP6MsPDrL5SqL
+	GLiXzMDEiP+UXH2DfHyqTUjFpjWtxJ5mDQ6XHra1VmBfqx0v+y6h5SOteD+NSr9Vr61fOtas9GwGH
+	elVbDYnyE0JQwM22kIc9rb47dPOZtS6TgI8qoGaFVRPbeQrPPzHeaQKi5T1We2oOVeUZvqmufS1UX
+	IMrUSSuQ==;
+Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
+	by desiato.infradead.org with esmtpsa (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsIZ3-00000002LRo-0MO4;
+	Wed, 12 Mar 2025 09:39:49 +0000
+Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
+	id 0A096300599; Wed, 12 Mar 2025 10:39:48 +0100 (CET)
+Date: Wed, 12 Mar 2025 10:39:47 +0100
+From: Peter Zijlstra <peterz@infradead.org>
+To: Mark Barnett <mark.barnett@arm.com>
+Cc: mingo@redhat.com, acme@kernel.org, namhyung@kernel.org,
+	irogers@google.com, ben.gainey@arm.com, deepak.surti@arm.com,
+	ak@linux.intel.com, will@kernel.org, james.clark@arm.com,
+	mark.rutland@arm.com, alexander.shishkin@linux.intel.com,
+	jolsa@kernel.org, adrian.hunter@intel.com,
+	linux-perf-users@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 3/5] perf: Allow adding fixed random jitter to the
+ alternate sampling period
+Message-ID: <20250312093947.GJ19424@noisy.programming.kicks-ass.net>
+References: <20250307202247.648633-1-mark.barnett@arm.com>
+ <20250307202247.648633-4-mark.barnett@arm.com>
+ <20250311113128.GD19424@noisy.programming.kicks-ass.net>
+ <431a5acb-4906-4095-8dec-b2d824adaac6@arm.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1tsIUK-005vGk-H7@rmk-PC.armlinux.org.uk>
-Date: Wed, 12 Mar 2025 09:34:56 +0000
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_023539_971283_5B9E9580 
-X-CRM114-Status: GOOD (  14.16  )
+In-Reply-To: <431a5acb-4906-4095-8dec-b2d824adaac6@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +78,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Whether the MII transmit clock can be stopped is primarily a property
-of the PHY (there is a capability bit that should be checked first.)
-Whether the MAC is capable of stopping the transmit clock is a separate
-issue, but this is already handled by the core DesignWare MAC code.
+On Tue, Mar 11, 2025 at 05:22:16PM +0000, Mark Barnett wrote:
 
-Therefore, snps,en-tx-lpi-clockgating is technically incorrect, and
-this commit adds a warning should a DT be encountered with the property
-present.
+> > @@ -9979,6 +9985,8 @@ static int __perf_event_overflow(struct perf_event *event,
+> >   				 int throttle, struct perf_sample_data *data,
+> >   				 struct pt_regs *regs)
+> >   {
+> > +	struct hw_perf_event *hwc = &event->hw;
+> > +	u64 sample_period;
+> >   	int events = atomic_read(&event->event_limit);
+> >   	int ret = 0;
+> > @@ -9989,15 +9997,50 @@ static int __perf_event_overflow(struct perf_event *event,
+> >   	if (unlikely(!is_sampling_event(event)))
+> >   		return 0;
+> > -	ret = __perf_event_account_interrupt(event, throttle);
+> > +	/*
+> > +	 * High Freq samples are injected inside the larger period:
+> > +	 *
+> > +	 *   |------------|-|------------|-|
+> > +	 *   P0          HF P1          HF
+> > +	 *
+> > +	 * By ignoring the HF samples, we measure the actual period.
+> > +	 */
+> > +	if (!(hwc->state & PERF_HES_HF_SAMPLE))
+> > +		ret = __perf_event_account_interrupt(event, throttle);
+> 
+> The high-frequency samples should still contribute to interrupt
+> accounting/throttling, right? We'd just need to put guards around the
+> adaptive period stuff so that HF samples don't contribute to the frequency
+> training.
 
-However, we keep backwards compatibility.
-
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
----
- drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 5 ++++-
- 1 file changed, 4 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-index 8dc3bd6946c6..c73eff6a56b8 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c
-@@ -497,8 +497,11 @@ stmmac_probe_config_dt(struct platform_device *pdev, u8 *mac)
- 	plat->force_sf_dma_mode =
- 		of_property_read_bool(np, "snps,force_sf_dma_mode");
- 
--	if (of_property_read_bool(np, "snps,en-tx-lpi-clockgating"))
-+	if (of_property_read_bool(np, "snps,en-tx-lpi-clockgating")) {
-+		dev_warn(&pdev->dev,
-+			 "OF property snps,en-tx-lpi-clockgating is deprecated, please convert driver to use STMMAC_FLAG_EN_TX_LPI_CLK_PHY_CAP\n");
- 		plat->flags |= STMMAC_FLAG_EN_TX_LPI_CLOCKGATING;
-+	}
- 
- 	/* Set the maxmtu to a default of JUMBO_LEN in case the
- 	 * parameter is not present in the device tree.
--- 
-2.30.2
-
+Yeah, I suppose it should. This means breaking up that function but that
+isn't hard.
 
