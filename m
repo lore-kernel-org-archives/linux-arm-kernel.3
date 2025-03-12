@@ -4,86 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3C52C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:56:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39B8C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:58:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vm8vRHQt8LnaXlgmRPSSLMWn+V4ffQYr9AsIjYQkmjE=; b=MnOP4Qjqen230TKCUQTZEPtZ+4
-	ThhlsU2YhyBP2d+LjGC7YfJJJRFzXHRteZaLyT/3bwzz2Tp85mIab6Sr3trjPEBHiJQr/Bdkm3tRV
-	4Jk1OvSNKqio3TzskvhpUFNQPRHoZaVHCI2+maCWFnqtDIEipnrR9D9cLkjsd+e3NmmwtgxuSW7dP
-	tYAnVrYaMSX408yxVdE93HL5VWgO/q9RcVr04u9oTiu2nuHtbRbLjTu2J61NUCKWn6af5xY09KTLK
-	LAtG12f76tSNY2ChAP+L5MLiY92O8jgo5mkdCIdy7CBL43bg6w72iKmZhhjHzO+Lco2W0t1TXver+
-	IREJo1/g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=L51FLDBP/NVINxb14cO3l0go6Z1l639IzpDfowui3bI=; b=czPGqYSCTz3t4RwlbkO7HAiyTu
+	ikcyY8xVWvRZEhP1ftLUaijHvddAkwB2t4/5o+hQnFJHkfqfURI0Aao9nE2czondajpm5SP1EWzYm
+	XDOD1BpboKS849Msw8UiQf2y4HPHb7evQEmVsg6BVZSOAp7RWiM+SsZApzZ0TOMVtfV23vpB6oEXy
+	EbtEns3mHP0al2oX7mXk947F458qHFlwshN46giMPssfuTo7naR6L4sWnGlOVWyZkjKMGKq3qttxL
+	ji5vEMB8C1GBLhWimgGJtitlRndM0c6sa9mFJePKRV0t/hu7BabhEMnqo3eSVgqAfRYmYuk3und6w
+	AbVArtpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJl5-00000008BXT-1AA0;
-	Wed, 12 Mar 2025 10:56:19 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsJmi-00000008BrU-1GMq;
+	Wed, 12 Mar 2025 10:58:00 +0000
+Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJYK-000000088Wg-1Pfw;
-	Wed, 12 Mar 2025 10:43:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=Vm8vRHQt8LnaXlgmRPSSLMWn+V4ffQYr9AsIjYQkmjE=; b=cysTfNDOoh4tbXNViiZWiV112H
-	TWL2inWq3a68RlRjI9x0Xzq6zowDr5FQq8C/ezThOCrJC7aqayRnz5vJMpgLQwwijFO2oUYaHR73g
-	8TiXo+vin3a4gcOy04V2UwAp/KXDC5Ljd+IPgFkIenGGfL03QSDjHOKtoaH+PmJUbkB4h6PTPykGE
-	pt8qzVAnxigy3g18fFsbCWpUByRnXxct7b4ZuSCYQVg9LNzftEtlvJF1o9qi9yCqknbiKwgg/veSI
-	B3hXvyRYrX2cTTEoOiSEhJjz2uLxQ+eAAx1v8vN0JvZSnrBPE2qyv3YBEWSZxBGab248sCdS4u5Xu
-	Nn3NZ6Rg==;
-Received: from m16.mail.163.com ([220.197.31.2])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJYG-00000002M7G-1pF2;
-	Wed, 12 Mar 2025 10:43:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=From:Subject:Date:Message-ID:MIME-Version; bh=Vm8vR
-	HQt8LnaXlgmRPSSLMWn+V4ffQYr9AsIjYQkmjE=; b=HzrBflO0YlrqbuiYbFavP
-	rFh2ysPPM8d1kAfQTFQMRQDtPPtUeQcbHcqwUTvxtntqVO62CcbK3N6YmOGG36zS
-	EgYD0HdTKjgpjNubDwnvsvbEah6GC21AKE22hr+w+YiC4xCs90psHz0TPcOF0+gZ
-	gn0wPOrRGdZV1YTCss75yA=
-Received: from ProDesk.. (unknown [])
-	by gzsmtp2 (Coremail) with SMTP id PSgvCgAHUvcHZdFnEN_+Kg--.14177S5;
-	Wed, 12 Mar 2025 18:42:24 +0800 (CST)
-From: Andy Yan <andyshrk@163.com>
-To: heiko@sntech.de
-Cc: hjc@rock-chips.com,
-	mripard@kernel.org,
-	cristian.ciocaltea@collabora.com,
-	neil.armstrong@linaro.org,
-	yubing.zhang@rock-chips.com,
-	krzk+dt@kernel.org,
+	id 1tsJZ4-000000088eV-1R1L
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 10:43:55 +0000
+Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-2ff80290e44so11127439a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:43:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1741776232; x=1742381032; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=L51FLDBP/NVINxb14cO3l0go6Z1l639IzpDfowui3bI=;
+        b=K98Oh5/gRl8ULQTaW24uJVmQrRB++pe7Z0cnl1CxUnJzMtRLVBU8eyEeji5sW/OKyR
+         CqgRbZCeRR2QwI8imWKSH8Fuf5mSwoTi6T34NEXAnwPrrSoyxU5LKKLoOrcGujODk4qM
+         7b928RE0WtP81/eUV0CGff33YuMPkfTiaEW8s=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741776232; x=1742381032;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=L51FLDBP/NVINxb14cO3l0go6Z1l639IzpDfowui3bI=;
+        b=umhYtlaU/0Z8NnLhLMeuOY2ka65wMlusdiw93oNj/wyNYTOke/BXB4Iw0c5jTs9Rmp
+         2cU/N5FHfoor8nZnpkmWNx+iu3lsleZA2LDYML910k54mf6/yEmRyfUMXa7AOVdIrLu6
+         lLcAJKgkGfXCIXLHXBohg8IksLtDK4m0wRXUElmjoiMg+Kmjm3icJrLjYbMqnMSfgUwf
+         E6HNR2WrecXYuGLVQ8xJ7Y+AW7qLXJ1Y0KnEfzLP0jEtVKOr3QYBNoHB7uL49eiCWrlS
+         iWuNH6BfYe30DHieqP+/hHLmJede6troQ7p0E+jvJnaExefJN76iokCYIZ3+uzfkolfI
+         7uGg==
+X-Forwarded-Encrypted: i=1; AJvYcCXE+TCvnF9OAIcyaz1d2ef1zJAP3auW1MdYiwcSkPJIUVtZta11QFZaYHroq3hlK/lKl2wuzDRsPiKzZq46gvbv@lists.infradead.org
+X-Gm-Message-State: AOJu0YytEp8Bc72CBTnm1BEUkccXnfouR+83H3oNc1SxQPbQc70aP/WF
+	1cGWv+V5OeGnbJzrxY7ryJZECf0SnLp1Fe8NvVTmYRtuztgG9jqsXlF+Fo9mqw==
+X-Gm-Gg: ASbGncsxs4MNQ7fQRiOIakdlmeUnKkLDg4qmdMoUFRw3gHAkhMo5cOjHh8d/zmUpzjk
+	ppB6L8yIiCeIKtgnWl0uGddFxC/nt2FPqAIwJOTV46F6ymgjWpNAS42grW+ZLcHHosw88Ct6uJe
+	So3KbY86a+VduGZ4K/R/II6E8qhbFWhGxa+z6pSis9BbefcB8Prrtj79zefIDc9Y823c/KDAygB
+	0ysEhJUf9k+vQ9g52DmVxrQMKp79vf+7YJ5F6nfAxouBjnNnTmKiNAydA7KJwVyeCoDtvNBRh8s
+	mTeEOLV05CSW3g6bvGXDpxXjoZt1Cj5A2f7Cqiua4VobYx8VgZqoasCV+v7cLfM=
+X-Google-Smtp-Source: AGHT+IFwYKsuYFk05Yb2ZLG7oOnOSu3sTQBXUECA3daxKB2RdxKe0gDbN37+1iCGZOUpVOTrPKRIXQ==
+X-Received: by 2002:a17:90b:4f87:b0:2fe:b774:3ec8 with SMTP id 98e67ed59e1d1-2ff7cf13a91mr25942847a91.23.1741776232319;
+        Wed, 12 Mar 2025 03:43:52 -0700 (PDT)
+Received: from wenstp920.tpe.corp.google.com ([2401:fa00:1:10:b5ed:b71c:fb14:a696])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3011926599csm1405675a91.35.2025.03.12.03.43.49
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 03:43:51 -0700 (PDT)
+From: Chen-Yu Tsai <wenst@chromium.org>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Benson Leung <bleung@chromium.org>,
+	Tzung-Bi Shih <tzungbi@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
 	devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	lumag@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	Andy Yan <andy.yan@rock-chips.com>
-Subject: [PATCH v2 3/7] drm/rockchip: Add RK3588 DPTX output support
-Date: Wed, 12 Mar 2025 18:42:04 +0800
-Message-ID: <20250312104214.525242-4-andyshrk@163.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250312104214.525242-1-andyshrk@163.com>
-References: <20250312104214.525242-1-andyshrk@163.com>
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	chrome-platform@lists.linux.dev,
+	linux-input@vger.kernel.org,
+	Douglas Anderson <dianders@chromium.org>
+Subject: [PATCH 0/8] arm64: mediatek: mt8186-corsola: Consolidate and add new devices
+Date: Wed, 12 Mar 2025 18:43:34 +0800
+Message-ID: <20250312104344.3084425-1-wenst@chromium.org>
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: PSgvCgAHUvcHZdFnEN_+Kg--.14177S5
-X-Coremail-Antispam: 1Uf129KBjvJXoWxtF4kZF48JryUXrWxCw18AFb_yoWfWF4Upa
-	nrArWYyrW8Gr4Yqwn7JFs7CFZ0yanFyayxX397C3WS9a4IkryUGasxWrn8Cr9xJFW7uF12
-	kwsrG3yUZF47ur7anT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDUYxBIdaVFxhVjvjDU0xZFpf9x07j-8nOUUUUU=
-X-Originating-IP: [58.22.7.114]
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkAIOXmfRZFIQaQAAs7
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_104305_052408_F152A635 
-X-CRM114-Status: GOOD (  18.94  )
+X-CRM114-CacheID: sfid-20250312_034354_410057_85DF9C49 
+X-CRM114-Status: GOOD (  15.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,249 +104,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Andy Yan <andy.yan@rock-chips.com>
+Hi everyone,
 
-Add driver extension for Synopsys DesignWare DPTX IP used
-on Rockchip RK3588 SoC.
+Here's a follow up series of the I2C component probers for Chromebooks.
+This series enables the component prober for the Corsola series of
+devices, combines the two existing Voltorb SKUs, and adds a new
+device, codename Squirtle.
 
-Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+Patch 1 adds a new HID-over-I2C touchscreen from Elan.
 
----
+Patch 2 merges the Voltorb entries in the device tree bindings into one.
 
-Changes in v2:
-- no include uapi path
-- switch to drmm_encoder_init
+Patch 3 adds a new entry for the Squirtle device to the bindings.
 
- drivers/gpu/drm/rockchip/Kconfig            |   7 +
- drivers/gpu/drm/rockchip/Makefile           |   1 +
- drivers/gpu/drm/rockchip/dw_dp-rockchip.c   | 154 ++++++++++++++++++++
- drivers/gpu/drm/rockchip/rockchip_drm_drv.c |   1 +
- drivers/gpu/drm/rockchip/rockchip_drm_drv.h |   1 +
- 5 files changed, 164 insertions(+)
- create mode 100644 drivers/gpu/drm/rockchip/dw_dp-rockchip.c
+Patch 4 fixes up the existing device trees for the component prober to
+be active.
 
-diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-index 26c4410b2407..c8638baf9641 100644
---- a/drivers/gpu/drm/rockchip/Kconfig
-+++ b/drivers/gpu/drm/rockchip/Kconfig
-@@ -8,6 +8,7 @@ config DRM_ROCKCHIP
- 	select DRM_PANEL
- 	select VIDEOMODE_HELPERS
- 	select DRM_ANALOGIX_DP if ROCKCHIP_ANALOGIX_DP
-+	select DRM_DW_DP if ROCKCHIP_DW_DP
- 	select DRM_DW_HDMI if ROCKCHIP_DW_HDMI
- 	select DRM_DW_HDMI_QP if ROCKCHIP_DW_HDMI_QP
- 	select DRM_DW_MIPI_DSI if ROCKCHIP_DW_MIPI_DSI
-@@ -58,6 +59,12 @@ config ROCKCHIP_CDN_DP
- 	  RK3399 based SoC, you should select this
- 	  option.
- 
-+config ROCKCHIP_DW_DP
-+	bool "Rockchip specific extensions for Synopsys DW DP"
-+	help
-+	  Choose this option for Synopsys DesignWare Cores DisplayPort
-+	  transmit controller support on Rockchip SoC.
-+
- config ROCKCHIP_DW_HDMI
- 	bool "Rockchip specific extensions for Synopsys DW HDMI"
- 	help
-diff --git a/drivers/gpu/drm/rockchip/Makefile b/drivers/gpu/drm/rockchip/Makefile
-index 2b867cebbc12..097f062399c7 100644
---- a/drivers/gpu/drm/rockchip/Makefile
-+++ b/drivers/gpu/drm/rockchip/Makefile
-@@ -14,6 +14,7 @@ rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI) += dw_hdmi-rockchip.o
- rockchipdrm-$(CONFIG_ROCKCHIP_DW_HDMI_QP) += dw_hdmi_qp-rockchip.o
- rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI) += dw-mipi-dsi-rockchip.o
- rockchipdrm-$(CONFIG_ROCKCHIP_DW_MIPI_DSI2) += dw-mipi-dsi2-rockchip.o
-+rockchipdrm-$(CONFIG_ROCKCHIP_DW_DP) += dw_dp-rockchip.o
- rockchipdrm-$(CONFIG_ROCKCHIP_INNO_HDMI) += inno_hdmi.o
- rockchipdrm-$(CONFIG_ROCKCHIP_LVDS) += rockchip_lvds.o
- rockchipdrm-$(CONFIG_ROCKCHIP_RGB) += rockchip_rgb.o
-diff --git a/drivers/gpu/drm/rockchip/dw_dp-rockchip.c b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-new file mode 100644
-index 000000000000..5ff8a6a54997
---- /dev/null
-+++ b/drivers/gpu/drm/rockchip/dw_dp-rockchip.c
-@@ -0,0 +1,154 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * Copyright (c) 2020 Rockchip Electronics Co., Ltd.
-+ *
-+ * Author: Zhang Yubing <yubing.zhang@rock-chips.com>
-+ * Author: Andy Yan <andy.yan@rock-chips.com>
-+ */
-+
-+#include <linux/component.h>
-+#include <linux/of_device.h>
-+#include <linux/platform_device.h>
-+#include <drm/bridge/dw_dp.h>
-+#include <drm/drm_atomic_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_bridge_connector.h>
-+#include <drm/drm_of.h>
-+#include <drm/drm_print.h>
-+#include <drm/drm_probe_helper.h>
-+#include <drm/drm_simple_kms_helper.h>
-+
-+#include <linux/media-bus-format.h>
-+#include <linux/videodev2.h>
-+
-+#include "rockchip_drm_drv.h"
-+#include "rockchip_drm_vop.h"
-+
-+struct rockchip_dw_dp {
-+	struct dw_dp *base;
-+	struct device *dev;
-+	struct rockchip_encoder encoder;
-+};
-+
-+static inline struct rockchip_dw_dp *encoder_to_dp(struct drm_encoder *encoder)
-+{
-+	struct rockchip_encoder *rkencoder = to_rockchip_encoder(encoder);
-+
-+	return container_of(rkencoder, struct rockchip_dw_dp, encoder);
-+}
-+
-+static int dw_dp_encoder_atomic_check(struct drm_encoder *encoder,
-+				      struct drm_crtc_state *crtc_state,
-+				      struct drm_connector_state *conn_state)
-+{
-+	struct rockchip_crtc_state *s = to_rockchip_crtc_state(crtc_state);
-+	struct drm_atomic_state *state = conn_state->state;
-+	struct drm_display_info *di = &conn_state->connector->display_info;
-+	struct drm_bridge *bridge  = drm_bridge_chain_get_first_bridge(encoder);
-+	struct drm_bridge_state *bridge_state = drm_atomic_get_new_bridge_state(state, bridge);
-+	u32 bus_format = bridge_state->input_bus_cfg.format;
-+
-+	switch (bus_format) {
-+	case MEDIA_BUS_FMT_UYYVYY10_0_5X30:
-+	case MEDIA_BUS_FMT_UYYVYY8_0_5X24:
-+		s->output_mode = ROCKCHIP_OUT_MODE_YUV420;
-+		break;
-+	case MEDIA_BUS_FMT_YUYV10_1X20:
-+	case MEDIA_BUS_FMT_YUYV8_1X16:
-+		s->output_mode = ROCKCHIP_OUT_MODE_S888_DUMMY;
-+		break;
-+	case MEDIA_BUS_FMT_RGB101010_1X30:
-+	case MEDIA_BUS_FMT_RGB888_1X24:
-+	case MEDIA_BUS_FMT_RGB666_1X24_CPADHI:
-+	case MEDIA_BUS_FMT_YUV10_1X30:
-+	case MEDIA_BUS_FMT_YUV8_1X24:
-+	default:
-+		s->output_mode = ROCKCHIP_OUT_MODE_AAAA;
-+		break;
-+	}
-+
-+	s->output_type = DRM_MODE_CONNECTOR_DisplayPort;
-+	s->bus_format = bus_format;
-+	s->bus_flags = di->bus_flags;
-+	s->color_space = V4L2_COLORSPACE_DEFAULT;
-+
-+	return 0;
-+}
-+
-+static const struct drm_encoder_helper_funcs dw_dp_encoder_helper_funcs = {
-+	.atomic_check		= dw_dp_encoder_atomic_check,
-+};
-+
-+static int dw_dp_rockchip_bind(struct device *dev, struct device *master, void *data)
-+{
-+	struct dw_dp_plat_data plat_data;
-+	struct drm_device *drm_dev = data;
-+	struct rockchip_dw_dp *dp;
-+	struct drm_encoder *encoder;
-+	struct drm_connector *connector;
-+	int ret;
-+
-+	dp = devm_kzalloc(dev, sizeof(*dp), GFP_KERNEL);
-+	if (!dp)
-+		return -ENOMEM;
-+
-+	dp->dev = dev;
-+	plat_data.max_link_rate = 810000;
-+	encoder = &dp->encoder.encoder;
-+	encoder->possible_crtcs = drm_of_find_possible_crtcs(drm_dev, dev->of_node);
-+	rockchip_drm_encoder_set_crtc_endpoint_id(&dp->encoder, dev->of_node, 0, 0);
-+
-+	ret = drmm_encoder_init(drm_dev, encoder, NULL, DRM_MODE_ENCODER_TMDS, NULL);
-+	if (ret)
-+		return ret;
-+	drm_encoder_helper_add(encoder, &dw_dp_encoder_helper_funcs);
-+
-+	dp->base = dw_dp_bind(dev, encoder, &plat_data);
-+	if (IS_ERR(dp->base)) {
-+		ret = PTR_ERR(dp->base);
-+		return ret;
-+	}
-+
-+	connector = drm_bridge_connector_init(drm_dev, encoder);
-+	if (IS_ERR(connector)) {
-+		ret = PTR_ERR(connector);
-+		return dev_err_probe(dev, ret, "Failed to init bridge connector");
-+	}
-+
-+	drm_connector_attach_encoder(connector, encoder);
-+
-+	return 0;
-+}
-+
-+static const struct component_ops dw_dp_rockchip_component_ops = {
-+	.bind = dw_dp_rockchip_bind,
-+};
-+
-+static int dw_dp_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+
-+	return component_add(dev, &dw_dp_rockchip_component_ops);
-+}
-+
-+static void dw_dp_remove(struct platform_device *pdev)
-+{
-+	struct rockchip_dw_dp *dp = platform_get_drvdata(pdev);
-+
-+	component_del(dp->dev, &dw_dp_rockchip_component_ops);
-+}
-+
-+static const struct of_device_id dw_dp_of_match[] = {
-+	{ .compatible = "rockchip,rk3588-dp", },
-+	{}
-+};
-+MODULE_DEVICE_TABLE(of, dw_dp_of_match);
-+
-+struct platform_driver dw_dp_driver = {
-+	.probe	= dw_dp_probe,
-+	.remove = dw_dp_remove,
-+	.driver = {
-+		.name = "dw-dp",
-+		.of_match_table = dw_dp_of_match,
-+	},
-+};
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-index 9cf311b5dec1..2b245491c71d 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.c
-@@ -529,6 +529,7 @@ static int __init rockchip_drm_init(void)
- 	ADD_ROCKCHIP_SUB_DRIVER(rockchip_dp_driver,
- 				CONFIG_ROCKCHIP_ANALOGIX_DP);
- 	ADD_ROCKCHIP_SUB_DRIVER(cdn_dp_driver, CONFIG_ROCKCHIP_CDN_DP);
-+	ADD_ROCKCHIP_SUB_DRIVER(dw_dp_driver, CONFIG_ROCKCHIP_DW_DP);
- 	ADD_ROCKCHIP_SUB_DRIVER(dw_hdmi_rockchip_pltfm_driver,
- 				CONFIG_ROCKCHIP_DW_HDMI);
- 	ADD_ROCKCHIP_SUB_DRIVER(dw_hdmi_qp_rockchip_pltfm_driver,
-diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-index c183e82a42a5..2e86ad00979c 100644
---- a/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-+++ b/drivers/gpu/drm/rockchip/rockchip_drm_drv.h
-@@ -87,6 +87,7 @@ int rockchip_drm_encoder_set_crtc_endpoint_id(struct rockchip_encoder *rencoder,
- 					      struct device_node *np, int port, int reg);
- int rockchip_drm_endpoint_is_subdriver(struct device_node *ep);
- extern struct platform_driver cdn_dp_driver;
-+extern struct platform_driver dw_dp_driver;
- extern struct platform_driver dw_hdmi_rockchip_pltfm_driver;
- extern struct platform_driver dw_hdmi_qp_rockchip_pltfm_driver;
- extern struct platform_driver dw_mipi_dsi_rockchip_driver;
+Patch 5 merges the device trees for the Voltorb device.
+
+Patch 6 adds a device tree file for the Squirtle device, with I2C
+components ready to be probed by the prober.
+
+Patch 7 enables the prober to probe trackpads on some devices in the
+Corsola family.
+
+Patch 8 enables the prober to probe touchscreens on Squirtle.
+
+Please take a look.
+
+
+Thanks
+ChenYu
+
+
+Chen-Yu Tsai (8):
+  dt-bindings: HID: i2c-hid: elan: Introduce Elan eKTH8D18
+  dt-bindings: arm: mediatek: Merge MT8186 Voltorb entries
+  dt-bindings: arm: mediatek: Add MT8186 Squirtle Chromebooks
+  arm64: dts: mediatek: mt8186-steelix: Mark second source components
+    for probing
+  arm64: dts: mediatek: mt8186: Merge Voltorb device trees
+  arm64: dts: mediatek: mt8186: Add Squirtle Chromebooks
+  platform/chrome: of_hw_prober: Support trackpad probing on Corsola
+    family
+  platform/chrome: of_hw_prober: Support touchscreen probing on Squirtle
+
+ .../devicetree/bindings/arm/mediatek.yaml     |   7 +-
+ .../bindings/input/elan,ekth6915.yaml         |  29 ++++-
+ arch/arm64/boot/dts/mediatek/Makefile         |   4 +-
+ .../dts/mediatek/mt8186-corsola-squirtle.dts  | 107 ++++++++++++++++++
+ .../dts/mediatek/mt8186-corsola-steelix.dtsi  |   9 +-
+ .../mt8186-corsola-tentacool-sku327683.dts    |   2 +
+ .../mt8186-corsola-tentacruel-sku262148.dts   |   2 +
+ .../mt8186-corsola-voltorb-sku589824.dts      |  13 ---
+ ...u589825.dts => mt8186-corsola-voltorb.dts} |   5 +-
+ .../boot/dts/mediatek/mt8186-corsola.dtsi     |  10 +-
+ .../platform/chrome/chromeos_of_hw_prober.c   |  29 +++++
+ 11 files changed, 185 insertions(+), 32 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-squirtle.dts
+ delete mode 100644 arch/arm64/boot/dts/mediatek/mt8186-corsola-voltorb-sku589824.dts
+ rename arch/arm64/boot/dts/mediatek/{mt8186-corsola-voltorb-sku589825.dts => mt8186-corsola-voltorb.dts} (76%)
+
 -- 
-2.34.1
+2.49.0.rc0.332.g42c0ae87b1-goog
 
 
