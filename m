@@ -4,60 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ECBDC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:34:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 920F8C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:35:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:Message-ID:In-Reply-To:Subject:cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SdaEm1VNGTVs7e8vROCN0lC4A4+/l+BdkvlB4cJdMRM=; b=YuufUzqgyiL73NeqeY7vEY8LE4
-	jWqu3scN1Z7TpwhDsrV80mHL9Vg+jD3WzKUaOgUQ+HbbWscoQMh53HkK/dROS6mudpzXoxlAevChz
-	1Dis9haQaBqIO8GKAECK5WAx3RVbUoVqZdBQ3dVVYWZiqf2InCZA+kwiNMVyOnptDGVCetu9xmOZ1
-	O+fw+bVfdNYJhxnoP29PrYu8f0/lRrOZg1ZXUfHLjDvC9tU2JPMaI/c512/C0EjK21JIow2OFVeix
-	j6+CIyJGNgCO14+DQSw4tuCVDmp71pm1KITJkUNoVoRRvRTQ7f4NuuxCXnen5GFj6jA4cgobd486b
-	V0jCrq1w==;
+	bh=dvyJrdPXem/t9rhGc0og2q57i3iOEHExNGrbOAeLIoQ=; b=Tna2XHGXvxqepEC/4gvrEtHTAi
+	p+J2WhfzO6I6GWl4KuQCOsEJcNc+0gZLJv9vnXqlxq00iWlrktyIXgUxmMN1X0Ezsi0zleklUwM/Q
+	KaP7ZhPe8BwtBtQiJbJU/PDzvFVoSPBEChZFA7UJ3wV/Os3ZK8eOojrir9MNmipQqUoUQxueQArVp
+	Wx6h9m2IiKPQ98+LpRLSI2Tm4R9Vb0Xlg2pS1enYs7UriaUMQ5oOE7+Yk80BMQkmTL+Alf8JzBD+z
+	IkRgad/veaEVXvu+PJRSucWi6hzZT1j3a4PPlyPnLLxa1rcyI/vHNkDraHAe7ckbQgU1frpvKevSJ
+	KsL15SLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPxu-000000099La-1UCk;
-	Wed, 12 Mar 2025 17:33:58 +0000
-Received: from out-183.mta1.migadu.com ([95.215.58.183])
+	id 1tsPzX-000000099Yf-02gp;
+	Wed, 12 Mar 2025 17:35:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPwE-000000099Dj-3NqJ
+	id 1tsPxF-000000099IZ-30hj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 17:32:16 +0000
-Date: Wed, 12 Mar 2025 10:32:03 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1741800732;
+	Wed, 12 Mar 2025 17:33:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741800794;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 in-reply-to:in-reply-to:references:references;
-	bh=SdaEm1VNGTVs7e8vROCN0lC4A4+/l+BdkvlB4cJdMRM=;
-	b=vXDF0426B5OZljtJCJNvlYdWu08s1ZbpovJJYcgUb07F0RA1TGjYRncGuVg7BWpEEyxA5e
-	R2OpLHpeoM8w4dUA9uveEie1VFlSCfaIJcejGMODufGunQU9JLK5NI8iVIQxAlGhNvihC6
-	iKdeT9RNrMqqWa6L1IL5nnubsLGDELM=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Sebastian Ott <sebott@redhat.com>
-Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+	bh=dvyJrdPXem/t9rhGc0og2q57i3iOEHExNGrbOAeLIoQ=;
+	b=GtIyhi0VVeMCSNwOxLSXImqvhY2DDP2xOGcudci47exK8eYEANsNH5V0e31Zh2XA+8oYXN
+	wKcR9I+2MhD3/V5C3MN2kVLE1apylmYZMzX3JTrpFTcXkixCCJKaGCs8TOX6JPHa2z6TZ0
+	7kYgfJ9pH87/hTpKKrODF1HX/A7zjEI=
+Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
+ [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-302-LE4-CgInNOGv0W46zoC7PQ-1; Wed, 12 Mar 2025 13:33:13 -0400
+X-MC-Unique: LE4-CgInNOGv0W46zoC7PQ-1
+X-Mimecast-MFC-AGG-ID: LE4-CgInNOGv0W46zoC7PQ_1741800792
+Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-43d00017e9dso295295e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 10:33:12 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741800792; x=1742405592;
+        h=mime-version:references:message-id:in-reply-to:subject:cc:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dvyJrdPXem/t9rhGc0og2q57i3iOEHExNGrbOAeLIoQ=;
+        b=pkr9u40wzclDoFtpbeB7XpMFSbdqPVOkrW85FWCtHXwomZyEaykgvcqns67OHNfqq1
+         HFh2TpHwM3k9cKYyCrGXLTWJZ/KGXbBCrldebmjfLLYUrhakxs1Ud0Hf3owJyW5N4T82
+         UlLkXP5TPxovpyi5Xo4kSOFwgsSKGo8+VCdmshh7y/eyXGXC9P+ogvLJ3Xq2ZDcdf5y+
+         rX2VEXVMhkfpaonpqV2AlkLlcS1w9rduSdU6Qk9xtPwa4hhvuppuKc8xSF2NIgTwHmV7
+         DgkHKNlRmWOtpzG38qVWxyUAcPvsq/DmLl3bJ18GfaJSH2bTdTTr5ZBKNhW0B0qUQ3/L
+         hglQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUJKn9i2uy/K7+aJyZSkm5LIycSM1ENLirJwWtawSEiBmc8DzfzgSzrqsMsNuu4JGc1BVShsyQmVHMJut82zE/P@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2nGFPSYZnqhM/Io4DeicFep7y+IPyBVadYJAlz8GURZ9moe6o
+	Hn8HtTqh356xBYMOCHMWJF6RY4G4IsfCoPVssd5JJbTDkASZB6AoE620VtJpVhVc+RHQPe6Es0E
+	+QXwIdYYMd7DFNCvqL3whB3fl0OZFFg5vcrxNJ5Q19XythrFfwIcAz6KgpXuKjvx1liboxxVb
+X-Gm-Gg: ASbGncu59wvSVO7dHUoa2XNb7IuCVy0tenF6PxJk/YHrEmtuQaBrVnYuSSgM8shs2OG
+	Y8rpuDyyyZgIITHA25f+Tign2iYrjhgjapjw6gsXJfgk4PbYybed6QSXf67TP+OxqhqkVNtfFFc
+	kOw8NN8uYH7H6lePKXtGy0qRbxcXLLYHNnRUg1jNi1WBQ2vS7eEDKDK3n6v+GPj8QuiMyGHsDBT
+	CcoyBBLOU+oocJTPZYr1vTNaad3l3GH5eSLq55EVx0h8pVovB4b2SPgkRemmpux0fnkFnf2foWg
+	asvptIL8nvB9Eu895hNCD6oflfITeMGJIo8uevNLHTnmdxPMqESj4XcpbW9krjdY
+X-Received: by 2002:a05:600c:190c:b0:43c:ea40:ae4a with SMTP id 5b1f17b1804b1-43cea40af7amr151794745e9.31.1741800791742;
+        Wed, 12 Mar 2025 10:33:11 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFkDaxroZKHcALMxZZ+BxRIhiOexx6MlAPp0LIXP7yGXSlrtMMJvV8WhA2IxMPpSEUR5gjapA==
+X-Received: by 2002:a05:600c:190c:b0:43c:ea40:ae4a with SMTP id 5b1f17b1804b1-43cea40af7amr151794565e9.31.1741800791436;
+        Wed, 12 Mar 2025 10:33:11 -0700 (PDT)
+Received: from rh (p200300f6af11ec00f9928575aec32536.dip0.t-ipconnect.de. [2003:f6:af11:ec00:f992:8575:aec3:2536])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d0a74b699sm27660235e9.10.2025.03.12.10.33.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 10:33:10 -0700 (PDT)
+Date: Wed, 12 Mar 2025 18:33:09 +0100 (CET)
+From: Sebastian Ott <sebott@redhat.com>
+To: Oliver Upton <oliver.upton@linux.dev>
+cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>, 
+    Suzuki K Poulose <suzuki.poulose@arm.com>, 
+    Zenghui Yu <yuzenghui@huawei.com>, 
+    Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+    linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+    linux-kernel@vger.kernel.org
 Subject: Re: [PATCH] KVM: arm64: Writable TGRAN*_2
-Message-ID: <Z9HE92ZlNlJbHJBB@linux.dev>
-References: <20250306184013.30008-1-sebott@redhat.com>
- <Z9HCQ40LxShzL4nj@linux.dev>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
 In-Reply-To: <Z9HCQ40LxShzL4nj@linux.dev>
-X-Migadu-Flow: FLOW_OUT
+Message-ID: <eb045be7-69ca-fe71-0333-086b71bb624f@redhat.com>
+References: <20250306184013.30008-1-sebott@redhat.com> <Z9HCQ40LxShzL4nj@linux.dev>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: Bjl8aanAXydv--kYDZ4e4e933L7wsxmZ0yKetAUBMtg_1741800792
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=US-ASCII; format=flowed
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_103215_058173_B78DBDEB 
-X-CRM114-Status: GOOD (  24.31  )
+X-CRM114-CacheID: sfid-20250312_103317_830694_FF0D521D 
+X-CRM114-Status: GOOD (  14.94  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,91 +108,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Mar 12, 2025 at 10:20:03AM -0700, Oliver Upton wrote:
+Hi Oliver,
+
+On Wed, 12 Mar 2025, Oliver Upton wrote:
 > Hi Sebastian,
-> 
+>
 > On Thu, Mar 06, 2025 at 07:40:13PM +0100, Sebastian Ott wrote:
-> > Allow userspace to write the safe (NI) value for ID_AA64MMFR0_EL1.TGRAN*_2.
-> > Disallow to change these fields for NV since kvm provides a sanitized view
-> > for them based on the PAGE_SIZE.
-> > Also add these bits to the set_id_regs selftest.
-> > 
-> > Signed-off-by: Sebastian Ott <sebott@redhat.com>
-> 
+>> Allow userspace to write the safe (NI) value for ID_AA64MMFR0_EL1.TGRAN*_2.
+>> Disallow to change these fields for NV since kvm provides a sanitized view
+>> for them based on the PAGE_SIZE.
+>> Also add these bits to the set_id_regs selftest.
+>>
+>> Signed-off-by: Sebastian Ott <sebott@redhat.com>
+>
 > I can't tell what you've based this patch on, it certainly doesn't apply
 > on a 6.14 rc. Consider telling git to include the base commit next time
 > you generate a patch.
 
-/me finishes a cup of coffee
+Ok, I'll keep it in mind for next time.
+(It was kvm-arm64/next + 2 pkvm series from the list that I applied
+manually.)
 
-The conflict is obviously with 9d6745572899 ("KVM: arm64: Hide
-ID_AA64MMFR2_EL1.NV from guest and userspace"), which is in
-kvmarm/next...
-
-> > ---
-> >  arch/arm64/kvm/sys_regs.c                     | 21 +++++++++++++++----
-> >  .../testing/selftests/kvm/arm64/set_id_regs.c |  3 +++
-> >  2 files changed, 20 insertions(+), 4 deletions(-)
-> > 
-> > diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
-> > index 14faf213d483..0730ed8314d0 100644
-> > --- a/arch/arm64/kvm/sys_regs.c
-> > +++ b/arch/arm64/kvm/sys_regs.c
-> > @@ -1948,6 +1948,21 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
-> >  	return set_id_reg(vcpu, rd, user_val);
-> >  }
-> >  
-> > +static int set_id_aa64mmfr0_el1(struct kvm_vcpu *vcpu,
-> > +				const struct sys_reg_desc *rd, u64 user_val)
-> > +{
-> > +	u64 sanitized_val = kvm_read_sanitised_id_reg(vcpu, rd);
-> > +	u64 tgran2_mask = ID_AA64MMFR0_EL1_TGRAN4_2_MASK |
-> > +			  ID_AA64MMFR0_EL1_TGRAN16_2_MASK |
-> > +			  ID_AA64MMFR0_EL1_TGRAN64_2_MASK;
-> > +
-> > +	if (vcpu_has_nv(vcpu) &&
-> > +	    ((sanitized_val & tgran2_mask) != (user_val & tgran2_mask)))
-> > +		return -EINVAL;
-> > +
-> > +	return set_id_reg(vcpu, rd, user_val);
-> > +}
-> > +
-> >  static int set_id_aa64mmfr2_el1(struct kvm_vcpu *vcpu,
-> >  				const struct sys_reg_desc *rd, u64 user_val)
-> >  {
-> > @@ -2787,10 +2802,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
-> >  	ID_UNALLOCATED(6,7),
-> >  
-> >  	/* CRm=7 */
-> > -	ID_WRITABLE(ID_AA64MMFR0_EL1, ~(ID_AA64MMFR0_EL1_RES0 |
-> > -					ID_AA64MMFR0_EL1_TGRAN4_2 |
-> > -					ID_AA64MMFR0_EL1_TGRAN64_2 |
-> > -					ID_AA64MMFR0_EL1_TGRAN16_2 |
-> > +	ID_FILTERED(ID_AA64MMFR0_EL1, id_aa64mmfr0_el1,
-> > +				      ~(ID_AA64MMFR0_EL1_RES0 |
-> >  					ID_AA64MMFR0_EL1_ASIDBITS)),
-> >  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
-> >  					ID_AA64MMFR1_EL1_HCX |
-> > diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > index 1d65f4a09e6f..322b9d3b0125 100644
-> > --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> > @@ -146,6 +146,9 @@ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
-> >  static const struct reg_ftr_bits ftr_id_aa64mmfr0_el1[] = {
-> >  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, ECV, 0),
-> >  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, EXS, 0),
-> > +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN4_2, 1),
-> > +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN64_2, 1),
-> > +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN16_2, 1),
-> >  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN4, 0),
-> >  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN64, 0),
-> >  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN16, 0),
-> 
 > Please do selftests changes in a separate patch.
-> 
+>
 > Don't worry about respinning, I'll fix this up and queue it in a moment.
-> 
-> Thanks,
-> Oliver
-> 
+
+Thanks!
+Sebastian
+
 
