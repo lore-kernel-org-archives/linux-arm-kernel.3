@@ -4,62 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EFCCC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:20:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB88C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:21:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DR0AQ6ATVanBlj8FDr99LaRaPEUfXoVCCQHU9T/9ykw=; b=W+VS0US0JSqH38HRoK6oX2z5XL
-	9sM4YU6qEiO52ApI85u30C9EL9PQt7DWc7pUMEjgRVwITla5GLeYYF3KjuBgnvAmkZfDdYAtZ2lYJ
-	CAV08KTNkpu+/lz+JeexM4YN8v8TmpSaWEA8HgHCNhv8e7VNFqnK6xFQ0xK7hE/4LjPcqxdKVX5Ya
-	CAXtbgeg2c0/H2W+lI7rS6nlU0fJAbSdHV9O7lVBbq7YfsKSOH6hHTd0p673ILxwfv9XKPZ12vfD7
-	d+6kPRVdO7wz0YhZOsM6lN/N+mu2Z1dEU5pfbH16IFWD/XPxDxjjT8kZbWp9RnsD4XLuVzBxzF/Nt
-	uY7CDfXA==;
+	bh=uCV7RsrFYMLt8/xgHaPVjEX6xjy0o+HoUh06D+ZGjGc=; b=uZcNfgg6XmwT+0441xsvC9JNRG
+	CVKxmJghzy95nENORs/wJFWBZ3HOvPs7fDZQuau1lDvUmor6bPE7voDJ+Ckuvo1DlqgnpVyGHG360
+	iw7P9a/4g/cOxE75Kam67hV7oGVojdeb3I6Z8Qwl2HKX66yC7uRQs93Y8RUjg5rSZe2TNFrLT/vTa
+	6/oOThipOyqtwKcOwnotVJY3YQSen5+6NKT8LosuDn63zDYz1jXrg0/4oNIIfYR3Kk5v5CJFFwAVk
+	QNSooLrXi0Lw+30L3yF4ANQ+SoY9XqudT1F5llOhVCBeJvSffC/GhiK0fpFn7L/WjWI+F9MHgdUR4
+	W8Lkvbjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIFm-00000007vyk-2FbG;
-	Wed, 12 Mar 2025 09:19:54 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsIHP-00000007wMa-1W8M;
+	Wed, 12 Mar 2025 09:21:35 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsIE8-00000007vhQ-1LMH
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 09:18:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 8B16BA46E07;
-	Wed, 12 Mar 2025 09:12:41 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5FCBBC4CEE3;
-	Wed, 12 Mar 2025 09:18:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741771091;
-	bh=MPhbOAlRmSQDrymRu11c022uCrA5qLlPMbyZ8sUlGQ8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M5NkTz2TDhcxfgtafUw6PxH30PcDT+AUdcSrithUjNh2vzRiKPw3fAKP600UNrOmU
-	 8fk3QTrgo4wd/xjqfOxC5QxpRyuhgo6g3cM984yceTTWvAS0LSfKlA5pWb+7R0BjQR
-	 pl1wGI6hMKXP4VLHeWxTEe9elcSEUH44N+bpej1Y/9VwhgIhhe4y6kV6ecjABRkhKm
-	 DDHnHK6rY/YMOXnJUJeKxQFx5fKNtCjXW0pi1W6vrfJ7wlcR1YM6Xdyt8yOygIbUmB
-	 X7gSmCNfIL+vtxLK8sqfOVloneJrhx7ha7Nsvzv9qCvh0xYO3IFZ7tacOMdIB5yn8s
-	 CKfN3x5W1o2sg==
-Date: Wed, 12 Mar 2025 10:18:06 +0100
-From: Vinod Koul <vkoul@kernel.org>
-To: Robin Murphy <robin.murphy@arm.com>
-Cc: devicetree@vger.kernel.org, dmaengine@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] dmaengine: Add Arm DMA-350 driver
-Message-ID: <Z9FRTtcfQK9m6NE7@vaman>
-References: <cover.1740762136.git.robin.murphy@arm.com>
- <55e084dd2b5720bdddf503ffac560d111032aa96.1740762136.git.robin.murphy@arm.com>
- <Z89P461+Y6kQDOCX@vaman>
- <072d1d3a-2aeb-4ab0-9db1-476835a1131e@arm.com>
+	id 1tsIEo-00000007voy-1Ezj;
+	Wed, 12 Mar 2025 09:18:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1741771134; x=1773307134;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=QohO+qEryyUZNc5IxQGS+tP4cDEv1oyEh3/RIOphmwo=;
+  b=Tig8wyE36l/hRLUjFVfJFImWh6FagIRPKatrOoBqsdcEh25ihdOCR3zh
+   e3JdkvCkioUuIBeusn/s9SSwo2sTAnlV9Bkt187cwPQgwy/KBMirUBMpX
+   T31ru0fJuVhZwOkiMTs+spFvVMX1Z9wBVb25l+PALU50a/TrWBmfSg3kR
+   vFfXnkO8enq8mj/EzygQHamp3l/J18YDKJIs5WvA6f0qksWSKgbu/0Bj4
+   +jWtipYarEsI4ft2gh9QCGvJGjNMCpSvUUHXPijkSfR+JW0HNeyIGuUjl
+   XHnPsyVOLUDzNkN0YynoWK9B4bwmatwPjEDNPp0iWpzpJkQo535XCSQby
+   Q==;
+X-CSE-ConnectionGUID: Qv3Izcg5R4KdTvG1f68Ctg==
+X-CSE-MsgGUID: /1/WL+5SQWOCLQChvocdwA==
+X-IronPort-AV: E=McAfee;i="6700,10204,11370"; a="46486846"
+X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
+   d="scan'208";a="46486846"
+Received: from fmviesa008.fm.intel.com ([10.60.135.148])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 12 Mar 2025 02:18:52 -0700
+X-CSE-ConnectionGUID: +8CO2PixQYSWJ8ZXPX6LEA==
+X-CSE-MsgGUID: xnJrE98fRg6nZ98zAVfUFg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.14,241,1736841600"; 
+   d="scan'208";a="120801269"
+Received: from lkp-server02.sh.intel.com (HELO a4747d147074) ([10.239.97.151])
+  by fmviesa008.fm.intel.com with ESMTP; 12 Mar 2025 02:18:48 -0700
+Received: from kbuild by a4747d147074 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1tsIEg-0008Jk-00;
+	Wed, 12 Mar 2025 09:18:46 +0000
+Date: Wed, 12 Mar 2025 17:18:09 +0800
+From: kernel test robot <lkp@intel.com>
+To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>,
+	miquel.raynal@bootlin.com, richard@nod.at, vigneshr@ti.com,
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	nicolas.ferre@microchip.com, alexandre.belloni@bootlin.com,
+	claudiu.beznea@tuxon.dev, krzysztof.kozlowski+dt@linaro.org
+Cc: oe-kbuild-all@lists.linux.dev, balamanikandan.gunasundar@microchip.com,
+	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 3/3] dt-bindings: mtd: atmel-nand: add legacy nand
+ controllers
+Message-ID: <202503121629.f5Hsa5Zy-lkp@intel.com>
+References: <20250311122847.90081-4-balamanikandan.gunasundar@microchip.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <072d1d3a-2aeb-4ab0-9db1-476835a1131e@arm.com>
+In-Reply-To: <20250311122847.90081-4-balamanikandan.gunasundar@microchip.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_021812_430502_303242F1 
-X-CRM114-Status: GOOD (  19.17  )
+X-CRM114-CacheID: sfid-20250312_021854_372441_93D38B68 
+X-CRM114-Status: GOOD (  11.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,48 +92,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11-03-25, 12:48, Robin Murphy wrote:
-> On 2025-03-10 8:47 pm, Vinod Koul wrote:
-> > On 28-02-25, 17:26, Robin Murphy wrote:
-> > 
-> > > +static u32 d350_get_residue(struct d350_chan *dch)
-> > > +{
-> > > +	u32 res, xsize, xsizehi, hi_new;
-> > > +
-> > > +	hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
-> > > +	do {
-> > > +		xsizehi = hi_new;
-> > > +		xsize = readl_relaxed(dch->base + CH_XSIZE);
-> > > +		hi_new = readl_relaxed(dch->base + CH_XSIZEHI);
-> > > +	} while (xsizehi != hi_new);
-> > 
-> > This can go forever, lets have some limits to this loop please
-> 
-> Sure, in practice I doubt we're ever going to be continually preempted
-> faster than the controller can move another 64KB of data, but I concur
-> there's no harm in making the code easier to reason about at a glance
-> either.
+Hi Balamanikandan,
 
-Yes you are coreect but when things go bad, a bug in h/w or something, I
-would like to see a fail safe
+kernel test robot noticed the following build warnings:
 
-> > > +static int d350_alloc_chan_resources(struct dma_chan *chan)
-> > > +{
-> > > +	struct d350_chan *dch = to_d350_chan(chan);
-> > > +	int ret = request_irq(dch->irq, d350_irq, IRQF_SHARED,
-> > > +			      dev_name(&dch->vc.chan.dev->device), dch);
-> > 
-> > This is interesting, any reason why the irq is allocated here? Would it
-> > be not better to do that in probe...
-> 
-> Well, I'd say technically the IRQ is a channel resource, and quite a few
-> other drivers do the same... Here it's mostly so I can get the channel name
-> - so the IRQs are nice and identifiable in /proc/interrupts - easily without
-> making a big mess in probe, since the names don't exist until after the
-> device is registered.
+[auto build test WARNING on mtd/mtd/next]
+[also build test WARNING on mtd/mtd/fixes robh/for-next linus/master v6.14-rc6 next-20250311]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Ok
+url:    https://github.com/intel-lab-lkp/linux/commits/Balamanikandan-Gunasundar/dt-bindings-mtd-microchip-nand-convert-txt-to-yaml/20250311-203706
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mtd/linux.git mtd/next
+patch link:    https://lore.kernel.org/r/20250311122847.90081-4-balamanikandan.gunasundar%40microchip.com
+patch subject: [PATCH v2 3/3] dt-bindings: mtd: atmel-nand: add legacy nand controllers
+reproduce: (https://download.01.org/0day-ci/archive/20250312/202503121629.f5Hsa5Zy-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202503121629.f5Hsa5Zy-lkp@intel.com/
+
+All warnings (new ones prefixed by >>):
+
+   Warning: Documentation/translations/ja_JP/SubmittingPatches references a file that doesn't exist: linux-2.6.12-vanilla/Documentation/dontdiff
+   Warning: Documentation/translations/zh_CN/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_CN/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+   Warning: Documentation/translations/zh_TW/admin-guide/README.rst references a file that doesn't exist: Documentation/dev-tools/kgdb.rst
+   Warning: Documentation/translations/zh_TW/dev-tools/gdb-kernel-debugging.rst references a file that doesn't exist: Documentation/dev-tools/gdb-kernel-debugging.rst
+>> Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/mtd/atmel-nand.txt
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/misc/fsl,qoriq-mc.txt
+   Warning: MAINTAINERS references a file that doesn't exist: Documentation/devicetree/bindings/leds/backlight/ti,lp8864.yaml
+   Warning: lib/Kconfig.debug references a file that doesn't exist: Documentation/dev-tools/fault-injection/fault-injection.rst
+   Using alabaster theme
 
 -- 
-~Vinod
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
