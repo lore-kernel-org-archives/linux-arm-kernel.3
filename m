@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4502C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:35:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32BF6C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 11:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5IYz7yQMRnkNKoNFMrJRX51C8OKcK1OxBSNy43CR8s8=; b=cL0IbCKXMyzQzHvF9t9JMBUZZp
-	bmSxB0QUiEG0DSB4GTryQZhL5Tv4aEMnTv6uJ0KYbhU3n+pyqNW8jMyjFfsBCSGBH+x4kE63DAEIF
-	9bk6lLeZ+6ps87dURMbMZ6PzgY21zaOwoIg+jY0LcauvIi1Qd7mSCs7yl8I8IPyXJJM0bdXd3YliL
-	wilV/k6B7KgIqrd4s9qfFBBQ80y2e/SsxSmt/ILW7eZHmg/V79rwDxppw8mrwqXXGcKYz+0F3d/f1
-	t9AB6HOLkx0yLeTgkLAmVlANACG8KF8dPqbOpFYbn+TjYng1/9U8ugeMNOsFwCbKCeK+EI+jx7oIT
-	jkc58JqQ==;
+	bh=C5APgKbRFQnXZM9gxZLWgCCBIp1xML9rVLvexyxRRRw=; b=cr0TyHXKuL8dzaq5zYe0S/uD8D
+	kmgV2jHE/56jAbFHjNtD2w2UNskTuwJEFzbZlABOa1SaGZKWAOhWpRHppSCG/gqeD7UsjXq0AsHAz
+	G8x4uFlkByZAQSpta6lTBaIlkUA88u+AGaIG8QBWuJ6nZhz3Mbn7gjBJ7MpmJd9sIitczXCjs13q6
+	YQFAT6rS4PJDHry/JtanysQfLN0ZnMn9syHSL134OPR/sesEPPSG9rCsB+EDmbYu21rcXdr1rC2tO
+	9PpJnOOK0Db5gIWllqm+I04Z/3LCrO850NrG0pjav/5HDmeilhjFMP0bqvGu/qSroGW8tw+KcsU0E
+	MZoFEEXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKMT-00000008HKr-0LuI;
-	Wed, 12 Mar 2025 11:34:57 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsKO6-00000008HhN-0bh8;
+	Wed, 12 Mar 2025 11:36:38 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsK2T-00000008Dwg-1q7k;
-	Wed, 12 Mar 2025 11:14:18 +0000
+	id 1tsK2V-00000008DxB-3WyB;
+	Wed, 12 Mar 2025 11:14:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 9F990A46D44;
-	Wed, 12 Mar 2025 11:08:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DFE04C4CEE3;
-	Wed, 12 Mar 2025 11:14:15 +0000 (UTC)
+	by dfw.source.kernel.org (Postfix) with ESMTP id 714405C4427;
+	Wed, 12 Mar 2025 11:12:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 95437C4CEE3;
+	Wed, 12 Mar 2025 11:14:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741778056;
-	bh=/x3wzMFh/aAQSrh9GQyvDMBbUMhJalBSiaTbjau5OB8=;
+	s=k20201202; t=1741778058;
+	bh=Q/1lqny96ZWi4j5/QaIgLJgjqjSOFtGumXMHNNWeir0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=SNK+dRsGd8967b7lHWF3nG9KTtKxsL9Nj5zDeNjfselbC4eh5E/ApH8d9qBn4gGrN
-	 LbPruumpPzpkOtVndvTh2a3KMKqICq1Vw9hbQ11F4uoEtd+fdfHWDTy8SaC/ABO2fy
-	 1cJJav6I2QOhLz60efOQmxTm02qazwmtbK14LCMnNDVT+ZNyBzo5GxigeiSJ9f6SqE
-	 qM0TPTZpfTd6S2oKguuZQFfBXvObiAz8AG3Eu1VNcElGmd/lZQOBWMzLtXfC+mRfLY
-	 k0P2zogdIHcN1/Pt0efamcyLkWKkO054QTUcqyJ/TXFD+axBNt6DWnj1V2BM7sMwv6
-	 /AvPcYORcaiWw==
+	b=ZPtDONtB0vhOHsB04hl1M5aDDoAuT2/0whZnk/X8Ot42nwLyXoP+wigFwXZ1rRuws
+	 jSZp+2yoR+GXGA5xlabT07ii0xdCmhaTLPNSNGXOzyIA9Y5shaQT/S2mV7/5MSMdbo
+	 Tog7eBhmb/nlQBy7DyLSFSkJ3zgUhHeiMGR+BmSPBFrzGCzK08lp9HGpfsCB73Sy1l
+	 MkYGo6Ch14oYDPqkOMTQNaLNN12vQJ65sQGuQ6QIfx2P9P4hSk6H3zFeQOSrQff3qd
+	 bGoUe4VdDVqxlM4TMP27diakKkk9U3dFbHCbHuKl5l8sMFRAQCJ+12QXLY7L+2vqGW
+	 WOERFkGoaXIYg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 12 Mar 2025 12:13:50 +0100
-Subject: [PATCH 06/21] wifi: mt76: mt7996: rework mt7996_rx_get_wcid to
- support MLO
+Date: Wed, 12 Mar 2025 12:13:51 +0100
+Subject: [PATCH 07/21] wifi: mt76: mt7996: rework mt7996_sta_set_4addr and
+ mt7996_sta_set_decap_offload to support MLO
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250312-b4-mt7996-mlo-p2-v1-6-015b3d6fd928@kernel.org>
+Message-Id: <20250312-b4-mt7996-mlo-p2-v1-7-015b3d6fd928@kernel.org>
 References: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
 In-Reply-To: <20250312-b4-mt7996-mlo-p2-v1-0-015b3d6fd928@kernel.org>
 To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
@@ -62,8 +62,8 @@ Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Lorenzo Bianconi <lorenzo@kernel.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_041417_612326_7ADA10DD 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20250312_041420_001358_7500C651 
+X-CRM114-Status: GOOD (  13.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,15 +80,9 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Shayne Chen <shayne.chen@mediatek.com>
 
-The wcid idx and band idx in the TXS are sometimes mismatched since the
-FW will select a transmission link according to a private algorithm.
-That is, the wcid idx in the TXS would be the one registered by the
-driver rather than the actual wcid idx used during transmission.
-However, the band idx in the TXS is the band select for transmission.
-Therefore, we should get the driver-registered wcid in order
-to notify the driver the packet has been acked; otherwise,
-the driver will be unable to match the transmitted packet and its TXS.
-This is a preliminary patch to enable MLO for MT7996 driver.
+Rework mt7996_sta_set_4addr and mt7996_sta_set_decap_offload routines in
+order to properly support multi-link. This is a preliminary patch to enable
+MLO for MT7996 driver.
 
 Co-developed-by: Bo Jiao <Bo.Jiao@mediatek.com>
 Signed-off-by: Bo Jiao <Bo.Jiao@mediatek.com>
@@ -98,77 +92,150 @@ Signed-off-by: Shayne Chen <shayne.chen@mediatek.com>
 Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- drivers/net/wireless/mediatek/mt76/mt7996/mac.c | 33 +++++++++++++++++++------
- 1 file changed, 26 insertions(+), 7 deletions(-)
+ drivers/net/wireless/mediatek/mt76/mt7996/main.c   | 74 ++++++++++++++++------
+ drivers/net/wireless/mediatek/mt76/mt7996/mcu.c    | 11 +---
+ drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h |  3 +-
+ 3 files changed, 61 insertions(+), 27 deletions(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-index 9f8436edc81377d852dd4e7221575c7e1255187c..b8d88fdee97a3567b57a20d0322859b7ae8ce88a 100644
---- a/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-+++ b/drivers/net/wireless/mediatek/mt76/mt7996/mac.c
-@@ -53,29 +53,48 @@ static const struct mt7996_dfs_radar_spec jp_radar_specs = {
- };
- 
- static struct mt76_wcid *mt7996_rx_get_wcid(struct mt7996_dev *dev,
--					    u16 idx, bool unicast)
-+					    u16 idx, u8 band_idx)
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/main.c b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+index 642d633b5126ce81f3d32a9bd912603e2c328c8a..f7703e00712cd1a59484ceddfad5bd00b8814250 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/main.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/main.c
+@@ -1540,19 +1540,37 @@ static void mt7996_sta_set_4addr(struct ieee80211_hw *hw,
+ 				 struct ieee80211_sta *sta,
+ 				 bool enabled)
  {
- 	struct mt7996_sta_link *msta_link;
- 	struct mt7996_sta *msta;
-+	struct mt7996_vif *mvif;
- 	struct mt76_wcid *wcid;
-+	int i;
+-	struct mt7996_dev *dev = mt7996_hw_dev(hw);
+ 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
+-	struct mt7996_sta_link *msta_link = &msta->deflink;
++	struct mt7996_dev *dev = mt7996_hw_dev(hw);
++	struct ieee80211_link_sta *link_sta;
++	unsigned int link_id;
  
- 	if (idx >= ARRAY_SIZE(dev->mt76.wcid))
- 		return NULL;
+-	if (enabled)
+-		set_bit(MT_WCID_FLAG_4ADDR, &msta_link->wcid.flags);
+-	else
+-		clear_bit(MT_WCID_FLAG_4ADDR, &msta_link->wcid.flags);
++	mutex_lock(&dev->mt76.mutex);
  
- 	wcid = rcu_dereference(dev->mt76.wcid[idx]);
--	if (unicast || !wcid)
--		return wcid;
-+	if (!wcid)
-+		return NULL;
+-	if (!msta_link->wcid.sta)
+-		return;
++	for_each_sta_active_link(vif, sta, link_sta, link_id) {
++		struct mt7996_sta_link *msta_link;
++		struct mt7996_vif_link *link;
  
--	if (!wcid->sta)
-+	if (!mt7996_band_valid(dev, band_idx))
- 		return NULL;
- 
-+	if (wcid->phy_idx == band_idx)
-+		return wcid;
-+
- 	msta_link = container_of(wcid, struct mt7996_sta_link, wcid);
- 	msta = msta_link->sta;
--
- 	if (!msta || !msta->vif)
- 		return NULL;
- 
--	return &msta->vif->deflink.msta_link.wcid;
-+	mvif = msta->vif;
-+	for (i = 0; i < ARRAY_SIZE(mvif->mt76.link); i++) {
-+		struct mt76_vif_link *mlink;
-+
-+		mlink = rcu_dereference(mvif->mt76.link[i]);
-+		if (!mlink)
+-	mt7996_mcu_wtbl_update_hdr_trans(dev, vif, sta);
++		link = mt7996_vif_link(dev, vif, link_id);
++		if (!link)
 +			continue;
 +
-+		if (mlink->band_idx != band_idx)
++		msta_link = mt76_dereference(msta->link[link_id], &dev->mt76);
++		if (!msta_link)
 +			continue;
 +
-+		msta_link = rcu_dereference(msta->link[i]);
-+		break;
++		if (enabled)
++			set_bit(MT_WCID_FLAG_4ADDR, &msta_link->wcid.flags);
++		else
++			clear_bit(MT_WCID_FLAG_4ADDR, &msta_link->wcid.flags);
++
++		if (!msta_link->wcid.sta)
++			continue;
++
++		mt7996_mcu_wtbl_update_hdr_trans(dev, vif, link, msta_link);
 +	}
 +
-+	return &msta_link->wcid;
++	mutex_unlock(&dev->mt76.mutex);
  }
  
- bool mt7996_mac_wtbl_update(struct mt7996_dev *dev, int idx, u32 mask)
-@@ -483,7 +502,7 @@ mt7996_mac_fill_rx(struct mt7996_dev *dev, enum mt76_rxq_id q,
+ static void mt7996_sta_set_decap_offload(struct ieee80211_hw *hw,
+@@ -1560,19 +1578,39 @@ static void mt7996_sta_set_decap_offload(struct ieee80211_hw *hw,
+ 					 struct ieee80211_sta *sta,
+ 					 bool enabled)
+ {
+-	struct mt7996_dev *dev = mt7996_hw_dev(hw);
+ 	struct mt7996_sta *msta = (struct mt7996_sta *)sta->drv_priv;
+-	struct mt7996_sta_link *msta_link = &msta->deflink;
++	struct mt7996_dev *dev = mt7996_hw_dev(hw);
++	struct ieee80211_link_sta *link_sta;
++	unsigned int link_id;
  
- 	unicast = FIELD_GET(MT_RXD3_NORMAL_ADDR_TYPE, rxd3) == MT_RXD3_NORMAL_U2M;
- 	idx = FIELD_GET(MT_RXD1_NORMAL_WLAN_IDX, rxd1);
--	status->wcid = mt7996_rx_get_wcid(dev, idx, unicast);
-+	status->wcid = mt7996_rx_get_wcid(dev, idx, band_idx);
+-	if (enabled)
+-		set_bit(MT_WCID_FLAG_HDR_TRANS, &msta_link->wcid.flags);
+-	else
+-		clear_bit(MT_WCID_FLAG_HDR_TRANS, &msta_link->wcid.flags);
++	mutex_lock(&dev->mt76.mutex);
  
- 	if (status->wcid) {
- 		struct mt7996_sta_link *msta_link;
+-	if (!msta_link->wcid.sta)
+-		return;
++	for_each_sta_active_link(vif, sta, link_sta, link_id) {
++		struct mt7996_sta_link *msta_link;
++		struct mt7996_vif_link *link;
+ 
+-	mt7996_mcu_wtbl_update_hdr_trans(dev, vif, sta);
++		link = mt7996_vif_link(dev, vif, link_id);
++		if (!link)
++			continue;
++
++		msta_link = mt76_dereference(msta->link[link_id], &dev->mt76);
++		if (!msta_link)
++			continue;
++
++		if (enabled)
++			set_bit(MT_WCID_FLAG_HDR_TRANS,
++				&msta_link->wcid.flags);
++		else
++			clear_bit(MT_WCID_FLAG_HDR_TRANS,
++				  &msta_link->wcid.flags);
++
++		if (!msta_link->wcid.sta)
++			continue;
++
++		mt7996_mcu_wtbl_update_hdr_trans(dev, vif, link, msta_link);
++	}
++
++	mutex_unlock(&dev->mt76.mutex);
+ }
+ 
+ static const char mt7996_gstrings_stats[][ETH_GSTRING_LEN] = {
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+index 46c5e639b9630199ffa601e545fa76690f0101e3..7c097aaead328bd234d87e535497c2f788ffa4c3 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mcu.c
+@@ -4465,17 +4465,12 @@ int mt7996_mcu_rdd_cmd(struct mt7996_dev *dev, int cmd, u8 index,
+ 
+ int mt7996_mcu_wtbl_update_hdr_trans(struct mt7996_dev *dev,
+ 				     struct ieee80211_vif *vif,
+-				     struct ieee80211_sta *sta)
++				     struct mt7996_vif_link *link,
++				     struct mt7996_sta_link *msta_link)
+ {
+-	struct mt7996_vif *mvif = (struct mt7996_vif *)vif->drv_priv;
+-	struct mt7996_sta_link *msta_link;
+-	struct mt7996_sta *msta;
+ 	struct sk_buff *skb;
+ 
+-	msta = sta ? (struct mt7996_sta *)sta->drv_priv : NULL;
+-	msta_link = msta ? &msta->deflink : &mvif->deflink.msta_link;
+-
+-	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &mvif->deflink.mt76,
++	skb = __mt76_connac_mcu_alloc_sta_req(&dev->mt76, &link->mt76,
+ 					      &msta_link->wcid,
+ 					      MT7996_STA_UPDATE_MAX_SIZE);
+ 	if (IS_ERR(skb))
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+index c2a2916e0647cfdcbee9912e3915241465e32cac..f226090bcd02ea478113e4bccea0492cfa34477d 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/mt7996.h
+@@ -749,7 +749,8 @@ int mt7996_mcu_bcn_prot_enable(struct mt7996_dev *dev, struct ieee80211_vif *vif
+ 			       struct ieee80211_key_conf *key);
+ int mt7996_mcu_wtbl_update_hdr_trans(struct mt7996_dev *dev,
+ 				     struct ieee80211_vif *vif,
+-				     struct ieee80211_sta *sta);
++				     struct mt7996_vif_link *link,
++				     struct mt7996_sta_link *msta_link);
+ int mt7996_mcu_cp_support(struct mt7996_dev *dev, u8 mode);
+ #ifdef CONFIG_MAC80211_DEBUGFS
+ void mt7996_sta_add_debugfs(struct ieee80211_hw *hw, struct ieee80211_vif *vif,
 
 -- 
 2.48.1
