@@ -4,94 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6E3C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:07:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4138CC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3LuHCHpuveXkpSQUcYt/4aNBi7uFbOG/3oEGn8E8LXY=; b=Of00jrt9VEpMN5s5LmDVzzHjfs
-	EKZzTlY6T7dQBSIikbxw3BoWKaNv+VqToWn4KYkviKsXVuhedrjjmguBBGNMuMGhOQ2ehTREaKOwj
-	4fZ/EAmrnzvOJg7qrQvdUVcKUk+HOtPJ3QpRl4wyNeSfbuaaCIqHs4GJOo7Jinl4tmrU91nky7D/0
-	AxVLRJfZ6SlqKD2jsl14KXqXu5C+kqb1+Bsy9o7L5t4W7C+khpDeyI7RsSsPOh62r0gC/23Ig4/3v
-	6ag8yYDueeCEYvqdnUlkxbJPnHOqvAezEZ55BwgiBhfnatrxXbo4Dgj0jfHvefbvJmec72viamHQC
-	1Bd4sZCQ==;
+	bh=Llg3IqMEvH4DcirkFP4GrJia4Ypd1f7p2AzxWn43Txw=; b=Es0SPBS5tqR3gtHYgR/LywO0kp
+	nkjt7OliDb7r+K/wunbOzSErmocVZf8Bpor2LL3lizg696wiUGjhQmMhQ22WKwgbFTnJIhxFTyuVq
+	oywFqRml6SqqGFs1nskhc4TY7HF0lDrYOOkt1DCGML7+a85j12iyzu1Pf0/On+vh+YesI+p4nZjxo
+	RFlJ0EfriEB7V6GMa3a0dxySITyuZNk7yzqio29AE2Cni2OirnB06IIjG9UUPpwarvvMsXgecZGbN
+	ed8xUYoE/YxQ1qcL3z2kMIWsLDwIHha+qloXxjuHjZdejB8sL7Rb3HhTyZr222eBsoPYSvvufEz+U
+	mgGB6WEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQU4-00000009Dg3-3Hae;
-	Wed, 12 Mar 2025 18:07:12 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQS0-00000009DR6-2oww
+	id 1tsQXu-00000009E4f-2qWj;
+	Wed, 12 Mar 2025 18:11:10 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsQWF-00000009DwU-1lqU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 18:05:06 +0000
-Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 1B63C210B155;
-	Wed, 12 Mar 2025 11:05:02 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1B63C210B155
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741802702;
-	bh=3LuHCHpuveXkpSQUcYt/4aNBi7uFbOG/3oEGn8E8LXY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=jYKT7aaV5gspSop8H5hJDvSoYzQZSeYlg64Ifr722u0Nb9Lg5Imcrfh9r7PIfD5lT
-	 6Gx7WdXYzK5Qkk74C6o++r7isZrfq5nwtn1HQ8mbeg+mlVaPIh0Da7Nxn0zjSmQ6i1
-	 ISWSMrdAV6mX4SniwmTsX/jUZuFL1ANTVkqQw/UY=
-Message-ID: <8520ef42-6cb4-4e14-9700-de7ae8a99ae8@linux.microsoft.com>
-Date: Wed, 12 Mar 2025 11:04:37 -0700
+	Wed, 12 Mar 2025 18:09:28 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 41CA9A47181;
+	Wed, 12 Mar 2025 18:03:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9C21CC4CEDD;
+	Wed, 12 Mar 2025 18:09:23 +0000 (UTC)
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: arm-kernel@lists.infradead.org,
+	Anshuman Khandual <anshuman.khandual@arm.com>
+Cc: Will Deacon <will@kernel.org>,
+	Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	James Morse <james.morse@arm.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH V2 0/8] arm64/mm: Drop PXD_TABLE_BIT
+Date: Wed, 12 Mar 2025 18:09:21 +0000
+Message-Id: <174180295545.4162360.4956385573664588446.b4-ty@arm.com>
+X-Mailer: git-send-email 2.39.5
+In-Reply-To: <20250221044227.1145393-1-anshuman.khandual@arm.com>
+References: <20250221044227.1145393-1-anshuman.khandual@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 02/10] x86/mshyperv: Add support for extended Hyper-V
- features
-To: Michael Kelley <mhklinux@outlook.com>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>
-Cc: "kys@microsoft.com" <kys@microsoft.com>,
- "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
- "wei.liu@kernel.org" <wei.liu@kernel.org>,
- "decui@microsoft.com" <decui@microsoft.com>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
- <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
- "bp@alien8.de" <bp@alien8.de>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "hpa@zytor.com" <hpa@zytor.com>,
- "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
- "joro@8bytes.org" <joro@8bytes.org>,
- "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
- <arnd@arndb.de>,
- "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
- "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
- "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
- "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
- "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
- "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
- "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
- "vkuznets@redhat.com" <vkuznets@redhat.com>,
- "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
- "muislam@microsoft.com" <muislam@microsoft.com>,
- "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
- "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
- <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-3-git-send-email-nunodasneves@linux.microsoft.com>
- <SN6PR02MB4157CBBC2D186E1944E6773AD4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-In-Reply-To: <SN6PR02MB4157CBBC2D186E1944E6773AD4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_110504_764403_2FC4BE53 
-X-CRM114-Status: GOOD (  19.58  )
+X-CRM114-CacheID: sfid-20250312_110927_527610_5F01AA6F 
+X-CRM114-Status: GOOD (  10.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,75 +71,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/6/2025 10:30 AM, Michael Kelley wrote:
-> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 26, 2025 3:08 PM
->>
->> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->>
->> Extend the "ms_hyperv_info" structure to include a new field,
->> "ext_features", for capturing extended Hyper-V features.
->> Update the "ms_hyperv_init_platform" function to retrieve these features
->> using the cpuid instruction and include them in the informational output.
->>
->> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
->> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
->> ---
->>  arch/x86/kernel/cpu/mshyperv.c | 6 ++++--
->>  include/asm-generic/mshyperv.h | 1 +
->>  2 files changed, 5 insertions(+), 2 deletions(-)
->>
->> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
->> index 4f01f424ea5b..2c29dfd6de19 100644
->> --- a/arch/x86/kernel/cpu/mshyperv.c
->> +++ b/arch/x86/kernel/cpu/mshyperv.c
->> @@ -434,13 +434,15 @@ static void __init ms_hyperv_init_platform(void)
->>  	 */
->>  	ms_hyperv.features = cpuid_eax(HYPERV_CPUID_FEATURES);
->>  	ms_hyperv.priv_high = cpuid_ebx(HYPERV_CPUID_FEATURES);
->> +	ms_hyperv.ext_features = cpuid_ecx(HYPERV_CPUID_FEATURES);
->>  	ms_hyperv.misc_features = cpuid_edx(HYPERV_CPUID_FEATURES);
->>  	ms_hyperv.hints    = cpuid_eax(HYPERV_CPUID_ENLIGHTMENT_INFO);
->>
->>  	hv_max_functions_eax = cpuid_eax(HYPERV_CPUID_VENDOR_AND_MAX_FUNCTIONS);
->>
->> -	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, hints 0x%x, misc 0x%x\n",
->> -		ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
->> +	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, ext 0x%x, hints 0x%x, misc 0x%x\n",
->> +		ms_hyperv.features, ms_hyperv.priv_high,
->> +		ms_hyperv.ext_features, ms_hyperv.hints,
->>  		ms_hyperv.misc_features);
->>
->>  	ms_hyperv.max_vp_index = cpuid_eax(HYPERV_CPUID_IMPLEMENT_LIMITS);
->> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
->> index dc4729dba9ef..c020d5d0ec2a 100644
->> --- a/include/asm-generic/mshyperv.h
->> +++ b/include/asm-generic/mshyperv.h
->> @@ -36,6 +36,7 @@ enum hv_partition_type {
->>  struct ms_hyperv_info {
->>  	u32 features;
->>  	u32 priv_high;
->> +	u32 ext_features;
->>  	u32 misc_features;
->>  	u32 hints;
->>  	u32 nested_features;
->> --
->> 2.34.1
+On Fri, 21 Feb 2025 10:12:19 +0530, Anshuman Khandual wrote:
+> Remove the PXX_TABLE_BIT definitions and instead rely on PXX_TYPE_MASK,
+> PXX_TYPE_SECT and PXX_TYPE_TABLE. The latter versions are more abstract
+> and also include the PTE_VALID bit.
 > 
-> Are any of the extended features available on arm64? This code is obviously x86 specific,
-> so ms_hyperv.ext_features will be zero on arm64. From what I can see, ext_features is
-> referenced only in Patch 10 of this series, and in code that is under #ifdef CONFIG_X86_64,
-> so that should be OK.
-
-Just checked - yes ARM64 has features in ECX, but they are different to the x86_64 ones.
-We can add the ARM64 ones when needed.
-
-Thanks
-Nuno
-
+> This abstraction is valuable for the impending D128 page table support,
+> which doesn't have a single page table bit to determine table vs block.
+> Instead it has the skip level (SKL) field, where it will consider 0 to
+> mean table and any other value to mean a block entry. So PXX_TABLE_BIT
+> therefore doesn't fit into the D128 model well, but the type fields do.
 > 
-> The pr_info() line will now be slightly different on x86 and arm64 since arm64 won't have
-> the "ext" field, but I think that's OK too.
-> 
-> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
+> [...]
+
+Applied to arm64 (for-next/drop-pxd_table_bit), thanks!
+
+[1/8] KVM: arm64: ptdump: Test PMD_TYPE_MASK for block mapping
+      https://git.kernel.org/arm64/c/0b626b245c57
+[2/8] arm64/ptdump: Test PMD_TYPE_MASK for block mapping
+      https://git.kernel.org/arm64/c/f5e93819e2cc
+[3/8] arm64/mm: Clear PXX_TYPE_MASK in mk_[pmd|pud]_sect_prot()
+      https://git.kernel.org/arm64/c/dba954801004
+[4/8] arm64/mm: Clear PXX_TYPE_MASK and set PXD_TYPE_SECT in [pmd|pud]_mkhuge()
+      https://git.kernel.org/arm64/c/1601df9e366e
+[5/8] arm64/mm: Check PXD_TYPE_TABLE in [p4d|pgd]_bad()
+      https://git.kernel.org/arm64/c/4fa8a9c0fc99
+[6/8] arm64/mm: Check PUD_TYPE_TABLE in pud_bad()
+      https://git.kernel.org/arm64/c/bfb1d2b9021c
+[7/8] arm64/mm: Check pmd_table() in pmd_trans_huge()
+      https://git.kernel.org/arm64/c/d1770e909898
+[8/8] arm64/mm: Drop PXD_TABLE_BIT
+      https://git.kernel.org/arm64/c/50c2726654bb
+
+-- 
+Catalin
 
 
