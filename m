@@ -4,63 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C83CAC36010
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 19:49:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E02BBC28B20
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 30 Mar 2025 19:54:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mSMSevEquPmIXFY3ygGy/B0TyHq4Oq06KRAtU/3yieY=; b=rqWhaNpiXsEfVekN774DCdViEu
-	iGbBne9Rmbeni1r8AnjNMfCO8Z5TeicXyXY5xIEB5g6MFmIoHot0tmW0aUcWgFKWKo24PMtQ3x/12
-	HZzypiZVHT4NkQpS1bt6zBrFxkuNgQwTBREiR7wATeVGkgBpsQYEIheSYt5XNPOZvof7bcW6I0Es8
-	xa3XriJy+pmSD97cc9e9YVilAnBQJ/GwIICNm+g5hFDKYhkKLZqrg1xC55JWAip1zyA6aAD1KueXO
-	EvcjilZlljH8csVTbdXGQ9EkIXvXyembJdaWTRHKx33xWvQ0dpYu+OcisTT6AB7A4Ao/YOfw/V7Nc
-	eE8w5rWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:From:To:Cc:
+	Message-Id:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MFq0jSVBn19OTS0DWVYSuHMK3dPFrth1ryZM4cH58tw=; b=x4MStn9U1LNRqUIxhGAFDAzMSv
+	j7ApLOl20JJilU3aTUAxlp5py1D5B0ewr7EUQv80n9uFQjaypNA50jPVFQe0ivNqpqIEfPjVjFOZ3
+	+ZmoZlBHsVZKhWawHz6G+NpdXn7fsmo61r19oHdNVusQFJIL37FiGBbeK8F5sf8MnhOfHLfqeaMhx
+	p14nItntP9cHtgePKnQ8TAS/f3WHW1i6wIFNXSgF7IOTInLLOTHd4S9hOm55nIIe1jawdRRRJha9B
+	xCqsWfdIvy1i+g9g4PdvbrgeLWv4pnT+IMlncrnUzJ+ApaT6BPMwyhxNDVTjXGtXpjj1vZyQeEINE
+	rs/UWTBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyfB-0000000Gbvo-2I6H;
-	Sun, 30 Mar 2025 19:49:45 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1tyyjS-0000000GcDm-00of;
+	Sun, 30 Mar 2025 19:54:10 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.1 #2 (Red Hat Linux))
-	id 1tyyV2-0000000GbBg-07tE
+	id 1tyyhh-0000000Gc8f-2n7j
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 30 Mar 2025 19:39:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:in-reply-to:references:mime-version:content-transfer-encoding;
-	 s=k1; bh=mSMSevEquPmIXFY3ygGy/B0TyHq4Oq06KRAtU/3yieY=; b=B8kz23
-	t8UDQP+FLmWHJf+SCP+e5KSY805+BZqdlT8K2d790fPrrQANQTJ5zU38Hqy0jqIf
-	8qNlvhxYn+0rXq2looAXsiBTisC1Lz1U/ONFf1P+epIVBlM/kLbfEy99cOuZY/cm
-	IBsL4hl+z4gIAWgGxSSyE+iP8FjK1A3pVXLKTWnu9Vxgu8o2QBJKylROZmP+GWZo
-	bXs+99SI5Jgj7LsYWWueby4tSAHEa6fobxrfWLPuTeoskCi9U5adYdB0ft+ZKUqY
-	y8g6V90BJHapoPyLJWd/sp3oKlus/sA/hrjRM1Hg+fW2c1uCFl7tWR/8MTSKF9KZ
-	ePTIwPKuOm0zx79w==
-Received: (qmail 964949 invoked from network); 30 Mar 2025 21:39:09 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 30 Mar 2025 21:39:09 +0200
-X-UD-Smtp-Session: l3s3148p1@TXwSdZQxCKxQ8qei
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-	Alexey Charkov <alchark@gmail.com>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	devicetree@vger.kernel.org
-Subject: [PATCH v2 5/5] ARM: dts: vt8500: use correct ohci/ehci node names
-Date: Sun, 30 Mar 2025 21:38:36 +0200
-Message-ID: <20250330193833.21970-12-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
-References: <20250330193833.21970-7-wsa+renesas@sang-engineering.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Sun, 30 Mar 2025 19:52:23 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=Subject:Date:From:To:Cc:Message-Id:
+	Sender:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References;
+	bh=MFq0jSVBn19OTS0DWVYSuHMK3dPFrth1ryZM4cH58tw=; b=MNQ2d/x/j/Q65sgi7kGZIo+CWM
+	OqGKeuEKQmFZdCVaMvtemnHu/pLMImJQaLIJod7goj0oUc04Nrj3LB0Bmrg8kjvfBaoiF/2huV7Tn
+	VsD3RuqSXGd/tOyrUDeVrBFojBF653eS78zSDj8f6TBd5mmNKhaJOUiX7SbYX8Uz/sFL10igMDcOv
+	iutHQnfWr4fotJiCL6uk7A9MkPfFuXEOrrgN7LZGLwc/XW07DkkE3avYJOCKwSXcmczU0hF+nsQuL
+	sTTCx9PxemcdnNTPYwtMsae5pdKOg7XJtUoMSYCm/rp1DRaSqkOsaTyGyxHa4rORR87u2CSS54J6t
+	vLTu20aw==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tyyhK-000Gux-2y;
+	Sun, 30 Mar 2025 21:51:58 +0200
+Received: from [170.62.100.233] (helo=localhost)
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tyyhK-000118-1J;
+	Sun, 30 Mar 2025 21:51:58 +0200
+Message-Id: <D8TV2MP99NTE.1842MMA04VB9N@folker-schwesinger.de>
+Cc: "Vinod Koul" <vkoul@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Manivannan Sadhasivam"
+ <manivannan.sadhasivam@linaro.org>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, "Marek Vasut" <marex@denx.de>, "Radhey
+ Shyam Pandey" <radhey.shyam.pandey@amd.com>
+To: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+Date: Wed, 12 Mar 2025 16:59:26 +0100
+Subject: [PATCH] dmaengine: xilinx_dma: Support descriptor setup from dma_vecs
+X-Authenticated-Sender: dev@folker-schwesinger.de
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27593/Sun Mar 30 10:30:26 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250330_123916_345850_A140F56D 
-X-CRM114-Status: UNSURE (   9.52  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250330_125222_022999_FB4DE4B4 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,84 +81,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-They should be named "usb@".
+The DMAEngine provides an interface for obtaining DMA transaction
+descriptors from an array of scatter gather buffers represented by
+struct dma_vec.
+Add support for this interface in the Xilinx DMA driver by implementing
+the .device_prep_peripheral_dma_vec() callback of struct dma_device.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+Signed-off-by: Folker Schwesinger <dev@folker-schwesinger.de>
 ---
- arch/arm/boot/dts/vt8500/vt8500.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8505.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8650.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8750.dtsi | 2 +-
- arch/arm/boot/dts/vt8500/wm8850.dtsi | 2 +-
- 5 files changed, 5 insertions(+), 5 deletions(-)
+ drivers/dma/xilinx/xilinx_dma.c | 94 +++++++++++++++++++++++++++++++++
+ 1 file changed, 94 insertions(+)
 
-diff --git a/arch/arm/boot/dts/vt8500/vt8500.dtsi b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-index f23cb5ee11ae..09f5ed3e6821 100644
---- a/arch/arm/boot/dts/vt8500/vt8500.dtsi
-+++ b/arch/arm/boot/dts/vt8500/vt8500.dtsi
-@@ -109,7 +109,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index 3ad44afd0e74..2d4658b02d93 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -2172,6 +2172,99 @@ xilinx_cdma_prep_memcpy(struct dma_chan *dchan, dma_addr_t dma_dst,
+ 	return NULL;
+ }
  
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <43>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8505.dtsi b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-index d9e1280372c5..c81810b967bb 100644
---- a/arch/arm/boot/dts/vt8500/wm8505.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8505.dtsi
-@@ -207,7 +207,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007100 {
-+		usb@d8007100 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007100 0x200>;
- 			interrupts = <1>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8650.dtsi b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-index 35d12d77efc0..555008120a3e 100644
---- a/arch/arm/boot/dts/vt8500/wm8650.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8650.dtsi
-@@ -179,7 +179,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <43>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8750.dtsi b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-index b292f85d4e69..309f6e5129fb 100644
---- a/arch/arm/boot/dts/vt8500/wm8750.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8750.dtsi
-@@ -251,7 +251,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <26>;
-diff --git a/arch/arm/boot/dts/vt8500/wm8850.dtsi b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-index c61717ebb4f1..3f4a514d65e2 100644
---- a/arch/arm/boot/dts/vt8500/wm8850.dtsi
-+++ b/arch/arm/boot/dts/vt8500/wm8850.dtsi
-@@ -238,7 +238,7 @@ timer@d8130100 {
- 			interrupts = <36>;
- 		};
- 
--		ehci@d8007900 {
-+		usb@d8007900 {
- 			compatible = "via,vt8500-ehci";
- 			reg = <0xd8007900 0x200>;
- 			interrupts = <26>;
++/**
++ * xilinx_dma_prep_peripheral_dma_vec - prepare descriptors for a DMA_SLAVE
++ *	transaction from DMA vectors
++ * @dchan: DMA channel
++ * @vecs: Array of DMA vectors that should be transferred
++ * @nb: number of entries in @vecs
++ * @direction: DMA direction
++ * @flags: transfer ack flags
++ *
++ * Return: Async transaction descriptor on success and NULL on failure
++ */
++static struct dma_async_tx_descriptor *xilinx_dma_prep_peripheral_dma_vec(
++	struct dma_chan *dchan, const struct dma_vec *vecs, size_t nb,
++	enum dma_transfer_direction direction, unsigned long flags)
++{
++	struct xilinx_dma_chan *chan = to_xilinx_chan(dchan);
++	struct xilinx_dma_tx_descriptor *desc;
++	struct xilinx_axidma_tx_segment *segment, *head, *prev = NULL;
++	size_t copy;
++	size_t sg_used;
++	unsigned int i;
++
++	if (!is_slave_direction(direction) || direction != chan->direction)
++		return NULL;
++
++	desc = xilinx_dma_alloc_tx_descriptor(chan);
++	if (!desc)
++		return NULL;
++
++	dma_async_tx_descriptor_init(&desc->async_tx, &chan->common);
++	desc->async_tx.tx_submit = xilinx_dma_tx_submit;
++
++	/* Build transactions using information from DMA vectors */
++	for (i = 0; i < nb; i++) {
++		sg_used = 0;
++
++		/* Loop until the entire dma_vec entry is used */
++		while (sg_used < vecs[i].len) {
++			struct xilinx_axidma_desc_hw *hw;
++
++			/* Get a free segment */
++			segment = xilinx_axidma_alloc_tx_segment(chan);
++			if (!segment)
++				goto error;
++
++			/*
++			 * Calculate the maximum number of bytes to transfer,
++			 * making sure it is less than the hw limit
++			 */
++			copy = xilinx_dma_calc_copysize(chan, vecs[i].len,
++					sg_used);
++			hw = &segment->hw;
++
++			/* Fill in the descriptor */
++			xilinx_axidma_buf(chan, hw, vecs[i].addr, sg_used, 0);
++			hw->control = copy;
++
++			if (prev)
++				prev->hw.next_desc = segment->phys;
++
++			prev = segment;
++			sg_used += copy;
++
++			/*
++			 * Insert the segment into the descriptor segments
++			 * list.
++			 */
++			list_add_tail(&segment->node, &desc->segments);
++		}
++	}
++
++	head = list_first_entry(&desc->segments, struct xilinx_axidma_tx_segment, node);
++	desc->async_tx.phys = head->phys;
++
++	/* For the last DMA_MEM_TO_DEV transfer, set EOP */
++	if (chan->direction == DMA_MEM_TO_DEV) {
++		segment->hw.control |= XILINX_DMA_BD_SOP;
++		segment = list_last_entry(&desc->segments,
++					  struct xilinx_axidma_tx_segment,
++					  node);
++		segment->hw.control |= XILINX_DMA_BD_EOP;
++	}
++
++	if (chan->xdev->has_axistream_connected)
++		desc->async_tx.metadata_ops = &xilinx_dma_metadata_ops;
++
++	return &desc->async_tx;
++
++error:
++	xilinx_dma_free_tx_descriptor(chan, desc);
++	return NULL;
++}
++
+ /**
+  * xilinx_dma_prep_slave_sg - prepare descriptors for a DMA_SLAVE transaction
+  * @dchan: DMA channel
+@@ -3176,6 +3269,7 @@ static int xilinx_dma_probe(struct platform_device *pdev)
+ 	xdev->common.device_config = xilinx_dma_device_config;
+ 	if (xdev->dma_config->dmatype == XDMA_TYPE_AXIDMA) {
+ 		dma_cap_set(DMA_CYCLIC, xdev->common.cap_mask);
++		xdev->common.device_prep_peripheral_dma_vec = xilinx_dma_prep_peripheral_dma_vec;
+ 		xdev->common.device_prep_slave_sg = xilinx_dma_prep_slave_sg;
+ 		xdev->common.device_prep_dma_cyclic =
+ 					  xilinx_dma_prep_dma_cyclic;
+
+base-commit: 6565439894570a07b00dba0b739729fe6b56fba4
 -- 
-2.47.2
-
+2.49.0
 
