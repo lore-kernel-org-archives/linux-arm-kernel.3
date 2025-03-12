@@ -4,88 +4,102 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40C3BC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:34:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E62B0C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 15:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tG82S1dPB3gesttVeiU27NqmP0CvoM5o/lmxjPR26s4=; b=1cjDcwVC+rZhMnao4L3vIrs0Jx
-	EuqCfVtr8z6HPK51kQn8BctSR5nZmmoZCqDeES7OtzpYksMw/LC5IcW8iHv5fGdU0E7kM+OUdB8fZ
-	pA4OSOKh+kcyr1X3X3XxTiuRG9+kTzAZrmfHvpaR/GcX+Qnr6TilUodzBU5bPcBv3hkZzioL8DQZ/
-	giF0/PrOC6EyB2nEBJxhHj2PwoCZUgjZb63ePqtphA+yjHY6IEejflqSmqG1f4AQ6AFEXbGBLLWSF
-	aTs46AIUWdoHsC84Uv1wYTTSkt/Dnf1YAKzbpr/F8b+YufHtNGfDSJLINwiV43Ln5LnrOL8UJoUZA
-	VEcbpWEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=; b=31IexRSQ1HVZW3L2UMr7bgZ6ZQ
+	jIUv7SkZ83TOmvaJYdbepLik3HbUzxmG5cb54xE37ZyMy91rLSk+ADaLeU6JWTVLAqDaqYEL0H/RW
+	Yji/h7fgJR0RpnkRN92t6J65l7Ykt1zvHoVxaXUtyYCcuYD+IfqsKzFfhn8OiMdUmLN/Q2y5buY25
+	p5e4fx08ViZvMDCbv2bdNfm+2dpksgMEK/8Pgii2Z6HKAKcRJQYpcrLfRV9IrfahxOJlPrNDmRQ+z
+	EyHtip0V78y8qMXEYUD7h46aSw3V4BhlNOBVPE9omKI6rU+3/ZV9cxy0eiFJwgRRLYIfZMpOc5Egu
+	NlF1EUhA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsO5u-00000008skr-2Cny;
-	Wed, 12 Mar 2025 15:34:06 +0000
-Received: from mail-qt1-x82d.google.com ([2607:f8b0:4864:20::82d])
+	id 1tsO7X-00000008swk-0qpn;
+	Wed, 12 Mar 2025 15:35:47 +0000
+Received: from mail-ed1-x52b.google.com ([2a00:1450:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsO3o-00000008sNk-3Y7K
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 15:31:58 +0000
-Received: by mail-qt1-x82d.google.com with SMTP id d75a77b69052e-476693c2cc2so286491cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 08:31:55 -0700 (PDT)
+	id 1tsMza-00000008gQp-3FhJ;
+	Wed, 12 Mar 2025 14:23:31 +0000
+Received: by mail-ed1-x52b.google.com with SMTP id 4fb4d7f45d1cf-5e677f59438so6445600a12.2;
+        Wed, 12 Mar 2025 07:23:30 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741793515; x=1742398315; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=tG82S1dPB3gesttVeiU27NqmP0CvoM5o/lmxjPR26s4=;
-        b=n6U1Z3MGFVmzoXO/lTQUinutz9TTFhot/4hr3Su8ox/YGVV6nR67eub/jj++zqslVa
-         g8/riDsCHZWtw1l4Vs2ekGFWZ7+BaW+eUDS8raXywKdgEb+EIG5it/gOpsaVC70lHy7P
-         zIndnBcvbMm4/zoaYpwcGuDmchJ7b+JgRCH/7S/DKpGc7wQXdwdKT0Uvgdf5OMztHaAS
-         XDQWTFQHqIxcnpQtrQZrnGgVJ3p3oDyAZn6zGhSt3p6V/h+jswYjN8Y2bxfnwMATiQbn
-         h/8yNDpFIJASVNP12zevp6V9ImPFNx7A0iulrJeuFNtTa5kPorhyvTLf2n2LeKzt5B3K
-         iXig==
+        d=gmail.com; s=20230601; t=1741789409; x=1742394209; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=;
+        b=FUdHO/gARKtrSSJCWFIn5RH8B//Gvkmme6NxRnQmTglEwtIB4FUFGbEyPYS9FA3wrD
+         aZLDheJRSwOt/uBWOEMG+VLSeC0quXd2375hNvUJsfmGAYXUATJdytQClSwEnVRHGRRf
+         Aox4sS5BESm52rCgR3soqQ5xp+WAdSB3i5GblqklGhfmrXb8ElrgUm3Mdz3TjsSbrX16
+         DYhwt7Z+IREyc9WtQNozeP1XL1DbrbcLyJeK/HrOTubsBhEq6OWD6I6N80QK/maCSeCo
+         UOsPz2x1fEcfpAnSCwMn8RqwITD7NPwCrOBqD5lk5w+Hhdx6LxqPFn1hLAQJFujvQNV3
+         aLgA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741793515; x=1742398315;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=tG82S1dPB3gesttVeiU27NqmP0CvoM5o/lmxjPR26s4=;
-        b=brrL+eGchaLrutj5XcTY9xwW893IfgPoESrslrwlVmLrsCJ4deuGG4yfl7q8qAAZHb
-         vlmlzwn3Ry3sWG7wM/7BZvm/7BM8ueAk8UF+4oD/2FoeEVNOz+fLgZTI8N/LMxXP8cGS
-         PVxYR0+8YAnJlYqNQJZy00Uo9L3sN56Iz+jmvchKUdlvXAOaomyOk64ouJoncAtq9lXO
-         Sz0mXYbq3GrtMm3z++gb9VYNiKkTXlsbIaYTJZZoFzhnC21kxMmu5g5vMFRU5qq0xQQ7
-         gE/4qsvM//hQQ16Q94FgwfJoTPoxjdRNs1tFvyy7VMxQcG76GfmFX4wneQNKxdz4254d
-         6Lqg==
-X-Forwarded-Encrypted: i=1; AJvYcCUPltsBetFDW3EC0NJgUKvuFadKKpPTpZSYj0D3/RJFydCR6c5I0Y8mc/n02TJQmYmc8tMjmp0ZLUZ7ce2xKaW8@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw2UmfOh20BofWtyTF1BfldOX4mrkxo6oZ2kWb7DVMLYIO+w88f
-	ZvVXok1HZdKjENeFCfDGvKcxqimaTNJtQQ2h1T5J4rAigzopoJ0gt2wXzZUJ+6uHo/BVV6QO5aC
-	qUlQrbAJNyVwLqQ+9OY+F8Vvy2OslrptZqy6f
-X-Gm-Gg: ASbGncug2paKojRXYy1H/TGuXJNYuYPJDhi0bWPtbnGTCcb8yg9JinwGQxhLeMCTHx2
-	p/MawPyAFX3NYNaiKZlcttbu8S2HlarBlwXA1XP1GArc4iYU5NR99LlSg57qjNyggjjqy35OmKr
-	hP89RJzWRk1OaJbEPRCAV1wefyb3dj/yjX+YHXlCVhikglo1j1Mj1eJA==
-X-Google-Smtp-Source: AGHT+IEHK6oT5TlE+REnvTokAeXQuuw9qmZ5nHudPNlpFHJvl0FT9GKH5ET9eQ9MIP2gY64AZ1oLmbLYWRl16Veuld0=
-X-Received: by 2002:a05:622a:607:b0:474:fa94:8d20 with SMTP id
- d75a77b69052e-476b78bf69bmr323061cf.2.1741793514642; Wed, 12 Mar 2025
- 08:31:54 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250226215520.1759218-1-tabba@google.com> <20250226215520.1759218-4-tabba@google.com>
- <Z8ISLxQRcsx2uuHw@google.com> <CA+EHjTympdi0wei2Qx=hF2cYvHpzE0sWto2ypcJB3ddmonTROg@mail.gmail.com>
- <20250303191811.GA30361@willie-the-truck> <CA+EHjTySqDHDpOy=Vix5ZaNKWg61coySvV3Yk=+i0p8vg3mXTQ@mail.gmail.com>
- <20250303214947.GA30619@willie-the-truck> <CA+EHjTzZQ6UnOdaqpZ86JNiY=Gr_UoBAjZxk4CS3Q6nMJYdV2w@mail.gmail.com>
- <20250312152903.GA6488@willie-the-truck>
-In-Reply-To: <20250312152903.GA6488@willie-the-truck>
-From: Fuad Tabba <tabba@google.com>
-Date: Wed, 12 Mar 2025 15:31:17 +0000
-X-Gm-Features: AQ5f1JocXlbciVxJNch5-JMEVaLmoWVDEmiXQ76WjlCy0ZdcQpp4l1-Jr17BKJU
-Message-ID: <CA+EHjTwHb9mDj20WxeqKky6oAfRDV2R7iiQpwmuBmdZ4aWuS4A@mail.gmail.com>
-Subject: Re: [PATCH v2 3/4] KVM: arm64: Factor out pKVM hyp vcpu creation to
- separate function
-To: Will Deacon <will@kernel.org>
-Cc: Quentin Perret <qperret@google.com>, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, maz@kernel.org, oliver.upton@linux.dev, 
-	mark.rutland@arm.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
-	yuzenghui@huawei.com, catalin.marinas@arm.com, broonie@kernel.org, 
-	vdonnefort@google.com
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1741789409; x=1742394209;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=mEek4i2ZCkx6tmbDOfSqfNqakadAzuvY5GsHOU0PtgM=;
+        b=hvcyqLBATH3kTS+Jf9pzb5r3JlCxAfAymjUaw9WlX06XWmIJxe3ShiWHpWNPtWBbnR
+         qWx0SHaIjzjnJXrB6WFHutOB7VImouahTGIp94EsDy927lPuEETbn55Gfu6WDeurNerT
+         XiDLtBjuARBdcvG46SgfqoUQVc4LfmQyBpGR1NJGUM4X6V5gtneIU2WCVr+y0c0aNIQO
+         6d1VysdCnY/0+2VM1R2ZddwwHjU/BWyjj5gf5G9uiCT5FSc3kRkoTxK39HYWieV0Aca9
+         b1YAhdFveJrgvVOg2e5nIEraqVs3hVSr+sydsPes7s6JQbbwWYFxhE0hd+PkWd6v20N6
+         mNjA==
+X-Forwarded-Encrypted: i=1; AJvYcCWPFmM+yBKmoIrRzBvaxNqLkW81omwqiLqN67fcwObibSRbTPdDel5UwZ6ryDkV7mYZ+gZKejzZeo5uEyD0bxPr@lists.infradead.org, AJvYcCXgBmp/24K5JKFj8RsNn8/vL1Mb9IZLYqpsKHbnGVuECbnNe0MnhZd/onX+0YI3vGBMz3jhtwpC23KmoHkkZQQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAzDMjTzR+PIjGJpjp2ww6Xh6ruduTfJV1AreX1mRvPVL8TUne
+	WCORZ67W54wswKqZMxtvzZE1CmgMro3vXjwa6/+ctcD6cXnTzDS/
+X-Gm-Gg: ASbGncvx80ngUlMHAnMInD+HqMX5USevNoMAmx4ei1BkQVi71xnH1vSyz7m5GUfW3YS
+	N/cYJQJzwWdw23b3CL4cwMJ7ddjH0R+lLScJKLBP0rA808XNopfcmie8BbO0RnGUavJEP0WtsKg
+	EckgMoAZctWJUqzruOLbb0OQqAW//u7wjXe+DBWI9N/kcttbWLUK9QNr0tX8H+Sxu0mCu3jHFdC
+	N9hG0jWxXUMHD3YOtiSqfK4chUfguvf9FMM3NOqHIvBFFQ50nr+2NEC6CA+eojGwSXZVAu9BSnx
+	70I57Xa2OfDDLpN62fTQ06l9Uvl/bY3+vWm5RQmsF1ZRMPgsi7lKXqRhhNvJWRc/bC9IPrzYzba
+	9XmWmrNNmoYQZy81meGyEj9BJHA==
+X-Google-Smtp-Source: AGHT+IFdFvbIc6D4mXkiIL9CFWFvWjoXqM1m/Hjn3uEOvZC5n66LBMKABPlNlB63rI+HegTYSS5ruQ==
+X-Received: by 2002:a17:907:d9e:b0:abf:6cc9:7ef5 with SMTP id a640c23a62f3a-ac25300a440mr2449963266b.47.1741789408746;
+        Wed, 12 Mar 2025 07:23:28 -0700 (PDT)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac2394825efsm1073903966b.45.2025.03.12.07.23.26
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Wed, 12 Mar 2025 07:23:28 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Subject: Re: [PATCH v2 2/7] drm/bridge: synopsys: Add DW DPTX Controller
+ support library
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+In-Reply-To: <20250312104214.525242-3-andyshrk@163.com>
+Date: Wed, 12 Mar 2025 15:23:15 +0100
+Cc: heiko@sntech.de,
+ neil.armstrong@linaro.org,
+ sebastian.reichel@collabora.com,
+ lumag@kernel.org,
+ devicetree@vger.kernel.org,
+ hjc@rock-chips.com,
+ mripard@kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org,
+ yubing.zhang@rock-chips.com,
+ dri-devel@lists.freedesktop.org,
+ Andy Yan <andy.yan@rock-chips.com>,
+ krzk+dt@kernel.org,
+ robh@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <61E9B36C-8568-4C0E-A9A7-07FF612912AA@gmail.com>
+References: <20250312104214.525242-1-andyshrk@163.com>
+ <20250312104214.525242-3-andyshrk@163.com>
+To: Andy Yan <andyshrk@163.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_083156_892617_72F72B9C 
-X-CRM114-Status: GOOD (  46.66  )
+X-CRM114-CacheID: sfid-20250312_072330_818128_EE162812 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,97 +114,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Will,
 
-On Wed, 12 Mar 2025 at 15:29, Will Deacon <will@kernel.org> wrote:
->
-> On Tue, Mar 04, 2025 at 12:33:27PM +0000, Fuad Tabba wrote:
-> > On Mon, 3 Mar 2025 at 21:49, Will Deacon <will@kernel.org> wrote:
-> > >
-> > > On Mon, Mar 03, 2025 at 07:21:33PM +0000, Fuad Tabba wrote:
-> > > > On Mon, 3 Mar 2025 at 19:18, Will Deacon <will@kernel.org> wrote:
-> > > > > On Mon, Mar 03, 2025 at 07:57:00AM +0000, Fuad Tabba wrote:
-> > > > > > On Fri, 28 Feb 2025 at 19:44, Quentin Perret <qperret@google.com> wrote:
-> > > > > > > On Wednesday 26 Feb 2025 at 21:55:19 (+0000), Fuad Tabba wrote:
-> > > > > > > >  static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > > > > > >  {
-> > > > > > > > -     size_t pgd_sz, hyp_vm_sz, hyp_vcpu_sz;
-> > > > > > > > +     size_t pgd_sz, hyp_vm_sz;
-> > > > > > > >       struct kvm_vcpu *host_vcpu;
-> > > > > > > > -     pkvm_handle_t handle;
-> > > > > > > >       void *pgd, *hyp_vm;
-> > > > > > > >       unsigned long idx;
-> > > > > > > >       int ret;
-> > > > > > > > @@ -161,33 +178,12 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
-> > > > > > > >       if (ret < 0)
-> > > > > > > >               goto free_vm;
-> > > > > > > >
-> > > > > > > > -     handle = ret;
-> > > > > > > > +     WRITE_ONCE(host_kvm->arch.pkvm.handle, ret);
-> > > > > > >
-> > > > > > > What's the reason to make this a WRITE_ONCE? Does it mean we should
-> > > > > > > update the readers to be READ_ONCE()?
-> > > > > >
-> > > > > > I don't remember the original reason, to be honest. In this case, it
-> > > > > > was to make it consistent with downstream code in Android. That said,
-> > > > > > I plan on revising all of these soon and fixing this (and related
-> > > > > > code) in light of Will's comment regarding potential specter gadgets:
-> > > > > >
-> > > > > > https://lore.kernel.org/all/20250218092705.GA17030@willie-the-truck/
-> > > > >
-> > > > > I'm not sure the spectre stuff changes the concurrency aspects here, so
-> > > > > Quentin's question presumably still stands even after that.
-> > > > >
-> > > > > Looking at the Android code, this WRITE_ONCE() pairs with a READ_ONCE()
-> > > > > in pkvm_is_hyp_created() which is called without the config_lock held
-> > > > > by kvm_arch_prepare_memory_region(). However, given that
-> > > > > pkvm_is_hyp_created() is only testing against 0, I don't think the
-> > > > > _ONCE() accessors are doing anything useful in that case.
-> > > > >
-> > > > > The more confusing stuff is where 'kvm->arch.pkvm.handle' is read
-> > > > > directly without the 'config_lock' held. The MMU notifiers look like
-> > > > > they can do that, so I wonder if there's a theoretical race where they
-> > > > > can race with first run and issue TLB invalidation with the wrong handle?
-> > > > > That would apply equally to the upstream code, I think.
-> > > >
-> > > > Would using _ONCE accessors with the MMU notifiers be enough to avoid
-> > > > the race, or do we need to reconsider the lock protecting the handle
-> > > > and apply it to the notifiers?
-> > >
-> > > I'm not entirely sure... if we used _ONCE() then we'd get either the
-> > > correct handle or zero, but we presumably need to order that against the
-> > > page-table somehow. The 'mmu_lock' looks like it gives us that, but I
-> > > don't think the notifiers are expecting an uninitialised handle in the
-> > > case where the page-table is empty (i.e. if they fire before first run).
-> > >
-> > > Given that the handle is necessary for TLB invalidation, I'd be inclined
-> > > to make sure that the handle is allocated and published _before_ the
-> > > kvm_pgtable pointer checked by the notifiers is set, but that means
-> > > moving the handle allocation into kvm_arch_init_vm(). Is that do-able?
-> >
-> > It is doable, but it won't be a simple patch. Up until now, the
-> > creation of the hyp view of a vm is associated with the first run of
-> > the vm, rather than its allocation at the host. Part of the reason for
-> > that is that much of the vm state (mainly the vcpu state) isn't
-> > finalized until then.
-> >
-> > This patch series fixes this in part, by decoupling the initialization
-> > of the individual vcpus from the vm. Because of that, it would be
-> > doable, but it might be better as another patch series that we could
-> > test and analyze separately.
-> >
-> > If you agree, I could whip up something and send it soon.
->
-> Yeah, I think we should fix this as a separate series and drop the
-> WRITE_ONCE() from this patch.
 
-I'll send a fix soon.
+> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
+12 mar 2025, o godz. 11:42:
+>=20
+> From: Andy Yan <andy.yan@rock-chips.com>
+>=20
+> The DW DP TX Controller is compliant with the DisplayPort =
+Specification
+> Version 1.4 with the following features:
+>=20
+> * DisplayPort 1.4a
+> * Main Link: 1/2/4 lanes
+> * Main Link Support 1.62Gbps, 2.7Gbps, 5.4Gbps and 8.1Gbps
+> * AUX channel 1Mbps
+> * Single Stream Transport(SST)
+> * Multistream Transport (MST)
+> * Type-C support (alternate mode)
+> * HDCP 2.2, HDCP 1.3
+> * Supports up to 8/10 bits per color component
+> * Supports RBG, YCbCr4:4:4, YCbCr4:2:2, YCbCr4:2:0
+> * Pixel clock up to 594MHz
+> * I2S, SPDIF audio interface
+>=20
+> Add library with common helpers to make it can be shared with
+> other SoC.
+>=20
+> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
+>=20
+> ---
+>=20
+> Changes in v2:
+> - Fix compile error when build as module
+> - Add phy init
+> - Only use one dw_dp_link_train_set
+> - inline dw_dp_phy_update_vs_emph
+> - Use dp_sdp
+> - Check return value of drm_modeset_lock
+> - Merge code in atomic_pre_enable/mode_fixup to atomic_check
+> - Return NULL if can't find a supported output format
+> - Fix max_link_rate from plat_data
+>=20
 
-Oliver, would you like me to respin this series, or can you drop the
-WRITE_ONCE()?
+Andy,
 
-Thanks,
-/fuad
+Just small Q: do v2 needs something extra to get it working (particular =
+kernel ver or extra dependency patches)?
+I just replaced v1 to v2 and dp stopped to work for me.
 
-> Will
+e.g. on rock5a i=E2=80=99m getting:
+
+root@myth-frontend-fafc53b591a6:~ # dmesg | grep drm
+[    9.245284] panthor fb000000.gpu: [drm] clock rate =3D 198000000
+[    9.249464] panthor fb000000.gpu: [drm] mali-g610 id 0xa867 major 0x0 =
+minor 0x0 status 0x5
+[    9.249472] panthor fb000000.gpu: [drm] Features: L2:0x7120306 =
+Tiler:0x809 Mem:0x301 MMU:0x2830 AS:0xff
+[    9.249474] panthor fb000000.gpu: [drm] shader_present=3D0x50005 =
+l2_present=3D0x1 tiler_present=3D0x1
+[    9.257979] panthor fb000000.gpu: [drm] Firmware protected mode entry =
+not be supported, ignoring
+[    9.258030] panthor fb000000.gpu: [drm] Firmware git sha: =
+814b47b551159067b67a37c4e9adda458ad9d852
+[    9.258604] panthor fb000000.gpu: [drm] CSF FW using interface =
+v1.1.0, Features 0x0 Instrumentation features 0x71
+[    9.259671] [drm] Initialized panthor 1.3.0 for fb000000.gpu on minor =
+0
+[    9.324353] rockchip-drm display-subsystem: bound fdd90000.vop (ops =
+vop2_component_ops)
+[    9.324617] rockchip-drm display-subsystem: bound fde50000.dp (ops =
+dw_dp_rockchip_component_ops)
+[    9.325202] rockchip-drm display-subsystem: bound fde80000.hdmi (ops =
+dw_hdmi_qp_rockchip_ops)
+[    9.325506] [drm] Initialized rockchip 1.0.0 for display-subsystem on =
+minor 1
+[    9.325531] rockchip-drm display-subsystem: [drm] Cannot find any =
+crtc or sizes
+[    9.325594] rockchip-drm display-subsystem: [drm] Cannot find any =
+crtc or sizes =20
+
+dp status is "not connected"
+
+replacing only this patch back to v1 brings dp back to work.
+
+
 
