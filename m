@@ -4,67 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0B53C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:54:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8337EC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bljeXvrNQc2TRnLRKT9Va9qS0HBdN81jZjWPswVutDw=; b=NwQwY7Oul642CKpaKKcKx2RLyt
-	5Vzk2rFvOjZJKo9sIGXpWOkHvBNEqAJm0RuKE/DLOWhKNFVOCb3xAb1RCrl5BBMd7P8I2X5UG6+I4
-	PlwI+HqRh68gTmL1VmguF/AzSQVs/BQNK1z9m1B47iz8NJN1qWpBMj/vKBLIJfyx7Vk5ElZXPq+3x
-	jiVnXliSBO++9+PlLXaGHGupcSct3Otl1Nh2jaZ2g8h9C1GW3ppz8hLZEqrBXKFyYHNlhle+47MVF
-	WfMwGs5ToDL/0/JGWMQPCodKC5flYLpmQv46HgLaaGosujMRvMZrS8B7mUdApvdtl5gqAVyYqCHE6
-	EDUMYslA==;
+	Content-Type:Subject:CC:To:From:MIME-Version:Date:Message-ID:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2jVIV9DnO8Fj9z+Rk95dAiuUSZ3yPdEOI3Ck8BUljhc=; b=QPC0c4dk5Qzy0/ZQdZZ3/2o2rf
+	S354U9cqhI/Ed4uujHtBG9UrLp37KzylTrWZQu/qwxcwwgSsVsLTfhjVoxl4CC6yFduRa5Sfincup
+	Iq/+CGqdKAIR5dfgO8KUu2RFf9cJPsx4fBksAK3wbkL04q8ii7C2swGD1A86sGqkBrT46VxiGJpjK
+	OSyLjrvBkh/TNqVymKjObsbqs1lz/WNBh6ob6TGoijfN2q5KLnovMeJbmTmcfVgSrGgt93mvHBWsL
+	cmysjJiKKFsbT07A/l4bgdhqVQIcHa2YO770NCPi9BTj1g4TfDS+6GHHrtSpMCy1p65xRCq4XgrrV
+	njPjRV4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMXX-00000008cvA-3H2Z;
-	Wed, 12 Mar 2025 13:54:31 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsMZA-00000008dHB-4Byf;
+	Wed, 12 Mar 2025 13:56:13 +0000
+Received: from [198.47.19.245] (helo=fllvem-ot03.ext.ti.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMJ3-00000008aq1-2goB
+	id 1tsMNa-00000008bpa-13Nm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 13:39:35 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id BFEAE5C5B9D;
-	Wed, 12 Mar 2025 13:37:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 961E7C4CEEC;
-	Wed, 12 Mar 2025 13:39:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741786772;
-	bh=blSMd+ip1wX3c56Bl/lVcDQMN77dkbGIeDaWs3/81Is=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=UYDXXwUaqosXaV3w71qysm01C6xWaetISPv62DTByD3/fU58nUD6BFjottqgr8mA4
-	 vnMlpO6D9EU7mvJgtpswUt0ub/3QFRvahfKqPbToTDMliU3cdegUGD2KXuylJUalhS
-	 EzzOkrs617JKCRaw51WfOQT3UF2mdJIRCyAQq4plh12xNd6sW/9NSyZHrtAy8etvux
-	 eRUuaI8m3G3kMBoLLpdbN/xW/8WXbW1LBaZOpE2G6aRut2I1VeCbm+wXQxFyIFoz1B
-	 z72L7s7d3rpYZqaAmkId9xIr9UTq1AmpsPFxjesYyXMkXByxECEiLLAebNsf6VeZyz
-	 PPTlDZMwVerkg==
-Message-ID: <80a1f61a-b2aa-414f-b446-087db7fc54a5@kernel.org>
-Date: Wed, 12 Mar 2025 15:39:25 +0200
+	Wed, 12 Mar 2025 13:44:15 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52CDi1fd1043814
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Wed, 12 Mar 2025 08:44:01 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741787041;
+	bh=2jVIV9DnO8Fj9z+Rk95dAiuUSZ3yPdEOI3Ck8BUljhc=;
+	h=Date:From:To:CC:Subject;
+	b=D9ogUIlDfQdlamfPolhwo+7G5hsowQGDbE3nVWbU/np0DpoQ5ynpV2GEmVz4CMiIz
+	 brMrHGxM32VEr8YYxpxBTI32Yjh8DmB8OwR9u3CkVj8nDk5GeiOm2YoT0Ps3oKioso
+	 Cd3bemEh3wzB3nUboWgEDFplrg9Ulc/rCm/R05Ng=
+Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52CDi1Mw107874
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Wed, 12 Mar 2025 08:44:01 -0500
+Received: from DFLE113.ent.ti.com (10.64.6.34) by DFLE105.ent.ti.com
+ (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 12
+ Mar 2025 08:44:01 -0500
+Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE113.ent.ti.com
+ (10.64.6.34) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Wed, 12 Mar 2025 08:44:00 -0500
+Received: from [10.24.68.192] (dhcp-10-24-68-192.dhcp.ti.com [10.24.68.192])
+	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52CDhwc0054596;
+	Wed, 12 Mar 2025 08:43:59 -0500
+Message-ID: <5d612c0e-4cd4-469a-9856-dd4552d74412@ti.com>
+Date: Wed, 12 Mar 2025 19:13:57 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net v3] net: ethernet: ti: am65-cpsw: Fix NAPI
- registration sequence
-To: Siddharth Vadapalli <s-vadapalli@ti.com>, andrew+netdev@lunn.ch,
- davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
- pabeni@redhat.com, horms@kernel.org, alexander.sverdlin@siemens.com,
- dan.carpenter@linaro.org, c-vankar@ti.com, jpanis@baylibre.com,
- npitre@baylibre.com
-Cc: vigneshr@ti.com, netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, srk@ti.com
-References: <20250311154259.102865-1-s-vadapalli@ti.com>
+From: Vignesh Raghavendra <vigneshr@ti.com>
 Content-Language: en-US
-From: Roger Quadros <rogerq@kernel.org>
-In-Reply-To: <20250311154259.102865-1-s-vadapalli@ti.com>
-Content-Type: text/plain; charset=UTF-8
+To: Olof Johansson <olof@lixom.net>, Arnd Bergmann <arnd@arndb.de>,
+        arm-soc
+	<arm@kernel.org>, SoC <soc@kernel.org>
+CC: Tero Kristo <kristo@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, Nishanth Menon <nm@ti.com>
+Subject: [GIT PULL 1/2] arm64: dts: ti: K3 devicetree updates for v6.15
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_063933_729135_2E842343 
-X-CRM114-Status: UNSURE (   8.15  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_064414_387836_FF80C7A6 
+X-CRM114-Status: GOOD (  11.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,22 +85,165 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi ARM SoC Maintainers,
 
 
-On 11/03/2025 17:42, Siddharth Vadapalli wrote:
-> From: Vignesh Raghavendra <vigneshr@ti.com>
-> 
-> Registering the interrupts for TX or RX DMA Channels prior to registering
-> their respective NAPI callbacks can result in a NULL pointer dereference.
-> This is seen in practice as a random occurrence since it depends on the
-> randomness associated with the generation of traffic by Linux and the
-> reception of traffic from the wire.
-> 
-> Fixes: 681eb2beb3ef ("net: ethernet: ti: am65-cpsw: ensure proper channel cleanup in error path")
-> Signed-off-by: Vignesh Raghavendra <vigneshr@ti.com>
-> Co-developed-by: Siddharth Vadapalli <s-vadapalli@ti.com>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
 
-Reviewed-by: Roger Quadros <rogerq@kernel.org>
+  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
+
+are available in the Git repository at:
+
+  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-k3-dt-for-v6.15
+
+for you to fetch changes up to 377fde74eae4abcbcd5475676d58fb595a07ff85:
+
+  arm64: dts: ti: k3-am62a-phycore-som: Reorder properties per DTS coding style (2025-03-07 18:48:05 +0530)
+
+----------------------------------------------------------------
+TI K3 device tree updates for v6.15
+
+Generic Fixups/Cleanups:
+
+SoC Specific features and Fixes:
+AM62Ax:
+Enable MCU domain pinctrl node
+
+J784S4/J742S4:
+GICD reg size fixes
+Serdes lane ctrl reg mux mask fix
+
+AM62P/J722s:
+Wakeup UART0 sysc updates for system wakeup
+pinctrl node fixes drop pinctrl-single,gpio-ranges
+BCDMA CSI-RX support
+Audio REFCLKx output support
+
+Board Specific:
+J784S4:
+EVM: Cleanup duplicate gpio-hogs
+
+J722S:
+TypeC port mux selection fix
+
+AM62Ax
+SK: boot-phase tag to support USB bootmode
+RTC support
+Aliases for wakeup and MCU serial UARTs
+
+AM62P
+SK: boot-phase tag to support USB bootmode
+USB wakeup support
+Aliases for wakeup and MCU serial UARTs
+
+AM62:
+verdin-dahila: microphone support
+SK: Aliases for wakeup and MCU serial UARTs
+BeaglePlay: reserved CMA region for Multimedia applications
+
+J721e:
+SK/EVM: boot-phase tags for Serdes for DFU boot
+
+Phytech board updates:
+Boot-phase tag updates for AM64/AM62/AM62A boards
+DTS coding style cleanups
+RTOS IPC reserved-memory additions
+DT overlay for X27 Connectors on AM64 SOMs
+
+J721S2 SOM:
+Add flash partitions
+
+----------------------------------------------------------------
+Daniel Schultz (1):
+      arm64: dts: ti: am64-phyboard-electra: Add DT overlay for X27 connector
+
+Francesco Dolcini (1):
+      arm64: dts: ti: k3-am62p: Enable AUDIO_REFCLKx
+
+Hrushikesh Salunke (1):
+      arm64: dts: ti: k3-j722s-evm: Fix USB2.0_MUX_SEL to select Type-C
+
+Jayesh Choudhary (1):
+      arm64: dts: ti: k3-j784s4-evm-quad-port-eth-exp1: Remove duplicate hogs
+
+Keerthy (1):
+      arm64: dts: ti: k3-j784s4-j742s2-main-common: Correct the GICD size
+
+Markus Schneider-Pargmann (2):
+      arm64: dts: ti: k3-am62x-sk-common: Add serial aliases
+      arm64: dts: ti: k3-am62a7-sk: Add serial alias
+
+Michael Walle (2):
+      arm64: dts: ti: k3-am62p: fix pinctrl settings
+      arm64: dts: ti: k3-j722s: fix pinctrl settings
+
+Nishanth Menon (1):
+      arm64: dts: ti: k3-am625-beagleplay: Reserve 128MiB of global CMA
+
+Sai Sree Kartheek Adivi (1):
+      arm64: dts: ti: k3-am62a-mcu: enable mcu domain pinmux
+
+Siddharth Vadapalli (6):
+      arm64: dts: ti: k3-am62a7-sk: Add boot phase tag for USB0
+      arm64: dts: ti: k3-am62p5-sk: Add boot phase tag for USB0
+      arm64: dts: ti: k3-j721e-common-proc-board: Add boot phase tag to SERDES3
+      arm64: dts: ti: k3-j721e-sk: Add boot phase tag to SERDES3
+      arm64: dts: ti: k3-am62p5-sk: Support SoC wakeup using USB1 wakeup
+      arm64: dts: ti: k3-j784s4-j742s2-main-common: Fix serdes_ln_ctrl reg-masks
+
+Stefan Eichenberger (1):
+      arm64: dts: ti: k3-am62-verdin-dahlia: add Microphone Jack to sound card
+
+Udit Kumar (1):
+      arm64: dts: ti: k3-j721s2-som-p0: Add flash partition details
+
+Vaishnav Achath (3):
+      arm64: dts: ti: k3-j722s-main: Add BCDMA CSI overrides
+      arm64: dts: ti: k3-j722s-main: Add CSI2RX nodes
+      arm64: dts: ti: k3-j722s-evm: Add camera peripherals
+
+Vibhore Vardhan (3):
+      arm64: dts: ti: k3-am62a7-sk: Add alias for RTC
+      arm64: dts: ti: k3-am62p-j722s-common-wakeup: Configure ti-sysc for wkup_uart0
+      arm64: dts: ti: k3-am62p5-sk: Add serial alias
+
+Wadim Egorov (7):
+      arm64: dts: ti: k3-am64-phycore-som: Reserve RTOS IPC memory
+      arm64: dts: ti: k3-am62-phycore-som: Reserve RTOS IPC memory
+      arm64: dts: ti: k3-am62x-phyboard-lyra: Add boot phase tags
+      arm64: dts: ti: k3-am62a-phycore-som: Add boot phase tags
+      arm64: dts: ti: k3-am642-phyboard-electra: Add boot phase tags
+      arm64: dts: ti: k3-am642-phyboard-electra: Reorder properties per DTS coding style
+      arm64: dts: ti: k3-am62a-phycore-som: Reorder properties per DTS coding style
+
+ arch/arm64/boot/dts/ti/Makefile                               |   3 +
+ arch/arm64/boot/dts/ti/k3-am62-phycore-som.dtsi               |  25 +-
+ arch/arm64/boot/dts/ti/k3-am62-verdin-dahlia.dtsi             |   6 +-
+ arch/arm64/boot/dts/ti/k3-am625-beagleplay.dts                |   8 +
+ arch/arm64/boot/dts/ti/k3-am62a-mcu.dtsi                      |   1 -
+ arch/arm64/boot/dts/ti/k3-am62a-phycore-som.dtsi              |  19 +-
+ arch/arm64/boot/dts/ti/k3-am62a7-sk.dts                       |   4 +
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-mcu.dtsi         |   8 -
+ arch/arm64/boot/dts/ti/k3-am62p-j722s-common-wakeup.dtsi      |  36 +-
+ arch/arm64/boot/dts/ti/k3-am62p-main.dtsi                     |  26 +-
+ arch/arm64/boot/dts/ti/k3-am62p5-sk.dts                       |   4 +-
+ arch/arm64/boot/dts/ti/k3-am62x-phyboard-lyra.dtsi            |   9 +
+ arch/arm64/boot/dts/ti/k3-am62x-sk-common.dtsi                |   2 +
+ arch/arm64/boot/dts/ti/k3-am64-phycore-som.dtsi               |  33 +-
+ arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-rdk.dts      |  19 +-
+ .../ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso    |  63 +++
+ arch/arm64/boot/dts/ti/k3-j721e-common-proc-board.dts         |   1 +
+ arch/arm64/boot/dts/ti/k3-j721e-sk.dts                        |   1 +
+ arch/arm64/boot/dts/ti/k3-j721s2-som-p0.dtsi                  |  41 ++
+ arch/arm64/boot/dts/ti/k3-j722s-evm.dts                       |  30 +-
+ arch/arm64/boot/dts/ti/k3-j722s-main.dtsi                     | 208 +++++++++-
+ arch/arm64/boot/dts/ti/k3-j784s4-evm-quad-port-eth-exp1.dtso  |   7 -
+ arch/arm64/boot/dts/ti/k3-j784s4-j742s2-main-common.dtsi      |   6 +-
+ 23 files changed, 488 insertions(+), 72 deletions(-)
+ create mode 100644 arch/arm64/boot/dts/ti/k3-am642-phyboard-electra-x27-gpio1-spi1-uart3.dtso
+-- 
+Regards
+Vignesh
+https://ti.com/opensource
 
 
