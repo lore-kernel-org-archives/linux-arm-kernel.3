@@ -4,86 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99A63C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:43:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98069C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:45:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BoyRVgku7EChH42bDwzZAFPngPMwwosKhAXjk4aoYAY=; b=RakFlky/uS67rdUk5KWl1g9k1m
-	0yWABHHcLmOtdMeqypxCpFoAqfjg9Ues/f0BjK31SB5I61I55vXmXBqwSPh3BGL2dxSNuZRhP6Lh1
-	5hnWxJVeONkTt6k5y431/Mb+7DpxURUwL/fqFj1pSrURE10PpzL27w8prcVLjY/sj51d/z7pN+4IH
-	tSvbNbbloGHn71ewIFM6pCKZGQSEwoJHiyyz+7ONTZgzbFLQeN3MC3UKEGZlyjZUfF1nybXL6mQnh
-	k1DM/a9R2xwEBkU+BxJECbfH9xhAWEdzi+W+zfIHkVOv2yFM5PeYvb5WciZmqZLtBJq9Uwup+JM77
-	RNb+MGfA==;
+	bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=; b=J2twda94h05UTcQQYAyIXRWmd7
+	W3lZtlHB6ZUwL/+7NY/FYbo0gS2FOor/Z0uZWUJ20HVbgKb1Y1GntULdKlmqm75XzX1jy7tTXbBp9
+	Ntj1sW6AJR7QFnjfK14XfgK03xFnfPV0UgwXfbTftSvD/n/mlVSHyykDAbBOCFT/eRr4bzuxiG0/y
+	uphSsPYrNNX9cUSotmpeyh4FuSoG6E0j4Qhxx36AMMS5oy1KFbnlB7F+QmreXQotbUoO2h4sXCDip
+	CoVDJaYizpTc3TghkSu2ujb8C+LRXhfsyxI2Lw9m5joV2wPDV9JTYtqf+bJHXi+Lm7wBgemu60q07
+	7+BMCaqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLQm-00000008RJP-1AOu;
-	Wed, 12 Mar 2025 12:43:28 +0000
-Received: from mail-oi1-x234.google.com ([2607:f8b0:4864:20::234])
+	id 1tsLSP-00000008RYv-08Wi;
+	Wed, 12 Mar 2025 12:45:09 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKSS-00000008IOC-229p
+	id 1tsKUY-00000008Ijf-2UMC
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 12 Mar 2025 11:43:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=; b=oGhoweT0F60ChhiXzCE2sHn237
+	ISmbDJLimVlBjbU0bMitIIlteEA4YBR3nwsok5ENAY00zuKB3mH5SmWSC2s3d8n+QWSljONXu7cOm
+	wakBxInxQuactUvAv8p8i60w1/mtejS+MtmtSL9oBJ9k/KuOfWb+DzJGG65JHvHY8ACBY7BRVJU6Z
+	RSqgQd5fs8NXglLL4eWwKRVYH2ggOqLWRGfqItCbath+y9vzWCo76RIzs7wwJF6sRAtlhiSYstSxO
+	lJL7LSZjmH6PB+kANWMA3TZDB79Dly/rXJpNaeAQEojUx0m80ebblzZW1+Su8jfrCN+kY3l+xBD10
+	henJz9wA==;
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsKUV-00000002Max-1aOj
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:41:09 +0000
-Received: by mail-oi1-x234.google.com with SMTP id 5614622812f47-3fa1e694706so1408083b6e.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:41:08 -0700 (PDT)
+	Wed, 12 Mar 2025 11:43:17 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-43cf3192d8bso39075e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:43:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741779667; x=1742384467; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BoyRVgku7EChH42bDwzZAFPngPMwwosKhAXjk4aoYAY=;
-        b=DC5qGpKhP1N35rbehWVQdZykv0z1reKT6pD9VrNa9HHdP0jo5KdKdecN1OSX9KLfUT
-         xqWbNRwmEdMU7NeB3QPQzuj/4xuIbgppOTV+WyBWxPjh6IRJYEH/wRd0lcxuMHf2sXaG
-         IcBqdq3c8LGxRhRLnuxTnl7gfTRQwHCuLgEGBTRHdZiWqdxCSVI51rmbNX32rrn2zJLN
-         GyPNyCMzgJCpF3Dxppt/0m3Ez+I/qrucmBd7/XA6ociEW8uZwNjrnh374ZpYN9ICMCpq
-         /oGkRRi9PmqEbxvAax6pIetfTJwnf+mfVPGyCD32DdOsVU0Y6Ilq2LC7QSkg+CVSw1Ug
-         /TrA==
+        d=google.com; s=20230601; t=1741779792; x=1742384592; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=;
+        b=PgBZ5seaugSIcUEK1q/Ie4Fx5PDrP9IW/4dzxSnOTcs6nmlvXaXVPG605DjeXW2Sff
+         8+LlMwj2DU2+oYdlFltwy3mAmRtw1x05belBl6RRahVB6jSCzgNwdHI9WBIEEEZD0LAz
+         GrHEeoExMuT6hu8wpeOMb7D2+/kukGqATtWsFWTWYRgonMtIDBYBbGoSJo8x45Fy/pd6
+         W7ZTKGYRy2hltkhiYeTNs1IGOvNPz3dEEGcVUdAdAGHSr3KkKGX6ScADWXv8aY8uO2e3
+         jFNgszgLnz2OYEetmS9uWZl7Kw5FXV5YevQdQEH5E4bSHvTKvWTTjCDD0bDlmrKhiZKR
+         B59w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741779667; x=1742384467;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BoyRVgku7EChH42bDwzZAFPngPMwwosKhAXjk4aoYAY=;
-        b=HV6FMHZp9CQwmPJgML1xmhidJUYzkVizuR/eeAq3EROaU7NTCk208P1m6TFBo6h0fI
-         UW7fADTLm8rfhM3vgRA46+MmElOFTGaOIeBipRmbm6RDWpN3KtVS3skLYJwNP76Lm1d8
-         5Jn2bAlEJa3YYELlEDWpSgLtPJqc/a4ZiUJi85OEbZ4zVsQt8FAqa8EBB/nhbiQ60n1u
-         EO4uCAtRaAntZf1uCbj4RV80lTvu+nd3gp43dlyw2cLggFQgAw+/KfchamJjFoQuvbBZ
-         Q98UjlLti2L/X/gN8ymGLimiYGVhtlEbdbuAzNx2oqGUWNd5BVT2hLr1PT+Vw+J/QcmK
-         gk9A==
-X-Forwarded-Encrypted: i=1; AJvYcCX3FAHXPsR9qNVbVdtyxqKSFj6DY9YikYhG2PLEZvoUBmCYjOephvKn5Wivar93qF+N8Yy/LXXF5HSMZkvdXCCF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCfk1wcq8AylPNgDLq+L7M+1w0prDsFSx1eAVxsQqsL/gq7AGN
-	quzubkZyKVSBUT1g7u7niW7zVIkdGlA66Vraqi5Qh9hHNEd/IllmKIinxxH4KHjt7Nh68lX9O2T
-	cKV1esIx4Gp9Q9G/Zg+73ngeA61mKSvgx8ubjsg==
-X-Gm-Gg: ASbGncsfundjPLP7jpoJmRYObztAoXqassbZ6QDDeXN3dPS/4rRALEYkRLOEJ1a3PzZ
-	sfodqrgl2kJNz0VF4TP+g28dshRzKEnP92JODbq9rNLDUUm9HCDyCsEpIXF/Ct5G0tcsbFLGtph
-	uJl1rm3YIPvKfISLAJlXeLb8lYyIPW
-X-Google-Smtp-Source: AGHT+IGaTcw1nD7VE9rPLBX0yt54Qbx8fd0Q6JwdK4QExiQp0aQKu5cOr0s66LDn5WLcu2ofBIiUC2KaC5xcYi4Kn9k=
-X-Received: by 2002:a05:6808:13c3:b0:3fc:219:c620 with SMTP id
- 5614622812f47-3fc0219cb8fmr496004b6e.23.1741779667314; Wed, 12 Mar 2025
- 04:41:07 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741779792; x=1742384592;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/DRboL7iXAangnAe10zAw/fnPXaxzgNmenGuCjK+wlo=;
+        b=VJxek0czDObOUoAPpsNZlfZJjm2C1hsAZAMFQos//DgcPaoJWq4hvuzWwo4k4NQCqQ
+         J7vPyhyawxxbcw1VB9Fyh7jFhRWfK9+fHDp4M04D7lz0F+6dqV625ruwpyPjl1K04bkT
+         EoDbcPNA5Sm5YV1c8gudkTWaqkkZTS2v6VgffszQf4ieWmJStsLssF+4pIGXcVeD6Jl2
+         ItknT4SvBJ1cWjDeAbBiwHJ80qaAm5HHeFw9sCYI0qBBMqWI1Qmp8GpzfqYFIVBD8uaX
+         CX+wbsc2JI8RmLPrZZOYoJS161y8QK4kPqtrm3pCyGWTjZe5mNq4JK0D8+hRmJBaCHd4
+         vTMQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV4yqdIidaqk6qS3k63fvwzK6WCUFZaz5dleUWIJbga7DW4qeiJnSO6uUxe2LjDXe1qMcJEIS7tVr8linEULXDn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs+paWsGF4AKsyKPUt9MW4RkNu89qAwtNRqlRMjflIamB7kLwv
+	Tdphv8qwsOvakBO+grIpRQAwu57r9d03EZtfTHWHVCqygsjWGA4mf8MVala76w==
+X-Gm-Gg: ASbGnctwEpd5L6zN4Deb04VINCUSpe4WiNAXgYUwQK/ahXDDijQVmMy/uca5lfyVQV/
+	Bp7IvofAojeenEKX8gcLOFBjrgasLoL/pe+qzaXna7Jbo92V7D6LlZN8vNgH3fBn/V0Io6nozro
+	W15N1Mx2Hss1sj5PTdo84At35U32LH3Yg9BYfxDzHgMqFM7Vf0ZSWIX4Nn/7H7VKIcVk1Bbq8th
+	7IZ2GG4zlD0kvASBiLdI0jEJcS0BP4ZiKxJ+kZVc/N/m7bmv5v1/71KrHeIYipc6pI5NIEje/35
+	vqH7BXEuSVQE6J0XOPlpODZLd5QYLp8liK5HH+vYdTbaF5XYlE4CMCHBZQT9gE5ekd10HuUTtiG
+	3VRd0
+X-Google-Smtp-Source: AGHT+IGAlRZ9FGEpVbzn9/E/l/2Ksb4Pgfv6rI6D7I3wU6Ogl1uoOZwLKHkEYMZpOjmtLPXmOnf3OA==
+X-Received: by 2002:a7b:c8d1:0:b0:439:8d84:32ff with SMTP id 5b1f17b1804b1-43d0a5e40ccmr994365e9.3.1741779792013;
+        Wed, 12 Mar 2025 04:43:12 -0700 (PDT)
+Received: from google.com (88.140.78.34.bc.googleusercontent.com. [34.78.140.88])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-43d0a72ea88sm18970735e9.7.2025.03.12.04.43.11
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 04:43:11 -0700 (PDT)
+Date: Wed, 12 Mar 2025 11:43:07 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+Cc: Alim Akhtar <alim.akhtar@samsung.com>,
+	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+	Albert Ou <aou@eecs.berkeley.edu>, asahi@lists.linux.dev,
+	Lu Baolu <baolu.lu@linux.intel.com>,
+	David Woodhouse <dwmw2@infradead.org>,
+	Heiko Stuebner <heiko@sntech.de>, iommu@lists.linux.dev,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Joerg Roedel <joro@8bytes.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-riscv@lists.infradead.org, linux-rockchip@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, linux-sunxi@lists.linux.dev,
+	linux-tegra@vger.kernel.org,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Hector Martin <marcan@marcan.st>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Robin Murphy <robin.murphy@arm.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Suravee Suthikulpanit <suravee.suthikulpanit@amd.com>,
+	Sven Peter <sven@svenpeter.dev>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Tomasz Jeznach <tjeznach@rivosinc.com>,
+	Krishna Reddy <vdumpa@nvidia.com>, Chen-Yu Tsai <wens@csie.org>,
+	Will Deacon <will@kernel.org>, Bagas Sanjaya <bagasdotme@gmail.com>,
+	Joerg Roedel <jroedel@suse.de>,
+	Pasha Tatashin <pasha.tatashin@soleen.com>, patches@lists.linux.dev,
+	David Rientjes <rientjes@google.com>,
+	Matthew Wilcox <willy@infradead.org>
+Subject: Re: [PATCH v3 03/23] iommu/pages: Remove
+ __iommu_alloc_pages()/__iommu_free_pages()
+Message-ID: <Z9FzS-AzZNzYhrou@google.com>
+References: <0-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
+ <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 MIME-Version: 1.0
-References: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
- <20250307-pinctrl-fltcon-suspend-v4-2-2d775e486036@linaro.org> <c2e2c78c-e85e-406a-90a7-07d5b4fa82a6@kernel.org>
-In-Reply-To: <c2e2c78c-e85e-406a-90a7-07d5b4fa82a6@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Wed, 12 Mar 2025 11:40:56 +0000
-X-Gm-Features: AQ5f1JqdFxSd55M07UVZhyjzfxW8ipmSisfDvd1eSlj0E3xpeK33pLmIlqctOpA
-Message-ID: <CADrjBPp9suYGifVR405k5KWqmGRnO1W5A6J28sWJVT2nGut1ag@mail.gmail.com>
-Subject: Re: [PATCH v4 2/4] pinctrl: samsung: add dedicated SoC eint
- suspend/resume callbacks
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, andre.draszik@linaro.org, 
-	tudor.ambarus@linaro.org, willmcvicker@google.com, semen.protsenko@linaro.org, 
-	kernel-team@android.com, jaewon02.kim@samsung.com
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3-v3-e797f4dc6918+93057-iommu_pages_jgg@nvidia.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_044108_533516_6B324CFB 
-X-CRM114-Status: GOOD (  19.27  )
+X-CRM114-CacheID: sfid-20250312_114315_544762_639794D6 
+X-CRM114-Status: GOOD (  23.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,47 +142,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Tue, Feb 25, 2025 at 03:39:20PM -0400, Jason Gunthorpe wrote:
+> These were only used by tegra-smmu and leaked the struct page out of the
+> API. Delete them since tega-smmu has been converted to the other APIs.
+> 
+> In the process flatten the call tree so we have fewer one line functions
+> calling other one line functions.. iommu_alloc_pages_node() is the real
+> allocator and everything else can just call it directly.
+> 
+> Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Mostafa Saleh <smostafa@google.com>
 
-Thanks for the review feedback.
-
-On Tue, 11 Mar 2025 at 19:32, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 07/03/2025 11:29, Peter Griffin wrote:
-> > gs101 needs it's own suspend/resume callbacks to use the newly
-> > added eint_fltcon_offset for saving & restoring fltcon0 & fltcon1
-> > registers. It also differs to previous SoCs in that fltcon1
-> > register doesn't always exist for each bank.
-> >
-> > exynosautov920 also has dedicated logic for using eint_con_offset
-> > and eint_mask_offset for saving & restoring it's registers.
-> >
-> > Refactor the existing platform specific suspend/resume callback
-> > so that each SoC variant has their own callback containing the
-> > SoC specific logic.
-> >
->
->
-> > Additionally we now call drvdata->suspend() & drvdata->resume()
-> > from within the loop that iterates the banks in
-> > samsung_pinctrl_suspend() and samsung_pinctrl_resume().
-> >
-> > This simplifies the logic, and allows us to remove the
-> > clk_enable() and clk_disable() from the callbacks.
->
-> Can you make this a separate commit? This would be nicely self-contained
-> and without any functional impact.
-
-Sure I can split it out into two commits.
-
-Thanks,
-
-Peter
-
->
-> Getting own suspend/resume would be the next commit.
->
->
-> Best regards,
-> Krzysztof
+> ---
+>  drivers/iommu/iommu-pages.h | 49 ++++++-------------------------------
+>  1 file changed, 7 insertions(+), 42 deletions(-)
+> 
+> diff --git a/drivers/iommu/iommu-pages.h b/drivers/iommu/iommu-pages.h
+> index 82ebf00330811c..0ca2437989a0e1 100644
+> --- a/drivers/iommu/iommu-pages.h
+> +++ b/drivers/iommu/iommu-pages.h
+> @@ -46,40 +46,6 @@ static inline void __iommu_free_account(struct page *page, int order)
+>  	mod_lruvec_page_state(page, NR_SECONDARY_PAGETABLE, -pgcnt);
+>  }
+>  
+> -/**
+> - * __iommu_alloc_pages - allocate a zeroed page of a given order.
+> - * @gfp: buddy allocator flags
+> - * @order: page order
+> - *
+> - * returns the head struct page of the allocated page.
+> - */
+> -static inline struct page *__iommu_alloc_pages(gfp_t gfp, int order)
+> -{
+> -	struct page *page;
+> -
+> -	page = alloc_pages(gfp | __GFP_ZERO, order);
+> -	if (unlikely(!page))
+> -		return NULL;
+> -
+> -	__iommu_alloc_account(page, order);
+> -
+> -	return page;
+> -}
+> -
+> -/**
+> - * __iommu_free_pages - free page of a given order
+> - * @page: head struct page of the page
+> - * @order: page order
+> - */
+> -static inline void __iommu_free_pages(struct page *page, int order)
+> -{
+> -	if (!page)
+> -		return;
+> -
+> -	__iommu_free_account(page, order);
+> -	__free_pages(page, order);
+> -}
+> -
+>  /**
+>   * iommu_alloc_pages_node - allocate a zeroed page of a given order from
+>   * specific NUMA node.
+> @@ -110,12 +76,7 @@ static inline void *iommu_alloc_pages_node(int nid, gfp_t gfp, int order)
+>   */
+>  static inline void *iommu_alloc_pages(gfp_t gfp, int order)
+>  {
+> -	struct page *page = __iommu_alloc_pages(gfp, order);
+> -
+> -	if (unlikely(!page))
+> -		return NULL;
+> -
+> -	return page_address(page);
+> +	return iommu_alloc_pages_node(numa_node_id(), gfp, order);
+>  }
+>  
+>  /**
+> @@ -138,7 +99,7 @@ static inline void *iommu_alloc_page_node(int nid, gfp_t gfp)
+>   */
+>  static inline void *iommu_alloc_page(gfp_t gfp)
+>  {
+> -	return iommu_alloc_pages(gfp, 0);
+> +	return iommu_alloc_pages_node(numa_node_id(), gfp, 0);
+>  }
+>  
+>  /**
+> @@ -148,10 +109,14 @@ static inline void *iommu_alloc_page(gfp_t gfp)
+>   */
+>  static inline void iommu_free_pages(void *virt, int order)
+>  {
+> +	struct page *page;
+> +
+>  	if (!virt)
+>  		return;
+>  
+> -	__iommu_free_pages(virt_to_page(virt), order);
+> +	page = virt_to_page(virt);
+> +	__iommu_free_account(page, order);
+> +	__free_pages(page, order);
+>  }
+>  
+>  /**
+> -- 
+> 2.43.0
+> 
 
