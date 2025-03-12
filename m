@@ -4,132 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ABFC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:13:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2F12C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JBa3dWFTD4SwgzxaWlFjlLz2e9bTlCRMLs4NNSBs44c=; b=cxn9k7i5ekNVsU9vTdF/mQPOfs
-	ILlAMYpURnlmY0P/zyFoW24yGuzD+3RJ6EftTgCNaUqPeH0d15eIUH/FNPvS7usjojj/Ycn5LeEpo
-	sm54Xe0a04c3gRc3leBAv6fus2tQ52pfchnBYUGgzzN+owNCmwCW4Frv9x/Khznj1dKlwSkAPWGEJ
-	ZUo1NjvXmKhv6DbivnNz1XrTOHvMZtchaP2fK6Ep1KYmZ4LpCFZ1orGvFZ4WhEV8+PfifmFWyCY+G
-	t1Ga/wxx8Y7eksWE0WtHFV1v4NXvUn8qpe0+3GrbFa+Psfqgo7qwpRIZd0p8LgsaD5LFRkQx56yQs
-	aZCt6oKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=GLIba+q4BDE9qdzTgPLlPQOlp5Vu1/gYQkbg2o8SPf4=; b=UTUQhAucyIzV4MEnfyTo7fuKfw
+	aheINbfjfP/fuSpMpOUKwuT2o5TnRK8OMwcwjVf3JBdQ+bJaoGOBlixyiex+WKZKukVQ5cZJGKBeh
+	PxkMMLjWKxdDdgx7pjNAdnWAbXMxI10Vfx1ZrEvjHb8G7UqFDOCSfYsUVLE/3+NqsPw7V7v161UVD
+	VqGV2C1+Ap4Vq1sT8uSQ38gLBHzc7NsvJs5A0wy7XveQALNnoc89s2MpS6mfSCjjQCCeCOzOYRwJ5
+	knHJO8HXxsr82gX8fkV6SH4BeyPbzJxSdhj+trNV7NzqENI+fTW3hrw/rcd3UoFyw/Ptvbz4g7b8C
+	IE/G+Hgw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsI9W-00000007uwS-3c4S;
-	Wed, 12 Mar 2025 09:13:26 +0000
-Received: from [203.254.224.24] (helo=mailout1.samsung.com)
+	id 1tsICw-00000007vZq-23qm;
+	Wed, 12 Mar 2025 09:16:58 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsI7F-00000007uOY-3RSW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 09:11:08 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250312091058epoutp015b7a2a1e35d21a88043c93872200c92c~sAy91Wduz1174411744epoutp01G
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 09:10:58 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250312091058epoutp015b7a2a1e35d21a88043c93872200c92c~sAy91Wduz1174411744epoutp01G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741770658;
-	bh=JBa3dWFTD4SwgzxaWlFjlLz2e9bTlCRMLs4NNSBs44c=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=VHiitqKhcd32mvFwCzLdP4ddK2SIxAnZdOm6NnHNUsUkOtULZHhA4Y9QefflzqnVs
-	 6HphhN5PC/xlUsZjL48+mTr1niocEB35xsS/Ngdn7fbsNzyow4lylDxwrwjvGWeST8
-	 PkfGdRiTK5RW4Gr9KUa+QUWIPH7k88nh8Kf2qoKg=
-Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
-	20250312091057epcas5p1de3ff8e28c0a711a6b79cfc56a535319~sAy9bP8Ru1919219192epcas5p1U;
-	Wed, 12 Mar 2025 09:10:57 +0000 (GMT)
-Received: from epsmges5p1new.samsung.com (unknown [182.195.38.181]) by
-	epsnrtp1.localdomain (Postfix) with ESMTP id 4ZCPxX098Tz4x9Pv; Wed, 12 Mar
-	2025 09:10:56 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	A8.D9.20052.F9F41D76; Wed, 12 Mar 2025 18:10:55 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250312080817epcas5p1dcbafc369e65dbc9d0650dd2130f56e8~r-8PCtO980056700567epcas5p19;
-	Wed, 12 Mar 2025 08:08:17 +0000 (GMT)
-Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250312080817epsmtrp172c94cadcd06d4a364afd8fef20551c8~r-8PBx_m92458424584epsmtrp1g;
-	Wed, 12 Mar 2025 08:08:17 +0000 (GMT)
-X-AuditID: b6c32a49-3d20270000004e54-e4-67d14f9fdbd2
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
-	72.CC.33707.0F041D76; Wed, 12 Mar 2025 17:08:16 +0900 (KST)
-Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250312080815epsmtip1851e3f39ebbf9dc070a9380d37eca7f4~r-8NKkUMq0762707627epsmtip15;
-	Wed, 12 Mar 2025 08:08:15 +0000 (GMT)
-From: "Faraz Ata" <faraz.ata@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <alim.akhtar@samsung.com>,
-	<dev.tailor@samsung.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>
-Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<rosa.pila@samsung.com>, <suyash.bitti@samsung.com>,
-	<abhijeet.s23@samsung.com>
-In-Reply-To: <5b68a9c2-9145-4131-9fa3-10810c51691f@kernel.org>
-Subject: RE: [PATCH 2/2] arm64: dts: exynos: Add DT node for all UART ports
-Date: Wed, 12 Mar 2025 13:37:57 +0530
-Message-ID: <2aa201db9325$e8ef6e00$bace4a00$@samsung.com>
+	id 1tsIBH-00000007vM1-0A9b;
+	Wed, 12 Mar 2025 09:15:16 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GLIba+q4BDE9qdzTgPLlPQOlp5Vu1/gYQkbg2o8SPf4=; b=F6P8O9yMyitUkFBMj+62u1Wxx1
+	8tFlx/t5XL1sRU3psd0hU/hHxFYJJ3qA6cgX6fDUir0PJq0sN38pxNZlkOD9gBDQ42J+X36nhC6pg
+	eBwJv5WTwJ+FyAKjSVpPua8pcVcCMlAgTKNjuvr2JrVdikixn/gR8Fwp/IHDYeCzT40KqXW1y8Z4d
+	d6gdNon8uIGCgflq0cbdeTWJmKceAsN+ngdhOoTOziNmf7bHkdM8ynDjB/gXvEFHxAVqSFOHEXmTK
+	4d950rgkvRVZMtdhHwYQYW2BvttkhHrF+vRiXzKGYcIhpBirIaMRNj0RzaNjl00e5FPMhAPtQ6nd8
+	1y6QEqdQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:39976)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tsIB1-0005A4-2C;
+	Wed, 12 Mar 2025 09:14:59 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tsIAv-0004PY-1F;
+	Wed, 12 Mar 2025 09:14:53 +0000
+Date: Wed, 12 Mar 2025 09:14:53 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-sunxi@lists.linux.dev,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Samuel Holland <samuel@sholland.org>, Vinod Koul <vkoul@kernel.org>
+Subject: [PATCH net-next v2 0/9] net: stmmac: remove unnecessary
+ of_get_phy_mode() calls
+Message-ID: <Z9FQjQZb0IMaQJ9H@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQG4o3GQyN7Zi1+oRuvV8B0XiEe7kQMf9tKjAMPydvECHTlbErOE+bag
-Content-Language: en-us
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrIJsWRmVeSWpSXmKPExsWy7bCmpu58/4vpBjt6LS2+djhbPJi3jc1i
-	zd5zTBb3dixjt5h/5ByrxctZ99gszp/fwG6x6fE1VovLu+awWcw4v4/J4v+eHewWX34+YLaY
-	Pb/Ggddj06pONo/NS+o9+rasYvT4vEkugCUq2yYjNTEltUghNS85PyUzL91WyTs43jne1MzA
-	UNfQ0sJcSSEvMTfVVsnFJ0DXLTMH6DglhbLEnFKgUEBicbGSvp1NUX5pSapCRn5xia1SakFK
-	ToFJgV5xYm5xaV66Xl5qiZWhgYGRKVBhQnbG3V+T2ApaOCqOPJrP3MA4n62LkZNDQsBEYuqt
-	NiCbi0NIYDejxIa386CcT4wSd3u+MME5izetZ4Fpmbv2EzNEYiejxLTuc1AtLxklNs/8xwxS
-	xSagKXHn81OwdhGBZYwSXSePgbUwCzxhlGj7Np0dpIpTwE6i6ccGVhBbWMBbYv6KHiYQm0VA
-	VeLx9AlANgcHr4ClxPfFaiBhXgFBiZMzn4CdwSygLbFs4WtmiJMUJH4+XcYKUi4i4Caxawo3
-	RIm4xMujR9hB1koIbOGQ+LnqKhNEvYvEi/tLoHqFJV4d38IOYUtJvOxvg7J9JCYf/cYIMlNC
-	IEPizloRiLC9xOoFZ8BWMQP9uH6XPkRYVmLqqXVMEGv5JHp/P4HaxCuxYx6MrSxxcs8eVghb
-	UuLQ7ResExiVZiF5bBaSx2Yh+WAWwrYFjCyrGCVTC4pz01OLTQsM81LL4RGenJ+7iRGcdrU8
-	dzDeffBB7xAjEwfjIUYJDmYlEd7VthfShXhTEiurUovy44tKc1KLDzGaAgN7IrOUaHI+MPHn
-	lcQbmlgamJiZmZlYGpsZKonzNu9sSRcSSE8sSc1OTS1ILYLpY+LglGpgilkRxWMzpYVfO8WJ
-	n8VludkrpQczvyxadMF2aSen5oLPn2bnVn9Wn5StWOy/Xi6mx/l1GifP1U3LpSt79WTmbr8e
-	YLQ8Q/eWfoj5meue9W3s227dDFiVJ9n1YOV8o22Gv8OXJP6uW3Z8V3zw/62vOdwDPRY8VXHd
-	G+7z3bLVzOmgsTnfZqaZZtUcHHO2KSqsl/mul58R+ux9Tu/XrIeMs0I3TCu7olZ4+0b4xjf+
-	zg92Fnsf///+X9u+stqSs9MPSy1LKO78I5HHLPhq7Zdz17fomz07JSzpdWiHLYPj0iOTbZxX
-	r/g1+YheqcTFpowIu5z3uw0ndHxw+DJR/96DYnY5w0fyK+qP+88/UfNhvxJLcUaioRZzUXEi
-	ALwnMEtEBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprKIsWRmVeSWpSXmKPExsWy7bCSnO5Hh4vpBv2iFl87nC0ezNvGZrFm
-	7zkmi3s7lrFbzD9yjtXi5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2Txf88OdosvPx8wW8ye
-	X+PA67FpVSebx+Yl9R59W1YxenzeJBfAEsVlk5Kak1mWWqRvl8CVcXPPQtaCd+wVO369ZWtg
-	7GTrYuTkkBAwkZi79hNzFyMXh5DAdkaJE2efMEEkJCUOP73LCmELS6z895wdoug5o8Tezk9g
-	RWwCmhJ3Pj9lAkmICKwBSqyaCjaKWeAVo8TNA3tYIFo+Mko0XJ7JCNLCKWAn0fRjA9hcYQFv
-	ifkresBGsQioSjyePgHI5uDgFbCU+L5YDSTMKyAocXLmExYQm1lAW6L3YSsjjL1s4WtmiPMU
-	JH4+XcYK0ioi4Caxawo3RIm4xMujR9gnMArPQjJpFpJJs5BMmoWkZQEjyypG0dSC4tz03OQC
-	Q73ixNzi0rx0veT83E2M4JjTCtrBuGz9X71DjEwcjIcYJTiYlUR4V9teSBfiTUmsrEotyo8v
-	Ks1JLT7EKM3BoiTOq5zTmSIkkJ5YkpqdmlqQWgSTZeLglGpgmqjT9/LBl63X3n1oCXkh9UxO
-	zVvg7d2kvSFT3oY/EOtN1j8WuVm//vbG8BuiYk6eF9gu6+v+PrK/JPOov9aFCQ1bMmpMlzD1
-	zWTb0sg4ZcW5vhO90krN+dX3unpdJJafNxVRviq1aGmT7ZTvQQESm6rk5uxJKnrMHVIsy/I9
-	vefgBeWmiCd/Vy+L32HvsHPdFYO3vE+9JqsGNDC+KZ+6sypltWuGY4T922R2tpVXxaI3u+lY
-	TDQUrFgqZtgeMv/1h10HCxhF2g/HT56YV2YnmPRLwYDlH8uVtjlnhDbbc1xyD7p4/7umunSz
-	gtjcrujKN+LzWXZXG5mGbXY9td5txs4DL+bob6kRPrDnmZK+EktxRqKhFnNRcSIAau0YtygD
-	AAA=
-X-CMS-MailID: 20250312080817epcas5p1dcbafc369e65dbc9d0650dd2130f56e8
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250312061058epcas5p3ccf293213fe883129358833572b17d92
-References: <20250312061932.1797993-1-faraz.ata@samsung.com>
-	<CGME20250312061058epcas5p3ccf293213fe883129358833572b17d92@epcas5p3.samsung.com>
-	<20250312061932.1797993-2-faraz.ata@samsung.com>
-	<5b68a9c2-9145-4131-9fa3-10810c51691f@kernel.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_021106_498913_98A479B9 
-X-CRM114-Status: GOOD (  17.79  )
+X-CRM114-CacheID: sfid-20250312_021515_079065_5281F756 
+X-CRM114-Status: UNSURE (   9.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,47 +96,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Krzysztof
+Hi,
 
-> -----Original Message-----
-> On 12/03/2025 07:19, Faraz Ata wrote:
-> > Universal Serial Interface (USI) supports three serial protocol like
-> > uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
-> > Add all the USI DT node and subsequent uart nodes for all the instances=
-.
-> >
-> > Signed-off-by: Faraz Ata <faraz.ata=40samsung.com>
-> > ---
-> >  .../arm64/boot/dts/exynos/exynosautov920.dtsi =7C 494
-> > ++++++++++++++++++
-> >  1 file changed, 494 insertions(+)
->=20
->=20
-> Please do not combine DTS changes with serial patches, ever. DTS has to g=
-o
-> via separate tree.
->=20
-Sure, while sending v2, I will send DT separately and serial driver change =
-separately.
-Thanks for your review.
-> ...
->=20
-=2E
-=2E
-=2E
-> > +
-> > +
->=20
-> Just one blank line.
-Sure will correct in v2.=20
+This series removes unnecessary of_get_phy_mode() calls from the stmmac
+glue drivers. stmmac_probe_config_dt() / devm_stmmac_probe_config_dt()
+already gets the interface mode using device_get_phy_mode() and stores
+it in plat_dat->phy_interface.
 
->=20
-> >  		pwm: pwm=40109b0000 =7B
-> >  			compatible =3D =22samsung,exynosautov920-pwm=22,
-> >  				     =22samsung,exynos4210-pwm=22;
->=20
->=20
-> Best regards,
-> Krzysztof
+Therefore, glue drivers using of_get_phy_mode() are just duplicating
+the work that has already been done.
 
+This series adjusts the glue drivers to remove their usage of
+of_get_phy_mode().
+
+Changes in v2:
+- correct subject for patch 3
+- fix build error in patch 3
+- add attributations
+
+ drivers/net/ethernet/stmicro/stmmac/dwmac-anarion.c | 21 +++++++++------------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-ipq806x.c | 12 ++++--------
+ .../net/ethernet/stmicro/stmmac/dwmac-mediatek.c    |  8 +-------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-meson8b.c |  6 +-----
+ .../net/ethernet/stmicro/stmmac/dwmac-qcom-ethqos.c |  4 +---
+ drivers/net/ethernet/stmicro/stmmac/dwmac-rk.c      |  2 +-
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sti.c     | 12 ++++--------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sun8i.c   |  8 +-------
+ drivers/net/ethernet/stmicro/stmmac/dwmac-sunxi.c   |  6 +-----
+ 9 files changed, 23 insertions(+), 56 deletions(-)
+
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
