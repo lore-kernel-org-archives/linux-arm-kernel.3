@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18CC8C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98E3FC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 13:49:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O06P188+t5IkMOcphaknKbtZTwStMyYbeSy3ILdznBw=; b=Yr8S1op6jrySiiqhM2BfF8TTvT
-	otGEiYE9fAjHi98viNICuEgCC8L08kkTEz4dF4tZX5KTYYPuDNFsNnOH91ny9QBkb6Z2ClDEFUiLE
-	ekbMCAzh6aeU1vcL72Y8nBglPFELBkDt9wK2F/OeS6ElorKJCYmaBYwQodfCSsH9y7grq66Gh05V8
-	EFm9tl6QV4TEYgdtBbshY7/zzWwx2KyzTAH17UBB8S1HaZcrkc69u8d4kp+lgV/tsSGxoVYc/hof0
-	gABPwR43PQFCpME75/gWRae1yTQghVL59HAOxB6wTdfWnE0chlKTKjS7duQ1X+dQxzqWMr90EtB69
-	uIg20hMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=; b=OhNy75TSR0+r4oqEsEEU0ah6Tf
+	ZhGUxklqD1AQIZuaRUtMXOBcXEqi7qWga6jWbMsA95u5Xj45mgsP1fNhUcqwghbYmHUfeo5GO1vq3
+	aRVFIGK+cev+C3fhgQZlF81XD+yBnnJ89u8sQ9ltszJq7mXyfWiu+9v6T6yWAQFKnX/gN1H363tW4
+	ftYHozT5KrP9sldymHmt/UsexKs9VfyREZVx0+QHbh+s9PVNyegJp8OMT1uvmoC70UEEMEGSdFaKW
+	pz1ooPYYquND/NxMrWgU/vOL4Uqp769zBpk+QvPV3v1X0vGIoPk0kKfol2Eav1J1aGHVbUNG8H2Yb
+	3pXjq5GA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsMNk-00000008br5-47pz;
-	Wed, 12 Mar 2025 13:44:24 +0000
-Received: from mail-yb1-xb2b.google.com ([2607:f8b0:4864:20::b2b])
+	id 1tsMSe-00000008cJq-0NsH;
+	Wed, 12 Mar 2025 13:49:28 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLye-00000008Y4Q-3xaL
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 13:18:30 +0000
-Received: by mail-yb1-xb2b.google.com with SMTP id 3f1490d57ef6-e455bf1f4d3so5046636276.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 06:18:28 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741785508; x=1742390308; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=O06P188+t5IkMOcphaknKbtZTwStMyYbeSy3ILdznBw=;
-        b=VKSq/K8EXmbJGyJNY1PF/xNyciyz7AESO6xM+xsvnTXgX86B9fsYJAH3MaHZAEbwJQ
-         JyZMn1OATeUUomBbi3rdqAAHt+7ft4hRjma5IQ4IAljbGMUBGdf26Gcg/3M5dyPY9kIY
-         nngoC+MQyGZMmpm2LBHl5wx5R/pZJWDNwXdCYeb2b+VJ3znSeqQCWAAcNwNPv56sS1H1
-         sJQKGwSoOukY80OCcJN6Y0u2loC7gNBY6eokdR8QrKl2ZmEqswGA9YHskaoiHizIIkYA
-         qmTfTmHuc77pPiPQinI6wd5BWJ6oYqyHUfcYn95AlqHIp+CoxEl+pB49G1PF/wzmBD62
-         NWWg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741785508; x=1742390308;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=O06P188+t5IkMOcphaknKbtZTwStMyYbeSy3ILdznBw=;
-        b=vUpt0cZOcd9xiolVqRZTEjFki9xxB7mYc1YTHOg0J6W+CcM2YPvs6VefGjpp6Putp+
-         fqHa54uVnrEvVXs12SkKb8h9/GrLtVmnX2T8xgl2+Zmbp7fwvKESnuY2HvuUQQH1eU11
-         Q1G7H0PfVHydGp7HIJ64kOfYQkgxncCoUY+noK1nwmbrLALNiiIWuEPq5CKWcSsGlG8a
-         +MnGhhKRf3Aq+jOs+2XyDngKtkw350AFAqyd9i5WCI/3kNk2rPoXNPccL9SpxC+tVRI1
-         55ras6L1EvpA6xXXPjK3MZalJBoPXukE3edgQMeXtaPEU5DHi5ZesUbpednuMaohR84T
-         efkg==
-X-Forwarded-Encrypted: i=1; AJvYcCXhEt4ZSoogE1yqTIp+0uugMuV2494DsnhBGkk1ubKeCaJ4o3VO2KrS7dxyas14JxQ5rMXDawNsXCNSw0/Svd4T@lists.infradead.org
-X-Gm-Message-State: AOJu0YzuLRdJ5ct6gm0iRUn+CJgGChPycopksyNaNTbq75+MxudVNy0o
-	zMlpSmU9F9tZQ1c1cBhIbKPYiUSbXN8vHu5NR7MN+XFaN6BFcYa1SwZgk/Won5YSAHxHVbtBjKc
-	340RAIshch4eWmZsksmkTZMRUbNrxKHj5DViU5JIQZJ7UdYimPOk=
-X-Gm-Gg: ASbGncvy5g6tLHJ/MQ7BiY3W5f1zmpot890u69mIL6iQw/yyu26h/aaKdr47FER4pH3
-	pPutikio4vc0bUqmWQ9tycLNYlEOTCHYB+HpHBt102iUrFxlFR4+XB2A9w528Rtz4AjNY+r6Iea
-	mNH+LtJi9tGaUgAWnOoaKHEMHa1+Q=
-X-Google-Smtp-Source: AGHT+IGyzl7GwHaLZh3ygs+nju2rxMd7dGI+ZgAL00mTmKBqCqVGTlKAadXsmQ+m/M2fSAfYzFe/Q76nG6skzC09EPE=
-X-Received: by 2002:a05:690c:6c02:b0:6e9:e097:718c with SMTP id
- 00721157ae682-6febf2a450bmr305445347b3.6.1741785507753; Wed, 12 Mar 2025
- 06:18:27 -0700 (PDT)
+	id 1tsM4s-00000008YtD-0uY0;
+	Wed, 12 Mar 2025 13:24:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741785874; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=KQ2P/C6BtkYsueq4akRJPsp2naRHaM7GZ9RL9q/HknxMqsZ/t5EvSXen297LmjxH4CUXZHk7qFgYS0Q2NIGXE2V5uMsCi7o5G3kZuOQ43ORA71hSJJLHp4vgfH3mDCh2oIVbkOSE/JPvQ/P3NThah7EoXKW4HKltNqtwVClsc5E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741785874; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=; 
+	b=BXsSNOEqCeOufLJNWTjNcx3/6+LmMi2c3f59FFUK7kSGQQyDsVqVKD8CU04rMN2uSt2kgvrui/1WgqHpOF/jnVGpMkwy/GE0vCbkRETpaeFgpuQcrgFiV9LvpHRaRcD6QxhcGneqmXcb+G9tY2lP1e80YuEdXjjV5KAsgJ+rvNo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741785874;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=zATmQj0XyB7/VoZzjPmz0V+W644epir4Rl4IGnvK18o=;
+	b=D/UFUKhGVuHLpq0HvEd/liwgMeVn13FHRlBLaLu7IOARHB62GAz0tEKwquyBZfNx
+	rJ2Vw+kG2SEajG9072z1u05X2ZmvLxXX/A+92OmcHrofUcR9mGZjrAMwUUpYXYKHSHz
+	nb7bowQoGRkqA24ygY9kQEUESaft6X0CN82kJ1A8=
+Received: by mx.zohomail.com with SMTPS id 1741785871899734.2310655484773;
+	Wed, 12 Mar 2025 06:24:31 -0700 (PDT)
+Message-ID: <3aca6477-6014-4c24-8aa6-6c601fc54a32@collabora.com>
+Date: Wed, 12 Mar 2025 10:24:24 -0300
 MIME-Version: 1.0
-References: <20250206220940.10553-1-kamal.dasu@broadcom.com>
- <CAPDyKFq1ZbP4c9ECfM1SY+MEopf+dC19w9PkqXaUjevf=bPjcw@mail.gmail.com>
- <115a59e1-75b2-4d09-bbf9-50dfcd2b62dd@broadcom.com> <PH7PR16MB61967C18645C64E582B222B6E5FD2@PH7PR16MB6196.namprd16.prod.outlook.com>
- <d51a9d7a-b942-4c3b-93d2-65b1bb04c8da@broadcom.com>
-In-Reply-To: <d51a9d7a-b942-4c3b-93d2-65b1bb04c8da@broadcom.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Wed, 12 Mar 2025 14:17:52 +0100
-X-Gm-Features: AQ5f1JqTx3pgXMeqFgFpSDIaSNIKY2an6JSCt033D3YeuQR5aENCOVJYaG8WOzA
-Message-ID: <CAPDyKFrCjo8gGnxmXWP6V39N+b1o62VQH9zwMUNb2_+D3-qrdw@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/3] mmc: sdhci-brcmstb: Add rpmb sharing support
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Avri Altman <Avri.Altman@sandisk.com>, Kamal Dasu <kamal.dasu@broadcom.com>, 
-	Jens Wiklander <jens.wiklander@linaro.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	"adrian.hunter@intel.com" <adrian.hunter@intel.com>, 
-	"linux-mmc@vger.kernel.org" <linux-mmc@vger.kernel.org>, "robh@kernel.org" <robh@kernel.org>, 
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"wsa+renesas@sang-engineering.com" <wsa+renesas@sang-engineering.com>, 
-	"f.fainelli@gmail.com" <f.fainelli@gmail.com>, 
-	"bcm-kernel-feedback-list@broadcom.com" <bcm-kernel-feedback-list@broadcom.com>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 3/6] drm/panfrost: Unify panfrost_mmu_enable/disable
+ common code
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ kernel@collabora.com, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
+References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
+ <20250310195921.157511-4-ariel.dalessandro@collabora.com>
+ <20250311085158.37329b0c@collabora.com>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250311085158.37329b0c@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_061828_983936_1FA3D22C 
-X-CRM114-Status: GOOD (  20.76  )
+X-CRM114-CacheID: sfid-20250312_062454_347353_2B0159DA 
+X-CRM114-Status: GOOD (  11.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,44 +84,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 11 Feb 2025 at 18:01, Florian Fainelli
-<florian.fainelli@broadcom.com> wrote:
->
-> On 2/11/25 00:13, Avri Altman wrote:
-> >>>> This patch set adds support for Broadcom TZOS to read and write to
-> >>>> RPMB partition using synchronized access to the controller hardware.
-> > Practically it establishes a communication channel between the trust zone and the host controller regardless of the rpmb protocol.
-> > Or did I get it wrong?
->
-> Rather than communication channel, I would describe it as an arbitration
-> scheme between N participants, with guaranteed forward progress and
-> fairness between all participants.
+Boris,
 
-A scheduler in the MMC controller HW?
+On 3/11/25 4:51 AM, Boris Brezillon wrote:
+> On Mon, 10 Mar 2025 16:59:18 -0300
+> Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
+> 
+>> Both these functions write to MMU_AS_CONTROL register in the same way.
+>> Define a common _panfrost_mmu_as_control_write function with the shared
+>> code.
+>>
+>> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+>> ---
+>>   drivers/gpu/drm/panfrost/panfrost_mmu.c | 33 ++++++++++++-------------
+>>   1 file changed, 16 insertions(+), 17 deletions(-)
+>>
+>> diff --git a/drivers/gpu/drm/panfrost/panfrost_mmu.c b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+>> index 294f86b3c25e7..31df3a96f89bd 100644
+>> --- a/drivers/gpu/drm/panfrost/panfrost_mmu.c
+>> +++ b/drivers/gpu/drm/panfrost/panfrost_mmu.c
+>> @@ -121,38 +121,37 @@ static int mmu_hw_do_operation(struct panfrost_device *pfdev,
+>>   	return ret;
+>>   }
+>>   
+>> -static void panfrost_mmu_enable(struct panfrost_device *pfdev, struct panfrost_mmu *mmu)
+>> +static void
+>> +_panfrost_mmu_as_control_write(struct panfrost_device *pfdev, u32 as_nr,
+>> +			       u64 transtab, u64 memattr)
+> 
+> I'm honestly not convinced this is needed. Let's just stick to
+> panfrost_mmu_enable/disable().
 
-Nevertheless, it means bypassing the I/O scheduler in Linux and the
-mmc block layer, kind of breaking "fairness" from Linux point of view.
+Ok, will drop in v2.
 
->
-> The interest here is for one of those participants to own the eMMC
-> controller for a certain amount of time and indicate when it is done
-> with it. This is not specific to eMMC as this could scale to virtually
-> any piece of HW that is driven by transactions from a CPU, but the main
-> application is for allowing the Trusted OS to own the eMMC controller
-> for a short period of time in order to do its RPMB access, and then give
-> it back in the same state it found it to the next participant.
+Thanks!
 
-Honestly, I think this is a really terrible idea, sorry.
+-- 
+Ariel D'Alessandro
+Software Engineer
 
-Data and communication with an eMMC needs to be synchronized and
-managed by a single owner. Having multiple clients with their own
-channel to the eMMC sounds prone to problems. Is each client going to
-have its own mmc protocol stack, dealing with eMMC initialization,
-data-synchronization and power-management, etc?
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
 
-As I said, we now have the RPMB subsystem for in-kernel access. Please
-use it instead.
-
-Kind regards
-Uffe
 
