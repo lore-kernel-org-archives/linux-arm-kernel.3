@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41CD7C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 526EAC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 12:35:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:CC:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=cyDhaKqlqsDkMfTnrMH67D5RQyLpYOtC8HL308/2ZoA=; b=dNs9TKRcm7vZMZzNJla7t3PKSP
-	5mzUEnLvy4tGawY7wjarLB06pxA5ROa34BbG/PNT7TFUi6TFq7XAwy56Z0SAnVyy08ZS3NXMDmbZR
-	QSExjRSYTMMAnk7H32+fs+QrIoJC+YS7qgHQd224GPAq4zzV76XRjm6y3bZrsPMvqKNm3+jbxUxrb
-	QcCyRKM2uvpRgmXR9ISRzU4FMwvGXqMEN39JC1x/mlV1mqWN52Ltil+4W+8POdmiSrhc6bdU3mgYo
-	TE44xE2AQZ30ri83V8LyLpBZ/O7upQBqKtCkCgMTiJcLrrWQH19a2Askk1/+vGcpqf3jxTSV4FiIO
-	rJMWolog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8UBmSxv1OwD+ioMgQknmsTs5rUzvzJDaMUiBaEWBDEc=; b=dKEj4n6mJ0hezF1GbgjFakApGY
+	3XpEx8uN8Q6vd4Q5NYnsbFgp1xeVbXJsY8qRWLCReTDSgd1rj3s6vcJF9gSntif7SapvN0lkD9939
+	nyJvWQaWixDCAT9p4n8GgaifMr46nvVKwA8RufHQs56/yPW88k4FEN3Hr6+bvUfTVaCCY4oNWT8qj
+	G7e1UehpQ1nEI3hsdF97ZK6zQDBGvqBbpDwLDYAoTVBoSFvBG3RBB5pDd5tMlUeHnvB4N9Q6P9h6L
+	UXsJgk92UAW5SMGqi4jQIVFPUyn5ah8t1UoAZP1Wgc2aa8Z9yo9Jh2+KKCioMG8EPaPR8uFYnCxkk
+	XB6IQwPg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsLH1-00000008PnV-0VR9;
-	Wed, 12 Mar 2025 12:33:23 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1tsLId-00000008PzB-3asD;
+	Wed, 12 Mar 2025 12:35:03 +0000
+Received: from mail-oa1-x36.google.com ([2001:4860:4864:20::36])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsKQ3-00000008I52-2PN5
+	id 1tsKRO-00000008IEn-0hUZ
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 11:38:41 +0000
-Received: from lelv0265.itg.ti.com ([10.180.67.224])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52CBcR7D1047265
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Wed, 12 Mar 2025 06:38:27 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741779507;
-	bh=cyDhaKqlqsDkMfTnrMH67D5RQyLpYOtC8HL308/2ZoA=;
-	h=Date:From:To:CC:Subject;
-	b=FJuhLKTU1SrrTprGVp9zbhiLAdE1oVQVP4NpJtPmn0cFsayjxBZFBrW2pHTS7bqN0
-	 p/4am0f5yb0EJ7BJRAHFTf3gt+ZvX2rFb98lDIAM2u/3Xr4ZjcC2mLmtNdKwlt09pF
-	 ZTElQk3ZEjaxBnE/QQeqQONVPlyvUR5GFOBcmOUg=
-Received: from DFLE106.ent.ti.com (dfle106.ent.ti.com [10.64.6.27])
-	by lelv0265.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52CBcRmx014034
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Wed, 12 Mar 2025 06:38:27 -0500
-Received: from flwvowa02.ent.ti.com (10.64.41.53) by DFLE106.ent.ti.com
- (10.64.6.27) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Wed, 12
- Mar 2025 06:38:27 -0500
-Received: from DFLE110.ent.ti.com (10.64.6.31) by flwvowa02.ent.ti.com
- (10.64.41.53) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256) id 15.1.2507.34; Wed, 12 Mar
- 2025 06:38:26 -0500
-Received: from lelvsmtp6.itg.ti.com (10.180.75.249) by DFLE110.ent.ti.com
- (10.64.6.31) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Wed, 12 Mar 2025 06:38:27 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvsmtp6.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52CBcQw1040494;
-	Wed, 12 Mar 2025 06:38:26 -0500
-Date: Wed, 12 Mar 2025 06:38:26 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Arnd <arnd@arndb.de>, SoC list <soc@lists.linux.dev>
-CC: SoC <soc@kernel.org>, <arm@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        Tony Lindgren <tony@atomide.com>
-Subject: [GIT PULL] soc: ti: Driver updates for v6.15
-Message-ID: <20250312113826.ka63nijuftgs6h52@mocker>
+	Wed, 12 Mar 2025 11:40:03 +0000
+Received: by mail-oa1-x36.google.com with SMTP id 586e51a60fabf-2bcceee7b41so1813602fac.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 04:40:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741779601; x=1742384401; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=8UBmSxv1OwD+ioMgQknmsTs5rUzvzJDaMUiBaEWBDEc=;
+        b=bEveWfEZw7JzM80Fg4wPOpI7nPQWDCYq7lro2UFITLW04JZz5efps+Zkf4x1Rsdej3
+         Y1wB5RPIUySDfvvMEhrqUAt5Wp3aBDbB1ydmo5RaIAk7b1vENqadjhUdv1bkGqHl+fEb
+         KOLTrUONzlZtr00SZJfUjr8sHprD/yYJh5LkBzP9vKt+LAiwTr3WQFYBq3MbFjN9WuZb
+         bthkJTx5trrSIfxJUT0fFKtgOJ6raPiqIT0WdhrT5UpkYKjuRXcm+QiVPsLfHSFpDi5j
+         lKBYWN6dTRbZ8DqhHTKfazr8jvkfbkwdN+OCz3Rqf57hDoWp+8vxBufQziqLK1jn4Iq8
+         o6wA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741779601; x=1742384401;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=8UBmSxv1OwD+ioMgQknmsTs5rUzvzJDaMUiBaEWBDEc=;
+        b=wMLmi7PFDvTkzkWXHndpqmzoAPHbhB+gPG2TWdsrGs3Y/i6S3wBuTXUANoZAPKkO7a
+         b3QUBDxPDKwQRSbulHyGGjflSk3vKQFZansrPlUGdAQzrOgrKiyeAj3S/dAzWcPRIjjv
+         oUo6kSE16yenfFF7mtgAW35YT+Eg6GMzhUjwjiL0oVg7z29sOrM+csRJGWe/VLGB59bx
+         K21yEmpR0RnC17JqYkb3JuUepp07g88oerFKJe4iIIQFuAvNMNfkI2i0INvexjHiqD+K
+         i07ntbBYB2LjOdINt8uq3peeJYPRKlMqXuv5UNAY63EbQ2UaAZPuq1Z4Ji9kI8n2DgMh
+         g92w==
+X-Forwarded-Encrypted: i=1; AJvYcCXYd50Wqr52raBkgfjdIqeSCUcovirbOFswcP49HDcQRgKNRxpFx/99krpxZN82LAW9F8oT2wnczPHpeFJaRiqm@lists.infradead.org
+X-Gm-Message-State: AOJu0YzUbfa89CGPpwtzKXCQT7ffDZmv9FIirnpnd78UPsVKhThSJz8B
+	0JcZ4GG/4hrR8JSIx4Kju6K53TdIPEozzKP/Vzlve+e7CltgIhIQ+4Wdoc9Mr2vJ84IQ4x+/eNI
+	nipRlATRwp57Bk8vNLbnTrA/738IXXlGBqHR4vw==
+X-Gm-Gg: ASbGncvXWUVRm8gWL1iP+mQdd66E+ZIOwne6ylUtnA2v4Ti6LT54cJqgzO02e4vD3EI
+	Gm1rLoL04HLIKzjWdyt5s3D8FsuGZi0X7eUwmUVJDLnz+60W44chOaYu3LKvgCEGJ0yYUR5D0gm
+	pGbRhy09+uSh8ykN0AlrWcv7IDl5TR
+X-Google-Smtp-Source: AGHT+IEOKr0G9dvkjWIRUB6KSVHU6mQO45AWdp58WuGfhWD50M7ulSEgn1psTWYM0zeljiehFpwBV8RLclSGmbEE8iM=
+X-Received: by 2002:a05:6870:6f0e:b0:29e:4578:5f74 with SMTP id
+ 586e51a60fabf-2c260fd90dfmr11572872fac.4.1741779600961; Wed, 12 Mar 2025
+ 04:40:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="r5zummcjnd24hbjs"
-Content-Disposition: inline
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250307-pinctrl-fltcon-suspend-v4-0-2d775e486036@linaro.org>
+ <20250307-pinctrl-fltcon-suspend-v4-3-2d775e486036@linaro.org>
+ <59a1a6eb-d719-49bd-a4b5-bfb9c2817f08@kernel.org> <CADrjBPqYoHckqr43y1z8UtthZ9DOG15TJWSv_707Jbyf1yforw@mail.gmail.com>
+In-Reply-To: <CADrjBPqYoHckqr43y1z8UtthZ9DOG15TJWSv_707Jbyf1yforw@mail.gmail.com>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Wed, 12 Mar 2025 11:39:50 +0000
+X-Gm-Features: AQ5f1JormaFnXJuP6e1NiOQZPsn_AaUXUkojjSZ_JcJhsq5FNURWiGRoLSlUVIY
+Message-ID: <CADrjBPqSSbt=xM7u12BU2nsF2xvyXe_+bLSCxCPBTfCc07VpuQ@mail.gmail.com>
+Subject: Re: [PATCH v4 3/4] pinctrl: samsung: add gs101 specific eint
+ suspend/resume callbacks
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Sylwester Nawrocki <s.nawrocki@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Linus Walleij <linus.walleij@linaro.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, andre.draszik@linaro.org, 
+	tudor.ambarus@linaro.org, willmcvicker@google.com, semen.protsenko@linaro.org, 
+	kernel-team@android.com, jaewon02.kim@samsung.com, stable@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_043839_702351_9641DD12 
-X-CRM114-Status: GOOD (  12.85  )
+X-CRM114-CacheID: sfid-20250312_044002_227748_32EF0973 
+X-CRM114-Status: GOOD (  17.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,71 +99,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---r5zummcjnd24hbjs
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Hi Krzysztof,
 
-Hi,
+On Wed, 12 Mar 2025 at 11:31, Peter Griffin <peter.griffin@linaro.org> wrote:
+>
+> Hi Krzysztof,
+>
+> Thanks for the review feedback.
+>
+> On Tue, 11 Mar 2025 at 19:36, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> >
+> > On 07/03/2025 11:29, Peter Griffin wrote:
+> > > gs101 differs to other SoCs in that fltcon1 register doesn't
+> > > always exist. Additionally the offset of fltcon0 is not fixed
+> > > and needs to use the newly added eint_fltcon_offset variable.
+> > >
+> > > Fixes: 4a8be01a1a7a ("pinctrl: samsung: Add gs101 SoC pinctrl configuration")
+> > > Cc: stable@vger.kernel.org
+> >
+> > It looks this depends on previous commit, right?
+>
+> Yes that's right, it depends on the refactoring in the previous patch.
+> To fix the bug (which is an Serror on suspend for gs101), we need the
+> dedicated gs101 callback so it can have the knowledge that fltcon1
+> doesn't always exist and it's varying offset.
 
-The following changes since commit 2014c95afecee3e76ca4a56956a936e23283f05b:
+and also dependent on the first patch that adds the eint_fltcon_offset :)
 
-  Linux 6.14-rc1 (2025-02-02 15:39:26 -0800)
-
-are available in the Git repository at:
-
-  https://git.kernel.org/pub/scm/linux/kernel/git/ti/linux.git tags/ti-driv=
-er-soc-for-v6.15
-
-for you to fetch changes up to 9a9b7cd77b2427d0722fe52301fa270690928989:
-
-  firmware: config: ti-sci: Default set to ARCH_K3 for the ti sci driver (2=
-025-02-26 12:45:53 -0600)
-
-----------------------------------------------------------------
-TI SoC driver updates for v6.15
-
-- ti-sci: Default set to ARCH_K3 for the ti sci driver in preperation for
-  the driver to be default set as module in defconfig.
-- k3-socinfo: Explicitly build up regmap instead of depending on syscon
-  helper
-
-----------------------------------------------------------------
-Andrew Davis (1):
-      soc: ti: k3-socinfo: Do not use syscon helper to build regmap
-
-Guillaume La Roque (1):
-      firmware: config: ti-sci: Default set to ARCH_K3 for the ti sci driver
-
- drivers/firmware/Kconfig    |  1 +
- drivers/soc/ti/k3-socinfo.c | 13 ++++++++++++-
- 2 files changed, 13 insertions(+), 1 deletion(-)
-
---=20
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5=
- 849D 1736 249D
-
---r5zummcjnd24hbjs
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEE+KKGk1TrgjIXoxo03bWEnRc2JJ0FAmfRciwACgkQ3bWEnRc2
-JJ2b3hAAll6igclF5cvAYpG52TUOQDPdUjfE4xC1qukOmbySKRxfES9LUDaV4Vsc
-swv6uBOhdxa/Rx44fEoS+VuNHUlyWcVvo2i1tqy13tlvfULEg/tXK0yEuYo4CBVq
-O4Z4GwESTzSG3BDdQNE7AeBrUXvZnIis1abcpkVvxBMaWPaIjBSkU9CkBryEocRb
-2P+pmEGZmsTo9+PLCcfh2rCR5qRup8Tn8urqP3BliUEQlOcJnXm0WsbUJbGjT8t1
-iVDTOoBm8WSpbJwWsL2PcC22N1uX2RVE36evnFlmhgO1UGECoUpN/8gBz2xIjjM9
-uGAW/j/1Y5gHz2MmnaajlgG8UPhFWrQsPqckY6sSxGC13Kb0At3PhxEF+p9Y+MNl
-elKSs+3ANhosdLRACurfR0yHlzrgnw3EJRhxVZ8NHPMlChXUIwIM/Gf/u8wtwCtJ
-z+IUf7VNosWzH1Bz6Cn6GCs4DLXM3f1RAcCgULcRcFbdgnmPomxPhJtt8nCHlRyO
-WnnX9AVZg70ixmYLdxMHPxS9ad8rzeWh4r1RXqKRR9WRerlEQAKdpD/FeRwQ/ZC/
-IgAjbYGhkX4efMKeSsGSkcUHAIcPwOAMwd/iJ0AuA9O1JshLB5Cc3OfCgNyixAkR
-dG1AbIYsJQClKkQp/QPf2OwmpK/7Ozcmy+H3/CXFAcHEbCTIPeo=
-=6rrW
------END PGP SIGNATURE-----
-
---r5zummcjnd24hbjs--
+Peter
 
