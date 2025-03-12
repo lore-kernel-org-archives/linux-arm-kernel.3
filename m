@@ -4,65 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BF0FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:05:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6E3C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:07:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=j+7y7J2QIq55q+y54akk7EgQKA9+hyCBnvOy0j+aR/M=; b=Pj5TlmrR6HsrhvMhy764iavAum
-	MK00r0DJ42CLqFm3Z88g7PCAV8IePlUsUR0d71R4ZEceBrkGQTyGn1+CLrlD2yavL8E9+GyoQt0eu
-	TJt4vLjT0ZrTwwEkYniGnhf5yloyHqFuJHMYZeVKJKG+veOSbJ21BSbXlRN/KiLd7IWnCti+/In9v
-	FvrFZH1x1qYxTEk4i8XrcOLCwZFK+ODzxZppHPT5dvyMSaClEnJe9gMW5PN4ycr/DxbMDdtoHIC54
-	/fP2QULkKHQEVp/gu2JcW8SUresSTsH/yADLcVsh+U+BfY8iD9n2vHv4Yk8OfYtFj+9i59hiftNgT
-	/NFPLM1g==;
+	bh=3LuHCHpuveXkpSQUcYt/4aNBi7uFbOG/3oEGn8E8LXY=; b=Of00jrt9VEpMN5s5LmDVzzHjfs
+	EKZzTlY6T7dQBSIikbxw3BoWKaNv+VqToWn4KYkviKsXVuhedrjjmguBBGNMuMGhOQ2ehTREaKOwj
+	4fZ/EAmrnzvOJg7qrQvdUVcKUk+HOtPJ3QpRl4wyNeSfbuaaCIqHs4GJOo7Jinl4tmrU91nky7D/0
+	AxVLRJfZ6SlqKD2jsl14KXqXu5C+kqb1+Bsy9o7L5t4W7C+khpDeyI7RsSsPOh62r0gC/23Ig4/3v
+	6ag8yYDueeCEYvqdnUlkxbJPnHOqvAezEZ55BwgiBhfnatrxXbo4Dgj0jfHvefbvJmec72viamHQC
+	1Bd4sZCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQSS-00000009DX5-0Td6;
-	Wed, 12 Mar 2025 18:05:32 +0000
-Received: from foss.arm.com ([217.140.110.172])
+	id 1tsQU4-00000009Dg3-3Hae;
+	Wed, 12 Mar 2025 18:07:12 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQOY-00000009Cum-1QoG
+	id 1tsQS0-00000009DR6-2oww
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 18:01:32 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C93D41515;
-	Wed, 12 Mar 2025 11:01:39 -0700 (PDT)
-Received: from [10.1.196.40] (e121345-lin.cambridge.arm.com [10.1.196.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5FE553F5A1;
-	Wed, 12 Mar 2025 11:01:27 -0700 (PDT)
-Message-ID: <2d47815d-6bee-4d1f-8b60-854763794bf6@arm.com>
-Date: Wed, 12 Mar 2025 18:01:25 +0000
+	Wed, 12 Mar 2025 18:05:06 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id 1B63C210B155;
+	Wed, 12 Mar 2025 11:05:02 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 1B63C210B155
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741802702;
+	bh=3LuHCHpuveXkpSQUcYt/4aNBi7uFbOG/3oEGn8E8LXY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=jYKT7aaV5gspSop8H5hJDvSoYzQZSeYlg64Ifr722u0Nb9Lg5Imcrfh9r7PIfD5lT
+	 6Gx7WdXYzK5Qkk74C6o++r7isZrfq5nwtn1HQ8mbeg+mlVaPIh0Da7Nxn0zjSmQ6i1
+	 ISWSMrdAV6mX4SniwmTsX/jUZuFL1ANTVkqQw/UY=
+Message-ID: <8520ef42-6cb4-4e14-9700-de7ae8a99ae8@linux.microsoft.com>
+Date: Wed, 12 Mar 2025 11:04:37 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/5] iommu/arm-smmu: Save additional information on
- context fault
-To: Rob Clark <robdclark@gmail.com>, Will Deacon <will@kernel.org>
-Cc: Connor Abbott <cwabbott0@gmail.com>, Joerg Roedel <joro@8bytes.org>,
- Sean Paul <sean@poorly.run>, Konrad Dybcio <konradybcio@kernel.org>,
- Abhinav Kumar <quic_abhinavk@quicinc.com>,
- Dmitry Baryshkov <dmitry.baryshkov@linaro.org>,
- Marijn Suijten <marijn.suijten@somainline.org>, iommu@lists.linux.dev,
- linux-arm-msm@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- freedreno@lists.freedesktop.org
-References: <20250304-msm-gpu-fault-fixes-next-v4-0-be14be37f4c3@gmail.com>
- <20250304-msm-gpu-fault-fixes-next-v4-1-be14be37f4c3@gmail.com>
- <20250311180553.GB5216@willie-the-truck>
- <CACu1E7GzCiO2b7AFJSDC+pN2VD9VaD2aYz_GGymM3-xAUqd__A@mail.gmail.com>
- <20250312130525.GC6181@willie-the-truck>
- <CAF6AEGvqYithLFAKpfdkw35DEsUZ8rBt25-oWz3r=kaLt+RbQw@mail.gmail.com>
- <20250312164735.GA6561@willie-the-truck>
- <CAF6AEGskyoemQDrTXh=ewf61e-hVzWMjmqe=nX2J-65W5-M6Zw@mail.gmail.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <CAF6AEGskyoemQDrTXh=ewf61e-hVzWMjmqe=nX2J-65W5-M6Zw@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v5 02/10] x86/mshyperv: Add support for extended Hyper-V
+ features
+To: Michael Kelley <mhklinux@outlook.com>,
+ "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
+ "x86@kernel.org" <x86@kernel.org>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-arch@vger.kernel.org" <linux-arch@vger.kernel.org>,
+ "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>
+Cc: "kys@microsoft.com" <kys@microsoft.com>,
+ "haiyangz@microsoft.com" <haiyangz@microsoft.com>,
+ "wei.liu@kernel.org" <wei.liu@kernel.org>,
+ "decui@microsoft.com" <decui@microsoft.com>,
+ "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+ "will@kernel.org" <will@kernel.org>, "tglx@linutronix.de"
+ <tglx@linutronix.de>, "mingo@redhat.com" <mingo@redhat.com>,
+ "bp@alien8.de" <bp@alien8.de>,
+ "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
+ "hpa@zytor.com" <hpa@zytor.com>,
+ "daniel.lezcano@linaro.org" <daniel.lezcano@linaro.org>,
+ "joro@8bytes.org" <joro@8bytes.org>,
+ "robin.murphy@arm.com" <robin.murphy@arm.com>, "arnd@arndb.de"
+ <arnd@arndb.de>,
+ "jinankjain@linux.microsoft.com" <jinankjain@linux.microsoft.com>,
+ "muminulrussell@gmail.com" <muminulrussell@gmail.com>,
+ "skinsburskii@linux.microsoft.com" <skinsburskii@linux.microsoft.com>,
+ "mrathor@linux.microsoft.com" <mrathor@linux.microsoft.com>,
+ "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
+ "apais@linux.microsoft.com" <apais@linux.microsoft.com>,
+ "Tianyu.Lan@microsoft.com" <Tianyu.Lan@microsoft.com>,
+ "stanislav.kinsburskiy@gmail.com" <stanislav.kinsburskiy@gmail.com>,
+ "gregkh@linuxfoundation.org" <gregkh@linuxfoundation.org>,
+ "vkuznets@redhat.com" <vkuznets@redhat.com>,
+ "prapal@linux.microsoft.com" <prapal@linux.microsoft.com>,
+ "muislam@microsoft.com" <muislam@microsoft.com>,
+ "anrayabh@linux.microsoft.com" <anrayabh@linux.microsoft.com>,
+ "rafael@kernel.org" <rafael@kernel.org>, "lenb@kernel.org"
+ <lenb@kernel.org>, "corbet@lwn.net" <corbet@lwn.net>
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-3-git-send-email-nunodasneves@linux.microsoft.com>
+ <SN6PR02MB4157CBBC2D186E1944E6773AD4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <SN6PR02MB4157CBBC2D186E1944E6773AD4CA2@SN6PR02MB4157.namprd02.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_110130_471757_87AD8BA5 
-X-CRM114-Status: GOOD (  21.87  )
+X-CRM114-CacheID: sfid-20250312_110504_764403_2FC4BE53 
+X-CRM114-Status: GOOD (  19.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,80 +106,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12/03/2025 5:23 pm, Rob Clark wrote:
-> On Wed, Mar 12, 2025 at 9:47 AM Will Deacon <will@kernel.org> wrote:
+On 3/6/2025 10:30 AM, Michael Kelley wrote:
+> From: Nuno Das Neves <nunodasneves@linux.microsoft.com> Sent: Wednesday, February 26, 2025 3:08 PM
 >>
->> On Wed, Mar 12, 2025 at 07:59:52AM -0700, Rob Clark wrote:
->>> On Wed, Mar 12, 2025 at 6:05 AM Will Deacon <will@kernel.org> wrote:
->>>> On Tue, Mar 11, 2025 at 06:36:38PM -0400, Connor Abbott wrote:
->>>>> On Tue, Mar 11, 2025 at 2:06 PM Will Deacon <will@kernel.org> wrote:
->>>>>> On Tue, Mar 04, 2025 at 11:56:47AM -0500, Connor Abbott wrote:
->>>>>>> diff --git a/drivers/iommu/arm/arm-smmu/arm-smmu.c b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>> index ade4684c14c9b2724a71e2457288dbfaf7562c83..a9213e0f1579d1e3be0bfba75eea1d5de23117de 100644
->>>>>>> --- a/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>> +++ b/drivers/iommu/arm/arm-smmu/arm-smmu.c
->>>>>>> @@ -409,9 +409,12 @@ void arm_smmu_read_context_fault_info(struct arm_smmu_device *smmu, int idx,
->>>>>>>                                      struct arm_smmu_context_fault_info *cfi)
->>>>>>>   {
->>>>>>>        cfi->iova = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_FAR);
->>>>>>> +     cfi->ttbr0 = arm_smmu_cb_readq(smmu, idx, ARM_SMMU_CB_TTBR0);
->>>>>>>        cfi->fsr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSR);
->>>>>>> -     cfi->fsynr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
->>>>>>> +     cfi->fsynr0 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR0);
->>>>>>> +     cfi->fsynr1 = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_FSYNR1);
->>>>>>
->>>>>> We already have an implementation hook (->get_fault_info()) which the
->>>>>> qcom SMMU driver can override with qcom_adreno_smmu_get_fault_info().
->>>>>> That thing dumps these registers already so if we're moving that into
->>>>>> the core SMMU driver, let's get rid of the hook and move everybody over
->>>>>> rather than having it done in both places.
->>>>>
->>>>> As you probably saw, the next commit moves over
->>>>> qcom_adreno_smmu_get_fault_info() to use this. The current back door
->>>>> used by drm/msm to access these functions is specific to adreno_smmu
->>>>> and there isn't an equivalent interface to allow it to call a generic
->>>>> SMMU function so it isn't possible to move it entirely to the core. At
->>>>> least not without a bigger refactoring that isn't justified for this
->>>>> series that is just trying to fix things.
->>>>
->>>> Ok :(
->>>>
->>>>>>>        cfi->cbfrsynra = arm_smmu_gr1_read(smmu, ARM_SMMU_GR1_CBFRSYNRA(idx));
->>>>>>> +     cfi->contextidr = arm_smmu_cb_read(smmu, idx, ARM_SMMU_CB_CONTEXTIDR);
->>>>>>
->>>>>> I think the CONTEXTIDR register is stage-1 only, so we shouldn't dump
->>>>>> it for stage-2 domains.
->>>>>>
->>>>> Does it matter if we read the register though, as long as users are
->>>>> aware of this and don't use its value for anything?
->>>>
->>>> I think the contents are "UNKNOWN", so it could be hugely confusing even
->>>> if they just got logged someplace. Why is it difficult to avoid touching
->>>> it for stage-2?
->>>>
->>> Fwiw, we are only ever using stage-1
+>> From: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
 >>
->> Sure, but this is in arm-smmu.c which is used by other people and supports
->> both stages.
+>> Extend the "ms_hyperv_info" structure to include a new field,
+>> "ext_features", for capturing extended Hyper-V features.
+>> Update the "ms_hyperv_init_platform" function to retrieve these features
+>> using the cpuid instruction and include them in the informational output.
+>>
+>> Signed-off-by: Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>
+>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>> ---
+>>  arch/x86/kernel/cpu/mshyperv.c | 6 ++++--
+>>  include/asm-generic/mshyperv.h | 1 +
+>>  2 files changed, 5 insertions(+), 2 deletions(-)
+>>
+>> diff --git a/arch/x86/kernel/cpu/mshyperv.c b/arch/x86/kernel/cpu/mshyperv.c
+>> index 4f01f424ea5b..2c29dfd6de19 100644
+>> --- a/arch/x86/kernel/cpu/mshyperv.c
+>> +++ b/arch/x86/kernel/cpu/mshyperv.c
+>> @@ -434,13 +434,15 @@ static void __init ms_hyperv_init_platform(void)
+>>  	 */
+>>  	ms_hyperv.features = cpuid_eax(HYPERV_CPUID_FEATURES);
+>>  	ms_hyperv.priv_high = cpuid_ebx(HYPERV_CPUID_FEATURES);
+>> +	ms_hyperv.ext_features = cpuid_ecx(HYPERV_CPUID_FEATURES);
+>>  	ms_hyperv.misc_features = cpuid_edx(HYPERV_CPUID_FEATURES);
+>>  	ms_hyperv.hints    = cpuid_eax(HYPERV_CPUID_ENLIGHTMENT_INFO);
+>>
+>>  	hv_max_functions_eax = cpuid_eax(HYPERV_CPUID_VENDOR_AND_MAX_FUNCTIONS);
+>>
+>> -	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, hints 0x%x, misc 0x%x\n",
+>> -		ms_hyperv.features, ms_hyperv.priv_high, ms_hyperv.hints,
+>> +	pr_info("Hyper-V: privilege flags low 0x%x, high 0x%x, ext 0x%x, hints 0x%x, misc 0x%x\n",
+>> +		ms_hyperv.features, ms_hyperv.priv_high,
+>> +		ms_hyperv.ext_features, ms_hyperv.hints,
+>>  		ms_hyperv.misc_features);
+>>
+>>  	ms_hyperv.max_vp_index = cpuid_eax(HYPERV_CPUID_IMPLEMENT_LIMITS);
+>> diff --git a/include/asm-generic/mshyperv.h b/include/asm-generic/mshyperv.h
+>> index dc4729dba9ef..c020d5d0ec2a 100644
+>> --- a/include/asm-generic/mshyperv.h
+>> +++ b/include/asm-generic/mshyperv.h
+>> @@ -36,6 +36,7 @@ enum hv_partition_type {
+>>  struct ms_hyperv_info {
+>>  	u32 features;
+>>  	u32 priv_high;
+>> +	u32 ext_features;
+>>  	u32 misc_features;
+>>  	u32 hints;
+>>  	u32 nested_features;
+>> --
+>> 2.34.1
 > 
-> Sure, but no one else is using this field in the fault-info.  So maybe
-> the addition of a comment in the struct would be enough if it isn't
-> going to cause an SError/etc to read it for S2 cb?
+> Are any of the extended features available on arm64? This code is obviously x86 specific,
+> so ms_hyperv.ext_features will be zero on arm64. From what I can see, ext_features is
+> referenced only in Patch 10 of this series, and in code that is under #ifdef CONFIG_X86_64,
+> so that should be OK.
 
-Any worthwhile comment isn't going to be significantly shorter or 
-clearer than 1 extra line of "if (smmu_domain->stage == 
-ARM_SMMU_DOMAIN_S1)"...
+Just checked - yes ARM64 has features in ECX, but they are different to the x86_64 ones.
+We can add the ARM64 ones when needed.
 
-TBH it's the Qualcomm register-middle-man firmware I'd be more worried 
-about than real hardware, given how touchy it can be even with register 
-accesses which *should* be well defined. But then I guess it also has 
-the habit of killing the system if anything other than the GPU dares 
-cause a fault in the first place, so maybe it OK?
+Thanks
+Nuno
 
-If anyone still uses Arm Fast Models SMMUv1/2 components it'll probably 
-squawk an annoying warning there too - ISTR I had at least one patch 
-motivated by that in the past.
+> 
+> The pr_info() line will now be slightly different on x86 and arm64 since arm64 won't have
+> the "ext" field, but I think that's OK too.
+> 
+> Reviewed-by: Michael Kelley <mhklinux@outlook.com>
 
-Thanks,
-Robin.
 
