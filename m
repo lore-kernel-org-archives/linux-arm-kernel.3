@@ -4,71 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7017C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:09:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76524C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 17:22:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NPahDtGB0eHX6tHdTRooDg7Dv8wmlnQnTRhJNnGeoCc=; b=nku2u9Cx4o9yaCUgB/HFzg7aCh
-	7jQKfZ9gNT2nDkLeKMBx9G2kTYGzMNM+buI47oY0+RbnA0QUDPiRgvByLt15xB4XsCPN/Iqq/4/6A
-	hZTlzSk+FsxbFPVWH9gfvn6LqnlLQ7wX2nQ99VOOcAPlsJ6yvTn6KYoAq6EJQdiOCZ5QbqD8IaLI/
-	pMEBL2JVj9xvm9BTXVxTR5GN1R3qkTMrA1koyAjzIOjhDfLxBzzXycjydwKWfbfEna//CyzMoEaqE
-	TvxodfuOXp5TyRp4KwWjTekAdofUGbOjm6X/T1r1PIJBWOWz9DOvsOscOUPmNjOqIQJ6bAcjmIGXL
-	6erTJJZg==;
+	bh=mOs7eQJLJCUGEFSay4U24A8ybWT+TL/OSie+j9EubR4=; b=nyLOuMiXxxwALUipzhkuUfY0p2
+	L4GromBFnrjwddoPtk26mnpaRIOeSBFc+zTKVXtj4IaAAU4ZVNFwSp1Ie1CrHy7BEASryxi4OaDlb
+	QC3LMAwDjcag5ziJ0VXn64mYKy5ehyBHuMW5+gI2KlEa8TfEgI4yfeF8CgeorA3dW+GtgSNkw8qZk
+	kUjaDen+rxCNplT6t4tZIvbxDJER7Fg9/VH+qT94s4+TUUjWisykLiSNWXoIEM6lTWyJfiCVWRXsm
+	i2hFn6CE1+jrbYhft1DLlCQIQzZjT2WzuKbphdn9nlTHEtUdIyAeXD0d6rOvxSbrj8EpuRGj3LENJ
+	m4aiMqpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPa8-000000095xt-1IBT;
-	Wed, 12 Mar 2025 17:09:24 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsPmM-000000097Jv-1Zbv;
+	Wed, 12 Mar 2025 17:22:02 +0000
+Received: from out-182.mta0.migadu.com ([2001:41d0:1004:224b::b6])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsPXM-000000095Tp-28SH;
-	Wed, 12 Mar 2025 17:06:33 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id C1D815C5CD7;
-	Wed, 12 Mar 2025 17:04:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3862FC4CEEA;
-	Wed, 12 Mar 2025 17:06:27 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741799191;
-	bh=Ku0zOGsgy8nW6TnGyeloxNuOmdzoa1Y4XqlQKPQdjPc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BUkNneDdy4EQ1GGzUpIewE4E4iTQmS0e9bVbzsMi3PHjvkj/O783BQSn5VTPFDGxt
-	 vuoTI0RaaY5t6ILNVue9uAIPvOq0kMnkTgl7nCMOhXZlkF++JB7ZrZPOOPiRqrJdSk
-	 +65SdIAYPreQ+sHathgQZz6hLTU6KOeAM/unXaVoXTrqu8VILDKEJqH5dmcueyfsfh
-	 niXA2hvWzDVU/nG1EBbBiJ1bkU0LlMYugSqNxEEAGc8ohDaEnOlQAPw3Nmifoy6EmK
-	 CwUPkmPAPJOnKVFkDCVOLiB3XBrEvLS4tzRW+29IxIToXuU+s4pcECGhuYLO0UzvRY
-	 prTE+ERTfIQ3g==
-Date: Wed, 12 Mar 2025 18:06:21 +0100
-From: Simon Horman <horms@kernel.org>
-To: Jonas Karlman <jonas@kwiboo.se>
-Cc: Heiko Stuebner <heiko@sntech.de>, Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S . Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, netdev@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH v2 3/3] net: stmmac: dwmac-rk: Remove unneeded GRF and
- peripheral GRF checks
-Message-ID: <20250312170621.GW4159220@kernel.org>
-References: <20250308213720.2517944-1-jonas@kwiboo.se>
- <20250308213720.2517944-4-jonas@kwiboo.se>
+	id 1tsPkf-000000096mr-1IE2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 17:20:19 +0000
+Date: Wed, 12 Mar 2025 10:20:03 -0700
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
+	t=1741800012;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=mOs7eQJLJCUGEFSay4U24A8ybWT+TL/OSie+j9EubR4=;
+	b=K9VX7JmHz2x3px/JqTTXS6bOObpnE8iYmASgHZpf3YaLhlObaD2TuQ6CegwZRFbF1bPcsu
+	zsfhYfG64gFgM94Jjm6QbVRfeDERlVdDlrZwDlfU8QJWPWAxySkVUdGzcVY7Vqq77Ibu56
+	DwzXcJmp8MdTB6NrovutjeQmdpHOAEM=
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: Oliver Upton <oliver.upton@linux.dev>
+To: Sebastian Ott <sebott@redhat.com>
+Cc: Marc Zyngier <maz@kernel.org>, Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Writable TGRAN*_2
+Message-ID: <Z9HCQ40LxShzL4nj@linux.dev>
+References: <20250306184013.30008-1-sebott@redhat.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250308213720.2517944-4-jonas@kwiboo.se>
+In-Reply-To: <20250306184013.30008-1-sebott@redhat.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_100632_588952_6106465F 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_102017_803981_86AFD6A2 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,15 +71,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Mar 08, 2025 at 09:37:15PM +0000, Jonas Karlman wrote:
-> Now that GRF, and peripheral GRF where needed, is validated at probe
-> time there is no longer any need to check and log an error in each SoC
-> specific operation.
-> 
-> Remove unneeded IS_ERR() checks and early bail out from each SoC
-> specific operation.
-> 
-> Signed-off-by: Jonas Karlman <jonas@kwiboo.se>
+Hi Sebastian,
 
-Reviewed-by: Simon Horman <horms@kernel.org>
+On Thu, Mar 06, 2025 at 07:40:13PM +0100, Sebastian Ott wrote:
+> Allow userspace to write the safe (NI) value for ID_AA64MMFR0_EL1.TGRAN*_2.
+> Disallow to change these fields for NV since kvm provides a sanitized view
+> for them based on the PAGE_SIZE.
+> Also add these bits to the set_id_regs selftest.
+> 
+> Signed-off-by: Sebastian Ott <sebott@redhat.com>
+
+I can't tell what you've based this patch on, it certainly doesn't apply
+on a 6.14 rc. Consider telling git to include the base commit next time
+you generate a patch.
+
+> ---
+>  arch/arm64/kvm/sys_regs.c                     | 21 +++++++++++++++----
+>  .../testing/selftests/kvm/arm64/set_id_regs.c |  3 +++
+>  2 files changed, 20 insertions(+), 4 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 14faf213d483..0730ed8314d0 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1948,6 +1948,21 @@ static int set_id_aa64pfr1_el1(struct kvm_vcpu *vcpu,
+>  	return set_id_reg(vcpu, rd, user_val);
+>  }
+>  
+> +static int set_id_aa64mmfr0_el1(struct kvm_vcpu *vcpu,
+> +				const struct sys_reg_desc *rd, u64 user_val)
+> +{
+> +	u64 sanitized_val = kvm_read_sanitised_id_reg(vcpu, rd);
+> +	u64 tgran2_mask = ID_AA64MMFR0_EL1_TGRAN4_2_MASK |
+> +			  ID_AA64MMFR0_EL1_TGRAN16_2_MASK |
+> +			  ID_AA64MMFR0_EL1_TGRAN64_2_MASK;
+> +
+> +	if (vcpu_has_nv(vcpu) &&
+> +	    ((sanitized_val & tgran2_mask) != (user_val & tgran2_mask)))
+> +		return -EINVAL;
+> +
+> +	return set_id_reg(vcpu, rd, user_val);
+> +}
+> +
+>  static int set_id_aa64mmfr2_el1(struct kvm_vcpu *vcpu,
+>  				const struct sys_reg_desc *rd, u64 user_val)
+>  {
+> @@ -2787,10 +2802,8 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  	ID_UNALLOCATED(6,7),
+>  
+>  	/* CRm=7 */
+> -	ID_WRITABLE(ID_AA64MMFR0_EL1, ~(ID_AA64MMFR0_EL1_RES0 |
+> -					ID_AA64MMFR0_EL1_TGRAN4_2 |
+> -					ID_AA64MMFR0_EL1_TGRAN64_2 |
+> -					ID_AA64MMFR0_EL1_TGRAN16_2 |
+> +	ID_FILTERED(ID_AA64MMFR0_EL1, id_aa64mmfr0_el1,
+> +				      ~(ID_AA64MMFR0_EL1_RES0 |
+>  					ID_AA64MMFR0_EL1_ASIDBITS)),
+>  	ID_WRITABLE(ID_AA64MMFR1_EL1, ~(ID_AA64MMFR1_EL1_RES0 |
+>  					ID_AA64MMFR1_EL1_HCX |
+> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> index 1d65f4a09e6f..322b9d3b0125 100644
+> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> @@ -146,6 +146,9 @@ static const struct reg_ftr_bits ftr_id_aa64pfr1_el1[] = {
+>  static const struct reg_ftr_bits ftr_id_aa64mmfr0_el1[] = {
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, ECV, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, EXS, 0),
+> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN4_2, 1),
+> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN64_2, 1),
+> +	REG_FTR_BITS(FTR_EXACT, ID_AA64MMFR0_EL1, TGRAN16_2, 1),
+>  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN4, 0),
+>  	S_REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN64, 0),
+>  	REG_FTR_BITS(FTR_LOWER_SAFE, ID_AA64MMFR0_EL1, TGRAN16, 0),
+
+Please do selftests changes in a separate patch.
+
+Don't worry about respinning, I'll fix this up and queue it in a moment.
+
+Thanks,
+Oliver
 
