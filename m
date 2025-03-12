@@ -4,174 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1AEDCC28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA022C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:21:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ERf+ymyqRiU8mcDEb2pLA8db02g8C2m6b1cNm9H2Z98=; b=FJAGmtDNXnjDFbuoPUYNP1LIDe
-	bl1j1CVcSvBw2jRYVo2u673wzGHhE74Vo57kodFgTalEy8eqPQVbOjfm2N5fKEdbs3lkJE4l0+4+T
-	BaNsp5JjHOp+EBYKKDxexnQ/fGK3HWyN0TN0HzQwGQoCiUP3JaqyG/bOn0PZ1HGLSsUWFtrRNTZ0i
-	fm+IYktduADz6lgtDJ+seAz93TbqEbcrn8fwtfgLsQFrumA52Nbp43SfpPhs8PnfEOAuGQ3DvzKk8
-	EWlNu+HSvNwuh78b+S5h2VeVgG5IU78z94F0IxOiIhEykZF2944zgCzVkw+437OPCbXZDDDiXK52e
-	6rhPvGVg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bAnXaXan8q+eIeBPOO4LIWIu74EXVlerHh73XPW6Gr0=; b=06938FIb4/KTcxggJ5XHyi7sgY
+	Sg1M7Rd1qS8sXZVMfvxOUtJvNUpdE4tz6k+j5DkewsMvPIx92vyhBYwkhyzDxOC9j2H9aNUsz0DtP
+	MMdayr6e8CdnKlfkC4EQ6TIQIsKPjTUBuyfoF6H0EbaPMnGUSLMgoulPnPpq7gcC60HLwxDgvmd1M
+	wizKOnJsHyHu37nLlWfBQyjy+VfzdpFwaTj+q2FbSOe6AnzBvXQPBJnBIR1kxHWqUefBiYOyMJpYy
+	VwKDJeQCfswIpdIim2fOdbsUUaKRAkAlX1oKhxW1bI3yuwluPl31T6Wnbqr43Drw1spKr0Imv0lPq
+	DGIlEvBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJB9-000000085lC-1xOV;
-	Wed, 12 Mar 2025 10:19:11 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1tsJDB-00000008664-2hDJ;
+	Wed, 12 Mar 2025 10:21:17 +0000
+Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJ7x-000000085Mc-3hBY;
-	Wed, 12 Mar 2025 10:15:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HMuE3kXp052e+yon0eotBtXokFyywlUjoXQr5ChRR+8ylvbrkFz49YasKo3ORJs6yaYb8asYwhAwdJ954JKUqPYQk7LCU8V5BKeZL3+CqH86MhK6LEnN9bay1T9jKXnlenfqcA/jZgy/AEz0CGInyYqc6cST1ycCaf0Sy+IbZB0tuzuMqQ/4BZ6BV4YugeRXTzE8+GTApS4xFNtUXtHCGCMtu6EUlU3STxRUhdeRpgxbB2aazk4MSn8geoGqcnjBU635PUzLE0eRiuxir0VQ5HaS4hF2Vwgcsc0CcdN/weKneGuO4SxS6NWudrc4jKIl7+vhNJK6d+RwTPFv4vC2yQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ERf+ymyqRiU8mcDEb2pLA8db02g8C2m6b1cNm9H2Z98=;
- b=kPZUvbvNVVNBVn7xIgXjsR78Hp5QsUKdF1QjbOql3AntNHfKyIhtVehBcecZfRNspYl+j972ZboMIQygmMmcdcrZ+oQR3Oiq7TQNyH1jyEQ+W81jjBUIeEY29IpwrR0NMQ4rGaUWQOhMQ/a0qXM6YtswdiuTnU7p38G9xuH6/Xp0rNkZh1ojbYyva6BOcqiRjZ690G+Yft+1jk29bbIiU9z2kBNSqVbWiqk8ZnEGQJ+38f8i17CIbC6Ki7lVvXxAorAgdQ7OnJ34Anoej6GRGhvJYnV/K90mYBl2IauX9hdVSyvQvXqeMNeKHhBDIY5qXzw7AnZca5KJ59PzMeK4fg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cherry.de; dmarc=pass action=none header.from=cherry.de;
- dkim=pass header.d=cherry.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cherry.de;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ERf+ymyqRiU8mcDEb2pLA8db02g8C2m6b1cNm9H2Z98=;
- b=AF7icau2ypiDtTMOuRq/6cNPcaliDtM9llGltJPpbrHW7UjsIAu8sW8xr3xxhU/7YygNx+L7cX4oPU372JMSYKTTCHlBpUeXCXf9Z2w6LlL4abwgHAPOUwgF95LPE948X7/Fjhc6m/UIU7G8Rt/t1zrro3Ot1mAXL5gCNo8FpGE=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cherry.de;
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com (2603:10a6:20b:42c::20)
- by DU0PR04MB9251.eurprd04.prod.outlook.com (2603:10a6:10:352::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Wed, 12 Mar
- 2025 10:15:43 +0000
-Received: from AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a]) by AS8PR04MB8897.eurprd04.prod.outlook.com
- ([fe80::35f6:bc7d:633:369a%6]) with mapi id 15.20.8511.026; Wed, 12 Mar 2025
- 10:15:43 +0000
-Message-ID: <e55125ed-64fb-455e-b1e4-cebe2cf006e4@cherry.de>
-Date: Wed, 12 Mar 2025 11:15:42 +0100
+	id 1tsJBW-000000085r3-03Vg
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 10:19:35 +0000
+Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-391342fc0b5so5597416f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:19:33 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741774772; x=1742379572; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=bAnXaXan8q+eIeBPOO4LIWIu74EXVlerHh73XPW6Gr0=;
+        b=kHwNJ2gkNWF8ktDW52o297iPYKnQ0fPMy3XY3p/7DXKrfaBQN7rXxsd89hTGlH3X5g
+         DGo89OENEU8Q1NGH9Ju1H+o7QQY2OUrkd5/1o2sjUT3hh8wZ3W7j1eyKmMKXZQYyMwXE
+         fx2HbjbocdHNH1NlRrGibwmAUztlaX+31/bwT85o8RkHOBFlHQoI4C5iHHji3pvyvuWR
+         cIp325Y6KUk2w0EivvUaP4pS+EmFGMqAnODMbHQWhsWrMsvVYocXcRqdaQHhKCiG+vH0
+         vM8WrAY7k2nSLWO5Of8TwjuAX8jSrmFDUr6vGbDYsllxSuhm90W3Qg4ztp5b/431P90l
+         TZEA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741774772; x=1742379572;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=bAnXaXan8q+eIeBPOO4LIWIu74EXVlerHh73XPW6Gr0=;
+        b=SKQ41Ih13tb+K2HQpIkbqhKXtbZNUWLe6N6f8hT/zHBMfvScKtYwSIB9ngJd9g6NBg
+         1M542Fzpr0f6fzPA4maHzWgW8OoiaYIGZO03xyyr6v2Kjc8eYlfxX+JQQPuQIgA0/ZKu
+         5e5SG4a4kdgfyvJk6AzqiLQcRJ60TuoD7rW0Fg4/Ffhd+QL+7PIZDsqIhYNeIaF/iech
+         Wu8Osgtayqha8SZJrlVP1mp+2L6F/gkiLKs5+Lfz6pnmMZUSjWhzuAVpP586SBZGUK8v
+         DyTVqyOfZjf1ngzMycaDSfxzy7Vh2uZkcr9NbsSmeTA26evlX20aV4+JzxeTelVN4dEQ
+         NLyw==
+X-Forwarded-Encrypted: i=1; AJvYcCU0l753HQP0zsgt4xU/RS26qbQgsxkRAa5GYVFBf2E+v9nnywKni2eTROlxJHY7k4mFkAuzmh/ctUtEPoqiZoSK@lists.infradead.org
+X-Gm-Message-State: AOJu0YwX61LPTfJCDzb3NdZ1NJFVo2mYHJiWOpZcJzOuhdf6tCMTXUPi
+	zFcO29n7Gs4vWef+fDgYJDWTqgGdXqRL9mz5bC2qrfb5wjJFy8I/oqvJIYW+6Eg=
+X-Gm-Gg: ASbGncvmfEJf5AiV1xRDmnKr3nfABfCuwoGIrmE3R8qUBlhWXWRy5XlgDCKHBTz4cax
+	bjUAuINB6LkQ0XFaphiY7xQfZwFkleuBQiNtRQx0rwAsFLSWzj2/R/aK1x7EcOKz6Mu5noD3IS8
+	87iVIYOofMHMwM1ldLw9D37AkacfHlkdTy/NNRqtj1cVF20GpkBtHsbX0vaRb4rkk4412yV+l1J
+	d3aYwtNzmLGrC7VxYDSo5WdfQo6NZXRLPVS8hwrMGFZOfS5MhchnyodDjy3hOxD1+BMkBl5vSox
+	BH4rb/IvnOLPUpd4oVD57MHyWnMDZAfuvpV8OUiJnkUTcHWeEYGpCg==
+X-Google-Smtp-Source: AGHT+IGR/07Qmf9smabg6S6zn97UBtsm5Jw10Ieg0WIleNha8nV/NH57N3KXiYK+7r8Klg1AgUB0Eg==
+X-Received: by 2002:a5d:6d8f:0:b0:38d:d9e4:9ba6 with SMTP id ffacd0b85a97d-39132d090b1mr18246613f8f.3.1741774772405;
+        Wed, 12 Mar 2025 03:19:32 -0700 (PDT)
+Received: from [192.168.1.247] ([209.198.129.86])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfba686sm21058822f8f.19.2025.03.12.03.19.31
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Mar 2025 03:19:32 -0700 (PDT)
+Message-ID: <4d058a15-376a-4e9a-bfc0-06bd4ffbd71a@linaro.org>
+Date: Wed, 12 Mar 2025 10:19:30 +0000
+MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
- on RK3588j
-To: Alexey Charkov <alchark@gmail.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>
-Cc: Rob Herring <robh+dt@kernel.org>,
- Krzysztof Kozlowski <krzysztof.kozlowski+dt@linaro.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Dragan Simic
- <dsimic@manjaro.org>, Viresh Kumar <viresh.kumar@linaro.org>,
- Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas <didi.debian@cknow.org>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Kever Yang <kever.yang@rock-chips.com>
-References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
- <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
- <CABjd4Yw-r-ogfwcrph4K1wbkybS25gk6LFg8wpqLG27uWdybNA@mail.gmail.com>
- <2914631.KiezcSG77Q@diego>
- <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
+Subject: Re: [PATCH v3] coresight: Add a KUnit test for
+ coresight_find_default_sink()
+To: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Leo Yan <leo.yan@arm.com>
+Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250312-james-cs-kunit-test-v3-1-dcfb69730161@linaro.org>
+ <d6194071-bc52-4f67-a36e-fc8d9d1be94c@arm.com>
 Content-Language: en-US
-From: Quentin Schulz <quentin.schulz@cherry.de>
-In-Reply-To: <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <d6194071-bc52-4f67-a36e-fc8d9d1be94c@arm.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: FR0P281CA0016.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:15::21) To AS8PR04MB8897.eurprd04.prod.outlook.com
- (2603:10a6:20b:42c::20)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8897:EE_|DU0PR04MB9251:EE_
-X-MS-Office365-Filtering-Correlation-Id: de83757c-635e-4723-4c33-08dd614ed8d5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Wm1zUnVLM1lOclU2YTBNUXN3UTZZY1hkT1pjejUySGpvdUdkVzFiblFucnN5?=
- =?utf-8?B?VDE5alBKTTV2MjMrRmt2VW92cGhuYVpZQ1drUEJOMXNWN2haNlo5dXVRbmFW?=
- =?utf-8?B?VURtK3krQXlNdWxxZHc1NGMvanIzVWpBVGFWMk54dVhlVjg0ZStFd1ZTQnF1?=
- =?utf-8?B?Z1owcUF6QjMrMXdmVlFUYUhTZ1RtK2JhSFVSeW85QzRWT0w2TWUrOWpjM0JV?=
- =?utf-8?B?djJ2UGM4aWlPUXBjN1FYVWJsck8xczZHbzg4aXRYMFdqQ0lCVTNWT1J1R2dx?=
- =?utf-8?B?aVU2b1U4TkJ6MWdNYmMzZDFTU29FMEJlY0JXVUlOUVlRb0VTOVZlcVA3WFVr?=
- =?utf-8?B?SlBvTS9mTXdwRmpGbkdxUHJ4ZGNLdWk3dmNTVkY2MU50MUdWVDBHdVF3dGIr?=
- =?utf-8?B?RWtKTFZhM3F2TUlHTkVURWJlYTVLSWZzZENBWHAzWEVYVFNqcmloWTFNcjRT?=
- =?utf-8?B?dVd4SHJITDN2SGtYZUljYW5CQm4xcW9lcmEyZS83YkROS0NpWEFaVktZRUpG?=
- =?utf-8?B?WllPNjZDWTd3dks5Q1ZTYmRKek9keEZqZmlXNWUxUTNKd3BvVnVlODZSTzh0?=
- =?utf-8?B?cXlMdGVJcmlsYjBWZ21hUkdWTzN3Z1BpOXpYa095RlIzMWtzc0VZUmlTUFpv?=
- =?utf-8?B?QWtyNUl1RGs0RGllOWNLK3JYOFBBd293QVl3RXQvTjc2VXF0UkxHSzJTbkFP?=
- =?utf-8?B?SGdRRmxWbVVnREhlejhmaDJRNXI0eU1WOEtoYWUxRXl6N2lNbW1VT2lnQ3Ir?=
- =?utf-8?B?RERiek8wbzh2RGsyYUhFOFUydDBDSHJ1WWpReDdvZDQzOVI0bFcyeDhTRnV3?=
- =?utf-8?B?bHNEM2ZUQ2pWZHBPU20rR1ByaG9CcVZxOExMVHZiZ2RHOE5HM3BaWm9mdnow?=
- =?utf-8?B?Nm83RVg0R2h6TG41cFkxeTVYa2N3WHQyNVFOamFKSUpjUm1WRE41SFFUbTkr?=
- =?utf-8?B?dk5SU2NHaUt2VUFlTU1nQ09sd2cvTnpTWDNGd2xLWUxPdXo4dEd5QUJHakdH?=
- =?utf-8?B?Q3VvVmU3aTVTTTNhVjkrYTVxL2tZVEVWWWlzeEJGT2xYVWF2WWFYRmQ5WXpH?=
- =?utf-8?B?RXFDZnRycTlaUGsrZG1uWCs1V1Z6Q1g4VGQvQzBNODBablNMRnVwQ3FmOWI3?=
- =?utf-8?B?U05ENHFGaStpSXEwbW5QdWYwMkhLZTBIemJNaVFlam4wRk10bG1aQkEzeXFF?=
- =?utf-8?B?VmtldGYzQmdhOElDcXFhSXJIZHEvQkxkUjJ6K05NMUFhUEtDSWZpSGNFR0sy?=
- =?utf-8?B?ODUrQ3pyK1NEMTNmcFpzenhJOG1BNG0yR1RYTElhQ1ZYVUlmWDdzSXRzMHUr?=
- =?utf-8?B?U2hvNWExR3kzY1pwOTdWcERuUnJSeVp4MEZGQ2VqeitHaEtsd2F3MnJBOCto?=
- =?utf-8?B?NGEvVVZQQVJmVWlsckVDOFV2cEdKaHNZM01EWWI2RUVZMGZERHRPMWV3QUpR?=
- =?utf-8?B?SllsUlZQNnkxTFpJS3hnVi9oSkZQUGR3YjZURkZLR20vNUJpUUw1ODg3RDda?=
- =?utf-8?B?TzRBZnN5NklRT1ZINXlHMk1QNE51KytIcXhUYkRqU1g4YjVUSmJ0aG8vSTdp?=
- =?utf-8?B?dy9EbzVoY0hFUG55Wkpnd0Q1Y3RLRGdoZ0tRL1RlWGI4SnFUVE8waHUrb0RL?=
- =?utf-8?B?RERid3lRYjNoREQ2WnlUUkVxWVlGSDFIOTBIalpDSEJSL0NqK2NwTFFWTmVx?=
- =?utf-8?B?d3pISzYwUkJpWlhPYmIxLzdXakJ6N0NXelZ4RXBscFRkWVFMSlpUTE5QSTcw?=
- =?utf-8?B?aVNoT2lKNnczdHNpb3cycjk4WTRYUGFGSHpBMXF6ejdlNkI0ellNTllwaHha?=
- =?utf-8?B?Ynd0K3I3MTFJKzd2VjFvUT09?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8897.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K1NxYWw4R1EwejdNbHJxZ2R2Q0RjdnAzRWE5R2lSWFJqbUJaZWlpaHdZTUpP?=
- =?utf-8?B?bnVGT29UWmt1MHdaL0hObGVFM1hETkFoaWV0alZEdHJBQWMyLzQyb0V1b0Ra?=
- =?utf-8?B?OEk2cml4Y2orVEt3b2dXSDIwcVVQNUkwRmxYcFM3Y0FaMGIwN21DVVBXR29m?=
- =?utf-8?B?c0JnbDhDWUhGdkRMV1lJampwT0VhM3NMY0ZSdE9PamRaQnl5UWtlYktyS2F3?=
- =?utf-8?B?dFNGeHdOaHhuQTFsODVPaWNQR3VMRTVKaElsd2dKTGVVc3JQbFVTV05NdHI5?=
- =?utf-8?B?TlNtcDZVQXRLR2VZVTVZUEI1Ulpsd0EyMUNZakN1WEdNaWVTK2diQ0xZT2to?=
- =?utf-8?B?eTRTbHZlci9HazB5a3hyb2VLd3psamhUNDJ6OEhjQmlKME9yVHhpWlhJbDE2?=
- =?utf-8?B?RmptRjlkNDNDL3RMNXA0ZFRoWmtFRmRIbVV5Q2FiQzN5L3pHVVJ4Sk5TUWdp?=
- =?utf-8?B?QlRqcWVCZWRKK1Bwd1RDSVE4dDZyUEl6ZnpML0hXalNmMGVtVndNN2N6QkVJ?=
- =?utf-8?B?dFh4V2RaL0ZCL2xMbmwya09TRkNRRHg2L2t6b0VUbC9ITk9iZkEwSFNxM1pO?=
- =?utf-8?B?Wm02c1ZJcG9hRWp0MkEvS1NCbGg1VTV4ZldtZWhTcW9vUCtHUzJsYWRId095?=
- =?utf-8?B?ajFrc0FVQlkzSnlURVdWanNWbHE2bGgxU3Z5dGRqd29LZzgrUzNQQlRhMHFv?=
- =?utf-8?B?SHo2SGhJY1UydEY2eEh1S2NicGJWcVpaMy96OHBNNm5DNWRGQmhEOUY4M3JN?=
- =?utf-8?B?bmNDNE5HVVBxVVdSZWZCdlY4OVpDS2xZK0ZQNk5DdkkrM2U1dzRRNFR5WDI5?=
- =?utf-8?B?eFpPVy9mY2lWRDNMbllZYTVVcWxSY050TjRuS1Y4RlovNFo1MnpVTEEvRWpH?=
- =?utf-8?B?MHNsSkI3RXhBejJTTW13Y2o3L1I0TCs2NjcwOGhFVFB0QlBJNWtRM0RxS0h5?=
- =?utf-8?B?dGJwTElmdzFhekZOYUNONWZIVGZjZWZ3MmFHOCtLTXJIRUVsSTNRUnB2OVEw?=
- =?utf-8?B?REIvblRGMnRhVzQyWUVhTC96cWxDSktjQlVFTjVpZlRSWkJuRG9XdDc3VmI3?=
- =?utf-8?B?bkNEeXlsS09TTXNhQXJGS0dmSG9HTXcvWFJQYk1sMnNCNU82Uy84d1V4SXNj?=
- =?utf-8?B?M3oxODRoWkN0aVpuTG5DNTRNWjZsa3VXSi9Ra3BvL1p3UDJXOUR2ek1jWjBS?=
- =?utf-8?B?N1RObmY2RDN5VmQvWTlUQVFQc25NZnZVb3BKRGNoaUlsV0YzOVFQcTUxWTgv?=
- =?utf-8?B?a0NRcWRJNWkrdDJEblphaXBXekk1bHk1dGY4ajNhNVBoL1lUQlhva2tKajZM?=
- =?utf-8?B?cFpnVDlya2xEWG5HbUFienhqenBOaXU4d0k4bkg2QVZHUUhRdEwyUm9YRmhS?=
- =?utf-8?B?Q1hsUS85eWxMSnk3SEIrQTRMYTEyTk1ub1VremFiN241bVByZDhVY2VlV09z?=
- =?utf-8?B?Q3dFRVhkWVI3cjhKbTdzRmtUckRTd3ZPdHdJeGx4OElGL0lIRXpnUFN5UGRF?=
- =?utf-8?B?L3phQ25qSU54VmhFRkQvR0VNUHdjdllDbTJGWGpQbEhMKzhHY21tV0dBdXJk?=
- =?utf-8?B?NGQ3a1l3NXVjNXlCbk9nVUNUaUMya0hxbUdMbktOOVQ5a1JxbHhkelIydFVN?=
- =?utf-8?B?QUdyaEhlM3FaYUxiUHAyM05NcURpdHJEcCtnTHNFMXRjNFpORGZVUmdMU1k4?=
- =?utf-8?B?cDVocFZCWjR3TjNGdkZFek1Yd0JYUHVpZGVrYTBaMnFQVEhWQjI3eTdKcWVy?=
- =?utf-8?B?V2FsL2ovUUl3ZjNBTUZScDJwY2NWQ1pmbGh6WjZza1ZyL0FOZWZRbDU5VElo?=
- =?utf-8?B?ZTI0WG1XUSt3Njcwb3p2MVJNcWhnNUtaRlQ0aHgxT3ZBN1dCZXUwS1JuMGlQ?=
- =?utf-8?B?VHBJVThUdFdoOEorZURNL2g2K3RZcHdhYU9OeVdtaWlpNjU5YThlSkU5TEtC?=
- =?utf-8?B?L3Q4d3pVN01QUnJyWi9hWVB2QVl2OTdTcmhFOFJjdE04Ry9FU241ZWEybStT?=
- =?utf-8?B?c3ZUMGZXQlkyTFJadzBkNGZLWDk5aklSS053aUlJM2tRS1FkdXFCWEl0UW1k?=
- =?utf-8?B?QWZsbnpXajhwYUh0dThrZ0pNU3BRdVN1aDQwQzRqR3AxOGI4MklXM2p5WXZR?=
- =?utf-8?B?VWJLRHQ0YUoxRW5SbjhGa0p4SW56c0pjWG5nMXZ3V3JINEZlZXZablp1OUhM?=
- =?utf-8?B?emc9PQ==?=
-X-OriginatorOrg: cherry.de
-X-MS-Exchange-CrossTenant-Network-Message-Id: de83757c-635e-4723-4c33-08dd614ed8d5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8897.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Mar 2025 10:15:43.1061
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 5e0e1b52-21b5-4e7b-83bb-514ec460677e
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: HRkxQcW70Lpna68MEN1+jiQrAKwsJzTmalwOVM1d0OiKQ5U0rrX8FuXXkWV/UrV58yhWaH/Eg8tzxzQ4tKuPLmYYe/Kkk1xY2BX86KyG8mw=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9251
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_031554_250513_123566BA 
-X-CRM114-Status: GOOD (  30.02  )
+X-CRM114-CacheID: sfid-20250312_031934_051436_2B336E51 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,145 +104,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
 
-On 2/16/25 1:32 PM, Alexey Charkov wrote:
-> Hi Heiko,
+
+On 12/03/2025 10:14 am, Suzuki K Poulose wrote:
+> Hi James
 > 
-> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de> wrote:
+> 
+> On 12/03/2025 10:11, James Clark wrote:
+>> Add a test to confirm that default sink selection skips over an ETF
+>> and returns an ETR even if it's further away.
 >>
->> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
->>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz <quentin.schulz@cherry.de> wrote:
->>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
-[...]
->>>>> +     };
->>>>> +
->>>>> +     cluster2_opp_table: opp-table-cluster2 {
->>>>> +             compatible = "operating-points-v2";
->>>>> +             opp-shared;
->>>>> +
->>>>> +             opp-1416000000 {
->>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->>>>> +                     opp-microvolt = <750000 750000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1608000000 {
->>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->>>>> +                     opp-microvolt = <787500 787500 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-1800000000 {
->>>>> +                     opp-hz = /bits/ 64 <1800000000>;
->>>>> +                     opp-microvolt = <875000 875000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>> +             opp-2016000000 {
->>>>> +                     opp-hz = /bits/ 64 <2016000000>;
->>>>> +                     opp-microvolt = <950000 950000 950000>;
->>>>> +                     clock-latency-ns = <40000>;
->>>>> +             };
->>>>
->>>> opp-1800000000 and opp-2016000000 should be removed as well.
->>>>
->>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at least
->>>> for awareness on Rockchip side :)
->>>>
->>>> I guess another option could be to mark those above as
->>>>
->>>> turbo-mode;
->>>>
->>>> though no clue what this would entail. From a glance at cpufreq, it
->>>> seems that for Rockchip since we use the default cpufreq-dt, it would
->>>> mark those as unusable, so essentially a no-op, so better remove them
->>>> entirely?
->>>
->>> I believe the opp core just marks 'turbo-mode' opps as
->>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to the
->>> cpufreq core. But then to actually use those boost frequencies I would
->>> guess the governor needs to somehow know the power/thermal constraints
->>> of the chip?.. Don't know where that is defined.
+>> This also makes it easier to add new unit tests in the future.
 >>
->> personally I don't believe in "boost" frequencies - except when they are
->> declared officially.
+>> Reviewed-by: Leo Yan <leo.yan@arm.com>
+>> Signed-off-by: James Clark <james.clark@linaro.org>
+>> ---
+>> Changes in v3:
+>> - Use CORESIGHT_DEV_SUBTYPE_SOURCE_BUS type instead of the default
+>>    (CORESIGHT_DEV_SUBTYPE_SOURCE_PROC) so that the test still works even
+>>    when TRBE sinks are registered. This also removes the need for the
+>>    fake CPU ID callback.
+>> - Link to v2: https://lore.kernel.org/r/20250305-james-cs-kunit-test- 
+>> v2-1-83ba682b976c@linaro.org
 >>
->> Rockchip for the longest time maintains that running the chip outside
->> the declared power/rate envelope can reduce its overall lifetime.
+>> Changes in v2:
+>> - Let devm free everything rather than doing individual kfrees:
+>>    "Like with managed drivers, KUnit-managed fake devices are
+>>    automatically cleaned up when the test finishes, but can be manually
+>>    cleaned up early with kunit_device_unregister()."
+>> - Link to v1: https://lore.kernel.org/r/20250225164639.522741-1- 
+>> james.clark@linaro.org
+>> ---
+>>   drivers/hwtracing/coresight/Kconfig                |  9 +++
+>>   drivers/hwtracing/coresight/Makefile               |  3 +-
+>>   drivers/hwtracing/coresight/coresight-core.c       |  1 +
+>>   .../hwtracing/coresight/coresight-kunit-tests.c    | 77 ++++++++++++ 
+>> ++++++++++
+>>   4 files changed, 88 insertions(+), 2 deletions(-)
 >>
->> So for Rockchip in mainline a "it runs stable for me" has never been a
->> suitable reasoning ;-) .
+>> diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/ 
+>> coresight/Kconfig
+>> index ecd7086a5b83..f064e3d172b3 100644
+>> --- a/drivers/hwtracing/coresight/Kconfig
+>> +++ b/drivers/hwtracing/coresight/Kconfig
+>> @@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
+>>         To compile this driver as a module, choose M here: the module 
+>> will be
+>>         called coresight-dummy.
+>> +
+>> +config CORESIGHT_KUNIT_TESTS
+>> +      tristate "Enable Coresight unit tests"
+>> +      depends on KUNIT
+>> +      default KUNIT_ALL_TESTS
+>> +      help
+>> +        Enable Coresight unit tests. Only useful for development and not
+>> +        intended for production.
+>> +
+>>   endif
+>> diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/ 
+>> coresight/Makefile
+>> index 8e62c3150aeb..96f0dfedb1bf 100644
+>> --- a/drivers/hwtracing/coresight/Makefile
+>> +++ b/drivers/hwtracing/coresight/Makefile
+>> @@ -51,5 +51,4 @@ coresight-cti-y := coresight-cti-core.o    
+>> coresight-cti-platform.o \
+>>              coresight-cti-sysfs.o
+>>   obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
+>>   obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
+>> -obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
+>> -coresight-ctcu-y := coresight-ctcu-core.o
+>> +obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
+>> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/ 
+>> hwtracing/coresight/coresight-core.c
+>> index bd0a7edd38c9..b101aa133ceb 100644
+>> --- a/drivers/hwtracing/coresight/coresight-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-core.c
+>> @@ -959,6 +959,7 @@ coresight_find_default_sink(struct 
+>> coresight_device *csdev)
+>>       }
+>>       return csdev->def_sink;
+>>   }
+>> +EXPORT_SYMBOL_GPL(coresight_find_default_sink);
+>>   static int coresight_remove_sink_ref(struct device *dev, void *data)
+>>   {
+>> diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/ 
+>> drivers/hwtracing/coresight/coresight-kunit-tests.c
+>> new file mode 100644
+>> index 000000000000..87439769207c
+>> --- /dev/null
+>> +++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
+>> @@ -0,0 +1,77 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +
+>> +#include <kunit/test.h>
+>> +#include <kunit/device.h>
+>> +#include <linux/coresight.h>
+>> +
+>> +#include "coresight-priv.h"
+>> +
+>> +static struct coresight_device *coresight_test_device(struct device 
+>> *dev)
+>> +{
+>> +    struct coresight_device *csdev = devm_kcalloc(dev, 1,
+>> +                             sizeof(struct coresight_device),
+>> +                             GFP_KERNEL);
+>> +    csdev->pdata = devm_kcalloc(dev, 1,
+>> +                   sizeof(struct coresight_platform_data),
+>> +                   GFP_KERNEL);
+>> +    return csdev;
+>> +}
+>> +
+>> +static void test_default_sink(struct kunit *test)
+>> +{
+>> +    /*
+>> +     * ETM -> ETF -> ETR -> CATU
+>> +     *                ^
+>> +     *                | default
 > 
-> My key concern here was perhaps that we are looking at a file inside
-> the Rockchip source tree which looks relevant by the name of it, but
-> doesn't actually get included anywhere for any of the boards. This may
-> or may not constitute an endorsement by Rockchip of any OPPs listed
-> there :-D
+> minor nit: Using ETM here is going to be confusing, with the SUBTYPE we
+> are using. Please could we rename it something else and also rename the 
+> variable "etm" ? Say, "source" ?
+> 
+> Rest looks good to me.
+> 
+> Suzuki
+> 
 > 
 
-Rockchip support stated:
+Yeah good point, "Source" makes sense.
 
-"""
-If you run overdrive mode, you do not need to include rk3588j.dtsi, and 
-you can change it to #incldue rk3588.dtsi to ensure that the maximum 
-frequency can reach 2GHz
-
-below picture from datasheet.
-"""
-
-The picture is the table 3-2 Recommended operating conditions, page 30 
-from the RK3588J datasheet, e.g. 
-https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf
-
-What is overdrive?
-
-"""
-Overdrive mode brings higher frequency, and the voltage will increase 
-accordingly. Under
-the overdrive mode for a long time, the chipset may shorten the 
-lifetime, especially in
-high temperature condition
-"""
-
-according to the same datasheet, end of the same table, page 31.
-
-so this seems like a turbo-mode frequency to me.
-
-Additionally, the note for the "normal mode" (the one with the lower 
-freqs) states:
-
-"""
-Normal mode means the chipset works under safety voltage and frequency. 
-For the
-industrial environment, highly recommend to keep in normal mode, the 
-lifetime is
-reasonably guaranteed.
-"""
-
-I believe "industrial environment" means RK3588J used in the 
-temperatures that aren't OK for the standard RK3588 variant?
-
-> I haven't seen a TRM for the J variant, nor do I have a board with
-> RK3588J to run tests, so it would be great if Kever could chime in
-> with how these OPPs are different from the others (or not).
-> 
->> So while the situation might be strange for the rk3588j, I really only want
->> correct frequencies here please - not any pseudo "turbo freqs".
->>
->> I don't care that much what people do on their own device{s/trees}, but
->> the devicetrees we supply centrally (and to u-boot, etc) should only
->> contain frequencies vetted by the manufacturer.
-> 
-> Fair enough. Let's just try and get another data point on whether
-> these frequencies are vetted or not.
-> 
-
-So the higher freqs seems to be vetted (and used by default on 
-Rockchip's BSP kernel), it just feels like you aren't really supposed to 
-run those higher frequencies all the time? And especially not in 
-"industrial environment"?
-
-I would assume we want to stay on the safer side and remove those higher 
-frequencies? Heiko?
-
-Cheers,
-Quentin
 
