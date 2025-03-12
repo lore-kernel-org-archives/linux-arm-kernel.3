@@ -4,67 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0241EC2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 07:56:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1395EC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 07:58:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3122Wo2fSfR2TPlv6KJp3UkaT4U7LmFi/eDScIdI+bw=; b=xk+kTChGYTB8xVxHxq2jvGnZfM
-	ZR0Tu+pQGl0oaDSTDK0JyOLfbXcF6M3dD6KjAX/F3vFNZ3Z7thjMGMuALtNgSMImO/5LQJWRSuWQf
-	jZtrSsDCd4dJ+IIlcwHeYj6m2i1GrYMpv6SauqpoGWGDX0ADhpTxfA5jJ4LA3AwlF0R74IX6wOn9L
-	xwd36ViwHteZrik+DdxjdrxyIDqB7NwuQEwmxLCk5MGcCAJUiXfmpZBm+ZvOFpcnKg9gfbARQhlKr
-	lwdUo4Wy9A8lgp/SanjxwjkcEBSHSy12c+WlaT7EkatqZCO07fNNOxWx+1dJai3cHr/ez1G9VinJZ
-	RCggnSZg==;
+	bh=DV26id+i/ewtmpSTouvrpN5ux/gSJA+7Ro6w0hdJWB4=; b=p5AlW8vXn9nfAWGR1mpEzXWaAb
+	WaBUNqbfFmFLDYXnAvxKvSanH9Jh6k/2EmeSdSjFZe7P4IVcAw7ypDborYLsznOhXvwN0KrPzLhxT
+	W59cqBvGIJDIk6nigBmbUlAhidiM5ejXmeWiugUKFFsGHBdVfEE6IqJOoxBQivLShPC0nlEZKnHou
+	nShV3lCZ9OlsC25oGS8ZcMEOO6wtXwGRwy8+tKyUGLiWMkZUvGluhlfd/xjGFYb9R0nYyPbUeecKn
+	fr1LpUMPS2K1u0hn+zhs/zH67ftJvs1edmAPH4tnC9U9u9JPmA2RK+kP5P5Lm7+s80D3Ig2Jya3xr
+	ZvlZB79g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsGx2-00000007lMx-0lQp;
-	Wed, 12 Mar 2025 07:56:28 +0000
+	id 1tsGye-00000007liQ-3pcZ;
+	Wed, 12 Mar 2025 07:58:08 +0000
 Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsGnR-00000007jok-0HFI;
-	Wed, 12 Mar 2025 07:46:34 +0000
+	id 1tsGnX-00000007jra-1sdJ;
+	Wed, 12 Mar 2025 07:46:40 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
 	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
 	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=3122Wo2fSfR2TPlv6KJp3UkaT4U7LmFi/eDScIdI+bw=; b=vcjeeP/RFEc3s/ROSIdpdnOSAi
-	woidRou28FgDEniQ7+tfNBWNfFTWEu7vvnJ3sJPsejwTIdyYm6p2nacbWrTWyK/qX4HPL4cJmHAtF
-	/JhVuBlQUmlYSZ/ZcwEdDDfKIG5NIVOImnzlnXypkTuQqJ6v3iIBcs7lgNZfCFEekhLSOVMYU6I2v
-	QAV62zHyavflDcEmXi35GFB0VJZX2QuIMqRi2OQOVMVxr0Tpl6kIR+WogJr0r1UtbFgauXRt1NNGh
-	fJcdNBzhE48/GVnArXBduvYINw0RV6ZQ0D/ZCbU5E2nX8ZnS6GhekHG/4q0c00XhstUbDAa9qt8tS
-	HaoaTuBg==;
+	bh=DV26id+i/ewtmpSTouvrpN5ux/gSJA+7Ro6w0hdJWB4=; b=cMBXd1jmwnOLFaPtfCRXeS00IA
+	07TuLv6/2ZO/POdWCwMUx1Y2OPxQtRM0BqmXD7orD1AZbf73ZQQwIxNVgRIvxQb48hbET+YWO9tBx
+	tAI547cso8Ca9NA2TfE7u7KM6rW4BklkCtFrqgWyPNNQ4JVkb8wcQfUeVd2M7Ur/xrcPJFC8iet6O
+	IC3NumxJpx8vCHmpQQUpqRkrz5AXEmaA4239olno501iVCKu1eTXMLg1dg46c00VB8BEYa9ZdomDi
+	nDkxov7T2Fsve++uGCA4e5YotZsJTM7GCNuzD7TLh975pF4fHZNfMP96dUjvdVMIxFFUncB/r0czR
+	nrxztl5A==;
 Received: from ip-185-104-138-79.ptr.icomera.net ([185.104.138.79] helo=phil..)
 	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.94.2)
 	(envelope-from <heiko@sntech.de>)
-	id 1tsGnM-0005zY-5X; Wed, 12 Mar 2025 08:46:29 +0100
+	id 1tsGnF-0005zY-0p; Wed, 12 Mar 2025 08:46:24 +0100
 From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org,
-	Jianfeng Liu <liujianfeng1994@gmail.com>
+To: Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Florian Klink <flokli@flokli.de>,
+	Muhammed Efe Cetin <efectn@protonmail.com>,
+	Ondrej Jirman <megi@xff.cz>,
+	Jimmy Hon <honyuenkwun@gmail.com>
 Cc: Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Rob Herring <robh@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Add AP6275P wireless support to ArmSoM Sige7
-Date: Wed, 12 Mar 2025 08:45:59 +0100
-Message-ID: <174176555630.249409.3989831081874397806.b4-ty@sntech.de>
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH 0/4] Orange Pi 5 series HDMI extras
+Date: Wed, 12 Mar 2025 08:45:58 +0100
+Message-ID: <174176555629.249409.12164910795169233638.b4-ty@sntech.de>
 X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250311142825.2727171-1-liujianfeng1994@gmail.com>
-References: <20250311142825.2727171-1-liujianfeng1994@gmail.com>
+In-Reply-To: <20250227235623.1624-1-honyuenkwun@gmail.com>
+References: <20250227235623.1624-1-honyuenkwun@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_004633_101124_1BFFB096 
-X-CRM114-Status: GOOD (  11.58  )
+X-CRM114-CacheID: sfid-20250312_004639_497777_24F848BB 
+X-CRM114-Status: UNSURE (   9.74  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,17 +84,29 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 11 Mar 2025 22:27:50 +0800, Jianfeng Liu wrote:
-> ArmSoM Sige7 uses the PCI-e AP6275P Wi-Fi 6 module. The pcie@0 node can
-> be used as Bridge1, so the wifi@0 node is used as a device under the
-> Bridege 1 similar with Khadas Edge 2.
+On Thu, 27 Feb 2025 17:56:19 -0600, Jimmy Hon wrote:
+> HDMI Audio and HDMI1
 > 
+> Need testers for Orange Pi 5 Plus
 > 
+> Jimmy Hon (4):
+>   arm64: dts: rockchip: Enable HDMI0 audio output for Orange Pi 5/5B
+>   arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Max
+>   arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Plus
+>   arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Plus
+> 
+> [...]
 
 Applied, thanks!
 
-[1/1] arm64: dts: rockchip: Add AP6275P wireless support to ArmSoM Sige7
-      commit: d6166ea4cc4943cbabdeeedb13f3545fdba3ebf6
+[1/4] arm64: dts: rockchip: Enable HDMI0 audio output for Orange Pi 5/5B
+      commit: 21f1208a3af4c30497f60ce220490edd761c5ed9
+[2/4] arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Max
+      commit: 01284d7e38fca8a4d6a9982cc69e618aadd30de1
+[3/4] arm64: dts: rockchip: Enable HDMI1 on Orange Pi 5 Plus
+      commit: ffafe9c2dc31d1a346aff482157dd37eaadbe054
+[4/4] arm64: dts: rockchip: Enable HDMI audio outputs for Orange Pi 5 Plus
+      commit: 1bfb987d1a54bc139b62261e3698006418835229
 
 Best regards,
 -- 
