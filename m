@@ -4,91 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E40CC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:34:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50C65C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 10:36:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MLNYJfrGVFfqNPfPze2ZbdlHRTv6KQKhBtISRpzv4Gk=; b=KUC9DC85IvsG/YBP2meTGU+4y9
-	QFGNeSd6yJAKB83G/JIKQWvzTalJkRUOQYRuB6WkXYA0QUs/uQQnTdFBjGNgXTNrYsfeGTDrBEvqw
-	8U0MSzSyghpV1/jubt6wc7RSM5N8j0Ol+ztWc0qAlkrz9i62iLsubYKTqlPuGEEGrPrHs/itdlCRL
-	MiNsMSBSM6WRJ7W4LDFQlwk3gdoJvES5k4l11JZ/rOzHIf7ZpA1f4YZki0uznKi8E6tD4gZLsUNwp
-	IGfFzO0amhhjIgheYIBXWvzlNcdwW8WlCfetBtPgEIy+asWX4Zi06WsfZWIejdFRNZuor7UrLbDt0
-	3M39cK/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RCx5YAH/sAsaL16jy2DXOMRm0Fr1aAKlpBDGrdma5Zw=; b=Q1s5mmJBF6fhd9PSOEd6XaDERh
+	BYX1j05QsIY4vgT2l8g33y16/dEdXe2ncZEyvoruwA7i+meiJBlARbFiL7zbxpS/svdmbMXTiAHvh
+	c9IRtVTYC8SmYQHZrl5XCyUa1hF29D468K8fBnBblQReRPW6SdpL0d7Gd7w+v94UB2f7OLu61ovOf
+	2dm1cwnmVdySo0agZXp1oabC7/8N33WJcrG0clkhtKeKQtum8/7ZnC0prCaYYZ+Vf8Cnd0p9L0zqe
+	+8qMlmxDEnHFWDydHLfxfPaQ9e3katk2pRgulY3OHtBGE83Dj/iOijy3p4rqi8EaIixnQydWex2A7
+	HUbb/J4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJPy-000000087Q0-0XRn;
-	Wed, 12 Mar 2025 10:34:30 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1tsJRd-000000087hW-34gg;
+	Wed, 12 Mar 2025 10:36:13 +0000
+Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsJOI-0000000877q-1GqZ
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 10:32:47 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3913d45a148so2802924f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 03:32:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741775563; x=1742380363; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MLNYJfrGVFfqNPfPze2ZbdlHRTv6KQKhBtISRpzv4Gk=;
-        b=P9U+yT3aCILEs//PrDAgNrWhOxjWAeA+gTUSgvlYIWBdL90qp+bvJGpAQMXBqKT/os
-         nOmSrFC379jujAxjGOxT8NwGzDpqcDMxNnHDnh9mZLn4yZkbpCIN5ROubA2Qo364zEen
-         wjKr/mMf+ve/TCpLEUOBQFcfrUfONc9stUmWxN29t8J3h17g1UsF3v317v+uH0jIjd00
-         jdg/XdZyK5Aak6KQ+6rWWQ8uQW2qzoCwoaCs9/WZP8ff4Ma/ab0i0iouSA7a5ynPYPvS
-         WfkWGZps3idolWX9oOhKegRbXxN2GnT+LqOKo3KUBmKyYfy08/SU4ZEW+pSgc1js54Bf
-         HXTA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741775563; x=1742380363;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MLNYJfrGVFfqNPfPze2ZbdlHRTv6KQKhBtISRpzv4Gk=;
-        b=RxGlgE1dAbS5NBIfPd9xE7xa0Or+FONzXR+vI6ExGPGmD9PNwIaKnjjDYAuoeZbIAh
-         8lLZsEA69k6crXDooRYGSWpfKIyCHI02hDMB9SMM5ANll1nfcyFK1un6wEV48pNrMvC4
-         0AMEWS2dXsChEN7xg8B3AqBZxQvjvyJtI0ZOxlhNJ3zxHaaNTvs4NoeRNz3YuzV11UlP
-         1qDfu4soYbT24B4QBBrgcvIHyGsqpZBpv11J1tlnXOQDh6HnyOnk8/sguRhiVMJnD7pF
-         /SZ2lkIf+XYWGq1F8cXv13FqazsKyr9ayKYX4NOuJAymK58KzUrxgrvP4XjNPceWV/qg
-         Gs4Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXn66q1HpRrm/WPnnVgJ0HNa4IkmdahDU90W/YlvBBFSpK07Y6zQ+M1Nf3yKPShn8lWXPqQTaMj0VVpZzUlaX2q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw4i4cFG9oA9FdYGkDmupmu0++RZolsJWPrTbDeFFeYUhq8/BVF
-	todTc4SxIi8G85yyBJtPeuLDAo5r9mezW07cAoEgsMcxMD/FTajXaStpLz4qvUA=
-X-Gm-Gg: ASbGnctTbH2gyZbePawshq5arMVxS54HYhHuruXdYouLtElz/h/j9cJiu06H2okqiCh
-	KoSdD1By7+waJXv3nQbPUVhk1+kNaRL6DNVkd6/4Ug4ElEz+yiKiC8bCH2m4fYDUut0R3BKIu76
-	1Z0EgCo9Xkm+SFGKkUYtJHL73DL3MfhROz65LycLyA3dmYdDpBCymDqPIauHkFSFAdx5x8hXh+5
-	eMGzpSGJiHGMj/tHW/oadZxZuhcv8UqMQmnNIY9tc2HbfgDNzPhVUSxWFA/z6GfQQNHz7R5jwxP
-	v8W9iuxr/uXig6IbHookzwjlAcksPQoQdCG4OoyVQpF6dMg=
-X-Google-Smtp-Source: AGHT+IFstWyoNbU2Br602U//uo/eIeA/3WTixN2oQDEHm/zr4ekh3UaCUO2yHxeImVG1RDIzlOdHjA==
-X-Received: by 2002:a5d:64e4:0:b0:391:4889:5045 with SMTP id ffacd0b85a97d-391488951femr9589432f8f.36.1741775563279;
-        Wed, 12 Mar 2025 03:32:43 -0700 (PDT)
-Received: from pop-os.lan ([209.198.129.86])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-3912bfdfca1sm20313128f8f.22.2025.03.12.03.32.42
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 12 Mar 2025 03:32:42 -0700 (PDT)
-From: James Clark <james.clark@linaro.org>
-Date: Wed, 12 Mar 2025 10:31:57 +0000
-Subject: [PATCH v4] coresight: Add a KUnit test for
- coresight_find_default_sink()
+	id 1tsJPx-000000087Ov-3l2x;
+	Wed, 12 Mar 2025 10:34:31 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250312-james-cs-kunit-test-v4-1-ae3dd718a26a@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAJxi0WcC/3XOQQ6CMBAF0KuQri3pTKGAK+9hXJRSoIJgWiQaw
- t0tsFCjLv8k//2ZiNPWaEf2wUSsHo0zfedDtAuIqmVXaWoKnwkyjBlnMT3Li3ZUOdrcOjPQQbu
- BcllCUWLEQAvim1erS3Nf1ePJ59q4obePdWSE5bp5iDGISPAsjBGTCChsfKhaaZtDazpp+7C3F
- VmUEV/Nf5+M6I2U51KkmGeJUF8If0MAfyPcI4Uqc5ElnIGAD2Se5yfSVMziNgEAAA==
-To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
- Mike Leach <mike.leach@linaro.org>, James Clark <james.clark@linaro.org>, 
- Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
- Leo Yan <leo.yan@arm.com>
-Cc: linux-kernel@vger.kernel.org, coresight@lists.linaro.org, 
- linux-arm-kernel@lists.infradead.org
-X-Mailer: b4 0.14.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
+	t=1741775664;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RCx5YAH/sAsaL16jy2DXOMRm0Fr1aAKlpBDGrdma5Zw=;
+	b=WNMOmc6vboNRAgv8JLDAr228Cs7eNkjbwkz0CNj6JfukEymA5BgjrT1MlN9++KpY3Lyo4F
+	PpA1H5ibX3N6R1qU0aU+JVGJesw70AXKUC2rurEwEsMedGq4zpaTxPmTsgT26JhSpP+rj2
+	c8VRPMruMYnyJdPceQhktYHaYO98OP2UxTtbsnsTbAhzzFUVJgrQPW4UVxqzWwrpf/GuHU
+	KQiriIKlpSJcjTFbkM5yblTCRpxPTKod5q4zUV4bHk0ujc5I4Ryrv25y9MBe4KFar+LxXH
+	VW9hn4uNwUf3GHlzdLON+fT9DIwEL4DsI1GSkn/T28XeywhBQlvsokD/GDUWeQ==
+Date: Wed, 12 Mar 2025 11:34:21 +0100
+From: Dragan Simic <dsimic@manjaro.org>
+To: Quentin Schulz <quentin.schulz@cherry.de>
+Cc: Alexey Charkov <alchark@gmail.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
+ <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Viresh Kumar
+ <viresh.kumar@linaro.org>, Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas
+ <didi.debian@cknow.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>
+Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
+ on RK3588j
+In-Reply-To: <e55125ed-64fb-455e-b1e4-cebe2cf006e4@cherry.de>
+References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
+ <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
+ <CABjd4Yw-r-ogfwcrph4K1wbkybS25gk6LFg8wpqLG27uWdybNA@mail.gmail.com>
+ <2914631.KiezcSG77Q@diego>
+ <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
+ <e55125ed-64fb-455e-b1e4-cebe2cf006e4@cherry.de>
+Message-ID: <a56b59a21dc3c21192fe45197eee4865@manjaro.org>
+X-Sender: dsimic@manjaro.org
+Content-Type: text/plain; charset=UTF-8;
+ format=flowed
+Content-Transfer-Encoding: 8bit
+Authentication-Results: ORIGINATING;
+	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_033246_381346_B3B6F465 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20250312_033430_246446_8174689D 
+X-CRM114-Status: GOOD (  36.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,166 +83,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a test to confirm that default sink selection skips over an ETF
-and returns an ETR even if it's further away.
+Hello Quentin,
 
-This also makes it easier to add new unit tests in the future.
+On 2025-03-12 11:15, Quentin Schulz wrote:
+> On 2/16/25 1:32 PM, Alexey Charkov wrote:
+>> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de> 
+>> wrote:
+>>> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
+>>>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz 
+>>>> <quentin.schulz@cherry.de> wrote:
+>>>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
+> [...]
+>>>>>> +     };
+>>>>>> +
+>>>>>> +     cluster2_opp_table: opp-table-cluster2 {
+>>>>>> +             compatible = "operating-points-v2";
+>>>>>> +             opp-shared;
+>>>>>> +
+>>>>>> +             opp-1416000000 {
+>>>>>> +                     opp-hz = /bits/ 64 <1416000000>;
+>>>>>> +                     opp-microvolt = <750000 750000 950000>;
+>>>>>> +                     clock-latency-ns = <40000>;
+>>>>>> +             };
+>>>>>> +             opp-1608000000 {
+>>>>>> +                     opp-hz = /bits/ 64 <1608000000>;
+>>>>>> +                     opp-microvolt = <787500 787500 950000>;
+>>>>>> +                     clock-latency-ns = <40000>;
+>>>>>> +             };
+>>>>>> +             opp-1800000000 {
+>>>>>> +                     opp-hz = /bits/ 64 <1800000000>;
+>>>>>> +                     opp-microvolt = <875000 875000 950000>;
+>>>>>> +                     clock-latency-ns = <40000>;
+>>>>>> +             };
+>>>>>> +             opp-2016000000 {
+>>>>>> +                     opp-hz = /bits/ 64 <2016000000>;
+>>>>>> +                     opp-microvolt = <950000 950000 950000>;
+>>>>>> +                     clock-latency-ns = <40000>;
+>>>>>> +             };
+>>>>> 
+>>>>> opp-1800000000 and opp-2016000000 should be removed as well.
+>>>>> 
+>>>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at 
+>>>>> least
+>>>>> for awareness on Rockchip side :)
+>>>>> 
+>>>>> I guess another option could be to mark those above as
+>>>>> 
+>>>>> turbo-mode;
+>>>>> 
+>>>>> though no clue what this would entail. From a glance at cpufreq, it
+>>>>> seems that for Rockchip since we use the default cpufreq-dt, it 
+>>>>> would
+>>>>> mark those as unusable, so essentially a no-op, so better remove 
+>>>>> them
+>>>>> entirely?
+>>>> 
+>>>> I believe the opp core just marks 'turbo-mode' opps as
+>>>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to 
+>>>> the
+>>>> cpufreq core. But then to actually use those boost frequencies I 
+>>>> would
+>>>> guess the governor needs to somehow know the power/thermal 
+>>>> constraints
+>>>> of the chip?.. Don't know where that is defined.
+>>> 
+>>> personally I don't believe in "boost" frequencies - except when they 
+>>> are
+>>> declared officially.
+>>> 
+>>> Rockchip for the longest time maintains that running the chip outside
+>>> the declared power/rate envelope can reduce its overall lifetime.
+>>> 
+>>> So for Rockchip in mainline a "it runs stable for me" has never been 
+>>> a
+>>> suitable reasoning ;-) .
+>> 
+>> My key concern here was perhaps that we are looking at a file inside
+>> the Rockchip source tree which looks relevant by the name of it, but
+>> doesn't actually get included anywhere for any of the boards. This may
+>> or may not constitute an endorsement by Rockchip of any OPPs listed
+>> there :-D
+> 
+> Rockchip support stated:
+> 
+> """
+> If you run overdrive mode, you do not need to include rk3588j.dtsi,
+> and you can change it to #incldue rk3588.dtsi to ensure that the
+> maximum frequency can reach 2GHz
+> 
+> below picture from datasheet.
+> """
+> 
+> The picture is the table 3-2 Recommended operating conditions, page 30
+> from the RK3588J datasheet, e.g.
+> https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf
+> 
+> What is overdrive?
+> 
+> """
+> Overdrive mode brings higher frequency, and the voltage will increase
+> accordingly. Under
+> the overdrive mode for a long time, the chipset may shorten the
+> lifetime, especially in high temperature condition
+> """
+> 
+> according to the same datasheet, end of the same table, page 31.
+> 
+> so this seems like a turbo-mode frequency to me.
+> 
+> Additionally, the note for the "normal mode" (the one with the lower
+> freqs) states:
+> 
+> """
+> Normal mode means the chipset works under safety voltage and frequency. 
+> For the
+> industrial environment, highly recommend to keep in normal mode, the 
+> lifetime is
+> reasonably guaranteed.
+> """
+> 
+> I believe "industrial environment" means RK3588J used in the
+> temperatures that aren't OK for the standard RK3588 variant?
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
-Signed-off-by: James Clark <james.clark@linaro.org>
----
-Changes in v4:
-- Rename etm to src now that it's not CORESIGHT_DEV_SUBTYPE_SOURCE_PROC
-- Remove the now empty src_ops too
-- Fix a rebase mistake in the Makefile that removed CTCU
-- Link to v3: https://lore.kernel.org/r/20250312-james-cs-kunit-test-v3-1-dcfb69730161@linaro.org
+Thanks a lot for obtaining these clarifications!
 
-Changes in v3:
-- Use CORESIGHT_DEV_SUBTYPE_SOURCE_BUS type instead of the default
-  (CORESIGHT_DEV_SUBTYPE_SOURCE_PROC) so that the test still works even
-  when TRBE sinks are registered. This also removes the need for the
-  fake CPU ID callback.
-- Link to v2: https://lore.kernel.org/r/20250305-james-cs-kunit-test-v2-1-83ba682b976c@linaro.org
+Yes, I'd say that in this case "industrial environment" boils down
+to the extended temperature range for the RK3588J variant.
 
-Changes in v2:
-- Let devm free everything rather than doing individual kfrees:
-  "Like with managed drivers, KUnit-managed fake devices are
-  automatically cleaned up when the test finishes, but can be manually
-  cleaned up early with kunit_device_unregister()."
-- Link to v1: https://lore.kernel.org/r/20250225164639.522741-1-james.clark@linaro.org
----
- drivers/hwtracing/coresight/Kconfig                |  9 +++
- drivers/hwtracing/coresight/Makefile               |  1 +
- drivers/hwtracing/coresight/coresight-core.c       |  1 +
- .../hwtracing/coresight/coresight-kunit-tests.c    | 74 ++++++++++++++++++++++
- 4 files changed, 85 insertions(+)
+>> I haven't seen a TRM for the J variant, nor do I have a board with
+>> RK3588J to run tests, so it would be great if Kever could chime in
+>> with how these OPPs are different from the others (or not).
+>> 
+>>> So while the situation might be strange for the rk3588j, I really 
+>>> only want
+>>> correct frequencies here please - not any pseudo "turbo freqs".
+>>> 
+>>> I don't care that much what people do on their own device{s/trees}, 
+>>> but
+>>> the devicetrees we supply centrally (and to u-boot, etc) should only
+>>> contain frequencies vetted by the manufacturer.
+>> 
+>> Fair enough. Let's just try and get another data point on whether
+>> these frequencies are vetted or not.
+> 
+> So the higher freqs seems to be vetted (and used by default on
+> Rockchip's BSP kernel), it just feels like you aren't really supposed
+> to run those higher frequencies all the time? And especially not in
+> "industrial environment"?
+> 
+> I would assume we want to stay on the safer side and remove those
+> higher frequencies? Heiko?
 
-diff --git a/drivers/hwtracing/coresight/Kconfig b/drivers/hwtracing/coresight/Kconfig
-index ecd7086a5b83..f064e3d172b3 100644
---- a/drivers/hwtracing/coresight/Kconfig
-+++ b/drivers/hwtracing/coresight/Kconfig
-@@ -259,4 +259,13 @@ config CORESIGHT_DUMMY
- 
- 	  To compile this driver as a module, choose M here: the module will be
- 	  called coresight-dummy.
-+
-+config CORESIGHT_KUNIT_TESTS
-+	  tristate "Enable Coresight unit tests"
-+	  depends on KUNIT
-+	  default KUNIT_ALL_TESTS
-+	  help
-+	    Enable Coresight unit tests. Only useful for development and not
-+	    intended for production.
-+
- endif
-diff --git a/drivers/hwtracing/coresight/Makefile b/drivers/hwtracing/coresight/Makefile
-index 8e62c3150aeb..4e6ea5b05b01 100644
---- a/drivers/hwtracing/coresight/Makefile
-+++ b/drivers/hwtracing/coresight/Makefile
-@@ -53,3 +53,4 @@ obj-$(CONFIG_ULTRASOC_SMB) += ultrasoc-smb.o
- obj-$(CONFIG_CORESIGHT_DUMMY) += coresight-dummy.o
- obj-$(CONFIG_CORESIGHT_CTCU) += coresight-ctcu.o
- coresight-ctcu-y := coresight-ctcu-core.o
-+obj-$(CONFIG_CORESIGHT_KUNIT_TESTS) += coresight-kunit-tests.o
-diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-index fb43ef6a3b1f..47af75ba7a00 100644
---- a/drivers/hwtracing/coresight/coresight-core.c
-+++ b/drivers/hwtracing/coresight/coresight-core.c
-@@ -959,6 +959,7 @@ coresight_find_default_sink(struct coresight_device *csdev)
- 	}
- 	return csdev->def_sink;
- }
-+EXPORT_SYMBOL_GPL(coresight_find_default_sink);
- 
- static int coresight_remove_sink_ref(struct device *dev, void *data)
- {
-diff --git a/drivers/hwtracing/coresight/coresight-kunit-tests.c b/drivers/hwtracing/coresight/coresight-kunit-tests.c
-new file mode 100644
-index 000000000000..c8f361767c45
---- /dev/null
-+++ b/drivers/hwtracing/coresight/coresight-kunit-tests.c
-@@ -0,0 +1,74 @@
-+// SPDX-License-Identifier: GPL-2.0
-+
-+#include <kunit/test.h>
-+#include <kunit/device.h>
-+#include <linux/coresight.h>
-+
-+#include "coresight-priv.h"
-+
-+static struct coresight_device *coresight_test_device(struct device *dev)
-+{
-+	struct coresight_device *csdev = devm_kcalloc(dev, 1,
-+						     sizeof(struct coresight_device),
-+						     GFP_KERNEL);
-+	csdev->pdata = devm_kcalloc(dev, 1,
-+				   sizeof(struct coresight_platform_data),
-+				   GFP_KERNEL);
-+	return csdev;
-+}
-+
-+static void test_default_sink(struct kunit *test)
-+{
-+	/*
-+	 * Source -> ETF -> ETR -> CATU
-+	 *                   ^
-+	 *                   | default
-+	 */
-+	struct device *dev = kunit_device_register(test, "coresight_kunit");
-+	struct coresight_device *src = coresight_test_device(dev),
-+				*etf = coresight_test_device(dev),
-+				*etr = coresight_test_device(dev),
-+				*catu = coresight_test_device(dev);
-+	struct coresight_connection conn = {};
-+
-+	src->type = CORESIGHT_DEV_TYPE_SOURCE;
-+	/*
-+	 * Don't use CORESIGHT_DEV_SUBTYPE_SOURCE_PROC, that would always return
-+	 * a TRBE sink if one is registered.
-+	 */
-+	src->subtype.source_subtype = CORESIGHT_DEV_SUBTYPE_SOURCE_BUS;
-+	etf->type = CORESIGHT_DEV_TYPE_LINKSINK;
-+	etf->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_BUFFER;
-+	etr->type = CORESIGHT_DEV_TYPE_SINK;
-+	etr->subtype.sink_subtype = CORESIGHT_DEV_SUBTYPE_SINK_SYSMEM;
-+	catu->type = CORESIGHT_DEV_TYPE_HELPER;
-+
-+	conn.src_dev = src;
-+	conn.dest_dev = etf;
-+	coresight_add_out_conn(dev, src->pdata, &conn);
-+
-+	conn.src_dev = etf;
-+	conn.dest_dev = etr;
-+	coresight_add_out_conn(dev, etf->pdata, &conn);
-+
-+	conn.src_dev = etr;
-+	conn.dest_dev = catu;
-+	coresight_add_out_conn(dev, etr->pdata, &conn);
-+
-+	KUNIT_ASSERT_PTR_EQ(test, coresight_find_default_sink(src), etr);
-+}
-+
-+static struct kunit_case coresight_testcases[] = {
-+	KUNIT_CASE(test_default_sink),
-+	{}
-+};
-+
-+static struct kunit_suite coresight_test_suite = {
-+	.name = "coresight_test_suite",
-+	.test_cases = coresight_testcases,
-+};
-+
-+kunit_test_suites(&coresight_test_suite);
-+MODULE_LICENSE("GPL");
-+MODULE_AUTHOR("James Clark <james.clark@linaro.org>");
-+MODULE_DESCRIPTION("Arm CoreSight KUnit tests");
-
----
-base-commit: 3eadce8308bc8d808fd9e3a9d211c84215087451
-change-id: 20250305-james-cs-kunit-test-3af1df2401e6
-
-Best regards,
--- 
-James Clark <james.clark@linaro.org>
-
+I agree, we should remove the higher-frequency OPPs.  I'd like
+to go through everything once again in detail and prepare a patch
+that removes the unsafe OPPs, and you could review it once it's
+on the ML, to make sure it's fine.
 
