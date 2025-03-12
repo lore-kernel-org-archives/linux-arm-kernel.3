@@ -4,78 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A1C3C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40FB9C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:30:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+dlg+EIthqGXo7XZLbSA1qhX/dBzGVxPFuPapX5hqVE=; b=Xf4mThsPJyU5wodQ3U0EYgCjrt
-	2o6msc9Zw9wAY1iQR2NvM9PrvGXOxd8l29uLj3Y9/qvdZu3Bipd3bHtXx9YcyYN7fl9Rl7iOa1o3m
-	gHWtwJcHgndekfEbbvtyydfBMSbwSv9GhA9Mr5/twvywnO67t5KWY0QPXJRJfCgIGPze9pNxrnpLm
-	OaycSM79Ug5zH39SfsitszItUmEC3eubUhObvmU0R8Hnbit0JPO3rWj7EInG6kQud4YWAOWW23Opy
-	pEZinwddKc6duAQVvSFMBDJoHlFqMQsoxOvixRdPmopz+VZbuD2+Tb0NCXxH3RSeQK8ZVGunJqt6Q
-	zIhJvG0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=So2DwX+qeOx/ayzmUN8pjesq547zGA2gdrPnOyqFs1I=; b=CXR8LBG+uHnxl57vB2p7RS5Ewl
+	jIN+BJfEVN07/vFZXcqmrLWB9hsW8Oxi4EMFqcjT7KmTmVJKPDRooZmla+m/Ao+tp0Ae2RQG2LtjW
+	WcaDn56zu47nqGFvPifRn6Gsp3pMk8wZQ8mq7U9KcKCz2huJjNoxm41FHNZFzFnzkTWRa0yR1AsFZ
+	VZdxMYtMjpP7jg1l11R4cW29jv77mD1LeoKZF2Ew8O1w4Re6rt2YeEGCUriQK+9H24vsHk9fW3EqM
+	62cbADsIs6mjFyR2aIkX5buhMj4D2pe8BDdqBMXPE0zXzfapiVPEoiiZAB20FHLtt1YulCteJ1Cby
+	1DuKadTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQaK-00000009EFS-1m7y;
-	Wed, 12 Mar 2025 18:13:40 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
+	id 1tsQqV-00000009FeM-2mNO;
+	Wed, 12 Mar 2025 18:30:23 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQYf-00000009E9n-44FK;
-	Wed, 12 Mar 2025 18:11:59 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id C77D8A47115;
-	Wed, 12 Mar 2025 18:06:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4192C4CEEA;
-	Wed, 12 Mar 2025 18:11:55 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741803116;
-	bh=cV5aSqFJ33K30QuBwrJdyen4GmLJdTHeksSaAnwrNvk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=W0pP4BPua5VsTBkh0FpSVUqjdFqimB1E+VhzMfKj3ctZXHRbRoSqGEi2sXcYjAHkM
-	 AghgELe61AVdvO6cTJzCyvvnuYRi9FreuYv0GjGr2oYuKJVm7MWfVPuHHtqn40iGRI
-	 IErzgBV9Kmr6i6sTf90ZySBfDMiH/bQYM9r5ZlrkZw5YjXZ7hfUhD+bDu9izHJmgJ5
-	 oDzftJeZQckOAzX/RDfLlhNnH5zknbTIl++WmF+AmRWd6FwaC4UKbe8I4XddiJ6vzx
-	 Gv72okJGBz5sy9Xen7AHpUVXS84F/DtQxccnT+nnBBIsv2gxNPmEF8Nl/iyJ7JF6uV
-	 1vr8/HHt4tnlg==
-Date: Wed, 12 Mar 2025 11:11:54 -0700
-From: Minchan Kim <minchan@kernel.org>
-To: Qun-Wei Lin <qun-wei.lin@mediatek.com>
-Cc: Jens Axboe <axboe@kernel.dk>,
-	Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chris Li <chrisl@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	"Huang, Ying" <ying.huang@intel.com>,
-	Kairui Song <kasong@tencent.com>,
-	Dan Schatzberg <schatzberg.dan@gmail.com>,
-	Barry Song <baohua@kernel.org>, Al Viro <viro@zeniv.linux.org.uk>,
-	linux-kernel@vger.kernel.org, linux-block@vger.kernel.org,
-	nvdimm@lists.linux.dev, linux-mm@kvack.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Casper Li <casper.li@mediatek.com>,
-	Chinwen Chang <chinwen.chang@mediatek.com>,
-	Andrew Yang <andrew.yang@mediatek.com>,
-	James Hsu <james.hsu@mediatek.com>
-Subject: Re: [PATCH 0/2] Improve Zram by separating compression context from
- kswapd
-Message-ID: <Z9HOavSkFf01K9xh@google.com>
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
+	id 1tsQoq-00000009FOG-1JkI;
+	Wed, 12 Mar 2025 18:28:41 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741804103; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AuTl1uQ1Lgw0UYkKaUhCzMG5g/ayLnb1NnDhMnl4VY7GzGvAfDqWhUfEKGxhpbnPq3kVsMFuCT1Ab94ugojneIxMujXfCj0XtFTZcu0Y6Swcpc9zXbRbWHSQCL5qfecC9c97+WXQ/U1bzhEnJNJBox33cE3S8EFQm2KKcyLwgN4=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741804103; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=So2DwX+qeOx/ayzmUN8pjesq547zGA2gdrPnOyqFs1I=; 
+	b=nq6SPOwFZk/fAB2TwrZ/iWsnbMXqKQlgynsUY8FKKVcdUPnRhwgPlibU5rfSVHKOjJw6yGUpu1eBbtmrzAwDzGdv+VWgydHZFlsovhocRGKyJUm4BAeSYeziS0pxwdjoqhUvcNwRNnsYe2z6V9ZRHofgOHs9NdjC7Vq02cQKpks=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741804103;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=So2DwX+qeOx/ayzmUN8pjesq547zGA2gdrPnOyqFs1I=;
+	b=S0ktZkoZPBXkSycwes9V0xyCbmuK9LmlX+KEo4s+v8UkhqGeohyiWJQJCj1A1/sp
+	5wwb3018w3YioS6iDpvnwXDdXsGNah+nJvSoc5dhNn4tWDfjViztgLGorLgMHT7ltAO
+	74pdwclJTmwlVaU6AzU5UT33KeLGmaYkrKX2OWc4=
+Received: by mx.zohomail.com with SMTPS id 174180410138425.066715854452468;
+	Wed, 12 Mar 2025 11:28:21 -0700 (PDT)
+Message-ID: <2a6eb940-95b3-4105-8998-5ec190ddaca3@collabora.com>
+Date: Wed, 12 Mar 2025 15:28:15 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 4/6] drm/panfrost: Add support for AARCH64_4K page
+ table format
+To: Boris Brezillon <boris.brezillon@collabora.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ kernel@collabora.com, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
+References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
+ <20250310195921.157511-5-ariel.dalessandro@collabora.com>
+ <20250311090545.3b941567@collabora.com>
+ <16f6a6e2-4dce-4af9-bc0a-61c4d6213f02@collabora.com>
+ <20250311110520.6b79e090@collabora.com>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250311110520.6b79e090@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_111158_077258_66A1639A 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20250312_112840_429321_87C23F3C 
+X-CRM114-Status: GOOD (  27.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,26 +87,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Qun-Wei
+Boris, Angelo,
 
-On Fri, Mar 07, 2025 at 08:01:02PM +0800, Qun-Wei Lin wrote:
-> This patch series introduces a new mechanism called kcompressd to
-> improve the efficiency of memory reclaiming in the operating system. The
-> main goal is to separate the tasks of page scanning and page compression
-> into distinct processes or threads, thereby reducing the load on the
-> kswapd thread and enhancing overall system performance under high memory
-> pressure conditions.
+On 3/11/25 7:05 AM, Boris Brezillon wrote:
+> On Tue, 11 Mar 2025 10:14:44 +0100
+> AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> wrote:
 > 
-> Problem:
->  In the current system, the kswapd thread is responsible for both
->  scanning the LRU pages and compressing pages into the ZRAM. This
->  combined responsibility can lead to significant performance bottlenecks,
->  especially under high memory pressure. The kswapd thread becomes a
->  single point of contention, causing delays in memory reclaiming and
->  overall system performance degradation.
+>> Il 11/03/25 09:05, Boris Brezillon ha scritto:
+>>> On Mon, 10 Mar 2025 16:59:19 -0300
+>>> Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
+>>>    
+>>>> Currently, Panfrost only supports MMU configuration in "LEGACY" (as
+>>>> Bifrost calls it) mode, a (modified) version of LPAE "Large Physical
+>>>> Address Extension", which in Linux we've called "mali_lpae".
+>>>>
+>>>> This commit adds support for conditionally enabling AARCH64_4K page
+>>>> table format. To achieve that, a "GPU optional configurations" field was
+>>>> added to `struct panfrost_features` with the related flag.
+>>>>
+>>>> Note that, in order to enable AARCH64_4K mode, the GPU variant must have
+>>>> the HW_FEATURE_AARCH64_MMU feature flag present.
+>>>>
+>>>> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+>>>> ---
+>>>>    drivers/gpu/drm/panfrost/panfrost_device.h |  16 +++
+>>>>    drivers/gpu/drm/panfrost/panfrost_mmu.c    | 132 +++++++++++++++++++--
+>>>>    drivers/gpu/drm/panfrost/panfrost_regs.h   |  34 ++++++
+>>>>    3 files changed, 169 insertions(+), 13 deletions(-)
+>>>>
+>>>> diff --git a/drivers/gpu/drm/panfrost/panfrost_device.h b/drivers/gpu/drm/panfrost/panfrost_device.h
+>>>> index cffcb0ac7c111..0385702aa43c7 100644
+>>>> --- a/drivers/gpu/drm/panfrost/panfrost_device.h
+>>>> +++ b/drivers/gpu/drm/panfrost/panfrost_device.h
+>>>> @@ -42,6 +42,14 @@ enum panfrost_gpu_pm {
+>>>>    	GPU_PM_VREG_OFF,
+>>>>    };
+>>>>    
+>>>> +/**
+>>>> + * enum panfrost_gpu_config - GPU optional configurations
+>>>> + * @GPU_CONFIG_AARCH64_4K: Use AARCH64_4K page table format
+>>>> + */
+>>>> +enum panfrost_gpu_config {
+>>>> +	GPU_CONFIG_AARCH64_4K,
+>>>> +};
+>>>> +
+>>>>    struct panfrost_features {
+>>>>    	u16 id;
+>>>>    	u16 revision;
+>>>> @@ -95,6 +103,9 @@ struct panfrost_compatible {
+>>>>    
+>>>>    	/* Allowed PM features */
+>>>>    	u8 pm_features;
+>>>> +
+>>>> +	/* GPU features */
+>>>> +	u8 gpu_configs;
+>>>
+>>> I would probably name this gpu_quirks, with the GPU_CONFIG_AARCH64_4K
+>>> flag renamed GPU_QUIRK_FORCE_AARCH64_PAGE_TABLE.
+>>>    
+>>
+>> Boris, at this point the quirk should be LPAE, not AARCH64_4K, because the
+>> former is legacy...
+> 
+> It's legacy, but it's also the default in this driver. And just because
+> it's legacy doesn't mean it's broken :P. As Steve mentioned, there are
+> perf considerations to take into account, and on some platforms (most?),
+> it's preferable to use the legacy format because of that.
+> 
+>>
+>> I think that Ariel is right in this, as in, that's a capability of the GPU
+>> MMU, so if anything I would rather rename it to gpu_capabilities,
+> 
+> No, GPU capabilities are extracted from he GPU ID, and all Bifrost GPUs
+> support the aarch64 page table format. But what matters here is GPUs
+> that can't use the legacy page table format because it's to limited to
+> express the cacheability/shareability properties.
+> 
+>> but then
+>> that'd be confusing for other stuff - which means that gpu_configs is most
+>> probably the least confusing and/or most appropriate name for this.
+> 
+> Again, it's not a random configuration decision, it's something we do
+> because the default (legacy page table format) doesn't work, so I keep
+> thinking quirk is an appropriate name in this context.
 
-Isn't it general problem if backend for swap is slow(but synchronous)?
-I think zram need to support asynchrnous IO(can do introduce multiple
-threads to compress batched pages) and doesn't declare it's
-synchrnous device for the case.
+Adding my humble bits here :)
+
+I'm not sure if it's preferable to use legacy mode, but can't prove the 
+opposite without a proper profiling. As legacy is the default at the 
+moment in panfrost, I think it makes sense to explicitly add _FORCE_ to 
+the flag name.
+
+Agreed that it's not a capability/feature, rather a config/quirk. Don't 
+really have a strong opinion here, so I'll just stick to Boris criteria 
+here, and name it as quirks. Will change it in v2.
+
+Just a side note, in the context of panfrost we already have a 
+`vendor_quirk` function. Alhough I understand it's vendor-specific, to 
+avoid confusions, would it be okay to add another quirk related field as 
+we're proposing here?
+
+     struct panfrost_compatible {
+         [...]
+         /* Vendor implementation quirks callback */
+         void (*vendor_quirk)(struct panfrost_device *pfdev);
+         [...]
+         u8 gpu_quirks;
+
+Thanks!
+
+-- 
+Ariel D'Alessandro
+Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
+
 
