@@ -4,97 +4,132 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED2FCC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51ABFC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 09:13:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pHuCru4QHXqB2mgYvDq44oAwbOQyDAtraRq+g+1pboI=; b=Q9MNsAgeUEnsLWuVOOu1nkt7I8
-	8UZD5QFSNruQIRPRpUpR6Zmu6JpkPSMBzfw6U8Yv+MeXPTEGG1w2WiK64oSBfxq4Jlm84o6KCg3MS
-	GyZERs3QEgNRK2tKEFuXJXmcUkYsKlzcTD+xFb+a2WZri3dNHxLW36mvJnAo8cJHWvKT4sJHxtYzt
-	8kFG5BqrwWPzU01YK5llC5txYsxeWDNX3sNYcS0N7B8sg8YmiIv93X/MA492LjR2Qj730IAYwuXz3
-	ykjnPCCx+YRjHVJ0mXPYKiGhvHYcfgHmMpNt1CduzTwoO+3ATHSF04XOfIa1kCx2fQpbYIcL6TRSr
-	rXBFUFyA==;
+	bh=JBa3dWFTD4SwgzxaWlFjlLz2e9bTlCRMLs4NNSBs44c=; b=cxn9k7i5ekNVsU9vTdF/mQPOfs
+	ILlAMYpURnlmY0P/zyFoW24yGuzD+3RJ6EftTgCNaUqPeH0d15eIUH/FNPvS7usjojj/Ycn5LeEpo
+	sm54Xe0a04c3gRc3leBAv6fus2tQ52pfchnBYUGgzzN+owNCmwCW4Frv9x/Khznj1dKlwSkAPWGEJ
+	ZUo1NjvXmKhv6DbivnNz1XrTOHvMZtchaP2fK6Ep1KYmZ4LpCFZ1orGvFZ4WhEV8+PfifmFWyCY+G
+	t1Ga/wxx8Y7eksWE0WtHFV1v4NXvUn8qpe0+3GrbFa+Psfqgo7qwpRIZd0p8LgsaD5LFRkQx56yQs
+	aZCt6oKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsI7t-00000007uY2-2PzW;
-	Wed, 12 Mar 2025 09:11:45 +0000
-Received: from nbd.name ([46.4.11.11])
+	id 1tsI9W-00000007uwS-3c4S;
+	Wed, 12 Mar 2025 09:13:26 +0000
+Received: from [203.254.224.24] (helo=mailout1.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsI6E-00000007uHl-339f;
-	Wed, 12 Mar 2025 09:10:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=nbd.name;
-	s=20160729; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=pHuCru4QHXqB2mgYvDq44oAwbOQyDAtraRq+g+1pboI=; b=ERTwtiOCIj3j9CarcXXRXrdwuP
-	EpNIw145j2Xe+T2gXM5n0PMpASp9n12VZF6X7wZBRwaERBwYvVbVsR9AylP1Aex+H35rLaz2abJu6
-	O7ri+i6hJ6mSNxxm9XPtGzCwxYKM34GM8SKyaMoKXH03heHl8VdwDcQWSot+mI5p0CNA=;
-Received: from p5b206ef1.dip0.t-ipconnect.de ([91.32.110.241] helo=nf.local)
-	by ds12 with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-	(Exim 4.96)
-	(envelope-from <nbd@nbd.name>)
-	id 1tsI60-00GAxl-2Z;
-	Wed, 12 Mar 2025 10:09:48 +0100
-Message-ID: <1c46870f-965b-4f70-a01b-adbcd60c2876@nbd.name>
-Date: Wed, 12 Mar 2025 10:09:48 +0100
+	id 1tsI7F-00000007uOY-3RSW
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 12 Mar 2025 09:11:08 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250312091058epoutp015b7a2a1e35d21a88043c93872200c92c~sAy91Wduz1174411744epoutp01G
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 09:10:58 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250312091058epoutp015b7a2a1e35d21a88043c93872200c92c~sAy91Wduz1174411744epoutp01G
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741770658;
+	bh=JBa3dWFTD4SwgzxaWlFjlLz2e9bTlCRMLs4NNSBs44c=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=VHiitqKhcd32mvFwCzLdP4ddK2SIxAnZdOm6NnHNUsUkOtULZHhA4Y9QefflzqnVs
+	 6HphhN5PC/xlUsZjL48+mTr1niocEB35xsS/Ngdn7fbsNzyow4lylDxwrwjvGWeST8
+	 PkfGdRiTK5RW4Gr9KUa+QUWIPH7k88nh8Kf2qoKg=
+Received: from epsnrtp1.localdomain (unknown [182.195.42.162]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTP id
+	20250312091057epcas5p1de3ff8e28c0a711a6b79cfc56a535319~sAy9bP8Ru1919219192epcas5p1U;
+	Wed, 12 Mar 2025 09:10:57 +0000 (GMT)
+Received: from epsmges5p1new.samsung.com (unknown [182.195.38.181]) by
+	epsnrtp1.localdomain (Postfix) with ESMTP id 4ZCPxX098Tz4x9Pv; Wed, 12 Mar
+	2025 09:10:56 +0000 (GMT)
+Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
+	epsmges5p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
+	A8.D9.20052.F9F41D76; Wed, 12 Mar 2025 18:10:55 +0900 (KST)
+Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250312080817epcas5p1dcbafc369e65dbc9d0650dd2130f56e8~r-8PCtO980056700567epcas5p19;
+	Wed, 12 Mar 2025 08:08:17 +0000 (GMT)
+Received: from epsmgmcp1.samsung.com (unknown [182.195.42.82]) by
+	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
+	20250312080817epsmtrp172c94cadcd06d4a364afd8fef20551c8~r-8PBx_m92458424584epsmtrp1g;
+	Wed, 12 Mar 2025 08:08:17 +0000 (GMT)
+X-AuditID: b6c32a49-3d20270000004e54-e4-67d14f9fdbd2
+Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
+	epsmgmcp1.samsung.com (Symantec Messaging Gateway) with SMTP id
+	72.CC.33707.0F041D76; Wed, 12 Mar 2025 17:08:16 +0900 (KST)
+Received: from INBRO000519 (unknown [107.122.1.150]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20250312080815epsmtip1851e3f39ebbf9dc070a9380d37eca7f4~r-8NKkUMq0762707627epsmtip15;
+	Wed, 12 Mar 2025 08:08:15 +0000 (GMT)
+From: "Faraz Ata" <faraz.ata@samsung.com>
+To: "'Krzysztof Kozlowski'" <krzk@kernel.org>, <alim.akhtar@samsung.com>,
+	<dev.tailor@samsung.com>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+	<conor+dt@kernel.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<rosa.pila@samsung.com>, <suyash.bitti@samsung.com>,
+	<abhijeet.s23@samsung.com>
+In-Reply-To: <5b68a9c2-9145-4131-9fa3-10810c51691f@kernel.org>
+Subject: RE: [PATCH 2/2] arm64: dts: exynos: Add DT node for all UART ports
+Date: Wed, 12 Mar 2025 13:37:57 +0530
+Message-ID: <2aa201db9325$e8ef6e00$bace4a00$@samsung.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1] mt76: mt7915: wed: find rx token by physical address
-To: Ping-Ke Shih <pkshih@realtek.com>, Shengyu Qu <wiagn233@outlook.com>,
- "lorenzo@kernel.org" <lorenzo@kernel.org>,
- "ryder.lee@mediatek.com" <ryder.lee@mediatek.com>,
- "shayne.chen@mediatek.com" <shayne.chen@mediatek.com>,
- "sean.wang@mediatek.com" <sean.wang@mediatek.com>,
- "linux-wireless@vger.kernel.org" <linux-wireless@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Cc: "johannes@sipsolutions.net" <johannes@sipsolutions.net>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "angelogioacchino.delregno@collabora.com"
- <angelogioacchino.delregno@collabora.com>,
- Peter Chiu <chui-hao.chiu@mediatek.com>
-References: <TYCPR01MB8437EE1595CD4AB581C006E898C62@TYCPR01MB8437.jpnprd01.prod.outlook.com>
- <TYCPR01MB843726907C170CFE2D3EB7BE98D12@TYCPR01MB8437.jpnprd01.prod.outlook.com>
- <e144d2ffe9924d81a7b60f38cdcf516a@realtek.com>
-From: Felix Fietkau <nbd@nbd.name>
-Content-Language: en-US
-Autocrypt: addr=nbd@nbd.name; keydata=
- xsDiBEah5CcRBADIY7pu4LIv3jBlyQ/2u87iIZGe6f0f8pyB4UjzfJNXhJb8JylYYRzIOSxh
- ExKsdLCnJqsG1PY1mqTtoG8sONpwsHr2oJ4itjcGHfn5NJSUGTbtbbxLro13tHkGFCoCr4Z5
- Pv+XRgiANSpYlIigiMbOkide6wbggQK32tC20QxUIwCg4k6dtV/4kwEeiOUfErq00TVqIiEE
- AKcUi4taOuh/PQWx/Ujjl/P1LfJXqLKRPa8PwD4j2yjoc9l+7LptSxJThL9KSu6gtXQjcoR2
- vCK0OeYJhgO4kYMI78h1TSaxmtImEAnjFPYJYVsxrhay92jisYc7z5R/76AaELfF6RCjjGeP
- wdalulG+erWju710Bif7E1yjYVWeA/9Wd1lsOmx6uwwYgNqoFtcAunDaMKi9xVQW18FsUusM
- TdRvTZLBpoUAy+MajAL+R73TwLq3LnKpIcCwftyQXK5pEDKq57OhxJVv1Q8XkA9Dn1SBOjNB
- l25vJDFAT9ntp9THeDD2fv15yk4EKpWhu4H00/YX8KkhFsrtUs69+vZQwc0cRmVsaXggRmll
- dGthdSA8bmJkQG5iZC5uYW1lPsJgBBMRAgAgBQJGoeQnAhsjBgsJCAcDAgQVAggDBBYCAwEC
- HgECF4AACgkQ130UHQKnbvXsvgCgjsAIIOsY7xZ8VcSm7NABpi91yTMAniMMmH7FRenEAYMa
- VrwYTIThkTlQzsFNBEah5FQQCACMIep/hTzgPZ9HbCTKm9xN4bZX0JjrqjFem1Nxf3MBM5vN
- CYGBn8F4sGIzPmLhl4xFeq3k5irVg/YvxSDbQN6NJv8o+tP6zsMeWX2JjtV0P4aDIN1pK2/w
- VxcicArw0VYdv2ZCarccFBgH2a6GjswqlCqVM3gNIMI8ikzenKcso8YErGGiKYeMEZLwHaxE
- Y7mTPuOTrWL8uWWRL5mVjhZEVvDez6em/OYvzBwbkhImrryF29e3Po2cfY2n7EKjjr3/141K
- DHBBdgXlPNfDwROnA5ugjjEBjwkwBQqPpDA7AYPvpHh5vLbZnVGu5CwG7NAsrb2isRmjYoqk
- wu++3117AAMFB/9S0Sj7qFFQcD4laADVsabTpNNpaV4wAgVTRHKV/kC9luItzwDnUcsZUPdQ
- f3MueRJ3jIHU0UmRBG3uQftqbZJj3ikhnfvyLmkCNe+/hXhPu9sGvXyi2D4vszICvc1KL4RD
- aLSrOsROx22eZ26KqcW4ny7+va2FnvjsZgI8h4sDmaLzKczVRIiLITiMpLFEU/VoSv0m1F4B
- FtRgoiyjFzigWG0MsTdAN6FJzGh4mWWGIlE7o5JraNhnTd+yTUIPtw3ym6l8P+gbvfoZida0
- TspgwBWLnXQvP5EDvlZnNaKa/3oBes6z0QdaSOwZCRA3QSLHBwtgUsrT6RxRSweLrcabwkkE
- GBECAAkFAkah5FQCGwwACgkQ130UHQKnbvW2GgCeMncXpbbWNT2AtoAYICrKyX5R3iMAoMhw
- cL98efvrjdstUfTCP2pfetyN
-In-Reply-To: <e144d2ffe9924d81a7b60f38cdcf516a@realtek.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQG4o3GQyN7Zi1+oRuvV8B0XiEe7kQMf9tKjAMPydvECHTlbErOE+bag
+Content-Language: en-us
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrIJsWRmVeSWpSXmKPExsWy7bCmpu58/4vpBjt6LS2+djhbPJi3jc1i
+	zd5zTBb3dixjt5h/5ByrxctZ99gszp/fwG6x6fE1VovLu+awWcw4v4/J4v+eHewWX34+YLaY
+	Pb/Ggddj06pONo/NS+o9+rasYvT4vEkugCUq2yYjNTEltUghNS85PyUzL91WyTs43jne1MzA
+	UNfQ0sJcSSEvMTfVVsnFJ0DXLTMH6DglhbLEnFKgUEBicbGSvp1NUX5pSapCRn5xia1SakFK
+	ToFJgV5xYm5xaV66Xl5qiZWhgYGRKVBhQnbG3V+T2ApaOCqOPJrP3MA4n62LkZNDQsBEYuqt
+	NiCbi0NIYDejxIa386CcT4wSd3u+MME5izetZ4Fpmbv2EzNEYiejxLTuc1AtLxklNs/8xwxS
+	xSagKXHn81OwdhGBZYwSXSePgbUwCzxhlGj7Np0dpIpTwE6i6ccGVhBbWMBbYv6KHiYQm0VA
+	VeLx9AlANgcHr4ClxPfFaiBhXgFBiZMzn4CdwSygLbFs4WtmiJMUJH4+XcYKUi4i4Caxawo3
+	RIm4xMujR9hB1koIbOGQ+LnqKhNEvYvEi/tLoHqFJV4d38IOYUtJvOxvg7J9JCYf/cYIMlNC
+	IEPizloRiLC9xOoFZ8BWMQP9uH6XPkRYVmLqqXVMEGv5JHp/P4HaxCuxYx6MrSxxcs8eVghb
+	UuLQ7ResExiVZiF5bBaSx2Yh+WAWwrYFjCyrGCVTC4pz01OLTQsM81LL4RGenJ+7iRGcdrU8
+	dzDeffBB7xAjEwfjIUYJDmYlEd7VthfShXhTEiurUovy44tKc1KLDzGaAgN7IrOUaHI+MPHn
+	lcQbmlgamJiZmZlYGpsZKonzNu9sSRcSSE8sSc1OTS1ILYLpY+LglGpgilkRxWMzpYVfO8WJ
+	n8VludkrpQczvyxadMF2aSen5oLPn2bnVn9Wn5StWOy/Xi6mx/l1GifP1U3LpSt79WTmbr8e
+	YLQ8Q/eWfoj5meue9W3s227dDFiVJ9n1YOV8o22Gv8OXJP6uW3Z8V3zw/62vOdwDPRY8VXHd
+	G+7z3bLVzOmgsTnfZqaZZtUcHHO2KSqsl/mul58R+ux9Tu/XrIeMs0I3TCu7olZ4+0b4xjf+
+	zg92Fnsf///+X9u+stqSs9MPSy1LKO78I5HHLPhq7Zdz17fomz07JSzpdWiHLYPj0iOTbZxX
+	r/g1+YheqcTFpowIu5z3uw0ndHxw+DJR/96DYnY5w0fyK+qP+88/UfNhvxJLcUaioRZzUXEi
+	ALwnMEtEBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFprKIsWRmVeSWpSXmKPExsWy7bCSnO5Hh4vpBv2iFl87nC0ezNvGZrFm
+	7zkmi3s7lrFbzD9yjtXi5ax7bBbnz29gt9j0+BqrxeVdc9gsZpzfx2Txf88OdosvPx8wW8ye
+	X+PA67FpVSebx+Yl9R59W1YxenzeJBfAEsVlk5Kak1mWWqRvl8CVcXPPQtaCd+wVO369ZWtg
+	7GTrYuTkkBAwkZi79hNzFyMXh5DAdkaJE2efMEEkJCUOP73LCmELS6z895wdoug5o8Tezk9g
+	RWwCmhJ3Pj9lAkmICKwBSqyaCjaKWeAVo8TNA3tYIFo+Mko0XJ7JCNLCKWAn0fRjA9hcYQFv
+	ifkresBGsQioSjyePgHI5uDgFbCU+L5YDSTMKyAocXLmExYQm1lAW6L3YSsjjL1s4WtmiPMU
+	JH4+XcYK0ioi4Caxawo3RIm4xMujR9gnMArPQjJpFpJJs5BMmoWkZQEjyypG0dSC4tz03OQC
+	Q73ixNzi0rx0veT83E2M4JjTCtrBuGz9X71DjEwcjIcYJTiYlUR4V9teSBfiTUmsrEotyo8v
+	Ks1JLT7EKM3BoiTOq5zTmSIkkJ5YkpqdmlqQWgSTZeLglGpgmqjT9/LBl63X3n1oCXkh9UxO
+	zVvg7d2kvSFT3oY/EOtN1j8WuVm//vbG8BuiYk6eF9gu6+v+PrK/JPOov9aFCQ1bMmpMlzD1
+	zWTb0sg4ZcW5vhO90krN+dX3unpdJJafNxVRviq1aGmT7ZTvQQESm6rk5uxJKnrMHVIsy/I9
+	vefgBeWmiCd/Vy+L32HvsHPdFYO3vE+9JqsGNDC+KZ+6sypltWuGY4T922R2tpVXxaI3u+lY
+	TDQUrFgqZtgeMv/1h10HCxhF2g/HT56YV2YnmPRLwYDlH8uVtjlnhDbbc1xyD7p4/7umunSz
+	gtjcrujKN+LzWXZXG5mGbXY9td5txs4DL+bob6kRPrDnmZK+EktxRqKhFnNRcSIAau0YtygD
+	AAA=
+X-CMS-MailID: 20250312080817epcas5p1dcbafc369e65dbc9d0650dd2130f56e8
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-Sendblock-Type: REQ_APPROVE
+CMS-TYPE: 105P
+DLP-Filter: Pass
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250312061058epcas5p3ccf293213fe883129358833572b17d92
+References: <20250312061932.1797993-1-faraz.ata@samsung.com>
+	<CGME20250312061058epcas5p3ccf293213fe883129358833572b17d92@epcas5p3.samsung.com>
+	<20250312061932.1797993-2-faraz.ata@samsung.com>
+	<5b68a9c2-9145-4131-9fa3-10810c51691f@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_021002_842363_526D5A43 
-X-CRM114-Status: GOOD (  24.70  )
+X-CRM114-CacheID: sfid-20250312_021106_498913_98A479B9 
+X-CRM114-Status: GOOD (  17.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,69 +144,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 12.03.25 02:41, Ping-Ke Shih wrote:
-> Shengyu Qu <wiagn233@outlook.com> wrote:
->> 
->> Hi Shih,
->> 
->> Can you also give this patch a review? Seems I also need to convert to
->> reverse Xmas tree order for this patch, will do it in next version.
-> 
-> Yes. Please do it.
-> 
->> 
->> Best regards,
->> Shengyu
->> 
->> 在 2025/2/22 19:38, Shengyu Qu 写道:
->> > The token id in RxDMAD may be incorrect when it is not the last frame
->> > due to WED HW bug. Lookup correct token id by physical address in sdp0.
->> >
->> > Downstream patch link:
->> https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/737340322ab22b138fd200e02
->> 0d61ffdbe3e36a9/autobuild/autobuild_5.4_mac80211_release/mt7988_wifi7_mac80211_mlo/package/kernel/mt76
->> /patches/0062-mtk-wifi-mt76-mt7915-wed-find-rx-token-by-physical-a.patch
->> >
->> > Signed-off-by: Peter Chiu <chui-hao.chiu@mediatek.com>
->> > Signed-off-by: Shengyu Qu <wiagn233@outlook.com>
->> > ---
->> >   drivers/net/wireless/mediatek/mt76/dma.c | 25 +++++++++++++++++++++++-
->> >   1 file changed, 24 insertions(+), 1 deletion(-)
->> >
->> > diff --git a/drivers/net/wireless/mediatek/mt76/dma.c b/drivers/net/wireless/mediatek/mt76/dma.c
->> > index 844af16ee551..5bf63014263c 100644
->> > --- a/drivers/net/wireless/mediatek/mt76/dma.c
->> > +++ b/drivers/net/wireless/mediatek/mt76/dma.c
->> > @@ -444,9 +444,32 @@ mt76_dma_get_buf(struct mt76_dev *dev, struct mt76_queue *q, int idx,
->> >   	mt76_dma_should_drop_buf(drop, ctrl, buf1, desc_info);
->> >
->> >   	if (mt76_queue_is_wed_rx(q)) {
->> > +		u32 id, find = 0;
->> >   		u32 token = FIELD_GET(MT_DMA_CTL_TOKEN, buf1);
->> > -		struct mt76_txwi_cache *t = mt76_rx_token_release(dev, token);
->> > +		struct mt76_txwi_cache *t;
->> > +
->> > +		if (*more) {
-> 
-> Because of scope, should define 'find' (or 'found'?) as bool here.
-> 
->> > +			spin_lock_bh(&dev->rx_token_lock);
->> > +
->> > +			idr_for_each_entry(&dev->rx_token, t, id) {
-> 
-> idr_find() can only get a pointer associated with the ID. Not sure if it can
-> have a reverse way -- get ID from pointer. With sequential search in data path,
-> cost is higher.
-> 
-> Maybe you can consider to build association between argument 'idx' and
-> pointer/token by another patch.
-> 
-> But logic is okay to me.
+Hello Krzysztof
 
-Adding to that, it matters how frequently the token ID is incorrect. If 
-the token ID is correct most of the time, then it's worth optimizing for 
-that as the default case. In that case you should avoid the extra idr 
-scan if the pointer for the provided token id already matches.
+> -----Original Message-----
+> On 12/03/2025 07:19, Faraz Ata wrote:
+> > Universal Serial Interface (USI) supports three serial protocol like
+> > uart, i2c and spi. ExynosAutov920 has 18 instances of USI.
+> > Add all the USI DT node and subsequent uart nodes for all the instances=
+.
+> >
+> > Signed-off-by: Faraz Ata <faraz.ata=40samsung.com>
+> > ---
+> >  .../arm64/boot/dts/exynos/exynosautov920.dtsi =7C 494
+> > ++++++++++++++++++
+> >  1 file changed, 494 insertions(+)
+>=20
+>=20
+> Please do not combine DTS changes with serial patches, ever. DTS has to g=
+o
+> via separate tree.
+>=20
+Sure, while sending v2, I will send DT separately and serial driver change =
+separately.
+Thanks for your review.
+> ...
+>=20
+=2E
+=2E
+=2E
+> > +
+> > +
+>=20
+> Just one blank line.
+Sure will correct in v2.=20
 
-- Felix
+>=20
+> >  		pwm: pwm=40109b0000 =7B
+> >  			compatible =3D =22samsung,exynosautov920-pwm=22,
+> >  				     =22samsung,exynos4210-pwm=22;
+>=20
+>=20
+> Best regards,
+> Krzysztof
+
 
