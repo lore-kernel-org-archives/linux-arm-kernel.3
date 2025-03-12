@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 591C5C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:35:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D433AC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Wed, 12 Mar 2025 18:38:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tLT4s8zpi9H4TPqM7ZRQ2exoG2CX0kuuef8GX5dDEHg=; b=Go8UDpyZC7OTSmqsXerFW21ZRs
-	MLLNLwtL4E11DGRtxSOfIs4oPJdNa5A3UgPflXRsvV4KFWztmfrVuvDJr/tk5L/wH+ZD/6lCISAZb
-	HPWgQ7Qbl8SandyLTNxTeeWQGV/oHhi/3SKH7lIqikAavkyz1jCFiGcHPNvJn7Tx1thjquMz/NTHL
-	NC+rkpW+tbu5S17cpetP9FuIS14/ekdKHQb7nvA2w2u7j/GehN/NvC4Y6qc854nsc1/dhilsEWkYm
-	SVyQ4vh0+635pC/7DO/iel89BQxOdhOIGB2O0HrbjdJpOXQyKr2sw0ZWyx/dS6Tpp3EjXflElOO1r
-	fHzIu08Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Date:From:To:Cc:
+	Message-Id:In-Reply-To:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=PvD8g/iHmVDM+dWVh5jAN+ccAMhC2v2ZHCMkMzBxqQU=; b=pTxg51mX9muYfr
+	I4tibMo//E3AdakeFIAtK0ISMI6rUeLxOSK6S54Re8kIBXn1fBV9NlJVMczazkPjiOMvVWmdwsnms
+	Xpa8VTVQgx/2LAelzZgm9MYFJPAQTteaa6Xr0rvavS1LEGmo5BzZG15sJ5D5RPP7NPrk6srSpoOx1
+	zmcqKLWtKE0iFKhR20+h58HDAQGSUdXWaSmkRMx6k2CO5pxNucXaiJwanpVZIwGSCTO6sDxAF1V7B
+	i4a1QhW7m5JZZDjh25Vej54PmnH4kW6BUL0Iich5Szfy+mjYQboiFXGkXJKTDR1/QMN3RidArMcRR
+	8lOETwetXsLJ+q8E/Emg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQuy-00000009G6D-1o0d;
-	Wed, 12 Mar 2025 18:35:00 +0000
-Received: from linux.microsoft.com ([13.77.154.182])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsQtG-00000009Fz6-0DJX
+	id 1tsQxy-00000009GUg-0w4Z;
+	Wed, 12 Mar 2025 18:38:06 +0000
+Received: from www522.your-server.de ([195.201.215.122])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsQwG-00000009GIX-2Pql
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 12 Mar 2025 18:33:15 +0000
-Received: from [10.137.184.60] (unknown [131.107.160.188])
-	by linux.microsoft.com (Postfix) with ESMTPSA id 5D088210B152;
-	Wed, 12 Mar 2025 11:33:11 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com 5D088210B152
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
-	s=default; t=1741804391;
-	bh=tLT4s8zpi9H4TPqM7ZRQ2exoG2CX0kuuef8GX5dDEHg=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=K7i2HjPigYJ7aN9a1EUjItNpH2ntPinGBEcprbJMoTg/OFVg8DbIOxVuBnx6FYFfN
-	 K5b5qmytnGwEBlsnAqGiUVGBg0u5MAgxWBIeolqcOHZEvmGg3xmIyvIkjWszMrFgs3
-	 83uRvzX4m0+Ttx01v0EPOiDAQffUDuTKA/HCD8S0=
-Message-ID: <caa0d793-3f05-4d7c-88d0-224ec0503cfb@linux.microsoft.com>
-Date: Wed, 12 Mar 2025 11:33:11 -0700
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH hyperv-next v5 03/11] Drivers: hv: Enable VTL mode for
- arm64
-To: Michael Kelley <mhklinux@outlook.com>, Arnd Bergmann <arnd@arndb.de>,
- "bhelgaas@google.com" <bhelgaas@google.com>, Borislav Petkov <bp@alien8.de>,
- Catalin Marinas <catalin.marinas@arm.com>, Conor Dooley
- <conor+dt@kernel.org>, Dave Hansen <dave.hansen@linux.intel.com>,
- Dexuan Cui <decui@microsoft.com>, Haiyang Zhang <haiyangz@microsoft.com>,
- "H. Peter Anvin" <hpa@zytor.com>, Joey Gouly <joey.gouly@arm.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>,
- "K. Y. Srinivasan" <kys@microsoft.com>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
- Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>,
- Ingo Molnar <mingo@redhat.com>, Oliver Upton <oliver.upton@linux.dev>,
- "Rafael J . Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
- "ssengar@linux.microsoft.com" <ssengar@linux.microsoft.com>,
- Sudeep Holla <sudeep.holla@arm.com>,
- Suzuki K Poulose <suzuki.poulose@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Wei Liu <wei.liu@kernel.org>,
- Will Deacon <will@kernel.org>, Zenghui Yu <yuzenghui@huawei.com>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
- "linux-acpi@vger.kernel.org" <linux-acpi@vger.kernel.org>,
- Linux-Arch <linux-arch@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-hyperv@vger.kernel.org" <linux-hyperv@vger.kernel.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
- "x86@kernel.org" <x86@kernel.org>
-Cc: "apais@microsoft.com" <apais@microsoft.com>,
- "benhill@microsoft.com" <benhill@microsoft.com>,
- "bperkins@microsoft.com" <bperkins@microsoft.com>,
- "sunilmut@microsoft.com" <sunilmut@microsoft.com>
-References: <20250307220304.247725-1-romank@linux.microsoft.com>
- <20250307220304.247725-4-romank@linux.microsoft.com>
- <e0f81049-688e-4f53-a002-5d246281bf8d@app.fastmail.com>
- <BN7PR02MB41488C06B7E42830C700318DD4D62@BN7PR02MB4148.namprd02.prod.outlook.com>
- <119cfb59-d68b-4718-b7cb-90cba67827e8@app.fastmail.com>
- <BN7PR02MB4148FC15ADF0E49327262B92D4D62@BN7PR02MB4148.namprd02.prod.outlook.com>
-Content-Language: en-US
-From: Roman Kisel <romank@linux.microsoft.com>
-In-Reply-To: <BN7PR02MB4148FC15ADF0E49327262B92D4D62@BN7PR02MB4148.namprd02.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	Wed, 12 Mar 2025 18:36:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=Subject:Date:From:To:Cc:Message-Id:
+	In-Reply-To:Sender:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References;
+	bh=PvD8g/iHmVDM+dWVh5jAN+ccAMhC2v2ZHCMkMzBxqQU=; b=IHs3ILwnUjRJjDXQPTt0DSuIJA
+	ehk51ivm59UhUeZGijZUyxHQzKNS6g/KsrrBX8lVKSg9ogW0z52d07amM8pCic4YPjfRwsYoMV03p
+	Fbha6ZgF4YEbyfusLWQOD+IjPx8aTfSawc/+mdm/HnB5gRPHRmcDqZKGt0Aw+Fj4m2FEw4VEET0aE
+	QvO3+SqYCg2sZ7QkfSXeLja/vfq3StgeVsHVCbJ0ku4JatolvVVyJ/X+z9ubPgr/0R/ONNh0WWNW/
+	3lcnoLqLD4KpDujU6pvH26sOjWYz4Omg1D3CTjyWfoGRMxMwqbGudyEgV64Sc/ZXNPDO50wp/TR8e
+	mfTqwMeA==;
+Received: from sslproxy03.your-server.de ([88.198.220.132])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tsQw8-000IGQ-1y;
+	Wed, 12 Mar 2025 19:36:12 +0100
+Received: from [185.209.196.170] (helo=localhost)
+	by sslproxy03.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1tsQw8-000JzK-29;
+	Wed, 12 Mar 2025 19:36:12 +0100
+In-Reply-To: <D8EI6SI5E4PE.3GOBCNHV38K03@folker-schwesinger.de>
+Message-Id: <D8EI6SI5EIUY.2JD240P96ZZSS@folker-schwesinger.de>
+Cc: "Kedareswara rao Appana" <appanad@xilinx.com>,
+ <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+To: "Vinod Koul" <vkoul@kernel.org>, "Michal Simek" <michal.simek@amd.com>,
+ "Jernej Skrabec" <jernej.skrabec@gmail.com>, "Manivannan Sadhasivam"
+ <manivannan.sadhasivam@linaro.org>, "Krzysztof Kozlowski"
+ <krzysztof.kozlowski@linaro.org>, =?utf-8?q?Uwe_Kleine-K=C3=B6nig?=
+ <u.kleine-koenig@baylibre.com>, "Marek Vasut" <marex@denx.de>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+Date: Wed, 12 Mar 2025 19:23:49 +0100
+Subject: [PATCH 1/1] dmaengine: xilinx_dma: Set dma_device.directions
+X-Authenticated-Sender: dev@folker-schwesinger.de
+X-Virus-Scanned: Clear (ClamAV 1.0.7/27575/Wed Mar 12 09:37:42 2025)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_113314_148707_7E1CE088 
-X-CRM114-Status: GOOD (  35.46  )
+X-CRM114-CacheID: sfid-20250312_113620_909456_807B6857 
+X-CRM114-Status: UNSURE (   8.48  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,165 +83,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When using the dma_get_slave_caps() API, it checks the directions fields of
+the dma_device structure. Currently, the Xilinx DMA driver does not set
+this, which causes dma_get_slave_caps() to return -ENXIO.
 
+Fix this issue by setting the directions field of the dma_device
+structure during DMA channel probe.
 
-On 3/10/2025 3:18 PM, Michael Kelley wrote:
-> From: Arnd Bergmann <arnd@arndb.de> Sent: Monday, March 10, 2025 2:21 PM
->>
->> On Mon, Mar 10, 2025, at 22:01, Michael Kelley wrote:
->>> From: Arnd Bergmann <arnd@arndb.de> Sent: Saturday, March 8, 2025 1:05 PM
->>>>>   config HYPERV_VTL_MODE
->>>>>   	bool "Enable Linux to boot in VTL context"
->>>>> -	depends on X86_64 && HYPERV
->>>>> +	depends on (X86_64 || ARM64)
->>>>>   	depends on SMP
->>>>> +	select OF_EARLY_FLATTREE
->>>>> +	select OF
->>>>>   	default n
->>>>>   	help
->>>>
->>>> Having the dependency below the top-level Kconfig entry feels a little
->>>> counterintuitive. You could flip that back as it was before by doing
->>>>
->>>>        select HYPERV_VTL_MODE if !ACPI
->>>>        depends on ACPI || SMP
->>>>
->>>> in the HYPERV option, leaving the dependency on HYPERV in
->>>> HYPERV_VTL_MODE.
->>>
->>> I would argue that we don't ever want to implicitly select
->>> HYPERV_VTL_MODE because of some other config setting or
->>> lack thereof.  VTL mode is enough of a special case that it should
->>> only be explicitly selected. If someone omits ACPI, then HYPERV
->>> should not be selectable unless HYPERV_VTL_MODE is explicitly
->>> selected.
->>>
->>> The last line of the comment for HYPERV_VTL_MODE says
->>> "A kernel built with this option must run at VTL2, and will not run
->>> as a normal guest."  In other words, don't choose this unless you
->>> 100% know that VTL2 is what you want.
->>
->> It sounds like the latter is the real problem: enabling a feature
->> should never prevent something else from working. Can you describe
->> what VTL context is and why it requires an exception to a rather
->> fundamental rule here? If you build a kernel that runs on every
->> single piece of arm64 hardware and every hypervisor, why can't
->> you add HYPERV_VTL_MODE to that as an option?
->>
+Signed-off-by: Folker Schwesinger <dev@folker-schwesinger.de>
+---
+ drivers/dma/xilinx/xilinx_dma.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-In the VTL mode, we're running the kernel as secure firmware inside the
-guest (one might see VTL2 working as Intel SMM or Secure World on ARM).
-
-[...]
-
-> 
-> Ideally, a Linux kernel image could detect at runtime what VTL it is
-> running at, and "do the right thing". Unfortunately, on x86 Linux this
-> has proved difficult (or perhaps impossible) because the amount of
-> boot-time setup required to ask the question about the current VTL
-> is significant. The idiosyncrasies and historical baggage of x86 requires
-> that Linux do some x86-specific initialization steps for VTL > 0
-> before the question can be asked. Hence the introduction of
-> CONFIG_HYPERV_VTL_MODE, and the behavior that when it is
-> selected, the kernel image won't run normally in VTL 0.
-> 
-> I'll go out on a limb and say that I suspect on arm64 a runtime
-> determination based on querying the VTL *could* be made (though
-> I'm not the person writing the code). But taking advantage of that
-> on arm64 produces an undesirable dichotomy with x86.
-
-On arm64 that is much easier, I agree. On x86 we'd need a kludge of
-
-static void __naked __init __aligned(4096) early_hvcall_pg(void)
-{
-	/*
-	 * Fill the early hvcall page with `0xF1` aka `INT1` to catch
-	 * programming errors. The hypervisor will overlay the page with
-	 * the vendor-specific code sequences to make hypercalls on x86(_64).
-	 */
-	asm (".skip 4096, 0xf1");
-}
-
-static u8 __init early_hvcall_pg_input[4096] 
-__attribute__((aligned(4096)));
-static u8 __init early_hvcall_pg_output[4096] 
-__attribute__((aligned(4096)));
-
-static void __init early_connect_to_hv(void)
-{
-	union hv_x64_msr_hypercall_contents hypercall_msr;
-	u64 guest_id;
-
-	guest_id = hv_generate_guest_id(LINUX_VERSION_CODE);
-	wrmsrl(HV_X64_MSR_GUEST_OS_ID, guest_id);
-	rdmsrl(HV_X64_MSR_HYPERCALL, hypercall_msr.as_uint64);
-	hypercall_msr.enable = 1;
-	hypercall_msr.guest_physical_address = 
-__phys_to_pfn(virt_to_phys(early_hvcall_pg));
-	wrmsrl(HV_X64_MSR_HYPERCALL, hypercall_msr.as_uint64);
-}
-
-or variations thereof.
-
-What's very nice about arm64 in this case at least, it's got SMCCC, hvc,
-OF/DT and a history of options of being power-efficient and embedded.
-Conversely, on x86(_64) the code sequences for hyeprcalls vary from the
-first vendor to the second one so we have to have the hvcall page to
-make this regular in the code. Support for OF/DT on x86 was added for
-Intel set top boxes (MID, ~2015 iirc), and it took a bit of huffing and
-puffing to make that work for us on the large/NUMA systems (and there
-might be something about supporting x2apic that had to be figured out).
-
-All told, we can have nicer things in our arm64 code yet diverging the
-code much from x86(_64) is not very desirable. I am not sure yet what
-the tradeoff should be, and my knowledge of Kconfig is rather basic.
-Certainly I cannot propose to arm64 maintainers that we'd like to do
-quirky things in Kconfig because of x86(-64), legacy specs, etc.
-
-Perhaps, we could go back to the V2's option of
-
-  config HYPERV
-  	tristate "Microsoft Hyper-V client drivers"
-  	depends on (X86 && X86_LOCAL_APIC && HYPERVISOR_GUEST) \
--		|| (ACPI && ARM64 && !CPU_BIG_ENDIAN)
-+		|| (ARM64 && !CPU_BIG_ENDIAN)
-  	select PARAVIRT
-  	select X86_HV_CALLBACK_VECTOR if X86
-  	select OF_EARLY_FLATTREE if OF
-@@ -15,7 +15,7 @@ config HYPERV
-
-  config HYPERV_VTL_MODE
-  	bool "Enable Linux to boot in VTL context"
--	depends on X86_64 && HYPERV
-+	depends on HYPERV
-  	depends on SMP
-  	default n
-  	help
-@@ -31,7 +31,7 @@ config HYPERV_VTL_MODE
-
-  	  Select this option to build a Linux kernel to run at a VTL other than
-  	  the normal VTL0, which currently is only VTL2.  This option
--	  initializes the x86 platform for VTL2, and adds the ability to boot
-+	  initializes the kernel to run in VTL2, and adds the ability to boot
-  	  secondary CPUs directly into 64-bit context as required for VTLs other
-  	  than 0.  A kernel built with this option must run at VTL2, and will
-  	  not run as a normal guest.
-
-That's a minimal extension, its surprise factor is very low. It has not
-been seen to cause issues. If no one has strong opinions against that,
-I'd send that in V6.
-
-> 
-> Roman may have further thoughts on the topic, but that's
-> what I know about how we got here.
-> 
-> Michael
-> 
-> [1] https://learn.microsoft.com/en-us/virtualization/hyper-v-on-windows/tlfs/vsm
-> [2] https://techcommunity.microsoft.com/blog/windowsosplatform/openhcl-the-new-open-source-paravisor/4273172
-
+diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_dma.c
+index 3ad44afd0e74..63c308f2ae81 100644
+--- a/drivers/dma/xilinx/xilinx_dma.c
++++ b/drivers/dma/xilinx/xilinx_dma.c
+@@ -2864,6 +2864,7 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
+ 	    of_device_is_compatible(node, "xlnx,axi-dma-mm2s-channel") ||
+ 	    of_device_is_compatible(node, "xlnx,axi-cdma-channel")) {
+ 		chan->direction = DMA_MEM_TO_DEV;
++		xdev->common.directions |= BIT(DMA_MEM_TO_DEV);
+ 		chan->id = xdev->mm2s_chan_id++;
+ 		chan->tdest = chan->id;
+ 
+@@ -2881,6 +2882,7 @@ static int xilinx_dma_chan_probe(struct xilinx_dma_device *xdev,
+ 		   of_device_is_compatible(node,
+ 					   "xlnx,axi-dma-s2mm-channel")) {
+ 		chan->direction = DMA_DEV_TO_MEM;
++		xdev->common.directions |= BIT(DMA_DEV_TO_MEM);
+ 		chan->id = xdev->s2mm_chan_id++;
+ 		chan->tdest = chan->id - xdev->dma_config->max_channels / 2;
+ 		chan->has_vflip = of_property_read_bool(node,
 -- 
-Thank you,
-Roman
-
+2.48.1
 
