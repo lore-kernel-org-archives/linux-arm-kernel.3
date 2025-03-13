@@ -4,68 +4,150 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2889C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5CF0C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0tws58Jov7D0tr1UeFv3C8yKbD6Gfp0yCO2S/geWm9U=; b=k7oMkgyrsMlIJ7yVmjMEUi1/vX
-	rWrTy6EEYJ9kqNQ0o21TTeJpmZEhpv/tBjCN/qZDcRfFpvlztBoew9VyassXJFVzoaEbXHBAZ92QC
-	ycDltNh7Q4pPVMLNXVShAXCcqFkp3GrMNH2OL+VUPLQVc8bZkFZiCWL00FQ7/33Ex+WtPj5tOSyB8
-	6vOgFDM32G8XrIpyL7yWk0FYUoFCJh0MxlZm9NQv78e66x4XhArpedx0MblPsea8oC2NVGMkkNUrP
-	5v2QV1wCFA/qPT62xngATse1+S97mMPMcG59StWndu1pL9i0S3GzDQbQCUqUsF3GRxLkxXMVCdmXT
-	VsDhdNKw==;
+	bh=MiATwUEVUGE2micnLxAuIsSa5nkNr0llEfjBx0LIP+w=; b=j3g92GaxwDCjS5YnEuoETVm6O7
+	jgckYT5OtYlW4PBnmlLEdzMqPExEU+apQgO0lJ4rx3Sp9i1SHjIoFI/OGufnKh5FLkWkZ9dhvxwiS
+	bn9aGqXMLSEIECt5e254lvLxaneUh7joV9h/hrAcwxTIPQ1R9aWItWVM+Q7EuzdbMuY/uP2a5qVms
+	nGO03RzDsYWHN55tEgknY/ovq50uXm38lzHKdr1EWPvgJGR0h5SNIXkgOFZjuqYNdZSgnKSBs+Ehx
+	C1y7gS6tR0QCQepaLFHEDR7UE1LHpf6O+yKEyK5EUg7RYs0HfCryJcVObDFh6eeFh+IZf61z7O4mf
+	f3mHzZBQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm9O-0000000ByGO-0eBh;
-	Thu, 13 Mar 2025 17:15:18 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsm9K-0000000By8k-099z;
+	Thu, 13 Mar 2025 17:15:14 +0000
+Received: from mail-northeuropeazlp170130004.outbound.protection.outlook.com ([2a01:111:f403:c200::4] helo=DUZPR83CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslbT-0000000BrUa-3rJi
+	id 1tslbF-0000000BrMb-3JA1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:40:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 4166DA477B2;
-	Thu, 13 Mar 2025 16:34:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 124B1C4CEDD;
-	Thu, 13 Mar 2025 16:40:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741884014;
-	bh=p8AVcBEQ4JH4wcFU3EvZQIw+okBDu/uodFFvEyHDmr0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=gUBDOc9w3N3QjozeGeQIILT8Mbe5q45yfDahRhGlWKbXa6cAbkX28apn5101mzy0q
-	 r71b8K0QrswxlVM5UG8sxjOtJficURk0jRjeStTWrQAhljkS3N/XvAkSp3G7BRRDq/
-	 jEfUNBcPn6VkQtJRHV2qR0sVlTt5RQcALX5skRPgStcridDEVUtZ/yRLq/L7zoOjR+
-	 nu5W9LqomCOD6KOvsgQkcVhAb/5Q30CknG/rSnlFTV+go2RSYFjLNHbzp8kZaub6VS
-	 HKRgHske4Yf60+FjEutO8HFykny5ohBDeyE/ExZDr83PIdcqsrK+PWsgOds4njbUY1
-	 PWqLQw+Gk8mMw==
-Date: Thu, 13 Mar 2025 16:40:08 +0000
-From: Lee Jones <lee@kernel.org>
-To: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
-Cc: ukleinek@kernel.org, alexandre.torgue@foss.st.com, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, jic23@kernel.org,
-	daniel.lezcano@linaro.org, tglx@linutronix.de,
-	catalin.marinas@arm.com, will@kernel.org,
-	devicetree@vger.kernel.org, wbg@kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-iio@vger.kernel.org, linux-pwm@vger.kernel.org,
-	olivier.moysan@foss.st.com
-Subject: Re: [PATCH v3 2/8] mfd: stm32-lptimer: add support for stm32mp25
-Message-ID: <20250313164008.GC3645863@google.com>
-References: <20250305094935.595667-1-fabrice.gasnier@foss.st.com>
- <20250305094935.595667-3-fabrice.gasnier@foss.st.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+	Thu, 13 Mar 2025 16:40:03 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=DrywrlyiX0YyY7QtB49IOC877I+GGjgALtc48GaqVeRHMthHhasZpLQSGedmWXBtvt0qXERcC6yaGQRptpO5pzWDK0J7FKyZjtidwJHzhU4NpzSEhmVD6FuXUioVrCERFoXrsV+hFnLUQm70sAGfaYXDAuidk1V6aQhtIv/ze3mtNl4mysE2pm1u1y3SPMRfrHsCm67RKuWXjTwBxi9mwkeG9HyCNftgzaU2S2rfXU+MZDNjDqCONSc7I1qI5v8PzuM7OF1QON8da3H9aoFMr8TV11fxDTv0EjfQXTh71+9m6bAEbKeZQ9AtZQo5+++dN+0oybz9eX/Zf7QJFFgUGA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=MiATwUEVUGE2micnLxAuIsSa5nkNr0llEfjBx0LIP+w=;
+ b=DOMyyttRa5DBNylKskapveFq+e5s8C6a8pvnPbq1UZrmeU38GrdodViBu3uuata9pcZ1vEksJ0jnytp+1vMm8c+VJZZKqnUTrE2Ku9+s8mOU4iEaLVfCh6IGf2PqH2Xz7hpMNK3DXRz++efL31JvFhrCYJS591ry6TYHTwHwxlDNlb/d9QEiWXcFkaYMHDyvfgvpRFz5vioClyNHn/tVwdHaE2+HJP+WIVqvWHlGz2QjdkWkH3dx+oHsmYa2kSkWtElkKD3F69nVy/F1l4LD0QBKpJVWz4t6VmJJB161Rdy3BR5mk/FR0LVDJ3seSMQrPHJulQ1tBivgXxD3IFFtag==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=MiATwUEVUGE2micnLxAuIsSa5nkNr0llEfjBx0LIP+w=;
+ b=kWdQBQv6tBc+Csa9uNI771mb3UmqI/UV1sMTyQj0mQuo3U8qCzc6gQE6qcGptwDavJSURGKOP3Rtt9FtkoexefyiO1HW8jvSFTmqh3E9x4syu9uB8l/nbkgmUZZcxKx24oBhsN8YgOO7LD8rcIvVJUGSk3F9aSvaflIoJlcwMtFZ75jnilfRnkrIWQ/S2DgrHQVwSq17GlYptU0C5fFENYkTU9x82yFZFmMCdcYVQgErLBuRBba9MIwaswedj9JPQknGeFRe9gkdCHDo+GGTKJ4ChtWWx86B9oepPrCHMy1VC1Ti7gC1qu3ZaixVfhN+zf04WsF9gLppVG2+VmwdVw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by VI2PR04MB10268.eurprd04.prod.outlook.com (2603:10a6:800:21f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Thu, 13 Mar
+ 2025 16:39:58 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
+ 16:39:58 +0000
+Date: Thu, 13 Mar 2025 12:39:49 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: florin.leotescu@oss.nxp.com
+Cc: Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>, linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	viorel.suman@nxp.com, carlos.song@nxp.com,
+	linux-arm-kernel@lists.infradead.org, imx@lists.linux.dev,
+	festevam@gmail.com, Florin Leotescu <florin.leotescu@nxp.com>
+Subject: Re: [PATCH v4 1/3] dt-bindings: hwmon: Add Microchip emc2305 support
+Message-ID: <Z9MKVd8NeLKNIkd2@lizhi-Precision-Tower-5810>
+References: <20250313125746.2901904-1-florin.leotescu@oss.nxp.com>
+ <20250313125746.2901904-2-florin.leotescu@oss.nxp.com>
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250305094935.595667-3-fabrice.gasnier@foss.st.com>
+In-Reply-To: <20250313125746.2901904-2-florin.leotescu@oss.nxp.com>
+X-ClientProxiedBy: SJ0PR13CA0188.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c3::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|VI2PR04MB10268:EE_
+X-MS-Office365-Filtering-Correlation-Id: 87893e58-f2d5-4148-97a0-08dd624db106
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?AeJC0FmqSc56wHG+q+G4A3jC7/Blm8F+O/WwpvMKtreQOrBi+JhX5yxI92ub?=
+ =?us-ascii?Q?7ZXYsoJhOAx6v3FN9P91zbWe888SnBjEy4f2iyo7jFXu2+ITeUDJROY/OB/g?=
+ =?us-ascii?Q?UM4eym1PlQy5LQBf11DmhrthgRh8QYRHbnmVLOzFQP8i2x4jxM5pjuJmbTFG?=
+ =?us-ascii?Q?JfBDHkmHUEOA8UjQCxw9+uY/+8aluv9aw9d0/AUCRAuko2cxJ3JAfQ6kb+3u?=
+ =?us-ascii?Q?n25C2/6hyCqpK8N6mj3dQEOMNt5EQ+44SSVpQS3zuhS5Wt9m8Hm/lOOztpNn?=
+ =?us-ascii?Q?sObicOKscwNkUhD/uolPwfNm/x322Fyrj6gkhyEpTQCTh1UW+wnJ2dhZG+uE?=
+ =?us-ascii?Q?crAkYxuo7FXVSDYiyVVAEZEhFNj5Me4H3N0HciCovUKBY1AOUR2kMHdWERrt?=
+ =?us-ascii?Q?wDUmWVf9PCfyzLi5tBorazadX2w/dk22+Imm3ISFsnwCjjVX9zQhOPFxRC9d?=
+ =?us-ascii?Q?cdpvpl6Q+dZLXXrwrKHwPPN39uLYrGnQCCs2yFpHymEerHaIVOFO3rELoMex?=
+ =?us-ascii?Q?kGMeTPeFHqbx9PQuaf7y0RJ8qbOU61rCS5dg2HaNzocKCxCdqD2mVnpRuI27?=
+ =?us-ascii?Q?woijiQMAp/lbILY1NKr56rex3eIFLDRUWZ8QqfydAyn+v5mQizjeRSEOWype?=
+ =?us-ascii?Q?zU/kxLcQsmsf3jV9MbL4/7BILlxrlXWUL9TD+7ccPlur5dmCt1rBapE2IEmL?=
+ =?us-ascii?Q?j7VcAQmVm/aZs7fgD/tNTpiat/MGFJew1TFUfYAQW2/oruf8Pvz+HQbDbQOO?=
+ =?us-ascii?Q?zwaBupgQKoJZry5WBnUPNiYqz2Yq4Ca7cUKHQA3Gahie6LYfT6/etEswkTX+?=
+ =?us-ascii?Q?+urr4HidhNwLc585djt6k8GyMqgb1yJzIMx7zVfUlvG9cIrI6vVMJ9ovU6K6?=
+ =?us-ascii?Q?7y2gBpKZiqZxbVH+nZF5oBiCPC6M9uhzrLCKvqrASFWIO+V3L3cOdIfFQ6e0?=
+ =?us-ascii?Q?v8eWZU8fMjm/f++Ry/xLfYfDhQcQiaHQPnJtntKPSOVv2OJ3SiJQQPtkxM2+?=
+ =?us-ascii?Q?4A18R9zkQUE6mxjUsMCGld+xp4iaB3ReJScXPKvOpBYH+2DiKghdVN4gZ8np?=
+ =?us-ascii?Q?l42Y8mFY13hD+RrNsTq5WYoPKl47ZIEVnfynSdhTCitzkbMRBPKl8P3UTW0t?=
+ =?us-ascii?Q?dMTZfgPju7HyuMbOJAuUYYB+vabAxi0GRnGrmbzOCvSGBbZ6V4AyCywgpb0a?=
+ =?us-ascii?Q?4E5MOjAS60G8dUPfmSpxfidf6VftYh0JdVmYfWRhKNiAcnqsE+VXCYJT9Q8p?=
+ =?us-ascii?Q?c2F9k/uQi+kKC4HK2fYqPdIkWGN6qB2mTz1vCrN+T/DkM3Dy/uCwBzVQch4v?=
+ =?us-ascii?Q?/0LYxxrjalxCP5oVNuJ678uqtVMsAab5xzXcXtoeMEt2p+FbgkzoxlShAYGe?=
+ =?us-ascii?Q?BUsZ3wdRnICrQ8qVxgVSTSdB5+3c?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?igZV4FjiWD2hEyv/7aOunAVFhk49b6tIjbNvK2v//tgxA+Fo8ZaMG9aoSp+B?=
+ =?us-ascii?Q?etbYE8coHWanpNC7Kl6apBfbS25PwyYKYRvxfsF5jBPVgCLyJdv4olPj7dfX?=
+ =?us-ascii?Q?DSbp/v1YBIiu6KxeflIlRroHb+QjwcPvDaaWtkgYTq84pbpUi0Yvnbs6OEyo?=
+ =?us-ascii?Q?4B1agtIMDSIdogD20Hwx9+paAINaDN/sNjIcTSImDMM8PrLC3lX2WO5fCkyq?=
+ =?us-ascii?Q?f7mH0NppKFjZUD7LAcjGkvlg5J7/C1njCJPObH3zX3SMCKEJaOl1+lKDcYrK?=
+ =?us-ascii?Q?47RFJC+f7W5c/as29ysXXvJax1/h5ZxQccKIe5/4NyOnj6sihlpHgNxNCYah?=
+ =?us-ascii?Q?t/+FGQdzBn4YtH3uwF6EsFak2Wq19d/BXMWXrXZtdRle63fbyFHiXCr9QC3N?=
+ =?us-ascii?Q?ozt3uK++aqOrV51V/WYAsWGMAkmikM161/1gqyE3TsM7fup1G4MR7mWAmBiJ?=
+ =?us-ascii?Q?CtXygEHLjqEtNzgbkEaws/4pWolhIquudaIR/Z5h44/FLSZpo+pY+IO8CHC6?=
+ =?us-ascii?Q?oIj4+pIpgo2vGVeApIrftCO51EAauqEvUzP50j4fE0OwO84nb6B7gZL9a2Ov?=
+ =?us-ascii?Q?QayiocmDuREm+2xnj3dgTTttho1oSZNAULigV2FUp73IX6HGb2UewRoE5cDH?=
+ =?us-ascii?Q?I65XXrWdMZLMOuncap0Kz6AWVYwDNSN1QkN60Y+4lTtsiEPAG2IdxgpBaERI?=
+ =?us-ascii?Q?whwCMA6xOkJ+SIRj4g8DqynHOMphzm7iSOX9a/8OcHXvyOYLdQ44inrMtjtj?=
+ =?us-ascii?Q?sBbnfGxJJ92xtG9LEE1k3qHAp2u/uRD1xZ0TOv0KPiERsNYb3s6eNauJdmHU?=
+ =?us-ascii?Q?4fYOHpzQf75lVijY96aIii5IHFYlKxTkLZBNzKqOfVpeVi97fEKtIcbwDBDQ?=
+ =?us-ascii?Q?qA7Ve+4B55IW1VAPk9sg9oDFWk6EgqaeMqUEfHyH30J4pNW049bApzfMTwUP?=
+ =?us-ascii?Q?xLE/F1D1cIBL204w+uirwWXjgzM8mDnEyYucYiOI74/sF0kYu8e3j1Zf948u?=
+ =?us-ascii?Q?gDvHk52/FtrFExWYSKdfPNRZ8mU+ofbK5cAHKpm/A8NXHLhgl6CsEz6WmiKw?=
+ =?us-ascii?Q?vXhFHZbZKwGBcuZwZHXfWk4QYCYtuMHR33zG60JEMrEQVGwdwZs7xAoj6UrV?=
+ =?us-ascii?Q?NcJLu7MCTyM6j8VTR2vn/rvBT+JK2fUxqozblwr73uv5vbWzucD8CulhC4ta?=
+ =?us-ascii?Q?by6zcJS3bTU5KX+TLZMD5P7xF3czdRBiS7sHN38n1Itck08yKp60T3DBKr5x?=
+ =?us-ascii?Q?M3TRSIWUvivCFUgwAMgtKjtnvzG+cPhr5W4rIcjyx6HSSR6xGt7xtvDuBqY7?=
+ =?us-ascii?Q?CyPf+ktNpq/e+9PXXTazwYqCc8nrzg1FKpGiGCV8v7iDY3T1TUPCHTJVyMkU?=
+ =?us-ascii?Q?rpZvBTaXYmeMme0GZrIrX8Rc+wCqBxbW0CE5PCaM/517BL3cMNPU4L7jPkoh?=
+ =?us-ascii?Q?hGTMK4XH+KshngdF6q5PYaZ92dH9Y+flw+LOkBdbaRB7l7MVpylqgHC0SHrw?=
+ =?us-ascii?Q?kmBtAOkb8SbIxtvbsUpAw5u8PmCQUCJyAnYD7Sam84MdZj7z5rFE+/1hZsGE?=
+ =?us-ascii?Q?eGn73oe9fISejH/q8NoLAeWfx/2fFUvXDjIi0Efq?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87893e58-f2d5-4148-97a0-08dd624db106
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 16:39:58.0557
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: zDpF4xRpSFd0amcuIjxM98sGm1I1IjpmtTTC0ecIW15tqskf4Os8dFCB4fzE/eM97eKtCJVyv1RsRt0pK5X9tw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB10268
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_094016_019076_717B47F7 
-X-CRM114-Status: GOOD (  14.70  )
+X-CRM114-CacheID: sfid-20250313_094001_866924_8B15EA60 
+X-CRM114-Status: GOOD (  16.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,37 +162,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 05 Mar 2025, Fabrice Gasnier wrote:
-
-> Add support for STM32MP25 SoC.
-> A new hardware configuration register (HWCFGR2) has been added, to gather
-> number of capture/compare channels, autonomous mode and input capture
-> capability. The full feature set is implemented in LPTIM1/2/3/4. LPTIM5
-> supports a smaller set of features. This can now be read from HWCFGR
-> registers.
-> 
-> Add new registers to the stm32-lptimer.h: CCMR1, CCR2, HWCFGR1/2 and VERR.
-> Update the stm32_lptimer data struct so signal the number of
-> capture/compare channels to the child devices.
-> Also Remove some unused bit masks (CMPOK_ARROK / CMPOKCF_ARROKCF).
-> 
-> Signed-off-by: Fabrice Gasnier <fabrice.gasnier@foss.st.com>
+On Thu, Mar 13, 2025 at 02:57:44PM +0200, florin.leotescu@oss.nxp.com wrote:
+> From: Florin Leotescu <florin.leotescu@nxp.com>
+>
+> Introduce yaml schema for Microchip emc2305 pwm fan controller.
+>
+> Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
 > ---
-> Changes in V2:
-> - rely on fallback compatible as no specific .data is associated to the
->   driver. Compatibility is added by reading hardware configuration
->   registers.
-> - read version register, to be used by clockevent child driver
-> - rename register/bits definitions
-> ---
->  drivers/mfd/stm32-lptimer.c       | 33 ++++++++++++++++++++++++++++-
+>  .../bindings/hwmon/microchip,emc2305.yaml     | 104 ++++++++++++++++++
+>  1 file changed, 104 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+>
+> diff --git a/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> new file mode 100644
+> index 000000000000..3107fcafcf6a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/hwmon/microchip,emc2305.yaml
+> @@ -0,0 +1,104 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +
+> +$id: http://devicetree.org/schemas/hwmon/microchip,emc2305.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Microchip EMC2305 SMBus compliant PWM fan controller
+> +
+> +maintainers:
+> +  - Michael Shych <michaelsh@nvidia.com>
+> +
+> +description:
+> +  Microchip EMC2301/2/3/5 pwm controller which supports
+> +  up to five programmable fan control circuits.
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - microchip,emc2305
+> +      - items:
+> +          - enum:
+> +              - microchip,emc2303
+> +              - microchip,emc2302
+> +              - microchip,emc2301
+> +          - const: microchip,emc2305
+> +
+> +  reg:
+> +    maxItems: 1
+> +
+> +  '#address-cells':
+> +    const: 1
+> +
+> +  '#size-cells':
+> +    const: 0
+> +
+> +  '#pwm-cells':
+> +    const: 2
+> +
+> +patternProperties:
+> +  "^fan@[0-4]$":
+> +    $ref: fan-common.yaml#
+> +    unevaluatedProperties: false
+> +    properties:
+> +      reg:
+> +        description:
+> +          The fan number.
+> +
+> +    required:
+> +      - reg
+> +      - pwms
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +
+> +additionalProperties: false
+> +
+> +examples:
+> +  - |
+> +    i2c {
+> +        #address-cells = <1>;
+> +        #size-cells = <0>;
+> +
+> +        fan_controller: fan-controller@2f {
+> +            compatible = "microchip,emc2305";
+> +            reg = <0x2f>;
+> +            #address-cells = <1>;
+> +            #size-cells = <0>;
+> +            #pwm-cells = <2>;
+> +
+> +            fan@0 {
+> +                #cooling-cells = <2>;
+> +                reg = <0x0>;
+> +                pwms = <&fan_controller 1 1>;
+> +            };
+> +
+> +            fan@1 {
+> +                #cooling-cells = <2>;
+> +                reg = <0x1>;
+> +                pwms = <&fan_controller 1 1>;
+> +            };
+> +
+> +            fan@2 {
+> +                #cooling-cells = <2>;
+> +                reg = <0x2>;
+> +                pwms = <&fan_controller 1 1>;
+> +            };
+> +
+> +            fan@3 {
+> +                #cooling-cells = <2>;
+> +                reg = <0x3>;
+> +                pwms = <&fan_controller 1 1>;
+> +            };
+> +
+> +            fan@4 {
+> +                #cooling-cells = <2>;
+> +                reg = <0x4>;
+> +                pwms = <&fan_controller 1 1>;
+> +            };
 
-Looks okay.
+I think one child node should be enough for example.
 
->  include/linux/mfd/stm32-lptimer.h | 35 ++++++++++++++++++++++++++++---
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-Assumingly this patch is not independent of the others?
-
--- 
-Lee Jones [李琼斯]
+> +        };
+> +    };
+> +...
+> --
+> 2.34.1
+>
 
