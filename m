@@ -4,112 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF71C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:05:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D855C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:08:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:CC:To:From:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B+RImA9HsXlmFhLjXZ0S4o13XSsv8bnsvVJpuJ/5SF0=; b=u+DYDurp8yWIRTXzS8HBGP+X1l
-	WfdhGCKddPiUbmlchDUuHcPL6QY44zAvS2dSQ2DDbqwX0gfPh6n3EtcOFQ9m/vXCyLenAM6VzYCmB
-	WWe/8w8bJ8xn8gQAy269VHwu5HXpjYwJsQ04Z/qHotAhI6CrfEOSj6VOXFKEEHgc3feURAwftBMGH
-	teBb4NKvLU32A11NgSCqCLQHTmyBk3RfGSKk7XQV7hbqvbVnFitHP5Zsym2GOPKnkvlnYTwSdPPPl
-	dYk5JfU+q753NaGkR1YaMN8MeKEIcn2ASVpEC6JVCviz1A/9WM6qJ+K/xedN/kH+wRRBkFgMcFVpr
-	vY1iZLTg==;
+	bh=3cNPhfn56hhnyntPjEfHke2lx/LZF8+QUZgYQm+CWUo=; b=NS3Bhb7wTmasUCRG1gkV4w/7p4
+	Ucr4p8rYS470LhtW8pT/UVoNFK6FIMxKAGPnD3qdx8E4NGfWmPW/YRfxfbmI/i3uFLHKz1iUqvggz
+	zYOEUiMLJ1aL1Xlp6jJFdlEsEKBfmzbbiBPUL7ovwcpt3Obx6NY/5upBlknGw3XrNs9CLVi+1nyyD
+	vn+wvUFZrDZszooukEQI8CzuWRNjXTEDbzXon2Ic6Q5nkPkUtx/Qbf3Pq9cO9ghZu78tmCkXWHIjM
+	1KdvGp+ofXko6aPd/MXhjTNmTbVc8iQr/pXGI7g5K//1LO3kaN6daCly6wbtYUs/5bL72iK6NnB3P
+	aFTJJSAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseUh-0000000Aetj-2Zak;
-	Thu, 13 Mar 2025 09:04:47 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tseY3-0000000AfnX-0nip;
+	Thu, 13 Mar 2025 09:08:15 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseRW-0000000Adtv-0IEb
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 09:01:31 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CLZ63e014953;
-	Thu, 13 Mar 2025 09:00:58 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	B+RImA9HsXlmFhLjXZ0S4o13XSsv8bnsvVJpuJ/5SF0=; b=hhKJv7HoGU8G4+b+
-	qglVgkSyU5gSbzj0BELNM/k8uBjcnofkC+K112iODrhaa2KFwEJjUDNUfY+SFLVk
-	BBJzhJpsK8kXQcbJTtzmNeuBSIIjGi090Tz1qDGv6zen0C4HRKVjYQj6bAzVfOwm
-	MmC390NsH5whpcCKjN6MsvsMgvUgvVO/KHHDYG/LyTtrmmkcmdKofmWmqsuMd5NQ
-	LFswgXtkYU8YmpEq4ny130o6jj4jgi50FwBKhx4FBgUyfx7Toeq3wHcHx189YDMx
-	Xae/0wu2Uc4OHt8tm38JYTHMoFWse7egUe16vtVxZyNhodOUHAwOh+Qn0dniJ63d
-	ugSr0A==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2p59rg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 09:00:58 +0000 (GMT)
-Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52D90vrn016505
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 09:00:57 GMT
-Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
- (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 13 Mar
- 2025 02:00:52 -0700
-Message-ID: <57b391cc-2ce9-43f5-90b7-51b90cb8abe3@quicinc.com>
-Date: Thu, 13 Mar 2025 17:00:50 +0800
+	id 1tseWN-0000000AfPL-2HPL;
+	Thu, 13 Mar 2025 09:06:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id D0F255C59B2;
+	Thu, 13 Mar 2025 09:04:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 3DDF8C4CEEA;
+	Thu, 13 Mar 2025 09:06:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741856788;
+	bh=rcZ4hUqkPHAzf/+Hghm6DmFVxWHcdR3LRlMwrsk358A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=o2tKgqttg+IrzwqcRJSBH46YNitpjH2/Inzl5Hqly8q08RRSw+9TyNK8lGYI0/nRF
+	 BcQ0SiCixJZpWtdXqr+zd9k6zsSnXaWvR0NSDtQAhqAtwb2NQZjd+iQAggRW/NoVVt
+	 E4pZ1qmqgQYR1q9UcBCMqc20R8WjQEM0+D2kOrzex5OLyi/hvyVPPzD0n8OnbAzDBo
+	 x+5wJf3jUyRjkyN+60nhH24AXWChhTCvirNXF3oOCqSCMl3lxJGK9m/iOp5lijGUSd
+	 gnbPIe5NVuH/6cBfyT30/SZ0FghvU5wYEP4seNrVyQszkm7w0EGyZOYIQ5IVh7V4UR
+	 OkQTglES4/X5A==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 1CD21C28B28;
+	Thu, 13 Mar 2025 09:06:28 +0000 (UTC)
+From: Kelvin Zhang via B4 Relay <devnull+kelvin.zhang.amlogic.com@kernel.org>
+Date: Thu, 13 Mar 2025 17:05:34 +0800
+Subject: [PATCH v4 1/3] dt-bindings: reset: Add compatible for Amlogic
+ A4/A5 Reset Controller
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 1/4] coresight: tmc: Introduce new APIs to get the RWP
- offset of ETR buffer
-From: Jie Gan <quic_jiegan@quicinc.com>
-To: Mike Leach <mike.leach@linaro.org>
-CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        James Clark
-	<james.clark@linaro.org>,
-        Alexander Shishkin
-	<alexander.shishkin@linux.intel.com>,
-        Maxime Coquelin
-	<mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Tingwei Zhang
-	<quic_tingweiz@quicinc.com>,
-        Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-stm32@st-md-mailman.stormreply.com>
-References: <20250310090407.2069489-1-quic_jiegan@quicinc.com>
- <20250310090407.2069489-2-quic_jiegan@quicinc.com>
- <CAJ9a7Vh7PmBBbvwnUETfCYrTSiXNzeiWpsz+XAGaUWt1Rq1aZw@mail.gmail.com>
- <cef984d5-f369-4892-b970-a71285c2ebc5@quicinc.com>
- <CAJ9a7VhDD3813LtH_5AYyM-2mhCNP+vRmqXn4RWqg5F8FEe-Mg@mail.gmail.com>
- <51aab2c3-2219-454f-93b1-5820a9c2ced1@quicinc.com>
-Content-Language: en-US
-In-Reply-To: <51aab2c3-2219-454f-93b1-5820a9c2ced1@quicinc.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nalasex01c.na.qualcomm.com (10.47.97.35)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=ePkTjGp1 c=1 sm=1 tr=0 ts=67d29eca cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=vBr3ZPaBVqwuCb-1dNMA:9 a=3ZKOabzyN94A:10
- a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-ORIG-GUID: ykVmxC-jvRo7b-BNk7mpZ-nxa3t9aqjS
-X-Proofpoint-GUID: ykVmxC-jvRo7b-BNk7mpZ-nxa3t9aqjS
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-13_04,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 phishscore=0
- mlxscore=0 malwarescore=0 suspectscore=0 impostorscore=0 bulkscore=0
- clxscore=1015 lowpriorityscore=0 spamscore=0 priorityscore=1501
- adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503130070
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250313-a4-a5-reset-v4-1-8076f684d6cf@amlogic.com>
+References: <20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com>
+In-Reply-To: <20250313-a4-a5-reset-v4-0-8076f684d6cf@amlogic.com>
+To: Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Kevin Hilman <khilman@baylibre.com>, Jerome Brunet <jbrunet@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Zelong Dong <zelong.dong@amlogic.com>, 
+ Conor Dooley <conor.dooley@microchip.com>, 
+ Kelvin Zhang <kelvin.zhang@amlogic.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741856786; l=2254;
+ i=kelvin.zhang@amlogic.com; s=20240329; h=from:subject:message-id;
+ bh=RBPG6lp45fxsEDVQ6Y1mIySEYTUUWfsM6OujOhVw3vA=;
+ b=JCc17KCO/vZFwG4kiG7RGpV4Q7ntH3awp5/UxBjM4/ryfjUXlI8ceBJaUjO6BexJJnfCWr1aU
+ jRYu0G1MUD7A4hXQqUzVzR7Su3BBygjqvihxq3h2fwr5RN7kxfhuJHe
+X-Developer-Key: i=kelvin.zhang@amlogic.com; a=ed25519;
+ pk=pgnle7HTNvnNTcOoGejvtTC7BJT30HUNXfMHRRXSylI=
+X-Endpoint-Received: by B4 Relay for kelvin.zhang@amlogic.com/20240329 with
+ auth_id=148
+X-Original-From: Kelvin Zhang <kelvin.zhang@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_020130_130260_4D379A29 
-X-CRM114-Status: GOOD (  44.10  )
+X-CRM114-CacheID: sfid-20250313_020631_677174_DE4EBA99 
+X-CRM114-Status: UNSURE (   7.59  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,309 +91,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kelvin.zhang@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Zelong Dong <zelong.dong@amlogic.com>
 
+Add compatibles for Amlogic A4 and A5 reset controllers,
+which fall back to 'amlogic,meson-s4-reset'.
 
-On 3/13/2025 9:32 AM, Jie Gan wrote:
-> 
-> 
-> On 3/12/2025 8:54 PM, Mike Leach wrote:
->> Hi Jie,
->>
->> On Wed, 12 Mar 2025 at 01:21, Jie Gan <quic_jiegan@quicinc.com> wrote:
->>>
->>>
->>>
->>> On 3/12/2025 12:49 AM, Mike Leach wrote:
->>>> Hi,
->>>>
->>>> On Mon, 10 Mar 2025 at 09:04, Jie Gan <quic_jiegan@quicinc.com> wrote:
->>>>>
->>>>> The new functions calculate and return the offset to the write 
->>>>> pointer of
->>>>> the ETR buffer based on whether the memory mode is SG, flat or 
->>>>> reserved.
->>>>> The functions have the RWP offset can directly read data from ETR 
->>>>> buffer,
->>>>> enabling the transfer of data to any required location.
->>>>>
->>>>> Signed-off-by: Jie Gan <quic_jiegan@quicinc.com>
->>>>> ---
->>>>>    .../hwtracing/coresight/coresight-tmc-etr.c   | 40 +++++++++++++ 
->>>>> ++++++
->>>>>    drivers/hwtracing/coresight/coresight-tmc.h   |  1 +
->>>>>    2 files changed, 41 insertions(+)
->>>>>
->>>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc-etr.c b/ 
->>>>> drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>>> index eda7cdad0e2b..ec636ab1fd75 100644
->>>>> --- a/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>>> +++ b/drivers/hwtracing/coresight/coresight-tmc-etr.c
->>>>> @@ -267,6 +267,46 @@ void tmc_free_sg_table(struct tmc_sg_table 
->>>>> *sg_table)
->>>>>    }
->>>>>    EXPORT_SYMBOL_GPL(tmc_free_sg_table);
->>>>>
->>>>> +static long tmc_flat_resrv_get_rwp_offset(struct tmc_drvdata 
->>>>> *drvdata)
->>>>> +{
->>>>> +       dma_addr_t paddr = drvdata->sysfs_buf->hwaddr;
->>>>> +       u64 rwp;
->>>>> +
->>>>
->>>> It is not valid to read RWP if the TMC is running. It must be in the
->>>> stopped or disabled state - see the specifications for TMC /ETR
->>>>
->>>> It is likely that CSUNLOCK / CSLOCK are needed here too,  along with
->>>> the spinlock that protects drvdata
->>>>
->>>> See the code in coresight_tmc_etr.c :-
->>>>
->>>> e.g. in
->>>>
->>>> tmc_update_etr_buffer()
->>>>
->>>> ...
->>>> <take spinlock>
->>>> ...
->>>> CS_UNLOCK(drvdata->base);
->>>> tmc_flush_and_stop(drvdata); // this ensures tmc is stopped and
->>>> flushed to memory - essential to ensure full formatted frame is in
->>>> memory.
->>>> tmc_sync_etr_buf(drvdata); // this function reads rwp.
->>>> CS_LOCK(drvdata->base);
->>>> <release spinlokc>
->>>>
->>>> This type of program flow is common to both sysfs and perf handling of
->>>> TMC buffers.
->>>
->>> Hi Mike,
->>>
->>> I am fully understood your point here.
->>>
->>> The function is designed this way to read the w_offset (which may not be
->>> entirely accurate because the etr buffer is not synced) when the
->>
->> Why would you ever base memory access on a pointer that is not
->> entirely accurate?
->>
->> The manuals for TMC/ETR all state that reads to both RWP and RRP when
->> the ETR is running return unknown values. These cannot be used to
->> access the buffer, or determine how much of the buffer has been used
->> on a running ETR.
->>
->> The ETR specification specifically states that it is not permitted to
->> read the buffer data while the ETR is running, when configured in
->> circular buffer mode - which is the mode used in the TMC-ETR linux
->> drivers.
->>
->> Reading the buffer while ETR is running is only permitted if
->> configured in Software FIFO mode 2 - were the ETR will stop on full
->> and stall incoming trace until some data is read out, signalled to the
->> ETR via the RURP.
->>
-> 
-> Hi Mike,
-> 
-> I appreciate for your patient explanation.
-> 
-> I was wrong about read data from etr_buffer. I must follow the 
-> specification to design a method to reading buffer while ETR is running.
-> 
-> How about the following method:
-> 
-> 1. The byte-cntr interrupt handler will count the IRQ triggered number 
-> when byte-cntr file node is opened.
-> 2. Read the buffer after the ETR is stopped(full or stopped manually) 
-> according to the counted number. we got the etr->offset, etr->size and 
-> the counted number, so we can calculate the offset where starts to read.
-> 3. Restart the ETR to keep counting the number of IRQ triggers.
-> 
-> Thanks,
-> Jie
+Signed-off-by: Zelong Dong <zelong.dong@amlogic.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
+Link: https://lore.kernel.org/r/20240918074211.8067-2-zelong.dong@amlogic.com
+Signed-off-by: Kelvin Zhang <kelvin.zhang@amlogic.com>
+---
+ .../bindings/reset/amlogic,meson-reset.yaml        | 22 ++++++++++++++--------
+ 1 file changed, 14 insertions(+), 8 deletions(-)
 
-Hi Mike,
+diff --git a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
+index 695ef38a7bb346c92b4cf428e7615d45682c940a..150e95c0d9bed74c7045942610a311114a257889 100644
+--- a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
++++ b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
+@@ -12,14 +12,20 @@ maintainers:
+ 
+ properties:
+   compatible:
+-    enum:
+-      - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
+-      - amlogic,meson-gxbb-reset # Reset Controller on GXBB and compatible SoCs
+-      - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
+-      - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
+-      - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
+-      - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
+-      - amlogic,t7-reset
++    oneOf:
++      - enum:
++          - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
++          - amlogic,meson-gxbb-reset # Reset Controller on GXBB and compatible SoCs
++          - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
++          - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
++          - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
++          - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
++          - amlogic,t7-reset
++      - items:
++          - enum:
++              - amlogic,a4-reset
++              - amlogic,a5-reset
++          - const: amlogic,meson-s4-reset
+ 
+   reg:
+     maxItems: 1
 
-Please ignore my previous proposal.
+-- 
+2.37.1
 
-Let me clarify the purpose of the byte-cntr function to ensure there are 
-no misunderstandings from my previous comments.
-
-First, we definitely need to change the method for reading the rwp 
-pointer from the RWP register.The new method ensures that we obtain a 
-valid rwp value.
-
-code snippet:
-long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
-{
-	struct etr_buf *etr_buf;
-	unsigned long flags;
-	long w_offset;
-
-	if (WARN_ON(!drvdata->sysfs_buf))
-		return -EINVAL;
-
-	spin_lock_irqsave(&drvdata->spinlock, flags);
-	etr_buf = drvdata->sysfs_buf;
-	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-		__tmc_etr_disable_hw(drvdata);
-
-	if (etr_buf->mode == ETR_MODE_ETR_SG)
-		w_offset = tmc_sg_get_rwp_offset(drvdata);
-	else if (etr_buf->mode == ETR_MODE_FLAT || etr_buf->mode == ETR_MODE_RESRV)
-		w_offset = tmc_flat_resrv_get_rwp_offset(drvdata);
-	else
-		w_offset = -EINVAL;
-
-	if (coresight_get_mode(drvdata->csdev) == CS_MODE_SYSFS)
-		__tmc_etr_enable_hw(drvdata);
-
-	spin_unlock_irqrestore(&drvdata->spinlock, flags);
-
-	return w_offset;
-}
-
-The rwp offset is necessary because the length of the trace data 
-transferred by the byte-cntr depends on the IRQ count number and the rwp 
-value is read (as a benchmark to indicate where we start from) when the 
-interrupt is enabled.
-
-With a valid rwp value, we can copy trace data from the ETR buffer (The 
-trace data in the ETR buffer can still be read using tmc_read) based on 
-the IRQ count number.
-
-We need the byte-cntr function to continue transferring data from the 
-ETR buffer to userspace (because the etr buffer has some limitations to 
-store trace data) while the ETR is running but we just utilize the rwp 
-value as a benchmark to copy trace data from etr buffer, is this acceptable?
-
-Please correct me if I am wrong.
-
-Thanks,
-Jie
-
-> 
->> I also note that you are reading back the etr_buf data without doing
->> any dma_sync operations that the perf and sysfs methods in the driver
->> do, after stopping the tmc.
->>
->>> byte-cntr devnode is opened, aiming to reduce the length of redundant
->>> trace data. In this case, we cannot ensure the TMC is stopped or
->>> disabled.
->>
->> The specification requires that you must ensure the TMC is stopped to
->> read these registers.
->>
->>
->>> The byte-cntr only requires an offset to know where it can
->>> start before the expected trace data gets into ETR buffer.
->>>
->>> The w_offset is also read when the byte-cntr function stops, which
->>> occurs after the TMC is disabled.
->>>
->>> Maybe this is not a good idea and I should read r_offset upon open?
->>> The primary goal for byte-cntr is trying to transfer useful trace data
->>> from the ETR buffer to the userspace, if we start from r_offset, a large
->>> number of redundant trace data which the user does not expect will be
->>> transferred simultaneously.
->>>
->>>
->>
->> It is difficult to justify adding code to a driver that does not
->> correspond to the specification of the hardware device.
->>
->> Regards
->>
->> Mike
->>
->>>>
->>>>> +       rwp = tmc_read_rwp(drvdata);
->>>>> +       return rwp - paddr;
->>>>> +}
->>>>> +
->>>>> +static long tmc_sg_get_rwp_offset(struct tmc_drvdata *drvdata)
->>>>> +{
->>>>> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
->>>>> +       struct etr_sg_table *etr_table = etr_buf->private;
->>>>> +       struct tmc_sg_table *table = etr_table->sg_table;
->>>>> +       long w_offset;
->>>>> +       u64 rwp;
->>>>> +
->>>>
->>>> Same comments as above
->>>>
->>>>> +       rwp = tmc_read_rwp(drvdata);
->>>>> +       w_offset = tmc_sg_get_data_page_offset(table, rwp);
->>>>> +
->>>>> +       return w_offset;
->>>>> +}
->>>>> +
->>>>> +/*
->>>>> + * Retrieve the offset to the write pointer of the ETR buffer 
->>>>> based on whether
->>>>> + * the memory mode is SG, flat or reserved.
->>>>> + */
->>>>> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata)
->>>>> +{
->>>>> +       struct etr_buf *etr_buf = drvdata->sysfs_buf;
->>>>> +
->>>>
->>>> As this is an exported function, please ensure that the inputs are
->>>> valid - check the pointers
->>>
->>> Sure, will do.
->>>
->>> Thanks,
->>> Jie
->>>
->>>>
->>>> Code to ensure TMC is flushed and stopped could be inserted here.
->>>>
->>>> Regards
->>>>
->>>> Mike
->>>>
->>>>> +       if (etr_buf->mode == ETR_MODE_ETR_SG)
->>>>> +               return tmc_sg_get_rwp_offset(drvdata);
->>>>> +       else if (etr_buf->mode == ETR_MODE_FLAT || etr_buf->mode == 
->>>>> ETR_MODE_RESRV)
->>>>> +               return tmc_flat_resrv_get_rwp_offset(drvdata);
->>>>> +       else
->>>>> +               return -EINVAL;
->>>>> +}
->>>>> +EXPORT_SYMBOL_GPL(tmc_get_rwp_offset);
->>>>> +
->>>>>    /*
->>>>>     * Alloc pages for the table. Since this will be used by the 
->>>>> device,
->>>>>     * allocate the pages closer to the device (i.e, dev_to_node(dev)
->>>>> diff --git a/drivers/hwtracing/coresight/coresight-tmc.h b/drivers/ 
->>>>> hwtracing/coresight/coresight-tmc.h
->>>>> index b48bc9a01cc0..baedb4dcfc3f 100644
->>>>> --- a/drivers/hwtracing/coresight/coresight-tmc.h
->>>>> +++ b/drivers/hwtracing/coresight/coresight-tmc.h
->>>>> @@ -442,5 +442,6 @@ void tmc_etr_remove_catu_ops(void);
->>>>>    struct etr_buf *tmc_etr_get_buffer(struct coresight_device *csdev,
->>>>>                                      enum cs_mode mode, void *data);
->>>>>    extern const struct attribute_group coresight_etr_group;
->>>>> +long tmc_get_rwp_offset(struct tmc_drvdata *drvdata);
->>>>>
->>>>>    #endif
->>>>> -- 
->>>>> 2.34.1
->>>>>
->>>>
->>>>
->>>
->>
->>
->> -- 
->> Mike Leach
->> Principal Engineer, ARM Ltd.
->> Manchester Design Centre. UK
-> 
-> 
 
 
