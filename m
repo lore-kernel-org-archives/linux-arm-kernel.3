@@ -4,88 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D45D4C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:18:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33A58C2BA1B
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:21:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JhXUy51c9HOiF2dM0ShdmXt1Njr+UGlAd/NPatt3K0Q=; b=nXB9iyJm15tXTK8jWnP7AoWOZn
-	YxM53qaZvQ9xFL6SAijbHXB7MGjc65NDm5zZ5mm8fJzG3x6fqFFHnb+1UaOYWTx4DZJyiyWZuIIvt
-	68eJB/5S/F1++HrQoGKLUPYnqwyaX+XHfGCHCF62nutVJEim3iqJLSovLyKK/GTIQgwPi44rqSxVH
-	tSnvpGRj5Rpg1w0597gKpnyFlcbvBHU0IfVexr6BdWL0y+eK7KvdYNp4+WJNm38J6tSC/RASBlVkB
-	2pufgWCsDQYn110ucFRIam2LxnFYfyv4u+3pxCnM5C7aRwTQf4If0CfYiO01WRkvHOlslugio/WA7
-	MLXyKajg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f4J1izN7NsLC3ZsSV4WP4PqPHf/Dzk/N5yKDAw/y4Go=; b=ks1nEPu9EEVBQb6yk4190G5GIG
+	q/n/r9RqcSyiuMWZE15YXynWkL92pdgH0W/SBGs/Jb+IZ5/4VV6fr1nf1NA+21NHO2pYmXd7fRj0e
+	rtkwnvB874DhyjF+XR5civOCZ3WsTVxcrB5chKivvOTQXOgdHhXIZYxIhd5iq6ksFZO9PZG68HsXw
+	e0fP82yv/F8quXIfElQdbYK5x7eixilPVXIvHwX28J5vxB4nIgHECdISHsx9+gIl38ikyb81DzRFK
+	lYgPdD4+Wk/7qClK3QRDeVcNtW8eMGdvkZAfNWf6x+NxP+bmCUWSbd3m/7nOWxFz23pKJ75Mp20mZ
+	sK9SJAWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshVn-0000000BDVO-3GoT;
-	Thu, 13 Mar 2025 12:18:08 +0000
-Received: from relay6-d.mail.gandi.net ([2001:4b98:dc4:8::226])
+	id 1tshZ3-0000000BDsZ-2HEk;
+	Thu, 13 Mar 2025 12:21:29 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshBU-0000000B9RZ-1n6x
+	id 1tshId-0000000BB29-42zu
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:57:10 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id EA15B43290;
-	Thu, 13 Mar 2025 11:56:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741867023;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=JhXUy51c9HOiF2dM0ShdmXt1Njr+UGlAd/NPatt3K0Q=;
-	b=QwnyFTZYHlEK0gM8ijiyd15oLuWJmqqgsBCfTj5dOwO8Ny2Zx0aUjpStJFhwkMDmaPvmo0
-	Qk5FqkGvQlzKhqGEUhWczOpYH6r86aXQxq8KCQ69Kst4cIgUREiVQdPyh3JNUoFAtUzEdL
-	oKBoPnqi4f8o+vBx3ceJ1my6wLrWoqSi7EGg9P9cvzKphYMEMGc2C79bpBU7P1aeyzGVky
-	DCXwUhNvJFJmGTnswNa1DLdZWbdRwwbhMiKnrSAkj1ypGAcr3qs+sgFGzBZMXQIYI0jMaG
-	GiT7iStHOIXg9NqorQxWoG/e1Fh95b4KKxXc4/BNXFp25JWtuZoVtP1q9dlmdQ==
-Date: Thu, 13 Mar 2025 12:56:56 +0100
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Maxime Ripard <mripard@kernel.org>
-Cc: Simona Vetter <simona@ffwll.ch>, Inki Dae <inki.dae@samsung.com>, Jagan
- Teki <jagan@amarulasolutions.com>, Marek Szyprowski
- <m.szyprowski@samsung.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
- Deacon <will@kernel.org>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer
- <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>, Daniel Thompson <danielt@kernel.org>,
- Andrzej Hajda <andrzej.hajda@intel.com>, Jonathan Corbet <corbet@lwn.net>,
- Sam Ravnborg <sam@ravnborg.org>, Boris Brezillon <bbrezillon@kernel.org>,
- Nicolas Ferre <nicolas.ferre@microchip.com>, Alexandre Belloni
- <alexandre.belloni@bootlin.com>, Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Jessica Zhang <quic_jesszhan@quicinc.com>, Paul Kocialkowski
- <contact@paulk.fr>, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>, Neil
- Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman
- <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten
- Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, =?UTF-8?B?SGVy?=
- =?UTF-8?B?dsOp?= Codina <herve.codina@bootlin.com>, Thomas Petazzoni
- <thomas.petazzoni@bootlin.com>, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-doc@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, Paul Kocialkowski
- <paul.kocialkowski@bootlin.com>
-Subject: Re: [PATCH v6 14/26] drm/bridge: add support for refcounted DRM
- bridges
-Message-ID: <20250313125656.70448d09@booty>
-In-Reply-To: <20250207-ingenious-daffodil-dugong-51be57@houat>
-References: <20250206-hotplug-drm-bridge-v6-0-9d6f2c9c3058@bootlin.com>
-	<20250206-hotplug-drm-bridge-v6-14-9d6f2c9c3058@bootlin.com>
-	<20250207-ingenious-daffodil-dugong-51be57@houat>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.43; x86_64-redhat-linux-gnu)
+	Thu, 13 Mar 2025 12:04:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 5676DA47165;
+	Thu, 13 Mar 2025 11:59:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63084C4CEDD;
+	Thu, 13 Mar 2025 12:04:28 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741867470;
+	bh=8xSatFqW6rNQRg2ui1Hv5/Ccru9q7nKvNSRlZwWl5L8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=laX+XLblooglk5nBQ2OLuWGhtqj6qrkClKYXRqLBhPW0lc/doJ6OVCdrBiPC/mTg3
+	 ypllpZEyEwH1ZbJzgDmhfoLX3y2MLs0YZrWb+QyiKz5xxK1jEYFyTd9UKk1REzAwA8
+	 R/d1CxybPiNxrCUnCouHJpBqv5ItV/PRF6qtbE+mOgG6K0BSG6kPtEvtqd4+TQOIOi
+	 qFC9lieHIU8DcOyk/fWQduHA0ZcfKs3vux9ZjxFIecAZ+oC7p/RQoDadjYIfTJVoWc
+	 AilbK0CyDNeNEKUsz4aHgixCNVndewaZqO/0AKyFWEkNbO3ETwosS1fdTQFuEZN3XQ
+	 pj8pCpmOSW1Ew==
+Date: Thu, 13 Mar 2025 12:04:25 +0000
+From: Will Deacon <will@kernel.org>
+To: Sebastian Ene <sebastianene@google.com>
+Cc: catalin.marinas@arm.com, joey.gouly@arm.com, maz@kernel.org,
+	oliver.upton@linux.dev, snehalreddy@google.com,
+	sudeep.holla@arm.com, suzuki.poulose@arm.com, vdonnefort@google.com,
+	yuzenghui@huawei.com, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com
+Subject: Re: [PATCH v2 3/4] KVM: arm64: Map the hypervisor FF-A buffers on
+ ffa init
+Message-ID: <20250313120424.GA7356@willie-the-truck>
+References: <20250227181750.3606372-1-sebastianene@google.com>
+ <20250227181750.3606372-4-sebastianene@google.com>
+ <20250303234259.GA30749@willie-the-truck>
+ <Z8ZPBZF7J-qKdb_i@google.com>
+ <20250304015633.GA30882@willie-the-truck>
+ <Z8c6enoolJe7Zeqk@google.com>
+ <20250305003808.GA31667@willie-the-truck>
+ <Z8iZkQHknZfY7mpn@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdejkeekucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpeffhffvvefukfgjfhhoofggtgfgsehtjeertdertddvnecuhfhrohhmpefnuhgtrgcuvegvrhgvshholhhiuceolhhutggrrdgtvghrvghsohhlihessghoohhtlhhinhdrtghomheqnecuggftrfgrthhtvghrnheptdeljeejuddvudetffdtudelfedugfduledtueffuedufefgudegkeegtdeihedunecuffhomhgrihhnpehkvghrnhgvlhdrohhrghdpsghoohhtlhhinhdrtghomhenucfkphepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddvmeeijedtmedvtddvtdemvggrtddumegrtddtvdemudgsrgejmeegkehfjeemudeltgehpdhhvghlohepsghoohhthidpmhgrihhlfhhrohhmpehluhgtrgdrtggvrhgvshholhhisegsohhothhlihhnrdgtohhmpdhnsggprhgtphhtthhopeefjedprhgtphhtthhopehmrhhiphgrrhgusehkvghrnhgvlhdrohhrghdprhgtphhtthhopehsihhmohhnrgesfhhffihllhdrtghhpdhrtghpthhtohepihhnkhhirdgurggvsehsrghmshhun
- hhgrdgtohhmpdhrtghpthhtohepjhgrghgrnhesrghmrghruhhlrghsohhluhhtihhonhhsrdgtohhmpdhrtghpthhtohepmhdrshiihihprhhofihskhhisehsrghmshhunhhgrdgtohhmpdhrtghpthhtoheptggrthgrlhhinhdrmhgrrhhinhgrshesrghrmhdrtghomhdprhgtphhtthhopeifihhllheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshhhrgifnhhguhhosehkvghrnhgvlhdrohhrgh
-X-GND-Sasl: luca.ceresoli@bootlin.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z8iZkQHknZfY7mpn@google.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_045708_916766_D04D6EA2 
-X-CRM114-Status: GOOD (  29.76  )
+X-CRM114-CacheID: sfid-20250313_050432_129462_39A6B423 
+X-CRM114-Status: GOOD (  44.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,72 +84,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Maxime,
-
-On Fri, 7 Feb 2025 12:47:51 +0100
-Maxime Ripard <mripard@kernel.org> wrote:
-
-> Hi,
-> 
-> On Thu, Feb 06, 2025 at 07:14:29PM +0100, Luca Ceresoli wrote:
-> > DRM bridges are currently considered as a fixed element of a DRM card, and
-> > thus their lifetime is assumed to extend for as long as the card
-> > exists. New use cases, such as hot-pluggable hardware with video bridges,
-> > require DRM bridges to be added and removed to a DRM card without tearing
-> > the card down. This is possible for connectors already (used by DP MST), so
-> > add this possibility to DRM bridges as well.
+On Wed, Mar 05, 2025 at 06:36:01PM +0000, Sebastian Ene wrote:
+> On Wed, Mar 05, 2025 at 12:38:08AM +0000, Will Deacon wrote:
+> > On Tue, Mar 04, 2025 at 05:38:02PM +0000, Sebastian Ene wrote:
+> > > On Tue, Mar 04, 2025 at 01:56:35AM +0000, Will Deacon wrote:
+> > > >   | [...] negotiation of the version must happen before an invocation of
+> > > >   | any other FF-A ABI
+> > > > 
+> > > 
+> > > We do that, as the hypervisor negotiates its own version in
+> > > hyp_ffa_init.
 > > 
-> > Implementation is based on drm_connector_init() as far as it makes sense,
-> > and differs when it doesn't. A difference is that bridges are not exposed
-> > to userspace, hence struct drm_bridge does not embed a struct
-> > drm_mode_object which would provide the refcount. Instead we add to struct
-> > drm_bridge a refcount field (we don't need other struct drm_mode_object
-> > fields here) and instead of using the drm_mode_object_*() functions we
-> > reimplement from those functions the few lines that drm_bridge needs for
-> > refcounting.
+> > hyp_ffa_init() only issues FFA_VERSION afaict, which is the one call
+> > that you're allowed to make during negotiation. So the existing code is
+> > fine.
 > > 
-> > Also add a new devm_drm_bridge_alloc() macro to allocate a new refcounted
-> > bridge.
+> > > I think the host shouldn't be allowed to overwrite the
+> > > hyp_ffa_version obtained from _init, this feels wrong as you
+> > > can have a driver that forcefully downgrades the hypervisor to an old
+> > > version.
 > > 
-> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>  
+> > I think that's also fine. The FFA code in the hypervisor exists solely
+> > to proxy requests from the host; it's not used for anything else and so,
+> > from the host's persective, FFA should behave identically to the case in
+> > which the proxy is not present (e.g. if we were just using VHE). That
+> > means that we're doing the right thing by deferring to the host for
+> > version negotation.
+> > 
+> > Are you saying there's a bug in the current code if the host negotiates
+> > the downgrade?
 > 
-> So, a couple of general comments:
+> It is an issue *only* for doing guest-ffa (which isn't posted here yet).
+> If we allow the host to dictate the version & there is an issue with TZ
+> FF-A dispatcher in that version => the guests will be affected by this
+> as well.
+
+When we get to guests doing FF-A, I still think the host should be
+responsible for the version negotiation and guests should just be given
+whatever has been negotiated. We could extend the hypervisor to marshall
+between different versions, but I'd rather do that only if we actually
+need it.
+
+> > > We need to do three things, Sudeep & Will please correct me if I am
+> > > wrong, but this is how I see it:
+> > > 
+> > > - the hypervisor should act as a separate entity (it has a different ID and
+> > > in the current implementation we don't do a distinction between host/hyp) and
+> > > it should be able to lock its own version from init.
+> > 
+> > I strongly disagree with that. The hypervisor isn't using FFA for
+> > anything other than proxying the host and so we don't need to negotiate
+> > a separate version.
+> > 
+> > What would we gain by doing this? Is there a bug with what we're doing
+> > at the moment?
 > 
-> - I've said it a couple of times already, but I really think you're
->   making it harder than necessary for you here. This (and only this!)
->   should be the very first series you should be pushing. The rest can
->   only ever work if that work goes through, and it's already hard enough
->   as it is. So, split that patch into a series of its own, get that
->   merged, and then we will be able to deal with panels conversion and
->   whatever. That's even more true with panels since there's ongoing work
->   that will make it easier for you too. So the best thing here is
->   probably to wait.
+> I think we need to make a distinction between the host and the
+> hypervisor when we are adding support for guest-ffa. We currently have
+> the same id (== 0) for both of them.
+
+Right, and we currently don't support guest-ffa, so no problem :)
+
+> > > - keep a separate version negotiated for the host
+> > > - trap FFA_ID_GET from the host and return ID=1 because
+> > >   currently we forward the call to the TZ and it returns the same ID
+> > >   as the (hypervisor == 0).
+> > 
+> > Why is this beneficial? It just looks like complexity at EL2 for no gain
+> > to me, but maybe I'm missing something.
+> >
 > 
-> - This patch really needs to be split into several patches, something
->   along the lines of:
-> 
->   + Creating devm_drm_bridge_alloc()
->   + Adding refcounting
->   + Taking the references in all the needed places
->   + Converting a bunch of drivers
+> Because the host can impersonate the hypervisor using ff-a direct calls atm.
+> and we are in a position to restrict the host from playing nasty games
+> with TZ.
 
-After reading Anusha's "[PATCH RFC 0/2] drm/panel: Refcounted panel
-allocation" [0] I think I need a clarification about the 4 steps you had
-outlined in the above quoted text. Are you suggesting those are four
-_series_, and you'd want to see a series only creating
-devm_drm_bridge_alloc() as a first step, similarly to Anusha's work?
+Can you give a specific example of why impersonating a direct call is a
+problem? I agree that it sounds bad, but the hypervisor is still in the
+middle and so it can check what the call is requesting.
 
-That was not my understanding so far, and so I've been working on a
-series containing all 4 items, and it's growing very long due to item 3
-needing to touch many dozen drivers which need to put a bridge (many
-are identical oneliner patches though).
-
-Luca
-
-[0] https://lore.kernel.org/all/20250312-drm-panel-v1-0-e99cd69f6136@redhat.com/
-
--- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Will
 
