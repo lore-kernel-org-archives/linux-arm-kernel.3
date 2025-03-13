@@ -4,102 +4,139 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 50D44C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:26:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20A35C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:28:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=T3KUfUTE42sadcrEtnViL50Ze8Ig+BwN074prKXepkA=; b=a/q5sOm4wC+nU87GjvBnJ+jhQE
-	pANRwYRjcicpgforHtk3JbHr/tNWvkr00thyLxrF3gQf6GQC6PAhFlfiOfTbfOsKUnZLDV7rvTo+B
-	5MgRwk7ouLq6eLC3wbmslrFHbUV62Et4pndsGp6gfYFMMEkCevTQr9WGNcksmniodjzyhTsENG9XQ
-	s2wmfeqSl56vvfAiZwvdJjBEC2WJ4SwUmGzqO33y0hPxK7T/p9JR/m3DSHBpEdY4Z4mvUfZq1TF6U
-	NUdh0pFt2XGHGvaTaHRwFFzqAkzazlvdg1WKXG1sW6GRHPKh9OYc4qggHghtBbII7lDzhzo9DVBud
-	5lmEB0+A==;
+	bh=qIrd9kTdaGksR+OaXikozpxmp9lFlYZnRIjjmUZsYSY=; b=bNXMgU41Bu52VyOjPqILTg4EIq
+	W0Y1pMtdJeKc/xpPiCPfs//0qzQFri6kXSdYfpGh7ELUOPsVAqdBkDmzAgzXcYWREkGPb9rDJJCQX
+	aDhOwbNZsMKTcVNLu3jFHY9M7Tyj6u9GM5dPpXU/ep1dmTNxvEdSmQa6nr/zDsIpTdCXbeUJIbM1Q
+	uibfSL9r01qSx2EABkot1/oQOYqj6Num6mDpNyeAChsp1wZWr0qDpb7ImJ/De/+KQnhArGhubUZ29
+	KarHZFsFySCTYucIVGiHcfviWnvqPaIjxZcef5k3HnA9OTEA4S3DBfVXvCB+vJAz2BhOAGnhUaYUb
+	dPdp39sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshdx-0000000BEik-1EaZ;
-	Thu, 13 Mar 2025 12:26:33 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tshfa-0000000BEwE-39NA;
+	Thu, 13 Mar 2025 12:28:14 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshV2-0000000BDO2-0d4d
+	id 1tshah-0000000BEBM-3ykF
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 12:17:24 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e616736458so133635a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 05:17:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ionos.com; s=google; t=1741868237; x=1742473037; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=T3KUfUTE42sadcrEtnViL50Ze8Ig+BwN074prKXepkA=;
-        b=Mp7Yx/9HkCxc3A0GBl7Fx/vKD57XAd7ZUwzFehNJ+QovjokhcVbpWJ5ruwmMM+APrO
-         dNqVbyVdXjI7HRJZUVmXYl9K0VlUCLeNXGemX3HdqRMIbxLwYtdeKk1PSvRr602u07cj
-         SqA2f4ZR5RadpRO9X0z6ylPV62Bu/0hM6DGw/xS8RHJu+NVdQqC5j6NWIzdOkAXJq1eu
-         lRJ9ewXGRHCK/ljjWOYTbF+gVAh0YdVJr/5DaR/J7jiU5mpcJMPJhpIl5VkiFzMgEFx6
-         NxLlPlAd9pgB+XDlMMTsSbnA2RiLAX/DJ1pIiQBEfDUPoMMlAQkPWd+2nbUBSQkJCe3J
-         g3LQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741868237; x=1742473037;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=T3KUfUTE42sadcrEtnViL50Ze8Ig+BwN074prKXepkA=;
-        b=bTdaM64EdQjt0/a6NSi/yxzEeH+rsGfPwL+hSJ5e+5qBCoSZ+hVuYuq6Jb6aJInX8q
-         3jjiem2BN4RAAUsrRBz5P1DmW+wL2Wl9L/TeXSTbHmg31gOjRQyETFDGjC/b8hN4al7d
-         3MaVOql5NmGNHlsXbTYwozSF7Sz7Kd+XWlcHsICE5YMk/izGwknFJ+jIG8/YKrjbUFHI
-         jlWIBt4kX3MjR7erUpouBCDQiU/Ev7W3pHhPWIZlLNFWf36vxPH/FPoiaOt8YYc/mGS2
-         spBtz/CHs7nlITIK8Hkdpra6Be9tWMPnBcdpRNtl9Xvl+r7HMymdCRDId2TPd8A5kC0h
-         UWBw==
-X-Forwarded-Encrypted: i=1; AJvYcCVpFmTeqrgUqYQpeP+8K7pMLmQUb6sD6BOyFYYmAjtmgnBl5eHfYkXiICPW+4rihD6KWMQuh7RerzIEpMJtJqmC@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQBgFWAXQMheoRVFjScohurY7XSPqKC0/KwbwbZGTE5HR9va9a
-	vzPIOOI5eBmoDERba1ZoD/6yr0ocHi/R/QdRrCDerHFCjOxU82hcXaPsqX/92KWb7WuWgc94n3X
-	IBs/iVECeilBqE7psRtBt5DsYy0SLKtYWl9yRcA==
-X-Gm-Gg: ASbGnctHakMKI/fhPhtZYYqdxztzFZA79ine7iyYdNa9KweV/PWt3a0yAlUI4K2PQYG
-	Hmh/L2GEP5ncK7eOg/Nsn5AZLkl9j7892gRtjpoBQAMRvRzgHAr+FTzGvLGvhvzqyWZx1Xn7hX6
-	za9b7RwuNBv0xws3MyO5zaBxxVXJDvVBbBlBakaZaUP9lI5aKlbN2H0BQaOVV+CPpmqFyMsw==
-X-Google-Smtp-Source: AGHT+IFzK99kHSj5d/FDwifiVSaoCoqlhKVXWIJ6/aG6k3xd47S1yV8uOe7tE9DCf5TStXwjFqv+FuI28Gyvh18i5ws=
-X-Received: by 2002:a05:6402:268f:b0:5e0:36fa:ac1c with SMTP id
- 4fb4d7f45d1cf-5e75f983d16mr5279244a12.9.1741868236757; Thu, 13 Mar 2025
- 05:17:16 -0700 (PDT)
+	Thu, 13 Mar 2025 12:23:14 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250313122307euoutp0131220c5cc59d0889849b3ab5913d29cb~sXEBcKPWU2922529225euoutp01S
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 12:23:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250313122307euoutp0131220c5cc59d0889849b3ab5913d29cb~sXEBcKPWU2922529225euoutp01S
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1741868587;
+	bh=qIrd9kTdaGksR+OaXikozpxmp9lFlYZnRIjjmUZsYSY=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=ncVqIfMAINE+TA71Brea12OaCm6nBglZPAc5NalanEPQutFUq3WVO3zvC0fdamruE
+	 wc45FVJbyYwI2nQx5qwAzw/3UPddym1UVpzEaJ6FCPPq34I7+Xp+shB4zVu2jj+QOX
+	 YOOtgI+L+qbOktQdqzcl8z9L+JCdYJV3wmVg9/Ps=
+Received: from eusmges1new.samsung.com (unknown [203.254.199.242]) by
+	eucas1p2.samsung.com (KnoxPortal) with ESMTP id
+	20250313122306eucas1p2f9144caaeaff5f66d77c8defde5a0afe~sXEBBFb0-2324023240eucas1p2L;
+	Thu, 13 Mar 2025 12:23:06 +0000 (GMT)
+Received: from eucas1p2.samsung.com ( [182.198.249.207]) by
+	eusmges1new.samsung.com (EUCPMTA) with SMTP id 91.5C.20821.A2EC2D76; Thu, 13
+	Mar 2025 12:23:06 +0000 (GMT)
+Received: from eusmtrp2.samsung.com (unknown [182.198.249.139]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250313122306eucas1p10f67da8328fdf9bfc4590d972e794b8f~sXEAoAej12870728707eucas1p1K;
+	Thu, 13 Mar 2025 12:23:06 +0000 (GMT)
+Received: from eusmgms2.samsung.com (unknown [182.198.249.180]) by
+	eusmtrp2.samsung.com (KnoxPortal) with ESMTP id
+	20250313122306eusmtrp26de00c6b81f1b8d1f7a2f1d1f844ed06~sXEAnDFFy2795227952eusmtrp2O;
+	Thu, 13 Mar 2025 12:23:06 +0000 (GMT)
+X-AuditID: cbfec7f2-b09c370000005155-9a-67d2ce2ae064
+Received: from eusmtip2.samsung.com ( [203.254.199.222]) by
+	eusmgms2.samsung.com (EUCPMTA) with SMTP id 8D.88.19654.A2EC2D76; Thu, 13
+	Mar 2025 12:23:06 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
+	20250313122303eusmtip208566caf51a9af37bcc7d3ec7315a939~sXD92k4wN2925829258eusmtip2E;
+	Thu, 13 Mar 2025 12:23:03 +0000 (GMT)
+Message-ID: <bf2adf5d-1432-4bb7-846c-e1bcfa84858b@samsung.com>
+Date: Thu, 13 Mar 2025 13:23:02 +0100
 MIME-Version: 1.0
-References: <CGME20250313040150epcas5p347f94dac34fd2946dea51049559ee1de@epcas5p3.samsung.com>
- <20250313035322.243239-1-anuj20.g@samsung.com>
-In-Reply-To: <20250313035322.243239-1-anuj20.g@samsung.com>
-From: Jinpu Wang <jinpu.wang@ionos.com>
-Date: Thu, 13 Mar 2025 13:17:05 +0100
-X-Gm-Features: AQ5f1JrIJ_abLv2o7eKaSVbKIXVsbvKxK9F6-3hJ2TBEx-9sNptiPJkEypoOpyY
-Message-ID: <CAMGffEkm5zkBM7QPbfd7+qiMA92VBfyoRUdb+3CMzqe3ZCs7rg@mail.gmail.com>
-Subject: Re: [PATCH] block: remove unused parameter
-To: Anuj Gupta <anuj20.g@samsung.com>
-Cc: Jens Axboe <axboe@kernel.dk>, "Md. Haris Iqbal" <haris.iqbal@ionos.com>, 
-	"Michael S. Tsirkin" <mst@redhat.com>, Jason Wang <jasowang@redhat.com>, 
-	Xuan Zhuo <xuanzhuo@linux.alibaba.com>, =?UTF-8?Q?Eugenio_P=C3=A9rez?= <eperezma@redhat.com>, 
-	Paolo Bonzini <pbonzini@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>, 
-	=?UTF-8?Q?Roger_Pau_Monn=C3=A9?= <roger.pau@citrix.com>, 
-	Juergen Gross <jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, 
-	Oleksandr Tyshchenko <oleksandr_tyshchenko@epam.com>, Maxim Levitsky <maximlevitsky@gmail.com>, 
-	Alex Dubov <oakad@yahoo.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Richard Weinberger <richard@nod.at>, Zhihao Cheng <chengzhihao1@huawei.com>, 
-	Miquel Raynal <miquel.raynal@bootlin.com>, Vignesh Raghavendra <vigneshr@ti.com>, 
-	Sven Peter <sven@svenpeter.dev>, Janne Grunau <j@jannau.net>, 
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, 
-	Sagi Grimberg <sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, 
-	Chaitanya Kulkarni <kch@nvidia.com>, 
-	"James E.J. Bottomley" <James.Bottomley@hansenpartnership.com>, 
-	"Martin K. Petersen" <martin.petersen@oracle.com>, linux-block@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev, 
-	xen-devel@lists.xenproject.org, linux-mmc@vger.kernel.org, 
-	linux-mtd@lists.infradead.org, asahi@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org, 
-	linux-scsi@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+To: Robin Murphy <robin.murphy@arm.com>, Lorenzo Pieralisi
+	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla
+	<sudeep.holla@arm.com>, "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown
+	<lenb@kernel.org>, Russell King <linux@armlinux.org.uk>, Greg Kroah-Hartman
+	<gregkh@linuxfoundation.org>, Danilo Krummrich <dakr@kernel.org>, Stuart
+	Yoder <stuyoder@gmail.com>, Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun
+	Gupta <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>, Joerg
+	Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>, Rob Herring
+	<robh@kernel.org>, Saravana Kannan <saravanak@google.com>, Bjorn Helgaas
+	<bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+	devicetree@vger.kernel.org, linux-pci@vger.kernel.org, Charan Teja Kalla
+	<quic_charante@quicinc.com>
+Content-Language: en-US
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
+Content-Transfer-Encoding: 8bit
+X-Brightmail-Tracker: H4sIAAAAAAAAA01SfVCTdRzvt+fZs7G7weOA2y+DvFuvyoGSUr8LIy2y57iyLrrLg7tyxcPm
+	tQ1uYxlcEfEa84ChjrbhYIecEJKwGTREQHbg1AEqxIsT5CBsCQHSJh4okttjxX+fz+f7+b7e
+	l4sJqojN3EOKDFqpEMtEBA9vvbhyNXLbwKBkx3DvTlSbK0VzFXcJVN0zwEZ5J5sI1N1m4KBV
+	L0LFlc0c5NU6cdQ2NU+gus4ygKy/j7DR0LkTBOqvchDIrusAKP9hPo70tih0704Fjpqq5cjk
+	1WFo/byNg7rvzrCRxr72uKzFhaG6KzYc5Y/H7HmamumuYlEFg2sE1VjVCKihkesY1Wac4FBm
+	q5rK75lnU9aGYoLqMjVyqLO131F/njUAyrJgY1Hl57Mpj/XZDwOTeLtTaNmhr2jl9riDPOml
+	rkI83Rr+ddHPa0QOOAI1gMuF5C5YYnhTA3hcAVkPoKe0kmCIF0DHyB+AIR4AF2/cwzQgwJ+x
+	XNuL+7CArAPwVFkyY1oCsL/iAvAF+GQctLpy/SacfAHq1idZjL4JXjbM+PVQcgucdOk5PhxM
+	JsIFzbS/WwhpZcPRgj62j2DkbQCbh8cInwsjhdA1U+2vRJDRUDOv8esBZCxsmHWzGM8WmNdS
+	ifmSIWniwdPTcwQzdzxcbC1nMzgYzjp+4TA4DK63+Yr6EooAND+YfEK0AOa4XYBxxcLxgVXC
+	dzOM3Aqbzm1n5L1Q49FhzCkD4dj8JmaIQHi09ccnMh/+UChg3C9Co+PMf227rw1iWiAybjiM
+	ccOaxg3rGP/vawZ4AxDSapVcQquiFfThKJVYrlIrJFFfpMmt4PELOx85/rYB0+xSlB2wuMAO
+	IBcThfBPv3FNIuCniDOzaGXaZ0q1jFbZwTNcXCTk13QVSASkRJxBf0nT6bTy3yiLG7A5h5Vg
+	M33rLBze95Ez1b03oLzjWHDJ0aCPD56U9WKcmuekR3oXImI+0PPYi2FTnT9hv65e+e1U8rtl
+	nx7fd2L3yxkT0bdSZ5sSX7rero18GJpaqH6f58qxGA7sNwOZ0Ph6qc37dm6K8EZE9mvT9a/0
+	HD4evDTEip+6sPL8OyVy/S7N1viim3EtjpWx+wn1n+clJLenZYJPbBcn7DX39+gsQRng1YTL
+	XfqY9KCR0czSA5yQO7fyUCS2fxn3mJJCvx/qV4Q1r7oXDTsot/uSJSKLmLsa/sAVv3N8NDzx
+	PadANxpZQP21/Faft73C9FS2gLytjf0mNPvmI7O0pbGzL6ujuCTpTKsIV0nF0dswpUr8D68a
+	GnExBAAA
+X-Brightmail-Tracker: H4sIAAAAAAAAA+NgFtrEKsWRmVeSWpSXmKPExsVy+t/xe7pa5y6lG3RfEbVY0pRh8XraBzaL
+	+UfOsVo0L17PZnFw50x2i19fLCw6Z29gt/gy4TSLxc6Hb9kslu/rZ7TY9Pgaq8XlXXPYLM7O
+	O85mcWjqXkaLlj8tLBYzduhZfH05jcVi/fxci7lfpjJb/N+zg93i4IcnrBZdh/4Cjd14i9li
+	+akdLBYtd0wdJD2eHJzH5NF66S+bx5p5axg9Ll+7yOyxc9Zddo8Fm0o9Wo68ZfXYtKqTzWP/
+	3DXsHpuX1Hu82DyT0WPjux1MHhP31Hl83iQXwBelZ1OUX1qSqpCRX1xiqxRtaGGkZ2hpoWdk
+	YqlnaGwea2VkqqRvZ5OSmpNZllqkb5egl3FifxtLwSbZiva1f9kaGLsluhg5OSQETCS+LTnK
+	0sXIxSEksJRRom3eajaIhIzEyWkNrBC2sMSfa11sEEXvGSV2Tv7BDpLgFbCT2HSriQXEZhFQ
+	lZj6/z4TRFxQ4uTMJ2BxUQF5ifu3ZoDVCwsES7zresQIMkhEYBurxLV5O5lBHGaBp4wSX84/
+	Y4VYcYhJYu2aRrB2ZgFxiVtP5oONZRMwlOh62wV2H6eAtcSqV8+ZIGrMJLq2djFC2PISzVtn
+	M09gFJqF5JJZSEbNQtIyC0nLAkaWVYwiqaXFuem5xUZ6xYm5xaV56XrJ+bmbGIGJZ9uxn1t2
+	MK589VHvECMTB+MhRgkOZiUR3tW2F9KFeFMSK6tSi/Lji0pzUosPMZoCg2Mis5Rocj4w9eWV
+	xBuaGZgamphZGphamhkrifOyXTmfJiSQnliSmp2aWpBaBNPHxMEp1cDEsmTxo4tLa+xFF6yS
+	+Ky5eu6iMwodN9/+mMvCxqJwvcPdPna7TNPz4/4HDZzz6iXPzr//y5WrQOBWmLu9jVJIR9Sq
+	Vw+TtRrP9/tfLi+qjzIwiueSuSVwjD1H3m6jTX8345re46v7y0V1XUMkRS/s4pz73P7Pj6d3
+	aieHvWoL+BVRttxnspjSF9HLF2c1fuZUN3mgnn7pjZPXsU2OR48bWlcuODTDpyt2SZDBwklf
+	PjwxaNitH8B14uNnnUdv17wSrnWd2fr54STFOIs/OxhCHSI5fBhu9dTpC7eyG5gt0H8Rsrdp
+	6fJdk5a/4AtldGlmPqg4WWlO6o/HQsU5b/98k7GXcV++6V7u/h6reVJKLMUZiYZazEXFiQCr
+	NHxfxQMAAA==
+X-CMS-MailID: 20250313122306eucas1p10f67da8328fdf9bfc4590d972e794b8f
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd
+X-EPHeader: CA
+CMS-TYPE: 201P
+X-CMS-RootMailID: 20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd
+References: <cover.1740753261.git.robin.murphy@arm.com>
+	<e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+	<CGME20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd@eucas1p2.samsung.com>
+	<9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
+	<417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_051720_269651_8CC3F1D5 
-X-CRM114-Status: GOOD (  23.61  )
+X-CRM114-CacheID: sfid-20250313_052312_586607_79B528FD 
+X-CRM114-Status: GOOD (  27.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,317 +151,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 6:14=E2=80=AFAM Anuj Gupta <anuj20.g@samsung.com> w=
-rote:
+On 13.03.2025 12:01, Robin Murphy wrote:
+> On 2025-03-13 9:56 am, Marek Szyprowski wrote:
+> [...]
+>> This patch landed in yesterday's linux-next as commit bcb81ac6ae3c
+>> ("iommu: Get DT/ACPI parsing into the proper probe path"). In my tests I
+>> found it breaks booting of ARM64 RK3568-based Odroid-M1 board
+>> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts). Here is the
+>> relevant kernel log:
 >
-> request_queue param is not used by blk_rq_map_sg and __blk_rq_map_sg.
-> remove it.
+> ...and the bug-flushing-out begins!
 >
-> Signed-off-by: Anuj Gupta <anuj20.g@samsung.com>
+>> Unable to handle kernel NULL pointer dereference at virtual address
+>> 00000000000003e8
+>> Mem abort info:
+>>     ESR = 0x0000000096000004
+>>     EC = 0x25: DABT (current EL), IL = 32 bits
+>>     SET = 0, FnV = 0
+>>     EA = 0, S1PTW = 0
+>>     FSC = 0x04: level 0 translation fault
+>> Data abort info:
+>>     ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+>>     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>>     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+>> [00000000000003e8] user address but active_mm is swapper
+>> Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
+>> Modules linked in:
+>> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc3+ #15533
+>> Hardware name: Hardkernel ODROID-M1 (DT)
+>> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>> pc : devm_kmalloc+0x2c/0x114
+>> lr : rk_iommu_of_xlate+0x30/0x90
+>> ...
+>> Call trace:
+>>    devm_kmalloc+0x2c/0x114 (P)
+>>    rk_iommu_of_xlate+0x30/0x90
+>
+> Yeah, looks like this is doing something a bit questionable which can't
+> work properly. TBH the whole dma_dev thing could probably be cleaned up
+> now that we have proper instances, but for now does this work?
+
+Yes, this patch fixes the problem I've observed.
+
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+
+BTW, this dma_dev idea has been borrowed from my exynos_iommu driver and 
+I doubt it can be cleaned up.
+
+
+>
+> (annoyingly none of my Rockchip boards are set up for testing right 
+> now, but I might have time to dig one out later)
+>
+> Thanks,
+> Robin.
+>
+> ----->8-----
+>
+> Subject: [PATCH] iommu/rockchip: Allocate per-device data sensibly
+>
+> Now that DT-based probing is finally happening in the right order again,
+> it reveals an issue in Rockchip's of_xlate, which can now be called
+> during registration, but is using the global dma_dev which is only
+> assigned later. However, this makes little sense when we're already
+> looking up the correct IOMMU device, who should logically be the owner
+> of the devm allocation anyway.
+>
+> Fixes: bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe 
+> path")
+> Signed-off-by: Robin Murphy <robin.murphy@arm.com>
 > ---
->  block/blk-merge.c                   | 4 ++--
->  block/bsg-lib.c                     | 2 +-
->  drivers/block/mtip32xx/mtip32xx.c   | 2 +-
->  drivers/block/rnbd/rnbd-clt.c       | 2 +-
-lgtm.
-Acked-by: Jack Wang <jinpu.wang@ionos.com> #rnbd
->  drivers/block/sunvdc.c              | 2 +-
->  drivers/block/virtio_blk.c          | 2 +-
->  drivers/block/xen-blkfront.c        | 2 +-
->  drivers/memstick/core/ms_block.c    | 2 +-
->  drivers/memstick/core/mspro_block.c | 4 +---
->  drivers/mmc/core/queue.c            | 2 +-
->  drivers/mtd/ubi/block.c             | 2 +-
->  drivers/nvme/host/apple.c           | 2 +-
->  drivers/nvme/host/fc.c              | 2 +-
->  drivers/nvme/host/pci.c             | 2 +-
->  drivers/nvme/host/rdma.c            | 3 +--
->  drivers/nvme/target/loop.c          | 2 +-
->  drivers/scsi/scsi_lib.c             | 2 +-
->  include/linux/blk-mq.h              | 9 ++++-----
->  18 files changed, 22 insertions(+), 26 deletions(-)
+>  drivers/iommu/rockchip-iommu.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
 >
-> diff --git a/block/blk-merge.c b/block/blk-merge.c
-> index 1d1589c35297..fdd4efb54c6c 100644
-> --- a/block/blk-merge.c
-> +++ b/block/blk-merge.c
-> @@ -551,8 +551,8 @@ static inline struct scatterlist *blk_next_sg(struct =
-scatterlist **sg,
->   * Map a request to scatterlist, return number of sg entries setup. Call=
-er
->   * must make sure sg can hold rq->nr_phys_segments entries.
->   */
-> -int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
-> -               struct scatterlist *sglist, struct scatterlist **last_sg)
-> +int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-> +                   struct scatterlist **last_sg)
->  {
->         struct req_iterator iter =3D {
->                 .bio    =3D rq->bio,
-> diff --git a/block/bsg-lib.c b/block/bsg-lib.c
-> index 93523d8f8195..9ceb5d0832f5 100644
-> --- a/block/bsg-lib.c
-> +++ b/block/bsg-lib.c
-> @@ -219,7 +219,7 @@ static int bsg_map_buffer(struct bsg_buffer *buf, str=
-uct request *req)
->         if (!buf->sg_list)
->                 return -ENOMEM;
->         sg_init_table(buf->sg_list, req->nr_phys_segments);
-> -       buf->sg_cnt =3D blk_rq_map_sg(req->q, req, buf->sg_list);
-> +       buf->sg_cnt =3D blk_rq_map_sg(req, buf->sg_list);
->         buf->payload_len =3D blk_rq_bytes(req);
->         return 0;
->  }
-> diff --git a/drivers/block/mtip32xx/mtip32xx.c b/drivers/block/mtip32xx/m=
-tip32xx.c
-> index 95361099a2dc..0d619df03fa9 100644
-> --- a/drivers/block/mtip32xx/mtip32xx.c
-> +++ b/drivers/block/mtip32xx/mtip32xx.c
-> @@ -2056,7 +2056,7 @@ static void mtip_hw_submit_io(struct driver_data *d=
-d, struct request *rq,
->         unsigned int nents;
+> diff --git a/drivers/iommu/rockchip-iommu.c 
+> b/drivers/iommu/rockchip-iommu.c
+> index 323cc665c357..48826d1ccfd8 100644
+> --- a/drivers/iommu/rockchip-iommu.c
+> +++ b/drivers/iommu/rockchip-iommu.c
+> @@ -1148,12 +1148,12 @@ static int rk_iommu_of_xlate(struct device *dev,
+>      struct platform_device *iommu_dev;
+>      struct rk_iommudata *data;
 >
->         /* Map the scatter list for DMA access */
-> -       nents =3D blk_rq_map_sg(hctx->queue, rq, command->sg);
-> +       nents =3D blk_rq_map_sg(rq, command->sg);
->         nents =3D dma_map_sg(&dd->pdev->dev, command->sg, nents, dma_dir)=
-;
+> -    data = devm_kzalloc(dma_dev, sizeof(*data), GFP_KERNEL);
+> +    iommu_dev = of_find_device_by_node(args->np);
+> +
+> +    data = devm_kzalloc(&iommu_dev->dev, sizeof(*data), GFP_KERNEL);
+>      if (!data)
+>          return -ENOMEM;
 >
->         prefetch(&port->flags);
-> diff --git a/drivers/block/rnbd/rnbd-clt.c b/drivers/block/rnbd/rnbd-clt.=
-c
-> index 82467ecde7ec..15627417f12e 100644
-> --- a/drivers/block/rnbd/rnbd-clt.c
-> +++ b/drivers/block/rnbd/rnbd-clt.c
-> @@ -1010,7 +1010,7 @@ static int rnbd_client_xfer_request(struct rnbd_clt=
-_dev *dev,
->          * See queue limits.
->          */
->         if ((req_op(rq) !=3D REQ_OP_DISCARD) && (req_op(rq) !=3D REQ_OP_W=
-RITE_ZEROES))
-> -               sg_cnt =3D blk_rq_map_sg(dev->queue, rq, iu->sgt.sgl);
-> +               sg_cnt =3D blk_rq_map_sg(rq, iu->sgt.sgl);
->
->         if (sg_cnt =3D=3D 0)
->                 sg_mark_end(&iu->sgt.sgl[0]);
-> diff --git a/drivers/block/sunvdc.c b/drivers/block/sunvdc.c
-> index 282f81616a78..2b33fb5b949b 100644
-> --- a/drivers/block/sunvdc.c
-> +++ b/drivers/block/sunvdc.c
-> @@ -485,7 +485,7 @@ static int __send_request(struct request *req)
->         }
->
->         sg_init_table(sg, port->ring_cookies);
-> -       nsg =3D blk_rq_map_sg(req->q, req, sg);
-> +       nsg =3D blk_rq_map_sg(req, sg);
->
->         len =3D 0;
->         for (i =3D 0; i < nsg; i++)
-> diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
-> index 6a61ec35f426..a3df4d49bd46 100644
-> --- a/drivers/block/virtio_blk.c
-> +++ b/drivers/block/virtio_blk.c
-> @@ -226,7 +226,7 @@ static int virtblk_map_data(struct blk_mq_hw_ctx *hct=
-x, struct request *req,
->         if (unlikely(err))
->                 return -ENOMEM;
->
-> -       return blk_rq_map_sg(hctx->queue, req, vbr->sg_table.sgl);
-> +       return blk_rq_map_sg(req, vbr->sg_table.sgl);
->  }
->
->  static void virtblk_cleanup_cmd(struct request *req)
-> diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
-> index edcd08a9dcef..5babe575c288 100644
-> --- a/drivers/block/xen-blkfront.c
-> +++ b/drivers/block/xen-blkfront.c
-> @@ -751,7 +751,7 @@ static int blkif_queue_rw_req(struct request *req, st=
-ruct blkfront_ring_info *ri
->         id =3D blkif_ring_get_request(rinfo, req, &final_ring_req);
->         ring_req =3D &rinfo->shadow[id].req;
->
-> -       num_sg =3D blk_rq_map_sg(req->q, req, rinfo->shadow[id].sg);
-> +       num_sg =3D blk_rq_map_sg(req, rinfo->shadow[id].sg);
->         num_grant =3D 0;
->         /* Calculate the number of grant used */
->         for_each_sg(rinfo->shadow[id].sg, sg, num_sg, i)
-> diff --git a/drivers/memstick/core/ms_block.c b/drivers/memstick/core/ms_=
-block.c
-> index 5b617c1f6789..f4398383ae06 100644
-> --- a/drivers/memstick/core/ms_block.c
-> +++ b/drivers/memstick/core/ms_block.c
-> @@ -1904,7 +1904,7 @@ static void msb_io_work(struct work_struct *work)
->
->                 /* process the request */
->                 dbg_verbose("IO: processing new request");
-> -               blk_rq_map_sg(msb->queue, req, sg);
-> +               blk_rq_map_sg(req, sg);
->
->                 lba =3D blk_rq_pos(req);
->
-> diff --git a/drivers/memstick/core/mspro_block.c b/drivers/memstick/core/=
-mspro_block.c
-> index 634d343b6bdb..c9853d887d28 100644
-> --- a/drivers/memstick/core/mspro_block.c
-> +++ b/drivers/memstick/core/mspro_block.c
-> @@ -627,9 +627,7 @@ static int mspro_block_issue_req(struct memstick_dev =
-*card)
->         while (true) {
->                 msb->current_page =3D 0;
->                 msb->current_seg =3D 0;
-> -               msb->seg_count =3D blk_rq_map_sg(msb->block_req->q,
-> -                                              msb->block_req,
-> -                                              msb->req_sg);
-> +               msb->seg_count =3D blk_rq_map_sg(msb->block_req, msb->req=
-_sg);
->
->                 if (!msb->seg_count) {
->                         unsigned int bytes =3D blk_rq_cur_bytes(msb->bloc=
-k_req);
-> diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
-> index ab662f502fe7..3ba62f825b84 100644
-> --- a/drivers/mmc/core/queue.c
-> +++ b/drivers/mmc/core/queue.c
-> @@ -523,5 +523,5 @@ unsigned int mmc_queue_map_sg(struct mmc_queue *mq, s=
-truct mmc_queue_req *mqrq)
->  {
->         struct request *req =3D mmc_queue_req_to_req(mqrq);
->
-> -       return blk_rq_map_sg(mq->queue, req, mqrq->sg);
-> +       return blk_rq_map_sg(req, mqrq->sg);
->  }
-> diff --git a/drivers/mtd/ubi/block.c b/drivers/mtd/ubi/block.c
-> index 2836905f0152..39cc0a6a4d37 100644
-> --- a/drivers/mtd/ubi/block.c
-> +++ b/drivers/mtd/ubi/block.c
-> @@ -199,7 +199,7 @@ static blk_status_t ubiblock_read(struct request *req=
-)
->          * and ubi_read_sg() will check that limit.
->          */
->         ubi_sgl_init(&pdu->usgl);
-> -       blk_rq_map_sg(req->q, req, pdu->usgl.sg);
-> +       blk_rq_map_sg(req, pdu->usgl.sg);
->
->         while (bytes_left) {
->                 /*
-> diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-> index a060f69558e7..a437eee741e1 100644
-> --- a/drivers/nvme/host/apple.c
-> +++ b/drivers/nvme/host/apple.c
-> @@ -525,7 +525,7 @@ static blk_status_t apple_nvme_map_data(struct apple_=
-nvme *anv,
->         if (!iod->sg)
->                 return BLK_STS_RESOURCE;
->         sg_init_table(iod->sg, blk_rq_nr_phys_segments(req));
-> -       iod->nents =3D blk_rq_map_sg(req->q, req, iod->sg);
-> +       iod->nents =3D blk_rq_map_sg(req, iod->sg);
->         if (!iod->nents)
->                 goto out_free_sg;
->
-> diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
-> index b9929a5a7f4e..1b5ad1173bc7 100644
-> --- a/drivers/nvme/host/fc.c
-> +++ b/drivers/nvme/host/fc.c
-> @@ -2571,7 +2571,7 @@ nvme_fc_map_data(struct nvme_fc_ctrl *ctrl, struct =
-request *rq,
->         if (ret)
->                 return -ENOMEM;
->
-> -       op->nents =3D blk_rq_map_sg(rq->q, rq, freq->sg_table.sgl);
-> +       op->nents =3D blk_rq_map_sg(rq, freq->sg_table.sgl);
->         WARN_ON(op->nents > blk_rq_nr_phys_segments(rq));
->         freq->sg_cnt =3D fc_dma_map_sg(ctrl->lport->dev, freq->sg_table.s=
-gl,
->                                 op->nents, rq_dma_dir(rq));
-> diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-> index 950289405ef2..a0b1c57067aa 100644
-> --- a/drivers/nvme/host/pci.c
-> +++ b/drivers/nvme/host/pci.c
-> @@ -812,7 +812,7 @@ static blk_status_t nvme_map_data(struct nvme_dev *de=
-v, struct request *req,
->         if (!iod->sgt.sgl)
->                 return BLK_STS_RESOURCE;
->         sg_init_table(iod->sgt.sgl, blk_rq_nr_phys_segments(req));
-> -       iod->sgt.orig_nents =3D blk_rq_map_sg(req->q, req, iod->sgt.sgl);
-> +       iod->sgt.orig_nents =3D blk_rq_map_sg(req, iod->sgt.sgl);
->         if (!iod->sgt.orig_nents)
->                 goto out_free_sg;
->
-> diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
-> index 86a2891d9bcc..b5a0295b5bf4 100644
-> --- a/drivers/nvme/host/rdma.c
-> +++ b/drivers/nvme/host/rdma.c
-> @@ -1476,8 +1476,7 @@ static int nvme_rdma_dma_map_req(struct ib_device *=
-ibdev, struct request *rq,
->         if (ret)
->                 return -ENOMEM;
->
-> -       req->data_sgl.nents =3D blk_rq_map_sg(rq->q, rq,
-> -                                           req->data_sgl.sg_table.sgl);
-> +       req->data_sgl.nents =3D blk_rq_map_sg(rq, req->data_sgl.sg_table.=
-sgl);
->
->         *count =3D ib_dma_map_sg(ibdev, req->data_sgl.sg_table.sgl,
->                                req->data_sgl.nents, rq_dma_dir(rq));
-> diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
-> index a9d112d34d4f..a5c41144667c 100644
-> --- a/drivers/nvme/target/loop.c
-> +++ b/drivers/nvme/target/loop.c
-> @@ -162,7 +162,7 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_=
-hw_ctx *hctx,
->                 }
->
->                 iod->req.sg =3D iod->sg_table.sgl;
-> -               iod->req.sg_cnt =3D blk_rq_map_sg(req->q, req, iod->sg_ta=
-ble.sgl);
-> +               iod->req.sg_cnt =3D blk_rq_map_sg(req, iod->sg_table.sgl)=
-;
->                 iod->req.transfer_len =3D blk_rq_payload_bytes(req);
->         }
->
-> diff --git a/drivers/scsi/scsi_lib.c b/drivers/scsi/scsi_lib.c
-> index f1cfe0bb89b2..0d29470e86b0 100644
-> --- a/drivers/scsi/scsi_lib.c
-> +++ b/drivers/scsi/scsi_lib.c
-> @@ -1149,7 +1149,7 @@ blk_status_t scsi_alloc_sgtables(struct scsi_cmnd *=
-cmd)
->          * Next, walk the list, and fill in the addresses and sizes of
->          * each segment.
->          */
-> -       count =3D __blk_rq_map_sg(rq->q, rq, cmd->sdb.table.sgl, &last_sg=
-);
-> +       count =3D __blk_rq_map_sg(rq, cmd->sdb.table.sgl, &last_sg);
->
->         if (blk_rq_bytes(rq) & rq->q->limits.dma_pad_mask) {
->                 unsigned int pad_len =3D
-> diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-> index fa2a76cc2f73..f2eff998913d 100644
-> --- a/include/linux/blk-mq.h
-> +++ b/include/linux/blk-mq.h
-> @@ -1165,14 +1165,13 @@ static inline unsigned short blk_rq_nr_discard_se=
-gments(struct request *rq)
->         return max_t(unsigned short, rq->nr_phys_segments, 1);
->  }
->
-> -int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
-> -               struct scatterlist *sglist, struct scatterlist **last_sg)=
-;
-> -static inline int blk_rq_map_sg(struct request_queue *q, struct request =
-*rq,
-> -               struct scatterlist *sglist)
-> +int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-> +               struct scatterlist **last_sg);
-> +static inline int blk_rq_map_sg(struct request *rq, struct scatterlist *=
-sglist)
->  {
->         struct scatterlist *last_sg =3D NULL;
->
-> -       return __blk_rq_map_sg(q, rq, sglist, &last_sg);
-> +       return __blk_rq_map_sg(rq, sglist, &last_sg);
->  }
->  void blk_dump_rq_flags(struct request *, char *);
->
-> --
-> 2.25.1
->
+> -    iommu_dev = of_find_device_by_node(args->np);
+> -
+>      data->iommu = platform_get_drvdata(iommu_dev);
+>      data->iommu->domain = &rk_identity_domain;
+>      dev_iommu_priv_set(dev, data);
+
+Best regards
+-- 
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
+
 
