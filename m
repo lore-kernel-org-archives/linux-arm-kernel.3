@@ -4,162 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3513C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 20:16:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C33CC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 20:19:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DqWevJuHC1S/1RDCWIGY5BJPGNQI2xZl80Hc67zBASM=; b=Hi9CS9C8HeaoPjgqlfNLK2j25S
-	Y3YkkxwlTjFSpHMuip0pqxb5Uu+hjT0TJYHFray+itX1JQuFTi2tcMNebzrlILtKn4O5hJj4TbGxo
-	s5hTnW2TJJauggk3/eg7YnOJ+UyaLNK1erPcO6FcU/W3mf9Ii8MyzNrEyOCe5yfGOa9yMeKq9zhrS
-	ydH8murAZw5OcOwWp6jHInhvEkdZhZGOmfYqVX3K6z0OyYuI/4UC+Siagb7nuRs4cwxQJ5C7WtLCf
-	YH4VIcq9IzEFyAR7NkY8ILMFJ7dXsRZ9bMqm5DfIuwkduAoSJ0t4KN3k54XCeMb6MXD73dBh6UVFM
-	/UAn1ORQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vC1GnLXfkIaKdgskIyvv8WmaesRQ0cDBx6E64vwxnEM=; b=1/u9DCHiIFXOZHYc8IxjPttEXb
+	Q+RYF0SScQQFMskuxCS20o4JCpvUChO66jORRtK1pdKol+M+bwCH+B3Gl27M1gVAuYvm3MGKtJTyj
+	O2C6LGUgKOI+aUecvyzvUx4AFcg6Tdr+/26JgXuDziEyGKXuRPhWr/H/rMl9T+enbXJ3VEPs13qZs
+	5MWBFzepXLYE8KlzO9dFhGuoRVCFsUeRoa5TjN7hZu6tW5wakmQjGFYchDZgPw8QKj/Iz5chzGRhq
+	eHYseqvHMONw87V433DrH8il5x0vnXF6sQz8kwOrzdSSg/lMdxweLryBYVQqRs1WH+l0n48Yvch0X
+	ReGDVxVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoyV-0000000CPsP-1VVL;
-	Thu, 13 Mar 2025 20:16:15 +0000
-Received: from mail-bn8nam12on2072e.outbound.protection.outlook.com ([2a01:111:f403:2418::72e] helo=NAM12-BN8-obe.outbound.protection.outlook.com)
+	id 1tsp1n-0000000CQX6-1JuD;
+	Thu, 13 Mar 2025 20:19:39 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsovC-0000000CP2g-3Pks
+	id 1tsovV-0000000CP9w-3Jl4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 20:12:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=doaJuUFpi/d//HbjEjZEBA4CjeW6005YjSsl/U2dIfR3N2Q11YF6qdEc2iJDbkHG93vo5B61J0aBzrbxkd3VFRkMwlO8Nql0VhOpG8NdQKP/N1M3uEZ9LkQlJ6meyLkqQ4SBAW+CwYW57Wmc+wIDKVfadzfUDbvDhJCYrlN2RE2s34Esx8mKzGSa6cm5hjzSre5YF+HRuTYUCSzDx++g4/bMKEDkPer0ECWK4E3rarg7FS+j1l2Vogn9pPG8CJyDtkdWzYlOPmm+4GYnkb4QEcNOs+plf8BimFNk6N0DbWCB6g7QmEBThS2vi1Yn9QgFJgJ8iZzHhKTc2a3CbYA9dw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DqWevJuHC1S/1RDCWIGY5BJPGNQI2xZl80Hc67zBASM=;
- b=JY3k81D271Sltp0SkZTW+hESwybe53Vw4pVdqdT/NFN2xBGOFCt1loTo3u3V6nIl0QNbEQ8s5M6mpE5XTnUmEeqgm9a/C597jwyNvzaMk/AHiAjynwZR0ZgR16QS2CDvQpGKCJXoUYA+iNjnq+828TpHETWiE2fF5oaEZGaT1o/1b8owyrKE9cUh/FlN2jg6NLOBKYZCinsh/U5ukSgQb1LCufK+SA20Lh5robVV4IykNVJG2FaCpviScR4H8V8YjIer5iZUu10+9/zlXZll3a2k3ovKbiMIbpvt54msTxopwvkLh6jEnsJmOktQJ1OQKi/4PgQP4W3aPj11F5ipQQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
- header.from=os.amperecomputing.com; dkim=pass
- header.d=os.amperecomputing.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=os.amperecomputing.com; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DqWevJuHC1S/1RDCWIGY5BJPGNQI2xZl80Hc67zBASM=;
- b=cA4y+iPKPAaiixpBfy4dl+nCRXBXFqUy86r3+Dpa2UTOqdPO6HiGFLOsF/B4C6RuY1NCY8Dd/4MfiXEqWiiMDzDyA1bJPdyV4+BiMYjswCiTec+C59aVXqoLj9yNHk65AjKvH+8uEZu280V7T7D5P/rbeIzpMs84pTO9sH8M2OA=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
-Received: from MW4PR01MB6228.prod.exchangelabs.com (2603:10b6:303:76::7) by
- SJ0PR01MB7415.prod.exchangelabs.com (2603:10b6:a03:3d2::13) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.8511.27; Thu, 13 Mar 2025 20:12:44 +0000
-Received: from MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba]) by MW4PR01MB6228.prod.exchangelabs.com
- ([fe80::13ba:df5b:8558:8bba%3]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
- 20:12:43 +0000
-From: Ilkka Koskinen <ilkka@os.amperecomputing.com>
-To: Namhyung Kim <namhyung@kernel.org>,
-	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Ian Rogers <irogers@google.com>,
-	John Garry <john.g.garry@oracle.com>,
-	Will Deacon <will@kernel.org>,
-	James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Leo Yan <leo.yan@linux.dev>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Ingo Molnar <mingo@redhat.com>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jiri Olsa <jolsa@kernel.org>,
-	Adrian Hunter <adrian.hunter@intel.com>,
-	"Liang, Kan" <kan.liang@linux.intel.com>,
-	Mark Rutland <mark.rutland@arm.com>
-Cc: Ilkka Koskinen <ilkka@os.amperecomputing.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-perf-users@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/2] perf vendor events arm64: AmpereOne/AmpereOneX: Mark LD_RETIRED impacted by errata
-Date: Thu, 13 Mar 2025 20:15:58 +0000
-Message-ID: <20250313201559.11332-2-ilkka@os.amperecomputing.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250313201559.11332-1-ilkka@os.amperecomputing.com>
-References: <20250313201559.11332-1-ilkka@os.amperecomputing.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: DS7PR03CA0256.namprd03.prod.outlook.com
- (2603:10b6:5:3b3::21) To MW4PR01MB6228.prod.exchangelabs.com
- (2603:10b6:303:76::7)
+	Thu, 13 Mar 2025 20:13:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1741896787;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=vC1GnLXfkIaKdgskIyvv8WmaesRQ0cDBx6E64vwxnEM=;
+	b=HBp602d+qk3mc/hgmQIiN/0gzwAd0tKeaYyb97BAZ17bTQmADbNHxsNWC7n00/o4nuSS+5
+	fLDuhdIWZcytbSb6ed9DQI7Ubmt9XIl1czr6EKmWDk8bW793/y9L9f9uKTObjJpfTSqsCx
+	KUlSTRxvAXIGzu6IAvwzPkkyGPP1lJ4=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-617-78mi3JzVMfyrnqXfb-QlQQ-1; Thu,
+ 13 Mar 2025 16:13:04 -0400
+X-MC-Unique: 78mi3JzVMfyrnqXfb-QlQQ-1
+X-Mimecast-MFC-AGG-ID: 78mi3JzVMfyrnqXfb-QlQQ_1741896783
+Received: from mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.15])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D49B21800EC5;
+	Thu, 13 Mar 2025 20:13:02 +0000 (UTC)
+Received: from [172.64.0.42] (unknown [10.30.32.80])
+	by mx-prod-int-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0E0651978F5D;
+	Thu, 13 Mar 2025 20:13:01 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.14.0-rc6,
+ upstream-arm-next, 059f6cbc)
+Date: Thu, 13 Mar 2025 20:13:01 -0000
+To: linux-arm-kernel@lists.infradead.org, will@kernel.org,
+ catalin.marinas@arm.com
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: MW4PR01MB6228:EE_|SJ0PR01MB7415:EE_
-X-MS-Office365-Filtering-Correlation-Id: e85a5afc-5f76-4b49-3d73-08dd626b69fe
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|366016|1800799024|921020|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?nflxAx89TFKEzaVt4FaQH2o9+SJlOCDoj+nmWd5NdyX+rxmOI+FvygMQeqAZ?=
- =?us-ascii?Q?w9xWSBCR7MUgRcYmpbwNzT0oQuj5h5DeyUfQCm2gbblNtxtgTqGzO+858ch3?=
- =?us-ascii?Q?Uq3U90pyj4LXTPPx5T7mFdWleln3cg4egkAs27K04+SWeXZqlzampjYdRLbT?=
- =?us-ascii?Q?1hTjZZ9SieU07NjdNRsETaT8WAhaNkX8n2X1qe9vB7qVfHxExnhLdwFd2VUl?=
- =?us-ascii?Q?2Y9cMLHRbF/CFZMJeqNgfgaYH00VlhhVqT8vo9MwG5gZQewDGL3/cqvK9LrB?=
- =?us-ascii?Q?p1yC1IwG0JXVHDK0PymAFCp9/eqIdemzybPslWVNMTisjOGm9AjMBi1qfqaW?=
- =?us-ascii?Q?cP8xwraeXeieHrla8yxFMTqOXarObOxG2EFU3dktIVf7vfmDopd39c4TOz/x?=
- =?us-ascii?Q?JfQy5lfiy+il9tBP5hHDaAJyVOZu0Eo0GqY1D2INRsz63DhumptbqrxS8bET?=
- =?us-ascii?Q?G6u2RycFIqoL8ZeIL1ebN/ip5B0nFub66JkOKU/le7XoZKBfIneeCMBkWMQ7?=
- =?us-ascii?Q?i4jypxshH2Xddus5CGp+1vlRyHBRwh/tqErkFf9gbFiW6ddoWfresqVieDSj?=
- =?us-ascii?Q?t0afcjjg4wR8orYvTIOXPDyJVgHziHiz8u2uwY2Nau7m6lKmtsBwPe/wOn8k?=
- =?us-ascii?Q?SpwmNV/SAvjUnlf80KmJP/XI3bwqf94+wUx7M5WPkteT5HEqFsIZK3pdEn9L?=
- =?us-ascii?Q?4EIJKYQszgH2LYfjB9HAQYytTt/GUVbb1pmOutbFpic7u4CxxShmPBFI/cC6?=
- =?us-ascii?Q?8jXddSQoHD5PdDr6r5bqLy77QQyQM7cs1DxzElHihAPv9mGgd1UPytdYkwd/?=
- =?us-ascii?Q?i+AajDvaLNYVqv3Vxv7kq45CrynM7OmavRwyt1WR6YARHmA62G0b87mn59Ht?=
- =?us-ascii?Q?JLukQAFj9SLc0b13qgiLVJz8Jnd7bBOU9Wy8bavPoqu4HnF0UCfduhYkgNIL?=
- =?us-ascii?Q?g+WyVYL2aBTHIj9oSAF++Bp6hKtTkxN2/HbtV1HPDH8sS+1aWkn+hsYDByup?=
- =?us-ascii?Q?3n58Q3K2OZm/Y79lTE5QBFS/mz745dnEDedkzDgt5WgTAzS3Ah4PUO6Xs37l?=
- =?us-ascii?Q?5RC8Thr2YEdiOoyggMhSHDnLX8EfNqMgOo3wL/gHe039g0F1Y2aTdFQi5F0e?=
- =?us-ascii?Q?A/bTfzha3wf45yy68+nMa1VdFjdygB5YFQN5I1/eU05pIUA9ly/pwh3Yft3D?=
- =?us-ascii?Q?/cWOAZPgvngt+IA1OIjqqwYh37HtMQbvNN5Z7RFFk/2hdA3Io+DcnwWvEIy1?=
- =?us-ascii?Q?XKOi79D+PJrrwiSEC/D75iMBB4i8Uy6+owgjzbJB0EBAZR0o4rqvPrUPUxhG?=
- =?us-ascii?Q?edH7GcmiVjcOHBgh1h5EbRQNB7l4gQrQUN65Iw1Oanz69g7uailzf4u2+jwr?=
- =?us-ascii?Q?SDImFdjiCMx1pXPoqeRA8mCuvFf0AJRNB8aCBYS3CEHGW2zfrzTwdHWSmUz1?=
- =?us-ascii?Q?VRX0boL8X1BYBg/dO85VTFSamga3WFWGxDfY2dpVYNM2eoUKqU90Fg=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MW4PR01MB6228.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(366016)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?irSCd16Mm17OQ9DRHCiaCMEWIT2vFHMg3DGliPPZEteTRlhVId7J3kLNDoUG?=
- =?us-ascii?Q?tQ0bwTmhd7Aol+Mxl/DLXYav23+kMN9Bje2x7B9NHlmR34EfN1JVCQyDlUgz?=
- =?us-ascii?Q?nHyCxSpIX1MCNJKpdB490PUMKnxDs+mqDTgbbth+fZ+C+XzLAPOCHZcgYUve?=
- =?us-ascii?Q?Lxy3WhtKuSaWUzWuaBYPla5w2y4DqERjU81XYFILRmoDPY4jlJ7ZmLshd5HK?=
- =?us-ascii?Q?Kot6gi5/SeFSRrLTqFmPNZIujr1WI6mEEEtyzvzvrZNtNv26WyOJ8u3jH3DC?=
- =?us-ascii?Q?0NkYY9fGTQfcchnR/6C+ksxI6Ljyb37Fj+p3kapbmJkTMYwQrF7K1GSSkpWA?=
- =?us-ascii?Q?6PvKLTwH/MboWtTZQHZWGSpjlHt3f5mckZcDatQH3qij6eW1c1VEbeVpim3i?=
- =?us-ascii?Q?YvvyogmbsDPMhb8Q0LF17I8Y0FEW8nkCPc+wxDPR8PyjQxYS+w4wzOcK24+O?=
- =?us-ascii?Q?51/s99ADiZDeYctAvZCTsyDLkAuVeHK2ZK8Z5P0aE1hrx5sTF2czPkeY/LzU?=
- =?us-ascii?Q?XMlxq2clxrssHu2cnVLKmZ5DamNg7PfmeEtAqyZ8PwtpMGn9ErYmZYq4xjRC?=
- =?us-ascii?Q?bzWWKjjJ2X7YNm3YlXvRjbjHoIBg0wGfgTUzrdyX9APyQ8I8o2QPgSOUs/60?=
- =?us-ascii?Q?KCBOtpQJu5pRDttav2Vsr+eUkvKGMP3lL3jWaZGVm1bxVJxCY4k83q9IKyDm?=
- =?us-ascii?Q?+UQESt461QwJJUvqn3hSn40elJvlh4wRbOlnlb1f1Kjvg4JEAZKbPaJ6eR4m?=
- =?us-ascii?Q?pxez5HrPtnU+eEQvwu+I3oqZiVBmzb0j+ZBgv+HJ6RzoI4tX9OeSTds3ucFn?=
- =?us-ascii?Q?wjIqCKMJoFCfnGYL5/cXopmSNV/D7HODLD19fW7eWxOfOblOy81M6XS/PkdO?=
- =?us-ascii?Q?zlShEA0TJTzu5OROb/BYiSBe4/N6sPTnPVX5C1LJD7rROCWZWMEutG35V1D3?=
- =?us-ascii?Q?ZUo0kwTT0oDG0Y1e1WAnyvsQxyxSEByIPDlUOu/59wNsRAmz+CRoj54XpCmb?=
- =?us-ascii?Q?rhPLGsDhZZYgUqaqMag8YmtcI3Y/5UxY3DlaYLebIbKKUbAUVFKWmnSDzGAh?=
- =?us-ascii?Q?nwq8M5PMJewETP7OGMZ4a/eSrdSaaC+/AHPvO7OZcOlQ4lYfgdkiaDPY+Gzn?=
- =?us-ascii?Q?BMCswEt09l3HVAB8knHbrz+UtN8oM8SDOk8VeLNVMlO2DnJBZrmuhroHVkh1?=
- =?us-ascii?Q?ilqMZ7Gd4dyo5Q9Xf14FNSZG+mHjasFbZ20fNdS93qIDCNjICYGA3TcfhDPz?=
- =?us-ascii?Q?gljCLII0h4J0hQKzjSIcGuEPkbVUGO3eXZf/o1B40y4GC0ydLjiQKkK+7J60?=
- =?us-ascii?Q?HLtGfvLg9NIWWMi9DalKZBRmdHc8UBI663dFgDP1IyDGMjC9fGak3Xk6FQd5?=
- =?us-ascii?Q?GppVPYbjlocpqaHKLDRN/FZxlZf7lQLqeHqk31LeEzTOz4NbHx31RhCUlVMt?=
- =?us-ascii?Q?B3xRMFa3vVDHaF6NX+YCkK/DrDHpzw7dX9NhYQdVCfHyq9EsH0j8qfyDJce8?=
- =?us-ascii?Q?huOwtAoLzPZR1nSLg8g8ILLU1WlIVuIgro5MoKWCyqNNlm66tp1cbdAa+s/v?=
- =?us-ascii?Q?2OJmCgNzeglqZ/PfCF3WYolQ1P44MqiH7s4bKWqDX841PQ6bvwvPYGJgURdr?=
- =?us-ascii?Q?97+S6Ggd0RH6OWDjDx7UdAM=3D?=
-X-OriginatorOrg: os.amperecomputing.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e85a5afc-5f76-4b49-3d73-08dd626b69fe
-X-MS-Exchange-CrossTenant-AuthSource: MW4PR01MB6228.prod.exchangelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 20:12:43.6846
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: E8mRnyeZ4irLAIBopmJF9gW5wQIGkQeqMDcOvChizu82T3xLIrnqFv1ob7Nrgc4xgpZJ1WF5IM2mpGUgnnjEKh+S7S5nroytvzgw9CIPiJDMTRt4fv81cOGtbexYoHVh
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR01MB7415
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.15
+Message-Id: <02465.125031316130400522@us-mta-617.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: 79im_P82DvtxPu6KdgoEXiHcDRfOsQPt8Bjf02KDT3o_1741896783
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_131250_851196_170EF08A 
-X-CRM114-Status: GOOD (  10.70  )
+X-CRM114-CacheID: sfid-20250313_131309_899750_7A8089BE 
+X-CRM114-Status: UNSURE (   6.17  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,46 +84,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Atomic instructions are both memory-reading and memory-writing
-instructions and so should be counted by both LD_RETIRED and ST_RETIRED
-performance monitoring events. However LD_RETIRED does not count atomic
-instructions.
+Hi, we tested your kernel and here are the results:
 
-Signed-off-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
----
- tools/perf/pmu-events/arch/arm64/ampere/ampereone/memory.json | 4 +++-
- .../perf/pmu-events/arch/arm64/ampere/ampereonex/memory.json  | 4 +++-
- 2 files changed, 6 insertions(+), 2 deletions(-)
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
 
-diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/memory.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/memory.json
-index 0711782bfa6b..13382d29b25f 100644
---- a/tools/perf/pmu-events/arch/arm64/ampere/ampereone/memory.json
-+++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereone/memory.json
-@@ -1,6 +1,8 @@
- [
-     {
--        "ArchStdEvent": "LD_RETIRED"
-+        "ArchStdEvent": "LD_RETIRED",
-+        "Errata": "Errata AC03_CPU_52",
-+        "BriefDescription": "Instruction architecturally executed, condition code check pass, load. Impacted by errata -"
-     },
-     {
-         "ArchStdEvent": "MEM_ACCESS_RD"
-diff --git a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/memory.json b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/memory.json
-index a211d94aacde..6c06bc928415 100644
---- a/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/memory.json
-+++ b/tools/perf/pmu-events/arch/arm64/ampere/ampereonex/memory.json
-@@ -1,6 +1,8 @@
- [
-     {
--        "ArchStdEvent": "LD_RETIRED"
-+        "ArchStdEvent": "LD_RETIRED",
-+        "Errata": "Errata AC04_CPU_21",
-+        "BriefDescription": "Instruction architecturally executed, condition code check pass, load. Impacted by errata -"
-     },
-     {
-         "ArchStdEvent": "MEM_ACCESS_RD"
--- 
-2.47.0
+Tested-by: CKI Project <cki-project@redhat.com>
+
+Kernel information:
+    Commit message: Merge remote-tracking branch 'will/for-next/perf' into =
+for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:1715648401
+
+One or more kernel builds failed:
+    We also see the following known issues which are not related to your ch=
+anges:
+         aarch64 - https://datawarehouse.cki-project.org/kcidb/builds/redha=
+t:1715648401-aarch64-kernel
+                   Issue: [upstream] error: initializer-string for array of=
+ 'char' is too long [-Werror=3Dunterminated-string-initialization]
+                          https://gitlab.com/cki-project/infrastructure/-/i=
+ssues/473
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
 
 
