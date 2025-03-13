@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8343CC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:13:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25A78C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:15:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3e6WMZiojpz4LX1qnXf6AOoOH6Zxkqro3F/yWuFF51Y=; b=KfGfEuWlGpmAQXyuZtaCLWf6T8
-	YoiVaqzIZCTQDh3/2Of9oCR9hDs5Mb7b8Dxm0Ld3wSPla2nL0OhAY6PTVf4UfNiIANgVHoe/vxP06
-	SYcqm1ExiGThz3ROYzPGwMVLBnUkc0jZoUlfmQ7Jyv6Svxs20jHGVW29kAshxMXOccEe4XCDB6MXE
-	ggNAKf0GXeRPn7Gf6Hthlp00k0CTsRCY21X9FYRHl1IVhL4b55g9X5Hrg6S4e2JfnCeMG+14D7apB
-	vcTBOQYLe+Oach74EW33sne8KX4JnpVamLQKyZAAP+XBmiUlakkE69OOHln7GSRv3cWV3fUx0PQZ/
-	bbD9JMkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=UA64qOgiBPbw7SFEemccxkNT6W9eFKL02pKbWb7sdO0=; b=MFhDe7q/E/bFIhlDVUtLFEZTWr
+	F3a+GG1fpeWlD5T0dDGBmCrGcJhw/WXiqwK14TxdBWk/ds0j9qbW8ppFoc555QgTj6baLf9N0T7M1
+	j/HmXri8ORW2jyaoFdyRQ4ymChtRrrG1m0eNTQhvy9fTsgX6PAay9nW/9xhdZWQOCad76/a+mRjQs
+	VNBu/+jMJIk/UywjPZw2dErXs3qF2AeL+WhelIftn74ceOWZdIzcopeQJLLmxTW3xVpv67eCSK4P3
+	d/RX7RdabOXYi66LZcUn8wT5oBPzu6RYjqIrYmwamqE1uLP0Om1Ts2DnRcG8kpIQ9Lb3tuhTRog90
+	cG8W8zaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslB5-0000000Bm99-1gyD;
-	Thu, 13 Mar 2025 16:12:59 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsl2d-0000000BkJ2-0ecL
+	id 1tslDb-0000000Bn1X-1W0a;
+	Thu, 13 Mar 2025 16:15:35 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsl83-0000000BlXk-3BmM
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:04:16 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 418A1150C;
-	Thu, 13 Mar 2025 09:04:24 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 855B93F673;
-	Thu, 13 Mar 2025 09:04:13 -0700 (PDT)
-Date: Thu, 13 Mar 2025 16:04:09 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 5/7] coresight: Clear self hosted claim tag on probe
-Message-ID: <20250313160409.GS9682@e132581.arm.com>
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-6-james.clark@linaro.org>
+	Thu, 13 Mar 2025 16:09:53 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 21E20A474C3;
+	Thu, 13 Mar 2025 16:04:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 47770C4CEDD;
+	Thu, 13 Mar 2025 16:09:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1741882190;
+	bh=4H0qDlc+xXWcnDvBgdpyi2WmZXae2eQfvaAKwYfdwbU=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=JJ6Rj7jln7zrECH6pZ+Z0hX6VYOFHiZnqCQTGh/hFnQSFeijF/DNa8Nt+sN+04ANb
+	 F/0NqQSFG+Td4iiZMbqPbxyzMrfY9eAQwVhJBCJtkXR1VHEe8lAN3iLGo9jXQreGwU
+	 8Zc5aJUTzUX9ycNTP9CbMnr86yINnIEHY1w1+FIk=
+Subject: Patch "KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN" has been added to the 6.13-stable tree
+To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Thu, 13 Mar 2025 17:09:29 +0100
+In-Reply-To: <20250312-stable-sve-6-13-v1-5-c7ba07a6f4f7@kernel.org>
+Message-ID: <2025031329-glitter-stricken-345b@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211103945.967495-6-james.clark@linaro.org>
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_090415_285694_6EFF6924 
-X-CRM114-Status: GOOD (  30.75  )
+X-CRM114-CacheID: sfid-20250313_090951_946547_26CE9005 
+X-CRM114-Status: GOOD (  23.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,161 +68,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 10:39:41AM +0000, James Clark wrote:
-> 
-> This can be left behind from a crashed kernel after a kexec so clear it
-> when probing each device. Similarly to
-> coresight_disclaim_device_unlocked(), only clear it if it's already set
-> to avoid races with an external debugger.
-> 
-> We need a csdev_access struct in etm_init_arch_data() so just replace
-> the iomem pointer with a full csdev_access struct. This means all usages
-> need to be updated to go through csa->base.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-catu.c  |  1 +
->  drivers/hwtracing/coresight/coresight-core.c  | 48 +++++++++++++++----
->  .../hwtracing/coresight/coresight-cti-core.c  |  2 +
->  drivers/hwtracing/coresight/coresight-etb10.c |  2 +
->  drivers/hwtracing/coresight/coresight-etm.h   |  6 +--
->  .../coresight/coresight-etm3x-core.c          | 28 +++++------
->  .../coresight/coresight-etm3x-sysfs.c         |  8 ++--
->  .../coresight/coresight-etm4x-core.c          |  2 +
->  .../hwtracing/coresight/coresight-funnel.c    |  2 +
->  .../coresight/coresight-replicator.c          |  1 +
->  .../hwtracing/coresight/coresight-tmc-core.c  |  1 +
->  include/linux/coresight.h                     |  3 ++
->  12 files changed, 73 insertions(+), 31 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-catu.c b/drivers/hwtracing/coresight/coresight-catu.c
-> index d9259c0b6e64..575c2d247a90 100644
-> --- a/drivers/hwtracing/coresight/coresight-catu.c
-> +++ b/drivers/hwtracing/coresight/coresight-catu.c
-> @@ -558,6 +558,7 @@ static int __catu_probe(struct device *dev, struct resource *res)
->         catu_desc.subtype.helper_subtype = CORESIGHT_DEV_SUBTYPE_HELPER_CATU;
->         catu_desc.ops = &catu_ops;
-> 
-> +       coresight_reset_claim(&catu_desc.access);
->         drvdata->csdev = coresight_register(&catu_desc);
->         if (IS_ERR(drvdata->csdev))
->                 ret = PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 7fe5d5d432c4..97f33ffad05e 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -212,20 +212,48 @@ int coresight_claim_device(struct coresight_device *csdev)
->  EXPORT_SYMBOL_GPL(coresight_claim_device);
-> 
->  /*
-> - * coresight_disclaim_device_unlocked : Clear the claim tag for the device.
-> + * Clear the claim tag for the device.
-> + * Returns an error if the device wasn't already claimed.
-> + */
-> +int coresight_reset_claim(struct csdev_access *csa)
-> +{
-> +       int ret;
-> +
-> +       CS_UNLOCK(csa->base);
-> +       ret = coresight_reset_claim_unlocked(csa);
-> +       CS_LOCK(csa->base);
-> +       return ret;
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_reset_claim);
 
-Maybe my question is overlapping with Mike's comment.
+This is a note to let you know that I've just added the patch titled
 
-Callers never check the return values from coresight_reset_claim(). I am
-wandering if coresight_reset_claim() can directly call
-coresight_clear_self_claim_tag() for _trying_ to clear self-host tag in
-probe phase. Any self claim tag issues will be deferred to detect until
-enable the component.
+    KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
 
-For consistent, we might rename coresight_reset_claim() to
-coresight_reset_self_claim_tag(), which acquires CS lock and clear
-self claim tag.
+to the 6.13-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-> +/*
-> + * Clear the claim tag for the device. Called with CS_UNLOCKed for the component.
-> + * Returns an error if the device wasn't already claimed.
-> + */
-> +int coresight_reset_claim_unlocked(struct csdev_access *csa)
-> +{
-> +       if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED) {
-> +               coresight_clear_self_claim_tag(csa);
-> +               return 0;
-> +       }
-> +
-> +       return -EINVAL;
-> +}
-> +EXPORT_SYMBOL_GPL(coresight_reset_claim_unlocked);
-> +
-> +/*
-> + * coresight_disclaim_device_unlocked : Clear the claim tag for the device
-> + * and warn if the device wasn't already claimed.
->   * Called with CS_UNLOCKed for the component.
->   */
->  void coresight_disclaim_device_unlocked(struct csdev_access *csa)
->  {
-> -       if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED)
-> -               coresight_clear_self_claim_tag(csa);
-> -       else
-> -               /*
-> -                * The external agent may have not honoured our claim
-> -                * and has manipulated it. Or something else has seriously
-> -                * gone wrong in our driver.
-> -                */
-> -               WARN_ON_ONCE(1);
-> +       /*
-> +        * Warn if the external agent hasn't honoured our claim
-> +        * and has manipulated it. Or something else has seriously
-> +        * gone wrong in our driver.
-> +        */
-> +       WARN_ON_ONCE(coresight_reset_claim_unlocked(csa));
->  }
->  EXPORT_SYMBOL_GPL(coresight_disclaim_device_unlocked);
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-> index 073f67a41af9..389a72362f0c 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-> @@ -931,6 +931,8 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->         cti_desc.ops = &cti_ops;
->         cti_desc.groups = drvdata->ctidev.con_groups;
->         cti_desc.dev = dev;
-> +
-> +       coresight_reset_claim(&cti_desc.access);
->         drvdata->csdev = coresight_register(&cti_desc);
->         if (IS_ERR(drvdata->csdev)) {
->                 ret = PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-etb10.c b/drivers/hwtracing/coresight/coresight-etb10.c
-> index d8bc3e776c88..b598b2c0c9bb 100644
-> --- a/drivers/hwtracing/coresight/coresight-etb10.c
-> +++ b/drivers/hwtracing/coresight/coresight-etb10.c
-> @@ -772,6 +772,8 @@ static int etb_probe(struct amba_device *adev, const struct amba_id *id)
->         desc.pdata = pdata;
->         desc.dev = dev;
->         desc.groups = coresight_etb_groups;
-> +
-> +       coresight_reset_claim(&desc.access);
->         drvdata->csdev = coresight_register(&desc);
->         if (IS_ERR(drvdata->csdev))
->                 return PTR_ERR(drvdata->csdev);
-> diff --git a/drivers/hwtracing/coresight/coresight-etm.h b/drivers/hwtracing/coresight/coresight-etm.h
-> index e02c3ea972c9..a89736309c27 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm.h
-> @@ -229,7 +229,7 @@ struct etm_config {
->   * @config:    structure holding configuration parameters.
->   */
->  struct etm_drvdata {
-> -       void __iomem                    *base;
-> +       struct csdev_access             csa;
+The filename of the patch is:
+     kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
+and it can be found in the queue-6.13 subdirectory.
 
-I would like to extract the change for using `csdev_access` in the
-ETMv3 driver into a new patch, which is irrelevant to reset self claim
-tags and would significantly reduce the complexity in this patch.
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-Thanks,
-Leo
+
+From broonie@kernel.org Thu Mar 13 00:49:44 2025
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 12 Mar 2025 23:49:13 +0000
+Subject: KVM: arm64: Remove VHE host restore of CPACR_EL1.SMEN
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
+Message-ID: <20250312-stable-sve-6-13-v1-5-c7ba07a6f4f7@kernel.org>
+
+From: Mark Rutland <mark.rutland@arm.com>
+
+[ Upstream commit 407a99c4654e8ea65393f412c421a55cac539f5b ]
+
+When KVM is in VHE mode, the host kernel tries to save and restore the
+configuration of CPACR_EL1.SMEN (i.e. CPTR_EL2.SMEN when HCR_EL2.E2H=1)
+across kvm_arch_vcpu_load_fp() and kvm_arch_vcpu_put_fp(), since the
+configuration may be clobbered by hyp when running a vCPU. This logic
+has historically been broken, and is currently redundant.
+
+This logic was originally introduced in commit:
+
+  861262ab86270206 ("KVM: arm64: Handle SME host state when running guests")
+
+At the time, the VHE hyp code would reset CPTR_EL2.SMEN to 0b00 when
+returning to the host, trapping host access to SME state. Unfortunately,
+this was unsafe as the host could take a softirq before calling
+kvm_arch_vcpu_put_fp(), and if a softirq handler were to use kernel mode
+NEON the resulting attempt to save the live FPSIMD/SVE/SME state would
+result in a fatal trap.
+
+That issue was limited to VHE mode. For nVHE/hVHE modes, KVM always
+saved/restored the host kernel's CPACR_EL1 value, and configured
+CPTR_EL2.TSM to 0b0, ensuring that host usage of SME would not be
+trapped.
+
+The issue above was incidentally fixed by commit:
+
+  375110ab51dec5dc ("KVM: arm64: Fix resetting SME trap values on reset for (h)VHE")
+
+That commit changed the VHE hyp code to configure CPTR_EL2.SMEN to 0b01
+when returning to the host, permitting host kernel usage of SME,
+avoiding the issue described above. At the time, this was not identified
+as a fix for commit 861262ab86270206.
+
+Now that the host eagerly saves and unbinds its own FPSIMD/SVE/SME
+state, there's no need to save/restore the state of the EL0 SME trap.
+The kernel can safely save/restore state without trapping, as described
+above, and will restore userspace state (including trap controls) before
+returning to userspace.
+
+Remove the redundant logic.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Reviewed-by: Mark Brown <broonie@kernel.org>
+Tested-by: Mark Brown <broonie@kernel.org>
+Acked-by: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Fuad Tabba <tabba@google.com>
+Cc: Marc Zyngier <maz@kernel.org>
+Cc: Oliver Upton <oliver.upton@linux.dev>
+Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
+Link: https://lore.kernel.org/r/20250210195226.1215254-5-mark.rutland@arm.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+[Update for rework of flags storage -- broonie]
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/include/asm/kvm_host.h |    2 --
+ arch/arm64/kvm/fpsimd.c           |   21 ---------------------
+ 2 files changed, 23 deletions(-)
+
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -902,8 +902,6 @@ struct kvm_vcpu_arch {
+ /* Save TRBE context if active  */
+ #define DEBUG_STATE_SAVE_TRBE	__vcpu_single_flag(iflags, BIT(6))
+ 
+-/* SME enabled for EL0 */
+-#define HOST_SME_ENABLED	__vcpu_single_flag(sflags, BIT(1))
+ /* Physical CPU not in supported_cpus */
+ #define ON_UNSUPPORTED_CPU	__vcpu_single_flag(sflags, BIT(2))
+ /* WFIT instruction trapped */
+--- a/arch/arm64/kvm/fpsimd.c
++++ b/arch/arm64/kvm/fpsimd.c
+@@ -65,12 +65,6 @@ void kvm_arch_vcpu_load_fp(struct kvm_vc
+ 	fpsimd_save_and_flush_cpu_state();
+ 	*host_data_ptr(fp_owner) = FP_STATE_FREE;
+ 
+-	if (system_supports_sme()) {
+-		vcpu_clear_flag(vcpu, HOST_SME_ENABLED);
+-		if (read_sysreg(cpacr_el1) & CPACR_EL1_SMEN_EL0EN)
+-			vcpu_set_flag(vcpu, HOST_SME_ENABLED);
+-	}
+-
+ 	/*
+ 	 * If normal guests gain SME support, maintain this behavior for pKVM
+ 	 * guests, which don't support SME.
+@@ -141,21 +135,6 @@ void kvm_arch_vcpu_put_fp(struct kvm_vcp
+ 
+ 	local_irq_save(flags);
+ 
+-	/*
+-	 * If we have VHE then the Hyp code will reset CPACR_EL1 to
+-	 * the default value and we need to reenable SME.
+-	 */
+-	if (has_vhe() && system_supports_sme()) {
+-		/* Also restore EL0 state seen on entry */
+-		if (vcpu_get_flag(vcpu, HOST_SME_ENABLED))
+-			sysreg_clear_set(CPACR_EL1, 0, CPACR_ELx_SMEN);
+-		else
+-			sysreg_clear_set(CPACR_EL1,
+-					 CPACR_EL1_SMEN_EL0EN,
+-					 CPACR_EL1_SMEN_EL1EN);
+-		isb();
+-	}
+-
+ 	if (guest_owns_fp_regs()) {
+ 		if (vcpu_has_sve(vcpu)) {
+ 			u64 zcr = read_sysreg_el1(SYS_ZCR);
+
+
+Patches currently in stable-queue which might be from broonie@kernel.org are
+
+queue-6.13/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
+queue-6.13/kvm-arm64-mark-some-header-functions-as-inline.patch
+queue-6.13/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
+queue-6.13/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
+queue-6.13/kvm-arm64-refactor-exit-handlers.patch
+queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
+queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
+queue-6.13/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
 
