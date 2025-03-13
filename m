@@ -4,110 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CB96C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61856C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gP4fMJNb3zv1AitbCQSn1pjlRysOlMPHj4XRBVuNy1Q=; b=yYHel+Z9mtcfA9L7/PmC1kuOSY
-	P6Pxs8y5vVRjGbo7GC0ebI0gRiADoyGcfCl+sPWrwIj6ng+r03+YTxQqA3KCuXjBjT3/Nx7Au8GIH
-	8aiZqo8Sy/WcUwLnzvgaTjHLWbvsvbm0S45WWdib+KioaSX6akZ3y07S0nzzHttJgLatwmRbAqn6a
-	KcT0hJPEhNEYvy3S2jM2SByJxXh4s8bgdIZfYp+9jYUoKirAYu8jN3J/TWYc4x6uTcv43q8rFcLQ+
-	pw5CDizV5iKhWNXvtMFPE7TWUtybCXzzmTAABHGiq+1kqj3Q9mA/MC0Uqe7U37ZgDHo03EEiRWxR5
-	yP7aUuzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rvYgJ04aTERb1pbtOmHF8JL9kM+l12GGANJVRv8Yo2o=; b=g7u/YSsxEfXRsiHBJTxsgtHAij
+	0bOsssVKCoKTKA/WrfR4B4PGzJoh/ja4+aN+L+YLJPMREbdsomKmJV8LmcI3IzrX6WzvJdg0iC21Z
+	tFLNUS1MA/aS6PLQQ2QNBRC/qkvZWe9Y0uPIc0BHwzq7sND00boR7wmlyZ/MQN65iZG3HcMJvPAd1
+	0Wp1HWhWra08iMk72LbBMZ49KwxTiN6orj60idiYhgyzTSIpKXmFbcuPPLGhHcJcmDyEC1MyJD49e
+	EoOQOBAgJMGxQd7uBElqamTPK4dhT/KJD9jDkVeRRJhdzU++fIEORSs4x9iBS8N+Zi8w1wCWlP/EC
+	yaISn85w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8c-0000000Bwxk-32Wx;
-	Thu, 13 Mar 2025 17:14:31 +0000
-Received: from mo4-p01-ob.smtp.rzone.de ([81.169.146.167])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslIh-0000000Bo6G-0QH6
+	id 1tsm8b-0000000BwvH-1eKf;
+	Thu, 13 Mar 2025 17:14:29 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tslGK-0000000Bne4-0CWw
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:20:52 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741882828; cv=none;
-    d=strato.com; s=strato-dkim-0002;
-    b=cNuTcV3wc70G1bwoTfovS9OnAa8+G1W+DWZn9JvVy7eyCUX9r0bLPzSo5FZP9RNP+O
-    DDkiX4EknTB8OBvFgnhUKsaBgiCQ4iARy7jiJ3gu5flh1DCOEsDaldEHROmwhGUcyczB
-    7cd9SUH7EYq2qbqLPIgitoCu98bjbwnsIhfjaf/9pXr4bvAoPxVl/wbHXoDorumLwz9Z
-    BsTWJP5gDVpB1B1CkTSES5MqKt6fpGJK/FHQUCOzsB9cgefEtN+WEH5BVAdG99TEES5U
-    QF5fdCrrdFf4XA5zxCBuVZUoSV3GerhxcdUWn9VPgvy2IgUut7G3mU7jTmZIqe/0OD4n
-    dIPg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; t=1741882828;
-    s=strato-dkim-0002; d=strato.com;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gP4fMJNb3zv1AitbCQSn1pjlRysOlMPHj4XRBVuNy1Q=;
-    b=qwLpM/Kgjap3eMtqOc/ifvtNGfG20UR9bwyfWZZ7jLVHr8rvJfLZoUPstrH+AozDQd
-    lENvQ6lxd+DkprJyTo2isPYKEAiVGIihnCfHjCuydvMTpOd2/ITSWUiOqseJxm6C0Tn4
-    h4BrDffX9HhYbmKb0FIjLzEzwFbUgtDyo8GlXNkBtC/BviMwpTD0IqTrWQ1W34XkdI/g
-    eLL2PS3XsFLNwHq5nXX6X7YTGw6Ozv1YZNxDloIpco7J0xtH2B0bS7JmuVgX1Haq2rvE
-    A4kLrAb3hvrGP2BzLn9Gf5kiINBG8juY8iDgBSlcRMIYyrbehH7vN8tHP2Bk4z+jWahA
-    71hQ==
-ARC-Authentication-Results: i=1; strato.com;
-    arc=none;
-    dkim=none
-X-RZG-CLASS-ID: mo01
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; t=1741882828;
-    s=strato-dkim-0002; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gP4fMJNb3zv1AitbCQSn1pjlRysOlMPHj4XRBVuNy1Q=;
-    b=ibNrTaekradQzlbtQYUK2gUwxHlTrZlXEMVGzjE23HQK132Sv3X0fixFNydGIzHaTe
-    vYIPQx+lo+JDKeYznEm/fbXH9mImoU71Q37swIbgXRTuVBtAd9xChgxe8vFYlwv6LaOl
-    xuPowJiu0KWGvLZsg2+em5BhZNjZ6tzTAaJLLagu+1w7+tI7IbUsAiGNkLfHXvOX5Dx0
-    3CPaSsLSvI2ViEA+Iwq7uYX7u1RirZIP959af543s8r3peR0Ub9wpIKqrtcmWy7vVn+t
-    v1zxQfOkZdjSX3Xh+m3Dg/E3jJ98DZ87+06znMUzdU294Qh0fdUtJ3n+CdegMLea8u/6
-    P4gQ==
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; t=1741882828;
-    s=strato-dkim-0003; d=fossekall.de;
-    h=In-Reply-To:References:Message-ID:Subject:Cc:To:From:Date:Cc:Date:
-    From:Subject:Sender;
-    bh=gP4fMJNb3zv1AitbCQSn1pjlRysOlMPHj4XRBVuNy1Q=;
-    b=jYIi6SJGrt1CFfwL2f0m2ONhy+C3qPthFrIk3kvIlSyTBIuKCvro16nMTlhdgR8+Oo
-    +QybSxPaAvtt3LB12GCQ==
-X-RZG-AUTH: ":O2kGeEG7b/pS1EzgE2y7nF0STYsSLflpbjNKxx7cGrBdao6FTL4AJcMdm+lap4JEHkzok9eyEg=="
-Received: from aerfugl
-    by smtp.strato.de (RZmta 51.3.0 AUTH)
-    with ESMTPSA id f28b3512DGKRpon
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256 bits))
-	(Client did not present a certificate);
-    Thu, 13 Mar 2025 17:20:27 +0100 (CET)
-Received: from koltrast.home ([192.168.1.27] helo=a98shuttle.de)
-	by aerfugl with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <michael@fossekall.de>)
-	id 1tslIJ-0005U0-0S;
-	Thu, 13 Mar 2025 17:20:27 +0100
-Date: Thu, 13 Mar 2025 17:20:25 +0100
-From: Michael Klein <michael@fossekall.de>
-To: Andrew Lunn <andrew@lunn.ch>
-Cc: Andre Przywara <andre.przywara@arm.com>,
-	Jernej =?utf-8?Q?=C5=A0krabec?= <jernej.skrabec@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
-	Samuel Holland <samuel@sholland.org>, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/2] ARM: dts: bananapi: add support for PHY LEDs
-Message-ID: <Z9MFyWGG5iNUmRNq@a98shuttle.de>
-References: <20250312193629.85417-1-michael@fossekall.de>
- <20250312193629.85417-2-michael@fossekall.de>
- <4637912.LvFx2qVVIh@jernej-laptop>
- <Z9KYqlfUYxRaWnGQ@a98shuttle.de>
- <20250313104042.694c1856@donnerap.manchester.arm.com>
- <7cf91323-d550-496a-a8ec-ae104c77224d@lunn.ch>
+	Thu, 13 Mar 2025 16:18:25 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D4F80150C;
+	Thu, 13 Mar 2025 09:18:33 -0700 (PDT)
+Received: from [10.57.85.159] (unknown [10.57.85.159])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 3F4C23F673;
+	Thu, 13 Mar 2025 09:18:14 -0700 (PDT)
+Message-ID: <07c36889-10d3-4944-a039-3a30fbdca883@arm.com>
+Date: Thu, 13 Mar 2025 16:18:12 +0000
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 2/3] iommu/arm: Add BBM Level 2 smmu feature
+Content-Language: en-GB
+To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
+ catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
+ mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
+ james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com,
+ oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
+ david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev
+References: <20250313104111.24196-2-miko.lenczewski@arm.com>
+ <20250313104111.24196-4-miko.lenczewski@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250313104111.24196-4-miko.lenczewski@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <7cf91323-d550-496a-a8ec-ae104c77224d@lunn.ch>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_092051_401312_885E986C 
-X-CRM114-Status: GOOD (  21.18  )
+X-CRM114-CacheID: sfid-20250313_091824_173232_C81DF756 
+X-CRM114-Status: GOOD (  15.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,49 +74,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 02:17:27PM +0100, Andrew Lunn wrote:
->On Thu, Mar 13, 2025 at 10:40:42AM +0000, Andre Przywara wrote:
->> On Thu, 13 Mar 2025 09:34:50 +0100
->> Michael Klein <michael@fossekall.de> wrote:
->> > On Thu, Mar 13, 2025 at 07:07:24AM +0100, Jernej Škrabec wrote:
->> > >Dne sreda, 12. marec 2025 ob 20:36:28 Srednjeevropski standardni čas je Michael Klein napisal(a):
->> > >> The Bananapi M1 has three LEDs connected to the RTL8211E ethernet PHY.
->> > >> Add the corresponding nodes to the device tree.
->> > >>
->> > >> Signed-off-by: Michael Klein <michael@fossekall.de>
->> > >
->> > >This is patch 2/2. Which one is patch 1/2? I got only one.
->> >
->> > https://patchwork.kernel.org/project/netdevbpf/patch/20250312193629.85417-1-michael@fossekall.de/
->> >
->> > Sorry for any inconvenience in case I messed up the patch submission.
->> >
->> > I made two commits for this change and submitted them via `git send-email
->> > HEAD^^`. The first patch went to netdev@vger.kernel.org, the second
->> > to linux-arm-kernel@lists.infradead.org, which seems logical. Have I
->> > done something wrong?
->>
->> Well, for those really small "series" it's probably better to send all
->> patches to everyone, especially if the first patch gives some context,
->> without which the second leaves people (like me) scratching their head.
->
->However, netdev does not like pathchsets which contain patches which
->should not be applied to the netdev tree. DT patches generally go
->through a different Maintainer to driver changes implementing the
->binding.
->
->So for your DT patch, you could add to the commit message something
->like:
->
->The RTL8211E ethernet PHY driver has recently gained support for
->controlling PHY LEDs via /sys/class/leds. The Bananapi M1 has three
->LEDs connected to the RTL8211E PHY.  Add the corresponding nodes to
->the device tree.
+On 13/03/2025 10:41, Mikołaj Lenczewski wrote:
+> For supporting BBM Level 2 for userspace mappings, we want to ensure
+> that the smmu also supports its own version of BBM Level 2. Luckily, the
+> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
+> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
+> BBM level 2 is claimed.
+> 
+> Add the feature and testing for it under arm_smmu_sva_supported().
+> 
+> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
 
-Thanks, this totally makes sense. I'll split the patch series then and 
-follow-up here with the updated commit message when the netdev change is 
-accepted.
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
--- 
-Michael
+> ---
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
+>  drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
+>  3 files changed, 10 insertions(+)
+> 
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> index 9ba596430e7c..6ba182572788 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
+> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
+>  		feat_mask |= ARM_SMMU_FEAT_VAX;
+>  	}
+>  
+> +	if (system_supports_bbml2_noabort())
+> +		feat_mask |= ARM_SMMU_FEAT_BBML2;
+> +
+>  	if ((smmu->features & feat_mask) != feat_mask)
+>  		return false;
+>  
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> index 358072b4e293..dcee0bdec924 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
+> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
+>  	if (FIELD_GET(IDR3_RIL, reg))
+>  		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
+>  
+> +	if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
+> +		smmu->features |= ARM_SMMU_FEAT_BBML2;
+> +
+>  	/* IDR5 */
+>  	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
+>  
+> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> index bd9d7c85576a..85eaf3ab88c2 100644
+> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
+> @@ -60,6 +60,9 @@ struct arm_smmu_device;
+>  #define ARM_SMMU_IDR3			0xc
+>  #define IDR3_FWB			(1 << 8)
+>  #define IDR3_RIL			(1 << 10)
+> +#define IDR3_BBML			GENMASK(12, 11)
+> +#define IDR3_BBML1			(1 << 11)
+> +#define IDR3_BBML2			(2 << 11)
+>  
+>  #define ARM_SMMU_IDR5			0x14
+>  #define IDR5_STALL_MAX			GENMASK(31, 16)
+> @@ -754,6 +757,7 @@ struct arm_smmu_device {
+>  #define ARM_SMMU_FEAT_HA		(1 << 21)
+>  #define ARM_SMMU_FEAT_HD		(1 << 22)
+>  #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
+> +#define ARM_SMMU_FEAT_BBML2		(1 << 24)
+>  	u32				features;
+>  
+>  #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+
 
