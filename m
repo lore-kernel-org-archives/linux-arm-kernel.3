@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFDBC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:02:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F2BFC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:04:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=; b=T5kxuB9sRzF//Iydpg/zYcl3pZ
-	9o0afuDKCWDefZLH6eALEmtxzU6whqXt7Xxiydt1zNpqkubuvbM9hYwnEfKd7CdV2VG2OID4gX0X4
-	fDwwEk785HmdddUcUp4by04YqEnE+oCaKpYTlZbdL9qD7uKGNPebTOya539z+uRvryRq+kFiSk1lh
-	tJ4VHxSXwgGdqLQ1LgO/VmbtkXA0+gZWPJPqNATdXbE1wh/m4gvvq5S+bQwK+gjI10eEJZpbn3sLO
-	8LlneeN78wohHAAeJL+qyTrTzXmTiiz5u/i9iqBt3n+KI6awNS2dkIL4XE2RbnfRgQmqP0f/dhbmd
-	KDS4R5WA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LKcLmiNNi+InVHi7szN5VvzBxGJ1ZV4koF9yq2Mj56E=; b=M7cE4/MIky3x8FXYkUUX8WsNyT
+	u0Oljn8ai8oMsyGDSNOE+a1s6au2vBBYaYL3yMXitc/zz86yJ0nrYGz+HHhkuWTmbNkOso3km0N4Z
+	ZOdAbpCdcfkZagiV4BZSvFdM30v9xdXiLVj/gH5Kl7nB2TEtAQhJMpLFz8BF9c8wNyqkNYMn7JQDk
+	2igJIDx1eoF84pIjH0zLyz4sdZJzRAqZrQX9cnGM73N6PsJVcIjpp2+5skH+A7+owyUXJrXn+rDBi
+	ryGFdt477qVW1aQ7otmACIZ/2oEQvkPLKXsD+o4rDFjqQZ5ClEWyhOAIACdZCgGruIUOMAEXbTJ3T
+	9EgYBzRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsl1C-0000000BjxX-1cXs;
-	Thu, 13 Mar 2025 16:02:46 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsklq-0000000Bhia-3TEm
+	id 1tsl2q-0000000BkNM-0D6K;
+	Thu, 13 Mar 2025 16:04:28 +0000
+Received: from linux.microsoft.com ([13.77.154.182])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tskuy-0000000Big5-2scK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 15:46:56 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-223f4c06e9fso22121635ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 08:46:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1741880813; x=1742485613; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=;
-        b=irc+A9F2Rx79aIsM3dqN+jSZAJ0g10zSuqpPysEfY0pAggiBXJEh5MqckWWPA6G62X
-         ciiQb2ems3y6MUHoPAYuMaEn29US5zknwWOb0bR2GvUrWO++Rue5UHvRl8yhzfJeTOTv
-         5J5Lb4WTA8+6yxVL/Fg22qsWVqs5UL4caxUU83xqAHQ3LUsBsyoAD/9XHU385QFUBBy3
-         icrH2luMzqT8fcgfwzq31Xlai23DBTFQjE+oIOlvqft9zVDe5JUpugKhP2V/cTMdvj8p
-         6GTDpWXC2Z5HXDcpRDOQsQelWXRw2UNCKuqxg+Br5jwny0ZbVkjvnGR33SE18YTY8xMT
-         7tGA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741880813; x=1742485613;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=;
-        b=uPXW3lpyFOJL4WQoNmWlWONm5v8/LE80TWqcajFWJa7x0xoYaglB8mXODM9b5E2CQ4
-         LlmaiXu6NPxnk2FnDOuf7cdsblFjNxTQHwaVT9nwM2uLGICX5dBMfiNRmzXVfuua5+YG
-         5U8hiLce1Ps2U1ijRmS7nEvUvcJuoK3jaX6wyBuWjwXwVFxsj8rxy+IPuPQXvKqSH36d
-         WkoV+kSSg+0PpvX1kj3w5el1GqvkP5rd1oM6wgGbJuECH5lYI4LKcwIGi+VMpP6G+q0b
-         VmfNLRPfnQuYH7GitF0uOPGCJmVL4nthluyAOkhymQrgOD0jCjsWj9CK1X5MPal6JL9t
-         svNA==
-X-Forwarded-Encrypted: i=1; AJvYcCUC6CDp7gPVfLQ9yFbVHn4Z9udKDYiVkopCw+M5ONIOjoVPwRGoXzXOQjdeWVxwy77lkZd1scsTAeDvyaM68KH4@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXrw5qRZQpAJi/9E8F8r2CnfQYMnwiN1Hrrb2afAbomfdtK1bc
-	d/eVawRIRR0XcEJM94m9McbZ6+BYlRCsXHdyTbEA8gWHudip7HcGx+UPAYfwd8o=
-X-Gm-Gg: ASbGncsNZoD22qe7HOS6eecgxcfLlc8LCnnCQbKPqWcWu1kTfFvEcHe+46+uSYi/yBt
-	bknsWB0bsYGshS8adPb0dQm44wfDflfhOFT+ipaqnuC+0Uo8O0jG2lFVtOrcIypLrJ85MnOL8ex
-	hY7I4C+5fWg7eE2NuFj8QsbtVM8TsHG8hTuP8j6qDzW4RQcUvv5ymIht4Dl7TFivJeSDIqlcfyT
-	/WaHyJVV1j/bJZb+fc3gQwxIfrdSa9/QpytRH8TIjUKXITjnfYUaD1dUHMR01yRgRJQrgkuW4BG
-	b0vssLuxAp0d2Y9F6tRoclNeN1rQ92iKP7NETIDDxVZOQ3dXfi3uGdy2ZKs=
-X-Google-Smtp-Source: AGHT+IHmhKUWmuw5hxmGn5MltXhJp+mOVpY2OPHTTEaVO3b51JPFYbzscOBmXvFxMsGPCnOFc7K2lg==
-X-Received: by 2002:a17:903:3d03:b0:223:5187:a886 with SMTP id d9443c01a7336-225c66a7cb6mr49221535ad.22.1741880813496;
-        Thu, 13 Mar 2025 08:46:53 -0700 (PDT)
-Received: from p14s ([2604:3d09:148c:c800:46d2:1635:3673:c3f9])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba710dsm14851215ad.128.2025.03.13.08.46.51
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 08:46:52 -0700 (PDT)
-Date: Thu, 13 Mar 2025 09:46:50 -0600
-From: Mathieu Poirier <mathieu.poirier@linaro.org>
-To: Daniel Baluta <daniel.baluta@nxp.com>
-Cc: p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org,
-	shawnguo@kernel.org, devicetree@vger.kernel.org,
-	linux-remoteproc@vger.kernel.org, conor+dt@kernel.org,
-	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
-	Frank.Li@nxp.com, peng.fan@nxp.com, laurentiu.mihalcea@nxp.com,
-	iuliana.prodan@nxp.com, shengjiu.wang@nxp.com
-Subject: Re: [PATCH v5 0/8] imx8mp: Add support to Run/Stall DSP via reset API
-Message-ID: <Z9L96ssnL1S5z7rb@p14s>
-References: <20250311085812.1296243-1-daniel.baluta@nxp.com>
+	Thu, 13 Mar 2025 15:56:21 +0000
+Received: from [10.0.0.114] (c-67-182-156-199.hsd1.wa.comcast.net [67.182.156.199])
+	by linux.microsoft.com (Postfix) with ESMTPSA id D11BC2033428;
+	Thu, 13 Mar 2025 08:56:18 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 linux.microsoft.com D11BC2033428
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.microsoft.com;
+	s=default; t=1741881379;
+	bh=LKcLmiNNi+InVHi7szN5VvzBxGJ1ZV4koF9yq2Mj56E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=qSExLbcPE0nUhHTgfvpnil9EmZuIMMSMVTDhe2uERE4lfle83/MgTG/KdG0Y29IBw
+	 dFMT3xgTbiqrd2QyplZgYbBU+EfyIBNbGBcD8Xh1V7EdpBIjZR5ZNZ4gTi/C/AsMs1
+	 j4PyUkiW1dba5UiyKnL1QfdZk2Ow5UZhErEHVqKU=
+Message-ID: <6ba21efb-7065-44d7-9cee-265a0c137f0c@linux.microsoft.com>
+Date: Thu, 13 Mar 2025 08:56:18 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250311085812.1296243-1-daniel.baluta@nxp.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 07/10] Drivers: hv: Introduce per-cpu event ring tail
+To: Tianyu Lan <ltykernel@gmail.com>
+Cc: linux-hyperv@vger.kernel.org, x86@kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com,
+ haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com,
+ decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org,
+ tglx@linutronix.de, mingo@redhat.com, bp@alien8.de,
+ dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org,
+ joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de,
+ jinankjain@linux.microsoft.com, muminulrussell@gmail.com,
+ skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com,
+ ssengar@linux.microsoft.com, apais@linux.microsoft.com,
+ Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com,
+ gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com,
+ muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org,
+ lenb@kernel.org, corbet@lwn.net
+References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
+ <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
+ <CAMvTesAW-9Mo0oY6UUh2anp6DQCSsVCUhBiV2-bKp2VD_N0DYw@mail.gmail.com>
+ <5e3e8c30-912c-4fe3-bfac-1ae21242473b@linux.microsoft.com>
+ <CAMvTesAPeLBfYVa5TGx-o6p+0g_Q1bn6s+nZK5i7NK8QGyfbTA@mail.gmail.com>
+Content-Language: en-US
+From: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+In-Reply-To: <CAMvTesAPeLBfYVa5TGx-o6p+0g_Q1bn6s+nZK5i7NK8QGyfbTA@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_084654_890851_A1AA03E9 
-X-CRM114-Status: GOOD (  33.28  )
+X-CRM114-CacheID: sfid-20250313_085620_777700_A791415D 
+X-CRM114-Status: GOOD (  22.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,97 +86,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 10:58:03AM +0200, Daniel Baluta wrote:
-> This patch series adds support to control the Run/Stall DSP bits found on
-> i.MX8MP via the reset controller API instead of using the syscon API.
+On 3/13/2025 12:34 AM, Tianyu Lan wrote:
+> On Thu, Mar 13, 2025 at 3:45 AM Nuno Das Neves
+> <nunodasneves@linux.microsoft.com> wrote:
+>>
+>> On 3/10/2025 6:01 AM, Tianyu Lan wrote:
+>>> On Thu, Feb 27, 2025 at 7:09 AM Nuno Das Neves
+>>> <nunodasneves@linux.microsoft.com> wrote:
+>>>>
+>>>> Add a pointer hv_synic_eventring_tail to track the tail pointer for the
+>>>> SynIC event ring buffer for each SINT.
+>>>>
+>>>> This will be used by the mshv driver, but must be tracked independently
+>>>> since the driver module could be removed and re-inserted.
+>>>>
+>>>> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
+>>>> Reviewed-by: Wei Liu <wei.liu@kernel.org>
+>>>
+>>> It's better to expose a function to check the tail instead of exposing
+>>> hv_synic_eventring_tail directly.
+>>>
+>> What is the advantage of using a function for this? We need to both set
+>> and get the tail.
 > 
-> DSP found on i.MX8MP doesn't have a direct reset line so according to hardware
-> design team in order to handle assert/deassert/reset functionality we
-> need to use a combination of control bits from two modules.
+> We may add lock or check to avoid race conditions and this depends on the
+> user case. This is why I want to see how mshv driver uses it.
 > 
-> Audio block control module:
-> 	- for Run/Stall control bits of the DSP
+>>
+>>> BTW, how does mshv driver use hv_synic_eventring_tail? Which patch
+>>> uses it in this series?
+>>>
+>> This variable stores indices into the synic eventring page (one for each
+>> SINT, and per-cpu). Each SINT has a ringbuffer of u32 messages. The tail
+>> index points to the latest one.
+>>
+>> This is only used for doorbell messages today. The message in this case is
+>> a port number which is used to lookup and invoke a callback, which signals
+>> ioeventfd(s), to notify the VMM of a guest MMIO write.
+>>
+>> It is used in patch 10.
 > 
-> Debug Access Port (DAP)
-> 	- for Software Reset via IMX8M_DAP_PWRCTL register
+> I found "extern u8 __percpu **hv_synic_eventring_tail;" in the
+> drivers/hv/mshv_root.h of patch 10.
+> I seem to miss the code to use it.
 > 
-> The current implementation for IMX DSP Remotproc driver and for Sound Open
-> Firmware driver (already upstream) uses the following approach:
-> 	- maps the Audio Block Control address via syscon API through
->           the fsl,dsp-ctrl property of the dsp node.
-> 	- maps the DAP address space using directly a call to ioremap
->           with IMX8M_DAP_DEBUG macro depicting the DAP base address.
+> +int hv_call_unmap_stat_page(enum hv_stats_object_type type,
+> +                           const union hv_stats_object_identity *identity);
+> +int hv_call_modify_spa_host_access(u64 partition_id, struct page **pages,
+> +                                  u64 page_struct_count, u32 host_access,
+> +                                  u32 flags, u8 acquire);
+> +
+> +extern struct mshv_root mshv_root;
+> +extern enum hv_scheduler_type hv_scheduler_type;
+> +extern u8 __percpu **hv_synic_eventring_tail;
+> +
+> +#endif /* _MSHV_ROOT_H_ */
 > 
-> The both approaches are problematic when comes to describing the address
-> spaces via the DT:
-> 	- for Audio Block Control, because it uses the syscon interface
-> 	- for DAP because it hardcodes de base address instead of using a dt node.
-> 
-> This patch series aims to fix the Audio Block control usage of the
-> syscon interface and replace it with Reset Controller interface.
-> 
-> Main advantages of using the Reset Controller API is that we stop
-> abusing the syscon interface, offer a better probe ordering, PM runtime
-> support. Main critique of using the Reset Controller API is that
-> Run/Stall bits are not reset bits (but according the hardware design
-> team they are part of the reset proccess since there is no real reset
-> line).
-> 
-> Initial discussion is here:
-> https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
-> 
-> Note that we can safely remove the fsl,dsp-ctrl property usage from IMX DSP
-> remoteproc driver because there is no Device Tree users.
-> 
-> Changes since v4:
-> https://lore.kernel.org/lkml/20250305100037.373782-3-daniel.baluta@nxp.com/T/
-> 	- picked-up R-b tags from Frank Li and Peng Fan
-> 	- reworded commit message of patch 8/8 as per Mathieu Poirier suggestion
-> 
-> Changes since v3:
-> https://lore.kernel.org/linux-arm-kernel/20250225102005.408773-5-daniel.baluta@nxp.com/T/
-> 	- renamed resets ids as per Philipp comments
-> 	- add boths resets (named them runstall and softreset) as per Philipp comments
-> 
-> Changes since v2:
-> (https://lore.kernel.org/lkml/Z7ZNngd3wtJ5MZgl@lizhi-Precision-Tower-5810/T/)
->         - picked R-b and A-b tags
->         - use run_stall instead of reset to refer to reset controller
->           instance
->         - remove 'resets' description as it is a common property
->         - add correct include in the yaml dts snippet example
-> Changes since v1:
-> (https://lore.kernel.org/imx/20250219030809.GD6537@nxa18884-linux/T/)
->         - addresed comments received on v1
->         - picked up R-b and A-b tags
-> 
-> Daniel Baluta (8):
->   dt-bindings: reset: audiomix: Add reset ids for EARC and DSP
->   dt-bindings: dsp: fsl,dsp: Add resets property
->   arm64: dts: imx8mp: Use resets property
->   reset: imx8mp-audiomix: Add prefix for internal macro
->   reset: imx8mp-audiomix: Prepare the code for more reset bits
->   reset: imx8mp-audiomix: Introduce active_low configuration option
->   reset: imx8mp-audiomix: Add support for DSP run/stall
->   imx_dsp_rproc: Use reset controller API to control the DSP
-> 
->  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 24 +++++-
->  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  3 +
->  drivers/remoteproc/imx_dsp_rproc.c            | 25 ++++--
->  drivers/remoteproc/imx_rproc.h                |  2 +
->  drivers/reset/reset-imx8mp-audiomix.c         | 78 +++++++++++++------
->  .../dt-bindings/reset/imx8mp-reset-audiomix.h | 13 ++++
->  6 files changed, 114 insertions(+), 31 deletions(-)
->  create mode 100644 include/dt-bindings/reset/imx8mp-reset-audiomix.h
 
-Other than patch 3 for which I haven't received a Reviewed-by, I have applied
-this set.
+It is used in mshv_synic.c in synic_event_ring_get_queued_port():
 
-Thanks,
-Mathieu
-
-> 
-> -- 
-> 2.43.0
-> 
+diff --git a/drivers/hv/mshv_synic.c b/drivers/hv/mshv_synic.c
+new file mode 100644
+index 000000000000..e7782f92e339
+--- /dev/null
++++ b/drivers/hv/mshv_synic.c
+@@ -0,0 +1,665 @@
+<snip>
++static u32 synic_event_ring_get_queued_port(u32 sint_index)
++{
++	struct hv_synic_event_ring_page **event_ring_page;
++	volatile struct hv_synic_event_ring *ring;
++	struct hv_synic_pages *spages;
++	u8 **synic_eventring_tail;
++	u32 message;
++	u8 tail;
++
++	spages = this_cpu_ptr(mshv_root.synic_pages);
++	event_ring_page = &spages->synic_event_ring_page;
++	synic_eventring_tail = (u8 **)this_cpu_ptr(hv_synic_eventring_tail);
++	tail = (*synic_eventring_tail)[sint_index];
 
