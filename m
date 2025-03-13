@@ -4,170 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA842C35FF3
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C86FCC282DE
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:15:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q0PePvajvGnwRROd8fiAM5WZCju58BsKTyQBhppsnZg=; b=oLexFeEsVU+Wbn6CT/BEn6zQUw
-	u9lPfhA7BmvrMHtWm7MmjlUyPMNch95ThTOAbWb1h7r0rfpquqOOWvbOIvUIpMIDkPTddFrmCor/S
-	AvP9awHajRk/tZHXbQq9cInGX3ceo4ZKrix+7Wtnx+5N4VMXh3gqeDQyR+YSTAvhXFPkxQeFnpRYL
-	pJlXgmF+6tSQOoT4ZCWYJWb9JYHyyki1+0gx+8zqGp7TSR4g1HSvJ4HplspuZtmi1eBjAYJJwqJ3y
-	0KiNnQTTtTDGry/DQq8lNK8cqQIYC28ESGUl+00PbjLf/gYdop6keRjf/E1dHGMp6O1Uz+J2Krs0H
-	/LFTGbtg==;
+	bh=ZlhDt/yC1Egn2eN7Q2hGVZpFuOehwTKgrlJxgj4jP+0=; b=hmC3QuDnO98mVUHCnYy/ow8f8B
+	Exdn/zlPkpeafb5qZkUbpi2A+54binF9cMEUN/ryXaYUTFDr+3CjEpXGFDgAKikq/Pi+Hz13nLMI+
+	OetNyV32vA3RKjo2RteDZDhlXLzMzmdOG5qNRw0PuNa/6i/AnoIUm7YtJ5q9UbrGwxFt0ZShKTYjp
+	wkRscbMu2w6UsUIuUMPJnPuwKCI/Z5V/2Vqa7OMf5YTXSqmkqdQWosQW5qDUexCk6pQzCQB1LFTHZ
+	C1dQrk59po8/VDRNGoZpNDeocLanM4Pj7TXW/BGHdzggK/FzB+VrgyCaYP6DgMhgojdkxZ0wokalr
+	SyjA9GYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm9X-0000000ByZp-11qL;
-	Thu, 13 Mar 2025 17:15:27 +0000
-Received: from mail-northeuropeazlp170120003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1tsm9Z-0000000ByfR-2p8R;
+	Thu, 13 Mar 2025 17:15:29 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslkC-0000000BsmC-1INn
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:49:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=UMsKyHJIPebeLzrgA6XdYKkSraCOIiq7FlYnsJnt8BaPg2ywHOI/DImlxD4t41BOE0ldkho1x/FrIogXHKalZxQ8IXPtWBwOWgxqnXHOBnS6w2/m4jMKJgWcNYMuoYCHI77jXw/kp8BCecSOuozsK4GQYSkNI3osKXzzuu4DaTlWcFpteI+I13dZ6POrXxoph0rMDQFMxQgDzWjb6R98qedfddseOArQfd/zLHA7ezp3renss7EoPWno1OGR6p03jn0D5vVxNgSByeQVlYgTxMBOzFvN1o1keeHDJ3S6/1Da7OHJ9qKZTftC7hzR/XcDmYAkBWUgDy4aTOoFeIiuZg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=q0PePvajvGnwRROd8fiAM5WZCju58BsKTyQBhppsnZg=;
- b=B2VHBGFnsbs+P3Xi+QwTfq04nDGj2+Fl/iderL/sKKpD+E0zyeviRV+JCrLMphjlBJ8q7zj9bc68F7JY/6ALFiqcSVMfnydHjVcaHSnQrf/Qmunv4DfXEYswvJNPEWH/0gn7nwkCb8eOqewNgdcxnxDMmuW7U4k24cFGYrmwdw95RwCoHxJNe5bQqracN9rcqxQk15ig9hAhILIzA9A/KsRsXrpYi1kseDzlE7HyoQI62IfaujXC0oNMyFZmpTcQ5ulpGLMhFyXhmlUdoV9Zun6u1q+kUUUqkOFWGWQ2JNnjZB3j5jIeQiX0b/1i0evkKkOWyXRWVvLnXxEuIDBuAg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=q0PePvajvGnwRROd8fiAM5WZCju58BsKTyQBhppsnZg=;
- b=M+jkKAFhecPMl/sVCr4DG1vrBT3UZYa+ggG0R/JsqKo7FQbeFlyXbi4TQQna4/7DqKGh+03Z/4Ii2AeTNh5zkpQuLpoDYzbv1LLPv+/LsFNIf9FehnLaI97BPENbtMSqTYxTjnmJ/9X1W7aSqXwEL1axxW2GvDfh0OOAIQ1jR/oZ5R886sk6zqM2ooXCfkpicT8T7ehMhmaBmVlc6wqHUvJAQBtiubms+8TQBSqJnKvawIlocWmhPGd9+Vi5vc+pYqkY6UCSMyw33QciOMX5jAS+TeY0/QtETNesj884KWzKU1aYSHQKn/+aE0Yus7Dz8Z49f9Uyo/5Odbzm0FP4gQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com (2603:10a6:20b:24b::14)
- by VI1PR04MB10003.eurprd04.prod.outlook.com (2603:10a6:800:1e1::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Thu, 13 Mar
- 2025 16:49:12 +0000
-Received: from AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2]) by AM8PR04MB7779.eurprd04.prod.outlook.com
- ([fe80::7417:d17f:8d97:44d2%6]) with mapi id 15.20.8534.027; Thu, 13 Mar 2025
- 16:49:12 +0000
-Date: Thu, 13 Mar 2025 18:49:08 +0200
-From: Vladimir Oltean <vladimir.oltean@nxp.com>
-To: Wei Fang <wei.fang@nxp.com>
-Cc: claudiu.manoil@nxp.com, xiaoning.wang@nxp.com, andrew+netdev@lunn.ch,
-	davem@davemloft.net, edumazet@google.com, kuba@kernel.org,
-	pabeni@redhat.com, christophe.leroy@csgroup.eu,
-	netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
-	imx@lists.linux.dev, linuxppc-dev@lists.ozlabs.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v4 net-next 02/14] net: enetc: add command BD ring
- support for i.MX95 ENETC
-Message-ID: <20250313164908.rdy3y77xno3fza3l@skbuf>
-References: <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-1-wei.fang@nxp.com>
- <20250311053830.1516523-3-wei.fang@nxp.com>
- <20250311053830.1516523-3-wei.fang@nxp.com>
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250311053830.1516523-3-wei.fang@nxp.com>
- <20250311053830.1516523-3-wei.fang@nxp.com>
-X-ClientProxiedBy: VI1PR0102CA0049.eurprd01.prod.exchangelabs.com
- (2603:10a6:803::26) To AM8PR04MB7779.eurprd04.prod.outlook.com
- (2603:10a6:20b:24b::14)
+	id 1tslr0-0000000BtgU-30IP;
+	Thu, 13 Mar 2025 16:56:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 4E0B65C6054;
+	Thu, 13 Mar 2025 16:54:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF2B1C4CEDD;
+	Thu, 13 Mar 2025 16:56:15 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741884977;
+	bh=AOqMFoSF7wMysKxflwNKrdVJb6TkuN/Bi0bZXKPBIh8=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=ukcXNXJLHYRqcpTN+7GEvlB0tlcsMOtTkmRUmB1pLqLoD8psS4WALY6g24l08QA+R
+	 jn0qfvPXOnMOVAP0B4h0iuk8doOWpACR61KEJx0ek1FUIhMxYijGqq5JN4Gdy1JPCC
+	 /VBJCOoEttl1XOaQLfuKvVzwdDwqh9ptGxHvg5CFyECteetU3TI92+ZbgPJR7uGP2/
+	 DlXyPAgnDcM8/YbkUUxp3WlNCyid6t29oLLRvlXT7dX5deilt0FWxmHvNkhlXgVLWo
+	 EA8zUDgg/apH6bCsV7nMEOs/esKmfX7Py1b7ws1yY1k1cnTmDCu80wyRv1Y3Yl6/rU
+	 c/H61qRSciuyA==
+From: Lee Jones <lee@kernel.org>
+To: Yao Zi <ziyao@disroot.org>, Chukun Pan <amadeus@jmu.edu.cn>
+Cc: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Heiko Stuebner <heiko@sntech.de>, Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, devicetree@vger.kernel.org
+In-Reply-To: <20250306123809.273655-2-amadeus@jmu.edu.cn>
+References: <20250306123809.273655-1-amadeus@jmu.edu.cn>
+ <20250306123809.273655-2-amadeus@jmu.edu.cn>
+Subject: Re: (subset) [PATCH v2 1/2] dt-bindings: mfd: syscon: Add rk3528
+ QoS register compatible
+Message-Id: <174188497549.3792331.5613971273362591228.b4-ty@kernel.org>
+Date: Thu, 13 Mar 2025 16:56:15 +0000
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM8PR04MB7779:EE_|VI1PR04MB10003:EE_
-X-MS-Office365-Filtering-Correlation-Id: f986f15f-f9cd-4b84-23bc-08dd624efaff
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T0Q0ZGZmQWhEVXl3QlQ4dlFvb0VYNldUUGJ5VlQrZGJ2TTc2TFNYdmNQNlN2?=
- =?utf-8?B?NmVqRDhNdFpZei9JVGFRT3FmMHoxaHp1MmpBTkM3dVJIU1VSSFkyVXJrVHBW?=
- =?utf-8?B?SUFjYkFOazNEQUIwdDBQZldTS2RoQmREV1NzN1BCQ2J0b2MvRzFFR1hBR2JF?=
- =?utf-8?B?TjJmajY1YUdRZUhwQWIxd3FreGtLL3I0MGRscDlpTlJROGNDV0VpV0NHR2lh?=
- =?utf-8?B?RjUzWjVKeVg1SkplUUxOa0t4dTQyRGwvN0JYL3ZNa0w0TWlVeEZETEVZdjMw?=
- =?utf-8?B?N3cxdnFWZW5aTXhpaFFWVWlEeHJqcXNmbkl5bC8rRUhoQlJlZXcxRVJYK1o0?=
- =?utf-8?B?b0V2YlF1T3k1V1JKMGM0UUdnOTV6WmVtY1FmT25GaHB2OWo4R0lVWjBKYnhx?=
- =?utf-8?B?M2dGcjFiYlVpSm56K0ZDaW42NkZ4V1I2cmdTa0ZFbDlEOHBQaGpoYkI0Ukht?=
- =?utf-8?B?YzFSeitMNHRVZWx4czFYU3hBeVUrN3JLVFBya09PV1o0V3FIN200cjRPcS8r?=
- =?utf-8?B?WU1Ea2NTOFJ1WVJRU3owRHBhMUFnbTJ5Yk9oaTBmWHZOd1hZRzdwakFMbDIr?=
- =?utf-8?B?dFhsaFRiRXBmeXh5OXUrdTUvOXhHbEg5Tms1dm45VXU4U01Wd3RrWk1ORVBO?=
- =?utf-8?B?U1hiWnBEbXNENVBQSE9OSjBJbGllV3gwbFEwWXpwOHJWNklndU1OdkNwWmR5?=
- =?utf-8?B?UjFqdVo5NGtmb04vckZVWW5HQjI0c3RlL09Ta1RKQWdvanFHcFZkT0swZmkw?=
- =?utf-8?B?SmhHNUxpc1M0ZTRKb3AwSi9EbnVOOGdvcDFxNmJYT25UeVFpdWZJSWx0SzBM?=
- =?utf-8?B?dUUxZ3FUdTVpMkFCWFV2aXI5b2xEbERoNkgrOThIeFU2SWJLTjhKSXBuNytK?=
- =?utf-8?B?N3JSQWlJUGJhZzlZSlpzNnVyK0lRWmlwYjhPU1l0YWRIRERYTnJQSGR6VHcv?=
- =?utf-8?B?b0Vjalo2R0RaRmZkVUEyWGhIdXE4RWRGckdqU29YT1BRUjdmazVYYTh2cjlV?=
- =?utf-8?B?RU1ycmFjelFiLytUelEzQ29BelRMdW5GQm0xTDJ1UVdyMXZKcy9JbFQxRGdy?=
- =?utf-8?B?TnJRUEZ3NG9RQ1l5azlpSkRtd3g1ZExHZ0hHTUR4ZGtVL2xqbUhRRHRhUCth?=
- =?utf-8?B?WHJWa1VqQlhWUWFpeTVCVnpmVjBkWDd6cnNSWDhGK3dESGVrNCtmRHdhWTNI?=
- =?utf-8?B?WXM3WldmcXV3bW1PREJ0SzJET0lJRnhncmRCdU9GS0FCaFVFcENQZzBkQ1Rx?=
- =?utf-8?B?MU9JWk5FWkNvcmg2WDl0bWd4dHp4bnlJdXNpM0lKMWptNEVLaGJtRXFJOEpE?=
- =?utf-8?B?VEp1TjNCVWw0R2ZXU3lOQXBxYjZpN3dSd1BpMFhDMFRrM0d6WFJHK2xCQlRO?=
- =?utf-8?B?T2FGa1plR0xIS3psTUowWlZzYWIrVi8yN0gxQ0ZCMEk1TndhVGlVaWV4Y1pk?=
- =?utf-8?B?bTZRdG1uQVpLcGs0Z3ZiTE9mMGhKRGlUcjFYNG8yOGRBM2JKbWNuQXhNMWFh?=
- =?utf-8?B?cTVFcVFUWnlpcTJHMmhLczRRVktiN0c5Y000UDdhcE4rMzFxN2ZVMDFOWmZP?=
- =?utf-8?B?NnpidHg2OVp3TWNiMld4UFZmaWJYczJnbWlmajhOMjNnbmlLZm5JbzRYMWM2?=
- =?utf-8?B?eU1NbEFYL0hkOWx0ZlpwYnhlbkh3dENVT1kwcEw1QzdIMXZXMzMrOHNYVlZZ?=
- =?utf-8?B?UmF2MVYyd0tZY0EyRWVqOFAzK0RXcmxMenhIY3dBbmZySDFpYXMxRXZtSHJa?=
- =?utf-8?B?bXNncWhQMGRsaGtSY3NxUGNjOEhUMjliYWRUUEloSmRyQ3lDWDBWVTh0WGhE?=
- =?utf-8?B?cGpkWU5rVVNWVXNPS21JUkkwbzkvL29KMUxwTEU1REJOQVlIT1JhcGR6QS9J?=
- =?utf-8?Q?Wg6Y6BiDTo+jd?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM8PR04MB7779.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aHA5U0U1RmhVdmZ6Yk02dnNsWXZhVlhFNU5qbUFwcm45R2o2aWV2M1V3MFJO?=
- =?utf-8?B?c2wxTStFckxObkxrR2VQbkVuekpJOVRvazFqZExCSUYvZm5ZWllGM0FFS213?=
- =?utf-8?B?bnJxS2dpNHNQVEVCclMybkxjdWRsNU91SUVlZ0JjVERvMUdxc2FEbjVMNzVS?=
- =?utf-8?B?UVZsZmtNZGhnTlN6YktXL1hiYzBYbXBsME9Xai92bjVOUTBKdzRjait2cFdS?=
- =?utf-8?B?WTQ5ZHFORG1zdiswRTVObWE0dnpPOC9QNlh2SWt4aTh3WFJaOGdMZmV2ME1F?=
- =?utf-8?B?NWRiM2R5NkFaUlpzZUR6MUVicFlmTWZZakhib04zcGFzcTRFaVJKc2o3OVVD?=
- =?utf-8?B?MlplVVVFM0t3NTJIdmk1WjIveDBRaXZGdDhENnpPZW85WEFPellGM1RqbXNU?=
- =?utf-8?B?L0tjcGtDcGFSMmhkSHpwQ1AvUUZvb25pYlhXVEdwNFp5TmZVdzZGS2xTYkZT?=
- =?utf-8?B?S3lOdndjOFFwQkpsOUMvU252N2FPRnJKcVZEbFJYR1pRa3BTZFFveWhmZTdH?=
- =?utf-8?B?K0tkc1BzK293OGpzWWJIS05WejFySDdpN2tEelpVRHNQSUVOSWFEVWxTZlhE?=
- =?utf-8?B?cy95MUt3WnJ3SkI5dGU5bHQyL1ZpaFBEMkpBWFBncDVyK2hvWEN4SWR1a2J4?=
- =?utf-8?B?VzFrdHhFNFVLNXFpRlAxVmYrNVV4bnB1YmpUY0FrbVFBb01JeHdTM1RPRE5o?=
- =?utf-8?B?b3k4bzNKdWZUSmRhbXZNRHVBdW1NZjRMemRhS2FUMzBtamFra0Q4bjRPNEF4?=
- =?utf-8?B?TEhPUmJJcHhlZ1RFWGJycERZbXpDNGtUcDhPY2wvL1U2YUN1SStEaGUrTUpr?=
- =?utf-8?B?L1ZOZHpOenlmS3JhOS93akl2aEl2WDhVQ3JyMTkwYlVPSW5aOGhNR29hK1JD?=
- =?utf-8?B?elVmVDFZYXFQOHdmZjJyOXd0NWFrTDBVeDZnL003bGFCK2xxUHYzYzBrOERo?=
- =?utf-8?B?LzNuZmZSdE1VM3Nwako1UW9qeXQ3ajYwdTMzQXpkVFAzMkVuTEgzQUZVTXR2?=
- =?utf-8?B?dUJsbnYwd2FDMUhWRGNXSjVpU2xWbDNnYzAzT0VicUVEcG1rcEJNVHRSMkcy?=
- =?utf-8?B?YU5DdC9lblhOenBSU0NGRDZ2bFErMTI0MDN4RUZyMnVCcG1mcERjQTFRSXRP?=
- =?utf-8?B?WVBiLytNdFZzMEhzREdiSCtSVk93NkVrbUE5cWhyUGllWUtaa21YN09xOHlx?=
- =?utf-8?B?RkhkNzRKRG5KK2tSNW9kMEdUZ0NFVUxqNGR2NXFFVnNkalFYVTh6YVVUUmw1?=
- =?utf-8?B?VGwyajJEbTZkUDhWWDVoTVNoVmozODk0cStkZ2RiYnlEbXEwRHlkUlVTVWJM?=
- =?utf-8?B?alVwaEhUY2F5MWcvL3NhQVhNcjhxVjJ1amg5QWRoZUVFMkhmWllXUFVGalJB?=
- =?utf-8?B?T2xTWU1MZDlBZktCU09PZGxYV1R4aURkNGFGQ2ZmemhvRGgyYjRiSUJvb0ZR?=
- =?utf-8?B?YkJNWVhIbFdZbGp6bGFyWURFQjl0VzlVbG5RRCs3YkljbHBsL1lJTXF4V3JC?=
- =?utf-8?B?alYrRkRZWUNJWVRxbXUwbWZQZGIxbGxONHJPU0Fleml2dUxsbEZWU1NJYW14?=
- =?utf-8?B?a2RNeFNvNklXSnNGRWJYeWlma0RwLzhUQzZsTm5XNldPZmw4WVJleFZEOVFo?=
- =?utf-8?B?ZE92bzJ4VHNyYnlrNGRXclFXWDdPTmp5dGEwbUZlaHlNcndqV3hCaWZiZ0pK?=
- =?utf-8?B?Y0JXMWdOdElCSSt1S204MGsvRVVaclVlQVZBK1ZMUTRsNWtPSDY4QU95Z1ZP?=
- =?utf-8?B?YUZSUndEajhjT2NhVFNvTW9ZSTNTTENzejhVcUU5dnlLSTFZU2NibzZuYzV4?=
- =?utf-8?B?cVFTcTRES1BkUWVjOVY0ZFdCM28rNzdKYnFqV2lpR0VCRWhJODJETmMvSUhq?=
- =?utf-8?B?NDY5N3c2UkRYVXdDSFduVDZiRnRSckt6RE1BRllnYnFxcVAwVDNwbHZRWjla?=
- =?utf-8?B?Y1o3RGpRZW5pRFkxY1NIUVVRZUhQWWxKTTVyalhKZ2FleDVRUlZhOWwwQThM?=
- =?utf-8?B?Y2pXTnczV3hGOHd3RzFJMnIzMkJzMHFYUGc4SEVOc3pxMmhTNFJjMVFEYVVY?=
- =?utf-8?B?Yy9VWXBjMG9WZjBwbkd6TkxtVWVzQkdUNVlMbW5SRDVYOW56c1QxWEhreVZ1?=
- =?utf-8?B?RkJXQkF4YTArTzdzdnhyOEh0V3JoTzErbTUydEIwemp2WWVNWjNvODlJaWll?=
- =?utf-8?B?cXc9PQ==?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f986f15f-f9cd-4b84-23bc-08dd624efaff
-X-MS-Exchange-CrossTenant-AuthSource: AM8PR04MB7779.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 16:49:12.2488
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yWkaFfq2M+1p/E65yjQ2gCAPlf70RzohYyxosuyvbneuB1KSu3AVXn0ffmVnt2TGI4uJ+jlRbfi6q+V30nioqQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR04MB10003
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-Mailer: b4 0.15-dev-510f9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_094916_350355_B53EEBA7 
-X-CRM114-Status: GOOD (  22.86  )
+X-CRM114-CacheID: sfid-20250313_095618_793515_BA9DD1A1 
+X-CRM114-Status: UNSURE (   4.44  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,63 +77,17 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Mar 11, 2025 at 01:38:18PM +0800, Wei Fang wrote:
-> The command BD ring is used to configure functionality where the
-> underlying resources may be shared between different entities or being
-> too large to configure using direct registers (such as lookup tables).
+On Thu, 06 Mar 2025 20:38:08 +0800, Chukun Pan wrote:
+> Document rk3528 compatible for QoS registers.
 > 
-> Because the command BD and table formats of i.MX95 and LS1028A are very
-> different, the software processing logic is also different. In order to
-> ensure driver compatibility, struct enetc_si_ops is introduced. This
-> structure defines some hooks shared by VSI and PSI. Different hardware
-> driver will register different hooks, For example, setup_cbdr() is used
-> to initialize the command BD ring, and teardown_cbdr() is used to free
-> the command BD ring.
 > 
-> Signed-off-by: Wei Fang <wei.fang@nxp.com>
-> ---
->  drivers/net/ethernet/freescale/enetc/enetc.h  | 27 +++++++--
->  .../net/ethernet/freescale/enetc/enetc4_pf.c  | 47 +++++++++++++++-
->  .../net/ethernet/freescale/enetc/enetc_cbdr.c | 55 +++++++++++++++++--
->  .../net/ethernet/freescale/enetc/enetc_pf.c   | 13 +++--
->  .../net/ethernet/freescale/enetc/enetc_vf.c   | 13 +++--
->  5 files changed, 136 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/net/ethernet/freescale/enetc/enetc.h b/drivers/net/ethernet/freescale/enetc/enetc.h
-> index 4ad4eb5c5a74..4ff0957e69be 100644
-> --- a/drivers/net/ethernet/freescale/enetc/enetc.h
-> +++ b/drivers/net/ethernet/freescale/enetc/enetc.h
-> @@ -8,6 +8,7 @@
->  #include <linux/dma-mapping.h>
->  #include <linux/skbuff.h>
->  #include <linux/ethtool.h>
-> +#include <linux/fsl/ntmp.h>
->  #include <linux/if_vlan.h>
->  #include <linux/phylink.h>
->  #include <linux/dim.h>
-> @@ -266,6 +267,19 @@ struct enetc_platform_info {
->  	const struct enetc_drvdata *data;
->  };
->  
-> +struct enetc_si;
-> +
-> +/*
-> + * This structure defines the some common hooks for ENETC PSI and VSI.
-> + * In addition, since VSI only uses the struct enetc_si as its private
-> + * driver data, so this structure also define some hooks specifically
-> + * for VSI. For VSI-specific hooks, the format is ‘vf_*()’.
-> + */
-> +struct enetc_si_ops {
-> +	int (*setup_cbdr)(struct enetc_si *si);
-> +	void (*teardown_cbdr)(struct enetc_si *si);
-> +};
 
-I don't understand the need for si->ops->setup_cbdr() and si->ops->teardown_cbdr()?
-Doesn't every call site know which kind of SI it is dealing with, and thus it can
-appropriately call the direct symbol?
-- the v1 PSI and the VSI call enetc_setup_cbdr() and enetc_teardown_cbdr()
-- the v4 PSI calls enetc4_setup_cbdr() and enetc4_teardown_cbdr()
-What benefit is there to making an indirect function call?
+Applied, thanks!
 
-At least that's what the current code does, I'm not sure if that is the intention.
+[1/2] dt-bindings: mfd: syscon: Add rk3528 QoS register compatible
+      commit: 1c313607416052414ce94bc9bb27b688741cb30d
+
+--
+Lee Jones [李琼斯]
+
 
