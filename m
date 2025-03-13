@@ -4,82 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCA6AC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 872DBC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MKQlPBogcw52MPx0HPf6gTPAdV2ZIbKmRy+k7i7XGCU=; b=a8pa1KoIBnA4kYg9991z9Pk8py
-	V50gZaZ8GpmS3FNQxNmdnpj3UbIeQV4RnrXIlnLfKrpPvyDlWe0dtKMZKcWgFRndWsPW7Lp+eHi7j
-	8048thsKXA02ffKOqGZLOXZ7V/2zmK3+uog9kkZU3kFVOcLgmvZWVLsOiW+DnTySu0Rop+LM6wwyY
-	OjaDUyQMng1a7CEzgnygIQyfEeO9LCfY8KNbHmh0uUE5zL/VrTYlLYs19teWbfEoU3DR0bDaRJjcL
-	How21yUQMCIAXCGbRt5aDFeIqj+g2yFOcWMcLp0aYFbfHYh3hytSaaF2i5RVy7rnTtrI0kr1IUkSm
-	v+UX20Lw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=c1ajW+nPeBoZqpI2gwsgGpV02gJpCnVTT3ZJmPBPTSs=; b=oIB72yfRMHw4huSCTDheLgQ7zL
+	FC/6dduStoRYRxf2+5RzL4Ih6pJZ8CcO35nMC/ThE8lDwYtSqFWAbhfYo2lE0AuXWoiAriAGoEwNn
+	VaQxECjegQGu95brufyJwxniEE045s+2D9U50ruwJ6u5nf4j6oqySCzN1vn7fXZukoYMxKLGZ937l
+	Rg1gW4+r65Mh0h5/MsyGzEF4blxNzrgG9t4fAQKOZ4Dn9+BZgoKKfcA2W+u5oRetgESoSm0vms8Wd
+	/1pAM/X9UUb4WuiqblqFC0SYvAwFyM7bwCliLMtntTOzfhfMhDU/PABSL1CsTQuxyDykxJxG+NNhG
+	qty+IQTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8P-0000000Bwdg-0cl5;
-	Thu, 13 Mar 2025 17:14:17 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
+	id 1tsm8Q-0000000Bweo-1WKt;
+	Thu, 13 Mar 2025 17:14:18 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsl5o-0000000Bl49-2N3r;
-	Thu, 13 Mar 2025 16:07:33 +0000
+	id 1tsl7u-0000000BlUT-1cki
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 16:09:43 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id CCF8AA476CC;
-	Thu, 13 Mar 2025 16:02:01 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A13F2C4CEDD;
-	Thu, 13 Mar 2025 16:07:30 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741882051;
-	bh=BQXFOxNso8FIR8jzDbLHKPtOvTBzr+ixEF9OdVlcvsU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UjKy5MzqzIf+Yh8yvIA5cYhQvCRvJOMZGRgCouhY4XQbqEPhgnpvqfobojD4k3n12
-	 wPZl/IJFvxCMgknbhUHC+PUev3Ir7M5Nui+VNqJaWgxmhq8wH6oM576OYZdo8TCy3r
-	 8jyrewO1JtE5lPWCVMoJCbFdZPhfzDPFlU5DxzBUq2kVXaupL89bbPA/R7b7owqkcP
-	 9Xo/T9lSdTEOGxVaomzVn47eKegUTlGozpbyswaqQH7fTy1maVjz7LnbGNj+lF3JE9
-	 A3L76Vy6ZidOs89C/z2g+3iPgSIemcEcrtz7AsPycCV8qmThcg/FZuqazBQ7P5ckJO
-	 TOm/z9TRq2JZQ==
-Date: Thu, 13 Mar 2025 09:07:29 -0700
-From: Minchan Kim <minchan@kernel.org>
-To: Barry Song <baohua@kernel.org>
-Cc: Sergey Senozhatsky <senozhatsky@chromium.org>,
-	Qun-Wei Lin <qun-wei.lin@mediatek.com>,
-	Jens Axboe <axboe@kernel.dk>,
-	Vishal Verma <vishal.l.verma@intel.com>,
-	Dan Williams <dan.j.williams@intel.com>,
-	Dave Jiang <dave.jiang@intel.com>, Ira Weiny <ira.weiny@intel.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Chris Li <chrisl@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
-	"Huang, Ying" <ying.huang@intel.com>,
-	Kairui Song <kasong@tencent.com>,
-	Dan Schatzberg <schatzberg.dan@gmail.com>,
-	Al Viro <viro@zeniv.linux.org.uk>, linux-kernel@vger.kernel.org,
-	linux-block@vger.kernel.org, nvdimm@lists.linux.dev,
-	linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org,
-	Casper Li <casper.li@mediatek.com>,
-	Chinwen Chang <chinwen.chang@mediatek.com>,
-	Andrew Yang <andrew.yang@mediatek.com>,
-	James Hsu <james.hsu@mediatek.com>
-Subject: Re: [PATCH 0/2] Improve Zram by separating compression context from
- kswapd
-Message-ID: <Z9MCwXzYDRJoTiIr@google.com>
-References: <20250307120141.1566673-1-qun-wei.lin@mediatek.com>
- <Z9HOavSkFf01K9xh@google.com>
- <5gqqbq67th4xiufiw6j3ewih6htdepa4u5lfirdeffrui7hcdn@ly3re3vgez2g>
- <CAGsJ_4xwnVxn1odj=j+z0VXm1DRUmnhugnwCH-coqBLJweDu9Q@mail.gmail.com>
+	by dfw.source.kernel.org (Postfix) with ESMTP id 0C3F15C3549;
+	Thu, 13 Mar 2025 16:07:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2699EC4CEE9;
+	Thu, 13 Mar 2025 16:09:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1741882181;
+	bh=PggfGtBSX82a1FhScmakyQjcfoU53jy+y8x1dhY0tpw=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=jhBp4j7Lr2vTis8lGnHflfwIt2pLGupAgazrgLI7f8+u4uUPQ4UTgYOhWPFRABwgZ
+	 yfmoswEF7MB47C4XDKTA3099zvk1b+VAldQj6E87B/CcHwzrfkwUDGWyYM9H4RtRkC
+	 yO2eIOMDtVqNIqWxnWgnFcURZEqjFH7LZif0KnTE=
+Subject: Patch "KVM: arm64: Calculate cptr_el2 traps on activating traps" has been added to the 6.13-stable tree
+To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,james.clark@linaro.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Thu, 13 Mar 2025 17:09:28 +0100
+In-Reply-To: <20250312-stable-sve-6-13-v1-1-c7ba07a6f4f7@kernel.org>
+Message-ID: <2025031328-creature-hardship-32f5@gregkh>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAGsJ_4xwnVxn1odj=j+z0VXm1DRUmnhugnwCH-coqBLJweDu9Q@mail.gmail.com>
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_090732_733313_3F73E45B 
-X-CRM114-Status: GOOD (  24.37  )
+X-CRM114-CacheID: sfid-20250313_090942_522796_72FAA8BB 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,57 +68,242 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 04:45:54PM +1300, Barry Song wrote:
-> On Thu, Mar 13, 2025 at 4:09 PM Sergey Senozhatsky
-> <senozhatsky@chromium.org> wrote:
-> >
-> > On (25/03/12 11:11), Minchan Kim wrote:
-> > > On Fri, Mar 07, 2025 at 08:01:02PM +0800, Qun-Wei Lin wrote:
-> > > > This patch series introduces a new mechanism called kcompressd to
-> > > > improve the efficiency of memory reclaiming in the operating system. The
-> > > > main goal is to separate the tasks of page scanning and page compression
-> > > > into distinct processes or threads, thereby reducing the load on the
-> > > > kswapd thread and enhancing overall system performance under high memory
-> > > > pressure conditions.
-> > > >
-> > > > Problem:
-> > > >  In the current system, the kswapd thread is responsible for both
-> > > >  scanning the LRU pages and compressing pages into the ZRAM. This
-> > > >  combined responsibility can lead to significant performance bottlenecks,
-> > > >  especially under high memory pressure. The kswapd thread becomes a
-> > > >  single point of contention, causing delays in memory reclaiming and
-> > > >  overall system performance degradation.
-> > >
-> > > Isn't it general problem if backend for swap is slow(but synchronous)?
-> > > I think zram need to support asynchrnous IO(can do introduce multiple
-> > > threads to compress batched pages) and doesn't declare it's
-> > > synchrnous device for the case.
-> >
-> > The current conclusion is that kcompressd will sit above zram,
-> > because zram is not the only compressing swap backend we have.
 
-Then, how handles the file IO case?
+This is a note to let you know that I've just added the patch titled
 
-> 
-> also. it is not good to hack zram to be aware of if it is kswapd
-> , direct reclaim , proactive reclaim and block device with
-> mounted filesystem.
+    KVM: arm64: Calculate cptr_el2 traps on activating traps
 
-Why shouldn't zram be aware of that instead of just introducing
-queues in the zram with multiple compression threads?
+to the 6.13-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-> 
-> so i am thinking sth as below
-> 
-> page_io.c
-> 
-> if (sync_device or zswap_enabled())
->    schedule swap_writepage to a separate per-node thread
+The filename of the patch is:
+     kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
+and it can be found in the queue-6.13 subdirectory.
 
-I am not sure that's a good idea to mix a feature to solve different
-layers. That wouldn't be only swap problem. Such an parallelism under
-device  is common technique these days and it would help file IO cases.
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
-Furthermore, it would open the chance for zram to try compress
-multiple pages at once.
+
+From stable+bounces-124192-greg=kroah.com@vger.kernel.org Thu Mar 13 00:49:47 2025
+From: Mark Brown <broonie@kernel.org>
+Date: Wed, 12 Mar 2025 23:49:09 +0000
+Subject: KVM: arm64: Calculate cptr_el2 traps on activating traps
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Fuad Tabba <tabba@google.com>,  James Clark <james.clark@linaro.org>
+Message-ID: <20250312-stable-sve-6-13-v1-1-c7ba07a6f4f7@kernel.org>
+
+From: Fuad Tabba <tabba@google.com>
+
+[ Upstream commit 2fd5b4b0e7b440602455b79977bfa64dea101e6c ]
+
+Similar to VHE, calculate the value of cptr_el2 from scratch on
+activate traps. This removes the need to store cptr_el2 in every
+vcpu structure. Moreover, some traps, such as whether the guest
+owns the fp registers, need to be set on every vcpu run.
+
+Reported-by: James Clark <james.clark@linaro.org>
+Fixes: 5294afdbf45a ("KVM: arm64: Exclude FP ownership from kvm_vcpu_arch")
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Link: https://lore.kernel.org/r/20241216105057.579031-13-tabba@google.com
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+Signed-off-by: Mark Brown <broonie@kernel.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ arch/arm64/include/asm/kvm_host.h |    1 
+ arch/arm64/kvm/arm.c              |    1 
+ arch/arm64/kvm/hyp/nvhe/pkvm.c    |   30 ----------------------
+ arch/arm64/kvm/hyp/nvhe/switch.c  |   51 +++++++++++++++++++++++---------------
+ 4 files changed, 32 insertions(+), 51 deletions(-)
+
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -708,7 +708,6 @@ struct kvm_vcpu_arch {
+ 	u64 hcr_el2;
+ 	u64 hcrx_el2;
+ 	u64 mdcr_el2;
+-	u64 cptr_el2;
+ 
+ 	/* Exception Information */
+ 	struct kvm_vcpu_fault_info fault;
+--- a/arch/arm64/kvm/arm.c
++++ b/arch/arm64/kvm/arm.c
+@@ -1569,7 +1569,6 @@ static int kvm_arch_vcpu_ioctl_vcpu_init
+ 	}
+ 
+ 	vcpu_reset_hcr(vcpu);
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 
+ 	/*
+ 	 * Handle the "start in power-off" case.
+--- a/arch/arm64/kvm/hyp/nvhe/pkvm.c
++++ b/arch/arm64/kvm/hyp/nvhe/pkvm.c
+@@ -31,8 +31,6 @@ static void pvm_init_traps_aa64pfr0(stru
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64PFR0_EL1);
+ 	u64 hcr_set = HCR_RW;
+ 	u64 hcr_clear = 0;
+-	u64 cptr_set = 0;
+-	u64 cptr_clear = 0;
+ 
+ 	/* Protected KVM does not support AArch32 guests. */
+ 	BUILD_BUG_ON(FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_EL0),
+@@ -62,21 +60,10 @@ static void pvm_init_traps_aa64pfr0(stru
+ 	/* Trap AMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_AMU), feature_ids)) {
+ 		hcr_clear |= HCR_AMVOFFEN;
+-		cptr_set |= CPTR_EL2_TAM;
+-	}
+-
+-	/* Trap SVE */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64PFR0_EL1_SVE), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_clear |= CPACR_ELx_ZEN;
+-		else
+-			cptr_set |= CPTR_EL2_TZ;
+ 	}
+ 
+ 	vcpu->arch.hcr_el2 |= hcr_set;
+ 	vcpu->arch.hcr_el2 &= ~hcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+-	vcpu->arch.cptr_el2 &= ~cptr_clear;
+ }
+ 
+ /*
+@@ -106,7 +93,6 @@ static void pvm_init_traps_aa64dfr0(stru
+ 	const u64 feature_ids = pvm_read_id_reg(vcpu, SYS_ID_AA64DFR0_EL1);
+ 	u64 mdcr_set = 0;
+ 	u64 mdcr_clear = 0;
+-	u64 cptr_set = 0;
+ 
+ 	/* Trap/constrain PMU */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_PMUVer), feature_ids)) {
+@@ -133,21 +119,12 @@ static void pvm_init_traps_aa64dfr0(stru
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceFilt), feature_ids))
+ 		mdcr_set |= MDCR_EL2_TTRF;
+ 
+-	/* Trap Trace */
+-	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_TraceVer), feature_ids)) {
+-		if (has_hvhe())
+-			cptr_set |= CPACR_EL1_TTA;
+-		else
+-			cptr_set |= CPTR_EL2_TTA;
+-	}
+-
+ 	/* Trap External Trace */
+ 	if (!FIELD_GET(ARM64_FEATURE_MASK(ID_AA64DFR0_EL1_ExtTrcBuff), feature_ids))
+ 		mdcr_clear |= MDCR_EL2_E2TB_MASK;
+ 
+ 	vcpu->arch.mdcr_el2 |= mdcr_set;
+ 	vcpu->arch.mdcr_el2 &= ~mdcr_clear;
+-	vcpu->arch.cptr_el2 |= cptr_set;
+ }
+ 
+ /*
+@@ -198,10 +175,6 @@ static void pvm_init_trap_regs(struct kv
+ 	/* Clear res0 and set res1 bits to trap potential new features. */
+ 	vcpu->arch.hcr_el2 &= ~(HCR_RES0);
+ 	vcpu->arch.mdcr_el2 &= ~(MDCR_EL2_RES0);
+-	if (!has_hvhe()) {
+-		vcpu->arch.cptr_el2 |= CPTR_NVHE_EL2_RES1;
+-		vcpu->arch.cptr_el2 &= ~(CPTR_NVHE_EL2_RES0);
+-	}
+ }
+ 
+ static void pkvm_vcpu_reset_hcr(struct kvm_vcpu *vcpu)
+@@ -236,7 +209,6 @@ static void pkvm_vcpu_reset_hcr(struct k
+  */
+ static void pkvm_vcpu_init_traps(struct kvm_vcpu *vcpu)
+ {
+-	vcpu->arch.cptr_el2 = kvm_get_reset_cptr_el2(vcpu);
+ 	vcpu->arch.mdcr_el2 = 0;
+ 
+ 	pkvm_vcpu_reset_hcr(vcpu);
+@@ -693,8 +665,6 @@ unlock:
+ 		return ret;
+ 	}
+ 
+-	hyp_vcpu->vcpu.arch.cptr_el2 = kvm_get_reset_cptr_el2(&hyp_vcpu->vcpu);
+-
+ 	return 0;
+ }
+ 
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -36,33 +36,46 @@ DEFINE_PER_CPU(unsigned long, kvm_hyp_ve
+ 
+ extern void kvm_nvhe_prepare_backtrace(unsigned long fp, unsigned long pc);
+ 
+-static void __activate_traps(struct kvm_vcpu *vcpu)
++static void __activate_cptr_traps(struct kvm_vcpu *vcpu)
+ {
+-	u64 val;
++	u64 val = CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+ 
+-	___activate_traps(vcpu, vcpu->arch.hcr_el2);
+-	__activate_traps_common(vcpu);
++	if (has_hvhe()) {
++		val |= CPACR_ELx_TTA;
+ 
+-	val = vcpu->arch.cptr_el2;
+-	val |= CPTR_EL2_TAM;	/* Same bit irrespective of E2H */
+-	val |= has_hvhe() ? CPACR_EL1_TTA : CPTR_EL2_TTA;
+-	if (cpus_have_final_cap(ARM64_SME)) {
+-		if (has_hvhe())
+-			val &= ~CPACR_ELx_SMEN;
+-		else
+-			val |= CPTR_EL2_TSM;
+-	}
++		if (guest_owns_fp_regs()) {
++			val |= CPACR_ELx_FPEN;
++			if (vcpu_has_sve(vcpu))
++				val |= CPACR_ELx_ZEN;
++		}
++	} else {
++		val |= CPTR_EL2_TTA | CPTR_NVHE_EL2_RES1;
++
++		/*
++		 * Always trap SME since it's not supported in KVM.
++		 * TSM is RES1 if SME isn't implemented.
++		 */
++		val |= CPTR_EL2_TSM;
+ 
+-	if (!guest_owns_fp_regs()) {
+-		if (has_hvhe())
+-			val &= ~(CPACR_ELx_FPEN | CPACR_ELx_ZEN);
+-		else
+-			val |= CPTR_EL2_TFP | CPTR_EL2_TZ;
++		if (!vcpu_has_sve(vcpu) || !guest_owns_fp_regs())
++			val |= CPTR_EL2_TZ;
+ 
+-		__activate_traps_fpsimd32(vcpu);
++		if (!guest_owns_fp_regs())
++			val |= CPTR_EL2_TFP;
+ 	}
+ 
++	if (!guest_owns_fp_regs())
++		__activate_traps_fpsimd32(vcpu);
++
+ 	kvm_write_cptr_el2(val);
++}
++
++static void __activate_traps(struct kvm_vcpu *vcpu)
++{
++	___activate_traps(vcpu, vcpu->arch.hcr_el2);
++	__activate_traps_common(vcpu);
++	__activate_cptr_traps(vcpu);
++
+ 	write_sysreg(__this_cpu_read(kvm_hyp_vector), vbar_el2);
+ 
+ 	if (cpus_have_final_cap(ARM64_WORKAROUND_SPECULATIVE_AT)) {
+
+
+Patches currently in stable-queue which might be from broonie@kernel.org are
+
+queue-6.13/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
+queue-6.13/kvm-arm64-mark-some-header-functions-as-inline.patch
+queue-6.13/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
+queue-6.13/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
+queue-6.13/kvm-arm64-refactor-exit-handlers.patch
+queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
+queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
+queue-6.13/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
 
