@@ -4,76 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFA1FC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:53:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FE3C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:54:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Vi3vqlZEjhRyke+tn+Q3MD+zw3p/H2XxVRSJ9/S1eBk=; b=qheMcKE6yK5NgcQq8VSRteSMQJ
-	Cyn/kzeVtpCwPX8Gf9IVFgqtx6RfvE6mcQVoPgcFWKq9pG6cfbBG5kpAfmW/JjVaJCwJ0HgKJFatD
-	OGYKPlRb2nDdd/BF3nIUdyGk//Eke5uZvPfC9WisoN+X54ojgtryQgFj0tAGT3DcKEVnm00wyE6xJ
-	fzqva2OmxrQZFG6N/WnJ/z9xVivvR1oht7drdhqjl+2lWR03TzP7/8nPHq8C8yrlo5+5g3L7gVEgH
-	kccOEwOwrV3H4f5gBh2MNYbGIGupiz0iFgBsV5hmom2AWarUe1L5v1TGoJVIccNdVvfbXwsG3YRWy
-	MD6J+3Cw==;
+	Content-type:MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UxCl1osfLw2v3G3W+1kfNU8xiBvtJTPCZorcBEjeG40=; b=DyhIDh1HtsG9dbKJAIZHwvYtOP
+	aPlzFbHjIR1Guis3ATZbew2L4UzvVGR1sq6JKGcgjtfpbjiIG1ucc5FQvcnM24LCzA9iZf487IcSD
+	WUDPuLk0xxebZ8fGfi3462X1XBEd9aBALt5S8nZOImkybpNFiVv/63Gd0jTejBwvHSmmVUb9AZqb0
+	pJyGkp6TTJL5h0AM5ynSLeQi1ki9FJRYZ+9D2azxmyEvtTn5JxegD7wlVOQGJvHXJ9zlrV2lxFDUq
+	y/Qr1nBvFWG3KW3aR85knCmRIhonuOBxD9ENA9gfMSjipreLtS5PqnHy89gxAVPmteGvUZyn16i2n
+	aiZx+7qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsh7H-0000000B8FO-3BOZ;
-	Thu, 13 Mar 2025 11:52:47 +0000
+	id 1tsh8u-0000000B8aE-1yzM;
+	Thu, 13 Mar 2025 11:54:28 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsh0l-0000000B5nh-1nqf
+	id 1tsh0l-0000000B5nW-0YM9
 	for linux-arm-kernel@lists.infradead.org;
 	Thu, 13 Mar 2025 11:46:05 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
 	s=mimecast20190719; t=1741866361;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=Vi3vqlZEjhRyke+tn+Q3MD+zw3p/H2XxVRSJ9/S1eBk=;
-	b=KgF/4bmKY66ncN8XBXPHgNHbjLtT/e7Bf2dsf6qCfepJyaxq+TnYWtoGHmqdB82wlYnje6
-	j4a3lqdu4uHK/NwGkEa+Njcj+LBAA3SqJmoRH6qpLnsm4m7GZkE/2c3XmOXU+6kgkCVvCs
-	ePQRMr/3EtXcuSNSc0T5E9JRubgG16M=
-Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
- [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=UxCl1osfLw2v3G3W+1kfNU8xiBvtJTPCZorcBEjeG40=;
+	b=VBzuhPk3Zq1Q+zhWOge7tnyE6q7mqA7np06T4FzfCrSSqY7CuX1Ga6xqOPdoMfU0wOO1Ii
+	l5ZSKPghqkSaF34zAoBpWBwnPqFUlfC+dooSyKW4qINVQeuyETu7Cdfy7NbVUECdDLGPdC
+	8+YK+tk5idbahHDkpv1AkLE5wa50Oto=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
  (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-599-9fGscvR_N9-VxtKZ2ahj-Q-1; Thu, 13 Mar 2025 07:44:30 -0400
-X-MC-Unique: 9fGscvR_N9-VxtKZ2ahj-Q-1
-X-Mimecast-MFC-AGG-ID: 9fGscvR_N9-VxtKZ2ahj-Q_1741866269
-Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3913f97d115so435622f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:44:30 -0700 (PDT)
+ us-mta-221-1XGesYO4NpqcF7uLPnQsag-1; Thu, 13 Mar 2025 07:44:34 -0400
+X-MC-Unique: 1XGesYO4NpqcF7uLPnQsag-1
+X-Mimecast-MFC-AGG-ID: 1XGesYO4NpqcF7uLPnQsag_1741866273
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-43cf44b66f7so4302205e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:44:34 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741866269; x=1742471069;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Vi3vqlZEjhRyke+tn+Q3MD+zw3p/H2XxVRSJ9/S1eBk=;
-        b=VnUrAWsbJ15xakNi/4CBnPuLaIlJb6MM1v0n1G7mG1OJqtIdYgsGn6aXZFsUk56vh0
-         JDnX6lbQP1N97X9D59iCeZxdb6gwvtTd0sGVqN3FlrkvaHtT5XJueY9MAhSCd4wbsDJA
-         CbefsUZ/3XbkfCEftG/ZgIXSoKuhmmFqQasA9UfZ8nTU/LTjQQAB3CxQXXQYYXbn9Orl
-         ecST3Y521kqdUzJt2YP1PvhZvtrTYsqhmrfQEcR12e7nd0nWUs3Z952GN9qhvLRBWPBz
-         Vym7RBYc5okm6gXFillOBZ0luI64sLPaLKv3tKuz9M6BBu5+tFWNGI7N8p2dnUVPNdOu
-         yX+Q==
-X-Forwarded-Encrypted: i=1; AJvYcCW99GXB3fGyBwrlTEbGhmscIg9NPbV99rFCfautUZTJfEys5nLExTuVxy3CNEfc1Ca50SEgzzj3i+XuVTUBnLSB@lists.infradead.org
-X-Gm-Message-State: AOJu0YxfzlgmWvEPJUGXsqojr1RSEdosgK5VuwsOsmXeqdc6jeP1ax2v
-	1ul61WS8qFaE4GXSGqQ21UOuBXb25PA7sfl8JrDyDKnxzRuhR2MxADEczC4DStfiR6KvpDmbHoK
-	Gha1pDA5wEvfVsvaIBRJrqneBOFcA0UvvLxnWr3DLh4T9Z87mtRBjblzULQU1vHkqSGnHXbiW
-X-Gm-Gg: ASbGncstHUuAA3Xoy8dDSYw54rVMPnwH8kY0vBBmnjdENfcR/LhWk/H0QUCSPE6S1Jr
-	hcHl+LROdT6+Bdz8f1d4DyP18GZ1ke0aHVyhABDBtbG7x8d48D2oHDR62YiqO9Kxi6wU71FZGxo
-	mv8F2/XQUGeVfb4undQObKfI+/IEHaoOVaD/2Y15ONN+TjMCDz6N2/XzLslMOmX8DBh2jTEuDDQ
-	PQlxzJT4Jwluda7Bj+FSL0Ohbb1nryQdGFOgoG7N1mZOlF0BY0KszTbnCU6Z60VnUzgMImKuaxI
-	0lONeRvP8m0iF55RHAyv
-X-Received: by 2002:a5d:64cb:0:b0:38f:23c4:208c with SMTP id ffacd0b85a97d-395b954ea75mr1784230f8f.18.1741866269097;
-        Thu, 13 Mar 2025 04:44:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH5B4S8E4d5tF3TI1rIoUvKO0tSV0G2B0BPE1gxY0qJz2LBrnTYS6FEhx79I2sbOMPQrE3jHw==
-X-Received: by 2002:a5d:64cb:0:b0:38f:23c4:208c with SMTP id ffacd0b85a97d-395b954ea75mr1784186f8f.18.1741866268630;
-        Thu, 13 Mar 2025 04:44:28 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1741866273; x=1742471073;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UxCl1osfLw2v3G3W+1kfNU8xiBvtJTPCZorcBEjeG40=;
+        b=L48xg7OKTN01Mjgrr37dg+MKOwuvGSmTOYD3oXB03+hSbMT4bbyR1HpkXipMyZS2yA
+         oPlT+a9AIjt0Q+cqNqHtwYoq0D7Yv7f7IYxjeTTrdmqymi36jUq8P9xJ+7DT0nwmSVuL
+         rC/gtphRZhHg26tIEePxobcCz5cr+gmA2lMpBbrXMCy7OH6814qIconaOkTOv7WHgOh4
+         H9nX0m0ZTmAzQpYkc9Z0i2F5DHTjAh/xvV8RdGlzxHxdJaSS2j1NrN7I3ylZyGjNZVm5
+         +sQsc+Q3a170i7iGtOVmWQoG6tOvp4JXcIEiz+7Ah+mX+l/khErncI9+FB9VZ4M8hnVK
+         1lww==
+X-Forwarded-Encrypted: i=1; AJvYcCW7lrAEfrrD5jtUx6fsYEsPYEQpTHVbegSq7t2yXIajNBWdH6eM2Zea3wJKM9n8QS0GhPVN0ZEmYbhwpTGKrN1j@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw839DryogZ6fvVvNC1PWhkzG72hCra7yZfuI07SlqaN2IiIYYx
+	+GwiGCQbupmwhnZtMUR1SF+ZKI7CBsrrtfO8gMgpjkzHwrA8o+YMS3ClTHKgEw6AUmI35r7QEuO
+	lDyPXtWmzKVf+sP38eTqP09PLkuNT+1n6a7HYtrNBMeqqVggG3by1GHRs33IZVeButpoFlike
+X-Gm-Gg: ASbGncuCFNPEzjTE4wGylXcgVw6ddS3Z1ya7r/u9WNVmPjIcAxjD4pwW/40QbviUMdI
+	4Ok3liGk+3xwbX2Za1lZYWtgBaJnSY3QTQz3NF5xeWLxH8Z03c2Fgsm7mb/DvDIBo+I7uhHll+p
+	E6uZoN9U2IvlUa0I/QXUSnQew9QC9GMVskcUrc9IAuhOUhhKE5t/f+2g29T6Wddqu/miEpcowt/
+	J2wPUU1TDIYHUugy7oWi0EUgQNfaPQ9HPp/h42WuzHu6DLVcJ4ynBUpp9HLGgdFGAhesuRJK/fv
+	wNaek1CCBVNbH6iwgPq2
+X-Received: by 2002:a05:600c:190c:b0:43c:ea40:ae4a with SMTP id 5b1f17b1804b1-43cea40af7amr174500555e9.31.1741866273482;
+        Thu, 13 Mar 2025 04:44:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGs6EAEForVjkecQAM8kbehVzhKfM/0tK/SxXfrbXe4b06Gjm7InnzRnhjTKgVzk9sVgzkBAA==
+X-Received: by 2002:a05:600c:190c:b0:43c:ea40:ae4a with SMTP id 5b1f17b1804b1-43cea40af7amr174500265e9.31.1741866273039;
+        Thu, 13 Mar 2025 04:44:33 -0700 (PDT)
 Received: from lab.hqhome163.com ([81.57.75.210])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d188b754asm17844115e9.14.2025.03.13.04.44.26
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-43d188b754asm17844115e9.14.2025.03.13.04.44.31
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 04:44:27 -0700 (PDT)
+        Thu, 13 Mar 2025 04:44:32 -0700 (PDT)
 From: Alessandro Carminati <acarmina@redhat.com>
 To: linux-kselftest@vger.kernel.org
 Cc: David Airlie <airlied@gmail.com>,
@@ -108,20 +109,23 @@ Cc: David Airlie <airlied@gmail.com>,
 	linux-sh@vger.kernel.org,
 	loongarch@lists.linux.dev,
 	x86@kernel.org,
+	Linux Kernel Functional Testing <lkft@linaro.org>,
 	Alessandro Carminati <acarmina@redhat.com>
-Subject: [PATCH v4 00/14] Add support for suppressing warning backtraces
-Date: Thu, 13 Mar 2025 11:43:15 +0000
-Message-Id: <20250313114329.284104-1-acarmina@redhat.com>
+Subject: [PATCH v4 02/14] kunit: bug: Count suppressed warning backtraces
+Date: Thu, 13 Mar 2025 11:43:17 +0000
+Message-Id: <20250313114329.284104-3-acarmina@redhat.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250313114329.284104-1-acarmina@redhat.com>
+References: <20250313114329.284104-1-acarmina@redhat.com>
 MIME-Version: 1.0
 X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: j2sQRg7i8LSWWIx7CLN95q_ThuA-Eflqx8WeFImL_bU_1741866269
+X-Mimecast-MFC-PROC-ID: 4SKDdcVNi-kCwAYZkAya_UFTp8cp1FId5cMoRPxcRws_1741866273
 X-Mimecast-Originator: redhat.com
 Content-type: text/plain
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_044603_545657_ABA2532F 
-X-CRM114-Status: GOOD (  27.16  )
+X-CRM114-CacheID: sfid-20250313_044603_241771_02614C80 
+X-CRM114-Status: GOOD (  14.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -136,137 +140,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some unit tests intentionally trigger warning backtraces by passing bad
-parameters to kernel API functions. Such unit tests typically check the
-return value from such calls, not the existence of the warning backtrace.
+From: Guenter Roeck <linux@roeck-us.net>
 
-Such intentionally generated warning backtraces are neither desirable
-nor useful for a number of reasons.
-- They can result in overlooked real problems.
-- A warning that suddenly starts to show up in unit tests needs to be
-  investigated and has to be marked to be ignored, for example by
-  adjusting filter scripts. Such filters are ad-hoc because there is
-  no real standard format for warnings. On top of that, such filter
-  scripts would require constant maintenance.
+Count suppressed warning backtraces to enable code which suppresses
+warning backtraces to check if the expected backtrace(s) have been
+observed.
 
-One option to address problem would be to add messages such as "expected
-warning backtraces start / end here" to the kernel log.  However, that
-would again require filter scripts, it might result in missing real
-problematic warning backtraces triggered while the test is running, and
-the irrelevant backtrace(s) would still clog the kernel log.
+Using atomics for the backtrace count resulted in build errors on some
+architectures due to include file recursion, so use a plain integer
+for now.
 
-Solve the problem by providing a means to identify and suppress specific
-warning backtraces while executing test code. Support suppressing multiple
-backtraces while at the same time limiting changes to generic code to the
-absolute minimum. Architecture specific changes are kept at minimum by
-retaining function names only if both CONFIG_DEBUG_BUGVERBOSE and
-CONFIG_KUNIT are enabled.
+Acked-by: Dan Carpenter <dan.carpenter@linaro.org>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Tested-by: Linux Kernel Functional Testing <lkft@linaro.org>
+Signed-off-by: Guenter Roeck <linux@roeck-us.net>
+Reviewed-by: David Gow <davidgow@google.com>
+Signed-off-by: Alessandro Carminati <acarmina@redhat.com>
+---
+ include/kunit/bug.h | 7 ++++++-
+ lib/kunit/bug.c     | 4 +++-
+ 2 files changed, 9 insertions(+), 2 deletions(-)
 
-The first patch of the series introduces the necessary infrastructure.
-The second patch introduces support for counting suppressed backtraces.
-This capability is used in patch three to implement unit tests.
-Patch four documents the new API.
-The next two patches add support for suppressing backtraces in drm_rect
-and dev_addr_lists unit tests. These patches are intended to serve as
-examples for the use of the functionality introduced with this series.
-The remaining patches implement the necessary changes for all
-architectures with GENERIC_BUG support.
-
-With CONFIG_KUNIT enabled, image size increase with this series applied is
-approximately 1%. The image size increase (and with it the functionality
-introduced by this series) can be avoided by disabling
-CONFIG_KUNIT_SUPPRESS_BACKTRACE.
-
-This series is based on the RFC patch and subsequent discussion at
-https://patchwork.kernel.org/project/linux-kselftest/patch/02546e59-1afe-4b08-ba81-d94f3b691c9a@moroto.mountain/
-and offers a more comprehensive solution of the problem discussed there.
-
-Design note:
-  Function pointers are only added to the __bug_table section if both
-  CONFIG_KUNIT_SUPPRESS_BACKTRACE and CONFIG_DEBUG_BUGVERBOSE are enabled
-  to avoid image size increases if CONFIG_KUNIT is disabled. There would be
-  some benefits to adding those pointers all the time (reduced complexity,
-  ability to display function names in BUG/WARNING messages). That change,
-  if desired, can be made later.
-
-Checkpatch note:
-  Remaining checkpatch errors and warnings were deliberately ignored.
-  Some are triggered by matching coding style or by comments interpreted
-  as code, others by assembler macros which are disliked by checkpatch.
-  Suggestions for improvements are welcome.
-
-Changes since RFC:
-- Introduced CONFIG_KUNIT_SUPPRESS_BACKTRACE
-- Minor cleanups and bug fixes
-- Added support for all affected architectures
-- Added support for counting suppressed warnings
-- Added unit tests using those counters
-- Added patch to suppress warning backtraces in dev_addr_lists tests
-
-Changes since v1:
-- Rebased to v6.9-rc1
-- Added Tested-by:, Acked-by:, and Reviewed-by: tags
-  [I retained those tags since there have been no functional changes]
-- Introduced KUNIT_SUPPRESS_BACKTRACE configuration option, enabled by
-  default.
-
-Changes since v2:
-- Rebased to v6.9-rc2
-- Added comments to drm warning suppression explaining why it is needed.
-- Added patch to move conditional code in arch/sh/include/asm/bug.h
-  to avoid kerneldoc warning
-- Added architecture maintainers to Cc: for architecture specific patches
-- No functional changes
-
-Changes since v3:
-- Rebased to v6.14-rc6
-- Dropped net: "kunit: Suppress lock warning noise at end of dev_addr_lists tests"
-  since 3db3b62955cd6d73afde05a17d7e8e106695c3b9
-- Added __kunit_ and KUNIT_ prefixes.
-- Tested on interessed architectures.
-
-----
-Guenter Roeck (14):
-  bug/kunit: Core support for suppressing warning backtraces
-  kunit: bug: Count suppressed warning backtraces
-  kunit: Add test cases for backtrace warning suppression
-  kunit: Add documentation for warning backtrace suppression API
-  drm: Suppress intentional warning backtraces in scaling unit tests
-  x86: Add support for suppressing warning backtraces
-  arm64: Add support for suppressing warning backtraces
-  loongarch: Add support for suppressing warning backtraces
-  parisc: Add support for suppressing warning backtraces
-  s390: Add support for suppressing warning backtraces
-  sh: Add support for suppressing warning backtraces
-  sh: Move defines needed for suppressing warning backtraces
-  riscv: Add support for suppressing warning backtraces
-  powerpc: Add support for suppressing warning backtraces
-
- Documentation/dev-tools/kunit/usage.rst |  30 ++++++-
- arch/arm64/include/asm/asm-bug.h        |  27 ++++--
- arch/arm64/include/asm/bug.h            |   8 +-
- arch/loongarch/include/asm/bug.h        |  42 +++++++---
- arch/parisc/include/asm/bug.h           |  29 +++++--
- arch/powerpc/include/asm/bug.h          |  37 +++++++--
- arch/riscv/include/asm/bug.h            |  38 ++++++---
- arch/s390/include/asm/bug.h             |  17 +++-
- arch/sh/include/asm/bug.h               |  28 ++++++-
- arch/x86/include/asm/bug.h              |  21 +++--
- drivers/gpu/drm/tests/drm_rect_test.c   |  16 ++++
- include/asm-generic/bug.h               |  16 +++-
- include/kunit/bug.h                     |  56 +++++++++++++
- include/kunit/test.h                    |   1 +
- include/linux/bug.h                     |  13 +++
- lib/bug.c                               |  51 +++++++++++-
- lib/kunit/Kconfig                       |   9 ++
- lib/kunit/Makefile                      |   7 +-
- lib/kunit/backtrace-suppression-test.c  | 104 ++++++++++++++++++++++++
- lib/kunit/bug.c                         |  42 ++++++++++
- 20 files changed, 519 insertions(+), 73 deletions(-)
- create mode 100644 include/kunit/bug.h
- create mode 100644 lib/kunit/backtrace-suppression-test.c
- create mode 100644 lib/kunit/bug.c
-
+diff --git a/include/kunit/bug.h b/include/kunit/bug.h
+index 0a8e62c1fcaf..44efa7d5c902 100644
+--- a/include/kunit/bug.h
++++ b/include/kunit/bug.h
+@@ -20,6 +20,7 @@
+ struct __suppressed_warning {
+ 	struct list_head node;
+ 	const char *function;
++	int counter;
+ };
+ 
+ void __kunit_start_suppress_warning(struct __suppressed_warning *warning);
+@@ -28,7 +29,7 @@ bool __kunit_is_suppressed_warning(const char *function);
+ 
+ #define DEFINE_SUPPRESSED_WARNING(func)	\
+ 	struct __suppressed_warning __kunit_suppress_##func = \
+-		{ .function = __stringify(func) }
++		{ .function = __stringify(func), .counter = 0 }
+ 
+ #define KUNIT_START_SUPPRESSED_WARNING(func) \
+ 	__kunit_start_suppress_warning(&__kunit_suppress_##func)
+@@ -39,12 +40,16 @@ bool __kunit_is_suppressed_warning(const char *function);
+ #define KUNIT_IS_SUPPRESSED_WARNING(func) \
+ 	__kunit_is_suppressed_warning(func)
+ 
++#define SUPPRESSED_WARNING_COUNT(func) \
++	(__kunit_suppress_##func.counter)
++
+ #else /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+ 
+ #define DEFINE_SUPPRESSED_WARNING(func)
+ #define KUNIT_START_SUPPRESSED_WARNING(func)
+ #define KUNIT_END_SUPPRESSED_WARNING(func)
+ #define KUNIT_IS_SUPPRESSED_WARNING(func) (false)
++#define SUPPRESSED_WARNING_COUNT(func) (0)
+ 
+ #endif /* CONFIG_KUNIT_SUPPRESS_BACKTRACE */
+ #endif /* __ASSEMBLY__ */
+diff --git a/lib/kunit/bug.c b/lib/kunit/bug.c
+index 351f9a595a71..84c05b1a9e8b 100644
+--- a/lib/kunit/bug.c
++++ b/lib/kunit/bug.c
+@@ -32,8 +32,10 @@ bool __kunit_is_suppressed_warning(const char *function)
+ 		return false;
+ 
+ 	list_for_each_entry(warning, &suppressed_warnings, node) {
+-		if (!strcmp(function, warning->function))
++		if (!strcmp(function, warning->function)) {
++			warning->counter++;
+ 			return true;
++		}
+ 	}
+ 	return false;
+ }
 -- 
 2.34.1
 
