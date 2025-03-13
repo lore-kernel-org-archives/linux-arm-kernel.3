@@ -4,81 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF5B8C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:47:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5924C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:49:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fp6lx89NDYaCWj8yztXIUiroS+BazPKE4hbafizh3a4=; b=H6tQWBN+16uZXLFmfx/hcwfy2o
-	WMKenl2uKKgydKsj8KqBj52v6ntCs9hiif3k6s6VPJ3B6iOBWkYPGVxMDmaCjXpbI2Y+JryQLIn3p
-	Qq1FMvxX6OrMwqISOLrDje8UuwWRC489l8kcSEiFRvy2nf6vRs+PFiXLP9wCk6UgJHxyieuBDGtJx
-	djMMOfoU8iFQudOxfXN57F1u8WcVsuzVi6lIfPn7Dfm1kY2wF4EyiRWh2b1t4qeFu49Kz/QdkLODR
-	NuvF9Npxoi5F2EfyQy767hR5JfvMiIZpvbcIHwab0jCZBN+YUA4u+mtTwmwQCDz7WpbcUWiXcMkQ0
-	V92Rxifw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8ZLxBCJU5+2bbPYm14gJ4+vJIc5p7eAYUKUUoCYfZmk=; b=cmBVR0vhl41AsAGETdCxDB7Zzr
+	4AygI2nAhwJqXsuKja0THk7UUvYeKYMnsYiytjtnV065yS3kHkSW2BhNTnBpd3312ZN2nQTKXUoDv
+	xD+yViQeEok7pxUWZLg5Ak4+3Z7TK1pX6xCLM0anZr8L4KCX5zIHcSLw+WPr46lbHGl5LnuAsv0Z5
+	zjfSrndua2yzjiPTH6P4jqOdG2vb2k4iJJOKxEmMgp/yVEoEiL6r2QoEwxlXOHRhQANTt6U9l/v+g
+	GVmsT9g7HcnJkLjTp2jaDYzlDjmDsG8yUUtTs8vzE/kNq+K+3eE0akM97s6iEk+CAdhK0NryX/LSy
+	2PZD4FKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsh2K-0000000B6IX-3KxR;
-	Thu, 13 Mar 2025 11:47:40 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1tsh3z-0000000B73m-23lr;
+	Thu, 13 Mar 2025 11:49:23 +0000
+Received: from cpanel.siel.si ([46.19.9.99])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgvo-0000000B4R9-2hEF
+	id 1tsgzR-0000000B5Hu-0sHm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:40:57 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3913aaf1e32so556187f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:40:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741866054; x=1742470854; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fp6lx89NDYaCWj8yztXIUiroS+BazPKE4hbafizh3a4=;
-        b=n0IVg+BaU5MG8IpfbwLhXfGfM66OZTHips6B8x9tqAUhEpLOdD4R+08hyFQp2n/Dr4
-         OGmCiOgTQX9y6COM0sUD5fPrizYcisZsD0BPpY5/jdlkowbGxguGzeue1VJYaabk1MNY
-         nVFAOrOFwbX4xMZs4kbVKWr3E8krhLDEOp9iTk1TUWeV8Zmq84cH3255aagvQ40zwXGH
-         v6lJF7Y9HbfB9dD2IoFsoAFumer4IdXTaOGTzGFtoDf4Ke/og+vKdanE+4S+uPVCFHRK
-         nqus831BjRm8Y9ttpac1+NS83gIEfhVvSlZmYBzEQOY7T80gN/3Cg2fNLU1See2Lj0Fk
-         adkw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741866054; x=1742470854;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Fp6lx89NDYaCWj8yztXIUiroS+BazPKE4hbafizh3a4=;
-        b=LMyyTTPLm5tVTfH3TbcMkhFYc7awMK8qhGXyk6JhPSAk8hm5fqbqoe1lxvuJuK/f5Q
-         jmCIoatXu+fDmsfVUv1Ca8ShTlQoZ7u5FpOQ0KjkhXHYk199D4lVX9Hxw/jURqjvatK7
-         QcY5APhXlWxGszEKtQY9saVV8hPXM8jhOcdECfJP5CcWKBbNS+SPco3vy9gPPfG0scay
-         PL5DAYaCungohWVyGFYoEkOCCYO0MOrz0bcCmYSlPK/svQuo6fhYACQHgwLVJKfbK/e1
-         8fR9kGMLUDn9BOjWV6+jCVlF5Xxav2KFU6Mc03JgspGcpqAp/n7+8VlYpSgIYJbrg5l/
-         7YkQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW3qgQanxL+XtSey/qDKJih87lRJqzDHgfjDfYnejj/glDbbfjSDB7fFSof20J42Q7tGp8MobDrf/M64iL3pbc/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzpjvAiOu8ckpKeQR/GXAfppiKbcWLB9ssAa6fh/eWrLLYMvrfN
-	x84J9c7EaNWx8P6dXa37TBhIkQas1Hxg6TZeRNsvKkam1jqKz46LX9VZuoiS688gKAKQuOVhogL
-	SEhUqqzVrW9Xd+E2dzQ==
-X-Google-Smtp-Source: AGHT+IFt9bxBQ+OiJ6M9T42VJJBXQ3dgE7XPDiGETKJiQhO61thf8YCecySsYum/tlZhh/1oFpOYkgivgvMyU5WF
-X-Received: from wryv4.prod.google.com ([2002:a5d:59c4:0:b0:391:3be0:78cb])
- (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6000:1a87:b0:391:1923:5a91 with SMTP id ffacd0b85a97d-39132dc4395mr17764441f8f.55.1741866054357;
- Thu, 13 Mar 2025 04:40:54 -0700 (PDT)
-Date: Thu, 13 Mar 2025 11:40:38 +0000
-In-Reply-To: <20250313114038.1502357-1-vdonnefort@google.com>
-Mime-Version: 1.0
-References: <20250313114038.1502357-1-vdonnefort@google.com>
-X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
-Message-ID: <20250313114038.1502357-4-vdonnefort@google.com>
-Subject: [PATCH v4 3/3] KVM: arm64: Count pKVM stage-2 usage in secondary
- pagetable stats
-From: Vincent Donnefort <vdonnefort@google.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
-	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
-	will@kernel.org
-Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
-	Vincent Donnefort <vdonnefort@google.com>
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 13 Mar 2025 11:44:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Cc
+	:To:From:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=8ZLxBCJU5+2bbPYm14gJ4+vJIc5p7eAYUKUUoCYfZmk=; b=aiCSNS6/xRj8pUFUH7APA+2zsO
+	D6H1lElRjtZzE6BaWoLJRv46KNDD8Z0Pf15TmkGhCPFCDwBQW94hUXZNqqkAjWvHTSVFR+OtUOndD
+	gie3wYwInOvGWN/NIYuxakRPRRFqT85bpoCtBcxxbIxhqKEE6oyl5x/KfDikjxMt5KzzT5bP5ESso
+	KN6h5nIeWZQJgDfL8YShtVfaWHCYv/p2csAKTQXBAXReCcOct3lQDYQSejdYlBp8hnM817ysb7+mI
+	qEkhOIUOUwexM5Ls+CyInts+wQHf9Hv2kkeLfhT5gSwO28CA6uRCnqfR4+P/p/KOcaCNb5El2RkkR
+	B/QGx1rg==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:35000 helo=[192.168.69.52])
+	by cpanel.siel.si with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+	(Exim 4.96.2)
+	(envelope-from <andrej.picej@norik.com>)
+	id 1tsgzM-0069qp-2C;
+	Thu, 13 Mar 2025 12:44:36 +0100
+Message-ID: <a0d83b69-c84d-4804-abcd-e546be8a2e3d@norik.com>
+Date: Thu, 13 Mar 2025 12:44:33 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [Upstream] [PATCH v7 3/3] arm64: dts:
+ imx8mm-phyboard-polis-peb-av-10: Set lvds-vod-swing
+From: Andrej Picej <andrej.picej@norik.com>
+To: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, airlied@gmail.com, simona@ffwll.ch,
+ maarten.lankhorst@linux.intel.com, mripard@kernel.org, tzimmermann@suse.de,
+ robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
+ festevam@gmail.com, marex@denx.de
+Cc: devicetree@vger.kernel.org, imx@lists.linux.dev,
+ upstream@lists.phytec.de, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org
+References: <20241216085410.1968634-1-andrej.picej@norik.com>
+ <20241216085410.1968634-4-andrej.picej@norik.com>
+Content-Language: en-US
+Autocrypt: addr=andrej.picej@norik.com; keydata=
+ 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
+ xtT/8OxBOVSHvA==
+In-Reply-To: <20241216085410.1968634-4-andrej.picej@norik.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cpanel.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cpanel.siel.si: authenticated_id: andrej.picej@norik.com
+X-Authenticated-Sender: cpanel.siel.si: andrej.picej@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_044056_678223_56C51624 
-X-CRM114-Status: GOOD (  12.99  )
+X-CRM114-CacheID: sfid-20250313_044441_721395_AB5B4ED2 
+X-CRM114-Status: GOOD (  12.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,76 +129,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Count the pages used by pKVM for the guest stage-2 in memory stats under
-secondary pagetable, similarly to what the VHE mode does.
+Hi,
 
-Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
+is there anything else I need to do, or can this patch now be applied?
 
-diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
-index ace3969e8106..51754a354b7a 100644
---- a/arch/arm64/include/asm/kvm_host.h
-+++ b/arch/arm64/include/asm/kvm_host.h
-@@ -86,6 +86,8 @@ struct kvm_hyp_memcache {
- 	phys_addr_t head;
- 	unsigned long nr_pages;
- 	struct pkvm_mapping *mapping; /* only used from EL1 */
-+
-+#define	HYP_MEMCACHE_ACCOUNT_STAGE2	BIT(1)
- 	unsigned long flags;
- };
- 
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 6107a3c8ccf6..2feb6c6b63af 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1088,12 +1088,24 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
- 
- static void hyp_mc_free_fn(void *addr, void *mc)
- {
-+	struct kvm_hyp_memcache *memcache = mc;
-+
-+	if (memcache->flags & HYP_MEMCACHE_ACCOUNT_STAGE2)
-+		kvm_account_pgtable_pages(addr, -1);
-+
- 	free_page((unsigned long)addr);
- }
- 
- static void *hyp_mc_alloc_fn(void *mc)
- {
--	return (void *)__get_free_page(GFP_KERNEL_ACCOUNT);
-+	struct kvm_hyp_memcache *memcache = mc;
-+	void *addr;
-+
-+	addr = (void *)__get_free_page(GFP_KERNEL_ACCOUNT);
-+	if (addr && memcache->flags & HYP_MEMCACHE_ACCOUNT_STAGE2)
-+		kvm_account_pgtable_pages(addr, 1);
-+
-+	return addr;
- }
- 
- void free_hyp_memcache(struct kvm_hyp_memcache *mc)
-diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
-index 19921ca407c6..4409a10d02b6 100644
---- a/arch/arm64/kvm/pkvm.c
-+++ b/arch/arm64/kvm/pkvm.c
-@@ -165,12 +165,16 @@ static int __pkvm_create_hyp_vm(struct kvm *host_kvm)
- 	handle = ret;
- 
- 	host_kvm->arch.pkvm.handle = handle;
-+	host_kvm->arch.pkvm.stage2_teardown_mc.flags |= HYP_MEMCACHE_ACCOUNT_STAGE2;
-+	kvm_account_pgtable_pages(pgd, pgd_sz / PAGE_SIZE);
- 
- 	/* Donate memory for the vcpus at hyp and initialize it. */
- 	hyp_vcpu_sz = PAGE_ALIGN(PKVM_HYP_VCPU_SIZE);
- 	kvm_for_each_vcpu(idx, host_vcpu, host_kvm) {
- 		void *hyp_vcpu;
- 
-+		host_vcpu->arch.pkvm_memcache.flags |= HYP_MEMCACHE_ACCOUNT_STAGE2;
-+
- 		/* Indexing of the vcpus to be sequential starting at 0. */
- 		if (WARN_ON(host_vcpu->vcpu_idx != idx)) {
- 			ret = -EINVAL;
--- 
-2.49.0.rc0.332.g42c0ae87b1-goog
+The initial two patches that introduce property support have already 
+been merged, and the patch series that this patch depends on [1] has 
+also been applied.
 
+[1] https://lore.kernel.org/all/Z7rZjdXwN2W+Y2Bd@dragon/
+
+Best regards,
+Andrej
+
+On 16. 12. 24 09:54, Andrej Picej wrote:
+> Set custom differential output voltage for LVDS, to fulfill requirements
+> of the connected display. LVDS differential voltage for data-lanes and
+> clock output has to be between 200 mV and 600 mV.
+> Driver sets 200 Ohm near-end termination by default.
+> 
+> Signed-off-by: Andrej Picej <andrej.picej@norik.com>
+> ---
+> Changes in v7:
+> - no change
+> Changes in v6:
+> - no change
+> Changes in v5:
+> - no change
+> Changes in v4:
+> - no change
+> Changes in v3:
+> - no change
+> Changes in v2:
+> - use new properties from previous patches
+> ---
+>   .../boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso     | 2 ++
+>   1 file changed, 2 insertions(+)
+> 
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+> index a9de42cf14be..8bf9cc553bea 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+> +++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+> @@ -186,6 +186,8 @@ port@2 {
+>   			reg = <2>;
+>   			bridge_out: endpoint {
+>   				remote-endpoint = <&panel_in>;
+> +				ti,lvds-vod-swing-clock-microvolt = <200000 600000>;
+> +				ti,lvds-vod-swing-data-microvolt = <200000 600000>;
+>   			};
+>   		};
+>   	};
 
