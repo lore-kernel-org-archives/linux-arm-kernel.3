@@ -4,90 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D005BC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:20:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39B22C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fxWaN40Gu0y4wmPgUEJqr+nQuSXPrmjIwZFj0rXa2nA=; b=DjtBdCxtXsk+uo+vjf6Re8RU4T
-	ROJ8loW4MsKx3l5Pn8hBFzG7dKHTpYUvIfJq456RkOKHaSqsobBYcpddrMtFY9AdR4W8Q8e4Q7CfP
-	yhx9VGssK3b3vD+6Pi5dpuSVNz6auqj+P/VqMIPt1Tu3kj9cyTWZFXVlPhh6grwumDy7eQUV0M/G/
-	DROJbN1ribhk0Q8F3RTaw8Do+2nmEuJ0+7W6Olnx8qb73eWKuhdwNLewuwqvap11kQ4creEpWu4Zt
-	lX3eUer9g2FU1rU/fRDlMYpHReQlUB3Ks+cYRxo2R8iOA1UvnzOXsm+WQVynqOl8qyxVxb3H6vCt1
-	cUDBbdCA==;
+	bh=5BOaPEmcXuC9xBEt+6eCVxYLChasBkkNpNHBWVGWTPU=; b=Zw7feeXX1rHikHwzWRJY+iQo3O
+	0pWsHkAk7UEbb8UjwsuQ0n71Bx2tOQZaVf0rHWM/xPZgzSqa81it/Fxg+4huZiN0wdl75S+/cu+0A
+	dq/l0kTtYRacPsM0owwFxP2MHHl9sqiwWcyPi+9NimCoo8VtrfqsuzB6i5U6+NKT6w20RorGJSXkE
+	ZDyZMKWmf1K7+YdS9zTzWnJZvOoZjIsGfjRlYL9HmIVwebpxTLdKOYGA/gHqCMkVl0XTvYvtBi02B
+	xHtQWyZxv6QxFQmMTsCqMaiOSTRu//dy4inPKPoGn3LNrBmtWmf9EnM7uq+cBOfTiBJnjOPIL2qij
+	H7x/4ibw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsek4-0000000AiGj-37Wu;
-	Thu, 13 Mar 2025 09:20:40 +0000
-Received: from mail-wr1-x433.google.com ([2a00:1450:4864:20::433])
+	id 1tsenD-0000000AipG-0bjV;
+	Thu, 13 Mar 2025 09:23:55 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseg8-0000000AhU8-3mb8
+	id 1tselY-0000000AidS-0APT
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 09:16:38 +0000
-Received: by mail-wr1-x433.google.com with SMTP id ffacd0b85a97d-39129fc51f8so562759f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 02:16:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1741857395; x=1742462195; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fxWaN40Gu0y4wmPgUEJqr+nQuSXPrmjIwZFj0rXa2nA=;
-        b=KpLaywIIUkYc2p08DGN918oiaSNB+9B8ATC3LWKxWyiB7A3u16HlztDwyoUY35viKX
-         6XY59htg4MIoxoHO1gk3DSybHSbjJQY5cqWRLpZLbe+oSvy6tId+2gBmFl0o29VCuYJj
-         bclsusKdM2mKQTh4xc6AoEEI4acKr0PW/RGrjoJPDGFj7Z/Vb1dg3dTn1yrq/qJeQ8mt
-         lSsB9hgAwitq34QLIprSAUfYH+Dnlx+i730rube+rUYyzJAUUobSwv9JLH6yxUZjTkzB
-         7N0pVtNeyLqeTg0Z2YPlhnC6hungn6YeDA4bbUxONwSCebrIlgFyCZUd0ZhL/9sHqKrU
-         R2Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741857395; x=1742462195;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fxWaN40Gu0y4wmPgUEJqr+nQuSXPrmjIwZFj0rXa2nA=;
-        b=goSt1Y1bToZqkXHQqSJ0EZKV8Fe3HwzbahOFrs8XU2KAPLqnnaiXtVu75zrPcAcGtQ
-         bJEjuvgsJ/ryft4eHTcGG8Wqb6eP7qTbUAYKA9yRDentDbSBHJkmJl8ud7e60eOIcwAk
-         82BToj0Xlx/r2i75jwh2nqZTeCZf9JgI+5wjFcWFEyqTgMSPskS8jrHcEcGBobi5rTpm
-         dkZNbZIbW+Cs4+XJdwtHv198m2pCk8dd0+6rULBxUnlGrw8/TmkpKb5O+AmWaFTPOPyU
-         bmS2vRIFIi2gVA/Uxz1nqCyBDkhdPqdsuVRi/zhcWBgDYugYIh1Ko0b5J7mByjHUIjS4
-         bChw==
-X-Forwarded-Encrypted: i=1; AJvYcCXC2NCMc6Zq2SSyFVtDnipGCG9QaHRA4/fpeX6YRw29nQ05jVZ2CVwjLF0yEyXL3mDBBiIg3bxapq5cqvZ89TjD@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE/n32E4xR4JsukJ13eZ8+3RtddXuEa2VDuOBbAj8f/xTUVj42
-	vJrmYoi70oaloHx4lVEG76bDegmZcEvcaJVkR3fnONJW3BIjIWRxBFkw/+rTUw==
-X-Gm-Gg: ASbGnct3qdU0MwVpk4auQHNXqm8ERW0r84eAgJCno6InH4Ivf+2snhLBbY1ZKI+fk+H
-	JBMo1ZKP/DUdoGaq9/Vv5W5sKnfFwZNWAPPGrVn8FtsQrFx6Fq4MQz7KKSdeAPqCNke6qCRp54h
-	jJUFZ9ANpugez1+TrCZqxOCnrx9eux5+46a+3IzV1NcIE0X7SeSTt92JyANjPcIy42tX2ddjIOd
-	6ULWQXv5oBZYI0JsP/t4GN/EP2n/vHIC3WNSZ0o72F8m+fbTlia3yv3eNtw6sr7UbIHoKPoCE7F
-	TwSIHJlUCqNEJs9ix5qxXQ5jUE/t2GvA1yVYGF5CucZZJiubha2FgKOGbBrVC0xEchh7mpoFAig
-	letNOfDKeVyfg
-X-Google-Smtp-Source: AGHT+IHyTZmg9ER74S1drTjoF85PA6dZOdC3TWCeZ2nKybqjldE81KW9q1fSH09TLkfQNscM9Dnofg==
-X-Received: by 2002:a5d:5f45:0:b0:38d:ca55:76c3 with SMTP id ffacd0b85a97d-39132d2ac3amr18093999f8f.11.1741857394994;
-        Thu, 13 Mar 2025 02:16:34 -0700 (PDT)
-Received: from google.com (105.168.195.35.bc.googleusercontent.com. [35.195.168.105])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-395cb7eb8c2sm1397573f8f.85.2025.03.13.02.16.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 02:16:34 -0700 (PDT)
-Date: Thu, 13 Mar 2025 09:16:30 +0000
-From: Vincent Donnefort <vdonnefort@google.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
-	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-	qperret@google.com, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v3 1/3] KVM: arm64: Add flags to kvm_hyp_memcache
-Message-ID: <Z9KiboTJy9A6qvbK@google.com>
-References: <20250307113411.469018-1-vdonnefort@google.com>
- <20250307113411.469018-2-vdonnefort@google.com>
- <87r0327iek.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <87r0327iek.wl-maz@kernel.org>
+	Thu, 13 Mar 2025 09:22:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 03584A46560;
+	Thu, 13 Mar 2025 09:16:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7841AC4CEDD;
+	Thu, 13 Mar 2025 09:22:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741857730;
+	bh=XdeBR9m2VcWibmHMg21PFruzKcPhd6Kz1ihDbhRx1+8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=S6ycttKaj8HlLgujdPMi7HuQ/lFKLXctTcF257z79AJiDZhpfcPUL5Fdd7D+vNdBo
+	 emSXOgg4dsbkaYpn8S9yvLOzx71SQNtMGUzOD+n1MNcmrhfpiDvXUP2AXiYCHnOJBS
+	 47mt4/n2QZgxfMxDDQSJjFhkcrpOur4F5asxRKw0/x2y3FP3qcPRwpwXA+fT1mHZUm
+	 HOKj95rJCtMZePnRecOo1/y2uFf4APTRM+qupkJVWvCnFEBPBy1QD4+Ox71jIbKwXT
+	 /O7bHRxeBmR7/LqkDvaKdj+9MtQTIOXA/XjxTilqfiaLHr5v/OXTGe3B6m5mos5Oy/
+	 Dea2kH5aOsxxQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.95)
+	(envelope-from <maz@kernel.org>)
+	id 1tselT-00D8gc-HC;
+	Thu, 13 Mar 2025 09:22:07 +0000
+Date: Thu, 13 Mar 2025 09:22:07 +0000
+Message-ID: <86msdpnv40.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Vijay Balakrishna <vijayb@linux.microsoft.com>
+Cc: Sascha Hauer <s.hauer@pengutronix.de>,
+	linux-edac@vger.kernel.org,
+	Borislav Petkov <bp@alien8.de>,
+	Mauro Carvalho Chehab
+ <mchehab@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	James Morse <james.morse@arm.com>,
+	Robert Richter <rrichter@marvell.com>,
+	York Sun <york.sun@nxp.com>,
+	kernel@pengutronix.de,
+	linux-arm-kernel@lists.infradead.org,
+	Rob Herring <robh+dt@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH v5 0/2] Add L1 and L2 error detection for A53 and A57
+In-Reply-To: <ff79f33d-91fd-49e5-9a6f-fa2c32c7021d@linux.microsoft.com>
+References: <20210401110615.15326-1-s.hauer@pengutronix.de>
+	<ff79f33d-91fd-49e5-9a6f-fa2c32c7021d@linux.microsoft.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/29.4
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: vijayb@linux.microsoft.com, s.hauer@pengutronix.de, linux-edac@vger.kernel.org, bp@alien8.de, mchehab@kernel.org, tony.luck@intel.com, james.morse@arm.com, rrichter@marvell.com, york.sun@nxp.com, kernel@pengutronix.de, linux-arm-kernel@lists.infradead.org, robh+dt@kernel.org, mark.rutland@arm.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_021636_939504_9E243B2C 
-X-CRM114-Status: GOOD (  10.67  )
+X-CRM114-CacheID: sfid-20250313_022212_142835_111ABE79 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,36 +95,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[...]
+On Thu, 13 Mar 2025 01:43:55 +0000,
+Vijay Balakrishna <vijayb@linux.microsoft.com> wrote:
+> 
+> On 4/1/2021 4:06 AM, Sascha Hauer wrote:
+> > Hi,
+> > 
+> > Resending this mainly because Marc Zyngier and Mark Rutland raised
+> > concerns about using implementation defined registers and I forgot to Cc
+> > them with the last version. This version, like v4 already, should fix
+> > these concerns. Looking forward to feedback.
+> 
+> We aim to revive and adapt this patch series for A72 and A78.  Is
+> anyone actively working on this?  Please share any information on why
+> it wasn't pursued and thoughts on adapting it to A72 and A78.
 
-> > @@ -1102,7 +1102,7 @@ void free_hyp_memcache(struct kvm_hyp_memcache *mc)
-> >  		return;
-> >  
-> >  	kfree(mc->mapping);
-> > -	__free_hyp_memcache(mc, hyp_mc_free_fn, kvm_host_va, NULL);
-> > +	__free_hyp_memcache(mc, hyp_mc_free_fn, kvm_host_va, (void *)mc);
-> 
-> Why the cast? It looks superfluous to me.
+Because, and especially for less ancient CPUs such as A78 that
+implement some form of FEAT_RAS support, this makes little sense.  We
+fully expect RAS errors to be handled by firmware, which knows exactly
+the cache topology and can abstract the reporting into error records.
+Firmware is also the correct place for all this IMPDEF stuff.
 
-Ha yes it is now I pass mc and not mc->flags.
+	M.
 
-> 
-> >  }
-> >  
-> >  int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages)
-> > @@ -1117,7 +1117,7 @@ int topup_hyp_memcache(struct kvm_hyp_memcache *mc, unsigned long min_pages)
-> >  	}
-> >  
-> >  	return __topup_hyp_memcache(mc, min_pages, hyp_mc_alloc_fn,
-> > -				    kvm_host_pa, NULL);
-> > +				    kvm_host_pa, (void *)mc);
-> 
-> Same here.
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> -- 
-> Without deviation from the norm, progress is not possible.
+-- 
+Without deviation from the norm, progress is not possible.
 
