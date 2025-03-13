@@ -4,56 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DBCC282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 15:51:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C850C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 15:52:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JiDlc+RxBgfUDjd7Pir9OBSS0A1MYtjoFvA+x71lb84=; b=kL2JX4UzETibZZ00E1XJvi19NU
-	X74TvLsi9QbErBcaTyHTuiMP6ufcc8XWZATKGYklAMcXvOi7SRp/bf4C+8tljZjngpLkqPbUbIMnU
-	iyBpRHC0nliNBp/AP07VZPAkdHD+GgUo4ZDNmmbabbQSQJ1f9F/0AOL4vPbets3FxhnaLERN6/U35
-	T6pUA0K8RgIeIyRg+m74eXy8GtTrr26X3TWG8iGxdDDFmnHY003gGA+uT77HP15seJrfTVZIHHQp4
-	FbaEPo4avYty+KTcMT8jl6aY75ltwz5wFkLXSyymFLjHGBQzg334JygfFekuVCCoAdrA+tBigeSEp
-	k24XglTQ==;
+	bh=5Jg7Bqg99+PumfB7K6+m5LS4LnRMYTqE+QdU6HQVXQA=; b=Pv/Misl6zJhxA9dvW4ShrlUGcy
+	wO3A+Vne/SA5L8+SvuRQNPQ2SpX4yjtl5BHP9uzHXJD77u79h5ytHyK4FjQ0rOjX3OyRhEy1hFdpI
+	LcqwKsT9zmS7fWuEM470l9sFBWdinHSDZTCoPa0zs56+cewMGCvwHVE9FAxT8eHo18OVzFBtS1Y0u
+	EUoigsA+ZzxXOy1d2LqcMxyh2goRaIaTSbQ8BMis8/tasrAzwY4OIVpLvLAMxLVvPSTgxCRySy4oO
+	YA/3aGo5pP/OVeRbRYlvRyjGwvaWHjeqX2TIF7/N9segulnnSJaflq8ppvL8L0pNkonGFDdN9RMQ7
+	8+L5lyEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskpl-0000000Bi5d-3IJz;
-	Thu, 13 Mar 2025 15:50:57 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjjH-0000000BZ7g-1129
+	id 1tskrN-0000000BiMc-2qGF;
+	Thu, 13 Mar 2025 15:52:37 +0000
+Received: from mail-westeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c201::5] helo=AS8PR03CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tskea-0000000BgZT-3Zj3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 14:40:12 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2134150C;
-	Thu, 13 Mar 2025 07:40:20 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F048D3F694;
-	Thu, 13 Mar 2025 07:40:09 -0700 (PDT)
-Date: Thu, 13 Mar 2025 14:40:05 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 4/7] coresight: Add claim tag warnings and debug messages
-Message-ID: <20250313144005.GQ9682@e132581.arm.com>
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-5-james.clark@linaro.org>
+	Thu, 13 Mar 2025 15:39:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=aAcpw1dEyPJRcOSWJvMZzhE/PAxqbQ6j1CIITKAPYLML/UlPoc/M9eT50NYXfThVN8L4qLmRjvJ5nQwAquEoqRF4c+Qy0Dsp7YnIx0fMtfsSIGErcPr0hZC+jb7WPjKs3heWmsq7oBvaKQdSWZYI0L0P3r1bt/UlfzvToJ7bAsFA8YDsVU85OJIG01EtYoH7XBmdTUwola56p3wm7ti5PupaLvVRVKMv1vgSSmG2+EM7WD+3OPhhtp+woZ0w1QrlgTsas4hfeKpXAijUUHMy4tZAEEM+MvEh+LUlTsnCkxurfgmATsBMallE2Xpev7yqHOYjS2rH+izl7MJrlQogwg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5Jg7Bqg99+PumfB7K6+m5LS4LnRMYTqE+QdU6HQVXQA=;
+ b=j1/G5uxT7O8vOBd83Y0AUdRRT+UXg3k/X2wV/b8G31Z5G3XUuVFtthAJ0mpG33hOnyqiyTVXh68uNSZyg3yt/+k9wSgJNI6uBBRuUV55QUMv+ctU9FgwjTbhZFfrUajvcomOL16ZS29MAHwHyIIfhtSLaq5kt6THstGw2sS3oHbwBJiFxPWayZMBQvtZfkWesRSMHK5FzMf5i5hb1Pxc3vtFR9rBuQXsIJv1fadehKIWPOfBe4KpO41HKyJ8aIPaEnLGsMIC4YHnvKboN9RUQ4ms+M6JmVyI5GZvJ1mgE26JCh4dU+DuN4S48iNMqfUj0DZoyKDziEXfrljEw84PkQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5Jg7Bqg99+PumfB7K6+m5LS4LnRMYTqE+QdU6HQVXQA=;
+ b=bZyn3V9J7ajsbGQPHFYLngDr7XhpKoz03+mSpPxxDrrPAFyMcBeenB6fk2gRcFwfXvkQ5soaWLKGr2qwjeEP4Z/7GRvv7xghi2jnwT2o3ee1chBqj4QAdeFtA1VbE/WlhanPx/spGxLfNq5ow1Q32tsN5A6nrp1dSnmpd8Ep6LPxOIvT/AgmDZ/u28x3PgN/mwLfis0SeC+CVslE7BissBNyTSoqfZoA6A35AsuZ9hjp11ETkV2AUToeVRDnUI+G3p719ubKaeelJj1m+VMOKj1nwuaXuzLd8OApYB5eYg/uBhE2fJf/498+C6MJXvs0SWWbsuHrA442Z7ai1xW+vA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com (2603:10a6:102:240::14)
+ by DU4PR04MB10316.eurprd04.prod.outlook.com (2603:10a6:10:567::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Thu, 13 Mar
+ 2025 15:39:22 +0000
+Received: from PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06]) by PAXPR04MB9642.eurprd04.prod.outlook.com
+ ([fe80::9126:a61e:341d:4b06%3]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
+ 15:39:22 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Thu, 13 Mar 2025 11:38:43 -0400
+Subject: [PATCH v11 07/11] PCI: dwc: ep: Add parent_bus_addr for outbound
+ window
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250313-pci_fixup_addr-v11-7-01d2313502ab@nxp.com>
+References: <20250313-pci_fixup_addr-v11-0-01d2313502ab@nxp.com>
+In-Reply-To: <20250313-pci_fixup_addr-v11-0-01d2313502ab@nxp.com>
+To: Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>, 
+ Jingoo Han <jingoohan1@gmail.com>, 
+ Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>, 
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+ =?utf-8?q?Krzysztof_Wilczy=C5=84ski?= <kw@linux.com>, 
+ Bjorn Helgaas <bhelgaas@google.com>, Richard Zhu <hongxing.zhu@nxp.com>, 
+ Lucas Stach <l.stach@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pci@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.13-dev-e586c
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1741880335; l=4533;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=Rva6x6BqQ3w51ZOz28D8ROpdqiDdrolL2qHkT0k4n2Q=;
+ b=RdzZQ0V6glV6tIZglOmaxAC40oo//Gn1GTnLIgoEplCSYDp+IMwjGc/wkV5SIHnjEpue5YGa5
+ dmuCEWOXdW2Byg8qJorLV8W7TNXcj5R92Vcfk3r+EPWKPmsN3MWTfAN
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: SA9PR13CA0038.namprd13.prod.outlook.com
+ (2603:10b6:806:22::13) To PAXPR04MB9642.eurprd04.prod.outlook.com
+ (2603:10a6:102:240::14)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211103945.967495-5-james.clark@linaro.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB9642:EE_|DU4PR04MB10316:EE_
+X-MS-Office365-Filtering-Correlation-Id: 7a3f9495-c2a7-40df-f1a5-08dd624539f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?S0x1UlNrcnA3SU9LOCsyR1k4c2d6R253VzdYYnJ3aFoyN0FvMDVaMWxaRmla?=
+ =?utf-8?B?SVF3Vmt0SmcxSXVra2pKS2R3UW5JL0NMNjVXWE1nNTJ2ZEhvRW9CVlBza1E5?=
+ =?utf-8?B?MGZnWWtwMHJ4SzNkUklnamdmYXo1VDUyL2NEZmUwUERJdk1RTFk0OEl4QVg1?=
+ =?utf-8?B?OUZvbFFHRmdDS0I3Zjh4a3RQajlyT2lDWGtGeFlJT2sxNzRyUGc2OXVDYjhK?=
+ =?utf-8?B?SStNb1BWMU5nbXN0UUhyZ0x0Y0xXVEVhVG9ESy9PaGpWTzZ3N0hDNVZ0YnVU?=
+ =?utf-8?B?c3B5clgzazBNV3VLVG1kdklXMFFwLysvTzlzZUhZc0FLMjdvNVV0T29QOExs?=
+ =?utf-8?B?Z3MrNmdCTnFkZVRMNituZW1KTXBaN2ZPTlJwQzFwczZVMHk1Q1lSL0xadlcv?=
+ =?utf-8?B?V1J4Q3RKUDBBcFNiSWlwV2t6bHlrbUNaYzhnMEc5QWZ4ZmcvY2d1cUV4bkRn?=
+ =?utf-8?B?Vi9DcEVEMXEvUGxoZUlZMmMweDZIb1RrVUVPSDVXN21TVjM0a3RmZGUwSitU?=
+ =?utf-8?B?dlhZbTY5SmkyVGxXc0FNUTErNndUVGhhYjV0czV6OUZ6ZVVsWVo5L1AyQ0Z4?=
+ =?utf-8?B?ek1zYkY3cnQ2aUpZaTJXVERvaGRMc01lR1g2WGdoODNMTC9mWDVmdm9DQ0ti?=
+ =?utf-8?B?Q2JWRmoxWUxzZUhBN0srZE5tbWRzRStkaEZIa20vVDJ2WnllaitGZCs0akwz?=
+ =?utf-8?B?UkZucGY3emRteVpIVEJ2TWZmck9wTDFVUkNjYkhpK0pYcmxxWlp3bVhTSVhF?=
+ =?utf-8?B?QlJtS0o2MFAzakJiNi95WDJrczFEclMwbHlMWDZRN3l2VzhhaXgvYlAreVh4?=
+ =?utf-8?B?UTVNU20xSDBjZUZia3Jma3pOR0ordzdTN1RZM216M3pjZklqb1h4d3hablFQ?=
+ =?utf-8?B?bjFYS0ZROGJlSk9TSEd5d3BmdzEyNkhaVGxJNTB4V3R6RmVMcTBRa09sWjZU?=
+ =?utf-8?B?UEJGenk0eEgwaDMrSG5DNUlKd0x6SFJrWjNQRGt0NEdUTG1DRUl2V1dRV2Nz?=
+ =?utf-8?B?YW16Z1FROVMwcWM1RWR4NFBQT0gwbHk4eWZEUzVWZDZmM3Z3QXhwbXppRDJ6?=
+ =?utf-8?B?Ty9xaVJPOW1TUDk1K2oyc3hocU5qV01QQ093c2l0Zi91eHlYcndTV1YxVVd3?=
+ =?utf-8?B?YUxpeEN6Y2haR0dOdkgvbFNjVzF1b01HblZRaVE4cGFXL3l6ZTVxRnI1QXpP?=
+ =?utf-8?B?MUlwNVhWVFg4bVBUUnc4T1BNSlRITk8xK0tPSzU2OFUrbTBuLzFDQVNidVNO?=
+ =?utf-8?B?Y0NTQzlFYmEzcVJjbTNoN0ZBeW1iR3NqN0Rib3grUDZaalVRWDFneUtLTkR1?=
+ =?utf-8?B?UG15a0NpOFM1SnN1WTFwSUFoZUtvWlVpWnVzVFRhSDg0emo4aHdFSnYzQ2xx?=
+ =?utf-8?B?MUVrdUNxa2d3dXV3SG82c05iUUFEZUdMOEhmRVd5bjliM21sTi9UM09NNEhs?=
+ =?utf-8?B?eExsQnozcm9HNVE3RXlFWFZES2pIVUxGN0cwSmk1Z2U0RkhBb29hdmVQZFJm?=
+ =?utf-8?B?T1ZRelNjcnVPeWZoMUpreVJTQjkybVFCa3JMb2t4RC93WWxhUDg5NlJaOXhx?=
+ =?utf-8?B?aVNUcGNXTTk3WWIvem42Rm9aVGhwN3IvTkxvaVZsSTBzSnVtMno3bzBWaElJ?=
+ =?utf-8?B?ajJ4OWxZeC91LzFwbTg0Mmdhb0pjNEFTK0gvMTBrdDV2KzZpR1FMVEYrc3pH?=
+ =?utf-8?B?M3Rnc1dRQ0hDckVZQ2tQcXZyZW94OXRodi9JSnZINFY4TW9Zd0hjYnRGWXFV?=
+ =?utf-8?B?NVBjNHJDdUxkRjQwREI2UXJMMzlWcVVYc1FVbVRtZktLWEhHQ1lJalE2VXZW?=
+ =?utf-8?B?WEhkS0FRSThwNGJWQ3VBNGg0b0dKY3JBc20zRnBlYm1PQWtGZTkvVEpPL05Y?=
+ =?utf-8?B?UGh4dlU1SUpFZmZSbUkydGRDTzRuMWdycitrSXFsM1NtWmY3MzhONE1OVXg4?=
+ =?utf-8?B?eWFQWkFZT21KNmVPV0s5ZDFSTlNxZDAzbmc3Zk5rcWF0d0pjd2Z3bmVjSDlY?=
+ =?utf-8?B?VVJoN1l3VFJnPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(921020)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Z3N5Tlk5MTM1SVVsZVNlMzBFVGUvSjdaRVdscjlQYzdDVDhaTzNYNFZESms1?=
+ =?utf-8?B?WFVSbGt0NTJGMWFaeVg4bXlGdXZEdnRoVFBya1Z1MUMwY0Zod3o5c1NaRnBj?=
+ =?utf-8?B?WEQvbHBJWFZZWmNSdWJCZGk4S1JKeVh5dk8rTUZYNjFWekc0bWJBSVRCdWRW?=
+ =?utf-8?B?dTZYOEtCUVNjNDBNK2tFZ3h1UjZYT1lvOXNxdUlncUpIOXFHcktieUZUazdl?=
+ =?utf-8?B?alJvY3N0QlZKdlpTMXdxUDZPSkd5NDYvYU9yZld4VXN5U05EL3dZc0VhL0t0?=
+ =?utf-8?B?MzlEcU5CWFhJSlNJNVBlNkhLVUJRaEw3YndzQTQrWGNGMzJaa1VqVVZGTFJP?=
+ =?utf-8?B?RmRZL0g3R3NMZXpjZGxhbHN0ZTdvZWRtcFpDWE1QbzdrTEloMUdpZXFWQnpQ?=
+ =?utf-8?B?S0lPbXZYTkIwVDdqR0JINGdEanMvRW1BblRGUlBOK3RqK2NEb01RcE51d1BP?=
+ =?utf-8?B?SjgzM1V4Z3M2a2NXQW1PL0R4Q21maCtDV2hZejFUM0F5ZHZWVlJtNUZOc0tG?=
+ =?utf-8?B?WkZrREF2bHZ5eDZZUGZtaXZNaXpvTEVxVXViUlIxTmRGdVlodVNjM1IxcHAw?=
+ =?utf-8?B?NGNTT1orMjRxS0tZY0xoQjBrNVdET1RMUStaU3ZaV24xNnIrSkFmOFRmWVMx?=
+ =?utf-8?B?dGJKOVl0QUJCSzJET2tCTVFhTzkvSHBkc1VnVm5POXM4OTNKcytBbUN5M1h4?=
+ =?utf-8?B?YW9mL09sYktSSzRVcDdWNHh2V2RHT0YzdXpURHorSFJKeUZNWHJiNFc5VWhE?=
+ =?utf-8?B?d3hqalVaaTRnaFBVeDU1WWJBVVNBKzdxeDRGeE5wQmllais0OEpCR3ZrU2pQ?=
+ =?utf-8?B?aDVHQUs0NHJzOGFrT0pnYUt0UG9aeHQwSVhSOXNrZUZwY3hoeXhORmJpTFVX?=
+ =?utf-8?B?OVp6UnFGWEpVbm5ZK3dMcWRkSmJ1cDJnUmhCenFrL2tETGR3cFdVbHprdDhm?=
+ =?utf-8?B?SjNpb2UrRGpXMXZvaXJsTThDdUVIUHlwSWZJSzU2MHFNanpPQXJsSHAzQnd4?=
+ =?utf-8?B?eGQybXNRM2t4MFRBZEtacENOM1BpRTk2RUxaOVh3OTZyaG1aUU9WZnp6ejBu?=
+ =?utf-8?B?cnpFUEo5MTBZc1NSc293eFVocStBb0xSNVplV0hNOTgrQmlUaTZPQWlnZ0FX?=
+ =?utf-8?B?MU13c0UvNmJiQlpqMVJtYyszZGRlNktTTFkwMytWT1YzQnVlRk1CTExsUCt3?=
+ =?utf-8?B?aWpWbTM5OWFNZ3JjN09RamdPMzh3ZHVuVTNPUXhyU01JTEhwaEN4MFFSWWtF?=
+ =?utf-8?B?aUZtcS8rUkg3V3JIWkRGMmNiMEo4aXJ4SmFibG1LckxtTEJqR2lMUGxhd2pL?=
+ =?utf-8?B?em5BV0poMDJ3WGRWN21TbTNOMHI3NTlBUDlpZWF1QTkvRGJtdHRHOFpoeUlE?=
+ =?utf-8?B?MjBGeGx0NnNTWEJNdFUxK0F4WDJwU2MyWllYZ05vY1czdXNPcm9CQW1aNU00?=
+ =?utf-8?B?SmFodk1JU2c4bUt0UXB0MzNWbnk4amZ1R1JNTEt0a01UK29RQmNrYjFKckpD?=
+ =?utf-8?B?SGxvbEppNFluZmlFcmJQK2FqUFJ0bnNkVFJMd1Z5eWRzUXNDYTA4Y2szaWNj?=
+ =?utf-8?B?M3FtaVVwRTk2THB0YnpHZ295Q2p3VEx3UXE1YXIzdUltRWY1eGhKalZSZnRp?=
+ =?utf-8?B?cFRjTENSZ09ra3AraDNvQnVoajJmTEI5alpyMElUSXdoWEVOdmpyeWdxMDcz?=
+ =?utf-8?B?aUdTUmFpOXpHaUhhelk5SXlQZTJ5Z0pLc2huMkwrdHd0U3R2UnJNc2VMRWt5?=
+ =?utf-8?B?MkF4S05scVRKRWcrZFltdnNwTHZYeXYwb0pjT1M0NWNDRXdqN3dpQmMwWS9C?=
+ =?utf-8?B?cXhzZzRhQmVoOXNXbHFRd0RlMzdGM0hOUjRENnpkRUZZRGdWdG1lcDRYd3lU?=
+ =?utf-8?B?VFUrQjNRbURRQXdJUHA0S1RMVHZHRE9OOERudnFDUFcyL05Bdms5bU9sb3lk?=
+ =?utf-8?B?NnZYRy93NUVPVjhPU2I3VTQ5Rmg2aHlnRG9kYVB6L0dMVGpZOTZCbE1JMVpp?=
+ =?utf-8?B?emJ1NCt1QUJWa042VlpUUjdOTnBTNkNTbTYzNk1jbXNMWmRiK2NJSWIrVFBR?=
+ =?utf-8?B?TDQzYlg3SmtPVWxSY1hTT0FoVjFZQ0R6UG9STEgzeGE4VGxsTWl5WFBReW5t?=
+ =?utf-8?Q?jNMFBmyzsHil9kNXj/lCYRiaj?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7a3f9495-c2a7-40df-f1a5-08dd624539f6
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9642.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 15:39:22.2884
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: bCTOZu9olrO3tBdan+NbOR+awDjYCWh5ToaAami5mdgg1fFm4PMliuCvzyyfWpZ6ncc0p23is7kufHFQhPDuNw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4PR04MB10316
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_074011_379981_137043A2 
-X-CRM114-Status: GOOD (  27.11  )
+X-CRM114-CacheID: sfid-20250313_083924_892890_8FCFE6C8 
+X-CRM114-Status: GOOD (  15.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,123 +193,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 10:39:40AM +0000, James Clark wrote:
-> 
-> Add a dev_dbg() message so that external debugger conflicts are more
-> visible. There are multiple reasons for -EBUSY so a message for this
-> particular one could be helpful. Add errors for and enumerate all the
-> other cases that are impossible.
-> 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c | 48 ++++++++++++--------
->  drivers/hwtracing/coresight/coresight-priv.h |  5 +-
->  2 files changed, 34 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 7b53165c93af..7fe5d5d432c4 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -133,16 +133,6 @@ static inline u32 coresight_read_claim_tags(struct csdev_access *csa)
->                          csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMCLR));
->  }
-> 
-> -static inline bool coresight_is_claimed_self_hosted(struct csdev_access *csa)
-> -{
-> -       return coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED;
-> -}
-> -
-> -static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
-> -{
-> -       return coresight_read_claim_tags(&csdev->access) != 0;
-> -}
-> -
->  static inline void coresight_set_self_claim_tag(struct csdev_access *csa)
->  {
->         csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
-> @@ -169,18 +159,40 @@ static inline void coresight_clear_self_claim_tag(struct csdev_access *csa)
->   */
->  int coresight_claim_device_unlocked(struct coresight_device *csdev)
->  {
-> +       int tag;
-> +       struct csdev_access *csa;
-> +
->         if (WARN_ON(!csdev))
->                 return -EINVAL;
-> 
-> -       if (coresight_is_claimed_any(csdev))
-> +       csa = &csdev->access;
-> +       tag = coresight_read_claim_tags(csa);
-> +
-> +       switch (tag) {
-> +       case CORESIGHT_CLAIM_FREE:
-> +               coresight_set_self_claim_tag(csa);
-> +               if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED)
-> +                       return 0;
-> +
+                   Endpoint
+  ┌───────────────────────────────────────────────┐
+  │                             pcie-ep@5f010000  │
+  │                             ┌────────────────┐│
+  │                             │   Endpoint     ││
+  │                             │   PCIe         ││
+  │                             │   Controller   ││
+  │           bus@5f000000      │                ││
+  │           ┌──────────┐      │                ││
+  │           │          │ Outbound Transfer     ││
+  │┌─────┐    │  Bus     ┼─────►│ ATU  ──────────┬┬─────►
+  ││     │    │  Fabric  │Bus   │                ││PCI Addr
+  ││ CPU ├───►│          │Addr  │                ││0xA000_0000
+  ││     │CPU │          │0x8000_0000            ││
+  │└─────┘Addr└──────────┘      │                ││
+  │       0x7000_0000           └────────────────┘│
+  └───────────────────────────────────────────────┘
 
-It would be a rare case if a failure happens here.  Seems to me, it
-would be valuable to print a log for this edge case.
+Use 'ranges' property in DT to configure the iATU outbound window address.
+The bus fabric generally passes the same address to the PCIe EP controller,
+but some bus fabrics map the address before sending it to the PCIe EP
+controller.
 
-Otherwise, looks good to me.
+Above diagram, CPU write data to outbound windows address 0x7000_0000, Bus
+fabric map it to 0x8000_0000. ATU should use bus address 0x8000_0000 as
+input address and map to PCI address 0xA000_0000 (dynamic alloc and assign
+from pci device driver in host side).
 
-> +               /* There was a race setting the tag, clean up and fail */
-> +               coresight_clear_self_claim_tag(csa);
->                 return -EBUSY;
-> 
-> -       coresight_set_self_claim_tag(&csdev->access);
-> -       if (coresight_is_claimed_self_hosted(&csdev->access))
-> -               return 0;
-> -       /* There was a race setting the tag, clean up and fail */
-> -       coresight_clear_self_claim_tag(&csdev->access);
-> -       return -EBUSY;
-> +       case CORESIGHT_CLAIM_EXTERNAL:
-> +               /* External debug is an expected state, so log and report BUSY */
-> +               dev_dbg(&csdev->dev, "Busy: Claimed by external debugger");
-> +               return -EBUSY;
-> +
-> +       default:
-> +       case CORESIGHT_CLAIM_SELF_HOSTED:
-> +       case CORESIGHT_CLAIM_INVALID:
-> +               /*
-> +                * Warn here because we clear a lingering self hosted tag
-> +                * on probe, so other tag combinations are impossible.
-> +                */
-> +               dev_err_once(&csdev->dev, "Invalid claim tag state: %x", tag);
-> +               return -EBUSY;
-> +       }
->  }
->  EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
-> 
-> @@ -205,7 +217,7 @@ EXPORT_SYMBOL_GPL(coresight_claim_device);
->   */
->  void coresight_disclaim_device_unlocked(struct csdev_access *csa)
->  {
-> -       if (coresight_is_claimed_self_hosted(csa))
-> +       if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED)
->                 coresight_clear_self_claim_tag(csa);
->         else
->                 /*
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index cc7ff1e36ef4..a83113225797 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -36,7 +36,10 @@ extern const struct device_type coresight_dev_type[];
->   * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
->   */
->  #define CORESIGHT_CLAIM_MASK           GENMASK(1, 0)
-> -#define CORESIGHT_CLAIM_SELF_HOSTED    BIT(1)
-> +#define CORESIGHT_CLAIM_FREE           0
-> +#define CORESIGHT_CLAIM_EXTERNAL       1
-> +#define CORESIGHT_CLAIM_SELF_HOSTED    2
-> +#define CORESIGHT_CLAIM_INVALID                3
-> 
->  #define TIMEOUT_US             100
->  #define BMVAL(val, lsb, msb)   ((val & GENMASK(msb, lsb)) >> lsb)
-> --
-> 2.34.1
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+Previously, 'cpu_addr_fixup()' was used to handle address conversion. Now,
+the device tree provides this information, preferring a common method.
+
+bus@5f000000 {
+	compatible = "simple-bus";
+	ranges = <0x80000000 0x0 0x70000000 0x10000000>;
+
+	pcie-ep@5f010000 {
+		reg = <0x80000000 0x10000000>;
+		reg-names ="addr_space";
+		...
+	};
+	...
+};
+
+'ranges' in bus@5f000000 descript how address map from CPU address to bus
+address.
+
+Use `of_property_read_reg()` to obtain the bus address and set it to the
+ATU correctly, eliminating the need for vendor-specific cpu_addr_fixup().
+
+Use reg-name "addr_space" to detect parent_bus_addr_offset.
+
+Just set parent_bus_offset, but doesn't use it, so no functional change
+intended yet.
+
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Change from v10 to v11
+- none
+
+Change from v9 to v10
+- drop mani's review tag because big change.
+- call help funciton dw_pcie_init_parent_bus_offset().
+
+Change from v8 to v9
+- change bus_addr_base to parent_bus_addr
+- fix dw_pcie_find_index() address compare, which cause atu allocate
+failure when run many time test.
+
+Change from v7 to v8
+- Add Mani's reviewedby tag
+- s/convert/map in commit message
+- update comments for of_property_read_reg()
+- use 'use_parent_dt_ranges'
+
+Change from v6 to v7
+- none
+
+Change from v5 to v6
+- update diagram
+- Add comments for of_property_read_reg()
+- Remove unrelated 0x5f00_0000 in commit message
+
+Change from v3 to v4
+- change parent_bus_addr to u64 to fix 32bit build error
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202410230328.BTHareG1-lkp@intel.com/
+
+Change from v2 to v3
+- Add using_dtbus_info to control if use device tree bus ranges
+information.
+---
+ drivers/pci/controller/dwc/pcie-designware-ep.c | 8 ++++++++
+ 1 file changed, 8 insertions(+)
+
+diff --git a/drivers/pci/controller/dwc/pcie-designware-ep.c b/drivers/pci/controller/dwc/pcie-designware-ep.c
+index 80ac2f9e88eb5..d69d76c150d92 100644
+--- a/drivers/pci/controller/dwc/pcie-designware-ep.c
++++ b/drivers/pci/controller/dwc/pcie-designware-ep.c
+@@ -915,6 +915,14 @@ int dw_pcie_ep_init(struct dw_pcie_ep *ep)
+ 	ep->phys_base = res->start;
+ 	ep->addr_size = resource_size(res);
+ 
++	/*
++	 * artpec6_pcie_cpu_addr_fixup() use ep->phys_base. so call
++	 * dw_pcie_init_parent_bus_offset after init ep->phys_base.
++	 */
++	ret = dw_pcie_init_parent_bus_offset(pci, "addr_space", ep->phys_base);
++	if (ret)
++		return ret;
++
+ 	if (ep->ops->pre_init)
+ 		ep->ops->pre_init(ep);
+ 
+
+-- 
+2.34.1
+
 
