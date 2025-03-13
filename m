@@ -4,76 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2CBC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:23:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9DAEDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:24:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
-	Content-Transfer-Encoding:Mime-Version:To:From:Cc:Subject:Message-Id:Date:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GxZRHUz0odpMCAdOXDZV2Gewb34GcPHensWB6qpYNW0=; b=ztwWKIO9G/jFdX6+30+f3z3xui
-	H3q1zShNFSJIjVoWwaOmTat3vWSq6fHSN/ya7ZfSWohYk6eN9K0uxV9lySZmOysSlGYvXyy6xVx7R
-	PC41vLmgfPjNsatzyhbLwiy/4R8pjHfmMsvlhjtCumnqQ86Ss/vRK0+/PaFxPWa2kQGkdYZU12/xC
-	AWN5vo3z62zBs/bgfUUNM9inn85hgnH4s65O+5jsPkIcTZTHisYCZuRKJiRC2rts70MTpqDing8fJ
-	Ski8ynX9Dy2K5qesgWXhE+M0NYp4+tqx9fH/HYPfjvmeTlU6gMXMSr5IvM7ZDLgIoe1w5ICP8nI+B
-	EdgLRb7w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OAl2PWHZNNQUJSpTsWEbGq+4kHjVgyYP9mc0YCIPJkI=; b=eSHSP0vfSU423k6Gl7pCQZD8dc
+	1Oj3KgQaFJdMWmIkQqdzjRVw8P39iMeH8IP0P26XJRzC3hy1j7cNnbuq+nH7wFpD7m1EguojE6H0Z
+	Bg40cuHi5n8pU0a6YO0Yeh/OtCwuOS1b66zzffEUfwNjofKESYcwFSoAMZToMpg50T5Maf7BXKn1r
+	s5q2O9b4UC94fQcb7/p0s7nOOE4rlbltYYccW6C95oIvlcf5Dq0IknQUuWLII2aSooGzy3rEtFbTi
+	gzuytQb1a0vWY3OulRZMtMiG1y+JaqAJhjgzf0dQoZIs8zQX6Kr3dvYzUaG2Zo1HhRYFSAduUbuok
+	Uzsf0EIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgeW-0000000B1jj-48wI;
-	Thu, 13 Mar 2025 11:23:05 +0000
-Received: from relay2-d.mail.gandi.net ([217.70.183.194])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgWK-0000000B0L7-1IU5
+	id 1tsgg9-0000000B1w5-3pd7;
+	Thu, 13 Mar 2025 11:24:45 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsgdl-0000000B1es-10OQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:14:37 +0000
-Received: by mail.gandi.net (Postfix) with ESMTPSA id D6C2343152;
-	Thu, 13 Mar 2025 11:14:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
-	t=1741864470;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GxZRHUz0odpMCAdOXDZV2Gewb34GcPHensWB6qpYNW0=;
-	b=K57RJVVry+aqhLyQrVxSO4IAxED4+E2G+7+fkUvNhgvK7Q9jpbbOqar2SDtepqXnrMWaVB
-	LTT8Tn/GX2Q/yC3FHeXUxH1TrSQXNYQU+WJslfCY6/o6XRlpdl9RQbp1xtO0wDFIOfpORM
-	itwbhKXW/COXgf3O68gErM3szNiCucaOtDlksnV+sv/rm4eVQ8kZn1EoUQE8D+gujujYZC
-	G9acDWmdcUhDRR4QZksDRmrXpGOBpumVsOUYlRgUAT71aGXP3DaNy7KjArTC7vGRYOO2KJ
-	qe/dqoT6aTaBp8x0FASOVeSyE91RzsvOKDRM51E8m4Uzi6OyGgeYDCySyDIRBQ==
-Content-Type: text/plain; charset=UTF-8
-Date: Thu, 13 Mar 2025 12:14:26 +0100
-Message-Id: <D8F3F4YLD0ZM.19X0451BIIDVO@bootlin.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
- Concerto board
-Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring"
- <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
- Dooley" <conor+dt@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha
- Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
- <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Thomas
- Petazzoni" <thomas.petazzoni@bootlin.com>, <devicetree@vger.kernel.org>,
- <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
- <linux-arm-kernel@lists.infradead.org>
-From: "Antonin Godard" <antonin.godard@bootlin.com>
-To: "Konstantin Ryabitsev" <konstantin@linuxfoundation.org>
-Mime-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: aerc 0.20.1-0-g2ecb8770224a
-References: <20250310-varsom6ul-concerto-dts-v3-0-551e60713523@bootlin.com>
- <20250310-varsom6ul-concerto-dts-v3-1-551e60713523@bootlin.com>
- <63f8aa7d-fcd4-450f-b3a1-44886a29fc7e@kernel.org>
- <cd2f3c97-53bb-42f5-a3cd-4385bfda5dc7@kernel.org>
- <D8CQAAKOZ1O5.8JVESQPJSSM8@bootlin.com>
- <20250311-omniscient-fiery-bison-8e7feb@lemur>
-In-Reply-To: <20250311-omniscient-fiery-bison-8e7feb@lemur>
-X-GND-State: clean
-X-GND-Score: -100
-X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdejkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegtfffkufevhffvggfgofhfjgesthhqredtredtjeenucfhrhhomhepfdetnhhtohhnihhnucfiohgurghrugdfuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhueejkedugfefffektddtvdehheeuieeggfetgfdvveeftdehudduteffgfevgfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudegpdhrtghpthhtohepkhhonhhsthgrnhhtihhnsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhesk
- hgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
-X-GND-Sasl: antonin.godard@bootlin.com
+	Thu, 13 Mar 2025 11:22:18 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5C0171C00;
+	Thu, 13 Mar 2025 04:22:24 -0700 (PDT)
+Received: from [10.1.32.45] (Suzukis-MBP.cambridge.arm.com [10.1.32.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id C09D33F673;
+	Thu, 13 Mar 2025 04:22:08 -0700 (PDT)
+Message-ID: <e8749c86-fe93-4123-aa2e-5677e7a2c695@arm.com>
+Date: Thu, 13 Mar 2025 11:22:07 +0000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/3] Initial BBML2 support for contpte_convert()
+Content-Language: en-GB
+To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ ryan.roberts@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
+ catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
+ mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
+ james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com,
+ oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
+ david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev
+References: <20250313104111.24196-2-miko.lenczewski@arm.com>
+From: Suzuki K Poulose <suzuki.poulose@arm.com>
+In-Reply-To: <20250313104111.24196-2-miko.lenczewski@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_041436_494156_577453B2 
-X-CRM114-Status: GOOD (  14.62  )
+X-CRM114-CacheID: sfid-20250313_042217_368836_409C3388 
+X-CRM114-Status: GOOD (  18.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +73,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Konstantin,
+Hi Miko,
 
-On Tue Mar 11, 2025 at 7:34 PM CET, Konstantin Ryabitsev wrote:
-> On Mon, Mar 10, 2025 at 05:31:32PM +0100, Antonin Godard wrote:
->> > And now I noticed you used b4, so I really do not get how the tags can
->> > be missing here. :/
->>=20
->> Sorry, that's totally my fault here, I forgot to run 'b4 trailers -u' be=
-fore
->> sending... :/ And I don't think it's part of the prep checks?
->
-> Mostly, because there's no clear picture of how this would work reliably.=
- All
-> other checks are on a "ran since modifications to the series" basis, but =
-this
-> one would have to be time-based.
->
-> Should it check if the trailer updates have been run in the past XX minut=
-es
-> (and how long should that XX be?).
+On 13/03/2025 10:41, Mikołaj Lenczewski wrote:
+> Hi All,
+> 
+> This patch series adds adding initial support for eliding
+> break-before-make requirements on systems that support BBML2 and
+> additionally guarantee to never raise a conflict abort.
+> 
+> This support elides a TLB invalidation in contpte_convert(). This
+> leads to a 12% improvement when executing a microbenchmark designed
+> to force the pathological path where contpte_convert() gets called.
+> This represents an 80% reduction in the cost of calling
+> contpte_convert().
+> 
+> This series is based on v6.14-rc4 (d082ecbc71e9).
+> 
+> Patch 1 implements an allow-list of cpus that support BBML2, but with
+> the additional constraint of never causing TLB conflict aborts. We
+> settled on this constraint because we will use the feature for kernel
+> mappings in the future, for which we cannot handle conflict aborts
+> safely.
+> 
+> Yang Shi has a series at [1] that aims to use BBML2 to enable splitting
+> the linear map at runtime. This series partially overlaps with it to add
+> the cpu feature. We believe this series is fully compatible with Yang's
+> requirements and could go first.
+> 
 
-Had some thoughts about this the past few days.
+Nothing about the patch functionality, but :
 
-What about checking if it was run at least once between vX and vX+1? Maybe
-during the `b4 send` command? In case it wasn't run, give a hint/warning to=
- the
-user before proceeding?
+Minor nit: Generally it is a good idea to add "What changed" from the
+previous posting.  That gives the reviewers an idea of what to look for
+in the new version. Something like:
 
-This could also be enforced with an b4 config option like
-b4.force-trailers-update - either set by the user or the project configurat=
-ion.
-Not so sure about this one though...
+Changes since V2:
+  {Adding a link to the posting is an added bonus, as we can look up the 
+discussions easily}
+  - blah blah
+  - ..
 
-Now if I were to speak for myself, I would love to have an option that just
-fetches the new trailers during `b4 send` and errors out / warns me about
-it if there's anything new that isn't part of my series. Which could be als=
-o
-ignored with --ignore-trailer-errors or something like that, in any case.
 
-Antonin
+Cheers
+Suzuki
 
---=20
-Antonin Godard, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+
+> [1]:
+>    https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-yang@os.amperecomputing.com/
+> 
+> Mikołaj Lenczewski (3):
+>    arm64: Add BBM Level 2 cpu feature
+>    iommu/arm: Add BBM Level 2 smmu feature
+>    arm64/mm: Elide tlbi in contpte_convert() under BBML2
+> 
+>   .../admin-guide/kernel-parameters.txt         |  3 +
+>   arch/arm64/Kconfig                            | 11 +++
+>   arch/arm64/include/asm/cpucaps.h              |  2 +
+>   arch/arm64/include/asm/cpufeature.h           |  6 ++
+>   arch/arm64/kernel/cpufeature.c                | 76 +++++++++++++++++++
+>   arch/arm64/kernel/pi/idreg-override.c         |  2 +
+>   arch/arm64/mm/contpte.c                       |  3 +-
+>   arch/arm64/tools/cpucaps                      |  1 +
+>   .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  3 +
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  3 +
+>   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  4 +
+>   11 files changed, 113 insertions(+), 1 deletion(-)
+> 
+
 
