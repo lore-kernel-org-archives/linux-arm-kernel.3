@@ -4,56 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 624B0C35FF9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3D31C282DE
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=l7vXzCaa9LOPsWsHBr8P3awVPx0hD2oBDujQc2Z+tmA=; b=SoTwmnovyq0GvQpF6xu65gCzV3
-	s/x55UN5xWKAZx1RpxteH+WF7snTH1jpTAsHrU547f6im3oD41b1Zfc9zf/qe4qQ/PNWYTGWTsVij
-	QLN+Rx1OKqyAoTwmBjZN8Vw7gJUECqyW84c0CNh2yOQzvLE2n+KaVlA/pnLKRi5hvIhMdFWLtSJ/n
-	nFi4aM3BvgbwEvK26dzrmCzJsu0j9OISW6H/MtpAs01lV/6YwhKIMf7VK51eh4DK9FTS1z4hSt4MB
-	Zt+0/QE3UqKGwa0Zgdu+eD+QUltdPO60mt8A9V6zjDBrTdBlpWoVGgrt+GPpVppZLQeo4iQj0djRe
-	P5USIsFA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=evvvyP/OKd2fJDyuGyXpHOJp4BcPx4RPshgQ4DXTQD4=; b=ryHqX9ReDEBNHWTls82biRvsdX
+	hxFRYqJWuxGGLfWOrlpDAxSId3Wt0lO8TBV04p/9RVilbajGwgPNNpxGNZKJaeaF1KwLWeJcgCRkA
+	MVkcq+dDGsTKl+NN7CT54QTUPQf4DdzcdC5s2USb8H4B/BATWXmaF6SY8iknxH5VtEPg05ic2HJer
+	sKtJLjHvCzwuQva8AT336xSIO9S1WaXEMpYeapsdlPx9Tt2n6XYNrI8+lFxcmjCWU1V9thiNjziOV
+	dX2+U6A4nR8IK27vNuw15sELuSyDbpAavB5txhR9bM3I261q+J1WCnqd8tvQ2CTTRS40K2fN5Pk3R
+	ZA+Rvn2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8Q-0000000BwfR-46HL;
-	Thu, 13 Mar 2025 17:14:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsm8V-0000000BwlL-37s9;
+	Thu, 13 Mar 2025 17:14:23 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsl7x-0000000BlVs-2sXT
+	id 1tslCf-0000000Bmoc-1yyx
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:09:47 +0000
+	Thu, 13 Mar 2025 16:14:38 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 1C34A5C5F46;
-	Thu, 13 Mar 2025 16:07:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id F36DAC4CEDD;
-	Thu, 13 Mar 2025 16:09:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1741882184;
-	bh=2cT23okRnmD4LXRy0YNrLoizvYStdSbyQwI1mNFz3SE=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=bDqDL+6czrLcxs666RfupMkcTwKxSNkLI1UUqcjKCCnbG1+cncXYZ4ZTY2DqxOLG/
-	 GNzESoRmvmdflqm1qYUwLU03qSBcWPg7AHmTeyF6X4Do5l3/+rveFxn2ihQvvAjhLx
-	 zHrmLeidneKhGRMOfzzVnug9DtlfeppcajNQtb4w=
-Subject: Patch "KVM: arm64: Refactor exit handlers" has been added to the 6.13-stable tree
-To: broonie@kernel.org,catalin.marinas@arm.com,gregkh@linuxfoundation.org,joey.gouly@arm.com,kvmarm@lists.linux.dev,linux-arm-kernel@lists.infradead.org,mark.rutland@arm.com,maz@kernel.org,oliver.upton@linux.dev,suzuki.poulose@arm.com,tabba@google.com,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Thu, 13 Mar 2025 17:09:29 +0100
-In-Reply-To: <20250312-stable-sve-6-13-v1-6-c7ba07a6f4f7@kernel.org>
-Message-ID: <2025031329-runny-graveness-71eb@gregkh>
+	by nyc.source.kernel.org (Postfix) with ESMTP id 50AD3A474BF;
+	Thu, 13 Mar 2025 16:09:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2510C4CEDD;
+	Thu, 13 Mar 2025 16:14:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741882475;
+	bh=ivXaovMXFkHRDnIc2B3mYOHIjoMxZWzDfaRmCccBPHw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=bmdwz3DfqVK/2LgcxeGvzyz3uBN4tuCsJKdf9qsxNrO7rIBQoqqyvZRBob6XYjzai
+	 DhvEH9bAkd5LG45bgr2nbTPSFw5yEKEIx/pWdaLB6KjvL/LebIwyhPseaYTks9m2yz
+	 ktkLZ6h7wO5iGwwE5rRLCkCu1atbJm5Y1e79HY/RSSrUnZLtX0iFtSHswUPJL0w2G7
+	 hFwS6WYfJPizwxHYa67aNte+a+ffyFxRaY0CbVrYfW/4uKK4d4udq44eo4cv8E39bo
+	 Bxjb2HQHa5CxMyndA36s5221bo5r8JWMfHEcqgWJCFaIj2unMhSdjG3fPaoVpV/Doe
+	 S04bpru+hueSQ==
+From: Philipp Stanner <phasta@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Yanteng Si <si.yanteng@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yinggang Gu <guyinggang@loongson.cn>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Philipp Stanner <pstanner@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Philipp Stanner <phasta@kernel.org>
+Subject: [PATCH net-next 0/3] Clean up deprecated PCI calls
+Date: Thu, 13 Mar 2025 17:14:20 +0100
+Message-ID: <20250313161422.97174-2-phasta@kernel.org>
+X-Mailer: git-send-email 2.48.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
 Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_090945_852757_4609C154 
-X-CRM114-Status: GOOD (  26.97  )
+X-CRM114-CacheID: sfid-20250313_091437_576729_DF200844 
+X-CRM114-Status: UNSURE (   5.91  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,218 +84,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Spiritual successor of this older series, of which one patch has already
+been merged [1]
 
-This is a note to let you know that I've just added the patch titled
+P.
 
-    KVM: arm64: Refactor exit handlers
+[1] https://lore.kernel.org/netdev/20250226085208.97891-1-phasta@kernel.org/
 
-to the 6.13-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+Philipp Stanner (3):
+  stmmac: loongson: Remove surplus loop
+  stmmac: Remove pcim_* functions for driver detach
+  stmmac: Replace deprecated PCI functions
 
-The filename of the patch is:
-     kvm-arm64-refactor-exit-handlers.patch
-and it can be found in the queue-6.13 subdirectory.
+ .../ethernet/stmicro/stmmac/dwmac-loongson.c  | 27 +++++--------------
+ .../net/ethernet/stmicro/stmmac/stmmac_pci.c  | 26 +++++-------------
+ 2 files changed, 13 insertions(+), 40 deletions(-)
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
+-- 
+2.48.1
 
-
-From broonie@kernel.org Thu Mar 13 00:49:47 2025
-From: Mark Brown <broonie@kernel.org>
-Date: Wed, 12 Mar 2025 23:49:14 +0000
-Subject: KVM: arm64: Refactor exit handlers
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,  Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,  Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,  linux-kernel@vger.kernel.org, stable@vger.kernel.org,  Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>,  Fuad Tabba <tabba@google.com>
-Message-ID: <20250312-stable-sve-6-13-v1-6-c7ba07a6f4f7@kernel.org>
-
-From: Mark Rutland <mark.rutland@arm.com>
-
-[ Upstream commit 9b66195063c5a145843547b1d692bd189be85287 ]
-
-The hyp exit handling logic is largely shared between VHE and nVHE/hVHE,
-with common logic in arch/arm64/kvm/hyp/include/hyp/switch.h. The code
-in the header depends on function definitions provided by
-arch/arm64/kvm/hyp/vhe/switch.c and arch/arm64/kvm/hyp/nvhe/switch.c
-when they include the header.
-
-This is an unusual header dependency, and prevents the use of
-arch/arm64/kvm/hyp/include/hyp/switch.h in other files as this would
-result in compiler warnings regarding missing definitions, e.g.
-
-| In file included from arch/arm64/kvm/hyp/nvhe/hyp-main.c:8:
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:733:31: warning: 'kvm_get_exit_handler_array' used but never defined
-|   733 | static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu);
-|       |                               ^~~~~~~~~~~~~~~~~~~~~~~~~~
-| ./arch/arm64/kvm/hyp/include/hyp/switch.h:735:13: warning: 'early_exit_filter' used but never defined
-|   735 | static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code);
-|       |             ^~~~~~~~~~~~~~~~~
-
-Refactor the logic such that the header doesn't depend on anything from
-the C files. There should be no functional change as a result of this
-patch.
-
-Signed-off-by: Mark Rutland <mark.rutland@arm.com>
-Reviewed-by: Mark Brown <broonie@kernel.org>
-Tested-by: Mark Brown <broonie@kernel.org>
-Acked-by: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Fuad Tabba <tabba@google.com>
-Cc: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-Link: https://lore.kernel.org/r/20250210195226.1215254-7-mark.rutland@arm.com
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Signed-off-by: Mark Brown <broonie@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/kvm/hyp/include/hyp/switch.h |   30 ++++++------------------------
- arch/arm64/kvm/hyp/nvhe/switch.c        |   28 ++++++++++++++++------------
- arch/arm64/kvm/hyp/vhe/switch.c         |    9 ++++-----
- 3 files changed, 26 insertions(+), 41 deletions(-)
-
---- a/arch/arm64/kvm/hyp/include/hyp/switch.h
-+++ b/arch/arm64/kvm/hyp/include/hyp/switch.h
-@@ -666,23 +666,16 @@ static bool kvm_hyp_handle_dabt_low(stru
- 
- typedef bool (*exit_handler_fn)(struct kvm_vcpu *, u64 *);
- 
--static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu);
--
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code);
--
- /*
-  * Allow the hypervisor to handle the exit with an exit handler if it has one.
-  *
-  * Returns true if the hypervisor handled the exit, and control should go back
-  * to the guest, or false if it hasn't.
-  */
--static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool kvm_hyp_handle_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-+				       const exit_handler_fn *handlers)
- {
--	const exit_handler_fn *handlers = kvm_get_exit_handler_array(vcpu);
--	exit_handler_fn fn;
--
--	fn = handlers[kvm_vcpu_trap_get_class(vcpu)];
--
-+	exit_handler_fn fn = handlers[kvm_vcpu_trap_get_class(vcpu)];
- 	if (fn)
- 		return fn(vcpu, exit_code);
- 
-@@ -712,20 +705,9 @@ static inline void synchronize_vcpu_psta
-  * the guest, false when we should restore the host state and return to the
-  * main run loop.
-  */
--static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool __fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code,
-+				      const exit_handler_fn *handlers)
- {
--	/*
--	 * Save PSTATE early so that we can evaluate the vcpu mode
--	 * early on.
--	 */
--	synchronize_vcpu_pstate(vcpu, exit_code);
--
--	/*
--	 * Check whether we want to repaint the state one way or
--	 * another.
--	 */
--	early_exit_filter(vcpu, exit_code);
--
- 	if (ARM_EXCEPTION_CODE(*exit_code) != ARM_EXCEPTION_IRQ)
- 		vcpu->arch.fault.esr_el2 = read_sysreg_el2(SYS_ESR);
- 
-@@ -755,7 +737,7 @@ static inline bool fixup_guest_exit(stru
- 		goto exit;
- 
- 	/* Check if there's an exit handler and allow it to handle the exit. */
--	if (kvm_hyp_handle_exit(vcpu, exit_code))
-+	if (kvm_hyp_handle_exit(vcpu, exit_code, handlers))
- 		goto guest;
- exit:
- 	/* Return to the host kernel and handle the exit */
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -224,19 +224,21 @@ static const exit_handler_fn *kvm_get_ex
- 	return hyp_exit_handlers;
- }
- 
--/*
-- * Some guests (e.g., protected VMs) are not be allowed to run in AArch32.
-- * The ARMv8 architecture does not give the hypervisor a mechanism to prevent a
-- * guest from dropping to AArch32 EL0 if implemented by the CPU. If the
-- * hypervisor spots a guest in such a state ensure it is handled, and don't
-- * trust the host to spot or fix it.  The check below is based on the one in
-- * kvm_arch_vcpu_ioctl_run().
-- *
-- * Returns false if the guest ran in AArch32 when it shouldn't have, and
-- * thus should exit to the host, or true if a the guest run loop can continue.
-- */
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
-+static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
-+	const exit_handler_fn *handlers = kvm_get_exit_handler_array(vcpu);
-+
-+	synchronize_vcpu_pstate(vcpu, exit_code);
-+
-+	/*
-+	 * Some guests (e.g., protected VMs) are not be allowed to run in
-+	 * AArch32.  The ARMv8 architecture does not give the hypervisor a
-+	 * mechanism to prevent a guest from dropping to AArch32 EL0 if
-+	 * implemented by the CPU. If the hypervisor spots a guest in such a
-+	 * state ensure it is handled, and don't trust the host to spot or fix
-+	 * it.  The check below is based on the one in
-+	 * kvm_arch_vcpu_ioctl_run().
-+	 */
- 	if (unlikely(vcpu_is_protected(vcpu) && vcpu_mode_is_32bit(vcpu))) {
- 		/*
- 		 * As we have caught the guest red-handed, decide that it isn't
-@@ -249,6 +251,8 @@ static void early_exit_filter(struct kvm
- 		*exit_code &= BIT(ARM_EXIT_WITH_SERROR_BIT);
- 		*exit_code |= ARM_EXCEPTION_IL;
- 	}
-+
-+	return __fixup_guest_exit(vcpu, exit_code, handlers);
- }
- 
- /* Switch to the guest for legacy non-VHE systems */
---- a/arch/arm64/kvm/hyp/vhe/switch.c
-+++ b/arch/arm64/kvm/hyp/vhe/switch.c
-@@ -423,13 +423,10 @@ static const exit_handler_fn hyp_exit_ha
- 	[ESR_ELx_EC_MOPS]		= kvm_hyp_handle_mops,
- };
- 
--static const exit_handler_fn *kvm_get_exit_handler_array(struct kvm_vcpu *vcpu)
-+static inline bool fixup_guest_exit(struct kvm_vcpu *vcpu, u64 *exit_code)
- {
--	return hyp_exit_handlers;
--}
-+	synchronize_vcpu_pstate(vcpu, exit_code);
- 
--static void early_exit_filter(struct kvm_vcpu *vcpu, u64 *exit_code)
--{
- 	/*
- 	 * If we were in HYP context on entry, adjust the PSTATE view
- 	 * so that the usual helpers work correctly.
-@@ -449,6 +446,8 @@ static void early_exit_filter(struct kvm
- 		*vcpu_cpsr(vcpu) &= ~(PSR_MODE_MASK | PSR_MODE32_BIT);
- 		*vcpu_cpsr(vcpu) |= mode;
- 	}
-+
-+	return __fixup_guest_exit(vcpu, exit_code, hyp_exit_handlers);
- }
- 
- /* Switch to the guest for VHE systems running in EL2 */
-
-
-Patches currently in stable-queue which might be from broonie@kernel.org are
-
-queue-6.13/kvm-arm64-remove-host-fpsimd-saving-for-non-protected-kvm.patch
-queue-6.13/kvm-arm64-mark-some-header-functions-as-inline.patch
-queue-6.13/kvm-arm64-eagerly-switch-zcr_el-1-2.patch
-queue-6.13/kvm-arm64-unconditionally-save-flush-host-fpsimd-sve-sme-state.patch
-queue-6.13/kvm-arm64-refactor-exit-handlers.patch
-queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.zen.patch
-queue-6.13/kvm-arm64-remove-vhe-host-restore-of-cpacr_el1.smen.patch
-queue-6.13/kvm-arm64-calculate-cptr_el2-traps-on-activating-traps.patch
 
