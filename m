@@ -4,69 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3C3DC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEE1CC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:48:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DK4f3dZBX11nTStRxhEpXUGBPzmaq6P/NqP3tDErr5w=; b=jLNokDyjtH5FnFaqZq4xLqvRMn
-	7MBuLHeID62d5qHhNl8uPgCUDmpy2PZ26TEg9LAn+u70JN0DMHR3pyoFVsoiD8WtdkdSSEEUKdk4W
-	t1YYV8WlJwKzyjxzmistighSRYAE/idN9Ybhs86WSXaMJA3p08jvqwJ+S9cYDtPqh7MHFiBZnZvc6
-	Adknd4Bf2YkBwmQURh+1Tw55BDCPKpPZ00uArmFdBE1ikWB8UVPPuTj31u0jnpiDlK0lIlzhBLY8l
-	PxJPSs7eL+3U4XQSwjR6EuTinNS0HOsG4rrUcCacfkrq3ap0JfNeiidrkoKFq+n8zgO5gfvi5ulgi
-	LHhPnB2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=weOhNTocqMWkV4mh4HfuZvoaWYclgVYAQAFMBUCSfGw=; b=YHF+uxc20oN/AfJHxM+J+NeJXu
+	OIj6xl7cYjhBFprJE4jPhqY+0/Lrc3Cs6ptUsx62KSexrbVMBQfY48lNC4Zo60H0X6L5NLx1pXj+j
+	oZqNrawXBF5PQwSH2R9/P9+y8w/AjZIMwO3ysEPOS1hI3c4yXwlkGSuQPACjV4xcawT3Cd/L3V52V
+	6GO9vPtxqegqx3TtJaE3eC6pqxSo/v+bJO3nVLTjvdthMdqXV7bt8r2LG6NG5e7b999kagKMM2hrW
+	X6JGCu98Z5fi0H19mI3Rr68pS+B5rLVG4MaOJxoQl2Z6l0fFnbhfeWgvdHa+AMtgUyV8RycQYnp+Q
+	LJiQhBLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseDT-0000000Aaw3-12WX;
-	Thu, 13 Mar 2025 08:46:59 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tseF6-0000000Ab5y-1Ttf;
+	Thu, 13 Mar 2025 08:48:40 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseAY-0000000AaVH-46S4
+	id 1tseC3-0000000Aakd-2529
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 08:44:00 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tseAQ-0000KT-Qn; Thu, 13 Mar 2025 09:43:50 +0100
-Received: from lupine.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::4e] helo=lupine)
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tseAP-005VQo-17;
-	Thu, 13 Mar 2025 09:43:49 +0100
-Received: from pza by lupine with local (Exim 4.96)
-	(envelope-from <p.zabel@pengutronix.de>)
-	id 1tseAP-0003az-0x;
-	Thu, 13 Mar 2025 09:43:49 +0100
-Message-ID: <5824eaa53054cfd9886c6ba745bd5cd8914c26c0.camel@pengutronix.de>
-Subject: Re: [PATCH] dt-bindings: reset: fix double id on rk3562-cru reset
- ids
-From: Philipp Zabel <p.zabel@pengutronix.de>
-To: Heiko Stuebner <heiko@sntech.de>, sboyd@kernel.org,
- mturquette@baylibre.com
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	kever.yang@rock-chips.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, kernel test robot
-	 <lkp@intel.com>
-Date: Thu, 13 Mar 2025 09:43:49 +0100
-In-Reply-To: <20250312215923.275625-1-heiko@sntech.de>
-References: <20250312215923.275625-1-heiko@sntech.de>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.46.4-2 
+	Thu, 13 Mar 2025 08:45:32 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CLTIoO023249;
+	Thu, 13 Mar 2025 08:45:19 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	weOhNTocqMWkV4mh4HfuZvoaWYclgVYAQAFMBUCSfGw=; b=Gomj9xJPCHYtMKiJ
+	kvRw7zKf3tLe9ypJTI9T/QdNyDKCkKrNNgKPbVuX3RwQMbBl2h9cDzbUewg9VkRC
+	SG8Gw3Buoc1BFOLOPSpznCVCl7G/chmDz9ggwbkMtc6fxqeMWQswkvRwwflWFt/s
+	1mR9mvt3fJ5uIBq+utxlZuzjyTsMVXXPgrTv5/qzOf+5uY40NFORn+jlVT79dbP4
+	PRPOpZZrNhIOe0lDUDT6H4dYUfb+pFRk4+4YnlIQSv9d5vmJsM4SUQu3DWNBy6O+
+	2UT4E5srxbSnbHdfFG3giApthSu+n9gd9u1kq3fAJeW4YkAD7ZOUfkaKQH55PCd4
+	2nvCrA==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2mn5ws-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 08:45:19 +0000 (GMT)
+Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52D8jIpD024973
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 08:45:18 GMT
+Received: from [10.217.216.178] (10.80.80.8) by nalasex01a.na.qualcomm.com
+ (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 13 Mar
+ 2025 01:45:13 -0700
+Message-ID: <4f3161da-a11b-464f-bf78-45c830b2ea82@quicinc.com>
+Date: Thu, 13 Mar 2025 14:15:10 +0530
 MIME-Version: 1.0
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: p.zabel@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 04/10] dt-bindings: clock: Add Qualcomm QCS615 Display
+ clock controller
+To: Krzysztof Kozlowski <krzk@kernel.org>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Michael Turquette
+	<mturquette@baylibre.com>,
+        Stephen Boyd <sboyd@kernel.org>, Rob Herring
+	<robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+	<conor+dt@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon
+	<will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
+        Imran Shaik
+	<quic_imrashai@quicinc.com>,
+        Jagadeesh Kona <quic_jkona@quicinc.com>,
+        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>
+References: <20250313-qcs615-v5-mm-cc-v6-0-ebf4b9a5e916@quicinc.com>
+ <20250313-qcs615-v5-mm-cc-v6-4-ebf4b9a5e916@quicinc.com>
+ <20250313-mottled-quoll-of-vastness-3f3c6b@krzk-bin>
+Content-Language: en-US
+From: Taniya Das <quic_tdas@quicinc.com>
+In-Reply-To: <20250313-mottled-quoll-of-vastness-3f3c6b@krzk-bin>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01a.na.qualcomm.com (10.47.209.196)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-GUID: cgUiPEMaa_Ew-ApOw3iL_h4kRXSyDY0B
+X-Authority-Analysis: v=2.4 cv=aKnwqa9m c=1 sm=1 tr=0 ts=67d29b1f cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=nJrBSJ152xCAXF4FcqMA:9 a=QEXdDO2ut3YA:10
+X-Proofpoint-ORIG-GUID: cgUiPEMaa_Ew-ApOw3iL_h4kRXSyDY0B
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-13_04,2025-03-11_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 clxscore=1015
+ adultscore=0 malwarescore=0 priorityscore=1501 phishscore=0 spamscore=0
+ bulkscore=0 lowpriorityscore=0 impostorscore=0 mlxscore=0 suspectscore=0
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503130068
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_014359_039815_0B87CECA 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250313_014531_561331_6068ED37 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,44 +119,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mi, 2025-03-12 at 22:59 +0100, Heiko Stuebner wrote:
-> Id 173 was accidentially used two times for SRST_P_DDR_HWLP and
-> SRST_P_DDR_PHY. This makes both resets ambiguous and also causes build
-> warnings like:
->=20
-> drivers/clk/rockchip/rst-rk3562.c:21:57: error: initialized field overwri=
-tten [-Werror=3Doverride-init]
->    21 | #define RK3562_DDRCRU_RESET_OFFSET(id, reg, bit) [id] =3D (0x2000=
-0*4 + reg * 16 + bit)
->       |                                                         ^
-> drivers/clk/rockchip/rst-rk3562.c:266:9: note: in expansion of macro 'RK3=
-562_DDRCRU_RESET_OFFSET'
->   266 |         RK3562_DDRCRU_RESET_OFFSET(SRST_P_DDR_PHY, 0, 8),
->       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
-> drivers/clk/rockchip/rst-rk3562.c:21:57: note: (near initialization for '=
-rk3562_register_offset[173]')
->    21 | #define RK3562_DDRCRU_RESET_OFFSET(id, reg, bit) [id] =3D (0x2000=
-0*4 + reg * 16 + bit)
->       |                                                         ^
-> drivers/clk/rockchip/rst-rk3562.c:266:9: note: in expansion of macro 'RK3=
-562_DDRCRU_RESET_OFFSET'
->   266 |         RK3562_DDRCRU_RESET_OFFSET(SRST_P_DDR_PHY, 0, 8),
->       |         ^~~~~~~~~~~~~~~~~~~~~~~~~~
->=20
-> To fix that issue give SRST_P_DDR_PHY a new and now unique id.
->=20
-> Reported-by: Stephen Boyd <sboyd@kernel.org>
-> Reported-by: kernel test robot <lkp@intel.com>
-> Closes: https://lore.kernel.org/oe-kbuild-all/202503121743.0zcDf6nE-lkp@i=
-ntel.com/
-> Fixes: dd113c4fefc8 ("dt-bindings: clock: Add RK3562 cru")
-> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> ---
-> The original patch did go with the reset of the clock controller code
-> into the clock tree, so this patch should of course also go that way.
 
-Acked-by: Philipp Zabel <p.zabel@pengutronix.de>
 
-regards
-Philipp
+On 3/13/2025 1:55 PM, Krzysztof Kozlowski wrote:
+> On Thu, Mar 13, 2025 at 12:29:41PM +0530, Taniya Das wrote:
+>> +required:
+>> +  - compatible
+>> +  - reg
+>> +  - clocks
+>> +  - '#clock-cells'
+>> +  - '#reset-cells'
+>> +  - '#power-domain-cells'
+> 
+> Also no qcom,gcc.yaml. Why?
+> 
+
+Sure, will fix the bindings across and resend the patches.
+
+> Best regards,
+> Krzysztof
+> 
+
 
