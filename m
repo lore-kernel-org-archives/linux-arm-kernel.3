@@ -4,53 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77921C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE64EC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:09:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+93ZydzSe4pbz4Se8FBVU9D4Tf1Anr1jH1qcF2iFcQg=; b=mspvnZcDwEk0MYptwtxXcCx/gk
-	Xw+semSc1poU82TS+BwMgZ2csvRobEkr/Dj+3osFgXM2H34TCboj9PLl7Gxm7DRdJFdqdU1o4BGyy
-	qVm5TGCkr64RRqH4tVcq8V6cPXXLkvCJriPgxEnFzsI649PoplN+V9e6Cv8fA8R/oDmx3Ukj2CfjG
-	xV22gWO3BhsZK19Lg6yS54CL7IO6eoG7iGf/Z1zh9lqfgS5wl+ZjSofCu3/X+4RBtXVJHC2dgdzbR
-	PmX3yDxFnDZMhYT6sY65QyuNvsBlIvI3WlwkzJYKPORBGysMmKZ4iMSbZ5faG78WKcamYfeDhN/SE
-	v/M8/a0A==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=rJC5Y1J545M7s4JWY4nLfITpYCnbwzsxZhfkYRnFCOM=; b=QQoW2i1b77iGotpU+yxOb3LN4w
+	lSYv5Q5FJW7dFFBXczvuXZLDu0bs8ogfnw9W7+5gOn8YqUM2LQ30Fzdm5QI5uMBJZp/hqq65YwDjW
+	/UYBAR0k+Qg4qeSducZeMnbidlZhjPZvPUx523dv+m2/jDiSCYuDgDvsWFCB8MfFzhZJP5entK3yr
+	P+3wJIACSel/L0XwUnN+bizxbZsUBuO9U4d+bsZpMP2wJlPanivSVsa8ok9/1h2F8XR48nMk2LLa8
+	Us6EuecnSttwUidZMLqu2NzrDEM59mwgONWKKVGhRVcBlN+gvOG47tKX6vHJDggHKxUNAQCl+B7F4
+	9BNUXmTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgPp-0000000AzY0-1I3S;
-	Thu, 13 Mar 2025 11:07:53 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tsgRT-0000000AzkR-0G2w;
+	Thu, 13 Mar 2025 11:09:35 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgMe-0000000AynR-04Qc
+	id 1tsgMj-0000000Aypb-0kct
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:04:37 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52D9591Z028516;
-	Thu, 13 Mar 2025 11:04:18 GMT
+	Thu, 13 Mar 2025 11:04:42 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52D92oCD018573;
+	Thu, 13 Mar 2025 11:04:27 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=+93ZydzSe4pbz4Se8FBVU9
-	D4Tf1Anr1jH1qcF2iFcQg=; b=OZBmUtyIOrjNdgh1BN1bKSmYO41UQJeaaRdXp+
-	5if60KsPmycOWIB8Dio6yB3+oU3MExsntGLAfgHBjX6mzrKWbz9MORUsahFgbUlV
-	9wvV/PyviVsSrgXsivNqLZdxjvq4kXYNohviX+msW2d2C8hk3h3LvhF9GsJ9RkEG
-	iCL0rBHN6DPo0goEiFk3auRSzWoNVhqAhgWJWgozxWT0cQQZa569BdD9Y6ezkQTO
-	0wwdpfvm69ISF7gD/clocikRYjr8J7r2oH7C+GoAkq5O6x9HydWAq2hc95no5kxR
-	FXkgRA8klfrdr1vMbPsNQ6/RP7VjcfVKBKcPPSGdI3d1ZsRw==
-Received: from nalasppmta01.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2pwkbd-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	rJC5Y1J545M7s4JWY4nLfITpYCnbwzsxZhfkYRnFCOM=; b=XJ4lTBeRYWX7d/JW
+	yKHmt91APBvDw8pb+TV6Ejer1yLEG+n2f0ggTRFc4M8wWF64gawOehGnqYgPkzW3
+	cRhhdMJGMzQEoTjGjyoBUzMdcU7lSIX2zLWJDvf9t5qJPi07GqHYRtIiEp2XwtqS
+	yqUp2LKiJixeZPQaQ36xRFaEuGbqnBEOx1pB5Ro4sdsF3YMJi6aJNyL8Ae3v3G3y
+	u4loryQEhdZh2zOIj6lK7UjS6W3cMxpW9gP4OnR8Vdz0WgyiC0Px7Ea16hU9pjuW
+	IMDZ3xV4H3V1LxjAfV6VYhB9cAjKGnr4khU2pt6tQ6J1yPzLioIzhB+mW3hrQljk
+	ugix7g==
+Received: from nalasppmta04.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2nwn47-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 11:04:18 +0000 (GMT)
+	Thu, 13 Mar 2025 11:04:26 +0000 (GMT)
 Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52DB4HMO009116
+	by NALASPPMTA04.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52DB4Pps012843
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 11:04:17 GMT
+	Thu, 13 Mar 2025 11:04:25 GMT
 Received: from hu-mmanikan-blr.qualcomm.com (10.80.80.8) by
  nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 13 Mar 2025 04:04:08 -0700
+ 15.2.1544.9; Thu, 13 Mar 2025 04:04:17 -0700
 From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
 To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
         <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
@@ -65,10 +66,12 @@ To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
         <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
 CC: <quic_varada@quicinc.com>, <quic_srichara@quicinc.com>
-Subject: [PATCH v12 0/6] Add NSS clock controller support for IPQ9574
-Date: Thu, 13 Mar 2025 16:33:53 +0530
-Message-ID: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+Subject: [PATCH v12 1/6] dt-bindings: clock: gcc-ipq9574: Add definition for GPLL0_OUT_AUX
+Date: Thu, 13 Mar 2025 16:33:54 +0530
+Message-ID: <20250313110359.242491-2-quic_mmanikan@quicinc.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+References: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
@@ -77,22 +80,22 @@ X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
  nalasex01a.na.qualcomm.com (10.47.209.196)
 X-QCInternal: smtphost
 X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=P506hjAu c=1 sm=1 tr=0 ts=67d2bbb2 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=3uq4IZcbrjxfy09u4asA:9
- a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: 2EC1nRsHT1cgsw1FUgsX3ig_-SKTz7s7
-X-Proofpoint-ORIG-GUID: 2EC1nRsHT1cgsw1FUgsX3ig_-SKTz7s7
+X-Proofpoint-GUID: 4ImIbWJab_CsPDjxb3LQNOoiYuw1783n
+X-Authority-Analysis: v=2.4 cv=Q4XS452a c=1 sm=1 tr=0 ts=67d2bbba cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=IwLmq7QtXm7yytfiWV8A:9 a=TjNXssC_j7lpFel5tvFf:22
+ a=cvBusfyB2V15izCimMoJ:22
+X-Proofpoint-ORIG-GUID: 4ImIbWJab_CsPDjxb3LQNOoiYuw1783n
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
  definitions=2025-03-13_05,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 clxscore=1011 phishscore=0
- mlxscore=0 spamscore=0 bulkscore=0 priorityscore=1501 impostorscore=0
- suspectscore=0 malwarescore=0 mlxlogscore=838 lowpriorityscore=0
- adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
- adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 adultscore=0
+ lowpriorityscore=0 mlxscore=0 clxscore=1011 phishscore=0 malwarescore=0
+ spamscore=0 impostorscore=0 bulkscore=0 suspectscore=0 priorityscore=1501
+ classifier=spam authscore=0 authtc=n/a authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2502280000
  definitions=main-2503130087
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_040436_060953_87D53740 
-X-CRM114-Status: GOOD (  11.89  )
+X-CRM114-CacheID: sfid-20250313_040441_338062_1D35CD2C 
+X-CRM114-Status: GOOD (  10.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,75 +110,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add bindings, driver and devicetree node for networking sub system clock
-controller on IPQ9574. Also add support for gpll0_out_aux clock
-which serves as the parent for some nss clocks.
+From: Devi Priya <quic_devipriy@quicinc.com>
 
+Add the definition for GPLL0_OUT_AUX clock.
+
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
+Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+---
 Changes in V12:
-	- nsscc driver
-		- Pick up R-b tag.
-	- dtsi
-		- Pick up R-b tag.
-	- defconfig
-		- Pick up R-b tag.
-	- Rebased on linux-next tip.
+	- No change.
 
-V11 can be found at:
-https://lore.kernel.org/linux-arm-msm/20250226075449.136544-1-quic_mmanikan@quicinc.com/
+ include/dt-bindings/clock/qcom,ipq9574-gcc.h | 1 +
+ 1 file changed, 1 insertion(+)
 
-V10 can be found at:
-https://lore.kernel.org/linux-arm-msm/20250221101426.776377-1-quic_mmanikan@quicinc.com/
-
-V9 can be found at:
-https://lore.kernel.org/linux-arm-msm/20250207073926.2735129-1-quic_mmanikan@quicinc.com/
-
-V8 can be found at:
-https://lore.kernel.org/linux-arm-msm/20241025035520.1841792-1-quic_mmanikan@quicinc.com/
-
-V7 can be found at:
-https://lore.kernel.org/linux-arm-msm/20241009074125.794997-1-quic_mmanikan@quicinc.com/
-
-V6 can be found at:
-https://lore.kernel.org/linux-arm-msm/20241004080332.853503-1-quic_mmanikan@quicinc.com/
-
-V5 can be found at:
-https://lore.kernel.org/linux-arm-msm/20240626143302.810632-1-quic_devipriy@quicinc.com/
-
-V4 can be found at:
-https://lore.kernel.org/linux-arm-msm/20240625070536.3043630-1-quic_devipriy@quicinc.com/
-
-V3 can be found at:
-https://lore.kernel.org/linux-arm-msm/20240129051104.1855487-1-quic_devipriy@quicinc.com/
-
-V2 can be found at:
-https://lore.kernel.org/linux-arm-msm/20230825091234.32713-1-quic_devipriy@quicinc.com/
-
-Devi Priya (6):
-  dt-bindings: clock: gcc-ipq9574: Add definition for GPLL0_OUT_AUX
-  clk: qcom: gcc-ipq9574: Add support for gpll0_out_aux clock
-  dt-bindings: clock: Add ipq9574 NSSCC clock and reset definitions
-  clk: qcom: Add NSS clock Controller driver for IPQ9574
-  arm64: dts: qcom: ipq9574: Add nsscc node
-  arm64: defconfig: Build NSS Clock Controller driver for IPQ9574
-
- .../bindings/clock/qcom,ipq9574-nsscc.yaml    |   98 +
- arch/arm64/boot/dts/qcom/ipq9574.dtsi         |   29 +
- arch/arm64/configs/defconfig                  |    1 +
- drivers/clk/qcom/Kconfig                      |    7 +
- drivers/clk/qcom/Makefile                     |    1 +
- drivers/clk/qcom/gcc-ipq9574.c                |   15 +
- drivers/clk/qcom/nsscc-ipq9574.c              | 3110 +++++++++++++++++
- include/dt-bindings/clock/qcom,ipq9574-gcc.h  |    1 +
- .../dt-bindings/clock/qcom,ipq9574-nsscc.h    |  152 +
- .../dt-bindings/reset/qcom,ipq9574-nsscc.h    |  134 +
- 10 files changed, 3548 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml
- create mode 100644 drivers/clk/qcom/nsscc-ipq9574.c
- create mode 100644 include/dt-bindings/clock/qcom,ipq9574-nsscc.h
- create mode 100644 include/dt-bindings/reset/qcom,ipq9574-nsscc.h
-
-
-base-commit: 9fbcd7b32bf7c0a5bda0f22c25df29d00a872017
+diff --git a/include/dt-bindings/clock/qcom,ipq9574-gcc.h b/include/dt-bindings/clock/qcom,ipq9574-gcc.h
+index f238aa4794a8..0e7c319897f3 100644
+--- a/include/dt-bindings/clock/qcom,ipq9574-gcc.h
++++ b/include/dt-bindings/clock/qcom,ipq9574-gcc.h
+@@ -202,4 +202,5 @@
+ #define GCC_PCIE1_PIPE_CLK				211
+ #define GCC_PCIE2_PIPE_CLK				212
+ #define GCC_PCIE3_PIPE_CLK				213
++#define GPLL0_OUT_AUX					214
+ #endif
 -- 
 2.34.1
 
