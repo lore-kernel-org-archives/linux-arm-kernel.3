@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A01BC35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:31:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91620C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:33:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5WzYhFz75MYyGJKrN0oKx4Q271RmkLAfslHRzunJQ/g=; b=xQcUgGRvCAU+Y6kD5epBGtDd0t
-	9h4mqa2hhrmUuHgsYeUPbm/oOfUgh5G+UwTLGCp9ICbuAmvw6X3CdLpRG8nRneAVohw+Tk2RKoYRk
-	dyPikTAIKJohisDXmft3pCwHCv1yFab4lwpu84y+xyTLyID3zbFyN/rIrHQ0pcBPwZB4SDhIYRzgv
-	BX9pZIekdSjBXTcwqzoZ7vetdMIP7CiXf68O7uOgo5nkkSt+gAW3PMe2uNdY+LwPp91MSCy8NRbRp
-	DetG2NfbRFefcBPjduO1JfBbo9hc2Ml790sAoM2q7k8V+lcs111dDiqQgL0de4tZu9ToezuE9G673
-	+RbAfE3w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wInLS8J+wE7Mh+XocCbLIXnZEs/dRwFY6sut2f8KufA=; b=mS1vtue2B9lJVdil6ZutIPZ+5h
+	SezdBDD7tQRu5dS7tyl/oZT/4GS62BWE7DC6qGuwoBmhE/UVHVFCfvKdoguFdvVAzJuUN3qK0ymM5
+	lCM1g2U6HPvAQu55XQKNMwTH3hm0Cs1lmoEQ4hQ4qSEAt1cxu9EbrLbH3pcrGk+5arFFGwaN5NEfO
+	MwXoXcSV+MAsrLK5Be6k5yTBA7etJe3GExwBYhEG2TZ/Qs1jQablqWFTK79AVdmngI21woPvmdutF
+	yeynykdhMtF2veoZ5KgwErJVR26qctkpvcGQ1kZUKG/z9MnR4ZvVG9fS9ndXVIyeOFYrmoWiYCHo+
+	PH+7tUxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoHK-0000000CKle-0qEz;
-	Thu, 13 Mar 2025 19:31:38 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1tsoIx-0000000CL2r-3fVh;
+	Thu, 13 Mar 2025 19:33:19 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoFe-0000000CKSo-0cob
+	id 1tsoGn-0000000CKdt-2VFN
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 19:29:55 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-22401f4d35aso28956145ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 12:29:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741894193; x=1742498993; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5WzYhFz75MYyGJKrN0oKx4Q271RmkLAfslHRzunJQ/g=;
-        b=PKekWYxVSaNhM5pCZNfG6ITSCA5ltbxYqCAeEyHUUul2bLPuXlLV8/+DuoHPSMp0YC
-         nP/Ilk359OCfuYZFerFl09TwWBtFgIqn1sx3hQqSsV2jYWrUtYvG/33p72jDB21VivFt
-         PFhuG4RVZq5JiwJitN0I8/Y44m25RSU/AS4u+T7sHrjhLEr85Y4bsH/CxaTlQ2MlrYq2
-         lormv/iZl3SkZ4BwJffBvaKR8aVhCvKj8cGh49RzEj/fcVUsqioDNeBc9EI+OwTG5dI0
-         c8Jnnx770KFMExcATmy6/B1MCRufAZbjkFVWLEMl58IjMJDsCgGg7qrI0ikcwD/rRcZF
-         zUGw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741894193; x=1742498993;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5WzYhFz75MYyGJKrN0oKx4Q271RmkLAfslHRzunJQ/g=;
-        b=LifH6eRZhy5kv0af0ejRltGQq6d09YFiKQXr1T9y4dpYyZrPE9bzRRF393RG5xR8YT
-         LHl9EWJiCKqLU44pzAQkmeiTwklbX0m4CIl65Me5RVbyBpplX6fBcVJUNxkZ29TbQf4L
-         PE7j1dO7TCvWaP39o8o6d486zl+2MFL+gP/5FgBYLhoB9XKsJx0p0F3bzP2vVPW/kF9B
-         YS4REgfcu3Y1GFVHL0moL6GrRtOBhSIBA9jdM5PaeKhHiEAd4TvctEeNf2+P48T5MAIs
-         YO1nC6UP5CFYsFQL0QjEjpunMHTeumoVXu6z3Bk7wNKe6k+RgSBKnWsKnYPE1aVpS1T9
-         ffsw==
-X-Forwarded-Encrypted: i=1; AJvYcCUeav2i59ELc+5Bb95hMgK7UMvIkGwfa8BxSO0yMyCTaHjUNZtWSfLb3C7rpvZEZNFf32Wpx+1ApfhGIUondr73@lists.infradead.org
-X-Gm-Message-State: AOJu0YxPZIvpF3IInwPLB0UvceRk0A5G1OXs9NblwcRb29DvEAoxg6BZ
-	rJ7H1ey3DzZj+JE7GgtMsaGGL1A5oVfpcUfLEcFvUiWcvHugfXuvON56JQ==
-X-Gm-Gg: ASbGncvGJxUqvzrOQgkJphrLDvkvHYgO6lKgfn9YkwpR9dRcTWCLz02SP1ndEEMDhY9
-	yPfplSSy8eG4yVrmQgZXlwwHZIt5pvldtyjG1Xthka2iwacovhnAh/tDYGvzimM7GzoebdVyhQf
-	UsMycodu/DetMqW7C1A8IyPXrtk9xApwqyKusPgKEZuPjTQSN2uxt8zgmjRGUV0hB6SCBP4+1Mq
-	V8vmADX9XwbwASQhm2BE5SH/6673l9RBnt6gdQtdijY3J6rScEM75GMc93508c3hS4Mym0Hmay2
-	nNn/WoZ5TAkhP1hP+vs3NlqCnlNZtcwMnBSZa3gyOq2OB/B6ivhlGaV/3YDL7ExRNMAhMw==
-X-Google-Smtp-Source: AGHT+IEUgx2DVCYAAUuPSgRmUlBxQLiJVMReq3nG/oUsNMMokeDSasYT0i+P+p+CCrzyfd2fGdnh4A==
-X-Received: by 2002:a17:903:32d2:b0:220:ea90:191e with SMTP id d9443c01a7336-22592e2016fmr189900155ad.4.1741894193056;
-        Thu, 13 Mar 2025 12:29:53 -0700 (PDT)
-Received: from fabio-Precision-3551.. ([2804:14c:485:4b61:abab:f7ee:5b0a:8554])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba7280sm17114245ad.147.2025.03.13.12.29.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 13 Mar 2025 12:29:52 -0700 (PDT)
-From: Fabio Estevam <festevam@gmail.com>
-To: shawnguo@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	Fabio Estevam <festevam@gmail.com>
-Subject: [PATCH] ARM: dts: imx: Fix the iim compatible string
-Date: Thu, 13 Mar 2025 16:29:43 -0300
-Message-Id: <20250313192943.1547330-1-festevam@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 13 Mar 2025 19:31:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id AAD165C272E;
+	Thu, 13 Mar 2025 19:28:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAFF8C4CEDD;
+	Thu, 13 Mar 2025 19:31:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741894264;
+	bh=atuEPx6iJ0rL6pAp8s4JxhvT/PcR6fvU8+nzY8V+xV0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CSLkm0PEB/nEkfB+lJaIzvAQ7L1e9w7uj+UMZdHuZQCOB4iQpUXJdZmWmerWocpVx
+	 aE7FglW70BbEcvyN5HvQmj04tw4t6ybOZV+OeS1XI2T+tg7Qg1PPB/Mudzr8NIhZ5u
+	 /990C02GaqNbfKue+E5EY33t+nj2Y8V6ggKYwSwOyvvSuFIHywGBOOAsKRKJQTpWGg
+	 kv0aghyYMYOmbHgHJdZn2RM5K4y2QyNtRebzKQsQ6mFsnxtl1QOzrDFn9p/CZ0sLao
+	 beac0BkXH50LyxdJ6H+wPky6qMiQRrXHEXwKxMoyC0dPjk0aDxSgVkEeeaHg/gScZl
+	 OZIL2Ms5F0KyQ==
+Date: Thu, 13 Mar 2025 19:30:58 +0000
+From: Will Deacon <will@kernel.org>
+To: Tejun Heo <tj@kernel.org>
+Cc: syzbot <syzbot+e13e654d315d4da1277c@syzkaller.appspotmail.com>,
+	catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, syzkaller-bugs@googlegroups.com,
+	maz@kernel.org, mark.rutland@arm.com, richard.xnu.clark@gmail.com,
+	jiangshanlai@gmail.com, marcel@holtmann.org,
+	johan.hedberg@gmail.com, luiz.dentz@gmail.com,
+	linux-bluetooth@vger.kernel.org
+Subject: Re: [syzbot] [arm?] WARNING in delayed_work_timer_fn
+Message-ID: <20250313193057.GA7784@willie-the-truck>
+References: <00000000000046efb605fec3def0@google.com>
+ <675c28e0.050a0220.17d782.000d.GAE@google.com>
+ <20250211111045.GA8885@willie-the-truck>
+ <Z6u6MgaJWMpjCn4O@slm.duckdns.org>
+ <20250214164556.GA13743@willie-the-truck>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250214164556.GA13743@willie-the-truck>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_122954_185762_E03AEDF9 
-X-CRM114-Status: GOOD (  11.09  )
+X-CRM114-CacheID: sfid-20250313_123105_751692_DAE8F385 
+X-CRM114-Status: GOOD (  22.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +81,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Per imx-iim.yaml, the compatible string should only contain a single
-entry.
+On Fri, Feb 14, 2025 at 04:45:57PM +0000, Will Deacon wrote:
+> On Tue, Feb 11, 2025 at 10:59:30AM -1000, Tejun Heo wrote:
+> > On Tue, Feb 11, 2025 at 11:10:46AM +0000, Will Deacon wrote:
+> > > Given that this seems to explode a few times a month, I wonder if it's
+> > > worth adding some instrumentation to e.g. dump the name of the workqueue?
+> > 
+> > It's usually most useful to print out the work function when identifying the
+> > culprit. I'd be happy to take the patch.
+> 
+> Thanks, Tejun. I sent a patch adding some more diagnostics:
+> 
+> https://lore.kernel.org/r/20250214164349.13694-1-will@kernel.org
 
-Change it accordingly to fix the following dt-schema warnings:
+Ok, we have our first crash [1] with the new debug information:
 
-efuse@83f98000: compatible: ['fsl,imx51-iim', 'fsl,imx27-iim', 'syscon'] is too long
+[   77.133818][   T10] Bluetooth: hci3: Opcode 0x0c1a failed: -110
+[   77.135329][   T10] Bluetooth: hci3: Error when powering off device on rfkill (-110)
+[   77.143656][    C1] ------------[ cut here ]------------
+[   77.145336][    C1] workqueue: cannot queue hci_cmd_timeout on wq hci3
+[   77.147101][    C1] WARNING: CPU: 1 PID: 7433 at kernel/workqueue.c:2258 __queue_work+0xe94/0x1324
+[   77.149301][    C1] Modules linked in:
+[   77.150287][    C1] CPU: 1 UID: 0 PID: 7433 Comm: syz.2.193 Not tainted 6.14.0-rc5-syzkaller-g77c95b8c7a16 #0
+[   77.152960][    C1] Hardware name: Google Google Compute Engine/Google Compute Engine, BIOS Google 02/12/2025
+[   77.155583][    C1] pstate: 604000c5 (nZCv daIF +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[   77.157546][    C1] pc : __queue_work+0xe94/0x1324
+[   77.158811][    C1] lr : __queue_work+0xe94/0x1324
+[   77.160114][    C1] sp : ffff800080017b40
+[   77.161145][    C1] x29: ffff800080017b90 x28: dfff800000000000 x27: ffff700010002f88
+[   77.163285][    C1] x26: ffff80008fbbd600 x25: ffff0000dacac800 x24: 0000000000000008
+[   77.165326][    C1] x23: ffff0000dacac9c0 x22: 0000000000000100 x21: 1fffe0001b595938
+[   77.167421][    C1] x20: ffff800092f09000 x19: ffff0000ecf20948 x18: 0000000000000008
+[   77.169356][    C1] x17: 0000000000000000 x16: ffff80008b72ce6c x15: ffff700011f87b38
+[   77.171279][    C1] x14: 1ffff00011f87b38 x13: 0000000000000004 x12: ffffffffffffffff
+[   77.173271][    C1] x11: 0000000000000103 x10: 0000000000ff0100 x9 : d5bcdc7e4519df00
+[   77.175255][    C1] x8 : d5bcdc7e4519df00 x7 : 0000000000000001 x6 : 0000000000000001
+[   77.177277][    C1] x5 : ffff8000800172f8 x4 : ffff80008fcaf7c0 x3 : ffff8000804a7bb4
+[   77.179372][    C1] x2 : 0000000000000000 x1 : 0000000100000101 x0 : 0000000000000000
+[   77.181374][    C1] Call trace:
+[   77.182230][    C1]  __queue_work+0xe94/0x1324 (P)
+[   77.183476][    C1]  delayed_work_timer_fn+0x74/0x90
+[   77.184755][    C1]  call_timer_fn+0x1b4/0x8b8
+[   77.185932][    C1]  __run_timer_base+0x59c/0x7b4
+[   77.187119][    C1]  run_timer_softirq+0xcc/0x194
+[   77.188360][    C1]  handle_softirqs+0x320/0xd34
+[   77.189576][    C1]  __do_softirq+0x14/0x20
+[   77.190672][    C1]  ____do_softirq+0x14/0x20
+[   77.191884][    C1]  call_on_irq_stack+0x24/0x4c
+[   77.193050][    C1]  do_softirq_own_stack+0x20/0x2c
+[   77.194311][    C1]  __irq_exit_rcu+0x1d8/0x544
+[   77.195550][    C1]  irq_exit_rcu+0x14/0x84
+[   77.196669][    C1]  el1_interrupt+0x38/0x68
+[   77.197818][    C1]  el1h_64_irq_handler+0x18/0x24
+[   77.199152][    C1]  el1h_64_irq+0x6c/0x70
+[   77.200245][    C1]  lock_acquire+0x278/0x724 (P)
+[   77.201520][    C1]  rcu_lock_acquire+0x44/0x54
+[   77.202722][    C1]  page_ext_get+0x2c/0x2e8
+[   77.203908][    C1]  page_table_check_set+0xa0/0x408
+[   77.205117][    C1]  __page_table_check_ptes_set+0x2d0/0x398
+[   77.206601][    C1]  set_pte_range+0x618/0x644
+[   77.207792][    C1]  finish_fault+0x968/0xd6c
+[   77.208968][    C1]  handle_pte_fault+0x3528/0x57b0
+[   77.210314][    C1]  handle_mm_fault+0xfa8/0x188c
+[   77.211592][    C1]  __get_user_pages+0x1878/0x3400
+[   77.212967][    C1]  populate_vma_page_range+0x220/0x2f0
+[   77.214435][    C1]  __mm_populate+0x240/0x3d8
+[   77.215600][    C1]  vm_mmap_pgoff+0x304/0x3c4
+[   77.216833][    C1]  ksys_mmap_pgoff+0xd0/0x5c8
+[   77.218066][    C1]  __arm64_sys_mmap+0xf8/0x110
+[   77.219195][    C1]  invoke_syscall+0x98/0x2b8
+[   77.220453][    C1]  el0_svc_common+0x130/0x23c
+[   77.221747][    C1]  do_el0_svc+0x48/0x58
+[   77.222881][    C1]  el0_svc+0x54/0x168
+[   77.223946][    C1]  el0t_64_sync_handler+0x84/0x108
+[   77.225305][    C1]  el0t_64_sync+0x198/0x19c
+[   77.226425][    C1] irq event stamp: 3967
+[   77.227573][    C1] hardirqs last  enabled at (3966): [<ffff80008b7ec538>] _raw_spin_unlock_irqrestore+0x38/0x98
+[   77.230143][    C1] hardirqs last disabled at (3967): [<ffff80008b7ec3e0>] _raw_spin_lock_irq+0x28/0x70
+[   77.232639][    C1] softirqs last  enabled at (2318): [<ffff800080311b48>] handle_softirqs+0xb44/0xd34
+[   77.235151][    C1] softirqs last disabled at (3923): [<ffff800080020dbc>] __do_softirq+0x14/0x20
+[   77.237528][    C1] ---[ end trace 0000000000000000 ]---
 
-Signed-off-by: Fabio Estevam <festevam@gmail.com>
----
- arch/arm/boot/dts/nxp/imx/imx31.dtsi | 2 +-
- arch/arm/boot/dts/nxp/imx/imx51.dtsi | 2 +-
- arch/arm/boot/dts/nxp/imx/imx53.dtsi | 2 +-
- 3 files changed, 3 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm/boot/dts/nxp/imx/imx31.dtsi b/arch/arm/boot/dts/nxp/imx/imx31.dtsi
-index 00006c90d9a7..637415564c64 100644
---- a/arch/arm/boot/dts/nxp/imx/imx31.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx31.dtsi
-@@ -218,7 +218,7 @@ spi2: spi@50010000 {
- 			};
+So it looks like I was right about bluetooth (the work function is
+"hci_cmd_timeout") but, unfortunately, "hci3" doesn't tell us much about
+the client.
+
+Perhaps the failed power-off right before the warning suggests that
+we're not tearing down the wq properly on that error path? Let's see...
+
+hci_rfkill_set_block() calls hci_dev_do_close() if the power-off fails.
+That in turn cancels the delayed 'cmd_timer' work but only if HCI_UP is
+not set in the device flags. But if hci_dev_do_poweroff() failed, HCI_UP
+may well still be set. Then somehow the workqueue is destroyed, I guess
+via hci_unregister_dev() setting HCI_UNREGISTER which enables
+hci_release_dev() but at that point it's hard to know which bluetooth
+driver is responsible.
+
+Assuming hci_unregister_dev() is triggered via hci_dev_do_close()
+closing the device, then unconditionally cancelling the delayed cmd work
+when clearing HCI_UP sounds like a reasonable starter for ten?
+
+Dunno, this is all guesswork in code that I'm not familiar with, so I'm
+hoping somebody can tell me why I'm wrong :)
+
+Will
+
+--->8
+
+diff --git a/net/bluetooth/hci_sync.c b/net/bluetooth/hci_sync.c
+index dd770ef5ec36..d2623f6d0593 100644
+--- a/net/bluetooth/hci_sync.c
++++ b/net/bluetooth/hci_sync.c
+@@ -5147,11 +5147,9 @@ int hci_dev_close_sync(struct hci_dev *hdev)
+        }
+
+        err = hci_dev_shutdown(hdev);
+-
+-       if (!test_and_clear_bit(HCI_UP, &hdev->flags)) {
+-               cancel_delayed_work_sync(&hdev->cmd_timer);
++       cancel_delayed_work_sync(&hdev->cmd_timer);
++       if (!test_and_clear_bit(HCI_UP, &hdev->flags))
+                return err;
+-       }
+
+        hci_leds_update_powered(hdev, false);
  
- 			iim: efuse@5001c000 {
--				compatible = "fsl,imx31-iim", "fsl,imx27-iim";
-+				compatible = "fsl,imx31-iim";
- 				reg = <0x5001c000 0x1000>;
- 				interrupts = <19>;
- 				clocks = <&clks 25>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx51.dtsi b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-index cc88da4d7785..5627c5a925ee 100644
---- a/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx51.dtsi
-@@ -476,7 +476,7 @@ aipstz2: bridge@83f00000 {
- 			};
- 
- 			iim: efuse@83f98000 {
--				compatible = "fsl,imx51-iim", "fsl,imx27-iim", "syscon";
-+				compatible = "fsl,imx51-iim";
- 				reg = <0x83f98000 0x4000>;
- 				interrupts = <69>;
- 				clocks = <&clks IMX5_CLK_IIM_GATE>;
-diff --git a/arch/arm/boot/dts/nxp/imx/imx53.dtsi b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-index 845e2bf8460a..4829861ab488 100644
---- a/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-+++ b/arch/arm/boot/dts/nxp/imx/imx53.dtsi
-@@ -668,7 +668,7 @@ aipstz2: bridge@63f00000 {
- 			};
- 
- 			iim: efuse@63f98000 {
--				compatible = "fsl,imx53-iim", "fsl,imx27-iim", "syscon";
-+				compatible = "fsl,imx53-iim";
- 				reg = <0x63f98000 0x4000>;
- 				interrupts = <69>;
- 				clocks = <&clks IMX5_CLK_IIM_GATE>;
--- 
-2.34.1
-
 
