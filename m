@@ -4,75 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85703C35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 22:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 770F8C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 22:10:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Mime-Version:References:In-Reply-To:Message-Id:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IpuJBfj4YfOINR+VXZBhnhFTAoBd4mouqbTBAFoVBos=; b=r7YFYVJTknmDuckg3XQOnoTIBE
-	6ndReUc5aZA/B1IZFaXnlxRq9aFKIxlN+fdsjyaswhZnVXzOuI4hPQ6meFX36xhYkCULbosVxMSxh
-	miZrz4O+auk3IUTuKl+xFQuG1qFkQIpDfW+Nnos7+JmML32WwzhVXBS4Si6Tp/N7y9t8hEkOa72hr
-	S+xCsLcvN1u3pEH8zJnCmCZWl0gZfXWkptHNWgMBpgWuxrpcnGvWtdj2hVzDi91e+IgllbJnp0UOR
-	UbcnD5lN6p6ZgUB/NL/7zmT4cap2zp0YuXFEmpX/+6mcwTUwbbOIdTeCeXZKoFr8yPDAqye2YHBNo
-	wpg3euEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=dGTlMNHCa7C+A7AKqq9ehG7FOSf1xIqof5PWqvP0CNo=; b=1CEQZy0AvSYgfSTnBV0xC7qQW+
+	RC7opPSTW5RDBE732YgTqSnetnVqAD4uW4XwydMjxX/LnOdClU/5X04jG3jqAt8p/cPf0R5A4GkTF
+	zQtS7M9yPEp2dBYhbMguGVztvYqQHpW2kDBm7EVf++oCtIWynuaOzb+fvvhkgq7kbhygIOl2HPdaX
+	6WttUTl8cK3dmnBHHTqB0xWRwSUzwefV0aqqQo77pgnyYgpb7iwnzbErpbaO12lvJE6hzghdbdPrt
+	XjFqqW2rZBXLXQeN2OBwnF9G1zk+cUEHjovU6yrXUxeW5cV0QKeWCkinq5EZhX1OtqSbAUJeAemfW
+	m+ALNYtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqiw-0000000Cad4-3O8I;
-	Thu, 13 Mar 2025 22:08:18 +0000
-Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
+	id 1tsqkz-0000000Cb14-0AaV;
+	Thu, 13 Mar 2025 22:10:25 +0000
+Received: from dfw.source.kernel.org ([139.178.84.217])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsqft-0000000CaAb-1pzv;
-	Thu, 13 Mar 2025 22:05:10 +0000
+	id 1tsqjJ-0000000Cakw-1aqG
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 22:08:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 3BE875C5F70;
-	Thu, 13 Mar 2025 22:02:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A6615C4CEE5;
-	Thu, 13 Mar 2025 22:05:05 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linux-foundation.org;
-	s=korg; t=1741903506;
-	bh=GxNzFgXlCVEFcpDf3VLptEglWoUTczleCr4VuzyQIr4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=vNslcPvdVPNB7E9fplso2uwQWydxF0LuafyC8Ekj6LJ17WeoKPzAu1lWUeLyq4wyx
-	 YSG2VtnirdV4PAoDW58QNKBURHFBXAkymAmOjx0cdlO9qH75IKZQbVpmmhcAjZ7EP7
-	 0n/ABlCGS0sNpOunuAQvLiC/vVhLZ4IVMsVmABVs=
-Date: Thu, 13 Mar 2025 15:05:05 -0700
-From: Andrew Morton <akpm@linux-foundation.org>
-To: Guenter Roeck <linux@roeck-us.net>
-Cc: Maxime Ripard <mripard@kernel.org>, Kees Cook <kees@kernel.org>,
- Alessandro Carminati <acarmina@redhat.com>,
- linux-kselftest@vger.kernel.org, David Airlie <airlied@gmail.com>, Arnd
- Bergmann <arnd@arndb.de>, =?ISO-8859-1?Q?Ma=EDra?= Canal
- <mcanal@igalia.com>, Dan Carpenter <dan.carpenter@linaro.org>, Daniel Diaz
- <daniel.diaz@linaro.org>, David Gow <davidgow@google.com>, Arthur Grillo
- <arthurgrillo@riseup.net>, Brendan Higgins <brendan.higgins@linux.dev>,
- Naresh Kamboju <naresh.kamboju@linaro.org>, Maarten Lankhorst
- <maarten.lankhorst@linux.intel.com>, Ville =?ISO-8859-1?Q?Syrj=E4l=E4?=
- <ville.syrjala@linux.intel.com>, Daniel Vetter <daniel@ffwll.ch>, Thomas
- Zimmermann <tzimmermann@suse.de>, Alessandro Carminati
- <alessandro.carminati@gmail.com>, Jani Nikula <jani.nikula@intel.com>,
- dri-devel@lists.freedesktop.org, kunit-dev@googlegroups.com,
- linux-arch@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-doc@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-parisc@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-sh@vger.kernel.org, loongarch@lists.linux.dev, x86@kernel.org
-Subject: Re: [PATCH v4 00/14] Add support for suppressing warning backtraces
-Message-Id: <20250313150505.cf1568bf7197a52a8ab302e6@linux-foundation.org>
-In-Reply-To: <c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
-References: <20250313114329.284104-1-acarmina@redhat.com>
-	<202503131016.5DCEAEC945@keescook>
-	<20250313-abiding-vivid-robin-159dfa@houat>
-	<c8287bde-fa1c-4113-af22-4701d40d386e@roeck-us.net>
-X-Mailer: Sylpheed 3.7.0 (GTK+ 2.24.33; x86_64-pc-linux-gnu)
-Mime-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+	by dfw.source.kernel.org (Postfix) with ESMTP id 040395C104E;
+	Thu, 13 Mar 2025 22:06:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BBE56C4CEDD;
+	Thu, 13 Mar 2025 22:08:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741903720;
+	bh=ezBvF8CtGQo3h+RgO+IQTdZTkG8bJwCjFg1T82y9dbA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sS3s1Ufp3kDkfWGxADijig3PYyitlaCg+XrAKu1lGl+vBlpnu0+IbvHLmWpqCZx0H
+	 F6zkFbefnAll2pjJf2QKkO0Vc/vUbX6WhYSvb6dYl8llLOcCjdn7rg76Jepuctgg67
+	 IBHlYwtcDnAEWnBmJzwgw9MkAVLmhQ/F5b816EQLVUUgIW3evLX6TtoIT7HhK+4GIh
+	 0y3ob7aiKHoj77gBgGn4l8xDpD4X+/x9+dsSMd5PERuKA5oOephtN87xp6dVO5bBkh
+	 6/O8el+cpTtpWaObpzoYcoOzSVhg9ygOTLlQH9VmCrW8y4zuVQI/82S1kYsCtQ2So5
+	 79CLWTaIWvGcw==
+Date: Thu, 13 Mar 2025 22:08:36 +0000
+From: Will Deacon <will@kernel.org>
+To: Emanuele Rocca <emanuele.rocca@arm.com>
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
+ arm_smccc_version_init+0x90/0x1ac
+Message-ID: <20250313220835.GD8101@willie-the-truck>
+References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
+ <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
+ <20250131124103.GA29766@willie-the-truck>
+ <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
+ <20250204100014.GA777@willie-the-truck>
+ <Z6OWxUFxkK9plrm0@NH27D9T0LF>
+ <20250206131154.GD3204@willie-the-truck>
+ <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
+User-Agent: Mutt/1.10.1 (2018-07-13)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_150509_544998_8EF718FE 
-X-CRM114-Status: GOOD (  15.85  )
+X-CRM114-CacheID: sfid-20250313_150841_461339_9DBF0812 
+X-CRM114-Status: UNSURE (   9.13  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,26 +81,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 13 Mar 2025 11:31:12 -0700 Guenter Roeck <linux@roeck-us.net> wrote:
-
-> On Thu, Mar 13, 2025 at 06:24:25PM +0100, Maxime Ripard wrote:
-> > > 
-> > > Yeah, as with my prior review, I'm a fan of this. It makes a bunch of my
-> > > very noisy tests much easier to deal with.
-> > 
-> > And for the record, we're also affected by this in DRM and would very
-> > much like to get it merged in one shape or another.
-> > 
+On Thu, Feb 06, 2025 at 05:57:41PM +0100, Emanuele Rocca wrote:
+> On 2025-02-06 01:11, Will Deacon wrote:
+> > In your screenshot, x6 looks like it's retained its poison value, but
+> > that was the register being corrupted in the initial report. Maybe you
+> > could share the diff you made?
 > 
-> I was unable to get maintainers of major architectures interested enough
-> to provide feedback, and did not see a path forward. Maybe Alessandro
-> has more success than me.
+> Sure, please see [1]. A kernel built with that patch crashes and all
+> registers retain their poison values.
 
-I'll put them into mm.git, to advance things a bit.
+Okey doke, at least it sounds like the firmware isn't taking advantage
+of the broken spec, then.
 
-If someone wants to merge via a different tree, please speak up.
+In any case, I think the right way forward here is to use the
+out-of-line 1.2 helpers whenever we can (the spectre mitigations can
+stay as they are).
 
-Hopefully the various arch maintainers will review at least their parts
-of the series.
-
+Will
 
