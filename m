@@ -4,101 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9AD9C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:01:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFDBC35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:02:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CswYvkTCCpMoqI89+nDZxiVOs2267PjAonInzOt/Nt8=; b=xXiTrSdwJXCkb/fN5HQj92i8Fd
-	3JFGaVcMyez3yYgscUph6bBBEBKoNl92uEDT3b5BEDRJFBPpr4RW/Zq7byckn5po+WOPPwi+NGcZh
-	QW3nYXpuJ+GGAQaiYJlIGKS3FUmgFrTcD1YELJn7ZbSpSwX80eVRGvNhvKN0qibXXwkXt8s34RqTK
-	f40CWmM/bXT29ePqZguqoLn3pH5X2YK8yG9do88Y29fsiOzGXujJaV4s5lF/x4heq9SDicaz7mxVQ
-	DzixQbymsxe81jvS6IZ/9AiwZqOnclA0+VipvgLvDd3Yqf5wg6GS70/IoWaxB8OlF9fqfZJrnsQwW
-	/9Z9uDuQ==;
+	bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=; b=T5kxuB9sRzF//Iydpg/zYcl3pZ
+	9o0afuDKCWDefZLH6eALEmtxzU6whqXt7Xxiydt1zNpqkubuvbM9hYwnEfKd7CdV2VG2OID4gX0X4
+	fDwwEk785HmdddUcUp4by04YqEnE+oCaKpYTlZbdL9qD7uKGNPebTOya539z+uRvryRq+kFiSk1lh
+	tJ4VHxSXwgGdqLQ1LgO/VmbtkXA0+gZWPJPqNATdXbE1wh/m4gvvq5S+bQwK+gjI10eEJZpbn3sLO
+	8LlneeN78wohHAAeJL+qyTrTzXmTiiz5u/i9iqBt3n+KI6awNS2dkIL4XE2RbnfRgQmqP0f/dhbmd
+	KDS4R5WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskzX-0000000BjW7-2hdi;
-	Thu, 13 Mar 2025 16:01:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsl1C-0000000BjxX-1cXs;
+	Thu, 13 Mar 2025 16:02:46 +0000
+Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskhE-0000000Bh4N-1aEa;
-	Thu, 13 Mar 2025 15:42:08 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=CswYvkTCCpMoqI89+nDZxiVOs2267PjAonInzOt/Nt8=; b=g1oC0vFsj3Oxsz54rtwrRHjc0i
-	E15wVFKDs8pLY8iyl7W0fv6+CECED2BS1qIBrNHS8kssaD6rpkmhydqVt6JXQw0JWNcT5qcVtvFvY
-	A5HDao+eHxd382odU8XtlbJDSh80qZuIWCCBsoKbfYKTpnYFY02dOAHCZSQZmOqBZD3UJ3ZL8tEb+
-	ecvw60vM7SeG/41b/DqSpPhM/cmjki+rB884btvDNO0WtOJKUdY4ILT8BTEWZxpnl817mTwpPfnAU
-	I/Hci0ylb65NCSvgym+Yb1fKfzRma1y/2ydG1RH3X/ycTt+exC3QJN5nnJPbrgctaWcl2FEG+Xz6p
-	Hccdt4dA==;
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by desiato.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskhB-00000002jSm-2Cq8;
-	Thu, 13 Mar 2025 15:42:07 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 5A9CFA4761A;
-	Thu, 13 Mar 2025 15:36:34 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 551C0C4CEDD;
-	Thu, 13 Mar 2025 15:41:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741880523;
-	bh=GcM0bWRw3lqkKiGt9DpFV6nSyrYsqck9QyyQooLhfPQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CKh58mif1encnvopzGQ5g8u81BpNzKKnyR1m8qQQQQFsKjRMEMmH1J//1xRJ5mY+w
-	 +H0rEJc6wrjQUj3wd777qw2QfvQjIWB0AR2T70uuujeB1ejksQBfCUO87h9BVIHPSU
-	 EZf/Vb9bfsLAd5804VEg7rkdIybciqmUjvetIuWmGMJ84FXQyT7iHjS568tt72VEVk
-	 FRkxZ8Ca9aZ6XB58b8x0LzI5TYCEjiBXVU6/z6yxmeUH5TYR/UvYrtb/yreyKwFLSF
-	 WcTGizKXWyQKnMpHaxLruLRZukNBESLeygP4Jc1ORmrQ2H+ICYqgn7slmdqFHAU+2/
-	 gJkGfc1gvGyRw==
-Date: Thu, 13 Mar 2025 17:41:47 +0200
-From: Mike Rapoport <rppt@kernel.org>
-To: Changyuan Lyu <changyuanl@google.com>
-Cc: Alexander Graf <graf@amazon.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Andy Lutomirski <luto@kernel.org>,
-	Anthony Yznaga <anthony.yznaga@oracle.com>,
-	Arnd Bergmann <arnd@arndb.de>, Ashish Kalra <ashish.kalra@amd.com>,
-	Benjamin Herrenschmidt <benh@kernel.crashing.org>,
-	Borislav Petkov <bp@alien8.de>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>,
-	David Woodhouse <dwmw2@infradead.org>,
-	Eric Biederman <ebiederm@xmission.com>,
-	Ingo Molnar <mingo@redhat.com>, James Gowans <jgowans@amazon.com>,
-	Jonathan Corbet <corbet@lwn.net>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Paolo Bonzini <pbonzini@redhat.com>,
-	Pasha Tatashin <pasha.tatashin@soleen.com>,
-	"H. Peter Anvin" <hpa@zytor.com>,
-	Peter Zijlstra <peterz@infradead.org>,
-	Pratyush Yadav <ptyadav@amazon.de>,
-	Rob Herring <robh+dt@kernel.org>, Rob Herring <robh@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Stanislav Kinsburskii <skinsburskii@linux.microsoft.com>,
-	Steven Rostedt <rostedt@goodmis.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Tom Lendacky <thomas.lendacky@amd.com>,
-	Usama Arif <usama.arif@bytedance.com>,
-	Will Deacon <will@kernel.org>, devicetree@vger.kernel.org,
-	kexec@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	linux-doc@vger.kernel.org, linux-mm@kvack.org, x86@kernel.org
-Subject: Re: [PATCH v4 02/14] memblock: add MEMBLOCK_RSRV_KERN flag
-Message-ID: <Z9L8u4XP5U6iq5Gu@kernel.org>
-References: <20250206132754.2596694-3-rppt@kernel.org>
- <20250226015342.2136669-1-changyuanl@google.com>
+	id 1tsklq-0000000Bhia-3TEm
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 15:46:56 +0000
+Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-223f4c06e9fso22121635ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 08:46:54 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741880813; x=1742485613; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=;
+        b=irc+A9F2Rx79aIsM3dqN+jSZAJ0g10zSuqpPysEfY0pAggiBXJEh5MqckWWPA6G62X
+         ciiQb2ems3y6MUHoPAYuMaEn29US5zknwWOb0bR2GvUrWO++Rue5UHvRl8yhzfJeTOTv
+         5J5Lb4WTA8+6yxVL/Fg22qsWVqs5UL4caxUU83xqAHQ3LUsBsyoAD/9XHU385QFUBBy3
+         icrH2luMzqT8fcgfwzq31Xlai23DBTFQjE+oIOlvqft9zVDe5JUpugKhP2V/cTMdvj8p
+         6GTDpWXC2Z5HXDcpRDOQsQelWXRw2UNCKuqxg+Br5jwny0ZbVkjvnGR33SE18YTY8xMT
+         7tGA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741880813; x=1742485613;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/dk/KVdNUO+2NCTC/VAHji5cbX9MUum8KYD6NkCMODY=;
+        b=uPXW3lpyFOJL4WQoNmWlWONm5v8/LE80TWqcajFWJa7x0xoYaglB8mXODM9b5E2CQ4
+         LlmaiXu6NPxnk2FnDOuf7cdsblFjNxTQHwaVT9nwM2uLGICX5dBMfiNRmzXVfuua5+YG
+         5U8hiLce1Ps2U1ijRmS7nEvUvcJuoK3jaX6wyBuWjwXwVFxsj8rxy+IPuPQXvKqSH36d
+         WkoV+kSSg+0PpvX1kj3w5el1GqvkP5rd1oM6wgGbJuECH5lYI4LKcwIGi+VMpP6G+q0b
+         VmfNLRPfnQuYH7GitF0uOPGCJmVL4nthluyAOkhymQrgOD0jCjsWj9CK1X5MPal6JL9t
+         svNA==
+X-Forwarded-Encrypted: i=1; AJvYcCUC6CDp7gPVfLQ9yFbVHn4Z9udKDYiVkopCw+M5ONIOjoVPwRGoXzXOQjdeWVxwy77lkZd1scsTAeDvyaM68KH4@lists.infradead.org
+X-Gm-Message-State: AOJu0YxXrw5qRZQpAJi/9E8F8r2CnfQYMnwiN1Hrrb2afAbomfdtK1bc
+	d/eVawRIRR0XcEJM94m9McbZ6+BYlRCsXHdyTbEA8gWHudip7HcGx+UPAYfwd8o=
+X-Gm-Gg: ASbGncsNZoD22qe7HOS6eecgxcfLlc8LCnnCQbKPqWcWu1kTfFvEcHe+46+uSYi/yBt
+	bknsWB0bsYGshS8adPb0dQm44wfDflfhOFT+ipaqnuC+0Uo8O0jG2lFVtOrcIypLrJ85MnOL8ex
+	hY7I4C+5fWg7eE2NuFj8QsbtVM8TsHG8hTuP8j6qDzW4RQcUvv5ymIht4Dl7TFivJeSDIqlcfyT
+	/WaHyJVV1j/bJZb+fc3gQwxIfrdSa9/QpytRH8TIjUKXITjnfYUaD1dUHMR01yRgRJQrgkuW4BG
+	b0vssLuxAp0d2Y9F6tRoclNeN1rQ92iKP7NETIDDxVZOQ3dXfi3uGdy2ZKs=
+X-Google-Smtp-Source: AGHT+IHmhKUWmuw5hxmGn5MltXhJp+mOVpY2OPHTTEaVO3b51JPFYbzscOBmXvFxMsGPCnOFc7K2lg==
+X-Received: by 2002:a17:903:3d03:b0:223:5187:a886 with SMTP id d9443c01a7336-225c66a7cb6mr49221535ad.22.1741880813496;
+        Thu, 13 Mar 2025 08:46:53 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:46d2:1635:3673:c3f9])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c6ba710dsm14851215ad.128.2025.03.13.08.46.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 08:46:52 -0700 (PDT)
+Date: Thu, 13 Mar 2025 09:46:50 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Daniel Baluta <daniel.baluta@nxp.com>
+Cc: p.zabel@pengutronix.de, robh@kernel.org, krzk+dt@kernel.org,
+	shawnguo@kernel.org, devicetree@vger.kernel.org,
+	linux-remoteproc@vger.kernel.org, conor+dt@kernel.org,
+	s.hauer@pengutronix.de, kernel@pengutronix.de, festevam@gmail.com,
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, andersson@kernel.org,
+	Frank.Li@nxp.com, peng.fan@nxp.com, laurentiu.mihalcea@nxp.com,
+	iuliana.prodan@nxp.com, shengjiu.wang@nxp.com
+Subject: Re: [PATCH v5 0/8] imx8mp: Add support to Run/Stall DSP via reset API
+Message-ID: <Z9L96ssnL1S5z7rb@p14s>
+References: <20250311085812.1296243-1-daniel.baluta@nxp.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250226015342.2136669-1-changyuanl@google.com>
+In-Reply-To: <20250311085812.1296243-1-daniel.baluta@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_154205_784659_E3BAD2CD 
-X-CRM114-Status: GOOD (  21.56  )
+X-CRM114-CacheID: sfid-20250313_084654_890851_A1AA03E9 
+X-CRM114-Status: GOOD (  33.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,56 +102,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Changyuan,
-
-On Tue, Feb 25, 2025 at 05:53:39PM -0800, Changyuan Lyu wrote:
-> Hi Mike,
+On Tue, Mar 11, 2025 at 10:58:03AM +0200, Daniel Baluta wrote:
+> This patch series adds support to control the Run/Stall DSP bits found on
+> i.MX8MP via the reset controller API instead of using the syscon API.
 > 
-> On Thu,  6 Feb 2025 15:27:42 +0200, Mike Rapoport <rppt@kernel.org> wrote:
-> > From: "Mike Rapoport (Microsoft)" <rppt@kernel.org>
-> >
-> > to denote areas that were reserved for kernel use either directly with
-> > memblock_reserve_kern() or via memblock allocations.
-> >
-> > Signed-off-by: Mike Rapoport (Microsoft) <rppt@kernel.org>
-> > ---
-> >  include/linux/memblock.h | 16 +++++++++++++++-
-> >  mm/memblock.c            | 32 ++++++++++++++++++++++++--------
-> >  2 files changed, 39 insertions(+), 9 deletions(-)
-> >
-> > diff --git a/include/linux/memblock.h b/include/linux/memblock.h
-> > index e79eb6ac516f..65e274550f5d 100644
-> > --- a/include/linux/memblock.h
-> > +++ b/include/linux/memblock.h
-> > ......
-> > @@ -116,7 +117,19 @@ int memblock_add_node(phys_addr_t base, phys_addr_t size, int nid,
-> >  int memblock_add(phys_addr_t base, phys_addr_t size);
-> >  int memblock_remove(phys_addr_t base, phys_addr_t size);
-> >  int memblock_phys_free(phys_addr_t base, phys_addr_t size);
-> > -int memblock_reserve(phys_addr_t base, phys_addr_t size);
-> > +int __memblock_reserve(phys_addr_t base, phys_addr_t size, int nid,
-> > +		       enum memblock_flags flags);
-> > +
-> > +static __always_inline int memblock_reserve(phys_addr_t base, phys_addr_t size)
-> > +{
-> > +	return __memblock_reserve(base, size, NUMA_NO_NODE, 0);
+> DSP found on i.MX8MP doesn't have a direct reset line so according to hardware
+> design team in order to handle assert/deassert/reset functionality we
+> need to use a combination of control bits from two modules.
 > 
-> Without this patch `memblock_reserve` eventually calls `memblock_add_range`
-> with `MAX_NUMNODES`, but with this patch, `memblock_reserve` calls
-> `memblock_add_range` with `NUMA_NO_NODE`. Is it intended or an
-> accidental typo? Thanks!
+> Audio block control module:
+> 	- for Run/Stall control bits of the DSP
+> 
+> Debug Access Port (DAP)
+> 	- for Software Reset via IMX8M_DAP_PWRCTL register
+> 
+> The current implementation for IMX DSP Remotproc driver and for Sound Open
+> Firmware driver (already upstream) uses the following approach:
+> 	- maps the Audio Block Control address via syscon API through
+>           the fsl,dsp-ctrl property of the dsp node.
+> 	- maps the DAP address space using directly a call to ioremap
+>           with IMX8M_DAP_DEBUG macro depicting the DAP base address.
+> 
+> The both approaches are problematic when comes to describing the address
+> spaces via the DT:
+> 	- for Audio Block Control, because it uses the syscon interface
+> 	- for DAP because it hardcodes de base address instead of using a dt node.
+> 
+> This patch series aims to fix the Audio Block control usage of the
+> syscon interface and replace it with Reset Controller interface.
+> 
+> Main advantages of using the Reset Controller API is that we stop
+> abusing the syscon interface, offer a better probe ordering, PM runtime
+> support. Main critique of using the Reset Controller API is that
+> Run/Stall bits are not reset bits (but according the hardware design
+> team they are part of the reset proccess since there is no real reset
+> line).
+> 
+> Initial discussion is here:
+> https://patchwork.kernel.org/project/imx/patch/20250212085222.107102-6-daniel.baluta@nxp.com/
+> 
+> Note that we can safely remove the fsl,dsp-ctrl property usage from IMX DSP
+> remoteproc driver because there is no Device Tree users.
+> 
+> Changes since v4:
+> https://lore.kernel.org/lkml/20250305100037.373782-3-daniel.baluta@nxp.com/T/
+> 	- picked-up R-b tags from Frank Li and Peng Fan
+> 	- reworded commit message of patch 8/8 as per Mathieu Poirier suggestion
+> 
+> Changes since v3:
+> https://lore.kernel.org/linux-arm-kernel/20250225102005.408773-5-daniel.baluta@nxp.com/T/
+> 	- renamed resets ids as per Philipp comments
+> 	- add boths resets (named them runstall and softreset) as per Philipp comments
+> 
+> Changes since v2:
+> (https://lore.kernel.org/lkml/Z7ZNngd3wtJ5MZgl@lizhi-Precision-Tower-5810/T/)
+>         - picked R-b and A-b tags
+>         - use run_stall instead of reset to refer to reset controller
+>           instance
+>         - remove 'resets' description as it is a common property
+>         - add correct include in the yaml dts snippet example
+> Changes since v1:
+> (https://lore.kernel.org/imx/20250219030809.GD6537@nxa18884-linux/T/)
+>         - addresed comments received on v1
+>         - picked up R-b and A-b tags
+> 
+> Daniel Baluta (8):
+>   dt-bindings: reset: audiomix: Add reset ids for EARC and DSP
+>   dt-bindings: dsp: fsl,dsp: Add resets property
+>   arm64: dts: imx8mp: Use resets property
+>   reset: imx8mp-audiomix: Add prefix for internal macro
+>   reset: imx8mp-audiomix: Prepare the code for more reset bits
+>   reset: imx8mp-audiomix: Introduce active_low configuration option
+>   reset: imx8mp-audiomix: Add support for DSP run/stall
+>   imx_dsp_rproc: Use reset controller API to control the DSP
+> 
+>  .../devicetree/bindings/dsp/fsl,dsp.yaml      | 24 +++++-
+>  arch/arm64/boot/dts/freescale/imx8mp.dtsi     |  3 +
+>  drivers/remoteproc/imx_dsp_rproc.c            | 25 ++++--
+>  drivers/remoteproc/imx_rproc.h                |  2 +
+>  drivers/reset/reset-imx8mp-audiomix.c         | 78 +++++++++++++------
+>  .../dt-bindings/reset/imx8mp-reset-audiomix.h | 13 ++++
+>  6 files changed, 114 insertions(+), 31 deletions(-)
+>  create mode 100644 include/dt-bindings/reset/imx8mp-reset-audiomix.h
 
-We were mixing NUMA_NO_NODE and MAX_NUMNODES for memory with undefined node
-id for a while, with MAX_NUMNODES being older and NUMA_NO_NODE newer define
-for the same thing.
+Other than patch 3 for which I haven't received a Reviewed-by, I have applied
+this set.
 
-To make sure both are treated correctly in memblock we use
-numa_valid_node() to check if a range has node id set.
- 
-> Best,
-> Changyuan
+Thanks,
+Mathieu
 
--- 
-Sincerely yours,
-Mike.
+> 
+> -- 
+> 2.43.0
+> 
 
