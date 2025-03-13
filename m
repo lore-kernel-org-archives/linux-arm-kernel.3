@@ -4,162 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48BC9C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:56:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA20DC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:57:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=; b=TbSRNcI1aYhC9J7AbRRFANCOwQ
-	kgubjPH/RWWkDaU4MS+d+n04YPScMtfRy//3nU5/ZmlFrI5W1RuvxP7iJ4DUDfZolaTvqfG18W2uq
-	1HhqizXXj/nzPse3eQAjfO4vsf1rrY/Mrdl6WJxWdEcpsLIrbLuLKbXUB6YIZ2NyetvqyRhFUagUX
-	VLIoCeQqhyQvaP0yjRCKnlpsLTDg6ZoBmL9QzhzwCSYM8hjSo1Tw33H+QjkfIgUJpwPSOmNLGNbAs
-	aP1HNAx5HQ3hE9FpvtWsrx5ApiZdhfE3CN1QZbvaQr8kEwWvnlxzEfYdUQa92ZOZCAYsbkNE+DAXY
-	c1gSPn4A==;
+	bh=JAmSBShQ4Oo+DzVgXCfJRH9EvtD5cdq+eGj0LwrBrMM=; b=MlZtUYXKMa7TjFuo1Zg2DD6qPB
+	0PDHT8LKdZcRjFtmqApF2Dn2Dt+nwD2LQrED/4+8j8ZgRVm43M/CIKPnqhaPSu7WuqpELdMDNJRZ6
+	6UDbx5HTcLawLJjMLHXK3RmwjG+e/2WfTVtuxvI85R7OxYIyEatUfTzh9pgzv7JsaeaMSOLoUmy28
+	vDTA3MdJaMbHJhta43v5Zm8aGbENpIK0O3DkHpqf4C3nV1p21Tsa4d+BtI14Tz8kOWKUrm3PiY6cr
+	1QVnadAyZ3yR+tginXKsMoh37Y5Xqxan3jRP9+CqguAuI8HyfwpclbF9MOhec0yRibnnqtbp7Zv86
+	rSi1ssuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsi6Q-0000000BIgG-0Oak;
-	Thu, 13 Mar 2025 12:55:58 +0000
-Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
+	id 1tsi83-0000000BIvt-2qdL;
+	Thu, 13 Mar 2025 12:57:39 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsi1M-0000000BHzF-3hC6
+	id 1tsi5Z-0000000BIYv-3jQo
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 12:50:45 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=KgDamm/eQqpnJ0gWTNnayXniVe7yBYsp6njqzwspbllchzE6j82GlDJIaR38g85pJ7JWh/3y/5LelRpmCDmGPYOVCRq4FtyL8G8kPX5GVwOcmdRphATNV/jCBM75zL47szNtvwCN8CH1MDZ8WWj1/5gEra7Q0hQM8NsIg2NctILOyjNP814Qvh+Cy7xQey47wd02+jx7kU2ThgrOJRNGC+po1rU+8wqUpHuG5DsHoKXKBABixoTKgMRjd2JxgimvsS80qTIUYHEN6N+0YSw+/FUSjM3iXJRwHXcy8HRlDwx1aJUKezHZYv5H+WRXvnCY6BqGuMmFi4QpX3dDDF8Nag==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=;
- b=byQGw/uITwU6szGIrfW0bulqpvx7jZkWY+75o8yf/dapTiNteF8YopX9eK6RsidokpiFzvF12qksloRvfeS7TL8GgHhXRl6c8UCB/6VEmgacvRJIQCHSC+1T6E+v3rBpTYEwjeDn07Q+ecnwOq1Xh6EvBYBQ32YZ6isF/FFYwYpTHKysq4wlsS6OAreDOa5yA0MoVJEtlf9Vak12w+mn2perwfYPTiYM7/OM6jsyblfcD8xUquzYfBH6u7dWcxMAYKTRela96DSvS7/5oDqj3c9lALw0sqIsxKP4gBAFZoGZy0/4JYKzB1vJm2wEjyFHf+0311kkpfbJxFc0uOF/HQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=8SAS32sWUqrMSSHqOwA3qiSpt4GRQEm8a3yJVSVKFmM=;
- b=glEJWqYpSoJFkd0SNRHHxpnOWp0I5cj/wqQRLQPudNn9O9nzBwB42/4pnpzYlgWKbc0kyPqzw06eIv3AInbbZ+AyLPJbAX2Q1uynrjNfAf3jDAmrpWjkUj4/2lEdeCb6SgR6IEhQ0OL8aMaBM7q2tHdM7zYLonxiurMKfpgZZUpp07nMX0scL0T+J7MmR7AhpbN4aZkXMBgLtWoaDIG55en+7DRv+X/6d/Ke/CFXuOf1ff8Icvq9f+pUeVH+Hkwxk++oXDbAPOU90f6MtQeleynbZwYmKyj9UvNIecR00KuT9EcIb9TmS+GhzNYyE98ykhiDlUT5vU6TmregaSs6NQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
- by VI2PR04MB11025.eurprd04.prod.outlook.com (2603:10a6:800:277::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Thu, 13 Mar
- 2025 12:50:37 +0000
-Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
- ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8534.027; Thu, 13 Mar 2025
- 12:50:37 +0000
-From: florin.leotescu@oss.nxp.com
-To: Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Michael Shych <michaelsh@nvidia.com>,
-	linux-hwmon@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: viorel.suman@nxp.com,
-	carlos.song@nxp.com,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	festevam@gmail.com,
-	Florin Leotescu <florin.leotescu@nxp.com>,
-	Frank Li <Frank.Li@nxp.com>
-Subject: [PATCH v4 3/3] hwmon: emc2305: Use devm_thermal_of_cooling_device_register
-Date: Thu, 13 Mar 2025 14:57:46 +0200
-Message-Id: <20250313125746.2901904-4-florin.leotescu@oss.nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250313125746.2901904-1-florin.leotescu@oss.nxp.com>
-References: <20250313125746.2901904-1-florin.leotescu@oss.nxp.com>
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM8P191CA0001.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:20b:21a::6) To DU7PR04MB11163.eurprd04.prod.outlook.com
- (2603:10a6:10:5b3::14)
+	Thu, 13 Mar 2025 12:55:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=JAmSBShQ4Oo+DzVgXCfJRH9EvtD5cdq+eGj0LwrBrMM=; b=gK+NIxjHhbJg9QA80guaisWjV1
+	fhUZPcPh+lhz0p7UJTieeyzosK7n9tQkzGdJk2ay7IGt3CC+SZZpGCTEa4UmM9ulRFkHDQxhmeAVD
+	eIA3rR10nj78pdnZ89dyF5tZi00KtN/v81EUUJvn2GYYnPDCbHzVk7m2zpP1XD7SGWJo=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tsi5R-004zY7-Lz; Thu, 13 Mar 2025 13:54:57 +0100
+Date: Thu, 13 Mar 2025 13:54:57 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Message-ID: <468deb47-1837-4709-84e5-b14bf0e8c2a5@lunn.ch>
+References: <ad1e81b5-1596-4d94-a0fa-1828d667b7a2@lunn.ch>
+ <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+ <BL3PR12MB6571795DA783FD05189AD74BC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+ <BL3PR12MB6571540090EE54AC9743E17EC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <fd686050-e794-4b2f-bfb8-3a0769abb506@lunn.ch>
+ <BL3PR12MB6571959081FC8DDC5D509560C9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <Z9HjOAnpNkmZcoeo@shell.armlinux.org.uk>
+ <186bf47a-04af-4bfb-a6d3-118b844c9ba8@lunn.ch>
+ <BL3PR12MB6571E707DC09A31A553CB1BCC9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|VI2PR04MB11025:EE_
-X-MS-Office365-Filtering-Correlation-Id: 4096f8e8-6f0d-4299-f595-08dd622da710
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?8Q28nhDyQu2g5u3l/N99tgwnmc6gNxFzs/R/+DwDRhLbCEPXUnPbCwQNNK?=
- =?iso-8859-1?Q?fIpMcq5ebqP1EODl0DWJ0ai9vnZKLdwR2Y/BRNpFnsQVWe9BFyWaTugbWL?=
- =?iso-8859-1?Q?PS6cS8YGTFHVn95k0sfqRtr3MlucPWaKviN7/bkVzT7IFhbgNEx1G1aVNM?=
- =?iso-8859-1?Q?Utsga3O5I5qUmK0hCscjETt4g2InWesFMR6zYP3rBhHThk7I26wdhwvd5v?=
- =?iso-8859-1?Q?mAuFXFsEROuIjI9hkuZifayKo3vJHDRU1Ce9+wbyRMgzAUPKVd4BOrJwLE?=
- =?iso-8859-1?Q?kxbw4JNeb6P8Vg5KDjBssDYU+f6f0UQ1+NhcZgPy2QgQAoTfqE6qxLiUgf?=
- =?iso-8859-1?Q?yKDzwqGbTFZiesdXD20Yw6tRSCiXnNMGecOmKSKoZNROcZQcfNd+gDNR/W?=
- =?iso-8859-1?Q?QG2/asf4cvIwU1BUHiArWA22g1+eYlPu1coOhVch2013ig+1CtEi4h5v4W?=
- =?iso-8859-1?Q?TnJ46ATlsd++rOpift12uAVT5GOX9iO4Yoof+VTTY0PFT0Gngy3sgQecdt?=
- =?iso-8859-1?Q?l6aYocej2EeoxWCg0zaVKZlkU2+yfQ7VyUQgSZDrdT8jgA5kBDGkTGj0PV?=
- =?iso-8859-1?Q?gB6/7NvXiEweOHmzvPo1XJxAIWj/0LULJUEl0gR9Z3NEYNSl1Knq0g/p0c?=
- =?iso-8859-1?Q?RQfRta1YtImzaaouOFydBiw3uwEz7uwNMCg2Ybt285zLDyREsddwXPF3JP?=
- =?iso-8859-1?Q?298ssPhvbJG8SM7obPv1m31IavgtukwSfkjQFZUOQjybO+3XxKo9nnSB9Z?=
- =?iso-8859-1?Q?/Fi7ER20MOLZ9lfhC6AIqJld/sIS64vyAoCed2SdcNIL49qYoPVW6La379?=
- =?iso-8859-1?Q?Mk2s6h1JWiq3OaZgFhxHgshYMJ55+baYuaVz8RMkJ/iufP2Lu/yaiC1U4K?=
- =?iso-8859-1?Q?QMDz0Ihm+Fg0ft6LTy2qBQ6hcc1toUYsiQx9yFfpI1Uba7JQESzN9Kyn6P?=
- =?iso-8859-1?Q?yfPCevlzc7aikyWpj11yG1nKqx44PFGJVW7AYWIaGqgqN+EwEJvQ7PR1ZX?=
- =?iso-8859-1?Q?o2Sv3xjYoCLLCdpmF/rb52x93jcP9euiOl00nLIp1WRlBUGNvtokbr+nbB?=
- =?iso-8859-1?Q?nIrMRB3EPLWcyFhS/ISRXA9gQfQeHSQVED7jehLYz5XiJDF6NBO5fmZeRq?=
- =?iso-8859-1?Q?HW9NMgGifOQ8oExZrhZPsJW4ysMdUsyuw+DL7/vs4ZUbrqV45TgXs25Qp7?=
- =?iso-8859-1?Q?VK5GZw7Du2o9AVQqs3v6lpbQCWM2DgJpJdDEUS39vX/OcLvYk6jHTut2tH?=
- =?iso-8859-1?Q?+qYlDiaPEqbc5jipnkrOnAU+spRs+PyvCoUZy25PdgA7XKX9WCcGQJZQgJ?=
- =?iso-8859-1?Q?aqDcdgRo6iTdCx1G0G+Dqbd6AbN26VDCcMoVaDhXKmEih7AaN+cbAavOQL?=
- =?iso-8859-1?Q?+QhHuKmHyaYY0unvq+JdtNbCC7np4QXCCBvdJmrvNFP7jPsCeZl7PkxEMZ?=
- =?iso-8859-1?Q?UWUJWe8vHiZCdPKB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?KMS+1SDB0S1hpFb4y7KM0GD4XRvHB9uZ2UqATvmesU8Y0hIx/3GjQ+Fe+v?=
- =?iso-8859-1?Q?SlZCHhNfwYz3WFt6CXl5fXDwy9AxSx3w4arg/J7EdORNMLZNNB+LNpR2Gy?=
- =?iso-8859-1?Q?alE6xKMFJ06O5houqSGW6tQk3SmUbuZ6I22Ki6EeJ1H3SfIvgBLBnAAMFY?=
- =?iso-8859-1?Q?HYFt6TOnAIp4WKgvP0BXcyoZFvyJoKsm6QMpaXAg6/dGT7nQYrLrtCkuIl?=
- =?iso-8859-1?Q?nT8zc+bctsDo+/irCNB+Cnb4pjSvmtSCWj+pg0zE53b+hq71meoZTYcV22?=
- =?iso-8859-1?Q?yB4bJ/7c09S+xWAh8VKNboSdqAsVk65f3Agcau0mK7Mr43/5b/veOzjIcP?=
- =?iso-8859-1?Q?uKPuS581OOFJEWqq39uQdaq2MY1HldE0xHHs73MqTkNi6dOscKIPRIap3B?=
- =?iso-8859-1?Q?5kOSdoYucvT94q0+Pr26P2bxauvwvIbnUfSO44ak4EoyfBWTtkmC2c6R8G?=
- =?iso-8859-1?Q?ayBBXHb3G27jLKpUcmrlEkvJ5kMwFlM/nXM2hPCeLRYIfhksZnbyfdVnmt?=
- =?iso-8859-1?Q?tWgCIvnKqzfnHnnG88/U/TzjqPl1tNZyEoOqdKFCgiDHvtNXMLhbRlVwdQ?=
- =?iso-8859-1?Q?9JpAHvWIlDEqNQp50GbndcvHwKAdANifBwWRk9fTaeP1c2t/UlOUFsCgvw?=
- =?iso-8859-1?Q?VPUOPva4ggSVZwMGHAzr4Xi/mUSo3uXbni/2vOUlg7O0aoMPTCf+BA9TQG?=
- =?iso-8859-1?Q?J22HttQDUnL12ILoGsjHYdoKIDbCTDaIZli9YpvMJThAObOuS6EpWqDdJG?=
- =?iso-8859-1?Q?z2U3F6A2a6YU/3z5ljwn/6F4UCeyQ3J78lsnxokVxFOeq8EWH4xZWnldW5?=
- =?iso-8859-1?Q?WppGf6JFaX2h1rz5+J8YSEuMv9lpOFXMRYzt0K+rSfc4AJe3iGYVFxUdjR?=
- =?iso-8859-1?Q?wmjmqo1Wdjaf9YlGtypW7vaoEx3xTfOf1vQu8UWDb+zyLT5iiFY9DshQmO?=
- =?iso-8859-1?Q?H4iUsW/m/4uxVpb5QkkzhWNzNQi45jvkSLHQxB8f2G2gKesgYAkca/aUha?=
- =?iso-8859-1?Q?PKk6cUG9hrdsg47ga+YvZluONYWtw+SoYcXk9KZnGXyir0cVDFOeajO7o2?=
- =?iso-8859-1?Q?pkpP48ivYb39k5P4W2kzi2dZoGoJcJett3vk2mqJ2L53h+gQnVXLyeLIns?=
- =?iso-8859-1?Q?KtqUjlFhT3DgSJHRQ+XzfASXU+PtARClequV73NVs7tkIMav7jQjNF6QYx?=
- =?iso-8859-1?Q?RoV63UB3O058bXlLe4ZvBZA1jSChr9DYLM96Cnqt4Ft1oHY1Nvfk5DFK04?=
- =?iso-8859-1?Q?TIufoUN2VdWUX9fk3As3GaAQFVFtBWozxOGbgiQVL5Z2cvL68UBs5PSHWC?=
- =?iso-8859-1?Q?twgVHkjti1nztZ+JSMrkNo6DRZDMNgdsRMmJQgW20Fm1Zn0Hf9ubV4jc1E?=
- =?iso-8859-1?Q?gSumJhugbj5rWePNKFX/WI8A9X0FyiOjzktq+6tKFPqv1TCbt4elNySUer?=
- =?iso-8859-1?Q?jNAe+v8V3VYFGb1ffYOYKVPhOstlGNHPfdQmgsNhFJ3/BrINYsU1spgh2V?=
- =?iso-8859-1?Q?ydkUg/KVMgED4OemR1yLbA3uakbPIYFOXksRbewFlw/AskWjJnwgE0IPMd?=
- =?iso-8859-1?Q?H1QtHZ4Tumx1I51tf037vMq7yJn8kQZW0oOPQiWzxj/apbrnsOo9QiA4qa?=
- =?iso-8859-1?Q?YH3NFU3lN7qgsnAa+G5w/WHAfEkQOMPzfqJFKk+BAO1yiAvl1fjyzUpQ?=
- =?iso-8859-1?Q?=3D=3D?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4096f8e8-6f0d-4299-f595-08dd622da710
-X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 12:50:37.3828
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cDL8PskESo6TGKvdajhAQ85K4VlVKdPLyT+FjJEccTl8vHsjdapzukiT5BS6NyeZaGINwaBQb1/0vwdaVKq4mA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11025
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <BL3PR12MB6571E707DC09A31A553CB1BCC9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_055044_923054_CD60E615 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20250313_055505_929687_994A5531 
+X-CRM114-Status: GOOD (  10.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,94 +92,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florin Leotescu <florin.leotescu@nxp.com>
+> Synthesis options I mentioned in comment might sound confusing, let me clear it up.
+> Actual synthesis options (as seen from configuration UI) IP provides are (1) and (2). When a user selects (2), IP comes with default 2.5G but also contains 1G capabilities which can be enabled and work with by adding switching FPGA logic (that makes it (3)).
+> 
+> So, in short  if a user selects (1): It's <=1G only.
+> If it selects (2): It's 2.5G only but can be made (3) by FPGA logic changes. So whatever existing systems for (3) would be working at default (2).
+> 
+> This is the reason we didn't described (3) in V1 series as that is not provided by IP but can be synthesized after FPGA changes.
 
-Prepare the emc2305 driver to use configuration from Device Tree nodes.
-Switch to devm_thermal_of_cooling_device_register to simplify the
-cleanup procedure, allowing the removal of emc2305_unset_tz and
-emc2305_remove, which are no longer needed.
+This whole discussion would of been much easier and wasted a lot less
+time if you had given us accurate information right from the start....
 
-Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+So 3) does not exist at the moment, because if it did, the customer
+doing it would need to make proprietary changes, both to the licensed
+IP and the driver. We have not seen such driver patch submissions...
+
+    Andrew
+
 ---
- drivers/hwmon/emc2305.c | 33 ++++-----------------------------
- 1 file changed, 4 insertions(+), 29 deletions(-)
-
-diff --git a/drivers/hwmon/emc2305.c b/drivers/hwmon/emc2305.c
-index f8a4c76fcadd..234c54956a4b 100644
---- a/drivers/hwmon/emc2305.c
-+++ b/drivers/hwmon/emc2305.c
-@@ -112,8 +112,6 @@ static char *emc2305_fan_name[] = {
- 	"emc2305_fan5",
- };
- 
--static void emc2305_unset_tz(struct device *dev);
--
- static int emc2305_get_max_channel(const struct emc2305_data *data)
- {
- 	return data->pwm_num;
-@@ -293,8 +291,9 @@ static int emc2305_set_single_tz(struct device *dev, int idx)
- 	pwm = data->pwm_min[cdev_idx];
- 
- 	data->cdev_data[cdev_idx].cdev =
--		thermal_cooling_device_register(emc2305_fan_name[idx], data,
--						&emc2305_cooling_ops);
-+		devm_thermal_of_cooling_device_register(dev, dev->of_node,
-+							emc2305_fan_name[idx], data,
-+							&emc2305_cooling_ops);
- 
- 	if (IS_ERR(data->cdev_data[cdev_idx].cdev)) {
- 		dev_err(dev, "Failed to register cooling device %s\n", emc2305_fan_name[idx]);
-@@ -332,24 +331,9 @@ static int emc2305_set_tz(struct device *dev)
- 	for (i = 0; i < data->pwm_num; i++) {
- 		ret = emc2305_set_single_tz(dev, i + 1);
- 		if (ret)
--			goto thermal_cooling_device_register_fail;
-+			return ret;
- 	}
- 	return 0;
--
--thermal_cooling_device_register_fail:
--	emc2305_unset_tz(dev);
--	return ret;
--}
--
--static void emc2305_unset_tz(struct device *dev)
--{
--	struct emc2305_data *data = dev_get_drvdata(dev);
--	int i;
--
--	/* Unregister cooling device. */
--	for (i = 0; i < EMC2305_PWM_MAX; i++)
--		if (data->cdev_data[i].cdev)
--			thermal_cooling_device_unregister(data->cdev_data[i].cdev);
- }
- 
- static umode_t
-@@ -599,14 +583,6 @@ static int emc2305_probe(struct i2c_client *client)
- 	return 0;
- }
- 
--static void emc2305_remove(struct i2c_client *client)
--{
--	struct device *dev = &client->dev;
--
--	if (IS_REACHABLE(CONFIG_THERMAL))
--		emc2305_unset_tz(dev);
--}
--
- static const struct of_device_id of_emc2305_match_table[] = {
- 	{ .compatible = "microchip,emc2305", },
- 	{},
-@@ -619,7 +595,6 @@ static struct i2c_driver emc2305_driver = {
- 		.of_match_table = of_emc2305_match_table,
- 	},
- 	.probe = emc2305_probe,
--	.remove	  = emc2305_remove,
- 	.id_table = emc2305_ids,
- };
- 
--- 
-2.34.1
-
+pw-bot: cr
 
