@@ -4,147 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41E7FC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 05:16:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17EF1C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 05:57:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=9Jmp5ZLIsyH8yuGTLV+R5+QG3R9RVCY2zlygWNpZ2tE=; b=PdWnrTzR7cbWmrXjKfD85DE9Ta
-	+8WUuoTJok7surN6Yoiem3Fj/6s8trLtqfOvJwXK7wy7BDuG6pry7YgEFQAcHPaoNH0ju5GZdeYju
-	JrWat/jTPegY1wjb0TNH23VrU0DJWSpfpr6psfaRwGu6YSGnkTm23Kf8IPf+Y6BKwv5tXya0p/guK
-	W02GoD/FcVxLXfHIUNrxONO/kh6o6UJlRHJQ+enWeeJYQr9/8JsZqNRSdsys55H/lPjomtWE7nYOT
-	H+pi5VNi/EmnNAw1HIjqy3U1a9sBJ8046uJXFh/cDC2U70aSqxzsbtJNAL4YJ+E5q9Abf4gOxS0tS
-	tbER6sjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XJezcyfF+yORt8Uw98gj4iwE+jSOmsLoiF2fnCYB870=; b=uAoHy34FYLFkNZDCgzcB/WI2hC
+	hGUpCvgAYnk1qBFqKrwzPG5Y446LtGzmcDgHNEVnzEhLp3Ea4um0N0OGKyg/IQuCNSUW0bSA7Jaye
+	L3qLTTjPTSgHsJRiPGfsbs1mdWE3Svdo/47hs7D4OHkBy8NHEMi85+T3Bd0ITTOsPicLAv7z3DAzk
+	dOZ0lQ6kgWw6ivl4xMh2rM7ff7pgl8NK/5vNygxs4iVFbT/rfzd08koIbd8/NpwYKgXdekX3UdfBv
+	5+xa21YYUw3tt8VsjyCQpEPJmTvblJRnXIFIZsZlM79rMfti/5RbJCwzsL15cKtM9D7y+HHeGV9r/
+	+67GpKEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsav5-0000000A6JI-1uwc;
-	Thu, 13 Mar 2025 05:15:47 +0000
-Received: from [203.254.224.33] (helo=mailout3.samsung.com)
+	id 1tsbZD-0000000AB2V-36je;
+	Thu, 13 Mar 2025 05:57:15 +0000
+Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsatK-0000000A65E-0m3I;
-	Thu, 13 Mar 2025 05:14:03 +0000
-Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250313051351epoutp0360b76a551a7d63bf808c8d1942858cff~sRNOxAcUO0801908019epoutp03N;
-	Thu, 13 Mar 2025 05:13:51 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250313051351epoutp0360b76a551a7d63bf808c8d1942858cff~sRNOxAcUO0801908019epoutp03N
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1741842831;
-	bh=9Jmp5ZLIsyH8yuGTLV+R5+QG3R9RVCY2zlygWNpZ2tE=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=hNErEb6SN3cmVmZJ10VUrqkwy++BcWjx47Uo9UVTj83RDc1tAV3yuQQfjTzlac8my
-	 AaSdViZdJopy4+rEh6F4vzhf0xvVNS5QTjWCmtEQvVdg+R3tRcd6EmmXBt3TeqisGv
-	 m5iEG3kQ2yPOBKUfqeQhrnnpLdPo9QymdXyRYIr8=
-Received: from epsnrtp3.localdomain (unknown [182.195.42.164]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTP id
-	20250313051351epcas5p259ea25a093c959df9d8be994a07591ec~sRNOZ1lku1821918219epcas5p24;
-	Thu, 13 Mar 2025 05:13:51 +0000 (GMT)
-Received: from epsmgec5p1-new.samsung.com (unknown [182.195.38.175]) by
-	epsnrtp3.localdomain (Postfix) with ESMTP id 4ZCwdT3d8sz4x9Pt; Thu, 13 Mar
-	2025 05:13:49 +0000 (GMT)
-Received: from epcas5p3.samsung.com ( [182.195.41.41]) by
-	epsmgec5p1-new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	73.65.29212.D8962D76; Thu, 13 Mar 2025 14:13:49 +0900 (KST)
-Received: from epsmtrp1.samsung.com (unknown [182.195.40.13]) by
-	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250313040150epcas5p347f94dac34fd2946dea51049559ee1de~sQOWNZ2Q31805718057epcas5p3J;
-	Thu, 13 Mar 2025 04:01:50 +0000 (GMT)
-Received: from epsmgms1p1new.samsung.com (unknown [182.195.42.41]) by
-	epsmtrp1.samsung.com (KnoxPortal) with ESMTP id
-	20250313040150epsmtrp1a7eed40ae47eb292a7062f705876c591~sQOWL7WLG1044810448epsmtrp1N;
-	Thu, 13 Mar 2025 04:01:50 +0000 (GMT)
-X-AuditID: b6c32a50-801fa7000000721c-cc-67d2698d9fec
-Received: from epsmtip1.samsung.com ( [182.195.34.30]) by
-	epsmgms1p1new.samsung.com (Symantec Messaging Gateway) with SMTP id
-	E8.6E.18729.EA852D76; Thu, 13 Mar 2025 13:01:50 +0900 (KST)
-Received: from localhost.localdomain (unknown [107.99.41.245]) by
-	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250313040144epsmtip1810106b581625acc2fb4d4139e6c1a76~sQORBWe191683316833epsmtip1n;
-	Thu, 13 Mar 2025 04:01:44 +0000 (GMT)
-From: Anuj Gupta <anuj20.g@samsung.com>
-To: Jens Axboe <axboe@kernel.dk>, "Md. Haris Iqbal" <haris.iqbal@ionos.com>,
-	Jack Wang <jinpu.wang@ionos.com>, "Michael S. Tsirkin" <mst@redhat.com>,
-	Jason Wang <jasowang@redhat.com>, Xuan Zhuo <xuanzhuo@linux.alibaba.com>,
-	=?UTF-8?q?Eugenio=20P=C3=A9rez?= <eperezma@redhat.com>, Paolo Bonzini
-	<pbonzini@redhat.com>, Stefan Hajnoczi <stefanha@redhat.com>,
-	=?UTF-8?q?Roger=20Pau=20Monn=C3=A9?= <roger.pau@citrix.com>, Juergen Gross
-	<jgross@suse.com>, Stefano Stabellini <sstabellini@kernel.org>, Oleksandr
-	Tyshchenko <oleksandr_tyshchenko@epam.com>, Maxim Levitsky
-	<maximlevitsky@gmail.com>, Alex Dubov <oakad@yahoo.com>, Ulf Hansson
-	<ulf.hansson@linaro.org>, Richard Weinberger <richard@nod.at>, Zhihao Cheng
-	<chengzhihao1@huawei.com>, Miquel Raynal <miquel.raynal@bootlin.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>, Sven Peter <sven@svenpeter.dev>,
-	Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>, Keith
-	Busch <kbusch@kernel.org>, Christoph Hellwig <hch@lst.de>, Sagi Grimberg
-	<sagi@grimberg.me>, James Smart <james.smart@broadcom.com>, Chaitanya
-	Kulkarni <kch@nvidia.com>, "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>, "Martin K. Petersen"
-	<martin.petersen@oracle.com>
-Cc: Anuj Gupta <anuj20.g@samsung.com>, linux-block@vger.kernel.org,
-	linux-kernel@vger.kernel.org, virtualization@lists.linux.dev,
-	xen-devel@lists.xenproject.org, linux-mmc@vger.kernel.org,
-	linux-mtd@lists.infradead.org, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-nvme@lists.infradead.org,
-	linux-scsi@vger.kernel.org
-Subject: [PATCH] block: remove unused parameter
-Date: Thu, 13 Mar 2025 09:23:18 +0530
-Message-Id: <20250313035322.243239-1-anuj20.g@samsung.com>
-X-Mailer: git-send-email 2.25.1
+	id 1tsbXY-0000000AAtV-1Vcd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 05:55:33 +0000
+Received: from fllv0034.itg.ti.com ([10.64.40.246])
+	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52D5tLKc1737463
+	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Thu, 13 Mar 2025 00:55:21 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1741845321;
+	bh=XJezcyfF+yORt8Uw98gj4iwE+jSOmsLoiF2fnCYB870=;
+	h=Date:From:To:CC:Subject:References:In-Reply-To;
+	b=zGmHtGiYaruD/5pWpaw3Km0ciUIhgr2MyPPLZyMnga2DreISPKbwWt5W+1+CUH44N
+	 1wDnb6Q9N5BwlRdwN+asaguym9HKZPgajwDhL9nPpaqDZvDdgLJUGKIZL9ZZ9sE01u
+	 h1WZOIbJy5u/ZVVEsSbJppqWKnNYybMNNtqW3q18=
+Received: from DLEE100.ent.ti.com (dlee100.ent.ti.com [157.170.170.30])
+	by fllv0034.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52D5tLrL018383
+	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Thu, 13 Mar 2025 00:55:21 -0500
+Received: from DLEE106.ent.ti.com (157.170.170.36) by DLEE100.ent.ti.com
+ (157.170.170.30) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 13
+ Mar 2025 00:55:20 -0500
+Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DLEE106.ent.ti.com
+ (157.170.170.36) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
+ Frontend Transport; Thu, 13 Mar 2025 00:55:20 -0500
+Received: from localhost (uda0492258.dhcp.ti.com [10.24.72.113])
+	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52D5tJmY065334;
+	Thu, 13 Mar 2025 00:55:20 -0500
+Date: Thu, 13 Mar 2025 11:25:19 +0530
+From: Siddharth Vadapalli <s-vadapalli@ti.com>
+To: Bjorn Helgaas <helgaas@kernel.org>
+CC: Siddharth Vadapalli <s-vadapalli@ti.com>, <lpieralisi@kernel.org>,
+        <kw@linux.com>, <vigneshr@ti.com>, <manivannan.sadhasivam@linaro.org>,
+        <robh@kernel.org>, <bhelgaas@google.com>, <rogerq@kernel.org>,
+        <linux-omap@vger.kernel.org>, <linux-pci@vger.kernel.org>,
+        <stable@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>
+Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
+ J784S4
+Message-ID: <20250313055519.j3bpvsm6govd5ytk@uda0492258>
+References: <20250305132018.2260771-1-s-vadapalli@ti.com>
+ <20250312161600.GA680640@bhelgaas>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Brightmail-Tracker: H4sIAAAAAAAAA01TeVCUZRye9/v2ghFaEeIdksBNJSxglzheSMrK8ps0hxFNh8GBHfhaCNhd
-	dhdCmojh8ABhETRlOdqII1gDXBBZDs0FOYc7KK4UhCJAQFAX2IBYdy3/e57n/T2/650fAzcb
-	plsxQvgSUsTnhrFoxpTqRnt7h9SQPh5b3m6BqjrSAIpPX8fR6oApUoxJaagsuxNDD3NL6Ki6
-	o4KOShT3MFT+kw+6IWWguh8eY6iobxlDOUPO6JHyMgVlqAcBmhqQYUj5cJCKGobfQv21OTTU
-	tCkFqC6+iI6+L5qio5TfamiouGUDQ3Nt+XTUeO42FW2uzVDReLMCRytaLRXdqd6gokzVHEDX
-	un+korLZBQpSlPmj2YxNKvpnZBNDLT+fRJudi3R071YJFWmqMjE0GI8O2BN5178mZPc7acRs
-	ZjogRgtVgFDJxuhE9x83KMR3Ge00IrHpEZXomBvFiF9+jcOJ/s5IQll6gUaMDtbTCNW4B1FZ
-	8C0xXZkFvK19Q/cHk9wgUmRL8gMFQSF8nhfrsI//R/6ubmyOA8cDubNs+dxw0ot18Ii3wych
-	YVvLZdlGccMityRvrljMcnpvv0gQKSFtgwViiReLFAaFCV2EjmJuuDiSz3PkkxJPDpvt7LoV
-	GBAa3LyYjwuTP4+emxzC40AmkQyMGJDpAgu66qjJwJhhxqwHsODBHZqeLAE40rBoIM8ArK1P
-	oyQDxnPLvNpHrzcA2Jxwha4nywDmPZvBdHlpTDvY9FcS0D2YM8eMYGpVHaYjOHMMgyW9T2m6
-	qB1MJ5i7nErTpaUw98BhdYRONmF6wt9bByj6Bm1gVp+Grte3w7asyec6vqUn3MzGdTkhM9kY
-	Pq68D/SGg3B0KQ3T4x1wpqWKrsdW8G/pWQPmwZX+KUOMECY03zZ434dJ7VJc1w/OtIfltU56
-	2RpeaS/D9HVNYap20mA1gTV5LzALnivJMWAIG7riDJiAhfJEoEtpxjwNNUOx6cBG9tI0spem
-	kf1fWA7wUmBFCsXhPDLQVchx4JNf/fezgYJwJXh+ZPu8a4CiYt1RDTAGUAPIwFnmJgqvHp6Z
-	SRD3TAwpEviLIsNIsRq4bq34Em5lESjYulK+xJ/j4sF2cXNzc/F4x43DsjRJUCXyzJg8roQM
-	JUkhKXrhwxhGVnGYsttz+Y3sTbKHBV5Xm6/GJg1GkwPmKiCXdjufONSa0v7nkyfa+UMXPvbT
-	SPHtCbeWYk/2vKbdfalj+k3BivW2iVOrnndDj7LbrK7u9Q0pdteqC0Z7C86qul7Z9cWHp6qP
-	fNkb4XKebyObkAY9tZxq6+LbT2QfT+UtXR1j9322993izLZPnRaz3ccfrPmsa/3g0HzkWl3E
-	RQfzo9tOFEpPbyy+/YGcZ6SUx6wu2DCWm2NNQ1Lsyh0br48Vli4HNB5rtz9ju9papMxdulyR
-	FHU++rhmZKN8jyX7sGLX3eiAV9dUKoupcKdvGo9F3RzI33mg1n36mmYwZsHPrnJV47uzJGt0
-	dzOLIg7mcvbhIjH3X+zuQzrtBAAA
-X-Brightmail-Tracker: H4sIAAAAAAAAA02Sa0xTdxjG+Z97WdADdOEAk2kzQsBR6TaTV7MxYrLl+IFEUx2OZYFGzoqR
-	S9cC22AqMJ0CqSBdJlTYvFGFOhjYAS1j03IrMoIDYQOqGykExm0omVxq21nZEr+9z+/3JM+X
-	l8EDTpEhzJGMLEGdoUiTUL5Ec4ckLLr+0KAyxuQKAlPfWQSFZS4c1oY3gfF+KQX1F/oxcFTX
-	0tDc9z0NtcYuDBquy6GxlIG2Sw8xMAwuY1A1+hosNH1FQLl1BMHUsB6DJscICe1j22HIUkVB
-	p6cUQVuhgYZvDVM0lPzWSsG1HjcG872Xaeg4/RMJnvVZEia6jTisOp0k/NzsJkFnnkdQMXCF
-	hPq5vwkw1ifBXLmHhCfjHgx6vksAT/8SDV0ttSSsmHQYjBRCXCT/zY08Xv9HP8XP6coQb68x
-	I96sv0/zAw8aCf7r8jsUf7JzgeT75u0Yf+tePs4P9WfzTXVFFG8f+ZHizRO7+JtXT/AzNyvR
-	vi2Jvm+mCGlHcgT1jthk39Tupcu4qvi9T+cnR/F8pOOLEcNw7BvcolVejHyZALYNce2lNqIY
-	iZ5yjrvzlwFt3IFcrXua3ig9RJxl5SLmFRQbwXVOn0JeIWb/EXFVLi3mDTg7jXFnxm9T3lYg
-	u4OrXtZS3jmCDefGrB97sR+7m/vdNvzf2stc5eAKvcH9ud7KyWccf8q/+OECXoY26Z9T+ufU
-	RYTVoWBBpUlXpmtkKlmG8IlUo0jXZGcopYcz05vQs0+JimxFLXVLUivCGGRFHINLxH7Gt+4q
-	A/xSFJ/lCurMJHV2mqCxolCGkAT5Bc1oUwJYpSJLOCoIKkH9v8UYUUg+NjS7c82TvCiPrCyx
-	+4eZ8ra4XqwoaR3T7G3Rnl7YtuoMP2cT1eRmhTR8aInziR8XH7j+iv9azrHNNT4FO+fWH2OH
-	o+M9itcdvdWTRVWxWtfVCvKx9oT4rCNTbk5IXPtyr8ge9YLqjKl9/yN/54EZmf5z/J2xsKnk
-	ocTzPX/umt5TvSAL3JObquo6f3J7aKZt8dE1lSwYOZeN63yr4+1j3QU5YZ6Uu5eOU9LVmNCG
-	6IJ1S7whoeWDiYO6zS99JFbKHefcq3nB4bExE6/+Opz37u7bdXZbxOz+g2IiqPEX51Zp0q0H
-	DdlPOopi9/UedY8et8jKEuOMPgOSexFb29+nbijHJYQmVSGLwtUaxb96QmhXmAMAAA==
-X-CMS-MailID: 20250313040150epcas5p347f94dac34fd2946dea51049559ee1de
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: REQ_APPROVE
-CMS-TYPE: 105P
-DLP-Filter: Pass
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250313040150epcas5p347f94dac34fd2946dea51049559ee1de
-References: <CGME20250313040150epcas5p347f94dac34fd2946dea51049559ee1de@epcas5p3.samsung.com>
+Content-Type: text/plain; charset="us-ascii"
+Content-Disposition: inline
+In-Reply-To: <20250312161600.GA680640@bhelgaas>
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_221358_929579_63DC0E29 
-X-CRM114-Status: GOOD (  21.12  )
+X-CRM114-CacheID: sfid-20250312_225532_646375_A5028882 
+X-CRM114-Status: GOOD (  29.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,279 +89,83 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-request_queue param is not used by blk_rq_map_sg and __blk_rq_map_sg.
-remove it.
+On Wed, Mar 12, 2025 at 11:16:00AM -0500, Bjorn Helgaas wrote:
 
-Signed-off-by: Anuj Gupta <anuj20.g@samsung.com>
----
- block/blk-merge.c                   | 4 ++--
- block/bsg-lib.c                     | 2 +-
- drivers/block/mtip32xx/mtip32xx.c   | 2 +-
- drivers/block/rnbd/rnbd-clt.c       | 2 +-
- drivers/block/sunvdc.c              | 2 +-
- drivers/block/virtio_blk.c          | 2 +-
- drivers/block/xen-blkfront.c        | 2 +-
- drivers/memstick/core/ms_block.c    | 2 +-
- drivers/memstick/core/mspro_block.c | 4 +---
- drivers/mmc/core/queue.c            | 2 +-
- drivers/mtd/ubi/block.c             | 2 +-
- drivers/nvme/host/apple.c           | 2 +-
- drivers/nvme/host/fc.c              | 2 +-
- drivers/nvme/host/pci.c             | 2 +-
- drivers/nvme/host/rdma.c            | 3 +--
- drivers/nvme/target/loop.c          | 2 +-
- drivers/scsi/scsi_lib.c             | 2 +-
- include/linux/blk-mq.h              | 9 ++++-----
- 18 files changed, 22 insertions(+), 26 deletions(-)
+Hello Bjorn,
 
-diff --git a/block/blk-merge.c b/block/blk-merge.c
-index 1d1589c35297..fdd4efb54c6c 100644
---- a/block/blk-merge.c
-+++ b/block/blk-merge.c
-@@ -551,8 +551,8 @@ static inline struct scatterlist *blk_next_sg(struct scatterlist **sg,
-  * Map a request to scatterlist, return number of sg entries setup. Caller
-  * must make sure sg can hold rq->nr_phys_segments entries.
-  */
--int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
--		struct scatterlist *sglist, struct scatterlist **last_sg)
-+int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-+		    struct scatterlist **last_sg)
- {
- 	struct req_iterator iter = {
- 		.bio	= rq->bio,
-diff --git a/block/bsg-lib.c b/block/bsg-lib.c
-index 93523d8f8195..9ceb5d0832f5 100644
---- a/block/bsg-lib.c
-+++ b/block/bsg-lib.c
-@@ -219,7 +219,7 @@ static int bsg_map_buffer(struct bsg_buffer *buf, struct request *req)
- 	if (!buf->sg_list)
- 		return -ENOMEM;
- 	sg_init_table(buf->sg_list, req->nr_phys_segments);
--	buf->sg_cnt = blk_rq_map_sg(req->q, req, buf->sg_list);
-+	buf->sg_cnt = blk_rq_map_sg(req, buf->sg_list);
- 	buf->payload_len = blk_rq_bytes(req);
- 	return 0;
- }
-diff --git a/drivers/block/mtip32xx/mtip32xx.c b/drivers/block/mtip32xx/mtip32xx.c
-index 95361099a2dc..0d619df03fa9 100644
---- a/drivers/block/mtip32xx/mtip32xx.c
-+++ b/drivers/block/mtip32xx/mtip32xx.c
-@@ -2056,7 +2056,7 @@ static void mtip_hw_submit_io(struct driver_data *dd, struct request *rq,
- 	unsigned int nents;
- 
- 	/* Map the scatter list for DMA access */
--	nents = blk_rq_map_sg(hctx->queue, rq, command->sg);
-+	nents = blk_rq_map_sg(rq, command->sg);
- 	nents = dma_map_sg(&dd->pdev->dev, command->sg, nents, dma_dir);
- 
- 	prefetch(&port->flags);
-diff --git a/drivers/block/rnbd/rnbd-clt.c b/drivers/block/rnbd/rnbd-clt.c
-index 82467ecde7ec..15627417f12e 100644
---- a/drivers/block/rnbd/rnbd-clt.c
-+++ b/drivers/block/rnbd/rnbd-clt.c
-@@ -1010,7 +1010,7 @@ static int rnbd_client_xfer_request(struct rnbd_clt_dev *dev,
- 	 * See queue limits.
- 	 */
- 	if ((req_op(rq) != REQ_OP_DISCARD) && (req_op(rq) != REQ_OP_WRITE_ZEROES))
--		sg_cnt = blk_rq_map_sg(dev->queue, rq, iu->sgt.sgl);
-+		sg_cnt = blk_rq_map_sg(rq, iu->sgt.sgl);
- 
- 	if (sg_cnt == 0)
- 		sg_mark_end(&iu->sgt.sgl[0]);
-diff --git a/drivers/block/sunvdc.c b/drivers/block/sunvdc.c
-index 282f81616a78..2b33fb5b949b 100644
---- a/drivers/block/sunvdc.c
-+++ b/drivers/block/sunvdc.c
-@@ -485,7 +485,7 @@ static int __send_request(struct request *req)
- 	}
- 
- 	sg_init_table(sg, port->ring_cookies);
--	nsg = blk_rq_map_sg(req->q, req, sg);
-+	nsg = blk_rq_map_sg(req, sg);
- 
- 	len = 0;
- 	for (i = 0; i < nsg; i++)
-diff --git a/drivers/block/virtio_blk.c b/drivers/block/virtio_blk.c
-index 6a61ec35f426..a3df4d49bd46 100644
---- a/drivers/block/virtio_blk.c
-+++ b/drivers/block/virtio_blk.c
-@@ -226,7 +226,7 @@ static int virtblk_map_data(struct blk_mq_hw_ctx *hctx, struct request *req,
- 	if (unlikely(err))
- 		return -ENOMEM;
- 
--	return blk_rq_map_sg(hctx->queue, req, vbr->sg_table.sgl);
-+	return blk_rq_map_sg(req, vbr->sg_table.sgl);
- }
- 
- static void virtblk_cleanup_cmd(struct request *req)
-diff --git a/drivers/block/xen-blkfront.c b/drivers/block/xen-blkfront.c
-index edcd08a9dcef..5babe575c288 100644
---- a/drivers/block/xen-blkfront.c
-+++ b/drivers/block/xen-blkfront.c
-@@ -751,7 +751,7 @@ static int blkif_queue_rw_req(struct request *req, struct blkfront_ring_info *ri
- 	id = blkif_ring_get_request(rinfo, req, &final_ring_req);
- 	ring_req = &rinfo->shadow[id].req;
- 
--	num_sg = blk_rq_map_sg(req->q, req, rinfo->shadow[id].sg);
-+	num_sg = blk_rq_map_sg(req, rinfo->shadow[id].sg);
- 	num_grant = 0;
- 	/* Calculate the number of grant used */
- 	for_each_sg(rinfo->shadow[id].sg, sg, num_sg, i)
-diff --git a/drivers/memstick/core/ms_block.c b/drivers/memstick/core/ms_block.c
-index 5b617c1f6789..f4398383ae06 100644
---- a/drivers/memstick/core/ms_block.c
-+++ b/drivers/memstick/core/ms_block.c
-@@ -1904,7 +1904,7 @@ static void msb_io_work(struct work_struct *work)
- 
- 		/* process the request */
- 		dbg_verbose("IO: processing new request");
--		blk_rq_map_sg(msb->queue, req, sg);
-+		blk_rq_map_sg(req, sg);
- 
- 		lba = blk_rq_pos(req);
- 
-diff --git a/drivers/memstick/core/mspro_block.c b/drivers/memstick/core/mspro_block.c
-index 634d343b6bdb..c9853d887d28 100644
---- a/drivers/memstick/core/mspro_block.c
-+++ b/drivers/memstick/core/mspro_block.c
-@@ -627,9 +627,7 @@ static int mspro_block_issue_req(struct memstick_dev *card)
- 	while (true) {
- 		msb->current_page = 0;
- 		msb->current_seg = 0;
--		msb->seg_count = blk_rq_map_sg(msb->block_req->q,
--					       msb->block_req,
--					       msb->req_sg);
-+		msb->seg_count = blk_rq_map_sg(msb->block_req, msb->req_sg);
- 
- 		if (!msb->seg_count) {
- 			unsigned int bytes = blk_rq_cur_bytes(msb->block_req);
-diff --git a/drivers/mmc/core/queue.c b/drivers/mmc/core/queue.c
-index ab662f502fe7..3ba62f825b84 100644
---- a/drivers/mmc/core/queue.c
-+++ b/drivers/mmc/core/queue.c
-@@ -523,5 +523,5 @@ unsigned int mmc_queue_map_sg(struct mmc_queue *mq, struct mmc_queue_req *mqrq)
- {
- 	struct request *req = mmc_queue_req_to_req(mqrq);
- 
--	return blk_rq_map_sg(mq->queue, req, mqrq->sg);
-+	return blk_rq_map_sg(req, mqrq->sg);
- }
-diff --git a/drivers/mtd/ubi/block.c b/drivers/mtd/ubi/block.c
-index 2836905f0152..39cc0a6a4d37 100644
---- a/drivers/mtd/ubi/block.c
-+++ b/drivers/mtd/ubi/block.c
-@@ -199,7 +199,7 @@ static blk_status_t ubiblock_read(struct request *req)
- 	 * and ubi_read_sg() will check that limit.
- 	 */
- 	ubi_sgl_init(&pdu->usgl);
--	blk_rq_map_sg(req->q, req, pdu->usgl.sg);
-+	blk_rq_map_sg(req, pdu->usgl.sg);
- 
- 	while (bytes_left) {
- 		/*
-diff --git a/drivers/nvme/host/apple.c b/drivers/nvme/host/apple.c
-index a060f69558e7..a437eee741e1 100644
---- a/drivers/nvme/host/apple.c
-+++ b/drivers/nvme/host/apple.c
-@@ -525,7 +525,7 @@ static blk_status_t apple_nvme_map_data(struct apple_nvme *anv,
- 	if (!iod->sg)
- 		return BLK_STS_RESOURCE;
- 	sg_init_table(iod->sg, blk_rq_nr_phys_segments(req));
--	iod->nents = blk_rq_map_sg(req->q, req, iod->sg);
-+	iod->nents = blk_rq_map_sg(req, iod->sg);
- 	if (!iod->nents)
- 		goto out_free_sg;
- 
-diff --git a/drivers/nvme/host/fc.c b/drivers/nvme/host/fc.c
-index b9929a5a7f4e..1b5ad1173bc7 100644
---- a/drivers/nvme/host/fc.c
-+++ b/drivers/nvme/host/fc.c
-@@ -2571,7 +2571,7 @@ nvme_fc_map_data(struct nvme_fc_ctrl *ctrl, struct request *rq,
- 	if (ret)
- 		return -ENOMEM;
- 
--	op->nents = blk_rq_map_sg(rq->q, rq, freq->sg_table.sgl);
-+	op->nents = blk_rq_map_sg(rq, freq->sg_table.sgl);
- 	WARN_ON(op->nents > blk_rq_nr_phys_segments(rq));
- 	freq->sg_cnt = fc_dma_map_sg(ctrl->lport->dev, freq->sg_table.sgl,
- 				op->nents, rq_dma_dir(rq));
-diff --git a/drivers/nvme/host/pci.c b/drivers/nvme/host/pci.c
-index 950289405ef2..a0b1c57067aa 100644
---- a/drivers/nvme/host/pci.c
-+++ b/drivers/nvme/host/pci.c
-@@ -812,7 +812,7 @@ static blk_status_t nvme_map_data(struct nvme_dev *dev, struct request *req,
- 	if (!iod->sgt.sgl)
- 		return BLK_STS_RESOURCE;
- 	sg_init_table(iod->sgt.sgl, blk_rq_nr_phys_segments(req));
--	iod->sgt.orig_nents = blk_rq_map_sg(req->q, req, iod->sgt.sgl);
-+	iod->sgt.orig_nents = blk_rq_map_sg(req, iod->sgt.sgl);
- 	if (!iod->sgt.orig_nents)
- 		goto out_free_sg;
- 
-diff --git a/drivers/nvme/host/rdma.c b/drivers/nvme/host/rdma.c
-index 86a2891d9bcc..b5a0295b5bf4 100644
---- a/drivers/nvme/host/rdma.c
-+++ b/drivers/nvme/host/rdma.c
-@@ -1476,8 +1476,7 @@ static int nvme_rdma_dma_map_req(struct ib_device *ibdev, struct request *rq,
- 	if (ret)
- 		return -ENOMEM;
- 
--	req->data_sgl.nents = blk_rq_map_sg(rq->q, rq,
--					    req->data_sgl.sg_table.sgl);
-+	req->data_sgl.nents = blk_rq_map_sg(rq, req->data_sgl.sg_table.sgl);
- 
- 	*count = ib_dma_map_sg(ibdev, req->data_sgl.sg_table.sgl,
- 			       req->data_sgl.nents, rq_dma_dir(rq));
-diff --git a/drivers/nvme/target/loop.c b/drivers/nvme/target/loop.c
-index a9d112d34d4f..a5c41144667c 100644
---- a/drivers/nvme/target/loop.c
-+++ b/drivers/nvme/target/loop.c
-@@ -162,7 +162,7 @@ static blk_status_t nvme_loop_queue_rq(struct blk_mq_hw_ctx *hctx,
- 		}
- 
- 		iod->req.sg = iod->sg_table.sgl;
--		iod->req.sg_cnt = blk_rq_map_sg(req->q, req, iod->sg_table.sgl);
-+		iod->req.sg_cnt = blk_rq_map_sg(req, iod->sg_table.sgl);
- 		iod->req.transfer_len = blk_rq_payload_bytes(req);
- 	}
- 
-diff --git a/drivers/scsi/scsi_lib.c b/drivers/scsi/scsi_lib.c
-index f1cfe0bb89b2..0d29470e86b0 100644
---- a/drivers/scsi/scsi_lib.c
-+++ b/drivers/scsi/scsi_lib.c
-@@ -1149,7 +1149,7 @@ blk_status_t scsi_alloc_sgtables(struct scsi_cmnd *cmd)
- 	 * Next, walk the list, and fill in the addresses and sizes of
- 	 * each segment.
- 	 */
--	count = __blk_rq_map_sg(rq->q, rq, cmd->sdb.table.sgl, &last_sg);
-+	count = __blk_rq_map_sg(rq, cmd->sdb.table.sgl, &last_sg);
- 
- 	if (blk_rq_bytes(rq) & rq->q->limits.dma_pad_mask) {
- 		unsigned int pad_len =
-diff --git a/include/linux/blk-mq.h b/include/linux/blk-mq.h
-index fa2a76cc2f73..f2eff998913d 100644
---- a/include/linux/blk-mq.h
-+++ b/include/linux/blk-mq.h
-@@ -1165,14 +1165,13 @@ static inline unsigned short blk_rq_nr_discard_segments(struct request *rq)
- 	return max_t(unsigned short, rq->nr_phys_segments, 1);
- }
- 
--int __blk_rq_map_sg(struct request_queue *q, struct request *rq,
--		struct scatterlist *sglist, struct scatterlist **last_sg);
--static inline int blk_rq_map_sg(struct request_queue *q, struct request *rq,
--		struct scatterlist *sglist)
-+int __blk_rq_map_sg(struct request *rq, struct scatterlist *sglist,
-+		struct scatterlist **last_sg);
-+static inline int blk_rq_map_sg(struct request *rq, struct scatterlist *sglist)
- {
- 	struct scatterlist *last_sg = NULL;
- 
--	return __blk_rq_map_sg(q, rq, sglist, &last_sg);
-+	return __blk_rq_map_sg(rq, sglist, &last_sg);
- }
- void blk_dump_rq_flags(struct request *, char *);
- 
--- 
-2.25.1
+> [+to Matt, author of e49ad667815d]
 
+I dropped Matt's email on purpose since it will bounce as the email is
+no longer valid.
+
+> 
+> On Wed, Mar 05, 2025 at 06:50:18PM +0530, Siddharth Vadapalli wrote:
+> > Commit under Fixes assigned the value of 'linkdown_irq_regfield' for the
+> > J784S4 SoC as 'LINK_DOWN' which corresponds to BIT(1). However, according
+> > to the Technical Reference Manual and Register Documentation for the J784S4
+> > SoC [0], BIT(1) corresponds to "ENABLE_SYS_EN_PCIE_DPA_1" which is __NOT__
+> > the field for the link-state interrupt. Instead, it is BIT(10) of the
+> > "PCIE_INTD_ENABLE_REG_SYS_2" register that corresponds to the link-state
+> > field named as "ENABLE_SYS_EN_PCIE_LINK_STATE".
+> 
+> I guess the reason we want this is that on J784S4, we ignore actual
+> link-down interrupts (and we don't write STATUS_CLR_REG_SYS_2 to clear
+> the interrupt indication, so maybe there's an interrupt storm), and we
+> think some other interrupt (DPA_1, whatever that is) is actually a
+> link-down interrupt?
+
+While it is true that actual link-down interrupts are ignored, it is not
+the case that there's an interrupt storm because the same incorrect macro
+is used to enable the interrupt line. Since the enables an interrupt for
+DPA_1 which never fires, we don't run into the situation where we are not
+clearing the interrupt (the interrupt handler will look for the same
+incorrect field to clear the interrupt if it does fire for DPA_1, but that
+doesn't happen). The 'linkdown_irq_regfield' corresponds to the
+"link-state" field not just in the J784S4 SoC, but in all SoCs supported by
+the pci-j721e.c driver. It is only in J721E that it is BIT(1)
+[LINK_DOWN macro], while in all other SoCs (J784S4 included), it is BIT(10)
+[J7200_LINK_DOWN macro since it was first added for J7200 SoC]. Matt
+probably referred to J721E's Technical Reference Manual and ended up
+incorrectly assigning "LINK_DOWN", due to which the driver is enabling
+the DPA_1 interrupt and the interrupt handler is also going to look for
+the field corresponding to receiving an interrupt for DPA_1.
+
+> 
+> > Hence, set 'linkdown_irq_regfield' to the macro 'J7200_LINK_DOWN' which
+> > expands to BIT(10) and was first defined for the J7200 SoC. Other SoCs
+> > already reuse this macro since it accurately represents the link-state
+> > field in their respective "PCIE_INTD_ENABLE_REG_SYS_2" register.
+> > 
+> > [0]: https://www.ti.com/lit/zip/spruj52
+> 
+> Thanks for the spec URL.  Can you include a relevant section number?
+> I searched for some of this stuff but couldn't find it.
+
+The URL above is taken from the "User Guide" section of the following
+webpage:
+https://www.ti.com/product/TDA4VH-Q1
+corresponding to the J784S4 SoC (TDA4VH is another name for it).
+
+The User Guide [0] is a zip file containing the Technical Reference
+Manual (without Registers) along with an Excel Sheet containing the
+Registers. There unfortunately is no particular section that I can
+quote in the Excel Sheet. The PCIe registers described in the Excel
+Sheet contain the "PCIE_INTD_ENABLE_REG_SYS_2" register in one of the
+rows (I didn't want to mention the row number since things could change
+over time, similar to how you pointed out below that the URL could
+potentially change). However, the register name should remain the same,
+the reason being that the name is consistent across all SoCs supported
+by the pci-j721e.c.
+
+> 
+> Since I have low confidence that the URL will be valid after a few
+> years, I wish the spec also had a human-readable name and revision
+> number.  But maybe the alphabet soup or "SPRUJ52D", "revised July
+> 2024" is all we can hope for.
+
+I can only hope that the URL will redirect to the latest version of the
+User Guide if at all it becomes invalid.
+
+Regards,
+Siddharth.
 
