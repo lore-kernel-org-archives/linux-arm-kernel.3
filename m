@@ -4,80 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA694C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 04:11:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CD65C35FF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 04:17:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=bJt33rGfTjmFGwZ17ZhOF51exB4rGltLhYdx1EQidRs=; b=cpPfTMOoZx2yC6yVijwerhymkg
-	ZAh/RN7TICCJL4sqCrJPKktL+oRGF3d0tTaMIgbK4b9LekiamOxQqenzmOwXSDWH2hWa+KPf1SFY3
-	dzPAyjmhJ1qbXbIyLhExsBBQOnxDBlc2ltyC0RQMfne5pnYswtI974xmLvRycadQNQPJKIGt293nY
-	pmjX17sZh6y07eSakhLFxaL3uAU0oYeqLQh4QZzZH2QuKcH12B3vD2EjUW+2uH2WdoSG7crpSjfwu
-	D2iwX+SWraYQb564ljP5IndYIF0xzKEEJz+ZCZnBNNyKfvRnRqVxsEvmNA4GNeG/+hI2yFAs8n+KZ
-	wPv7Wjjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fwD/vRiqpn6F/5wc68FmvAW7w33Bxoo6zqtELP4wqqY=; b=ntaV5tSsfjtjS53uR+tTow+K4x
+	Hlq9qVEUcBfm+SfjUpJ+urbWTW+PlZVLMk5aXWBL2F7e/O4QcwHEN7OU1ZbO4SatWZ+wn3TYmatr6
+	bVJnqXbtuCHpTnTVMupACKw8ZNZtt4xR469Hnn07V5RjGcgSKmf45CUXpvrPR82yMR90CaoiS8uP+
+	Nm/EfXLPg85kvZl7QS0SK88j8R8KCclO6sf+UP2ZSwHUxnHrDYUWJB/om1ZQO08V7jr33spw0a2aU
+	/3iWsg3R2Csg6xTGRlTE4dm8xzzAwla+fzZk9ngt9WeikpVAJjcBK7ocs37JXF3Q1fNEBZAmZbXmZ
+	V0cMq2eg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsZuF-0000000A2jt-3fHk;
-	Thu, 13 Mar 2025 04:10:51 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tsa0n-0000000A3BW-1289;
+	Thu, 13 Mar 2025 04:17:37 +0000
+Received: from mail-db5eur02on2062f.outbound.protection.outlook.com ([2a01:111:f403:2608::62f] helo=EUR02-DB5-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsZsb-0000000A2ea-2djM;
-	Thu, 13 Mar 2025 04:09:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741838946;
-	bh=j7zpBJEhB8SicI9BKDz1KSrdQOhg5JL4HopKFTPur5k=;
-	h=From:To:Cc:Subject:Date:From;
-	b=SX4lGM0MJqbfxx/mmhRW/n7CDZtvZE7XoQBSAsi7njweboGy54o2bj3TW1FZSnXb1
-	 VqOdVU5io0S7jhRC6EjGGIZR7FWHaohcv6kOeFGKwoeW97j64l1lt+Mcmm4XRnsZre
-	 H86YgGn8p64XJlpt30ggZ4qMRlyKnuxg0TuM9cqIaQ17iSHHqYffjgK9WTz70LupPd
-	 oeu0zu9ysPLG1JM+ISSmuPoa8hpXWENiyrIvZ5MnBRzR48J7MjJv0ZpMAc6tYaREqc
-	 MSBJ2rMh+XcQwHHOC76pnLhX1GpwN2WmIrxH6/FTqvgRknBKV88aOctfb/3sjOyTjZ
-	 vpADPxWWOmW5g==
-Received: from debian.. (unknown [171.76.87.92])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: vignesh)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0CE6417E023F;
-	Thu, 13 Mar 2025 05:09:01 +0100 (CET)
-From: Vignesh Raman <vignesh.raman@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de,
-	nfraprado@collabora.com,
-	angelogioacchino.delregno@collabora.com,
-	krzk@kernel.org,
-	daniels@collabora.com,
-	airlied@gmail.com,
-	simona.vetter@ffwll.ch,
-	arnd@kernel.org,
-	ck.hu@mediatek.com,
-	laura.nao@collabora.com,
-	matthias.bgg@gmail.com,
-	tzimmermann@suse.de,
-	mripard@kernel.org,
-	lumag@kernel.org,
-	ville.syrjala@linux.intel.com,
-	jani.nikula@intel.com,
-	arnd@arndb.de,
-	geert+renesas@glider.be,
-	wenst@chromium.org,
-	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v3] arm64: defconfig: mediatek: enable PHY drivers
-Date: Thu, 13 Mar 2025 09:38:24 +0530
-Message-ID: <20250313040855.62259-1-vignesh.raman@collabora.com>
-X-Mailer: git-send-email 2.47.2
+	id 1tsZz8-0000000A33e-1iyR
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 04:15:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=szbk8E5LLYE3XcfyHh70Ex6IzxLB40cfMxEP3kighhoIWI8fPXEXruXSKvRZLiNtmscRLWKlCaTI8MBuPyjCbXhH8WltlXez4M6gn/QaZjDgMc5ah4RPGWcY7FQYgZkdVbuYgs0EUOMCUe8heqsa0B+wJ+0biPDTCNnycqndwugPUvTS73d8piHfoVhvJyJxy0Ty5hr5uN5zmizkhn3cx9w732eNNv+HIb9zeiUL/MXVPxXwctmmctcTQB/Yjn2QE+1fBQ0poK/EabEaeVaXINsDdKUMOmn9S+R6at0n8OLkBwnKMU8zM/fhgXGJiZGGeJcZN2i1BydDRsxck+ugdQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=fwD/vRiqpn6F/5wc68FmvAW7w33Bxoo6zqtELP4wqqY=;
+ b=tOL7KbhsTKNHne4g/8jM2FQrO40D3tmPQgfQJImSW7Dizh2xW+lXhWBiv7qTYucRle2Z6/oK6z0zDaewCXTI+txzb7f4RgFKptpKBQnKpoKDQu1dxK+0bbdBym13PvfklNP4TkUhqgFOfdCaTGEhnWgf5EI8tuoN6Q5kZ9/J0fYerJp8sgLekrh0rj7BEx4vi6/QWnKRQne6okhWKQMMIncOeGD9OBHArYVV3DGXGnUP/3sDdLQtI3OQMU9L0uMurqOs3q3ruHz9FKIuRMwyjjvYH7G4ksLUbF/kBeeL1XO7uGilSv3xuhVfvHBVOCbKQYFSo7KegtNrcTkrwo1p5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=fwD/vRiqpn6F/5wc68FmvAW7w33Bxoo6zqtELP4wqqY=;
+ b=Y+bRH7lidk01FtR0Hekk/rKWsktJs/g6k0hZYzG69fUXoqKuapeEucuIBfB7w6Vqyzmp5ZPcIeXUZHDgEEBp/SMJDC6sUUlr1NkS536e3d3ET31h58OWiHtA/KxbeNhiUtSpnJVERMt6Eea19r16TlfQ22CjTBCgFrPoCvHXB3nOWtAw3REhmZ1psbc9g7OTrMBHLJbZZHNykgvbIsadDBev8YbAH3PCRVI8nbmginEbm5L8lafQqBhMTwhX+KYB6rsiS58zbcp5ii1h/70GFrkXbRmOgav+8eM3itxAd1t1bu4CJfm857qqkXu+ksU52rUFUNJm6o579E8cRmseTg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by AM9PR04MB8337.eurprd04.prod.outlook.com (2603:10a6:20b:3e8::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.28; Thu, 13 Mar
+ 2025 04:15:50 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.8534.025; Thu, 13 Mar 2025
+ 04:15:49 +0000
+Date: Thu, 13 Mar 2025 13:23:27 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: Peng Fan <peng.fan@nxp.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Aisheng Dong <aisheng.dong@nxp.com>,
+	Fabio Estevam <festevam@gmail.com>, Shawn Guo <shawnguo@kernel.org>,
+	Jacky Bai <ping.bai@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	"arm-scmi@vger.kernel.org" <arm-scmi@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>
+Subject: Re: [PATCH 1/4] firmware: arm_scmi: bus: Bypass setting fwnode for
+ scmi cpufreq
+Message-ID: <20250313052309.GA11131@nxa18884-linux>
+References: <Z7Z-ZnztmvUxWoQJ@NXL53680.wbi.nxp.com>
+ <Z86w3ZRS6T2MvV3X@bogus>
+ <DB9PR04MB84614FBF96E7BC0D125D97F688D62@DB9PR04MB8461.eurprd04.prod.outlook.com>
+ <Z87UJdhiTWhssnbl@bogus>
+ <Z87sGF_jHKau_FMe@bogus>
+ <PAXPR04MB8459EA5C7898393E51C246AD88D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <PAXPR04MB8459A73179FFF0ED0C9A51E488D12@PAXPR04MB8459.eurprd04.prod.outlook.com>
+ <Z9AdICiyaCmzKh-N@bogus>
+ <Z9FnZzBQuZ1j5k3I@bogus>
+ <Z9Fv9JPdF5OWUHfk@bogus>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z9Fv9JPdF5OWUHfk@bogus>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SI2P153CA0013.APCP153.PROD.OUTLOOK.COM
+ (2603:1096:4:140::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AM9PR04MB8337:EE_
+X-MS-Office365-Filtering-Correlation-Id: a0a81921-4972-41d8-7c7b-08dd61e5bc7d
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?YWpxT+UoFb/J1tUJ3JqorZhmA26jjBgPgiTYXGECDr6a0/la+JtrJc7dvn0r?=
+ =?us-ascii?Q?XbuExtgif5UgbRcdR86uWApLbb0SMtLmBbilw7D3JHv+AZWmUvEunQj5Pg2l?=
+ =?us-ascii?Q?SfsyW4rUMJZ6v2eiOJDYq/ZNRe05NcFU2y4FyHwRweQ4JZMjglTjznehH0lG?=
+ =?us-ascii?Q?Y8KBQ7dJXn6xEhqgcloxrCDaXZlHAIsrdgOiNm2TljtP8sfqpBQU+9bFKYG3?=
+ =?us-ascii?Q?wvab4Z5f/KIbEUq6lucubPelby647Mg+DrfIDc9hWVPdP0/0qD+rrE56p9p9?=
+ =?us-ascii?Q?iHAyxlftr0mYQHzUFRe6KcyYv3sfbefMRuqZt/BkZDsWBpMUh/bJjMW05H6r?=
+ =?us-ascii?Q?gGbVyMACBRpEBmYhZcGbtVdS6u/UMpyXyUVtt1c+kXUd6VF4oYnoy/lqgmC8?=
+ =?us-ascii?Q?3VjNm1Lvlfso4gfHnQffcoqGdQPsbvgsj7JigfeAKQIh+hIZ4eYHRJjkU30O?=
+ =?us-ascii?Q?5jEKsFN1yPEJHhjeHXPhZfyi8tVUAlU70FUFzr9PQ/9uRM36cPSSWmvhCIch?=
+ =?us-ascii?Q?VozOOhr0Y+8stUsx7Lo/Y7VCme+TP0mv09ZkBu94//bBm04kKuzeObNRX1gr?=
+ =?us-ascii?Q?6uX0plih04uyQmUsW+cj6bsbewmpUyAS22Qx9r8lJ9VkTbZ9nVlORoeb+wfx?=
+ =?us-ascii?Q?hF//qJmxjSJAb+hCW4BrDf8GOzTvlM4AZuYvOJM2XVPdohI4D2qsrBEqB/Tv?=
+ =?us-ascii?Q?NJWLmTlkXUiOgZN6QPXo/63DPFvVem7wDH9tEMTBVZ3iFlph2+ubr6Cm9Gmy?=
+ =?us-ascii?Q?+BJLbOV3M9axLv7wrpqHEcTWojk61/DJF1Pq3dtb2r67O1AokBs/Cn4tUs05?=
+ =?us-ascii?Q?9Z06RFOiB4PKJogSYdY2BtHfFY2dzuV4XbQiGrPhU+7LxU0MT6787hAuMB93?=
+ =?us-ascii?Q?r7t6Vyn/10Hg/ke5aGQgqENqz8TYXDZsQWjHGLJxpL4R6YPtMnYJy3ZAH26t?=
+ =?us-ascii?Q?xx9xlZWFfKyBygRPbcHPkMEf+Lkmd8r0P4yjja9YzT+BN9U774kqWTNnehjM?=
+ =?us-ascii?Q?T8wvtucwW9EGGcxWZBBVx9wXKBH0PgZ3eof8Mm3AD7qaBO0LVEhMqtSwezcS?=
+ =?us-ascii?Q?rKFUC9hiZ4v0TJlmaYt3uHA5Fb456+D925DjcsuAOvAb4oGnCtJz5P3m/b+7?=
+ =?us-ascii?Q?YjcqekoTjqknbQUEd7eNguriM5Nq7cUWGY/0VHZfBGiNffLS9j5SFQv4Yr8b?=
+ =?us-ascii?Q?MT1ZulPLKPVnjr8oP1hLf1Dj1LKBRgnIidVFTuicWNuStT23vnEdB5ku2BJq?=
+ =?us-ascii?Q?ln0P0zUuwj7bfag/ko5KZ15Xyjv0Nlnm2KB9JVJM0KxLi0HZkpyq21vpYEHX?=
+ =?us-ascii?Q?uKf1/5PfCBMwwEO8LIgponidKKFCD1ZjjraoJ1tQioFZwfOYZjCbUV7NDS+P?=
+ =?us-ascii?Q?vs2KJQcPZNtZYFcZGth48S28tkQ8JaM40o/THDTR+InkbT2ktQ=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?OGpPOS68oc3hTmq81QfyhZNFrzNq/QO+CVQAwq9E4PD17Aa37RKSMYH8uprb?=
+ =?us-ascii?Q?Y1MtoTmW5J+/E1AEmZX00spaJijiuZvxBCRegFGlPhywYhvH9qEZxY0gVGPS?=
+ =?us-ascii?Q?qvo7gk2QuyCGC8tyaf1NAtyU4t17lW6es8+IIgrOy3i+ajXwBAda8DgkJjUA?=
+ =?us-ascii?Q?+2uZt2pxAhnDryMLWwT0erERwqgSnuOp3iWnajZ1iDQoI3K8HtDInlObkeW0?=
+ =?us-ascii?Q?p7nZQZVfZ8SLLF5eWSh6JPlFP76sCIRiOApjOqmgLjeBsTuVvUmyqtRyFtNd?=
+ =?us-ascii?Q?JjSvryIHxL4wdtJ+Ptk/tziK1Dy09eOr67EpfbRANl1PWcMNZ/Sf4EEmvtDd?=
+ =?us-ascii?Q?ehnk41vJy7BEMiEuSk19WipA1T/1dsggY988HOyzyGYuVPNe/mFs991Juhdc?=
+ =?us-ascii?Q?WF8FhDOgxjhssetnZPiI8fd/rVtSP+wiDeMMWS6TeEdNIFATx1RcqpxaWp+8?=
+ =?us-ascii?Q?Wej6c8PjSrsSmxXKR3C95BBEAevR64NBT7xHLPKluwQW1ttUU61LkQOjGM7R?=
+ =?us-ascii?Q?+zATv3dVOlOVhVkD+asT0uMPuvbuBYyCGz5oauP+26sa5KI5bSX7Gshp8+XO?=
+ =?us-ascii?Q?rWmGNRZoKOYhEXCUjMAPD+VMwRT9gWwkZ3m94puk7YWIDK8IK+SfvSMWWvYs?=
+ =?us-ascii?Q?DLel/MUUj+aVUUpP0rDNeFUptuKd0lDSdUajnLThb0ddARxqugbiPHF8fG8v?=
+ =?us-ascii?Q?0C2VmXkPKo3Q68/8sUNGmbYB7SkbCrcXfCbtTFkHCpfG2AvgVrLQOUSSqXor?=
+ =?us-ascii?Q?pV/Z15v3oG9flTq8jBxhhIfmHdRNXAXhJ9019V7xZr5NoG6KbmboZoutoRB8?=
+ =?us-ascii?Q?HTMFB/GQ00OxCG1/fC0JTIoQUfaHM9EigR4BXLJ+bFN2CyChxXnbq0EhsDj/?=
+ =?us-ascii?Q?rhYRQHOsdkvtd6PLQtWVg49ZFsMiifYDjQszvb5ux1emnbG2PUU5O37mdcSz?=
+ =?us-ascii?Q?ClxVwNLCSjOX0lJv8IL/gHtwYDWmrFFzVso/eMVSmstv8skQQ2yQwDpZK/JU?=
+ =?us-ascii?Q?F3yTdQonn7g7gDpfW4r5CpeNefjoBU8MN4BwQydut1dbCvcZGHUO3z9oEPRa?=
+ =?us-ascii?Q?9dhmgnqHex4z5AMJ8YEjrfujxHFo1Dpx2PbRCVDFFqKhIvVom+EeOqKtanm2?=
+ =?us-ascii?Q?zuq7F9UXUSfpp2dbBEx6T6JNLmoCbKut32Ol3PPQdRPI6zHt8WhudZDjrDmo?=
+ =?us-ascii?Q?W1U2E4mjXc21/EWI+A6pZKiPqmOlFUt/B7n9Ith56OVIQb1SuVKI7Baxyfua?=
+ =?us-ascii?Q?YtEpxhwVrstsnWeK4N7tdj3YROw4Ajbo/4p7rsQDwUStDPUXpGUnT50EGQrD?=
+ =?us-ascii?Q?GpwwbtEzHPiAuBHsgfaDva6Gg7kENCJYJH4LKDH6bLQsZ2KfFKzY55T9Hx1r?=
+ =?us-ascii?Q?iBQPq7GSHBKQ60D9gdImY6s8L2lIXai+BgNFeD8l8Q3M+J/QbJpjtLpcUfM2?=
+ =?us-ascii?Q?vkuC07/Qo7ilQ7p+iwW9EhALsnzeKyBHjnSEkr/l4PeQJi/wKiVJ3ECPqySO?=
+ =?us-ascii?Q?n99Ws2icy1NsmjpdC/BG8seaFXb96SzdkXIyip0EHgPmR/6a2dJUIwN4l9Ij?=
+ =?us-ascii?Q?LT3vMSYS3diR8eZnXLRWkJ1SCLQY78e7dMBPn9QX?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: a0a81921-4972-41d8-7c7b-08dd61e5bc7d
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 04:15:49.8585
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 5+ld87Lg6Zyh5nDOMMXZXchsDO3PsaPq2igjMcyPY8VqrU388/vMTJzW7RiNeMW9lwtCUUa98fW69d3KYXaRvQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AM9PR04MB8337
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_210909_858509_E6287A1B 
-X-CRM114-Status: UNSURE (   8.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250312_211554_505282_23594943 
+X-CRM114-Status: GOOD (  17.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,54 +181,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mediatek display driver fails to probe on mt8173-elm-hana and
-mt8183-kukui-jacuzzi-juniper-sku16 in v6.14-rc4 due to missing PHY
-configurations.
+On Wed, Mar 12, 2025 at 11:28:52AM +0000, Sudeep Holla wrote:
+>On Wed, Mar 12, 2025 at 10:52:23AM +0000, Sudeep Holla wrote:
+>> On Tue, Mar 11, 2025 at 11:23:12AM +0000, Sudeep Holla wrote:
+>> > On Tue, Mar 11, 2025 at 11:12:45AM +0000, Peng Fan wrote:
+>> > >
+>> > > So it is clear that wrong fw_devlink is created, it is because scmi cpufreq device is
+>> > > created earlier and when device_add, the below logic makes the fwnode pointer points
+>> > > to scmi cpufreq device.
+>> > >         if (dev->fwnode && !dev->fwnode->dev) {
+>> > >                 dev->fwnode->dev = dev;
+>> > >                 fw_devlink_link_device(dev);
+>> > >         }
+>> > >
+>> >
+>> > Thanks, looks like simple way to reproduce the issue. I will give it a try.
+>> >
+>> 
+>> I could reproduce but none of my solution solved the problem completely
+>> or properly. And I don't like the DT proposal you came up with. I am
+>> not inclined to just drop this fwnode setting in the scmi devices and
+>> just use of_node.
+>>
+>
+>Sorry for the typo that changes the meaning: s/not/now
+>
+>I meant "I am now inclined ..", until we figure out a way to make this
+>work with devlinks properly.
 
-Commit [1] stopped selecting the MediaTek PHY drivers, requiring them
-to be explicitly enabled in defconfig.
+when you have time, please give a look at
+https://github.com/MrVan/linux/commit/b500c29cb7f6f32a38b1ed462e333db5a3e301e4
 
-Enable the following PHY drivers for MediaTek platforms:
-- CONFIG_PHY_MTK_HDMI=m for HDMI display
-- CONFIG_PHY_MTK_MIPI_DSI=m for DSI display
-- CONFIG_PHY_MTK_DP=m for DP display
+The upper patch was to follow Cristian's and Dan's suggestion in V2[1] to use
+a flag SCMI_DEVICE_NO_FWNODE for scmi device.
 
-[1] commit 924d66011f24 ("drm/mediatek: stop selecting foreign drivers")
+I could post out the upper patch as V3 if it basically looks no design flaw.
+I will drop the pinctrl patch in v3, considering we are first going
+to resolve the fw_devlink issue for cpufreq/devfreq.
 
-Fixes: 924d66011f24 ("drm/mediatek: stop selecting foreign drivers")
-Signed-off-by: Vignesh Raman <vignesh.raman@collabora.com>
----
+[1] https://lore.kernel.org/all/Z6SgFGb4Z88v783c@pluto/
 
-v2:
-  - Include board details in the commit message.  
-  - Sort newly added PHY configs in defconfig.
+Thanks,
+Peng.
 
-v3:
-  - Use defconfig/savedefconfig to get the correct configs ordering.
-  - Removed PHY_MTK_XSPHY since it is not required for probing display driver.
-  - Add the commit details which deselected the MediaTek PHY drivers and
-    added a Fixes tag.
-  - Enabled CONFIG_PHY_MTK_DP, which was previously deselected.
-
----
- arch/arm64/configs/defconfig | 3 +++
- 1 file changed, 3 insertions(+)
-
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 1f25423de383..fa8ee7070b37 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1573,6 +1573,9 @@ CONFIG_PHY_HISTB_COMBPHY=y
- CONFIG_PHY_HISI_INNO_USB2=y
- CONFIG_PHY_MVEBU_CP110_COMPHY=y
- CONFIG_PHY_MTK_TPHY=y
-+CONFIG_PHY_MTK_HDMI=m
-+CONFIG_PHY_MTK_MIPI_DSI=m
-+CONFIG_PHY_MTK_DP=m
- CONFIG_PHY_QCOM_EDP=m
- CONFIG_PHY_QCOM_PCIE2=m
- CONFIG_PHY_QCOM_QMP=m
--- 
-2.47.2
-
+>
+>-- 
+>Regards,
+>Sudeep
 
