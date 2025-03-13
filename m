@@ -4,72 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A5F8C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:46:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1161EC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:47:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LFm3KsmAW7VDcqDfFUvV8TrvWBGDHYSxcO8XpMmIi+o=; b=2QgrRaUpWe1ldgVMOirZIuNqD6
-	r0nXz8Tf3jLTPB7Qcl8q5eJPSsbvZ1XRQVEdoXowFaKa7hFav3eNGPoISVvnLIy2g9fbcDMtbWqtP
-	gGmu2GqTFasT9ZJViEBJuUW9obWTG1cXWqKFsM3C1qfe2CEcEPXgqvREdwnyWAxc2HobR8Idi5TZ4
-	S0sqZz13cpA+p4fJJryI9BNIRGk3EK11DotrPGvhzQNcSuBePEPPGASz6ayAXhxvPfR7SZjJKHIdx
-	QygDFDRcHMZ1qMgrbsQXqN9nEMjYo2aDSSIAXDXmbTmksqLnVwMMupdg1olF53S8A4XBOCYnvevBK
-	yzB1Fs6Q==;
+	bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=; b=SB+FmYOnsGTsYDJvfVz6134VHl
+	CKdqDmFI/Ww5MqYZlRhduyX3OCNGTv4+J+dEgXEgCtZYbFvhMPHqHwhKT4UK3B3RufIeEpCPsDnH4
+	bEBMjSiGRnANgxLB+u9soDDE4IF/W1ib5qnbWUXq0S3y/yr7b31RctpyGfcMdRYSsLwkb7nh7t5Jm
+	+GUWL3oC6AF1Z0s6NF8Crq8Y/nlr+94VIuMjwF6E3EA95HWP+W7UT5sphBMNq1ALCKNn0PsptwJgO
+	xKaVfzmLSqWbrqv6q5R+1cEMqEZZpE3jwVd8Om65HhfjXrUmdYyhMfr9wfH8FYzbJfu13EsZhkjyb
+	cCNosdsg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsg4d-0000000AvN3-46Pw;
-	Thu, 13 Mar 2025 10:45:59 +0000
-Received: from mail.manjaro.org ([2a01:4f8:c0c:51f3::1])
+	id 1tsg6G-0000000Avb7-301Y;
+	Thu, 13 Mar 2025 10:47:40 +0000
+Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsg1A-0000000AuId-1i2W;
-	Thu, 13 Mar 2025 10:42:26 +0000
-MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1741862539;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=LFm3KsmAW7VDcqDfFUvV8TrvWBGDHYSxcO8XpMmIi+o=;
-	b=ecwBlwCKU6P8di9N2w737dS2NNAKJ9CyOCuMtbfDwzW9u69CT/TRIeJEFxjk/182gVtIzR
-	se7/9NEMVL1oLKstEyNFEECefTHeCNqkAlqHz/SdZeUWGGOxeUbE0/baIX/9Sm0z8Qg7qo
-	2AY+7InpS1r2CjHAFmc2VKC/1nqlM8hW73X3y1o9iFWOZuFH9B2OZO/gcoKP/ls7Xu2zld
-	LLZ+LfRFH/Hv4Y66qW1WfAgQ0x7tjTCF80CxqqHvrFJWmk7pkInWXwBXR5ZG7PpOyR1cxE
-	S3CXyNn85silJPhR6hoGeO0jIwQCF3PnTaI2VqP2iEzbFQdlTBEsuJUtMT15/A==
-Date: Thu, 13 Mar 2025 11:42:17 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Quentin Schulz <quentin.schulz@cherry.de>
-Cc: Alexey Charkov <alchark@gmail.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Viresh Kumar
- <viresh.kumar@linaro.org>, Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas
- <didi.debian@cknow.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>
-Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
- on RK3588j
-In-Reply-To: <a56b59a21dc3c21192fe45197eee4865@manjaro.org>
-References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
- <d8ce8db2-1717-40f8-b53e-24cc71a758c9@cherry.de>
- <CABjd4Yw-r-ogfwcrph4K1wbkybS25gk6LFg8wpqLG27uWdybNA@mail.gmail.com>
- <2914631.KiezcSG77Q@diego>
- <CABjd4YxF4N1tAgGUZk-oKkMUO+Q9rWHZsas9gMQdJ+TF4A1=NA@mail.gmail.com>
- <e55125ed-64fb-455e-b1e4-cebe2cf006e4@cherry.de>
- <a56b59a21dc3c21192fe45197eee4865@manjaro.org>
-Message-ID: <2cf3889741f84584d8f23a4407fed08e@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+	id 1tsg1w-0000000AuiJ-2252;
+	Thu, 13 Mar 2025 10:43:13 +0000
+Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e66407963fso1366175a12.2;
+        Thu, 13 Mar 2025 03:43:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741862588; x=1742467388; darn=lists.infradead.org;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=;
+        b=mhjM5PJPhFAgh09Mo+l/jLU1WmCIYu1yea6+LGs69IAZ0uOLczraIbtAp4H2Eqpxpb
+         N2zFSOc/Xg/RLtFfSXDJ2GqIBwTvYkqG+pbJwu7tAx1NhAVS0qSJF0hS5tYxbXtm89cW
+         dF3qCClhOqaKbAEWd1oYvcnlXE/6iMJtk6YRqqTmDcNX1zaqm9ojIlDzl+LPxb/VPXz+
+         Hnmc1p68gctmwJnAgMMMHRVzKq8TusBHiYH82oLQ08Uss2N39gWWnhvQiSP2jtZkXUfH
+         Vyb9eZ0EowzfWGufMp3Q89uEw9i+grOCD5IxS31r48anLRkMPmsvaryO2BbJI9ORsbeb
+         9n5Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741862588; x=1742467388;
+        h=to:references:message-id:content-transfer-encoding:cc:date
+         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=;
+        b=ACOKZXgCwLI1mTyzFeBcvFCPWHw/Lit81FugNpFhWA/D6255M7f4qRwDQAccbVftar
+         ym7S0TNmWV4dnrZW3iFSG4OQ4FWlHGD6alFAA5en203mgNxAltTqpsWKwnht7l6tzUTE
+         4Z9m3P7kuD7XGID01PISo2KXbQXJXagdP15KJYyF/btPkWEgLW4rdeFPdlXaf1ErVCOw
+         dqRarn315MS0RkUbm3fGGA8DV6hbwPVshbmH3S8AO4v7N4TMHmXLd3P4o9y6BRQw16DM
+         EsccCgRy7U4I3MJjKAbAMtiqbFM5egZAmfnPApi8SSrD36CSdoZI4qgJj32I5X/Hc0+o
+         Oyqg==
+X-Forwarded-Encrypted: i=1; AJvYcCVfhVE0r8oM0LGJjmtDMkM/Ci0iNsDwbPzlKsKffTgZBDUkxCFzn0obdKZk40ktRukAmp5CTrQsiqPf/5go26U=@lists.infradead.org, AJvYcCX7vuZ79UumCNEncTgQNJ1YpB2T70zgFEk0lvX/wegYcvOIhMGn9vmRVO0Fr4V8028DS7/Fe4Dt4yxkEiNRKBAo@lists.infradead.org
+X-Gm-Message-State: AOJu0YzW4DwxhQaPJGJ/XZj2qTgZ8zneRl8ddbewqZggmFHUCTRLrafN
+	CCQ3hEYymzilAn9hkWwR6tiWA6bNnCfGPWMkusaIjKDa6s1ALp9c
+X-Gm-Gg: ASbGncudJ5J8D0HLHhaB+1gvpkVc3hXx8br9qmaPWJf/DXWyRKeFyABe25VkzryueAZ
+	0vePz/nDfvhvtwGbuybXSdMvKe1N5P2geST9h0bqQwtI4qz9DN0wYuZSEV+5HDh9l5vRVemT24e
+	070ZgiX37UGoOu1ntfeESAovwfRSmUGgVYZsXaf1nEljzSmAmM6AwSllY3POJQcdL1k3tDrK/v/
+	/JGjSEs8QEEHHN/nBjPla/UE3oxWBR9+2iWuEez9jv5Y1smYMJ2unDTYP1L3ZONea/RcNx6k0QL
+	QQboy/jHAvMATJTdr0V9bmy+ltaMyMPugpP5O8gmiwh7SoVmu25kBTY1HN63dGLOb8/93ojN0ie
+	40kQbnrLGzY/Y+T4bv7aSz616OA==
+X-Google-Smtp-Source: AGHT+IHlgJ/0Zq8LGAbC0JM1shbR97v6kXIu61cyy2+LFvXoplbiFx6QsyXJl8Y+G3l47+Ic+J7RIw==
+X-Received: by 2002:a05:6402:2347:b0:5e7:c42e:3cc0 with SMTP id 4fb4d7f45d1cf-5e7c42e3d2fmr6212085a12.9.1741862588162;
+        Thu, 13 Mar 2025 03:43:08 -0700 (PDT)
+Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816afdfd0sm598994a12.75.2025.03.13.03.43.05
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 13 Mar 2025 03:43:07 -0700 (PDT)
+Content-Type: text/plain;
+	charset=utf-8
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Subject: Re: [PATCH v2 2/7] drm/bridge: synopsys: Add DW DPTX Controller
+ support library
+From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
+X-Priority: 3
+In-Reply-To: <381bbdeb.342.1958ce2b7f8.Coremail.andyshrk@163.com>
+Date: Thu, 13 Mar 2025 11:42:54 +0100
+Cc: heiko@sntech.de,
+ neil.armstrong@linaro.org,
+ sebastian.reichel@collabora.com,
+ lumag@kernel.org,
+ devicetree@vger.kernel.org,
+ hjc@rock-chips.com,
+ mripard@kernel.org,
+ linux-kernel@vger.kernel.org,
+ linux-rockchip@lists.infradead.org,
+ yubing.zhang@rock-chips.com,
+ dri-devel@lists.freedesktop.org,
+ Andy Yan <andy.yan@rock-chips.com>,
+ krzk+dt@kernel.org,
+ robh@kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Content-Transfer-Encoding: quoted-printable
+Message-Id: <FE66F347-431A-45E1-8764-06767B7FC74E@gmail.com>
+References: <20250312104214.525242-1-andyshrk@163.com>
+ <20250312104214.525242-3-andyshrk@163.com>
+ <61E9B36C-8568-4C0E-A9A7-07FF612912AA@gmail.com>
+ <381bbdeb.342.1958ce2b7f8.Coremail.andyshrk@163.com>
+To: Andy Yan <andyshrk@163.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_034224_782567_89A3E9AB 
-X-CRM114-Status: GOOD (  30.38  )
+X-CRM114-CacheID: sfid-20250313_034312_513446_35061BD9 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,167 +118,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello all,
 
-On 2025-03-12 11:34, Dragan Simic wrote:
-> On 2025-03-12 11:15, Quentin Schulz wrote:
->> On 2/16/25 1:32 PM, Alexey Charkov wrote:
->>> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de> 
->>> wrote:
->>>> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
->>>>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz 
->>>>> <quentin.schulz@cherry.de> wrote:
->>>>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
->> [...]
->>>>>>> +     };
->>>>>>> +
->>>>>>> +     cluster2_opp_table: opp-table-cluster2 {
->>>>>>> +             compatible = "operating-points-v2";
->>>>>>> +             opp-shared;
->>>>>>> +
->>>>>>> +             opp-1416000000 {
->>>>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->>>>>>> +                     opp-microvolt = <750000 750000 950000>;
->>>>>>> +                     clock-latency-ns = <40000>;
->>>>>>> +             };
->>>>>>> +             opp-1608000000 {
->>>>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->>>>>>> +                     opp-microvolt = <787500 787500 950000>;
->>>>>>> +                     clock-latency-ns = <40000>;
->>>>>>> +             };
->>>>>>> +             opp-1800000000 {
->>>>>>> +                     opp-hz = /bits/ 64 <1800000000>;
->>>>>>> +                     opp-microvolt = <875000 875000 950000>;
->>>>>>> +                     clock-latency-ns = <40000>;
->>>>>>> +             };
->>>>>>> +             opp-2016000000 {
->>>>>>> +                     opp-hz = /bits/ 64 <2016000000>;
->>>>>>> +                     opp-microvolt = <950000 950000 950000>;
->>>>>>> +                     clock-latency-ns = <40000>;
->>>>>>> +             };
->>>>>> 
->>>>>> opp-1800000000 and opp-2016000000 should be removed as well.
->>>>>> 
->>>>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at 
->>>>>> least
->>>>>> for awareness on Rockchip side :)
->>>>>> 
->>>>>> I guess another option could be to mark those above as
->>>>>> 
->>>>>> turbo-mode;
->>>>>> 
->>>>>> though no clue what this would entail. From a glance at cpufreq, 
->>>>>> it
->>>>>> seems that for Rockchip since we use the default cpufreq-dt, it 
->>>>>> would
->>>>>> mark those as unusable, so essentially a no-op, so better remove 
->>>>>> them
->>>>>> entirely?
->>>>> 
->>>>> I believe the opp core just marks 'turbo-mode' opps as
->>>>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to 
->>>>> the
->>>>> cpufreq core. But then to actually use those boost frequencies I 
->>>>> would
->>>>> guess the governor needs to somehow know the power/thermal 
->>>>> constraints
->>>>> of the chip?.. Don't know where that is defined.
->>>> 
->>>> personally I don't believe in "boost" frequencies - except when they 
->>>> are
->>>> declared officially.
->>>> 
->>>> Rockchip for the longest time maintains that running the chip 
->>>> outside
->>>> the declared power/rate envelope can reduce its overall lifetime.
->>>> 
->>>> So for Rockchip in mainline a "it runs stable for me" has never been 
->>>> a
->>>> suitable reasoning ;-) .
->>> 
->>> My key concern here was perhaps that we are looking at a file inside
->>> the Rockchip source tree which looks relevant by the name of it, but
->>> doesn't actually get included anywhere for any of the boards. This 
->>> may
->>> or may not constitute an endorsement by Rockchip of any OPPs listed
->>> there :-D
->> 
->> Rockchip support stated:
->> 
->> """
->> If you run overdrive mode, you do not need to include rk3588j.dtsi,
->> and you can change it to #incldue rk3588.dtsi to ensure that the
->> maximum frequency can reach 2GHz
->> 
->> below picture from datasheet.
->> """
->> 
->> The picture is the table 3-2 Recommended operating conditions, page 30
->> from the RK3588J datasheet, e.g.
->> https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf
->> 
->> What is overdrive?
->> 
->> """
->> Overdrive mode brings higher frequency, and the voltage will increase
->> accordingly. Under
->> the overdrive mode for a long time, the chipset may shorten the
->> lifetime, especially in high temperature condition
->> """
->> 
->> according to the same datasheet, end of the same table, page 31.
->> 
->> so this seems like a turbo-mode frequency to me.
->> 
->> Additionally, the note for the "normal mode" (the one with the lower
->> freqs) states:
->> 
->> """
->> Normal mode means the chipset works under safety voltage and 
->> frequency. For the
->> industrial environment, highly recommend to keep in normal mode, the 
->> lifetime is
->> reasonably guaranteed.
->> """
->> 
->> I believe "industrial environment" means RK3588J used in the
->> temperatures that aren't OK for the standard RK3588 variant?
-> 
-> Thanks a lot for obtaining these clarifications!
-> 
-> Yes, I'd say that in this case "industrial environment" boils down
-> to the extended temperature range for the RK3588J variant.
-> 
->>> I haven't seen a TRM for the J variant, nor do I have a board with
->>> RK3588J to run tests, so it would be great if Kever could chime in
->>> with how these OPPs are different from the others (or not).
->>> 
->>>> So while the situation might be strange for the rk3588j, I really 
->>>> only want
->>>> correct frequencies here please - not any pseudo "turbo freqs".
->>>> 
->>>> I don't care that much what people do on their own device{s/trees}, 
->>>> but
->>>> the devicetrees we supply centrally (and to u-boot, etc) should only
->>>> contain frequencies vetted by the manufacturer.
->>> 
->>> Fair enough. Let's just try and get another data point on whether
->>> these frequencies are vetted or not.
->> 
->> So the higher freqs seems to be vetted (and used by default on
->> Rockchip's BSP kernel), it just feels like you aren't really supposed
->> to run those higher frequencies all the time? And especially not in
->> "industrial environment"?
->> 
->> I would assume we want to stay on the safer side and remove those
->> higher frequencies? Heiko?
-> 
-> I agree, we should remove the higher-frequency OPPs.  I'd like
-> to go through everything once again in detail and prepare a patch
-> that removes the unsafe OPPs, and you could review it once it's
-> on the ML, to make sure it's fine.
 
-Just as a note, everything above (and even a bit more) is confirmed
-and clearly described in the publicly available RK3588J datasheet,
-which I'll provide as a reference in my upcoming patch.
+> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
+13 mar 2025, o godz. 01:23:
+>=20
+>=20
+> Hi Piotr,
+> =E5=9C=A8 2025-03-12 22:23:15=EF=BC=8C"Piotr Oniszczuk" =
+<piotr.oniszczuk@gmail.com> =E5=86=99=E9=81=93=EF=BC=9A
+>=20
+> This series still  based on Linux 6.14 rc4.
+>=20
+> Did you apply the three dependency patch mentioned in my cover letter?
+
+Thx!
+I noticed =
+https://lore.kernel.org/linux-rockchip/20250302115257.188774-1-andyshrk@16=
+3.com/ was missing
+Sorry for false alarm.
+Now v2 works ok for me on rock5a and rock5itx
+=20=
 
