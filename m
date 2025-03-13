@@ -4,88 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44C43C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:37:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE8DAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:42:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UNbbqeHoDPt7k8hD93XF4WARB2PnI7whAsDobeRau8o=; b=dUeABfZYCSNul2HhloO58evdry
-	N+aK/3OHKqCBoLphcfjxvyBlOfg8P7URaUzC978S2/rwDPJ0P++YCnBcw1nvkS6LAAuPDgQ8cxAxf
-	4cEYG0RE5Umo1WjQBUs8ieuUgaXkx+mgmmx1kGRZqR0iX1I38lwvd4aQTzg4CvHYu2ezrB4rTRdO5
-	YzkQZ+qQ3tXYS7+8zAdKd2qBG9YkS/scYWyMqM0/kZhYbAexXUfZ7W57MVWkbzCwSL0x0qz4iaOio
-	kybUrCDZT1peHMud4xFnSzyMCjJ5wO43ExsXl9pJ7KxI06yQq2x1wpbsBW5wFUxzdRnG06NpVoQaw
-	vfr2CTig==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bCwKevtvmgT+PCAKwwme/n8Fa5uxBbV586zEMVI7c/k=; b=GO7j1pwZPnM3DFC0Nm93f4Ygi0
+	3dLv10nMxnI3KJSIQueX8uObmD+Ay9okOUrcqD5NNbYK9p8RWP2JNonk7+cGvRkGN95c529PeaVEO
+	sRrU5OOyc8Qi9aQfYOkt5sRIidd68yifspJ2NVowa4X7vscqcB8/D6IPv729i28246j3O31NB/q0Z
+	MjcuhoF9BC2YkIl384TYbuCIQ1aFbRMx+xOgIr+q4Fuk8D4n2GyMcLQR0VvdD/h/lCuji1KeqQYOp
+	REVFZ8VKDVr6edH+BK11TMCrfBLDvH4/oWXVourTZ7Q5+PUeCY3cwNK7F+UWMz0qI5U0rmzZhDwug
+	mv1/4qFg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsfwH-0000000AtYU-3fMt;
-	Thu, 13 Mar 2025 10:37:21 +0000
-Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsfuc-0000000AtMW-25Y0
+	id 1tsg1M-0000000AuS1-2DLp;
+	Thu, 13 Mar 2025 10:42:36 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsfzg-0000000Att4-00eE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 10:35:39 +0000
-Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-aaee2c5ee6eso125265766b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 03:35:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741862136; x=1742466936; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=UNbbqeHoDPt7k8hD93XF4WARB2PnI7whAsDobeRau8o=;
-        b=IJzEa6arAtjp7h03jgtX/iQAxB6dIrJ1gqSatQf8CazirrlRPvFj53a/e5f7y7bXP0
-         SnGFZPLP5F7jY4rYHMWDpFxLlwT5SeWFnX1d7mLGlGCC7dJcCPNpaABtSTVCH2cE1rY5
-         zOQEpSdFQfC3m2wnS4j5vasEgKInRE0qA/omfPvOZCc/rYncqK35qPkEFt4z+j6r4WOc
-         ctGF9ZOFYfhAi4LtoBA5zqV2L2tlpzLA3tVLzJVgr7nRuTQsYJvxyDLZUDGoYJVgfq7Z
-         7l2ACiGSaVe1j1aeeSp6p675USY4PYwe3nHnTNmr0WGhxpGB7YmR8Ls1ICy1jkEftcS7
-         okWQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741862136; x=1742466936;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UNbbqeHoDPt7k8hD93XF4WARB2PnI7whAsDobeRau8o=;
-        b=lkCQ8ilWsfOFUIAgVTdGClu1u7ruAfTA/HPFtf3hY+KcO5rgxsiq9E9BigUsSluO7Q
-         XlWlLF9EKzBh9Zmy/JtTYgiotVy0AiJ5cptBkrh2wgmmEaPwgMSobCeT+dDj9hAbBNQB
-         xTeGKPv4Jqh1n9JFadUGtKu5VfpYkKJeX0Dt9QQhDtptXQa4fk5KiS3zY+6GaHtYtN+P
-         Td376/FjGkvrEhTRZt+LltMpr6+TiqAnJKSnrS3MLBXwm40soYWGtMkCQgLY92TAABCg
-         h8eS+FxZQDoWofTTgZKXBdo0cr63yGprIAPSN1dlAcEZmVQR0D6OE1+kFDlyaUG4MUwl
-         88Dg==
-X-Forwarded-Encrypted: i=1; AJvYcCW3LeB23vhOjMFh4aby1ixbE1ngE4sR/qcW++ewwHieVTbrIjl8wZD4FxlG48lIcLCTu3fEsyet6fB3tjQB9mTS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy0HclcGZWTrsTZzGDhCwQcQGprJ3iI5K80xPEgU1yxVGzOrwjK
-	8ef2uM0uv8W3SYMcS4qx3nteS1++morx73q9O9V0qpxwwus8x6TAUL0Ke+KzPK5P81hAxSfGQuC
-	CxWXndv24Jwonf3wFcXMs5eVldj0=
-X-Gm-Gg: ASbGncs2YMW6Ty5O/y7HhRKoHPGctUvKXUIejfKNVL15F5pENqK8AMRAXh212UvHIbw
-	5IKaQFxalA4kdRrFmsFd+JIL8loJ6kpuRym4BcfWLNsR4OskyRQ/B/8Pl5oafpR7+8N6ZcU0as5
-	McjrvD+RWA2ZosspTd+biH8ztimw==
-X-Google-Smtp-Source: AGHT+IGVDv1pE4BCE3Na+yhBb8R0foRSsykxpcDNkCfJpVC2H375ipT8Y9+Iaqn+hyKEC5XYMz497CWVlxAo0aZojpo=
-X-Received: by 2002:a17:907:890:b0:abf:768f:9a1f with SMTP id
- a640c23a62f3a-ac252f5ad70mr2132021166b.42.1741862135398; Thu, 13 Mar 2025
- 03:35:35 -0700 (PDT)
+	Thu, 13 Mar 2025 10:40:53 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0763C12FC;
+	Thu, 13 Mar 2025 03:40:59 -0700 (PDT)
+Received: from donnerap.manchester.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D83F23F694;
+	Thu, 13 Mar 2025 03:40:46 -0700 (PDT)
+Date: Thu, 13 Mar 2025 10:40:42 +0000
+From: Andre Przywara <andre.przywara@arm.com>
+To: Michael Klein <michael@fossekall.de>
+Cc: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Samuel Holland
+ <samuel@sholland.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/2] ARM: dts: bananapi: add support for PHY LEDs
+Message-ID: <20250313104042.694c1856@donnerap.manchester.arm.com>
+In-Reply-To: <Z9KYqlfUYxRaWnGQ@a98shuttle.de>
+References: <20250312193629.85417-1-michael@fossekall.de>
+	<20250312193629.85417-2-michael@fossekall.de>
+	<4637912.LvFx2qVVIh@jernej-laptop>
+	<Z9KYqlfUYxRaWnGQ@a98shuttle.de>
+Organization: ARM
+X-Mailer: Claws Mail 3.18.0 (GTK+ 2.24.32; aarch64-unknown-linux-gnu)
 MIME-Version: 1.0
-References: <20250310143450.8276-1-linux.amoon@gmail.com> <20250310143450.8276-5-linux.amoon@gmail.com>
- <25fa661b-98e4-468b-bb4d-4a2c95f32b71@kernel.org> <CANAwSgTeZ83oqatrsWQxT+4RYwEtEqma=R4XX_iGrP2N=phz9Q@mail.gmail.com>
- <43506f83-13d7-46c5-b022-473ac78f0cab@kernel.org>
-In-Reply-To: <43506f83-13d7-46c5-b022-473ac78f0cab@kernel.org>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Thu, 13 Mar 2025 16:05:18 +0530
-X-Gm-Features: AQ5f1JogTFqIfMNUkGXZqHbmGpfdP1dSo4ev8vVzdcAwRmde2Tjv4RErgvCNJmA
-Message-ID: <CANAwSgQeE0NQp_xwWcYBgZVQnm1N4PaQbaoMXGyFK4KKWAzxNw@mail.gmail.com>
-Subject: Re: [PATCH v4 4/4] drivers/thermal/exymos: Use guard notation when
- acquiring mutex
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>, "Rafael J. Wysocki" <rafael@kernel.org>, 
-	Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>, 
-	Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>, 
-	"open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>, 
-	"moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_033538_538195_B96A0483 
-X-CRM114-Status: GOOD (  16.24  )
+X-CRM114-CacheID: sfid-20250313_034052_129152_228668C9 
+X-CRM114-Status: GOOD (  22.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,36 +71,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Thu, 13 Mar 2025 09:34:50 +0100
+Michael Klein <michael@fossekall.de> wrote:
 
-On Thu, 13 Mar 2025 at 13:19, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On 12/03/2025 15:59, Anand Moon wrote:
-> >>
-> >>> +          mutex_lock(&_T->lock), mutex_unlock(&_T->lock))
-> >>> +
-> >>>  /*
-> >>>   * TMU treats temperature as a mapped temperature code.
-> >>>   * The temperature is converted differently depending on the calibration type.
-> >>> @@ -256,7 +260,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
-> >>>       unsigned int status;
-> >>>       int ret = 0;
-> >>>
-> >>> -     mutex_lock(&data->lock);
-> >>> +     guard(mutex)(&data->lock);
-> >>
-> >> Which you do not use... Please don't use cleanup.h if you do not know
-> >> it. It leads to bugs.
-> >>
-> > Ok, I will drop this include of cleanup.h.
->
-> So the guards as well...
->
-Ok I will drop this patch thanks.
+Hi,
 
-> Best regards,
-> Krzysztof
+> On Thu, Mar 13, 2025 at 07:07:24AM +0100, Jernej =C5=A0krabec wrote:
+> >Dne sreda, 12. marec 2025 ob 20:36:28 Srednjeevropski standardni =C4=8Da=
+s je Michael Klein napisal(a): =20
+> >> The Bananapi M1 has three LEDs connected to the RTL8211E ethernet PHY.
+> >> Add the corresponding nodes to the device tree.
+> >>
+> >> Signed-off-by: Michael Klein <michael@fossekall.de> =20
+> >
+> >This is patch 2/2. Which one is patch 1/2? I got only one. =20
+>=20
+> https://patchwork.kernel.org/project/netdevbpf/patch/20250312193629.85417=
+-1-michael@fossekall.de/
+>=20
+> Sorry for any inconvenience in case I messed up the patch submission.
+>=20
+> I made two commits for this change and submitted them via `git send-email=
+=20
+> HEAD^^`. The first patch went to netdev@vger.kernel.org, the second=20
+> to linux-arm-kernel@lists.infradead.org, which seems logical. Have I=20
+> done something wrong?
 
-Thanks
--Anand
+Well, for those really small "series" it's probably better to send all
+patches to everyone, especially if the first patch gives some context,
+without which the second leaves people (like me) scratching their head.
+Also in this case a cover letter would help
+(git format-patch --cover-letter), to give some idea of what you are after.
+
+Cheers,
+Andre
+
+
+>=20
+> >Best regards,
+> >Jernej =20
+>=20
+> Michael
+>=20
+> > =20
+> >> ---
+> >>  .../boot/dts/allwinner/sun7i-a20-bananapi.dts | 27 +++++++++++++++++++
+> >>  1 file changed, 27 insertions(+)
+> >>
+> >> diff --git a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts b/arch=
+/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> >> index 46ecf9db2324..4976453ed192 100644
+> >> --- a/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> >> +++ b/arch/arm/boot/dts/allwinner/sun7i-a20-bananapi.dts
+> >> @@ -48,6 +48,7 @@
+> >>
+> >>  #include <dt-bindings/gpio/gpio.h>
+> >>  #include <dt-bindings/interrupt-controller/irq.h>
+> >> +#include <dt-bindings/leds/common.h>
+> >>
+> >>  / {
+> >>  	model =3D "LeMaker Banana Pi";
+> >> @@ -169,6 +170,32 @@ &ir0 {
+> >>  &gmac_mdio {
+> >>  	phy1: ethernet-phy@1 {
+> >>  		reg =3D <1>;
+> >> +
+> >> +		leds {
+> >> +			#address-cells =3D <1>;
+> >> +			#size-cells =3D <0>;
+> >> +
+> >> +			led@0 {
+> >> +				reg =3D <0>;
+> >> +				color =3D <LED_COLOR_ID_GREEN>;
+> >> +				default-state =3D "keep";
+> >> +				linux,default-trigger =3D "netdev";
+> >> +			};
+> >> +
+> >> +			led@1 {
+> >> +				reg =3D <1>;
+> >> +				color =3D <LED_COLOR_ID_AMBER>;
+> >> +				default-state =3D "keep";
+> >> +				linux,default-trigger =3D "netdev";
+> >> +			};
+> >> +
+> >> +			led@2 {
+> >> +				reg =3D <2>;
+> >> +				color =3D <LED_COLOR_ID_BLUE>;
+> >> +				default-state =3D "keep";
+> >> +				linux,default-trigger =3D "netdev";
+> >> +			};
+> >> +		};
+> >>  	};
+> >>  };
+> >>
+> >> =20
+> >
+> >
+> >
+> >
+> > =20
+>=20
+
 
