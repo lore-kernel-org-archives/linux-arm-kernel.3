@@ -4,69 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0DD7C282EC
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:52:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B732C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:54:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Message-Id:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=shP6uQ/m6R/CuHBF/4J2HjZg/M7mcC6vzmTj4rhEzdM=; b=RyGYa22kyw6G9bCMIYAaexTll1
-	z0pn8ETDHjfOBVEF0egNsvP6jJXxS/28vi0ysixijnWdsvsgavmwVGlG1Qaao3It51I+X6S4FGoXK
-	StUUbEUOgGMZ3Jxc+hteMu9+E5ssAI9E8yYE+WfVP3qHcRL3u3wY55fA9XRwuxmqrt/loIvERl0I3
-	nhFyO7KigA3b3vlwiYrS2GBKdBTbyf+9mgXhtkQE5W5/O2big9hbcqT4Ea+4YIaIAgHMHDsK9BU1A
-	JKBsTlVqymzexFVeFf+Jsk0WE6U0flCt3Yjl/Lc317GglGxvHf2aDIC+BBK4A0slQ2ImX6CE/Cq1L
-	T8DPO44Q==;
+	bh=sSpVhAQyitF3FW0kCmejXRNUU2Iqy32KiojROFtez4s=; b=Wh6hdu2NNO2XnedUK8viny3fNb
+	7TwrPoECMQjZkTNheIEDQVnWpmsQlla++KhFWgtYOnqDpDK46HvLEkHJ+wkPuvQbOQh5ZuN8wrzLY
+	prA6o21ZpRsj2sIXCh5ol+r30Iaz78ThPrNBlezU5kI67fJjjwxO2UK7WD9/QPFVx4aojQFT59CMJ
+	9ORilPaRvYk4RpLgQaFbMbSEtvVNMjI4Xt1+/NX9VFRRyAb6J0YsFHLeJFQKpcXAlWBONxuu0iVEh
+	M64b2qoHzokW5xuSRyGFj6i/Q8aWUK8ryNWUUBrZSuGLWRAFA420waUNYiKHxeCcyX348dW7Kh3QW
+	e6vMPiCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsi3A-0000000BIHR-1c5Q;
-	Thu, 13 Mar 2025 12:52:36 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1tsi4n-0000000BIUU-1V2b;
+	Thu, 13 Mar 2025 12:54:17 +0000
+Received: from mail-vi1eur05on20608.outbound.protection.outlook.com ([2a01:111:f403:2613::608] helo=EUR05-VI1-obe.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsi0F-0000000BHoU-2Drw;
-	Thu, 13 Mar 2025 12:49:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1741870172;
-	bh=ldBDGgTkPPYuyTRF2v5+H50f0Ki5xayYC0ECnthlcf0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=hHjw2pigsG5DsBzm/jEYPomMS3pE9MEp3/MLzh/rHvopa2pA6QJsSXsqK/CqL2TTX
-	 jwVZDNMymLABCy7ct0McWzze8s6ps5RQQKiCh3YgLnd59nvlAEqIEtT/g/qxsa5j7V
-	 DTvSO2bH19OcPuM8BvagGbnDSMLF/Ld7gevIk/wq2s8cjRJW005pKFqCEKnv0+NwIi
-	 qIrBOUwrWM0ziTER+j0hdkHznr0F6UaPA9tWzLGIdxxBDEqspB/2sUnlwIiUmauKSX
-	 m+c5m3+R4Yj8HiPleDFrUdj5SSD0b1dPEkzZ+o9U633FnEI9UnUz8QCzk3msE9u3gG
-	 P6l4pp4dTkwjA==
-Received: from notapiano (unknown [70.107.117.78])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: nfraprado)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A653617E09AA;
-	Thu, 13 Mar 2025 13:49:28 +0100 (CET)
-Date: Thu, 13 Mar 2025 09:49:26 -0300
-From: =?utf-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>
-To: Vignesh Raman <vignesh.raman@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, chunkuang.hu@kernel.org,
-	p.zabel@pengutronix.de, angelogioacchino.delregno@collabora.com,
-	krzk@kernel.org, daniels@collabora.com, airlied@gmail.com,
-	simona.vetter@ffwll.ch, arnd@kernel.org, ck.hu@mediatek.com,
-	laura.nao@collabora.com, matthias.bgg@gmail.com,
-	tzimmermann@suse.de, mripard@kernel.org, lumag@kernel.org,
-	ville.syrjala@linux.intel.com, jani.nikula@intel.com, arnd@arndb.de,
-	geert+renesas@glider.be, wenst@chromium.org,
+	id 1tsi1J-0000000BHzF-422v
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 12:50:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wNgtmMpnPRYl6RLKmycRTS98iJw5jScKq8PXLLeH4FGy6U8pTkZT95fQwvbgq3iLsYnuMhhcCXIP7NxqTo1Z3yi6d2xB6GXs+RrWcIcn7ZapCDhJl7DJKUWk4zwjzfYYJ3J8+G68Z3Ta69zwYDxzntRatrxGF70HQqWUygpFDm35thHejTENON+ZToc87CknYYCwhwk/kSfduqI+uzziEmj/7SLKesumGt6VrTaIYUxUS6yQeakKLrkQRjN7EhrrtaHDk8yvDxer+a1PfeTbQOp788vDCHTyr0QGokvyT6YGipuIW+dPyEblbxXHhpyOp49UC3YMPDRxkTZbwtVhcg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sSpVhAQyitF3FW0kCmejXRNUU2Iqy32KiojROFtez4s=;
+ b=dioQRKGGAAzJuKHPAd0FpmeUMVt0aSLMGdxBqeHWMt0YvDadDKrvN5HhN5j34FCbqmaQLaFOiLwoxcE3JWqvlabJlPHIsbvBq+xuqfoxEf2RJ2GhG1a8CsEfsg3w/owkKbiuheYVvcTxdS2l3ayWyeWSVpI/MVQIljr8OVUAiMMiUiNrD50Z10u6mtYh1zrSE7rw3uv7LG7y5smOroQlOt4UE2XajeprnQ4FQo9LIJorXwYBVNRq1qfnUJ4dRnf7/Ef02trOmzbrz9JHVtNkV77NIygrGyWJP3mbHD7a+Pl4BgCCujSbZ8gJuxcITr1mZb0vKd7fiQTrVMPFlvYKCA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sSpVhAQyitF3FW0kCmejXRNUU2Iqy32KiojROFtez4s=;
+ b=ihhrHNVe3Q9GwQ9WYU+l9PiDBRMcMbD7xmHsh2CnPS6iwVKo+i0KHLA4z7YniJ4tcZZvOQn0oM+f10Y22OvXMPERwDtKB++VSFkgvcFP5Gx3jFi5V2WsUTiQugGOSh/hznXYp9PschMHdT9rXHFkhkko63V5bBanTtY4QVsZmHlFVZuU2lG86KsQyq96FOXRggszYEr8MCXOoZ4P/CHDegdTxliZEw3Fje/0Va0QjZ46cAlb3k4mt6quTuGLV11PPLcdUSaL3f4u3C7Eipd47GNMMYdc6Vi+4EBu3wKrw7anK4ephWHcRGd8b3YA7uU4T58k8fA9POGQ7/a68EOMWA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com (2603:10a6:10:5b3::14)
+ by VI2PR04MB11025.eurprd04.prod.outlook.com (2603:10a6:800:277::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Thu, 13 Mar
+ 2025 12:50:35 +0000
+Received: from DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::3a74:80e4:4144:62db]) by DU7PR04MB11163.eurprd04.prod.outlook.com
+ ([fe80::3a74:80e4:4144:62db%4]) with mapi id 15.20.8534.027; Thu, 13 Mar 2025
+ 12:50:35 +0000
+From: florin.leotescu@oss.nxp.com
+To: Jean Delvare <jdelvare@suse.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michael Shych <michaelsh@nvidia.com>,
+	linux-hwmon@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Cc: viorel.suman@nxp.com,
+	carlos.song@nxp.com,
 	linux-arm-kernel@lists.infradead.org,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3] arm64: defconfig: mediatek: enable PHY drivers
-Message-ID: <986ad850-3e7c-43f4-84f0-cbce888676fe@notapiano>
-References: <20250313040855.62259-1-vignesh.raman@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
+	imx@lists.linux.dev,
+	festevam@gmail.com,
+	Florin Leotescu <florin.leotescu@nxp.com>
+Subject: [PATCH v4 2/3] hwmon: emc2305: Add OF support
+Date: Thu, 13 Mar 2025 14:57:45 +0200
+Message-Id: <20250313125746.2901904-3-florin.leotescu@oss.nxp.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250313125746.2901904-1-florin.leotescu@oss.nxp.com>
+References: <20250313125746.2901904-1-florin.leotescu@oss.nxp.com>
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250313040855.62259-1-vignesh.raman@collabora.com>
+X-ClientProxiedBy: AM8P190CA0025.EURP190.PROD.OUTLOOK.COM
+ (2603:10a6:20b:219::30) To DU7PR04MB11163.eurprd04.prod.outlook.com
+ (2603:10a6:10:5b3::14)
+MIME-Version: 1.0
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU7PR04MB11163:EE_|VI2PR04MB11025:EE_
+X-MS-Office365-Filtering-Correlation-Id: 710fce2b-fdbd-4eaa-c5f0-08dd622da5e2
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?gumDQBV3QuXbHLRvyJAwY39j2GsB8O+199rxtNfCMSBf7ztKNYSgswrg68?=
+ =?iso-8859-1?Q?eKiMTwaYCX2KeugAIwL0n8mFrRIzC+5+OIQyGNwUoylV9+uV8D8M3fwJhL?=
+ =?iso-8859-1?Q?0w/HHsR0nsKbIDq6sPxpnx3YwBvBd1tKsVWsr1zj2kszORp2D3axWVS4Xy?=
+ =?iso-8859-1?Q?jk/8wuGuH7wRxPRJ2QV3+Px9B3mv5u+XYK2oeuQtLtDpnK/4IVfdQd0pgw?=
+ =?iso-8859-1?Q?zXYVpoIQk4CfR9ASR8dp45PSZYolSD6eUfebjsnBSv9gbPdyBYDUvxCyHv?=
+ =?iso-8859-1?Q?clu7nCcJcROOV85BovnM8r2o1AW8k1awN68n9wRreylkSucGvLApagK588?=
+ =?iso-8859-1?Q?ajxj9SFrFxRfpXVEl16usc9oqFpl58KK2aXvxtiHTFJ7J6Fq9veDl/Ydw7?=
+ =?iso-8859-1?Q?W3eXEj8hPMZ1W88IDiPNYSr7BI8pSP63y9qzOZL6PpSscfuLYoweabiuAj?=
+ =?iso-8859-1?Q?lQWklsnxC3CfM5Y/hxud/19ZWB3Z3IyfHyW6iVb2b5a1I6HaxkqtAlj/Ts?=
+ =?iso-8859-1?Q?qwiid33EcgufS3QNlQalA9D5Qt5Ytd2ue9YCXcaYfHlmNHcySpY8tT88xQ?=
+ =?iso-8859-1?Q?KXz8/VBcsaahPsUM2KGDyKg6ClTmTxsu7WWDsihcMShxFgzE8OiUBWka5j?=
+ =?iso-8859-1?Q?JUqFsrVMJQ7wiIEsQYiZmBFntpV/PxJCUNKuYw3eLCqsPZzGbPW9y7shB+?=
+ =?iso-8859-1?Q?nUw5bgC5Yrewkz+pf7qQdeIEuGSot4ZSus1eXulSqV87bDG/2X/RfjJsK+?=
+ =?iso-8859-1?Q?GAwSHZ+TXD/zWyNqDKkk5NouUzQ4Jv5RUczklC3QSo9moHKmUlaTn49xmI?=
+ =?iso-8859-1?Q?Haj+mYZdBPDRJd+H2jcS2ZqAHqF9v40uUCGLod6B9QjPoaIyfaVNlKQlcV?=
+ =?iso-8859-1?Q?Tef2BDv5r1n660chgfNpdWXOxU2BnoCvq4dkSpQdQjvCJiXGs612V4SPBC?=
+ =?iso-8859-1?Q?/Te380DvW8ynx3EEr0CCdG1Lb0sGgb6TvqDtP/ZVQp0p3LMLup60CrF/oM?=
+ =?iso-8859-1?Q?+8ymFEkfenoyaqYYXeXaj+JfSKYJ5fWArNxLWD1WJzZ5y3GJivaiLPdRoc?=
+ =?iso-8859-1?Q?/SLyhdMHxFeUemcS97Q5Jcy65sRP06Csvg3oxCABNL7BNyyODP61mfYM4X?=
+ =?iso-8859-1?Q?ISKLz+H/B5utIBJjFgyMkX14OxIhw0VrvrzVE2G5+R4rEqHfz1li9oEL5s?=
+ =?iso-8859-1?Q?axKt7pH66w77vF8rihTcSswqYunASQvfRq1oh90dTDOtZyCBIP58Czm5x1?=
+ =?iso-8859-1?Q?PuyVCRnQs/r6zvgHJ8mxSH+z1eN6On9YSZ38to6FyflSCnCEY9xEfBC8gc?=
+ =?iso-8859-1?Q?ib9Hj2qAeZEN2Wl1ZWDf4b0hWowL2hXNIjhO7q+Ol0Kvkh6uAOtOpgmLip?=
+ =?iso-8859-1?Q?kUgNdjRTOCrk/hL99kUxH0enNXJ94SeBlh95YlT1reaGnM3tal9lziPJPd?=
+ =?iso-8859-1?Q?WlcMgVQGRD462vVu?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU7PR04MB11163.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(7416014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?ueKEY1FSM1rII16NwejIoxa+D/eSNCxUWfkTU+wpPhMaXOPvAjDLz9dEmy?=
+ =?iso-8859-1?Q?Vs/9VYwyoY1RPkKk8zRMTXhJVkhhPtNbAIFOlrg+2KyKVvpiFnXRxX2xwK?=
+ =?iso-8859-1?Q?h9INc+PP7Z1HQjGAbbomIUi1BG6h7Tul6kl4NW49qNR4uA3VPltFCcDwse?=
+ =?iso-8859-1?Q?uWOMuiA7OwHwaTqBY5/G1Pb07u5yZPFjq4XOsGsHSkrNs4pc43NT+YFimO?=
+ =?iso-8859-1?Q?uBIAGFuaJ4Se3GEo9h8oKGux6W26RMZzcU3w+JxF6EZlb2wdjqpLdcPw4p?=
+ =?iso-8859-1?Q?jsbWwtKtJTrGld2GhimH48q/WRjNKx8ks+t2OnRA6RVxprlvmspqjdkmv0?=
+ =?iso-8859-1?Q?4FbvO9W/TbqvNSvxQWtJ/LUJl7tFGYbicoMcb3YfRu3gDjR4MZJyX3fhOM?=
+ =?iso-8859-1?Q?NBp9fpooRWoTdUVY7W9siFAWsy7rf+A+uiC4lEVXtRIEksYditM0qiPtm9?=
+ =?iso-8859-1?Q?BWxFNr1Ac1Vp2uB0agzxTCzUOZt8C5cc+5Jy0FddMkORLxx1uV/KlVmewT?=
+ =?iso-8859-1?Q?CmD1HIX2djimXWez+z+vV2magN/D58nnmwqtELFWnAEqYtkzYgP7qrEJS3?=
+ =?iso-8859-1?Q?RzXn4sSOCQuCG/y43Bcs/oH/3kCLfmiZN33zdO8v3jue6gHMNvsK5swpgM?=
+ =?iso-8859-1?Q?YiGOhZA5qAwVj9jEoUQLWr8LunfTnwVxnwj3xDvR/btmsUdPgzV6rZ5rWl?=
+ =?iso-8859-1?Q?1Oci6BW8gOs2RfpUa8pEcPPO16l1u8P3fWPHfWgpsJWcqvacLVyHPjC8DF?=
+ =?iso-8859-1?Q?Skh/RcVSinWgpkZc2PhqmRyVNov8QL8QmGpIWDgfsYEI7rVMRjGOEFVcOX?=
+ =?iso-8859-1?Q?eo1nm6AQ2GLCTuu0AB8XGMdLDcHoaHkWjb9aegx0pFJ4ECES7c8i+HwRwS?=
+ =?iso-8859-1?Q?CbyUW2FKMsIGHJi7Q/e5NvnqQdwUI/WTVx3rCkQQWRWJl1Nc4LG9IFzJO5?=
+ =?iso-8859-1?Q?ZHguqfpjOr8NeiDGfhX/4UfaTYfeWCwObTKBgD2IuSbQHhOy1djMwOfdAi?=
+ =?iso-8859-1?Q?+QzATVpedUIij2z3fD7/m7uF+0exOpiz7A2ackjc/XbOsM1ClCbdB9ZitU?=
+ =?iso-8859-1?Q?r5hXuXLjle7Ysvc2Ll8vDZoIVAm5aYHzBSB2yg3N1GycJc1reSg67xF0f3?=
+ =?iso-8859-1?Q?S+53Sh//e3R1RLweixXJkkaxYyJj/tekiYfAPYdYvIyeSIXSWWIRZBAZdt?=
+ =?iso-8859-1?Q?67Cg+v4jCzfPanDnLamG6ik3yjUxZfdSNPuuilXhFtoXhJ57m7b4K/o+v/?=
+ =?iso-8859-1?Q?xtxPK2Qe/7N6cjuxI9iyO9yrm+R3x3srOuBJnh92fpBg7ehoUljFfRk9pG?=
+ =?iso-8859-1?Q?YmAbZIhFGY3AVXxYXUkdR5ISWiWT5eFmj6vuPKwC96nPBJfZs4tYm9Dp6Z?=
+ =?iso-8859-1?Q?bZMdr8ZlLpXSpyUQp0HQdT43+uVKF9Ae4YUb52cbMfGuKKBk3SwIh1qorh?=
+ =?iso-8859-1?Q?PRfDQFLfKzyWy1rvSLl+twBXnMojvSPIsAq9yda/aECaTJOF0u0NxXmCvX?=
+ =?iso-8859-1?Q?WqzlwM8o8Nz78hKGJBMLRAebIp8NQtiI1lYVyf1mCLth+crt66Rcf6gnSj?=
+ =?iso-8859-1?Q?OJk39nC6hdZw4gWJ57+RGA+IJYiCSI6kfQuetsU270AgGyeJCPLMGfYqjT?=
+ =?iso-8859-1?Q?JqhKoWD6cSYN04arHodU7pH4btbIglNIfQuG84uFPkp1sWGa5ppz7XYg?=
+ =?iso-8859-1?Q?=3D=3D?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 710fce2b-fdbd-4eaa-c5f0-08dd622da5e2
+X-MS-Exchange-CrossTenant-AuthSource: DU7PR04MB11163.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 12:50:35.4176
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: lFZ1ADvpyQJE7T5q4VDApM9EHL1kDb9EE1JYWqwo04Cieuo7NaQ3rbPA+BRHdP52CAQYH+jqhB6pqYFcSuhk0Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR04MB11025
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_054935_745150_F065E36C 
-X-CRM114-Status: UNSURE (   9.28  )
+X-CRM114-CacheID: sfid-20250313_055042_010651_BF4E96C5 
+X-CRM114-Status: UNSURE (   9.99  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,36 +174,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 09:38:24AM +0530, Vignesh Raman wrote:
-> The mediatek display driver fails to probe on mt8173-elm-hana and
-> mt8183-kukui-jacuzzi-juniper-sku16 in v6.14-rc4 due to missing PHY
-> configurations.
-> 
-> Commit [1] stopped selecting the MediaTek PHY drivers, requiring them
-> to be explicitly enabled in defconfig.
-> 
-> Enable the following PHY drivers for MediaTek platforms:
-> - CONFIG_PHY_MTK_HDMI=m for HDMI display
-> - CONFIG_PHY_MTK_MIPI_DSI=m for DSI display
-> - CONFIG_PHY_MTK_DP=m for DP display
-> 
-> [1] commit 924d66011f24 ("drm/mediatek: stop selecting foreign drivers")
+From: Florin Leotescu <florin.leotescu@nxp.com>
 
-Usually this would go directly in the paragraph, like so:
+Introduce OF support for Microchip emc2305 pwm fan controller.
 
-  Commit 924d66011f24 ("drm/mediatek: stop selecting foreign drivers") stopped
-  selecting the MediaTek PHY drivers, requiring them to be explicitly enabled in
-  defconfig.
+Signed-off-by: Florin Leotescu <florin.leotescu@nxp.com>
+---
+ drivers/hwmon/emc2305.c | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-But that's just so you know in the future, you don't need to send a new version
-just for that.
+diff --git a/drivers/hwmon/emc2305.c b/drivers/hwmon/emc2305.c
+index 4d39fbd83769..f8a4c76fcadd 100644
+--- a/drivers/hwmon/emc2305.c
++++ b/drivers/hwmon/emc2305.c
+@@ -607,9 +607,16 @@ static void emc2305_remove(struct i2c_client *client)
+ 		emc2305_unset_tz(dev);
+ }
+ 
++static const struct of_device_id of_emc2305_match_table[] = {
++	{ .compatible = "microchip,emc2305", },
++	{},
++};
++MODULE_DEVICE_TABLE(of, of_emc2305_match_table);
++
+ static struct i2c_driver emc2305_driver = {
+ 	.driver = {
+ 		.name = "emc2305",
++		.of_match_table = of_emc2305_match_table,
+ 	},
+ 	.probe = emc2305_probe,
+ 	.remove	  = emc2305_remove,
+-- 
+2.34.1
 
-> 
-> Fixes: 924d66011f24 ("drm/mediatek: stop selecting foreign drivers")
-> Signed-off-by: Vignesh Raman <vignesh.raman@collabora.com>
-
-Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-
-Thanks,
-Nícolas
 
