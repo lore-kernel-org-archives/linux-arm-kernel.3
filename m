@@ -4,56 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E821C35FF7
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EAA0C35FF3
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KkIkMr0XphfsNPv9vmPb7PfK+n+cV8BBcmd53PESobk=; b=WxJi8GtDxoAAn/rqAaaylVAjLO
-	utf5KGTxsOkqVlNuu3Uu3w8KDATMXEV2oTvXkJwD1O9tAPdr/nNOkP/ZzZSLUvKtSiSa8K8zda4eW
-	WhjOvClMYv1yHHuv+sRFQo0JUPReSHC0ngGx1tUOInBTl6bBkhxNfMBwQRmUm8t723Pgf7wNnRSKS
-	4WN/u7vxj2ksPVbNoNrICvJt+0ff3sggPMCFoyGL48eK2lVGMDCfjDuPlYijgXNEAUuQn+L2pBzrS
-	uW9DVN1kqaf0mXtrnBRiLK9xYbyS+7obDLx3ALrEkwn6vnJn6NWgEQbN5E921vdqcIJaegPGadmet
-	WP09/TgA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XAOZqGfYNJGyoo068redqjAlWaH9+7p1vY5lq0IQ3LU=; b=auxZUs6SDPnrfEfnaLZQpFfGga
+	BDWUvkQe3Y8TuXdIsikkcwfAXfSMbumPY5KsWxuEWf280LIH7PVrLH8B6UuZL9xVO5bOi0HZwKEiV
+	dCfEdP4oeypypm54lKVNwVmB1lDiorD8Lb6Nekbo87jkNn3qn381lLLCKb3/XqSvMgXE18iW9bQwn
+	j3K8yanVU7DG1/U6/aMjJVDUagWvhTJnnPtm9cg9CBgEVUzEaXaSDc2oBMgqJosHr8+20BAuKrImc
+	wBPu/aEifcUuXfv1TN0Ec+cmK+jO1nNYxbXgEW+oR2SCB+7urGzf6eCWIa0oI1RmxKvkSdBJsyeN/
+	19l9Mx9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8Z-0000000Bwrm-2WhF;
-	Thu, 13 Mar 2025 17:14:27 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslF6-0000000BnOM-1yhC
+	id 1tsm8Y-0000000BwqA-27O0;
+	Thu, 13 Mar 2025 17:14:26 +0000
+Received: from nyc.source.kernel.org ([147.75.193.91])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tslCs-0000000Bmsp-48tW
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:17:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 18D86150C;
-	Thu, 13 Mar 2025 09:17:18 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 5DA353F673;
-	Thu, 13 Mar 2025 09:17:07 -0700 (PDT)
-Date: Thu, 13 Mar 2025 16:17:02 +0000
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: lcherian@marvell.com, coresight@lists.linaro.org,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Thu, 13 Mar 2025 16:14:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 59B25A47751;
+	Thu, 13 Mar 2025 16:09:20 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E409AC4CEEE;
+	Thu, 13 Mar 2025 16:14:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741882490;
+	bh=Y8/MDMfs1bwprrJrMnPBGIZtYhcw/F6xhmmiWJV6T6s=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=uBas+XyrOTNPJWUphlmNLX688HmEaBK54fr41BRraE1SYejqEdjCHI5FyhBDUmbHS
+	 QEW7Zd152Yog4KahsAuOQr1/cObt7WrS8l+QlIP2V1EZ8PgzVej5M7qFkTnkb94yK0
+	 FxGByoDLRv8wP3ZnFTGJ/Xci8ME6FV6zfuTOBs0nOmch9y/GSL5ERjZMrtYkmH2kqg
+	 MGSfQD0h2KDectZHJbrOfkdD63TvY280mDfoU+YACl7lUBWDlCVRuuxPkjyWVl3lso
+	 L/+e/MUGjZtiqIAE1ciFeA/Biayk2qyxOMHqxma08amizDszWbFq/04OUCKEUZt42w
+	 RrxdH/yMlOpKw==
+From: Philipp Stanner <phasta@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Paolo Abeni <pabeni@redhat.com>,
 	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
 	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com
-Subject: Re: [PATCH 7/7] coresight: Remove extern from function declarations
-Message-ID: <20250313161702.GT9682@e132581.arm.com>
-References: <20250211103945.967495-1-james.clark@linaro.org>
- <20250211103945.967495-8-james.clark@linaro.org>
+	Yanteng Si <si.yanteng@linux.dev>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	Yinggang Gu <guyinggang@loongson.cn>,
+	Serge Semin <fancer.lancer@gmail.com>,
+	Philipp Stanner <pstanner@redhat.com>
+Cc: netdev@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Andrew Lunn <andrew@lunn.ch>,
+	Huacai Chen <chenhuacai@loongson.cn>,
+	Henry Chen <chenx97@aosc.io>
+Subject: [PATCH net-next 3/3] stmmac: Replace deprecated PCI functions
+Date: Thu, 13 Mar 2025 17:14:23 +0100
+Message-ID: <20250313161422.97174-5-phasta@kernel.org>
+X-Mailer: git-send-email 2.48.1
+In-Reply-To: <20250313161422.97174-2-phasta@kernel.org>
+References: <20250313161422.97174-2-phasta@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250211103945.967495-8-james.clark@linaro.org>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_091708_599280_A4BB7E3E 
-X-CRM114-Status: GOOD (  18.59  )
+X-CRM114-CacheID: sfid-20250313_091451_167197_DA29F671 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,122 +87,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Feb 11, 2025 at 10:39:43AM +0000, James Clark wrote:
-> 
-> Function declarations are extern by default so remove the extra noise
-> and inconsistency.
+From: Philipp Stanner <pstanner@redhat.com>
 
-This change is consistent with the coding-style.rst:
+The PCI functions
+  - pcim_iomap_regions() and
+  - pcim_iomap_table()
+have been deprecated.
 
-  "Do not use the ``extern`` keyword with function declarations as
-   this makes lines longer and isn't strictly necessary."
+Replace them with their successor function, pcim_iomap_region().
 
-Reviewed-by: Leo Yan <leo.yan@arm.com>
+Make variable declaration order at closeby places comply with reverse
+christmas tree order.
 
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  drivers/hwtracing/coresight/coresight-priv.h | 14 ++++-----
->  include/linux/coresight.h                    | 33 +++++++++-----------
->  2 files changed, 21 insertions(+), 26 deletions(-)
-> 
-> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
-> index a83113225797..e09071a720f0 100644
-> --- a/drivers/hwtracing/coresight/coresight-priv.h
-> +++ b/drivers/hwtracing/coresight/coresight-priv.h
-> @@ -57,10 +57,8 @@ struct cs_off_attribute {
->         u32 off;
->  };
-> 
-> -extern ssize_t coresight_simple_show32(struct device *_dev,
-> -                                    struct device_attribute *attr, char *buf);
-> -extern ssize_t coresight_simple_show_pair(struct device *_dev,
-> -                                    struct device_attribute *attr, char *buf);
-> +ssize_t coresight_simple_show32(struct device *_dev, struct device_attribute *attr, char *buf);
-> +ssize_t coresight_simple_show_pair(struct device *_dev, struct device_attribute *attr, char *buf);
-> 
->  #define coresight_simple_reg32(name, offset)                           \
->         (&((struct cs_off_attribute[]) {                                \
-> @@ -155,8 +153,8 @@ void coresight_remove_links(struct coresight_device *orig,
->  u32 coresight_get_sink_id(struct coresight_device *csdev);
-> 
->  #if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM3X)
-> -extern int etm_readl_cp14(u32 off, unsigned int *val);
-> -extern int etm_writel_cp14(u32 off, u32 val);
-> +int etm_readl_cp14(u32 off, unsigned int *val);
-> +int etm_writel_cp14(u32 off, u32 val);
->  #else
->  static inline int etm_readl_cp14(u32 off, unsigned int *val) { return 0; }
->  static inline int etm_writel_cp14(u32 off, u32 val) { return 0; }
-> @@ -167,8 +165,8 @@ struct cti_assoc_op {
->         void (*remove)(struct coresight_device *csdev);
->  };
-> 
-> -extern void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
-> -extern void coresight_remove_cti_ops(void);
-> +void coresight_set_cti_ops(const struct cti_assoc_op *cti_op);
-> +void coresight_remove_cti_ops(void);
-> 
->  /*
->   * Macros and inline functions to handle CoreSight UCI data and driver
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 11808aee9d1d..2b43698c0b25 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -642,26 +642,23 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
->         local_set(&csdev->mode, new_mode);
->  }
-> 
-> -extern struct coresight_device *
-> -coresight_register(struct coresight_desc *desc);
-> -extern void coresight_unregister(struct coresight_device *csdev);
-> -extern int coresight_enable_sysfs(struct coresight_device *csdev);
-> -extern void coresight_disable_sysfs(struct coresight_device *csdev);
-> -extern int coresight_timeout(struct csdev_access *csa, u32 offset,
-> -                            int position, int value);
-> -
-> -extern int coresight_claim_device(struct coresight_device *csdev);
-> -extern int coresight_claim_device_unlocked(struct coresight_device *csdev);
-> -
-> -extern void coresight_disclaim_device(struct csdev_access *csa);
-> -extern void coresight_disclaim_device_unlocked(struct csdev_access *csa);
-> +struct coresight_device *coresight_register(struct coresight_desc *desc);
-> +void coresight_unregister(struct coresight_device *csdev);
-> +int coresight_enable_sysfs(struct coresight_device *csdev);
-> +void coresight_disable_sysfs(struct coresight_device *csdev);
-> +int coresight_timeout(struct csdev_access *csa, u32 offset, int position, int value);
-> +
-> +int coresight_claim_device(struct coresight_device *csdev);
-> +int coresight_claim_device_unlocked(struct coresight_device *csdev);
-> +
-> +void coresight_disclaim_device(struct csdev_access *csa);
-> +void coresight_disclaim_device_unlocked(struct csdev_access *csa);
->  int coresight_reset_claim_unlocked(struct csdev_access *csa);
->  int coresight_reset_claim(struct csdev_access *csa);
-> 
-> -extern char *coresight_alloc_device_name(struct coresight_dev_list *devs,
-> -                                        struct device *dev);
-> +char *coresight_alloc_device_name(struct coresight_dev_list *devs, struct device *dev);
-> 
-> -extern bool coresight_loses_context_with_cpu(struct device *dev);
-> +bool coresight_loses_context_with_cpu(struct device *dev);
-> 
->  u32 coresight_relaxed_read32(struct coresight_device *csdev, u32 offset);
->  u32 coresight_read32(struct coresight_device *csdev, u32 offset);
-> @@ -674,8 +671,8 @@ void coresight_relaxed_write64(struct coresight_device *csdev,
->                                u64 val, u32 offset);
->  void coresight_write64(struct coresight_device *csdev, u64 val, u32 offset);
-> 
-> -extern int coresight_get_cpu(struct device *dev);
-> -extern int coresight_get_static_trace_id(struct device *dev, u32 *id);
-> +int coresight_get_cpu(struct device *dev);
-> +int coresight_get_static_trace_id(struct device *dev, u32 *id);
-> 
->  struct coresight_platform_data *coresight_get_platform_data(struct device *dev);
->  struct coresight_connection *
-> --
-> 2.34.1
-> 
-> _______________________________________________
-> CoreSight mailing list -- coresight@lists.linaro.org
-> To unsubscribe send an email to coresight-leave@lists.linaro.org
+Signed-off-by: Philipp Stanner <pstanner@redhat.com>
+Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
+Tested-by: Henry Chen <chenx97@aosc.io>
+---
+ .../net/ethernet/stmicro/stmmac/dwmac-loongson.c   |  8 +++-----
+ drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c   | 14 ++++++--------
+ 2 files changed, 9 insertions(+), 13 deletions(-)
+
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+index 5d7746d787ac..25ef7b9c5dce 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
+@@ -521,8 +521,8 @@ static int loongson_dwmac_acpi_config(struct pci_dev *pdev,
+ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id *id)
+ {
+ 	struct plat_stmmacenet_data *plat;
++	struct stmmac_resources res = {};
+ 	struct stmmac_pci_info *info;
+-	struct stmmac_resources res;
+ 	struct loongson_data *ld;
+ 	int ret;
+ 
+@@ -554,13 +554,11 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
+ 	pci_set_master(pdev);
+ 
+ 	/* Get the base address of device */
+-	ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
++	res.addr = pcim_iomap_region(pdev, 0, DRIVER_NAME);
++	ret = PTR_ERR_OR_ZERO(res.addr);
+ 	if (ret)
+ 		goto err_disable_device;
+ 
+-	memset(&res, 0, sizeof(res));
+-	res.addr = pcim_iomap_table(pdev)[0];
+-
+ 	plat->bsp_priv = ld;
+ 	plat->setup = loongson_dwmac_setup;
+ 	ld->dev = &pdev->dev;
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+index 1637c8139b9d..b7adda35b7b7 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pci.c
+@@ -155,9 +155,9 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+ {
+ 	struct stmmac_pci_info *info = (struct stmmac_pci_info *)id->driver_data;
+ 	struct plat_stmmacenet_data *plat;
+-	struct stmmac_resources res;
+-	int i;
++	struct stmmac_resources res = {};
+ 	int ret;
++	int i;
+ 
+ 	plat = devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
+ 	if (!plat)
+@@ -188,13 +188,13 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+ 		return ret;
+ 	}
+ 
+-	/* Get the base address of device */
++	/* The first BAR > 0 is the base IO addr of our device. */
+ 	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
+ 		if (pci_resource_len(pdev, i) == 0)
+ 			continue;
+-		ret = pcim_iomap_regions(pdev, BIT(i), pci_name(pdev));
+-		if (ret)
+-			return ret;
++		res.addr = pcim_iomap_region(pdev, i, STMMAC_RESOURCE_NAME);
++		if (IS_ERR(res.addr))
++			return PTR_ERR(res.addr);
+ 		break;
+ 	}
+ 
+@@ -204,8 +204,6 @@ static int stmmac_pci_probe(struct pci_dev *pdev,
+ 	if (ret)
+ 		return ret;
+ 
+-	memset(&res, 0, sizeof(res));
+-	res.addr = pcim_iomap_table(pdev)[i];
+ 	res.wol_irq = pdev->irq;
+ 	res.irq = pdev->irq;
+ 
+-- 
+2.48.1
+
 
