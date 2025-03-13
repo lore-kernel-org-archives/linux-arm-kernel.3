@@ -4,58 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18F92C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:35:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EC5C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:37:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:From:Cc:To:MIME-Version:Date:Message-ID:Reply-To:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5sus/GX7E9j3HiiTuXs0UmRHZaMZps1dyT/Km76kctw=; b=HPTl9umhD8FoFrK8vdFpLWwIET
-	2e5oO3CsvkOKDOvA6EDcl43PdHRFW4pItwKKvbVhchjcvtsQ+kbiZx+vCrZtgy310GahuyEw0q/m4
-	UfC/e8lOiebAr8InGCUQwR0tg1wET6VDpvtbz/qASB9Bm+k1ZNEkoJvV8j8MmddcadGSZEUZQ8ks/
-	kgLTNTdHWLF1Ucc2pjMuiJtOmJyRIHyatYE408vDVSIH53Wfb30Z3RMx39Nv6ZQObsOvnHtN7vaTr
-	LJcDCLio9HxXlvV4clH3teS3nQL9Bprqv71J9su2DzwGTbFdZEh7sMIIvgRoftQJzfEE8Ja3e8gIV
-	zXUeodQQ==;
+	bh=1mulqT0pAzSVUrmF9PlZ7FDSmEsv6eq23fAgCC/7Ymw=; b=AVi97fEJD77nkgwL/azzCywGrC
+	2LR1iW/dULoNvQ9SypNJTlWSNhs6vbi5g828Te4HJMR6forZUG5jUaFhJOXyq5dKWDs+/+lPL85W5
+	PuB8c4hTFWE4yS5Ct78Kd7jAvp5ahDFhpWgtBAY439LEzdR/CdwcFWG7IhzQVYKqhXMk1YhLqQuFF
+	HNGgTfUYX4ux++oBpyKYfHtuPLNyJVNMs7mT6eF1Dsb1qWioyNN/ysHHk63r9lWpN5Z69AJu/7/fI
+	ZG+9TrwjZ/YNmNUQEpC1nVRmOGorQYxlupEsDiDfaQwjC5pn7XTj6cL9zJhUsRrMV4INxS11FkLtw
+	wXirbsFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tse21-0000000AYtp-1sGZ;
-	Thu, 13 Mar 2025 08:35:09 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1tse3e-0000000AZ9i-3L8K;
+	Thu, 13 Mar 2025 08:36:50 +0000
+Received: from mail.optiora.pl ([94.177.238.30])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tse0L-0000000AYgN-0RoD
+	id 1tse0a-0000000AYj5-20M3
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 08:33:26 +0000
-Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
-	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1tse0B-00077f-6N; Thu, 13 Mar 2025 09:33:15 +0100
-Message-ID: <7ba2e429-113d-4e1c-968b-ffbe65bcf9f4@pengutronix.de>
-Date: Thu, 13 Mar 2025 09:33:12 +0100
+	Thu, 13 Mar 2025 08:33:42 +0000
+Received: by mail.optiora.pl (Postfix, from userid 1002)
+	id 668A683237; Thu, 13 Mar 2025 09:31:21 +0100 (CET)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=optiora.pl; s=mail;
+	t=1741854697; bh=1mulqT0pAzSVUrmF9PlZ7FDSmEsv6eq23fAgCC/7Ymw=;
+	h=Date:From:To:Subject:From;
+	b=HOywuPzhxw35n2PBqFjIlNpQARnutu2rGylGba5qx9zWXhdDXChqH5xOdcgtWfUpV
+	 s1Q7FeAPAqnf9N/EOx9nL46mc/cvufK84luq5CmuiljoRhhNVHxVePNoEivnZBMwTS
+	 E7h6mpB+clnJN4goGavQvONlPVMRPBJrz3mO3tXdRls+lhB6oePAqqc1NjNEQ394Qu
+	 i+gYKnS1b5cxbMk53RpywCRDpmDbm+8+jrFPEW6IqrMsQC1pvdFLGBjL4OQsPAYe10
+	 40uhTnjRy7xIHe79di0UEXc0+eE/rUiUdMWxu8/6qP9LgyTSn9zYn0VEzaL/gsuZX9
+	 9Y/gs4KhbyDrg==
+Received: by mail.optiora.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 08:31:07 GMT
+Message-ID: <20250313084500-0.1.88.w73z.0.frcbbnjy6p@optiora.pl>
+Date: Thu, 13 Mar 2025 08:31:07 GMT
+From: =?UTF-8?Q?"Stanis=C5=82awa_Laskowska"?= <stanislawa.laskowska@optiora.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Kandydat do pracy
+X-Mailer: mail.optiora.pl
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Content-Language: en-US
-To: Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
- <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
- Sascha Hauer <s.hauer@pengutronix.de>
-Cc: Detlev Casanova <detlev.casanova@collabora.com>,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- "open list:DRM DRIVERS" <dri-devel@lists.freedesktop.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- "barebox@lists.infradead.org" <barebox@lists.infradead.org>
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Subject: [BUG] drm/rockchip: vop2: uninitialized variables passed to ilog2 and
- writel
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_013325_135973_CDD1ABAA 
-X-CRM114-Status: GOOD (  12.16  )
+X-CRM114-CacheID: sfid-20250313_013341_203660_F0D63A55 
+X-CRM114-Status: UNSURE (   2.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +66,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Dzie=C5=84 dobry,
 
-Running clang-analyzer[1] on the VOP2 driver in barebox[2], which was ported
-from Linux reports that following variables:
+delegujemy sprawdzone osoby ze Wschodu do pracy w firmach produkcyjnych d=
+o prostych prac przy produkcji, na magazynie, przy pakowaniu towaru czy k=
+ontroli jako=C5=9Bci.=20
 
-  dclk_out_div, if_pixclk_div, if_dclk_div
+Nasza firma organizuje wszelkie formalno=C5=9Bci oraz zakwaterowanie, co =
+pozwala zmniejszy=C4=87 koszty po Pa=C5=84stwa stronie.
 
-defined in rk3588_set_intf_mux() and passed to rk3588_calc_cru_cfg()
-are given as uninitialized arguments to ilog2() and in some cases even
-used afterwards unconditionally (outside of error cases):
+Czy mog=C4=99 przedstawi=C4=87 szczeg=C3=B3=C5=82y?
 
-  - dclk_out_div: is not initialized in the HDMI, eDP and DPI cases,
-    but is passed to ilog2 unconditionally and the result is written
-    into the RK3588_VP_CLK_CTRL register
 
-  - if_pixclk_div: is not initialized in the DP and DPI cases,
-    but is passed to ilog2 unconditionally.
-    However, the result seems unused.
-
-  - if_clk_div: is not initialized in the DP, MIPI and DPI cases,
-    but is passed to ilog2 unconditionally.
-    However, the result seems unused.
-
-I checked against Linux v6.14-rc6.
-
-I am not fully sure what a suitable default value would be for the first
-case, which is why I report this without a patch.
-
-[1]: https://lore.kernel.org/barebox/20250313080950.3222757-1-a.fatoum@pengutronix.de/T/#m78ca98c01b73ef7fe3316e73ce62cfe4b2c111d0
-[2]: https://github.com/barebox/barebox/blob/v2025.02.0/drivers/video/rockchip/rockchip_drm_vop2.c
-
-Thanks,
-Ahmad
--- 
-Pengutronix e.K.                           |                             |
-Steuerwalder Str. 21                       | http://www.pengutronix.de/  |
-31137 Hildesheim, Germany                  | Phone: +49-5121-206917-0    |
-Amtsgericht Hildesheim, HRA 2686           | Fax:   +49-5121-206917-5555 |
-
+Pozdrawiam
+Stanis=C5=82awa Laskowska
 
