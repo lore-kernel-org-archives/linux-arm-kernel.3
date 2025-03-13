@@ -4,99 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A291EC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 20:41:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC3AC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 20:45:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y80nSXH6gqqrmRGM3IsXoDQwjoa1+dDg8jnx+cu1UCA=; b=hmXiihsbNKSdXwPIfcrOBL3REg
-	95L6Fd83UKjH4oTRHmmfcnI/biL/HHeHp27THJdiUZU+D1bsHpgNpi5wl1AkerVbr/TBKhKb4e8hS
-	whMF/FEACvENlbbih8JgYk/VKFvmHrUy33eUYTIgApcpZVsJbbHX5nq+KinkVIAYeDe5RIK1aJ/DU
-	yeONTnmjz2DBSL0z9z2XPVTliv+ZA7FSuiGO4IUdcSL++WeFGsqYH2Ckm63sLh1qqDV0dY2tfLuAj
-	u44Ac/NDoa0+GIYvGhqfov9IqaecsrRR34sj1L81tahtekG+HK3/Jgz/7ewFnmadUw+0aRF2OIGZ1
-	iA5YKcpA==;
+	bh=1VnjZC6vr5EXhWiQG8PDbTXzoInugv5bUtef8UzNIT4=; b=U6ku3+Xd9tkYnJao9SxPY6Gr1h
+	qB7z8K9vZuAwYuRscxIrxIAxBylSjfKQeMVrEazc4COJxxrXYgUubl4pz1jacAEZxJ+NXORe5ofF7
+	VO0MvU4Jureu30uvixuirUYpHbFNKB3K0Ksg+O8fUe2/13snWDtY5fxr4ADccKGhTfl87Q5zih/a5
+	oZay35WlFtx7dbdV3p5+lRYJSOW/iJPywLpLk3V4JSsABsm7XBIDz5+Ui2npDXtfqlAvgclQu2IJ3
+	tUbsG2a8S9McZ5zUBdD/XfhkXLWsebVWHKAk9Hen2DHb7hutg8mQZbjIkttGAf7ja6HPauwutOAnU
+	b2ekw8xQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tspMM-0000000CSQc-2leK;
-	Thu, 13 Mar 2025 20:40:54 +0000
-Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	id 1tspQj-0000000CSy8-2AV7;
+	Thu, 13 Mar 2025 20:45:25 +0000
+Received: from mail-yb1-xb35.google.com ([2607:f8b0:4864:20::b35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tspKh-0000000CSIu-1LoN
+	id 1tspP3-0000000CSjW-1U5Y
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 20:39:12 +0000
-Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-ac2a089fbbdso264187166b.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 13:39:10 -0700 (PDT)
+	Thu, 13 Mar 2025 20:43:42 +0000
+Received: by mail-yb1-xb35.google.com with SMTP id 3f1490d57ef6-e5dcc411189so1298893276.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 13:43:40 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741898349; x=1742503149; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=y80nSXH6gqqrmRGM3IsXoDQwjoa1+dDg8jnx+cu1UCA=;
-        b=iBZOWROec755wz++2XSm3ofJoctowC2cVuBn9WWREhgR11k/rJnFxHEmALAu5SJlkv
-         hfJMQuhNW34dZDqegIp6rsk+qyFz8zb78p/ojs5WCe700BZXv/kFlVHbVOxk74RS/5Q5
-         lDcavgpJSMIg+4bMR4ftJCdvYfhMXTU6ZHSg5IFrnU7REmYDrIUaATHDXGmnOoIQoD9y
-         ugVY6J9BTzahxchqetHB1lKdraPC4PB3mCLhaQW3osWWd5Lz8RbdPVFzW1g9bf3ZRwiQ
-         iThNUxL+b5JA1MFcYGuT/3VoewjjeaLlrP2uX1itzLxzC40odbHlMkTPvpBgSZzZ58uZ
-         96RQ==
+        d=amarulasolutions.com; s=google; t=1741898620; x=1742503420; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=1VnjZC6vr5EXhWiQG8PDbTXzoInugv5bUtef8UzNIT4=;
+        b=lwaeCaLb9OnT/QkWVatCMNNZsT30NnO/4TIeFKrrdTQZ6topNvgLVLE2yhkQ3OBJQh
+         J4IugHycinED49XFPIgS/xRnHGhqnLDcYpVPnD0B9v3LVPVXB/f04IhJBsxyybIfwG+l
+         O8tmR2QcpPpC1aSuTXj7SnDmSUC1Etx5aOf7A=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741898349; x=1742503149;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=y80nSXH6gqqrmRGM3IsXoDQwjoa1+dDg8jnx+cu1UCA=;
-        b=V8OZTwjQ0j3QJeW8F0WBjYdc9QVQhyaVFWroq0WwLjlkSV2u6M8KmAnQBx0RHy8Xuu
-         xPBZl2iedD9I8qfHjuOSr/PXZEkllTSdLzc/2LsQEnMCmDoNtDRGZyNiOF2UMOOekLz4
-         Sx0j6jI0pjODMojkNSlU6e7WIAyl83uu3Pa+gciB8W8maBxW3aXDzxkVkTOmfCz/ehNl
-         rWE/hFVCssU0gx9lVu2dPnPK1FjMnlggB3CAWDJPvq0+1sn90z+n1pP3v4TJ44ZuMjFG
-         cKMGmFk38kCW9hFf25G9EXymTtE+dEYKlSoNGBSbSD/8eA+WHBufE45PaiOdOvnXk+ag
-         f+7w==
-X-Forwarded-Encrypted: i=1; AJvYcCVP9xl/tV5Zcsx4pVgbZokqg7C03YTLjYaE4I/F1EuWDH5NdjN6OEOSZSx+n85kOXlKIjyvAPv8C1DbLXOQAs29@lists.infradead.org
-X-Gm-Message-State: AOJu0YwOjC4iR7ekytW3Gs4RESX8QxczeD/pAZgfWGS8tkIqDJcs0OOW
-	ygLtc/I4ayLkeZDzBQEy9ngho3NocVzuGlLBIZ6KN//au3Ljx0hT
-X-Gm-Gg: ASbGncsr4mhlBkLtGvLuY3u/ISX5EZDBJam9KO9zEP7KAyFw/4rfW1NsTeT6qnQcaT/
-	QKXV5YgZVAQJq5To7kJjy/OdvR8AWkx+2z7nYblRMVVv9T3OdP/xhIFF4aCY+dg52alpdquHwyr
-	s1kJaB4aFPBTz5GPrLCs40OfCEALSc4ihAELa2on5GefJhBnPyoDNNo/ZOAH+qFEXBCNzpWo/iu
-	sHNI9qHpgtF2qBVdUkijhVJqMuu5abQUw2AaXrDF1+zlQaFEV0wiLWSPMZiW6fKeDTqVU0nz/OS
-	gV2395/k4Prwn/k7f9YqKuvXEthygxfMOYNA4e8F6Wyq3MPOmB2AUX1EyuJ92FFv5HdvAZV7051
-	mPXPs1/xEaH80KHobP0b00g==
-X-Google-Smtp-Source: AGHT+IGgXzCvFKIwuNzp9fqTkDSNxicFmg1nWVCw8cSfyB1nRxtqRIguRpztRQZovtRqtEoojZxR6A==
-X-Received: by 2002:a17:906:a297:b0:ac3:14e1:27a5 with SMTP id a640c23a62f3a-ac314e128d6mr343436266b.1.1741898349044;
-        Thu, 13 Mar 2025 13:39:09 -0700 (PDT)
-Received: from [192.168.50.244] (83.11.221.132.ipv4.supernova.orange.pl. [83.11.221.132])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac314a489c9sm122016566b.152.2025.03.13.13.39.06
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 13 Mar 2025 13:39:08 -0700 (PDT)
-Message-ID: <f363c1ce-8612-476e-a5d5-c3cb358bf50a@gmail.com>
-Date: Thu, 13 Mar 2025 21:39:05 +0100
+        d=1e100.net; s=20230601; t=1741898620; x=1742503420;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=1VnjZC6vr5EXhWiQG8PDbTXzoInugv5bUtef8UzNIT4=;
+        b=rpTCpniBYae32h3gtWGR4bBIfOPMCrDl19phL9pMjRMkytO9nfWYgZ43SnI6v4UuKL
+         AWoGkKMmnMMBKu2/fPxHZtwCBzfaROkf63hMb3X8mIDwatnQ96FsQ0giMs/lJzqULQL9
+         vC1yTzxS7KHgEyOUS1dKk1XxPNGKe957VKyTNrKB5rrQzgjupPFh5O4c1x203oKiRJAR
+         vZ07ayl5B4ykNoVWY73kWBX2Pzkcwi56fLxF2yHfT5rsyXoetsZ2A06kC89NKmlldzGK
+         XAyKUx8r6I+ANZm3ca4XJc7x+gVIcOMCtrxHJLEfBJq1nqgfGofw/y8Li+oAM0AWMMC2
+         hGZA==
+X-Forwarded-Encrypted: i=1; AJvYcCUJEf0W+3+6cia1QU1LaPix9GyS+7PAIREhK9t/eYu8UQi7REofHbRI+N8WiDbTMgN96HO56DgRuDzFQ3zJfUV6@lists.infradead.org
+X-Gm-Message-State: AOJu0YzHcS3Nd/gc/H1vsRSnU3TIcJQMW80Cil2X1IKE+FYgqJm5U4lo
+	unmP79DM0Xd/DNhAOYGlxoyOyCmAIiknfNL3gw44OfYV5SKnvSh1bsDLgDi0Lg3bpKxLUteRzZt
+	AMEFVds3r7MKSGuczJ14Doy4xpBHFsVhUtj63wg==
+X-Gm-Gg: ASbGnctFQUUneX0oeUBkT0a47ov2ueUqAChBP7VKst4cyKjx1nSIvGd8WJNt4XdN07b
+	dWyzs+fMCADyEtCpMFuhKXfYi8UDrugYZ4l/h9y4ULPdTLJxfu9btvM+itoFH7lDoKbAH3UzeuU
+	4HDkMxvBuYMsf/9qbvq165ZnlCCisQWG+JQjtJosFeKFZG9Khw0/96djYdjg==
+X-Google-Smtp-Source: AGHT+IEEE4ZRBNeQADkkl6AKxkknaNJwbIuG665QnVzs56LBEdogUl2yhgopg+J6ZxgJ7v7x+mgi2noSX4lE2hICHLY=
+X-Received: by 2002:a05:6902:284a:b0:e5d:b7d8:ad3b with SMTP id
+ 3f1490d57ef6-e63f6519314mr51690276.19.1741898615842; Thu, 13 Mar 2025
+ 13:43:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/10] mfd: bcm590xx: Add PMU ID/revision parsing
- function
-To: Mark Brown <broonie@kernel.org>, Lee Jones <lee@kernel.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Florian Fainelli <florian.fainelli@broadcom.com>, Ray Jui
- <rjui@broadcom.com>, Scott Branden <sbranden@broadcom.com>,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>,
- Stanislav Jakubek <stano.jakubek@gmail.com>, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- ~postmarketos/upstreaming@lists.sr.ht
-References: <20250304-bcm59054-v6-0-ae8302358443@gmail.com>
- <20250304-bcm59054-v6-6-ae8302358443@gmail.com>
- <20250313132036.GB3616286@google.com>
- <ef190ba8-a5c7-4a1a-90e6-2610de00e4ed@sirena.org.uk>
-From: Artur Weber <aweber.kernel@gmail.com>
-Content-Language: en-US
-In-Reply-To: <ef190ba8-a5c7-4a1a-90e6-2610de00e4ed@sirena.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+References: <20250313-mxsfb_probe-fix-rollback-on-error-v1-1-ad2fb79de4cb@bootlin.com>
+ <468c6352-3301-4f0b-a2d4-d6a013417a0e@suse.de>
+In-Reply-To: <468c6352-3301-4f0b-a2d4-d6a013417a0e@suse.de>
+From: Dario Binacchi <dario.binacchi@amarulasolutions.com>
+Date: Thu, 13 Mar 2025 21:43:24 +0100
+X-Gm-Features: AQ5f1JoTykMqff1C-O-bh1Cbl3u9Tnh0pBlLKwre0Ge4smXB9EbXTEwKnEK0dhM
+Message-ID: <CABGWkvqtj+05sdOuXg1WO99VNm9qdFgcYWEGuUPPZPoHZa6Dew@mail.gmail.com>
+Subject: Re: [PATCH] drm/mxsfb: fix missing rollback on failure in mxsfb_probe()
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, Marek Vasut <marex@denx.de>, 
+	Stefan Agner <stefan@agner.ch>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Michael Trimarchi <michael@amarulasolutions.com>, 
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>, dri-devel@lists.freedesktop.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_133911_367343_6E6A2B5F 
-X-CRM114-Status: GOOD (  13.19  )
+X-CRM114-CacheID: sfid-20250313_134341_384970_173B5612 
+X-CRM114-Status: GOOD (  30.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,23 +99,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13.03.2025 14:25, Mark Brown wrote:
-> On Thu, Mar 13, 2025 at 01:20:36PM +0000, Lee Jones wrote:
->> On Tue, 04 Mar 2025, Artur Weber wrote:
-> 
->>> +	if (id != bcm590xx->pmu_id) {
->>> +		dev_err(bcm590xx->dev,
->>> +			"Incorrect ID for %s: expected %x, got %x. Check your DT compatible.\n",
->>
->> Isn't it more likely that the H/W this is being executed on is
->> unsupported?  If so, say that instead.
-> 
-> Given that the compatibles are device specific the driver shouldn't be
-> binding if the device is unsupported.
+Hi All,
 
-Yes, the intention here is just to make sure that the DT compatible and
-hardware ID match. Unsupported hardware would not have a DT compatible.
+On Thu, Mar 13, 2025 at 3:40=E2=80=AFPM Thomas Zimmermann <tzimmermann@suse=
+.de> wrote:
+>
+> Hi
+>
+> Am 13.03.25 um 15:25 schrieb Luca Ceresoli:
+> > When aperture_remove_all_conflicting_devices() fails, the current code
+> > returns without going through the rollback actions at the end of the
+> > function, thus the actions done by drm_dev_alloc() and mxsfb_load() are=
+ not
+> > undone.
+> >
+> > Fix by using a goto statament, as done for the previous and following e=
+rror
+> > conditions.
+> >
+> > Fixes: c8e7b185d45b ("drm/mxsfb: Remove generic DRM drivers in probe fu=
+nction")
+> > Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+> > ---
+> > The offending commit is not yet merged into master, and even less in a
+> > released kernel, so this does not need to go through stable.
+> > ---
+> >   drivers/gpu/drm/mxsfb/mxsfb_drv.c | 7 ++++---
+> >   1 file changed, 4 insertions(+), 3 deletions(-)
+> >
+> > diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/=
+mxsfb_drv.c
+> > index c183b1112bc4e9fe4f3b048a2b6e4c98d1d47cb3..b4273e678d26dbc3dee2014=
+266d61470da4e8010 100644
+> > --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
+> > @@ -365,9 +365,10 @@ static int mxsfb_probe(struct platform_device *pde=
+v)
+> >        * located anywhere in RAM
+> >        */
+> >       ret =3D aperture_remove_all_conflicting_devices(mxsfb_driver.name=
+);
+> > -     if (ret)
+> > -             return dev_err_probe(&pdev->dev, ret,
+> > -                                  "can't kick out existing framebuffer=
+s\n");
+> > +     if (ret) {
+> > +             dev_err_probe(&pdev->dev, ret, "can't kick out existing f=
+ramebuffers\n");
+> > +             goto err_unload;
+> > +     }
+>
+> I must have missed that when I reviewed the patch. But this call should
+> happen much earlier. right at the top of the probe function before
+> drm_dev_alloc().
 
-Best regards
-Artur
+I had added the call to aperture_remove_all_conflicting_devices()
+after mxsfb_load() to
+keep the splash screen loaded by U-Boot. So, IMHO, it would be better
+to add the
+goto in case of an error rather than moving
+aperture_remove_all_conflicting_devices()
+to the beginning of the probe function.
+
+Thanks and regards,
+Dario
+
+> Conflicting drivers need to be kicked out before
+> setting up DRM. Could you please send a patch to move the call to the
+> top? No extra cleanup would be required then.
+>
+> Best regards
+> Thomas
+>
+> >
+> >       ret =3D drm_dev_register(drm, 0);
+> >       if (ret)
+> >
+> > ---
+> > base-commit: f9f087d946266bc5da7c3a17bd8fd9d01969e3cf
+> > change-id: 20250313-mxsfb_probe-fix-rollback-on-error-3074b9080f34
+> >
+> > Best regards,
+>
+> --
+> --
+> Thomas Zimmermann
+> Graphics Driver Developer
+> SUSE Software Solutions Germany GmbH
+> Frankenstrasse 146, 90461 Nuernberg, Germany
+> GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
+> HRB 36809 (AG Nuernberg)
+>
+
+
+--=20
+
+Dario Binacchi
+
+Senior Embedded Linux Developer
+
+dario.binacchi@amarulasolutions.com
+
+__________________________________
+
+
+Amarula Solutions SRL
+
+Via Le Canevare 30, 31100 Treviso, Veneto, IT
+
+T. +39 042 243 5310
+info@amarulasolutions.com
+
+www.amarulasolutions.com
 
