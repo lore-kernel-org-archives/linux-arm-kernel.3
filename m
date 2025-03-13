@@ -4,106 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1161EC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:47:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 740B7C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:49:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-Id:
-	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=; b=SB+FmYOnsGTsYDJvfVz6134VHl
-	CKdqDmFI/Ww5MqYZlRhduyX3OCNGTv4+J+dEgXEgCtZYbFvhMPHqHwhKT4UK3B3RufIeEpCPsDnH4
-	bEBMjSiGRnANgxLB+u9soDDE4IF/W1ib5qnbWUXq0S3y/yr7b31RctpyGfcMdRYSsLwkb7nh7t5Jm
-	+GUWL3oC6AF1Z0s6NF8Crq8Y/nlr+94VIuMjwF6E3EA95HWP+W7UT5sphBMNq1ALCKNn0PsptwJgO
-	xKaVfzmLSqWbrqv6q5R+1cEMqEZZpE3jwVd8Om65HhfjXrUmdYyhMfr9wfH8FYzbJfu13EsZhkjyb
-	cCNosdsg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6z01w3WWVWQrFb6fDm9So9R4kvEuFfyxAVkK68nBvg8=; b=LUjCGya+iENJoiKKJjFajSRsAq
+	QeEzLkP4ptYqXntMWzRppFIMUy5C6h//jIpSmCnMz4AmpLtIYLgLfitnbMWeU/wCBZtyzVAGmUyHI
+	0R8eLKbjF3nx1YhYpjqDV9MovhlKVElpcYtfSfSQccJJsTidRxrGf+ZEmXbJ3VATl43GcizFUmoEl
+	/fhup9B31VZzVXPXwvWB7WyCaqF8MYAaEK8BFmsmQ/UNO67HWZruPEnOHwWLU4h0n9kjrQdKYMcce
+	LJC2K+3YiWD00FUGvRnXgeBs1kOo/BX2kPLZu2VUzMFGyGBWpphyWyce3uwPkMvW0fhRNhO/g/iic
+	/wF14lCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsg6G-0000000Avb7-301Y;
-	Thu, 13 Mar 2025 10:47:40 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsg1w-0000000AuiJ-2252;
-	Thu, 13 Mar 2025 10:43:13 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-5e66407963fso1366175a12.2;
-        Thu, 13 Mar 2025 03:43:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741862588; x=1742467388; darn=lists.infradead.org;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=;
-        b=mhjM5PJPhFAgh09Mo+l/jLU1WmCIYu1yea6+LGs69IAZ0uOLczraIbtAp4H2Eqpxpb
-         N2zFSOc/Xg/RLtFfSXDJ2GqIBwTvYkqG+pbJwu7tAx1NhAVS0qSJF0hS5tYxbXtm89cW
-         dF3qCClhOqaKbAEWd1oYvcnlXE/6iMJtk6YRqqTmDcNX1zaqm9ojIlDzl+LPxb/VPXz+
-         Hnmc1p68gctmwJnAgMMMHRVzKq8TusBHiYH82oLQ08Uss2N39gWWnhvQiSP2jtZkXUfH
-         Vyb9eZ0EowzfWGufMp3Q89uEw9i+grOCD5IxS31r48anLRkMPmsvaryO2BbJI9ORsbeb
-         9n5Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741862588; x=1742467388;
-        h=to:references:message-id:content-transfer-encoding:cc:date
-         :in-reply-to:from:subject:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=p/wMjl7Q/J6WQRlQUTRmWAqcrf0d7pU34h1ehg31lfI=;
-        b=ACOKZXgCwLI1mTyzFeBcvFCPWHw/Lit81FugNpFhWA/D6255M7f4qRwDQAccbVftar
-         ym7S0TNmWV4dnrZW3iFSG4OQ4FWlHGD6alFAA5en203mgNxAltTqpsWKwnht7l6tzUTE
-         4Z9m3P7kuD7XGID01PISo2KXbQXJXagdP15KJYyF/btPkWEgLW4rdeFPdlXaf1ErVCOw
-         dqRarn315MS0RkUbm3fGGA8DV6hbwPVshbmH3S8AO4v7N4TMHmXLd3P4o9y6BRQw16DM
-         EsccCgRy7U4I3MJjKAbAMtiqbFM5egZAmfnPApi8SSrD36CSdoZI4qgJj32I5X/Hc0+o
-         Oyqg==
-X-Forwarded-Encrypted: i=1; AJvYcCVfhVE0r8oM0LGJjmtDMkM/Ci0iNsDwbPzlKsKffTgZBDUkxCFzn0obdKZk40ktRukAmp5CTrQsiqPf/5go26U=@lists.infradead.org, AJvYcCX7vuZ79UumCNEncTgQNJ1YpB2T70zgFEk0lvX/wegYcvOIhMGn9vmRVO0Fr4V8028DS7/Fe4Dt4yxkEiNRKBAo@lists.infradead.org
-X-Gm-Message-State: AOJu0YzW4DwxhQaPJGJ/XZj2qTgZ8zneRl8ddbewqZggmFHUCTRLrafN
-	CCQ3hEYymzilAn9hkWwR6tiWA6bNnCfGPWMkusaIjKDa6s1ALp9c
-X-Gm-Gg: ASbGncudJ5J8D0HLHhaB+1gvpkVc3hXx8br9qmaPWJf/DXWyRKeFyABe25VkzryueAZ
-	0vePz/nDfvhvtwGbuybXSdMvKe1N5P2geST9h0bqQwtI4qz9DN0wYuZSEV+5HDh9l5vRVemT24e
-	070ZgiX37UGoOu1ntfeESAovwfRSmUGgVYZsXaf1nEljzSmAmM6AwSllY3POJQcdL1k3tDrK/v/
-	/JGjSEs8QEEHHN/nBjPla/UE3oxWBR9+2iWuEez9jv5Y1smYMJ2unDTYP1L3ZONea/RcNx6k0QL
-	QQboy/jHAvMATJTdr0V9bmy+ltaMyMPugpP5O8gmiwh7SoVmu25kBTY1HN63dGLOb8/93ojN0ie
-	40kQbnrLGzY/Y+T4bv7aSz616OA==
-X-Google-Smtp-Source: AGHT+IHlgJ/0Zq8LGAbC0JM1shbR97v6kXIu61cyy2+LFvXoplbiFx6QsyXJl8Y+G3l47+Ic+J7RIw==
-X-Received: by 2002:a05:6402:2347:b0:5e7:c42e:3cc0 with SMTP id 4fb4d7f45d1cf-5e7c42e3d2fmr6212085a12.9.1741862588162;
-        Thu, 13 Mar 2025 03:43:08 -0700 (PDT)
-Received: from smtpclient.apple (89-66-237-154.dynamic.chello.pl. [89.66.237.154])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-5e816afdfd0sm598994a12.75.2025.03.13.03.43.05
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Thu, 13 Mar 2025 03:43:07 -0700 (PDT)
-Content-Type: text/plain;
-	charset=utf-8
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
-Subject: Re: [PATCH v2 2/7] drm/bridge: synopsys: Add DW DPTX Controller
- support library
-From: Piotr Oniszczuk <piotr.oniszczuk@gmail.com>
-X-Priority: 3
-In-Reply-To: <381bbdeb.342.1958ce2b7f8.Coremail.andyshrk@163.com>
-Date: Thu, 13 Mar 2025 11:42:54 +0100
-Cc: heiko@sntech.de,
- neil.armstrong@linaro.org,
- sebastian.reichel@collabora.com,
- lumag@kernel.org,
- devicetree@vger.kernel.org,
- hjc@rock-chips.com,
- mripard@kernel.org,
- linux-kernel@vger.kernel.org,
- linux-rockchip@lists.infradead.org,
- yubing.zhang@rock-chips.com,
- dri-devel@lists.freedesktop.org,
- Andy Yan <andy.yan@rock-chips.com>,
- krzk+dt@kernel.org,
- robh@kernel.org,
- linux-arm-kernel@lists.infradead.org
-Content-Transfer-Encoding: quoted-printable
-Message-Id: <FE66F347-431A-45E1-8764-06767B7FC74E@gmail.com>
-References: <20250312104214.525242-1-andyshrk@163.com>
- <20250312104214.525242-3-andyshrk@163.com>
- <61E9B36C-8568-4C0E-A9A7-07FF612912AA@gmail.com>
- <381bbdeb.342.1958ce2b7f8.Coremail.andyshrk@163.com>
-To: Andy Yan <andyshrk@163.com>
-X-Mailer: Apple Mail (2.3826.400.131.1.6)
+	id 1tsg7u-0000000Aw23-1bwo;
+	Thu, 13 Mar 2025 10:49:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsg21-0000000Auji-3GUu
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 10:43:19 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 319561516;
+	Thu, 13 Mar 2025 03:43:25 -0700 (PDT)
+Received: from mazurka.cambridge.arm.com (mazurka.cambridge.arm.com [10.2.80.18])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 987113F694;
+	Thu, 13 Mar 2025 03:43:10 -0700 (PDT)
+From: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+To: ryan.roberts@arm.com,
+	suzuki.poulose@arm.com,
+	yang@os.amperecomputing.com,
+	corbet@lwn.net,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	jean-philippe@linaro.org,
+	robin.murphy@arm.com,
+	joro@8bytes.org,
+	akpm@linux-foundation.org,
+	mark.rutland@arm.com,
+	joey.gouly@arm.com,
+	maz@kernel.org,
+	james.morse@arm.com,
+	broonie@kernel.org,
+	anshuman.khandual@arm.com,
+	oliver.upton@linux.dev,
+	ioworker0@gmail.com,
+	baohua@kernel.org,
+	david@redhat.com,
+	jgg@ziepe.ca,
+	shameerali.kolothum.thodi@huawei.com,
+	nicolinc@nvidia.com,
+	mshavit@google.com,
+	jsnitsel@redhat.com,
+	smostafa@google.com,
+	linux-doc@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev
+Cc: =?UTF-8?q?Miko=C5=82aj=20Lenczewski?= <miko.lenczewski@arm.com>
+Subject: [PATCH v3 0/3] Initial BBML2 support for contpte_convert()
+Date: Thu, 13 Mar 2025 10:41:09 +0000
+Message-ID: <20250313104111.24196-2-miko.lenczewski@arm.com>
+X-Mailer: git-send-email 2.48.1
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_034312_513446_35061BD9 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_034317_859673_45537B23 
+X-CRM114-Status: GOOD (  10.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,25 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi All,
 
+This patch series adds adding initial support for eliding
+break-before-make requirements on systems that support BBML2 and
+additionally guarantee to never raise a conflict abort.
 
-> Wiadomo=C5=9B=C4=87 napisana przez Andy Yan <andyshrk@163.com> w dniu =
-13 mar 2025, o godz. 01:23:
->=20
->=20
-> Hi Piotr,
-> =E5=9C=A8 2025-03-12 22:23:15=EF=BC=8C"Piotr Oniszczuk" =
-<piotr.oniszczuk@gmail.com> =E5=86=99=E9=81=93=EF=BC=9A
->=20
-> This series still  based on Linux 6.14 rc4.
->=20
-> Did you apply the three dependency patch mentioned in my cover letter?
+This support elides a TLB invalidation in contpte_convert(). This
+leads to a 12% improvement when executing a microbenchmark designed
+to force the pathological path where contpte_convert() gets called.
+This represents an 80% reduction in the cost of calling
+contpte_convert().
 
-Thx!
-I noticed =
-https://lore.kernel.org/linux-rockchip/20250302115257.188774-1-andyshrk@16=
-3.com/ was missing
-Sorry for false alarm.
-Now v2 works ok for me on rock5a and rock5itx
-=20=
+This series is based on v6.14-rc4 (d082ecbc71e9).
+
+Patch 1 implements an allow-list of cpus that support BBML2, but with
+the additional constraint of never causing TLB conflict aborts. We
+settled on this constraint because we will use the feature for kernel
+mappings in the future, for which we cannot handle conflict aborts
+safely.
+
+Yang Shi has a series at [1] that aims to use BBML2 to enable splitting
+the linear map at runtime. This series partially overlaps with it to add
+the cpu feature. We believe this series is fully compatible with Yang's
+requirements and could go first.
+
+[1]:
+  https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-1-yang@os.amperecomputing.com/
+
+Mikołaj Lenczewski (3):
+  arm64: Add BBM Level 2 cpu feature
+  iommu/arm: Add BBM Level 2 smmu feature
+  arm64/mm: Elide tlbi in contpte_convert() under BBML2
+
+ .../admin-guide/kernel-parameters.txt         |  3 +
+ arch/arm64/Kconfig                            | 11 +++
+ arch/arm64/include/asm/cpucaps.h              |  2 +
+ arch/arm64/include/asm/cpufeature.h           |  6 ++
+ arch/arm64/kernel/cpufeature.c                | 76 +++++++++++++++++++
+ arch/arm64/kernel/pi/idreg-override.c         |  2 +
+ arch/arm64/mm/contpte.c                       |  3 +-
+ arch/arm64/tools/cpucaps                      |  1 +
+ .../iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c   |  3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c   |  3 +
+ drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h   |  4 +
+ 11 files changed, 113 insertions(+), 1 deletion(-)
+
+-- 
+2.48.1
+
 
