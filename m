@@ -4,174 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4DB2C28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 01:51:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF0A5C28B2F
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 02:55:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7izwqDlsphk/cKyH6AVwQwaAo/wZ4PPab+sy0XjFIMY=; b=qChqJmB1M+lE6Dd3xs3P5qWIvZ
-	oMJQFxfwd463HHQvRq+MGicIiOwPrPe9Uo7u2y5twgKxqvY+pKCUoakDCZZ5g95DwKq/3Avh/g3lg
-	TTYJU+Krfp1MWO2yspfcmXUFU15sZ+/yVEwmnbosqW1Q4vDWd1d+Sr0AhOfHG7pbuKx7sRAncaZ1s
-	gEauYwDCgZfyFhfsFepvFNPtT7BWLOPl7hhnSgYuADqth+vODIpcfY8WmihRqzMwKxFg2UIm/wkCY
-	kA6XNgzpNgRPtOgQizaaKXye100kNGCM1Pn9SBTLQh+N+qffAFErkCVcKLD+nQ3bRdVU08zE6oJPn
-	qYXzPjmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bKDdhLrRqQqmBXwJq+Isl7Gv3VYa/Deps6YYhzlsmNE=; b=H0pMV7vWGiDCqElueHHghQIzRz
+	zRZR0BWetpJD7Q+NcpHGJdrThd2URFUFygfu2C1XSmrpSrR+45k9CQYgnSnH/CUYmLcS3e0ZYnudr
+	JiJ3yIbjv4eHwRKzg89zs7KMmIHsN8zPsHYaCqSNY221q+xrtW5rsi9hwdAwoSuEL/QfGlUIIaFyA
+	Ioylz5+HtgfJhynvKMzDLp3mS7ahRjma8PFK89Jmy+ec1Vb+upIIyEAbg+EXgYctQ5P1qtx54wjnx
+	AK8kmjZ+rXp2VgdHnHV0pXtB4EIUycMmCQ9Jhg81tixQwgaUJWvEqIlUn97kailullgp8balJyglH
+	AJnpAxPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsXj8-00000009tYE-2v7z;
-	Thu, 13 Mar 2025 01:51:14 +0000
-Received: from mail-psaapc01on20723.outbound.protection.outlook.com ([2a01:111:f403:200e::723] helo=APC01-PSA-obe.outbound.protection.outlook.com)
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsXhT-00000009tQ4-3oN1;
-	Thu, 13 Mar 2025 01:49:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=h8w92O8EhXTdOCO3+GwEoFoQeohqUQvOGcCkT+hcU3nH9XfxkODGh7UzusUDIqebBzBuP1U4BbjspLuQ/AQmBLhlcEPbJIkkLzMJudOTN5m5TzIPWlG12GmSI3HnqcGWdVDdijrG0cX3PelIQIgYH5BVfbhrYJopxQ3Qpv7NaWOyeoRTYmxkyJvgKrWPxIGWDqyIaPOmYFzBxWzosmfZHH0GUrL+pjxEGt2s+iulk94zAB5Q208Os7yORZwvhLVP/yMN4OgOOBm4LjLHXXq9qkhXyexsKtsCCAMc88b0cAFbRocu0lWa0AtX6D4zH8A50rFbkk4mZ5DNE4RMxj1K4A==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=7izwqDlsphk/cKyH6AVwQwaAo/wZ4PPab+sy0XjFIMY=;
- b=GpdLcD11TNFHsEdsU6M34BWQUJ8+0GlMpXoIvRhk0VPC8XUtNv/FY95qI43wo94WdynpcYcck7dLHfas8ZdK05FJKiiUk2Ub4DOhSwvUwrYva7arD9FQigSlWbpM+45O9VB6Xyr0YvYXt61fGNah1kZrcYUUdVEbENWrWJyi8AN3qCZaYbTGoAay56igxc8wk9NeRYkqXvDmPawgj0GbkGJqGTGKk2lL8y5QZjdtzywKfGhEz6j1Ihz/Ogo8ZWNCurkKEuAYpRpityYQ5h6I6ixYAzLahJ1sqNXujirdtCVKc6VMYEB2CA5T5m+GhFxK/TbrF1m4QHMVNCkzghBofw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=7izwqDlsphk/cKyH6AVwQwaAo/wZ4PPab+sy0XjFIMY=;
- b=tcuQClVlwC6UBfiN7Ww/YZiFOrd3b8FCl1xYl2SkNVMgwa2pBkM8nYZ3WDun+9Lw+sNBIDOfOjbHtpv0E9IAjAxEZ63Mw4LJ8fzrA0gjrGNpq4RJKsd7KkSRkDw1Lg9Kd4gbPRCV3kHu9mM5Y9/dmYyho6DRKAJLrcSMJjBJ6PTyl3G/UyCMqL/5dJ7Qg3cpvoV8DGJYATlPZh5p5k0kycL6Vq36V3zeTyK+pZJGWGU+odj7ezM9MNTQJ7YUaocTvyGAhdwJTFC8FUD4rzNqAH4xXDfa8dVsr0xJ3xjJ1KTqeN7kD31ocInDDbFbo+bvOdSxqS7apAa2ciPIpWdhbA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from JH0PR03MB7384.apcprd03.prod.outlook.com (2603:1096:990:11::8)
- by SEYPR03MB8080.apcprd03.prod.outlook.com (2603:1096:101:167::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Thu, 13 Mar
- 2025 01:48:58 +0000
-Received: from JH0PR03MB7384.apcprd03.prod.outlook.com
- ([fe80::1ff4:d29:cc2e:7732]) by JH0PR03MB7384.apcprd03.prod.outlook.com
- ([fe80::1ff4:d29:cc2e:7732%4]) with mapi id 15.20.8534.024; Thu, 13 Mar 2025
- 01:48:57 +0000
-Message-ID: <b9d6a851-c43f-4db9-9a83-6eba3c9b1dd0@amlogic.com>
-Date: Thu, 13 Mar 2025 09:48:54 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: reset: Add compatible for Amlogic
- A4/A5 Reset Controller
-Content-Language: en-US
-To: Conor Dooley <conor@kernel.org>
-CC: Philipp Zabel <p.zabel@pengutronix.de>, zelong dong
-	<zelong.dong@amlogic.com>, Neil Armstrong <neil.armstrong@linaro.org>, "Kevin
- Hilman" <khilman@baylibre.com>, Rob Herring <robh@kernel.org>, "Martin
- Blumenstingl" <martin.blumenstingl@googlemail.com>, Jerome Brunet
-	<jbrunet@baylibre.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-amlogic@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>, "Conor
- Dooley" <conor.dooley@microchip.com>
-References: <20240918074211.8067-1-zelong.dong@amlogic.com>
- <20240918074211.8067-2-zelong.dong@amlogic.com>
- <a5d9b775dd860d8f2bbf174300a2e3161b654035.camel@pengutronix.de>
- <20240918-delirious-skiing-224172be96d4@squawk>
- <84612c6b-621d-47cc-8a2e-41d1fa42f0fe@amlogic.com>
- <20250312-atlas-paver-0f0e888a641b@spud>
-From: Kelvin Zhang <kelvin.zhang@amlogic.com>
-In-Reply-To: <20250312-atlas-paver-0f0e888a641b@spud>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SI1PR02CA0058.apcprd02.prod.outlook.com
- (2603:1096:4:1f5::9) To JH0PR03MB7384.apcprd03.prod.outlook.com
- (2603:1096:990:11::8)
+	id 1tsYjN-00000009yT1-1vm2;
+	Thu, 13 Mar 2025 02:55:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsYhi-00000009yJr-1fnN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 02:53:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D24515A1;
+	Wed, 12 Mar 2025 19:53:56 -0700 (PDT)
+Received: from [10.162.40.25] (a077893.blr.arm.com [10.162.40.25])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id A03433F5A1;
+	Wed, 12 Mar 2025 19:53:41 -0700 (PDT)
+Message-ID: <34b8242b-529b-4ad5-ac17-e1200965ae1d@arm.com>
+Date: Thu, 13 Mar 2025 08:23:38 +0530
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: JH0PR03MB7384:EE_|SEYPR03MB8080:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7b47321b-022e-4697-0194-08dd61d13850
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?NWEydjhiQkhwQTR0VFhtWjU0NVZBV2g0eUJ1NDhORTl5aHZYem5sdVZzQ0lw?=
- =?utf-8?B?a0ZoYklXWEpnWFdabU4raTQzZWNwU0k4emc1ZC9qdWFzUjZLRWtRMEYzUWNW?=
- =?utf-8?B?VGtIT1ltYmliWU56U0VIVHdTUHQwQ3ZsRi9LVTZ1ZXVnMzFIMGN6MFBrbDcx?=
- =?utf-8?B?cWRzQmxROCsvaFVVdmh5SmNlSS9kQzlRY2NMQWdXRXdSUCsrSHpFcG1qTFAy?=
- =?utf-8?B?YnBvYW84bmZEK24yYlk3cS9PVVovNWlPcUZBc3B1M1d1aVRjcCtEWStTMHdT?=
- =?utf-8?B?Z1dkYnprMkpJcnB0cjhQVjRXYU9yNStuMUNYRThjTmlMenhEd3lKaGw5OUpk?=
- =?utf-8?B?RUVXWFBKdnpxM0krbFh3ZUx0Zkxnd0VFM1dwM0kvMVBmN09yTFVzL28wSXdq?=
- =?utf-8?B?MzhVbjdqY1NhT1VQWllXSUt3RDBiemkwTjZjZjJMd2RFNEVHWS9QeGpKV3o4?=
- =?utf-8?B?Q2s0VisxK0FIaDFiVW1uYnBiNzlyVjJlRitmZGpWd0w3cUlqYS93Y1dZQ1VH?=
- =?utf-8?B?bFJ5M2JBWTlmZ2tjS3dKVzdwTDBKSGRYRGlZWUQzczRzeXhXazA1dzIrN3Rs?=
- =?utf-8?B?eE5lSENhWWV5UVRleEx6bjZzMHdJVFJmaWRobCtSTHZZc2p2U2YvOTVOclVq?=
- =?utf-8?B?ZEFxbGcrVHYva2h3UDVTYjArQmFRU1hzTENsSkI3eHNwU0dsMWh6WHFtbEZu?=
- =?utf-8?B?UVcvM0NFcXJOejgrNlFKMy82Y0ZYRnRzK0Q0NFVoN0pHOU1KRlFJYU9hN3Vv?=
- =?utf-8?B?eDJ4c0R1aGRCM1Z5aVRBQmlxSG9McEVNRFRwSDg2REErU2c4V2ZPOGEzNENL?=
- =?utf-8?B?bkpWNUNDaDQ4UmhFSllIZmYra3I3ajIwVW5nS1V2eFM0SDRHRnR0bE9BUllL?=
- =?utf-8?B?dkErNlJXOWU2d240TTZNWWE3cSt0NStEQWlzcTdIdGIzL0tsT3VJNzJZZ0xI?=
- =?utf-8?B?NjIrdytlaTY5a0dabDJEWC9MeDJ4VFo0TjhOa0NWalVYeFdrUFZaRzhtQzla?=
- =?utf-8?B?VHpwMldMa2R4UmY5R1dnM2NUNm5ndVZoV2VmcGZ3TnNIRkwrZ21rUDM4clBz?=
- =?utf-8?B?RzExUStaeWJBTWd5a0RBeGRTeDZsYzRMTjArTU13WkhLcTdtRTJscnMvWFhl?=
- =?utf-8?B?WmtWODFQZkc3SW5IeUJWdlVvRXU5YmNWU2xPc1AvM1FYTVVqdDBvdzBDT01w?=
- =?utf-8?B?ejRmVkFGRHNTck04SnhIQi9qSVZHZkY0MkZMZ0UrYjFYem1iZGZCbGN3NWFI?=
- =?utf-8?B?em5zWWRaa2haN1kvNnFtWFhIOVNmU0s4UVA2M2NzNTlod1h4RUVZZ2lCTEl5?=
- =?utf-8?B?NzdLN1ZlVmtsdGQybDFBWUxvbUd2OGkzUG5WQXRoeGg1VE51OUNGZU00MGU3?=
- =?utf-8?B?SkJzd2djRmlmdGh5N08zMmhpTlppK1JnTWJuNFJuS09neHhxOGp5ZFRVSS9O?=
- =?utf-8?B?WndyZHIvVENkeEE4QWFzVERuQXVUcUJRVnRkMm0rQjViK3BsbnpodVArcVFR?=
- =?utf-8?B?TFAraHVVQTJuNHVJQXNtUDdDaHpWMzQ1ZHhuUmwvY29uRzFZRWVEaVNEa3BE?=
- =?utf-8?B?TUttQUVEQ2lKMkJJS0E5VzI5WFlYSy9lbjM1U1BGM05McnJwQjBKckh4MUhE?=
- =?utf-8?B?MUlIQ3YwaTZoN0FaY2tpZkVacGRoSmxpTE9DckF5Qk0wZWZ6NE13Rk5rbWdw?=
- =?utf-8?B?OWp1SnZwaUR0NWtNcWh0L0RIcXR2SndwdmNZVlhSTkVOMFhuQWovQTBhU1Bm?=
- =?utf-8?B?VGcwdW0yQW1IQkRkckF2NEhPZlZnbDJuMDVWblZzemRFL2NaRXVYL3NvWlhs?=
- =?utf-8?B?OEhKYlF3QVlZOGNTUjBxT0tDd3BqU2hlMmJER2VBUG5PRzE0eXUrTExjeEZD?=
- =?utf-8?Q?pQ5O9KH6v1t2b?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:JH0PR03MB7384.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aFFKVlNFNGhkWkVNbWxsTTJoN1hZWUpzbmVGRUpWM1lwaGVjZVlQRVE4S3Vh?=
- =?utf-8?B?ZHhTUEVsTlcvSjd5WHVmSmFkdERTSGt1d2oyMHFKNmpQbmNWMlN3NktEd3NY?=
- =?utf-8?B?em1uT3hwajdoNm5iQ2ttcm5SZGZiM3RXeFRocTFVZk5EQWsweE5MTytTNTha?=
- =?utf-8?B?dTlxamVITCtsMm0vMU0yM012Wk80c1J3MVBKemE5QXRKd3JxTWhPazRHVkkr?=
- =?utf-8?B?RHBHOFN1czltZkRpNnJxZ3p4aUw5OFphNWtEUE9mTk9XTHpFK3ZPSU9nYlZG?=
- =?utf-8?B?OWZYeU0yRzNsWHVFRXE3MTVHbTBtN2U0K1huSTNrYWRCYTFURkdpNDRGRllr?=
- =?utf-8?B?QUJGYVQ5K013ZGZSLytacm9MQXFuZFBaS3l0VU9ubDMxYzhDLytSbDl0aEdi?=
- =?utf-8?B?TGtmdVFLRk43WHlIaHZ4U0puWisrMGpUM3Z5MWJzTHhWOEl0M3NWZ0NHSUtp?=
- =?utf-8?B?Q3o2eTRIem56M2lSdm1KNkFBOVBVK3RWSWw1MnpyaGhEMFhMQkYzbTZ0cUNj?=
- =?utf-8?B?NHdyY21TdnJ3M0JOUWl0emVuajE4a1FadUVvZUluWStNdnl2M2dwV2g2RUZk?=
- =?utf-8?B?eGQ4ZlNmTFRMdzhNNTRQcEw3VVozUERVWVFtbGJNWFdFQ0Z4SUhOSXVPK1Fy?=
- =?utf-8?B?cUtTTzBwZHJpbUlZeGRHeUFvanZ1SFhpaWxmM1UxaXF0ejBlWGFwcVE1c1g2?=
- =?utf-8?B?SkQ2QW45dlVLT3FoZjRnT0lhK1lwblRacnpQYTB4ZEdWM1lNSGt0OWtBazQx?=
- =?utf-8?B?cFR2R1FYc0xMY1NjUktpdkYzQm9XRWJobGtYdUthWlc5cmpldERwQ3Y4bVpq?=
- =?utf-8?B?YXE4aWR5cU9aT1ZTU09GRnp5UjRHV0x5NHNVdUlUb0pLaVhBRVZMUU95bVlB?=
- =?utf-8?B?M0hELzVmdmMvZFVBN0oyWjBPblVEb1JpL3JEWXlmSE8yRTI2cllLcGZTU2tZ?=
- =?utf-8?B?V1dGQldJUFQzc25SdG5VSjdLZ21lbDVoYlo5Tnh0Uk5vR2wyZi9uYTE1YmxK?=
- =?utf-8?B?V2FDSFdFRVZubWtsUmRNbXhYL1g2QmVDUWRnNEE0VS9OUVJmdWcxZW41WmVl?=
- =?utf-8?B?US9aN283ZW1lOXFpakJueTdiaGVnZ1lFSmtWMk1PdFArOWs4WlJ0UzRObGFr?=
- =?utf-8?B?bVpqSjFJZUxxb2VnMXRoYzA5bjgyYW9SS2NkM092RngrTEpUeG5ZK0NIWTJh?=
- =?utf-8?B?VHhBMU9PNm9TVzZIc1lCdVk1N2pYVU1acFNQaHU5bGZISE51NUZUVGR1Qnd3?=
- =?utf-8?B?WEEyNVI0R2l2VzQwbGFhUnBpL2pONThOclFMK3AxY1IrQ2NiN2tuTkh5c2lT?=
- =?utf-8?B?U1kzQWNzYUNjckQxdkVINmxFZXl2UzhFUjdVUUg3eGVjWXNQSmRKSUV1WjBV?=
- =?utf-8?B?QjlJQ2JjbTg0Y2JmSm5Ic21kS1BNL2hseHgxYlFKSXhiRzZSY3BiYXE2UW5O?=
- =?utf-8?B?cmtISmNONmN4TDVGNUFzRWMraHlGU0JtQkhzbnNpNnF4cU42cFJZWlI5QzJv?=
- =?utf-8?B?VW4ySjRBVVpPUFpnekl2aEszb3NMaVd2dHZxQjlnekpxZ2tsK0cvODdQVENP?=
- =?utf-8?B?amlGSE9NS3dNb1VGZkw1Z0h5clk0dFVuYk5kbnlPZjliK1dJWVJTMTFqS1pI?=
- =?utf-8?B?T1BUSVFITmhEMHlpMFVsOExtMUlNSHRJOTFQOWxOVHNhd0hwUmcyVWNGbHg1?=
- =?utf-8?B?ZTY5Wk92V2VZSEFvRHd0YTZsZlA1a1RwdGhPM2NVVkZPL1d1M09UOXJZdTJz?=
- =?utf-8?B?MHFFMTZ6VS9TQThWci9SWVpiTFlDTW5IT0FsTzRWeEFXdGkyRXR0NGFWTlpi?=
- =?utf-8?B?eG4wMWNEN21wNmhHTUZpbzBNbExKaWFwdWxFa2taNGxhUEZDR3hFUktteGtJ?=
- =?utf-8?B?dXhUOFN0MWtVYjhvcm8rdERhem9nZXdDcTR1T2xKdWtJOG9ERU0rQmNZT0Yv?=
- =?utf-8?B?c1RhSkRrdGtTdkROT09oK2kwQkNqdXd5UHg4WnMxZVJSakVCUjFidkEySVJq?=
- =?utf-8?B?bTlLenNRckhCYUl6UUtHcTJoenNPcDRLejU5NFpUNkp0bkY4dUMxVUJWQnVn?=
- =?utf-8?B?NHpPRm1Ca2gweVF2S0Z3Zzl0TXcwTTJVWEg2blZmT0N3eGJvSHd0d1JOYWJq?=
- =?utf-8?B?MG5FbFdJQmwvaGx4dnd6SFo3MTBSeTIrenhYV2lQZ1Z6eU1ERDBLU1UvQWxw?=
- =?utf-8?B?cGc9PQ==?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7b47321b-022e-4697-0194-08dd61d13850
-X-MS-Exchange-CrossTenant-AuthSource: JH0PR03MB7384.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 01:48:57.8452
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IpnzqVeAMNTtad1LN1WRCK7GMBdhdxJmtVmGuycOkUn3qrMsi3ncVMtdo/TLyMQ0INnvgcTsdmOm+wg/BsGWOyEkt2e0znjjB/haUmWY/QM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB8080
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: Drop sort_memblock_regions()
+To: Gavin Shan <gshan@redhat.com>, kvmarm@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ qperret@google.com, maz@kernel.org, oliver.upton@linux.dev,
+ joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+ catalin.marinas@arm.com, will@kernel.org, shan.gavin@gmail.com
+References: <20250311043718.91004-1-gshan@redhat.com>
+Content-Language: en-US
+From: Anshuman Khandual <anshuman.khandual@arm.com>
+In-Reply-To: <20250311043718.91004-1-gshan@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_184931_944140_B6E31230 
-X-CRM114-Status: GOOD (  15.65  )
+X-CRM114-CacheID: sfid-20250312_195350_488577_BD9BE8FF 
+X-CRM114-Status: GOOD (  15.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -186,63 +66,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/3/13 04:31, Conor Dooley wrote:
-> On Tue, Mar 11, 2025 at 05:48:26PM +0800, Kelvin Zhang wrote:
->>
->> On 2024/9/18 16:01, Conor Dooley wrote:
->>> On Wed, Sep 18, 2024 at 09:51:28AM +0200, Philipp Zabel wrote:
->>>> On Mi, 2024-09-18 at 15:42 +0800, zelong dong wrote:
->>>>> From: Zelong Dong<zelong.dong@amlogic.com>
->>>>>
->>>>> Add new compatible for Amlogic A4/A5 Reset Controller
->>>>>
->>>>> Signed-off-by: Zelong Dong<zelong.dong@amlogic.com>
->>>>> Acked-by: Conor Dooley<conor.dooley@microchip.com>
->>>>> ---
->>>>>    .../bindings/reset/amlogic,meson-reset.yaml   | 23 ++++++++++++-------
->>>>>    1 file changed, 15 insertions(+), 8 deletions(-)
->>>>>
->>>>> diff --git a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
->>>>> index 695ef38a7bb3..0ad81fe7b629 100644
->>>>> --- a/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
->>>>> +++ b/Documentation/devicetree/bindings/reset/amlogic,meson-reset.yaml
->>>>> @@ -12,14 +12,21 @@ maintainers:
->>>>>    properties:
->>>>>      compatible:
->>>>> -    enum:
->>>>> -      - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
->>>>> -      - amlogic,meson-gxbb-reset # Reset Controller on GXBB and compatible SoCs
->>>>> -      - amlogic,meson-axg-reset # Reset Controller on AXG and compatible SoCs
->>>>> -      - amlogic,meson-a1-reset # Reset Controller on A1 and compatible SoCs
->>>>> -      - amlogic,meson-s4-reset # Reset Controller on S4 and compatible SoCs
->>>>> -      - amlogic,c3-reset # Reset Controller on C3 and compatible SoCs
->>>>> -      - amlogic,t7-reset
->>>>> +    oneOf:
->>>>> +      - items:
->>>> I'm not well versed in preferred dt-bindings style, but this items
->>>> looks superfluous to me. It only contains a single enum.
->>> Oh, ye. Good spot.
->> Hello Philipp, Conor,
->> Sorry for the late reply.
->>
->> Do you mean to use 'amlogic,meson-s4-reset' for A4 and A5 directly, without
->> the fallback?
-> No. We are saying that
+On 3/11/25 10:07, Gavin Shan wrote:
+> Drop sort_memblock_regions() and avoid sorting the copied memory
+> regions to be ascending order on their base addresses, because the
+> source memory regions should have been sorted correctly when they
+> are added by memblock_add() or its variants.
 > 
-> +      - items:
-> +          - enum:
-> +              - amlogic,meson8b-reset # Reset Controller on Meson8b and compatible SoCs
+> This is generally reverting commit a14307f5310c ("KVM: arm64: Sort
+> the hypervisor memblocks"). No functional changes intended.
+
+Just wondering what prompted this change ?
+
 > 
-> is pointless duplication, because your "items" list only has only
-> entry in it (the enum) and you could just remove the "- items" line
-> entirely and have the same outcome.
-
-Got it.
-Thanks!
-
--- 
-Best regards,
-
-Kelvin Zhang
-
+> Signed-off-by: Gavin Shan <gshan@redhat.com>
+> ---
+>  arch/arm64/kvm/pkvm.c | 19 -------------------
+>  1 file changed, 19 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
+> index 930b677eb9b0..d9c9174f89a1 100644
+> --- a/arch/arm64/kvm/pkvm.c
+> +++ b/arch/arm64/kvm/pkvm.c
+> @@ -10,7 +10,6 @@
+>  #include <asm/kvm_mmu.h>
+>  #include <linux/memblock.h>
+>  #include <linux/mutex.h>
+> -#include <linux/sort.h>
+>  
+>  #include <asm/kvm_pkvm.h>
+>  
+> @@ -24,23 +23,6 @@ static unsigned int *hyp_memblock_nr_ptr = &kvm_nvhe_sym(hyp_memblock_nr);
+>  phys_addr_t hyp_mem_base;
+>  phys_addr_t hyp_mem_size;
+>  
+> -static int cmp_hyp_memblock(const void *p1, const void *p2)
+> -{
+> -	const struct memblock_region *r1 = p1;
+> -	const struct memblock_region *r2 = p2;
+> -
+> -	return r1->base < r2->base ? -1 : (r1->base > r2->base);
+> -}
+> -
+> -static void __init sort_memblock_regions(void)
+> -{
+> -	sort(hyp_memory,
+> -	     *hyp_memblock_nr_ptr,
+> -	     sizeof(struct memblock_region),
+> -	     cmp_hyp_memblock,
+> -	     NULL);
+> -}
+> -
+>  static int __init register_memblock_regions(void)
+>  {
+>  	struct memblock_region *reg;
+> @@ -52,7 +34,6 @@ static int __init register_memblock_regions(void)
+>  		hyp_memory[*hyp_memblock_nr_ptr] = *reg;
+>  		(*hyp_memblock_nr_ptr)++;
+>  	}
+> -	sort_memblock_regions();
+>  
+>  	return 0;
+>  }
 
