@@ -4,76 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 087D7C35FF6
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8DE4C35FF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 17:14:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cI6/VqAKS6bNAbXHyOHCcczT5Asj3Fz4fGJcj+TDuCY=; b=CWt5lG4Ri2bFZto59+pR+7n4Zw
-	lyh75NBQzQZpwHRGFlPWHCcQTnw4SmbQszbul5rgB2l61bIgpgXZyL0YgdtMrUesTnk/Cnj+DqG1J
-	XoQIU+8dihMZSBwE7qFjXwGzqOvlMOLOu5Y3nEex1HL40ItDPtBzkug3RWDvuyU7opOeVkJClY285
-	G+i9yTdPa/oMCub1qzjCkUDwqVVsSCXBFlLI//jqt5Lt6825hDcnteY6vSDCZuWNMcsI1el9J6Q1q
-	/JDYO56bubZb8EM3WA1vSLrz2f8rqR/3jiR6cuyyP57tCvtp98EoSjnR3KupsBk/FxoIUZQevH0mH
-	xjO5PNeA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=b9iunyvnGz46LAx1JokJ2CM/gO30FAWp52cJ74juBNQ=; b=TPcvxKMrmFLajYrnRUMNvMdC2E
+	YzpWn79V12myLm925IbnrIXBBfoRdzwpmoc9g1Vu+HGhhZ0QAyFfdSQKhc2DqK7sVGM/h8DLdPxGx
+	ZEhQiwybhG/DYZPZtgb6SEJQSwVVxu4DfMqzwJln9HtJygNiw/6KI5xXAS9EROynzx4EKLlvZId9v
+	KeoHc09c2nPWlljEVp76rcKdabVUnRC3CUe7WXTDFCS+J7feiIyRhGTnI2kptVxrT/yEP1Wrgu1rk
+	RyGW9vu1nYaGdeXcb4cEwgzPKeqBskLBW67uNG4eUBf+rtTx6mnVkY8IVNAdoMgi0QA1wTcghXMj/
+	xBvBl8Bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsm8W-0000000BwmR-2FUW;
-	Thu, 13 Mar 2025 17:14:24 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslCj-0000000Bmq1-3sEF
+	id 1tsm8U-0000000Bwj2-0pHO;
+	Thu, 13 Mar 2025 17:14:22 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tslBa-0000000BmSD-2hM9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:14:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 3C94EA46745;
-	Thu, 13 Mar 2025 16:09:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4906EC4CEEE;
-	Thu, 13 Mar 2025 16:14:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741882480;
-	bh=XHzsxcNRyzu969GVfBaBMQi0w2xQRXFs1QAQkqGdpgg=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LlpPk8S1uGh9d6LTFPnY1jA7rpW3bHVSbItI+9C8P5cs7ggGtYxf5Yaf9t/QbkwgD
-	 t8x08DBY943XhQZDV0ch9NDCFaDhT20Ev7EZgb9YDzlwGJ0lDEgWXnwYDkBhCPXwz8
-	 xRB9VHHS3voN+uQysbf7LO1Zs+nCu6xGHKXKudMCgz8PHd0Uo7pUlmDVtIHpZoNen9
-	 AfFXusG6JUv39qIui9pjsw/h8yMM6+/ETJ8Y98s/kGiRkcuDgtJoZvK1YsyBZyBJIX
-	 T6bJ13b4KsWm55FEbyZt6ilgkSO47piInHLEGhzEPw4F0wOCyGKwkT/0m+sZpyhwVK
-	 +sMwlNKHGVf8A==
-From: Philipp Stanner <phasta@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Paolo Abeni <pabeni@redhat.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Yanteng Si <si.yanteng@linux.dev>,
-	Huacai Chen <chenhuacai@kernel.org>,
-	Yinggang Gu <guyinggang@loongson.cn>,
-	Serge Semin <fancer.lancer@gmail.com>,
-	Philipp Stanner <pstanner@redhat.com>
-Cc: netdev@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Philipp Stanner <phasta@kernel.org>,
-	Andrew Lunn <andrew@lunn.ch>,
-	Huacai Chen <chenhuacai@loongson.cn>,
-	Henry Chen <chenx97@aosc.io>
-Subject: [PATCH net-next 1/3] stmmac: loongson: Remove surplus loop
-Date: Thu, 13 Mar 2025 17:14:21 +0100
-Message-ID: <20250313161422.97174-3-phasta@kernel.org>
-X-Mailer: git-send-email 2.48.1
-In-Reply-To: <20250313161422.97174-2-phasta@kernel.org>
-References: <20250313161422.97174-2-phasta@kernel.org>
+	Thu, 13 Mar 2025 16:13:31 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D5EE2150C;
+	Thu, 13 Mar 2025 09:13:39 -0700 (PDT)
+Received: from [10.57.85.159] (unknown [10.57.85.159])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EF9A3F673;
+	Thu, 13 Mar 2025 09:13:25 -0700 (PDT)
+Message-ID: <ea10caee-59ef-4a00-9b61-37cb0a379411@arm.com>
+Date: Thu, 13 Mar 2025 16:13:22 +0000
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/3] arm64: Add BBM Level 2 cpu feature
+Content-Language: en-GB
+To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
+ suzuki.poulose@arm.com, yang@os.amperecomputing.com, corbet@lwn.net,
+ catalin.marinas@arm.com, will@kernel.org, jean-philippe@linaro.org,
+ robin.murphy@arm.com, joro@8bytes.org, akpm@linux-foundation.org,
+ mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
+ james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com,
+ oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
+ david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com,
+ nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
+ smostafa@google.com, linux-doc@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ iommu@lists.linux.dev
+References: <20250313104111.24196-2-miko.lenczewski@arm.com>
+ <20250313104111.24196-3-miko.lenczewski@arm.com>
+From: Ryan Roberts <ryan.roberts@arm.com>
+In-Reply-To: <20250313104111.24196-3-miko.lenczewski@arm.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_091442_020910_C1CBED48 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20250313_091330_782983_229160AF 
+X-CRM114-Status: GOOD (  37.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,54 +74,256 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-loongson_dwmac_probe() contains a loop which doesn't have an effect,
-because it tries to call pcim_iomap_regions() with the same parameters
-several times. The break statement at the loop's end furthermore ensures
-that the loop only runs once anyways.
+On 13/03/2025 10:41, Mikołaj Lenczewski wrote:
+> The Break-Before-Make cpu feature supports multiple levels (levels 0-2),
+> and this commit adds a dedicated BBML2 cpufeature to test against
+> support for, as well as a kernel commandline parameter to optionally
+> disable BBML2 altogether.
+> 
+> This is a system feature as we might have a big.LITTLE architecture
+> where some cores support BBML2 and some don't, but we want all cores to
+> be available and BBM to default to level 0 (as opposed to having cores
+> without BBML2 not coming online).
+> 
+> To support BBML2 in as wide a range of contexts as we can, we want not
+> only the architectural guarantees that BBML2 makes, but additionally
+> want BBML2 to not create TLB conflict aborts. Not causing aborts avoids
+> us having to prove that no recursive faults can be induced in any path
+> that uses BBML2, allowing its use for arbitrary kernel mappings.
+> Support detection of such CPUs.
+> 
+> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
 
-Remove the surplus loop.
+I have 2 nits below, but with those resolved:
 
-Signed-off-by: Philipp Stanner <phasta@kernel.org>
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
-Reviewed-by: Yanteng Si <si.yanteng@linux.dev>
-Reviewed-by: Huacai Chen <chenhuacai@loongson.cn>
-Tested-by: Henry Chen <chenx97@aosc.io>
----
- .../net/ethernet/stmicro/stmmac/dwmac-loongson.c    | 13 ++++---------
- 1 file changed, 4 insertions(+), 9 deletions(-)
+Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-index 73a6715a93e6..e2959ac5c1ca 100644
---- a/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/dwmac-loongson.c
-@@ -524,7 +524,7 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- 	struct stmmac_pci_info *info;
- 	struct stmmac_resources res;
- 	struct loongson_data *ld;
--	int ret, i;
-+	int ret;
- 
- 	plat = devm_kzalloc(&pdev->dev, sizeof(*plat), GFP_KERNEL);
- 	if (!plat)
-@@ -554,14 +554,9 @@ static int loongson_dwmac_probe(struct pci_dev *pdev, const struct pci_device_id
- 	pci_set_master(pdev);
- 
- 	/* Get the base address of device */
--	for (i = 0; i < PCI_STD_NUM_BARS; i++) {
--		if (pci_resource_len(pdev, i) == 0)
--			continue;
--		ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
--		if (ret)
--			goto err_disable_device;
--		break;
--	}
-+	ret = pcim_iomap_regions(pdev, BIT(0), DRIVER_NAME);
-+	if (ret)
-+		goto err_disable_device;
- 
- 	memset(&res, 0, sizeof(res));
- 	res.addr = pcim_iomap_table(pdev)[0];
--- 
-2.48.1
+> ---
+>  .../admin-guide/kernel-parameters.txt         |  3 +
+>  arch/arm64/Kconfig                            | 11 +++
+>  arch/arm64/include/asm/cpucaps.h              |  2 +
+>  arch/arm64/include/asm/cpufeature.h           |  6 ++
+>  arch/arm64/kernel/cpufeature.c                | 76 +++++++++++++++++++
+>  arch/arm64/kernel/pi/idreg-override.c         |  2 +
+>  arch/arm64/tools/cpucaps                      |  1 +
+>  7 files changed, 101 insertions(+)
+> 
+> diff --git a/Documentation/admin-guide/kernel-parameters.txt b/Documentation/admin-guide/kernel-parameters.txt
+> index fb8752b42ec8..3e4cc917a07e 100644
+> --- a/Documentation/admin-guide/kernel-parameters.txt
+> +++ b/Documentation/admin-guide/kernel-parameters.txt
+> @@ -453,6 +453,9 @@
+>  	arm64.no32bit_el0 [ARM64] Unconditionally disable the execution of
+>  			32 bit applications.
+>  
+> +	arm64.nobbml2	[ARM64] Unconditionally disable Break-Before-Make Level
+> +			2 support
+> +
+>  	arm64.nobti	[ARM64] Unconditionally disable Branch Target
+>  			Identification support
+>  
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 940343beb3d4..49deda2b22ae 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2057,6 +2057,17 @@ config ARM64_TLB_RANGE
+>  	  The feature introduces new assembly instructions, and they were
+>  	  support when binutils >= 2.30.
+>  
+> +config ARM64_BBML2_NOABORT
+> +	bool "Enable support for Break-Before-Make Level 2 detection and usage"
+> +	default y
+> +	help
+> +	  FEAT_BBM provides detection of support levels for break-before-make
+> +	  sequences. If BBM level 2 is supported, some TLB maintenance requirements
+> +	  can be relaxed to improve performance. We additonally require the
+> +	  property that the implementation cannot ever raise TLB Conflict Aborts.
+> +	  Selecting N causes the kernel to fallback to BBM level 0 behaviour
+> +	  even if the system supports BBM level 2.
+> +
+>  endmenu # "ARMv8.4 architectural features"
+>  
+>  menu "ARMv8.5 architectural features"
+> diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
+> index 0b5ca6e0eb09..2d6db33d4e45 100644
+> --- a/arch/arm64/include/asm/cpucaps.h
+> +++ b/arch/arm64/include/asm/cpucaps.h
+> @@ -23,6 +23,8 @@ cpucap_is_possible(const unsigned int cap)
+>  		return IS_ENABLED(CONFIG_ARM64_PAN);
+>  	case ARM64_HAS_EPAN:
+>  		return IS_ENABLED(CONFIG_ARM64_EPAN);
+> +	case ARM64_HAS_BBML2_NOABORT:
+> +		return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT);
+>  	case ARM64_SVE:
+>  		return IS_ENABLED(CONFIG_ARM64_SVE);
+>  	case ARM64_SME:
+> diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
+> index e0e4478f5fb5..7f5b220dacde 100644
+> --- a/arch/arm64/include/asm/cpufeature.h
+> +++ b/arch/arm64/include/asm/cpufeature.h
+> @@ -18,6 +18,7 @@
+>  #define ARM64_SW_FEATURE_OVERRIDE_NOKASLR	0
+>  #define ARM64_SW_FEATURE_OVERRIDE_HVHE		4
+>  #define ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF	8
+> +#define ARM64_SW_FEATURE_OVERRIDE_NOBBML2	12
+>  
+>  #ifndef __ASSEMBLY__
+>  
+> @@ -866,6 +867,11 @@ static __always_inline bool system_supports_mpam_hcr(void)
+>  	return alternative_has_cap_unlikely(ARM64_MPAM_HCR);
+>  }
+>  
+> +static inline bool system_supports_bbml2_noabort(void)
+> +{
+> +	return alternative_has_cap_unlikely(ARM64_HAS_BBML2_NOABORT);
+> +}
+> +
+>  int do_emulate_mrs(struct pt_regs *regs, u32 sys_reg, u32 rt);
+>  bool try_emulate_mrs(struct pt_regs *regs, u32 isn);
+>  
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index d561cf3b8ac7..b936e0805161 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -2176,6 +2176,76 @@ static bool hvhe_possible(const struct arm64_cpu_capabilities *entry,
+>  	return arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_HVHE);
+>  }
+>  
+> +static inline bool bbml2_possible(void)
+> +{
+> +	return !arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_NOBBML2);
+
+If you're going to keep this helper, I think it really needs to be:
+
+return IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT) &&
+       !arm64_test_sw_feature_override(ARM64_SW_FEATURE_OVERRIDE_NOBBML2);
+
+Then you would simplify the caller to remove it's own
+IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT) check.
+
+But personally I would remove the helper and just fold the test into
+has_bbml2_noabort().
+
+Thanks,
+Ryan
+
+> +}
+> +
+> +static bool cpu_has_bbml2_noabort(unsigned int cpu_midr)
+> +{
+> +	/* We want to allow usage of bbml2 in as wide a range of kernel contexts
+> +	 * as possible. This list is therefore an allow-list of known-good
+> +	 * implementations that both support bbml2 and additionally, fulfill the
+> +	 * extra constraint of never generating TLB conflict aborts when using
+> +	 * the relaxed bbml2 semantics (such aborts make use of bbml2 in certain
+> +	 * kernel contexts difficult to prove safe against recursive aborts).
+> +	 *
+> +	 * Note that implementations can only be considered "known-good" if their
+> +	 * implementors attest to the fact that the implementation never raises
+> +	 * TLBI conflict aborts for bbml2 mapping granularity changes.
+> +	 */
+> +	static const struct midr_range supports_bbml2_noabort_list[] = {
+> +		MIDR_REV_RANGE(MIDR_CORTEX_X4, 0, 3, 0xf),
+> +		MIDR_REV_RANGE(MIDR_NEOVERSE_V3, 0, 2, 0xf),
+> +		{}
+> +	};
+> +
+> +	return is_midr_in_range_list(cpu_midr, supports_bbml2_noabort_list);
+> +}
+> +
+> +static inline unsigned int __cpu_read_midr(int cpu)
+
+nit: why the double underscrore prefix?
+
+> +{
+> +	WARN_ON_ONCE(!cpu_online(cpu));
+> +
+> +	return per_cpu(cpu_data, cpu).reg_midr;
+> +}
+> +
+> +static bool has_bbml2_noabort(const struct arm64_cpu_capabilities *caps, int scope)
+> +{
+> +	if (!IS_ENABLED(CONFIG_ARM64_BBML2_NOABORT))
+> +		return false;
+> +
+> +	if (!bbml2_possible())
+> +		return false;
+> +
+> +	if (scope & SCOPE_SYSTEM) {
+> +		int cpu;
+> +
+> +		/* We are a boot CPU, and must verify that all enumerated boot
+> +		 * CPUs have MIDR values within our allowlist. Otherwise, we do
+> +		 * not allow the BBML2 feature to avoid potential faults when
+> +		 * the insufficient CPUs access memory regions using BBML2
+> +		 * semantics.
+> +		 */
+> +		for_each_online_cpu(cpu) {
+> +			if (!cpu_has_bbml2_noabort(__cpu_read_midr(cpu)))
+> +				return false;
+> +		}
+> +
+> +		return true;
+> +	} else if (scope & SCOPE_LOCAL_CPU) {
+> +		/* We are a hot-plugged CPU, so only need to check our MIDR.
+> +		 * If we have the correct MIDR, but the kernel booted on an
+> +		 * insufficient CPU, we will not use BBML2 (this is safe). If
+> +		 * we have an incorrect MIDR, but the kernel booted on a
+> +		 * sufficient CPU, we will not bring up this CPU.
+> +		 */
+> +		return cpu_has_bbml2_noabort(read_cpuid_id());
+> +	}
+> +
+> +	return false;
+> +}
+> +
+>  #ifdef CONFIG_ARM64_PAN
+>  static void cpu_enable_pan(const struct arm64_cpu_capabilities *__unused)
+>  {
+> @@ -2926,6 +2996,12 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+>  		.matches = has_cpuid_feature,
+>  		ARM64_CPUID_FIELDS(ID_AA64MMFR2_EL1, EVT, IMP)
+>  	},
+> +	{
+> +		.desc = "BBM Level 2 without conflict abort",
+> +		.capability = ARM64_HAS_BBML2_NOABORT,
+> +		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+> +		.matches = has_bbml2_noabort,
+> +	},
+>  	{
+>  		.desc = "52-bit Virtual Addressing for KVM (LPA2)",
+>  		.capability = ARM64_HAS_LPA2,
+> diff --git a/arch/arm64/kernel/pi/idreg-override.c b/arch/arm64/kernel/pi/idreg-override.c
+> index c6b185b885f7..9728faa10390 100644
+> --- a/arch/arm64/kernel/pi/idreg-override.c
+> +++ b/arch/arm64/kernel/pi/idreg-override.c
+> @@ -209,6 +209,7 @@ static const struct ftr_set_desc sw_features __prel64_initconst = {
+>  		FIELD("nokaslr", ARM64_SW_FEATURE_OVERRIDE_NOKASLR, NULL),
+>  		FIELD("hvhe", ARM64_SW_FEATURE_OVERRIDE_HVHE, hvhe_filter),
+>  		FIELD("rodataoff", ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF, NULL),
+> +		FIELD("nobbml2", ARM64_SW_FEATURE_OVERRIDE_NOBBML2, NULL),
+>  		{}
+>  	},
+>  };
+> @@ -246,6 +247,7 @@ static const struct {
+>  	{ "rodata=off",			"arm64_sw.rodataoff=1" },
+>  	{ "arm64.nolva",		"id_aa64mmfr2.varange=0" },
+>  	{ "arm64.no32bit_el0",		"id_aa64pfr0.el0=1" },
+> +	{ "arm64.nobbml2",		"arm64_sw.nobbml2=1" },
+>  };
+>  
+>  static int __init parse_hexdigit(const char *p, u64 *v)
+> diff --git a/arch/arm64/tools/cpucaps b/arch/arm64/tools/cpucaps
+> index 1e65f2fb45bd..b03a375e5507 100644
+> --- a/arch/arm64/tools/cpucaps
+> +++ b/arch/arm64/tools/cpucaps
+> @@ -14,6 +14,7 @@ HAS_ADDRESS_AUTH_ARCH_QARMA5
+>  HAS_ADDRESS_AUTH_IMP_DEF
+>  HAS_AMU_EXTN
+>  HAS_ARMv8_4_TTL
+> +HAS_BBML2_NOABORT
+>  HAS_CACHE_DIC
+>  HAS_CACHE_IDC
+>  HAS_CNP
 
 
