@@ -4,68 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 819BCC35FF3
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:45:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82966C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:51:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-ID:References:In-Reply-To:Subject:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P8TnEmqSHNmEFF2Gnw1R5cVX6hnoXPw8fB05bPnBUqE=; b=qjm1y9HDYOtQCUMvfhypjm0rb3
-	saTdrJkZ7FEaq2H49/KPOBBqnuatvyJ7Ef1AbzT86wUewo1A491YGHk2NgwCzBONhpxSExDXpnXMB
-	Jl3HNOdhdMI9BesOKvWLZkGausYb9cKU1peMW0CAXiH/L2NDy742UyuiCzdZMcj2G5jtyW1MdtopT
-	hbDyWkRugrccajfuJUFmwhlL8IMdEMVvnFj9qYzPXuxIlCyzLEmxnyMaCnM0CqiEQVB1DD139T4KX
-	t0ccmatRXLL5gwyTBloDx1qcuWwaiwlIvT43ByyBVWqwrOI2MqO/rtKEds6TK4AxqnjykD1PWyGxO
-	nkQMD8mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TUQ/DFKGaJ0Ac8YpsNyBQQpick1pb6/Kdmt7e2d31cs=; b=dkQ4D65GkiInVnUoka1pibLtL+
+	/orheQghXC+5LuH8mQhY+KZHO3R/ASLBERxP+h76L2FtDv9eki5Q3e8Stz3oBk2zAnfx550KEEUd8
+	OoaaXaOJvLbCANP7sLecp4B62dot1nDZTvZJreX6O7JUcuQ2LxLeA1Q0KyJ96tUzZ+fVOKxAS61AR
+	LdxNoXzll9vBb2xpM5pPOvSNP4HPXmv2nW8bxnbiWDHQ88c4D23atQIo9nt20Ls0bCAEIlxq0Wlbj
+	Zst+xnso10ZkloSGo2MjTlLnclj8LGj5GNmETt9I6OIUReXLes+AFa2hp5ntgl91PiZNvWhTaH4iL
+	XZWOd0HA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoUk-0000000CM6U-0WKs;
-	Thu, 13 Mar 2025 19:45:30 +0000
-Received: from mail.manjaro.org ([116.203.91.91])
+	id 1tsoaj-0000000CMUZ-22RU;
+	Thu, 13 Mar 2025 19:51:41 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsoT3-0000000CLsV-1ARm;
-	Thu, 13 Mar 2025 19:43:46 +0000
+	id 1tsoZ4-0000000CMNA-1o6C;
+	Thu, 13 Mar 2025 19:49:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id 74C59A47128;
+	Thu, 13 Mar 2025 19:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6B689C4CEDD;
+	Thu, 13 Mar 2025 19:49:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741895397;
+	bh=1YzttVdgq5+u/AxQqAkYwqXrSltdtIta8g7Z1gi1D7A=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sULZwX4M9PKSa6466D2DlJy9Ip5EDhLUq3A+vikUkMXgbPAbUADuC0zYvMNa/J5hI
+	 ANX71yDtpuvLBG1JLsO1eBBmLyNJ3QhMfPHYihDswsplsww5D8g/hRk9MVDJFruNDh
+	 TKchTZNrBsyZPqoP+v73Ve816VsA3QcgpeTN61AjnsDTeAc03sbCicEmw/AGgfPeH6
+	 bUWc7s2FFp1AItmGx9XZtnXchwZwzoN0TH2HTD/5gykb/kYMsr9bJHQa51u7BALMOG
+	 UGHTFeUtqsvBkYBzCZ9+TmpBU4yRgh9YDAyj2Q0K0iUWpJdP8RkF1bAMB2FI5GveKm
+	 OMlowBU3ZUT9g==
+Date: Thu, 13 Mar 2025 16:49:52 -0300
+From: Arnaldo Carvalho de Melo <acme@kernel.org>
+To: Namhyung Kim <namhyung@kernel.org>
+Cc: Ian Rogers <irogers@google.com>, Peter Zijlstra <peterz@infradead.org>,
+	Ingo Molnar <mingo@redhat.com>, Mark Rutland <mark.rutland@arm.com>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jiri Olsa <jolsa@kernel.org>,
+	Adrian Hunter <adrian.hunter@intel.com>,
+	Kan Liang <kan.liang@linux.intel.com>,
+	John Garry <john.g.garry@oracle.com>, Will Deacon <will@kernel.org>,
+	James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>,
+	guoren <guoren@kernel.org>,
+	Paul Walmsley <paul.walmsley@sifive.com>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Charlie Jenkins <charlie@rivosinc.com>,
+	Bibo Mao <maobibo@loongson.cn>, Huacai Chen <chenhuacai@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Jiri Slaby <jirislaby@kernel.org>,
+	=?iso-8859-1?Q?Bj=F6rn_T=F6pel?= <bjorn@rivosinc.com>,
+	Howard Chu <howardchu95@gmail.com>, linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	"linux-csky@vger.kernel.org" <linux-csky@vger.kernel.org>,
+	linux-riscv@lists.infradead.org, Arnd Bergmann <arnd@arndb.de>
+Subject: Re: [PATCH v5 00/11] perf: Support multiple system call tables in
+ the build
+Message-ID: <Z9M24AJzui9lFbGo@x1>
+References: <20250308003209.234114-1-irogers@google.com>
+ <Z9KFLGpenwOP32q3@google.com>
 MIME-Version: 1.0
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=manjaro.org; s=2021;
-	t=1741895022;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=P8TnEmqSHNmEFF2Gnw1R5cVX6hnoXPw8fB05bPnBUqE=;
-	b=dE/+DN+ZBOTdTSE44pKduxHrktT3P0T3mJE54QcXa1CssIfbI2E7pJGRixf6iMC6TNqG2P
-	7Gg8u/bn/pBFrOxEOKdYdE8PBHJySRi8q9yw9LdnoAfU5DgiGWh1xWBDl8Ey25o3ar+1na
-	uIN8hdE7ZZmKg8Kdb+8Vuhr7bktDRJ50DW8aHlf7xi6W3Cr6MC1NQ0svgXRWROLzH+a+7y
-	Ojc+eZnD38JL4yAF76nC+YBvUW+dx1uKSG4VPd0mnO4stoJmO1dpMZEo6f8bJBIKL7iT3O
-	Va61HSg+Wv+xpatv0k0JfhdJeDdiHmsnN9G1tLUJLkVUac9+YtVWMfcqrRyQOA==
-Date: Thu, 13 Mar 2025 20:43:41 +0100
-From: Dragan Simic <dsimic@manjaro.org>
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: Quentin Schulz <quentin.schulz@cherry.de>, Alexey Charkov
- <alchark@gmail.com>, Rob Herring <robh+dt@kernel.org>, Krzysztof Kozlowski
- <krzysztof.kozlowski+dt@linaro.org>, Conor Dooley <conor+dt@kernel.org>,
- Daniel Lezcano <daniel.lezcano@linaro.org>, Viresh Kumar
- <viresh.kumar@linaro.org>, Chen-Yu Tsai <wens@kernel.org>, Diederik de Haas
- <didi.debian@cknow.org>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, Kever Yang <kever.yang@rock-chips.com>
-Subject: Re: [PATCH v5 7/8] arm64: dts: rockchip: Add OPP data for CPU cores
- on RK3588j
-In-Reply-To: <3271211.5fSG56mABF@phil>
-References: <20240617-rk-dts-additions-v5-0-c1f5f3267f1e@gmail.com>
- <a56b59a21dc3c21192fe45197eee4865@manjaro.org>
- <2cf3889741f84584d8f23a4407fed08e@manjaro.org> <3271211.5fSG56mABF@phil>
-Message-ID: <80c7d9fcdd270df2c61fbd61eec44d70@manjaro.org>
-X-Sender: dsimic@manjaro.org
-Content-Type: text/plain; charset=UTF-8;
- format=flowed
-Content-Transfer-Encoding: 8bit
-Authentication-Results: ORIGINATING;
-	auth=pass smtp.auth=dsimic@manjaro.org smtp.mailfrom=dsimic@manjaro.org
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <Z9KFLGpenwOP32q3@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_124345_612692_8862B704 
-X-CRM114-Status: GOOD (  43.00  )
+X-CRM114-CacheID: sfid-20250313_124958_526969_B3DFF967 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,203 +93,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Heiko,
-
-On 2025-03-13 20:00, Heiko Stuebner wrote:
-> Am Donnerstag, 13. März 2025, 11:42:17 MEZ schrieb Dragan Simic:
->> On 2025-03-12 11:34, Dragan Simic wrote:
->> > On 2025-03-12 11:15, Quentin Schulz wrote:
->> >> On 2/16/25 1:32 PM, Alexey Charkov wrote:
->> >>> On Sat, Feb 15, 2025 at 11:30 PM Heiko Stübner <heiko@sntech.de>
->> >>> wrote:
->> >>>> Am Samstag, 15. Februar 2025, 19:59:44 MEZ schrieb Alexey Charkov:
->> >>>>> On Tue, Feb 11, 2025 at 7:32 PM Quentin Schulz
->> >>>>> <quentin.schulz@cherry.de> wrote:
->> >>>>>> On 6/17/24 8:28 PM, Alexey Charkov wrote:
->> >> [...]
->> >>>>>>> +     };
->> >>>>>>> +
->> >>>>>>> +     cluster2_opp_table: opp-table-cluster2 {
->> >>>>>>> +             compatible = "operating-points-v2";
->> >>>>>>> +             opp-shared;
->> >>>>>>> +
->> >>>>>>> +             opp-1416000000 {
->> >>>>>>> +                     opp-hz = /bits/ 64 <1416000000>;
->> >>>>>>> +                     opp-microvolt = <750000 750000 950000>;
->> >>>>>>> +                     clock-latency-ns = <40000>;
->> >>>>>>> +             };
->> >>>>>>> +             opp-1608000000 {
->> >>>>>>> +                     opp-hz = /bits/ 64 <1608000000>;
->> >>>>>>> +                     opp-microvolt = <787500 787500 950000>;
->> >>>>>>> +                     clock-latency-ns = <40000>;
->> >>>>>>> +             };
->> >>>>>>> +             opp-1800000000 {
->> >>>>>>> +                     opp-hz = /bits/ 64 <1800000000>;
->> >>>>>>> +                     opp-microvolt = <875000 875000 950000>;
->> >>>>>>> +                     clock-latency-ns = <40000>;
->> >>>>>>> +             };
->> >>>>>>> +             opp-2016000000 {
->> >>>>>>> +                     opp-hz = /bits/ 64 <2016000000>;
->> >>>>>>> +                     opp-microvolt = <950000 950000 950000>;
->> >>>>>>> +                     clock-latency-ns = <40000>;
->> >>>>>>> +             };
->> >>>>>>
->> >>>>>> opp-1800000000 and opp-2016000000 should be removed as well.
->> >>>>>>
->> >>>>>> Did I misunderstand what Rockchip did here? Adding Kever in Cc at
->> >>>>>> least
->> >>>>>> for awareness on Rockchip side :)
->> >>>>>>
->> >>>>>> I guess another option could be to mark those above as
->> >>>>>>
->> >>>>>> turbo-mode;
->> >>>>>>
->> >>>>>> though no clue what this would entail. From a glance at cpufreq,
->> >>>>>> it
->> >>>>>> seems that for Rockchip since we use the default cpufreq-dt, it
->> >>>>>> would
->> >>>>>> mark those as unusable, so essentially a no-op, so better remove
->> >>>>>> them
->> >>>>>> entirely?
->> >>>>>
->> >>>>> I believe the opp core just marks 'turbo-mode' opps as
->> >>>>> CPUFREQ_BOOST_FREQ, and cpufreq-dt only passes that flag along to
->> >>>>> the
->> >>>>> cpufreq core. But then to actually use those boost frequencies I
->> >>>>> would
->> >>>>> guess the governor needs to somehow know the power/thermal
->> >>>>> constraints
->> >>>>> of the chip?.. Don't know where that is defined.
->> >>>>
->> >>>> personally I don't believe in "boost" frequencies - except when they
->> >>>> are
->> >>>> declared officially.
->> >>>>
->> >>>> Rockchip for the longest time maintains that running the chip
->> >>>> outside
->> >>>> the declared power/rate envelope can reduce its overall lifetime.
->> >>>>
->> >>>> So for Rockchip in mainline a "it runs stable for me" has never been
->> >>>> a
->> >>>> suitable reasoning ;-) .
->> >>>
->> >>> My key concern here was perhaps that we are looking at a file inside
->> >>> the Rockchip source tree which looks relevant by the name of it, but
->> >>> doesn't actually get included anywhere for any of the boards. This
->> >>> may
->> >>> or may not constitute an endorsement by Rockchip of any OPPs listed
->> >>> there :-D
->> >>
->> >> Rockchip support stated:
->> >>
->> >> """
->> >> If you run overdrive mode, you do not need to include rk3588j.dtsi,
->> >> and you can change it to #incldue rk3588.dtsi to ensure that the
->> >> maximum frequency can reach 2GHz
->> >>
->> >> below picture from datasheet.
->> >> """
->> >>
->> >> The picture is the table 3-2 Recommended operating conditions, page 30
->> >> from the RK3588J datasheet, e.g.
->> >> https://www.lcsc.com/datasheet/lcsc_datasheet_2403201054_Rockchip-RK3588J_C22364189.pdf
->> >>
->> >> What is overdrive?
->> >>
->> >> """
->> >> Overdrive mode brings higher frequency, and the voltage will increase
->> >> accordingly. Under
->> >> the overdrive mode for a long time, the chipset may shorten the
->> >> lifetime, especially in high temperature condition
->> >> """
->> >>
->> >> according to the same datasheet, end of the same table, page 31.
->> >>
->> >> so this seems like a turbo-mode frequency to me.
->> >>
->> >> Additionally, the note for the "normal mode" (the one with the lower
->> >> freqs) states:
->> >>
->> >> """
->> >> Normal mode means the chipset works under safety voltage and
->> >> frequency. For the
->> >> industrial environment, highly recommend to keep in normal mode, the
->> >> lifetime is
->> >> reasonably guaranteed.
->> >> """
->> >>
->> >> I believe "industrial environment" means RK3588J used in the
->> >> temperatures that aren't OK for the standard RK3588 variant?
->> >
->> > Thanks a lot for obtaining these clarifications!
->> >
->> > Yes, I'd say that in this case "industrial environment" boils down
->> > to the extended temperature range for the RK3588J variant.
->> >
->> >>> I haven't seen a TRM for the J variant, nor do I have a board with
->> >>> RK3588J to run tests, so it would be great if Kever could chime in
->> >>> with how these OPPs are different from the others (or not).
->> >>>
->> >>>> So while the situation might be strange for the rk3588j, I really
->> >>>> only want
->> >>>> correct frequencies here please - not any pseudo "turbo freqs".
->> >>>>
->> >>>> I don't care that much what people do on their own device{s/trees},
->> >>>> but
->> >>>> the devicetrees we supply centrally (and to u-boot, etc) should only
->> >>>> contain frequencies vetted by the manufacturer.
->> >>>
->> >>> Fair enough. Let's just try and get another data point on whether
->> >>> these frequencies are vetted or not.
->> >>
->> >> So the higher freqs seems to be vetted (and used by default on
->> >> Rockchip's BSP kernel), it just feels like you aren't really supposed
->> >> to run those higher frequencies all the time? And especially not in
->> >> "industrial environment"?
->> >>
->> >> I would assume we want to stay on the safer side and remove those
->> >> higher frequencies? Heiko?
->> >
->> > I agree, we should remove the higher-frequency OPPs.  I'd like
->> > to go through everything once again in detail and prepare a patch
->> > that removes the unsafe OPPs, and you could review it once it's
->> > on the ML, to make sure it's fine.
->> 
->> Just as a note, everything above (and even a bit more) is confirmed
->> and clearly described in the publicly available RK3588J datasheet,
->> which I'll provide as a reference in my upcoming patch.
+On Thu, Mar 13, 2025 at 12:11:40AM -0700, Namhyung Kim wrote:
+> On Fri, Mar 07, 2025 at 04:31:58PM -0800, Ian Rogers wrote:
+> > This work builds on the clean up of system call tables and removal of
+> > libaudit by Charlie Jenkins <charlie@rivosinc.com>.
+> > 
+> > The system call table in perf trace is used to map system call numbers
+> > to names and vice versa. Prior to these changes, a single table
+> > matching the perf binary's build was present. The table would be
+> > incorrect if tracing say a 32-bit binary from a 64-bit version of
+> > perf, the names and numbers wouldn't match.
+> > 
+> > Change the build so that a single system call file is built and the
+> > potentially multiple tables are identifiable from the ELF machine type
+> > of the process being examined. To determine the ELF machine type, the
+> > executable's maps are searched and the associated DSOs ELF headers are
+> > read. When this fails and when live, /proc/pid/exe's ELF header is
+> > read. Fallback to using the perf's binary type when unknown.
 > 
-> so just to reiterate my stance, in mainline I really only want 
-> frequencies
-> that are not possibly influencing the lifetime of the chip.
-> 
-> It doesn't even matter about the variant we're talking about being
-> industrial :-) . When someone is using mainline I want them to be
-> reasonable assured that we don't have stuff in here that may affect
-> the lifetime of their board.
-> 
-> All gambling on performance for possible lifetime reduction people
-> can do on their own ... for example with a dt-overlay ;-) .
-> 
-> So TL;DR, I agree to both Quentin and Dragan
+> Now it works well for me!
 
-Thanks!  Indeed, we must provide only the OPPs that are declared
-by the manufacturer to be always safe for the particular SoC
-variant.  The RK3588J is actually a good example, because it, in
-theory, can run safely at higher OPPs as well, but only when not
-enjoying the extended temperature range that the RK3588J, as an
-SoC variant targeted at industrial applications, is specifically
-made (or binned) for.
+Its working for me on x86_64 as well, I'm doing some more tests, the
+container builds and will do 32-bit tracing on 64-bit ARM (rpi5 aarch64)
+and then report results here, should be later today as the default
+kernel for the rpi5 doesn't come with CONFIG_FTRACE_SYSCALLS=y and BTF,
+so building one with it.
 
-Thus, we must support only the RK3588J OPPs that are declared to
-be safe throughout the entire extended temperature range, while
-anyone who actually can assure that their RK3588J-based board is
-never going to run within the extended temperature range, probably
-may safely apply an overlay that adds the higher OPPs.  As we
-obviously can't know what will be the temperature conditions, we
-may provide only the lower OPPs that are always safe.
-
-I'll finish the patch and send it over tomorrow or so...  I still
-need to go through the changes once again, to make 100% sure I've
-missed nothing, and that I haven't included anything extraneous. :)
+- Arnaldo
 
