@@ -4,106 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF459C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:01:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D2BDC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 09:01:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=86MvSXA9jZcVHxZx0v3xVpCRurz549Nknm9xWSSqvAk=; b=l9k43RiP3ULvZrCSPT46M7ehcR
-	R7bbnpLEh1nxBlYXVszW2L5wgin1m2EynCkjLcfNB3x88bT1AIbNlMaH154sdN+6KgY3baiIb3wgA
-	5aQ+IuMkxRFfsP8BZ+AWUD6nygvnmwRHIPQjJfy/z0Jsv1IiHKAuFF122WBUSqXmzID2zHN8paqom
-	L63E1F8wXZWCUVuVc3551CiCKqM8BlfZDkoXHZZruyAHLwGtkyDtfUxl1naecs96go1jZBuG1VGBJ
-	2Xof19S0q4v251XzPQe4RmQI0RAtGETuNy6hmNOYvgGetG1QYQRVGWHxtzFSZyFgaWIGAxfJOz9ww
-	DMdK+87A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0VxFqvejC6WgQappJ+vwyyuf5HMyeGGrIa1+U5n3IZE=; b=XLkplEBNwqHwlULNXUeonX3h3C
+	a7mSZWzlyCzdZL7UOR+98hLs1IqKbjtKpuEJ5nHSkyzvCZEm1TNxvJRMjTZy6v6ytADxSy5iVzgUK
+	6EhQM5VgSH97lfG8Y9OYFgqiDg0fdWda7dW5DKcSWBwLtqrblxPMpJIHrNrdZ59AtoV9Hh3gYExsj
+	hOSDlzmox3myS4c2w5Gt3r+R/FH+1CS+C6AExIpGvDDLdALPCRqaUBkbdi0zx3/9hcaladvXoI4L3
+	pyGwdOTNVWj2ffGsehUhKFSMHP9vK8W3KmRIDBZkJpoMT8kC89hadkABvAKyAMmMzZu6BIKjp/vLG
+	zG8mGHNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseRC-0000000Adb0-1KKz;
-	Thu, 13 Mar 2025 09:01:10 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tseRF-0000000AddD-2tLI;
+	Thu, 13 Mar 2025 09:01:13 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tseFc-0000000AbJY-25OA
+	id 1tseL6-0000000AcL3-0AI4
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 08:49:13 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CLZYBu016092;
-	Thu, 13 Mar 2025 08:49:06 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	86MvSXA9jZcVHxZx0v3xVpCRurz549Nknm9xWSSqvAk=; b=JBZyEVi7GKmC4V61
-	KUMiK2eJZWlJ8ITGDEoCGeg2NP0cYcfLX2wJ4UAvVwbeaz+MQaZws2CdUexW8507
-	BaDQczKfoZT3F1o1hTbkSy2btFwW3Oi+osekZsrA1RYkfiWhuM5Ad9bIwnLC0E40
-	M47w0BkXh2tm45xL/p4FSVUbz/wibSeWOXL9KTcpSrROC3XqbLPIXl/27s1Srm++
-	46VNdH+386kKEPlL1Fff5uguROei5EN1abNdM+UZ9iipdeHaG0dAU3DxmS6v5Qvd
-	6CtmQztxD1TuscvxnfxWNduOZkZHsh8PlUTyEjcBZXwPPqu1OYS4sFy1AAAXfeTY
-	Iy25mQ==
-Received: from nalasppmta02.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2nw7cq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 08:49:05 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA02.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52D8n5fo027308
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 08:49:05 GMT
-Received: from [10.217.216.178] (10.80.80.8) by nalasex01a.na.qualcomm.com
- (10.47.209.196) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Thu, 13 Mar
- 2025 01:49:00 -0700
-Message-ID: <d1814cd9-5c73-4ac5-a4ed-4cc2aae410d0@quicinc.com>
-Date: Thu, 13 Mar 2025 14:18:57 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 06/10] dt-bindings: clock: Add Qualcomm QCS615 Graphics
- clock controller
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring
-	<robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
-	<conor+dt@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon
-	<will@kernel.org>, Ajit Pandey <quic_ajipan@quicinc.com>,
-        Imran Shaik
-	<quic_imrashai@quicinc.com>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>
-References: <20250313-qcs615-v5-mm-cc-v6-0-ebf4b9a5e916@quicinc.com>
- <20250313-qcs615-v5-mm-cc-v6-6-ebf4b9a5e916@quicinc.com>
- <20250313-graceful-jackdaw-of-opportunity-62996d@krzk-bin>
-Content-Language: en-US
-From: Taniya Das <quic_tdas@quicinc.com>
-In-Reply-To: <20250313-graceful-jackdaw-of-opportunity-62996d@krzk-bin>
+	Thu, 13 Mar 2025 08:54:53 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[IPv6:::1])
+	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
+	(Exim 4.92)
+	(envelope-from <l.stach@pengutronix.de>)
+	id 1tseKg-00021i-Us; Thu, 13 Mar 2025 09:54:26 +0100
+Message-ID: <b425a7c7a7d6508daf23fe7046864a498029a7ac.camel@pengutronix.de>
+Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace the
+ hardcodes
+From: Lucas Stach <l.stach@pengutronix.de>
+To: Frank Li <Frank.li@nxp.com>
+Cc: Hongxing Zhu <hongxing.zhu@nxp.com>, Bjorn Helgaas <helgaas@kernel.org>,
+  "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>,  "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "shawnguo@kernel.org" <shawnguo@kernel.org>,  "lpieralisi@kernel.org"
+ <lpieralisi@kernel.org>, "kw@linux.com" <kw@linux.com>, 
+ "manivannan.sadhasivam@linaro.org" <manivannan.sadhasivam@linaro.org>,
+ "bhelgaas@google.com" <bhelgaas@google.com>,  "s.hauer@pengutronix.de"
+ <s.hauer@pengutronix.de>, "festevam@gmail.com" <festevam@gmail.com>, 
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+ "imx@lists.linux.dev" <imx@lists.linux.dev>,  "kernel@pengutronix.de"
+ <kernel@pengutronix.de>, "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+ <linux-kernel@vger.kernel.org>
+Date: Thu, 13 Mar 2025 09:54:25 +0100
+In-Reply-To: <Z9GYm/jp9VIhCEeY@lizhi-Precision-Tower-5810>
+References: <AS8PR04MB8676E66BD40C37B2A7E390178CD12@AS8PR04MB8676.eurprd04.prod.outlook.com>
+	 <20250311155452.GA629749@bhelgaas>
+	 <DU2PR04MB8677AC699DF11D847AB768708CD02@DU2PR04MB8677.eurprd04.prod.outlook.com>
+	 <fcb5f09f8e4311c7a6ef60aaf3cb4e3f05a8f05e.camel@pengutronix.de>
+	 <Z9GYm/jp9VIhCEeY@lizhi-Precision-Tower-5810>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 87Qxhu8_sjEn3ryZlgN4TUBUFHm73mo7
-X-Authority-Analysis: v=2.4 cv=ZObXmW7b c=1 sm=1 tr=0 ts=67d29c02 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=StMH6zsOQGyCnKe-h1UA:9 a=QEXdDO2ut3YA:10
-X-Proofpoint-ORIG-GUID: 87Qxhu8_sjEn3ryZlgN4TUBUFHm73mo7
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-13_04,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 mlxscore=0
- suspectscore=0 adultscore=0 impostorscore=0 spamscore=0 phishscore=0
- lowpriorityscore=0 bulkscore=0 priorityscore=1501 malwarescore=0
- clxscore=1015 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503130069
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.52.4 (3.52.4-2.fc40) 
+MIME-Version: 1.0
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: l.stach@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_014912_544129_0C42B6C3 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20250313_015452_230559_86AD584B 
+X-CRM114-Status: GOOD (  38.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,36 +83,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Am Mittwoch, dem 12.03.2025 um 10:22 -0400 schrieb Frank Li:
+> On Wed, Mar 12, 2025 at 09:28:02AM +0100, Lucas Stach wrote:
+> > Am Mittwoch, dem 12.03.2025 um 04:05 +0000 schrieb Hongxing Zhu:
+> > > > -----Original Message-----
+> > > > From: Bjorn Helgaas <helgaas@kernel.org>
+> > > > Sent: 2025=E5=B9=B43=E6=9C=8811=E6=97=A5 23:55
+> > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.org;
+> > > > kw@linux.com; manivannan.sadhasivam@linaro.org; bhelgaas@google.com=
+;
+> > > > s.hauer@pengutronix.de; festevam@gmail.com; devicetree@vger.kernel.=
+org;
+> > > > linux-pci@vger.kernel.org; imx@lists.linux.dev; kernel@pengutronix.=
+de;
+> > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org
+> > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replace th=
+e
+> > > > hardcodes
+> > > >=20
+> > > > On Tue, Mar 11, 2025 at 01:11:04AM +0000, Hongxing Zhu wrote:
+> > > > > > -----Original Message-----
+> > > > > > From: Bjorn Helgaas <helgaas@kernel.org>
+> > > > > > Sent: 2025=E5=B9=B43=E6=9C=8810=E6=97=A5 23:11
+> > > > > > To: Hongxing Zhu <hongxing.zhu@nxp.com>
+> > > > > > Cc: robh@kernel.org; krzk+dt@kernel.org; conor+dt@kernel.org;
+> > > > > > shawnguo@kernel.org; l.stach@pengutronix.de; lpieralisi@kernel.=
+org;
+> > > > > > kw@linux.com; manivannan.sadhasivam@linaro.org;
+> > > > bhelgaas@google.com;
+> > > > > > s.hauer@pengutronix.de; festevam@gmail.com;
+> > > > > > devicetree@vger.kernel.org; linux-pci@vger.kernel.org;
+> > > > > > imx@lists.linux.dev; kernel@pengutronix.de;
+> > > > > > linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.=
+org
+> > > > > > Subject: Re: [PATCH v1 2/2] PCI: imx6: Use domain number replac=
+e the
+> > > > > > hardcodes
+> > > > > >=20
+> > > > > > On Wed, Feb 26, 2025 at 10:42:56AM +0800, Richard Zhu wrote:
+> > > > > > > Use the domain number replace the hardcodes to uniquely ident=
+ify
+> > > > > > > different controller on i.MX8MQ platforms. No function change=
+s.
+> > > > > > >=20
+> > > > > > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > > > > > ---
+> > > > > > > =C2=A0drivers/pci/controller/dwc/pci-imx6.c | 14 ++++++------=
+--
+> > > > > > > =C2=A01 file changed, 6 insertions(+), 8 deletions(-)
+> > > > > > >=20
+> > > > > > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > b/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > index 90ace941090f..ab9ebb783593 100644
+> > > > > > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > > > > > @@ -41,7 +41,6 @@
+> > > > > > > =C2=A0#define IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE	BIT(11)
+> > > > > > > =C2=A0#define IMX8MQ_GPR_PCIE_VREG_BYPASS		BIT(12)
+> > > > > > > =C2=A0#define IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE	GENMASK(11,
+> > > > 8)
+> > > > > > > -#define IMX8MQ_PCIE2_BASE_ADDR			0x33c00000
+> > > > > > >=20
+> > > > > > > =C2=A0#define IMX95_PCIE_PHY_GEN_CTRL			0x0
+> > > > > > > =C2=A0#define IMX95_PCIE_REF_USE_PAD			BIT(17)
+> > > > > > > @@ -1474,7 +1473,6 @@ static int imx_pcie_probe(struct
+> > > > > > > platform_device
+> > > > > > *pdev)
+> > > > > > > =C2=A0	struct dw_pcie *pci;
+> > > > > > > =C2=A0	struct imx_pcie *imx_pcie;
+> > > > > > > =C2=A0	struct device_node *np;
+> > > > > > > -	struct resource *dbi_base;
+> > > > > > > =C2=A0	struct device_node *node =3D dev->of_node;
+> > > > > > > =C2=A0	int i, ret, req_cnt;
+> > > > > > > =C2=A0	u16 val;
+> > > > > > > @@ -1515,10 +1513,6 @@ static int imx_pcie_probe(struct
+> > > > > > platform_device *pdev)
+> > > > > > > =C2=A0			return PTR_ERR(imx_pcie->phy_base);
+> > > > > > > =C2=A0	}
+> > > > > > >=20
+> > > > > > > -	pci->dbi_base =3D devm_platform_get_and_ioremap_resource(pd=
+ev,
+> > > > 0,
+> > > > > > &dbi_base);
+> > > > > > > -	if (IS_ERR(pci->dbi_base))
+> > > > > > > -		return PTR_ERR(pci->dbi_base);
+> > > > > >=20
+> > > > > > This makes me wonder.
+> > > > > >=20
+> > > > > > IIUC this means that previously we set controller_id to 1 if th=
+e
+> > > > > > first item in devicetree "reg" was 0x33c00000, and now we will =
+set
+> > > > > > controller_id to 1 if the devicetree "linux,pci-domain" propert=
+y is 1.
+> > > > > > This is good, but I think this new dependency on the correct
+> > > > > > "linux,pci-domain" in devicetree should be mentioned in the com=
+mit log.
+> > > > > >=20
+> > > > > > My bigger worry is that we no longer set pci->dbi_base at all. =
+ I
+> > > > > > see that the only use of pci->dbi_base in pci-imx6.c was to
+> > > > > > determine the controller_id, but this is a DWC-based driver, an=
+d the
+> > > > > > DWC core certainly uses
+> > > > > > pci->dbi_base.  Are we sure that none of those DWC core paths a=
+re
+> > > > > > important to pci-imx6.c?
+> > > > > Hi Bjorn:
+> > > > > Thanks for your concerns.
+> > > > > Don't worry about the assignment of pci->dbi_base.
+> > > > > If pci-imx6.c driver doesn't set it. DWC core driver would set it=
+ when
+> > > > > =C2=A0dw_pcie_get_resources() is invoked.
+> > > >=20
+> > > > Great, thanks!  Maybe we can amend the commit log to mention that a=
+nd
+> > > > the new "linux,pci-domain" dependency.
+> > > How about the following updates of the commit log?
+> > >=20
+> > > Use the domain number replace the hardcodes to uniquely identify
+> > > different controller on i.MX8MQ platforms. No function changes.
+> > > Please make sure the " linux,pci-domain" is set for i.MX8MQ correctly=
+, since
+> > > =C2=A0the controller id is relied on it totally.
+> > >=20
+> > This breaks running a new kernel on an old DT without the
+> > linux,pci-domain property, which I'm absolutely no fan of. We tried
+> > really hard to keep this way around working in the i.MX world.
+>=20
+> 8MQ already add linux,pci-domain since Jan, 2021
+>=20
+> commit c0b70f05c87f3b09b391027c6f056d0facf331ef
+> Author: Peng Fan <peng.fan@nxp.com>
+> Date:   Fri Jan 15 11:26:57 2021 +0800
+>=20
+> Only missed is pcie-ep side, which have not been used at all boards dts
+> file in upstream.
 
+I wasn't aware of this. 2021 is quite a while ago, so I suspect that
+nobody is going to run a new kernel with a DT this old. I retract my
+objection.
 
-On 3/13/2025 1:54 PM, Krzysztof Kozlowski wrote:
-> On Thu, Mar 13, 2025 at 12:29:43PM +0530, Taniya Das wrote:
->  +
->> +  '#reset-cells':
->> +    const: 1
->> +
->> +  '#power-domain-cells':
->> +    const: 1
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - '#clock-cells'
->> +  - '#reset-cells'
->> +  - '#power-domain-cells'
->> +
-> 
-> I don't get why this binding is different than others and you do not
-> reference qcom,gcc.yaml? Is it not applicable here? Other gpucc do
-> reference.
-> 
-
-Yes, I will fix them and resend.
-
-> 
-> Best regards,
-> Krzysztof
-> 
-
+Regards,
+Lucas
 
