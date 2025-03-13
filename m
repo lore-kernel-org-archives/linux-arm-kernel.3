@@ -4,97 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 804CFC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:52:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FC39C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:54:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YUsrUN0Sa3eMBis7ScutQ4swK59H4nn7rnZNJQLZ63Y=; b=v5wR8Fsg9v+RQyZCoOPhGuWviD
-	F6U5V7/iZjsHfmqPAoNUZRSHelWYvGadPj7Fnqw4DjBH9ayprdMTUL6Ntowc86AMDg+Ob+L6a5Hq6
-	DXisyj8aU32/j6uFXecLqrYbLaOD6+FmP7Dck+0c3aJoX/HSGlJ6RDBJYw91EDI1WQhUknrvBM7Ew
-	vdSNozoEhbfJsPExLjmNDcPhfBcW/wMpPE7S5vnnPmbGOzPJbVXyYxnGsfqM78O2RvqjuGm17MiKG
-	0txbcEEjT98JlfeX9bAyLIOsYwzywT1hsTTZrWQRVqblqoDDtFVIFL31BdF2ul7m5v/TSmtsMasY5
-	OWfVQsJg==;
+	bh=M474l2iOln54grpt26UHzdVlEMhFDZamaBlgCtkM1Co=; b=u4irvcAzFbsEwwa2LmShDUk4QE
+	8V7T+l5NZ/XD7u9jLqBSexIcddgmtTEkQ26K8AOkvKrb7WpJb7LYtUy4YySmVmvkL1R5sOQpEAg2P
+	+Q0AnSwxckAXCWtASVbqBqC3l1NjA13QLt54CVS27qYeEHpR8IWKck6lSdfS3vuB3+7OFhTp3QAaV
+	66P1etOj3xVfJTGEYBzld9JeE04LBu/tGt8Y9unF5tSHKpJTLMOaSvQTfJL/0lbc2FdMGHsHPKde0
+	f2I/e8DqzyOex/e9adlu48ArlvcFDMVc/w4me9aJAnyaCLV+watvmO1rn1B4albV49osVurtkyM7D
+	dlFyCukQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdME-0000000ARc3-3RCU;
-	Thu, 13 Mar 2025 07:51:58 +0000
-Received: from mail-ed1-x531.google.com ([2a00:1450:4864:20::531])
+	id 1tsdO4-0000000ASwX-1Gxe;
+	Thu, 13 Mar 2025 07:53:52 +0000
+Received: from dfw.source.kernel.org ([2604:1380:4641:c500::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsd5w-0000000AOZj-451V
+	id 1tsdK3-0000000ARBj-3Z0c
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 07:35:10 +0000
-Received: by mail-ed1-x531.google.com with SMTP id 4fb4d7f45d1cf-5e56b229d60so3323843a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 00:35:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1741851307; x=1742456107; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YUsrUN0Sa3eMBis7ScutQ4swK59H4nn7rnZNJQLZ63Y=;
-        b=itHPOOyTW+nescY2H+u2vCBaC18eW58yTQ2Ti3uDskaoj9epwa/a1+T3WQCwM4fOmu
-         zyt87p0fJD+83iuRurFCHhpVtTUGaxWv/ki4KsdnoapR7IFPlzrtR61i222FMvl01Ryt
-         Pm5ZU4Uq1SXIg9SF0odyNsAVx33IM4YRg7Ls0ucryKq8dbIDYlxVWhjwyD2LwbG71Hda
-         H5f1+ZibSZXqkyNR9FofBAnjpchzuvNo7MUGNtpTEXz6TjWGSvslDX6IJj5gEdvXRtJ9
-         6RXIcd1v4n4XaLhlDJjk0+b9Lnz4jSMYA4wbCA1C79GJXmQRKKl6P6M4t5GMvHdaSv/l
-         BS9w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741851307; x=1742456107;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YUsrUN0Sa3eMBis7ScutQ4swK59H4nn7rnZNJQLZ63Y=;
-        b=vAtz1S30fSpoiOl/J+7i0gjQT1YvuBuVlaJyh/wSKk2mEadGfuGEuSspgmxSXex69T
-         hwmEvzr/1B2kQb9Gj7Kzj75hBiuTkZurXtOS47oqIOfMEEszfieELoGGJZc9spA8AgNZ
-         0UcVTwS4aVEhglguQiG8ORWph6WnfnQ/gXXx1LyVSVx1oytMYzGagEM9BBTw5+Cf0Evh
-         N8iwtbwZOWX+rGmBa6+HlvCv7NMH2jV9c61Otbpjquz94rOEc4mTLLkwWeUKz23D5OWI
-         HUF9/Gd89yWiG8T8FDSmDxMpSyLhjgedLR9QOMYfcWayjpBT5g8iiv7LsVkGVcRQCYco
-         kgJA==
-X-Forwarded-Encrypted: i=1; AJvYcCXICz2zNQW7isI4sGQ9J6fR99rKEhtGIQq6pSQwsvqay0Y912P6uxCsNKmqS9aRd/x3spZxDSRAFOkY5ok1pNv9@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx/beA5seT7ewuj/scgpu5z1r4tJJhirvB6gnc/zpjDxN1bs79U
-	CpfbdTTAsCslIGydDK6isIbuFiGIaBE5i0pLepAGJV+YVn5xqvRinDs+5F+nqEjbPocwUd4wcGW
-	IavMd2uY6DrfbS13jHSoSFzDfbK0=
-X-Gm-Gg: ASbGncuyNcQ4ath5tvE3KbEyeCD1KDLFKLLfBbuxMQdGCmaTES77QWHbnEPT8eCRcj4
-	vxX7uobs2DQIsOgfY+UfppKhoJuptDW5c7OIj3/WMQI6cOEBOo/wGDFIDbmGHwdsrU1Scy3CbMh
-	A2/7wdBwOp8DZNOOnonywJny/c2sOuZoDTEkBHQX2DRXBT
-X-Google-Smtp-Source: AGHT+IG0AbFafmJCSVXuCn9+d9aJ6rWGv0lewSciVuUOX99LLiYxCavfe+aGJvWGZ3Z6k5yceyGSjWwk/zr0TjlaX0g=
-X-Received: by 2002:a05:6402:2550:b0:5e5:9c04:777 with SMTP id
- 4fb4d7f45d1cf-5e814d805b7mr1311903a12.6.1741851306525; Thu, 13 Mar 2025
- 00:35:06 -0700 (PDT)
+	Thu, 13 Mar 2025 07:49:45 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by dfw.source.kernel.org (Postfix) with ESMTP id 009375C5570;
+	Thu, 13 Mar 2025 07:47:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AF2AC4CEDD;
+	Thu, 13 Mar 2025 07:49:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741852182;
+	bh=o35p9Z9/CQVaHsgcveY0IeFK4hZ0kI/IIcoIsnG4WNA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=pclCVUexl34Sf4d3JYaDM/8vCMr/osk+VJZQa2J0jsc0lJyOAKq+cTjqnO+9sjZrH
+	 dZ/yOleRG7/CB7WVKFaciJpVkpYw+27pMCq3G3St/+3hn+195RV5nStx5VteaYCQfH
+	 NFo9lqG8j9w5SyB+4P25d8q8Bi5GCmobTeM3iycVMVsGOoazer8RJcI/8kEjTrwNTo
+	 PYJI20UhNvWbJm0+jBqqVN8xxQ89yk3jsP7D9SqU9xExUJSQTUezFYq1ZeMQJwfpn+
+	 WcF4hAC4E6XKo7yt+cRUnOHFvYQZnjSu4S9H93lRQL2BZhaVHn0cNiMQz66RFXEwhH
+	 7JkuwdgMEiExw==
+Message-ID: <43506f83-13d7-46c5-b022-473ac78f0cab@kernel.org>
+Date: Thu, 13 Mar 2025 08:49:36 +0100
 MIME-Version: 1.0
-References: <1740611284-27506-1-git-send-email-nunodasneves@linux.microsoft.com>
- <1740611284-27506-8-git-send-email-nunodasneves@linux.microsoft.com>
- <CAMvTesAW-9Mo0oY6UUh2anp6DQCSsVCUhBiV2-bKp2VD_N0DYw@mail.gmail.com> <5e3e8c30-912c-4fe3-bfac-1ae21242473b@linux.microsoft.com>
-In-Reply-To: <5e3e8c30-912c-4fe3-bfac-1ae21242473b@linux.microsoft.com>
-From: Tianyu Lan <ltykernel@gmail.com>
-Date: Thu, 13 Mar 2025 15:34:28 +0800
-X-Gm-Features: AQ5f1JpFmeyU-ZXvz0ptwRLZ-nTkXcfB_mlOTr3vDPCyoNGFdLAtzHdNo9-Hw44
-Message-ID: <CAMvTesAPeLBfYVa5TGx-o6p+0g_Q1bn6s+nZK5i7NK8QGyfbTA@mail.gmail.com>
-Subject: Re: [PATCH v5 07/10] Drivers: hv: Introduce per-cpu event ring tail
-To: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-Cc: linux-hyperv@vger.kernel.org, x86@kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arch@vger.kernel.org, linux-acpi@vger.kernel.org, kys@microsoft.com, 
-	haiyangz@microsoft.com, wei.liu@kernel.org, mhklinux@outlook.com, 
-	decui@microsoft.com, catalin.marinas@arm.com, will@kernel.org, 
-	tglx@linutronix.de, mingo@redhat.com, bp@alien8.de, 
-	dave.hansen@linux.intel.com, hpa@zytor.com, daniel.lezcano@linaro.org, 
-	joro@8bytes.org, robin.murphy@arm.com, arnd@arndb.de, 
-	jinankjain@linux.microsoft.com, muminulrussell@gmail.com, 
-	skinsburskii@linux.microsoft.com, mrathor@linux.microsoft.com, 
-	ssengar@linux.microsoft.com, apais@linux.microsoft.com, 
-	Tianyu.Lan@microsoft.com, stanislav.kinsburskiy@gmail.com, 
-	gregkh@linuxfoundation.org, vkuznets@redhat.com, prapal@linux.microsoft.com, 
-	muislam@microsoft.com, anrayabh@linux.microsoft.com, rafael@kernel.org, 
-	lenb@kernel.org, corbet@lwn.net
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 4/4] drivers/thermal/exymos: Use guard notation when
+ acquiring mutex
+To: Anand Moon <linux.amoon@gmail.com>
+Cc: Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>,
+ Daniel Lezcano <daniel.lezcano@linaro.org>, Zhang Rui <rui.zhang@intel.com>,
+ Lukasz Luba <lukasz.luba@arm.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-pm@vger.kernel.org>,
+ "open list:SAMSUNG THERMAL DRIVER" <linux-samsung-soc@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250310143450.8276-1-linux.amoon@gmail.com>
+ <20250310143450.8276-5-linux.amoon@gmail.com>
+ <25fa661b-98e4-468b-bb4d-4a2c95f32b71@kernel.org>
+ <CANAwSgTeZ83oqatrsWQxT+4RYwEtEqma=R4XX_iGrP2N=phz9Q@mail.gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJgPO8PBQkUX63hAAoJEBuTQ307
+ QWKbBn8P+QFxwl7pDsAKR1InemMAmuykCHl+XgC0LDqrsWhAH5TYeTVXGSyDsuZjHvj+FRP+
+ gZaEIYSw2Yf0e91U9HXo3RYhEwSmxUQ4Fjhc9qAwGKVPQf6YuQ5yy6pzI8brcKmHHOGrB3tP
+ /MODPt81M1zpograAC2WTDzkICfHKj8LpXp45PylD99J9q0Y+gb04CG5/wXs+1hJy/dz0tYy
+ iua4nCuSRbxnSHKBS5vvjosWWjWQXsRKd+zzXp6kfRHHpzJkhRwF6ArXi4XnQ+REnoTfM5Fk
+ VmVmSQ3yFKKePEzoIriT1b2sXO0g5QXOAvFqB65LZjXG9jGJoVG6ZJrUV1MVK8vamKoVbUEe
+ 0NlLl/tX96HLowHHoKhxEsbFzGzKiFLh7hyboTpy2whdonkDxpnv/H8wE9M3VW/fPgnL2nPe
+ xaBLqyHxy9hA9JrZvxg3IQ61x7rtBWBUQPmEaK0azW+l3ysiNpBhISkZrsW3ZUdknWu87nh6
+ eTB7mR7xBcVxnomxWwJI4B0wuMwCPdgbV6YDUKCuSgRMUEiVry10xd9KLypR9Vfyn1AhROrq
+ AubRPVeJBf9zR5UW1trJNfwVt3XmbHX50HCcHdEdCKiT9O+FiEcahIaWh9lihvO0ci0TtVGZ
+ MCEtaCE80Q3Ma9RdHYB3uVF930jwquplFLNF+IBCn5JRzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmA872oFCRRflLYACgkQG5NDfTtBYpvScw/9GrqBrVLuJoJ52qBBKUBDo4E+5fU1bjt0
+ Gv0nh/hNJuecuRY6aemU6HOPNc2t8QHMSvwbSF+Vp9ZkOvrM36yUOufctoqON+wXrliEY0J4
+ ksR89ZILRRAold9Mh0YDqEJc1HmuxYLJ7lnbLYH1oui8bLbMBM8S2Uo9RKqV2GROLi44enVt
+ vdrDvo+CxKj2K+d4cleCNiz5qbTxPUW/cgkwG0lJc4I4sso7l4XMDKn95c7JtNsuzqKvhEVS
+ oic5by3fbUnuI0cemeizF4QdtX2uQxrP7RwHFBd+YUia7zCcz0//rv6FZmAxWZGy5arNl6Vm
+ lQqNo7/Poh8WWfRS+xegBxc6hBXahpyUKphAKYkah+m+I0QToCfnGKnPqyYIMDEHCS/RfqA5
+ t8F+O56+oyLBAeWX7XcmyM6TGeVfb+OZVMJnZzK0s2VYAuI0Rl87FBFYgULdgqKV7R7WHzwD
+ uZwJCLykjad45hsWcOGk3OcaAGQS6NDlfhM6O9aYNwGL6tGt/6BkRikNOs7VDEa4/HlbaSJo
+ 7FgndGw1kWmkeL6oQh7wBvYll2buKod4qYntmNKEicoHGU+x91Gcan8mCoqhJkbqrL7+nXG2
+ 5Q/GS5M9RFWS+nYyJh+c3OcfKqVcZQNANItt7+ULzdNJuhvTRRdC3g9hmCEuNSr+CLMdnRBY fv0=
+In-Reply-To: <CANAwSgTeZ83oqatrsWQxT+4RYwEtEqma=R4XX_iGrP2N=phz9Q@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_003509_035460_E2247E2F 
-X-CRM114-Status: GOOD (  21.73  )
+X-CRM114-CacheID: sfid-20250313_004944_004664_146389DB 
+X-CRM114-Status: UNSURE (   8.50  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,67 +128,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 3:45=E2=80=AFAM Nuno Das Neves
-<nunodasneves@linux.microsoft.com> wrote:
->
-> On 3/10/2025 6:01 AM, Tianyu Lan wrote:
-> > On Thu, Feb 27, 2025 at 7:09=E2=80=AFAM Nuno Das Neves
-> > <nunodasneves@linux.microsoft.com> wrote:
-> >>
-> >> Add a pointer hv_synic_eventring_tail to track the tail pointer for th=
-e
-> >> SynIC event ring buffer for each SINT.
-> >>
-> >> This will be used by the mshv driver, but must be tracked independentl=
-y
-> >> since the driver module could be removed and re-inserted.
-> >>
-> >> Signed-off-by: Nuno Das Neves <nunodasneves@linux.microsoft.com>
-> >> Reviewed-by: Wei Liu <wei.liu@kernel.org>
-> >
-> > It's better to expose a function to check the tail instead of exposing
-> > hv_synic_eventring_tail directly.
-> >
-> What is the advantage of using a function for this? We need to both set
-> and get the tail.
+On 12/03/2025 15:59, Anand Moon wrote:
+>>
+>>> +          mutex_lock(&_T->lock), mutex_unlock(&_T->lock))
+>>> +
+>>>  /*
+>>>   * TMU treats temperature as a mapped temperature code.
+>>>   * The temperature is converted differently depending on the calibration type.
+>>> @@ -256,7 +260,7 @@ static int exynos_tmu_initialize(struct platform_device *pdev)
+>>>       unsigned int status;
+>>>       int ret = 0;
+>>>
+>>> -     mutex_lock(&data->lock);
+>>> +     guard(mutex)(&data->lock);
+>>
+>> Which you do not use... Please don't use cleanup.h if you do not know
+>> it. It leads to bugs.
+>>
+> Ok, I will drop this include of cleanup.h.
 
-We may add lock or check to avoid race conditions and this depends on the
-user case. This is why I want to see how mshv driver uses it.
+So the guards as well...
 
->
-> > BTW, how does mshv driver use hv_synic_eventring_tail? Which patch
-> > uses it in this series?
-> >
-> This variable stores indices into the synic eventring page (one for each
-> SINT, and per-cpu). Each SINT has a ringbuffer of u32 messages. The tail
-> index points to the latest one.
->
-> This is only used for doorbell messages today. The message in this case i=
-s
-> a port number which is used to lookup and invoke a callback, which signal=
-s
-> ioeventfd(s), to notify the VMM of a guest MMIO write.
->
-> It is used in patch 10.
-
-I found "extern u8 __percpu **hv_synic_eventring_tail;" in the
-drivers/hv/mshv_root.h of patch 10.
-I seem to miss the code to use it.
-
-+int hv_call_unmap_stat_page(enum hv_stats_object_type type,
-+                           const union hv_stats_object_identity *identity)=
-;
-+int hv_call_modify_spa_host_access(u64 partition_id, struct page **pages,
-+                                  u64 page_struct_count, u32 host_access,
-+                                  u32 flags, u8 acquire);
-+
-+extern struct mshv_root mshv_root;
-+extern enum hv_scheduler_type hv_scheduler_type;
-+extern u8 __percpu **hv_synic_eventring_tail;
-+
-+#endif /* _MSHV_ROOT_H_ */
-
---=20
-Thanks
-Tianyu Lan
+Best regards,
+Krzysztof
 
