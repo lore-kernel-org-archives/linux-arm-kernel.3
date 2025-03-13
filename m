@@ -4,73 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98747C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:07:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58650C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:10:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=; b=NNajtRuuQ053sWK6wROQy1ac7J
-	fY0rykiLCGEUgosIKND8pjOSrlvitwUIUlshYBWX/nZKKmMIDUo2OVT0szzwmhjiEXcDorN71yNbf
-	aObku6znhJ+67Mi24lGnmw95G6Qp3k8rfmmU0IqU1/FWe5CwXheMIr0syne56EBA8dLTHkBl11F68
-	j33fnSEyXueAv+pPNsIfUbuRuj6iQf0TJH95RUhO9I4NPyI34pJ7xOCXUPs9YjMTmTTBWfum78e6f
-	DEDEnJY197hFJJofkUkt79erK2MzRERgr0IqS1mHl843aR4btJJhkp7TkJDJCWPrdWX7KlT6WOlF5
-	Ub79zk/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=v8INpOFDdy6zgQZNj++IeYTATBDv20/pe9DlHWL5cZs=; b=0hQ+KiQk7MbKavHcYwTq4Kamyv
+	wl0FFni+dr5cbHfTnfKNajc+rzih36jDM1Gc+JzIUj3wot56PCnzmhBPIDamDL0ogGxcgoeHvEhBk
+	wly+N3jKHPlE6r9RffaZ3MLU8u/kANdK8innJZ/9x0NTPMvx0+0b5v6z74ZH/zxCm+EWJpZ+CD9TU
+	XSGH3XkzMcOzbPGAN+N5YRIORAP7t1BwzGHSsyirw3Pb9kuFE1O+hjN/o4zopJzu4FBG+HfloRFdU
+	Gb0nyWUpJegSZ4CedlNFIO6FakJJvu1K07rTh1LwohxvARCCiFr5KYMtLkBYyzUqfARjSYANSU/pZ
+	M8N7XI6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsntT-0000000CHQF-1mMS;
-	Thu, 13 Mar 2025 19:06:59 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1tsnwZ-0000000CHpL-0pht;
+	Thu, 13 Mar 2025 19:10:11 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnrJ-0000000CGvs-2jWg;
-	Thu, 13 Mar 2025 19:04:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1741892667; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=IDai2uCPeDltdnQDWMLspcg/wpWhfJjWrHiFe0Oxud8trPkbuItbTwPuFtBu2bKWZP5HQ1jy6RRWDZo0r+8GsE8DXHALA0KEoVM149PtwDyn8m3zvn9cfUF3NGPOMhmJGYBaAtYFNZeDzE2QQetK0Ueo04up/jXQuEMWEVHLz98=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1741892667; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=; 
-	b=DTujC8IarYC+WlMIUIA3V0dfkynhjraTTMeFsnB2KEqbUu/k3LXGKBkjdIs0fOtxrcMjuBJlTpGBIfK7T+54EpBTiRMzZ7opNtbGbrabZe6zfoBEY0AbYuobq32eCHgF92H/Fm+Ew1iaLsLH5OQspxGxoqHpn4yvbfOrRpWc5KU=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741892667;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=;
-	b=ABhqq4BjNTKf0mQ2n2Hu4xIa+Uv0npWPfJe4cdjtmkAbYQRP0OMUUrxvxZ70q2Cc
-	Hs54FPNtEfwy1R3Gei2dh/xKBnyV7eTBO2jSGseJgJu8+a+2RONFS68nZwm7e5PeapU
-	lHVS1KkEufwpimWodvMlv4XaWdzfcHP76NqFvYws=
-Received: by mx.zohomail.com with SMTPS id 17418926658661000.7935840965962;
-	Thu, 13 Mar 2025 12:04:25 -0700 (PDT)
-Message-ID: <fa5ff28c-ffa0-47d7-9498-ef8b297c7afb@collabora.com>
-Date: Thu, 13 Mar 2025 16:04:18 -0300
+	id 1tsnut-0000000CHdR-2ZqU
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 19:08:28 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-ac29fd22163so229373166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 12:08:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741892905; x=1742497705; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=v8INpOFDdy6zgQZNj++IeYTATBDv20/pe9DlHWL5cZs=;
+        b=OngEsNrYOp6VeJkCDZbvkcCHxxATuTGa3KKBqEkqAWOKdgy3GkMeGntxdpZ7stF5iM
+         xaU8eDQKPvYE83764Mt9dxzfQsG7pHUnvFxSQDuthGBn2/TfJ0C25rZbjnWMPO/WdHt0
+         MeZfIHv3RucILio2qojZadSSUluv2G3/Vp6NpNA6klz/TrNdr3pYSqxcLGFRKrLVnfdV
+         cOd2UZrjCtNIyl2mHCxxpg0kwZkH89APklhcI8/QOatvvM4Q2DkxmMUxVqP2ngyGpb/O
+         K6RWH0sNAHgLl7xr5Xf5KKcBiRruf4naz30Uxiz4KU/mZX+YmOsXXxrJ6QzpIsIp46ge
+         XEYA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741892905; x=1742497705;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=v8INpOFDdy6zgQZNj++IeYTATBDv20/pe9DlHWL5cZs=;
+        b=Hn0woi/jzW57TmgVVQS9JnkAgicowXOcUEhFeLCCsbsyvmhUX+jxOUD9usdWMkoPEP
+         0UM5sWht3VkW0LLYAaj24glBaHG4pw+X/Ihh7Qk9u6hbjtcYIdHniFKbma9o/iPxPXE2
+         OQqSzO/7Ypg50y+FQLpmjxnf82wuEASFyN4/FYCpoBvKZXettdf9+FWkSkdQt4mVzCg5
+         WgIomH90UPT63RVw7Zd1lG9fZjWf6lSRXXXMvoszrQGoC69VeHhUbqI3I+Golnx3xfHZ
+         tKx9dE9PhOJK26NMl0rTA76dNs7aKV2QBhHbzOa8WFpTxjWaFg3+bdVjRT1U3VwQVDB1
+         FG3g==
+X-Forwarded-Encrypted: i=1; AJvYcCVPDRAQqXqCsBOlO/dHsFkJJ4HL3hoGNP/eCsJy0x8BJvKIOSYJq9fg7pzssy7Ox+lSrZ05NV6jps5eFCvT2Iq6@lists.infradead.org
+X-Gm-Message-State: AOJu0YwCzVvbBctlQe2u4TrLX0GfrP27d9yKJbA5hQDi03LnxCKbIng6
+	3kc8g7igSrnW17jaLNBeicbfMJBrl6/dJsn2NMmTBKpuJLBxM5L96ek7enB/QWC99fYQqM8iYYr
+	g1g==
+X-Gm-Gg: ASbGnctHaOebRtntuLhaC111ts0oG5qkhQY/qH71bgnMFekvzpL6wlGr6b3jwAYqtFL
+	EqsTfsg7fPi9hEBp43jJ/7O7+by3qedYh7hHMf8K+YtxTX07yhThAI8Pld6mS6SX7ZBP0smhnec
+	C8ZxqfWYjhm+7eVFtDbaQYziysCMdBmPKwyXMcFsL2xiJQ1xWVvaabJWVeY+McYN/0xjn7cjbK4
+	k6MgO9ZZFA18RLZ7F7cIq/8nOUwlXCw/VrfEtDtfIN3duhdznCTIv3LdetULCpkVk1B9XfYqfia
+	PS+CcrvXQAM0p4epl+GrheYLz2Xz2Qj6pL41a6bHrLZ2JEnA1kmCKWCl6Hu5/EwUu+rgWZ/Q+8t
+	iWrPhMPgQzVQbdQ==
+X-Google-Smtp-Source: AGHT+IFa00JtzqukTdU3WMYr5CjZc1RVh7xO3wiZcNVvi/pVcZene2/D4xio0rZGpWde7c+HTNy7zQ==
+X-Received: by 2002:a17:907:9452:b0:ac2:bde9:22af with SMTP id a640c23a62f3a-ac3290943a7mr61434466b.13.1741892905085;
+        Thu, 13 Mar 2025 12:08:25 -0700 (PDT)
+Received: from google.com (140.20.91.34.bc.googleusercontent.com. [34.91.20.140])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-ac3149cfb96sm112178066b.119.2025.03.13.12.08.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 12:08:24 -0700 (PDT)
+Date: Thu, 13 Mar 2025 19:08:20 +0000
+From: Quentin Perret <qperret@google.com>
+To: Gavin Shan <gshan@redhat.com>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, maz@kernel.org,
+	oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com,
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
+	shan.gavin@gmail.com
+Subject: Re: [PATCH] KVM: arm64: Drop sort_memblock_regions()
+Message-ID: <Z9MtJPNm1pLATGo7@google.com>
+References: <20250311043718.91004-1-gshan@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 5/6] drm/panfrost: Enable AARCH64_4K page table format
- on mediatek_mt8188
-To: Boris Brezillon <boris.brezillon@collabora.com>
-Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
-References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
- <20250310195921.157511-6-ariel.dalessandro@collabora.com>
- <20250311090649.0d15d74d@collabora.com>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250311090649.0d15d74d@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250311043718.91004-1-gshan@redhat.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_120445_730023_3C218A69 
-X-CRM114-Status: UNSURE (   7.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_120827_668813_81AB2A53 
+X-CRM114-Status: GOOD (  11.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,28 +101,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Boris,
-
-On 3/11/25 5:06 AM, Boris Brezillon wrote:
-> On Mon, 10 Mar 2025 16:59:20 -0300
-> Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
+On Tuesday 11 Mar 2025 at 14:37:18 (+1000), Gavin Shan wrote:
+> Drop sort_memblock_regions() and avoid sorting the copied memory
+> regions to be ascending order on their base addresses, because the
+> source memory regions should have been sorted correctly when they
+> are added by memblock_add() or its variants.
 > 
->> Now that Panfrost supports AARCH64_4K page table format, let's enable it
->> on Mediatek MT8188.
-> 
-> Can you maybe give more details on why this is needed
-> (legacy shareability/cacheability not suitable for this GPU?)?
+> This is generally reverting commit a14307f5310c ("KVM: arm64: Sort
+> the hypervisor memblocks"). No functional changes intended.
 
-Ack, will expand in v2.
+I think this was originally introduced in an early version of the code
+where the reserved regions were also registered, hence requiring
+sorting. But yes, with the code as it is today I can't see what would
+break without it, so:
+
+  Reviewed-by: Quentin Perret <qperret@google.com>
 
 Thanks!
-
--- 
-Ariel D'Alessandro
-Software Engineer
-
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
-
+Quentin
 
