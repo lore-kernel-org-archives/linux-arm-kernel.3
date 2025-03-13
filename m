@@ -4,159 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17BAAC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:38:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 03A6FC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:59:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=; b=HNXiiSmXwKjbgDu7B8aKXUaBp8
-	590mq5DB2q5eKnVnUcpvmzBRbf0hcCNU2+Hx0O+CpcvejJVt8cO3kY41GRJe0MEfbmL7t6P8DKInb
-	K+7ECk4F/8+GTIbBWRli6d/WgNJSyNDpW31sjnjtVJG22TIqlK/DvvSj1lzK5Avor7Vqc5NNVkUcz
-	Bdj8JB+SY5adPJ+tQFwDwVYbjHh6KNt6wC6snVNq5X9j5AvbsXzdLVcqdhuIdKriT35NtGByvkQR6
-	9iTBB/JBSlFJDSnBXnSJMTxAwp0edpr1KJ3NAgixWyw//+i1WUso8dZ14IVxX5FrQyHlutCzbcHj5
-	oRVBTivw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=; b=JD2dOK3RFXWQPP
+	cQfME5rcCpyWTIg0wjt1nuosg5LVYLnkRgJeCVRtrGCUtTHtNmlT9r0bUCXBymZaKDCW2hIEzCjt4
+	uyBYoPebWE2cB0wLAGBJ8ZkAHDwxD4lj69FK+/c92xOw0/7IJkSMSWVIIxDxi4jrvvOOtDyaVIp+Z
+	xXLkZxb8uDe1McaLSMebZKeNMU2skopTELNS5eNOYYNPdMk+OJEVxvqiqoGf3uMTkNynF9KVOFAYS
+	0itF7X/nhWXbyiSaBN6KO88VjaOY2kFwRYX8Tuf1FVOxNFw7aqSoaQww245TR7WnUXkdNBMOOb9bZ
+	3twuBjhwh/cLx1QAeTYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscD6-0000000AEiW-1sE9;
-	Thu, 13 Mar 2025 06:38:28 +0000
-Received: from mail-dm6nam10on2061c.outbound.protection.outlook.com ([2a01:111:f403:2413::61c] helo=NAM10-DM6-obe.outbound.protection.outlook.com)
+	id 1tscXd-0000000AHIn-0tXk;
+	Thu, 13 Mar 2025 06:59:41 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscBQ-0000000AEVF-11vh
+	id 1tscVx-0000000AGxQ-2wpK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 06:36:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Lg/xDL6sRh1mEYuzKOBGxp7iYGHkBWB0z7f6Lz+bzQ6bAUQDxQMwOE0FjlrMgBPoQwzFXlQRc9hc6VTT8o111imb04Xgrqkh+9nukveeWMkUTsQPSSXMbnDzvdVYTK7gfKZrJgi39Ul149gtCN4YCX4NpwK6uCjGbwcigfM/ttpziuaV5vtMll174dZefX8K7xDlF8czCciAQ0rFnW0NHPTASiVBnozHsYYe+OwKqth4wEpzqWn1u7MpqcO5bBdMnTMhP/xt85Ur7Jlqpb4CpRwAuUz/zU5l5Gk72BjsG7gEEsbXPxljcFNos1OhZCzKHEZrTmpP5Htf91GDuHmlrg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=;
- b=ehoZS4JAph2rgkzPyz1KYpqcQsngCINXfmtBL7VL9b0r/U2Mw21h0xKFfeFthOo/mm3ycskMFgPme0NDE8rZdvuy0IWWESLW3gS5Es9mf2/T6S1I7zx7/nkQVvqGscu37MQjkx43uXfLjRFTPAUc/d2rUan4O85WhQVgqMWPtHgyWxyypSWJApNL7/vNk+OT4dyHxjOFllHu9lxjT9dxiBHdItVzDalU3usA7cniqmCvObVCwmhkIh9/LkEYPR0jkJYP/Vgs95CGrDlGv5aV8wXHELdmtqIG9QdVahjaccUVUzQsMFoHzJjS6IqX0lUnXuDHekpTl7UdqFQMI4mhLQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=u9GQvN6eAq5O0guwPtkuvhhGOk5JuU0nmo5VNi6oETg=;
- b=Zk0uPES1WgvV9IeUHWhL2KuBVBkTbuG/6myLsQ448bJmnnaGQ6PK7YY2pWjhAkIHdhuk4h1UgeOFahjJIE4YzByxCGkG1MoRr8qF5wOeloTUNA/JyMO+FF/KBYBYJeT9AZR85uJlH++bKD3yh1akmfFTjRiNgHhSu+46UBk+Vl8=
-Received: from DM6PR12MB4877.namprd12.prod.outlook.com (2603:10b6:5:1bb::24)
- by PH7PR12MB8178.namprd12.prod.outlook.com (2603:10b6:510:2b3::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8511.27; Thu, 13 Mar
- 2025 06:36:37 +0000
-Received: from DM6PR12MB4877.namprd12.prod.outlook.com
- ([fe80::92ad:22ff:bff2:d475]) by DM6PR12MB4877.namprd12.prod.outlook.com
- ([fe80::92ad:22ff:bff2:d475%3]) with mapi id 15.20.8511.026; Thu, 13 Mar 2025
- 06:36:36 +0000
-From: "Visavalia, Rohit" <rohit.visavalia@amd.com>
-To: "Visavalia, Rohit" <rohit.visavalia@amd.com>, "mturquette@baylibre.com"
-	<mturquette@baylibre.com>, "sboyd@kernel.org" <sboyd@kernel.org>, "Simek,
- Michal" <michal.simek@amd.com>, "Sagar, Vishal" <vishal.sagar@amd.com>
-CC: "javier.carrasco.cruz@gmail.com" <javier.carrasco.cruz@gmail.com>,
-	"geert+renesas@glider.be" <geert+renesas@glider.be>,
-	"u.kleine-koenig@baylibre.com" <u.kleine-koenig@baylibre.com>,
-	"linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>
-Subject: RE: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace
- fix
-Thread-Topic: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace
- fix
-Thread-Index: AQHbe7AMf9305KtbS027DZl22Wzb/7NwzORw
-Date: Thu, 13 Mar 2025 06:36:35 +0000
-Message-ID: <DM6PR12MB48770D3D5731EA5ED4DCCA6DE5D32@DM6PR12MB4877.namprd12.prod.outlook.com>
-References: <20250210113614.4149050-1-rohit.visavalia@amd.com>
-In-Reply-To: <20250210113614.4149050-1-rohit.visavalia@amd.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ActionId=ea9f7b2a-afb5-4793-8892-00a36fb27681;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=0;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=true;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
- Internal Distribution
- Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-03-13T06:35:38Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Tag=10,
- 3, 0, 1;
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DM6PR12MB4877:EE_|PH7PR12MB8178:EE_
-x-ms-office365-filtering-correlation-id: 2b54472e-47cb-4002-10ba-08dd61f96700
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|376014|1800799024|38070700018|7053199007;
-x-microsoft-antispam-message-info: =?us-ascii?Q?3wzyrKqAimS3H1odk4rxLRBKKBXn6UQVIrUMQ16D+Wu2y4yzt5vO8onswfC2?=
- =?us-ascii?Q?d57Y8GfgF0mOY+Eg/4slfvnXS3pbzsSNlt54xWJ04tm5p3G8x8enLoAEVEXf?=
- =?us-ascii?Q?oNNCZu5L7h4HHyivoYZf7YQj9KeWawVKTIFfOmq1e9oI+3MDtx2ojKO1ZBu/?=
- =?us-ascii?Q?2HskeZq+O6ElMfbpF5MszUmVx0YxWnExO6zb40Y/pAlhIjf9vjS/1htItRh+?=
- =?us-ascii?Q?6GC5JGL63Xaol7mdmOX6r0xIZhUJ9l7HC9wQ2GH3X3xOq9hcfDqZOhPGMeUd?=
- =?us-ascii?Q?dW7PahU7l3LmuyEjMwn61+KmAWqGQ5cbgozvCVTS1WLkkKowLC/sRQwLW+X3?=
- =?us-ascii?Q?Zs0DNtHJs2/t3PogYeugfs8zyBqOzbZzKg0hI8UCibLLZsG6vg12R7NLZwyM?=
- =?us-ascii?Q?DK2E0ayiJ9niZ65K26qtnB4zW6PjUBDSga+adLgLGYWEpiTf73t9mpRqARJv?=
- =?us-ascii?Q?4AFQhMJobwjALkebG4a/SVtF4ujowwWwK8KqKHPYseR9g4WjQfPkt9WNN2lw?=
- =?us-ascii?Q?jlJVPJM1goxT7mrNhUTdTiK7ZX8o5ODseQGa0meQq8xWQv1H2xyD2pxW0mwz?=
- =?us-ascii?Q?duD/dM0mjwEp2JYEYTrnWGy7SdOF7UBSB99KHV8P5sLN7TKDV9TkUgrT1WuL?=
- =?us-ascii?Q?czEaMJAzNgq6QKtpIX1VreHRKlkHEm5HivUZIZNEQB6sa4G4CBkBeOnWi0rG?=
- =?us-ascii?Q?3DmH0ytJgQ53iYRUNlPhM/77VK1D5Kl43LK6Lfd2I/9hjGB5bdl79FeUjVod?=
- =?us-ascii?Q?8+CjY5PGOhm5KsUaT7wc6sD+FyA8+Lhrf7kOgPGU9t95BhDaVWCVmWC/k5wX?=
- =?us-ascii?Q?FmcPSE4M4VZ+dZ/v+so+m9qZkK7sduC8nLQnbATXGMysibMZ2Rh/XHvYzs+u?=
- =?us-ascii?Q?eYamfzDQLShX9etM1QA7HJVUOLByorx05VRpe/7DIwzho2I6BT1L30UmscH2?=
- =?us-ascii?Q?a9KX0TJwOT1/p62p+21eKiQtD0bgcNdKGpxwp/10zJnhcjnSoXjwpbOOO2pY?=
- =?us-ascii?Q?9x74FPoEY9hAI0LImkmYg2iDI5aDqLYFxUsCkcWFDbOq2E8NJhE+apPQ4X5n?=
- =?us-ascii?Q?iDXZj/ayp831vWoslJW3kGhiEw3ca0sIlkxAOdfQdQeTnq/9s8IGB1dKZWvn?=
- =?us-ascii?Q?WXXZlMHIkHXO/yLS8dXAbTnjcbJQRZyQN13+vtdyscHV5jfRSlp7mjZSSN6U?=
- =?us-ascii?Q?NSsRCy1SNNZFFCQFMbhXx2ZwcP4f6lb6VTOD3hF6iPy3bqfRU65xv+VERsfJ?=
- =?us-ascii?Q?VuNoCIN9TT3ng6IqH2iR80kFoyfSeskjCVYHjGZZmCzJD0czLiVnZM2iMx42?=
- =?us-ascii?Q?IBd06FZW+2zNm64T96Z13rYe8ZVD5f+BE7D11UGqCRPMVtGsq4/MzkEx7+cb?=
- =?us-ascii?Q?po5RMIW+D+3VxEhj/uT/GZ2sKrpemBHsX28sVcE8Tvmp6pOVAodLxnkOEg4X?=
- =?us-ascii?Q?Q9RBTQLFbypr3jCNIPVzew6AnxfwrxIB?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB4877.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(1800799024)(38070700018)(7053199007);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?4wpwLmQK2OaMhHhhZFNWLntoE9nodt7TJGU/WPwcLyQsoNe8ej+lRTlQMl4I?=
- =?us-ascii?Q?2eSb8H0o+KIXWUXtRfl27PJc06NfFgNTuaEZmujD7rrzNkf1OHgw+GrWiqEL?=
- =?us-ascii?Q?uJzteNoM2MPQe9qhfGjZRBsWJvF1XiEXa936o3fAcWeoacd2VsgO1H+kNSl1?=
- =?us-ascii?Q?DBDvrG3s+j28NzovoqYyoNKLO5TE2A6pkHS74rpTQvUQPYHhYRodVrqdmbAF?=
- =?us-ascii?Q?7aUK8CSbSeV3OyB2inJz/qTB+9z45nv3UMqdiBNMiynxr+BH1avKpQn5FM3L?=
- =?us-ascii?Q?0erAWRlAluq42XMyQNoFRepmahyhFBfcBYUPve8y43ECUwosa7KSXCd+xZss?=
- =?us-ascii?Q?R9KT07S06GFWQQhjF5nI6RHM2YWoVH19OSQO594HqWOOVWW33KhwvSFtRq86?=
- =?us-ascii?Q?W2qy1Y+mJAluIF9ZNZ2sGsxeGhJpuOov+KCHnjgsEL/talINhNQJlJEsy9K5?=
- =?us-ascii?Q?MKl0GvguFM//AaIP8i+PWJO/v22pPDQkEQjHHeRa+pq8JCKWrwmDmQt+Vkwj?=
- =?us-ascii?Q?4mw6H99BnL8aI09ihvGCRFEDOYdeVFVwwNyhO8QhW/l6U7d9KIDcaACl+OVi?=
- =?us-ascii?Q?vhe+EsZZUhs/zs/8m0TyaCFLia1JSs3VMkzFCVcjfg+Imqyc2LpPlIQZh3EK?=
- =?us-ascii?Q?ScUtzXFofForOl8zcN5+KakhEuP5W0+w5/QJSJ0hLRx6x7pvT9Oh2qP4ZfpR?=
- =?us-ascii?Q?fW8MTNGV5FTlJFRlf0IZ8TnXgmR0KaBKQ60i8TJ5Ee+g2HqX3C4EixYih24D?=
- =?us-ascii?Q?0NcCOJ+AfiA5uGKeTTNSUHC3wxgaN2Ud0bdaoluRgRl5mUtdMNriM9A+OCRm?=
- =?us-ascii?Q?KeZAHI/YjnhOjdk53KVnmnLOHCORHYOeHsYbJ6OgFbdnzHGJUzfY9M+SrMRV?=
- =?us-ascii?Q?cHfriodLykbdKTzH8lWVCBQFg+y4gP6zX5OLQZXLxzkr9JJUKnXnIHK2kEvZ?=
- =?us-ascii?Q?Mfl6IdYWSF9xxoCepexyCcDVq25mJodRQRL2BAKQr7vyRRv7bIfh/IVJb3yi?=
- =?us-ascii?Q?LqoZIiapjrem/awsYCvXRRQqNPGU8KTcAbxi6mpeAlhp8ErMUUPSvcoCTn0p?=
- =?us-ascii?Q?/kYov8R8vw6QeXJjqzb7odifu5757oua9QlXGaUhea2sxmrNxpZJex/mYYYK?=
- =?us-ascii?Q?U2axVfM+yljyrAAXUl6EFUs60tUQIhwZ52noA9kUc3pOOEsTOWzwhAD5N8qy?=
- =?us-ascii?Q?Ky/CEMzYuch9m6Dw1Nt0JSb6jcM+qYBNpuaYi+IXNSV+wTb/YPcR8DxN6IjE?=
- =?us-ascii?Q?NpA75LoQpKjrbtGuVoWxY0ZNQlc2vzdtvuSf6fZCTP9z4MJxK3WxT6pvuCEQ?=
- =?us-ascii?Q?WJOcpaWVJH9/XWDJZNL3N7OZrsi5jV8m9pUHAZDnoVm2bQmIjqABXIysJFS+?=
- =?us-ascii?Q?VaHvTrKnQmo3GQjBRpvWxQGTPF0jLb0DoGqzyu9GEDiOE2Nn/eDpi4tCGUwH?=
- =?us-ascii?Q?2Bz3R55zGdcPiHVaP02QZTWgTZXmHFnHYDJ4XHcieYJ4QyYxNGQoDMvZiWis?=
- =?us-ascii?Q?KlVCLkvFpOabl/GtPcALIOw26eXrfy31V1jJ0tYQ7KXwP20lDdJlCvZtmbK0?=
- =?us-ascii?Q?yeiVoj+TN/thJmrepus=3D?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Thu, 13 Mar 2025 06:57:58 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-225a28a511eso10450625ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 23:57:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=daynix-com.20230601.gappssmtp.com; s=20230601; t=1741849077; x=1742453877; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=;
+        b=1LUheUBGaWQWFfKsT4nlEnA2m6fYDvQhhb302dFNSnerismXDvna5N567qDGtXzv5B
+         LB3MXaIDvSzOkvWZsTXh+ASyYcJ6JSFldOzBCkHW/Dw6yiA4YLzPr+Ryz7CbD8EA4t3k
+         jmN6Qlnoc1l7ZtZ29291naKJj18n2mCe2Zm2RHS5PSiomcSAV4PxkQKI+OOMaGpv/ggl
+         f/IqgYQYbzqbmPeFCkWIGsCRr4a7yrmv2bpplBn/YS1mYnuaRFrSOV/5NvD0eCbcBjVv
+         zcDYWq1ImFMV+B0VqaS7jnpkOJfHegLCBTurGBgJl6i+BYf1XTtb3zbLjHlWdCouar1P
+         SVPg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741849077; x=1742453877;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=DzZ/OwKmmQbXUKB6Ig9nkspgT/x2zvQUcWtNQDAlXJ8=;
+        b=k2wotydRDp9IPvTgPeULgTYTRXe7o8vd0lgj1YwqktkcdRN4gl4bbyzFX1dFttPxQg
+         eQ7chSMA9bR0uCLJHrDNhDq7O+xp7SrsjzoLJZoJZKgaycxz2ACZeeoiE/Iix2VbFXW4
+         7ahXXMbEo0XMWaUGYqZ3t2PXfjpCjdgF8VWMAQV72qY388sqfG8n5OwW4+o6ejt4HAfl
+         fU9TezsNblj0jj6GAroSc3NBDVoQhe8QgcddeylkC1PfDFFcOUm1JYtlFBvT6c/u4rEz
+         r1mjRHer75Snn3nrP6dyWPn9gRTwBnQ8Do/7ffhWtjR+TT9G833B6RS09LNv16KEcnOt
+         cVMQ==
+X-Gm-Message-State: AOJu0YyhqQRgu5D6DfX7NOoyFT3ztYCoY4XYQUr/GSIrB5+MIZRlP/Tt
+	xFG7IZMmjXpW/QUUj1uD2ITlVbmUcCPiF9squdrUs9NFRQxlX1paISnUlqt6dZk=
+X-Gm-Gg: ASbGncvre7Vg+VyrZUxIL0VYnUgX4Wzn5PabcxuT9Kka/x97J88Md/2P7evk1GarNQ8
+	n/qCAiqMnMo2KCTCh2NR8cJjmwADe5IWy3ORFENM2JO+Z6e5VTY9SM/cITilKg/TR1jVoYG1kRM
+	PTQN//Nhor103okQUdMX+2AUBpzRR+/YjzWQky4dBupYz46A5mBJPzBSA9YTN+8CL7Bb7zvPIQI
+	QfTbvXqwRujzYMZpAsJFC/Da10LjOjMCnD8+nkvoafQ1je4HzZ7QkEY4FkWVfeW+n+iicUgX3ck
+	GTqw48GVBPo90dJyqYiG6YsW1di0xCgJnwHBzYQdqxOuKURj
+X-Google-Smtp-Source: AGHT+IFJys5eR6oUmPsgD0nQ7bgGFWSfRnMTkiQzEi9pZgL77FdSzGwIkj2Od2Zq73fxdD3yVQX53g==
+X-Received: by 2002:a05:6a00:c95:b0:725:96f2:9e63 with SMTP id d2e1a72fcca58-736aab16545mr42898380b3a.24.1741849076765;
+        Wed, 12 Mar 2025 23:57:56 -0700 (PDT)
+Received: from localhost ([157.82.205.237])
+        by smtp.gmail.com with UTF8SMTPSA id d2e1a72fcca58-73711694b2csm624169b3a.129.2025.03.12.23.57.53
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 12 Mar 2025 23:57:56 -0700 (PDT)
+From: Akihiko Odaki <akihiko.odaki@daynix.com>
+Subject: [PATCH v4 0/7] KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+Date: Thu, 13 Mar 2025 15:57:41 +0900
+Message-Id: <20250313-pmc-v4-0-2c976827118c@daynix.com>
 MIME-Version: 1.0
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB4877.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b54472e-47cb-4002-10ba-08dd61f96700
-X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Mar 2025 06:36:35.8775
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: H7lngKExtEgnR6ncVrnLsoUCZG3qXVqTvPJBswNGJ+DgbpDztgUtrygrp2fF1gj9K3aVAAfJNHxRo2AL7oD/mg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH7PR12MB8178
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAOWB0mcC/2XNyw6DIBAF0F8xrEvDU6Wr/kfTBQ5QWfgINERj/
+ Pei7ULT5b2Zc2dB0QZvI7oVCwo2+eiHPgdxKRC0un9Z7E3OiBEmCScMjx3gRhFdl9opIQHlyzF
+ Y56d95fHMufXxPYR5H010a88+UUwxaOdUrYjiBu5Gz72frjB0aBtI7IiqL2KY4BI4r6SWjlrxh
+ /gB0d8nnhERlIJupAFuTmhd1w9opBY6AQEAAA==
+X-Change-ID: 20250302-pmc-b90a86af945c
+To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+ Joey Gouly <joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Zenghui Yu <yuzenghui@huawei.com>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+ Andrew Jones <andrew.jones@linux.dev>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+ linux-kernel@vger.kernel.org, devel@daynix.com, 
+ Akihiko Odaki <akihiko.odaki@daynix.com>, stable@vger.kernel.org
+X-Mailer: b4 0.15-dev-edae6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_233644_330482_6CBE9B45 
-X-CRM114-Status: GOOD (  11.31  )
+X-CRM114-CacheID: sfid-20250312_235757_763904_3DC44B29 
+X-CRM114-Status: GOOD (  11.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,57 +104,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-[AMD Official Use Only - AMD Internal Distribution Only]
+Prepare vPMC registers for user-initiated changes after first run. This
+is important specifically for debugging Windows on QEMU with GDB; QEMU
+tries to write back all visible registers when resuming the VM execution
+with GDB, corrupting the PMU state. Windows always uses the PMU so this
+can cause adverse effects on that particular OS.
 
-Hi All,
+This series also contains patch "KVM: arm64: PMU: Set raw values from
+user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}", which reverts semantic
+changes made for the mentioned registers in the past. It is necessary
+to migrate the PMU state properly on Firecracker, QEMU, and crosvm.
 
-Just a gentle reminder regarding this patch series review.
+Signed-off-by: Akihiko Odaki <akihiko.odaki@daynix.com>
+---
+Changes in v4:
+- Reverted changes for functions implementing ioctls in patch
+  "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+- Removed kvm_pmu_vcpu_reset().
+- Reordered function calls in kvm_vcpu_reload_pmu() for better style.
+- Link to v3: https://lore.kernel.org/r/20250312-pmc-v3-0-0411cab5dc3d@daynix.com
 
-Thanks & Regards
-Rohit
+Changes in v3:
+- Added patch "KVM: arm64: PMU: Assume PMU presence in pmu-emul.c".
+- Added an explanation of this path series' motivation to each patch.
+- Explained why userspace register writes and register reset should be
+  covered in patch "KVM: arm64: PMU: Reload when user modifies
+  registers".
+- Marked patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" for stable.
+- Reoreded so that patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}" would come first.
+- Added patch "KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking
+  PMCNTENSET_EL0".
+- Added patch "KVM: arm64: Reload PMCNTENSET_EL0".
+- Link to v2: https://lore.kernel.org/r/20250307-pmc-v2-0-6c3375a5f1e4@daynix.com
 
->-----Original Message-----
->From: Rohit Visavalia <rohit.visavalia@amd.com>
->Sent: Monday, February 10, 2025 5:06 PM
->To: mturquette@baylibre.com; sboyd@kernel.org; Simek, Michal
-><michal.simek@amd.com>; Sagar, Vishal <vishal.sagar@amd.com>
->Cc: javier.carrasco.cruz@gmail.com; geert+renesas@glider.be; u.kleine-
->koenig@baylibre.com; linux-clk@vger.kernel.org; linux-arm-
->kernel@lists.infradead.org; linux-kernel@vger.kernel.org; Visavalia, Rohit
-><rohit.visavalia@amd.com>
->Subject: [PATCH v3 0/2] clk: xilinx: vcu: Sequence update and call trace f=
-ix
->
->This patch series updates VCU init/reset sequence and does a driver fix.
->patch1 fixes call trace related to pll_post clk.
->Patch2 adds optional reset-gpio support.
->
->---
->Changes in v3:
->  - Removed patch https://lore.kernel.org/linux-clk/20250102170359.761670-=
-3-
->rohit.visavalia@amd.com
->    as it is not required with latest xilinx clk driver.
->  - Link to v2: https://lore.kernel.org/linux-clk/20250102170359.761670-1-
->rohit.visavalia@amd.com/
->
->Changes in v2:
->  - Changed patches sequence to have patches with "Fixes" as preceding in =
-order
->  - Used dev_err_probe()
->  - Moved warning to dev_dbg() and updated print with more detail
->  - Link to v1: https://lore.kernel.org/linux-clk/20241226122023.3439559-1=
--
->rohit.visavalia@amd.com
->
->Rohit Visavalia (2):
->  clk: xilinx: vcu: unregister pll_post only if registered correctly
->  clk: xilinx: vcu: Update vcu init/reset sequence
->
-> drivers/clk/xilinx/xlnx_vcu.c | 33 +++++++++++++++++++++++++++++++--
-> 1 file changed, 31 insertions(+), 2 deletions(-)
->
->--
->2.25.1
+Changes in v2:
+- Changed to utilize KVM_REQ_RELOAD_PMU as suggested by Oliver Upton.
+- Added patch "KVM: arm64: PMU: Reload when user modifies registers"
+  to cover more registers.
+- Added patch "KVM: arm64: PMU: Set raw values from user to
+  PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}".
+- Link to v1: https://lore.kernel.org/r/20250302-pmc-v1-1-caff989093dc@daynix.com
+
+---
+Akihiko Odaki (7):
+      KVM: arm64: PMU: Set raw values from user to PM{C,I}NTEN{SET,CLR}, PMOVS{SET,CLR}
+      KVM: arm64: PMU: Assume PMU presence in pmu-emul.c
+      KVM: arm64: PMU: Fix SET_ONE_REG for vPMC regs
+      KVM: arm64: PMU: Reload when user modifies registers
+      KVM: arm64: PMU: Call kvm_pmu_handle_pmcr() after masking PMCNTENSET_EL0
+      KVM: arm64: PMU: Reload PMCNTENSET_EL0
+      KVM: arm64: PMU: Reload when resetting
+
+ arch/arm64/kvm/arm.c      |  8 ++++---
+ arch/arm64/kvm/pmu-emul.c | 60 ++++++++++++++---------------------------------
+ arch/arm64/kvm/reset.c    |  3 ---
+ arch/arm64/kvm/sys_regs.c | 53 +++++++++++++++++++++++------------------
+ include/kvm/arm_pmu.h     |  3 +--
+ 5 files changed, 53 insertions(+), 74 deletions(-)
+---
+base-commit: da2f480cb24d39d480b1e235eda0dd2d01f8765b
+change-id: 20250302-pmc-b90a86af945c
+
+Best regards,
+-- 
+Akihiko Odaki <akihiko.odaki@daynix.com>
 
 
