@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4ECEC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:46:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0B2FC282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fuMgAJ1TQNNEGebrmKbN3q99gG91+UBsAYkEU1XoKSs=; b=PPR/kJ9lOy/tS6b51XBJBAWK60
-	cLLTnljF/JaJSFLniXQmvPDBSi7MJVQ1CPufYETDYI7WO+4G1fMPeF5BtxOC6+DEcH26brGXY0mLV
-	gewZxJGZs+pHRS3bw9HMIe8VuMtsu5aUnmm6/KlxCS9TMZOyFCXf2Z58RLBD0qJ/KUxGbIYxFfjLc
-	50jdoK2xd2G0BT4Df9ls680bpQP6+9AdMHsgP3sSUMcl7P22djElw1XCJGR7EerlzATnGw1hyYQNp
-	OJnM+CUJTzLAWXmPvqGu7NcIrMzSdL+9A8nW++RtO2I4vwuRqeejYVrPuWjE7nHvhxHXKmIZ6Wkep
-	Ijz3egvw==;
+	bh=s72E+WiRW3VjWXLF2oTp3RR6w8yjtvEkUxbaH/xY8NM=; b=5F6Hkv7sUTzYeNZU4lNmTxpigO
+	Vz1CjHrLdJwvGHhpRDc54opiFIEExYNdafUAOOaCMlaGGu7B0EUwSgXJ+TCBRDq5sLWSEh939u5a7
+	xysWEaEZPAl8r1EQIK1k/pjf72pPx1xXM7nM3L1vzxEes+lDYFwG5SAKgCKPS+mypFJr2/PWpNgXB
+	xIFzmw7EAbI2QbzXi+namKdnQrZeBIvqEPIxwP83lKBM1pX5YNFWNZKsYPGQXk0f5OBd0HOlieMOp
+	6PD9853GPTF+vTtz/t70qL0xOYDcXdgKM+Mx8cYRaogz6uj7m35HyzQRbYhSSa94p5dKPD18BwviU
+	2CyjOd2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsisi-0000000BQ8U-0dsN;
-	Thu, 13 Mar 2025 13:45:52 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tsiy3-0000000BQxV-1W9V;
+	Thu, 13 Mar 2025 13:51:23 +0000
+Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsinp-0000000BPGG-00iG;
-	Thu, 13 Mar 2025 13:40:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=fuMgAJ1TQNNEGebrmKbN3q99gG91+UBsAYkEU1XoKSs=; b=BOhmXE027Px7ukYx2xai6+DsGe
-	K4G8q00PxwOLiaA8cFjKhj9g4mz4rdRZSxZY2i9Jjd+x4ORoeHngeaAqmRAO7yqzBPXwAwPMTtnW0
-	msitmgkZ2oG6JJisv20t6hfan7u7gjxdJqQYKvHLopCSyd5tFmMws6Axc50qn3GgrC/+mYdM1G14R
-	j3gXWFMt6pbvGasJUuV3V5+gzyxxjFkCHnkT9XHdzDs3IZ+O1lC0R9BjLFU5b58Yx7QYPK8hB4Ecl
-	ZVAGxslYmUt+fzIKdiwgF+2dJZZEojfEK1SO43wF0MXqt8U80dahKqe1Lf7RFceeTz+UqNW8se1GI
-	iKNSpNzA==;
-Received: from [62.91.42.92] (helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tsinf-0008Rg-8H; Thu, 13 Mar 2025 14:40:39 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: vkoul@kernel.org,
-	kishon@kernel.org
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quentin.schulz@cherry.de,
-	sebastian.reichel@collabora.com,
-	linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	dse@thaumatec.com,
-	heiko@sntech.de,
-	Heiko Stuebner <heiko.stuebner@cherry.de>,
-	Conor Dooley <conor.dooley@microchip.com>,
-	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v8 1/2] dt-bindings: phy: Add Rockchip MIPI C-/D-PHY schema
-Date: Thu, 13 Mar 2025 14:40:31 +0100
-Message-ID: <20250313134035.278133-2-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250313134035.278133-1-heiko@sntech.de>
-References: <20250313134035.278133-1-heiko@sntech.de>
+	id 1tsiwO-0000000BQci-1AV5
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 13:49:41 +0000
+Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-5495c1e1b63so1199760e87.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 06:49:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1741873778; x=1742478578; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=s72E+WiRW3VjWXLF2oTp3RR6w8yjtvEkUxbaH/xY8NM=;
+        b=qGQwdPjUMT3vcQQfGj4NL0MaPiYW9C7hy5ft4PEUeXOPSnAy9H14VRPzleNU3YEy8/
+         StHiwoWsiT3GA2bkK1NrUYsjVSEIsmoF4AST31WJVMVXeSFLB1rWGPKpcheNu+BneUOw
+         0L9I4p4pjm9H68pf7aroIWwOtUGXusJjV/nXydYzKk9+ZD13UKKc+J8LGZ0DdCTHcDi/
+         Cbz5RjRh90RPKn6rkjiJ/tIxb9ZeR8IW/OALbaO74E1bF+8j/xANL0ttz8hJ6CBFAPJQ
+         cZdSNb4mZfSPycXmNzbl0sgqsFBn4Qi+pTvYaKigv3Q5aRHzfmzB7Fh85bKAGInqUsDn
+         +fqw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741873778; x=1742478578;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=s72E+WiRW3VjWXLF2oTp3RR6w8yjtvEkUxbaH/xY8NM=;
+        b=QDTK2+vv7WWGz8pliLVlKA4rTsqyLWMm0yHep0+ob61XaD1+YMp0ywtABEbxG9BmTF
+         I4yoiIfINOcTcQ/DOFmSnFhFZN2AKBdpcsmVjyBWFOp7YL6oXCu/tqo/JihEdpNZMJ7K
+         lCsvoFQND2k5vlHMHP7Uia87XuC1K11c1f7oHiBwYyMhPvnStxyMs9/V7eOMO71NReVO
+         pA/JlR5aVG/BuP9cytNq3izJeB4oRY1pIeO9l8FZnuDtbNrMMjoc6tQPQgf/v+OsvfNG
+         CaD033ElxCeSDRijW5N093+4/fM6tEO2ZsqlQoEBJVX/cZNJN6SWrHu4rXW6RGanFlVQ
+         HuzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXsCjPkfo1Pd0J1gB+wy1TA2RWWJaDHSBybvsOF/4A/zxkPrefNzLh9bvkxAY5XavFG29+pPmsAo9+L3m0gwD/V@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcV0UXP2Gxuaz0/+XWSlU85xdxY1k9VLi/sUE6h81JOewybeDe
+	76SgCHgZBxxjLhdyFyTw7EXYPtn0g8i1ZlG6N3gaynSPBUistARxLhNoCfKsfd8dcvTWQaEY6Zz
+	dnyiIIS+IDS6wMszk8phQr9rOhoCgTCilLpGriQ==
+X-Gm-Gg: ASbGncv9rcU7uPXkWvt/hKFOHbUBVCB8S9Lx5rZZD7sQsrp284xT0HgecN2wFruWX6f
+	VECRnT0hK5mTp0s+AGzQldnhOQMl4VN+EZF/YYAY90KBZhdiMYNg7PZlYErS2VtNfG5JVLOiV7s
+	rDH40gHjD4C7gB89W/7lPyxmDFOA==
+X-Google-Smtp-Source: AGHT+IEccZO3i5+lVUwnSS/WaACh7JJj5Xo6UXfk6dLNaFoPEkEoI3mENp7/zCsA/uhLA0RMiNFyQBBG0+AbjlILsis=
+X-Received: by 2002:a05:6512:304a:b0:545:6ee:8396 with SMTP id
+ 2adb3069b0e04-549ababc849mr4033095e87.13.1741873778434; Thu, 13 Mar 2025
+ 06:49:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+References: <20250306235827.4895-1-andre.przywara@arm.com>
+In-Reply-To: <20250306235827.4895-1-andre.przywara@arm.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Thu, 13 Mar 2025 14:49:27 +0100
+X-Gm-Features: AQ5f1JrLPVPuCTomUP4jXqnxl_0p1ehI2pivoJIVPNCchweDQ93p9WO-dULZ7nM
+Message-ID: <CACRpkdaVH8GAx_K0a01FbRKe8CQ=jh7jwfVrs_PgS9og4vnWmQ@mail.gmail.com>
+Subject: Re: [PATCH v4 0/8] pinctrl: sunxi: Add Allwinner A523 support
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_064049_045449_6D7B7017 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250313_064940_320833_314F4D85 
+X-CRM114-Status: UNSURE (   8.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,117 +99,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On Fri, Mar 7, 2025 at 12:58=E2=80=AFAM Andre Przywara <andre.przywara@arm.=
+com> wrote:
 
-Add dt-binding schema for the MIPI C-/D-PHY found on
-Rockchip RK3588 SoCs.
+> this is the fourth drop of the series introducing pinctrl support for the
+> Allwinner A523 family of SoCs (comprising A523, A527, T527, H728). [1]
+> This time only a small fix, spotted by Jernej, thanks for that. Also
+> adding the new tags. Changelog below.
 
-Tested-by: Daniel Semkowicz <dse@thaumatec.com>
-Tested-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Tested-by: Quentin Schulz <quentin.schulz@cherry.de>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
----
- .../phy/rockchip,rk3588-mipi-dcphy.yaml       | 87 +++++++++++++++++++
- 1 file changed, 87 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
+Patches applied!
 
-diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-new file mode 100644
-index 0000000000000..c8ff5ba22a86b
---- /dev/null
-+++ b/Documentation/devicetree/bindings/phy/rockchip,rk3588-mipi-dcphy.yaml
-@@ -0,0 +1,87 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/phy/rockchip,rk3588-mipi-dcphy.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Rockchip MIPI D-/C-PHY with Samsung IP block
-+
-+maintainers:
-+  - Guochun Huang <hero.huang@rock-chips.com>
-+  - Heiko Stuebner <heiko@sntech.de>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - rockchip,rk3576-mipi-dcphy
-+      - rockchip,rk3588-mipi-dcphy
-+
-+  reg:
-+    maxItems: 1
-+
-+  "#phy-cells":
-+    const: 1
-+    description: |
-+      Argument is mode to operate in. Supported modes are:
-+        - PHY_TYPE_DPHY
-+        - PHY_TYPE_CPHY
-+      See include/dt-bindings/phy/phy.h for constants.
-+
-+  clocks:
-+    maxItems: 2
-+
-+  clock-names:
-+    items:
-+      - const: pclk
-+      - const: ref
-+
-+  resets:
-+    maxItems: 4
-+
-+  reset-names:
-+    items:
-+      - const: m_phy
-+      - const: apb
-+      - const: grf
-+      - const: s_phy
-+
-+  rockchip,grf:
-+    $ref: /schemas/types.yaml#/definitions/phandle
-+    description:
-+      Phandle to the syscon managing the 'mipi dcphy general register files'.
-+
-+required:
-+  - compatible
-+  - reg
-+  - clocks
-+  - clock-names
-+  - resets
-+  - reset-names
-+  - "#phy-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/rockchip,rk3588-cru.h>
-+    #include <dt-bindings/reset/rockchip,rk3588-cru.h>
-+
-+    soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      phy@feda0000 {
-+        compatible = "rockchip,rk3588-mipi-dcphy";
-+        reg = <0x0 0xfeda0000 0x0 0x10000>;
-+        clocks = <&cru PCLK_MIPI_DCPHY0>,
-+                 <&cru CLK_USBDPPHY_MIPIDCPPHY_REF>;
-+        clock-names = "pclk", "ref";
-+        resets = <&cru SRST_M_MIPI_DCPHY0>,
-+                 <&cru SRST_P_MIPI_DCPHY0>,
-+                 <&cru SRST_P_MIPI_DCPHY0_GRF>,
-+                 <&cru SRST_S_MIPI_DCPHY0>;
-+        reset-names = "m_phy", "apb", "grf", "s_phy";
-+        rockchip,grf = <&mipidcphy0_grf>;
-+        #phy-cells = <1>;
-+      };
-+    };
--- 
-2.47.2
-
+Yours,
+Linus Walleij
 
