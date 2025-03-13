@@ -4,65 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91E90C282DE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 45DBCC282EC
 	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 15:51:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ahKNJ1K4cQrASC6eYVYW0EeOemqP9AADaDfTU2W6hM0=; b=kwcdX+FM69lf3imBw4g9joNd8U
-	Mp2DkgwjCXIdrztqkjdPZBB6NAh4shbyDP5uYp5XCEDo75n8fG6lqQnMnKNt93uMT+mc3sJi9hFR+
-	Mt6hcmFjHkrL5c7GM+kxIWHCMCo46HuzoDknOCAAtI1V4GAWWdniWrAYZ3P8GDggeMesX3+tCBka+
-	DxJh7RzYCuYT61WMr9OMxtDf+v5nC3LfxiNkSBIA8+p95BB9W13juEqWQG2v808Seo7TbV0v1/HsD
-	Vsj38nAx+O9736XS011OaB1BhXjRCK07rnOjde0THSTe7gCSttG6zjhRYfL/z4ob1+KcLzmej2ypM
-	j7Tb5BCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JiDlc+RxBgfUDjd7Pir9OBSS0A1MYtjoFvA+x71lb84=; b=kL2JX4UzETibZZ00E1XJvi19NU
+	X74TvLsi9QbErBcaTyHTuiMP6ufcc8XWZATKGYklAMcXvOi7SRp/bf4C+8tljZjngpLkqPbUbIMnU
+	iyBpRHC0nliNBp/AP07VZPAkdHD+GgUo4ZDNmmbabbQSQJ1f9F/0AOL4vPbets3FxhnaLERN6/U35
+	T6pUA0K8RgIeIyRg+m74eXy8GtTrr26X3TWG8iGxdDDFmnHY003gGA+uT77HP15seJrfTVZIHHQp4
+	FbaEPo4avYty+KTcMT8jl6aY75ltwz5wFkLXSyymFLjHGBQzg334JygfFekuVCCoAdrA+tBigeSEp
+	k24XglTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tskpm-0000000Bi5t-1IET;
-	Thu, 13 Mar 2025 15:50:58 +0000
-Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsjl9-0000000BZNq-2Wnr
+	id 1tskpl-0000000Bi5d-3IJz;
+	Thu, 13 Mar 2025 15:50:57 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsjjH-0000000BZ7g-1129
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 14:42:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 793F5A47524;
-	Thu, 13 Mar 2025 14:36:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4141C4CEE5;
-	Thu, 13 Mar 2025 14:42:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741876926;
-	bh=OqmxZ0VZnr16HlRT5VfWg8ZyCe63kc9gmBUWsIt79+8=;
-	h=From:To:Cc:Subject:Date:From;
-	b=WPn4BgYoeIEGfTC75rPPB0YmdhCcuNobSsfJMMyruuDpY4eR2et6+TZnf4/0LXQSr
-	 tfYu1KOuAzHpCuW296x+tDsESkQR3TO3vGqjRtHLo+EykkQSBv+dTaxIh5VJuRoWqb
-	 pK/gOpPQBnN4T4pCtIgQwz7Ki3QmWHDF1YXMsQOD4DXq25LarnKdfgMuiwBIummy+4
-	 +rnHug5ThUP9ZYWI5pUqsBVFuOIeaQxCCMCq1Sq2gISZhs8euORfjsLsTg860i1H3c
-	 B9W2Vi4aAQfJK3u/ihs1aIuPdBcXmC3zlbeTBB+4aRWzSlpAbyCD3q6+3cXPaY6d7o
-	 LJRPovaOPkQUQ==
-From: Michael Walle <mwalle@kernel.org>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Michael Walle <mwalle@kernel.org>
-Subject: [PATCH] arm64: dts: ti: k3-am62p-j722s: add rng node
-Date: Thu, 13 Mar 2025 15:41:55 +0100
-Message-Id: <20250313144155.2382316-1-mwalle@kernel.org>
-X-Mailer: git-send-email 2.39.5
+	Thu, 13 Mar 2025 14:40:12 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2134150C;
+	Thu, 13 Mar 2025 07:40:20 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F048D3F694;
+	Thu, 13 Mar 2025 07:40:09 -0700 (PDT)
+Date: Thu, 13 Mar 2025 14:40:05 +0000
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: lcherian@marvell.com, coresight@lists.linaro.org,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com
+Subject: Re: [PATCH 4/7] coresight: Add claim tag warnings and debug messages
+Message-ID: <20250313144005.GQ9682@e132581.arm.com>
+References: <20250211103945.967495-1-james.clark@linaro.org>
+ <20250211103945.967495-5-james.clark@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250211103945.967495-5-james.clark@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_074207_701704_2B4A7572 
-X-CRM114-Status: UNSURE (   9.46  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250313_074011_379981_137043A2 
+X-CRM114-Status: GOOD (  27.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,40 +68,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the node for the random number generator inside the crypto module.
+On Tue, Feb 11, 2025 at 10:39:40AM +0000, James Clark wrote:
+> 
+> Add a dev_dbg() message so that external debugger conflicts are more
+> visible. There are multiple reasons for -EBUSY so a message for this
+> particular one could be helpful. Add errors for and enumerate all the
+> other cases that are impossible.
+> 
+> Signed-off-by: James Clark <james.clark@linaro.org>
+> ---
+>  drivers/hwtracing/coresight/coresight-core.c | 48 ++++++++++++--------
+>  drivers/hwtracing/coresight/coresight-priv.h |  5 +-
+>  2 files changed, 34 insertions(+), 19 deletions(-)
+> 
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 7b53165c93af..7fe5d5d432c4 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -133,16 +133,6 @@ static inline u32 coresight_read_claim_tags(struct csdev_access *csa)
+>                          csdev_access_relaxed_read32(csa, CORESIGHT_CLAIMCLR));
+>  }
+> 
+> -static inline bool coresight_is_claimed_self_hosted(struct csdev_access *csa)
+> -{
+> -       return coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED;
+> -}
+> -
+> -static inline bool coresight_is_claimed_any(struct coresight_device *csdev)
+> -{
+> -       return coresight_read_claim_tags(&csdev->access) != 0;
+> -}
+> -
+>  static inline void coresight_set_self_claim_tag(struct csdev_access *csa)
+>  {
+>         csdev_access_relaxed_write32(csa, CORESIGHT_CLAIM_SELF_HOSTED,
+> @@ -169,18 +159,40 @@ static inline void coresight_clear_self_claim_tag(struct csdev_access *csa)
+>   */
+>  int coresight_claim_device_unlocked(struct coresight_device *csdev)
+>  {
+> +       int tag;
+> +       struct csdev_access *csa;
+> +
+>         if (WARN_ON(!csdev))
+>                 return -EINVAL;
+> 
+> -       if (coresight_is_claimed_any(csdev))
+> +       csa = &csdev->access;
+> +       tag = coresight_read_claim_tags(csa);
+> +
+> +       switch (tag) {
+> +       case CORESIGHT_CLAIM_FREE:
+> +               coresight_set_self_claim_tag(csa);
+> +               if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED)
+> +                       return 0;
+> +
 
-Signed-off-by: Michael Walle <mwalle@kernel.org>
----
-This was tested on a J722S/AM67A. Also, according to the TRM this is the
-MCU instance of the SA3UL. But it's defined in -main.dtsi. Is this
-correct?
----
- arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi | 8 ++++++++
- 1 file changed, 8 insertions(+)
+It would be a rare case if a failure happens here.  Seems to me, it
+would be valuable to print a log for this edge case.
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-index 6e3beb5c2e01..e868e006318e 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p-j722s-common-main.dtsi
-@@ -227,9 +227,17 @@ crypto: crypto@40900000 {
- 		reg = <0x00 0x40900000 0x00 0x1200>;
- 		#address-cells = <2>;
- 		#size-cells = <2>;
-+		ranges = <0x00 0x40900000 0x00 0x40900000 0x00 0x30000>;
-+
- 		dmas = <&main_pktdma 0xf501 0>, <&main_pktdma 0x7506 0>,
- 		       <&main_pktdma 0x7507 0>;
- 		dma-names = "tx", "rx1", "rx2";
-+
-+		rng: rng@40910000 {
-+			compatible = "inside-secure,safexcel-eip76";
-+			reg = <0x00 0x40910000 0x0 0x7d>;
-+			interrupts = <GIC_SPI 129 IRQ_TYPE_LEVEL_HIGH>;
-+		};
- 	};
- 
- 	secure_proxy_sa3: mailbox@43600000 {
--- 
-2.39.5
+Otherwise, looks good to me.
 
+> +               /* There was a race setting the tag, clean up and fail */
+> +               coresight_clear_self_claim_tag(csa);
+>                 return -EBUSY;
+> 
+> -       coresight_set_self_claim_tag(&csdev->access);
+> -       if (coresight_is_claimed_self_hosted(&csdev->access))
+> -               return 0;
+> -       /* There was a race setting the tag, clean up and fail */
+> -       coresight_clear_self_claim_tag(&csdev->access);
+> -       return -EBUSY;
+> +       case CORESIGHT_CLAIM_EXTERNAL:
+> +               /* External debug is an expected state, so log and report BUSY */
+> +               dev_dbg(&csdev->dev, "Busy: Claimed by external debugger");
+> +               return -EBUSY;
+> +
+> +       default:
+> +       case CORESIGHT_CLAIM_SELF_HOSTED:
+> +       case CORESIGHT_CLAIM_INVALID:
+> +               /*
+> +                * Warn here because we clear a lingering self hosted tag
+> +                * on probe, so other tag combinations are impossible.
+> +                */
+> +               dev_err_once(&csdev->dev, "Invalid claim tag state: %x", tag);
+> +               return -EBUSY;
+> +       }
+>  }
+>  EXPORT_SYMBOL_GPL(coresight_claim_device_unlocked);
+> 
+> @@ -205,7 +217,7 @@ EXPORT_SYMBOL_GPL(coresight_claim_device);
+>   */
+>  void coresight_disclaim_device_unlocked(struct csdev_access *csa)
+>  {
+> -       if (coresight_is_claimed_self_hosted(csa))
+> +       if (coresight_read_claim_tags(csa) == CORESIGHT_CLAIM_SELF_HOSTED)
+>                 coresight_clear_self_claim_tag(csa);
+>         else
+>                 /*
+> diff --git a/drivers/hwtracing/coresight/coresight-priv.h b/drivers/hwtracing/coresight/coresight-priv.h
+> index cc7ff1e36ef4..a83113225797 100644
+> --- a/drivers/hwtracing/coresight/coresight-priv.h
+> +++ b/drivers/hwtracing/coresight/coresight-priv.h
+> @@ -36,7 +36,10 @@ extern const struct device_type coresight_dev_type[];
+>   * See PSCI - ARM DEN 0022D, Section: 6.8.1 Debug and Trace save and restore.
+>   */
+>  #define CORESIGHT_CLAIM_MASK           GENMASK(1, 0)
+> -#define CORESIGHT_CLAIM_SELF_HOSTED    BIT(1)
+> +#define CORESIGHT_CLAIM_FREE           0
+> +#define CORESIGHT_CLAIM_EXTERNAL       1
+> +#define CORESIGHT_CLAIM_SELF_HOSTED    2
+> +#define CORESIGHT_CLAIM_INVALID                3
+> 
+>  #define TIMEOUT_US             100
+>  #define BMVAL(val, lsb, msb)   ((val & GENMASK(msb, lsb)) >> lsb)
+> --
+> 2.34.1
+> 
+> _______________________________________________
+> CoreSight mailing list -- coresight@lists.linaro.org
+> To unsubscribe send an email to coresight-leave@lists.linaro.org
 
