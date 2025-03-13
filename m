@@ -4,53 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55EC5C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:37:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5902EC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:38:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1mulqT0pAzSVUrmF9PlZ7FDSmEsv6eq23fAgCC/7Ymw=; b=AVi97fEJD77nkgwL/azzCywGrC
-	2LR1iW/dULoNvQ9SypNJTlWSNhs6vbi5g828Te4HJMR6forZUG5jUaFhJOXyq5dKWDs+/+lPL85W5
-	PuB8c4hTFWE4yS5Ct78Kd7jAvp5ahDFhpWgtBAY439LEzdR/CdwcFWG7IhzQVYKqhXMk1YhLqQuFF
-	HNGgTfUYX4ux++oBpyKYfHtuPLNyJVNMs7mT6eF1Dsb1qWioyNN/ysHHk63r9lWpN5Z69AJu/7/fI
-	ZG+9TrwjZ/YNmNUQEpC1nVRmOGorQYxlupEsDiDfaQwjC5pn7XTj6cL9zJhUsRrMV4INxS11FkLtw
-	wXirbsFQ==;
+	bh=p3qmZeyf1LQS4z+Xf+r5N62HxgRxPg75To7hmPNe/DI=; b=tWHkW6yk+5xAGEGeZ/yMY7f68Z
+	+B52/g9Sn+RcMgxxIK4tH50wLJO/JJcRYaFdmNYARAycdtwlO/o8Fj5UgeBUnZ490O5SA5m5dTpKs
+	Jd10bDzB6DFEyv8C6m6QIbCppwOPgpSc7XmPIG6Vj3Ecag6sp9sDKBQxY/weJw0zUWcVwEnhOoEVX
+	dyDutLylOOuKYC+wFm0QFQrs/vFIFa+3dZAKS3DUMBAvkprZm1hWkRTufJEtLM9Ky859P0mvVPlS4
+	99fRJCMkj5D/Bk0oT5SwxTWmtWHkLtvI3tFqOxnkLPPSF1pZpfyEgm6yEg6c8fhV5GurP+l1uYLZ4
+	s71Ancvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tse3e-0000000AZ9i-3L8K;
-	Thu, 13 Mar 2025 08:36:50 +0000
-Received: from mail.optiora.pl ([94.177.238.30])
+	id 1tse5H-0000000AZLr-2YFH;
+	Thu, 13 Mar 2025 08:38:31 +0000
+Received: from smtp21.cstnet.cn ([159.226.251.21] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tse0a-0000000AYj5-20M3
+	id 1tse0o-0000000AYki-1bvi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 08:33:42 +0000
-Received: by mail.optiora.pl (Postfix, from userid 1002)
-	id 668A683237; Thu, 13 Mar 2025 09:31:21 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=optiora.pl; s=mail;
-	t=1741854697; bh=1mulqT0pAzSVUrmF9PlZ7FDSmEsv6eq23fAgCC/7Ymw=;
-	h=Date:From:To:Subject:From;
-	b=HOywuPzhxw35n2PBqFjIlNpQARnutu2rGylGba5qx9zWXhdDXChqH5xOdcgtWfUpV
-	 s1Q7FeAPAqnf9N/EOx9nL46mc/cvufK84luq5CmuiljoRhhNVHxVePNoEivnZBMwTS
-	 E7h6mpB+clnJN4goGavQvONlPVMRPBJrz3mO3tXdRls+lhB6oePAqqc1NjNEQ394Qu
-	 i+gYKnS1b5cxbMk53RpywCRDpmDbm+8+jrFPEW6IqrMsQC1pvdFLGBjL4OQsPAYe10
-	 40uhTnjRy7xIHe79di0UEXc0+eE/rUiUdMWxu8/6qP9LgyTSn9zYn0VEzaL/gsuZX9
-	 9Y/gs4KhbyDrg==
-Received: by mail.optiora.pl for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 08:31:07 GMT
-Message-ID: <20250313084500-0.1.88.w73z.0.frcbbnjy6p@optiora.pl>
-Date: Thu, 13 Mar 2025 08:31:07 GMT
-From: =?UTF-8?Q?"Stanis=C5=82awa_Laskowska"?= <stanislawa.laskowska@optiora.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Kandydat do pracy
-X-Mailer: mail.optiora.pl
+	Thu, 13 Mar 2025 08:33:55 +0000
+Received: from localhost (unknown [124.16.138.129])
+	by APP-01 (Coremail) with SMTP id qwCowABHT1dhmNJn_xfUFA--.47163S2;
+	Thu, 13 Mar 2025 16:33:37 +0800 (CST)
+From: Chen Ni <nichen@iscas.ac.cn>
+To: marex@denx.de,
+	stefan@agner.ch,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chen Ni <nichen@iscas.ac.cn>
+Subject: [PATCH] drm/mxsfb: Remove unnecessary NULL check before clk_prepare_enable/clk_disable_unprepare
+Date: Thu, 13 Mar 2025 16:32:59 +0800
+Message-Id: <20250313083259.2481602-1-nichen@iscas.ac.cn>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qwCowABHT1dhmNJn_xfUFA--.47163S2
+X-Coremail-Antispam: 1UD129KBjvdXoW7Gw4kZF47ur13Ary7tr48Crg_yoWktFgE9r
+	WDJrZ3CF45urnYyw1j9wn8Aryvkr4UZFs8W340qrs5try3XwsxZry2vw43ZwnrX3yUJFya
+	gw1DXF4fAr18ZjkaLaAFLSUrUUUUbb8apTn2vfkv8UJUUUU8Yxn0WfASr-VFAUDa7-sFnT
+	9fnUUIcSsGvfJTRUUUbS8FF20E14v26r4j6ryUM7CY07I20VC2zVCF04k26cxKx2IYs7xG
+	6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48ve4kI8w
+	A2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI0_Gr1j
+	6F4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
+	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
+	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr1j6F4UJwAm72CE4IkC6x0Yz7
+	v_Jr0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7M4IIrI8v6xkF
+	7I0E8cxan2IY04v7MxkF7I0En4kS14v26r4a6rW5MxkIecxEwVAFwVW8ZwCF04k20xvY0x
+	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
+	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_GFv_WrylIxkGc2Ij64vIr41lIxAIcV
+	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Gr0_Cr1lIxAIcVCF
+	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
+	CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x0pRTE_NUUUUU=
+X-Originating-IP: [124.16.138.129]
+X-CM-SenderInfo: xqlfxv3q6l2u1dvotugofq/
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_013341_203660_F0D63A55 
-X-CRM114-Status: UNSURE (   2.42  )
+X-CRM114-CacheID: sfid-20250313_013354_777574_2F110588 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -66,18 +90,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dzie=C5=84 dobry,
+clk_prepare_enable() and clk_disable_unprepare() already checked
+NULL clock parameter.Remove unneeded NULL check for clk here.
 
-delegujemy sprawdzone osoby ze Wschodu do pracy w firmach produkcyjnych d=
-o prostych prac przy produkcji, na magazynie, przy pakowaniu towaru czy k=
-ontroli jako=C5=9Bci.=20
+Signed-off-by: Chen Ni <nichen@iscas.ac.cn>
+---
+ drivers/gpu/drm/mxsfb/mxsfb_kms.c | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
 
-Nasza firma organizuje wszelkie formalno=C5=9Bci oraz zakwaterowanie, co =
-pozwala zmniejszy=C4=87 koszty po Pa=C5=84stwa stronie.
+diff --git a/drivers/gpu/drm/mxsfb/mxsfb_kms.c b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+index 7ed2516b6de0..6072de530706 100644
+--- a/drivers/gpu/drm/mxsfb/mxsfb_kms.c
++++ b/drivers/gpu/drm/mxsfb/mxsfb_kms.c
+@@ -152,8 +152,7 @@ static void mxsfb_enable_controller(struct mxsfb_drm_private *mxsfb)
+ {
+ 	u32 reg;
+ 
+-	if (mxsfb->clk_disp_axi)
+-		clk_prepare_enable(mxsfb->clk_disp_axi);
++	clk_prepare_enable(mxsfb->clk_disp_axi);
+ 	clk_prepare_enable(mxsfb->clk);
+ 
+ 	/* Increase number of outstanding requests on all supported IPs */
+@@ -222,8 +221,7 @@ static void mxsfb_disable_controller(struct mxsfb_drm_private *mxsfb)
+ 	writel(reg, mxsfb->base + LCDC_VDCTRL4);
+ 
+ 	clk_disable_unprepare(mxsfb->clk);
+-	if (mxsfb->clk_disp_axi)
+-		clk_disable_unprepare(mxsfb->clk_disp_axi);
++	clk_disable_unprepare(mxsfb->clk_disp_axi);
+ }
+ 
+ /*
+-- 
+2.25.1
 
-Czy mog=C4=99 przedstawi=C4=87 szczeg=C3=B3=C5=82y?
-
-
-Pozdrawiam
-Stanis=C5=82awa Laskowska
 
