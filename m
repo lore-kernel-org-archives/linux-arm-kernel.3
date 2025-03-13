@@ -4,67 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC395C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:05:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98747C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 19:07:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=H5mdS2EnE4cpGSwW2dj+33eKcmSk0c9tKXjXQcM25/Y=; b=chZTAsKZUfDHGlMntYkJTz80tb
-	etuOhMIwY/FkQKURI+ilj2Gqy0IPHZg0AVkXu9bRVaV19a1iksgQovqyBQNchffK77/Y7vMcNiydp
-	TaJVLs/BJo7CZGRL2d9LPqyL/Tt/mG/DbPl9CrVAaJLUbbjD1v7OKOD+m4n5mpTcafsL9JqFIS6ix
-	JRalnBex3v8hw46ylM4S481PNC0BTBm9ofsyM1rxFSQupqeocrcId8WauHAW7mCemGVsqEhQnhbG0
-	cn1JxGhjmbj1LatMX5/io0MGeVXBV04d47o0GL3uiS8s79+CtyCB4ZwCKsuDvvBZFx8BGHEyw7oLQ
-	GHLoKjXg==;
+	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=; b=NNajtRuuQ053sWK6wROQy1ac7J
+	fY0rykiLCGEUgosIKND8pjOSrlvitwUIUlshYBWX/nZKKmMIDUo2OVT0szzwmhjiEXcDorN71yNbf
+	aObku6znhJ+67Mi24lGnmw95G6Qp3k8rfmmU0IqU1/FWe5CwXheMIr0syne56EBA8dLTHkBl11F68
+	j33fnSEyXueAv+pPNsIfUbuRuj6iQf0TJH95RUhO9I4NPyI34pJ7xOCXUPs9YjMTmTTBWfum78e6f
+	DEDEnJY197hFJJofkUkt79erK2MzRERgr0IqS1mHl843aR4btJJhkp7TkJDJCWPrdWX7KlT6WOlF5
+	Ub79zk/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnrp-0000000CH4o-1p3x;
-	Thu, 13 Mar 2025 19:05:17 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1tsntT-0000000CHQF-1mMS;
+	Thu, 13 Mar 2025 19:06:59 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsnq9-0000000CGd4-1A71;
-	Thu, 13 Mar 2025 19:03:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID;
-	bh=H5mdS2EnE4cpGSwW2dj+33eKcmSk0c9tKXjXQcM25/Y=; b=zjw9b1/WQHf2OAGZlzSVLoknvh
-	L1RzSpSTzDaBy2/7e0enIt/0atwWM1R3t4p6z7c+Lnp9Kqve3jzidGIU2liFppchMDCJ/55q3o81w
-	wBmcrUYreJ14Nl+B7ENvo7tK0OH1ZmtsY8/c0UnHNNz+gu04WenM0+w7HgetKI5XlUgGYuG8mkSh8
-	lEllzjETEAnNXmGdbyWXjj8MMiE5V/9s4fo/aMhSSXgEKAcJ+5X+VSiqLyqWVn4FiuW1RLhqOw8vz
-	LcCcK+pI1jy9CJy2gEJbZyAZvLAOZ/0xnSZkRtjgcKlUAZG/vq038NnSC1FWFqmSfZQZvM8XjDBvC
-	fwApDVeg==;
-Received: from ip-185-104-138-79.ptr.icomera.net ([185.104.138.79] helo=phil..)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1tsnq2-0001sH-Jr; Thu, 13 Mar 2025 20:03:26 +0100
-From: Heiko Stuebner <heiko@sntech.de>
-To: linux-rockchip@lists.infradead.org,
-	Jianfeng Liu <liujianfeng1994@gmail.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Stephen Rothwell <sfr@canb.auug.org.au>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Enable HDMI audio output for ArmSoM Sige7
-Date: Thu, 13 Mar 2025 20:03:13 +0100
-Message-ID: <174189257844.294070.2578524540715601524.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250312164056.3998224-1-liujianfeng1994@gmail.com>
-References: <20250312164056.3998224-1-liujianfeng1994@gmail.com>
+	id 1tsnrJ-0000000CGvs-2jWg;
+	Thu, 13 Mar 2025 19:04:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1741892667; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=IDai2uCPeDltdnQDWMLspcg/wpWhfJjWrHiFe0Oxud8trPkbuItbTwPuFtBu2bKWZP5HQ1jy6RRWDZo0r+8GsE8DXHALA0KEoVM149PtwDyn8m3zvn9cfUF3NGPOMhmJGYBaAtYFNZeDzE2QQetK0Ueo04up/jXQuEMWEVHLz98=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1741892667; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=; 
+	b=DTujC8IarYC+WlMIUIA3V0dfkynhjraTTMeFsnB2KEqbUu/k3LXGKBkjdIs0fOtxrcMjuBJlTpGBIfK7T+54EpBTiRMzZ7opNtbGbrabZe6zfoBEY0AbYuobq32eCHgF92H/Fm+Ew1iaLsLH5OQspxGxoqHpn4yvbfOrRpWc5KU=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1741892667;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=0oIWPDRciLqWE5onPVwFJiWQ7qoNl5vDCFa0WS9jdh4=;
+	b=ABhqq4BjNTKf0mQ2n2Hu4xIa+Uv0npWPfJe4cdjtmkAbYQRP0OMUUrxvxZ70q2Cc
+	Hs54FPNtEfwy1R3Gei2dh/xKBnyV7eTBO2jSGseJgJu8+a+2RONFS68nZwm7e5PeapU
+	lHVS1KkEufwpimWodvMlv4XaWdzfcHP76NqFvYws=
+Received: by mx.zohomail.com with SMTPS id 17418926658661000.7935840965962;
+	Thu, 13 Mar 2025 12:04:25 -0700 (PDT)
+Message-ID: <fa5ff28c-ffa0-47d7-9498-ef8b297c7afb@collabora.com>
+Date: Thu, 13 Mar 2025 16:04:18 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1 5/6] drm/panfrost: Enable AARCH64_4K page table format
+ on mediatek_mt8188
+To: Boris Brezillon <boris.brezillon@collabora.com>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ robh@kernel.org, steven.price@arm.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
+ kernel@collabora.com, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, sjoerd@collabora.com
+References: <20250310195921.157511-1-ariel.dalessandro@collabora.com>
+ <20250310195921.157511-6-ariel.dalessandro@collabora.com>
+ <20250311090649.0d15d74d@collabora.com>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250311090649.0d15d74d@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_120333_314729_4AC46446 
-X-CRM114-Status: UNSURE (   9.96  )
+X-CRM114-CacheID: sfid-20250313_120445_730023_3C218A69 
+X-CRM114-Status: UNSURE (   7.22  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,19 +85,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Boris,
 
-On Thu, 13 Mar 2025 00:40:49 +0800, Jianfeng Liu wrote:
-> HDMI audio is available on the ArmSoM Sige7 HDMI TX port.
-> Enable it for HDMI0 port.
+On 3/11/25 5:06 AM, Boris Brezillon wrote:
+> On Mon, 10 Mar 2025 16:59:20 -0300
+> Ariel D'Alessandro <ariel.dalessandro@collabora.com> wrote:
 > 
+>> Now that Panfrost supports AARCH64_4K page table format, let's enable it
+>> on Mediatek MT8188.
 > 
+> Can you maybe give more details on why this is needed
+> (legacy shareability/cacheability not suitable for this GPU?)?
 
-Applied, thanks!
+Ack, will expand in v2.
 
-[1/1] arm64: dts: rockchip: Enable HDMI audio output for ArmSoM Sige7
-      commit: e2759a8d452bcc1b64ecd4e819411fa26b6ed72e
+Thanks!
 
-Best regards,
 -- 
-Heiko Stuebner <heiko@sntech.de>
+Ariel D'Alessandro
+Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
+
 
