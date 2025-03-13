@@ -4,80 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D55FC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:21:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A2CBC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:23:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Content-Transfer-Encoding:Mime-Version:To:From:Cc:Subject:Message-Id:Date:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/TF/F6lXdjR8IB4UYkLtUXrENiAwln8Gi9GSzblYrCw=; b=3aimeycaOEaOao6RFUjYBOK4DJ
-	n1OS2j/VzgyAuflpL/0M6DwLUcdDyfW7ItsO2Y03cNhbzhLF9ekIGXstTva/ahtwRp+UcJ++ywLG0
-	hi7lxDvogN7l7Nkunr+HJ/HZspZgt047lpaPRF7wR8EIxdCt1GlYYOZQfe9xrE7ZD2bqXUPQwHwGJ
-	ZD7oFcJb2H4xaSLro3DJhkHfQd8I8apyDy3kURAs3cseqNXBpozpyjQ6RpGgwnJ8shB8VeYlOhXH4
-	Un8IlyF2nj2GG1mDNgsImZBfjbU0xYXEFLZWF1iIy5hVgXQMRHNOTweLM157EUTMnaEvq/UCmCzDS
-	IVLJuAxw==;
+	bh=GxZRHUz0odpMCAdOXDZV2Gewb34GcPHensWB6qpYNW0=; b=ztwWKIO9G/jFdX6+30+f3z3xui
+	H3q1zShNFSJIjVoWwaOmTat3vWSq6fHSN/ya7ZfSWohYk6eN9K0uxV9lySZmOysSlGYvXyy6xVx7R
+	PC41vLmgfPjNsatzyhbLwiy/4R8pjHfmMsvlhjtCumnqQ86Ss/vRK0+/PaFxPWa2kQGkdYZU12/xC
+	AWN5vo3z62zBs/bgfUUNM9inn85hgnH4s65O+5jsPkIcTZTHisYCZuRKJiRC2rts70MTpqDing8fJ
+	Ski8ynX9Dy2K5qesgWXhE+M0NYp4+tqx9fH/HYPfjvmeTlU6gMXMSr5IvM7ZDLgIoe1w5ICP8nI+B
+	EdgLRb7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgct-0000000B1Z4-3nhx;
-	Thu, 13 Mar 2025 11:21:23 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1tsgeW-0000000B1jj-48wI;
+	Thu, 13 Mar 2025 11:23:05 +0000
+Received: from relay2-d.mail.gandi.net ([217.70.183.194])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgVz-0000000B0Gv-3iLQ
+	id 1tsgWK-0000000B0L7-1IU5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:14:17 +0000
-Received: from fllv0035.itg.ti.com ([10.64.41.0])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTPS id 52DBEATZ1856319
-	(version=TLSv1.2 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
-	Thu, 13 Mar 2025 06:14:10 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1741864450;
-	bh=/TF/F6lXdjR8IB4UYkLtUXrENiAwln8Gi9GSzblYrCw=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=MJXz7tr9nyecpy7QjTkOLn6IkrbZKqEAzsHPRXduyv7sFMykNvgyjwzP7o7tpEFu9
-	 bcle+02bf266ZgS0wooko5Stcm49XrXP2lQ/8qy9LoVYoXwl+jCBi7uxIh17tV1RpU
-	 DnYE10eJD+cS8qLmsGhRYcKvLQtMNa9Tm9uaBJhA=
-Received: from DFLE114.ent.ti.com (dfle114.ent.ti.com [10.64.6.35])
-	by fllv0035.itg.ti.com (8.15.2/8.15.2) with ESMTPS id 52DBEAu7041226
-	(version=TLSv1.2 cipher=AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Thu, 13 Mar 2025 06:14:10 -0500
-Received: from DFLE107.ent.ti.com (10.64.6.28) by DFLE114.ent.ti.com
- (10.64.6.35) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23; Thu, 13
- Mar 2025 06:14:10 -0500
-Received: from lelvsmtp5.itg.ti.com (10.180.75.250) by DFLE107.ent.ti.com
- (10.64.6.28) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.23 via
- Frontend Transport; Thu, 13 Mar 2025 06:14:10 -0500
-Received: from [10.24.69.37] (a0497641-hp-z2-tower-g9-workstation-desktop-pc.dhcp.ti.com [10.24.69.37] (may be forged))
-	by lelvsmtp5.itg.ti.com (8.15.2/8.15.2) with ESMTP id 52DBE60E053638;
-	Thu, 13 Mar 2025 06:14:07 -0500
-Message-ID: <8e58b093-1c64-45b9-a9d3-9835a3bbc4fd@ti.com>
-Date: Thu, 13 Mar 2025 16:44:06 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/2] dt-bindings: misc: bist: Add BIST dt-binding for TI
- K3 devices
-To: Krzysztof Kozlowski <krzk@kernel.org>
-CC: <nm@ti.com>, <vigneshr@ti.com>, <kristo@kernel.org>, <robh@kernel.org>,
-        <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <u-kumar1@ti.com>
-References: <20241128140825.263216-1-n-francis@ti.com>
- <20241128140825.263216-2-n-francis@ti.com>
- <ho7ktcnbtl7mvamfthqho23co2fc4z7bgjha7pu4wivxm6ndhu@tfbpveonhckz>
- <837d329b-bcdd-4c3b-b508-e916b110ce25@ti.com>
- <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
-Content-Language: en-US
-From: Neha Malcom Francis <n-francis@ti.com>
-In-Reply-To: <e57dfc3e-b702-4803-b776-20c6dbd98fef@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+	Thu, 13 Mar 2025 11:14:37 +0000
+Received: by mail.gandi.net (Postfix) with ESMTPSA id D6C2343152;
+	Thu, 13 Mar 2025 11:14:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=gm1;
+	t=1741864470;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GxZRHUz0odpMCAdOXDZV2Gewb34GcPHensWB6qpYNW0=;
+	b=K57RJVVry+aqhLyQrVxSO4IAxED4+E2G+7+fkUvNhgvK7Q9jpbbOqar2SDtepqXnrMWaVB
+	LTT8Tn/GX2Q/yC3FHeXUxH1TrSQXNYQU+WJslfCY6/o6XRlpdl9RQbp1xtO0wDFIOfpORM
+	itwbhKXW/COXgf3O68gErM3szNiCucaOtDlksnV+sv/rm4eVQ8kZn1EoUQE8D+gujujYZC
+	G9acDWmdcUhDRR4QZksDRmrXpGOBpumVsOUYlRgUAT71aGXP3DaNy7KjArTC7vGRYOO2KJ
+	qe/dqoT6aTaBp8x0FASOVeSyE91RzsvOKDRM51E8m4Uzi6OyGgeYDCySyDIRBQ==
+Content-Type: text/plain; charset=UTF-8
+Date: Thu, 13 Mar 2025 12:14:26 +0100
+Message-Id: <D8F3F4YLD0ZM.19X0451BIIDVO@bootlin.com>
+Subject: Re: [PATCH v3 1/3] dt-bindings: arm: fsl: Add VAR-SOM-MX6UL SoM and
+ Concerto board
+Cc: "Krzysztof Kozlowski" <krzk@kernel.org>, "Rob Herring"
+ <robh@kernel.org>, "Krzysztof Kozlowski" <krzk+dt@kernel.org>, "Conor
+ Dooley" <conor+dt@kernel.org>, "Shawn Guo" <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, "Pengutronix Kernel Team"
+ <kernel@pengutronix.de>, "Fabio Estevam" <festevam@gmail.com>, "Thomas
+ Petazzoni" <thomas.petazzoni@bootlin.com>, <devicetree@vger.kernel.org>,
+ <linux-kernel@vger.kernel.org>, <imx@lists.linux.dev>,
+ <linux-arm-kernel@lists.infradead.org>
+From: "Antonin Godard" <antonin.godard@bootlin.com>
+To: "Konstantin Ryabitsev" <konstantin@linuxfoundation.org>
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: aerc 0.20.1-0-g2ecb8770224a
+References: <20250310-varsom6ul-concerto-dts-v3-0-551e60713523@bootlin.com>
+ <20250310-varsom6ul-concerto-dts-v3-1-551e60713523@bootlin.com>
+ <63f8aa7d-fcd4-450f-b3a1-44886a29fc7e@kernel.org>
+ <cd2f3c97-53bb-42f5-a3cd-4385bfda5dc7@kernel.org>
+ <D8CQAAKOZ1O5.8JVESQPJSSM8@bootlin.com>
+ <20250311-omniscient-fiery-bison-8e7feb@lemur>
+In-Reply-To: <20250311-omniscient-fiery-bison-8e7feb@lemur>
+X-GND-State: clean
+X-GND-Score: -100
+X-GND-Cause: gggruggvucftvghtrhhoucdtuddrgeefvddrtddtgdduvdejkedtucetufdoteggodetrfdotffvucfrrhhofhhilhgvmecuifetpfffkfdpucggtfgfnhhsuhgsshgtrhhisggvnecuuegrihhlohhuthemuceftddunecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjughrpegtfffkufevhffvggfgofhfjgesthhqredtredtjeenucfhrhhomhepfdetnhhtohhnihhnucfiohgurghrugdfuceorghnthhonhhinhdrghhouggrrhgusegsohhothhlihhnrdgtohhmqeenucggtffrrghtthgvrhhnpefhueejkedugfefffektddtvdehheeuieeggfetgfdvveeftdehudduteffgfevgfenucffohhmrghinhepsghoohhtlhhinhdrtghomhenucfkphepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehinhgvthepvdgrtddumegtsgdugeemheehieemjegrtddtmeejtgehtgemiegruggvmeejleegkeemgedtheelpdhhvghloheplhhotggrlhhhohhsthdpmhgrihhlfhhrohhmpegrnhhtohhnihhnrdhgohgurghrugessghoohhtlhhinhdrtghomhdpnhgspghrtghpthhtohepudegpdhrtghpthhtohepkhhonhhsthgrnhhtihhnsehlihhnuhigfhhouhhnuggrthhiohhnrdhorhhgpdhrtghpthhtohepkhhriihksehkvghrnhgvlhdrohhrghdprhgtphhtthhopehrohgshhesk
+ hgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheptghonhhorhdoughtsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehshhgrfihnghhuoheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepshdrhhgruhgvrhesphgvnhhguhhtrhhonhhigidruggvpdhrtghpthhtohepkhgvrhhnvghlsehpvghnghhuthhrohhnihigrdguvg
+X-GND-Sasl: antonin.godard@bootlin.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_041416_063473_87797B0B 
-X-CRM114-Status: GOOD (  20.95  )
+X-CRM114-CacheID: sfid-20250313_041436_494156_577453B2 
+X-CRM114-Status: GOOD (  14.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +88,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof
+Hi Konstantin,
 
-On 29/11/24 14:45, Krzysztof Kozlowski wrote:
-> On 29/11/2024 08:43, Neha Malcom Francis wrote:
->>>> +
->>>> +  power-domains:
->>>> +    maxItems: 1
->>>> +
->>>> +  ti,bist-instance:
->>>> +    $ref: /schemas/types.yaml#/definitions/uint32
->>>> +    description:
->>>> +      the BIST instance in the SoC represented as an integer
->>>
->>> No instance indices are allowed. Drop.
->>>
->>
->> Question on this, this is not a property that is driven by software but rather 
->> indicates which register sequences have to be picked up for triggering this test 
->> from this instance. So I don't see how I can workaround this without getting 
->> this number. Or maybe call it ID rather than instance?
-> 
-> I don't understand how the device operates, so what is exactly behind
-> some sequences of registers for triggering this test. You described
-> property as index or ID of one instance of the block. That's not what we
-> want in the binding. That's said maybe other, different hardware
-> characteristic is behind, who knows. Or maybe it's about callers... or
-> maybe that's not hardware property at all, but runtime OS, who knows.
-> 
+On Tue Mar 11, 2025 at 7:34 PM CET, Konstantin Ryabitsev wrote:
+> On Mon, Mar 10, 2025 at 05:31:32PM +0100, Antonin Godard wrote:
+>> > And now I noticed you used b4, so I really do not get how the tags can
+>> > be missing here. :/
+>>=20
+>> Sorry, that's totally my fault here, I forgot to run 'b4 trailers -u' be=
+fore
+>> sending... :/ And I don't think it's part of the prep checks?
+>
+> Mostly, because there's no clear picture of how this would work reliably.=
+ All
+> other checks are on a "ran since modifications to the series" basis, but =
+this
+> one would have to be time-based.
+>
+> Should it check if the trailer updates have been run in the past XX minut=
+es
+> (and how long should that XX be?).
 
-Sorry for such a late reply, but I was hoping to get more details on
-this "ID" and never got back to the thread...
+Had some thoughts about this the past few days.
 
-The best way I can describe is this device (BIST) runs a safety
-diagnostic test on a bunch of processors/blocks (let's call them
-targets). There's a mapping between the instance of this device and the
-targets it will run the test. This ID was essentially letting the BIST
-driver know which are these targets.
+What about checking if it was run at least once between vX and vX+1? Maybe
+during the `b4 send` command? In case it wasn't run, give a hint/warning to=
+ the
+user before proceeding?
 
-Should I perhaps trigger it the other way around; a target driver asks
-for it's safety test to be run by pointing to the BIST instance? However
-the issue with this approach is, the architecture of this safety test
-device is that once triggered, it will run the test on all the targets
-it controls and that should be reflected in the software arch as well right?
+This could also be enforced with an b4 config option like
+b4.force-trailers-update - either set by the user or the project configurat=
+ion.
+Not so sure about this one though...
 
-Yet another way would be the BIST points out the targets it controls via
-their phandles in its node... but this approach would trigger the probe
-of these targets before the test runs on them. And in hardware, the test
-must run only one before the device is used, else we see indefinite
-behavior.
+Now if I were to speak for myself, I would love to have an option that just
+fetches the new trailers during `b4 send` and errors out / warns me about
+it if there's anything new that isn't part of my series. Which could be als=
+o
+ignored with --ignore-trailer-errors or something like that, in any case.
 
+Antonin
 
-> Best regards,
-> Krzysztof
-
--- 
-Thanking You
-Neha Malcom Francis
+--=20
+Antonin Godard, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
