@@ -4,62 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8C7CC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:41:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 669C0C282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:42:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qCqxw65KD8l7tfxbzFmTvALT/vb9m/uNMbda2yDNgXI=; b=w8JBvUBa7Ot1jdmUTdD3fP7OmY
-	8JAHmqFDROIFpvCzpuliL7Tg+6YH2ZgBU18oCEi81QakXpk2ZbbPdcmNcj+b2Irl583bqVLahFHfG
-	p3p7u92HkPmucxe0AuI2iymbs2KVAY++dtRjUkUHsm9HlnXUIbcNsU/tu68jozFpL32bsxIGqdltQ
-	su1RCGJ8mPG/kkuBQBUwsmuSzlKq8RtNFwYBpD5zuham5E2J/rAS8mPTgt/Td4SR15RbCWFpMDJtv
-	pen44IPpDQcx204/nQUSNSXbEw5MgTbdpFKxw4KxtL4wTeQQTCNNSRv22YkUELHmx837YiwM1C3sL
-	N/TxoiMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=/j+Oz7cHBDK6gF/9kTqWJDu+O9+gPpwr8SGXRwE61TQ=; b=rFecm71z00B/EqyMbDHwflelKc
+	JKPXoRRCRNhBlcE/PTDOdfQwI4X/ujuyAtTxjkf9wd/09uqOR8rWsS81vYPXwzDySRCsR9OxO61fM
+	HaJKRDFlqJyYlaxWsApyrzHKzKKtjyBsVjCNHcTSRxJzZ82qaydg18psJP4uwqJE1lUbelPl8D5xI
+	slcA2wjbWTEGe4stjJ2Stl+AC6yw+2sDv69gQyrcfWqDbkGspfynl3C5wr4v4MGQB/NZJdDW3Jw9E
+	tLFT05t7Sk8TJB5dsdMSVg12roA2vE3EFQ/NBo24k+X/WaJ+N463ja0+Q1YQ53nFOJoPBXfmnNMVS
+	qKtMb8TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgvi-0000000B4Oz-3iTv;
-	Thu, 13 Mar 2025 11:40:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgu4-0000000B49r-1Fbq
+	id 1tsgxQ-0000000B4s5-0AVD;
+	Thu, 13 Mar 2025 11:42:36 +0000
+Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsgvj-0000000B4Or-0ipv
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:39:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id F20581C00;
-	Thu, 13 Mar 2025 04:39:17 -0700 (PDT)
-Received: from [10.57.40.246] (unknown [10.57.40.246])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 95B703F673;
-	Thu, 13 Mar 2025 04:39:02 -0700 (PDT)
-Message-ID: <880d8d7d-cd83-4e39-a0de-e278187b7a36@arm.com>
-Date: Thu, 13 Mar 2025 11:39:00 +0000
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 2/3] iommu/arm: Add BBM Level 2 smmu feature
-To: =?UTF-8?Q?Miko=C5=82aj_Lenczewski?= <miko.lenczewski@arm.com>,
- ryan.roberts@arm.com, suzuki.poulose@arm.com, yang@os.amperecomputing.com,
- corbet@lwn.net, catalin.marinas@arm.com, will@kernel.org,
- jean-philippe@linaro.org, joro@8bytes.org, akpm@linux-foundation.org,
- mark.rutland@arm.com, joey.gouly@arm.com, maz@kernel.org,
- james.morse@arm.com, broonie@kernel.org, anshuman.khandual@arm.com,
- oliver.upton@linux.dev, ioworker0@gmail.com, baohua@kernel.org,
- david@redhat.com, jgg@ziepe.ca, shameerali.kolothum.thodi@huawei.com,
- nicolinc@nvidia.com, mshavit@google.com, jsnitsel@redhat.com,
- smostafa@google.com, linux-doc@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- iommu@lists.linux.dev
-References: <20250313104111.24196-2-miko.lenczewski@arm.com>
- <20250313104111.24196-4-miko.lenczewski@arm.com>
-From: Robin Murphy <robin.murphy@arm.com>
-Content-Language: en-GB
-In-Reply-To: <20250313104111.24196-4-miko.lenczewski@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+	Thu, 13 Mar 2025 11:40:52 +0000
+Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-43ced8c2eb7so6188255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:40:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1741866047; x=1742470847; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=/j+Oz7cHBDK6gF/9kTqWJDu+O9+gPpwr8SGXRwE61TQ=;
+        b=2DtRPhXvnnI9JtEj6LmPh/577/V8dPwD1NnPaC4xckNjG1cR/MPag0JEdCtbbpKE+4
+         wT20Azoi/Mrnb2TOiNyD+6avtTz7FKDBXXwKVxbui3i+EQbfvdkjPdxmpo0DpJ/GmHxE
+         F1WYZPMdTSRiHl9Jhb47zs0Gtkv72hcJwnBtNnD0AqU7gMUre975buhDQqwaaN+MAOOj
+         iB4TSz/ONuPdSK1dIdhg12iqjCbu31XghMFUOArP6N1pD4DMFw656c+pnCgnFDtmGAOC
+         IWH7OkxN67LhzLXiyXNQYyuQV3Cu5/O7JyK2uKAWN2Ee/XnuLsBNrzqgnUVL0SWDgsEA
+         n4FA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741866047; x=1742470847;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=/j+Oz7cHBDK6gF/9kTqWJDu+O9+gPpwr8SGXRwE61TQ=;
+        b=r83aLP4f1EP68sc77qoJLlMRFOhiRWOnRr2mmMdpi+mCgKYeLqNQTaGv0Jrfl3sE+C
+         oSl+07sw0FVev1R3T9aoPE3hoeMxODtiettwbICT+ssUKwDYREEoM1U6T/zBEo3cOy+5
+         f6fmna9E2EWjVXpW6hxyaH1BFrfo2WWB1thuhoFmoX50EkI4iXyibHyWQkPzaFQSRpip
+         R+yg3JSR/HjjhjUf0BtSml73Zq4tDCGcTcgE8e3aUbKF4uvuEpxLWho11pR/g8kt7R8Z
+         ml+9jtNkMXoqLlp6QnSAVTqP9HMkCAPvrjCKUaVT/xyq0PlrU/cjNJPG3Qqf5/3LJtYN
+         yqVA==
+X-Forwarded-Encrypted: i=1; AJvYcCVZPiqAXeNjVnZvaZ+fPHSnwB+hgL/+vlLS5A/p2RWajZm1i5pOBsgezjkn+KLggQ4fSb2iW1/CFwpkcmC1ihzp@lists.infradead.org
+X-Gm-Message-State: AOJu0YxSQP0yvdzAy1EkubPxt9SeHi4bL5ZWtJGBSG/hhKFRAY+l9hH2
+	OphfsLg1/2YDpMyNKTpjUrlv//su0el5KbL4f0l+Ei7tUeEpuU6SFmYyPlfQcL7M0Zqyw+Ils+r
+	aICb2EEim5zWmKqvGsQ==
+X-Google-Smtp-Source: AGHT+IHT/XL50MODZw7JAAt6rGzgQd+Y4OENiN5kXRm9oqFCYFwRAIdO78t5s5DxhHV14BZpOtcnvF2TqxK+OAfE
+X-Received: from wmbbi10.prod.google.com ([2002:a05:600c:3d8a:b0:43d:abd:278f])
+ (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a05:600c:5618:b0:43b:ce3c:19d0 with SMTP id 5b1f17b1804b1-43cdfb7db88mr180301615e9.29.1741866047681;
+ Thu, 13 Mar 2025 04:40:47 -0700 (PDT)
+Date: Thu, 13 Mar 2025 11:40:35 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.49.0.rc0.332.g42c0ae87b1-goog
+Message-ID: <20250313114038.1502357-1-vdonnefort@google.com>
+Subject: [PATCH v4 0/3] Count pKVM stage-2 usage in secondary pagetable stat
+From: Vincent Donnefort <vdonnefort@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com, 
+	suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, 
+	will@kernel.org
+Cc: qperret@google.com, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com, 
+	Vincent Donnefort <vdonnefort@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_043908_423545_4554D6CA 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20250313_044051_211132_2EC42FA0 
+X-CRM114-Status: UNSURE (   8.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,73 +91,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-03-13 10:41 am, Mikołaj Lenczewski wrote:
-> For supporting BBM Level 2 for userspace mappings, we want to ensure
-> that the smmu also supports its own version of BBM Level 2. Luckily, the
-> smmu spec (IHI 0070G 3.21.1.3) is stricter than the aarch64 spec (DDI
-> 0487K.a D8.16.2), so already guarantees that no aborts are raised when
-> BBM level 2 is claimed.
-> 
-> Add the feature and testing for it under arm_smmu_sva_supported().
+This series allows to count stage-2 related memory when using pKVM. The
+value can be found in the /proc/meminfo field SecPageTables.
 
-Reviewed-by: Robin Murphy <robin.murphy@arm.com>
+Changes since v3: https://lore.kernel.org/all/20250307113411.469018-1-vdonnefort@google.com/
+  - Remove unnecessary void * cast (Marc)
+  - Rename reclaim_guest_pages() -> reclaim_pgtable_pages() (Marc)
+  - Remove unnecessary PAGE_ALIGN(pgd_sz)
 
-> Signed-off-by: Mikołaj Lenczewski <miko.lenczewski@arm.com>
-> ---
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c | 3 +++
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c     | 3 +++
->   drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h     | 4 ++++
->   3 files changed, 10 insertions(+)
-> 
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> index 9ba596430e7c..6ba182572788 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3-sva.c
-> @@ -222,6 +222,9 @@ bool arm_smmu_sva_supported(struct arm_smmu_device *smmu)
->   		feat_mask |= ARM_SMMU_FEAT_VAX;
->   	}
->   
-> +	if (system_supports_bbml2_noabort())
-> +		feat_mask |= ARM_SMMU_FEAT_BBML2;
-> +
->   	if ((smmu->features & feat_mask) != feat_mask)
->   		return false;
->   
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> index 358072b4e293..dcee0bdec924 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-> @@ -4406,6 +4406,9 @@ static int arm_smmu_device_hw_probe(struct arm_smmu_device *smmu)
->   	if (FIELD_GET(IDR3_RIL, reg))
->   		smmu->features |= ARM_SMMU_FEAT_RANGE_INV;
->   
-> +	if (FIELD_GET(IDR3_BBML, reg) == IDR3_BBML2)
-> +		smmu->features |= ARM_SMMU_FEAT_BBML2;
-> +
->   	/* IDR5 */
->   	reg = readl_relaxed(smmu->base + ARM_SMMU_IDR5);
->   
-> diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> index bd9d7c85576a..85eaf3ab88c2 100644
-> --- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> +++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-> @@ -60,6 +60,9 @@ struct arm_smmu_device;
->   #define ARM_SMMU_IDR3			0xc
->   #define IDR3_FWB			(1 << 8)
->   #define IDR3_RIL			(1 << 10)
-> +#define IDR3_BBML			GENMASK(12, 11)
-> +#define IDR3_BBML1			(1 << 11)
-> +#define IDR3_BBML2			(2 << 11)
->   
->   #define ARM_SMMU_IDR5			0x14
->   #define IDR5_STALL_MAX			GENMASK(31, 16)
-> @@ -754,6 +757,7 @@ struct arm_smmu_device {
->   #define ARM_SMMU_FEAT_HA		(1 << 21)
->   #define ARM_SMMU_FEAT_HD		(1 << 22)
->   #define ARM_SMMU_FEAT_S2FWB		(1 << 23)
-> +#define ARM_SMMU_FEAT_BBML2		(1 << 24)
->   	u32				features;
->   
->   #define ARM_SMMU_OPT_SKIP_PREFETCH	(1 << 0)
+Changes since v2: https://lore.kernel.org/all/20250304134347.369854-1-vdonnefort@google.com/
+  - Pass a pointer to kvm_hyp_memcache instead of just the flags
+    (Oliver)
+
+Changes since v1: https://lore.kernel.org/all/20250228121355.1377891-1-vdonnefort@google.com/
+  - Flags to kvm_hyp_memcache
+  - Separate stage-2 memcache
+  - Account for PGD
+
+Vincent Donnefort (3):
+  KVM: arm64: Add flags to kvm_hyp_memcache
+  KVM: arm64: Distinct pKVM teardown memcache for stage-2
+  KVM: arm64: Count pKVM stage-2 usage in secondary pagetable stats
+
+ arch/arm64/include/asm/kvm_host.h             |  4 ++++
+ arch/arm64/kvm/hyp/include/nvhe/mem_protect.h |  2 +-
+ arch/arm64/kvm/hyp/nvhe/mem_protect.c         |  2 +-
+ arch/arm64/kvm/hyp/nvhe/pkvm.c                |  8 +++----
+ arch/arm64/kvm/mmu.c                          | 22 ++++++++++++++-----
+ arch/arm64/kvm/pkvm.c                         |  5 +++++
+ 6 files changed, 32 insertions(+), 11 deletions(-)
+
+
+base-commit: d082ecbc71e9e0bf49883ee4afd435a77a5101b6
+-- 
+2.49.0.rc0.332.g42c0ae87b1-goog
 
 
