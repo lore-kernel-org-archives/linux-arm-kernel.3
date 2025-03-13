@@ -4,79 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F7CC282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:36:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D8346C282EC
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 13:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6BWoHZS+Irq6JCkkTZ531xu2Qq8vmZ0tkfTVINeJP7c=; b=cfPIt5W2q3R1eb9S1IgoSAdsRy
-	08RpIF7SnCEbjOUYwQ43AMnSViXMN3wqpza9sHhupNSc/ueNFwyhh3TD1SxHpud+nzegXNcgW8ZDz
-	v0QvZQG4qGqJMSkvkDNvBLkeTV1RGCG+Z6/dC0hbd+ojOfJTs6iVXbO/T2y9VSK5Od9whWVP3kNLR
-	hiKNbT5ghN2vyzesDO6w83wI09ZX9HXqHZzpT2UbB+PRkevBL8izWiWfccyNOrLh0cXv6UIUHiDvM
-	8ZHUBLP1mLKF11IvMZ7Ni3/h3OxuGi8uJC9UAGTfoSnKZq8IevyoFTanE6MsaKyJ+1Yb+zUu1Iz72
-	IDz9ym+w==;
+	bh=sIpqoek4eGSOylKbMTSFOVbyM/qGLYGplSwODZFoBwg=; b=CanROzrpi7je72Xh7Y9fxiE8bI
+	nHJk/g6T70ti0Ez+Me4qqLa/p6L2kjYykulC/Kdv5tdeZEf+iXvjdYfARnybLF6SKBoU6WWj8PoAe
+	bNuS3Bd5gGqPqHfdD+13pCzGI2FNLg+Hy4o6sKLyxhNJvLcPKOWxHKlB80eE++3qxqEOR3T4EeGn/
+	hF1bIHckDm9uqeVQQYcPVXNrousQ7t3gsNhyiWqtR6vASIF+dwKSl1V3+zrsZL0WclAiw6MNw6oaI
+	De3Xyn4zWmZORNyWL+iaJ/seC6AxBSVCNTDhrphIQoXxC5vb4qq94aWGK3eS2GPTORA0KNLxAip5J
+	RepTgAEA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsij5-0000000BOq1-2ECC;
-	Thu, 13 Mar 2025 13:35:55 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1tsinQ-0000000BPCw-2RuM;
+	Thu, 13 Mar 2025 13:40:24 +0000
+Received: from mail-vk1-xa35.google.com ([2607:f8b0:4864:20::a35])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshk6-0000000BFah-0z2u
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 13 Mar 2025 12:32:54 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=6BWoHZS+Irq6JCkkTZ531xu2Qq8vmZ0tkfTVINeJP7c=; b=aqd1o4xcBrLpIH9ILPPoEacG+g
-	oGWSMcpdwVV8nafatQYiaLuE2LhWxcgJbbufzeQBiiI1q+3AUdVM7zToZWeIZkYQv3GWQxsGdkYf1
-	iEG69z062pwJUeYTANSZlCZo6IwBnLctZJquFu7ZhAMkdkAPCt9yQF3uXDLCbAIdZfABgWvrgDsz+
-	Xlr/eoPKILxu+GQSa7sKtwQZE6eLXe8EYBIrnlgN7NqJFyYCMh7Pa0zS2R8JAWXy6oe6nSCyoCBEf
-	m6E3+81+JygalJMobO7YqjbBRuUGJCUC/18Gay4JAVCyskOVUtrDXIpoqoRcd46fBV7U/L7BgGKvQ
-	/22HZeyQ==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshk2-00000002bpd-2a7h
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 12:32:53 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0B091C00;
-	Thu, 13 Mar 2025 05:32:57 -0700 (PDT)
-Received: from [10.44.160.94] (e126510-lin.lund.arm.com [10.44.160.94])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 99EC03F673;
-	Thu, 13 Mar 2025 05:32:42 -0700 (PDT)
-Message-ID: <802963a0-32bd-49e8-82b1-34443acdd5ae@arm.com>
-Date: Thu, 13 Mar 2025 13:32:31 +0100
+	id 1tsill-0000000BP71-1LX2;
+	Thu, 13 Mar 2025 13:38:42 +0000
+Received: by mail-vk1-xa35.google.com with SMTP id 71dfb90a1353d-523ed8ac2a3so426815e0c.3;
+        Thu, 13 Mar 2025 06:38:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741873120; x=1742477920; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sIpqoek4eGSOylKbMTSFOVbyM/qGLYGplSwODZFoBwg=;
+        b=QoghAx95tqUxMfwxkExPo1DMv8ZDyoSjGruNuzt9z3uVj7pANJ0LlLkbHd+oVSnopn
+         D4EBsqmGrLxgdLGOj7tkfDtArQRfwyDfEf/W6qkD3kQRFfLw9BwqTlW5niRZVcG8JsR9
+         LHERBLk00KhhnyRkEgXa9OurY7U0J4g6ZsilHQh4gs8onhMM30agJY18XyEXMdl+SVWq
+         AsFkkvGh/P9h/S/iuWnXNeXmVEfSu98/RGy0vURj74qhl+rzUbmFF0nKy9IhJXqdHfOJ
+         ciZWPbcQRYiBN6x0aBR+B1PAKa7tkwth40vsmPJcVNpmVKQol6b/Hy93uFTUk+Tr0wMs
+         udZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741873120; x=1742477920;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sIpqoek4eGSOylKbMTSFOVbyM/qGLYGplSwODZFoBwg=;
+        b=pFhrkpt5k5ov7FwZp3iAnf5dkU4XNBw/RDOUlvl4eh3GWYisIFKbPkiMDDz6WJzWrF
+         Sa/ySUiiaZ/ya/kBAH7rBhKFFG15b/JvezQPyB+575eoU9qjQouVxrNmlNnNNFAkio7z
+         71EK6MKDzJ/a3Mk5o9J/QIPMd9zAHmeN5O73deAYot+LAECXcFtIB0W/oW4cTfe0nmJB
+         t4v6PQ4FFnZfqWDpFw9iFDyAsBwBYhECZyKLAerWltyOJQ1+Gh2tzXhmLMDI5EgwSSOj
+         fxGgM9GB6qEN6Y/ktLCpibTrER030FPUXSiobCyD9Q9EzhZoYOioOVO2LsCxBKz+pm4a
+         x1LQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV6ag5ADvvUGu+t68H/QejuKnfQ0R0dK/fIrhLx9wKWtdofAIH9lk1ipZfXVOy0Rxifc+XhuycQSsOJivQ=@lists.infradead.org, AJvYcCXH2kee6imjUQlfZTedb/di0sZ9BXEEOW/nbzLs+PAvXLpkgx3ul5hRjcTqZxPDAzzbq2uiKLKXSZMS2kLkj/N8@lists.infradead.org
+X-Gm-Message-State: AOJu0YwUoJnyWLPcnbbIg+fIV/4G44BP4le8hTlYCJHCc0w98w7Q+yHX
+	Qm0rlap7yMU+2ZO5VEHM8CtdTKmPeQPyEfdHoF8q61pxEEnlfrkHxUk7rTeujjdb8HVfXI5KVhC
+	7U8/uNtn2vUEUDLKBJiQGFMT1Puw=
+X-Gm-Gg: ASbGnctD9++ZQvN5orfY7czMuU5mr//UHQck9ZZdwjpyYePlQpslDfQv7vZiGQsoFCU
+	H1pcRdf7487+dzzl/hlIg323hxNLl3JQVwdkefGWuOd23YIhMRbWZHIsOnCLpLI6W/7DjZX1fos
+	hGOwi0TH1AU+miew+tx+OOUtfFZ00mLEPz7z8jUizrBrr6kTjkIQIQho1lRTE=
+X-Google-Smtp-Source: AGHT+IEcryLwmYP3TdsvEC/+UeCHlR3N+sWjCLCU1sbSkHGz1fjASLBhtHx+j6tuN07I1St0YxBKUyaqA22JoKt2WYU=
+X-Received: by 2002:a05:6122:1d9f:b0:516:230b:eec with SMTP id
+ 71dfb90a1353d-523e4076cf3mr19762024e0c.5.1741873119552; Thu, 13 Mar 2025
+ 06:38:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v3 00/15] pkeys-based page table hardening
-To: Maxwell Bland <mbland@motorola.com>
-Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
- Mark Brown <broonie@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Dave Hansen <dave.hansen@linux.intel.com>, Jann Horn <jannh@google.com>,
- Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
- Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Andy Lutomirski <luto@kernel.org>, Marc Zyngier <maz@kernel.org>,
- Peter Zijlstra <peterz@infradead.org>,
- Pierre Langlois <pierre.langlois@arm.com>,
- Quentin Perret <qperret@google.com>, "Mike Rapoport (IBM)"
- <rppt@kernel.org>, Ryan Roberts <ryan.roberts@arm.com>,
- Thomas Gleixner <tglx@linutronix.de>, Will Deacon <will@kernel.org>,
- Matthew Wilcox <willy@infradead.org>, Qi Zheng <zhengqi.arch@bytedance.com>,
- linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
-References: <20250203101839.1223008-1-kevin.brodsky@arm.com>
- <a32cjyekuecoowzbitc2xykilvpu6l3jjtityp7x5hw7xbiysp@5l2lptwmqiug>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <a32cjyekuecoowzbitc2xykilvpu6l3jjtityp7x5hw7xbiysp@5l2lptwmqiug>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <Z9FVHEf3uUqtKzyt@shell.armlinux.org.uk> <E1tsIUK-005vGk-H7@rmk-PC.armlinux.org.uk>
+In-Reply-To: <E1tsIUK-005vGk-H7@rmk-PC.armlinux.org.uk>
+From: "Lad, Prabhakar" <prabhakar.csengg@gmail.com>
+Date: Thu, 13 Mar 2025 13:38:12 +0000
+X-Gm-Features: AQ5f1JqlA8hzG437O530Oq2Xdo4TAVMjVgaona5iqv0GCiHktSEod7myZxpXhN4
+Message-ID: <CA+V-a8sasAGkwCWGnbBEjeMRVM79xVVzTq15uJQ_7Q+YwB1QpA@mail.gmail.com>
+Subject: Re: [PATCH net-next v2 7/7] net: stmmac: deprecate
+ "snps,en-tx-lpi-clockgating" property
+To: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexandre Ghiti <alex@ghiti.fr>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Andrew Lunn <andrew+netdev@lunn.ch>, 
+	Conor Dooley <conor+dt@kernel.org>, Conor Dooley <conor@kernel.org>, 
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org, 
+	Emil Renner Berthing <kernel@esmil.dk>, Eric Dumazet <edumazet@google.com>, 
+	Giuseppe Cavallaro <peppe.cavallaro@st.com>, Jakub Kicinski <kuba@kernel.org>, 
+	Jose Abreu <joabreu@synopsys.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Minda Chen <minda.chen@starfivetech.com>, 
+	netdev@vger.kernel.org, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Paolo Abeni <pabeni@redhat.com>, Paul Walmsley <paul.walmsley@sifive.com>, 
+	Rob Herring <robh@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_123250_992666_6892D24B 
-X-CRM114-Status: GOOD (  56.08  )
+X-CRM114-CacheID: sfid-20250313_063841_360572_5C05975C 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,212 +107,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/03/2025 17:23, Maxwell Bland wrote:
-> On Mon, Feb 03, 2025 at 10:18:24AM +0000, Kevin Brodsky wrote:
->> This is a proposal to leverage protection keys (pkeys) to harden
->> critical kernel data, by making it mostly read-only. The series includes
->> a simple framework called "kpkeys" to manipulate pkeys for in-kernel use,
->> as well as a page table hardening feature based on that framework
->> (kpkeys_hardened_pgtables). Both are implemented on arm64 as a proof of
->> concept, but they are designed to be compatible with any architecture
->> implementing pkeys.
-> Hi Kevin,
+On Wed, Mar 12, 2025 at 9:58=E2=80=AFAM Russell King (Oracle)
+<rmk+kernel@armlinux.org.uk> wrote:
 >
-> This is awesome. When working on some of these problems, I also thought
-> of leveraging the POE feature, but was not sure of a good way to make
-> it work.
-
-Hi Maxwell,
-
-I'm glad to hear about your interest!
-
->> Page tables were chosen as they are a popular (and critical) target for
->> attacks, but there are of course many others - this is only a starting
->> point (see section "Further use-cases"). It has become more and more
->> common for accesses to such target data to be mediated by a hypervisor
->> in vendor kernels; the hope is that kpkeys can provide much of that
->> protection in a simpler manner. No benchmarking has been performed at
->> this stage, but the runtime overhead should also be lower (though likely
->> not negligible).
-> Some notes here, having implemented similar page table protections,
-> albeit using stage-2 page table permissions and a fault handler.
+> Whether the MII transmit clock can be stopped is primarily a property
+> of the PHY (there is a capability bit that should be checked first.)
+> Whether the MAC is capable of stopping the transmit clock is a separate
+> issue, but this is already handled by the core DesignWare MAC code.
 >
-> https://lore.kernel.org/all/2wf4kmoqqmod6njviaq33lbxbx6gvdqbksljxykgltwnxo6ruy@7ueumwmxxh72/
+> Therefore, snps,en-tx-lpi-clockgating is technically incorrect, and
+> this commit adds a warning should a DT be encountered with the property
+> present.
 >
-> I wanted to know your thoughts on associating specific policies to
-> page table updates in cases where an adversary is able to corrupt
-> other state associated with parameters to the page table infrastructure
-> code, e.g.
+> However, we keep backwards compatibility.
 >
-> arch/arm64/net/bpf_jit_comp.c
-> 2417:		if (set_memory_rw(PAGE_MASK & ((uintptr_t)&plt->target),
+> Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+> ---
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_platform.c | 5 ++++-
+>  1 file changed, 4 insertions(+), 1 deletion(-)
 >
-> Is this something we would assume is handled via the security_* hook
-> infrastructure, a shadow stack CFI method, or changing the kernel code
-> to reverify the data non-modularly, some combination of the above?
+Reviewed-by: Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>
 
-This is a good question and the short answer is that I don't know what
-the best approach would be. As far as kpkeys are concerned, I'm not sure
-they can really help here - it seems to be about the integrity of a
-generated BPF program, and surely that program is already made read-only
-once generated?
-
->> - Pages in the linear mapping are assigned a pkey using set_memory_pkey().
->>   This is sufficient for this series, but of course higher-level
->>   interfaces can be introduced later to ask allocators to return pages
->>   marked with a given pkey. It should also be possible to extend this to
->>   vmalloc() if needed.
-> One of the interesting points here, acknowledged below, was that this
-> relies on having guarantees around the PC value/CFI of the function.
-> Since this is the baseline assumption, it feels natural that the
-> locking/unlocking would be associated into the existing CFI
-> instrumentation, since (from experience) point-patching each mutable
-> data structure allocation/deallocation is difficult.
-
-Could you elaborate on this point? Are you referring to protecting
-arbitrary data structures with kpkeys, rather than what this series
-covers (i.e. pgtables)?
-
->> # Further use-cases
->>
->> It should be possible to harden various targets using kpkeys, including:
->>
->> - struct cred (enforcing a "mostly read-only" state once committed)
->>
->> - fixmap (occasionally used even after early boot, e.g.
->>   set_swapper_pgd() in arch/arm64/mm/mmu.c)
->>
->> - SELinux state (e.g. struct selinux_state::initialized)
->>
->> ... and many others.
-> Be wary that it is not just struct cred but pointers to struct cred.  We
-> quickly run into a problem of, for example, in updates to f_op,
-> bookkeeping which f_op is OK to have in the file, e.g., in Android's
-> 6.1.x:
->
-> drivers/gpu/drm/i810/i810_dma.c
-> 138:    file_priv->filp->f_op = &i810_buffer_fops;
-> 144:    file_priv->filp->f_op = old_fops;
->
-> drivers/staging/android/ashmem.c
-> 436:            vmfile->f_op = &vmfile_fops;
->
-> Where overwriting f_op is a "classic" bypass of protection systems like
-> this one.
-
-Indeed, this has been pointed out to me on a few occasions. On that note
-I should reference the follow-up series that aims at protecting struct
-cred [1].
-
-Using kpkeys to ensure that the task->cred pointer itself is mostly
-read-only is not straightforward, because there is just too much
-existing code that directly writes to other fields in task_struct -
-meaning we can't simply make the whole task_struct mostly read-only.
-What could be done is to split out the cred fields in a separate
-kpkeys-protected page, and link that page from task_struct. There is a
-clear overhead associated with this approach though, and maybe more
-importantly we have just displaced the issue as the pointer to that
-protected page remains writeable... I'm not sure how much a page-based
-technique like pkeys can help here.
-
-[1]
-https://lore.kernel.org/linux-hardening/20250203102809.1223255-1-kevin.brodsky@arm.com/
-
-> I think this problem may be totally solvable if POE was integrated into
-> something like CFI, since we can guarantee only the code that sets f_op
-> to "vmfile_fops" can unlock/relock the file's page.
-
-I'm interested to hear more about this - I don't think I'm aware of the
-CFI instrumentation you're referring to.
-
-> Maybe another approach would work better, though?
->
->> # Open questions
->>
->> A few aspects in this RFC that are debatable and/or worth discussing:
->>
->> - There is currently no restriction on how kpkeys levels map to pkeys
->>   permissions. A typical approach is to allocate one pkey per level and
->>   make it writable at that level only. As the number of levels
->>   increases, we may however run out of pkeys, especially on arm64 (just
->>   8 pkeys with POE). Depending on the use-cases, it may be acceptable to
->>   use the same pkey for the data associated to multiple levels.
-> Honestly, I associate each protected virtual page in stage-2 with a
-> unique tag (manually, right now, but Kees Cook has some magic that
-> does the same via alloc_tag.h), and this works really well to track
-> specific resources and resource modification semantics "over" a generic
-> protection ring.
->
-> I think, though, that the code you provided could be used to bootstrap
-> such a system by using the overlay to protect a similar page tag lookup
-> table, which then can provide the fine-grained protection semantics.
-
-This sounds sensible. Considering that the size of pkeys is between 3
-and 5 bits depending on the architecture, to keep the approach generic
-we really don't have many keys to play with (7 excluding the default key
-on arm64/POE). kpkeys approaches keys in a static way (no dynamic
-allocation), so it's best to think of each key as corresponding to one
-subsystem defined at compile time.
-
-> I.e. use this baseline to isolate a secure monitor system.
->
-> Hopefully that makes sense! (-:
->
->> - kpkeys_set_level() and kpkeys_restore_pkey_reg() are not symmetric:
->>   the former takes a kpkeys level and returns a pkey register value, to
->>   be consumed by the latter. It would be more intuitive to manipulate
->>   kpkeys levels only. However this assumes that there is a 1:1 mapping
->>   between kpkeys levels and pkey register values, while in principle
->>   the mapping is 1:n (certain pkeys may be used outside the kpkeys
->>   framework).
-> Another issue I'm not confident in is the assumption of adversary's
-> inability to manipulate system control registers. This is true in the
-> context of a Heki-like system (or any well-made HVCI), but not totally
-> true of a pure EL1 implementation?
-
-This is entirely reliant on the threat model, i.e. only data-only
-attacks are in scope. If the adversary successfully hijacks the control
-flow to jump in the middle of a function, or achieves arbitrary code
-execution, pkeys won't be of much help. Robust CFI is therefore a clear
-prerequisite.
-
->> - An architecture that supports kpkeys is expected to select
->>   CONFIG_ARCH_HAS_KPKEYS and always enable them if available - there is
->>   no CONFIG_KPKEYS to control this behaviour. Since this creates no
->>   significant overhead (at least on arm64), it seemed better to keep it
->>   simple. Each hardening feature does have its own option and arch
->>   opt-in if needed (CONFIG_KPKEYS_HARDENED_PGTABLES,
->>   CONFIG_ARCH_HAS_KPKEYS_HARDENED_PGTABLES).
-> There's so many pieces of data though/data structures! In this model,
-> you'd have a separate switch for thousands of types of data! But I do
-> think protecting PTs is the first step to a more complicated security
-> monitor, since it allows you to have integrity for specific physical
-> pages (or IPAs).
-
-Agreed. I think this is good enough for kpkeys where we use roughly one
-key per feature (meaning that the total number of features is pretty
-limited), but this wouldn't scale if we had a framework to protect many
-data types. In that case we'd need a different approach, probably
-runtime-based. The advantage of having a CONFIG option per feature
-though is that it incurs no overhead at all unless selected.
-
->>
->> Any comment or feedback will be highly appreciated, be it on the
->> high-level approach or implementation choices!
-> Last note, I'd not totallllyyy trust the compiler to inline the
-> functions.... I've met cases where functions on memory protections
-> I expected to be inlined were not. I think __forceinline *may* work
-> here, vs standard "static inline", but am not confident/sure.
-
-That's a fair point, __always_inline could be used to make sure
-set_pkey/restore_pkey_reg (and the helpers they call) are actually
-inlined. I'll change that in v4. The guard object constructor/destructor
-are defined as regular inline functions in <linux/cleanup.h> though, so
-the inlining might not be complete.
-
-> Hopefully the above is valuable at all. Thanks!
-
-It is! Thank you for your thoughts and suggestions.
-
-- Kevin
+Cheers,
+Prabhakar
 
