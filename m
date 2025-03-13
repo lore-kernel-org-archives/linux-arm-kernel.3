@@ -4,99 +4,108 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78844C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:12:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F99BC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 06:17:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ccm3JgzdOSGH62qHobc9OF3iYrGg3m8/wnqVF4zJglU=; b=4ewBwjIEMOzlMjntd8co38SUNl
-	QXHWT9av17Am/MIdJnZGl9JYmslK6+J9WU9edfJZkeWEQYJL6Dr0OnRY6hLh1QZyadrx9bPabokJU
-	lMECp6+5jym/dCGlbZGBkws99wQr6emREe2U30our9QoCF7WOl4cPJCfGoO53t7DPfcvYt8N7L0WQ
-	xgcsZhw5vGtJRU4Dy8jv+n9qiXlz406WK3cl27hmW10WLBfPcTxC2nvhAGL96vQE1r/BZOJX8d6CC
-	2MbdZpuL1iP/guf/H5EWmv7JI7tWk+5XuMTAEbET5KInkAao/ZUv/vyLRKAXuISGEKvopek8sHVm/
-	uwy3MRmA==;
+	bh=SEskWSaR5lig+yqq/pODCWaOenT97ESIy6ccSJZjSP0=; b=4DmBY9GX4rQdWiLtyfklMxnd/B
+	qjM2575rTxlPql8pqytFlnEXy8zL8JbWhrDG0XhTBhM0SHpbEF2sS4Yxgtsy2XkTfv7Axxyy+AJEU
+	UymdLip/ZZFRGpN1ePj+mAakVNTh5WysiLz5RSeJLWv8Vpuz6jNQJDY4awvUQz3pXYiYzCtMVD+Sn
+	VY2u7rH4CkKm2KQZ7CLrAqNJyDNIAGs627exXP3ujltSQ6cN0kk0++lx4NRaLK0xZMZiDPYhem0HO
+	eTpyQUU2sZh7eECkd/HO3y+eEkTAuiBAqYUcwEXIktYHuVaCyObE9++aYNUX0Oo4kH+L9jAx4GEji
+	vi0Gv0Jg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsbnJ-0000000ACPa-47Hi;
-	Thu, 13 Mar 2025 06:11:50 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1tsbt6-0000000ACkD-0HjQ;
+	Thu, 13 Mar 2025 06:17:48 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsblc-0000000ACFC-2E5F
+	id 1tsbrQ-0000000ACec-2sPr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 06:10:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1741846201;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Ccm3JgzdOSGH62qHobc9OF3iYrGg3m8/wnqVF4zJglU=;
-	b=Z6pq+CI1j2uZofQ53dpRXG5XBq024e57JhDvLzaR1Bn+snNUmAyD9PItM5x4GZZhPvrq5Z
-	JPEelAkd4/5Vw8wfRmIN4NOBKHEBrJLqThw/Cex9kivMch60Z8IPIA05QmxyVGtBqfeVhg
-	K+K8he1Vjq5/tn700wGEsqdCt99Y1uc=
-Received: from mail-pl1-f197.google.com (mail-pl1-f197.google.com
- [209.85.214.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-255-0D80Y34qP3iXt7BHgyfmyw-1; Thu, 13 Mar 2025 02:09:59 -0400
-X-MC-Unique: 0D80Y34qP3iXt7BHgyfmyw-1
-X-Mimecast-MFC-AGG-ID: 0D80Y34qP3iXt7BHgyfmyw_1741846198
-Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-224192ff68bso10621685ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 12 Mar 2025 23:09:59 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1741846198; x=1742450998;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Ccm3JgzdOSGH62qHobc9OF3iYrGg3m8/wnqVF4zJglU=;
-        b=loLMmyU8TNW0OUbqMgH1NYE1j+aqPLRo1dUnXw8qwQBgqiW+QioHPNLQ69ewbghUhm
-         Z/2pBmkKy8umSiz2F9pjsiNu7VRC5NLk0fmUcD2sXRunJwmwh1sZ4t9HVbMLScCtOClR
-         mkSwxPeKFJIJeJIpKWBEDXbcbS+GzuurbspjPqFDvodKdHybjZblwr6TMpJoE1ajI9pw
-         vyLudqBKClZQ5N6Sk2F0cdF9VTK8U+yD3ObonDSfoX+RtYSqBa9RQtmUdj4Q978JkRvz
-         RWPhDPenNYoKnTGWItkNd5hOtc4qX3k6TU8XSF04Sn1UagNAL3pGJMx3bjxkDpsDs5tX
-         Iq9w==
-X-Gm-Message-State: AOJu0YxKuhi23tqwLzmsXzlBxHDr5lxb/nwhavHVSpmVMUe593Pwiu/y
-	HnBJmXslpAoppVg+U8lEkhDka25E5LfGAoo4wV8Qipf7b59yxhDK+D6X5d6PPQPJlDYqXKX3vKN
-	5vFRpxA4QjCaj1LWBUKDv19cAFHvbt9VDAC3Yb8FQmbpRajmwQCzlKJWMD3z8g3lf8qXY0ggD
-X-Gm-Gg: ASbGncsMjRXoC+nw7H4bDAU8qKOSTCRjr7ohUGZM4DyB+0mvIgou+30OPzBKRa1RdDJ
-	tGza6eqHagxe9324DMZNyo9NxC9QMJc/D3aJFwsSndnPPFQW9qHj+Ao+DKv3x43XirIVP5jlfWA
-	3yJsMaM3Wl54Phuk1ItPmoqn6xzFe/lTYyLvfB4pHDKI13VLF9+fbRKM4JVek8AWsAnL+CAs9Gt
-	4mm9bhDScvT0oSSUm3FWEQ9XpsVYOY5SdKmLwfQ34p88X+rxF02/CXjbGzRHEhF6R0Qthlm+Nk2
-	oNawsR0LQlr8Pf16Zg==
-X-Received: by 2002:a17:902:d488:b0:223:3ef1:a30a with SMTP id d9443c01a7336-225931ad489mr119271355ad.45.1741846198238;
-        Wed, 12 Mar 2025 23:09:58 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFS/0CiPnvYXrr/SnOgpCHMu4/dKvSfoPKfZt54v9+3wLfVsHrnCrsLrPLUwz74zt1y5GmQxA==
-X-Received: by 2002:a17:902:d488:b0:223:3ef1:a30a with SMTP id d9443c01a7336-225931ad489mr119271035ad.45.1741846197900;
-        Wed, 12 Mar 2025 23:09:57 -0700 (PDT)
-Received: from [192.168.68.55] ([180.233.125.167])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-225c68a403fsm5710305ad.61.2025.03.12.23.09.53
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 12 Mar 2025 23:09:57 -0700 (PDT)
-Message-ID: <88c66ec3-5b03-4488-9733-ae917cbc0536@redhat.com>
-Date: Thu, 13 Mar 2025 16:09:51 +1000
+	Thu, 13 Mar 2025 06:16:06 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52CLnhYH014938;
+	Thu, 13 Mar 2025 06:15:52 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	SEskWSaR5lig+yqq/pODCWaOenT97ESIy6ccSJZjSP0=; b=huYIxo9j1DpEj83O
+	sQkK2R6XdbQVVt9U6K7tLRdtbRTQ2+c6voJVLhvB4L4aeRWOiJzgikYcae82fRyu
+	3+cYDWnOnt7vkq8Oxhe1WGJYdM0MuKgiM+TDv5a11vJLtKoCqOnfyUAI85DVezX7
+	6BLbfZAhQrVa4Vb6qRTS3uwbwR35taeirGhKaB3WgVByOKAo7+AAKakfkw3Kelu4
+	yA+Zr6h7c9tHL/eMb8H0bqp/Vctaesqk8ecXQlLpJ0hqPVsnNy4RwLa20SHIl+y4
+	iOwAaijKloYlzM2Ia4EO8D7aRC1wGJBP78Kyk5rmE2faXi1kYf3r2bknkIcQoW9q
+	4+2fAQ==
+Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45au2p4tvx-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 06:15:51 +0000 (GMT)
+Received: from nalasex01c.na.qualcomm.com (nalasex01c.na.qualcomm.com [10.47.97.35])
+	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52D6FowS007338
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 13 Mar 2025 06:15:51 GMT
+Received: from [10.64.68.153] (10.80.80.8) by nalasex01c.na.qualcomm.com
+ (10.47.97.35) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.9; Wed, 12 Mar
+ 2025 23:15:45 -0700
+Message-ID: <8a18c699-3d36-4143-9a1b-6074fea52263@quicinc.com>
+Date: Thu, 13 Mar 2025 14:15:42 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: Drop sort_memblock_regions()
-To: Anshuman Khandual <anshuman.khandual@arm.com>, kvmarm@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- qperret@google.com, maz@kernel.org, oliver.upton@linux.dev,
- joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
- catalin.marinas@arm.com, will@kernel.org, shan.gavin@gmail.com
-References: <20250311043718.91004-1-gshan@redhat.com>
- <34b8242b-529b-4ad5-ac17-e1200965ae1d@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <34b8242b-529b-4ad5-ac17-e1200965ae1d@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: c6d4EsxFeGDhMUQ500Jxkb746ifY9ZZ3RLsEfwuvqlo_1741846198
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v1 0/4] coresight: ctcu: Enable byte-cntr function for TMC
+ ETR
+To: Mike Leach <mike.leach@linaro.org>
+CC: Suzuki K Poulose <suzuki.poulose@arm.com>,
+        James Clark
+	<james.clark@linaro.org>,
+        Alexander Shishkin
+	<alexander.shishkin@linux.intel.com>,
+        Maxime Coquelin
+	<mcoquelin.stm32@gmail.com>,
+        Alexandre Torgue <alexandre.torgue@foss.st.com>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        Tingwei Zhang
+	<quic_tingweiz@quicinc.com>,
+        Jinlong Mao <quic_jinlmao@quicinc.com>, <coresight@lists.linaro.org>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+        <devicetree@vger.kernel.org>, <linux-arm-msm@vger.kernel.org>,
+        <linux-stm32@st-md-mailman.stormreply.com>
+References: <20250310090407.2069489-1-quic_jiegan@quicinc.com>
+ <CAJ9a7Vj=Ni_o94u1B+oouv0GD5DVmST=N31-hsN=SPSbaoqO_Q@mail.gmail.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Jie Gan <quic_jiegan@quicinc.com>
+In-Reply-To: <CAJ9a7Vj=Ni_o94u1B+oouv0GD5DVmST=N31-hsN=SPSbaoqO_Q@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nalasex01c.na.qualcomm.com (10.47.97.35)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Authority-Analysis: v=2.4 cv=ePkTjGp1 c=1 sm=1 tr=0 ts=67d27817 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=EUspDBNiAAAA:8 a=myPZrXr1dOEo5VCIbN8A:9
+ a=QEXdDO2ut3YA:10 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-ORIG-GUID: vYXc0755I2aVbikhbBka3N03L-nFuhbo
+X-Proofpoint-GUID: vYXc0755I2aVbikhbBka3N03L-nFuhbo
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
+ definitions=2025-03-13_03,2025-03-11_02,2024-11-22_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 mlxlogscore=999 phishscore=0
+ mlxscore=0 malwarescore=0 suspectscore=0 impostorscore=0 bulkscore=0
+ clxscore=1015 lowpriorityscore=0 spamscore=0 priorityscore=1501
+ adultscore=0 classifier=spam authscore=0 authtc=n/a authcc= route=outbound
+ adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
+ definitions=main-2503130047
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_231005_428990_1629D559 
-X-CRM114-Status: GOOD (  14.18  )
+X-CRM114-CacheID: sfid-20250312_231604_759121_B99925D9 
+X-CRM114-Status: GOOD (  41.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,79 +120,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 3/13/25 12:53 PM, Anshuman Khandual wrote:
-> On 3/11/25 10:07, Gavin Shan wrote:
->> Drop sort_memblock_regions() and avoid sorting the copied memory
->> regions to be ascending order on their base addresses, because the
->> source memory regions should have been sorted correctly when they
->> are added by memblock_add() or its variants.
+
+
+On 3/12/2025 9:22 PM, Mike Leach wrote:
+> Hi,
+> 
+> On Mon, 10 Mar 2025 at 09:05, Jie Gan <quic_jiegan@quicinc.com> wrote:
 >>
->> This is generally reverting commit a14307f5310c ("KVM: arm64: Sort
->> the hypervisor memblocks"). No functional changes intended.
+>> From: Jie Gan <jie.gan@oss.qualcomm.com>
+>>
+>> The byte-cntr function provided by the CTCU device is used to transfer data
+>> from the ETR buffer to the userspace. An interrupt is tiggered if the data
+>> size exceeds the threshold set in the BYTECNTRVAL register. The interrupt
+>> handler counts the number of triggered interruptions and the read function
+>> will read the data from the ETR buffer if the IRQ count is greater than 0.
+>> Each successful read process will decrement the IRQ count by 1.
+>>
+>> The byte cntr function will start when the device node is opened for reading,
+>> and the IRQ count will reset when the byte cntr function has stopped. When
+>> the file node is opened, the w_offset of the ETR buffer will be read and
+>> stored in byte_cntr_data, serving as the original r_offset (indicating
+>> where reading starts) for the byte counter function.
+>>
+>> The work queue for the read operation will wake up once when ETR is stopped,
+>> ensuring that the remaining data in the ETR buffer has been flushed based on
+>> the w_offset read at the time of stopping.
+>>
+>> The following shell commands write threshold to BYTECNTRVAL registers.
+>>
+>> Only enable byte-cntr for ETR0:
+>> echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>>
+>> Enable byte-cntr for both ETR0 and ETR1(support both hex and decimal values):
+>> echo 0x10000 4096 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>>
+>> Setting the BYTECNTRVAL registers to 0 disables the byte-cntr function.
+>> Disable byte-cntr for ETR0:
+>> echo 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>>
+>> Disable byte-cntr for both ETR0 and ETR1:
+>> echo 0 0 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>>
+>> There is a minimum threshold to prevent generating too many interrupts.
+>> The minimum threshold is 4096 bytes. The write process will fail if user try
+>> to set the BYTECNTRVAL registers to a value less than 4096 bytes(except
+>> for 0).
+>>
+>> Finally, the user can read data from the ETR buffer through the byte-cntr file
+>> nodes located under /dev, for example reads data from the ETR0 buffer:
+>> cat /dev/byte-cntr0
+>>
+>> Way to enable and start byte-cntr for ETR0:
+>> echo 0x10000 > /sys/devices/platform/soc@0/4001000.ctcu/ctcu0/byte_cntr_val
+>> echo 1 > /sys/bus/coresight/devices/tmc_etr0/enable_sink
+>> echo 1 > /sys/bus/coresight/devices/etm0/enable_source
+>> cat /dev/byte-cntr0
+>>
 > 
-> Just wondering what prompted this change ?
+> There is a significant issue with attempting to drain an ETR buffer
+> while it is live in the way you appear to be doing.
+> 
+> You have no way of knowing if the TMC hardware write pointer wraps and
+> overtakes the point where you are currently reading. This could cause
+> data corruption as TMC writes as you are reading, or contention for
+> the buffer that affects the TMC write.
+> 
+> Even if those two events do not occur, then the trace capture sequence
+> is corrupted.
+> 
+> Take a simple example - suppose we split the buffer into 4 blocks of
+> trace, which are filled by the ETR
+> 
+> buffer = 1, 2, 3, 4
+> 
+> Now you suppose you have read 1 & 2 into your userspace buffer / file.
+> 
+> file = 1, 2
+> 
+> If there is now some system event that prevents your userspace code
+> from running for a while, then it is possible that the ETR continues,
+> wraps and the buffer is now
+> 
+> buffer = 5, 6, 7, 4
+> 
+> Your next two reads will be 7, 4
+> 
+> file = 1, 2, 7, 4
+> 
+> This trace is now corrupt and will cause decode errors. There is no
+> way for the decoder to determine that the interface between blocks 2 &
+> 7 is not correct. If you are fortunate then this issue will cause an
+> actual explicit decode error, if you are less fortunate then decode
+> will continue but in fact be inaccurate, with no obvious way to detect
+> the inaccuracy.
+> 
+> We encountered this problem early in the development of the perf data
+> collection. Even though perf was stopping the trace to copy the
+> hardware buffer, it would concatenate unrelated trace blocks into the
+> perf userspace buffer, which initially caused decoding errors. This is
+> now mitigated in perf by marking boundaries and recording indexes of
+> the boundaries, so the tool can reset the decoder at the start of non
+> contiguous blocks.
+> 
+> If you do not stop the TMC when draining the ETR buffer, you have no
+> way of determining if this has occurred.
+> 
+> Clearly using large buffers, split into smaller blocks can mitigate
+> the possibility of a wrap in this way - but never eliminate it,
+> especially given the extreme rate that trace data can be generated.
 > 
 
-I found the unnecessary sorting by code inspection. Hope there is nothing I
-missed and it's why Quentin Perret has been copied, to confirm it. Commit
-a14307f5310c was introduced by the initial series [1/2] to support pKVM.
+Hi Mike,
 
-[1] https://lore.kernel.org/kvmarm/20201117181607.1761516-1-qperret@google.com/
-[2] https://lore.kernel.org/all/20210319100146.1149909-1-qperret@google.com/
+Thanks for detailed explanation. It's clear and makes sense to me.
+
+I will look for another reasonable solution.
 
 Thanks,
-Gavin
+Jie
 
+> Regards
+> 
+> Mike
+> 
+> 
+>> Jie Gan (4):
+>>    coresight: tmc: Introduce new APIs to get the RWP offset of ETR buffer
+>>    dt-bindings: arm: Add an interrupt property for Coresight CTCU
+>>    coresight: ctcu: Enable byte-cntr for TMC ETR devices
+>>    arm64: dts: qcom: sa8775p: Add interrupts to CTCU device
 >>
->> Signed-off-by: Gavin Shan <gshan@redhat.com>
->> ---
->>   arch/arm64/kvm/pkvm.c | 19 -------------------
->>   1 file changed, 19 deletions(-)
+>>   .../bindings/arm/qcom,coresight-ctcu.yaml     |  17 +
+>>   arch/arm64/boot/dts/qcom/sa8775p.dtsi         |   5 +
+>>   drivers/hwtracing/coresight/Makefile          |   2 +-
+>>   .../coresight/coresight-ctcu-byte-cntr.c      | 339 ++++++++++++++++++
+>>   .../hwtracing/coresight/coresight-ctcu-core.c |  96 ++++-
+>>   drivers/hwtracing/coresight/coresight-ctcu.h  |  59 ++-
+>>   .../hwtracing/coresight/coresight-tmc-etr.c   |  45 ++-
+>>   drivers/hwtracing/coresight/coresight-tmc.h   |   3 +
+>>   8 files changed, 556 insertions(+), 10 deletions(-)
+>>   create mode 100644 drivers/hwtracing/coresight/coresight-ctcu-byte-cntr.c
 >>
->> diff --git a/arch/arm64/kvm/pkvm.c b/arch/arm64/kvm/pkvm.c
->> index 930b677eb9b0..d9c9174f89a1 100644
->> --- a/arch/arm64/kvm/pkvm.c
->> +++ b/arch/arm64/kvm/pkvm.c
->> @@ -10,7 +10,6 @@
->>   #include <asm/kvm_mmu.h>
->>   #include <linux/memblock.h>
->>   #include <linux/mutex.h>
->> -#include <linux/sort.h>
->>   
->>   #include <asm/kvm_pkvm.h>
->>   
->> @@ -24,23 +23,6 @@ static unsigned int *hyp_memblock_nr_ptr = &kvm_nvhe_sym(hyp_memblock_nr);
->>   phys_addr_t hyp_mem_base;
->>   phys_addr_t hyp_mem_size;
->>   
->> -static int cmp_hyp_memblock(const void *p1, const void *p2)
->> -{
->> -	const struct memblock_region *r1 = p1;
->> -	const struct memblock_region *r2 = p2;
->> -
->> -	return r1->base < r2->base ? -1 : (r1->base > r2->base);
->> -}
->> -
->> -static void __init sort_memblock_regions(void)
->> -{
->> -	sort(hyp_memory,
->> -	     *hyp_memblock_nr_ptr,
->> -	     sizeof(struct memblock_region),
->> -	     cmp_hyp_memblock,
->> -	     NULL);
->> -}
->> -
->>   static int __init register_memblock_regions(void)
->>   {
->>   	struct memblock_region *reg;
->> @@ -52,7 +34,6 @@ static int __init register_memblock_regions(void)
->>   		hyp_memory[*hyp_memblock_nr_ptr] = *reg;
->>   		(*hyp_memblock_nr_ptr)++;
->>   	}
->> -	sort_memblock_regions();
->>   
->>   	return 0;
->>   }
+>> --
+>> 2.34.1
+>>
+> 
 > 
 
 
