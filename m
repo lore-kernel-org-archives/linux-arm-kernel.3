@@ -4,71 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB0A5C28B2F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 00:35:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F20EBC28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 01:17:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:MIME-Version:
-	Content-Type:Content-Transfer-Encoding:References:In-Reply-To:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6CkxKqdAjN/Cx3aZZ+ReIjRKn2TmSXeTFO6XNU+m+lU=; b=1go6bYqt8UAl+rwCDjnoGQRQEb
-	AxXcdSBgJpRxgUPYK5n5b+qwsOLKZ11/K/MsjghnRtHtsMrnR7qs2cbRvLXDtSDbYLe66N3FuGkEW
-	Eoy78UaQJI2in1LRBod1Ak+FdCLYrEaMioZkDsT8J0DBwWFMTOzucwmKWCJtSpKXRFq5QCTQaYqgR
-	XBfDrtoEPAysBSRupf7vcsvyliMor5Wx4RDuyKlb5mcnKSBPvBMSa4DN9VVNV2FrsBO18mpev/+q2
-	qh5yzVbwBrvqQxAn5OLNM1yxe6SzEPLS6MemwPYTeKshFh4iMD+8Gzjlp15NF57Rjny63wzdF2Pct
-	TYbbA9LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=CplJ4qBm1rlLiAX8XwqfY3czuxTznGHQa5yRNrScf2Q=; b=xZ1WCZTESNRLmQ5DNOyJfdsFRD
+	WwGpD6BKwfJ4LNCWUkio1gRFCDbc/ZDCG6jecYfPt6CM4TT0P95+TclL6XZNmzGkxPOAx/aitt08I
+	WrmDeaN9c1F46UMNB5kD6lRP/maUk7pOCNG3dNQkH7uEiye2siFL95ft0r76KwP88ojHzQA8ymB0G
+	lVCy0lo88mmHUSw1pfZMF3zzWKQxY6m1YiJeh+1JMhiM64kYrzzyJvpQH5jwBPDDs+Tyxt2uJsKad
+	6+C0fWUXtLihm5C7oBHrdj78a3eRnnwKE3Io3GoUthrC2s9Dt9btBwHtturpU0j1k1gI7qF4hF7jp
+	dIu/yO+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsWXR-00000009p7v-0jW5;
-	Thu, 13 Mar 2025 00:35:05 +0000
-Received: from m16.mail.163.com ([220.197.31.2])
-	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsWVl-00000009p2J-1rDL;
-	Thu, 13 Mar 2025 00:33:22 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=163.com;
-	s=s110527; h=Date:From:Subject:Content-Type:MIME-Version:
-	Message-ID; bh=AB2GUHSL2k8vU974ZJtogILKP8rhMHvKGHGeZ+pVxWQ=; b=O
-	0WDE/MkX+VL2kULTxRHxI8f5O4zX5KcccF9Pc75nJE9dAr7HoUTj3oFSdOD0ipfV
-	4mdv68a85oNF7bxNT+HMz5mO+Lu3lOrxPRloYrptfdCaX8JY9J90WwXlAi+rj5eI
-	Sof4FTDtSOcod0qqa92c9KE1osByLNkUtqztGxcNi8=
-Received: from andyshrk$163.com ( [58.22.7.114] ) by
- ajax-webmail-wmsvr-40-123 (Coremail) ; Thu, 13 Mar 2025 08:32:55 +0800
- (CST)
-X-Originating-IP: [58.22.7.114]
-Date: Thu, 13 Mar 2025 08:32:55 +0800 (CST)
-From: "Andy Yan" <andyshrk@163.com>
-To: "Dmitry Baryshkov" <lumag@kernel.org>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org,
-	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org,
-	yubing.zhang@rock-chips.com, krzk+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org, robh@kernel.org,
-	sebastian.reichel@collabora.com,
-	"Andy Yan" <andy.yan@rock-chips.com>,
-	"stephen@radxa.com" <stephen@radxa.com>
-Subject: Re:Re: [PATCH v2 7/7] arm64: dts: rockchip: Enable DP2HDMI for ROCK
- 5 ITX
-X-Priority: 3
-X-Mailer: Coremail Webmail Server Version XT5.0.14 build 20240801(9da12a7b)
- Copyright (c) 2002-2025 www.mailtech.cn 163com
-In-Reply-To: <q3y36jgswj4xa2g3hnptc6kgzphbqfg675r5paa2lwvdseytio@jysj4f2i6osu>
-References: <20250312104214.525242-1-andyshrk@163.com>
- <20250312104214.525242-8-andyshrk@163.com>
- <q3y36jgswj4xa2g3hnptc6kgzphbqfg675r5paa2lwvdseytio@jysj4f2i6osu>
-X-NTES-SC: AL_Qu2fA/SZukEs4yKdYOlSyjNW+7xfHKv6+qRChMQvQtsqqTHr9T0KcVtuP1XR3//r4kRAiu7dpbs5Jch8KvJm
-Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset=UTF-8
+	id 1tsXBu-00000009rH3-1sJT;
+	Thu, 13 Mar 2025 01:16:54 +0000
+Received: from mail-qt1-x82e.google.com ([2607:f8b0:4864:20::82e])
+	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsXAE-00000009r62-3AdE;
+	Thu, 13 Mar 2025 01:15:11 +0000
+Received: by mail-qt1-x82e.google.com with SMTP id d75a77b69052e-46e48278a9dso83511cf.0;
+        Wed, 12 Mar 2025 18:15:10 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741828509; x=1742433309; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=CplJ4qBm1rlLiAX8XwqfY3czuxTznGHQa5yRNrScf2Q=;
+        b=RLgXZlT2KZHLxnT8Z6OQI0hhT9eKqYcmNh70qr3O/HNdv+XNMP5mGMaltkZ4fiDC1d
+         7+xM0c0xKV2R0kuD+9F+AI5+52Qm5XwaMfV8yGCAbsoJrEVrKN/XwIowoM/hLSs4XQw1
+         WviWnOuOmMEirOlAwIJK97TDDKbiAeNKp3NZiVAv5cI/yhQv8g3mqN3o2RleFeZBw4zQ
+         Cg7NXTnVT6ZZRzxV5/CeJlSuMwC4qo7cObTZGmI9+F6wa+FqJZq2s4btI+W2jyb2/Vfr
+         gCGadEcguoTdFIPPJ6R3q/X8efd0xUQWHxvCOpA3j+KJ6Ki0kFXTpHpY6GjDRAuvrB5r
+         nFbA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741828509; x=1742433309;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=CplJ4qBm1rlLiAX8XwqfY3czuxTznGHQa5yRNrScf2Q=;
+        b=QCYCeV9fDEyOgY3Imkt+zctiil8fHO/0by+uns2z1Mg2C5fVWhf7qf/IrT5opIdBbz
+         GZEb5z4/sZSegA+d6EHWknbBaFxC+DUsvs+vLKF5xxLHjF9xbZs0gHh2i+g8kkbpITMg
+         tBEQJrMrlwtqMYgpbgbztzdWIYA/2VwNEuwbWPEc53eNrnvN/YvDb4fHCWPoxd9JFXJG
+         eXIJDCOJ1Lh0TOS78xV67nt02oMS3iwb+zln3KzJQKjk+X8EMkkg/ILvoBsoW0E0Vbrc
+         Vg2JDXfz5Smnp3SRl/s0W6NMF/jXJjMDaiHl55Oc5QWpXyY46cMgbTTVjtgE3GYCiSTp
+         wYww==
+X-Forwarded-Encrypted: i=1; AJvYcCUIZC3LMWY09/shmhXuLcewljd3thm6LVUJxbeVZt2CDByFYkZzojThITBUQZncRrxMEy09tqceRICyTMjafqEI@lists.infradead.org, AJvYcCW+DEErD2khPEoCJWp96qb6mEpr3SZ1VEiSiCLVzwwzyPqn7wy5y9sMy7/9qtKPyM6qx+EHpTjSacT6D8nvGlQ=@lists.infradead.org
+X-Gm-Message-State: AOJu0YzqT8641ytKgsUrSL2TzDQtwEFacBwFK/dmXPcRXEeE8JgKnZiB
+	9Qn7Yv+6KTdGHUBn/xkro2fMizc6HnYd/JvShawUBcs10Ub2Q/g=
+X-Gm-Gg: ASbGncuSEpQHHx968MWlaAkN/4RfGlrVrfXvRdCXwGvOwFAnQQQcrDRcLWac9R0Tq8x
+	257Ejfaf7PxhqwApIJteVu1n9Ie+65z0Q+Dg+GHPKBWkIfSGq6PtrOJzWDjQv978tmeOwqGJhMZ
+	AW9aItz/nqqTo+oJKD73QkerJz1JNCodWNC86hkbKhHFzXTl+eH+PMLmQL611PHx/y7TWAyU092
+	7Ev9hVJJCU7Oa/o/rdhjJrbzMAjfZN8dqsOtuFI/TiHjqS0k+d3+PUHTJZ75KN0vJicTJdGt/Es
+	O3YqQsieZjh42UcztOa/RBPsn3oSkUOmLtXa9cGGNw==
+X-Google-Smtp-Source: AGHT+IHkt7gdCvT3sZMm/MUWsh89g+gMdYyxh1jTYIM+y9Ksbzc5TpKWzBj7zvLRqPmZLC8TC+4rDg==
+X-Received: by 2002:a05:622a:2b0c:b0:474:e7de:8595 with SMTP id d75a77b69052e-47666ca49c3mr100937371cf.14.1741828509184;
+        Wed, 12 Mar 2025 18:15:09 -0700 (PDT)
+Received: from ise-alpha.. ([2620:0:e00:550a:642:1aff:fee8:511b])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-476bb6082d1sm2428761cf.12.2025.03.12.18.15.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Mar 2025 18:15:08 -0700 (PDT)
+From: Chenyuan Yang <chenyuan0y@gmail.com>
+To: mkl@pengutronix.de,
+	kernel@pengutronix.de,
+	mailhol.vincent@wanadoo.fr,
+	heiko@sntech.de
+Cc: linux-can@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Chenyuan Yang <chenyuan0y@gmail.com>
+Subject: [PATCH] can: rockchip: bail out if skb cannot be allocated
+Date: Wed, 12 Mar 2025 20:15:05 -0500
+Message-Id: <20250313011506.3132295-1-chenyuan0y@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Message-ID: <5858d492.44b.1958ceb23dd.Coremail.andyshrk@163.com>
-X-Coremail-Locale: zh_CN
-X-CM-TRANSID: eygvCgD3H4e3J9JnFCt9AA--.21925W
-X-CM-SenderInfo: 5dqg52xkunqiywtou0bp/xtbBkAMPXmfSI2pHYgACsZ
-X-Coremail-Antispam: 1U5529EdanIXcx71UUUUU7vcSsGvfC2KfnxnUU==
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250312_173321_785944_28040E87 
-X-CRM114-Status: GOOD (  14.25  )
+X-CRM114-CacheID: sfid-20250312_181510_803302_80774A64 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,54 +99,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-CkhpIERtaXRyeSwKCkF0IDIwMjUtMDMtMTIgMjA6Mzk6MTcsICJEbWl0cnkgQmFyeXNoa292IiA8
-bHVtYWdAa2VybmVsLm9yZz4gd3JvdGU6Cj5PbiBXZWQsIE1hciAxMiwgMjAyNSBhdCAwNjo0Mjow
-OFBNICswODAwLCBBbmR5IFlhbiB3cm90ZToKPj4gRnJvbTogQW5keSBZYW4gPGFuZHkueWFuQHJv
-Y2stY2hpcHMuY29tPgo+PiAKPj4gVGhlIEhETUkgUG9ydCBuZXh0IHRvIEhlYWRwaG9uZSBKYWNr
-IGlzIGRyaXZlZCBieQo+PiBEUDEgb24gcmszNTg4IHZpYSBhIGRwMmhkbWkgY29udmVydGVyLgo+
-PiAKPj4gQWRkIHJlbGF0ZWQgZHQgbm9kZXMgdG8gZW5hYmxlIGl0Lgo+PiAKPj4gTm90ZTogUk9D
-S0NISVBfVk9QMl9FUF9EUDEgaXMgZGVmaW5lZCBhcyAxMSBpbiBkdC1iaW5kaW5nIGhlYWRlciwK
-Pj4gYnV0IGl0IHdpbGwgdHJpZ2dlciBhIGR0YyB3YXJuaW5nIGxpa2UgImdyYXBoIG5vZGUgdW5p
-dCBhZGRyZXNzCj4+IGVycm9yLCBleHBlY3RlZCAiYiIiIGlmIHdlIHVzZSBpdCBkaXJlY3RseSBh
-ZnRlciBlbmRwb2ludCwgc28gd2UKPj4gdXNlICJiIiBpbnN0ZWFkIGhlcmUuCj4+IAo+PiBTaWdu
-ZWQtb2ZmLWJ5OiBBbmR5IFlhbiA8YW5keS55YW5Acm9jay1jaGlwcy5jb20+Cj4+IC0tLQo+PiAK
-Pj4gKG5vIGNoYW5nZXMgc2luY2UgdjEpCj4+IAo+PiAgLi4uL2Jvb3QvZHRzL3JvY2tjaGlwL3Jr
-MzU4OC1yb2NrLTUtaXR4LmR0cyAgIHwgMzcgKysrKysrKysrKysrKysrKysrKwo+PiAgMSBmaWxl
-IGNoYW5nZWQsIDM3IGluc2VydGlvbnMoKykKPj4gCj4+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0
-L2Jvb3QvZHRzL3JvY2tjaGlwL3JrMzU4OC1yb2NrLTUtaXR4LmR0cyBiL2FyY2gvYXJtNjQvYm9v
-dC9kdHMvcm9ja2NoaXAvcmszNTg4LXJvY2stNS1pdHguZHRzCj4+IGluZGV4IDY3Yjg4NjMyOTI0
-OC4uMjlmMTBlYzlmMGMxIDEwMDY0NAo+PiAtLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL3JvY2tj
-aGlwL3JrMzU4OC1yb2NrLTUtaXR4LmR0cwo+PiArKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL3Jv
-Y2tjaGlwL3JrMzU4OC1yb2NrLTUtaXR4LmR0cwo+PiBAQCAtNTcsNiArNTcsMTggQEAgYW5hbG9n
-LXNvdW5kIHsKPj4gIAkJCSAgIkhlYWRwaG9uZSIsICJIZWFkcGhvbmVzIjsKPj4gIAl9Owo+PiAg
-Cj4+ICsJZHAtY29uIHsKPj4gKwkJY29tcGF0aWJsZSA9ICJkcC1jb25uZWN0b3IiOwo+Cj5Zb3Un
-dmUgd3JpdHRlbiB0aGF0IGl0IGlzIGFuIEhETUkgY29ubmVjdG9yLiBDb3VsZCB5b3UgcG9zc2li
-bHkgY2xhcmlmeSwKPndoeSBpcyBpdCBiZWluZyByZWdpc3RlcmVkIGFzIGEgRFAgY29ubmVjdG9y
-PyBJcyB0aGVyZSBhbnkga2luZCBvZgo+YSBicmlkZ2UgYmV0d2VlbiB0aGUgRFAgY29udHJvbGxl
-ciBhbmQgdGhlIEhETUkgY29ubmVjdG9yPwoKV2hlbiBJIHdhcyBwcmVwYXJpbmcgdGhpcyBwYXRj
-aCBhdCB0aGF0IHRpbWUsIEkgYWxzbyBoYWQgc29tZSBkb3VidHMuIApXaGV0aGVyIGl0IHNob3Vs
-ZCBiZSByZWdpc3RlcmVkIGFzIGEgRFAgY29ubmVjdG9yIG9yIGFuIEhETUkgY29ubmVjdG9yLiAK
-VGhlcmUgaXMgYSBEUDJIRE1JIGNvbnZlcnNpb24gY2hpcCBiZXR3ZWVuIHRoZSBEUCBvZiBSSzM1
-ODggYW5kIHRoaXMgaGRtaSAKaW50ZXJmYWNlLCBidXQgdGhpcyBjb252ZXJzaW9uIGNoaXAgZG9l
-cyBub3QgcmVxdWlyZSBhIHNvZnR3YXJlIGRyaXZlci4gCklmIHRoZSBjdXJyZW50IHdyaXRpbmcg
-aXMgaW5jb3JyZWN0LCBJIHdpbGwgY2hhbmdlIGl0IHRvIGhkbWktY29ubmVjdG9yIGluIHRoZSBu
-ZXh0IHZlcnNpb24uCgpUaGFua3MKPgo+PiArCQlsYWJlbCA9ICJEUCBPVVQiOwo+PiArCQl0eXBl
-ID0gImZ1bGwtc2l6ZSI7Cj4+ICsKPj4gKwkJcG9ydCB7Cj4+ICsJCQlkcF9jb25faW46IGVuZHBv
-aW50IHsKPj4gKwkJCQlyZW1vdGUtZW5kcG9pbnQgPSA8JmRwMV9vdXRfY29uPjsKPj4gKwkJCX07
-Cj4+ICsJCX07Cj4+ICsJfTsKPj4gKwo+PiAgCWdwaW8tbGVkcyB7Cj4+ICAJCWNvbXBhdGlibGUg
-PSAiZ3Bpby1sZWRzIjsKPj4gIAkJcGluY3RybC1uYW1lcyA9ICJkZWZhdWx0IjsKPj4gQEAgLTI2
-OCw2ICsyODAsMjQgQEAgJmNwdV9sMyB7Cj4+ICAJY3B1LXN1cHBseSA9IDwmdmRkX2NwdV9saXRf
-czA+Owo+PiAgfTsKPj4gIAo+PiArJmRwMSB7Cj4+ICsJc3RhdHVzID0gIm9rYXkiOwo+PiArCXBp
-bmN0cmwtbmFtZXMgPSAiZGVmYXVsdCI7Cj4+ICsJcGluY3RybC0wID0gPCZkcDFtMF9waW5zPjsK
-Pj4gK307Cj4+ICsKPj4gKyZkcDFfaW4gewo+PiArCWRwMV9pbl92cDI6IGVuZHBvaW50IHsKPj4g
-KwkJcmVtb3RlLWVuZHBvaW50ID0gPCZ2cDJfb3V0X2RwMT47Cj4+ICsJfTsKPj4gK307Cj4+ICsK
-Pj4gKyZkcDFfb3V0IHsKPj4gKwlkcDFfb3V0X2NvbjogZW5kcG9pbnQgewo+PiArCQlyZW1vdGUt
-ZW5kcG9pbnQgPSA8JmRwX2Nvbl9pbj47Cj4+ICsJfTsKPj4gK307Cj4+ICsKPj4gICZncHUgewo+
-PiAgCW1hbGktc3VwcGx5ID0gPCZ2ZGRfZ3B1X3MwPjsKPj4gIAlzdGF0dXMgPSAib2theSI7Cj4+
-IEBAIC0xMjYyLDMgKzEyOTIsMTAgQEAgdnAxX291dF9oZG1pMTogZW5kcG9pbnRAUk9DS0NISVBf
-Vk9QMl9FUF9IRE1JMSB7Cj4+ICAJCXJlbW90ZS1lbmRwb2ludCA9IDwmaGRtaTFfaW5fdnAxPjsK
-Pj4gIAl9Owo+PiAgfTsKPj4gKwo+PiArJnZwMiB7Cj4+ICsJdnAyX291dF9kcDE6IGVuZHBvaW50
-QGIgewo+PiArCQlyZWcgPSA8Uk9DS0NISVBfVk9QMl9FUF9EUDE+Owo+PiArCQlyZW1vdGUtZW5k
-cG9pbnQgPSA8JmRwMV9pbl92cDI+Owo+PiArCX07Cj4+ICt9Owo+PiAtLSAKPj4gMi4zNC4xCj4+
-IAo+Cj4tLSAKPldpdGggYmVzdCB3aXNoZXMKPkRtaXRyeQo=
+Add NULL pointer check in rkcanfd_handle_error_int() to
+bail out if skb cannot be allocated.
+
+This is similar to the commit f7f0adfe64de
+("can: rockchip: rkcanfd_handle_rx_fifo_overflow_int(): bail out if skb cannot be allocated").
+
+Signed-off-by: Chenyuan Yang <chenyuan0y@gmail.com>
+---
+ drivers/net/can/rockchip/rockchip_canfd-core.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index d9a937ba126c..90395cbdaab9 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -551,7 +551,7 @@ static int rkcanfd_handle_error_int(struct rkcanfd_priv *priv)
+ 
+ 	rkcanfd_handle_error_int_reg_ec(priv, cf, reg_ec);
+ 
+-	if (!cf)
++	if (!cf || !skb)
+ 		return 0;
+ 
+ 	err = can_rx_offload_queue_timestamp(&priv->offload, skb, timestamp);
+-- 
+2.34.1
+
 
