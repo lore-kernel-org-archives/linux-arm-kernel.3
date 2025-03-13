@@ -4,66 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C35C2BA1B
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:12:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F77DC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 08:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kXB6XQxBgOO4BeiHGxJ2UAjO984VQj53DfOOCopmIU4=; b=pG4BfzA5QbenlrpD5k1BHLWIe+
-	5b16+so1KB7CeYTP1V29ghcmkpP3piUtmKpqPQHRkIYKgcxZsBmsWBt2COINUa1dmcD3BnpXc4hzl
-	wuaM7AzsiX9mKmrQRsd+AUSSY+7ebY8aHRAyGEXOcDvLncUXGErNQ3KKnwigPDynrGtBpLOtg4ptW
-	W5kruwlagqZRY7+sNUHyNT+J7006pvc5axvWcXWn6qScFgPSRcillejiNF37//bqKpu6GZAKHm7Zk
-	3D6VwNRk0dmOtJaTSNiRmrdcQoUxoXMR9o27yYF/co1MFP7qIGyjxWyCyjJ6wlEhUWeag1BKJmj+c
-	UcOHaDBA==;
+	bh=KNWRjxoA9JsYQRCUVG8bkf0reIJyoWkhEVKiEfrJEN4=; b=uLCBGeOHZ1R4Vwf2/8MPgGUFly
+	apGNEKbpo9AgrSlOo3g6tZXfNovktuinMSvmabbVGI02q0BfHrJeboDvqWa3wit/LPt5NsEqYIsqr
+	xpDEftdcItHGFwUYiEGX9AUQfDLDnnoO/ODChL2hIf7xT9w2VPd9rghRwSFwZemkzz6YYhvnyaWLY
+	ZWou41j6FbO/hocLxskMChFC8B6de4d4plp3xfx2UlBilZEF+9ZfNg+Cj93VJ/l+HSsIEYSdJIOCp
+	7bdPLvc61xkjjSWLocNQWcTRPc7vDwVbbyCE/M/UiWA4+eHKLrJ7lcpimdj4wheIV901gwUWpqNCu
+	0rH1dsfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdg6-0000000AVom-3HvN;
-	Thu, 13 Mar 2025 08:12:30 +0000
-Received: from dfw.source.kernel.org ([139.178.84.217])
+	id 1tsdiV-0000000AW3H-2BYm;
+	Thu, 13 Mar 2025 08:14:59 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsdeR-0000000AVYw-23BQ;
-	Thu, 13 Mar 2025 08:10:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by dfw.source.kernel.org (Postfix) with ESMTP id 32C925C58ED;
-	Thu, 13 Mar 2025 08:08:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 192C1C4CEE9;
-	Thu, 13 Mar 2025 08:10:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741853446;
-	bh=Zp1VrZoXU/0dSvEI86TANfaHnZV5iTRbrfgotlEDFRI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=BpXfG2HhBD0lvTWWhRZA+1T8htRe+xTYjak3WeCBc7WDn9XNvGVXbCye4eQHWGXQx
-	 tDbB1ms2wNbC4aEE3MROlHrWhcxKkySOS7TESW0MK8akdtqAYX8xdfbUGc0S7l3Ieo
-	 bvMrAGxYbhEv0F405l+dTAhBKbRrUI5WgeKlc1OYbxkQoD2AiuvrnBtsFFh7yHmSjg
-	 VSIflVkoxTCLnojftgiyh96Dk22WoaGJ0B6JXAGJACTduRHPzr1c6Fqh0CS2dE28N2
-	 iWOZfLVkFcRXWfUISQzeA+efY0As4cm82VNBDuhZi5FmIm7v2hrA1Qesz3PKfbSrrp
-	 jw/RBgrYdOfVA==
-Date: Thu, 13 Mar 2025 10:10:40 +0200
-From: Dmitry Baryshkov <lumag@kernel.org>
-To: Andy Yan <andyshrk@163.com>
-Cc: heiko@sntech.de, hjc@rock-chips.com, mripard@kernel.org, 
-	cristian.ciocaltea@collabora.com, neil.armstrong@linaro.org, yubing.zhang@rock-chips.com, 
-	krzk+dt@kernel.org, devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	robh@kernel.org, sebastian.reichel@collabora.com, 
-	Andy Yan <andy.yan@rock-chips.com>, "stephen@radxa.com" <stephen@radxa.com>
-Subject: Re: [PATCH v2 7/7] arm64: dts: rockchip: Enable DP2HDMI for ROCK 5
- ITX
-Message-ID: <y7ouhmfbls3vcumrgudcvhlahxx7iqliimeq4cljko4xfwgzcb@45iozv6spswb>
-References: <20250312104214.525242-1-andyshrk@163.com>
- <20250312104214.525242-8-andyshrk@163.com>
- <q3y36jgswj4xa2g3hnptc6kgzphbqfg675r5paa2lwvdseytio@jysj4f2i6osu>
- <5858d492.44b.1958ceb23dd.Coremail.andyshrk@163.com>
+	id 1tsdgq-0000000AVwR-24Bx
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 08:13:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=KNWRjxoA9JsYQRCUVG8bkf0reIJyoWkhEVKiEfrJEN4=; b=Y8K6rmu/SDHkEIdnY6m360zt81
+	8kzPwsNJQ4rc5IACAg6B5ZDIV5DFMtvgcp7InuiR5xaNzbzQiiXN7ZGThD8agyyGt35Rg7S7bl3ZI
+	jvkMah64c+1BwKawt0hM12P7VXqqjbSgvWRzOTygixRoM/83PLiORN5nYX15gO0gROoDaNH9GMcUr
+	oEk4oT0grTn5KIxWUEQVn3SDrCEXbCU0sK8a7BOBD7VWB6PKcsz7JSXW8gA6Xva1qsUzaZ6GqdpmM
+	/7e1ry+fVNsDUGSRYMVzkgqNYl97VhCmWX9AR1xZihatto/Vd+hhFSSxJxUS2DQvYKTcpx52dr9TG
+	6QyXQYGQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:56136)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1tsdge-0006fC-1T;
+	Thu, 13 Mar 2025 08:13:04 +0000
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.96)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1tsdgZ-0005QW-1c;
+	Thu, 13 Mar 2025 08:12:59 +0000
+Date: Thu, 13 Mar 2025 08:12:59 +0000
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>
+Subject: Re: [PATCH net-next 0/2] net: stmmac: avoid unnecessary work in
+ stmmac_release()/stmmac_dvr_remove()
+Message-ID: <Z9KTixM7_vc_GFe-@shell.armlinux.org.uk>
+References: <Z87bpDd7QYYVU0ML@shell.armlinux.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <5858d492.44b.1958ceb23dd.Coremail.andyshrk@163.com>
+In-Reply-To: <Z87bpDd7QYYVU0ML@shell.armlinux.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_011047_607675_F5E5EA19 
-X-CRM114-Status: GOOD (  27.36  )
+X-CRM114-CacheID: sfid-20250313_011316_529245_FCEDBC0F 
+X-CRM114-Status: UNSURE (   9.11  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,117 +87,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 08:32:55AM +0800, Andy Yan wrote:
+On Mon, Mar 10, 2025 at 12:31:32PM +0000, Russell King (Oracle) wrote:
+> Hi,
 > 
-> Hi Dmitry,
+> This small series is a subset of a RFC I sent earlier. These two
+> patches remove code that is unnecessary and/or wrong in these paths.
+> Details in each commit.
 > 
-> At 2025-03-12 20:39:17, "Dmitry Baryshkov" <lumag@kernel.org> wrote:
-> >On Wed, Mar 12, 2025 at 06:42:08PM +0800, Andy Yan wrote:
-> >> From: Andy Yan <andy.yan@rock-chips.com>
-> >> 
-> >> The HDMI Port next to Headphone Jack is drived by
-> >> DP1 on rk3588 via a dp2hdmi converter.
-> >> 
-> >> Add related dt nodes to enable it.
-> >> 
-> >> Note: ROCKCHIP_VOP2_EP_DP1 is defined as 11 in dt-binding header,
-> >> but it will trigger a dtc warning like "graph node unit address
-> >> error, expected "b"" if we use it directly after endpoint, so we
-> >> use "b" instead here.
-> >> 
-> >> Signed-off-by: Andy Yan <andy.yan@rock-chips.com>
-> >> ---
-> >> 
-> >> (no changes since v1)
-> >> 
-> >>  .../boot/dts/rockchip/rk3588-rock-5-itx.dts   | 37 +++++++++++++++++++
-> >>  1 file changed, 37 insertions(+)
-> >> 
-> >> diff --git a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> >> index 67b886329248..29f10ec9f0c1 100644
-> >> --- a/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> >> +++ b/arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dts
-> >> @@ -57,6 +57,18 @@ analog-sound {
-> >>  			  "Headphone", "Headphones";
-> >>  	};
-> >>  
-> >> +	dp-con {
-> >> +		compatible = "dp-connector";
-> >
-> >You've written that it is an HDMI connector. Could you possibly clarify,
-> >why is it being registered as a DP connector? Is there any kind of
-> >a bridge between the DP controller and the HDMI connector?
-> 
-> When I was preparing this patch at that time, I also had some doubts. 
-> Whether it should be registered as a DP connector or an HDMI connector. 
-> There is a DP2HDMI conversion chip between the DP of RK3588 and this hdmi 
-> interface, but this conversion chip does not require a software driver. 
-> If the current writing is incorrect, I will change it to hdmi-connector in the next version.
+>  drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 5 -----
+>  1 file changed, 5 deletions(-)
 
-Yes. Please add the RA620 chip to simple-bridge.c and simple-bridge.yaml
-and use HDMI connector here.
+Hi Jakub,
 
-> 
-> Thanks
-> >
-> >> +		label = "DP OUT";
-> >> +		type = "full-size";
-> >> +
-> >> +		port {
-> >> +			dp_con_in: endpoint {
-> >> +				remote-endpoint = <&dp1_out_con>;
-> >> +			};
-> >> +		};
-> >> +	};
-> >> +
-> >>  	gpio-leds {
-> >>  		compatible = "gpio-leds";
-> >>  		pinctrl-names = "default";
-> >> @@ -268,6 +280,24 @@ &cpu_l3 {
-> >>  	cpu-supply = <&vdd_cpu_lit_s0>;
-> >>  };
-> >>  
-> >> +&dp1 {
-> >> +	status = "okay";
-> >> +	pinctrl-names = "default";
-> >> +	pinctrl-0 = <&dp1m0_pins>;
-> >> +};
-> >> +
-> >> +&dp1_in {
-> >> +	dp1_in_vp2: endpoint {
-> >> +		remote-endpoint = <&vp2_out_dp1>;
-> >> +	};
-> >> +};
-> >> +
-> >> +&dp1_out {
-> >> +	dp1_out_con: endpoint {
-> >> +		remote-endpoint = <&dp_con_in>;
-> >> +	};
-> >> +};
-> >> +
-> >>  &gpu {
-> >>  	mali-supply = <&vdd_gpu_s0>;
-> >>  	status = "okay";
-> >> @@ -1262,3 +1292,10 @@ vp1_out_hdmi1: endpoint@ROCKCHIP_VOP2_EP_HDMI1 {
-> >>  		remote-endpoint = <&hdmi1_in_vp1>;
-> >>  	};
-> >>  };
-> >> +
-> >> +&vp2 {
-> >> +	vp2_out_dp1: endpoint@b {
-> >> +		reg = <ROCKCHIP_VOP2_EP_DP1>;
-> >> +		remote-endpoint = <&dp1_in_vp2>;
-> >> +	};
-> >> +};
-> >> -- 
-> >> 2.34.1
-> >> 
-> >
-> >-- 
-> >With best wishes
-> >Dmitry
+Why is this series showing in patchwork, but not being subjected to
+any nipabot tests?
+
+There's also "net: phylink: expand on .pcs_config() method
+documentation" which isn't being subjected to nipabot tests.
+
+Thanks.
 
 -- 
-With best wishes
-Dmitry
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
