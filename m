@@ -4,98 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EA37C35FF1
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:18:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 80C0CC28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0IiRBP4KjWJSLSZTkh7tTN91XixmNs8vlyct8AKJ6b4=; b=ADKbcPfW8NZvRKvb/vMG0hj+Qt
-	/gp3Ag7tZs6rhPIV0dM+xLlJ6l+6n0A2sUTQtDKU42KxKnzY4Clu6WuC2i2ucXxuzrVcDZ0n5H617
-	j5n8fGrn9OK2Dq0c+K5LV4E36bIRiqIoS6LKxixo+2sicq4ggjrwIpj95kNzvlBd5IWs3DYg7Usb0
-	05DBrLNhXhEq0rK4eleocR1Kej4vB73VWfyOGAbv5ljn9dq3jvvpQNJ2Ann8s9NobGCQQW/mp+vZC
-	fBHyFz6j19T3C8qG/EPZGuiHi6MkABZOdDUbX7nBa5hQMDgqxjJOsH5dxYBaZSyGk88A2ALf75lpr
-	1D+3pwAQ==;
+	bh=f+aTfeoVSIyB0YffFidlDzeB2TUKfGBiv94evK8t4xc=; b=RA93On62q2y3u4Haf1XDyoLHUq
+	Y2WNKOn+Um0HhDYAnFBB7S5wcHO1YMbCT8dpKfky1zcXlsrNv2ANYe+ptuaGVrbf+4nP2thnUgD+f
+	8mYoDFiIcbnR9Vr91CZ27qSClRrCqCkC8BRmHUFair0WSI4FbLMG17h6wPC/jOeL05hibVxaZy+oi
+	wbpIiIQ/Go0qOm9g+OMB7VBJpc2b8izGk5LZHZNvcYfIjDirHI4EQM+2eXian6LM9YRzbSwMMDgqc
+	y4e1NonhRJSH9NNBAdqJLYYidY+CSztzfHiGeeAXXe4in8RBODbyCOSelOwzRdgTn2ilHBzftpgPY
+	m6aq6cYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgZc-0000000B0wR-2Mp6;
-	Thu, 13 Mar 2025 11:18:00 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1tsgbG-0000000B1Gi-48yf;
+	Thu, 13 Mar 2025 11:19:42 +0000
+Received: from mail-ua1-f50.google.com ([209.85.222.50])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgNO-0000000AyxW-43R5
+	id 1tsgVW-0000000B0C7-1KRb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 11:05:24 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 52DAtFJO031607;
-	Thu, 13 Mar 2025 11:05:09 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0IiRBP4KjWJSLSZTkh7tTN91XixmNs8vlyct8AKJ6b4=; b=peSMy0rzVSnac2rE
-	uv11k4mJnoqeAPmc0p6eA2+KtEXZ8KwH/v0uI2q60Qzy7rhCqAj7UaU3dyV6OVAK
-	rgFBZCIXKylEdLHR0Wa0SvmrQ8MBjWu+slfEI3rCWV4XjUYiz31wzZRfivL0I1IB
-	38+mN0qrFRtq3G42lZrnb1a3fJrGW3VOmwMuv1du/tEvssvUugifukYJLy6KztP2
-	G4y0lEFTQPaltHVFgsrONsvc0AhcY9e/C8QlkG1MRn8tGwrNBetMWB3YiuAGC+5G
-	rqSDYI27I84XGRsKrOGSDdCWFwBwHWZrw8wKH+289QafcaOMTQMWJFKaZ4HYYZ3G
-	el4XMg==
-Received: from nalasppmta03.qualcomm.com (Global_NAT1.qualcomm.com [129.46.96.20])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 45bx1jg13n-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 11:05:09 +0000 (GMT)
-Received: from nalasex01a.na.qualcomm.com (nalasex01a.na.qualcomm.com [10.47.209.196])
-	by NALASPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 52DB58HB001563
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 13 Mar 2025 11:05:08 GMT
-Received: from hu-mmanikan-blr.qualcomm.com (10.80.80.8) by
- nalasex01a.na.qualcomm.com (10.47.209.196) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.9; Thu, 13 Mar 2025 04:05:00 -0700
-From: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
-To: <andersson@kernel.org>, <mturquette@baylibre.com>, <sboyd@kernel.org>,
-        <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-        <konradybcio@kernel.org>, <catalin.marinas@arm.com>, <will@kernel.org>,
-        <p.zabel@pengutronix.de>, <richardcochran@gmail.com>,
-        <geert+renesas@glider.be>, <lumag@kernel.org>, <heiko@sntech.de>,
-        <biju.das.jz@bp.renesas.com>, <quic_tdas@quicinc.com>,
-        <nfraprado@collabora.com>, <elinor.montmasson@savoirfairelinux.com>,
-        <ross.burton@arm.com>, <javier.carrasco@wolfvision.net>,
-        <ebiggers@google.com>, <quic_anusha@quicinc.com>,
-        <linux-arm-msm@vger.kernel.org>, <linux-clk@vger.kernel.org>,
-        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <netdev@vger.kernel.org>
-CC: <quic_varada@quicinc.com>, <quic_srichara@quicinc.com>
-Subject: [PATCH v12 6/6] arm64: defconfig: Build NSS Clock Controller driver for IPQ9574
-Date: Thu, 13 Mar 2025 16:33:59 +0530
-Message-ID: <20250313110359.242491-7-quic_mmanikan@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
-References: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+	Thu, 13 Mar 2025 11:13:47 +0000
+Received: by mail-ua1-f50.google.com with SMTP id a1e0cc1a2514c-86b68e51af4so351725241.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:13:45 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741864425; x=1742469225;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=f+aTfeoVSIyB0YffFidlDzeB2TUKfGBiv94evK8t4xc=;
+        b=BEuUZGtlsdMVlKCIo/FRW9Fo5NQPJr2sNTvYbGEOD2iab2dEw6B5uBGI1gX3XdK5Ds
+         vmLPnWqFkpNO4Vu+4f9Yx9Ufe+6QP8A3O5n5CLVLfFq+gIxlJLeZ22wXM9fPxkkg2JXY
+         Gbl06NT2itBRbTImwdL/wZjO2sU4WOSzY/je6/zGQGBAmtO9tNxoPqnHZ3BhA2h831iH
+         DdL1CSFUftJ5nC7FPL1QkVu4p98eJDkBipcIPWoLr5869kfhtDhppS9P/WS5eNosxX5R
+         +Kc5qSemYsZbGiy9wvBoHg76irONIywhFCnbwCk8FGKj+lx5m/7J8sKABh7235o2xwUn
+         0l7A==
+X-Forwarded-Encrypted: i=1; AJvYcCX8WvppiunOj6rmtoujoULFR+xuZAa6KEusqqEBwDyuD0jZ7QAMTqek7B1nIBNNWMnaTBcttcZANBSftomwR0ox@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7EXD5go0KMqwnX0wRqckhY5RND3Ofcv2NL3GaaJsRwtXN5LCC
+	IZPwqdS8MV0KWIPdHjZHdi7Z2TJpMeyDq1PwVbA+Qfl3Uh0uSCEoc3jWtu9p
+X-Gm-Gg: ASbGnctwQljAPtoTmSj1g44Two0GMQtZM8Qp3tRIQ+qm4OdXhAswY177XdlXKkZNJag
+	IklZg+5Cg6DbjPgOqKB2D0JzHFs4M30jYWVDXoMfYmT/KOI1mjzCiog18XiLmsmTs4haVbGjLcX
+	TuQ3pnBlKtPYaMYmyJRC9bB2IbjH1MLqy+UdDwWFywYL6ZWPwGzpRTkbruy7gW3k7UjvqFlT4k8
+	l200be5GJchkEjrwPVjxY8saL2VA6ylbaYM3Gjh0+EtDbUSJyjZavHgQ/RSIHgRNawdKSyq27+Q
+	uTt8soiWS9l1RoyRt41OWZemKzQHcV8DzOtvEVg7NPUb4pIv8Y6+dc9NUhKso/5IuDadmujLj+y
+	Q710zQP0=
+X-Google-Smtp-Source: AGHT+IFeHhZ4r8gUEPotdljGEuvcRlHhopLxU86sJiiXHb8GPXMoqh1F8bkzjNxM7aOUmvl4GMP3Tg==
+X-Received: by 2002:a05:6102:508e:b0:4c1:9695:c7c with SMTP id ada2fe7eead31-4c34d37b464mr12116824137.24.1741864424862;
+        Thu, 13 Mar 2025 04:13:44 -0700 (PDT)
+Received: from mail-ua1-f41.google.com (mail-ua1-f41.google.com. [209.85.222.41])
+        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-4c3759dd36bsm124396137.18.2025.03.13.04.13.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 13 Mar 2025 04:13:44 -0700 (PDT)
+Received: by mail-ua1-f41.google.com with SMTP id a1e0cc1a2514c-86d42f08219so376777241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 04:13:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVJANRkHJisiTAuiSX6isNX+KxX1YtQHsTn7tok6Aj7UPlpuDS9wxuf1fraW1O2XpeS08uoMfXAUVkqThAzC5Jp@lists.infradead.org
+X-Received: by 2002:a05:6102:6058:b0:4c3:64bc:7d16 with SMTP id
+ ada2fe7eead31-4c364bc826emr6410107137.16.1741864424462; Thu, 13 Mar 2025
+ 04:13:44 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nalasex01a.na.qualcomm.com (10.47.209.196)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Authority-Analysis: v=2.4 cv=CNQqXQrD c=1 sm=1 tr=0 ts=67d2bbe5 cx=c_pps a=ouPCqIW2jiPt+lZRy3xVPw==:117 a=ouPCqIW2jiPt+lZRy3xVPw==:17 a=GEpy-HfZoHoA:10 a=Vs1iUdzkB0EA:10 a=COk6AnOGAAAA:8 a=KKAkSRfTAAAA:8 a=7ELYbfaZk3_e2LQ-tb4A:9 a=TjNXssC_j7lpFel5tvFf:22
- a=cvBusfyB2V15izCimMoJ:22
-X-Proofpoint-ORIG-GUID: tafFi_7y6qqXIt4ml-kl6gioI_r2_DeX
-X-Proofpoint-GUID: tafFi_7y6qqXIt4ml-kl6gioI_r2_DeX
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1093,Hydra:6.0.680,FMLib:17.12.68.34
- definitions=2025-03-13_05,2025-03-11_02,2024-11-22_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0 lowpriorityscore=0
- mlxlogscore=913 impostorscore=0 mlxscore=0 priorityscore=1501
- suspectscore=0 phishscore=0 malwarescore=0 clxscore=1015 bulkscore=0
- adultscore=0 spamscore=0 classifier=spam authscore=0 authtc=n/a authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2502280000
- definitions=main-2503130087
+References: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+In-Reply-To: <20250313110359.242491-1-quic_mmanikan@quicinc.com>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Thu, 13 Mar 2025 12:13:32 +0100
+X-Gmail-Original-Message-ID: <CAMuHMdV_YE2pf+SxXR5sWG1+aG8wv5MtRWk+0+ZF_n8ao7seRg@mail.gmail.com>
+X-Gm-Features: AQ5f1JqRTMYro5mN9behN-6IiqjAuHgeViZHARDgbLMt0YG5Pc6vqgxhUbgQtPQ
+Message-ID: <CAMuHMdV_YE2pf+SxXR5sWG1+aG8wv5MtRWk+0+ZF_n8ao7seRg@mail.gmail.com>
+Subject: Re: [PATCH v12 0/6] Add NSS clock controller support for IPQ9574
+To: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
+Cc: andersson@kernel.org, mturquette@baylibre.com, sboyd@kernel.org, 
+	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	konradybcio@kernel.org, catalin.marinas@arm.com, will@kernel.org, 
+	p.zabel@pengutronix.de, richardcochran@gmail.com, geert+renesas@glider.be, 
+	lumag@kernel.org, heiko@sntech.de, biju.das.jz@bp.renesas.com, 
+	quic_tdas@quicinc.com, nfraprado@collabora.com, 
+	elinor.montmasson@savoirfairelinux.com, ross.burton@arm.com, 
+	javier.carrasco@wolfvision.net, ebiggers@google.com, quic_anusha@quicinc.com, 
+	linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, netdev@vger.kernel.org, 
+	quic_varada@quicinc.com, quic_srichara@quicinc.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_040523_009552_6D70C42B 
-X-CRM114-Status: GOOD (  10.88  )
+X-CRM114-CacheID: sfid-20250313_041346_354098_9FE8A91C 
+X-CRM114-Status: GOOD (  20.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,35 +104,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Devi Priya <quic_devipriy@quicinc.com>
+Hi Manikanta,
 
-NSSCC driver is needed to enable the ethernet interfaces present
-in RDP433 based on IPQ9574. Since this is not necessary for bootup
-enabling it as a module.
+On Thu, 13 Mar 2025 at 12:04, Manikanta Mylavarapu
+<quic_mmanikan@quicinc.com> wrote:
+> Add bindings, driver and devicetree node for networking sub system clock
+> controller on IPQ9574. Also add support for gpll0_out_aux clock
+> which serves as the parent for some nss clocks.
+>
+> Changes in V12:
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Signed-off-by: Devi Priya <quic_devipriy@quicinc.com>
-Signed-off-by: Manikanta Mylavarapu <quic_mmanikan@quicinc.com>
----
-Changes in V12:
-	- Pick up R-b tag.
+Thanks for your series!
 
- arch/arm64/configs/defconfig | 1 +
- 1 file changed, 1 insertion(+)
+>  .../bindings/clock/qcom,ipq9574-nsscc.yaml    |   98 +
+>  arch/arm64/boot/dts/qcom/ipq9574.dtsi         |   29 +
+>  arch/arm64/configs/defconfig                  |    1 +
+>  drivers/clk/qcom/Kconfig                      |    7 +
+>  drivers/clk/qcom/Makefile                     |    1 +
+>  drivers/clk/qcom/gcc-ipq9574.c                |   15 +
+>  drivers/clk/qcom/nsscc-ipq9574.c              | 3110 +++++++++++++++++
+>  include/dt-bindings/clock/qcom,ipq9574-gcc.h  |    1 +
+>  .../dt-bindings/clock/qcom,ipq9574-nsscc.h    |  152 +
+>  .../dt-bindings/reset/qcom,ipq9574-nsscc.h    |  134 +
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index 831afa2c7ea2..ae6ef4454867 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -1342,6 +1342,7 @@ CONFIG_IPQ_GCC_5332=y
- CONFIG_IPQ_GCC_6018=y
- CONFIG_IPQ_GCC_8074=y
- CONFIG_IPQ_GCC_9574=y
-+CONFIG_IPQ_NSSCC_9574=m
- CONFIG_MSM_GCC_8916=y
- CONFIG_MSM_MMCC_8994=m
- CONFIG_MSM_GCC_8994=y
+I don't think you need to CC people who just modified the arm64
+defconfig before, but never touched qcom clock drivers.  The list of
+maintainers and reviewers reported by scripts/get_maintainer.pl is
+already quite large.
+
+So please drop me from future submissions.
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
 -- 
-2.34.1
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
