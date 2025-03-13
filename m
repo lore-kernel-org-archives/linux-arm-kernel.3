@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 196EEC28B28
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 10:58:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84A13C28B2E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 11:03:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EM7fM72Tf7w8xwleAf9ia2U3xGw/SWZdDsMZo1iJVtc=; b=3JhwyedHPoziNWVbcDn4J55KuO
-	DpXvCoODVFYPHPruKjwRmXE8lE5AS+bW3HTeYKWwKf7gfXFXh/z4SMkXmWBBvfkLVmSLkGTx8uVbe
-	Z6qHFZ/+5rLihJfkXdte89/bf1/4wpcokEZKTE5RLGnMAm+473nCW8ySvF4FgEwVXps26Ej5585i1
-	IkhKPzHeg8CvtCrGaZk1+HfYFHmh4sfFTQ8SF3vajgPlU1c37DGlnIKFCIo8kSY/++ixfmbJS0Wy+
-	inMAHBARQtNlhVfseEjMsstLZrYeMzFUWHtmq3RGxGkkdMwolT7Jc9u0wM+ZUAhjhtpvUO3sNhMZR
-	RkOK6shw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=G/4i5gpxewGrC7J40W6/IMINDnBVeaAfqjjzIxUosRI=; b=eVXb9d2nabHOGYeMV9fsmChyC0
+	bG8Rtgt1ViIQKvc7wq13HkfbcO+8l9rkdbmgaGqmqzBdkYtjlMNSDTTPlL59Gu3YrKikWU8kWPw5d
+	IGbqr66ROfx06PbhEsTwcGI1szqMKqfPO7Qp64ofnOaOtt5QTHjxuhm+G5c5QCxJMYprwCbx9N9yM
+	ZcrdcBqK132D01J/kizAhzF1LzRYpPbySwYWm0ExQUTwJOgN4Xm2aHDd6bD2MnOmXamB2pNO8U6op
+	aBtczcvurCQUt1mKNke6t71nLy8wGkklrvRtkv2ZsSHeZWeuX9iOZ2KpusR1ghyYhtg0cdFkKhxhh
+	rOUAlmww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsgG5-0000000AxjM-0lum;
-	Thu, 13 Mar 2025 10:57:49 +0000
-Received: from nyc.source.kernel.org ([147.75.193.91])
-	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsg6r-0000000Avlm-1h96;
-	Thu, 13 Mar 2025 10:48:18 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by nyc.source.kernel.org (Postfix) with ESMTP id 86154A46BF3;
-	Thu, 13 Mar 2025 10:42:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1DF2C4CEEE;
-	Thu, 13 Mar 2025 10:48:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1741862896;
-	bh=ifXxEP9fQ+ca00C4NymK9lkHybBl5yWQFtzUvukmZnk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TGUxO4IzaiCdImvWcK07pYxlaES+FKpyGSGQS+se2QRK+fS4IxGUEbGzelHwLB+/q
-	 u36Ov+lMh2bFtMiWiorUoJsCIqlxAB2/54A1bOfNySQ9EJUwXmVbWVZAZM+MLnNhDS
-	 q60fcF/44I6LM6PFWe6Q4t1c0f59nE8pUQQ4N/oOkfmndKcu330/DWQaC8bbtj/Jxf
-	 RfMCxb1oFk2O8r81YBQY3m2ZBt5oJyduarUFlJAn7NTGROXk+kX+4295LvHam9tbyq
-	 vq24P3CCHWEEcWcrREvOOvYs1e7H5PMvdPTFrQg6LkEM6DzQCCNoZpwVYZzqbe1W3J
-	 CwBUYe1l77zsw==
-Date: Thu, 13 Mar 2025 11:48:13 +0100
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-To: Michal Kubiak <michal.kubiak@intel.com>
-Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-Subject: Re: [PATCH net-next] net: airoha: Validate egress gdm port in
- airoha_ppe_foe_entry_prepare()
-Message-ID: <Z9K37URcF_hkCTBM@lore-desk>
-References: <20250312-airoha-flowtable-null-ptr-fix-v1-1-6363fab884d0@kernel.org>
- <Z9Ga7gx1u3JsOemE@localhost.localdomain>
- <Z9GgHZxkSqFCkwMg@lore-desk>
- <Z9GtKwAuEx+7HKjR@localhost.localdomain>
- <Z9G01zGCpbw1YHNs@lore-desk>
- <Z9K2vujs6+yhiXXh@localhost.localdomain>
+	id 1tsgLT-0000000AyY8-2cFG;
+	Thu, 13 Mar 2025 11:03:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
+	id 1tsgJo-0000000AyMa-1QNO
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 13 Mar 2025 11:01:41 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21D5E1516;
+	Thu, 13 Mar 2025 04:01:50 -0700 (PDT)
+Received: from [10.57.40.246] (unknown [10.57.40.246])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C60353F673;
+	Thu, 13 Mar 2025 04:01:35 -0700 (PDT)
+Message-ID: <417d6f59-0d78-4e81-ad0b-e06846f786b0@arm.com>
+Date: Thu, 13 Mar 2025 11:01:33 +0000
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="PLfdax2fnK8OYSBS"
-Content-Disposition: inline
-In-Reply-To: <Z9K2vujs6+yhiXXh@localhost.localdomain>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 4/4] iommu: Get DT/ACPI parsing into the proper probe
+ path
+To: Marek Szyprowski <m.szyprowski@samsung.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ "Rafael J. Wysocki" <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Russell King <linux@armlinux.org.uk>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Stuart Yoder <stuyoder@gmail.com>,
+ Laurentiu Tudor <laurentiu.tudor@nxp.com>, Nipun Gupta
+ <nipun.gupta@amd.com>, Nikhil Agarwal <nikhil.agarwal@amd.com>,
+ Joerg Roedel <joro@8bytes.org>, Will Deacon <will@kernel.org>,
+ Rob Herring <robh@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Bjorn Helgaas <bhelgaas@google.com>
+Cc: linux-acpi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
+ devicetree@vger.kernel.org, linux-pci@vger.kernel.org,
+ Charan Teja Kalla <quic_charante@quicinc.com>
+References: <cover.1740753261.git.robin.murphy@arm.com>
+ <e3b191e6fd6ca9a1e84c5e5e40044faf97abb874.1740753261.git.robin.murphy@arm.com>
+ <CGME20250313095633eucas1p29cb55f2504b4bcf67c16b3bd3fa9b8cd@eucas1p2.samsung.com>
+ <9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <9b358d68-332e-404e-9a75-740297f7b28d@samsung.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_034817_578963_AC7BAF00 
-X-CRM114-Status: GOOD (  26.37  )
+X-CRM114-CacheID: sfid-20250313_040140_465095_97BFE7B2 
+X-CRM114-Status: GOOD (  18.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,82 +81,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 2025-03-13 9:56 am, Marek Szyprowski wrote:
+[...]
+> This patch landed in yesterday's linux-next as commit bcb81ac6ae3c
+> ("iommu: Get DT/ACPI parsing into the proper probe path"). In my tests I
+> found it breaks booting of ARM64 RK3568-based Odroid-M1 board
+> (arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts). Here is the
+> relevant kernel log:
 
---PLfdax2fnK8OYSBS
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+...and the bug-flushing-out begins!
 
-> On Wed, Mar 12, 2025 at 05:22:47PM +0100, Lorenzo Bianconi wrote:
-> > > On Wed, Mar 12, 2025 at 03:54:21PM +0100, Lorenzo Bianconi wrote:
-> > > > > On Wed, Mar 12, 2025 at 12:31:46PM +0100, Lorenzo Bianconi wrote:
-> > > > > > The system occasionally crashes dereferencing a NULL pointer wh=
-en it is
-> > > > > > forwarding constant, high load bidirectional traffic.
->=20
-> [...]
->=20
-> > >=20
-> > > >=20
-> > > > >=20
-> > > > > > +		if (!eth->ports[i])
-> > > > > > +			continue;
-> > > > >=20
-> > > > > Isn't this NULL check redundant?
-> > > > > In the second check you compare the table element to a real point=
-er.
-> > > >=20
-> > > > Can netdev_priv() be NULL? If not, I guess we can remove this check.
-> > >=20
-> > > I guess it shouldn't be NULL since "devm_alloc_etherdev_mqs()" was
-> > > called, but I'm not 100% sure if there are any special cases for the =
-"airoha"
-> > > driver. Maybe in such cases it would be better to check for the netde=
-v_priv?
-> > > Anyway, such checks seem a bit too defensive to me.
-> >=20
-> > the dev pointer can be allocated even outside of airoha_eth driver.
-> > This pointer is provided by the flowtable.
-> > I guess we can drop the NULL pointer check above, and do something like:
-> >=20
-> > 	if (port && eth->ports[i] =3D=3D port)
-> > 		return 0;
-> >=20
-> > what do you think?
-> >=20
-> > Regards,
-> > Lorenzo
-> >=20
->=20
-> I think if there's a risk that 'port' can be NULL, it looks like a
-> reasonable solution and I'm OK with that.
+> Unable to handle kernel NULL pointer dereference at virtual address
+> 00000000000003e8
+> Mem abort info:
+>     ESR = 0x0000000096000004
+>     EC = 0x25: DABT (current EL), IL = 32 bits
+>     SET = 0, FnV = 0
+>     EA = 0, S1PTW = 0
+>     FSC = 0x04: level 0 translation fault
+> Data abort info:
+>     ISV = 0, ISS = 0x00000004, ISS2 = 0x00000000
+>     CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+>     GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [00000000000003e8] user address but active_mm is swapper
+> Internal error: Oops: 0000000096000004 [#1] PREEMPT SMP
+> Modules linked in:
+> CPU: 3 UID: 0 PID: 1 Comm: swapper/0 Not tainted 6.14.0-rc3+ #15533
+> Hardware name: Hardkernel ODROID-M1 (DT)
+> pstate: 00400009 (nzcv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> pc : devm_kmalloc+0x2c/0x114
+> lr : rk_iommu_of_xlate+0x30/0x90
+> ...
+> Call trace:
+>    devm_kmalloc+0x2c/0x114 (P)
+>    rk_iommu_of_xlate+0x30/0x90
 
-I guess you are right. I do not think netdev_priv pointer can be NULL since,
-even if size_priv is 0, it will just point to the end of the netdevice stru=
-ct.
-I will repost just doing:
+Yeah, looks like this is doing something a bit questionable which can't
+work properly. TBH the whole dma_dev thing could probably be cleaned up
+now that we have proper instances, but for now does this work?
 
-	if (eth->ports[i] =3D=3D port)
-		return 0;
+(annoyingly none of my Rockchip boards are set up for testing right now, 
+but I might have time to dig one out later)
 
-Regards,
-Lorenzo
+Thanks,
+Robin.
 
->=20
-> Thanks,
-> Michal
->=20
+----->8-----
 
---PLfdax2fnK8OYSBS
-Content-Type: application/pgp-signature; name=signature.asc
+Subject: [PATCH] iommu/rockchip: Allocate per-device data sensibly
 
------BEGIN PGP SIGNATURE-----
+Now that DT-based probing is finally happening in the right order again,
+it reveals an issue in Rockchip's of_xlate, which can now be called
+during registration, but is using the global dma_dev which is only
+assigned later. However, this makes little sense when we're already
+looking up the correct IOMMU device, who should logically be the owner
+of the devm allocation anyway.
 
-iHUEABYKAB0WIQTquNwa3Txd3rGGn7Y6cBh0uS2trAUCZ9K37QAKCRA6cBh0uS2t
-rCf5AQCtpdGJkY45ujQJ6QxQbPLHKHEUhSbDaTD5WJCphEav2gD+J9GCbdGJ6O9g
-UPXzVUQ6dVmmww/RLljE9fOkDfMR0Qs=
-=f/tx
------END PGP SIGNATURE-----
+Fixes: bcb81ac6ae3c ("iommu: Get DT/ACPI parsing into the proper probe 
+path")
+Signed-off-by: Robin Murphy <robin.murphy@arm.com>
+---
+  drivers/iommu/rockchip-iommu.c | 6 +++---
+  1 file changed, 3 insertions(+), 3 deletions(-)
 
---PLfdax2fnK8OYSBS--
+diff --git a/drivers/iommu/rockchip-iommu.c b/drivers/iommu/rockchip-iommu.c
+index 323cc665c357..48826d1ccfd8 100644
+--- a/drivers/iommu/rockchip-iommu.c
++++ b/drivers/iommu/rockchip-iommu.c
+@@ -1148,12 +1148,12 @@ static int rk_iommu_of_xlate(struct device *dev,
+  	struct platform_device *iommu_dev;
+  	struct rk_iommudata *data;
+
+-	data = devm_kzalloc(dma_dev, sizeof(*data), GFP_KERNEL);
++	iommu_dev = of_find_device_by_node(args->np);
++
++	data = devm_kzalloc(&iommu_dev->dev, sizeof(*data), GFP_KERNEL);
+  	if (!data)
+  		return -ENOMEM;
+
+-	iommu_dev = of_find_device_by_node(args->np);
+-
+  	data->iommu = platform_get_drvdata(iommu_dev);
+  	data->iommu->domain = &rk_identity_domain;
+  	dev_iommu_priv_set(dev, data);
+-- 
+2.39.2.101.g768bb238c484.dirty
+
+
 
