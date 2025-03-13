@@ -4,166 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93C44C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:13:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E8AFDC35FF4
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 16:13:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tXbC/rj42XjQ00LcFGrOyNrm+z2xLbLsVvmtNJS5qSE=; b=EFDaTaF8JiScNAY2JRC4HKMKhp
-	wLVTRQmN7m6R0y2FLByH/E59eckwIRzEMlPwnFGb4fdOAG8gbYmlYvrRvQ69uys2ws5cFFvxPfGUC
-	WgUytgv6IHFeG2kTg/L+kdTbei5A3aOWlX6creYZ36a25+nB5rcK6QTmpgkcHlrp2TQwmRLVYjAZs
-	esCpGnCE35O4fgFESRbxIPWCGV1ZIK5q4QTD1gmOfe96hNlRc89LwUl7p2Oa5Qxq+vj07jjArUN2u
-	ouyZHGROh2EWWsJdrYahrO6dsraaie9vn7kIfGWaQ4fxA2/TL6l8fYSxdDXcjR5qE0dm1233sNZQC
-	Uld1D7pw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=ObM8Gbqhymuxr6GGOdatMfMDVcY/fJMjEAU6EYYQUdA=; b=NTzccDjq+UwRSc
+	iFisLwzQZ6C+1NOPg52FY/qBPYx23wvP5cRszRYuYMjmjHnrnwUjCMTLmf/hRO4Vud7avhHAGx14g
+	IG0pUnkXlFu1D2JQbhOtpJR79dDBS/LRjX7Mjw1IXdf2YUV8vRdXOIbkPo3PYnNbNc6CvRELOC6Xg
+	kHb93WfP+FYs67TA1ISwXmMbgiKlY1Omv4uOx6U98s/I/TIzLjMv2hBMFhsWfK9m14pKrA0conzVH
+	z3R8BKY8oRQkr12fc/9OnNrzxBV01bAVps4BBRSwG9bkYPLvIR9g19X/Wf9ayN6LTMZtq2CdFUOza
+	rlyhJza9XuPbKUtZ09rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tslB4-0000000Bm8D-1qa4;
-	Thu, 13 Mar 2025 16:12:58 +0000
-Received: from smtp-out1.suse.de ([2a07:de40:b251:101:10:150:64:1])
+	id 1tslB3-0000000Bm7k-3eI2;
+	Thu, 13 Mar 2025 16:12:57 +0000
+Received: from nyc.source.kernel.org ([2604:1380:45d1:ec00::3])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsl1G-0000000Bjz0-252z
+	id 1tsl0k-0000000BjsN-1xQq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 16:02:53 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 9C19B21189;
-	Thu, 13 Mar 2025 16:02:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1741881768; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tXbC/rj42XjQ00LcFGrOyNrm+z2xLbLsVvmtNJS5qSE=;
-	b=RO9WW+xOZL4x0VifG/9+R2HjAoHTYHGFDKb2tZchGVn1hbh+bb94MFnJ/R6JyKkVllVBlM
-	rtYWJ+eT2h/J4p6dilXU02fXGc8lvoUH+gHTlXK1KTwJIm8oxL+oN/SxYBPYy1tpccL2yG
-	qbzRwFYeGV2G3EAYZ6v6LLsGGo5A2YA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1741881768;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tXbC/rj42XjQ00LcFGrOyNrm+z2xLbLsVvmtNJS5qSE=;
-	b=77t1Xa4LDjVyozoy7z32oI6+ODHP5u8xAcWjHpJAmvQ0xBOYw//7Cx7lNXtWzotq3rSVQk
-	6FYjdaVEd+dwZABw==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=RO9WW+xO;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=77t1Xa4L
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1741881768; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tXbC/rj42XjQ00LcFGrOyNrm+z2xLbLsVvmtNJS5qSE=;
-	b=RO9WW+xOZL4x0VifG/9+R2HjAoHTYHGFDKb2tZchGVn1hbh+bb94MFnJ/R6JyKkVllVBlM
-	rtYWJ+eT2h/J4p6dilXU02fXGc8lvoUH+gHTlXK1KTwJIm8oxL+oN/SxYBPYy1tpccL2yG
-	qbzRwFYeGV2G3EAYZ6v6LLsGGo5A2YA=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1741881768;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=tXbC/rj42XjQ00LcFGrOyNrm+z2xLbLsVvmtNJS5qSE=;
-	b=77t1Xa4LDjVyozoy7z32oI6+ODHP5u8xAcWjHpJAmvQ0xBOYw//7Cx7lNXtWzotq3rSVQk
-	6FYjdaVEd+dwZABw==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 25E39137BA;
-	Thu, 13 Mar 2025 16:02:48 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id 2nXJB6gB02dkJgAAD6G6ig
-	(envelope-from <tzimmermann@suse.de>); Thu, 13 Mar 2025 16:02:48 +0000
-Message-ID: <a2f39979-459d-4581-baed-ff75e0af1bce@suse.de>
-Date: Thu, 13 Mar 2025 17:02:47 +0100
+	Thu, 13 Mar 2025 16:02:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by nyc.source.kernel.org (Postfix) with ESMTP id C3406A44DBC;
+	Thu, 13 Mar 2025 15:56:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1ACE5C4CEEA;
+	Thu, 13 Mar 2025 16:02:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1741881737;
+	bh=yeXHcZgjUGF7P1GdENNOH+WMNLvGwDA1Vl+O4Y03fFM=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=m5w9qBkuDQVNB4YeKXrBEztJzAJGHkUy75sZhJ+lyGei4s3zeKWOv0SZtQO31Gsa9
+	 9zA5dwPqruTyKckVPVI3Sc2CPa9gE2fbKxs/DYBZvmfvZmjuHwYebhNnapwDXYjgiV
+	 +Ru2nP7dQP72CsjCRT8/D0/0G9JAKdUV1QsxuEZEfiAJ85SAHNurCgF+sSUsWpdVo3
+	 zhPn+Jxbv3jJ+xe+TaIpsptYh5bWhvbEA+03S0nIV0ZGEoNybkj3kpr3aGaPNTBxsR
+	 kLyPJeq8zLyfGsv/w3L4UI8oyVPmLWleh4wEsuh06Ft+FLVf9nk7CsKy1c7lySb3X+
+	 2njSxjG5yuz0Q==
+Date: Thu, 13 Mar 2025 11:02:15 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Siddharth Vadapalli <s-vadapalli@ti.com>
+Cc: lpieralisi@kernel.org, kw@linux.com, vigneshr@ti.com,
+	manivannan.sadhasivam@linaro.org, robh@kernel.org,
+	bhelgaas@google.com, rogerq@kernel.org, linux-omap@vger.kernel.org,
+	linux-pci@vger.kernel.org, stable@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	srk@ti.com
+Subject: Re: [PATCH] PCI: j721e: Fix the value of linkdown_irq_regfield for
+ J784S4
+Message-ID: <20250313160215.GA736346@bhelgaas>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2] drm/mxsfb: fix missing rollback on failure in
- mxsfb_probe()
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>, Marek Vasut <marex@denx.de>,
- Stefan Agner <stefan@agner.ch>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>, Shawn Guo <shawnguo@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Fabio Estevam <festevam@gmail.com>,
- Dario Binacchi <dario.binacchi@amarulasolutions.com>,
- Michael Trimarchi <michael@amarulasolutions.com>
-Cc: Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- dri-devel@lists.freedesktop.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20250313-mxsfb_probe-fix-rollback-on-error-v2-1-38374088e8c7@bootlin.com>
-Content-Language: en-US
-From: Thomas Zimmermann <tzimmermann@suse.de>
-Autocrypt: addr=tzimmermann@suse.de; keydata=
- xsBNBFs50uABCADEHPidWt974CaxBVbrIBwqcq/WURinJ3+2WlIrKWspiP83vfZKaXhFYsdg
- XH47fDVbPPj+d6tQrw5lPQCyqjwrCPYnq3WlIBnGPJ4/jreTL6V+qfKRDlGLWFjZcsrPJGE0
- BeB5BbqP5erN1qylK9i3gPoQjXGhpBpQYwRrEyQyjuvk+Ev0K1Jc5tVDeJAuau3TGNgah4Yc
- hdHm3bkPjz9EErV85RwvImQ1dptvx6s7xzwXTgGAsaYZsL8WCwDaTuqFa1d1jjlaxg6+tZsB
- 9GluwvIhSezPgnEmimZDkGnZRRSFiGP8yjqTjjWuf0bSj5rUnTGiyLyRZRNGcXmu6hjlABEB
- AAHNJ1Rob21hcyBaaW1tZXJtYW5uIDx0emltbWVybWFubkBzdXNlLmRlPsLAjgQTAQgAOAIb
- AwULCQgHAgYVCgkICwIEFgIDAQIeAQIXgBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftODH
- AAoJEGgNwR1TC3ojx1wH/0hKGWugiqDgLNXLRD/4TfHBEKmxIrmfu9Z5t7vwUKfwhFL6hqvo
- lXPJJKQpQ2z8+X2vZm/slsLn7J1yjrOsoJhKABDi+3QWWSGkaGwRJAdPVVyJMfJRNNNIKwVb
- U6B1BkX2XDKDGffF4TxlOpSQzdtNI/9gleOoUA8+jy8knnDYzjBNOZqLG2FuTdicBXblz0Mf
- vg41gd9kCwYXDnD91rJU8tzylXv03E75NCaTxTM+FBXPmsAVYQ4GYhhgFt8S2UWMoaaABLDe
- 7l5FdnLdDEcbmd8uLU2CaG4W2cLrUaI4jz2XbkcPQkqTQ3EB67hYkjiEE6Zy3ggOitiQGcqp
- j//OwE0EWznS4AEIAMYmP4M/V+T5RY5at/g7rUdNsLhWv1APYrh9RQefODYHrNRHUE9eosYb
- T6XMryR9hT8XlGOYRwKWwiQBoWSDiTMo/Xi29jUnn4BXfI2px2DTXwc22LKtLAgTRjP+qbU6
- 3Y0xnQN29UGDbYgyyK51DW3H0If2a3JNsheAAK+Xc9baj0LGIc8T9uiEWHBnCH+RdhgATnWW
- GKdDegUR5BkDfDg5O/FISymJBHx2Dyoklv5g4BzkgqTqwmaYzsl8UxZKvbaxq0zbehDda8lv
- hFXodNFMAgTLJlLuDYOGLK2AwbrS3Sp0AEbkpdJBb44qVlGm5bApZouHeJ/+n+7r12+lqdsA
- EQEAAcLAdgQYAQgAIAIbDBYhBHIX+6yM6c9jRKFo5WgNwR1TC3ojBQJftOH6AAoJEGgNwR1T
- C3ojVSkIALpAPkIJPQoURPb1VWjh34l0HlglmYHvZszJWTXYwavHR8+k6Baa6H7ufXNQtThR
- yIxJrQLW6rV5lm7TjhffEhxVCn37+cg0zZ3j7zIsSS0rx/aMwi6VhFJA5hfn3T0TtrijKP4A
- SAQO9xD1Zk9/61JWk8OysuIh7MXkl0fxbRKWE93XeQBhIJHQfnc+YBLprdnxR446Sh8Wn/2D
- Ya8cavuWf2zrB6cZurs048xe0UbSW5AOSo4V9M0jzYI4nZqTmPxYyXbm30Kvmz0rYVRaitYJ
- 4kyYYMhuULvrJDMjZRvaNe52tkKAvMevcGdt38H4KSVXAylqyQOW5zvPc4/sq9c=
-In-Reply-To: <20250313-mxsfb_probe-fix-rollback-on-error-v2-1-38374088e8c7@bootlin.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Rspamd-Queue-Id: 9C19B21189
-X-Spamd-Result: default: False [-4.51 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	MIME_TRACE(0.00)[0:+];
-	FUZZY_BLOCKED(0.00)[rspamd.com];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCPT_COUNT_TWELVE(0.00)[18];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	FREEMAIL_TO(0.00)[bootlin.com,denx.de,agner.ch,linux.intel.com,kernel.org,gmail.com,ffwll.ch,pengutronix.de,amarulasolutions.com];
-	ARC_NA(0.00)[];
-	FREEMAIL_ENVRCPT(0.00)[gmail.com];
-	TO_DN_SOME(0.00)[];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_MATCH_ENVRCPT_ALL(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:email,suse.de:dkim,suse.de:mid]
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250313055519.j3bpvsm6govd5ytk@uda0492258>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_090250_842922_044667DD 
-X-CRM114-Status: GOOD (  23.52  )
+X-CRM114-CacheID: sfid-20250313_090218_629319_51593ADC 
+X-CRM114-Status: GOOD (  25.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -178,89 +75,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi
+On Thu, Mar 13, 2025 at 11:25:19AM +0530, Siddharth Vadapalli wrote:
+> On Wed, Mar 12, 2025 at 11:16:00AM -0500, Bjorn Helgaas wrote:
+> > On Wed, Mar 05, 2025 at 06:50:18PM +0530, Siddharth Vadapalli wrote:
+> > > Commit under Fixes assigned the value of 'linkdown_irq_regfield' for the
+> > > J784S4 SoC as 'LINK_DOWN' which corresponds to BIT(1). However, according
+> > > to the Technical Reference Manual and Register Documentation for the J784S4
+> > > SoC [0], BIT(1) corresponds to "ENABLE_SYS_EN_PCIE_DPA_1" which is __NOT__
+> > > the field for the link-state interrupt. Instead, it is BIT(10) of the
+> > > "PCIE_INTD_ENABLE_REG_SYS_2" register that corresponds to the link-state
+> > > field named as "ENABLE_SYS_EN_PCIE_LINK_STATE".
+> > 
+> > I guess the reason we want this is that on J784S4, we ignore actual
+> > link-down interrupts (and we don't write STATUS_CLR_REG_SYS_2 to clear
+> > the interrupt indication, so maybe there's an interrupt storm), and we
+> > think some other interrupt (DPA_1, whatever that is) is actually a
+> > link-down interrupt?
+> 
+> While it is true that actual link-down interrupts are ignored, it is not
+> the case that there's an interrupt storm because the same incorrect macro
+> is used to enable the interrupt line. Since the enables an interrupt for
+> DPA_1 which never fires, we don't run into the situation where we are not
+> clearing the interrupt (the interrupt handler will look for the same
+> incorrect field to clear the interrupt if it does fire for DPA_1, but that
+> doesn't happen). The 'linkdown_irq_regfield' corresponds to the
+> "link-state" field not just in the J784S4 SoC, but in all SoCs supported by
+> the pci-j721e.c driver. It is only in J721E that it is BIT(1)
+> [LINK_DOWN macro], while in all other SoCs (J784S4 included), it is BIT(10)
+> [J7200_LINK_DOWN macro since it was first added for J7200 SoC]. Matt
+> probably referred to J721E's Technical Reference Manual and ended up
+> incorrectly assigning "LINK_DOWN", due to which the driver is enabling
+> the DPA_1 interrupt and the interrupt handler is also going to look for
+> the field corresponding to receiving an interrupt for DPA_1.
 
-Am 13.03.25 um 16:21 schrieb Luca Ceresoli:
-> When aperture_remove_all_conflicting_devices() fails, the current code
-> returns without going through the rollback actions at the end of the
-> function, thus the actions done by drm_dev_alloc() and mxsfb_load() are not
-> undone.
->
-> Fix by moving this call at the very beginning of the probe function, so
-> that no rollback is needed if it fails. Conflicting drivers need to be
-> kicked out before setting up DRM anyway.
->
-> Fixes: c8e7b185d45b ("drm/mxsfb: Remove generic DRM drivers in probe function")
-> Suggested-by: Thomas Zimmermann <tzimmermann@suse.de>
-> Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
+So I guess without this patch, we incorrectly ignore link-down
+interrupts on J784S4.  It's good to have a one-sentence motivation
+like that somewhere in the commit log that we can pull out and include
+in the merge commit log and the pull request.
 
-The patchdiff is somewhat non-intuitive, but looks correct.
+> I can only hope that the URL will redirect to the latest version of
+> the User Guide if at all it becomes invalid.
 
-Reviewed-by: Thomas Zimmermann <tzimmermann@suse.de>
+OK, thanks, I guess there's nothing more to do ;)  I guess that manual
+is not really designed for collaborative development.
 
-Thanks for the fix.
+Thanks for the patient hand holding!
 
-Best regards
-Thomas
-
-> ---
-> The offending commit is not yet merged into master, and even less in a
-> released kernel, so this does not need to go through stable.
->
-> Changes in v2:
-> - move this call at the beginning instead of adding a goto
-> ---
->   drivers/gpu/drm/mxsfb/mxsfb_drv.c | 16 ++++++++--------
->   1 file changed, 8 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/gpu/drm/mxsfb/mxsfb_drv.c b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> index c183b1112bc4e9fe4f3b048a2b6e4c98d1d47cb3..ee64053d381448360140c419fed1dc4fe9f7c68e 100644
-> --- a/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> +++ b/drivers/gpu/drm/mxsfb/mxsfb_drv.c
-> @@ -352,14 +352,6 @@ static int mxsfb_probe(struct platform_device *pdev)
->   	struct drm_device *drm;
->   	int ret;
->   
-> -	drm = drm_dev_alloc(&mxsfb_driver, &pdev->dev);
-> -	if (IS_ERR(drm))
-> -		return PTR_ERR(drm);
-> -
-> -	ret = mxsfb_load(drm, device_get_match_data(&pdev->dev));
-> -	if (ret)
-> -		goto err_free;
-> -
->   	/*
->   	 * Remove early framebuffers (ie. simplefb). The framebuffer can be
->   	 * located anywhere in RAM
-> @@ -369,6 +361,14 @@ static int mxsfb_probe(struct platform_device *pdev)
->   		return dev_err_probe(&pdev->dev, ret,
->   				     "can't kick out existing framebuffers\n");
->   
-> +	drm = drm_dev_alloc(&mxsfb_driver, &pdev->dev);
-> +	if (IS_ERR(drm))
-> +		return PTR_ERR(drm);
-> +
-> +	ret = mxsfb_load(drm, device_get_match_data(&pdev->dev));
-> +	if (ret)
-> +		goto err_free;
-> +
->   	ret = drm_dev_register(drm, 0);
->   	if (ret)
->   		goto err_unload;
->
-> ---
-> base-commit: f9f087d946266bc5da7c3a17bd8fd9d01969e3cf
-> change-id: 20250313-mxsfb_probe-fix-rollback-on-error-3074b9080f34
->
-> Best regards,
-
--- 
---
-Thomas Zimmermann
-Graphics Driver Developer
-SUSE Software Solutions Germany GmbH
-Frankenstrasse 146, 90461 Nuernberg, Germany
-GF: Ivo Totev, Andrew Myers, Andrew McDonald, Boudien Moerman
-HRB 36809 (AG Nuernberg)
-
+Bjorn
 
