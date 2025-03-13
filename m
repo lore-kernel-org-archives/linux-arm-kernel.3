@@ -4,90 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 237B2C282DE
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:36:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42FFAC282DE
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 12:49:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zLgTuknikC69Lqazt76mXizlIm5DLdJF7bpJiI++25Y=; b=2QPRtRDKy+m+VAMLD6AdGtG6W8
-	i9VDpsRxpgl1hThEw2ZfyFpq8J0+LnLipw7Mj2d+nW/TFes1K3ItKpu2qLHUmBFQLVywEjUZjZHPX
-	ve0/hLUSgPlNQajbw4iQqXlMmCmMCMROurwFmOpFxQz1j/Q3ZKeAXN1mbmRyTyLzpEGmMknB3Yznp
-	k4irOGuLRNtPXiBopxi8YbM3D0pRGpzrfGguzzeilpiJK7mZ2ZC/iPricf5jGsjxJjUOjouH5AWsl
-	I77wsaHSrd6FDUu2sQoTg1qvcBbzFwV9t7fzMYVmo9RJIc8BVdEpMu3bnqMC9i3DxXesAPCh/eH2l
-	Pb/9Tddg==;
+	bh=2JNQ9mA9G78qT8pu4ERbL8PORL7dS1v735kFrxqkM54=; b=NxpjcB9op9p4y5LMPoT9pwpUeZ
+	/xpL4T7+b8UU2oWzD7Wt0XM+tSn+WT7J8fkRTafIrAHfAlz/wiWirR8/8gftoV9Mv0irsl0LFwGVc
+	Mmf40VJWhW+shhM1Mloe0RuABZjcf1G9TTdZ2y4a/jqlhQbUQCqRAJ1qzCGD6guti2utGDndkOCkW
+	8w0R5DDV+Jo9K1hqpkmB01SHzKuxKhbAjcQ6x4eIhhNkTUZr9ZCqRqyERcczOqJPtTjj8phtUQ1Ql
+	4lOfMueb180zidKg/saL3cIoSVEwpjBz2+zoltNyjRNIZCFmfKHkKnmHVuCavhIHkAE3wP+qLA++m
+	2zfSDVXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshnj-0000000BG5f-2nwW;
-	Thu, 13 Mar 2025 12:36:39 +0000
-Received: from mgamail.intel.com ([192.198.163.9])
+	id 1tshzu-0000000BHjV-1KbW;
+	Thu, 13 Mar 2025 12:49:14 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tshlh-0000000BFpX-1JOx
+	id 1tshyE-0000000BHP1-3tPm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 12:34:34 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1741869273; x=1773405273;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=143J5LtMmgVhQahwflzcYxzA/PDJtG6Xbkjg/ZRiK1A=;
-  b=iyFE2HiUsycdzMyhJEHKP97pvOhdPxPcN4SkrIu883PuFB8b/V+1LwpQ
-   EE0wdtpApSF3+0nMhLVW82WPnAUl49RxQQfWkSPIO2brDQRbATZp4JUZ8
-   /lB8tpWzU8IpkmY1MhOEWx4o/GnNiHhrBmuFeNw23Wjc43YUCIBXsmXz9
-   LOnclKOdHEkcknzjg8MkOnOvPAkfiX4Hb/0dRexz91Km5feWIsRbikXGK
-   YR1GmQ7IXavLr8InptVUCnGW+73ESVJnizEWOah07DQARTuauGyWLQrL5
-   /YA2xBNwBBkimOBE4XA78kH4qyFLXqWDy3sjh9DOWRY6tB55E6KTFeObc
-   w==;
-X-CSE-ConnectionGUID: M+Sldrp6TxqwXaLqf9uIng==
-X-CSE-MsgGUID: 3re3hgTLRv6DujQna2gkNA==
-X-IronPort-AV: E=McAfee;i="6700,10204,11372"; a="53619362"
-X-IronPort-AV: E=Sophos;i="6.14,244,1736841600"; 
-   d="scan'208";a="53619362"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by fmvoesa103.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Mar 2025 05:34:32 -0700
-X-CSE-ConnectionGUID: vtTlx5mcQCaxsKLpv0N+WA==
-X-CSE-MsgGUID: zXqPsfRgRTC8lqLrj9YpFg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.14,244,1736841600"; 
-   d="scan'208";a="120933374"
-Received: from smile.fi.intel.com ([10.237.72.58])
-  by orviesa006.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 13 Mar 2025 05:34:28 -0700
-Received: from andy by smile.fi.intel.com with local (Exim 4.98)
-	(envelope-from <andriy.shevchenko@linux.intel.com>)
-	id 1tshlY-00000002AeF-412s;
-	Thu, 13 Mar 2025 14:34:24 +0200
-Date: Thu, 13 Mar 2025 14:34:24 +0200
-From: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-To: Matti Vaittinen <mazziesaccount@gmail.com>
-Cc: Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>,
-	Jonathan Cameron <jic23@kernel.org>,
-	Lars-Peter Clausen <lars@metafoo.de>, Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>, Nuno Sa <nuno.sa@analog.com>,
-	David Lechner <dlechner@baylibre.com>,
-	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
-	Olivier Moysan <olivier.moysan@foss.st.com>,
-	Guillaume Stols <gstols@baylibre.com>,
-	Dumitru Ceclan <mitrutzceclan@gmail.com>,
-	Trevor Gamblin <tgamblin@baylibre.com>,
-	Matteo Martelli <matteomartelli3@gmail.com>,
-	Alisa-Dariana Roman <alisadariana@gmail.com>,
-	linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH v7 05/10] iio: adc: sun20i-gpadc: Use adc-helpers
-Message-ID: <Z9LQ0O34EUM8WZku@smile.fi.intel.com>
-References: <cover.1741849323.git.mazziesaccount@gmail.com>
- <df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
+	Thu, 13 Mar 2025 12:47:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=2JNQ9mA9G78qT8pu4ERbL8PORL7dS1v735kFrxqkM54=; b=6HSjX6LE9s3DMBguSsNtVrjvd3
+	lF2RDAYnpBr5rqqxgwCzpWKi1ISsjoEPvPZLxBhey78k2Zz92YoqiVXQSWtgWn89P5vJnvpyXIiyi
+	v1wJfXpqe3GgMv5vPbxA9QqxxQMHyOYKRTpTbPn7YvO5TOAXsJNyF3gVfDs5C6FhPeQM=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1tshy3-004zQY-Aq; Thu, 13 Mar 2025 13:47:19 +0100
+Date: Thu, 13 Mar 2025 13:47:19 +0100
+From: Andrew Lunn <andrew@lunn.ch>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>
+Cc: "Russell King (Oracle)" <linux@armlinux.org.uk>,
+	"Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>,
+	"andrew+netdev@lunn.ch" <andrew+netdev@lunn.ch>,
+	"davem@davemloft.net" <davem@davemloft.net>,
+	"edumazet@google.com" <edumazet@google.com>,
+	"kuba@kernel.org" <kuba@kernel.org>,
+	"pabeni@redhat.com" <pabeni@redhat.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"Simek, Michal" <michal.simek@amd.com>,
+	"netdev@vger.kernel.org" <netdev@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"git (AMD-Xilinx)" <git@amd.com>,
+	"Katakam, Harini" <harini.katakam@amd.com>
+Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X
+ only configuration.
+Message-ID: <b2a65ad1-d4ca-4c0d-b59e-911b07f96554@lunn.ch>
+References: <Z9GWokRDzEYwJmBz@shell.armlinux.org.uk>
+ <BL3PR12MB6571795DA783FD05189AD74BC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <34ed11e7-b287-45c6-8ff4-4a5506b79d17@lunn.ch>
+ <BL3PR12MB6571540090EE54AC9743E17EC9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <fd686050-e794-4b2f-bfb8-3a0769abb506@lunn.ch>
+ <BL3PR12MB6571959081FC8DDC5D509560C9D02@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <Z9HjOAnpNkmZcoeo@shell.armlinux.org.uk>
+ <186bf47a-04af-4bfb-a6d3-118b844c9ba8@lunn.ch>
+ <BL3PR12MB6571E707DC09A31A553CB1BCC9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
+ <BL3PR12MB6571DF7CBA49AF626ABDA382C9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <df0b2b53affbef5ccb7219328cc15db3ba843737.1741849323.git.mazziesaccount@gmail.com>
-Organization: Intel Finland Oy - BIC 0357606-4 - Westendinkatu 7, 02160 Espoo
+In-Reply-To: <BL3PR12MB6571DF7CBA49AF626ABDA382C9D32@BL3PR12MB6571.namprd12.prod.outlook.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_053433_365389_BCA8A9DE 
-X-CRM114-Status: GOOD (  16.31  )
+X-CRM114-CacheID: sfid-20250313_054731_109364_D2CFBC9C 
+X-CRM114-Status: GOOD (  46.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,49 +92,133 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Mar 13, 2025 at 09:18:49AM +0200, Matti Vaittinen wrote:
-> The new devm_iio_adc_device_alloc_chaninfo_se() -helper is intended to
-> help drivers avoid open-coding the for_each_node -loop for getting the
-> channel IDs. The helper provides standard way to detect the ADC channel
-> nodes (by the node name), and a standard way to convert the "reg"
-> -properties to channel identification numbers, used in the struct
-> iio_chan_spec. Furthermore, the helper can optionally check the found
-> channel IDs are smaller than given maximum. This is useful for callers
-> which later use the IDs for example for indexing a channel data array.
+On Thu, Mar 13, 2025 at 07:34:55AM +0000, Gupta, Suraj wrote:
+> [AMD Official Use Only - AMD Internal Distribution Only]
 > 
-> The original driver treated all found child nodes as channel nodes. The
-> new helper requires channel nodes to be named channel[@N]. This should
-> help avoid problems with devices which may contain also other but ADC
-> child nodes. Quick grep from arch/* with the sun20i-gpadc's compatible
-> string didn't reveal any in-tree .dts with channel nodes named
-> otherwise. Also, same grep shows all the in-tree .dts seem to have
-> channel IDs between 0..num of channels.
+> > -----Original Message-----
+> > From: Gupta, Suraj
+> > Sent: Thursday, March 13, 2025 9:01 AM
+> > To: Andrew Lunn <andrew@lunn.ch>; Russell King (Oracle)
+> > <linux@armlinux.org.uk>
+> > Cc: Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> > andrew+netdev@lunn.ch; davem@davemloft.net; edumazet@google.com;
+> > kuba@kernel.org; pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org;
+> > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> > netdev@vger.kernel.org; devicetree@vger.kernel.org; linux-kernel@vger.kernel.org;
+> > linux-arm-kernel@lists.infradead.org; git (AMD-Xilinx) <git@amd.com>; Katakam,
+> > Harini <harini.katakam@amd.com>
+> > Subject: RE: [PATCH net-next V2 2/2] net: axienet: Add support for 2500base-X only
+> > configuration.
+> >
+> >
+> >
+> > > -----Original Message-----
+> > > From: Andrew Lunn <andrew@lunn.ch>
+> > > Sent: Thursday, March 13, 2025 3:41 AM
+> > > To: Russell King (Oracle) <linux@armlinux.org.uk>
+> > > Cc: Gupta, Suraj <Suraj.Gupta2@amd.com>; Pandey, Radhey Shyam
+> > > <radhey.shyam.pandey@amd.com>; andrew+netdev@lunn.ch;
+> > > davem@davemloft.net; edumazet@google.com; kuba@kernel.org;
+> > > pabeni@redhat.com; robh@kernel.org; krzk+dt@kernel.org;
+> > > conor+dt@kernel.org; Simek, Michal <michal.simek@amd.com>;
+> > > netdev@vger.kernel.org; devicetree@vger.kernel.org;
+> > > linux-kernel@vger.kernel.org; linux-arm- kernel@lists.infradead.org;
+> > > git (AMD-Xilinx) <git@amd.com>; Katakam, Harini
+> > > <harini.katakam@amd.com>
+> > > Subject: Re: [PATCH net-next V2 2/2] net: axienet: Add support for
+> > > 2500base-X only configuration.
+> > >
+> > > Caution: This message originated from an External Source. Use proper
+> > > caution when opening attachments, clicking links, or responding.
+> > >
+> > >
+> > > > This is not an approach that works with the Linux kernel, sorry.
+> > > >
+> > > > What we have today is a driver that works for people's hardware -
+> > > > and we don't know what the capabilities of that hardware is.
+> > > >
+> > > > If there's hardware out there today which has XAE_ABILITY_2_5G set,
+> > > > but defaults to <=1G mode, this will work with the current driver.
+> > > > However, with your patch applied, it stops working because instead
+> > > > of the driver indicating MAC_10FD | MAC_100FD | MAC_1000FD, it only
+> > > > indicates MAC_2500FD. If this happens, it will regress users setups,
+> > > > and that is something we try not to do.
+> > > >
+> > > > Saying "someone else needs to add the code for their FPGA logic"
+> > > > misses the point - there may not be "someone else" to do that, which
+> > > > means the only option is to revert your change if it were merged.
+> > > > That in itself can cause its own user regressions because obviously
+> > > > stuff that works with this patch stops working.
+> > > >
+> > > > This is why we're being cautious, and given your responses, it's not
+> > > > making Andrew or myself feel that there's a reasonable approach
+> > > > being taken here.
+> > > >
+> > > > >From everything you have said, I am getting the feeling that using
+> > > > XAE_ABILITY_2_5G to decide which of (1) or (2) is supported is just
+> > > > wrong. Given that we're talking about an implementation that has
+> > > > been synthesized at 2.5G and can't operate slower, maybe there's
+> > > > some way that could be created to specify that in DT?
+> > > >
+> > > > e.g. (and I'm sure the DT folk aren't going to like it)...
+> > > >
+> > > >       xlnx,axi-ethernet-X.YY.Z-2.5G
+> > > >
+> > > > (where X.YY.Z is the version) for implementations that can _only_ do
+> > > > 2.5G, and leave all other implementations only doing 1G and below.
+> > > >
+> > > > Or maybe some DT property. Or something else.
+> > >
+> > > Given that AMD has been talking about an FPGA, not silicon, i actually
+> > > think it would be best to change the IP to explicitly enumerate how it
+> > > has been synthesised. Make use of some register bits which currently
+> > > read as 0. Current IP would then remain as 1000BaseX/SGMII,
+> > > independent of how they have been synthesised. Newer versions of the
+> > > IP will then set the bits if they have been synthesised as 2) or 3),
+> > > and the driver can then enable that capability, without breaking
+> > > current generation systems. Plus there needs to be big fat warning for
+> > > anybody upgrading to the latest version of the IP for bug fixes to ensure they
+> > correctly set the synthesis options because it now actually matters.
+> > >
+> > >          Andrew
+> >
+> > Synthesis options I mentioned in comment might sound confusing, let me clear it up.
+> > Actual synthesis options (as seen from configuration UI) IP provides are (1) and (2).
+> > When a user selects (2), IP comes with default 2.5G but also contains 1G
+> > capabilities which can be enabled and work with by adding switching FPGA logic
+> > (that makes it (3)).
+> >
+> > So, in short  if a user selects (1): It's <=1G only.
+> > If it selects (2): It's 2.5G only but can be made (3) by FPGA logic changes. So
+> > whatever existing systems for (3) would be working at default (2).
+> >
+> > This is the reason we didn't described (3) in V1 series as that is not provided by IP
+> > but can be synthesized after FPGA changes.
+> > Hope I'm able to answer your questions.
+> >
 > 
-> Use the new helper.
+> I understand your concerns that current solution might break if any existing system uses (3).
+> 
+> Russel's suggestion to use DT compatible we can try to send as RFC and check if that is accepted by DT maintainers.
+> Andrew's suggestion is complete IP solution and will involve IP changes to correct ability register behaviour based on synthesis time selection in a new IP version. But this will need internal discussions and IP rework and might take few months.
+> 
+> Please let me know your thoughts on it.
 
-...
+Given your comment:
 
-> +	num_channels = devm_iio_adc_device_alloc_chaninfo_se(dev,
-> +				&sun20i_gpadc_chan_template, -1, &channels);
-> +	if (num_channels < 0)
-> +		return num_channels;
-> +
->  	if (num_channels == 0)
->  		return dev_err_probe(dev, -ENODEV, "no channel children\n");
+> It's 2.5G only but can be made (3) by FPGA logic changes
 
-Note, this what I would expected in your helper to see, i.e. separated cases
-for < 0 (error code) and == 0, no channels.
+It sounds like the design is not ideal at the moment, and you will be
+making changes anyway to clean this up. Being fixed in 2.5G mode is
+not nice, you need a PHY doing rate adaptation in order to support the
+slower speeds.
 
-Also, are all users going to have this check? Usually in other similar APIs
-we return -ENOENT. And user won't need to have an additional check in case of
-0 being considered as an error case too.
+You should also be thinking forwards. If you add support for fixed
+2.5G now, can you cleanly integrate switching between 1000BaseX/SGMII
+and 2500BaseX in the future without breaking existing systems? You
+probably at least need a paper design of how this will work, so you
+can say you have thought through all the user cases: New IP old
+driver, Old IP new driver, etc...
 
-
-
-
--- 
-With Best Regards,
-Andy Shevchenko
-
-
+	Andrew
 
