@@ -4,154 +4,106 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9251C28B2E
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:38:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D7F4C28B28
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 13 Mar 2025 07:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x0T4HbRy5vbjnwIu/aWTy5P/UeLh0IqA5alhmQCpFdQ=; b=Rq7XBAkWh/Lh5ISv2Zo8NBs4aW
-	1Fb8Swz+e2HkcRoyGS0cWmQHbCKf5bfYyD1XdeO9lKk+7dM/U6X0bGF/1x/ParmXnR0b256oRX0fx
-	yrSDagwu9AnNI2FRm0HVPM7T3cM4aRDD6C/xjIO2peYMxzGqriBHX+mFJb+Pol3kBV2tVaUec9RJn
-	kza7dr8LXUHlfUynarg1tGu4b5sprde1AZlrl1LTN/mk0v1i5f2q/3Is21andFk5LuCiHhRglaQET
-	5SwngXJNkCJjU7pKINXcLmREPzxVvX5aePknOv3dsXc9jnRwLNxR994FkCY4lrsvvbM53dx2B5qFl
-	FsyBV1iw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yBGWyI2KhlGLTlExLjTIG8zzVp+t1U4InfDr+/tp5Go=; b=AeDhkNI0gJqDCPt5IKAJmT9gpR
+	iaevX5OLKklH8JD6td5K7+cSSCaLPCwDhel6k4b9x+pcAWIHsefszpoVJy8cLy9cDRzcH77IvTODH
+	DYm25RYP5KK7ckn9x1qt3g73cHrwywEreOYQnzF3MssOQHcozt0sDRm3qrwhH4nfxkdvW4P7zgJmR
+	thSdpI1OjY39rNzDFchpnQovCkVBv2zKlohnA+xayOj0CgDMN9Cn11n8Bzt+vAb2AIub5B0UEKDQX
+	xQ7MtCB1Y+gBqyH6s1CVc8ozIjH7tOwTXGYpTS9MHBwyg8cqt1CM6W0FtksDDLWx3fjS6phrWkIDn
+	ovX7828Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98 #2 (Red Hat Linux))
-	id 1tsd99-0000000AP66-2Rqx;
-	Thu, 13 Mar 2025 07:38:27 +0000
-Received: from mail-vi1eur02on20626.outbound.protection.outlook.com ([2a01:111:f403:2607::626] helo=EUR02-VI1-obe.outbound.protection.outlook.com)
+	id 1tsdAm-0000000APDH-1Yox;
+	Thu, 13 Mar 2025 07:40:08 +0000
+Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
 	by bombadil.infradead.org with esmtps (Exim 4.98 #2 (Red Hat Linux))
-	id 1tscmx-0000000AKU2-483k
+	id 1tscpn-0000000AKs5-1zjH
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 13 Mar 2025 07:15:33 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Gv7WGVQd074rgAKqdrnM1hQf6byBTXpyILmbHSlD/2bPvS2UltzZYmJazHo+iNLmGmoPC78SFKRmCjGtUNiigefTzizTvfcoKtkDh0kmiQmXj6/Ztri1Z+AW71Pi0xshGfP+65nDRK33PWtzGWnYEAmEVBEB36xFotMErWa9sfC/OlNUE8jlYG3A5043rd4QKlfWVXwU/7oqY/dp1ILWAiwB3LMtZb6Jjvzp/CB6bT8AZdAC3k9Vv4chzzRxXqWYuDBoO2kkm5ws8+dtETxu2tTAkL8ErVk0OmNy6W17oGvh2zlRVISr7g+QxLWAIzyQMyBPlbWv42D7URGcNRzxGQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=x0T4HbRy5vbjnwIu/aWTy5P/UeLh0IqA5alhmQCpFdQ=;
- b=H9umdx+QnUtbZ0TubShqLmOvxfiSLegCRRN/1Bec5JCSgOQ6LB0WhyNwbww2mIFm68ETGc8U2NDKoAbJn0WHSn9rQvbt6kiJNYDIYTw4xR63jYawZq2c3ZFrMdIg1ZANtdOMI6OQzEdxEXyf3aadFukUdwxJDgsVYDWW7QqW65cIt1GPSWZcuBSBAgoGCoB0BsxWXB/VTFdQESTLJDQ1pszn1aZBPsLhOiVb6UIiqbXaAhj1R8AYckOvdSAsyqzo0X+gggKP3OOY05Y9WrtIIUzWnb6gHMlVsZLrDA5/cFZW2rsxV9fzbD1/tH9XkFUBCUB0YR6YmrOS4qXV1dG1WQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=x0T4HbRy5vbjnwIu/aWTy5P/UeLh0IqA5alhmQCpFdQ=;
- b=AaROu+OaYQ1mD/A50u3M6IeX5pQ5QbixLnM/gpIHZaktBs0o2ebM++wB1RQsVMQxU+d/mV/QlakGd/13gcYrcHshcqHEeBAeScKvuGQ1fTSyGmOMA++h3sHkhQwN2s0BXDQdCZiKc+imVUsjcCwXkvR5S57h+RSZt7g+ykH+9FOC8jsCp3M/Hpzf4qRVZQH3YmM/4ugH58unhEl97pKDLxWGMbh0YaaZQNCPttojMAJvesal6WGCWBh3eOETImv6vEaqcREg8GHjrR6286/AYaSZqDyfP3VbKs/+Vrd8rwkf7amGlcvkK1maQaE6qR23n5CiHVa5DYQ886yXhYCfbQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com (2603:10a6:20b:429::24)
- by PR3PR04MB7228.eurprd04.prod.outlook.com (2603:10a6:102:8c::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.8534.25; Thu, 13 Mar
- 2025 07:15:27 +0000
-Received: from AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb]) by AS8PR04MB8642.eurprd04.prod.outlook.com
- ([fe80::50d3:c32a:2a83:34bb%7]) with mapi id 15.20.8534.027; Thu, 13 Mar 2025
- 07:15:27 +0000
-From: Jacky Bai <ping.bai@nxp.com>
-To: krzk@kernel.org,
-	robh@kernel.org,
-	conor+dt@kernel.org,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de
-Cc: kernel@pengutronix.de,
-	festevam@gmail.com,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	aisheng.dong@nxp.com,
-	peng.fan@nxp.com,
-	frank.li@nxp.com
-Subject: [PATCh v3 3/3] arm64: dts: freescale: Add minimal dts support for imx943 evk
-Date: Thu, 13 Mar 2025 15:16:28 +0800
-Message-Id: <20250313071628.729168-4-ping.bai@nxp.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250313071628.729168-1-ping.bai@nxp.com>
-References: <20250313071628.729168-1-ping.bai@nxp.com>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: SG2PR02CA0097.apcprd02.prod.outlook.com
- (2603:1096:4:92::13) To AS8PR04MB8642.eurprd04.prod.outlook.com
- (2603:10a6:20b:429::24)
+	Thu, 13 Mar 2025 07:18:28 +0000
+Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-54996d30bfbso526141e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 13 Mar 2025 00:18:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1741850306; x=1742455106; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=yBGWyI2KhlGLTlExLjTIG8zzVp+t1U4InfDr+/tp5Go=;
+        b=US5OI/d++9sQNXgsNHE+ONQWc+eldqoQPOhu/R2h6moweiphkwg3sWrz7sb+xPJlkk
+         euqaw7zoEtd5vK6+f1Kwz7iqchfGUboBxfeMpzLV4GVzyAG3BTF9LSxzYQnGwHs9G7Ns
+         km6HhUHuv5eCWQYISZF3rNiG6pk2AjOP0ke2iTKD29PFStS25LYpcpDdFfAzzwv2DO4W
+         LFGBXNwGR8885BELf0qPa12wFVquXfmmk/6s9sOpMPimy1/z6RO6x+/l7VVHn1cIg+bj
+         DA6BHADmY/M59y7v+5gfGxxVuNtnymB6VBELFs2H1DHOdxHDqCpTy1jDAaZkKxMpJAl7
+         /QcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1741850306; x=1742455106;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=yBGWyI2KhlGLTlExLjTIG8zzVp+t1U4InfDr+/tp5Go=;
+        b=CHPzGBifk4n/GskpNV9XiplUETdEC7fgLiBf1PntfpG5p/qmKhrrnPYT7jI7IExLRC
+         dveOM09hZoOw9Ujgcwiwb8fwP3mJAHHLbEFgYuDgmPFiy8JOkngFaItqrVawUosZjAZz
+         PzHycHwKpJIxPFi7e/dSkzuVfWnueVRpUQuLaxdZSXBv3AoP0xWJ7Rq22DQnjRfshMGy
+         Ru42BMcY/jlmEGW14/tl8Ibc3XVp7qDXmPTmUKSq1RssgWjkEJ1XOoESu9qKbvPgE+xz
+         lR9B7TaRuD1wL6yFdfywcMnikoXIV0rpvFljS2B1s9EFYDyOcpurxz7p9An+liZXGkZ9
+         Auww==
+X-Forwarded-Encrypted: i=1; AJvYcCUMESkmSpKZOyFxPyc8dCP51VuCgQHtn+26/Mkfle6/60u0bPs0rFrrv08NYBSswu0PBxNoS8u9nF46MLj+k+kg@lists.infradead.org
+X-Gm-Message-State: AOJu0YzCAoyF8kJG0nHk/Fom/gkBXApjpe1QMeaIAmUlr00AMKf7ZIdK
+	KBr7HoiR6WEaPJO/Pp2PWtZTLS6OEqRKvrUnpT62w0qycV7r0QEy
+X-Gm-Gg: ASbGncvD5X6PrO9ljYqA8+FGQzrnTz896AIShlTWYdkximMUxGwRcqlXM8GpFM2ADXC
+	xi7xL/qKptW2Cc0ZHBuZS9iPLJFukW907A1j1bccCCUcAjvVyv88rOO+gMkQfteTvzE2Qin+IdC
+	w6ua478VRkrKZRpqLoGkK+6NNUMqWbcfyS9Cw0Yt41Le5jcespSMz8D59yMy2IK7GlPZdIc/SCY
+	lKFf/Lb0GH8v1eJHIdrioZ5zjIhXmrWIRUNQRbWm1nhc1BlA8lVTL1nIXzX1XBXvKtSY5nk9k0c
+	mZabCroln7REZdZ+zozeREVlRsJdQmij3iFdyoD6muFJE+dQZ9Q=
+X-Google-Smtp-Source: AGHT+IGP8h2FL/lCirDVHljxL5OfQTimB9tsLIQ+xH91borETZK6KwSphvw7DjFZLuCzX4cD5bzVZg==
+X-Received: by 2002:ac2:4c46:0:b0:543:baa3:87ab with SMTP id 2adb3069b0e04-549910b7f23mr8760741e87.47.1741850305346;
+        Thu, 13 Mar 2025 00:18:25 -0700 (PDT)
+Received: from mva-rohm ([2a10:a5c0:800d:dd00:8fdf:935a:2c85:d703])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-549ba7c2677sm117486e87.95.2025.03.13.00.18.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 13 Mar 2025 00:18:24 -0700 (PDT)
+Date: Thu, 13 Mar 2025 09:18:18 +0200
+From: Matti Vaittinen <mazziesaccount@gmail.com>
+To: Matti Vaittinen <mazziesaccount@gmail.com>,
+	Matti Vaittinen <matti.vaittinen@fi.rohmeurope.com>
+Cc: Jonathan Cameron <jic23@kernel.org>,
+	Lars-Peter Clausen <lars@metafoo.de>,
+	Andy Shevchenko <andriy.shevchenko@linux.intel.com>,
+	Matti Vaittinen <mazziesaccount@gmail.com>,
+	Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
+	Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Hugo Villeneuve <hvilleneuve@dimonoff.com>,
+	Nuno Sa <nuno.sa@analog.com>, David Lechner <dlechner@baylibre.com>,
+	Javier Carrasco <javier.carrasco.cruz@gmail.com>,
+	Guillaume Stols <gstols@baylibre.com>,
+	Dumitru Ceclan <mitrutzceclan@gmail.com>,
+	Trevor Gamblin <tgamblin@baylibre.com>,
+	Matteo Martelli <matteomartelli3@gmail.com>,
+	Alisa-Dariana Roman <alisadariana@gmail.com>,
+	Ramona Alexandra Nechita <ramona.nechita@analog.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-iio@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-acpi@vger.kernel.org,
+	linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: [PATCH v7 03/10] iio: adc: add helpers for parsing ADC nodes
+Message-ID: <c8899e8c535a1d93cd7588b7c160eb0fae5d26d2.1741849323.git.mazziesaccount@gmail.com>
+References: <cover.1741849323.git.mazziesaccount@gmail.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS8PR04MB8642:EE_|PR3PR04MB7228:EE_
-X-MS-Office365-Filtering-Correlation-Id: 28dfd1dc-0141-4ead-b581-08dd61fed4c5
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|52116014|376014|1800799024|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+wMYwzO22TyTwT1pyt0PvqPh6aPFjobLZSE8oeU0PwW9B/7Fa9tIqoCMOQgx?=
- =?us-ascii?Q?HpvH0w7UzSOLbFiAW4jCs0ee09b+7wmjzexLlIPX6eslmGcubix1+Bycrjkw?=
- =?us-ascii?Q?HS2I3NQGdYq23bIN/vmFkt25mju0anmwbb2dFL5FghhOC+siH2gj9UH8zDAg?=
- =?us-ascii?Q?A9TT1tHhfFR7U7QY+jc32m07q+jW9KJp9UjzTIgAp5APBwBFXHaDMIl+QjnY?=
- =?us-ascii?Q?GsC2dv7agkYKpdTosjEsYXTW/34zZRJORVUeKnHClkdi+uwZ8AzSuPuz63e7?=
- =?us-ascii?Q?35/H/CRxh6+dseJi1b4o8rl1aEj0GlF/3QPVZJpmkSdaznl80bVC4Ap7tqjL?=
- =?us-ascii?Q?MxXOa8F9acQgnrREKoJIhQC8Wx5aUaZquGUD+lrgFXZf6M/ZPZL+p3RBEbNc?=
- =?us-ascii?Q?W4bAo1KwXGSYLpYoIpfZtD++MhvMSSqNEtqzaaEXA12UVC6xdUjk1DDTsgjq?=
- =?us-ascii?Q?2USGXGdJoBtUcCtbDZ4IlPACycz63dvV6kU8txtSLzV13PD4k3O0TpBYUgX3?=
- =?us-ascii?Q?bAvlLocfytUyj9ON8hjYTdfL/342PdmgfdvEo+tKCCxzaRQS1vozT8HRa6pC?=
- =?us-ascii?Q?Bch5P8G1cabZVeDkd1Plh9AtkGQU2nK9Dhh/1skkOgB083Ut+oGvWXbQb5+g?=
- =?us-ascii?Q?eajv/IIezF8df1R5sch9VlTtkU4RJCReNYi4S97gTxR8hEzGBFQuh8NtXXbM?=
- =?us-ascii?Q?CBAxNqnZoUGiA1e7WtnGogDsY85JcAiBjGfPREXZe/hiePJNNtqaknkDeer1?=
- =?us-ascii?Q?LHN8hZCuC6rlNwUUoYKL8Npjp+lk4NFTWnXuUCwrAm0Y/mjf3SyOa+6rjrxq?=
- =?us-ascii?Q?LjcvX6e2cRQmuhIrsU+Ipl3dKCmIu4kusKMRj9Wv1eAtzgCWbW4Zrw1M0hOC?=
- =?us-ascii?Q?HNCVafdleqxThlbGzmoYeaTp1lMadntOEF5N15fvxbrRWY43inTiPNoI9vef?=
- =?us-ascii?Q?SpT38JkwWj2CF9ERstA0lyshL9Nq1n1RDuoyj6dxHVK9LZco2DTQIAu/MPCO?=
- =?us-ascii?Q?FHA80ww2OdaSexQzno1vzaZSD0y0ttZ5KVX/tMRtIxF7mUQuiIe0+t5lmzNk?=
- =?us-ascii?Q?eidhQcUrf6/7jJySSPbWbZvhfGI/cpDoXX6KS+SK8VeQGggDClDJQPjDcsMT?=
- =?us-ascii?Q?neseBd1BBBekAboL/WdM6xzyyUtc0X2YuSGm7eUbfauMV5IMd3rJYMBl4rKB?=
- =?us-ascii?Q?tmUwqDWe8ELmGmy1NvwrYW5jn493H24Mrw8RdFOrghLjVCNrVHopHMB+ewWq?=
- =?us-ascii?Q?GF6Ty8nKYffAjX6LYgaM84alfqVg9vQ66FjoD0WfrJSUK7pB5R26Hk2VUECJ?=
- =?us-ascii?Q?GNMLQ6pUB9Df7cGL0F6OW4ddAxZRhr+HlHRAuWIcXCL2SurUVoA8OPHIgLWl?=
- =?us-ascii?Q?0ipXaFh8FmiXfzZB2oeyHZvIJDZLzgWiHpMjS+3sCBDVtVABdXfcDSWK3+UF?=
- =?us-ascii?Q?0TQTqVGr7Jc38DPK9z+Q1ayx8hyeWHbP?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS8PR04MB8642.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(52116014)(376014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?YbTBrmFnJcFWAJJXSEMoI2BAnI5L77wHfjdWLKIRQ0Q3hJn2IBnk+p3VjZlj?=
- =?us-ascii?Q?1hY/NSSGsqvGg0Xpu/kKlv7SVQHzJ7dx3Iw0Je2l22V/ve6hnDNp09niOyAQ?=
- =?us-ascii?Q?mxM26/cbRqCxfXBygtSLkkGEp7LwnfQwiAcpVbiY6hg/YTFbVHCNpi068lzw?=
- =?us-ascii?Q?QI85EOAFHOlyJxCH94014+o8h4IekXdy2CWroDhGR8AU8Hk/tsA1+X+NpzKD?=
- =?us-ascii?Q?TeyeAo36L5iZlrFZNyrU882/W/QqRC+eRCGeaw5+PxsEw096EMPIoE/TSraZ?=
- =?us-ascii?Q?lDCD4xbGUzQSdNUYPhQAGBEhzerWGr6ZhSglkkBY7Y1zBvfGV3HecxxHNZVw?=
- =?us-ascii?Q?5WRpd4WItGVAf+XgfPJo1RqRcfKTB4DG31wFmlfTM+tB95QOApLybAPMpoFr?=
- =?us-ascii?Q?H/+EXy/EGLwG3//EmUycIbns7iWaPE19haxnwngU3BdykjiSQWobinziYM7Z?=
- =?us-ascii?Q?i8BJQQcnyv0TW3ZSpq8+OruvS5VxlqG5bLU5msv9aOF49rV5qZgGOTKfOWxJ?=
- =?us-ascii?Q?KW2jKEGKZ8/w/n2t7TX7u1pPJ+/HGeGWMDIGJkafSN3NUWY2DEiuu/az9nWX?=
- =?us-ascii?Q?gh2+X8wNaQS0lPN3TA0KgI5ZL5zlkS6CGvuteFGWTb6mXT9V0PMtAcE0topv?=
- =?us-ascii?Q?6JO1WYSLCDtWpFMDFT8sxBX/pA9OXtH7eVDoZbNBJ7sV2lJr4JXg8t5bAH3C?=
- =?us-ascii?Q?vECUfCJQFu+Ro5bmvlNX5ltO6kWNTwy2eHlFW+F2/t3slQsNCKUb5uwKpVUz?=
- =?us-ascii?Q?Rg0P3wH4leOaBQICNuumkv+Wzh/A4/xWzQ12pa0nQ7hnW3MsOKAk+Gp/bUM/?=
- =?us-ascii?Q?WMozlvyu0iM85yjSnkWOVmuhAQfinaCk1KQ+Z6wcvusqTP0E0it6t5iWAzum?=
- =?us-ascii?Q?JvFJYXqgvx4VeQoU/0NJ9EOeb3iHQBwNPlNm5rk48aSQ/Owf151UY1hWdltl?=
- =?us-ascii?Q?PRCkTOU/cSRJMOs6m7WnywV+SYXiwDPEAuJivSnSIb6ddAn52ICiBJEHeCEq?=
- =?us-ascii?Q?rVP1LxswBeQrkYrasPAmmTdth9QOmZXLCMEZyTikoC2yurSptfVihngIaOWw?=
- =?us-ascii?Q?vITA1JDmpvyCwdGMWPa66snQ2kKAPRX04Yf5LWKjblKs8RFzbbWIloIhGezB?=
- =?us-ascii?Q?G7eb2aQimohppa+ai0BwB8AN1h4a85CZxq2PfxN8fI3NGI5+8qu4VXjpnYYI?=
- =?us-ascii?Q?62A/X3XFhnIMkQXiumORUZkmCkuC163WjdGCEV9DGv9cGQP8JbKuWYSQLLm/?=
- =?us-ascii?Q?e4hmyEcadWaePa9nXLWgAySXUE1g56Jx7/KbqYCorJrbPSncSpRRC+S29VA9?=
- =?us-ascii?Q?LDaFLoxeUT7EnF9R1yBCROghDA570d77KnaZ9bESmk8ThF7V9Z+zppfwJkbj?=
- =?us-ascii?Q?ASNuAmmbaxBpXbH4xX+Lquqv1IFBWEdcXZbMeyRSgA97poQyH5uwJ7syBHtb?=
- =?us-ascii?Q?S7IjvNnLYaE+INEeylLwWYWoRnyUFED9AuKr6O7qb4wpTiDwlk1KMDjR4gCh?=
- =?us-ascii?Q?UokblnMfZz3EvNJ2E+UtL6CRJ+rDvwXTlIoRvYexyai/RGHf9Kprxb1BV837?=
- =?us-ascii?Q?1MNLP/SIgENcJ5l/riWQTOXXqmmAKVi8M/XziKGX?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 28dfd1dc-0141-4ead-b581-08dd61fed4c5
-X-MS-Exchange-CrossTenant-AuthSource: AS8PR04MB8642.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Mar 2025 07:15:27.7933
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: jNmOA4FfMUS5uobjJmzR82O8f7/yqq5qyNqzTmVv/26TWQh7JBarJ95GLNDMh+JliqrEuE1iuFXJ6LIdzot3oQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7228
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature"; boundary="Map6KVD9/XFFO+4M"
+Content-Disposition: inline
+In-Reply-To: <cover.1741849323.git.mazziesaccount@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250313_001532_188988_D7B51B44 
-X-CRM114-Status: GOOD (  13.78  )
+X-CRM114-CacheID: sfid-20250313_001827_527535_733746CC 
+X-CRM114-Status: GOOD (  29.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,238 +118,232 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the minimal board dts support for i.MX943 EVK. Only the
-console uart, SD & eMMC are enabled for linux basic boot.
 
-Signed-off-by: Jacky Bai <ping.bai@nxp.com>
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+--Map6KVD9/XFFO+4M
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+
+There are ADC ICs which may have some of the AIN pins usable for other
+functions. These ICs may have some of the AIN pins wired so that they
+should not be used for ADC.
+
+(Preferred?) way for marking pins which can be used as ADC inputs is to
+add corresponding channels@N nodes in the device tree as described in
+the ADC binding yaml.
+
+Add couple of helper functions which can be used to retrieve the channel
+information from the device node.
+
+Signed-off-by: Matti Vaittinen <mazziesaccount@gmail.com>
+
 ---
- - v3 changes:
-  - no
-
- - v2 changes:
-  - newly added for board dts
+Revision history:
+v6 =3D>
+ - No changes
+v5 =3D> v6:
+ - Adapt to changed fwnode helper names
+ - Fix spelling
+v4 =3D> v5:
+ - Inline iio_adc_device_num_channels()
+ - Fix Indenting function parameters
+ - Combine the max channel ID checks.
+v3 =3D> v4:
+ - Drop diff-channel support
+ - Drop iio_adc_device_channels_by_property()
+ - Add IIO_DEVICE namespace
+ - Move industrialio-adc.o to top of the Makefile
+ - Some styling as suggested by Andy
+ - Re-consider included headers
+v2 =3D> v3: Mostly based on review comments by Jonathan
+ - Support differential and single-ended channels
+ - Rename iio_adc_device_get_channels() as
+   iio_adc_device_channels_by_property()
+ - Improve spelling
+ - Drop support for cases where DT comes from parent device's node
+ - Decrease loop indent by reverting node name check conditions
+ - Don't set 'chan->indexed' by number of channels to keep the
+   interface consistent no matter how many channels are connected.
+ - Fix ID range check and related comment
+RFC v1 =3D> v2:
+ - New patch
 ---
- arch/arm64/boot/dts/freescale/Makefile       |   1 +
- arch/arm64/boot/dts/freescale/imx943-evk.dts | 196 +++++++++++++++++++
- 2 files changed, 197 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx943-evk.dts
+ drivers/iio/adc/Kconfig            |  3 ++
+ drivers/iio/adc/Makefile           |  2 +
+ drivers/iio/adc/industrialio-adc.c | 79 ++++++++++++++++++++++++++++++
+ include/linux/iio/adc-helpers.h    | 27 ++++++++++
+ 4 files changed, 111 insertions(+)
+ create mode 100644 drivers/iio/adc/industrialio-adc.c
+ create mode 100644 include/linux/iio/adc-helpers.h
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index be6ef4c56fbf..b68067c97994 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -299,6 +299,7 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxca.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-tqma9352-mba93xxla.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-var-som-symphony.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx95-19x19-evk.dtb
-+dtb-$(CONFIG_ARCH_MXC) += imx943-evk.dtb
- 
- imx8mm-kontron-dl-dtbs			:= imx8mm-kontron-bl.dtb imx8mm-kontron-dl.dtbo
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx943-evk.dts b/arch/arm64/boot/dts/freescale/imx943-evk.dts
+diff --git a/drivers/iio/adc/Kconfig b/drivers/iio/adc/Kconfig
+index 849c90203071..37b70a65da6f 100644
+--- a/drivers/iio/adc/Kconfig
++++ b/drivers/iio/adc/Kconfig
+@@ -6,6 +6,9 @@
+=20
+ menu "Analog to digital converters"
+=20
++config IIO_ADC_HELPER
++	tristate
++
+ config AB8500_GPADC
+ 	bool "ST-Ericsson AB8500 GPADC driver"
+ 	depends on AB8500_CORE && REGULATOR_AB8500
+diff --git a/drivers/iio/adc/Makefile b/drivers/iio/adc/Makefile
+index ee19afba62b7..1c410f483029 100644
+--- a/drivers/iio/adc/Makefile
++++ b/drivers/iio/adc/Makefile
+@@ -3,6 +3,8 @@
+ # Makefile for IIO ADC drivers
+ #
+=20
++obj-$(CONFIG_IIO_ADC_HELPER) +=3D industrialio-adc.o
++
+ # When adding new entries keep the list in alphabetical order
+ obj-$(CONFIG_AB8500_GPADC) +=3D ab8500-gpadc.o
+ obj-$(CONFIG_AD_SIGMA_DELTA) +=3D ad_sigma_delta.o
+diff --git a/drivers/iio/adc/industrialio-adc.c b/drivers/iio/adc/industria=
+lio-adc.c
 new file mode 100644
-index 000000000000..d4a204eaf5e5
+index 000000000000..6cfb001c74b9
 --- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx943-evk.dts
-@@ -0,0 +1,196 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++++ b/drivers/iio/adc/industrialio-adc.c
+@@ -0,0 +1,79 @@
++// SPDX-License-Identifier: GPL-2.0-only
 +/*
-+ * Copyright 2024-2025 NXP
++ * Helpers for parsing common ADC information from a firmware node.
++ *
++ * Copyright (c) 2025 Matti Vaittinen <mazziesaccount@gmail.com>
 + */
 +
-+/dts-v1/;
++#include <linux/device.h>
++#include <linux/errno.h>
++#include <linux/export.h>
++#include <linux/module.h>
++#include <linux/property.h>
++#include <linux/types.h>
 +
-+#include "imx943.dtsi"
++#include <linux/iio/adc-helpers.h>
++#include <linux/iio/iio.h>
 +
-+/ {
-+	compatible = "fsl,imx943-evk", "fsl,imx94";
-+	model = "NXP i.MX943 EVK board";
++/**
++ * devm_iio_adc_device_alloc_chaninfo_se - allocate and fill iio_chan_spec=
+ for ADC
++ *
++ * Scan the device node for single-ended ADC channel information. Channel =
+ID is
++ * expected to be found from the "reg" property. Allocate and populate the
++ * iio_chan_spec structure corresponding to channels that are found. The m=
+emory
++ * for iio_chan_spec structure will be freed upon device detach.
++ *
++ * @dev:		Pointer to the ADC device.
++ * @template:		Template iio_chan_spec from which the fields of all
++ *			found and allocated channels are initialized.
++ * @max_chan_id:	Maximum value of a channel ID. Use -1 if no checking
++ *			is required.
++ * @cs:			Location where pointer to allocated iio_chan_spec
++ *			should be stored.
++ *
++ * Return:	Number of found channels on success. Negative value to indicate
++ *		failure.
++ */
++int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
++					  const struct iio_chan_spec *template,
++					  int max_chan_id,
++					  struct iio_chan_spec **cs)
++{
++	struct iio_chan_spec *chan_array, *chan;
++	int num_chan =3D 0, ret;
 +
-+	aliases {
-+		mmc0 = &usdhc1;
-+		mmc1 = &usdhc2;
-+		serial0 = &lpuart1;
-+	};
++	num_chan =3D iio_adc_device_num_channels(dev);
++	if (num_chan < 1)
++		return num_chan;
 +
-+	chosen {
-+		stdout-path = &lpuart1;
-+	};
++	chan_array =3D devm_kcalloc(dev, num_chan, sizeof(*chan_array),
++				  GFP_KERNEL);
++	if (!chan_array)
++		return -ENOMEM;
 +
-+	reg_usdhc2_vmmc: regulator-usdhc2 {
-+		compatible = "regulator-fixed";
-+		off-on-delay-us = <12000>;
-+		pinctrl-0 = <&pinctrl_reg_usdhc2_vmmc>;
-+		pinctrl-names = "default";
-+		regulator-max-microvolt = <3300000>;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-name = "VDD_SD2_3V3";
-+		gpio = <&gpio4 27 GPIO_ACTIVE_HIGH>;
-+		enable-active-high;
-+	};
++	chan =3D &chan_array[0];
 +
-+	reserved-memory {
-+		ranges;
-+		#address-cells = <2>;
-+		#size-cells = <2>;
++	device_for_each_named_child_node_scoped(dev, child, "channel") {
++		u32 ch;
 +
-+		linux,cma {
-+			compatible = "shared-dma-pool";
-+			alloc-ranges = <0 0x80000000 0 0x7f000000>;
-+			reusable;
-+			size = <0 0x10000000>;
-+			linux,cma-default;
-+		};
-+	};
++		ret =3D fwnode_property_read_u32(child, "reg", &ch);
++		if (ret)
++			return ret;
 +
-+	memory@80000000 {
-+		reg = <0x0 0x80000000 0x0 0x80000000>;
-+		device_type = "memory";
-+	};
-+};
++		if (max_chan_id !=3D -1 && ch > max_chan_id)
++			return -ERANGE;
 +
-+&lpuart1 {
-+	pinctrl-0 = <&pinctrl_uart1>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
++		*chan =3D *template;
++		chan->channel =3D ch;
++		chan++;
++	}
 +
-+&scmi_iomuxc {
-+	pinctrl_uart1: uart1grp {
-+		fsl,pins = <
-+			IMX94_PAD_UART1_TXD__LPUART1_TX		0x31e
-+			IMX94_PAD_UART1_RXD__LPUART1_RX		0x31e
-+		>;
-+	};
++	*cs =3D chan_array;
 +
-+	pinctrl_usdhc1_100mhz: usdhc1-100mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
-+		>;
-+	};
++	return num_chan;
++}
++EXPORT_SYMBOL_NS_GPL(devm_iio_adc_device_alloc_chaninfo_se, "IIO_DRIVER");
 +
-+	pinctrl_usdhc1_200mhz: usdhc1-200mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x15fe
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x13fe
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x13fe
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x13fe
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x13fe
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x13fe
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x13fe
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x13fe
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x13fe
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x13fe
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x15fe
-+		>;
-+	};
++MODULE_LICENSE("GPL");
++MODULE_AUTHOR("Matti Vaittinen <mazziesaccount@gmail.com>");
++MODULE_DESCRIPTION("IIO ADC fwnode parsing helpers");
+diff --git a/include/linux/iio/adc-helpers.h b/include/linux/iio/adc-helper=
+s.h
+new file mode 100644
+index 000000000000..56b092a2a4c4
+--- /dev/null
++++ b/include/linux/iio/adc-helpers.h
+@@ -0,0 +1,27 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
 +
-+	pinctrl_usdhc1: usdhc1grp {
-+		fsl,pins = <
-+			IMX94_PAD_SD1_CLK__USDHC1_CLK		0x158e
-+			IMX94_PAD_SD1_CMD__USDHC1_CMD		0x138e
-+			IMX94_PAD_SD1_DATA0__USDHC1_DATA0	0x138e
-+			IMX94_PAD_SD1_DATA1__USDHC1_DATA1	0x138e
-+			IMX94_PAD_SD1_DATA2__USDHC1_DATA2	0x138e
-+			IMX94_PAD_SD1_DATA3__USDHC1_DATA3	0x138e
-+			IMX94_PAD_SD1_DATA4__USDHC1_DATA4	0x138e
-+			IMX94_PAD_SD1_DATA5__USDHC1_DATA5	0x138e
-+			IMX94_PAD_SD1_DATA6__USDHC1_DATA6	0x138e
-+			IMX94_PAD_SD1_DATA7__USDHC1_DATA7	0x138e
-+			IMX94_PAD_SD1_STROBE__USDHC1_STROBE	0x158e
-+		>;
-+	};
++/*
++ * The industrial I/O ADC firmware property parsing helpers
++ *
++ * Copyright (c) 2025 Matti Vaittinen <mazziesaccount@gmail.com>
++ */
 +
-+	pinctrl_usdhc2_100mhz: usdhc2-100mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
++#ifndef _INDUSTRIAL_IO_ADC_HELPERS_H_
++#define _INDUSTRIAL_IO_ADC_HELPERS_H_
 +
-+	pinctrl_usdhc2_200mhz: usdhc2-200mhzgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x15fe
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x13fe
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x13fe
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x13fe
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x13fe
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x13fe
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
++#include <linux/property.h>
 +
-+	pinctrl_usdhc2_gpio: usdhc2gpiogrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CD_B__GPIO4_IO20		0x31e
-+		>;
-+	};
++struct device;
++struct iio_chan_spec;
 +
-+	pinctrl_usdhc2: usdhc2grp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_CLK__USDHC2_CLK		0x158e
-+			IMX94_PAD_SD2_CMD__USDHC2_CMD		0x138e
-+			IMX94_PAD_SD2_DATA0__USDHC2_DATA0	0x138e
-+			IMX94_PAD_SD2_DATA1__USDHC2_DATA1	0x138e
-+			IMX94_PAD_SD2_DATA2__USDHC2_DATA2	0x138e
-+			IMX94_PAD_SD2_DATA3__USDHC2_DATA3	0x138e
-+			IMX94_PAD_SD2_VSELECT__USDHC2_VSELECT	0x51e
-+		>;
-+	};
++static inline int iio_adc_device_num_channels(struct device *dev)
++{
++	return device_get_named_child_node_count(dev, "channel");
++}
 +
-+	pinctrl_reg_usdhc2_vmmc: usdhc2regvmmcgrp {
-+		fsl,pins = <
-+			IMX94_PAD_SD2_RESET_B__GPIO4_IO27	0x31e
-+		>;
-+	};
-+};
++int devm_iio_adc_device_alloc_chaninfo_se(struct device *dev,
++					  const struct iio_chan_spec *template,
++					  int max_chan_id,
++					  struct iio_chan_spec **cs);
 +
-+&usdhc1 {
-+	pinctrl-0 = <&pinctrl_usdhc1>;
-+	pinctrl-1 = <&pinctrl_usdhc1_100mhz>;
-+	pinctrl-2 = <&pinctrl_usdhc1_200mhz>;
-+	pinctrl-3 = <&pinctrl_usdhc1>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	bus-width = <8>;
-+	non-removable;
-+	no-sdio;
-+	no-sd;
-+	status = "okay";
-+};
-+
-+&usdhc2 {
-+	pinctrl-0 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-1 = <&pinctrl_usdhc2_100mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-2 = <&pinctrl_usdhc2_200mhz>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-3 = <&pinctrl_usdhc2>, <&pinctrl_usdhc2_gpio>;
-+	pinctrl-names = "default", "state_100mhz", "state_200mhz", "sleep";
-+	bus-width = <4>;
-+	cd-gpios = <&gpio4 20 GPIO_ACTIVE_LOW>;
-+	vmmc-supply = <&reg_usdhc2_vmmc>;
-+	fsl,cd-gpio-wakeup-disable;
-+	status = "okay";
-+};
-+
-+&wdog3 {
-+	fsl,ext-reset-output;
-+	status = "okay";
-+};
--- 
-2.34.1
++#endif /* _INDUSTRIAL_IO_ADC_HELPERS_H_ */
+--=20
+2.48.1
 
+
+--Map6KVD9/XFFO+4M
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEIx+f8wZb28fLKEhTeFA3/03aocUFAmfShroACgkQeFA3/03a
+ocXYzgf5AbYotx5dtqF9n2zXC4MOYVTwMuhhofkA8MBZgqF5L8mJgFQ6MmmxxQC3
+zfOXxIhNGaW6aVj2FwTJOcG0/+5bRtunmE6ZvNxvFcE9KEtWGR7bt2qSvwuS1GJB
+ZpIZauIUQzmHWt+09SxE++PV35pOGVvcdqFx/hqUURkSUSxl3R62GfdP7mVFJuRr
+Bejq2uNVVr9uBpmEexUcDceDVC0PRbQyBL27ZTXl7RwiU2TSSLNWMkvhA9/0vzKP
+ErMXITzLcLXToJtXw42YhDViJGJ4JTNC5jmIFSANMlKwlUcraxOzjkuEemCwPZ0b
+PShKC3WCJ+Vw9h0iOVbRKHwzdNO+rw==
+=naSV
+-----END PGP SIGNATURE-----
+
+--Map6KVD9/XFFO+4M--
 
